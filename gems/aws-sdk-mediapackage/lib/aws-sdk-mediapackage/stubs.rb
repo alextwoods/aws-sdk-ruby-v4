@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MediaPackage
   module Stubs
 
@@ -30,12 +32,12 @@ module AWS::SDK::MediaPackage
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['egressAccessLogs'] = Stubs::EgressAccessLogs.stub(stub[:egress_access_logs]) unless stub[:egress_access_logs].nil?
-        data['hlsIngest'] = Stubs::HlsIngest.stub(stub[:hls_ingest]) unless stub[:hls_ingest].nil?
+        data['egressAccessLogs'] = EgressAccessLogs.stub(stub[:egress_access_logs]) unless stub[:egress_access_logs].nil?
+        data['hlsIngest'] = HlsIngest.stub(stub[:hls_ingest]) unless stub[:hls_ingest].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['ingressAccessLogs'] = Stubs::IngressAccessLogs.stub(stub[:ingress_access_logs]) unless stub[:ingress_access_logs].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ingressAccessLogs'] = IngressAccessLogs.stub(stub[:ingress_access_logs]) unless stub[:ingress_access_logs].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -90,7 +92,7 @@ module AWS::SDK::MediaPackage
       def self.stub(stub)
         stub ||= Types::HlsIngest.new
         data = {}
-        data['ingestEndpoints'] = Stubs::List____listOfIngestEndpoint.stub(stub[:ingest_endpoints]) unless stub[:ingest_endpoints].nil?
+        data['ingestEndpoints'] = List____listOfIngestEndpoint.stub(stub[:ingest_endpoints]) unless stub[:ingest_endpoints].nil?
         data
       end
     end
@@ -109,7 +111,7 @@ module AWS::SDK::MediaPackage
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IngestEndpoint.stub(element) unless element.nil?
+          data << IngestEndpoint.stub(element) unless element.nil?
         end
         data
       end
@@ -177,12 +179,12 @@ module AWS::SDK::MediaPackage
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['egressAccessLogs'] = Stubs::EgressAccessLogs.stub(stub[:egress_access_logs]) unless stub[:egress_access_logs].nil?
-        data['hlsIngest'] = Stubs::HlsIngest.stub(stub[:hls_ingest]) unless stub[:hls_ingest].nil?
+        data['egressAccessLogs'] = EgressAccessLogs.stub(stub[:egress_access_logs]) unless stub[:egress_access_logs].nil?
+        data['hlsIngest'] = HlsIngest.stub(stub[:hls_ingest]) unless stub[:hls_ingest].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['ingressAccessLogs'] = Stubs::IngressAccessLogs.stub(stub[:ingress_access_logs]) unless stub[:ingress_access_logs].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ingressAccessLogs'] = IngressAccessLogs.stub(stub[:ingress_access_logs]) unless stub[:ingress_access_logs].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -212,10 +214,10 @@ module AWS::SDK::MediaPackage
         data['endTime'] = stub[:end_time] unless stub[:end_time].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['originEndpointId'] = stub[:origin_endpoint_id] unless stub[:origin_endpoint_id].nil?
-        data['s3Destination'] = Stubs::S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
+        data['s3Destination'] = S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
         data['startTime'] = stub[:start_time] unless stub[:start_time].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -269,22 +271,22 @@ module AWS::SDK::MediaPackage
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['authorization'] = Stubs::Authorization.stub(stub[:authorization]) unless stub[:authorization].nil?
+        data['authorization'] = Authorization.stub(stub[:authorization]) unless stub[:authorization].nil?
         data['channelId'] = stub[:channel_id] unless stub[:channel_id].nil?
-        data['cmafPackage'] = Stubs::CmafPackage.stub(stub[:cmaf_package]) unless stub[:cmaf_package].nil?
-        data['dashPackage'] = Stubs::DashPackage.stub(stub[:dash_package]) unless stub[:dash_package].nil?
+        data['cmafPackage'] = CmafPackage.stub(stub[:cmaf_package]) unless stub[:cmaf_package].nil?
+        data['dashPackage'] = DashPackage.stub(stub[:dash_package]) unless stub[:dash_package].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['hlsPackage'] = Stubs::HlsPackage.stub(stub[:hls_package]) unless stub[:hls_package].nil?
+        data['hlsPackage'] = HlsPackage.stub(stub[:hls_package]) unless stub[:hls_package].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['manifestName'] = stub[:manifest_name] unless stub[:manifest_name].nil?
-        data['mssPackage'] = Stubs::MssPackage.stub(stub[:mss_package]) unless stub[:mss_package].nil?
+        data['mssPackage'] = MssPackage.stub(stub[:mss_package]) unless stub[:mss_package].nil?
         data['origination'] = stub[:origination] unless stub[:origination].nil?
         data['startoverWindowSeconds'] = stub[:startover_window_seconds] unless stub[:startover_window_seconds].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['timeDelaySeconds'] = stub[:time_delay_seconds] unless stub[:time_delay_seconds].nil?
         data['url'] = stub[:url] unless stub[:url].nil?
-        data['whitelist'] = Stubs::List____listOf__string.stub(stub[:whitelist]) unless stub[:whitelist].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['whitelist'] = List____listOf__string.stub(stub[:whitelist]) unless stub[:whitelist].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -324,10 +326,10 @@ module AWS::SDK::MediaPackage
       def self.stub(stub)
         stub ||= Types::MssPackage.new
         data = {}
-        data['encryption'] = Stubs::MssEncryption.stub(stub[:encryption]) unless stub[:encryption].nil?
+        data['encryption'] = MssEncryption.stub(stub[:encryption]) unless stub[:encryption].nil?
         data['manifestWindowSeconds'] = stub[:manifest_window_seconds] unless stub[:manifest_window_seconds].nil?
         data['segmentDurationSeconds'] = stub[:segment_duration_seconds] unless stub[:segment_duration_seconds].nil?
-        data['streamSelection'] = Stubs::StreamSelection.stub(stub[:stream_selection]) unless stub[:stream_selection].nil?
+        data['streamSelection'] = StreamSelection.stub(stub[:stream_selection]) unless stub[:stream_selection].nil?
         data
       end
     end
@@ -367,7 +369,7 @@ module AWS::SDK::MediaPackage
       def self.stub(stub)
         stub ||= Types::MssEncryption.new
         data = {}
-        data['spekeKeyProvider'] = Stubs::SpekeKeyProvider.stub(stub[:speke_key_provider]) unless stub[:speke_key_provider].nil?
+        data['spekeKeyProvider'] = SpekeKeyProvider.stub(stub[:speke_key_provider]) unless stub[:speke_key_provider].nil?
         data
       end
     end
@@ -391,10 +393,10 @@ module AWS::SDK::MediaPackage
         stub ||= Types::SpekeKeyProvider.new
         data = {}
         data['certificateArn'] = stub[:certificate_arn] unless stub[:certificate_arn].nil?
-        data['encryptionContractConfiguration'] = Stubs::EncryptionContractConfiguration.stub(stub[:encryption_contract_configuration]) unless stub[:encryption_contract_configuration].nil?
+        data['encryptionContractConfiguration'] = EncryptionContractConfiguration.stub(stub[:encryption_contract_configuration]) unless stub[:encryption_contract_configuration].nil?
         data['resourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['systemIds'] = Stubs::List____listOf__string.stub(stub[:system_ids]) unless stub[:system_ids].nil?
+        data['systemIds'] = List____listOf__string.stub(stub[:system_ids]) unless stub[:system_ids].nil?
         data['url'] = stub[:url] unless stub[:url].nil?
         data
       end
@@ -445,16 +447,16 @@ module AWS::SDK::MediaPackage
         stub ||= Types::HlsPackage.new
         data = {}
         data['adMarkers'] = stub[:ad_markers] unless stub[:ad_markers].nil?
-        data['adTriggers'] = Stubs::AdTriggers.stub(stub[:ad_triggers]) unless stub[:ad_triggers].nil?
+        data['adTriggers'] = AdTriggers.stub(stub[:ad_triggers]) unless stub[:ad_triggers].nil?
         data['adsOnDeliveryRestrictions'] = stub[:ads_on_delivery_restrictions] unless stub[:ads_on_delivery_restrictions].nil?
-        data['encryption'] = Stubs::HlsEncryption.stub(stub[:encryption]) unless stub[:encryption].nil?
+        data['encryption'] = HlsEncryption.stub(stub[:encryption]) unless stub[:encryption].nil?
         data['includeDvbSubtitles'] = stub[:include_dvb_subtitles] unless stub[:include_dvb_subtitles].nil?
         data['includeIframeOnlyStream'] = stub[:include_iframe_only_stream] unless stub[:include_iframe_only_stream].nil?
         data['playlistType'] = stub[:playlist_type] unless stub[:playlist_type].nil?
         data['playlistWindowSeconds'] = stub[:playlist_window_seconds] unless stub[:playlist_window_seconds].nil?
         data['programDateTimeIntervalSeconds'] = stub[:program_date_time_interval_seconds] unless stub[:program_date_time_interval_seconds].nil?
         data['segmentDurationSeconds'] = stub[:segment_duration_seconds] unless stub[:segment_duration_seconds].nil?
-        data['streamSelection'] = Stubs::StreamSelection.stub(stub[:stream_selection]) unless stub[:stream_selection].nil?
+        data['streamSelection'] = StreamSelection.stub(stub[:stream_selection]) unless stub[:stream_selection].nil?
         data['useAudioRenditionGroup'] = stub[:use_audio_rendition_group] unless stub[:use_audio_rendition_group].nil?
         data
       end
@@ -481,7 +483,7 @@ module AWS::SDK::MediaPackage
         data['encryptionMethod'] = stub[:encryption_method] unless stub[:encryption_method].nil?
         data['keyRotationIntervalSeconds'] = stub[:key_rotation_interval_seconds] unless stub[:key_rotation_interval_seconds].nil?
         data['repeatExtXKey'] = stub[:repeat_ext_x_key] unless stub[:repeat_ext_x_key].nil?
-        data['spekeKeyProvider'] = Stubs::SpekeKeyProvider.stub(stub[:speke_key_provider]) unless stub[:speke_key_provider].nil?
+        data['spekeKeyProvider'] = SpekeKeyProvider.stub(stub[:speke_key_provider]) unless stub[:speke_key_provider].nil?
         data
       end
     end
@@ -533,18 +535,18 @@ module AWS::SDK::MediaPackage
       def self.stub(stub)
         stub ||= Types::DashPackage.new
         data = {}
-        data['adTriggers'] = Stubs::AdTriggers.stub(stub[:ad_triggers]) unless stub[:ad_triggers].nil?
+        data['adTriggers'] = AdTriggers.stub(stub[:ad_triggers]) unless stub[:ad_triggers].nil?
         data['adsOnDeliveryRestrictions'] = stub[:ads_on_delivery_restrictions] unless stub[:ads_on_delivery_restrictions].nil?
-        data['encryption'] = Stubs::DashEncryption.stub(stub[:encryption]) unless stub[:encryption].nil?
+        data['encryption'] = DashEncryption.stub(stub[:encryption]) unless stub[:encryption].nil?
         data['manifestLayout'] = stub[:manifest_layout] unless stub[:manifest_layout].nil?
         data['manifestWindowSeconds'] = stub[:manifest_window_seconds] unless stub[:manifest_window_seconds].nil?
         data['minBufferTimeSeconds'] = stub[:min_buffer_time_seconds] unless stub[:min_buffer_time_seconds].nil?
         data['minUpdatePeriodSeconds'] = stub[:min_update_period_seconds] unless stub[:min_update_period_seconds].nil?
-        data['periodTriggers'] = Stubs::List____listOf__PeriodTriggersElement.stub(stub[:period_triggers]) unless stub[:period_triggers].nil?
+        data['periodTriggers'] = List____listOf__PeriodTriggersElement.stub(stub[:period_triggers]) unless stub[:period_triggers].nil?
         data['profile'] = stub[:profile] unless stub[:profile].nil?
         data['segmentDurationSeconds'] = stub[:segment_duration_seconds] unless stub[:segment_duration_seconds].nil?
         data['segmentTemplateFormat'] = stub[:segment_template_format] unless stub[:segment_template_format].nil?
-        data['streamSelection'] = Stubs::StreamSelection.stub(stub[:stream_selection]) unless stub[:stream_selection].nil?
+        data['streamSelection'] = StreamSelection.stub(stub[:stream_selection]) unless stub[:stream_selection].nil?
         data['suggestedPresentationDelaySeconds'] = stub[:suggested_presentation_delay_seconds] unless stub[:suggested_presentation_delay_seconds].nil?
         data['utcTiming'] = stub[:utc_timing] unless stub[:utc_timing].nil?
         data['utcTimingUri'] = stub[:utc_timing_uri] unless stub[:utc_timing_uri].nil?
@@ -587,7 +589,7 @@ module AWS::SDK::MediaPackage
         stub ||= Types::DashEncryption.new
         data = {}
         data['keyRotationIntervalSeconds'] = stub[:key_rotation_interval_seconds] unless stub[:key_rotation_interval_seconds].nil?
-        data['spekeKeyProvider'] = Stubs::SpekeKeyProvider.stub(stub[:speke_key_provider]) unless stub[:speke_key_provider].nil?
+        data['spekeKeyProvider'] = SpekeKeyProvider.stub(stub[:speke_key_provider]) unless stub[:speke_key_provider].nil?
         data
       end
     end
@@ -609,11 +611,11 @@ module AWS::SDK::MediaPackage
       def self.stub(stub)
         stub ||= Types::CmafPackage.new
         data = {}
-        data['encryption'] = Stubs::CmafEncryption.stub(stub[:encryption]) unless stub[:encryption].nil?
-        data['hlsManifests'] = Stubs::List____listOfHlsManifest.stub(stub[:hls_manifests]) unless stub[:hls_manifests].nil?
+        data['encryption'] = CmafEncryption.stub(stub[:encryption]) unless stub[:encryption].nil?
+        data['hlsManifests'] = List____listOfHlsManifest.stub(stub[:hls_manifests]) unless stub[:hls_manifests].nil?
         data['segmentDurationSeconds'] = stub[:segment_duration_seconds] unless stub[:segment_duration_seconds].nil?
         data['segmentPrefix'] = stub[:segment_prefix] unless stub[:segment_prefix].nil?
-        data['streamSelection'] = Stubs::StreamSelection.stub(stub[:stream_selection]) unless stub[:stream_selection].nil?
+        data['streamSelection'] = StreamSelection.stub(stub[:stream_selection]) unless stub[:stream_selection].nil?
         data
       end
     end
@@ -632,7 +634,7 @@ module AWS::SDK::MediaPackage
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HlsManifest.stub(element) unless element.nil?
+          data << HlsManifest.stub(element) unless element.nil?
         end
         data
       end
@@ -687,7 +689,7 @@ module AWS::SDK::MediaPackage
         data = {}
         data['constantInitializationVector'] = stub[:constant_initialization_vector] unless stub[:constant_initialization_vector].nil?
         data['keyRotationIntervalSeconds'] = stub[:key_rotation_interval_seconds] unless stub[:key_rotation_interval_seconds].nil?
-        data['spekeKeyProvider'] = Stubs::SpekeKeyProvider.stub(stub[:speke_key_provider]) unless stub[:speke_key_provider].nil?
+        data['spekeKeyProvider'] = SpekeKeyProvider.stub(stub[:speke_key_provider]) unless stub[:speke_key_provider].nil?
         data
       end
     end
@@ -758,12 +760,12 @@ module AWS::SDK::MediaPackage
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['egressAccessLogs'] = Stubs::EgressAccessLogs.stub(stub[:egress_access_logs]) unless stub[:egress_access_logs].nil?
-        data['hlsIngest'] = Stubs::HlsIngest.stub(stub[:hls_ingest]) unless stub[:hls_ingest].nil?
+        data['egressAccessLogs'] = EgressAccessLogs.stub(stub[:egress_access_logs]) unless stub[:egress_access_logs].nil?
+        data['hlsIngest'] = HlsIngest.stub(stub[:hls_ingest]) unless stub[:hls_ingest].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['ingressAccessLogs'] = Stubs::IngressAccessLogs.stub(stub[:ingress_access_logs]) unless stub[:ingress_access_logs].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ingressAccessLogs'] = IngressAccessLogs.stub(stub[:ingress_access_logs]) unless stub[:ingress_access_logs].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -793,10 +795,10 @@ module AWS::SDK::MediaPackage
         data['endTime'] = stub[:end_time] unless stub[:end_time].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['originEndpointId'] = stub[:origin_endpoint_id] unless stub[:origin_endpoint_id].nil?
-        data['s3Destination'] = Stubs::S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
+        data['s3Destination'] = S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
         data['startTime'] = stub[:start_time] unless stub[:start_time].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -828,22 +830,22 @@ module AWS::SDK::MediaPackage
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['authorization'] = Stubs::Authorization.stub(stub[:authorization]) unless stub[:authorization].nil?
+        data['authorization'] = Authorization.stub(stub[:authorization]) unless stub[:authorization].nil?
         data['channelId'] = stub[:channel_id] unless stub[:channel_id].nil?
-        data['cmafPackage'] = Stubs::CmafPackage.stub(stub[:cmaf_package]) unless stub[:cmaf_package].nil?
-        data['dashPackage'] = Stubs::DashPackage.stub(stub[:dash_package]) unless stub[:dash_package].nil?
+        data['cmafPackage'] = CmafPackage.stub(stub[:cmaf_package]) unless stub[:cmaf_package].nil?
+        data['dashPackage'] = DashPackage.stub(stub[:dash_package]) unless stub[:dash_package].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['hlsPackage'] = Stubs::HlsPackage.stub(stub[:hls_package]) unless stub[:hls_package].nil?
+        data['hlsPackage'] = HlsPackage.stub(stub[:hls_package]) unless stub[:hls_package].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['manifestName'] = stub[:manifest_name] unless stub[:manifest_name].nil?
-        data['mssPackage'] = Stubs::MssPackage.stub(stub[:mss_package]) unless stub[:mss_package].nil?
+        data['mssPackage'] = MssPackage.stub(stub[:mss_package]) unless stub[:mss_package].nil?
         data['origination'] = stub[:origination] unless stub[:origination].nil?
         data['startoverWindowSeconds'] = stub[:startover_window_seconds] unless stub[:startover_window_seconds].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['timeDelaySeconds'] = stub[:time_delay_seconds] unless stub[:time_delay_seconds].nil?
         data['url'] = stub[:url] unless stub[:url].nil?
-        data['whitelist'] = Stubs::List____listOf__string.stub(stub[:whitelist]) unless stub[:whitelist].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['whitelist'] = List____listOf__string.stub(stub[:whitelist]) unless stub[:whitelist].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -860,9 +862,9 @@ module AWS::SDK::MediaPackage
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['channels'] = Stubs::List____listOfChannel.stub(stub[:channels]) unless stub[:channels].nil?
+        data['channels'] = List____listOfChannel.stub(stub[:channels]) unless stub[:channels].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -880,7 +882,7 @@ module AWS::SDK::MediaPackage
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Channel.stub(element) unless element.nil?
+          data << Channel.stub(element) unless element.nil?
         end
         data
       end
@@ -907,11 +909,11 @@ module AWS::SDK::MediaPackage
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['egressAccessLogs'] = Stubs::EgressAccessLogs.stub(stub[:egress_access_logs]) unless stub[:egress_access_logs].nil?
-        data['hlsIngest'] = Stubs::HlsIngest.stub(stub[:hls_ingest]) unless stub[:hls_ingest].nil?
+        data['egressAccessLogs'] = EgressAccessLogs.stub(stub[:egress_access_logs]) unless stub[:egress_access_logs].nil?
+        data['hlsIngest'] = HlsIngest.stub(stub[:hls_ingest]) unless stub[:hls_ingest].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['ingressAccessLogs'] = Stubs::IngressAccessLogs.stub(stub[:ingress_access_logs]) unless stub[:ingress_access_logs].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['ingressAccessLogs'] = IngressAccessLogs.stub(stub[:ingress_access_logs]) unless stub[:ingress_access_logs].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -929,9 +931,9 @@ module AWS::SDK::MediaPackage
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['harvestJobs'] = Stubs::List____listOfHarvestJob.stub(stub[:harvest_jobs]) unless stub[:harvest_jobs].nil?
+        data['harvestJobs'] = List____listOfHarvestJob.stub(stub[:harvest_jobs]) unless stub[:harvest_jobs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -949,7 +951,7 @@ module AWS::SDK::MediaPackage
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HarvestJob.stub(element) unless element.nil?
+          data << HarvestJob.stub(element) unless element.nil?
         end
         data
       end
@@ -982,7 +984,7 @@ module AWS::SDK::MediaPackage
         data['endTime'] = stub[:end_time] unless stub[:end_time].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['originEndpointId'] = stub[:origin_endpoint_id] unless stub[:origin_endpoint_id].nil?
-        data['s3Destination'] = Stubs::S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
+        data['s3Destination'] = S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
         data['startTime'] = stub[:start_time] unless stub[:start_time].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data
@@ -1003,8 +1005,8 @@ module AWS::SDK::MediaPackage
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['originEndpoints'] = Stubs::List____listOfOriginEndpoint.stub(stub[:origin_endpoints]) unless stub[:origin_endpoints].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['originEndpoints'] = List____listOfOriginEndpoint.stub(stub[:origin_endpoints]) unless stub[:origin_endpoints].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1022,7 +1024,7 @@ module AWS::SDK::MediaPackage
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OriginEndpoint.stub(element) unless element.nil?
+          data << OriginEndpoint.stub(element) unless element.nil?
         end
         data
       end
@@ -1057,21 +1059,21 @@ module AWS::SDK::MediaPackage
         stub ||= Types::OriginEndpoint.new
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['authorization'] = Stubs::Authorization.stub(stub[:authorization]) unless stub[:authorization].nil?
+        data['authorization'] = Authorization.stub(stub[:authorization]) unless stub[:authorization].nil?
         data['channelId'] = stub[:channel_id] unless stub[:channel_id].nil?
-        data['cmafPackage'] = Stubs::CmafPackage.stub(stub[:cmaf_package]) unless stub[:cmaf_package].nil?
-        data['dashPackage'] = Stubs::DashPackage.stub(stub[:dash_package]) unless stub[:dash_package].nil?
+        data['cmafPackage'] = CmafPackage.stub(stub[:cmaf_package]) unless stub[:cmaf_package].nil?
+        data['dashPackage'] = DashPackage.stub(stub[:dash_package]) unless stub[:dash_package].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['hlsPackage'] = Stubs::HlsPackage.stub(stub[:hls_package]) unless stub[:hls_package].nil?
+        data['hlsPackage'] = HlsPackage.stub(stub[:hls_package]) unless stub[:hls_package].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['manifestName'] = stub[:manifest_name] unless stub[:manifest_name].nil?
-        data['mssPackage'] = Stubs::MssPackage.stub(stub[:mss_package]) unless stub[:mss_package].nil?
+        data['mssPackage'] = MssPackage.stub(stub[:mss_package]) unless stub[:mss_package].nil?
         data['origination'] = stub[:origination] unless stub[:origination].nil?
         data['startoverWindowSeconds'] = stub[:startover_window_seconds] unless stub[:startover_window_seconds].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['timeDelaySeconds'] = stub[:time_delay_seconds] unless stub[:time_delay_seconds].nil?
         data['url'] = stub[:url] unless stub[:url].nil?
-        data['whitelist'] = Stubs::List____listOf__string.stub(stub[:whitelist]) unless stub[:whitelist].nil?
+        data['whitelist'] = List____listOf__string.stub(stub[:whitelist]) unless stub[:whitelist].nil?
         data
       end
     end
@@ -1088,8 +1090,8 @@ module AWS::SDK::MediaPackage
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1133,12 +1135,12 @@ module AWS::SDK::MediaPackage
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['egressAccessLogs'] = Stubs::EgressAccessLogs.stub(stub[:egress_access_logs]) unless stub[:egress_access_logs].nil?
-        data['hlsIngest'] = Stubs::HlsIngest.stub(stub[:hls_ingest]) unless stub[:hls_ingest].nil?
+        data['egressAccessLogs'] = EgressAccessLogs.stub(stub[:egress_access_logs]) unless stub[:egress_access_logs].nil?
+        data['hlsIngest'] = HlsIngest.stub(stub[:hls_ingest]) unless stub[:hls_ingest].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['ingressAccessLogs'] = Stubs::IngressAccessLogs.stub(stub[:ingress_access_logs]) unless stub[:ingress_access_logs].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ingressAccessLogs'] = IngressAccessLogs.stub(stub[:ingress_access_logs]) unless stub[:ingress_access_logs].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1162,12 +1164,12 @@ module AWS::SDK::MediaPackage
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['egressAccessLogs'] = Stubs::EgressAccessLogs.stub(stub[:egress_access_logs]) unless stub[:egress_access_logs].nil?
-        data['hlsIngest'] = Stubs::HlsIngest.stub(stub[:hls_ingest]) unless stub[:hls_ingest].nil?
+        data['egressAccessLogs'] = EgressAccessLogs.stub(stub[:egress_access_logs]) unless stub[:egress_access_logs].nil?
+        data['hlsIngest'] = HlsIngest.stub(stub[:hls_ingest]) unless stub[:hls_ingest].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['ingressAccessLogs'] = Stubs::IngressAccessLogs.stub(stub[:ingress_access_logs]) unless stub[:ingress_access_logs].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ingressAccessLogs'] = IngressAccessLogs.stub(stub[:ingress_access_logs]) unless stub[:ingress_access_logs].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1217,12 +1219,12 @@ module AWS::SDK::MediaPackage
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['egressAccessLogs'] = Stubs::EgressAccessLogs.stub(stub[:egress_access_logs]) unless stub[:egress_access_logs].nil?
-        data['hlsIngest'] = Stubs::HlsIngest.stub(stub[:hls_ingest]) unless stub[:hls_ingest].nil?
+        data['egressAccessLogs'] = EgressAccessLogs.stub(stub[:egress_access_logs]) unless stub[:egress_access_logs].nil?
+        data['hlsIngest'] = HlsIngest.stub(stub[:hls_ingest]) unless stub[:hls_ingest].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['ingressAccessLogs'] = Stubs::IngressAccessLogs.stub(stub[:ingress_access_logs]) unless stub[:ingress_access_logs].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ingressAccessLogs'] = IngressAccessLogs.stub(stub[:ingress_access_logs]) unless stub[:ingress_access_logs].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1254,22 +1256,22 @@ module AWS::SDK::MediaPackage
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['authorization'] = Stubs::Authorization.stub(stub[:authorization]) unless stub[:authorization].nil?
+        data['authorization'] = Authorization.stub(stub[:authorization]) unless stub[:authorization].nil?
         data['channelId'] = stub[:channel_id] unless stub[:channel_id].nil?
-        data['cmafPackage'] = Stubs::CmafPackage.stub(stub[:cmaf_package]) unless stub[:cmaf_package].nil?
-        data['dashPackage'] = Stubs::DashPackage.stub(stub[:dash_package]) unless stub[:dash_package].nil?
+        data['cmafPackage'] = CmafPackage.stub(stub[:cmaf_package]) unless stub[:cmaf_package].nil?
+        data['dashPackage'] = DashPackage.stub(stub[:dash_package]) unless stub[:dash_package].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['hlsPackage'] = Stubs::HlsPackage.stub(stub[:hls_package]) unless stub[:hls_package].nil?
+        data['hlsPackage'] = HlsPackage.stub(stub[:hls_package]) unless stub[:hls_package].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['manifestName'] = stub[:manifest_name] unless stub[:manifest_name].nil?
-        data['mssPackage'] = Stubs::MssPackage.stub(stub[:mss_package]) unless stub[:mss_package].nil?
+        data['mssPackage'] = MssPackage.stub(stub[:mss_package]) unless stub[:mss_package].nil?
         data['origination'] = stub[:origination] unless stub[:origination].nil?
         data['startoverWindowSeconds'] = stub[:startover_window_seconds] unless stub[:startover_window_seconds].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['timeDelaySeconds'] = stub[:time_delay_seconds] unless stub[:time_delay_seconds].nil?
         data['url'] = stub[:url] unless stub[:url].nil?
-        data['whitelist'] = Stubs::List____listOf__string.stub(stub[:whitelist]) unless stub[:whitelist].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['whitelist'] = List____listOf__string.stub(stub[:whitelist]) unless stub[:whitelist].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

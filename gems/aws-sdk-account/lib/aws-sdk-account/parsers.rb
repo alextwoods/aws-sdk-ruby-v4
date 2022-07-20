@@ -74,7 +74,7 @@ module AWS::SDK::Account
       def self.parse(http_resp)
         data = Types::GetAlternateContactOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.alternate_contact = (Parsers::AlternateContact.parse(map['AlternateContact']) unless map['AlternateContact'].nil?)
+        data.alternate_contact = (AlternateContact.parse(map['AlternateContact']) unless map['AlternateContact'].nil?)
         data
       end
     end

@@ -84,8 +84,8 @@ module AWS::SDK::ConnectParticipant
       def self.parse(http_resp)
         data = Types::CreateParticipantConnectionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.websocket = (Parsers::Websocket.parse(map['Websocket']) unless map['Websocket'].nil?)
-        data.connection_credentials = (Parsers::ConnectionCredentials.parse(map['ConnectionCredentials']) unless map['ConnectionCredentials'].nil?)
+        data.websocket = (Websocket.parse(map['Websocket']) unless map['Websocket'].nil?)
+        data.connection_credentials = (ConnectionCredentials.parse(map['ConnectionCredentials']) unless map['ConnectionCredentials'].nil?)
         data
       end
     end
@@ -134,7 +134,7 @@ module AWS::SDK::ConnectParticipant
         data = Types::GetTranscriptOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.initial_contact_id = map['InitialContactId']
-        data.transcript = (Parsers::Transcript.parse(map['Transcript']) unless map['Transcript'].nil?)
+        data.transcript = (Transcript.parse(map['Transcript']) unless map['Transcript'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -144,7 +144,7 @@ module AWS::SDK::ConnectParticipant
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Item.parse(value) unless value.nil?
+          data << Item.parse(value) unless value.nil?
         end
         data
       end
@@ -161,7 +161,7 @@ module AWS::SDK::ConnectParticipant
         data.participant_id = map['ParticipantId']
         data.display_name = map['DisplayName']
         data.participant_role = map['ParticipantRole']
-        data.attachments = (Parsers::Attachments.parse(map['Attachments']) unless map['Attachments'].nil?)
+        data.attachments = (Attachments.parse(map['Attachments']) unless map['Attachments'].nil?)
         return data
       end
     end
@@ -170,7 +170,7 @@ module AWS::SDK::ConnectParticipant
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AttachmentItem.parse(value) unless value.nil?
+          data << AttachmentItem.parse(value) unless value.nil?
         end
         data
       end
@@ -215,7 +215,7 @@ module AWS::SDK::ConnectParticipant
         data = Types::StartAttachmentUploadOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.attachment_id = map['AttachmentId']
-        data.upload_metadata = (Parsers::UploadMetadata.parse(map['UploadMetadata']) unless map['UploadMetadata'].nil?)
+        data.upload_metadata = (UploadMetadata.parse(map['UploadMetadata']) unless map['UploadMetadata'].nil?)
         data
       end
     end
@@ -225,7 +225,7 @@ module AWS::SDK::ConnectParticipant
         data = Types::UploadMetadata.new
         data.url = map['Url']
         data.url_expiry = map['UrlExpiry']
-        data.headers_to_include = (Parsers::UploadMetadataSignedHeaders.parse(map['HeadersToInclude']) unless map['HeadersToInclude'].nil?)
+        data.headers_to_include = (UploadMetadataSignedHeaders.parse(map['HeadersToInclude']) unless map['HeadersToInclude'].nil?)
         return data
       end
     end

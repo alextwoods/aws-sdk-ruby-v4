@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CognitoIdentity
   module Stubs
 
@@ -33,13 +35,13 @@ module AWS::SDK::CognitoIdentity
         data['IdentityPoolName'] = stub[:identity_pool_name] unless stub[:identity_pool_name].nil?
         data['AllowUnauthenticatedIdentities'] = stub[:allow_unauthenticated_identities] unless stub[:allow_unauthenticated_identities].nil?
         data['AllowClassicFlow'] = stub[:allow_classic_flow] unless stub[:allow_classic_flow].nil?
-        data['SupportedLoginProviders'] = Stubs::IdentityProviders.stub(stub[:supported_login_providers]) unless stub[:supported_login_providers].nil?
+        data['SupportedLoginProviders'] = IdentityProviders.stub(stub[:supported_login_providers]) unless stub[:supported_login_providers].nil?
         data['DeveloperProviderName'] = stub[:developer_provider_name] unless stub[:developer_provider_name].nil?
-        data['OpenIdConnectProviderARNs'] = Stubs::OIDCProviderList.stub(stub[:open_id_connect_provider_ar_ns]) unless stub[:open_id_connect_provider_ar_ns].nil?
-        data['CognitoIdentityProviders'] = Stubs::CognitoIdentityProviderList.stub(stub[:cognito_identity_providers]) unless stub[:cognito_identity_providers].nil?
-        data['SamlProviderARNs'] = Stubs::SAMLProviderList.stub(stub[:saml_provider_ar_ns]) unless stub[:saml_provider_ar_ns].nil?
-        data['IdentityPoolTags'] = Stubs::IdentityPoolTagsType.stub(stub[:identity_pool_tags]) unless stub[:identity_pool_tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OpenIdConnectProviderARNs'] = OIDCProviderList.stub(stub[:open_id_connect_provider_ar_ns]) unless stub[:open_id_connect_provider_ar_ns].nil?
+        data['CognitoIdentityProviders'] = CognitoIdentityProviderList.stub(stub[:cognito_identity_providers]) unless stub[:cognito_identity_providers].nil?
+        data['SamlProviderARNs'] = SAMLProviderList.stub(stub[:saml_provider_ar_ns]) unless stub[:saml_provider_ar_ns].nil?
+        data['IdentityPoolTags'] = IdentityPoolTagsType.stub(stub[:identity_pool_tags]) unless stub[:identity_pool_tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -98,7 +100,7 @@ module AWS::SDK::CognitoIdentity
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CognitoIdentityProvider.stub(element) unless element.nil?
+          data << CognitoIdentityProvider.stub(element) unless element.nil?
         end
         data
       end
@@ -176,8 +178,8 @@ module AWS::SDK::CognitoIdentity
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['UnprocessedIdentityIds'] = Stubs::UnprocessedIdentityIdList.stub(stub[:unprocessed_identity_ids]) unless stub[:unprocessed_identity_ids].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UnprocessedIdentityIds'] = UnprocessedIdentityIdList.stub(stub[:unprocessed_identity_ids]) unless stub[:unprocessed_identity_ids].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -196,7 +198,7 @@ module AWS::SDK::CognitoIdentity
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UnprocessedIdentityId.stub(element) unless element.nil?
+          data << UnprocessedIdentityId.stub(element) unless element.nil?
         end
         data
       end
@@ -231,7 +233,7 @@ module AWS::SDK::CognitoIdentity
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -250,10 +252,10 @@ module AWS::SDK::CognitoIdentity
       def self.stub(http_resp, stub:)
         data = {}
         data['IdentityId'] = stub[:identity_id] unless stub[:identity_id].nil?
-        data['Logins'] = Stubs::LoginsList.stub(stub[:logins]) unless stub[:logins].nil?
+        data['Logins'] = LoginsList.stub(stub[:logins]) unless stub[:logins].nil?
         data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['LastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -301,13 +303,13 @@ module AWS::SDK::CognitoIdentity
         data['IdentityPoolName'] = stub[:identity_pool_name] unless stub[:identity_pool_name].nil?
         data['AllowUnauthenticatedIdentities'] = stub[:allow_unauthenticated_identities] unless stub[:allow_unauthenticated_identities].nil?
         data['AllowClassicFlow'] = stub[:allow_classic_flow] unless stub[:allow_classic_flow].nil?
-        data['SupportedLoginProviders'] = Stubs::IdentityProviders.stub(stub[:supported_login_providers]) unless stub[:supported_login_providers].nil?
+        data['SupportedLoginProviders'] = IdentityProviders.stub(stub[:supported_login_providers]) unless stub[:supported_login_providers].nil?
         data['DeveloperProviderName'] = stub[:developer_provider_name] unless stub[:developer_provider_name].nil?
-        data['OpenIdConnectProviderARNs'] = Stubs::OIDCProviderList.stub(stub[:open_id_connect_provider_ar_ns]) unless stub[:open_id_connect_provider_ar_ns].nil?
-        data['CognitoIdentityProviders'] = Stubs::CognitoIdentityProviderList.stub(stub[:cognito_identity_providers]) unless stub[:cognito_identity_providers].nil?
-        data['SamlProviderARNs'] = Stubs::SAMLProviderList.stub(stub[:saml_provider_ar_ns]) unless stub[:saml_provider_ar_ns].nil?
-        data['IdentityPoolTags'] = Stubs::IdentityPoolTagsType.stub(stub[:identity_pool_tags]) unless stub[:identity_pool_tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OpenIdConnectProviderARNs'] = OIDCProviderList.stub(stub[:open_id_connect_provider_ar_ns]) unless stub[:open_id_connect_provider_ar_ns].nil?
+        data['CognitoIdentityProviders'] = CognitoIdentityProviderList.stub(stub[:cognito_identity_providers]) unless stub[:cognito_identity_providers].nil?
+        data['SamlProviderARNs'] = SAMLProviderList.stub(stub[:saml_provider_ar_ns]) unless stub[:saml_provider_ar_ns].nil?
+        data['IdentityPoolTags'] = IdentityPoolTagsType.stub(stub[:identity_pool_tags]) unless stub[:identity_pool_tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -324,8 +326,8 @@ module AWS::SDK::CognitoIdentity
       def self.stub(http_resp, stub:)
         data = {}
         data['IdentityId'] = stub[:identity_id] unless stub[:identity_id].nil?
-        data['Credentials'] = Stubs::Credentials.stub(stub[:credentials]) unless stub[:credentials].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Credentials'] = Credentials.stub(stub[:credentials]) unless stub[:credentials].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -365,7 +367,7 @@ module AWS::SDK::CognitoIdentity
       def self.stub(http_resp, stub:)
         data = {}
         data['IdentityId'] = stub[:identity_id] unless stub[:identity_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -383,9 +385,9 @@ module AWS::SDK::CognitoIdentity
       def self.stub(http_resp, stub:)
         data = {}
         data['IdentityPoolId'] = stub[:identity_pool_id] unless stub[:identity_pool_id].nil?
-        data['Roles'] = Stubs::RolesMap.stub(stub[:roles]) unless stub[:roles].nil?
-        data['RoleMappings'] = Stubs::RoleMappingMap.stub(stub[:role_mappings]) unless stub[:role_mappings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Roles'] = RolesMap.stub(stub[:roles]) unless stub[:roles].nil?
+        data['RoleMappings'] = RoleMappingMap.stub(stub[:role_mappings]) unless stub[:role_mappings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -404,7 +406,7 @@ module AWS::SDK::CognitoIdentity
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::RoleMapping.stub(value) unless value.nil?
+          data[key] = RoleMapping.stub(value) unless value.nil?
         end
         data
       end
@@ -427,7 +429,7 @@ module AWS::SDK::CognitoIdentity
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['AmbiguousRoleResolution'] = stub[:ambiguous_role_resolution] unless stub[:ambiguous_role_resolution].nil?
-        data['RulesConfiguration'] = Stubs::RulesConfigurationType.stub(stub[:rules_configuration]) unless stub[:rules_configuration].nil?
+        data['RulesConfiguration'] = RulesConfigurationType.stub(stub[:rules_configuration]) unless stub[:rules_configuration].nil?
         data
       end
     end
@@ -445,7 +447,7 @@ module AWS::SDK::CognitoIdentity
       def self.stub(stub)
         stub ||= Types::RulesConfigurationType.new
         data = {}
-        data['Rules'] = Stubs::MappingRulesList.stub(stub[:rules]) unless stub[:rules].nil?
+        data['Rules'] = MappingRulesList.stub(stub[:rules]) unless stub[:rules].nil?
         data
       end
     end
@@ -464,7 +466,7 @@ module AWS::SDK::CognitoIdentity
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MappingRule.stub(element) unless element.nil?
+          data << MappingRule.stub(element) unless element.nil?
         end
         data
       end
@@ -527,7 +529,7 @@ module AWS::SDK::CognitoIdentity
         data = {}
         data['IdentityId'] = stub[:identity_id] unless stub[:identity_id].nil?
         data['Token'] = stub[:token] unless stub[:token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -545,7 +547,7 @@ module AWS::SDK::CognitoIdentity
         data = {}
         data['IdentityId'] = stub[:identity_id] unless stub[:identity_id].nil?
         data['Token'] = stub[:token] unless stub[:token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -566,8 +568,8 @@ module AWS::SDK::CognitoIdentity
         data['IdentityPoolId'] = stub[:identity_pool_id] unless stub[:identity_pool_id].nil?
         data['IdentityProviderName'] = stub[:identity_provider_name] unless stub[:identity_provider_name].nil?
         data['UseDefaults'] = stub[:use_defaults] unless stub[:use_defaults].nil?
-        data['PrincipalTags'] = Stubs::PrincipalTags.stub(stub[:principal_tags]) unless stub[:principal_tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PrincipalTags'] = PrincipalTags.stub(stub[:principal_tags]) unless stub[:principal_tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -605,9 +607,9 @@ module AWS::SDK::CognitoIdentity
       def self.stub(http_resp, stub:)
         data = {}
         data['IdentityPoolId'] = stub[:identity_pool_id] unless stub[:identity_pool_id].nil?
-        data['Identities'] = Stubs::IdentitiesList.stub(stub[:identities]) unless stub[:identities].nil?
+        data['Identities'] = IdentitiesList.stub(stub[:identities]) unless stub[:identities].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -626,7 +628,7 @@ module AWS::SDK::CognitoIdentity
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IdentityDescription.stub(element) unless element.nil?
+          data << IdentityDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -649,7 +651,7 @@ module AWS::SDK::CognitoIdentity
         stub ||= Types::IdentityDescription.new
         data = {}
         data['IdentityId'] = stub[:identity_id] unless stub[:identity_id].nil?
-        data['Logins'] = Stubs::LoginsList.stub(stub[:logins]) unless stub[:logins].nil?
+        data['Logins'] = LoginsList.stub(stub[:logins]) unless stub[:logins].nil?
         data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['LastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
         data
@@ -667,9 +669,9 @@ module AWS::SDK::CognitoIdentity
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['IdentityPools'] = Stubs::IdentityPoolsList.stub(stub[:identity_pools]) unless stub[:identity_pools].nil?
+        data['IdentityPools'] = IdentityPoolsList.stub(stub[:identity_pools]) unless stub[:identity_pools].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -688,7 +690,7 @@ module AWS::SDK::CognitoIdentity
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IdentityPoolShortDescription.stub(element) unless element.nil?
+          data << IdentityPoolShortDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -724,8 +726,8 @@ module AWS::SDK::CognitoIdentity
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::IdentityPoolTagsType.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = IdentityPoolTagsType.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -743,9 +745,9 @@ module AWS::SDK::CognitoIdentity
       def self.stub(http_resp, stub:)
         data = {}
         data['IdentityId'] = stub[:identity_id] unless stub[:identity_id].nil?
-        data['DeveloperUserIdentifierList'] = Stubs::DeveloperUserIdentifierList.stub(stub[:developer_user_identifier_list]) unless stub[:developer_user_identifier_list].nil?
+        data['DeveloperUserIdentifierList'] = DeveloperUserIdentifierList.stub(stub[:developer_user_identifier_list]) unless stub[:developer_user_identifier_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -781,7 +783,7 @@ module AWS::SDK::CognitoIdentity
       def self.stub(http_resp, stub:)
         data = {}
         data['IdentityId'] = stub[:identity_id] unless stub[:identity_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -795,7 +797,7 @@ module AWS::SDK::CognitoIdentity
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -816,8 +818,8 @@ module AWS::SDK::CognitoIdentity
         data['IdentityPoolId'] = stub[:identity_pool_id] unless stub[:identity_pool_id].nil?
         data['IdentityProviderName'] = stub[:identity_provider_name] unless stub[:identity_provider_name].nil?
         data['UseDefaults'] = stub[:use_defaults] unless stub[:use_defaults].nil?
-        data['PrincipalTags'] = Stubs::PrincipalTags.stub(stub[:principal_tags]) unless stub[:principal_tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PrincipalTags'] = PrincipalTags.stub(stub[:principal_tags]) unless stub[:principal_tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -831,7 +833,7 @@ module AWS::SDK::CognitoIdentity
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -845,7 +847,7 @@ module AWS::SDK::CognitoIdentity
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -859,7 +861,7 @@ module AWS::SDK::CognitoIdentity
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -873,7 +875,7 @@ module AWS::SDK::CognitoIdentity
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -901,13 +903,13 @@ module AWS::SDK::CognitoIdentity
         data['IdentityPoolName'] = stub[:identity_pool_name] unless stub[:identity_pool_name].nil?
         data['AllowUnauthenticatedIdentities'] = stub[:allow_unauthenticated_identities] unless stub[:allow_unauthenticated_identities].nil?
         data['AllowClassicFlow'] = stub[:allow_classic_flow] unless stub[:allow_classic_flow].nil?
-        data['SupportedLoginProviders'] = Stubs::IdentityProviders.stub(stub[:supported_login_providers]) unless stub[:supported_login_providers].nil?
+        data['SupportedLoginProviders'] = IdentityProviders.stub(stub[:supported_login_providers]) unless stub[:supported_login_providers].nil?
         data['DeveloperProviderName'] = stub[:developer_provider_name] unless stub[:developer_provider_name].nil?
-        data['OpenIdConnectProviderARNs'] = Stubs::OIDCProviderList.stub(stub[:open_id_connect_provider_ar_ns]) unless stub[:open_id_connect_provider_ar_ns].nil?
-        data['CognitoIdentityProviders'] = Stubs::CognitoIdentityProviderList.stub(stub[:cognito_identity_providers]) unless stub[:cognito_identity_providers].nil?
-        data['SamlProviderARNs'] = Stubs::SAMLProviderList.stub(stub[:saml_provider_ar_ns]) unless stub[:saml_provider_ar_ns].nil?
-        data['IdentityPoolTags'] = Stubs::IdentityPoolTagsType.stub(stub[:identity_pool_tags]) unless stub[:identity_pool_tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OpenIdConnectProviderARNs'] = OIDCProviderList.stub(stub[:open_id_connect_provider_ar_ns]) unless stub[:open_id_connect_provider_ar_ns].nil?
+        data['CognitoIdentityProviders'] = CognitoIdentityProviderList.stub(stub[:cognito_identity_providers]) unless stub[:cognito_identity_providers].nil?
+        data['SamlProviderARNs'] = SAMLProviderList.stub(stub[:saml_provider_ar_ns]) unless stub[:saml_provider_ar_ns].nil?
+        data['IdentityPoolTags'] = IdentityPoolTagsType.stub(stub[:identity_pool_tags]) unless stub[:identity_pool_tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

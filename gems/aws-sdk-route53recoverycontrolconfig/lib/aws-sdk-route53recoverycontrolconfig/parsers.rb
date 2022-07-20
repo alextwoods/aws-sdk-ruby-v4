@@ -15,7 +15,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(http_resp)
         data = Types::CreateClusterOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cluster = (Parsers::Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
+        data.cluster = (Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
         data
       end
     end
@@ -24,7 +24,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(map)
         data = Types::Cluster.new
         data.cluster_arn = map['ClusterArn']
-        data.cluster_endpoints = (Parsers::List____listOfClusterEndpoint.parse(map['ClusterEndpoints']) unless map['ClusterEndpoints'].nil?)
+        data.cluster_endpoints = (List____listOfClusterEndpoint.parse(map['ClusterEndpoints']) unless map['ClusterEndpoints'].nil?)
         data.name = map['Name']
         data.status = map['Status']
         return data
@@ -35,7 +35,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ClusterEndpoint.parse(value) unless value.nil?
+          data << ClusterEndpoint.parse(value) unless value.nil?
         end
         data
       end
@@ -125,7 +125,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(http_resp)
         data = Types::CreateControlPanelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.control_panel = (Parsers::ControlPanel.parse(map['ControlPanel']) unless map['ControlPanel'].nil?)
+        data.control_panel = (ControlPanel.parse(map['ControlPanel']) unless map['ControlPanel'].nil?)
         data
       end
     end
@@ -148,7 +148,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(http_resp)
         data = Types::CreateRoutingControlOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.routing_control = (Parsers::RoutingControl.parse(map['RoutingControl']) unless map['RoutingControl'].nil?)
+        data.routing_control = (RoutingControl.parse(map['RoutingControl']) unless map['RoutingControl'].nil?)
         data
       end
     end
@@ -169,8 +169,8 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(http_resp)
         data = Types::CreateSafetyRuleOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assertion_rule = (Parsers::AssertionRule.parse(map['AssertionRule']) unless map['AssertionRule'].nil?)
-        data.gating_rule = (Parsers::GatingRule.parse(map['GatingRule']) unless map['GatingRule'].nil?)
+        data.assertion_rule = (AssertionRule.parse(map['AssertionRule']) unless map['AssertionRule'].nil?)
+        data.gating_rule = (GatingRule.parse(map['GatingRule']) unless map['GatingRule'].nil?)
         data
       end
     end
@@ -179,12 +179,12 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(map)
         data = Types::GatingRule.new
         data.control_panel_arn = map['ControlPanelArn']
-        data.gating_controls = (Parsers::List____listOf__stringMin1Max256PatternAZaZ09.parse(map['GatingControls']) unless map['GatingControls'].nil?)
+        data.gating_controls = (List____listOf__stringMin1Max256PatternAZaZ09.parse(map['GatingControls']) unless map['GatingControls'].nil?)
         data.name = map['Name']
-        data.rule_config = (Parsers::RuleConfig.parse(map['RuleConfig']) unless map['RuleConfig'].nil?)
+        data.rule_config = (RuleConfig.parse(map['RuleConfig']) unless map['RuleConfig'].nil?)
         data.safety_rule_arn = map['SafetyRuleArn']
         data.status = map['Status']
-        data.target_controls = (Parsers::List____listOf__stringMin1Max256PatternAZaZ09.parse(map['TargetControls']) unless map['TargetControls'].nil?)
+        data.target_controls = (List____listOf__stringMin1Max256PatternAZaZ09.parse(map['TargetControls']) unless map['TargetControls'].nil?)
         data.wait_period_ms = map['WaitPeriodMs']
         return data
       end
@@ -213,10 +213,10 @@ module AWS::SDK::Route53RecoveryControlConfig
     class AssertionRule
       def self.parse(map)
         data = Types::AssertionRule.new
-        data.asserted_controls = (Parsers::List____listOf__stringMin1Max256PatternAZaZ09.parse(map['AssertedControls']) unless map['AssertedControls'].nil?)
+        data.asserted_controls = (List____listOf__stringMin1Max256PatternAZaZ09.parse(map['AssertedControls']) unless map['AssertedControls'].nil?)
         data.control_panel_arn = map['ControlPanelArn']
         data.name = map['Name']
-        data.rule_config = (Parsers::RuleConfig.parse(map['RuleConfig']) unless map['RuleConfig'].nil?)
+        data.rule_config = (RuleConfig.parse(map['RuleConfig']) unless map['RuleConfig'].nil?)
         data.safety_rule_arn = map['SafetyRuleArn']
         data.status = map['Status']
         data.wait_period_ms = map['WaitPeriodMs']
@@ -265,7 +265,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(http_resp)
         data = Types::DescribeClusterOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cluster = (Parsers::Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
+        data.cluster = (Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
         data
       end
     end
@@ -275,7 +275,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(http_resp)
         data = Types::DescribeControlPanelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.control_panel = (Parsers::ControlPanel.parse(map['ControlPanel']) unless map['ControlPanel'].nil?)
+        data.control_panel = (ControlPanel.parse(map['ControlPanel']) unless map['ControlPanel'].nil?)
         data
       end
     end
@@ -285,7 +285,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(http_resp)
         data = Types::DescribeRoutingControlOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.routing_control = (Parsers::RoutingControl.parse(map['RoutingControl']) unless map['RoutingControl'].nil?)
+        data.routing_control = (RoutingControl.parse(map['RoutingControl']) unless map['RoutingControl'].nil?)
         data
       end
     end
@@ -295,8 +295,8 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(http_resp)
         data = Types::DescribeSafetyRuleOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assertion_rule = (Parsers::AssertionRule.parse(map['AssertionRule']) unless map['AssertionRule'].nil?)
-        data.gating_rule = (Parsers::GatingRule.parse(map['GatingRule']) unless map['GatingRule'].nil?)
+        data.assertion_rule = (AssertionRule.parse(map['AssertionRule']) unless map['AssertionRule'].nil?)
+        data.gating_rule = (GatingRule.parse(map['GatingRule']) unless map['GatingRule'].nil?)
         data
       end
     end
@@ -306,7 +306,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(http_resp)
         data = Types::ListAssociatedRoute53HealthChecksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.health_check_ids = (Parsers::List____listOf__stringMax36PatternS.parse(map['HealthCheckIds']) unless map['HealthCheckIds'].nil?)
+        data.health_check_ids = (List____listOf__stringMax36PatternS.parse(map['HealthCheckIds']) unless map['HealthCheckIds'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -327,7 +327,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(http_resp)
         data = Types::ListClustersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.clusters = (Parsers::List____listOfCluster.parse(map['Clusters']) unless map['Clusters'].nil?)
+        data.clusters = (List____listOfCluster.parse(map['Clusters']) unless map['Clusters'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -337,7 +337,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Cluster.parse(value) unless value.nil?
+          data << Cluster.parse(value) unless value.nil?
         end
         data
       end
@@ -348,7 +348,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(http_resp)
         data = Types::ListControlPanelsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.control_panels = (Parsers::List____listOfControlPanel.parse(map['ControlPanels']) unless map['ControlPanels'].nil?)
+        data.control_panels = (List____listOfControlPanel.parse(map['ControlPanels']) unless map['ControlPanels'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -358,7 +358,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ControlPanel.parse(value) unless value.nil?
+          data << ControlPanel.parse(value) unless value.nil?
         end
         data
       end
@@ -370,7 +370,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = Types::ListRoutingControlsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.routing_controls = (Parsers::List____listOfRoutingControl.parse(map['RoutingControls']) unless map['RoutingControls'].nil?)
+        data.routing_controls = (List____listOfRoutingControl.parse(map['RoutingControls']) unless map['RoutingControls'].nil?)
         data
       end
     end
@@ -379,7 +379,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RoutingControl.parse(value) unless value.nil?
+          data << RoutingControl.parse(value) unless value.nil?
         end
         data
       end
@@ -391,7 +391,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = Types::ListSafetyRulesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.safety_rules = (Parsers::List____listOfRule.parse(map['SafetyRules']) unless map['SafetyRules'].nil?)
+        data.safety_rules = (List____listOfRule.parse(map['SafetyRules']) unless map['SafetyRules'].nil?)
         data
       end
     end
@@ -400,7 +400,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Rule.parse(value) unless value.nil?
+          data << Rule.parse(value) unless value.nil?
         end
         data
       end
@@ -409,8 +409,8 @@ module AWS::SDK::Route53RecoveryControlConfig
     class Rule
       def self.parse(map)
         data = Types::Rule.new
-        data.assertion = (Parsers::AssertionRule.parse(map['ASSERTION']) unless map['ASSERTION'].nil?)
-        data.gating = (Parsers::GatingRule.parse(map['GATING']) unless map['GATING'].nil?)
+        data.assertion = (AssertionRule.parse(map['ASSERTION']) unless map['ASSERTION'].nil?)
+        data.gating = (GatingRule.parse(map['GATING']) unless map['GATING'].nil?)
         return data
       end
     end
@@ -420,7 +420,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Map____mapOf__stringMin0Max256PatternS.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Map____mapOf__stringMin0Max256PatternS.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -458,7 +458,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(http_resp)
         data = Types::UpdateControlPanelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.control_panel = (Parsers::ControlPanel.parse(map['ControlPanel']) unless map['ControlPanel'].nil?)
+        data.control_panel = (ControlPanel.parse(map['ControlPanel']) unless map['ControlPanel'].nil?)
         data
       end
     end
@@ -468,7 +468,7 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(http_resp)
         data = Types::UpdateRoutingControlOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.routing_control = (Parsers::RoutingControl.parse(map['RoutingControl']) unless map['RoutingControl'].nil?)
+        data.routing_control = (RoutingControl.parse(map['RoutingControl']) unless map['RoutingControl'].nil?)
         data
       end
     end
@@ -478,8 +478,8 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.parse(http_resp)
         data = Types::UpdateSafetyRuleOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assertion_rule = (Parsers::AssertionRule.parse(map['AssertionRule']) unless map['AssertionRule'].nil?)
-        data.gating_rule = (Parsers::GatingRule.parse(map['GatingRule']) unless map['GatingRule'].nil?)
+        data.assertion_rule = (AssertionRule.parse(map['AssertionRule']) unless map['AssertionRule'].nil?)
+        data.gating_rule = (GatingRule.parse(map['GatingRule']) unless map['GatingRule'].nil?)
         data
       end
     end

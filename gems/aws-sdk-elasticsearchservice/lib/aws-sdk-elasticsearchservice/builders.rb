@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ElasticsearchService
   module Builders
 
@@ -38,8 +40,8 @@ module AWS::SDK::ElasticsearchService
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ARN'] = input[:arn] unless input[:arn].nil?
-        data['TagList'] = Builders::TagList.build(input[:tag_list]) unless input[:tag_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagList'] = TagList.build(input[:tag_list]) unless input[:tag_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -48,7 +50,7 @@ module AWS::SDK::ElasticsearchService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -96,7 +98,7 @@ module AWS::SDK::ElasticsearchService
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -112,21 +114,21 @@ module AWS::SDK::ElasticsearchService
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['ElasticsearchVersion'] = input[:elasticsearch_version] unless input[:elasticsearch_version].nil?
-        data['ElasticsearchClusterConfig'] = Builders::ElasticsearchClusterConfig.build(input[:elasticsearch_cluster_config]) unless input[:elasticsearch_cluster_config].nil?
-        data['EBSOptions'] = Builders::EBSOptions.build(input[:ebs_options]) unless input[:ebs_options].nil?
+        data['ElasticsearchClusterConfig'] = ElasticsearchClusterConfig.build(input[:elasticsearch_cluster_config]) unless input[:elasticsearch_cluster_config].nil?
+        data['EBSOptions'] = EBSOptions.build(input[:ebs_options]) unless input[:ebs_options].nil?
         data['AccessPolicies'] = input[:access_policies] unless input[:access_policies].nil?
-        data['SnapshotOptions'] = Builders::SnapshotOptions.build(input[:snapshot_options]) unless input[:snapshot_options].nil?
-        data['VPCOptions'] = Builders::VPCOptions.build(input[:vpc_options]) unless input[:vpc_options].nil?
-        data['CognitoOptions'] = Builders::CognitoOptions.build(input[:cognito_options]) unless input[:cognito_options].nil?
-        data['EncryptionAtRestOptions'] = Builders::EncryptionAtRestOptions.build(input[:encryption_at_rest_options]) unless input[:encryption_at_rest_options].nil?
-        data['NodeToNodeEncryptionOptions'] = Builders::NodeToNodeEncryptionOptions.build(input[:node_to_node_encryption_options]) unless input[:node_to_node_encryption_options].nil?
-        data['AdvancedOptions'] = Builders::AdvancedOptions.build(input[:advanced_options]) unless input[:advanced_options].nil?
-        data['LogPublishingOptions'] = Builders::LogPublishingOptions.build(input[:log_publishing_options]) unless input[:log_publishing_options].nil?
-        data['DomainEndpointOptions'] = Builders::DomainEndpointOptions.build(input[:domain_endpoint_options]) unless input[:domain_endpoint_options].nil?
-        data['AdvancedSecurityOptions'] = Builders::AdvancedSecurityOptionsInput.build(input[:advanced_security_options]) unless input[:advanced_security_options].nil?
-        data['AutoTuneOptions'] = Builders::AutoTuneOptionsInput.build(input[:auto_tune_options]) unless input[:auto_tune_options].nil?
-        data['TagList'] = Builders::TagList.build(input[:tag_list]) unless input[:tag_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SnapshotOptions'] = SnapshotOptions.build(input[:snapshot_options]) unless input[:snapshot_options].nil?
+        data['VPCOptions'] = VPCOptions.build(input[:vpc_options]) unless input[:vpc_options].nil?
+        data['CognitoOptions'] = CognitoOptions.build(input[:cognito_options]) unless input[:cognito_options].nil?
+        data['EncryptionAtRestOptions'] = EncryptionAtRestOptions.build(input[:encryption_at_rest_options]) unless input[:encryption_at_rest_options].nil?
+        data['NodeToNodeEncryptionOptions'] = NodeToNodeEncryptionOptions.build(input[:node_to_node_encryption_options]) unless input[:node_to_node_encryption_options].nil?
+        data['AdvancedOptions'] = AdvancedOptions.build(input[:advanced_options]) unless input[:advanced_options].nil?
+        data['LogPublishingOptions'] = LogPublishingOptions.build(input[:log_publishing_options]) unless input[:log_publishing_options].nil?
+        data['DomainEndpointOptions'] = DomainEndpointOptions.build(input[:domain_endpoint_options]) unless input[:domain_endpoint_options].nil?
+        data['AdvancedSecurityOptions'] = AdvancedSecurityOptionsInput.build(input[:advanced_security_options]) unless input[:advanced_security_options].nil?
+        data['AutoTuneOptions'] = AutoTuneOptionsInput.build(input[:auto_tune_options]) unless input[:auto_tune_options].nil?
+        data['TagList'] = TagList.build(input[:tag_list]) unless input[:tag_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -135,7 +137,7 @@ module AWS::SDK::ElasticsearchService
       def self.build(input)
         data = {}
         data['DesiredState'] = input[:desired_state] unless input[:desired_state].nil?
-        data['MaintenanceSchedules'] = Builders::AutoTuneMaintenanceScheduleList.build(input[:maintenance_schedules]) unless input[:maintenance_schedules].nil?
+        data['MaintenanceSchedules'] = AutoTuneMaintenanceScheduleList.build(input[:maintenance_schedules]) unless input[:maintenance_schedules].nil?
         data
       end
     end
@@ -145,7 +147,7 @@ module AWS::SDK::ElasticsearchService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AutoTuneMaintenanceSchedule.build(element) unless element.nil?
+          data << AutoTuneMaintenanceSchedule.build(element) unless element.nil?
         end
         data
       end
@@ -156,7 +158,7 @@ module AWS::SDK::ElasticsearchService
       def self.build(input)
         data = {}
         data['StartAt'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_at]).to_i unless input[:start_at].nil?
-        data['Duration'] = Builders::Duration.build(input[:duration]) unless input[:duration].nil?
+        data['Duration'] = Duration.build(input[:duration]) unless input[:duration].nil?
         data['CronExpressionForRecurrence'] = input[:cron_expression_for_recurrence] unless input[:cron_expression_for_recurrence].nil?
         data
       end
@@ -178,8 +180,8 @@ module AWS::SDK::ElasticsearchService
         data = {}
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
         data['InternalUserDatabaseEnabled'] = input[:internal_user_database_enabled] unless input[:internal_user_database_enabled].nil?
-        data['MasterUserOptions'] = Builders::MasterUserOptions.build(input[:master_user_options]) unless input[:master_user_options].nil?
-        data['SAMLOptions'] = Builders::SAMLOptionsInput.build(input[:saml_options]) unless input[:saml_options].nil?
+        data['MasterUserOptions'] = MasterUserOptions.build(input[:master_user_options]) unless input[:master_user_options].nil?
+        data['SAMLOptions'] = SAMLOptionsInput.build(input[:saml_options]) unless input[:saml_options].nil?
         data['AnonymousAuthEnabled'] = input[:anonymous_auth_enabled] unless input[:anonymous_auth_enabled].nil?
         data
       end
@@ -190,7 +192,7 @@ module AWS::SDK::ElasticsearchService
       def self.build(input)
         data = {}
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['Idp'] = Builders::SAMLIdp.build(input[:idp]) unless input[:idp].nil?
+        data['Idp'] = SAMLIdp.build(input[:idp]) unless input[:idp].nil?
         data['MasterUserName'] = input[:master_user_name] unless input[:master_user_name].nil?
         data['MasterBackendRole'] = input[:master_backend_role] unless input[:master_backend_role].nil?
         data['SubjectKey'] = input[:subject_key] unless input[:subject_key].nil?
@@ -239,7 +241,7 @@ module AWS::SDK::ElasticsearchService
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::LogPublishingOption.build(value) unless value.nil?
+          data[key] = LogPublishingOption.build(value) unless value.nil?
         end
         data
       end
@@ -301,8 +303,8 @@ module AWS::SDK::ElasticsearchService
     class VPCOptions
       def self.build(input)
         data = {}
-        data['SubnetIds'] = Builders::StringList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['SecurityGroupIds'] = Builders::StringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SubnetIds'] = StringList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['SecurityGroupIds'] = StringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data
       end
     end
@@ -347,13 +349,13 @@ module AWS::SDK::ElasticsearchService
         data['InstanceCount'] = input[:instance_count] unless input[:instance_count].nil?
         data['DedicatedMasterEnabled'] = input[:dedicated_master_enabled] unless input[:dedicated_master_enabled].nil?
         data['ZoneAwarenessEnabled'] = input[:zone_awareness_enabled] unless input[:zone_awareness_enabled].nil?
-        data['ZoneAwarenessConfig'] = Builders::ZoneAwarenessConfig.build(input[:zone_awareness_config]) unless input[:zone_awareness_config].nil?
+        data['ZoneAwarenessConfig'] = ZoneAwarenessConfig.build(input[:zone_awareness_config]) unless input[:zone_awareness_config].nil?
         data['DedicatedMasterType'] = input[:dedicated_master_type] unless input[:dedicated_master_type].nil?
         data['DedicatedMasterCount'] = input[:dedicated_master_count] unless input[:dedicated_master_count].nil?
         data['WarmEnabled'] = input[:warm_enabled] unless input[:warm_enabled].nil?
         data['WarmType'] = input[:warm_type] unless input[:warm_type].nil?
         data['WarmCount'] = input[:warm_count] unless input[:warm_count].nil?
-        data['ColdStorageOptions'] = Builders::ColdStorageOptions.build(input[:cold_storage_options]) unless input[:cold_storage_options].nil?
+        data['ColdStorageOptions'] = ColdStorageOptions.build(input[:cold_storage_options]) unless input[:cold_storage_options].nil?
         data
       end
     end
@@ -386,10 +388,10 @@ module AWS::SDK::ElasticsearchService
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['SourceDomainInfo'] = Builders::DomainInformation.build(input[:source_domain_info]) unless input[:source_domain_info].nil?
-        data['DestinationDomainInfo'] = Builders::DomainInformation.build(input[:destination_domain_info]) unless input[:destination_domain_info].nil?
+        data['SourceDomainInfo'] = DomainInformation.build(input[:source_domain_info]) unless input[:source_domain_info].nil?
+        data['DestinationDomainInfo'] = DomainInformation.build(input[:destination_domain_info]) unless input[:destination_domain_info].nil?
         data['ConnectionAlias'] = input[:connection_alias] unless input[:connection_alias].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -417,8 +419,8 @@ module AWS::SDK::ElasticsearchService
         data['PackageName'] = input[:package_name] unless input[:package_name].nil?
         data['PackageType'] = input[:package_type] unless input[:package_type].nil?
         data['PackageDescription'] = input[:package_description] unless input[:package_description].nil?
-        data['PackageSource'] = Builders::PackageSource.build(input[:package_source]) unless input[:package_source].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PackageSource'] = PackageSource.build(input[:package_source]) unless input[:package_source].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -529,7 +531,7 @@ module AWS::SDK::ElasticsearchService
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -595,8 +597,8 @@ module AWS::SDK::ElasticsearchService
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['DomainNames'] = Builders::DomainNameList.build(input[:domain_names]) unless input[:domain_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DomainNames'] = DomainNameList.build(input[:domain_names]) unless input[:domain_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -643,10 +645,10 @@ module AWS::SDK::ElasticsearchService
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -655,7 +657,7 @@ module AWS::SDK::ElasticsearchService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -666,7 +668,7 @@ module AWS::SDK::ElasticsearchService
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::ValueStringList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = ValueStringList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -692,10 +694,10 @@ module AWS::SDK::ElasticsearchService
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -709,10 +711,10 @@ module AWS::SDK::ElasticsearchService
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Filters'] = Builders::DescribePackagesFilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = DescribePackagesFilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -721,7 +723,7 @@ module AWS::SDK::ElasticsearchService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DescribePackagesFilter.build(element) unless element.nil?
+          data << DescribePackagesFilter.build(element) unless element.nil?
         end
         data
       end
@@ -732,7 +734,7 @@ module AWS::SDK::ElasticsearchService
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Value'] = Builders::DescribePackagesFilterValues.build(input[:value]) unless input[:value].nil?
+        data['Value'] = DescribePackagesFilterValues.build(input[:value]) unless input[:value].nil?
         data
       end
     end
@@ -966,7 +968,7 @@ module AWS::SDK::ElasticsearchService
         data['ReservedElasticsearchInstanceOfferingId'] = input[:reserved_elasticsearch_instance_offering_id] unless input[:reserved_elasticsearch_instance_offering_id].nil?
         data['ReservationName'] = input[:reservation_name] unless input[:reservation_name].nil?
         data['InstanceCount'] = input[:instance_count] unless input[:instance_count].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -998,8 +1000,8 @@ module AWS::SDK::ElasticsearchService
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ARN'] = input[:arn] unless input[:arn].nil?
-        data['TagKeys'] = Builders::StringList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = StringList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1014,7 +1016,7 @@ module AWS::SDK::ElasticsearchService
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1035,21 +1037,21 @@ module AWS::SDK::ElasticsearchService
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ElasticsearchClusterConfig'] = Builders::ElasticsearchClusterConfig.build(input[:elasticsearch_cluster_config]) unless input[:elasticsearch_cluster_config].nil?
-        data['EBSOptions'] = Builders::EBSOptions.build(input[:ebs_options]) unless input[:ebs_options].nil?
-        data['SnapshotOptions'] = Builders::SnapshotOptions.build(input[:snapshot_options]) unless input[:snapshot_options].nil?
-        data['VPCOptions'] = Builders::VPCOptions.build(input[:vpc_options]) unless input[:vpc_options].nil?
-        data['CognitoOptions'] = Builders::CognitoOptions.build(input[:cognito_options]) unless input[:cognito_options].nil?
-        data['AdvancedOptions'] = Builders::AdvancedOptions.build(input[:advanced_options]) unless input[:advanced_options].nil?
+        data['ElasticsearchClusterConfig'] = ElasticsearchClusterConfig.build(input[:elasticsearch_cluster_config]) unless input[:elasticsearch_cluster_config].nil?
+        data['EBSOptions'] = EBSOptions.build(input[:ebs_options]) unless input[:ebs_options].nil?
+        data['SnapshotOptions'] = SnapshotOptions.build(input[:snapshot_options]) unless input[:snapshot_options].nil?
+        data['VPCOptions'] = VPCOptions.build(input[:vpc_options]) unless input[:vpc_options].nil?
+        data['CognitoOptions'] = CognitoOptions.build(input[:cognito_options]) unless input[:cognito_options].nil?
+        data['AdvancedOptions'] = AdvancedOptions.build(input[:advanced_options]) unless input[:advanced_options].nil?
         data['AccessPolicies'] = input[:access_policies] unless input[:access_policies].nil?
-        data['LogPublishingOptions'] = Builders::LogPublishingOptions.build(input[:log_publishing_options]) unless input[:log_publishing_options].nil?
-        data['DomainEndpointOptions'] = Builders::DomainEndpointOptions.build(input[:domain_endpoint_options]) unless input[:domain_endpoint_options].nil?
-        data['AdvancedSecurityOptions'] = Builders::AdvancedSecurityOptionsInput.build(input[:advanced_security_options]) unless input[:advanced_security_options].nil?
-        data['NodeToNodeEncryptionOptions'] = Builders::NodeToNodeEncryptionOptions.build(input[:node_to_node_encryption_options]) unless input[:node_to_node_encryption_options].nil?
-        data['EncryptionAtRestOptions'] = Builders::EncryptionAtRestOptions.build(input[:encryption_at_rest_options]) unless input[:encryption_at_rest_options].nil?
-        data['AutoTuneOptions'] = Builders::AutoTuneOptions.build(input[:auto_tune_options]) unless input[:auto_tune_options].nil?
+        data['LogPublishingOptions'] = LogPublishingOptions.build(input[:log_publishing_options]) unless input[:log_publishing_options].nil?
+        data['DomainEndpointOptions'] = DomainEndpointOptions.build(input[:domain_endpoint_options]) unless input[:domain_endpoint_options].nil?
+        data['AdvancedSecurityOptions'] = AdvancedSecurityOptionsInput.build(input[:advanced_security_options]) unless input[:advanced_security_options].nil?
+        data['NodeToNodeEncryptionOptions'] = NodeToNodeEncryptionOptions.build(input[:node_to_node_encryption_options]) unless input[:node_to_node_encryption_options].nil?
+        data['EncryptionAtRestOptions'] = EncryptionAtRestOptions.build(input[:encryption_at_rest_options]) unless input[:encryption_at_rest_options].nil?
+        data['AutoTuneOptions'] = AutoTuneOptions.build(input[:auto_tune_options]) unless input[:auto_tune_options].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1059,7 +1061,7 @@ module AWS::SDK::ElasticsearchService
         data = {}
         data['DesiredState'] = input[:desired_state] unless input[:desired_state].nil?
         data['RollbackOnDisable'] = input[:rollback_on_disable] unless input[:rollback_on_disable].nil?
-        data['MaintenanceSchedules'] = Builders::AutoTuneMaintenanceScheduleList.build(input[:maintenance_schedules]) unless input[:maintenance_schedules].nil?
+        data['MaintenanceSchedules'] = AutoTuneMaintenanceScheduleList.build(input[:maintenance_schedules]) unless input[:maintenance_schedules].nil?
         data
       end
     end
@@ -1075,10 +1077,10 @@ module AWS::SDK::ElasticsearchService
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['PackageID'] = input[:package_id] unless input[:package_id].nil?
-        data['PackageSource'] = Builders::PackageSource.build(input[:package_source]) unless input[:package_source].nil?
+        data['PackageSource'] = PackageSource.build(input[:package_source]) unless input[:package_source].nil?
         data['PackageDescription'] = input[:package_description] unless input[:package_description].nil?
         data['CommitMessage'] = input[:commit_message] unless input[:commit_message].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1095,7 +1097,7 @@ module AWS::SDK::ElasticsearchService
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['TargetVersion'] = input[:target_version] unless input[:target_version].nil?
         data['PerformCheckOnly'] = input[:perform_check_only] unless input[:perform_check_only].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

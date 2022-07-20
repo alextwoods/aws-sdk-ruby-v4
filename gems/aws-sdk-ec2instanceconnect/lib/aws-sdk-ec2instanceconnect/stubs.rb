@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::EC2InstanceConnect
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::EC2InstanceConnect
         data = {}
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Success'] = stub[:success] unless stub[:success].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -41,7 +43,7 @@ module AWS::SDK::EC2InstanceConnect
         data = {}
         data['RequestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['Success'] = stub[:success] unless stub[:success].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

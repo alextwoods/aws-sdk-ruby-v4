@@ -42,8 +42,8 @@ module AWS::SDK::Panorama
         data.message = map['Message']
         data.reason = map['Reason']
         data.error_id = map['ErrorId']
-        data.error_arguments = (Parsers::ValidationExceptionErrorArgumentList.parse(map['ErrorArguments']) unless map['ErrorArguments'].nil?)
-        data.fields = (Parsers::ValidationExceptionFieldList.parse(map['Fields']) unless map['Fields'].nil?)
+        data.error_arguments = (ValidationExceptionErrorArgumentList.parse(map['ErrorArguments']) unless map['ErrorArguments'].nil?)
+        data.fields = (ValidationExceptionFieldList.parse(map['Fields']) unless map['Fields'].nil?)
         data
       end
     end
@@ -52,7 +52,7 @@ module AWS::SDK::Panorama
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          data << ValidationExceptionField.parse(value) unless value.nil?
         end
         data
       end
@@ -71,7 +71,7 @@ module AWS::SDK::Panorama
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionErrorArgument.parse(value) unless value.nil?
+          data << ValidationExceptionErrorArgument.parse(value) unless value.nil?
         end
         data
       end
@@ -112,7 +112,7 @@ module AWS::SDK::Panorama
       def self.parse(http_resp)
         data = Types::CreateJobForDevicesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.jobs = (Parsers::JobList.parse(map['Jobs']) unless map['Jobs'].nil?)
+        data.jobs = (JobList.parse(map['Jobs']) unless map['Jobs'].nil?)
         data
       end
     end
@@ -121,7 +121,7 @@ module AWS::SDK::Panorama
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Job.parse(value) unless value.nil?
+          data << Job.parse(value) unless value.nil?
         end
         data
       end
@@ -145,7 +145,7 @@ module AWS::SDK::Panorama
         data.resource_id = map['ResourceId']
         data.resource_type = map['ResourceType']
         data.error_id = map['ErrorId']
-        data.error_arguments = (Parsers::ConflictExceptionErrorArgumentList.parse(map['ErrorArguments']) unless map['ErrorArguments'].nil?)
+        data.error_arguments = (ConflictExceptionErrorArgumentList.parse(map['ErrorArguments']) unless map['ErrorArguments'].nil?)
         data
       end
     end
@@ -154,7 +154,7 @@ module AWS::SDK::Panorama
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ConflictExceptionErrorArgument.parse(value) unless value.nil?
+          data << ConflictExceptionErrorArgument.parse(value) unless value.nil?
         end
         data
       end
@@ -198,7 +198,7 @@ module AWS::SDK::Panorama
         map = Hearth::JSON.load(http_resp.body)
         data.package_id = map['PackageId']
         data.arn = map['Arn']
-        data.storage_location = (Parsers::StorageLocation.parse(map['StorageLocation']) unless map['StorageLocation'].nil?)
+        data.storage_location = (StorageLocation.parse(map['StorageLocation']) unless map['StorageLocation'].nil?)
         data
       end
     end
@@ -271,7 +271,7 @@ module AWS::SDK::Panorama
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.application_instance_id = map['ApplicationInstanceId']
         data.arn = map['Arn']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -294,8 +294,8 @@ module AWS::SDK::Panorama
         data.name = map['Name']
         data.description = map['Description']
         data.default_runtime_context_device = map['DefaultRuntimeContextDevice']
-        data.manifest_payload = (Parsers::ManifestPayload.parse(map['ManifestPayload']) unless map['ManifestPayload'].nil?)
-        data.manifest_overrides_payload = (Parsers::ManifestOverridesPayload.parse(map['ManifestOverridesPayload']) unless map['ManifestOverridesPayload'].nil?)
+        data.manifest_payload = (ManifestPayload.parse(map['ManifestPayload']) unless map['ManifestPayload'].nil?)
+        data.manifest_overrides_payload = (ManifestOverridesPayload.parse(map['ManifestOverridesPayload']) unless map['ManifestOverridesPayload'].nil?)
         data.application_instance_id_to_replace = map['ApplicationInstanceIdToReplace']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data.application_instance_id = map['ApplicationInstanceId']
@@ -345,11 +345,11 @@ module AWS::SDK::Panorama
         data.latest_software = map['LatestSoftware']
         data.current_software = map['CurrentSoftware']
         data.serial_number = map['SerialNumber']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
-        data.networking_configuration = (Parsers::NetworkPayload.parse(map['NetworkingConfiguration']) unless map['NetworkingConfiguration'].nil?)
-        data.current_networking_status = (Parsers::NetworkStatus.parse(map['CurrentNetworkingStatus']) unless map['CurrentNetworkingStatus'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.networking_configuration = (NetworkPayload.parse(map['NetworkingConfiguration']) unless map['NetworkingConfiguration'].nil?)
+        data.current_networking_status = (NetworkStatus.parse(map['CurrentNetworkingStatus']) unless map['CurrentNetworkingStatus'].nil?)
         data.lease_expiration_time = Time.at(map['LeaseExpirationTime'].to_i) if map['LeaseExpirationTime']
-        data.alternate_softwares = (Parsers::AlternateSoftwares.parse(map['AlternateSoftwares']) unless map['AlternateSoftwares'].nil?)
+        data.alternate_softwares = (AlternateSoftwares.parse(map['AlternateSoftwares']) unless map['AlternateSoftwares'].nil?)
         data.latest_alternate_software = map['LatestAlternateSoftware']
         data.brand = map['Brand']
         data
@@ -360,7 +360,7 @@ module AWS::SDK::Panorama
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AlternateSoftwareMetadata.parse(value) unless value.nil?
+          data << AlternateSoftwareMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -377,9 +377,9 @@ module AWS::SDK::Panorama
     class NetworkStatus
       def self.parse(map)
         data = Types::NetworkStatus.new
-        data.ethernet0_status = (Parsers::EthernetStatus.parse(map['Ethernet0Status']) unless map['Ethernet0Status'].nil?)
-        data.ethernet1_status = (Parsers::EthernetStatus.parse(map['Ethernet1Status']) unless map['Ethernet1Status'].nil?)
-        data.ntp_status = (Parsers::NtpStatus.parse(map['NtpStatus']) unless map['NtpStatus'].nil?)
+        data.ethernet0_status = (EthernetStatus.parse(map['Ethernet0Status']) unless map['Ethernet0Status'].nil?)
+        data.ethernet1_status = (EthernetStatus.parse(map['Ethernet1Status']) unless map['Ethernet1Status'].nil?)
+        data.ntp_status = (NtpStatus.parse(map['NtpStatus']) unless map['NtpStatus'].nil?)
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         return data
       end
@@ -408,9 +408,9 @@ module AWS::SDK::Panorama
     class NetworkPayload
       def self.parse(map)
         data = Types::NetworkPayload.new
-        data.ethernet0 = (Parsers::EthernetPayload.parse(map['Ethernet0']) unless map['Ethernet0'].nil?)
-        data.ethernet1 = (Parsers::EthernetPayload.parse(map['Ethernet1']) unless map['Ethernet1'].nil?)
-        data.ntp = (Parsers::NtpPayload.parse(map['Ntp']) unless map['Ntp'].nil?)
+        data.ethernet0 = (EthernetPayload.parse(map['Ethernet0']) unless map['Ethernet0'].nil?)
+        data.ethernet1 = (EthernetPayload.parse(map['Ethernet1']) unless map['Ethernet1'].nil?)
+        data.ntp = (NtpPayload.parse(map['Ntp']) unless map['Ntp'].nil?)
         return data
       end
     end
@@ -418,7 +418,7 @@ module AWS::SDK::Panorama
     class NtpPayload
       def self.parse(map)
         data = Types::NtpPayload.new
-        data.ntp_servers = (Parsers::NtpServerList.parse(map['NtpServers']) unless map['NtpServers'].nil?)
+        data.ntp_servers = (NtpServerList.parse(map['NtpServers']) unless map['NtpServers'].nil?)
         return data
       end
     end
@@ -437,7 +437,7 @@ module AWS::SDK::Panorama
       def self.parse(map)
         data = Types::EthernetPayload.new
         data.connection_type = map['ConnectionType']
-        data.static_ip_connection_info = (Parsers::StaticIpConnectionInfo.parse(map['StaticIpConnectionInfo']) unless map['StaticIpConnectionInfo'].nil?)
+        data.static_ip_connection_info = (StaticIpConnectionInfo.parse(map['StaticIpConnectionInfo']) unless map['StaticIpConnectionInfo'].nil?)
         return data
       end
     end
@@ -447,7 +447,7 @@ module AWS::SDK::Panorama
         data = Types::StaticIpConnectionInfo.new
         data.ip_address = map['IpAddress']
         data.mask = map['Mask']
-        data.dns = (Parsers::DnsList.parse(map['Dns']) unless map['Dns'].nil?)
+        data.dns = (DnsList.parse(map['Dns']) unless map['Dns'].nil?)
         data.default_gateway = map['DefaultGateway']
         return data
       end
@@ -494,7 +494,7 @@ module AWS::SDK::Panorama
         data.package_arn = map['PackageArn']
         data.package_version = map['PackageVersion']
         data.patch_version = map['PatchVersion']
-        data.node_interface = (Parsers::NodeInterface.parse(map['NodeInterface']) unless map['NodeInterface'].nil?)
+        data.node_interface = (NodeInterface.parse(map['NodeInterface']) unless map['NodeInterface'].nil?)
         data.asset_name = map['AssetName']
         data.description = map['Description']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
@@ -506,8 +506,8 @@ module AWS::SDK::Panorama
     class NodeInterface
       def self.parse(map)
         data = Types::NodeInterface.new
-        data.inputs = (Parsers::InputPortList.parse(map['Inputs']) unless map['Inputs'].nil?)
-        data.outputs = (Parsers::OutputPortList.parse(map['Outputs']) unless map['Outputs'].nil?)
+        data.inputs = (InputPortList.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.outputs = (OutputPortList.parse(map['Outputs']) unless map['Outputs'].nil?)
         return data
       end
     end
@@ -516,7 +516,7 @@ module AWS::SDK::Panorama
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NodeOutputPort.parse(value) unless value.nil?
+          data << NodeOutputPort.parse(value) unless value.nil?
         end
         data
       end
@@ -536,7 +536,7 @@ module AWS::SDK::Panorama
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NodeInputPort.parse(value) unless value.nil?
+          data << NodeInputPort.parse(value) unless value.nil?
         end
         data
       end
@@ -569,8 +569,8 @@ module AWS::SDK::Panorama
         data.node_name = map['NodeName']
         data.node_description = map['NodeDescription']
         data.template_type = map['TemplateType']
-        data.template_parameters = (Parsers::TemplateParametersMap.parse(map['TemplateParameters']) unless map['TemplateParameters'].nil?)
-        data.job_tags = (Parsers::JobTagsList.parse(map['JobTags']) unless map['JobTags'].nil?)
+        data.template_parameters = (TemplateParametersMap.parse(map['TemplateParameters']) unless map['TemplateParameters'].nil?)
+        data.job_tags = (JobTagsList.parse(map['JobTags']) unless map['JobTags'].nil?)
         data
       end
     end
@@ -579,7 +579,7 @@ module AWS::SDK::Panorama
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobResourceTags.parse(value) unless value.nil?
+          data << JobResourceTags.parse(value) unless value.nil?
         end
         data
       end
@@ -589,7 +589,7 @@ module AWS::SDK::Panorama
       def self.parse(map)
         data = Types::JobResourceTags.new
         data.resource_type = map['ResourceType']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -612,11 +612,11 @@ module AWS::SDK::Panorama
         data.package_id = map['PackageId']
         data.package_name = map['PackageName']
         data.arn = map['Arn']
-        data.storage_location = (Parsers::StorageLocation.parse(map['StorageLocation']) unless map['StorageLocation'].nil?)
-        data.read_access_principal_arns = (Parsers::PrincipalArnsList.parse(map['ReadAccessPrincipalArns']) unless map['ReadAccessPrincipalArns'].nil?)
-        data.write_access_principal_arns = (Parsers::PrincipalArnsList.parse(map['WriteAccessPrincipalArns']) unless map['WriteAccessPrincipalArns'].nil?)
+        data.storage_location = (StorageLocation.parse(map['StorageLocation']) unless map['StorageLocation'].nil?)
+        data.read_access_principal_arns = (PrincipalArnsList.parse(map['ReadAccessPrincipalArns']) unless map['ReadAccessPrincipalArns'].nil?)
+        data.write_access_principal_arns = (PrincipalArnsList.parse(map['WriteAccessPrincipalArns']) unless map['WriteAccessPrincipalArns'].nil?)
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -639,14 +639,14 @@ module AWS::SDK::Panorama
         data.job_id = map['JobId']
         data.client_token = map['ClientToken']
         data.job_type = map['JobType']
-        data.input_config = (Parsers::PackageImportJobInputConfig.parse(map['InputConfig']) unless map['InputConfig'].nil?)
-        data.output_config = (Parsers::PackageImportJobOutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
-        data.output = (Parsers::PackageImportJobOutput.parse(map['Output']) unless map['Output'].nil?)
+        data.input_config = (PackageImportJobInputConfig.parse(map['InputConfig']) unless map['InputConfig'].nil?)
+        data.output_config = (PackageImportJobOutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
+        data.output = (PackageImportJobOutput.parse(map['Output']) unless map['Output'].nil?)
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.status = map['Status']
         data.status_message = map['StatusMessage']
-        data.job_tags = (Parsers::JobTagsList.parse(map['JobTags']) unless map['JobTags'].nil?)
+        data.job_tags = (JobTagsList.parse(map['JobTags']) unless map['JobTags'].nil?)
         data
       end
     end
@@ -657,7 +657,7 @@ module AWS::SDK::Panorama
         data.package_id = map['PackageId']
         data.package_version = map['PackageVersion']
         data.patch_version = map['PatchVersion']
-        data.output_s3_location = (Parsers::OutPutS3Location.parse(map['OutputS3Location']) unless map['OutputS3Location'].nil?)
+        data.output_s3_location = (OutPutS3Location.parse(map['OutputS3Location']) unless map['OutputS3Location'].nil?)
         return data
       end
     end
@@ -674,7 +674,7 @@ module AWS::SDK::Panorama
     class PackageImportJobOutputConfig
       def self.parse(map)
         data = Types::PackageImportJobOutputConfig.new
-        data.package_version_output_config = (Parsers::PackageVersionOutputConfig.parse(map['PackageVersionOutputConfig']) unless map['PackageVersionOutputConfig'].nil?)
+        data.package_version_output_config = (PackageVersionOutputConfig.parse(map['PackageVersionOutputConfig']) unless map['PackageVersionOutputConfig'].nil?)
         return data
       end
     end
@@ -692,7 +692,7 @@ module AWS::SDK::Panorama
     class PackageImportJobInputConfig
       def self.parse(map)
         data = Types::PackageImportJobInputConfig.new
-        data.package_version_input_config = (Parsers::PackageVersionInputConfig.parse(map['PackageVersionInputConfig']) unless map['PackageVersionInputConfig'].nil?)
+        data.package_version_input_config = (PackageVersionInputConfig.parse(map['PackageVersionInputConfig']) unless map['PackageVersionInputConfig'].nil?)
         return data
       end
     end
@@ -700,7 +700,7 @@ module AWS::SDK::Panorama
     class PackageVersionInputConfig
       def self.parse(map)
         data = Types::PackageVersionInputConfig.new
-        data.s3_location = (Parsers::S3Location.parse(map['S3Location']) unless map['S3Location'].nil?)
+        data.s3_location = (S3Location.parse(map['S3Location']) unless map['S3Location'].nil?)
         return data
       end
     end
@@ -739,7 +739,7 @@ module AWS::SDK::Panorama
       def self.parse(http_resp)
         data = Types::ListApplicationInstanceDependenciesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.package_objects = (Parsers::PackageObjects.parse(map['PackageObjects']) unless map['PackageObjects'].nil?)
+        data.package_objects = (PackageObjects.parse(map['PackageObjects']) unless map['PackageObjects'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -749,7 +749,7 @@ module AWS::SDK::Panorama
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PackageObject.parse(value) unless value.nil?
+          data << PackageObject.parse(value) unless value.nil?
         end
         data
       end
@@ -770,7 +770,7 @@ module AWS::SDK::Panorama
       def self.parse(http_resp)
         data = Types::ListApplicationInstanceNodeInstancesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.node_instances = (Parsers::NodeInstances.parse(map['NodeInstances']) unless map['NodeInstances'].nil?)
+        data.node_instances = (NodeInstances.parse(map['NodeInstances']) unless map['NodeInstances'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -780,7 +780,7 @@ module AWS::SDK::Panorama
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NodeInstance.parse(value) unless value.nil?
+          data << NodeInstance.parse(value) unless value.nil?
         end
         data
       end
@@ -805,7 +805,7 @@ module AWS::SDK::Panorama
       def self.parse(http_resp)
         data = Types::ListApplicationInstancesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.application_instances = (Parsers::ApplicationInstances.parse(map['ApplicationInstances']) unless map['ApplicationInstances'].nil?)
+        data.application_instances = (ApplicationInstances.parse(map['ApplicationInstances']) unless map['ApplicationInstances'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -815,7 +815,7 @@ module AWS::SDK::Panorama
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ApplicationInstance.parse(value) unless value.nil?
+          data << ApplicationInstance.parse(value) unless value.nil?
         end
         data
       end
@@ -834,7 +834,7 @@ module AWS::SDK::Panorama
         data.status_description = map['StatusDescription']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         data.arn = map['Arn']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -844,7 +844,7 @@ module AWS::SDK::Panorama
       def self.parse(http_resp)
         data = Types::ListDevicesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.devices = (Parsers::DeviceList.parse(map['Devices']) unless map['Devices'].nil?)
+        data.devices = (DeviceList.parse(map['Devices']) unless map['Devices'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -854,7 +854,7 @@ module AWS::SDK::Panorama
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Device.parse(value) unless value.nil?
+          data << Device.parse(value) unless value.nil?
         end
         data
       end
@@ -879,7 +879,7 @@ module AWS::SDK::Panorama
       def self.parse(http_resp)
         data = Types::ListDevicesJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.device_jobs = (Parsers::DeviceJobList.parse(map['DeviceJobs']) unless map['DeviceJobs'].nil?)
+        data.device_jobs = (DeviceJobList.parse(map['DeviceJobs']) unless map['DeviceJobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -889,7 +889,7 @@ module AWS::SDK::Panorama
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DeviceJob.parse(value) unless value.nil?
+          data << DeviceJob.parse(value) unless value.nil?
         end
         data
       end
@@ -911,7 +911,7 @@ module AWS::SDK::Panorama
       def self.parse(http_resp)
         data = Types::ListNodeFromTemplateJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.node_from_template_jobs = (Parsers::NodeFromTemplateJobList.parse(map['NodeFromTemplateJobs']) unless map['NodeFromTemplateJobs'].nil?)
+        data.node_from_template_jobs = (NodeFromTemplateJobList.parse(map['NodeFromTemplateJobs']) unless map['NodeFromTemplateJobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -921,7 +921,7 @@ module AWS::SDK::Panorama
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NodeFromTemplateJob.parse(value) unless value.nil?
+          data << NodeFromTemplateJob.parse(value) unless value.nil?
         end
         data
       end
@@ -945,7 +945,7 @@ module AWS::SDK::Panorama
       def self.parse(http_resp)
         data = Types::ListNodesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.nodes = (Parsers::NodesList.parse(map['Nodes']) unless map['Nodes'].nil?)
+        data.nodes = (NodesList.parse(map['Nodes']) unless map['Nodes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -955,7 +955,7 @@ module AWS::SDK::Panorama
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Node.parse(value) unless value.nil?
+          data << Node.parse(value) unless value.nil?
         end
         data
       end
@@ -984,7 +984,7 @@ module AWS::SDK::Panorama
       def self.parse(http_resp)
         data = Types::ListPackageImportJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.package_import_jobs = (Parsers::PackageImportJobList.parse(map['PackageImportJobs']) unless map['PackageImportJobs'].nil?)
+        data.package_import_jobs = (PackageImportJobList.parse(map['PackageImportJobs']) unless map['PackageImportJobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -994,7 +994,7 @@ module AWS::SDK::Panorama
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PackageImportJob.parse(value) unless value.nil?
+          data << PackageImportJob.parse(value) unless value.nil?
         end
         data
       end
@@ -1018,7 +1018,7 @@ module AWS::SDK::Panorama
       def self.parse(http_resp)
         data = Types::ListPackagesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.packages = (Parsers::PackageList.parse(map['Packages']) unless map['Packages'].nil?)
+        data.packages = (PackageList.parse(map['Packages']) unless map['Packages'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1028,7 +1028,7 @@ module AWS::SDK::Panorama
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PackageListItem.parse(value) unless value.nil?
+          data << PackageListItem.parse(value) unless value.nil?
         end
         data
       end
@@ -1041,7 +1041,7 @@ module AWS::SDK::Panorama
         data.package_name = map['PackageName']
         data.arn = map['Arn']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -1051,7 +1051,7 @@ module AWS::SDK::Panorama
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end

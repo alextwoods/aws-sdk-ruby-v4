@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Transfer
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::Transfer
         data = {}
         data['ServerId'] = stub[:server_id] unless stub[:server_id].nil?
         data['ExternalId'] = stub[:external_id] unless stub[:external_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -39,7 +41,7 @@ module AWS::SDK::Transfer
       def self.stub(http_resp, stub:)
         data = {}
         data['ServerId'] = stub[:server_id] unless stub[:server_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -57,7 +59,7 @@ module AWS::SDK::Transfer
         data = {}
         data['ServerId'] = stub[:server_id] unless stub[:server_id].nil?
         data['UserName'] = stub[:user_name] unless stub[:user_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -73,7 +75,7 @@ module AWS::SDK::Transfer
       def self.stub(http_resp, stub:)
         data = {}
         data['WorkflowId'] = stub[:workflow_id] unless stub[:workflow_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -87,7 +89,7 @@ module AWS::SDK::Transfer
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -101,7 +103,7 @@ module AWS::SDK::Transfer
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -115,7 +117,7 @@ module AWS::SDK::Transfer
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -129,7 +131,7 @@ module AWS::SDK::Transfer
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -143,7 +145,7 @@ module AWS::SDK::Transfer
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -160,8 +162,8 @@ module AWS::SDK::Transfer
       def self.stub(http_resp, stub:)
         data = {}
         data['ServerId'] = stub[:server_id] unless stub[:server_id].nil?
-        data['Access'] = Stubs::DescribedAccess.stub(stub[:access]) unless stub[:access].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Access'] = DescribedAccess.stub(stub[:access]) unless stub[:access].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -186,10 +188,10 @@ module AWS::SDK::Transfer
         stub ||= Types::DescribedAccess.new
         data = {}
         data['HomeDirectory'] = stub[:home_directory] unless stub[:home_directory].nil?
-        data['HomeDirectoryMappings'] = Stubs::HomeDirectoryMappings.stub(stub[:home_directory_mappings]) unless stub[:home_directory_mappings].nil?
+        data['HomeDirectoryMappings'] = HomeDirectoryMappings.stub(stub[:home_directory_mappings]) unless stub[:home_directory_mappings].nil?
         data['HomeDirectoryType'] = stub[:home_directory_type] unless stub[:home_directory_type].nil?
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
-        data['PosixProfile'] = Stubs::PosixProfile.stub(stub[:posix_profile]) unless stub[:posix_profile].nil?
+        data['PosixProfile'] = PosixProfile.stub(stub[:posix_profile]) unless stub[:posix_profile].nil?
         data['Role'] = stub[:role] unless stub[:role].nil?
         data['ExternalId'] = stub[:external_id] unless stub[:external_id].nil?
         data
@@ -213,7 +215,7 @@ module AWS::SDK::Transfer
         data = {}
         data['Uid'] = stub[:uid] unless stub[:uid].nil?
         data['Gid'] = stub[:gid] unless stub[:gid].nil?
-        data['SecondaryGids'] = Stubs::SecondaryGids.stub(stub[:secondary_gids]) unless stub[:secondary_gids].nil?
+        data['SecondaryGids'] = SecondaryGids.stub(stub[:secondary_gids]) unless stub[:secondary_gids].nil?
         data
       end
     end
@@ -252,7 +254,7 @@ module AWS::SDK::Transfer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HomeDirectoryMapEntry.stub(element) unless element.nil?
+          data << HomeDirectoryMapEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -290,8 +292,8 @@ module AWS::SDK::Transfer
       def self.stub(http_resp, stub:)
         data = {}
         data['WorkflowId'] = stub[:workflow_id] unless stub[:workflow_id].nil?
-        data['Execution'] = Stubs::DescribedExecution.stub(stub[:execution]) unless stub[:execution].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Execution'] = DescribedExecution.stub(stub[:execution]) unless stub[:execution].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -317,13 +319,13 @@ module AWS::SDK::Transfer
         stub ||= Types::DescribedExecution.new
         data = {}
         data['ExecutionId'] = stub[:execution_id] unless stub[:execution_id].nil?
-        data['InitialFileLocation'] = Stubs::FileLocation.stub(stub[:initial_file_location]) unless stub[:initial_file_location].nil?
-        data['ServiceMetadata'] = Stubs::ServiceMetadata.stub(stub[:service_metadata]) unless stub[:service_metadata].nil?
+        data['InitialFileLocation'] = FileLocation.stub(stub[:initial_file_location]) unless stub[:initial_file_location].nil?
+        data['ServiceMetadata'] = ServiceMetadata.stub(stub[:service_metadata]) unless stub[:service_metadata].nil?
         data['ExecutionRole'] = stub[:execution_role] unless stub[:execution_role].nil?
-        data['LoggingConfiguration'] = Stubs::LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
-        data['PosixProfile'] = Stubs::PosixProfile.stub(stub[:posix_profile]) unless stub[:posix_profile].nil?
+        data['LoggingConfiguration'] = LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
+        data['PosixProfile'] = PosixProfile.stub(stub[:posix_profile]) unless stub[:posix_profile].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Results'] = Stubs::ExecutionResults.stub(stub[:results]) unless stub[:results].nil?
+        data['Results'] = ExecutionResults.stub(stub[:results]) unless stub[:results].nil?
         data
       end
     end
@@ -342,8 +344,8 @@ module AWS::SDK::Transfer
       def self.stub(stub)
         stub ||= Types::ExecutionResults.new
         data = {}
-        data['Steps'] = Stubs::ExecutionStepResults.stub(stub[:steps]) unless stub[:steps].nil?
-        data['OnExceptionSteps'] = Stubs::ExecutionStepResults.stub(stub[:on_exception_steps]) unless stub[:on_exception_steps].nil?
+        data['Steps'] = ExecutionStepResults.stub(stub[:steps]) unless stub[:steps].nil?
+        data['OnExceptionSteps'] = ExecutionStepResults.stub(stub[:on_exception_steps]) unless stub[:on_exception_steps].nil?
         data
       end
     end
@@ -362,7 +364,7 @@ module AWS::SDK::Transfer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExecutionStepResult.stub(element) unless element.nil?
+          data << ExecutionStepResult.stub(element) unless element.nil?
         end
         data
       end
@@ -385,7 +387,7 @@ module AWS::SDK::Transfer
         data = {}
         data['StepType'] = stub[:step_type] unless stub[:step_type].nil?
         data['Outputs'] = stub[:outputs] unless stub[:outputs].nil?
-        data['Error'] = Stubs::ExecutionError.stub(stub[:error]) unless stub[:error].nil?
+        data['Error'] = ExecutionError.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -443,7 +445,7 @@ module AWS::SDK::Transfer
       def self.stub(stub)
         stub ||= Types::ServiceMetadata.new
         data = {}
-        data['UserDetails'] = Stubs::UserDetails.stub(stub[:user_details]) unless stub[:user_details].nil?
+        data['UserDetails'] = UserDetails.stub(stub[:user_details]) unless stub[:user_details].nil?
         data
       end
     end
@@ -484,8 +486,8 @@ module AWS::SDK::Transfer
       def self.stub(stub)
         stub ||= Types::FileLocation.new
         data = {}
-        data['S3FileLocation'] = Stubs::S3FileLocation.stub(stub[:s3_file_location]) unless stub[:s3_file_location].nil?
-        data['EfsFileLocation'] = Stubs::EfsFileLocation.stub(stub[:efs_file_location]) unless stub[:efs_file_location].nil?
+        data['S3FileLocation'] = S3FileLocation.stub(stub[:s3_file_location]) unless stub[:s3_file_location].nil?
+        data['EfsFileLocation'] = EfsFileLocation.stub(stub[:efs_file_location]) unless stub[:efs_file_location].nil?
         data
       end
     end
@@ -544,8 +546,8 @@ module AWS::SDK::Transfer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SecurityPolicy'] = Stubs::DescribedSecurityPolicy.stub(stub[:security_policy]) unless stub[:security_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SecurityPolicy'] = DescribedSecurityPolicy.stub(stub[:security_policy]) unless stub[:security_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -570,10 +572,10 @@ module AWS::SDK::Transfer
         data = {}
         data['Fips'] = stub[:fips] unless stub[:fips].nil?
         data['SecurityPolicyName'] = stub[:security_policy_name] unless stub[:security_policy_name].nil?
-        data['SshCiphers'] = Stubs::SecurityPolicyOptions.stub(stub[:ssh_ciphers]) unless stub[:ssh_ciphers].nil?
-        data['SshKexs'] = Stubs::SecurityPolicyOptions.stub(stub[:ssh_kexs]) unless stub[:ssh_kexs].nil?
-        data['SshMacs'] = Stubs::SecurityPolicyOptions.stub(stub[:ssh_macs]) unless stub[:ssh_macs].nil?
-        data['TlsCiphers'] = Stubs::SecurityPolicyOptions.stub(stub[:tls_ciphers]) unless stub[:tls_ciphers].nil?
+        data['SshCiphers'] = SecurityPolicyOptions.stub(stub[:ssh_ciphers]) unless stub[:ssh_ciphers].nil?
+        data['SshKexs'] = SecurityPolicyOptions.stub(stub[:ssh_kexs]) unless stub[:ssh_kexs].nil?
+        data['SshMacs'] = SecurityPolicyOptions.stub(stub[:ssh_macs]) unless stub[:ssh_macs].nil?
+        data['TlsCiphers'] = SecurityPolicyOptions.stub(stub[:tls_ciphers]) unless stub[:tls_ciphers].nil?
         data
       end
     end
@@ -608,8 +610,8 @@ module AWS::SDK::Transfer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Server'] = Stubs::DescribedServer.stub(stub[:server]) unless stub[:server].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Server'] = DescribedServer.stub(stub[:server]) unless stub[:server].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -647,23 +649,23 @@ module AWS::SDK::Transfer
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Certificate'] = stub[:certificate] unless stub[:certificate].nil?
-        data['ProtocolDetails'] = Stubs::ProtocolDetails.stub(stub[:protocol_details]) unless stub[:protocol_details].nil?
+        data['ProtocolDetails'] = ProtocolDetails.stub(stub[:protocol_details]) unless stub[:protocol_details].nil?
         data['Domain'] = stub[:domain] unless stub[:domain].nil?
-        data['EndpointDetails'] = Stubs::EndpointDetails.stub(stub[:endpoint_details]) unless stub[:endpoint_details].nil?
+        data['EndpointDetails'] = EndpointDetails.stub(stub[:endpoint_details]) unless stub[:endpoint_details].nil?
         data['EndpointType'] = stub[:endpoint_type] unless stub[:endpoint_type].nil?
         data['HostKeyFingerprint'] = stub[:host_key_fingerprint] unless stub[:host_key_fingerprint].nil?
-        data['IdentityProviderDetails'] = Stubs::IdentityProviderDetails.stub(stub[:identity_provider_details]) unless stub[:identity_provider_details].nil?
+        data['IdentityProviderDetails'] = IdentityProviderDetails.stub(stub[:identity_provider_details]) unless stub[:identity_provider_details].nil?
         data['IdentityProviderType'] = stub[:identity_provider_type] unless stub[:identity_provider_type].nil?
         data['LoggingRole'] = stub[:logging_role] unless stub[:logging_role].nil?
         data['PostAuthenticationLoginBanner'] = stub[:post_authentication_login_banner] unless stub[:post_authentication_login_banner].nil?
         data['PreAuthenticationLoginBanner'] = stub[:pre_authentication_login_banner] unless stub[:pre_authentication_login_banner].nil?
-        data['Protocols'] = Stubs::Protocols.stub(stub[:protocols]) unless stub[:protocols].nil?
+        data['Protocols'] = Protocols.stub(stub[:protocols]) unless stub[:protocols].nil?
         data['SecurityPolicyName'] = stub[:security_policy_name] unless stub[:security_policy_name].nil?
         data['ServerId'] = stub[:server_id] unless stub[:server_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['UserCount'] = stub[:user_count] unless stub[:user_count].nil?
-        data['WorkflowDetails'] = Stubs::WorkflowDetails.stub(stub[:workflow_details]) unless stub[:workflow_details].nil?
+        data['WorkflowDetails'] = WorkflowDetails.stub(stub[:workflow_details]) unless stub[:workflow_details].nil?
         data
       end
     end
@@ -681,7 +683,7 @@ module AWS::SDK::Transfer
       def self.stub(stub)
         stub ||= Types::WorkflowDetails.new
         data = {}
-        data['OnUpload'] = Stubs::OnUploadWorkflowDetails.stub(stub[:on_upload]) unless stub[:on_upload].nil?
+        data['OnUpload'] = OnUploadWorkflowDetails.stub(stub[:on_upload]) unless stub[:on_upload].nil?
         data
       end
     end
@@ -700,7 +702,7 @@ module AWS::SDK::Transfer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkflowDetail.stub(element) unless element.nil?
+          data << WorkflowDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -740,7 +742,7 @@ module AWS::SDK::Transfer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -827,11 +829,11 @@ module AWS::SDK::Transfer
       def self.stub(stub)
         stub ||= Types::EndpointDetails.new
         data = {}
-        data['AddressAllocationIds'] = Stubs::AddressAllocationIds.stub(stub[:address_allocation_ids]) unless stub[:address_allocation_ids].nil?
-        data['SubnetIds'] = Stubs::SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['AddressAllocationIds'] = AddressAllocationIds.stub(stub[:address_allocation_ids]) unless stub[:address_allocation_ids].nil?
+        data['SubnetIds'] = SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
         data['VpcEndpointId'] = stub[:vpc_endpoint_id] unless stub[:vpc_endpoint_id].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['SecurityGroupIds'] = Stubs::SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data
       end
     end
@@ -930,8 +932,8 @@ module AWS::SDK::Transfer
       def self.stub(http_resp, stub:)
         data = {}
         data['ServerId'] = stub[:server_id] unless stub[:server_id].nil?
-        data['User'] = Stubs::DescribedUser.stub(stub[:user]) unless stub[:user].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['User'] = DescribedUser.stub(stub[:user]) unless stub[:user].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -960,13 +962,13 @@ module AWS::SDK::Transfer
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['HomeDirectory'] = stub[:home_directory] unless stub[:home_directory].nil?
-        data['HomeDirectoryMappings'] = Stubs::HomeDirectoryMappings.stub(stub[:home_directory_mappings]) unless stub[:home_directory_mappings].nil?
+        data['HomeDirectoryMappings'] = HomeDirectoryMappings.stub(stub[:home_directory_mappings]) unless stub[:home_directory_mappings].nil?
         data['HomeDirectoryType'] = stub[:home_directory_type] unless stub[:home_directory_type].nil?
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
-        data['PosixProfile'] = Stubs::PosixProfile.stub(stub[:posix_profile]) unless stub[:posix_profile].nil?
+        data['PosixProfile'] = PosixProfile.stub(stub[:posix_profile]) unless stub[:posix_profile].nil?
         data['Role'] = stub[:role] unless stub[:role].nil?
-        data['SshPublicKeys'] = Stubs::SshPublicKeys.stub(stub[:ssh_public_keys]) unless stub[:ssh_public_keys].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['SshPublicKeys'] = SshPublicKeys.stub(stub[:ssh_public_keys]) unless stub[:ssh_public_keys].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['UserName'] = stub[:user_name] unless stub[:user_name].nil?
         data
       end
@@ -986,7 +988,7 @@ module AWS::SDK::Transfer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SshPublicKey.stub(element) unless element.nil?
+          data << SshPublicKey.stub(element) unless element.nil?
         end
         data
       end
@@ -1024,8 +1026,8 @@ module AWS::SDK::Transfer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Workflow'] = Stubs::DescribedWorkflow.stub(stub[:workflow]) unless stub[:workflow].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Workflow'] = DescribedWorkflow.stub(stub[:workflow]) unless stub[:workflow].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1050,10 +1052,10 @@ module AWS::SDK::Transfer
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Steps'] = Stubs::WorkflowSteps.stub(stub[:steps]) unless stub[:steps].nil?
-        data['OnExceptionSteps'] = Stubs::WorkflowSteps.stub(stub[:on_exception_steps]) unless stub[:on_exception_steps].nil?
+        data['Steps'] = WorkflowSteps.stub(stub[:steps]) unless stub[:steps].nil?
+        data['OnExceptionSteps'] = WorkflowSteps.stub(stub[:on_exception_steps]) unless stub[:on_exception_steps].nil?
         data['WorkflowId'] = stub[:workflow_id] unless stub[:workflow_id].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1072,7 +1074,7 @@ module AWS::SDK::Transfer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkflowStep.stub(element) unless element.nil?
+          data << WorkflowStep.stub(element) unless element.nil?
         end
         data
       end
@@ -1096,10 +1098,10 @@ module AWS::SDK::Transfer
         stub ||= Types::WorkflowStep.new
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['CopyStepDetails'] = Stubs::CopyStepDetails.stub(stub[:copy_step_details]) unless stub[:copy_step_details].nil?
-        data['CustomStepDetails'] = Stubs::CustomStepDetails.stub(stub[:custom_step_details]) unless stub[:custom_step_details].nil?
-        data['DeleteStepDetails'] = Stubs::DeleteStepDetails.stub(stub[:delete_step_details]) unless stub[:delete_step_details].nil?
-        data['TagStepDetails'] = Stubs::TagStepDetails.stub(stub[:tag_step_details]) unless stub[:tag_step_details].nil?
+        data['CopyStepDetails'] = CopyStepDetails.stub(stub[:copy_step_details]) unless stub[:copy_step_details].nil?
+        data['CustomStepDetails'] = CustomStepDetails.stub(stub[:custom_step_details]) unless stub[:custom_step_details].nil?
+        data['DeleteStepDetails'] = DeleteStepDetails.stub(stub[:delete_step_details]) unless stub[:delete_step_details].nil?
+        data['TagStepDetails'] = TagStepDetails.stub(stub[:tag_step_details]) unless stub[:tag_step_details].nil?
         data
       end
     end
@@ -1120,7 +1122,7 @@ module AWS::SDK::Transfer
         stub ||= Types::TagStepDetails.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Tags'] = Stubs::S3Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = S3Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['SourceFileLocation'] = stub[:source_file_location] unless stub[:source_file_location].nil?
         data
       end
@@ -1140,7 +1142,7 @@ module AWS::SDK::Transfer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::S3Tag.stub(element) unless element.nil?
+          data << S3Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1227,7 +1229,7 @@ module AWS::SDK::Transfer
         stub ||= Types::CopyStepDetails.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['DestinationFileLocation'] = Stubs::InputFileLocation.stub(stub[:destination_file_location]) unless stub[:destination_file_location].nil?
+        data['DestinationFileLocation'] = InputFileLocation.stub(stub[:destination_file_location]) unless stub[:destination_file_location].nil?
         data['OverwriteExisting'] = stub[:overwrite_existing] unless stub[:overwrite_existing].nil?
         data['SourceFileLocation'] = stub[:source_file_location] unless stub[:source_file_location].nil?
         data
@@ -1248,8 +1250,8 @@ module AWS::SDK::Transfer
       def self.stub(stub)
         stub ||= Types::InputFileLocation.new
         data = {}
-        data['S3FileLocation'] = Stubs::S3InputFileLocation.stub(stub[:s3_file_location]) unless stub[:s3_file_location].nil?
-        data['EfsFileLocation'] = Stubs::EfsFileLocation.stub(stub[:efs_file_location]) unless stub[:efs_file_location].nil?
+        data['S3FileLocation'] = S3InputFileLocation.stub(stub[:s3_file_location]) unless stub[:s3_file_location].nil?
+        data['EfsFileLocation'] = EfsFileLocation.stub(stub[:efs_file_location]) unless stub[:efs_file_location].nil?
         data
       end
     end
@@ -1289,7 +1291,7 @@ module AWS::SDK::Transfer
         data['ServerId'] = stub[:server_id] unless stub[:server_id].nil?
         data['SshPublicKeyId'] = stub[:ssh_public_key_id] unless stub[:ssh_public_key_id].nil?
         data['UserName'] = stub[:user_name] unless stub[:user_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1308,8 +1310,8 @@ module AWS::SDK::Transfer
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['ServerId'] = stub[:server_id] unless stub[:server_id].nil?
-        data['Accesses'] = Stubs::ListedAccesses.stub(stub[:accesses]) unless stub[:accesses].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Accesses'] = ListedAccesses.stub(stub[:accesses]) unless stub[:accesses].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1328,7 +1330,7 @@ module AWS::SDK::Transfer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListedAccess.stub(element) unless element.nil?
+          data << ListedAccess.stub(element) unless element.nil?
         end
         data
       end
@@ -1372,8 +1374,8 @@ module AWS::SDK::Transfer
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['WorkflowId'] = stub[:workflow_id] unless stub[:workflow_id].nil?
-        data['Executions'] = Stubs::ListedExecutions.stub(stub[:executions]) unless stub[:executions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Executions'] = ListedExecutions.stub(stub[:executions]) unless stub[:executions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1392,7 +1394,7 @@ module AWS::SDK::Transfer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListedExecution.stub(element) unless element.nil?
+          data << ListedExecution.stub(element) unless element.nil?
         end
         data
       end
@@ -1415,8 +1417,8 @@ module AWS::SDK::Transfer
         stub ||= Types::ListedExecution.new
         data = {}
         data['ExecutionId'] = stub[:execution_id] unless stub[:execution_id].nil?
-        data['InitialFileLocation'] = Stubs::FileLocation.stub(stub[:initial_file_location]) unless stub[:initial_file_location].nil?
-        data['ServiceMetadata'] = Stubs::ServiceMetadata.stub(stub[:service_metadata]) unless stub[:service_metadata].nil?
+        data['InitialFileLocation'] = FileLocation.stub(stub[:initial_file_location]) unless stub[:initial_file_location].nil?
+        data['ServiceMetadata'] = ServiceMetadata.stub(stub[:service_metadata]) unless stub[:service_metadata].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data
       end
@@ -1434,8 +1436,8 @@ module AWS::SDK::Transfer
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['SecurityPolicyNames'] = Stubs::SecurityPolicyNames.stub(stub[:security_policy_names]) unless stub[:security_policy_names].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SecurityPolicyNames'] = SecurityPolicyNames.stub(stub[:security_policy_names]) unless stub[:security_policy_names].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1472,8 +1474,8 @@ module AWS::SDK::Transfer
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Servers'] = Stubs::ListedServers.stub(stub[:servers]) unless stub[:servers].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Servers'] = ListedServers.stub(stub[:servers]) unless stub[:servers].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1492,7 +1494,7 @@ module AWS::SDK::Transfer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListedServer.stub(element) unless element.nil?
+          data << ListedServer.stub(element) unless element.nil?
         end
         data
       end
@@ -1544,8 +1546,8 @@ module AWS::SDK::Transfer
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1564,8 +1566,8 @@ module AWS::SDK::Transfer
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['ServerId'] = stub[:server_id] unless stub[:server_id].nil?
-        data['Users'] = Stubs::ListedUsers.stub(stub[:users]) unless stub[:users].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Users'] = ListedUsers.stub(stub[:users]) unless stub[:users].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1584,7 +1586,7 @@ module AWS::SDK::Transfer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListedUser.stub(element) unless element.nil?
+          data << ListedUser.stub(element) unless element.nil?
         end
         data
       end
@@ -1630,8 +1632,8 @@ module AWS::SDK::Transfer
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Workflows'] = Stubs::ListedWorkflows.stub(stub[:workflows]) unless stub[:workflows].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Workflows'] = ListedWorkflows.stub(stub[:workflows]) unless stub[:workflows].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1650,7 +1652,7 @@ module AWS::SDK::Transfer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListedWorkflow.stub(element) unless element.nil?
+          data << ListedWorkflow.stub(element) unless element.nil?
         end
         data
       end
@@ -1687,7 +1689,7 @@ module AWS::SDK::Transfer
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1701,7 +1703,7 @@ module AWS::SDK::Transfer
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1715,7 +1717,7 @@ module AWS::SDK::Transfer
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1729,7 +1731,7 @@ module AWS::SDK::Transfer
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1751,7 +1753,7 @@ module AWS::SDK::Transfer
         data['StatusCode'] = stub[:status_code] unless stub[:status_code].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['Url'] = stub[:url] unless stub[:url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1765,7 +1767,7 @@ module AWS::SDK::Transfer
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1783,7 +1785,7 @@ module AWS::SDK::Transfer
         data = {}
         data['ServerId'] = stub[:server_id] unless stub[:server_id].nil?
         data['ExternalId'] = stub[:external_id] unless stub[:external_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1799,7 +1801,7 @@ module AWS::SDK::Transfer
       def self.stub(http_resp, stub:)
         data = {}
         data['ServerId'] = stub[:server_id] unless stub[:server_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1817,7 +1819,7 @@ module AWS::SDK::Transfer
         data = {}
         data['ServerId'] = stub[:server_id] unless stub[:server_id].nil?
         data['UserName'] = stub[:user_name] unless stub[:user_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

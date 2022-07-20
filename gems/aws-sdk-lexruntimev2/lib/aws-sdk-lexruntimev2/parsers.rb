@@ -89,9 +89,9 @@ module AWS::SDK::LexRuntimeV2
         data = Types::GetSessionOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.session_id = map['sessionId']
-        data.messages = (Parsers::Messages.parse(map['messages']) unless map['messages'].nil?)
-        data.interpretations = (Parsers::Interpretations.parse(map['interpretations']) unless map['interpretations'].nil?)
-        data.session_state = (Parsers::SessionState.parse(map['sessionState']) unless map['sessionState'].nil?)
+        data.messages = (Messages.parse(map['messages']) unless map['messages'].nil?)
+        data.interpretations = (Interpretations.parse(map['interpretations']) unless map['interpretations'].nil?)
+        data.session_state = (SessionState.parse(map['sessionState']) unless map['sessionState'].nil?)
         data
       end
     end
@@ -99,12 +99,12 @@ module AWS::SDK::LexRuntimeV2
     class SessionState
       def self.parse(map)
         data = Types::SessionState.new
-        data.dialog_action = (Parsers::DialogAction.parse(map['dialogAction']) unless map['dialogAction'].nil?)
-        data.intent = (Parsers::Intent.parse(map['intent']) unless map['intent'].nil?)
-        data.active_contexts = (Parsers::ActiveContextsList.parse(map['activeContexts']) unless map['activeContexts'].nil?)
-        data.session_attributes = (Parsers::StringMap.parse(map['sessionAttributes']) unless map['sessionAttributes'].nil?)
+        data.dialog_action = (DialogAction.parse(map['dialogAction']) unless map['dialogAction'].nil?)
+        data.intent = (Intent.parse(map['intent']) unless map['intent'].nil?)
+        data.active_contexts = (ActiveContextsList.parse(map['activeContexts']) unless map['activeContexts'].nil?)
+        data.session_attributes = (StringMap.parse(map['sessionAttributes']) unless map['sessionAttributes'].nil?)
         data.originating_request_id = map['originatingRequestId']
-        data.runtime_hints = (Parsers::RuntimeHints.parse(map['runtimeHints']) unless map['runtimeHints'].nil?)
+        data.runtime_hints = (RuntimeHints.parse(map['runtimeHints']) unless map['runtimeHints'].nil?)
         return data
       end
     end
@@ -112,7 +112,7 @@ module AWS::SDK::LexRuntimeV2
     class RuntimeHints
       def self.parse(map)
         data = Types::RuntimeHints.new
-        data.slot_hints = (Parsers::SlotHintsIntentMap.parse(map['slotHints']) unless map['slotHints'].nil?)
+        data.slot_hints = (SlotHintsIntentMap.parse(map['slotHints']) unless map['slotHints'].nil?)
         return data
       end
     end
@@ -121,7 +121,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::SlotHintsSlotMap.parse(value) unless value.nil?
+          data[key] = SlotHintsSlotMap.parse(value) unless value.nil?
         end
         data
       end
@@ -131,7 +131,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::RuntimeHintDetails.parse(value) unless value.nil?
+          data[key] = RuntimeHintDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -140,7 +140,7 @@ module AWS::SDK::LexRuntimeV2
     class RuntimeHintDetails
       def self.parse(map)
         data = Types::RuntimeHintDetails.new
-        data.runtime_hint_values = (Parsers::RuntimeHintValuesList.parse(map['runtimeHintValues']) unless map['runtimeHintValues'].nil?)
+        data.runtime_hint_values = (RuntimeHintValuesList.parse(map['runtimeHintValues']) unless map['runtimeHintValues'].nil?)
         return data
       end
     end
@@ -149,7 +149,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RuntimeHintValue.parse(value) unless value.nil?
+          data << RuntimeHintValue.parse(value) unless value.nil?
         end
         data
       end
@@ -177,7 +177,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ActiveContext.parse(value) unless value.nil?
+          data << ActiveContext.parse(value) unless value.nil?
         end
         data
       end
@@ -187,8 +187,8 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(map)
         data = Types::ActiveContext.new
         data.name = map['name']
-        data.time_to_live = (Parsers::ActiveContextTimeToLive.parse(map['timeToLive']) unless map['timeToLive'].nil?)
-        data.context_attributes = (Parsers::ActiveContextParametersMap.parse(map['contextAttributes']) unless map['contextAttributes'].nil?)
+        data.time_to_live = (ActiveContextTimeToLive.parse(map['timeToLive']) unless map['timeToLive'].nil?)
+        data.context_attributes = (ActiveContextParametersMap.parse(map['contextAttributes']) unless map['contextAttributes'].nil?)
         return data
       end
     end
@@ -216,7 +216,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(map)
         data = Types::Intent.new
         data.name = map['name']
-        data.slots = (Parsers::Slots.parse(map['slots']) unless map['slots'].nil?)
+        data.slots = (Slots.parse(map['slots']) unless map['slots'].nil?)
         data.state = map['state']
         data.confirmation_state = map['confirmationState']
         return data
@@ -227,7 +227,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::Slot.parse(value) unless value.nil?
+          data[key] = Slot.parse(value) unless value.nil?
         end
         data
       end
@@ -236,9 +236,9 @@ module AWS::SDK::LexRuntimeV2
     class Slot
       def self.parse(map)
         data = Types::Slot.new
-        data.value = (Parsers::Value.parse(map['value']) unless map['value'].nil?)
+        data.value = (Value.parse(map['value']) unless map['value'].nil?)
         data.shape = map['shape']
-        data.values = (Parsers::Values.parse(map['values']) unless map['values'].nil?)
+        data.values = (Values.parse(map['values']) unless map['values'].nil?)
         return data
       end
     end
@@ -247,7 +247,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Slot.parse(value) unless value.nil?
+          data << Slot.parse(value) unless value.nil?
         end
         data
       end
@@ -258,7 +258,7 @@ module AWS::SDK::LexRuntimeV2
         data = Types::Value.new
         data.original_value = map['originalValue']
         data.interpreted_value = map['interpretedValue']
-        data.resolved_values = (Parsers::StringList.parse(map['resolvedValues']) unless map['resolvedValues'].nil?)
+        data.resolved_values = (StringList.parse(map['resolvedValues']) unless map['resolvedValues'].nil?)
         return data
       end
     end
@@ -287,7 +287,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Interpretation.parse(value) unless value.nil?
+          data << Interpretation.parse(value) unless value.nil?
         end
         data
       end
@@ -296,9 +296,9 @@ module AWS::SDK::LexRuntimeV2
     class Interpretation
       def self.parse(map)
         data = Types::Interpretation.new
-        data.nlu_confidence = (Parsers::ConfidenceScore.parse(map['nluConfidence']) unless map['nluConfidence'].nil?)
-        data.sentiment_response = (Parsers::SentimentResponse.parse(map['sentimentResponse']) unless map['sentimentResponse'].nil?)
-        data.intent = (Parsers::Intent.parse(map['intent']) unless map['intent'].nil?)
+        data.nlu_confidence = (ConfidenceScore.parse(map['nluConfidence']) unless map['nluConfidence'].nil?)
+        data.sentiment_response = (SentimentResponse.parse(map['sentimentResponse']) unless map['sentimentResponse'].nil?)
+        data.intent = (Intent.parse(map['intent']) unless map['intent'].nil?)
         return data
       end
     end
@@ -307,7 +307,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(map)
         data = Types::SentimentResponse.new
         data.sentiment = map['sentiment']
-        data.sentiment_score = (Parsers::SentimentScore.parse(map['sentimentScore']) unless map['sentimentScore'].nil?)
+        data.sentiment_score = (SentimentScore.parse(map['sentimentScore']) unless map['sentimentScore'].nil?)
         return data
       end
     end
@@ -335,7 +335,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Message.parse(value) unless value.nil?
+          data << Message.parse(value) unless value.nil?
         end
         data
       end
@@ -346,7 +346,7 @@ module AWS::SDK::LexRuntimeV2
         data = Types::Message.new
         data.content = map['content']
         data.content_type = map['contentType']
-        data.image_response_card = (Parsers::ImageResponseCard.parse(map['imageResponseCard']) unless map['imageResponseCard'].nil?)
+        data.image_response_card = (ImageResponseCard.parse(map['imageResponseCard']) unless map['imageResponseCard'].nil?)
         return data
       end
     end
@@ -357,7 +357,7 @@ module AWS::SDK::LexRuntimeV2
         data.title = map['title']
         data.subtitle = map['subtitle']
         data.image_url = map['imageUrl']
-        data.buttons = (Parsers::ButtonsList.parse(map['buttons']) unless map['buttons'].nil?)
+        data.buttons = (ButtonsList.parse(map['buttons']) unless map['buttons'].nil?)
         return data
       end
     end
@@ -366,7 +366,7 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Button.parse(value) unless value.nil?
+          data << Button.parse(value) unless value.nil?
         end
         data
       end
@@ -420,10 +420,10 @@ module AWS::SDK::LexRuntimeV2
       def self.parse(http_resp)
         data = Types::RecognizeTextOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.messages = (Parsers::Messages.parse(map['messages']) unless map['messages'].nil?)
-        data.session_state = (Parsers::SessionState.parse(map['sessionState']) unless map['sessionState'].nil?)
-        data.interpretations = (Parsers::Interpretations.parse(map['interpretations']) unless map['interpretations'].nil?)
-        data.request_attributes = (Parsers::StringMap.parse(map['requestAttributes']) unless map['requestAttributes'].nil?)
+        data.messages = (Messages.parse(map['messages']) unless map['messages'].nil?)
+        data.session_state = (SessionState.parse(map['sessionState']) unless map['sessionState'].nil?)
+        data.interpretations = (Interpretations.parse(map['interpretations']) unless map['interpretations'].nil?)
+        data.request_attributes = (StringMap.parse(map['requestAttributes']) unless map['requestAttributes'].nil?)
         data.session_id = map['sessionId']
         data
       end

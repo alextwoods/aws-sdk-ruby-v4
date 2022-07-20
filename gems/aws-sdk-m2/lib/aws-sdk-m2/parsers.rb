@@ -51,7 +51,7 @@ module AWS::SDK::M2
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['message'] || map['Message']
         data.reason = map['reason']
-        data.field_list = (Parsers::ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
+        data.field_list = (ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
         data
       end
     end
@@ -60,7 +60,7 @@ module AWS::SDK::M2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          data << ValidationExceptionField.parse(value) unless value.nil?
         end
         data
       end
@@ -201,17 +201,17 @@ module AWS::SDK::M2
         data.application_id = map['applicationId']
         data.application_arn = map['applicationArn']
         data.status = map['status']
-        data.latest_version = (Parsers::ApplicationVersionSummary.parse(map['latestVersion']) unless map['latestVersion'].nil?)
-        data.deployed_version = (Parsers::DeployedVersionSummary.parse(map['deployedVersion']) unless map['deployedVersion'].nil?)
+        data.latest_version = (ApplicationVersionSummary.parse(map['latestVersion']) unless map['latestVersion'].nil?)
+        data.deployed_version = (DeployedVersionSummary.parse(map['deployedVersion']) unless map['deployedVersion'].nil?)
         data.engine_type = map['engineType']
-        data.log_groups = (Parsers::LogGroupSummaries.parse(map['logGroups']) unless map['logGroups'].nil?)
+        data.log_groups = (LogGroupSummaries.parse(map['logGroups']) unless map['logGroups'].nil?)
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_start_time = Time.at(map['lastStartTime'].to_i) if map['lastStartTime']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data.environment_id = map['environmentId']
-        data.target_group_arns = (Parsers::ArnList.parse(map['targetGroupArns']) unless map['targetGroupArns'].nil?)
-        data.listener_arns = (Parsers::ArnList.parse(map['listenerArns']) unless map['listenerArns'].nil?)
-        data.listener_ports = (Parsers::PortList.parse(map['listenerPorts']) unless map['listenerPorts'].nil?)
+        data.target_group_arns = (ArnList.parse(map['targetGroupArns']) unless map['targetGroupArns'].nil?)
+        data.listener_arns = (ArnList.parse(map['listenerArns']) unless map['listenerArns'].nil?)
+        data.listener_ports = (PortList.parse(map['listenerPorts']) unless map['listenerPorts'].nil?)
         data.load_balancer_dns_name = map['loadBalancerDnsName']
         data.status_reason = map['statusReason']
         data
@@ -252,7 +252,7 @@ module AWS::SDK::M2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LogGroupSummary.parse(value) unless value.nil?
+          data << LogGroupSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -329,7 +329,7 @@ module AWS::SDK::M2
         data = Types::GetDataSetDetailsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.data_set_name = map['dataSetName']
-        data.data_set_org = (Parsers::DatasetDetailOrgAttributes.parse(map['dataSetOrg']) unless map['dataSetOrg'].nil?)
+        data.data_set_org = (DatasetDetailOrgAttributes.parse(map['dataSetOrg']) unless map['dataSetOrg'].nil?)
         data.record_length = map['recordLength']
         data.location = map['location']
         data.blocksize = map['blocksize']
@@ -345,10 +345,10 @@ module AWS::SDK::M2
         key, value = map.flatten
         case key
         when 'vsam'
-          value = (Parsers::VsamDetailAttributes.parse(value) unless value.nil?)
+          value = (VsamDetailAttributes.parse(value) unless value.nil?)
           Types::DatasetDetailOrgAttributes::Vsam.new(value) if value
         when 'gdg'
-          value = (Parsers::GdgDetailAttributes.parse(value) unless value.nil?)
+          value = (GdgDetailAttributes.parse(value) unless value.nil?)
           Types::DatasetDetailOrgAttributes::Gdg.new(value) if value
         else
           Types::DatasetDetailOrgAttributes::Unknown.new({name: key, value: value})
@@ -372,8 +372,8 @@ module AWS::SDK::M2
         data.record_format = map['recordFormat']
         data.compressed = map['compressed']
         data.cache_at_startup = map['cacheAtStartup']
-        data.primary_key = (Parsers::PrimaryKey.parse(map['primaryKey']) unless map['primaryKey'].nil?)
-        data.alternate_keys = (Parsers::AlternateKeyList.parse(map['alternateKeys']) unless map['alternateKeys'].nil?)
+        data.primary_key = (PrimaryKey.parse(map['primaryKey']) unless map['primaryKey'].nil?)
+        data.alternate_keys = (AlternateKeyList.parse(map['alternateKeys']) unless map['alternateKeys'].nil?)
         return data
       end
     end
@@ -382,7 +382,7 @@ module AWS::SDK::M2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AlternateKey.parse(value) unless value.nil?
+          data << AlternateKey.parse(value) unless value.nil?
         end
         data
       end
@@ -416,7 +416,7 @@ module AWS::SDK::M2
         map = Hearth::JSON.load(http_resp.body)
         data.task_id = map['taskId']
         data.status = map['status']
-        data.summary = (Parsers::DataSetImportSummary.parse(map['summary']) unless map['summary'].nil?)
+        data.summary = (DataSetImportSummary.parse(map['summary']) unless map['summary'].nil?)
         data
       end
     end
@@ -463,18 +463,18 @@ module AWS::SDK::M2
         data.engine_type = map['engineType']
         data.engine_version = map['engineVersion']
         data.vpc_id = map['vpcId']
-        data.subnet_ids = (Parsers::String50List.parse(map['subnetIds']) unless map['subnetIds'].nil?)
-        data.security_group_ids = (Parsers::String50List.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
+        data.subnet_ids = (String50List.parse(map['subnetIds']) unless map['subnetIds'].nil?)
+        data.security_group_ids = (String50List.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
-        data.storage_configurations = (Parsers::StorageConfigurationList.parse(map['storageConfigurations']) unless map['storageConfigurations'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.high_availability_config = (Parsers::HighAvailabilityConfig.parse(map['highAvailabilityConfig']) unless map['highAvailabilityConfig'].nil?)
+        data.storage_configurations = (StorageConfigurationList.parse(map['storageConfigurations']) unless map['storageConfigurations'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.high_availability_config = (HighAvailabilityConfig.parse(map['highAvailabilityConfig']) unless map['highAvailabilityConfig'].nil?)
         data.publicly_accessible = map['publiclyAccessible']
         data.actual_capacity = map['actualCapacity']
         data.load_balancer_arn = map['loadBalancerArn']
         data.status_reason = map['statusReason']
         data.preferred_maintenance_window = map['preferredMaintenanceWindow']
-        data.pending_maintenance = (Parsers::PendingMaintenance.parse(map['pendingMaintenance']) unless map['pendingMaintenance'].nil?)
+        data.pending_maintenance = (PendingMaintenance.parse(map['pendingMaintenance']) unless map['pendingMaintenance'].nil?)
         data
       end
     end
@@ -482,7 +482,7 @@ module AWS::SDK::M2
     class PendingMaintenance
       def self.parse(map)
         data = Types::PendingMaintenance.new
-        data.schedule = (Parsers::MaintenanceSchedule.parse(map['schedule']) unless map['schedule'].nil?)
+        data.schedule = (MaintenanceSchedule.parse(map['schedule']) unless map['schedule'].nil?)
         data.engine_version = map['engineVersion']
         return data
       end
@@ -509,7 +509,7 @@ module AWS::SDK::M2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StorageConfiguration.parse(value) unless value.nil?
+          data << StorageConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -520,10 +520,10 @@ module AWS::SDK::M2
         key, value = map.flatten
         case key
         when 'efs'
-          value = (Parsers::EfsStorageConfiguration.parse(value) unless value.nil?)
+          value = (EfsStorageConfiguration.parse(value) unless value.nil?)
           Types::StorageConfiguration::Efs.new(value) if value
         when 'fsx'
-          value = (Parsers::FsxStorageConfiguration.parse(value) unless value.nil?)
+          value = (FsxStorageConfiguration.parse(value) unless value.nil?)
           Types::StorageConfiguration::Fsx.new(value) if value
         else
           Types::StorageConfiguration::Unknown.new({name: key, value: value})
@@ -564,7 +564,7 @@ module AWS::SDK::M2
       def self.parse(http_resp)
         data = Types::ListApplicationVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.application_versions = (Parsers::ApplicationVersionSummaryList.parse(map['applicationVersions']) unless map['applicationVersions'].nil?)
+        data.application_versions = (ApplicationVersionSummaryList.parse(map['applicationVersions']) unless map['applicationVersions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -574,7 +574,7 @@ module AWS::SDK::M2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ApplicationVersionSummary.parse(value) unless value.nil?
+          data << ApplicationVersionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -585,7 +585,7 @@ module AWS::SDK::M2
       def self.parse(http_resp)
         data = Types::ListApplicationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.applications = (Parsers::ApplicationSummaryList.parse(map['applications']) unless map['applications'].nil?)
+        data.applications = (ApplicationSummaryList.parse(map['applications']) unless map['applications'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -595,7 +595,7 @@ module AWS::SDK::M2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ApplicationSummary.parse(value) unless value.nil?
+          data << ApplicationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -625,7 +625,7 @@ module AWS::SDK::M2
       def self.parse(http_resp)
         data = Types::ListBatchJobDefinitionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.batch_job_definitions = (Parsers::BatchJobDefinitions.parse(map['batchJobDefinitions']) unless map['batchJobDefinitions'].nil?)
+        data.batch_job_definitions = (BatchJobDefinitions.parse(map['batchJobDefinitions']) unless map['batchJobDefinitions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -635,7 +635,7 @@ module AWS::SDK::M2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchJobDefinition.parse(value) unless value.nil?
+          data << BatchJobDefinition.parse(value) unless value.nil?
         end
         data
       end
@@ -646,10 +646,10 @@ module AWS::SDK::M2
         key, value = map.flatten
         case key
         when 'fileBatchJobDefinition'
-          value = (Parsers::FileBatchJobDefinition.parse(value) unless value.nil?)
+          value = (FileBatchJobDefinition.parse(value) unless value.nil?)
           Types::BatchJobDefinition::FileBatchJobDefinition.new(value) if value
         when 'scriptBatchJobDefinition'
-          value = (Parsers::ScriptBatchJobDefinition.parse(value) unless value.nil?)
+          value = (ScriptBatchJobDefinition.parse(value) unless value.nil?)
           Types::BatchJobDefinition::ScriptBatchJobDefinition.new(value) if value
         else
           Types::BatchJobDefinition::Unknown.new({name: key, value: value})
@@ -679,7 +679,7 @@ module AWS::SDK::M2
       def self.parse(http_resp)
         data = Types::ListBatchJobExecutionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.batch_job_executions = (Parsers::BatchJobExecutionSummaryList.parse(map['batchJobExecutions']) unless map['batchJobExecutions'].nil?)
+        data.batch_job_executions = (BatchJobExecutionSummaryList.parse(map['batchJobExecutions']) unless map['batchJobExecutions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -689,7 +689,7 @@ module AWS::SDK::M2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchJobExecutionSummary.parse(value) unless value.nil?
+          data << BatchJobExecutionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -715,7 +715,7 @@ module AWS::SDK::M2
       def self.parse(http_resp)
         data = Types::ListDataSetImportHistoryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.data_set_import_tasks = (Parsers::DataSetImportTaskList.parse(map['dataSetImportTasks']) unless map['dataSetImportTasks'].nil?)
+        data.data_set_import_tasks = (DataSetImportTaskList.parse(map['dataSetImportTasks']) unless map['dataSetImportTasks'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -725,7 +725,7 @@ module AWS::SDK::M2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataSetImportTask.parse(value) unless value.nil?
+          data << DataSetImportTask.parse(value) unless value.nil?
         end
         data
       end
@@ -736,7 +736,7 @@ module AWS::SDK::M2
         data = Types::DataSetImportTask.new
         data.task_id = map['taskId']
         data.status = map['status']
-        data.summary = (Parsers::DataSetImportSummary.parse(map['summary']) unless map['summary'].nil?)
+        data.summary = (DataSetImportSummary.parse(map['summary']) unless map['summary'].nil?)
         return data
       end
     end
@@ -746,7 +746,7 @@ module AWS::SDK::M2
       def self.parse(http_resp)
         data = Types::ListDataSetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.data_sets = (Parsers::DataSetsSummaryList.parse(map['dataSets']) unless map['dataSets'].nil?)
+        data.data_sets = (DataSetsSummaryList.parse(map['dataSets']) unless map['dataSets'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -756,7 +756,7 @@ module AWS::SDK::M2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataSetSummary.parse(value) unless value.nil?
+          data << DataSetSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -780,7 +780,7 @@ module AWS::SDK::M2
       def self.parse(http_resp)
         data = Types::ListDeploymentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.deployments = (Parsers::DeploymentList.parse(map['deployments']) unless map['deployments'].nil?)
+        data.deployments = (DeploymentList.parse(map['deployments']) unless map['deployments'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -790,7 +790,7 @@ module AWS::SDK::M2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DeploymentSummary.parse(value) unless value.nil?
+          data << DeploymentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -815,7 +815,7 @@ module AWS::SDK::M2
       def self.parse(http_resp)
         data = Types::ListEngineVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.engine_versions = (Parsers::EngineVersionsSummaryList.parse(map['engineVersions']) unless map['engineVersions'].nil?)
+        data.engine_versions = (EngineVersionsSummaryList.parse(map['engineVersions']) unless map['engineVersions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -825,7 +825,7 @@ module AWS::SDK::M2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EngineVersionsSummary.parse(value) unless value.nil?
+          data << EngineVersionsSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -845,7 +845,7 @@ module AWS::SDK::M2
       def self.parse(http_resp)
         data = Types::ListEnvironmentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.environments = (Parsers::EnvironmentSummaryList.parse(map['environments']) unless map['environments'].nil?)
+        data.environments = (EnvironmentSummaryList.parse(map['environments']) unless map['environments'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -855,7 +855,7 @@ module AWS::SDK::M2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EnvironmentSummary.parse(value) unless value.nil?
+          data << EnvironmentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -881,7 +881,7 @@ module AWS::SDK::M2
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end

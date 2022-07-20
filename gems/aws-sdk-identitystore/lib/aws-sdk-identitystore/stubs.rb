@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Identitystore
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::Identitystore
         data = {}
         data['GroupId'] = stub[:group_id] unless stub[:group_id].nil?
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -41,7 +43,7 @@ module AWS::SDK::Identitystore
         data = {}
         data['UserName'] = stub[:user_name] unless stub[:user_name].nil?
         data['UserId'] = stub[:user_id] unless stub[:user_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -57,9 +59,9 @@ module AWS::SDK::Identitystore
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Groups'] = Stubs::Groups.stub(stub[:groups]) unless stub[:groups].nil?
+        data['Groups'] = Groups.stub(stub[:groups]) unless stub[:groups].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -78,7 +80,7 @@ module AWS::SDK::Identitystore
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Group.stub(element) unless element.nil?
+          data << Group.stub(element) unless element.nil?
         end
         data
       end
@@ -115,9 +117,9 @@ module AWS::SDK::Identitystore
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Users'] = Stubs::Users.stub(stub[:users]) unless stub[:users].nil?
+        data['Users'] = Users.stub(stub[:users]) unless stub[:users].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -136,7 +138,7 @@ module AWS::SDK::Identitystore
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::User.stub(element) unless element.nil?
+          data << User.stub(element) unless element.nil?
         end
         data
       end

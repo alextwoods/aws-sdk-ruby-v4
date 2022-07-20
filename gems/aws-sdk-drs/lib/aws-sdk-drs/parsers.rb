@@ -15,7 +15,7 @@ module AWS::SDK::Drs
       def self.parse(http_resp)
         data = Types::CreateExtendedSourceServerOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.source_server = (Parsers::SourceServer.parse(map['sourceServer']) unless map['sourceServer'].nil?)
+        data.source_server = (SourceServer.parse(map['sourceServer']) unless map['sourceServer'].nil?)
         data
       end
     end
@@ -25,13 +25,13 @@ module AWS::SDK::Drs
         data = Types::SourceServer.new
         data.source_server_id = map['sourceServerID']
         data.arn = map['arn']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data.recovery_instance_id = map['recoveryInstanceId']
         data.last_launch_result = map['lastLaunchResult']
-        data.data_replication_info = (Parsers::DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
-        data.life_cycle = (Parsers::LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
-        data.source_properties = (Parsers::SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
-        data.staging_area = (Parsers::StagingArea.parse(map['stagingArea']) unless map['stagingArea'].nil?)
+        data.data_replication_info = (DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
+        data.life_cycle = (LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
+        data.source_properties = (SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
+        data.staging_area = (StagingArea.parse(map['stagingArea']) unless map['stagingArea'].nil?)
         return data
       end
     end
@@ -52,12 +52,12 @@ module AWS::SDK::Drs
         data = Types::SourceProperties.new
         data.last_updated_date_time = map['lastUpdatedDateTime']
         data.recommended_instance_type = map['recommendedInstanceType']
-        data.identification_hints = (Parsers::IdentificationHints.parse(map['identificationHints']) unless map['identificationHints'].nil?)
-        data.network_interfaces = (Parsers::NetworkInterfaces.parse(map['networkInterfaces']) unless map['networkInterfaces'].nil?)
-        data.disks = (Parsers::Disks.parse(map['disks']) unless map['disks'].nil?)
-        data.cpus = (Parsers::Cpus.parse(map['cpus']) unless map['cpus'].nil?)
+        data.identification_hints = (IdentificationHints.parse(map['identificationHints']) unless map['identificationHints'].nil?)
+        data.network_interfaces = (NetworkInterfaces.parse(map['networkInterfaces']) unless map['networkInterfaces'].nil?)
+        data.disks = (Disks.parse(map['disks']) unless map['disks'].nil?)
+        data.cpus = (Cpus.parse(map['cpus']) unless map['cpus'].nil?)
         data.ram_bytes = map['ramBytes']
-        data.os = (Parsers::OS.parse(map['os']) unless map['os'].nil?)
+        data.os = (OS.parse(map['os']) unless map['os'].nil?)
         return data
       end
     end
@@ -74,7 +74,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CPU.parse(value) unless value.nil?
+          data << CPU.parse(value) unless value.nil?
         end
         data
       end
@@ -93,7 +93,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Disk.parse(value) unless value.nil?
+          data << Disk.parse(value) unless value.nil?
         end
         data
       end
@@ -112,7 +112,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NetworkInterface.parse(value) unless value.nil?
+          data << NetworkInterface.parse(value) unless value.nil?
         end
         data
       end
@@ -122,7 +122,7 @@ module AWS::SDK::Drs
       def self.parse(map)
         data = Types::NetworkInterface.new
         data.mac_address = map['macAddress']
-        data.ips = (Parsers::IPsList.parse(map['ips']) unless map['ips'].nil?)
+        data.ips = (IPsList.parse(map['ips']) unless map['ips'].nil?)
         data.is_primary = map['isPrimary']
         return data
       end
@@ -156,7 +156,7 @@ module AWS::SDK::Drs
         data.first_byte_date_time = map['firstByteDateTime']
         data.elapsed_replication_duration = map['elapsedReplicationDuration']
         data.last_seen_by_service_date_time = map['lastSeenByServiceDateTime']
-        data.last_launch = (Parsers::LifeCycleLastLaunch.parse(map['lastLaunch']) unless map['lastLaunch'].nil?)
+        data.last_launch = (LifeCycleLastLaunch.parse(map['lastLaunch']) unless map['lastLaunch'].nil?)
         return data
       end
     end
@@ -164,7 +164,7 @@ module AWS::SDK::Drs
     class LifeCycleLastLaunch
       def self.parse(map)
         data = Types::LifeCycleLastLaunch.new
-        data.initiated = (Parsers::LifeCycleLastLaunchInitiated.parse(map['initiated']) unless map['initiated'].nil?)
+        data.initiated = (LifeCycleLastLaunchInitiated.parse(map['initiated']) unless map['initiated'].nil?)
         return data
       end
     end
@@ -184,10 +184,10 @@ module AWS::SDK::Drs
         data = Types::DataReplicationInfo.new
         data.lag_duration = map['lagDuration']
         data.eta_date_time = map['etaDateTime']
-        data.replicated_disks = (Parsers::DataReplicationInfoReplicatedDisks.parse(map['replicatedDisks']) unless map['replicatedDisks'].nil?)
+        data.replicated_disks = (DataReplicationInfoReplicatedDisks.parse(map['replicatedDisks']) unless map['replicatedDisks'].nil?)
         data.data_replication_state = map['dataReplicationState']
-        data.data_replication_initiation = (Parsers::DataReplicationInitiation.parse(map['dataReplicationInitiation']) unless map['dataReplicationInitiation'].nil?)
-        data.data_replication_error = (Parsers::DataReplicationError.parse(map['dataReplicationError']) unless map['dataReplicationError'].nil?)
+        data.data_replication_initiation = (DataReplicationInitiation.parse(map['dataReplicationInitiation']) unless map['dataReplicationInitiation'].nil?)
+        data.data_replication_error = (DataReplicationError.parse(map['dataReplicationError']) unless map['dataReplicationError'].nil?)
         return data
       end
     end
@@ -206,7 +206,7 @@ module AWS::SDK::Drs
         data = Types::DataReplicationInitiation.new
         data.start_date_time = map['startDateTime']
         data.next_attempt_date_time = map['nextAttemptDateTime']
-        data.steps = (Parsers::DataReplicationInitiationSteps.parse(map['steps']) unless map['steps'].nil?)
+        data.steps = (DataReplicationInitiationSteps.parse(map['steps']) unless map['steps'].nil?)
         return data
       end
     end
@@ -215,7 +215,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataReplicationInitiationStep.parse(value) unless value.nil?
+          data << DataReplicationInitiationStep.parse(value) unless value.nil?
         end
         data
       end
@@ -234,7 +234,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataReplicationInfoReplicatedDisk.parse(value) unless value.nil?
+          data << DataReplicationInfoReplicatedDisk.parse(value) unless value.nil?
         end
         data
       end
@@ -333,7 +333,7 @@ module AWS::SDK::Drs
         data.message = map['message'] || map['Message']
         data.code = map['code']
         data.reason = map['reason']
-        data.field_list = (Parsers::ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
+        data.field_list = (ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
         data
       end
     end
@@ -342,7 +342,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          data << ValidationExceptionField.parse(value) unless value.nil?
         end
         data
       end
@@ -377,7 +377,7 @@ module AWS::SDK::Drs
         data.arn = map['arn']
         data.staging_area_subnet_id = map['stagingAreaSubnetId']
         data.associate_default_security_group = map['associateDefaultSecurityGroup']
-        data.replication_servers_security_groups_i_ds = (Parsers::ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
+        data.replication_servers_security_groups_i_ds = (ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
         data.replication_server_instance_type = map['replicationServerInstanceType']
         data.use_dedicated_replication_server = map['useDedicatedReplicationServer']
         data.default_large_staging_disk_type = map['defaultLargeStagingDiskType']
@@ -386,9 +386,9 @@ module AWS::SDK::Drs
         data.bandwidth_throttling = map['bandwidthThrottling']
         data.data_plane_routing = map['dataPlaneRouting']
         data.create_public_ip = map['createPublicIP']
-        data.staging_area_tags = (Parsers::TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
-        data.pit_policy = (Parsers::PITPolicy.parse(map['pitPolicy']) unless map['pitPolicy'].nil?)
+        data.staging_area_tags = (TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.pit_policy = (PITPolicy.parse(map['pitPolicy']) unless map['pitPolicy'].nil?)
         data
       end
     end
@@ -397,7 +397,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PITPolicyRule.parse(value) unless value.nil?
+          data << PITPolicyRule.parse(value) unless value.nil?
         end
         data
       end
@@ -479,7 +479,7 @@ module AWS::SDK::Drs
       def self.parse(http_resp)
         data = Types::DescribeJobLogItemsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::JobLogs.parse(map['items']) unless map['items'].nil?)
+        data.items = (JobLogs.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -489,7 +489,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobLog.parse(value) unless value.nil?
+          data << JobLog.parse(value) unless value.nil?
         end
         data
       end
@@ -500,7 +500,7 @@ module AWS::SDK::Drs
         data = Types::JobLog.new
         data.log_date_time = map['logDateTime']
         data.event = map['event']
-        data.event_data = (Parsers::JobLogEventData.parse(map['eventData']) unless map['eventData'].nil?)
+        data.event_data = (JobLogEventData.parse(map['eventData']) unless map['eventData'].nil?)
         return data
       end
     end
@@ -512,7 +512,7 @@ module AWS::SDK::Drs
         data.conversion_server_id = map['conversionServerID']
         data.target_instance_id = map['targetInstanceID']
         data.raw_error = map['rawError']
-        data.conversion_properties = (Parsers::ConversionProperties.parse(map['conversionProperties']) unless map['conversionProperties'].nil?)
+        data.conversion_properties = (ConversionProperties.parse(map['conversionProperties']) unless map['conversionProperties'].nil?)
         return data
       end
     end
@@ -520,11 +520,11 @@ module AWS::SDK::Drs
     class ConversionProperties
       def self.parse(map)
         data = Types::ConversionProperties.new
-        data.volume_to_conversion_map = (Parsers::VolumeToConversionMap.parse(map['volumeToConversionMap']) unless map['volumeToConversionMap'].nil?)
+        data.volume_to_conversion_map = (VolumeToConversionMap.parse(map['volumeToConversionMap']) unless map['volumeToConversionMap'].nil?)
         data.root_volume_name = map['rootVolumeName']
         data.force_uefi = map['forceUefi']
         data.data_timestamp = map['dataTimestamp']
-        data.volume_to_volume_size = (Parsers::VolumeToSizeMap.parse(map['volumeToVolumeSize']) unless map['volumeToVolumeSize'].nil?)
+        data.volume_to_volume_size = (VolumeToSizeMap.parse(map['volumeToVolumeSize']) unless map['volumeToVolumeSize'].nil?)
         return data
       end
     end
@@ -543,7 +543,7 @@ module AWS::SDK::Drs
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ConversionMap.parse(value) unless value.nil?
+          data[key] = ConversionMap.parse(value) unless value.nil?
         end
         data
       end
@@ -564,7 +564,7 @@ module AWS::SDK::Drs
       def self.parse(http_resp)
         data = Types::DescribeJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::JobsList.parse(map['items']) unless map['items'].nil?)
+        data.items = (JobsList.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -574,7 +574,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Job.parse(value) unless value.nil?
+          data << Job.parse(value) unless value.nil?
         end
         data
       end
@@ -590,8 +590,8 @@ module AWS::SDK::Drs
         data.creation_date_time = map['creationDateTime']
         data.end_date_time = map['endDateTime']
         data.status = map['status']
-        data.participating_servers = (Parsers::ParticipatingServers.parse(map['participatingServers']) unless map['participatingServers'].nil?)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.participating_servers = (ParticipatingServers.parse(map['participatingServers']) unless map['participatingServers'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -600,7 +600,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ParticipatingServer.parse(value) unless value.nil?
+          data << ParticipatingServer.parse(value) unless value.nil?
         end
         data
       end
@@ -622,7 +622,7 @@ module AWS::SDK::Drs
         data = Types::DescribeRecoveryInstancesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.items = (Parsers::DescribeRecoveryInstancesItems.parse(map['items']) unless map['items'].nil?)
+        data.items = (DescribeRecoveryInstancesItems.parse(map['items']) unless map['items'].nil?)
         data
       end
     end
@@ -631,7 +631,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecoveryInstance.parse(value) unless value.nil?
+          data << RecoveryInstance.parse(value) unless value.nil?
         end
         data
       end
@@ -646,10 +646,10 @@ module AWS::SDK::Drs
         data.recovery_instance_id = map['recoveryInstanceID']
         data.source_server_id = map['sourceServerID']
         data.arn = map['arn']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
-        data.failback = (Parsers::RecoveryInstanceFailback.parse(map['failback']) unless map['failback'].nil?)
-        data.data_replication_info = (Parsers::RecoveryInstanceDataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
-        data.recovery_instance_properties = (Parsers::RecoveryInstanceProperties.parse(map['recoveryInstanceProperties']) unless map['recoveryInstanceProperties'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.failback = (RecoveryInstanceFailback.parse(map['failback']) unless map['failback'].nil?)
+        data.data_replication_info = (RecoveryInstanceDataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
+        data.recovery_instance_properties = (RecoveryInstanceProperties.parse(map['recoveryInstanceProperties']) unless map['recoveryInstanceProperties'].nil?)
         data.point_in_time_snapshot_date_time = map['pointInTimeSnapshotDateTime']
         data.is_drill = map['isDrill']
         return data
@@ -660,12 +660,12 @@ module AWS::SDK::Drs
       def self.parse(map)
         data = Types::RecoveryInstanceProperties.new
         data.last_updated_date_time = map['lastUpdatedDateTime']
-        data.identification_hints = (Parsers::IdentificationHints.parse(map['identificationHints']) unless map['identificationHints'].nil?)
-        data.network_interfaces = (Parsers::NetworkInterfaces.parse(map['networkInterfaces']) unless map['networkInterfaces'].nil?)
-        data.disks = (Parsers::RecoveryInstanceDisks.parse(map['disks']) unless map['disks'].nil?)
-        data.cpus = (Parsers::Cpus.parse(map['cpus']) unless map['cpus'].nil?)
+        data.identification_hints = (IdentificationHints.parse(map['identificationHints']) unless map['identificationHints'].nil?)
+        data.network_interfaces = (NetworkInterfaces.parse(map['networkInterfaces']) unless map['networkInterfaces'].nil?)
+        data.disks = (RecoveryInstanceDisks.parse(map['disks']) unless map['disks'].nil?)
+        data.cpus = (Cpus.parse(map['cpus']) unless map['cpus'].nil?)
         data.ram_bytes = map['ramBytes']
-        data.os = (Parsers::OS.parse(map['os']) unless map['os'].nil?)
+        data.os = (OS.parse(map['os']) unless map['os'].nil?)
         return data
       end
     end
@@ -674,7 +674,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecoveryInstanceDisk.parse(value) unless value.nil?
+          data << RecoveryInstanceDisk.parse(value) unless value.nil?
         end
         data
       end
@@ -695,10 +695,10 @@ module AWS::SDK::Drs
         data = Types::RecoveryInstanceDataReplicationInfo.new
         data.lag_duration = map['lagDuration']
         data.eta_date_time = map['etaDateTime']
-        data.replicated_disks = (Parsers::RecoveryInstanceDataReplicationInfoReplicatedDisks.parse(map['replicatedDisks']) unless map['replicatedDisks'].nil?)
+        data.replicated_disks = (RecoveryInstanceDataReplicationInfoReplicatedDisks.parse(map['replicatedDisks']) unless map['replicatedDisks'].nil?)
         data.data_replication_state = map['dataReplicationState']
-        data.data_replication_initiation = (Parsers::RecoveryInstanceDataReplicationInitiation.parse(map['dataReplicationInitiation']) unless map['dataReplicationInitiation'].nil?)
-        data.data_replication_error = (Parsers::RecoveryInstanceDataReplicationError.parse(map['dataReplicationError']) unless map['dataReplicationError'].nil?)
+        data.data_replication_initiation = (RecoveryInstanceDataReplicationInitiation.parse(map['dataReplicationInitiation']) unless map['dataReplicationInitiation'].nil?)
+        data.data_replication_error = (RecoveryInstanceDataReplicationError.parse(map['dataReplicationError']) unless map['dataReplicationError'].nil?)
         return data
       end
     end
@@ -716,7 +716,7 @@ module AWS::SDK::Drs
       def self.parse(map)
         data = Types::RecoveryInstanceDataReplicationInitiation.new
         data.start_date_time = map['startDateTime']
-        data.steps = (Parsers::RecoveryInstanceDataReplicationInitiationSteps.parse(map['steps']) unless map['steps'].nil?)
+        data.steps = (RecoveryInstanceDataReplicationInitiationSteps.parse(map['steps']) unless map['steps'].nil?)
         return data
       end
     end
@@ -725,7 +725,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecoveryInstanceDataReplicationInitiationStep.parse(value) unless value.nil?
+          data << RecoveryInstanceDataReplicationInitiationStep.parse(value) unless value.nil?
         end
         data
       end
@@ -744,7 +744,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecoveryInstanceDataReplicationInfoReplicatedDisk.parse(value) unless value.nil?
+          data << RecoveryInstanceDataReplicationInfoReplicatedDisk.parse(value) unless value.nil?
         end
         data
       end
@@ -783,7 +783,7 @@ module AWS::SDK::Drs
       def self.parse(http_resp)
         data = Types::DescribeRecoverySnapshotsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::RecoverySnapshotsList.parse(map['items']) unless map['items'].nil?)
+        data.items = (RecoverySnapshotsList.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -793,7 +793,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecoverySnapshot.parse(value) unless value.nil?
+          data << RecoverySnapshot.parse(value) unless value.nil?
         end
         data
       end
@@ -806,7 +806,7 @@ module AWS::SDK::Drs
         data.source_server_id = map['sourceServerID']
         data.expected_timestamp = map['expectedTimestamp']
         data.timestamp = map['timestamp']
-        data.ebs_snapshots = (Parsers::EbsSnapshotsList.parse(map['ebsSnapshots']) unless map['ebsSnapshots'].nil?)
+        data.ebs_snapshots = (EbsSnapshotsList.parse(map['ebsSnapshots']) unless map['ebsSnapshots'].nil?)
         return data
       end
     end
@@ -826,7 +826,7 @@ module AWS::SDK::Drs
       def self.parse(http_resp)
         data = Types::DescribeReplicationConfigurationTemplatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::ReplicationConfigurationTemplates.parse(map['items']) unless map['items'].nil?)
+        data.items = (ReplicationConfigurationTemplates.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -836,7 +836,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReplicationConfigurationTemplate.parse(value) unless value.nil?
+          data << ReplicationConfigurationTemplate.parse(value) unless value.nil?
         end
         data
       end
@@ -849,7 +849,7 @@ module AWS::SDK::Drs
         data.arn = map['arn']
         data.staging_area_subnet_id = map['stagingAreaSubnetId']
         data.associate_default_security_group = map['associateDefaultSecurityGroup']
-        data.replication_servers_security_groups_i_ds = (Parsers::ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
+        data.replication_servers_security_groups_i_ds = (ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
         data.replication_server_instance_type = map['replicationServerInstanceType']
         data.use_dedicated_replication_server = map['useDedicatedReplicationServer']
         data.default_large_staging_disk_type = map['defaultLargeStagingDiskType']
@@ -858,9 +858,9 @@ module AWS::SDK::Drs
         data.bandwidth_throttling = map['bandwidthThrottling']
         data.data_plane_routing = map['dataPlaneRouting']
         data.create_public_ip = map['createPublicIP']
-        data.staging_area_tags = (Parsers::TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
-        data.pit_policy = (Parsers::PITPolicy.parse(map['pitPolicy']) unless map['pitPolicy'].nil?)
+        data.staging_area_tags = (TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.pit_policy = (PITPolicy.parse(map['pitPolicy']) unless map['pitPolicy'].nil?)
         return data
       end
     end
@@ -870,7 +870,7 @@ module AWS::SDK::Drs
       def self.parse(http_resp)
         data = Types::DescribeSourceServersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::SourceServersList.parse(map['items']) unless map['items'].nil?)
+        data.items = (SourceServersList.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -880,7 +880,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SourceServer.parse(value) unless value.nil?
+          data << SourceServer.parse(value) unless value.nil?
         end
         data
       end
@@ -902,13 +902,13 @@ module AWS::SDK::Drs
         map = Hearth::JSON.load(http_resp.body)
         data.source_server_id = map['sourceServerID']
         data.arn = map['arn']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data.recovery_instance_id = map['recoveryInstanceId']
         data.last_launch_result = map['lastLaunchResult']
-        data.data_replication_info = (Parsers::DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
-        data.life_cycle = (Parsers::LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
-        data.source_properties = (Parsers::SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
-        data.staging_area = (Parsers::StagingArea.parse(map['stagingArea']) unless map['stagingArea'].nil?)
+        data.data_replication_info = (DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
+        data.life_cycle = (LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
+        data.source_properties = (SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
+        data.staging_area = (StagingArea.parse(map['stagingArea']) unless map['stagingArea'].nil?)
         data
       end
     end
@@ -938,7 +938,7 @@ module AWS::SDK::Drs
         data.target_instance_type_right_sizing_method = map['targetInstanceTypeRightSizingMethod']
         data.copy_private_ip = map['copyPrivateIp']
         data.copy_tags = map['copyTags']
-        data.licensing = (Parsers::Licensing.parse(map['licensing']) unless map['licensing'].nil?)
+        data.licensing = (Licensing.parse(map['licensing']) unless map['licensing'].nil?)
         data
       end
     end
@@ -960,18 +960,18 @@ module AWS::SDK::Drs
         data.name = map['name']
         data.staging_area_subnet_id = map['stagingAreaSubnetId']
         data.associate_default_security_group = map['associateDefaultSecurityGroup']
-        data.replication_servers_security_groups_i_ds = (Parsers::ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
+        data.replication_servers_security_groups_i_ds = (ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
         data.replication_server_instance_type = map['replicationServerInstanceType']
         data.use_dedicated_replication_server = map['useDedicatedReplicationServer']
         data.default_large_staging_disk_type = map['defaultLargeStagingDiskType']
-        data.replicated_disks = (Parsers::ReplicationConfigurationReplicatedDisks.parse(map['replicatedDisks']) unless map['replicatedDisks'].nil?)
+        data.replicated_disks = (ReplicationConfigurationReplicatedDisks.parse(map['replicatedDisks']) unless map['replicatedDisks'].nil?)
         data.ebs_encryption = map['ebsEncryption']
         data.ebs_encryption_key_arn = map['ebsEncryptionKeyArn']
         data.bandwidth_throttling = map['bandwidthThrottling']
         data.data_plane_routing = map['dataPlaneRouting']
         data.create_public_ip = map['createPublicIP']
-        data.staging_area_tags = (Parsers::TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
-        data.pit_policy = (Parsers::PITPolicy.parse(map['pitPolicy']) unless map['pitPolicy'].nil?)
+        data.staging_area_tags = (TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
+        data.pit_policy = (PITPolicy.parse(map['pitPolicy']) unless map['pitPolicy'].nil?)
         data
       end
     end
@@ -980,7 +980,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReplicationConfigurationReplicatedDisk.parse(value) unless value.nil?
+          data << ReplicationConfigurationReplicatedDisk.parse(value) unless value.nil?
         end
         data
       end
@@ -1012,7 +1012,7 @@ module AWS::SDK::Drs
       def self.parse(http_resp)
         data = Types::ListExtensibleSourceServersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::StagingSourceServersList.parse(map['items']) unless map['items'].nil?)
+        data.items = (StagingSourceServersList.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1022,7 +1022,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StagingSourceServer.parse(value) unless value.nil?
+          data << StagingSourceServer.parse(value) unless value.nil?
         end
         data
       end
@@ -1033,7 +1033,7 @@ module AWS::SDK::Drs
         data = Types::StagingSourceServer.new
         data.hostname = map['hostname']
         data.arn = map['arn']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -1043,7 +1043,7 @@ module AWS::SDK::Drs
       def self.parse(http_resp)
         data = Types::ListStagingAccountsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.accounts = (Parsers::Accounts.parse(map['accounts']) unless map['accounts'].nil?)
+        data.accounts = (Accounts.parse(map['accounts']) unless map['accounts'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1053,7 +1053,7 @@ module AWS::SDK::Drs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Account.parse(value) unless value.nil?
+          data << Account.parse(value) unless value.nil?
         end
         data
       end
@@ -1072,7 +1072,7 @@ module AWS::SDK::Drs
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1084,13 +1084,13 @@ module AWS::SDK::Drs
         map = Hearth::JSON.load(http_resp.body)
         data.source_server_id = map['sourceServerID']
         data.arn = map['arn']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data.recovery_instance_id = map['recoveryInstanceId']
         data.last_launch_result = map['lastLaunchResult']
-        data.data_replication_info = (Parsers::DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
-        data.life_cycle = (Parsers::LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
-        data.source_properties = (Parsers::SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
-        data.staging_area = (Parsers::StagingArea.parse(map['stagingArea']) unless map['stagingArea'].nil?)
+        data.data_replication_info = (DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
+        data.life_cycle = (LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
+        data.source_properties = (SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
+        data.staging_area = (StagingArea.parse(map['stagingArea']) unless map['stagingArea'].nil?)
         data
       end
     end
@@ -1100,7 +1100,7 @@ module AWS::SDK::Drs
       def self.parse(http_resp)
         data = Types::StartFailbackLaunchOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job = (Parsers::Job.parse(map['job']) unless map['job'].nil?)
+        data.job = (Job.parse(map['job']) unless map['job'].nil?)
         data
       end
     end
@@ -1110,7 +1110,7 @@ module AWS::SDK::Drs
       def self.parse(http_resp)
         data = Types::StartRecoveryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job = (Parsers::Job.parse(map['job']) unless map['job'].nil?)
+        data.job = (Job.parse(map['job']) unless map['job'].nil?)
         data
       end
     end
@@ -1138,7 +1138,7 @@ module AWS::SDK::Drs
       def self.parse(http_resp)
         data = Types::TerminateRecoveryInstancesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job = (Parsers::Job.parse(map['job']) unless map['job'].nil?)
+        data.job = (Job.parse(map['job']) unless map['job'].nil?)
         data
       end
     end
@@ -1173,7 +1173,7 @@ module AWS::SDK::Drs
         data.target_instance_type_right_sizing_method = map['targetInstanceTypeRightSizingMethod']
         data.copy_private_ip = map['copyPrivateIp']
         data.copy_tags = map['copyTags']
-        data.licensing = (Parsers::Licensing.parse(map['licensing']) unless map['licensing'].nil?)
+        data.licensing = (Licensing.parse(map['licensing']) unless map['licensing'].nil?)
         data
       end
     end
@@ -1187,18 +1187,18 @@ module AWS::SDK::Drs
         data.name = map['name']
         data.staging_area_subnet_id = map['stagingAreaSubnetId']
         data.associate_default_security_group = map['associateDefaultSecurityGroup']
-        data.replication_servers_security_groups_i_ds = (Parsers::ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
+        data.replication_servers_security_groups_i_ds = (ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
         data.replication_server_instance_type = map['replicationServerInstanceType']
         data.use_dedicated_replication_server = map['useDedicatedReplicationServer']
         data.default_large_staging_disk_type = map['defaultLargeStagingDiskType']
-        data.replicated_disks = (Parsers::ReplicationConfigurationReplicatedDisks.parse(map['replicatedDisks']) unless map['replicatedDisks'].nil?)
+        data.replicated_disks = (ReplicationConfigurationReplicatedDisks.parse(map['replicatedDisks']) unless map['replicatedDisks'].nil?)
         data.ebs_encryption = map['ebsEncryption']
         data.ebs_encryption_key_arn = map['ebsEncryptionKeyArn']
         data.bandwidth_throttling = map['bandwidthThrottling']
         data.data_plane_routing = map['dataPlaneRouting']
         data.create_public_ip = map['createPublicIP']
-        data.staging_area_tags = (Parsers::TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
-        data.pit_policy = (Parsers::PITPolicy.parse(map['pitPolicy']) unless map['pitPolicy'].nil?)
+        data.staging_area_tags = (TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
+        data.pit_policy = (PITPolicy.parse(map['pitPolicy']) unless map['pitPolicy'].nil?)
         data
       end
     end
@@ -1212,7 +1212,7 @@ module AWS::SDK::Drs
         data.arn = map['arn']
         data.staging_area_subnet_id = map['stagingAreaSubnetId']
         data.associate_default_security_group = map['associateDefaultSecurityGroup']
-        data.replication_servers_security_groups_i_ds = (Parsers::ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
+        data.replication_servers_security_groups_i_ds = (ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
         data.replication_server_instance_type = map['replicationServerInstanceType']
         data.use_dedicated_replication_server = map['useDedicatedReplicationServer']
         data.default_large_staging_disk_type = map['defaultLargeStagingDiskType']
@@ -1221,9 +1221,9 @@ module AWS::SDK::Drs
         data.bandwidth_throttling = map['bandwidthThrottling']
         data.data_plane_routing = map['dataPlaneRouting']
         data.create_public_ip = map['createPublicIP']
-        data.staging_area_tags = (Parsers::TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
-        data.pit_policy = (Parsers::PITPolicy.parse(map['pitPolicy']) unless map['pitPolicy'].nil?)
+        data.staging_area_tags = (TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.pit_policy = (PITPolicy.parse(map['pitPolicy']) unless map['pitPolicy'].nil?)
         data
       end
     end

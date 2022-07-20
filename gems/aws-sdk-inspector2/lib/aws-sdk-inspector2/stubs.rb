@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Inspector2
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::Inspector2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -40,9 +42,9 @@ module AWS::SDK::Inspector2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['accounts'] = Stubs::AccountStateList.stub(stub[:accounts]) unless stub[:accounts].nil?
-        data['failedAccounts'] = Stubs::FailedAccountList.stub(stub[:failed_accounts]) unless stub[:failed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accounts'] = AccountStateList.stub(stub[:accounts]) unless stub[:accounts].nil?
+        data['failedAccounts'] = FailedAccountList.stub(stub[:failed_accounts]) unless stub[:failed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -60,7 +62,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedAccount.stub(element) unless element.nil?
+          data << FailedAccount.stub(element) unless element.nil?
         end
         data
       end
@@ -85,7 +87,7 @@ module AWS::SDK::Inspector2
         data = {}
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['resourceStatus'] = Stubs::ResourceStatus.stub(stub[:resource_status]) unless stub[:resource_status].nil?
+        data['resourceStatus'] = ResourceStatus.stub(stub[:resource_status]) unless stub[:resource_status].nil?
         data['errorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data
@@ -126,7 +128,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccountState.stub(element) unless element.nil?
+          data << AccountState.stub(element) unless element.nil?
         end
         data
       end
@@ -148,8 +150,8 @@ module AWS::SDK::Inspector2
         stub ||= Types::AccountState.new
         data = {}
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['state'] = Stubs::State.stub(stub[:state]) unless stub[:state].nil?
-        data['resourceState'] = Stubs::ResourceState.stub(stub[:resource_state]) unless stub[:resource_state].nil?
+        data['state'] = State.stub(stub[:state]) unless stub[:state].nil?
+        data['resourceState'] = ResourceState.stub(stub[:resource_state]) unless stub[:resource_state].nil?
         data
       end
     end
@@ -168,8 +170,8 @@ module AWS::SDK::Inspector2
       def self.stub(stub)
         stub ||= Types::ResourceState.new
         data = {}
-        data['ec2'] = Stubs::State.stub(stub[:ec2]) unless stub[:ec2].nil?
-        data['ecr'] = Stubs::State.stub(stub[:ecr]) unless stub[:ecr].nil?
+        data['ec2'] = State.stub(stub[:ec2]) unless stub[:ec2].nil?
+        data['ecr'] = State.stub(stub[:ecr]) unless stub[:ecr].nil?
         data
       end
     end
@@ -209,9 +211,9 @@ module AWS::SDK::Inspector2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['accounts'] = Stubs::FreeTrialAccountInfoList.stub(stub[:accounts]) unless stub[:accounts].nil?
-        data['failedAccounts'] = Stubs::FreeTrialInfoErrorList.stub(stub[:failed_accounts]) unless stub[:failed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accounts'] = FreeTrialAccountInfoList.stub(stub[:accounts]) unless stub[:accounts].nil?
+        data['failedAccounts'] = FreeTrialInfoErrorList.stub(stub[:failed_accounts]) unless stub[:failed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -229,7 +231,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FreeTrialInfoError.stub(element) unless element.nil?
+          data << FreeTrialInfoError.stub(element) unless element.nil?
         end
         data
       end
@@ -271,7 +273,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FreeTrialAccountInfo.stub(element) unless element.nil?
+          data << FreeTrialAccountInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -292,7 +294,7 @@ module AWS::SDK::Inspector2
         stub ||= Types::FreeTrialAccountInfo.new
         data = {}
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['freeTrialInfo'] = Stubs::FreeTrialInfoList.stub(stub[:free_trial_info]) unless stub[:free_trial_info].nil?
+        data['freeTrialInfo'] = FreeTrialInfoList.stub(stub[:free_trial_info]) unless stub[:free_trial_info].nil?
         data
       end
     end
@@ -311,7 +313,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FreeTrialInfo.stub(element) unless element.nil?
+          data << FreeTrialInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -354,7 +356,7 @@ module AWS::SDK::Inspector2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['reportId'] = stub[:report_id] unless stub[:report_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -371,7 +373,7 @@ module AWS::SDK::Inspector2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -388,7 +390,7 @@ module AWS::SDK::Inspector2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['reportId'] = stub[:report_id] unless stub[:report_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -405,7 +407,7 @@ module AWS::SDK::Inspector2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -422,9 +424,9 @@ module AWS::SDK::Inspector2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['autoEnable'] = Stubs::AutoEnable.stub(stub[:auto_enable]) unless stub[:auto_enable].nil?
+        data['autoEnable'] = AutoEnable.stub(stub[:auto_enable]) unless stub[:auto_enable].nil?
         data['maxAccountLimitReached'] = stub[:max_account_limit_reached] unless stub[:max_account_limit_reached].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -461,9 +463,9 @@ module AWS::SDK::Inspector2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['accounts'] = Stubs::AccountList.stub(stub[:accounts]) unless stub[:accounts].nil?
-        data['failedAccounts'] = Stubs::FailedAccountList.stub(stub[:failed_accounts]) unless stub[:failed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accounts'] = AccountList.stub(stub[:accounts]) unless stub[:accounts].nil?
+        data['failedAccounts'] = FailedAccountList.stub(stub[:failed_accounts]) unless stub[:failed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -481,7 +483,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Account.stub(element) unless element.nil?
+          data << Account.stub(element) unless element.nil?
         end
         data
       end
@@ -504,7 +506,7 @@ module AWS::SDK::Inspector2
         data = {}
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['resourceStatus'] = Stubs::ResourceStatus.stub(stub[:resource_status]) unless stub[:resource_status].nil?
+        data['resourceStatus'] = ResourceStatus.stub(stub[:resource_status]) unless stub[:resource_status].nil?
         data
       end
     end
@@ -522,7 +524,7 @@ module AWS::SDK::Inspector2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['delegatedAdminAccountId'] = stub[:delegated_admin_account_id] unless stub[:delegated_admin_account_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -539,7 +541,7 @@ module AWS::SDK::Inspector2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -556,9 +558,9 @@ module AWS::SDK::Inspector2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['accounts'] = Stubs::AccountList.stub(stub[:accounts]) unless stub[:accounts].nil?
-        data['failedAccounts'] = Stubs::FailedAccountList.stub(stub[:failed_accounts]) unless stub[:failed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accounts'] = AccountList.stub(stub[:accounts]) unless stub[:accounts].nil?
+        data['failedAccounts'] = FailedAccountList.stub(stub[:failed_accounts]) unless stub[:failed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -575,7 +577,7 @@ module AWS::SDK::Inspector2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['delegatedAdminAccountId'] = stub[:delegated_admin_account_id] unless stub[:delegated_admin_account_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -591,8 +593,8 @@ module AWS::SDK::Inspector2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['delegatedAdmin'] = Stubs::DelegatedAdmin.stub(stub[:delegated_admin]) unless stub[:delegated_admin].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['delegatedAdmin'] = DelegatedAdmin.stub(stub[:delegated_admin]) unless stub[:delegated_admin].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -637,9 +639,9 @@ module AWS::SDK::Inspector2
         data['status'] = stub[:status] unless stub[:status].nil?
         data['errorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        data['destination'] = Stubs::Destination.stub(stub[:destination]) unless stub[:destination].nil?
-        data['filterCriteria'] = Stubs::FilterCriteria.stub(stub[:filter_criteria]) unless stub[:filter_criteria].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['destination'] = Destination.stub(stub[:destination]) unless stub[:destination].nil?
+        data['filterCriteria'] = FilterCriteria.stub(stub[:filter_criteria]) unless stub[:filter_criteria].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -686,37 +688,37 @@ module AWS::SDK::Inspector2
       def self.stub(stub)
         stub ||= Types::FilterCriteria.new
         data = {}
-        data['findingArn'] = Stubs::StringFilterList.stub(stub[:finding_arn]) unless stub[:finding_arn].nil?
-        data['awsAccountId'] = Stubs::StringFilterList.stub(stub[:aws_account_id]) unless stub[:aws_account_id].nil?
-        data['findingType'] = Stubs::StringFilterList.stub(stub[:finding_type]) unless stub[:finding_type].nil?
-        data['severity'] = Stubs::StringFilterList.stub(stub[:severity]) unless stub[:severity].nil?
-        data['firstObservedAt'] = Stubs::DateFilterList.stub(stub[:first_observed_at]) unless stub[:first_observed_at].nil?
-        data['lastObservedAt'] = Stubs::DateFilterList.stub(stub[:last_observed_at]) unless stub[:last_observed_at].nil?
-        data['updatedAt'] = Stubs::DateFilterList.stub(stub[:updated_at]) unless stub[:updated_at].nil?
-        data['findingStatus'] = Stubs::StringFilterList.stub(stub[:finding_status]) unless stub[:finding_status].nil?
-        data['title'] = Stubs::StringFilterList.stub(stub[:title]) unless stub[:title].nil?
-        data['inspectorScore'] = Stubs::NumberFilterList.stub(stub[:inspector_score]) unless stub[:inspector_score].nil?
-        data['resourceType'] = Stubs::StringFilterList.stub(stub[:resource_type]) unless stub[:resource_type].nil?
-        data['resourceId'] = Stubs::StringFilterList.stub(stub[:resource_id]) unless stub[:resource_id].nil?
-        data['resourceTags'] = Stubs::MapFilterList.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
-        data['ec2InstanceImageId'] = Stubs::StringFilterList.stub(stub[:ec2_instance_image_id]) unless stub[:ec2_instance_image_id].nil?
-        data['ec2InstanceVpcId'] = Stubs::StringFilterList.stub(stub[:ec2_instance_vpc_id]) unless stub[:ec2_instance_vpc_id].nil?
-        data['ec2InstanceSubnetId'] = Stubs::StringFilterList.stub(stub[:ec2_instance_subnet_id]) unless stub[:ec2_instance_subnet_id].nil?
-        data['ecrImagePushedAt'] = Stubs::DateFilterList.stub(stub[:ecr_image_pushed_at]) unless stub[:ecr_image_pushed_at].nil?
-        data['ecrImageArchitecture'] = Stubs::StringFilterList.stub(stub[:ecr_image_architecture]) unless stub[:ecr_image_architecture].nil?
-        data['ecrImageRegistry'] = Stubs::StringFilterList.stub(stub[:ecr_image_registry]) unless stub[:ecr_image_registry].nil?
-        data['ecrImageRepositoryName'] = Stubs::StringFilterList.stub(stub[:ecr_image_repository_name]) unless stub[:ecr_image_repository_name].nil?
-        data['ecrImageTags'] = Stubs::StringFilterList.stub(stub[:ecr_image_tags]) unless stub[:ecr_image_tags].nil?
-        data['ecrImageHash'] = Stubs::StringFilterList.stub(stub[:ecr_image_hash]) unless stub[:ecr_image_hash].nil?
-        data['portRange'] = Stubs::PortRangeFilterList.stub(stub[:port_range]) unless stub[:port_range].nil?
-        data['networkProtocol'] = Stubs::StringFilterList.stub(stub[:network_protocol]) unless stub[:network_protocol].nil?
-        data['componentId'] = Stubs::StringFilterList.stub(stub[:component_id]) unless stub[:component_id].nil?
-        data['componentType'] = Stubs::StringFilterList.stub(stub[:component_type]) unless stub[:component_type].nil?
-        data['vulnerabilityId'] = Stubs::StringFilterList.stub(stub[:vulnerability_id]) unless stub[:vulnerability_id].nil?
-        data['vulnerabilitySource'] = Stubs::StringFilterList.stub(stub[:vulnerability_source]) unless stub[:vulnerability_source].nil?
-        data['vendorSeverity'] = Stubs::StringFilterList.stub(stub[:vendor_severity]) unless stub[:vendor_severity].nil?
-        data['vulnerablePackages'] = Stubs::PackageFilterList.stub(stub[:vulnerable_packages]) unless stub[:vulnerable_packages].nil?
-        data['relatedVulnerabilities'] = Stubs::StringFilterList.stub(stub[:related_vulnerabilities]) unless stub[:related_vulnerabilities].nil?
+        data['findingArn'] = StringFilterList.stub(stub[:finding_arn]) unless stub[:finding_arn].nil?
+        data['awsAccountId'] = StringFilterList.stub(stub[:aws_account_id]) unless stub[:aws_account_id].nil?
+        data['findingType'] = StringFilterList.stub(stub[:finding_type]) unless stub[:finding_type].nil?
+        data['severity'] = StringFilterList.stub(stub[:severity]) unless stub[:severity].nil?
+        data['firstObservedAt'] = DateFilterList.stub(stub[:first_observed_at]) unless stub[:first_observed_at].nil?
+        data['lastObservedAt'] = DateFilterList.stub(stub[:last_observed_at]) unless stub[:last_observed_at].nil?
+        data['updatedAt'] = DateFilterList.stub(stub[:updated_at]) unless stub[:updated_at].nil?
+        data['findingStatus'] = StringFilterList.stub(stub[:finding_status]) unless stub[:finding_status].nil?
+        data['title'] = StringFilterList.stub(stub[:title]) unless stub[:title].nil?
+        data['inspectorScore'] = NumberFilterList.stub(stub[:inspector_score]) unless stub[:inspector_score].nil?
+        data['resourceType'] = StringFilterList.stub(stub[:resource_type]) unless stub[:resource_type].nil?
+        data['resourceId'] = StringFilterList.stub(stub[:resource_id]) unless stub[:resource_id].nil?
+        data['resourceTags'] = MapFilterList.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
+        data['ec2InstanceImageId'] = StringFilterList.stub(stub[:ec2_instance_image_id]) unless stub[:ec2_instance_image_id].nil?
+        data['ec2InstanceVpcId'] = StringFilterList.stub(stub[:ec2_instance_vpc_id]) unless stub[:ec2_instance_vpc_id].nil?
+        data['ec2InstanceSubnetId'] = StringFilterList.stub(stub[:ec2_instance_subnet_id]) unless stub[:ec2_instance_subnet_id].nil?
+        data['ecrImagePushedAt'] = DateFilterList.stub(stub[:ecr_image_pushed_at]) unless stub[:ecr_image_pushed_at].nil?
+        data['ecrImageArchitecture'] = StringFilterList.stub(stub[:ecr_image_architecture]) unless stub[:ecr_image_architecture].nil?
+        data['ecrImageRegistry'] = StringFilterList.stub(stub[:ecr_image_registry]) unless stub[:ecr_image_registry].nil?
+        data['ecrImageRepositoryName'] = StringFilterList.stub(stub[:ecr_image_repository_name]) unless stub[:ecr_image_repository_name].nil?
+        data['ecrImageTags'] = StringFilterList.stub(stub[:ecr_image_tags]) unless stub[:ecr_image_tags].nil?
+        data['ecrImageHash'] = StringFilterList.stub(stub[:ecr_image_hash]) unless stub[:ecr_image_hash].nil?
+        data['portRange'] = PortRangeFilterList.stub(stub[:port_range]) unless stub[:port_range].nil?
+        data['networkProtocol'] = StringFilterList.stub(stub[:network_protocol]) unless stub[:network_protocol].nil?
+        data['componentId'] = StringFilterList.stub(stub[:component_id]) unless stub[:component_id].nil?
+        data['componentType'] = StringFilterList.stub(stub[:component_type]) unless stub[:component_type].nil?
+        data['vulnerabilityId'] = StringFilterList.stub(stub[:vulnerability_id]) unless stub[:vulnerability_id].nil?
+        data['vulnerabilitySource'] = StringFilterList.stub(stub[:vulnerability_source]) unless stub[:vulnerability_source].nil?
+        data['vendorSeverity'] = StringFilterList.stub(stub[:vendor_severity]) unless stub[:vendor_severity].nil?
+        data['vulnerablePackages'] = PackageFilterList.stub(stub[:vulnerable_packages]) unless stub[:vulnerable_packages].nil?
+        data['relatedVulnerabilities'] = StringFilterList.stub(stub[:related_vulnerabilities]) unless stub[:related_vulnerabilities].nil?
         data
       end
     end
@@ -735,7 +737,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StringFilter.stub(element) unless element.nil?
+          data << StringFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -775,7 +777,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PackageFilter.stub(element) unless element.nil?
+          data << PackageFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -799,12 +801,12 @@ module AWS::SDK::Inspector2
       def self.stub(stub)
         stub ||= Types::PackageFilter.new
         data = {}
-        data['name'] = Stubs::StringFilter.stub(stub[:name]) unless stub[:name].nil?
-        data['version'] = Stubs::StringFilter.stub(stub[:version]) unless stub[:version].nil?
-        data['epoch'] = Stubs::NumberFilter.stub(stub[:epoch]) unless stub[:epoch].nil?
-        data['release'] = Stubs::StringFilter.stub(stub[:release]) unless stub[:release].nil?
-        data['architecture'] = Stubs::StringFilter.stub(stub[:architecture]) unless stub[:architecture].nil?
-        data['sourceLayerHash'] = Stubs::StringFilter.stub(stub[:source_layer_hash]) unless stub[:source_layer_hash].nil?
+        data['name'] = StringFilter.stub(stub[:name]) unless stub[:name].nil?
+        data['version'] = StringFilter.stub(stub[:version]) unless stub[:version].nil?
+        data['epoch'] = NumberFilter.stub(stub[:epoch]) unless stub[:epoch].nil?
+        data['release'] = StringFilter.stub(stub[:release]) unless stub[:release].nil?
+        data['architecture'] = StringFilter.stub(stub[:architecture]) unless stub[:architecture].nil?
+        data['sourceLayerHash'] = StringFilter.stub(stub[:source_layer_hash]) unless stub[:source_layer_hash].nil?
         data
       end
     end
@@ -843,7 +845,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PortRangeFilter.stub(element) unless element.nil?
+          data << PortRangeFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -883,7 +885,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DateFilter.stub(element) unless element.nil?
+          data << DateFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -923,7 +925,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MapFilter.stub(element) unless element.nil?
+          data << MapFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -965,7 +967,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NumberFilter.stub(element) unless element.nil?
+          data << NumberFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -1005,8 +1007,8 @@ module AWS::SDK::Inspector2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['member'] = Stubs::Member.stub(stub[:member]) unless stub[:member].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['member'] = Member.stub(stub[:member]) unless stub[:member].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1047,9 +1049,9 @@ module AWS::SDK::Inspector2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['permissions'] = Stubs::Permissions.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['permissions'] = Permissions.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1067,7 +1069,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Permission.stub(element) unless element.nil?
+          data << Permission.stub(element) unless element.nil?
         end
         data
       end
@@ -1107,8 +1109,8 @@ module AWS::SDK::Inspector2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['coveredResources'] = Stubs::CoveredResources.stub(stub[:covered_resources]) unless stub[:covered_resources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['coveredResources'] = CoveredResources.stub(stub[:covered_resources]) unless stub[:covered_resources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1126,7 +1128,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CoveredResource.stub(element) unless element.nil?
+          data << CoveredResource.stub(element) unless element.nil?
         end
         data
       end
@@ -1154,8 +1156,8 @@ module AWS::SDK::Inspector2
         data['resourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['scanType'] = stub[:scan_type] unless stub[:scan_type].nil?
-        data['scanStatus'] = Stubs::ScanStatus.stub(stub[:scan_status]) unless stub[:scan_status].nil?
-        data['resourceMetadata'] = Stubs::ResourceScanMetadata.stub(stub[:resource_metadata]) unless stub[:resource_metadata].nil?
+        data['scanStatus'] = ScanStatus.stub(stub[:scan_status]) unless stub[:scan_status].nil?
+        data['resourceMetadata'] = ResourceScanMetadata.stub(stub[:resource_metadata]) unless stub[:resource_metadata].nil?
         data
       end
     end
@@ -1175,9 +1177,9 @@ module AWS::SDK::Inspector2
       def self.stub(stub)
         stub ||= Types::ResourceScanMetadata.new
         data = {}
-        data['ecrRepository'] = Stubs::EcrRepositoryMetadata.stub(stub[:ecr_repository]) unless stub[:ecr_repository].nil?
-        data['ecrImage'] = Stubs::EcrContainerImageMetadata.stub(stub[:ecr_image]) unless stub[:ecr_image].nil?
-        data['ec2'] = Stubs::Ec2Metadata.stub(stub[:ec2]) unless stub[:ec2].nil?
+        data['ecrRepository'] = EcrRepositoryMetadata.stub(stub[:ecr_repository]) unless stub[:ecr_repository].nil?
+        data['ecrImage'] = EcrContainerImageMetadata.stub(stub[:ecr_image]) unless stub[:ecr_image].nil?
+        data['ec2'] = Ec2Metadata.stub(stub[:ec2]) unless stub[:ec2].nil?
         data
       end
     end
@@ -1197,7 +1199,7 @@ module AWS::SDK::Inspector2
       def self.stub(stub)
         stub ||= Types::Ec2Metadata.new
         data = {}
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['amiId'] = stub[:ami_id] unless stub[:ami_id].nil?
         data['platform'] = stub[:platform] unless stub[:platform].nil?
         data
@@ -1237,7 +1239,7 @@ module AWS::SDK::Inspector2
       def self.stub(stub)
         stub ||= Types::EcrContainerImageMetadata.new
         data = {}
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1316,10 +1318,10 @@ module AWS::SDK::Inspector2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['countsByGroup'] = Stubs::CountsList.stub(stub[:counts_by_group]) unless stub[:counts_by_group].nil?
+        data['countsByGroup'] = CountsList.stub(stub[:counts_by_group]) unless stub[:counts_by_group].nil?
         data['totalCounts'] = stub[:total_counts] unless stub[:total_counts].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1337,7 +1339,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Counts.stub(element) unless element.nil?
+          data << Counts.stub(element) unless element.nil?
         end
         data
       end
@@ -1376,9 +1378,9 @@ module AWS::SDK::Inspector2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['delegatedAdminAccounts'] = Stubs::DelegatedAdminAccountList.stub(stub[:delegated_admin_accounts]) unless stub[:delegated_admin_accounts].nil?
+        data['delegatedAdminAccounts'] = DelegatedAdminAccountList.stub(stub[:delegated_admin_accounts]) unless stub[:delegated_admin_accounts].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1396,7 +1398,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DelegatedAdminAccount.stub(element) unless element.nil?
+          data << DelegatedAdminAccount.stub(element) unless element.nil?
         end
         data
       end
@@ -1435,9 +1437,9 @@ module AWS::SDK::Inspector2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['filters'] = Stubs::FilterList.stub(stub[:filters]) unless stub[:filters].nil?
+        data['filters'] = FilterList.stub(stub[:filters]) unless stub[:filters].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1455,7 +1457,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Filter.stub(element) unless element.nil?
+          data << Filter.stub(element) unless element.nil?
         end
         data
       end
@@ -1486,13 +1488,13 @@ module AWS::SDK::Inspector2
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['ownerId'] = stub[:owner_id] unless stub[:owner_id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['criteria'] = Stubs::FilterCriteria.stub(stub[:criteria]) unless stub[:criteria].nil?
+        data['criteria'] = FilterCriteria.stub(stub[:criteria]) unless stub[:criteria].nil?
         data['action'] = stub[:action] unless stub[:action].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['reason'] = stub[:reason] unless stub[:reason].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1512,9 +1514,9 @@ module AWS::SDK::Inspector2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['aggregationType'] = stub[:aggregation_type] unless stub[:aggregation_type].nil?
-        data['responses'] = Stubs::AggregationResponseList.stub(stub[:responses]) unless stub[:responses].nil?
+        data['responses'] = AggregationResponseList.stub(stub[:responses]) unless stub[:responses].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1532,7 +1534,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AggregationResponse.stub(element) unless element.nil?
+          data << AggregationResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -1552,23 +1554,23 @@ module AWS::SDK::Inspector2
         data = {}
         case stub
         when Types::AggregationResponse::AccountAggregation
-          data['accountAggregation'] = (Stubs::AccountAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['accountAggregation'] = (AccountAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AggregationResponse::AmiAggregation
-          data['amiAggregation'] = (Stubs::AmiAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['amiAggregation'] = (AmiAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AggregationResponse::AwsEcrContainerAggregation
-          data['awsEcrContainerAggregation'] = (Stubs::AwsEcrContainerAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['awsEcrContainerAggregation'] = (AwsEcrContainerAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AggregationResponse::Ec2InstanceAggregation
-          data['ec2InstanceAggregation'] = (Stubs::Ec2InstanceAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['ec2InstanceAggregation'] = (Ec2InstanceAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AggregationResponse::FindingTypeAggregation
-          data['findingTypeAggregation'] = (Stubs::FindingTypeAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['findingTypeAggregation'] = (FindingTypeAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AggregationResponse::ImageLayerAggregation
-          data['imageLayerAggregation'] = (Stubs::ImageLayerAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['imageLayerAggregation'] = (ImageLayerAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AggregationResponse::PackageAggregation
-          data['packageAggregation'] = (Stubs::PackageAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['packageAggregation'] = (PackageAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AggregationResponse::RepositoryAggregation
-          data['repositoryAggregation'] = (Stubs::RepositoryAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['repositoryAggregation'] = (RepositoryAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AggregationResponse::TitleAggregation
-          data['titleAggregation'] = (Stubs::TitleAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['titleAggregation'] = (TitleAggregationResponse.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::AggregationResponse"
@@ -1597,7 +1599,7 @@ module AWS::SDK::Inspector2
         data['title'] = stub[:title] unless stub[:title].nil?
         data['vulnerabilityId'] = stub[:vulnerability_id] unless stub[:vulnerability_id].nil?
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['severityCounts'] = Stubs::SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
+        data['severityCounts'] = SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
         data
       end
     end
@@ -1644,7 +1646,7 @@ module AWS::SDK::Inspector2
         data = {}
         data['repository'] = stub[:repository] unless stub[:repository].nil?
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['severityCounts'] = Stubs::SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
+        data['severityCounts'] = SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
         data['affectedImages'] = stub[:affected_images] unless stub[:affected_images].nil?
         data
       end
@@ -1667,7 +1669,7 @@ module AWS::SDK::Inspector2
         data = {}
         data['packageName'] = stub[:package_name] unless stub[:package_name].nil?
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['severityCounts'] = Stubs::SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
+        data['severityCounts'] = SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
         data
       end
     end
@@ -1693,7 +1695,7 @@ module AWS::SDK::Inspector2
         data['resourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
         data['layerHash'] = stub[:layer_hash] unless stub[:layer_hash].nil?
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['severityCounts'] = Stubs::SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
+        data['severityCounts'] = SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
         data
       end
     end
@@ -1713,7 +1715,7 @@ module AWS::SDK::Inspector2
         stub ||= Types::FindingTypeAggregationResponse.new
         data = {}
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['severityCounts'] = Stubs::SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
+        data['severityCounts'] = SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
         data
       end
     end
@@ -1740,9 +1742,9 @@ module AWS::SDK::Inspector2
         data['instanceId'] = stub[:instance_id] unless stub[:instance_id].nil?
         data['ami'] = stub[:ami] unless stub[:ami].nil?
         data['operatingSystem'] = stub[:operating_system] unless stub[:operating_system].nil?
-        data['instanceTags'] = Stubs::TagMap.stub(stub[:instance_tags]) unless stub[:instance_tags].nil?
+        data['instanceTags'] = TagMap.stub(stub[:instance_tags]) unless stub[:instance_tags].nil?
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['severityCounts'] = Stubs::SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
+        data['severityCounts'] = SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
         data['networkFindings'] = stub[:network_findings] unless stub[:network_findings].nil?
         data
       end
@@ -1771,9 +1773,9 @@ module AWS::SDK::Inspector2
         data['imageSha'] = stub[:image_sha] unless stub[:image_sha].nil?
         data['repository'] = stub[:repository] unless stub[:repository].nil?
         data['architecture'] = stub[:architecture] unless stub[:architecture].nil?
-        data['imageTags'] = Stubs::StringList.stub(stub[:image_tags]) unless stub[:image_tags].nil?
+        data['imageTags'] = StringList.stub(stub[:image_tags]) unless stub[:image_tags].nil?
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['severityCounts'] = Stubs::SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
+        data['severityCounts'] = SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
         data
       end
     end
@@ -1816,7 +1818,7 @@ module AWS::SDK::Inspector2
         data = {}
         data['ami'] = stub[:ami] unless stub[:ami].nil?
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['severityCounts'] = Stubs::SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
+        data['severityCounts'] = SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
         data['affectedInstances'] = stub[:affected_instances] unless stub[:affected_instances].nil?
         data
       end
@@ -1837,7 +1839,7 @@ module AWS::SDK::Inspector2
         stub ||= Types::AccountAggregationResponse.new
         data = {}
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['severityCounts'] = Stubs::SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
+        data['severityCounts'] = SeverityCounts.stub(stub[:severity_counts]) unless stub[:severity_counts].nil?
         data
       end
     end
@@ -1856,8 +1858,8 @@ module AWS::SDK::Inspector2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['findings'] = Stubs::FindingList.stub(stub[:findings]) unless stub[:findings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['findings'] = FindingList.stub(stub[:findings]) unless stub[:findings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1875,7 +1877,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Finding.stub(element) unless element.nil?
+          data << Finding.stub(element) unless element.nil?
         end
         data
       end
@@ -1914,17 +1916,17 @@ module AWS::SDK::Inspector2
         data['type'] = stub[:type] unless stub[:type].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['title'] = stub[:title] unless stub[:title].nil?
-        data['remediation'] = Stubs::Remediation.stub(stub[:remediation]) unless stub[:remediation].nil?
+        data['remediation'] = Remediation.stub(stub[:remediation]) unless stub[:remediation].nil?
         data['severity'] = stub[:severity] unless stub[:severity].nil?
         data['firstObservedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:first_observed_at]).to_i unless stub[:first_observed_at].nil?
         data['lastObservedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_observed_at]).to_i unless stub[:last_observed_at].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['resources'] = Stubs::ResourceList.stub(stub[:resources]) unless stub[:resources].nil?
+        data['resources'] = ResourceList.stub(stub[:resources]) unless stub[:resources].nil?
         data['inspectorScore'] = Hearth::NumberHelper.serialize(stub[:inspector_score])
-        data['inspectorScoreDetails'] = Stubs::InspectorScoreDetails.stub(stub[:inspector_score_details]) unless stub[:inspector_score_details].nil?
-        data['networkReachabilityDetails'] = Stubs::NetworkReachabilityDetails.stub(stub[:network_reachability_details]) unless stub[:network_reachability_details].nil?
-        data['packageVulnerabilityDetails'] = Stubs::PackageVulnerabilityDetails.stub(stub[:package_vulnerability_details]) unless stub[:package_vulnerability_details].nil?
+        data['inspectorScoreDetails'] = InspectorScoreDetails.stub(stub[:inspector_score_details]) unless stub[:inspector_score_details].nil?
+        data['networkReachabilityDetails'] = NetworkReachabilityDetails.stub(stub[:network_reachability_details]) unless stub[:network_reachability_details].nil?
+        data['packageVulnerabilityDetails'] = PackageVulnerabilityDetails.stub(stub[:package_vulnerability_details]) unless stub[:package_vulnerability_details].nil?
         data
       end
     end
@@ -1952,15 +1954,15 @@ module AWS::SDK::Inspector2
         stub ||= Types::PackageVulnerabilityDetails.new
         data = {}
         data['vulnerabilityId'] = stub[:vulnerability_id] unless stub[:vulnerability_id].nil?
-        data['vulnerablePackages'] = Stubs::VulnerablePackageList.stub(stub[:vulnerable_packages]) unless stub[:vulnerable_packages].nil?
+        data['vulnerablePackages'] = VulnerablePackageList.stub(stub[:vulnerable_packages]) unless stub[:vulnerable_packages].nil?
         data['source'] = stub[:source] unless stub[:source].nil?
-        data['cvss'] = Stubs::CvssScoreList.stub(stub[:cvss]) unless stub[:cvss].nil?
-        data['relatedVulnerabilities'] = Stubs::VulnerabilityIdList.stub(stub[:related_vulnerabilities]) unless stub[:related_vulnerabilities].nil?
+        data['cvss'] = CvssScoreList.stub(stub[:cvss]) unless stub[:cvss].nil?
+        data['relatedVulnerabilities'] = VulnerabilityIdList.stub(stub[:related_vulnerabilities]) unless stub[:related_vulnerabilities].nil?
         data['sourceUrl'] = stub[:source_url] unless stub[:source_url].nil?
         data['vendorSeverity'] = stub[:vendor_severity] unless stub[:vendor_severity].nil?
         data['vendorCreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:vendor_created_at]).to_i unless stub[:vendor_created_at].nil?
         data['vendorUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:vendor_updated_at]).to_i unless stub[:vendor_updated_at].nil?
-        data['referenceUrls'] = Stubs::NonEmptyStringList.stub(stub[:reference_urls]) unless stub[:reference_urls].nil?
+        data['referenceUrls'] = NonEmptyStringList.stub(stub[:reference_urls]) unless stub[:reference_urls].nil?
         data
       end
     end
@@ -2019,7 +2021,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CvssScore.stub(element) unless element.nil?
+          data << CvssScore.stub(element) unless element.nil?
         end
         data
       end
@@ -2063,7 +2065,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VulnerablePackage.stub(element) unless element.nil?
+          data << VulnerablePackage.stub(element) unless element.nil?
         end
         data
       end
@@ -2118,9 +2120,9 @@ module AWS::SDK::Inspector2
       def self.stub(stub)
         stub ||= Types::NetworkReachabilityDetails.new
         data = {}
-        data['openPortRange'] = Stubs::PortRange.stub(stub[:open_port_range]) unless stub[:open_port_range].nil?
+        data['openPortRange'] = PortRange.stub(stub[:open_port_range]) unless stub[:open_port_range].nil?
         data['protocol'] = stub[:protocol] unless stub[:protocol].nil?
-        data['networkPath'] = Stubs::NetworkPath.stub(stub[:network_path]) unless stub[:network_path].nil?
+        data['networkPath'] = NetworkPath.stub(stub[:network_path]) unless stub[:network_path].nil?
         data
       end
     end
@@ -2138,7 +2140,7 @@ module AWS::SDK::Inspector2
       def self.stub(stub)
         stub ||= Types::NetworkPath.new
         data = {}
-        data['steps'] = Stubs::StepList.stub(stub[:steps]) unless stub[:steps].nil?
+        data['steps'] = StepList.stub(stub[:steps]) unless stub[:steps].nil?
         data
       end
     end
@@ -2157,7 +2159,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Step.stub(element) unless element.nil?
+          data << Step.stub(element) unless element.nil?
         end
         data
       end
@@ -2216,7 +2218,7 @@ module AWS::SDK::Inspector2
       def self.stub(stub)
         stub ||= Types::InspectorScoreDetails.new
         data = {}
-        data['adjustedCvss'] = Stubs::CvssScoreDetails.stub(stub[:adjusted_cvss]) unless stub[:adjusted_cvss].nil?
+        data['adjustedCvss'] = CvssScoreDetails.stub(stub[:adjusted_cvss]) unless stub[:adjusted_cvss].nil?
         data
       end
     end
@@ -2244,7 +2246,7 @@ module AWS::SDK::Inspector2
         data['version'] = stub[:version] unless stub[:version].nil?
         data['score'] = Hearth::NumberHelper.serialize(stub[:score])
         data['scoringVector'] = stub[:scoring_vector] unless stub[:scoring_vector].nil?
-        data['adjustments'] = Stubs::CvssScoreAdjustmentList.stub(stub[:adjustments]) unless stub[:adjustments].nil?
+        data['adjustments'] = CvssScoreAdjustmentList.stub(stub[:adjustments]) unless stub[:adjustments].nil?
         data
       end
     end
@@ -2263,7 +2265,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CvssScoreAdjustment.stub(element) unless element.nil?
+          data << CvssScoreAdjustment.stub(element) unless element.nil?
         end
         data
       end
@@ -2303,7 +2305,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Resource.stub(element) unless element.nil?
+          data << Resource.stub(element) unless element.nil?
         end
         data
       end
@@ -2331,8 +2333,8 @@ module AWS::SDK::Inspector2
         data['id'] = stub[:id] unless stub[:id].nil?
         data['partition'] = stub[:partition] unless stub[:partition].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['details'] = Stubs::ResourceDetails.stub(stub[:details]) unless stub[:details].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['details'] = ResourceDetails.stub(stub[:details]) unless stub[:details].nil?
         data
       end
     end
@@ -2351,8 +2353,8 @@ module AWS::SDK::Inspector2
       def self.stub(stub)
         stub ||= Types::ResourceDetails.new
         data = {}
-        data['awsEc2Instance'] = Stubs::AwsEc2InstanceDetails.stub(stub[:aws_ec2_instance]) unless stub[:aws_ec2_instance].nil?
-        data['awsEcrContainerImage'] = Stubs::AwsEcrContainerImageDetails.stub(stub[:aws_ecr_container_image]) unless stub[:aws_ecr_container_image].nil?
+        data['awsEc2Instance'] = AwsEc2InstanceDetails.stub(stub[:aws_ec2_instance]) unless stub[:aws_ec2_instance].nil?
+        data['awsEcrContainerImage'] = AwsEcrContainerImageDetails.stub(stub[:aws_ecr_container_image]) unless stub[:aws_ecr_container_image].nil?
         data
       end
     end
@@ -2378,7 +2380,7 @@ module AWS::SDK::Inspector2
         stub ||= Types::AwsEcrContainerImageDetails.new
         data = {}
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
-        data['imageTags'] = Stubs::ImageTagList.stub(stub[:image_tags]) unless stub[:image_tags].nil?
+        data['imageTags'] = ImageTagList.stub(stub[:image_tags]) unless stub[:image_tags].nil?
         data['pushedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:pushed_at]).to_i unless stub[:pushed_at].nil?
         data['author'] = stub[:author] unless stub[:author].nil?
         data['architecture'] = stub[:architecture] unless stub[:architecture].nil?
@@ -2433,8 +2435,8 @@ module AWS::SDK::Inspector2
         data = {}
         data['type'] = stub[:type] unless stub[:type].nil?
         data['imageId'] = stub[:image_id] unless stub[:image_id].nil?
-        data['ipV4Addresses'] = Stubs::IpV4AddressList.stub(stub[:ip_v4_addresses]) unless stub[:ip_v4_addresses].nil?
-        data['ipV6Addresses'] = Stubs::IpV6AddressList.stub(stub[:ip_v6_addresses]) unless stub[:ip_v6_addresses].nil?
+        data['ipV4Addresses'] = IpV4AddressList.stub(stub[:ip_v4_addresses]) unless stub[:ip_v4_addresses].nil?
+        data['ipV6Addresses'] = IpV6AddressList.stub(stub[:ip_v6_addresses]) unless stub[:ip_v6_addresses].nil?
         data['keyName'] = stub[:key_name] unless stub[:key_name].nil?
         data['iamInstanceProfileArn'] = stub[:iam_instance_profile_arn] unless stub[:iam_instance_profile_arn].nil?
         data['vpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
@@ -2498,7 +2500,7 @@ module AWS::SDK::Inspector2
       def self.stub(stub)
         stub ||= Types::Remediation.new
         data = {}
-        data['recommendation'] = Stubs::Recommendation.stub(stub[:recommendation]) unless stub[:recommendation].nil?
+        data['recommendation'] = Recommendation.stub(stub[:recommendation]) unless stub[:recommendation].nil?
         data
       end
     end
@@ -2536,9 +2538,9 @@ module AWS::SDK::Inspector2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['members'] = Stubs::MemberList.stub(stub[:members]) unless stub[:members].nil?
+        data['members'] = MemberList.stub(stub[:members]) unless stub[:members].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2556,7 +2558,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Member.stub(element) unless element.nil?
+          data << Member.stub(element) unless element.nil?
         end
         data
       end
@@ -2574,8 +2576,8 @@ module AWS::SDK::Inspector2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2593,8 +2595,8 @@ module AWS::SDK::Inspector2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['totals'] = Stubs::UsageTotalList.stub(stub[:totals]) unless stub[:totals].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['totals'] = UsageTotalList.stub(stub[:totals]) unless stub[:totals].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2612,7 +2614,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UsageTotal.stub(element) unless element.nil?
+          data << UsageTotal.stub(element) unless element.nil?
         end
         data
       end
@@ -2633,7 +2635,7 @@ module AWS::SDK::Inspector2
         stub ||= Types::UsageTotal.new
         data = {}
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['usage'] = Stubs::UsageList.stub(stub[:usage]) unless stub[:usage].nil?
+        data['usage'] = UsageList.stub(stub[:usage]) unless stub[:usage].nil?
         data
       end
     end
@@ -2652,7 +2654,7 @@ module AWS::SDK::Inspector2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Usage.stub(element) unless element.nil?
+          data << Usage.stub(element) unless element.nil?
         end
         data
       end
@@ -2721,7 +2723,7 @@ module AWS::SDK::Inspector2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2737,8 +2739,8 @@ module AWS::SDK::Inspector2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['autoEnable'] = Stubs::AutoEnable.stub(stub[:auto_enable]) unless stub[:auto_enable].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['autoEnable'] = AutoEnable.stub(stub[:auto_enable]) unless stub[:auto_enable].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Panorama
   module Builders
 
@@ -22,13 +24,13 @@ module AWS::SDK::Panorama
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['ManifestPayload'] = Builders::ManifestPayload.build(input[:manifest_payload]) unless input[:manifest_payload].nil?
-        data['ManifestOverridesPayload'] = Builders::ManifestOverridesPayload.build(input[:manifest_overrides_payload]) unless input[:manifest_overrides_payload].nil?
+        data['ManifestPayload'] = ManifestPayload.build(input[:manifest_payload]) unless input[:manifest_payload].nil?
+        data['ManifestOverridesPayload'] = ManifestOverridesPayload.build(input[:manifest_overrides_payload]) unless input[:manifest_overrides_payload].nil?
         data['ApplicationInstanceIdToReplace'] = input[:application_instance_id_to_replace] unless input[:application_instance_id_to_replace].nil?
         data['RuntimeRoleArn'] = input[:runtime_role_arn] unless input[:runtime_role_arn].nil?
         data['DefaultRuntimeContextDevice'] = input[:default_runtime_context_device] unless input[:default_runtime_context_device].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -85,10 +87,10 @@ module AWS::SDK::Panorama
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['DeviceIds'] = Builders::DeviceIdList.build(input[:device_ids]) unless input[:device_ids].nil?
-        data['DeviceJobConfig'] = Builders::DeviceJobConfig.build(input[:device_job_config]) unless input[:device_job_config].nil?
+        data['DeviceIds'] = DeviceIdList.build(input[:device_ids]) unless input[:device_ids].nil?
+        data['DeviceJobConfig'] = DeviceJobConfig.build(input[:device_job_config]) unless input[:device_job_config].nil?
         data['JobType'] = input[:job_type] unless input[:job_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -96,7 +98,7 @@ module AWS::SDK::Panorama
     class DeviceJobConfig
       def self.build(input)
         data = {}
-        data['OTAJobConfig'] = Builders::OTAJobConfig.build(input[:ota_job_config]) unless input[:ota_job_config].nil?
+        data['OTAJobConfig'] = OTAJobConfig.build(input[:ota_job_config]) unless input[:ota_job_config].nil?
         data
       end
     end
@@ -136,9 +138,9 @@ module AWS::SDK::Panorama
         data['OutputPackageVersion'] = input[:output_package_version] unless input[:output_package_version].nil?
         data['NodeName'] = input[:node_name] unless input[:node_name].nil?
         data['NodeDescription'] = input[:node_description] unless input[:node_description].nil?
-        data['TemplateParameters'] = Builders::TemplateParametersMap.build(input[:template_parameters]) unless input[:template_parameters].nil?
-        data['JobTags'] = Builders::JobTagsList.build(input[:job_tags]) unless input[:job_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TemplateParameters'] = TemplateParametersMap.build(input[:template_parameters]) unless input[:template_parameters].nil?
+        data['JobTags'] = JobTagsList.build(input[:job_tags]) unless input[:job_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -147,7 +149,7 @@ module AWS::SDK::Panorama
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::JobResourceTags.build(element) unless element.nil?
+          data << JobResourceTags.build(element) unless element.nil?
         end
         data
       end
@@ -158,7 +160,7 @@ module AWS::SDK::Panorama
       def self.build(input)
         data = {}
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -185,8 +187,8 @@ module AWS::SDK::Panorama
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['PackageName'] = input[:package_name] unless input[:package_name].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -201,11 +203,11 @@ module AWS::SDK::Panorama
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['JobType'] = input[:job_type] unless input[:job_type].nil?
-        data['InputConfig'] = Builders::PackageImportJobInputConfig.build(input[:input_config]) unless input[:input_config].nil?
-        data['OutputConfig'] = Builders::PackageImportJobOutputConfig.build(input[:output_config]) unless input[:output_config].nil?
+        data['InputConfig'] = PackageImportJobInputConfig.build(input[:input_config]) unless input[:input_config].nil?
+        data['OutputConfig'] = PackageImportJobOutputConfig.build(input[:output_config]) unless input[:output_config].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['JobTags'] = Builders::JobTagsList.build(input[:job_tags]) unless input[:job_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['JobTags'] = JobTagsList.build(input[:job_tags]) unless input[:job_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -213,7 +215,7 @@ module AWS::SDK::Panorama
     class PackageImportJobOutputConfig
       def self.build(input)
         data = {}
-        data['PackageVersionOutputConfig'] = Builders::PackageVersionOutputConfig.build(input[:package_version_output_config]) unless input[:package_version_output_config].nil?
+        data['PackageVersionOutputConfig'] = PackageVersionOutputConfig.build(input[:package_version_output_config]) unless input[:package_version_output_config].nil?
         data
       end
     end
@@ -233,7 +235,7 @@ module AWS::SDK::Panorama
     class PackageImportJobInputConfig
       def self.build(input)
         data = {}
-        data['PackageVersionInputConfig'] = Builders::PackageVersionInputConfig.build(input[:package_version_input_config]) unless input[:package_version_input_config].nil?
+        data['PackageVersionInputConfig'] = PackageVersionInputConfig.build(input[:package_version_input_config]) unless input[:package_version_input_config].nil?
         data
       end
     end
@@ -242,7 +244,7 @@ module AWS::SDK::Panorama
     class PackageVersionInputConfig
       def self.build(input)
         data = {}
-        data['S3Location'] = Builders::S3Location.build(input[:s3_location]) unless input[:s3_location].nil?
+        data['S3Location'] = S3Location.build(input[:s3_location]) unless input[:s3_location].nil?
         data
       end
     end
@@ -639,9 +641,9 @@ module AWS::SDK::Panorama
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        data['NetworkingConfiguration'] = Builders::NetworkPayload.build(input[:networking_configuration]) unless input[:networking_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['NetworkingConfiguration'] = NetworkPayload.build(input[:networking_configuration]) unless input[:networking_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -649,9 +651,9 @@ module AWS::SDK::Panorama
     class NetworkPayload
       def self.build(input)
         data = {}
-        data['Ethernet0'] = Builders::EthernetPayload.build(input[:ethernet0]) unless input[:ethernet0].nil?
-        data['Ethernet1'] = Builders::EthernetPayload.build(input[:ethernet1]) unless input[:ethernet1].nil?
-        data['Ntp'] = Builders::NtpPayload.build(input[:ntp]) unless input[:ntp].nil?
+        data['Ethernet0'] = EthernetPayload.build(input[:ethernet0]) unless input[:ethernet0].nil?
+        data['Ethernet1'] = EthernetPayload.build(input[:ethernet1]) unless input[:ethernet1].nil?
+        data['Ntp'] = NtpPayload.build(input[:ntp]) unless input[:ntp].nil?
         data
       end
     end
@@ -660,7 +662,7 @@ module AWS::SDK::Panorama
     class NtpPayload
       def self.build(input)
         data = {}
-        data['NtpServers'] = Builders::NtpServerList.build(input[:ntp_servers]) unless input[:ntp_servers].nil?
+        data['NtpServers'] = NtpServerList.build(input[:ntp_servers]) unless input[:ntp_servers].nil?
         data
       end
     end
@@ -681,7 +683,7 @@ module AWS::SDK::Panorama
       def self.build(input)
         data = {}
         data['ConnectionType'] = input[:connection_type] unless input[:connection_type].nil?
-        data['StaticIpConnectionInfo'] = Builders::StaticIpConnectionInfo.build(input[:static_ip_connection_info]) unless input[:static_ip_connection_info].nil?
+        data['StaticIpConnectionInfo'] = StaticIpConnectionInfo.build(input[:static_ip_connection_info]) unless input[:static_ip_connection_info].nil?
         data
       end
     end
@@ -692,7 +694,7 @@ module AWS::SDK::Panorama
         data = {}
         data['IpAddress'] = input[:ip_address] unless input[:ip_address].nil?
         data['Mask'] = input[:mask] unless input[:mask].nil?
-        data['Dns'] = Builders::DnsList.build(input[:dns]) unless input[:dns].nil?
+        data['Dns'] = DnsList.build(input[:dns]) unless input[:dns].nil?
         data['DefaultGateway'] = input[:default_gateway] unless input[:default_gateway].nil?
         data
       end
@@ -736,7 +738,7 @@ module AWS::SDK::Panorama
         data = {}
         data['OwnerAccount'] = input[:owner_account] unless input[:owner_account].nil?
         data['MarkLatest'] = input[:mark_latest] unless input[:mark_latest].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -774,8 +776,8 @@ module AWS::SDK::Panorama
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -830,7 +832,7 @@ module AWS::SDK::Panorama
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

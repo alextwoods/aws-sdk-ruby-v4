@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::CodeCommit
   module Stubs
 
@@ -19,7 +22,7 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -35,9 +38,9 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['associatedRepositoryNames'] = Stubs::RepositoryNameList.stub(stub[:associated_repository_names]) unless stub[:associated_repository_names].nil?
-        data['errors'] = Stubs::BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['associatedRepositoryNames'] = RepositoryNameList.stub(stub[:associated_repository_names]) unless stub[:associated_repository_names].nil?
+        data['errors'] = BatchAssociateApprovalRuleTemplateWithRepositoriesErrorsList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -56,7 +59,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchAssociateApprovalRuleTemplateWithRepositoriesError.stub(element) unless element.nil?
+          data << BatchAssociateApprovalRuleTemplateWithRepositoriesError.stub(element) unless element.nil?
         end
         data
       end
@@ -119,13 +122,13 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['conflicts'] = Stubs::Conflicts.stub(stub[:conflicts]) unless stub[:conflicts].nil?
+        data['conflicts'] = Conflicts.stub(stub[:conflicts]) unless stub[:conflicts].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['errors'] = Stubs::BatchDescribeMergeConflictsErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        data['errors'] = BatchDescribeMergeConflictsErrors.stub(stub[:errors]) unless stub[:errors].nil?
         data['destinationCommitId'] = stub[:destination_commit_id] unless stub[:destination_commit_id].nil?
         data['sourceCommitId'] = stub[:source_commit_id] unless stub[:source_commit_id].nil?
         data['baseCommitId'] = stub[:base_commit_id] unless stub[:base_commit_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -144,7 +147,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchDescribeMergeConflictsError.stub(element) unless element.nil?
+          data << BatchDescribeMergeConflictsError.stub(element) unless element.nil?
         end
         data
       end
@@ -186,7 +189,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Conflict.stub(element) unless element.nil?
+          data << Conflict.stub(element) unless element.nil?
         end
         data
       end
@@ -206,8 +209,8 @@ module AWS::SDK::CodeCommit
       def self.stub(stub)
         stub ||= Types::Conflict.new
         data = {}
-        data['conflictMetadata'] = Stubs::ConflictMetadata.stub(stub[:conflict_metadata]) unless stub[:conflict_metadata].nil?
-        data['mergeHunks'] = Stubs::MergeHunks.stub(stub[:merge_hunks]) unless stub[:merge_hunks].nil?
+        data['conflictMetadata'] = ConflictMetadata.stub(stub[:conflict_metadata]) unless stub[:conflict_metadata].nil?
+        data['mergeHunks'] = MergeHunks.stub(stub[:merge_hunks]) unless stub[:merge_hunks].nil?
         data
       end
     end
@@ -226,7 +229,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MergeHunk.stub(element) unless element.nil?
+          data << MergeHunk.stub(element) unless element.nil?
         end
         data
       end
@@ -249,9 +252,9 @@ module AWS::SDK::CodeCommit
         stub ||= Types::MergeHunk.new
         data = {}
         data['isConflict'] = stub[:is_conflict] unless stub[:is_conflict].nil?
-        data['source'] = Stubs::MergeHunkDetail.stub(stub[:source]) unless stub[:source].nil?
-        data['destination'] = Stubs::MergeHunkDetail.stub(stub[:destination]) unless stub[:destination].nil?
-        data['base'] = Stubs::MergeHunkDetail.stub(stub[:base]) unless stub[:base].nil?
+        data['source'] = MergeHunkDetail.stub(stub[:source]) unless stub[:source].nil?
+        data['destination'] = MergeHunkDetail.stub(stub[:destination]) unless stub[:destination].nil?
+        data['base'] = MergeHunkDetail.stub(stub[:base]) unless stub[:base].nil?
         data
       end
     end
@@ -301,15 +304,15 @@ module AWS::SDK::CodeCommit
         stub ||= Types::ConflictMetadata.new
         data = {}
         data['filePath'] = stub[:file_path] unless stub[:file_path].nil?
-        data['fileSizes'] = Stubs::FileSizes.stub(stub[:file_sizes]) unless stub[:file_sizes].nil?
-        data['fileModes'] = Stubs::FileModes.stub(stub[:file_modes]) unless stub[:file_modes].nil?
-        data['objectTypes'] = Stubs::ObjectTypes.stub(stub[:object_types]) unless stub[:object_types].nil?
+        data['fileSizes'] = FileSizes.stub(stub[:file_sizes]) unless stub[:file_sizes].nil?
+        data['fileModes'] = FileModes.stub(stub[:file_modes]) unless stub[:file_modes].nil?
+        data['objectTypes'] = ObjectTypes.stub(stub[:object_types]) unless stub[:object_types].nil?
         data['numberOfConflicts'] = stub[:number_of_conflicts] unless stub[:number_of_conflicts].nil?
-        data['isBinaryFile'] = Stubs::IsBinaryFile.stub(stub[:is_binary_file]) unless stub[:is_binary_file].nil?
+        data['isBinaryFile'] = IsBinaryFile.stub(stub[:is_binary_file]) unless stub[:is_binary_file].nil?
         data['contentConflict'] = stub[:content_conflict] unless stub[:content_conflict].nil?
         data['fileModeConflict'] = stub[:file_mode_conflict] unless stub[:file_mode_conflict].nil?
         data['objectTypeConflict'] = stub[:object_type_conflict] unless stub[:object_type_conflict].nil?
-        data['mergeOperations'] = Stubs::MergeOperations.stub(stub[:merge_operations]) unless stub[:merge_operations].nil?
+        data['mergeOperations'] = MergeOperations.stub(stub[:merge_operations]) unless stub[:merge_operations].nil?
         data
       end
     end
@@ -433,9 +436,9 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['disassociatedRepositoryNames'] = Stubs::RepositoryNameList.stub(stub[:disassociated_repository_names]) unless stub[:disassociated_repository_names].nil?
-        data['errors'] = Stubs::BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['disassociatedRepositoryNames'] = RepositoryNameList.stub(stub[:disassociated_repository_names]) unless stub[:disassociated_repository_names].nil?
+        data['errors'] = BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorsList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -454,7 +457,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchDisassociateApprovalRuleTemplateFromRepositoriesError.stub(element) unless element.nil?
+          data << BatchDisassociateApprovalRuleTemplateFromRepositoriesError.stub(element) unless element.nil?
         end
         data
       end
@@ -493,9 +496,9 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['commits'] = Stubs::CommitObjectsList.stub(stub[:commits]) unless stub[:commits].nil?
-        data['errors'] = Stubs::BatchGetCommitsErrorsList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['commits'] = CommitObjectsList.stub(stub[:commits]) unless stub[:commits].nil?
+        data['errors'] = BatchGetCommitsErrorsList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -514,7 +517,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchGetCommitsError.stub(element) unless element.nil?
+          data << BatchGetCommitsError.stub(element) unless element.nil?
         end
         data
       end
@@ -556,7 +559,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Commit.stub(element) unless element.nil?
+          data << Commit.stub(element) unless element.nil?
         end
         data
       end
@@ -583,10 +586,10 @@ module AWS::SDK::CodeCommit
         data = {}
         data['commitId'] = stub[:commit_id] unless stub[:commit_id].nil?
         data['treeId'] = stub[:tree_id] unless stub[:tree_id].nil?
-        data['parents'] = Stubs::ParentList.stub(stub[:parents]) unless stub[:parents].nil?
+        data['parents'] = ParentList.stub(stub[:parents]) unless stub[:parents].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
-        data['author'] = Stubs::UserInfo.stub(stub[:author]) unless stub[:author].nil?
-        data['committer'] = Stubs::UserInfo.stub(stub[:committer]) unless stub[:committer].nil?
+        data['author'] = UserInfo.stub(stub[:author]) unless stub[:author].nil?
+        data['committer'] = UserInfo.stub(stub[:committer]) unless stub[:committer].nil?
         data['additionalData'] = stub[:additional_data] unless stub[:additional_data].nil?
         data
       end
@@ -645,9 +648,9 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['repositories'] = Stubs::RepositoryMetadataList.stub(stub[:repositories]) unless stub[:repositories].nil?
-        data['repositoriesNotFound'] = Stubs::RepositoryNotFoundList.stub(stub[:repositories_not_found]) unless stub[:repositories_not_found].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repositories'] = RepositoryMetadataList.stub(stub[:repositories]) unless stub[:repositories].nil?
+        data['repositoriesNotFound'] = RepositoryNotFoundList.stub(stub[:repositories_not_found]) unless stub[:repositories_not_found].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -686,7 +689,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RepositoryMetadata.stub(element) unless element.nil?
+          data << RepositoryMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -738,8 +741,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['approvalRuleTemplate'] = Stubs::ApprovalRuleTemplate.stub(stub[:approval_rule_template]) unless stub[:approval_rule_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['approvalRuleTemplate'] = ApprovalRuleTemplate.stub(stub[:approval_rule_template]) unless stub[:approval_rule_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -785,7 +788,7 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -806,10 +809,10 @@ module AWS::SDK::CodeCommit
         data = {}
         data['commitId'] = stub[:commit_id] unless stub[:commit_id].nil?
         data['treeId'] = stub[:tree_id] unless stub[:tree_id].nil?
-        data['filesAdded'] = Stubs::FilesMetadata.stub(stub[:files_added]) unless stub[:files_added].nil?
-        data['filesUpdated'] = Stubs::FilesMetadata.stub(stub[:files_updated]) unless stub[:files_updated].nil?
-        data['filesDeleted'] = Stubs::FilesMetadata.stub(stub[:files_deleted]) unless stub[:files_deleted].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filesAdded'] = FilesMetadata.stub(stub[:files_added]) unless stub[:files_added].nil?
+        data['filesUpdated'] = FilesMetadata.stub(stub[:files_updated]) unless stub[:files_updated].nil?
+        data['filesDeleted'] = FilesMetadata.stub(stub[:files_deleted]) unless stub[:files_deleted].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -828,7 +831,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FileMetadata.stub(element) unless element.nil?
+          data << FileMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -866,8 +869,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pullRequest'] = Stubs::PullRequest.stub(stub[:pull_request]) unless stub[:pull_request].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pullRequest'] = PullRequest.stub(stub[:pull_request]) unless stub[:pull_request].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -902,10 +905,10 @@ module AWS::SDK::CodeCommit
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['pullRequestStatus'] = stub[:pull_request_status] unless stub[:pull_request_status].nil?
         data['authorArn'] = stub[:author_arn] unless stub[:author_arn].nil?
-        data['pullRequestTargets'] = Stubs::PullRequestTargetList.stub(stub[:pull_request_targets]) unless stub[:pull_request_targets].nil?
+        data['pullRequestTargets'] = PullRequestTargetList.stub(stub[:pull_request_targets]) unless stub[:pull_request_targets].nil?
         data['clientRequestToken'] = stub[:client_request_token] unless stub[:client_request_token].nil?
         data['revisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        data['approvalRules'] = Stubs::ApprovalRulesList.stub(stub[:approval_rules]) unless stub[:approval_rules].nil?
+        data['approvalRules'] = ApprovalRulesList.stub(stub[:approval_rules]) unless stub[:approval_rules].nil?
         data
       end
     end
@@ -924,7 +927,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApprovalRule.stub(element) unless element.nil?
+          data << ApprovalRule.stub(element) unless element.nil?
         end
         data
       end
@@ -957,7 +960,7 @@ module AWS::SDK::CodeCommit
         data['lastModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_date]).to_i unless stub[:last_modified_date].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['lastModifiedUser'] = stub[:last_modified_user] unless stub[:last_modified_user].nil?
-        data['originApprovalRuleTemplate'] = Stubs::OriginApprovalRuleTemplate.stub(stub[:origin_approval_rule_template]) unless stub[:origin_approval_rule_template].nil?
+        data['originApprovalRuleTemplate'] = OriginApprovalRuleTemplate.stub(stub[:origin_approval_rule_template]) unless stub[:origin_approval_rule_template].nil?
         data
       end
     end
@@ -996,7 +999,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PullRequestTarget.stub(element) unless element.nil?
+          data << PullRequestTarget.stub(element) unless element.nil?
         end
         data
       end
@@ -1027,7 +1030,7 @@ module AWS::SDK::CodeCommit
         data['destinationCommit'] = stub[:destination_commit] unless stub[:destination_commit].nil?
         data['sourceCommit'] = stub[:source_commit] unless stub[:source_commit].nil?
         data['mergeBase'] = stub[:merge_base] unless stub[:merge_base].nil?
-        data['mergeMetadata'] = Stubs::MergeMetadata.stub(stub[:merge_metadata]) unless stub[:merge_metadata].nil?
+        data['mergeMetadata'] = MergeMetadata.stub(stub[:merge_metadata]) unless stub[:merge_metadata].nil?
         data
       end
     end
@@ -1066,8 +1069,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['approvalRule'] = Stubs::ApprovalRule.stub(stub[:approval_rule]) unless stub[:approval_rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['approvalRule'] = ApprovalRule.stub(stub[:approval_rule]) unless stub[:approval_rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1082,8 +1085,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['repositoryMetadata'] = Stubs::RepositoryMetadata.stub(stub[:repository_metadata]) unless stub[:repository_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repositoryMetadata'] = RepositoryMetadata.stub(stub[:repository_metadata]) unless stub[:repository_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1101,7 +1104,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['commitId'] = stub[:commit_id] unless stub[:commit_id].nil?
         data['treeId'] = stub[:tree_id] unless stub[:tree_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1117,7 +1120,7 @@ module AWS::SDK::CodeCommit
       def self.stub(http_resp, stub:)
         data = {}
         data['approvalRuleTemplateId'] = stub[:approval_rule_template_id] unless stub[:approval_rule_template_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1132,8 +1135,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['deletedBranch'] = Stubs::BranchInfo.stub(stub[:deleted_branch]) unless stub[:deleted_branch].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deletedBranch'] = BranchInfo.stub(stub[:deleted_branch]) unless stub[:deleted_branch].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1168,8 +1171,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['comment'] = Stubs::Comment.stub(stub[:comment]) unless stub[:comment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['comment'] = Comment.stub(stub[:comment]) unless stub[:comment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1204,8 +1207,8 @@ module AWS::SDK::CodeCommit
         data['authorArn'] = stub[:author_arn] unless stub[:author_arn].nil?
         data['deleted'] = stub[:deleted] unless stub[:deleted].nil?
         data['clientRequestToken'] = stub[:client_request_token] unless stub[:client_request_token].nil?
-        data['callerReactions'] = Stubs::CallerReactions.stub(stub[:caller_reactions]) unless stub[:caller_reactions].nil?
-        data['reactionCounts'] = Stubs::ReactionCountsMap.stub(stub[:reaction_counts]) unless stub[:reaction_counts].nil?
+        data['callerReactions'] = CallerReactions.stub(stub[:caller_reactions]) unless stub[:caller_reactions].nil?
+        data['reactionCounts'] = ReactionCountsMap.stub(stub[:reaction_counts]) unless stub[:reaction_counts].nil?
         data
       end
     end
@@ -1267,7 +1270,7 @@ module AWS::SDK::CodeCommit
         data['blobId'] = stub[:blob_id] unless stub[:blob_id].nil?
         data['treeId'] = stub[:tree_id] unless stub[:tree_id].nil?
         data['filePath'] = stub[:file_path] unless stub[:file_path].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1283,7 +1286,7 @@ module AWS::SDK::CodeCommit
       def self.stub(http_resp, stub:)
         data = {}
         data['approvalRuleId'] = stub[:approval_rule_id] unless stub[:approval_rule_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1299,7 +1302,7 @@ module AWS::SDK::CodeCommit
       def self.stub(http_resp, stub:)
         data = {}
         data['repositoryId'] = stub[:repository_id] unless stub[:repository_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1319,13 +1322,13 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['conflictMetadata'] = Stubs::ConflictMetadata.stub(stub[:conflict_metadata]) unless stub[:conflict_metadata].nil?
-        data['mergeHunks'] = Stubs::MergeHunks.stub(stub[:merge_hunks]) unless stub[:merge_hunks].nil?
+        data['conflictMetadata'] = ConflictMetadata.stub(stub[:conflict_metadata]) unless stub[:conflict_metadata].nil?
+        data['mergeHunks'] = MergeHunks.stub(stub[:merge_hunks]) unless stub[:merge_hunks].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['destinationCommitId'] = stub[:destination_commit_id] unless stub[:destination_commit_id].nil?
         data['sourceCommitId'] = stub[:source_commit_id] unless stub[:source_commit_id].nil?
         data['baseCommitId'] = stub[:base_commit_id] unless stub[:base_commit_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1341,9 +1344,9 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pullRequestEvents'] = Stubs::PullRequestEventList.stub(stub[:pull_request_events]) unless stub[:pull_request_events].nil?
+        data['pullRequestEvents'] = PullRequestEventList.stub(stub[:pull_request_events]) unless stub[:pull_request_events].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1362,7 +1365,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PullRequestEvent.stub(element) unless element.nil?
+          data << PullRequestEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -1395,13 +1398,13 @@ module AWS::SDK::CodeCommit
         data['eventDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:event_date]).to_i unless stub[:event_date].nil?
         data['pullRequestEventType'] = stub[:pull_request_event_type] unless stub[:pull_request_event_type].nil?
         data['actorArn'] = stub[:actor_arn] unless stub[:actor_arn].nil?
-        data['pullRequestCreatedEventMetadata'] = Stubs::PullRequestCreatedEventMetadata.stub(stub[:pull_request_created_event_metadata]) unless stub[:pull_request_created_event_metadata].nil?
-        data['pullRequestStatusChangedEventMetadata'] = Stubs::PullRequestStatusChangedEventMetadata.stub(stub[:pull_request_status_changed_event_metadata]) unless stub[:pull_request_status_changed_event_metadata].nil?
-        data['pullRequestSourceReferenceUpdatedEventMetadata'] = Stubs::PullRequestSourceReferenceUpdatedEventMetadata.stub(stub[:pull_request_source_reference_updated_event_metadata]) unless stub[:pull_request_source_reference_updated_event_metadata].nil?
-        data['pullRequestMergedStateChangedEventMetadata'] = Stubs::PullRequestMergedStateChangedEventMetadata.stub(stub[:pull_request_merged_state_changed_event_metadata]) unless stub[:pull_request_merged_state_changed_event_metadata].nil?
-        data['approvalRuleEventMetadata'] = Stubs::ApprovalRuleEventMetadata.stub(stub[:approval_rule_event_metadata]) unless stub[:approval_rule_event_metadata].nil?
-        data['approvalStateChangedEventMetadata'] = Stubs::ApprovalStateChangedEventMetadata.stub(stub[:approval_state_changed_event_metadata]) unless stub[:approval_state_changed_event_metadata].nil?
-        data['approvalRuleOverriddenEventMetadata'] = Stubs::ApprovalRuleOverriddenEventMetadata.stub(stub[:approval_rule_overridden_event_metadata]) unless stub[:approval_rule_overridden_event_metadata].nil?
+        data['pullRequestCreatedEventMetadata'] = PullRequestCreatedEventMetadata.stub(stub[:pull_request_created_event_metadata]) unless stub[:pull_request_created_event_metadata].nil?
+        data['pullRequestStatusChangedEventMetadata'] = PullRequestStatusChangedEventMetadata.stub(stub[:pull_request_status_changed_event_metadata]) unless stub[:pull_request_status_changed_event_metadata].nil?
+        data['pullRequestSourceReferenceUpdatedEventMetadata'] = PullRequestSourceReferenceUpdatedEventMetadata.stub(stub[:pull_request_source_reference_updated_event_metadata]) unless stub[:pull_request_source_reference_updated_event_metadata].nil?
+        data['pullRequestMergedStateChangedEventMetadata'] = PullRequestMergedStateChangedEventMetadata.stub(stub[:pull_request_merged_state_changed_event_metadata]) unless stub[:pull_request_merged_state_changed_event_metadata].nil?
+        data['approvalRuleEventMetadata'] = ApprovalRuleEventMetadata.stub(stub[:approval_rule_event_metadata]) unless stub[:approval_rule_event_metadata].nil?
+        data['approvalStateChangedEventMetadata'] = ApprovalStateChangedEventMetadata.stub(stub[:approval_state_changed_event_metadata]) unless stub[:approval_state_changed_event_metadata].nil?
+        data['approvalRuleOverriddenEventMetadata'] = ApprovalRuleOverriddenEventMetadata.stub(stub[:approval_rule_overridden_event_metadata]) unless stub[:approval_rule_overridden_event_metadata].nil?
         data
       end
     end
@@ -1485,7 +1488,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['destinationReference'] = stub[:destination_reference] unless stub[:destination_reference].nil?
-        data['mergeMetadata'] = Stubs::MergeMetadata.stub(stub[:merge_metadata]) unless stub[:merge_metadata].nil?
+        data['mergeMetadata'] = MergeMetadata.stub(stub[:merge_metadata]) unless stub[:merge_metadata].nil?
         data
       end
     end
@@ -1565,7 +1568,7 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1580,8 +1583,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['evaluation'] = Stubs::Evaluation.stub(stub[:evaluation]) unless stub[:evaluation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['evaluation'] = Evaluation.stub(stub[:evaluation]) unless stub[:evaluation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1604,8 +1607,8 @@ module AWS::SDK::CodeCommit
         data = {}
         data['approved'] = stub[:approved] unless stub[:approved].nil?
         data['overridden'] = stub[:overridden] unless stub[:overridden].nil?
-        data['approvalRulesSatisfied'] = Stubs::ApprovalRulesSatisfiedList.stub(stub[:approval_rules_satisfied]) unless stub[:approval_rules_satisfied].nil?
-        data['approvalRulesNotSatisfied'] = Stubs::ApprovalRulesNotSatisfiedList.stub(stub[:approval_rules_not_satisfied]) unless stub[:approval_rules_not_satisfied].nil?
+        data['approvalRulesSatisfied'] = ApprovalRulesSatisfiedList.stub(stub[:approval_rules_satisfied]) unless stub[:approval_rules_satisfied].nil?
+        data['approvalRulesNotSatisfied'] = ApprovalRulesNotSatisfiedList.stub(stub[:approval_rules_not_satisfied]) unless stub[:approval_rules_not_satisfied].nil?
         data
       end
     end
@@ -1660,8 +1663,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['approvalRuleTemplate'] = Stubs::ApprovalRuleTemplate.stub(stub[:approval_rule_template]) unless stub[:approval_rule_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['approvalRuleTemplate'] = ApprovalRuleTemplate.stub(stub[:approval_rule_template]) unless stub[:approval_rule_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1676,8 +1679,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['content'] = Base64::encode64(stub[:content]) unless stub[:content].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['content'] = ::Base64::encode64(stub[:content]) unless stub[:content].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1692,8 +1695,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['branch'] = Stubs::BranchInfo.stub(stub[:branch]) unless stub[:branch].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['branch'] = BranchInfo.stub(stub[:branch]) unless stub[:branch].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1708,8 +1711,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['comment'] = Stubs::Comment.stub(stub[:comment]) unless stub[:comment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['comment'] = Comment.stub(stub[:comment]) unless stub[:comment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1725,9 +1728,9 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['reactionsForComment'] = Stubs::ReactionsForCommentList.stub(stub[:reactions_for_comment]) unless stub[:reactions_for_comment].nil?
+        data['reactionsForComment'] = ReactionsForCommentList.stub(stub[:reactions_for_comment]) unless stub[:reactions_for_comment].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1746,7 +1749,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReactionForComment.stub(element) unless element.nil?
+          data << ReactionForComment.stub(element) unless element.nil?
         end
         data
       end
@@ -1767,8 +1770,8 @@ module AWS::SDK::CodeCommit
       def self.stub(stub)
         stub ||= Types::ReactionForComment.new
         data = {}
-        data['reaction'] = Stubs::ReactionValueFormats.stub(stub[:reaction]) unless stub[:reaction].nil?
-        data['reactionUsers'] = Stubs::ReactionUsersList.stub(stub[:reaction_users]) unless stub[:reaction_users].nil?
+        data['reaction'] = ReactionValueFormats.stub(stub[:reaction]) unless stub[:reaction].nil?
+        data['reactionUsers'] = ReactionUsersList.stub(stub[:reaction_users]) unless stub[:reaction_users].nil?
         data['reactionsFromDeletedUsersCount'] = stub[:reactions_from_deleted_users_count] unless stub[:reactions_from_deleted_users_count].nil?
         data
       end
@@ -1827,9 +1830,9 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['commentsForComparedCommitData'] = Stubs::CommentsForComparedCommitData.stub(stub[:comments_for_compared_commit_data]) unless stub[:comments_for_compared_commit_data].nil?
+        data['commentsForComparedCommitData'] = CommentsForComparedCommitData.stub(stub[:comments_for_compared_commit_data]) unless stub[:comments_for_compared_commit_data].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1848,7 +1851,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CommentsForComparedCommit.stub(element) unless element.nil?
+          data << CommentsForComparedCommit.stub(element) unless element.nil?
         end
         data
       end
@@ -1878,8 +1881,8 @@ module AWS::SDK::CodeCommit
         data['afterCommitId'] = stub[:after_commit_id] unless stub[:after_commit_id].nil?
         data['beforeBlobId'] = stub[:before_blob_id] unless stub[:before_blob_id].nil?
         data['afterBlobId'] = stub[:after_blob_id] unless stub[:after_blob_id].nil?
-        data['location'] = Stubs::Location.stub(stub[:location]) unless stub[:location].nil?
-        data['comments'] = Stubs::Comments.stub(stub[:comments]) unless stub[:comments].nil?
+        data['location'] = Location.stub(stub[:location]) unless stub[:location].nil?
+        data['comments'] = Comments.stub(stub[:comments]) unless stub[:comments].nil?
         data
       end
     end
@@ -1898,7 +1901,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Comment.stub(element) unless element.nil?
+          data << Comment.stub(element) unless element.nil?
         end
         data
       end
@@ -1937,9 +1940,9 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['commentsForPullRequestData'] = Stubs::CommentsForPullRequestData.stub(stub[:comments_for_pull_request_data]) unless stub[:comments_for_pull_request_data].nil?
+        data['commentsForPullRequestData'] = CommentsForPullRequestData.stub(stub[:comments_for_pull_request_data]) unless stub[:comments_for_pull_request_data].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1958,7 +1961,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CommentsForPullRequest.stub(element) unless element.nil?
+          data << CommentsForPullRequest.stub(element) unless element.nil?
         end
         data
       end
@@ -1990,8 +1993,8 @@ module AWS::SDK::CodeCommit
         data['afterCommitId'] = stub[:after_commit_id] unless stub[:after_commit_id].nil?
         data['beforeBlobId'] = stub[:before_blob_id] unless stub[:before_blob_id].nil?
         data['afterBlobId'] = stub[:after_blob_id] unless stub[:after_blob_id].nil?
-        data['location'] = Stubs::Location.stub(stub[:location]) unless stub[:location].nil?
-        data['comments'] = Stubs::Comments.stub(stub[:comments]) unless stub[:comments].nil?
+        data['location'] = Location.stub(stub[:location]) unless stub[:location].nil?
+        data['comments'] = Comments.stub(stub[:comments]) unless stub[:comments].nil?
         data
       end
     end
@@ -2006,8 +2009,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['commit'] = Stubs::Commit.stub(stub[:commit]) unless stub[:commit].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['commit'] = Commit.stub(stub[:commit]) unless stub[:commit].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2023,9 +2026,9 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['differences'] = Stubs::DifferenceList.stub(stub[:differences]) unless stub[:differences].nil?
+        data['differences'] = DifferenceList.stub(stub[:differences]) unless stub[:differences].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2044,7 +2047,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Difference.stub(element) unless element.nil?
+          data << Difference.stub(element) unless element.nil?
         end
         data
       end
@@ -2065,8 +2068,8 @@ module AWS::SDK::CodeCommit
       def self.stub(stub)
         stub ||= Types::Difference.new
         data = {}
-        data['beforeBlob'] = Stubs::BlobMetadata.stub(stub[:before_blob]) unless stub[:before_blob].nil?
-        data['afterBlob'] = Stubs::BlobMetadata.stub(stub[:after_blob]) unless stub[:after_blob].nil?
+        data['beforeBlob'] = BlobMetadata.stub(stub[:before_blob]) unless stub[:before_blob].nil?
+        data['afterBlob'] = BlobMetadata.stub(stub[:after_blob]) unless stub[:after_blob].nil?
         data['changeType'] = stub[:change_type] unless stub[:change_type].nil?
         data
       end
@@ -2114,8 +2117,8 @@ module AWS::SDK::CodeCommit
         data['filePath'] = stub[:file_path] unless stub[:file_path].nil?
         data['fileMode'] = stub[:file_mode] unless stub[:file_mode].nil?
         data['fileSize'] = stub[:file_size] unless stub[:file_size].nil?
-        data['fileContent'] = Base64::encode64(stub[:file_content]) unless stub[:file_content].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['fileContent'] = ::Base64::encode64(stub[:file_content]) unless stub[:file_content].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2139,11 +2142,11 @@ module AWS::SDK::CodeCommit
         data['commitId'] = stub[:commit_id] unless stub[:commit_id].nil?
         data['folderPath'] = stub[:folder_path] unless stub[:folder_path].nil?
         data['treeId'] = stub[:tree_id] unless stub[:tree_id].nil?
-        data['subFolders'] = Stubs::FolderList.stub(stub[:sub_folders]) unless stub[:sub_folders].nil?
-        data['files'] = Stubs::FileList.stub(stub[:files]) unless stub[:files].nil?
-        data['symbolicLinks'] = Stubs::SymbolicLinkList.stub(stub[:symbolic_links]) unless stub[:symbolic_links].nil?
-        data['subModules'] = Stubs::SubModuleList.stub(stub[:sub_modules]) unless stub[:sub_modules].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['subFolders'] = FolderList.stub(stub[:sub_folders]) unless stub[:sub_folders].nil?
+        data['files'] = FileList.stub(stub[:files]) unless stub[:files].nil?
+        data['symbolicLinks'] = SymbolicLinkList.stub(stub[:symbolic_links]) unless stub[:symbolic_links].nil?
+        data['subModules'] = SubModuleList.stub(stub[:sub_modules]) unless stub[:sub_modules].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2162,7 +2165,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SubModule.stub(element) unless element.nil?
+          data << SubModule.stub(element) unless element.nil?
         end
         data
       end
@@ -2204,7 +2207,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SymbolicLink.stub(element) unless element.nil?
+          data << SymbolicLink.stub(element) unless element.nil?
         end
         data
       end
@@ -2248,7 +2251,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::File.stub(element) unless element.nil?
+          data << File.stub(element) unless element.nil?
         end
         data
       end
@@ -2292,7 +2295,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Folder.stub(element) unless element.nil?
+          data << Folder.stub(element) unless element.nil?
         end
         data
       end
@@ -2337,7 +2340,7 @@ module AWS::SDK::CodeCommit
         data['destinationCommitId'] = stub[:destination_commit_id] unless stub[:destination_commit_id].nil?
         data['baseCommitId'] = stub[:base_commit_id] unless stub[:base_commit_id].nil?
         data['mergedCommitId'] = stub[:merged_commit_id] unless stub[:merged_commit_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2361,9 +2364,9 @@ module AWS::SDK::CodeCommit
         data['destinationCommitId'] = stub[:destination_commit_id] unless stub[:destination_commit_id].nil?
         data['sourceCommitId'] = stub[:source_commit_id] unless stub[:source_commit_id].nil?
         data['baseCommitId'] = stub[:base_commit_id] unless stub[:base_commit_id].nil?
-        data['conflictMetadataList'] = Stubs::ConflictMetadataList.stub(stub[:conflict_metadata_list]) unless stub[:conflict_metadata_list].nil?
+        data['conflictMetadataList'] = ConflictMetadataList.stub(stub[:conflict_metadata_list]) unless stub[:conflict_metadata_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2382,7 +2385,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConflictMetadata.stub(element) unless element.nil?
+          data << ConflictMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -2401,11 +2404,11 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['mergeOptions'] = Stubs::MergeOptions.stub(stub[:merge_options]) unless stub[:merge_options].nil?
+        data['mergeOptions'] = MergeOptions.stub(stub[:merge_options]) unless stub[:merge_options].nil?
         data['sourceCommitId'] = stub[:source_commit_id] unless stub[:source_commit_id].nil?
         data['destinationCommitId'] = stub[:destination_commit_id] unless stub[:destination_commit_id].nil?
         data['baseCommitId'] = stub[:base_commit_id] unless stub[:base_commit_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2440,8 +2443,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pullRequest'] = Stubs::PullRequest.stub(stub[:pull_request]) unless stub[:pull_request].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pullRequest'] = PullRequest.stub(stub[:pull_request]) unless stub[:pull_request].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2456,8 +2459,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['approvals'] = Stubs::ApprovalList.stub(stub[:approvals]) unless stub[:approvals].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['approvals'] = ApprovalList.stub(stub[:approvals]) unless stub[:approvals].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2476,7 +2479,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Approval.stub(element) unless element.nil?
+          data << Approval.stub(element) unless element.nil?
         end
         data
       end
@@ -2515,7 +2518,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['overridden'] = stub[:overridden] unless stub[:overridden].nil?
         data['overrider'] = stub[:overrider] unless stub[:overrider].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2530,8 +2533,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['repositoryMetadata'] = Stubs::RepositoryMetadata.stub(stub[:repository_metadata]) unless stub[:repository_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repositoryMetadata'] = RepositoryMetadata.stub(stub[:repository_metadata]) unless stub[:repository_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2548,8 +2551,8 @@ module AWS::SDK::CodeCommit
       def self.stub(http_resp, stub:)
         data = {}
         data['configurationId'] = stub[:configuration_id] unless stub[:configuration_id].nil?
-        data['triggers'] = Stubs::RepositoryTriggersList.stub(stub[:triggers]) unless stub[:triggers].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['triggers'] = RepositoryTriggersList.stub(stub[:triggers]) unless stub[:triggers].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2568,7 +2571,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RepositoryTrigger.stub(element) unless element.nil?
+          data << RepositoryTrigger.stub(element) unless element.nil?
         end
         data
       end
@@ -2594,8 +2597,8 @@ module AWS::SDK::CodeCommit
         data['name'] = stub[:name] unless stub[:name].nil?
         data['destinationArn'] = stub[:destination_arn] unless stub[:destination_arn].nil?
         data['customData'] = stub[:custom_data] unless stub[:custom_data].nil?
-        data['branches'] = Stubs::BranchNameList.stub(stub[:branches]) unless stub[:branches].nil?
-        data['events'] = Stubs::RepositoryTriggerEventList.stub(stub[:events]) unless stub[:events].nil?
+        data['branches'] = BranchNameList.stub(stub[:branches]) unless stub[:branches].nil?
+        data['events'] = RepositoryTriggerEventList.stub(stub[:events]) unless stub[:events].nil?
         data
       end
     end
@@ -2651,9 +2654,9 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['approvalRuleTemplateNames'] = Stubs::ApprovalRuleTemplateNameList.stub(stub[:approval_rule_template_names]) unless stub[:approval_rule_template_names].nil?
+        data['approvalRuleTemplateNames'] = ApprovalRuleTemplateNameList.stub(stub[:approval_rule_template_names]) unless stub[:approval_rule_template_names].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2689,9 +2692,9 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['approvalRuleTemplateNames'] = Stubs::ApprovalRuleTemplateNameList.stub(stub[:approval_rule_template_names]) unless stub[:approval_rule_template_names].nil?
+        data['approvalRuleTemplateNames'] = ApprovalRuleTemplateNameList.stub(stub[:approval_rule_template_names]) unless stub[:approval_rule_template_names].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2707,9 +2710,9 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['branches'] = Stubs::BranchNameList.stub(stub[:branches]) unless stub[:branches].nil?
+        data['branches'] = BranchNameList.stub(stub[:branches]) unless stub[:branches].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2725,9 +2728,9 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pullRequestIds'] = Stubs::PullRequestIdList.stub(stub[:pull_request_ids]) unless stub[:pull_request_ids].nil?
+        data['pullRequestIds'] = PullRequestIdList.stub(stub[:pull_request_ids]) unless stub[:pull_request_ids].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2763,9 +2766,9 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['repositories'] = Stubs::RepositoryNameIdPairList.stub(stub[:repositories]) unless stub[:repositories].nil?
+        data['repositories'] = RepositoryNameIdPairList.stub(stub[:repositories]) unless stub[:repositories].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2784,7 +2787,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RepositoryNameIdPair.stub(element) unless element.nil?
+          data << RepositoryNameIdPair.stub(element) unless element.nil?
         end
         data
       end
@@ -2821,9 +2824,9 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['repositoryNames'] = Stubs::RepositoryNameList.stub(stub[:repository_names]) unless stub[:repository_names].nil?
+        data['repositoryNames'] = RepositoryNameList.stub(stub[:repository_names]) unless stub[:repository_names].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2839,9 +2842,9 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2879,7 +2882,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['commitId'] = stub[:commit_id] unless stub[:commit_id].nil?
         data['treeId'] = stub[:tree_id] unless stub[:tree_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2897,7 +2900,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['commitId'] = stub[:commit_id] unless stub[:commit_id].nil?
         data['treeId'] = stub[:tree_id] unless stub[:tree_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2915,7 +2918,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['commitId'] = stub[:commit_id] unless stub[:commit_id].nil?
         data['treeId'] = stub[:tree_id] unless stub[:tree_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2930,8 +2933,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pullRequest'] = Stubs::PullRequest.stub(stub[:pull_request]) unless stub[:pull_request].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pullRequest'] = PullRequest.stub(stub[:pull_request]) unless stub[:pull_request].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2946,8 +2949,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pullRequest'] = Stubs::PullRequest.stub(stub[:pull_request]) unless stub[:pull_request].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pullRequest'] = PullRequest.stub(stub[:pull_request]) unless stub[:pull_request].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2962,8 +2965,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pullRequest'] = Stubs::PullRequest.stub(stub[:pull_request]) unless stub[:pull_request].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pullRequest'] = PullRequest.stub(stub[:pull_request]) unless stub[:pull_request].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2977,7 +2980,7 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3003,9 +3006,9 @@ module AWS::SDK::CodeCommit
         data['afterCommitId'] = stub[:after_commit_id] unless stub[:after_commit_id].nil?
         data['beforeBlobId'] = stub[:before_blob_id] unless stub[:before_blob_id].nil?
         data['afterBlobId'] = stub[:after_blob_id] unless stub[:after_blob_id].nil?
-        data['location'] = Stubs::Location.stub(stub[:location]) unless stub[:location].nil?
-        data['comment'] = Stubs::Comment.stub(stub[:comment]) unless stub[:comment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['location'] = Location.stub(stub[:location]) unless stub[:location].nil?
+        data['comment'] = Comment.stub(stub[:comment]) unless stub[:comment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3033,9 +3036,9 @@ module AWS::SDK::CodeCommit
         data['afterCommitId'] = stub[:after_commit_id] unless stub[:after_commit_id].nil?
         data['beforeBlobId'] = stub[:before_blob_id] unless stub[:before_blob_id].nil?
         data['afterBlobId'] = stub[:after_blob_id] unless stub[:after_blob_id].nil?
-        data['location'] = Stubs::Location.stub(stub[:location]) unless stub[:location].nil?
-        data['comment'] = Stubs::Comment.stub(stub[:comment]) unless stub[:comment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['location'] = Location.stub(stub[:location]) unless stub[:location].nil?
+        data['comment'] = Comment.stub(stub[:comment]) unless stub[:comment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3050,8 +3053,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['comment'] = Stubs::Comment.stub(stub[:comment]) unless stub[:comment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['comment'] = Comment.stub(stub[:comment]) unless stub[:comment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3065,7 +3068,7 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3085,7 +3088,7 @@ module AWS::SDK::CodeCommit
         data['commitId'] = stub[:commit_id] unless stub[:commit_id].nil?
         data['blobId'] = stub[:blob_id] unless stub[:blob_id].nil?
         data['treeId'] = stub[:tree_id] unless stub[:tree_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3101,7 +3104,7 @@ module AWS::SDK::CodeCommit
       def self.stub(http_resp, stub:)
         data = {}
         data['configurationId'] = stub[:configuration_id] unless stub[:configuration_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3115,7 +3118,7 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3131,9 +3134,9 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['successfulExecutions'] = Stubs::RepositoryTriggerNameList.stub(stub[:successful_executions]) unless stub[:successful_executions].nil?
-        data['failedExecutions'] = Stubs::RepositoryTriggerExecutionFailureList.stub(stub[:failed_executions]) unless stub[:failed_executions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['successfulExecutions'] = RepositoryTriggerNameList.stub(stub[:successful_executions]) unless stub[:successful_executions].nil?
+        data['failedExecutions'] = RepositoryTriggerExecutionFailureList.stub(stub[:failed_executions]) unless stub[:failed_executions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3152,7 +3155,7 @@ module AWS::SDK::CodeCommit
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RepositoryTriggerExecutionFailure.stub(element) unless element.nil?
+          data << RepositoryTriggerExecutionFailure.stub(element) unless element.nil?
         end
         data
       end
@@ -3207,7 +3210,7 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3222,8 +3225,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['approvalRuleTemplate'] = Stubs::ApprovalRuleTemplate.stub(stub[:approval_rule_template]) unless stub[:approval_rule_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['approvalRuleTemplate'] = ApprovalRuleTemplate.stub(stub[:approval_rule_template]) unless stub[:approval_rule_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3238,8 +3241,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['approvalRuleTemplate'] = Stubs::ApprovalRuleTemplate.stub(stub[:approval_rule_template]) unless stub[:approval_rule_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['approvalRuleTemplate'] = ApprovalRuleTemplate.stub(stub[:approval_rule_template]) unless stub[:approval_rule_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3254,8 +3257,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['approvalRuleTemplate'] = Stubs::ApprovalRuleTemplate.stub(stub[:approval_rule_template]) unless stub[:approval_rule_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['approvalRuleTemplate'] = ApprovalRuleTemplate.stub(stub[:approval_rule_template]) unless stub[:approval_rule_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3270,8 +3273,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['comment'] = Stubs::Comment.stub(stub[:comment]) unless stub[:comment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['comment'] = Comment.stub(stub[:comment]) unless stub[:comment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3285,7 +3288,7 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3300,8 +3303,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['approvalRule'] = Stubs::ApprovalRule.stub(stub[:approval_rule]) unless stub[:approval_rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['approvalRule'] = ApprovalRule.stub(stub[:approval_rule]) unless stub[:approval_rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3315,7 +3318,7 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3330,8 +3333,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pullRequest'] = Stubs::PullRequest.stub(stub[:pull_request]) unless stub[:pull_request].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pullRequest'] = PullRequest.stub(stub[:pull_request]) unless stub[:pull_request].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3346,8 +3349,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pullRequest'] = Stubs::PullRequest.stub(stub[:pull_request]) unless stub[:pull_request].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pullRequest'] = PullRequest.stub(stub[:pull_request]) unless stub[:pull_request].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3362,8 +3365,8 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pullRequest'] = Stubs::PullRequest.stub(stub[:pull_request]) unless stub[:pull_request].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pullRequest'] = PullRequest.stub(stub[:pull_request]) unless stub[:pull_request].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3377,7 +3380,7 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3391,7 +3394,7 @@ module AWS::SDK::CodeCommit
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

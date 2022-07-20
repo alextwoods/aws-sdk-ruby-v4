@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AppRunner
   module Builders
 
@@ -21,7 +23,7 @@ module AWS::SDK::AppRunner
         data['ServiceArn'] = input[:service_arn] unless input[:service_arn].nil?
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['EnableWWWSubdomain'] = input[:enable_www_subdomain] unless input[:enable_www_subdomain].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -37,8 +39,8 @@ module AWS::SDK::AppRunner
         data['MaxConcurrency'] = input[:max_concurrency] unless input[:max_concurrency].nil?
         data['MinSize'] = input[:min_size] unless input[:min_size].nil?
         data['MaxSize'] = input[:max_size] unless input[:max_size].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -47,7 +49,7 @@ module AWS::SDK::AppRunner
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -73,8 +75,8 @@ module AWS::SDK::AppRunner
         data = {}
         data['ConnectionName'] = input[:connection_name] unless input[:connection_name].nil?
         data['ProviderType'] = input[:provider_type] unless input[:provider_type].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -87,9 +89,9 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.CreateObservabilityConfiguration'
         data = {}
         data['ObservabilityConfigurationName'] = input[:observability_configuration_name] unless input[:observability_configuration_name].nil?
-        data['TraceConfiguration'] = Builders::TraceConfiguration.build(input[:trace_configuration]) unless input[:trace_configuration].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TraceConfiguration'] = TraceConfiguration.build(input[:trace_configuration]) unless input[:trace_configuration].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -111,15 +113,15 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.CreateService'
         data = {}
         data['ServiceName'] = input[:service_name] unless input[:service_name].nil?
-        data['SourceConfiguration'] = Builders::SourceConfiguration.build(input[:source_configuration]) unless input[:source_configuration].nil?
-        data['InstanceConfiguration'] = Builders::InstanceConfiguration.build(input[:instance_configuration]) unless input[:instance_configuration].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['EncryptionConfiguration'] = Builders::EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
-        data['HealthCheckConfiguration'] = Builders::HealthCheckConfiguration.build(input[:health_check_configuration]) unless input[:health_check_configuration].nil?
+        data['SourceConfiguration'] = SourceConfiguration.build(input[:source_configuration]) unless input[:source_configuration].nil?
+        data['InstanceConfiguration'] = InstanceConfiguration.build(input[:instance_configuration]) unless input[:instance_configuration].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['EncryptionConfiguration'] = EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
+        data['HealthCheckConfiguration'] = HealthCheckConfiguration.build(input[:health_check_configuration]) unless input[:health_check_configuration].nil?
         data['AutoScalingConfigurationArn'] = input[:auto_scaling_configuration_arn] unless input[:auto_scaling_configuration_arn].nil?
-        data['NetworkConfiguration'] = Builders::NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
-        data['ObservabilityConfiguration'] = Builders::ServiceObservabilityConfiguration.build(input[:observability_configuration]) unless input[:observability_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NetworkConfiguration'] = NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
+        data['ObservabilityConfiguration'] = ServiceObservabilityConfiguration.build(input[:observability_configuration]) unless input[:observability_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -137,7 +139,7 @@ module AWS::SDK::AppRunner
     class NetworkConfiguration
       def self.build(input)
         data = {}
-        data['EgressConfiguration'] = Builders::EgressConfiguration.build(input[:egress_configuration]) unless input[:egress_configuration].nil?
+        data['EgressConfiguration'] = EgressConfiguration.build(input[:egress_configuration]) unless input[:egress_configuration].nil?
         data
       end
     end
@@ -190,10 +192,10 @@ module AWS::SDK::AppRunner
     class SourceConfiguration
       def self.build(input)
         data = {}
-        data['CodeRepository'] = Builders::CodeRepository.build(input[:code_repository]) unless input[:code_repository].nil?
-        data['ImageRepository'] = Builders::ImageRepository.build(input[:image_repository]) unless input[:image_repository].nil?
+        data['CodeRepository'] = CodeRepository.build(input[:code_repository]) unless input[:code_repository].nil?
+        data['ImageRepository'] = ImageRepository.build(input[:image_repository]) unless input[:image_repository].nil?
         data['AutoDeploymentsEnabled'] = input[:auto_deployments_enabled] unless input[:auto_deployments_enabled].nil?
-        data['AuthenticationConfiguration'] = Builders::AuthenticationConfiguration.build(input[:authentication_configuration]) unless input[:authentication_configuration].nil?
+        data['AuthenticationConfiguration'] = AuthenticationConfiguration.build(input[:authentication_configuration]) unless input[:authentication_configuration].nil?
         data
       end
     end
@@ -213,7 +215,7 @@ module AWS::SDK::AppRunner
       def self.build(input)
         data = {}
         data['ImageIdentifier'] = input[:image_identifier] unless input[:image_identifier].nil?
-        data['ImageConfiguration'] = Builders::ImageConfiguration.build(input[:image_configuration]) unless input[:image_configuration].nil?
+        data['ImageConfiguration'] = ImageConfiguration.build(input[:image_configuration]) unless input[:image_configuration].nil?
         data['ImageRepositoryType'] = input[:image_repository_type] unless input[:image_repository_type].nil?
         data
       end
@@ -223,7 +225,7 @@ module AWS::SDK::AppRunner
     class ImageConfiguration
       def self.build(input)
         data = {}
-        data['RuntimeEnvironmentVariables'] = Builders::RuntimeEnvironmentVariables.build(input[:runtime_environment_variables]) unless input[:runtime_environment_variables].nil?
+        data['RuntimeEnvironmentVariables'] = RuntimeEnvironmentVariables.build(input[:runtime_environment_variables]) unless input[:runtime_environment_variables].nil?
         data['StartCommand'] = input[:start_command] unless input[:start_command].nil?
         data['Port'] = input[:port] unless input[:port].nil?
         data
@@ -246,8 +248,8 @@ module AWS::SDK::AppRunner
       def self.build(input)
         data = {}
         data['RepositoryUrl'] = input[:repository_url] unless input[:repository_url].nil?
-        data['SourceCodeVersion'] = Builders::SourceCodeVersion.build(input[:source_code_version]) unless input[:source_code_version].nil?
-        data['CodeConfiguration'] = Builders::CodeConfiguration.build(input[:code_configuration]) unless input[:code_configuration].nil?
+        data['SourceCodeVersion'] = SourceCodeVersion.build(input[:source_code_version]) unless input[:source_code_version].nil?
+        data['CodeConfiguration'] = CodeConfiguration.build(input[:code_configuration]) unless input[:code_configuration].nil?
         data
       end
     end
@@ -257,7 +259,7 @@ module AWS::SDK::AppRunner
       def self.build(input)
         data = {}
         data['ConfigurationSource'] = input[:configuration_source] unless input[:configuration_source].nil?
-        data['CodeConfigurationValues'] = Builders::CodeConfigurationValues.build(input[:code_configuration_values]) unless input[:code_configuration_values].nil?
+        data['CodeConfigurationValues'] = CodeConfigurationValues.build(input[:code_configuration_values]) unless input[:code_configuration_values].nil?
         data
       end
     end
@@ -270,7 +272,7 @@ module AWS::SDK::AppRunner
         data['BuildCommand'] = input[:build_command] unless input[:build_command].nil?
         data['StartCommand'] = input[:start_command] unless input[:start_command].nil?
         data['Port'] = input[:port] unless input[:port].nil?
-        data['RuntimeEnvironmentVariables'] = Builders::RuntimeEnvironmentVariables.build(input[:runtime_environment_variables]) unless input[:runtime_environment_variables].nil?
+        data['RuntimeEnvironmentVariables'] = RuntimeEnvironmentVariables.build(input[:runtime_environment_variables]) unless input[:runtime_environment_variables].nil?
         data
       end
     end
@@ -294,10 +296,10 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.CreateVpcConnector'
         data = {}
         data['VpcConnectorName'] = input[:vpc_connector_name] unless input[:vpc_connector_name].nil?
-        data['Subnets'] = Builders::StringList.build(input[:subnets]) unless input[:subnets].nil?
-        data['SecurityGroups'] = Builders::StringList.build(input[:security_groups]) unless input[:security_groups].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Subnets'] = StringList.build(input[:subnets]) unless input[:subnets].nil?
+        data['SecurityGroups'] = StringList.build(input[:security_groups]) unless input[:security_groups].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -321,7 +323,7 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.DeleteAutoScalingConfiguration'
         data = {}
         data['AutoScalingConfigurationArn'] = input[:auto_scaling_configuration_arn] unless input[:auto_scaling_configuration_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -334,7 +336,7 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.DeleteConnection'
         data = {}
         data['ConnectionArn'] = input[:connection_arn] unless input[:connection_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -347,7 +349,7 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.DeleteObservabilityConfiguration'
         data = {}
         data['ObservabilityConfigurationArn'] = input[:observability_configuration_arn] unless input[:observability_configuration_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -360,7 +362,7 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.DeleteService'
         data = {}
         data['ServiceArn'] = input[:service_arn] unless input[:service_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -373,7 +375,7 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.DeleteVpcConnector'
         data = {}
         data['VpcConnectorArn'] = input[:vpc_connector_arn] unless input[:vpc_connector_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -386,7 +388,7 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.DescribeAutoScalingConfiguration'
         data = {}
         data['AutoScalingConfigurationArn'] = input[:auto_scaling_configuration_arn] unless input[:auto_scaling_configuration_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -401,7 +403,7 @@ module AWS::SDK::AppRunner
         data['ServiceArn'] = input[:service_arn] unless input[:service_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -414,7 +416,7 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.DescribeObservabilityConfiguration'
         data = {}
         data['ObservabilityConfigurationArn'] = input[:observability_configuration_arn] unless input[:observability_configuration_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -427,7 +429,7 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.DescribeService'
         data = {}
         data['ServiceArn'] = input[:service_arn] unless input[:service_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -440,7 +442,7 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.DescribeVpcConnector'
         data = {}
         data['VpcConnectorArn'] = input[:vpc_connector_arn] unless input[:vpc_connector_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -454,7 +456,7 @@ module AWS::SDK::AppRunner
         data = {}
         data['ServiceArn'] = input[:service_arn] unless input[:service_arn].nil?
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -470,7 +472,7 @@ module AWS::SDK::AppRunner
         data['LatestOnly'] = input[:latest_only] unless input[:latest_only].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -485,7 +487,7 @@ module AWS::SDK::AppRunner
         data['ConnectionName'] = input[:connection_name] unless input[:connection_name].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -501,7 +503,7 @@ module AWS::SDK::AppRunner
         data['LatestOnly'] = input[:latest_only] unless input[:latest_only].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -516,7 +518,7 @@ module AWS::SDK::AppRunner
         data['ServiceArn'] = input[:service_arn] unless input[:service_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -530,7 +532,7 @@ module AWS::SDK::AppRunner
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -543,7 +545,7 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -557,7 +559,7 @@ module AWS::SDK::AppRunner
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -570,7 +572,7 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.PauseService'
         data = {}
         data['ServiceArn'] = input[:service_arn] unless input[:service_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -583,7 +585,7 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.ResumeService'
         data = {}
         data['ServiceArn'] = input[:service_arn] unless input[:service_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -596,7 +598,7 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.StartDeployment'
         data = {}
         data['ServiceArn'] = input[:service_arn] unless input[:service_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -609,8 +611,8 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -623,8 +625,8 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -648,13 +650,13 @@ module AWS::SDK::AppRunner
         http_req.headers['X-Amz-Target'] = 'AppRunner.UpdateService'
         data = {}
         data['ServiceArn'] = input[:service_arn] unless input[:service_arn].nil?
-        data['SourceConfiguration'] = Builders::SourceConfiguration.build(input[:source_configuration]) unless input[:source_configuration].nil?
-        data['InstanceConfiguration'] = Builders::InstanceConfiguration.build(input[:instance_configuration]) unless input[:instance_configuration].nil?
+        data['SourceConfiguration'] = SourceConfiguration.build(input[:source_configuration]) unless input[:source_configuration].nil?
+        data['InstanceConfiguration'] = InstanceConfiguration.build(input[:instance_configuration]) unless input[:instance_configuration].nil?
         data['AutoScalingConfigurationArn'] = input[:auto_scaling_configuration_arn] unless input[:auto_scaling_configuration_arn].nil?
-        data['HealthCheckConfiguration'] = Builders::HealthCheckConfiguration.build(input[:health_check_configuration]) unless input[:health_check_configuration].nil?
-        data['NetworkConfiguration'] = Builders::NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
-        data['ObservabilityConfiguration'] = Builders::ServiceObservabilityConfiguration.build(input[:observability_configuration]) unless input[:observability_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HealthCheckConfiguration'] = HealthCheckConfiguration.build(input[:health_check_configuration]) unless input[:health_check_configuration].nil?
+        data['NetworkConfiguration'] = NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
+        data['ObservabilityConfiguration'] = ServiceObservabilityConfiguration.build(input[:observability_configuration]) unless input[:observability_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

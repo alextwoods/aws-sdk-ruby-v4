@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Macie
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::Macie
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -34,8 +36,8 @@ module AWS::SDK::Macie
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['failedS3Resources'] = Stubs::FailedS3Resources.stub(stub[:failed_s3_resources]) unless stub[:failed_s3_resources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['failedS3Resources'] = FailedS3Resources.stub(stub[:failed_s3_resources]) unless stub[:failed_s3_resources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -54,7 +56,7 @@ module AWS::SDK::Macie
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedS3Resource.stub(element) unless element.nil?
+          data << FailedS3Resource.stub(element) unless element.nil?
         end
         data
       end
@@ -75,7 +77,7 @@ module AWS::SDK::Macie
       def self.stub(stub)
         stub ||= Types::FailedS3Resource.new
         data = {}
-        data['failedItem'] = Stubs::S3Resource.stub(stub[:failed_item]) unless stub[:failed_item].nil?
+        data['failedItem'] = S3Resource.stub(stub[:failed_item]) unless stub[:failed_item].nil?
         data['errorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data
@@ -111,7 +113,7 @@ module AWS::SDK::Macie
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -126,8 +128,8 @@ module AWS::SDK::Macie
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['failedS3Resources'] = Stubs::FailedS3Resources.stub(stub[:failed_s3_resources]) unless stub[:failed_s3_resources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['failedS3Resources'] = FailedS3Resources.stub(stub[:failed_s3_resources]) unless stub[:failed_s3_resources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -143,9 +145,9 @@ module AWS::SDK::Macie
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['memberAccounts'] = Stubs::MemberAccounts.stub(stub[:member_accounts]) unless stub[:member_accounts].nil?
+        data['memberAccounts'] = MemberAccounts.stub(stub[:member_accounts]) unless stub[:member_accounts].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -164,7 +166,7 @@ module AWS::SDK::Macie
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MemberAccount.stub(element) unless element.nil?
+          data << MemberAccount.stub(element) unless element.nil?
         end
         data
       end
@@ -199,9 +201,9 @@ module AWS::SDK::Macie
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['s3Resources'] = Stubs::S3ResourcesClassification.stub(stub[:s3_resources]) unless stub[:s3_resources].nil?
+        data['s3Resources'] = S3ResourcesClassification.stub(stub[:s3_resources]) unless stub[:s3_resources].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -220,7 +222,7 @@ module AWS::SDK::Macie
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::S3ResourceClassification.stub(element) unless element.nil?
+          data << S3ResourceClassification.stub(element) unless element.nil?
         end
         data
       end
@@ -243,7 +245,7 @@ module AWS::SDK::Macie
         data = {}
         data['bucketName'] = stub[:bucket_name] unless stub[:bucket_name].nil?
         data['prefix'] = stub[:prefix] unless stub[:prefix].nil?
-        data['classificationType'] = Stubs::ClassificationType.stub(stub[:classification_type]) unless stub[:classification_type].nil?
+        data['classificationType'] = ClassificationType.stub(stub[:classification_type]) unless stub[:classification_type].nil?
         data
       end
     end
@@ -278,8 +280,8 @@ module AWS::SDK::Macie
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['failedS3Resources'] = Stubs::FailedS3Resources.stub(stub[:failed_s3_resources]) unless stub[:failed_s3_resources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['failedS3Resources'] = FailedS3Resources.stub(stub[:failed_s3_resources]) unless stub[:failed_s3_resources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

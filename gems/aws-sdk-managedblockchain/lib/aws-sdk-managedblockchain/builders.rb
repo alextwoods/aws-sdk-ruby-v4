@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ManagedBlockchain
   module Builders
 
@@ -29,8 +31,8 @@ module AWS::SDK::ManagedBlockchain
         data = {}
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['InvitationId'] = input[:invitation_id] unless input[:invitation_id].nil?
-        data['MemberConfiguration'] = Builders::MemberConfiguration.build(input[:member_configuration]) unless input[:member_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MemberConfiguration'] = MemberConfiguration.build(input[:member_configuration]) unless input[:member_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -40,9 +42,9 @@ module AWS::SDK::ManagedBlockchain
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['FrameworkConfiguration'] = Builders::MemberFrameworkConfiguration.build(input[:framework_configuration]) unless input[:framework_configuration].nil?
-        data['LogPublishingConfiguration'] = Builders::MemberLogPublishingConfiguration.build(input[:log_publishing_configuration]) unless input[:log_publishing_configuration].nil?
-        data['Tags'] = Builders::InputTagMap.build(input[:tags]) unless input[:tags].nil?
+        data['FrameworkConfiguration'] = MemberFrameworkConfiguration.build(input[:framework_configuration]) unless input[:framework_configuration].nil?
+        data['LogPublishingConfiguration'] = MemberLogPublishingConfiguration.build(input[:log_publishing_configuration]) unless input[:log_publishing_configuration].nil?
+        data['Tags'] = InputTagMap.build(input[:tags]) unless input[:tags].nil?
         data['KmsKeyArn'] = input[:kms_key_arn] unless input[:kms_key_arn].nil?
         data
       end
@@ -63,7 +65,7 @@ module AWS::SDK::ManagedBlockchain
     class MemberLogPublishingConfiguration
       def self.build(input)
         data = {}
-        data['Fabric'] = Builders::MemberFabricLogPublishingConfiguration.build(input[:fabric]) unless input[:fabric].nil?
+        data['Fabric'] = MemberFabricLogPublishingConfiguration.build(input[:fabric]) unless input[:fabric].nil?
         data
       end
     end
@@ -72,7 +74,7 @@ module AWS::SDK::ManagedBlockchain
     class MemberFabricLogPublishingConfiguration
       def self.build(input)
         data = {}
-        data['CaLogs'] = Builders::LogConfigurations.build(input[:ca_logs]) unless input[:ca_logs].nil?
+        data['CaLogs'] = LogConfigurations.build(input[:ca_logs]) unless input[:ca_logs].nil?
         data
       end
     end
@@ -81,7 +83,7 @@ module AWS::SDK::ManagedBlockchain
     class LogConfigurations
       def self.build(input)
         data = {}
-        data['Cloudwatch'] = Builders::LogConfiguration.build(input[:cloudwatch]) unless input[:cloudwatch].nil?
+        data['Cloudwatch'] = LogConfiguration.build(input[:cloudwatch]) unless input[:cloudwatch].nil?
         data
       end
     end
@@ -99,7 +101,7 @@ module AWS::SDK::ManagedBlockchain
     class MemberFrameworkConfiguration
       def self.build(input)
         data = {}
-        data['Fabric'] = Builders::MemberFabricConfiguration.build(input[:fabric]) unless input[:fabric].nil?
+        data['Fabric'] = MemberFabricConfiguration.build(input[:fabric]) unless input[:fabric].nil?
         data
       end
     end
@@ -129,11 +131,11 @@ module AWS::SDK::ManagedBlockchain
         data['Description'] = input[:description] unless input[:description].nil?
         data['Framework'] = input[:framework] unless input[:framework].nil?
         data['FrameworkVersion'] = input[:framework_version] unless input[:framework_version].nil?
-        data['FrameworkConfiguration'] = Builders::NetworkFrameworkConfiguration.build(input[:framework_configuration]) unless input[:framework_configuration].nil?
-        data['VotingPolicy'] = Builders::VotingPolicy.build(input[:voting_policy]) unless input[:voting_policy].nil?
-        data['MemberConfiguration'] = Builders::MemberConfiguration.build(input[:member_configuration]) unless input[:member_configuration].nil?
-        data['Tags'] = Builders::InputTagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FrameworkConfiguration'] = NetworkFrameworkConfiguration.build(input[:framework_configuration]) unless input[:framework_configuration].nil?
+        data['VotingPolicy'] = VotingPolicy.build(input[:voting_policy]) unless input[:voting_policy].nil?
+        data['MemberConfiguration'] = MemberConfiguration.build(input[:member_configuration]) unless input[:member_configuration].nil?
+        data['Tags'] = InputTagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -141,7 +143,7 @@ module AWS::SDK::ManagedBlockchain
     class VotingPolicy
       def self.build(input)
         data = {}
-        data['ApprovalThresholdPolicy'] = Builders::ApprovalThresholdPolicy.build(input[:approval_threshold_policy]) unless input[:approval_threshold_policy].nil?
+        data['ApprovalThresholdPolicy'] = ApprovalThresholdPolicy.build(input[:approval_threshold_policy]) unless input[:approval_threshold_policy].nil?
         data
       end
     end
@@ -161,7 +163,7 @@ module AWS::SDK::ManagedBlockchain
     class NetworkFrameworkConfiguration
       def self.build(input)
         data = {}
-        data['Fabric'] = Builders::NetworkFabricConfiguration.build(input[:fabric]) unless input[:fabric].nil?
+        data['Fabric'] = NetworkFabricConfiguration.build(input[:fabric]) unless input[:fabric].nil?
         data
       end
     end
@@ -194,9 +196,9 @@ module AWS::SDK::ManagedBlockchain
         data = {}
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['MemberId'] = input[:member_id] unless input[:member_id].nil?
-        data['NodeConfiguration'] = Builders::NodeConfiguration.build(input[:node_configuration]) unless input[:node_configuration].nil?
-        data['Tags'] = Builders::InputTagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NodeConfiguration'] = NodeConfiguration.build(input[:node_configuration]) unless input[:node_configuration].nil?
+        data['Tags'] = InputTagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -206,7 +208,7 @@ module AWS::SDK::ManagedBlockchain
         data = {}
         data['InstanceType'] = input[:instance_type] unless input[:instance_type].nil?
         data['AvailabilityZone'] = input[:availability_zone] unless input[:availability_zone].nil?
-        data['LogPublishingConfiguration'] = Builders::NodeLogPublishingConfiguration.build(input[:log_publishing_configuration]) unless input[:log_publishing_configuration].nil?
+        data['LogPublishingConfiguration'] = NodeLogPublishingConfiguration.build(input[:log_publishing_configuration]) unless input[:log_publishing_configuration].nil?
         data['StateDB'] = input[:state_db] unless input[:state_db].nil?
         data
       end
@@ -216,7 +218,7 @@ module AWS::SDK::ManagedBlockchain
     class NodeLogPublishingConfiguration
       def self.build(input)
         data = {}
-        data['Fabric'] = Builders::NodeFabricLogPublishingConfiguration.build(input[:fabric]) unless input[:fabric].nil?
+        data['Fabric'] = NodeFabricLogPublishingConfiguration.build(input[:fabric]) unless input[:fabric].nil?
         data
       end
     end
@@ -225,8 +227,8 @@ module AWS::SDK::ManagedBlockchain
     class NodeFabricLogPublishingConfiguration
       def self.build(input)
         data = {}
-        data['ChaincodeLogs'] = Builders::LogConfigurations.build(input[:chaincode_logs]) unless input[:chaincode_logs].nil?
-        data['PeerLogs'] = Builders::LogConfigurations.build(input[:peer_logs]) unless input[:peer_logs].nil?
+        data['ChaincodeLogs'] = LogConfigurations.build(input[:chaincode_logs]) unless input[:chaincode_logs].nil?
+        data['PeerLogs'] = LogConfigurations.build(input[:peer_logs]) unless input[:peer_logs].nil?
         data
       end
     end
@@ -250,10 +252,10 @@ module AWS::SDK::ManagedBlockchain
         data = {}
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['MemberId'] = input[:member_id] unless input[:member_id].nil?
-        data['Actions'] = Builders::ProposalActions.build(input[:actions]) unless input[:actions].nil?
+        data['Actions'] = ProposalActions.build(input[:actions]) unless input[:actions].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::InputTagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = InputTagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -261,8 +263,8 @@ module AWS::SDK::ManagedBlockchain
     class ProposalActions
       def self.build(input)
         data = {}
-        data['Invitations'] = Builders::InviteActionList.build(input[:invitations]) unless input[:invitations].nil?
-        data['Removals'] = Builders::RemoveActionList.build(input[:removals]) unless input[:removals].nil?
+        data['Invitations'] = InviteActionList.build(input[:invitations]) unless input[:invitations].nil?
+        data['Removals'] = RemoveActionList.build(input[:removals]) unless input[:removals].nil?
         data
       end
     end
@@ -272,7 +274,7 @@ module AWS::SDK::ManagedBlockchain
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RemoveAction.build(element) unless element.nil?
+          data << RemoveAction.build(element) unless element.nil?
         end
         data
       end
@@ -292,7 +294,7 @@ module AWS::SDK::ManagedBlockchain
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InviteAction.build(element) unless element.nil?
+          data << InviteAction.build(element) unless element.nil?
         end
         data
       end
@@ -594,8 +596,8 @@ module AWS::SDK::ManagedBlockchain
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::InputTagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = InputTagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -653,8 +655,8 @@ module AWS::SDK::ManagedBlockchain
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['LogPublishingConfiguration'] = Builders::MemberLogPublishingConfiguration.build(input[:log_publishing_configuration]) unless input[:log_publishing_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LogPublishingConfiguration'] = MemberLogPublishingConfiguration.build(input[:log_publishing_configuration]) unless input[:log_publishing_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -680,8 +682,8 @@ module AWS::SDK::ManagedBlockchain
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['MemberId'] = input[:member_id] unless input[:member_id].nil?
-        data['LogPublishingConfiguration'] = Builders::NodeLogPublishingConfiguration.build(input[:log_publishing_configuration]) unless input[:log_publishing_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LogPublishingConfiguration'] = NodeLogPublishingConfiguration.build(input[:log_publishing_configuration]) unless input[:log_publishing_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -708,7 +710,7 @@ module AWS::SDK::ManagedBlockchain
         data = {}
         data['VoterMemberId'] = input[:voter_member_id] unless input[:voter_member_id].nil?
         data['Vote'] = input[:vote] unless input[:vote].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -124,7 +124,7 @@ module AWS::SDK::ComputeOptimizer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.recommendation_export_jobs = (Parsers::RecommendationExportJobs.parse(map['recommendationExportJobs']) unless map['recommendationExportJobs'].nil?)
+        data.recommendation_export_jobs = (RecommendationExportJobs.parse(map['recommendationExportJobs']) unless map['recommendationExportJobs'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -133,7 +133,7 @@ module AWS::SDK::ComputeOptimizer
     class RecommendationExportJobs
       def self.parse(list)
         list.map do |value|
-          Parsers::RecommendationExportJob.parse(value) unless value.nil?
+          RecommendationExportJob.parse(value) unless value.nil?
         end
       end
     end
@@ -142,7 +142,7 @@ module AWS::SDK::ComputeOptimizer
       def self.parse(map)
         data = Types::RecommendationExportJob.new
         data.job_id = map['jobId']
-        data.destination = (Parsers::ExportDestination.parse(map['destination']) unless map['destination'].nil?)
+        data.destination = (ExportDestination.parse(map['destination']) unless map['destination'].nil?)
         data.resource_type = map['resourceType']
         data.status = map['status']
         data.creation_timestamp = Time.at(map['creationTimestamp'].to_i) if map['creationTimestamp']
@@ -155,7 +155,7 @@ module AWS::SDK::ComputeOptimizer
     class ExportDestination
       def self.parse(map)
         data = Types::ExportDestination.new
-        data.s3 = (Parsers::S3Destination.parse(map['s3']) unless map['s3'].nil?)
+        data.s3 = (S3Destination.parse(map['s3']) unless map['s3'].nil?)
         return data
       end
     end
@@ -178,7 +178,7 @@ module AWS::SDK::ComputeOptimizer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.job_id = map['jobId']
-        data.s3_destination = (Parsers::S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
+        data.s3_destination = (S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
         data
       end
     end
@@ -203,7 +203,7 @@ module AWS::SDK::ComputeOptimizer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.job_id = map['jobId']
-        data.s3_destination = (Parsers::S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
+        data.s3_destination = (S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
         data
       end
     end
@@ -216,7 +216,7 @@ module AWS::SDK::ComputeOptimizer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.job_id = map['jobId']
-        data.s3_destination = (Parsers::S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
+        data.s3_destination = (S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
         data
       end
     end
@@ -229,7 +229,7 @@ module AWS::SDK::ComputeOptimizer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.job_id = map['jobId']
-        data.s3_destination = (Parsers::S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
+        data.s3_destination = (S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
         data
       end
     end
@@ -242,8 +242,8 @@ module AWS::SDK::ComputeOptimizer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.auto_scaling_group_recommendations = (Parsers::AutoScalingGroupRecommendations.parse(map['autoScalingGroupRecommendations']) unless map['autoScalingGroupRecommendations'].nil?)
-        data.errors = (Parsers::GetRecommendationErrors.parse(map['errors']) unless map['errors'].nil?)
+        data.auto_scaling_group_recommendations = (AutoScalingGroupRecommendations.parse(map['autoScalingGroupRecommendations']) unless map['autoScalingGroupRecommendations'].nil?)
+        data.errors = (GetRecommendationErrors.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -251,7 +251,7 @@ module AWS::SDK::ComputeOptimizer
     class GetRecommendationErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::GetRecommendationError.parse(value) unless value.nil?
+          GetRecommendationError.parse(value) unless value.nil?
         end
       end
     end
@@ -269,7 +269,7 @@ module AWS::SDK::ComputeOptimizer
     class AutoScalingGroupRecommendations
       def self.parse(list)
         list.map do |value|
-          Parsers::AutoScalingGroupRecommendation.parse(value) unless value.nil?
+          AutoScalingGroupRecommendation.parse(value) unless value.nil?
         end
       end
     end
@@ -281,14 +281,14 @@ module AWS::SDK::ComputeOptimizer
         data.auto_scaling_group_arn = map['autoScalingGroupArn']
         data.auto_scaling_group_name = map['autoScalingGroupName']
         data.finding = map['finding']
-        data.utilization_metrics = (Parsers::UtilizationMetrics.parse(map['utilizationMetrics']) unless map['utilizationMetrics'].nil?)
+        data.utilization_metrics = (UtilizationMetrics.parse(map['utilizationMetrics']) unless map['utilizationMetrics'].nil?)
         data.look_back_period_in_days = Hearth::NumberHelper.deserialize(map['lookBackPeriodInDays'])
-        data.current_configuration = (Parsers::AutoScalingGroupConfiguration.parse(map['currentConfiguration']) unless map['currentConfiguration'].nil?)
-        data.recommendation_options = (Parsers::AutoScalingGroupRecommendationOptions.parse(map['recommendationOptions']) unless map['recommendationOptions'].nil?)
+        data.current_configuration = (AutoScalingGroupConfiguration.parse(map['currentConfiguration']) unless map['currentConfiguration'].nil?)
+        data.recommendation_options = (AutoScalingGroupRecommendationOptions.parse(map['recommendationOptions']) unless map['recommendationOptions'].nil?)
         data.last_refresh_timestamp = Time.at(map['lastRefreshTimestamp'].to_i) if map['lastRefreshTimestamp']
         data.current_performance_risk = map['currentPerformanceRisk']
-        data.effective_recommendation_preferences = (Parsers::EffectiveRecommendationPreferences.parse(map['effectiveRecommendationPreferences']) unless map['effectiveRecommendationPreferences'].nil?)
-        data.inferred_workload_types = (Parsers::InferredWorkloadTypes.parse(map['inferredWorkloadTypes']) unless map['inferredWorkloadTypes'].nil?)
+        data.effective_recommendation_preferences = (EffectiveRecommendationPreferences.parse(map['effectiveRecommendationPreferences']) unless map['effectiveRecommendationPreferences'].nil?)
+        data.inferred_workload_types = (InferredWorkloadTypes.parse(map['inferredWorkloadTypes']) unless map['inferredWorkloadTypes'].nil?)
         return data
       end
     end
@@ -304,7 +304,7 @@ module AWS::SDK::ComputeOptimizer
     class EffectiveRecommendationPreferences
       def self.parse(map)
         data = Types::EffectiveRecommendationPreferences.new
-        data.cpu_vendor_architectures = (Parsers::CpuVendorArchitectures.parse(map['cpuVendorArchitectures']) unless map['cpuVendorArchitectures'].nil?)
+        data.cpu_vendor_architectures = (CpuVendorArchitectures.parse(map['cpuVendorArchitectures']) unless map['cpuVendorArchitectures'].nil?)
         data.enhanced_infrastructure_metrics = map['enhancedInfrastructureMetrics']
         data.inferred_workload_types = map['inferredWorkloadTypes']
         return data
@@ -322,7 +322,7 @@ module AWS::SDK::ComputeOptimizer
     class AutoScalingGroupRecommendationOptions
       def self.parse(list)
         list.map do |value|
-          Parsers::AutoScalingGroupRecommendationOption.parse(value) unless value.nil?
+          AutoScalingGroupRecommendationOption.parse(value) unless value.nil?
         end
       end
     end
@@ -330,11 +330,11 @@ module AWS::SDK::ComputeOptimizer
     class AutoScalingGroupRecommendationOption
       def self.parse(map)
         data = Types::AutoScalingGroupRecommendationOption.new
-        data.configuration = (Parsers::AutoScalingGroupConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
-        data.projected_utilization_metrics = (Parsers::ProjectedUtilizationMetrics.parse(map['projectedUtilizationMetrics']) unless map['projectedUtilizationMetrics'].nil?)
+        data.configuration = (AutoScalingGroupConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
+        data.projected_utilization_metrics = (ProjectedUtilizationMetrics.parse(map['projectedUtilizationMetrics']) unless map['projectedUtilizationMetrics'].nil?)
         data.performance_risk = Hearth::NumberHelper.deserialize(map['performanceRisk'])
         data.rank = map['rank']
-        data.savings_opportunity = (Parsers::SavingsOpportunity.parse(map['savingsOpportunity']) unless map['savingsOpportunity'].nil?)
+        data.savings_opportunity = (SavingsOpportunity.parse(map['savingsOpportunity']) unless map['savingsOpportunity'].nil?)
         data.migration_effort = map['migrationEffort']
         return data
       end
@@ -344,7 +344,7 @@ module AWS::SDK::ComputeOptimizer
       def self.parse(map)
         data = Types::SavingsOpportunity.new
         data.savings_opportunity_percentage = Hearth::NumberHelper.deserialize(map['savingsOpportunityPercentage'])
-        data.estimated_monthly_savings = (Parsers::EstimatedMonthlySavings.parse(map['estimatedMonthlySavings']) unless map['estimatedMonthlySavings'].nil?)
+        data.estimated_monthly_savings = (EstimatedMonthlySavings.parse(map['estimatedMonthlySavings']) unless map['estimatedMonthlySavings'].nil?)
         return data
       end
     end
@@ -361,7 +361,7 @@ module AWS::SDK::ComputeOptimizer
     class ProjectedUtilizationMetrics
       def self.parse(list)
         list.map do |value|
-          Parsers::UtilizationMetric.parse(value) unless value.nil?
+          UtilizationMetric.parse(value) unless value.nil?
         end
       end
     end
@@ -390,7 +390,7 @@ module AWS::SDK::ComputeOptimizer
     class UtilizationMetrics
       def self.parse(list)
         list.map do |value|
-          Parsers::UtilizationMetric.parse(value) unless value.nil?
+          UtilizationMetric.parse(value) unless value.nil?
         end
       end
     end
@@ -403,8 +403,8 @@ module AWS::SDK::ComputeOptimizer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.volume_recommendations = (Parsers::VolumeRecommendations.parse(map['volumeRecommendations']) unless map['volumeRecommendations'].nil?)
-        data.errors = (Parsers::GetRecommendationErrors.parse(map['errors']) unless map['errors'].nil?)
+        data.volume_recommendations = (VolumeRecommendations.parse(map['volumeRecommendations']) unless map['volumeRecommendations'].nil?)
+        data.errors = (GetRecommendationErrors.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -412,7 +412,7 @@ module AWS::SDK::ComputeOptimizer
     class VolumeRecommendations
       def self.parse(list)
         list.map do |value|
-          Parsers::VolumeRecommendation.parse(value) unless value.nil?
+          VolumeRecommendation.parse(value) unless value.nil?
         end
       end
     end
@@ -422,11 +422,11 @@ module AWS::SDK::ComputeOptimizer
         data = Types::VolumeRecommendation.new
         data.volume_arn = map['volumeArn']
         data.account_id = map['accountId']
-        data.current_configuration = (Parsers::VolumeConfiguration.parse(map['currentConfiguration']) unless map['currentConfiguration'].nil?)
+        data.current_configuration = (VolumeConfiguration.parse(map['currentConfiguration']) unless map['currentConfiguration'].nil?)
         data.finding = map['finding']
-        data.utilization_metrics = (Parsers::EBSUtilizationMetrics.parse(map['utilizationMetrics']) unless map['utilizationMetrics'].nil?)
+        data.utilization_metrics = (EBSUtilizationMetrics.parse(map['utilizationMetrics']) unless map['utilizationMetrics'].nil?)
         data.look_back_period_in_days = Hearth::NumberHelper.deserialize(map['lookBackPeriodInDays'])
-        data.volume_recommendation_options = (Parsers::VolumeRecommendationOptions.parse(map['volumeRecommendationOptions']) unless map['volumeRecommendationOptions'].nil?)
+        data.volume_recommendation_options = (VolumeRecommendationOptions.parse(map['volumeRecommendationOptions']) unless map['volumeRecommendationOptions'].nil?)
         data.last_refresh_timestamp = Time.at(map['lastRefreshTimestamp'].to_i) if map['lastRefreshTimestamp']
         data.current_performance_risk = map['currentPerformanceRisk']
         return data
@@ -436,7 +436,7 @@ module AWS::SDK::ComputeOptimizer
     class VolumeRecommendationOptions
       def self.parse(list)
         list.map do |value|
-          Parsers::VolumeRecommendationOption.parse(value) unless value.nil?
+          VolumeRecommendationOption.parse(value) unless value.nil?
         end
       end
     end
@@ -444,10 +444,10 @@ module AWS::SDK::ComputeOptimizer
     class VolumeRecommendationOption
       def self.parse(map)
         data = Types::VolumeRecommendationOption.new
-        data.configuration = (Parsers::VolumeConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
+        data.configuration = (VolumeConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
         data.performance_risk = Hearth::NumberHelper.deserialize(map['performanceRisk'])
         data.rank = map['rank']
-        data.savings_opportunity = (Parsers::SavingsOpportunity.parse(map['savingsOpportunity']) unless map['savingsOpportunity'].nil?)
+        data.savings_opportunity = (SavingsOpportunity.parse(map['savingsOpportunity']) unless map['savingsOpportunity'].nil?)
         return data
       end
     end
@@ -468,7 +468,7 @@ module AWS::SDK::ComputeOptimizer
     class EBSUtilizationMetrics
       def self.parse(list)
         list.map do |value|
-          Parsers::EBSUtilizationMetric.parse(value) unless value.nil?
+          EBSUtilizationMetric.parse(value) unless value.nil?
         end
       end
     end
@@ -491,8 +491,8 @@ module AWS::SDK::ComputeOptimizer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.instance_recommendations = (Parsers::InstanceRecommendations.parse(map['instanceRecommendations']) unless map['instanceRecommendations'].nil?)
-        data.errors = (Parsers::GetRecommendationErrors.parse(map['errors']) unless map['errors'].nil?)
+        data.instance_recommendations = (InstanceRecommendations.parse(map['instanceRecommendations']) unless map['instanceRecommendations'].nil?)
+        data.errors = (GetRecommendationErrors.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -500,7 +500,7 @@ module AWS::SDK::ComputeOptimizer
     class InstanceRecommendations
       def self.parse(list)
         list.map do |value|
-          Parsers::InstanceRecommendation.parse(value) unless value.nil?
+          InstanceRecommendation.parse(value) unless value.nil?
         end
       end
     end
@@ -513,15 +513,15 @@ module AWS::SDK::ComputeOptimizer
         data.instance_name = map['instanceName']
         data.current_instance_type = map['currentInstanceType']
         data.finding = map['finding']
-        data.finding_reason_codes = (Parsers::InstanceRecommendationFindingReasonCodes.parse(map['findingReasonCodes']) unless map['findingReasonCodes'].nil?)
-        data.utilization_metrics = (Parsers::UtilizationMetrics.parse(map['utilizationMetrics']) unless map['utilizationMetrics'].nil?)
+        data.finding_reason_codes = (InstanceRecommendationFindingReasonCodes.parse(map['findingReasonCodes']) unless map['findingReasonCodes'].nil?)
+        data.utilization_metrics = (UtilizationMetrics.parse(map['utilizationMetrics']) unless map['utilizationMetrics'].nil?)
         data.look_back_period_in_days = Hearth::NumberHelper.deserialize(map['lookBackPeriodInDays'])
-        data.recommendation_options = (Parsers::RecommendationOptions.parse(map['recommendationOptions']) unless map['recommendationOptions'].nil?)
-        data.recommendation_sources = (Parsers::RecommendationSources.parse(map['recommendationSources']) unless map['recommendationSources'].nil?)
+        data.recommendation_options = (RecommendationOptions.parse(map['recommendationOptions']) unless map['recommendationOptions'].nil?)
+        data.recommendation_sources = (RecommendationSources.parse(map['recommendationSources']) unless map['recommendationSources'].nil?)
         data.last_refresh_timestamp = Time.at(map['lastRefreshTimestamp'].to_i) if map['lastRefreshTimestamp']
         data.current_performance_risk = map['currentPerformanceRisk']
-        data.effective_recommendation_preferences = (Parsers::EffectiveRecommendationPreferences.parse(map['effectiveRecommendationPreferences']) unless map['effectiveRecommendationPreferences'].nil?)
-        data.inferred_workload_types = (Parsers::InferredWorkloadTypes.parse(map['inferredWorkloadTypes']) unless map['inferredWorkloadTypes'].nil?)
+        data.effective_recommendation_preferences = (EffectiveRecommendationPreferences.parse(map['effectiveRecommendationPreferences']) unless map['effectiveRecommendationPreferences'].nil?)
+        data.inferred_workload_types = (InferredWorkloadTypes.parse(map['inferredWorkloadTypes']) unless map['inferredWorkloadTypes'].nil?)
         return data
       end
     end
@@ -529,7 +529,7 @@ module AWS::SDK::ComputeOptimizer
     class RecommendationSources
       def self.parse(list)
         list.map do |value|
-          Parsers::RecommendationSource.parse(value) unless value.nil?
+          RecommendationSource.parse(value) unless value.nil?
         end
       end
     end
@@ -546,7 +546,7 @@ module AWS::SDK::ComputeOptimizer
     class RecommendationOptions
       def self.parse(list)
         list.map do |value|
-          Parsers::InstanceRecommendationOption.parse(value) unless value.nil?
+          InstanceRecommendationOption.parse(value) unless value.nil?
         end
       end
     end
@@ -555,11 +555,11 @@ module AWS::SDK::ComputeOptimizer
       def self.parse(map)
         data = Types::InstanceRecommendationOption.new
         data.instance_type = map['instanceType']
-        data.projected_utilization_metrics = (Parsers::ProjectedUtilizationMetrics.parse(map['projectedUtilizationMetrics']) unless map['projectedUtilizationMetrics'].nil?)
-        data.platform_differences = (Parsers::PlatformDifferences.parse(map['platformDifferences']) unless map['platformDifferences'].nil?)
+        data.projected_utilization_metrics = (ProjectedUtilizationMetrics.parse(map['projectedUtilizationMetrics']) unless map['projectedUtilizationMetrics'].nil?)
+        data.platform_differences = (PlatformDifferences.parse(map['platformDifferences']) unless map['platformDifferences'].nil?)
         data.performance_risk = Hearth::NumberHelper.deserialize(map['performanceRisk'])
         data.rank = map['rank']
-        data.savings_opportunity = (Parsers::SavingsOpportunity.parse(map['savingsOpportunity']) unless map['savingsOpportunity'].nil?)
+        data.savings_opportunity = (SavingsOpportunity.parse(map['savingsOpportunity']) unless map['savingsOpportunity'].nil?)
         data.migration_effort = map['migrationEffort']
         return data
       end
@@ -588,7 +588,7 @@ module AWS::SDK::ComputeOptimizer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.recommended_option_projected_metrics = (Parsers::RecommendedOptionProjectedMetrics.parse(map['recommendedOptionProjectedMetrics']) unless map['recommendedOptionProjectedMetrics'].nil?)
+        data.recommended_option_projected_metrics = (RecommendedOptionProjectedMetrics.parse(map['recommendedOptionProjectedMetrics']) unless map['recommendedOptionProjectedMetrics'].nil?)
         data
       end
     end
@@ -596,7 +596,7 @@ module AWS::SDK::ComputeOptimizer
     class RecommendedOptionProjectedMetrics
       def self.parse(list)
         list.map do |value|
-          Parsers::RecommendedOptionProjectedMetric.parse(value) unless value.nil?
+          RecommendedOptionProjectedMetric.parse(value) unless value.nil?
         end
       end
     end
@@ -606,7 +606,7 @@ module AWS::SDK::ComputeOptimizer
         data = Types::RecommendedOptionProjectedMetric.new
         data.recommended_instance_type = map['recommendedInstanceType']
         data.rank = map['rank']
-        data.projected_metrics = (Parsers::ProjectedMetrics.parse(map['projectedMetrics']) unless map['projectedMetrics'].nil?)
+        data.projected_metrics = (ProjectedMetrics.parse(map['projectedMetrics']) unless map['projectedMetrics'].nil?)
         return data
       end
     end
@@ -614,7 +614,7 @@ module AWS::SDK::ComputeOptimizer
     class ProjectedMetrics
       def self.parse(list)
         list.map do |value|
-          Parsers::ProjectedMetric.parse(value) unless value.nil?
+          ProjectedMetric.parse(value) unless value.nil?
         end
       end
     end
@@ -623,8 +623,8 @@ module AWS::SDK::ComputeOptimizer
       def self.parse(map)
         data = Types::ProjectedMetric.new
         data.name = map['name']
-        data.timestamps = (Parsers::Timestamps.parse(map['timestamps']) unless map['timestamps'].nil?)
-        data.values = (Parsers::MetricValues.parse(map['values']) unless map['values'].nil?)
+        data.timestamps = (Timestamps.parse(map['timestamps']) unless map['timestamps'].nil?)
+        data.values = (MetricValues.parse(map['values']) unless map['values'].nil?)
         return data
       end
     end
@@ -680,7 +680,7 @@ module AWS::SDK::ComputeOptimizer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_enrollment_statuses = (Parsers::AccountEnrollmentStatuses.parse(map['accountEnrollmentStatuses']) unless map['accountEnrollmentStatuses'].nil?)
+        data.account_enrollment_statuses = (AccountEnrollmentStatuses.parse(map['accountEnrollmentStatuses']) unless map['accountEnrollmentStatuses'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -689,7 +689,7 @@ module AWS::SDK::ComputeOptimizer
     class AccountEnrollmentStatuses
       def self.parse(list)
         list.map do |value|
-          Parsers::AccountEnrollmentStatus.parse(value) unless value.nil?
+          AccountEnrollmentStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -713,7 +713,7 @@ module AWS::SDK::ComputeOptimizer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.lambda_function_recommendations = (Parsers::LambdaFunctionRecommendations.parse(map['lambdaFunctionRecommendations']) unless map['lambdaFunctionRecommendations'].nil?)
+        data.lambda_function_recommendations = (LambdaFunctionRecommendations.parse(map['lambdaFunctionRecommendations']) unless map['lambdaFunctionRecommendations'].nil?)
         data
       end
     end
@@ -721,7 +721,7 @@ module AWS::SDK::ComputeOptimizer
     class LambdaFunctionRecommendations
       def self.parse(list)
         list.map do |value|
-          Parsers::LambdaFunctionRecommendation.parse(value) unless value.nil?
+          LambdaFunctionRecommendation.parse(value) unless value.nil?
         end
       end
     end
@@ -734,12 +734,12 @@ module AWS::SDK::ComputeOptimizer
         data.account_id = map['accountId']
         data.current_memory_size = map['currentMemorySize']
         data.number_of_invocations = map['numberOfInvocations']
-        data.utilization_metrics = (Parsers::LambdaFunctionUtilizationMetrics.parse(map['utilizationMetrics']) unless map['utilizationMetrics'].nil?)
+        data.utilization_metrics = (LambdaFunctionUtilizationMetrics.parse(map['utilizationMetrics']) unless map['utilizationMetrics'].nil?)
         data.lookback_period_in_days = Hearth::NumberHelper.deserialize(map['lookbackPeriodInDays'])
         data.last_refresh_timestamp = Time.at(map['lastRefreshTimestamp'].to_i) if map['lastRefreshTimestamp']
         data.finding = map['finding']
-        data.finding_reason_codes = (Parsers::LambdaFunctionRecommendationFindingReasonCodes.parse(map['findingReasonCodes']) unless map['findingReasonCodes'].nil?)
-        data.memory_size_recommendation_options = (Parsers::LambdaFunctionMemoryRecommendationOptions.parse(map['memorySizeRecommendationOptions']) unless map['memorySizeRecommendationOptions'].nil?)
+        data.finding_reason_codes = (LambdaFunctionRecommendationFindingReasonCodes.parse(map['findingReasonCodes']) unless map['findingReasonCodes'].nil?)
+        data.memory_size_recommendation_options = (LambdaFunctionMemoryRecommendationOptions.parse(map['memorySizeRecommendationOptions']) unless map['memorySizeRecommendationOptions'].nil?)
         data.current_performance_risk = map['currentPerformanceRisk']
         return data
       end
@@ -748,7 +748,7 @@ module AWS::SDK::ComputeOptimizer
     class LambdaFunctionMemoryRecommendationOptions
       def self.parse(list)
         list.map do |value|
-          Parsers::LambdaFunctionMemoryRecommendationOption.parse(value) unless value.nil?
+          LambdaFunctionMemoryRecommendationOption.parse(value) unless value.nil?
         end
       end
     end
@@ -758,8 +758,8 @@ module AWS::SDK::ComputeOptimizer
         data = Types::LambdaFunctionMemoryRecommendationOption.new
         data.rank = map['rank']
         data.memory_size = map['memorySize']
-        data.projected_utilization_metrics = (Parsers::LambdaFunctionMemoryProjectedMetrics.parse(map['projectedUtilizationMetrics']) unless map['projectedUtilizationMetrics'].nil?)
-        data.savings_opportunity = (Parsers::SavingsOpportunity.parse(map['savingsOpportunity']) unless map['savingsOpportunity'].nil?)
+        data.projected_utilization_metrics = (LambdaFunctionMemoryProjectedMetrics.parse(map['projectedUtilizationMetrics']) unless map['projectedUtilizationMetrics'].nil?)
+        data.savings_opportunity = (SavingsOpportunity.parse(map['savingsOpportunity']) unless map['savingsOpportunity'].nil?)
         return data
       end
     end
@@ -767,7 +767,7 @@ module AWS::SDK::ComputeOptimizer
     class LambdaFunctionMemoryProjectedMetrics
       def self.parse(list)
         list.map do |value|
-          Parsers::LambdaFunctionMemoryProjectedMetric.parse(value) unless value.nil?
+          LambdaFunctionMemoryProjectedMetric.parse(value) unless value.nil?
         end
       end
     end
@@ -793,7 +793,7 @@ module AWS::SDK::ComputeOptimizer
     class LambdaFunctionUtilizationMetrics
       def self.parse(list)
         list.map do |value|
-          Parsers::LambdaFunctionUtilizationMetric.parse(value) unless value.nil?
+          LambdaFunctionUtilizationMetric.parse(value) unless value.nil?
         end
       end
     end
@@ -816,7 +816,7 @@ module AWS::SDK::ComputeOptimizer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.recommendation_preferences_details = (Parsers::RecommendationPreferencesDetails.parse(map['recommendationPreferencesDetails']) unless map['recommendationPreferencesDetails'].nil?)
+        data.recommendation_preferences_details = (RecommendationPreferencesDetails.parse(map['recommendationPreferencesDetails']) unless map['recommendationPreferencesDetails'].nil?)
         data
       end
     end
@@ -824,7 +824,7 @@ module AWS::SDK::ComputeOptimizer
     class RecommendationPreferencesDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::RecommendationPreferencesDetail.parse(value) unless value.nil?
+          RecommendationPreferencesDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -832,7 +832,7 @@ module AWS::SDK::ComputeOptimizer
     class RecommendationPreferencesDetail
       def self.parse(map)
         data = Types::RecommendationPreferencesDetail.new
-        data.scope = (Parsers::Scope.parse(map['scope']) unless map['scope'].nil?)
+        data.scope = (Scope.parse(map['scope']) unless map['scope'].nil?)
         data.resource_type = map['resourceType']
         data.enhanced_infrastructure_metrics = map['enhancedInfrastructureMetrics']
         data.inferred_workload_types = map['inferredWorkloadTypes']
@@ -857,7 +857,7 @@ module AWS::SDK::ComputeOptimizer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.recommendation_summaries = (Parsers::RecommendationSummaries.parse(map['recommendationSummaries']) unless map['recommendationSummaries'].nil?)
+        data.recommendation_summaries = (RecommendationSummaries.parse(map['recommendationSummaries']) unless map['recommendationSummaries'].nil?)
         data
       end
     end
@@ -865,7 +865,7 @@ module AWS::SDK::ComputeOptimizer
     class RecommendationSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::RecommendationSummary.parse(value) unless value.nil?
+          RecommendationSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -873,11 +873,11 @@ module AWS::SDK::ComputeOptimizer
     class RecommendationSummary
       def self.parse(map)
         data = Types::RecommendationSummary.new
-        data.summaries = (Parsers::Summaries.parse(map['summaries']) unless map['summaries'].nil?)
+        data.summaries = (Summaries.parse(map['summaries']) unless map['summaries'].nil?)
         data.recommendation_resource_type = map['recommendationResourceType']
         data.account_id = map['accountId']
-        data.savings_opportunity = (Parsers::SavingsOpportunity.parse(map['savingsOpportunity']) unless map['savingsOpportunity'].nil?)
-        data.current_performance_risk_ratings = (Parsers::CurrentPerformanceRiskRatings.parse(map['currentPerformanceRiskRatings']) unless map['currentPerformanceRiskRatings'].nil?)
+        data.savings_opportunity = (SavingsOpportunity.parse(map['savingsOpportunity']) unless map['savingsOpportunity'].nil?)
+        data.current_performance_risk_ratings = (CurrentPerformanceRiskRatings.parse(map['currentPerformanceRiskRatings']) unless map['currentPerformanceRiskRatings'].nil?)
         return data
       end
     end
@@ -896,7 +896,7 @@ module AWS::SDK::ComputeOptimizer
     class Summaries
       def self.parse(list)
         list.map do |value|
-          Parsers::Summary.parse(value) unless value.nil?
+          Summary.parse(value) unless value.nil?
         end
       end
     end
@@ -906,7 +906,7 @@ module AWS::SDK::ComputeOptimizer
         data = Types::Summary.new
         data.name = map['name']
         data.value = Hearth::NumberHelper.deserialize(map['value'])
-        data.reason_code_summaries = (Parsers::ReasonCodeSummaries.parse(map['reasonCodeSummaries']) unless map['reasonCodeSummaries'].nil?)
+        data.reason_code_summaries = (ReasonCodeSummaries.parse(map['reasonCodeSummaries']) unless map['reasonCodeSummaries'].nil?)
         return data
       end
     end
@@ -914,7 +914,7 @@ module AWS::SDK::ComputeOptimizer
     class ReasonCodeSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ReasonCodeSummary.parse(value) unless value.nil?
+          ReasonCodeSummary.parse(value) unless value.nil?
         end
       end
     end

@@ -98,7 +98,7 @@ module AWS::SDK::ApplicationAutoScaling
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.scalable_targets = (Parsers::ScalableTargets.parse(map['ScalableTargets']) unless map['ScalableTargets'].nil?)
+        data.scalable_targets = (ScalableTargets.parse(map['ScalableTargets']) unless map['ScalableTargets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -107,7 +107,7 @@ module AWS::SDK::ApplicationAutoScaling
     class ScalableTargets
       def self.parse(list)
         list.map do |value|
-          Parsers::ScalableTarget.parse(value) unless value.nil?
+          ScalableTarget.parse(value) unless value.nil?
         end
       end
     end
@@ -122,7 +122,7 @@ module AWS::SDK::ApplicationAutoScaling
         data.max_capacity = map['MaxCapacity']
         data.role_arn = map['RoleARN']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.suspended_state = (Parsers::SuspendedState.parse(map['SuspendedState']) unless map['SuspendedState'].nil?)
+        data.suspended_state = (SuspendedState.parse(map['SuspendedState']) unless map['SuspendedState'].nil?)
         return data
       end
     end
@@ -156,7 +156,7 @@ module AWS::SDK::ApplicationAutoScaling
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.scaling_activities = (Parsers::ScalingActivities.parse(map['ScalingActivities']) unless map['ScalingActivities'].nil?)
+        data.scaling_activities = (ScalingActivities.parse(map['ScalingActivities']) unless map['ScalingActivities'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -165,7 +165,7 @@ module AWS::SDK::ApplicationAutoScaling
     class ScalingActivities
       def self.parse(list)
         list.map do |value|
-          Parsers::ScalingActivity.parse(value) unless value.nil?
+          ScalingActivity.parse(value) unless value.nil?
         end
       end
     end
@@ -195,7 +195,7 @@ module AWS::SDK::ApplicationAutoScaling
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.scaling_policies = (Parsers::ScalingPolicies.parse(map['ScalingPolicies']) unless map['ScalingPolicies'].nil?)
+        data.scaling_policies = (ScalingPolicies.parse(map['ScalingPolicies']) unless map['ScalingPolicies'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -204,7 +204,7 @@ module AWS::SDK::ApplicationAutoScaling
     class ScalingPolicies
       def self.parse(list)
         list.map do |value|
-          Parsers::ScalingPolicy.parse(value) unless value.nil?
+          ScalingPolicy.parse(value) unless value.nil?
         end
       end
     end
@@ -218,9 +218,9 @@ module AWS::SDK::ApplicationAutoScaling
         data.resource_id = map['ResourceId']
         data.scalable_dimension = map['ScalableDimension']
         data.policy_type = map['PolicyType']
-        data.step_scaling_policy_configuration = (Parsers::StepScalingPolicyConfiguration.parse(map['StepScalingPolicyConfiguration']) unless map['StepScalingPolicyConfiguration'].nil?)
-        data.target_tracking_scaling_policy_configuration = (Parsers::TargetTrackingScalingPolicyConfiguration.parse(map['TargetTrackingScalingPolicyConfiguration']) unless map['TargetTrackingScalingPolicyConfiguration'].nil?)
-        data.alarms = (Parsers::Alarms.parse(map['Alarms']) unless map['Alarms'].nil?)
+        data.step_scaling_policy_configuration = (StepScalingPolicyConfiguration.parse(map['StepScalingPolicyConfiguration']) unless map['StepScalingPolicyConfiguration'].nil?)
+        data.target_tracking_scaling_policy_configuration = (TargetTrackingScalingPolicyConfiguration.parse(map['TargetTrackingScalingPolicyConfiguration']) unless map['TargetTrackingScalingPolicyConfiguration'].nil?)
+        data.alarms = (Alarms.parse(map['Alarms']) unless map['Alarms'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         return data
       end
@@ -229,7 +229,7 @@ module AWS::SDK::ApplicationAutoScaling
     class Alarms
       def self.parse(list)
         list.map do |value|
-          Parsers::Alarm.parse(value) unless value.nil?
+          Alarm.parse(value) unless value.nil?
         end
       end
     end
@@ -247,8 +247,8 @@ module AWS::SDK::ApplicationAutoScaling
       def self.parse(map)
         data = Types::TargetTrackingScalingPolicyConfiguration.new
         data.target_value = Hearth::NumberHelper.deserialize(map['TargetValue'])
-        data.predefined_metric_specification = (Parsers::PredefinedMetricSpecification.parse(map['PredefinedMetricSpecification']) unless map['PredefinedMetricSpecification'].nil?)
-        data.customized_metric_specification = (Parsers::CustomizedMetricSpecification.parse(map['CustomizedMetricSpecification']) unless map['CustomizedMetricSpecification'].nil?)
+        data.predefined_metric_specification = (PredefinedMetricSpecification.parse(map['PredefinedMetricSpecification']) unless map['PredefinedMetricSpecification'].nil?)
+        data.customized_metric_specification = (CustomizedMetricSpecification.parse(map['CustomizedMetricSpecification']) unless map['CustomizedMetricSpecification'].nil?)
         data.scale_out_cooldown = map['ScaleOutCooldown']
         data.scale_in_cooldown = map['ScaleInCooldown']
         data.disable_scale_in = map['DisableScaleIn']
@@ -261,7 +261,7 @@ module AWS::SDK::ApplicationAutoScaling
         data = Types::CustomizedMetricSpecification.new
         data.metric_name = map['MetricName']
         data.namespace = map['Namespace']
-        data.dimensions = (Parsers::MetricDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.dimensions = (MetricDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
         data.statistic = map['Statistic']
         data.unit = map['Unit']
         return data
@@ -271,7 +271,7 @@ module AWS::SDK::ApplicationAutoScaling
     class MetricDimensions
       def self.parse(list)
         list.map do |value|
-          Parsers::MetricDimension.parse(value) unless value.nil?
+          MetricDimension.parse(value) unless value.nil?
         end
       end
     end
@@ -298,7 +298,7 @@ module AWS::SDK::ApplicationAutoScaling
       def self.parse(map)
         data = Types::StepScalingPolicyConfiguration.new
         data.adjustment_type = map['AdjustmentType']
-        data.step_adjustments = (Parsers::StepAdjustments.parse(map['StepAdjustments']) unless map['StepAdjustments'].nil?)
+        data.step_adjustments = (StepAdjustments.parse(map['StepAdjustments']) unless map['StepAdjustments'].nil?)
         data.min_adjustment_magnitude = map['MinAdjustmentMagnitude']
         data.cooldown = map['Cooldown']
         data.metric_aggregation_type = map['MetricAggregationType']
@@ -309,7 +309,7 @@ module AWS::SDK::ApplicationAutoScaling
     class StepAdjustments
       def self.parse(list)
         list.map do |value|
-          Parsers::StepAdjustment.parse(value) unless value.nil?
+          StepAdjustment.parse(value) unless value.nil?
         end
       end
     end
@@ -343,7 +343,7 @@ module AWS::SDK::ApplicationAutoScaling
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.scheduled_actions = (Parsers::ScheduledActions.parse(map['ScheduledActions']) unless map['ScheduledActions'].nil?)
+        data.scheduled_actions = (ScheduledActions.parse(map['ScheduledActions']) unless map['ScheduledActions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -352,7 +352,7 @@ module AWS::SDK::ApplicationAutoScaling
     class ScheduledActions
       def self.parse(list)
         list.map do |value|
-          Parsers::ScheduledAction.parse(value) unless value.nil?
+          ScheduledAction.parse(value) unless value.nil?
         end
       end
     end
@@ -369,7 +369,7 @@ module AWS::SDK::ApplicationAutoScaling
         data.scalable_dimension = map['ScalableDimension']
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
-        data.scalable_target_action = (Parsers::ScalableTargetAction.parse(map['ScalableTargetAction']) unless map['ScalableTargetAction'].nil?)
+        data.scalable_target_action = (ScalableTargetAction.parse(map['ScalableTargetAction']) unless map['ScalableTargetAction'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         return data
       end
@@ -392,7 +392,7 @@ module AWS::SDK::ApplicationAutoScaling
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.policy_arn = map['PolicyARN']
-        data.alarms = (Parsers::Alarms.parse(map['Alarms']) unless map['Alarms'].nil?)
+        data.alarms = (Alarms.parse(map['Alarms']) unless map['Alarms'].nil?)
         data
       end
     end

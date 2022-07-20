@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::CloudWatch
   module Parsers
 
@@ -156,7 +158,7 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML.parse(body).at('DeleteInsightRulesResult')
         xml.at('Failures') do |node|
           children = node.children('member')
-          data.failures = Parsers::BatchFailures.parse(children)
+          data.failures = BatchFailures.parse(children)
         end
         data
       end
@@ -166,7 +168,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PartialFailure.parse(node)
+          data << PartialFailure.parse(node)
         end
         data
       end
@@ -211,7 +213,7 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML.parse(body).at('DescribeAlarmHistoryResult')
         xml.at('AlarmHistoryItems') do |node|
           children = node.children('member')
-          data.alarm_history_items = Parsers::AlarmHistoryItems.parse(children)
+          data.alarm_history_items = AlarmHistoryItems.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -224,7 +226,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AlarmHistoryItem.parse(node)
+          data << AlarmHistoryItem.parse(node)
         end
         data
       end
@@ -278,11 +280,11 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML.parse(body).at('DescribeAlarmsResult')
         xml.at('CompositeAlarms') do |node|
           children = node.children('member')
-          data.composite_alarms = Parsers::CompositeAlarms.parse(children)
+          data.composite_alarms = CompositeAlarms.parse(children)
         end
         xml.at('MetricAlarms') do |node|
           children = node.children('member')
-          data.metric_alarms = Parsers::MetricAlarms.parse(children)
+          data.metric_alarms = MetricAlarms.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -295,7 +297,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MetricAlarm.parse(node)
+          data << MetricAlarm.parse(node)
         end
         data
       end
@@ -321,15 +323,15 @@ module AWS::SDK::CloudWatch
         end
         xml.at('OKActions') do |node|
           children = node.children('member')
-          data.ok_actions = Parsers::ResourceList.parse(children)
+          data.ok_actions = ResourceList.parse(children)
         end
         xml.at('AlarmActions') do |node|
           children = node.children('member')
-          data.alarm_actions = Parsers::ResourceList.parse(children)
+          data.alarm_actions = ResourceList.parse(children)
         end
         xml.at('InsufficientDataActions') do |node|
           children = node.children('member')
-          data.insufficient_data_actions = Parsers::ResourceList.parse(children)
+          data.insufficient_data_actions = ResourceList.parse(children)
         end
         xml.at('StateValue') do |node|
           data.state_value = (node.text || '')
@@ -357,7 +359,7 @@ module AWS::SDK::CloudWatch
         end
         xml.at('Dimensions') do |node|
           children = node.children('member')
-          data.dimensions = Parsers::Dimensions.parse(children)
+          data.dimensions = Dimensions.parse(children)
         end
         xml.at('Period') do |node|
           data.period = node.text&.to_i
@@ -385,7 +387,7 @@ module AWS::SDK::CloudWatch
         end
         xml.at('Metrics') do |node|
           children = node.children('member')
-          data.metrics = Parsers::MetricDataQueries.parse(children)
+          data.metrics = MetricDataQueries.parse(children)
         end
         xml.at('ThresholdMetricId') do |node|
           data.threshold_metric_id = (node.text || '')
@@ -398,7 +400,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MetricDataQuery.parse(node)
+          data << MetricDataQuery.parse(node)
         end
         data
       end
@@ -411,7 +413,7 @@ module AWS::SDK::CloudWatch
           data.id = (node.text || '')
         end
         xml.at('MetricStat') do |node|
-          data.metric_stat = Parsers::MetricStat.parse(node)
+          data.metric_stat = MetricStat.parse(node)
         end
         xml.at('Expression') do |node|
           data.expression = (node.text || '')
@@ -436,7 +438,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = Types::MetricStat.new
         xml.at('Metric') do |node|
-          data.metric = Parsers::Metric.parse(node)
+          data.metric = Metric.parse(node)
         end
         xml.at('Period') do |node|
           data.period = node.text&.to_i
@@ -462,7 +464,7 @@ module AWS::SDK::CloudWatch
         end
         xml.at('Dimensions') do |node|
           children = node.children('member')
-          data.dimensions = Parsers::Dimensions.parse(children)
+          data.dimensions = Dimensions.parse(children)
         end
         return data
       end
@@ -472,7 +474,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Dimension.parse(node)
+          data << Dimension.parse(node)
         end
         data
       end
@@ -505,7 +507,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CompositeAlarm.parse(node)
+          data << CompositeAlarm.parse(node)
         end
         data
       end
@@ -519,7 +521,7 @@ module AWS::SDK::CloudWatch
         end
         xml.at('AlarmActions') do |node|
           children = node.children('member')
-          data.alarm_actions = Parsers::ResourceList.parse(children)
+          data.alarm_actions = ResourceList.parse(children)
         end
         xml.at('AlarmArn') do |node|
           data.alarm_arn = (node.text || '')
@@ -538,11 +540,11 @@ module AWS::SDK::CloudWatch
         end
         xml.at('InsufficientDataActions') do |node|
           children = node.children('member')
-          data.insufficient_data_actions = Parsers::ResourceList.parse(children)
+          data.insufficient_data_actions = ResourceList.parse(children)
         end
         xml.at('OKActions') do |node|
           children = node.children('member')
-          data.ok_actions = Parsers::ResourceList.parse(children)
+          data.ok_actions = ResourceList.parse(children)
         end
         xml.at('StateReason') do |node|
           data.state_reason = (node.text || '')
@@ -569,7 +571,7 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML.parse(body).at('DescribeAlarmsForMetricResult')
         xml.at('MetricAlarms') do |node|
           children = node.children('member')
-          data.metric_alarms = Parsers::MetricAlarms.parse(children)
+          data.metric_alarms = MetricAlarms.parse(children)
         end
         data
       end
@@ -584,7 +586,7 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML.parse(body).at('DescribeAnomalyDetectorsResult')
         xml.at('AnomalyDetectors') do |node|
           children = node.children('member')
-          data.anomaly_detectors = Parsers::AnomalyDetectors.parse(children)
+          data.anomaly_detectors = AnomalyDetectors.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -597,7 +599,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AnomalyDetector.parse(node)
+          data << AnomalyDetector.parse(node)
         end
         data
       end
@@ -614,22 +616,22 @@ module AWS::SDK::CloudWatch
         end
         xml.at('Dimensions') do |node|
           children = node.children('member')
-          data.dimensions = Parsers::Dimensions.parse(children)
+          data.dimensions = Dimensions.parse(children)
         end
         xml.at('Stat') do |node|
           data.stat = (node.text || '')
         end
         xml.at('Configuration') do |node|
-          data.configuration = Parsers::AnomalyDetectorConfiguration.parse(node)
+          data.configuration = AnomalyDetectorConfiguration.parse(node)
         end
         xml.at('StateValue') do |node|
           data.state_value = (node.text || '')
         end
         xml.at('SingleMetricAnomalyDetector') do |node|
-          data.single_metric_anomaly_detector = Parsers::SingleMetricAnomalyDetector.parse(node)
+          data.single_metric_anomaly_detector = SingleMetricAnomalyDetector.parse(node)
         end
         xml.at('MetricMathAnomalyDetector') do |node|
-          data.metric_math_anomaly_detector = Parsers::MetricMathAnomalyDetector.parse(node)
+          data.metric_math_anomaly_detector = MetricMathAnomalyDetector.parse(node)
         end
         return data
       end
@@ -640,7 +642,7 @@ module AWS::SDK::CloudWatch
         data = Types::MetricMathAnomalyDetector.new
         xml.at('MetricDataQueries') do |node|
           children = node.children('member')
-          data.metric_data_queries = Parsers::MetricDataQueries.parse(children)
+          data.metric_data_queries = MetricDataQueries.parse(children)
         end
         return data
       end
@@ -657,7 +659,7 @@ module AWS::SDK::CloudWatch
         end
         xml.at('Dimensions') do |node|
           children = node.children('member')
-          data.dimensions = Parsers::Dimensions.parse(children)
+          data.dimensions = Dimensions.parse(children)
         end
         xml.at('Stat') do |node|
           data.stat = (node.text || '')
@@ -671,7 +673,7 @@ module AWS::SDK::CloudWatch
         data = Types::AnomalyDetectorConfiguration.new
         xml.at('ExcludedTimeRanges') do |node|
           children = node.children('member')
-          data.excluded_time_ranges = Parsers::AnomalyDetectorExcludedTimeRanges.parse(children)
+          data.excluded_time_ranges = AnomalyDetectorExcludedTimeRanges.parse(children)
         end
         xml.at('MetricTimezone') do |node|
           data.metric_timezone = (node.text || '')
@@ -684,7 +686,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Range.parse(node)
+          data << Range.parse(node)
         end
         data
       end
@@ -715,7 +717,7 @@ module AWS::SDK::CloudWatch
         end
         xml.at('InsightRules') do |node|
           children = node.children('member')
-          data.insight_rules = Parsers::InsightRules.parse(children)
+          data.insight_rules = InsightRules.parse(children)
         end
         data
       end
@@ -725,7 +727,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InsightRule.parse(node)
+          data << InsightRule.parse(node)
         end
         data
       end
@@ -770,7 +772,7 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML.parse(body).at('DisableInsightRulesResult')
         xml.at('Failures') do |node|
           children = node.children('member')
-          data.failures = Parsers::BatchFailures.parse(children)
+          data.failures = BatchFailures.parse(children)
         end
         data
       end
@@ -796,7 +798,7 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML.parse(body).at('EnableInsightRulesResult')
         xml.at('Failures') do |node|
           children = node.children('member')
-          data.failures = Parsers::BatchFailures.parse(children)
+          data.failures = BatchFailures.parse(children)
         end
         data
       end
@@ -845,7 +847,7 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML.parse(body).at('GetInsightRuleReportResult')
         xml.at('KeyLabels') do |node|
           children = node.children('member')
-          data.key_labels = Parsers::InsightRuleContributorKeyLabels.parse(children)
+          data.key_labels = InsightRuleContributorKeyLabels.parse(children)
         end
         xml.at('AggregationStatistic') do |node|
           data.aggregation_statistic = (node.text || '')
@@ -858,11 +860,11 @@ module AWS::SDK::CloudWatch
         end
         xml.at('Contributors') do |node|
           children = node.children('member')
-          data.contributors = Parsers::InsightRuleContributors.parse(children)
+          data.contributors = InsightRuleContributors.parse(children)
         end
         xml.at('MetricDatapoints') do |node|
           children = node.children('member')
-          data.metric_datapoints = Parsers::InsightRuleMetricDatapoints.parse(children)
+          data.metric_datapoints = InsightRuleMetricDatapoints.parse(children)
         end
         data
       end
@@ -872,7 +874,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InsightRuleMetricDatapoint.parse(node)
+          data << InsightRuleMetricDatapoint.parse(node)
         end
         data
       end
@@ -913,7 +915,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InsightRuleContributor.parse(node)
+          data << InsightRuleContributor.parse(node)
         end
         data
       end
@@ -924,14 +926,14 @@ module AWS::SDK::CloudWatch
         data = Types::InsightRuleContributor.new
         xml.at('Keys') do |node|
           children = node.children('member')
-          data.keys = Parsers::InsightRuleContributorKeys.parse(children)
+          data.keys = InsightRuleContributorKeys.parse(children)
         end
         xml.at('ApproximateAggregateValue') do |node|
           data.approximate_aggregate_value = Hearth::NumberHelper.deserialize(node.text)
         end
         xml.at('Datapoints') do |node|
           children = node.children('member')
-          data.datapoints = Parsers::InsightRuleContributorDatapoints.parse(children)
+          data.datapoints = InsightRuleContributorDatapoints.parse(children)
         end
         return data
       end
@@ -941,7 +943,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InsightRuleContributorDatapoint.parse(node)
+          data << InsightRuleContributorDatapoint.parse(node)
         end
         data
       end
@@ -989,14 +991,14 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML.parse(body).at('GetMetricDataResult')
         xml.at('MetricDataResults') do |node|
           children = node.children('member')
-          data.metric_data_results = Parsers::MetricDataResults.parse(children)
+          data.metric_data_results = MetricDataResults.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
         end
         xml.at('Messages') do |node|
           children = node.children('member')
-          data.messages = Parsers::MetricDataResultMessages.parse(children)
+          data.messages = MetricDataResultMessages.parse(children)
         end
         data
       end
@@ -1006,7 +1008,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MessageData.parse(node)
+          data << MessageData.parse(node)
         end
         data
       end
@@ -1029,7 +1031,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MetricDataResult.parse(node)
+          data << MetricDataResult.parse(node)
         end
         data
       end
@@ -1046,18 +1048,18 @@ module AWS::SDK::CloudWatch
         end
         xml.at('Timestamps') do |node|
           children = node.children('member')
-          data.timestamps = Parsers::Timestamps.parse(children)
+          data.timestamps = Timestamps.parse(children)
         end
         xml.at('Values') do |node|
           children = node.children('member')
-          data.values = Parsers::DatapointValues.parse(children)
+          data.values = DatapointValues.parse(children)
         end
         xml.at('StatusCode') do |node|
           data.status_code = (node.text || '')
         end
         xml.at('Messages') do |node|
           children = node.children('member')
-          data.messages = Parsers::MetricDataResultMessages.parse(children)
+          data.messages = MetricDataResultMessages.parse(children)
         end
         return data
       end
@@ -1095,7 +1097,7 @@ module AWS::SDK::CloudWatch
         end
         xml.at('Datapoints') do |node|
           children = node.children('member')
-          data.datapoints = Parsers::Datapoints.parse(children)
+          data.datapoints = Datapoints.parse(children)
         end
         data
       end
@@ -1105,7 +1107,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Datapoint.parse(node)
+          data << Datapoint.parse(node)
         end
         data
       end
@@ -1137,7 +1139,7 @@ module AWS::SDK::CloudWatch
         end
         xml.at('ExtendedStatistics') do |node|
           children = node.children('entry')
-          data.extended_statistics = Parsers::DatapointValueMap.parse(children)
+          data.extended_statistics = DatapointValueMap.parse(children)
         end
         return data
       end
@@ -1170,11 +1172,11 @@ module AWS::SDK::CloudWatch
         end
         xml.at('IncludeFilters') do |node|
           children = node.children('member')
-          data.include_filters = Parsers::MetricStreamFilters.parse(children)
+          data.include_filters = MetricStreamFilters.parse(children)
         end
         xml.at('ExcludeFilters') do |node|
           children = node.children('member')
-          data.exclude_filters = Parsers::MetricStreamFilters.parse(children)
+          data.exclude_filters = MetricStreamFilters.parse(children)
         end
         xml.at('FirehoseArn') do |node|
           data.firehose_arn = (node.text || '')
@@ -1196,7 +1198,7 @@ module AWS::SDK::CloudWatch
         end
         xml.at('StatisticsConfigurations') do |node|
           children = node.children('member')
-          data.statistics_configurations = Parsers::MetricStreamStatisticsConfigurations.parse(children)
+          data.statistics_configurations = MetricStreamStatisticsConfigurations.parse(children)
         end
         data
       end
@@ -1206,7 +1208,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MetricStreamStatisticsConfiguration.parse(node)
+          data << MetricStreamStatisticsConfiguration.parse(node)
         end
         data
       end
@@ -1217,11 +1219,11 @@ module AWS::SDK::CloudWatch
         data = Types::MetricStreamStatisticsConfiguration.new
         xml.at('IncludeMetrics') do |node|
           children = node.children('member')
-          data.include_metrics = Parsers::MetricStreamStatisticsIncludeMetrics.parse(children)
+          data.include_metrics = MetricStreamStatisticsIncludeMetrics.parse(children)
         end
         xml.at('AdditionalStatistics') do |node|
           children = node.children('member')
-          data.additional_statistics = Parsers::MetricStreamStatisticsAdditionalStatistics.parse(children)
+          data.additional_statistics = MetricStreamStatisticsAdditionalStatistics.parse(children)
         end
         return data
       end
@@ -1241,7 +1243,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MetricStreamStatisticsMetric.parse(node)
+          data << MetricStreamStatisticsMetric.parse(node)
         end
         data
       end
@@ -1264,7 +1266,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MetricStreamFilter.parse(node)
+          data << MetricStreamFilter.parse(node)
         end
         data
       end
@@ -1288,7 +1290,7 @@ module AWS::SDK::CloudWatch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('GetMetricWidgetImageResult')
         xml.at('MetricWidgetImage') do |node|
-          data.metric_widget_image = ((Base64::decode64(node.text) unless node.text.nil?) || '')
+          data.metric_widget_image = ((::Base64::decode64(node.text) unless node.text.nil?) || '')
         end
         data
       end
@@ -1303,7 +1305,7 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML.parse(body).at('ListDashboardsResult')
         xml.at('DashboardEntries') do |node|
           children = node.children('member')
-          data.dashboard_entries = Parsers::DashboardEntries.parse(children)
+          data.dashboard_entries = DashboardEntries.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1316,7 +1318,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DashboardEntry.parse(node)
+          data << DashboardEntry.parse(node)
         end
         data
       end
@@ -1353,7 +1355,7 @@ module AWS::SDK::CloudWatch
         end
         xml.at('Entries') do |node|
           children = node.children('member')
-          data.entries = Parsers::MetricStreamEntries.parse(children)
+          data.entries = MetricStreamEntries.parse(children)
         end
         data
       end
@@ -1363,7 +1365,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MetricStreamEntry.parse(node)
+          data << MetricStreamEntry.parse(node)
         end
         data
       end
@@ -1406,7 +1408,7 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML.parse(body).at('ListMetricsResult')
         xml.at('Metrics') do |node|
           children = node.children('member')
-          data.metrics = Parsers::Metrics.parse(children)
+          data.metrics = Metrics.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1419,7 +1421,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Metric.parse(node)
+          data << Metric.parse(node)
         end
         data
       end
@@ -1434,7 +1436,7 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML.parse(body).at('ListTagsForResourceResult')
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         data
       end
@@ -1444,7 +1446,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Tag.parse(node)
+          data << Tag.parse(node)
         end
         data
       end
@@ -1508,7 +1510,7 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML.parse(body).at('PutDashboardResult')
         xml.at('DashboardValidationMessages') do |node|
           children = node.children('member')
-          data.dashboard_validation_messages = Parsers::DashboardValidationMessages.parse(children)
+          data.dashboard_validation_messages = DashboardValidationMessages.parse(children)
         end
         data
       end
@@ -1518,7 +1520,7 @@ module AWS::SDK::CloudWatch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DashboardValidationMessage.parse(node)
+          data << DashboardValidationMessage.parse(node)
         end
         data
       end
@@ -1549,7 +1551,7 @@ module AWS::SDK::CloudWatch
         end
         xml.at('dashboardValidationMessages') do |node|
           children = node.children('member')
-          data.dashboard_validation_messages = Parsers::DashboardValidationMessages.parse(children)
+          data.dashboard_validation_messages = DashboardValidationMessages.parse(children)
         end
         data
       end

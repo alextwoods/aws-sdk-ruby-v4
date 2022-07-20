@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Route53RecoveryCluster
   module Stubs
 
@@ -25,7 +27,7 @@ module AWS::SDK::Route53RecoveryCluster
         data['RoutingControlArn'] = stub[:routing_control_arn] unless stub[:routing_control_arn].nil?
         data['RoutingControlState'] = stub[:routing_control_state] unless stub[:routing_control_state].nil?
         data['RoutingControlName'] = stub[:routing_control_name] unless stub[:routing_control_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -41,9 +43,9 @@ module AWS::SDK::Route53RecoveryCluster
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RoutingControls'] = Stubs::RoutingControls.stub(stub[:routing_controls]) unless stub[:routing_controls].nil?
+        data['RoutingControls'] = RoutingControls.stub(stub[:routing_controls]) unless stub[:routing_controls].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -62,7 +64,7 @@ module AWS::SDK::Route53RecoveryCluster
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RoutingControl.stub(element) unless element.nil?
+          data << RoutingControl.stub(element) unless element.nil?
         end
         data
       end
@@ -103,7 +105,7 @@ module AWS::SDK::Route53RecoveryCluster
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -117,7 +119,7 @@ module AWS::SDK::Route53RecoveryCluster
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

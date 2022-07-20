@@ -17,7 +17,7 @@ module AWS::SDK::TimestreamWrite
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.database = (Parsers::Database.parse(map['Database']) unless map['Database'].nil?)
+        data.database = (Database.parse(map['Database']) unless map['Database'].nil?)
         data
       end
     end
@@ -126,7 +126,7 @@ module AWS::SDK::TimestreamWrite
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.table = (Parsers::Table.parse(map['Table']) unless map['Table'].nil?)
+        data.table = (Table.parse(map['Table']) unless map['Table'].nil?)
         data
       end
     end
@@ -138,10 +138,10 @@ module AWS::SDK::TimestreamWrite
         data.table_name = map['TableName']
         data.database_name = map['DatabaseName']
         data.table_status = map['TableStatus']
-        data.retention_properties = (Parsers::RetentionProperties.parse(map['RetentionProperties']) unless map['RetentionProperties'].nil?)
+        data.retention_properties = (RetentionProperties.parse(map['RetentionProperties']) unless map['RetentionProperties'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
-        data.magnetic_store_write_properties = (Parsers::MagneticStoreWriteProperties.parse(map['MagneticStoreWriteProperties']) unless map['MagneticStoreWriteProperties'].nil?)
+        data.magnetic_store_write_properties = (MagneticStoreWriteProperties.parse(map['MagneticStoreWriteProperties']) unless map['MagneticStoreWriteProperties'].nil?)
         return data
       end
     end
@@ -150,7 +150,7 @@ module AWS::SDK::TimestreamWrite
       def self.parse(map)
         data = Types::MagneticStoreWriteProperties.new
         data.enable_magnetic_store_writes = map['EnableMagneticStoreWrites']
-        data.magnetic_store_rejected_data_location = (Parsers::MagneticStoreRejectedDataLocation.parse(map['MagneticStoreRejectedDataLocation']) unless map['MagneticStoreRejectedDataLocation'].nil?)
+        data.magnetic_store_rejected_data_location = (MagneticStoreRejectedDataLocation.parse(map['MagneticStoreRejectedDataLocation']) unless map['MagneticStoreRejectedDataLocation'].nil?)
         return data
       end
     end
@@ -158,7 +158,7 @@ module AWS::SDK::TimestreamWrite
     class MagneticStoreRejectedDataLocation
       def self.parse(map)
         data = Types::MagneticStoreRejectedDataLocation.new
-        data.s3_configuration = (Parsers::S3Configuration.parse(map['S3Configuration']) unless map['S3Configuration'].nil?)
+        data.s3_configuration = (S3Configuration.parse(map['S3Configuration']) unless map['S3Configuration'].nil?)
         return data
       end
     end
@@ -224,7 +224,7 @@ module AWS::SDK::TimestreamWrite
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.database = (Parsers::Database.parse(map['Database']) unless map['Database'].nil?)
+        data.database = (Database.parse(map['Database']) unless map['Database'].nil?)
         data
       end
     end
@@ -236,7 +236,7 @@ module AWS::SDK::TimestreamWrite
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoints = (Parsers::Endpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
+        data.endpoints = (Endpoints.parse(map['Endpoints']) unless map['Endpoints'].nil?)
         data
       end
     end
@@ -244,7 +244,7 @@ module AWS::SDK::TimestreamWrite
     class Endpoints
       def self.parse(list)
         list.map do |value|
-          Parsers::Endpoint.parse(value) unless value.nil?
+          Endpoint.parse(value) unless value.nil?
         end
       end
     end
@@ -265,7 +265,7 @@ module AWS::SDK::TimestreamWrite
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.table = (Parsers::Table.parse(map['Table']) unless map['Table'].nil?)
+        data.table = (Table.parse(map['Table']) unless map['Table'].nil?)
         data
       end
     end
@@ -277,7 +277,7 @@ module AWS::SDK::TimestreamWrite
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.databases = (Parsers::DatabaseList.parse(map['Databases']) unless map['Databases'].nil?)
+        data.databases = (DatabaseList.parse(map['Databases']) unless map['Databases'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -286,7 +286,7 @@ module AWS::SDK::TimestreamWrite
     class DatabaseList
       def self.parse(list)
         list.map do |value|
-          Parsers::Database.parse(value) unless value.nil?
+          Database.parse(value) unless value.nil?
         end
       end
     end
@@ -298,7 +298,7 @@ module AWS::SDK::TimestreamWrite
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tables = (Parsers::TableList.parse(map['Tables']) unless map['Tables'].nil?)
+        data.tables = (TableList.parse(map['Tables']) unless map['Tables'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -307,7 +307,7 @@ module AWS::SDK::TimestreamWrite
     class TableList
       def self.parse(list)
         list.map do |value|
-          Parsers::Table.parse(value) unless value.nil?
+          Table.parse(value) unless value.nil?
         end
       end
     end
@@ -319,7 +319,7 @@ module AWS::SDK::TimestreamWrite
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -327,7 +327,7 @@ module AWS::SDK::TimestreamWrite
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -370,7 +370,7 @@ module AWS::SDK::TimestreamWrite
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.database = (Parsers::Database.parse(map['Database']) unless map['Database'].nil?)
+        data.database = (Database.parse(map['Database']) unless map['Database'].nil?)
         data
       end
     end
@@ -382,7 +382,7 @@ module AWS::SDK::TimestreamWrite
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.table = (Parsers::Table.parse(map['Table']) unless map['Table'].nil?)
+        data.table = (Table.parse(map['Table']) unless map['Table'].nil?)
         data
       end
     end
@@ -394,7 +394,7 @@ module AWS::SDK::TimestreamWrite
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.records_ingested = (Parsers::RecordsIngested.parse(map['RecordsIngested']) unless map['RecordsIngested'].nil?)
+        data.records_ingested = (RecordsIngested.parse(map['RecordsIngested']) unless map['RecordsIngested'].nil?)
         data
       end
     end
@@ -417,7 +417,7 @@ module AWS::SDK::TimestreamWrite
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.message = map['Message']
-        data.rejected_records = (Parsers::RejectedRecords.parse(map['RejectedRecords']) unless map['RejectedRecords'].nil?)
+        data.rejected_records = (RejectedRecords.parse(map['RejectedRecords']) unless map['RejectedRecords'].nil?)
         data
       end
     end
@@ -425,7 +425,7 @@ module AWS::SDK::TimestreamWrite
     class RejectedRecords
       def self.parse(list)
         list.map do |value|
-          Parsers::RejectedRecord.parse(value) unless value.nil?
+          RejectedRecord.parse(value) unless value.nil?
         end
       end
     end

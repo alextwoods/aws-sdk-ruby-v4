@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::CognitoIdentityProvider
   module Builders
 
@@ -19,8 +22,8 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.AddCustomAttributes'
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
-        data['CustomAttributes'] = Builders::CustomAttributesListType.build(input[:custom_attributes]) unless input[:custom_attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CustomAttributes'] = CustomAttributesListType.build(input[:custom_attributes]) unless input[:custom_attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -29,7 +32,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SchemaAttributeType.build(element) unless element.nil?
+          data << SchemaAttributeType.build(element) unless element.nil?
         end
         data
       end
@@ -44,8 +47,8 @@ module AWS::SDK::CognitoIdentityProvider
         data['DeveloperOnlyAttribute'] = input[:developer_only_attribute] unless input[:developer_only_attribute].nil?
         data['Mutable'] = input[:mutable] unless input[:mutable].nil?
         data['Required'] = input[:required] unless input[:required].nil?
-        data['NumberAttributeConstraints'] = Builders::NumberAttributeConstraintsType.build(input[:number_attribute_constraints]) unless input[:number_attribute_constraints].nil?
-        data['StringAttributeConstraints'] = Builders::StringAttributeConstraintsType.build(input[:string_attribute_constraints]) unless input[:string_attribute_constraints].nil?
+        data['NumberAttributeConstraints'] = NumberAttributeConstraintsType.build(input[:number_attribute_constraints]) unless input[:number_attribute_constraints].nil?
+        data['StringAttributeConstraints'] = StringAttributeConstraintsType.build(input[:string_attribute_constraints]) unless input[:string_attribute_constraints].nil?
         data
       end
     end
@@ -81,7 +84,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Username'] = input[:username] unless input[:username].nil?
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -95,8 +98,8 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Username'] = input[:username] unless input[:username].nil?
-        data['ClientMetadata'] = Builders::ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ClientMetadata'] = ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -121,14 +124,14 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Username'] = input[:username] unless input[:username].nil?
-        data['UserAttributes'] = Builders::AttributeListType.build(input[:user_attributes]) unless input[:user_attributes].nil?
-        data['ValidationData'] = Builders::AttributeListType.build(input[:validation_data]) unless input[:validation_data].nil?
+        data['UserAttributes'] = AttributeListType.build(input[:user_attributes]) unless input[:user_attributes].nil?
+        data['ValidationData'] = AttributeListType.build(input[:validation_data]) unless input[:validation_data].nil?
         data['TemporaryPassword'] = input[:temporary_password] unless input[:temporary_password].nil?
         data['ForceAliasCreation'] = input[:force_alias_creation] unless input[:force_alias_creation].nil?
         data['MessageAction'] = input[:message_action] unless input[:message_action].nil?
-        data['DesiredDeliveryMediums'] = Builders::DeliveryMediumListType.build(input[:desired_delivery_mediums]) unless input[:desired_delivery_mediums].nil?
-        data['ClientMetadata'] = Builders::ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DesiredDeliveryMediums'] = DeliveryMediumListType.build(input[:desired_delivery_mediums]) unless input[:desired_delivery_mediums].nil?
+        data['ClientMetadata'] = ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -148,7 +151,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AttributeType.build(element) unless element.nil?
+          data << AttributeType.build(element) unless element.nil?
         end
         data
       end
@@ -174,7 +177,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Username'] = input[:username] unless input[:username].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -188,8 +191,8 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Username'] = input[:username] unless input[:username].nil?
-        data['UserAttributeNames'] = Builders::AttributeNameListType.build(input[:user_attribute_names]) unless input[:user_attribute_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserAttributeNames'] = AttributeNameListType.build(input[:user_attribute_names]) unless input[:user_attribute_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -213,8 +216,8 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.AdminDisableProviderForUser'
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
-        data['User'] = Builders::ProviderUserIdentifierType.build(input[:user]) unless input[:user].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['User'] = ProviderUserIdentifierType.build(input[:user]) unless input[:user].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -239,7 +242,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Username'] = input[:username] unless input[:username].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -253,7 +256,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Username'] = input[:username] unless input[:username].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -268,7 +271,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Username'] = input[:username] unless input[:username].nil?
         data['DeviceKey'] = input[:device_key] unless input[:device_key].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -283,7 +286,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['DeviceKey'] = input[:device_key] unless input[:device_key].nil?
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Username'] = input[:username] unless input[:username].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -297,7 +300,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Username'] = input[:username] unless input[:username].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -312,11 +315,11 @@ module AWS::SDK::CognitoIdentityProvider
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['ClientId'] = input[:client_id] unless input[:client_id].nil?
         data['AuthFlow'] = input[:auth_flow] unless input[:auth_flow].nil?
-        data['AuthParameters'] = Builders::AuthParametersType.build(input[:auth_parameters]) unless input[:auth_parameters].nil?
-        data['ClientMetadata'] = Builders::ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
-        data['AnalyticsMetadata'] = Builders::AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
-        data['ContextData'] = Builders::ContextDataType.build(input[:context_data]) unless input[:context_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AuthParameters'] = AuthParametersType.build(input[:auth_parameters]) unless input[:auth_parameters].nil?
+        data['ClientMetadata'] = ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
+        data['AnalyticsMetadata'] = AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
+        data['ContextData'] = ContextDataType.build(input[:context_data]) unless input[:context_data].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -327,7 +330,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['IpAddress'] = input[:ip_address] unless input[:ip_address].nil?
         data['ServerName'] = input[:server_name] unless input[:server_name].nil?
         data['ServerPath'] = input[:server_path] unless input[:server_path].nil?
-        data['HttpHeaders'] = Builders::HttpHeaderList.build(input[:http_headers]) unless input[:http_headers].nil?
+        data['HttpHeaders'] = HttpHeaderList.build(input[:http_headers]) unless input[:http_headers].nil?
         data['EncodedData'] = input[:encoded_data] unless input[:encoded_data].nil?
         data
       end
@@ -338,7 +341,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::HttpHeader.build(element) unless element.nil?
+          data << HttpHeader.build(element) unless element.nil?
         end
         data
       end
@@ -383,9 +386,9 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.AdminLinkProviderForUser'
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
-        data['DestinationUser'] = Builders::ProviderUserIdentifierType.build(input[:destination_user]) unless input[:destination_user].nil?
-        data['SourceUser'] = Builders::ProviderUserIdentifierType.build(input[:source_user]) unless input[:source_user].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DestinationUser'] = ProviderUserIdentifierType.build(input[:destination_user]) unless input[:destination_user].nil?
+        data['SourceUser'] = ProviderUserIdentifierType.build(input[:source_user]) unless input[:source_user].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -401,7 +404,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['Username'] = input[:username] unless input[:username].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['PaginationToken'] = input[:pagination_token] unless input[:pagination_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -417,7 +420,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -433,7 +436,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['Username'] = input[:username] unless input[:username].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -448,7 +451,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Username'] = input[:username] unless input[:username].nil?
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -462,8 +465,8 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Username'] = input[:username] unless input[:username].nil?
-        data['ClientMetadata'] = Builders::ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ClientMetadata'] = ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -478,12 +481,12 @@ module AWS::SDK::CognitoIdentityProvider
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['ClientId'] = input[:client_id] unless input[:client_id].nil?
         data['ChallengeName'] = input[:challenge_name] unless input[:challenge_name].nil?
-        data['ChallengeResponses'] = Builders::ChallengeResponsesType.build(input[:challenge_responses]) unless input[:challenge_responses].nil?
+        data['ChallengeResponses'] = ChallengeResponsesType.build(input[:challenge_responses]) unless input[:challenge_responses].nil?
         data['Session'] = input[:session] unless input[:session].nil?
-        data['AnalyticsMetadata'] = Builders::AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
-        data['ContextData'] = Builders::ContextDataType.build(input[:context_data]) unless input[:context_data].nil?
-        data['ClientMetadata'] = Builders::ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AnalyticsMetadata'] = AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
+        data['ContextData'] = ContextDataType.build(input[:context_data]) unless input[:context_data].nil?
+        data['ClientMetadata'] = ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -506,11 +509,11 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.AdminSetUserMFAPreference'
         data = {}
-        data['SMSMfaSettings'] = Builders::SMSMfaSettingsType.build(input[:sms_mfa_settings]) unless input[:sms_mfa_settings].nil?
-        data['SoftwareTokenMfaSettings'] = Builders::SoftwareTokenMfaSettingsType.build(input[:software_token_mfa_settings]) unless input[:software_token_mfa_settings].nil?
+        data['SMSMfaSettings'] = SMSMfaSettingsType.build(input[:sms_mfa_settings]) unless input[:sms_mfa_settings].nil?
+        data['SoftwareTokenMfaSettings'] = SoftwareTokenMfaSettingsType.build(input[:software_token_mfa_settings]) unless input[:software_token_mfa_settings].nil?
         data['Username'] = input[:username] unless input[:username].nil?
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -546,7 +549,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['Username'] = input[:username] unless input[:username].nil?
         data['Password'] = input[:password] unless input[:password].nil?
         data['Permanent'] = input[:permanent] unless input[:permanent].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -560,8 +563,8 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Username'] = input[:username] unless input[:username].nil?
-        data['MFAOptions'] = Builders::MFAOptionListType.build(input[:mfa_options]) unless input[:mfa_options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MFAOptions'] = MFAOptionListType.build(input[:mfa_options]) unless input[:mfa_options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -570,7 +573,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MFAOptionType.build(element) unless element.nil?
+          data << MFAOptionType.build(element) unless element.nil?
         end
         data
       end
@@ -598,7 +601,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['Username'] = input[:username] unless input[:username].nil?
         data['EventId'] = input[:event_id] unless input[:event_id].nil?
         data['FeedbackValue'] = input[:feedback_value] unless input[:feedback_value].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -614,7 +617,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['Username'] = input[:username] unless input[:username].nil?
         data['DeviceKey'] = input[:device_key] unless input[:device_key].nil?
         data['DeviceRememberedStatus'] = input[:device_remembered_status] unless input[:device_remembered_status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -628,9 +631,9 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Username'] = input[:username] unless input[:username].nil?
-        data['UserAttributes'] = Builders::AttributeListType.build(input[:user_attributes]) unless input[:user_attributes].nil?
-        data['ClientMetadata'] = Builders::ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserAttributes'] = AttributeListType.build(input[:user_attributes]) unless input[:user_attributes].nil?
+        data['ClientMetadata'] = ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -644,7 +647,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Username'] = input[:username] unless input[:username].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -658,7 +661,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['AccessToken'] = input[:access_token] unless input[:access_token].nil?
         data['Session'] = input[:session] unless input[:session].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -673,7 +676,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['PreviousPassword'] = input[:previous_password] unless input[:previous_password].nil?
         data['ProposedPassword'] = input[:proposed_password] unless input[:proposed_password].nil?
         data['AccessToken'] = input[:access_token] unless input[:access_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -687,9 +690,9 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['AccessToken'] = input[:access_token] unless input[:access_token].nil?
         data['DeviceKey'] = input[:device_key] unless input[:device_key].nil?
-        data['DeviceSecretVerifierConfig'] = Builders::DeviceSecretVerifierConfigType.build(input[:device_secret_verifier_config]) unless input[:device_secret_verifier_config].nil?
+        data['DeviceSecretVerifierConfig'] = DeviceSecretVerifierConfigType.build(input[:device_secret_verifier_config]) unless input[:device_secret_verifier_config].nil?
         data['DeviceName'] = input[:device_name] unless input[:device_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -716,10 +719,10 @@ module AWS::SDK::CognitoIdentityProvider
         data['Username'] = input[:username] unless input[:username].nil?
         data['ConfirmationCode'] = input[:confirmation_code] unless input[:confirmation_code].nil?
         data['Password'] = input[:password] unless input[:password].nil?
-        data['AnalyticsMetadata'] = Builders::AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
-        data['UserContextData'] = Builders::UserContextDataType.build(input[:user_context_data]) unless input[:user_context_data].nil?
-        data['ClientMetadata'] = Builders::ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AnalyticsMetadata'] = AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
+        data['UserContextData'] = UserContextDataType.build(input[:user_context_data]) unless input[:user_context_data].nil?
+        data['ClientMetadata'] = ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -746,10 +749,10 @@ module AWS::SDK::CognitoIdentityProvider
         data['Username'] = input[:username] unless input[:username].nil?
         data['ConfirmationCode'] = input[:confirmation_code] unless input[:confirmation_code].nil?
         data['ForceAliasCreation'] = input[:force_alias_creation] unless input[:force_alias_creation].nil?
-        data['AnalyticsMetadata'] = Builders::AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
-        data['UserContextData'] = Builders::UserContextDataType.build(input[:user_context_data]) unless input[:user_context_data].nil?
-        data['ClientMetadata'] = Builders::ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AnalyticsMetadata'] = AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
+        data['UserContextData'] = UserContextDataType.build(input[:user_context_data]) unless input[:user_context_data].nil?
+        data['ClientMetadata'] = ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -766,7 +769,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['Description'] = input[:description] unless input[:description].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['Precedence'] = input[:precedence] unless input[:precedence].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -781,10 +784,10 @@ module AWS::SDK::CognitoIdentityProvider
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['ProviderName'] = input[:provider_name] unless input[:provider_name].nil?
         data['ProviderType'] = input[:provider_type] unless input[:provider_type].nil?
-        data['ProviderDetails'] = Builders::ProviderDetailsType.build(input[:provider_details]) unless input[:provider_details].nil?
-        data['AttributeMapping'] = Builders::AttributeMappingType.build(input[:attribute_mapping]) unless input[:attribute_mapping].nil?
-        data['IdpIdentifiers'] = Builders::IdpIdentifiersListType.build(input[:idp_identifiers]) unless input[:idp_identifiers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProviderDetails'] = ProviderDetailsType.build(input[:provider_details]) unless input[:provider_details].nil?
+        data['AttributeMapping'] = AttributeMappingType.build(input[:attribute_mapping]) unless input[:attribute_mapping].nil?
+        data['IdpIdentifiers'] = IdpIdentifiersListType.build(input[:idp_identifiers]) unless input[:idp_identifiers].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -832,8 +835,8 @@ module AWS::SDK::CognitoIdentityProvider
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Identifier'] = input[:identifier] unless input[:identifier].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Scopes'] = Builders::ResourceServerScopeListType.build(input[:scopes]) unless input[:scopes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Scopes'] = ResourceServerScopeListType.build(input[:scopes]) unless input[:scopes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -842,7 +845,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ResourceServerScopeType.build(element) unless element.nil?
+          data << ResourceServerScopeType.build(element) unless element.nil?
         end
         data
       end
@@ -869,7 +872,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['CloudWatchLogsRoleArn'] = input[:cloud_watch_logs_role_arn] unless input[:cloud_watch_logs_role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -882,28 +885,28 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.CreateUserPool'
         data = {}
         data['PoolName'] = input[:pool_name] unless input[:pool_name].nil?
-        data['Policies'] = Builders::UserPoolPolicyType.build(input[:policies]) unless input[:policies].nil?
-        data['LambdaConfig'] = Builders::LambdaConfigType.build(input[:lambda_config]) unless input[:lambda_config].nil?
-        data['AutoVerifiedAttributes'] = Builders::VerifiedAttributesListType.build(input[:auto_verified_attributes]) unless input[:auto_verified_attributes].nil?
-        data['AliasAttributes'] = Builders::AliasAttributesListType.build(input[:alias_attributes]) unless input[:alias_attributes].nil?
-        data['UsernameAttributes'] = Builders::UsernameAttributesListType.build(input[:username_attributes]) unless input[:username_attributes].nil?
+        data['Policies'] = UserPoolPolicyType.build(input[:policies]) unless input[:policies].nil?
+        data['LambdaConfig'] = LambdaConfigType.build(input[:lambda_config]) unless input[:lambda_config].nil?
+        data['AutoVerifiedAttributes'] = VerifiedAttributesListType.build(input[:auto_verified_attributes]) unless input[:auto_verified_attributes].nil?
+        data['AliasAttributes'] = AliasAttributesListType.build(input[:alias_attributes]) unless input[:alias_attributes].nil?
+        data['UsernameAttributes'] = UsernameAttributesListType.build(input[:username_attributes]) unless input[:username_attributes].nil?
         data['SmsVerificationMessage'] = input[:sms_verification_message] unless input[:sms_verification_message].nil?
         data['EmailVerificationMessage'] = input[:email_verification_message] unless input[:email_verification_message].nil?
         data['EmailVerificationSubject'] = input[:email_verification_subject] unless input[:email_verification_subject].nil?
-        data['VerificationMessageTemplate'] = Builders::VerificationMessageTemplateType.build(input[:verification_message_template]) unless input[:verification_message_template].nil?
+        data['VerificationMessageTemplate'] = VerificationMessageTemplateType.build(input[:verification_message_template]) unless input[:verification_message_template].nil?
         data['SmsAuthenticationMessage'] = input[:sms_authentication_message] unless input[:sms_authentication_message].nil?
         data['MfaConfiguration'] = input[:mfa_configuration] unless input[:mfa_configuration].nil?
-        data['UserAttributeUpdateSettings'] = Builders::UserAttributeUpdateSettingsType.build(input[:user_attribute_update_settings]) unless input[:user_attribute_update_settings].nil?
-        data['DeviceConfiguration'] = Builders::DeviceConfigurationType.build(input[:device_configuration]) unless input[:device_configuration].nil?
-        data['EmailConfiguration'] = Builders::EmailConfigurationType.build(input[:email_configuration]) unless input[:email_configuration].nil?
-        data['SmsConfiguration'] = Builders::SmsConfigurationType.build(input[:sms_configuration]) unless input[:sms_configuration].nil?
-        data['UserPoolTags'] = Builders::UserPoolTagsType.build(input[:user_pool_tags]) unless input[:user_pool_tags].nil?
-        data['AdminCreateUserConfig'] = Builders::AdminCreateUserConfigType.build(input[:admin_create_user_config]) unless input[:admin_create_user_config].nil?
-        data['Schema'] = Builders::SchemaAttributesListType.build(input[:schema]) unless input[:schema].nil?
-        data['UserPoolAddOns'] = Builders::UserPoolAddOnsType.build(input[:user_pool_add_ons]) unless input[:user_pool_add_ons].nil?
-        data['UsernameConfiguration'] = Builders::UsernameConfigurationType.build(input[:username_configuration]) unless input[:username_configuration].nil?
-        data['AccountRecoverySetting'] = Builders::AccountRecoverySettingType.build(input[:account_recovery_setting]) unless input[:account_recovery_setting].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserAttributeUpdateSettings'] = UserAttributeUpdateSettingsType.build(input[:user_attribute_update_settings]) unless input[:user_attribute_update_settings].nil?
+        data['DeviceConfiguration'] = DeviceConfigurationType.build(input[:device_configuration]) unless input[:device_configuration].nil?
+        data['EmailConfiguration'] = EmailConfigurationType.build(input[:email_configuration]) unless input[:email_configuration].nil?
+        data['SmsConfiguration'] = SmsConfigurationType.build(input[:sms_configuration]) unless input[:sms_configuration].nil?
+        data['UserPoolTags'] = UserPoolTagsType.build(input[:user_pool_tags]) unless input[:user_pool_tags].nil?
+        data['AdminCreateUserConfig'] = AdminCreateUserConfigType.build(input[:admin_create_user_config]) unless input[:admin_create_user_config].nil?
+        data['Schema'] = SchemaAttributesListType.build(input[:schema]) unless input[:schema].nil?
+        data['UserPoolAddOns'] = UserPoolAddOnsType.build(input[:user_pool_add_ons]) unless input[:user_pool_add_ons].nil?
+        data['UsernameConfiguration'] = UsernameConfigurationType.build(input[:username_configuration]) unless input[:username_configuration].nil?
+        data['AccountRecoverySetting'] = AccountRecoverySettingType.build(input[:account_recovery_setting]) unless input[:account_recovery_setting].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -911,7 +914,7 @@ module AWS::SDK::CognitoIdentityProvider
     class AccountRecoverySettingType
       def self.build(input)
         data = {}
-        data['RecoveryMechanisms'] = Builders::RecoveryMechanismsType.build(input[:recovery_mechanisms]) unless input[:recovery_mechanisms].nil?
+        data['RecoveryMechanisms'] = RecoveryMechanismsType.build(input[:recovery_mechanisms]) unless input[:recovery_mechanisms].nil?
         data
       end
     end
@@ -921,7 +924,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RecoveryOptionType.build(element) unless element.nil?
+          data << RecoveryOptionType.build(element) unless element.nil?
         end
         data
       end
@@ -960,7 +963,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SchemaAttributeType.build(element) unless element.nil?
+          data << SchemaAttributeType.build(element) unless element.nil?
         end
         data
       end
@@ -972,7 +975,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['AllowAdminCreateUserOnly'] = input[:allow_admin_create_user_only] unless input[:allow_admin_create_user_only].nil?
         data['UnusedAccountValidityDays'] = input[:unused_account_validity_days] unless input[:unused_account_validity_days].nil?
-        data['InviteMessageTemplate'] = Builders::MessageTemplateType.build(input[:invite_message_template]) unless input[:invite_message_template].nil?
+        data['InviteMessageTemplate'] = MessageTemplateType.build(input[:invite_message_template]) unless input[:invite_message_template].nil?
         data
       end
     end
@@ -1037,7 +1040,7 @@ module AWS::SDK::CognitoIdentityProvider
     class UserAttributeUpdateSettingsType
       def self.build(input)
         data = {}
-        data['AttributesRequireVerificationBeforeUpdate'] = Builders::AttributesRequireVerificationBeforeUpdateType.build(input[:attributes_require_verification_before_update]) unless input[:attributes_require_verification_before_update].nil?
+        data['AttributesRequireVerificationBeforeUpdate'] = AttributesRequireVerificationBeforeUpdateType.build(input[:attributes_require_verification_before_update]) unless input[:attributes_require_verification_before_update].nil?
         data
       end
     end
@@ -1114,8 +1117,8 @@ module AWS::SDK::CognitoIdentityProvider
         data['VerifyAuthChallengeResponse'] = input[:verify_auth_challenge_response] unless input[:verify_auth_challenge_response].nil?
         data['PreTokenGeneration'] = input[:pre_token_generation] unless input[:pre_token_generation].nil?
         data['UserMigration'] = input[:user_migration] unless input[:user_migration].nil?
-        data['CustomSMSSender'] = Builders::CustomSMSLambdaVersionConfigType.build(input[:custom_sms_sender]) unless input[:custom_sms_sender].nil?
-        data['CustomEmailSender'] = Builders::CustomEmailLambdaVersionConfigType.build(input[:custom_email_sender]) unless input[:custom_email_sender].nil?
+        data['CustomSMSSender'] = CustomSMSLambdaVersionConfigType.build(input[:custom_sms_sender]) unless input[:custom_sms_sender].nil?
+        data['CustomEmailSender'] = CustomEmailLambdaVersionConfigType.build(input[:custom_email_sender]) unless input[:custom_email_sender].nil?
         data['KMSKeyID'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data
       end
@@ -1145,7 +1148,7 @@ module AWS::SDK::CognitoIdentityProvider
     class UserPoolPolicyType
       def self.build(input)
         data = {}
-        data['PasswordPolicy'] = Builders::PasswordPolicyType.build(input[:password_policy]) unless input[:password_policy].nil?
+        data['PasswordPolicy'] = PasswordPolicyType.build(input[:password_policy]) unless input[:password_policy].nil?
         data
       end
     end
@@ -1178,22 +1181,22 @@ module AWS::SDK::CognitoIdentityProvider
         data['RefreshTokenValidity'] = input[:refresh_token_validity] unless input[:refresh_token_validity].nil?
         data['AccessTokenValidity'] = input[:access_token_validity] unless input[:access_token_validity].nil?
         data['IdTokenValidity'] = input[:id_token_validity] unless input[:id_token_validity].nil?
-        data['TokenValidityUnits'] = Builders::TokenValidityUnitsType.build(input[:token_validity_units]) unless input[:token_validity_units].nil?
-        data['ReadAttributes'] = Builders::ClientPermissionListType.build(input[:read_attributes]) unless input[:read_attributes].nil?
-        data['WriteAttributes'] = Builders::ClientPermissionListType.build(input[:write_attributes]) unless input[:write_attributes].nil?
-        data['ExplicitAuthFlows'] = Builders::ExplicitAuthFlowsListType.build(input[:explicit_auth_flows]) unless input[:explicit_auth_flows].nil?
-        data['SupportedIdentityProviders'] = Builders::SupportedIdentityProvidersListType.build(input[:supported_identity_providers]) unless input[:supported_identity_providers].nil?
-        data['CallbackURLs'] = Builders::CallbackURLsListType.build(input[:callback_ur_ls]) unless input[:callback_ur_ls].nil?
-        data['LogoutURLs'] = Builders::LogoutURLsListType.build(input[:logout_ur_ls]) unless input[:logout_ur_ls].nil?
+        data['TokenValidityUnits'] = TokenValidityUnitsType.build(input[:token_validity_units]) unless input[:token_validity_units].nil?
+        data['ReadAttributes'] = ClientPermissionListType.build(input[:read_attributes]) unless input[:read_attributes].nil?
+        data['WriteAttributes'] = ClientPermissionListType.build(input[:write_attributes]) unless input[:write_attributes].nil?
+        data['ExplicitAuthFlows'] = ExplicitAuthFlowsListType.build(input[:explicit_auth_flows]) unless input[:explicit_auth_flows].nil?
+        data['SupportedIdentityProviders'] = SupportedIdentityProvidersListType.build(input[:supported_identity_providers]) unless input[:supported_identity_providers].nil?
+        data['CallbackURLs'] = CallbackURLsListType.build(input[:callback_ur_ls]) unless input[:callback_ur_ls].nil?
+        data['LogoutURLs'] = LogoutURLsListType.build(input[:logout_ur_ls]) unless input[:logout_ur_ls].nil?
         data['DefaultRedirectURI'] = input[:default_redirect_uri] unless input[:default_redirect_uri].nil?
-        data['AllowedOAuthFlows'] = Builders::OAuthFlowsType.build(input[:allowed_o_auth_flows]) unless input[:allowed_o_auth_flows].nil?
-        data['AllowedOAuthScopes'] = Builders::ScopeListType.build(input[:allowed_o_auth_scopes]) unless input[:allowed_o_auth_scopes].nil?
+        data['AllowedOAuthFlows'] = OAuthFlowsType.build(input[:allowed_o_auth_flows]) unless input[:allowed_o_auth_flows].nil?
+        data['AllowedOAuthScopes'] = ScopeListType.build(input[:allowed_o_auth_scopes]) unless input[:allowed_o_auth_scopes].nil?
         data['AllowedOAuthFlowsUserPoolClient'] = input[:allowed_o_auth_flows_user_pool_client] unless input[:allowed_o_auth_flows_user_pool_client].nil?
-        data['AnalyticsConfiguration'] = Builders::AnalyticsConfigurationType.build(input[:analytics_configuration]) unless input[:analytics_configuration].nil?
+        data['AnalyticsConfiguration'] = AnalyticsConfigurationType.build(input[:analytics_configuration]) unless input[:analytics_configuration].nil?
         data['PreventUserExistenceErrors'] = input[:prevent_user_existence_errors] unless input[:prevent_user_existence_errors].nil?
         data['EnableTokenRevocation'] = input[:enable_token_revocation] unless input[:enable_token_revocation].nil?
         data['EnablePropagateAdditionalUserContextData'] = input[:enable_propagate_additional_user_context_data] unless input[:enable_propagate_additional_user_context_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1308,8 +1311,8 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['Domain'] = input[:domain] unless input[:domain].nil?
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
-        data['CustomDomainConfig'] = Builders::CustomDomainConfigType.build(input[:custom_domain_config]) unless input[:custom_domain_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CustomDomainConfig'] = CustomDomainConfigType.build(input[:custom_domain_config]) unless input[:custom_domain_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1332,7 +1335,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1346,7 +1349,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['ProviderName'] = input[:provider_name] unless input[:provider_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1360,7 +1363,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Identifier'] = input[:identifier] unless input[:identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1373,7 +1376,7 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.DeleteUser'
         data = {}
         data['AccessToken'] = input[:access_token] unless input[:access_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1385,9 +1388,9 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.DeleteUserAttributes'
         data = {}
-        data['UserAttributeNames'] = Builders::AttributeNameListType.build(input[:user_attribute_names]) unless input[:user_attribute_names].nil?
+        data['UserAttributeNames'] = AttributeNameListType.build(input[:user_attribute_names]) unless input[:user_attribute_names].nil?
         data['AccessToken'] = input[:access_token] unless input[:access_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1400,7 +1403,7 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.DeleteUserPool'
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1414,7 +1417,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['ClientId'] = input[:client_id] unless input[:client_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1428,7 +1431,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['Domain'] = input[:domain] unless input[:domain].nil?
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1442,7 +1445,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['ProviderName'] = input[:provider_name] unless input[:provider_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1456,7 +1459,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Identifier'] = input[:identifier] unless input[:identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1470,7 +1473,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['ClientId'] = input[:client_id] unless input[:client_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1484,7 +1487,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1497,7 +1500,7 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.DescribeUserPool'
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1511,7 +1514,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['ClientId'] = input[:client_id] unless input[:client_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1524,7 +1527,7 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.DescribeUserPoolDomain'
         data = {}
         data['Domain'] = input[:domain] unless input[:domain].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1538,7 +1541,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['AccessToken'] = input[:access_token] unless input[:access_token].nil?
         data['DeviceKey'] = input[:device_key] unless input[:device_key].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1552,11 +1555,11 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['ClientId'] = input[:client_id] unless input[:client_id].nil?
         data['SecretHash'] = input[:secret_hash] unless input[:secret_hash].nil?
-        data['UserContextData'] = Builders::UserContextDataType.build(input[:user_context_data]) unless input[:user_context_data].nil?
+        data['UserContextData'] = UserContextDataType.build(input[:user_context_data]) unless input[:user_context_data].nil?
         data['Username'] = input[:username] unless input[:username].nil?
-        data['AnalyticsMetadata'] = Builders::AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
-        data['ClientMetadata'] = Builders::ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AnalyticsMetadata'] = AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
+        data['ClientMetadata'] = ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1569,7 +1572,7 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.GetCSVHeader'
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1583,7 +1586,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['DeviceKey'] = input[:device_key] unless input[:device_key].nil?
         data['AccessToken'] = input[:access_token] unless input[:access_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1597,7 +1600,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1611,7 +1614,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['IdpIdentifier'] = input[:idp_identifier] unless input[:idp_identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1624,7 +1627,7 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.GetSigningCertificate'
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1638,7 +1641,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['ClientId'] = input[:client_id] unless input[:client_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1651,7 +1654,7 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.GetUser'
         data = {}
         data['AccessToken'] = input[:access_token] unless input[:access_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1665,8 +1668,8 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['AccessToken'] = input[:access_token] unless input[:access_token].nil?
         data['AttributeName'] = input[:attribute_name] unless input[:attribute_name].nil?
-        data['ClientMetadata'] = Builders::ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ClientMetadata'] = ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1679,7 +1682,7 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.GetUserPoolMfaConfig'
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1692,7 +1695,7 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.GlobalSignOut'
         data = {}
         data['AccessToken'] = input[:access_token] unless input[:access_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1705,12 +1708,12 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.InitiateAuth'
         data = {}
         data['AuthFlow'] = input[:auth_flow] unless input[:auth_flow].nil?
-        data['AuthParameters'] = Builders::AuthParametersType.build(input[:auth_parameters]) unless input[:auth_parameters].nil?
-        data['ClientMetadata'] = Builders::ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
+        data['AuthParameters'] = AuthParametersType.build(input[:auth_parameters]) unless input[:auth_parameters].nil?
+        data['ClientMetadata'] = ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
         data['ClientId'] = input[:client_id] unless input[:client_id].nil?
-        data['AnalyticsMetadata'] = Builders::AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
-        data['UserContextData'] = Builders::UserContextDataType.build(input[:user_context_data]) unless input[:user_context_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AnalyticsMetadata'] = AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
+        data['UserContextData'] = UserContextDataType.build(input[:user_context_data]) unless input[:user_context_data].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1725,7 +1728,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['AccessToken'] = input[:access_token] unless input[:access_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['PaginationToken'] = input[:pagination_token] unless input[:pagination_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1740,7 +1743,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1755,7 +1758,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1770,7 +1773,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1783,7 +1786,7 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1798,7 +1801,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['PaginationToken'] = input[:pagination_token] unless input[:pagination_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1813,7 +1816,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1827,7 +1830,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1840,11 +1843,11 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.ListUsers'
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
-        data['AttributesToGet'] = Builders::SearchedAttributeNamesListType.build(input[:attributes_to_get]) unless input[:attributes_to_get].nil?
+        data['AttributesToGet'] = SearchedAttributeNamesListType.build(input[:attributes_to_get]) unless input[:attributes_to_get].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['PaginationToken'] = input[:pagination_token] unless input[:pagination_token].nil?
         data['Filter'] = input[:filter] unless input[:filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1871,7 +1874,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1885,11 +1888,11 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['ClientId'] = input[:client_id] unless input[:client_id].nil?
         data['SecretHash'] = input[:secret_hash] unless input[:secret_hash].nil?
-        data['UserContextData'] = Builders::UserContextDataType.build(input[:user_context_data]) unless input[:user_context_data].nil?
+        data['UserContextData'] = UserContextDataType.build(input[:user_context_data]) unless input[:user_context_data].nil?
         data['Username'] = input[:username] unless input[:username].nil?
-        data['AnalyticsMetadata'] = Builders::AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
-        data['ClientMetadata'] = Builders::ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AnalyticsMetadata'] = AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
+        data['ClientMetadata'] = ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1904,11 +1907,11 @@ module AWS::SDK::CognitoIdentityProvider
         data['ClientId'] = input[:client_id] unless input[:client_id].nil?
         data['ChallengeName'] = input[:challenge_name] unless input[:challenge_name].nil?
         data['Session'] = input[:session] unless input[:session].nil?
-        data['ChallengeResponses'] = Builders::ChallengeResponsesType.build(input[:challenge_responses]) unless input[:challenge_responses].nil?
-        data['AnalyticsMetadata'] = Builders::AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
-        data['UserContextData'] = Builders::UserContextDataType.build(input[:user_context_data]) unless input[:user_context_data].nil?
-        data['ClientMetadata'] = Builders::ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChallengeResponses'] = ChallengeResponsesType.build(input[:challenge_responses]) unless input[:challenge_responses].nil?
+        data['AnalyticsMetadata'] = AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
+        data['UserContextData'] = UserContextDataType.build(input[:user_context_data]) unless input[:user_context_data].nil?
+        data['ClientMetadata'] = ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1923,7 +1926,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['Token'] = input[:token] unless input[:token].nil?
         data['ClientId'] = input[:client_id] unless input[:client_id].nil?
         data['ClientSecret'] = input[:client_secret] unless input[:client_secret].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1937,10 +1940,10 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['ClientId'] = input[:client_id] unless input[:client_id].nil?
-        data['CompromisedCredentialsRiskConfiguration'] = Builders::CompromisedCredentialsRiskConfigurationType.build(input[:compromised_credentials_risk_configuration]) unless input[:compromised_credentials_risk_configuration].nil?
-        data['AccountTakeoverRiskConfiguration'] = Builders::AccountTakeoverRiskConfigurationType.build(input[:account_takeover_risk_configuration]) unless input[:account_takeover_risk_configuration].nil?
-        data['RiskExceptionConfiguration'] = Builders::RiskExceptionConfigurationType.build(input[:risk_exception_configuration]) unless input[:risk_exception_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CompromisedCredentialsRiskConfiguration'] = CompromisedCredentialsRiskConfigurationType.build(input[:compromised_credentials_risk_configuration]) unless input[:compromised_credentials_risk_configuration].nil?
+        data['AccountTakeoverRiskConfiguration'] = AccountTakeoverRiskConfigurationType.build(input[:account_takeover_risk_configuration]) unless input[:account_takeover_risk_configuration].nil?
+        data['RiskExceptionConfiguration'] = RiskExceptionConfigurationType.build(input[:risk_exception_configuration]) unless input[:risk_exception_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1948,8 +1951,8 @@ module AWS::SDK::CognitoIdentityProvider
     class RiskExceptionConfigurationType
       def self.build(input)
         data = {}
-        data['BlockedIPRangeList'] = Builders::BlockedIPRangeListType.build(input[:blocked_ip_range_list]) unless input[:blocked_ip_range_list].nil?
-        data['SkippedIPRangeList'] = Builders::SkippedIPRangeListType.build(input[:skipped_ip_range_list]) unless input[:skipped_ip_range_list].nil?
+        data['BlockedIPRangeList'] = BlockedIPRangeListType.build(input[:blocked_ip_range_list]) unless input[:blocked_ip_range_list].nil?
+        data['SkippedIPRangeList'] = SkippedIPRangeListType.build(input[:skipped_ip_range_list]) unless input[:skipped_ip_range_list].nil?
         data
       end
     end
@@ -1980,8 +1983,8 @@ module AWS::SDK::CognitoIdentityProvider
     class AccountTakeoverRiskConfigurationType
       def self.build(input)
         data = {}
-        data['NotifyConfiguration'] = Builders::NotifyConfigurationType.build(input[:notify_configuration]) unless input[:notify_configuration].nil?
-        data['Actions'] = Builders::AccountTakeoverActionsType.build(input[:actions]) unless input[:actions].nil?
+        data['NotifyConfiguration'] = NotifyConfigurationType.build(input[:notify_configuration]) unless input[:notify_configuration].nil?
+        data['Actions'] = AccountTakeoverActionsType.build(input[:actions]) unless input[:actions].nil?
         data
       end
     end
@@ -1990,9 +1993,9 @@ module AWS::SDK::CognitoIdentityProvider
     class AccountTakeoverActionsType
       def self.build(input)
         data = {}
-        data['LowAction'] = Builders::AccountTakeoverActionType.build(input[:low_action]) unless input[:low_action].nil?
-        data['MediumAction'] = Builders::AccountTakeoverActionType.build(input[:medium_action]) unless input[:medium_action].nil?
-        data['HighAction'] = Builders::AccountTakeoverActionType.build(input[:high_action]) unless input[:high_action].nil?
+        data['LowAction'] = AccountTakeoverActionType.build(input[:low_action]) unless input[:low_action].nil?
+        data['MediumAction'] = AccountTakeoverActionType.build(input[:medium_action]) unless input[:medium_action].nil?
+        data['HighAction'] = AccountTakeoverActionType.build(input[:high_action]) unless input[:high_action].nil?
         data
       end
     end
@@ -2014,9 +2017,9 @@ module AWS::SDK::CognitoIdentityProvider
         data['From'] = input[:from] unless input[:from].nil?
         data['ReplyTo'] = input[:reply_to] unless input[:reply_to].nil?
         data['SourceArn'] = input[:source_arn] unless input[:source_arn].nil?
-        data['BlockEmail'] = Builders::NotifyEmailType.build(input[:block_email]) unless input[:block_email].nil?
-        data['NoActionEmail'] = Builders::NotifyEmailType.build(input[:no_action_email]) unless input[:no_action_email].nil?
-        data['MfaEmail'] = Builders::NotifyEmailType.build(input[:mfa_email]) unless input[:mfa_email].nil?
+        data['BlockEmail'] = NotifyEmailType.build(input[:block_email]) unless input[:block_email].nil?
+        data['NoActionEmail'] = NotifyEmailType.build(input[:no_action_email]) unless input[:no_action_email].nil?
+        data['MfaEmail'] = NotifyEmailType.build(input[:mfa_email]) unless input[:mfa_email].nil?
         data
       end
     end
@@ -2036,8 +2039,8 @@ module AWS::SDK::CognitoIdentityProvider
     class CompromisedCredentialsRiskConfigurationType
       def self.build(input)
         data = {}
-        data['EventFilter'] = Builders::EventFiltersType.build(input[:event_filter]) unless input[:event_filter].nil?
-        data['Actions'] = Builders::CompromisedCredentialsActionsType.build(input[:actions]) unless input[:actions].nil?
+        data['EventFilter'] = EventFiltersType.build(input[:event_filter]) unless input[:event_filter].nil?
+        data['Actions'] = CompromisedCredentialsActionsType.build(input[:actions]) unless input[:actions].nil?
         data
       end
     end
@@ -2073,8 +2076,8 @@ module AWS::SDK::CognitoIdentityProvider
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['ClientId'] = input[:client_id] unless input[:client_id].nil?
         data['CSS'] = input[:css] unless input[:css].nil?
-        data['ImageFile'] = Base64::encode64(input[:image_file]).strip unless input[:image_file].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ImageFile'] = ::Base64::encode64(input[:image_file]).strip unless input[:image_file].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2086,10 +2089,10 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.SetUserMFAPreference'
         data = {}
-        data['SMSMfaSettings'] = Builders::SMSMfaSettingsType.build(input[:sms_mfa_settings]) unless input[:sms_mfa_settings].nil?
-        data['SoftwareTokenMfaSettings'] = Builders::SoftwareTokenMfaSettingsType.build(input[:software_token_mfa_settings]) unless input[:software_token_mfa_settings].nil?
+        data['SMSMfaSettings'] = SMSMfaSettingsType.build(input[:sms_mfa_settings]) unless input[:sms_mfa_settings].nil?
+        data['SoftwareTokenMfaSettings'] = SoftwareTokenMfaSettingsType.build(input[:software_token_mfa_settings]) unless input[:software_token_mfa_settings].nil?
         data['AccessToken'] = input[:access_token] unless input[:access_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2102,10 +2105,10 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.SetUserPoolMfaConfig'
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
-        data['SmsMfaConfiguration'] = Builders::SmsMfaConfigType.build(input[:sms_mfa_configuration]) unless input[:sms_mfa_configuration].nil?
-        data['SoftwareTokenMfaConfiguration'] = Builders::SoftwareTokenMfaConfigType.build(input[:software_token_mfa_configuration]) unless input[:software_token_mfa_configuration].nil?
+        data['SmsMfaConfiguration'] = SmsMfaConfigType.build(input[:sms_mfa_configuration]) unless input[:sms_mfa_configuration].nil?
+        data['SoftwareTokenMfaConfiguration'] = SoftwareTokenMfaConfigType.build(input[:software_token_mfa_configuration]) unless input[:software_token_mfa_configuration].nil?
         data['MfaConfiguration'] = input[:mfa_configuration] unless input[:mfa_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2123,7 +2126,7 @@ module AWS::SDK::CognitoIdentityProvider
       def self.build(input)
         data = {}
         data['SmsAuthenticationMessage'] = input[:sms_authentication_message] unless input[:sms_authentication_message].nil?
-        data['SmsConfiguration'] = Builders::SmsConfigurationType.build(input[:sms_configuration]) unless input[:sms_configuration].nil?
+        data['SmsConfiguration'] = SmsConfigurationType.build(input[:sms_configuration]) unless input[:sms_configuration].nil?
         data
       end
     end
@@ -2137,8 +2140,8 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.SetUserSettings'
         data = {}
         data['AccessToken'] = input[:access_token] unless input[:access_token].nil?
-        data['MFAOptions'] = Builders::MFAOptionListType.build(input[:mfa_options]) unless input[:mfa_options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MFAOptions'] = MFAOptionListType.build(input[:mfa_options]) unless input[:mfa_options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2154,12 +2157,12 @@ module AWS::SDK::CognitoIdentityProvider
         data['SecretHash'] = input[:secret_hash] unless input[:secret_hash].nil?
         data['Username'] = input[:username] unless input[:username].nil?
         data['Password'] = input[:password] unless input[:password].nil?
-        data['UserAttributes'] = Builders::AttributeListType.build(input[:user_attributes]) unless input[:user_attributes].nil?
-        data['ValidationData'] = Builders::AttributeListType.build(input[:validation_data]) unless input[:validation_data].nil?
-        data['AnalyticsMetadata'] = Builders::AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
-        data['UserContextData'] = Builders::UserContextDataType.build(input[:user_context_data]) unless input[:user_context_data].nil?
-        data['ClientMetadata'] = Builders::ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserAttributes'] = AttributeListType.build(input[:user_attributes]) unless input[:user_attributes].nil?
+        data['ValidationData'] = AttributeListType.build(input[:validation_data]) unless input[:validation_data].nil?
+        data['AnalyticsMetadata'] = AnalyticsMetadataType.build(input[:analytics_metadata]) unless input[:analytics_metadata].nil?
+        data['UserContextData'] = UserContextDataType.build(input[:user_context_data]) unless input[:user_context_data].nil?
+        data['ClientMetadata'] = ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2173,7 +2176,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2187,7 +2190,7 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2200,8 +2203,8 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::UserPoolTagsType.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = UserPoolTagsType.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2214,8 +2217,8 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::UserPoolTagsListType.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = UserPoolTagsListType.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2243,7 +2246,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['EventId'] = input[:event_id] unless input[:event_id].nil?
         data['FeedbackToken'] = input[:feedback_token] unless input[:feedback_token].nil?
         data['FeedbackValue'] = input[:feedback_value] unless input[:feedback_value].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2258,7 +2261,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['AccessToken'] = input[:access_token] unless input[:access_token].nil?
         data['DeviceKey'] = input[:device_key] unless input[:device_key].nil?
         data['DeviceRememberedStatus'] = input[:device_remembered_status] unless input[:device_remembered_status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2275,7 +2278,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['Description'] = input[:description] unless input[:description].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['Precedence'] = input[:precedence] unless input[:precedence].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2289,10 +2292,10 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['ProviderName'] = input[:provider_name] unless input[:provider_name].nil?
-        data['ProviderDetails'] = Builders::ProviderDetailsType.build(input[:provider_details]) unless input[:provider_details].nil?
-        data['AttributeMapping'] = Builders::AttributeMappingType.build(input[:attribute_mapping]) unless input[:attribute_mapping].nil?
-        data['IdpIdentifiers'] = Builders::IdpIdentifiersListType.build(input[:idp_identifiers]) unless input[:idp_identifiers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProviderDetails'] = ProviderDetailsType.build(input[:provider_details]) unless input[:provider_details].nil?
+        data['AttributeMapping'] = AttributeMappingType.build(input[:attribute_mapping]) unless input[:attribute_mapping].nil?
+        data['IdpIdentifiers'] = IdpIdentifiersListType.build(input[:idp_identifiers]) unless input[:idp_identifiers].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2307,8 +2310,8 @@ module AWS::SDK::CognitoIdentityProvider
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
         data['Identifier'] = input[:identifier] unless input[:identifier].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Scopes'] = Builders::ResourceServerScopeListType.build(input[:scopes]) unless input[:scopes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Scopes'] = ResourceServerScopeListType.build(input[:scopes]) unless input[:scopes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2320,10 +2323,10 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.UpdateUserAttributes'
         data = {}
-        data['UserAttributes'] = Builders::AttributeListType.build(input[:user_attributes]) unless input[:user_attributes].nil?
+        data['UserAttributes'] = AttributeListType.build(input[:user_attributes]) unless input[:user_attributes].nil?
         data['AccessToken'] = input[:access_token] unless input[:access_token].nil?
-        data['ClientMetadata'] = Builders::ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ClientMetadata'] = ClientMetadataType.build(input[:client_metadata]) unless input[:client_metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2336,24 +2339,24 @@ module AWS::SDK::CognitoIdentityProvider
         http_req.headers['X-Amz-Target'] = 'AWSCognitoIdentityProviderService.UpdateUserPool'
         data = {}
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
-        data['Policies'] = Builders::UserPoolPolicyType.build(input[:policies]) unless input[:policies].nil?
-        data['LambdaConfig'] = Builders::LambdaConfigType.build(input[:lambda_config]) unless input[:lambda_config].nil?
-        data['AutoVerifiedAttributes'] = Builders::VerifiedAttributesListType.build(input[:auto_verified_attributes]) unless input[:auto_verified_attributes].nil?
+        data['Policies'] = UserPoolPolicyType.build(input[:policies]) unless input[:policies].nil?
+        data['LambdaConfig'] = LambdaConfigType.build(input[:lambda_config]) unless input[:lambda_config].nil?
+        data['AutoVerifiedAttributes'] = VerifiedAttributesListType.build(input[:auto_verified_attributes]) unless input[:auto_verified_attributes].nil?
         data['SmsVerificationMessage'] = input[:sms_verification_message] unless input[:sms_verification_message].nil?
         data['EmailVerificationMessage'] = input[:email_verification_message] unless input[:email_verification_message].nil?
         data['EmailVerificationSubject'] = input[:email_verification_subject] unless input[:email_verification_subject].nil?
-        data['VerificationMessageTemplate'] = Builders::VerificationMessageTemplateType.build(input[:verification_message_template]) unless input[:verification_message_template].nil?
+        data['VerificationMessageTemplate'] = VerificationMessageTemplateType.build(input[:verification_message_template]) unless input[:verification_message_template].nil?
         data['SmsAuthenticationMessage'] = input[:sms_authentication_message] unless input[:sms_authentication_message].nil?
-        data['UserAttributeUpdateSettings'] = Builders::UserAttributeUpdateSettingsType.build(input[:user_attribute_update_settings]) unless input[:user_attribute_update_settings].nil?
+        data['UserAttributeUpdateSettings'] = UserAttributeUpdateSettingsType.build(input[:user_attribute_update_settings]) unless input[:user_attribute_update_settings].nil?
         data['MfaConfiguration'] = input[:mfa_configuration] unless input[:mfa_configuration].nil?
-        data['DeviceConfiguration'] = Builders::DeviceConfigurationType.build(input[:device_configuration]) unless input[:device_configuration].nil?
-        data['EmailConfiguration'] = Builders::EmailConfigurationType.build(input[:email_configuration]) unless input[:email_configuration].nil?
-        data['SmsConfiguration'] = Builders::SmsConfigurationType.build(input[:sms_configuration]) unless input[:sms_configuration].nil?
-        data['UserPoolTags'] = Builders::UserPoolTagsType.build(input[:user_pool_tags]) unless input[:user_pool_tags].nil?
-        data['AdminCreateUserConfig'] = Builders::AdminCreateUserConfigType.build(input[:admin_create_user_config]) unless input[:admin_create_user_config].nil?
-        data['UserPoolAddOns'] = Builders::UserPoolAddOnsType.build(input[:user_pool_add_ons]) unless input[:user_pool_add_ons].nil?
-        data['AccountRecoverySetting'] = Builders::AccountRecoverySettingType.build(input[:account_recovery_setting]) unless input[:account_recovery_setting].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeviceConfiguration'] = DeviceConfigurationType.build(input[:device_configuration]) unless input[:device_configuration].nil?
+        data['EmailConfiguration'] = EmailConfigurationType.build(input[:email_configuration]) unless input[:email_configuration].nil?
+        data['SmsConfiguration'] = SmsConfigurationType.build(input[:sms_configuration]) unless input[:sms_configuration].nil?
+        data['UserPoolTags'] = UserPoolTagsType.build(input[:user_pool_tags]) unless input[:user_pool_tags].nil?
+        data['AdminCreateUserConfig'] = AdminCreateUserConfigType.build(input[:admin_create_user_config]) unless input[:admin_create_user_config].nil?
+        data['UserPoolAddOns'] = UserPoolAddOnsType.build(input[:user_pool_add_ons]) unless input[:user_pool_add_ons].nil?
+        data['AccountRecoverySetting'] = AccountRecoverySettingType.build(input[:account_recovery_setting]) unless input[:account_recovery_setting].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2371,22 +2374,22 @@ module AWS::SDK::CognitoIdentityProvider
         data['RefreshTokenValidity'] = input[:refresh_token_validity] unless input[:refresh_token_validity].nil?
         data['AccessTokenValidity'] = input[:access_token_validity] unless input[:access_token_validity].nil?
         data['IdTokenValidity'] = input[:id_token_validity] unless input[:id_token_validity].nil?
-        data['TokenValidityUnits'] = Builders::TokenValidityUnitsType.build(input[:token_validity_units]) unless input[:token_validity_units].nil?
-        data['ReadAttributes'] = Builders::ClientPermissionListType.build(input[:read_attributes]) unless input[:read_attributes].nil?
-        data['WriteAttributes'] = Builders::ClientPermissionListType.build(input[:write_attributes]) unless input[:write_attributes].nil?
-        data['ExplicitAuthFlows'] = Builders::ExplicitAuthFlowsListType.build(input[:explicit_auth_flows]) unless input[:explicit_auth_flows].nil?
-        data['SupportedIdentityProviders'] = Builders::SupportedIdentityProvidersListType.build(input[:supported_identity_providers]) unless input[:supported_identity_providers].nil?
-        data['CallbackURLs'] = Builders::CallbackURLsListType.build(input[:callback_ur_ls]) unless input[:callback_ur_ls].nil?
-        data['LogoutURLs'] = Builders::LogoutURLsListType.build(input[:logout_ur_ls]) unless input[:logout_ur_ls].nil?
+        data['TokenValidityUnits'] = TokenValidityUnitsType.build(input[:token_validity_units]) unless input[:token_validity_units].nil?
+        data['ReadAttributes'] = ClientPermissionListType.build(input[:read_attributes]) unless input[:read_attributes].nil?
+        data['WriteAttributes'] = ClientPermissionListType.build(input[:write_attributes]) unless input[:write_attributes].nil?
+        data['ExplicitAuthFlows'] = ExplicitAuthFlowsListType.build(input[:explicit_auth_flows]) unless input[:explicit_auth_flows].nil?
+        data['SupportedIdentityProviders'] = SupportedIdentityProvidersListType.build(input[:supported_identity_providers]) unless input[:supported_identity_providers].nil?
+        data['CallbackURLs'] = CallbackURLsListType.build(input[:callback_ur_ls]) unless input[:callback_ur_ls].nil?
+        data['LogoutURLs'] = LogoutURLsListType.build(input[:logout_ur_ls]) unless input[:logout_ur_ls].nil?
         data['DefaultRedirectURI'] = input[:default_redirect_uri] unless input[:default_redirect_uri].nil?
-        data['AllowedOAuthFlows'] = Builders::OAuthFlowsType.build(input[:allowed_o_auth_flows]) unless input[:allowed_o_auth_flows].nil?
-        data['AllowedOAuthScopes'] = Builders::ScopeListType.build(input[:allowed_o_auth_scopes]) unless input[:allowed_o_auth_scopes].nil?
+        data['AllowedOAuthFlows'] = OAuthFlowsType.build(input[:allowed_o_auth_flows]) unless input[:allowed_o_auth_flows].nil?
+        data['AllowedOAuthScopes'] = ScopeListType.build(input[:allowed_o_auth_scopes]) unless input[:allowed_o_auth_scopes].nil?
         data['AllowedOAuthFlowsUserPoolClient'] = input[:allowed_o_auth_flows_user_pool_client] unless input[:allowed_o_auth_flows_user_pool_client].nil?
-        data['AnalyticsConfiguration'] = Builders::AnalyticsConfigurationType.build(input[:analytics_configuration]) unless input[:analytics_configuration].nil?
+        data['AnalyticsConfiguration'] = AnalyticsConfigurationType.build(input[:analytics_configuration]) unless input[:analytics_configuration].nil?
         data['PreventUserExistenceErrors'] = input[:prevent_user_existence_errors] unless input[:prevent_user_existence_errors].nil?
         data['EnableTokenRevocation'] = input[:enable_token_revocation] unless input[:enable_token_revocation].nil?
         data['EnablePropagateAdditionalUserContextData'] = input[:enable_propagate_additional_user_context_data] unless input[:enable_propagate_additional_user_context_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2400,8 +2403,8 @@ module AWS::SDK::CognitoIdentityProvider
         data = {}
         data['Domain'] = input[:domain] unless input[:domain].nil?
         data['UserPoolId'] = input[:user_pool_id] unless input[:user_pool_id].nil?
-        data['CustomDomainConfig'] = Builders::CustomDomainConfigType.build(input[:custom_domain_config]) unless input[:custom_domain_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CustomDomainConfig'] = CustomDomainConfigType.build(input[:custom_domain_config]) unless input[:custom_domain_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2417,7 +2420,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['Session'] = input[:session] unless input[:session].nil?
         data['UserCode'] = input[:user_code] unless input[:user_code].nil?
         data['FriendlyDeviceName'] = input[:friendly_device_name] unless input[:friendly_device_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2432,7 +2435,7 @@ module AWS::SDK::CognitoIdentityProvider
         data['AccessToken'] = input[:access_token] unless input[:access_token].nil?
         data['AttributeName'] = input[:attribute_name] unless input[:attribute_name].nil?
         data['Code'] = input[:code] unless input[:code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

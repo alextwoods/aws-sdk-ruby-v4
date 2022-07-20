@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DevOpsGuru
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::DevOpsGuru
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -59,7 +61,7 @@ module AWS::SDK::DevOpsGuru
         data['OpenProactiveInsights'] = stub[:open_proactive_insights] unless stub[:open_proactive_insights].nil?
         data['MetricsAnalyzed'] = stub[:metrics_analyzed] unless stub[:metrics_analyzed].nil?
         data['ResourceHours'] = stub[:resource_hours] unless stub[:resource_hours].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -80,7 +82,7 @@ module AWS::SDK::DevOpsGuru
         data['ReactiveInsights'] = stub[:reactive_insights] unless stub[:reactive_insights].nil?
         data['ProactiveInsights'] = stub[:proactive_insights] unless stub[:proactive_insights].nil?
         data['MeanTimeToRecoverInMilliseconds'] = stub[:mean_time_to_recover_in_milliseconds] unless stub[:mean_time_to_recover_in_milliseconds].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -97,9 +99,9 @@ module AWS::SDK::DevOpsGuru
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ProactiveAnomaly'] = Stubs::ProactiveAnomaly.stub(stub[:proactive_anomaly]) unless stub[:proactive_anomaly].nil?
-        data['ReactiveAnomaly'] = Stubs::ReactiveAnomaly.stub(stub[:reactive_anomaly]) unless stub[:reactive_anomaly].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProactiveAnomaly'] = ProactiveAnomaly.stub(stub[:proactive_anomaly]) unless stub[:proactive_anomaly].nil?
+        data['ReactiveAnomaly'] = ReactiveAnomaly.stub(stub[:reactive_anomaly]) unless stub[:reactive_anomaly].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -131,16 +133,16 @@ module AWS::SDK::DevOpsGuru
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Severity'] = stub[:severity] unless stub[:severity].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['AnomalyTimeRange'] = Stubs::AnomalyTimeRange.stub(stub[:anomaly_time_range]) unless stub[:anomaly_time_range].nil?
-        data['AnomalyReportedTimeRange'] = Stubs::AnomalyReportedTimeRange.stub(stub[:anomaly_reported_time_range]) unless stub[:anomaly_reported_time_range].nil?
-        data['SourceDetails'] = Stubs::AnomalySourceDetails.stub(stub[:source_details]) unless stub[:source_details].nil?
+        data['AnomalyTimeRange'] = AnomalyTimeRange.stub(stub[:anomaly_time_range]) unless stub[:anomaly_time_range].nil?
+        data['AnomalyReportedTimeRange'] = AnomalyReportedTimeRange.stub(stub[:anomaly_reported_time_range]) unless stub[:anomaly_reported_time_range].nil?
+        data['SourceDetails'] = AnomalySourceDetails.stub(stub[:source_details]) unless stub[:source_details].nil?
         data['AssociatedInsightId'] = stub[:associated_insight_id] unless stub[:associated_insight_id].nil?
-        data['ResourceCollection'] = Stubs::ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
+        data['ResourceCollection'] = ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CausalAnomalyId'] = stub[:causal_anomaly_id] unless stub[:causal_anomaly_id].nil?
-        data['AnomalyResources'] = Stubs::AnomalyResources.stub(stub[:anomaly_resources]) unless stub[:anomaly_resources].nil?
+        data['AnomalyResources'] = AnomalyResources.stub(stub[:anomaly_resources]) unless stub[:anomaly_resources].nil?
         data
       end
     end
@@ -159,7 +161,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AnomalyResource.stub(element) unless element.nil?
+          data << AnomalyResource.stub(element) unless element.nil?
         end
         data
       end
@@ -199,8 +201,8 @@ module AWS::SDK::DevOpsGuru
       def self.stub(stub)
         stub ||= Types::ResourceCollection.new
         data = {}
-        data['CloudFormation'] = Stubs::CloudFormationCollection.stub(stub[:cloud_formation]) unless stub[:cloud_formation].nil?
-        data['Tags'] = Stubs::TagCollections.stub(stub[:tags]) unless stub[:tags].nil?
+        data['CloudFormation'] = CloudFormationCollection.stub(stub[:cloud_formation]) unless stub[:cloud_formation].nil?
+        data['Tags'] = TagCollections.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -219,7 +221,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TagCollection.stub(element) unless element.nil?
+          data << TagCollection.stub(element) unless element.nil?
         end
         data
       end
@@ -240,7 +242,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= Types::TagCollection.new
         data = {}
         data['AppBoundaryKey'] = stub[:app_boundary_key] unless stub[:app_boundary_key].nil?
-        data['TagValues'] = Stubs::TagValues.stub(stub[:tag_values]) unless stub[:tag_values].nil?
+        data['TagValues'] = TagValues.stub(stub[:tag_values]) unless stub[:tag_values].nil?
         data
       end
     end
@@ -278,7 +280,7 @@ module AWS::SDK::DevOpsGuru
       def self.stub(stub)
         stub ||= Types::CloudFormationCollection.new
         data = {}
-        data['StackNames'] = Stubs::StackNames.stub(stub[:stack_names]) unless stub[:stack_names].nil?
+        data['StackNames'] = StackNames.stub(stub[:stack_names]) unless stub[:stack_names].nil?
         data
       end
     end
@@ -317,8 +319,8 @@ module AWS::SDK::DevOpsGuru
       def self.stub(stub)
         stub ||= Types::AnomalySourceDetails.new
         data = {}
-        data['CloudWatchMetrics'] = Stubs::CloudWatchMetricsDetails.stub(stub[:cloud_watch_metrics]) unless stub[:cloud_watch_metrics].nil?
-        data['PerformanceInsightsMetrics'] = Stubs::PerformanceInsightsMetricsDetails.stub(stub[:performance_insights_metrics]) unless stub[:performance_insights_metrics].nil?
+        data['CloudWatchMetrics'] = CloudWatchMetricsDetails.stub(stub[:cloud_watch_metrics]) unless stub[:cloud_watch_metrics].nil?
+        data['PerformanceInsightsMetrics'] = PerformanceInsightsMetricsDetails.stub(stub[:performance_insights_metrics]) unless stub[:performance_insights_metrics].nil?
         data
       end
     end
@@ -337,7 +339,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PerformanceInsightsMetricsDetail.stub(element) unless element.nil?
+          data << PerformanceInsightsMetricsDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -363,10 +365,10 @@ module AWS::SDK::DevOpsGuru
         data = {}
         data['MetricDisplayName'] = stub[:metric_display_name] unless stub[:metric_display_name].nil?
         data['Unit'] = stub[:unit] unless stub[:unit].nil?
-        data['MetricQuery'] = Stubs::PerformanceInsightsMetricQuery.stub(stub[:metric_query]) unless stub[:metric_query].nil?
-        data['ReferenceData'] = Stubs::PerformanceInsightsReferenceDataList.stub(stub[:reference_data]) unless stub[:reference_data].nil?
-        data['StatsAtAnomaly'] = Stubs::PerformanceInsightsStats.stub(stub[:stats_at_anomaly]) unless stub[:stats_at_anomaly].nil?
-        data['StatsAtBaseline'] = Stubs::PerformanceInsightsStats.stub(stub[:stats_at_baseline]) unless stub[:stats_at_baseline].nil?
+        data['MetricQuery'] = PerformanceInsightsMetricQuery.stub(stub[:metric_query]) unless stub[:metric_query].nil?
+        data['ReferenceData'] = PerformanceInsightsReferenceDataList.stub(stub[:reference_data]) unless stub[:reference_data].nil?
+        data['StatsAtAnomaly'] = PerformanceInsightsStats.stub(stub[:stats_at_anomaly]) unless stub[:stats_at_anomaly].nil?
+        data['StatsAtBaseline'] = PerformanceInsightsStats.stub(stub[:stats_at_baseline]) unless stub[:stats_at_baseline].nil?
         data
       end
     end
@@ -385,7 +387,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PerformanceInsightsStat.stub(element) unless element.nil?
+          data << PerformanceInsightsStat.stub(element) unless element.nil?
         end
         data
       end
@@ -425,7 +427,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PerformanceInsightsReferenceData.stub(element) unless element.nil?
+          data << PerformanceInsightsReferenceData.stub(element) unless element.nil?
         end
         data
       end
@@ -446,7 +448,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= Types::PerformanceInsightsReferenceData.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['ComparisonValues'] = Stubs::PerformanceInsightsReferenceComparisonValues.stub(stub[:comparison_values]) unless stub[:comparison_values].nil?
+        data['ComparisonValues'] = PerformanceInsightsReferenceComparisonValues.stub(stub[:comparison_values]) unless stub[:comparison_values].nil?
         data
       end
     end
@@ -465,8 +467,8 @@ module AWS::SDK::DevOpsGuru
       def self.stub(stub)
         stub ||= Types::PerformanceInsightsReferenceComparisonValues.new
         data = {}
-        data['ReferenceScalar'] = Stubs::PerformanceInsightsReferenceScalar.stub(stub[:reference_scalar]) unless stub[:reference_scalar].nil?
-        data['ReferenceMetric'] = Stubs::PerformanceInsightsReferenceMetric.stub(stub[:reference_metric]) unless stub[:reference_metric].nil?
+        data['ReferenceScalar'] = PerformanceInsightsReferenceScalar.stub(stub[:reference_scalar]) unless stub[:reference_scalar].nil?
+        data['ReferenceMetric'] = PerformanceInsightsReferenceMetric.stub(stub[:reference_metric]) unless stub[:reference_metric].nil?
         data
       end
     end
@@ -484,7 +486,7 @@ module AWS::SDK::DevOpsGuru
       def self.stub(stub)
         stub ||= Types::PerformanceInsightsReferenceMetric.new
         data = {}
-        data['MetricQuery'] = Stubs::PerformanceInsightsMetricQuery.stub(stub[:metric_query]) unless stub[:metric_query].nil?
+        data['MetricQuery'] = PerformanceInsightsMetricQuery.stub(stub[:metric_query]) unless stub[:metric_query].nil?
         data
       end
     end
@@ -505,8 +507,8 @@ module AWS::SDK::DevOpsGuru
         stub ||= Types::PerformanceInsightsMetricQuery.new
         data = {}
         data['Metric'] = stub[:metric] unless stub[:metric].nil?
-        data['GroupBy'] = Stubs::PerformanceInsightsMetricDimensionGroup.stub(stub[:group_by]) unless stub[:group_by].nil?
-        data['Filter'] = Stubs::PerformanceInsightsMetricFilterMap.stub(stub[:filter]) unless stub[:filter].nil?
+        data['GroupBy'] = PerformanceInsightsMetricDimensionGroup.stub(stub[:group_by]) unless stub[:group_by].nil?
+        data['Filter'] = PerformanceInsightsMetricFilterMap.stub(stub[:filter]) unless stub[:filter].nil?
         data
       end
     end
@@ -547,7 +549,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= Types::PerformanceInsightsMetricDimensionGroup.new
         data = {}
         data['Group'] = stub[:group] unless stub[:group].nil?
-        data['Dimensions'] = Stubs::PerformanceInsightsMetricDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Dimensions'] = PerformanceInsightsMetricDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
         data['Limit'] = stub[:limit] unless stub[:limit].nil?
         data
       end
@@ -605,7 +607,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CloudWatchMetricsDetail.stub(element) unless element.nil?
+          data << CloudWatchMetricsDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -632,11 +634,11 @@ module AWS::SDK::DevOpsGuru
         data = {}
         data['MetricName'] = stub[:metric_name] unless stub[:metric_name].nil?
         data['Namespace'] = stub[:namespace] unless stub[:namespace].nil?
-        data['Dimensions'] = Stubs::CloudWatchMetricsDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Dimensions'] = CloudWatchMetricsDimensions.stub(stub[:dimensions]) unless stub[:dimensions].nil?
         data['Stat'] = stub[:stat] unless stub[:stat].nil?
         data['Unit'] = stub[:unit] unless stub[:unit].nil?
         data['Period'] = stub[:period] unless stub[:period].nil?
-        data['MetricDataSummary'] = Stubs::CloudWatchMetricsDataSummary.stub(stub[:metric_data_summary]) unless stub[:metric_data_summary].nil?
+        data['MetricDataSummary'] = CloudWatchMetricsDataSummary.stub(stub[:metric_data_summary]) unless stub[:metric_data_summary].nil?
         data
       end
     end
@@ -655,7 +657,7 @@ module AWS::SDK::DevOpsGuru
       def self.stub(stub)
         stub ||= Types::CloudWatchMetricsDataSummary.new
         data = {}
-        data['TimestampMetricValuePairList'] = Stubs::TimestampMetricValuePairList.stub(stub[:timestamp_metric_value_pair_list]) unless stub[:timestamp_metric_value_pair_list].nil?
+        data['TimestampMetricValuePairList'] = TimestampMetricValuePairList.stub(stub[:timestamp_metric_value_pair_list]) unless stub[:timestamp_metric_value_pair_list].nil?
         data['StatusCode'] = stub[:status_code] unless stub[:status_code].nil?
         data
       end
@@ -675,7 +677,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TimestampMetricValuePair.stub(element) unless element.nil?
+          data << TimestampMetricValuePair.stub(element) unless element.nil?
         end
         data
       end
@@ -715,7 +717,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CloudWatchMetricsDimension.stub(element) unless element.nil?
+          data << CloudWatchMetricsDimension.stub(element) unless element.nil?
         end
         data
       end
@@ -810,15 +812,15 @@ module AWS::SDK::DevOpsGuru
         data['Severity'] = stub[:severity] unless stub[:severity].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['UpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:update_time]).to_i unless stub[:update_time].nil?
-        data['AnomalyTimeRange'] = Stubs::AnomalyTimeRange.stub(stub[:anomaly_time_range]) unless stub[:anomaly_time_range].nil?
-        data['AnomalyReportedTimeRange'] = Stubs::AnomalyReportedTimeRange.stub(stub[:anomaly_reported_time_range]) unless stub[:anomaly_reported_time_range].nil?
-        data['PredictionTimeRange'] = Stubs::PredictionTimeRange.stub(stub[:prediction_time_range]) unless stub[:prediction_time_range].nil?
-        data['SourceDetails'] = Stubs::AnomalySourceDetails.stub(stub[:source_details]) unless stub[:source_details].nil?
+        data['AnomalyTimeRange'] = AnomalyTimeRange.stub(stub[:anomaly_time_range]) unless stub[:anomaly_time_range].nil?
+        data['AnomalyReportedTimeRange'] = AnomalyReportedTimeRange.stub(stub[:anomaly_reported_time_range]) unless stub[:anomaly_reported_time_range].nil?
+        data['PredictionTimeRange'] = PredictionTimeRange.stub(stub[:prediction_time_range]) unless stub[:prediction_time_range].nil?
+        data['SourceDetails'] = AnomalySourceDetails.stub(stub[:source_details]) unless stub[:source_details].nil?
         data['AssociatedInsightId'] = stub[:associated_insight_id] unless stub[:associated_insight_id].nil?
-        data['ResourceCollection'] = Stubs::ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
+        data['ResourceCollection'] = ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
         data['Limit'] = Hearth::NumberHelper.serialize(stub[:limit])
-        data['SourceMetadata'] = Stubs::AnomalySourceMetadata.stub(stub[:source_metadata]) unless stub[:source_metadata].nil?
-        data['AnomalyResources'] = Stubs::AnomalyResources.stub(stub[:anomaly_resources]) unless stub[:anomaly_resources].nil?
+        data['SourceMetadata'] = AnomalySourceMetadata.stub(stub[:source_metadata]) unless stub[:source_metadata].nil?
+        data['AnomalyResources'] = AnomalyResources.stub(stub[:anomaly_resources]) unless stub[:anomaly_resources].nil?
         data
       end
     end
@@ -877,8 +879,8 @@ module AWS::SDK::DevOpsGuru
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['EventSources'] = Stubs::EventSourcesConfig.stub(stub[:event_sources]) unless stub[:event_sources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventSources'] = EventSourcesConfig.stub(stub[:event_sources]) unless stub[:event_sources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -895,7 +897,7 @@ module AWS::SDK::DevOpsGuru
       def self.stub(stub)
         stub ||= Types::EventSourcesConfig.new
         data = {}
-        data['AmazonCodeGuruProfiler'] = Stubs::AmazonCodeGuruProfilerIntegration.stub(stub[:amazon_code_guru_profiler]) unless stub[:amazon_code_guru_profiler].nil?
+        data['AmazonCodeGuruProfiler'] = AmazonCodeGuruProfilerIntegration.stub(stub[:amazon_code_guru_profiler]) unless stub[:amazon_code_guru_profiler].nil?
         data
       end
     end
@@ -930,8 +932,8 @@ module AWS::SDK::DevOpsGuru
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['InsightFeedback'] = Stubs::InsightFeedback.stub(stub[:insight_feedback]) unless stub[:insight_feedback].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InsightFeedback'] = InsightFeedback.stub(stub[:insight_feedback]) unless stub[:insight_feedback].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -968,9 +970,9 @@ module AWS::SDK::DevOpsGuru
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ProactiveInsight'] = Stubs::ProactiveInsight.stub(stub[:proactive_insight]) unless stub[:proactive_insight].nil?
-        data['ReactiveInsight'] = Stubs::ReactiveInsight.stub(stub[:reactive_insight]) unless stub[:reactive_insight].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProactiveInsight'] = ProactiveInsight.stub(stub[:proactive_insight]) unless stub[:proactive_insight].nil?
+        data['ReactiveInsight'] = ReactiveInsight.stub(stub[:reactive_insight]) unless stub[:reactive_insight].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -998,8 +1000,8 @@ module AWS::SDK::DevOpsGuru
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Severity'] = stub[:severity] unless stub[:severity].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['InsightTimeRange'] = Stubs::InsightTimeRange.stub(stub[:insight_time_range]) unless stub[:insight_time_range].nil?
-        data['ResourceCollection'] = Stubs::ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
+        data['InsightTimeRange'] = InsightTimeRange.stub(stub[:insight_time_range]) unless stub[:insight_time_range].nil?
+        data['ResourceCollection'] = ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
         data['SsmOpsItemId'] = stub[:ssm_ops_item_id] unless stub[:ssm_ops_item_id].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data
@@ -1051,9 +1053,9 @@ module AWS::SDK::DevOpsGuru
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Severity'] = stub[:severity] unless stub[:severity].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['InsightTimeRange'] = Stubs::InsightTimeRange.stub(stub[:insight_time_range]) unless stub[:insight_time_range].nil?
-        data['PredictionTimeRange'] = Stubs::PredictionTimeRange.stub(stub[:prediction_time_range]) unless stub[:prediction_time_range].nil?
-        data['ResourceCollection'] = Stubs::ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
+        data['InsightTimeRange'] = InsightTimeRange.stub(stub[:insight_time_range]) unless stub[:insight_time_range].nil?
+        data['PredictionTimeRange'] = PredictionTimeRange.stub(stub[:prediction_time_range]) unless stub[:prediction_time_range].nil?
+        data['ResourceCollection'] = ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
         data['SsmOpsItemId'] = stub[:ssm_ops_item_id] unless stub[:ssm_ops_item_id].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data
@@ -1079,7 +1081,7 @@ module AWS::SDK::DevOpsGuru
         data['OpenProactiveInsights'] = stub[:open_proactive_insights] unless stub[:open_proactive_insights].nil?
         data['MetricsAnalyzed'] = stub[:metrics_analyzed] unless stub[:metrics_analyzed].nil?
         data['ResourceHours'] = stub[:resource_hours] unless stub[:resource_hours].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1098,7 +1100,7 @@ module AWS::SDK::DevOpsGuru
         http_resp.headers['Content-Type'] = 'application/json'
         data['ReactiveInsights'] = stub[:reactive_insights] unless stub[:reactive_insights].nil?
         data['ProactiveInsights'] = stub[:proactive_insights] unless stub[:proactive_insights].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1118,12 +1120,12 @@ module AWS::SDK::DevOpsGuru
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CloudFormation'] = Stubs::CloudFormationHealths.stub(stub[:cloud_formation]) unless stub[:cloud_formation].nil?
-        data['Service'] = Stubs::ServiceHealths.stub(stub[:service]) unless stub[:service].nil?
-        data['Account'] = Stubs::AccountHealths.stub(stub[:account]) unless stub[:account].nil?
+        data['CloudFormation'] = CloudFormationHealths.stub(stub[:cloud_formation]) unless stub[:cloud_formation].nil?
+        data['Service'] = ServiceHealths.stub(stub[:service]) unless stub[:service].nil?
+        data['Account'] = AccountHealths.stub(stub[:account]) unless stub[:account].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Tags'] = Stubs::TagHealths.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagHealths.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1141,7 +1143,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TagHealth.stub(element) unless element.nil?
+          data << TagHealth.stub(element) unless element.nil?
         end
         data
       end
@@ -1164,7 +1166,7 @@ module AWS::SDK::DevOpsGuru
         data = {}
         data['AppBoundaryKey'] = stub[:app_boundary_key] unless stub[:app_boundary_key].nil?
         data['TagValue'] = stub[:tag_value] unless stub[:tag_value].nil?
-        data['Insight'] = Stubs::InsightHealth.stub(stub[:insight]) unless stub[:insight].nil?
+        data['Insight'] = InsightHealth.stub(stub[:insight]) unless stub[:insight].nil?
         data
       end
     end
@@ -1205,7 +1207,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccountHealth.stub(element) unless element.nil?
+          data << AccountHealth.stub(element) unless element.nil?
         end
         data
       end
@@ -1226,7 +1228,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= Types::AccountHealth.new
         data = {}
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['Insight'] = Stubs::AccountInsightHealth.stub(stub[:insight]) unless stub[:insight].nil?
+        data['Insight'] = AccountInsightHealth.stub(stub[:insight]) unless stub[:insight].nil?
         data
       end
     end
@@ -1265,7 +1267,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceHealth.stub(element) unless element.nil?
+          data << ServiceHealth.stub(element) unless element.nil?
         end
         data
       end
@@ -1286,7 +1288,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= Types::ServiceHealth.new
         data = {}
         data['ServiceName'] = stub[:service_name] unless stub[:service_name].nil?
-        data['Insight'] = Stubs::ServiceInsightHealth.stub(stub[:insight]) unless stub[:insight].nil?
+        data['Insight'] = ServiceInsightHealth.stub(stub[:insight]) unless stub[:insight].nil?
         data
       end
     end
@@ -1325,7 +1327,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CloudFormationHealth.stub(element) unless element.nil?
+          data << CloudFormationHealth.stub(element) unless element.nil?
         end
         data
       end
@@ -1346,7 +1348,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= Types::CloudFormationHealth.new
         data = {}
         data['StackName'] = stub[:stack_name] unless stub[:stack_name].nil?
-        data['Insight'] = Stubs::InsightHealth.stub(stub[:insight]) unless stub[:insight].nil?
+        data['Insight'] = InsightHealth.stub(stub[:insight]) unless stub[:insight].nil?
         data
       end
     end
@@ -1366,11 +1368,11 @@ module AWS::SDK::DevOpsGuru
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CloudFormation'] = Stubs::CloudFormationHealths.stub(stub[:cloud_formation]) unless stub[:cloud_formation].nil?
-        data['Service'] = Stubs::ServiceHealths.stub(stub[:service]) unless stub[:service].nil?
+        data['CloudFormation'] = CloudFormationHealths.stub(stub[:cloud_formation]) unless stub[:cloud_formation].nil?
+        data['Service'] = ServiceHealths.stub(stub[:service]) unless stub[:service].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Tags'] = Stubs::TagHealths.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagHealths.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1386,8 +1388,8 @@ module AWS::SDK::DevOpsGuru
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ServiceIntegration'] = Stubs::ServiceIntegrationConfig.stub(stub[:service_integration]) unless stub[:service_integration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ServiceIntegration'] = ServiceIntegrationConfig.stub(stub[:service_integration]) unless stub[:service_integration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1404,7 +1406,7 @@ module AWS::SDK::DevOpsGuru
       def self.stub(stub)
         stub ||= Types::ServiceIntegrationConfig.new
         data = {}
-        data['OpsCenter'] = Stubs::OpsCenterIntegration.stub(stub[:ops_center]) unless stub[:ops_center].nil?
+        data['OpsCenter'] = OpsCenterIntegration.stub(stub[:ops_center]) unless stub[:ops_center].nil?
         data
       end
     end
@@ -1444,13 +1446,13 @@ module AWS::SDK::DevOpsGuru
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ResourceCollection'] = Stubs::CostEstimationResourceCollectionFilter.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
+        data['ResourceCollection'] = CostEstimationResourceCollectionFilter.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Costs'] = Stubs::ServiceResourceCosts.stub(stub[:costs]) unless stub[:costs].nil?
-        data['TimeRange'] = Stubs::CostEstimationTimeRange.stub(stub[:time_range]) unless stub[:time_range].nil?
+        data['Costs'] = ServiceResourceCosts.stub(stub[:costs]) unless stub[:costs].nil?
+        data['TimeRange'] = CostEstimationTimeRange.stub(stub[:time_range]) unless stub[:time_range].nil?
         data['TotalCost'] = Hearth::NumberHelper.serialize(stub[:total_cost])
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1488,7 +1490,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceResourceCost.stub(element) unless element.nil?
+          data << ServiceResourceCost.stub(element) unless element.nil?
         end
         data
       end
@@ -1534,8 +1536,8 @@ module AWS::SDK::DevOpsGuru
       def self.stub(stub)
         stub ||= Types::CostEstimationResourceCollectionFilter.new
         data = {}
-        data['CloudFormation'] = Stubs::CloudFormationCostEstimationResourceCollectionFilter.stub(stub[:cloud_formation]) unless stub[:cloud_formation].nil?
-        data['Tags'] = Stubs::TagCostEstimationResourceCollectionFilters.stub(stub[:tags]) unless stub[:tags].nil?
+        data['CloudFormation'] = CloudFormationCostEstimationResourceCollectionFilter.stub(stub[:cloud_formation]) unless stub[:cloud_formation].nil?
+        data['Tags'] = TagCostEstimationResourceCollectionFilters.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1554,7 +1556,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TagCostEstimationResourceCollectionFilter.stub(element) unless element.nil?
+          data << TagCostEstimationResourceCollectionFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -1575,7 +1577,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= Types::TagCostEstimationResourceCollectionFilter.new
         data = {}
         data['AppBoundaryKey'] = stub[:app_boundary_key] unless stub[:app_boundary_key].nil?
-        data['TagValues'] = Stubs::CostEstimationTagValues.stub(stub[:tag_values]) unless stub[:tag_values].nil?
+        data['TagValues'] = CostEstimationTagValues.stub(stub[:tag_values]) unless stub[:tag_values].nil?
         data
       end
     end
@@ -1613,7 +1615,7 @@ module AWS::SDK::DevOpsGuru
       def self.stub(stub)
         stub ||= Types::CloudFormationCostEstimationResourceCollectionFilter.new
         data = {}
-        data['StackNames'] = Stubs::CostEstimationStackNames.stub(stub[:stack_names]) unless stub[:stack_names].nil?
+        data['StackNames'] = CostEstimationStackNames.stub(stub[:stack_names]) unless stub[:stack_names].nil?
         data
       end
     end
@@ -1651,9 +1653,9 @@ module AWS::SDK::DevOpsGuru
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ResourceCollection'] = Stubs::ResourceCollectionFilter.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
+        data['ResourceCollection'] = ResourceCollectionFilter.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1671,8 +1673,8 @@ module AWS::SDK::DevOpsGuru
       def self.stub(stub)
         stub ||= Types::ResourceCollectionFilter.new
         data = {}
-        data['CloudFormation'] = Stubs::CloudFormationCollectionFilter.stub(stub[:cloud_formation]) unless stub[:cloud_formation].nil?
-        data['Tags'] = Stubs::TagCollectionFilters.stub(stub[:tags]) unless stub[:tags].nil?
+        data['CloudFormation'] = CloudFormationCollectionFilter.stub(stub[:cloud_formation]) unless stub[:cloud_formation].nil?
+        data['Tags'] = TagCollectionFilters.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1691,7 +1693,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TagCollectionFilter.stub(element) unless element.nil?
+          data << TagCollectionFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -1712,7 +1714,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= Types::TagCollectionFilter.new
         data = {}
         data['AppBoundaryKey'] = stub[:app_boundary_key] unless stub[:app_boundary_key].nil?
-        data['TagValues'] = Stubs::TagValues.stub(stub[:tag_values]) unless stub[:tag_values].nil?
+        data['TagValues'] = TagValues.stub(stub[:tag_values]) unless stub[:tag_values].nil?
         data
       end
     end
@@ -1730,7 +1732,7 @@ module AWS::SDK::DevOpsGuru
       def self.stub(stub)
         stub ||= Types::CloudFormationCollectionFilter.new
         data = {}
-        data['StackNames'] = Stubs::StackNames.stub(stub[:stack_names]) unless stub[:stack_names].nil?
+        data['StackNames'] = StackNames.stub(stub[:stack_names]) unless stub[:stack_names].nil?
         data
       end
     end
@@ -1749,10 +1751,10 @@ module AWS::SDK::DevOpsGuru
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ProactiveAnomalies'] = Stubs::ProactiveAnomalies.stub(stub[:proactive_anomalies]) unless stub[:proactive_anomalies].nil?
-        data['ReactiveAnomalies'] = Stubs::ReactiveAnomalies.stub(stub[:reactive_anomalies]) unless stub[:reactive_anomalies].nil?
+        data['ProactiveAnomalies'] = ProactiveAnomalies.stub(stub[:proactive_anomalies]) unless stub[:proactive_anomalies].nil?
+        data['ReactiveAnomalies'] = ReactiveAnomalies.stub(stub[:reactive_anomalies]) unless stub[:reactive_anomalies].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1770,7 +1772,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReactiveAnomalySummary.stub(element) unless element.nil?
+          data << ReactiveAnomalySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1804,16 +1806,16 @@ module AWS::SDK::DevOpsGuru
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Severity'] = stub[:severity] unless stub[:severity].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['AnomalyTimeRange'] = Stubs::AnomalyTimeRange.stub(stub[:anomaly_time_range]) unless stub[:anomaly_time_range].nil?
-        data['AnomalyReportedTimeRange'] = Stubs::AnomalyReportedTimeRange.stub(stub[:anomaly_reported_time_range]) unless stub[:anomaly_reported_time_range].nil?
-        data['SourceDetails'] = Stubs::AnomalySourceDetails.stub(stub[:source_details]) unless stub[:source_details].nil?
+        data['AnomalyTimeRange'] = AnomalyTimeRange.stub(stub[:anomaly_time_range]) unless stub[:anomaly_time_range].nil?
+        data['AnomalyReportedTimeRange'] = AnomalyReportedTimeRange.stub(stub[:anomaly_reported_time_range]) unless stub[:anomaly_reported_time_range].nil?
+        data['SourceDetails'] = AnomalySourceDetails.stub(stub[:source_details]) unless stub[:source_details].nil?
         data['AssociatedInsightId'] = stub[:associated_insight_id] unless stub[:associated_insight_id].nil?
-        data['ResourceCollection'] = Stubs::ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
+        data['ResourceCollection'] = ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CausalAnomalyId'] = stub[:causal_anomaly_id] unless stub[:causal_anomaly_id].nil?
-        data['AnomalyResources'] = Stubs::AnomalyResources.stub(stub[:anomaly_resources]) unless stub[:anomaly_resources].nil?
+        data['AnomalyResources'] = AnomalyResources.stub(stub[:anomaly_resources]) unless stub[:anomaly_resources].nil?
         data
       end
     end
@@ -1832,7 +1834,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProactiveAnomalySummary.stub(element) unless element.nil?
+          data << ProactiveAnomalySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1867,15 +1869,15 @@ module AWS::SDK::DevOpsGuru
         data['Severity'] = stub[:severity] unless stub[:severity].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['UpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:update_time]).to_i unless stub[:update_time].nil?
-        data['AnomalyTimeRange'] = Stubs::AnomalyTimeRange.stub(stub[:anomaly_time_range]) unless stub[:anomaly_time_range].nil?
-        data['AnomalyReportedTimeRange'] = Stubs::AnomalyReportedTimeRange.stub(stub[:anomaly_reported_time_range]) unless stub[:anomaly_reported_time_range].nil?
-        data['PredictionTimeRange'] = Stubs::PredictionTimeRange.stub(stub[:prediction_time_range]) unless stub[:prediction_time_range].nil?
-        data['SourceDetails'] = Stubs::AnomalySourceDetails.stub(stub[:source_details]) unless stub[:source_details].nil?
+        data['AnomalyTimeRange'] = AnomalyTimeRange.stub(stub[:anomaly_time_range]) unless stub[:anomaly_time_range].nil?
+        data['AnomalyReportedTimeRange'] = AnomalyReportedTimeRange.stub(stub[:anomaly_reported_time_range]) unless stub[:anomaly_reported_time_range].nil?
+        data['PredictionTimeRange'] = PredictionTimeRange.stub(stub[:prediction_time_range]) unless stub[:prediction_time_range].nil?
+        data['SourceDetails'] = AnomalySourceDetails.stub(stub[:source_details]) unless stub[:source_details].nil?
         data['AssociatedInsightId'] = stub[:associated_insight_id] unless stub[:associated_insight_id].nil?
-        data['ResourceCollection'] = Stubs::ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
+        data['ResourceCollection'] = ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
         data['Limit'] = Hearth::NumberHelper.serialize(stub[:limit])
-        data['SourceMetadata'] = Stubs::AnomalySourceMetadata.stub(stub[:source_metadata]) unless stub[:source_metadata].nil?
-        data['AnomalyResources'] = Stubs::AnomalyResources.stub(stub[:anomaly_resources]) unless stub[:anomaly_resources].nil?
+        data['SourceMetadata'] = AnomalySourceMetadata.stub(stub[:source_metadata]) unless stub[:source_metadata].nil?
+        data['AnomalyResources'] = AnomalyResources.stub(stub[:anomaly_resources]) unless stub[:anomaly_resources].nil?
         data
       end
     end
@@ -1893,9 +1895,9 @@ module AWS::SDK::DevOpsGuru
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Events'] = Stubs::Events.stub(stub[:events]) unless stub[:events].nil?
+        data['Events'] = Events.stub(stub[:events]) unless stub[:events].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1913,7 +1915,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Event.stub(element) unless element.nil?
+          data << Event.stub(element) unless element.nil?
         end
         data
       end
@@ -1939,14 +1941,14 @@ module AWS::SDK::DevOpsGuru
       def self.stub(stub)
         stub ||= Types::Event.new
         data = {}
-        data['ResourceCollection'] = Stubs::ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
+        data['ResourceCollection'] = ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Time'] = Hearth::TimeHelper.to_epoch_seconds(stub[:time]).to_i unless stub[:time].nil?
         data['EventSource'] = stub[:event_source] unless stub[:event_source].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['DataSource'] = stub[:data_source] unless stub[:data_source].nil?
         data['EventClass'] = stub[:event_class] unless stub[:event_class].nil?
-        data['Resources'] = Stubs::EventResources.stub(stub[:resources]) unless stub[:resources].nil?
+        data['Resources'] = EventResources.stub(stub[:resources]) unless stub[:resources].nil?
         data
       end
     end
@@ -1965,7 +1967,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventResource.stub(element) unless element.nil?
+          data << EventResource.stub(element) unless element.nil?
         end
         data
       end
@@ -2007,10 +2009,10 @@ module AWS::SDK::DevOpsGuru
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ProactiveInsights'] = Stubs::ProactiveInsights.stub(stub[:proactive_insights]) unless stub[:proactive_insights].nil?
-        data['ReactiveInsights'] = Stubs::ReactiveInsights.stub(stub[:reactive_insights]) unless stub[:reactive_insights].nil?
+        data['ProactiveInsights'] = ProactiveInsights.stub(stub[:proactive_insights]) unless stub[:proactive_insights].nil?
+        data['ReactiveInsights'] = ReactiveInsights.stub(stub[:reactive_insights]) unless stub[:reactive_insights].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2028,7 +2030,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReactiveInsightSummary.stub(element) unless element.nil?
+          data << ReactiveInsightSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2058,10 +2060,10 @@ module AWS::SDK::DevOpsGuru
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Severity'] = stub[:severity] unless stub[:severity].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['InsightTimeRange'] = Stubs::InsightTimeRange.stub(stub[:insight_time_range]) unless stub[:insight_time_range].nil?
-        data['ResourceCollection'] = Stubs::ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
-        data['ServiceCollection'] = Stubs::ServiceCollection.stub(stub[:service_collection]) unless stub[:service_collection].nil?
-        data['AssociatedResourceArns'] = Stubs::AssociatedResourceArns.stub(stub[:associated_resource_arns]) unless stub[:associated_resource_arns].nil?
+        data['InsightTimeRange'] = InsightTimeRange.stub(stub[:insight_time_range]) unless stub[:insight_time_range].nil?
+        data['ResourceCollection'] = ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
+        data['ServiceCollection'] = ServiceCollection.stub(stub[:service_collection]) unless stub[:service_collection].nil?
+        data['AssociatedResourceArns'] = AssociatedResourceArns.stub(stub[:associated_resource_arns]) unless stub[:associated_resource_arns].nil?
         data
       end
     end
@@ -2099,7 +2101,7 @@ module AWS::SDK::DevOpsGuru
       def self.stub(stub)
         stub ||= Types::ServiceCollection.new
         data = {}
-        data['ServiceNames'] = Stubs::ServiceNames.stub(stub[:service_names]) unless stub[:service_names].nil?
+        data['ServiceNames'] = ServiceNames.stub(stub[:service_names]) unless stub[:service_names].nil?
         data
       end
     end
@@ -2138,7 +2140,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProactiveInsightSummary.stub(element) unless element.nil?
+          data << ProactiveInsightSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2169,11 +2171,11 @@ module AWS::SDK::DevOpsGuru
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Severity'] = stub[:severity] unless stub[:severity].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['InsightTimeRange'] = Stubs::InsightTimeRange.stub(stub[:insight_time_range]) unless stub[:insight_time_range].nil?
-        data['PredictionTimeRange'] = Stubs::PredictionTimeRange.stub(stub[:prediction_time_range]) unless stub[:prediction_time_range].nil?
-        data['ResourceCollection'] = Stubs::ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
-        data['ServiceCollection'] = Stubs::ServiceCollection.stub(stub[:service_collection]) unless stub[:service_collection].nil?
-        data['AssociatedResourceArns'] = Stubs::AssociatedResourceArns.stub(stub[:associated_resource_arns]) unless stub[:associated_resource_arns].nil?
+        data['InsightTimeRange'] = InsightTimeRange.stub(stub[:insight_time_range]) unless stub[:insight_time_range].nil?
+        data['PredictionTimeRange'] = PredictionTimeRange.stub(stub[:prediction_time_range]) unless stub[:prediction_time_range].nil?
+        data['ResourceCollection'] = ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
+        data['ServiceCollection'] = ServiceCollection.stub(stub[:service_collection]) unless stub[:service_collection].nil?
+        data['AssociatedResourceArns'] = AssociatedResourceArns.stub(stub[:associated_resource_arns]) unless stub[:associated_resource_arns].nil?
         data
       end
     end
@@ -2191,9 +2193,9 @@ module AWS::SDK::DevOpsGuru
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Channels'] = Stubs::Channels.stub(stub[:channels]) unless stub[:channels].nil?
+        data['Channels'] = Channels.stub(stub[:channels]) unless stub[:channels].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2211,7 +2213,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NotificationChannel.stub(element) unless element.nil?
+          data << NotificationChannel.stub(element) unless element.nil?
         end
         data
       end
@@ -2232,7 +2234,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= Types::NotificationChannel.new
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['Config'] = Stubs::NotificationChannelConfig.stub(stub[:config]) unless stub[:config].nil?
+        data['Config'] = NotificationChannelConfig.stub(stub[:config]) unless stub[:config].nil?
         data
       end
     end
@@ -2250,7 +2252,7 @@ module AWS::SDK::DevOpsGuru
       def self.stub(stub)
         stub ||= Types::NotificationChannelConfig.new
         data = {}
-        data['Sns'] = Stubs::SnsChannelConfig.stub(stub[:sns]) unless stub[:sns].nil?
+        data['Sns'] = SnsChannelConfig.stub(stub[:sns]) unless stub[:sns].nil?
         data
       end
     end
@@ -2287,10 +2289,10 @@ module AWS::SDK::DevOpsGuru
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ProactiveInsights'] = Stubs::ProactiveOrganizationInsights.stub(stub[:proactive_insights]) unless stub[:proactive_insights].nil?
-        data['ReactiveInsights'] = Stubs::ReactiveOrganizationInsights.stub(stub[:reactive_insights]) unless stub[:reactive_insights].nil?
+        data['ProactiveInsights'] = ProactiveOrganizationInsights.stub(stub[:proactive_insights]) unless stub[:proactive_insights].nil?
+        data['ReactiveInsights'] = ReactiveOrganizationInsights.stub(stub[:reactive_insights]) unless stub[:reactive_insights].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2308,7 +2310,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReactiveOrganizationInsightSummary.stub(element) unless element.nil?
+          data << ReactiveOrganizationInsightSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2341,9 +2343,9 @@ module AWS::SDK::DevOpsGuru
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Severity'] = stub[:severity] unless stub[:severity].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['InsightTimeRange'] = Stubs::InsightTimeRange.stub(stub[:insight_time_range]) unless stub[:insight_time_range].nil?
-        data['ResourceCollection'] = Stubs::ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
-        data['ServiceCollection'] = Stubs::ServiceCollection.stub(stub[:service_collection]) unless stub[:service_collection].nil?
+        data['InsightTimeRange'] = InsightTimeRange.stub(stub[:insight_time_range]) unless stub[:insight_time_range].nil?
+        data['ResourceCollection'] = ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
+        data['ServiceCollection'] = ServiceCollection.stub(stub[:service_collection]) unless stub[:service_collection].nil?
         data
       end
     end
@@ -2362,7 +2364,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProactiveOrganizationInsightSummary.stub(element) unless element.nil?
+          data << ProactiveOrganizationInsightSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2396,10 +2398,10 @@ module AWS::SDK::DevOpsGuru
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Severity'] = stub[:severity] unless stub[:severity].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['InsightTimeRange'] = Stubs::InsightTimeRange.stub(stub[:insight_time_range]) unless stub[:insight_time_range].nil?
-        data['PredictionTimeRange'] = Stubs::PredictionTimeRange.stub(stub[:prediction_time_range]) unless stub[:prediction_time_range].nil?
-        data['ResourceCollection'] = Stubs::ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
-        data['ServiceCollection'] = Stubs::ServiceCollection.stub(stub[:service_collection]) unless stub[:service_collection].nil?
+        data['InsightTimeRange'] = InsightTimeRange.stub(stub[:insight_time_range]) unless stub[:insight_time_range].nil?
+        data['PredictionTimeRange'] = PredictionTimeRange.stub(stub[:prediction_time_range]) unless stub[:prediction_time_range].nil?
+        data['ResourceCollection'] = ResourceCollection.stub(stub[:resource_collection]) unless stub[:resource_collection].nil?
+        data['ServiceCollection'] = ServiceCollection.stub(stub[:service_collection]) unless stub[:service_collection].nil?
         data
       end
     end
@@ -2417,9 +2419,9 @@ module AWS::SDK::DevOpsGuru
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Recommendations'] = Stubs::Recommendations.stub(stub[:recommendations]) unless stub[:recommendations].nil?
+        data['Recommendations'] = Recommendations.stub(stub[:recommendations]) unless stub[:recommendations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2437,7 +2439,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Recommendation.stub(element) unless element.nil?
+          data << Recommendation.stub(element) unless element.nil?
         end
         data
       end
@@ -2466,8 +2468,8 @@ module AWS::SDK::DevOpsGuru
         data['Link'] = stub[:link] unless stub[:link].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Reason'] = stub[:reason] unless stub[:reason].nil?
-        data['RelatedEvents'] = Stubs::RecommendationRelatedEvents.stub(stub[:related_events]) unless stub[:related_events].nil?
-        data['RelatedAnomalies'] = Stubs::RecommendationRelatedAnomalies.stub(stub[:related_anomalies]) unless stub[:related_anomalies].nil?
+        data['RelatedEvents'] = RecommendationRelatedEvents.stub(stub[:related_events]) unless stub[:related_events].nil?
+        data['RelatedAnomalies'] = RecommendationRelatedAnomalies.stub(stub[:related_anomalies]) unless stub[:related_anomalies].nil?
         data['Category'] = stub[:category] unless stub[:category].nil?
         data
       end
@@ -2487,7 +2489,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommendationRelatedAnomaly.stub(element) unless element.nil?
+          data << RecommendationRelatedAnomaly.stub(element) unless element.nil?
         end
         data
       end
@@ -2508,8 +2510,8 @@ module AWS::SDK::DevOpsGuru
       def self.stub(stub)
         stub ||= Types::RecommendationRelatedAnomaly.new
         data = {}
-        data['Resources'] = Stubs::RecommendationRelatedAnomalyResources.stub(stub[:resources]) unless stub[:resources].nil?
-        data['SourceDetails'] = Stubs::RelatedAnomalySourceDetails.stub(stub[:source_details]) unless stub[:source_details].nil?
+        data['Resources'] = RecommendationRelatedAnomalyResources.stub(stub[:resources]) unless stub[:resources].nil?
+        data['SourceDetails'] = RelatedAnomalySourceDetails.stub(stub[:source_details]) unless stub[:source_details].nil?
         data['AnomalyId'] = stub[:anomaly_id] unless stub[:anomaly_id].nil?
         data
       end
@@ -2529,7 +2531,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommendationRelatedAnomalySourceDetail.stub(element) unless element.nil?
+          data << RecommendationRelatedAnomalySourceDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -2548,7 +2550,7 @@ module AWS::SDK::DevOpsGuru
       def self.stub(stub)
         stub ||= Types::RecommendationRelatedAnomalySourceDetail.new
         data = {}
-        data['CloudWatchMetrics'] = Stubs::RecommendationRelatedCloudWatchMetricsSourceDetails.stub(stub[:cloud_watch_metrics]) unless stub[:cloud_watch_metrics].nil?
+        data['CloudWatchMetrics'] = RecommendationRelatedCloudWatchMetricsSourceDetails.stub(stub[:cloud_watch_metrics]) unless stub[:cloud_watch_metrics].nil?
         data
       end
     end
@@ -2567,7 +2569,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommendationRelatedCloudWatchMetricsSourceDetail.stub(element) unless element.nil?
+          data << RecommendationRelatedCloudWatchMetricsSourceDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -2607,7 +2609,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommendationRelatedAnomalyResource.stub(element) unless element.nil?
+          data << RecommendationRelatedAnomalyResource.stub(element) unless element.nil?
         end
         data
       end
@@ -2647,7 +2649,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommendationRelatedEvent.stub(element) unless element.nil?
+          data << RecommendationRelatedEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -2668,7 +2670,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= Types::RecommendationRelatedEvent.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Resources'] = Stubs::RecommendationRelatedEventResources.stub(stub[:resources]) unless stub[:resources].nil?
+        data['Resources'] = RecommendationRelatedEventResources.stub(stub[:resources]) unless stub[:resources].nil?
         data
       end
     end
@@ -2687,7 +2689,7 @@ module AWS::SDK::DevOpsGuru
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommendationRelatedEventResource.stub(element) unless element.nil?
+          data << RecommendationRelatedEventResource.stub(element) unless element.nil?
         end
         data
       end
@@ -2753,10 +2755,10 @@ module AWS::SDK::DevOpsGuru
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ProactiveInsights'] = Stubs::ProactiveInsights.stub(stub[:proactive_insights]) unless stub[:proactive_insights].nil?
-        data['ReactiveInsights'] = Stubs::ReactiveInsights.stub(stub[:reactive_insights]) unless stub[:reactive_insights].nil?
+        data['ProactiveInsights'] = ProactiveInsights.stub(stub[:proactive_insights]) unless stub[:proactive_insights].nil?
+        data['ReactiveInsights'] = ReactiveInsights.stub(stub[:reactive_insights]) unless stub[:reactive_insights].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2774,10 +2776,10 @@ module AWS::SDK::DevOpsGuru
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ProactiveInsights'] = Stubs::ProactiveInsights.stub(stub[:proactive_insights]) unless stub[:proactive_insights].nil?
-        data['ReactiveInsights'] = Stubs::ReactiveInsights.stub(stub[:reactive_insights]) unless stub[:reactive_insights].nil?
+        data['ProactiveInsights'] = ProactiveInsights.stub(stub[:proactive_insights]) unless stub[:proactive_insights].nil?
+        data['ReactiveInsights'] = ReactiveInsights.stub(stub[:reactive_insights]) unless stub[:reactive_insights].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

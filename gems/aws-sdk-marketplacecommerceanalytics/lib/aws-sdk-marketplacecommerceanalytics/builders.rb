@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MarketplaceCommerceAnalytics
   module Builders
 
@@ -24,8 +26,8 @@ module AWS::SDK::MarketplaceCommerceAnalytics
         data['destinationS3BucketName'] = input[:destination_s3_bucket_name] unless input[:destination_s3_bucket_name].nil?
         data['destinationS3Prefix'] = input[:destination_s3_prefix] unless input[:destination_s3_prefix].nil?
         data['snsTopicArn'] = input[:sns_topic_arn] unless input[:sns_topic_arn].nil?
-        data['customerDefinedValues'] = Builders::CustomerDefinedValues.build(input[:customer_defined_values]) unless input[:customer_defined_values].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['customerDefinedValues'] = CustomerDefinedValues.build(input[:customer_defined_values]) unless input[:customer_defined_values].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -54,8 +56,8 @@ module AWS::SDK::MarketplaceCommerceAnalytics
         data['destinationS3BucketName'] = input[:destination_s3_bucket_name] unless input[:destination_s3_bucket_name].nil?
         data['destinationS3Prefix'] = input[:destination_s3_prefix] unless input[:destination_s3_prefix].nil?
         data['snsTopicArn'] = input[:sns_topic_arn] unless input[:sns_topic_arn].nil?
-        data['customerDefinedValues'] = Builders::CustomerDefinedValues.build(input[:customer_defined_values]) unless input[:customer_defined_values].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['customerDefinedValues'] = CustomerDefinedValues.build(input[:customer_defined_values]) unless input[:customer_defined_values].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

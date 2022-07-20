@@ -81,10 +81,10 @@ module AWS::SDK::IotDeviceAdvisor
         data.suite_definition_arn = map['suiteDefinitionArn']
         data.suite_definition_version = map['suiteDefinitionVersion']
         data.latest_version = map['latestVersion']
-        data.suite_definition_configuration = (Parsers::SuiteDefinitionConfiguration.parse(map['suiteDefinitionConfiguration']) unless map['suiteDefinitionConfiguration'].nil?)
+        data.suite_definition_configuration = (SuiteDefinitionConfiguration.parse(map['suiteDefinitionConfiguration']) unless map['suiteDefinitionConfiguration'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.last_modified_at = Time.at(map['lastModifiedAt'].to_i) if map['lastModifiedAt']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -103,7 +103,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.parse(map)
         data = Types::SuiteDefinitionConfiguration.new
         data.suite_definition_name = map['suiteDefinitionName']
-        data.devices = (Parsers::DeviceUnderTestList.parse(map['devices']) unless map['devices'].nil?)
+        data.devices = (DeviceUnderTestList.parse(map['devices']) unless map['devices'].nil?)
         data.intended_for_qualification = map['intendedForQualification']
         data.root_group = map['rootGroup']
         data.device_permission_role_arn = map['devicePermissionRoleArn']
@@ -115,7 +115,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DeviceUnderTest.parse(value) unless value.nil?
+          data << DeviceUnderTest.parse(value) unless value.nil?
         end
         data
       end
@@ -139,13 +139,13 @@ module AWS::SDK::IotDeviceAdvisor
         data.suite_definition_version = map['suiteDefinitionVersion']
         data.suite_run_id = map['suiteRunId']
         data.suite_run_arn = map['suiteRunArn']
-        data.suite_run_configuration = (Parsers::SuiteRunConfiguration.parse(map['suiteRunConfiguration']) unless map['suiteRunConfiguration'].nil?)
-        data.test_result = (Parsers::TestResult.parse(map['testResult']) unless map['testResult'].nil?)
+        data.suite_run_configuration = (SuiteRunConfiguration.parse(map['suiteRunConfiguration']) unless map['suiteRunConfiguration'].nil?)
+        data.test_result = (TestResult.parse(map['testResult']) unless map['testResult'].nil?)
         data.start_time = Time.at(map['startTime'].to_i) if map['startTime']
         data.end_time = Time.at(map['endTime'].to_i) if map['endTime']
         data.status = map['status']
         data.error_reason = map['errorReason']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -153,7 +153,7 @@ module AWS::SDK::IotDeviceAdvisor
     class TestResult
       def self.parse(map)
         data = Types::TestResult.new
-        data.groups = (Parsers::GroupResultList.parse(map['groups']) unless map['groups'].nil?)
+        data.groups = (GroupResultList.parse(map['groups']) unless map['groups'].nil?)
         return data
       end
     end
@@ -162,7 +162,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GroupResult.parse(value) unless value.nil?
+          data << GroupResult.parse(value) unless value.nil?
         end
         data
       end
@@ -173,7 +173,7 @@ module AWS::SDK::IotDeviceAdvisor
         data = Types::GroupResult.new
         data.group_id = map['groupId']
         data.group_name = map['groupName']
-        data.tests = (Parsers::TestCaseRuns.parse(map['tests']) unless map['tests'].nil?)
+        data.tests = (TestCaseRuns.parse(map['tests']) unless map['tests'].nil?)
         return data
       end
     end
@@ -182,7 +182,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TestCaseRun.parse(value) unless value.nil?
+          data << TestCaseRun.parse(value) unless value.nil?
         end
         data
       end
@@ -207,8 +207,8 @@ module AWS::SDK::IotDeviceAdvisor
     class SuiteRunConfiguration
       def self.parse(map)
         data = Types::SuiteRunConfiguration.new
-        data.primary_device = (Parsers::DeviceUnderTest.parse(map['primaryDevice']) unless map['primaryDevice'].nil?)
-        data.selected_test_list = (Parsers::SelectedTestList.parse(map['selectedTestList']) unless map['selectedTestList'].nil?)
+        data.primary_device = (DeviceUnderTest.parse(map['primaryDevice']) unless map['primaryDevice'].nil?)
+        data.selected_test_list = (SelectedTestList.parse(map['selectedTestList']) unless map['selectedTestList'].nil?)
         data.parallel_run = map['parallelRun']
         return data
       end
@@ -239,7 +239,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.parse(http_resp)
         data = Types::ListSuiteDefinitionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.suite_definition_information_list = (Parsers::SuiteDefinitionInformationList.parse(map['suiteDefinitionInformationList']) unless map['suiteDefinitionInformationList'].nil?)
+        data.suite_definition_information_list = (SuiteDefinitionInformationList.parse(map['suiteDefinitionInformationList']) unless map['suiteDefinitionInformationList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -249,7 +249,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SuiteDefinitionInformation.parse(value) unless value.nil?
+          data << SuiteDefinitionInformation.parse(value) unless value.nil?
         end
         data
       end
@@ -260,7 +260,7 @@ module AWS::SDK::IotDeviceAdvisor
         data = Types::SuiteDefinitionInformation.new
         data.suite_definition_id = map['suiteDefinitionId']
         data.suite_definition_name = map['suiteDefinitionName']
-        data.default_devices = (Parsers::DeviceUnderTestList.parse(map['defaultDevices']) unless map['defaultDevices'].nil?)
+        data.default_devices = (DeviceUnderTestList.parse(map['defaultDevices']) unless map['defaultDevices'].nil?)
         data.intended_for_qualification = map['intendedForQualification']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         return data
@@ -272,7 +272,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.parse(http_resp)
         data = Types::ListSuiteRunsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.suite_runs_list = (Parsers::SuiteRunsList.parse(map['suiteRunsList']) unless map['suiteRunsList'].nil?)
+        data.suite_runs_list = (SuiteRunsList.parse(map['suiteRunsList']) unless map['suiteRunsList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -282,7 +282,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SuiteRunInformation.parse(value) unless value.nil?
+          data << SuiteRunInformation.parse(value) unless value.nil?
         end
         data
       end
@@ -310,7 +310,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end

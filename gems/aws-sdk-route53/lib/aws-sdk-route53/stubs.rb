@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Route53
   module Stubs
 
@@ -26,7 +28,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('ActivateKeySigningKeyResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::ChangeInfo.stub('ChangeInfo', stub[:change_info]) unless stub[:change_info].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -70,7 +72,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('AssociateVPCWithHostedZoneResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::ChangeInfo.stub('ChangeInfo', stub[:change_info]) unless stub[:change_info].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -90,7 +92,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('ChangeCidrCollectionResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -110,7 +112,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('ChangeResourceRecordSetsResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::ChangeInfo.stub('ChangeInfo', stub[:change_info]) unless stub[:change_info].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -145,7 +147,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('CreateCidrCollectionResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::CidrCollection.stub('Collection', stub[:collection]) unless stub[:collection].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -191,7 +193,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('CreateHealthCheckResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::HealthCheck.stub('HealthCheck', stub[:health_check]) unless stub[:health_check].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -451,7 +453,7 @@ module AWS::SDK::Route53
         xml << Stubs::ChangeInfo.stub('ChangeInfo', stub[:change_info]) unless stub[:change_info].nil?
         xml << Stubs::DelegationSet.stub('DelegationSet', stub[:delegation_set]) unless stub[:delegation_set].nil?
         xml << Stubs::VPC.stub('VPC', stub[:vpc]) unless stub[:vpc].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -585,7 +587,7 @@ module AWS::SDK::Route53
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::ChangeInfo.stub('ChangeInfo', stub[:change_info]) unless stub[:change_info].nil?
         xml << Stubs::KeySigningKey.stub('KeySigningKey', stub[:key_signing_key]) unless stub[:key_signing_key].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -655,7 +657,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('CreateQueryLoggingConfigResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::QueryLoggingConfig.stub('QueryLoggingConfig', stub[:query_logging_config]) unless stub[:query_logging_config].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -699,7 +701,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('CreateReusableDelegationSetResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::DelegationSet.stub('DelegationSet', stub[:delegation_set]) unless stub[:delegation_set].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -721,7 +723,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('CreateTrafficPolicyResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::TrafficPolicy.stub('TrafficPolicy', stub[:traffic_policy]) unless stub[:traffic_policy].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -771,7 +773,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('CreateTrafficPolicyInstanceResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::TrafficPolicyInstance.stub('TrafficPolicyInstance', stub[:traffic_policy_instance]) unless stub[:traffic_policy_instance].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -827,7 +829,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('CreateTrafficPolicyVersionResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::TrafficPolicy.stub('TrafficPolicy', stub[:traffic_policy]) unless stub[:traffic_policy].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -849,7 +851,7 @@ module AWS::SDK::Route53
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('HostedZoneId', stub[:hosted_zone_id].to_s) unless stub[:hosted_zone_id].nil?
         xml << Stubs::VPC.stub('VPC', stub[:vpc]) unless stub[:vpc].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -869,7 +871,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('DeactivateKeySigningKeyResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::ChangeInfo.stub('ChangeInfo', stub[:change_info]) unless stub[:change_info].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -915,7 +917,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('DeleteHostedZoneResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::ChangeInfo.stub('ChangeInfo', stub[:change_info]) unless stub[:change_info].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -935,7 +937,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('DeleteKeySigningKeyResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::ChangeInfo.stub('ChangeInfo', stub[:change_info]) unless stub[:change_info].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1020,7 +1022,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('DisableHostedZoneDNSSECResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::ChangeInfo.stub('ChangeInfo', stub[:change_info]) unless stub[:change_info].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1040,7 +1042,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('DisassociateVPCFromHostedZoneResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::ChangeInfo.stub('ChangeInfo', stub[:change_info]) unless stub[:change_info].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1060,7 +1062,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('EnableHostedZoneDNSSECResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::ChangeInfo.stub('ChangeInfo', stub[:change_info]) unless stub[:change_info].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1082,7 +1084,7 @@ module AWS::SDK::Route53
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::AccountLimit.stub('Limit', stub[:limit]) unless stub[:limit].nil?
         xml << Hearth::XML::Node.new('Count', stub[:count].to_s) unless stub[:count].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1122,7 +1124,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('GetChangeResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::ChangeInfo.stub('ChangeInfo', stub[:change_info]) unless stub[:change_info].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1142,7 +1144,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('GetCheckerIpRangesResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('CheckerIpRanges', Stubs::CheckerIpRanges.stub('member', stub[:checker_ip_ranges])) unless stub[:checker_ip_ranges].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1184,7 +1186,7 @@ module AWS::SDK::Route53
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::DNSSECStatus.stub('Status', stub[:status]) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('KeySigningKeys', Stubs::KeySigningKeys.stub('member', stub[:key_signing_keys])) unless stub[:key_signing_keys].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1244,7 +1246,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('GetGeoLocationResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::GeoLocationDetails.stub('GeoLocationDetails', stub[:geo_location_details]) unless stub[:geo_location_details].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1292,7 +1294,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('GetHealthCheckResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::HealthCheck.stub('HealthCheck', stub[:health_check]) unless stub[:health_check].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1312,7 +1314,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('GetHealthCheckCountResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('HealthCheckCount', stub[:health_check_count].to_s) unless stub[:health_check_count].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1332,7 +1334,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('GetHealthCheckLastFailureReasonResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('HealthCheckObservations', Stubs::HealthCheckObservations.stub('HealthCheckObservation', stub[:health_check_observations])) unless stub[:health_check_observations].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1414,7 +1416,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('GetHealthCheckStatusResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('HealthCheckObservations', Stubs::HealthCheckObservations.stub('HealthCheckObservation', stub[:health_check_observations])) unless stub[:health_check_observations].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1438,7 +1440,7 @@ module AWS::SDK::Route53
         xml << Stubs::HostedZone.stub('HostedZone', stub[:hosted_zone]) unless stub[:hosted_zone].nil?
         xml << Stubs::DelegationSet.stub('DelegationSet', stub[:delegation_set]) unless stub[:delegation_set].nil?
         xml << Hearth::XML::Node.new('VPCs', Stubs::VPCs.stub('VPC', stub[:vp_cs])) unless stub[:vp_cs].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1478,7 +1480,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('GetHostedZoneCountResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('HostedZoneCount', stub[:hosted_zone_count].to_s) unless stub[:hosted_zone_count].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1500,7 +1502,7 @@ module AWS::SDK::Route53
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::HostedZoneLimit.stub('Limit', stub[:limit]) unless stub[:limit].nil?
         xml << Hearth::XML::Node.new('Count', stub[:count].to_s) unless stub[:count].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1540,7 +1542,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('GetQueryLoggingConfigResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::QueryLoggingConfig.stub('QueryLoggingConfig', stub[:query_logging_config]) unless stub[:query_logging_config].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1560,7 +1562,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('GetReusableDelegationSetResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::DelegationSet.stub('DelegationSet', stub[:delegation_set]) unless stub[:delegation_set].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1582,7 +1584,7 @@ module AWS::SDK::Route53
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::ReusableDelegationSetLimit.stub('Limit', stub[:limit]) unless stub[:limit].nil?
         xml << Hearth::XML::Node.new('Count', stub[:count].to_s) unless stub[:count].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1622,7 +1624,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('GetTrafficPolicyResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::TrafficPolicy.stub('TrafficPolicy', stub[:traffic_policy]) unless stub[:traffic_policy].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1642,7 +1644,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('GetTrafficPolicyInstanceResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::TrafficPolicyInstance.stub('TrafficPolicyInstance', stub[:traffic_policy_instance]) unless stub[:traffic_policy_instance].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1662,7 +1664,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('GetTrafficPolicyInstanceCountResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('TrafficPolicyInstanceCount', stub[:traffic_policy_instance_count].to_s) unless stub[:traffic_policy_instance_count].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1684,7 +1686,7 @@ module AWS::SDK::Route53
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         xml << Hearth::XML::Node.new('CidrBlocks', Stubs::CidrBlockSummaries.stub('member', stub[:cidr_blocks])) unless stub[:cidr_blocks].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1746,7 +1748,7 @@ module AWS::SDK::Route53
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         xml << Hearth::XML::Node.new('CidrCollections', Stubs::CollectionSummaries.stub('member', stub[:cidr_collections])) unless stub[:cidr_collections].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1812,7 +1814,7 @@ module AWS::SDK::Route53
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         xml << Hearth::XML::Node.new('CidrLocations', Stubs::LocationSummaries.stub('member', stub[:cidr_locations])) unless stub[:cidr_locations].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1880,7 +1882,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('NextCountryCode', stub[:next_country_code].to_s) unless stub[:next_country_code].nil?
         xml << Hearth::XML::Node.new('NextSubdivisionCode', stub[:next_subdivision_code].to_s) unless stub[:next_subdivision_code].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1928,7 +1930,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1976,7 +1978,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2028,7 +2030,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('NextDNSName', stub[:next_dns_name].to_s) unless stub[:next_dns_name].nil?
         xml << Hearth::XML::Node.new('NextHostedZoneId', stub[:next_hosted_zone_id].to_s) unless stub[:next_hosted_zone_id].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2052,7 +2054,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('HostedZoneSummaries', Stubs::HostedZoneSummaries.stub('HostedZoneSummary', stub[:hosted_zone_summaries])) unless stub[:hosted_zone_summaries].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2136,7 +2138,7 @@ module AWS::SDK::Route53
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('QueryLoggingConfigs', Stubs::QueryLoggingConfigs.stub('QueryLoggingConfig', stub[:query_logging_configs])) unless stub[:query_logging_configs].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2186,7 +2188,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('NextRecordType', stub[:next_record_type].to_s) unless stub[:next_record_type].nil?
         xml << Hearth::XML::Node.new('NextRecordIdentifier', stub[:next_record_identifier].to_s) unless stub[:next_record_identifier].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2380,7 +2382,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2420,7 +2422,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('ListTagsForResourceResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::ResourceTagSet.stub('ResourceTagSet', stub[:resource_tag_set]) unless stub[:resource_tag_set].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2502,7 +2504,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('ListTagsForResourcesResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Hearth::XML::Node.new('ResourceTagSets', Stubs::ResourceTagSetList.stub('ResourceTagSet', stub[:resource_tag_sets])) unless stub[:resource_tag_sets].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2548,7 +2550,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('TrafficPolicyIdMarker', stub[:traffic_policy_id_marker].to_s) unless stub[:traffic_policy_id_marker].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2624,7 +2626,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('TrafficPolicyInstanceTypeMarker', stub[:traffic_policy_instance_type_marker].to_s) unless stub[:traffic_policy_instance_type_marker].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2672,7 +2674,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('TrafficPolicyInstanceTypeMarker', stub[:traffic_policy_instance_type_marker].to_s) unless stub[:traffic_policy_instance_type_marker].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2702,7 +2704,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('TrafficPolicyInstanceTypeMarker', stub[:traffic_policy_instance_type_marker].to_s) unless stub[:traffic_policy_instance_type_marker].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2728,7 +2730,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('TrafficPolicyVersionMarker', stub[:traffic_policy_version_marker].to_s) unless stub[:traffic_policy_version_marker].nil?
         xml << Hearth::XML::Node.new('MaxItems', stub[:max_items].to_s) unless stub[:max_items].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2772,7 +2774,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('HostedZoneId', stub[:hosted_zone_id].to_s) unless stub[:hosted_zone_id].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         xml << Hearth::XML::Node.new('VPCs', Stubs::VPCs.stub('VPC', stub[:vp_cs])) unless stub[:vp_cs].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2802,7 +2804,7 @@ module AWS::SDK::Route53
         xml << Hearth::XML::Node.new('RecordData', Stubs::RecordData.stub('RecordDataEntry', stub[:record_data])) unless stub[:record_data].nil?
         xml << Hearth::XML::Node.new('ResponseCode', stub[:response_code].to_s) unless stub[:response_code].nil?
         xml << Hearth::XML::Node.new('Protocol', stub[:protocol].to_s) unless stub[:protocol].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2842,7 +2844,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('UpdateHealthCheckResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::HealthCheck.stub('HealthCheck', stub[:health_check]) unless stub[:health_check].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2862,7 +2864,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('UpdateHostedZoneCommentResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::HostedZone.stub('HostedZone', stub[:hosted_zone]) unless stub[:hosted_zone].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2882,7 +2884,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('UpdateTrafficPolicyCommentResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::TrafficPolicy.stub('TrafficPolicy', stub[:traffic_policy]) unless stub[:traffic_policy].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2902,7 +2904,7 @@ module AWS::SDK::Route53
         xml = Hearth::XML::Node.new('UpdateTrafficPolicyInstanceResponse')
         xml.attributes['xmlns'] = 'https://route53.amazonaws.com/doc/2013-04-01/'
         xml << Stubs::TrafficPolicyInstance.stub('TrafficPolicyInstance', stub[:traffic_policy_instance]) unless stub[:traffic_policy_instance].nil?
-        http_resp.body = StringIO.new(xml.to_str)
+        http_resp.body = ::StringIO.new(xml.to_str)
       end
     end
   end

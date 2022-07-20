@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::PI
   module Builders
 
@@ -24,13 +26,13 @@ module AWS::SDK::PI
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['Metric'] = input[:metric] unless input[:metric].nil?
         data['PeriodInSeconds'] = input[:period_in_seconds] unless input[:period_in_seconds].nil?
-        data['GroupBy'] = Builders::DimensionGroup.build(input[:group_by]) unless input[:group_by].nil?
-        data['AdditionalMetrics'] = Builders::AdditionalMetricsList.build(input[:additional_metrics]) unless input[:additional_metrics].nil?
-        data['PartitionBy'] = Builders::DimensionGroup.build(input[:partition_by]) unless input[:partition_by].nil?
-        data['Filter'] = Builders::MetricQueryFilterMap.build(input[:filter]) unless input[:filter].nil?
+        data['GroupBy'] = DimensionGroup.build(input[:group_by]) unless input[:group_by].nil?
+        data['AdditionalMetrics'] = AdditionalMetricsList.build(input[:additional_metrics]) unless input[:additional_metrics].nil?
+        data['PartitionBy'] = DimensionGroup.build(input[:partition_by]) unless input[:partition_by].nil?
+        data['Filter'] = MetricQueryFilterMap.build(input[:filter]) unless input[:filter].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -50,7 +52,7 @@ module AWS::SDK::PI
       def self.build(input)
         data = {}
         data['Group'] = input[:group] unless input[:group].nil?
-        data['Dimensions'] = Builders::RequestStringList.build(input[:dimensions]) unless input[:dimensions].nil?
+        data['Dimensions'] = RequestStringList.build(input[:dimensions]) unless input[:dimensions].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data
       end
@@ -90,8 +92,8 @@ module AWS::SDK::PI
         data['Identifier'] = input[:identifier] unless input[:identifier].nil?
         data['Group'] = input[:group] unless input[:group].nil?
         data['GroupIdentifier'] = input[:group_identifier] unless input[:group_identifier].nil?
-        data['RequestedDimensions'] = Builders::RequestedDimensionList.build(input[:requested_dimensions]) unless input[:requested_dimensions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RequestedDimensions'] = RequestedDimensionList.build(input[:requested_dimensions]) unless input[:requested_dimensions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -116,7 +118,7 @@ module AWS::SDK::PI
         data = {}
         data['ServiceType'] = input[:service_type] unless input[:service_type].nil?
         data['Identifier'] = input[:identifier] unless input[:identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -130,13 +132,13 @@ module AWS::SDK::PI
         data = {}
         data['ServiceType'] = input[:service_type] unless input[:service_type].nil?
         data['Identifier'] = input[:identifier] unless input[:identifier].nil?
-        data['MetricQueries'] = Builders::MetricQueryList.build(input[:metric_queries]) unless input[:metric_queries].nil?
+        data['MetricQueries'] = MetricQueryList.build(input[:metric_queries]) unless input[:metric_queries].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['PeriodInSeconds'] = input[:period_in_seconds] unless input[:period_in_seconds].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -145,7 +147,7 @@ module AWS::SDK::PI
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MetricQuery.build(element) unless element.nil?
+          data << MetricQuery.build(element) unless element.nil?
         end
         data
       end
@@ -156,8 +158,8 @@ module AWS::SDK::PI
       def self.build(input)
         data = {}
         data['Metric'] = input[:metric] unless input[:metric].nil?
-        data['GroupBy'] = Builders::DimensionGroup.build(input[:group_by]) unless input[:group_by].nil?
-        data['Filter'] = Builders::MetricQueryFilterMap.build(input[:filter]) unless input[:filter].nil?
+        data['GroupBy'] = DimensionGroup.build(input[:group_by]) unless input[:group_by].nil?
+        data['Filter'] = MetricQueryFilterMap.build(input[:filter]) unless input[:filter].nil?
         data
       end
     end
@@ -172,10 +174,10 @@ module AWS::SDK::PI
         data = {}
         data['ServiceType'] = input[:service_type] unless input[:service_type].nil?
         data['Identifier'] = input[:identifier] unless input[:identifier].nil?
-        data['Metrics'] = Builders::DimensionsMetricList.build(input[:metrics]) unless input[:metrics].nil?
+        data['Metrics'] = DimensionsMetricList.build(input[:metrics]) unless input[:metrics].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -200,10 +202,10 @@ module AWS::SDK::PI
         data = {}
         data['ServiceType'] = input[:service_type] unless input[:service_type].nil?
         data['Identifier'] = input[:identifier] unless input[:identifier].nil?
-        data['MetricTypes'] = Builders::MetricTypeList.build(input[:metric_types]) unless input[:metric_types].nil?
+        data['MetricTypes'] = MetricTypeList.build(input[:metric_types]) unless input[:metric_types].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

@@ -36,7 +36,7 @@ module AWS::SDK::AccessAnalyzer
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['message'] || map['Message']
         data.reason = map['reason']
-        data.field_list = (Parsers::ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
+        data.field_list = (ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
         data
       end
     end
@@ -45,7 +45,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          data << ValidationExceptionField.parse(value) unless value.nil?
         end
         data
       end
@@ -179,7 +179,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(http_resp)
         data = Types::GetAccessPreviewOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.access_preview = (Parsers::AccessPreview.parse(map['accessPreview']) unless map['accessPreview'].nil?)
+        data.access_preview = (AccessPreview.parse(map['accessPreview']) unless map['accessPreview'].nil?)
         data
       end
     end
@@ -189,10 +189,10 @@ module AWS::SDK::AccessAnalyzer
         data = Types::AccessPreview.new
         data.id = map['id']
         data.analyzer_arn = map['analyzerArn']
-        data.configurations = (Parsers::ConfigurationsMap.parse(map['configurations']) unless map['configurations'].nil?)
+        data.configurations = (ConfigurationsMap.parse(map['configurations']) unless map['configurations'].nil?)
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
         data.status = map['status']
-        data.status_reason = (Parsers::AccessPreviewStatusReason.parse(map['statusReason']) unless map['statusReason'].nil?)
+        data.status_reason = (AccessPreviewStatusReason.parse(map['statusReason']) unless map['statusReason'].nil?)
         return data
       end
     end
@@ -209,7 +209,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::Configuration.parse(value) unless value.nil?
+          data[key] = Configuration.parse(value) unless value.nil?
         end
         data
       end
@@ -220,19 +220,19 @@ module AWS::SDK::AccessAnalyzer
         key, value = map.flatten
         case key
         when 'iamRole'
-          value = (Parsers::IamRoleConfiguration.parse(value) unless value.nil?)
+          value = (IamRoleConfiguration.parse(value) unless value.nil?)
           Types::Configuration::IamRole.new(value) if value
         when 'kmsKey'
-          value = (Parsers::KmsKeyConfiguration.parse(value) unless value.nil?)
+          value = (KmsKeyConfiguration.parse(value) unless value.nil?)
           Types::Configuration::KmsKey.new(value) if value
         when 'secretsManagerSecret'
-          value = (Parsers::SecretsManagerSecretConfiguration.parse(value) unless value.nil?)
+          value = (SecretsManagerSecretConfiguration.parse(value) unless value.nil?)
           Types::Configuration::SecretsManagerSecret.new(value) if value
         when 's3Bucket'
-          value = (Parsers::S3BucketConfiguration.parse(value) unless value.nil?)
+          value = (S3BucketConfiguration.parse(value) unless value.nil?)
           Types::Configuration::S3Bucket.new(value) if value
         when 'sqsQueue'
-          value = (Parsers::SqsQueueConfiguration.parse(value) unless value.nil?)
+          value = (SqsQueueConfiguration.parse(value) unless value.nil?)
           Types::Configuration::SqsQueue.new(value) if value
         else
           Types::Configuration::Unknown.new({name: key, value: value})
@@ -252,9 +252,9 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(map)
         data = Types::S3BucketConfiguration.new
         data.bucket_policy = map['bucketPolicy']
-        data.bucket_acl_grants = (Parsers::S3BucketAclGrantConfigurationsList.parse(map['bucketAclGrants']) unless map['bucketAclGrants'].nil?)
-        data.bucket_public_access_block = (Parsers::S3PublicAccessBlockConfiguration.parse(map['bucketPublicAccessBlock']) unless map['bucketPublicAccessBlock'].nil?)
-        data.access_points = (Parsers::S3AccessPointConfigurationsMap.parse(map['accessPoints']) unless map['accessPoints'].nil?)
+        data.bucket_acl_grants = (S3BucketAclGrantConfigurationsList.parse(map['bucketAclGrants']) unless map['bucketAclGrants'].nil?)
+        data.bucket_public_access_block = (S3PublicAccessBlockConfiguration.parse(map['bucketPublicAccessBlock']) unless map['bucketPublicAccessBlock'].nil?)
+        data.access_points = (S3AccessPointConfigurationsMap.parse(map['accessPoints']) unless map['accessPoints'].nil?)
         return data
       end
     end
@@ -263,7 +263,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::S3AccessPointConfiguration.parse(value) unless value.nil?
+          data[key] = S3AccessPointConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -273,8 +273,8 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(map)
         data = Types::S3AccessPointConfiguration.new
         data.access_point_policy = map['accessPointPolicy']
-        data.public_access_block = (Parsers::S3PublicAccessBlockConfiguration.parse(map['publicAccessBlock']) unless map['publicAccessBlock'].nil?)
-        data.network_origin = (Parsers::NetworkOriginConfiguration.parse(map['networkOrigin']) unless map['networkOrigin'].nil?)
+        data.public_access_block = (S3PublicAccessBlockConfiguration.parse(map['publicAccessBlock']) unless map['publicAccessBlock'].nil?)
+        data.network_origin = (NetworkOriginConfiguration.parse(map['networkOrigin']) unless map['networkOrigin'].nil?)
         return data
       end
     end
@@ -284,10 +284,10 @@ module AWS::SDK::AccessAnalyzer
         key, value = map.flatten
         case key
         when 'vpcConfiguration'
-          value = (Parsers::VpcConfiguration.parse(value) unless value.nil?)
+          value = (VpcConfiguration.parse(value) unless value.nil?)
           Types::NetworkOriginConfiguration::VpcConfiguration.new(value) if value
         when 'internetConfiguration'
-          value = (Parsers::InternetConfiguration.parse(value) unless value.nil?)
+          value = (InternetConfiguration.parse(value) unless value.nil?)
           Types::NetworkOriginConfiguration::InternetConfiguration.new(value) if value
         else
           Types::NetworkOriginConfiguration::Unknown.new({name: key, value: value})
@@ -323,7 +323,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::S3BucketAclGrantConfiguration.parse(value) unless value.nil?
+          data << S3BucketAclGrantConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -333,7 +333,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(map)
         data = Types::S3BucketAclGrantConfiguration.new
         data.permission = map['permission']
-        data.grantee = (Parsers::AclGrantee.parse(map['grantee']) unless map['grantee'].nil?)
+        data.grantee = (AclGrantee.parse(map['grantee']) unless map['grantee'].nil?)
         return data
       end
     end
@@ -366,8 +366,8 @@ module AWS::SDK::AccessAnalyzer
     class KmsKeyConfiguration
       def self.parse(map)
         data = Types::KmsKeyConfiguration.new
-        data.key_policies = (Parsers::KmsKeyPoliciesMap.parse(map['keyPolicies']) unless map['keyPolicies'].nil?)
-        data.grants = (Parsers::KmsGrantConfigurationsList.parse(map['grants']) unless map['grants'].nil?)
+        data.key_policies = (KmsKeyPoliciesMap.parse(map['keyPolicies']) unless map['keyPolicies'].nil?)
+        data.grants = (KmsGrantConfigurationsList.parse(map['grants']) unless map['grants'].nil?)
         return data
       end
     end
@@ -376,7 +376,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::KmsGrantConfiguration.parse(value) unless value.nil?
+          data << KmsGrantConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -385,10 +385,10 @@ module AWS::SDK::AccessAnalyzer
     class KmsGrantConfiguration
       def self.parse(map)
         data = Types::KmsGrantConfiguration.new
-        data.operations = (Parsers::KmsGrantOperationsList.parse(map['operations']) unless map['operations'].nil?)
+        data.operations = (KmsGrantOperationsList.parse(map['operations']) unless map['operations'].nil?)
         data.grantee_principal = map['granteePrincipal']
         data.retiring_principal = map['retiringPrincipal']
-        data.constraints = (Parsers::KmsGrantConstraints.parse(map['constraints']) unless map['constraints'].nil?)
+        data.constraints = (KmsGrantConstraints.parse(map['constraints']) unless map['constraints'].nil?)
         data.issuing_account = map['issuingAccount']
         return data
       end
@@ -397,8 +397,8 @@ module AWS::SDK::AccessAnalyzer
     class KmsGrantConstraints
       def self.parse(map)
         data = Types::KmsGrantConstraints.new
-        data.encryption_context_equals = (Parsers::KmsConstraintsMap.parse(map['encryptionContextEquals']) unless map['encryptionContextEquals'].nil?)
-        data.encryption_context_subset = (Parsers::KmsConstraintsMap.parse(map['encryptionContextSubset']) unless map['encryptionContextSubset'].nil?)
+        data.encryption_context_equals = (KmsConstraintsMap.parse(map['encryptionContextEquals']) unless map['encryptionContextEquals'].nil?)
+        data.encryption_context_subset = (KmsConstraintsMap.parse(map['encryptionContextSubset']) unless map['encryptionContextSubset'].nil?)
         return data
       end
     end
@@ -446,7 +446,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(http_resp)
         data = Types::GetAnalyzedResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource = (Parsers::AnalyzedResource.parse(map['resource']) unless map['resource'].nil?)
+        data.resource = (AnalyzedResource.parse(map['resource']) unless map['resource'].nil?)
         data
       end
     end
@@ -460,8 +460,8 @@ module AWS::SDK::AccessAnalyzer
         data.analyzed_at = Time.parse(map['analyzedAt']) if map['analyzedAt']
         data.updated_at = Time.parse(map['updatedAt']) if map['updatedAt']
         data.is_public = map['isPublic']
-        data.actions = (Parsers::ActionList.parse(map['actions']) unless map['actions'].nil?)
-        data.shared_via = (Parsers::SharedViaList.parse(map['sharedVia']) unless map['sharedVia'].nil?)
+        data.actions = (ActionList.parse(map['actions']) unless map['actions'].nil?)
+        data.shared_via = (SharedViaList.parse(map['sharedVia']) unless map['sharedVia'].nil?)
         data.status = map['status']
         data.resource_owner_account = map['resourceOwnerAccount']
         data.error = map['error']
@@ -494,7 +494,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(http_resp)
         data = Types::GetAnalyzerOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.analyzer = (Parsers::AnalyzerSummary.parse(map['analyzer']) unless map['analyzer'].nil?)
+        data.analyzer = (AnalyzerSummary.parse(map['analyzer']) unless map['analyzer'].nil?)
         data
       end
     end
@@ -508,9 +508,9 @@ module AWS::SDK::AccessAnalyzer
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
         data.last_resource_analyzed = map['lastResourceAnalyzed']
         data.last_resource_analyzed_at = Time.parse(map['lastResourceAnalyzedAt']) if map['lastResourceAnalyzedAt']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data.status = map['status']
-        data.status_reason = (Parsers::StatusReason.parse(map['statusReason']) unless map['statusReason'].nil?)
+        data.status_reason = (StatusReason.parse(map['statusReason']) unless map['statusReason'].nil?)
         return data
       end
     end
@@ -538,7 +538,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(http_resp)
         data = Types::GetArchiveRuleOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.archive_rule = (Parsers::ArchiveRuleSummary.parse(map['archiveRule']) unless map['archiveRule'].nil?)
+        data.archive_rule = (ArchiveRuleSummary.parse(map['archiveRule']) unless map['archiveRule'].nil?)
         data
       end
     end
@@ -547,7 +547,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(map)
         data = Types::ArchiveRuleSummary.new
         data.rule_name = map['ruleName']
-        data.filter = (Parsers::FilterCriteriaMap.parse(map['filter']) unless map['filter'].nil?)
+        data.filter = (FilterCriteriaMap.parse(map['filter']) unless map['filter'].nil?)
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
         data.updated_at = Time.parse(map['updatedAt']) if map['updatedAt']
         return data
@@ -558,7 +558,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::Criterion.parse(value) unless value.nil?
+          data[key] = Criterion.parse(value) unless value.nil?
         end
         data
       end
@@ -567,9 +567,9 @@ module AWS::SDK::AccessAnalyzer
     class Criterion
       def self.parse(map)
         data = Types::Criterion.new
-        data.eq = (Parsers::ValueList.parse(map['eq']) unless map['eq'].nil?)
-        data.neq = (Parsers::ValueList.parse(map['neq']) unless map['neq'].nil?)
-        data.contains = (Parsers::ValueList.parse(map['contains']) unless map['contains'].nil?)
+        data.eq = (ValueList.parse(map['eq']) unless map['eq'].nil?)
+        data.neq = (ValueList.parse(map['neq']) unless map['neq'].nil?)
+        data.contains = (ValueList.parse(map['contains']) unless map['contains'].nil?)
         data.exists = map['exists']
         return data
       end
@@ -590,7 +590,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(http_resp)
         data = Types::GetFindingOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.finding = (Parsers::Finding.parse(map['finding']) unless map['finding'].nil?)
+        data.finding = (Finding.parse(map['finding']) unless map['finding'].nil?)
         data
       end
     end
@@ -599,19 +599,19 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(map)
         data = Types::Finding.new
         data.id = map['id']
-        data.principal = (Parsers::PrincipalMap.parse(map['principal']) unless map['principal'].nil?)
-        data.action = (Parsers::ActionList.parse(map['action']) unless map['action'].nil?)
+        data.principal = (PrincipalMap.parse(map['principal']) unless map['principal'].nil?)
+        data.action = (ActionList.parse(map['action']) unless map['action'].nil?)
         data.resource = map['resource']
         data.is_public = map['isPublic']
         data.resource_type = map['resourceType']
-        data.condition = (Parsers::ConditionKeyMap.parse(map['condition']) unless map['condition'].nil?)
+        data.condition = (ConditionKeyMap.parse(map['condition']) unless map['condition'].nil?)
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
         data.analyzed_at = Time.parse(map['analyzedAt']) if map['analyzedAt']
         data.updated_at = Time.parse(map['updatedAt']) if map['updatedAt']
         data.status = map['status']
         data.resource_owner_account = map['resourceOwnerAccount']
         data.error = map['error']
-        data.sources = (Parsers::FindingSourceList.parse(map['sources']) unless map['sources'].nil?)
+        data.sources = (FindingSourceList.parse(map['sources']) unless map['sources'].nil?)
         return data
       end
     end
@@ -620,7 +620,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FindingSource.parse(value) unless value.nil?
+          data << FindingSource.parse(value) unless value.nil?
         end
         data
       end
@@ -630,7 +630,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(map)
         data = Types::FindingSource.new
         data.type = map['type']
-        data.detail = (Parsers::FindingSourceDetail.parse(map['detail']) unless map['detail'].nil?)
+        data.detail = (FindingSourceDetail.parse(map['detail']) unless map['detail'].nil?)
         return data
       end
     end
@@ -668,8 +668,8 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(http_resp)
         data = Types::GetGeneratedPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_details = (Parsers::JobDetails.parse(map['jobDetails']) unless map['jobDetails'].nil?)
-        data.generated_policy_result = (Parsers::GeneratedPolicyResult.parse(map['generatedPolicyResult']) unless map['generatedPolicyResult'].nil?)
+        data.job_details = (JobDetails.parse(map['jobDetails']) unless map['jobDetails'].nil?)
+        data.generated_policy_result = (GeneratedPolicyResult.parse(map['generatedPolicyResult']) unless map['generatedPolicyResult'].nil?)
         data
       end
     end
@@ -677,8 +677,8 @@ module AWS::SDK::AccessAnalyzer
     class GeneratedPolicyResult
       def self.parse(map)
         data = Types::GeneratedPolicyResult.new
-        data.properties = (Parsers::GeneratedPolicyProperties.parse(map['properties']) unless map['properties'].nil?)
-        data.generated_policies = (Parsers::GeneratedPolicyList.parse(map['generatedPolicies']) unless map['generatedPolicies'].nil?)
+        data.properties = (GeneratedPolicyProperties.parse(map['properties']) unless map['properties'].nil?)
+        data.generated_policies = (GeneratedPolicyList.parse(map['generatedPolicies']) unless map['generatedPolicies'].nil?)
         return data
       end
     end
@@ -687,7 +687,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GeneratedPolicy.parse(value) unless value.nil?
+          data << GeneratedPolicy.parse(value) unless value.nil?
         end
         data
       end
@@ -706,7 +706,7 @@ module AWS::SDK::AccessAnalyzer
         data = Types::GeneratedPolicyProperties.new
         data.is_complete = map['isComplete']
         data.principal_arn = map['principalArn']
-        data.cloud_trail_properties = (Parsers::CloudTrailProperties.parse(map['cloudTrailProperties']) unless map['cloudTrailProperties'].nil?)
+        data.cloud_trail_properties = (CloudTrailProperties.parse(map['cloudTrailProperties']) unless map['cloudTrailProperties'].nil?)
         return data
       end
     end
@@ -714,7 +714,7 @@ module AWS::SDK::AccessAnalyzer
     class CloudTrailProperties
       def self.parse(map)
         data = Types::CloudTrailProperties.new
-        data.trail_properties = (Parsers::TrailPropertiesList.parse(map['trailProperties']) unless map['trailProperties'].nil?)
+        data.trail_properties = (TrailPropertiesList.parse(map['trailProperties']) unless map['trailProperties'].nil?)
         data.start_time = Time.parse(map['startTime']) if map['startTime']
         data.end_time = Time.parse(map['endTime']) if map['endTime']
         return data
@@ -725,7 +725,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TrailProperties.parse(value) unless value.nil?
+          data << TrailProperties.parse(value) unless value.nil?
         end
         data
       end
@@ -735,7 +735,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(map)
         data = Types::TrailProperties.new
         data.cloud_trail_arn = map['cloudTrailArn']
-        data.regions = (Parsers::RegionList.parse(map['regions']) unless map['regions'].nil?)
+        data.regions = (RegionList.parse(map['regions']) unless map['regions'].nil?)
         data.all_regions = map['allRegions']
         return data
       end
@@ -758,7 +758,7 @@ module AWS::SDK::AccessAnalyzer
         data.status = map['status']
         data.started_on = Time.parse(map['startedOn']) if map['startedOn']
         data.completed_on = Time.parse(map['completedOn']) if map['completedOn']
-        data.job_error = (Parsers::JobError.parse(map['jobError']) unless map['jobError'].nil?)
+        data.job_error = (JobError.parse(map['jobError']) unless map['jobError'].nil?)
         return data
       end
     end
@@ -777,7 +777,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(http_resp)
         data = Types::ListAccessPreviewFindingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.findings = (Parsers::AccessPreviewFindingsList.parse(map['findings']) unless map['findings'].nil?)
+        data.findings = (AccessPreviewFindingsList.parse(map['findings']) unless map['findings'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -787,7 +787,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AccessPreviewFinding.parse(value) unless value.nil?
+          data << AccessPreviewFinding.parse(value) unless value.nil?
         end
         data
       end
@@ -799,9 +799,9 @@ module AWS::SDK::AccessAnalyzer
         data.id = map['id']
         data.existing_finding_id = map['existingFindingId']
         data.existing_finding_status = map['existingFindingStatus']
-        data.principal = (Parsers::PrincipalMap.parse(map['principal']) unless map['principal'].nil?)
-        data.action = (Parsers::ActionList.parse(map['action']) unless map['action'].nil?)
-        data.condition = (Parsers::ConditionKeyMap.parse(map['condition']) unless map['condition'].nil?)
+        data.principal = (PrincipalMap.parse(map['principal']) unless map['principal'].nil?)
+        data.action = (ActionList.parse(map['action']) unless map['action'].nil?)
+        data.condition = (ConditionKeyMap.parse(map['condition']) unless map['condition'].nil?)
         data.resource = map['resource']
         data.is_public = map['isPublic']
         data.resource_type = map['resourceType']
@@ -810,7 +810,7 @@ module AWS::SDK::AccessAnalyzer
         data.status = map['status']
         data.resource_owner_account = map['resourceOwnerAccount']
         data.error = map['error']
-        data.sources = (Parsers::FindingSourceList.parse(map['sources']) unless map['sources'].nil?)
+        data.sources = (FindingSourceList.parse(map['sources']) unless map['sources'].nil?)
         return data
       end
     end
@@ -820,7 +820,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(http_resp)
         data = Types::ListAccessPreviewsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.access_previews = (Parsers::AccessPreviewsList.parse(map['accessPreviews']) unless map['accessPreviews'].nil?)
+        data.access_previews = (AccessPreviewsList.parse(map['accessPreviews']) unless map['accessPreviews'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -830,7 +830,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AccessPreviewSummary.parse(value) unless value.nil?
+          data << AccessPreviewSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -843,7 +843,7 @@ module AWS::SDK::AccessAnalyzer
         data.analyzer_arn = map['analyzerArn']
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
         data.status = map['status']
-        data.status_reason = (Parsers::AccessPreviewStatusReason.parse(map['statusReason']) unless map['statusReason'].nil?)
+        data.status_reason = (AccessPreviewStatusReason.parse(map['statusReason']) unless map['statusReason'].nil?)
         return data
       end
     end
@@ -853,7 +853,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(http_resp)
         data = Types::ListAnalyzedResourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.analyzed_resources = (Parsers::AnalyzedResourcesList.parse(map['analyzedResources']) unless map['analyzedResources'].nil?)
+        data.analyzed_resources = (AnalyzedResourcesList.parse(map['analyzedResources']) unless map['analyzedResources'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -863,7 +863,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AnalyzedResourceSummary.parse(value) unless value.nil?
+          data << AnalyzedResourceSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -884,7 +884,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(http_resp)
         data = Types::ListAnalyzersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.analyzers = (Parsers::AnalyzersList.parse(map['analyzers']) unless map['analyzers'].nil?)
+        data.analyzers = (AnalyzersList.parse(map['analyzers']) unless map['analyzers'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -894,7 +894,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AnalyzerSummary.parse(value) unless value.nil?
+          data << AnalyzerSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -905,7 +905,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(http_resp)
         data = Types::ListArchiveRulesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.archive_rules = (Parsers::ArchiveRulesList.parse(map['archiveRules']) unless map['archiveRules'].nil?)
+        data.archive_rules = (ArchiveRulesList.parse(map['archiveRules']) unless map['archiveRules'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -915,7 +915,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ArchiveRuleSummary.parse(value) unless value.nil?
+          data << ArchiveRuleSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -926,7 +926,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(http_resp)
         data = Types::ListFindingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.findings = (Parsers::FindingsList.parse(map['findings']) unless map['findings'].nil?)
+        data.findings = (FindingsList.parse(map['findings']) unless map['findings'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -936,7 +936,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FindingSummary.parse(value) unless value.nil?
+          data << FindingSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -946,19 +946,19 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(map)
         data = Types::FindingSummary.new
         data.id = map['id']
-        data.principal = (Parsers::PrincipalMap.parse(map['principal']) unless map['principal'].nil?)
-        data.action = (Parsers::ActionList.parse(map['action']) unless map['action'].nil?)
+        data.principal = (PrincipalMap.parse(map['principal']) unless map['principal'].nil?)
+        data.action = (ActionList.parse(map['action']) unless map['action'].nil?)
         data.resource = map['resource']
         data.is_public = map['isPublic']
         data.resource_type = map['resourceType']
-        data.condition = (Parsers::ConditionKeyMap.parse(map['condition']) unless map['condition'].nil?)
+        data.condition = (ConditionKeyMap.parse(map['condition']) unless map['condition'].nil?)
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
         data.analyzed_at = Time.parse(map['analyzedAt']) if map['analyzedAt']
         data.updated_at = Time.parse(map['updatedAt']) if map['updatedAt']
         data.status = map['status']
         data.resource_owner_account = map['resourceOwnerAccount']
         data.error = map['error']
-        data.sources = (Parsers::FindingSourceList.parse(map['sources']) unless map['sources'].nil?)
+        data.sources = (FindingSourceList.parse(map['sources']) unless map['sources'].nil?)
         return data
       end
     end
@@ -968,7 +968,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(http_resp)
         data = Types::ListPolicyGenerationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policy_generations = (Parsers::PolicyGenerationList.parse(map['policyGenerations']) unless map['policyGenerations'].nil?)
+        data.policy_generations = (PolicyGenerationList.parse(map['policyGenerations']) unless map['policyGenerations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -978,7 +978,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PolicyGeneration.parse(value) unless value.nil?
+          data << PolicyGeneration.parse(value) unless value.nil?
         end
         data
       end
@@ -1001,7 +1001,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1066,7 +1066,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(http_resp)
         data = Types::ValidatePolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.findings = (Parsers::ValidatePolicyFindingList.parse(map['findings']) unless map['findings'].nil?)
+        data.findings = (ValidatePolicyFindingList.parse(map['findings']) unless map['findings'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1076,7 +1076,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidatePolicyFinding.parse(value) unless value.nil?
+          data << ValidatePolicyFinding.parse(value) unless value.nil?
         end
         data
       end
@@ -1089,7 +1089,7 @@ module AWS::SDK::AccessAnalyzer
         data.finding_type = map['findingType']
         data.issue_code = map['issueCode']
         data.learn_more_link = map['learnMoreLink']
-        data.locations = (Parsers::LocationList.parse(map['locations']) unless map['locations'].nil?)
+        data.locations = (LocationList.parse(map['locations']) unless map['locations'].nil?)
         return data
       end
     end
@@ -1098,7 +1098,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Location.parse(value) unless value.nil?
+          data << Location.parse(value) unless value.nil?
         end
         data
       end
@@ -1107,8 +1107,8 @@ module AWS::SDK::AccessAnalyzer
     class Location
       def self.parse(map)
         data = Types::Location.new
-        data.path = (Parsers::PathElementList.parse(map['path']) unless map['path'].nil?)
-        data.span = (Parsers::Span.parse(map['span']) unless map['span'].nil?)
+        data.path = (PathElementList.parse(map['path']) unless map['path'].nil?)
+        data.span = (Span.parse(map['span']) unless map['span'].nil?)
         return data
       end
     end
@@ -1116,8 +1116,8 @@ module AWS::SDK::AccessAnalyzer
     class Span
       def self.parse(map)
         data = Types::Span.new
-        data.start = (Parsers::Position.parse(map['start']) unless map['start'].nil?)
-        data.end = (Parsers::Position.parse(map['end']) unless map['end'].nil?)
+        data.start = (Position.parse(map['start']) unless map['start'].nil?)
+        data.end = (Position.parse(map['end']) unless map['end'].nil?)
         return data
       end
     end
@@ -1136,7 +1136,7 @@ module AWS::SDK::AccessAnalyzer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PathElement.parse(value) unless value.nil?
+          data << PathElement.parse(value) unless value.nil?
         end
         data
       end
@@ -1153,7 +1153,7 @@ module AWS::SDK::AccessAnalyzer
           value = value
           Types::PathElement::Key.new(value) if value
         when 'substring'
-          value = (Parsers::Substring.parse(value) unless value.nil?)
+          value = (Substring.parse(value) unless value.nil?)
           Types::PathElement::Substring.new(value) if value
         when 'value'
           value = value

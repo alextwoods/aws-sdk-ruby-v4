@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::QLDBSession
   module Parsers
 
@@ -17,13 +19,13 @@ module AWS::SDK::QLDBSession
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.start_session = (Parsers::StartSessionResult.parse(map['StartSession']) unless map['StartSession'].nil?)
-        data.start_transaction = (Parsers::StartTransactionResult.parse(map['StartTransaction']) unless map['StartTransaction'].nil?)
-        data.end_session = (Parsers::EndSessionResult.parse(map['EndSession']) unless map['EndSession'].nil?)
-        data.commit_transaction = (Parsers::CommitTransactionResult.parse(map['CommitTransaction']) unless map['CommitTransaction'].nil?)
-        data.abort_transaction = (Parsers::AbortTransactionResult.parse(map['AbortTransaction']) unless map['AbortTransaction'].nil?)
-        data.execute_statement = (Parsers::ExecuteStatementResult.parse(map['ExecuteStatement']) unless map['ExecuteStatement'].nil?)
-        data.fetch_page = (Parsers::FetchPageResult.parse(map['FetchPage']) unless map['FetchPage'].nil?)
+        data.start_session = (StartSessionResult.parse(map['StartSession']) unless map['StartSession'].nil?)
+        data.start_transaction = (StartTransactionResult.parse(map['StartTransaction']) unless map['StartTransaction'].nil?)
+        data.end_session = (EndSessionResult.parse(map['EndSession']) unless map['EndSession'].nil?)
+        data.commit_transaction = (CommitTransactionResult.parse(map['CommitTransaction']) unless map['CommitTransaction'].nil?)
+        data.abort_transaction = (AbortTransactionResult.parse(map['AbortTransaction']) unless map['AbortTransaction'].nil?)
+        data.execute_statement = (ExecuteStatementResult.parse(map['ExecuteStatement']) unless map['ExecuteStatement'].nil?)
+        data.fetch_page = (FetchPageResult.parse(map['FetchPage']) unless map['FetchPage'].nil?)
         data
       end
     end
@@ -31,9 +33,9 @@ module AWS::SDK::QLDBSession
     class FetchPageResult
       def self.parse(map)
         data = Types::FetchPageResult.new
-        data.page = (Parsers::Page.parse(map['Page']) unless map['Page'].nil?)
-        data.timing_information = (Parsers::TimingInformation.parse(map['TimingInformation']) unless map['TimingInformation'].nil?)
-        data.consumed_i_os = (Parsers::IOUsage.parse(map['ConsumedIOs']) unless map['ConsumedIOs'].nil?)
+        data.page = (Page.parse(map['Page']) unless map['Page'].nil?)
+        data.timing_information = (TimingInformation.parse(map['TimingInformation']) unless map['TimingInformation'].nil?)
+        data.consumed_i_os = (IOUsage.parse(map['ConsumedIOs']) unless map['ConsumedIOs'].nil?)
         return data
       end
     end
@@ -58,7 +60,7 @@ module AWS::SDK::QLDBSession
     class Page
       def self.parse(map)
         data = Types::Page.new
-        data.values = (Parsers::ValueHolders.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (ValueHolders.parse(map['Values']) unless map['Values'].nil?)
         data.next_page_token = map['NextPageToken']
         return data
       end
@@ -67,7 +69,7 @@ module AWS::SDK::QLDBSession
     class ValueHolders
       def self.parse(list)
         list.map do |value|
-          Parsers::ValueHolder.parse(value) unless value.nil?
+          ValueHolder.parse(value) unless value.nil?
         end
       end
     end
@@ -75,7 +77,7 @@ module AWS::SDK::QLDBSession
     class ValueHolder
       def self.parse(map)
         data = Types::ValueHolder.new
-        data.ion_binary = Base64::decode64(map['IonBinary']) unless map['IonBinary'].nil?
+        data.ion_binary = ::Base64::decode64(map['IonBinary']) unless map['IonBinary'].nil?
         data.ion_text = map['IonText']
         return data
       end
@@ -84,9 +86,9 @@ module AWS::SDK::QLDBSession
     class ExecuteStatementResult
       def self.parse(map)
         data = Types::ExecuteStatementResult.new
-        data.first_page = (Parsers::Page.parse(map['FirstPage']) unless map['FirstPage'].nil?)
-        data.timing_information = (Parsers::TimingInformation.parse(map['TimingInformation']) unless map['TimingInformation'].nil?)
-        data.consumed_i_os = (Parsers::IOUsage.parse(map['ConsumedIOs']) unless map['ConsumedIOs'].nil?)
+        data.first_page = (Page.parse(map['FirstPage']) unless map['FirstPage'].nil?)
+        data.timing_information = (TimingInformation.parse(map['TimingInformation']) unless map['TimingInformation'].nil?)
+        data.consumed_i_os = (IOUsage.parse(map['ConsumedIOs']) unless map['ConsumedIOs'].nil?)
         return data
       end
     end
@@ -94,7 +96,7 @@ module AWS::SDK::QLDBSession
     class AbortTransactionResult
       def self.parse(map)
         data = Types::AbortTransactionResult.new
-        data.timing_information = (Parsers::TimingInformation.parse(map['TimingInformation']) unless map['TimingInformation'].nil?)
+        data.timing_information = (TimingInformation.parse(map['TimingInformation']) unless map['TimingInformation'].nil?)
         return data
       end
     end
@@ -103,9 +105,9 @@ module AWS::SDK::QLDBSession
       def self.parse(map)
         data = Types::CommitTransactionResult.new
         data.transaction_id = map['TransactionId']
-        data.commit_digest = Base64::decode64(map['CommitDigest']) unless map['CommitDigest'].nil?
-        data.timing_information = (Parsers::TimingInformation.parse(map['TimingInformation']) unless map['TimingInformation'].nil?)
-        data.consumed_i_os = (Parsers::IOUsage.parse(map['ConsumedIOs']) unless map['ConsumedIOs'].nil?)
+        data.commit_digest = ::Base64::decode64(map['CommitDigest']) unless map['CommitDigest'].nil?
+        data.timing_information = (TimingInformation.parse(map['TimingInformation']) unless map['TimingInformation'].nil?)
+        data.consumed_i_os = (IOUsage.parse(map['ConsumedIOs']) unless map['ConsumedIOs'].nil?)
         return data
       end
     end
@@ -113,7 +115,7 @@ module AWS::SDK::QLDBSession
     class EndSessionResult
       def self.parse(map)
         data = Types::EndSessionResult.new
-        data.timing_information = (Parsers::TimingInformation.parse(map['TimingInformation']) unless map['TimingInformation'].nil?)
+        data.timing_information = (TimingInformation.parse(map['TimingInformation']) unless map['TimingInformation'].nil?)
         return data
       end
     end
@@ -122,7 +124,7 @@ module AWS::SDK::QLDBSession
       def self.parse(map)
         data = Types::StartTransactionResult.new
         data.transaction_id = map['TransactionId']
-        data.timing_information = (Parsers::TimingInformation.parse(map['TimingInformation']) unless map['TimingInformation'].nil?)
+        data.timing_information = (TimingInformation.parse(map['TimingInformation']) unless map['TimingInformation'].nil?)
         return data
       end
     end
@@ -131,7 +133,7 @@ module AWS::SDK::QLDBSession
       def self.parse(map)
         data = Types::StartSessionResult.new
         data.session_token = map['SessionToken']
-        data.timing_information = (Parsers::TimingInformation.parse(map['TimingInformation']) unless map['TimingInformation'].nil?)
+        data.timing_information = (TimingInformation.parse(map['TimingInformation']) unless map['TimingInformation'].nil?)
         return data
       end
     end

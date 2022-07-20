@@ -84,8 +84,8 @@ module AWS::SDK::Detective
       def self.parse(http_resp)
         data = Types::CreateMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.members = (Parsers::MemberDetailList.parse(map['Members']) unless map['Members'].nil?)
-        data.unprocessed_accounts = (Parsers::UnprocessedAccountList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
+        data.members = (MemberDetailList.parse(map['Members']) unless map['Members'].nil?)
+        data.unprocessed_accounts = (UnprocessedAccountList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
         data
       end
     end
@@ -94,7 +94,7 @@ module AWS::SDK::Detective
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UnprocessedAccount.parse(value) unless value.nil?
+          data << UnprocessedAccount.parse(value) unless value.nil?
         end
         data
       end
@@ -113,7 +113,7 @@ module AWS::SDK::Detective
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MemberDetail.parse(value) unless value.nil?
+          data << MemberDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -154,8 +154,8 @@ module AWS::SDK::Detective
       def self.parse(http_resp)
         data = Types::DeleteMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.account_ids = (Parsers::AccountIdList.parse(map['AccountIds']) unless map['AccountIds'].nil?)
-        data.unprocessed_accounts = (Parsers::UnprocessedAccountList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
+        data.account_ids = (AccountIdList.parse(map['AccountIds']) unless map['AccountIds'].nil?)
+        data.unprocessed_accounts = (UnprocessedAccountList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
         data
       end
     end
@@ -222,8 +222,8 @@ module AWS::SDK::Detective
       def self.parse(http_resp)
         data = Types::GetMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.member_details = (Parsers::MemberDetailList.parse(map['MemberDetails']) unless map['MemberDetails'].nil?)
-        data.unprocessed_accounts = (Parsers::UnprocessedAccountList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
+        data.member_details = (MemberDetailList.parse(map['MemberDetails']) unless map['MemberDetails'].nil?)
+        data.unprocessed_accounts = (UnprocessedAccountList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
         data
       end
     end
@@ -233,7 +233,7 @@ module AWS::SDK::Detective
       def self.parse(http_resp)
         data = Types::ListGraphsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.graph_list = (Parsers::GraphList.parse(map['GraphList']) unless map['GraphList'].nil?)
+        data.graph_list = (GraphList.parse(map['GraphList']) unless map['GraphList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -243,7 +243,7 @@ module AWS::SDK::Detective
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Graph.parse(value) unless value.nil?
+          data << Graph.parse(value) unless value.nil?
         end
         data
       end
@@ -263,7 +263,7 @@ module AWS::SDK::Detective
       def self.parse(http_resp)
         data = Types::ListInvitationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.invitations = (Parsers::MemberDetailList.parse(map['Invitations']) unless map['Invitations'].nil?)
+        data.invitations = (MemberDetailList.parse(map['Invitations']) unless map['Invitations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -274,7 +274,7 @@ module AWS::SDK::Detective
       def self.parse(http_resp)
         data = Types::ListMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.member_details = (Parsers::MemberDetailList.parse(map['MemberDetails']) unless map['MemberDetails'].nil?)
+        data.member_details = (MemberDetailList.parse(map['MemberDetails']) unless map['MemberDetails'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -285,7 +285,7 @@ module AWS::SDK::Detective
       def self.parse(http_resp)
         data = Types::ListOrganizationAdminAccountsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.administrators = (Parsers::AdministratorList.parse(map['Administrators']) unless map['Administrators'].nil?)
+        data.administrators = (AdministratorList.parse(map['Administrators']) unless map['Administrators'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -295,7 +295,7 @@ module AWS::SDK::Detective
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Administrator.parse(value) unless value.nil?
+          data << Administrator.parse(value) unless value.nil?
         end
         data
       end
@@ -316,7 +316,7 @@ module AWS::SDK::Detective
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end

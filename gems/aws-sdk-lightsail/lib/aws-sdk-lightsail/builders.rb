@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Lightsail
   module Builders
 
@@ -19,7 +21,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.AllocateStaticIp'
         data = {}
         data['staticIpName'] = input[:static_ip_name] unless input[:static_ip_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,7 +35,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['distributionName'] = input[:distribution_name] unless input[:distribution_name].nil?
         data['certificateName'] = input[:certificate_name] unless input[:certificate_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -48,7 +50,7 @@ module AWS::SDK::Lightsail
         data['diskName'] = input[:disk_name] unless input[:disk_name].nil?
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
         data['diskPath'] = input[:disk_path] unless input[:disk_path].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -61,8 +63,8 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.AttachInstancesToLoadBalancer'
         data = {}
         data['loadBalancerName'] = input[:load_balancer_name] unless input[:load_balancer_name].nil?
-        data['instanceNames'] = Builders::ResourceNameList.build(input[:instance_names]) unless input[:instance_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['instanceNames'] = ResourceNameList.build(input[:instance_names]) unless input[:instance_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -87,7 +89,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['loadBalancerName'] = input[:load_balancer_name] unless input[:load_balancer_name].nil?
         data['certificateName'] = input[:certificate_name] unless input[:certificate_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -101,7 +103,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['staticIpName'] = input[:static_ip_name] unless input[:static_ip_name].nil?
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -113,9 +115,9 @@ module AWS::SDK::Lightsail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.CloseInstancePublicPorts'
         data = {}
-        data['portInfo'] = Builders::PortInfo.build(input[:port_info]) unless input[:port_info].nil?
+        data['portInfo'] = PortInfo.build(input[:port_info]) unless input[:port_info].nil?
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -126,9 +128,9 @@ module AWS::SDK::Lightsail
         data['fromPort'] = input[:from_port] unless input[:from_port].nil?
         data['toPort'] = input[:to_port] unless input[:to_port].nil?
         data['protocol'] = input[:protocol] unless input[:protocol].nil?
-        data['cidrs'] = Builders::StringList.build(input[:cidrs]) unless input[:cidrs].nil?
-        data['ipv6Cidrs'] = Builders::StringList.build(input[:ipv6_cidrs]) unless input[:ipv6_cidrs].nil?
-        data['cidrListAliases'] = Builders::StringList.build(input[:cidr_list_aliases]) unless input[:cidr_list_aliases].nil?
+        data['cidrs'] = StringList.build(input[:cidrs]) unless input[:cidrs].nil?
+        data['ipv6Cidrs'] = StringList.build(input[:ipv6_cidrs]) unless input[:ipv6_cidrs].nil?
+        data['cidrListAliases'] = StringList.build(input[:cidr_list_aliases]) unless input[:cidr_list_aliases].nil?
         data
       end
     end
@@ -158,7 +160,7 @@ module AWS::SDK::Lightsail
         data['useLatestRestorableAutoSnapshot'] = input[:use_latest_restorable_auto_snapshot] unless input[:use_latest_restorable_auto_snapshot].nil?
         data['targetSnapshotName'] = input[:target_snapshot_name] unless input[:target_snapshot_name].nil?
         data['sourceRegion'] = input[:source_region] unless input[:source_region].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -172,9 +174,9 @@ module AWS::SDK::Lightsail
         data = {}
         data['bucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
         data['bundleId'] = input[:bundle_id] unless input[:bundle_id].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['enableObjectVersioning'] = input[:enable_object_versioning] unless input[:enable_object_versioning].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -183,7 +185,7 @@ module AWS::SDK::Lightsail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -208,7 +210,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.CreateBucketAccessKey'
         data = {}
         data['bucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -222,9 +224,9 @@ module AWS::SDK::Lightsail
         data = {}
         data['certificateName'] = input[:certificate_name] unless input[:certificate_name].nil?
         data['domainName'] = input[:domain_name] unless input[:domain_name].nil?
-        data['subjectAlternativeNames'] = Builders::SubjectAlternativeNameList.build(input[:subject_alternative_names]) unless input[:subject_alternative_names].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['subjectAlternativeNames'] = SubjectAlternativeNameList.build(input[:subject_alternative_names]) unless input[:subject_alternative_names].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -247,8 +249,8 @@ module AWS::SDK::Lightsail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.CreateCloudFormationStack'
         data = {}
-        data['instances'] = Builders::InstanceEntryList.build(input[:instances]) unless input[:instances].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['instances'] = InstanceEntryList.build(input[:instances]) unless input[:instances].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -257,7 +259,7 @@ module AWS::SDK::Lightsail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InstanceEntry.build(element) unless element.nil?
+          data << InstanceEntry.build(element) unless element.nil?
         end
         data
       end
@@ -286,7 +288,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['protocol'] = input[:protocol] unless input[:protocol].nil?
         data['contactEndpoint'] = input[:contact_endpoint] unless input[:contact_endpoint].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -301,11 +303,11 @@ module AWS::SDK::Lightsail
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
         data['power'] = input[:power] unless input[:power].nil?
         data['scale'] = input[:scale] unless input[:scale].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['publicDomainNames'] = Builders::ContainerServicePublicDomains.build(input[:public_domain_names]) unless input[:public_domain_names].nil?
-        data['deployment'] = Builders::ContainerServiceDeploymentRequest.build(input[:deployment]) unless input[:deployment].nil?
-        data['privateRegistryAccess'] = Builders::PrivateRegistryAccessRequest.build(input[:private_registry_access]) unless input[:private_registry_access].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['publicDomainNames'] = ContainerServicePublicDomains.build(input[:public_domain_names]) unless input[:public_domain_names].nil?
+        data['deployment'] = ContainerServiceDeploymentRequest.build(input[:deployment]) unless input[:deployment].nil?
+        data['privateRegistryAccess'] = PrivateRegistryAccessRequest.build(input[:private_registry_access]) unless input[:private_registry_access].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -313,7 +315,7 @@ module AWS::SDK::Lightsail
     class PrivateRegistryAccessRequest
       def self.build(input)
         data = {}
-        data['ecrImagePullerRole'] = Builders::ContainerServiceECRImagePullerRoleRequest.build(input[:ecr_image_puller_role]) unless input[:ecr_image_puller_role].nil?
+        data['ecrImagePullerRole'] = ContainerServiceECRImagePullerRoleRequest.build(input[:ecr_image_puller_role]) unless input[:ecr_image_puller_role].nil?
         data
       end
     end
@@ -331,8 +333,8 @@ module AWS::SDK::Lightsail
     class ContainerServiceDeploymentRequest
       def self.build(input)
         data = {}
-        data['containers'] = Builders::ContainerMap.build(input[:containers]) unless input[:containers].nil?
-        data['publicEndpoint'] = Builders::EndpointRequest.build(input[:public_endpoint]) unless input[:public_endpoint].nil?
+        data['containers'] = ContainerMap.build(input[:containers]) unless input[:containers].nil?
+        data['publicEndpoint'] = EndpointRequest.build(input[:public_endpoint]) unless input[:public_endpoint].nil?
         data
       end
     end
@@ -343,7 +345,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['containerName'] = input[:container_name] unless input[:container_name].nil?
         data['containerPort'] = input[:container_port] unless input[:container_port].nil?
-        data['healthCheck'] = Builders::ContainerServiceHealthCheckConfig.build(input[:health_check]) unless input[:health_check].nil?
+        data['healthCheck'] = ContainerServiceHealthCheckConfig.build(input[:health_check]) unless input[:health_check].nil?
         data
       end
     end
@@ -367,7 +369,7 @@ module AWS::SDK::Lightsail
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::Container.build(value) unless value.nil?
+          data[key] = Container.build(value) unless value.nil?
         end
         data
       end
@@ -378,9 +380,9 @@ module AWS::SDK::Lightsail
       def self.build(input)
         data = {}
         data['image'] = input[:image] unless input[:image].nil?
-        data['command'] = Builders::StringList.build(input[:command]) unless input[:command].nil?
-        data['environment'] = Builders::Environment.build(input[:environment]) unless input[:environment].nil?
-        data['ports'] = Builders::PortMap.build(input[:ports]) unless input[:ports].nil?
+        data['command'] = StringList.build(input[:command]) unless input[:command].nil?
+        data['environment'] = Environment.build(input[:environment]) unless input[:environment].nil?
+        data['ports'] = PortMap.build(input[:ports]) unless input[:ports].nil?
         data
       end
     end
@@ -412,7 +414,7 @@ module AWS::SDK::Lightsail
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ContainerServicePublicDomainsList.build(value) unless value.nil?
+          data[key] = ContainerServicePublicDomainsList.build(value) unless value.nil?
         end
         data
       end
@@ -438,9 +440,9 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.CreateContainerServiceDeployment'
         data = {}
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
-        data['containers'] = Builders::ContainerMap.build(input[:containers]) unless input[:containers].nil?
-        data['publicEndpoint'] = Builders::EndpointRequest.build(input[:public_endpoint]) unless input[:public_endpoint].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['containers'] = ContainerMap.build(input[:containers]) unless input[:containers].nil?
+        data['publicEndpoint'] = EndpointRequest.build(input[:public_endpoint]) unless input[:public_endpoint].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -452,7 +454,7 @@ module AWS::SDK::Lightsail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.CreateContainerServiceRegistryLogin'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -467,9 +469,9 @@ module AWS::SDK::Lightsail
         data['diskName'] = input[:disk_name] unless input[:disk_name].nil?
         data['availabilityZone'] = input[:availability_zone] unless input[:availability_zone].nil?
         data['sizeInGb'] = input[:size_in_gb] unless input[:size_in_gb].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['addOns'] = Builders::AddOnRequestList.build(input[:add_ons]) unless input[:add_ons].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['addOns'] = AddOnRequestList.build(input[:add_ons]) unless input[:add_ons].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -478,7 +480,7 @@ module AWS::SDK::Lightsail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AddOnRequest.build(element) unless element.nil?
+          data << AddOnRequest.build(element) unless element.nil?
         end
         data
       end
@@ -489,7 +491,7 @@ module AWS::SDK::Lightsail
       def self.build(input)
         data = {}
         data['addOnType'] = input[:add_on_type] unless input[:add_on_type].nil?
-        data['autoSnapshotAddOnRequest'] = Builders::AutoSnapshotAddOnRequest.build(input[:auto_snapshot_add_on_request]) unless input[:auto_snapshot_add_on_request].nil?
+        data['autoSnapshotAddOnRequest'] = AutoSnapshotAddOnRequest.build(input[:auto_snapshot_add_on_request]) unless input[:auto_snapshot_add_on_request].nil?
         data
       end
     end
@@ -515,12 +517,12 @@ module AWS::SDK::Lightsail
         data['diskSnapshotName'] = input[:disk_snapshot_name] unless input[:disk_snapshot_name].nil?
         data['availabilityZone'] = input[:availability_zone] unless input[:availability_zone].nil?
         data['sizeInGb'] = input[:size_in_gb] unless input[:size_in_gb].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['addOns'] = Builders::AddOnRequestList.build(input[:add_ons]) unless input[:add_ons].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['addOns'] = AddOnRequestList.build(input[:add_ons]) unless input[:add_ons].nil?
         data['sourceDiskName'] = input[:source_disk_name] unless input[:source_disk_name].nil?
         data['restoreDate'] = input[:restore_date] unless input[:restore_date].nil?
         data['useLatestRestorableAutoSnapshot'] = input[:use_latest_restorable_auto_snapshot] unless input[:use_latest_restorable_auto_snapshot].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -535,8 +537,8 @@ module AWS::SDK::Lightsail
         data['diskName'] = input[:disk_name] unless input[:disk_name].nil?
         data['diskSnapshotName'] = input[:disk_snapshot_name] unless input[:disk_snapshot_name].nil?
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -549,14 +551,14 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.CreateDistribution'
         data = {}
         data['distributionName'] = input[:distribution_name] unless input[:distribution_name].nil?
-        data['origin'] = Builders::InputOrigin.build(input[:origin]) unless input[:origin].nil?
-        data['defaultCacheBehavior'] = Builders::CacheBehavior.build(input[:default_cache_behavior]) unless input[:default_cache_behavior].nil?
-        data['cacheBehaviorSettings'] = Builders::CacheSettings.build(input[:cache_behavior_settings]) unless input[:cache_behavior_settings].nil?
-        data['cacheBehaviors'] = Builders::CacheBehaviorList.build(input[:cache_behaviors]) unless input[:cache_behaviors].nil?
+        data['origin'] = InputOrigin.build(input[:origin]) unless input[:origin].nil?
+        data['defaultCacheBehavior'] = CacheBehavior.build(input[:default_cache_behavior]) unless input[:default_cache_behavior].nil?
+        data['cacheBehaviorSettings'] = CacheSettings.build(input[:cache_behavior_settings]) unless input[:cache_behavior_settings].nil?
+        data['cacheBehaviors'] = CacheBehaviorList.build(input[:cache_behaviors]) unless input[:cache_behaviors].nil?
         data['bundleId'] = input[:bundle_id] unless input[:bundle_id].nil?
         data['ipAddressType'] = input[:ip_address_type] unless input[:ip_address_type].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -565,7 +567,7 @@ module AWS::SDK::Lightsail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CacheBehaviorPerPath.build(element) unless element.nil?
+          data << CacheBehaviorPerPath.build(element) unless element.nil?
         end
         data
       end
@@ -590,9 +592,9 @@ module AWS::SDK::Lightsail
         data['maximumTTL'] = input[:maximum_ttl] unless input[:maximum_ttl].nil?
         data['allowedHTTPMethods'] = input[:allowed_http_methods] unless input[:allowed_http_methods].nil?
         data['cachedHTTPMethods'] = input[:cached_http_methods] unless input[:cached_http_methods].nil?
-        data['forwardedCookies'] = Builders::CookieObject.build(input[:forwarded_cookies]) unless input[:forwarded_cookies].nil?
-        data['forwardedHeaders'] = Builders::HeaderObject.build(input[:forwarded_headers]) unless input[:forwarded_headers].nil?
-        data['forwardedQueryStrings'] = Builders::QueryStringObject.build(input[:forwarded_query_strings]) unless input[:forwarded_query_strings].nil?
+        data['forwardedCookies'] = CookieObject.build(input[:forwarded_cookies]) unless input[:forwarded_cookies].nil?
+        data['forwardedHeaders'] = HeaderObject.build(input[:forwarded_headers]) unless input[:forwarded_headers].nil?
+        data['forwardedQueryStrings'] = QueryStringObject.build(input[:forwarded_query_strings]) unless input[:forwarded_query_strings].nil?
         data
       end
     end
@@ -602,7 +604,7 @@ module AWS::SDK::Lightsail
       def self.build(input)
         data = {}
         data['option'] = input[:option] unless input[:option].nil?
-        data['queryStringsAllowList'] = Builders::StringList.build(input[:query_strings_allow_list]) unless input[:query_strings_allow_list].nil?
+        data['queryStringsAllowList'] = StringList.build(input[:query_strings_allow_list]) unless input[:query_strings_allow_list].nil?
         data
       end
     end
@@ -612,7 +614,7 @@ module AWS::SDK::Lightsail
       def self.build(input)
         data = {}
         data['option'] = input[:option] unless input[:option].nil?
-        data['headersAllowList'] = Builders::HeaderForwardList.build(input[:headers_allow_list]) unless input[:headers_allow_list].nil?
+        data['headersAllowList'] = HeaderForwardList.build(input[:headers_allow_list]) unless input[:headers_allow_list].nil?
         data
       end
     end
@@ -633,7 +635,7 @@ module AWS::SDK::Lightsail
       def self.build(input)
         data = {}
         data['option'] = input[:option] unless input[:option].nil?
-        data['cookiesAllowList'] = Builders::StringList.build(input[:cookies_allow_list]) unless input[:cookies_allow_list].nil?
+        data['cookiesAllowList'] = StringList.build(input[:cookies_allow_list]) unless input[:cookies_allow_list].nil?
         data
       end
     end
@@ -667,8 +669,8 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.CreateDomain'
         data = {}
         data['domainName'] = input[:domain_name] unless input[:domain_name].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -681,8 +683,8 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.CreateDomainEntry'
         data = {}
         data['domainName'] = input[:domain_name] unless input[:domain_name].nil?
-        data['domainEntry'] = Builders::DomainEntry.build(input[:domain_entry]) unless input[:domain_entry].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['domainEntry'] = DomainEntry.build(input[:domain_entry]) unless input[:domain_entry].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -695,7 +697,7 @@ module AWS::SDK::Lightsail
         data['target'] = input[:target] unless input[:target].nil?
         data['isAlias'] = input[:is_alias] unless input[:is_alias].nil?
         data['type'] = input[:type] unless input[:type].nil?
-        data['options'] = Builders::DomainEntryOptions.build(input[:options]) unless input[:options].nil?
+        data['options'] = DomainEntryOptions.build(input[:options]) unless input[:options].nil?
         data
       end
     end
@@ -721,8 +723,8 @@ module AWS::SDK::Lightsail
         data = {}
         data['instanceSnapshotName'] = input[:instance_snapshot_name] unless input[:instance_snapshot_name].nil?
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -734,17 +736,17 @@ module AWS::SDK::Lightsail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.CreateInstances'
         data = {}
-        data['instanceNames'] = Builders::StringList.build(input[:instance_names]) unless input[:instance_names].nil?
+        data['instanceNames'] = StringList.build(input[:instance_names]) unless input[:instance_names].nil?
         data['availabilityZone'] = input[:availability_zone] unless input[:availability_zone].nil?
         data['customImageName'] = input[:custom_image_name] unless input[:custom_image_name].nil?
         data['blueprintId'] = input[:blueprint_id] unless input[:blueprint_id].nil?
         data['bundleId'] = input[:bundle_id] unless input[:bundle_id].nil?
         data['userData'] = input[:user_data] unless input[:user_data].nil?
         data['keyPairName'] = input[:key_pair_name] unless input[:key_pair_name].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['addOns'] = Builders::AddOnRequestList.build(input[:add_ons]) unless input[:add_ons].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['addOns'] = AddOnRequestList.build(input[:add_ons]) unless input[:add_ons].nil?
         data['ipAddressType'] = input[:ip_address_type] unless input[:ip_address_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -756,20 +758,20 @@ module AWS::SDK::Lightsail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.CreateInstancesFromSnapshot'
         data = {}
-        data['instanceNames'] = Builders::StringList.build(input[:instance_names]) unless input[:instance_names].nil?
-        data['attachedDiskMapping'] = Builders::AttachedDiskMap.build(input[:attached_disk_mapping]) unless input[:attached_disk_mapping].nil?
+        data['instanceNames'] = StringList.build(input[:instance_names]) unless input[:instance_names].nil?
+        data['attachedDiskMapping'] = AttachedDiskMap.build(input[:attached_disk_mapping]) unless input[:attached_disk_mapping].nil?
         data['availabilityZone'] = input[:availability_zone] unless input[:availability_zone].nil?
         data['instanceSnapshotName'] = input[:instance_snapshot_name] unless input[:instance_snapshot_name].nil?
         data['bundleId'] = input[:bundle_id] unless input[:bundle_id].nil?
         data['userData'] = input[:user_data] unless input[:user_data].nil?
         data['keyPairName'] = input[:key_pair_name] unless input[:key_pair_name].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['addOns'] = Builders::AddOnRequestList.build(input[:add_ons]) unless input[:add_ons].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['addOns'] = AddOnRequestList.build(input[:add_ons]) unless input[:add_ons].nil?
         data['ipAddressType'] = input[:ip_address_type] unless input[:ip_address_type].nil?
         data['sourceInstanceName'] = input[:source_instance_name] unless input[:source_instance_name].nil?
         data['restoreDate'] = input[:restore_date] unless input[:restore_date].nil?
         data['useLatestRestorableAutoSnapshot'] = input[:use_latest_restorable_auto_snapshot] unless input[:use_latest_restorable_auto_snapshot].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -778,7 +780,7 @@ module AWS::SDK::Lightsail
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::DiskMapList.build(value) unless value.nil?
+          data[key] = DiskMapList.build(value) unless value.nil?
         end
         data
       end
@@ -789,7 +791,7 @@ module AWS::SDK::Lightsail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DiskMap.build(element) unless element.nil?
+          data << DiskMap.build(element) unless element.nil?
         end
         data
       end
@@ -814,8 +816,8 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.CreateKeyPair'
         data = {}
         data['keyPairName'] = input[:key_pair_name] unless input[:key_pair_name].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -832,11 +834,11 @@ module AWS::SDK::Lightsail
         data['healthCheckPath'] = input[:health_check_path] unless input[:health_check_path].nil?
         data['certificateName'] = input[:certificate_name] unless input[:certificate_name].nil?
         data['certificateDomainName'] = input[:certificate_domain_name] unless input[:certificate_domain_name].nil?
-        data['certificateAlternativeNames'] = Builders::DomainNameList.build(input[:certificate_alternative_names]) unless input[:certificate_alternative_names].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['certificateAlternativeNames'] = DomainNameList.build(input[:certificate_alternative_names]) unless input[:certificate_alternative_names].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['ipAddressType'] = input[:ip_address_type] unless input[:ip_address_type].nil?
         data['tlsPolicyName'] = input[:tls_policy_name] unless input[:tls_policy_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -862,9 +864,9 @@ module AWS::SDK::Lightsail
         data['loadBalancerName'] = input[:load_balancer_name] unless input[:load_balancer_name].nil?
         data['certificateName'] = input[:certificate_name] unless input[:certificate_name].nil?
         data['certificateDomainName'] = input[:certificate_domain_name] unless input[:certificate_domain_name].nil?
-        data['certificateAlternativeNames'] = Builders::DomainNameList.build(input[:certificate_alternative_names]) unless input[:certificate_alternative_names].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['certificateAlternativeNames'] = DomainNameList.build(input[:certificate_alternative_names]) unless input[:certificate_alternative_names].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -886,8 +888,8 @@ module AWS::SDK::Lightsail
         data['preferredBackupWindow'] = input[:preferred_backup_window] unless input[:preferred_backup_window].nil?
         data['preferredMaintenanceWindow'] = input[:preferred_maintenance_window] unless input[:preferred_maintenance_window].nil?
         data['publiclyAccessible'] = input[:publicly_accessible] unless input[:publicly_accessible].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -907,8 +909,8 @@ module AWS::SDK::Lightsail
         data['sourceRelationalDatabaseName'] = input[:source_relational_database_name] unless input[:source_relational_database_name].nil?
         data['restoreTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:restore_time]).to_i unless input[:restore_time].nil?
         data['useLatestRestorableTime'] = input[:use_latest_restorable_time] unless input[:use_latest_restorable_time].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -922,8 +924,8 @@ module AWS::SDK::Lightsail
         data = {}
         data['relationalDatabaseName'] = input[:relational_database_name] unless input[:relational_database_name].nil?
         data['relationalDatabaseSnapshotName'] = input[:relational_database_snapshot_name] unless input[:relational_database_snapshot_name].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -936,7 +938,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.DeleteAlarm'
         data = {}
         data['alarmName'] = input[:alarm_name] unless input[:alarm_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -950,7 +952,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
         data['date'] = input[:date] unless input[:date].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -964,7 +966,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['bucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
         data['forceDelete'] = input[:force_delete] unless input[:force_delete].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -978,7 +980,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['bucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
         data['accessKeyId'] = input[:access_key_id] unless input[:access_key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -991,7 +993,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.DeleteCertificate'
         data = {}
         data['certificateName'] = input[:certificate_name] unless input[:certificate_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1004,7 +1006,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.DeleteContactMethod'
         data = {}
         data['protocol'] = input[:protocol] unless input[:protocol].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1018,7 +1020,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
         data['image'] = input[:image] unless input[:image].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1031,7 +1033,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.DeleteContainerService'
         data = {}
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1045,7 +1047,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['diskName'] = input[:disk_name] unless input[:disk_name].nil?
         data['forceDeleteAddOns'] = input[:force_delete_add_ons] unless input[:force_delete_add_ons].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1058,7 +1060,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.DeleteDiskSnapshot'
         data = {}
         data['diskSnapshotName'] = input[:disk_snapshot_name] unless input[:disk_snapshot_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1071,7 +1073,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.DeleteDistribution'
         data = {}
         data['distributionName'] = input[:distribution_name] unless input[:distribution_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1084,7 +1086,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.DeleteDomain'
         data = {}
         data['domainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1097,8 +1099,8 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.DeleteDomainEntry'
         data = {}
         data['domainName'] = input[:domain_name] unless input[:domain_name].nil?
-        data['domainEntry'] = Builders::DomainEntry.build(input[:domain_entry]) unless input[:domain_entry].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['domainEntry'] = DomainEntry.build(input[:domain_entry]) unless input[:domain_entry].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1112,7 +1114,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
         data['forceDeleteAddOns'] = input[:force_delete_add_ons] unless input[:force_delete_add_ons].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1125,7 +1127,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.DeleteInstanceSnapshot'
         data = {}
         data['instanceSnapshotName'] = input[:instance_snapshot_name] unless input[:instance_snapshot_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1139,7 +1141,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['keyPairName'] = input[:key_pair_name] unless input[:key_pair_name].nil?
         data['expectedFingerprint'] = input[:expected_fingerprint] unless input[:expected_fingerprint].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1152,7 +1154,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.DeleteKnownHostKeys'
         data = {}
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1165,7 +1167,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.DeleteLoadBalancer'
         data = {}
         data['loadBalancerName'] = input[:load_balancer_name] unless input[:load_balancer_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1180,7 +1182,7 @@ module AWS::SDK::Lightsail
         data['loadBalancerName'] = input[:load_balancer_name] unless input[:load_balancer_name].nil?
         data['certificateName'] = input[:certificate_name] unless input[:certificate_name].nil?
         data['force'] = input[:force] unless input[:force].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1195,7 +1197,7 @@ module AWS::SDK::Lightsail
         data['relationalDatabaseName'] = input[:relational_database_name] unless input[:relational_database_name].nil?
         data['skipFinalSnapshot'] = input[:skip_final_snapshot] unless input[:skip_final_snapshot].nil?
         data['finalRelationalDatabaseSnapshotName'] = input[:final_relational_database_snapshot_name] unless input[:final_relational_database_snapshot_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1208,7 +1210,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.DeleteRelationalDatabaseSnapshot'
         data = {}
         data['relationalDatabaseSnapshotName'] = input[:relational_database_snapshot_name] unless input[:relational_database_snapshot_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1221,7 +1223,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.DetachCertificateFromDistribution'
         data = {}
         data['distributionName'] = input[:distribution_name] unless input[:distribution_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1234,7 +1236,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.DetachDisk'
         data = {}
         data['diskName'] = input[:disk_name] unless input[:disk_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1247,8 +1249,8 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.DetachInstancesFromLoadBalancer'
         data = {}
         data['loadBalancerName'] = input[:load_balancer_name] unless input[:load_balancer_name].nil?
-        data['instanceNames'] = Builders::ResourceNameList.build(input[:instance_names]) unless input[:instance_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['instanceNames'] = ResourceNameList.build(input[:instance_names]) unless input[:instance_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1261,7 +1263,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.DetachStaticIp'
         data = {}
         data['staticIpName'] = input[:static_ip_name] unless input[:static_ip_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1275,7 +1277,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['addOnType'] = input[:add_on_type] unless input[:add_on_type].nil?
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1287,7 +1289,7 @@ module AWS::SDK::Lightsail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.DownloadDefaultKeyPair'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1300,8 +1302,8 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.EnableAddOn'
         data = {}
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        data['addOnRequest'] = Builders::AddOnRequest.build(input[:add_on_request]) unless input[:add_on_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['addOnRequest'] = AddOnRequest.build(input[:add_on_request]) unless input[:add_on_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1314,7 +1316,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.ExportSnapshot'
         data = {}
         data['sourceSnapshotName'] = input[:source_snapshot_name] unless input[:source_snapshot_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1327,7 +1329,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetActiveNames'
         data = {}
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1342,7 +1344,7 @@ module AWS::SDK::Lightsail
         data['alarmName'] = input[:alarm_name] unless input[:alarm_name].nil?
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
         data['monitoredResourceName'] = input[:monitored_resource_name] unless input[:monitored_resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1355,7 +1357,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetAutoSnapshots'
         data = {}
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1369,7 +1371,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['includeInactive'] = input[:include_inactive] unless input[:include_inactive].nil?
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1382,7 +1384,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetBucketAccessKeys'
         data = {}
         data['bucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1395,7 +1397,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetBucketBundles'
         data = {}
         data['includeInactive'] = input[:include_inactive] unless input[:include_inactive].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1412,9 +1414,9 @@ module AWS::SDK::Lightsail
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['period'] = input[:period] unless input[:period].nil?
-        data['statistics'] = Builders::MetricStatisticList.build(input[:statistics]) unless input[:statistics].nil?
+        data['statistics'] = MetricStatisticList.build(input[:statistics]) unless input[:statistics].nil?
         data['unit'] = input[:unit] unless input[:unit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1440,7 +1442,7 @@ module AWS::SDK::Lightsail
         data['bucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
         data['includeConnectedResources'] = input[:include_connected_resources] unless input[:include_connected_resources].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1454,7 +1456,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['includeInactive'] = input[:include_inactive] unless input[:include_inactive].nil?
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1466,10 +1468,10 @@ module AWS::SDK::Lightsail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetCertificates'
         data = {}
-        data['certificateStatuses'] = Builders::CertificateStatusList.build(input[:certificate_statuses]) unless input[:certificate_statuses].nil?
+        data['certificateStatuses'] = CertificateStatusList.build(input[:certificate_statuses]) unless input[:certificate_statuses].nil?
         data['includeCertificateDetails'] = input[:include_certificate_details] unless input[:include_certificate_details].nil?
         data['certificateName'] = input[:certificate_name] unless input[:certificate_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1493,7 +1495,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetCloudFormationStackRecords'
         data = {}
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1505,8 +1507,8 @@ module AWS::SDK::Lightsail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetContactMethods'
         data = {}
-        data['protocols'] = Builders::ContactProtocolsList.build(input[:protocols]) unless input[:protocols].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['protocols'] = ContactProtocolsList.build(input[:protocols]) unless input[:protocols].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1529,7 +1531,7 @@ module AWS::SDK::Lightsail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetContainerAPIMetadata'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1542,7 +1544,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetContainerImages'
         data = {}
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1560,7 +1562,7 @@ module AWS::SDK::Lightsail
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['filterPattern'] = input[:filter_pattern] unless input[:filter_pattern].nil?
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1573,7 +1575,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetContainerServiceDeployments'
         data = {}
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1590,8 +1592,8 @@ module AWS::SDK::Lightsail
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['period'] = input[:period] unless input[:period].nil?
-        data['statistics'] = Builders::MetricStatisticList.build(input[:statistics]) unless input[:statistics].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['statistics'] = MetricStatisticList.build(input[:statistics]) unless input[:statistics].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1603,7 +1605,7 @@ module AWS::SDK::Lightsail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetContainerServicePowers'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1616,7 +1618,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetContainerServices'
         data = {}
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1629,7 +1631,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetDisk'
         data = {}
         data['diskName'] = input[:disk_name] unless input[:disk_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1642,7 +1644,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetDiskSnapshot'
         data = {}
         data['diskSnapshotName'] = input[:disk_snapshot_name] unless input[:disk_snapshot_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1655,7 +1657,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetDiskSnapshots'
         data = {}
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1668,7 +1670,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetDisks'
         data = {}
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1680,7 +1682,7 @@ module AWS::SDK::Lightsail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetDistributionBundles'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1693,7 +1695,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetDistributionLatestCacheReset'
         data = {}
         data['distributionName'] = input[:distribution_name] unless input[:distribution_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1711,8 +1713,8 @@ module AWS::SDK::Lightsail
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['period'] = input[:period] unless input[:period].nil?
         data['unit'] = input[:unit] unless input[:unit].nil?
-        data['statistics'] = Builders::MetricStatisticList.build(input[:statistics]) unless input[:statistics].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['statistics'] = MetricStatisticList.build(input[:statistics]) unless input[:statistics].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1726,7 +1728,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['distributionName'] = input[:distribution_name] unless input[:distribution_name].nil?
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1739,7 +1741,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetDomain'
         data = {}
         data['domainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1752,7 +1754,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetDomains'
         data = {}
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1765,7 +1767,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetExportSnapshotRecords'
         data = {}
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1778,7 +1780,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetInstance'
         data = {}
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1792,7 +1794,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
         data['protocol'] = input[:protocol] unless input[:protocol].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1810,8 +1812,8 @@ module AWS::SDK::Lightsail
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['unit'] = input[:unit] unless input[:unit].nil?
-        data['statistics'] = Builders::MetricStatisticList.build(input[:statistics]) unless input[:statistics].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['statistics'] = MetricStatisticList.build(input[:statistics]) unless input[:statistics].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1824,7 +1826,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetInstancePortStates'
         data = {}
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1837,7 +1839,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetInstanceSnapshot'
         data = {}
         data['instanceSnapshotName'] = input[:instance_snapshot_name] unless input[:instance_snapshot_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1850,7 +1852,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetInstanceSnapshots'
         data = {}
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1863,7 +1865,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetInstanceState'
         data = {}
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1876,7 +1878,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetInstances'
         data = {}
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1889,7 +1891,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetKeyPair'
         data = {}
         data['keyPairName'] = input[:key_pair_name] unless input[:key_pair_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1903,7 +1905,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
         data['includeDefaultKeyPair'] = input[:include_default_key_pair] unless input[:include_default_key_pair].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1916,7 +1918,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetLoadBalancer'
         data = {}
         data['loadBalancerName'] = input[:load_balancer_name] unless input[:load_balancer_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1934,8 +1936,8 @@ module AWS::SDK::Lightsail
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['unit'] = input[:unit] unless input[:unit].nil?
-        data['statistics'] = Builders::MetricStatisticList.build(input[:statistics]) unless input[:statistics].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['statistics'] = MetricStatisticList.build(input[:statistics]) unless input[:statistics].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1948,7 +1950,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetLoadBalancerTlsCertificates'
         data = {}
         data['loadBalancerName'] = input[:load_balancer_name] unless input[:load_balancer_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1961,7 +1963,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetLoadBalancerTlsPolicies'
         data = {}
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1974,7 +1976,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetLoadBalancers'
         data = {}
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1987,7 +1989,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetOperation'
         data = {}
         data['operationId'] = input[:operation_id] unless input[:operation_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2000,7 +2002,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetOperations'
         data = {}
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2014,7 +2016,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2028,7 +2030,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['includeAvailabilityZones'] = input[:include_availability_zones] unless input[:include_availability_zones].nil?
         data['includeRelationalDatabaseAvailabilityZones'] = input[:include_relational_database_availability_zones] unless input[:include_relational_database_availability_zones].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2041,7 +2043,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetRelationalDatabase'
         data = {}
         data['relationalDatabaseName'] = input[:relational_database_name] unless input[:relational_database_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2054,7 +2056,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetRelationalDatabaseBlueprints'
         data = {}
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2068,7 +2070,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
         data['includeInactive'] = input[:include_inactive] unless input[:include_inactive].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2083,7 +2085,7 @@ module AWS::SDK::Lightsail
         data['relationalDatabaseName'] = input[:relational_database_name] unless input[:relational_database_name].nil?
         data['durationInMinutes'] = input[:duration_in_minutes] unless input[:duration_in_minutes].nil?
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2101,7 +2103,7 @@ module AWS::SDK::Lightsail
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['startFromHead'] = input[:start_from_head] unless input[:start_from_head].nil?
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2114,7 +2116,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetRelationalDatabaseLogStreams'
         data = {}
         data['relationalDatabaseName'] = input[:relational_database_name] unless input[:relational_database_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2128,7 +2130,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['relationalDatabaseName'] = input[:relational_database_name] unless input[:relational_database_name].nil?
         data['passwordVersion'] = input[:password_version] unless input[:password_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2146,8 +2148,8 @@ module AWS::SDK::Lightsail
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['unit'] = input[:unit] unless input[:unit].nil?
-        data['statistics'] = Builders::MetricStatisticList.build(input[:statistics]) unless input[:statistics].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['statistics'] = MetricStatisticList.build(input[:statistics]) unless input[:statistics].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2161,7 +2163,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['relationalDatabaseName'] = input[:relational_database_name] unless input[:relational_database_name].nil?
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2174,7 +2176,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetRelationalDatabaseSnapshot'
         data = {}
         data['relationalDatabaseSnapshotName'] = input[:relational_database_snapshot_name] unless input[:relational_database_snapshot_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2187,7 +2189,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetRelationalDatabaseSnapshots'
         data = {}
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2200,7 +2202,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetRelationalDatabases'
         data = {}
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2213,7 +2215,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetStaticIp'
         data = {}
         data['staticIpName'] = input[:static_ip_name] unless input[:static_ip_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2226,7 +2228,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.GetStaticIps'
         data = {}
         data['pageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2240,7 +2242,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['keyPairName'] = input[:key_pair_name] unless input[:key_pair_name].nil?
         data['publicKeyBase64'] = input[:public_key_base64] unless input[:public_key_base64].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2252,7 +2254,7 @@ module AWS::SDK::Lightsail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.IsVpcPeered'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2264,9 +2266,9 @@ module AWS::SDK::Lightsail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.OpenInstancePublicPorts'
         data = {}
-        data['portInfo'] = Builders::PortInfo.build(input[:port_info]) unless input[:port_info].nil?
+        data['portInfo'] = PortInfo.build(input[:port_info]) unless input[:port_info].nil?
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2278,7 +2280,7 @@ module AWS::SDK::Lightsail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.PeerVpc'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2298,10 +2300,10 @@ module AWS::SDK::Lightsail
         data['evaluationPeriods'] = input[:evaluation_periods] unless input[:evaluation_periods].nil?
         data['datapointsToAlarm'] = input[:datapoints_to_alarm] unless input[:datapoints_to_alarm].nil?
         data['treatMissingData'] = input[:treat_missing_data] unless input[:treat_missing_data].nil?
-        data['contactProtocols'] = Builders::ContactProtocolsList.build(input[:contact_protocols]) unless input[:contact_protocols].nil?
-        data['notificationTriggers'] = Builders::NotificationTriggerList.build(input[:notification_triggers]) unless input[:notification_triggers].nil?
+        data['contactProtocols'] = ContactProtocolsList.build(input[:contact_protocols]) unless input[:contact_protocols].nil?
+        data['notificationTriggers'] = NotificationTriggerList.build(input[:notification_triggers]) unless input[:notification_triggers].nil?
         data['notificationEnabled'] = input[:notification_enabled] unless input[:notification_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2324,9 +2326,9 @@ module AWS::SDK::Lightsail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.PutInstancePublicPorts'
         data = {}
-        data['portInfos'] = Builders::PortInfoList.build(input[:port_infos]) unless input[:port_infos].nil?
+        data['portInfos'] = PortInfoList.build(input[:port_infos]) unless input[:port_infos].nil?
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2335,7 +2337,7 @@ module AWS::SDK::Lightsail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PortInfo.build(element) unless element.nil?
+          data << PortInfo.build(element) unless element.nil?
         end
         data
       end
@@ -2350,7 +2352,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.RebootInstance'
         data = {}
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2363,7 +2365,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.RebootRelationalDatabase'
         data = {}
         data['relationalDatabaseName'] = input[:relational_database_name] unless input[:relational_database_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2378,7 +2380,7 @@ module AWS::SDK::Lightsail
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
         data['label'] = input[:label] unless input[:label].nil?
         data['digest'] = input[:digest] unless input[:digest].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2391,7 +2393,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.ReleaseStaticIp'
         data = {}
         data['staticIpName'] = input[:static_ip_name] unless input[:static_ip_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2404,7 +2406,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.ResetDistributionCache'
         data = {}
         data['distributionName'] = input[:distribution_name] unless input[:distribution_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2417,7 +2419,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.SendContactMethodVerification'
         data = {}
         data['protocol'] = input[:protocol] unless input[:protocol].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2432,7 +2434,7 @@ module AWS::SDK::Lightsail
         data['resourceType'] = input[:resource_type] unless input[:resource_type].nil?
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
         data['ipAddressType'] = input[:ip_address_type] unless input[:ip_address_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2447,7 +2449,7 @@ module AWS::SDK::Lightsail
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
         data['bucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
         data['access'] = input[:access] unless input[:access].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2460,7 +2462,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.StartInstance'
         data = {}
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2473,7 +2475,7 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.StartRelationalDatabase'
         data = {}
         data['relationalDatabaseName'] = input[:relational_database_name] unless input[:relational_database_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2487,7 +2489,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['instanceName'] = input[:instance_name] unless input[:instance_name].nil?
         data['force'] = input[:force] unless input[:force].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2501,7 +2503,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['relationalDatabaseName'] = input[:relational_database_name] unless input[:relational_database_name].nil?
         data['relationalDatabaseSnapshotName'] = input[:relational_database_snapshot_name] unless input[:relational_database_snapshot_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2515,8 +2517,8 @@ module AWS::SDK::Lightsail
         data = {}
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2530,7 +2532,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['alarmName'] = input[:alarm_name] unless input[:alarm_name].nil?
         data['state'] = input[:state] unless input[:state].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2542,7 +2544,7 @@ module AWS::SDK::Lightsail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.UnpeerVpc'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2556,8 +2558,8 @@ module AWS::SDK::Lightsail
         data = {}
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2581,11 +2583,11 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.UpdateBucket'
         data = {}
         data['bucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
-        data['accessRules'] = Builders::AccessRules.build(input[:access_rules]) unless input[:access_rules].nil?
+        data['accessRules'] = AccessRules.build(input[:access_rules]) unless input[:access_rules].nil?
         data['versioning'] = input[:versioning] unless input[:versioning].nil?
-        data['readonlyAccessAccounts'] = Builders::PartnerIdList.build(input[:readonly_access_accounts]) unless input[:readonly_access_accounts].nil?
-        data['accessLogConfig'] = Builders::BucketAccessLogConfig.build(input[:access_log_config]) unless input[:access_log_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['readonlyAccessAccounts'] = PartnerIdList.build(input[:readonly_access_accounts]) unless input[:readonly_access_accounts].nil?
+        data['accessLogConfig'] = BucketAccessLogConfig.build(input[:access_log_config]) unless input[:access_log_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2631,7 +2633,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['bucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
         data['bundleId'] = input[:bundle_id] unless input[:bundle_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2647,9 +2649,9 @@ module AWS::SDK::Lightsail
         data['power'] = input[:power] unless input[:power].nil?
         data['scale'] = input[:scale] unless input[:scale].nil?
         data['isDisabled'] = input[:is_disabled] unless input[:is_disabled].nil?
-        data['publicDomainNames'] = Builders::ContainerServicePublicDomains.build(input[:public_domain_names]) unless input[:public_domain_names].nil?
-        data['privateRegistryAccess'] = Builders::PrivateRegistryAccessRequest.build(input[:private_registry_access]) unless input[:private_registry_access].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['publicDomainNames'] = ContainerServicePublicDomains.build(input[:public_domain_names]) unless input[:public_domain_names].nil?
+        data['privateRegistryAccess'] = PrivateRegistryAccessRequest.build(input[:private_registry_access]) unless input[:private_registry_access].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2662,12 +2664,12 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.UpdateDistribution'
         data = {}
         data['distributionName'] = input[:distribution_name] unless input[:distribution_name].nil?
-        data['origin'] = Builders::InputOrigin.build(input[:origin]) unless input[:origin].nil?
-        data['defaultCacheBehavior'] = Builders::CacheBehavior.build(input[:default_cache_behavior]) unless input[:default_cache_behavior].nil?
-        data['cacheBehaviorSettings'] = Builders::CacheSettings.build(input[:cache_behavior_settings]) unless input[:cache_behavior_settings].nil?
-        data['cacheBehaviors'] = Builders::CacheBehaviorList.build(input[:cache_behaviors]) unless input[:cache_behaviors].nil?
+        data['origin'] = InputOrigin.build(input[:origin]) unless input[:origin].nil?
+        data['defaultCacheBehavior'] = CacheBehavior.build(input[:default_cache_behavior]) unless input[:default_cache_behavior].nil?
+        data['cacheBehaviorSettings'] = CacheSettings.build(input[:cache_behavior_settings]) unless input[:cache_behavior_settings].nil?
+        data['cacheBehaviors'] = CacheBehaviorList.build(input[:cache_behaviors]) unless input[:cache_behaviors].nil?
         data['isEnabled'] = input[:is_enabled] unless input[:is_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2681,7 +2683,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['distributionName'] = input[:distribution_name] unless input[:distribution_name].nil?
         data['bundleId'] = input[:bundle_id] unless input[:bundle_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2694,8 +2696,8 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.UpdateDomainEntry'
         data = {}
         data['domainName'] = input[:domain_name] unless input[:domain_name].nil?
-        data['domainEntry'] = Builders::DomainEntry.build(input[:domain_entry]) unless input[:domain_entry].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['domainEntry'] = DomainEntry.build(input[:domain_entry]) unless input[:domain_entry].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2710,7 +2712,7 @@ module AWS::SDK::Lightsail
         data['loadBalancerName'] = input[:load_balancer_name] unless input[:load_balancer_name].nil?
         data['attributeName'] = input[:attribute_name] unless input[:attribute_name].nil?
         data['attributeValue'] = input[:attribute_value] unless input[:attribute_value].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2732,7 +2734,7 @@ module AWS::SDK::Lightsail
         data['publiclyAccessible'] = input[:publicly_accessible] unless input[:publicly_accessible].nil?
         data['applyImmediately'] = input[:apply_immediately] unless input[:apply_immediately].nil?
         data['caCertificateIdentifier'] = input[:ca_certificate_identifier] unless input[:ca_certificate_identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2745,8 +2747,8 @@ module AWS::SDK::Lightsail
         http_req.headers['X-Amz-Target'] = 'Lightsail_20161128.UpdateRelationalDatabaseParameters'
         data = {}
         data['relationalDatabaseName'] = input[:relational_database_name] unless input[:relational_database_name].nil?
-        data['parameters'] = Builders::RelationalDatabaseParameterList.build(input[:parameters]) unless input[:parameters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['parameters'] = RelationalDatabaseParameterList.build(input[:parameters]) unless input[:parameters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2755,7 +2757,7 @@ module AWS::SDK::Lightsail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RelationalDatabaseParameter.build(element) unless element.nil?
+          data << RelationalDatabaseParameter.build(element) unless element.nil?
         end
         data
       end

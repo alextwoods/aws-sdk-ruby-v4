@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Batch
   module Builders
 
@@ -22,7 +24,7 @@ module AWS::SDK::Batch
         data = {}
         data['jobId'] = input[:job_id] unless input[:job_id].nil?
         data['reason'] = input[:reason] unless input[:reason].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -40,10 +42,10 @@ module AWS::SDK::Batch
         data['type'] = input[:type] unless input[:type].nil?
         data['state'] = input[:state] unless input[:state].nil?
         data['unmanagedvCpus'] = input[:unmanagedv_cpus] unless input[:unmanagedv_cpus].nil?
-        data['computeResources'] = Builders::ComputeResource.build(input[:compute_resources]) unless input[:compute_resources].nil?
+        data['computeResources'] = ComputeResource.build(input[:compute_resources]) unless input[:compute_resources].nil?
         data['serviceRole'] = input[:service_role] unless input[:service_role].nil?
-        data['tags'] = Builders::TagrisTagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagrisTagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -67,18 +69,18 @@ module AWS::SDK::Batch
         data['minvCpus'] = input[:minv_cpus] unless input[:minv_cpus].nil?
         data['maxvCpus'] = input[:maxv_cpus] unless input[:maxv_cpus].nil?
         data['desiredvCpus'] = input[:desiredv_cpus] unless input[:desiredv_cpus].nil?
-        data['instanceTypes'] = Builders::StringList.build(input[:instance_types]) unless input[:instance_types].nil?
+        data['instanceTypes'] = StringList.build(input[:instance_types]) unless input[:instance_types].nil?
         data['imageId'] = input[:image_id] unless input[:image_id].nil?
-        data['subnets'] = Builders::StringList.build(input[:subnets]) unless input[:subnets].nil?
-        data['securityGroupIds'] = Builders::StringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['subnets'] = StringList.build(input[:subnets]) unless input[:subnets].nil?
+        data['securityGroupIds'] = StringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data['ec2KeyPair'] = input[:ec2_key_pair] unless input[:ec2_key_pair].nil?
         data['instanceRole'] = input[:instance_role] unless input[:instance_role].nil?
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
         data['placementGroup'] = input[:placement_group] unless input[:placement_group].nil?
         data['bidPercentage'] = input[:bid_percentage] unless input[:bid_percentage].nil?
         data['spotIamFleetRole'] = input[:spot_iam_fleet_role] unless input[:spot_iam_fleet_role].nil?
-        data['launchTemplate'] = Builders::LaunchTemplateSpecification.build(input[:launch_template]) unless input[:launch_template].nil?
-        data['ec2Configuration'] = Builders::Ec2ConfigurationList.build(input[:ec2_configuration]) unless input[:ec2_configuration].nil?
+        data['launchTemplate'] = LaunchTemplateSpecification.build(input[:launch_template]) unless input[:launch_template].nil?
+        data['ec2Configuration'] = Ec2ConfigurationList.build(input[:ec2_configuration]) unless input[:ec2_configuration].nil?
         data
       end
     end
@@ -88,7 +90,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Ec2Configuration.build(element) unless element.nil?
+          data << Ec2Configuration.build(element) unless element.nil?
         end
         data
       end
@@ -151,9 +153,9 @@ module AWS::SDK::Batch
         data['state'] = input[:state] unless input[:state].nil?
         data['schedulingPolicyArn'] = input[:scheduling_policy_arn] unless input[:scheduling_policy_arn].nil?
         data['priority'] = input[:priority] unless input[:priority].nil?
-        data['computeEnvironmentOrder'] = Builders::ComputeEnvironmentOrders.build(input[:compute_environment_order]) unless input[:compute_environment_order].nil?
-        data['tags'] = Builders::TagrisTagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['computeEnvironmentOrder'] = ComputeEnvironmentOrders.build(input[:compute_environment_order]) unless input[:compute_environment_order].nil?
+        data['tags'] = TagrisTagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -162,7 +164,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ComputeEnvironmentOrder.build(element) unless element.nil?
+          data << ComputeEnvironmentOrder.build(element) unless element.nil?
         end
         data
       end
@@ -189,9 +191,9 @@ module AWS::SDK::Batch
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['fairsharePolicy'] = Builders::FairsharePolicy.build(input[:fairshare_policy]) unless input[:fairshare_policy].nil?
-        data['tags'] = Builders::TagrisTagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['fairsharePolicy'] = FairsharePolicy.build(input[:fairshare_policy]) unless input[:fairshare_policy].nil?
+        data['tags'] = TagrisTagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -201,7 +203,7 @@ module AWS::SDK::Batch
         data = {}
         data['shareDecaySeconds'] = input[:share_decay_seconds] unless input[:share_decay_seconds].nil?
         data['computeReservation'] = input[:compute_reservation] unless input[:compute_reservation].nil?
-        data['shareDistribution'] = Builders::ShareAttributesList.build(input[:share_distribution]) unless input[:share_distribution].nil?
+        data['shareDistribution'] = ShareAttributesList.build(input[:share_distribution]) unless input[:share_distribution].nil?
         data
       end
     end
@@ -211,7 +213,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ShareAttributes.build(element) unless element.nil?
+          data << ShareAttributes.build(element) unless element.nil?
         end
         data
       end
@@ -238,7 +240,7 @@ module AWS::SDK::Batch
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['computeEnvironment'] = input[:compute_environment] unless input[:compute_environment].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -253,7 +255,7 @@ module AWS::SDK::Batch
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['jobQueue'] = input[:job_queue] unless input[:job_queue].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -268,7 +270,7 @@ module AWS::SDK::Batch
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -283,7 +285,7 @@ module AWS::SDK::Batch
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['jobDefinition'] = input[:job_definition] unless input[:job_definition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -297,10 +299,10 @@ module AWS::SDK::Batch
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['computeEnvironments'] = Builders::StringList.build(input[:compute_environments]) unless input[:compute_environments].nil?
+        data['computeEnvironments'] = StringList.build(input[:compute_environments]) unless input[:compute_environments].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -314,12 +316,12 @@ module AWS::SDK::Batch
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['jobDefinitions'] = Builders::StringList.build(input[:job_definitions]) unless input[:job_definitions].nil?
+        data['jobDefinitions'] = StringList.build(input[:job_definitions]) unless input[:job_definitions].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['jobDefinitionName'] = input[:job_definition_name] unless input[:job_definition_name].nil?
         data['status'] = input[:status] unless input[:status].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -333,10 +335,10 @@ module AWS::SDK::Batch
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['jobQueues'] = Builders::StringList.build(input[:job_queues]) unless input[:job_queues].nil?
+        data['jobQueues'] = StringList.build(input[:job_queues]) unless input[:job_queues].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -350,8 +352,8 @@ module AWS::SDK::Batch
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['jobs'] = Builders::StringList.build(input[:jobs]) unless input[:jobs].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['jobs'] = StringList.build(input[:jobs]) unless input[:jobs].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -365,8 +367,8 @@ module AWS::SDK::Batch
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['arns'] = Builders::StringList.build(input[:arns]) unless input[:arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['arns'] = StringList.build(input[:arns]) unless input[:arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -386,8 +388,8 @@ module AWS::SDK::Batch
         data['jobStatus'] = input[:job_status] unless input[:job_status].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['filters'] = Builders::ListJobsFilterList.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filters'] = ListJobsFilterList.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -396,7 +398,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::KeyValuesPair.build(element) unless element.nil?
+          data << KeyValuesPair.build(element) unless element.nil?
         end
         data
       end
@@ -407,7 +409,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::StringList.build(input[:values]) unless input[:values].nil?
+        data['values'] = StringList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -424,7 +426,7 @@ module AWS::SDK::Batch
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -457,16 +459,16 @@ module AWS::SDK::Batch
         data = {}
         data['jobDefinitionName'] = input[:job_definition_name] unless input[:job_definition_name].nil?
         data['type'] = input[:type] unless input[:type].nil?
-        data['parameters'] = Builders::ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
+        data['parameters'] = ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
         data['schedulingPriority'] = input[:scheduling_priority] unless input[:scheduling_priority].nil?
-        data['containerProperties'] = Builders::ContainerProperties.build(input[:container_properties]) unless input[:container_properties].nil?
-        data['nodeProperties'] = Builders::NodeProperties.build(input[:node_properties]) unless input[:node_properties].nil?
-        data['retryStrategy'] = Builders::RetryStrategy.build(input[:retry_strategy]) unless input[:retry_strategy].nil?
+        data['containerProperties'] = ContainerProperties.build(input[:container_properties]) unless input[:container_properties].nil?
+        data['nodeProperties'] = NodeProperties.build(input[:node_properties]) unless input[:node_properties].nil?
+        data['retryStrategy'] = RetryStrategy.build(input[:retry_strategy]) unless input[:retry_strategy].nil?
         data['propagateTags'] = input[:propagate_tags] unless input[:propagate_tags].nil?
-        data['timeout'] = Builders::JobTimeout.build(input[:timeout]) unless input[:timeout].nil?
-        data['tags'] = Builders::TagrisTagsMap.build(input[:tags]) unless input[:tags].nil?
-        data['platformCapabilities'] = Builders::PlatformCapabilityList.build(input[:platform_capabilities]) unless input[:platform_capabilities].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['timeout'] = JobTimeout.build(input[:timeout]) unless input[:timeout].nil?
+        data['tags'] = TagrisTagsMap.build(input[:tags]) unless input[:tags].nil?
+        data['platformCapabilities'] = PlatformCapabilityList.build(input[:platform_capabilities]) unless input[:platform_capabilities].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -495,7 +497,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = {}
         data['attempts'] = input[:attempts] unless input[:attempts].nil?
-        data['evaluateOnExit'] = Builders::EvaluateOnExitList.build(input[:evaluate_on_exit]) unless input[:evaluate_on_exit].nil?
+        data['evaluateOnExit'] = EvaluateOnExitList.build(input[:evaluate_on_exit]) unless input[:evaluate_on_exit].nil?
         data
       end
     end
@@ -505,7 +507,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EvaluateOnExit.build(element) unless element.nil?
+          data << EvaluateOnExit.build(element) unless element.nil?
         end
         data
       end
@@ -529,7 +531,7 @@ module AWS::SDK::Batch
         data = {}
         data['numNodes'] = input[:num_nodes] unless input[:num_nodes].nil?
         data['mainNode'] = input[:main_node] unless input[:main_node].nil?
-        data['nodeRangeProperties'] = Builders::NodeRangeProperties.build(input[:node_range_properties]) unless input[:node_range_properties].nil?
+        data['nodeRangeProperties'] = NodeRangeProperties.build(input[:node_range_properties]) unless input[:node_range_properties].nil?
         data
       end
     end
@@ -539,7 +541,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::NodeRangeProperty.build(element) unless element.nil?
+          data << NodeRangeProperty.build(element) unless element.nil?
         end
         data
       end
@@ -550,7 +552,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = {}
         data['targetNodes'] = input[:target_nodes] unless input[:target_nodes].nil?
-        data['container'] = Builders::ContainerProperties.build(input[:container]) unless input[:container].nil?
+        data['container'] = ContainerProperties.build(input[:container]) unless input[:container].nil?
         data
       end
     end
@@ -562,23 +564,23 @@ module AWS::SDK::Batch
         data['image'] = input[:image] unless input[:image].nil?
         data['vcpus'] = input[:vcpus] unless input[:vcpus].nil?
         data['memory'] = input[:memory] unless input[:memory].nil?
-        data['command'] = Builders::StringList.build(input[:command]) unless input[:command].nil?
+        data['command'] = StringList.build(input[:command]) unless input[:command].nil?
         data['jobRoleArn'] = input[:job_role_arn] unless input[:job_role_arn].nil?
         data['executionRoleArn'] = input[:execution_role_arn] unless input[:execution_role_arn].nil?
-        data['volumes'] = Builders::Volumes.build(input[:volumes]) unless input[:volumes].nil?
-        data['environment'] = Builders::EnvironmentVariables.build(input[:environment]) unless input[:environment].nil?
-        data['mountPoints'] = Builders::MountPoints.build(input[:mount_points]) unless input[:mount_points].nil?
+        data['volumes'] = Volumes.build(input[:volumes]) unless input[:volumes].nil?
+        data['environment'] = EnvironmentVariables.build(input[:environment]) unless input[:environment].nil?
+        data['mountPoints'] = MountPoints.build(input[:mount_points]) unless input[:mount_points].nil?
         data['readonlyRootFilesystem'] = input[:readonly_root_filesystem] unless input[:readonly_root_filesystem].nil?
         data['privileged'] = input[:privileged] unless input[:privileged].nil?
-        data['ulimits'] = Builders::Ulimits.build(input[:ulimits]) unless input[:ulimits].nil?
+        data['ulimits'] = Ulimits.build(input[:ulimits]) unless input[:ulimits].nil?
         data['user'] = input[:user] unless input[:user].nil?
         data['instanceType'] = input[:instance_type] unless input[:instance_type].nil?
-        data['resourceRequirements'] = Builders::ResourceRequirements.build(input[:resource_requirements]) unless input[:resource_requirements].nil?
-        data['linuxParameters'] = Builders::LinuxParameters.build(input[:linux_parameters]) unless input[:linux_parameters].nil?
-        data['logConfiguration'] = Builders::LogConfiguration.build(input[:log_configuration]) unless input[:log_configuration].nil?
-        data['secrets'] = Builders::SecretList.build(input[:secrets]) unless input[:secrets].nil?
-        data['networkConfiguration'] = Builders::NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
-        data['fargatePlatformConfiguration'] = Builders::FargatePlatformConfiguration.build(input[:fargate_platform_configuration]) unless input[:fargate_platform_configuration].nil?
+        data['resourceRequirements'] = ResourceRequirements.build(input[:resource_requirements]) unless input[:resource_requirements].nil?
+        data['linuxParameters'] = LinuxParameters.build(input[:linux_parameters]) unless input[:linux_parameters].nil?
+        data['logConfiguration'] = LogConfiguration.build(input[:log_configuration]) unless input[:log_configuration].nil?
+        data['secrets'] = SecretList.build(input[:secrets]) unless input[:secrets].nil?
+        data['networkConfiguration'] = NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
+        data['fargatePlatformConfiguration'] = FargatePlatformConfiguration.build(input[:fargate_platform_configuration]) unless input[:fargate_platform_configuration].nil?
         data
       end
     end
@@ -606,7 +608,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Secret.build(element) unless element.nil?
+          data << Secret.build(element) unless element.nil?
         end
         data
       end
@@ -627,8 +629,8 @@ module AWS::SDK::Batch
       def self.build(input)
         data = {}
         data['logDriver'] = input[:log_driver] unless input[:log_driver].nil?
-        data['options'] = Builders::LogConfigurationOptionsMap.build(input[:options]) unless input[:options].nil?
-        data['secretOptions'] = Builders::SecretList.build(input[:secret_options]) unless input[:secret_options].nil?
+        data['options'] = LogConfigurationOptionsMap.build(input[:options]) unless input[:options].nil?
+        data['secretOptions'] = SecretList.build(input[:secret_options]) unless input[:secret_options].nil?
         data
       end
     end
@@ -648,10 +650,10 @@ module AWS::SDK::Batch
     class LinuxParameters
       def self.build(input)
         data = {}
-        data['devices'] = Builders::DevicesList.build(input[:devices]) unless input[:devices].nil?
+        data['devices'] = DevicesList.build(input[:devices]) unless input[:devices].nil?
         data['initProcessEnabled'] = input[:init_process_enabled] unless input[:init_process_enabled].nil?
         data['sharedMemorySize'] = input[:shared_memory_size] unless input[:shared_memory_size].nil?
-        data['tmpfs'] = Builders::TmpfsList.build(input[:tmpfs]) unless input[:tmpfs].nil?
+        data['tmpfs'] = TmpfsList.build(input[:tmpfs]) unless input[:tmpfs].nil?
         data['maxSwap'] = input[:max_swap] unless input[:max_swap].nil?
         data['swappiness'] = input[:swappiness] unless input[:swappiness].nil?
         data
@@ -663,7 +665,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tmpfs.build(element) unless element.nil?
+          data << Tmpfs.build(element) unless element.nil?
         end
         data
       end
@@ -675,7 +677,7 @@ module AWS::SDK::Batch
         data = {}
         data['containerPath'] = input[:container_path] unless input[:container_path].nil?
         data['size'] = input[:size] unless input[:size].nil?
-        data['mountOptions'] = Builders::StringList.build(input[:mount_options]) unless input[:mount_options].nil?
+        data['mountOptions'] = StringList.build(input[:mount_options]) unless input[:mount_options].nil?
         data
       end
     end
@@ -685,7 +687,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Device.build(element) unless element.nil?
+          data << Device.build(element) unless element.nil?
         end
         data
       end
@@ -697,7 +699,7 @@ module AWS::SDK::Batch
         data = {}
         data['hostPath'] = input[:host_path] unless input[:host_path].nil?
         data['containerPath'] = input[:container_path] unless input[:container_path].nil?
-        data['permissions'] = Builders::DeviceCgroupPermissions.build(input[:permissions]) unless input[:permissions].nil?
+        data['permissions'] = DeviceCgroupPermissions.build(input[:permissions]) unless input[:permissions].nil?
         data
       end
     end
@@ -718,7 +720,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ResourceRequirement.build(element) unless element.nil?
+          data << ResourceRequirement.build(element) unless element.nil?
         end
         data
       end
@@ -739,7 +741,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Ulimit.build(element) unless element.nil?
+          data << Ulimit.build(element) unless element.nil?
         end
         data
       end
@@ -761,7 +763,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MountPoint.build(element) unless element.nil?
+          data << MountPoint.build(element) unless element.nil?
         end
         data
       end
@@ -783,7 +785,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::KeyValuePair.build(element) unless element.nil?
+          data << KeyValuePair.build(element) unless element.nil?
         end
         data
       end
@@ -804,7 +806,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Volume.build(element) unless element.nil?
+          data << Volume.build(element) unless element.nil?
         end
         data
       end
@@ -814,9 +816,9 @@ module AWS::SDK::Batch
     class Volume
       def self.build(input)
         data = {}
-        data['host'] = Builders::Host.build(input[:host]) unless input[:host].nil?
+        data['host'] = Host.build(input[:host]) unless input[:host].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['efsVolumeConfiguration'] = Builders::EFSVolumeConfiguration.build(input[:efs_volume_configuration]) unless input[:efs_volume_configuration].nil?
+        data['efsVolumeConfiguration'] = EFSVolumeConfiguration.build(input[:efs_volume_configuration]) unless input[:efs_volume_configuration].nil?
         data
       end
     end
@@ -829,7 +831,7 @@ module AWS::SDK::Batch
         data['rootDirectory'] = input[:root_directory] unless input[:root_directory].nil?
         data['transitEncryption'] = input[:transit_encryption] unless input[:transit_encryption].nil?
         data['transitEncryptionPort'] = input[:transit_encryption_port] unless input[:transit_encryption_port].nil?
-        data['authorizationConfig'] = Builders::EFSAuthorizationConfig.build(input[:authorization_config]) unless input[:authorization_config].nil?
+        data['authorizationConfig'] = EFSAuthorizationConfig.build(input[:authorization_config]) unless input[:authorization_config].nil?
         data
       end
     end
@@ -878,17 +880,17 @@ module AWS::SDK::Batch
         data['jobQueue'] = input[:job_queue] unless input[:job_queue].nil?
         data['shareIdentifier'] = input[:share_identifier] unless input[:share_identifier].nil?
         data['schedulingPriorityOverride'] = input[:scheduling_priority_override] unless input[:scheduling_priority_override].nil?
-        data['arrayProperties'] = Builders::ArrayProperties.build(input[:array_properties]) unless input[:array_properties].nil?
-        data['dependsOn'] = Builders::JobDependencyList.build(input[:depends_on]) unless input[:depends_on].nil?
+        data['arrayProperties'] = ArrayProperties.build(input[:array_properties]) unless input[:array_properties].nil?
+        data['dependsOn'] = JobDependencyList.build(input[:depends_on]) unless input[:depends_on].nil?
         data['jobDefinition'] = input[:job_definition] unless input[:job_definition].nil?
-        data['parameters'] = Builders::ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
-        data['containerOverrides'] = Builders::ContainerOverrides.build(input[:container_overrides]) unless input[:container_overrides].nil?
-        data['nodeOverrides'] = Builders::NodeOverrides.build(input[:node_overrides]) unless input[:node_overrides].nil?
-        data['retryStrategy'] = Builders::RetryStrategy.build(input[:retry_strategy]) unless input[:retry_strategy].nil?
+        data['parameters'] = ParametersMap.build(input[:parameters]) unless input[:parameters].nil?
+        data['containerOverrides'] = ContainerOverrides.build(input[:container_overrides]) unless input[:container_overrides].nil?
+        data['nodeOverrides'] = NodeOverrides.build(input[:node_overrides]) unless input[:node_overrides].nil?
+        data['retryStrategy'] = RetryStrategy.build(input[:retry_strategy]) unless input[:retry_strategy].nil?
         data['propagateTags'] = input[:propagate_tags] unless input[:propagate_tags].nil?
-        data['timeout'] = Builders::JobTimeout.build(input[:timeout]) unless input[:timeout].nil?
-        data['tags'] = Builders::TagrisTagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['timeout'] = JobTimeout.build(input[:timeout]) unless input[:timeout].nil?
+        data['tags'] = TagrisTagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -897,7 +899,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = {}
         data['numNodes'] = input[:num_nodes] unless input[:num_nodes].nil?
-        data['nodePropertyOverrides'] = Builders::NodePropertyOverrides.build(input[:node_property_overrides]) unless input[:node_property_overrides].nil?
+        data['nodePropertyOverrides'] = NodePropertyOverrides.build(input[:node_property_overrides]) unless input[:node_property_overrides].nil?
         data
       end
     end
@@ -907,7 +909,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::NodePropertyOverride.build(element) unless element.nil?
+          data << NodePropertyOverride.build(element) unless element.nil?
         end
         data
       end
@@ -918,7 +920,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = {}
         data['targetNodes'] = input[:target_nodes] unless input[:target_nodes].nil?
-        data['containerOverrides'] = Builders::ContainerOverrides.build(input[:container_overrides]) unless input[:container_overrides].nil?
+        data['containerOverrides'] = ContainerOverrides.build(input[:container_overrides]) unless input[:container_overrides].nil?
         data
       end
     end
@@ -929,10 +931,10 @@ module AWS::SDK::Batch
         data = {}
         data['vcpus'] = input[:vcpus] unless input[:vcpus].nil?
         data['memory'] = input[:memory] unless input[:memory].nil?
-        data['command'] = Builders::StringList.build(input[:command]) unless input[:command].nil?
+        data['command'] = StringList.build(input[:command]) unless input[:command].nil?
         data['instanceType'] = input[:instance_type] unless input[:instance_type].nil?
-        data['environment'] = Builders::EnvironmentVariables.build(input[:environment]) unless input[:environment].nil?
-        data['resourceRequirements'] = Builders::ResourceRequirements.build(input[:resource_requirements]) unless input[:resource_requirements].nil?
+        data['environment'] = EnvironmentVariables.build(input[:environment]) unless input[:environment].nil?
+        data['resourceRequirements'] = ResourceRequirements.build(input[:resource_requirements]) unless input[:resource_requirements].nil?
         data
       end
     end
@@ -942,7 +944,7 @@ module AWS::SDK::Batch
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::JobDependency.build(element) unless element.nil?
+          data << JobDependency.build(element) unless element.nil?
         end
         data
       end
@@ -984,8 +986,8 @@ module AWS::SDK::Batch
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagrisTagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagrisTagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1001,7 +1003,7 @@ module AWS::SDK::Batch
         data = {}
         data['jobId'] = input[:job_id] unless input[:job_id].nil?
         data['reason'] = input[:reason] unless input[:reason].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1051,10 +1053,10 @@ module AWS::SDK::Batch
         data['computeEnvironment'] = input[:compute_environment] unless input[:compute_environment].nil?
         data['state'] = input[:state] unless input[:state].nil?
         data['unmanagedvCpus'] = input[:unmanagedv_cpus] unless input[:unmanagedv_cpus].nil?
-        data['computeResources'] = Builders::ComputeResourceUpdate.build(input[:compute_resources]) unless input[:compute_resources].nil?
+        data['computeResources'] = ComputeResourceUpdate.build(input[:compute_resources]) unless input[:compute_resources].nil?
         data['serviceRole'] = input[:service_role] unless input[:service_role].nil?
-        data['updatePolicy'] = Builders::UpdatePolicy.build(input[:update_policy]) unless input[:update_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['updatePolicy'] = UpdatePolicy.build(input[:update_policy]) unless input[:update_policy].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1075,17 +1077,17 @@ module AWS::SDK::Batch
         data['minvCpus'] = input[:minv_cpus] unless input[:minv_cpus].nil?
         data['maxvCpus'] = input[:maxv_cpus] unless input[:maxv_cpus].nil?
         data['desiredvCpus'] = input[:desiredv_cpus] unless input[:desiredv_cpus].nil?
-        data['subnets'] = Builders::StringList.build(input[:subnets]) unless input[:subnets].nil?
-        data['securityGroupIds'] = Builders::StringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['subnets'] = StringList.build(input[:subnets]) unless input[:subnets].nil?
+        data['securityGroupIds'] = StringList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data['allocationStrategy'] = input[:allocation_strategy] unless input[:allocation_strategy].nil?
-        data['instanceTypes'] = Builders::StringList.build(input[:instance_types]) unless input[:instance_types].nil?
+        data['instanceTypes'] = StringList.build(input[:instance_types]) unless input[:instance_types].nil?
         data['ec2KeyPair'] = input[:ec2_key_pair] unless input[:ec2_key_pair].nil?
         data['instanceRole'] = input[:instance_role] unless input[:instance_role].nil?
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
         data['placementGroup'] = input[:placement_group] unless input[:placement_group].nil?
         data['bidPercentage'] = input[:bid_percentage] unless input[:bid_percentage].nil?
-        data['launchTemplate'] = Builders::LaunchTemplateSpecification.build(input[:launch_template]) unless input[:launch_template].nil?
-        data['ec2Configuration'] = Builders::Ec2ConfigurationList.build(input[:ec2_configuration]) unless input[:ec2_configuration].nil?
+        data['launchTemplate'] = LaunchTemplateSpecification.build(input[:launch_template]) unless input[:launch_template].nil?
+        data['ec2Configuration'] = Ec2ConfigurationList.build(input[:ec2_configuration]) unless input[:ec2_configuration].nil?
         data['updateToLatestImageVersion'] = input[:update_to_latest_image_version] unless input[:update_to_latest_image_version].nil?
         data['type'] = input[:type] unless input[:type].nil?
         data['imageId'] = input[:image_id] unless input[:image_id].nil?
@@ -1107,8 +1109,8 @@ module AWS::SDK::Batch
         data['state'] = input[:state] unless input[:state].nil?
         data['schedulingPolicyArn'] = input[:scheduling_policy_arn] unless input[:scheduling_policy_arn].nil?
         data['priority'] = input[:priority] unless input[:priority].nil?
-        data['computeEnvironmentOrder'] = Builders::ComputeEnvironmentOrders.build(input[:compute_environment_order]) unless input[:compute_environment_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['computeEnvironmentOrder'] = ComputeEnvironmentOrders.build(input[:compute_environment_order]) unless input[:compute_environment_order].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1123,8 +1125,8 @@ module AWS::SDK::Batch
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        data['fairsharePolicy'] = Builders::FairsharePolicy.build(input[:fairshare_policy]) unless input[:fairshare_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['fairsharePolicy'] = FairsharePolicy.build(input[:fairshare_policy]) unless input[:fairshare_policy].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

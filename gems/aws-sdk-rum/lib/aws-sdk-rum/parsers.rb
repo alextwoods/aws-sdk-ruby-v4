@@ -112,7 +112,7 @@ module AWS::SDK::RUM
       def self.parse(http_resp)
         data = Types::GetAppMonitorOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_monitor = (Parsers::AppMonitor.parse(map['AppMonitor']) unless map['AppMonitor'].nil?)
+        data.app_monitor = (AppMonitor.parse(map['AppMonitor']) unless map['AppMonitor'].nil?)
         data
       end
     end
@@ -125,10 +125,10 @@ module AWS::SDK::RUM
         data.id = map['Id']
         data.created = map['Created']
         data.last_modified = map['LastModified']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.state = map['State']
-        data.app_monitor_configuration = (Parsers::AppMonitorConfiguration.parse(map['AppMonitorConfiguration']) unless map['AppMonitorConfiguration'].nil?)
-        data.data_storage = (Parsers::DataStorage.parse(map['DataStorage']) unless map['DataStorage'].nil?)
+        data.app_monitor_configuration = (AppMonitorConfiguration.parse(map['AppMonitorConfiguration']) unless map['AppMonitorConfiguration'].nil?)
+        data.data_storage = (DataStorage.parse(map['DataStorage']) unless map['DataStorage'].nil?)
         return data
       end
     end
@@ -136,7 +136,7 @@ module AWS::SDK::RUM
     class DataStorage
       def self.parse(map)
         data = Types::DataStorage.new
-        data.cw_log = (Parsers::CwLog.parse(map['CwLog']) unless map['CwLog'].nil?)
+        data.cw_log = (CwLog.parse(map['CwLog']) unless map['CwLog'].nil?)
         return data
       end
     end
@@ -154,13 +154,13 @@ module AWS::SDK::RUM
       def self.parse(map)
         data = Types::AppMonitorConfiguration.new
         data.identity_pool_id = map['IdentityPoolId']
-        data.excluded_pages = (Parsers::Pages.parse(map['ExcludedPages']) unless map['ExcludedPages'].nil?)
-        data.included_pages = (Parsers::Pages.parse(map['IncludedPages']) unless map['IncludedPages'].nil?)
-        data.favorite_pages = (Parsers::FavoritePages.parse(map['FavoritePages']) unless map['FavoritePages'].nil?)
+        data.excluded_pages = (Pages.parse(map['ExcludedPages']) unless map['ExcludedPages'].nil?)
+        data.included_pages = (Pages.parse(map['IncludedPages']) unless map['IncludedPages'].nil?)
+        data.favorite_pages = (FavoritePages.parse(map['FavoritePages']) unless map['FavoritePages'].nil?)
         data.session_sample_rate = Hearth::NumberHelper.deserialize(map['SessionSampleRate'])
         data.guest_role_arn = map['GuestRoleArn']
         data.allow_cookies = map['AllowCookies']
-        data.telemetries = (Parsers::Telemetries.parse(map['Telemetries']) unless map['Telemetries'].nil?)
+        data.telemetries = (Telemetries.parse(map['Telemetries']) unless map['Telemetries'].nil?)
         data.enable_x_ray = map['EnableXRay']
         return data
       end
@@ -211,7 +211,7 @@ module AWS::SDK::RUM
       def self.parse(http_resp)
         data = Types::GetAppMonitorDataOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.events = (Parsers::EventDataList.parse(map['Events']) unless map['Events'].nil?)
+        data.events = (EventDataList.parse(map['Events']) unless map['Events'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -233,7 +233,7 @@ module AWS::SDK::RUM
         data = Types::ListAppMonitorsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.app_monitor_summaries = (Parsers::AppMonitorSummaryList.parse(map['AppMonitorSummaries']) unless map['AppMonitorSummaries'].nil?)
+        data.app_monitor_summaries = (AppMonitorSummaryList.parse(map['AppMonitorSummaries']) unless map['AppMonitorSummaries'].nil?)
         data
       end
     end
@@ -242,7 +242,7 @@ module AWS::SDK::RUM
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AppMonitorSummary.parse(value) unless value.nil?
+          data << AppMonitorSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -266,7 +266,7 @@ module AWS::SDK::RUM
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.resource_arn = map['ResourceArn']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end

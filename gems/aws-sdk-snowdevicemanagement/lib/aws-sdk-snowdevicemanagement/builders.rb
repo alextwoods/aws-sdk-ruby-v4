@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SnowDeviceManagement
   module Builders
 
@@ -37,12 +39,12 @@ module AWS::SDK::SnowDeviceManagement
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['targets'] = Builders::TargetList.build(input[:targets]) unless input[:targets].nil?
-        data['command'] = Builders::Command.build(input[:command]) unless input[:command].nil?
+        data['targets'] = TargetList.build(input[:targets]) unless input[:targets].nil?
+        data['command'] = Command.build(input[:command]) unless input[:command].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -63,9 +65,9 @@ module AWS::SDK::SnowDeviceManagement
         data = {}
         case input
         when Types::Command::Unlock
-          data['unlock'] = (Builders::Unlock.build(input) unless input.nil?)
+          data['unlock'] = (Unlock.build(input) unless input.nil?)
         when Types::Command::Reboot
-          data['reboot'] = (Builders::Reboot.build(input) unless input.nil?)
+          data['reboot'] = (Reboot.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::Command"
@@ -136,8 +138,8 @@ module AWS::SDK::SnowDeviceManagement
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['instanceIds'] = Builders::InstanceIdsList.build(input[:instance_ids]) unless input[:instance_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['instanceIds'] = InstanceIdsList.build(input[:instance_ids]) unless input[:instance_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -284,8 +286,8 @@ module AWS::SDK::SnowDeviceManagement
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

@@ -21,13 +21,13 @@ module AWS::SDK::ServerlessApplicationRepository
         data.description = map['description']
         data.home_page_url = map['homePageUrl']
         data.is_verified_author = map['isVerifiedAuthor']
-        data.labels = (Parsers::List____listOf__string.parse(map['labels']) unless map['labels'].nil?)
+        data.labels = (List____listOf__string.parse(map['labels']) unless map['labels'].nil?)
         data.license_url = map['licenseUrl']
         data.name = map['name']
         data.readme_url = map['readmeUrl']
         data.spdx_license_id = map['spdxLicenseId']
         data.verified_author_url = map['verifiedAuthorUrl']
-        data.version = (Parsers::Version.parse(map['version']) unless map['version'].nil?)
+        data.version = (Version.parse(map['version']) unless map['version'].nil?)
         data
       end
     end
@@ -37,8 +37,8 @@ module AWS::SDK::ServerlessApplicationRepository
         data = Types::Version.new
         data.application_id = map['applicationId']
         data.creation_time = map['creationTime']
-        data.parameter_definitions = (Parsers::List____listOfParameterDefinition.parse(map['parameterDefinitions']) unless map['parameterDefinitions'].nil?)
-        data.required_capabilities = (Parsers::List____listOfCapability.parse(map['requiredCapabilities']) unless map['requiredCapabilities'].nil?)
+        data.parameter_definitions = (List____listOfParameterDefinition.parse(map['parameterDefinitions']) unless map['parameterDefinitions'].nil?)
+        data.required_capabilities = (List____listOfCapability.parse(map['requiredCapabilities']) unless map['requiredCapabilities'].nil?)
         data.resources_supported = map['resourcesSupported']
         data.semantic_version = map['semanticVersion']
         data.source_code_archive_url = map['sourceCodeArchiveUrl']
@@ -62,7 +62,7 @@ module AWS::SDK::ServerlessApplicationRepository
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ParameterDefinition.parse(value) unless value.nil?
+          data << ParameterDefinition.parse(value) unless value.nil?
         end
         data
       end
@@ -72,7 +72,7 @@ module AWS::SDK::ServerlessApplicationRepository
       def self.parse(map)
         data = Types::ParameterDefinition.new
         data.allowed_pattern = map['allowedPattern']
-        data.allowed_values = (Parsers::List____listOf__string.parse(map['allowedValues']) unless map['allowedValues'].nil?)
+        data.allowed_values = (List____listOf__string.parse(map['allowedValues']) unless map['allowedValues'].nil?)
         data.constraint_description = map['constraintDescription']
         data.default_value = map['defaultValue']
         data.description = map['description']
@@ -82,7 +82,7 @@ module AWS::SDK::ServerlessApplicationRepository
         data.min_value = map['minValue']
         data.name = map['name']
         data.no_echo = map['noEcho']
-        data.referenced_by_resources = (Parsers::List____listOf__string.parse(map['referencedByResources']) unless map['referencedByResources'].nil?)
+        data.referenced_by_resources = (List____listOf__string.parse(map['referencedByResources']) unless map['referencedByResources'].nil?)
         data.type = map['type']
         return data
       end
@@ -160,8 +160,8 @@ module AWS::SDK::ServerlessApplicationRepository
         map = Hearth::JSON.load(http_resp.body)
         data.application_id = map['applicationId']
         data.creation_time = map['creationTime']
-        data.parameter_definitions = (Parsers::List____listOfParameterDefinition.parse(map['parameterDefinitions']) unless map['parameterDefinitions'].nil?)
-        data.required_capabilities = (Parsers::List____listOfCapability.parse(map['requiredCapabilities']) unless map['requiredCapabilities'].nil?)
+        data.parameter_definitions = (List____listOfParameterDefinition.parse(map['parameterDefinitions']) unless map['parameterDefinitions'].nil?)
+        data.required_capabilities = (List____listOfCapability.parse(map['requiredCapabilities']) unless map['requiredCapabilities'].nil?)
         data.resources_supported = map['resourcesSupported']
         data.semantic_version = map['semanticVersion']
         data.source_code_archive_url = map['sourceCodeArchiveUrl']
@@ -231,13 +231,13 @@ module AWS::SDK::ServerlessApplicationRepository
         data.description = map['description']
         data.home_page_url = map['homePageUrl']
         data.is_verified_author = map['isVerifiedAuthor']
-        data.labels = (Parsers::List____listOf__string.parse(map['labels']) unless map['labels'].nil?)
+        data.labels = (List____listOf__string.parse(map['labels']) unless map['labels'].nil?)
         data.license_url = map['licenseUrl']
         data.name = map['name']
         data.readme_url = map['readmeUrl']
         data.spdx_license_id = map['spdxLicenseId']
         data.verified_author_url = map['verifiedAuthorUrl']
-        data.version = (Parsers::Version.parse(map['version']) unless map['version'].nil?)
+        data.version = (Version.parse(map['version']) unless map['version'].nil?)
         data
       end
     end
@@ -247,7 +247,7 @@ module AWS::SDK::ServerlessApplicationRepository
       def self.parse(http_resp)
         data = Types::GetApplicationPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.statements = (Parsers::List____listOfApplicationPolicyStatement.parse(map['statements']) unless map['statements'].nil?)
+        data.statements = (List____listOfApplicationPolicyStatement.parse(map['statements']) unless map['statements'].nil?)
         data
       end
     end
@@ -256,7 +256,7 @@ module AWS::SDK::ServerlessApplicationRepository
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ApplicationPolicyStatement.parse(value) unless value.nil?
+          data << ApplicationPolicyStatement.parse(value) unless value.nil?
         end
         data
       end
@@ -265,9 +265,9 @@ module AWS::SDK::ServerlessApplicationRepository
     class ApplicationPolicyStatement
       def self.parse(map)
         data = Types::ApplicationPolicyStatement.new
-        data.actions = (Parsers::List____listOf__string.parse(map['actions']) unless map['actions'].nil?)
-        data.principal_org_i_ds = (Parsers::List____listOf__string.parse(map['principalOrgIDs']) unless map['principalOrgIDs'].nil?)
-        data.principals = (Parsers::List____listOf__string.parse(map['principals']) unless map['principals'].nil?)
+        data.actions = (List____listOf__string.parse(map['actions']) unless map['actions'].nil?)
+        data.principal_org_i_ds = (List____listOf__string.parse(map['principalOrgIDs']) unless map['principalOrgIDs'].nil?)
+        data.principals = (List____listOf__string.parse(map['principals']) unless map['principals'].nil?)
         data.statement_id = map['statementId']
         return data
       end
@@ -294,7 +294,7 @@ module AWS::SDK::ServerlessApplicationRepository
       def self.parse(http_resp)
         data = Types::ListApplicationDependenciesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.dependencies = (Parsers::List____listOfApplicationDependencySummary.parse(map['dependencies']) unless map['dependencies'].nil?)
+        data.dependencies = (List____listOfApplicationDependencySummary.parse(map['dependencies']) unless map['dependencies'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -304,7 +304,7 @@ module AWS::SDK::ServerlessApplicationRepository
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ApplicationDependencySummary.parse(value) unless value.nil?
+          data << ApplicationDependencySummary.parse(value) unless value.nil?
         end
         data
       end
@@ -325,7 +325,7 @@ module AWS::SDK::ServerlessApplicationRepository
         data = Types::ListApplicationVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.versions = (Parsers::List____listOfVersionSummary.parse(map['versions']) unless map['versions'].nil?)
+        data.versions = (List____listOfVersionSummary.parse(map['versions']) unless map['versions'].nil?)
         data
       end
     end
@@ -334,7 +334,7 @@ module AWS::SDK::ServerlessApplicationRepository
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VersionSummary.parse(value) unless value.nil?
+          data << VersionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -356,7 +356,7 @@ module AWS::SDK::ServerlessApplicationRepository
       def self.parse(http_resp)
         data = Types::ListApplicationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.applications = (Parsers::List____listOfApplicationSummary.parse(map['applications']) unless map['applications'].nil?)
+        data.applications = (List____listOfApplicationSummary.parse(map['applications']) unless map['applications'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -366,7 +366,7 @@ module AWS::SDK::ServerlessApplicationRepository
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ApplicationSummary.parse(value) unless value.nil?
+          data << ApplicationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -380,7 +380,7 @@ module AWS::SDK::ServerlessApplicationRepository
         data.creation_time = map['creationTime']
         data.description = map['description']
         data.home_page_url = map['homePageUrl']
-        data.labels = (Parsers::List____listOf__string.parse(map['labels']) unless map['labels'].nil?)
+        data.labels = (List____listOf__string.parse(map['labels']) unless map['labels'].nil?)
         data.name = map['name']
         data.spdx_license_id = map['spdxLicenseId']
         return data
@@ -392,7 +392,7 @@ module AWS::SDK::ServerlessApplicationRepository
       def self.parse(http_resp)
         data = Types::PutApplicationPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.statements = (Parsers::List____listOfApplicationPolicyStatement.parse(map['statements']) unless map['statements'].nil?)
+        data.statements = (List____listOfApplicationPolicyStatement.parse(map['statements']) unless map['statements'].nil?)
         data
       end
     end
@@ -417,13 +417,13 @@ module AWS::SDK::ServerlessApplicationRepository
         data.description = map['description']
         data.home_page_url = map['homePageUrl']
         data.is_verified_author = map['isVerifiedAuthor']
-        data.labels = (Parsers::List____listOf__string.parse(map['labels']) unless map['labels'].nil?)
+        data.labels = (List____listOf__string.parse(map['labels']) unless map['labels'].nil?)
         data.license_url = map['licenseUrl']
         data.name = map['name']
         data.readme_url = map['readmeUrl']
         data.spdx_license_id = map['spdxLicenseId']
         data.verified_author_url = map['verifiedAuthorUrl']
-        data.version = (Parsers::Version.parse(map['version']) unless map['version'].nil?)
+        data.version = (Version.parse(map['version']) unless map['version'].nil?)
         data
       end
     end

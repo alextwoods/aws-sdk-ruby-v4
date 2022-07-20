@@ -86,9 +86,9 @@ module AWS::SDK::DataExchange
         data.id = map['Id']
         data.name = map['Name']
         data.origin = map['Origin']
-        data.origin_details = (Parsers::OriginDetails.parse(map['OriginDetails']) unless map['OriginDetails'].nil?)
+        data.origin_details = (OriginDetails.parse(map['OriginDetails']) unless map['OriginDetails'].nil?)
         data.source_id = map['SourceId']
-        data.tags = (Parsers::MapOf__string.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (MapOf__string.parse(map['Tags']) unless map['Tags'].nil?)
         data.updated_at = Time.parse(map['UpdatedAt']) if map['UpdatedAt']
         data
       end
@@ -139,10 +139,10 @@ module AWS::SDK::DataExchange
       def self.parse(http_resp)
         data = Types::CreateEventActionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.action = (Parsers::Action.parse(map['Action']) unless map['Action'].nil?)
+        data.action = (Action.parse(map['Action']) unless map['Action'].nil?)
         data.arn = map['Arn']
         data.created_at = Time.parse(map['CreatedAt']) if map['CreatedAt']
-        data.event = (Parsers::Event.parse(map['Event']) unless map['Event'].nil?)
+        data.event = (Event.parse(map['Event']) unless map['Event'].nil?)
         data.id = map['Id']
         data.updated_at = Time.parse(map['UpdatedAt']) if map['UpdatedAt']
         data
@@ -152,7 +152,7 @@ module AWS::SDK::DataExchange
     class Event
       def self.parse(map)
         data = Types::Event.new
-        data.revision_published = (Parsers::RevisionPublished.parse(map['RevisionPublished']) unless map['RevisionPublished'].nil?)
+        data.revision_published = (RevisionPublished.parse(map['RevisionPublished']) unless map['RevisionPublished'].nil?)
         return data
       end
     end
@@ -168,7 +168,7 @@ module AWS::SDK::DataExchange
     class Action
       def self.parse(map)
         data = Types::Action.new
-        data.export_revision_to_s3 = (Parsers::AutoExportRevisionToS3RequestDetails.parse(map['ExportRevisionToS3']) unless map['ExportRevisionToS3'].nil?)
+        data.export_revision_to_s3 = (AutoExportRevisionToS3RequestDetails.parse(map['ExportRevisionToS3']) unless map['ExportRevisionToS3'].nil?)
         return data
       end
     end
@@ -176,8 +176,8 @@ module AWS::SDK::DataExchange
     class AutoExportRevisionToS3RequestDetails
       def self.parse(map)
         data = Types::AutoExportRevisionToS3RequestDetails.new
-        data.encryption = (Parsers::ExportServerSideEncryption.parse(map['Encryption']) unless map['Encryption'].nil?)
-        data.revision_destination = (Parsers::AutoExportRevisionDestinationEntry.parse(map['RevisionDestination']) unless map['RevisionDestination'].nil?)
+        data.encryption = (ExportServerSideEncryption.parse(map['Encryption']) unless map['Encryption'].nil?)
+        data.revision_destination = (AutoExportRevisionDestinationEntry.parse(map['RevisionDestination']) unless map['RevisionDestination'].nil?)
         return data
       end
     end
@@ -207,8 +207,8 @@ module AWS::SDK::DataExchange
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['Arn']
         data.created_at = Time.parse(map['CreatedAt']) if map['CreatedAt']
-        data.details = (Parsers::ResponseDetails.parse(map['Details']) unless map['Details'].nil?)
-        data.errors = (Parsers::ListOfJobError.parse(map['Errors']) unless map['Errors'].nil?)
+        data.details = (ResponseDetails.parse(map['Details']) unless map['Details'].nil?)
+        data.errors = (ListOfJobError.parse(map['Errors']) unless map['Errors'].nil?)
         data.id = map['Id']
         data.state = map['State']
         data.type = map['Type']
@@ -221,7 +221,7 @@ module AWS::SDK::DataExchange
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobError.parse(value) unless value.nil?
+          data << JobError.parse(value) unless value.nil?
         end
         data
       end
@@ -231,7 +231,7 @@ module AWS::SDK::DataExchange
       def self.parse(map)
         data = Types::JobError.new
         data.code = map['Code']
-        data.details = (Parsers::Details.parse(map['Details']) unless map['Details'].nil?)
+        data.details = (Details.parse(map['Details']) unless map['Details'].nil?)
         data.limit_name = map['LimitName']
         data.limit_value = Hearth::NumberHelper.deserialize(map['LimitValue'])
         data.message = map['Message']
@@ -244,8 +244,8 @@ module AWS::SDK::DataExchange
     class Details
       def self.parse(map)
         data = Types::Details.new
-        data.import_asset_from_signed_url_job_error_details = (Parsers::ImportAssetFromSignedUrlJobErrorDetails.parse(map['ImportAssetFromSignedUrlJobErrorDetails']) unless map['ImportAssetFromSignedUrlJobErrorDetails'].nil?)
-        data.import_assets_from_s3_job_error_details = (Parsers::ListOfAssetSourceEntry.parse(map['ImportAssetsFromS3JobErrorDetails']) unless map['ImportAssetsFromS3JobErrorDetails'].nil?)
+        data.import_asset_from_signed_url_job_error_details = (ImportAssetFromSignedUrlJobErrorDetails.parse(map['ImportAssetFromSignedUrlJobErrorDetails']) unless map['ImportAssetFromSignedUrlJobErrorDetails'].nil?)
+        data.import_assets_from_s3_job_error_details = (ListOfAssetSourceEntry.parse(map['ImportAssetsFromS3JobErrorDetails']) unless map['ImportAssetsFromS3JobErrorDetails'].nil?)
         return data
       end
     end
@@ -254,7 +254,7 @@ module AWS::SDK::DataExchange
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetSourceEntry.parse(value) unless value.nil?
+          data << AssetSourceEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -280,13 +280,13 @@ module AWS::SDK::DataExchange
     class ResponseDetails
       def self.parse(map)
         data = Types::ResponseDetails.new
-        data.export_asset_to_signed_url = (Parsers::ExportAssetToSignedUrlResponseDetails.parse(map['ExportAssetToSignedUrl']) unless map['ExportAssetToSignedUrl'].nil?)
-        data.export_assets_to_s3 = (Parsers::ExportAssetsToS3ResponseDetails.parse(map['ExportAssetsToS3']) unless map['ExportAssetsToS3'].nil?)
-        data.export_revisions_to_s3 = (Parsers::ExportRevisionsToS3ResponseDetails.parse(map['ExportRevisionsToS3']) unless map['ExportRevisionsToS3'].nil?)
-        data.import_asset_from_signed_url = (Parsers::ImportAssetFromSignedUrlResponseDetails.parse(map['ImportAssetFromSignedUrl']) unless map['ImportAssetFromSignedUrl'].nil?)
-        data.import_assets_from_s3 = (Parsers::ImportAssetsFromS3ResponseDetails.parse(map['ImportAssetsFromS3']) unless map['ImportAssetsFromS3'].nil?)
-        data.import_assets_from_redshift_data_shares = (Parsers::ImportAssetsFromRedshiftDataSharesResponseDetails.parse(map['ImportAssetsFromRedshiftDataShares']) unless map['ImportAssetsFromRedshiftDataShares'].nil?)
-        data.import_asset_from_api_gateway_api = (Parsers::ImportAssetFromApiGatewayApiResponseDetails.parse(map['ImportAssetFromApiGatewayApi']) unless map['ImportAssetFromApiGatewayApi'].nil?)
+        data.export_asset_to_signed_url = (ExportAssetToSignedUrlResponseDetails.parse(map['ExportAssetToSignedUrl']) unless map['ExportAssetToSignedUrl'].nil?)
+        data.export_assets_to_s3 = (ExportAssetsToS3ResponseDetails.parse(map['ExportAssetsToS3']) unless map['ExportAssetsToS3'].nil?)
+        data.export_revisions_to_s3 = (ExportRevisionsToS3ResponseDetails.parse(map['ExportRevisionsToS3']) unless map['ExportRevisionsToS3'].nil?)
+        data.import_asset_from_signed_url = (ImportAssetFromSignedUrlResponseDetails.parse(map['ImportAssetFromSignedUrl']) unless map['ImportAssetFromSignedUrl'].nil?)
+        data.import_assets_from_s3 = (ImportAssetsFromS3ResponseDetails.parse(map['ImportAssetsFromS3']) unless map['ImportAssetsFromS3'].nil?)
+        data.import_assets_from_redshift_data_shares = (ImportAssetsFromRedshiftDataSharesResponseDetails.parse(map['ImportAssetsFromRedshiftDataShares']) unless map['ImportAssetsFromRedshiftDataShares'].nil?)
+        data.import_asset_from_api_gateway_api = (ImportAssetFromApiGatewayApiResponseDetails.parse(map['ImportAssetFromApiGatewayApi']) unless map['ImportAssetFromApiGatewayApi'].nil?)
         return data
       end
     end
@@ -312,7 +312,7 @@ module AWS::SDK::DataExchange
     class ImportAssetsFromRedshiftDataSharesResponseDetails
       def self.parse(map)
         data = Types::ImportAssetsFromRedshiftDataSharesResponseDetails.new
-        data.asset_sources = (Parsers::ListOfRedshiftDataShareAssetSourceEntry.parse(map['AssetSources']) unless map['AssetSources'].nil?)
+        data.asset_sources = (ListOfRedshiftDataShareAssetSourceEntry.parse(map['AssetSources']) unless map['AssetSources'].nil?)
         data.data_set_id = map['DataSetId']
         data.revision_id = map['RevisionId']
         return data
@@ -323,7 +323,7 @@ module AWS::SDK::DataExchange
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RedshiftDataShareAssetSourceEntry.parse(value) unless value.nil?
+          data << RedshiftDataShareAssetSourceEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -340,7 +340,7 @@ module AWS::SDK::DataExchange
     class ImportAssetsFromS3ResponseDetails
       def self.parse(map)
         data = Types::ImportAssetsFromS3ResponseDetails.new
-        data.asset_sources = (Parsers::ListOfAssetSourceEntry.parse(map['AssetSources']) unless map['AssetSources'].nil?)
+        data.asset_sources = (ListOfAssetSourceEntry.parse(map['AssetSources']) unless map['AssetSources'].nil?)
         data.data_set_id = map['DataSetId']
         data.revision_id = map['RevisionId']
         return data
@@ -364,8 +364,8 @@ module AWS::SDK::DataExchange
       def self.parse(map)
         data = Types::ExportRevisionsToS3ResponseDetails.new
         data.data_set_id = map['DataSetId']
-        data.encryption = (Parsers::ExportServerSideEncryption.parse(map['Encryption']) unless map['Encryption'].nil?)
-        data.revision_destinations = (Parsers::ListOfRevisionDestinationEntry.parse(map['RevisionDestinations']) unless map['RevisionDestinations'].nil?)
+        data.encryption = (ExportServerSideEncryption.parse(map['Encryption']) unless map['Encryption'].nil?)
+        data.revision_destinations = (ListOfRevisionDestinationEntry.parse(map['RevisionDestinations']) unless map['RevisionDestinations'].nil?)
         data.event_action_arn = map['EventActionArn']
         return data
       end
@@ -375,7 +375,7 @@ module AWS::SDK::DataExchange
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RevisionDestinationEntry.parse(value) unless value.nil?
+          data << RevisionDestinationEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -394,9 +394,9 @@ module AWS::SDK::DataExchange
     class ExportAssetsToS3ResponseDetails
       def self.parse(map)
         data = Types::ExportAssetsToS3ResponseDetails.new
-        data.asset_destinations = (Parsers::ListOfAssetDestinationEntry.parse(map['AssetDestinations']) unless map['AssetDestinations'].nil?)
+        data.asset_destinations = (ListOfAssetDestinationEntry.parse(map['AssetDestinations']) unless map['AssetDestinations'].nil?)
         data.data_set_id = map['DataSetId']
-        data.encryption = (Parsers::ExportServerSideEncryption.parse(map['Encryption']) unless map['Encryption'].nil?)
+        data.encryption = (ExportServerSideEncryption.parse(map['Encryption']) unless map['Encryption'].nil?)
         data.revision_id = map['RevisionId']
         return data
       end
@@ -406,7 +406,7 @@ module AWS::SDK::DataExchange
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetDestinationEntry.parse(value) unless value.nil?
+          data << AssetDestinationEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -446,7 +446,7 @@ module AWS::SDK::DataExchange
         data.finalized = map['Finalized']
         data.id = map['Id']
         data.source_id = map['SourceId']
-        data.tags = (Parsers::MapOf__string.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (MapOf__string.parse(map['Tags']) unless map['Tags'].nil?)
         data.updated_at = Time.parse(map['UpdatedAt']) if map['UpdatedAt']
         data.revocation_comment = map['RevocationComment']
         data.revoked = map['Revoked']
@@ -497,7 +497,7 @@ module AWS::SDK::DataExchange
         data = Types::GetAssetOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['Arn']
-        data.asset_details = (Parsers::AssetDetails.parse(map['AssetDetails']) unless map['AssetDetails'].nil?)
+        data.asset_details = (AssetDetails.parse(map['AssetDetails']) unless map['AssetDetails'].nil?)
         data.asset_type = map['AssetType']
         data.created_at = Time.parse(map['CreatedAt']) if map['CreatedAt']
         data.data_set_id = map['DataSetId']
@@ -513,9 +513,9 @@ module AWS::SDK::DataExchange
     class AssetDetails
       def self.parse(map)
         data = Types::AssetDetails.new
-        data.s3_snapshot_asset = (Parsers::S3SnapshotAsset.parse(map['S3SnapshotAsset']) unless map['S3SnapshotAsset'].nil?)
-        data.redshift_data_share_asset = (Parsers::RedshiftDataShareAsset.parse(map['RedshiftDataShareAsset']) unless map['RedshiftDataShareAsset'].nil?)
-        data.api_gateway_api_asset = (Parsers::ApiGatewayApiAsset.parse(map['ApiGatewayApiAsset']) unless map['ApiGatewayApiAsset'].nil?)
+        data.s3_snapshot_asset = (S3SnapshotAsset.parse(map['S3SnapshotAsset']) unless map['S3SnapshotAsset'].nil?)
+        data.redshift_data_share_asset = (RedshiftDataShareAsset.parse(map['RedshiftDataShareAsset']) unless map['RedshiftDataShareAsset'].nil?)
+        data.api_gateway_api_asset = (ApiGatewayApiAsset.parse(map['ApiGatewayApiAsset']) unless map['ApiGatewayApiAsset'].nil?)
         return data
       end
     end
@@ -564,9 +564,9 @@ module AWS::SDK::DataExchange
         data.id = map['Id']
         data.name = map['Name']
         data.origin = map['Origin']
-        data.origin_details = (Parsers::OriginDetails.parse(map['OriginDetails']) unless map['OriginDetails'].nil?)
+        data.origin_details = (OriginDetails.parse(map['OriginDetails']) unless map['OriginDetails'].nil?)
         data.source_id = map['SourceId']
-        data.tags = (Parsers::MapOf__string.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (MapOf__string.parse(map['Tags']) unless map['Tags'].nil?)
         data.updated_at = Time.parse(map['UpdatedAt']) if map['UpdatedAt']
         data
       end
@@ -577,10 +577,10 @@ module AWS::SDK::DataExchange
       def self.parse(http_resp)
         data = Types::GetEventActionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.action = (Parsers::Action.parse(map['Action']) unless map['Action'].nil?)
+        data.action = (Action.parse(map['Action']) unless map['Action'].nil?)
         data.arn = map['Arn']
         data.created_at = Time.parse(map['CreatedAt']) if map['CreatedAt']
-        data.event = (Parsers::Event.parse(map['Event']) unless map['Event'].nil?)
+        data.event = (Event.parse(map['Event']) unless map['Event'].nil?)
         data.id = map['Id']
         data.updated_at = Time.parse(map['UpdatedAt']) if map['UpdatedAt']
         data
@@ -594,8 +594,8 @@ module AWS::SDK::DataExchange
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['Arn']
         data.created_at = Time.parse(map['CreatedAt']) if map['CreatedAt']
-        data.details = (Parsers::ResponseDetails.parse(map['Details']) unless map['Details'].nil?)
-        data.errors = (Parsers::ListOfJobError.parse(map['Errors']) unless map['Errors'].nil?)
+        data.details = (ResponseDetails.parse(map['Details']) unless map['Details'].nil?)
+        data.errors = (ListOfJobError.parse(map['Errors']) unless map['Errors'].nil?)
         data.id = map['Id']
         data.state = map['State']
         data.type = map['Type']
@@ -616,7 +616,7 @@ module AWS::SDK::DataExchange
         data.finalized = map['Finalized']
         data.id = map['Id']
         data.source_id = map['SourceId']
-        data.tags = (Parsers::MapOf__string.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (MapOf__string.parse(map['Tags']) unless map['Tags'].nil?)
         data.updated_at = Time.parse(map['UpdatedAt']) if map['UpdatedAt']
         data.revocation_comment = map['RevocationComment']
         data.revoked = map['Revoked']
@@ -631,7 +631,7 @@ module AWS::SDK::DataExchange
         data = Types::ListDataSetRevisionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.revisions = (Parsers::ListOfRevisionEntry.parse(map['Revisions']) unless map['Revisions'].nil?)
+        data.revisions = (ListOfRevisionEntry.parse(map['Revisions']) unless map['Revisions'].nil?)
         data
       end
     end
@@ -640,7 +640,7 @@ module AWS::SDK::DataExchange
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RevisionEntry.parse(value) unless value.nil?
+          data << RevisionEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -669,7 +669,7 @@ module AWS::SDK::DataExchange
       def self.parse(http_resp)
         data = Types::ListDataSetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.data_sets = (Parsers::ListOfDataSetEntry.parse(map['DataSets']) unless map['DataSets'].nil?)
+        data.data_sets = (ListOfDataSetEntry.parse(map['DataSets']) unless map['DataSets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -679,7 +679,7 @@ module AWS::SDK::DataExchange
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataSetEntry.parse(value) unless value.nil?
+          data << DataSetEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -695,7 +695,7 @@ module AWS::SDK::DataExchange
         data.id = map['Id']
         data.name = map['Name']
         data.origin = map['Origin']
-        data.origin_details = (Parsers::OriginDetails.parse(map['OriginDetails']) unless map['OriginDetails'].nil?)
+        data.origin_details = (OriginDetails.parse(map['OriginDetails']) unless map['OriginDetails'].nil?)
         data.source_id = map['SourceId']
         data.updated_at = Time.parse(map['UpdatedAt']) if map['UpdatedAt']
         return data
@@ -707,7 +707,7 @@ module AWS::SDK::DataExchange
       def self.parse(http_resp)
         data = Types::ListEventActionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.event_actions = (Parsers::ListOfEventActionEntry.parse(map['EventActions']) unless map['EventActions'].nil?)
+        data.event_actions = (ListOfEventActionEntry.parse(map['EventActions']) unless map['EventActions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -717,7 +717,7 @@ module AWS::SDK::DataExchange
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EventActionEntry.parse(value) unless value.nil?
+          data << EventActionEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -726,10 +726,10 @@ module AWS::SDK::DataExchange
     class EventActionEntry
       def self.parse(map)
         data = Types::EventActionEntry.new
-        data.action = (Parsers::Action.parse(map['Action']) unless map['Action'].nil?)
+        data.action = (Action.parse(map['Action']) unless map['Action'].nil?)
         data.arn = map['Arn']
         data.created_at = Time.parse(map['CreatedAt']) if map['CreatedAt']
-        data.event = (Parsers::Event.parse(map['Event']) unless map['Event'].nil?)
+        data.event = (Event.parse(map['Event']) unless map['Event'].nil?)
         data.id = map['Id']
         data.updated_at = Time.parse(map['UpdatedAt']) if map['UpdatedAt']
         return data
@@ -741,7 +741,7 @@ module AWS::SDK::DataExchange
       def self.parse(http_resp)
         data = Types::ListJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.jobs = (Parsers::ListOfJobEntry.parse(map['Jobs']) unless map['Jobs'].nil?)
+        data.jobs = (ListOfJobEntry.parse(map['Jobs']) unless map['Jobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -751,7 +751,7 @@ module AWS::SDK::DataExchange
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobEntry.parse(value) unless value.nil?
+          data << JobEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -762,8 +762,8 @@ module AWS::SDK::DataExchange
         data = Types::JobEntry.new
         data.arn = map['Arn']
         data.created_at = Time.parse(map['CreatedAt']) if map['CreatedAt']
-        data.details = (Parsers::ResponseDetails.parse(map['Details']) unless map['Details'].nil?)
-        data.errors = (Parsers::ListOfJobError.parse(map['Errors']) unless map['Errors'].nil?)
+        data.details = (ResponseDetails.parse(map['Details']) unless map['Details'].nil?)
+        data.errors = (ListOfJobError.parse(map['Errors']) unless map['Errors'].nil?)
         data.id = map['Id']
         data.state = map['State']
         data.type = map['Type']
@@ -777,7 +777,7 @@ module AWS::SDK::DataExchange
       def self.parse(http_resp)
         data = Types::ListRevisionAssetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assets = (Parsers::ListOfAssetEntry.parse(map['Assets']) unless map['Assets'].nil?)
+        data.assets = (ListOfAssetEntry.parse(map['Assets']) unless map['Assets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -787,7 +787,7 @@ module AWS::SDK::DataExchange
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetEntry.parse(value) unless value.nil?
+          data << AssetEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -797,7 +797,7 @@ module AWS::SDK::DataExchange
       def self.parse(map)
         data = Types::AssetEntry.new
         data.arn = map['Arn']
-        data.asset_details = (Parsers::AssetDetails.parse(map['AssetDetails']) unless map['AssetDetails'].nil?)
+        data.asset_details = (AssetDetails.parse(map['AssetDetails']) unless map['AssetDetails'].nil?)
         data.asset_type = map['AssetType']
         data.created_at = Time.parse(map['CreatedAt']) if map['CreatedAt']
         data.data_set_id = map['DataSetId']
@@ -815,7 +815,7 @@ module AWS::SDK::DataExchange
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::MapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (MapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -889,7 +889,7 @@ module AWS::SDK::DataExchange
         data = Types::UpdateAssetOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['Arn']
-        data.asset_details = (Parsers::AssetDetails.parse(map['AssetDetails']) unless map['AssetDetails'].nil?)
+        data.asset_details = (AssetDetails.parse(map['AssetDetails']) unless map['AssetDetails'].nil?)
         data.asset_type = map['AssetType']
         data.created_at = Time.parse(map['CreatedAt']) if map['CreatedAt']
         data.data_set_id = map['DataSetId']
@@ -914,7 +914,7 @@ module AWS::SDK::DataExchange
         data.id = map['Id']
         data.name = map['Name']
         data.origin = map['Origin']
-        data.origin_details = (Parsers::OriginDetails.parse(map['OriginDetails']) unless map['OriginDetails'].nil?)
+        data.origin_details = (OriginDetails.parse(map['OriginDetails']) unless map['OriginDetails'].nil?)
         data.source_id = map['SourceId']
         data.updated_at = Time.parse(map['UpdatedAt']) if map['UpdatedAt']
         data
@@ -926,10 +926,10 @@ module AWS::SDK::DataExchange
       def self.parse(http_resp)
         data = Types::UpdateEventActionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.action = (Parsers::Action.parse(map['Action']) unless map['Action'].nil?)
+        data.action = (Action.parse(map['Action']) unless map['Action'].nil?)
         data.arn = map['Arn']
         data.created_at = Time.parse(map['CreatedAt']) if map['CreatedAt']
-        data.event = (Parsers::Event.parse(map['Event']) unless map['Event'].nil?)
+        data.event = (Event.parse(map['Event']) unless map['Event'].nil?)
         data.id = map['Id']
         data.updated_at = Time.parse(map['UpdatedAt']) if map['UpdatedAt']
         data

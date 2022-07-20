@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CloudTrail
   module Builders
 
@@ -19,8 +21,8 @@ module AWS::SDK::CloudTrail
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.AddTags'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['TagsList'] = Builders::TagsList.build(input[:tags_list]) unless input[:tags_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagsList'] = TagsList.build(input[:tags_list]) unless input[:tags_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -29,7 +31,7 @@ module AWS::SDK::CloudTrail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -55,7 +57,7 @@ module AWS::SDK::CloudTrail
         data = {}
         data['EventDataStore'] = input[:event_data_store] unless input[:event_data_store].nil?
         data['QueryId'] = input[:query_id] unless input[:query_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -68,13 +70,13 @@ module AWS::SDK::CloudTrail
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.CreateEventDataStore'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['AdvancedEventSelectors'] = Builders::AdvancedEventSelectors.build(input[:advanced_event_selectors]) unless input[:advanced_event_selectors].nil?
+        data['AdvancedEventSelectors'] = AdvancedEventSelectors.build(input[:advanced_event_selectors]) unless input[:advanced_event_selectors].nil?
         data['MultiRegionEnabled'] = input[:multi_region_enabled] unless input[:multi_region_enabled].nil?
         data['OrganizationEnabled'] = input[:organization_enabled] unless input[:organization_enabled].nil?
         data['RetentionPeriod'] = input[:retention_period] unless input[:retention_period].nil?
         data['TerminationProtectionEnabled'] = input[:termination_protection_enabled] unless input[:termination_protection_enabled].nil?
-        data['TagsList'] = Builders::TagsList.build(input[:tags_list]) unless input[:tags_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagsList'] = TagsList.build(input[:tags_list]) unless input[:tags_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -83,7 +85,7 @@ module AWS::SDK::CloudTrail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AdvancedEventSelector.build(element) unless element.nil?
+          data << AdvancedEventSelector.build(element) unless element.nil?
         end
         data
       end
@@ -94,7 +96,7 @@ module AWS::SDK::CloudTrail
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['FieldSelectors'] = Builders::AdvancedFieldSelectors.build(input[:field_selectors]) unless input[:field_selectors].nil?
+        data['FieldSelectors'] = AdvancedFieldSelectors.build(input[:field_selectors]) unless input[:field_selectors].nil?
         data
       end
     end
@@ -104,7 +106,7 @@ module AWS::SDK::CloudTrail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AdvancedFieldSelector.build(element) unless element.nil?
+          data << AdvancedFieldSelector.build(element) unless element.nil?
         end
         data
       end
@@ -115,12 +117,12 @@ module AWS::SDK::CloudTrail
       def self.build(input)
         data = {}
         data['Field'] = input[:field] unless input[:field].nil?
-        data['Equals'] = Builders::Operator.build(input[:equals]) unless input[:equals].nil?
-        data['StartsWith'] = Builders::Operator.build(input[:starts_with]) unless input[:starts_with].nil?
-        data['EndsWith'] = Builders::Operator.build(input[:ends_with]) unless input[:ends_with].nil?
-        data['NotEquals'] = Builders::Operator.build(input[:not_equals]) unless input[:not_equals].nil?
-        data['NotStartsWith'] = Builders::Operator.build(input[:not_starts_with]) unless input[:not_starts_with].nil?
-        data['NotEndsWith'] = Builders::Operator.build(input[:not_ends_with]) unless input[:not_ends_with].nil?
+        data['Equals'] = Operator.build(input[:equals]) unless input[:equals].nil?
+        data['StartsWith'] = Operator.build(input[:starts_with]) unless input[:starts_with].nil?
+        data['EndsWith'] = Operator.build(input[:ends_with]) unless input[:ends_with].nil?
+        data['NotEquals'] = Operator.build(input[:not_equals]) unless input[:not_equals].nil?
+        data['NotStartsWith'] = Operator.build(input[:not_starts_with]) unless input[:not_starts_with].nil?
+        data['NotEndsWith'] = Operator.build(input[:not_ends_with]) unless input[:not_ends_with].nil?
         data
       end
     end
@@ -155,8 +157,8 @@ module AWS::SDK::CloudTrail
         data['CloudWatchLogsRoleArn'] = input[:cloud_watch_logs_role_arn] unless input[:cloud_watch_logs_role_arn].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data['IsOrganizationTrail'] = input[:is_organization_trail] unless input[:is_organization_trail].nil?
-        data['TagsList'] = Builders::TagsList.build(input[:tags_list]) unless input[:tags_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagsList'] = TagsList.build(input[:tags_list]) unless input[:tags_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -169,7 +171,7 @@ module AWS::SDK::CloudTrail
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.DeleteEventDataStore'
         data = {}
         data['EventDataStore'] = input[:event_data_store] unless input[:event_data_store].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -182,7 +184,7 @@ module AWS::SDK::CloudTrail
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.DeleteTrail'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -196,7 +198,7 @@ module AWS::SDK::CloudTrail
         data = {}
         data['EventDataStore'] = input[:event_data_store] unless input[:event_data_store].nil?
         data['QueryId'] = input[:query_id] unless input[:query_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -208,9 +210,9 @@ module AWS::SDK::CloudTrail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.DescribeTrails'
         data = {}
-        data['trailNameList'] = Builders::TrailNameList.build(input[:trail_name_list]) unless input[:trail_name_list].nil?
+        data['trailNameList'] = TrailNameList.build(input[:trail_name_list]) unless input[:trail_name_list].nil?
         data['includeShadowTrails'] = input[:include_shadow_trails] unless input[:include_shadow_trails].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -234,7 +236,7 @@ module AWS::SDK::CloudTrail
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.GetEventDataStore'
         data = {}
         data['EventDataStore'] = input[:event_data_store] unless input[:event_data_store].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -247,7 +249,7 @@ module AWS::SDK::CloudTrail
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.GetEventSelectors'
         data = {}
         data['TrailName'] = input[:trail_name] unless input[:trail_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -260,7 +262,7 @@ module AWS::SDK::CloudTrail
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.GetInsightSelectors'
         data = {}
         data['TrailName'] = input[:trail_name] unless input[:trail_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -276,7 +278,7 @@ module AWS::SDK::CloudTrail
         data['QueryId'] = input[:query_id] unless input[:query_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxQueryResults'] = input[:max_query_results] unless input[:max_query_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -289,7 +291,7 @@ module AWS::SDK::CloudTrail
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.GetTrail'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -302,7 +304,7 @@ module AWS::SDK::CloudTrail
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.GetTrailStatus'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -316,7 +318,7 @@ module AWS::SDK::CloudTrail
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -331,7 +333,7 @@ module AWS::SDK::CloudTrail
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -349,7 +351,7 @@ module AWS::SDK::CloudTrail
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['QueryStatus'] = input[:query_status] unless input[:query_status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -361,9 +363,9 @@ module AWS::SDK::CloudTrail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.ListTags'
         data = {}
-        data['ResourceIdList'] = Builders::ResourceIdList.build(input[:resource_id_list]) unless input[:resource_id_list].nil?
+        data['ResourceIdList'] = ResourceIdList.build(input[:resource_id_list]) unless input[:resource_id_list].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -387,7 +389,7 @@ module AWS::SDK::CloudTrail
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.ListTrails'
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -399,13 +401,13 @@ module AWS::SDK::CloudTrail
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.LookupEvents'
         data = {}
-        data['LookupAttributes'] = Builders::LookupAttributesList.build(input[:lookup_attributes]) unless input[:lookup_attributes].nil?
+        data['LookupAttributes'] = LookupAttributesList.build(input[:lookup_attributes]) unless input[:lookup_attributes].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['EventCategory'] = input[:event_category] unless input[:event_category].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -414,7 +416,7 @@ module AWS::SDK::CloudTrail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LookupAttribute.build(element) unless element.nil?
+          data << LookupAttribute.build(element) unless element.nil?
         end
         data
       end
@@ -439,9 +441,9 @@ module AWS::SDK::CloudTrail
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.PutEventSelectors'
         data = {}
         data['TrailName'] = input[:trail_name] unless input[:trail_name].nil?
-        data['EventSelectors'] = Builders::EventSelectors.build(input[:event_selectors]) unless input[:event_selectors].nil?
-        data['AdvancedEventSelectors'] = Builders::AdvancedEventSelectors.build(input[:advanced_event_selectors]) unless input[:advanced_event_selectors].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventSelectors'] = EventSelectors.build(input[:event_selectors]) unless input[:event_selectors].nil?
+        data['AdvancedEventSelectors'] = AdvancedEventSelectors.build(input[:advanced_event_selectors]) unless input[:advanced_event_selectors].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -450,7 +452,7 @@ module AWS::SDK::CloudTrail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EventSelector.build(element) unless element.nil?
+          data << EventSelector.build(element) unless element.nil?
         end
         data
       end
@@ -462,8 +464,8 @@ module AWS::SDK::CloudTrail
         data = {}
         data['ReadWriteType'] = input[:read_write_type] unless input[:read_write_type].nil?
         data['IncludeManagementEvents'] = input[:include_management_events] unless input[:include_management_events].nil?
-        data['DataResources'] = Builders::DataResources.build(input[:data_resources]) unless input[:data_resources].nil?
-        data['ExcludeManagementEventSources'] = Builders::ExcludeManagementEventSources.build(input[:exclude_management_event_sources]) unless input[:exclude_management_event_sources].nil?
+        data['DataResources'] = DataResources.build(input[:data_resources]) unless input[:data_resources].nil?
+        data['ExcludeManagementEventSources'] = ExcludeManagementEventSources.build(input[:exclude_management_event_sources]) unless input[:exclude_management_event_sources].nil?
         data
       end
     end
@@ -484,7 +486,7 @@ module AWS::SDK::CloudTrail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DataResource.build(element) unless element.nil?
+          data << DataResource.build(element) unless element.nil?
         end
         data
       end
@@ -495,7 +497,7 @@ module AWS::SDK::CloudTrail
       def self.build(input)
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
-        data['Values'] = Builders::DataResourceValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = DataResourceValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -520,8 +522,8 @@ module AWS::SDK::CloudTrail
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.PutInsightSelectors'
         data = {}
         data['TrailName'] = input[:trail_name] unless input[:trail_name].nil?
-        data['InsightSelectors'] = Builders::InsightSelectors.build(input[:insight_selectors]) unless input[:insight_selectors].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InsightSelectors'] = InsightSelectors.build(input[:insight_selectors]) unless input[:insight_selectors].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -530,7 +532,7 @@ module AWS::SDK::CloudTrail
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InsightSelector.build(element) unless element.nil?
+          data << InsightSelector.build(element) unless element.nil?
         end
         data
       end
@@ -554,8 +556,8 @@ module AWS::SDK::CloudTrail
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.RemoveTags'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['TagsList'] = Builders::TagsList.build(input[:tags_list]) unless input[:tags_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagsList'] = TagsList.build(input[:tags_list]) unless input[:tags_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -568,7 +570,7 @@ module AWS::SDK::CloudTrail
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.RestoreEventDataStore'
         data = {}
         data['EventDataStore'] = input[:event_data_store] unless input[:event_data_store].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -581,7 +583,7 @@ module AWS::SDK::CloudTrail
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.StartLogging'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -594,7 +596,7 @@ module AWS::SDK::CloudTrail
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.StartQuery'
         data = {}
         data['QueryStatement'] = input[:query_statement] unless input[:query_statement].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -607,7 +609,7 @@ module AWS::SDK::CloudTrail
         http_req.headers['X-Amz-Target'] = 'CloudTrail_20131101.StopLogging'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -621,12 +623,12 @@ module AWS::SDK::CloudTrail
         data = {}
         data['EventDataStore'] = input[:event_data_store] unless input[:event_data_store].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['AdvancedEventSelectors'] = Builders::AdvancedEventSelectors.build(input[:advanced_event_selectors]) unless input[:advanced_event_selectors].nil?
+        data['AdvancedEventSelectors'] = AdvancedEventSelectors.build(input[:advanced_event_selectors]) unless input[:advanced_event_selectors].nil?
         data['MultiRegionEnabled'] = input[:multi_region_enabled] unless input[:multi_region_enabled].nil?
         data['OrganizationEnabled'] = input[:organization_enabled] unless input[:organization_enabled].nil?
         data['RetentionPeriod'] = input[:retention_period] unless input[:retention_period].nil?
         data['TerminationProtectionEnabled'] = input[:termination_protection_enabled] unless input[:termination_protection_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -649,7 +651,7 @@ module AWS::SDK::CloudTrail
         data['CloudWatchLogsRoleArn'] = input[:cloud_watch_logs_role_arn] unless input[:cloud_watch_logs_role_arn].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data['IsOrganizationTrail'] = input[:is_organization_trail] unless input[:is_organization_trail].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

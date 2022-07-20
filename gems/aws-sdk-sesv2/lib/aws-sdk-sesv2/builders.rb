@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::SESv2
   module Builders
 
@@ -21,13 +24,13 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
-        data['TrackingOptions'] = Builders::TrackingOptions.build(input[:tracking_options]) unless input[:tracking_options].nil?
-        data['DeliveryOptions'] = Builders::DeliveryOptions.build(input[:delivery_options]) unless input[:delivery_options].nil?
-        data['ReputationOptions'] = Builders::ReputationOptions.build(input[:reputation_options]) unless input[:reputation_options].nil?
-        data['SendingOptions'] = Builders::SendingOptions.build(input[:sending_options]) unless input[:sending_options].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['SuppressionOptions'] = Builders::SuppressionOptions.build(input[:suppression_options]) unless input[:suppression_options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TrackingOptions'] = TrackingOptions.build(input[:tracking_options]) unless input[:tracking_options].nil?
+        data['DeliveryOptions'] = DeliveryOptions.build(input[:delivery_options]) unless input[:delivery_options].nil?
+        data['ReputationOptions'] = ReputationOptions.build(input[:reputation_options]) unless input[:reputation_options].nil?
+        data['SendingOptions'] = SendingOptions.build(input[:sending_options]) unless input[:sending_options].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['SuppressionOptions'] = SuppressionOptions.build(input[:suppression_options]) unless input[:suppression_options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -35,7 +38,7 @@ module AWS::SDK::SESv2
     class SuppressionOptions
       def self.build(input)
         data = {}
-        data['SuppressedReasons'] = Builders::SuppressionListReasons.build(input[:suppressed_reasons]) unless input[:suppressed_reasons].nil?
+        data['SuppressedReasons'] = SuppressionListReasons.build(input[:suppressed_reasons]) unless input[:suppressed_reasons].nil?
         data
       end
     end
@@ -56,7 +59,7 @@ module AWS::SDK::SESv2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -128,8 +131,8 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['EventDestinationName'] = input[:event_destination_name] unless input[:event_destination_name].nil?
-        data['EventDestination'] = Builders::EventDestinationDefinition.build(input[:event_destination]) unless input[:event_destination].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventDestination'] = EventDestinationDefinition.build(input[:event_destination]) unless input[:event_destination].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -138,11 +141,11 @@ module AWS::SDK::SESv2
       def self.build(input)
         data = {}
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['MatchingEventTypes'] = Builders::EventTypes.build(input[:matching_event_types]) unless input[:matching_event_types].nil?
-        data['KinesisFirehoseDestination'] = Builders::KinesisFirehoseDestination.build(input[:kinesis_firehose_destination]) unless input[:kinesis_firehose_destination].nil?
-        data['CloudWatchDestination'] = Builders::CloudWatchDestination.build(input[:cloud_watch_destination]) unless input[:cloud_watch_destination].nil?
-        data['SnsDestination'] = Builders::SnsDestination.build(input[:sns_destination]) unless input[:sns_destination].nil?
-        data['PinpointDestination'] = Builders::PinpointDestination.build(input[:pinpoint_destination]) unless input[:pinpoint_destination].nil?
+        data['MatchingEventTypes'] = EventTypes.build(input[:matching_event_types]) unless input[:matching_event_types].nil?
+        data['KinesisFirehoseDestination'] = KinesisFirehoseDestination.build(input[:kinesis_firehose_destination]) unless input[:kinesis_firehose_destination].nil?
+        data['CloudWatchDestination'] = CloudWatchDestination.build(input[:cloud_watch_destination]) unless input[:cloud_watch_destination].nil?
+        data['SnsDestination'] = SnsDestination.build(input[:sns_destination]) unless input[:sns_destination].nil?
+        data['PinpointDestination'] = PinpointDestination.build(input[:pinpoint_destination]) unless input[:pinpoint_destination].nil?
         data
       end
     end
@@ -169,7 +172,7 @@ module AWS::SDK::SESv2
     class CloudWatchDestination
       def self.build(input)
         data = {}
-        data['DimensionConfigurations'] = Builders::CloudWatchDimensionConfigurations.build(input[:dimension_configurations]) unless input[:dimension_configurations].nil?
+        data['DimensionConfigurations'] = CloudWatchDimensionConfigurations.build(input[:dimension_configurations]) unless input[:dimension_configurations].nil?
         data
       end
     end
@@ -179,7 +182,7 @@ module AWS::SDK::SESv2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CloudWatchDimensionConfiguration.build(element) unless element.nil?
+          data << CloudWatchDimensionConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -235,10 +238,10 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['EmailAddress'] = input[:email_address] unless input[:email_address].nil?
-        data['TopicPreferences'] = Builders::TopicPreferenceList.build(input[:topic_preferences]) unless input[:topic_preferences].nil?
+        data['TopicPreferences'] = TopicPreferenceList.build(input[:topic_preferences]) unless input[:topic_preferences].nil?
         data['UnsubscribeAll'] = input[:unsubscribe_all] unless input[:unsubscribe_all].nil?
         data['AttributesData'] = input[:attributes_data] unless input[:attributes_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -247,7 +250,7 @@ module AWS::SDK::SESv2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TopicPreference.build(element) unless element.nil?
+          data << TopicPreference.build(element) unless element.nil?
         end
         data
       end
@@ -274,10 +277,10 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ContactListName'] = input[:contact_list_name] unless input[:contact_list_name].nil?
-        data['Topics'] = Builders::Topics.build(input[:topics]) unless input[:topics].nil?
+        data['Topics'] = Topics.build(input[:topics]) unless input[:topics].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -286,7 +289,7 @@ module AWS::SDK::SESv2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Topic.build(element) unless element.nil?
+          data << Topic.build(element) unless element.nil?
         end
         data
       end
@@ -320,7 +323,7 @@ module AWS::SDK::SESv2
         data['TemplateContent'] = input[:template_content] unless input[:template_content].nil?
         data['SuccessRedirectionURL'] = input[:success_redirection_url] unless input[:success_redirection_url].nil?
         data['FailureRedirectionURL'] = input[:failure_redirection_url] unless input[:failure_redirection_url].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -335,8 +338,8 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['PoolName'] = input[:pool_name] unless input[:pool_name].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -352,9 +355,9 @@ module AWS::SDK::SESv2
         data = {}
         data['ReportName'] = input[:report_name] unless input[:report_name].nil?
         data['FromEmailAddress'] = input[:from_email_address] unless input[:from_email_address].nil?
-        data['Content'] = Builders::EmailContent.build(input[:content]) unless input[:content].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Content'] = EmailContent.build(input[:content]) unless input[:content].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -362,9 +365,9 @@ module AWS::SDK::SESv2
     class EmailContent
       def self.build(input)
         data = {}
-        data['Simple'] = Builders::Message.build(input[:simple]) unless input[:simple].nil?
-        data['Raw'] = Builders::RawMessage.build(input[:raw]) unless input[:raw].nil?
-        data['Template'] = Builders::Template.build(input[:template]) unless input[:template].nil?
+        data['Simple'] = Message.build(input[:simple]) unless input[:simple].nil?
+        data['Raw'] = RawMessage.build(input[:raw]) unless input[:raw].nil?
+        data['Template'] = Template.build(input[:template]) unless input[:template].nil?
         data
       end
     end
@@ -384,7 +387,7 @@ module AWS::SDK::SESv2
     class RawMessage
       def self.build(input)
         data = {}
-        data['Data'] = Base64::encode64(input[:data]).strip unless input[:data].nil?
+        data['Data'] = ::Base64::encode64(input[:data]).strip unless input[:data].nil?
         data
       end
     end
@@ -393,8 +396,8 @@ module AWS::SDK::SESv2
     class Message
       def self.build(input)
         data = {}
-        data['Subject'] = Builders::Content.build(input[:subject]) unless input[:subject].nil?
-        data['Body'] = Builders::Body.build(input[:body]) unless input[:body].nil?
+        data['Subject'] = Content.build(input[:subject]) unless input[:subject].nil?
+        data['Body'] = Body.build(input[:body]) unless input[:body].nil?
         data
       end
     end
@@ -403,8 +406,8 @@ module AWS::SDK::SESv2
     class Body
       def self.build(input)
         data = {}
-        data['Text'] = Builders::Content.build(input[:text]) unless input[:text].nil?
-        data['Html'] = Builders::Content.build(input[:html]) unless input[:html].nil?
+        data['Text'] = Content.build(input[:text]) unless input[:text].nil?
+        data['Html'] = Content.build(input[:html]) unless input[:html].nil?
         data
       end
     end
@@ -430,10 +433,10 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['EmailIdentity'] = input[:email_identity] unless input[:email_identity].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['DkimSigningAttributes'] = Builders::DkimSigningAttributes.build(input[:dkim_signing_attributes]) unless input[:dkim_signing_attributes].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['DkimSigningAttributes'] = DkimSigningAttributes.build(input[:dkim_signing_attributes]) unless input[:dkim_signing_attributes].nil?
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -470,7 +473,7 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Policy'] = input[:policy] unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -485,8 +488,8 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['TemplateName'] = input[:template_name] unless input[:template_name].nil?
-        data['TemplateContent'] = Builders::EmailTemplateContent.build(input[:template_content]) unless input[:template_content].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TemplateContent'] = EmailTemplateContent.build(input[:template_content]) unless input[:template_content].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -511,9 +514,9 @@ module AWS::SDK::SESv2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ImportDestination'] = Builders::ImportDestination.build(input[:import_destination]) unless input[:import_destination].nil?
-        data['ImportDataSource'] = Builders::ImportDataSource.build(input[:import_data_source]) unless input[:import_data_source].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ImportDestination'] = ImportDestination.build(input[:import_destination]) unless input[:import_destination].nil?
+        data['ImportDataSource'] = ImportDataSource.build(input[:import_data_source]) unless input[:import_data_source].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -531,8 +534,8 @@ module AWS::SDK::SESv2
     class ImportDestination
       def self.build(input)
         data = {}
-        data['SuppressionListDestination'] = Builders::SuppressionListDestination.build(input[:suppression_list_destination]) unless input[:suppression_list_destination].nil?
-        data['ContactListDestination'] = Builders::ContactListDestination.build(input[:contact_list_destination]) unless input[:contact_list_destination].nil?
+        data['SuppressionListDestination'] = SuppressionListDestination.build(input[:suppression_list_destination]) unless input[:suppression_list_destination].nil?
+        data['ContactListDestination'] = ContactListDestination.build(input[:contact_list_destination]) unless input[:contact_list_destination].nil?
         data
       end
     end
@@ -1084,8 +1087,8 @@ module AWS::SDK::SESv2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Filter'] = Builders::ListContactsFilter.build(input[:filter]) unless input[:filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filter'] = ListContactsFilter.build(input[:filter]) unless input[:filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1094,7 +1097,7 @@ module AWS::SDK::SESv2
       def self.build(input)
         data = {}
         data['FilteredStatus'] = input[:filtered_status] unless input[:filtered_status].nil?
-        data['TopicFilter'] = Builders::TopicFilter.build(input[:topic_filter]) unless input[:topic_filter].nil?
+        data['TopicFilter'] = TopicFilter.build(input[:topic_filter]) unless input[:topic_filter].nil?
         data
       end
     end
@@ -1203,7 +1206,7 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ImportDestinationType'] = input[:import_destination_type] unless input[:import_destination_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1248,7 +1251,7 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AutoWarmupEnabled'] = input[:auto_warmup_enabled] unless input[:auto_warmup_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1266,9 +1269,9 @@ module AWS::SDK::SESv2
         data['WebsiteURL'] = input[:website_url] unless input[:website_url].nil?
         data['ContactLanguage'] = input[:contact_language] unless input[:contact_language].nil?
         data['UseCaseDescription'] = input[:use_case_description] unless input[:use_case_description].nil?
-        data['AdditionalContactEmailAddresses'] = Builders::AdditionalContactEmailAddresses.build(input[:additional_contact_email_addresses]) unless input[:additional_contact_email_addresses].nil?
+        data['AdditionalContactEmailAddresses'] = AdditionalContactEmailAddresses.build(input[:additional_contact_email_addresses]) unless input[:additional_contact_email_addresses].nil?
         data['ProductionAccessEnabled'] = input[:production_access_enabled] unless input[:production_access_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1294,7 +1297,7 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['SendingEnabled'] = input[:sending_enabled] unless input[:sending_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1308,8 +1311,8 @@ module AWS::SDK::SESv2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['SuppressedReasons'] = Builders::SuppressionListReasons.build(input[:suppressed_reasons]) unless input[:suppressed_reasons].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SuppressedReasons'] = SuppressionListReasons.build(input[:suppressed_reasons]) unless input[:suppressed_reasons].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1332,7 +1335,7 @@ module AWS::SDK::SESv2
         data = {}
         data['TlsPolicy'] = input[:tls_policy] unless input[:tls_policy].nil?
         data['SendingPoolName'] = input[:sending_pool_name] unless input[:sending_pool_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1354,7 +1357,7 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ReputationMetricsEnabled'] = input[:reputation_metrics_enabled] unless input[:reputation_metrics_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1376,7 +1379,7 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['SendingEnabled'] = input[:sending_enabled] unless input[:sending_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1397,8 +1400,8 @@ module AWS::SDK::SESv2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['SuppressedReasons'] = Builders::SuppressionListReasons.build(input[:suppressed_reasons]) unless input[:suppressed_reasons].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SuppressedReasons'] = SuppressionListReasons.build(input[:suppressed_reasons]) unless input[:suppressed_reasons].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1420,7 +1423,7 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['CustomRedirectDomain'] = input[:custom_redirect_domain] unless input[:custom_redirect_domain].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1442,7 +1445,7 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['DestinationPoolName'] = input[:destination_pool_name] unless input[:destination_pool_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1464,7 +1467,7 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['WarmupPercentage'] = input[:warmup_percentage] unless input[:warmup_percentage].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1479,8 +1482,8 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['DashboardEnabled'] = input[:dashboard_enabled] unless input[:dashboard_enabled].nil?
-        data['SubscribedDomains'] = Builders::DomainDeliverabilityTrackingOptions.build(input[:subscribed_domains]) unless input[:subscribed_domains].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubscribedDomains'] = DomainDeliverabilityTrackingOptions.build(input[:subscribed_domains]) unless input[:subscribed_domains].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1489,7 +1492,7 @@ module AWS::SDK::SESv2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DomainDeliverabilityTrackingOption.build(element) unless element.nil?
+          data << DomainDeliverabilityTrackingOption.build(element) unless element.nil?
         end
         data
       end
@@ -1501,7 +1504,7 @@ module AWS::SDK::SESv2
         data = {}
         data['Domain'] = input[:domain] unless input[:domain].nil?
         data['SubscriptionStartDate'] = Hearth::TimeHelper.to_epoch_seconds(input[:subscription_start_date]).to_i unless input[:subscription_start_date].nil?
-        data['InboxPlacementTrackingOption'] = Builders::InboxPlacementTrackingOption.build(input[:inbox_placement_tracking_option]) unless input[:inbox_placement_tracking_option].nil?
+        data['InboxPlacementTrackingOption'] = InboxPlacementTrackingOption.build(input[:inbox_placement_tracking_option]) unless input[:inbox_placement_tracking_option].nil?
         data
       end
     end
@@ -1511,7 +1514,7 @@ module AWS::SDK::SESv2
       def self.build(input)
         data = {}
         data['Global'] = input[:global] unless input[:global].nil?
-        data['TrackedIsps'] = Builders::IspNameList.build(input[:tracked_isps]) unless input[:tracked_isps].nil?
+        data['TrackedIsps'] = IspNameList.build(input[:tracked_isps]) unless input[:tracked_isps].nil?
         data
       end
     end
@@ -1545,7 +1548,7 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1567,7 +1570,7 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['SigningEnabled'] = input[:signing_enabled] unless input[:signing_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1589,8 +1592,8 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['SigningAttributesOrigin'] = input[:signing_attributes_origin] unless input[:signing_attributes_origin].nil?
-        data['SigningAttributes'] = Builders::DkimSigningAttributes.build(input[:signing_attributes]) unless input[:signing_attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SigningAttributes'] = DkimSigningAttributes.build(input[:signing_attributes]) unless input[:signing_attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1612,7 +1615,7 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['EmailForwardingEnabled'] = input[:email_forwarding_enabled] unless input[:email_forwarding_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1635,7 +1638,7 @@ module AWS::SDK::SESv2
         data = {}
         data['MailFromDomain'] = input[:mail_from_domain] unless input[:mail_from_domain].nil?
         data['BehaviorOnMxFailure'] = input[:behavior_on_mx_failure] unless input[:behavior_on_mx_failure].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1651,7 +1654,7 @@ module AWS::SDK::SESv2
         data = {}
         data['EmailAddress'] = input[:email_address] unless input[:email_address].nil?
         data['Reason'] = input[:reason] unless input[:reason].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1667,14 +1670,14 @@ module AWS::SDK::SESv2
         data = {}
         data['FromEmailAddress'] = input[:from_email_address] unless input[:from_email_address].nil?
         data['FromEmailAddressIdentityArn'] = input[:from_email_address_identity_arn] unless input[:from_email_address_identity_arn].nil?
-        data['ReplyToAddresses'] = Builders::EmailAddressList.build(input[:reply_to_addresses]) unless input[:reply_to_addresses].nil?
+        data['ReplyToAddresses'] = EmailAddressList.build(input[:reply_to_addresses]) unless input[:reply_to_addresses].nil?
         data['FeedbackForwardingEmailAddress'] = input[:feedback_forwarding_email_address] unless input[:feedback_forwarding_email_address].nil?
         data['FeedbackForwardingEmailAddressIdentityArn'] = input[:feedback_forwarding_email_address_identity_arn] unless input[:feedback_forwarding_email_address_identity_arn].nil?
-        data['DefaultEmailTags'] = Builders::MessageTagList.build(input[:default_email_tags]) unless input[:default_email_tags].nil?
-        data['DefaultContent'] = Builders::BulkEmailContent.build(input[:default_content]) unless input[:default_content].nil?
-        data['BulkEmailEntries'] = Builders::BulkEmailEntryList.build(input[:bulk_email_entries]) unless input[:bulk_email_entries].nil?
+        data['DefaultEmailTags'] = MessageTagList.build(input[:default_email_tags]) unless input[:default_email_tags].nil?
+        data['DefaultContent'] = BulkEmailContent.build(input[:default_content]) unless input[:default_content].nil?
+        data['BulkEmailEntries'] = BulkEmailEntryList.build(input[:bulk_email_entries]) unless input[:bulk_email_entries].nil?
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1683,7 +1686,7 @@ module AWS::SDK::SESv2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BulkEmailEntry.build(element) unless element.nil?
+          data << BulkEmailEntry.build(element) unless element.nil?
         end
         data
       end
@@ -1693,9 +1696,9 @@ module AWS::SDK::SESv2
     class BulkEmailEntry
       def self.build(input)
         data = {}
-        data['Destination'] = Builders::Destination.build(input[:destination]) unless input[:destination].nil?
-        data['ReplacementTags'] = Builders::MessageTagList.build(input[:replacement_tags]) unless input[:replacement_tags].nil?
-        data['ReplacementEmailContent'] = Builders::ReplacementEmailContent.build(input[:replacement_email_content]) unless input[:replacement_email_content].nil?
+        data['Destination'] = Destination.build(input[:destination]) unless input[:destination].nil?
+        data['ReplacementTags'] = MessageTagList.build(input[:replacement_tags]) unless input[:replacement_tags].nil?
+        data['ReplacementEmailContent'] = ReplacementEmailContent.build(input[:replacement_email_content]) unless input[:replacement_email_content].nil?
         data
       end
     end
@@ -1704,7 +1707,7 @@ module AWS::SDK::SESv2
     class ReplacementEmailContent
       def self.build(input)
         data = {}
-        data['ReplacementTemplate'] = Builders::ReplacementTemplate.build(input[:replacement_template]) unless input[:replacement_template].nil?
+        data['ReplacementTemplate'] = ReplacementTemplate.build(input[:replacement_template]) unless input[:replacement_template].nil?
         data
       end
     end
@@ -1723,7 +1726,7 @@ module AWS::SDK::SESv2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MessageTag.build(element) unless element.nil?
+          data << MessageTag.build(element) unless element.nil?
         end
         data
       end
@@ -1743,9 +1746,9 @@ module AWS::SDK::SESv2
     class Destination
       def self.build(input)
         data = {}
-        data['ToAddresses'] = Builders::EmailAddressList.build(input[:to_addresses]) unless input[:to_addresses].nil?
-        data['CcAddresses'] = Builders::EmailAddressList.build(input[:cc_addresses]) unless input[:cc_addresses].nil?
-        data['BccAddresses'] = Builders::EmailAddressList.build(input[:bcc_addresses]) unless input[:bcc_addresses].nil?
+        data['ToAddresses'] = EmailAddressList.build(input[:to_addresses]) unless input[:to_addresses].nil?
+        data['CcAddresses'] = EmailAddressList.build(input[:cc_addresses]) unless input[:cc_addresses].nil?
+        data['BccAddresses'] = EmailAddressList.build(input[:bcc_addresses]) unless input[:bcc_addresses].nil?
         data
       end
     end
@@ -1765,7 +1768,7 @@ module AWS::SDK::SESv2
     class BulkEmailContent
       def self.build(input)
         data = {}
-        data['Template'] = Builders::Template.build(input[:template]) unless input[:template].nil?
+        data['Template'] = Template.build(input[:template]) unless input[:template].nil?
         data
       end
     end
@@ -1783,7 +1786,7 @@ module AWS::SDK::SESv2
         data['EmailAddress'] = input[:email_address] unless input[:email_address].nil?
         data['TemplateName'] = input[:template_name] unless input[:template_name].nil?
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1799,15 +1802,15 @@ module AWS::SDK::SESv2
         data = {}
         data['FromEmailAddress'] = input[:from_email_address] unless input[:from_email_address].nil?
         data['FromEmailAddressIdentityArn'] = input[:from_email_address_identity_arn] unless input[:from_email_address_identity_arn].nil?
-        data['Destination'] = Builders::Destination.build(input[:destination]) unless input[:destination].nil?
-        data['ReplyToAddresses'] = Builders::EmailAddressList.build(input[:reply_to_addresses]) unless input[:reply_to_addresses].nil?
+        data['Destination'] = Destination.build(input[:destination]) unless input[:destination].nil?
+        data['ReplyToAddresses'] = EmailAddressList.build(input[:reply_to_addresses]) unless input[:reply_to_addresses].nil?
         data['FeedbackForwardingEmailAddress'] = input[:feedback_forwarding_email_address] unless input[:feedback_forwarding_email_address].nil?
         data['FeedbackForwardingEmailAddressIdentityArn'] = input[:feedback_forwarding_email_address_identity_arn] unless input[:feedback_forwarding_email_address_identity_arn].nil?
-        data['Content'] = Builders::EmailContent.build(input[:content]) unless input[:content].nil?
-        data['EmailTags'] = Builders::MessageTagList.build(input[:email_tags]) unless input[:email_tags].nil?
+        data['Content'] = EmailContent.build(input[:content]) unless input[:content].nil?
+        data['EmailTags'] = MessageTagList.build(input[:email_tags]) unless input[:email_tags].nil?
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
-        data['ListManagementOptions'] = Builders::ListManagementOptions.build(input[:list_management_options]) unless input[:list_management_options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ListManagementOptions'] = ListManagementOptions.build(input[:list_management_options]) unless input[:list_management_options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1832,8 +1835,8 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1855,7 +1858,7 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['TemplateData'] = input[:template_data] unless input[:template_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1907,8 +1910,8 @@ module AWS::SDK::SESv2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['EventDestination'] = Builders::EventDestinationDefinition.build(input[:event_destination]) unless input[:event_destination].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventDestination'] = EventDestinationDefinition.build(input[:event_destination]) unless input[:event_destination].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1933,10 +1936,10 @@ module AWS::SDK::SESv2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TopicPreferences'] = Builders::TopicPreferenceList.build(input[:topic_preferences]) unless input[:topic_preferences].nil?
+        data['TopicPreferences'] = TopicPreferenceList.build(input[:topic_preferences]) unless input[:topic_preferences].nil?
         data['UnsubscribeAll'] = input[:unsubscribe_all] unless input[:unsubscribe_all].nil?
         data['AttributesData'] = input[:attributes_data] unless input[:attributes_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1957,9 +1960,9 @@ module AWS::SDK::SESv2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Topics'] = Builders::Topics.build(input[:topics]) unless input[:topics].nil?
+        data['Topics'] = Topics.build(input[:topics]) unless input[:topics].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1985,7 +1988,7 @@ module AWS::SDK::SESv2
         data['TemplateContent'] = input[:template_content] unless input[:template_content].nil?
         data['SuccessRedirectionURL'] = input[:success_redirection_url] unless input[:success_redirection_url].nil?
         data['FailureRedirectionURL'] = input[:failure_redirection_url] unless input[:failure_redirection_url].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2011,7 +2014,7 @@ module AWS::SDK::SESv2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Policy'] = input[:policy] unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2032,8 +2035,8 @@ module AWS::SDK::SESv2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TemplateContent'] = Builders::EmailTemplateContent.build(input[:template_content]) unless input[:template_content].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TemplateContent'] = EmailTemplateContent.build(input[:template_content]) unless input[:template_content].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -120,7 +120,7 @@ module AWS::SDK::QLDB
       def self.parse(http_resp)
         data = Types::DescribeJournalKinesisStreamOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stream = (Parsers::JournalKinesisStreamDescription.parse(map['Stream']) unless map['Stream'].nil?)
+        data.stream = (JournalKinesisStreamDescription.parse(map['Stream']) unless map['Stream'].nil?)
         data
       end
     end
@@ -136,7 +136,7 @@ module AWS::SDK::QLDB
         data.stream_id = map['StreamId']
         data.arn = map['Arn']
         data.status = map['Status']
-        data.kinesis_configuration = (Parsers::KinesisConfiguration.parse(map['KinesisConfiguration']) unless map['KinesisConfiguration'].nil?)
+        data.kinesis_configuration = (KinesisConfiguration.parse(map['KinesisConfiguration']) unless map['KinesisConfiguration'].nil?)
         data.error_cause = map['ErrorCause']
         data.stream_name = map['StreamName']
         return data
@@ -157,7 +157,7 @@ module AWS::SDK::QLDB
       def self.parse(http_resp)
         data = Types::DescribeJournalS3ExportOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.export_description = (Parsers::JournalS3ExportDescription.parse(map['ExportDescription']) unless map['ExportDescription'].nil?)
+        data.export_description = (JournalS3ExportDescription.parse(map['ExportDescription']) unless map['ExportDescription'].nil?)
         data
       end
     end
@@ -171,7 +171,7 @@ module AWS::SDK::QLDB
         data.status = map['Status']
         data.inclusive_start_time = Time.at(map['InclusiveStartTime'].to_i) if map['InclusiveStartTime']
         data.exclusive_end_time = Time.at(map['ExclusiveEndTime'].to_i) if map['ExclusiveEndTime']
-        data.s3_export_configuration = (Parsers::S3ExportConfiguration.parse(map['S3ExportConfiguration']) unless map['S3ExportConfiguration'].nil?)
+        data.s3_export_configuration = (S3ExportConfiguration.parse(map['S3ExportConfiguration']) unless map['S3ExportConfiguration'].nil?)
         data.role_arn = map['RoleArn']
         data.output_format = map['OutputFormat']
         return data
@@ -183,7 +183,7 @@ module AWS::SDK::QLDB
         data = Types::S3ExportConfiguration.new
         data.bucket = map['Bucket']
         data.prefix = map['Prefix']
-        data.encryption_configuration = (Parsers::S3EncryptionConfiguration.parse(map['EncryptionConfiguration']) unless map['EncryptionConfiguration'].nil?)
+        data.encryption_configuration = (S3EncryptionConfiguration.parse(map['EncryptionConfiguration']) unless map['EncryptionConfiguration'].nil?)
         return data
       end
     end
@@ -208,7 +208,7 @@ module AWS::SDK::QLDB
         data.creation_date_time = Time.at(map['CreationDateTime'].to_i) if map['CreationDateTime']
         data.permissions_mode = map['PermissionsMode']
         data.deletion_protection = map['DeletionProtection']
-        data.encryption_description = (Parsers::LedgerEncryptionDescription.parse(map['EncryptionDescription']) unless map['EncryptionDescription'].nil?)
+        data.encryption_description = (LedgerEncryptionDescription.parse(map['EncryptionDescription']) unless map['EncryptionDescription'].nil?)
         data
       end
     end
@@ -238,8 +238,8 @@ module AWS::SDK::QLDB
       def self.parse(http_resp)
         data = Types::GetBlockOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.block = (Parsers::ValueHolder.parse(map['Block']) unless map['Block'].nil?)
-        data.proof = (Parsers::ValueHolder.parse(map['Proof']) unless map['Proof'].nil?)
+        data.block = (ValueHolder.parse(map['Block']) unless map['Block'].nil?)
+        data.proof = (ValueHolder.parse(map['Proof']) unless map['Proof'].nil?)
         data
       end
     end
@@ -258,7 +258,7 @@ module AWS::SDK::QLDB
         data = Types::GetDigestOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.digest = Base64::decode64(map['Digest']) unless map['Digest'].nil?
-        data.digest_tip_address = (Parsers::ValueHolder.parse(map['DigestTipAddress']) unless map['DigestTipAddress'].nil?)
+        data.digest_tip_address = (ValueHolder.parse(map['DigestTipAddress']) unless map['DigestTipAddress'].nil?)
         data
       end
     end
@@ -268,8 +268,8 @@ module AWS::SDK::QLDB
       def self.parse(http_resp)
         data = Types::GetRevisionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.proof = (Parsers::ValueHolder.parse(map['Proof']) unless map['Proof'].nil?)
-        data.revision = (Parsers::ValueHolder.parse(map['Revision']) unless map['Revision'].nil?)
+        data.proof = (ValueHolder.parse(map['Proof']) unless map['Proof'].nil?)
+        data.revision = (ValueHolder.parse(map['Revision']) unless map['Revision'].nil?)
         data
       end
     end
@@ -279,7 +279,7 @@ module AWS::SDK::QLDB
       def self.parse(http_resp)
         data = Types::ListJournalKinesisStreamsForLedgerOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.streams = (Parsers::JournalKinesisStreamDescriptionList.parse(map['Streams']) unless map['Streams'].nil?)
+        data.streams = (JournalKinesisStreamDescriptionList.parse(map['Streams']) unless map['Streams'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -289,7 +289,7 @@ module AWS::SDK::QLDB
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JournalKinesisStreamDescription.parse(value) unless value.nil?
+          data << JournalKinesisStreamDescription.parse(value) unless value.nil?
         end
         data
       end
@@ -300,7 +300,7 @@ module AWS::SDK::QLDB
       def self.parse(http_resp)
         data = Types::ListJournalS3ExportsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.journal_s3_exports = (Parsers::JournalS3ExportList.parse(map['JournalS3Exports']) unless map['JournalS3Exports'].nil?)
+        data.journal_s3_exports = (JournalS3ExportList.parse(map['JournalS3Exports']) unless map['JournalS3Exports'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -310,7 +310,7 @@ module AWS::SDK::QLDB
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JournalS3ExportDescription.parse(value) unless value.nil?
+          data << JournalS3ExportDescription.parse(value) unless value.nil?
         end
         data
       end
@@ -321,7 +321,7 @@ module AWS::SDK::QLDB
       def self.parse(http_resp)
         data = Types::ListJournalS3ExportsForLedgerOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.journal_s3_exports = (Parsers::JournalS3ExportList.parse(map['JournalS3Exports']) unless map['JournalS3Exports'].nil?)
+        data.journal_s3_exports = (JournalS3ExportList.parse(map['JournalS3Exports']) unless map['JournalS3Exports'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -332,7 +332,7 @@ module AWS::SDK::QLDB
       def self.parse(http_resp)
         data = Types::ListLedgersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.ledgers = (Parsers::LedgerList.parse(map['Ledgers']) unless map['Ledgers'].nil?)
+        data.ledgers = (LedgerList.parse(map['Ledgers']) unless map['Ledgers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -342,7 +342,7 @@ module AWS::SDK::QLDB
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LedgerSummary.parse(value) unless value.nil?
+          data << LedgerSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -363,7 +363,7 @@ module AWS::SDK::QLDB
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -416,7 +416,7 @@ module AWS::SDK::QLDB
         data.state = map['State']
         data.creation_date_time = Time.at(map['CreationDateTime'].to_i) if map['CreationDateTime']
         data.deletion_protection = map['DeletionProtection']
-        data.encryption_description = (Parsers::LedgerEncryptionDescription.parse(map['EncryptionDescription']) unless map['EncryptionDescription'].nil?)
+        data.encryption_description = (LedgerEncryptionDescription.parse(map['EncryptionDescription']) unless map['EncryptionDescription'].nil?)
         data
       end
     end

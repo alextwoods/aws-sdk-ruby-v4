@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::FSx
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Aliases'] = Stubs::Aliases.stub(stub[:aliases]) unless stub[:aliases].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Aliases'] = Aliases.stub(stub[:aliases]) unless stub[:aliases].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -40,7 +42,7 @@ module AWS::SDK::FSx
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Alias.stub(element) unless element.nil?
+          data << Alias.stub(element) unless element.nil?
         end
         data
       end
@@ -79,7 +81,7 @@ module AWS::SDK::FSx
         data = {}
         data['Lifecycle'] = stub[:lifecycle] unless stub[:lifecycle].nil?
         data['TaskId'] = stub[:task_id] unless stub[:task_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -94,8 +96,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Backup'] = Stubs::Backup.stub(stub[:backup]) unless stub[:backup].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Backup'] = Backup.stub(stub[:backup]) unless stub[:backup].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -130,20 +132,20 @@ module AWS::SDK::FSx
         data = {}
         data['BackupId'] = stub[:backup_id] unless stub[:backup_id].nil?
         data['Lifecycle'] = stub[:lifecycle] unless stub[:lifecycle].nil?
-        data['FailureDetails'] = Stubs::BackupFailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
+        data['FailureDetails'] = BackupFailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['ProgressPercent'] = stub[:progress_percent] unless stub[:progress_percent].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['ResourceARN'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['FileSystem'] = Stubs::FileSystem.stub(stub[:file_system]) unless stub[:file_system].nil?
-        data['DirectoryInformation'] = Stubs::ActiveDirectoryBackupAttributes.stub(stub[:directory_information]) unless stub[:directory_information].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['FileSystem'] = FileSystem.stub(stub[:file_system]) unless stub[:file_system].nil?
+        data['DirectoryInformation'] = ActiveDirectoryBackupAttributes.stub(stub[:directory_information]) unless stub[:directory_information].nil?
         data['OwnerId'] = stub[:owner_id] unless stub[:owner_id].nil?
         data['SourceBackupId'] = stub[:source_backup_id] unless stub[:source_backup_id].nil?
         data['SourceBackupRegion'] = stub[:source_backup_region] unless stub[:source_backup_region].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['Volume'] = Stubs::Volume.stub(stub[:volume]) unless stub[:volume].nil?
+        data['Volume'] = Volume.stub(stub[:volume]) unless stub[:volume].nil?
         data
       end
     end
@@ -176,14 +178,14 @@ module AWS::SDK::FSx
         data['FileSystemId'] = stub[:file_system_id] unless stub[:file_system_id].nil?
         data['Lifecycle'] = stub[:lifecycle] unless stub[:lifecycle].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['OntapConfiguration'] = Stubs::OntapVolumeConfiguration.stub(stub[:ontap_configuration]) unless stub[:ontap_configuration].nil?
+        data['OntapConfiguration'] = OntapVolumeConfiguration.stub(stub[:ontap_configuration]) unless stub[:ontap_configuration].nil?
         data['ResourceARN'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['VolumeId'] = stub[:volume_id] unless stub[:volume_id].nil?
         data['VolumeType'] = stub[:volume_type] unless stub[:volume_type].nil?
-        data['LifecycleTransitionReason'] = Stubs::LifecycleTransitionReason.stub(stub[:lifecycle_transition_reason]) unless stub[:lifecycle_transition_reason].nil?
-        data['AdministrativeActions'] = Stubs::AdministrativeActions.stub(stub[:administrative_actions]) unless stub[:administrative_actions].nil?
-        data['OpenZFSConfiguration'] = Stubs::OpenZFSVolumeConfiguration.stub(stub[:open_zfs_configuration]) unless stub[:open_zfs_configuration].nil?
+        data['LifecycleTransitionReason'] = LifecycleTransitionReason.stub(stub[:lifecycle_transition_reason]) unless stub[:lifecycle_transition_reason].nil?
+        data['AdministrativeActions'] = AdministrativeActions.stub(stub[:administrative_actions]) unless stub[:administrative_actions].nil?
+        data['OpenZFSConfiguration'] = OpenZFSVolumeConfiguration.stub(stub[:open_zfs_configuration]) unless stub[:open_zfs_configuration].nil?
         data
       end
     end
@@ -218,10 +220,10 @@ module AWS::SDK::FSx
         data['RecordSizeKiB'] = stub[:record_size_ki_b] unless stub[:record_size_ki_b].nil?
         data['DataCompressionType'] = stub[:data_compression_type] unless stub[:data_compression_type].nil?
         data['CopyTagsToSnapshots'] = stub[:copy_tags_to_snapshots] unless stub[:copy_tags_to_snapshots].nil?
-        data['OriginSnapshot'] = Stubs::OpenZFSOriginSnapshotConfiguration.stub(stub[:origin_snapshot]) unless stub[:origin_snapshot].nil?
+        data['OriginSnapshot'] = OpenZFSOriginSnapshotConfiguration.stub(stub[:origin_snapshot]) unless stub[:origin_snapshot].nil?
         data['ReadOnly'] = stub[:read_only] unless stub[:read_only].nil?
-        data['NfsExports'] = Stubs::OpenZFSNfsExports.stub(stub[:nfs_exports]) unless stub[:nfs_exports].nil?
-        data['UserAndGroupQuotas'] = Stubs::OpenZFSUserAndGroupQuotas.stub(stub[:user_and_group_quotas]) unless stub[:user_and_group_quotas].nil?
+        data['NfsExports'] = OpenZFSNfsExports.stub(stub[:nfs_exports]) unless stub[:nfs_exports].nil?
+        data['UserAndGroupQuotas'] = OpenZFSUserAndGroupQuotas.stub(stub[:user_and_group_quotas]) unless stub[:user_and_group_quotas].nil?
         data
       end
     end
@@ -240,7 +242,7 @@ module AWS::SDK::FSx
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OpenZFSUserOrGroupQuota.stub(element) unless element.nil?
+          data << OpenZFSUserOrGroupQuota.stub(element) unless element.nil?
         end
         data
       end
@@ -282,7 +284,7 @@ module AWS::SDK::FSx
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OpenZFSNfsExport.stub(element) unless element.nil?
+          data << OpenZFSNfsExport.stub(element) unless element.nil?
         end
         data
       end
@@ -301,7 +303,7 @@ module AWS::SDK::FSx
       def self.stub(stub)
         stub ||= Types::OpenZFSNfsExport.new
         data = {}
-        data['ClientConfigurations'] = Stubs::OpenZFSClientConfigurations.stub(stub[:client_configurations]) unless stub[:client_configurations].nil?
+        data['ClientConfigurations'] = OpenZFSClientConfigurations.stub(stub[:client_configurations]) unless stub[:client_configurations].nil?
         data
       end
     end
@@ -320,7 +322,7 @@ module AWS::SDK::FSx
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OpenZFSClientConfiguration.stub(element) unless element.nil?
+          data << OpenZFSClientConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -341,7 +343,7 @@ module AWS::SDK::FSx
         stub ||= Types::OpenZFSClientConfiguration.new
         data = {}
         data['Clients'] = stub[:clients] unless stub[:clients].nil?
-        data['Options'] = Stubs::OpenZFSNfsExportOptions.stub(stub[:options]) unless stub[:options].nil?
+        data['Options'] = OpenZFSNfsExportOptions.stub(stub[:options]) unless stub[:options].nil?
         data
       end
     end
@@ -400,7 +402,7 @@ module AWS::SDK::FSx
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AdministrativeAction.stub(element) unless element.nil?
+          data << AdministrativeAction.stub(element) unless element.nil?
         end
         data
       end
@@ -430,10 +432,10 @@ module AWS::SDK::FSx
         data['ProgressPercent'] = stub[:progress_percent] unless stub[:progress_percent].nil?
         data['RequestTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:request_time]).to_i unless stub[:request_time].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['TargetFileSystemValues'] = Stubs::FileSystem.stub(stub[:target_file_system_values]) unless stub[:target_file_system_values].nil?
-        data['FailureDetails'] = Stubs::AdministrativeActionFailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
-        data['TargetVolumeValues'] = Stubs::Volume.stub(stub[:target_volume_values]) unless stub[:target_volume_values].nil?
-        data['TargetSnapshotValues'] = Stubs::Snapshot.stub(stub[:target_snapshot_values]) unless stub[:target_snapshot_values].nil?
+        data['TargetFileSystemValues'] = FileSystem.stub(stub[:target_file_system_values]) unless stub[:target_file_system_values].nil?
+        data['FailureDetails'] = AdministrativeActionFailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
+        data['TargetVolumeValues'] = Volume.stub(stub[:target_volume_values]) unless stub[:target_volume_values].nil?
+        data['TargetSnapshotValues'] = Snapshot.stub(stub[:target_snapshot_values]) unless stub[:target_snapshot_values].nil?
         data
       end
     end
@@ -465,9 +467,9 @@ module AWS::SDK::FSx
         data['VolumeId'] = stub[:volume_id] unless stub[:volume_id].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['Lifecycle'] = stub[:lifecycle] unless stub[:lifecycle].nil?
-        data['LifecycleTransitionReason'] = Stubs::LifecycleTransitionReason.stub(stub[:lifecycle_transition_reason]) unless stub[:lifecycle_transition_reason].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['AdministrativeActions'] = Stubs::AdministrativeActions.stub(stub[:administrative_actions]) unless stub[:administrative_actions].nil?
+        data['LifecycleTransitionReason'] = LifecycleTransitionReason.stub(stub[:lifecycle_transition_reason]) unless stub[:lifecycle_transition_reason].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['AdministrativeActions'] = AdministrativeActions.stub(stub[:administrative_actions]) unless stub[:administrative_actions].nil?
         data
       end
     end
@@ -486,7 +488,7 @@ module AWS::SDK::FSx
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -586,22 +588,22 @@ module AWS::SDK::FSx
         data['FileSystemId'] = stub[:file_system_id] unless stub[:file_system_id].nil?
         data['FileSystemType'] = stub[:file_system_type] unless stub[:file_system_type].nil?
         data['Lifecycle'] = stub[:lifecycle] unless stub[:lifecycle].nil?
-        data['FailureDetails'] = Stubs::FileSystemFailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
+        data['FailureDetails'] = FileSystemFailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
         data['StorageCapacity'] = stub[:storage_capacity] unless stub[:storage_capacity].nil?
         data['StorageType'] = stub[:storage_type] unless stub[:storage_type].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['SubnetIds'] = Stubs::SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['NetworkInterfaceIds'] = Stubs::NetworkInterfaceIds.stub(stub[:network_interface_ids]) unless stub[:network_interface_ids].nil?
+        data['SubnetIds'] = SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['NetworkInterfaceIds'] = NetworkInterfaceIds.stub(stub[:network_interface_ids]) unless stub[:network_interface_ids].nil?
         data['DNSName'] = stub[:dns_name] unless stub[:dns_name].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['ResourceARN'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['WindowsConfiguration'] = Stubs::WindowsFileSystemConfiguration.stub(stub[:windows_configuration]) unless stub[:windows_configuration].nil?
-        data['LustreConfiguration'] = Stubs::LustreFileSystemConfiguration.stub(stub[:lustre_configuration]) unless stub[:lustre_configuration].nil?
-        data['AdministrativeActions'] = Stubs::AdministrativeActions.stub(stub[:administrative_actions]) unless stub[:administrative_actions].nil?
-        data['OntapConfiguration'] = Stubs::OntapFileSystemConfiguration.stub(stub[:ontap_configuration]) unless stub[:ontap_configuration].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['WindowsConfiguration'] = WindowsFileSystemConfiguration.stub(stub[:windows_configuration]) unless stub[:windows_configuration].nil?
+        data['LustreConfiguration'] = LustreFileSystemConfiguration.stub(stub[:lustre_configuration]) unless stub[:lustre_configuration].nil?
+        data['AdministrativeActions'] = AdministrativeActions.stub(stub[:administrative_actions]) unless stub[:administrative_actions].nil?
+        data['OntapConfiguration'] = OntapFileSystemConfiguration.stub(stub[:ontap_configuration]) unless stub[:ontap_configuration].nil?
         data['FileSystemTypeVersion'] = stub[:file_system_type_version] unless stub[:file_system_type_version].nil?
-        data['OpenZFSConfiguration'] = Stubs::OpenZFSFileSystemConfiguration.stub(stub[:open_zfs_configuration]) unless stub[:open_zfs_configuration].nil?
+        data['OpenZFSConfiguration'] = OpenZFSFileSystemConfiguration.stub(stub[:open_zfs_configuration]) unless stub[:open_zfs_configuration].nil?
         data
       end
     end
@@ -634,7 +636,7 @@ module AWS::SDK::FSx
         data['DeploymentType'] = stub[:deployment_type] unless stub[:deployment_type].nil?
         data['ThroughputCapacity'] = stub[:throughput_capacity] unless stub[:throughput_capacity].nil?
         data['WeeklyMaintenanceStartTime'] = stub[:weekly_maintenance_start_time] unless stub[:weekly_maintenance_start_time].nil?
-        data['DiskIopsConfiguration'] = Stubs::DiskIopsConfiguration.stub(stub[:disk_iops_configuration]) unless stub[:disk_iops_configuration].nil?
+        data['DiskIopsConfiguration'] = DiskIopsConfiguration.stub(stub[:disk_iops_configuration]) unless stub[:disk_iops_configuration].nil?
         data['RootVolumeId'] = stub[:root_volume_id] unless stub[:root_volume_id].nil?
         data
       end
@@ -686,10 +688,10 @@ module AWS::SDK::FSx
         data['DailyAutomaticBackupStartTime'] = stub[:daily_automatic_backup_start_time] unless stub[:daily_automatic_backup_start_time].nil?
         data['DeploymentType'] = stub[:deployment_type] unless stub[:deployment_type].nil?
         data['EndpointIpAddressRange'] = stub[:endpoint_ip_address_range] unless stub[:endpoint_ip_address_range].nil?
-        data['Endpoints'] = Stubs::FileSystemEndpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
-        data['DiskIopsConfiguration'] = Stubs::DiskIopsConfiguration.stub(stub[:disk_iops_configuration]) unless stub[:disk_iops_configuration].nil?
+        data['Endpoints'] = FileSystemEndpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        data['DiskIopsConfiguration'] = DiskIopsConfiguration.stub(stub[:disk_iops_configuration]) unless stub[:disk_iops_configuration].nil?
         data['PreferredSubnetId'] = stub[:preferred_subnet_id] unless stub[:preferred_subnet_id].nil?
-        data['RouteTableIds'] = Stubs::RouteTableIds.stub(stub[:route_table_ids]) unless stub[:route_table_ids].nil?
+        data['RouteTableIds'] = RouteTableIds.stub(stub[:route_table_ids]) unless stub[:route_table_ids].nil?
         data['ThroughputCapacity'] = stub[:throughput_capacity] unless stub[:throughput_capacity].nil?
         data['WeeklyMaintenanceStartTime'] = stub[:weekly_maintenance_start_time] unless stub[:weekly_maintenance_start_time].nil?
         data
@@ -730,8 +732,8 @@ module AWS::SDK::FSx
       def self.stub(stub)
         stub ||= Types::FileSystemEndpoints.new
         data = {}
-        data['Intercluster'] = Stubs::FileSystemEndpoint.stub(stub[:intercluster]) unless stub[:intercluster].nil?
-        data['Management'] = Stubs::FileSystemEndpoint.stub(stub[:management]) unless stub[:management].nil?
+        data['Intercluster'] = FileSystemEndpoint.stub(stub[:intercluster]) unless stub[:intercluster].nil?
+        data['Management'] = FileSystemEndpoint.stub(stub[:management]) unless stub[:management].nil?
         data
       end
     end
@@ -751,7 +753,7 @@ module AWS::SDK::FSx
         stub ||= Types::FileSystemEndpoint.new
         data = {}
         data['DNSName'] = stub[:dns_name] unless stub[:dns_name].nil?
-        data['IpAddresses'] = Stubs::OntapEndpointIpAddresses.stub(stub[:ip_addresses]) unless stub[:ip_addresses].nil?
+        data['IpAddresses'] = OntapEndpointIpAddresses.stub(stub[:ip_addresses]) unless stub[:ip_addresses].nil?
         data
       end
     end
@@ -801,7 +803,7 @@ module AWS::SDK::FSx
         stub ||= Types::LustreFileSystemConfiguration.new
         data = {}
         data['WeeklyMaintenanceStartTime'] = stub[:weekly_maintenance_start_time] unless stub[:weekly_maintenance_start_time].nil?
-        data['DataRepositoryConfiguration'] = Stubs::DataRepositoryConfiguration.stub(stub[:data_repository_configuration]) unless stub[:data_repository_configuration].nil?
+        data['DataRepositoryConfiguration'] = DataRepositoryConfiguration.stub(stub[:data_repository_configuration]) unless stub[:data_repository_configuration].nil?
         data['DeploymentType'] = stub[:deployment_type] unless stub[:deployment_type].nil?
         data['PerUnitStorageThroughput'] = stub[:per_unit_storage_throughput] unless stub[:per_unit_storage_throughput].nil?
         data['MountName'] = stub[:mount_name] unless stub[:mount_name].nil?
@@ -810,8 +812,8 @@ module AWS::SDK::FSx
         data['CopyTagsToBackups'] = stub[:copy_tags_to_backups] unless stub[:copy_tags_to_backups].nil?
         data['DriveCacheType'] = stub[:drive_cache_type] unless stub[:drive_cache_type].nil?
         data['DataCompressionType'] = stub[:data_compression_type] unless stub[:data_compression_type].nil?
-        data['LogConfiguration'] = Stubs::LustreLogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
-        data['RootSquashConfiguration'] = Stubs::LustreRootSquashConfiguration.stub(stub[:root_squash_configuration]) unless stub[:root_squash_configuration].nil?
+        data['LogConfiguration'] = LustreLogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
+        data['RootSquashConfiguration'] = LustreRootSquashConfiguration.stub(stub[:root_squash_configuration]) unless stub[:root_squash_configuration].nil?
         data
       end
     end
@@ -831,7 +833,7 @@ module AWS::SDK::FSx
         stub ||= Types::LustreRootSquashConfiguration.new
         data = {}
         data['RootSquash'] = stub[:root_squash] unless stub[:root_squash].nil?
-        data['NoSquashNids'] = Stubs::LustreNoSquashNids.stub(stub[:no_squash_nids]) unless stub[:no_squash_nids].nil?
+        data['NoSquashNids'] = LustreNoSquashNids.stub(stub[:no_squash_nids]) unless stub[:no_squash_nids].nil?
         data
       end
     end
@@ -899,7 +901,7 @@ module AWS::SDK::FSx
         data['ExportPath'] = stub[:export_path] unless stub[:export_path].nil?
         data['ImportedFileChunkSize'] = stub[:imported_file_chunk_size] unless stub[:imported_file_chunk_size].nil?
         data['AutoImportPolicy'] = stub[:auto_import_policy] unless stub[:auto_import_policy].nil?
-        data['FailureDetails'] = Stubs::DataRepositoryFailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
+        data['FailureDetails'] = DataRepositoryFailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
         data
       end
     end
@@ -949,19 +951,19 @@ module AWS::SDK::FSx
         stub ||= Types::WindowsFileSystemConfiguration.new
         data = {}
         data['ActiveDirectoryId'] = stub[:active_directory_id] unless stub[:active_directory_id].nil?
-        data['SelfManagedActiveDirectoryConfiguration'] = Stubs::SelfManagedActiveDirectoryAttributes.stub(stub[:self_managed_active_directory_configuration]) unless stub[:self_managed_active_directory_configuration].nil?
+        data['SelfManagedActiveDirectoryConfiguration'] = SelfManagedActiveDirectoryAttributes.stub(stub[:self_managed_active_directory_configuration]) unless stub[:self_managed_active_directory_configuration].nil?
         data['DeploymentType'] = stub[:deployment_type] unless stub[:deployment_type].nil?
         data['RemoteAdministrationEndpoint'] = stub[:remote_administration_endpoint] unless stub[:remote_administration_endpoint].nil?
         data['PreferredSubnetId'] = stub[:preferred_subnet_id] unless stub[:preferred_subnet_id].nil?
         data['PreferredFileServerIp'] = stub[:preferred_file_server_ip] unless stub[:preferred_file_server_ip].nil?
         data['ThroughputCapacity'] = stub[:throughput_capacity] unless stub[:throughput_capacity].nil?
-        data['MaintenanceOperationsInProgress'] = Stubs::FileSystemMaintenanceOperations.stub(stub[:maintenance_operations_in_progress]) unless stub[:maintenance_operations_in_progress].nil?
+        data['MaintenanceOperationsInProgress'] = FileSystemMaintenanceOperations.stub(stub[:maintenance_operations_in_progress]) unless stub[:maintenance_operations_in_progress].nil?
         data['WeeklyMaintenanceStartTime'] = stub[:weekly_maintenance_start_time] unless stub[:weekly_maintenance_start_time].nil?
         data['DailyAutomaticBackupStartTime'] = stub[:daily_automatic_backup_start_time] unless stub[:daily_automatic_backup_start_time].nil?
         data['AutomaticBackupRetentionDays'] = stub[:automatic_backup_retention_days] unless stub[:automatic_backup_retention_days].nil?
         data['CopyTagsToBackups'] = stub[:copy_tags_to_backups] unless stub[:copy_tags_to_backups].nil?
-        data['Aliases'] = Stubs::Aliases.stub(stub[:aliases]) unless stub[:aliases].nil?
-        data['AuditLogConfiguration'] = Stubs::WindowsAuditLogConfiguration.stub(stub[:audit_log_configuration]) unless stub[:audit_log_configuration].nil?
+        data['Aliases'] = Aliases.stub(stub[:aliases]) unless stub[:aliases].nil?
+        data['AuditLogConfiguration'] = WindowsAuditLogConfiguration.stub(stub[:audit_log_configuration]) unless stub[:audit_log_configuration].nil?
         data
       end
     end
@@ -1029,7 +1031,7 @@ module AWS::SDK::FSx
         data['OrganizationalUnitDistinguishedName'] = stub[:organizational_unit_distinguished_name] unless stub[:organizational_unit_distinguished_name].nil?
         data['FileSystemAdministratorsGroup'] = stub[:file_system_administrators_group] unless stub[:file_system_administrators_group].nil?
         data['UserName'] = stub[:user_name] unless stub[:user_name].nil?
-        data['DnsIps'] = Stubs::DnsIps.stub(stub[:dns_ips]) unless stub[:dns_ips].nil?
+        data['DnsIps'] = DnsIps.stub(stub[:dns_ips]) unless stub[:dns_ips].nil?
         data
       end
     end
@@ -1141,7 +1143,7 @@ module AWS::SDK::FSx
         data['StorageEfficiencyEnabled'] = stub[:storage_efficiency_enabled] unless stub[:storage_efficiency_enabled].nil?
         data['StorageVirtualMachineId'] = stub[:storage_virtual_machine_id] unless stub[:storage_virtual_machine_id].nil?
         data['StorageVirtualMachineRoot'] = stub[:storage_virtual_machine_root] unless stub[:storage_virtual_machine_root].nil?
-        data['TieringPolicy'] = Stubs::TieringPolicy.stub(stub[:tiering_policy]) unless stub[:tiering_policy].nil?
+        data['TieringPolicy'] = TieringPolicy.stub(stub[:tiering_policy]) unless stub[:tiering_policy].nil?
         data['UUID'] = stub[:uuid] unless stub[:uuid].nil?
         data['OntapVolumeType'] = stub[:ontap_volume_type] unless stub[:ontap_volume_type].nil?
         data
@@ -1218,8 +1220,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Backup'] = Stubs::Backup.stub(stub[:backup]) unless stub[:backup].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Backup'] = Backup.stub(stub[:backup]) unless stub[:backup].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1234,8 +1236,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Association'] = Stubs::DataRepositoryAssociation.stub(stub[:association]) unless stub[:association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Association'] = DataRepositoryAssociation.stub(stub[:association]) unless stub[:association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1268,13 +1270,13 @@ module AWS::SDK::FSx
         data['ResourceARN'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['FileSystemId'] = stub[:file_system_id] unless stub[:file_system_id].nil?
         data['Lifecycle'] = stub[:lifecycle] unless stub[:lifecycle].nil?
-        data['FailureDetails'] = Stubs::DataRepositoryFailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
+        data['FailureDetails'] = DataRepositoryFailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
         data['FileSystemPath'] = stub[:file_system_path] unless stub[:file_system_path].nil?
         data['DataRepositoryPath'] = stub[:data_repository_path] unless stub[:data_repository_path].nil?
         data['BatchImportMetaDataOnCreate'] = stub[:batch_import_meta_data_on_create] unless stub[:batch_import_meta_data_on_create].nil?
         data['ImportedFileChunkSize'] = stub[:imported_file_chunk_size] unless stub[:imported_file_chunk_size].nil?
-        data['S3'] = Stubs::S3DataRepositoryConfiguration.stub(stub[:s3]) unless stub[:s3].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['S3'] = S3DataRepositoryConfiguration.stub(stub[:s3]) unless stub[:s3].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data
       end
@@ -1294,8 +1296,8 @@ module AWS::SDK::FSx
       def self.stub(stub)
         stub ||= Types::S3DataRepositoryConfiguration.new
         data = {}
-        data['AutoImportPolicy'] = Stubs::AutoImportPolicy.stub(stub[:auto_import_policy]) unless stub[:auto_import_policy].nil?
-        data['AutoExportPolicy'] = Stubs::AutoExportPolicy.stub(stub[:auto_export_policy]) unless stub[:auto_export_policy].nil?
+        data['AutoImportPolicy'] = AutoImportPolicy.stub(stub[:auto_import_policy]) unless stub[:auto_import_policy].nil?
+        data['AutoExportPolicy'] = AutoExportPolicy.stub(stub[:auto_export_policy]) unless stub[:auto_export_policy].nil?
         data
       end
     end
@@ -1313,7 +1315,7 @@ module AWS::SDK::FSx
       def self.stub(stub)
         stub ||= Types::AutoExportPolicy.new
         data = {}
-        data['Events'] = Stubs::EventTypes.stub(stub[:events]) unless stub[:events].nil?
+        data['Events'] = EventTypes.stub(stub[:events]) unless stub[:events].nil?
         data
       end
     end
@@ -1351,7 +1353,7 @@ module AWS::SDK::FSx
       def self.stub(stub)
         stub ||= Types::AutoImportPolicy.new
         data = {}
-        data['Events'] = Stubs::EventTypes.stub(stub[:events]) unless stub[:events].nil?
+        data['Events'] = EventTypes.stub(stub[:events]) unless stub[:events].nil?
         data
       end
     end
@@ -1366,8 +1368,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DataRepositoryTask'] = Stubs::DataRepositoryTask.stub(stub[:data_repository_task]) unless stub[:data_repository_task].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DataRepositoryTask'] = DataRepositoryTask.stub(stub[:data_repository_task]) unless stub[:data_repository_task].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1404,12 +1406,12 @@ module AWS::SDK::FSx
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['ResourceARN'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['FileSystemId'] = stub[:file_system_id] unless stub[:file_system_id].nil?
-        data['Paths'] = Stubs::DataRepositoryTaskPaths.stub(stub[:paths]) unless stub[:paths].nil?
-        data['FailureDetails'] = Stubs::DataRepositoryTaskFailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
-        data['Status'] = Stubs::DataRepositoryTaskStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['Report'] = Stubs::CompletionReport.stub(stub[:report]) unless stub[:report].nil?
+        data['Paths'] = DataRepositoryTaskPaths.stub(stub[:paths]) unless stub[:paths].nil?
+        data['FailureDetails'] = DataRepositoryTaskFailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
+        data['Status'] = DataRepositoryTaskStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Report'] = CompletionReport.stub(stub[:report]) unless stub[:report].nil?
         data
       end
     end
@@ -1510,8 +1512,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FileSystem'] = Stubs::FileSystem.stub(stub[:file_system]) unless stub[:file_system].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FileSystem'] = FileSystem.stub(stub[:file_system]) unless stub[:file_system].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1526,8 +1528,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FileSystem'] = Stubs::FileSystem.stub(stub[:file_system]) unless stub[:file_system].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FileSystem'] = FileSystem.stub(stub[:file_system]) unless stub[:file_system].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1542,8 +1544,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Snapshot'] = Stubs::Snapshot.stub(stub[:snapshot]) unless stub[:snapshot].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Snapshot'] = Snapshot.stub(stub[:snapshot]) unless stub[:snapshot].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1558,8 +1560,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['StorageVirtualMachine'] = Stubs::StorageVirtualMachine.stub(stub[:storage_virtual_machine]) unless stub[:storage_virtual_machine].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StorageVirtualMachine'] = StorageVirtualMachine.stub(stub[:storage_virtual_machine]) unless stub[:storage_virtual_machine].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1589,9 +1591,9 @@ module AWS::SDK::FSx
       def self.stub(stub)
         stub ||= Types::StorageVirtualMachine.new
         data = {}
-        data['ActiveDirectoryConfiguration'] = Stubs::SvmActiveDirectoryConfiguration.stub(stub[:active_directory_configuration]) unless stub[:active_directory_configuration].nil?
+        data['ActiveDirectoryConfiguration'] = SvmActiveDirectoryConfiguration.stub(stub[:active_directory_configuration]) unless stub[:active_directory_configuration].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['Endpoints'] = Stubs::SvmEndpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        data['Endpoints'] = SvmEndpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
         data['FileSystemId'] = stub[:file_system_id] unless stub[:file_system_id].nil?
         data['Lifecycle'] = stub[:lifecycle] unless stub[:lifecycle].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
@@ -1599,8 +1601,8 @@ module AWS::SDK::FSx
         data['StorageVirtualMachineId'] = stub[:storage_virtual_machine_id] unless stub[:storage_virtual_machine_id].nil?
         data['Subtype'] = stub[:subtype] unless stub[:subtype].nil?
         data['UUID'] = stub[:uuid] unless stub[:uuid].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['LifecycleTransitionReason'] = Stubs::LifecycleTransitionReason.stub(stub[:lifecycle_transition_reason]) unless stub[:lifecycle_transition_reason].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['LifecycleTransitionReason'] = LifecycleTransitionReason.stub(stub[:lifecycle_transition_reason]) unless stub[:lifecycle_transition_reason].nil?
         data['RootVolumeSecurityStyle'] = stub[:root_volume_security_style] unless stub[:root_volume_security_style].nil?
         data
       end
@@ -1622,10 +1624,10 @@ module AWS::SDK::FSx
       def self.stub(stub)
         stub ||= Types::SvmEndpoints.new
         data = {}
-        data['Iscsi'] = Stubs::SvmEndpoint.stub(stub[:iscsi]) unless stub[:iscsi].nil?
-        data['Management'] = Stubs::SvmEndpoint.stub(stub[:management]) unless stub[:management].nil?
-        data['Nfs'] = Stubs::SvmEndpoint.stub(stub[:nfs]) unless stub[:nfs].nil?
-        data['Smb'] = Stubs::SvmEndpoint.stub(stub[:smb]) unless stub[:smb].nil?
+        data['Iscsi'] = SvmEndpoint.stub(stub[:iscsi]) unless stub[:iscsi].nil?
+        data['Management'] = SvmEndpoint.stub(stub[:management]) unless stub[:management].nil?
+        data['Nfs'] = SvmEndpoint.stub(stub[:nfs]) unless stub[:nfs].nil?
+        data['Smb'] = SvmEndpoint.stub(stub[:smb]) unless stub[:smb].nil?
         data
       end
     end
@@ -1645,7 +1647,7 @@ module AWS::SDK::FSx
         stub ||= Types::SvmEndpoint.new
         data = {}
         data['DNSName'] = stub[:dns_name] unless stub[:dns_name].nil?
-        data['IpAddresses'] = Stubs::OntapEndpointIpAddresses.stub(stub[:ip_addresses]) unless stub[:ip_addresses].nil?
+        data['IpAddresses'] = OntapEndpointIpAddresses.stub(stub[:ip_addresses]) unless stub[:ip_addresses].nil?
         data
       end
     end
@@ -1665,7 +1667,7 @@ module AWS::SDK::FSx
         stub ||= Types::SvmActiveDirectoryConfiguration.new
         data = {}
         data['NetBiosName'] = stub[:net_bios_name] unless stub[:net_bios_name].nil?
-        data['SelfManagedActiveDirectoryConfiguration'] = Stubs::SelfManagedActiveDirectoryAttributes.stub(stub[:self_managed_active_directory_configuration]) unless stub[:self_managed_active_directory_configuration].nil?
+        data['SelfManagedActiveDirectoryConfiguration'] = SelfManagedActiveDirectoryAttributes.stub(stub[:self_managed_active_directory_configuration]) unless stub[:self_managed_active_directory_configuration].nil?
         data
       end
     end
@@ -1680,8 +1682,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Volume'] = Stubs::Volume.stub(stub[:volume]) unless stub[:volume].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Volume'] = Volume.stub(stub[:volume]) unless stub[:volume].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1696,8 +1698,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Volume'] = Stubs::Volume.stub(stub[:volume]) unless stub[:volume].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Volume'] = Volume.stub(stub[:volume]) unless stub[:volume].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1715,7 +1717,7 @@ module AWS::SDK::FSx
         data = {}
         data['BackupId'] = stub[:backup_id] unless stub[:backup_id].nil?
         data['Lifecycle'] = stub[:lifecycle] unless stub[:lifecycle].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1735,7 +1737,7 @@ module AWS::SDK::FSx
         data['AssociationId'] = stub[:association_id] unless stub[:association_id].nil?
         data['Lifecycle'] = stub[:lifecycle] unless stub[:lifecycle].nil?
         data['DeleteDataInFileSystem'] = stub[:delete_data_in_file_system] unless stub[:delete_data_in_file_system].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1756,10 +1758,10 @@ module AWS::SDK::FSx
         data = {}
         data['FileSystemId'] = stub[:file_system_id] unless stub[:file_system_id].nil?
         data['Lifecycle'] = stub[:lifecycle] unless stub[:lifecycle].nil?
-        data['WindowsResponse'] = Stubs::DeleteFileSystemWindowsResponse.stub(stub[:windows_response]) unless stub[:windows_response].nil?
-        data['LustreResponse'] = Stubs::DeleteFileSystemLustreResponse.stub(stub[:lustre_response]) unless stub[:lustre_response].nil?
-        data['OpenZFSResponse'] = Stubs::DeleteFileSystemOpenZFSResponse.stub(stub[:open_zfs_response]) unless stub[:open_zfs_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WindowsResponse'] = DeleteFileSystemWindowsResponse.stub(stub[:windows_response]) unless stub[:windows_response].nil?
+        data['LustreResponse'] = DeleteFileSystemLustreResponse.stub(stub[:lustre_response]) unless stub[:lustre_response].nil?
+        data['OpenZFSResponse'] = DeleteFileSystemOpenZFSResponse.stub(stub[:open_zfs_response]) unless stub[:open_zfs_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1779,7 +1781,7 @@ module AWS::SDK::FSx
         stub ||= Types::DeleteFileSystemOpenZFSResponse.new
         data = {}
         data['FinalBackupId'] = stub[:final_backup_id] unless stub[:final_backup_id].nil?
-        data['FinalBackupTags'] = Stubs::Tags.stub(stub[:final_backup_tags]) unless stub[:final_backup_tags].nil?
+        data['FinalBackupTags'] = Tags.stub(stub[:final_backup_tags]) unless stub[:final_backup_tags].nil?
         data
       end
     end
@@ -1799,7 +1801,7 @@ module AWS::SDK::FSx
         stub ||= Types::DeleteFileSystemLustreResponse.new
         data = {}
         data['FinalBackupId'] = stub[:final_backup_id] unless stub[:final_backup_id].nil?
-        data['FinalBackupTags'] = Stubs::Tags.stub(stub[:final_backup_tags]) unless stub[:final_backup_tags].nil?
+        data['FinalBackupTags'] = Tags.stub(stub[:final_backup_tags]) unless stub[:final_backup_tags].nil?
         data
       end
     end
@@ -1819,7 +1821,7 @@ module AWS::SDK::FSx
         stub ||= Types::DeleteFileSystemWindowsResponse.new
         data = {}
         data['FinalBackupId'] = stub[:final_backup_id] unless stub[:final_backup_id].nil?
-        data['FinalBackupTags'] = Stubs::Tags.stub(stub[:final_backup_tags]) unless stub[:final_backup_tags].nil?
+        data['FinalBackupTags'] = Tags.stub(stub[:final_backup_tags]) unless stub[:final_backup_tags].nil?
         data
       end
     end
@@ -1837,7 +1839,7 @@ module AWS::SDK::FSx
         data = {}
         data['SnapshotId'] = stub[:snapshot_id] unless stub[:snapshot_id].nil?
         data['Lifecycle'] = stub[:lifecycle] unless stub[:lifecycle].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1855,7 +1857,7 @@ module AWS::SDK::FSx
         data = {}
         data['StorageVirtualMachineId'] = stub[:storage_virtual_machine_id] unless stub[:storage_virtual_machine_id].nil?
         data['Lifecycle'] = stub[:lifecycle] unless stub[:lifecycle].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1874,8 +1876,8 @@ module AWS::SDK::FSx
         data = {}
         data['VolumeId'] = stub[:volume_id] unless stub[:volume_id].nil?
         data['Lifecycle'] = stub[:lifecycle] unless stub[:lifecycle].nil?
-        data['OntapResponse'] = Stubs::DeleteVolumeOntapResponse.stub(stub[:ontap_response]) unless stub[:ontap_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OntapResponse'] = DeleteVolumeOntapResponse.stub(stub[:ontap_response]) unless stub[:ontap_response].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1895,7 +1897,7 @@ module AWS::SDK::FSx
         stub ||= Types::DeleteVolumeOntapResponse.new
         data = {}
         data['FinalBackupId'] = stub[:final_backup_id] unless stub[:final_backup_id].nil?
-        data['FinalBackupTags'] = Stubs::Tags.stub(stub[:final_backup_tags]) unless stub[:final_backup_tags].nil?
+        data['FinalBackupTags'] = Tags.stub(stub[:final_backup_tags]) unless stub[:final_backup_tags].nil?
         data
       end
     end
@@ -1911,9 +1913,9 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Backups'] = Stubs::Backups.stub(stub[:backups]) unless stub[:backups].nil?
+        data['Backups'] = Backups.stub(stub[:backups]) unless stub[:backups].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1932,7 +1934,7 @@ module AWS::SDK::FSx
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Backup.stub(element) unless element.nil?
+          data << Backup.stub(element) unless element.nil?
         end
         data
       end
@@ -1949,9 +1951,9 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Associations'] = Stubs::DataRepositoryAssociations.stub(stub[:associations]) unless stub[:associations].nil?
+        data['Associations'] = DataRepositoryAssociations.stub(stub[:associations]) unless stub[:associations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1970,7 +1972,7 @@ module AWS::SDK::FSx
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataRepositoryAssociation.stub(element) unless element.nil?
+          data << DataRepositoryAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -1987,9 +1989,9 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DataRepositoryTasks'] = Stubs::DataRepositoryTasks.stub(stub[:data_repository_tasks]) unless stub[:data_repository_tasks].nil?
+        data['DataRepositoryTasks'] = DataRepositoryTasks.stub(stub[:data_repository_tasks]) unless stub[:data_repository_tasks].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2008,7 +2010,7 @@ module AWS::SDK::FSx
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataRepositoryTask.stub(element) unless element.nil?
+          data << DataRepositoryTask.stub(element) unless element.nil?
         end
         data
       end
@@ -2025,9 +2027,9 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Aliases'] = Stubs::Aliases.stub(stub[:aliases]) unless stub[:aliases].nil?
+        data['Aliases'] = Aliases.stub(stub[:aliases]) unless stub[:aliases].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2043,9 +2045,9 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FileSystems'] = Stubs::FileSystems.stub(stub[:file_systems]) unless stub[:file_systems].nil?
+        data['FileSystems'] = FileSystems.stub(stub[:file_systems]) unless stub[:file_systems].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2064,7 +2066,7 @@ module AWS::SDK::FSx
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FileSystem.stub(element) unless element.nil?
+          data << FileSystem.stub(element) unless element.nil?
         end
         data
       end
@@ -2081,9 +2083,9 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Snapshots'] = Stubs::Snapshots.stub(stub[:snapshots]) unless stub[:snapshots].nil?
+        data['Snapshots'] = Snapshots.stub(stub[:snapshots]) unless stub[:snapshots].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2102,7 +2104,7 @@ module AWS::SDK::FSx
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Snapshot.stub(element) unless element.nil?
+          data << Snapshot.stub(element) unless element.nil?
         end
         data
       end
@@ -2119,9 +2121,9 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['StorageVirtualMachines'] = Stubs::StorageVirtualMachines.stub(stub[:storage_virtual_machines]) unless stub[:storage_virtual_machines].nil?
+        data['StorageVirtualMachines'] = StorageVirtualMachines.stub(stub[:storage_virtual_machines]) unless stub[:storage_virtual_machines].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2140,7 +2142,7 @@ module AWS::SDK::FSx
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StorageVirtualMachine.stub(element) unless element.nil?
+          data << StorageVirtualMachine.stub(element) unless element.nil?
         end
         data
       end
@@ -2157,9 +2159,9 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Volumes'] = Stubs::Volumes.stub(stub[:volumes]) unless stub[:volumes].nil?
+        data['Volumes'] = Volumes.stub(stub[:volumes]) unless stub[:volumes].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2178,7 +2180,7 @@ module AWS::SDK::FSx
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Volume.stub(element) unless element.nil?
+          data << Volume.stub(element) unless element.nil?
         end
         data
       end
@@ -2194,8 +2196,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Aliases'] = Stubs::Aliases.stub(stub[:aliases]) unless stub[:aliases].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Aliases'] = Aliases.stub(stub[:aliases]) unless stub[:aliases].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2211,9 +2213,9 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2228,8 +2230,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FileSystem'] = Stubs::FileSystem.stub(stub[:file_system]) unless stub[:file_system].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FileSystem'] = FileSystem.stub(stub[:file_system]) unless stub[:file_system].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2247,7 +2249,7 @@ module AWS::SDK::FSx
         data = {}
         data['VolumeId'] = stub[:volume_id] unless stub[:volume_id].nil?
         data['Lifecycle'] = stub[:lifecycle] unless stub[:lifecycle].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2261,7 +2263,7 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2275,7 +2277,7 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2290,8 +2292,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Association'] = Stubs::DataRepositoryAssociation.stub(stub[:association]) unless stub[:association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Association'] = DataRepositoryAssociation.stub(stub[:association]) unless stub[:association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2306,8 +2308,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FileSystem'] = Stubs::FileSystem.stub(stub[:file_system]) unless stub[:file_system].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FileSystem'] = FileSystem.stub(stub[:file_system]) unless stub[:file_system].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2322,8 +2324,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Snapshot'] = Stubs::Snapshot.stub(stub[:snapshot]) unless stub[:snapshot].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Snapshot'] = Snapshot.stub(stub[:snapshot]) unless stub[:snapshot].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2338,8 +2340,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['StorageVirtualMachine'] = Stubs::StorageVirtualMachine.stub(stub[:storage_virtual_machine]) unless stub[:storage_virtual_machine].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StorageVirtualMachine'] = StorageVirtualMachine.stub(stub[:storage_virtual_machine]) unless stub[:storage_virtual_machine].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2354,8 +2356,8 @@ module AWS::SDK::FSx
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Volume'] = Stubs::Volume.stub(stub[:volume]) unless stub[:volume].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Volume'] = Volume.stub(stub[:volume]) unless stub[:volume].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

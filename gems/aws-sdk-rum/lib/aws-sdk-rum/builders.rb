@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::RUM
   module Builders
 
@@ -22,10 +24,10 @@ module AWS::SDK::RUM
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Domain'] = input[:domain] unless input[:domain].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        data['AppMonitorConfiguration'] = Builders::AppMonitorConfiguration.build(input[:app_monitor_configuration]) unless input[:app_monitor_configuration].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['AppMonitorConfiguration'] = AppMonitorConfiguration.build(input[:app_monitor_configuration]) unless input[:app_monitor_configuration].nil?
         data['CwLogEnabled'] = input[:cw_log_enabled] unless input[:cw_log_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -34,13 +36,13 @@ module AWS::SDK::RUM
       def self.build(input)
         data = {}
         data['IdentityPoolId'] = input[:identity_pool_id] unless input[:identity_pool_id].nil?
-        data['ExcludedPages'] = Builders::Pages.build(input[:excluded_pages]) unless input[:excluded_pages].nil?
-        data['IncludedPages'] = Builders::Pages.build(input[:included_pages]) unless input[:included_pages].nil?
-        data['FavoritePages'] = Builders::FavoritePages.build(input[:favorite_pages]) unless input[:favorite_pages].nil?
+        data['ExcludedPages'] = Pages.build(input[:excluded_pages]) unless input[:excluded_pages].nil?
+        data['IncludedPages'] = Pages.build(input[:included_pages]) unless input[:included_pages].nil?
+        data['FavoritePages'] = FavoritePages.build(input[:favorite_pages]) unless input[:favorite_pages].nil?
         data['SessionSampleRate'] = Hearth::NumberHelper.serialize(input[:session_sample_rate]) unless input[:session_sample_rate].nil?
         data['GuestRoleArn'] = input[:guest_role_arn] unless input[:guest_role_arn].nil?
         data['AllowCookies'] = input[:allow_cookies] unless input[:allow_cookies].nil?
-        data['Telemetries'] = Builders::Telemetries.build(input[:telemetries]) unless input[:telemetries].nil?
+        data['Telemetries'] = Telemetries.build(input[:telemetries]) unless input[:telemetries].nil?
         data['EnableXRay'] = input[:enable_x_ray] unless input[:enable_x_ray].nil?
         data
       end
@@ -141,11 +143,11 @@ module AWS::SDK::RUM
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TimeRange'] = Builders::TimeRange.build(input[:time_range]) unless input[:time_range].nil?
-        data['Filters'] = Builders::QueryFilters.build(input[:filters]) unless input[:filters].nil?
+        data['TimeRange'] = TimeRange.build(input[:time_range]) unless input[:time_range].nil?
+        data['Filters'] = QueryFilters.build(input[:filters]) unless input[:filters].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -154,7 +156,7 @@ module AWS::SDK::RUM
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::QueryFilter.build(element) unless element.nil?
+          data << QueryFilter.build(element) unless element.nil?
         end
         data
       end
@@ -165,7 +167,7 @@ module AWS::SDK::RUM
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::QueryFilterValueList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = QueryFilterValueList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -238,10 +240,10 @@ module AWS::SDK::RUM
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['BatchId'] = input[:batch_id] unless input[:batch_id].nil?
-        data['AppMonitorDetails'] = Builders::AppMonitorDetails.build(input[:app_monitor_details]) unless input[:app_monitor_details].nil?
-        data['UserDetails'] = Builders::UserDetails.build(input[:user_details]) unless input[:user_details].nil?
-        data['RumEvents'] = Builders::RumEventList.build(input[:rum_events]) unless input[:rum_events].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AppMonitorDetails'] = AppMonitorDetails.build(input[:app_monitor_details]) unless input[:app_monitor_details].nil?
+        data['UserDetails'] = UserDetails.build(input[:user_details]) unless input[:user_details].nil?
+        data['RumEvents'] = RumEventList.build(input[:rum_events]) unless input[:rum_events].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -250,7 +252,7 @@ module AWS::SDK::RUM
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RumEvent.build(element) unless element.nil?
+          data << RumEvent.build(element) unless element.nil?
         end
         data
       end
@@ -307,8 +309,8 @@ module AWS::SDK::RUM
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -363,9 +365,9 @@ module AWS::SDK::RUM
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Domain'] = input[:domain] unless input[:domain].nil?
-        data['AppMonitorConfiguration'] = Builders::AppMonitorConfiguration.build(input[:app_monitor_configuration]) unless input[:app_monitor_configuration].nil?
+        data['AppMonitorConfiguration'] = AppMonitorConfiguration.build(input[:app_monitor_configuration]) unless input[:app_monitor_configuration].nil?
         data['CwLogEnabled'] = input[:cw_log_enabled] unless input[:cw_log_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

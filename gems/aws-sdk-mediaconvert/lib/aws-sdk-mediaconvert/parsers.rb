@@ -93,7 +93,7 @@ module AWS::SDK::MediaConvert
       def self.parse(http_resp)
         data = Types::CreateJobOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job = (Parsers::Job.parse(map['job']) unless map['job'].nil?)
+        data.job = (Job.parse(map['job']) unless map['job'].nil?)
         data
       end
     end
@@ -101,7 +101,7 @@ module AWS::SDK::MediaConvert
     class Job
       def self.parse(map)
         data = Types::Job.new
-        data.acceleration_settings = (Parsers::AccelerationSettings.parse(map['accelerationSettings']) unless map['accelerationSettings'].nil?)
+        data.acceleration_settings = (AccelerationSettings.parse(map['accelerationSettings']) unless map['accelerationSettings'].nil?)
         data.acceleration_status = map['accelerationStatus']
         data.arn = map['arn']
         data.billing_tags_source = map['billingTagsSource']
@@ -109,23 +109,23 @@ module AWS::SDK::MediaConvert
         data.current_phase = map['currentPhase']
         data.error_code = map['errorCode']
         data.error_message = map['errorMessage']
-        data.hop_destinations = (Parsers::List____listOfHopDestination.parse(map['hopDestinations']) unless map['hopDestinations'].nil?)
+        data.hop_destinations = (List____listOfHopDestination.parse(map['hopDestinations']) unless map['hopDestinations'].nil?)
         data.id = map['id']
         data.job_percent_complete = map['jobPercentComplete']
         data.job_template = map['jobTemplate']
-        data.messages = (Parsers::JobMessages.parse(map['messages']) unless map['messages'].nil?)
-        data.output_group_details = (Parsers::List____listOfOutputGroupDetail.parse(map['outputGroupDetails']) unless map['outputGroupDetails'].nil?)
+        data.messages = (JobMessages.parse(map['messages']) unless map['messages'].nil?)
+        data.output_group_details = (List____listOfOutputGroupDetail.parse(map['outputGroupDetails']) unless map['outputGroupDetails'].nil?)
         data.priority = map['priority']
         data.queue = map['queue']
-        data.queue_transitions = (Parsers::List____listOfQueueTransition.parse(map['queueTransitions']) unless map['queueTransitions'].nil?)
+        data.queue_transitions = (List____listOfQueueTransition.parse(map['queueTransitions']) unless map['queueTransitions'].nil?)
         data.retry_count = map['retryCount']
         data.role = map['role']
-        data.settings = (Parsers::JobSettings.parse(map['settings']) unless map['settings'].nil?)
+        data.settings = (JobSettings.parse(map['settings']) unless map['settings'].nil?)
         data.simulate_reserved_queue = map['simulateReservedQueue']
         data.status = map['status']
         data.status_update_interval = map['statusUpdateInterval']
-        data.timing = (Parsers::Timing.parse(map['timing']) unless map['timing'].nil?)
-        data.user_metadata = (Parsers::Map____mapOf__string.parse(map['userMetadata']) unless map['userMetadata'].nil?)
+        data.timing = (Timing.parse(map['timing']) unless map['timing'].nil?)
+        data.user_metadata = (Map____mapOf__string.parse(map['userMetadata']) unless map['userMetadata'].nil?)
         return data
       end
     end
@@ -154,17 +154,17 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = Types::JobSettings.new
         data.ad_avail_offset = map['adAvailOffset']
-        data.avail_blanking = (Parsers::AvailBlanking.parse(map['availBlanking']) unless map['availBlanking'].nil?)
-        data.esam = (Parsers::EsamSettings.parse(map['esam']) unless map['esam'].nil?)
-        data.extended_data_services = (Parsers::ExtendedDataServices.parse(map['extendedDataServices']) unless map['extendedDataServices'].nil?)
-        data.inputs = (Parsers::List____listOfInput.parse(map['inputs']) unless map['inputs'].nil?)
-        data.kantar_watermark = (Parsers::KantarWatermarkSettings.parse(map['kantarWatermark']) unless map['kantarWatermark'].nil?)
-        data.motion_image_inserter = (Parsers::MotionImageInserter.parse(map['motionImageInserter']) unless map['motionImageInserter'].nil?)
-        data.nielsen_configuration = (Parsers::NielsenConfiguration.parse(map['nielsenConfiguration']) unless map['nielsenConfiguration'].nil?)
-        data.nielsen_non_linear_watermark = (Parsers::NielsenNonLinearWatermarkSettings.parse(map['nielsenNonLinearWatermark']) unless map['nielsenNonLinearWatermark'].nil?)
-        data.output_groups = (Parsers::List____listOfOutputGroup.parse(map['outputGroups']) unless map['outputGroups'].nil?)
-        data.timecode_config = (Parsers::TimecodeConfig.parse(map['timecodeConfig']) unless map['timecodeConfig'].nil?)
-        data.timed_metadata_insertion = (Parsers::TimedMetadataInsertion.parse(map['timedMetadataInsertion']) unless map['timedMetadataInsertion'].nil?)
+        data.avail_blanking = (AvailBlanking.parse(map['availBlanking']) unless map['availBlanking'].nil?)
+        data.esam = (EsamSettings.parse(map['esam']) unless map['esam'].nil?)
+        data.extended_data_services = (ExtendedDataServices.parse(map['extendedDataServices']) unless map['extendedDataServices'].nil?)
+        data.inputs = (List____listOfInput.parse(map['inputs']) unless map['inputs'].nil?)
+        data.kantar_watermark = (KantarWatermarkSettings.parse(map['kantarWatermark']) unless map['kantarWatermark'].nil?)
+        data.motion_image_inserter = (MotionImageInserter.parse(map['motionImageInserter']) unless map['motionImageInserter'].nil?)
+        data.nielsen_configuration = (NielsenConfiguration.parse(map['nielsenConfiguration']) unless map['nielsenConfiguration'].nil?)
+        data.nielsen_non_linear_watermark = (NielsenNonLinearWatermarkSettings.parse(map['nielsenNonLinearWatermark']) unless map['nielsenNonLinearWatermark'].nil?)
+        data.output_groups = (List____listOfOutputGroup.parse(map['outputGroups']) unless map['outputGroups'].nil?)
+        data.timecode_config = (TimecodeConfig.parse(map['timecodeConfig']) unless map['timecodeConfig'].nil?)
+        data.timed_metadata_insertion = (TimedMetadataInsertion.parse(map['timedMetadataInsertion']) unless map['timedMetadataInsertion'].nil?)
         return data
       end
     end
@@ -172,7 +172,7 @@ module AWS::SDK::MediaConvert
     class TimedMetadataInsertion
       def self.parse(map)
         data = Types::TimedMetadataInsertion.new
-        data.id3_insertions = (Parsers::List____listOfId3Insertion.parse(map['id3Insertions']) unless map['id3Insertions'].nil?)
+        data.id3_insertions = (List____listOfId3Insertion.parse(map['id3Insertions']) unless map['id3Insertions'].nil?)
         return data
       end
     end
@@ -181,7 +181,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Id3Insertion.parse(value) unless value.nil?
+          data << Id3Insertion.parse(value) unless value.nil?
         end
         data
       end
@@ -211,7 +211,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::OutputGroup.parse(value) unless value.nil?
+          data << OutputGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -220,11 +220,11 @@ module AWS::SDK::MediaConvert
     class OutputGroup
       def self.parse(map)
         data = Types::OutputGroup.new
-        data.automated_encoding_settings = (Parsers::AutomatedEncodingSettings.parse(map['automatedEncodingSettings']) unless map['automatedEncodingSettings'].nil?)
+        data.automated_encoding_settings = (AutomatedEncodingSettings.parse(map['automatedEncodingSettings']) unless map['automatedEncodingSettings'].nil?)
         data.custom_name = map['customName']
         data.name = map['name']
-        data.output_group_settings = (Parsers::OutputGroupSettings.parse(map['outputGroupSettings']) unless map['outputGroupSettings'].nil?)
-        data.outputs = (Parsers::List____listOfOutput.parse(map['outputs']) unless map['outputs'].nil?)
+        data.output_group_settings = (OutputGroupSettings.parse(map['outputGroupSettings']) unless map['outputGroupSettings'].nil?)
+        data.outputs = (List____listOfOutput.parse(map['outputs']) unless map['outputs'].nil?)
         return data
       end
     end
@@ -233,7 +233,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Output.parse(value) unless value.nil?
+          data << Output.parse(value) unless value.nil?
         end
         data
       end
@@ -242,14 +242,14 @@ module AWS::SDK::MediaConvert
     class Output
       def self.parse(map)
         data = Types::Output.new
-        data.audio_descriptions = (Parsers::List____listOfAudioDescription.parse(map['audioDescriptions']) unless map['audioDescriptions'].nil?)
-        data.caption_descriptions = (Parsers::List____listOfCaptionDescription.parse(map['captionDescriptions']) unless map['captionDescriptions'].nil?)
-        data.container_settings = (Parsers::ContainerSettings.parse(map['containerSettings']) unless map['containerSettings'].nil?)
+        data.audio_descriptions = (List____listOfAudioDescription.parse(map['audioDescriptions']) unless map['audioDescriptions'].nil?)
+        data.caption_descriptions = (List____listOfCaptionDescription.parse(map['captionDescriptions']) unless map['captionDescriptions'].nil?)
+        data.container_settings = (ContainerSettings.parse(map['containerSettings']) unless map['containerSettings'].nil?)
         data.extension = map['extension']
         data.name_modifier = map['nameModifier']
-        data.output_settings = (Parsers::OutputSettings.parse(map['outputSettings']) unless map['outputSettings'].nil?)
+        data.output_settings = (OutputSettings.parse(map['outputSettings']) unless map['outputSettings'].nil?)
         data.preset = map['preset']
-        data.video_description = (Parsers::VideoDescription.parse(map['videoDescription']) unless map['videoDescription'].nil?)
+        data.video_description = (VideoDescription.parse(map['videoDescription']) unless map['videoDescription'].nil?)
         return data
       end
     end
@@ -259,18 +259,18 @@ module AWS::SDK::MediaConvert
         data = Types::VideoDescription.new
         data.afd_signaling = map['afdSignaling']
         data.anti_alias = map['antiAlias']
-        data.codec_settings = (Parsers::VideoCodecSettings.parse(map['codecSettings']) unless map['codecSettings'].nil?)
+        data.codec_settings = (VideoCodecSettings.parse(map['codecSettings']) unless map['codecSettings'].nil?)
         data.color_metadata = map['colorMetadata']
-        data.crop = (Parsers::Rectangle.parse(map['crop']) unless map['crop'].nil?)
+        data.crop = (Rectangle.parse(map['crop']) unless map['crop'].nil?)
         data.drop_frame_timecode = map['dropFrameTimecode']
         data.fixed_afd = map['fixedAfd']
         data.height = map['height']
-        data.position = (Parsers::Rectangle.parse(map['position']) unless map['position'].nil?)
+        data.position = (Rectangle.parse(map['position']) unless map['position'].nil?)
         data.respond_to_afd = map['respondToAfd']
         data.scaling_behavior = map['scalingBehavior']
         data.sharpness = map['sharpness']
         data.timecode_insertion = map['timecodeInsertion']
-        data.video_preprocessors = (Parsers::VideoPreprocessor.parse(map['videoPreprocessors']) unless map['videoPreprocessors'].nil?)
+        data.video_preprocessors = (VideoPreprocessor.parse(map['videoPreprocessors']) unless map['videoPreprocessors'].nil?)
         data.width = map['width']
         return data
       end
@@ -279,14 +279,14 @@ module AWS::SDK::MediaConvert
     class VideoPreprocessor
       def self.parse(map)
         data = Types::VideoPreprocessor.new
-        data.color_corrector = (Parsers::ColorCorrector.parse(map['colorCorrector']) unless map['colorCorrector'].nil?)
-        data.deinterlacer = (Parsers::Deinterlacer.parse(map['deinterlacer']) unless map['deinterlacer'].nil?)
-        data.dolby_vision = (Parsers::DolbyVision.parse(map['dolbyVision']) unless map['dolbyVision'].nil?)
-        data.hdr10_plus = (Parsers::Hdr10Plus.parse(map['hdr10Plus']) unless map['hdr10Plus'].nil?)
-        data.image_inserter = (Parsers::ImageInserter.parse(map['imageInserter']) unless map['imageInserter'].nil?)
-        data.noise_reducer = (Parsers::NoiseReducer.parse(map['noiseReducer']) unless map['noiseReducer'].nil?)
-        data.partner_watermarking = (Parsers::PartnerWatermarking.parse(map['partnerWatermarking']) unless map['partnerWatermarking'].nil?)
-        data.timecode_burnin = (Parsers::TimecodeBurnin.parse(map['timecodeBurnin']) unless map['timecodeBurnin'].nil?)
+        data.color_corrector = (ColorCorrector.parse(map['colorCorrector']) unless map['colorCorrector'].nil?)
+        data.deinterlacer = (Deinterlacer.parse(map['deinterlacer']) unless map['deinterlacer'].nil?)
+        data.dolby_vision = (DolbyVision.parse(map['dolbyVision']) unless map['dolbyVision'].nil?)
+        data.hdr10_plus = (Hdr10Plus.parse(map['hdr10Plus']) unless map['hdr10Plus'].nil?)
+        data.image_inserter = (ImageInserter.parse(map['imageInserter']) unless map['imageInserter'].nil?)
+        data.noise_reducer = (NoiseReducer.parse(map['noiseReducer']) unless map['noiseReducer'].nil?)
+        data.partner_watermarking = (PartnerWatermarking.parse(map['partnerWatermarking']) unless map['partnerWatermarking'].nil?)
+        data.timecode_burnin = (TimecodeBurnin.parse(map['timecodeBurnin']) unless map['timecodeBurnin'].nil?)
         return data
       end
     end
@@ -304,7 +304,7 @@ module AWS::SDK::MediaConvert
     class PartnerWatermarking
       def self.parse(map)
         data = Types::PartnerWatermarking.new
-        data.nexguard_file_marker_settings = (Parsers::NexGuardFileMarkerSettings.parse(map['nexguardFileMarkerSettings']) unless map['nexguardFileMarkerSettings'].nil?)
+        data.nexguard_file_marker_settings = (NexGuardFileMarkerSettings.parse(map['nexguardFileMarkerSettings']) unless map['nexguardFileMarkerSettings'].nil?)
         return data
       end
     end
@@ -324,9 +324,9 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = Types::NoiseReducer.new
         data.filter = map['filter']
-        data.filter_settings = (Parsers::NoiseReducerFilterSettings.parse(map['filterSettings']) unless map['filterSettings'].nil?)
-        data.spatial_filter_settings = (Parsers::NoiseReducerSpatialFilterSettings.parse(map['spatialFilterSettings']) unless map['spatialFilterSettings'].nil?)
-        data.temporal_filter_settings = (Parsers::NoiseReducerTemporalFilterSettings.parse(map['temporalFilterSettings']) unless map['temporalFilterSettings'].nil?)
+        data.filter_settings = (NoiseReducerFilterSettings.parse(map['filterSettings']) unless map['filterSettings'].nil?)
+        data.spatial_filter_settings = (NoiseReducerSpatialFilterSettings.parse(map['spatialFilterSettings']) unless map['spatialFilterSettings'].nil?)
+        data.temporal_filter_settings = (NoiseReducerTemporalFilterSettings.parse(map['temporalFilterSettings']) unless map['temporalFilterSettings'].nil?)
         return data
       end
     end
@@ -364,7 +364,7 @@ module AWS::SDK::MediaConvert
     class ImageInserter
       def self.parse(map)
         data = Types::ImageInserter.new
-        data.insertable_images = (Parsers::List____listOfInsertableImage.parse(map['insertableImages']) unless map['insertableImages'].nil?)
+        data.insertable_images = (List____listOfInsertableImage.parse(map['insertableImages']) unless map['insertableImages'].nil?)
         return data
       end
     end
@@ -373,7 +373,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InsertableImage.parse(value) unless value.nil?
+          data << InsertableImage.parse(value) unless value.nil?
         end
         data
       end
@@ -409,7 +409,7 @@ module AWS::SDK::MediaConvert
     class DolbyVision
       def self.parse(map)
         data = Types::DolbyVision.new
-        data.l6_metadata = (Parsers::DolbyVisionLevel6Metadata.parse(map['l6Metadata']) unless map['l6Metadata'].nil?)
+        data.l6_metadata = (DolbyVisionLevel6Metadata.parse(map['l6Metadata']) unless map['l6Metadata'].nil?)
         data.l6_mode = map['l6Mode']
         data.mapping = map['mapping']
         data.profile = map['profile']
@@ -442,7 +442,7 @@ module AWS::SDK::MediaConvert
         data.brightness = map['brightness']
         data.color_space_conversion = map['colorSpaceConversion']
         data.contrast = map['contrast']
-        data.hdr10_metadata = (Parsers::Hdr10Metadata.parse(map['hdr10Metadata']) unless map['hdr10Metadata'].nil?)
+        data.hdr10_metadata = (Hdr10Metadata.parse(map['hdr10Metadata']) unless map['hdr10Metadata'].nil?)
         data.hue = map['hue']
         data.sample_range_conversion = map['sampleRangeConversion']
         data.saturation = map['saturation']
@@ -483,18 +483,18 @@ module AWS::SDK::MediaConvert
     class VideoCodecSettings
       def self.parse(map)
         data = Types::VideoCodecSettings.new
-        data.av1_settings = (Parsers::Av1Settings.parse(map['av1Settings']) unless map['av1Settings'].nil?)
-        data.avc_intra_settings = (Parsers::AvcIntraSettings.parse(map['avcIntraSettings']) unless map['avcIntraSettings'].nil?)
+        data.av1_settings = (Av1Settings.parse(map['av1Settings']) unless map['av1Settings'].nil?)
+        data.avc_intra_settings = (AvcIntraSettings.parse(map['avcIntraSettings']) unless map['avcIntraSettings'].nil?)
         data.codec = map['codec']
-        data.frame_capture_settings = (Parsers::FrameCaptureSettings.parse(map['frameCaptureSettings']) unless map['frameCaptureSettings'].nil?)
-        data.h264_settings = (Parsers::H264Settings.parse(map['h264Settings']) unless map['h264Settings'].nil?)
-        data.h265_settings = (Parsers::H265Settings.parse(map['h265Settings']) unless map['h265Settings'].nil?)
-        data.mpeg2_settings = (Parsers::Mpeg2Settings.parse(map['mpeg2Settings']) unless map['mpeg2Settings'].nil?)
-        data.prores_settings = (Parsers::ProresSettings.parse(map['proresSettings']) unless map['proresSettings'].nil?)
-        data.vc3_settings = (Parsers::Vc3Settings.parse(map['vc3Settings']) unless map['vc3Settings'].nil?)
-        data.vp8_settings = (Parsers::Vp8Settings.parse(map['vp8Settings']) unless map['vp8Settings'].nil?)
-        data.vp9_settings = (Parsers::Vp9Settings.parse(map['vp9Settings']) unless map['vp9Settings'].nil?)
-        data.xavc_settings = (Parsers::XavcSettings.parse(map['xavcSettings']) unless map['xavcSettings'].nil?)
+        data.frame_capture_settings = (FrameCaptureSettings.parse(map['frameCaptureSettings']) unless map['frameCaptureSettings'].nil?)
+        data.h264_settings = (H264Settings.parse(map['h264Settings']) unless map['h264Settings'].nil?)
+        data.h265_settings = (H265Settings.parse(map['h265Settings']) unless map['h265Settings'].nil?)
+        data.mpeg2_settings = (Mpeg2Settings.parse(map['mpeg2Settings']) unless map['mpeg2Settings'].nil?)
+        data.prores_settings = (ProresSettings.parse(map['proresSettings']) unless map['proresSettings'].nil?)
+        data.vc3_settings = (Vc3Settings.parse(map['vc3Settings']) unless map['vc3Settings'].nil?)
+        data.vp8_settings = (Vp8Settings.parse(map['vp8Settings']) unless map['vp8Settings'].nil?)
+        data.vp9_settings = (Vp9Settings.parse(map['vp9Settings']) unless map['vp9Settings'].nil?)
+        data.xavc_settings = (XavcSettings.parse(map['xavcSettings']) unless map['xavcSettings'].nil?)
         return data
       end
     end
@@ -513,11 +513,11 @@ module AWS::SDK::MediaConvert
         data.softness = map['softness']
         data.spatial_adaptive_quantization = map['spatialAdaptiveQuantization']
         data.temporal_adaptive_quantization = map['temporalAdaptiveQuantization']
-        data.xavc4k_intra_cbg_profile_settings = (Parsers::Xavc4kIntraCbgProfileSettings.parse(map['xavc4kIntraCbgProfileSettings']) unless map['xavc4kIntraCbgProfileSettings'].nil?)
-        data.xavc4k_intra_vbr_profile_settings = (Parsers::Xavc4kIntraVbrProfileSettings.parse(map['xavc4kIntraVbrProfileSettings']) unless map['xavc4kIntraVbrProfileSettings'].nil?)
-        data.xavc4k_profile_settings = (Parsers::Xavc4kProfileSettings.parse(map['xavc4kProfileSettings']) unless map['xavc4kProfileSettings'].nil?)
-        data.xavc_hd_intra_cbg_profile_settings = (Parsers::XavcHdIntraCbgProfileSettings.parse(map['xavcHdIntraCbgProfileSettings']) unless map['xavcHdIntraCbgProfileSettings'].nil?)
-        data.xavc_hd_profile_settings = (Parsers::XavcHdProfileSettings.parse(map['xavcHdProfileSettings']) unless map['xavcHdProfileSettings'].nil?)
+        data.xavc4k_intra_cbg_profile_settings = (Xavc4kIntraCbgProfileSettings.parse(map['xavc4kIntraCbgProfileSettings']) unless map['xavc4kIntraCbgProfileSettings'].nil?)
+        data.xavc4k_intra_vbr_profile_settings = (Xavc4kIntraVbrProfileSettings.parse(map['xavc4kIntraVbrProfileSettings']) unless map['xavc4kIntraVbrProfileSettings'].nil?)
+        data.xavc4k_profile_settings = (Xavc4kProfileSettings.parse(map['xavc4kProfileSettings']) unless map['xavc4kProfileSettings'].nil?)
+        data.xavc_hd_intra_cbg_profile_settings = (XavcHdIntraCbgProfileSettings.parse(map['xavcHdIntraCbgProfileSettings']) unless map['xavcHdIntraCbgProfileSettings'].nil?)
+        data.xavc_hd_profile_settings = (XavcHdProfileSettings.parse(map['xavcHdProfileSettings']) unless map['xavcHdProfileSettings'].nil?)
         return data
       end
     end
@@ -721,7 +721,7 @@ module AWS::SDK::MediaConvert
         data.par_denominator = map['parDenominator']
         data.par_numerator = map['parNumerator']
         data.quality_tuning_level = map['qualityTuningLevel']
-        data.qvbr_settings = (Parsers::H265QvbrSettings.parse(map['qvbrSettings']) unless map['qvbrSettings'].nil?)
+        data.qvbr_settings = (H265QvbrSettings.parse(map['qvbrSettings']) unless map['qvbrSettings'].nil?)
         data.rate_control_mode = map['rateControlMode']
         data.sample_adaptive_offset_filter_mode = map['sampleAdaptiveOffsetFilterMode']
         data.scan_type_conversion_mode = map['scanTypeConversionMode']
@@ -779,7 +779,7 @@ module AWS::SDK::MediaConvert
         data.par_denominator = map['parDenominator']
         data.par_numerator = map['parNumerator']
         data.quality_tuning_level = map['qualityTuningLevel']
-        data.qvbr_settings = (Parsers::H264QvbrSettings.parse(map['qvbrSettings']) unless map['qvbrSettings'].nil?)
+        data.qvbr_settings = (H264QvbrSettings.parse(map['qvbrSettings']) unless map['qvbrSettings'].nil?)
         data.rate_control_mode = map['rateControlMode']
         data.repeat_pps = map['repeatPps']
         data.scan_type_conversion_mode = map['scanTypeConversionMode']
@@ -821,7 +821,7 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = Types::AvcIntraSettings.new
         data.avc_intra_class = map['avcIntraClass']
-        data.avc_intra_uhd_settings = (Parsers::AvcIntraUhdSettings.parse(map['avcIntraUhdSettings']) unless map['avcIntraUhdSettings'].nil?)
+        data.avc_intra_uhd_settings = (AvcIntraUhdSettings.parse(map['avcIntraUhdSettings']) unless map['avcIntraUhdSettings'].nil?)
         data.framerate_control = map['framerateControl']
         data.framerate_conversion_algorithm = map['framerateConversionAlgorithm']
         data.framerate_denominator = map['framerateDenominator']
@@ -854,7 +854,7 @@ module AWS::SDK::MediaConvert
         data.gop_size = Hearth::NumberHelper.deserialize(map['gopSize'])
         data.max_bitrate = map['maxBitrate']
         data.number_b_frames_between_reference_frames = map['numberBFramesBetweenReferenceFrames']
-        data.qvbr_settings = (Parsers::Av1QvbrSettings.parse(map['qvbrSettings']) unless map['qvbrSettings'].nil?)
+        data.qvbr_settings = (Av1QvbrSettings.parse(map['qvbrSettings']) unless map['qvbrSettings'].nil?)
         data.rate_control_mode = map['rateControlMode']
         data.slices = map['slices']
         data.spatial_adaptive_quantization = map['spatialAdaptiveQuantization']
@@ -874,7 +874,7 @@ module AWS::SDK::MediaConvert
     class OutputSettings
       def self.parse(map)
         data = Types::OutputSettings.new
-        data.hls_settings = (Parsers::HlsSettings.parse(map['hlsSettings']) unless map['hlsSettings'].nil?)
+        data.hls_settings = (HlsSettings.parse(map['hlsSettings']) unless map['hlsSettings'].nil?)
         return data
       end
     end
@@ -896,15 +896,15 @@ module AWS::SDK::MediaConvert
     class ContainerSettings
       def self.parse(map)
         data = Types::ContainerSettings.new
-        data.cmfc_settings = (Parsers::CmfcSettings.parse(map['cmfcSettings']) unless map['cmfcSettings'].nil?)
+        data.cmfc_settings = (CmfcSettings.parse(map['cmfcSettings']) unless map['cmfcSettings'].nil?)
         data.container = map['container']
-        data.f4v_settings = (Parsers::F4vSettings.parse(map['f4vSettings']) unless map['f4vSettings'].nil?)
-        data.m2ts_settings = (Parsers::M2tsSettings.parse(map['m2tsSettings']) unless map['m2tsSettings'].nil?)
-        data.m3u8_settings = (Parsers::M3u8Settings.parse(map['m3u8Settings']) unless map['m3u8Settings'].nil?)
-        data.mov_settings = (Parsers::MovSettings.parse(map['movSettings']) unless map['movSettings'].nil?)
-        data.mp4_settings = (Parsers::Mp4Settings.parse(map['mp4Settings']) unless map['mp4Settings'].nil?)
-        data.mpd_settings = (Parsers::MpdSettings.parse(map['mpdSettings']) unless map['mpdSettings'].nil?)
-        data.mxf_settings = (Parsers::MxfSettings.parse(map['mxfSettings']) unless map['mxfSettings'].nil?)
+        data.f4v_settings = (F4vSettings.parse(map['f4vSettings']) unless map['f4vSettings'].nil?)
+        data.m2ts_settings = (M2tsSettings.parse(map['m2tsSettings']) unless map['m2tsSettings'].nil?)
+        data.m3u8_settings = (M3u8Settings.parse(map['m3u8Settings']) unless map['m3u8Settings'].nil?)
+        data.mov_settings = (MovSettings.parse(map['movSettings']) unless map['movSettings'].nil?)
+        data.mp4_settings = (Mp4Settings.parse(map['mp4Settings']) unless map['mp4Settings'].nil?)
+        data.mpd_settings = (MpdSettings.parse(map['mpdSettings']) unless map['mpdSettings'].nil?)
+        data.mxf_settings = (MxfSettings.parse(map['mxfSettings']) unless map['mxfSettings'].nil?)
         return data
       end
     end
@@ -914,7 +914,7 @@ module AWS::SDK::MediaConvert
         data = Types::MxfSettings.new
         data.afd_signaling = map['afdSignaling']
         data.profile = map['profile']
-        data.xavc_profile_settings = (Parsers::MxfXavcProfileSettings.parse(map['xavcProfileSettings']) unless map['xavcProfileSettings'].nil?)
+        data.xavc_profile_settings = (MxfXavcProfileSettings.parse(map['xavcProfileSettings']) unless map['xavcProfileSettings'].nil?)
         return data
       end
     end
@@ -972,7 +972,7 @@ module AWS::SDK::MediaConvert
         data = Types::M3u8Settings.new
         data.audio_duration = map['audioDuration']
         data.audio_frames_per_pes = map['audioFramesPerPes']
-        data.audio_pids = (Parsers::List____listOf__integerMin32Max8182.parse(map['audioPids']) unless map['audioPids'].nil?)
+        data.audio_pids = (List____listOf__integerMin32Max8182.parse(map['audioPids']) unless map['audioPids'].nil?)
         data.data_pts_control = map['dataPTSControl']
         data.max_pcr_interval = map['maxPcrInterval']
         data.nielsen_id3 = map['nielsenId3']
@@ -1009,14 +1009,14 @@ module AWS::SDK::MediaConvert
         data.audio_buffer_model = map['audioBufferModel']
         data.audio_duration = map['audioDuration']
         data.audio_frames_per_pes = map['audioFramesPerPes']
-        data.audio_pids = (Parsers::List____listOf__integerMin32Max8182.parse(map['audioPids']) unless map['audioPids'].nil?)
+        data.audio_pids = (List____listOf__integerMin32Max8182.parse(map['audioPids']) unless map['audioPids'].nil?)
         data.bitrate = map['bitrate']
         data.buffer_model = map['bufferModel']
         data.data_pts_control = map['dataPTSControl']
-        data.dvb_nit_settings = (Parsers::DvbNitSettings.parse(map['dvbNitSettings']) unless map['dvbNitSettings'].nil?)
-        data.dvb_sdt_settings = (Parsers::DvbSdtSettings.parse(map['dvbSdtSettings']) unless map['dvbSdtSettings'].nil?)
-        data.dvb_sub_pids = (Parsers::List____listOf__integerMin32Max8182.parse(map['dvbSubPids']) unless map['dvbSubPids'].nil?)
-        data.dvb_tdt_settings = (Parsers::DvbTdtSettings.parse(map['dvbTdtSettings']) unless map['dvbTdtSettings'].nil?)
+        data.dvb_nit_settings = (DvbNitSettings.parse(map['dvbNitSettings']) unless map['dvbNitSettings'].nil?)
+        data.dvb_sdt_settings = (DvbSdtSettings.parse(map['dvbSdtSettings']) unless map['dvbSdtSettings'].nil?)
+        data.dvb_sub_pids = (List____listOf__integerMin32Max8182.parse(map['dvbSubPids']) unless map['dvbSubPids'].nil?)
+        data.dvb_tdt_settings = (DvbTdtSettings.parse(map['dvbTdtSettings']) unless map['dvbTdtSettings'].nil?)
         data.dvb_teletext_pid = map['dvbTeletextPid']
         data.ebp_audio_interval = map['ebpAudioInterval']
         data.ebp_placement = map['ebpPlacement']
@@ -1036,7 +1036,7 @@ module AWS::SDK::MediaConvert
         data.private_metadata_pid = map['privateMetadataPid']
         data.program_number = map['programNumber']
         data.rate_mode = map['rateMode']
-        data.scte35_esam = (Parsers::M2tsScte35Esam.parse(map['scte35Esam']) unless map['scte35Esam'].nil?)
+        data.scte35_esam = (M2tsScte35Esam.parse(map['scte35Esam']) unless map['scte35Esam'].nil?)
         data.scte35_pid = map['scte35Pid']
         data.scte35_source = map['scte35Source']
         data.segmentation_markers = map['segmentationMarkers']
@@ -1115,7 +1115,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CaptionDescription.parse(value) unless value.nil?
+          data << CaptionDescription.parse(value) unless value.nil?
         end
         data
       end
@@ -1126,7 +1126,7 @@ module AWS::SDK::MediaConvert
         data = Types::CaptionDescription.new
         data.caption_selector_name = map['captionSelectorName']
         data.custom_language_code = map['customLanguageCode']
-        data.destination_settings = (Parsers::CaptionDestinationSettings.parse(map['destinationSettings']) unless map['destinationSettings'].nil?)
+        data.destination_settings = (CaptionDestinationSettings.parse(map['destinationSettings']) unless map['destinationSettings'].nil?)
         data.language_code = map['languageCode']
         data.language_description = map['languageDescription']
         return data
@@ -1136,16 +1136,16 @@ module AWS::SDK::MediaConvert
     class CaptionDestinationSettings
       def self.parse(map)
         data = Types::CaptionDestinationSettings.new
-        data.burnin_destination_settings = (Parsers::BurninDestinationSettings.parse(map['burninDestinationSettings']) unless map['burninDestinationSettings'].nil?)
+        data.burnin_destination_settings = (BurninDestinationSettings.parse(map['burninDestinationSettings']) unless map['burninDestinationSettings'].nil?)
         data.destination_type = map['destinationType']
-        data.dvb_sub_destination_settings = (Parsers::DvbSubDestinationSettings.parse(map['dvbSubDestinationSettings']) unless map['dvbSubDestinationSettings'].nil?)
-        data.embedded_destination_settings = (Parsers::EmbeddedDestinationSettings.parse(map['embeddedDestinationSettings']) unless map['embeddedDestinationSettings'].nil?)
-        data.imsc_destination_settings = (Parsers::ImscDestinationSettings.parse(map['imscDestinationSettings']) unless map['imscDestinationSettings'].nil?)
-        data.scc_destination_settings = (Parsers::SccDestinationSettings.parse(map['sccDestinationSettings']) unless map['sccDestinationSettings'].nil?)
-        data.srt_destination_settings = (Parsers::SrtDestinationSettings.parse(map['srtDestinationSettings']) unless map['srtDestinationSettings'].nil?)
-        data.teletext_destination_settings = (Parsers::TeletextDestinationSettings.parse(map['teletextDestinationSettings']) unless map['teletextDestinationSettings'].nil?)
-        data.ttml_destination_settings = (Parsers::TtmlDestinationSettings.parse(map['ttmlDestinationSettings']) unless map['ttmlDestinationSettings'].nil?)
-        data.webvtt_destination_settings = (Parsers::WebvttDestinationSettings.parse(map['webvttDestinationSettings']) unless map['webvttDestinationSettings'].nil?)
+        data.dvb_sub_destination_settings = (DvbSubDestinationSettings.parse(map['dvbSubDestinationSettings']) unless map['dvbSubDestinationSettings'].nil?)
+        data.embedded_destination_settings = (EmbeddedDestinationSettings.parse(map['embeddedDestinationSettings']) unless map['embeddedDestinationSettings'].nil?)
+        data.imsc_destination_settings = (ImscDestinationSettings.parse(map['imscDestinationSettings']) unless map['imscDestinationSettings'].nil?)
+        data.scc_destination_settings = (SccDestinationSettings.parse(map['sccDestinationSettings']) unless map['sccDestinationSettings'].nil?)
+        data.srt_destination_settings = (SrtDestinationSettings.parse(map['srtDestinationSettings']) unless map['srtDestinationSettings'].nil?)
+        data.teletext_destination_settings = (TeletextDestinationSettings.parse(map['teletextDestinationSettings']) unless map['teletextDestinationSettings'].nil?)
+        data.ttml_destination_settings = (TtmlDestinationSettings.parse(map['ttmlDestinationSettings']) unless map['ttmlDestinationSettings'].nil?)
+        data.webvtt_destination_settings = (WebvttDestinationSettings.parse(map['webvttDestinationSettings']) unless map['webvttDestinationSettings'].nil?)
         return data
       end
     end
@@ -1171,7 +1171,7 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = Types::TeletextDestinationSettings.new
         data.page_number = map['pageNumber']
-        data.page_types = (Parsers::List____listOfTeletextPageType.parse(map['pageTypes']) unless map['pageTypes'].nil?)
+        data.page_types = (List____listOfTeletextPageType.parse(map['pageTypes']) unless map['pageTypes'].nil?)
         return data
       end
     end
@@ -1286,7 +1286,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AudioDescription.parse(value) unless value.nil?
+          data << AudioDescription.parse(value) unless value.nil?
         end
         data
       end
@@ -1295,16 +1295,16 @@ module AWS::SDK::MediaConvert
     class AudioDescription
       def self.parse(map)
         data = Types::AudioDescription.new
-        data.audio_channel_tagging_settings = (Parsers::AudioChannelTaggingSettings.parse(map['audioChannelTaggingSettings']) unless map['audioChannelTaggingSettings'].nil?)
-        data.audio_normalization_settings = (Parsers::AudioNormalizationSettings.parse(map['audioNormalizationSettings']) unless map['audioNormalizationSettings'].nil?)
+        data.audio_channel_tagging_settings = (AudioChannelTaggingSettings.parse(map['audioChannelTaggingSettings']) unless map['audioChannelTaggingSettings'].nil?)
+        data.audio_normalization_settings = (AudioNormalizationSettings.parse(map['audioNormalizationSettings']) unless map['audioNormalizationSettings'].nil?)
         data.audio_source_name = map['audioSourceName']
         data.audio_type = map['audioType']
         data.audio_type_control = map['audioTypeControl']
-        data.codec_settings = (Parsers::AudioCodecSettings.parse(map['codecSettings']) unless map['codecSettings'].nil?)
+        data.codec_settings = (AudioCodecSettings.parse(map['codecSettings']) unless map['codecSettings'].nil?)
         data.custom_language_code = map['customLanguageCode']
         data.language_code = map['languageCode']
         data.language_code_control = map['languageCodeControl']
-        data.remix_settings = (Parsers::RemixSettings.parse(map['remixSettings']) unless map['remixSettings'].nil?)
+        data.remix_settings = (RemixSettings.parse(map['remixSettings']) unless map['remixSettings'].nil?)
         data.stream_name = map['streamName']
         return data
       end
@@ -1313,7 +1313,7 @@ module AWS::SDK::MediaConvert
     class RemixSettings
       def self.parse(map)
         data = Types::RemixSettings.new
-        data.channel_mapping = (Parsers::ChannelMapping.parse(map['channelMapping']) unless map['channelMapping'].nil?)
+        data.channel_mapping = (ChannelMapping.parse(map['channelMapping']) unless map['channelMapping'].nil?)
         data.channels_in = map['channelsIn']
         data.channels_out = map['channelsOut']
         return data
@@ -1323,7 +1323,7 @@ module AWS::SDK::MediaConvert
     class ChannelMapping
       def self.parse(map)
         data = Types::ChannelMapping.new
-        data.output_channels = (Parsers::List____listOfOutputChannelMapping.parse(map['outputChannels']) unless map['outputChannels'].nil?)
+        data.output_channels = (List____listOfOutputChannelMapping.parse(map['outputChannels']) unless map['outputChannels'].nil?)
         return data
       end
     end
@@ -1332,7 +1332,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::OutputChannelMapping.parse(value) unless value.nil?
+          data << OutputChannelMapping.parse(value) unless value.nil?
         end
         data
       end
@@ -1341,8 +1341,8 @@ module AWS::SDK::MediaConvert
     class OutputChannelMapping
       def self.parse(map)
         data = Types::OutputChannelMapping.new
-        data.input_channels = (Parsers::List____listOf__integerMinNegative60Max6.parse(map['inputChannels']) unless map['inputChannels'].nil?)
-        data.input_channels_fine_tune = (Parsers::List____listOf__doubleMinNegative60Max6.parse(map['inputChannelsFineTune']) unless map['inputChannelsFineTune'].nil?)
+        data.input_channels = (List____listOf__integerMinNegative60Max6.parse(map['inputChannels']) unless map['inputChannels'].nil?)
+        data.input_channels_fine_tune = (List____listOf__doubleMinNegative60Max6.parse(map['inputChannelsFineTune']) unless map['inputChannelsFineTune'].nil?)
         return data
       end
     end
@@ -1370,17 +1370,17 @@ module AWS::SDK::MediaConvert
     class AudioCodecSettings
       def self.parse(map)
         data = Types::AudioCodecSettings.new
-        data.aac_settings = (Parsers::AacSettings.parse(map['aacSettings']) unless map['aacSettings'].nil?)
-        data.ac3_settings = (Parsers::Ac3Settings.parse(map['ac3Settings']) unless map['ac3Settings'].nil?)
-        data.aiff_settings = (Parsers::AiffSettings.parse(map['aiffSettings']) unless map['aiffSettings'].nil?)
+        data.aac_settings = (AacSettings.parse(map['aacSettings']) unless map['aacSettings'].nil?)
+        data.ac3_settings = (Ac3Settings.parse(map['ac3Settings']) unless map['ac3Settings'].nil?)
+        data.aiff_settings = (AiffSettings.parse(map['aiffSettings']) unless map['aiffSettings'].nil?)
         data.codec = map['codec']
-        data.eac3_atmos_settings = (Parsers::Eac3AtmosSettings.parse(map['eac3AtmosSettings']) unless map['eac3AtmosSettings'].nil?)
-        data.eac3_settings = (Parsers::Eac3Settings.parse(map['eac3Settings']) unless map['eac3Settings'].nil?)
-        data.mp2_settings = (Parsers::Mp2Settings.parse(map['mp2Settings']) unless map['mp2Settings'].nil?)
-        data.mp3_settings = (Parsers::Mp3Settings.parse(map['mp3Settings']) unless map['mp3Settings'].nil?)
-        data.opus_settings = (Parsers::OpusSettings.parse(map['opusSettings']) unless map['opusSettings'].nil?)
-        data.vorbis_settings = (Parsers::VorbisSettings.parse(map['vorbisSettings']) unless map['vorbisSettings'].nil?)
-        data.wav_settings = (Parsers::WavSettings.parse(map['wavSettings']) unless map['wavSettings'].nil?)
+        data.eac3_atmos_settings = (Eac3AtmosSettings.parse(map['eac3AtmosSettings']) unless map['eac3AtmosSettings'].nil?)
+        data.eac3_settings = (Eac3Settings.parse(map['eac3Settings']) unless map['eac3Settings'].nil?)
+        data.mp2_settings = (Mp2Settings.parse(map['mp2Settings']) unless map['mp2Settings'].nil?)
+        data.mp3_settings = (Mp3Settings.parse(map['mp3Settings']) unless map['mp3Settings'].nil?)
+        data.opus_settings = (OpusSettings.parse(map['opusSettings']) unless map['opusSettings'].nil?)
+        data.vorbis_settings = (VorbisSettings.parse(map['vorbisSettings']) unless map['vorbisSettings'].nil?)
+        data.wav_settings = (WavSettings.parse(map['wavSettings']) unless map['wavSettings'].nil?)
         return data
       end
     end
@@ -1557,11 +1557,11 @@ module AWS::SDK::MediaConvert
     class OutputGroupSettings
       def self.parse(map)
         data = Types::OutputGroupSettings.new
-        data.cmaf_group_settings = (Parsers::CmafGroupSettings.parse(map['cmafGroupSettings']) unless map['cmafGroupSettings'].nil?)
-        data.dash_iso_group_settings = (Parsers::DashIsoGroupSettings.parse(map['dashIsoGroupSettings']) unless map['dashIsoGroupSettings'].nil?)
-        data.file_group_settings = (Parsers::FileGroupSettings.parse(map['fileGroupSettings']) unless map['fileGroupSettings'].nil?)
-        data.hls_group_settings = (Parsers::HlsGroupSettings.parse(map['hlsGroupSettings']) unless map['hlsGroupSettings'].nil?)
-        data.ms_smooth_group_settings = (Parsers::MsSmoothGroupSettings.parse(map['msSmoothGroupSettings']) unless map['msSmoothGroupSettings'].nil?)
+        data.cmaf_group_settings = (CmafGroupSettings.parse(map['cmafGroupSettings']) unless map['cmafGroupSettings'].nil?)
+        data.dash_iso_group_settings = (DashIsoGroupSettings.parse(map['dashIsoGroupSettings']) unless map['dashIsoGroupSettings'].nil?)
+        data.file_group_settings = (FileGroupSettings.parse(map['fileGroupSettings']) unless map['fileGroupSettings'].nil?)
+        data.hls_group_settings = (HlsGroupSettings.parse(map['hlsGroupSettings']) unless map['hlsGroupSettings'].nil?)
+        data.ms_smooth_group_settings = (MsSmoothGroupSettings.parse(map['msSmoothGroupSettings']) unless map['msSmoothGroupSettings'].nil?)
         data.type = map['type']
         return data
       end
@@ -1570,11 +1570,11 @@ module AWS::SDK::MediaConvert
     class MsSmoothGroupSettings
       def self.parse(map)
         data = Types::MsSmoothGroupSettings.new
-        data.additional_manifests = (Parsers::List____listOfMsSmoothAdditionalManifest.parse(map['additionalManifests']) unless map['additionalManifests'].nil?)
+        data.additional_manifests = (List____listOfMsSmoothAdditionalManifest.parse(map['additionalManifests']) unless map['additionalManifests'].nil?)
         data.audio_deduplication = map['audioDeduplication']
         data.destination = map['destination']
-        data.destination_settings = (Parsers::DestinationSettings.parse(map['destinationSettings']) unless map['destinationSettings'].nil?)
-        data.encryption = (Parsers::MsSmoothEncryptionSettings.parse(map['encryption']) unless map['encryption'].nil?)
+        data.destination_settings = (DestinationSettings.parse(map['destinationSettings']) unless map['destinationSettings'].nil?)
+        data.encryption = (MsSmoothEncryptionSettings.parse(map['encryption']) unless map['encryption'].nil?)
         data.fragment_length = map['fragmentLength']
         data.fragment_length_control = map['fragmentLengthControl']
         data.manifest_encoding = map['manifestEncoding']
@@ -1585,7 +1585,7 @@ module AWS::SDK::MediaConvert
     class MsSmoothEncryptionSettings
       def self.parse(map)
         data = Types::MsSmoothEncryptionSettings.new
-        data.speke_key_provider = (Parsers::SpekeKeyProvider.parse(map['spekeKeyProvider']) unless map['spekeKeyProvider'].nil?)
+        data.speke_key_provider = (SpekeKeyProvider.parse(map['spekeKeyProvider']) unless map['spekeKeyProvider'].nil?)
         return data
       end
     end
@@ -1595,7 +1595,7 @@ module AWS::SDK::MediaConvert
         data = Types::SpekeKeyProvider.new
         data.certificate_arn = map['certificateArn']
         data.resource_id = map['resourceId']
-        data.system_ids = (Parsers::List____listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12.parse(map['systemIds']) unless map['systemIds'].nil?)
+        data.system_ids = (List____listOf__stringPattern09aFAF809aFAF409aFAF409aFAF409aFAF12.parse(map['systemIds']) unless map['systemIds'].nil?)
         data.url = map['url']
         return data
       end
@@ -1614,7 +1614,7 @@ module AWS::SDK::MediaConvert
     class DestinationSettings
       def self.parse(map)
         data = Types::DestinationSettings.new
-        data.s3_settings = (Parsers::S3DestinationSettings.parse(map['s3Settings']) unless map['s3Settings'].nil?)
+        data.s3_settings = (S3DestinationSettings.parse(map['s3Settings']) unless map['s3Settings'].nil?)
         return data
       end
     end
@@ -1622,8 +1622,8 @@ module AWS::SDK::MediaConvert
     class S3DestinationSettings
       def self.parse(map)
         data = Types::S3DestinationSettings.new
-        data.access_control = (Parsers::S3DestinationAccessControl.parse(map['accessControl']) unless map['accessControl'].nil?)
-        data.encryption = (Parsers::S3EncryptionSettings.parse(map['encryption']) unless map['encryption'].nil?)
+        data.access_control = (S3DestinationAccessControl.parse(map['accessControl']) unless map['accessControl'].nil?)
+        data.encryption = (S3EncryptionSettings.parse(map['encryption']) unless map['encryption'].nil?)
         return data
       end
     end
@@ -1650,7 +1650,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MsSmoothAdditionalManifest.parse(value) unless value.nil?
+          data << MsSmoothAdditionalManifest.parse(value) unless value.nil?
         end
         data
       end
@@ -1660,7 +1660,7 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = Types::MsSmoothAdditionalManifest.new
         data.manifest_name_modifier = map['manifestNameModifier']
-        data.selected_outputs = (Parsers::List____listOf__stringMin1.parse(map['selectedOutputs']) unless map['selectedOutputs'].nil?)
+        data.selected_outputs = (List____listOf__stringMin1.parse(map['selectedOutputs']) unless map['selectedOutputs'].nil?)
         return data
       end
     end
@@ -1678,21 +1678,21 @@ module AWS::SDK::MediaConvert
     class HlsGroupSettings
       def self.parse(map)
         data = Types::HlsGroupSettings.new
-        data.ad_markers = (Parsers::List____listOfHlsAdMarkers.parse(map['adMarkers']) unless map['adMarkers'].nil?)
-        data.additional_manifests = (Parsers::List____listOfHlsAdditionalManifest.parse(map['additionalManifests']) unless map['additionalManifests'].nil?)
+        data.ad_markers = (List____listOfHlsAdMarkers.parse(map['adMarkers']) unless map['adMarkers'].nil?)
+        data.additional_manifests = (List____listOfHlsAdditionalManifest.parse(map['additionalManifests']) unless map['additionalManifests'].nil?)
         data.audio_only_header = map['audioOnlyHeader']
         data.base_url = map['baseUrl']
-        data.caption_language_mappings = (Parsers::List____listOfHlsCaptionLanguageMapping.parse(map['captionLanguageMappings']) unless map['captionLanguageMappings'].nil?)
+        data.caption_language_mappings = (List____listOfHlsCaptionLanguageMapping.parse(map['captionLanguageMappings']) unless map['captionLanguageMappings'].nil?)
         data.caption_language_setting = map['captionLanguageSetting']
         data.caption_segment_length_control = map['captionSegmentLengthControl']
         data.client_cache = map['clientCache']
         data.codec_specification = map['codecSpecification']
         data.destination = map['destination']
-        data.destination_settings = (Parsers::DestinationSettings.parse(map['destinationSettings']) unless map['destinationSettings'].nil?)
+        data.destination_settings = (DestinationSettings.parse(map['destinationSettings']) unless map['destinationSettings'].nil?)
         data.directory_structure = map['directoryStructure']
-        data.encryption = (Parsers::HlsEncryptionSettings.parse(map['encryption']) unless map['encryption'].nil?)
+        data.encryption = (HlsEncryptionSettings.parse(map['encryption']) unless map['encryption'].nil?)
         data.image_based_trick_play = map['imageBasedTrickPlay']
-        data.image_based_trick_play_settings = (Parsers::HlsImageBasedTrickPlaySettings.parse(map['imageBasedTrickPlaySettings']) unless map['imageBasedTrickPlaySettings'].nil?)
+        data.image_based_trick_play_settings = (HlsImageBasedTrickPlaySettings.parse(map['imageBasedTrickPlaySettings']) unless map['imageBasedTrickPlaySettings'].nil?)
         data.manifest_compression = map['manifestCompression']
         data.manifest_duration_format = map['manifestDurationFormat']
         data.min_final_segment_length = Hearth::NumberHelper.deserialize(map['minFinalSegmentLength'])
@@ -1733,8 +1733,8 @@ module AWS::SDK::MediaConvert
         data.encryption_method = map['encryptionMethod']
         data.initialization_vector_in_manifest = map['initializationVectorInManifest']
         data.offline_encrypted = map['offlineEncrypted']
-        data.speke_key_provider = (Parsers::SpekeKeyProvider.parse(map['spekeKeyProvider']) unless map['spekeKeyProvider'].nil?)
-        data.static_key_provider = (Parsers::StaticKeyProvider.parse(map['staticKeyProvider']) unless map['staticKeyProvider'].nil?)
+        data.speke_key_provider = (SpekeKeyProvider.parse(map['spekeKeyProvider']) unless map['spekeKeyProvider'].nil?)
+        data.static_key_provider = (StaticKeyProvider.parse(map['staticKeyProvider']) unless map['staticKeyProvider'].nil?)
         data.type = map['type']
         return data
       end
@@ -1755,7 +1755,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HlsCaptionLanguageMapping.parse(value) unless value.nil?
+          data << HlsCaptionLanguageMapping.parse(value) unless value.nil?
         end
         data
       end
@@ -1776,7 +1776,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HlsAdditionalManifest.parse(value) unless value.nil?
+          data << HlsAdditionalManifest.parse(value) unless value.nil?
         end
         data
       end
@@ -1786,7 +1786,7 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = Types::HlsAdditionalManifest.new
         data.manifest_name_modifier = map['manifestNameModifier']
-        data.selected_outputs = (Parsers::List____listOf__stringMin1.parse(map['selectedOutputs']) unless map['selectedOutputs'].nil?)
+        data.selected_outputs = (List____listOf__stringMin1.parse(map['selectedOutputs']) unless map['selectedOutputs'].nil?)
         return data
       end
     end
@@ -1805,7 +1805,7 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = Types::FileGroupSettings.new
         data.destination = map['destination']
-        data.destination_settings = (Parsers::DestinationSettings.parse(map['destinationSettings']) unless map['destinationSettings'].nil?)
+        data.destination_settings = (DestinationSettings.parse(map['destinationSettings']) unless map['destinationSettings'].nil?)
         return data
       end
     end
@@ -1813,16 +1813,16 @@ module AWS::SDK::MediaConvert
     class DashIsoGroupSettings
       def self.parse(map)
         data = Types::DashIsoGroupSettings.new
-        data.additional_manifests = (Parsers::List____listOfDashAdditionalManifest.parse(map['additionalManifests']) unless map['additionalManifests'].nil?)
+        data.additional_manifests = (List____listOfDashAdditionalManifest.parse(map['additionalManifests']) unless map['additionalManifests'].nil?)
         data.audio_channel_config_scheme_id_uri = map['audioChannelConfigSchemeIdUri']
         data.base_url = map['baseUrl']
         data.destination = map['destination']
-        data.destination_settings = (Parsers::DestinationSettings.parse(map['destinationSettings']) unless map['destinationSettings'].nil?)
-        data.encryption = (Parsers::DashIsoEncryptionSettings.parse(map['encryption']) unless map['encryption'].nil?)
+        data.destination_settings = (DestinationSettings.parse(map['destinationSettings']) unless map['destinationSettings'].nil?)
+        data.encryption = (DashIsoEncryptionSettings.parse(map['encryption']) unless map['encryption'].nil?)
         data.fragment_length = map['fragmentLength']
         data.hbbtv_compliance = map['hbbtvCompliance']
         data.image_based_trick_play = map['imageBasedTrickPlay']
-        data.image_based_trick_play_settings = (Parsers::DashIsoImageBasedTrickPlaySettings.parse(map['imageBasedTrickPlaySettings']) unless map['imageBasedTrickPlaySettings'].nil?)
+        data.image_based_trick_play_settings = (DashIsoImageBasedTrickPlaySettings.parse(map['imageBasedTrickPlaySettings']) unless map['imageBasedTrickPlaySettings'].nil?)
         data.min_buffer_time = map['minBufferTime']
         data.min_final_segment_length = Hearth::NumberHelper.deserialize(map['minFinalSegmentLength'])
         data.mpd_profile = map['mpdProfile']
@@ -1852,7 +1852,7 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = Types::DashIsoEncryptionSettings.new
         data.playback_device_compatibility = map['playbackDeviceCompatibility']
-        data.speke_key_provider = (Parsers::SpekeKeyProvider.parse(map['spekeKeyProvider']) unless map['spekeKeyProvider'].nil?)
+        data.speke_key_provider = (SpekeKeyProvider.parse(map['spekeKeyProvider']) unless map['spekeKeyProvider'].nil?)
         return data
       end
     end
@@ -1861,7 +1861,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DashAdditionalManifest.parse(value) unless value.nil?
+          data << DashAdditionalManifest.parse(value) unless value.nil?
         end
         data
       end
@@ -1871,7 +1871,7 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = Types::DashAdditionalManifest.new
         data.manifest_name_modifier = map['manifestNameModifier']
-        data.selected_outputs = (Parsers::List____listOf__stringMin1.parse(map['selectedOutputs']) unless map['selectedOutputs'].nil?)
+        data.selected_outputs = (List____listOf__stringMin1.parse(map['selectedOutputs']) unless map['selectedOutputs'].nil?)
         return data
       end
     end
@@ -1879,16 +1879,16 @@ module AWS::SDK::MediaConvert
     class CmafGroupSettings
       def self.parse(map)
         data = Types::CmafGroupSettings.new
-        data.additional_manifests = (Parsers::List____listOfCmafAdditionalManifest.parse(map['additionalManifests']) unless map['additionalManifests'].nil?)
+        data.additional_manifests = (List____listOfCmafAdditionalManifest.parse(map['additionalManifests']) unless map['additionalManifests'].nil?)
         data.base_url = map['baseUrl']
         data.client_cache = map['clientCache']
         data.codec_specification = map['codecSpecification']
         data.destination = map['destination']
-        data.destination_settings = (Parsers::DestinationSettings.parse(map['destinationSettings']) unless map['destinationSettings'].nil?)
-        data.encryption = (Parsers::CmafEncryptionSettings.parse(map['encryption']) unless map['encryption'].nil?)
+        data.destination_settings = (DestinationSettings.parse(map['destinationSettings']) unless map['destinationSettings'].nil?)
+        data.encryption = (CmafEncryptionSettings.parse(map['encryption']) unless map['encryption'].nil?)
         data.fragment_length = map['fragmentLength']
         data.image_based_trick_play = map['imageBasedTrickPlay']
-        data.image_based_trick_play_settings = (Parsers::CmafImageBasedTrickPlaySettings.parse(map['imageBasedTrickPlaySettings']) unless map['imageBasedTrickPlaySettings'].nil?)
+        data.image_based_trick_play_settings = (CmafImageBasedTrickPlaySettings.parse(map['imageBasedTrickPlaySettings']) unless map['imageBasedTrickPlaySettings'].nil?)
         data.manifest_compression = map['manifestCompression']
         data.manifest_duration_format = map['manifestDurationFormat']
         data.min_buffer_time = map['minBufferTime']
@@ -1926,8 +1926,8 @@ module AWS::SDK::MediaConvert
         data.constant_initialization_vector = map['constantInitializationVector']
         data.encryption_method = map['encryptionMethod']
         data.initialization_vector_in_manifest = map['initializationVectorInManifest']
-        data.speke_key_provider = (Parsers::SpekeKeyProviderCmaf.parse(map['spekeKeyProvider']) unless map['spekeKeyProvider'].nil?)
-        data.static_key_provider = (Parsers::StaticKeyProvider.parse(map['staticKeyProvider']) unless map['staticKeyProvider'].nil?)
+        data.speke_key_provider = (SpekeKeyProviderCmaf.parse(map['spekeKeyProvider']) unless map['spekeKeyProvider'].nil?)
+        data.static_key_provider = (StaticKeyProvider.parse(map['staticKeyProvider']) unless map['staticKeyProvider'].nil?)
         data.type = map['type']
         return data
       end
@@ -1937,8 +1937,8 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = Types::SpekeKeyProviderCmaf.new
         data.certificate_arn = map['certificateArn']
-        data.dash_signaled_system_ids = (Parsers::List____listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12.parse(map['dashSignaledSystemIds']) unless map['dashSignaledSystemIds'].nil?)
-        data.hls_signaled_system_ids = (Parsers::List____listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12.parse(map['hlsSignaledSystemIds']) unless map['hlsSignaledSystemIds'].nil?)
+        data.dash_signaled_system_ids = (List____listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12.parse(map['dashSignaledSystemIds']) unless map['dashSignaledSystemIds'].nil?)
+        data.hls_signaled_system_ids = (List____listOf__stringMin36Max36Pattern09aFAF809aFAF409aFAF409aFAF409aFAF12.parse(map['hlsSignaledSystemIds']) unless map['hlsSignaledSystemIds'].nil?)
         data.resource_id = map['resourceId']
         data.url = map['url']
         return data
@@ -1959,7 +1959,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CmafAdditionalManifest.parse(value) unless value.nil?
+          data << CmafAdditionalManifest.parse(value) unless value.nil?
         end
         data
       end
@@ -1969,7 +1969,7 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = Types::CmafAdditionalManifest.new
         data.manifest_name_modifier = map['manifestNameModifier']
-        data.selected_outputs = (Parsers::List____listOf__stringMin1.parse(map['selectedOutputs']) unless map['selectedOutputs'].nil?)
+        data.selected_outputs = (List____listOf__stringMin1.parse(map['selectedOutputs']) unless map['selectedOutputs'].nil?)
         return data
       end
     end
@@ -1977,7 +1977,7 @@ module AWS::SDK::MediaConvert
     class AutomatedEncodingSettings
       def self.parse(map)
         data = Types::AutomatedEncodingSettings.new
-        data.abr_settings = (Parsers::AutomatedAbrSettings.parse(map['abrSettings']) unless map['abrSettings'].nil?)
+        data.abr_settings = (AutomatedAbrSettings.parse(map['abrSettings']) unless map['abrSettings'].nil?)
         return data
       end
     end
@@ -1988,7 +1988,7 @@ module AWS::SDK::MediaConvert
         data.max_abr_bitrate = map['maxAbrBitrate']
         data.max_renditions = map['maxRenditions']
         data.min_abr_bitrate = map['minAbrBitrate']
-        data.rules = (Parsers::List____listOfAutomatedAbrRule.parse(map['rules']) unless map['rules'].nil?)
+        data.rules = (List____listOfAutomatedAbrRule.parse(map['rules']) unless map['rules'].nil?)
         return data
       end
     end
@@ -1997,7 +1997,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AutomatedAbrRule.parse(value) unless value.nil?
+          data << AutomatedAbrRule.parse(value) unless value.nil?
         end
         data
       end
@@ -2006,10 +2006,10 @@ module AWS::SDK::MediaConvert
     class AutomatedAbrRule
       def self.parse(map)
         data = Types::AutomatedAbrRule.new
-        data.allowed_renditions = (Parsers::List____listOfAllowedRenditionSize.parse(map['allowedRenditions']) unless map['allowedRenditions'].nil?)
-        data.force_include_renditions = (Parsers::List____listOfForceIncludeRenditionSize.parse(map['forceIncludeRenditions']) unless map['forceIncludeRenditions'].nil?)
-        data.min_bottom_rendition_size = (Parsers::MinBottomRenditionSize.parse(map['minBottomRenditionSize']) unless map['minBottomRenditionSize'].nil?)
-        data.min_top_rendition_size = (Parsers::MinTopRenditionSize.parse(map['minTopRenditionSize']) unless map['minTopRenditionSize'].nil?)
+        data.allowed_renditions = (List____listOfAllowedRenditionSize.parse(map['allowedRenditions']) unless map['allowedRenditions'].nil?)
+        data.force_include_renditions = (List____listOfForceIncludeRenditionSize.parse(map['forceIncludeRenditions']) unless map['forceIncludeRenditions'].nil?)
+        data.min_bottom_rendition_size = (MinBottomRenditionSize.parse(map['minBottomRenditionSize']) unless map['minBottomRenditionSize'].nil?)
+        data.min_top_rendition_size = (MinTopRenditionSize.parse(map['minTopRenditionSize']) unless map['minTopRenditionSize'].nil?)
         data.type = map['type']
         return data
       end
@@ -2037,7 +2037,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ForceIncludeRenditionSize.parse(value) unless value.nil?
+          data << ForceIncludeRenditionSize.parse(value) unless value.nil?
         end
         data
       end
@@ -2056,7 +2056,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AllowedRenditionSize.parse(value) unless value.nil?
+          data << AllowedRenditionSize.parse(value) unless value.nil?
         end
         data
       end
@@ -2102,10 +2102,10 @@ module AWS::SDK::MediaConvert
     class MotionImageInserter
       def self.parse(map)
         data = Types::MotionImageInserter.new
-        data.framerate = (Parsers::MotionImageInsertionFramerate.parse(map['framerate']) unless map['framerate'].nil?)
+        data.framerate = (MotionImageInsertionFramerate.parse(map['framerate']) unless map['framerate'].nil?)
         data.input = map['input']
         data.insertion_mode = map['insertionMode']
-        data.offset = (Parsers::MotionImageInsertionOffset.parse(map['offset']) unless map['offset'].nil?)
+        data.offset = (MotionImageInsertionOffset.parse(map['offset']) unless map['offset'].nil?)
         data.playback = map['playback']
         data.start_time = map['startTime']
         return data
@@ -2154,7 +2154,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Input.parse(value) unless value.nil?
+          data << Input.parse(value) unless value.nil?
         end
         data
       end
@@ -2163,28 +2163,28 @@ module AWS::SDK::MediaConvert
     class Input
       def self.parse(map)
         data = Types::Input.new
-        data.audio_selector_groups = (Parsers::Map____mapOfAudioSelectorGroup.parse(map['audioSelectorGroups']) unless map['audioSelectorGroups'].nil?)
-        data.audio_selectors = (Parsers::Map____mapOfAudioSelector.parse(map['audioSelectors']) unless map['audioSelectors'].nil?)
-        data.caption_selectors = (Parsers::Map____mapOfCaptionSelector.parse(map['captionSelectors']) unless map['captionSelectors'].nil?)
-        data.crop = (Parsers::Rectangle.parse(map['crop']) unless map['crop'].nil?)
+        data.audio_selector_groups = (Map____mapOfAudioSelectorGroup.parse(map['audioSelectorGroups']) unless map['audioSelectorGroups'].nil?)
+        data.audio_selectors = (Map____mapOfAudioSelector.parse(map['audioSelectors']) unless map['audioSelectors'].nil?)
+        data.caption_selectors = (Map____mapOfCaptionSelector.parse(map['captionSelectors']) unless map['captionSelectors'].nil?)
+        data.crop = (Rectangle.parse(map['crop']) unless map['crop'].nil?)
         data.deblock_filter = map['deblockFilter']
-        data.decryption_settings = (Parsers::InputDecryptionSettings.parse(map['decryptionSettings']) unless map['decryptionSettings'].nil?)
+        data.decryption_settings = (InputDecryptionSettings.parse(map['decryptionSettings']) unless map['decryptionSettings'].nil?)
         data.denoise_filter = map['denoiseFilter']
         data.dolby_vision_metadata_xml = map['dolbyVisionMetadataXml']
         data.file_input = map['fileInput']
         data.filter_enable = map['filterEnable']
         data.filter_strength = map['filterStrength']
-        data.image_inserter = (Parsers::ImageInserter.parse(map['imageInserter']) unless map['imageInserter'].nil?)
-        data.input_clippings = (Parsers::List____listOfInputClipping.parse(map['inputClippings']) unless map['inputClippings'].nil?)
+        data.image_inserter = (ImageInserter.parse(map['imageInserter']) unless map['imageInserter'].nil?)
+        data.input_clippings = (List____listOfInputClipping.parse(map['inputClippings']) unless map['inputClippings'].nil?)
         data.input_scan_type = map['inputScanType']
-        data.position = (Parsers::Rectangle.parse(map['position']) unless map['position'].nil?)
+        data.position = (Rectangle.parse(map['position']) unless map['position'].nil?)
         data.program_number = map['programNumber']
         data.psi_control = map['psiControl']
-        data.supplemental_imps = (Parsers::List____listOf__stringPatternS3ASSETMAPXml.parse(map['supplementalImps']) unless map['supplementalImps'].nil?)
+        data.supplemental_imps = (List____listOf__stringPatternS3ASSETMAPXml.parse(map['supplementalImps']) unless map['supplementalImps'].nil?)
         data.timecode_source = map['timecodeSource']
         data.timecode_start = map['timecodeStart']
-        data.video_generator = (Parsers::InputVideoGenerator.parse(map['videoGenerator']) unless map['videoGenerator'].nil?)
-        data.video_selector = (Parsers::VideoSelector.parse(map['videoSelector']) unless map['videoSelector'].nil?)
+        data.video_generator = (InputVideoGenerator.parse(map['videoGenerator']) unless map['videoGenerator'].nil?)
+        data.video_selector = (VideoSelector.parse(map['videoSelector']) unless map['videoSelector'].nil?)
         return data
       end
     end
@@ -2196,7 +2196,7 @@ module AWS::SDK::MediaConvert
         data.color_space = map['colorSpace']
         data.color_space_usage = map['colorSpaceUsage']
         data.embedded_timecode_override = map['embeddedTimecodeOverride']
-        data.hdr10_metadata = (Parsers::Hdr10Metadata.parse(map['hdr10Metadata']) unless map['hdr10Metadata'].nil?)
+        data.hdr10_metadata = (Hdr10Metadata.parse(map['hdr10Metadata']) unless map['hdr10Metadata'].nil?)
         data.pad_video = map['padVideo']
         data.pid = map['pid']
         data.program_number = map['programNumber']
@@ -2228,7 +2228,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InputClipping.parse(value) unless value.nil?
+          data << InputClipping.parse(value) unless value.nil?
         end
         data
       end
@@ -2258,7 +2258,7 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::CaptionSelector.parse(value) unless value.nil?
+          data[key] = CaptionSelector.parse(value) unless value.nil?
         end
         data
       end
@@ -2269,7 +2269,7 @@ module AWS::SDK::MediaConvert
         data = Types::CaptionSelector.new
         data.custom_language_code = map['customLanguageCode']
         data.language_code = map['languageCode']
-        data.source_settings = (Parsers::CaptionSourceSettings.parse(map['sourceSettings']) unless map['sourceSettings'].nil?)
+        data.source_settings = (CaptionSourceSettings.parse(map['sourceSettings']) unless map['sourceSettings'].nil?)
         return data
       end
     end
@@ -2277,14 +2277,14 @@ module AWS::SDK::MediaConvert
     class CaptionSourceSettings
       def self.parse(map)
         data = Types::CaptionSourceSettings.new
-        data.ancillary_source_settings = (Parsers::AncillarySourceSettings.parse(map['ancillarySourceSettings']) unless map['ancillarySourceSettings'].nil?)
-        data.dvb_sub_source_settings = (Parsers::DvbSubSourceSettings.parse(map['dvbSubSourceSettings']) unless map['dvbSubSourceSettings'].nil?)
-        data.embedded_source_settings = (Parsers::EmbeddedSourceSettings.parse(map['embeddedSourceSettings']) unless map['embeddedSourceSettings'].nil?)
-        data.file_source_settings = (Parsers::FileSourceSettings.parse(map['fileSourceSettings']) unless map['fileSourceSettings'].nil?)
+        data.ancillary_source_settings = (AncillarySourceSettings.parse(map['ancillarySourceSettings']) unless map['ancillarySourceSettings'].nil?)
+        data.dvb_sub_source_settings = (DvbSubSourceSettings.parse(map['dvbSubSourceSettings']) unless map['dvbSubSourceSettings'].nil?)
+        data.embedded_source_settings = (EmbeddedSourceSettings.parse(map['embeddedSourceSettings']) unless map['embeddedSourceSettings'].nil?)
+        data.file_source_settings = (FileSourceSettings.parse(map['fileSourceSettings']) unless map['fileSourceSettings'].nil?)
         data.source_type = map['sourceType']
-        data.teletext_source_settings = (Parsers::TeletextSourceSettings.parse(map['teletextSourceSettings']) unless map['teletextSourceSettings'].nil?)
-        data.track_source_settings = (Parsers::TrackSourceSettings.parse(map['trackSourceSettings']) unless map['trackSourceSettings'].nil?)
-        data.webvtt_hls_source_settings = (Parsers::WebvttHlsSourceSettings.parse(map['webvttHlsSourceSettings']) unless map['webvttHlsSourceSettings'].nil?)
+        data.teletext_source_settings = (TeletextSourceSettings.parse(map['teletextSourceSettings']) unless map['teletextSourceSettings'].nil?)
+        data.track_source_settings = (TrackSourceSettings.parse(map['trackSourceSettings']) unless map['trackSourceSettings'].nil?)
+        data.webvtt_hls_source_settings = (WebvttHlsSourceSettings.parse(map['webvttHlsSourceSettings']) unless map['webvttHlsSourceSettings'].nil?)
         return data
       end
     end
@@ -2319,7 +2319,7 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = Types::FileSourceSettings.new
         data.convert608_to708 = map['convert608To708']
-        data.framerate = (Parsers::CaptionSourceFramerate.parse(map['framerate']) unless map['framerate'].nil?)
+        data.framerate = (CaptionSourceFramerate.parse(map['framerate']) unless map['framerate'].nil?)
         data.source_file = map['sourceFile']
         data.time_delta = map['timeDelta']
         data.time_delta_units = map['timeDeltaUnits']
@@ -2369,7 +2369,7 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::AudioSelector.parse(value) unless value.nil?
+          data[key] = AudioSelector.parse(value) unless value.nil?
         end
         data
       end
@@ -2381,14 +2381,14 @@ module AWS::SDK::MediaConvert
         data.custom_language_code = map['customLanguageCode']
         data.default_selection = map['defaultSelection']
         data.external_audio_file_input = map['externalAudioFileInput']
-        data.hls_rendition_group_settings = (Parsers::HlsRenditionGroupSettings.parse(map['hlsRenditionGroupSettings']) unless map['hlsRenditionGroupSettings'].nil?)
+        data.hls_rendition_group_settings = (HlsRenditionGroupSettings.parse(map['hlsRenditionGroupSettings']) unless map['hlsRenditionGroupSettings'].nil?)
         data.language_code = map['languageCode']
         data.offset = map['offset']
-        data.pids = (Parsers::List____listOf__integerMin1Max2147483647.parse(map['pids']) unless map['pids'].nil?)
+        data.pids = (List____listOf__integerMin1Max2147483647.parse(map['pids']) unless map['pids'].nil?)
         data.program_selection = map['programSelection']
-        data.remix_settings = (Parsers::RemixSettings.parse(map['remixSettings']) unless map['remixSettings'].nil?)
+        data.remix_settings = (RemixSettings.parse(map['remixSettings']) unless map['remixSettings'].nil?)
         data.selector_type = map['selectorType']
-        data.tracks = (Parsers::List____listOf__integerMin1Max2147483647.parse(map['tracks']) unless map['tracks'].nil?)
+        data.tracks = (List____listOf__integerMin1Max2147483647.parse(map['tracks']) unless map['tracks'].nil?)
         return data
       end
     end
@@ -2417,7 +2417,7 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::AudioSelectorGroup.parse(value) unless value.nil?
+          data[key] = AudioSelectorGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -2426,7 +2426,7 @@ module AWS::SDK::MediaConvert
     class AudioSelectorGroup
       def self.parse(map)
         data = Types::AudioSelectorGroup.new
-        data.audio_selector_names = (Parsers::List____listOf__stringMin1.parse(map['audioSelectorNames']) unless map['audioSelectorNames'].nil?)
+        data.audio_selector_names = (List____listOf__stringMin1.parse(map['audioSelectorNames']) unless map['audioSelectorNames'].nil?)
         return data
       end
     end
@@ -2443,9 +2443,9 @@ module AWS::SDK::MediaConvert
     class EsamSettings
       def self.parse(map)
         data = Types::EsamSettings.new
-        data.manifest_confirm_condition_notification = (Parsers::EsamManifestConfirmConditionNotification.parse(map['manifestConfirmConditionNotification']) unless map['manifestConfirmConditionNotification'].nil?)
+        data.manifest_confirm_condition_notification = (EsamManifestConfirmConditionNotification.parse(map['manifestConfirmConditionNotification']) unless map['manifestConfirmConditionNotification'].nil?)
         data.response_signal_preroll = map['responseSignalPreroll']
-        data.signal_processing_notification = (Parsers::EsamSignalProcessingNotification.parse(map['signalProcessingNotification']) unless map['signalProcessingNotification'].nil?)
+        data.signal_processing_notification = (EsamSignalProcessingNotification.parse(map['signalProcessingNotification']) unless map['signalProcessingNotification'].nil?)
         return data
       end
     end
@@ -2478,7 +2478,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::QueueTransition.parse(value) unless value.nil?
+          data << QueueTransition.parse(value) unless value.nil?
         end
         data
       end
@@ -2498,7 +2498,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::OutputGroupDetail.parse(value) unless value.nil?
+          data << OutputGroupDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -2507,7 +2507,7 @@ module AWS::SDK::MediaConvert
     class OutputGroupDetail
       def self.parse(map)
         data = Types::OutputGroupDetail.new
-        data.output_details = (Parsers::List____listOfOutputDetail.parse(map['outputDetails']) unless map['outputDetails'].nil?)
+        data.output_details = (List____listOfOutputDetail.parse(map['outputDetails']) unless map['outputDetails'].nil?)
         return data
       end
     end
@@ -2516,7 +2516,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::OutputDetail.parse(value) unless value.nil?
+          data << OutputDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -2526,7 +2526,7 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = Types::OutputDetail.new
         data.duration_in_ms = map['durationInMs']
-        data.video_details = (Parsers::VideoDetail.parse(map['videoDetails']) unless map['videoDetails'].nil?)
+        data.video_details = (VideoDetail.parse(map['videoDetails']) unless map['videoDetails'].nil?)
         return data
       end
     end
@@ -2543,8 +2543,8 @@ module AWS::SDK::MediaConvert
     class JobMessages
       def self.parse(map)
         data = Types::JobMessages.new
-        data.info = (Parsers::List____listOf__string.parse(map['info']) unless map['info'].nil?)
-        data.warning = (Parsers::List____listOf__string.parse(map['warning']) unless map['warning'].nil?)
+        data.info = (List____listOf__string.parse(map['info']) unless map['info'].nil?)
+        data.warning = (List____listOf__string.parse(map['warning']) unless map['warning'].nil?)
         return data
       end
     end
@@ -2563,7 +2563,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HopDestination.parse(value) unless value.nil?
+          data << HopDestination.parse(value) unless value.nil?
         end
         data
       end
@@ -2592,7 +2592,7 @@ module AWS::SDK::MediaConvert
       def self.parse(http_resp)
         data = Types::CreateJobTemplateOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_template = (Parsers::JobTemplate.parse(map['jobTemplate']) unless map['jobTemplate'].nil?)
+        data.job_template = (JobTemplate.parse(map['jobTemplate']) unless map['jobTemplate'].nil?)
         data
       end
     end
@@ -2600,17 +2600,17 @@ module AWS::SDK::MediaConvert
     class JobTemplate
       def self.parse(map)
         data = Types::JobTemplate.new
-        data.acceleration_settings = (Parsers::AccelerationSettings.parse(map['accelerationSettings']) unless map['accelerationSettings'].nil?)
+        data.acceleration_settings = (AccelerationSettings.parse(map['accelerationSettings']) unless map['accelerationSettings'].nil?)
         data.arn = map['arn']
         data.category = map['category']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.description = map['description']
-        data.hop_destinations = (Parsers::List____listOfHopDestination.parse(map['hopDestinations']) unless map['hopDestinations'].nil?)
+        data.hop_destinations = (List____listOfHopDestination.parse(map['hopDestinations']) unless map['hopDestinations'].nil?)
         data.last_updated = Time.at(map['lastUpdated'].to_i) if map['lastUpdated']
         data.name = map['name']
         data.priority = map['priority']
         data.queue = map['queue']
-        data.settings = (Parsers::JobTemplateSettings.parse(map['settings']) unless map['settings'].nil?)
+        data.settings = (JobTemplateSettings.parse(map['settings']) unless map['settings'].nil?)
         data.status_update_interval = map['statusUpdateInterval']
         data.type = map['type']
         return data
@@ -2621,17 +2621,17 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = Types::JobTemplateSettings.new
         data.ad_avail_offset = map['adAvailOffset']
-        data.avail_blanking = (Parsers::AvailBlanking.parse(map['availBlanking']) unless map['availBlanking'].nil?)
-        data.esam = (Parsers::EsamSettings.parse(map['esam']) unless map['esam'].nil?)
-        data.extended_data_services = (Parsers::ExtendedDataServices.parse(map['extendedDataServices']) unless map['extendedDataServices'].nil?)
-        data.inputs = (Parsers::List____listOfInputTemplate.parse(map['inputs']) unless map['inputs'].nil?)
-        data.kantar_watermark = (Parsers::KantarWatermarkSettings.parse(map['kantarWatermark']) unless map['kantarWatermark'].nil?)
-        data.motion_image_inserter = (Parsers::MotionImageInserter.parse(map['motionImageInserter']) unless map['motionImageInserter'].nil?)
-        data.nielsen_configuration = (Parsers::NielsenConfiguration.parse(map['nielsenConfiguration']) unless map['nielsenConfiguration'].nil?)
-        data.nielsen_non_linear_watermark = (Parsers::NielsenNonLinearWatermarkSettings.parse(map['nielsenNonLinearWatermark']) unless map['nielsenNonLinearWatermark'].nil?)
-        data.output_groups = (Parsers::List____listOfOutputGroup.parse(map['outputGroups']) unless map['outputGroups'].nil?)
-        data.timecode_config = (Parsers::TimecodeConfig.parse(map['timecodeConfig']) unless map['timecodeConfig'].nil?)
-        data.timed_metadata_insertion = (Parsers::TimedMetadataInsertion.parse(map['timedMetadataInsertion']) unless map['timedMetadataInsertion'].nil?)
+        data.avail_blanking = (AvailBlanking.parse(map['availBlanking']) unless map['availBlanking'].nil?)
+        data.esam = (EsamSettings.parse(map['esam']) unless map['esam'].nil?)
+        data.extended_data_services = (ExtendedDataServices.parse(map['extendedDataServices']) unless map['extendedDataServices'].nil?)
+        data.inputs = (List____listOfInputTemplate.parse(map['inputs']) unless map['inputs'].nil?)
+        data.kantar_watermark = (KantarWatermarkSettings.parse(map['kantarWatermark']) unless map['kantarWatermark'].nil?)
+        data.motion_image_inserter = (MotionImageInserter.parse(map['motionImageInserter']) unless map['motionImageInserter'].nil?)
+        data.nielsen_configuration = (NielsenConfiguration.parse(map['nielsenConfiguration']) unless map['nielsenConfiguration'].nil?)
+        data.nielsen_non_linear_watermark = (NielsenNonLinearWatermarkSettings.parse(map['nielsenNonLinearWatermark']) unless map['nielsenNonLinearWatermark'].nil?)
+        data.output_groups = (List____listOfOutputGroup.parse(map['outputGroups']) unless map['outputGroups'].nil?)
+        data.timecode_config = (TimecodeConfig.parse(map['timecodeConfig']) unless map['timecodeConfig'].nil?)
+        data.timed_metadata_insertion = (TimedMetadataInsertion.parse(map['timedMetadataInsertion']) unless map['timedMetadataInsertion'].nil?)
         return data
       end
     end
@@ -2640,7 +2640,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InputTemplate.parse(value) unless value.nil?
+          data << InputTemplate.parse(value) unless value.nil?
         end
         data
       end
@@ -2649,24 +2649,24 @@ module AWS::SDK::MediaConvert
     class InputTemplate
       def self.parse(map)
         data = Types::InputTemplate.new
-        data.audio_selector_groups = (Parsers::Map____mapOfAudioSelectorGroup.parse(map['audioSelectorGroups']) unless map['audioSelectorGroups'].nil?)
-        data.audio_selectors = (Parsers::Map____mapOfAudioSelector.parse(map['audioSelectors']) unless map['audioSelectors'].nil?)
-        data.caption_selectors = (Parsers::Map____mapOfCaptionSelector.parse(map['captionSelectors']) unless map['captionSelectors'].nil?)
-        data.crop = (Parsers::Rectangle.parse(map['crop']) unless map['crop'].nil?)
+        data.audio_selector_groups = (Map____mapOfAudioSelectorGroup.parse(map['audioSelectorGroups']) unless map['audioSelectorGroups'].nil?)
+        data.audio_selectors = (Map____mapOfAudioSelector.parse(map['audioSelectors']) unless map['audioSelectors'].nil?)
+        data.caption_selectors = (Map____mapOfCaptionSelector.parse(map['captionSelectors']) unless map['captionSelectors'].nil?)
+        data.crop = (Rectangle.parse(map['crop']) unless map['crop'].nil?)
         data.deblock_filter = map['deblockFilter']
         data.denoise_filter = map['denoiseFilter']
         data.dolby_vision_metadata_xml = map['dolbyVisionMetadataXml']
         data.filter_enable = map['filterEnable']
         data.filter_strength = map['filterStrength']
-        data.image_inserter = (Parsers::ImageInserter.parse(map['imageInserter']) unless map['imageInserter'].nil?)
-        data.input_clippings = (Parsers::List____listOfInputClipping.parse(map['inputClippings']) unless map['inputClippings'].nil?)
+        data.image_inserter = (ImageInserter.parse(map['imageInserter']) unless map['imageInserter'].nil?)
+        data.input_clippings = (List____listOfInputClipping.parse(map['inputClippings']) unless map['inputClippings'].nil?)
         data.input_scan_type = map['inputScanType']
-        data.position = (Parsers::Rectangle.parse(map['position']) unless map['position'].nil?)
+        data.position = (Rectangle.parse(map['position']) unless map['position'].nil?)
         data.program_number = map['programNumber']
         data.psi_control = map['psiControl']
         data.timecode_source = map['timecodeSource']
         data.timecode_start = map['timecodeStart']
-        data.video_selector = (Parsers::VideoSelector.parse(map['videoSelector']) unless map['videoSelector'].nil?)
+        data.video_selector = (VideoSelector.parse(map['videoSelector']) unless map['videoSelector'].nil?)
         return data
       end
     end
@@ -2676,7 +2676,7 @@ module AWS::SDK::MediaConvert
       def self.parse(http_resp)
         data = Types::CreatePresetOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.preset = (Parsers::Preset.parse(map['preset']) unless map['preset'].nil?)
+        data.preset = (Preset.parse(map['preset']) unless map['preset'].nil?)
         data
       end
     end
@@ -2690,7 +2690,7 @@ module AWS::SDK::MediaConvert
         data.description = map['description']
         data.last_updated = Time.at(map['lastUpdated'].to_i) if map['lastUpdated']
         data.name = map['name']
-        data.settings = (Parsers::PresetSettings.parse(map['settings']) unless map['settings'].nil?)
+        data.settings = (PresetSettings.parse(map['settings']) unless map['settings'].nil?)
         data.type = map['type']
         return data
       end
@@ -2699,10 +2699,10 @@ module AWS::SDK::MediaConvert
     class PresetSettings
       def self.parse(map)
         data = Types::PresetSettings.new
-        data.audio_descriptions = (Parsers::List____listOfAudioDescription.parse(map['audioDescriptions']) unless map['audioDescriptions'].nil?)
-        data.caption_descriptions = (Parsers::List____listOfCaptionDescriptionPreset.parse(map['captionDescriptions']) unless map['captionDescriptions'].nil?)
-        data.container_settings = (Parsers::ContainerSettings.parse(map['containerSettings']) unless map['containerSettings'].nil?)
-        data.video_description = (Parsers::VideoDescription.parse(map['videoDescription']) unless map['videoDescription'].nil?)
+        data.audio_descriptions = (List____listOfAudioDescription.parse(map['audioDescriptions']) unless map['audioDescriptions'].nil?)
+        data.caption_descriptions = (List____listOfCaptionDescriptionPreset.parse(map['captionDescriptions']) unless map['captionDescriptions'].nil?)
+        data.container_settings = (ContainerSettings.parse(map['containerSettings']) unless map['containerSettings'].nil?)
+        data.video_description = (VideoDescription.parse(map['videoDescription']) unless map['videoDescription'].nil?)
         return data
       end
     end
@@ -2711,7 +2711,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CaptionDescriptionPreset.parse(value) unless value.nil?
+          data << CaptionDescriptionPreset.parse(value) unless value.nil?
         end
         data
       end
@@ -2721,7 +2721,7 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = Types::CaptionDescriptionPreset.new
         data.custom_language_code = map['customLanguageCode']
-        data.destination_settings = (Parsers::CaptionDestinationSettings.parse(map['destinationSettings']) unless map['destinationSettings'].nil?)
+        data.destination_settings = (CaptionDestinationSettings.parse(map['destinationSettings']) unless map['destinationSettings'].nil?)
         data.language_code = map['languageCode']
         data.language_description = map['languageDescription']
         return data
@@ -2733,7 +2733,7 @@ module AWS::SDK::MediaConvert
       def self.parse(http_resp)
         data = Types::CreateQueueOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.queue = (Parsers::Queue.parse(map['queue']) unless map['queue'].nil?)
+        data.queue = (Queue.parse(map['queue']) unless map['queue'].nil?)
         data
       end
     end
@@ -2748,7 +2748,7 @@ module AWS::SDK::MediaConvert
         data.name = map['name']
         data.pricing_plan = map['pricingPlan']
         data.progressing_jobs_count = map['progressingJobsCount']
-        data.reservation_plan = (Parsers::ReservationPlan.parse(map['reservationPlan']) unless map['reservationPlan'].nil?)
+        data.reservation_plan = (ReservationPlan.parse(map['reservationPlan']) unless map['reservationPlan'].nil?)
         data.status = map['status']
         data.submitted_jobs_count = map['submittedJobsCount']
         data.type = map['type']
@@ -2810,7 +2810,7 @@ module AWS::SDK::MediaConvert
       def self.parse(http_resp)
         data = Types::DescribeEndpointsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.endpoints = (Parsers::List____listOfEndpoint.parse(map['endpoints']) unless map['endpoints'].nil?)
+        data.endpoints = (List____listOfEndpoint.parse(map['endpoints']) unless map['endpoints'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2820,7 +2820,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Endpoint.parse(value) unless value.nil?
+          data << Endpoint.parse(value) unless value.nil?
         end
         data
       end
@@ -2848,7 +2848,7 @@ module AWS::SDK::MediaConvert
       def self.parse(http_resp)
         data = Types::GetJobOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job = (Parsers::Job.parse(map['job']) unless map['job'].nil?)
+        data.job = (Job.parse(map['job']) unless map['job'].nil?)
         data
       end
     end
@@ -2858,7 +2858,7 @@ module AWS::SDK::MediaConvert
       def self.parse(http_resp)
         data = Types::GetJobTemplateOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_template = (Parsers::JobTemplate.parse(map['jobTemplate']) unless map['jobTemplate'].nil?)
+        data.job_template = (JobTemplate.parse(map['jobTemplate']) unless map['jobTemplate'].nil?)
         data
       end
     end
@@ -2868,7 +2868,7 @@ module AWS::SDK::MediaConvert
       def self.parse(http_resp)
         data = Types::GetPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policy = (Parsers::Policy.parse(map['policy']) unless map['policy'].nil?)
+        data.policy = (Policy.parse(map['policy']) unless map['policy'].nil?)
         data
       end
     end
@@ -2888,7 +2888,7 @@ module AWS::SDK::MediaConvert
       def self.parse(http_resp)
         data = Types::GetPresetOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.preset = (Parsers::Preset.parse(map['preset']) unless map['preset'].nil?)
+        data.preset = (Preset.parse(map['preset']) unless map['preset'].nil?)
         data
       end
     end
@@ -2898,7 +2898,7 @@ module AWS::SDK::MediaConvert
       def self.parse(http_resp)
         data = Types::GetQueueOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.queue = (Parsers::Queue.parse(map['queue']) unless map['queue'].nil?)
+        data.queue = (Queue.parse(map['queue']) unless map['queue'].nil?)
         data
       end
     end
@@ -2908,7 +2908,7 @@ module AWS::SDK::MediaConvert
       def self.parse(http_resp)
         data = Types::ListJobTemplatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_templates = (Parsers::List____listOfJobTemplate.parse(map['jobTemplates']) unless map['jobTemplates'].nil?)
+        data.job_templates = (List____listOfJobTemplate.parse(map['jobTemplates']) unless map['jobTemplates'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2918,7 +2918,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobTemplate.parse(value) unless value.nil?
+          data << JobTemplate.parse(value) unless value.nil?
         end
         data
       end
@@ -2929,7 +2929,7 @@ module AWS::SDK::MediaConvert
       def self.parse(http_resp)
         data = Types::ListJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.jobs = (Parsers::List____listOfJob.parse(map['jobs']) unless map['jobs'].nil?)
+        data.jobs = (List____listOfJob.parse(map['jobs']) unless map['jobs'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2939,7 +2939,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Job.parse(value) unless value.nil?
+          data << Job.parse(value) unless value.nil?
         end
         data
       end
@@ -2951,7 +2951,7 @@ module AWS::SDK::MediaConvert
         data = Types::ListPresetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.presets = (Parsers::List____listOfPreset.parse(map['presets']) unless map['presets'].nil?)
+        data.presets = (List____listOfPreset.parse(map['presets']) unless map['presets'].nil?)
         data
       end
     end
@@ -2960,7 +2960,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Preset.parse(value) unless value.nil?
+          data << Preset.parse(value) unless value.nil?
         end
         data
       end
@@ -2972,7 +2972,7 @@ module AWS::SDK::MediaConvert
         data = Types::ListQueuesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.queues = (Parsers::List____listOfQueue.parse(map['queues']) unless map['queues'].nil?)
+        data.queues = (List____listOfQueue.parse(map['queues']) unless map['queues'].nil?)
         data
       end
     end
@@ -2981,7 +2981,7 @@ module AWS::SDK::MediaConvert
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Queue.parse(value) unless value.nil?
+          data << Queue.parse(value) unless value.nil?
         end
         data
       end
@@ -2992,7 +2992,7 @@ module AWS::SDK::MediaConvert
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_tags = (Parsers::ResourceTags.parse(map['resourceTags']) unless map['resourceTags'].nil?)
+        data.resource_tags = (ResourceTags.parse(map['resourceTags']) unless map['resourceTags'].nil?)
         data
       end
     end
@@ -3001,7 +3001,7 @@ module AWS::SDK::MediaConvert
       def self.parse(map)
         data = Types::ResourceTags.new
         data.arn = map['arn']
-        data.tags = (Parsers::Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Map____mapOf__string.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -3011,7 +3011,7 @@ module AWS::SDK::MediaConvert
       def self.parse(http_resp)
         data = Types::PutPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policy = (Parsers::Policy.parse(map['policy']) unless map['policy'].nil?)
+        data.policy = (Policy.parse(map['policy']) unless map['policy'].nil?)
         data
       end
     end
@@ -3039,7 +3039,7 @@ module AWS::SDK::MediaConvert
       def self.parse(http_resp)
         data = Types::UpdateJobTemplateOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_template = (Parsers::JobTemplate.parse(map['jobTemplate']) unless map['jobTemplate'].nil?)
+        data.job_template = (JobTemplate.parse(map['jobTemplate']) unless map['jobTemplate'].nil?)
         data
       end
     end
@@ -3049,7 +3049,7 @@ module AWS::SDK::MediaConvert
       def self.parse(http_resp)
         data = Types::UpdatePresetOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.preset = (Parsers::Preset.parse(map['preset']) unless map['preset'].nil?)
+        data.preset = (Preset.parse(map['preset']) unless map['preset'].nil?)
         data
       end
     end
@@ -3059,7 +3059,7 @@ module AWS::SDK::MediaConvert
       def self.parse(http_resp)
         data = Types::UpdateQueueOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.queue = (Parsers::Queue.parse(map['queue']) unless map['queue'].nil?)
+        data.queue = (Queue.parse(map['queue']) unless map['queue'].nil?)
         data
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::PinpointEmail
   module Stubs
 
@@ -64,7 +66,7 @@ module AWS::SDK::PinpointEmail
         http_resp.headers['Content-Type'] = 'application/json'
         data['ReportId'] = stub[:report_id] unless stub[:report_id].nil?
         data['DeliverabilityTestStatus'] = stub[:deliverability_test_status] unless stub[:deliverability_test_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -84,8 +86,8 @@ module AWS::SDK::PinpointEmail
         http_resp.headers['Content-Type'] = 'application/json'
         data['IdentityType'] = stub[:identity_type] unless stub[:identity_type].nil?
         data['VerifiedForSendingStatus'] = stub[:verified_for_sending_status] unless stub[:verified_for_sending_status].nil?
-        data['DkimAttributes'] = Stubs::DkimAttributes.stub(stub[:dkim_attributes]) unless stub[:dkim_attributes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DkimAttributes'] = DkimAttributes.stub(stub[:dkim_attributes]) unless stub[:dkim_attributes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -106,7 +108,7 @@ module AWS::SDK::PinpointEmail
         data = {}
         data['SigningEnabled'] = stub[:signing_enabled] unless stub[:signing_enabled].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Tokens'] = Stubs::DnsTokenList.stub(stub[:tokens]) unless stub[:tokens].nil?
+        data['Tokens'] = DnsTokenList.stub(stub[:tokens]) unless stub[:tokens].nil?
         data
       end
     end
@@ -199,12 +201,12 @@ module AWS::SDK::PinpointEmail
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SendQuota'] = Stubs::SendQuota.stub(stub[:send_quota]) unless stub[:send_quota].nil?
+        data['SendQuota'] = SendQuota.stub(stub[:send_quota]) unless stub[:send_quota].nil?
         data['SendingEnabled'] = stub[:sending_enabled] unless stub[:sending_enabled].nil?
         data['DedicatedIpAutoWarmupEnabled'] = stub[:dedicated_ip_auto_warmup_enabled] unless stub[:dedicated_ip_auto_warmup_enabled].nil?
         data['EnforcementStatus'] = stub[:enforcement_status] unless stub[:enforcement_status].nil?
         data['ProductionAccessEnabled'] = stub[:production_access_enabled] unless stub[:production_access_enabled].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -242,8 +244,8 @@ module AWS::SDK::PinpointEmail
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['BlacklistReport'] = Stubs::BlacklistReport.stub(stub[:blacklist_report]) unless stub[:blacklist_report].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BlacklistReport'] = BlacklistReport.stub(stub[:blacklist_report]) unless stub[:blacklist_report].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -261,7 +263,7 @@ module AWS::SDK::PinpointEmail
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::BlacklistEntries.stub(value) unless value.nil?
+          data[key] = BlacklistEntries.stub(value) unless value.nil?
         end
         data
       end
@@ -281,7 +283,7 @@ module AWS::SDK::PinpointEmail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BlacklistEntry.stub(element) unless element.nil?
+          data << BlacklistEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -327,12 +329,12 @@ module AWS::SDK::PinpointEmail
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ConfigurationSetName'] = stub[:configuration_set_name] unless stub[:configuration_set_name].nil?
-        data['TrackingOptions'] = Stubs::TrackingOptions.stub(stub[:tracking_options]) unless stub[:tracking_options].nil?
-        data['DeliveryOptions'] = Stubs::DeliveryOptions.stub(stub[:delivery_options]) unless stub[:delivery_options].nil?
-        data['ReputationOptions'] = Stubs::ReputationOptions.stub(stub[:reputation_options]) unless stub[:reputation_options].nil?
-        data['SendingOptions'] = Stubs::SendingOptions.stub(stub[:sending_options]) unless stub[:sending_options].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TrackingOptions'] = TrackingOptions.stub(stub[:tracking_options]) unless stub[:tracking_options].nil?
+        data['DeliveryOptions'] = DeliveryOptions.stub(stub[:delivery_options]) unless stub[:delivery_options].nil?
+        data['ReputationOptions'] = ReputationOptions.stub(stub[:reputation_options]) unless stub[:reputation_options].nil?
+        data['SendingOptions'] = SendingOptions.stub(stub[:sending_options]) unless stub[:sending_options].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -350,7 +352,7 @@ module AWS::SDK::PinpointEmail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -464,8 +466,8 @@ module AWS::SDK::PinpointEmail
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['EventDestinations'] = Stubs::EventDestinations.stub(stub[:event_destinations]) unless stub[:event_destinations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventDestinations'] = EventDestinations.stub(stub[:event_destinations]) unless stub[:event_destinations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -483,7 +485,7 @@ module AWS::SDK::PinpointEmail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventDestination.stub(element) unless element.nil?
+          data << EventDestination.stub(element) unless element.nil?
         end
         data
       end
@@ -510,11 +512,11 @@ module AWS::SDK::PinpointEmail
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
-        data['MatchingEventTypes'] = Stubs::EventTypes.stub(stub[:matching_event_types]) unless stub[:matching_event_types].nil?
-        data['KinesisFirehoseDestination'] = Stubs::KinesisFirehoseDestination.stub(stub[:kinesis_firehose_destination]) unless stub[:kinesis_firehose_destination].nil?
-        data['CloudWatchDestination'] = Stubs::CloudWatchDestination.stub(stub[:cloud_watch_destination]) unless stub[:cloud_watch_destination].nil?
-        data['SnsDestination'] = Stubs::SnsDestination.stub(stub[:sns_destination]) unless stub[:sns_destination].nil?
-        data['PinpointDestination'] = Stubs::PinpointDestination.stub(stub[:pinpoint_destination]) unless stub[:pinpoint_destination].nil?
+        data['MatchingEventTypes'] = EventTypes.stub(stub[:matching_event_types]) unless stub[:matching_event_types].nil?
+        data['KinesisFirehoseDestination'] = KinesisFirehoseDestination.stub(stub[:kinesis_firehose_destination]) unless stub[:kinesis_firehose_destination].nil?
+        data['CloudWatchDestination'] = CloudWatchDestination.stub(stub[:cloud_watch_destination]) unless stub[:cloud_watch_destination].nil?
+        data['SnsDestination'] = SnsDestination.stub(stub[:sns_destination]) unless stub[:sns_destination].nil?
+        data['PinpointDestination'] = PinpointDestination.stub(stub[:pinpoint_destination]) unless stub[:pinpoint_destination].nil?
         data
       end
     end
@@ -568,7 +570,7 @@ module AWS::SDK::PinpointEmail
       def self.stub(stub)
         stub ||= Types::CloudWatchDestination.new
         data = {}
-        data['DimensionConfigurations'] = Stubs::CloudWatchDimensionConfigurations.stub(stub[:dimension_configurations]) unless stub[:dimension_configurations].nil?
+        data['DimensionConfigurations'] = CloudWatchDimensionConfigurations.stub(stub[:dimension_configurations]) unless stub[:dimension_configurations].nil?
         data
       end
     end
@@ -587,7 +589,7 @@ module AWS::SDK::PinpointEmail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CloudWatchDimensionConfiguration.stub(element) unless element.nil?
+          data << CloudWatchDimensionConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -667,8 +669,8 @@ module AWS::SDK::PinpointEmail
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DedicatedIp'] = Stubs::DedicatedIp.stub(stub[:dedicated_ip]) unless stub[:dedicated_ip].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DedicatedIp'] = DedicatedIp.stub(stub[:dedicated_ip]) unless stub[:dedicated_ip].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -709,9 +711,9 @@ module AWS::SDK::PinpointEmail
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DedicatedIps'] = Stubs::DedicatedIpList.stub(stub[:dedicated_ips]) unless stub[:dedicated_ips].nil?
+        data['DedicatedIps'] = DedicatedIpList.stub(stub[:dedicated_ips]) unless stub[:dedicated_ips].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -729,7 +731,7 @@ module AWS::SDK::PinpointEmail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DedicatedIp.stub(element) unless element.nil?
+          data << DedicatedIp.stub(element) unless element.nil?
         end
         data
       end
@@ -754,9 +756,9 @@ module AWS::SDK::PinpointEmail
         data['DashboardEnabled'] = stub[:dashboard_enabled] unless stub[:dashboard_enabled].nil?
         data['SubscriptionExpiryDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:subscription_expiry_date]).to_i unless stub[:subscription_expiry_date].nil?
         data['AccountStatus'] = stub[:account_status] unless stub[:account_status].nil?
-        data['ActiveSubscribedDomains'] = Stubs::DomainDeliverabilityTrackingOptions.stub(stub[:active_subscribed_domains]) unless stub[:active_subscribed_domains].nil?
-        data['PendingExpirationSubscribedDomains'] = Stubs::DomainDeliverabilityTrackingOptions.stub(stub[:pending_expiration_subscribed_domains]) unless stub[:pending_expiration_subscribed_domains].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ActiveSubscribedDomains'] = DomainDeliverabilityTrackingOptions.stub(stub[:active_subscribed_domains]) unless stub[:active_subscribed_domains].nil?
+        data['PendingExpirationSubscribedDomains'] = DomainDeliverabilityTrackingOptions.stub(stub[:pending_expiration_subscribed_domains]) unless stub[:pending_expiration_subscribed_domains].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -774,7 +776,7 @@ module AWS::SDK::PinpointEmail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainDeliverabilityTrackingOption.stub(element) unless element.nil?
+          data << DomainDeliverabilityTrackingOption.stub(element) unless element.nil?
         end
         data
       end
@@ -797,7 +799,7 @@ module AWS::SDK::PinpointEmail
         data = {}
         data['Domain'] = stub[:domain] unless stub[:domain].nil?
         data['SubscriptionStartDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:subscription_start_date]).to_i unless stub[:subscription_start_date].nil?
-        data['InboxPlacementTrackingOption'] = Stubs::InboxPlacementTrackingOption.stub(stub[:inbox_placement_tracking_option]) unless stub[:inbox_placement_tracking_option].nil?
+        data['InboxPlacementTrackingOption'] = InboxPlacementTrackingOption.stub(stub[:inbox_placement_tracking_option]) unless stub[:inbox_placement_tracking_option].nil?
         data
       end
     end
@@ -817,7 +819,7 @@ module AWS::SDK::PinpointEmail
         stub ||= Types::InboxPlacementTrackingOption.new
         data = {}
         data['Global'] = stub[:global] unless stub[:global].nil?
-        data['TrackedIsps'] = Stubs::IspNameList.stub(stub[:tracked_isps]) unless stub[:tracked_isps].nil?
+        data['TrackedIsps'] = IspNameList.stub(stub[:tracked_isps]) unless stub[:tracked_isps].nil?
         data
       end
     end
@@ -858,12 +860,12 @@ module AWS::SDK::PinpointEmail
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DeliverabilityTestReport'] = Stubs::DeliverabilityTestReport.stub(stub[:deliverability_test_report]) unless stub[:deliverability_test_report].nil?
-        data['OverallPlacement'] = Stubs::PlacementStatistics.stub(stub[:overall_placement]) unless stub[:overall_placement].nil?
-        data['IspPlacements'] = Stubs::IspPlacements.stub(stub[:isp_placements]) unless stub[:isp_placements].nil?
+        data['DeliverabilityTestReport'] = DeliverabilityTestReport.stub(stub[:deliverability_test_report]) unless stub[:deliverability_test_report].nil?
+        data['OverallPlacement'] = PlacementStatistics.stub(stub[:overall_placement]) unless stub[:overall_placement].nil?
+        data['IspPlacements'] = IspPlacements.stub(stub[:isp_placements]) unless stub[:isp_placements].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -881,7 +883,7 @@ module AWS::SDK::PinpointEmail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IspPlacement.stub(element) unless element.nil?
+          data << IspPlacement.stub(element) unless element.nil?
         end
         data
       end
@@ -902,7 +904,7 @@ module AWS::SDK::PinpointEmail
         stub ||= Types::IspPlacement.new
         data = {}
         data['IspName'] = stub[:isp_name] unless stub[:isp_name].nil?
-        data['PlacementStatistics'] = Stubs::PlacementStatistics.stub(stub[:placement_statistics]) unless stub[:placement_statistics].nil?
+        data['PlacementStatistics'] = PlacementStatistics.stub(stub[:placement_statistics]) unless stub[:placement_statistics].nil?
         data
       end
     end
@@ -973,8 +975,8 @@ module AWS::SDK::PinpointEmail
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DomainDeliverabilityCampaign'] = Stubs::DomainDeliverabilityCampaign.stub(stub[:domain_deliverability_campaign]) unless stub[:domain_deliverability_campaign].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DomainDeliverabilityCampaign'] = DomainDeliverabilityCampaign.stub(stub[:domain_deliverability_campaign]) unless stub[:domain_deliverability_campaign].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1008,7 +1010,7 @@ module AWS::SDK::PinpointEmail
         data['ImageUrl'] = stub[:image_url] unless stub[:image_url].nil?
         data['Subject'] = stub[:subject] unless stub[:subject].nil?
         data['FromAddress'] = stub[:from_address] unless stub[:from_address].nil?
-        data['SendingIps'] = Stubs::IpList.stub(stub[:sending_ips]) unless stub[:sending_ips].nil?
+        data['SendingIps'] = IpList.stub(stub[:sending_ips]) unless stub[:sending_ips].nil?
         data['FirstSeenDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:first_seen_date_time]).to_i unless stub[:first_seen_date_time].nil?
         data['LastSeenDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_seen_date_time]).to_i unless stub[:last_seen_date_time].nil?
         data['InboxCount'] = stub[:inbox_count] unless stub[:inbox_count].nil?
@@ -1017,7 +1019,7 @@ module AWS::SDK::PinpointEmail
         data['DeleteRate'] = Hearth::NumberHelper.serialize(stub[:delete_rate])
         data['ReadDeleteRate'] = Hearth::NumberHelper.serialize(stub[:read_delete_rate])
         data['ProjectedVolume'] = stub[:projected_volume] unless stub[:projected_volume].nil?
-        data['Esps'] = Stubs::Esps.stub(stub[:esps]) unless stub[:esps].nil?
+        data['Esps'] = Esps.stub(stub[:esps]) unless stub[:esps].nil?
         data
       end
     end
@@ -1075,9 +1077,9 @@ module AWS::SDK::PinpointEmail
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['OverallVolume'] = Stubs::OverallVolume.stub(stub[:overall_volume]) unless stub[:overall_volume].nil?
-        data['DailyVolumes'] = Stubs::DailyVolumes.stub(stub[:daily_volumes]) unless stub[:daily_volumes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OverallVolume'] = OverallVolume.stub(stub[:overall_volume]) unless stub[:overall_volume].nil?
+        data['DailyVolumes'] = DailyVolumes.stub(stub[:daily_volumes]) unless stub[:daily_volumes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1095,7 +1097,7 @@ module AWS::SDK::PinpointEmail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DailyVolume.stub(element) unless element.nil?
+          data << DailyVolume.stub(element) unless element.nil?
         end
         data
       end
@@ -1117,8 +1119,8 @@ module AWS::SDK::PinpointEmail
         stub ||= Types::DailyVolume.new
         data = {}
         data['StartDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_date]).to_i unless stub[:start_date].nil?
-        data['VolumeStatistics'] = Stubs::VolumeStatistics.stub(stub[:volume_statistics]) unless stub[:volume_statistics].nil?
-        data['DomainIspPlacements'] = Stubs::DomainIspPlacements.stub(stub[:domain_isp_placements]) unless stub[:domain_isp_placements].nil?
+        data['VolumeStatistics'] = VolumeStatistics.stub(stub[:volume_statistics]) unless stub[:volume_statistics].nil?
+        data['DomainIspPlacements'] = DomainIspPlacements.stub(stub[:domain_isp_placements]) unless stub[:domain_isp_placements].nil?
         data
       end
     end
@@ -1137,7 +1139,7 @@ module AWS::SDK::PinpointEmail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainIspPlacement.stub(element) unless element.nil?
+          data << DomainIspPlacement.stub(element) unless element.nil?
         end
         data
       end
@@ -1208,9 +1210,9 @@ module AWS::SDK::PinpointEmail
       def self.stub(stub)
         stub ||= Types::OverallVolume.new
         data = {}
-        data['VolumeStatistics'] = Stubs::VolumeStatistics.stub(stub[:volume_statistics]) unless stub[:volume_statistics].nil?
+        data['VolumeStatistics'] = VolumeStatistics.stub(stub[:volume_statistics]) unless stub[:volume_statistics].nil?
         data['ReadRatePercent'] = Hearth::NumberHelper.serialize(stub[:read_rate_percent])
-        data['DomainIspPlacements'] = Stubs::DomainIspPlacements.stub(stub[:domain_isp_placements]) unless stub[:domain_isp_placements].nil?
+        data['DomainIspPlacements'] = DomainIspPlacements.stub(stub[:domain_isp_placements]) unless stub[:domain_isp_placements].nil?
         data
       end
     end
@@ -1235,10 +1237,10 @@ module AWS::SDK::PinpointEmail
         data['IdentityType'] = stub[:identity_type] unless stub[:identity_type].nil?
         data['FeedbackForwardingStatus'] = stub[:feedback_forwarding_status] unless stub[:feedback_forwarding_status].nil?
         data['VerifiedForSendingStatus'] = stub[:verified_for_sending_status] unless stub[:verified_for_sending_status].nil?
-        data['DkimAttributes'] = Stubs::DkimAttributes.stub(stub[:dkim_attributes]) unless stub[:dkim_attributes].nil?
-        data['MailFromAttributes'] = Stubs::MailFromAttributes.stub(stub[:mail_from_attributes]) unless stub[:mail_from_attributes].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DkimAttributes'] = DkimAttributes.stub(stub[:dkim_attributes]) unless stub[:dkim_attributes].nil?
+        data['MailFromAttributes'] = MailFromAttributes.stub(stub[:mail_from_attributes]) unless stub[:mail_from_attributes].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1277,9 +1279,9 @@ module AWS::SDK::PinpointEmail
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ConfigurationSets'] = Stubs::ConfigurationSetNameList.stub(stub[:configuration_sets]) unless stub[:configuration_sets].nil?
+        data['ConfigurationSets'] = ConfigurationSetNameList.stub(stub[:configuration_sets]) unless stub[:configuration_sets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1316,9 +1318,9 @@ module AWS::SDK::PinpointEmail
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DedicatedIpPools'] = Stubs::ListOfDedicatedIpPools.stub(stub[:dedicated_ip_pools]) unless stub[:dedicated_ip_pools].nil?
+        data['DedicatedIpPools'] = ListOfDedicatedIpPools.stub(stub[:dedicated_ip_pools]) unless stub[:dedicated_ip_pools].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1355,9 +1357,9 @@ module AWS::SDK::PinpointEmail
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DeliverabilityTestReports'] = Stubs::DeliverabilityTestReports.stub(stub[:deliverability_test_reports]) unless stub[:deliverability_test_reports].nil?
+        data['DeliverabilityTestReports'] = DeliverabilityTestReports.stub(stub[:deliverability_test_reports]) unless stub[:deliverability_test_reports].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1375,7 +1377,7 @@ module AWS::SDK::PinpointEmail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeliverabilityTestReport.stub(element) unless element.nil?
+          data << DeliverabilityTestReport.stub(element) unless element.nil?
         end
         data
       end
@@ -1394,9 +1396,9 @@ module AWS::SDK::PinpointEmail
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DomainDeliverabilityCampaigns'] = Stubs::DomainDeliverabilityCampaignList.stub(stub[:domain_deliverability_campaigns]) unless stub[:domain_deliverability_campaigns].nil?
+        data['DomainDeliverabilityCampaigns'] = DomainDeliverabilityCampaignList.stub(stub[:domain_deliverability_campaigns]) unless stub[:domain_deliverability_campaigns].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1414,7 +1416,7 @@ module AWS::SDK::PinpointEmail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainDeliverabilityCampaign.stub(element) unless element.nil?
+          data << DomainDeliverabilityCampaign.stub(element) unless element.nil?
         end
         data
       end
@@ -1433,9 +1435,9 @@ module AWS::SDK::PinpointEmail
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['EmailIdentities'] = Stubs::IdentityInfoList.stub(stub[:email_identities]) unless stub[:email_identities].nil?
+        data['EmailIdentities'] = IdentityInfoList.stub(stub[:email_identities]) unless stub[:email_identities].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1453,7 +1455,7 @@ module AWS::SDK::PinpointEmail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IdentityInfo.stub(element) unless element.nil?
+          data << IdentityInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1493,8 +1495,8 @@ module AWS::SDK::PinpointEmail
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1667,7 +1669,7 @@ module AWS::SDK::PinpointEmail
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['MessageId'] = stub[:message_id] unless stub[:message_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

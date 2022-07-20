@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CodeGuruReviewer
   module Builders
 
@@ -20,11 +22,11 @@ module AWS::SDK::CodeGuruReviewer
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Repository'] = Builders::Repository.build(input[:repository]) unless input[:repository].nil?
+        data['Repository'] = Repository.build(input[:repository]) unless input[:repository].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        data['KMSKeyDetails'] = Builders::KMSKeyDetails.build(input[:kms_key_details]) unless input[:kms_key_details].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['KMSKeyDetails'] = KMSKeyDetails.build(input[:kms_key_details]) unless input[:kms_key_details].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -53,10 +55,10 @@ module AWS::SDK::CodeGuruReviewer
     class Repository
       def self.build(input)
         data = {}
-        data['CodeCommit'] = Builders::CodeCommitRepository.build(input[:code_commit]) unless input[:code_commit].nil?
-        data['Bitbucket'] = Builders::ThirdPartySourceRepository.build(input[:bitbucket]) unless input[:bitbucket].nil?
-        data['GitHubEnterpriseServer'] = Builders::ThirdPartySourceRepository.build(input[:git_hub_enterprise_server]) unless input[:git_hub_enterprise_server].nil?
-        data['S3Bucket'] = Builders::S3Repository.build(input[:s3_bucket]) unless input[:s3_bucket].nil?
+        data['CodeCommit'] = CodeCommitRepository.build(input[:code_commit]) unless input[:code_commit].nil?
+        data['Bitbucket'] = ThirdPartySourceRepository.build(input[:bitbucket]) unless input[:bitbucket].nil?
+        data['GitHubEnterpriseServer'] = ThirdPartySourceRepository.build(input[:git_hub_enterprise_server]) unless input[:git_hub_enterprise_server].nil?
+        data['S3Bucket'] = S3Repository.build(input[:s3_bucket]) unless input[:s3_bucket].nil?
         data
       end
     end
@@ -103,9 +105,9 @@ module AWS::SDK::CodeGuruReviewer
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['RepositoryAssociationArn'] = input[:repository_association_arn] unless input[:repository_association_arn].nil?
-        data['Type'] = Builders::CodeReviewType.build(input[:type]) unless input[:type].nil?
+        data['Type'] = CodeReviewType.build(input[:type]) unless input[:type].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -113,8 +115,8 @@ module AWS::SDK::CodeGuruReviewer
     class CodeReviewType
       def self.build(input)
         data = {}
-        data['RepositoryAnalysis'] = Builders::RepositoryAnalysis.build(input[:repository_analysis]) unless input[:repository_analysis].nil?
-        data['AnalysisTypes'] = Builders::AnalysisTypes.build(input[:analysis_types]) unless input[:analysis_types].nil?
+        data['RepositoryAnalysis'] = RepositoryAnalysis.build(input[:repository_analysis]) unless input[:repository_analysis].nil?
+        data['AnalysisTypes'] = AnalysisTypes.build(input[:analysis_types]) unless input[:analysis_types].nil?
         data
       end
     end
@@ -134,8 +136,8 @@ module AWS::SDK::CodeGuruReviewer
     class RepositoryAnalysis
       def self.build(input)
         data = {}
-        data['RepositoryHead'] = Builders::RepositoryHeadSourceCodeType.build(input[:repository_head]) unless input[:repository_head].nil?
-        data['SourceCodeType'] = Builders::SourceCodeType.build(input[:source_code_type]) unless input[:source_code_type].nil?
+        data['RepositoryHead'] = RepositoryHeadSourceCodeType.build(input[:repository_head]) unless input[:repository_head].nil?
+        data['SourceCodeType'] = SourceCodeType.build(input[:source_code_type]) unless input[:source_code_type].nil?
         data
       end
     end
@@ -144,11 +146,11 @@ module AWS::SDK::CodeGuruReviewer
     class SourceCodeType
       def self.build(input)
         data = {}
-        data['CommitDiff'] = Builders::CommitDiffSourceCodeType.build(input[:commit_diff]) unless input[:commit_diff].nil?
-        data['RepositoryHead'] = Builders::RepositoryHeadSourceCodeType.build(input[:repository_head]) unless input[:repository_head].nil?
-        data['BranchDiff'] = Builders::BranchDiffSourceCodeType.build(input[:branch_diff]) unless input[:branch_diff].nil?
-        data['S3BucketRepository'] = Builders::S3BucketRepository.build(input[:s3_bucket_repository]) unless input[:s3_bucket_repository].nil?
-        data['RequestMetadata'] = Builders::RequestMetadata.build(input[:request_metadata]) unless input[:request_metadata].nil?
+        data['CommitDiff'] = CommitDiffSourceCodeType.build(input[:commit_diff]) unless input[:commit_diff].nil?
+        data['RepositoryHead'] = RepositoryHeadSourceCodeType.build(input[:repository_head]) unless input[:repository_head].nil?
+        data['BranchDiff'] = BranchDiffSourceCodeType.build(input[:branch_diff]) unless input[:branch_diff].nil?
+        data['S3BucketRepository'] = S3BucketRepository.build(input[:s3_bucket_repository]) unless input[:s3_bucket_repository].nil?
+        data['RequestMetadata'] = RequestMetadata.build(input[:request_metadata]) unless input[:request_metadata].nil?
         data
       end
     end
@@ -159,7 +161,7 @@ module AWS::SDK::CodeGuruReviewer
         data = {}
         data['RequestId'] = input[:request_id] unless input[:request_id].nil?
         data['Requester'] = input[:requester] unless input[:requester].nil?
-        data['EventInfo'] = Builders::EventInfo.build(input[:event_info]) unless input[:event_info].nil?
+        data['EventInfo'] = EventInfo.build(input[:event_info]) unless input[:event_info].nil?
         data['VendorName'] = input[:vendor_name] unless input[:vendor_name].nil?
         data
       end
@@ -180,7 +182,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Details'] = Builders::S3RepositoryDetails.build(input[:details]) unless input[:details].nil?
+        data['Details'] = S3RepositoryDetails.build(input[:details]) unless input[:details].nil?
         data
       end
     end
@@ -190,7 +192,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.build(input)
         data = {}
         data['BucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
-        data['CodeArtifacts'] = Builders::CodeArtifacts.build(input[:code_artifacts]) unless input[:code_artifacts].nil?
+        data['CodeArtifacts'] = CodeArtifacts.build(input[:code_artifacts]) unless input[:code_artifacts].nil?
         data
       end
     end
@@ -530,8 +532,8 @@ module AWS::SDK::CodeGuruReviewer
         data = {}
         data['CodeReviewArn'] = input[:code_review_arn] unless input[:code_review_arn].nil?
         data['RecommendationId'] = input[:recommendation_id] unless input[:recommendation_id].nil?
-        data['Reactions'] = Builders::Reactions.build(input[:reactions]) unless input[:reactions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Reactions'] = Reactions.build(input[:reactions]) unless input[:reactions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -563,8 +565,8 @@ module AWS::SDK::CodeGuruReviewer
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

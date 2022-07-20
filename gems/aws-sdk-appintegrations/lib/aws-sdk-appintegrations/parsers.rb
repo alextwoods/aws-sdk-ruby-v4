@@ -21,8 +21,8 @@ module AWS::SDK::AppIntegrations
         data.description = map['Description']
         data.kms_key = map['KmsKey']
         data.source_uri = map['SourceURI']
-        data.schedule_configuration = (Parsers::ScheduleConfiguration.parse(map['ScheduleConfiguration']) unless map['ScheduleConfiguration'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.schedule_configuration = (ScheduleConfiguration.parse(map['ScheduleConfiguration']) unless map['ScheduleConfiguration'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.client_token = map['ClientToken']
         data
       end
@@ -157,8 +157,8 @@ module AWS::SDK::AppIntegrations
         data.description = map['Description']
         data.kms_key = map['KmsKey']
         data.source_uri = map['SourceURI']
-        data.schedule_configuration = (Parsers::ScheduleConfiguration.parse(map['ScheduleConfiguration']) unless map['ScheduleConfiguration'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.schedule_configuration = (ScheduleConfiguration.parse(map['ScheduleConfiguration']) unless map['ScheduleConfiguration'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -172,8 +172,8 @@ module AWS::SDK::AppIntegrations
         data.description = map['Description']
         data.event_integration_arn = map['EventIntegrationArn']
         data.event_bridge_bus = map['EventBridgeBus']
-        data.event_filter = (Parsers::EventFilter.parse(map['EventFilter']) unless map['EventFilter'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.event_filter = (EventFilter.parse(map['EventFilter']) unless map['EventFilter'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -191,7 +191,7 @@ module AWS::SDK::AppIntegrations
       def self.parse(http_resp)
         data = Types::ListDataIntegrationAssociationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.data_integration_associations = (Parsers::DataIntegrationAssociationsList.parse(map['DataIntegrationAssociations']) unless map['DataIntegrationAssociations'].nil?)
+        data.data_integration_associations = (DataIntegrationAssociationsList.parse(map['DataIntegrationAssociations']) unless map['DataIntegrationAssociations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -201,7 +201,7 @@ module AWS::SDK::AppIntegrations
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataIntegrationAssociationSummary.parse(value) unless value.nil?
+          data << DataIntegrationAssociationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -222,7 +222,7 @@ module AWS::SDK::AppIntegrations
       def self.parse(http_resp)
         data = Types::ListDataIntegrationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.data_integrations = (Parsers::DataIntegrationsList.parse(map['DataIntegrations']) unless map['DataIntegrations'].nil?)
+        data.data_integrations = (DataIntegrationsList.parse(map['DataIntegrations']) unless map['DataIntegrations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -232,7 +232,7 @@ module AWS::SDK::AppIntegrations
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataIntegrationSummary.parse(value) unless value.nil?
+          data << DataIntegrationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -253,7 +253,7 @@ module AWS::SDK::AppIntegrations
       def self.parse(http_resp)
         data = Types::ListEventIntegrationAssociationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.event_integration_associations = (Parsers::EventIntegrationAssociationsList.parse(map['EventIntegrationAssociations']) unless map['EventIntegrationAssociations'].nil?)
+        data.event_integration_associations = (EventIntegrationAssociationsList.parse(map['EventIntegrationAssociations']) unless map['EventIntegrationAssociations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -263,7 +263,7 @@ module AWS::SDK::AppIntegrations
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EventIntegrationAssociation.parse(value) unless value.nil?
+          data << EventIntegrationAssociation.parse(value) unless value.nil?
         end
         data
       end
@@ -277,7 +277,7 @@ module AWS::SDK::AppIntegrations
         data.event_integration_name = map['EventIntegrationName']
         data.client_id = map['ClientId']
         data.event_bridge_rule_name = map['EventBridgeRuleName']
-        data.client_association_metadata = (Parsers::ClientAssociationMetadata.parse(map['ClientAssociationMetadata']) unless map['ClientAssociationMetadata'].nil?)
+        data.client_association_metadata = (ClientAssociationMetadata.parse(map['ClientAssociationMetadata']) unless map['ClientAssociationMetadata'].nil?)
         return data
       end
     end
@@ -297,7 +297,7 @@ module AWS::SDK::AppIntegrations
       def self.parse(http_resp)
         data = Types::ListEventIntegrationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.event_integrations = (Parsers::EventIntegrationsList.parse(map['EventIntegrations']) unless map['EventIntegrations'].nil?)
+        data.event_integrations = (EventIntegrationsList.parse(map['EventIntegrations']) unless map['EventIntegrations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -307,7 +307,7 @@ module AWS::SDK::AppIntegrations
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EventIntegration.parse(value) unless value.nil?
+          data << EventIntegration.parse(value) unless value.nil?
         end
         data
       end
@@ -319,9 +319,9 @@ module AWS::SDK::AppIntegrations
         data.event_integration_arn = map['EventIntegrationArn']
         data.name = map['Name']
         data.description = map['Description']
-        data.event_filter = (Parsers::EventFilter.parse(map['EventFilter']) unless map['EventFilter'].nil?)
+        data.event_filter = (EventFilter.parse(map['EventFilter']) unless map['EventFilter'].nil?)
         data.event_bridge_bus = map['EventBridgeBus']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -331,7 +331,7 @@ module AWS::SDK::AppIntegrations
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end

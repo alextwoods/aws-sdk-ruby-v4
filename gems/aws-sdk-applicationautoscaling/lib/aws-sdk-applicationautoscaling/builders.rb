@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ApplicationAutoScaling
   module Builders
 
@@ -22,7 +24,7 @@ module AWS::SDK::ApplicationAutoScaling
         data['ServiceNamespace'] = input[:service_namespace] unless input[:service_namespace].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['ScalableDimension'] = input[:scalable_dimension] unless input[:scalable_dimension].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -38,7 +40,7 @@ module AWS::SDK::ApplicationAutoScaling
         data['ScheduledActionName'] = input[:scheduled_action_name] unless input[:scheduled_action_name].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['ScalableDimension'] = input[:scalable_dimension] unless input[:scalable_dimension].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -53,7 +55,7 @@ module AWS::SDK::ApplicationAutoScaling
         data['ServiceNamespace'] = input[:service_namespace] unless input[:service_namespace].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['ScalableDimension'] = input[:scalable_dimension] unless input[:scalable_dimension].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -66,11 +68,11 @@ module AWS::SDK::ApplicationAutoScaling
         http_req.headers['X-Amz-Target'] = 'AnyScaleFrontendService.DescribeScalableTargets'
         data = {}
         data['ServiceNamespace'] = input[:service_namespace] unless input[:service_namespace].nil?
-        data['ResourceIds'] = Builders::ResourceIdsMaxLen1600.build(input[:resource_ids]) unless input[:resource_ids].nil?
+        data['ResourceIds'] = ResourceIdsMaxLen1600.build(input[:resource_ids]) unless input[:resource_ids].nil?
         data['ScalableDimension'] = input[:scalable_dimension] unless input[:scalable_dimension].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -98,7 +100,7 @@ module AWS::SDK::ApplicationAutoScaling
         data['ScalableDimension'] = input[:scalable_dimension] unless input[:scalable_dimension].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -110,13 +112,13 @@ module AWS::SDK::ApplicationAutoScaling
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AnyScaleFrontendService.DescribeScalingPolicies'
         data = {}
-        data['PolicyNames'] = Builders::ResourceIdsMaxLen1600.build(input[:policy_names]) unless input[:policy_names].nil?
+        data['PolicyNames'] = ResourceIdsMaxLen1600.build(input[:policy_names]) unless input[:policy_names].nil?
         data['ServiceNamespace'] = input[:service_namespace] unless input[:service_namespace].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['ScalableDimension'] = input[:scalable_dimension] unless input[:scalable_dimension].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -128,13 +130,13 @@ module AWS::SDK::ApplicationAutoScaling
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AnyScaleFrontendService.DescribeScheduledActions'
         data = {}
-        data['ScheduledActionNames'] = Builders::ResourceIdsMaxLen1600.build(input[:scheduled_action_names]) unless input[:scheduled_action_names].nil?
+        data['ScheduledActionNames'] = ResourceIdsMaxLen1600.build(input[:scheduled_action_names]) unless input[:scheduled_action_names].nil?
         data['ServiceNamespace'] = input[:service_namespace] unless input[:service_namespace].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['ScalableDimension'] = input[:scalable_dimension] unless input[:scalable_dimension].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -151,9 +153,9 @@ module AWS::SDK::ApplicationAutoScaling
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['ScalableDimension'] = input[:scalable_dimension] unless input[:scalable_dimension].nil?
         data['PolicyType'] = input[:policy_type] unless input[:policy_type].nil?
-        data['StepScalingPolicyConfiguration'] = Builders::StepScalingPolicyConfiguration.build(input[:step_scaling_policy_configuration]) unless input[:step_scaling_policy_configuration].nil?
-        data['TargetTrackingScalingPolicyConfiguration'] = Builders::TargetTrackingScalingPolicyConfiguration.build(input[:target_tracking_scaling_policy_configuration]) unless input[:target_tracking_scaling_policy_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StepScalingPolicyConfiguration'] = StepScalingPolicyConfiguration.build(input[:step_scaling_policy_configuration]) unless input[:step_scaling_policy_configuration].nil?
+        data['TargetTrackingScalingPolicyConfiguration'] = TargetTrackingScalingPolicyConfiguration.build(input[:target_tracking_scaling_policy_configuration]) unless input[:target_tracking_scaling_policy_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -162,8 +164,8 @@ module AWS::SDK::ApplicationAutoScaling
       def self.build(input)
         data = {}
         data['TargetValue'] = Hearth::NumberHelper.serialize(input[:target_value]) unless input[:target_value].nil?
-        data['PredefinedMetricSpecification'] = Builders::PredefinedMetricSpecification.build(input[:predefined_metric_specification]) unless input[:predefined_metric_specification].nil?
-        data['CustomizedMetricSpecification'] = Builders::CustomizedMetricSpecification.build(input[:customized_metric_specification]) unless input[:customized_metric_specification].nil?
+        data['PredefinedMetricSpecification'] = PredefinedMetricSpecification.build(input[:predefined_metric_specification]) unless input[:predefined_metric_specification].nil?
+        data['CustomizedMetricSpecification'] = CustomizedMetricSpecification.build(input[:customized_metric_specification]) unless input[:customized_metric_specification].nil?
         data['ScaleOutCooldown'] = input[:scale_out_cooldown] unless input[:scale_out_cooldown].nil?
         data['ScaleInCooldown'] = input[:scale_in_cooldown] unless input[:scale_in_cooldown].nil?
         data['DisableScaleIn'] = input[:disable_scale_in] unless input[:disable_scale_in].nil?
@@ -177,7 +179,7 @@ module AWS::SDK::ApplicationAutoScaling
         data = {}
         data['MetricName'] = input[:metric_name] unless input[:metric_name].nil?
         data['Namespace'] = input[:namespace] unless input[:namespace].nil?
-        data['Dimensions'] = Builders::MetricDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
+        data['Dimensions'] = MetricDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
         data['Statistic'] = input[:statistic] unless input[:statistic].nil?
         data['Unit'] = input[:unit] unless input[:unit].nil?
         data
@@ -189,7 +191,7 @@ module AWS::SDK::ApplicationAutoScaling
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MetricDimension.build(element) unless element.nil?
+          data << MetricDimension.build(element) unless element.nil?
         end
         data
       end
@@ -220,7 +222,7 @@ module AWS::SDK::ApplicationAutoScaling
       def self.build(input)
         data = {}
         data['AdjustmentType'] = input[:adjustment_type] unless input[:adjustment_type].nil?
-        data['StepAdjustments'] = Builders::StepAdjustments.build(input[:step_adjustments]) unless input[:step_adjustments].nil?
+        data['StepAdjustments'] = StepAdjustments.build(input[:step_adjustments]) unless input[:step_adjustments].nil?
         data['MinAdjustmentMagnitude'] = input[:min_adjustment_magnitude] unless input[:min_adjustment_magnitude].nil?
         data['Cooldown'] = input[:cooldown] unless input[:cooldown].nil?
         data['MetricAggregationType'] = input[:metric_aggregation_type] unless input[:metric_aggregation_type].nil?
@@ -233,7 +235,7 @@ module AWS::SDK::ApplicationAutoScaling
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StepAdjustment.build(element) unless element.nil?
+          data << StepAdjustment.build(element) unless element.nil?
         end
         data
       end
@@ -266,8 +268,8 @@ module AWS::SDK::ApplicationAutoScaling
         data['ScalableDimension'] = input[:scalable_dimension] unless input[:scalable_dimension].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
-        data['ScalableTargetAction'] = Builders::ScalableTargetAction.build(input[:scalable_target_action]) unless input[:scalable_target_action].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ScalableTargetAction'] = ScalableTargetAction.build(input[:scalable_target_action]) unless input[:scalable_target_action].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -295,8 +297,8 @@ module AWS::SDK::ApplicationAutoScaling
         data['MinCapacity'] = input[:min_capacity] unless input[:min_capacity].nil?
         data['MaxCapacity'] = input[:max_capacity] unless input[:max_capacity].nil?
         data['RoleARN'] = input[:role_arn] unless input[:role_arn].nil?
-        data['SuspendedState'] = Builders::SuspendedState.build(input[:suspended_state]) unless input[:suspended_state].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SuspendedState'] = SuspendedState.build(input[:suspended_state]) unless input[:suspended_state].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

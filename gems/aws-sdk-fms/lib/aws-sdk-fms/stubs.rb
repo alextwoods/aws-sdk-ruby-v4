@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::FMS
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -35,7 +37,7 @@ module AWS::SDK::FMS
       def self.stub(http_resp, stub:)
         data = {}
         data['ThirdPartyFirewallStatus'] = stub[:third_party_firewall_status] unless stub[:third_party_firewall_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -49,7 +51,7 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -63,7 +65,7 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -77,7 +79,7 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -91,7 +93,7 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -105,7 +107,7 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -121,7 +123,7 @@ module AWS::SDK::FMS
       def self.stub(http_resp, stub:)
         data = {}
         data['ThirdPartyFirewallStatus'] = stub[:third_party_firewall_status] unless stub[:third_party_firewall_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -139,7 +141,7 @@ module AWS::SDK::FMS
         data = {}
         data['AdminAccount'] = stub[:admin_account] unless stub[:admin_account].nil?
         data['RoleStatus'] = stub[:role_status] unless stub[:role_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -155,9 +157,9 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AppsList'] = Stubs::AppsListData.stub(stub[:apps_list]) unless stub[:apps_list].nil?
+        data['AppsList'] = AppsListData.stub(stub[:apps_list]) unless stub[:apps_list].nil?
         data['AppsListArn'] = stub[:apps_list_arn] unless stub[:apps_list_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -186,8 +188,8 @@ module AWS::SDK::FMS
         data['ListUpdateToken'] = stub[:list_update_token] unless stub[:list_update_token].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_time]).to_i unless stub[:create_time].nil?
         data['LastUpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_time]).to_i unless stub[:last_update_time].nil?
-        data['AppsList'] = Stubs::AppsList.stub(stub[:apps_list]) unless stub[:apps_list].nil?
-        data['PreviousAppsList'] = Stubs::PreviousAppsList.stub(stub[:previous_apps_list]) unless stub[:previous_apps_list].nil?
+        data['AppsList'] = AppsList.stub(stub[:apps_list]) unless stub[:apps_list].nil?
+        data['PreviousAppsList'] = PreviousAppsList.stub(stub[:previous_apps_list]) unless stub[:previous_apps_list].nil?
         data
       end
     end
@@ -206,7 +208,7 @@ module AWS::SDK::FMS
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::AppsList.stub(value) unless value.nil?
+          data[key] = AppsList.stub(value) unless value.nil?
         end
         data
       end
@@ -226,7 +228,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::App.stub(element) unless element.nil?
+          data << App.stub(element) unless element.nil?
         end
         data
       end
@@ -264,8 +266,8 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PolicyComplianceDetail'] = Stubs::PolicyComplianceDetail.stub(stub[:policy_compliance_detail]) unless stub[:policy_compliance_detail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PolicyComplianceDetail'] = PolicyComplianceDetail.stub(stub[:policy_compliance_detail]) unless stub[:policy_compliance_detail].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -292,10 +294,10 @@ module AWS::SDK::FMS
         data['PolicyOwner'] = stub[:policy_owner] unless stub[:policy_owner].nil?
         data['PolicyId'] = stub[:policy_id] unless stub[:policy_id].nil?
         data['MemberAccount'] = stub[:member_account] unless stub[:member_account].nil?
-        data['Violators'] = Stubs::ComplianceViolators.stub(stub[:violators]) unless stub[:violators].nil?
+        data['Violators'] = ComplianceViolators.stub(stub[:violators]) unless stub[:violators].nil?
         data['EvaluationLimitExceeded'] = stub[:evaluation_limit_exceeded] unless stub[:evaluation_limit_exceeded].nil?
         data['ExpiredAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expired_at]).to_i unless stub[:expired_at].nil?
-        data['IssueInfoMap'] = Stubs::IssueInfoMap.stub(stub[:issue_info_map]) unless stub[:issue_info_map].nil?
+        data['IssueInfoMap'] = IssueInfoMap.stub(stub[:issue_info_map]) unless stub[:issue_info_map].nil?
         data
       end
     end
@@ -334,7 +336,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComplianceViolator.stub(element) unless element.nil?
+          data << ComplianceViolator.stub(element) unless element.nil?
         end
         data
       end
@@ -359,7 +361,7 @@ module AWS::SDK::FMS
         data['ResourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
         data['ViolationReason'] = stub[:violation_reason] unless stub[:violation_reason].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['Metadata'] = Stubs::ComplianceViolatorMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['Metadata'] = ComplianceViolatorMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
         data
       end
     end
@@ -397,7 +399,7 @@ module AWS::SDK::FMS
         data = {}
         data['SnsTopicArn'] = stub[:sns_topic_arn] unless stub[:sns_topic_arn].nil?
         data['SnsRoleName'] = stub[:sns_role_name] unless stub[:sns_role_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -413,9 +415,9 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Policy'] = Stubs::Policy.stub(stub[:policy]) unless stub[:policy].nil?
+        data['Policy'] = Policy.stub(stub[:policy]) unless stub[:policy].nil?
         data['PolicyArn'] = stub[:policy_arn] unless stub[:policy_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -447,15 +449,15 @@ module AWS::SDK::FMS
         data['PolicyId'] = stub[:policy_id] unless stub[:policy_id].nil?
         data['PolicyName'] = stub[:policy_name] unless stub[:policy_name].nil?
         data['PolicyUpdateToken'] = stub[:policy_update_token] unless stub[:policy_update_token].nil?
-        data['SecurityServicePolicyData'] = Stubs::SecurityServicePolicyData.stub(stub[:security_service_policy_data]) unless stub[:security_service_policy_data].nil?
+        data['SecurityServicePolicyData'] = SecurityServicePolicyData.stub(stub[:security_service_policy_data]) unless stub[:security_service_policy_data].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['ResourceTypeList'] = Stubs::ResourceTypeList.stub(stub[:resource_type_list]) unless stub[:resource_type_list].nil?
-        data['ResourceTags'] = Stubs::ResourceTags.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
+        data['ResourceTypeList'] = ResourceTypeList.stub(stub[:resource_type_list]) unless stub[:resource_type_list].nil?
+        data['ResourceTags'] = ResourceTags.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
         data['ExcludeResourceTags'] = stub[:exclude_resource_tags] unless stub[:exclude_resource_tags].nil?
         data['RemediationEnabled'] = stub[:remediation_enabled] unless stub[:remediation_enabled].nil?
         data['DeleteUnusedFMManagedResources'] = stub[:delete_unused_fm_managed_resources] unless stub[:delete_unused_fm_managed_resources].nil?
-        data['IncludeMap'] = Stubs::CustomerPolicyScopeMap.stub(stub[:include_map]) unless stub[:include_map].nil?
-        data['ExcludeMap'] = Stubs::CustomerPolicyScopeMap.stub(stub[:exclude_map]) unless stub[:exclude_map].nil?
+        data['IncludeMap'] = CustomerPolicyScopeMap.stub(stub[:include_map]) unless stub[:include_map].nil?
+        data['ExcludeMap'] = CustomerPolicyScopeMap.stub(stub[:exclude_map]) unless stub[:exclude_map].nil?
         data
       end
     end
@@ -474,7 +476,7 @@ module AWS::SDK::FMS
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::CustomerPolicyScopeIdList.stub(value) unless value.nil?
+          data[key] = CustomerPolicyScopeIdList.stub(value) unless value.nil?
         end
         data
       end
@@ -514,7 +516,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceTag.stub(element) unless element.nil?
+          data << ResourceTag.stub(element) unless element.nil?
         end
         data
       end
@@ -577,7 +579,7 @@ module AWS::SDK::FMS
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['ManagedServiceData'] = stub[:managed_service_data] unless stub[:managed_service_data].nil?
-        data['PolicyOption'] = Stubs::PolicyOption.stub(stub[:policy_option]) unless stub[:policy_option].nil?
+        data['PolicyOption'] = PolicyOption.stub(stub[:policy_option]) unless stub[:policy_option].nil?
         data
       end
     end
@@ -596,8 +598,8 @@ module AWS::SDK::FMS
       def self.stub(stub)
         stub ||= Types::PolicyOption.new
         data = {}
-        data['NetworkFirewallPolicy'] = Stubs::NetworkFirewallPolicy.stub(stub[:network_firewall_policy]) unless stub[:network_firewall_policy].nil?
-        data['ThirdPartyFirewallPolicy'] = Stubs::ThirdPartyFirewallPolicy.stub(stub[:third_party_firewall_policy]) unless stub[:third_party_firewall_policy].nil?
+        data['NetworkFirewallPolicy'] = NetworkFirewallPolicy.stub(stub[:network_firewall_policy]) unless stub[:network_firewall_policy].nil?
+        data['ThirdPartyFirewallPolicy'] = ThirdPartyFirewallPolicy.stub(stub[:third_party_firewall_policy]) unless stub[:third_party_firewall_policy].nil?
         data
       end
     end
@@ -655,7 +657,7 @@ module AWS::SDK::FMS
         data['ServiceType'] = stub[:service_type] unless stub[:service_type].nil?
         data['Data'] = stub[:data] unless stub[:data].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -671,9 +673,9 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProtocolsList'] = Stubs::ProtocolsListData.stub(stub[:protocols_list]) unless stub[:protocols_list].nil?
+        data['ProtocolsList'] = ProtocolsListData.stub(stub[:protocols_list]) unless stub[:protocols_list].nil?
         data['ProtocolsListArn'] = stub[:protocols_list_arn] unless stub[:protocols_list_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -702,8 +704,8 @@ module AWS::SDK::FMS
         data['ListUpdateToken'] = stub[:list_update_token] unless stub[:list_update_token].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_time]).to_i unless stub[:create_time].nil?
         data['LastUpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_time]).to_i unless stub[:last_update_time].nil?
-        data['ProtocolsList'] = Stubs::ProtocolsList.stub(stub[:protocols_list]) unless stub[:protocols_list].nil?
-        data['PreviousProtocolsList'] = Stubs::PreviousProtocolsList.stub(stub[:previous_protocols_list]) unless stub[:previous_protocols_list].nil?
+        data['ProtocolsList'] = ProtocolsList.stub(stub[:protocols_list]) unless stub[:protocols_list].nil?
+        data['PreviousProtocolsList'] = PreviousProtocolsList.stub(stub[:previous_protocols_list]) unless stub[:previous_protocols_list].nil?
         data
       end
     end
@@ -722,7 +724,7 @@ module AWS::SDK::FMS
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ProtocolsList.stub(value) unless value.nil?
+          data[key] = ProtocolsList.stub(value) unless value.nil?
         end
         data
       end
@@ -761,7 +763,7 @@ module AWS::SDK::FMS
         data = {}
         data['ThirdPartyFirewallStatus'] = stub[:third_party_firewall_status] unless stub[:third_party_firewall_status].nil?
         data['MarketplaceOnboardingStatus'] = stub[:marketplace_onboarding_status] unless stub[:marketplace_onboarding_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -776,8 +778,8 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ViolationDetail'] = Stubs::ViolationDetail.stub(stub[:violation_detail]) unless stub[:violation_detail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ViolationDetail'] = ViolationDetail.stub(stub[:violation_detail]) unless stub[:violation_detail].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -805,8 +807,8 @@ module AWS::SDK::FMS
         data['MemberAccount'] = stub[:member_account] unless stub[:member_account].nil?
         data['ResourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['ResourceViolations'] = Stubs::ResourceViolations.stub(stub[:resource_violations]) unless stub[:resource_violations].nil?
-        data['ResourceTags'] = Stubs::TagList.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
+        data['ResourceViolations'] = ResourceViolations.stub(stub[:resource_violations]) unless stub[:resource_violations].nil?
+        data['ResourceTags'] = TagList.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
         data['ResourceDescription'] = stub[:resource_description] unless stub[:resource_description].nil?
         data
       end
@@ -826,7 +828,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -866,7 +868,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceViolation.stub(element) unless element.nil?
+          data << ResourceViolation.stub(element) unless element.nil?
         end
         data
       end
@@ -907,29 +909,29 @@ module AWS::SDK::FMS
       def self.stub(stub)
         stub ||= Types::ResourceViolation.new
         data = {}
-        data['AwsVPCSecurityGroupViolation'] = Stubs::AwsVPCSecurityGroupViolation.stub(stub[:aws_vpc_security_group_violation]) unless stub[:aws_vpc_security_group_violation].nil?
-        data['AwsEc2NetworkInterfaceViolation'] = Stubs::AwsEc2NetworkInterfaceViolation.stub(stub[:aws_ec2_network_interface_violation]) unless stub[:aws_ec2_network_interface_violation].nil?
-        data['AwsEc2InstanceViolation'] = Stubs::AwsEc2InstanceViolation.stub(stub[:aws_ec2_instance_violation]) unless stub[:aws_ec2_instance_violation].nil?
-        data['NetworkFirewallMissingFirewallViolation'] = Stubs::NetworkFirewallMissingFirewallViolation.stub(stub[:network_firewall_missing_firewall_violation]) unless stub[:network_firewall_missing_firewall_violation].nil?
-        data['NetworkFirewallMissingSubnetViolation'] = Stubs::NetworkFirewallMissingSubnetViolation.stub(stub[:network_firewall_missing_subnet_violation]) unless stub[:network_firewall_missing_subnet_violation].nil?
-        data['NetworkFirewallMissingExpectedRTViolation'] = Stubs::NetworkFirewallMissingExpectedRTViolation.stub(stub[:network_firewall_missing_expected_rt_violation]) unless stub[:network_firewall_missing_expected_rt_violation].nil?
-        data['NetworkFirewallPolicyModifiedViolation'] = Stubs::NetworkFirewallPolicyModifiedViolation.stub(stub[:network_firewall_policy_modified_violation]) unless stub[:network_firewall_policy_modified_violation].nil?
-        data['NetworkFirewallInternetTrafficNotInspectedViolation'] = Stubs::NetworkFirewallInternetTrafficNotInspectedViolation.stub(stub[:network_firewall_internet_traffic_not_inspected_violation]) unless stub[:network_firewall_internet_traffic_not_inspected_violation].nil?
-        data['NetworkFirewallInvalidRouteConfigurationViolation'] = Stubs::NetworkFirewallInvalidRouteConfigurationViolation.stub(stub[:network_firewall_invalid_route_configuration_violation]) unless stub[:network_firewall_invalid_route_configuration_violation].nil?
-        data['NetworkFirewallBlackHoleRouteDetectedViolation'] = Stubs::NetworkFirewallBlackHoleRouteDetectedViolation.stub(stub[:network_firewall_black_hole_route_detected_violation]) unless stub[:network_firewall_black_hole_route_detected_violation].nil?
-        data['NetworkFirewallUnexpectedFirewallRoutesViolation'] = Stubs::NetworkFirewallUnexpectedFirewallRoutesViolation.stub(stub[:network_firewall_unexpected_firewall_routes_violation]) unless stub[:network_firewall_unexpected_firewall_routes_violation].nil?
-        data['NetworkFirewallUnexpectedGatewayRoutesViolation'] = Stubs::NetworkFirewallUnexpectedGatewayRoutesViolation.stub(stub[:network_firewall_unexpected_gateway_routes_violation]) unless stub[:network_firewall_unexpected_gateway_routes_violation].nil?
-        data['NetworkFirewallMissingExpectedRoutesViolation'] = Stubs::NetworkFirewallMissingExpectedRoutesViolation.stub(stub[:network_firewall_missing_expected_routes_violation]) unless stub[:network_firewall_missing_expected_routes_violation].nil?
-        data['DnsRuleGroupPriorityConflictViolation'] = Stubs::DnsRuleGroupPriorityConflictViolation.stub(stub[:dns_rule_group_priority_conflict_violation]) unless stub[:dns_rule_group_priority_conflict_violation].nil?
-        data['DnsDuplicateRuleGroupViolation'] = Stubs::DnsDuplicateRuleGroupViolation.stub(stub[:dns_duplicate_rule_group_violation]) unless stub[:dns_duplicate_rule_group_violation].nil?
-        data['DnsRuleGroupLimitExceededViolation'] = Stubs::DnsRuleGroupLimitExceededViolation.stub(stub[:dns_rule_group_limit_exceeded_violation]) unless stub[:dns_rule_group_limit_exceeded_violation].nil?
-        data['PossibleRemediationActions'] = Stubs::PossibleRemediationActions.stub(stub[:possible_remediation_actions]) unless stub[:possible_remediation_actions].nil?
-        data['FirewallSubnetIsOutOfScopeViolation'] = Stubs::FirewallSubnetIsOutOfScopeViolation.stub(stub[:firewall_subnet_is_out_of_scope_violation]) unless stub[:firewall_subnet_is_out_of_scope_violation].nil?
-        data['RouteHasOutOfScopeEndpointViolation'] = Stubs::RouteHasOutOfScopeEndpointViolation.stub(stub[:route_has_out_of_scope_endpoint_violation]) unless stub[:route_has_out_of_scope_endpoint_violation].nil?
-        data['ThirdPartyFirewallMissingFirewallViolation'] = Stubs::ThirdPartyFirewallMissingFirewallViolation.stub(stub[:third_party_firewall_missing_firewall_violation]) unless stub[:third_party_firewall_missing_firewall_violation].nil?
-        data['ThirdPartyFirewallMissingSubnetViolation'] = Stubs::ThirdPartyFirewallMissingSubnetViolation.stub(stub[:third_party_firewall_missing_subnet_violation]) unless stub[:third_party_firewall_missing_subnet_violation].nil?
-        data['ThirdPartyFirewallMissingExpectedRouteTableViolation'] = Stubs::ThirdPartyFirewallMissingExpectedRouteTableViolation.stub(stub[:third_party_firewall_missing_expected_route_table_violation]) unless stub[:third_party_firewall_missing_expected_route_table_violation].nil?
-        data['FirewallSubnetMissingVPCEndpointViolation'] = Stubs::FirewallSubnetMissingVPCEndpointViolation.stub(stub[:firewall_subnet_missing_vpc_endpoint_violation]) unless stub[:firewall_subnet_missing_vpc_endpoint_violation].nil?
+        data['AwsVPCSecurityGroupViolation'] = AwsVPCSecurityGroupViolation.stub(stub[:aws_vpc_security_group_violation]) unless stub[:aws_vpc_security_group_violation].nil?
+        data['AwsEc2NetworkInterfaceViolation'] = AwsEc2NetworkInterfaceViolation.stub(stub[:aws_ec2_network_interface_violation]) unless stub[:aws_ec2_network_interface_violation].nil?
+        data['AwsEc2InstanceViolation'] = AwsEc2InstanceViolation.stub(stub[:aws_ec2_instance_violation]) unless stub[:aws_ec2_instance_violation].nil?
+        data['NetworkFirewallMissingFirewallViolation'] = NetworkFirewallMissingFirewallViolation.stub(stub[:network_firewall_missing_firewall_violation]) unless stub[:network_firewall_missing_firewall_violation].nil?
+        data['NetworkFirewallMissingSubnetViolation'] = NetworkFirewallMissingSubnetViolation.stub(stub[:network_firewall_missing_subnet_violation]) unless stub[:network_firewall_missing_subnet_violation].nil?
+        data['NetworkFirewallMissingExpectedRTViolation'] = NetworkFirewallMissingExpectedRTViolation.stub(stub[:network_firewall_missing_expected_rt_violation]) unless stub[:network_firewall_missing_expected_rt_violation].nil?
+        data['NetworkFirewallPolicyModifiedViolation'] = NetworkFirewallPolicyModifiedViolation.stub(stub[:network_firewall_policy_modified_violation]) unless stub[:network_firewall_policy_modified_violation].nil?
+        data['NetworkFirewallInternetTrafficNotInspectedViolation'] = NetworkFirewallInternetTrafficNotInspectedViolation.stub(stub[:network_firewall_internet_traffic_not_inspected_violation]) unless stub[:network_firewall_internet_traffic_not_inspected_violation].nil?
+        data['NetworkFirewallInvalidRouteConfigurationViolation'] = NetworkFirewallInvalidRouteConfigurationViolation.stub(stub[:network_firewall_invalid_route_configuration_violation]) unless stub[:network_firewall_invalid_route_configuration_violation].nil?
+        data['NetworkFirewallBlackHoleRouteDetectedViolation'] = NetworkFirewallBlackHoleRouteDetectedViolation.stub(stub[:network_firewall_black_hole_route_detected_violation]) unless stub[:network_firewall_black_hole_route_detected_violation].nil?
+        data['NetworkFirewallUnexpectedFirewallRoutesViolation'] = NetworkFirewallUnexpectedFirewallRoutesViolation.stub(stub[:network_firewall_unexpected_firewall_routes_violation]) unless stub[:network_firewall_unexpected_firewall_routes_violation].nil?
+        data['NetworkFirewallUnexpectedGatewayRoutesViolation'] = NetworkFirewallUnexpectedGatewayRoutesViolation.stub(stub[:network_firewall_unexpected_gateway_routes_violation]) unless stub[:network_firewall_unexpected_gateway_routes_violation].nil?
+        data['NetworkFirewallMissingExpectedRoutesViolation'] = NetworkFirewallMissingExpectedRoutesViolation.stub(stub[:network_firewall_missing_expected_routes_violation]) unless stub[:network_firewall_missing_expected_routes_violation].nil?
+        data['DnsRuleGroupPriorityConflictViolation'] = DnsRuleGroupPriorityConflictViolation.stub(stub[:dns_rule_group_priority_conflict_violation]) unless stub[:dns_rule_group_priority_conflict_violation].nil?
+        data['DnsDuplicateRuleGroupViolation'] = DnsDuplicateRuleGroupViolation.stub(stub[:dns_duplicate_rule_group_violation]) unless stub[:dns_duplicate_rule_group_violation].nil?
+        data['DnsRuleGroupLimitExceededViolation'] = DnsRuleGroupLimitExceededViolation.stub(stub[:dns_rule_group_limit_exceeded_violation]) unless stub[:dns_rule_group_limit_exceeded_violation].nil?
+        data['PossibleRemediationActions'] = PossibleRemediationActions.stub(stub[:possible_remediation_actions]) unless stub[:possible_remediation_actions].nil?
+        data['FirewallSubnetIsOutOfScopeViolation'] = FirewallSubnetIsOutOfScopeViolation.stub(stub[:firewall_subnet_is_out_of_scope_violation]) unless stub[:firewall_subnet_is_out_of_scope_violation].nil?
+        data['RouteHasOutOfScopeEndpointViolation'] = RouteHasOutOfScopeEndpointViolation.stub(stub[:route_has_out_of_scope_endpoint_violation]) unless stub[:route_has_out_of_scope_endpoint_violation].nil?
+        data['ThirdPartyFirewallMissingFirewallViolation'] = ThirdPartyFirewallMissingFirewallViolation.stub(stub[:third_party_firewall_missing_firewall_violation]) unless stub[:third_party_firewall_missing_firewall_violation].nil?
+        data['ThirdPartyFirewallMissingSubnetViolation'] = ThirdPartyFirewallMissingSubnetViolation.stub(stub[:third_party_firewall_missing_subnet_violation]) unless stub[:third_party_firewall_missing_subnet_violation].nil?
+        data['ThirdPartyFirewallMissingExpectedRouteTableViolation'] = ThirdPartyFirewallMissingExpectedRouteTableViolation.stub(stub[:third_party_firewall_missing_expected_route_table_violation]) unless stub[:third_party_firewall_missing_expected_route_table_violation].nil?
+        data['FirewallSubnetMissingVPCEndpointViolation'] = FirewallSubnetMissingVPCEndpointViolation.stub(stub[:firewall_subnet_missing_vpc_endpoint_violation]) unless stub[:firewall_subnet_missing_vpc_endpoint_violation].nil?
         data
       end
     end
@@ -1059,15 +1061,15 @@ module AWS::SDK::FMS
         data['SubnetId'] = stub[:subnet_id] unless stub[:subnet_id].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['RouteTableId'] = stub[:route_table_id] unless stub[:route_table_id].nil?
-        data['ViolatingRoutes'] = Stubs::Routes.stub(stub[:violating_routes]) unless stub[:violating_routes].nil?
+        data['ViolatingRoutes'] = Routes.stub(stub[:violating_routes]) unless stub[:violating_routes].nil?
         data['SubnetAvailabilityZone'] = stub[:subnet_availability_zone] unless stub[:subnet_availability_zone].nil?
         data['SubnetAvailabilityZoneId'] = stub[:subnet_availability_zone_id] unless stub[:subnet_availability_zone_id].nil?
         data['CurrentFirewallSubnetRouteTable'] = stub[:current_firewall_subnet_route_table] unless stub[:current_firewall_subnet_route_table].nil?
         data['FirewallSubnetId'] = stub[:firewall_subnet_id] unless stub[:firewall_subnet_id].nil?
-        data['FirewallSubnetRoutes'] = Stubs::Routes.stub(stub[:firewall_subnet_routes]) unless stub[:firewall_subnet_routes].nil?
+        data['FirewallSubnetRoutes'] = Routes.stub(stub[:firewall_subnet_routes]) unless stub[:firewall_subnet_routes].nil?
         data['InternetGatewayId'] = stub[:internet_gateway_id] unless stub[:internet_gateway_id].nil?
         data['CurrentInternetGatewayRouteTable'] = stub[:current_internet_gateway_route_table] unless stub[:current_internet_gateway_route_table].nil?
-        data['InternetGatewayRoutes'] = Stubs::Routes.stub(stub[:internet_gateway_routes]) unless stub[:internet_gateway_routes].nil?
+        data['InternetGatewayRoutes'] = Routes.stub(stub[:internet_gateway_routes]) unless stub[:internet_gateway_routes].nil?
         data
       end
     end
@@ -1086,7 +1088,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Route.stub(element) unless element.nil?
+          data << Route.stub(element) unless element.nil?
         end
         data
       end
@@ -1157,7 +1159,7 @@ module AWS::SDK::FMS
         stub ||= Types::PossibleRemediationActions.new
         data = {}
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Actions'] = Stubs::PossibleRemediationActionList.stub(stub[:actions]) unless stub[:actions].nil?
+        data['Actions'] = PossibleRemediationActionList.stub(stub[:actions]) unless stub[:actions].nil?
         data
       end
     end
@@ -1176,7 +1178,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PossibleRemediationAction.stub(element) unless element.nil?
+          data << PossibleRemediationAction.stub(element) unless element.nil?
         end
         data
       end
@@ -1198,7 +1200,7 @@ module AWS::SDK::FMS
         stub ||= Types::PossibleRemediationAction.new
         data = {}
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['OrderedRemediationActions'] = Stubs::OrderedRemediationActions.stub(stub[:ordered_remediation_actions]) unless stub[:ordered_remediation_actions].nil?
+        data['OrderedRemediationActions'] = OrderedRemediationActions.stub(stub[:ordered_remediation_actions]) unless stub[:ordered_remediation_actions].nil?
         data['IsDefaultAction'] = stub[:is_default_action] unless stub[:is_default_action].nil?
         data
       end
@@ -1218,7 +1220,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RemediationActionWithOrder.stub(element) unless element.nil?
+          data << RemediationActionWithOrder.stub(element) unless element.nil?
         end
         data
       end
@@ -1238,7 +1240,7 @@ module AWS::SDK::FMS
       def self.stub(stub)
         stub ||= Types::RemediationActionWithOrder.new
         data = {}
-        data['RemediationAction'] = Stubs::RemediationAction.stub(stub[:remediation_action]) unless stub[:remediation_action].nil?
+        data['RemediationAction'] = RemediationAction.stub(stub[:remediation_action]) unless stub[:remediation_action].nil?
         data['Order'] = stub[:order] unless stub[:order].nil?
         data
       end
@@ -1266,14 +1268,14 @@ module AWS::SDK::FMS
         stub ||= Types::RemediationAction.new
         data = {}
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['EC2CreateRouteAction'] = Stubs::EC2CreateRouteAction.stub(stub[:ec2_create_route_action]) unless stub[:ec2_create_route_action].nil?
-        data['EC2ReplaceRouteAction'] = Stubs::EC2ReplaceRouteAction.stub(stub[:ec2_replace_route_action]) unless stub[:ec2_replace_route_action].nil?
-        data['EC2DeleteRouteAction'] = Stubs::EC2DeleteRouteAction.stub(stub[:ec2_delete_route_action]) unless stub[:ec2_delete_route_action].nil?
-        data['EC2CopyRouteTableAction'] = Stubs::EC2CopyRouteTableAction.stub(stub[:ec2_copy_route_table_action]) unless stub[:ec2_copy_route_table_action].nil?
-        data['EC2ReplaceRouteTableAssociationAction'] = Stubs::EC2ReplaceRouteTableAssociationAction.stub(stub[:ec2_replace_route_table_association_action]) unless stub[:ec2_replace_route_table_association_action].nil?
-        data['EC2AssociateRouteTableAction'] = Stubs::EC2AssociateRouteTableAction.stub(stub[:ec2_associate_route_table_action]) unless stub[:ec2_associate_route_table_action].nil?
-        data['EC2CreateRouteTableAction'] = Stubs::EC2CreateRouteTableAction.stub(stub[:ec2_create_route_table_action]) unless stub[:ec2_create_route_table_action].nil?
-        data['FMSPolicyUpdateFirewallCreationConfigAction'] = Stubs::FMSPolicyUpdateFirewallCreationConfigAction.stub(stub[:fms_policy_update_firewall_creation_config_action]) unless stub[:fms_policy_update_firewall_creation_config_action].nil?
+        data['EC2CreateRouteAction'] = EC2CreateRouteAction.stub(stub[:ec2_create_route_action]) unless stub[:ec2_create_route_action].nil?
+        data['EC2ReplaceRouteAction'] = EC2ReplaceRouteAction.stub(stub[:ec2_replace_route_action]) unless stub[:ec2_replace_route_action].nil?
+        data['EC2DeleteRouteAction'] = EC2DeleteRouteAction.stub(stub[:ec2_delete_route_action]) unless stub[:ec2_delete_route_action].nil?
+        data['EC2CopyRouteTableAction'] = EC2CopyRouteTableAction.stub(stub[:ec2_copy_route_table_action]) unless stub[:ec2_copy_route_table_action].nil?
+        data['EC2ReplaceRouteTableAssociationAction'] = EC2ReplaceRouteTableAssociationAction.stub(stub[:ec2_replace_route_table_association_action]) unless stub[:ec2_replace_route_table_association_action].nil?
+        data['EC2AssociateRouteTableAction'] = EC2AssociateRouteTableAction.stub(stub[:ec2_associate_route_table_action]) unless stub[:ec2_associate_route_table_action].nil?
+        data['EC2CreateRouteTableAction'] = EC2CreateRouteTableAction.stub(stub[:ec2_create_route_table_action]) unless stub[:ec2_create_route_table_action].nil?
+        data['FMSPolicyUpdateFirewallCreationConfigAction'] = FMSPolicyUpdateFirewallCreationConfigAction.stub(stub[:fms_policy_update_firewall_creation_config_action]) unless stub[:fms_policy_update_firewall_creation_config_action].nil?
         data
       end
     end
@@ -1313,7 +1315,7 @@ module AWS::SDK::FMS
         stub ||= Types::EC2CreateRouteTableAction.new
         data = {}
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['VpcId'] = Stubs::ActionTarget.stub(stub[:vpc_id]) unless stub[:vpc_id].nil?
+        data['VpcId'] = ActionTarget.stub(stub[:vpc_id]) unless stub[:vpc_id].nil?
         data
       end
     end
@@ -1355,9 +1357,9 @@ module AWS::SDK::FMS
         stub ||= Types::EC2AssociateRouteTableAction.new
         data = {}
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['RouteTableId'] = Stubs::ActionTarget.stub(stub[:route_table_id]) unless stub[:route_table_id].nil?
-        data['SubnetId'] = Stubs::ActionTarget.stub(stub[:subnet_id]) unless stub[:subnet_id].nil?
-        data['GatewayId'] = Stubs::ActionTarget.stub(stub[:gateway_id]) unless stub[:gateway_id].nil?
+        data['RouteTableId'] = ActionTarget.stub(stub[:route_table_id]) unless stub[:route_table_id].nil?
+        data['SubnetId'] = ActionTarget.stub(stub[:subnet_id]) unless stub[:subnet_id].nil?
+        data['GatewayId'] = ActionTarget.stub(stub[:gateway_id]) unless stub[:gateway_id].nil?
         data
       end
     end
@@ -1378,8 +1380,8 @@ module AWS::SDK::FMS
         stub ||= Types::EC2ReplaceRouteTableAssociationAction.new
         data = {}
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['AssociationId'] = Stubs::ActionTarget.stub(stub[:association_id]) unless stub[:association_id].nil?
-        data['RouteTableId'] = Stubs::ActionTarget.stub(stub[:route_table_id]) unless stub[:route_table_id].nil?
+        data['AssociationId'] = ActionTarget.stub(stub[:association_id]) unless stub[:association_id].nil?
+        data['RouteTableId'] = ActionTarget.stub(stub[:route_table_id]) unless stub[:route_table_id].nil?
         data
       end
     end
@@ -1400,8 +1402,8 @@ module AWS::SDK::FMS
         stub ||= Types::EC2CopyRouteTableAction.new
         data = {}
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['VpcId'] = Stubs::ActionTarget.stub(stub[:vpc_id]) unless stub[:vpc_id].nil?
-        data['RouteTableId'] = Stubs::ActionTarget.stub(stub[:route_table_id]) unless stub[:route_table_id].nil?
+        data['VpcId'] = ActionTarget.stub(stub[:vpc_id]) unless stub[:vpc_id].nil?
+        data['RouteTableId'] = ActionTarget.stub(stub[:route_table_id]) unless stub[:route_table_id].nil?
         data
       end
     end
@@ -1427,7 +1429,7 @@ module AWS::SDK::FMS
         data['DestinationCidrBlock'] = stub[:destination_cidr_block] unless stub[:destination_cidr_block].nil?
         data['DestinationPrefixListId'] = stub[:destination_prefix_list_id] unless stub[:destination_prefix_list_id].nil?
         data['DestinationIpv6CidrBlock'] = stub[:destination_ipv6_cidr_block] unless stub[:destination_ipv6_cidr_block].nil?
-        data['RouteTableId'] = Stubs::ActionTarget.stub(stub[:route_table_id]) unless stub[:route_table_id].nil?
+        data['RouteTableId'] = ActionTarget.stub(stub[:route_table_id]) unless stub[:route_table_id].nil?
         data
       end
     end
@@ -1454,8 +1456,8 @@ module AWS::SDK::FMS
         data['DestinationCidrBlock'] = stub[:destination_cidr_block] unless stub[:destination_cidr_block].nil?
         data['DestinationPrefixListId'] = stub[:destination_prefix_list_id] unless stub[:destination_prefix_list_id].nil?
         data['DestinationIpv6CidrBlock'] = stub[:destination_ipv6_cidr_block] unless stub[:destination_ipv6_cidr_block].nil?
-        data['GatewayId'] = Stubs::ActionTarget.stub(stub[:gateway_id]) unless stub[:gateway_id].nil?
-        data['RouteTableId'] = Stubs::ActionTarget.stub(stub[:route_table_id]) unless stub[:route_table_id].nil?
+        data['GatewayId'] = ActionTarget.stub(stub[:gateway_id]) unless stub[:gateway_id].nil?
+        data['RouteTableId'] = ActionTarget.stub(stub[:route_table_id]) unless stub[:route_table_id].nil?
         data
       end
     end
@@ -1483,9 +1485,9 @@ module AWS::SDK::FMS
         data['DestinationCidrBlock'] = stub[:destination_cidr_block] unless stub[:destination_cidr_block].nil?
         data['DestinationPrefixListId'] = stub[:destination_prefix_list_id] unless stub[:destination_prefix_list_id].nil?
         data['DestinationIpv6CidrBlock'] = stub[:destination_ipv6_cidr_block] unless stub[:destination_ipv6_cidr_block].nil?
-        data['VpcEndpointId'] = Stubs::ActionTarget.stub(stub[:vpc_endpoint_id]) unless stub[:vpc_endpoint_id].nil?
-        data['GatewayId'] = Stubs::ActionTarget.stub(stub[:gateway_id]) unless stub[:gateway_id].nil?
-        data['RouteTableId'] = Stubs::ActionTarget.stub(stub[:route_table_id]) unless stub[:route_table_id].nil?
+        data['VpcEndpointId'] = ActionTarget.stub(stub[:vpc_endpoint_id]) unless stub[:vpc_endpoint_id].nil?
+        data['GatewayId'] = ActionTarget.stub(stub[:gateway_id]) unless stub[:gateway_id].nil?
+        data['RouteTableId'] = ActionTarget.stub(stub[:route_table_id]) unless stub[:route_table_id].nil?
         data
       end
     end
@@ -1553,7 +1555,7 @@ module AWS::SDK::FMS
         data['ViolationTargetDescription'] = stub[:violation_target_description] unless stub[:violation_target_description].nil?
         data['ConflictingPriority'] = stub[:conflicting_priority] unless stub[:conflicting_priority].nil?
         data['ConflictingPolicyId'] = stub[:conflicting_policy_id] unless stub[:conflicting_policy_id].nil?
-        data['UnavailablePriorities'] = Stubs::DnsRuleGroupPriorities.stub(stub[:unavailable_priorities]) unless stub[:unavailable_priorities].nil?
+        data['UnavailablePriorities'] = DnsRuleGroupPriorities.stub(stub[:unavailable_priorities]) unless stub[:unavailable_priorities].nil?
         data
       end
     end
@@ -1594,7 +1596,7 @@ module AWS::SDK::FMS
         stub ||= Types::NetworkFirewallMissingExpectedRoutesViolation.new
         data = {}
         data['ViolationTarget'] = stub[:violation_target] unless stub[:violation_target].nil?
-        data['ExpectedRoutes'] = Stubs::ExpectedRoutes.stub(stub[:expected_routes]) unless stub[:expected_routes].nil?
+        data['ExpectedRoutes'] = ExpectedRoutes.stub(stub[:expected_routes]) unless stub[:expected_routes].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data
       end
@@ -1614,7 +1616,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExpectedRoute.stub(element) unless element.nil?
+          data << ExpectedRoute.stub(element) unless element.nil?
         end
         data
       end
@@ -1641,8 +1643,8 @@ module AWS::SDK::FMS
         data['IpV4Cidr'] = stub[:ip_v4_cidr] unless stub[:ip_v4_cidr].nil?
         data['PrefixListId'] = stub[:prefix_list_id] unless stub[:prefix_list_id].nil?
         data['IpV6Cidr'] = stub[:ip_v6_cidr] unless stub[:ip_v6_cidr].nil?
-        data['ContributingSubnets'] = Stubs::ResourceIdList.stub(stub[:contributing_subnets]) unless stub[:contributing_subnets].nil?
-        data['AllowedTargets'] = Stubs::LengthBoundedStringList.stub(stub[:allowed_targets]) unless stub[:allowed_targets].nil?
+        data['ContributingSubnets'] = ResourceIdList.stub(stub[:contributing_subnets]) unless stub[:contributing_subnets].nil?
+        data['AllowedTargets'] = LengthBoundedStringList.stub(stub[:allowed_targets]) unless stub[:allowed_targets].nil?
         data['RouteTableId'] = stub[:route_table_id] unless stub[:route_table_id].nil?
         data
       end
@@ -1705,7 +1707,7 @@ module AWS::SDK::FMS
         stub ||= Types::NetworkFirewallUnexpectedGatewayRoutesViolation.new
         data = {}
         data['GatewayId'] = stub[:gateway_id] unless stub[:gateway_id].nil?
-        data['ViolatingRoutes'] = Stubs::Routes.stub(stub[:violating_routes]) unless stub[:violating_routes].nil?
+        data['ViolatingRoutes'] = Routes.stub(stub[:violating_routes]) unless stub[:violating_routes].nil?
         data['RouteTableId'] = stub[:route_table_id] unless stub[:route_table_id].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data
@@ -1730,7 +1732,7 @@ module AWS::SDK::FMS
         stub ||= Types::NetworkFirewallUnexpectedFirewallRoutesViolation.new
         data = {}
         data['FirewallSubnetId'] = stub[:firewall_subnet_id] unless stub[:firewall_subnet_id].nil?
-        data['ViolatingRoutes'] = Stubs::Routes.stub(stub[:violating_routes]) unless stub[:violating_routes].nil?
+        data['ViolatingRoutes'] = Routes.stub(stub[:violating_routes]) unless stub[:violating_routes].nil?
         data['RouteTableId'] = stub[:route_table_id] unless stub[:route_table_id].nil?
         data['FirewallEndpoint'] = stub[:firewall_endpoint] unless stub[:firewall_endpoint].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
@@ -1757,7 +1759,7 @@ module AWS::SDK::FMS
         data['ViolationTarget'] = stub[:violation_target] unless stub[:violation_target].nil?
         data['RouteTableId'] = stub[:route_table_id] unless stub[:route_table_id].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['ViolatingRoutes'] = Stubs::Routes.stub(stub[:violating_routes]) unless stub[:violating_routes].nil?
+        data['ViolatingRoutes'] = Routes.stub(stub[:violating_routes]) unless stub[:violating_routes].nil?
         data
       end
     end
@@ -1790,21 +1792,21 @@ module AWS::SDK::FMS
       def self.stub(stub)
         stub ||= Types::NetworkFirewallInvalidRouteConfigurationViolation.new
         data = {}
-        data['AffectedSubnets'] = Stubs::ResourceIdList.stub(stub[:affected_subnets]) unless stub[:affected_subnets].nil?
+        data['AffectedSubnets'] = ResourceIdList.stub(stub[:affected_subnets]) unless stub[:affected_subnets].nil?
         data['RouteTableId'] = stub[:route_table_id] unless stub[:route_table_id].nil?
         data['IsRouteTableUsedInDifferentAZ'] = stub[:is_route_table_used_in_different_az] unless stub[:is_route_table_used_in_different_az].nil?
-        data['ViolatingRoute'] = Stubs::Route.stub(stub[:violating_route]) unless stub[:violating_route].nil?
+        data['ViolatingRoute'] = Route.stub(stub[:violating_route]) unless stub[:violating_route].nil?
         data['CurrentFirewallSubnetRouteTable'] = stub[:current_firewall_subnet_route_table] unless stub[:current_firewall_subnet_route_table].nil?
         data['ExpectedFirewallEndpoint'] = stub[:expected_firewall_endpoint] unless stub[:expected_firewall_endpoint].nil?
         data['ActualFirewallEndpoint'] = stub[:actual_firewall_endpoint] unless stub[:actual_firewall_endpoint].nil?
         data['ExpectedFirewallSubnetId'] = stub[:expected_firewall_subnet_id] unless stub[:expected_firewall_subnet_id].nil?
         data['ActualFirewallSubnetId'] = stub[:actual_firewall_subnet_id] unless stub[:actual_firewall_subnet_id].nil?
-        data['ExpectedFirewallSubnetRoutes'] = Stubs::ExpectedRoutes.stub(stub[:expected_firewall_subnet_routes]) unless stub[:expected_firewall_subnet_routes].nil?
-        data['ActualFirewallSubnetRoutes'] = Stubs::Routes.stub(stub[:actual_firewall_subnet_routes]) unless stub[:actual_firewall_subnet_routes].nil?
+        data['ExpectedFirewallSubnetRoutes'] = ExpectedRoutes.stub(stub[:expected_firewall_subnet_routes]) unless stub[:expected_firewall_subnet_routes].nil?
+        data['ActualFirewallSubnetRoutes'] = Routes.stub(stub[:actual_firewall_subnet_routes]) unless stub[:actual_firewall_subnet_routes].nil?
         data['InternetGatewayId'] = stub[:internet_gateway_id] unless stub[:internet_gateway_id].nil?
         data['CurrentInternetGatewayRouteTable'] = stub[:current_internet_gateway_route_table] unless stub[:current_internet_gateway_route_table].nil?
-        data['ExpectedInternetGatewayRoutes'] = Stubs::ExpectedRoutes.stub(stub[:expected_internet_gateway_routes]) unless stub[:expected_internet_gateway_routes].nil?
-        data['ActualInternetGatewayRoutes'] = Stubs::Routes.stub(stub[:actual_internet_gateway_routes]) unless stub[:actual_internet_gateway_routes].nil?
+        data['ExpectedInternetGatewayRoutes'] = ExpectedRoutes.stub(stub[:expected_internet_gateway_routes]) unless stub[:expected_internet_gateway_routes].nil?
+        data['ActualInternetGatewayRoutes'] = Routes.stub(stub[:actual_internet_gateway_routes]) unless stub[:actual_internet_gateway_routes].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data
       end
@@ -1840,17 +1842,17 @@ module AWS::SDK::FMS
         data['SubnetId'] = stub[:subnet_id] unless stub[:subnet_id].nil?
         data['SubnetAvailabilityZone'] = stub[:subnet_availability_zone] unless stub[:subnet_availability_zone].nil?
         data['RouteTableId'] = stub[:route_table_id] unless stub[:route_table_id].nil?
-        data['ViolatingRoutes'] = Stubs::Routes.stub(stub[:violating_routes]) unless stub[:violating_routes].nil?
+        data['ViolatingRoutes'] = Routes.stub(stub[:violating_routes]) unless stub[:violating_routes].nil?
         data['IsRouteTableUsedInDifferentAZ'] = stub[:is_route_table_used_in_different_az] unless stub[:is_route_table_used_in_different_az].nil?
         data['CurrentFirewallSubnetRouteTable'] = stub[:current_firewall_subnet_route_table] unless stub[:current_firewall_subnet_route_table].nil?
         data['ExpectedFirewallEndpoint'] = stub[:expected_firewall_endpoint] unless stub[:expected_firewall_endpoint].nil?
         data['FirewallSubnetId'] = stub[:firewall_subnet_id] unless stub[:firewall_subnet_id].nil?
-        data['ExpectedFirewallSubnetRoutes'] = Stubs::ExpectedRoutes.stub(stub[:expected_firewall_subnet_routes]) unless stub[:expected_firewall_subnet_routes].nil?
-        data['ActualFirewallSubnetRoutes'] = Stubs::Routes.stub(stub[:actual_firewall_subnet_routes]) unless stub[:actual_firewall_subnet_routes].nil?
+        data['ExpectedFirewallSubnetRoutes'] = ExpectedRoutes.stub(stub[:expected_firewall_subnet_routes]) unless stub[:expected_firewall_subnet_routes].nil?
+        data['ActualFirewallSubnetRoutes'] = Routes.stub(stub[:actual_firewall_subnet_routes]) unless stub[:actual_firewall_subnet_routes].nil?
         data['InternetGatewayId'] = stub[:internet_gateway_id] unless stub[:internet_gateway_id].nil?
         data['CurrentInternetGatewayRouteTable'] = stub[:current_internet_gateway_route_table] unless stub[:current_internet_gateway_route_table].nil?
-        data['ExpectedInternetGatewayRoutes'] = Stubs::ExpectedRoutes.stub(stub[:expected_internet_gateway_routes]) unless stub[:expected_internet_gateway_routes].nil?
-        data['ActualInternetGatewayRoutes'] = Stubs::Routes.stub(stub[:actual_internet_gateway_routes]) unless stub[:actual_internet_gateway_routes].nil?
+        data['ExpectedInternetGatewayRoutes'] = ExpectedRoutes.stub(stub[:expected_internet_gateway_routes]) unless stub[:expected_internet_gateway_routes].nil?
+        data['ActualInternetGatewayRoutes'] = Routes.stub(stub[:actual_internet_gateway_routes]) unless stub[:actual_internet_gateway_routes].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data
       end
@@ -1872,8 +1874,8 @@ module AWS::SDK::FMS
         stub ||= Types::NetworkFirewallPolicyModifiedViolation.new
         data = {}
         data['ViolationTarget'] = stub[:violation_target] unless stub[:violation_target].nil?
-        data['CurrentPolicyDescription'] = Stubs::NetworkFirewallPolicyDescription.stub(stub[:current_policy_description]) unless stub[:current_policy_description].nil?
-        data['ExpectedPolicyDescription'] = Stubs::NetworkFirewallPolicyDescription.stub(stub[:expected_policy_description]) unless stub[:expected_policy_description].nil?
+        data['CurrentPolicyDescription'] = NetworkFirewallPolicyDescription.stub(stub[:current_policy_description]) unless stub[:current_policy_description].nil?
+        data['ExpectedPolicyDescription'] = NetworkFirewallPolicyDescription.stub(stub[:expected_policy_description]) unless stub[:expected_policy_description].nil?
         data
       end
     end
@@ -1895,11 +1897,11 @@ module AWS::SDK::FMS
       def self.stub(stub)
         stub ||= Types::NetworkFirewallPolicyDescription.new
         data = {}
-        data['StatelessRuleGroups'] = Stubs::StatelessRuleGroupList.stub(stub[:stateless_rule_groups]) unless stub[:stateless_rule_groups].nil?
-        data['StatelessDefaultActions'] = Stubs::NetworkFirewallActionList.stub(stub[:stateless_default_actions]) unless stub[:stateless_default_actions].nil?
-        data['StatelessFragmentDefaultActions'] = Stubs::NetworkFirewallActionList.stub(stub[:stateless_fragment_default_actions]) unless stub[:stateless_fragment_default_actions].nil?
-        data['StatelessCustomActions'] = Stubs::NetworkFirewallActionList.stub(stub[:stateless_custom_actions]) unless stub[:stateless_custom_actions].nil?
-        data['StatefulRuleGroups'] = Stubs::StatefulRuleGroupList.stub(stub[:stateful_rule_groups]) unless stub[:stateful_rule_groups].nil?
+        data['StatelessRuleGroups'] = StatelessRuleGroupList.stub(stub[:stateless_rule_groups]) unless stub[:stateless_rule_groups].nil?
+        data['StatelessDefaultActions'] = NetworkFirewallActionList.stub(stub[:stateless_default_actions]) unless stub[:stateless_default_actions].nil?
+        data['StatelessFragmentDefaultActions'] = NetworkFirewallActionList.stub(stub[:stateless_fragment_default_actions]) unless stub[:stateless_fragment_default_actions].nil?
+        data['StatelessCustomActions'] = NetworkFirewallActionList.stub(stub[:stateless_custom_actions]) unless stub[:stateless_custom_actions].nil?
+        data['StatefulRuleGroups'] = StatefulRuleGroupList.stub(stub[:stateful_rule_groups]) unless stub[:stateful_rule_groups].nil?
         data
       end
     end
@@ -1918,7 +1920,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StatefulRuleGroup.stub(element) unless element.nil?
+          data << StatefulRuleGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -1978,7 +1980,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StatelessRuleGroup.stub(element) unless element.nil?
+          data << StatelessRuleGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -2095,7 +2097,7 @@ module AWS::SDK::FMS
         stub ||= Types::AwsEc2InstanceViolation.new
         data = {}
         data['ViolationTarget'] = stub[:violation_target] unless stub[:violation_target].nil?
-        data['AwsEc2NetworkInterfaceViolations'] = Stubs::AwsEc2NetworkInterfaceViolations.stub(stub[:aws_ec2_network_interface_violations]) unless stub[:aws_ec2_network_interface_violations].nil?
+        data['AwsEc2NetworkInterfaceViolations'] = AwsEc2NetworkInterfaceViolations.stub(stub[:aws_ec2_network_interface_violations]) unless stub[:aws_ec2_network_interface_violations].nil?
         data
       end
     end
@@ -2114,7 +2116,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEc2NetworkInterfaceViolation.stub(element) unless element.nil?
+          data << AwsEc2NetworkInterfaceViolation.stub(element) unless element.nil?
         end
         data
       end
@@ -2135,7 +2137,7 @@ module AWS::SDK::FMS
         stub ||= Types::AwsEc2NetworkInterfaceViolation.new
         data = {}
         data['ViolationTarget'] = stub[:violation_target] unless stub[:violation_target].nil?
-        data['ViolatingSecurityGroups'] = Stubs::ResourceIdList.stub(stub[:violating_security_groups]) unless stub[:violating_security_groups].nil?
+        data['ViolatingSecurityGroups'] = ResourceIdList.stub(stub[:violating_security_groups]) unless stub[:violating_security_groups].nil?
         data
       end
     end
@@ -2158,8 +2160,8 @@ module AWS::SDK::FMS
         data = {}
         data['ViolationTarget'] = stub[:violation_target] unless stub[:violation_target].nil?
         data['ViolationTargetDescription'] = stub[:violation_target_description] unless stub[:violation_target_description].nil?
-        data['PartialMatches'] = Stubs::PartialMatches.stub(stub[:partial_matches]) unless stub[:partial_matches].nil?
-        data['PossibleSecurityGroupRemediationActions'] = Stubs::SecurityGroupRemediationActions.stub(stub[:possible_security_group_remediation_actions]) unless stub[:possible_security_group_remediation_actions].nil?
+        data['PartialMatches'] = PartialMatches.stub(stub[:partial_matches]) unless stub[:partial_matches].nil?
+        data['PossibleSecurityGroupRemediationActions'] = SecurityGroupRemediationActions.stub(stub[:possible_security_group_remediation_actions]) unless stub[:possible_security_group_remediation_actions].nil?
         data
       end
     end
@@ -2178,7 +2180,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SecurityGroupRemediationAction.stub(element) unless element.nil?
+          data << SecurityGroupRemediationAction.stub(element) unless element.nil?
         end
         data
       end
@@ -2202,7 +2204,7 @@ module AWS::SDK::FMS
         data = {}
         data['RemediationActionType'] = stub[:remediation_action_type] unless stub[:remediation_action_type].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['RemediationResult'] = Stubs::SecurityGroupRuleDescription.stub(stub[:remediation_result]) unless stub[:remediation_result].nil?
+        data['RemediationResult'] = SecurityGroupRuleDescription.stub(stub[:remediation_result]) unless stub[:remediation_result].nil?
         data['IsDefaultAction'] = stub[:is_default_action] unless stub[:is_default_action].nil?
         data
       end
@@ -2250,7 +2252,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PartialMatch.stub(element) unless element.nil?
+          data << PartialMatch.stub(element) unless element.nil?
         end
         data
       end
@@ -2271,7 +2273,7 @@ module AWS::SDK::FMS
         stub ||= Types::PartialMatch.new
         data = {}
         data['Reference'] = stub[:reference] unless stub[:reference].nil?
-        data['TargetViolationReasons'] = Stubs::TargetViolationReasons.stub(stub[:target_violation_reasons]) unless stub[:target_violation_reasons].nil?
+        data['TargetViolationReasons'] = TargetViolationReasons.stub(stub[:target_violation_reasons]) unless stub[:target_violation_reasons].nil?
         data
       end
     end
@@ -2307,9 +2309,9 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AppsLists'] = Stubs::AppsListsData.stub(stub[:apps_lists]) unless stub[:apps_lists].nil?
+        data['AppsLists'] = AppsListsData.stub(stub[:apps_lists]) unless stub[:apps_lists].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2328,7 +2330,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AppsListDataSummary.stub(element) unless element.nil?
+          data << AppsListDataSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2353,7 +2355,7 @@ module AWS::SDK::FMS
         data['ListArn'] = stub[:list_arn] unless stub[:list_arn].nil?
         data['ListId'] = stub[:list_id] unless stub[:list_id].nil?
         data['ListName'] = stub[:list_name] unless stub[:list_name].nil?
-        data['AppsList'] = Stubs::AppsList.stub(stub[:apps_list]) unless stub[:apps_list].nil?
+        data['AppsList'] = AppsList.stub(stub[:apps_list]) unless stub[:apps_list].nil?
         data
       end
     end
@@ -2369,9 +2371,9 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PolicyComplianceStatusList'] = Stubs::PolicyComplianceStatusList.stub(stub[:policy_compliance_status_list]) unless stub[:policy_compliance_status_list].nil?
+        data['PolicyComplianceStatusList'] = PolicyComplianceStatusList.stub(stub[:policy_compliance_status_list]) unless stub[:policy_compliance_status_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2390,7 +2392,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PolicyComplianceStatus.stub(element) unless element.nil?
+          data << PolicyComplianceStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -2419,9 +2421,9 @@ module AWS::SDK::FMS
         data['PolicyId'] = stub[:policy_id] unless stub[:policy_id].nil?
         data['PolicyName'] = stub[:policy_name] unless stub[:policy_name].nil?
         data['MemberAccount'] = stub[:member_account] unless stub[:member_account].nil?
-        data['EvaluationResults'] = Stubs::EvaluationResults.stub(stub[:evaluation_results]) unless stub[:evaluation_results].nil?
+        data['EvaluationResults'] = EvaluationResults.stub(stub[:evaluation_results]) unless stub[:evaluation_results].nil?
         data['LastUpdated'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated]).to_i unless stub[:last_updated].nil?
-        data['IssueInfoMap'] = Stubs::IssueInfoMap.stub(stub[:issue_info_map]) unless stub[:issue_info_map].nil?
+        data['IssueInfoMap'] = IssueInfoMap.stub(stub[:issue_info_map]) unless stub[:issue_info_map].nil?
         data
       end
     end
@@ -2440,7 +2442,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EvaluationResult.stub(element) unless element.nil?
+          data << EvaluationResult.stub(element) unless element.nil?
         end
         data
       end
@@ -2479,9 +2481,9 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['MemberAccounts'] = Stubs::MemberAccounts.stub(stub[:member_accounts]) unless stub[:member_accounts].nil?
+        data['MemberAccounts'] = MemberAccounts.stub(stub[:member_accounts]) unless stub[:member_accounts].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2517,9 +2519,9 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PolicyList'] = Stubs::PolicySummaryList.stub(stub[:policy_list]) unless stub[:policy_list].nil?
+        data['PolicyList'] = PolicySummaryList.stub(stub[:policy_list]) unless stub[:policy_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2538,7 +2540,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PolicySummary.stub(element) unless element.nil?
+          data << PolicySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2585,9 +2587,9 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProtocolsLists'] = Stubs::ProtocolsListsData.stub(stub[:protocols_lists]) unless stub[:protocols_lists].nil?
+        data['ProtocolsLists'] = ProtocolsListsData.stub(stub[:protocols_lists]) unless stub[:protocols_lists].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2606,7 +2608,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProtocolsListDataSummary.stub(element) unless element.nil?
+          data << ProtocolsListDataSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2631,7 +2633,7 @@ module AWS::SDK::FMS
         data['ListArn'] = stub[:list_arn] unless stub[:list_arn].nil?
         data['ListId'] = stub[:list_id] unless stub[:list_id].nil?
         data['ListName'] = stub[:list_name] unless stub[:list_name].nil?
-        data['ProtocolsList'] = Stubs::ProtocolsList.stub(stub[:protocols_list]) unless stub[:protocols_list].nil?
+        data['ProtocolsList'] = ProtocolsList.stub(stub[:protocols_list]) unless stub[:protocols_list].nil?
         data
       end
     end
@@ -2646,8 +2648,8 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2663,9 +2665,9 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ThirdPartyFirewallFirewallPolicies'] = Stubs::ThirdPartyFirewallFirewallPolicies.stub(stub[:third_party_firewall_firewall_policies]) unless stub[:third_party_firewall_firewall_policies].nil?
+        data['ThirdPartyFirewallFirewallPolicies'] = ThirdPartyFirewallFirewallPolicies.stub(stub[:third_party_firewall_firewall_policies]) unless stub[:third_party_firewall_firewall_policies].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2684,7 +2686,7 @@ module AWS::SDK::FMS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ThirdPartyFirewallFirewallPolicy.stub(element) unless element.nil?
+          data << ThirdPartyFirewallFirewallPolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -2721,9 +2723,9 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AppsList'] = Stubs::AppsListData.stub(stub[:apps_list]) unless stub[:apps_list].nil?
+        data['AppsList'] = AppsListData.stub(stub[:apps_list]) unless stub[:apps_list].nil?
         data['AppsListArn'] = stub[:apps_list_arn] unless stub[:apps_list_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2737,7 +2739,7 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2753,9 +2755,9 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Policy'] = Stubs::Policy.stub(stub[:policy]) unless stub[:policy].nil?
+        data['Policy'] = Policy.stub(stub[:policy]) unless stub[:policy].nil?
         data['PolicyArn'] = stub[:policy_arn] unless stub[:policy_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2771,9 +2773,9 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProtocolsList'] = Stubs::ProtocolsListData.stub(stub[:protocols_list]) unless stub[:protocols_list].nil?
+        data['ProtocolsList'] = ProtocolsListData.stub(stub[:protocols_list]) unless stub[:protocols_list].nil?
         data['ProtocolsListArn'] = stub[:protocols_list_arn] unless stub[:protocols_list_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2787,7 +2789,7 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2801,7 +2803,7 @@ module AWS::SDK::FMS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

@@ -173,7 +173,7 @@ module AWS::SDK::KinesisVideo
       def self.parse(http_resp)
         data = Types::DescribeImageGenerationConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.image_generation_configuration = (Parsers::ImageGenerationConfiguration.parse(map['ImageGenerationConfiguration']) unless map['ImageGenerationConfiguration'].nil?)
+        data.image_generation_configuration = (ImageGenerationConfiguration.parse(map['ImageGenerationConfiguration']) unless map['ImageGenerationConfiguration'].nil?)
         data
       end
     end
@@ -183,10 +183,10 @@ module AWS::SDK::KinesisVideo
         data = Types::ImageGenerationConfiguration.new
         data.status = map['Status']
         data.image_selector_type = map['ImageSelectorType']
-        data.destination_config = (Parsers::ImageGenerationDestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        data.destination_config = (ImageGenerationDestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
         data.sampling_interval = map['SamplingInterval']
         data.format = map['Format']
-        data.format_config = (Parsers::FormatConfig.parse(map['FormatConfig']) unless map['FormatConfig'].nil?)
+        data.format_config = (FormatConfig.parse(map['FormatConfig']) unless map['FormatConfig'].nil?)
         data.width_pixels = map['WidthPixels']
         data.height_pixels = map['HeightPixels']
         return data
@@ -217,7 +217,7 @@ module AWS::SDK::KinesisVideo
       def self.parse(http_resp)
         data = Types::DescribeNotificationConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.notification_configuration = (Parsers::NotificationConfiguration.parse(map['NotificationConfiguration']) unless map['NotificationConfiguration'].nil?)
+        data.notification_configuration = (NotificationConfiguration.parse(map['NotificationConfiguration']) unless map['NotificationConfiguration'].nil?)
         data
       end
     end
@@ -226,7 +226,7 @@ module AWS::SDK::KinesisVideo
       def self.parse(map)
         data = Types::NotificationConfiguration.new
         data.status = map['Status']
-        data.destination_config = (Parsers::NotificationDestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
+        data.destination_config = (NotificationDestinationConfig.parse(map['DestinationConfig']) unless map['DestinationConfig'].nil?)
         return data
       end
     end
@@ -244,7 +244,7 @@ module AWS::SDK::KinesisVideo
       def self.parse(http_resp)
         data = Types::DescribeSignalingChannelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channel_info = (Parsers::ChannelInfo.parse(map['ChannelInfo']) unless map['ChannelInfo'].nil?)
+        data.channel_info = (ChannelInfo.parse(map['ChannelInfo']) unless map['ChannelInfo'].nil?)
         data
       end
     end
@@ -257,7 +257,7 @@ module AWS::SDK::KinesisVideo
         data.channel_type = map['ChannelType']
         data.channel_status = map['ChannelStatus']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.single_master_configuration = (Parsers::SingleMasterConfiguration.parse(map['SingleMasterConfiguration']) unless map['SingleMasterConfiguration'].nil?)
+        data.single_master_configuration = (SingleMasterConfiguration.parse(map['SingleMasterConfiguration']) unless map['SingleMasterConfiguration'].nil?)
         data.version = map['Version']
         return data
       end
@@ -276,7 +276,7 @@ module AWS::SDK::KinesisVideo
       def self.parse(http_resp)
         data = Types::DescribeStreamOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stream_info = (Parsers::StreamInfo.parse(map['StreamInfo']) unless map['StreamInfo'].nil?)
+        data.stream_info = (StreamInfo.parse(map['StreamInfo']) unless map['StreamInfo'].nil?)
         data
       end
     end
@@ -312,7 +312,7 @@ module AWS::SDK::KinesisVideo
       def self.parse(http_resp)
         data = Types::GetSignalingChannelEndpointOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_endpoint_list = (Parsers::ResourceEndpointList.parse(map['ResourceEndpointList']) unless map['ResourceEndpointList'].nil?)
+        data.resource_endpoint_list = (ResourceEndpointList.parse(map['ResourceEndpointList']) unless map['ResourceEndpointList'].nil?)
         data
       end
     end
@@ -321,7 +321,7 @@ module AWS::SDK::KinesisVideo
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourceEndpointListItem.parse(value) unless value.nil?
+          data << ResourceEndpointListItem.parse(value) unless value.nil?
         end
         data
       end
@@ -341,7 +341,7 @@ module AWS::SDK::KinesisVideo
       def self.parse(http_resp)
         data = Types::ListSignalingChannelsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channel_info_list = (Parsers::ChannelInfoList.parse(map['ChannelInfoList']) unless map['ChannelInfoList'].nil?)
+        data.channel_info_list = (ChannelInfoList.parse(map['ChannelInfoList']) unless map['ChannelInfoList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -351,7 +351,7 @@ module AWS::SDK::KinesisVideo
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChannelInfo.parse(value) unless value.nil?
+          data << ChannelInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -362,7 +362,7 @@ module AWS::SDK::KinesisVideo
       def self.parse(http_resp)
         data = Types::ListStreamsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stream_info_list = (Parsers::StreamInfoList.parse(map['StreamInfoList']) unless map['StreamInfoList'].nil?)
+        data.stream_info_list = (StreamInfoList.parse(map['StreamInfoList']) unless map['StreamInfoList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -372,7 +372,7 @@ module AWS::SDK::KinesisVideo
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StreamInfo.parse(value) unless value.nil?
+          data << StreamInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -384,7 +384,7 @@ module AWS::SDK::KinesisVideo
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.tags = (Parsers::ResourceTags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (ResourceTags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -405,7 +405,7 @@ module AWS::SDK::KinesisVideo
         data = Types::ListTagsForStreamOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.tags = (Parsers::ResourceTags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (ResourceTags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SageMakerFeatureStoreRuntime
   module Stubs
 
@@ -24,10 +26,10 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Records'] = Stubs::BatchGetRecordResultDetails.stub(stub[:records]) unless stub[:records].nil?
-        data['Errors'] = Stubs::BatchGetRecordErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        data['UnprocessedIdentifiers'] = Stubs::UnprocessedIdentifiers.stub(stub[:unprocessed_identifiers]) unless stub[:unprocessed_identifiers].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Records'] = BatchGetRecordResultDetails.stub(stub[:records]) unless stub[:records].nil?
+        data['Errors'] = BatchGetRecordErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        data['UnprocessedIdentifiers'] = UnprocessedIdentifiers.stub(stub[:unprocessed_identifiers]) unless stub[:unprocessed_identifiers].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -45,7 +47,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchGetRecordIdentifier.stub(element) unless element.nil?
+          data << BatchGetRecordIdentifier.stub(element) unless element.nil?
         end
         data
       end
@@ -67,8 +69,8 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         stub ||= Types::BatchGetRecordIdentifier.new
         data = {}
         data['FeatureGroupName'] = stub[:feature_group_name] unless stub[:feature_group_name].nil?
-        data['RecordIdentifiersValueAsString'] = Stubs::RecordIdentifiers.stub(stub[:record_identifiers_value_as_string]) unless stub[:record_identifiers_value_as_string].nil?
-        data['FeatureNames'] = Stubs::FeatureNames.stub(stub[:feature_names]) unless stub[:feature_names].nil?
+        data['RecordIdentifiersValueAsString'] = RecordIdentifiers.stub(stub[:record_identifiers_value_as_string]) unless stub[:record_identifiers_value_as_string].nil?
+        data['FeatureNames'] = FeatureNames.stub(stub[:feature_names]) unless stub[:feature_names].nil?
         data
       end
     end
@@ -127,7 +129,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchGetRecordError.stub(element) unless element.nil?
+          data << BatchGetRecordError.stub(element) unless element.nil?
         end
         data
       end
@@ -171,7 +173,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchGetRecordResultDetail.stub(element) unless element.nil?
+          data << BatchGetRecordResultDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -194,7 +196,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         data = {}
         data['FeatureGroupName'] = stub[:feature_group_name] unless stub[:feature_group_name].nil?
         data['RecordIdentifierValueAsString'] = stub[:record_identifier_value_as_string] unless stub[:record_identifier_value_as_string].nil?
-        data['Record'] = Stubs::Record.stub(stub[:record]) unless stub[:record].nil?
+        data['Record'] = Record.stub(stub[:record]) unless stub[:record].nil?
         data
       end
     end
@@ -213,7 +215,7 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FeatureValue.stub(element) unless element.nil?
+          data << FeatureValue.stub(element) unless element.nil?
         end
         data
       end
@@ -264,8 +266,8 @@ module AWS::SDK::SageMakerFeatureStoreRuntime
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Record'] = Stubs::Record.stub(stub[:record]) unless stub[:record].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Record'] = Record.stub(stub[:record]) unless stub[:record].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

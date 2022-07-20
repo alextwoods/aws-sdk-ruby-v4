@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Route53RecoveryReadiness
   module Builders
 
@@ -21,9 +23,9 @@ module AWS::SDK::Route53RecoveryReadiness
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['cellName'] = input[:cell_name] unless input[:cell_name].nil?
-        data['cells'] = Builders::List____listOf__string.build(input[:cells]) unless input[:cells].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cells'] = List____listOf__string.build(input[:cells]) unless input[:cells].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -60,7 +62,7 @@ module AWS::SDK::Route53RecoveryReadiness
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['crossAccountAuthorization'] = input[:cross_account_authorization] unless input[:cross_account_authorization].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -76,8 +78,8 @@ module AWS::SDK::Route53RecoveryReadiness
         data = {}
         data['readinessCheckName'] = input[:readiness_check_name] unless input[:readiness_check_name].nil?
         data['resourceSetName'] = input[:resource_set_name] unless input[:resource_set_name].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -91,10 +93,10 @@ module AWS::SDK::Route53RecoveryReadiness
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['cells'] = Builders::List____listOf__string.build(input[:cells]) unless input[:cells].nil?
+        data['cells'] = List____listOf__string.build(input[:cells]) unless input[:cells].nil?
         data['recoveryGroupName'] = input[:recovery_group_name] unless input[:recovery_group_name].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -110,9 +112,9 @@ module AWS::SDK::Route53RecoveryReadiness
         data = {}
         data['resourceSetName'] = input[:resource_set_name] unless input[:resource_set_name].nil?
         data['resourceSetType'] = input[:resource_set_type] unless input[:resource_set_type].nil?
-        data['resources'] = Builders::List____listOfResource.build(input[:resources]) unless input[:resources].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resources'] = List____listOfResource.build(input[:resources]) unless input[:resources].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -121,7 +123,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Resource.build(element) unless element.nil?
+          data << Resource.build(element) unless element.nil?
         end
         data
       end
@@ -132,8 +134,8 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.build(input)
         data = {}
         data['componentId'] = input[:component_id] unless input[:component_id].nil?
-        data['dnsTargetResource'] = Builders::DNSTargetResource.build(input[:dns_target_resource]) unless input[:dns_target_resource].nil?
-        data['readinessScopes'] = Builders::List____listOf__string.build(input[:readiness_scopes]) unless input[:readiness_scopes].nil?
+        data['dnsTargetResource'] = DNSTargetResource.build(input[:dns_target_resource]) unless input[:dns_target_resource].nil?
+        data['readinessScopes'] = List____listOf__string.build(input[:readiness_scopes]) unless input[:readiness_scopes].nil?
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data
       end
@@ -147,7 +149,7 @@ module AWS::SDK::Route53RecoveryReadiness
         data['hostedZoneArn'] = input[:hosted_zone_arn] unless input[:hosted_zone_arn].nil?
         data['recordSetId'] = input[:record_set_id] unless input[:record_set_id].nil?
         data['recordType'] = input[:record_type] unless input[:record_type].nil?
-        data['targetResource'] = Builders::TargetResource.build(input[:target_resource]) unless input[:target_resource].nil?
+        data['targetResource'] = TargetResource.build(input[:target_resource]) unless input[:target_resource].nil?
         data
       end
     end
@@ -156,8 +158,8 @@ module AWS::SDK::Route53RecoveryReadiness
     class TargetResource
       def self.build(input)
         data = {}
-        data['nLBResource'] = Builders::NLBResource.build(input[:nlb_resource]) unless input[:nlb_resource].nil?
-        data['r53Resource'] = Builders::R53ResourceRecord.build(input[:r53_resource]) unless input[:r53_resource].nil?
+        data['nLBResource'] = NLBResource.build(input[:nlb_resource]) unless input[:nlb_resource].nil?
+        data['r53Resource'] = R53ResourceRecord.build(input[:r53_resource]) unless input[:r53_resource].nil?
         data
       end
     end
@@ -540,8 +542,8 @@ module AWS::SDK::Route53RecoveryReadiness
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -584,8 +586,8 @@ module AWS::SDK::Route53RecoveryReadiness
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['cells'] = Builders::List____listOf__string.build(input[:cells]) unless input[:cells].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cells'] = List____listOf__string.build(input[:cells]) unless input[:cells].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -607,7 +609,7 @@ module AWS::SDK::Route53RecoveryReadiness
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['resourceSetName'] = input[:resource_set_name] unless input[:resource_set_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -628,8 +630,8 @@ module AWS::SDK::Route53RecoveryReadiness
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['cells'] = Builders::List____listOf__string.build(input[:cells]) unless input[:cells].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cells'] = List____listOf__string.build(input[:cells]) unless input[:cells].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -651,8 +653,8 @@ module AWS::SDK::Route53RecoveryReadiness
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['resourceSetType'] = input[:resource_set_type] unless input[:resource_set_type].nil?
-        data['resources'] = Builders::List____listOfResource.build(input[:resources]) unless input[:resources].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resources'] = List____listOfResource.build(input[:resources]) unless input[:resources].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

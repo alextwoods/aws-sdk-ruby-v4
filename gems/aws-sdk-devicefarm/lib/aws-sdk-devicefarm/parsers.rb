@@ -17,7 +17,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.device_pool = (Parsers::DevicePool.parse(map['devicePool']) unless map['devicePool'].nil?)
+        data.device_pool = (DevicePool.parse(map['devicePool']) unless map['devicePool'].nil?)
         data
       end
     end
@@ -29,7 +29,7 @@ module AWS::SDK::DeviceFarm
         data.name = map['name']
         data.description = map['description']
         data.type = map['type']
-        data.rules = (Parsers::Rules.parse(map['rules']) unless map['rules'].nil?)
+        data.rules = (Rules.parse(map['rules']) unless map['rules'].nil?)
         data.max_devices = map['maxDevices']
         return data
       end
@@ -38,7 +38,7 @@ module AWS::SDK::DeviceFarm
     class Rules
       def self.parse(list)
         list.map do |value|
-          Parsers::Rule.parse(value) unless value.nil?
+          Rule.parse(value) unless value.nil?
         end
       end
     end
@@ -108,7 +108,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance_profile = (Parsers::InstanceProfile.parse(map['instanceProfile']) unless map['instanceProfile'].nil?)
+        data.instance_profile = (InstanceProfile.parse(map['instanceProfile']) unless map['instanceProfile'].nil?)
         data
       end
     end
@@ -118,7 +118,7 @@ module AWS::SDK::DeviceFarm
         data = Types::InstanceProfile.new
         data.arn = map['arn']
         data.package_cleanup = map['packageCleanup']
-        data.exclude_app_packages_from_cleanup = (Parsers::PackageIds.parse(map['excludeAppPackagesFromCleanup']) unless map['excludeAppPackagesFromCleanup'].nil?)
+        data.exclude_app_packages_from_cleanup = (PackageIds.parse(map['excludeAppPackagesFromCleanup']) unless map['excludeAppPackagesFromCleanup'].nil?)
         data.reboot_after_use = map['rebootAfterUse']
         data.name = map['name']
         data.description = map['description']
@@ -141,7 +141,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.network_profile = (Parsers::NetworkProfile.parse(map['networkProfile']) unless map['networkProfile'].nil?)
+        data.network_profile = (NetworkProfile.parse(map['networkProfile']) unless map['networkProfile'].nil?)
         data
       end
     end
@@ -172,7 +172,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.project = (Parsers::Project.parse(map['project']) unless map['project'].nil?)
+        data.project = (Project.parse(map['project']) unless map['project'].nil?)
         data
       end
     end
@@ -208,7 +208,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.remote_access_session = (Parsers::RemoteAccessSession.parse(map['remoteAccessSession']) unless map['remoteAccessSession'].nil?)
+        data.remote_access_session = (RemoteAccessSession.parse(map['remoteAccessSession']) unless map['remoteAccessSession'].nil?)
         data
       end
     end
@@ -224,7 +224,7 @@ module AWS::SDK::DeviceFarm
         data.message = map['message']
         data.started = Time.at(map['started'].to_i) if map['started']
         data.stopped = Time.at(map['stopped'].to_i) if map['stopped']
-        data.device = (Parsers::Device.parse(map['device']) unless map['device'].nil?)
+        data.device = (Device.parse(map['device']) unless map['device'].nil?)
         data.instance_arn = map['instanceArn']
         data.remote_debug_enabled = map['remoteDebugEnabled']
         data.remote_record_enabled = map['remoteRecordEnabled']
@@ -232,7 +232,7 @@ module AWS::SDK::DeviceFarm
         data.host_address = map['hostAddress']
         data.client_id = map['clientId']
         data.billing_method = map['billingMethod']
-        data.device_minutes = (Parsers::DeviceMinutes.parse(map['deviceMinutes']) unless map['deviceMinutes'].nil?)
+        data.device_minutes = (DeviceMinutes.parse(map['deviceMinutes']) unless map['deviceMinutes'].nil?)
         data.endpoint = map['endpoint']
         data.device_udid = map['deviceUdid']
         data.interaction_mode = map['interactionMode']
@@ -262,8 +262,8 @@ module AWS::SDK::DeviceFarm
         data.form_factor = map['formFactor']
         data.platform = map['platform']
         data.os = map['os']
-        data.cpu = (Parsers::CPU.parse(map['cpu']) unless map['cpu'].nil?)
-        data.resolution = (Parsers::Resolution.parse(map['resolution']) unless map['resolution'].nil?)
+        data.cpu = (CPU.parse(map['cpu']) unless map['cpu'].nil?)
+        data.resolution = (Resolution.parse(map['resolution']) unless map['resolution'].nil?)
         data.heap_size = map['heapSize']
         data.memory = map['memory']
         data.image = map['image']
@@ -273,7 +273,7 @@ module AWS::SDK::DeviceFarm
         data.remote_debug_enabled = map['remoteDebugEnabled']
         data.fleet_type = map['fleetType']
         data.fleet_name = map['fleetName']
-        data.instances = (Parsers::DeviceInstances.parse(map['instances']) unless map['instances'].nil?)
+        data.instances = (DeviceInstances.parse(map['instances']) unless map['instances'].nil?)
         data.availability = map['availability']
         return data
       end
@@ -282,7 +282,7 @@ module AWS::SDK::DeviceFarm
     class DeviceInstances
       def self.parse(list)
         list.map do |value|
-          Parsers::DeviceInstance.parse(value) unless value.nil?
+          DeviceInstance.parse(value) unless value.nil?
         end
       end
     end
@@ -292,10 +292,10 @@ module AWS::SDK::DeviceFarm
         data = Types::DeviceInstance.new
         data.arn = map['arn']
         data.device_arn = map['deviceArn']
-        data.labels = (Parsers::InstanceLabels.parse(map['labels']) unless map['labels'].nil?)
+        data.labels = (InstanceLabels.parse(map['labels']) unless map['labels'].nil?)
         data.status = map['status']
         data.udid = map['udid']
-        data.instance_profile = (Parsers::InstanceProfile.parse(map['instanceProfile']) unless map['instanceProfile'].nil?)
+        data.instance_profile = (InstanceProfile.parse(map['instanceProfile']) unless map['instanceProfile'].nil?)
         return data
       end
     end
@@ -334,7 +334,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.test_grid_project = (Parsers::TestGridProject.parse(map['testGridProject']) unless map['testGridProject'].nil?)
+        data.test_grid_project = (TestGridProject.parse(map['testGridProject']) unless map['testGridProject'].nil?)
         data
       end
     end
@@ -345,7 +345,7 @@ module AWS::SDK::DeviceFarm
         data.arn = map['arn']
         data.name = map['name']
         data.description = map['description']
-        data.vpc_config = (Parsers::TestGridVpcConfig.parse(map['vpcConfig']) unless map['vpcConfig'].nil?)
+        data.vpc_config = (TestGridVpcConfig.parse(map['vpcConfig']) unless map['vpcConfig'].nil?)
         data.created = Time.at(map['created'].to_i) if map['created']
         return data
       end
@@ -354,8 +354,8 @@ module AWS::SDK::DeviceFarm
     class TestGridVpcConfig
       def self.parse(map)
         data = Types::TestGridVpcConfig.new
-        data.security_group_ids = (Parsers::SecurityGroupIds.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
-        data.subnet_ids = (Parsers::SubnetIds.parse(map['subnetIds']) unless map['subnetIds'].nil?)
+        data.security_group_ids = (SecurityGroupIds.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
+        data.subnet_ids = (SubnetIds.parse(map['subnetIds']) unless map['subnetIds'].nil?)
         data.vpc_id = map['vpcId']
         return data
       end
@@ -409,7 +409,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.upload = (Parsers::Upload.parse(map['upload']) unless map['upload'].nil?)
+        data.upload = (Upload.parse(map['upload']) unless map['upload'].nil?)
         data
       end
     end
@@ -438,7 +438,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.vpce_configuration = (Parsers::VPCEConfiguration.parse(map['vpceConfiguration']) unless map['vpceConfiguration'].nil?)
+        data.vpce_configuration = (VPCEConfiguration.parse(map['vpceConfiguration']) unless map['vpceConfiguration'].nil?)
         data
       end
     end
@@ -585,7 +585,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_settings = (Parsers::AccountSettings.parse(map['accountSettings']) unless map['accountSettings'].nil?)
+        data.account_settings = (AccountSettings.parse(map['accountSettings']) unless map['accountSettings'].nil?)
         data
       end
     end
@@ -594,11 +594,11 @@ module AWS::SDK::DeviceFarm
       def self.parse(map)
         data = Types::AccountSettings.new
         data.aws_account_number = map['awsAccountNumber']
-        data.unmetered_devices = (Parsers::PurchasedDevicesMap.parse(map['unmeteredDevices']) unless map['unmeteredDevices'].nil?)
-        data.unmetered_remote_access_devices = (Parsers::PurchasedDevicesMap.parse(map['unmeteredRemoteAccessDevices']) unless map['unmeteredRemoteAccessDevices'].nil?)
+        data.unmetered_devices = (PurchasedDevicesMap.parse(map['unmeteredDevices']) unless map['unmeteredDevices'].nil?)
+        data.unmetered_remote_access_devices = (PurchasedDevicesMap.parse(map['unmeteredRemoteAccessDevices']) unless map['unmeteredRemoteAccessDevices'].nil?)
         data.max_job_timeout_minutes = map['maxJobTimeoutMinutes']
-        data.trial_minutes = (Parsers::TrialMinutes.parse(map['trialMinutes']) unless map['trialMinutes'].nil?)
-        data.max_slots = (Parsers::MaxSlotMap.parse(map['maxSlots']) unless map['maxSlots'].nil?)
+        data.trial_minutes = (TrialMinutes.parse(map['trialMinutes']) unless map['trialMinutes'].nil?)
+        data.max_slots = (MaxSlotMap.parse(map['maxSlots']) unless map['maxSlots'].nil?)
         data.default_job_timeout_minutes = map['defaultJobTimeoutMinutes']
         data.skip_app_resign = map['skipAppResign']
         return data
@@ -641,7 +641,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.device = (Parsers::Device.parse(map['device']) unless map['device'].nil?)
+        data.device = (Device.parse(map['device']) unless map['device'].nil?)
         data
       end
     end
@@ -653,7 +653,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.device_instance = (Parsers::DeviceInstance.parse(map['deviceInstance']) unless map['deviceInstance'].nil?)
+        data.device_instance = (DeviceInstance.parse(map['deviceInstance']) unless map['deviceInstance'].nil?)
         data
       end
     end
@@ -665,7 +665,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.device_pool = (Parsers::DevicePool.parse(map['devicePool']) unless map['devicePool'].nil?)
+        data.device_pool = (DevicePool.parse(map['devicePool']) unless map['devicePool'].nil?)
         data
       end
     end
@@ -677,8 +677,8 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.compatible_devices = (Parsers::DevicePoolCompatibilityResults.parse(map['compatibleDevices']) unless map['compatibleDevices'].nil?)
-        data.incompatible_devices = (Parsers::DevicePoolCompatibilityResults.parse(map['incompatibleDevices']) unless map['incompatibleDevices'].nil?)
+        data.compatible_devices = (DevicePoolCompatibilityResults.parse(map['compatibleDevices']) unless map['compatibleDevices'].nil?)
+        data.incompatible_devices = (DevicePoolCompatibilityResults.parse(map['incompatibleDevices']) unless map['incompatibleDevices'].nil?)
         data
       end
     end
@@ -686,7 +686,7 @@ module AWS::SDK::DeviceFarm
     class DevicePoolCompatibilityResults
       def self.parse(list)
         list.map do |value|
-          Parsers::DevicePoolCompatibilityResult.parse(value) unless value.nil?
+          DevicePoolCompatibilityResult.parse(value) unless value.nil?
         end
       end
     end
@@ -694,9 +694,9 @@ module AWS::SDK::DeviceFarm
     class DevicePoolCompatibilityResult
       def self.parse(map)
         data = Types::DevicePoolCompatibilityResult.new
-        data.device = (Parsers::Device.parse(map['device']) unless map['device'].nil?)
+        data.device = (Device.parse(map['device']) unless map['device'].nil?)
         data.compatible = map['compatible']
-        data.incompatibility_messages = (Parsers::IncompatibilityMessages.parse(map['incompatibilityMessages']) unless map['incompatibilityMessages'].nil?)
+        data.incompatibility_messages = (IncompatibilityMessages.parse(map['incompatibilityMessages']) unless map['incompatibilityMessages'].nil?)
         return data
       end
     end
@@ -704,7 +704,7 @@ module AWS::SDK::DeviceFarm
     class IncompatibilityMessages
       def self.parse(list)
         list.map do |value|
-          Parsers::IncompatibilityMessage.parse(value) unless value.nil?
+          IncompatibilityMessage.parse(value) unless value.nil?
         end
       end
     end
@@ -725,7 +725,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance_profile = (Parsers::InstanceProfile.parse(map['instanceProfile']) unless map['instanceProfile'].nil?)
+        data.instance_profile = (InstanceProfile.parse(map['instanceProfile']) unless map['instanceProfile'].nil?)
         data
       end
     end
@@ -737,7 +737,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job = (Parsers::Job.parse(map['job']) unless map['job'].nil?)
+        data.job = (Job.parse(map['job']) unless map['job'].nil?)
         data
       end
     end
@@ -753,11 +753,11 @@ module AWS::SDK::DeviceFarm
         data.result = map['result']
         data.started = Time.at(map['started'].to_i) if map['started']
         data.stopped = Time.at(map['stopped'].to_i) if map['stopped']
-        data.counters = (Parsers::Counters.parse(map['counters']) unless map['counters'].nil?)
+        data.counters = (Counters.parse(map['counters']) unless map['counters'].nil?)
         data.message = map['message']
-        data.device = (Parsers::Device.parse(map['device']) unless map['device'].nil?)
+        data.device = (Device.parse(map['device']) unless map['device'].nil?)
         data.instance_arn = map['instanceArn']
-        data.device_minutes = (Parsers::DeviceMinutes.parse(map['deviceMinutes']) unless map['deviceMinutes'].nil?)
+        data.device_minutes = (DeviceMinutes.parse(map['deviceMinutes']) unless map['deviceMinutes'].nil?)
         data.video_endpoint = map['videoEndpoint']
         data.video_capture = map['videoCapture']
         return data
@@ -785,7 +785,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.network_profile = (Parsers::NetworkProfile.parse(map['networkProfile']) unless map['networkProfile'].nil?)
+        data.network_profile = (NetworkProfile.parse(map['networkProfile']) unless map['networkProfile'].nil?)
         data
       end
     end
@@ -797,8 +797,8 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.current = (Parsers::OfferingStatusMap.parse(map['current']) unless map['current'].nil?)
-        data.next_period = (Parsers::OfferingStatusMap.parse(map['nextPeriod']) unless map['nextPeriod'].nil?)
+        data.current = (OfferingStatusMap.parse(map['current']) unless map['current'].nil?)
+        data.next_period = (OfferingStatusMap.parse(map['nextPeriod']) unless map['nextPeriod'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -808,7 +808,7 @@ module AWS::SDK::DeviceFarm
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::OfferingStatus.parse(value) unless value.nil?
+          data[key] = OfferingStatus.parse(value) unless value.nil?
         end
         data
       end
@@ -818,7 +818,7 @@ module AWS::SDK::DeviceFarm
       def self.parse(map)
         data = Types::OfferingStatus.new
         data.type = map['type']
-        data.offering = (Parsers::Offering.parse(map['offering']) unless map['offering'].nil?)
+        data.offering = (Offering.parse(map['offering']) unless map['offering'].nil?)
         data.quantity = map['quantity']
         data.effective_on = Time.at(map['effectiveOn'].to_i) if map['effectiveOn']
         return data
@@ -832,7 +832,7 @@ module AWS::SDK::DeviceFarm
         data.description = map['description']
         data.type = map['type']
         data.platform = map['platform']
-        data.recurring_charges = (Parsers::RecurringCharges.parse(map['recurringCharges']) unless map['recurringCharges'].nil?)
+        data.recurring_charges = (RecurringCharges.parse(map['recurringCharges']) unless map['recurringCharges'].nil?)
         return data
       end
     end
@@ -840,7 +840,7 @@ module AWS::SDK::DeviceFarm
     class RecurringCharges
       def self.parse(list)
         list.map do |value|
-          Parsers::RecurringCharge.parse(value) unless value.nil?
+          RecurringCharge.parse(value) unless value.nil?
         end
       end
     end
@@ -848,7 +848,7 @@ module AWS::SDK::DeviceFarm
     class RecurringCharge
       def self.parse(map)
         data = Types::RecurringCharge.new
-        data.cost = (Parsers::MonetaryAmount.parse(map['cost']) unless map['cost'].nil?)
+        data.cost = (MonetaryAmount.parse(map['cost']) unless map['cost'].nil?)
         data.frequency = map['frequency']
         return data
       end
@@ -882,7 +882,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.project = (Parsers::Project.parse(map['project']) unless map['project'].nil?)
+        data.project = (Project.parse(map['project']) unless map['project'].nil?)
         data
       end
     end
@@ -894,7 +894,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.remote_access_session = (Parsers::RemoteAccessSession.parse(map['remoteAccessSession']) unless map['remoteAccessSession'].nil?)
+        data.remote_access_session = (RemoteAccessSession.parse(map['remoteAccessSession']) unless map['remoteAccessSession'].nil?)
         data
       end
     end
@@ -906,7 +906,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.run = (Parsers::Run.parse(map['run']) unless map['run'].nil?)
+        data.run = (Run.parse(map['run']) unless map['run'].nil?)
         data
       end
     end
@@ -923,13 +923,13 @@ module AWS::SDK::DeviceFarm
         data.result = map['result']
         data.started = Time.at(map['started'].to_i) if map['started']
         data.stopped = Time.at(map['stopped'].to_i) if map['stopped']
-        data.counters = (Parsers::Counters.parse(map['counters']) unless map['counters'].nil?)
+        data.counters = (Counters.parse(map['counters']) unless map['counters'].nil?)
         data.message = map['message']
         data.total_jobs = map['totalJobs']
         data.completed_jobs = map['completedJobs']
         data.billing_method = map['billingMethod']
-        data.device_minutes = (Parsers::DeviceMinutes.parse(map['deviceMinutes']) unless map['deviceMinutes'].nil?)
-        data.network_profile = (Parsers::NetworkProfile.parse(map['networkProfile']) unless map['networkProfile'].nil?)
+        data.device_minutes = (DeviceMinutes.parse(map['deviceMinutes']) unless map['deviceMinutes'].nil?)
+        data.network_profile = (NetworkProfile.parse(map['networkProfile']) unless map['networkProfile'].nil?)
         data.parsing_result_url = map['parsingResultUrl']
         data.result_code = map['resultCode']
         data.seed = map['seed']
@@ -938,13 +938,13 @@ module AWS::SDK::DeviceFarm
         data.job_timeout_minutes = map['jobTimeoutMinutes']
         data.device_pool_arn = map['devicePoolArn']
         data.locale = map['locale']
-        data.radios = (Parsers::Radios.parse(map['radios']) unless map['radios'].nil?)
-        data.location = (Parsers::Location.parse(map['location']) unless map['location'].nil?)
-        data.customer_artifact_paths = (Parsers::CustomerArtifactPaths.parse(map['customerArtifactPaths']) unless map['customerArtifactPaths'].nil?)
+        data.radios = (Radios.parse(map['radios']) unless map['radios'].nil?)
+        data.location = (Location.parse(map['location']) unless map['location'].nil?)
+        data.customer_artifact_paths = (CustomerArtifactPaths.parse(map['customerArtifactPaths']) unless map['customerArtifactPaths'].nil?)
         data.web_url = map['webUrl']
         data.skip_app_resign = map['skipAppResign']
         data.test_spec_arn = map['testSpecArn']
-        data.device_selection_result = (Parsers::DeviceSelectionResult.parse(map['deviceSelectionResult']) unless map['deviceSelectionResult'].nil?)
+        data.device_selection_result = (DeviceSelectionResult.parse(map['deviceSelectionResult']) unless map['deviceSelectionResult'].nil?)
         return data
       end
     end
@@ -952,7 +952,7 @@ module AWS::SDK::DeviceFarm
     class DeviceSelectionResult
       def self.parse(map)
         data = Types::DeviceSelectionResult.new
-        data.filters = (Parsers::DeviceFilters.parse(map['filters']) unless map['filters'].nil?)
+        data.filters = (DeviceFilters.parse(map['filters']) unless map['filters'].nil?)
         data.matched_devices_count = map['matchedDevicesCount']
         data.max_devices = map['maxDevices']
         return data
@@ -962,7 +962,7 @@ module AWS::SDK::DeviceFarm
     class DeviceFilters
       def self.parse(list)
         list.map do |value|
-          Parsers::DeviceFilter.parse(value) unless value.nil?
+          DeviceFilter.parse(value) unless value.nil?
         end
       end
     end
@@ -972,7 +972,7 @@ module AWS::SDK::DeviceFarm
         data = Types::DeviceFilter.new
         data.attribute = map['attribute']
         data.operator = map['operator']
-        data.values = (Parsers::DeviceFilterValues.parse(map['values']) unless map['values'].nil?)
+        data.values = (DeviceFilterValues.parse(map['values']) unless map['values'].nil?)
         return data
       end
     end
@@ -988,9 +988,9 @@ module AWS::SDK::DeviceFarm
     class CustomerArtifactPaths
       def self.parse(map)
         data = Types::CustomerArtifactPaths.new
-        data.ios_paths = (Parsers::IosPaths.parse(map['iosPaths']) unless map['iosPaths'].nil?)
-        data.android_paths = (Parsers::AndroidPaths.parse(map['androidPaths']) unless map['androidPaths'].nil?)
-        data.device_host_paths = (Parsers::DeviceHostPaths.parse(map['deviceHostPaths']) unless map['deviceHostPaths'].nil?)
+        data.ios_paths = (IosPaths.parse(map['iosPaths']) unless map['iosPaths'].nil?)
+        data.android_paths = (AndroidPaths.parse(map['androidPaths']) unless map['androidPaths'].nil?)
+        data.device_host_paths = (DeviceHostPaths.parse(map['deviceHostPaths']) unless map['deviceHostPaths'].nil?)
         return data
       end
     end
@@ -1046,7 +1046,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.suite = (Parsers::Suite.parse(map['suite']) unless map['suite'].nil?)
+        data.suite = (Suite.parse(map['suite']) unless map['suite'].nil?)
         data
       end
     end
@@ -1062,9 +1062,9 @@ module AWS::SDK::DeviceFarm
         data.result = map['result']
         data.started = Time.at(map['started'].to_i) if map['started']
         data.stopped = Time.at(map['stopped'].to_i) if map['stopped']
-        data.counters = (Parsers::Counters.parse(map['counters']) unless map['counters'].nil?)
+        data.counters = (Counters.parse(map['counters']) unless map['counters'].nil?)
         data.message = map['message']
-        data.device_minutes = (Parsers::DeviceMinutes.parse(map['deviceMinutes']) unless map['deviceMinutes'].nil?)
+        data.device_minutes = (DeviceMinutes.parse(map['deviceMinutes']) unless map['deviceMinutes'].nil?)
         return data
       end
     end
@@ -1076,7 +1076,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.test = (Parsers::Test.parse(map['test']) unless map['test'].nil?)
+        data.test = (Test.parse(map['test']) unless map['test'].nil?)
         data
       end
     end
@@ -1092,9 +1092,9 @@ module AWS::SDK::DeviceFarm
         data.result = map['result']
         data.started = Time.at(map['started'].to_i) if map['started']
         data.stopped = Time.at(map['stopped'].to_i) if map['stopped']
-        data.counters = (Parsers::Counters.parse(map['counters']) unless map['counters'].nil?)
+        data.counters = (Counters.parse(map['counters']) unless map['counters'].nil?)
         data.message = map['message']
-        data.device_minutes = (Parsers::DeviceMinutes.parse(map['deviceMinutes']) unless map['deviceMinutes'].nil?)
+        data.device_minutes = (DeviceMinutes.parse(map['deviceMinutes']) unless map['deviceMinutes'].nil?)
         return data
       end
     end
@@ -1106,7 +1106,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.test_grid_project = (Parsers::TestGridProject.parse(map['testGridProject']) unless map['testGridProject'].nil?)
+        data.test_grid_project = (TestGridProject.parse(map['testGridProject']) unless map['testGridProject'].nil?)
         data
       end
     end
@@ -1118,7 +1118,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.test_grid_session = (Parsers::TestGridSession.parse(map['testGridSession']) unless map['testGridSession'].nil?)
+        data.test_grid_session = (TestGridSession.parse(map['testGridSession']) unless map['testGridSession'].nil?)
         data
       end
     end
@@ -1143,7 +1143,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.upload = (Parsers::Upload.parse(map['upload']) unless map['upload'].nil?)
+        data.upload = (Upload.parse(map['upload']) unless map['upload'].nil?)
         data
       end
     end
@@ -1155,7 +1155,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.vpce_configuration = (Parsers::VPCEConfiguration.parse(map['vpceConfiguration']) unless map['vpceConfiguration'].nil?)
+        data.vpce_configuration = (VPCEConfiguration.parse(map['vpceConfiguration']) unless map['vpceConfiguration'].nil?)
         data
       end
     end
@@ -1167,7 +1167,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.app_upload = (Parsers::Upload.parse(map['appUpload']) unless map['appUpload'].nil?)
+        data.app_upload = (Upload.parse(map['appUpload']) unless map['appUpload'].nil?)
         data
       end
     end
@@ -1179,7 +1179,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.artifacts = (Parsers::Artifacts.parse(map['artifacts']) unless map['artifacts'].nil?)
+        data.artifacts = (Artifacts.parse(map['artifacts']) unless map['artifacts'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1188,7 +1188,7 @@ module AWS::SDK::DeviceFarm
     class Artifacts
       def self.parse(list)
         list.map do |value|
-          Parsers::Artifact.parse(value) unless value.nil?
+          Artifact.parse(value) unless value.nil?
         end
       end
     end
@@ -1212,7 +1212,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.device_instances = (Parsers::DeviceInstances.parse(map['deviceInstances']) unless map['deviceInstances'].nil?)
+        data.device_instances = (DeviceInstances.parse(map['deviceInstances']) unless map['deviceInstances'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1225,7 +1225,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.device_pools = (Parsers::DevicePools.parse(map['devicePools']) unless map['devicePools'].nil?)
+        data.device_pools = (DevicePools.parse(map['devicePools']) unless map['devicePools'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1234,7 +1234,7 @@ module AWS::SDK::DeviceFarm
     class DevicePools
       def self.parse(list)
         list.map do |value|
-          Parsers::DevicePool.parse(value) unless value.nil?
+          DevicePool.parse(value) unless value.nil?
         end
       end
     end
@@ -1246,7 +1246,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.devices = (Parsers::Devices.parse(map['devices']) unless map['devices'].nil?)
+        data.devices = (Devices.parse(map['devices']) unless map['devices'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1255,7 +1255,7 @@ module AWS::SDK::DeviceFarm
     class Devices
       def self.parse(list)
         list.map do |value|
-          Parsers::Device.parse(value) unless value.nil?
+          Device.parse(value) unless value.nil?
         end
       end
     end
@@ -1267,7 +1267,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance_profiles = (Parsers::InstanceProfiles.parse(map['instanceProfiles']) unless map['instanceProfiles'].nil?)
+        data.instance_profiles = (InstanceProfiles.parse(map['instanceProfiles']) unless map['instanceProfiles'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1276,7 +1276,7 @@ module AWS::SDK::DeviceFarm
     class InstanceProfiles
       def self.parse(list)
         list.map do |value|
-          Parsers::InstanceProfile.parse(value) unless value.nil?
+          InstanceProfile.parse(value) unless value.nil?
         end
       end
     end
@@ -1288,7 +1288,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.jobs = (Parsers::Jobs.parse(map['jobs']) unless map['jobs'].nil?)
+        data.jobs = (Jobs.parse(map['jobs']) unless map['jobs'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1297,7 +1297,7 @@ module AWS::SDK::DeviceFarm
     class Jobs
       def self.parse(list)
         list.map do |value|
-          Parsers::Job.parse(value) unless value.nil?
+          Job.parse(value) unless value.nil?
         end
       end
     end
@@ -1309,7 +1309,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.network_profiles = (Parsers::NetworkProfiles.parse(map['networkProfiles']) unless map['networkProfiles'].nil?)
+        data.network_profiles = (NetworkProfiles.parse(map['networkProfiles']) unless map['networkProfiles'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1318,7 +1318,7 @@ module AWS::SDK::DeviceFarm
     class NetworkProfiles
       def self.parse(list)
         list.map do |value|
-          Parsers::NetworkProfile.parse(value) unless value.nil?
+          NetworkProfile.parse(value) unless value.nil?
         end
       end
     end
@@ -1330,7 +1330,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.offering_promotions = (Parsers::OfferingPromotions.parse(map['offeringPromotions']) unless map['offeringPromotions'].nil?)
+        data.offering_promotions = (OfferingPromotions.parse(map['offeringPromotions']) unless map['offeringPromotions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1339,7 +1339,7 @@ module AWS::SDK::DeviceFarm
     class OfferingPromotions
       def self.parse(list)
         list.map do |value|
-          Parsers::OfferingPromotion.parse(value) unless value.nil?
+          OfferingPromotion.parse(value) unless value.nil?
         end
       end
     end
@@ -1360,7 +1360,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.offering_transactions = (Parsers::OfferingTransactions.parse(map['offeringTransactions']) unless map['offeringTransactions'].nil?)
+        data.offering_transactions = (OfferingTransactions.parse(map['offeringTransactions']) unless map['offeringTransactions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1369,7 +1369,7 @@ module AWS::SDK::DeviceFarm
     class OfferingTransactions
       def self.parse(list)
         list.map do |value|
-          Parsers::OfferingTransaction.parse(value) unless value.nil?
+          OfferingTransaction.parse(value) unless value.nil?
         end
       end
     end
@@ -1377,11 +1377,11 @@ module AWS::SDK::DeviceFarm
     class OfferingTransaction
       def self.parse(map)
         data = Types::OfferingTransaction.new
-        data.offering_status = (Parsers::OfferingStatus.parse(map['offeringStatus']) unless map['offeringStatus'].nil?)
+        data.offering_status = (OfferingStatus.parse(map['offeringStatus']) unless map['offeringStatus'].nil?)
         data.transaction_id = map['transactionId']
         data.offering_promotion_id = map['offeringPromotionId']
         data.created_on = Time.at(map['createdOn'].to_i) if map['createdOn']
-        data.cost = (Parsers::MonetaryAmount.parse(map['cost']) unless map['cost'].nil?)
+        data.cost = (MonetaryAmount.parse(map['cost']) unless map['cost'].nil?)
         return data
       end
     end
@@ -1393,7 +1393,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.offerings = (Parsers::Offerings.parse(map['offerings']) unless map['offerings'].nil?)
+        data.offerings = (Offerings.parse(map['offerings']) unless map['offerings'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1402,7 +1402,7 @@ module AWS::SDK::DeviceFarm
     class Offerings
       def self.parse(list)
         list.map do |value|
-          Parsers::Offering.parse(value) unless value.nil?
+          Offering.parse(value) unless value.nil?
         end
       end
     end
@@ -1414,7 +1414,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.projects = (Parsers::Projects.parse(map['projects']) unless map['projects'].nil?)
+        data.projects = (Projects.parse(map['projects']) unless map['projects'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1423,7 +1423,7 @@ module AWS::SDK::DeviceFarm
     class Projects
       def self.parse(list)
         list.map do |value|
-          Parsers::Project.parse(value) unless value.nil?
+          Project.parse(value) unless value.nil?
         end
       end
     end
@@ -1435,7 +1435,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.remote_access_sessions = (Parsers::RemoteAccessSessions.parse(map['remoteAccessSessions']) unless map['remoteAccessSessions'].nil?)
+        data.remote_access_sessions = (RemoteAccessSessions.parse(map['remoteAccessSessions']) unless map['remoteAccessSessions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1444,7 +1444,7 @@ module AWS::SDK::DeviceFarm
     class RemoteAccessSessions
       def self.parse(list)
         list.map do |value|
-          Parsers::RemoteAccessSession.parse(value) unless value.nil?
+          RemoteAccessSession.parse(value) unless value.nil?
         end
       end
     end
@@ -1456,7 +1456,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.runs = (Parsers::Runs.parse(map['runs']) unless map['runs'].nil?)
+        data.runs = (Runs.parse(map['runs']) unless map['runs'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1465,7 +1465,7 @@ module AWS::SDK::DeviceFarm
     class Runs
       def self.parse(list)
         list.map do |value|
-          Parsers::Run.parse(value) unless value.nil?
+          Run.parse(value) unless value.nil?
         end
       end
     end
@@ -1477,7 +1477,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.samples = (Parsers::Samples.parse(map['samples']) unless map['samples'].nil?)
+        data.samples = (Samples.parse(map['samples']) unless map['samples'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1486,7 +1486,7 @@ module AWS::SDK::DeviceFarm
     class Samples
       def self.parse(list)
         list.map do |value|
-          Parsers::Sample.parse(value) unless value.nil?
+          Sample.parse(value) unless value.nil?
         end
       end
     end
@@ -1508,7 +1508,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.suites = (Parsers::Suites.parse(map['suites']) unless map['suites'].nil?)
+        data.suites = (Suites.parse(map['suites']) unless map['suites'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1517,7 +1517,7 @@ module AWS::SDK::DeviceFarm
     class Suites
       def self.parse(list)
         list.map do |value|
-          Parsers::Suite.parse(value) unless value.nil?
+          Suite.parse(value) unless value.nil?
         end
       end
     end
@@ -1529,7 +1529,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -1537,7 +1537,7 @@ module AWS::SDK::DeviceFarm
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -1558,7 +1558,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.test_grid_projects = (Parsers::TestGridProjects.parse(map['testGridProjects']) unless map['testGridProjects'].nil?)
+        data.test_grid_projects = (TestGridProjects.parse(map['testGridProjects']) unless map['testGridProjects'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1567,7 +1567,7 @@ module AWS::SDK::DeviceFarm
     class TestGridProjects
       def self.parse(list)
         list.map do |value|
-          Parsers::TestGridProject.parse(value) unless value.nil?
+          TestGridProject.parse(value) unless value.nil?
         end
       end
     end
@@ -1579,7 +1579,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.actions = (Parsers::TestGridSessionActions.parse(map['actions']) unless map['actions'].nil?)
+        data.actions = (TestGridSessionActions.parse(map['actions']) unless map['actions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1588,7 +1588,7 @@ module AWS::SDK::DeviceFarm
     class TestGridSessionActions
       def self.parse(list)
         list.map do |value|
-          Parsers::TestGridSessionAction.parse(value) unless value.nil?
+          TestGridSessionAction.parse(value) unless value.nil?
         end
       end
     end
@@ -1612,7 +1612,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.artifacts = (Parsers::TestGridSessionArtifacts.parse(map['artifacts']) unless map['artifacts'].nil?)
+        data.artifacts = (TestGridSessionArtifacts.parse(map['artifacts']) unless map['artifacts'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1621,7 +1621,7 @@ module AWS::SDK::DeviceFarm
     class TestGridSessionArtifacts
       def self.parse(list)
         list.map do |value|
-          Parsers::TestGridSessionArtifact.parse(value) unless value.nil?
+          TestGridSessionArtifact.parse(value) unless value.nil?
         end
       end
     end
@@ -1643,7 +1643,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.test_grid_sessions = (Parsers::TestGridSessions.parse(map['testGridSessions']) unless map['testGridSessions'].nil?)
+        data.test_grid_sessions = (TestGridSessions.parse(map['testGridSessions']) unless map['testGridSessions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1652,7 +1652,7 @@ module AWS::SDK::DeviceFarm
     class TestGridSessions
       def self.parse(list)
         list.map do |value|
-          Parsers::TestGridSession.parse(value) unless value.nil?
+          TestGridSession.parse(value) unless value.nil?
         end
       end
     end
@@ -1664,7 +1664,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tests = (Parsers::Tests.parse(map['tests']) unless map['tests'].nil?)
+        data.tests = (Tests.parse(map['tests']) unless map['tests'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1673,7 +1673,7 @@ module AWS::SDK::DeviceFarm
     class Tests
       def self.parse(list)
         list.map do |value|
-          Parsers::Test.parse(value) unless value.nil?
+          Test.parse(value) unless value.nil?
         end
       end
     end
@@ -1685,7 +1685,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.unique_problems = (Parsers::UniqueProblemsByExecutionResultMap.parse(map['uniqueProblems']) unless map['uniqueProblems'].nil?)
+        data.unique_problems = (UniqueProblemsByExecutionResultMap.parse(map['uniqueProblems']) unless map['uniqueProblems'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1695,7 +1695,7 @@ module AWS::SDK::DeviceFarm
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::UniqueProblems.parse(value) unless value.nil?
+          data[key] = UniqueProblems.parse(value) unless value.nil?
         end
         data
       end
@@ -1704,7 +1704,7 @@ module AWS::SDK::DeviceFarm
     class UniqueProblems
       def self.parse(list)
         list.map do |value|
-          Parsers::UniqueProblem.parse(value) unless value.nil?
+          UniqueProblem.parse(value) unless value.nil?
         end
       end
     end
@@ -1713,7 +1713,7 @@ module AWS::SDK::DeviceFarm
       def self.parse(map)
         data = Types::UniqueProblem.new
         data.message = map['message']
-        data.problems = (Parsers::Problems.parse(map['problems']) unless map['problems'].nil?)
+        data.problems = (Problems.parse(map['problems']) unless map['problems'].nil?)
         return data
       end
     end
@@ -1721,7 +1721,7 @@ module AWS::SDK::DeviceFarm
     class Problems
       def self.parse(list)
         list.map do |value|
-          Parsers::Problem.parse(value) unless value.nil?
+          Problem.parse(value) unless value.nil?
         end
       end
     end
@@ -1729,11 +1729,11 @@ module AWS::SDK::DeviceFarm
     class Problem
       def self.parse(map)
         data = Types::Problem.new
-        data.run = (Parsers::ProblemDetail.parse(map['run']) unless map['run'].nil?)
-        data.job = (Parsers::ProblemDetail.parse(map['job']) unless map['job'].nil?)
-        data.suite = (Parsers::ProblemDetail.parse(map['suite']) unless map['suite'].nil?)
-        data.test = (Parsers::ProblemDetail.parse(map['test']) unless map['test'].nil?)
-        data.device = (Parsers::Device.parse(map['device']) unless map['device'].nil?)
+        data.run = (ProblemDetail.parse(map['run']) unless map['run'].nil?)
+        data.job = (ProblemDetail.parse(map['job']) unless map['job'].nil?)
+        data.suite = (ProblemDetail.parse(map['suite']) unless map['suite'].nil?)
+        data.test = (ProblemDetail.parse(map['test']) unless map['test'].nil?)
+        data.device = (Device.parse(map['device']) unless map['device'].nil?)
         data.result = map['result']
         data.message = map['message']
         return data
@@ -1756,7 +1756,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.uploads = (Parsers::Uploads.parse(map['uploads']) unless map['uploads'].nil?)
+        data.uploads = (Uploads.parse(map['uploads']) unless map['uploads'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1765,7 +1765,7 @@ module AWS::SDK::DeviceFarm
     class Uploads
       def self.parse(list)
         list.map do |value|
-          Parsers::Upload.parse(value) unless value.nil?
+          Upload.parse(value) unless value.nil?
         end
       end
     end
@@ -1777,7 +1777,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.vpce_configurations = (Parsers::VPCEConfigurations.parse(map['vpceConfigurations']) unless map['vpceConfigurations'].nil?)
+        data.vpce_configurations = (VPCEConfigurations.parse(map['vpceConfigurations']) unless map['vpceConfigurations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1786,7 +1786,7 @@ module AWS::SDK::DeviceFarm
     class VPCEConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::VPCEConfiguration.parse(value) unless value.nil?
+          VPCEConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -1798,7 +1798,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.offering_transaction = (Parsers::OfferingTransaction.parse(map['offeringTransaction']) unless map['offeringTransaction'].nil?)
+        data.offering_transaction = (OfferingTransaction.parse(map['offeringTransaction']) unless map['offeringTransaction'].nil?)
         data
       end
     end
@@ -1810,7 +1810,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.offering_transaction = (Parsers::OfferingTransaction.parse(map['offeringTransaction']) unless map['offeringTransaction'].nil?)
+        data.offering_transaction = (OfferingTransaction.parse(map['offeringTransaction']) unless map['offeringTransaction'].nil?)
         data
       end
     end
@@ -1822,7 +1822,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.run = (Parsers::Run.parse(map['run']) unless map['run'].nil?)
+        data.run = (Run.parse(map['run']) unless map['run'].nil?)
         data
       end
     end
@@ -1846,7 +1846,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job = (Parsers::Job.parse(map['job']) unless map['job'].nil?)
+        data.job = (Job.parse(map['job']) unless map['job'].nil?)
         data
       end
     end
@@ -1858,7 +1858,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.remote_access_session = (Parsers::RemoteAccessSession.parse(map['remoteAccessSession']) unless map['remoteAccessSession'].nil?)
+        data.remote_access_session = (RemoteAccessSession.parse(map['remoteAccessSession']) unless map['remoteAccessSession'].nil?)
         data
       end
     end
@@ -1870,7 +1870,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.run = (Parsers::Run.parse(map['run']) unless map['run'].nil?)
+        data.run = (Run.parse(map['run']) unless map['run'].nil?)
         data
       end
     end
@@ -1930,7 +1930,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.device_instance = (Parsers::DeviceInstance.parse(map['deviceInstance']) unless map['deviceInstance'].nil?)
+        data.device_instance = (DeviceInstance.parse(map['deviceInstance']) unless map['deviceInstance'].nil?)
         data
       end
     end
@@ -1942,7 +1942,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.device_pool = (Parsers::DevicePool.parse(map['devicePool']) unless map['devicePool'].nil?)
+        data.device_pool = (DevicePool.parse(map['devicePool']) unless map['devicePool'].nil?)
         data
       end
     end
@@ -1954,7 +1954,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance_profile = (Parsers::InstanceProfile.parse(map['instanceProfile']) unless map['instanceProfile'].nil?)
+        data.instance_profile = (InstanceProfile.parse(map['instanceProfile']) unless map['instanceProfile'].nil?)
         data
       end
     end
@@ -1966,7 +1966,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.network_profile = (Parsers::NetworkProfile.parse(map['networkProfile']) unless map['networkProfile'].nil?)
+        data.network_profile = (NetworkProfile.parse(map['networkProfile']) unless map['networkProfile'].nil?)
         data
       end
     end
@@ -1978,7 +1978,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.project = (Parsers::Project.parse(map['project']) unless map['project'].nil?)
+        data.project = (Project.parse(map['project']) unless map['project'].nil?)
         data
       end
     end
@@ -1990,7 +1990,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.test_grid_project = (Parsers::TestGridProject.parse(map['testGridProject']) unless map['testGridProject'].nil?)
+        data.test_grid_project = (TestGridProject.parse(map['testGridProject']) unless map['testGridProject'].nil?)
         data
       end
     end
@@ -2002,7 +2002,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.upload = (Parsers::Upload.parse(map['upload']) unless map['upload'].nil?)
+        data.upload = (Upload.parse(map['upload']) unless map['upload'].nil?)
         data
       end
     end
@@ -2014,7 +2014,7 @@ module AWS::SDK::DeviceFarm
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.vpce_configuration = (Parsers::VPCEConfiguration.parse(map['vpceConfiguration']) unless map['vpceConfiguration'].nil?)
+        data.vpce_configuration = (VPCEConfiguration.parse(map['vpceConfiguration']) unless map['vpceConfiguration'].nil?)
         data
       end
     end

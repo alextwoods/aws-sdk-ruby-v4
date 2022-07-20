@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SageMaker
   module Builders
 
@@ -21,7 +23,7 @@ module AWS::SDK::SageMaker
         data['SourceArn'] = input[:source_arn] unless input[:source_arn].nil?
         data['DestinationArn'] = input[:destination_arn] unless input[:destination_arn].nil?
         data['AssociationType'] = input[:association_type] unless input[:association_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -34,8 +36,8 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.AddTags'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -44,7 +46,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -70,7 +72,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['TrialComponentName'] = input[:trial_component_name] unless input[:trial_component_name].nil?
         data['TrialName'] = input[:trial_name] unless input[:trial_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -82,8 +84,8 @@ module AWS::SDK::SageMaker
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'SageMaker.BatchDescribeModelPackage'
         data = {}
-        data['ModelPackageArnList'] = Builders::ModelPackageArnList.build(input[:model_package_arn_list]) unless input[:model_package_arn_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ModelPackageArnList'] = ModelPackageArnList.build(input[:model_package_arn_list]) unless input[:model_package_arn_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -107,14 +109,14 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateAction'
         data = {}
         data['ActionName'] = input[:action_name] unless input[:action_name].nil?
-        data['Source'] = Builders::ActionSource.build(input[:source]) unless input[:source].nil?
+        data['Source'] = ActionSource.build(input[:source]) unless input[:source].nil?
         data['ActionType'] = input[:action_type] unless input[:action_type].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Status'] = input[:status] unless input[:status].nil?
-        data['Properties'] = Builders::LineageEntityParameters.build(input[:properties]) unless input[:properties].nil?
-        data['MetadataProperties'] = Builders::MetadataProperties.build(input[:metadata_properties]) unless input[:metadata_properties].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Properties'] = LineageEntityParameters.build(input[:properties]) unless input[:properties].nil?
+        data['MetadataProperties'] = MetadataProperties.build(input[:metadata_properties]) unless input[:metadata_properties].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -162,12 +164,12 @@ module AWS::SDK::SageMaker
         data = {}
         data['AlgorithmName'] = input[:algorithm_name] unless input[:algorithm_name].nil?
         data['AlgorithmDescription'] = input[:algorithm_description] unless input[:algorithm_description].nil?
-        data['TrainingSpecification'] = Builders::TrainingSpecification.build(input[:training_specification]) unless input[:training_specification].nil?
-        data['InferenceSpecification'] = Builders::InferenceSpecification.build(input[:inference_specification]) unless input[:inference_specification].nil?
-        data['ValidationSpecification'] = Builders::AlgorithmValidationSpecification.build(input[:validation_specification]) unless input[:validation_specification].nil?
+        data['TrainingSpecification'] = TrainingSpecification.build(input[:training_specification]) unless input[:training_specification].nil?
+        data['InferenceSpecification'] = InferenceSpecification.build(input[:inference_specification]) unless input[:inference_specification].nil?
+        data['ValidationSpecification'] = AlgorithmValidationSpecification.build(input[:validation_specification]) unless input[:validation_specification].nil?
         data['CertifyForMarketplace'] = input[:certify_for_marketplace] unless input[:certify_for_marketplace].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -176,7 +178,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['ValidationRole'] = input[:validation_role] unless input[:validation_role].nil?
-        data['ValidationProfiles'] = Builders::AlgorithmValidationProfiles.build(input[:validation_profiles]) unless input[:validation_profiles].nil?
+        data['ValidationProfiles'] = AlgorithmValidationProfiles.build(input[:validation_profiles]) unless input[:validation_profiles].nil?
         data
       end
     end
@@ -186,7 +188,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AlgorithmValidationProfile.build(element) unless element.nil?
+          data << AlgorithmValidationProfile.build(element) unless element.nil?
         end
         data
       end
@@ -197,8 +199,8 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['ProfileName'] = input[:profile_name] unless input[:profile_name].nil?
-        data['TrainingJobDefinition'] = Builders::TrainingJobDefinition.build(input[:training_job_definition]) unless input[:training_job_definition].nil?
-        data['TransformJobDefinition'] = Builders::TransformJobDefinition.build(input[:transform_job_definition]) unless input[:transform_job_definition].nil?
+        data['TrainingJobDefinition'] = TrainingJobDefinition.build(input[:training_job_definition]) unless input[:training_job_definition].nil?
+        data['TransformJobDefinition'] = TransformJobDefinition.build(input[:transform_job_definition]) unless input[:transform_job_definition].nil?
         data
       end
     end
@@ -210,10 +212,10 @@ module AWS::SDK::SageMaker
         data['MaxConcurrentTransforms'] = input[:max_concurrent_transforms] unless input[:max_concurrent_transforms].nil?
         data['MaxPayloadInMB'] = input[:max_payload_in_mb] unless input[:max_payload_in_mb].nil?
         data['BatchStrategy'] = input[:batch_strategy] unless input[:batch_strategy].nil?
-        data['Environment'] = Builders::TransformEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
-        data['TransformInput'] = Builders::TransformInput.build(input[:transform_input]) unless input[:transform_input].nil?
-        data['TransformOutput'] = Builders::TransformOutput.build(input[:transform_output]) unless input[:transform_output].nil?
-        data['TransformResources'] = Builders::TransformResources.build(input[:transform_resources]) unless input[:transform_resources].nil?
+        data['Environment'] = TransformEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
+        data['TransformInput'] = TransformInput.build(input[:transform_input]) unless input[:transform_input].nil?
+        data['TransformOutput'] = TransformOutput.build(input[:transform_output]) unless input[:transform_output].nil?
+        data['TransformResources'] = TransformResources.build(input[:transform_resources]) unless input[:transform_resources].nil?
         data
       end
     end
@@ -245,7 +247,7 @@ module AWS::SDK::SageMaker
     class TransformInput
       def self.build(input)
         data = {}
-        data['DataSource'] = Builders::TransformDataSource.build(input[:data_source]) unless input[:data_source].nil?
+        data['DataSource'] = TransformDataSource.build(input[:data_source]) unless input[:data_source].nil?
         data['ContentType'] = input[:content_type] unless input[:content_type].nil?
         data['CompressionType'] = input[:compression_type] unless input[:compression_type].nil?
         data['SplitType'] = input[:split_type] unless input[:split_type].nil?
@@ -257,7 +259,7 @@ module AWS::SDK::SageMaker
     class TransformDataSource
       def self.build(input)
         data = {}
-        data['S3DataSource'] = Builders::TransformS3DataSource.build(input[:s3_data_source]) unless input[:s3_data_source].nil?
+        data['S3DataSource'] = TransformS3DataSource.build(input[:s3_data_source]) unless input[:s3_data_source].nil?
         data
       end
     end
@@ -288,11 +290,11 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['TrainingInputMode'] = input[:training_input_mode] unless input[:training_input_mode].nil?
-        data['HyperParameters'] = Builders::HyperParameters.build(input[:hyper_parameters]) unless input[:hyper_parameters].nil?
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
-        data['ResourceConfig'] = Builders::ResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
-        data['StoppingCondition'] = Builders::StoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
+        data['HyperParameters'] = HyperParameters.build(input[:hyper_parameters]) unless input[:hyper_parameters].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['ResourceConfig'] = ResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
+        data['StoppingCondition'] = StoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
         data
       end
     end
@@ -334,7 +336,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Channel.build(element) unless element.nil?
+          data << Channel.build(element) unless element.nil?
         end
         data
       end
@@ -345,12 +347,12 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['ChannelName'] = input[:channel_name] unless input[:channel_name].nil?
-        data['DataSource'] = Builders::DataSource.build(input[:data_source]) unless input[:data_source].nil?
+        data['DataSource'] = DataSource.build(input[:data_source]) unless input[:data_source].nil?
         data['ContentType'] = input[:content_type] unless input[:content_type].nil?
         data['CompressionType'] = input[:compression_type] unless input[:compression_type].nil?
         data['RecordWrapperType'] = input[:record_wrapper_type] unless input[:record_wrapper_type].nil?
         data['InputMode'] = input[:input_mode] unless input[:input_mode].nil?
-        data['ShuffleConfig'] = Builders::ShuffleConfig.build(input[:shuffle_config]) unless input[:shuffle_config].nil?
+        data['ShuffleConfig'] = ShuffleConfig.build(input[:shuffle_config]) unless input[:shuffle_config].nil?
         data
       end
     end
@@ -368,8 +370,8 @@ module AWS::SDK::SageMaker
     class DataSource
       def self.build(input)
         data = {}
-        data['S3DataSource'] = Builders::S3DataSource.build(input[:s3_data_source]) unless input[:s3_data_source].nil?
-        data['FileSystemDataSource'] = Builders::FileSystemDataSource.build(input[:file_system_data_source]) unless input[:file_system_data_source].nil?
+        data['S3DataSource'] = S3DataSource.build(input[:s3_data_source]) unless input[:s3_data_source].nil?
+        data['FileSystemDataSource'] = FileSystemDataSource.build(input[:file_system_data_source]) unless input[:file_system_data_source].nil?
         data
       end
     end
@@ -393,7 +395,7 @@ module AWS::SDK::SageMaker
         data['S3DataType'] = input[:s3_data_type] unless input[:s3_data_type].nil?
         data['S3Uri'] = input[:s3_uri] unless input[:s3_uri].nil?
         data['S3DataDistributionType'] = input[:s3_data_distribution_type] unless input[:s3_data_distribution_type].nil?
-        data['AttributeNames'] = Builders::AttributeNames.build(input[:attribute_names]) unless input[:attribute_names].nil?
+        data['AttributeNames'] = AttributeNames.build(input[:attribute_names]) unless input[:attribute_names].nil?
         data
       end
     end
@@ -424,11 +426,11 @@ module AWS::SDK::SageMaker
     class InferenceSpecification
       def self.build(input)
         data = {}
-        data['Containers'] = Builders::ModelPackageContainerDefinitionList.build(input[:containers]) unless input[:containers].nil?
-        data['SupportedTransformInstanceTypes'] = Builders::TransformInstanceTypes.build(input[:supported_transform_instance_types]) unless input[:supported_transform_instance_types].nil?
-        data['SupportedRealtimeInferenceInstanceTypes'] = Builders::RealtimeInferenceInstanceTypes.build(input[:supported_realtime_inference_instance_types]) unless input[:supported_realtime_inference_instance_types].nil?
-        data['SupportedContentTypes'] = Builders::ContentTypes.build(input[:supported_content_types]) unless input[:supported_content_types].nil?
-        data['SupportedResponseMIMETypes'] = Builders::ResponseMIMETypes.build(input[:supported_response_mime_types]) unless input[:supported_response_mime_types].nil?
+        data['Containers'] = ModelPackageContainerDefinitionList.build(input[:containers]) unless input[:containers].nil?
+        data['SupportedTransformInstanceTypes'] = TransformInstanceTypes.build(input[:supported_transform_instance_types]) unless input[:supported_transform_instance_types].nil?
+        data['SupportedRealtimeInferenceInstanceTypes'] = RealtimeInferenceInstanceTypes.build(input[:supported_realtime_inference_instance_types]) unless input[:supported_realtime_inference_instance_types].nil?
+        data['SupportedContentTypes'] = ContentTypes.build(input[:supported_content_types]) unless input[:supported_content_types].nil?
+        data['SupportedResponseMIMETypes'] = ResponseMIMETypes.build(input[:supported_response_mime_types]) unless input[:supported_response_mime_types].nil?
         data
       end
     end
@@ -482,7 +484,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ModelPackageContainerDefinition.build(element) unless element.nil?
+          data << ModelPackageContainerDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -497,8 +499,8 @@ module AWS::SDK::SageMaker
         data['ImageDigest'] = input[:image_digest] unless input[:image_digest].nil?
         data['ModelDataUrl'] = input[:model_data_url] unless input[:model_data_url].nil?
         data['ProductId'] = input[:product_id] unless input[:product_id].nil?
-        data['Environment'] = Builders::EnvironmentMap.build(input[:environment]) unless input[:environment].nil?
-        data['ModelInput'] = Builders::ModelInput.build(input[:model_input]) unless input[:model_input].nil?
+        data['Environment'] = EnvironmentMap.build(input[:environment]) unless input[:environment].nil?
+        data['ModelInput'] = ModelInput.build(input[:model_input]) unless input[:model_input].nil?
         data['Framework'] = input[:framework] unless input[:framework].nil?
         data['FrameworkVersion'] = input[:framework_version] unless input[:framework_version].nil?
         data['NearestModelName'] = input[:nearest_model_name] unless input[:nearest_model_name].nil?
@@ -532,12 +534,12 @@ module AWS::SDK::SageMaker
         data = {}
         data['TrainingImage'] = input[:training_image] unless input[:training_image].nil?
         data['TrainingImageDigest'] = input[:training_image_digest] unless input[:training_image_digest].nil?
-        data['SupportedHyperParameters'] = Builders::HyperParameterSpecifications.build(input[:supported_hyper_parameters]) unless input[:supported_hyper_parameters].nil?
-        data['SupportedTrainingInstanceTypes'] = Builders::TrainingInstanceTypes.build(input[:supported_training_instance_types]) unless input[:supported_training_instance_types].nil?
+        data['SupportedHyperParameters'] = HyperParameterSpecifications.build(input[:supported_hyper_parameters]) unless input[:supported_hyper_parameters].nil?
+        data['SupportedTrainingInstanceTypes'] = TrainingInstanceTypes.build(input[:supported_training_instance_types]) unless input[:supported_training_instance_types].nil?
         data['SupportsDistributedTraining'] = input[:supports_distributed_training] unless input[:supports_distributed_training].nil?
-        data['MetricDefinitions'] = Builders::MetricDefinitionList.build(input[:metric_definitions]) unless input[:metric_definitions].nil?
-        data['TrainingChannels'] = Builders::ChannelSpecifications.build(input[:training_channels]) unless input[:training_channels].nil?
-        data['SupportedTuningJobObjectiveMetrics'] = Builders::HyperParameterTuningJobObjectives.build(input[:supported_tuning_job_objective_metrics]) unless input[:supported_tuning_job_objective_metrics].nil?
+        data['MetricDefinitions'] = MetricDefinitionList.build(input[:metric_definitions]) unless input[:metric_definitions].nil?
+        data['TrainingChannels'] = ChannelSpecifications.build(input[:training_channels]) unless input[:training_channels].nil?
+        data['SupportedTuningJobObjectiveMetrics'] = HyperParameterTuningJobObjectives.build(input[:supported_tuning_job_objective_metrics]) unless input[:supported_tuning_job_objective_metrics].nil?
         data
       end
     end
@@ -547,7 +549,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::HyperParameterTuningJobObjective.build(element) unless element.nil?
+          data << HyperParameterTuningJobObjective.build(element) unless element.nil?
         end
         data
       end
@@ -568,7 +570,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ChannelSpecification.build(element) unless element.nil?
+          data << ChannelSpecification.build(element) unless element.nil?
         end
         data
       end
@@ -581,9 +583,9 @@ module AWS::SDK::SageMaker
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['IsRequired'] = input[:is_required] unless input[:is_required].nil?
-        data['SupportedContentTypes'] = Builders::ContentTypes.build(input[:supported_content_types]) unless input[:supported_content_types].nil?
-        data['SupportedCompressionTypes'] = Builders::CompressionTypes.build(input[:supported_compression_types]) unless input[:supported_compression_types].nil?
-        data['SupportedInputModes'] = Builders::InputModes.build(input[:supported_input_modes]) unless input[:supported_input_modes].nil?
+        data['SupportedContentTypes'] = ContentTypes.build(input[:supported_content_types]) unless input[:supported_content_types].nil?
+        data['SupportedCompressionTypes'] = CompressionTypes.build(input[:supported_compression_types]) unless input[:supported_compression_types].nil?
+        data['SupportedInputModes'] = InputModes.build(input[:supported_input_modes]) unless input[:supported_input_modes].nil?
         data
       end
     end
@@ -615,7 +617,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MetricDefinition.build(element) unless element.nil?
+          data << MetricDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -647,7 +649,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::HyperParameterSpecification.build(element) unless element.nil?
+          data << HyperParameterSpecification.build(element) unless element.nil?
         end
         data
       end
@@ -660,7 +662,7 @@ module AWS::SDK::SageMaker
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        data['Range'] = Builders::ParameterRange.build(input[:range]) unless input[:range].nil?
+        data['Range'] = ParameterRange.build(input[:range]) unless input[:range].nil?
         data['IsTunable'] = input[:is_tunable] unless input[:is_tunable].nil?
         data['IsRequired'] = input[:is_required] unless input[:is_required].nil?
         data['DefaultValue'] = input[:default_value] unless input[:default_value].nil?
@@ -672,9 +674,9 @@ module AWS::SDK::SageMaker
     class ParameterRange
       def self.build(input)
         data = {}
-        data['IntegerParameterRangeSpecification'] = Builders::IntegerParameterRangeSpecification.build(input[:integer_parameter_range_specification]) unless input[:integer_parameter_range_specification].nil?
-        data['ContinuousParameterRangeSpecification'] = Builders::ContinuousParameterRangeSpecification.build(input[:continuous_parameter_range_specification]) unless input[:continuous_parameter_range_specification].nil?
-        data['CategoricalParameterRangeSpecification'] = Builders::CategoricalParameterRangeSpecification.build(input[:categorical_parameter_range_specification]) unless input[:categorical_parameter_range_specification].nil?
+        data['IntegerParameterRangeSpecification'] = IntegerParameterRangeSpecification.build(input[:integer_parameter_range_specification]) unless input[:integer_parameter_range_specification].nil?
+        data['ContinuousParameterRangeSpecification'] = ContinuousParameterRangeSpecification.build(input[:continuous_parameter_range_specification]) unless input[:continuous_parameter_range_specification].nil?
+        data['CategoricalParameterRangeSpecification'] = CategoricalParameterRangeSpecification.build(input[:categorical_parameter_range_specification]) unless input[:categorical_parameter_range_specification].nil?
         data
       end
     end
@@ -683,7 +685,7 @@ module AWS::SDK::SageMaker
     class CategoricalParameterRangeSpecification
       def self.build(input)
         data = {}
-        data['Values'] = Builders::ParameterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = ParameterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -731,9 +733,9 @@ module AWS::SDK::SageMaker
         data['UserProfileName'] = input[:user_profile_name] unless input[:user_profile_name].nil?
         data['AppType'] = input[:app_type] unless input[:app_type].nil?
         data['AppName'] = input[:app_name] unless input[:app_name].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['ResourceSpec'] = Builders::ResourceSpec.build(input[:resource_spec]) unless input[:resource_spec].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['ResourceSpec'] = ResourceSpec.build(input[:resource_spec]) unless input[:resource_spec].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -758,9 +760,9 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateAppImageConfig'
         data = {}
         data['AppImageConfigName'] = input[:app_image_config_name] unless input[:app_image_config_name].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['KernelGatewayImageConfig'] = Builders::KernelGatewayImageConfig.build(input[:kernel_gateway_image_config]) unless input[:kernel_gateway_image_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['KernelGatewayImageConfig'] = KernelGatewayImageConfig.build(input[:kernel_gateway_image_config]) unless input[:kernel_gateway_image_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -768,8 +770,8 @@ module AWS::SDK::SageMaker
     class KernelGatewayImageConfig
       def self.build(input)
         data = {}
-        data['KernelSpecs'] = Builders::KernelSpecs.build(input[:kernel_specs]) unless input[:kernel_specs].nil?
-        data['FileSystemConfig'] = Builders::FileSystemConfig.build(input[:file_system_config]) unless input[:file_system_config].nil?
+        data['KernelSpecs'] = KernelSpecs.build(input[:kernel_specs]) unless input[:kernel_specs].nil?
+        data['FileSystemConfig'] = FileSystemConfig.build(input[:file_system_config]) unless input[:file_system_config].nil?
         data
       end
     end
@@ -790,7 +792,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::KernelSpec.build(element) unless element.nil?
+          data << KernelSpec.build(element) unless element.nil?
         end
         data
       end
@@ -815,12 +817,12 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateArtifact'
         data = {}
         data['ArtifactName'] = input[:artifact_name] unless input[:artifact_name].nil?
-        data['Source'] = Builders::ArtifactSource.build(input[:source]) unless input[:source].nil?
+        data['Source'] = ArtifactSource.build(input[:source]) unless input[:source].nil?
         data['ArtifactType'] = input[:artifact_type] unless input[:artifact_type].nil?
-        data['Properties'] = Builders::LineageEntityParameters.build(input[:properties]) unless input[:properties].nil?
-        data['MetadataProperties'] = Builders::MetadataProperties.build(input[:metadata_properties]) unless input[:metadata_properties].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Properties'] = LineageEntityParameters.build(input[:properties]) unless input[:properties].nil?
+        data['MetadataProperties'] = MetadataProperties.build(input[:metadata_properties]) unless input[:metadata_properties].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -829,7 +831,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['SourceUri'] = input[:source_uri] unless input[:source_uri].nil?
-        data['SourceTypes'] = Builders::ArtifactSourceTypes.build(input[:source_types]) unless input[:source_types].nil?
+        data['SourceTypes'] = ArtifactSourceTypes.build(input[:source_types]) unless input[:source_types].nil?
         data
       end
     end
@@ -839,7 +841,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ArtifactSourceType.build(element) unless element.nil?
+          data << ArtifactSourceType.build(element) unless element.nil?
         end
         data
       end
@@ -864,16 +866,16 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateAutoMLJob'
         data = {}
         data['AutoMLJobName'] = input[:auto_ml_job_name] unless input[:auto_ml_job_name].nil?
-        data['InputDataConfig'] = Builders::AutoMLInputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::AutoMLOutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['InputDataConfig'] = AutoMLInputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = AutoMLOutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['ProblemType'] = input[:problem_type] unless input[:problem_type].nil?
-        data['AutoMLJobObjective'] = Builders::AutoMLJobObjective.build(input[:auto_ml_job_objective]) unless input[:auto_ml_job_objective].nil?
-        data['AutoMLJobConfig'] = Builders::AutoMLJobConfig.build(input[:auto_ml_job_config]) unless input[:auto_ml_job_config].nil?
+        data['AutoMLJobObjective'] = AutoMLJobObjective.build(input[:auto_ml_job_objective]) unless input[:auto_ml_job_objective].nil?
+        data['AutoMLJobConfig'] = AutoMLJobConfig.build(input[:auto_ml_job_config]) unless input[:auto_ml_job_config].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['GenerateCandidateDefinitionsOnly'] = input[:generate_candidate_definitions_only] unless input[:generate_candidate_definitions_only].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['ModelDeployConfig'] = Builders::ModelDeployConfig.build(input[:model_deploy_config]) unless input[:model_deploy_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['ModelDeployConfig'] = ModelDeployConfig.build(input[:model_deploy_config]) unless input[:model_deploy_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -891,10 +893,10 @@ module AWS::SDK::SageMaker
     class AutoMLJobConfig
       def self.build(input)
         data = {}
-        data['CompletionCriteria'] = Builders::AutoMLJobCompletionCriteria.build(input[:completion_criteria]) unless input[:completion_criteria].nil?
-        data['SecurityConfig'] = Builders::AutoMLSecurityConfig.build(input[:security_config]) unless input[:security_config].nil?
-        data['DataSplitConfig'] = Builders::AutoMLDataSplitConfig.build(input[:data_split_config]) unless input[:data_split_config].nil?
-        data['CandidateGenerationConfig'] = Builders::AutoMLCandidateGenerationConfig.build(input[:candidate_generation_config]) unless input[:candidate_generation_config].nil?
+        data['CompletionCriteria'] = AutoMLJobCompletionCriteria.build(input[:completion_criteria]) unless input[:completion_criteria].nil?
+        data['SecurityConfig'] = AutoMLSecurityConfig.build(input[:security_config]) unless input[:security_config].nil?
+        data['DataSplitConfig'] = AutoMLDataSplitConfig.build(input[:data_split_config]) unless input[:data_split_config].nil?
+        data['CandidateGenerationConfig'] = AutoMLCandidateGenerationConfig.build(input[:candidate_generation_config]) unless input[:candidate_generation_config].nil?
         data
       end
     end
@@ -923,7 +925,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['VolumeKmsKeyId'] = input[:volume_kms_key_id] unless input[:volume_kms_key_id].nil?
         data['EnableInterContainerTrafficEncryption'] = input[:enable_inter_container_traffic_encryption] unless input[:enable_inter_container_traffic_encryption].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
         data
       end
     end
@@ -932,8 +934,8 @@ module AWS::SDK::SageMaker
     class VpcConfig
       def self.build(input)
         data = {}
-        data['SecurityGroupIds'] = Builders::VpcSecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
-        data['Subnets'] = Builders::Subnets.build(input[:subnets]) unless input[:subnets].nil?
+        data['SecurityGroupIds'] = VpcSecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['Subnets'] = Subnets.build(input[:subnets]) unless input[:subnets].nil?
         data
       end
     end
@@ -995,7 +997,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AutoMLChannel.build(element) unless element.nil?
+          data << AutoMLChannel.build(element) unless element.nil?
         end
         data
       end
@@ -1005,7 +1007,7 @@ module AWS::SDK::SageMaker
     class AutoMLChannel
       def self.build(input)
         data = {}
-        data['DataSource'] = Builders::AutoMLDataSource.build(input[:data_source]) unless input[:data_source].nil?
+        data['DataSource'] = AutoMLDataSource.build(input[:data_source]) unless input[:data_source].nil?
         data['CompressionType'] = input[:compression_type] unless input[:compression_type].nil?
         data['TargetAttributeName'] = input[:target_attribute_name] unless input[:target_attribute_name].nil?
         data['ContentType'] = input[:content_type] unless input[:content_type].nil?
@@ -1018,7 +1020,7 @@ module AWS::SDK::SageMaker
     class AutoMLDataSource
       def self.build(input)
         data = {}
-        data['S3DataSource'] = Builders::AutoMLS3DataSource.build(input[:s3_data_source]) unless input[:s3_data_source].nil?
+        data['S3DataSource'] = AutoMLS3DataSource.build(input[:s3_data_source]) unless input[:s3_data_source].nil?
         data
       end
     end
@@ -1042,9 +1044,9 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateCodeRepository'
         data = {}
         data['CodeRepositoryName'] = input[:code_repository_name] unless input[:code_repository_name].nil?
-        data['GitConfig'] = Builders::GitConfig.build(input[:git_config]) unless input[:git_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GitConfig'] = GitConfig.build(input[:git_config]) unless input[:git_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1070,12 +1072,12 @@ module AWS::SDK::SageMaker
         data['CompilationJobName'] = input[:compilation_job_name] unless input[:compilation_job_name].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['ModelPackageVersionArn'] = input[:model_package_version_arn] unless input[:model_package_version_arn].nil?
-        data['InputConfig'] = Builders::InputConfig.build(input[:input_config]) unless input[:input_config].nil?
-        data['OutputConfig'] = Builders::OutputConfig.build(input[:output_config]) unless input[:output_config].nil?
-        data['VpcConfig'] = Builders::NeoVpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        data['StoppingCondition'] = Builders::StoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InputConfig'] = InputConfig.build(input[:input_config]) unless input[:input_config].nil?
+        data['OutputConfig'] = OutputConfig.build(input[:output_config]) unless input[:output_config].nil?
+        data['VpcConfig'] = NeoVpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['StoppingCondition'] = StoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1083,8 +1085,8 @@ module AWS::SDK::SageMaker
     class NeoVpcConfig
       def self.build(input)
         data = {}
-        data['SecurityGroupIds'] = Builders::NeoVpcSecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
-        data['Subnets'] = Builders::NeoVpcSubnets.build(input[:subnets]) unless input[:subnets].nil?
+        data['SecurityGroupIds'] = NeoVpcSecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['Subnets'] = NeoVpcSubnets.build(input[:subnets]) unless input[:subnets].nil?
         data
       end
     end
@@ -1117,7 +1119,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['S3OutputLocation'] = input[:s3_output_location] unless input[:s3_output_location].nil?
         data['TargetDevice'] = input[:target_device] unless input[:target_device].nil?
-        data['TargetPlatform'] = Builders::TargetPlatform.build(input[:target_platform]) unless input[:target_platform].nil?
+        data['TargetPlatform'] = TargetPlatform.build(input[:target_platform]) unless input[:target_platform].nil?
         data['CompilerOptions'] = input[:compiler_options] unless input[:compiler_options].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data
@@ -1156,12 +1158,12 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateContext'
         data = {}
         data['ContextName'] = input[:context_name] unless input[:context_name].nil?
-        data['Source'] = Builders::ContextSource.build(input[:source]) unless input[:source].nil?
+        data['Source'] = ContextSource.build(input[:source]) unless input[:source].nil?
         data['ContextType'] = input[:context_type] unless input[:context_type].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Properties'] = Builders::LineageEntityParameters.build(input[:properties]) unless input[:properties].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Properties'] = LineageEntityParameters.build(input[:properties]) unless input[:properties].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1185,16 +1187,16 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateDataQualityJobDefinition'
         data = {}
         data['JobDefinitionName'] = input[:job_definition_name] unless input[:job_definition_name].nil?
-        data['DataQualityBaselineConfig'] = Builders::DataQualityBaselineConfig.build(input[:data_quality_baseline_config]) unless input[:data_quality_baseline_config].nil?
-        data['DataQualityAppSpecification'] = Builders::DataQualityAppSpecification.build(input[:data_quality_app_specification]) unless input[:data_quality_app_specification].nil?
-        data['DataQualityJobInput'] = Builders::DataQualityJobInput.build(input[:data_quality_job_input]) unless input[:data_quality_job_input].nil?
-        data['DataQualityJobOutputConfig'] = Builders::MonitoringOutputConfig.build(input[:data_quality_job_output_config]) unless input[:data_quality_job_output_config].nil?
-        data['JobResources'] = Builders::MonitoringResources.build(input[:job_resources]) unless input[:job_resources].nil?
-        data['NetworkConfig'] = Builders::MonitoringNetworkConfig.build(input[:network_config]) unless input[:network_config].nil?
+        data['DataQualityBaselineConfig'] = DataQualityBaselineConfig.build(input[:data_quality_baseline_config]) unless input[:data_quality_baseline_config].nil?
+        data['DataQualityAppSpecification'] = DataQualityAppSpecification.build(input[:data_quality_app_specification]) unless input[:data_quality_app_specification].nil?
+        data['DataQualityJobInput'] = DataQualityJobInput.build(input[:data_quality_job_input]) unless input[:data_quality_job_input].nil?
+        data['DataQualityJobOutputConfig'] = MonitoringOutputConfig.build(input[:data_quality_job_output_config]) unless input[:data_quality_job_output_config].nil?
+        data['JobResources'] = MonitoringResources.build(input[:job_resources]) unless input[:job_resources].nil?
+        data['NetworkConfig'] = MonitoringNetworkConfig.build(input[:network_config]) unless input[:network_config].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['StoppingCondition'] = Builders::MonitoringStoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StoppingCondition'] = MonitoringStoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1213,7 +1215,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['EnableInterContainerTrafficEncryption'] = input[:enable_inter_container_traffic_encryption] unless input[:enable_inter_container_traffic_encryption].nil?
         data['EnableNetworkIsolation'] = input[:enable_network_isolation] unless input[:enable_network_isolation].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
         data
       end
     end
@@ -1222,7 +1224,7 @@ module AWS::SDK::SageMaker
     class MonitoringResources
       def self.build(input)
         data = {}
-        data['ClusterConfig'] = Builders::MonitoringClusterConfig.build(input[:cluster_config]) unless input[:cluster_config].nil?
+        data['ClusterConfig'] = MonitoringClusterConfig.build(input[:cluster_config]) unless input[:cluster_config].nil?
         data
       end
     end
@@ -1243,7 +1245,7 @@ module AWS::SDK::SageMaker
     class MonitoringOutputConfig
       def self.build(input)
         data = {}
-        data['MonitoringOutputs'] = Builders::MonitoringOutputs.build(input[:monitoring_outputs]) unless input[:monitoring_outputs].nil?
+        data['MonitoringOutputs'] = MonitoringOutputs.build(input[:monitoring_outputs]) unless input[:monitoring_outputs].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data
       end
@@ -1254,7 +1256,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MonitoringOutput.build(element) unless element.nil?
+          data << MonitoringOutput.build(element) unless element.nil?
         end
         data
       end
@@ -1264,7 +1266,7 @@ module AWS::SDK::SageMaker
     class MonitoringOutput
       def self.build(input)
         data = {}
-        data['S3Output'] = Builders::MonitoringS3Output.build(input[:s3_output]) unless input[:s3_output].nil?
+        data['S3Output'] = MonitoringS3Output.build(input[:s3_output]) unless input[:s3_output].nil?
         data
       end
     end
@@ -1284,7 +1286,7 @@ module AWS::SDK::SageMaker
     class DataQualityJobInput
       def self.build(input)
         data = {}
-        data['EndpointInput'] = Builders::EndpointInput.build(input[:endpoint_input]) unless input[:endpoint_input].nil?
+        data['EndpointInput'] = EndpointInput.build(input[:endpoint_input]) unless input[:endpoint_input].nil?
         data
       end
     end
@@ -1312,11 +1314,11 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['ImageUri'] = input[:image_uri] unless input[:image_uri].nil?
-        data['ContainerEntrypoint'] = Builders::ContainerEntrypoint.build(input[:container_entrypoint]) unless input[:container_entrypoint].nil?
-        data['ContainerArguments'] = Builders::MonitoringContainerArguments.build(input[:container_arguments]) unless input[:container_arguments].nil?
+        data['ContainerEntrypoint'] = ContainerEntrypoint.build(input[:container_entrypoint]) unless input[:container_entrypoint].nil?
+        data['ContainerArguments'] = MonitoringContainerArguments.build(input[:container_arguments]) unless input[:container_arguments].nil?
         data['RecordPreprocessorSourceUri'] = input[:record_preprocessor_source_uri] unless input[:record_preprocessor_source_uri].nil?
         data['PostAnalyticsProcessorSourceUri'] = input[:post_analytics_processor_source_uri] unless input[:post_analytics_processor_source_uri].nil?
-        data['Environment'] = Builders::MonitoringEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
+        data['Environment'] = MonitoringEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
         data
       end
     end
@@ -1359,8 +1361,8 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['BaseliningJobName'] = input[:baselining_job_name] unless input[:baselining_job_name].nil?
-        data['ConstraintsResource'] = Builders::MonitoringConstraintsResource.build(input[:constraints_resource]) unless input[:constraints_resource].nil?
-        data['StatisticsResource'] = Builders::MonitoringStatisticsResource.build(input[:statistics_resource]) unless input[:statistics_resource].nil?
+        data['ConstraintsResource'] = MonitoringConstraintsResource.build(input[:constraints_resource]) unless input[:constraints_resource].nil?
+        data['StatisticsResource'] = MonitoringStatisticsResource.build(input[:statistics_resource]) unless input[:statistics_resource].nil?
         data
       end
     end
@@ -1394,10 +1396,10 @@ module AWS::SDK::SageMaker
         data['DeviceFleetName'] = input[:device_fleet_name] unless input[:device_fleet_name].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['OutputConfig'] = Builders::EdgeOutputConfig.build(input[:output_config]) unless input[:output_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['OutputConfig'] = EdgeOutputConfig.build(input[:output_config]) unless input[:output_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['EnableIotRoleAlias'] = input[:enable_iot_role_alias] unless input[:enable_iot_role_alias].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1423,16 +1425,16 @@ module AWS::SDK::SageMaker
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['AuthMode'] = input[:auth_mode] unless input[:auth_mode].nil?
-        data['DefaultUserSettings'] = Builders::UserSettings.build(input[:default_user_settings]) unless input[:default_user_settings].nil?
-        data['SubnetIds'] = Builders::Subnets.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['DefaultUserSettings'] = UserSettings.build(input[:default_user_settings]) unless input[:default_user_settings].nil?
+        data['SubnetIds'] = Subnets.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['AppNetworkAccessType'] = input[:app_network_access_type] unless input[:app_network_access_type].nil?
         data['HomeEfsFileSystemKmsKeyId'] = input[:home_efs_file_system_kms_key_id] unless input[:home_efs_file_system_kms_key_id].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data['AppSecurityGroupManagement'] = input[:app_security_group_management] unless input[:app_security_group_management].nil?
-        data['DomainSettings'] = Builders::DomainSettings.build(input[:domain_settings]) unless input[:domain_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DomainSettings'] = DomainSettings.build(input[:domain_settings]) unless input[:domain_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1440,8 +1442,8 @@ module AWS::SDK::SageMaker
     class DomainSettings
       def self.build(input)
         data = {}
-        data['SecurityGroupIds'] = Builders::DomainSecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
-        data['RStudioServerProDomainSettings'] = Builders::RStudioServerProDomainSettings.build(input[:r_studio_server_pro_domain_settings]) unless input[:r_studio_server_pro_domain_settings].nil?
+        data['SecurityGroupIds'] = DomainSecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['RStudioServerProDomainSettings'] = RStudioServerProDomainSettings.build(input[:r_studio_server_pro_domain_settings]) unless input[:r_studio_server_pro_domain_settings].nil?
         data
       end
     end
@@ -1453,7 +1455,7 @@ module AWS::SDK::SageMaker
         data['DomainExecutionRoleArn'] = input[:domain_execution_role_arn] unless input[:domain_execution_role_arn].nil?
         data['RStudioConnectUrl'] = input[:r_studio_connect_url] unless input[:r_studio_connect_url].nil?
         data['RStudioPackageManagerUrl'] = input[:r_studio_package_manager_url] unless input[:r_studio_package_manager_url].nil?
-        data['DefaultResourceSpec'] = Builders::ResourceSpec.build(input[:default_resource_spec]) unless input[:default_resource_spec].nil?
+        data['DefaultResourceSpec'] = ResourceSpec.build(input[:default_resource_spec]) unless input[:default_resource_spec].nil?
         data
       end
     end
@@ -1474,13 +1476,13 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['ExecutionRole'] = input[:execution_role] unless input[:execution_role].nil?
-        data['SecurityGroups'] = Builders::SecurityGroupIds.build(input[:security_groups]) unless input[:security_groups].nil?
-        data['SharingSettings'] = Builders::SharingSettings.build(input[:sharing_settings]) unless input[:sharing_settings].nil?
-        data['JupyterServerAppSettings'] = Builders::JupyterServerAppSettings.build(input[:jupyter_server_app_settings]) unless input[:jupyter_server_app_settings].nil?
-        data['KernelGatewayAppSettings'] = Builders::KernelGatewayAppSettings.build(input[:kernel_gateway_app_settings]) unless input[:kernel_gateway_app_settings].nil?
-        data['TensorBoardAppSettings'] = Builders::TensorBoardAppSettings.build(input[:tensor_board_app_settings]) unless input[:tensor_board_app_settings].nil?
-        data['RStudioServerProAppSettings'] = Builders::RStudioServerProAppSettings.build(input[:r_studio_server_pro_app_settings]) unless input[:r_studio_server_pro_app_settings].nil?
-        data['RSessionAppSettings'] = Builders::RSessionAppSettings.build(input[:r_session_app_settings]) unless input[:r_session_app_settings].nil?
+        data['SecurityGroups'] = SecurityGroupIds.build(input[:security_groups]) unless input[:security_groups].nil?
+        data['SharingSettings'] = SharingSettings.build(input[:sharing_settings]) unless input[:sharing_settings].nil?
+        data['JupyterServerAppSettings'] = JupyterServerAppSettings.build(input[:jupyter_server_app_settings]) unless input[:jupyter_server_app_settings].nil?
+        data['KernelGatewayAppSettings'] = KernelGatewayAppSettings.build(input[:kernel_gateway_app_settings]) unless input[:kernel_gateway_app_settings].nil?
+        data['TensorBoardAppSettings'] = TensorBoardAppSettings.build(input[:tensor_board_app_settings]) unless input[:tensor_board_app_settings].nil?
+        data['RStudioServerProAppSettings'] = RStudioServerProAppSettings.build(input[:r_studio_server_pro_app_settings]) unless input[:r_studio_server_pro_app_settings].nil?
+        data['RSessionAppSettings'] = RSessionAppSettings.build(input[:r_session_app_settings]) unless input[:r_session_app_settings].nil?
         data
       end
     end
@@ -1489,8 +1491,8 @@ module AWS::SDK::SageMaker
     class RSessionAppSettings
       def self.build(input)
         data = {}
-        data['DefaultResourceSpec'] = Builders::ResourceSpec.build(input[:default_resource_spec]) unless input[:default_resource_spec].nil?
-        data['CustomImages'] = Builders::CustomImages.build(input[:custom_images]) unless input[:custom_images].nil?
+        data['DefaultResourceSpec'] = ResourceSpec.build(input[:default_resource_spec]) unless input[:default_resource_spec].nil?
+        data['CustomImages'] = CustomImages.build(input[:custom_images]) unless input[:custom_images].nil?
         data
       end
     end
@@ -1500,7 +1502,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CustomImage.build(element) unless element.nil?
+          data << CustomImage.build(element) unless element.nil?
         end
         data
       end
@@ -1531,7 +1533,7 @@ module AWS::SDK::SageMaker
     class TensorBoardAppSettings
       def self.build(input)
         data = {}
-        data['DefaultResourceSpec'] = Builders::ResourceSpec.build(input[:default_resource_spec]) unless input[:default_resource_spec].nil?
+        data['DefaultResourceSpec'] = ResourceSpec.build(input[:default_resource_spec]) unless input[:default_resource_spec].nil?
         data
       end
     end
@@ -1540,9 +1542,9 @@ module AWS::SDK::SageMaker
     class KernelGatewayAppSettings
       def self.build(input)
         data = {}
-        data['DefaultResourceSpec'] = Builders::ResourceSpec.build(input[:default_resource_spec]) unless input[:default_resource_spec].nil?
-        data['CustomImages'] = Builders::CustomImages.build(input[:custom_images]) unless input[:custom_images].nil?
-        data['LifecycleConfigArns'] = Builders::LifecycleConfigArns.build(input[:lifecycle_config_arns]) unless input[:lifecycle_config_arns].nil?
+        data['DefaultResourceSpec'] = ResourceSpec.build(input[:default_resource_spec]) unless input[:default_resource_spec].nil?
+        data['CustomImages'] = CustomImages.build(input[:custom_images]) unless input[:custom_images].nil?
+        data['LifecycleConfigArns'] = LifecycleConfigArns.build(input[:lifecycle_config_arns]) unless input[:lifecycle_config_arns].nil?
         data
       end
     end
@@ -1562,8 +1564,8 @@ module AWS::SDK::SageMaker
     class JupyterServerAppSettings
       def self.build(input)
         data = {}
-        data['DefaultResourceSpec'] = Builders::ResourceSpec.build(input[:default_resource_spec]) unless input[:default_resource_spec].nil?
-        data['LifecycleConfigArns'] = Builders::LifecycleConfigArns.build(input[:lifecycle_config_arns]) unless input[:lifecycle_config_arns].nil?
+        data['DefaultResourceSpec'] = ResourceSpec.build(input[:default_resource_spec]) unless input[:default_resource_spec].nil?
+        data['LifecycleConfigArns'] = LifecycleConfigArns.build(input[:lifecycle_config_arns]) unless input[:lifecycle_config_arns].nil?
         data
       end
     end
@@ -1603,10 +1605,10 @@ module AWS::SDK::SageMaker
         data['ModelName'] = input[:model_name] unless input[:model_name].nil?
         data['ModelVersion'] = input[:model_version] unless input[:model_version].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['OutputConfig'] = Builders::EdgeOutputConfig.build(input[:output_config]) unless input[:output_config].nil?
+        data['OutputConfig'] = EdgeOutputConfig.build(input[:output_config]) unless input[:output_config].nil?
         data['ResourceKey'] = input[:resource_key] unless input[:resource_key].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1620,9 +1622,9 @@ module AWS::SDK::SageMaker
         data = {}
         data['EndpointName'] = input[:endpoint_name] unless input[:endpoint_name].nil?
         data['EndpointConfigName'] = input[:endpoint_config_name] unless input[:endpoint_config_name].nil?
-        data['DeploymentConfig'] = Builders::DeploymentConfig.build(input[:deployment_config]) unless input[:deployment_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeploymentConfig'] = DeploymentConfig.build(input[:deployment_config]) unless input[:deployment_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1630,8 +1632,8 @@ module AWS::SDK::SageMaker
     class DeploymentConfig
       def self.build(input)
         data = {}
-        data['BlueGreenUpdatePolicy'] = Builders::BlueGreenUpdatePolicy.build(input[:blue_green_update_policy]) unless input[:blue_green_update_policy].nil?
-        data['AutoRollbackConfiguration'] = Builders::AutoRollbackConfig.build(input[:auto_rollback_configuration]) unless input[:auto_rollback_configuration].nil?
+        data['BlueGreenUpdatePolicy'] = BlueGreenUpdatePolicy.build(input[:blue_green_update_policy]) unless input[:blue_green_update_policy].nil?
+        data['AutoRollbackConfiguration'] = AutoRollbackConfig.build(input[:auto_rollback_configuration]) unless input[:auto_rollback_configuration].nil?
         data
       end
     end
@@ -1640,7 +1642,7 @@ module AWS::SDK::SageMaker
     class AutoRollbackConfig
       def self.build(input)
         data = {}
-        data['Alarms'] = Builders::AlarmList.build(input[:alarms]) unless input[:alarms].nil?
+        data['Alarms'] = AlarmList.build(input[:alarms]) unless input[:alarms].nil?
         data
       end
     end
@@ -1650,7 +1652,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Alarm.build(element) unless element.nil?
+          data << Alarm.build(element) unless element.nil?
         end
         data
       end
@@ -1669,7 +1671,7 @@ module AWS::SDK::SageMaker
     class BlueGreenUpdatePolicy
       def self.build(input)
         data = {}
-        data['TrafficRoutingConfiguration'] = Builders::TrafficRoutingConfig.build(input[:traffic_routing_configuration]) unless input[:traffic_routing_configuration].nil?
+        data['TrafficRoutingConfiguration'] = TrafficRoutingConfig.build(input[:traffic_routing_configuration]) unless input[:traffic_routing_configuration].nil?
         data['TerminationWaitInSeconds'] = input[:termination_wait_in_seconds] unless input[:termination_wait_in_seconds].nil?
         data['MaximumExecutionTimeoutInSeconds'] = input[:maximum_execution_timeout_in_seconds] unless input[:maximum_execution_timeout_in_seconds].nil?
         data
@@ -1682,8 +1684,8 @@ module AWS::SDK::SageMaker
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
         data['WaitIntervalInSeconds'] = input[:wait_interval_in_seconds] unless input[:wait_interval_in_seconds].nil?
-        data['CanarySize'] = Builders::CapacitySize.build(input[:canary_size]) unless input[:canary_size].nil?
-        data['LinearStepSize'] = Builders::CapacitySize.build(input[:linear_step_size]) unless input[:linear_step_size].nil?
+        data['CanarySize'] = CapacitySize.build(input[:canary_size]) unless input[:canary_size].nil?
+        data['LinearStepSize'] = CapacitySize.build(input[:linear_step_size]) unless input[:linear_step_size].nil?
         data
       end
     end
@@ -1707,12 +1709,12 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateEndpointConfig'
         data = {}
         data['EndpointConfigName'] = input[:endpoint_config_name] unless input[:endpoint_config_name].nil?
-        data['ProductionVariants'] = Builders::ProductionVariantList.build(input[:production_variants]) unless input[:production_variants].nil?
-        data['DataCaptureConfig'] = Builders::DataCaptureConfig.build(input[:data_capture_config]) unless input[:data_capture_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['ProductionVariants'] = ProductionVariantList.build(input[:production_variants]) unless input[:production_variants].nil?
+        data['DataCaptureConfig'] = DataCaptureConfig.build(input[:data_capture_config]) unless input[:data_capture_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['AsyncInferenceConfig'] = Builders::AsyncInferenceConfig.build(input[:async_inference_config]) unless input[:async_inference_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AsyncInferenceConfig'] = AsyncInferenceConfig.build(input[:async_inference_config]) unless input[:async_inference_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1720,8 +1722,8 @@ module AWS::SDK::SageMaker
     class AsyncInferenceConfig
       def self.build(input)
         data = {}
-        data['ClientConfig'] = Builders::AsyncInferenceClientConfig.build(input[:client_config]) unless input[:client_config].nil?
-        data['OutputConfig'] = Builders::AsyncInferenceOutputConfig.build(input[:output_config]) unless input[:output_config].nil?
+        data['ClientConfig'] = AsyncInferenceClientConfig.build(input[:client_config]) unless input[:client_config].nil?
+        data['OutputConfig'] = AsyncInferenceOutputConfig.build(input[:output_config]) unless input[:output_config].nil?
         data
       end
     end
@@ -1732,7 +1734,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data['S3OutputPath'] = input[:s3_output_path] unless input[:s3_output_path].nil?
-        data['NotificationConfig'] = Builders::AsyncInferenceNotificationConfig.build(input[:notification_config]) unless input[:notification_config].nil?
+        data['NotificationConfig'] = AsyncInferenceNotificationConfig.build(input[:notification_config]) unless input[:notification_config].nil?
         data
       end
     end
@@ -1764,8 +1766,8 @@ module AWS::SDK::SageMaker
         data['InitialSamplingPercentage'] = input[:initial_sampling_percentage] unless input[:initial_sampling_percentage].nil?
         data['DestinationS3Uri'] = input[:destination_s3_uri] unless input[:destination_s3_uri].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['CaptureOptions'] = Builders::CaptureOptionList.build(input[:capture_options]) unless input[:capture_options].nil?
-        data['CaptureContentTypeHeader'] = Builders::CaptureContentTypeHeader.build(input[:capture_content_type_header]) unless input[:capture_content_type_header].nil?
+        data['CaptureOptions'] = CaptureOptionList.build(input[:capture_options]) unless input[:capture_options].nil?
+        data['CaptureContentTypeHeader'] = CaptureContentTypeHeader.build(input[:capture_content_type_header]) unless input[:capture_content_type_header].nil?
         data
       end
     end
@@ -1774,8 +1776,8 @@ module AWS::SDK::SageMaker
     class CaptureContentTypeHeader
       def self.build(input)
         data = {}
-        data['CsvContentTypes'] = Builders::CsvContentTypes.build(input[:csv_content_types]) unless input[:csv_content_types].nil?
-        data['JsonContentTypes'] = Builders::JsonContentTypes.build(input[:json_content_types]) unless input[:json_content_types].nil?
+        data['CsvContentTypes'] = CsvContentTypes.build(input[:csv_content_types]) unless input[:csv_content_types].nil?
+        data['JsonContentTypes'] = JsonContentTypes.build(input[:json_content_types]) unless input[:json_content_types].nil?
         data
       end
     end
@@ -1807,7 +1809,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CaptureOption.build(element) unless element.nil?
+          data << CaptureOption.build(element) unless element.nil?
         end
         data
       end
@@ -1827,7 +1829,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ProductionVariant.build(element) unless element.nil?
+          data << ProductionVariant.build(element) unless element.nil?
         end
         data
       end
@@ -1843,8 +1845,8 @@ module AWS::SDK::SageMaker
         data['InstanceType'] = input[:instance_type] unless input[:instance_type].nil?
         data['InitialVariantWeight'] = Hearth::NumberHelper.serialize(input[:initial_variant_weight]) unless input[:initial_variant_weight].nil?
         data['AcceleratorType'] = input[:accelerator_type] unless input[:accelerator_type].nil?
-        data['CoreDumpConfig'] = Builders::ProductionVariantCoreDumpConfig.build(input[:core_dump_config]) unless input[:core_dump_config].nil?
-        data['ServerlessConfig'] = Builders::ProductionVariantServerlessConfig.build(input[:serverless_config]) unless input[:serverless_config].nil?
+        data['CoreDumpConfig'] = ProductionVariantCoreDumpConfig.build(input[:core_dump_config]) unless input[:core_dump_config].nil?
+        data['ServerlessConfig'] = ProductionVariantServerlessConfig.build(input[:serverless_config]) unless input[:serverless_config].nil?
         data
       end
     end
@@ -1880,8 +1882,8 @@ module AWS::SDK::SageMaker
         data['ExperimentName'] = input[:experiment_name] unless input[:experiment_name].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1896,13 +1898,13 @@ module AWS::SDK::SageMaker
         data['FeatureGroupName'] = input[:feature_group_name] unless input[:feature_group_name].nil?
         data['RecordIdentifierFeatureName'] = input[:record_identifier_feature_name] unless input[:record_identifier_feature_name].nil?
         data['EventTimeFeatureName'] = input[:event_time_feature_name] unless input[:event_time_feature_name].nil?
-        data['FeatureDefinitions'] = Builders::FeatureDefinitions.build(input[:feature_definitions]) unless input[:feature_definitions].nil?
-        data['OnlineStoreConfig'] = Builders::OnlineStoreConfig.build(input[:online_store_config]) unless input[:online_store_config].nil?
-        data['OfflineStoreConfig'] = Builders::OfflineStoreConfig.build(input[:offline_store_config]) unless input[:offline_store_config].nil?
+        data['FeatureDefinitions'] = FeatureDefinitions.build(input[:feature_definitions]) unless input[:feature_definitions].nil?
+        data['OnlineStoreConfig'] = OnlineStoreConfig.build(input[:online_store_config]) unless input[:online_store_config].nil?
+        data['OfflineStoreConfig'] = OfflineStoreConfig.build(input[:offline_store_config]) unless input[:offline_store_config].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1910,9 +1912,9 @@ module AWS::SDK::SageMaker
     class OfflineStoreConfig
       def self.build(input)
         data = {}
-        data['S3StorageConfig'] = Builders::S3StorageConfig.build(input[:s3_storage_config]) unless input[:s3_storage_config].nil?
+        data['S3StorageConfig'] = S3StorageConfig.build(input[:s3_storage_config]) unless input[:s3_storage_config].nil?
         data['DisableGlueTableCreation'] = input[:disable_glue_table_creation] unless input[:disable_glue_table_creation].nil?
-        data['DataCatalogConfig'] = Builders::DataCatalogConfig.build(input[:data_catalog_config]) unless input[:data_catalog_config].nil?
+        data['DataCatalogConfig'] = DataCatalogConfig.build(input[:data_catalog_config]) unless input[:data_catalog_config].nil?
         data
       end
     end
@@ -1943,7 +1945,7 @@ module AWS::SDK::SageMaker
     class OnlineStoreConfig
       def self.build(input)
         data = {}
-        data['SecurityConfig'] = Builders::OnlineStoreSecurityConfig.build(input[:security_config]) unless input[:security_config].nil?
+        data['SecurityConfig'] = OnlineStoreSecurityConfig.build(input[:security_config]) unless input[:security_config].nil?
         data['EnableOnlineStore'] = input[:enable_online_store] unless input[:enable_online_store].nil?
         data
       end
@@ -1963,7 +1965,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FeatureDefinition.build(element) unless element.nil?
+          data << FeatureDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -1988,13 +1990,13 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateFlowDefinition'
         data = {}
         data['FlowDefinitionName'] = input[:flow_definition_name] unless input[:flow_definition_name].nil?
-        data['HumanLoopRequestSource'] = Builders::HumanLoopRequestSource.build(input[:human_loop_request_source]) unless input[:human_loop_request_source].nil?
-        data['HumanLoopActivationConfig'] = Builders::HumanLoopActivationConfig.build(input[:human_loop_activation_config]) unless input[:human_loop_activation_config].nil?
-        data['HumanLoopConfig'] = Builders::HumanLoopConfig.build(input[:human_loop_config]) unless input[:human_loop_config].nil?
-        data['OutputConfig'] = Builders::FlowDefinitionOutputConfig.build(input[:output_config]) unless input[:output_config].nil?
+        data['HumanLoopRequestSource'] = HumanLoopRequestSource.build(input[:human_loop_request_source]) unless input[:human_loop_request_source].nil?
+        data['HumanLoopActivationConfig'] = HumanLoopActivationConfig.build(input[:human_loop_activation_config]) unless input[:human_loop_activation_config].nil?
+        data['HumanLoopConfig'] = HumanLoopConfig.build(input[:human_loop_config]) unless input[:human_loop_config].nil?
+        data['OutputConfig'] = FlowDefinitionOutputConfig.build(input[:output_config]) unless input[:output_config].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2019,8 +2021,8 @@ module AWS::SDK::SageMaker
         data['TaskCount'] = input[:task_count] unless input[:task_count].nil?
         data['TaskAvailabilityLifetimeInSeconds'] = input[:task_availability_lifetime_in_seconds] unless input[:task_availability_lifetime_in_seconds].nil?
         data['TaskTimeLimitInSeconds'] = input[:task_time_limit_in_seconds] unless input[:task_time_limit_in_seconds].nil?
-        data['TaskKeywords'] = Builders::FlowDefinitionTaskKeywords.build(input[:task_keywords]) unless input[:task_keywords].nil?
-        data['PublicWorkforceTaskPrice'] = Builders::PublicWorkforceTaskPrice.build(input[:public_workforce_task_price]) unless input[:public_workforce_task_price].nil?
+        data['TaskKeywords'] = FlowDefinitionTaskKeywords.build(input[:task_keywords]) unless input[:task_keywords].nil?
+        data['PublicWorkforceTaskPrice'] = PublicWorkforceTaskPrice.build(input[:public_workforce_task_price]) unless input[:public_workforce_task_price].nil?
         data
       end
     end
@@ -2029,7 +2031,7 @@ module AWS::SDK::SageMaker
     class PublicWorkforceTaskPrice
       def self.build(input)
         data = {}
-        data['AmountInUsd'] = Builders::USD.build(input[:amount_in_usd]) unless input[:amount_in_usd].nil?
+        data['AmountInUsd'] = USD.build(input[:amount_in_usd]) unless input[:amount_in_usd].nil?
         data
       end
     end
@@ -2060,7 +2062,7 @@ module AWS::SDK::SageMaker
     class HumanLoopActivationConfig
       def self.build(input)
         data = {}
-        data['HumanLoopActivationConditionsConfig'] = Builders::HumanLoopActivationConditionsConfig.build(input[:human_loop_activation_conditions_config]) unless input[:human_loop_activation_conditions_config].nil?
+        data['HumanLoopActivationConditionsConfig'] = HumanLoopActivationConditionsConfig.build(input[:human_loop_activation_conditions_config]) unless input[:human_loop_activation_conditions_config].nil?
         data
       end
     end
@@ -2092,9 +2094,9 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateHumanTaskUi'
         data = {}
         data['HumanTaskUiName'] = input[:human_task_ui_name] unless input[:human_task_ui_name].nil?
-        data['UiTemplate'] = Builders::UiTemplate.build(input[:ui_template]) unless input[:ui_template].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UiTemplate'] = UiTemplate.build(input[:ui_template]) unless input[:ui_template].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2116,12 +2118,12 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateHyperParameterTuningJob'
         data = {}
         data['HyperParameterTuningJobName'] = input[:hyper_parameter_tuning_job_name] unless input[:hyper_parameter_tuning_job_name].nil?
-        data['HyperParameterTuningJobConfig'] = Builders::HyperParameterTuningJobConfig.build(input[:hyper_parameter_tuning_job_config]) unless input[:hyper_parameter_tuning_job_config].nil?
-        data['TrainingJobDefinition'] = Builders::HyperParameterTrainingJobDefinition.build(input[:training_job_definition]) unless input[:training_job_definition].nil?
-        data['TrainingJobDefinitions'] = Builders::HyperParameterTrainingJobDefinitions.build(input[:training_job_definitions]) unless input[:training_job_definitions].nil?
-        data['WarmStartConfig'] = Builders::HyperParameterTuningJobWarmStartConfig.build(input[:warm_start_config]) unless input[:warm_start_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HyperParameterTuningJobConfig'] = HyperParameterTuningJobConfig.build(input[:hyper_parameter_tuning_job_config]) unless input[:hyper_parameter_tuning_job_config].nil?
+        data['TrainingJobDefinition'] = HyperParameterTrainingJobDefinition.build(input[:training_job_definition]) unless input[:training_job_definition].nil?
+        data['TrainingJobDefinitions'] = HyperParameterTrainingJobDefinitions.build(input[:training_job_definitions]) unless input[:training_job_definitions].nil?
+        data['WarmStartConfig'] = HyperParameterTuningJobWarmStartConfig.build(input[:warm_start_config]) unless input[:warm_start_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2129,7 +2131,7 @@ module AWS::SDK::SageMaker
     class HyperParameterTuningJobWarmStartConfig
       def self.build(input)
         data = {}
-        data['ParentHyperParameterTuningJobs'] = Builders::ParentHyperParameterTuningJobs.build(input[:parent_hyper_parameter_tuning_jobs]) unless input[:parent_hyper_parameter_tuning_jobs].nil?
+        data['ParentHyperParameterTuningJobs'] = ParentHyperParameterTuningJobs.build(input[:parent_hyper_parameter_tuning_jobs]) unless input[:parent_hyper_parameter_tuning_jobs].nil?
         data['WarmStartType'] = input[:warm_start_type] unless input[:warm_start_type].nil?
         data
       end
@@ -2140,7 +2142,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ParentHyperParameterTuningJob.build(element) unless element.nil?
+          data << ParentHyperParameterTuningJob.build(element) unless element.nil?
         end
         data
       end
@@ -2160,7 +2162,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::HyperParameterTrainingJobDefinition.build(element) unless element.nil?
+          data << HyperParameterTrainingJobDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -2171,21 +2173,21 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['DefinitionName'] = input[:definition_name] unless input[:definition_name].nil?
-        data['TuningObjective'] = Builders::HyperParameterTuningJobObjective.build(input[:tuning_objective]) unless input[:tuning_objective].nil?
-        data['HyperParameterRanges'] = Builders::ParameterRanges.build(input[:hyper_parameter_ranges]) unless input[:hyper_parameter_ranges].nil?
-        data['StaticHyperParameters'] = Builders::HyperParameters.build(input[:static_hyper_parameters]) unless input[:static_hyper_parameters].nil?
-        data['AlgorithmSpecification'] = Builders::HyperParameterAlgorithmSpecification.build(input[:algorithm_specification]) unless input[:algorithm_specification].nil?
+        data['TuningObjective'] = HyperParameterTuningJobObjective.build(input[:tuning_objective]) unless input[:tuning_objective].nil?
+        data['HyperParameterRanges'] = ParameterRanges.build(input[:hyper_parameter_ranges]) unless input[:hyper_parameter_ranges].nil?
+        data['StaticHyperParameters'] = HyperParameters.build(input[:static_hyper_parameters]) unless input[:static_hyper_parameters].nil?
+        data['AlgorithmSpecification'] = HyperParameterAlgorithmSpecification.build(input[:algorithm_specification]) unless input[:algorithm_specification].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
-        data['ResourceConfig'] = Builders::ResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
-        data['StoppingCondition'] = Builders::StoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['ResourceConfig'] = ResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
+        data['StoppingCondition'] = StoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
         data['EnableNetworkIsolation'] = input[:enable_network_isolation] unless input[:enable_network_isolation].nil?
         data['EnableInterContainerTrafficEncryption'] = input[:enable_inter_container_traffic_encryption] unless input[:enable_inter_container_traffic_encryption].nil?
         data['EnableManagedSpotTraining'] = input[:enable_managed_spot_training] unless input[:enable_managed_spot_training].nil?
-        data['CheckpointConfig'] = Builders::CheckpointConfig.build(input[:checkpoint_config]) unless input[:checkpoint_config].nil?
-        data['RetryStrategy'] = Builders::RetryStrategy.build(input[:retry_strategy]) unless input[:retry_strategy].nil?
+        data['CheckpointConfig'] = CheckpointConfig.build(input[:checkpoint_config]) unless input[:checkpoint_config].nil?
+        data['RetryStrategy'] = RetryStrategy.build(input[:retry_strategy]) unless input[:retry_strategy].nil?
         data
       end
     end
@@ -2216,7 +2218,7 @@ module AWS::SDK::SageMaker
         data['TrainingImage'] = input[:training_image] unless input[:training_image].nil?
         data['TrainingInputMode'] = input[:training_input_mode] unless input[:training_input_mode].nil?
         data['AlgorithmName'] = input[:algorithm_name] unless input[:algorithm_name].nil?
-        data['MetricDefinitions'] = Builders::MetricDefinitionList.build(input[:metric_definitions]) unless input[:metric_definitions].nil?
+        data['MetricDefinitions'] = MetricDefinitionList.build(input[:metric_definitions]) unless input[:metric_definitions].nil?
         data
       end
     end
@@ -2225,9 +2227,9 @@ module AWS::SDK::SageMaker
     class ParameterRanges
       def self.build(input)
         data = {}
-        data['IntegerParameterRanges'] = Builders::IntegerParameterRanges.build(input[:integer_parameter_ranges]) unless input[:integer_parameter_ranges].nil?
-        data['ContinuousParameterRanges'] = Builders::ContinuousParameterRanges.build(input[:continuous_parameter_ranges]) unless input[:continuous_parameter_ranges].nil?
-        data['CategoricalParameterRanges'] = Builders::CategoricalParameterRanges.build(input[:categorical_parameter_ranges]) unless input[:categorical_parameter_ranges].nil?
+        data['IntegerParameterRanges'] = IntegerParameterRanges.build(input[:integer_parameter_ranges]) unless input[:integer_parameter_ranges].nil?
+        data['ContinuousParameterRanges'] = ContinuousParameterRanges.build(input[:continuous_parameter_ranges]) unless input[:continuous_parameter_ranges].nil?
+        data['CategoricalParameterRanges'] = CategoricalParameterRanges.build(input[:categorical_parameter_ranges]) unless input[:categorical_parameter_ranges].nil?
         data
       end
     end
@@ -2237,7 +2239,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CategoricalParameterRange.build(element) unless element.nil?
+          data << CategoricalParameterRange.build(element) unless element.nil?
         end
         data
       end
@@ -2248,7 +2250,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::ParameterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = ParameterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -2258,7 +2260,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ContinuousParameterRange.build(element) unless element.nil?
+          data << ContinuousParameterRange.build(element) unless element.nil?
         end
         data
       end
@@ -2281,7 +2283,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::IntegerParameterRange.build(element) unless element.nil?
+          data << IntegerParameterRange.build(element) unless element.nil?
         end
         data
       end
@@ -2304,11 +2306,11 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['Strategy'] = input[:strategy] unless input[:strategy].nil?
-        data['HyperParameterTuningJobObjective'] = Builders::HyperParameterTuningJobObjective.build(input[:hyper_parameter_tuning_job_objective]) unless input[:hyper_parameter_tuning_job_objective].nil?
-        data['ResourceLimits'] = Builders::ResourceLimits.build(input[:resource_limits]) unless input[:resource_limits].nil?
-        data['ParameterRanges'] = Builders::ParameterRanges.build(input[:parameter_ranges]) unless input[:parameter_ranges].nil?
+        data['HyperParameterTuningJobObjective'] = HyperParameterTuningJobObjective.build(input[:hyper_parameter_tuning_job_objective]) unless input[:hyper_parameter_tuning_job_objective].nil?
+        data['ResourceLimits'] = ResourceLimits.build(input[:resource_limits]) unless input[:resource_limits].nil?
+        data['ParameterRanges'] = ParameterRanges.build(input[:parameter_ranges]) unless input[:parameter_ranges].nil?
         data['TrainingJobEarlyStoppingType'] = input[:training_job_early_stopping_type] unless input[:training_job_early_stopping_type].nil?
-        data['TuningJobCompletionCriteria'] = Builders::TuningJobCompletionCriteria.build(input[:tuning_job_completion_criteria]) unless input[:tuning_job_completion_criteria].nil?
+        data['TuningJobCompletionCriteria'] = TuningJobCompletionCriteria.build(input[:tuning_job_completion_criteria]) unless input[:tuning_job_completion_criteria].nil?
         data
       end
     end
@@ -2344,8 +2346,8 @@ module AWS::SDK::SageMaker
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['ImageName'] = input[:image_name] unless input[:image_name].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2360,7 +2362,7 @@ module AWS::SDK::SageMaker
         data['BaseImage'] = input[:base_image] unless input[:base_image].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['ImageName'] = input[:image_name] unless input[:image_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2375,12 +2377,12 @@ module AWS::SDK::SageMaker
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['JobType'] = input[:job_type] unless input[:job_type].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['InputConfig'] = Builders::RecommendationJobInputConfig.build(input[:input_config]) unless input[:input_config].nil?
+        data['InputConfig'] = RecommendationJobInputConfig.build(input[:input_config]) unless input[:input_config].nil?
         data['JobDescription'] = input[:job_description] unless input[:job_description].nil?
-        data['StoppingConditions'] = Builders::RecommendationJobStoppingConditions.build(input[:stopping_conditions]) unless input[:stopping_conditions].nil?
-        data['OutputConfig'] = Builders::RecommendationJobOutputConfig.build(input[:output_config]) unless input[:output_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StoppingConditions'] = RecommendationJobStoppingConditions.build(input[:stopping_conditions]) unless input[:stopping_conditions].nil?
+        data['OutputConfig'] = RecommendationJobOutputConfig.build(input[:output_config]) unless input[:output_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2389,7 +2391,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['CompiledOutputConfig'] = Builders::RecommendationJobCompiledOutputConfig.build(input[:compiled_output_config]) unless input[:compiled_output_config].nil?
+        data['CompiledOutputConfig'] = RecommendationJobCompiledOutputConfig.build(input[:compiled_output_config]) unless input[:compiled_output_config].nil?
         data
       end
     end
@@ -2408,7 +2410,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['MaxInvocations'] = input[:max_invocations] unless input[:max_invocations].nil?
-        data['ModelLatencyThresholds'] = Builders::ModelLatencyThresholds.build(input[:model_latency_thresholds]) unless input[:model_latency_thresholds].nil?
+        data['ModelLatencyThresholds'] = ModelLatencyThresholds.build(input[:model_latency_thresholds]) unless input[:model_latency_thresholds].nil?
         data
       end
     end
@@ -2418,7 +2420,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ModelLatencyThreshold.build(element) unless element.nil?
+          data << ModelLatencyThreshold.build(element) unless element.nil?
         end
         data
       end
@@ -2440,9 +2442,9 @@ module AWS::SDK::SageMaker
         data = {}
         data['ModelPackageVersionArn'] = input[:model_package_version_arn] unless input[:model_package_version_arn].nil?
         data['JobDurationInSeconds'] = input[:job_duration_in_seconds] unless input[:job_duration_in_seconds].nil?
-        data['TrafficPattern'] = Builders::TrafficPattern.build(input[:traffic_pattern]) unless input[:traffic_pattern].nil?
-        data['ResourceLimit'] = Builders::RecommendationJobResourceLimit.build(input[:resource_limit]) unless input[:resource_limit].nil?
-        data['EndpointConfigurations'] = Builders::EndpointInputConfigurations.build(input[:endpoint_configurations]) unless input[:endpoint_configurations].nil?
+        data['TrafficPattern'] = TrafficPattern.build(input[:traffic_pattern]) unless input[:traffic_pattern].nil?
+        data['ResourceLimit'] = RecommendationJobResourceLimit.build(input[:resource_limit]) unless input[:resource_limit].nil?
+        data['EndpointConfigurations'] = EndpointInputConfigurations.build(input[:endpoint_configurations]) unless input[:endpoint_configurations].nil?
         data['VolumeKmsKeyId'] = input[:volume_kms_key_id] unless input[:volume_kms_key_id].nil?
         data
       end
@@ -2453,7 +2455,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EndpointInputConfiguration.build(element) unless element.nil?
+          data << EndpointInputConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -2465,7 +2467,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['InstanceType'] = input[:instance_type] unless input[:instance_type].nil?
         data['InferenceSpecificationName'] = input[:inference_specification_name] unless input[:inference_specification_name].nil?
-        data['EnvironmentParameterRanges'] = Builders::EnvironmentParameterRanges.build(input[:environment_parameter_ranges]) unless input[:environment_parameter_ranges].nil?
+        data['EnvironmentParameterRanges'] = EnvironmentParameterRanges.build(input[:environment_parameter_ranges]) unless input[:environment_parameter_ranges].nil?
         data
       end
     end
@@ -2474,7 +2476,7 @@ module AWS::SDK::SageMaker
     class EnvironmentParameterRanges
       def self.build(input)
         data = {}
-        data['CategoricalParameterRanges'] = Builders::CategoricalParameters.build(input[:categorical_parameter_ranges]) unless input[:categorical_parameter_ranges].nil?
+        data['CategoricalParameterRanges'] = CategoricalParameters.build(input[:categorical_parameter_ranges]) unless input[:categorical_parameter_ranges].nil?
         data
       end
     end
@@ -2484,7 +2486,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CategoricalParameter.build(element) unless element.nil?
+          data << CategoricalParameter.build(element) unless element.nil?
         end
         data
       end
@@ -2495,7 +2497,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Value'] = Builders::CategoricalParameterRangeValues.build(input[:value]) unless input[:value].nil?
+        data['Value'] = CategoricalParameterRangeValues.build(input[:value]) unless input[:value].nil?
         data
       end
     end
@@ -2526,7 +2528,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['TrafficType'] = input[:traffic_type] unless input[:traffic_type].nil?
-        data['Phases'] = Builders::Phases.build(input[:phases]) unless input[:phases].nil?
+        data['Phases'] = Phases.build(input[:phases]) unless input[:phases].nil?
         data
       end
     end
@@ -2536,7 +2538,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Phase.build(element) unless element.nil?
+          data << Phase.build(element) unless element.nil?
         end
         data
       end
@@ -2563,15 +2565,15 @@ module AWS::SDK::SageMaker
         data = {}
         data['LabelingJobName'] = input[:labeling_job_name] unless input[:labeling_job_name].nil?
         data['LabelAttributeName'] = input[:label_attribute_name] unless input[:label_attribute_name].nil?
-        data['InputConfig'] = Builders::LabelingJobInputConfig.build(input[:input_config]) unless input[:input_config].nil?
-        data['OutputConfig'] = Builders::LabelingJobOutputConfig.build(input[:output_config]) unless input[:output_config].nil?
+        data['InputConfig'] = LabelingJobInputConfig.build(input[:input_config]) unless input[:input_config].nil?
+        data['OutputConfig'] = LabelingJobOutputConfig.build(input[:output_config]) unless input[:output_config].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['LabelCategoryConfigS3Uri'] = input[:label_category_config_s3_uri] unless input[:label_category_config_s3_uri].nil?
-        data['StoppingConditions'] = Builders::LabelingJobStoppingConditions.build(input[:stopping_conditions]) unless input[:stopping_conditions].nil?
-        data['LabelingJobAlgorithmsConfig'] = Builders::LabelingJobAlgorithmsConfig.build(input[:labeling_job_algorithms_config]) unless input[:labeling_job_algorithms_config].nil?
-        data['HumanTaskConfig'] = Builders::HumanTaskConfig.build(input[:human_task_config]) unless input[:human_task_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StoppingConditions'] = LabelingJobStoppingConditions.build(input[:stopping_conditions]) unless input[:stopping_conditions].nil?
+        data['LabelingJobAlgorithmsConfig'] = LabelingJobAlgorithmsConfig.build(input[:labeling_job_algorithms_config]) unless input[:labeling_job_algorithms_config].nil?
+        data['HumanTaskConfig'] = HumanTaskConfig.build(input[:human_task_config]) unless input[:human_task_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2580,17 +2582,17 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['WorkteamArn'] = input[:workteam_arn] unless input[:workteam_arn].nil?
-        data['UiConfig'] = Builders::UiConfig.build(input[:ui_config]) unless input[:ui_config].nil?
+        data['UiConfig'] = UiConfig.build(input[:ui_config]) unless input[:ui_config].nil?
         data['PreHumanTaskLambdaArn'] = input[:pre_human_task_lambda_arn] unless input[:pre_human_task_lambda_arn].nil?
-        data['TaskKeywords'] = Builders::TaskKeywords.build(input[:task_keywords]) unless input[:task_keywords].nil?
+        data['TaskKeywords'] = TaskKeywords.build(input[:task_keywords]) unless input[:task_keywords].nil?
         data['TaskTitle'] = input[:task_title] unless input[:task_title].nil?
         data['TaskDescription'] = input[:task_description] unless input[:task_description].nil?
         data['NumberOfHumanWorkersPerDataObject'] = input[:number_of_human_workers_per_data_object] unless input[:number_of_human_workers_per_data_object].nil?
         data['TaskTimeLimitInSeconds'] = input[:task_time_limit_in_seconds] unless input[:task_time_limit_in_seconds].nil?
         data['TaskAvailabilityLifetimeInSeconds'] = input[:task_availability_lifetime_in_seconds] unless input[:task_availability_lifetime_in_seconds].nil?
         data['MaxConcurrentTaskCount'] = input[:max_concurrent_task_count] unless input[:max_concurrent_task_count].nil?
-        data['AnnotationConsolidationConfig'] = Builders::AnnotationConsolidationConfig.build(input[:annotation_consolidation_config]) unless input[:annotation_consolidation_config].nil?
-        data['PublicWorkforceTaskPrice'] = Builders::PublicWorkforceTaskPrice.build(input[:public_workforce_task_price]) unless input[:public_workforce_task_price].nil?
+        data['AnnotationConsolidationConfig'] = AnnotationConsolidationConfig.build(input[:annotation_consolidation_config]) unless input[:annotation_consolidation_config].nil?
+        data['PublicWorkforceTaskPrice'] = PublicWorkforceTaskPrice.build(input[:public_workforce_task_price]) unless input[:public_workforce_task_price].nil?
         data
       end
     end
@@ -2631,7 +2633,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['LabelingJobAlgorithmSpecificationArn'] = input[:labeling_job_algorithm_specification_arn] unless input[:labeling_job_algorithm_specification_arn].nil?
         data['InitialActiveLearningModelArn'] = input[:initial_active_learning_model_arn] unless input[:initial_active_learning_model_arn].nil?
-        data['LabelingJobResourceConfig'] = Builders::LabelingJobResourceConfig.build(input[:labeling_job_resource_config]) unless input[:labeling_job_resource_config].nil?
+        data['LabelingJobResourceConfig'] = LabelingJobResourceConfig.build(input[:labeling_job_resource_config]) unless input[:labeling_job_resource_config].nil?
         data
       end
     end
@@ -2670,8 +2672,8 @@ module AWS::SDK::SageMaker
     class LabelingJobInputConfig
       def self.build(input)
         data = {}
-        data['DataSource'] = Builders::LabelingJobDataSource.build(input[:data_source]) unless input[:data_source].nil?
-        data['DataAttributes'] = Builders::LabelingJobDataAttributes.build(input[:data_attributes]) unless input[:data_attributes].nil?
+        data['DataSource'] = LabelingJobDataSource.build(input[:data_source]) unless input[:data_source].nil?
+        data['DataAttributes'] = LabelingJobDataAttributes.build(input[:data_attributes]) unless input[:data_attributes].nil?
         data
       end
     end
@@ -2680,7 +2682,7 @@ module AWS::SDK::SageMaker
     class LabelingJobDataAttributes
       def self.build(input)
         data = {}
-        data['ContentClassifiers'] = Builders::ContentClassifiers.build(input[:content_classifiers]) unless input[:content_classifiers].nil?
+        data['ContentClassifiers'] = ContentClassifiers.build(input[:content_classifiers]) unless input[:content_classifiers].nil?
         data
       end
     end
@@ -2700,8 +2702,8 @@ module AWS::SDK::SageMaker
     class LabelingJobDataSource
       def self.build(input)
         data = {}
-        data['S3DataSource'] = Builders::LabelingJobS3DataSource.build(input[:s3_data_source]) unless input[:s3_data_source].nil?
-        data['SnsDataSource'] = Builders::LabelingJobSnsDataSource.build(input[:sns_data_source]) unless input[:sns_data_source].nil?
+        data['S3DataSource'] = LabelingJobS3DataSource.build(input[:s3_data_source]) unless input[:s3_data_source].nil?
+        data['SnsDataSource'] = LabelingJobSnsDataSource.build(input[:sns_data_source]) unless input[:sns_data_source].nil?
         data
       end
     end
@@ -2733,14 +2735,14 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateModel'
         data = {}
         data['ModelName'] = input[:model_name] unless input[:model_name].nil?
-        data['PrimaryContainer'] = Builders::ContainerDefinition.build(input[:primary_container]) unless input[:primary_container].nil?
-        data['Containers'] = Builders::ContainerDefinitionList.build(input[:containers]) unless input[:containers].nil?
-        data['InferenceExecutionConfig'] = Builders::InferenceExecutionConfig.build(input[:inference_execution_config]) unless input[:inference_execution_config].nil?
+        data['PrimaryContainer'] = ContainerDefinition.build(input[:primary_container]) unless input[:primary_container].nil?
+        data['Containers'] = ContainerDefinitionList.build(input[:containers]) unless input[:containers].nil?
+        data['InferenceExecutionConfig'] = InferenceExecutionConfig.build(input[:inference_execution_config]) unless input[:inference_execution_config].nil?
         data['ExecutionRoleArn'] = input[:execution_role_arn] unless input[:execution_role_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
         data['EnableNetworkIsolation'] = input[:enable_network_isolation] unless input[:enable_network_isolation].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2758,7 +2760,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ContainerDefinition.build(element) unless element.nil?
+          data << ContainerDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -2770,13 +2772,13 @@ module AWS::SDK::SageMaker
         data = {}
         data['ContainerHostname'] = input[:container_hostname] unless input[:container_hostname].nil?
         data['Image'] = input[:image] unless input[:image].nil?
-        data['ImageConfig'] = Builders::ImageConfig.build(input[:image_config]) unless input[:image_config].nil?
+        data['ImageConfig'] = ImageConfig.build(input[:image_config]) unless input[:image_config].nil?
         data['Mode'] = input[:mode] unless input[:mode].nil?
         data['ModelDataUrl'] = input[:model_data_url] unless input[:model_data_url].nil?
-        data['Environment'] = Builders::EnvironmentMap.build(input[:environment]) unless input[:environment].nil?
+        data['Environment'] = EnvironmentMap.build(input[:environment]) unless input[:environment].nil?
         data['ModelPackageName'] = input[:model_package_name] unless input[:model_package_name].nil?
         data['InferenceSpecificationName'] = input[:inference_specification_name] unless input[:inference_specification_name].nil?
-        data['MultiModelConfig'] = Builders::MultiModelConfig.build(input[:multi_model_config]) unless input[:multi_model_config].nil?
+        data['MultiModelConfig'] = MultiModelConfig.build(input[:multi_model_config]) unless input[:multi_model_config].nil?
         data
       end
     end
@@ -2795,7 +2797,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['RepositoryAccessMode'] = input[:repository_access_mode] unless input[:repository_access_mode].nil?
-        data['RepositoryAuthConfig'] = Builders::RepositoryAuthConfig.build(input[:repository_auth_config]) unless input[:repository_auth_config].nil?
+        data['RepositoryAuthConfig'] = RepositoryAuthConfig.build(input[:repository_auth_config]) unless input[:repository_auth_config].nil?
         data
       end
     end
@@ -2818,16 +2820,16 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateModelBiasJobDefinition'
         data = {}
         data['JobDefinitionName'] = input[:job_definition_name] unless input[:job_definition_name].nil?
-        data['ModelBiasBaselineConfig'] = Builders::ModelBiasBaselineConfig.build(input[:model_bias_baseline_config]) unless input[:model_bias_baseline_config].nil?
-        data['ModelBiasAppSpecification'] = Builders::ModelBiasAppSpecification.build(input[:model_bias_app_specification]) unless input[:model_bias_app_specification].nil?
-        data['ModelBiasJobInput'] = Builders::ModelBiasJobInput.build(input[:model_bias_job_input]) unless input[:model_bias_job_input].nil?
-        data['ModelBiasJobOutputConfig'] = Builders::MonitoringOutputConfig.build(input[:model_bias_job_output_config]) unless input[:model_bias_job_output_config].nil?
-        data['JobResources'] = Builders::MonitoringResources.build(input[:job_resources]) unless input[:job_resources].nil?
-        data['NetworkConfig'] = Builders::MonitoringNetworkConfig.build(input[:network_config]) unless input[:network_config].nil?
+        data['ModelBiasBaselineConfig'] = ModelBiasBaselineConfig.build(input[:model_bias_baseline_config]) unless input[:model_bias_baseline_config].nil?
+        data['ModelBiasAppSpecification'] = ModelBiasAppSpecification.build(input[:model_bias_app_specification]) unless input[:model_bias_app_specification].nil?
+        data['ModelBiasJobInput'] = ModelBiasJobInput.build(input[:model_bias_job_input]) unless input[:model_bias_job_input].nil?
+        data['ModelBiasJobOutputConfig'] = MonitoringOutputConfig.build(input[:model_bias_job_output_config]) unless input[:model_bias_job_output_config].nil?
+        data['JobResources'] = MonitoringResources.build(input[:job_resources]) unless input[:job_resources].nil?
+        data['NetworkConfig'] = MonitoringNetworkConfig.build(input[:network_config]) unless input[:network_config].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['StoppingCondition'] = Builders::MonitoringStoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StoppingCondition'] = MonitoringStoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2835,8 +2837,8 @@ module AWS::SDK::SageMaker
     class ModelBiasJobInput
       def self.build(input)
         data = {}
-        data['EndpointInput'] = Builders::EndpointInput.build(input[:endpoint_input]) unless input[:endpoint_input].nil?
-        data['GroundTruthS3Input'] = Builders::MonitoringGroundTruthS3Input.build(input[:ground_truth_s3_input]) unless input[:ground_truth_s3_input].nil?
+        data['EndpointInput'] = EndpointInput.build(input[:endpoint_input]) unless input[:endpoint_input].nil?
+        data['GroundTruthS3Input'] = MonitoringGroundTruthS3Input.build(input[:ground_truth_s3_input]) unless input[:ground_truth_s3_input].nil?
         data
       end
     end
@@ -2856,7 +2858,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['ImageUri'] = input[:image_uri] unless input[:image_uri].nil?
         data['ConfigUri'] = input[:config_uri] unless input[:config_uri].nil?
-        data['Environment'] = Builders::MonitoringEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
+        data['Environment'] = MonitoringEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
         data
       end
     end
@@ -2866,7 +2868,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['BaseliningJobName'] = input[:baselining_job_name] unless input[:baselining_job_name].nil?
-        data['ConstraintsResource'] = Builders::MonitoringConstraintsResource.build(input[:constraints_resource]) unless input[:constraints_resource].nil?
+        data['ConstraintsResource'] = MonitoringConstraintsResource.build(input[:constraints_resource]) unless input[:constraints_resource].nil?
         data
       end
     end
@@ -2880,16 +2882,16 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateModelExplainabilityJobDefinition'
         data = {}
         data['JobDefinitionName'] = input[:job_definition_name] unless input[:job_definition_name].nil?
-        data['ModelExplainabilityBaselineConfig'] = Builders::ModelExplainabilityBaselineConfig.build(input[:model_explainability_baseline_config]) unless input[:model_explainability_baseline_config].nil?
-        data['ModelExplainabilityAppSpecification'] = Builders::ModelExplainabilityAppSpecification.build(input[:model_explainability_app_specification]) unless input[:model_explainability_app_specification].nil?
-        data['ModelExplainabilityJobInput'] = Builders::ModelExplainabilityJobInput.build(input[:model_explainability_job_input]) unless input[:model_explainability_job_input].nil?
-        data['ModelExplainabilityJobOutputConfig'] = Builders::MonitoringOutputConfig.build(input[:model_explainability_job_output_config]) unless input[:model_explainability_job_output_config].nil?
-        data['JobResources'] = Builders::MonitoringResources.build(input[:job_resources]) unless input[:job_resources].nil?
-        data['NetworkConfig'] = Builders::MonitoringNetworkConfig.build(input[:network_config]) unless input[:network_config].nil?
+        data['ModelExplainabilityBaselineConfig'] = ModelExplainabilityBaselineConfig.build(input[:model_explainability_baseline_config]) unless input[:model_explainability_baseline_config].nil?
+        data['ModelExplainabilityAppSpecification'] = ModelExplainabilityAppSpecification.build(input[:model_explainability_app_specification]) unless input[:model_explainability_app_specification].nil?
+        data['ModelExplainabilityJobInput'] = ModelExplainabilityJobInput.build(input[:model_explainability_job_input]) unless input[:model_explainability_job_input].nil?
+        data['ModelExplainabilityJobOutputConfig'] = MonitoringOutputConfig.build(input[:model_explainability_job_output_config]) unless input[:model_explainability_job_output_config].nil?
+        data['JobResources'] = MonitoringResources.build(input[:job_resources]) unless input[:job_resources].nil?
+        data['NetworkConfig'] = MonitoringNetworkConfig.build(input[:network_config]) unless input[:network_config].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['StoppingCondition'] = Builders::MonitoringStoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StoppingCondition'] = MonitoringStoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2897,7 +2899,7 @@ module AWS::SDK::SageMaker
     class ModelExplainabilityJobInput
       def self.build(input)
         data = {}
-        data['EndpointInput'] = Builders::EndpointInput.build(input[:endpoint_input]) unless input[:endpoint_input].nil?
+        data['EndpointInput'] = EndpointInput.build(input[:endpoint_input]) unless input[:endpoint_input].nil?
         data
       end
     end
@@ -2908,7 +2910,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['ImageUri'] = input[:image_uri] unless input[:image_uri].nil?
         data['ConfigUri'] = input[:config_uri] unless input[:config_uri].nil?
-        data['Environment'] = Builders::MonitoringEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
+        data['Environment'] = MonitoringEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
         data
       end
     end
@@ -2918,7 +2920,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['BaseliningJobName'] = input[:baselining_job_name] unless input[:baselining_job_name].nil?
-        data['ConstraintsResource'] = Builders::MonitoringConstraintsResource.build(input[:constraints_resource]) unless input[:constraints_resource].nil?
+        data['ConstraintsResource'] = MonitoringConstraintsResource.build(input[:constraints_resource]) unless input[:constraints_resource].nil?
         data
       end
     end
@@ -2934,22 +2936,22 @@ module AWS::SDK::SageMaker
         data['ModelPackageName'] = input[:model_package_name] unless input[:model_package_name].nil?
         data['ModelPackageGroupName'] = input[:model_package_group_name] unless input[:model_package_group_name].nil?
         data['ModelPackageDescription'] = input[:model_package_description] unless input[:model_package_description].nil?
-        data['InferenceSpecification'] = Builders::InferenceSpecification.build(input[:inference_specification]) unless input[:inference_specification].nil?
-        data['ValidationSpecification'] = Builders::ModelPackageValidationSpecification.build(input[:validation_specification]) unless input[:validation_specification].nil?
-        data['SourceAlgorithmSpecification'] = Builders::SourceAlgorithmSpecification.build(input[:source_algorithm_specification]) unless input[:source_algorithm_specification].nil?
+        data['InferenceSpecification'] = InferenceSpecification.build(input[:inference_specification]) unless input[:inference_specification].nil?
+        data['ValidationSpecification'] = ModelPackageValidationSpecification.build(input[:validation_specification]) unless input[:validation_specification].nil?
+        data['SourceAlgorithmSpecification'] = SourceAlgorithmSpecification.build(input[:source_algorithm_specification]) unless input[:source_algorithm_specification].nil?
         data['CertifyForMarketplace'] = input[:certify_for_marketplace] unless input[:certify_for_marketplace].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['ModelApprovalStatus'] = input[:model_approval_status] unless input[:model_approval_status].nil?
-        data['MetadataProperties'] = Builders::MetadataProperties.build(input[:metadata_properties]) unless input[:metadata_properties].nil?
-        data['ModelMetrics'] = Builders::ModelMetrics.build(input[:model_metrics]) unless input[:model_metrics].nil?
+        data['MetadataProperties'] = MetadataProperties.build(input[:metadata_properties]) unless input[:metadata_properties].nil?
+        data['ModelMetrics'] = ModelMetrics.build(input[:model_metrics]) unless input[:model_metrics].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['CustomerMetadataProperties'] = Builders::CustomerMetadataMap.build(input[:customer_metadata_properties]) unless input[:customer_metadata_properties].nil?
-        data['DriftCheckBaselines'] = Builders::DriftCheckBaselines.build(input[:drift_check_baselines]) unless input[:drift_check_baselines].nil?
+        data['CustomerMetadataProperties'] = CustomerMetadataMap.build(input[:customer_metadata_properties]) unless input[:customer_metadata_properties].nil?
+        data['DriftCheckBaselines'] = DriftCheckBaselines.build(input[:drift_check_baselines]) unless input[:drift_check_baselines].nil?
         data['Domain'] = input[:domain] unless input[:domain].nil?
         data['Task'] = input[:task] unless input[:task].nil?
         data['SamplePayloadUrl'] = input[:sample_payload_url] unless input[:sample_payload_url].nil?
-        data['AdditionalInferenceSpecifications'] = Builders::AdditionalInferenceSpecifications.build(input[:additional_inference_specifications]) unless input[:additional_inference_specifications].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AdditionalInferenceSpecifications'] = AdditionalInferenceSpecifications.build(input[:additional_inference_specifications]) unless input[:additional_inference_specifications].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2958,7 +2960,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AdditionalInferenceSpecificationDefinition.build(element) unless element.nil?
+          data << AdditionalInferenceSpecificationDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -2970,11 +2972,11 @@ module AWS::SDK::SageMaker
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Containers'] = Builders::ModelPackageContainerDefinitionList.build(input[:containers]) unless input[:containers].nil?
-        data['SupportedTransformInstanceTypes'] = Builders::TransformInstanceTypes.build(input[:supported_transform_instance_types]) unless input[:supported_transform_instance_types].nil?
-        data['SupportedRealtimeInferenceInstanceTypes'] = Builders::RealtimeInferenceInstanceTypes.build(input[:supported_realtime_inference_instance_types]) unless input[:supported_realtime_inference_instance_types].nil?
-        data['SupportedContentTypes'] = Builders::ContentTypes.build(input[:supported_content_types]) unless input[:supported_content_types].nil?
-        data['SupportedResponseMIMETypes'] = Builders::ResponseMIMETypes.build(input[:supported_response_mime_types]) unless input[:supported_response_mime_types].nil?
+        data['Containers'] = ModelPackageContainerDefinitionList.build(input[:containers]) unless input[:containers].nil?
+        data['SupportedTransformInstanceTypes'] = TransformInstanceTypes.build(input[:supported_transform_instance_types]) unless input[:supported_transform_instance_types].nil?
+        data['SupportedRealtimeInferenceInstanceTypes'] = RealtimeInferenceInstanceTypes.build(input[:supported_realtime_inference_instance_types]) unless input[:supported_realtime_inference_instance_types].nil?
+        data['SupportedContentTypes'] = ContentTypes.build(input[:supported_content_types]) unless input[:supported_content_types].nil?
+        data['SupportedResponseMIMETypes'] = ResponseMIMETypes.build(input[:supported_response_mime_types]) unless input[:supported_response_mime_types].nil?
         data
       end
     end
@@ -2983,10 +2985,10 @@ module AWS::SDK::SageMaker
     class DriftCheckBaselines
       def self.build(input)
         data = {}
-        data['Bias'] = Builders::DriftCheckBias.build(input[:bias]) unless input[:bias].nil?
-        data['Explainability'] = Builders::DriftCheckExplainability.build(input[:explainability]) unless input[:explainability].nil?
-        data['ModelQuality'] = Builders::DriftCheckModelQuality.build(input[:model_quality]) unless input[:model_quality].nil?
-        data['ModelDataQuality'] = Builders::DriftCheckModelDataQuality.build(input[:model_data_quality]) unless input[:model_data_quality].nil?
+        data['Bias'] = DriftCheckBias.build(input[:bias]) unless input[:bias].nil?
+        data['Explainability'] = DriftCheckExplainability.build(input[:explainability]) unless input[:explainability].nil?
+        data['ModelQuality'] = DriftCheckModelQuality.build(input[:model_quality]) unless input[:model_quality].nil?
+        data['ModelDataQuality'] = DriftCheckModelDataQuality.build(input[:model_data_quality]) unless input[:model_data_quality].nil?
         data
       end
     end
@@ -2995,8 +2997,8 @@ module AWS::SDK::SageMaker
     class DriftCheckModelDataQuality
       def self.build(input)
         data = {}
-        data['Statistics'] = Builders::MetricsSource.build(input[:statistics]) unless input[:statistics].nil?
-        data['Constraints'] = Builders::MetricsSource.build(input[:constraints]) unless input[:constraints].nil?
+        data['Statistics'] = MetricsSource.build(input[:statistics]) unless input[:statistics].nil?
+        data['Constraints'] = MetricsSource.build(input[:constraints]) unless input[:constraints].nil?
         data
       end
     end
@@ -3016,8 +3018,8 @@ module AWS::SDK::SageMaker
     class DriftCheckModelQuality
       def self.build(input)
         data = {}
-        data['Statistics'] = Builders::MetricsSource.build(input[:statistics]) unless input[:statistics].nil?
-        data['Constraints'] = Builders::MetricsSource.build(input[:constraints]) unless input[:constraints].nil?
+        data['Statistics'] = MetricsSource.build(input[:statistics]) unless input[:statistics].nil?
+        data['Constraints'] = MetricsSource.build(input[:constraints]) unless input[:constraints].nil?
         data
       end
     end
@@ -3026,8 +3028,8 @@ module AWS::SDK::SageMaker
     class DriftCheckExplainability
       def self.build(input)
         data = {}
-        data['Constraints'] = Builders::MetricsSource.build(input[:constraints]) unless input[:constraints].nil?
-        data['ConfigFile'] = Builders::FileSource.build(input[:config_file]) unless input[:config_file].nil?
+        data['Constraints'] = MetricsSource.build(input[:constraints]) unless input[:constraints].nil?
+        data['ConfigFile'] = FileSource.build(input[:config_file]) unless input[:config_file].nil?
         data
       end
     end
@@ -3047,9 +3049,9 @@ module AWS::SDK::SageMaker
     class DriftCheckBias
       def self.build(input)
         data = {}
-        data['ConfigFile'] = Builders::FileSource.build(input[:config_file]) unless input[:config_file].nil?
-        data['PreTrainingConstraints'] = Builders::MetricsSource.build(input[:pre_training_constraints]) unless input[:pre_training_constraints].nil?
-        data['PostTrainingConstraints'] = Builders::MetricsSource.build(input[:post_training_constraints]) unless input[:post_training_constraints].nil?
+        data['ConfigFile'] = FileSource.build(input[:config_file]) unless input[:config_file].nil?
+        data['PreTrainingConstraints'] = MetricsSource.build(input[:pre_training_constraints]) unless input[:pre_training_constraints].nil?
+        data['PostTrainingConstraints'] = MetricsSource.build(input[:post_training_constraints]) unless input[:post_training_constraints].nil?
         data
       end
     end
@@ -3069,10 +3071,10 @@ module AWS::SDK::SageMaker
     class ModelMetrics
       def self.build(input)
         data = {}
-        data['ModelQuality'] = Builders::ModelQuality.build(input[:model_quality]) unless input[:model_quality].nil?
-        data['ModelDataQuality'] = Builders::ModelDataQuality.build(input[:model_data_quality]) unless input[:model_data_quality].nil?
-        data['Bias'] = Builders::Bias.build(input[:bias]) unless input[:bias].nil?
-        data['Explainability'] = Builders::Explainability.build(input[:explainability]) unless input[:explainability].nil?
+        data['ModelQuality'] = ModelQuality.build(input[:model_quality]) unless input[:model_quality].nil?
+        data['ModelDataQuality'] = ModelDataQuality.build(input[:model_data_quality]) unless input[:model_data_quality].nil?
+        data['Bias'] = Bias.build(input[:bias]) unless input[:bias].nil?
+        data['Explainability'] = Explainability.build(input[:explainability]) unless input[:explainability].nil?
         data
       end
     end
@@ -3081,7 +3083,7 @@ module AWS::SDK::SageMaker
     class Explainability
       def self.build(input)
         data = {}
-        data['Report'] = Builders::MetricsSource.build(input[:report]) unless input[:report].nil?
+        data['Report'] = MetricsSource.build(input[:report]) unless input[:report].nil?
         data
       end
     end
@@ -3090,9 +3092,9 @@ module AWS::SDK::SageMaker
     class Bias
       def self.build(input)
         data = {}
-        data['Report'] = Builders::MetricsSource.build(input[:report]) unless input[:report].nil?
-        data['PreTrainingReport'] = Builders::MetricsSource.build(input[:pre_training_report]) unless input[:pre_training_report].nil?
-        data['PostTrainingReport'] = Builders::MetricsSource.build(input[:post_training_report]) unless input[:post_training_report].nil?
+        data['Report'] = MetricsSource.build(input[:report]) unless input[:report].nil?
+        data['PreTrainingReport'] = MetricsSource.build(input[:pre_training_report]) unless input[:pre_training_report].nil?
+        data['PostTrainingReport'] = MetricsSource.build(input[:post_training_report]) unless input[:post_training_report].nil?
         data
       end
     end
@@ -3101,8 +3103,8 @@ module AWS::SDK::SageMaker
     class ModelDataQuality
       def self.build(input)
         data = {}
-        data['Statistics'] = Builders::MetricsSource.build(input[:statistics]) unless input[:statistics].nil?
-        data['Constraints'] = Builders::MetricsSource.build(input[:constraints]) unless input[:constraints].nil?
+        data['Statistics'] = MetricsSource.build(input[:statistics]) unless input[:statistics].nil?
+        data['Constraints'] = MetricsSource.build(input[:constraints]) unless input[:constraints].nil?
         data
       end
     end
@@ -3111,8 +3113,8 @@ module AWS::SDK::SageMaker
     class ModelQuality
       def self.build(input)
         data = {}
-        data['Statistics'] = Builders::MetricsSource.build(input[:statistics]) unless input[:statistics].nil?
-        data['Constraints'] = Builders::MetricsSource.build(input[:constraints]) unless input[:constraints].nil?
+        data['Statistics'] = MetricsSource.build(input[:statistics]) unless input[:statistics].nil?
+        data['Constraints'] = MetricsSource.build(input[:constraints]) unless input[:constraints].nil?
         data
       end
     end
@@ -3121,7 +3123,7 @@ module AWS::SDK::SageMaker
     class SourceAlgorithmSpecification
       def self.build(input)
         data = {}
-        data['SourceAlgorithms'] = Builders::SourceAlgorithmList.build(input[:source_algorithms]) unless input[:source_algorithms].nil?
+        data['SourceAlgorithms'] = SourceAlgorithmList.build(input[:source_algorithms]) unless input[:source_algorithms].nil?
         data
       end
     end
@@ -3131,7 +3133,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SourceAlgorithm.build(element) unless element.nil?
+          data << SourceAlgorithm.build(element) unless element.nil?
         end
         data
       end
@@ -3152,7 +3154,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['ValidationRole'] = input[:validation_role] unless input[:validation_role].nil?
-        data['ValidationProfiles'] = Builders::ModelPackageValidationProfiles.build(input[:validation_profiles]) unless input[:validation_profiles].nil?
+        data['ValidationProfiles'] = ModelPackageValidationProfiles.build(input[:validation_profiles]) unless input[:validation_profiles].nil?
         data
       end
     end
@@ -3162,7 +3164,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ModelPackageValidationProfile.build(element) unless element.nil?
+          data << ModelPackageValidationProfile.build(element) unless element.nil?
         end
         data
       end
@@ -3173,7 +3175,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['ProfileName'] = input[:profile_name] unless input[:profile_name].nil?
-        data['TransformJobDefinition'] = Builders::TransformJobDefinition.build(input[:transform_job_definition]) unless input[:transform_job_definition].nil?
+        data['TransformJobDefinition'] = TransformJobDefinition.build(input[:transform_job_definition]) unless input[:transform_job_definition].nil?
         data
       end
     end
@@ -3188,8 +3190,8 @@ module AWS::SDK::SageMaker
         data = {}
         data['ModelPackageGroupName'] = input[:model_package_group_name] unless input[:model_package_group_name].nil?
         data['ModelPackageGroupDescription'] = input[:model_package_group_description] unless input[:model_package_group_description].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3202,16 +3204,16 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateModelQualityJobDefinition'
         data = {}
         data['JobDefinitionName'] = input[:job_definition_name] unless input[:job_definition_name].nil?
-        data['ModelQualityBaselineConfig'] = Builders::ModelQualityBaselineConfig.build(input[:model_quality_baseline_config]) unless input[:model_quality_baseline_config].nil?
-        data['ModelQualityAppSpecification'] = Builders::ModelQualityAppSpecification.build(input[:model_quality_app_specification]) unless input[:model_quality_app_specification].nil?
-        data['ModelQualityJobInput'] = Builders::ModelQualityJobInput.build(input[:model_quality_job_input]) unless input[:model_quality_job_input].nil?
-        data['ModelQualityJobOutputConfig'] = Builders::MonitoringOutputConfig.build(input[:model_quality_job_output_config]) unless input[:model_quality_job_output_config].nil?
-        data['JobResources'] = Builders::MonitoringResources.build(input[:job_resources]) unless input[:job_resources].nil?
-        data['NetworkConfig'] = Builders::MonitoringNetworkConfig.build(input[:network_config]) unless input[:network_config].nil?
+        data['ModelQualityBaselineConfig'] = ModelQualityBaselineConfig.build(input[:model_quality_baseline_config]) unless input[:model_quality_baseline_config].nil?
+        data['ModelQualityAppSpecification'] = ModelQualityAppSpecification.build(input[:model_quality_app_specification]) unless input[:model_quality_app_specification].nil?
+        data['ModelQualityJobInput'] = ModelQualityJobInput.build(input[:model_quality_job_input]) unless input[:model_quality_job_input].nil?
+        data['ModelQualityJobOutputConfig'] = MonitoringOutputConfig.build(input[:model_quality_job_output_config]) unless input[:model_quality_job_output_config].nil?
+        data['JobResources'] = MonitoringResources.build(input[:job_resources]) unless input[:job_resources].nil?
+        data['NetworkConfig'] = MonitoringNetworkConfig.build(input[:network_config]) unless input[:network_config].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['StoppingCondition'] = Builders::MonitoringStoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StoppingCondition'] = MonitoringStoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3219,8 +3221,8 @@ module AWS::SDK::SageMaker
     class ModelQualityJobInput
       def self.build(input)
         data = {}
-        data['EndpointInput'] = Builders::EndpointInput.build(input[:endpoint_input]) unless input[:endpoint_input].nil?
-        data['GroundTruthS3Input'] = Builders::MonitoringGroundTruthS3Input.build(input[:ground_truth_s3_input]) unless input[:ground_truth_s3_input].nil?
+        data['EndpointInput'] = EndpointInput.build(input[:endpoint_input]) unless input[:endpoint_input].nil?
+        data['GroundTruthS3Input'] = MonitoringGroundTruthS3Input.build(input[:ground_truth_s3_input]) unless input[:ground_truth_s3_input].nil?
         data
       end
     end
@@ -3230,12 +3232,12 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['ImageUri'] = input[:image_uri] unless input[:image_uri].nil?
-        data['ContainerEntrypoint'] = Builders::ContainerEntrypoint.build(input[:container_entrypoint]) unless input[:container_entrypoint].nil?
-        data['ContainerArguments'] = Builders::MonitoringContainerArguments.build(input[:container_arguments]) unless input[:container_arguments].nil?
+        data['ContainerEntrypoint'] = ContainerEntrypoint.build(input[:container_entrypoint]) unless input[:container_entrypoint].nil?
+        data['ContainerArguments'] = MonitoringContainerArguments.build(input[:container_arguments]) unless input[:container_arguments].nil?
         data['RecordPreprocessorSourceUri'] = input[:record_preprocessor_source_uri] unless input[:record_preprocessor_source_uri].nil?
         data['PostAnalyticsProcessorSourceUri'] = input[:post_analytics_processor_source_uri] unless input[:post_analytics_processor_source_uri].nil?
         data['ProblemType'] = input[:problem_type] unless input[:problem_type].nil?
-        data['Environment'] = Builders::MonitoringEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
+        data['Environment'] = MonitoringEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
         data
       end
     end
@@ -3245,7 +3247,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['BaseliningJobName'] = input[:baselining_job_name] unless input[:baselining_job_name].nil?
-        data['ConstraintsResource'] = Builders::MonitoringConstraintsResource.build(input[:constraints_resource]) unless input[:constraints_resource].nil?
+        data['ConstraintsResource'] = MonitoringConstraintsResource.build(input[:constraints_resource]) unless input[:constraints_resource].nil?
         data
       end
     end
@@ -3259,9 +3261,9 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateMonitoringSchedule'
         data = {}
         data['MonitoringScheduleName'] = input[:monitoring_schedule_name] unless input[:monitoring_schedule_name].nil?
-        data['MonitoringScheduleConfig'] = Builders::MonitoringScheduleConfig.build(input[:monitoring_schedule_config]) unless input[:monitoring_schedule_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MonitoringScheduleConfig'] = MonitoringScheduleConfig.build(input[:monitoring_schedule_config]) unless input[:monitoring_schedule_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3269,8 +3271,8 @@ module AWS::SDK::SageMaker
     class MonitoringScheduleConfig
       def self.build(input)
         data = {}
-        data['ScheduleConfig'] = Builders::ScheduleConfig.build(input[:schedule_config]) unless input[:schedule_config].nil?
-        data['MonitoringJobDefinition'] = Builders::MonitoringJobDefinition.build(input[:monitoring_job_definition]) unless input[:monitoring_job_definition].nil?
+        data['ScheduleConfig'] = ScheduleConfig.build(input[:schedule_config]) unless input[:schedule_config].nil?
+        data['MonitoringJobDefinition'] = MonitoringJobDefinition.build(input[:monitoring_job_definition]) unless input[:monitoring_job_definition].nil?
         data['MonitoringJobDefinitionName'] = input[:monitoring_job_definition_name] unless input[:monitoring_job_definition_name].nil?
         data['MonitoringType'] = input[:monitoring_type] unless input[:monitoring_type].nil?
         data
@@ -3281,14 +3283,14 @@ module AWS::SDK::SageMaker
     class MonitoringJobDefinition
       def self.build(input)
         data = {}
-        data['BaselineConfig'] = Builders::MonitoringBaselineConfig.build(input[:baseline_config]) unless input[:baseline_config].nil?
-        data['MonitoringInputs'] = Builders::MonitoringInputs.build(input[:monitoring_inputs]) unless input[:monitoring_inputs].nil?
-        data['MonitoringOutputConfig'] = Builders::MonitoringOutputConfig.build(input[:monitoring_output_config]) unless input[:monitoring_output_config].nil?
-        data['MonitoringResources'] = Builders::MonitoringResources.build(input[:monitoring_resources]) unless input[:monitoring_resources].nil?
-        data['MonitoringAppSpecification'] = Builders::MonitoringAppSpecification.build(input[:monitoring_app_specification]) unless input[:monitoring_app_specification].nil?
-        data['StoppingCondition'] = Builders::MonitoringStoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
-        data['Environment'] = Builders::MonitoringEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
-        data['NetworkConfig'] = Builders::NetworkConfig.build(input[:network_config]) unless input[:network_config].nil?
+        data['BaselineConfig'] = MonitoringBaselineConfig.build(input[:baseline_config]) unless input[:baseline_config].nil?
+        data['MonitoringInputs'] = MonitoringInputs.build(input[:monitoring_inputs]) unless input[:monitoring_inputs].nil?
+        data['MonitoringOutputConfig'] = MonitoringOutputConfig.build(input[:monitoring_output_config]) unless input[:monitoring_output_config].nil?
+        data['MonitoringResources'] = MonitoringResources.build(input[:monitoring_resources]) unless input[:monitoring_resources].nil?
+        data['MonitoringAppSpecification'] = MonitoringAppSpecification.build(input[:monitoring_app_specification]) unless input[:monitoring_app_specification].nil?
+        data['StoppingCondition'] = MonitoringStoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
+        data['Environment'] = MonitoringEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
+        data['NetworkConfig'] = NetworkConfig.build(input[:network_config]) unless input[:network_config].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data
       end
@@ -3300,7 +3302,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['EnableInterContainerTrafficEncryption'] = input[:enable_inter_container_traffic_encryption] unless input[:enable_inter_container_traffic_encryption].nil?
         data['EnableNetworkIsolation'] = input[:enable_network_isolation] unless input[:enable_network_isolation].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
         data
       end
     end
@@ -3310,8 +3312,8 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['ImageUri'] = input[:image_uri] unless input[:image_uri].nil?
-        data['ContainerEntrypoint'] = Builders::ContainerEntrypoint.build(input[:container_entrypoint]) unless input[:container_entrypoint].nil?
-        data['ContainerArguments'] = Builders::MonitoringContainerArguments.build(input[:container_arguments]) unless input[:container_arguments].nil?
+        data['ContainerEntrypoint'] = ContainerEntrypoint.build(input[:container_entrypoint]) unless input[:container_entrypoint].nil?
+        data['ContainerArguments'] = MonitoringContainerArguments.build(input[:container_arguments]) unless input[:container_arguments].nil?
         data['RecordPreprocessorSourceUri'] = input[:record_preprocessor_source_uri] unless input[:record_preprocessor_source_uri].nil?
         data['PostAnalyticsProcessorSourceUri'] = input[:post_analytics_processor_source_uri] unless input[:post_analytics_processor_source_uri].nil?
         data
@@ -3323,7 +3325,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MonitoringInput.build(element) unless element.nil?
+          data << MonitoringInput.build(element) unless element.nil?
         end
         data
       end
@@ -3333,7 +3335,7 @@ module AWS::SDK::SageMaker
     class MonitoringInput
       def self.build(input)
         data = {}
-        data['EndpointInput'] = Builders::EndpointInput.build(input[:endpoint_input]) unless input[:endpoint_input].nil?
+        data['EndpointInput'] = EndpointInput.build(input[:endpoint_input]) unless input[:endpoint_input].nil?
         data
       end
     end
@@ -3343,8 +3345,8 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['BaseliningJobName'] = input[:baselining_job_name] unless input[:baselining_job_name].nil?
-        data['ConstraintsResource'] = Builders::MonitoringConstraintsResource.build(input[:constraints_resource]) unless input[:constraints_resource].nil?
-        data['StatisticsResource'] = Builders::MonitoringStatisticsResource.build(input[:statistics_resource]) unless input[:statistics_resource].nil?
+        data['ConstraintsResource'] = MonitoringConstraintsResource.build(input[:constraints_resource]) unless input[:constraints_resource].nil?
+        data['StatisticsResource'] = MonitoringStatisticsResource.build(input[:statistics_resource]) unless input[:statistics_resource].nil?
         data
       end
     end
@@ -3369,20 +3371,20 @@ module AWS::SDK::SageMaker
         data['NotebookInstanceName'] = input[:notebook_instance_name] unless input[:notebook_instance_name].nil?
         data['InstanceType'] = input[:instance_type] unless input[:instance_type].nil?
         data['SubnetId'] = input[:subnet_id] unless input[:subnet_id].nil?
-        data['SecurityGroupIds'] = Builders::SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['LifecycleConfigName'] = input[:lifecycle_config_name] unless input[:lifecycle_config_name].nil?
         data['DirectInternetAccess'] = input[:direct_internet_access] unless input[:direct_internet_access].nil?
         data['VolumeSizeInGB'] = input[:volume_size_in_gb] unless input[:volume_size_in_gb].nil?
-        data['AcceleratorTypes'] = Builders::NotebookInstanceAcceleratorTypes.build(input[:accelerator_types]) unless input[:accelerator_types].nil?
+        data['AcceleratorTypes'] = NotebookInstanceAcceleratorTypes.build(input[:accelerator_types]) unless input[:accelerator_types].nil?
         data['DefaultCodeRepository'] = input[:default_code_repository] unless input[:default_code_repository].nil?
-        data['AdditionalCodeRepositories'] = Builders::AdditionalCodeRepositoryNamesOrUrls.build(input[:additional_code_repositories]) unless input[:additional_code_repositories].nil?
+        data['AdditionalCodeRepositories'] = AdditionalCodeRepositoryNamesOrUrls.build(input[:additional_code_repositories]) unless input[:additional_code_repositories].nil?
         data['RootAccess'] = input[:root_access] unless input[:root_access].nil?
         data['PlatformIdentifier'] = input[:platform_identifier] unless input[:platform_identifier].nil?
-        data['InstanceMetadataServiceConfiguration'] = Builders::InstanceMetadataServiceConfiguration.build(input[:instance_metadata_service_configuration]) unless input[:instance_metadata_service_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InstanceMetadataServiceConfiguration'] = InstanceMetadataServiceConfiguration.build(input[:instance_metadata_service_configuration]) unless input[:instance_metadata_service_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3426,9 +3428,9 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateNotebookInstanceLifecycleConfig'
         data = {}
         data['NotebookInstanceLifecycleConfigName'] = input[:notebook_instance_lifecycle_config_name] unless input[:notebook_instance_lifecycle_config_name].nil?
-        data['OnCreate'] = Builders::NotebookInstanceLifecycleConfigList.build(input[:on_create]) unless input[:on_create].nil?
-        data['OnStart'] = Builders::NotebookInstanceLifecycleConfigList.build(input[:on_start]) unless input[:on_start].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OnCreate'] = NotebookInstanceLifecycleConfigList.build(input[:on_create]) unless input[:on_create].nil?
+        data['OnStart'] = NotebookInstanceLifecycleConfigList.build(input[:on_start]) unless input[:on_start].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3437,7 +3439,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::NotebookInstanceLifecycleHook.build(element) unless element.nil?
+          data << NotebookInstanceLifecycleHook.build(element) unless element.nil?
         end
         data
       end
@@ -3463,13 +3465,13 @@ module AWS::SDK::SageMaker
         data['PipelineName'] = input[:pipeline_name] unless input[:pipeline_name].nil?
         data['PipelineDisplayName'] = input[:pipeline_display_name] unless input[:pipeline_display_name].nil?
         data['PipelineDefinition'] = input[:pipeline_definition] unless input[:pipeline_definition].nil?
-        data['PipelineDefinitionS3Location'] = Builders::PipelineDefinitionS3Location.build(input[:pipeline_definition_s3_location]) unless input[:pipeline_definition_s3_location].nil?
+        data['PipelineDefinitionS3Location'] = PipelineDefinitionS3Location.build(input[:pipeline_definition_s3_location]) unless input[:pipeline_definition_s3_location].nil?
         data['PipelineDescription'] = input[:pipeline_description] unless input[:pipeline_description].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['ParallelismConfiguration'] = Builders::ParallelismConfiguration.build(input[:parallelism_configuration]) unless input[:parallelism_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['ParallelismConfiguration'] = ParallelismConfiguration.build(input[:parallelism_configuration]) unless input[:parallelism_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3505,7 +3507,7 @@ module AWS::SDK::SageMaker
         data['UserProfileName'] = input[:user_profile_name] unless input[:user_profile_name].nil?
         data['SessionExpirationDurationInSeconds'] = input[:session_expiration_duration_in_seconds] unless input[:session_expiration_duration_in_seconds].nil?
         data['ExpiresInSeconds'] = input[:expires_in_seconds] unless input[:expires_in_seconds].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3519,7 +3521,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['NotebookInstanceName'] = input[:notebook_instance_name] unless input[:notebook_instance_name].nil?
         data['SessionExpirationDurationInSeconds'] = input[:session_expiration_duration_in_seconds] unless input[:session_expiration_duration_in_seconds].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3531,18 +3533,18 @@ module AWS::SDK::SageMaker
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateProcessingJob'
         data = {}
-        data['ProcessingInputs'] = Builders::ProcessingInputs.build(input[:processing_inputs]) unless input[:processing_inputs].nil?
-        data['ProcessingOutputConfig'] = Builders::ProcessingOutputConfig.build(input[:processing_output_config]) unless input[:processing_output_config].nil?
+        data['ProcessingInputs'] = ProcessingInputs.build(input[:processing_inputs]) unless input[:processing_inputs].nil?
+        data['ProcessingOutputConfig'] = ProcessingOutputConfig.build(input[:processing_output_config]) unless input[:processing_output_config].nil?
         data['ProcessingJobName'] = input[:processing_job_name] unless input[:processing_job_name].nil?
-        data['ProcessingResources'] = Builders::ProcessingResources.build(input[:processing_resources]) unless input[:processing_resources].nil?
-        data['StoppingCondition'] = Builders::ProcessingStoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
-        data['AppSpecification'] = Builders::AppSpecification.build(input[:app_specification]) unless input[:app_specification].nil?
-        data['Environment'] = Builders::ProcessingEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
-        data['NetworkConfig'] = Builders::NetworkConfig.build(input[:network_config]) unless input[:network_config].nil?
+        data['ProcessingResources'] = ProcessingResources.build(input[:processing_resources]) unless input[:processing_resources].nil?
+        data['StoppingCondition'] = ProcessingStoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
+        data['AppSpecification'] = AppSpecification.build(input[:app_specification]) unless input[:app_specification].nil?
+        data['Environment'] = ProcessingEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
+        data['NetworkConfig'] = NetworkConfig.build(input[:network_config]) unless input[:network_config].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['ExperimentConfig'] = Builders::ExperimentConfig.build(input[:experiment_config]) unless input[:experiment_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['ExperimentConfig'] = ExperimentConfig.build(input[:experiment_config]) unless input[:experiment_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3573,8 +3575,8 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['ImageUri'] = input[:image_uri] unless input[:image_uri].nil?
-        data['ContainerEntrypoint'] = Builders::ContainerEntrypoint.build(input[:container_entrypoint]) unless input[:container_entrypoint].nil?
-        data['ContainerArguments'] = Builders::ContainerArguments.build(input[:container_arguments]) unless input[:container_arguments].nil?
+        data['ContainerEntrypoint'] = ContainerEntrypoint.build(input[:container_entrypoint]) unless input[:container_entrypoint].nil?
+        data['ContainerArguments'] = ContainerArguments.build(input[:container_arguments]) unless input[:container_arguments].nil?
         data
       end
     end
@@ -3603,7 +3605,7 @@ module AWS::SDK::SageMaker
     class ProcessingResources
       def self.build(input)
         data = {}
-        data['ClusterConfig'] = Builders::ProcessingClusterConfig.build(input[:cluster_config]) unless input[:cluster_config].nil?
+        data['ClusterConfig'] = ProcessingClusterConfig.build(input[:cluster_config]) unless input[:cluster_config].nil?
         data
       end
     end
@@ -3624,7 +3626,7 @@ module AWS::SDK::SageMaker
     class ProcessingOutputConfig
       def self.build(input)
         data = {}
-        data['Outputs'] = Builders::ProcessingOutputs.build(input[:outputs]) unless input[:outputs].nil?
+        data['Outputs'] = ProcessingOutputs.build(input[:outputs]) unless input[:outputs].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data
       end
@@ -3635,7 +3637,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ProcessingOutput.build(element) unless element.nil?
+          data << ProcessingOutput.build(element) unless element.nil?
         end
         data
       end
@@ -3646,8 +3648,8 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['OutputName'] = input[:output_name] unless input[:output_name].nil?
-        data['S3Output'] = Builders::ProcessingS3Output.build(input[:s3_output]) unless input[:s3_output].nil?
-        data['FeatureStoreOutput'] = Builders::ProcessingFeatureStoreOutput.build(input[:feature_store_output]) unless input[:feature_store_output].nil?
+        data['S3Output'] = ProcessingS3Output.build(input[:s3_output]) unless input[:s3_output].nil?
+        data['FeatureStoreOutput'] = ProcessingFeatureStoreOutput.build(input[:feature_store_output]) unless input[:feature_store_output].nil?
         data['AppManaged'] = input[:app_managed] unless input[:app_managed].nil?
         data
       end
@@ -3678,7 +3680,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ProcessingInput.build(element) unless element.nil?
+          data << ProcessingInput.build(element) unless element.nil?
         end
         data
       end
@@ -3690,8 +3692,8 @@ module AWS::SDK::SageMaker
         data = {}
         data['InputName'] = input[:input_name] unless input[:input_name].nil?
         data['AppManaged'] = input[:app_managed] unless input[:app_managed].nil?
-        data['S3Input'] = Builders::ProcessingS3Input.build(input[:s3_input]) unless input[:s3_input].nil?
-        data['DatasetDefinition'] = Builders::DatasetDefinition.build(input[:dataset_definition]) unless input[:dataset_definition].nil?
+        data['S3Input'] = ProcessingS3Input.build(input[:s3_input]) unless input[:s3_input].nil?
+        data['DatasetDefinition'] = DatasetDefinition.build(input[:dataset_definition]) unless input[:dataset_definition].nil?
         data
       end
     end
@@ -3700,8 +3702,8 @@ module AWS::SDK::SageMaker
     class DatasetDefinition
       def self.build(input)
         data = {}
-        data['AthenaDatasetDefinition'] = Builders::AthenaDatasetDefinition.build(input[:athena_dataset_definition]) unless input[:athena_dataset_definition].nil?
-        data['RedshiftDatasetDefinition'] = Builders::RedshiftDatasetDefinition.build(input[:redshift_dataset_definition]) unless input[:redshift_dataset_definition].nil?
+        data['AthenaDatasetDefinition'] = AthenaDatasetDefinition.build(input[:athena_dataset_definition]) unless input[:athena_dataset_definition].nil?
+        data['RedshiftDatasetDefinition'] = RedshiftDatasetDefinition.build(input[:redshift_dataset_definition]) unless input[:redshift_dataset_definition].nil?
         data['LocalPath'] = input[:local_path] unless input[:local_path].nil?
         data['DataDistributionType'] = input[:data_distribution_type] unless input[:data_distribution_type].nil?
         data['InputMode'] = input[:input_mode] unless input[:input_mode].nil?
@@ -3766,9 +3768,9 @@ module AWS::SDK::SageMaker
         data = {}
         data['ProjectName'] = input[:project_name] unless input[:project_name].nil?
         data['ProjectDescription'] = input[:project_description] unless input[:project_description].nil?
-        data['ServiceCatalogProvisioningDetails'] = Builders::ServiceCatalogProvisioningDetails.build(input[:service_catalog_provisioning_details]) unless input[:service_catalog_provisioning_details].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ServiceCatalogProvisioningDetails'] = ServiceCatalogProvisioningDetails.build(input[:service_catalog_provisioning_details]) unless input[:service_catalog_provisioning_details].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3779,7 +3781,7 @@ module AWS::SDK::SageMaker
         data['ProductId'] = input[:product_id] unless input[:product_id].nil?
         data['ProvisioningArtifactId'] = input[:provisioning_artifact_id] unless input[:provisioning_artifact_id].nil?
         data['PathId'] = input[:path_id] unless input[:path_id].nil?
-        data['ProvisioningParameters'] = Builders::ProvisioningParameters.build(input[:provisioning_parameters]) unless input[:provisioning_parameters].nil?
+        data['ProvisioningParameters'] = ProvisioningParameters.build(input[:provisioning_parameters]) unless input[:provisioning_parameters].nil?
         data
       end
     end
@@ -3789,7 +3791,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ProvisioningParameter.build(element) unless element.nil?
+          data << ProvisioningParameter.build(element) unless element.nil?
         end
         data
       end
@@ -3816,8 +3818,8 @@ module AWS::SDK::SageMaker
         data['StudioLifecycleConfigName'] = input[:studio_lifecycle_config_name] unless input[:studio_lifecycle_config_name].nil?
         data['StudioLifecycleConfigContent'] = input[:studio_lifecycle_config_content] unless input[:studio_lifecycle_config_content].nil?
         data['StudioLifecycleConfigAppType'] = input[:studio_lifecycle_config_app_type] unless input[:studio_lifecycle_config_app_type].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3830,28 +3832,28 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateTrainingJob'
         data = {}
         data['TrainingJobName'] = input[:training_job_name] unless input[:training_job_name].nil?
-        data['HyperParameters'] = Builders::HyperParameters.build(input[:hyper_parameters]) unless input[:hyper_parameters].nil?
-        data['AlgorithmSpecification'] = Builders::AlgorithmSpecification.build(input[:algorithm_specification]) unless input[:algorithm_specification].nil?
+        data['HyperParameters'] = HyperParameters.build(input[:hyper_parameters]) unless input[:hyper_parameters].nil?
+        data['AlgorithmSpecification'] = AlgorithmSpecification.build(input[:algorithm_specification]) unless input[:algorithm_specification].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
-        data['ResourceConfig'] = Builders::ResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        data['StoppingCondition'] = Builders::StoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['ResourceConfig'] = ResourceConfig.build(input[:resource_config]) unless input[:resource_config].nil?
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['StoppingCondition'] = StoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['EnableNetworkIsolation'] = input[:enable_network_isolation] unless input[:enable_network_isolation].nil?
         data['EnableInterContainerTrafficEncryption'] = input[:enable_inter_container_traffic_encryption] unless input[:enable_inter_container_traffic_encryption].nil?
         data['EnableManagedSpotTraining'] = input[:enable_managed_spot_training] unless input[:enable_managed_spot_training].nil?
-        data['CheckpointConfig'] = Builders::CheckpointConfig.build(input[:checkpoint_config]) unless input[:checkpoint_config].nil?
-        data['DebugHookConfig'] = Builders::DebugHookConfig.build(input[:debug_hook_config]) unless input[:debug_hook_config].nil?
-        data['DebugRuleConfigurations'] = Builders::DebugRuleConfigurations.build(input[:debug_rule_configurations]) unless input[:debug_rule_configurations].nil?
-        data['TensorBoardOutputConfig'] = Builders::TensorBoardOutputConfig.build(input[:tensor_board_output_config]) unless input[:tensor_board_output_config].nil?
-        data['ExperimentConfig'] = Builders::ExperimentConfig.build(input[:experiment_config]) unless input[:experiment_config].nil?
-        data['ProfilerConfig'] = Builders::ProfilerConfig.build(input[:profiler_config]) unless input[:profiler_config].nil?
-        data['ProfilerRuleConfigurations'] = Builders::ProfilerRuleConfigurations.build(input[:profiler_rule_configurations]) unless input[:profiler_rule_configurations].nil?
-        data['Environment'] = Builders::TrainingEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
-        data['RetryStrategy'] = Builders::RetryStrategy.build(input[:retry_strategy]) unless input[:retry_strategy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CheckpointConfig'] = CheckpointConfig.build(input[:checkpoint_config]) unless input[:checkpoint_config].nil?
+        data['DebugHookConfig'] = DebugHookConfig.build(input[:debug_hook_config]) unless input[:debug_hook_config].nil?
+        data['DebugRuleConfigurations'] = DebugRuleConfigurations.build(input[:debug_rule_configurations]) unless input[:debug_rule_configurations].nil?
+        data['TensorBoardOutputConfig'] = TensorBoardOutputConfig.build(input[:tensor_board_output_config]) unless input[:tensor_board_output_config].nil?
+        data['ExperimentConfig'] = ExperimentConfig.build(input[:experiment_config]) unless input[:experiment_config].nil?
+        data['ProfilerConfig'] = ProfilerConfig.build(input[:profiler_config]) unless input[:profiler_config].nil?
+        data['ProfilerRuleConfigurations'] = ProfilerRuleConfigurations.build(input[:profiler_rule_configurations]) unless input[:profiler_rule_configurations].nil?
+        data['Environment'] = TrainingEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
+        data['RetryStrategy'] = RetryStrategy.build(input[:retry_strategy]) unless input[:retry_strategy].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3871,7 +3873,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ProfilerRuleConfiguration.build(element) unless element.nil?
+          data << ProfilerRuleConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -3887,7 +3889,7 @@ module AWS::SDK::SageMaker
         data['RuleEvaluatorImage'] = input[:rule_evaluator_image] unless input[:rule_evaluator_image].nil?
         data['InstanceType'] = input[:instance_type] unless input[:instance_type].nil?
         data['VolumeSizeInGB'] = input[:volume_size_in_gb] unless input[:volume_size_in_gb].nil?
-        data['RuleParameters'] = Builders::RuleParameters.build(input[:rule_parameters]) unless input[:rule_parameters].nil?
+        data['RuleParameters'] = RuleParameters.build(input[:rule_parameters]) unless input[:rule_parameters].nil?
         data
       end
     end
@@ -3909,7 +3911,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['S3OutputPath'] = input[:s3_output_path] unless input[:s3_output_path].nil?
         data['ProfilingIntervalInMilliseconds'] = input[:profiling_interval_in_milliseconds] unless input[:profiling_interval_in_milliseconds].nil?
-        data['ProfilingParameters'] = Builders::ProfilingParameters.build(input[:profiling_parameters]) unless input[:profiling_parameters].nil?
+        data['ProfilingParameters'] = ProfilingParameters.build(input[:profiling_parameters]) unless input[:profiling_parameters].nil?
         data
       end
     end
@@ -3940,7 +3942,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DebugRuleConfiguration.build(element) unless element.nil?
+          data << DebugRuleConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -3956,7 +3958,7 @@ module AWS::SDK::SageMaker
         data['RuleEvaluatorImage'] = input[:rule_evaluator_image] unless input[:rule_evaluator_image].nil?
         data['InstanceType'] = input[:instance_type] unless input[:instance_type].nil?
         data['VolumeSizeInGB'] = input[:volume_size_in_gb] unless input[:volume_size_in_gb].nil?
-        data['RuleParameters'] = Builders::RuleParameters.build(input[:rule_parameters]) unless input[:rule_parameters].nil?
+        data['RuleParameters'] = RuleParameters.build(input[:rule_parameters]) unless input[:rule_parameters].nil?
         data
       end
     end
@@ -3967,8 +3969,8 @@ module AWS::SDK::SageMaker
         data = {}
         data['LocalPath'] = input[:local_path] unless input[:local_path].nil?
         data['S3OutputPath'] = input[:s3_output_path] unless input[:s3_output_path].nil?
-        data['HookParameters'] = Builders::HookParameters.build(input[:hook_parameters]) unless input[:hook_parameters].nil?
-        data['CollectionConfigurations'] = Builders::CollectionConfigurations.build(input[:collection_configurations]) unless input[:collection_configurations].nil?
+        data['HookParameters'] = HookParameters.build(input[:hook_parameters]) unless input[:hook_parameters].nil?
+        data['CollectionConfigurations'] = CollectionConfigurations.build(input[:collection_configurations]) unless input[:collection_configurations].nil?
         data
       end
     end
@@ -3978,7 +3980,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CollectionConfiguration.build(element) unless element.nil?
+          data << CollectionConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -3989,7 +3991,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['CollectionName'] = input[:collection_name] unless input[:collection_name].nil?
-        data['CollectionParameters'] = Builders::CollectionParameters.build(input[:collection_parameters]) unless input[:collection_parameters].nil?
+        data['CollectionParameters'] = CollectionParameters.build(input[:collection_parameters]) unless input[:collection_parameters].nil?
         data
       end
     end
@@ -4023,7 +4025,7 @@ module AWS::SDK::SageMaker
         data['TrainingImage'] = input[:training_image] unless input[:training_image].nil?
         data['AlgorithmName'] = input[:algorithm_name] unless input[:algorithm_name].nil?
         data['TrainingInputMode'] = input[:training_input_mode] unless input[:training_input_mode].nil?
-        data['MetricDefinitions'] = Builders::MetricDefinitionList.build(input[:metric_definitions]) unless input[:metric_definitions].nil?
+        data['MetricDefinitions'] = MetricDefinitionList.build(input[:metric_definitions]) unless input[:metric_definitions].nil?
         data['EnableSageMakerMetricsTimeSeries'] = input[:enable_sage_maker_metrics_time_series] unless input[:enable_sage_maker_metrics_time_series].nil?
         data
       end
@@ -4040,17 +4042,17 @@ module AWS::SDK::SageMaker
         data['TransformJobName'] = input[:transform_job_name] unless input[:transform_job_name].nil?
         data['ModelName'] = input[:model_name] unless input[:model_name].nil?
         data['MaxConcurrentTransforms'] = input[:max_concurrent_transforms] unless input[:max_concurrent_transforms].nil?
-        data['ModelClientConfig'] = Builders::ModelClientConfig.build(input[:model_client_config]) unless input[:model_client_config].nil?
+        data['ModelClientConfig'] = ModelClientConfig.build(input[:model_client_config]) unless input[:model_client_config].nil?
         data['MaxPayloadInMB'] = input[:max_payload_in_mb] unless input[:max_payload_in_mb].nil?
         data['BatchStrategy'] = input[:batch_strategy] unless input[:batch_strategy].nil?
-        data['Environment'] = Builders::TransformEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
-        data['TransformInput'] = Builders::TransformInput.build(input[:transform_input]) unless input[:transform_input].nil?
-        data['TransformOutput'] = Builders::TransformOutput.build(input[:transform_output]) unless input[:transform_output].nil?
-        data['TransformResources'] = Builders::TransformResources.build(input[:transform_resources]) unless input[:transform_resources].nil?
-        data['DataProcessing'] = Builders::DataProcessing.build(input[:data_processing]) unless input[:data_processing].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['ExperimentConfig'] = Builders::ExperimentConfig.build(input[:experiment_config]) unless input[:experiment_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Environment'] = TransformEnvironmentMap.build(input[:environment]) unless input[:environment].nil?
+        data['TransformInput'] = TransformInput.build(input[:transform_input]) unless input[:transform_input].nil?
+        data['TransformOutput'] = TransformOutput.build(input[:transform_output]) unless input[:transform_output].nil?
+        data['TransformResources'] = TransformResources.build(input[:transform_resources]) unless input[:transform_resources].nil?
+        data['DataProcessing'] = DataProcessing.build(input[:data_processing]) unless input[:data_processing].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['ExperimentConfig'] = ExperimentConfig.build(input[:experiment_config]) unless input[:experiment_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4086,9 +4088,9 @@ module AWS::SDK::SageMaker
         data['TrialName'] = input[:trial_name] unless input[:trial_name].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['ExperimentName'] = input[:experiment_name] unless input[:experiment_name].nil?
-        data['MetadataProperties'] = Builders::MetadataProperties.build(input[:metadata_properties]) unless input[:metadata_properties].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MetadataProperties'] = MetadataProperties.build(input[:metadata_properties]) unless input[:metadata_properties].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4102,15 +4104,15 @@ module AWS::SDK::SageMaker
         data = {}
         data['TrialComponentName'] = input[:trial_component_name] unless input[:trial_component_name].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
-        data['Status'] = Builders::TrialComponentStatus.build(input[:status]) unless input[:status].nil?
+        data['Status'] = TrialComponentStatus.build(input[:status]) unless input[:status].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
-        data['Parameters'] = Builders::TrialComponentParameters.build(input[:parameters]) unless input[:parameters].nil?
-        data['InputArtifacts'] = Builders::TrialComponentArtifacts.build(input[:input_artifacts]) unless input[:input_artifacts].nil?
-        data['OutputArtifacts'] = Builders::TrialComponentArtifacts.build(input[:output_artifacts]) unless input[:output_artifacts].nil?
-        data['MetadataProperties'] = Builders::MetadataProperties.build(input[:metadata_properties]) unless input[:metadata_properties].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Parameters'] = TrialComponentParameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['InputArtifacts'] = TrialComponentArtifacts.build(input[:input_artifacts]) unless input[:input_artifacts].nil?
+        data['OutputArtifacts'] = TrialComponentArtifacts.build(input[:output_artifacts]) unless input[:output_artifacts].nil?
+        data['MetadataProperties'] = MetadataProperties.build(input[:metadata_properties]) unless input[:metadata_properties].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4119,7 +4121,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::TrialComponentArtifact.build(value) unless value.nil?
+          data[key] = TrialComponentArtifact.build(value) unless value.nil?
         end
         data
       end
@@ -4140,7 +4142,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::TrialComponentParameterValue.build(value) unless value.nil?
+          data[key] = TrialComponentParameterValue.build(value) unless value.nil?
         end
         data
       end
@@ -4186,9 +4188,9 @@ module AWS::SDK::SageMaker
         data['UserProfileName'] = input[:user_profile_name] unless input[:user_profile_name].nil?
         data['SingleSignOnUserIdentifier'] = input[:single_sign_on_user_identifier] unless input[:single_sign_on_user_identifier].nil?
         data['SingleSignOnUserValue'] = input[:single_sign_on_user_value] unless input[:single_sign_on_user_value].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['UserSettings'] = Builders::UserSettings.build(input[:user_settings]) unless input[:user_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['UserSettings'] = UserSettings.build(input[:user_settings]) unless input[:user_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4200,12 +4202,12 @@ module AWS::SDK::SageMaker
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'SageMaker.CreateWorkforce'
         data = {}
-        data['CognitoConfig'] = Builders::CognitoConfig.build(input[:cognito_config]) unless input[:cognito_config].nil?
-        data['OidcConfig'] = Builders::OidcConfig.build(input[:oidc_config]) unless input[:oidc_config].nil?
-        data['SourceIpConfig'] = Builders::SourceIpConfig.build(input[:source_ip_config]) unless input[:source_ip_config].nil?
+        data['CognitoConfig'] = CognitoConfig.build(input[:cognito_config]) unless input[:cognito_config].nil?
+        data['OidcConfig'] = OidcConfig.build(input[:oidc_config]) unless input[:oidc_config].nil?
+        data['SourceIpConfig'] = SourceIpConfig.build(input[:source_ip_config]) unless input[:source_ip_config].nil?
         data['WorkforceName'] = input[:workforce_name] unless input[:workforce_name].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4213,7 +4215,7 @@ module AWS::SDK::SageMaker
     class SourceIpConfig
       def self.build(input)
         data = {}
-        data['Cidrs'] = Builders::Cidrs.build(input[:cidrs]) unless input[:cidrs].nil?
+        data['Cidrs'] = Cidrs.build(input[:cidrs]) unless input[:cidrs].nil?
         data
       end
     end
@@ -4265,11 +4267,11 @@ module AWS::SDK::SageMaker
         data = {}
         data['WorkteamName'] = input[:workteam_name] unless input[:workteam_name].nil?
         data['WorkforceName'] = input[:workforce_name] unless input[:workforce_name].nil?
-        data['MemberDefinitions'] = Builders::MemberDefinitions.build(input[:member_definitions]) unless input[:member_definitions].nil?
+        data['MemberDefinitions'] = MemberDefinitions.build(input[:member_definitions]) unless input[:member_definitions].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['NotificationConfiguration'] = Builders::NotificationConfiguration.build(input[:notification_configuration]) unless input[:notification_configuration].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NotificationConfiguration'] = NotificationConfiguration.build(input[:notification_configuration]) unless input[:notification_configuration].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4287,7 +4289,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MemberDefinition.build(element) unless element.nil?
+          data << MemberDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -4297,8 +4299,8 @@ module AWS::SDK::SageMaker
     class MemberDefinition
       def self.build(input)
         data = {}
-        data['CognitoMemberDefinition'] = Builders::CognitoMemberDefinition.build(input[:cognito_member_definition]) unless input[:cognito_member_definition].nil?
-        data['OidcMemberDefinition'] = Builders::OidcMemberDefinition.build(input[:oidc_member_definition]) unless input[:oidc_member_definition].nil?
+        data['CognitoMemberDefinition'] = CognitoMemberDefinition.build(input[:cognito_member_definition]) unless input[:cognito_member_definition].nil?
+        data['OidcMemberDefinition'] = OidcMemberDefinition.build(input[:oidc_member_definition]) unless input[:oidc_member_definition].nil?
         data
       end
     end
@@ -4307,7 +4309,7 @@ module AWS::SDK::SageMaker
     class OidcMemberDefinition
       def self.build(input)
         data = {}
-        data['Groups'] = Builders::Groups.build(input[:groups]) unless input[:groups].nil?
+        data['Groups'] = Groups.build(input[:groups]) unless input[:groups].nil?
         data
       end
     end
@@ -4343,7 +4345,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteAction'
         data = {}
         data['ActionName'] = input[:action_name] unless input[:action_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4356,7 +4358,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteAlgorithm'
         data = {}
         data['AlgorithmName'] = input[:algorithm_name] unless input[:algorithm_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4372,7 +4374,7 @@ module AWS::SDK::SageMaker
         data['UserProfileName'] = input[:user_profile_name] unless input[:user_profile_name].nil?
         data['AppType'] = input[:app_type] unless input[:app_type].nil?
         data['AppName'] = input[:app_name] unless input[:app_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4385,7 +4387,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteAppImageConfig'
         data = {}
         data['AppImageConfigName'] = input[:app_image_config_name] unless input[:app_image_config_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4398,8 +4400,8 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteArtifact'
         data = {}
         data['ArtifactArn'] = input[:artifact_arn] unless input[:artifact_arn].nil?
-        data['Source'] = Builders::ArtifactSource.build(input[:source]) unless input[:source].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Source'] = ArtifactSource.build(input[:source]) unless input[:source].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4413,7 +4415,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['SourceArn'] = input[:source_arn] unless input[:source_arn].nil?
         data['DestinationArn'] = input[:destination_arn] unless input[:destination_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4426,7 +4428,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteCodeRepository'
         data = {}
         data['CodeRepositoryName'] = input[:code_repository_name] unless input[:code_repository_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4439,7 +4441,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteContext'
         data = {}
         data['ContextName'] = input[:context_name] unless input[:context_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4452,7 +4454,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteDataQualityJobDefinition'
         data = {}
         data['JobDefinitionName'] = input[:job_definition_name] unless input[:job_definition_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4465,7 +4467,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteDeviceFleet'
         data = {}
         data['DeviceFleetName'] = input[:device_fleet_name] unless input[:device_fleet_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4478,8 +4480,8 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteDomain'
         data = {}
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
-        data['RetentionPolicy'] = Builders::RetentionPolicy.build(input[:retention_policy]) unless input[:retention_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RetentionPolicy'] = RetentionPolicy.build(input[:retention_policy]) unless input[:retention_policy].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4501,7 +4503,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteEndpoint'
         data = {}
         data['EndpointName'] = input[:endpoint_name] unless input[:endpoint_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4514,7 +4516,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteEndpointConfig'
         data = {}
         data['EndpointConfigName'] = input[:endpoint_config_name] unless input[:endpoint_config_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4527,7 +4529,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteExperiment'
         data = {}
         data['ExperimentName'] = input[:experiment_name] unless input[:experiment_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4540,7 +4542,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteFeatureGroup'
         data = {}
         data['FeatureGroupName'] = input[:feature_group_name] unless input[:feature_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4553,7 +4555,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteFlowDefinition'
         data = {}
         data['FlowDefinitionName'] = input[:flow_definition_name] unless input[:flow_definition_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4566,7 +4568,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteHumanTaskUi'
         data = {}
         data['HumanTaskUiName'] = input[:human_task_ui_name] unless input[:human_task_ui_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4579,7 +4581,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteImage'
         data = {}
         data['ImageName'] = input[:image_name] unless input[:image_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4593,7 +4595,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['ImageName'] = input[:image_name] unless input[:image_name].nil?
         data['Version'] = input[:version] unless input[:version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4606,7 +4608,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteModel'
         data = {}
         data['ModelName'] = input[:model_name] unless input[:model_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4619,7 +4621,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteModelBiasJobDefinition'
         data = {}
         data['JobDefinitionName'] = input[:job_definition_name] unless input[:job_definition_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4632,7 +4634,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteModelExplainabilityJobDefinition'
         data = {}
         data['JobDefinitionName'] = input[:job_definition_name] unless input[:job_definition_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4645,7 +4647,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteModelPackage'
         data = {}
         data['ModelPackageName'] = input[:model_package_name] unless input[:model_package_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4658,7 +4660,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteModelPackageGroup'
         data = {}
         data['ModelPackageGroupName'] = input[:model_package_group_name] unless input[:model_package_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4671,7 +4673,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteModelPackageGroupPolicy'
         data = {}
         data['ModelPackageGroupName'] = input[:model_package_group_name] unless input[:model_package_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4684,7 +4686,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteModelQualityJobDefinition'
         data = {}
         data['JobDefinitionName'] = input[:job_definition_name] unless input[:job_definition_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4697,7 +4699,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteMonitoringSchedule'
         data = {}
         data['MonitoringScheduleName'] = input[:monitoring_schedule_name] unless input[:monitoring_schedule_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4710,7 +4712,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteNotebookInstance'
         data = {}
         data['NotebookInstanceName'] = input[:notebook_instance_name] unless input[:notebook_instance_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4723,7 +4725,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteNotebookInstanceLifecycleConfig'
         data = {}
         data['NotebookInstanceLifecycleConfigName'] = input[:notebook_instance_lifecycle_config_name] unless input[:notebook_instance_lifecycle_config_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4737,7 +4739,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['PipelineName'] = input[:pipeline_name] unless input[:pipeline_name].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4750,7 +4752,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteProject'
         data = {}
         data['ProjectName'] = input[:project_name] unless input[:project_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4763,7 +4765,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteStudioLifecycleConfig'
         data = {}
         data['StudioLifecycleConfigName'] = input[:studio_lifecycle_config_name] unless input[:studio_lifecycle_config_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4776,8 +4778,8 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteTags'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4801,7 +4803,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteTrial'
         data = {}
         data['TrialName'] = input[:trial_name] unless input[:trial_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4814,7 +4816,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteTrialComponent'
         data = {}
         data['TrialComponentName'] = input[:trial_component_name] unless input[:trial_component_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4828,7 +4830,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
         data['UserProfileName'] = input[:user_profile_name] unless input[:user_profile_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4841,7 +4843,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteWorkforce'
         data = {}
         data['WorkforceName'] = input[:workforce_name] unless input[:workforce_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4854,7 +4856,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeleteWorkteam'
         data = {}
         data['WorkteamName'] = input[:workteam_name] unless input[:workteam_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4867,8 +4869,8 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DeregisterDevices'
         data = {}
         data['DeviceFleetName'] = input[:device_fleet_name] unless input[:device_fleet_name].nil?
-        data['DeviceNames'] = Builders::DeviceNames.build(input[:device_names]) unless input[:device_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeviceNames'] = DeviceNames.build(input[:device_names]) unless input[:device_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4892,7 +4894,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeAction'
         data = {}
         data['ActionName'] = input[:action_name] unless input[:action_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4905,7 +4907,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeAlgorithm'
         data = {}
         data['AlgorithmName'] = input[:algorithm_name] unless input[:algorithm_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4921,7 +4923,7 @@ module AWS::SDK::SageMaker
         data['UserProfileName'] = input[:user_profile_name] unless input[:user_profile_name].nil?
         data['AppType'] = input[:app_type] unless input[:app_type].nil?
         data['AppName'] = input[:app_name] unless input[:app_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4934,7 +4936,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeAppImageConfig'
         data = {}
         data['AppImageConfigName'] = input[:app_image_config_name] unless input[:app_image_config_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4947,7 +4949,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeArtifact'
         data = {}
         data['ArtifactArn'] = input[:artifact_arn] unless input[:artifact_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4960,7 +4962,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeAutoMLJob'
         data = {}
         data['AutoMLJobName'] = input[:auto_ml_job_name] unless input[:auto_ml_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4973,7 +4975,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeCodeRepository'
         data = {}
         data['CodeRepositoryName'] = input[:code_repository_name] unless input[:code_repository_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4986,7 +4988,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeCompilationJob'
         data = {}
         data['CompilationJobName'] = input[:compilation_job_name] unless input[:compilation_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4999,7 +5001,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeContext'
         data = {}
         data['ContextName'] = input[:context_name] unless input[:context_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5012,7 +5014,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeDataQualityJobDefinition'
         data = {}
         data['JobDefinitionName'] = input[:job_definition_name] unless input[:job_definition_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5027,7 +5029,7 @@ module AWS::SDK::SageMaker
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['DeviceName'] = input[:device_name] unless input[:device_name].nil?
         data['DeviceFleetName'] = input[:device_fleet_name] unless input[:device_fleet_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5040,7 +5042,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeDeviceFleet'
         data = {}
         data['DeviceFleetName'] = input[:device_fleet_name] unless input[:device_fleet_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5053,7 +5055,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeDomain'
         data = {}
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5066,7 +5068,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeEdgePackagingJob'
         data = {}
         data['EdgePackagingJobName'] = input[:edge_packaging_job_name] unless input[:edge_packaging_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5079,7 +5081,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeEndpoint'
         data = {}
         data['EndpointName'] = input[:endpoint_name] unless input[:endpoint_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5092,7 +5094,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeEndpointConfig'
         data = {}
         data['EndpointConfigName'] = input[:endpoint_config_name] unless input[:endpoint_config_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5105,7 +5107,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeExperiment'
         data = {}
         data['ExperimentName'] = input[:experiment_name] unless input[:experiment_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5119,7 +5121,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['FeatureGroupName'] = input[:feature_group_name] unless input[:feature_group_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5132,7 +5134,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeFlowDefinition'
         data = {}
         data['FlowDefinitionName'] = input[:flow_definition_name] unless input[:flow_definition_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5145,7 +5147,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeHumanTaskUi'
         data = {}
         data['HumanTaskUiName'] = input[:human_task_ui_name] unless input[:human_task_ui_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5158,7 +5160,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeHyperParameterTuningJob'
         data = {}
         data['HyperParameterTuningJobName'] = input[:hyper_parameter_tuning_job_name] unless input[:hyper_parameter_tuning_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5171,7 +5173,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeImage'
         data = {}
         data['ImageName'] = input[:image_name] unless input[:image_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5185,7 +5187,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['ImageName'] = input[:image_name] unless input[:image_name].nil?
         data['Version'] = input[:version] unless input[:version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5198,7 +5200,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeInferenceRecommendationsJob'
         data = {}
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5211,7 +5213,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeLabelingJob'
         data = {}
         data['LabelingJobName'] = input[:labeling_job_name] unless input[:labeling_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5224,7 +5226,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeLineageGroup'
         data = {}
         data['LineageGroupName'] = input[:lineage_group_name] unless input[:lineage_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5237,7 +5239,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeModel'
         data = {}
         data['ModelName'] = input[:model_name] unless input[:model_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5250,7 +5252,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeModelBiasJobDefinition'
         data = {}
         data['JobDefinitionName'] = input[:job_definition_name] unless input[:job_definition_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5263,7 +5265,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeModelExplainabilityJobDefinition'
         data = {}
         data['JobDefinitionName'] = input[:job_definition_name] unless input[:job_definition_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5276,7 +5278,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeModelPackage'
         data = {}
         data['ModelPackageName'] = input[:model_package_name] unless input[:model_package_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5289,7 +5291,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeModelPackageGroup'
         data = {}
         data['ModelPackageGroupName'] = input[:model_package_group_name] unless input[:model_package_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5302,7 +5304,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeModelQualityJobDefinition'
         data = {}
         data['JobDefinitionName'] = input[:job_definition_name] unless input[:job_definition_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5315,7 +5317,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeMonitoringSchedule'
         data = {}
         data['MonitoringScheduleName'] = input[:monitoring_schedule_name] unless input[:monitoring_schedule_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5328,7 +5330,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeNotebookInstance'
         data = {}
         data['NotebookInstanceName'] = input[:notebook_instance_name] unless input[:notebook_instance_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5341,7 +5343,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeNotebookInstanceLifecycleConfig'
         data = {}
         data['NotebookInstanceLifecycleConfigName'] = input[:notebook_instance_lifecycle_config_name] unless input[:notebook_instance_lifecycle_config_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5354,7 +5356,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribePipeline'
         data = {}
         data['PipelineName'] = input[:pipeline_name] unless input[:pipeline_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5367,7 +5369,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribePipelineDefinitionForExecution'
         data = {}
         data['PipelineExecutionArn'] = input[:pipeline_execution_arn] unless input[:pipeline_execution_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5380,7 +5382,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribePipelineExecution'
         data = {}
         data['PipelineExecutionArn'] = input[:pipeline_execution_arn] unless input[:pipeline_execution_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5393,7 +5395,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeProcessingJob'
         data = {}
         data['ProcessingJobName'] = input[:processing_job_name] unless input[:processing_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5406,7 +5408,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeProject'
         data = {}
         data['ProjectName'] = input[:project_name] unless input[:project_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5419,7 +5421,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeStudioLifecycleConfig'
         data = {}
         data['StudioLifecycleConfigName'] = input[:studio_lifecycle_config_name] unless input[:studio_lifecycle_config_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5432,7 +5434,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeSubscribedWorkteam'
         data = {}
         data['WorkteamArn'] = input[:workteam_arn] unless input[:workteam_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5445,7 +5447,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeTrainingJob'
         data = {}
         data['TrainingJobName'] = input[:training_job_name] unless input[:training_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5458,7 +5460,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeTransformJob'
         data = {}
         data['TransformJobName'] = input[:transform_job_name] unless input[:transform_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5471,7 +5473,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeTrial'
         data = {}
         data['TrialName'] = input[:trial_name] unless input[:trial_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5484,7 +5486,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeTrialComponent'
         data = {}
         data['TrialComponentName'] = input[:trial_component_name] unless input[:trial_component_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5498,7 +5500,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
         data['UserProfileName'] = input[:user_profile_name] unless input[:user_profile_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5511,7 +5513,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeWorkforce'
         data = {}
         data['WorkforceName'] = input[:workforce_name] unless input[:workforce_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5524,7 +5526,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.DescribeWorkteam'
         data = {}
         data['WorkteamName'] = input[:workteam_name] unless input[:workteam_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5536,7 +5538,7 @@ module AWS::SDK::SageMaker
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'SageMaker.DisableSagemakerServicecatalogPortfolio'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5550,7 +5552,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['TrialComponentName'] = input[:trial_component_name] unless input[:trial_component_name].nil?
         data['TrialName'] = input[:trial_name] unless input[:trial_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5562,7 +5564,7 @@ module AWS::SDK::SageMaker
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'SageMaker.EnableSagemakerServicecatalogPortfolio'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5575,7 +5577,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.GetDeviceFleetReport'
         data = {}
         data['DeviceFleetName'] = input[:device_fleet_name] unless input[:device_fleet_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5588,7 +5590,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.GetLineageGroupPolicy'
         data = {}
         data['LineageGroupName'] = input[:lineage_group_name] unless input[:lineage_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5601,7 +5603,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.GetModelPackageGroupPolicy'
         data = {}
         data['ModelPackageGroupName'] = input[:model_package_group_name] unless input[:model_package_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5613,7 +5615,7 @@ module AWS::SDK::SageMaker
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'SageMaker.GetSagemakerServicecatalogPortfolioStatus'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5626,8 +5628,8 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.GetSearchSuggestions'
         data = {}
         data['Resource'] = input[:resource] unless input[:resource].nil?
-        data['SuggestionQuery'] = Builders::SuggestionQuery.build(input[:suggestion_query]) unless input[:suggestion_query].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SuggestionQuery'] = SuggestionQuery.build(input[:suggestion_query]) unless input[:suggestion_query].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5635,7 +5637,7 @@ module AWS::SDK::SageMaker
     class SuggestionQuery
       def self.build(input)
         data = {}
-        data['PropertyNameQuery'] = Builders::PropertyNameQuery.build(input[:property_name_query]) unless input[:property_name_query].nil?
+        data['PropertyNameQuery'] = PropertyNameQuery.build(input[:property_name_query]) unless input[:property_name_query].nil?
         data
       end
     end
@@ -5665,7 +5667,7 @@ module AWS::SDK::SageMaker
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5684,7 +5686,7 @@ module AWS::SDK::SageMaker
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5705,7 +5707,7 @@ module AWS::SDK::SageMaker
         data['ModifiedTimeAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:modified_time_after]).to_i unless input[:modified_time_after].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5723,7 +5725,7 @@ module AWS::SDK::SageMaker
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['DomainIdEquals'] = input[:domain_id_equals] unless input[:domain_id_equals].nil?
         data['UserProfileNameEquals'] = input[:user_profile_name_equals] unless input[:user_profile_name_equals].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5743,7 +5745,7 @@ module AWS::SDK::SageMaker
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5766,7 +5768,7 @@ module AWS::SDK::SageMaker
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5788,7 +5790,7 @@ module AWS::SDK::SageMaker
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5807,7 +5809,7 @@ module AWS::SDK::SageMaker
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5828,7 +5830,7 @@ module AWS::SDK::SageMaker
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5850,7 +5852,7 @@ module AWS::SDK::SageMaker
         data['StatusEquals'] = input[:status_equals] unless input[:status_equals].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5870,7 +5872,7 @@ module AWS::SDK::SageMaker
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5890,7 +5892,7 @@ module AWS::SDK::SageMaker
         data['NameContains'] = input[:name_contains] unless input[:name_contains].nil?
         data['CreationTimeBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:creation_time_before]).to_i unless input[:creation_time_before].nil?
         data['CreationTimeAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:creation_time_after]).to_i unless input[:creation_time_after].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5911,7 +5913,7 @@ module AWS::SDK::SageMaker
         data['NameContains'] = input[:name_contains] unless input[:name_contains].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5928,7 +5930,7 @@ module AWS::SDK::SageMaker
         data['LatestHeartbeatAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:latest_heartbeat_after]).to_i unless input[:latest_heartbeat_after].nil?
         data['ModelName'] = input[:model_name] unless input[:model_name].nil?
         data['DeviceFleetName'] = input[:device_fleet_name] unless input[:device_fleet_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5942,7 +5944,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5965,7 +5967,7 @@ module AWS::SDK::SageMaker
         data['StatusEquals'] = input[:status_equals] unless input[:status_equals].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5984,7 +5986,7 @@ module AWS::SDK::SageMaker
         data['NameContains'] = input[:name_contains] unless input[:name_contains].nil?
         data['CreationTimeBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:creation_time_before]).to_i unless input[:creation_time_before].nil?
         data['CreationTimeAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:creation_time_after]).to_i unless input[:creation_time_after].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6006,7 +6008,7 @@ module AWS::SDK::SageMaker
         data['LastModifiedTimeBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:last_modified_time_before]).to_i unless input[:last_modified_time_before].nil?
         data['LastModifiedTimeAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:last_modified_time_after]).to_i unless input[:last_modified_time_after].nil?
         data['StatusEquals'] = input[:status_equals] unless input[:status_equals].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6024,7 +6026,7 @@ module AWS::SDK::SageMaker
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6045,7 +6047,7 @@ module AWS::SDK::SageMaker
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6062,7 +6064,7 @@ module AWS::SDK::SageMaker
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6079,7 +6081,7 @@ module AWS::SDK::SageMaker
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6101,7 +6103,7 @@ module AWS::SDK::SageMaker
         data['LastModifiedTimeAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:last_modified_time_after]).to_i unless input[:last_modified_time_after].nil?
         data['LastModifiedTimeBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:last_modified_time_before]).to_i unless input[:last_modified_time_before].nil?
         data['StatusEquals'] = input[:status_equals] unless input[:status_equals].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6122,7 +6124,7 @@ module AWS::SDK::SageMaker
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6143,7 +6145,7 @@ module AWS::SDK::SageMaker
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6165,7 +6167,7 @@ module AWS::SDK::SageMaker
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6187,7 +6189,7 @@ module AWS::SDK::SageMaker
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['StatusEquals'] = input[:status_equals] unless input[:status_equals].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6207,7 +6209,7 @@ module AWS::SDK::SageMaker
         data['JobReferenceCodeContains'] = input[:job_reference_code_contains] unless input[:job_reference_code_contains].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6225,7 +6227,7 @@ module AWS::SDK::SageMaker
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6245,7 +6247,7 @@ module AWS::SDK::SageMaker
         data['NameContains'] = input[:name_contains] unless input[:name_contains].nil?
         data['CreationTimeBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:creation_time_before]).to_i unless input[:creation_time_before].nil?
         data['CreationTimeAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:creation_time_after]).to_i unless input[:creation_time_after].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6265,7 +6267,7 @@ module AWS::SDK::SageMaker
         data['NameContains'] = input[:name_contains] unless input[:name_contains].nil?
         data['CreationTimeBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:creation_time_before]).to_i unless input[:creation_time_before].nil?
         data['CreationTimeAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:creation_time_after]).to_i unless input[:creation_time_after].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6277,10 +6279,10 @@ module AWS::SDK::SageMaker
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'SageMaker.ListModelMetadata'
         data = {}
-        data['SearchExpression'] = Builders::ModelMetadataSearchExpression.build(input[:search_expression]) unless input[:search_expression].nil?
+        data['SearchExpression'] = ModelMetadataSearchExpression.build(input[:search_expression]) unless input[:search_expression].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6288,7 +6290,7 @@ module AWS::SDK::SageMaker
     class ModelMetadataSearchExpression
       def self.build(input)
         data = {}
-        data['Filters'] = Builders::ModelMetadataFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ModelMetadataFilters.build(input[:filters]) unless input[:filters].nil?
         data
       end
     end
@@ -6298,7 +6300,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ModelMetadataFilter.build(element) unless element.nil?
+          data << ModelMetadataFilter.build(element) unless element.nil?
         end
         data
       end
@@ -6329,7 +6331,7 @@ module AWS::SDK::SageMaker
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6351,7 +6353,7 @@ module AWS::SDK::SageMaker
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6371,7 +6373,7 @@ module AWS::SDK::SageMaker
         data['NameContains'] = input[:name_contains] unless input[:name_contains].nil?
         data['CreationTimeBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:creation_time_before]).to_i unless input[:creation_time_before].nil?
         data['CreationTimeAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:creation_time_after]).to_i unless input[:creation_time_after].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6390,7 +6392,7 @@ module AWS::SDK::SageMaker
         data['NameContains'] = input[:name_contains] unless input[:name_contains].nil?
         data['CreationTimeBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:creation_time_before]).to_i unless input[:creation_time_before].nil?
         data['CreationTimeAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:creation_time_after]).to_i unless input[:creation_time_after].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6417,7 +6419,7 @@ module AWS::SDK::SageMaker
         data['StatusEquals'] = input[:status_equals] unless input[:status_equals].nil?
         data['MonitoringJobDefinitionName'] = input[:monitoring_job_definition_name] unless input[:monitoring_job_definition_name].nil?
         data['MonitoringTypeEquals'] = input[:monitoring_type_equals] unless input[:monitoring_type_equals].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6442,7 +6444,7 @@ module AWS::SDK::SageMaker
         data['StatusEquals'] = input[:status_equals] unless input[:status_equals].nil?
         data['MonitoringJobDefinitionName'] = input[:monitoring_job_definition_name] unless input[:monitoring_job_definition_name].nil?
         data['MonitoringTypeEquals'] = input[:monitoring_type_equals] unless input[:monitoring_type_equals].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6463,7 +6465,7 @@ module AWS::SDK::SageMaker
         data['CreationTimeAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:creation_time_after]).to_i unless input[:creation_time_after].nil?
         data['LastModifiedTimeBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:last_modified_time_before]).to_i unless input[:last_modified_time_before].nil?
         data['LastModifiedTimeAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:last_modified_time_after]).to_i unless input[:last_modified_time_after].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6488,7 +6490,7 @@ module AWS::SDK::SageMaker
         data['NotebookInstanceLifecycleConfigNameContains'] = input[:notebook_instance_lifecycle_config_name_contains] unless input[:notebook_instance_lifecycle_config_name_contains].nil?
         data['DefaultCodeRepositoryContains'] = input[:default_code_repository_contains] unless input[:default_code_repository_contains].nil?
         data['AdditionalCodeRepositoryEquals'] = input[:additional_code_repository_equals] unless input[:additional_code_repository_equals].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6504,7 +6506,7 @@ module AWS::SDK::SageMaker
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6523,7 +6525,7 @@ module AWS::SDK::SageMaker
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6538,7 +6540,7 @@ module AWS::SDK::SageMaker
         data['PipelineExecutionArn'] = input[:pipeline_execution_arn] unless input[:pipeline_execution_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6557,7 +6559,7 @@ module AWS::SDK::SageMaker
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6579,7 +6581,7 @@ module AWS::SDK::SageMaker
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6598,7 +6600,7 @@ module AWS::SDK::SageMaker
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6620,7 +6622,7 @@ module AWS::SDK::SageMaker
         data['ModifiedTimeAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:modified_time_after]).to_i unless input[:modified_time_after].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6635,7 +6637,7 @@ module AWS::SDK::SageMaker
         data['NameContains'] = input[:name_contains] unless input[:name_contains].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6650,7 +6652,7 @@ module AWS::SDK::SageMaker
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6672,7 +6674,7 @@ module AWS::SDK::SageMaker
         data['StatusEquals'] = input[:status_equals] unless input[:status_equals].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6690,7 +6692,7 @@ module AWS::SDK::SageMaker
         data['StatusEquals'] = input[:status_equals] unless input[:status_equals].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6712,7 +6714,7 @@ module AWS::SDK::SageMaker
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6733,7 +6735,7 @@ module AWS::SDK::SageMaker
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6753,7 +6755,7 @@ module AWS::SDK::SageMaker
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6771,7 +6773,7 @@ module AWS::SDK::SageMaker
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['DomainIdEquals'] = input[:domain_id_equals] unless input[:domain_id_equals].nil?
         data['UserProfileNameContains'] = input[:user_profile_name_contains] unless input[:user_profile_name_contains].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6788,7 +6790,7 @@ module AWS::SDK::SageMaker
         data['NameContains'] = input[:name_contains] unless input[:name_contains].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6805,7 +6807,7 @@ module AWS::SDK::SageMaker
         data['NameContains'] = input[:name_contains] unless input[:name_contains].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6819,7 +6821,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['ModelPackageGroupName'] = input[:model_package_group_name] unless input[:model_package_group_name].nil?
         data['ResourcePolicy'] = input[:resource_policy] unless input[:resource_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6831,14 +6833,14 @@ module AWS::SDK::SageMaker
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'SageMaker.QueryLineage'
         data = {}
-        data['StartArns'] = Builders::QueryLineageStartArns.build(input[:start_arns]) unless input[:start_arns].nil?
+        data['StartArns'] = QueryLineageStartArns.build(input[:start_arns]) unless input[:start_arns].nil?
         data['Direction'] = input[:direction] unless input[:direction].nil?
         data['IncludeEdges'] = input[:include_edges] unless input[:include_edges].nil?
-        data['Filters'] = Builders::QueryFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = QueryFilters.build(input[:filters]) unless input[:filters].nil?
         data['MaxDepth'] = input[:max_depth] unless input[:max_depth].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6846,13 +6848,13 @@ module AWS::SDK::SageMaker
     class QueryFilters
       def self.build(input)
         data = {}
-        data['Types'] = Builders::QueryTypes.build(input[:types]) unless input[:types].nil?
-        data['LineageTypes'] = Builders::QueryLineageTypes.build(input[:lineage_types]) unless input[:lineage_types].nil?
+        data['Types'] = QueryTypes.build(input[:types]) unless input[:types].nil?
+        data['LineageTypes'] = QueryLineageTypes.build(input[:lineage_types]) unless input[:lineage_types].nil?
         data['CreatedBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:created_before]).to_i unless input[:created_before].nil?
         data['CreatedAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:created_after]).to_i unless input[:created_after].nil?
         data['ModifiedBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:modified_before]).to_i unless input[:modified_before].nil?
         data['ModifiedAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:modified_after]).to_i unless input[:modified_after].nil?
-        data['Properties'] = Builders::QueryProperties.build(input[:properties]) unless input[:properties].nil?
+        data['Properties'] = QueryProperties.build(input[:properties]) unless input[:properties].nil?
         data
       end
     end
@@ -6910,9 +6912,9 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.RegisterDevices'
         data = {}
         data['DeviceFleetName'] = input[:device_fleet_name] unless input[:device_fleet_name].nil?
-        data['Devices'] = Builders::Devices.build(input[:devices]) unless input[:devices].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Devices'] = Devices.build(input[:devices]) unless input[:devices].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6921,7 +6923,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Device.build(element) unless element.nil?
+          data << Device.build(element) unless element.nil?
         end
         data
       end
@@ -6946,11 +6948,11 @@ module AWS::SDK::SageMaker
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'SageMaker.RenderUiTemplate'
         data = {}
-        data['UiTemplate'] = Builders::UiTemplate.build(input[:ui_template]) unless input[:ui_template].nil?
-        data['Task'] = Builders::RenderableTask.build(input[:task]) unless input[:task].nil?
+        data['UiTemplate'] = UiTemplate.build(input[:ui_template]) unless input[:ui_template].nil?
+        data['Task'] = RenderableTask.build(input[:task]) unless input[:task].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['HumanTaskUiArn'] = input[:human_task_ui_arn] unless input[:human_task_ui_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6973,8 +6975,8 @@ module AWS::SDK::SageMaker
         data = {}
         data['PipelineExecutionArn'] = input[:pipeline_execution_arn] unless input[:pipeline_execution_arn].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['ParallelismConfiguration'] = Builders::ParallelismConfiguration.build(input[:parallelism_configuration]) unless input[:parallelism_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ParallelismConfiguration'] = ParallelismConfiguration.build(input[:parallelism_configuration]) unless input[:parallelism_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6987,12 +6989,12 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.Search'
         data = {}
         data['Resource'] = input[:resource] unless input[:resource].nil?
-        data['SearchExpression'] = Builders::SearchExpression.build(input[:search_expression]) unless input[:search_expression].nil?
+        data['SearchExpression'] = SearchExpression.build(input[:search_expression]) unless input[:search_expression].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7000,9 +7002,9 @@ module AWS::SDK::SageMaker
     class SearchExpression
       def self.build(input)
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
-        data['NestedFilters'] = Builders::NestedFiltersList.build(input[:nested_filters]) unless input[:nested_filters].nil?
-        data['SubExpressions'] = Builders::SearchExpressionList.build(input[:sub_expressions]) unless input[:sub_expressions].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['NestedFilters'] = NestedFiltersList.build(input[:nested_filters]) unless input[:nested_filters].nil?
+        data['SubExpressions'] = SearchExpressionList.build(input[:sub_expressions]) unless input[:sub_expressions].nil?
         data['Operator'] = input[:operator] unless input[:operator].nil?
         data
       end
@@ -7013,7 +7015,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SearchExpression.build(element) unless element.nil?
+          data << SearchExpression.build(element) unless element.nil?
         end
         data
       end
@@ -7024,7 +7026,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::NestedFilters.build(element) unless element.nil?
+          data << NestedFilters.build(element) unless element.nil?
         end
         data
       end
@@ -7035,7 +7037,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['NestedPropertyName'] = input[:nested_property_name] unless input[:nested_property_name].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data
       end
     end
@@ -7045,7 +7047,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -7073,7 +7075,7 @@ module AWS::SDK::SageMaker
         data['CallbackToken'] = input[:callback_token] unless input[:callback_token].nil?
         data['FailureReason'] = input[:failure_reason] unless input[:failure_reason].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7086,9 +7088,9 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.SendPipelineExecutionStepSuccess'
         data = {}
         data['CallbackToken'] = input[:callback_token] unless input[:callback_token].nil?
-        data['OutputParameters'] = Builders::OutputParameterList.build(input[:output_parameters]) unless input[:output_parameters].nil?
+        data['OutputParameters'] = OutputParameterList.build(input[:output_parameters]) unless input[:output_parameters].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7097,7 +7099,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::OutputParameter.build(element) unless element.nil?
+          data << OutputParameter.build(element) unless element.nil?
         end
         data
       end
@@ -7122,7 +7124,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.StartMonitoringSchedule'
         data = {}
         data['MonitoringScheduleName'] = input[:monitoring_schedule_name] unless input[:monitoring_schedule_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7135,7 +7137,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.StartNotebookInstance'
         data = {}
         data['NotebookInstanceName'] = input[:notebook_instance_name] unless input[:notebook_instance_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7149,11 +7151,11 @@ module AWS::SDK::SageMaker
         data = {}
         data['PipelineName'] = input[:pipeline_name] unless input[:pipeline_name].nil?
         data['PipelineExecutionDisplayName'] = input[:pipeline_execution_display_name] unless input[:pipeline_execution_display_name].nil?
-        data['PipelineParameters'] = Builders::ParameterList.build(input[:pipeline_parameters]) unless input[:pipeline_parameters].nil?
+        data['PipelineParameters'] = ParameterList.build(input[:pipeline_parameters]) unless input[:pipeline_parameters].nil?
         data['PipelineExecutionDescription'] = input[:pipeline_execution_description] unless input[:pipeline_execution_description].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['ParallelismConfiguration'] = Builders::ParallelismConfiguration.build(input[:parallelism_configuration]) unless input[:parallelism_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ParallelismConfiguration'] = ParallelismConfiguration.build(input[:parallelism_configuration]) unless input[:parallelism_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7162,7 +7164,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Parameter.build(element) unless element.nil?
+          data << Parameter.build(element) unless element.nil?
         end
         data
       end
@@ -7187,7 +7189,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.StopAutoMLJob'
         data = {}
         data['AutoMLJobName'] = input[:auto_ml_job_name] unless input[:auto_ml_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7200,7 +7202,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.StopCompilationJob'
         data = {}
         data['CompilationJobName'] = input[:compilation_job_name] unless input[:compilation_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7213,7 +7215,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.StopEdgePackagingJob'
         data = {}
         data['EdgePackagingJobName'] = input[:edge_packaging_job_name] unless input[:edge_packaging_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7226,7 +7228,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.StopHyperParameterTuningJob'
         data = {}
         data['HyperParameterTuningJobName'] = input[:hyper_parameter_tuning_job_name] unless input[:hyper_parameter_tuning_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7239,7 +7241,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.StopInferenceRecommendationsJob'
         data = {}
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7252,7 +7254,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.StopLabelingJob'
         data = {}
         data['LabelingJobName'] = input[:labeling_job_name] unless input[:labeling_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7265,7 +7267,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.StopMonitoringSchedule'
         data = {}
         data['MonitoringScheduleName'] = input[:monitoring_schedule_name] unless input[:monitoring_schedule_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7278,7 +7280,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.StopNotebookInstance'
         data = {}
         data['NotebookInstanceName'] = input[:notebook_instance_name] unless input[:notebook_instance_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7292,7 +7294,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['PipelineExecutionArn'] = input[:pipeline_execution_arn] unless input[:pipeline_execution_arn].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7305,7 +7307,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.StopProcessingJob'
         data = {}
         data['ProcessingJobName'] = input[:processing_job_name] unless input[:processing_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7318,7 +7320,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.StopTrainingJob'
         data = {}
         data['TrainingJobName'] = input[:training_job_name] unless input[:training_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7331,7 +7333,7 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.StopTransformJob'
         data = {}
         data['TransformJobName'] = input[:transform_job_name] unless input[:transform_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7346,9 +7348,9 @@ module AWS::SDK::SageMaker
         data['ActionName'] = input[:action_name] unless input[:action_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Status'] = input[:status] unless input[:status].nil?
-        data['Properties'] = Builders::LineageEntityParameters.build(input[:properties]) unless input[:properties].nil?
-        data['PropertiesToRemove'] = Builders::ListLineageEntityParameterKey.build(input[:properties_to_remove]) unless input[:properties_to_remove].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Properties'] = LineageEntityParameters.build(input[:properties]) unless input[:properties].nil?
+        data['PropertiesToRemove'] = ListLineageEntityParameterKey.build(input[:properties_to_remove]) unless input[:properties_to_remove].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7372,8 +7374,8 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.UpdateAppImageConfig'
         data = {}
         data['AppImageConfigName'] = input[:app_image_config_name] unless input[:app_image_config_name].nil?
-        data['KernelGatewayImageConfig'] = Builders::KernelGatewayImageConfig.build(input[:kernel_gateway_image_config]) unless input[:kernel_gateway_image_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['KernelGatewayImageConfig'] = KernelGatewayImageConfig.build(input[:kernel_gateway_image_config]) unless input[:kernel_gateway_image_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7387,9 +7389,9 @@ module AWS::SDK::SageMaker
         data = {}
         data['ArtifactArn'] = input[:artifact_arn] unless input[:artifact_arn].nil?
         data['ArtifactName'] = input[:artifact_name] unless input[:artifact_name].nil?
-        data['Properties'] = Builders::LineageEntityParameters.build(input[:properties]) unless input[:properties].nil?
-        data['PropertiesToRemove'] = Builders::ListLineageEntityParameterKey.build(input[:properties_to_remove]) unless input[:properties_to_remove].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Properties'] = LineageEntityParameters.build(input[:properties]) unless input[:properties].nil?
+        data['PropertiesToRemove'] = ListLineageEntityParameterKey.build(input[:properties_to_remove]) unless input[:properties_to_remove].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7402,8 +7404,8 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.UpdateCodeRepository'
         data = {}
         data['CodeRepositoryName'] = input[:code_repository_name] unless input[:code_repository_name].nil?
-        data['GitConfig'] = Builders::GitConfigForUpdate.build(input[:git_config]) unless input[:git_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GitConfig'] = GitConfigForUpdate.build(input[:git_config]) unless input[:git_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7426,9 +7428,9 @@ module AWS::SDK::SageMaker
         data = {}
         data['ContextName'] = input[:context_name] unless input[:context_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Properties'] = Builders::LineageEntityParameters.build(input[:properties]) unless input[:properties].nil?
-        data['PropertiesToRemove'] = Builders::ListLineageEntityParameterKey.build(input[:properties_to_remove]) unless input[:properties_to_remove].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Properties'] = LineageEntityParameters.build(input[:properties]) unless input[:properties].nil?
+        data['PropertiesToRemove'] = ListLineageEntityParameterKey.build(input[:properties_to_remove]) unless input[:properties_to_remove].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7443,9 +7445,9 @@ module AWS::SDK::SageMaker
         data['DeviceFleetName'] = input[:device_fleet_name] unless input[:device_fleet_name].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['OutputConfig'] = Builders::EdgeOutputConfig.build(input[:output_config]) unless input[:output_config].nil?
+        data['OutputConfig'] = EdgeOutputConfig.build(input[:output_config]) unless input[:output_config].nil?
         data['EnableIotRoleAlias'] = input[:enable_iot_role_alias] unless input[:enable_iot_role_alias].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7458,8 +7460,8 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.UpdateDevices'
         data = {}
         data['DeviceFleetName'] = input[:device_fleet_name] unless input[:device_fleet_name].nil?
-        data['Devices'] = Builders::Devices.build(input[:devices]) unless input[:devices].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Devices'] = Devices.build(input[:devices]) unless input[:devices].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7472,9 +7474,9 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.UpdateDomain'
         data = {}
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
-        data['DefaultUserSettings'] = Builders::UserSettings.build(input[:default_user_settings]) unless input[:default_user_settings].nil?
-        data['DomainSettingsForUpdate'] = Builders::DomainSettingsForUpdate.build(input[:domain_settings_for_update]) unless input[:domain_settings_for_update].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DefaultUserSettings'] = UserSettings.build(input[:default_user_settings]) unless input[:default_user_settings].nil?
+        data['DomainSettingsForUpdate'] = DomainSettingsForUpdate.build(input[:domain_settings_for_update]) unless input[:domain_settings_for_update].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7482,7 +7484,7 @@ module AWS::SDK::SageMaker
     class DomainSettingsForUpdate
       def self.build(input)
         data = {}
-        data['RStudioServerProDomainSettingsForUpdate'] = Builders::RStudioServerProDomainSettingsForUpdate.build(input[:r_studio_server_pro_domain_settings_for_update]) unless input[:r_studio_server_pro_domain_settings_for_update].nil?
+        data['RStudioServerProDomainSettingsForUpdate'] = RStudioServerProDomainSettingsForUpdate.build(input[:r_studio_server_pro_domain_settings_for_update]) unless input[:r_studio_server_pro_domain_settings_for_update].nil?
         data
       end
     end
@@ -7492,7 +7494,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['DomainExecutionRoleArn'] = input[:domain_execution_role_arn] unless input[:domain_execution_role_arn].nil?
-        data['DefaultResourceSpec'] = Builders::ResourceSpec.build(input[:default_resource_spec]) unless input[:default_resource_spec].nil?
+        data['DefaultResourceSpec'] = ResourceSpec.build(input[:default_resource_spec]) unless input[:default_resource_spec].nil?
         data
       end
     end
@@ -7508,10 +7510,10 @@ module AWS::SDK::SageMaker
         data['EndpointName'] = input[:endpoint_name] unless input[:endpoint_name].nil?
         data['EndpointConfigName'] = input[:endpoint_config_name] unless input[:endpoint_config_name].nil?
         data['RetainAllVariantProperties'] = input[:retain_all_variant_properties] unless input[:retain_all_variant_properties].nil?
-        data['ExcludeRetainedVariantProperties'] = Builders::VariantPropertyList.build(input[:exclude_retained_variant_properties]) unless input[:exclude_retained_variant_properties].nil?
-        data['DeploymentConfig'] = Builders::DeploymentConfig.build(input[:deployment_config]) unless input[:deployment_config].nil?
+        data['ExcludeRetainedVariantProperties'] = VariantPropertyList.build(input[:exclude_retained_variant_properties]) unless input[:exclude_retained_variant_properties].nil?
+        data['DeploymentConfig'] = DeploymentConfig.build(input[:deployment_config]) unless input[:deployment_config].nil?
         data['RetainDeploymentConfig'] = input[:retain_deployment_config] unless input[:retain_deployment_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7520,7 +7522,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::VariantProperty.build(element) unless element.nil?
+          data << VariantProperty.build(element) unless element.nil?
         end
         data
       end
@@ -7544,8 +7546,8 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.UpdateEndpointWeightsAndCapacities'
         data = {}
         data['EndpointName'] = input[:endpoint_name] unless input[:endpoint_name].nil?
-        data['DesiredWeightsAndCapacities'] = Builders::DesiredWeightAndCapacityList.build(input[:desired_weights_and_capacities]) unless input[:desired_weights_and_capacities].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DesiredWeightsAndCapacities'] = DesiredWeightAndCapacityList.build(input[:desired_weights_and_capacities]) unless input[:desired_weights_and_capacities].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7554,7 +7556,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DesiredWeightAndCapacity.build(element) unless element.nil?
+          data << DesiredWeightAndCapacity.build(element) unless element.nil?
         end
         data
       end
@@ -7582,7 +7584,7 @@ module AWS::SDK::SageMaker
         data['ExperimentName'] = input[:experiment_name] unless input[:experiment_name].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7594,12 +7596,12 @@ module AWS::SDK::SageMaker
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'SageMaker.UpdateImage'
         data = {}
-        data['DeleteProperties'] = Builders::ImageDeletePropertyList.build(input[:delete_properties]) unless input[:delete_properties].nil?
+        data['DeleteProperties'] = ImageDeletePropertyList.build(input[:delete_properties]) unless input[:delete_properties].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['ImageName'] = input[:image_name] unless input[:image_name].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7625,10 +7627,10 @@ module AWS::SDK::SageMaker
         data['ModelPackageArn'] = input[:model_package_arn] unless input[:model_package_arn].nil?
         data['ModelApprovalStatus'] = input[:model_approval_status] unless input[:model_approval_status].nil?
         data['ApprovalDescription'] = input[:approval_description] unless input[:approval_description].nil?
-        data['CustomerMetadataProperties'] = Builders::CustomerMetadataMap.build(input[:customer_metadata_properties]) unless input[:customer_metadata_properties].nil?
-        data['CustomerMetadataPropertiesToRemove'] = Builders::CustomerMetadataKeyList.build(input[:customer_metadata_properties_to_remove]) unless input[:customer_metadata_properties_to_remove].nil?
-        data['AdditionalInferenceSpecificationsToAdd'] = Builders::AdditionalInferenceSpecifications.build(input[:additional_inference_specifications_to_add]) unless input[:additional_inference_specifications_to_add].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CustomerMetadataProperties'] = CustomerMetadataMap.build(input[:customer_metadata_properties]) unless input[:customer_metadata_properties].nil?
+        data['CustomerMetadataPropertiesToRemove'] = CustomerMetadataKeyList.build(input[:customer_metadata_properties_to_remove]) unless input[:customer_metadata_properties_to_remove].nil?
+        data['AdditionalInferenceSpecificationsToAdd'] = AdditionalInferenceSpecifications.build(input[:additional_inference_specifications_to_add]) unless input[:additional_inference_specifications_to_add].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7652,8 +7654,8 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.UpdateMonitoringSchedule'
         data = {}
         data['MonitoringScheduleName'] = input[:monitoring_schedule_name] unless input[:monitoring_schedule_name].nil?
-        data['MonitoringScheduleConfig'] = Builders::MonitoringScheduleConfig.build(input[:monitoring_schedule_config]) unless input[:monitoring_schedule_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MonitoringScheduleConfig'] = MonitoringScheduleConfig.build(input[:monitoring_schedule_config]) unless input[:monitoring_schedule_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7672,14 +7674,14 @@ module AWS::SDK::SageMaker
         data['DisassociateLifecycleConfig'] = input[:disassociate_lifecycle_config] unless input[:disassociate_lifecycle_config].nil?
         data['VolumeSizeInGB'] = input[:volume_size_in_gb] unless input[:volume_size_in_gb].nil?
         data['DefaultCodeRepository'] = input[:default_code_repository] unless input[:default_code_repository].nil?
-        data['AdditionalCodeRepositories'] = Builders::AdditionalCodeRepositoryNamesOrUrls.build(input[:additional_code_repositories]) unless input[:additional_code_repositories].nil?
-        data['AcceleratorTypes'] = Builders::NotebookInstanceAcceleratorTypes.build(input[:accelerator_types]) unless input[:accelerator_types].nil?
+        data['AdditionalCodeRepositories'] = AdditionalCodeRepositoryNamesOrUrls.build(input[:additional_code_repositories]) unless input[:additional_code_repositories].nil?
+        data['AcceleratorTypes'] = NotebookInstanceAcceleratorTypes.build(input[:accelerator_types]) unless input[:accelerator_types].nil?
         data['DisassociateAcceleratorTypes'] = input[:disassociate_accelerator_types] unless input[:disassociate_accelerator_types].nil?
         data['DisassociateDefaultCodeRepository'] = input[:disassociate_default_code_repository] unless input[:disassociate_default_code_repository].nil?
         data['DisassociateAdditionalCodeRepositories'] = input[:disassociate_additional_code_repositories] unless input[:disassociate_additional_code_repositories].nil?
         data['RootAccess'] = input[:root_access] unless input[:root_access].nil?
-        data['InstanceMetadataServiceConfiguration'] = Builders::InstanceMetadataServiceConfiguration.build(input[:instance_metadata_service_configuration]) unless input[:instance_metadata_service_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InstanceMetadataServiceConfiguration'] = InstanceMetadataServiceConfiguration.build(input[:instance_metadata_service_configuration]) unless input[:instance_metadata_service_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7692,9 +7694,9 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.UpdateNotebookInstanceLifecycleConfig'
         data = {}
         data['NotebookInstanceLifecycleConfigName'] = input[:notebook_instance_lifecycle_config_name] unless input[:notebook_instance_lifecycle_config_name].nil?
-        data['OnCreate'] = Builders::NotebookInstanceLifecycleConfigList.build(input[:on_create]) unless input[:on_create].nil?
-        data['OnStart'] = Builders::NotebookInstanceLifecycleConfigList.build(input[:on_start]) unless input[:on_start].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OnCreate'] = NotebookInstanceLifecycleConfigList.build(input[:on_create]) unless input[:on_create].nil?
+        data['OnStart'] = NotebookInstanceLifecycleConfigList.build(input[:on_start]) unless input[:on_start].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7709,11 +7711,11 @@ module AWS::SDK::SageMaker
         data['PipelineName'] = input[:pipeline_name] unless input[:pipeline_name].nil?
         data['PipelineDisplayName'] = input[:pipeline_display_name] unless input[:pipeline_display_name].nil?
         data['PipelineDefinition'] = input[:pipeline_definition] unless input[:pipeline_definition].nil?
-        data['PipelineDefinitionS3Location'] = Builders::PipelineDefinitionS3Location.build(input[:pipeline_definition_s3_location]) unless input[:pipeline_definition_s3_location].nil?
+        data['PipelineDefinitionS3Location'] = PipelineDefinitionS3Location.build(input[:pipeline_definition_s3_location]) unless input[:pipeline_definition_s3_location].nil?
         data['PipelineDescription'] = input[:pipeline_description] unless input[:pipeline_description].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['ParallelismConfiguration'] = Builders::ParallelismConfiguration.build(input[:parallelism_configuration]) unless input[:parallelism_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ParallelismConfiguration'] = ParallelismConfiguration.build(input[:parallelism_configuration]) unless input[:parallelism_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7728,8 +7730,8 @@ module AWS::SDK::SageMaker
         data['PipelineExecutionArn'] = input[:pipeline_execution_arn] unless input[:pipeline_execution_arn].nil?
         data['PipelineExecutionDescription'] = input[:pipeline_execution_description] unless input[:pipeline_execution_description].nil?
         data['PipelineExecutionDisplayName'] = input[:pipeline_execution_display_name] unless input[:pipeline_execution_display_name].nil?
-        data['ParallelismConfiguration'] = Builders::ParallelismConfiguration.build(input[:parallelism_configuration]) unless input[:parallelism_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ParallelismConfiguration'] = ParallelismConfiguration.build(input[:parallelism_configuration]) unless input[:parallelism_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7743,9 +7745,9 @@ module AWS::SDK::SageMaker
         data = {}
         data['ProjectName'] = input[:project_name] unless input[:project_name].nil?
         data['ProjectDescription'] = input[:project_description] unless input[:project_description].nil?
-        data['ServiceCatalogProvisioningUpdateDetails'] = Builders::ServiceCatalogProvisioningUpdateDetails.build(input[:service_catalog_provisioning_update_details]) unless input[:service_catalog_provisioning_update_details].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ServiceCatalogProvisioningUpdateDetails'] = ServiceCatalogProvisioningUpdateDetails.build(input[:service_catalog_provisioning_update_details]) unless input[:service_catalog_provisioning_update_details].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7754,7 +7756,7 @@ module AWS::SDK::SageMaker
       def self.build(input)
         data = {}
         data['ProvisioningArtifactId'] = input[:provisioning_artifact_id] unless input[:provisioning_artifact_id].nil?
-        data['ProvisioningParameters'] = Builders::ProvisioningParameters.build(input[:provisioning_parameters]) unless input[:provisioning_parameters].nil?
+        data['ProvisioningParameters'] = ProvisioningParameters.build(input[:provisioning_parameters]) unless input[:provisioning_parameters].nil?
         data
       end
     end
@@ -7768,9 +7770,9 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.UpdateTrainingJob'
         data = {}
         data['TrainingJobName'] = input[:training_job_name] unless input[:training_job_name].nil?
-        data['ProfilerConfig'] = Builders::ProfilerConfigForUpdate.build(input[:profiler_config]) unless input[:profiler_config].nil?
-        data['ProfilerRuleConfigurations'] = Builders::ProfilerRuleConfigurations.build(input[:profiler_rule_configurations]) unless input[:profiler_rule_configurations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProfilerConfig'] = ProfilerConfigForUpdate.build(input[:profiler_config]) unless input[:profiler_config].nil?
+        data['ProfilerRuleConfigurations'] = ProfilerRuleConfigurations.build(input[:profiler_rule_configurations]) unless input[:profiler_rule_configurations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7780,7 +7782,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['S3OutputPath'] = input[:s3_output_path] unless input[:s3_output_path].nil?
         data['ProfilingIntervalInMilliseconds'] = input[:profiling_interval_in_milliseconds] unless input[:profiling_interval_in_milliseconds].nil?
-        data['ProfilingParameters'] = Builders::ProfilingParameters.build(input[:profiling_parameters]) unless input[:profiling_parameters].nil?
+        data['ProfilingParameters'] = ProfilingParameters.build(input[:profiling_parameters]) unless input[:profiling_parameters].nil?
         data['DisableProfiler'] = input[:disable_profiler] unless input[:disable_profiler].nil?
         data
       end
@@ -7796,7 +7798,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['TrialName'] = input[:trial_name] unless input[:trial_name].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7810,16 +7812,16 @@ module AWS::SDK::SageMaker
         data = {}
         data['TrialComponentName'] = input[:trial_component_name] unless input[:trial_component_name].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
-        data['Status'] = Builders::TrialComponentStatus.build(input[:status]) unless input[:status].nil?
+        data['Status'] = TrialComponentStatus.build(input[:status]) unless input[:status].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
-        data['Parameters'] = Builders::TrialComponentParameters.build(input[:parameters]) unless input[:parameters].nil?
-        data['ParametersToRemove'] = Builders::ListTrialComponentKey256.build(input[:parameters_to_remove]) unless input[:parameters_to_remove].nil?
-        data['InputArtifacts'] = Builders::TrialComponentArtifacts.build(input[:input_artifacts]) unless input[:input_artifacts].nil?
-        data['InputArtifactsToRemove'] = Builders::ListTrialComponentKey256.build(input[:input_artifacts_to_remove]) unless input[:input_artifacts_to_remove].nil?
-        data['OutputArtifacts'] = Builders::TrialComponentArtifacts.build(input[:output_artifacts]) unless input[:output_artifacts].nil?
-        data['OutputArtifactsToRemove'] = Builders::ListTrialComponentKey256.build(input[:output_artifacts_to_remove]) unless input[:output_artifacts_to_remove].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Parameters'] = TrialComponentParameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['ParametersToRemove'] = ListTrialComponentKey256.build(input[:parameters_to_remove]) unless input[:parameters_to_remove].nil?
+        data['InputArtifacts'] = TrialComponentArtifacts.build(input[:input_artifacts]) unless input[:input_artifacts].nil?
+        data['InputArtifactsToRemove'] = ListTrialComponentKey256.build(input[:input_artifacts_to_remove]) unless input[:input_artifacts_to_remove].nil?
+        data['OutputArtifacts'] = TrialComponentArtifacts.build(input[:output_artifacts]) unless input[:output_artifacts].nil?
+        data['OutputArtifactsToRemove'] = ListTrialComponentKey256.build(input[:output_artifacts_to_remove]) unless input[:output_artifacts_to_remove].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7844,8 +7846,8 @@ module AWS::SDK::SageMaker
         data = {}
         data['DomainId'] = input[:domain_id] unless input[:domain_id].nil?
         data['UserProfileName'] = input[:user_profile_name] unless input[:user_profile_name].nil?
-        data['UserSettings'] = Builders::UserSettings.build(input[:user_settings]) unless input[:user_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserSettings'] = UserSettings.build(input[:user_settings]) unless input[:user_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7858,9 +7860,9 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.UpdateWorkforce'
         data = {}
         data['WorkforceName'] = input[:workforce_name] unless input[:workforce_name].nil?
-        data['SourceIpConfig'] = Builders::SourceIpConfig.build(input[:source_ip_config]) unless input[:source_ip_config].nil?
-        data['OidcConfig'] = Builders::OidcConfig.build(input[:oidc_config]) unless input[:oidc_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SourceIpConfig'] = SourceIpConfig.build(input[:source_ip_config]) unless input[:source_ip_config].nil?
+        data['OidcConfig'] = OidcConfig.build(input[:oidc_config]) unless input[:oidc_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7873,10 +7875,10 @@ module AWS::SDK::SageMaker
         http_req.headers['X-Amz-Target'] = 'SageMaker.UpdateWorkteam'
         data = {}
         data['WorkteamName'] = input[:workteam_name] unless input[:workteam_name].nil?
-        data['MemberDefinitions'] = Builders::MemberDefinitions.build(input[:member_definitions]) unless input[:member_definitions].nil?
+        data['MemberDefinitions'] = MemberDefinitions.build(input[:member_definitions]) unless input[:member_definitions].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['NotificationConfiguration'] = Builders::NotificationConfiguration.build(input[:notification_configuration]) unless input[:notification_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NotificationConfiguration'] = NotificationConfiguration.build(input[:notification_configuration]) unless input[:notification_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

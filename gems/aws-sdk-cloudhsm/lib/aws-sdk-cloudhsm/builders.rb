@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CloudHSM
   module Builders
 
@@ -19,8 +21,8 @@ module AWS::SDK::CloudHSM
         http_req.headers['X-Amz-Target'] = 'CloudHsmFrontendService.AddTagsToResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagList'] = Builders::TagList.build(input[:tag_list]) unless input[:tag_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagList'] = TagList.build(input[:tag_list]) unless input[:tag_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -29,7 +31,7 @@ module AWS::SDK::CloudHSM
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -54,7 +56,7 @@ module AWS::SDK::CloudHSM
         http_req.headers['X-Amz-Target'] = 'CloudHsmFrontendService.CreateHapg'
         data = {}
         data['Label'] = input[:label] unless input[:label].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -74,7 +76,7 @@ module AWS::SDK::CloudHSM
         data['SubscriptionType'] = input[:subscription_type] unless input[:subscription_type].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['SyslogIp'] = input[:syslog_ip] unless input[:syslog_ip].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -88,7 +90,7 @@ module AWS::SDK::CloudHSM
         data = {}
         data['Label'] = input[:label] unless input[:label].nil?
         data['Certificate'] = input[:certificate] unless input[:certificate].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -101,7 +103,7 @@ module AWS::SDK::CloudHSM
         http_req.headers['X-Amz-Target'] = 'CloudHsmFrontendService.DeleteHapg'
         data = {}
         data['HapgArn'] = input[:hapg_arn] unless input[:hapg_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -114,7 +116,7 @@ module AWS::SDK::CloudHSM
         http_req.headers['X-Amz-Target'] = 'CloudHsmFrontendService.DeleteHsm'
         data = {}
         data['HsmArn'] = input[:hsm_arn] unless input[:hsm_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -127,7 +129,7 @@ module AWS::SDK::CloudHSM
         http_req.headers['X-Amz-Target'] = 'CloudHsmFrontendService.DeleteLunaClient'
         data = {}
         data['ClientArn'] = input[:client_arn] unless input[:client_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -140,7 +142,7 @@ module AWS::SDK::CloudHSM
         http_req.headers['X-Amz-Target'] = 'CloudHsmFrontendService.DescribeHapg'
         data = {}
         data['HapgArn'] = input[:hapg_arn] unless input[:hapg_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -154,7 +156,7 @@ module AWS::SDK::CloudHSM
         data = {}
         data['HsmArn'] = input[:hsm_arn] unless input[:hsm_arn].nil?
         data['HsmSerialNumber'] = input[:hsm_serial_number] unless input[:hsm_serial_number].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -168,7 +170,7 @@ module AWS::SDK::CloudHSM
         data = {}
         data['ClientArn'] = input[:client_arn] unless input[:client_arn].nil?
         data['CertificateFingerprint'] = input[:certificate_fingerprint] unless input[:certificate_fingerprint].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -182,8 +184,8 @@ module AWS::SDK::CloudHSM
         data = {}
         data['ClientArn'] = input[:client_arn] unless input[:client_arn].nil?
         data['ClientVersion'] = input[:client_version] unless input[:client_version].nil?
-        data['HapgList'] = Builders::HapgList.build(input[:hapg_list]) unless input[:hapg_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HapgList'] = HapgList.build(input[:hapg_list]) unless input[:hapg_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -206,7 +208,7 @@ module AWS::SDK::CloudHSM
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CloudHsmFrontendService.ListAvailableZones'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -219,7 +221,7 @@ module AWS::SDK::CloudHSM
         http_req.headers['X-Amz-Target'] = 'CloudHsmFrontendService.ListHapgs'
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -232,7 +234,7 @@ module AWS::SDK::CloudHSM
         http_req.headers['X-Amz-Target'] = 'CloudHsmFrontendService.ListHsms'
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -245,7 +247,7 @@ module AWS::SDK::CloudHSM
         http_req.headers['X-Amz-Target'] = 'CloudHsmFrontendService.ListLunaClients'
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -258,7 +260,7 @@ module AWS::SDK::CloudHSM
         http_req.headers['X-Amz-Target'] = 'CloudHsmFrontendService.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -272,8 +274,8 @@ module AWS::SDK::CloudHSM
         data = {}
         data['HapgArn'] = input[:hapg_arn] unless input[:hapg_arn].nil?
         data['Label'] = input[:label] unless input[:label].nil?
-        data['PartitionSerialList'] = Builders::PartitionSerialList.build(input[:partition_serial_list]) unless input[:partition_serial_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PartitionSerialList'] = PartitionSerialList.build(input[:partition_serial_list]) unless input[:partition_serial_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -302,7 +304,7 @@ module AWS::SDK::CloudHSM
         data['IamRoleArn'] = input[:iam_role_arn] unless input[:iam_role_arn].nil?
         data['ExternalId'] = input[:external_id] unless input[:external_id].nil?
         data['SyslogIp'] = input[:syslog_ip] unless input[:syslog_ip].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -316,7 +318,7 @@ module AWS::SDK::CloudHSM
         data = {}
         data['ClientArn'] = input[:client_arn] unless input[:client_arn].nil?
         data['Certificate'] = input[:certificate] unless input[:certificate].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -329,8 +331,8 @@ module AWS::SDK::CloudHSM
         http_req.headers['X-Amz-Target'] = 'CloudHsmFrontendService.RemoveTagsFromResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeyList'] = Builders::TagKeyList.build(input[:tag_key_list]) unless input[:tag_key_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeyList'] = TagKeyList.build(input[:tag_key_list]) unless input[:tag_key_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

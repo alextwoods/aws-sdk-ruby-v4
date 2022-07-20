@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::RAM
   module Builders
 
@@ -22,7 +24,7 @@ module AWS::SDK::RAM
         data = {}
         data['resourceShareInvitationArn'] = input[:resource_share_invitation_arn] unless input[:resource_share_invitation_arn].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -37,10 +39,10 @@ module AWS::SDK::RAM
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['resourceShareArn'] = input[:resource_share_arn] unless input[:resource_share_arn].nil?
-        data['resourceArns'] = Builders::ResourceArnList.build(input[:resource_arns]) unless input[:resource_arns].nil?
-        data['principals'] = Builders::PrincipalArnOrIdList.build(input[:principals]) unless input[:principals].nil?
+        data['resourceArns'] = ResourceArnList.build(input[:resource_arns]) unless input[:resource_arns].nil?
+        data['principals'] = PrincipalArnOrIdList.build(input[:principals]) unless input[:principals].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -81,7 +83,7 @@ module AWS::SDK::RAM
         data['replace'] = input[:replace] unless input[:replace].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
         data['permissionVersion'] = input[:permission_version] unless input[:permission_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -96,13 +98,13 @@ module AWS::SDK::RAM
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['resourceArns'] = Builders::ResourceArnList.build(input[:resource_arns]) unless input[:resource_arns].nil?
-        data['principals'] = Builders::PrincipalArnOrIdList.build(input[:principals]) unless input[:principals].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['resourceArns'] = ResourceArnList.build(input[:resource_arns]) unless input[:resource_arns].nil?
+        data['principals'] = PrincipalArnOrIdList.build(input[:principals]) unless input[:principals].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['allowExternalPrincipals'] = input[:allow_external_principals] unless input[:allow_external_principals].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['permissionArns'] = Builders::PermissionArnList.build(input[:permission_arns]) unless input[:permission_arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['permissionArns'] = PermissionArnList.build(input[:permission_arns]) unless input[:permission_arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -122,7 +124,7 @@ module AWS::SDK::RAM
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -161,10 +163,10 @@ module AWS::SDK::RAM
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['resourceShareArn'] = input[:resource_share_arn] unless input[:resource_share_arn].nil?
-        data['resourceArns'] = Builders::ResourceArnList.build(input[:resource_arns]) unless input[:resource_arns].nil?
-        data['principals'] = Builders::PrincipalArnOrIdList.build(input[:principals]) unless input[:principals].nil?
+        data['resourceArns'] = ResourceArnList.build(input[:resource_arns]) unless input[:resource_arns].nil?
+        data['principals'] = PrincipalArnOrIdList.build(input[:principals]) unless input[:principals].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -181,7 +183,7 @@ module AWS::SDK::RAM
         data['resourceShareArn'] = input[:resource_share_arn] unless input[:resource_share_arn].nil?
         data['permissionArn'] = input[:permission_arn] unless input[:permission_arn].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -207,7 +209,7 @@ module AWS::SDK::RAM
         data = {}
         data['permissionArn'] = input[:permission_arn] unless input[:permission_arn].nil?
         data['permissionVersion'] = input[:permission_version] unless input[:permission_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -221,11 +223,11 @@ module AWS::SDK::RAM
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['resourceArns'] = Builders::ResourceArnList.build(input[:resource_arns]) unless input[:resource_arns].nil?
+        data['resourceArns'] = ResourceArnList.build(input[:resource_arns]) unless input[:resource_arns].nil?
         data['principal'] = input[:principal] unless input[:principal].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -240,13 +242,13 @@ module AWS::SDK::RAM
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['associationType'] = input[:association_type] unless input[:association_type].nil?
-        data['resourceShareArns'] = Builders::ResourceShareArnList.build(input[:resource_share_arns]) unless input[:resource_share_arns].nil?
+        data['resourceShareArns'] = ResourceShareArnList.build(input[:resource_share_arns]) unless input[:resource_share_arns].nil?
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['principal'] = input[:principal] unless input[:principal].nil?
         data['associationStatus'] = input[:association_status] unless input[:association_status].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -271,11 +273,11 @@ module AWS::SDK::RAM
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['resourceShareInvitationArns'] = Builders::ResourceShareInvitationArnList.build(input[:resource_share_invitation_arns]) unless input[:resource_share_invitation_arns].nil?
-        data['resourceShareArns'] = Builders::ResourceShareArnList.build(input[:resource_share_arns]) unless input[:resource_share_arns].nil?
+        data['resourceShareInvitationArns'] = ResourceShareInvitationArnList.build(input[:resource_share_invitation_arns]) unless input[:resource_share_invitation_arns].nil?
+        data['resourceShareArns'] = ResourceShareArnList.build(input[:resource_share_arns]) unless input[:resource_share_arns].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -300,15 +302,15 @@ module AWS::SDK::RAM
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['resourceShareArns'] = Builders::ResourceShareArnList.build(input[:resource_share_arns]) unless input[:resource_share_arns].nil?
+        data['resourceShareArns'] = ResourceShareArnList.build(input[:resource_share_arns]) unless input[:resource_share_arns].nil?
         data['resourceShareStatus'] = input[:resource_share_status] unless input[:resource_share_status].nil?
         data['resourceOwner'] = input[:resource_owner] unless input[:resource_owner].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['tagFilters'] = Builders::TagFilters.build(input[:tag_filters]) unless input[:tag_filters].nil?
+        data['tagFilters'] = TagFilters.build(input[:tag_filters]) unless input[:tag_filters].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['permissionArn'] = input[:permission_arn] unless input[:permission_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -317,7 +319,7 @@ module AWS::SDK::RAM
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TagFilter.build(element) unless element.nil?
+          data << TagFilter.build(element) unless element.nil?
         end
         data
       end
@@ -328,7 +330,7 @@ module AWS::SDK::RAM
       def self.build(input)
         data = {}
         data['tagKey'] = input[:tag_key] unless input[:tag_key].nil?
-        data['tagValues'] = Builders::TagValueList.build(input[:tag_values]) unless input[:tag_values].nil?
+        data['tagValues'] = TagValueList.build(input[:tag_values]) unless input[:tag_values].nil?
         data
       end
     end
@@ -358,7 +360,7 @@ module AWS::SDK::RAM
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['resourceRegionScope'] = input[:resource_region_scope] unless input[:resource_region_scope].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -375,7 +377,7 @@ module AWS::SDK::RAM
         data['permissionArn'] = input[:permission_arn] unless input[:permission_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -392,7 +394,7 @@ module AWS::SDK::RAM
         data['resourceType'] = input[:resource_type] unless input[:resource_type].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -408,12 +410,12 @@ module AWS::SDK::RAM
         data = {}
         data['resourceOwner'] = input[:resource_owner] unless input[:resource_owner].nil?
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['principals'] = Builders::PrincipalArnOrIdList.build(input[:principals]) unless input[:principals].nil?
+        data['principals'] = PrincipalArnOrIdList.build(input[:principals]) unless input[:principals].nil?
         data['resourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['resourceShareArns'] = Builders::ResourceShareArnList.build(input[:resource_share_arns]) unless input[:resource_share_arns].nil?
+        data['resourceShareArns'] = ResourceShareArnList.build(input[:resource_share_arns]) unless input[:resource_share_arns].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -430,7 +432,7 @@ module AWS::SDK::RAM
         data['resourceShareArn'] = input[:resource_share_arn] unless input[:resource_share_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -447,7 +449,7 @@ module AWS::SDK::RAM
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['resourceRegionScope'] = input[:resource_region_scope] unless input[:resource_region_scope].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -464,12 +466,12 @@ module AWS::SDK::RAM
         data['resourceOwner'] = input[:resource_owner] unless input[:resource_owner].nil?
         data['principal'] = input[:principal] unless input[:principal].nil?
         data['resourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['resourceArns'] = Builders::ResourceArnList.build(input[:resource_arns]) unless input[:resource_arns].nil?
-        data['resourceShareArns'] = Builders::ResourceShareArnList.build(input[:resource_share_arns]) unless input[:resource_share_arns].nil?
+        data['resourceArns'] = ResourceArnList.build(input[:resource_arns]) unless input[:resource_arns].nil?
+        data['resourceShareArns'] = ResourceShareArnList.build(input[:resource_share_arns]) unless input[:resource_share_arns].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['resourceRegionScope'] = input[:resource_region_scope] unless input[:resource_region_scope].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -496,7 +498,7 @@ module AWS::SDK::RAM
         data = {}
         data['resourceShareInvitationArn'] = input[:resource_share_invitation_arn] unless input[:resource_share_invitation_arn].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -511,8 +513,8 @@ module AWS::SDK::RAM
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['resourceShareArn'] = input[:resource_share_arn] unless input[:resource_share_arn].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -527,8 +529,8 @@ module AWS::SDK::RAM
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['resourceShareArn'] = input[:resource_share_arn] unless input[:resource_share_arn].nil?
-        data['tagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -557,7 +559,7 @@ module AWS::SDK::RAM
         data['name'] = input[:name] unless input[:name].nil?
         data['allowExternalPrincipals'] = input[:allow_external_principals] unless input[:allow_external_principals].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

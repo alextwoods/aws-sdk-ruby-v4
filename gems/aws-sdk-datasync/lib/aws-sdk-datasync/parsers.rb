@@ -226,7 +226,7 @@ module AWS::SDK::DataSync
         data.last_connection_time = Time.at(map['LastConnectionTime'].to_i) if map['LastConnectionTime']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.endpoint_type = map['EndpointType']
-        data.private_link_config = (Parsers::PrivateLinkConfig.parse(map['PrivateLinkConfig']) unless map['PrivateLinkConfig'].nil?)
+        data.private_link_config = (PrivateLinkConfig.parse(map['PrivateLinkConfig']) unless map['PrivateLinkConfig'].nil?)
         data
       end
     end
@@ -236,8 +236,8 @@ module AWS::SDK::DataSync
         data = Types::PrivateLinkConfig.new
         data.vpc_endpoint_id = map['VpcEndpointId']
         data.private_link_endpoint = map['PrivateLinkEndpoint']
-        data.subnet_arns = (Parsers::PLSubnetArnList.parse(map['SubnetArns']) unless map['SubnetArns'].nil?)
-        data.security_group_arns = (Parsers::PLSecurityGroupArnList.parse(map['SecurityGroupArns']) unless map['SecurityGroupArns'].nil?)
+        data.subnet_arns = (PLSubnetArnList.parse(map['SubnetArns']) unless map['SubnetArns'].nil?)
+        data.security_group_arns = (PLSecurityGroupArnList.parse(map['SecurityGroupArns']) unless map['SecurityGroupArns'].nil?)
         return data
       end
     end
@@ -267,7 +267,7 @@ module AWS::SDK::DataSync
         map = Hearth::JSON.load(body)
         data.location_arn = map['LocationArn']
         data.location_uri = map['LocationUri']
-        data.ec2_config = (Parsers::Ec2Config.parse(map['Ec2Config']) unless map['Ec2Config'].nil?)
+        data.ec2_config = (Ec2Config.parse(map['Ec2Config']) unless map['Ec2Config'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.access_point_arn = map['AccessPointArn']
         data.file_system_access_role_arn = map['FileSystemAccessRoleArn']
@@ -280,7 +280,7 @@ module AWS::SDK::DataSync
       def self.parse(map)
         data = Types::Ec2Config.new
         data.subnet_arn = map['SubnetArn']
-        data.security_group_arns = (Parsers::Ec2SecurityGroupArnList.parse(map['SecurityGroupArns']) unless map['SecurityGroupArns'].nil?)
+        data.security_group_arns = (Ec2SecurityGroupArnList.parse(map['SecurityGroupArns']) unless map['SecurityGroupArns'].nil?)
         return data
       end
     end
@@ -302,7 +302,7 @@ module AWS::SDK::DataSync
         map = Hearth::JSON.load(body)
         data.location_arn = map['LocationArn']
         data.location_uri = map['LocationUri']
-        data.security_group_arns = (Parsers::Ec2SecurityGroupArnList.parse(map['SecurityGroupArns']) unless map['SecurityGroupArns'].nil?)
+        data.security_group_arns = (Ec2SecurityGroupArnList.parse(map['SecurityGroupArns']) unless map['SecurityGroupArns'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data
       end
@@ -317,8 +317,8 @@ module AWS::SDK::DataSync
         map = Hearth::JSON.load(body)
         data.location_arn = map['LocationArn']
         data.location_uri = map['LocationUri']
-        data.security_group_arns = (Parsers::Ec2SecurityGroupArnList.parse(map['SecurityGroupArns']) unless map['SecurityGroupArns'].nil?)
-        data.protocol = (Parsers::FsxProtocol.parse(map['Protocol']) unless map['Protocol'].nil?)
+        data.security_group_arns = (Ec2SecurityGroupArnList.parse(map['SecurityGroupArns']) unless map['SecurityGroupArns'].nil?)
+        data.protocol = (FsxProtocol.parse(map['Protocol']) unless map['Protocol'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data
       end
@@ -327,7 +327,7 @@ module AWS::SDK::DataSync
     class FsxProtocol
       def self.parse(map)
         data = Types::FsxProtocol.new
-        data.nfs = (Parsers::FsxProtocolNfs.parse(map['NFS']) unless map['NFS'].nil?)
+        data.nfs = (FsxProtocolNfs.parse(map['NFS']) unless map['NFS'].nil?)
         return data
       end
     end
@@ -335,7 +335,7 @@ module AWS::SDK::DataSync
     class FsxProtocolNfs
       def self.parse(map)
         data = Types::FsxProtocolNfs.new
-        data.mount_options = (Parsers::NfsMountOptions.parse(map['MountOptions']) unless map['MountOptions'].nil?)
+        data.mount_options = (NfsMountOptions.parse(map['MountOptions']) unless map['MountOptions'].nil?)
         return data
       end
     end
@@ -357,7 +357,7 @@ module AWS::SDK::DataSync
         map = Hearth::JSON.load(body)
         data.location_arn = map['LocationArn']
         data.location_uri = map['LocationUri']
-        data.security_group_arns = (Parsers::Ec2SecurityGroupArnList.parse(map['SecurityGroupArns']) unless map['SecurityGroupArns'].nil?)
+        data.security_group_arns = (Ec2SecurityGroupArnList.parse(map['SecurityGroupArns']) unless map['SecurityGroupArns'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.user = map['User']
         data.domain = map['Domain']
@@ -374,15 +374,15 @@ module AWS::SDK::DataSync
         map = Hearth::JSON.load(body)
         data.location_arn = map['LocationArn']
         data.location_uri = map['LocationUri']
-        data.name_nodes = (Parsers::HdfsNameNodeList.parse(map['NameNodes']) unless map['NameNodes'].nil?)
+        data.name_nodes = (HdfsNameNodeList.parse(map['NameNodes']) unless map['NameNodes'].nil?)
         data.block_size = map['BlockSize']
         data.replication_factor = map['ReplicationFactor']
         data.kms_key_provider_uri = map['KmsKeyProviderUri']
-        data.qop_configuration = (Parsers::QopConfiguration.parse(map['QopConfiguration']) unless map['QopConfiguration'].nil?)
+        data.qop_configuration = (QopConfiguration.parse(map['QopConfiguration']) unless map['QopConfiguration'].nil?)
         data.authentication_type = map['AuthenticationType']
         data.simple_user = map['SimpleUser']
         data.kerberos_principal = map['KerberosPrincipal']
-        data.agent_arns = (Parsers::AgentArnList.parse(map['AgentArns']) unless map['AgentArns'].nil?)
+        data.agent_arns = (AgentArnList.parse(map['AgentArns']) unless map['AgentArns'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data
       end
@@ -408,7 +408,7 @@ module AWS::SDK::DataSync
     class HdfsNameNodeList
       def self.parse(list)
         list.map do |value|
-          Parsers::HdfsNameNode.parse(value) unless value.nil?
+          HdfsNameNode.parse(value) unless value.nil?
         end
       end
     end
@@ -431,8 +431,8 @@ module AWS::SDK::DataSync
         map = Hearth::JSON.load(body)
         data.location_arn = map['LocationArn']
         data.location_uri = map['LocationUri']
-        data.on_prem_config = (Parsers::OnPremConfig.parse(map['OnPremConfig']) unless map['OnPremConfig'].nil?)
-        data.mount_options = (Parsers::NfsMountOptions.parse(map['MountOptions']) unless map['MountOptions'].nil?)
+        data.on_prem_config = (OnPremConfig.parse(map['OnPremConfig']) unless map['OnPremConfig'].nil?)
+        data.mount_options = (NfsMountOptions.parse(map['MountOptions']) unless map['MountOptions'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data
       end
@@ -441,7 +441,7 @@ module AWS::SDK::DataSync
     class OnPremConfig
       def self.parse(map)
         data = Types::OnPremConfig.new
-        data.agent_arns = (Parsers::AgentArnList.parse(map['AgentArns']) unless map['AgentArns'].nil?)
+        data.agent_arns = (AgentArnList.parse(map['AgentArns']) unless map['AgentArns'].nil?)
         return data
       end
     end
@@ -458,7 +458,7 @@ module AWS::SDK::DataSync
         data.access_key = map['AccessKey']
         data.server_port = map['ServerPort']
         data.server_protocol = map['ServerProtocol']
-        data.agent_arns = (Parsers::AgentArnList.parse(map['AgentArns']) unless map['AgentArns'].nil?)
+        data.agent_arns = (AgentArnList.parse(map['AgentArns']) unless map['AgentArns'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data
       end
@@ -474,8 +474,8 @@ module AWS::SDK::DataSync
         data.location_arn = map['LocationArn']
         data.location_uri = map['LocationUri']
         data.s3_storage_class = map['S3StorageClass']
-        data.s3_config = (Parsers::S3Config.parse(map['S3Config']) unless map['S3Config'].nil?)
-        data.agent_arns = (Parsers::AgentArnList.parse(map['AgentArns']) unless map['AgentArns'].nil?)
+        data.s3_config = (S3Config.parse(map['S3Config']) unless map['S3Config'].nil?)
+        data.agent_arns = (AgentArnList.parse(map['AgentArns']) unless map['AgentArns'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data
       end
@@ -498,10 +498,10 @@ module AWS::SDK::DataSync
         map = Hearth::JSON.load(body)
         data.location_arn = map['LocationArn']
         data.location_uri = map['LocationUri']
-        data.agent_arns = (Parsers::AgentArnList.parse(map['AgentArns']) unless map['AgentArns'].nil?)
+        data.agent_arns = (AgentArnList.parse(map['AgentArns']) unless map['AgentArns'].nil?)
         data.user = map['User']
         data.domain = map['Domain']
-        data.mount_options = (Parsers::SmbMountOptions.parse(map['MountOptions']) unless map['MountOptions'].nil?)
+        data.mount_options = (SmbMountOptions.parse(map['MountOptions']) unless map['MountOptions'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data
       end
@@ -529,15 +529,15 @@ module AWS::SDK::DataSync
         data.source_location_arn = map['SourceLocationArn']
         data.destination_location_arn = map['DestinationLocationArn']
         data.cloud_watch_log_group_arn = map['CloudWatchLogGroupArn']
-        data.source_network_interface_arns = (Parsers::SourceNetworkInterfaceArns.parse(map['SourceNetworkInterfaceArns']) unless map['SourceNetworkInterfaceArns'].nil?)
-        data.destination_network_interface_arns = (Parsers::DestinationNetworkInterfaceArns.parse(map['DestinationNetworkInterfaceArns']) unless map['DestinationNetworkInterfaceArns'].nil?)
-        data.options = (Parsers::Options.parse(map['Options']) unless map['Options'].nil?)
-        data.excludes = (Parsers::FilterList.parse(map['Excludes']) unless map['Excludes'].nil?)
-        data.schedule = (Parsers::TaskSchedule.parse(map['Schedule']) unless map['Schedule'].nil?)
+        data.source_network_interface_arns = (SourceNetworkInterfaceArns.parse(map['SourceNetworkInterfaceArns']) unless map['SourceNetworkInterfaceArns'].nil?)
+        data.destination_network_interface_arns = (DestinationNetworkInterfaceArns.parse(map['DestinationNetworkInterfaceArns']) unless map['DestinationNetworkInterfaceArns'].nil?)
+        data.options = (Options.parse(map['Options']) unless map['Options'].nil?)
+        data.excludes = (FilterList.parse(map['Excludes']) unless map['Excludes'].nil?)
+        data.schedule = (TaskSchedule.parse(map['Schedule']) unless map['Schedule'].nil?)
         data.error_code = map['ErrorCode']
         data.error_detail = map['ErrorDetail']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.includes = (Parsers::FilterList.parse(map['Includes']) unless map['Includes'].nil?)
+        data.includes = (FilterList.parse(map['Includes']) unless map['Includes'].nil?)
         data
       end
     end
@@ -545,7 +545,7 @@ module AWS::SDK::DataSync
     class FilterList
       def self.parse(list)
         list.map do |value|
-          Parsers::FilterRule.parse(value) unless value.nil?
+          FilterRule.parse(value) unless value.nil?
         end
       end
     end
@@ -614,16 +614,16 @@ module AWS::SDK::DataSync
         map = Hearth::JSON.load(body)
         data.task_execution_arn = map['TaskExecutionArn']
         data.status = map['Status']
-        data.options = (Parsers::Options.parse(map['Options']) unless map['Options'].nil?)
-        data.excludes = (Parsers::FilterList.parse(map['Excludes']) unless map['Excludes'].nil?)
-        data.includes = (Parsers::FilterList.parse(map['Includes']) unless map['Includes'].nil?)
+        data.options = (Options.parse(map['Options']) unless map['Options'].nil?)
+        data.excludes = (FilterList.parse(map['Excludes']) unless map['Excludes'].nil?)
+        data.includes = (FilterList.parse(map['Includes']) unless map['Includes'].nil?)
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.estimated_files_to_transfer = map['EstimatedFilesToTransfer']
         data.estimated_bytes_to_transfer = map['EstimatedBytesToTransfer']
         data.files_transferred = map['FilesTransferred']
         data.bytes_written = map['BytesWritten']
         data.bytes_transferred = map['BytesTransferred']
-        data.result = (Parsers::TaskExecutionResultDetail.parse(map['Result']) unless map['Result'].nil?)
+        data.result = (TaskExecutionResultDetail.parse(map['Result']) unless map['Result'].nil?)
         data
       end
     end
@@ -651,7 +651,7 @@ module AWS::SDK::DataSync
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.agents = (Parsers::AgentList.parse(map['Agents']) unless map['Agents'].nil?)
+        data.agents = (AgentList.parse(map['Agents']) unless map['Agents'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -660,7 +660,7 @@ module AWS::SDK::DataSync
     class AgentList
       def self.parse(list)
         list.map do |value|
-          Parsers::AgentListEntry.parse(value) unless value.nil?
+          AgentListEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -682,7 +682,7 @@ module AWS::SDK::DataSync
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.locations = (Parsers::LocationList.parse(map['Locations']) unless map['Locations'].nil?)
+        data.locations = (LocationList.parse(map['Locations']) unless map['Locations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -691,7 +691,7 @@ module AWS::SDK::DataSync
     class LocationList
       def self.parse(list)
         list.map do |value|
-          Parsers::LocationListEntry.parse(value) unless value.nil?
+          LocationListEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -712,7 +712,7 @@ module AWS::SDK::DataSync
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::OutputTagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (OutputTagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -721,7 +721,7 @@ module AWS::SDK::DataSync
     class OutputTagList
       def self.parse(list)
         list.map do |value|
-          Parsers::TagListEntry.parse(value) unless value.nil?
+          TagListEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -742,7 +742,7 @@ module AWS::SDK::DataSync
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.task_executions = (Parsers::TaskExecutionList.parse(map['TaskExecutions']) unless map['TaskExecutions'].nil?)
+        data.task_executions = (TaskExecutionList.parse(map['TaskExecutions']) unless map['TaskExecutions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -751,7 +751,7 @@ module AWS::SDK::DataSync
     class TaskExecutionList
       def self.parse(list)
         list.map do |value|
-          Parsers::TaskExecutionListEntry.parse(value) unless value.nil?
+          TaskExecutionListEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -772,7 +772,7 @@ module AWS::SDK::DataSync
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tasks = (Parsers::TaskList.parse(map['Tasks']) unless map['Tasks'].nil?)
+        data.tasks = (TaskList.parse(map['Tasks']) unless map['Tasks'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -781,7 +781,7 @@ module AWS::SDK::DataSync
     class TaskList
       def self.parse(list)
         list.map do |value|
-          Parsers::TaskListEntry.parse(value) unless value.nil?
+          TaskListEntry.parse(value) unless value.nil?
         end
       end
     end

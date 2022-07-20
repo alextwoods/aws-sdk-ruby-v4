@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MarketplaceEntitlementService
   module Builders
 
@@ -19,10 +21,10 @@ module AWS::SDK::MarketplaceEntitlementService
         http_req.headers['X-Amz-Target'] = 'AWSMPEntitlementService.GetEntitlements'
         data = {}
         data['ProductCode'] = input[:product_code] unless input[:product_code].nil?
-        data['Filter'] = Builders::GetEntitlementFilters.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = GetEntitlementFilters.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -31,7 +33,7 @@ module AWS::SDK::MarketplaceEntitlementService
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::FilterValueList.build(value) unless value.nil?
+          data[key] = FilterValueList.build(value) unless value.nil?
         end
         data
       end

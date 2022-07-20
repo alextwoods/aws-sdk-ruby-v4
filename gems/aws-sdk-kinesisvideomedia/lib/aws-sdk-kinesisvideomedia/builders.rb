@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::KinesisVideoMedia
   module Builders
 
@@ -22,8 +24,8 @@ module AWS::SDK::KinesisVideoMedia
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
-        data['StartSelector'] = Builders::StartSelector.build(input[:start_selector]) unless input[:start_selector].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StartSelector'] = StartSelector.build(input[:start_selector]) unless input[:start_selector].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

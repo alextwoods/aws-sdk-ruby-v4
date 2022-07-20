@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::VoiceID
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Domain'] = Stubs::Domain.stub(stub[:domain]) unless stub[:domain].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Domain'] = Domain.stub(stub[:domain]) unless stub[:domain].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -52,10 +54,10 @@ module AWS::SDK::VoiceID
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['DomainStatus'] = stub[:domain_status] unless stub[:domain_status].nil?
-        data['ServerSideEncryptionConfiguration'] = Stubs::ServerSideEncryptionConfiguration.stub(stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
+        data['ServerSideEncryptionConfiguration'] = ServerSideEncryptionConfiguration.stub(stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
-        data['ServerSideEncryptionUpdateDetails'] = Stubs::ServerSideEncryptionUpdateDetails.stub(stub[:server_side_encryption_update_details]) unless stub[:server_side_encryption_update_details].nil?
+        data['ServerSideEncryptionUpdateDetails'] = ServerSideEncryptionUpdateDetails.stub(stub[:server_side_encryption_update_details]) unless stub[:server_side_encryption_update_details].nil?
         data
       end
     end
@@ -109,7 +111,7 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -123,7 +125,7 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -137,7 +139,7 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -152,8 +154,8 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Domain'] = Stubs::Domain.stub(stub[:domain]) unless stub[:domain].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Domain'] = Domain.stub(stub[:domain]) unless stub[:domain].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -168,8 +170,8 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Fraudster'] = Stubs::Fraudster.stub(stub[:fraudster]) unless stub[:fraudster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Fraudster'] = Fraudster.stub(stub[:fraudster]) unless stub[:fraudster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -206,8 +208,8 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Job'] = Stubs::FraudsterRegistrationJob.stub(stub[:job]) unless stub[:job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Job'] = FraudsterRegistrationJob.stub(stub[:job]) unless stub[:job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -241,13 +243,13 @@ module AWS::SDK::VoiceID
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['DomainId'] = stub[:domain_id] unless stub[:domain_id].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
-        data['RegistrationConfig'] = Stubs::RegistrationConfig.stub(stub[:registration_config]) unless stub[:registration_config].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['RegistrationConfig'] = RegistrationConfig.stub(stub[:registration_config]) unless stub[:registration_config].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['EndedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:ended_at]).to_i unless stub[:ended_at].nil?
-        data['FailureDetails'] = Stubs::FailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
-        data['JobProgress'] = Stubs::JobProgress.stub(stub[:job_progress]) unless stub[:job_progress].nil?
+        data['FailureDetails'] = FailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
+        data['JobProgress'] = JobProgress.stub(stub[:job_progress]) unless stub[:job_progress].nil?
         data
       end
     end
@@ -358,8 +360,8 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Speaker'] = Stubs::Speaker.stub(stub[:speaker]) unless stub[:speaker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Speaker'] = Speaker.stub(stub[:speaker]) unless stub[:speaker].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -404,8 +406,8 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Job'] = Stubs::SpeakerEnrollmentJob.stub(stub[:job]) unless stub[:job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Job'] = SpeakerEnrollmentJob.stub(stub[:job]) unless stub[:job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -439,13 +441,13 @@ module AWS::SDK::VoiceID
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['DomainId'] = stub[:domain_id] unless stub[:domain_id].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
-        data['EnrollmentConfig'] = Stubs::EnrollmentConfig.stub(stub[:enrollment_config]) unless stub[:enrollment_config].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['EnrollmentConfig'] = EnrollmentConfig.stub(stub[:enrollment_config]) unless stub[:enrollment_config].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['EndedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:ended_at]).to_i unless stub[:ended_at].nil?
-        data['FailureDetails'] = Stubs::FailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
-        data['JobProgress'] = Stubs::JobProgress.stub(stub[:job_progress]) unless stub[:job_progress].nil?
+        data['FailureDetails'] = FailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
+        data['JobProgress'] = JobProgress.stub(stub[:job_progress]) unless stub[:job_progress].nil?
         data
       end
     end
@@ -465,7 +467,7 @@ module AWS::SDK::VoiceID
         stub ||= Types::EnrollmentConfig.new
         data = {}
         data['ExistingEnrollmentAction'] = stub[:existing_enrollment_action] unless stub[:existing_enrollment_action].nil?
-        data['FraudDetectionConfig'] = Stubs::EnrollmentJobFraudDetectionConfig.stub(stub[:fraud_detection_config]) unless stub[:fraud_detection_config].nil?
+        data['FraudDetectionConfig'] = EnrollmentJobFraudDetectionConfig.stub(stub[:fraud_detection_config]) unless stub[:fraud_detection_config].nil?
         data
       end
     end
@@ -509,9 +511,9 @@ module AWS::SDK::VoiceID
         data['SessionId'] = stub[:session_id] unless stub[:session_id].nil?
         data['SessionName'] = stub[:session_name] unless stub[:session_name].nil?
         data['StreamingStatus'] = stub[:streaming_status] unless stub[:streaming_status].nil?
-        data['AuthenticationResult'] = Stubs::AuthenticationResult.stub(stub[:authentication_result]) unless stub[:authentication_result].nil?
-        data['FraudDetectionResult'] = Stubs::FraudDetectionResult.stub(stub[:fraud_detection_result]) unless stub[:fraud_detection_result].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AuthenticationResult'] = AuthenticationResult.stub(stub[:authentication_result]) unless stub[:authentication_result].nil?
+        data['FraudDetectionResult'] = FraudDetectionResult.stub(stub[:fraud_detection_result]) unless stub[:fraud_detection_result].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -538,10 +540,10 @@ module AWS::SDK::VoiceID
         data['FraudDetectionResultId'] = stub[:fraud_detection_result_id] unless stub[:fraud_detection_result_id].nil?
         data['AudioAggregationStartedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:audio_aggregation_started_at]).to_i unless stub[:audio_aggregation_started_at].nil?
         data['AudioAggregationEndedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:audio_aggregation_ended_at]).to_i unless stub[:audio_aggregation_ended_at].nil?
-        data['Configuration'] = Stubs::FraudDetectionConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['Configuration'] = FraudDetectionConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
         data['Decision'] = stub[:decision] unless stub[:decision].nil?
-        data['Reasons'] = Stubs::FraudDetectionReasons.stub(stub[:reasons]) unless stub[:reasons].nil?
-        data['RiskDetails'] = Stubs::FraudRiskDetails.stub(stub[:risk_details]) unless stub[:risk_details].nil?
+        data['Reasons'] = FraudDetectionReasons.stub(stub[:reasons]) unless stub[:reasons].nil?
+        data['RiskDetails'] = FraudRiskDetails.stub(stub[:risk_details]) unless stub[:risk_details].nil?
         data
       end
     end
@@ -559,7 +561,7 @@ module AWS::SDK::VoiceID
       def self.stub(stub)
         stub ||= Types::FraudRiskDetails.new
         data = {}
-        data['KnownFraudsterRisk'] = Stubs::KnownFraudsterRisk.stub(stub[:known_fraudster_risk]) unless stub[:known_fraudster_risk].nil?
+        data['KnownFraudsterRisk'] = KnownFraudsterRisk.stub(stub[:known_fraudster_risk]) unless stub[:known_fraudster_risk].nil?
         data
       end
     end
@@ -649,7 +651,7 @@ module AWS::SDK::VoiceID
         data['GeneratedSpeakerId'] = stub[:generated_speaker_id] unless stub[:generated_speaker_id].nil?
         data['Decision'] = stub[:decision] unless stub[:decision].nil?
         data['Score'] = stub[:score] unless stub[:score].nil?
-        data['Configuration'] = Stubs::AuthenticationConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['Configuration'] = AuthenticationConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
         data
       end
     end
@@ -683,9 +685,9 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DomainSummaries'] = Stubs::DomainSummaries.stub(stub[:domain_summaries]) unless stub[:domain_summaries].nil?
+        data['DomainSummaries'] = DomainSummaries.stub(stub[:domain_summaries]) unless stub[:domain_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -704,7 +706,7 @@ module AWS::SDK::VoiceID
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainSummary.stub(element) unless element.nil?
+          data << DomainSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -736,10 +738,10 @@ module AWS::SDK::VoiceID
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['DomainStatus'] = stub[:domain_status] unless stub[:domain_status].nil?
-        data['ServerSideEncryptionConfiguration'] = Stubs::ServerSideEncryptionConfiguration.stub(stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
+        data['ServerSideEncryptionConfiguration'] = ServerSideEncryptionConfiguration.stub(stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
-        data['ServerSideEncryptionUpdateDetails'] = Stubs::ServerSideEncryptionUpdateDetails.stub(stub[:server_side_encryption_update_details]) unless stub[:server_side_encryption_update_details].nil?
+        data['ServerSideEncryptionUpdateDetails'] = ServerSideEncryptionUpdateDetails.stub(stub[:server_side_encryption_update_details]) unless stub[:server_side_encryption_update_details].nil?
         data
       end
     end
@@ -755,9 +757,9 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['JobSummaries'] = Stubs::FraudsterRegistrationJobSummaries.stub(stub[:job_summaries]) unless stub[:job_summaries].nil?
+        data['JobSummaries'] = FraudsterRegistrationJobSummaries.stub(stub[:job_summaries]) unless stub[:job_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -776,7 +778,7 @@ module AWS::SDK::VoiceID
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FraudsterRegistrationJobSummary.stub(element) unless element.nil?
+          data << FraudsterRegistrationJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -808,8 +810,8 @@ module AWS::SDK::VoiceID
         data['DomainId'] = stub[:domain_id] unless stub[:domain_id].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['EndedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:ended_at]).to_i unless stub[:ended_at].nil?
-        data['FailureDetails'] = Stubs::FailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
-        data['JobProgress'] = Stubs::JobProgress.stub(stub[:job_progress]) unless stub[:job_progress].nil?
+        data['FailureDetails'] = FailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
+        data['JobProgress'] = JobProgress.stub(stub[:job_progress]) unless stub[:job_progress].nil?
         data
       end
     end
@@ -825,9 +827,9 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['JobSummaries'] = Stubs::SpeakerEnrollmentJobSummaries.stub(stub[:job_summaries]) unless stub[:job_summaries].nil?
+        data['JobSummaries'] = SpeakerEnrollmentJobSummaries.stub(stub[:job_summaries]) unless stub[:job_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -846,7 +848,7 @@ module AWS::SDK::VoiceID
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SpeakerEnrollmentJobSummary.stub(element) unless element.nil?
+          data << SpeakerEnrollmentJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -878,8 +880,8 @@ module AWS::SDK::VoiceID
         data['DomainId'] = stub[:domain_id] unless stub[:domain_id].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['EndedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:ended_at]).to_i unless stub[:ended_at].nil?
-        data['FailureDetails'] = Stubs::FailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
-        data['JobProgress'] = Stubs::JobProgress.stub(stub[:job_progress]) unless stub[:job_progress].nil?
+        data['FailureDetails'] = FailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
+        data['JobProgress'] = JobProgress.stub(stub[:job_progress]) unless stub[:job_progress].nil?
         data
       end
     end
@@ -895,9 +897,9 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SpeakerSummaries'] = Stubs::SpeakerSummaries.stub(stub[:speaker_summaries]) unless stub[:speaker_summaries].nil?
+        data['SpeakerSummaries'] = SpeakerSummaries.stub(stub[:speaker_summaries]) unless stub[:speaker_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -916,7 +918,7 @@ module AWS::SDK::VoiceID
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SpeakerSummary.stub(element) unless element.nil?
+          data << SpeakerSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -962,8 +964,8 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -982,7 +984,7 @@ module AWS::SDK::VoiceID
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1018,8 +1020,8 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Speaker'] = Stubs::Speaker.stub(stub[:speaker]) unless stub[:speaker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Speaker'] = Speaker.stub(stub[:speaker]) unless stub[:speaker].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1034,8 +1036,8 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Job'] = Stubs::FraudsterRegistrationJob.stub(stub[:job]) unless stub[:job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Job'] = FraudsterRegistrationJob.stub(stub[:job]) unless stub[:job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1050,8 +1052,8 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Job'] = Stubs::SpeakerEnrollmentJob.stub(stub[:job]) unless stub[:job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Job'] = SpeakerEnrollmentJob.stub(stub[:job]) unless stub[:job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1065,7 +1067,7 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1079,7 +1081,7 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1094,8 +1096,8 @@ module AWS::SDK::VoiceID
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Domain'] = Stubs::Domain.stub(stub[:domain]) unless stub[:domain].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Domain'] = Domain.stub(stub[:domain]) unless stub[:domain].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

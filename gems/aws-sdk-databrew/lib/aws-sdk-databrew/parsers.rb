@@ -16,7 +16,7 @@ module AWS::SDK::DataBrew
         data = Types::BatchDeleteRecipeVersionOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.name = map['Name']
-        data.errors = (Parsers::RecipeErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (RecipeErrorList.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -25,7 +25,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecipeVersionErrorDetail.parse(value) unless value.nil?
+          data << RecipeVersionErrorDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -241,13 +241,13 @@ module AWS::SDK::DataBrew
         data.create_date = Time.at(map['CreateDate'].to_i) if map['CreateDate']
         data.name = map['Name']
         data.format = map['Format']
-        data.format_options = (Parsers::FormatOptions.parse(map['FormatOptions']) unless map['FormatOptions'].nil?)
-        data.input = (Parsers::Input.parse(map['Input']) unless map['Input'].nil?)
+        data.format_options = (FormatOptions.parse(map['FormatOptions']) unless map['FormatOptions'].nil?)
+        data.input = (Input.parse(map['Input']) unless map['Input'].nil?)
         data.last_modified_date = Time.at(map['LastModifiedDate'].to_i) if map['LastModifiedDate']
         data.last_modified_by = map['LastModifiedBy']
         data.source = map['Source']
-        data.path_options = (Parsers::PathOptions.parse(map['PathOptions']) unless map['PathOptions'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.path_options = (PathOptions.parse(map['PathOptions']) unless map['PathOptions'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.resource_arn = map['ResourceArn']
         data
       end
@@ -266,9 +266,9 @@ module AWS::SDK::DataBrew
     class PathOptions
       def self.parse(map)
         data = Types::PathOptions.new
-        data.last_modified_date_condition = (Parsers::FilterExpression.parse(map['LastModifiedDateCondition']) unless map['LastModifiedDateCondition'].nil?)
-        data.files_limit = (Parsers::FilesLimit.parse(map['FilesLimit']) unless map['FilesLimit'].nil?)
-        data.parameters = (Parsers::PathParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.last_modified_date_condition = (FilterExpression.parse(map['LastModifiedDateCondition']) unless map['LastModifiedDateCondition'].nil?)
+        data.files_limit = (FilesLimit.parse(map['FilesLimit']) unless map['FilesLimit'].nil?)
+        data.parameters = (PathParametersMap.parse(map['Parameters']) unless map['Parameters'].nil?)
         return data
       end
     end
@@ -277,7 +277,7 @@ module AWS::SDK::DataBrew
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::DatasetParameter.parse(value) unless value.nil?
+          data[key] = DatasetParameter.parse(value) unless value.nil?
         end
         data
       end
@@ -288,9 +288,9 @@ module AWS::SDK::DataBrew
         data = Types::DatasetParameter.new
         data.name = map['Name']
         data.type = map['Type']
-        data.datetime_options = (Parsers::DatetimeOptions.parse(map['DatetimeOptions']) unless map['DatetimeOptions'].nil?)
+        data.datetime_options = (DatetimeOptions.parse(map['DatetimeOptions']) unless map['DatetimeOptions'].nil?)
         data.create_column = map['CreateColumn']
-        data.filter = (Parsers::FilterExpression.parse(map['Filter']) unless map['Filter'].nil?)
+        data.filter = (FilterExpression.parse(map['Filter']) unless map['Filter'].nil?)
         return data
       end
     end
@@ -299,7 +299,7 @@ module AWS::SDK::DataBrew
       def self.parse(map)
         data = Types::FilterExpression.new
         data.expression = map['Expression']
-        data.values_map = (Parsers::ValuesMap.parse(map['ValuesMap']) unless map['ValuesMap'].nil?)
+        data.values_map = (ValuesMap.parse(map['ValuesMap']) unless map['ValuesMap'].nil?)
         return data
       end
     end
@@ -337,10 +337,10 @@ module AWS::SDK::DataBrew
     class Input
       def self.parse(map)
         data = Types::Input.new
-        data.s3_input_definition = (Parsers::S3Location.parse(map['S3InputDefinition']) unless map['S3InputDefinition'].nil?)
-        data.data_catalog_input_definition = (Parsers::DataCatalogInputDefinition.parse(map['DataCatalogInputDefinition']) unless map['DataCatalogInputDefinition'].nil?)
-        data.database_input_definition = (Parsers::DatabaseInputDefinition.parse(map['DatabaseInputDefinition']) unless map['DatabaseInputDefinition'].nil?)
-        data.metadata = (Parsers::Metadata.parse(map['Metadata']) unless map['Metadata'].nil?)
+        data.s3_input_definition = (S3Location.parse(map['S3InputDefinition']) unless map['S3InputDefinition'].nil?)
+        data.data_catalog_input_definition = (DataCatalogInputDefinition.parse(map['DataCatalogInputDefinition']) unless map['DataCatalogInputDefinition'].nil?)
+        data.database_input_definition = (DatabaseInputDefinition.parse(map['DatabaseInputDefinition']) unless map['DatabaseInputDefinition'].nil?)
+        data.metadata = (Metadata.parse(map['Metadata']) unless map['Metadata'].nil?)
         return data
       end
     end
@@ -358,7 +358,7 @@ module AWS::SDK::DataBrew
         data = Types::DatabaseInputDefinition.new
         data.glue_connection_name = map['GlueConnectionName']
         data.database_table_name = map['DatabaseTableName']
-        data.temp_directory = (Parsers::S3Location.parse(map['TempDirectory']) unless map['TempDirectory'].nil?)
+        data.temp_directory = (S3Location.parse(map['TempDirectory']) unless map['TempDirectory'].nil?)
         data.query_string = map['QueryString']
         return data
       end
@@ -380,7 +380,7 @@ module AWS::SDK::DataBrew
         data.catalog_id = map['CatalogId']
         data.database_name = map['DatabaseName']
         data.table_name = map['TableName']
-        data.temp_directory = (Parsers::S3Location.parse(map['TempDirectory']) unless map['TempDirectory'].nil?)
+        data.temp_directory = (S3Location.parse(map['TempDirectory']) unless map['TempDirectory'].nil?)
         return data
       end
     end
@@ -388,9 +388,9 @@ module AWS::SDK::DataBrew
     class FormatOptions
       def self.parse(map)
         data = Types::FormatOptions.new
-        data.json = (Parsers::JsonOptions.parse(map['Json']) unless map['Json'].nil?)
-        data.excel = (Parsers::ExcelOptions.parse(map['Excel']) unless map['Excel'].nil?)
-        data.csv = (Parsers::CsvOptions.parse(map['Csv']) unless map['Csv'].nil?)
+        data.json = (JsonOptions.parse(map['Json']) unless map['Json'].nil?)
+        data.excel = (ExcelOptions.parse(map['Excel']) unless map['Excel'].nil?)
+        data.csv = (CsvOptions.parse(map['Csv']) unless map['Csv'].nil?)
         return data
       end
     end
@@ -407,8 +407,8 @@ module AWS::SDK::DataBrew
     class ExcelOptions
       def self.parse(map)
         data = Types::ExcelOptions.new
-        data.sheet_names = (Parsers::SheetNameList.parse(map['SheetNames']) unless map['SheetNames'].nil?)
-        data.sheet_indexes = (Parsers::SheetIndexList.parse(map['SheetIndexes']) unless map['SheetIndexes'].nil?)
+        data.sheet_names = (SheetNameList.parse(map['SheetNames']) unless map['SheetNames'].nil?)
+        data.sheet_indexes = (SheetIndexList.parse(map['SheetIndexes']) unless map['SheetIndexes'].nil?)
         data.header_row = map['HeaderRow']
         return data
       end
@@ -459,18 +459,18 @@ module AWS::SDK::DataBrew
         data.log_subscription = map['LogSubscription']
         data.max_capacity = map['MaxCapacity']
         data.max_retries = map['MaxRetries']
-        data.outputs = (Parsers::OutputList.parse(map['Outputs']) unless map['Outputs'].nil?)
-        data.data_catalog_outputs = (Parsers::DataCatalogOutputList.parse(map['DataCatalogOutputs']) unless map['DataCatalogOutputs'].nil?)
-        data.database_outputs = (Parsers::DatabaseOutputList.parse(map['DatabaseOutputs']) unless map['DatabaseOutputs'].nil?)
+        data.outputs = (OutputList.parse(map['Outputs']) unless map['Outputs'].nil?)
+        data.data_catalog_outputs = (DataCatalogOutputList.parse(map['DataCatalogOutputs']) unless map['DataCatalogOutputs'].nil?)
+        data.database_outputs = (DatabaseOutputList.parse(map['DatabaseOutputs']) unless map['DatabaseOutputs'].nil?)
         data.project_name = map['ProjectName']
-        data.profile_configuration = (Parsers::ProfileConfiguration.parse(map['ProfileConfiguration']) unless map['ProfileConfiguration'].nil?)
-        data.validation_configurations = (Parsers::ValidationConfigurationList.parse(map['ValidationConfigurations']) unless map['ValidationConfigurations'].nil?)
-        data.recipe_reference = (Parsers::RecipeReference.parse(map['RecipeReference']) unless map['RecipeReference'].nil?)
+        data.profile_configuration = (ProfileConfiguration.parse(map['ProfileConfiguration']) unless map['ProfileConfiguration'].nil?)
+        data.validation_configurations = (ValidationConfigurationList.parse(map['ValidationConfigurations']) unless map['ValidationConfigurations'].nil?)
+        data.recipe_reference = (RecipeReference.parse(map['RecipeReference']) unless map['RecipeReference'].nil?)
         data.resource_arn = map['ResourceArn']
         data.role_arn = map['RoleArn']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.timeout = map['Timeout']
-        data.job_sample = (Parsers::JobSample.parse(map['JobSample']) unless map['JobSample'].nil?)
+        data.job_sample = (JobSample.parse(map['JobSample']) unless map['JobSample'].nil?)
         data
       end
     end
@@ -497,7 +497,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationConfiguration.parse(value) unless value.nil?
+          data << ValidationConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -515,10 +515,10 @@ module AWS::SDK::DataBrew
     class ProfileConfiguration
       def self.parse(map)
         data = Types::ProfileConfiguration.new
-        data.dataset_statistics_configuration = (Parsers::StatisticsConfiguration.parse(map['DatasetStatisticsConfiguration']) unless map['DatasetStatisticsConfiguration'].nil?)
-        data.profile_columns = (Parsers::ColumnSelectorList.parse(map['ProfileColumns']) unless map['ProfileColumns'].nil?)
-        data.column_statistics_configurations = (Parsers::ColumnStatisticsConfigurationList.parse(map['ColumnStatisticsConfigurations']) unless map['ColumnStatisticsConfigurations'].nil?)
-        data.entity_detector_configuration = (Parsers::EntityDetectorConfiguration.parse(map['EntityDetectorConfiguration']) unless map['EntityDetectorConfiguration'].nil?)
+        data.dataset_statistics_configuration = (StatisticsConfiguration.parse(map['DatasetStatisticsConfiguration']) unless map['DatasetStatisticsConfiguration'].nil?)
+        data.profile_columns = (ColumnSelectorList.parse(map['ProfileColumns']) unless map['ProfileColumns'].nil?)
+        data.column_statistics_configurations = (ColumnStatisticsConfigurationList.parse(map['ColumnStatisticsConfigurations']) unless map['ColumnStatisticsConfigurations'].nil?)
+        data.entity_detector_configuration = (EntityDetectorConfiguration.parse(map['EntityDetectorConfiguration']) unless map['EntityDetectorConfiguration'].nil?)
         return data
       end
     end
@@ -526,8 +526,8 @@ module AWS::SDK::DataBrew
     class EntityDetectorConfiguration
       def self.parse(map)
         data = Types::EntityDetectorConfiguration.new
-        data.entity_types = (Parsers::EntityTypeList.parse(map['EntityTypes']) unless map['EntityTypes'].nil?)
-        data.allowed_statistics = (Parsers::AllowedStatisticList.parse(map['AllowedStatistics']) unless map['AllowedStatistics'].nil?)
+        data.entity_types = (EntityTypeList.parse(map['EntityTypes']) unless map['EntityTypes'].nil?)
+        data.allowed_statistics = (AllowedStatisticList.parse(map['AllowedStatistics']) unless map['AllowedStatistics'].nil?)
         return data
       end
     end
@@ -536,7 +536,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AllowedStatistics.parse(value) unless value.nil?
+          data << AllowedStatistics.parse(value) unless value.nil?
         end
         data
       end
@@ -545,7 +545,7 @@ module AWS::SDK::DataBrew
     class AllowedStatistics
       def self.parse(map)
         data = Types::AllowedStatistics.new
-        data.statistics = (Parsers::StatisticList.parse(map['Statistics']) unless map['Statistics'].nil?)
+        data.statistics = (StatisticList.parse(map['Statistics']) unless map['Statistics'].nil?)
         return data
       end
     end
@@ -574,7 +574,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ColumnStatisticsConfiguration.parse(value) unless value.nil?
+          data << ColumnStatisticsConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -583,8 +583,8 @@ module AWS::SDK::DataBrew
     class ColumnStatisticsConfiguration
       def self.parse(map)
         data = Types::ColumnStatisticsConfiguration.new
-        data.selectors = (Parsers::ColumnSelectorList.parse(map['Selectors']) unless map['Selectors'].nil?)
-        data.statistics = (Parsers::StatisticsConfiguration.parse(map['Statistics']) unless map['Statistics'].nil?)
+        data.selectors = (ColumnSelectorList.parse(map['Selectors']) unless map['Selectors'].nil?)
+        data.statistics = (StatisticsConfiguration.parse(map['Statistics']) unless map['Statistics'].nil?)
         return data
       end
     end
@@ -592,8 +592,8 @@ module AWS::SDK::DataBrew
     class StatisticsConfiguration
       def self.parse(map)
         data = Types::StatisticsConfiguration.new
-        data.included_statistics = (Parsers::StatisticList.parse(map['IncludedStatistics']) unless map['IncludedStatistics'].nil?)
-        data.overrides = (Parsers::StatisticOverrideList.parse(map['Overrides']) unless map['Overrides'].nil?)
+        data.included_statistics = (StatisticList.parse(map['IncludedStatistics']) unless map['IncludedStatistics'].nil?)
+        data.overrides = (StatisticOverrideList.parse(map['Overrides']) unless map['Overrides'].nil?)
         return data
       end
     end
@@ -602,7 +602,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StatisticOverride.parse(value) unless value.nil?
+          data << StatisticOverride.parse(value) unless value.nil?
         end
         data
       end
@@ -612,7 +612,7 @@ module AWS::SDK::DataBrew
       def self.parse(map)
         data = Types::StatisticOverride.new
         data.statistic = map['Statistic']
-        data.parameters = (Parsers::ParameterMap.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (ParameterMap.parse(map['Parameters']) unless map['Parameters'].nil?)
         return data
       end
     end
@@ -631,7 +631,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ColumnSelector.parse(value) unless value.nil?
+          data << ColumnSelector.parse(value) unless value.nil?
         end
         data
       end
@@ -650,7 +650,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DatabaseOutput.parse(value) unless value.nil?
+          data << DatabaseOutput.parse(value) unless value.nil?
         end
         data
       end
@@ -660,7 +660,7 @@ module AWS::SDK::DataBrew
       def self.parse(map)
         data = Types::DatabaseOutput.new
         data.glue_connection_name = map['GlueConnectionName']
-        data.database_options = (Parsers::DatabaseTableOutputOptions.parse(map['DatabaseOptions']) unless map['DatabaseOptions'].nil?)
+        data.database_options = (DatabaseTableOutputOptions.parse(map['DatabaseOptions']) unless map['DatabaseOptions'].nil?)
         data.database_output_mode = map['DatabaseOutputMode']
         return data
       end
@@ -669,7 +669,7 @@ module AWS::SDK::DataBrew
     class DatabaseTableOutputOptions
       def self.parse(map)
         data = Types::DatabaseTableOutputOptions.new
-        data.temp_directory = (Parsers::S3Location.parse(map['TempDirectory']) unless map['TempDirectory'].nil?)
+        data.temp_directory = (S3Location.parse(map['TempDirectory']) unless map['TempDirectory'].nil?)
         data.table_name = map['TableName']
         return data
       end
@@ -679,7 +679,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataCatalogOutput.parse(value) unless value.nil?
+          data << DataCatalogOutput.parse(value) unless value.nil?
         end
         data
       end
@@ -691,8 +691,8 @@ module AWS::SDK::DataBrew
         data.catalog_id = map['CatalogId']
         data.database_name = map['DatabaseName']
         data.table_name = map['TableName']
-        data.s3_options = (Parsers::S3TableOutputOptions.parse(map['S3Options']) unless map['S3Options'].nil?)
-        data.database_options = (Parsers::DatabaseTableOutputOptions.parse(map['DatabaseOptions']) unless map['DatabaseOptions'].nil?)
+        data.s3_options = (S3TableOutputOptions.parse(map['S3Options']) unless map['S3Options'].nil?)
+        data.database_options = (DatabaseTableOutputOptions.parse(map['DatabaseOptions']) unless map['DatabaseOptions'].nil?)
         data.overwrite = map['Overwrite']
         return data
       end
@@ -701,7 +701,7 @@ module AWS::SDK::DataBrew
     class S3TableOutputOptions
       def self.parse(map)
         data = Types::S3TableOutputOptions.new
-        data.location = (Parsers::S3Location.parse(map['Location']) unless map['Location'].nil?)
+        data.location = (S3Location.parse(map['Location']) unless map['Location'].nil?)
         return data
       end
     end
@@ -710,7 +710,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Output.parse(value) unless value.nil?
+          data << Output.parse(value) unless value.nil?
         end
         data
       end
@@ -721,10 +721,10 @@ module AWS::SDK::DataBrew
         data = Types::Output.new
         data.compression_format = map['CompressionFormat']
         data.format = map['Format']
-        data.partition_columns = (Parsers::ColumnNameList.parse(map['PartitionColumns']) unless map['PartitionColumns'].nil?)
-        data.location = (Parsers::S3Location.parse(map['Location']) unless map['Location'].nil?)
+        data.partition_columns = (ColumnNameList.parse(map['PartitionColumns']) unless map['PartitionColumns'].nil?)
+        data.location = (S3Location.parse(map['Location']) unless map['Location'].nil?)
         data.overwrite = map['Overwrite']
-        data.format_options = (Parsers::OutputFormatOptions.parse(map['FormatOptions']) unless map['FormatOptions'].nil?)
+        data.format_options = (OutputFormatOptions.parse(map['FormatOptions']) unless map['FormatOptions'].nil?)
         data.max_output_files = map['MaxOutputFiles']
         return data
       end
@@ -733,7 +733,7 @@ module AWS::SDK::DataBrew
     class OutputFormatOptions
       def self.parse(map)
         data = Types::OutputFormatOptions.new
-        data.csv = (Parsers::CsvOutputOptions.parse(map['Csv']) unless map['Csv'].nil?)
+        data.csv = (CsvOutputOptions.parse(map['Csv']) unless map['Csv'].nil?)
         return data
       end
     end
@@ -767,19 +767,19 @@ module AWS::SDK::DataBrew
         data.error_message = map['ErrorMessage']
         data.execution_time = map['ExecutionTime']
         data.job_name = map['JobName']
-        data.profile_configuration = (Parsers::ProfileConfiguration.parse(map['ProfileConfiguration']) unless map['ProfileConfiguration'].nil?)
-        data.validation_configurations = (Parsers::ValidationConfigurationList.parse(map['ValidationConfigurations']) unless map['ValidationConfigurations'].nil?)
+        data.profile_configuration = (ProfileConfiguration.parse(map['ProfileConfiguration']) unless map['ProfileConfiguration'].nil?)
+        data.validation_configurations = (ValidationConfigurationList.parse(map['ValidationConfigurations']) unless map['ValidationConfigurations'].nil?)
         data.run_id = map['RunId']
         data.state = map['State']
         data.log_subscription = map['LogSubscription']
         data.log_group_name = map['LogGroupName']
-        data.outputs = (Parsers::OutputList.parse(map['Outputs']) unless map['Outputs'].nil?)
-        data.data_catalog_outputs = (Parsers::DataCatalogOutputList.parse(map['DataCatalogOutputs']) unless map['DataCatalogOutputs'].nil?)
-        data.database_outputs = (Parsers::DatabaseOutputList.parse(map['DatabaseOutputs']) unless map['DatabaseOutputs'].nil?)
-        data.recipe_reference = (Parsers::RecipeReference.parse(map['RecipeReference']) unless map['RecipeReference'].nil?)
+        data.outputs = (OutputList.parse(map['Outputs']) unless map['Outputs'].nil?)
+        data.data_catalog_outputs = (DataCatalogOutputList.parse(map['DataCatalogOutputs']) unless map['DataCatalogOutputs'].nil?)
+        data.database_outputs = (DatabaseOutputList.parse(map['DatabaseOutputs']) unless map['DatabaseOutputs'].nil?)
+        data.recipe_reference = (RecipeReference.parse(map['RecipeReference']) unless map['RecipeReference'].nil?)
         data.started_by = map['StartedBy']
         data.started_on = Time.at(map['StartedOn'].to_i) if map['StartedOn']
-        data.job_sample = (Parsers::JobSample.parse(map['JobSample']) unless map['JobSample'].nil?)
+        data.job_sample = (JobSample.parse(map['JobSample']) unless map['JobSample'].nil?)
         data
       end
     end
@@ -797,9 +797,9 @@ module AWS::SDK::DataBrew
         data.name = map['Name']
         data.recipe_name = map['RecipeName']
         data.resource_arn = map['ResourceArn']
-        data.sample = (Parsers::Sample.parse(map['Sample']) unless map['Sample'].nil?)
+        data.sample = (Sample.parse(map['Sample']) unless map['Sample'].nil?)
         data.role_arn = map['RoleArn']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.session_status = map['SessionStatus']
         data.opened_by = map['OpenedBy']
         data.open_date = Time.at(map['OpenDate'].to_i) if map['OpenDate']
@@ -830,8 +830,8 @@ module AWS::SDK::DataBrew
         data.published_date = Time.at(map['PublishedDate'].to_i) if map['PublishedDate']
         data.description = map['Description']
         data.name = map['Name']
-        data.steps = (Parsers::RecipeStepList.parse(map['Steps']) unless map['Steps'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.steps = (RecipeStepList.parse(map['Steps']) unless map['Steps'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.resource_arn = map['ResourceArn']
         data.recipe_version = map['RecipeVersion']
         data
@@ -842,7 +842,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecipeStep.parse(value) unless value.nil?
+          data << RecipeStep.parse(value) unless value.nil?
         end
         data
       end
@@ -851,8 +851,8 @@ module AWS::SDK::DataBrew
     class RecipeStep
       def self.parse(map)
         data = Types::RecipeStep.new
-        data.action = (Parsers::RecipeAction.parse(map['Action']) unless map['Action'].nil?)
-        data.condition_expressions = (Parsers::ConditionExpressionList.parse(map['ConditionExpressions']) unless map['ConditionExpressions'].nil?)
+        data.action = (RecipeAction.parse(map['Action']) unless map['Action'].nil?)
+        data.condition_expressions = (ConditionExpressionList.parse(map['ConditionExpressions']) unless map['ConditionExpressions'].nil?)
         return data
       end
     end
@@ -861,7 +861,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ConditionExpression.parse(value) unless value.nil?
+          data << ConditionExpression.parse(value) unless value.nil?
         end
         data
       end
@@ -881,7 +881,7 @@ module AWS::SDK::DataBrew
       def self.parse(map)
         data = Types::RecipeAction.new
         data.operation = map['Operation']
-        data.parameters = (Parsers::ParameterMap.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (ParameterMap.parse(map['Parameters']) unless map['Parameters'].nil?)
         return data
       end
     end
@@ -894,13 +894,13 @@ module AWS::SDK::DataBrew
         data.name = map['Name']
         data.description = map['Description']
         data.target_arn = map['TargetArn']
-        data.rules = (Parsers::RuleList.parse(map['Rules']) unless map['Rules'].nil?)
+        data.rules = (RuleList.parse(map['Rules']) unless map['Rules'].nil?)
         data.create_date = Time.at(map['CreateDate'].to_i) if map['CreateDate']
         data.created_by = map['CreatedBy']
         data.last_modified_by = map['LastModifiedBy']
         data.last_modified_date = Time.at(map['LastModifiedDate'].to_i) if map['LastModifiedDate']
         data.resource_arn = map['ResourceArn']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -909,7 +909,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Rule.parse(value) unless value.nil?
+          data << Rule.parse(value) unless value.nil?
         end
         data
       end
@@ -921,9 +921,9 @@ module AWS::SDK::DataBrew
         data.name = map['Name']
         data.disabled = map['Disabled']
         data.check_expression = map['CheckExpression']
-        data.substitution_map = (Parsers::ValuesMap.parse(map['SubstitutionMap']) unless map['SubstitutionMap'].nil?)
-        data.threshold = (Parsers::Threshold.parse(map['Threshold']) unless map['Threshold'].nil?)
-        data.column_selectors = (Parsers::ColumnSelectorList.parse(map['ColumnSelectors']) unless map['ColumnSelectors'].nil?)
+        data.substitution_map = (ValuesMap.parse(map['SubstitutionMap']) unless map['SubstitutionMap'].nil?)
+        data.threshold = (Threshold.parse(map['Threshold']) unless map['Threshold'].nil?)
+        data.column_selectors = (ColumnSelectorList.parse(map['ColumnSelectors']) unless map['ColumnSelectors'].nil?)
         return data
       end
     end
@@ -945,12 +945,12 @@ module AWS::SDK::DataBrew
         map = Hearth::JSON.load(http_resp.body)
         data.create_date = Time.at(map['CreateDate'].to_i) if map['CreateDate']
         data.created_by = map['CreatedBy']
-        data.job_names = (Parsers::JobNameList.parse(map['JobNames']) unless map['JobNames'].nil?)
+        data.job_names = (JobNameList.parse(map['JobNames']) unless map['JobNames'].nil?)
         data.last_modified_by = map['LastModifiedBy']
         data.last_modified_date = Time.at(map['LastModifiedDate'].to_i) if map['LastModifiedDate']
         data.resource_arn = map['ResourceArn']
         data.cron_expression = map['CronExpression']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.name = map['Name']
         data
       end
@@ -971,7 +971,7 @@ module AWS::SDK::DataBrew
       def self.parse(http_resp)
         data = Types::ListDatasetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.datasets = (Parsers::DatasetList.parse(map['Datasets']) unless map['Datasets'].nil?)
+        data.datasets = (DatasetList.parse(map['Datasets']) unless map['Datasets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -981,7 +981,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Dataset.parse(value) unless value.nil?
+          data << Dataset.parse(value) unless value.nil?
         end
         data
       end
@@ -995,13 +995,13 @@ module AWS::SDK::DataBrew
         data.create_date = Time.at(map['CreateDate'].to_i) if map['CreateDate']
         data.name = map['Name']
         data.format = map['Format']
-        data.format_options = (Parsers::FormatOptions.parse(map['FormatOptions']) unless map['FormatOptions'].nil?)
-        data.input = (Parsers::Input.parse(map['Input']) unless map['Input'].nil?)
+        data.format_options = (FormatOptions.parse(map['FormatOptions']) unless map['FormatOptions'].nil?)
+        data.input = (Input.parse(map['Input']) unless map['Input'].nil?)
         data.last_modified_date = Time.at(map['LastModifiedDate'].to_i) if map['LastModifiedDate']
         data.last_modified_by = map['LastModifiedBy']
         data.source = map['Source']
-        data.path_options = (Parsers::PathOptions.parse(map['PathOptions']) unless map['PathOptions'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.path_options = (PathOptions.parse(map['PathOptions']) unless map['PathOptions'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.resource_arn = map['ResourceArn']
         return data
       end
@@ -1012,7 +1012,7 @@ module AWS::SDK::DataBrew
       def self.parse(http_resp)
         data = Types::ListJobRunsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_runs = (Parsers::JobRunList.parse(map['JobRuns']) unless map['JobRuns'].nil?)
+        data.job_runs = (JobRunList.parse(map['JobRuns']) unless map['JobRuns'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1022,7 +1022,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobRun.parse(value) unless value.nil?
+          data << JobRun.parse(value) unless value.nil?
         end
         data
       end
@@ -1041,14 +1041,14 @@ module AWS::SDK::DataBrew
         data.state = map['State']
         data.log_subscription = map['LogSubscription']
         data.log_group_name = map['LogGroupName']
-        data.outputs = (Parsers::OutputList.parse(map['Outputs']) unless map['Outputs'].nil?)
-        data.data_catalog_outputs = (Parsers::DataCatalogOutputList.parse(map['DataCatalogOutputs']) unless map['DataCatalogOutputs'].nil?)
-        data.database_outputs = (Parsers::DatabaseOutputList.parse(map['DatabaseOutputs']) unless map['DatabaseOutputs'].nil?)
-        data.recipe_reference = (Parsers::RecipeReference.parse(map['RecipeReference']) unless map['RecipeReference'].nil?)
+        data.outputs = (OutputList.parse(map['Outputs']) unless map['Outputs'].nil?)
+        data.data_catalog_outputs = (DataCatalogOutputList.parse(map['DataCatalogOutputs']) unless map['DataCatalogOutputs'].nil?)
+        data.database_outputs = (DatabaseOutputList.parse(map['DatabaseOutputs']) unless map['DatabaseOutputs'].nil?)
+        data.recipe_reference = (RecipeReference.parse(map['RecipeReference']) unless map['RecipeReference'].nil?)
         data.started_by = map['StartedBy']
         data.started_on = Time.at(map['StartedOn'].to_i) if map['StartedOn']
-        data.job_sample = (Parsers::JobSample.parse(map['JobSample']) unless map['JobSample'].nil?)
-        data.validation_configurations = (Parsers::ValidationConfigurationList.parse(map['ValidationConfigurations']) unless map['ValidationConfigurations'].nil?)
+        data.job_sample = (JobSample.parse(map['JobSample']) unless map['JobSample'].nil?)
+        data.validation_configurations = (ValidationConfigurationList.parse(map['ValidationConfigurations']) unless map['ValidationConfigurations'].nil?)
         return data
       end
     end
@@ -1058,7 +1058,7 @@ module AWS::SDK::DataBrew
       def self.parse(http_resp)
         data = Types::ListJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.jobs = (Parsers::JobList.parse(map['Jobs']) unless map['Jobs'].nil?)
+        data.jobs = (JobList.parse(map['Jobs']) unless map['Jobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1068,7 +1068,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Job.parse(value) unless value.nil?
+          data << Job.parse(value) unless value.nil?
         end
         data
       end
@@ -1090,17 +1090,17 @@ module AWS::SDK::DataBrew
         data.log_subscription = map['LogSubscription']
         data.max_capacity = map['MaxCapacity']
         data.max_retries = map['MaxRetries']
-        data.outputs = (Parsers::OutputList.parse(map['Outputs']) unless map['Outputs'].nil?)
-        data.data_catalog_outputs = (Parsers::DataCatalogOutputList.parse(map['DataCatalogOutputs']) unless map['DataCatalogOutputs'].nil?)
-        data.database_outputs = (Parsers::DatabaseOutputList.parse(map['DatabaseOutputs']) unless map['DatabaseOutputs'].nil?)
+        data.outputs = (OutputList.parse(map['Outputs']) unless map['Outputs'].nil?)
+        data.data_catalog_outputs = (DataCatalogOutputList.parse(map['DataCatalogOutputs']) unless map['DataCatalogOutputs'].nil?)
+        data.database_outputs = (DatabaseOutputList.parse(map['DatabaseOutputs']) unless map['DatabaseOutputs'].nil?)
         data.project_name = map['ProjectName']
-        data.recipe_reference = (Parsers::RecipeReference.parse(map['RecipeReference']) unless map['RecipeReference'].nil?)
+        data.recipe_reference = (RecipeReference.parse(map['RecipeReference']) unless map['RecipeReference'].nil?)
         data.resource_arn = map['ResourceArn']
         data.role_arn = map['RoleArn']
         data.timeout = map['Timeout']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
-        data.job_sample = (Parsers::JobSample.parse(map['JobSample']) unless map['JobSample'].nil?)
-        data.validation_configurations = (Parsers::ValidationConfigurationList.parse(map['ValidationConfigurations']) unless map['ValidationConfigurations'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.job_sample = (JobSample.parse(map['JobSample']) unless map['JobSample'].nil?)
+        data.validation_configurations = (ValidationConfigurationList.parse(map['ValidationConfigurations']) unless map['ValidationConfigurations'].nil?)
         return data
       end
     end
@@ -1110,7 +1110,7 @@ module AWS::SDK::DataBrew
       def self.parse(http_resp)
         data = Types::ListProjectsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.projects = (Parsers::ProjectList.parse(map['Projects']) unless map['Projects'].nil?)
+        data.projects = (ProjectList.parse(map['Projects']) unless map['Projects'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1120,7 +1120,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Project.parse(value) unless value.nil?
+          data << Project.parse(value) unless value.nil?
         end
         data
       end
@@ -1138,8 +1138,8 @@ module AWS::SDK::DataBrew
         data.name = map['Name']
         data.recipe_name = map['RecipeName']
         data.resource_arn = map['ResourceArn']
-        data.sample = (Parsers::Sample.parse(map['Sample']) unless map['Sample'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.sample = (Sample.parse(map['Sample']) unless map['Sample'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.role_arn = map['RoleArn']
         data.opened_by = map['OpenedBy']
         data.open_date = Time.at(map['OpenDate'].to_i) if map['OpenDate']
@@ -1153,7 +1153,7 @@ module AWS::SDK::DataBrew
         data = Types::ListRecipeVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.recipes = (Parsers::RecipeList.parse(map['Recipes']) unless map['Recipes'].nil?)
+        data.recipes = (RecipeList.parse(map['Recipes']) unless map['Recipes'].nil?)
         data
       end
     end
@@ -1162,7 +1162,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Recipe.parse(value) unless value.nil?
+          data << Recipe.parse(value) unless value.nil?
         end
         data
       end
@@ -1181,8 +1181,8 @@ module AWS::SDK::DataBrew
         data.description = map['Description']
         data.name = map['Name']
         data.resource_arn = map['ResourceArn']
-        data.steps = (Parsers::RecipeStepList.parse(map['Steps']) unless map['Steps'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.steps = (RecipeStepList.parse(map['Steps']) unless map['Steps'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.recipe_version = map['RecipeVersion']
         return data
       end
@@ -1193,7 +1193,7 @@ module AWS::SDK::DataBrew
       def self.parse(http_resp)
         data = Types::ListRecipesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.recipes = (Parsers::RecipeList.parse(map['Recipes']) unless map['Recipes'].nil?)
+        data.recipes = (RecipeList.parse(map['Recipes']) unless map['Recipes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1204,7 +1204,7 @@ module AWS::SDK::DataBrew
       def self.parse(http_resp)
         data = Types::ListRulesetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.rulesets = (Parsers::RulesetItemList.parse(map['Rulesets']) unless map['Rulesets'].nil?)
+        data.rulesets = (RulesetItemList.parse(map['Rulesets']) unless map['Rulesets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1214,7 +1214,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RulesetItem.parse(value) unless value.nil?
+          data << RulesetItem.parse(value) unless value.nil?
         end
         data
       end
@@ -1232,7 +1232,7 @@ module AWS::SDK::DataBrew
         data.name = map['Name']
         data.resource_arn = map['ResourceArn']
         data.rule_count = map['RuleCount']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.target_arn = map['TargetArn']
         return data
       end
@@ -1243,7 +1243,7 @@ module AWS::SDK::DataBrew
       def self.parse(http_resp)
         data = Types::ListSchedulesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.schedules = (Parsers::ScheduleList.parse(map['Schedules']) unless map['Schedules'].nil?)
+        data.schedules = (ScheduleList.parse(map['Schedules']) unless map['Schedules'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1253,7 +1253,7 @@ module AWS::SDK::DataBrew
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Schedule.parse(value) unless value.nil?
+          data << Schedule.parse(value) unless value.nil?
         end
         data
       end
@@ -1265,12 +1265,12 @@ module AWS::SDK::DataBrew
         data.account_id = map['AccountId']
         data.created_by = map['CreatedBy']
         data.create_date = Time.at(map['CreateDate'].to_i) if map['CreateDate']
-        data.job_names = (Parsers::JobNameList.parse(map['JobNames']) unless map['JobNames'].nil?)
+        data.job_names = (JobNameList.parse(map['JobNames']) unless map['JobNames'].nil?)
         data.last_modified_by = map['LastModifiedBy']
         data.last_modified_date = Time.at(map['LastModifiedDate'].to_i) if map['LastModifiedDate']
         data.resource_arn = map['ResourceArn']
         data.cron_expression = map['CronExpression']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.name = map['Name']
         return data
       end
@@ -1281,7 +1281,7 @@ module AWS::SDK::DataBrew
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end

@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::GreengrassV2
   module Builders
 
@@ -21,7 +24,7 @@ module AWS::SDK::GreengrassV2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -42,8 +45,8 @@ module AWS::SDK::GreengrassV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['entries'] = Builders::AssociateClientDeviceWithCoreDeviceEntryList.build(input[:entries]) unless input[:entries].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['entries'] = AssociateClientDeviceWithCoreDeviceEntryList.build(input[:entries]) unless input[:entries].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -52,7 +55,7 @@ module AWS::SDK::GreengrassV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AssociateClientDeviceWithCoreDeviceEntry.build(element) unless element.nil?
+          data << AssociateClientDeviceWithCoreDeviceEntry.build(element) unless element.nil?
         end
         data
       end
@@ -84,8 +87,8 @@ module AWS::SDK::GreengrassV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['entries'] = Builders::DisassociateClientDeviceFromCoreDeviceEntryList.build(input[:entries]) unless input[:entries].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['entries'] = DisassociateClientDeviceFromCoreDeviceEntryList.build(input[:entries]) unless input[:entries].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -94,7 +97,7 @@ module AWS::SDK::GreengrassV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DisassociateClientDeviceFromCoreDeviceEntry.build(element) unless element.nil?
+          data << DisassociateClientDeviceFromCoreDeviceEntry.build(element) unless element.nil?
         end
         data
       end
@@ -136,11 +139,11 @@ module AWS::SDK::GreengrassV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['inlineRecipe'] = Base64::encode64(input[:inline_recipe]).strip unless input[:inline_recipe].nil?
-        data['lambdaFunction'] = Builders::LambdaFunctionRecipeSource.build(input[:lambda_function]) unless input[:lambda_function].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['inlineRecipe'] = ::Base64::encode64(input[:inline_recipe]).strip unless input[:inline_recipe].nil?
+        data['lambdaFunction'] = LambdaFunctionRecipeSource.build(input[:lambda_function]) unless input[:lambda_function].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -162,9 +165,9 @@ module AWS::SDK::GreengrassV2
         data['lambdaArn'] = input[:lambda_arn] unless input[:lambda_arn].nil?
         data['componentName'] = input[:component_name] unless input[:component_name].nil?
         data['componentVersion'] = input[:component_version] unless input[:component_version].nil?
-        data['componentPlatforms'] = Builders::ComponentPlatformList.build(input[:component_platforms]) unless input[:component_platforms].nil?
-        data['componentDependencies'] = Builders::ComponentDependencyMap.build(input[:component_dependencies]) unless input[:component_dependencies].nil?
-        data['componentLambdaParameters'] = Builders::LambdaExecutionParameters.build(input[:component_lambda_parameters]) unless input[:component_lambda_parameters].nil?
+        data['componentPlatforms'] = ComponentPlatformList.build(input[:component_platforms]) unless input[:component_platforms].nil?
+        data['componentDependencies'] = ComponentDependencyMap.build(input[:component_dependencies]) unless input[:component_dependencies].nil?
+        data['componentLambdaParameters'] = LambdaExecutionParameters.build(input[:component_lambda_parameters]) unless input[:component_lambda_parameters].nil?
         data
       end
     end
@@ -173,7 +176,7 @@ module AWS::SDK::GreengrassV2
     class LambdaExecutionParameters
       def self.build(input)
         data = {}
-        data['eventSources'] = Builders::LambdaEventSourceList.build(input[:event_sources]) unless input[:event_sources].nil?
+        data['eventSources'] = LambdaEventSourceList.build(input[:event_sources]) unless input[:event_sources].nil?
         data['maxQueueSize'] = input[:max_queue_size] unless input[:max_queue_size].nil?
         data['maxInstancesCount'] = input[:max_instances_count] unless input[:max_instances_count].nil?
         data['maxIdleTimeInSeconds'] = input[:max_idle_time_in_seconds] unless input[:max_idle_time_in_seconds].nil?
@@ -181,9 +184,9 @@ module AWS::SDK::GreengrassV2
         data['statusTimeoutInSeconds'] = input[:status_timeout_in_seconds] unless input[:status_timeout_in_seconds].nil?
         data['pinned'] = input[:pinned] unless input[:pinned].nil?
         data['inputPayloadEncodingType'] = input[:input_payload_encoding_type] unless input[:input_payload_encoding_type].nil?
-        data['execArgs'] = Builders::LambdaExecArgsList.build(input[:exec_args]) unless input[:exec_args].nil?
-        data['environmentVariables'] = Builders::LambdaEnvironmentVariables.build(input[:environment_variables]) unless input[:environment_variables].nil?
-        data['linuxProcessParams'] = Builders::LambdaLinuxProcessParams.build(input[:linux_process_params]) unless input[:linux_process_params].nil?
+        data['execArgs'] = LambdaExecArgsList.build(input[:exec_args]) unless input[:exec_args].nil?
+        data['environmentVariables'] = LambdaEnvironmentVariables.build(input[:environment_variables]) unless input[:environment_variables].nil?
+        data['linuxProcessParams'] = LambdaLinuxProcessParams.build(input[:linux_process_params]) unless input[:linux_process_params].nil?
         data
       end
     end
@@ -193,7 +196,7 @@ module AWS::SDK::GreengrassV2
       def self.build(input)
         data = {}
         data['isolationMode'] = input[:isolation_mode] unless input[:isolation_mode].nil?
-        data['containerParams'] = Builders::LambdaContainerParams.build(input[:container_params]) unless input[:container_params].nil?
+        data['containerParams'] = LambdaContainerParams.build(input[:container_params]) unless input[:container_params].nil?
         data
       end
     end
@@ -204,8 +207,8 @@ module AWS::SDK::GreengrassV2
         data = {}
         data['memorySizeInKB'] = input[:memory_size_in_kb] unless input[:memory_size_in_kb].nil?
         data['mountROSysfs'] = input[:mount_ro_sysfs] unless input[:mount_ro_sysfs].nil?
-        data['volumes'] = Builders::LambdaVolumeList.build(input[:volumes]) unless input[:volumes].nil?
-        data['devices'] = Builders::LambdaDeviceList.build(input[:devices]) unless input[:devices].nil?
+        data['volumes'] = LambdaVolumeList.build(input[:volumes]) unless input[:volumes].nil?
+        data['devices'] = LambdaDeviceList.build(input[:devices]) unless input[:devices].nil?
         data
       end
     end
@@ -215,7 +218,7 @@ module AWS::SDK::GreengrassV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LambdaDeviceMount.build(element) unless element.nil?
+          data << LambdaDeviceMount.build(element) unless element.nil?
         end
         data
       end
@@ -237,7 +240,7 @@ module AWS::SDK::GreengrassV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LambdaVolumeMount.build(element) unless element.nil?
+          data << LambdaVolumeMount.build(element) unless element.nil?
         end
         data
       end
@@ -282,7 +285,7 @@ module AWS::SDK::GreengrassV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LambdaEventSource.build(element) unless element.nil?
+          data << LambdaEventSource.build(element) unless element.nil?
         end
         data
       end
@@ -303,7 +306,7 @@ module AWS::SDK::GreengrassV2
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ComponentDependencyRequirement.build(value) unless value.nil?
+          data[key] = ComponentDependencyRequirement.build(value) unless value.nil?
         end
         data
       end
@@ -324,7 +327,7 @@ module AWS::SDK::GreengrassV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ComponentPlatform.build(element) unless element.nil?
+          data << ComponentPlatform.build(element) unless element.nil?
         end
         data
       end
@@ -335,7 +338,7 @@ module AWS::SDK::GreengrassV2
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['attributes'] = Builders::PlatformAttributesMap.build(input[:attributes]) unless input[:attributes].nil?
+        data['attributes'] = PlatformAttributesMap.build(input[:attributes]) unless input[:attributes].nil?
         data
       end
     end
@@ -363,12 +366,12 @@ module AWS::SDK::GreengrassV2
         data = {}
         data['targetArn'] = input[:target_arn] unless input[:target_arn].nil?
         data['deploymentName'] = input[:deployment_name] unless input[:deployment_name].nil?
-        data['components'] = Builders::ComponentDeploymentSpecifications.build(input[:components]) unless input[:components].nil?
-        data['iotJobConfiguration'] = Builders::DeploymentIoTJobConfiguration.build(input[:iot_job_configuration]) unless input[:iot_job_configuration].nil?
-        data['deploymentPolicies'] = Builders::DeploymentPolicies.build(input[:deployment_policies]) unless input[:deployment_policies].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['components'] = ComponentDeploymentSpecifications.build(input[:components]) unless input[:components].nil?
+        data['iotJobConfiguration'] = DeploymentIoTJobConfiguration.build(input[:iot_job_configuration]) unless input[:iot_job_configuration].nil?
+        data['deploymentPolicies'] = DeploymentPolicies.build(input[:deployment_policies]) unless input[:deployment_policies].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -377,8 +380,8 @@ module AWS::SDK::GreengrassV2
       def self.build(input)
         data = {}
         data['failureHandlingPolicy'] = input[:failure_handling_policy] unless input[:failure_handling_policy].nil?
-        data['componentUpdatePolicy'] = Builders::DeploymentComponentUpdatePolicy.build(input[:component_update_policy]) unless input[:component_update_policy].nil?
-        data['configurationValidationPolicy'] = Builders::DeploymentConfigurationValidationPolicy.build(input[:configuration_validation_policy]) unless input[:configuration_validation_policy].nil?
+        data['componentUpdatePolicy'] = DeploymentComponentUpdatePolicy.build(input[:component_update_policy]) unless input[:component_update_policy].nil?
+        data['configurationValidationPolicy'] = DeploymentConfigurationValidationPolicy.build(input[:configuration_validation_policy]) unless input[:configuration_validation_policy].nil?
         data
       end
     end
@@ -406,9 +409,9 @@ module AWS::SDK::GreengrassV2
     class DeploymentIoTJobConfiguration
       def self.build(input)
         data = {}
-        data['jobExecutionsRolloutConfig'] = Builders::IoTJobExecutionsRolloutConfig.build(input[:job_executions_rollout_config]) unless input[:job_executions_rollout_config].nil?
-        data['abortConfig'] = Builders::IoTJobAbortConfig.build(input[:abort_config]) unless input[:abort_config].nil?
-        data['timeoutConfig'] = Builders::IoTJobTimeoutConfig.build(input[:timeout_config]) unless input[:timeout_config].nil?
+        data['jobExecutionsRolloutConfig'] = IoTJobExecutionsRolloutConfig.build(input[:job_executions_rollout_config]) unless input[:job_executions_rollout_config].nil?
+        data['abortConfig'] = IoTJobAbortConfig.build(input[:abort_config]) unless input[:abort_config].nil?
+        data['timeoutConfig'] = IoTJobTimeoutConfig.build(input[:timeout_config]) unless input[:timeout_config].nil?
         data
       end
     end
@@ -426,7 +429,7 @@ module AWS::SDK::GreengrassV2
     class IoTJobAbortConfig
       def self.build(input)
         data = {}
-        data['criteriaList'] = Builders::IoTJobAbortCriteriaList.build(input[:criteria_list]) unless input[:criteria_list].nil?
+        data['criteriaList'] = IoTJobAbortCriteriaList.build(input[:criteria_list]) unless input[:criteria_list].nil?
         data
       end
     end
@@ -436,7 +439,7 @@ module AWS::SDK::GreengrassV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::IoTJobAbortCriteria.build(element) unless element.nil?
+          data << IoTJobAbortCriteria.build(element) unless element.nil?
         end
         data
       end
@@ -458,7 +461,7 @@ module AWS::SDK::GreengrassV2
     class IoTJobExecutionsRolloutConfig
       def self.build(input)
         data = {}
-        data['exponentialRate'] = Builders::IoTJobExponentialRolloutRate.build(input[:exponential_rate]) unless input[:exponential_rate].nil?
+        data['exponentialRate'] = IoTJobExponentialRolloutRate.build(input[:exponential_rate]) unless input[:exponential_rate].nil?
         data['maximumPerMinute'] = input[:maximum_per_minute] unless input[:maximum_per_minute].nil?
         data
       end
@@ -470,7 +473,7 @@ module AWS::SDK::GreengrassV2
         data = {}
         data['baseRatePerMinute'] = input[:base_rate_per_minute] unless input[:base_rate_per_minute].nil?
         data['incrementFactor'] = Hearth::NumberHelper.serialize(input[:increment_factor]) unless input[:increment_factor].nil?
-        data['rateIncreaseCriteria'] = Builders::IoTJobRateIncreaseCriteria.build(input[:rate_increase_criteria]) unless input[:rate_increase_criteria].nil?
+        data['rateIncreaseCriteria'] = IoTJobRateIncreaseCriteria.build(input[:rate_increase_criteria]) unless input[:rate_increase_criteria].nil?
         data
       end
     end
@@ -490,7 +493,7 @@ module AWS::SDK::GreengrassV2
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ComponentDeploymentSpecification.build(value) unless value.nil?
+          data[key] = ComponentDeploymentSpecification.build(value) unless value.nil?
         end
         data
       end
@@ -501,8 +504,8 @@ module AWS::SDK::GreengrassV2
       def self.build(input)
         data = {}
         data['componentVersion'] = input[:component_version] unless input[:component_version].nil?
-        data['configurationUpdate'] = Builders::ComponentConfigurationUpdate.build(input[:configuration_update]) unless input[:configuration_update].nil?
-        data['runWith'] = Builders::ComponentRunWith.build(input[:run_with]) unless input[:run_with].nil?
+        data['configurationUpdate'] = ComponentConfigurationUpdate.build(input[:configuration_update]) unless input[:configuration_update].nil?
+        data['runWith'] = ComponentRunWith.build(input[:run_with]) unless input[:run_with].nil?
         data
       end
     end
@@ -512,7 +515,7 @@ module AWS::SDK::GreengrassV2
       def self.build(input)
         data = {}
         data['posixUser'] = input[:posix_user] unless input[:posix_user].nil?
-        data['systemResourceLimits'] = Builders::SystemResourceLimits.build(input[:system_resource_limits]) unless input[:system_resource_limits].nil?
+        data['systemResourceLimits'] = SystemResourceLimits.build(input[:system_resource_limits]) unless input[:system_resource_limits].nil?
         data['windowsUser'] = input[:windows_user] unless input[:windows_user].nil?
         data
       end
@@ -533,7 +536,7 @@ module AWS::SDK::GreengrassV2
       def self.build(input)
         data = {}
         data['merge'] = input[:merge] unless input[:merge].nil?
-        data['reset'] = Builders::ComponentConfigurationPathList.build(input[:reset]) unless input[:reset].nil?
+        data['reset'] = ComponentConfigurationPathList.build(input[:reset]) unless input[:reset].nil?
         data
       end
     end
@@ -871,9 +874,9 @@ module AWS::SDK::GreengrassV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['platform'] = Builders::ComponentPlatform.build(input[:platform]) unless input[:platform].nil?
-        data['componentCandidates'] = Builders::ComponentCandidateList.build(input[:component_candidates]) unless input[:component_candidates].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['platform'] = ComponentPlatform.build(input[:platform]) unless input[:platform].nil?
+        data['componentCandidates'] = ComponentCandidateList.build(input[:component_candidates]) unless input[:component_candidates].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -882,7 +885,7 @@ module AWS::SDK::GreengrassV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ComponentCandidate.build(element) unless element.nil?
+          data << ComponentCandidate.build(element) unless element.nil?
         end
         data
       end
@@ -894,7 +897,7 @@ module AWS::SDK::GreengrassV2
         data = {}
         data['componentName'] = input[:component_name] unless input[:component_name].nil?
         data['componentVersion'] = input[:component_version] unless input[:component_version].nil?
-        data['versionRequirements'] = Builders::ComponentVersionRequirementMap.build(input[:version_requirements]) unless input[:version_requirements].nil?
+        data['versionRequirements'] = ComponentVersionRequirementMap.build(input[:version_requirements]) unless input[:version_requirements].nil?
         data
       end
     end
@@ -927,8 +930,8 @@ module AWS::SDK::GreengrassV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -982,8 +985,8 @@ module AWS::SDK::GreengrassV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ConnectivityInfo'] = Builders::ConnectivityInfoList.build(input[:connectivity_info]) unless input[:connectivity_info].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConnectivityInfo'] = ConnectivityInfoList.build(input[:connectivity_info]) unless input[:connectivity_info].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -992,7 +995,7 @@ module AWS::SDK::GreengrassV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ConnectivityInfo.build(element) unless element.nil?
+          data << ConnectivityInfo.build(element) unless element.nil?
         end
         data
       end

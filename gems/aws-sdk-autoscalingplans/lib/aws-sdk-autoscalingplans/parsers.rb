@@ -100,7 +100,7 @@ module AWS::SDK::AutoScalingPlans
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.scaling_plan_resources = (Parsers::ScalingPlanResources.parse(map['ScalingPlanResources']) unless map['ScalingPlanResources'].nil?)
+        data.scaling_plan_resources = (ScalingPlanResources.parse(map['ScalingPlanResources']) unless map['ScalingPlanResources'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -109,7 +109,7 @@ module AWS::SDK::AutoScalingPlans
     class ScalingPlanResources
       def self.parse(list)
         list.map do |value|
-          Parsers::ScalingPlanResource.parse(value) unless value.nil?
+          ScalingPlanResource.parse(value) unless value.nil?
         end
       end
     end
@@ -122,7 +122,7 @@ module AWS::SDK::AutoScalingPlans
         data.service_namespace = map['ServiceNamespace']
         data.resource_id = map['ResourceId']
         data.scalable_dimension = map['ScalableDimension']
-        data.scaling_policies = (Parsers::ScalingPolicies.parse(map['ScalingPolicies']) unless map['ScalingPolicies'].nil?)
+        data.scaling_policies = (ScalingPolicies.parse(map['ScalingPolicies']) unless map['ScalingPolicies'].nil?)
         data.scaling_status_code = map['ScalingStatusCode']
         data.scaling_status_message = map['ScalingStatusMessage']
         return data
@@ -132,7 +132,7 @@ module AWS::SDK::AutoScalingPlans
     class ScalingPolicies
       def self.parse(list)
         list.map do |value|
-          Parsers::ScalingPolicy.parse(value) unless value.nil?
+          ScalingPolicy.parse(value) unless value.nil?
         end
       end
     end
@@ -142,7 +142,7 @@ module AWS::SDK::AutoScalingPlans
         data = Types::ScalingPolicy.new
         data.policy_name = map['PolicyName']
         data.policy_type = map['PolicyType']
-        data.target_tracking_configuration = (Parsers::TargetTrackingConfiguration.parse(map['TargetTrackingConfiguration']) unless map['TargetTrackingConfiguration'].nil?)
+        data.target_tracking_configuration = (TargetTrackingConfiguration.parse(map['TargetTrackingConfiguration']) unless map['TargetTrackingConfiguration'].nil?)
         return data
       end
     end
@@ -150,8 +150,8 @@ module AWS::SDK::AutoScalingPlans
     class TargetTrackingConfiguration
       def self.parse(map)
         data = Types::TargetTrackingConfiguration.new
-        data.predefined_scaling_metric_specification = (Parsers::PredefinedScalingMetricSpecification.parse(map['PredefinedScalingMetricSpecification']) unless map['PredefinedScalingMetricSpecification'].nil?)
-        data.customized_scaling_metric_specification = (Parsers::CustomizedScalingMetricSpecification.parse(map['CustomizedScalingMetricSpecification']) unless map['CustomizedScalingMetricSpecification'].nil?)
+        data.predefined_scaling_metric_specification = (PredefinedScalingMetricSpecification.parse(map['PredefinedScalingMetricSpecification']) unless map['PredefinedScalingMetricSpecification'].nil?)
+        data.customized_scaling_metric_specification = (CustomizedScalingMetricSpecification.parse(map['CustomizedScalingMetricSpecification']) unless map['CustomizedScalingMetricSpecification'].nil?)
         data.target_value = Hearth::NumberHelper.deserialize(map['TargetValue'])
         data.disable_scale_in = map['DisableScaleIn']
         data.scale_out_cooldown = map['ScaleOutCooldown']
@@ -166,7 +166,7 @@ module AWS::SDK::AutoScalingPlans
         data = Types::CustomizedScalingMetricSpecification.new
         data.metric_name = map['MetricName']
         data.namespace = map['Namespace']
-        data.dimensions = (Parsers::MetricDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.dimensions = (MetricDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
         data.statistic = map['Statistic']
         data.unit = map['Unit']
         return data
@@ -176,7 +176,7 @@ module AWS::SDK::AutoScalingPlans
     class MetricDimensions
       def self.parse(list)
         list.map do |value|
-          Parsers::MetricDimension.parse(value) unless value.nil?
+          MetricDimension.parse(value) unless value.nil?
         end
       end
     end
@@ -218,7 +218,7 @@ module AWS::SDK::AutoScalingPlans
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.scaling_plans = (Parsers::ScalingPlans.parse(map['ScalingPlans']) unless map['ScalingPlans'].nil?)
+        data.scaling_plans = (ScalingPlans.parse(map['ScalingPlans']) unless map['ScalingPlans'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -227,7 +227,7 @@ module AWS::SDK::AutoScalingPlans
     class ScalingPlans
       def self.parse(list)
         list.map do |value|
-          Parsers::ScalingPlan.parse(value) unless value.nil?
+          ScalingPlan.parse(value) unless value.nil?
         end
       end
     end
@@ -237,8 +237,8 @@ module AWS::SDK::AutoScalingPlans
         data = Types::ScalingPlan.new
         data.scaling_plan_name = map['ScalingPlanName']
         data.scaling_plan_version = map['ScalingPlanVersion']
-        data.application_source = (Parsers::ApplicationSource.parse(map['ApplicationSource']) unless map['ApplicationSource'].nil?)
-        data.scaling_instructions = (Parsers::ScalingInstructions.parse(map['ScalingInstructions']) unless map['ScalingInstructions'].nil?)
+        data.application_source = (ApplicationSource.parse(map['ApplicationSource']) unless map['ApplicationSource'].nil?)
+        data.scaling_instructions = (ScalingInstructions.parse(map['ScalingInstructions']) unless map['ScalingInstructions'].nil?)
         data.status_code = map['StatusCode']
         data.status_message = map['StatusMessage']
         data.status_start_time = Time.at(map['StatusStartTime'].to_i) if map['StatusStartTime']
@@ -250,7 +250,7 @@ module AWS::SDK::AutoScalingPlans
     class ScalingInstructions
       def self.parse(list)
         list.map do |value|
-          Parsers::ScalingInstruction.parse(value) unless value.nil?
+          ScalingInstruction.parse(value) unless value.nil?
         end
       end
     end
@@ -263,9 +263,9 @@ module AWS::SDK::AutoScalingPlans
         data.scalable_dimension = map['ScalableDimension']
         data.min_capacity = map['MinCapacity']
         data.max_capacity = map['MaxCapacity']
-        data.target_tracking_configurations = (Parsers::TargetTrackingConfigurations.parse(map['TargetTrackingConfigurations']) unless map['TargetTrackingConfigurations'].nil?)
-        data.predefined_load_metric_specification = (Parsers::PredefinedLoadMetricSpecification.parse(map['PredefinedLoadMetricSpecification']) unless map['PredefinedLoadMetricSpecification'].nil?)
-        data.customized_load_metric_specification = (Parsers::CustomizedLoadMetricSpecification.parse(map['CustomizedLoadMetricSpecification']) unless map['CustomizedLoadMetricSpecification'].nil?)
+        data.target_tracking_configurations = (TargetTrackingConfigurations.parse(map['TargetTrackingConfigurations']) unless map['TargetTrackingConfigurations'].nil?)
+        data.predefined_load_metric_specification = (PredefinedLoadMetricSpecification.parse(map['PredefinedLoadMetricSpecification']) unless map['PredefinedLoadMetricSpecification'].nil?)
+        data.customized_load_metric_specification = (CustomizedLoadMetricSpecification.parse(map['CustomizedLoadMetricSpecification']) unless map['CustomizedLoadMetricSpecification'].nil?)
         data.scheduled_action_buffer_time = map['ScheduledActionBufferTime']
         data.predictive_scaling_max_capacity_behavior = map['PredictiveScalingMaxCapacityBehavior']
         data.predictive_scaling_max_capacity_buffer = map['PredictiveScalingMaxCapacityBuffer']
@@ -281,7 +281,7 @@ module AWS::SDK::AutoScalingPlans
         data = Types::CustomizedLoadMetricSpecification.new
         data.metric_name = map['MetricName']
         data.namespace = map['Namespace']
-        data.dimensions = (Parsers::MetricDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.dimensions = (MetricDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
         data.statistic = map['Statistic']
         data.unit = map['Unit']
         return data
@@ -300,7 +300,7 @@ module AWS::SDK::AutoScalingPlans
     class TargetTrackingConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::TargetTrackingConfiguration.parse(value) unless value.nil?
+          TargetTrackingConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -309,7 +309,7 @@ module AWS::SDK::AutoScalingPlans
       def self.parse(map)
         data = Types::ApplicationSource.new
         data.cloud_formation_stack_arn = map['CloudFormationStackARN']
-        data.tag_filters = (Parsers::TagFilters.parse(map['TagFilters']) unless map['TagFilters'].nil?)
+        data.tag_filters = (TagFilters.parse(map['TagFilters']) unless map['TagFilters'].nil?)
         return data
       end
     end
@@ -317,7 +317,7 @@ module AWS::SDK::AutoScalingPlans
     class TagFilters
       def self.parse(list)
         list.map do |value|
-          Parsers::TagFilter.parse(value) unless value.nil?
+          TagFilter.parse(value) unless value.nil?
         end
       end
     end
@@ -326,7 +326,7 @@ module AWS::SDK::AutoScalingPlans
       def self.parse(map)
         data = Types::TagFilter.new
         data.key = map['Key']
-        data.values = (Parsers::TagValues.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (TagValues.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -346,7 +346,7 @@ module AWS::SDK::AutoScalingPlans
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.datapoints = (Parsers::Datapoints.parse(map['Datapoints']) unless map['Datapoints'].nil?)
+        data.datapoints = (Datapoints.parse(map['Datapoints']) unless map['Datapoints'].nil?)
         data
       end
     end
@@ -354,7 +354,7 @@ module AWS::SDK::AutoScalingPlans
     class Datapoints
       def self.parse(list)
         list.map do |value|
-          Parsers::Datapoint.parse(value) unless value.nil?
+          Datapoint.parse(value) unless value.nil?
         end
       end
     end

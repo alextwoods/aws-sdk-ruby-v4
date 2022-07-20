@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Appflow
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::Appflow
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['connectorProfileArn'] = stub[:connector_profile_arn] unless stub[:connector_profile_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -42,7 +44,7 @@ module AWS::SDK::Appflow
         http_resp.headers['Content-Type'] = 'application/json'
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
         data['flowStatus'] = stub[:flow_status] unless stub[:flow_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -84,8 +86,8 @@ module AWS::SDK::Appflow
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['connectorConfiguration'] = Stubs::ConnectorConfiguration.stub(stub[:connector_configuration]) unless stub[:connector_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['connectorConfiguration'] = ConnectorConfiguration.stub(stub[:connector_configuration]) unless stub[:connector_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -129,12 +131,12 @@ module AWS::SDK::Appflow
         data = {}
         data['canUseAsSource'] = stub[:can_use_as_source] unless stub[:can_use_as_source].nil?
         data['canUseAsDestination'] = stub[:can_use_as_destination] unless stub[:can_use_as_destination].nil?
-        data['supportedDestinationConnectors'] = Stubs::ConnectorTypeList.stub(stub[:supported_destination_connectors]) unless stub[:supported_destination_connectors].nil?
-        data['supportedSchedulingFrequencies'] = Stubs::SchedulingFrequencyTypeList.stub(stub[:supported_scheduling_frequencies]) unless stub[:supported_scheduling_frequencies].nil?
+        data['supportedDestinationConnectors'] = ConnectorTypeList.stub(stub[:supported_destination_connectors]) unless stub[:supported_destination_connectors].nil?
+        data['supportedSchedulingFrequencies'] = SchedulingFrequencyTypeList.stub(stub[:supported_scheduling_frequencies]) unless stub[:supported_scheduling_frequencies].nil?
         data['isPrivateLinkEnabled'] = stub[:is_private_link_enabled] unless stub[:is_private_link_enabled].nil?
         data['isPrivateLinkEndpointUrlRequired'] = stub[:is_private_link_endpoint_url_required] unless stub[:is_private_link_endpoint_url_required].nil?
-        data['supportedTriggerTypes'] = Stubs::TriggerTypeList.stub(stub[:supported_trigger_types]) unless stub[:supported_trigger_types].nil?
-        data['connectorMetadata'] = Stubs::ConnectorMetadata.stub(stub[:connector_metadata]) unless stub[:connector_metadata].nil?
+        data['supportedTriggerTypes'] = TriggerTypeList.stub(stub[:supported_trigger_types]) unless stub[:supported_trigger_types].nil?
+        data['connectorMetadata'] = ConnectorMetadata.stub(stub[:connector_metadata]) unless stub[:connector_metadata].nil?
         data['connectorType'] = stub[:connector_type] unless stub[:connector_type].nil?
         data['connectorLabel'] = stub[:connector_label] unless stub[:connector_label].nil?
         data['connectorDescription'] = stub[:connector_description] unless stub[:connector_description].nil?
@@ -142,14 +144,14 @@ module AWS::SDK::Appflow
         data['connectorName'] = stub[:connector_name] unless stub[:connector_name].nil?
         data['connectorVersion'] = stub[:connector_version] unless stub[:connector_version].nil?
         data['connectorArn'] = stub[:connector_arn] unless stub[:connector_arn].nil?
-        data['connectorModes'] = Stubs::ConnectorModeList.stub(stub[:connector_modes]) unless stub[:connector_modes].nil?
-        data['authenticationConfig'] = Stubs::AuthenticationConfig.stub(stub[:authentication_config]) unless stub[:authentication_config].nil?
-        data['connectorRuntimeSettings'] = Stubs::ConnectorRuntimeSettingList.stub(stub[:connector_runtime_settings]) unless stub[:connector_runtime_settings].nil?
-        data['supportedApiVersions'] = Stubs::SupportedApiVersionList.stub(stub[:supported_api_versions]) unless stub[:supported_api_versions].nil?
-        data['supportedOperators'] = Stubs::SupportedOperatorList.stub(stub[:supported_operators]) unless stub[:supported_operators].nil?
-        data['supportedWriteOperations'] = Stubs::SupportedWriteOperationList.stub(stub[:supported_write_operations]) unless stub[:supported_write_operations].nil?
+        data['connectorModes'] = ConnectorModeList.stub(stub[:connector_modes]) unless stub[:connector_modes].nil?
+        data['authenticationConfig'] = AuthenticationConfig.stub(stub[:authentication_config]) unless stub[:authentication_config].nil?
+        data['connectorRuntimeSettings'] = ConnectorRuntimeSettingList.stub(stub[:connector_runtime_settings]) unless stub[:connector_runtime_settings].nil?
+        data['supportedApiVersions'] = SupportedApiVersionList.stub(stub[:supported_api_versions]) unless stub[:supported_api_versions].nil?
+        data['supportedOperators'] = SupportedOperatorList.stub(stub[:supported_operators]) unless stub[:supported_operators].nil?
+        data['supportedWriteOperations'] = SupportedWriteOperationList.stub(stub[:supported_write_operations]) unless stub[:supported_write_operations].nil?
         data['connectorProvisioningType'] = stub[:connector_provisioning_type] unless stub[:connector_provisioning_type].nil?
-        data['connectorProvisioningConfig'] = Stubs::ConnectorProvisioningConfig.stub(stub[:connector_provisioning_config]) unless stub[:connector_provisioning_config].nil?
+        data['connectorProvisioningConfig'] = ConnectorProvisioningConfig.stub(stub[:connector_provisioning_config]) unless stub[:connector_provisioning_config].nil?
         data['logoURL'] = stub[:logo_url] unless stub[:logo_url].nil?
         data['registeredAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:registered_at]).to_i unless stub[:registered_at].nil?
         data['registeredBy'] = stub[:registered_by] unless stub[:registered_by].nil?
@@ -170,7 +172,7 @@ module AWS::SDK::Appflow
       def self.stub(stub)
         stub ||= Types::ConnectorProvisioningConfig.new
         data = {}
-        data['lambda'] = Stubs::LambdaConnectorProvisioningConfig.stub(stub[:lambda]) unless stub[:lambda].nil?
+        data['lambda'] = LambdaConnectorProvisioningConfig.stub(stub[:lambda]) unless stub[:lambda].nil?
         data
       end
     end
@@ -267,7 +269,7 @@ module AWS::SDK::Appflow
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectorRuntimeSetting.stub(element) unless element.nil?
+          data << ConnectorRuntimeSetting.stub(element) unless element.nil?
         end
         data
       end
@@ -298,7 +300,7 @@ module AWS::SDK::Appflow
         data['label'] = stub[:label] unless stub[:label].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['scope'] = stub[:scope] unless stub[:scope].nil?
-        data['connectorSuppliedValueOptions'] = Stubs::ConnectorSuppliedValueOptionList.stub(stub[:connector_supplied_value_options]) unless stub[:connector_supplied_value_options].nil?
+        data['connectorSuppliedValueOptions'] = ConnectorSuppliedValueOptionList.stub(stub[:connector_supplied_value_options]) unless stub[:connector_supplied_value_options].nil?
         data
       end
     end
@@ -345,8 +347,8 @@ module AWS::SDK::Appflow
         data['isApiKeyAuthSupported'] = stub[:is_api_key_auth_supported] unless stub[:is_api_key_auth_supported].nil?
         data['isOAuth2Supported'] = stub[:is_o_auth2_supported] unless stub[:is_o_auth2_supported].nil?
         data['isCustomAuthSupported'] = stub[:is_custom_auth_supported] unless stub[:is_custom_auth_supported].nil?
-        data['oAuth2Defaults'] = Stubs::OAuth2Defaults.stub(stub[:o_auth2_defaults]) unless stub[:o_auth2_defaults].nil?
-        data['customAuthConfigs'] = Stubs::CustomAuthConfigList.stub(stub[:custom_auth_configs]) unless stub[:custom_auth_configs].nil?
+        data['oAuth2Defaults'] = OAuth2Defaults.stub(stub[:o_auth2_defaults]) unless stub[:o_auth2_defaults].nil?
+        data['customAuthConfigs'] = CustomAuthConfigList.stub(stub[:custom_auth_configs]) unless stub[:custom_auth_configs].nil?
         data
       end
     end
@@ -365,7 +367,7 @@ module AWS::SDK::Appflow
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomAuthConfig.stub(element) unless element.nil?
+          data << CustomAuthConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -386,7 +388,7 @@ module AWS::SDK::Appflow
         stub ||= Types::CustomAuthConfig.new
         data = {}
         data['customAuthenticationType'] = stub[:custom_authentication_type] unless stub[:custom_authentication_type].nil?
-        data['authParameters'] = Stubs::AuthParameterList.stub(stub[:auth_parameters]) unless stub[:auth_parameters].nil?
+        data['authParameters'] = AuthParameterList.stub(stub[:auth_parameters]) unless stub[:auth_parameters].nil?
         data
       end
     end
@@ -405,7 +407,7 @@ module AWS::SDK::Appflow
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AuthParameter.stub(element) unless element.nil?
+          data << AuthParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -434,7 +436,7 @@ module AWS::SDK::Appflow
         data['label'] = stub[:label] unless stub[:label].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['isSensitiveField'] = stub[:is_sensitive_field] unless stub[:is_sensitive_field].nil?
-        data['connectorSuppliedValues'] = Stubs::ConnectorSuppliedValueList.stub(stub[:connector_supplied_values]) unless stub[:connector_supplied_values].nil?
+        data['connectorSuppliedValues'] = ConnectorSuppliedValueList.stub(stub[:connector_supplied_values]) unless stub[:connector_supplied_values].nil?
         data
       end
     end
@@ -476,11 +478,11 @@ module AWS::SDK::Appflow
       def self.stub(stub)
         stub ||= Types::OAuth2Defaults.new
         data = {}
-        data['oauthScopes'] = Stubs::OAuthScopeList.stub(stub[:oauth_scopes]) unless stub[:oauth_scopes].nil?
-        data['tokenUrls'] = Stubs::TokenUrlList.stub(stub[:token_urls]) unless stub[:token_urls].nil?
-        data['authCodeUrls'] = Stubs::AuthCodeUrlList.stub(stub[:auth_code_urls]) unless stub[:auth_code_urls].nil?
-        data['oauth2GrantTypesSupported'] = Stubs::OAuth2GrantTypeSupportedList.stub(stub[:oauth2_grant_types_supported]) unless stub[:oauth2_grant_types_supported].nil?
-        data['oauth2CustomProperties'] = Stubs::OAuth2CustomPropertiesList.stub(stub[:oauth2_custom_properties]) unless stub[:oauth2_custom_properties].nil?
+        data['oauthScopes'] = OAuthScopeList.stub(stub[:oauth_scopes]) unless stub[:oauth_scopes].nil?
+        data['tokenUrls'] = TokenUrlList.stub(stub[:token_urls]) unless stub[:token_urls].nil?
+        data['authCodeUrls'] = AuthCodeUrlList.stub(stub[:auth_code_urls]) unless stub[:auth_code_urls].nil?
+        data['oauth2GrantTypesSupported'] = OAuth2GrantTypeSupportedList.stub(stub[:oauth2_grant_types_supported]) unless stub[:oauth2_grant_types_supported].nil?
+        data['oauth2CustomProperties'] = OAuth2CustomPropertiesList.stub(stub[:oauth2_custom_properties]) unless stub[:oauth2_custom_properties].nil?
         data
       end
     end
@@ -499,7 +501,7 @@ module AWS::SDK::Appflow
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OAuth2CustomParameter.stub(element) unless element.nil?
+          data << OAuth2CustomParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -529,7 +531,7 @@ module AWS::SDK::Appflow
         data['label'] = stub[:label] unless stub[:label].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['isSensitiveField'] = stub[:is_sensitive_field] unless stub[:is_sensitive_field].nil?
-        data['connectorSuppliedValues'] = Stubs::ConnectorSuppliedValueList.stub(stub[:connector_supplied_values]) unless stub[:connector_supplied_values].nil?
+        data['connectorSuppliedValues'] = ConnectorSuppliedValueList.stub(stub[:connector_supplied_values]) unless stub[:connector_supplied_values].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -668,27 +670,27 @@ module AWS::SDK::Appflow
       def self.stub(stub)
         stub ||= Types::ConnectorMetadata.new
         data = {}
-        data['Amplitude'] = Stubs::AmplitudeMetadata.stub(stub[:amplitude]) unless stub[:amplitude].nil?
-        data['Datadog'] = Stubs::DatadogMetadata.stub(stub[:datadog]) unless stub[:datadog].nil?
-        data['Dynatrace'] = Stubs::DynatraceMetadata.stub(stub[:dynatrace]) unless stub[:dynatrace].nil?
-        data['GoogleAnalytics'] = Stubs::GoogleAnalyticsMetadata.stub(stub[:google_analytics]) unless stub[:google_analytics].nil?
-        data['InforNexus'] = Stubs::InforNexusMetadata.stub(stub[:infor_nexus]) unless stub[:infor_nexus].nil?
-        data['Marketo'] = Stubs::MarketoMetadata.stub(stub[:marketo]) unless stub[:marketo].nil?
-        data['Redshift'] = Stubs::RedshiftMetadata.stub(stub[:redshift]) unless stub[:redshift].nil?
-        data['S3'] = Stubs::S3Metadata.stub(stub[:s3]) unless stub[:s3].nil?
-        data['Salesforce'] = Stubs::SalesforceMetadata.stub(stub[:salesforce]) unless stub[:salesforce].nil?
-        data['ServiceNow'] = Stubs::ServiceNowMetadata.stub(stub[:service_now]) unless stub[:service_now].nil?
-        data['Singular'] = Stubs::SingularMetadata.stub(stub[:singular]) unless stub[:singular].nil?
-        data['Slack'] = Stubs::SlackMetadata.stub(stub[:slack]) unless stub[:slack].nil?
-        data['Snowflake'] = Stubs::SnowflakeMetadata.stub(stub[:snowflake]) unless stub[:snowflake].nil?
-        data['Trendmicro'] = Stubs::TrendmicroMetadata.stub(stub[:trendmicro]) unless stub[:trendmicro].nil?
-        data['Veeva'] = Stubs::VeevaMetadata.stub(stub[:veeva]) unless stub[:veeva].nil?
-        data['Zendesk'] = Stubs::ZendeskMetadata.stub(stub[:zendesk]) unless stub[:zendesk].nil?
-        data['EventBridge'] = Stubs::EventBridgeMetadata.stub(stub[:event_bridge]) unless stub[:event_bridge].nil?
-        data['Upsolver'] = Stubs::UpsolverMetadata.stub(stub[:upsolver]) unless stub[:upsolver].nil?
-        data['CustomerProfiles'] = Stubs::CustomerProfilesMetadata.stub(stub[:customer_profiles]) unless stub[:customer_profiles].nil?
-        data['Honeycode'] = Stubs::HoneycodeMetadata.stub(stub[:honeycode]) unless stub[:honeycode].nil?
-        data['SAPOData'] = Stubs::SAPODataMetadata.stub(stub[:sapo_data]) unless stub[:sapo_data].nil?
+        data['Amplitude'] = AmplitudeMetadata.stub(stub[:amplitude]) unless stub[:amplitude].nil?
+        data['Datadog'] = DatadogMetadata.stub(stub[:datadog]) unless stub[:datadog].nil?
+        data['Dynatrace'] = DynatraceMetadata.stub(stub[:dynatrace]) unless stub[:dynatrace].nil?
+        data['GoogleAnalytics'] = GoogleAnalyticsMetadata.stub(stub[:google_analytics]) unless stub[:google_analytics].nil?
+        data['InforNexus'] = InforNexusMetadata.stub(stub[:infor_nexus]) unless stub[:infor_nexus].nil?
+        data['Marketo'] = MarketoMetadata.stub(stub[:marketo]) unless stub[:marketo].nil?
+        data['Redshift'] = RedshiftMetadata.stub(stub[:redshift]) unless stub[:redshift].nil?
+        data['S3'] = S3Metadata.stub(stub[:s3]) unless stub[:s3].nil?
+        data['Salesforce'] = SalesforceMetadata.stub(stub[:salesforce]) unless stub[:salesforce].nil?
+        data['ServiceNow'] = ServiceNowMetadata.stub(stub[:service_now]) unless stub[:service_now].nil?
+        data['Singular'] = SingularMetadata.stub(stub[:singular]) unless stub[:singular].nil?
+        data['Slack'] = SlackMetadata.stub(stub[:slack]) unless stub[:slack].nil?
+        data['Snowflake'] = SnowflakeMetadata.stub(stub[:snowflake]) unless stub[:snowflake].nil?
+        data['Trendmicro'] = TrendmicroMetadata.stub(stub[:trendmicro]) unless stub[:trendmicro].nil?
+        data['Veeva'] = VeevaMetadata.stub(stub[:veeva]) unless stub[:veeva].nil?
+        data['Zendesk'] = ZendeskMetadata.stub(stub[:zendesk]) unless stub[:zendesk].nil?
+        data['EventBridge'] = EventBridgeMetadata.stub(stub[:event_bridge]) unless stub[:event_bridge].nil?
+        data['Upsolver'] = UpsolverMetadata.stub(stub[:upsolver]) unless stub[:upsolver].nil?
+        data['CustomerProfiles'] = CustomerProfilesMetadata.stub(stub[:customer_profiles]) unless stub[:customer_profiles].nil?
+        data['Honeycode'] = HoneycodeMetadata.stub(stub[:honeycode]) unless stub[:honeycode].nil?
+        data['SAPOData'] = SAPODataMetadata.stub(stub[:sapo_data]) unless stub[:sapo_data].nil?
         data
       end
     end
@@ -722,7 +724,7 @@ module AWS::SDK::Appflow
       def self.stub(stub)
         stub ||= Types::HoneycodeMetadata.new
         data = {}
-        data['oAuthScopes'] = Stubs::OAuthScopeList.stub(stub[:o_auth_scopes]) unless stub[:o_auth_scopes].nil?
+        data['oAuthScopes'] = OAuthScopeList.stub(stub[:o_auth_scopes]) unless stub[:o_auth_scopes].nil?
         data
       end
     end
@@ -788,7 +790,7 @@ module AWS::SDK::Appflow
       def self.stub(stub)
         stub ||= Types::ZendeskMetadata.new
         data = {}
-        data['oAuthScopes'] = Stubs::OAuthScopeList.stub(stub[:o_auth_scopes]) unless stub[:o_auth_scopes].nil?
+        data['oAuthScopes'] = OAuthScopeList.stub(stub[:o_auth_scopes]) unless stub[:o_auth_scopes].nil?
         data
       end
     end
@@ -838,7 +840,7 @@ module AWS::SDK::Appflow
       def self.stub(stub)
         stub ||= Types::SnowflakeMetadata.new
         data = {}
-        data['supportedRegions'] = Stubs::RegionList.stub(stub[:supported_regions]) unless stub[:supported_regions].nil?
+        data['supportedRegions'] = RegionList.stub(stub[:supported_regions]) unless stub[:supported_regions].nil?
         data
       end
     end
@@ -876,7 +878,7 @@ module AWS::SDK::Appflow
       def self.stub(stub)
         stub ||= Types::SlackMetadata.new
         data = {}
-        data['oAuthScopes'] = Stubs::OAuthScopeList.stub(stub[:o_auth_scopes]) unless stub[:o_auth_scopes].nil?
+        data['oAuthScopes'] = OAuthScopeList.stub(stub[:o_auth_scopes]) unless stub[:o_auth_scopes].nil?
         data
       end
     end
@@ -926,7 +928,7 @@ module AWS::SDK::Appflow
       def self.stub(stub)
         stub ||= Types::SalesforceMetadata.new
         data = {}
-        data['oAuthScopes'] = Stubs::OAuthScopeList.stub(stub[:o_auth_scopes]) unless stub[:o_auth_scopes].nil?
+        data['oAuthScopes'] = OAuthScopeList.stub(stub[:o_auth_scopes]) unless stub[:o_auth_scopes].nil?
         data
       end
     end
@@ -1008,7 +1010,7 @@ module AWS::SDK::Appflow
       def self.stub(stub)
         stub ||= Types::GoogleAnalyticsMetadata.new
         data = {}
-        data['oAuthScopes'] = Stubs::OAuthScopeList.stub(stub[:o_auth_scopes]) unless stub[:o_auth_scopes].nil?
+        data['oAuthScopes'] = OAuthScopeList.stub(stub[:o_auth_scopes]) unless stub[:o_auth_scopes].nil?
         data
       end
     end
@@ -1133,8 +1135,8 @@ module AWS::SDK::Appflow
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['connectorEntityFields'] = Stubs::ConnectorEntityFieldList.stub(stub[:connector_entity_fields]) unless stub[:connector_entity_fields].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['connectorEntityFields'] = ConnectorEntityFieldList.stub(stub[:connector_entity_fields]) unless stub[:connector_entity_fields].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1152,7 +1154,7 @@ module AWS::SDK::Appflow
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectorEntityField.stub(element) unless element.nil?
+          data << ConnectorEntityField.stub(element) unless element.nil?
         end
         data
       end
@@ -1187,11 +1189,11 @@ module AWS::SDK::Appflow
         data['isPrimaryKey'] = stub[:is_primary_key] unless stub[:is_primary_key].nil?
         data['defaultValue'] = stub[:default_value] unless stub[:default_value].nil?
         data['isDeprecated'] = stub[:is_deprecated] unless stub[:is_deprecated].nil?
-        data['supportedFieldTypeDetails'] = Stubs::SupportedFieldTypeDetails.stub(stub[:supported_field_type_details]) unless stub[:supported_field_type_details].nil?
+        data['supportedFieldTypeDetails'] = SupportedFieldTypeDetails.stub(stub[:supported_field_type_details]) unless stub[:supported_field_type_details].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['sourceProperties'] = Stubs::SourceFieldProperties.stub(stub[:source_properties]) unless stub[:source_properties].nil?
-        data['destinationProperties'] = Stubs::DestinationFieldProperties.stub(stub[:destination_properties]) unless stub[:destination_properties].nil?
-        data['customProperties'] = Stubs::CustomProperties.stub(stub[:custom_properties]) unless stub[:custom_properties].nil?
+        data['sourceProperties'] = SourceFieldProperties.stub(stub[:source_properties]) unless stub[:source_properties].nil?
+        data['destinationProperties'] = DestinationFieldProperties.stub(stub[:destination_properties]) unless stub[:destination_properties].nil?
+        data['customProperties'] = CustomProperties.stub(stub[:custom_properties]) unless stub[:custom_properties].nil?
         data
       end
     end
@@ -1239,7 +1241,7 @@ module AWS::SDK::Appflow
         data['isUpsertable'] = stub[:is_upsertable] unless stub[:is_upsertable].nil?
         data['isUpdatable'] = stub[:is_updatable] unless stub[:is_updatable].nil?
         data['isDefaultedOnCreate'] = stub[:is_defaulted_on_create] unless stub[:is_defaulted_on_create].nil?
-        data['supportedWriteOperations'] = Stubs::SupportedWriteOperationList.stub(stub[:supported_write_operations]) unless stub[:supported_write_operations].nil?
+        data['supportedWriteOperations'] = SupportedWriteOperationList.stub(stub[:supported_write_operations]) unless stub[:supported_write_operations].nil?
         data
       end
     end
@@ -1279,7 +1281,7 @@ module AWS::SDK::Appflow
       def self.stub(stub)
         stub ||= Types::SupportedFieldTypeDetails.new
         data = {}
-        data['v1'] = Stubs::FieldTypeDetails.stub(stub[:v1]) unless stub[:v1].nil?
+        data['v1'] = FieldTypeDetails.stub(stub[:v1]) unless stub[:v1].nil?
         data
       end
     end
@@ -1304,12 +1306,12 @@ module AWS::SDK::Appflow
         stub ||= Types::FieldTypeDetails.new
         data = {}
         data['fieldType'] = stub[:field_type] unless stub[:field_type].nil?
-        data['filterOperators'] = Stubs::FilterOperatorList.stub(stub[:filter_operators]) unless stub[:filter_operators].nil?
-        data['supportedValues'] = Stubs::SupportedValueList.stub(stub[:supported_values]) unless stub[:supported_values].nil?
+        data['filterOperators'] = FilterOperatorList.stub(stub[:filter_operators]) unless stub[:filter_operators].nil?
+        data['supportedValues'] = SupportedValueList.stub(stub[:supported_values]) unless stub[:supported_values].nil?
         data['valueRegexPattern'] = stub[:value_regex_pattern] unless stub[:value_regex_pattern].nil?
         data['supportedDateFormat'] = stub[:supported_date_format] unless stub[:supported_date_format].nil?
-        data['fieldValueRange'] = Stubs::Range.stub(stub[:field_value_range]) unless stub[:field_value_range].nil?
-        data['fieldLengthRange'] = Stubs::Range.stub(stub[:field_length_range]) unless stub[:field_length_range].nil?
+        data['fieldValueRange'] = Range.stub(stub[:field_value_range]) unless stub[:field_value_range].nil?
+        data['fieldLengthRange'] = Range.stub(stub[:field_length_range]) unless stub[:field_length_range].nil?
         data
       end
     end
@@ -1387,9 +1389,9 @@ module AWS::SDK::Appflow
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['connectorProfileDetails'] = Stubs::ConnectorProfileDetailList.stub(stub[:connector_profile_details]) unless stub[:connector_profile_details].nil?
+        data['connectorProfileDetails'] = ConnectorProfileDetailList.stub(stub[:connector_profile_details]) unless stub[:connector_profile_details].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1407,7 +1409,7 @@ module AWS::SDK::Appflow
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectorProfile.stub(element) unless element.nil?
+          data << ConnectorProfile.stub(element) unless element.nil?
         end
         data
       end
@@ -1441,10 +1443,10 @@ module AWS::SDK::Appflow
         data['connectorLabel'] = stub[:connector_label] unless stub[:connector_label].nil?
         data['connectionMode'] = stub[:connection_mode] unless stub[:connection_mode].nil?
         data['credentialsArn'] = stub[:credentials_arn] unless stub[:credentials_arn].nil?
-        data['connectorProfileProperties'] = Stubs::ConnectorProfileProperties.stub(stub[:connector_profile_properties]) unless stub[:connector_profile_properties].nil?
+        data['connectorProfileProperties'] = ConnectorProfileProperties.stub(stub[:connector_profile_properties]) unless stub[:connector_profile_properties].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['privateConnectionProvisioningState'] = Stubs::PrivateConnectionProvisioningState.stub(stub[:private_connection_provisioning_state]) unless stub[:private_connection_provisioning_state].nil?
+        data['privateConnectionProvisioningState'] = PrivateConnectionProvisioningState.stub(stub[:private_connection_provisioning_state]) unless stub[:private_connection_provisioning_state].nil?
         data
       end
     end
@@ -1501,24 +1503,24 @@ module AWS::SDK::Appflow
       def self.stub(stub)
         stub ||= Types::ConnectorProfileProperties.new
         data = {}
-        data['Amplitude'] = Stubs::AmplitudeConnectorProfileProperties.stub(stub[:amplitude]) unless stub[:amplitude].nil?
-        data['Datadog'] = Stubs::DatadogConnectorProfileProperties.stub(stub[:datadog]) unless stub[:datadog].nil?
-        data['Dynatrace'] = Stubs::DynatraceConnectorProfileProperties.stub(stub[:dynatrace]) unless stub[:dynatrace].nil?
-        data['GoogleAnalytics'] = Stubs::GoogleAnalyticsConnectorProfileProperties.stub(stub[:google_analytics]) unless stub[:google_analytics].nil?
-        data['Honeycode'] = Stubs::HoneycodeConnectorProfileProperties.stub(stub[:honeycode]) unless stub[:honeycode].nil?
-        data['InforNexus'] = Stubs::InforNexusConnectorProfileProperties.stub(stub[:infor_nexus]) unless stub[:infor_nexus].nil?
-        data['Marketo'] = Stubs::MarketoConnectorProfileProperties.stub(stub[:marketo]) unless stub[:marketo].nil?
-        data['Redshift'] = Stubs::RedshiftConnectorProfileProperties.stub(stub[:redshift]) unless stub[:redshift].nil?
-        data['Salesforce'] = Stubs::SalesforceConnectorProfileProperties.stub(stub[:salesforce]) unless stub[:salesforce].nil?
-        data['ServiceNow'] = Stubs::ServiceNowConnectorProfileProperties.stub(stub[:service_now]) unless stub[:service_now].nil?
-        data['Singular'] = Stubs::SingularConnectorProfileProperties.stub(stub[:singular]) unless stub[:singular].nil?
-        data['Slack'] = Stubs::SlackConnectorProfileProperties.stub(stub[:slack]) unless stub[:slack].nil?
-        data['Snowflake'] = Stubs::SnowflakeConnectorProfileProperties.stub(stub[:snowflake]) unless stub[:snowflake].nil?
-        data['Trendmicro'] = Stubs::TrendmicroConnectorProfileProperties.stub(stub[:trendmicro]) unless stub[:trendmicro].nil?
-        data['Veeva'] = Stubs::VeevaConnectorProfileProperties.stub(stub[:veeva]) unless stub[:veeva].nil?
-        data['Zendesk'] = Stubs::ZendeskConnectorProfileProperties.stub(stub[:zendesk]) unless stub[:zendesk].nil?
-        data['SAPOData'] = Stubs::SAPODataConnectorProfileProperties.stub(stub[:sapo_data]) unless stub[:sapo_data].nil?
-        data['CustomConnector'] = Stubs::CustomConnectorProfileProperties.stub(stub[:custom_connector]) unless stub[:custom_connector].nil?
+        data['Amplitude'] = AmplitudeConnectorProfileProperties.stub(stub[:amplitude]) unless stub[:amplitude].nil?
+        data['Datadog'] = DatadogConnectorProfileProperties.stub(stub[:datadog]) unless stub[:datadog].nil?
+        data['Dynatrace'] = DynatraceConnectorProfileProperties.stub(stub[:dynatrace]) unless stub[:dynatrace].nil?
+        data['GoogleAnalytics'] = GoogleAnalyticsConnectorProfileProperties.stub(stub[:google_analytics]) unless stub[:google_analytics].nil?
+        data['Honeycode'] = HoneycodeConnectorProfileProperties.stub(stub[:honeycode]) unless stub[:honeycode].nil?
+        data['InforNexus'] = InforNexusConnectorProfileProperties.stub(stub[:infor_nexus]) unless stub[:infor_nexus].nil?
+        data['Marketo'] = MarketoConnectorProfileProperties.stub(stub[:marketo]) unless stub[:marketo].nil?
+        data['Redshift'] = RedshiftConnectorProfileProperties.stub(stub[:redshift]) unless stub[:redshift].nil?
+        data['Salesforce'] = SalesforceConnectorProfileProperties.stub(stub[:salesforce]) unless stub[:salesforce].nil?
+        data['ServiceNow'] = ServiceNowConnectorProfileProperties.stub(stub[:service_now]) unless stub[:service_now].nil?
+        data['Singular'] = SingularConnectorProfileProperties.stub(stub[:singular]) unless stub[:singular].nil?
+        data['Slack'] = SlackConnectorProfileProperties.stub(stub[:slack]) unless stub[:slack].nil?
+        data['Snowflake'] = SnowflakeConnectorProfileProperties.stub(stub[:snowflake]) unless stub[:snowflake].nil?
+        data['Trendmicro'] = TrendmicroConnectorProfileProperties.stub(stub[:trendmicro]) unless stub[:trendmicro].nil?
+        data['Veeva'] = VeevaConnectorProfileProperties.stub(stub[:veeva]) unless stub[:veeva].nil?
+        data['Zendesk'] = ZendeskConnectorProfileProperties.stub(stub[:zendesk]) unless stub[:zendesk].nil?
+        data['SAPOData'] = SAPODataConnectorProfileProperties.stub(stub[:sapo_data]) unless stub[:sapo_data].nil?
+        data['CustomConnector'] = CustomConnectorProfileProperties.stub(stub[:custom_connector]) unless stub[:custom_connector].nil?
         data
       end
     end
@@ -1537,8 +1539,8 @@ module AWS::SDK::Appflow
       def self.stub(stub)
         stub ||= Types::CustomConnectorProfileProperties.new
         data = {}
-        data['profileProperties'] = Stubs::ProfilePropertiesMap.stub(stub[:profile_properties]) unless stub[:profile_properties].nil?
-        data['oAuth2Properties'] = Stubs::OAuth2Properties.stub(stub[:o_auth2_properties]) unless stub[:o_auth2_properties].nil?
+        data['profileProperties'] = ProfilePropertiesMap.stub(stub[:profile_properties]) unless stub[:profile_properties].nil?
+        data['oAuth2Properties'] = OAuth2Properties.stub(stub[:o_auth2_properties]) unless stub[:o_auth2_properties].nil?
         data
       end
     end
@@ -1560,7 +1562,7 @@ module AWS::SDK::Appflow
         data = {}
         data['tokenUrl'] = stub[:token_url] unless stub[:token_url].nil?
         data['oAuth2GrantType'] = stub[:o_auth2_grant_type] unless stub[:o_auth2_grant_type].nil?
-        data['tokenUrlCustomProperties'] = Stubs::TokenUrlCustomProperties.stub(stub[:token_url_custom_properties]) unless stub[:token_url_custom_properties].nil?
+        data['tokenUrlCustomProperties'] = TokenUrlCustomProperties.stub(stub[:token_url_custom_properties]) unless stub[:token_url_custom_properties].nil?
         data
       end
     end
@@ -1630,7 +1632,7 @@ module AWS::SDK::Appflow
         data['clientNumber'] = stub[:client_number] unless stub[:client_number].nil?
         data['logonLanguage'] = stub[:logon_language] unless stub[:logon_language].nil?
         data['privateLinkServiceName'] = stub[:private_link_service_name] unless stub[:private_link_service_name].nil?
-        data['oAuthProperties'] = Stubs::OAuthProperties.stub(stub[:o_auth_properties]) unless stub[:o_auth_properties].nil?
+        data['oAuthProperties'] = OAuthProperties.stub(stub[:o_auth_properties]) unless stub[:o_auth_properties].nil?
         data
       end
     end
@@ -1652,7 +1654,7 @@ module AWS::SDK::Appflow
         data = {}
         data['tokenUrl'] = stub[:token_url] unless stub[:token_url].nil?
         data['authCodeUrl'] = stub[:auth_code_url] unless stub[:auth_code_url].nil?
-        data['oAuthScopes'] = Stubs::OAuthScopeList.stub(stub[:o_auth_scopes]) unless stub[:o_auth_scopes].nil?
+        data['oAuthScopes'] = OAuthScopeList.stub(stub[:o_auth_scopes]) unless stub[:o_auth_scopes].nil?
         data
       end
     end
@@ -1969,10 +1971,10 @@ module AWS::SDK::Appflow
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['connectorConfigurations'] = Stubs::ConnectorConfigurationsMap.stub(stub[:connector_configurations]) unless stub[:connector_configurations].nil?
-        data['connectors'] = Stubs::ConnectorList.stub(stub[:connectors]) unless stub[:connectors].nil?
+        data['connectorConfigurations'] = ConnectorConfigurationsMap.stub(stub[:connector_configurations]) unless stub[:connector_configurations].nil?
+        data['connectors'] = ConnectorList.stub(stub[:connectors]) unless stub[:connectors].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1990,7 +1992,7 @@ module AWS::SDK::Appflow
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectorDetail.stub(element) unless element.nil?
+          data << ConnectorDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -2029,7 +2031,7 @@ module AWS::SDK::Appflow
         data['registeredAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:registered_at]).to_i unless stub[:registered_at].nil?
         data['registeredBy'] = stub[:registered_by] unless stub[:registered_by].nil?
         data['connectorProvisioningType'] = stub[:connector_provisioning_type] unless stub[:connector_provisioning_type].nil?
-        data['connectorModes'] = Stubs::ConnectorModeList.stub(stub[:connector_modes]) unless stub[:connector_modes].nil?
+        data['connectorModes'] = ConnectorModeList.stub(stub[:connector_modes]) unless stub[:connector_modes].nil?
         data
       end
     end
@@ -2048,7 +2050,7 @@ module AWS::SDK::Appflow
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ConnectorConfiguration.stub(value) unless value.nil?
+          data[key] = ConnectorConfiguration.stub(value) unless value.nil?
         end
         data
       end
@@ -2087,17 +2089,17 @@ module AWS::SDK::Appflow
         data['kmsArn'] = stub[:kms_arn] unless stub[:kms_arn].nil?
         data['flowStatus'] = stub[:flow_status] unless stub[:flow_status].nil?
         data['flowStatusMessage'] = stub[:flow_status_message] unless stub[:flow_status_message].nil?
-        data['sourceFlowConfig'] = Stubs::SourceFlowConfig.stub(stub[:source_flow_config]) unless stub[:source_flow_config].nil?
-        data['destinationFlowConfigList'] = Stubs::DestinationFlowConfigList.stub(stub[:destination_flow_config_list]) unless stub[:destination_flow_config_list].nil?
-        data['lastRunExecutionDetails'] = Stubs::ExecutionDetails.stub(stub[:last_run_execution_details]) unless stub[:last_run_execution_details].nil?
-        data['triggerConfig'] = Stubs::TriggerConfig.stub(stub[:trigger_config]) unless stub[:trigger_config].nil?
-        data['tasks'] = Stubs::Tasks.stub(stub[:tasks]) unless stub[:tasks].nil?
+        data['sourceFlowConfig'] = SourceFlowConfig.stub(stub[:source_flow_config]) unless stub[:source_flow_config].nil?
+        data['destinationFlowConfigList'] = DestinationFlowConfigList.stub(stub[:destination_flow_config_list]) unless stub[:destination_flow_config_list].nil?
+        data['lastRunExecutionDetails'] = ExecutionDetails.stub(stub[:last_run_execution_details]) unless stub[:last_run_execution_details].nil?
+        data['triggerConfig'] = TriggerConfig.stub(stub[:trigger_config]) unless stub[:trigger_config].nil?
+        data['tasks'] = Tasks.stub(stub[:tasks]) unless stub[:tasks].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['createdBy'] = stub[:created_by] unless stub[:created_by].nil?
         data['lastUpdatedBy'] = stub[:last_updated_by] unless stub[:last_updated_by].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2135,7 +2137,7 @@ module AWS::SDK::Appflow
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Task.stub(element) unless element.nil?
+          data << Task.stub(element) unless element.nil?
         end
         data
       end
@@ -2158,11 +2160,11 @@ module AWS::SDK::Appflow
       def self.stub(stub)
         stub ||= Types::Task.new
         data = {}
-        data['sourceFields'] = Stubs::SourceFields.stub(stub[:source_fields]) unless stub[:source_fields].nil?
-        data['connectorOperator'] = Stubs::ConnectorOperator.stub(stub[:connector_operator]) unless stub[:connector_operator].nil?
+        data['sourceFields'] = SourceFields.stub(stub[:source_fields]) unless stub[:source_fields].nil?
+        data['connectorOperator'] = ConnectorOperator.stub(stub[:connector_operator]) unless stub[:connector_operator].nil?
         data['destinationField'] = stub[:destination_field] unless stub[:destination_field].nil?
         data['taskType'] = stub[:task_type] unless stub[:task_type].nil?
-        data['taskProperties'] = Stubs::TaskPropertiesMap.stub(stub[:task_properties]) unless stub[:task_properties].nil?
+        data['taskProperties'] = TaskPropertiesMap.stub(stub[:task_properties]) unless stub[:task_properties].nil?
         data
       end
     end
@@ -2270,7 +2272,7 @@ module AWS::SDK::Appflow
         stub ||= Types::TriggerConfig.new
         data = {}
         data['triggerType'] = stub[:trigger_type] unless stub[:trigger_type].nil?
-        data['triggerProperties'] = Stubs::TriggerProperties.stub(stub[:trigger_properties]) unless stub[:trigger_properties].nil?
+        data['triggerProperties'] = TriggerProperties.stub(stub[:trigger_properties]) unless stub[:trigger_properties].nil?
         data
       end
     end
@@ -2288,7 +2290,7 @@ module AWS::SDK::Appflow
       def self.stub(stub)
         stub ||= Types::TriggerProperties.new
         data = {}
-        data['Scheduled'] = Stubs::ScheduledTriggerProperties.stub(stub[:scheduled]) unless stub[:scheduled].nil?
+        data['Scheduled'] = ScheduledTriggerProperties.stub(stub[:scheduled]) unless stub[:scheduled].nil?
         data
       end
     end
@@ -2361,7 +2363,7 @@ module AWS::SDK::Appflow
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DestinationFlowConfig.stub(element) unless element.nil?
+          data << DestinationFlowConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -2386,7 +2388,7 @@ module AWS::SDK::Appflow
         data['connectorType'] = stub[:connector_type] unless stub[:connector_type].nil?
         data['apiVersion'] = stub[:api_version] unless stub[:api_version].nil?
         data['connectorProfileName'] = stub[:connector_profile_name] unless stub[:connector_profile_name].nil?
-        data['destinationConnectorProperties'] = Stubs::DestinationConnectorProperties.stub(stub[:destination_connector_properties]) unless stub[:destination_connector_properties].nil?
+        data['destinationConnectorProperties'] = DestinationConnectorProperties.stub(stub[:destination_connector_properties]) unless stub[:destination_connector_properties].nil?
         data
       end
     end
@@ -2416,19 +2418,19 @@ module AWS::SDK::Appflow
       def self.stub(stub)
         stub ||= Types::DestinationConnectorProperties.new
         data = {}
-        data['Redshift'] = Stubs::RedshiftDestinationProperties.stub(stub[:redshift]) unless stub[:redshift].nil?
-        data['S3'] = Stubs::S3DestinationProperties.stub(stub[:s3]) unless stub[:s3].nil?
-        data['Salesforce'] = Stubs::SalesforceDestinationProperties.stub(stub[:salesforce]) unless stub[:salesforce].nil?
-        data['Snowflake'] = Stubs::SnowflakeDestinationProperties.stub(stub[:snowflake]) unless stub[:snowflake].nil?
-        data['EventBridge'] = Stubs::EventBridgeDestinationProperties.stub(stub[:event_bridge]) unless stub[:event_bridge].nil?
-        data['LookoutMetrics'] = Stubs::LookoutMetricsDestinationProperties.stub(stub[:lookout_metrics]) unless stub[:lookout_metrics].nil?
-        data['Upsolver'] = Stubs::UpsolverDestinationProperties.stub(stub[:upsolver]) unless stub[:upsolver].nil?
-        data['Honeycode'] = Stubs::HoneycodeDestinationProperties.stub(stub[:honeycode]) unless stub[:honeycode].nil?
-        data['CustomerProfiles'] = Stubs::CustomerProfilesDestinationProperties.stub(stub[:customer_profiles]) unless stub[:customer_profiles].nil?
-        data['Zendesk'] = Stubs::ZendeskDestinationProperties.stub(stub[:zendesk]) unless stub[:zendesk].nil?
-        data['Marketo'] = Stubs::MarketoDestinationProperties.stub(stub[:marketo]) unless stub[:marketo].nil?
-        data['CustomConnector'] = Stubs::CustomConnectorDestinationProperties.stub(stub[:custom_connector]) unless stub[:custom_connector].nil?
-        data['SAPOData'] = Stubs::SAPODataDestinationProperties.stub(stub[:sapo_data]) unless stub[:sapo_data].nil?
+        data['Redshift'] = RedshiftDestinationProperties.stub(stub[:redshift]) unless stub[:redshift].nil?
+        data['S3'] = S3DestinationProperties.stub(stub[:s3]) unless stub[:s3].nil?
+        data['Salesforce'] = SalesforceDestinationProperties.stub(stub[:salesforce]) unless stub[:salesforce].nil?
+        data['Snowflake'] = SnowflakeDestinationProperties.stub(stub[:snowflake]) unless stub[:snowflake].nil?
+        data['EventBridge'] = EventBridgeDestinationProperties.stub(stub[:event_bridge]) unless stub[:event_bridge].nil?
+        data['LookoutMetrics'] = LookoutMetricsDestinationProperties.stub(stub[:lookout_metrics]) unless stub[:lookout_metrics].nil?
+        data['Upsolver'] = UpsolverDestinationProperties.stub(stub[:upsolver]) unless stub[:upsolver].nil?
+        data['Honeycode'] = HoneycodeDestinationProperties.stub(stub[:honeycode]) unless stub[:honeycode].nil?
+        data['CustomerProfiles'] = CustomerProfilesDestinationProperties.stub(stub[:customer_profiles]) unless stub[:customer_profiles].nil?
+        data['Zendesk'] = ZendeskDestinationProperties.stub(stub[:zendesk]) unless stub[:zendesk].nil?
+        data['Marketo'] = MarketoDestinationProperties.stub(stub[:marketo]) unless stub[:marketo].nil?
+        data['CustomConnector'] = CustomConnectorDestinationProperties.stub(stub[:custom_connector]) unless stub[:custom_connector].nil?
+        data['SAPOData'] = SAPODataDestinationProperties.stub(stub[:sapo_data]) unless stub[:sapo_data].nil?
         data
       end
     end
@@ -2451,9 +2453,9 @@ module AWS::SDK::Appflow
         stub ||= Types::SAPODataDestinationProperties.new
         data = {}
         data['objectPath'] = stub[:object_path] unless stub[:object_path].nil?
-        data['successResponseHandlingConfig'] = Stubs::SuccessResponseHandlingConfig.stub(stub[:success_response_handling_config]) unless stub[:success_response_handling_config].nil?
-        data['idFieldNames'] = Stubs::IdFieldNameList.stub(stub[:id_field_names]) unless stub[:id_field_names].nil?
-        data['errorHandlingConfig'] = Stubs::ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
+        data['successResponseHandlingConfig'] = SuccessResponseHandlingConfig.stub(stub[:success_response_handling_config]) unless stub[:success_response_handling_config].nil?
+        data['idFieldNames'] = IdFieldNameList.stub(stub[:id_field_names]) unless stub[:id_field_names].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
         data['writeOperationType'] = stub[:write_operation_type] unless stub[:write_operation_type].nil?
         data
       end
@@ -2539,10 +2541,10 @@ module AWS::SDK::Appflow
         stub ||= Types::CustomConnectorDestinationProperties.new
         data = {}
         data['entityName'] = stub[:entity_name] unless stub[:entity_name].nil?
-        data['errorHandlingConfig'] = Stubs::ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
         data['writeOperationType'] = stub[:write_operation_type] unless stub[:write_operation_type].nil?
-        data['idFieldNames'] = Stubs::IdFieldNameList.stub(stub[:id_field_names]) unless stub[:id_field_names].nil?
-        data['customProperties'] = Stubs::CustomProperties.stub(stub[:custom_properties]) unless stub[:custom_properties].nil?
+        data['idFieldNames'] = IdFieldNameList.stub(stub[:id_field_names]) unless stub[:id_field_names].nil?
+        data['customProperties'] = CustomProperties.stub(stub[:custom_properties]) unless stub[:custom_properties].nil?
         data
       end
     end
@@ -2562,7 +2564,7 @@ module AWS::SDK::Appflow
         stub ||= Types::MarketoDestinationProperties.new
         data = {}
         data['object'] = stub[:object] unless stub[:object].nil?
-        data['errorHandlingConfig'] = Stubs::ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
         data
       end
     end
@@ -2584,8 +2586,8 @@ module AWS::SDK::Appflow
         stub ||= Types::ZendeskDestinationProperties.new
         data = {}
         data['object'] = stub[:object] unless stub[:object].nil?
-        data['idFieldNames'] = Stubs::IdFieldNameList.stub(stub[:id_field_names]) unless stub[:id_field_names].nil?
-        data['errorHandlingConfig'] = Stubs::ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
+        data['idFieldNames'] = IdFieldNameList.stub(stub[:id_field_names]) unless stub[:id_field_names].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
         data['writeOperationType'] = stub[:write_operation_type] unless stub[:write_operation_type].nil?
         data
       end
@@ -2626,7 +2628,7 @@ module AWS::SDK::Appflow
         stub ||= Types::HoneycodeDestinationProperties.new
         data = {}
         data['object'] = stub[:object] unless stub[:object].nil?
-        data['errorHandlingConfig'] = Stubs::ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
         data
       end
     end
@@ -2648,7 +2650,7 @@ module AWS::SDK::Appflow
         data = {}
         data['bucketName'] = stub[:bucket_name] unless stub[:bucket_name].nil?
         data['bucketPrefix'] = stub[:bucket_prefix] unless stub[:bucket_prefix].nil?
-        data['s3OutputFormatConfig'] = Stubs::UpsolverS3OutputFormatConfig.stub(stub[:s3_output_format_config]) unless stub[:s3_output_format_config].nil?
+        data['s3OutputFormatConfig'] = UpsolverS3OutputFormatConfig.stub(stub[:s3_output_format_config]) unless stub[:s3_output_format_config].nil?
         data
       end
     end
@@ -2669,8 +2671,8 @@ module AWS::SDK::Appflow
         stub ||= Types::UpsolverS3OutputFormatConfig.new
         data = {}
         data['fileType'] = stub[:file_type] unless stub[:file_type].nil?
-        data['prefixConfig'] = Stubs::PrefixConfig.stub(stub[:prefix_config]) unless stub[:prefix_config].nil?
-        data['aggregationConfig'] = Stubs::AggregationConfig.stub(stub[:aggregation_config]) unless stub[:aggregation_config].nil?
+        data['prefixConfig'] = PrefixConfig.stub(stub[:prefix_config]) unless stub[:prefix_config].nil?
+        data['aggregationConfig'] = AggregationConfig.stub(stub[:aggregation_config]) unless stub[:aggregation_config].nil?
         data
       end
     end
@@ -2744,7 +2746,7 @@ module AWS::SDK::Appflow
         stub ||= Types::EventBridgeDestinationProperties.new
         data = {}
         data['object'] = stub[:object] unless stub[:object].nil?
-        data['errorHandlingConfig'] = Stubs::ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
         data
       end
     end
@@ -2768,7 +2770,7 @@ module AWS::SDK::Appflow
         data['object'] = stub[:object] unless stub[:object].nil?
         data['intermediateBucketName'] = stub[:intermediate_bucket_name] unless stub[:intermediate_bucket_name].nil?
         data['bucketPrefix'] = stub[:bucket_prefix] unless stub[:bucket_prefix].nil?
-        data['errorHandlingConfig'] = Stubs::ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
         data
       end
     end
@@ -2790,8 +2792,8 @@ module AWS::SDK::Appflow
         stub ||= Types::SalesforceDestinationProperties.new
         data = {}
         data['object'] = stub[:object] unless stub[:object].nil?
-        data['idFieldNames'] = Stubs::IdFieldNameList.stub(stub[:id_field_names]) unless stub[:id_field_names].nil?
-        data['errorHandlingConfig'] = Stubs::ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
+        data['idFieldNames'] = IdFieldNameList.stub(stub[:id_field_names]) unless stub[:id_field_names].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
         data['writeOperationType'] = stub[:write_operation_type] unless stub[:write_operation_type].nil?
         data
       end
@@ -2814,7 +2816,7 @@ module AWS::SDK::Appflow
         data = {}
         data['bucketName'] = stub[:bucket_name] unless stub[:bucket_name].nil?
         data['bucketPrefix'] = stub[:bucket_prefix] unless stub[:bucket_prefix].nil?
-        data['s3OutputFormatConfig'] = Stubs::S3OutputFormatConfig.stub(stub[:s3_output_format_config]) unless stub[:s3_output_format_config].nil?
+        data['s3OutputFormatConfig'] = S3OutputFormatConfig.stub(stub[:s3_output_format_config]) unless stub[:s3_output_format_config].nil?
         data
       end
     end
@@ -2836,8 +2838,8 @@ module AWS::SDK::Appflow
         stub ||= Types::S3OutputFormatConfig.new
         data = {}
         data['fileType'] = stub[:file_type] unless stub[:file_type].nil?
-        data['prefixConfig'] = Stubs::PrefixConfig.stub(stub[:prefix_config]) unless stub[:prefix_config].nil?
-        data['aggregationConfig'] = Stubs::AggregationConfig.stub(stub[:aggregation_config]) unless stub[:aggregation_config].nil?
+        data['prefixConfig'] = PrefixConfig.stub(stub[:prefix_config]) unless stub[:prefix_config].nil?
+        data['aggregationConfig'] = AggregationConfig.stub(stub[:aggregation_config]) unless stub[:aggregation_config].nil?
         data['preserveSourceDataTyping'] = stub[:preserve_source_data_typing] unless stub[:preserve_source_data_typing].nil?
         data
       end
@@ -2862,7 +2864,7 @@ module AWS::SDK::Appflow
         data['object'] = stub[:object] unless stub[:object].nil?
         data['intermediateBucketName'] = stub[:intermediate_bucket_name] unless stub[:intermediate_bucket_name].nil?
         data['bucketPrefix'] = stub[:bucket_prefix] unless stub[:bucket_prefix].nil?
-        data['errorHandlingConfig'] = Stubs::ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
+        data['errorHandlingConfig'] = ErrorHandlingConfig.stub(stub[:error_handling_config]) unless stub[:error_handling_config].nil?
         data
       end
     end
@@ -2887,8 +2889,8 @@ module AWS::SDK::Appflow
         data['connectorType'] = stub[:connector_type] unless stub[:connector_type].nil?
         data['apiVersion'] = stub[:api_version] unless stub[:api_version].nil?
         data['connectorProfileName'] = stub[:connector_profile_name] unless stub[:connector_profile_name].nil?
-        data['sourceConnectorProperties'] = Stubs::SourceConnectorProperties.stub(stub[:source_connector_properties]) unless stub[:source_connector_properties].nil?
-        data['incrementalPullConfig'] = Stubs::IncrementalPullConfig.stub(stub[:incremental_pull_config]) unless stub[:incremental_pull_config].nil?
+        data['sourceConnectorProperties'] = SourceConnectorProperties.stub(stub[:source_connector_properties]) unless stub[:source_connector_properties].nil?
+        data['incrementalPullConfig'] = IncrementalPullConfig.stub(stub[:incremental_pull_config]) unless stub[:incremental_pull_config].nil?
         data
       end
     end
@@ -2939,22 +2941,22 @@ module AWS::SDK::Appflow
       def self.stub(stub)
         stub ||= Types::SourceConnectorProperties.new
         data = {}
-        data['Amplitude'] = Stubs::AmplitudeSourceProperties.stub(stub[:amplitude]) unless stub[:amplitude].nil?
-        data['Datadog'] = Stubs::DatadogSourceProperties.stub(stub[:datadog]) unless stub[:datadog].nil?
-        data['Dynatrace'] = Stubs::DynatraceSourceProperties.stub(stub[:dynatrace]) unless stub[:dynatrace].nil?
-        data['GoogleAnalytics'] = Stubs::GoogleAnalyticsSourceProperties.stub(stub[:google_analytics]) unless stub[:google_analytics].nil?
-        data['InforNexus'] = Stubs::InforNexusSourceProperties.stub(stub[:infor_nexus]) unless stub[:infor_nexus].nil?
-        data['Marketo'] = Stubs::MarketoSourceProperties.stub(stub[:marketo]) unless stub[:marketo].nil?
-        data['S3'] = Stubs::S3SourceProperties.stub(stub[:s3]) unless stub[:s3].nil?
-        data['Salesforce'] = Stubs::SalesforceSourceProperties.stub(stub[:salesforce]) unless stub[:salesforce].nil?
-        data['ServiceNow'] = Stubs::ServiceNowSourceProperties.stub(stub[:service_now]) unless stub[:service_now].nil?
-        data['Singular'] = Stubs::SingularSourceProperties.stub(stub[:singular]) unless stub[:singular].nil?
-        data['Slack'] = Stubs::SlackSourceProperties.stub(stub[:slack]) unless stub[:slack].nil?
-        data['Trendmicro'] = Stubs::TrendmicroSourceProperties.stub(stub[:trendmicro]) unless stub[:trendmicro].nil?
-        data['Veeva'] = Stubs::VeevaSourceProperties.stub(stub[:veeva]) unless stub[:veeva].nil?
-        data['Zendesk'] = Stubs::ZendeskSourceProperties.stub(stub[:zendesk]) unless stub[:zendesk].nil?
-        data['SAPOData'] = Stubs::SAPODataSourceProperties.stub(stub[:sapo_data]) unless stub[:sapo_data].nil?
-        data['CustomConnector'] = Stubs::CustomConnectorSourceProperties.stub(stub[:custom_connector]) unless stub[:custom_connector].nil?
+        data['Amplitude'] = AmplitudeSourceProperties.stub(stub[:amplitude]) unless stub[:amplitude].nil?
+        data['Datadog'] = DatadogSourceProperties.stub(stub[:datadog]) unless stub[:datadog].nil?
+        data['Dynatrace'] = DynatraceSourceProperties.stub(stub[:dynatrace]) unless stub[:dynatrace].nil?
+        data['GoogleAnalytics'] = GoogleAnalyticsSourceProperties.stub(stub[:google_analytics]) unless stub[:google_analytics].nil?
+        data['InforNexus'] = InforNexusSourceProperties.stub(stub[:infor_nexus]) unless stub[:infor_nexus].nil?
+        data['Marketo'] = MarketoSourceProperties.stub(stub[:marketo]) unless stub[:marketo].nil?
+        data['S3'] = S3SourceProperties.stub(stub[:s3]) unless stub[:s3].nil?
+        data['Salesforce'] = SalesforceSourceProperties.stub(stub[:salesforce]) unless stub[:salesforce].nil?
+        data['ServiceNow'] = ServiceNowSourceProperties.stub(stub[:service_now]) unless stub[:service_now].nil?
+        data['Singular'] = SingularSourceProperties.stub(stub[:singular]) unless stub[:singular].nil?
+        data['Slack'] = SlackSourceProperties.stub(stub[:slack]) unless stub[:slack].nil?
+        data['Trendmicro'] = TrendmicroSourceProperties.stub(stub[:trendmicro]) unless stub[:trendmicro].nil?
+        data['Veeva'] = VeevaSourceProperties.stub(stub[:veeva]) unless stub[:veeva].nil?
+        data['Zendesk'] = ZendeskSourceProperties.stub(stub[:zendesk]) unless stub[:zendesk].nil?
+        data['SAPOData'] = SAPODataSourceProperties.stub(stub[:sapo_data]) unless stub[:sapo_data].nil?
+        data['CustomConnector'] = CustomConnectorSourceProperties.stub(stub[:custom_connector]) unless stub[:custom_connector].nil?
         data
       end
     end
@@ -2974,7 +2976,7 @@ module AWS::SDK::Appflow
         stub ||= Types::CustomConnectorSourceProperties.new
         data = {}
         data['entityName'] = stub[:entity_name] unless stub[:entity_name].nil?
-        data['customProperties'] = Stubs::CustomProperties.stub(stub[:custom_properties]) unless stub[:custom_properties].nil?
+        data['customProperties'] = CustomProperties.stub(stub[:custom_properties]) unless stub[:custom_properties].nil?
         data
       end
     end
@@ -3152,7 +3154,7 @@ module AWS::SDK::Appflow
         data = {}
         data['bucketName'] = stub[:bucket_name] unless stub[:bucket_name].nil?
         data['bucketPrefix'] = stub[:bucket_prefix] unless stub[:bucket_prefix].nil?
-        data['s3InputFormatConfig'] = Stubs::S3InputFormatConfig.stub(stub[:s3_input_format_config]) unless stub[:s3_input_format_config].nil?
+        data['s3InputFormatConfig'] = S3InputFormatConfig.stub(stub[:s3_input_format_config]) unless stub[:s3_input_format_config].nil?
         data
       end
     end
@@ -3296,9 +3298,9 @@ module AWS::SDK::Appflow
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['flowExecutions'] = Stubs::FlowExecutionList.stub(stub[:flow_executions]) unless stub[:flow_executions].nil?
+        data['flowExecutions'] = FlowExecutionList.stub(stub[:flow_executions]) unless stub[:flow_executions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3316,7 +3318,7 @@ module AWS::SDK::Appflow
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExecutionRecord.stub(element) unless element.nil?
+          data << ExecutionRecord.stub(element) unless element.nil?
         end
         data
       end
@@ -3343,7 +3345,7 @@ module AWS::SDK::Appflow
         data = {}
         data['executionId'] = stub[:execution_id] unless stub[:execution_id].nil?
         data['executionStatus'] = stub[:execution_status] unless stub[:execution_status].nil?
-        data['executionResult'] = Stubs::ExecutionResult.stub(stub[:execution_result]) unless stub[:execution_result].nil?
+        data['executionResult'] = ExecutionResult.stub(stub[:execution_result]) unless stub[:execution_result].nil?
         data['startedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started_at]).to_i unless stub[:started_at].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['dataPullStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:data_pull_start_time]).to_i unless stub[:data_pull_start_time].nil?
@@ -3368,7 +3370,7 @@ module AWS::SDK::Appflow
       def self.stub(stub)
         stub ||= Types::ExecutionResult.new
         data = {}
-        data['errorInfo'] = Stubs::ErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
+        data['errorInfo'] = ErrorInfo.stub(stub[:error_info]) unless stub[:error_info].nil?
         data['bytesProcessed'] = stub[:bytes_processed] unless stub[:bytes_processed].nil?
         data['bytesWritten'] = stub[:bytes_written] unless stub[:bytes_written].nil?
         data['recordsProcessed'] = stub[:records_processed] unless stub[:records_processed].nil?
@@ -3408,8 +3410,8 @@ module AWS::SDK::Appflow
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['connectorEntityMap'] = Stubs::ConnectorEntityMap.stub(stub[:connector_entity_map]) unless stub[:connector_entity_map].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['connectorEntityMap'] = ConnectorEntityMap.stub(stub[:connector_entity_map]) unless stub[:connector_entity_map].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3427,7 +3429,7 @@ module AWS::SDK::Appflow
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ConnectorEntityList.stub(value) unless value.nil?
+          data[key] = ConnectorEntityList.stub(value) unless value.nil?
         end
         data
       end
@@ -3447,7 +3449,7 @@ module AWS::SDK::Appflow
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectorEntity.stub(element) unless element.nil?
+          data << ConnectorEntity.stub(element) unless element.nil?
         end
         data
       end
@@ -3488,9 +3490,9 @@ module AWS::SDK::Appflow
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['connectors'] = Stubs::ConnectorList.stub(stub[:connectors]) unless stub[:connectors].nil?
+        data['connectors'] = ConnectorList.stub(stub[:connectors]) unless stub[:connectors].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3507,9 +3509,9 @@ module AWS::SDK::Appflow
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['flows'] = Stubs::FlowList.stub(stub[:flows]) unless stub[:flows].nil?
+        data['flows'] = FlowList.stub(stub[:flows]) unless stub[:flows].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3527,7 +3529,7 @@ module AWS::SDK::Appflow
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FlowDefinition.stub(element) unless element.nil?
+          data << FlowDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -3573,8 +3575,8 @@ module AWS::SDK::Appflow
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['createdBy'] = stub[:created_by] unless stub[:created_by].nil?
         data['lastUpdatedBy'] = stub[:last_updated_by] unless stub[:last_updated_by].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['lastRunExecutionDetails'] = Stubs::ExecutionDetails.stub(stub[:last_run_execution_details]) unless stub[:last_run_execution_details].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['lastRunExecutionDetails'] = ExecutionDetails.stub(stub[:last_run_execution_details]) unless stub[:last_run_execution_details].nil?
         data
       end
     end
@@ -3591,8 +3593,8 @@ module AWS::SDK::Appflow
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3609,7 +3611,7 @@ module AWS::SDK::Appflow
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['connectorArn'] = stub[:connector_arn] unless stub[:connector_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3630,7 +3632,7 @@ module AWS::SDK::Appflow
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
         data['flowStatus'] = stub[:flow_status] unless stub[:flow_status].nil?
         data['executionId'] = stub[:execution_id] unless stub[:execution_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3649,7 +3651,7 @@ module AWS::SDK::Appflow
         http_resp.headers['Content-Type'] = 'application/json'
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
         data['flowStatus'] = stub[:flow_status] unless stub[:flow_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3705,7 +3707,7 @@ module AWS::SDK::Appflow
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['connectorProfileArn'] = stub[:connector_profile_arn] unless stub[:connector_profile_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3722,7 +3724,7 @@ module AWS::SDK::Appflow
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['flowStatus'] = stub[:flow_status] unless stub[:flow_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

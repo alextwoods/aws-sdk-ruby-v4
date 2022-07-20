@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::QuickSight
   module Builders
 
@@ -53,9 +55,9 @@ module AWS::SDK::QuickSight
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AccountCustomization'] = Builders::AccountCustomization.build(input[:account_customization]) unless input[:account_customization].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountCustomization'] = AccountCustomization.build(input[:account_customization]) unless input[:account_customization].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -64,7 +66,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -112,12 +114,12 @@ module AWS::SDK::QuickSight
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Parameters'] = Builders::Parameters.build(input[:parameters]) unless input[:parameters].nil?
-        data['Permissions'] = Builders::ResourcePermissionList.build(input[:permissions]) unless input[:permissions].nil?
-        data['SourceEntity'] = Builders::AnalysisSourceEntity.build(input[:source_entity]) unless input[:source_entity].nil?
+        data['Parameters'] = Parameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['Permissions'] = ResourcePermissionList.build(input[:permissions]) unless input[:permissions].nil?
+        data['SourceEntity'] = AnalysisSourceEntity.build(input[:source_entity]) unless input[:source_entity].nil?
         data['ThemeArn'] = input[:theme_arn] unless input[:theme_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -125,7 +127,7 @@ module AWS::SDK::QuickSight
     class AnalysisSourceEntity
       def self.build(input)
         data = {}
-        data['SourceTemplate'] = Builders::AnalysisSourceTemplate.build(input[:source_template]) unless input[:source_template].nil?
+        data['SourceTemplate'] = AnalysisSourceTemplate.build(input[:source_template]) unless input[:source_template].nil?
         data
       end
     end
@@ -134,7 +136,7 @@ module AWS::SDK::QuickSight
     class AnalysisSourceTemplate
       def self.build(input)
         data = {}
-        data['DataSetReferences'] = Builders::DataSetReferenceList.build(input[:data_set_references]) unless input[:data_set_references].nil?
+        data['DataSetReferences'] = DataSetReferenceList.build(input[:data_set_references]) unless input[:data_set_references].nil?
         data['Arn'] = input[:arn] unless input[:arn].nil?
         data
       end
@@ -145,7 +147,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DataSetReference.build(element) unless element.nil?
+          data << DataSetReference.build(element) unless element.nil?
         end
         data
       end
@@ -166,7 +168,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ResourcePermission.build(element) unless element.nil?
+          data << ResourcePermission.build(element) unless element.nil?
         end
         data
       end
@@ -177,7 +179,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = {}
         data['Principal'] = input[:principal] unless input[:principal].nil?
-        data['Actions'] = Builders::ActionList.build(input[:actions]) unless input[:actions].nil?
+        data['Actions'] = ActionList.build(input[:actions]) unless input[:actions].nil?
         data
       end
     end
@@ -197,10 +199,10 @@ module AWS::SDK::QuickSight
     class Parameters
       def self.build(input)
         data = {}
-        data['StringParameters'] = Builders::StringParameterList.build(input[:string_parameters]) unless input[:string_parameters].nil?
-        data['IntegerParameters'] = Builders::IntegerParameterList.build(input[:integer_parameters]) unless input[:integer_parameters].nil?
-        data['DecimalParameters'] = Builders::DecimalParameterList.build(input[:decimal_parameters]) unless input[:decimal_parameters].nil?
-        data['DateTimeParameters'] = Builders::DateTimeParameterList.build(input[:date_time_parameters]) unless input[:date_time_parameters].nil?
+        data['StringParameters'] = StringParameterList.build(input[:string_parameters]) unless input[:string_parameters].nil?
+        data['IntegerParameters'] = IntegerParameterList.build(input[:integer_parameters]) unless input[:integer_parameters].nil?
+        data['DecimalParameters'] = DecimalParameterList.build(input[:decimal_parameters]) unless input[:decimal_parameters].nil?
+        data['DateTimeParameters'] = DateTimeParameterList.build(input[:date_time_parameters]) unless input[:date_time_parameters].nil?
         data
       end
     end
@@ -210,7 +212,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DateTimeParameter.build(element) unless element.nil?
+          data << DateTimeParameter.build(element) unless element.nil?
         end
         data
       end
@@ -221,7 +223,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::TimestampList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = TimestampList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -242,7 +244,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DecimalParameter.build(element) unless element.nil?
+          data << DecimalParameter.build(element) unless element.nil?
         end
         data
       end
@@ -253,7 +255,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::DoubleList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = DoubleList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -274,7 +276,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::IntegerParameter.build(element) unless element.nil?
+          data << IntegerParameter.build(element) unless element.nil?
         end
         data
       end
@@ -285,7 +287,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::LongList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = LongList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -306,7 +308,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StringParameter.build(element) unless element.nil?
+          data << StringParameter.build(element) unless element.nil?
         end
         data
       end
@@ -317,7 +319,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::StringList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = StringList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -355,14 +357,14 @@ module AWS::SDK::QuickSight
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Parameters'] = Builders::Parameters.build(input[:parameters]) unless input[:parameters].nil?
-        data['Permissions'] = Builders::ResourcePermissionList.build(input[:permissions]) unless input[:permissions].nil?
-        data['SourceEntity'] = Builders::DashboardSourceEntity.build(input[:source_entity]) unless input[:source_entity].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Parameters'] = Parameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['Permissions'] = ResourcePermissionList.build(input[:permissions]) unless input[:permissions].nil?
+        data['SourceEntity'] = DashboardSourceEntity.build(input[:source_entity]) unless input[:source_entity].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['VersionDescription'] = input[:version_description] unless input[:version_description].nil?
-        data['DashboardPublishOptions'] = Builders::DashboardPublishOptions.build(input[:dashboard_publish_options]) unless input[:dashboard_publish_options].nil?
+        data['DashboardPublishOptions'] = DashboardPublishOptions.build(input[:dashboard_publish_options]) unless input[:dashboard_publish_options].nil?
         data['ThemeArn'] = input[:theme_arn] unless input[:theme_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -370,9 +372,9 @@ module AWS::SDK::QuickSight
     class DashboardPublishOptions
       def self.build(input)
         data = {}
-        data['AdHocFilteringOption'] = Builders::AdHocFilteringOption.build(input[:ad_hoc_filtering_option]) unless input[:ad_hoc_filtering_option].nil?
-        data['ExportToCSVOption'] = Builders::ExportToCSVOption.build(input[:export_to_csv_option]) unless input[:export_to_csv_option].nil?
-        data['SheetControlsOption'] = Builders::SheetControlsOption.build(input[:sheet_controls_option]) unless input[:sheet_controls_option].nil?
+        data['AdHocFilteringOption'] = AdHocFilteringOption.build(input[:ad_hoc_filtering_option]) unless input[:ad_hoc_filtering_option].nil?
+        data['ExportToCSVOption'] = ExportToCSVOption.build(input[:export_to_csv_option]) unless input[:export_to_csv_option].nil?
+        data['SheetControlsOption'] = SheetControlsOption.build(input[:sheet_controls_option]) unless input[:sheet_controls_option].nil?
         data
       end
     end
@@ -408,7 +410,7 @@ module AWS::SDK::QuickSight
     class DashboardSourceEntity
       def self.build(input)
         data = {}
-        data['SourceTemplate'] = Builders::DashboardSourceTemplate.build(input[:source_template]) unless input[:source_template].nil?
+        data['SourceTemplate'] = DashboardSourceTemplate.build(input[:source_template]) unless input[:source_template].nil?
         data
       end
     end
@@ -417,7 +419,7 @@ module AWS::SDK::QuickSight
     class DashboardSourceTemplate
       def self.build(input)
         data = {}
-        data['DataSetReferences'] = Builders::DataSetReferenceList.build(input[:data_set_references]) unless input[:data_set_references].nil?
+        data['DataSetReferences'] = DataSetReferenceList.build(input[:data_set_references]) unless input[:data_set_references].nil?
         data['Arn'] = input[:arn] unless input[:arn].nil?
         data
       end
@@ -442,18 +444,18 @@ module AWS::SDK::QuickSight
         data = {}
         data['DataSetId'] = input[:data_set_id] unless input[:data_set_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['PhysicalTableMap'] = Builders::PhysicalTableMap.build(input[:physical_table_map]) unless input[:physical_table_map].nil?
-        data['LogicalTableMap'] = Builders::LogicalTableMap.build(input[:logical_table_map]) unless input[:logical_table_map].nil?
+        data['PhysicalTableMap'] = PhysicalTableMap.build(input[:physical_table_map]) unless input[:physical_table_map].nil?
+        data['LogicalTableMap'] = LogicalTableMap.build(input[:logical_table_map]) unless input[:logical_table_map].nil?
         data['ImportMode'] = input[:import_mode] unless input[:import_mode].nil?
-        data['ColumnGroups'] = Builders::ColumnGroupList.build(input[:column_groups]) unless input[:column_groups].nil?
-        data['FieldFolders'] = Builders::FieldFolderMap.build(input[:field_folders]) unless input[:field_folders].nil?
-        data['Permissions'] = Builders::ResourcePermissionList.build(input[:permissions]) unless input[:permissions].nil?
-        data['RowLevelPermissionDataSet'] = Builders::RowLevelPermissionDataSet.build(input[:row_level_permission_data_set]) unless input[:row_level_permission_data_set].nil?
-        data['RowLevelPermissionTagConfiguration'] = Builders::RowLevelPermissionTagConfiguration.build(input[:row_level_permission_tag_configuration]) unless input[:row_level_permission_tag_configuration].nil?
-        data['ColumnLevelPermissionRules'] = Builders::ColumnLevelPermissionRuleList.build(input[:column_level_permission_rules]) unless input[:column_level_permission_rules].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['DataSetUsageConfiguration'] = Builders::DataSetUsageConfiguration.build(input[:data_set_usage_configuration]) unless input[:data_set_usage_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ColumnGroups'] = ColumnGroupList.build(input[:column_groups]) unless input[:column_groups].nil?
+        data['FieldFolders'] = FieldFolderMap.build(input[:field_folders]) unless input[:field_folders].nil?
+        data['Permissions'] = ResourcePermissionList.build(input[:permissions]) unless input[:permissions].nil?
+        data['RowLevelPermissionDataSet'] = RowLevelPermissionDataSet.build(input[:row_level_permission_data_set]) unless input[:row_level_permission_data_set].nil?
+        data['RowLevelPermissionTagConfiguration'] = RowLevelPermissionTagConfiguration.build(input[:row_level_permission_tag_configuration]) unless input[:row_level_permission_tag_configuration].nil?
+        data['ColumnLevelPermissionRules'] = ColumnLevelPermissionRuleList.build(input[:column_level_permission_rules]) unless input[:column_level_permission_rules].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['DataSetUsageConfiguration'] = DataSetUsageConfiguration.build(input[:data_set_usage_configuration]) unless input[:data_set_usage_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -472,7 +474,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ColumnLevelPermissionRule.build(element) unless element.nil?
+          data << ColumnLevelPermissionRule.build(element) unless element.nil?
         end
         data
       end
@@ -482,8 +484,8 @@ module AWS::SDK::QuickSight
     class ColumnLevelPermissionRule
       def self.build(input)
         data = {}
-        data['Principals'] = Builders::PrincipalList.build(input[:principals]) unless input[:principals].nil?
-        data['ColumnNames'] = Builders::ColumnNameList.build(input[:column_names]) unless input[:column_names].nil?
+        data['Principals'] = PrincipalList.build(input[:principals]) unless input[:principals].nil?
+        data['ColumnNames'] = ColumnNameList.build(input[:column_names]) unless input[:column_names].nil?
         data
       end
     end
@@ -515,7 +517,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = {}
         data['Status'] = input[:status] unless input[:status].nil?
-        data['TagRules'] = Builders::RowLevelPermissionTagRuleList.build(input[:tag_rules]) unless input[:tag_rules].nil?
+        data['TagRules'] = RowLevelPermissionTagRuleList.build(input[:tag_rules]) unless input[:tag_rules].nil?
         data
       end
     end
@@ -525,7 +527,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RowLevelPermissionTagRule.build(element) unless element.nil?
+          data << RowLevelPermissionTagRule.build(element) unless element.nil?
         end
         data
       end
@@ -561,7 +563,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::FieldFolder.build(value) unless value.nil?
+          data[key] = FieldFolder.build(value) unless value.nil?
         end
         data
       end
@@ -572,7 +574,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['columns'] = Builders::FolderColumnList.build(input[:columns]) unless input[:columns].nil?
+        data['columns'] = FolderColumnList.build(input[:columns]) unless input[:columns].nil?
         data
       end
     end
@@ -593,7 +595,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ColumnGroup.build(element) unless element.nil?
+          data << ColumnGroup.build(element) unless element.nil?
         end
         data
       end
@@ -603,7 +605,7 @@ module AWS::SDK::QuickSight
     class ColumnGroup
       def self.build(input)
         data = {}
-        data['GeoSpatialColumnGroup'] = Builders::GeoSpatialColumnGroup.build(input[:geo_spatial_column_group]) unless input[:geo_spatial_column_group].nil?
+        data['GeoSpatialColumnGroup'] = GeoSpatialColumnGroup.build(input[:geo_spatial_column_group]) unless input[:geo_spatial_column_group].nil?
         data
       end
     end
@@ -614,7 +616,7 @@ module AWS::SDK::QuickSight
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['CountryCode'] = input[:country_code] unless input[:country_code].nil?
-        data['Columns'] = Builders::ColumnList.build(input[:columns]) unless input[:columns].nil?
+        data['Columns'] = ColumnList.build(input[:columns]) unless input[:columns].nil?
         data
       end
     end
@@ -635,7 +637,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::LogicalTable.build(value) unless value.nil?
+          data[key] = LogicalTable.build(value) unless value.nil?
         end
         data
       end
@@ -646,8 +648,8 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = {}
         data['Alias'] = input[:alias] unless input[:alias].nil?
-        data['DataTransforms'] = Builders::TransformOperationList.build(input[:data_transforms]) unless input[:data_transforms].nil?
-        data['Source'] = Builders::LogicalTableSource.build(input[:source]) unless input[:source].nil?
+        data['DataTransforms'] = TransformOperationList.build(input[:data_transforms]) unless input[:data_transforms].nil?
+        data['Source'] = LogicalTableSource.build(input[:source]) unless input[:source].nil?
         data
       end
     end
@@ -656,7 +658,7 @@ module AWS::SDK::QuickSight
     class LogicalTableSource
       def self.build(input)
         data = {}
-        data['JoinInstruction'] = Builders::JoinInstruction.build(input[:join_instruction]) unless input[:join_instruction].nil?
+        data['JoinInstruction'] = JoinInstruction.build(input[:join_instruction]) unless input[:join_instruction].nil?
         data['PhysicalTableId'] = input[:physical_table_id] unless input[:physical_table_id].nil?
         data['DataSetArn'] = input[:data_set_arn] unless input[:data_set_arn].nil?
         data
@@ -669,8 +671,8 @@ module AWS::SDK::QuickSight
         data = {}
         data['LeftOperand'] = input[:left_operand] unless input[:left_operand].nil?
         data['RightOperand'] = input[:right_operand] unless input[:right_operand].nil?
-        data['LeftJoinKeyProperties'] = Builders::JoinKeyProperties.build(input[:left_join_key_properties]) unless input[:left_join_key_properties].nil?
-        data['RightJoinKeyProperties'] = Builders::JoinKeyProperties.build(input[:right_join_key_properties]) unless input[:right_join_key_properties].nil?
+        data['LeftJoinKeyProperties'] = JoinKeyProperties.build(input[:left_join_key_properties]) unless input[:left_join_key_properties].nil?
+        data['RightJoinKeyProperties'] = JoinKeyProperties.build(input[:right_join_key_properties]) unless input[:right_join_key_properties].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data['OnClause'] = input[:on_clause] unless input[:on_clause].nil?
         data
@@ -691,7 +693,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TransformOperation.build(element) unless element.nil?
+          data << TransformOperation.build(element) unless element.nil?
         end
         data
       end
@@ -703,19 +705,19 @@ module AWS::SDK::QuickSight
         data = {}
         case input
         when Types::TransformOperation::ProjectOperation
-          data['ProjectOperation'] = (Builders::ProjectOperation.build(input) unless input.nil?)
+          data['ProjectOperation'] = (ProjectOperation.build(input) unless input.nil?)
         when Types::TransformOperation::FilterOperation
-          data['FilterOperation'] = (Builders::FilterOperation.build(input) unless input.nil?)
+          data['FilterOperation'] = (FilterOperation.build(input) unless input.nil?)
         when Types::TransformOperation::CreateColumnsOperation
-          data['CreateColumnsOperation'] = (Builders::CreateColumnsOperation.build(input) unless input.nil?)
+          data['CreateColumnsOperation'] = (CreateColumnsOperation.build(input) unless input.nil?)
         when Types::TransformOperation::RenameColumnOperation
-          data['RenameColumnOperation'] = (Builders::RenameColumnOperation.build(input) unless input.nil?)
+          data['RenameColumnOperation'] = (RenameColumnOperation.build(input) unless input.nil?)
         when Types::TransformOperation::CastColumnTypeOperation
-          data['CastColumnTypeOperation'] = (Builders::CastColumnTypeOperation.build(input) unless input.nil?)
+          data['CastColumnTypeOperation'] = (CastColumnTypeOperation.build(input) unless input.nil?)
         when Types::TransformOperation::TagColumnOperation
-          data['TagColumnOperation'] = (Builders::TagColumnOperation.build(input) unless input.nil?)
+          data['TagColumnOperation'] = (TagColumnOperation.build(input) unless input.nil?)
         when Types::TransformOperation::UntagColumnOperation
-          data['UntagColumnOperation'] = (Builders::UntagColumnOperation.build(input) unless input.nil?)
+          data['UntagColumnOperation'] = (UntagColumnOperation.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::TransformOperation"
@@ -730,7 +732,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = {}
         data['ColumnName'] = input[:column_name] unless input[:column_name].nil?
-        data['TagNames'] = Builders::ColumnTagNames.build(input[:tag_names]) unless input[:tag_names].nil?
+        data['TagNames'] = ColumnTagNames.build(input[:tag_names]) unless input[:tag_names].nil?
         data
       end
     end
@@ -751,7 +753,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = {}
         data['ColumnName'] = input[:column_name] unless input[:column_name].nil?
-        data['Tags'] = Builders::ColumnTagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = ColumnTagList.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -761,7 +763,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ColumnTag.build(element) unless element.nil?
+          data << ColumnTag.build(element) unless element.nil?
         end
         data
       end
@@ -772,7 +774,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = {}
         data['ColumnGeographicRole'] = input[:column_geographic_role] unless input[:column_geographic_role].nil?
-        data['ColumnDescription'] = Builders::ColumnDescription.build(input[:column_description]) unless input[:column_description].nil?
+        data['ColumnDescription'] = ColumnDescription.build(input[:column_description]) unless input[:column_description].nil?
         data
       end
     end
@@ -811,7 +813,7 @@ module AWS::SDK::QuickSight
     class CreateColumnsOperation
       def self.build(input)
         data = {}
-        data['Columns'] = Builders::CalculatedColumnList.build(input[:columns]) unless input[:columns].nil?
+        data['Columns'] = CalculatedColumnList.build(input[:columns]) unless input[:columns].nil?
         data
       end
     end
@@ -821,7 +823,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CalculatedColumn.build(element) unless element.nil?
+          data << CalculatedColumn.build(element) unless element.nil?
         end
         data
       end
@@ -851,7 +853,7 @@ module AWS::SDK::QuickSight
     class ProjectOperation
       def self.build(input)
         data = {}
-        data['ProjectedColumns'] = Builders::ProjectedColumnList.build(input[:projected_columns]) unless input[:projected_columns].nil?
+        data['ProjectedColumns'] = ProjectedColumnList.build(input[:projected_columns]) unless input[:projected_columns].nil?
         data
       end
     end
@@ -872,7 +874,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::PhysicalTable.build(value) unless value.nil?
+          data[key] = PhysicalTable.build(value) unless value.nil?
         end
         data
       end
@@ -884,11 +886,11 @@ module AWS::SDK::QuickSight
         data = {}
         case input
         when Types::PhysicalTable::RelationalTable
-          data['RelationalTable'] = (Builders::RelationalTable.build(input) unless input.nil?)
+          data['RelationalTable'] = (RelationalTable.build(input) unless input.nil?)
         when Types::PhysicalTable::CustomSql
-          data['CustomSql'] = (Builders::CustomSql.build(input) unless input.nil?)
+          data['CustomSql'] = (CustomSql.build(input) unless input.nil?)
         when Types::PhysicalTable::S3Source
-          data['S3Source'] = (Builders::S3Source.build(input) unless input.nil?)
+          data['S3Source'] = (S3Source.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::PhysicalTable"
@@ -903,8 +905,8 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = {}
         data['DataSourceArn'] = input[:data_source_arn] unless input[:data_source_arn].nil?
-        data['UploadSettings'] = Builders::UploadSettings.build(input[:upload_settings]) unless input[:upload_settings].nil?
-        data['InputColumns'] = Builders::InputColumnList.build(input[:input_columns]) unless input[:input_columns].nil?
+        data['UploadSettings'] = UploadSettings.build(input[:upload_settings]) unless input[:upload_settings].nil?
+        data['InputColumns'] = InputColumnList.build(input[:input_columns]) unless input[:input_columns].nil?
         data
       end
     end
@@ -914,7 +916,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InputColumn.build(element) unless element.nil?
+          data << InputColumn.build(element) unless element.nil?
         end
         data
       end
@@ -950,7 +952,7 @@ module AWS::SDK::QuickSight
         data['DataSourceArn'] = input[:data_source_arn] unless input[:data_source_arn].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['SqlQuery'] = input[:sql_query] unless input[:sql_query].nil?
-        data['Columns'] = Builders::InputColumnList.build(input[:columns]) unless input[:columns].nil?
+        data['Columns'] = InputColumnList.build(input[:columns]) unless input[:columns].nil?
         data
       end
     end
@@ -963,7 +965,7 @@ module AWS::SDK::QuickSight
         data['Catalog'] = input[:catalog] unless input[:catalog].nil?
         data['Schema'] = input[:schema] unless input[:schema].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['InputColumns'] = Builders::InputColumnList.build(input[:input_columns]) unless input[:input_columns].nil?
+        data['InputColumns'] = InputColumnList.build(input[:input_columns]) unless input[:input_columns].nil?
         data
       end
     end
@@ -988,13 +990,13 @@ module AWS::SDK::QuickSight
         data['DataSourceId'] = input[:data_source_id] unless input[:data_source_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        data['DataSourceParameters'] = Builders::DataSourceParameters.build(input[:data_source_parameters]) unless input[:data_source_parameters].nil?
-        data['Credentials'] = Builders::DataSourceCredentials.build(input[:credentials]) unless input[:credentials].nil?
-        data['Permissions'] = Builders::ResourcePermissionList.build(input[:permissions]) unless input[:permissions].nil?
-        data['VpcConnectionProperties'] = Builders::VpcConnectionProperties.build(input[:vpc_connection_properties]) unless input[:vpc_connection_properties].nil?
-        data['SslProperties'] = Builders::SslProperties.build(input[:ssl_properties]) unless input[:ssl_properties].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DataSourceParameters'] = DataSourceParameters.build(input[:data_source_parameters]) unless input[:data_source_parameters].nil?
+        data['Credentials'] = DataSourceCredentials.build(input[:credentials]) unless input[:credentials].nil?
+        data['Permissions'] = ResourcePermissionList.build(input[:permissions]) unless input[:permissions].nil?
+        data['VpcConnectionProperties'] = VpcConnectionProperties.build(input[:vpc_connection_properties]) unless input[:vpc_connection_properties].nil?
+        data['SslProperties'] = SslProperties.build(input[:ssl_properties]) unless input[:ssl_properties].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1020,7 +1022,7 @@ module AWS::SDK::QuickSight
     class DataSourceCredentials
       def self.build(input)
         data = {}
-        data['CredentialPair'] = Builders::CredentialPair.build(input[:credential_pair]) unless input[:credential_pair].nil?
+        data['CredentialPair'] = CredentialPair.build(input[:credential_pair]) unless input[:credential_pair].nil?
         data['CopySourceArn'] = input[:copy_source_arn] unless input[:copy_source_arn].nil?
         data
       end
@@ -1032,7 +1034,7 @@ module AWS::SDK::QuickSight
         data = {}
         data['Username'] = input[:username] unless input[:username].nil?
         data['Password'] = input[:password] unless input[:password].nil?
-        data['AlternateDataSourceParameters'] = Builders::DataSourceParametersList.build(input[:alternate_data_source_parameters]) unless input[:alternate_data_source_parameters].nil?
+        data['AlternateDataSourceParameters'] = DataSourceParametersList.build(input[:alternate_data_source_parameters]) unless input[:alternate_data_source_parameters].nil?
         data
       end
     end
@@ -1042,7 +1044,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DataSourceParameters.build(element) unless element.nil?
+          data << DataSourceParameters.build(element) unless element.nil?
         end
         data
       end
@@ -1054,49 +1056,49 @@ module AWS::SDK::QuickSight
         data = {}
         case input
         when Types::DataSourceParameters::AmazonElasticsearchParameters
-          data['AmazonElasticsearchParameters'] = (Builders::AmazonElasticsearchParameters.build(input) unless input.nil?)
+          data['AmazonElasticsearchParameters'] = (AmazonElasticsearchParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::AthenaParameters
-          data['AthenaParameters'] = (Builders::AthenaParameters.build(input) unless input.nil?)
+          data['AthenaParameters'] = (AthenaParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::AuroraParameters
-          data['AuroraParameters'] = (Builders::AuroraParameters.build(input) unless input.nil?)
+          data['AuroraParameters'] = (AuroraParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::AuroraPostgreSqlParameters
-          data['AuroraPostgreSqlParameters'] = (Builders::AuroraPostgreSqlParameters.build(input) unless input.nil?)
+          data['AuroraPostgreSqlParameters'] = (AuroraPostgreSqlParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::AwsIotAnalyticsParameters
-          data['AwsIotAnalyticsParameters'] = (Builders::AwsIotAnalyticsParameters.build(input) unless input.nil?)
+          data['AwsIotAnalyticsParameters'] = (AwsIotAnalyticsParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::JiraParameters
-          data['JiraParameters'] = (Builders::JiraParameters.build(input) unless input.nil?)
+          data['JiraParameters'] = (JiraParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::MariaDbParameters
-          data['MariaDbParameters'] = (Builders::MariaDbParameters.build(input) unless input.nil?)
+          data['MariaDbParameters'] = (MariaDbParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::MySqlParameters
-          data['MySqlParameters'] = (Builders::MySqlParameters.build(input) unless input.nil?)
+          data['MySqlParameters'] = (MySqlParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::OracleParameters
-          data['OracleParameters'] = (Builders::OracleParameters.build(input) unless input.nil?)
+          data['OracleParameters'] = (OracleParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::PostgreSqlParameters
-          data['PostgreSqlParameters'] = (Builders::PostgreSqlParameters.build(input) unless input.nil?)
+          data['PostgreSqlParameters'] = (PostgreSqlParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::PrestoParameters
-          data['PrestoParameters'] = (Builders::PrestoParameters.build(input) unless input.nil?)
+          data['PrestoParameters'] = (PrestoParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::RdsParameters
-          data['RdsParameters'] = (Builders::RdsParameters.build(input) unless input.nil?)
+          data['RdsParameters'] = (RdsParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::RedshiftParameters
-          data['RedshiftParameters'] = (Builders::RedshiftParameters.build(input) unless input.nil?)
+          data['RedshiftParameters'] = (RedshiftParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::S3Parameters
-          data['S3Parameters'] = (Builders::S3Parameters.build(input) unless input.nil?)
+          data['S3Parameters'] = (S3Parameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::ServiceNowParameters
-          data['ServiceNowParameters'] = (Builders::ServiceNowParameters.build(input) unless input.nil?)
+          data['ServiceNowParameters'] = (ServiceNowParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::SnowflakeParameters
-          data['SnowflakeParameters'] = (Builders::SnowflakeParameters.build(input) unless input.nil?)
+          data['SnowflakeParameters'] = (SnowflakeParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::SparkParameters
-          data['SparkParameters'] = (Builders::SparkParameters.build(input) unless input.nil?)
+          data['SparkParameters'] = (SparkParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::SqlServerParameters
-          data['SqlServerParameters'] = (Builders::SqlServerParameters.build(input) unless input.nil?)
+          data['SqlServerParameters'] = (SqlServerParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::TeradataParameters
-          data['TeradataParameters'] = (Builders::TeradataParameters.build(input) unless input.nil?)
+          data['TeradataParameters'] = (TeradataParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::TwitterParameters
-          data['TwitterParameters'] = (Builders::TwitterParameters.build(input) unless input.nil?)
+          data['TwitterParameters'] = (TwitterParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::AmazonOpenSearchParameters
-          data['AmazonOpenSearchParameters'] = (Builders::AmazonOpenSearchParameters.build(input) unless input.nil?)
+          data['AmazonOpenSearchParameters'] = (AmazonOpenSearchParameters.build(input) unless input.nil?)
         when Types::DataSourceParameters::ExasolParameters
-          data['ExasolParameters'] = (Builders::ExasolParameters.build(input) unless input.nil?)
+          data['ExasolParameters'] = (ExasolParameters.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::DataSourceParameters"
@@ -1191,7 +1193,7 @@ module AWS::SDK::QuickSight
     class S3Parameters
       def self.build(input)
         data = {}
-        data['ManifestFileLocation'] = Builders::ManifestFileLocation.build(input[:manifest_file_location]) unless input[:manifest_file_location].nil?
+        data['ManifestFileLocation'] = ManifestFileLocation.build(input[:manifest_file_location]) unless input[:manifest_file_location].nil?
         data
       end
     end
@@ -1365,9 +1367,9 @@ module AWS::SDK::QuickSight
         data['Name'] = input[:name] unless input[:name].nil?
         data['FolderType'] = input[:folder_type] unless input[:folder_type].nil?
         data['ParentFolderArn'] = input[:parent_folder_arn] unless input[:parent_folder_arn].nil?
-        data['Permissions'] = Builders::ResourcePermissionList.build(input[:permissions]) unless input[:permissions].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Permissions'] = ResourcePermissionList.build(input[:permissions]) unless input[:permissions].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1423,7 +1425,7 @@ module AWS::SDK::QuickSight
         data = {}
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1480,8 +1482,8 @@ module AWS::SDK::QuickSight
         data['AssignmentName'] = input[:assignment_name] unless input[:assignment_name].nil?
         data['AssignmentStatus'] = input[:assignment_status] unless input[:assignment_status].nil?
         data['PolicyArn'] = input[:policy_arn] unless input[:policy_arn].nil?
-        data['Identities'] = Builders::IdentityMap.build(input[:identities]) unless input[:identities].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Identities'] = IdentityMap.build(input[:identities]) unless input[:identities].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1490,7 +1492,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::IdentityNameList.build(value) unless value.nil?
+          data[key] = IdentityNameList.build(value) unless value.nil?
         end
         data
       end
@@ -1533,7 +1535,7 @@ module AWS::SDK::QuickSight
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['IngestionType'] = input[:ingestion_type] unless input[:ingestion_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1556,8 +1558,8 @@ module AWS::SDK::QuickSight
         data = {}
         data['Namespace'] = input[:namespace] unless input[:namespace].nil?
         data['IdentityStore'] = input[:identity_store] unless input[:identity_store].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1583,11 +1585,11 @@ module AWS::SDK::QuickSight
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Permissions'] = Builders::ResourcePermissionList.build(input[:permissions]) unless input[:permissions].nil?
-        data['SourceEntity'] = Builders::TemplateSourceEntity.build(input[:source_entity]) unless input[:source_entity].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Permissions'] = ResourcePermissionList.build(input[:permissions]) unless input[:permissions].nil?
+        data['SourceEntity'] = TemplateSourceEntity.build(input[:source_entity]) unless input[:source_entity].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['VersionDescription'] = input[:version_description] unless input[:version_description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1595,8 +1597,8 @@ module AWS::SDK::QuickSight
     class TemplateSourceEntity
       def self.build(input)
         data = {}
-        data['SourceAnalysis'] = Builders::TemplateSourceAnalysis.build(input[:source_analysis]) unless input[:source_analysis].nil?
-        data['SourceTemplate'] = Builders::TemplateSourceTemplate.build(input[:source_template]) unless input[:source_template].nil?
+        data['SourceAnalysis'] = TemplateSourceAnalysis.build(input[:source_analysis]) unless input[:source_analysis].nil?
+        data['SourceTemplate'] = TemplateSourceTemplate.build(input[:source_template]) unless input[:source_template].nil?
         data
       end
     end
@@ -1615,7 +1617,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        data['DataSetReferences'] = Builders::DataSetReferenceList.build(input[:data_set_references]) unless input[:data_set_references].nil?
+        data['DataSetReferences'] = DataSetReferenceList.build(input[:data_set_references]) unless input[:data_set_references].nil?
         data
       end
     end
@@ -1646,7 +1648,7 @@ module AWS::SDK::QuickSight
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['TemplateVersionNumber'] = input[:template_version_number] unless input[:template_version_number].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1674,10 +1676,10 @@ module AWS::SDK::QuickSight
         data['Name'] = input[:name] unless input[:name].nil?
         data['BaseThemeId'] = input[:base_theme_id] unless input[:base_theme_id].nil?
         data['VersionDescription'] = input[:version_description] unless input[:version_description].nil?
-        data['Configuration'] = Builders::ThemeConfiguration.build(input[:configuration]) unless input[:configuration].nil?
-        data['Permissions'] = Builders::ResourcePermissionList.build(input[:permissions]) unless input[:permissions].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Configuration'] = ThemeConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        data['Permissions'] = ResourcePermissionList.build(input[:permissions]) unless input[:permissions].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1685,9 +1687,9 @@ module AWS::SDK::QuickSight
     class ThemeConfiguration
       def self.build(input)
         data = {}
-        data['DataColorPalette'] = Builders::DataColorPalette.build(input[:data_color_palette]) unless input[:data_color_palette].nil?
-        data['UIColorPalette'] = Builders::UIColorPalette.build(input[:ui_color_palette]) unless input[:ui_color_palette].nil?
-        data['Sheet'] = Builders::SheetStyle.build(input[:sheet]) unless input[:sheet].nil?
+        data['DataColorPalette'] = DataColorPalette.build(input[:data_color_palette]) unless input[:data_color_palette].nil?
+        data['UIColorPalette'] = UIColorPalette.build(input[:ui_color_palette]) unless input[:ui_color_palette].nil?
+        data['Sheet'] = SheetStyle.build(input[:sheet]) unless input[:sheet].nil?
         data
       end
     end
@@ -1696,8 +1698,8 @@ module AWS::SDK::QuickSight
     class SheetStyle
       def self.build(input)
         data = {}
-        data['Tile'] = Builders::TileStyle.build(input[:tile]) unless input[:tile].nil?
-        data['TileLayout'] = Builders::TileLayoutStyle.build(input[:tile_layout]) unless input[:tile_layout].nil?
+        data['Tile'] = TileStyle.build(input[:tile]) unless input[:tile].nil?
+        data['TileLayout'] = TileLayoutStyle.build(input[:tile_layout]) unless input[:tile_layout].nil?
         data
       end
     end
@@ -1706,8 +1708,8 @@ module AWS::SDK::QuickSight
     class TileLayoutStyle
       def self.build(input)
         data = {}
-        data['Gutter'] = Builders::GutterStyle.build(input[:gutter]) unless input[:gutter].nil?
-        data['Margin'] = Builders::MarginStyle.build(input[:margin]) unless input[:margin].nil?
+        data['Gutter'] = GutterStyle.build(input[:gutter]) unless input[:gutter].nil?
+        data['Margin'] = MarginStyle.build(input[:margin]) unless input[:margin].nil?
         data
       end
     end
@@ -1734,7 +1736,7 @@ module AWS::SDK::QuickSight
     class TileStyle
       def self.build(input)
         data = {}
-        data['Border'] = Builders::BorderStyle.build(input[:border]) unless input[:border].nil?
+        data['Border'] = BorderStyle.build(input[:border]) unless input[:border].nil?
         data
       end
     end
@@ -1776,8 +1778,8 @@ module AWS::SDK::QuickSight
     class DataColorPalette
       def self.build(input)
         data = {}
-        data['Colors'] = Builders::ColorList.build(input[:colors]) unless input[:colors].nil?
-        data['MinMaxGradient'] = Builders::ColorList.build(input[:min_max_gradient]) unless input[:min_max_gradient].nil?
+        data['Colors'] = ColorList.build(input[:colors]) unless input[:colors].nil?
+        data['MinMaxGradient'] = ColorList.build(input[:min_max_gradient]) unless input[:min_max_gradient].nil?
         data['EmptyFillColor'] = input[:empty_fill_color] unless input[:empty_fill_color].nil?
         data
       end
@@ -1820,7 +1822,7 @@ module AWS::SDK::QuickSight
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ThemeVersionNumber'] = input[:theme_version_number] unless input[:theme_version_number].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2816,10 +2818,10 @@ module AWS::SDK::QuickSight
         data = {}
         data['SessionLifetimeInMinutes'] = input[:session_lifetime_in_minutes] unless input[:session_lifetime_in_minutes].nil?
         data['Namespace'] = input[:namespace] unless input[:namespace].nil?
-        data['SessionTags'] = Builders::SessionTagList.build(input[:session_tags]) unless input[:session_tags].nil?
-        data['AuthorizedResourceArns'] = Builders::ArnList.build(input[:authorized_resource_arns]) unless input[:authorized_resource_arns].nil?
-        data['ExperienceConfiguration'] = Builders::AnonymousUserEmbeddingExperienceConfiguration.build(input[:experience_configuration]) unless input[:experience_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SessionTags'] = SessionTagList.build(input[:session_tags]) unless input[:session_tags].nil?
+        data['AuthorizedResourceArns'] = ArnList.build(input[:authorized_resource_arns]) unless input[:authorized_resource_arns].nil?
+        data['ExperienceConfiguration'] = AnonymousUserEmbeddingExperienceConfiguration.build(input[:experience_configuration]) unless input[:experience_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2827,7 +2829,7 @@ module AWS::SDK::QuickSight
     class AnonymousUserEmbeddingExperienceConfiguration
       def self.build(input)
         data = {}
-        data['Dashboard'] = Builders::AnonymousUserDashboardEmbeddingConfiguration.build(input[:dashboard]) unless input[:dashboard].nil?
+        data['Dashboard'] = AnonymousUserDashboardEmbeddingConfiguration.build(input[:dashboard]) unless input[:dashboard].nil?
         data
       end
     end
@@ -2857,7 +2859,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SessionTag.build(element) unless element.nil?
+          data << SessionTag.build(element) unless element.nil?
         end
         data
       end
@@ -2892,8 +2894,8 @@ module AWS::SDK::QuickSight
         data = {}
         data['SessionLifetimeInMinutes'] = input[:session_lifetime_in_minutes] unless input[:session_lifetime_in_minutes].nil?
         data['UserArn'] = input[:user_arn] unless input[:user_arn].nil?
-        data['ExperienceConfiguration'] = Builders::RegisteredUserEmbeddingExperienceConfiguration.build(input[:experience_configuration]) unless input[:experience_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ExperienceConfiguration'] = RegisteredUserEmbeddingExperienceConfiguration.build(input[:experience_configuration]) unless input[:experience_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2901,9 +2903,9 @@ module AWS::SDK::QuickSight
     class RegisteredUserEmbeddingExperienceConfiguration
       def self.build(input)
         data = {}
-        data['Dashboard'] = Builders::RegisteredUserDashboardEmbeddingConfiguration.build(input[:dashboard]) unless input[:dashboard].nil?
-        data['QuickSightConsole'] = Builders::RegisteredUserQuickSightConsoleEmbeddingConfiguration.build(input[:quick_sight_console]) unless input[:quick_sight_console].nil?
-        data['QSearchBar'] = Builders::RegisteredUserQSearchBarEmbeddingConfiguration.build(input[:q_search_bar]) unless input[:q_search_bar].nil?
+        data['Dashboard'] = RegisteredUserDashboardEmbeddingConfiguration.build(input[:dashboard]) unless input[:dashboard].nil?
+        data['QuickSightConsole'] = RegisteredUserQuickSightConsoleEmbeddingConfiguration.build(input[:quick_sight_console]) unless input[:quick_sight_console].nil?
+        data['QSearchBar'] = RegisteredUserQSearchBarEmbeddingConfiguration.build(input[:q_search_bar]) unless input[:q_search_bar].nil?
         data
       end
     end
@@ -3214,7 +3216,7 @@ module AWS::SDK::QuickSight
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AssignmentStatus'] = input[:assignment_status] unless input[:assignment_status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3516,7 +3518,7 @@ module AWS::SDK::QuickSight
         data['ExternalLoginFederationProviderType'] = input[:external_login_federation_provider_type] unless input[:external_login_federation_provider_type].nil?
         data['CustomFederationProviderUrl'] = input[:custom_federation_provider_url] unless input[:custom_federation_provider_url].nil?
         data['ExternalLoginId'] = input[:external_login_id] unless input[:external_login_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3558,10 +3560,10 @@ module AWS::SDK::QuickSight
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Filters'] = Builders::AnalysisSearchFilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = AnalysisSearchFilterList.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3570,7 +3572,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AnalysisSearchFilter.build(element) unless element.nil?
+          data << AnalysisSearchFilter.build(element) unless element.nil?
         end
         data
       end
@@ -3604,10 +3606,10 @@ module AWS::SDK::QuickSight
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Filters'] = Builders::DashboardSearchFilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = DashboardSearchFilterList.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3616,7 +3618,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DashboardSearchFilter.build(element) unless element.nil?
+          data << DashboardSearchFilter.build(element) unless element.nil?
         end
         data
       end
@@ -3650,10 +3652,10 @@ module AWS::SDK::QuickSight
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Filters'] = Builders::FolderSearchFilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FolderSearchFilterList.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3662,7 +3664,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FolderSearchFilter.build(element) unless element.nil?
+          data << FolderSearchFilter.build(element) unless element.nil?
         end
         data
       end
@@ -3702,8 +3704,8 @@ module AWS::SDK::QuickSight
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Filters'] = Builders::GroupSearchFilterList.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = GroupSearchFilterList.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3712,7 +3714,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GroupSearchFilter.build(element) unless element.nil?
+          data << GroupSearchFilter.build(element) unless element.nil?
         end
         data
       end
@@ -3746,8 +3748,8 @@ module AWS::SDK::QuickSight
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3802,8 +3804,8 @@ module AWS::SDK::QuickSight
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AccountCustomization'] = Builders::AccountCustomization.build(input[:account_customization]) unless input[:account_customization].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountCustomization'] = AccountCustomization.build(input[:account_customization]) unless input[:account_customization].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3826,7 +3828,7 @@ module AWS::SDK::QuickSight
         data = {}
         data['DefaultNamespace'] = input[:default_namespace] unless input[:default_namespace].nil?
         data['NotificationEmail'] = input[:notification_email] unless input[:notification_email].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3852,10 +3854,10 @@ module AWS::SDK::QuickSight
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Parameters'] = Builders::Parameters.build(input[:parameters]) unless input[:parameters].nil?
-        data['SourceEntity'] = Builders::AnalysisSourceEntity.build(input[:source_entity]) unless input[:source_entity].nil?
+        data['Parameters'] = Parameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['SourceEntity'] = AnalysisSourceEntity.build(input[:source_entity]) unless input[:source_entity].nil?
         data['ThemeArn'] = input[:theme_arn] unless input[:theme_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3880,9 +3882,9 @@ module AWS::SDK::QuickSight
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['GrantPermissions'] = Builders::UpdateResourcePermissionList.build(input[:grant_permissions]) unless input[:grant_permissions].nil?
-        data['RevokePermissions'] = Builders::UpdateResourcePermissionList.build(input[:revoke_permissions]) unless input[:revoke_permissions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrantPermissions'] = UpdateResourcePermissionList.build(input[:grant_permissions]) unless input[:grant_permissions].nil?
+        data['RevokePermissions'] = UpdateResourcePermissionList.build(input[:revoke_permissions]) unless input[:revoke_permissions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3891,7 +3893,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ResourcePermission.build(element) unless element.nil?
+          data << ResourcePermission.build(element) unless element.nil?
         end
         data
       end
@@ -3919,12 +3921,12 @@ module AWS::SDK::QuickSight
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['SourceEntity'] = Builders::DashboardSourceEntity.build(input[:source_entity]) unless input[:source_entity].nil?
-        data['Parameters'] = Builders::Parameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['SourceEntity'] = DashboardSourceEntity.build(input[:source_entity]) unless input[:source_entity].nil?
+        data['Parameters'] = Parameters.build(input[:parameters]) unless input[:parameters].nil?
         data['VersionDescription'] = input[:version_description] unless input[:version_description].nil?
-        data['DashboardPublishOptions'] = Builders::DashboardPublishOptions.build(input[:dashboard_publish_options]) unless input[:dashboard_publish_options].nil?
+        data['DashboardPublishOptions'] = DashboardPublishOptions.build(input[:dashboard_publish_options]) unless input[:dashboard_publish_options].nil?
         data['ThemeArn'] = input[:theme_arn] unless input[:theme_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3949,11 +3951,11 @@ module AWS::SDK::QuickSight
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['GrantPermissions'] = Builders::UpdateResourcePermissionList.build(input[:grant_permissions]) unless input[:grant_permissions].nil?
-        data['RevokePermissions'] = Builders::UpdateResourcePermissionList.build(input[:revoke_permissions]) unless input[:revoke_permissions].nil?
-        data['GrantLinkPermissions'] = Builders::UpdateLinkPermissionList.build(input[:grant_link_permissions]) unless input[:grant_link_permissions].nil?
-        data['RevokeLinkPermissions'] = Builders::UpdateLinkPermissionList.build(input[:revoke_link_permissions]) unless input[:revoke_link_permissions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrantPermissions'] = UpdateResourcePermissionList.build(input[:grant_permissions]) unless input[:grant_permissions].nil?
+        data['RevokePermissions'] = UpdateResourcePermissionList.build(input[:revoke_permissions]) unless input[:revoke_permissions].nil?
+        data['GrantLinkPermissions'] = UpdateLinkPermissionList.build(input[:grant_link_permissions]) unless input[:grant_link_permissions].nil?
+        data['RevokeLinkPermissions'] = UpdateLinkPermissionList.build(input[:revoke_link_permissions]) unless input[:revoke_link_permissions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3962,7 +3964,7 @@ module AWS::SDK::QuickSight
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ResourcePermission.build(element) unless element.nil?
+          data << ResourcePermission.build(element) unless element.nil?
         end
         data
       end
@@ -4015,16 +4017,16 @@ module AWS::SDK::QuickSight
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['PhysicalTableMap'] = Builders::PhysicalTableMap.build(input[:physical_table_map]) unless input[:physical_table_map].nil?
-        data['LogicalTableMap'] = Builders::LogicalTableMap.build(input[:logical_table_map]) unless input[:logical_table_map].nil?
+        data['PhysicalTableMap'] = PhysicalTableMap.build(input[:physical_table_map]) unless input[:physical_table_map].nil?
+        data['LogicalTableMap'] = LogicalTableMap.build(input[:logical_table_map]) unless input[:logical_table_map].nil?
         data['ImportMode'] = input[:import_mode] unless input[:import_mode].nil?
-        data['ColumnGroups'] = Builders::ColumnGroupList.build(input[:column_groups]) unless input[:column_groups].nil?
-        data['FieldFolders'] = Builders::FieldFolderMap.build(input[:field_folders]) unless input[:field_folders].nil?
-        data['RowLevelPermissionDataSet'] = Builders::RowLevelPermissionDataSet.build(input[:row_level_permission_data_set]) unless input[:row_level_permission_data_set].nil?
-        data['RowLevelPermissionTagConfiguration'] = Builders::RowLevelPermissionTagConfiguration.build(input[:row_level_permission_tag_configuration]) unless input[:row_level_permission_tag_configuration].nil?
-        data['ColumnLevelPermissionRules'] = Builders::ColumnLevelPermissionRuleList.build(input[:column_level_permission_rules]) unless input[:column_level_permission_rules].nil?
-        data['DataSetUsageConfiguration'] = Builders::DataSetUsageConfiguration.build(input[:data_set_usage_configuration]) unless input[:data_set_usage_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ColumnGroups'] = ColumnGroupList.build(input[:column_groups]) unless input[:column_groups].nil?
+        data['FieldFolders'] = FieldFolderMap.build(input[:field_folders]) unless input[:field_folders].nil?
+        data['RowLevelPermissionDataSet'] = RowLevelPermissionDataSet.build(input[:row_level_permission_data_set]) unless input[:row_level_permission_data_set].nil?
+        data['RowLevelPermissionTagConfiguration'] = RowLevelPermissionTagConfiguration.build(input[:row_level_permission_tag_configuration]) unless input[:row_level_permission_tag_configuration].nil?
+        data['ColumnLevelPermissionRules'] = ColumnLevelPermissionRuleList.build(input[:column_level_permission_rules]) unless input[:column_level_permission_rules].nil?
+        data['DataSetUsageConfiguration'] = DataSetUsageConfiguration.build(input[:data_set_usage_configuration]) unless input[:data_set_usage_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4049,9 +4051,9 @@ module AWS::SDK::QuickSight
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['GrantPermissions'] = Builders::ResourcePermissionList.build(input[:grant_permissions]) unless input[:grant_permissions].nil?
-        data['RevokePermissions'] = Builders::ResourcePermissionList.build(input[:revoke_permissions]) unless input[:revoke_permissions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrantPermissions'] = ResourcePermissionList.build(input[:grant_permissions]) unless input[:grant_permissions].nil?
+        data['RevokePermissions'] = ResourcePermissionList.build(input[:revoke_permissions]) unless input[:revoke_permissions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4077,11 +4079,11 @@ module AWS::SDK::QuickSight
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['DataSourceParameters'] = Builders::DataSourceParameters.build(input[:data_source_parameters]) unless input[:data_source_parameters].nil?
-        data['Credentials'] = Builders::DataSourceCredentials.build(input[:credentials]) unless input[:credentials].nil?
-        data['VpcConnectionProperties'] = Builders::VpcConnectionProperties.build(input[:vpc_connection_properties]) unless input[:vpc_connection_properties].nil?
-        data['SslProperties'] = Builders::SslProperties.build(input[:ssl_properties]) unless input[:ssl_properties].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DataSourceParameters'] = DataSourceParameters.build(input[:data_source_parameters]) unless input[:data_source_parameters].nil?
+        data['Credentials'] = DataSourceCredentials.build(input[:credentials]) unless input[:credentials].nil?
+        data['VpcConnectionProperties'] = VpcConnectionProperties.build(input[:vpc_connection_properties]) unless input[:vpc_connection_properties].nil?
+        data['SslProperties'] = SslProperties.build(input[:ssl_properties]) unless input[:ssl_properties].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4106,9 +4108,9 @@ module AWS::SDK::QuickSight
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['GrantPermissions'] = Builders::ResourcePermissionList.build(input[:grant_permissions]) unless input[:grant_permissions].nil?
-        data['RevokePermissions'] = Builders::ResourcePermissionList.build(input[:revoke_permissions]) unless input[:revoke_permissions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrantPermissions'] = ResourcePermissionList.build(input[:grant_permissions]) unless input[:grant_permissions].nil?
+        data['RevokePermissions'] = ResourcePermissionList.build(input[:revoke_permissions]) unless input[:revoke_permissions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4134,7 +4136,7 @@ module AWS::SDK::QuickSight
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4159,9 +4161,9 @@ module AWS::SDK::QuickSight
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['GrantPermissions'] = Builders::ResourcePermissionList.build(input[:grant_permissions]) unless input[:grant_permissions].nil?
-        data['RevokePermissions'] = Builders::ResourcePermissionList.build(input[:revoke_permissions]) unless input[:revoke_permissions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrantPermissions'] = ResourcePermissionList.build(input[:grant_permissions]) unless input[:grant_permissions].nil?
+        data['RevokePermissions'] = ResourcePermissionList.build(input[:revoke_permissions]) unless input[:revoke_permissions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4191,7 +4193,7 @@ module AWS::SDK::QuickSight
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4222,8 +4224,8 @@ module AWS::SDK::QuickSight
         data = {}
         data['AssignmentStatus'] = input[:assignment_status] unless input[:assignment_status].nil?
         data['PolicyArn'] = input[:policy_arn] unless input[:policy_arn].nil?
-        data['Identities'] = Builders::IdentityMap.build(input[:identities]) unless input[:identities].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Identities'] = IdentityMap.build(input[:identities]) unless input[:identities].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4244,9 +4246,9 @@ module AWS::SDK::QuickSight
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['IpRestrictionRuleMap'] = Builders::IpRestrictionRuleMap.build(input[:ip_restriction_rule_map]) unless input[:ip_restriction_rule_map].nil?
+        data['IpRestrictionRuleMap'] = IpRestrictionRuleMap.build(input[:ip_restriction_rule_map]) unless input[:ip_restriction_rule_map].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4279,7 +4281,7 @@ module AWS::SDK::QuickSight
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['PublicSharingEnabled'] = input[:public_sharing_enabled] unless input[:public_sharing_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4304,10 +4306,10 @@ module AWS::SDK::QuickSight
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['SourceEntity'] = Builders::TemplateSourceEntity.build(input[:source_entity]) unless input[:source_entity].nil?
+        data['SourceEntity'] = TemplateSourceEntity.build(input[:source_entity]) unless input[:source_entity].nil?
         data['VersionDescription'] = input[:version_description] unless input[:version_description].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4337,7 +4339,7 @@ module AWS::SDK::QuickSight
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['TemplateVersionNumber'] = input[:template_version_number] unless input[:template_version_number].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4362,9 +4364,9 @@ module AWS::SDK::QuickSight
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['GrantPermissions'] = Builders::UpdateResourcePermissionList.build(input[:grant_permissions]) unless input[:grant_permissions].nil?
-        data['RevokePermissions'] = Builders::UpdateResourcePermissionList.build(input[:revoke_permissions]) unless input[:revoke_permissions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrantPermissions'] = UpdateResourcePermissionList.build(input[:grant_permissions]) unless input[:grant_permissions].nil?
+        data['RevokePermissions'] = UpdateResourcePermissionList.build(input[:revoke_permissions]) unless input[:revoke_permissions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4392,8 +4394,8 @@ module AWS::SDK::QuickSight
         data['Name'] = input[:name] unless input[:name].nil?
         data['BaseThemeId'] = input[:base_theme_id] unless input[:base_theme_id].nil?
         data['VersionDescription'] = input[:version_description] unless input[:version_description].nil?
-        data['Configuration'] = Builders::ThemeConfiguration.build(input[:configuration]) unless input[:configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Configuration'] = ThemeConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4423,7 +4425,7 @@ module AWS::SDK::QuickSight
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ThemeVersionNumber'] = input[:theme_version_number] unless input[:theme_version_number].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4448,9 +4450,9 @@ module AWS::SDK::QuickSight
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['GrantPermissions'] = Builders::UpdateResourcePermissionList.build(input[:grant_permissions]) unless input[:grant_permissions].nil?
-        data['RevokePermissions'] = Builders::UpdateResourcePermissionList.build(input[:revoke_permissions]) unless input[:revoke_permissions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrantPermissions'] = UpdateResourcePermissionList.build(input[:grant_permissions]) unless input[:grant_permissions].nil?
+        data['RevokePermissions'] = UpdateResourcePermissionList.build(input[:revoke_permissions]) unless input[:revoke_permissions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4486,7 +4488,7 @@ module AWS::SDK::QuickSight
         data['ExternalLoginFederationProviderType'] = input[:external_login_federation_provider_type] unless input[:external_login_federation_provider_type].nil?
         data['CustomFederationProviderUrl'] = input[:custom_federation_provider_url] unless input[:custom_federation_provider_url].nil?
         data['ExternalLoginId'] = input[:external_login_id] unless input[:external_login_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

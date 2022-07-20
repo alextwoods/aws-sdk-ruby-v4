@@ -21,7 +21,7 @@ module AWS::SDK::Schemas
         data.source_arn = map['SourceArn']
         data.state = map['State']
         data.cross_account = map['CrossAccount']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -110,7 +110,7 @@ module AWS::SDK::Schemas
         data.description = map['Description']
         data.registry_arn = map['RegistryArn']
         data.registry_name = map['RegistryName']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -125,7 +125,7 @@ module AWS::SDK::Schemas
         data.schema_arn = map['SchemaArn']
         data.schema_name = map['SchemaName']
         data.schema_version = map['SchemaVersion']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.type = map['Type']
         data.version_created_date = Time.parse(map['VersionCreatedDate']) if map['VersionCreatedDate']
         data
@@ -223,7 +223,7 @@ module AWS::SDK::Schemas
         data.source_arn = map['SourceArn']
         data.state = map['State']
         data.cross_account = map['CrossAccount']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -236,7 +236,7 @@ module AWS::SDK::Schemas
         data.description = map['Description']
         data.registry_arn = map['RegistryArn']
         data.registry_name = map['RegistryName']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -252,7 +252,7 @@ module AWS::SDK::Schemas
         data.schema_arn = map['SchemaArn']
         data.schema_name = map['SchemaName']
         data.schema_version = map['SchemaVersion']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.type = map['Type']
         data.version_created_date = Time.parse(map['VersionCreatedDate']) if map['VersionCreatedDate']
         data
@@ -309,7 +309,7 @@ module AWS::SDK::Schemas
       def self.parse(http_resp)
         data = Types::ListDiscoverersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.discoverers = (Parsers::List____listOfDiscovererSummary.parse(map['Discoverers']) unless map['Discoverers'].nil?)
+        data.discoverers = (List____listOfDiscovererSummary.parse(map['Discoverers']) unless map['Discoverers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -319,7 +319,7 @@ module AWS::SDK::Schemas
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DiscovererSummary.parse(value) unless value.nil?
+          data << DiscovererSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -333,7 +333,7 @@ module AWS::SDK::Schemas
         data.source_arn = map['SourceArn']
         data.state = map['State']
         data.cross_account = map['CrossAccount']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -344,7 +344,7 @@ module AWS::SDK::Schemas
         data = Types::ListRegistriesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.registries = (Parsers::List____listOfRegistrySummary.parse(map['Registries']) unless map['Registries'].nil?)
+        data.registries = (List____listOfRegistrySummary.parse(map['Registries']) unless map['Registries'].nil?)
         data
       end
     end
@@ -353,7 +353,7 @@ module AWS::SDK::Schemas
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RegistrySummary.parse(value) unless value.nil?
+          data << RegistrySummary.parse(value) unless value.nil?
         end
         data
       end
@@ -364,7 +364,7 @@ module AWS::SDK::Schemas
         data = Types::RegistrySummary.new
         data.registry_arn = map['RegistryArn']
         data.registry_name = map['RegistryName']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -375,7 +375,7 @@ module AWS::SDK::Schemas
         data = Types::ListSchemaVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.schema_versions = (Parsers::List____listOfSchemaVersionSummary.parse(map['SchemaVersions']) unless map['SchemaVersions'].nil?)
+        data.schema_versions = (List____listOfSchemaVersionSummary.parse(map['SchemaVersions']) unless map['SchemaVersions'].nil?)
         data
       end
     end
@@ -384,7 +384,7 @@ module AWS::SDK::Schemas
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SchemaVersionSummary.parse(value) unless value.nil?
+          data << SchemaVersionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -407,7 +407,7 @@ module AWS::SDK::Schemas
         data = Types::ListSchemasOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.schemas = (Parsers::List____listOfSchemaSummary.parse(map['Schemas']) unless map['Schemas'].nil?)
+        data.schemas = (List____listOfSchemaSummary.parse(map['Schemas']) unless map['Schemas'].nil?)
         data
       end
     end
@@ -416,7 +416,7 @@ module AWS::SDK::Schemas
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SchemaSummary.parse(value) unless value.nil?
+          data << SchemaSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -428,7 +428,7 @@ module AWS::SDK::Schemas
         data.last_modified = Time.parse(map['LastModified']) if map['LastModified']
         data.schema_arn = map['SchemaArn']
         data.schema_name = map['SchemaName']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.version_count = map['VersionCount']
         return data
       end
@@ -439,7 +439,7 @@ module AWS::SDK::Schemas
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -496,7 +496,7 @@ module AWS::SDK::Schemas
         data = Types::SearchSchemasOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.schemas = (Parsers::List____listOfSearchSchemaSummary.parse(map['Schemas']) unless map['Schemas'].nil?)
+        data.schemas = (List____listOfSearchSchemaSummary.parse(map['Schemas']) unless map['Schemas'].nil?)
         data
       end
     end
@@ -505,7 +505,7 @@ module AWS::SDK::Schemas
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SearchSchemaSummary.parse(value) unless value.nil?
+          data << SearchSchemaSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -517,7 +517,7 @@ module AWS::SDK::Schemas
         data.registry_name = map['RegistryName']
         data.schema_arn = map['SchemaArn']
         data.schema_name = map['SchemaName']
-        data.schema_versions = (Parsers::List____listOfSearchSchemaVersionSummary.parse(map['SchemaVersions']) unless map['SchemaVersions'].nil?)
+        data.schema_versions = (List____listOfSearchSchemaVersionSummary.parse(map['SchemaVersions']) unless map['SchemaVersions'].nil?)
         return data
       end
     end
@@ -526,7 +526,7 @@ module AWS::SDK::Schemas
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SearchSchemaVersionSummary.parse(value) unless value.nil?
+          data << SearchSchemaVersionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -593,7 +593,7 @@ module AWS::SDK::Schemas
         data.source_arn = map['SourceArn']
         data.state = map['State']
         data.cross_account = map['CrossAccount']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -606,7 +606,7 @@ module AWS::SDK::Schemas
         data.description = map['Description']
         data.registry_arn = map['RegistryArn']
         data.registry_name = map['RegistryName']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -621,7 +621,7 @@ module AWS::SDK::Schemas
         data.schema_arn = map['SchemaArn']
         data.schema_name = map['SchemaName']
         data.schema_version = map['SchemaVersion']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.type = map['Type']
         data.version_created_date = Time.parse(map['VersionCreatedDate']) if map['VersionCreatedDate']
         data

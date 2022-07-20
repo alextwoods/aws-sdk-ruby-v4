@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ServiceCatalog
   module Builders
 
@@ -21,7 +23,7 @@ module AWS::SDK::ServiceCatalog
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['PortfolioId'] = input[:portfolio_id] unless input[:portfolio_id].nil?
         data['PortfolioShareType'] = input[:portfolio_share_type] unless input[:portfolio_share_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -35,7 +37,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -51,7 +53,7 @@ module AWS::SDK::ServiceCatalog
         data['PortfolioId'] = input[:portfolio_id] unless input[:portfolio_id].nil?
         data['PrincipalARN'] = input[:principal_arn] unless input[:principal_arn].nil?
         data['PrincipalType'] = input[:principal_type] unless input[:principal_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -67,7 +69,7 @@ module AWS::SDK::ServiceCatalog
         data['ProductId'] = input[:product_id] unless input[:product_id].nil?
         data['PortfolioId'] = input[:portfolio_id] unless input[:portfolio_id].nil?
         data['SourcePortfolioId'] = input[:source_portfolio_id] unless input[:source_portfolio_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -83,7 +85,7 @@ module AWS::SDK::ServiceCatalog
         data['ProvisioningArtifactId'] = input[:provisioning_artifact_id] unless input[:provisioning_artifact_id].nil?
         data['ServiceActionId'] = input[:service_action_id] unless input[:service_action_id].nil?
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -97,7 +99,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['TagOptionId'] = input[:tag_option_id] unless input[:tag_option_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -109,9 +111,9 @@ module AWS::SDK::ServiceCatalog
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWS242ServiceCatalogService.BatchAssociateServiceActionWithProvisioningArtifact'
         data = {}
-        data['ServiceActionAssociations'] = Builders::ServiceActionAssociations.build(input[:service_action_associations]) unless input[:service_action_associations].nil?
+        data['ServiceActionAssociations'] = ServiceActionAssociations.build(input[:service_action_associations]) unless input[:service_action_associations].nil?
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -120,7 +122,7 @@ module AWS::SDK::ServiceCatalog
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ServiceActionAssociation.build(element) unless element.nil?
+          data << ServiceActionAssociation.build(element) unless element.nil?
         end
         data
       end
@@ -145,9 +147,9 @@ module AWS::SDK::ServiceCatalog
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWS242ServiceCatalogService.BatchDisassociateServiceActionFromProvisioningArtifact'
         data = {}
-        data['ServiceActionAssociations'] = Builders::ServiceActionAssociations.build(input[:service_action_associations]) unless input[:service_action_associations].nil?
+        data['ServiceActionAssociations'] = ServiceActionAssociations.build(input[:service_action_associations]) unless input[:service_action_associations].nil?
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -163,10 +165,10 @@ module AWS::SDK::ServiceCatalog
         data['SourceProductArn'] = input[:source_product_arn] unless input[:source_product_arn].nil?
         data['TargetProductId'] = input[:target_product_id] unless input[:target_product_id].nil?
         data['TargetProductName'] = input[:target_product_name] unless input[:target_product_name].nil?
-        data['SourceProvisioningArtifactIdentifiers'] = Builders::SourceProvisioningArtifactProperties.build(input[:source_provisioning_artifact_identifiers]) unless input[:source_provisioning_artifact_identifiers].nil?
-        data['CopyOptions'] = Builders::CopyOptions.build(input[:copy_options]) unless input[:copy_options].nil?
+        data['SourceProvisioningArtifactIdentifiers'] = SourceProvisioningArtifactProperties.build(input[:source_provisioning_artifact_identifiers]) unless input[:source_provisioning_artifact_identifiers].nil?
+        data['CopyOptions'] = CopyOptions.build(input[:copy_options]) unless input[:copy_options].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -186,7 +188,7 @@ module AWS::SDK::ServiceCatalog
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SourceProvisioningArtifactPropertiesMap.build(element) unless element.nil?
+          data << SourceProvisioningArtifactPropertiesMap.build(element) unless element.nil?
         end
         data
       end
@@ -218,7 +220,7 @@ module AWS::SDK::ServiceCatalog
         data['Type'] = input[:type] unless input[:type].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -234,9 +236,9 @@ module AWS::SDK::ServiceCatalog
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['ProviderName'] = input[:provider_name] unless input[:provider_name].nil?
-        data['Tags'] = Builders::AddTags.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = AddTags.build(input[:tags]) unless input[:tags].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -245,7 +247,7 @@ module AWS::SDK::ServiceCatalog
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -272,9 +274,9 @@ module AWS::SDK::ServiceCatalog
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['PortfolioId'] = input[:portfolio_id] unless input[:portfolio_id].nil?
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        data['OrganizationNode'] = Builders::OrganizationNode.build(input[:organization_node]) unless input[:organization_node].nil?
+        data['OrganizationNode'] = OrganizationNode.build(input[:organization_node]) unless input[:organization_node].nil?
         data['ShareTagOptions'] = input[:share_tag_options] unless input[:share_tag_options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -305,10 +307,10 @@ module AWS::SDK::ServiceCatalog
         data['SupportEmail'] = input[:support_email] unless input[:support_email].nil?
         data['SupportUrl'] = input[:support_url] unless input[:support_url].nil?
         data['ProductType'] = input[:product_type] unless input[:product_type].nil?
-        data['Tags'] = Builders::AddTags.build(input[:tags]) unless input[:tags].nil?
-        data['ProvisioningArtifactParameters'] = Builders::ProvisioningArtifactProperties.build(input[:provisioning_artifact_parameters]) unless input[:provisioning_artifact_parameters].nil?
+        data['Tags'] = AddTags.build(input[:tags]) unless input[:tags].nil?
+        data['ProvisioningArtifactParameters'] = ProvisioningArtifactProperties.build(input[:provisioning_artifact_parameters]) unless input[:provisioning_artifact_parameters].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -318,7 +320,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Info'] = Builders::ProvisioningArtifactInfo.build(input[:info]) unless input[:info].nil?
+        data['Info'] = ProvisioningArtifactInfo.build(input[:info]) unless input[:info].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data['DisableTemplateValidation'] = input[:disable_template_validation] unless input[:disable_template_validation].nil?
         data
@@ -347,15 +349,15 @@ module AWS::SDK::ServiceCatalog
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['PlanName'] = input[:plan_name] unless input[:plan_name].nil?
         data['PlanType'] = input[:plan_type] unless input[:plan_type].nil?
-        data['NotificationArns'] = Builders::NotificationArns.build(input[:notification_arns]) unless input[:notification_arns].nil?
+        data['NotificationArns'] = NotificationArns.build(input[:notification_arns]) unless input[:notification_arns].nil?
         data['PathId'] = input[:path_id] unless input[:path_id].nil?
         data['ProductId'] = input[:product_id] unless input[:product_id].nil?
         data['ProvisionedProductName'] = input[:provisioned_product_name] unless input[:provisioned_product_name].nil?
         data['ProvisioningArtifactId'] = input[:provisioning_artifact_id] unless input[:provisioning_artifact_id].nil?
-        data['ProvisioningParameters'] = Builders::UpdateProvisioningParameters.build(input[:provisioning_parameters]) unless input[:provisioning_parameters].nil?
+        data['ProvisioningParameters'] = UpdateProvisioningParameters.build(input[:provisioning_parameters]) unless input[:provisioning_parameters].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -364,7 +366,7 @@ module AWS::SDK::ServiceCatalog
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -375,7 +377,7 @@ module AWS::SDK::ServiceCatalog
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UpdateProvisioningParameter.build(element) unless element.nil?
+          data << UpdateProvisioningParameter.build(element) unless element.nil?
         end
         data
       end
@@ -413,9 +415,9 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['ProductId'] = input[:product_id] unless input[:product_id].nil?
-        data['Parameters'] = Builders::ProvisioningArtifactProperties.build(input[:parameters]) unless input[:parameters].nil?
+        data['Parameters'] = ProvisioningArtifactProperties.build(input[:parameters]) unless input[:parameters].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -429,11 +431,11 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['DefinitionType'] = input[:definition_type] unless input[:definition_type].nil?
-        data['Definition'] = Builders::ServiceActionDefinitionMap.build(input[:definition]) unless input[:definition].nil?
+        data['Definition'] = ServiceActionDefinitionMap.build(input[:definition]) unless input[:definition].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -458,7 +460,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['Key'] = input[:key] unless input[:key].nil?
         data['Value'] = input[:value] unless input[:value].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -472,7 +474,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -486,7 +488,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -501,8 +503,8 @@ module AWS::SDK::ServiceCatalog
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['PortfolioId'] = input[:portfolio_id] unless input[:portfolio_id].nil?
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        data['OrganizationNode'] = Builders::OrganizationNode.build(input[:organization_node]) unless input[:organization_node].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OrganizationNode'] = OrganizationNode.build(input[:organization_node]) unless input[:organization_node].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -516,7 +518,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -531,7 +533,7 @@ module AWS::SDK::ServiceCatalog
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['PlanId'] = input[:plan_id] unless input[:plan_id].nil?
         data['IgnoreErrors'] = input[:ignore_errors] unless input[:ignore_errors].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -546,7 +548,7 @@ module AWS::SDK::ServiceCatalog
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['ProductId'] = input[:product_id] unless input[:product_id].nil?
         data['ProvisioningArtifactId'] = input[:provisioning_artifact_id] unless input[:provisioning_artifact_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -560,7 +562,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -573,7 +575,7 @@ module AWS::SDK::ServiceCatalog
         http_req.headers['X-Amz-Target'] = 'AWS242ServiceCatalogService.DeleteTagOption'
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -587,7 +589,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -601,7 +603,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['CopyProductToken'] = input[:copy_product_token] unless input[:copy_product_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -615,7 +617,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -628,7 +630,7 @@ module AWS::SDK::ServiceCatalog
         http_req.headers['X-Amz-Target'] = 'AWS242ServiceCatalogService.DescribePortfolioShareStatus'
         data = {}
         data['PortfolioShareToken'] = input[:portfolio_share_token] unless input[:portfolio_share_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -644,7 +646,7 @@ module AWS::SDK::ServiceCatalog
         data['Type'] = input[:type] unless input[:type].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -659,7 +661,7 @@ module AWS::SDK::ServiceCatalog
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['Id'] = input[:id] unless input[:id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -675,7 +677,7 @@ module AWS::SDK::ServiceCatalog
         data['Id'] = input[:id] unless input[:id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['SourcePortfolioId'] = input[:source_portfolio_id] unless input[:source_portfolio_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -689,7 +691,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -704,7 +706,7 @@ module AWS::SDK::ServiceCatalog
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['Id'] = input[:id] unless input[:id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -720,7 +722,7 @@ module AWS::SDK::ServiceCatalog
         data['PlanId'] = input[:plan_id] unless input[:plan_id].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -738,7 +740,7 @@ module AWS::SDK::ServiceCatalog
         data['ProvisioningArtifactName'] = input[:provisioning_artifact_name] unless input[:provisioning_artifact_name].nil?
         data['ProductName'] = input[:product_name] unless input[:product_name].nil?
         data['Verbose'] = input[:verbose] unless input[:verbose].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -757,7 +759,7 @@ module AWS::SDK::ServiceCatalog
         data['ProvisioningArtifactName'] = input[:provisioning_artifact_name] unless input[:provisioning_artifact_name].nil?
         data['PathId'] = input[:path_id] unless input[:path_id].nil?
         data['PathName'] = input[:path_name] unless input[:path_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -773,7 +775,7 @@ module AWS::SDK::ServiceCatalog
         data['Id'] = input[:id] unless input[:id].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -787,7 +789,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -802,7 +804,7 @@ module AWS::SDK::ServiceCatalog
         data['ProvisionedProductId'] = input[:provisioned_product_id] unless input[:provisioned_product_id].nil?
         data['ServiceActionId'] = input[:service_action_id] unless input[:service_action_id].nil?
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -815,7 +817,7 @@ module AWS::SDK::ServiceCatalog
         http_req.headers['X-Amz-Target'] = 'AWS242ServiceCatalogService.DescribeTagOption'
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -827,7 +829,7 @@ module AWS::SDK::ServiceCatalog
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWS242ServiceCatalogService.DisableAWSOrganizationsAccess'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -841,7 +843,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['BudgetName'] = input[:budget_name] unless input[:budget_name].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -856,7 +858,7 @@ module AWS::SDK::ServiceCatalog
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['PortfolioId'] = input[:portfolio_id] unless input[:portfolio_id].nil?
         data['PrincipalARN'] = input[:principal_arn] unless input[:principal_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -871,7 +873,7 @@ module AWS::SDK::ServiceCatalog
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['ProductId'] = input[:product_id] unless input[:product_id].nil?
         data['PortfolioId'] = input[:portfolio_id] unless input[:portfolio_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -887,7 +889,7 @@ module AWS::SDK::ServiceCatalog
         data['ProvisioningArtifactId'] = input[:provisioning_artifact_id] unless input[:provisioning_artifact_id].nil?
         data['ServiceActionId'] = input[:service_action_id] unless input[:service_action_id].nil?
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -901,7 +903,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['TagOptionId'] = input[:tag_option_id] unless input[:tag_option_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -913,7 +915,7 @@ module AWS::SDK::ServiceCatalog
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWS242ServiceCatalogService.EnableAWSOrganizationsAccess'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -928,7 +930,7 @@ module AWS::SDK::ServiceCatalog
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['PlanId'] = input[:plan_id] unless input[:plan_id].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -944,8 +946,8 @@ module AWS::SDK::ServiceCatalog
         data['ServiceActionId'] = input[:service_action_id] unless input[:service_action_id].nil?
         data['ExecuteToken'] = input[:execute_token] unless input[:execute_token].nil?
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
-        data['Parameters'] = Builders::ExecutionParameterMap.build(input[:parameters]) unless input[:parameters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Parameters'] = ExecutionParameterMap.build(input[:parameters]) unless input[:parameters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -954,7 +956,7 @@ module AWS::SDK::ServiceCatalog
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ExecutionParameterValueList.build(value) unless value.nil?
+          data[key] = ExecutionParameterValueList.build(value) unless value.nil?
         end
         data
       end
@@ -979,7 +981,7 @@ module AWS::SDK::ServiceCatalog
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWS242ServiceCatalogService.GetAWSOrganizationsAccessStatus'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -994,10 +996,10 @@ module AWS::SDK::ServiceCatalog
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['ProvisionedProductId'] = input[:provisioned_product_id] unless input[:provisioned_product_id].nil?
         data['ProvisionedProductName'] = input[:provisioned_product_name] unless input[:provisioned_product_name].nil?
-        data['OutputKeys'] = Builders::OutputKeys.build(input[:output_keys]) unless input[:output_keys].nil?
+        data['OutputKeys'] = OutputKeys.build(input[:output_keys]) unless input[:output_keys].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1026,7 +1028,7 @@ module AWS::SDK::ServiceCatalog
         data['ProvisionedProductName'] = input[:provisioned_product_name] unless input[:provisioned_product_name].nil?
         data['PhysicalId'] = input[:physical_id] unless input[:physical_id].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1042,7 +1044,7 @@ module AWS::SDK::ServiceCatalog
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['PortfolioShareType'] = input[:portfolio_share_type] unless input[:portfolio_share_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1058,7 +1060,7 @@ module AWS::SDK::ServiceCatalog
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1075,7 +1077,7 @@ module AWS::SDK::ServiceCatalog
         data['ProductId'] = input[:product_id] unless input[:product_id].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1091,7 +1093,7 @@ module AWS::SDK::ServiceCatalog
         data['ProductId'] = input[:product_id] unless input[:product_id].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1108,7 +1110,7 @@ module AWS::SDK::ServiceCatalog
         data['OrganizationNodeType'] = input[:organization_node_type] unless input[:organization_node_type].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1125,7 +1127,7 @@ module AWS::SDK::ServiceCatalog
         data['OrganizationParentId'] = input[:organization_parent_id] unless input[:organization_parent_id].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1140,7 +1142,7 @@ module AWS::SDK::ServiceCatalog
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1156,7 +1158,7 @@ module AWS::SDK::ServiceCatalog
         data['ProductId'] = input[:product_id] unless input[:product_id].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1172,7 +1174,7 @@ module AWS::SDK::ServiceCatalog
         data['PortfolioId'] = input[:portfolio_id] unless input[:portfolio_id].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1188,8 +1190,8 @@ module AWS::SDK::ServiceCatalog
         data['ProvisionProductId'] = input[:provision_product_id] unless input[:provision_product_id].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
-        data['AccessLevelFilter'] = Builders::AccessLevelFilter.build(input[:access_level_filter]) unless input[:access_level_filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccessLevelFilter'] = AccessLevelFilter.build(input[:access_level_filter]) unless input[:access_level_filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1213,7 +1215,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['ProductId'] = input[:product_id] unless input[:product_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1229,7 +1231,7 @@ module AWS::SDK::ServiceCatalog
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1242,11 +1244,11 @@ module AWS::SDK::ServiceCatalog
         http_req.headers['X-Amz-Target'] = 'AWS242ServiceCatalogService.ListRecordHistory'
         data = {}
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
-        data['AccessLevelFilter'] = Builders::AccessLevelFilter.build(input[:access_level_filter]) unless input[:access_level_filter].nil?
-        data['SearchFilter'] = Builders::ListRecordHistorySearchFilter.build(input[:search_filter]) unless input[:search_filter].nil?
+        data['AccessLevelFilter'] = AccessLevelFilter.build(input[:access_level_filter]) unless input[:access_level_filter].nil?
+        data['SearchFilter'] = ListRecordHistorySearchFilter.build(input[:search_filter]) unless input[:search_filter].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1272,7 +1274,7 @@ module AWS::SDK::ServiceCatalog
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1287,7 +1289,7 @@ module AWS::SDK::ServiceCatalog
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1304,7 +1306,7 @@ module AWS::SDK::ServiceCatalog
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1320,7 +1322,7 @@ module AWS::SDK::ServiceCatalog
         data['ProvisionedProductId'] = input[:provisioned_product_id] unless input[:provisioned_product_id].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1332,10 +1334,10 @@ module AWS::SDK::ServiceCatalog
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWS242ServiceCatalogService.ListTagOptions'
         data = {}
-        data['Filters'] = Builders::ListTagOptionsFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ListTagOptionsFilters.build(input[:filters]) unless input[:filters].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1366,12 +1368,12 @@ module AWS::SDK::ServiceCatalog
         data['PathId'] = input[:path_id] unless input[:path_id].nil?
         data['PathName'] = input[:path_name] unless input[:path_name].nil?
         data['ProvisionedProductName'] = input[:provisioned_product_name] unless input[:provisioned_product_name].nil?
-        data['ProvisioningParameters'] = Builders::ProvisioningParameters.build(input[:provisioning_parameters]) unless input[:provisioning_parameters].nil?
-        data['ProvisioningPreferences'] = Builders::ProvisioningPreferences.build(input[:provisioning_preferences]) unless input[:provisioning_preferences].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        data['NotificationArns'] = Builders::NotificationArns.build(input[:notification_arns]) unless input[:notification_arns].nil?
+        data['ProvisioningParameters'] = ProvisioningParameters.build(input[:provisioning_parameters]) unless input[:provisioning_parameters].nil?
+        data['ProvisioningPreferences'] = ProvisioningPreferences.build(input[:provisioning_preferences]) unless input[:provisioning_preferences].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        data['NotificationArns'] = NotificationArns.build(input[:notification_arns]) unless input[:notification_arns].nil?
         data['ProvisionToken'] = input[:provision_token] unless input[:provision_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1379,8 +1381,8 @@ module AWS::SDK::ServiceCatalog
     class ProvisioningPreferences
       def self.build(input)
         data = {}
-        data['StackSetAccounts'] = Builders::StackSetAccounts.build(input[:stack_set_accounts]) unless input[:stack_set_accounts].nil?
-        data['StackSetRegions'] = Builders::StackSetRegions.build(input[:stack_set_regions]) unless input[:stack_set_regions].nil?
+        data['StackSetAccounts'] = StackSetAccounts.build(input[:stack_set_accounts]) unless input[:stack_set_accounts].nil?
+        data['StackSetRegions'] = StackSetRegions.build(input[:stack_set_regions]) unless input[:stack_set_regions].nil?
         data['StackSetFailureToleranceCount'] = input[:stack_set_failure_tolerance_count] unless input[:stack_set_failure_tolerance_count].nil?
         data['StackSetFailureTolerancePercentage'] = input[:stack_set_failure_tolerance_percentage] unless input[:stack_set_failure_tolerance_percentage].nil?
         data['StackSetMaxConcurrencyCount'] = input[:stack_set_max_concurrency_count] unless input[:stack_set_max_concurrency_count].nil?
@@ -1416,7 +1418,7 @@ module AWS::SDK::ServiceCatalog
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ProvisioningParameter.build(element) unless element.nil?
+          data << ProvisioningParameter.build(element) unless element.nil?
         end
         data
       end
@@ -1443,7 +1445,7 @@ module AWS::SDK::ServiceCatalog
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['PortfolioId'] = input[:portfolio_id] unless input[:portfolio_id].nil?
         data['PortfolioShareType'] = input[:portfolio_share_type] unless input[:portfolio_share_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1456,10 +1458,10 @@ module AWS::SDK::ServiceCatalog
         http_req.headers['X-Amz-Target'] = 'AWS242ServiceCatalogService.ScanProvisionedProducts'
         data = {}
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
-        data['AccessLevelFilter'] = Builders::AccessLevelFilter.build(input[:access_level_filter]) unless input[:access_level_filter].nil?
+        data['AccessLevelFilter'] = AccessLevelFilter.build(input[:access_level_filter]) unless input[:access_level_filter].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1472,12 +1474,12 @@ module AWS::SDK::ServiceCatalog
         http_req.headers['X-Amz-Target'] = 'AWS242ServiceCatalogService.SearchProducts'
         data = {}
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
-        data['Filters'] = Builders::ProductViewFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ProductViewFilters.build(input[:filters]) unless input[:filters].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1486,7 +1488,7 @@ module AWS::SDK::ServiceCatalog
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ProductViewFilterValues.build(value) unless value.nil?
+          data[key] = ProductViewFilterValues.build(value) unless value.nil?
         end
         data
       end
@@ -1513,13 +1515,13 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['PortfolioId'] = input[:portfolio_id] unless input[:portfolio_id].nil?
-        data['Filters'] = Builders::ProductViewFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ProductViewFilters.build(input[:filters]) unless input[:filters].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['ProductSource'] = input[:product_source] unless input[:product_source].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1532,13 +1534,13 @@ module AWS::SDK::ServiceCatalog
         http_req.headers['X-Amz-Target'] = 'AWS242ServiceCatalogService.SearchProvisionedProducts'
         data = {}
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
-        data['AccessLevelFilter'] = Builders::AccessLevelFilter.build(input[:access_level_filter]) unless input[:access_level_filter].nil?
-        data['Filters'] = Builders::ProvisionedProductFilters.build(input[:filters]) unless input[:filters].nil?
+        data['AccessLevelFilter'] = AccessLevelFilter.build(input[:access_level_filter]) unless input[:access_level_filter].nil?
+        data['Filters'] = ProvisionedProductFilters.build(input[:filters]) unless input[:filters].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['PageSize'] = input[:page_size] unless input[:page_size].nil?
         data['PageToken'] = input[:page_token] unless input[:page_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1547,7 +1549,7 @@ module AWS::SDK::ServiceCatalog
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ProvisionedProductViewFilterValues.build(value) unless value.nil?
+          data[key] = ProvisionedProductViewFilterValues.build(value) unless value.nil?
         end
         data
       end
@@ -1578,7 +1580,7 @@ module AWS::SDK::ServiceCatalog
         data['IgnoreErrors'] = input[:ignore_errors] unless input[:ignore_errors].nil?
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['RetainPhysicalResources'] = input[:retain_physical_resources] unless input[:retain_physical_resources].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1594,7 +1596,7 @@ module AWS::SDK::ServiceCatalog
         data['Id'] = input[:id] unless input[:id].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Parameters'] = input[:parameters] unless input[:parameters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1611,9 +1613,9 @@ module AWS::SDK::ServiceCatalog
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['ProviderName'] = input[:provider_name] unless input[:provider_name].nil?
-        data['AddTags'] = Builders::AddTags.build(input[:add_tags]) unless input[:add_tags].nil?
-        data['RemoveTags'] = Builders::TagKeys.build(input[:remove_tags]) unless input[:remove_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AddTags'] = AddTags.build(input[:add_tags]) unless input[:add_tags].nil?
+        data['RemoveTags'] = TagKeys.build(input[:remove_tags]) unless input[:remove_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1639,9 +1641,9 @@ module AWS::SDK::ServiceCatalog
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['PortfolioId'] = input[:portfolio_id] unless input[:portfolio_id].nil?
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        data['OrganizationNode'] = Builders::OrganizationNode.build(input[:organization_node]) unless input[:organization_node].nil?
+        data['OrganizationNode'] = OrganizationNode.build(input[:organization_node]) unless input[:organization_node].nil?
         data['ShareTagOptions'] = input[:share_tag_options] unless input[:share_tag_options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1662,9 +1664,9 @@ module AWS::SDK::ServiceCatalog
         data['SupportDescription'] = input[:support_description] unless input[:support_description].nil?
         data['SupportEmail'] = input[:support_email] unless input[:support_email].nil?
         data['SupportUrl'] = input[:support_url] unless input[:support_url].nil?
-        data['AddTags'] = Builders::AddTags.build(input[:add_tags]) unless input[:add_tags].nil?
-        data['RemoveTags'] = Builders::TagKeys.build(input[:remove_tags]) unless input[:remove_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AddTags'] = AddTags.build(input[:add_tags]) unless input[:add_tags].nil?
+        data['RemoveTags'] = TagKeys.build(input[:remove_tags]) unless input[:remove_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1685,11 +1687,11 @@ module AWS::SDK::ServiceCatalog
         data['ProvisioningArtifactName'] = input[:provisioning_artifact_name] unless input[:provisioning_artifact_name].nil?
         data['PathId'] = input[:path_id] unless input[:path_id].nil?
         data['PathName'] = input[:path_name] unless input[:path_name].nil?
-        data['ProvisioningParameters'] = Builders::UpdateProvisioningParameters.build(input[:provisioning_parameters]) unless input[:provisioning_parameters].nil?
-        data['ProvisioningPreferences'] = Builders::UpdateProvisioningPreferences.build(input[:provisioning_preferences]) unless input[:provisioning_preferences].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['ProvisioningParameters'] = UpdateProvisioningParameters.build(input[:provisioning_parameters]) unless input[:provisioning_parameters].nil?
+        data['ProvisioningPreferences'] = UpdateProvisioningPreferences.build(input[:provisioning_preferences]) unless input[:provisioning_preferences].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['UpdateToken'] = input[:update_token] unless input[:update_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1697,8 +1699,8 @@ module AWS::SDK::ServiceCatalog
     class UpdateProvisioningPreferences
       def self.build(input)
         data = {}
-        data['StackSetAccounts'] = Builders::StackSetAccounts.build(input[:stack_set_accounts]) unless input[:stack_set_accounts].nil?
-        data['StackSetRegions'] = Builders::StackSetRegions.build(input[:stack_set_regions]) unless input[:stack_set_regions].nil?
+        data['StackSetAccounts'] = StackSetAccounts.build(input[:stack_set_accounts]) unless input[:stack_set_accounts].nil?
+        data['StackSetRegions'] = StackSetRegions.build(input[:stack_set_regions]) unless input[:stack_set_regions].nil?
         data['StackSetFailureToleranceCount'] = input[:stack_set_failure_tolerance_count] unless input[:stack_set_failure_tolerance_count].nil?
         data['StackSetFailureTolerancePercentage'] = input[:stack_set_failure_tolerance_percentage] unless input[:stack_set_failure_tolerance_percentage].nil?
         data['StackSetMaxConcurrencyCount'] = input[:stack_set_max_concurrency_count] unless input[:stack_set_max_concurrency_count].nil?
@@ -1718,9 +1720,9 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
         data['ProvisionedProductId'] = input[:provisioned_product_id] unless input[:provisioned_product_id].nil?
-        data['ProvisionedProductProperties'] = Builders::ProvisionedProductProperties.build(input[:provisioned_product_properties]) unless input[:provisioned_product_properties].nil?
+        data['ProvisionedProductProperties'] = ProvisionedProductProperties.build(input[:provisioned_product_properties]) unless input[:provisioned_product_properties].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1750,7 +1752,7 @@ module AWS::SDK::ServiceCatalog
         data['Description'] = input[:description] unless input[:description].nil?
         data['Active'] = input[:active] unless input[:active].nil?
         data['Guidance'] = input[:guidance] unless input[:guidance].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1764,10 +1766,10 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Definition'] = Builders::ServiceActionDefinitionMap.build(input[:definition]) unless input[:definition].nil?
+        data['Definition'] = ServiceActionDefinitionMap.build(input[:definition]) unless input[:definition].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['AcceptLanguage'] = input[:accept_language] unless input[:accept_language].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1782,7 +1784,7 @@ module AWS::SDK::ServiceCatalog
         data['Id'] = input[:id] unless input[:id].nil?
         data['Value'] = input[:value] unless input[:value].nil?
         data['Active'] = input[:active] unless input[:active].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

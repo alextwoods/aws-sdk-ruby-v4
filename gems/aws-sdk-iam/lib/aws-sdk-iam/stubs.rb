@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::IAM
   module Stubs
 
@@ -23,7 +26,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('AddClientIDToOpenIDConnectProviderResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -41,7 +44,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('AddRoleToInstanceProfileResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -59,7 +62,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('AddUserToGroupResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -77,7 +80,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('AttachGroupPolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -95,7 +98,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('AttachRolePolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -113,7 +116,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('AttachUserPolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -131,7 +134,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ChangePasswordResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -149,9 +152,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('CreateAccessKeyResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('CreateAccessKeyResult')
-        xml << Stubs::AccessKey.stub('AccessKey', stub[:access_key]) unless stub[:access_key].nil?
+        xml << AccessKey.stub('AccessKey', stub[:access_key]) unless stub[:access_key].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -195,7 +198,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('CreateAccountAliasResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -213,9 +216,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('CreateGroupResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('CreateGroupResult')
-        xml << Stubs::Group.stub('Group', stub[:group]) unless stub[:group].nil?
+        xml << Group.stub('Group', stub[:group]) unless stub[:group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -259,9 +262,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('CreateInstanceProfileResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('CreateInstanceProfileResult')
-        xml << Stubs::InstanceProfile.stub('InstanceProfile', stub[:instance_profile]) unless stub[:instance_profile].nil?
+        xml << InstanceProfile.stub('InstanceProfile', stub[:instance_profile]) unless stub[:instance_profile].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -290,8 +293,8 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('InstanceProfileId', stub[:instance_profile_id].to_s) unless stub[:instance_profile_id].nil?
         xml << Hearth::XML::Node.new('Arn', stub[:arn].to_s) unless stub[:arn].nil?
         xml << Hearth::XML::Node.new('CreateDate', Hearth::TimeHelper.to_date_time(stub[:create_date])) unless stub[:create_date].nil?
-        xml << Hearth::XML::Node.new('Roles', Stubs::RoleListType.stub('member', stub[:roles])) unless stub[:roles].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Roles', RoleListType.stub('member', stub[:roles])) unless stub[:roles].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -309,7 +312,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Tag.stub(node_name, element) unless element.nil?
+          xml << Tag.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -348,7 +351,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Role.stub(node_name, element) unless element.nil?
+          xml << Role.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -385,9 +388,9 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('AssumeRolePolicyDocument', stub[:assume_role_policy_document].to_s) unless stub[:assume_role_policy_document].nil?
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('MaxSessionDuration', stub[:max_session_duration].to_s) unless stub[:max_session_duration].nil?
-        xml << Stubs::AttachedPermissionsBoundary.stub('PermissionsBoundary', stub[:permissions_boundary]) unless stub[:permissions_boundary].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
-        xml << Stubs::RoleLastUsed.stub('RoleLastUsed', stub[:role_last_used]) unless stub[:role_last_used].nil?
+        xml << AttachedPermissionsBoundary.stub('PermissionsBoundary', stub[:permissions_boundary]) unless stub[:permissions_boundary].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << RoleLastUsed.stub('RoleLastUsed', stub[:role_last_used]) unless stub[:role_last_used].nil?
         xml
       end
     end
@@ -445,9 +448,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('CreateLoginProfileResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('CreateLoginProfileResult')
-        xml << Stubs::LoginProfile.stub('LoginProfile', stub[:login_profile]) unless stub[:login_profile].nil?
+        xml << LoginProfile.stub('LoginProfile', stub[:login_profile]) unless stub[:login_profile].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -489,9 +492,9 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('CreateOpenIDConnectProviderResult')
         xml << Hearth::XML::Node.new('OpenIDConnectProviderArn', stub[:open_id_connect_provider_arn].to_s) unless stub[:open_id_connect_provider_arn].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -509,9 +512,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('CreatePolicyResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('CreatePolicyResult')
-        xml << Stubs::Policy.stub('Policy', stub[:policy]) unless stub[:policy].nil?
+        xml << Policy.stub('Policy', stub[:policy]) unless stub[:policy].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -551,7 +554,7 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('CreateDate', Hearth::TimeHelper.to_date_time(stub[:create_date])) unless stub[:create_date].nil?
         xml << Hearth::XML::Node.new('UpdateDate', Hearth::TimeHelper.to_date_time(stub[:update_date])) unless stub[:update_date].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -569,9 +572,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('CreatePolicyVersionResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('CreatePolicyVersionResult')
-        xml << Stubs::PolicyVersion.stub('PolicyVersion', stub[:policy_version]) unless stub[:policy_version].nil?
+        xml << PolicyVersion.stub('PolicyVersion', stub[:policy_version]) unless stub[:policy_version].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -613,9 +616,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('CreateRoleResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('CreateRoleResult')
-        xml << Stubs::Role.stub('Role', stub[:role]) unless stub[:role].nil?
+        xml << Role.stub('Role', stub[:role]) unless stub[:role].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -635,9 +638,9 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('CreateSAMLProviderResult')
         xml << Hearth::XML::Node.new('SAMLProviderArn', stub[:saml_provider_arn].to_s) unless stub[:saml_provider_arn].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -655,9 +658,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('CreateServiceLinkedRoleResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('CreateServiceLinkedRoleResult')
-        xml << Stubs::Role.stub('Role', stub[:role]) unless stub[:role].nil?
+        xml << Role.stub('Role', stub[:role]) unless stub[:role].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -675,9 +678,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('CreateServiceSpecificCredentialResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('CreateServiceSpecificCredentialResult')
-        xml << Stubs::ServiceSpecificCredential.stub('ServiceSpecificCredential', stub[:service_specific_credential]) unless stub[:service_specific_credential].nil?
+        xml << ServiceSpecificCredential.stub('ServiceSpecificCredential', stub[:service_specific_credential]) unless stub[:service_specific_credential].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -725,9 +728,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('CreateUserResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('CreateUserResult')
-        xml << Stubs::User.stub('User', stub[:user]) unless stub[:user].nil?
+        xml << User.stub('User', stub[:user]) unless stub[:user].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -758,8 +761,8 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('Arn', stub[:arn].to_s) unless stub[:arn].nil?
         xml << Hearth::XML::Node.new('CreateDate', Hearth::TimeHelper.to_date_time(stub[:create_date])) unless stub[:create_date].nil?
         xml << Hearth::XML::Node.new('PasswordLastUsed', Hearth::TimeHelper.to_date_time(stub[:password_last_used])) unless stub[:password_last_used].nil?
-        xml << Stubs::AttachedPermissionsBoundary.stub('PermissionsBoundary', stub[:permissions_boundary]) unless stub[:permissions_boundary].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << AttachedPermissionsBoundary.stub('PermissionsBoundary', stub[:permissions_boundary]) unless stub[:permissions_boundary].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -777,9 +780,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('CreateVirtualMFADeviceResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('CreateVirtualMFADeviceResult')
-        xml << Stubs::VirtualMFADevice.stub('VirtualMFADevice', stub[:virtual_mfa_device]) unless stub[:virtual_mfa_device].nil?
+        xml << VirtualMFADevice.stub('VirtualMFADevice', stub[:virtual_mfa_device]) unless stub[:virtual_mfa_device].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -803,11 +806,11 @@ module AWS::SDK::IAM
         stub ||= Types::VirtualMFADevice.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('SerialNumber', stub[:serial_number].to_s) unless stub[:serial_number].nil?
-        xml << Hearth::XML::Node.new('Base32StringSeed', Base64::encode64(stub[:base32_string_seed]).strip) unless stub[:base32_string_seed].nil?
-        xml << Hearth::XML::Node.new('QRCodePNG', Base64::encode64(stub[:qr_code_png]).strip) unless stub[:qr_code_png].nil?
-        xml << Stubs::User.stub('User', stub[:user]) unless stub[:user].nil?
+        xml << Hearth::XML::Node.new('Base32StringSeed', ::Base64::encode64(stub[:base32_string_seed]).strip) unless stub[:base32_string_seed].nil?
+        xml << Hearth::XML::Node.new('QRCodePNG', ::Base64::encode64(stub[:qr_code_png]).strip) unless stub[:qr_code_png].nil?
+        xml << User.stub('User', stub[:user]) unless stub[:user].nil?
         xml << Hearth::XML::Node.new('EnableDate', Hearth::TimeHelper.to_date_time(stub[:enable_date])) unless stub[:enable_date].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -825,7 +828,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeactivateMFADeviceResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -843,7 +846,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteAccessKeyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -861,7 +864,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteAccountAliasResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -879,7 +882,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteAccountPasswordPolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -897,7 +900,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteGroupResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -915,7 +918,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteGroupPolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -933,7 +936,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteInstanceProfileResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -951,7 +954,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteLoginProfileResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -969,7 +972,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteOpenIDConnectProviderResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -987,7 +990,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeletePolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1005,7 +1008,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeletePolicyVersionResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1023,7 +1026,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteRoleResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1041,7 +1044,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteRolePermissionsBoundaryResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1059,7 +1062,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteRolePolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1077,7 +1080,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteSAMLProviderResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1095,7 +1098,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteSSHPublicKeyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1113,7 +1116,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteServerCertificateResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1133,7 +1136,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML::Node.new('DeleteServiceLinkedRoleResult')
         xml << Hearth::XML::Node.new('DeletionTaskId', stub[:deletion_task_id].to_s) unless stub[:deletion_task_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1151,7 +1154,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteServiceSpecificCredentialResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1169,7 +1172,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteSigningCertificateResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1187,7 +1190,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteUserResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1205,7 +1208,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteUserPermissionsBoundaryResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1223,7 +1226,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteUserPolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1241,7 +1244,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DeleteVirtualMFADeviceResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1259,7 +1262,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DetachGroupPolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1277,7 +1280,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DetachRolePolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1295,7 +1298,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('DetachUserPolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1313,7 +1316,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('EnableMFADeviceResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1335,7 +1338,7 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('State', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1355,7 +1358,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML::Node.new('GenerateOrganizationsAccessReportResult')
         xml << Hearth::XML::Node.new('JobId', stub[:job_id].to_s) unless stub[:job_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1375,7 +1378,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML::Node.new('GenerateServiceLastAccessedDetailsResult')
         xml << Hearth::XML::Node.new('JobId', stub[:job_id].to_s) unless stub[:job_id].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1395,9 +1398,9 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetAccessKeyLastUsedResult')
         xml << Hearth::XML::Node.new('UserName', stub[:user_name].to_s) unless stub[:user_name].nil?
-        xml << Stubs::AccessKeyLastUsed.stub('AccessKeyLastUsed', stub[:access_key_last_used]) unless stub[:access_key_last_used].nil?
+        xml << AccessKeyLastUsed.stub('AccessKeyLastUsed', stub[:access_key_last_used]) unless stub[:access_key_last_used].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1442,14 +1445,14 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('GetAccountAuthorizationDetailsResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetAccountAuthorizationDetailsResult')
-        xml << Hearth::XML::Node.new('UserDetailList', Stubs::UserDetailListType.stub('member', stub[:user_detail_list])) unless stub[:user_detail_list].nil?
-        xml << Hearth::XML::Node.new('GroupDetailList', Stubs::GroupDetailListType.stub('member', stub[:group_detail_list])) unless stub[:group_detail_list].nil?
-        xml << Hearth::XML::Node.new('RoleDetailList', Stubs::RoleDetailListType.stub('member', stub[:role_detail_list])) unless stub[:role_detail_list].nil?
-        xml << Hearth::XML::Node.new('Policies', Stubs::ManagedPolicyDetailListType.stub('member', stub[:policies])) unless stub[:policies].nil?
+        xml << Hearth::XML::Node.new('UserDetailList', UserDetailListType.stub('member', stub[:user_detail_list])) unless stub[:user_detail_list].nil?
+        xml << Hearth::XML::Node.new('GroupDetailList', GroupDetailListType.stub('member', stub[:group_detail_list])) unless stub[:group_detail_list].nil?
+        xml << Hearth::XML::Node.new('RoleDetailList', RoleDetailListType.stub('member', stub[:role_detail_list])) unless stub[:role_detail_list].nil?
+        xml << Hearth::XML::Node.new('Policies', ManagedPolicyDetailListType.stub('member', stub[:policies])) unless stub[:policies].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1467,7 +1470,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ManagedPolicyDetail.stub(node_name, element) unless element.nil?
+          xml << ManagedPolicyDetail.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1508,7 +1511,7 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('CreateDate', Hearth::TimeHelper.to_date_time(stub[:create_date])) unless stub[:create_date].nil?
         xml << Hearth::XML::Node.new('UpdateDate', Hearth::TimeHelper.to_date_time(stub[:update_date])) unless stub[:update_date].nil?
-        xml << Hearth::XML::Node.new('PolicyVersionList', Stubs::PolicyDocumentVersionListType.stub('member', stub[:policy_version_list])) unless stub[:policy_version_list].nil?
+        xml << Hearth::XML::Node.new('PolicyVersionList', PolicyDocumentVersionListType.stub('member', stub[:policy_version_list])) unless stub[:policy_version_list].nil?
         xml
       end
     end
@@ -1526,7 +1529,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PolicyVersion.stub(node_name, element) unless element.nil?
+          xml << PolicyVersion.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1545,7 +1548,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::RoleDetail.stub(node_name, element) unless element.nil?
+          xml << RoleDetail.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1581,12 +1584,12 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('Arn', stub[:arn].to_s) unless stub[:arn].nil?
         xml << Hearth::XML::Node.new('CreateDate', Hearth::TimeHelper.to_date_time(stub[:create_date])) unless stub[:create_date].nil?
         xml << Hearth::XML::Node.new('AssumeRolePolicyDocument', stub[:assume_role_policy_document].to_s) unless stub[:assume_role_policy_document].nil?
-        xml << Hearth::XML::Node.new('InstanceProfileList', Stubs::InstanceProfileListType.stub('member', stub[:instance_profile_list])) unless stub[:instance_profile_list].nil?
-        xml << Hearth::XML::Node.new('RolePolicyList', Stubs::PolicyDetailListType.stub('member', stub[:role_policy_list])) unless stub[:role_policy_list].nil?
-        xml << Hearth::XML::Node.new('AttachedManagedPolicies', Stubs::AttachedPoliciesListType.stub('member', stub[:attached_managed_policies])) unless stub[:attached_managed_policies].nil?
-        xml << Stubs::AttachedPermissionsBoundary.stub('PermissionsBoundary', stub[:permissions_boundary]) unless stub[:permissions_boundary].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
-        xml << Stubs::RoleLastUsed.stub('RoleLastUsed', stub[:role_last_used]) unless stub[:role_last_used].nil?
+        xml << Hearth::XML::Node.new('InstanceProfileList', InstanceProfileListType.stub('member', stub[:instance_profile_list])) unless stub[:instance_profile_list].nil?
+        xml << Hearth::XML::Node.new('RolePolicyList', PolicyDetailListType.stub('member', stub[:role_policy_list])) unless stub[:role_policy_list].nil?
+        xml << Hearth::XML::Node.new('AttachedManagedPolicies', AttachedPoliciesListType.stub('member', stub[:attached_managed_policies])) unless stub[:attached_managed_policies].nil?
+        xml << AttachedPermissionsBoundary.stub('PermissionsBoundary', stub[:permissions_boundary]) unless stub[:permissions_boundary].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << RoleLastUsed.stub('RoleLastUsed', stub[:role_last_used]) unless stub[:role_last_used].nil?
         xml
       end
     end
@@ -1604,7 +1607,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AttachedPolicy.stub(node_name, element) unless element.nil?
+          xml << AttachedPolicy.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1643,7 +1646,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PolicyDetail.stub(node_name, element) unless element.nil?
+          xml << PolicyDetail.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1682,7 +1685,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::InstanceProfile.stub(node_name, element) unless element.nil?
+          xml << InstanceProfile.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1701,7 +1704,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::GroupDetail.stub(node_name, element) unless element.nil?
+          xml << GroupDetail.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1731,8 +1734,8 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('GroupId', stub[:group_id].to_s) unless stub[:group_id].nil?
         xml << Hearth::XML::Node.new('Arn', stub[:arn].to_s) unless stub[:arn].nil?
         xml << Hearth::XML::Node.new('CreateDate', Hearth::TimeHelper.to_date_time(stub[:create_date])) unless stub[:create_date].nil?
-        xml << Hearth::XML::Node.new('GroupPolicyList', Stubs::PolicyDetailListType.stub('member', stub[:group_policy_list])) unless stub[:group_policy_list].nil?
-        xml << Hearth::XML::Node.new('AttachedManagedPolicies', Stubs::AttachedPoliciesListType.stub('member', stub[:attached_managed_policies])) unless stub[:attached_managed_policies].nil?
+        xml << Hearth::XML::Node.new('GroupPolicyList', PolicyDetailListType.stub('member', stub[:group_policy_list])) unless stub[:group_policy_list].nil?
+        xml << Hearth::XML::Node.new('AttachedManagedPolicies', AttachedPoliciesListType.stub('member', stub[:attached_managed_policies])) unless stub[:attached_managed_policies].nil?
         xml
       end
     end
@@ -1750,7 +1753,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::UserDetail.stub(node_name, element) unless element.nil?
+          xml << UserDetail.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1783,11 +1786,11 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('UserId', stub[:user_id].to_s) unless stub[:user_id].nil?
         xml << Hearth::XML::Node.new('Arn', stub[:arn].to_s) unless stub[:arn].nil?
         xml << Hearth::XML::Node.new('CreateDate', Hearth::TimeHelper.to_date_time(stub[:create_date])) unless stub[:create_date].nil?
-        xml << Hearth::XML::Node.new('UserPolicyList', Stubs::PolicyDetailListType.stub('member', stub[:user_policy_list])) unless stub[:user_policy_list].nil?
-        xml << Hearth::XML::Node.new('GroupList', Stubs::GroupNameListType.stub('member', stub[:group_list])) unless stub[:group_list].nil?
-        xml << Hearth::XML::Node.new('AttachedManagedPolicies', Stubs::AttachedPoliciesListType.stub('member', stub[:attached_managed_policies])) unless stub[:attached_managed_policies].nil?
-        xml << Stubs::AttachedPermissionsBoundary.stub('PermissionsBoundary', stub[:permissions_boundary]) unless stub[:permissions_boundary].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('UserPolicyList', PolicyDetailListType.stub('member', stub[:user_policy_list])) unless stub[:user_policy_list].nil?
+        xml << Hearth::XML::Node.new('GroupList', GroupNameListType.stub('member', stub[:group_list])) unless stub[:group_list].nil?
+        xml << Hearth::XML::Node.new('AttachedManagedPolicies', AttachedPoliciesListType.stub('member', stub[:attached_managed_policies])) unless stub[:attached_managed_policies].nil?
+        xml << AttachedPermissionsBoundary.stub('PermissionsBoundary', stub[:permissions_boundary]) unless stub[:permissions_boundary].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -1824,9 +1827,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('GetAccountPasswordPolicyResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetAccountPasswordPolicyResult')
-        xml << Stubs::PasswordPolicy.stub('PasswordPolicy', stub[:password_policy]) unless stub[:password_policy].nil?
+        xml << PasswordPolicy.stub('PasswordPolicy', stub[:password_policy]) unless stub[:password_policy].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1880,9 +1883,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('GetAccountSummaryResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetAccountSummaryResult')
-        xml << Hearth::XML::Node.new('SummaryMap', Stubs::SummaryMapType.stub('entry', stub[:summary_map])) unless stub[:summary_map].nil?
+        xml << Hearth::XML::Node.new('SummaryMap', SummaryMapType.stub('entry', stub[:summary_map])) unless stub[:summary_map].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1922,9 +1925,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('GetContextKeysForCustomPolicyResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetContextKeysForCustomPolicyResult')
-        xml << Hearth::XML::Node.new('ContextKeyNames', Stubs::ContextKeyNamesResultListType.stub('member', stub[:context_key_names])) unless stub[:context_key_names].nil?
+        xml << Hearth::XML::Node.new('ContextKeyNames', ContextKeyNamesResultListType.stub('member', stub[:context_key_names])) unless stub[:context_key_names].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1961,9 +1964,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('GetContextKeysForPrincipalPolicyResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetContextKeysForPrincipalPolicyResult')
-        xml << Hearth::XML::Node.new('ContextKeyNames', Stubs::ContextKeyNamesResultListType.stub('member', stub[:context_key_names])) unless stub[:context_key_names].nil?
+        xml << Hearth::XML::Node.new('ContextKeyNames', ContextKeyNamesResultListType.stub('member', stub[:context_key_names])) unless stub[:context_key_names].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1983,11 +1986,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('GetCredentialReportResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetCredentialReportResult')
-        xml << Hearth::XML::Node.new('Content', Base64::encode64(stub[:content]).strip) unless stub[:content].nil?
+        xml << Hearth::XML::Node.new('Content', ::Base64::encode64(stub[:content]).strip) unless stub[:content].nil?
         xml << Hearth::XML::Node.new('ReportFormat', stub[:report_format].to_s) unless stub[:report_format].nil?
         xml << Hearth::XML::Node.new('GeneratedTime', Hearth::TimeHelper.to_date_time(stub[:generated_time])) unless stub[:generated_time].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2008,12 +2011,12 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('GetGroupResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetGroupResult')
-        xml << Stubs::Group.stub('Group', stub[:group]) unless stub[:group].nil?
-        xml << Hearth::XML::Node.new('Users', Stubs::UserListType.stub('member', stub[:users])) unless stub[:users].nil?
+        xml << Group.stub('Group', stub[:group]) unless stub[:group].nil?
+        xml << Hearth::XML::Node.new('Users', UserListType.stub('member', stub[:users])) unless stub[:users].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2031,7 +2034,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::User.stub(node_name, element) unless element.nil?
+          xml << User.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2056,7 +2059,7 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('PolicyName', stub[:policy_name].to_s) unless stub[:policy_name].nil?
         xml << Hearth::XML::Node.new('PolicyDocument', stub[:policy_document].to_s) unless stub[:policy_document].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2074,9 +2077,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('GetInstanceProfileResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetInstanceProfileResult')
-        xml << Stubs::InstanceProfile.stub('InstanceProfile', stub[:instance_profile]) unless stub[:instance_profile].nil?
+        xml << InstanceProfile.stub('InstanceProfile', stub[:instance_profile]) unless stub[:instance_profile].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2094,9 +2097,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('GetLoginProfileResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetLoginProfileResult')
-        xml << Stubs::LoginProfile.stub('LoginProfile', stub[:login_profile]) unless stub[:login_profile].nil?
+        xml << LoginProfile.stub('LoginProfile', stub[:login_profile]) unless stub[:login_profile].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2119,12 +2122,12 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetOpenIDConnectProviderResult')
         xml << Hearth::XML::Node.new('Url', stub[:url].to_s) unless stub[:url].nil?
-        xml << Hearth::XML::Node.new('ClientIDList', Stubs::ClientIDListType.stub('member', stub[:client_id_list])) unless stub[:client_id_list].nil?
-        xml << Hearth::XML::Node.new('ThumbprintList', Stubs::ThumbprintListType.stub('member', stub[:thumbprint_list])) unless stub[:thumbprint_list].nil?
+        xml << Hearth::XML::Node.new('ClientIDList', ClientIDListType.stub('member', stub[:client_id_list])) unless stub[:client_id_list].nil?
+        xml << Hearth::XML::Node.new('ThumbprintList', ThumbprintListType.stub('member', stub[:thumbprint_list])) unless stub[:thumbprint_list].nil?
         xml << Hearth::XML::Node.new('CreateDate', Hearth::TimeHelper.to_date_time(stub[:create_date])) unless stub[:create_date].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2193,12 +2196,12 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('JobCompletionDate', Hearth::TimeHelper.to_date_time(stub[:job_completion_date])) unless stub[:job_completion_date].nil?
         xml << Hearth::XML::Node.new('NumberOfServicesAccessible', stub[:number_of_services_accessible].to_s) unless stub[:number_of_services_accessible].nil?
         xml << Hearth::XML::Node.new('NumberOfServicesNotAccessed', stub[:number_of_services_not_accessed].to_s) unless stub[:number_of_services_not_accessed].nil?
-        xml << Hearth::XML::Node.new('AccessDetails', Stubs::AccessDetails.stub('member', stub[:access_details])) unless stub[:access_details].nil?
+        xml << Hearth::XML::Node.new('AccessDetails', AccessDetails.stub('member', stub[:access_details])) unless stub[:access_details].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Stubs::ErrorDetails.stub('ErrorDetails', stub[:error_details]) unless stub[:error_details].nil?
+        xml << ErrorDetails.stub('ErrorDetails', stub[:error_details]) unless stub[:error_details].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2236,7 +2239,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AccessDetail.stub(node_name, element) unless element.nil?
+          xml << AccessDetail.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2283,9 +2286,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('GetPolicyResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetPolicyResult')
-        xml << Stubs::Policy.stub('Policy', stub[:policy]) unless stub[:policy].nil?
+        xml << Policy.stub('Policy', stub[:policy]) unless stub[:policy].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2303,9 +2306,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('GetPolicyVersionResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetPolicyVersionResult')
-        xml << Stubs::PolicyVersion.stub('PolicyVersion', stub[:policy_version]) unless stub[:policy_version].nil?
+        xml << PolicyVersion.stub('PolicyVersion', stub[:policy_version]) unless stub[:policy_version].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2323,9 +2326,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('GetRoleResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetRoleResult')
-        xml << Stubs::Role.stub('Role', stub[:role]) unless stub[:role].nil?
+        xml << Role.stub('Role', stub[:role]) unless stub[:role].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2349,7 +2352,7 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('PolicyName', stub[:policy_name].to_s) unless stub[:policy_name].nil?
         xml << Hearth::XML::Node.new('PolicyDocument', stub[:policy_document].to_s) unless stub[:policy_document].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2373,9 +2376,9 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('SAMLMetadataDocument', stub[:saml_metadata_document].to_s) unless stub[:saml_metadata_document].nil?
         xml << Hearth::XML::Node.new('CreateDate', Hearth::TimeHelper.to_date_time(stub[:create_date])) unless stub[:create_date].nil?
         xml << Hearth::XML::Node.new('ValidUntil', Hearth::TimeHelper.to_date_time(stub[:valid_until])) unless stub[:valid_until].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2393,9 +2396,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('GetSSHPublicKeyResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetSSHPublicKeyResult')
-        xml << Stubs::SSHPublicKey.stub('SSHPublicKey', stub[:ssh_public_key]) unless stub[:ssh_public_key].nil?
+        xml << SSHPublicKey.stub('SSHPublicKey', stub[:ssh_public_key]) unless stub[:ssh_public_key].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2441,9 +2444,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('GetServerCertificateResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetServerCertificateResult')
-        xml << Stubs::ServerCertificate.stub('ServerCertificate', stub[:server_certificate]) unless stub[:server_certificate].nil?
+        xml << ServerCertificate.stub('ServerCertificate', stub[:server_certificate]) unless stub[:server_certificate].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2464,10 +2467,10 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         stub ||= Types::ServerCertificate.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::ServerCertificateMetadata.stub('ServerCertificateMetadata', stub[:server_certificate_metadata]) unless stub[:server_certificate_metadata].nil?
+        xml << ServerCertificateMetadata.stub('ServerCertificateMetadata', stub[:server_certificate_metadata]) unless stub[:server_certificate_metadata].nil?
         xml << Hearth::XML::Node.new('CertificateBody', stub[:certificate_body].to_s) unless stub[:certificate_body].nil?
         xml << Hearth::XML::Node.new('CertificateChain', stub[:certificate_chain].to_s) unless stub[:certificate_chain].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -2523,13 +2526,13 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('JobStatus', stub[:job_status].to_s) unless stub[:job_status].nil?
         xml << Hearth::XML::Node.new('JobType', stub[:job_type].to_s) unless stub[:job_type].nil?
         xml << Hearth::XML::Node.new('JobCreationDate', Hearth::TimeHelper.to_date_time(stub[:job_creation_date])) unless stub[:job_creation_date].nil?
-        xml << Hearth::XML::Node.new('ServicesLastAccessed', Stubs::ServicesLastAccessed.stub('member', stub[:services_last_accessed])) unless stub[:services_last_accessed].nil?
+        xml << Hearth::XML::Node.new('ServicesLastAccessed', ServicesLastAccessed.stub('member', stub[:services_last_accessed])) unless stub[:services_last_accessed].nil?
         xml << Hearth::XML::Node.new('JobCompletionDate', Hearth::TimeHelper.to_date_time(stub[:job_completion_date])) unless stub[:job_completion_date].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Stubs::ErrorDetails.stub('Error', stub[:error]) unless stub[:error].nil?
+        xml << ErrorDetails.stub('Error', stub[:error]) unless stub[:error].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2547,7 +2550,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ServiceLastAccessed.stub(node_name, element) unless element.nil?
+          xml << ServiceLastAccessed.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2578,7 +2581,7 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('LastAuthenticatedEntity', stub[:last_authenticated_entity].to_s) unless stub[:last_authenticated_entity].nil?
         xml << Hearth::XML::Node.new('LastAuthenticatedRegion', stub[:last_authenticated_region].to_s) unless stub[:last_authenticated_region].nil?
         xml << Hearth::XML::Node.new('TotalAuthenticatedEntities', stub[:total_authenticated_entities].to_s) unless stub[:total_authenticated_entities].nil?
-        xml << Hearth::XML::Node.new('TrackedActionsLastAccessed', Stubs::TrackedActionsLastAccessed.stub('member', stub[:tracked_actions_last_accessed])) unless stub[:tracked_actions_last_accessed].nil?
+        xml << Hearth::XML::Node.new('TrackedActionsLastAccessed', TrackedActionsLastAccessed.stub('member', stub[:tracked_actions_last_accessed])) unless stub[:tracked_actions_last_accessed].nil?
         xml
       end
     end
@@ -2596,7 +2599,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::TrackedActionLastAccessed.stub(node_name, element) unless element.nil?
+          xml << TrackedActionLastAccessed.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2648,12 +2651,12 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('JobStatus', stub[:job_status].to_s) unless stub[:job_status].nil?
         xml << Hearth::XML::Node.new('JobCreationDate', Hearth::TimeHelper.to_date_time(stub[:job_creation_date])) unless stub[:job_creation_date].nil?
         xml << Hearth::XML::Node.new('JobCompletionDate', Hearth::TimeHelper.to_date_time(stub[:job_completion_date])) unless stub[:job_completion_date].nil?
-        xml << Hearth::XML::Node.new('EntityDetailsList', Stubs::EntityDetailsListType.stub('member', stub[:entity_details_list])) unless stub[:entity_details_list].nil?
+        xml << Hearth::XML::Node.new('EntityDetailsList', EntityDetailsListType.stub('member', stub[:entity_details_list])) unless stub[:entity_details_list].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Stubs::ErrorDetails.stub('Error', stub[:error]) unless stub[:error].nil?
+        xml << ErrorDetails.stub('Error', stub[:error]) unless stub[:error].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2671,7 +2674,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::EntityDetails.stub(node_name, element) unless element.nil?
+          xml << EntityDetails.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2691,7 +2694,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         stub ||= Types::EntityDetails.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::EntityInfo.stub('EntityInfo', stub[:entity_info]) unless stub[:entity_info].nil?
+        xml << EntityInfo.stub('EntityInfo', stub[:entity_info]) unless stub[:entity_info].nil?
         xml << Hearth::XML::Node.new('LastAuthenticated', Hearth::TimeHelper.to_date_time(stub[:last_authenticated])) unless stub[:last_authenticated].nil?
         xml
       end
@@ -2738,9 +2741,9 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetServiceLinkedRoleDeletionStatusResult')
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml << Stubs::DeletionTaskFailureReasonType.stub('Reason', stub[:reason]) unless stub[:reason].nil?
+        xml << DeletionTaskFailureReasonType.stub('Reason', stub[:reason]) unless stub[:reason].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2760,7 +2763,7 @@ module AWS::SDK::IAM
         stub ||= Types::DeletionTaskFailureReasonType.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Reason', stub[:reason].to_s) unless stub[:reason].nil?
-        xml << Hearth::XML::Node.new('RoleUsageList', Stubs::RoleUsageListType.stub('member', stub[:role_usage_list])) unless stub[:role_usage_list].nil?
+        xml << Hearth::XML::Node.new('RoleUsageList', RoleUsageListType.stub('member', stub[:role_usage_list])) unless stub[:role_usage_list].nil?
         xml
       end
     end
@@ -2778,7 +2781,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::RoleUsageType.stub(node_name, element) unless element.nil?
+          xml << RoleUsageType.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2799,7 +2802,7 @@ module AWS::SDK::IAM
         stub ||= Types::RoleUsageType.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Region', stub[:region].to_s) unless stub[:region].nil?
-        xml << Hearth::XML::Node.new('Resources', Stubs::ArnListType.stub('member', stub[:resources])) unless stub[:resources].nil?
+        xml << Hearth::XML::Node.new('Resources', ArnListType.stub('member', stub[:resources])) unless stub[:resources].nil?
         xml
       end
     end
@@ -2836,9 +2839,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('GetUserResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('GetUserResult')
-        xml << Stubs::User.stub('User', stub[:user]) unless stub[:user].nil?
+        xml << User.stub('User', stub[:user]) unless stub[:user].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2862,7 +2865,7 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('PolicyName', stub[:policy_name].to_s) unless stub[:policy_name].nil?
         xml << Hearth::XML::Node.new('PolicyDocument', stub[:policy_document].to_s) unless stub[:policy_document].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2882,11 +2885,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListAccessKeysResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListAccessKeysResult')
-        xml << Hearth::XML::Node.new('AccessKeyMetadata', Stubs::AccessKeyMetadataListType.stub('member', stub[:access_key_metadata])) unless stub[:access_key_metadata].nil?
+        xml << Hearth::XML::Node.new('AccessKeyMetadata', AccessKeyMetadataListType.stub('member', stub[:access_key_metadata])) unless stub[:access_key_metadata].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2904,7 +2907,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AccessKeyMetadata.stub(node_name, element) unless element.nil?
+          xml << AccessKeyMetadata.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2949,11 +2952,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListAccountAliasesResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListAccountAliasesResult')
-        xml << Hearth::XML::Node.new('AccountAliases', Stubs::AccountAliasListType.stub('member', stub[:account_aliases])) unless stub[:account_aliases].nil?
+        xml << Hearth::XML::Node.new('AccountAliases', AccountAliasListType.stub('member', stub[:account_aliases])) unless stub[:account_aliases].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2992,11 +2995,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListAttachedGroupPoliciesResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListAttachedGroupPoliciesResult')
-        xml << Hearth::XML::Node.new('AttachedPolicies', Stubs::AttachedPoliciesListType.stub('member', stub[:attached_policies])) unless stub[:attached_policies].nil?
+        xml << Hearth::XML::Node.new('AttachedPolicies', AttachedPoliciesListType.stub('member', stub[:attached_policies])) unless stub[:attached_policies].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3016,11 +3019,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListAttachedRolePoliciesResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListAttachedRolePoliciesResult')
-        xml << Hearth::XML::Node.new('AttachedPolicies', Stubs::AttachedPoliciesListType.stub('member', stub[:attached_policies])) unless stub[:attached_policies].nil?
+        xml << Hearth::XML::Node.new('AttachedPolicies', AttachedPoliciesListType.stub('member', stub[:attached_policies])) unless stub[:attached_policies].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3040,11 +3043,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListAttachedUserPoliciesResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListAttachedUserPoliciesResult')
-        xml << Hearth::XML::Node.new('AttachedPolicies', Stubs::AttachedPoliciesListType.stub('member', stub[:attached_policies])) unless stub[:attached_policies].nil?
+        xml << Hearth::XML::Node.new('AttachedPolicies', AttachedPoliciesListType.stub('member', stub[:attached_policies])) unless stub[:attached_policies].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3066,13 +3069,13 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListEntitiesForPolicyResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListEntitiesForPolicyResult')
-        xml << Hearth::XML::Node.new('PolicyGroups', Stubs::PolicyGroupListType.stub('member', stub[:policy_groups])) unless stub[:policy_groups].nil?
-        xml << Hearth::XML::Node.new('PolicyUsers', Stubs::PolicyUserListType.stub('member', stub[:policy_users])) unless stub[:policy_users].nil?
-        xml << Hearth::XML::Node.new('PolicyRoles', Stubs::PolicyRoleListType.stub('member', stub[:policy_roles])) unless stub[:policy_roles].nil?
+        xml << Hearth::XML::Node.new('PolicyGroups', PolicyGroupListType.stub('member', stub[:policy_groups])) unless stub[:policy_groups].nil?
+        xml << Hearth::XML::Node.new('PolicyUsers', PolicyUserListType.stub('member', stub[:policy_users])) unless stub[:policy_users].nil?
+        xml << Hearth::XML::Node.new('PolicyRoles', PolicyRoleListType.stub('member', stub[:policy_roles])) unless stub[:policy_roles].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3090,7 +3093,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PolicyRole.stub(node_name, element) unless element.nil?
+          xml << PolicyRole.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3129,7 +3132,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PolicyUser.stub(node_name, element) unless element.nil?
+          xml << PolicyUser.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3168,7 +3171,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PolicyGroup.stub(node_name, element) unless element.nil?
+          xml << PolicyGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3209,11 +3212,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListGroupPoliciesResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListGroupPoliciesResult')
-        xml << Hearth::XML::Node.new('PolicyNames', Stubs::PolicyNameListType.stub('member', stub[:policy_names])) unless stub[:policy_names].nil?
+        xml << Hearth::XML::Node.new('PolicyNames', PolicyNameListType.stub('member', stub[:policy_names])) unless stub[:policy_names].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3252,11 +3255,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListGroupsResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListGroupsResult')
-        xml << Hearth::XML::Node.new('Groups', Stubs::GroupListType.stub('member', stub[:groups])) unless stub[:groups].nil?
+        xml << Hearth::XML::Node.new('Groups', GroupListType.stub('member', stub[:groups])) unless stub[:groups].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3274,7 +3277,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Group.stub(node_name, element) unless element.nil?
+          xml << Group.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3295,11 +3298,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListGroupsForUserResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListGroupsForUserResult')
-        xml << Hearth::XML::Node.new('Groups', Stubs::GroupListType.stub('member', stub[:groups])) unless stub[:groups].nil?
+        xml << Hearth::XML::Node.new('Groups', GroupListType.stub('member', stub[:groups])) unless stub[:groups].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3319,11 +3322,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListInstanceProfileTagsResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListInstanceProfileTagsResult')
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3343,11 +3346,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListInstanceProfilesResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListInstanceProfilesResult')
-        xml << Hearth::XML::Node.new('InstanceProfiles', Stubs::InstanceProfileListType.stub('member', stub[:instance_profiles])) unless stub[:instance_profiles].nil?
+        xml << Hearth::XML::Node.new('InstanceProfiles', InstanceProfileListType.stub('member', stub[:instance_profiles])) unless stub[:instance_profiles].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3367,11 +3370,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListInstanceProfilesForRoleResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListInstanceProfilesForRoleResult')
-        xml << Hearth::XML::Node.new('InstanceProfiles', Stubs::InstanceProfileListType.stub('member', stub[:instance_profiles])) unless stub[:instance_profiles].nil?
+        xml << Hearth::XML::Node.new('InstanceProfiles', InstanceProfileListType.stub('member', stub[:instance_profiles])) unless stub[:instance_profiles].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3391,11 +3394,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListMFADeviceTagsResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListMFADeviceTagsResult')
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3415,11 +3418,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListMFADevicesResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListMFADevicesResult')
-        xml << Hearth::XML::Node.new('MFADevices', Stubs::MfaDeviceListType.stub('member', stub[:mfa_devices])) unless stub[:mfa_devices].nil?
+        xml << Hearth::XML::Node.new('MFADevices', MfaDeviceListType.stub('member', stub[:mfa_devices])) unless stub[:mfa_devices].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3437,7 +3440,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::MFADevice.stub(node_name, element) unless element.nil?
+          xml << MFADevice.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3480,11 +3483,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListOpenIDConnectProviderTagsResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListOpenIDConnectProviderTagsResult')
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3502,9 +3505,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListOpenIDConnectProvidersResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListOpenIDConnectProvidersResult')
-        xml << Hearth::XML::Node.new('OpenIDConnectProviderList', Stubs::OpenIDConnectProviderListType.stub('member', stub[:open_id_connect_provider_list])) unless stub[:open_id_connect_provider_list].nil?
+        xml << Hearth::XML::Node.new('OpenIDConnectProviderList', OpenIDConnectProviderListType.stub('member', stub[:open_id_connect_provider_list])) unless stub[:open_id_connect_provider_list].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3522,7 +3525,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::OpenIDConnectProviderListEntry.stub(node_name, element) unless element.nil?
+          xml << OpenIDConnectProviderListEntry.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3561,11 +3564,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListPoliciesResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListPoliciesResult')
-        xml << Hearth::XML::Node.new('Policies', Stubs::PolicyListType.stub('member', stub[:policies])) unless stub[:policies].nil?
+        xml << Hearth::XML::Node.new('Policies', PolicyListType.stub('member', stub[:policies])) unless stub[:policies].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3583,7 +3586,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Policy.stub(node_name, element) unless element.nil?
+          xml << Policy.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3604,11 +3607,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListPoliciesGrantingServiceAccessResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListPoliciesGrantingServiceAccessResult')
-        xml << Hearth::XML::Node.new('PoliciesGrantingServiceAccess', Stubs::ListPolicyGrantingServiceAccessResponseListType.stub('member', stub[:policies_granting_service_access])) unless stub[:policies_granting_service_access].nil?
+        xml << Hearth::XML::Node.new('PoliciesGrantingServiceAccess', ListPolicyGrantingServiceAccessResponseListType.stub('member', stub[:policies_granting_service_access])) unless stub[:policies_granting_service_access].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3626,7 +3629,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ListPoliciesGrantingServiceAccessEntry.stub(node_name, element) unless element.nil?
+          xml << ListPoliciesGrantingServiceAccessEntry.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3647,7 +3650,7 @@ module AWS::SDK::IAM
         stub ||= Types::ListPoliciesGrantingServiceAccessEntry.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ServiceNamespace', stub[:service_namespace].to_s) unless stub[:service_namespace].nil?
-        xml << Hearth::XML::Node.new('Policies', Stubs::PolicyGrantingServiceAccessListType.stub('member', stub[:policies])) unless stub[:policies].nil?
+        xml << Hearth::XML::Node.new('Policies', PolicyGrantingServiceAccessListType.stub('member', stub[:policies])) unless stub[:policies].nil?
         xml
       end
     end
@@ -3665,7 +3668,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PolicyGrantingServiceAccess.stub(node_name, element) unless element.nil?
+          xml << PolicyGrantingServiceAccess.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3712,11 +3715,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListPolicyTagsResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListPolicyTagsResult')
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3736,11 +3739,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListPolicyVersionsResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListPolicyVersionsResult')
-        xml << Hearth::XML::Node.new('Versions', Stubs::PolicyDocumentVersionListType.stub('member', stub[:versions])) unless stub[:versions].nil?
+        xml << Hearth::XML::Node.new('Versions', PolicyDocumentVersionListType.stub('member', stub[:versions])) unless stub[:versions].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3760,11 +3763,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListRolePoliciesResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListRolePoliciesResult')
-        xml << Hearth::XML::Node.new('PolicyNames', Stubs::PolicyNameListType.stub('member', stub[:policy_names])) unless stub[:policy_names].nil?
+        xml << Hearth::XML::Node.new('PolicyNames', PolicyNameListType.stub('member', stub[:policy_names])) unless stub[:policy_names].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3784,11 +3787,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListRoleTagsResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListRoleTagsResult')
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3808,11 +3811,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListRolesResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListRolesResult')
-        xml << Hearth::XML::Node.new('Roles', Stubs::RoleListType.stub('member', stub[:roles])) unless stub[:roles].nil?
+        xml << Hearth::XML::Node.new('Roles', RoleListType.stub('member', stub[:roles])) unless stub[:roles].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3832,11 +3835,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListSAMLProviderTagsResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListSAMLProviderTagsResult')
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3854,9 +3857,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListSAMLProvidersResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListSAMLProvidersResult')
-        xml << Hearth::XML::Node.new('SAMLProviderList', Stubs::SAMLProviderListType.stub('member', stub[:saml_provider_list])) unless stub[:saml_provider_list].nil?
+        xml << Hearth::XML::Node.new('SAMLProviderList', SAMLProviderListType.stub('member', stub[:saml_provider_list])) unless stub[:saml_provider_list].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3874,7 +3877,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SAMLProviderListEntry.stub(node_name, element) unless element.nil?
+          xml << SAMLProviderListEntry.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3917,11 +3920,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListSSHPublicKeysResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListSSHPublicKeysResult')
-        xml << Hearth::XML::Node.new('SSHPublicKeys', Stubs::SSHPublicKeyListType.stub('member', stub[:ssh_public_keys])) unless stub[:ssh_public_keys].nil?
+        xml << Hearth::XML::Node.new('SSHPublicKeys', SSHPublicKeyListType.stub('member', stub[:ssh_public_keys])) unless stub[:ssh_public_keys].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3939,7 +3942,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SSHPublicKeyMetadata.stub(node_name, element) unless element.nil?
+          xml << SSHPublicKeyMetadata.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3984,11 +3987,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListServerCertificateTagsResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListServerCertificateTagsResult')
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4008,11 +4011,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListServerCertificatesResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListServerCertificatesResult')
-        xml << Hearth::XML::Node.new('ServerCertificateMetadataList', Stubs::ServerCertificateMetadataListType.stub('member', stub[:server_certificate_metadata_list])) unless stub[:server_certificate_metadata_list].nil?
+        xml << Hearth::XML::Node.new('ServerCertificateMetadataList', ServerCertificateMetadataListType.stub('member', stub[:server_certificate_metadata_list])) unless stub[:server_certificate_metadata_list].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4030,7 +4033,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ServerCertificateMetadata.stub(node_name, element) unless element.nil?
+          xml << ServerCertificateMetadata.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4049,9 +4052,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListServiceSpecificCredentialsResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListServiceSpecificCredentialsResult')
-        xml << Hearth::XML::Node.new('ServiceSpecificCredentials', Stubs::ServiceSpecificCredentialsListType.stub('member', stub[:service_specific_credentials])) unless stub[:service_specific_credentials].nil?
+        xml << Hearth::XML::Node.new('ServiceSpecificCredentials', ServiceSpecificCredentialsListType.stub('member', stub[:service_specific_credentials])) unless stub[:service_specific_credentials].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4069,7 +4072,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ServiceSpecificCredentialMetadata.stub(node_name, element) unless element.nil?
+          xml << ServiceSpecificCredentialMetadata.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4118,11 +4121,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListSigningCertificatesResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListSigningCertificatesResult')
-        xml << Hearth::XML::Node.new('Certificates', Stubs::CertificateListType.stub('member', stub[:certificates])) unless stub[:certificates].nil?
+        xml << Hearth::XML::Node.new('Certificates', CertificateListType.stub('member', stub[:certificates])) unless stub[:certificates].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4140,7 +4143,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SigningCertificate.stub(node_name, element) unless element.nil?
+          xml << SigningCertificate.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4187,11 +4190,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListUserPoliciesResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListUserPoliciesResult')
-        xml << Hearth::XML::Node.new('PolicyNames', Stubs::PolicyNameListType.stub('member', stub[:policy_names])) unless stub[:policy_names].nil?
+        xml << Hearth::XML::Node.new('PolicyNames', PolicyNameListType.stub('member', stub[:policy_names])) unless stub[:policy_names].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4211,11 +4214,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListUserTagsResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListUserTagsResult')
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4235,11 +4238,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListUsersResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListUsersResult')
-        xml << Hearth::XML::Node.new('Users', Stubs::UserListType.stub('member', stub[:users])) unless stub[:users].nil?
+        xml << Hearth::XML::Node.new('Users', UserListType.stub('member', stub[:users])) unless stub[:users].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4259,11 +4262,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ListVirtualMFADevicesResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ListVirtualMFADevicesResult')
-        xml << Hearth::XML::Node.new('VirtualMFADevices', Stubs::VirtualMFADeviceListType.stub('member', stub[:virtual_mfa_devices])) unless stub[:virtual_mfa_devices].nil?
+        xml << Hearth::XML::Node.new('VirtualMFADevices', VirtualMFADeviceListType.stub('member', stub[:virtual_mfa_devices])) unless stub[:virtual_mfa_devices].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4281,7 +4284,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::VirtualMFADevice.stub(node_name, element) unless element.nil?
+          xml << VirtualMFADevice.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4300,7 +4303,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('PutGroupPolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4318,7 +4321,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('PutRolePermissionsBoundaryResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4336,7 +4339,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('PutRolePolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4354,7 +4357,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('PutUserPermissionsBoundaryResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4372,7 +4375,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('PutUserPolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4390,7 +4393,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('RemoveClientIDFromOpenIDConnectProviderResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4408,7 +4411,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('RemoveRoleFromInstanceProfileResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4426,7 +4429,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('RemoveUserFromGroupResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4444,9 +4447,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('ResetServiceSpecificCredentialResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ResetServiceSpecificCredentialResult')
-        xml << Stubs::ServiceSpecificCredential.stub('ServiceSpecificCredential', stub[:service_specific_credential]) unless stub[:service_specific_credential].nil?
+        xml << ServiceSpecificCredential.stub('ServiceSpecificCredential', stub[:service_specific_credential]) unless stub[:service_specific_credential].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4464,7 +4467,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('ResyncMFADeviceResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4482,7 +4485,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('SetDefaultPolicyVersionResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4500,7 +4503,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('SetSecurityTokenServicePreferencesResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4520,11 +4523,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('SimulateCustomPolicyResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('SimulateCustomPolicyResult')
-        xml << Hearth::XML::Node.new('EvaluationResults', Stubs::EvaluationResultsListType.stub('member', stub[:evaluation_results])) unless stub[:evaluation_results].nil?
+        xml << Hearth::XML::Node.new('EvaluationResults', EvaluationResultsListType.stub('member', stub[:evaluation_results])) unless stub[:evaluation_results].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4542,7 +4545,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::EvaluationResult.stub(node_name, element) unless element.nil?
+          xml << EvaluationResult.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4572,12 +4575,12 @@ module AWS::SDK::IAM
         xml << Hearth::XML::Node.new('EvalActionName', stub[:eval_action_name].to_s) unless stub[:eval_action_name].nil?
         xml << Hearth::XML::Node.new('EvalResourceName', stub[:eval_resource_name].to_s) unless stub[:eval_resource_name].nil?
         xml << Hearth::XML::Node.new('EvalDecision', stub[:eval_decision].to_s) unless stub[:eval_decision].nil?
-        xml << Hearth::XML::Node.new('MatchedStatements', Stubs::StatementListType.stub('member', stub[:matched_statements])) unless stub[:matched_statements].nil?
-        xml << Hearth::XML::Node.new('MissingContextValues', Stubs::ContextKeyNamesResultListType.stub('member', stub[:missing_context_values])) unless stub[:missing_context_values].nil?
-        xml << Stubs::OrganizationsDecisionDetail.stub('OrganizationsDecisionDetail', stub[:organizations_decision_detail]) unless stub[:organizations_decision_detail].nil?
-        xml << Stubs::PermissionsBoundaryDecisionDetail.stub('PermissionsBoundaryDecisionDetail', stub[:permissions_boundary_decision_detail]) unless stub[:permissions_boundary_decision_detail].nil?
-        xml << Hearth::XML::Node.new('EvalDecisionDetails', Stubs::EvalDecisionDetailsType.stub('entry', stub[:eval_decision_details])) unless stub[:eval_decision_details].nil?
-        xml << Hearth::XML::Node.new('ResourceSpecificResults', Stubs::ResourceSpecificResultListType.stub('member', stub[:resource_specific_results])) unless stub[:resource_specific_results].nil?
+        xml << Hearth::XML::Node.new('MatchedStatements', StatementListType.stub('member', stub[:matched_statements])) unless stub[:matched_statements].nil?
+        xml << Hearth::XML::Node.new('MissingContextValues', ContextKeyNamesResultListType.stub('member', stub[:missing_context_values])) unless stub[:missing_context_values].nil?
+        xml << OrganizationsDecisionDetail.stub('OrganizationsDecisionDetail', stub[:organizations_decision_detail]) unless stub[:organizations_decision_detail].nil?
+        xml << PermissionsBoundaryDecisionDetail.stub('PermissionsBoundaryDecisionDetail', stub[:permissions_boundary_decision_detail]) unless stub[:permissions_boundary_decision_detail].nil?
+        xml << Hearth::XML::Node.new('EvalDecisionDetails', EvalDecisionDetailsType.stub('entry', stub[:eval_decision_details])) unless stub[:eval_decision_details].nil?
+        xml << Hearth::XML::Node.new('ResourceSpecificResults', ResourceSpecificResultListType.stub('member', stub[:resource_specific_results])) unless stub[:resource_specific_results].nil?
         xml
       end
     end
@@ -4595,7 +4598,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ResourceSpecificResult.stub(node_name, element) unless element.nil?
+          xml << ResourceSpecificResult.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4621,10 +4624,10 @@ module AWS::SDK::IAM
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('EvalResourceName', stub[:eval_resource_name].to_s) unless stub[:eval_resource_name].nil?
         xml << Hearth::XML::Node.new('EvalResourceDecision', stub[:eval_resource_decision].to_s) unless stub[:eval_resource_decision].nil?
-        xml << Hearth::XML::Node.new('MatchedStatements', Stubs::StatementListType.stub('member', stub[:matched_statements])) unless stub[:matched_statements].nil?
-        xml << Hearth::XML::Node.new('MissingContextValues', Stubs::ContextKeyNamesResultListType.stub('member', stub[:missing_context_values])) unless stub[:missing_context_values].nil?
-        xml << Hearth::XML::Node.new('EvalDecisionDetails', Stubs::EvalDecisionDetailsType.stub('entry', stub[:eval_decision_details])) unless stub[:eval_decision_details].nil?
-        xml << Stubs::PermissionsBoundaryDecisionDetail.stub('PermissionsBoundaryDecisionDetail', stub[:permissions_boundary_decision_detail]) unless stub[:permissions_boundary_decision_detail].nil?
+        xml << Hearth::XML::Node.new('MatchedStatements', StatementListType.stub('member', stub[:matched_statements])) unless stub[:matched_statements].nil?
+        xml << Hearth::XML::Node.new('MissingContextValues', ContextKeyNamesResultListType.stub('member', stub[:missing_context_values])) unless stub[:missing_context_values].nil?
+        xml << Hearth::XML::Node.new('EvalDecisionDetails', EvalDecisionDetailsType.stub('entry', stub[:eval_decision_details])) unless stub[:eval_decision_details].nil?
+        xml << PermissionsBoundaryDecisionDetail.stub('PermissionsBoundaryDecisionDetail', stub[:permissions_boundary_decision_detail]) unless stub[:permissions_boundary_decision_detail].nil?
         xml
       end
     end
@@ -4682,7 +4685,7 @@ module AWS::SDK::IAM
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Statement.stub(node_name, element) unless element.nil?
+          xml << Statement.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4706,8 +4709,8 @@ module AWS::SDK::IAM
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('SourcePolicyId', stub[:source_policy_id].to_s) unless stub[:source_policy_id].nil?
         xml << Hearth::XML::Node.new('SourcePolicyType', stub[:source_policy_type].to_s) unless stub[:source_policy_type].nil?
-        xml << Stubs::Position.stub('StartPosition', stub[:start_position]) unless stub[:start_position].nil?
-        xml << Stubs::Position.stub('EndPosition', stub[:end_position]) unless stub[:end_position].nil?
+        xml << Position.stub('StartPosition', stub[:start_position]) unless stub[:start_position].nil?
+        xml << Position.stub('EndPosition', stub[:end_position]) unless stub[:end_position].nil?
         xml
       end
     end
@@ -4765,11 +4768,11 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('SimulatePrincipalPolicyResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('SimulatePrincipalPolicyResult')
-        xml << Hearth::XML::Node.new('EvaluationResults', Stubs::EvaluationResultsListType.stub('member', stub[:evaluation_results])) unless stub[:evaluation_results].nil?
+        xml << Hearth::XML::Node.new('EvaluationResults', EvaluationResultsListType.stub('member', stub[:evaluation_results])) unless stub[:evaluation_results].nil?
         xml << Hearth::XML::Node.new('IsTruncated', stub[:is_truncated].to_s) unless stub[:is_truncated].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4787,7 +4790,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('TagInstanceProfileResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4805,7 +4808,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('TagMFADeviceResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4823,7 +4826,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('TagOpenIDConnectProviderResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4841,7 +4844,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('TagPolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4859,7 +4862,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('TagRoleResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4877,7 +4880,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('TagSAMLProviderResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4895,7 +4898,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('TagServerCertificateResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4913,7 +4916,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('TagUserResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4931,7 +4934,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UntagInstanceProfileResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4949,7 +4952,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UntagMFADeviceResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4967,7 +4970,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UntagOpenIDConnectProviderResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4985,7 +4988,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UntagPolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5003,7 +5006,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UntagRoleResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5021,7 +5024,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UntagSAMLProviderResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5039,7 +5042,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UntagServerCertificateResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5057,7 +5060,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UntagUserResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5075,7 +5078,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UpdateAccessKeyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5093,7 +5096,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UpdateAccountPasswordPolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5111,7 +5114,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UpdateAssumeRolePolicyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5129,7 +5132,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UpdateGroupResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5147,7 +5150,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UpdateLoginProfileResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5165,7 +5168,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UpdateOpenIDConnectProviderThumbprintResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5183,7 +5186,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UpdateRoleResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5201,9 +5204,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('UpdateRoleDescriptionResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UpdateRoleDescriptionResult')
-        xml << Stubs::Role.stub('Role', stub[:role]) unless stub[:role].nil?
+        xml << Role.stub('Role', stub[:role]) unless stub[:role].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5223,7 +5226,7 @@ module AWS::SDK::IAM
         xml = Hearth::XML::Node.new('UpdateSAMLProviderResult')
         xml << Hearth::XML::Node.new('SAMLProviderArn', stub[:saml_provider_arn].to_s) unless stub[:saml_provider_arn].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5241,7 +5244,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UpdateSSHPublicKeyResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5259,7 +5262,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UpdateServerCertificateResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5277,7 +5280,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UpdateServiceSpecificCredentialResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5295,7 +5298,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UpdateSigningCertificateResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5313,7 +5316,7 @@ module AWS::SDK::IAM
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UpdateUserResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5331,9 +5334,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('UploadSSHPublicKeyResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UploadSSHPublicKeyResult')
-        xml << Stubs::SSHPublicKey.stub('SSHPublicKey', stub[:ssh_public_key]) unless stub[:ssh_public_key].nil?
+        xml << SSHPublicKey.stub('SSHPublicKey', stub[:ssh_public_key]) unless stub[:ssh_public_key].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5352,10 +5355,10 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('UploadServerCertificateResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UploadServerCertificateResult')
-        xml << Stubs::ServerCertificateMetadata.stub('ServerCertificateMetadata', stub[:server_certificate_metadata]) unless stub[:server_certificate_metadata].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << ServerCertificateMetadata.stub('ServerCertificateMetadata', stub[:server_certificate_metadata]) unless stub[:server_certificate_metadata].nil?
+        xml << Hearth::XML::Node.new('Tags', TagListType.stub('member', stub[:tags])) unless stub[:tags].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5373,9 +5376,9 @@ module AWS::SDK::IAM
         response = Hearth::XML::Node.new('UploadSigningCertificateResponse')
         response.attributes['xmlns'] = 'https://iam.amazonaws.com/doc/2010-05-08/'
         xml = Hearth::XML::Node.new('UploadSigningCertificateResult')
-        xml << Stubs::SigningCertificate.stub('Certificate', stub[:certificate]) unless stub[:certificate].nil?
+        xml << SigningCertificate.stub('Certificate', stub[:certificate]) unless stub[:certificate].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end

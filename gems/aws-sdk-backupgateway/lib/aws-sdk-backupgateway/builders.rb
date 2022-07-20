@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::BackupGateway
   module Builders
 
@@ -20,7 +22,7 @@ module AWS::SDK::BackupGateway
         data = {}
         data['GatewayArn'] = input[:gateway_arn] unless input[:gateway_arn].nil?
         data['ServerArn'] = input[:server_arn] unless input[:server_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -35,8 +37,8 @@ module AWS::SDK::BackupGateway
         data['ActivationKey'] = input[:activation_key] unless input[:activation_key].nil?
         data['GatewayDisplayName'] = input[:gateway_display_name] unless input[:gateway_display_name].nil?
         data['GatewayType'] = input[:gateway_type] unless input[:gateway_type].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -45,7 +47,7 @@ module AWS::SDK::BackupGateway
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -70,7 +72,7 @@ module AWS::SDK::BackupGateway
         http_req.headers['X-Amz-Target'] = 'BackupOnPremises_v20210101.DeleteGateway'
         data = {}
         data['GatewayArn'] = input[:gateway_arn] unless input[:gateway_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -83,7 +85,7 @@ module AWS::SDK::BackupGateway
         http_req.headers['X-Amz-Target'] = 'BackupOnPremises_v20210101.DeleteHypervisor'
         data = {}
         data['HypervisorArn'] = input[:hypervisor_arn] unless input[:hypervisor_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -96,7 +98,7 @@ module AWS::SDK::BackupGateway
         http_req.headers['X-Amz-Target'] = 'BackupOnPremises_v20210101.DisassociateGatewayFromServer'
         data = {}
         data['GatewayArn'] = input[:gateway_arn] unless input[:gateway_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -109,7 +111,7 @@ module AWS::SDK::BackupGateway
         http_req.headers['X-Amz-Target'] = 'BackupOnPremises_v20210101.GetGateway'
         data = {}
         data['GatewayArn'] = input[:gateway_arn] unless input[:gateway_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -126,8 +128,8 @@ module AWS::SDK::BackupGateway
         data['Username'] = input[:username] unless input[:username].nil?
         data['Password'] = input[:password] unless input[:password].nil?
         data['KmsKeyArn'] = input[:kms_key_arn] unless input[:kms_key_arn].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -141,7 +143,7 @@ module AWS::SDK::BackupGateway
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -155,7 +157,7 @@ module AWS::SDK::BackupGateway
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -168,7 +170,7 @@ module AWS::SDK::BackupGateway
         http_req.headers['X-Amz-Target'] = 'BackupOnPremises_v20210101.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -182,7 +184,7 @@ module AWS::SDK::BackupGateway
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -199,7 +201,7 @@ module AWS::SDK::BackupGateway
         data['MinuteOfHour'] = input[:minute_of_hour] unless input[:minute_of_hour].nil?
         data['DayOfWeek'] = input[:day_of_week] unless input[:day_of_week].nil?
         data['DayOfMonth'] = input[:day_of_month] unless input[:day_of_month].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -212,8 +214,8 @@ module AWS::SDK::BackupGateway
         http_req.headers['X-Amz-Target'] = 'BackupOnPremises_v20210101.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -229,7 +231,7 @@ module AWS::SDK::BackupGateway
         data['Host'] = input[:host] unless input[:host].nil?
         data['Username'] = input[:username] unless input[:username].nil?
         data['Password'] = input[:password] unless input[:password].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -242,8 +244,8 @@ module AWS::SDK::BackupGateway
         http_req.headers['X-Amz-Target'] = 'BackupOnPremises_v20210101.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -268,7 +270,7 @@ module AWS::SDK::BackupGateway
         data = {}
         data['GatewayArn'] = input[:gateway_arn] unless input[:gateway_arn].nil?
         data['GatewayDisplayName'] = input[:gateway_display_name] unless input[:gateway_display_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -281,7 +283,7 @@ module AWS::SDK::BackupGateway
         http_req.headers['X-Amz-Target'] = 'BackupOnPremises_v20210101.UpdateGatewaySoftwareNow'
         data = {}
         data['GatewayArn'] = input[:gateway_arn] unless input[:gateway_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -298,7 +300,7 @@ module AWS::SDK::BackupGateway
         data['Username'] = input[:username] unless input[:username].nil?
         data['Password'] = input[:password] unless input[:password].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

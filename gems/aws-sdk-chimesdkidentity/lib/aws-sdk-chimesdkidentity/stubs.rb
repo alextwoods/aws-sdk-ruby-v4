@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ChimeSDKIdentity
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::ChimeSDKIdentity
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['AppInstanceArn'] = stub[:app_instance_arn] unless stub[:app_instance_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -40,9 +42,9 @@ module AWS::SDK::ChimeSDKIdentity
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AppInstanceAdmin'] = Stubs::Identity.stub(stub[:app_instance_admin]) unless stub[:app_instance_admin].nil?
+        data['AppInstanceAdmin'] = Identity.stub(stub[:app_instance_admin]) unless stub[:app_instance_admin].nil?
         data['AppInstanceArn'] = stub[:app_instance_arn] unless stub[:app_instance_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -79,7 +81,7 @@ module AWS::SDK::ChimeSDKIdentity
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['AppInstanceUserArn'] = stub[:app_instance_user_arn] unless stub[:app_instance_user_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -147,8 +149,8 @@ module AWS::SDK::ChimeSDKIdentity
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AppInstance'] = Stubs::AppInstance.stub(stub[:app_instance]) unless stub[:app_instance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AppInstance'] = AppInstance.stub(stub[:app_instance]) unless stub[:app_instance].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -190,8 +192,8 @@ module AWS::SDK::ChimeSDKIdentity
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AppInstanceAdmin'] = Stubs::AppInstanceAdmin.stub(stub[:app_instance_admin]) unless stub[:app_instance_admin].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AppInstanceAdmin'] = AppInstanceAdmin.stub(stub[:app_instance_admin]) unless stub[:app_instance_admin].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -210,7 +212,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.stub(stub)
         stub ||= Types::AppInstanceAdmin.new
         data = {}
-        data['Admin'] = Stubs::Identity.stub(stub[:admin]) unless stub[:admin].nil?
+        data['Admin'] = Identity.stub(stub[:admin]) unless stub[:admin].nil?
         data['AppInstanceArn'] = stub[:app_instance_arn] unless stub[:app_instance_arn].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data
@@ -229,8 +231,8 @@ module AWS::SDK::ChimeSDKIdentity
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AppInstanceUser'] = Stubs::AppInstanceUser.stub(stub[:app_instance_user]) unless stub[:app_instance_user].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AppInstanceUser'] = AppInstanceUser.stub(stub[:app_instance_user]) unless stub[:app_instance_user].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -272,8 +274,8 @@ module AWS::SDK::ChimeSDKIdentity
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AppInstanceUserEndpoint'] = Stubs::AppInstanceUserEndpoint.stub(stub[:app_instance_user_endpoint]) unless stub[:app_instance_user_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AppInstanceUserEndpoint'] = AppInstanceUserEndpoint.stub(stub[:app_instance_user_endpoint]) unless stub[:app_instance_user_endpoint].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -304,11 +306,11 @@ module AWS::SDK::ChimeSDKIdentity
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['EndpointAttributes'] = Stubs::EndpointAttributes.stub(stub[:endpoint_attributes]) unless stub[:endpoint_attributes].nil?
+        data['EndpointAttributes'] = EndpointAttributes.stub(stub[:endpoint_attributes]) unless stub[:endpoint_attributes].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
         data['LastUpdatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_timestamp]).to_i unless stub[:last_updated_timestamp].nil?
         data['AllowMessages'] = stub[:allow_messages] unless stub[:allow_messages].nil?
-        data['EndpointState'] = Stubs::EndpointState.stub(stub[:endpoint_state]) unless stub[:endpoint_state].nil?
+        data['EndpointState'] = EndpointState.stub(stub[:endpoint_state]) unless stub[:endpoint_state].nil?
         data
       end
     end
@@ -366,9 +368,9 @@ module AWS::SDK::ChimeSDKIdentity
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AppInstanceRetentionSettings'] = Stubs::AppInstanceRetentionSettings.stub(stub[:app_instance_retention_settings]) unless stub[:app_instance_retention_settings].nil?
+        data['AppInstanceRetentionSettings'] = AppInstanceRetentionSettings.stub(stub[:app_instance_retention_settings]) unless stub[:app_instance_retention_settings].nil?
         data['InitiateDeletionTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:initiate_deletion_timestamp]).to_i unless stub[:initiate_deletion_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -385,7 +387,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.stub(stub)
         stub ||= Types::AppInstanceRetentionSettings.new
         data = {}
-        data['ChannelRetentionSettings'] = Stubs::ChannelRetentionSettings.stub(stub[:channel_retention_settings]) unless stub[:channel_retention_settings].nil?
+        data['ChannelRetentionSettings'] = ChannelRetentionSettings.stub(stub[:channel_retention_settings]) unless stub[:channel_retention_settings].nil?
         data
       end
     end
@@ -423,9 +425,9 @@ module AWS::SDK::ChimeSDKIdentity
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AppInstanceArn'] = stub[:app_instance_arn] unless stub[:app_instance_arn].nil?
-        data['AppInstanceAdmins'] = Stubs::AppInstanceAdminList.stub(stub[:app_instance_admins]) unless stub[:app_instance_admins].nil?
+        data['AppInstanceAdmins'] = AppInstanceAdminList.stub(stub[:app_instance_admins]) unless stub[:app_instance_admins].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -443,7 +445,7 @@ module AWS::SDK::ChimeSDKIdentity
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AppInstanceAdminSummary.stub(element) unless element.nil?
+          data << AppInstanceAdminSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -462,7 +464,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.stub(stub)
         stub ||= Types::AppInstanceAdminSummary.new
         data = {}
-        data['Admin'] = Stubs::Identity.stub(stub[:admin]) unless stub[:admin].nil?
+        data['Admin'] = Identity.stub(stub[:admin]) unless stub[:admin].nil?
         data
       end
     end
@@ -480,9 +482,9 @@ module AWS::SDK::ChimeSDKIdentity
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AppInstanceUserEndpoints'] = Stubs::AppInstanceUserEndpointSummaryList.stub(stub[:app_instance_user_endpoints]) unless stub[:app_instance_user_endpoints].nil?
+        data['AppInstanceUserEndpoints'] = AppInstanceUserEndpointSummaryList.stub(stub[:app_instance_user_endpoints]) unless stub[:app_instance_user_endpoints].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -500,7 +502,7 @@ module AWS::SDK::ChimeSDKIdentity
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AppInstanceUserEndpointSummary.stub(element) unless element.nil?
+          data << AppInstanceUserEndpointSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -529,7 +531,7 @@ module AWS::SDK::ChimeSDKIdentity
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['AllowMessages'] = stub[:allow_messages] unless stub[:allow_messages].nil?
-        data['EndpointState'] = Stubs::EndpointState.stub(stub[:endpoint_state]) unless stub[:endpoint_state].nil?
+        data['EndpointState'] = EndpointState.stub(stub[:endpoint_state]) unless stub[:endpoint_state].nil?
         data
       end
     end
@@ -549,9 +551,9 @@ module AWS::SDK::ChimeSDKIdentity
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AppInstanceArn'] = stub[:app_instance_arn] unless stub[:app_instance_arn].nil?
-        data['AppInstanceUsers'] = Stubs::AppInstanceUserList.stub(stub[:app_instance_users]) unless stub[:app_instance_users].nil?
+        data['AppInstanceUsers'] = AppInstanceUserList.stub(stub[:app_instance_users]) unless stub[:app_instance_users].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -569,7 +571,7 @@ module AWS::SDK::ChimeSDKIdentity
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AppInstanceUserSummary.stub(element) unless element.nil?
+          data << AppInstanceUserSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -610,9 +612,9 @@ module AWS::SDK::ChimeSDKIdentity
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AppInstances'] = Stubs::AppInstanceList.stub(stub[:app_instances]) unless stub[:app_instances].nil?
+        data['AppInstances'] = AppInstanceList.stub(stub[:app_instances]) unless stub[:app_instances].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -630,7 +632,7 @@ module AWS::SDK::ChimeSDKIdentity
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AppInstanceSummary.stub(element) unless element.nil?
+          data << AppInstanceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -670,8 +672,8 @@ module AWS::SDK::ChimeSDKIdentity
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -689,7 +691,7 @@ module AWS::SDK::ChimeSDKIdentity
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -728,9 +730,9 @@ module AWS::SDK::ChimeSDKIdentity
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AppInstanceRetentionSettings'] = Stubs::AppInstanceRetentionSettings.stub(stub[:app_instance_retention_settings]) unless stub[:app_instance_retention_settings].nil?
+        data['AppInstanceRetentionSettings'] = AppInstanceRetentionSettings.stub(stub[:app_instance_retention_settings]) unless stub[:app_instance_retention_settings].nil?
         data['InitiateDeletionTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:initiate_deletion_timestamp]).to_i unless stub[:initiate_deletion_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -749,7 +751,7 @@ module AWS::SDK::ChimeSDKIdentity
         http_resp.headers['Content-Type'] = 'application/json'
         data['AppInstanceUserArn'] = stub[:app_instance_user_arn] unless stub[:app_instance_user_arn].nil?
         data['EndpointId'] = stub[:endpoint_id] unless stub[:endpoint_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -792,7 +794,7 @@ module AWS::SDK::ChimeSDKIdentity
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AppInstanceArn'] = stub[:app_instance_arn] unless stub[:app_instance_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -809,7 +811,7 @@ module AWS::SDK::ChimeSDKIdentity
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AppInstanceUserArn'] = stub[:app_instance_user_arn] unless stub[:app_instance_user_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -828,7 +830,7 @@ module AWS::SDK::ChimeSDKIdentity
         http_resp.headers['Content-Type'] = 'application/json'
         data['AppInstanceUserArn'] = stub[:app_instance_user_arn] unless stub[:app_instance_user_arn].nil?
         data['EndpointId'] = stub[:endpoint_id] unless stub[:endpoint_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

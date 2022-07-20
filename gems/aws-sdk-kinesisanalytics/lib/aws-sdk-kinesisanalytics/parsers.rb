@@ -144,7 +144,7 @@ module AWS::SDK::KinesisAnalytics
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.application_summary = (Parsers::ApplicationSummary.parse(map['ApplicationSummary']) unless map['ApplicationSummary'].nil?)
+        data.application_summary = (ApplicationSummary.parse(map['ApplicationSummary']) unless map['ApplicationSummary'].nil?)
         data
       end
     end
@@ -245,7 +245,7 @@ module AWS::SDK::KinesisAnalytics
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.application_detail = (Parsers::ApplicationDetail.parse(map['ApplicationDetail']) unless map['ApplicationDetail'].nil?)
+        data.application_detail = (ApplicationDetail.parse(map['ApplicationDetail']) unless map['ApplicationDetail'].nil?)
         data
       end
     end
@@ -259,10 +259,10 @@ module AWS::SDK::KinesisAnalytics
         data.application_status = map['ApplicationStatus']
         data.create_timestamp = Time.at(map['CreateTimestamp'].to_i) if map['CreateTimestamp']
         data.last_update_timestamp = Time.at(map['LastUpdateTimestamp'].to_i) if map['LastUpdateTimestamp']
-        data.input_descriptions = (Parsers::InputDescriptions.parse(map['InputDescriptions']) unless map['InputDescriptions'].nil?)
-        data.output_descriptions = (Parsers::OutputDescriptions.parse(map['OutputDescriptions']) unless map['OutputDescriptions'].nil?)
-        data.reference_data_source_descriptions = (Parsers::ReferenceDataSourceDescriptions.parse(map['ReferenceDataSourceDescriptions']) unless map['ReferenceDataSourceDescriptions'].nil?)
-        data.cloud_watch_logging_option_descriptions = (Parsers::CloudWatchLoggingOptionDescriptions.parse(map['CloudWatchLoggingOptionDescriptions']) unless map['CloudWatchLoggingOptionDescriptions'].nil?)
+        data.input_descriptions = (InputDescriptions.parse(map['InputDescriptions']) unless map['InputDescriptions'].nil?)
+        data.output_descriptions = (OutputDescriptions.parse(map['OutputDescriptions']) unless map['OutputDescriptions'].nil?)
+        data.reference_data_source_descriptions = (ReferenceDataSourceDescriptions.parse(map['ReferenceDataSourceDescriptions']) unless map['ReferenceDataSourceDescriptions'].nil?)
+        data.cloud_watch_logging_option_descriptions = (CloudWatchLoggingOptionDescriptions.parse(map['CloudWatchLoggingOptionDescriptions']) unless map['CloudWatchLoggingOptionDescriptions'].nil?)
         data.application_code = map['ApplicationCode']
         data.application_version_id = map['ApplicationVersionId']
         return data
@@ -272,7 +272,7 @@ module AWS::SDK::KinesisAnalytics
     class CloudWatchLoggingOptionDescriptions
       def self.parse(list)
         list.map do |value|
-          Parsers::CloudWatchLoggingOptionDescription.parse(value) unless value.nil?
+          CloudWatchLoggingOptionDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -290,7 +290,7 @@ module AWS::SDK::KinesisAnalytics
     class ReferenceDataSourceDescriptions
       def self.parse(list)
         list.map do |value|
-          Parsers::ReferenceDataSourceDescription.parse(value) unless value.nil?
+          ReferenceDataSourceDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -300,8 +300,8 @@ module AWS::SDK::KinesisAnalytics
         data = Types::ReferenceDataSourceDescription.new
         data.reference_id = map['ReferenceId']
         data.table_name = map['TableName']
-        data.s3_reference_data_source_description = (Parsers::S3ReferenceDataSourceDescription.parse(map['S3ReferenceDataSourceDescription']) unless map['S3ReferenceDataSourceDescription'].nil?)
-        data.reference_schema = (Parsers::SourceSchema.parse(map['ReferenceSchema']) unless map['ReferenceSchema'].nil?)
+        data.s3_reference_data_source_description = (S3ReferenceDataSourceDescription.parse(map['S3ReferenceDataSourceDescription']) unless map['S3ReferenceDataSourceDescription'].nil?)
+        data.reference_schema = (SourceSchema.parse(map['ReferenceSchema']) unless map['ReferenceSchema'].nil?)
         return data
       end
     end
@@ -309,9 +309,9 @@ module AWS::SDK::KinesisAnalytics
     class SourceSchema
       def self.parse(map)
         data = Types::SourceSchema.new
-        data.record_format = (Parsers::RecordFormat.parse(map['RecordFormat']) unless map['RecordFormat'].nil?)
+        data.record_format = (RecordFormat.parse(map['RecordFormat']) unless map['RecordFormat'].nil?)
         data.record_encoding = map['RecordEncoding']
-        data.record_columns = (Parsers::RecordColumns.parse(map['RecordColumns']) unless map['RecordColumns'].nil?)
+        data.record_columns = (RecordColumns.parse(map['RecordColumns']) unless map['RecordColumns'].nil?)
         return data
       end
     end
@@ -319,7 +319,7 @@ module AWS::SDK::KinesisAnalytics
     class RecordColumns
       def self.parse(list)
         list.map do |value|
-          Parsers::RecordColumn.parse(value) unless value.nil?
+          RecordColumn.parse(value) unless value.nil?
         end
       end
     end
@@ -338,7 +338,7 @@ module AWS::SDK::KinesisAnalytics
       def self.parse(map)
         data = Types::RecordFormat.new
         data.record_format_type = map['RecordFormatType']
-        data.mapping_parameters = (Parsers::MappingParameters.parse(map['MappingParameters']) unless map['MappingParameters'].nil?)
+        data.mapping_parameters = (MappingParameters.parse(map['MappingParameters']) unless map['MappingParameters'].nil?)
         return data
       end
     end
@@ -346,8 +346,8 @@ module AWS::SDK::KinesisAnalytics
     class MappingParameters
       def self.parse(map)
         data = Types::MappingParameters.new
-        data.json_mapping_parameters = (Parsers::JSONMappingParameters.parse(map['JSONMappingParameters']) unless map['JSONMappingParameters'].nil?)
-        data.csv_mapping_parameters = (Parsers::CSVMappingParameters.parse(map['CSVMappingParameters']) unless map['CSVMappingParameters'].nil?)
+        data.json_mapping_parameters = (JSONMappingParameters.parse(map['JSONMappingParameters']) unless map['JSONMappingParameters'].nil?)
+        data.csv_mapping_parameters = (CSVMappingParameters.parse(map['CSVMappingParameters']) unless map['CSVMappingParameters'].nil?)
         return data
       end
     end
@@ -382,7 +382,7 @@ module AWS::SDK::KinesisAnalytics
     class OutputDescriptions
       def self.parse(list)
         list.map do |value|
-          Parsers::OutputDescription.parse(value) unless value.nil?
+          OutputDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -392,10 +392,10 @@ module AWS::SDK::KinesisAnalytics
         data = Types::OutputDescription.new
         data.output_id = map['OutputId']
         data.name = map['Name']
-        data.kinesis_streams_output_description = (Parsers::KinesisStreamsOutputDescription.parse(map['KinesisStreamsOutputDescription']) unless map['KinesisStreamsOutputDescription'].nil?)
-        data.kinesis_firehose_output_description = (Parsers::KinesisFirehoseOutputDescription.parse(map['KinesisFirehoseOutputDescription']) unless map['KinesisFirehoseOutputDescription'].nil?)
-        data.lambda_output_description = (Parsers::LambdaOutputDescription.parse(map['LambdaOutputDescription']) unless map['LambdaOutputDescription'].nil?)
-        data.destination_schema = (Parsers::DestinationSchema.parse(map['DestinationSchema']) unless map['DestinationSchema'].nil?)
+        data.kinesis_streams_output_description = (KinesisStreamsOutputDescription.parse(map['KinesisStreamsOutputDescription']) unless map['KinesisStreamsOutputDescription'].nil?)
+        data.kinesis_firehose_output_description = (KinesisFirehoseOutputDescription.parse(map['KinesisFirehoseOutputDescription']) unless map['KinesisFirehoseOutputDescription'].nil?)
+        data.lambda_output_description = (LambdaOutputDescription.parse(map['LambdaOutputDescription']) unless map['LambdaOutputDescription'].nil?)
+        data.destination_schema = (DestinationSchema.parse(map['DestinationSchema']) unless map['DestinationSchema'].nil?)
         return data
       end
     end
@@ -438,7 +438,7 @@ module AWS::SDK::KinesisAnalytics
     class InputDescriptions
       def self.parse(list)
         list.map do |value|
-          Parsers::InputDescription.parse(value) unless value.nil?
+          InputDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -448,13 +448,13 @@ module AWS::SDK::KinesisAnalytics
         data = Types::InputDescription.new
         data.input_id = map['InputId']
         data.name_prefix = map['NamePrefix']
-        data.in_app_stream_names = (Parsers::InAppStreamNames.parse(map['InAppStreamNames']) unless map['InAppStreamNames'].nil?)
-        data.input_processing_configuration_description = (Parsers::InputProcessingConfigurationDescription.parse(map['InputProcessingConfigurationDescription']) unless map['InputProcessingConfigurationDescription'].nil?)
-        data.kinesis_streams_input_description = (Parsers::KinesisStreamsInputDescription.parse(map['KinesisStreamsInputDescription']) unless map['KinesisStreamsInputDescription'].nil?)
-        data.kinesis_firehose_input_description = (Parsers::KinesisFirehoseInputDescription.parse(map['KinesisFirehoseInputDescription']) unless map['KinesisFirehoseInputDescription'].nil?)
-        data.input_schema = (Parsers::SourceSchema.parse(map['InputSchema']) unless map['InputSchema'].nil?)
-        data.input_parallelism = (Parsers::InputParallelism.parse(map['InputParallelism']) unless map['InputParallelism'].nil?)
-        data.input_starting_position_configuration = (Parsers::InputStartingPositionConfiguration.parse(map['InputStartingPositionConfiguration']) unless map['InputStartingPositionConfiguration'].nil?)
+        data.in_app_stream_names = (InAppStreamNames.parse(map['InAppStreamNames']) unless map['InAppStreamNames'].nil?)
+        data.input_processing_configuration_description = (InputProcessingConfigurationDescription.parse(map['InputProcessingConfigurationDescription']) unless map['InputProcessingConfigurationDescription'].nil?)
+        data.kinesis_streams_input_description = (KinesisStreamsInputDescription.parse(map['KinesisStreamsInputDescription']) unless map['KinesisStreamsInputDescription'].nil?)
+        data.kinesis_firehose_input_description = (KinesisFirehoseInputDescription.parse(map['KinesisFirehoseInputDescription']) unless map['KinesisFirehoseInputDescription'].nil?)
+        data.input_schema = (SourceSchema.parse(map['InputSchema']) unless map['InputSchema'].nil?)
+        data.input_parallelism = (InputParallelism.parse(map['InputParallelism']) unless map['InputParallelism'].nil?)
+        data.input_starting_position_configuration = (InputStartingPositionConfiguration.parse(map['InputStartingPositionConfiguration']) unless map['InputStartingPositionConfiguration'].nil?)
         return data
       end
     end
@@ -496,7 +496,7 @@ module AWS::SDK::KinesisAnalytics
     class InputProcessingConfigurationDescription
       def self.parse(map)
         data = Types::InputProcessingConfigurationDescription.new
-        data.input_lambda_processor_description = (Parsers::InputLambdaProcessorDescription.parse(map['InputLambdaProcessorDescription']) unless map['InputLambdaProcessorDescription'].nil?)
+        data.input_lambda_processor_description = (InputLambdaProcessorDescription.parse(map['InputLambdaProcessorDescription']) unless map['InputLambdaProcessorDescription'].nil?)
         return data
       end
     end
@@ -525,10 +525,10 @@ module AWS::SDK::KinesisAnalytics
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.input_schema = (Parsers::SourceSchema.parse(map['InputSchema']) unless map['InputSchema'].nil?)
-        data.parsed_input_records = (Parsers::ParsedInputRecords.parse(map['ParsedInputRecords']) unless map['ParsedInputRecords'].nil?)
-        data.processed_input_records = (Parsers::ProcessedInputRecords.parse(map['ProcessedInputRecords']) unless map['ProcessedInputRecords'].nil?)
-        data.raw_input_records = (Parsers::RawInputRecords.parse(map['RawInputRecords']) unless map['RawInputRecords'].nil?)
+        data.input_schema = (SourceSchema.parse(map['InputSchema']) unless map['InputSchema'].nil?)
+        data.parsed_input_records = (ParsedInputRecords.parse(map['ParsedInputRecords']) unless map['ParsedInputRecords'].nil?)
+        data.processed_input_records = (ProcessedInputRecords.parse(map['ProcessedInputRecords']) unless map['ProcessedInputRecords'].nil?)
+        data.raw_input_records = (RawInputRecords.parse(map['RawInputRecords']) unless map['RawInputRecords'].nil?)
         data
       end
     end
@@ -552,7 +552,7 @@ module AWS::SDK::KinesisAnalytics
     class ParsedInputRecords
       def self.parse(list)
         list.map do |value|
-          Parsers::ParsedInputRecord.parse(value) unless value.nil?
+          ParsedInputRecord.parse(value) unless value.nil?
         end
       end
     end
@@ -573,8 +573,8 @@ module AWS::SDK::KinesisAnalytics
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.message = map['message']
-        data.raw_input_records = (Parsers::RawInputRecords.parse(map['RawInputRecords']) unless map['RawInputRecords'].nil?)
-        data.processed_input_records = (Parsers::ProcessedInputRecords.parse(map['ProcessedInputRecords']) unless map['ProcessedInputRecords'].nil?)
+        data.raw_input_records = (RawInputRecords.parse(map['RawInputRecords']) unless map['RawInputRecords'].nil?)
+        data.processed_input_records = (ProcessedInputRecords.parse(map['ProcessedInputRecords']) unless map['ProcessedInputRecords'].nil?)
         data
       end
     end
@@ -610,7 +610,7 @@ module AWS::SDK::KinesisAnalytics
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.application_summaries = (Parsers::ApplicationSummaries.parse(map['ApplicationSummaries']) unless map['ApplicationSummaries'].nil?)
+        data.application_summaries = (ApplicationSummaries.parse(map['ApplicationSummaries']) unless map['ApplicationSummaries'].nil?)
         data.has_more_applications = map['HasMoreApplications']
         data
       end
@@ -619,7 +619,7 @@ module AWS::SDK::KinesisAnalytics
     class ApplicationSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ApplicationSummary.parse(value) unless value.nil?
+          ApplicationSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -631,7 +631,7 @@ module AWS::SDK::KinesisAnalytics
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -639,7 +639,7 @@ module AWS::SDK::KinesisAnalytics
     class Tags
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end

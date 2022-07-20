@@ -214,7 +214,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::AttachTypedLinkOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.typed_link_specifier = (Parsers::TypedLinkSpecifier.parse(map['TypedLinkSpecifier']) unless map['TypedLinkSpecifier'].nil?)
+        data.typed_link_specifier = (TypedLinkSpecifier.parse(map['TypedLinkSpecifier']) unless map['TypedLinkSpecifier'].nil?)
         data
       end
     end
@@ -222,10 +222,10 @@ module AWS::SDK::CloudDirectory
     class TypedLinkSpecifier
       def self.parse(map)
         data = Types::TypedLinkSpecifier.new
-        data.typed_link_facet = (Parsers::TypedLinkSchemaAndFacetName.parse(map['TypedLinkFacet']) unless map['TypedLinkFacet'].nil?)
-        data.source_object_reference = (Parsers::ObjectReference.parse(map['SourceObjectReference']) unless map['SourceObjectReference'].nil?)
-        data.target_object_reference = (Parsers::ObjectReference.parse(map['TargetObjectReference']) unless map['TargetObjectReference'].nil?)
-        data.identity_attribute_values = (Parsers::AttributeNameAndValueList.parse(map['IdentityAttributeValues']) unless map['IdentityAttributeValues'].nil?)
+        data.typed_link_facet = (TypedLinkSchemaAndFacetName.parse(map['TypedLinkFacet']) unless map['TypedLinkFacet'].nil?)
+        data.source_object_reference = (ObjectReference.parse(map['SourceObjectReference']) unless map['SourceObjectReference'].nil?)
+        data.target_object_reference = (ObjectReference.parse(map['TargetObjectReference']) unless map['TargetObjectReference'].nil?)
+        data.identity_attribute_values = (AttributeNameAndValueList.parse(map['IdentityAttributeValues']) unless map['IdentityAttributeValues'].nil?)
         return data
       end
     end
@@ -234,7 +234,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AttributeNameAndValue.parse(value) unless value.nil?
+          data << AttributeNameAndValue.parse(value) unless value.nil?
         end
         data
       end
@@ -244,7 +244,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(map)
         data = Types::AttributeNameAndValue.new
         data.attribute_name = map['AttributeName']
-        data.value = (Parsers::TypedAttributeValue.parse(map['Value']) unless map['Value'].nil?)
+        data.value = (TypedAttributeValue.parse(map['Value']) unless map['Value'].nil?)
         return data
       end
     end
@@ -296,7 +296,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::BatchReadOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.responses = (Parsers::BatchReadOperationResponseList.parse(map['Responses']) unless map['Responses'].nil?)
+        data.responses = (BatchReadOperationResponseList.parse(map['Responses']) unless map['Responses'].nil?)
         data
       end
     end
@@ -305,7 +305,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchReadOperationResponse.parse(value) unless value.nil?
+          data << BatchReadOperationResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -314,8 +314,8 @@ module AWS::SDK::CloudDirectory
     class BatchReadOperationResponse
       def self.parse(map)
         data = Types::BatchReadOperationResponse.new
-        data.successful_response = (Parsers::BatchReadSuccessfulResponse.parse(map['SuccessfulResponse']) unless map['SuccessfulResponse'].nil?)
-        data.exception_response = (Parsers::BatchReadException.parse(map['ExceptionResponse']) unless map['ExceptionResponse'].nil?)
+        data.successful_response = (BatchReadSuccessfulResponse.parse(map['SuccessfulResponse']) unless map['SuccessfulResponse'].nil?)
+        data.exception_response = (BatchReadException.parse(map['ExceptionResponse']) unless map['ExceptionResponse'].nil?)
         return data
       end
     end
@@ -332,20 +332,20 @@ module AWS::SDK::CloudDirectory
     class BatchReadSuccessfulResponse
       def self.parse(map)
         data = Types::BatchReadSuccessfulResponse.new
-        data.list_object_attributes = (Parsers::BatchListObjectAttributesResponse.parse(map['ListObjectAttributes']) unless map['ListObjectAttributes'].nil?)
-        data.list_object_children = (Parsers::BatchListObjectChildrenResponse.parse(map['ListObjectChildren']) unless map['ListObjectChildren'].nil?)
-        data.get_object_information = (Parsers::BatchGetObjectInformationResponse.parse(map['GetObjectInformation']) unless map['GetObjectInformation'].nil?)
-        data.get_object_attributes = (Parsers::BatchGetObjectAttributesResponse.parse(map['GetObjectAttributes']) unless map['GetObjectAttributes'].nil?)
-        data.list_attached_indices = (Parsers::BatchListAttachedIndicesResponse.parse(map['ListAttachedIndices']) unless map['ListAttachedIndices'].nil?)
-        data.list_object_parent_paths = (Parsers::BatchListObjectParentPathsResponse.parse(map['ListObjectParentPaths']) unless map['ListObjectParentPaths'].nil?)
-        data.list_object_policies = (Parsers::BatchListObjectPoliciesResponse.parse(map['ListObjectPolicies']) unless map['ListObjectPolicies'].nil?)
-        data.list_policy_attachments = (Parsers::BatchListPolicyAttachmentsResponse.parse(map['ListPolicyAttachments']) unless map['ListPolicyAttachments'].nil?)
-        data.lookup_policy = (Parsers::BatchLookupPolicyResponse.parse(map['LookupPolicy']) unless map['LookupPolicy'].nil?)
-        data.list_index = (Parsers::BatchListIndexResponse.parse(map['ListIndex']) unless map['ListIndex'].nil?)
-        data.list_outgoing_typed_links = (Parsers::BatchListOutgoingTypedLinksResponse.parse(map['ListOutgoingTypedLinks']) unless map['ListOutgoingTypedLinks'].nil?)
-        data.list_incoming_typed_links = (Parsers::BatchListIncomingTypedLinksResponse.parse(map['ListIncomingTypedLinks']) unless map['ListIncomingTypedLinks'].nil?)
-        data.get_link_attributes = (Parsers::BatchGetLinkAttributesResponse.parse(map['GetLinkAttributes']) unless map['GetLinkAttributes'].nil?)
-        data.list_object_parents = (Parsers::BatchListObjectParentsResponse.parse(map['ListObjectParents']) unless map['ListObjectParents'].nil?)
+        data.list_object_attributes = (BatchListObjectAttributesResponse.parse(map['ListObjectAttributes']) unless map['ListObjectAttributes'].nil?)
+        data.list_object_children = (BatchListObjectChildrenResponse.parse(map['ListObjectChildren']) unless map['ListObjectChildren'].nil?)
+        data.get_object_information = (BatchGetObjectInformationResponse.parse(map['GetObjectInformation']) unless map['GetObjectInformation'].nil?)
+        data.get_object_attributes = (BatchGetObjectAttributesResponse.parse(map['GetObjectAttributes']) unless map['GetObjectAttributes'].nil?)
+        data.list_attached_indices = (BatchListAttachedIndicesResponse.parse(map['ListAttachedIndices']) unless map['ListAttachedIndices'].nil?)
+        data.list_object_parent_paths = (BatchListObjectParentPathsResponse.parse(map['ListObjectParentPaths']) unless map['ListObjectParentPaths'].nil?)
+        data.list_object_policies = (BatchListObjectPoliciesResponse.parse(map['ListObjectPolicies']) unless map['ListObjectPolicies'].nil?)
+        data.list_policy_attachments = (BatchListPolicyAttachmentsResponse.parse(map['ListPolicyAttachments']) unless map['ListPolicyAttachments'].nil?)
+        data.lookup_policy = (BatchLookupPolicyResponse.parse(map['LookupPolicy']) unless map['LookupPolicy'].nil?)
+        data.list_index = (BatchListIndexResponse.parse(map['ListIndex']) unless map['ListIndex'].nil?)
+        data.list_outgoing_typed_links = (BatchListOutgoingTypedLinksResponse.parse(map['ListOutgoingTypedLinks']) unless map['ListOutgoingTypedLinks'].nil?)
+        data.list_incoming_typed_links = (BatchListIncomingTypedLinksResponse.parse(map['ListIncomingTypedLinks']) unless map['ListIncomingTypedLinks'].nil?)
+        data.get_link_attributes = (BatchGetLinkAttributesResponse.parse(map['GetLinkAttributes']) unless map['GetLinkAttributes'].nil?)
+        data.list_object_parents = (BatchListObjectParentsResponse.parse(map['ListObjectParents']) unless map['ListObjectParents'].nil?)
         return data
       end
     end
@@ -353,7 +353,7 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectParentsResponse
       def self.parse(map)
         data = Types::BatchListObjectParentsResponse.new
-        data.parent_links = (Parsers::ObjectIdentifierAndLinkNameList.parse(map['ParentLinks']) unless map['ParentLinks'].nil?)
+        data.parent_links = (ObjectIdentifierAndLinkNameList.parse(map['ParentLinks']) unless map['ParentLinks'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -363,7 +363,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ObjectIdentifierAndLinkNameTuple.parse(value) unless value.nil?
+          data << ObjectIdentifierAndLinkNameTuple.parse(value) unless value.nil?
         end
         data
       end
@@ -381,7 +381,7 @@ module AWS::SDK::CloudDirectory
     class BatchGetLinkAttributesResponse
       def self.parse(map)
         data = Types::BatchGetLinkAttributesResponse.new
-        data.attributes = (Parsers::AttributeKeyAndValueList.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (AttributeKeyAndValueList.parse(map['Attributes']) unless map['Attributes'].nil?)
         return data
       end
     end
@@ -390,7 +390,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AttributeKeyAndValue.parse(value) unless value.nil?
+          data << AttributeKeyAndValue.parse(value) unless value.nil?
         end
         data
       end
@@ -399,8 +399,8 @@ module AWS::SDK::CloudDirectory
     class AttributeKeyAndValue
       def self.parse(map)
         data = Types::AttributeKeyAndValue.new
-        data.key = (Parsers::AttributeKey.parse(map['Key']) unless map['Key'].nil?)
-        data.value = (Parsers::TypedAttributeValue.parse(map['Value']) unless map['Value'].nil?)
+        data.key = (AttributeKey.parse(map['Key']) unless map['Key'].nil?)
+        data.value = (TypedAttributeValue.parse(map['Value']) unless map['Value'].nil?)
         return data
       end
     end
@@ -418,7 +418,7 @@ module AWS::SDK::CloudDirectory
     class BatchListIncomingTypedLinksResponse
       def self.parse(map)
         data = Types::BatchListIncomingTypedLinksResponse.new
-        data.link_specifiers = (Parsers::TypedLinkSpecifierList.parse(map['LinkSpecifiers']) unless map['LinkSpecifiers'].nil?)
+        data.link_specifiers = (TypedLinkSpecifierList.parse(map['LinkSpecifiers']) unless map['LinkSpecifiers'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -428,7 +428,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TypedLinkSpecifier.parse(value) unless value.nil?
+          data << TypedLinkSpecifier.parse(value) unless value.nil?
         end
         data
       end
@@ -437,7 +437,7 @@ module AWS::SDK::CloudDirectory
     class BatchListOutgoingTypedLinksResponse
       def self.parse(map)
         data = Types::BatchListOutgoingTypedLinksResponse.new
-        data.typed_link_specifiers = (Parsers::TypedLinkSpecifierList.parse(map['TypedLinkSpecifiers']) unless map['TypedLinkSpecifiers'].nil?)
+        data.typed_link_specifiers = (TypedLinkSpecifierList.parse(map['TypedLinkSpecifiers']) unless map['TypedLinkSpecifiers'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -446,7 +446,7 @@ module AWS::SDK::CloudDirectory
     class BatchListIndexResponse
       def self.parse(map)
         data = Types::BatchListIndexResponse.new
-        data.index_attachments = (Parsers::IndexAttachmentList.parse(map['IndexAttachments']) unless map['IndexAttachments'].nil?)
+        data.index_attachments = (IndexAttachmentList.parse(map['IndexAttachments']) unless map['IndexAttachments'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -456,7 +456,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IndexAttachment.parse(value) unless value.nil?
+          data << IndexAttachment.parse(value) unless value.nil?
         end
         data
       end
@@ -465,7 +465,7 @@ module AWS::SDK::CloudDirectory
     class IndexAttachment
       def self.parse(map)
         data = Types::IndexAttachment.new
-        data.indexed_attributes = (Parsers::AttributeKeyAndValueList.parse(map['IndexedAttributes']) unless map['IndexedAttributes'].nil?)
+        data.indexed_attributes = (AttributeKeyAndValueList.parse(map['IndexedAttributes']) unless map['IndexedAttributes'].nil?)
         data.object_identifier = map['ObjectIdentifier']
         return data
       end
@@ -474,7 +474,7 @@ module AWS::SDK::CloudDirectory
     class BatchLookupPolicyResponse
       def self.parse(map)
         data = Types::BatchLookupPolicyResponse.new
-        data.policy_to_path_list = (Parsers::PolicyToPathList.parse(map['PolicyToPathList']) unless map['PolicyToPathList'].nil?)
+        data.policy_to_path_list = (PolicyToPathList.parse(map['PolicyToPathList']) unless map['PolicyToPathList'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -484,7 +484,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PolicyToPath.parse(value) unless value.nil?
+          data << PolicyToPath.parse(value) unless value.nil?
         end
         data
       end
@@ -494,7 +494,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(map)
         data = Types::PolicyToPath.new
         data.path = map['Path']
-        data.policies = (Parsers::PolicyAttachmentList.parse(map['Policies']) unless map['Policies'].nil?)
+        data.policies = (PolicyAttachmentList.parse(map['Policies']) unless map['Policies'].nil?)
         return data
       end
     end
@@ -503,7 +503,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PolicyAttachment.parse(value) unless value.nil?
+          data << PolicyAttachment.parse(value) unless value.nil?
         end
         data
       end
@@ -522,7 +522,7 @@ module AWS::SDK::CloudDirectory
     class BatchListPolicyAttachmentsResponse
       def self.parse(map)
         data = Types::BatchListPolicyAttachmentsResponse.new
-        data.object_identifiers = (Parsers::ObjectIdentifierList.parse(map['ObjectIdentifiers']) unless map['ObjectIdentifiers'].nil?)
+        data.object_identifiers = (ObjectIdentifierList.parse(map['ObjectIdentifiers']) unless map['ObjectIdentifiers'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -541,7 +541,7 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectPoliciesResponse
       def self.parse(map)
         data = Types::BatchListObjectPoliciesResponse.new
-        data.attached_policy_ids = (Parsers::ObjectIdentifierList.parse(map['AttachedPolicyIds']) unless map['AttachedPolicyIds'].nil?)
+        data.attached_policy_ids = (ObjectIdentifierList.parse(map['AttachedPolicyIds']) unless map['AttachedPolicyIds'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -550,7 +550,7 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectParentPathsResponse
       def self.parse(map)
         data = Types::BatchListObjectParentPathsResponse.new
-        data.path_to_object_identifiers_list = (Parsers::PathToObjectIdentifiersList.parse(map['PathToObjectIdentifiersList']) unless map['PathToObjectIdentifiersList'].nil?)
+        data.path_to_object_identifiers_list = (PathToObjectIdentifiersList.parse(map['PathToObjectIdentifiersList']) unless map['PathToObjectIdentifiersList'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -560,7 +560,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PathToObjectIdentifiers.parse(value) unless value.nil?
+          data << PathToObjectIdentifiers.parse(value) unless value.nil?
         end
         data
       end
@@ -570,7 +570,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(map)
         data = Types::PathToObjectIdentifiers.new
         data.path = map['Path']
-        data.object_identifiers = (Parsers::ObjectIdentifierList.parse(map['ObjectIdentifiers']) unless map['ObjectIdentifiers'].nil?)
+        data.object_identifiers = (ObjectIdentifierList.parse(map['ObjectIdentifiers']) unless map['ObjectIdentifiers'].nil?)
         return data
       end
     end
@@ -578,7 +578,7 @@ module AWS::SDK::CloudDirectory
     class BatchListAttachedIndicesResponse
       def self.parse(map)
         data = Types::BatchListAttachedIndicesResponse.new
-        data.index_attachments = (Parsers::IndexAttachmentList.parse(map['IndexAttachments']) unless map['IndexAttachments'].nil?)
+        data.index_attachments = (IndexAttachmentList.parse(map['IndexAttachments']) unless map['IndexAttachments'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -587,7 +587,7 @@ module AWS::SDK::CloudDirectory
     class BatchGetObjectAttributesResponse
       def self.parse(map)
         data = Types::BatchGetObjectAttributesResponse.new
-        data.attributes = (Parsers::AttributeKeyAndValueList.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (AttributeKeyAndValueList.parse(map['Attributes']) unless map['Attributes'].nil?)
         return data
       end
     end
@@ -595,7 +595,7 @@ module AWS::SDK::CloudDirectory
     class BatchGetObjectInformationResponse
       def self.parse(map)
         data = Types::BatchGetObjectInformationResponse.new
-        data.schema_facets = (Parsers::SchemaFacetList.parse(map['SchemaFacets']) unless map['SchemaFacets'].nil?)
+        data.schema_facets = (SchemaFacetList.parse(map['SchemaFacets']) unless map['SchemaFacets'].nil?)
         data.object_identifier = map['ObjectIdentifier']
         return data
       end
@@ -605,7 +605,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SchemaFacet.parse(value) unless value.nil?
+          data << SchemaFacet.parse(value) unless value.nil?
         end
         data
       end
@@ -623,7 +623,7 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectChildrenResponse
       def self.parse(map)
         data = Types::BatchListObjectChildrenResponse.new
-        data.children = (Parsers::LinkNameToObjectIdentifierMap.parse(map['Children']) unless map['Children'].nil?)
+        data.children = (LinkNameToObjectIdentifierMap.parse(map['Children']) unless map['Children'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -642,7 +642,7 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectAttributesResponse
       def self.parse(map)
         data = Types::BatchListObjectAttributesResponse.new
-        data.attributes = (Parsers::AttributeKeyAndValueList.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (AttributeKeyAndValueList.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -653,7 +653,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::BatchWriteOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.responses = (Parsers::BatchWriteOperationResponseList.parse(map['Responses']) unless map['Responses'].nil?)
+        data.responses = (BatchWriteOperationResponseList.parse(map['Responses']) unless map['Responses'].nil?)
         data
       end
     end
@@ -662,7 +662,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchWriteOperationResponse.parse(value) unless value.nil?
+          data << BatchWriteOperationResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -671,21 +671,21 @@ module AWS::SDK::CloudDirectory
     class BatchWriteOperationResponse
       def self.parse(map)
         data = Types::BatchWriteOperationResponse.new
-        data.create_object = (Parsers::BatchCreateObjectResponse.parse(map['CreateObject']) unless map['CreateObject'].nil?)
-        data.attach_object = (Parsers::BatchAttachObjectResponse.parse(map['AttachObject']) unless map['AttachObject'].nil?)
-        data.detach_object = (Parsers::BatchDetachObjectResponse.parse(map['DetachObject']) unless map['DetachObject'].nil?)
-        data.update_object_attributes = (Parsers::BatchUpdateObjectAttributesResponse.parse(map['UpdateObjectAttributes']) unless map['UpdateObjectAttributes'].nil?)
-        data.delete_object = (Parsers::BatchDeleteObjectResponse.parse(map['DeleteObject']) unless map['DeleteObject'].nil?)
-        data.add_facet_to_object = (Parsers::BatchAddFacetToObjectResponse.parse(map['AddFacetToObject']) unless map['AddFacetToObject'].nil?)
-        data.remove_facet_from_object = (Parsers::BatchRemoveFacetFromObjectResponse.parse(map['RemoveFacetFromObject']) unless map['RemoveFacetFromObject'].nil?)
-        data.attach_policy = (Parsers::BatchAttachPolicyResponse.parse(map['AttachPolicy']) unless map['AttachPolicy'].nil?)
-        data.detach_policy = (Parsers::BatchDetachPolicyResponse.parse(map['DetachPolicy']) unless map['DetachPolicy'].nil?)
-        data.create_index = (Parsers::BatchCreateIndexResponse.parse(map['CreateIndex']) unless map['CreateIndex'].nil?)
-        data.attach_to_index = (Parsers::BatchAttachToIndexResponse.parse(map['AttachToIndex']) unless map['AttachToIndex'].nil?)
-        data.detach_from_index = (Parsers::BatchDetachFromIndexResponse.parse(map['DetachFromIndex']) unless map['DetachFromIndex'].nil?)
-        data.attach_typed_link = (Parsers::BatchAttachTypedLinkResponse.parse(map['AttachTypedLink']) unless map['AttachTypedLink'].nil?)
-        data.detach_typed_link = (Parsers::BatchDetachTypedLinkResponse.parse(map['DetachTypedLink']) unless map['DetachTypedLink'].nil?)
-        data.update_link_attributes = (Parsers::BatchUpdateLinkAttributesResponse.parse(map['UpdateLinkAttributes']) unless map['UpdateLinkAttributes'].nil?)
+        data.create_object = (BatchCreateObjectResponse.parse(map['CreateObject']) unless map['CreateObject'].nil?)
+        data.attach_object = (BatchAttachObjectResponse.parse(map['AttachObject']) unless map['AttachObject'].nil?)
+        data.detach_object = (BatchDetachObjectResponse.parse(map['DetachObject']) unless map['DetachObject'].nil?)
+        data.update_object_attributes = (BatchUpdateObjectAttributesResponse.parse(map['UpdateObjectAttributes']) unless map['UpdateObjectAttributes'].nil?)
+        data.delete_object = (BatchDeleteObjectResponse.parse(map['DeleteObject']) unless map['DeleteObject'].nil?)
+        data.add_facet_to_object = (BatchAddFacetToObjectResponse.parse(map['AddFacetToObject']) unless map['AddFacetToObject'].nil?)
+        data.remove_facet_from_object = (BatchRemoveFacetFromObjectResponse.parse(map['RemoveFacetFromObject']) unless map['RemoveFacetFromObject'].nil?)
+        data.attach_policy = (BatchAttachPolicyResponse.parse(map['AttachPolicy']) unless map['AttachPolicy'].nil?)
+        data.detach_policy = (BatchDetachPolicyResponse.parse(map['DetachPolicy']) unless map['DetachPolicy'].nil?)
+        data.create_index = (BatchCreateIndexResponse.parse(map['CreateIndex']) unless map['CreateIndex'].nil?)
+        data.attach_to_index = (BatchAttachToIndexResponse.parse(map['AttachToIndex']) unless map['AttachToIndex'].nil?)
+        data.detach_from_index = (BatchDetachFromIndexResponse.parse(map['DetachFromIndex']) unless map['DetachFromIndex'].nil?)
+        data.attach_typed_link = (BatchAttachTypedLinkResponse.parse(map['AttachTypedLink']) unless map['AttachTypedLink'].nil?)
+        data.detach_typed_link = (BatchDetachTypedLinkResponse.parse(map['DetachTypedLink']) unless map['DetachTypedLink'].nil?)
+        data.update_link_attributes = (BatchUpdateLinkAttributesResponse.parse(map['UpdateLinkAttributes']) unless map['UpdateLinkAttributes'].nil?)
         return data
       end
     end
@@ -707,7 +707,7 @@ module AWS::SDK::CloudDirectory
     class BatchAttachTypedLinkResponse
       def self.parse(map)
         data = Types::BatchAttachTypedLinkResponse.new
-        data.typed_link_specifier = (Parsers::TypedLinkSpecifier.parse(map['TypedLinkSpecifier']) unless map['TypedLinkSpecifier'].nil?)
+        data.typed_link_specifier = (TypedLinkSpecifier.parse(map['TypedLinkSpecifier']) unless map['TypedLinkSpecifier'].nil?)
         return data
       end
     end
@@ -1116,7 +1116,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::GetDirectoryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.directory = (Parsers::Directory.parse(map['Directory']) unless map['Directory'].nil?)
+        data.directory = (Directory.parse(map['Directory']) unless map['Directory'].nil?)
         data
       end
     end
@@ -1137,7 +1137,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::GetFacetOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.facet = (Parsers::Facet.parse(map['Facet']) unless map['Facet'].nil?)
+        data.facet = (Facet.parse(map['Facet']) unless map['Facet'].nil?)
         data
       end
     end
@@ -1157,7 +1157,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::GetLinkAttributesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attributes = (Parsers::AttributeKeyAndValueList.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (AttributeKeyAndValueList.parse(map['Attributes']) unless map['Attributes'].nil?)
         data
       end
     end
@@ -1167,7 +1167,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::GetObjectAttributesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attributes = (Parsers::AttributeKeyAndValueList.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (AttributeKeyAndValueList.parse(map['Attributes']) unless map['Attributes'].nil?)
         data
       end
     end
@@ -1177,7 +1177,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::GetObjectInformationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.schema_facets = (Parsers::SchemaFacetList.parse(map['SchemaFacets']) unless map['SchemaFacets'].nil?)
+        data.schema_facets = (SchemaFacetList.parse(map['SchemaFacets']) unless map['SchemaFacets'].nil?)
         data.object_identifier = map['ObjectIdentifier']
         data
       end
@@ -1199,7 +1199,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::GetTypedLinkFacetInformationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.identity_attribute_order = (Parsers::AttributeNameList.parse(map['IdentityAttributeOrder']) unless map['IdentityAttributeOrder'].nil?)
+        data.identity_attribute_order = (AttributeNameList.parse(map['IdentityAttributeOrder']) unless map['IdentityAttributeOrder'].nil?)
         data
       end
     end
@@ -1229,7 +1229,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListAppliedSchemaArnsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.schema_arns = (Parsers::Arns.parse(map['SchemaArns']) unless map['SchemaArns'].nil?)
+        data.schema_arns = (Arns.parse(map['SchemaArns']) unless map['SchemaArns'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1250,7 +1250,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListAttachedIndicesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.index_attachments = (Parsers::IndexAttachmentList.parse(map['IndexAttachments']) unless map['IndexAttachments'].nil?)
+        data.index_attachments = (IndexAttachmentList.parse(map['IndexAttachments']) unless map['IndexAttachments'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1261,7 +1261,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListDevelopmentSchemaArnsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.schema_arns = (Parsers::Arns.parse(map['SchemaArns']) unless map['SchemaArns'].nil?)
+        data.schema_arns = (Arns.parse(map['SchemaArns']) unless map['SchemaArns'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1272,7 +1272,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListDirectoriesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.directories = (Parsers::DirectoryList.parse(map['Directories']) unless map['Directories'].nil?)
+        data.directories = (DirectoryList.parse(map['Directories']) unless map['Directories'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1282,7 +1282,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Directory.parse(value) unless value.nil?
+          data << Directory.parse(value) unless value.nil?
         end
         data
       end
@@ -1293,7 +1293,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListFacetAttributesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attributes = (Parsers::FacetAttributeList.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (FacetAttributeList.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1303,7 +1303,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FacetAttribute.parse(value) unless value.nil?
+          data << FacetAttribute.parse(value) unless value.nil?
         end
         data
       end
@@ -1313,8 +1313,8 @@ module AWS::SDK::CloudDirectory
       def self.parse(map)
         data = Types::FacetAttribute.new
         data.name = map['Name']
-        data.attribute_definition = (Parsers::FacetAttributeDefinition.parse(map['AttributeDefinition']) unless map['AttributeDefinition'].nil?)
-        data.attribute_reference = (Parsers::FacetAttributeReference.parse(map['AttributeReference']) unless map['AttributeReference'].nil?)
+        data.attribute_definition = (FacetAttributeDefinition.parse(map['AttributeDefinition']) unless map['AttributeDefinition'].nil?)
+        data.attribute_reference = (FacetAttributeReference.parse(map['AttributeReference']) unless map['AttributeReference'].nil?)
         data.required_behavior = map['RequiredBehavior']
         return data
       end
@@ -1333,9 +1333,9 @@ module AWS::SDK::CloudDirectory
       def self.parse(map)
         data = Types::FacetAttributeDefinition.new
         data.type = map['Type']
-        data.default_value = (Parsers::TypedAttributeValue.parse(map['DefaultValue']) unless map['DefaultValue'].nil?)
+        data.default_value = (TypedAttributeValue.parse(map['DefaultValue']) unless map['DefaultValue'].nil?)
         data.is_immutable = map['IsImmutable']
-        data.rules = (Parsers::RuleMap.parse(map['Rules']) unless map['Rules'].nil?)
+        data.rules = (RuleMap.parse(map['Rules']) unless map['Rules'].nil?)
         return data
       end
     end
@@ -1344,7 +1344,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::Rule.parse(value) unless value.nil?
+          data[key] = Rule.parse(value) unless value.nil?
         end
         data
       end
@@ -1354,7 +1354,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(map)
         data = Types::Rule.new
         data.type = map['Type']
-        data.parameters = (Parsers::RuleParameterMap.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (RuleParameterMap.parse(map['Parameters']) unless map['Parameters'].nil?)
         return data
       end
     end
@@ -1374,7 +1374,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListFacetNamesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.facet_names = (Parsers::FacetNameList.parse(map['FacetNames']) unless map['FacetNames'].nil?)
+        data.facet_names = (FacetNameList.parse(map['FacetNames']) unless map['FacetNames'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1395,7 +1395,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListIncomingTypedLinksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.link_specifiers = (Parsers::TypedLinkSpecifierList.parse(map['LinkSpecifiers']) unless map['LinkSpecifiers'].nil?)
+        data.link_specifiers = (TypedLinkSpecifierList.parse(map['LinkSpecifiers']) unless map['LinkSpecifiers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1406,7 +1406,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListIndexOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.index_attachments = (Parsers::IndexAttachmentList.parse(map['IndexAttachments']) unless map['IndexAttachments'].nil?)
+        data.index_attachments = (IndexAttachmentList.parse(map['IndexAttachments']) unless map['IndexAttachments'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1417,7 +1417,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListManagedSchemaArnsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.schema_arns = (Parsers::Arns.parse(map['SchemaArns']) unless map['SchemaArns'].nil?)
+        data.schema_arns = (Arns.parse(map['SchemaArns']) unless map['SchemaArns'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1428,7 +1428,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListObjectAttributesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attributes = (Parsers::AttributeKeyAndValueList.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (AttributeKeyAndValueList.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1439,7 +1439,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListObjectChildrenOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.children = (Parsers::LinkNameToObjectIdentifierMap.parse(map['Children']) unless map['Children'].nil?)
+        data.children = (LinkNameToObjectIdentifierMap.parse(map['Children']) unless map['Children'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1450,7 +1450,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListObjectParentPathsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.path_to_object_identifiers_list = (Parsers::PathToObjectIdentifiersList.parse(map['PathToObjectIdentifiersList']) unless map['PathToObjectIdentifiersList'].nil?)
+        data.path_to_object_identifiers_list = (PathToObjectIdentifiersList.parse(map['PathToObjectIdentifiersList']) unless map['PathToObjectIdentifiersList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1461,9 +1461,9 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListObjectParentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.parents = (Parsers::ObjectIdentifierToLinkNameMap.parse(map['Parents']) unless map['Parents'].nil?)
+        data.parents = (ObjectIdentifierToLinkNameMap.parse(map['Parents']) unless map['Parents'].nil?)
         data.next_token = map['NextToken']
-        data.parent_links = (Parsers::ObjectIdentifierAndLinkNameList.parse(map['ParentLinks']) unless map['ParentLinks'].nil?)
+        data.parent_links = (ObjectIdentifierAndLinkNameList.parse(map['ParentLinks']) unless map['ParentLinks'].nil?)
         data
       end
     end
@@ -1493,7 +1493,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListObjectPoliciesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attached_policy_ids = (Parsers::ObjectIdentifierList.parse(map['AttachedPolicyIds']) unless map['AttachedPolicyIds'].nil?)
+        data.attached_policy_ids = (ObjectIdentifierList.parse(map['AttachedPolicyIds']) unless map['AttachedPolicyIds'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1504,7 +1504,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListOutgoingTypedLinksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.typed_link_specifiers = (Parsers::TypedLinkSpecifierList.parse(map['TypedLinkSpecifiers']) unless map['TypedLinkSpecifiers'].nil?)
+        data.typed_link_specifiers = (TypedLinkSpecifierList.parse(map['TypedLinkSpecifiers']) unless map['TypedLinkSpecifiers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1515,7 +1515,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListPolicyAttachmentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.object_identifiers = (Parsers::ObjectIdentifierList.parse(map['ObjectIdentifiers']) unless map['ObjectIdentifiers'].nil?)
+        data.object_identifiers = (ObjectIdentifierList.parse(map['ObjectIdentifiers']) unless map['ObjectIdentifiers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1526,7 +1526,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListPublishedSchemaArnsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.schema_arns = (Parsers::Arns.parse(map['SchemaArns']) unless map['SchemaArns'].nil?)
+        data.schema_arns = (Arns.parse(map['SchemaArns']) unless map['SchemaArns'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1537,7 +1537,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1547,7 +1547,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -1577,7 +1577,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListTypedLinkFacetAttributesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attributes = (Parsers::TypedLinkAttributeDefinitionList.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (TypedLinkAttributeDefinitionList.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1587,7 +1587,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TypedLinkAttributeDefinition.parse(value) unless value.nil?
+          data << TypedLinkAttributeDefinition.parse(value) unless value.nil?
         end
         data
       end
@@ -1598,9 +1598,9 @@ module AWS::SDK::CloudDirectory
         data = Types::TypedLinkAttributeDefinition.new
         data.name = map['Name']
         data.type = map['Type']
-        data.default_value = (Parsers::TypedAttributeValue.parse(map['DefaultValue']) unless map['DefaultValue'].nil?)
+        data.default_value = (TypedAttributeValue.parse(map['DefaultValue']) unless map['DefaultValue'].nil?)
         data.is_immutable = map['IsImmutable']
-        data.rules = (Parsers::RuleMap.parse(map['Rules']) unless map['Rules'].nil?)
+        data.rules = (RuleMap.parse(map['Rules']) unless map['Rules'].nil?)
         data.required_behavior = map['RequiredBehavior']
         return data
       end
@@ -1611,7 +1611,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::ListTypedLinkFacetNamesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.facet_names = (Parsers::TypedLinkNameList.parse(map['FacetNames']) unless map['FacetNames'].nil?)
+        data.facet_names = (TypedLinkNameList.parse(map['FacetNames']) unless map['FacetNames'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1632,7 +1632,7 @@ module AWS::SDK::CloudDirectory
       def self.parse(http_resp)
         data = Types::LookupPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policy_to_path_list = (Parsers::PolicyToPathList.parse(map['PolicyToPathList']) unless map['PolicyToPathList'].nil?)
+        data.policy_to_path_list = (PolicyToPathList.parse(map['PolicyToPathList']) unless map['PolicyToPathList'].nil?)
         data.next_token = map['NextToken']
         data
       end

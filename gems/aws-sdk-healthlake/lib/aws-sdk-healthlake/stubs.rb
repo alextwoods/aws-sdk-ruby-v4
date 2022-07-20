@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::HealthLake
   module Stubs
 
@@ -27,7 +29,7 @@ module AWS::SDK::HealthLake
         data['DatastoreArn'] = stub[:datastore_arn] unless stub[:datastore_arn].nil?
         data['DatastoreStatus'] = stub[:datastore_status] unless stub[:datastore_status].nil?
         data['DatastoreEndpoint'] = stub[:datastore_endpoint] unless stub[:datastore_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -49,7 +51,7 @@ module AWS::SDK::HealthLake
         data['DatastoreArn'] = stub[:datastore_arn] unless stub[:datastore_arn].nil?
         data['DatastoreStatus'] = stub[:datastore_status] unless stub[:datastore_status].nil?
         data['DatastoreEndpoint'] = stub[:datastore_endpoint] unless stub[:datastore_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -64,8 +66,8 @@ module AWS::SDK::HealthLake
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DatastoreProperties'] = Stubs::DatastoreProperties.stub(stub[:datastore_properties]) unless stub[:datastore_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DatastoreProperties'] = DatastoreProperties.stub(stub[:datastore_properties]) unless stub[:datastore_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -98,8 +100,8 @@ module AWS::SDK::HealthLake
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['DatastoreTypeVersion'] = stub[:datastore_type_version] unless stub[:datastore_type_version].nil?
         data['DatastoreEndpoint'] = stub[:datastore_endpoint] unless stub[:datastore_endpoint].nil?
-        data['SseConfiguration'] = Stubs::SseConfiguration.stub(stub[:sse_configuration]) unless stub[:sse_configuration].nil?
-        data['PreloadDataConfig'] = Stubs::PreloadDataConfig.stub(stub[:preload_data_config]) unless stub[:preload_data_config].nil?
+        data['SseConfiguration'] = SseConfiguration.stub(stub[:sse_configuration]) unless stub[:sse_configuration].nil?
+        data['PreloadDataConfig'] = PreloadDataConfig.stub(stub[:preload_data_config]) unless stub[:preload_data_config].nil?
         data
       end
     end
@@ -135,7 +137,7 @@ module AWS::SDK::HealthLake
       def self.stub(stub)
         stub ||= Types::SseConfiguration.new
         data = {}
-        data['KmsEncryptionConfig'] = Stubs::KmsEncryptionConfig.stub(stub[:kms_encryption_config]) unless stub[:kms_encryption_config].nil?
+        data['KmsEncryptionConfig'] = KmsEncryptionConfig.stub(stub[:kms_encryption_config]) unless stub[:kms_encryption_config].nil?
         data
       end
     end
@@ -170,8 +172,8 @@ module AWS::SDK::HealthLake
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ExportJobProperties'] = Stubs::ExportJobProperties.stub(stub[:export_job_properties]) unless stub[:export_job_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ExportJobProperties'] = ExportJobProperties.stub(stub[:export_job_properties]) unless stub[:export_job_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -203,7 +205,7 @@ module AWS::SDK::HealthLake
         data['SubmitTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:submit_time]).to_i unless stub[:submit_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['DatastoreId'] = stub[:datastore_id] unless stub[:datastore_id].nil?
-        data['OutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data
@@ -224,7 +226,7 @@ module AWS::SDK::HealthLake
         data = {}
         case stub
         when Types::OutputDataConfig::S3Configuration
-          data['S3Configuration'] = (Stubs::S3Configuration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['S3Configuration'] = (S3Configuration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::OutputDataConfig"
@@ -264,8 +266,8 @@ module AWS::SDK::HealthLake
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ImportJobProperties'] = Stubs::ImportJobProperties.stub(stub[:import_job_properties]) unless stub[:import_job_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ImportJobProperties'] = ImportJobProperties.stub(stub[:import_job_properties]) unless stub[:import_job_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -298,8 +300,8 @@ module AWS::SDK::HealthLake
         data['SubmitTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:submit_time]).to_i unless stub[:submit_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['DatastoreId'] = stub[:datastore_id] unless stub[:datastore_id].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['JobOutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:job_output_data_config]) unless stub[:job_output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['JobOutputDataConfig'] = OutputDataConfig.stub(stub[:job_output_data_config]) unless stub[:job_output_data_config].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data
@@ -341,9 +343,9 @@ module AWS::SDK::HealthLake
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DatastorePropertiesList'] = Stubs::DatastorePropertiesList.stub(stub[:datastore_properties_list]) unless stub[:datastore_properties_list].nil?
+        data['DatastorePropertiesList'] = DatastorePropertiesList.stub(stub[:datastore_properties_list]) unless stub[:datastore_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -362,7 +364,7 @@ module AWS::SDK::HealthLake
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DatastoreProperties.stub(element) unless element.nil?
+          data << DatastoreProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -379,9 +381,9 @@ module AWS::SDK::HealthLake
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ExportJobPropertiesList'] = Stubs::ExportJobPropertiesList.stub(stub[:export_job_properties_list]) unless stub[:export_job_properties_list].nil?
+        data['ExportJobPropertiesList'] = ExportJobPropertiesList.stub(stub[:export_job_properties_list]) unless stub[:export_job_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -400,7 +402,7 @@ module AWS::SDK::HealthLake
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExportJobProperties.stub(element) unless element.nil?
+          data << ExportJobProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -417,9 +419,9 @@ module AWS::SDK::HealthLake
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ImportJobPropertiesList'] = Stubs::ImportJobPropertiesList.stub(stub[:import_job_properties_list]) unless stub[:import_job_properties_list].nil?
+        data['ImportJobPropertiesList'] = ImportJobPropertiesList.stub(stub[:import_job_properties_list]) unless stub[:import_job_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -438,7 +440,7 @@ module AWS::SDK::HealthLake
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImportJobProperties.stub(element) unless element.nil?
+          data << ImportJobProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -454,8 +456,8 @@ module AWS::SDK::HealthLake
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -474,7 +476,7 @@ module AWS::SDK::HealthLake
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -515,7 +517,7 @@ module AWS::SDK::HealthLake
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['DatastoreId'] = stub[:datastore_id] unless stub[:datastore_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -535,7 +537,7 @@ module AWS::SDK::HealthLake
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['DatastoreId'] = stub[:datastore_id] unless stub[:datastore_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -549,7 +551,7 @@ module AWS::SDK::HealthLake
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -563,7 +565,7 @@ module AWS::SDK::HealthLake
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

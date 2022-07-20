@@ -17,8 +17,8 @@ module AWS::SDK::ECRPUBLIC
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.layers = (Parsers::LayerList.parse(map['layers']) unless map['layers'].nil?)
-        data.failures = (Parsers::LayerFailureList.parse(map['failures']) unless map['failures'].nil?)
+        data.layers = (LayerList.parse(map['layers']) unless map['layers'].nil?)
+        data.failures = (LayerFailureList.parse(map['failures']) unless map['failures'].nil?)
         data
       end
     end
@@ -26,7 +26,7 @@ module AWS::SDK::ECRPUBLIC
     class LayerFailureList
       def self.parse(list)
         list.map do |value|
-          Parsers::LayerFailure.parse(value) unless value.nil?
+          LayerFailure.parse(value) unless value.nil?
         end
       end
     end
@@ -44,7 +44,7 @@ module AWS::SDK::ECRPUBLIC
     class LayerList
       def self.parse(list)
         list.map do |value|
-          Parsers::Layer.parse(value) unless value.nil?
+          Layer.parse(value) unless value.nil?
         end
       end
     end
@@ -115,8 +115,8 @@ module AWS::SDK::ECRPUBLIC
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.image_ids = (Parsers::ImageIdentifierList.parse(map['imageIds']) unless map['imageIds'].nil?)
-        data.failures = (Parsers::ImageFailureList.parse(map['failures']) unless map['failures'].nil?)
+        data.image_ids = (ImageIdentifierList.parse(map['imageIds']) unless map['imageIds'].nil?)
+        data.failures = (ImageFailureList.parse(map['failures']) unless map['failures'].nil?)
         data
       end
     end
@@ -124,7 +124,7 @@ module AWS::SDK::ECRPUBLIC
     class ImageFailureList
       def self.parse(list)
         list.map do |value|
-          Parsers::ImageFailure.parse(value) unless value.nil?
+          ImageFailure.parse(value) unless value.nil?
         end
       end
     end
@@ -132,7 +132,7 @@ module AWS::SDK::ECRPUBLIC
     class ImageFailure
       def self.parse(map)
         data = Types::ImageFailure.new
-        data.image_id = (Parsers::ImageIdentifier.parse(map['imageId']) unless map['imageId'].nil?)
+        data.image_id = (ImageIdentifier.parse(map['imageId']) unless map['imageId'].nil?)
         data.failure_code = map['failureCode']
         data.failure_reason = map['failureReason']
         return data
@@ -151,7 +151,7 @@ module AWS::SDK::ECRPUBLIC
     class ImageIdentifierList
       def self.parse(list)
         list.map do |value|
-          Parsers::ImageIdentifier.parse(value) unless value.nil?
+          ImageIdentifier.parse(value) unless value.nil?
         end
       end
     end
@@ -250,8 +250,8 @@ module AWS::SDK::ECRPUBLIC
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.repository = (Parsers::Repository.parse(map['repository']) unless map['repository'].nil?)
-        data.catalog_data = (Parsers::RepositoryCatalogData.parse(map['catalogData']) unless map['catalogData'].nil?)
+        data.repository = (Repository.parse(map['repository']) unless map['repository'].nil?)
+        data.catalog_data = (RepositoryCatalogData.parse(map['catalogData']) unless map['catalogData'].nil?)
         data
       end
     end
@@ -260,8 +260,8 @@ module AWS::SDK::ECRPUBLIC
       def self.parse(map)
         data = Types::RepositoryCatalogData.new
         data.description = map['description']
-        data.architectures = (Parsers::ArchitectureList.parse(map['architectures']) unless map['architectures'].nil?)
-        data.operating_systems = (Parsers::OperatingSystemList.parse(map['operatingSystems']) unless map['operatingSystems'].nil?)
+        data.architectures = (ArchitectureList.parse(map['architectures']) unless map['architectures'].nil?)
+        data.operating_systems = (OperatingSystemList.parse(map['operatingSystems']) unless map['operatingSystems'].nil?)
         data.logo_url = map['logoUrl']
         data.about_text = map['aboutText']
         data.usage_text = map['usageText']
@@ -353,7 +353,7 @@ module AWS::SDK::ECRPUBLIC
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.repository = (Parsers::Repository.parse(map['repository']) unless map['repository'].nil?)
+        data.repository = (Repository.parse(map['repository']) unless map['repository'].nil?)
         data
       end
     end
@@ -403,7 +403,7 @@ module AWS::SDK::ECRPUBLIC
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.image_tag_details = (Parsers::ImageTagDetailList.parse(map['imageTagDetails']) unless map['imageTagDetails'].nil?)
+        data.image_tag_details = (ImageTagDetailList.parse(map['imageTagDetails']) unless map['imageTagDetails'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -412,7 +412,7 @@ module AWS::SDK::ECRPUBLIC
     class ImageTagDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::ImageTagDetail.parse(value) unless value.nil?
+          ImageTagDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -422,7 +422,7 @@ module AWS::SDK::ECRPUBLIC
         data = Types::ImageTagDetail.new
         data.image_tag = map['imageTag']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.image_detail = (Parsers::ReferencedImageDetail.parse(map['imageDetail']) unless map['imageDetail'].nil?)
+        data.image_detail = (ReferencedImageDetail.parse(map['imageDetail']) unless map['imageDetail'].nil?)
         return data
       end
     end
@@ -446,7 +446,7 @@ module AWS::SDK::ECRPUBLIC
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.image_details = (Parsers::ImageDetailList.parse(map['imageDetails']) unless map['imageDetails'].nil?)
+        data.image_details = (ImageDetailList.parse(map['imageDetails']) unless map['imageDetails'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -455,7 +455,7 @@ module AWS::SDK::ECRPUBLIC
     class ImageDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::ImageDetail.parse(value) unless value.nil?
+          ImageDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -466,7 +466,7 @@ module AWS::SDK::ECRPUBLIC
         data.registry_id = map['registryId']
         data.repository_name = map['repositoryName']
         data.image_digest = map['imageDigest']
-        data.image_tags = (Parsers::ImageTagList.parse(map['imageTags']) unless map['imageTags'].nil?)
+        data.image_tags = (ImageTagList.parse(map['imageTags']) unless map['imageTags'].nil?)
         data.image_size_in_bytes = map['imageSizeInBytes']
         data.image_pushed_at = Time.at(map['imagePushedAt'].to_i) if map['imagePushedAt']
         data.image_manifest_media_type = map['imageManifestMediaType']
@@ -502,7 +502,7 @@ module AWS::SDK::ECRPUBLIC
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.registries = (Parsers::RegistryList.parse(map['registries']) unless map['registries'].nil?)
+        data.registries = (RegistryList.parse(map['registries']) unless map['registries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -511,7 +511,7 @@ module AWS::SDK::ECRPUBLIC
     class RegistryList
       def self.parse(list)
         list.map do |value|
-          Parsers::Registry.parse(value) unless value.nil?
+          Registry.parse(value) unless value.nil?
         end
       end
     end
@@ -523,7 +523,7 @@ module AWS::SDK::ECRPUBLIC
         data.registry_arn = map['registryArn']
         data.registry_uri = map['registryUri']
         data.verified = map['verified']
-        data.aliases = (Parsers::RegistryAliasList.parse(map['aliases']) unless map['aliases'].nil?)
+        data.aliases = (RegistryAliasList.parse(map['aliases']) unless map['aliases'].nil?)
         return data
       end
     end
@@ -531,7 +531,7 @@ module AWS::SDK::ECRPUBLIC
     class RegistryAliasList
       def self.parse(list)
         list.map do |value|
-          Parsers::RegistryAlias.parse(value) unless value.nil?
+          RegistryAlias.parse(value) unless value.nil?
         end
       end
     end
@@ -554,7 +554,7 @@ module AWS::SDK::ECRPUBLIC
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.repositories = (Parsers::RepositoryList.parse(map['repositories']) unless map['repositories'].nil?)
+        data.repositories = (RepositoryList.parse(map['repositories']) unless map['repositories'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -563,7 +563,7 @@ module AWS::SDK::ECRPUBLIC
     class RepositoryList
       def self.parse(list)
         list.map do |value|
-          Parsers::Repository.parse(value) unless value.nil?
+          Repository.parse(value) unless value.nil?
         end
       end
     end
@@ -575,7 +575,7 @@ module AWS::SDK::ECRPUBLIC
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.authorization_data = (Parsers::AuthorizationData.parse(map['authorizationData']) unless map['authorizationData'].nil?)
+        data.authorization_data = (AuthorizationData.parse(map['authorizationData']) unless map['authorizationData'].nil?)
         data
       end
     end
@@ -596,7 +596,7 @@ module AWS::SDK::ECRPUBLIC
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.registry_catalog_data = (Parsers::RegistryCatalogData.parse(map['registryCatalogData']) unless map['registryCatalogData'].nil?)
+        data.registry_catalog_data = (RegistryCatalogData.parse(map['registryCatalogData']) unless map['registryCatalogData'].nil?)
         data
       end
     end
@@ -616,7 +616,7 @@ module AWS::SDK::ECRPUBLIC
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.catalog_data = (Parsers::RepositoryCatalogData.parse(map['catalogData']) unless map['catalogData'].nil?)
+        data.catalog_data = (RepositoryCatalogData.parse(map['catalogData']) unless map['catalogData'].nil?)
         data
       end
     end
@@ -655,7 +655,7 @@ module AWS::SDK::ECRPUBLIC
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -663,7 +663,7 @@ module AWS::SDK::ECRPUBLIC
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -684,7 +684,7 @@ module AWS::SDK::ECRPUBLIC
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.image = (Parsers::Image.parse(map['image']) unless map['image'].nil?)
+        data.image = (Image.parse(map['image']) unless map['image'].nil?)
         data
       end
     end
@@ -694,7 +694,7 @@ module AWS::SDK::ECRPUBLIC
         data = Types::Image.new
         data.registry_id = map['registryId']
         data.repository_name = map['repositoryName']
-        data.image_id = (Parsers::ImageIdentifier.parse(map['imageId']) unless map['imageId'].nil?)
+        data.image_id = (ImageIdentifier.parse(map['imageId']) unless map['imageId'].nil?)
         data.image_manifest = map['imageManifest']
         data.image_manifest_media_type = map['imageManifestMediaType']
         return data
@@ -768,7 +768,7 @@ module AWS::SDK::ECRPUBLIC
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.registry_catalog_data = (Parsers::RegistryCatalogData.parse(map['registryCatalogData']) unless map['registryCatalogData'].nil?)
+        data.registry_catalog_data = (RegistryCatalogData.parse(map['registryCatalogData']) unless map['registryCatalogData'].nil?)
         data
       end
     end
@@ -780,7 +780,7 @@ module AWS::SDK::ECRPUBLIC
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.catalog_data = (Parsers::RepositoryCatalogData.parse(map['catalogData']) unless map['catalogData'].nil?)
+        data.catalog_data = (RepositoryCatalogData.parse(map['catalogData']) unless map['catalogData'].nil?)
         data
       end
     end

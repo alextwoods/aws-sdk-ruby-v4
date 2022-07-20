@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::SSM
   module Parsers
 
@@ -123,7 +125,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_types = (Parsers::OpsItemParameterNamesList.parse(map['ResourceTypes']) unless map['ResourceTypes'].nil?)
+        data.resource_types = (OpsItemParameterNamesList.parse(map['ResourceTypes']) unless map['ResourceTypes'].nil?)
         data.limit = map['Limit']
         data.limit_type = map['LimitType']
         data.message = map['Message']
@@ -146,7 +148,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.parameter_names = (Parsers::OpsItemParameterNamesList.parse(map['ParameterNames']) unless map['ParameterNames'].nil?)
+        data.parameter_names = (OpsItemParameterNamesList.parse(map['ParameterNames']) unless map['ParameterNames'].nil?)
         data.message = map['Message']
         data
       end
@@ -253,7 +255,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.association_description = (Parsers::AssociationDescription.parse(map['AssociationDescription']) unless map['AssociationDescription'].nil?)
+        data.association_description = (AssociationDescription.parse(map['AssociationDescription']) unless map['AssociationDescription'].nil?)
         data
       end
     end
@@ -266,15 +268,15 @@ module AWS::SDK::SSM
         data.association_version = map['AssociationVersion']
         data.date = Time.at(map['Date'].to_i) if map['Date']
         data.last_update_association_date = Time.at(map['LastUpdateAssociationDate'].to_i) if map['LastUpdateAssociationDate']
-        data.status = (Parsers::AssociationStatus.parse(map['Status']) unless map['Status'].nil?)
-        data.overview = (Parsers::AssociationOverview.parse(map['Overview']) unless map['Overview'].nil?)
+        data.status = (AssociationStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.overview = (AssociationOverview.parse(map['Overview']) unless map['Overview'].nil?)
         data.document_version = map['DocumentVersion']
         data.automation_target_parameter_name = map['AutomationTargetParameterName']
-        data.parameters = (Parsers::Parameters.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (Parameters.parse(map['Parameters']) unless map['Parameters'].nil?)
         data.association_id = map['AssociationId']
-        data.targets = (Parsers::Targets.parse(map['Targets']) unless map['Targets'].nil?)
+        data.targets = (Targets.parse(map['Targets']) unless map['Targets'].nil?)
         data.schedule_expression = map['ScheduleExpression']
-        data.output_location = (Parsers::InstanceAssociationOutputLocation.parse(map['OutputLocation']) unless map['OutputLocation'].nil?)
+        data.output_location = (InstanceAssociationOutputLocation.parse(map['OutputLocation']) unless map['OutputLocation'].nil?)
         data.last_execution_date = Time.at(map['LastExecutionDate'].to_i) if map['LastExecutionDate']
         data.last_successful_execution_date = Time.at(map['LastSuccessfulExecutionDate'].to_i) if map['LastSuccessfulExecutionDate']
         data.association_name = map['AssociationName']
@@ -283,10 +285,10 @@ module AWS::SDK::SSM
         data.compliance_severity = map['ComplianceSeverity']
         data.sync_compliance = map['SyncCompliance']
         data.apply_only_at_cron_interval = map['ApplyOnlyAtCronInterval']
-        data.calendar_names = (Parsers::CalendarNameOrARNList.parse(map['CalendarNames']) unless map['CalendarNames'].nil?)
-        data.target_locations = (Parsers::TargetLocations.parse(map['TargetLocations']) unless map['TargetLocations'].nil?)
+        data.calendar_names = (CalendarNameOrARNList.parse(map['CalendarNames']) unless map['CalendarNames'].nil?)
+        data.target_locations = (TargetLocations.parse(map['TargetLocations']) unless map['TargetLocations'].nil?)
         data.schedule_offset = map['ScheduleOffset']
-        data.target_maps = (Parsers::TargetMaps.parse(map['TargetMaps']) unless map['TargetMaps'].nil?)
+        data.target_maps = (TargetMaps.parse(map['TargetMaps']) unless map['TargetMaps'].nil?)
         return data
       end
     end
@@ -294,7 +296,7 @@ module AWS::SDK::SSM
     class TargetMaps
       def self.parse(list)
         list.map do |value|
-          Parsers::TargetMap.parse(value) unless value.nil?
+          TargetMap.parse(value) unless value.nil?
         end
       end
     end
@@ -303,7 +305,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::TargetMapValueList.parse(value) unless value.nil?
+          data[key] = TargetMapValueList.parse(value) unless value.nil?
         end
         data
       end
@@ -320,7 +322,7 @@ module AWS::SDK::SSM
     class TargetLocations
       def self.parse(list)
         list.map do |value|
-          Parsers::TargetLocation.parse(value) unless value.nil?
+          TargetLocation.parse(value) unless value.nil?
         end
       end
     end
@@ -328,8 +330,8 @@ module AWS::SDK::SSM
     class TargetLocation
       def self.parse(map)
         data = Types::TargetLocation.new
-        data.accounts = (Parsers::Accounts.parse(map['Accounts']) unless map['Accounts'].nil?)
-        data.regions = (Parsers::Regions.parse(map['Regions']) unless map['Regions'].nil?)
+        data.accounts = (Accounts.parse(map['Accounts']) unless map['Accounts'].nil?)
+        data.regions = (Regions.parse(map['Regions']) unless map['Regions'].nil?)
         data.target_location_max_concurrency = map['TargetLocationMaxConcurrency']
         data.target_location_max_errors = map['TargetLocationMaxErrors']
         data.execution_role_name = map['ExecutionRoleName']
@@ -364,7 +366,7 @@ module AWS::SDK::SSM
     class InstanceAssociationOutputLocation
       def self.parse(map)
         data = Types::InstanceAssociationOutputLocation.new
-        data.s3_location = (Parsers::S3OutputLocation.parse(map['S3Location']) unless map['S3Location'].nil?)
+        data.s3_location = (S3OutputLocation.parse(map['S3Location']) unless map['S3Location'].nil?)
         return data
       end
     end
@@ -382,7 +384,7 @@ module AWS::SDK::SSM
     class Targets
       def self.parse(list)
         list.map do |value|
-          Parsers::Target.parse(value) unless value.nil?
+          Target.parse(value) unless value.nil?
         end
       end
     end
@@ -391,7 +393,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = Types::Target.new
         data.key = map['Key']
-        data.values = (Parsers::TargetValues.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (TargetValues.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -408,7 +410,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ParameterValueList.parse(value) unless value.nil?
+          data[key] = ParameterValueList.parse(value) unless value.nil?
         end
         data
       end
@@ -427,7 +429,7 @@ module AWS::SDK::SSM
         data = Types::AssociationOverview.new
         data.status = map['Status']
         data.detailed_status = map['DetailedStatus']
-        data.association_status_aggregated_count = (Parsers::AssociationStatusAggregatedCount.parse(map['AssociationStatusAggregatedCount']) unless map['AssociationStatusAggregatedCount'].nil?)
+        data.association_status_aggregated_count = (AssociationStatusAggregatedCount.parse(map['AssociationStatusAggregatedCount']) unless map['AssociationStatusAggregatedCount'].nil?)
         return data
       end
     end
@@ -565,8 +567,8 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.successful = (Parsers::AssociationDescriptionList.parse(map['Successful']) unless map['Successful'].nil?)
-        data.failed = (Parsers::FailedCreateAssociationList.parse(map['Failed']) unless map['Failed'].nil?)
+        data.successful = (AssociationDescriptionList.parse(map['Successful']) unless map['Successful'].nil?)
+        data.failed = (FailedCreateAssociationList.parse(map['Failed']) unless map['Failed'].nil?)
         data
       end
     end
@@ -574,7 +576,7 @@ module AWS::SDK::SSM
     class FailedCreateAssociationList
       def self.parse(list)
         list.map do |value|
-          Parsers::FailedCreateAssociation.parse(value) unless value.nil?
+          FailedCreateAssociation.parse(value) unless value.nil?
         end
       end
     end
@@ -582,7 +584,7 @@ module AWS::SDK::SSM
     class FailedCreateAssociation
       def self.parse(map)
         data = Types::FailedCreateAssociation.new
-        data.entry = (Parsers::CreateAssociationBatchRequestEntry.parse(map['Entry']) unless map['Entry'].nil?)
+        data.entry = (CreateAssociationBatchRequestEntry.parse(map['Entry']) unless map['Entry'].nil?)
         data.message = map['Message']
         data.fault = map['Fault']
         return data
@@ -594,22 +596,22 @@ module AWS::SDK::SSM
         data = Types::CreateAssociationBatchRequestEntry.new
         data.name = map['Name']
         data.instance_id = map['InstanceId']
-        data.parameters = (Parsers::Parameters.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (Parameters.parse(map['Parameters']) unless map['Parameters'].nil?)
         data.automation_target_parameter_name = map['AutomationTargetParameterName']
         data.document_version = map['DocumentVersion']
-        data.targets = (Parsers::Targets.parse(map['Targets']) unless map['Targets'].nil?)
+        data.targets = (Targets.parse(map['Targets']) unless map['Targets'].nil?)
         data.schedule_expression = map['ScheduleExpression']
-        data.output_location = (Parsers::InstanceAssociationOutputLocation.parse(map['OutputLocation']) unless map['OutputLocation'].nil?)
+        data.output_location = (InstanceAssociationOutputLocation.parse(map['OutputLocation']) unless map['OutputLocation'].nil?)
         data.association_name = map['AssociationName']
         data.max_errors = map['MaxErrors']
         data.max_concurrency = map['MaxConcurrency']
         data.compliance_severity = map['ComplianceSeverity']
         data.sync_compliance = map['SyncCompliance']
         data.apply_only_at_cron_interval = map['ApplyOnlyAtCronInterval']
-        data.calendar_names = (Parsers::CalendarNameOrARNList.parse(map['CalendarNames']) unless map['CalendarNames'].nil?)
-        data.target_locations = (Parsers::TargetLocations.parse(map['TargetLocations']) unless map['TargetLocations'].nil?)
+        data.calendar_names = (CalendarNameOrARNList.parse(map['CalendarNames']) unless map['CalendarNames'].nil?)
+        data.target_locations = (TargetLocations.parse(map['TargetLocations']) unless map['TargetLocations'].nil?)
         data.schedule_offset = map['ScheduleOffset']
-        data.target_maps = (Parsers::TargetMaps.parse(map['TargetMaps']) unless map['TargetMaps'].nil?)
+        data.target_maps = (TargetMaps.parse(map['TargetMaps']) unless map['TargetMaps'].nil?)
         return data
       end
     end
@@ -617,7 +619,7 @@ module AWS::SDK::SSM
     class AssociationDescriptionList
       def self.parse(list)
         list.map do |value|
-          Parsers::AssociationDescription.parse(value) unless value.nil?
+          AssociationDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -629,7 +631,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.document_description = (Parsers::DocumentDescription.parse(map['DocumentDescription']) unless map['DocumentDescription'].nil?)
+        data.document_description = (DocumentDescription.parse(map['DocumentDescription']) unless map['DocumentDescription'].nil?)
         data
       end
     end
@@ -649,24 +651,24 @@ module AWS::SDK::SSM
         data.status_information = map['StatusInformation']
         data.document_version = map['DocumentVersion']
         data.description = map['Description']
-        data.parameters = (Parsers::DocumentParameterList.parse(map['Parameters']) unless map['Parameters'].nil?)
-        data.platform_types = (Parsers::PlatformTypeList.parse(map['PlatformTypes']) unless map['PlatformTypes'].nil?)
+        data.parameters = (DocumentParameterList.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.platform_types = (PlatformTypeList.parse(map['PlatformTypes']) unless map['PlatformTypes'].nil?)
         data.document_type = map['DocumentType']
         data.schema_version = map['SchemaVersion']
         data.latest_version = map['LatestVersion']
         data.default_version = map['DefaultVersion']
         data.document_format = map['DocumentFormat']
         data.target_type = map['TargetType']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
-        data.attachments_information = (Parsers::AttachmentInformationList.parse(map['AttachmentsInformation']) unless map['AttachmentsInformation'].nil?)
-        data.requires = (Parsers::DocumentRequiresList.parse(map['Requires']) unless map['Requires'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.attachments_information = (AttachmentInformationList.parse(map['AttachmentsInformation']) unless map['AttachmentsInformation'].nil?)
+        data.requires = (DocumentRequiresList.parse(map['Requires']) unless map['Requires'].nil?)
         data.author = map['Author']
-        data.review_information = (Parsers::ReviewInformationList.parse(map['ReviewInformation']) unless map['ReviewInformation'].nil?)
+        data.review_information = (ReviewInformationList.parse(map['ReviewInformation']) unless map['ReviewInformation'].nil?)
         data.approved_version = map['ApprovedVersion']
         data.pending_review_version = map['PendingReviewVersion']
         data.review_status = map['ReviewStatus']
-        data.category = (Parsers::CategoryList.parse(map['Category']) unless map['Category'].nil?)
-        data.category_enum = (Parsers::CategoryEnumList.parse(map['CategoryEnum']) unless map['CategoryEnum'].nil?)
+        data.category = (CategoryList.parse(map['Category']) unless map['Category'].nil?)
+        data.category_enum = (CategoryEnumList.parse(map['CategoryEnum']) unless map['CategoryEnum'].nil?)
         return data
       end
     end
@@ -690,7 +692,7 @@ module AWS::SDK::SSM
     class ReviewInformationList
       def self.parse(list)
         list.map do |value|
-          Parsers::ReviewInformation.parse(value) unless value.nil?
+          ReviewInformation.parse(value) unless value.nil?
         end
       end
     end
@@ -708,7 +710,7 @@ module AWS::SDK::SSM
     class DocumentRequiresList
       def self.parse(list)
         list.map do |value|
-          Parsers::DocumentRequires.parse(value) unless value.nil?
+          DocumentRequires.parse(value) unless value.nil?
         end
       end
     end
@@ -725,7 +727,7 @@ module AWS::SDK::SSM
     class AttachmentInformationList
       def self.parse(list)
         list.map do |value|
-          Parsers::AttachmentInformation.parse(value) unless value.nil?
+          AttachmentInformation.parse(value) unless value.nil?
         end
       end
     end
@@ -741,7 +743,7 @@ module AWS::SDK::SSM
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -766,7 +768,7 @@ module AWS::SDK::SSM
     class DocumentParameterList
       def self.parse(list)
         list.map do |value|
-          Parsers::DocumentParameter.parse(value) unless value.nil?
+          DocumentParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -1123,7 +1125,7 @@ module AWS::SDK::SSM
         map = Hearth::JSON.load(body)
         data.deletion_id = map['DeletionId']
         data.type_name = map['TypeName']
-        data.deletion_summary = (Parsers::InventoryDeletionSummary.parse(map['DeletionSummary']) unless map['DeletionSummary'].nil?)
+        data.deletion_summary = (InventoryDeletionSummary.parse(map['DeletionSummary']) unless map['DeletionSummary'].nil?)
         data
       end
     end
@@ -1133,7 +1135,7 @@ module AWS::SDK::SSM
         data = Types::InventoryDeletionSummary.new
         data.total_count = map['TotalCount']
         data.remaining_count = map['RemainingCount']
-        data.summary_items = (Parsers::InventoryDeletionSummaryItems.parse(map['SummaryItems']) unless map['SummaryItems'].nil?)
+        data.summary_items = (InventoryDeletionSummaryItems.parse(map['SummaryItems']) unless map['SummaryItems'].nil?)
         return data
       end
     end
@@ -1141,7 +1143,7 @@ module AWS::SDK::SSM
     class InventoryDeletionSummaryItems
       def self.parse(list)
         list.map do |value|
-          Parsers::InventoryDeletionSummaryItem.parse(value) unless value.nil?
+          InventoryDeletionSummaryItem.parse(value) unless value.nil?
         end
       end
     end
@@ -1269,8 +1271,8 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.deleted_parameters = (Parsers::ParameterNameList.parse(map['DeletedParameters']) unless map['DeletedParameters'].nil?)
-        data.invalid_parameters = (Parsers::ParameterNameList.parse(map['InvalidParameters']) unless map['InvalidParameters'].nil?)
+        data.deleted_parameters = (ParameterNameList.parse(map['DeletedParameters']) unless map['DeletedParameters'].nil?)
+        data.invalid_parameters = (ParameterNameList.parse(map['InvalidParameters']) unless map['InvalidParameters'].nil?)
         data
       end
     end
@@ -1401,7 +1403,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.activation_list = (Parsers::ActivationList.parse(map['ActivationList']) unless map['ActivationList'].nil?)
+        data.activation_list = (ActivationList.parse(map['ActivationList']) unless map['ActivationList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1410,7 +1412,7 @@ module AWS::SDK::SSM
     class ActivationList
       def self.parse(list)
         list.map do |value|
-          Parsers::Activation.parse(value) unless value.nil?
+          Activation.parse(value) unless value.nil?
         end
       end
     end
@@ -1427,7 +1429,7 @@ module AWS::SDK::SSM
         data.expiration_date = Time.at(map['ExpirationDate'].to_i) if map['ExpirationDate']
         data.expired = map['Expired']
         data.created_date = Time.at(map['CreatedDate'].to_i) if map['CreatedDate']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -1463,7 +1465,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.association_description = (Parsers::AssociationDescription.parse(map['AssociationDescription']) unless map['AssociationDescription'].nil?)
+        data.association_description = (AssociationDescription.parse(map['AssociationDescription']) unless map['AssociationDescription'].nil?)
         data
       end
     end
@@ -1487,7 +1489,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.association_execution_targets = (Parsers::AssociationExecutionTargetsList.parse(map['AssociationExecutionTargets']) unless map['AssociationExecutionTargets'].nil?)
+        data.association_execution_targets = (AssociationExecutionTargetsList.parse(map['AssociationExecutionTargets']) unless map['AssociationExecutionTargets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1496,7 +1498,7 @@ module AWS::SDK::SSM
     class AssociationExecutionTargetsList
       def self.parse(list)
         list.map do |value|
-          Parsers::AssociationExecutionTarget.parse(value) unless value.nil?
+          AssociationExecutionTarget.parse(value) unless value.nil?
         end
       end
     end
@@ -1512,7 +1514,7 @@ module AWS::SDK::SSM
         data.status = map['Status']
         data.detailed_status = map['DetailedStatus']
         data.last_execution_date = Time.at(map['LastExecutionDate'].to_i) if map['LastExecutionDate']
-        data.output_source = (Parsers::OutputSource.parse(map['OutputSource']) unless map['OutputSource'].nil?)
+        data.output_source = (OutputSource.parse(map['OutputSource']) unless map['OutputSource'].nil?)
         return data
       end
     end
@@ -1545,7 +1547,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.association_executions = (Parsers::AssociationExecutionsList.parse(map['AssociationExecutions']) unless map['AssociationExecutions'].nil?)
+        data.association_executions = (AssociationExecutionsList.parse(map['AssociationExecutions']) unless map['AssociationExecutions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1554,7 +1556,7 @@ module AWS::SDK::SSM
     class AssociationExecutionsList
       def self.parse(list)
         list.map do |value|
-          Parsers::AssociationExecution.parse(value) unless value.nil?
+          AssociationExecution.parse(value) unless value.nil?
         end
       end
     end
@@ -1581,7 +1583,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.automation_execution_metadata_list = (Parsers::AutomationExecutionMetadataList.parse(map['AutomationExecutionMetadataList']) unless map['AutomationExecutionMetadataList'].nil?)
+        data.automation_execution_metadata_list = (AutomationExecutionMetadataList.parse(map['AutomationExecutionMetadataList']) unless map['AutomationExecutionMetadataList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1590,7 +1592,7 @@ module AWS::SDK::SSM
     class AutomationExecutionMetadataList
       def self.parse(list)
         list.map do |value|
-          Parsers::AutomationExecutionMetadata.parse(value) unless value.nil?
+          AutomationExecutionMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -1606,23 +1608,23 @@ module AWS::SDK::SSM
         data.execution_end_time = Time.at(map['ExecutionEndTime'].to_i) if map['ExecutionEndTime']
         data.executed_by = map['ExecutedBy']
         data.log_file = map['LogFile']
-        data.outputs = (Parsers::AutomationParameterMap.parse(map['Outputs']) unless map['Outputs'].nil?)
+        data.outputs = (AutomationParameterMap.parse(map['Outputs']) unless map['Outputs'].nil?)
         data.mode = map['Mode']
         data.parent_automation_execution_id = map['ParentAutomationExecutionId']
         data.current_step_name = map['CurrentStepName']
         data.current_action = map['CurrentAction']
         data.failure_message = map['FailureMessage']
         data.target_parameter_name = map['TargetParameterName']
-        data.targets = (Parsers::Targets.parse(map['Targets']) unless map['Targets'].nil?)
-        data.target_maps = (Parsers::TargetMaps.parse(map['TargetMaps']) unless map['TargetMaps'].nil?)
-        data.resolved_targets = (Parsers::ResolvedTargets.parse(map['ResolvedTargets']) unless map['ResolvedTargets'].nil?)
+        data.targets = (Targets.parse(map['Targets']) unless map['Targets'].nil?)
+        data.target_maps = (TargetMaps.parse(map['TargetMaps']) unless map['TargetMaps'].nil?)
+        data.resolved_targets = (ResolvedTargets.parse(map['ResolvedTargets']) unless map['ResolvedTargets'].nil?)
         data.max_concurrency = map['MaxConcurrency']
         data.max_errors = map['MaxErrors']
         data.target = map['Target']
         data.automation_type = map['AutomationType']
         data.automation_subtype = map['AutomationSubtype']
         data.scheduled_time = Time.at(map['ScheduledTime'].to_i) if map['ScheduledTime']
-        data.runbooks = (Parsers::Runbooks.parse(map['Runbooks']) unless map['Runbooks'].nil?)
+        data.runbooks = (Runbooks.parse(map['Runbooks']) unless map['Runbooks'].nil?)
         data.ops_item_id = map['OpsItemId']
         data.association_id = map['AssociationId']
         data.change_request_name = map['ChangeRequestName']
@@ -1633,7 +1635,7 @@ module AWS::SDK::SSM
     class Runbooks
       def self.parse(list)
         list.map do |value|
-          Parsers::Runbook.parse(value) unless value.nil?
+          Runbook.parse(value) unless value.nil?
         end
       end
     end
@@ -1643,13 +1645,13 @@ module AWS::SDK::SSM
         data = Types::Runbook.new
         data.document_name = map['DocumentName']
         data.document_version = map['DocumentVersion']
-        data.parameters = (Parsers::AutomationParameterMap.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (AutomationParameterMap.parse(map['Parameters']) unless map['Parameters'].nil?)
         data.target_parameter_name = map['TargetParameterName']
-        data.targets = (Parsers::Targets.parse(map['Targets']) unless map['Targets'].nil?)
-        data.target_maps = (Parsers::TargetMaps.parse(map['TargetMaps']) unless map['TargetMaps'].nil?)
+        data.targets = (Targets.parse(map['Targets']) unless map['Targets'].nil?)
+        data.target_maps = (TargetMaps.parse(map['TargetMaps']) unless map['TargetMaps'].nil?)
         data.max_concurrency = map['MaxConcurrency']
         data.max_errors = map['MaxErrors']
-        data.target_locations = (Parsers::TargetLocations.parse(map['TargetLocations']) unless map['TargetLocations'].nil?)
+        data.target_locations = (TargetLocations.parse(map['TargetLocations']) unless map['TargetLocations'].nil?)
         return data
       end
     end
@@ -1658,7 +1660,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::AutomationParameterValueList.parse(value) unless value.nil?
+          data[key] = AutomationParameterValueList.parse(value) unless value.nil?
         end
         data
       end
@@ -1675,7 +1677,7 @@ module AWS::SDK::SSM
     class ResolvedTargets
       def self.parse(map)
         data = Types::ResolvedTargets.new
-        data.parameter_values = (Parsers::TargetParameterList.parse(map['ParameterValues']) unless map['ParameterValues'].nil?)
+        data.parameter_values = (TargetParameterList.parse(map['ParameterValues']) unless map['ParameterValues'].nil?)
         data.truncated = map['Truncated']
         return data
       end
@@ -1719,7 +1721,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.step_executions = (Parsers::StepExecutionList.parse(map['StepExecutions']) unless map['StepExecutions'].nil?)
+        data.step_executions = (StepExecutionList.parse(map['StepExecutions']) unless map['StepExecutions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1728,7 +1730,7 @@ module AWS::SDK::SSM
     class StepExecutionList
       def self.parse(list)
         list.map do |value|
-          Parsers::StepExecution.parse(value) unless value.nil?
+          StepExecution.parse(value) unless value.nil?
         end
       end
     end
@@ -1745,19 +1747,19 @@ module AWS::SDK::SSM
         data.execution_end_time = Time.at(map['ExecutionEndTime'].to_i) if map['ExecutionEndTime']
         data.step_status = map['StepStatus']
         data.response_code = map['ResponseCode']
-        data.inputs = (Parsers::NormalStringMap.parse(map['Inputs']) unless map['Inputs'].nil?)
-        data.outputs = (Parsers::AutomationParameterMap.parse(map['Outputs']) unless map['Outputs'].nil?)
+        data.inputs = (NormalStringMap.parse(map['Inputs']) unless map['Inputs'].nil?)
+        data.outputs = (AutomationParameterMap.parse(map['Outputs']) unless map['Outputs'].nil?)
         data.response = map['Response']
         data.failure_message = map['FailureMessage']
-        data.failure_details = (Parsers::FailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
+        data.failure_details = (FailureDetails.parse(map['FailureDetails']) unless map['FailureDetails'].nil?)
         data.step_execution_id = map['StepExecutionId']
-        data.overridden_parameters = (Parsers::AutomationParameterMap.parse(map['OverriddenParameters']) unless map['OverriddenParameters'].nil?)
+        data.overridden_parameters = (AutomationParameterMap.parse(map['OverriddenParameters']) unless map['OverriddenParameters'].nil?)
         data.is_end = map['IsEnd']
         data.next_step = map['NextStep']
         data.is_critical = map['IsCritical']
-        data.valid_next_steps = (Parsers::ValidNextStepList.parse(map['ValidNextSteps']) unless map['ValidNextSteps'].nil?)
-        data.targets = (Parsers::Targets.parse(map['Targets']) unless map['Targets'].nil?)
-        data.target_location = (Parsers::TargetLocation.parse(map['TargetLocation']) unless map['TargetLocation'].nil?)
+        data.valid_next_steps = (ValidNextStepList.parse(map['ValidNextSteps']) unless map['ValidNextSteps'].nil?)
+        data.targets = (Targets.parse(map['Targets']) unless map['Targets'].nil?)
+        data.target_location = (TargetLocation.parse(map['TargetLocation']) unless map['TargetLocation'].nil?)
         return data
       end
     end
@@ -1775,7 +1777,7 @@ module AWS::SDK::SSM
         data = Types::FailureDetails.new
         data.failure_stage = map['FailureStage']
         data.failure_type = map['FailureType']
-        data.details = (Parsers::AutomationParameterMap.parse(map['Details']) unless map['Details'].nil?)
+        data.details = (AutomationParameterMap.parse(map['Details']) unless map['Details'].nil?)
         return data
       end
     end
@@ -1809,7 +1811,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.patches = (Parsers::PatchList.parse(map['Patches']) unless map['Patches'].nil?)
+        data.patches = (PatchList.parse(map['Patches']) unless map['Patches'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1818,7 +1820,7 @@ module AWS::SDK::SSM
     class PatchList
       def self.parse(list)
         list.map do |value|
-          Parsers::Patch.parse(value) unless value.nil?
+          Patch.parse(value) unless value.nil?
         end
       end
     end
@@ -1839,9 +1841,9 @@ module AWS::SDK::SSM
         data.kb_number = map['KbNumber']
         data.msrc_number = map['MsrcNumber']
         data.language = map['Language']
-        data.advisory_ids = (Parsers::PatchAdvisoryIdList.parse(map['AdvisoryIds']) unless map['AdvisoryIds'].nil?)
-        data.bugzilla_ids = (Parsers::PatchBugzillaIdList.parse(map['BugzillaIds']) unless map['BugzillaIds'].nil?)
-        data.cve_ids = (Parsers::PatchCVEIdList.parse(map['CVEIds']) unless map['CVEIds'].nil?)
+        data.advisory_ids = (PatchAdvisoryIdList.parse(map['AdvisoryIds']) unless map['AdvisoryIds'].nil?)
+        data.bugzilla_ids = (PatchBugzillaIdList.parse(map['BugzillaIds']) unless map['BugzillaIds'].nil?)
+        data.cve_ids = (PatchCVEIdList.parse(map['CVEIds']) unless map['CVEIds'].nil?)
         data.name = map['Name']
         data.epoch = map['Epoch']
         data.version = map['Version']
@@ -1884,7 +1886,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.document = (Parsers::DocumentDescription.parse(map['Document']) unless map['Document'].nil?)
+        data.document = (DocumentDescription.parse(map['Document']) unless map['Document'].nil?)
         data
       end
     end
@@ -1896,8 +1898,8 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_ids = (Parsers::AccountIdList.parse(map['AccountIds']) unless map['AccountIds'].nil?)
-        data.account_sharing_info_list = (Parsers::AccountSharingInfoList.parse(map['AccountSharingInfoList']) unless map['AccountSharingInfoList'].nil?)
+        data.account_ids = (AccountIdList.parse(map['AccountIds']) unless map['AccountIds'].nil?)
+        data.account_sharing_info_list = (AccountSharingInfoList.parse(map['AccountSharingInfoList']) unless map['AccountSharingInfoList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1906,7 +1908,7 @@ module AWS::SDK::SSM
     class AccountSharingInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::AccountSharingInfo.parse(value) unless value.nil?
+          AccountSharingInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1947,7 +1949,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.associations = (Parsers::InstanceAssociationList.parse(map['Associations']) unless map['Associations'].nil?)
+        data.associations = (InstanceAssociationList.parse(map['Associations']) unless map['Associations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1956,7 +1958,7 @@ module AWS::SDK::SSM
     class InstanceAssociationList
       def self.parse(list)
         list.map do |value|
-          Parsers::InstanceAssociation.parse(value) unless value.nil?
+          InstanceAssociation.parse(value) unless value.nil?
         end
       end
     end
@@ -1979,7 +1981,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.effective_patches = (Parsers::EffectivePatchList.parse(map['EffectivePatches']) unless map['EffectivePatches'].nil?)
+        data.effective_patches = (EffectivePatchList.parse(map['EffectivePatches']) unless map['EffectivePatches'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1988,7 +1990,7 @@ module AWS::SDK::SSM
     class EffectivePatchList
       def self.parse(list)
         list.map do |value|
-          Parsers::EffectivePatch.parse(value) unless value.nil?
+          EffectivePatch.parse(value) unless value.nil?
         end
       end
     end
@@ -1996,8 +1998,8 @@ module AWS::SDK::SSM
     class EffectivePatch
       def self.parse(map)
         data = Types::EffectivePatch.new
-        data.patch = (Parsers::Patch.parse(map['Patch']) unless map['Patch'].nil?)
-        data.patch_status = (Parsers::PatchStatus.parse(map['PatchStatus']) unless map['PatchStatus'].nil?)
+        data.patch = (Patch.parse(map['Patch']) unless map['Patch'].nil?)
+        data.patch_status = (PatchStatus.parse(map['PatchStatus']) unless map['PatchStatus'].nil?)
         return data
       end
     end
@@ -2031,7 +2033,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance_association_status_infos = (Parsers::InstanceAssociationStatusInfos.parse(map['InstanceAssociationStatusInfos']) unless map['InstanceAssociationStatusInfos'].nil?)
+        data.instance_association_status_infos = (InstanceAssociationStatusInfos.parse(map['InstanceAssociationStatusInfos']) unless map['InstanceAssociationStatusInfos'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2040,7 +2042,7 @@ module AWS::SDK::SSM
     class InstanceAssociationStatusInfos
       def self.parse(list)
         list.map do |value|
-          Parsers::InstanceAssociationStatusInfo.parse(value) unless value.nil?
+          InstanceAssociationStatusInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -2058,7 +2060,7 @@ module AWS::SDK::SSM
         data.detailed_status = map['DetailedStatus']
         data.execution_summary = map['ExecutionSummary']
         data.error_code = map['ErrorCode']
-        data.output_url = (Parsers::InstanceAssociationOutputUrl.parse(map['OutputUrl']) unless map['OutputUrl'].nil?)
+        data.output_url = (InstanceAssociationOutputUrl.parse(map['OutputUrl']) unless map['OutputUrl'].nil?)
         data.association_name = map['AssociationName']
         return data
       end
@@ -2067,7 +2069,7 @@ module AWS::SDK::SSM
     class InstanceAssociationOutputUrl
       def self.parse(map)
         data = Types::InstanceAssociationOutputUrl.new
-        data.s3_output_url = (Parsers::S3OutputUrl.parse(map['S3OutputUrl']) unless map['S3OutputUrl'].nil?)
+        data.s3_output_url = (S3OutputUrl.parse(map['S3OutputUrl']) unless map['S3OutputUrl'].nil?)
         return data
       end
     end
@@ -2087,7 +2089,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance_information_list = (Parsers::InstanceInformationList.parse(map['InstanceInformationList']) unless map['InstanceInformationList'].nil?)
+        data.instance_information_list = (InstanceInformationList.parse(map['InstanceInformationList']) unless map['InstanceInformationList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2096,7 +2098,7 @@ module AWS::SDK::SSM
     class InstanceInformationList
       def self.parse(list)
         list.map do |value|
-          Parsers::InstanceInformation.parse(value) unless value.nil?
+          InstanceInformation.parse(value) unless value.nil?
         end
       end
     end
@@ -2122,7 +2124,7 @@ module AWS::SDK::SSM
         data.association_status = map['AssociationStatus']
         data.last_association_execution_date = Time.at(map['LastAssociationExecutionDate'].to_i) if map['LastAssociationExecutionDate']
         data.last_successful_association_execution_date = Time.at(map['LastSuccessfulAssociationExecutionDate'].to_i) if map['LastSuccessfulAssociationExecutionDate']
-        data.association_overview = (Parsers::InstanceAggregatedAssociationOverview.parse(map['AssociationOverview']) unless map['AssociationOverview'].nil?)
+        data.association_overview = (InstanceAggregatedAssociationOverview.parse(map['AssociationOverview']) unless map['AssociationOverview'].nil?)
         data.source_id = map['SourceId']
         data.source_type = map['SourceType']
         return data
@@ -2133,7 +2135,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = Types::InstanceAggregatedAssociationOverview.new
         data.detailed_status = map['DetailedStatus']
-        data.instance_association_status_aggregated_count = (Parsers::InstanceAssociationStatusAggregatedCount.parse(map['InstanceAssociationStatusAggregatedCount']) unless map['InstanceAssociationStatusAggregatedCount'].nil?)
+        data.instance_association_status_aggregated_count = (InstanceAssociationStatusAggregatedCount.parse(map['InstanceAssociationStatusAggregatedCount']) unless map['InstanceAssociationStatusAggregatedCount'].nil?)
         return data
       end
     end
@@ -2167,7 +2169,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance_patch_states = (Parsers::InstancePatchStateList.parse(map['InstancePatchStates']) unless map['InstancePatchStates'].nil?)
+        data.instance_patch_states = (InstancePatchStateList.parse(map['InstancePatchStates']) unless map['InstancePatchStates'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2176,7 +2178,7 @@ module AWS::SDK::SSM
     class InstancePatchStateList
       def self.parse(list)
         list.map do |value|
-          Parsers::InstancePatchState.parse(value) unless value.nil?
+          InstancePatchState.parse(value) unless value.nil?
         end
       end
     end
@@ -2217,7 +2219,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance_patch_states = (Parsers::InstancePatchStatesList.parse(map['InstancePatchStates']) unless map['InstancePatchStates'].nil?)
+        data.instance_patch_states = (InstancePatchStatesList.parse(map['InstancePatchStates']) unless map['InstancePatchStates'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2226,7 +2228,7 @@ module AWS::SDK::SSM
     class InstancePatchStatesList
       def self.parse(list)
         list.map do |value|
-          Parsers::InstancePatchState.parse(value) unless value.nil?
+          InstancePatchState.parse(value) unless value.nil?
         end
       end
     end
@@ -2238,7 +2240,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.patches = (Parsers::PatchComplianceDataList.parse(map['Patches']) unless map['Patches'].nil?)
+        data.patches = (PatchComplianceDataList.parse(map['Patches']) unless map['Patches'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2247,7 +2249,7 @@ module AWS::SDK::SSM
     class PatchComplianceDataList
       def self.parse(list)
         list.map do |value|
-          Parsers::PatchComplianceData.parse(value) unless value.nil?
+          PatchComplianceData.parse(value) unless value.nil?
         end
       end
     end
@@ -2273,7 +2275,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.inventory_deletions = (Parsers::InventoryDeletionsList.parse(map['InventoryDeletions']) unless map['InventoryDeletions'].nil?)
+        data.inventory_deletions = (InventoryDeletionsList.parse(map['InventoryDeletions']) unless map['InventoryDeletions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2282,7 +2284,7 @@ module AWS::SDK::SSM
     class InventoryDeletionsList
       def self.parse(list)
         list.map do |value|
-          Parsers::InventoryDeletionStatusItem.parse(value) unless value.nil?
+          InventoryDeletionStatusItem.parse(value) unless value.nil?
         end
       end
     end
@@ -2295,7 +2297,7 @@ module AWS::SDK::SSM
         data.deletion_start_time = Time.at(map['DeletionStartTime'].to_i) if map['DeletionStartTime']
         data.last_status = map['LastStatus']
         data.last_status_message = map['LastStatusMessage']
-        data.deletion_summary = (Parsers::InventoryDeletionSummary.parse(map['DeletionSummary']) unless map['DeletionSummary'].nil?)
+        data.deletion_summary = (InventoryDeletionSummary.parse(map['DeletionSummary']) unless map['DeletionSummary'].nil?)
         data.last_status_update_time = Time.at(map['LastStatusUpdateTime'].to_i) if map['LastStatusUpdateTime']
         return data
       end
@@ -2320,7 +2322,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.window_execution_task_invocation_identities = (Parsers::MaintenanceWindowExecutionTaskInvocationIdentityList.parse(map['WindowExecutionTaskInvocationIdentities']) unless map['WindowExecutionTaskInvocationIdentities'].nil?)
+        data.window_execution_task_invocation_identities = (MaintenanceWindowExecutionTaskInvocationIdentityList.parse(map['WindowExecutionTaskInvocationIdentities']) unless map['WindowExecutionTaskInvocationIdentities'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2329,7 +2331,7 @@ module AWS::SDK::SSM
     class MaintenanceWindowExecutionTaskInvocationIdentityList
       def self.parse(list)
         list.map do |value|
-          Parsers::MaintenanceWindowExecutionTaskInvocationIdentity.parse(value) unless value.nil?
+          MaintenanceWindowExecutionTaskInvocationIdentity.parse(value) unless value.nil?
         end
       end
     end
@@ -2360,7 +2362,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.window_execution_task_identities = (Parsers::MaintenanceWindowExecutionTaskIdentityList.parse(map['WindowExecutionTaskIdentities']) unless map['WindowExecutionTaskIdentities'].nil?)
+        data.window_execution_task_identities = (MaintenanceWindowExecutionTaskIdentityList.parse(map['WindowExecutionTaskIdentities']) unless map['WindowExecutionTaskIdentities'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2369,7 +2371,7 @@ module AWS::SDK::SSM
     class MaintenanceWindowExecutionTaskIdentityList
       def self.parse(list)
         list.map do |value|
-          Parsers::MaintenanceWindowExecutionTaskIdentity.parse(value) unless value.nil?
+          MaintenanceWindowExecutionTaskIdentity.parse(value) unless value.nil?
         end
       end
     end
@@ -2396,7 +2398,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.window_executions = (Parsers::MaintenanceWindowExecutionList.parse(map['WindowExecutions']) unless map['WindowExecutions'].nil?)
+        data.window_executions = (MaintenanceWindowExecutionList.parse(map['WindowExecutions']) unless map['WindowExecutions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2405,7 +2407,7 @@ module AWS::SDK::SSM
     class MaintenanceWindowExecutionList
       def self.parse(list)
         list.map do |value|
-          Parsers::MaintenanceWindowExecution.parse(value) unless value.nil?
+          MaintenanceWindowExecution.parse(value) unless value.nil?
         end
       end
     end
@@ -2430,7 +2432,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.scheduled_window_executions = (Parsers::ScheduledWindowExecutionList.parse(map['ScheduledWindowExecutions']) unless map['ScheduledWindowExecutions'].nil?)
+        data.scheduled_window_executions = (ScheduledWindowExecutionList.parse(map['ScheduledWindowExecutions']) unless map['ScheduledWindowExecutions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2439,7 +2441,7 @@ module AWS::SDK::SSM
     class ScheduledWindowExecutionList
       def self.parse(list)
         list.map do |value|
-          Parsers::ScheduledWindowExecution.parse(value) unless value.nil?
+          ScheduledWindowExecution.parse(value) unless value.nil?
         end
       end
     end
@@ -2461,7 +2463,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.targets = (Parsers::MaintenanceWindowTargetList.parse(map['Targets']) unless map['Targets'].nil?)
+        data.targets = (MaintenanceWindowTargetList.parse(map['Targets']) unless map['Targets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2470,7 +2472,7 @@ module AWS::SDK::SSM
     class MaintenanceWindowTargetList
       def self.parse(list)
         list.map do |value|
-          Parsers::MaintenanceWindowTarget.parse(value) unless value.nil?
+          MaintenanceWindowTarget.parse(value) unless value.nil?
         end
       end
     end
@@ -2481,7 +2483,7 @@ module AWS::SDK::SSM
         data.window_id = map['WindowId']
         data.window_target_id = map['WindowTargetId']
         data.resource_type = map['ResourceType']
-        data.targets = (Parsers::Targets.parse(map['Targets']) unless map['Targets'].nil?)
+        data.targets = (Targets.parse(map['Targets']) unless map['Targets'].nil?)
         data.owner_information = map['OwnerInformation']
         data.name = map['Name']
         data.description = map['Description']
@@ -2496,7 +2498,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tasks = (Parsers::MaintenanceWindowTaskList.parse(map['Tasks']) unless map['Tasks'].nil?)
+        data.tasks = (MaintenanceWindowTaskList.parse(map['Tasks']) unless map['Tasks'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2505,7 +2507,7 @@ module AWS::SDK::SSM
     class MaintenanceWindowTaskList
       def self.parse(list)
         list.map do |value|
-          Parsers::MaintenanceWindowTask.parse(value) unless value.nil?
+          MaintenanceWindowTask.parse(value) unless value.nil?
         end
       end
     end
@@ -2517,10 +2519,10 @@ module AWS::SDK::SSM
         data.window_task_id = map['WindowTaskId']
         data.task_arn = map['TaskArn']
         data.type = map['Type']
-        data.targets = (Parsers::Targets.parse(map['Targets']) unless map['Targets'].nil?)
-        data.task_parameters = (Parsers::MaintenanceWindowTaskParameters.parse(map['TaskParameters']) unless map['TaskParameters'].nil?)
+        data.targets = (Targets.parse(map['Targets']) unless map['Targets'].nil?)
+        data.task_parameters = (MaintenanceWindowTaskParameters.parse(map['TaskParameters']) unless map['TaskParameters'].nil?)
         data.priority = map['Priority']
-        data.logging_info = (Parsers::LoggingInfo.parse(map['LoggingInfo']) unless map['LoggingInfo'].nil?)
+        data.logging_info = (LoggingInfo.parse(map['LoggingInfo']) unless map['LoggingInfo'].nil?)
         data.service_role_arn = map['ServiceRoleArn']
         data.max_concurrency = map['MaxConcurrency']
         data.max_errors = map['MaxErrors']
@@ -2545,7 +2547,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::MaintenanceWindowTaskParameterValueExpression.parse(value) unless value.nil?
+          data[key] = MaintenanceWindowTaskParameterValueExpression.parse(value) unless value.nil?
         end
         data
       end
@@ -2554,7 +2556,7 @@ module AWS::SDK::SSM
     class MaintenanceWindowTaskParameterValueExpression
       def self.parse(map)
         data = Types::MaintenanceWindowTaskParameterValueExpression.new
-        data.values = (Parsers::MaintenanceWindowTaskParameterValueList.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (MaintenanceWindowTaskParameterValueList.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -2574,7 +2576,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.window_identities = (Parsers::MaintenanceWindowIdentityList.parse(map['WindowIdentities']) unless map['WindowIdentities'].nil?)
+        data.window_identities = (MaintenanceWindowIdentityList.parse(map['WindowIdentities']) unless map['WindowIdentities'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2583,7 +2585,7 @@ module AWS::SDK::SSM
     class MaintenanceWindowIdentityList
       def self.parse(list)
         list.map do |value|
-          Parsers::MaintenanceWindowIdentity.parse(value) unless value.nil?
+          MaintenanceWindowIdentity.parse(value) unless value.nil?
         end
       end
     end
@@ -2614,7 +2616,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.window_identities = (Parsers::MaintenanceWindowsForTargetList.parse(map['WindowIdentities']) unless map['WindowIdentities'].nil?)
+        data.window_identities = (MaintenanceWindowsForTargetList.parse(map['WindowIdentities']) unless map['WindowIdentities'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2623,7 +2625,7 @@ module AWS::SDK::SSM
     class MaintenanceWindowsForTargetList
       def self.parse(list)
         list.map do |value|
-          Parsers::MaintenanceWindowIdentityForTarget.parse(value) unless value.nil?
+          MaintenanceWindowIdentityForTarget.parse(value) unless value.nil?
         end
       end
     end
@@ -2645,7 +2647,7 @@ module AWS::SDK::SSM
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.ops_item_summaries = (Parsers::OpsItemSummaries.parse(map['OpsItemSummaries']) unless map['OpsItemSummaries'].nil?)
+        data.ops_item_summaries = (OpsItemSummaries.parse(map['OpsItemSummaries']) unless map['OpsItemSummaries'].nil?)
         data
       end
     end
@@ -2653,7 +2655,7 @@ module AWS::SDK::SSM
     class OpsItemSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::OpsItemSummary.parse(value) unless value.nil?
+          OpsItemSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -2670,7 +2672,7 @@ module AWS::SDK::SSM
         data.status = map['Status']
         data.ops_item_id = map['OpsItemId']
         data.title = map['Title']
-        data.operational_data = (Parsers::OpsItemOperationalData.parse(map['OperationalData']) unless map['OperationalData'].nil?)
+        data.operational_data = (OpsItemOperationalData.parse(map['OperationalData']) unless map['OperationalData'].nil?)
         data.category = map['Category']
         data.severity = map['Severity']
         data.ops_item_type = map['OpsItemType']
@@ -2686,7 +2688,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::OpsItemDataValue.parse(value) unless value.nil?
+          data[key] = OpsItemDataValue.parse(value) unless value.nil?
         end
         data
       end
@@ -2708,7 +2710,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.parameters = (Parsers::ParameterMetadataList.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (ParameterMetadataList.parse(map['Parameters']) unless map['Parameters'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2717,7 +2719,7 @@ module AWS::SDK::SSM
     class ParameterMetadataList
       def self.parse(list)
         list.map do |value|
-          Parsers::ParameterMetadata.parse(value) unless value.nil?
+          ParameterMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -2734,7 +2736,7 @@ module AWS::SDK::SSM
         data.allowed_pattern = map['AllowedPattern']
         data.version = map['Version']
         data.tier = map['Tier']
-        data.policies = (Parsers::ParameterPolicyList.parse(map['Policies']) unless map['Policies'].nil?)
+        data.policies = (ParameterPolicyList.parse(map['Policies']) unless map['Policies'].nil?)
         data.data_type = map['DataType']
         return data
       end
@@ -2743,7 +2745,7 @@ module AWS::SDK::SSM
     class ParameterPolicyList
       def self.parse(list)
         list.map do |value|
-          Parsers::ParameterInlinePolicy.parse(value) unless value.nil?
+          ParameterInlinePolicy.parse(value) unless value.nil?
         end
       end
     end
@@ -2777,7 +2779,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.baseline_identities = (Parsers::PatchBaselineIdentityList.parse(map['BaselineIdentities']) unless map['BaselineIdentities'].nil?)
+        data.baseline_identities = (PatchBaselineIdentityList.parse(map['BaselineIdentities']) unless map['BaselineIdentities'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2786,7 +2788,7 @@ module AWS::SDK::SSM
     class PatchBaselineIdentityList
       def self.parse(list)
         list.map do |value|
-          Parsers::PatchBaselineIdentity.parse(value) unless value.nil?
+          PatchBaselineIdentity.parse(value) unless value.nil?
         end
       end
     end
@@ -2833,7 +2835,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.mappings = (Parsers::PatchGroupPatchBaselineMappingList.parse(map['Mappings']) unless map['Mappings'].nil?)
+        data.mappings = (PatchGroupPatchBaselineMappingList.parse(map['Mappings']) unless map['Mappings'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2842,7 +2844,7 @@ module AWS::SDK::SSM
     class PatchGroupPatchBaselineMappingList
       def self.parse(list)
         list.map do |value|
-          Parsers::PatchGroupPatchBaselineMapping.parse(value) unless value.nil?
+          PatchGroupPatchBaselineMapping.parse(value) unless value.nil?
         end
       end
     end
@@ -2851,7 +2853,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = Types::PatchGroupPatchBaselineMapping.new
         data.patch_group = map['PatchGroup']
-        data.baseline_identity = (Parsers::PatchBaselineIdentity.parse(map['BaselineIdentity']) unless map['BaselineIdentity'].nil?)
+        data.baseline_identity = (PatchBaselineIdentity.parse(map['BaselineIdentity']) unless map['BaselineIdentity'].nil?)
         return data
       end
     end
@@ -2863,7 +2865,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.properties = (Parsers::PatchPropertiesList.parse(map['Properties']) unless map['Properties'].nil?)
+        data.properties = (PatchPropertiesList.parse(map['Properties']) unless map['Properties'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2872,7 +2874,7 @@ module AWS::SDK::SSM
     class PatchPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::PatchPropertyEntry.parse(value) unless value.nil?
+          PatchPropertyEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -2894,7 +2896,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.sessions = (Parsers::SessionList.parse(map['Sessions']) unless map['Sessions'].nil?)
+        data.sessions = (SessionList.parse(map['Sessions']) unless map['Sessions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2903,7 +2905,7 @@ module AWS::SDK::SSM
     class SessionList
       def self.parse(list)
         list.map do |value|
-          Parsers::Session.parse(value) unless value.nil?
+          Session.parse(value) unless value.nil?
         end
       end
     end
@@ -2920,7 +2922,7 @@ module AWS::SDK::SSM
         data.owner = map['Owner']
         data.reason = map['Reason']
         data.details = map['Details']
-        data.output_url = (Parsers::SessionManagerOutputUrl.parse(map['OutputUrl']) unless map['OutputUrl'].nil?)
+        data.output_url = (SessionManagerOutputUrl.parse(map['OutputUrl']) unless map['OutputUrl'].nil?)
         data.max_session_duration = map['MaxSessionDuration']
         return data
       end
@@ -2965,7 +2967,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.automation_execution = (Parsers::AutomationExecution.parse(map['AutomationExecution']) unless map['AutomationExecution'].nil?)
+        data.automation_execution = (AutomationExecution.parse(map['AutomationExecution']) unless map['AutomationExecution'].nil?)
         data
       end
     end
@@ -2979,10 +2981,10 @@ module AWS::SDK::SSM
         data.execution_start_time = Time.at(map['ExecutionStartTime'].to_i) if map['ExecutionStartTime']
         data.execution_end_time = Time.at(map['ExecutionEndTime'].to_i) if map['ExecutionEndTime']
         data.automation_execution_status = map['AutomationExecutionStatus']
-        data.step_executions = (Parsers::StepExecutionList.parse(map['StepExecutions']) unless map['StepExecutions'].nil?)
+        data.step_executions = (StepExecutionList.parse(map['StepExecutions']) unless map['StepExecutions'].nil?)
         data.step_executions_truncated = map['StepExecutionsTruncated']
-        data.parameters = (Parsers::AutomationParameterMap.parse(map['Parameters']) unless map['Parameters'].nil?)
-        data.outputs = (Parsers::AutomationParameterMap.parse(map['Outputs']) unless map['Outputs'].nil?)
+        data.parameters = (AutomationParameterMap.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.outputs = (AutomationParameterMap.parse(map['Outputs']) unless map['Outputs'].nil?)
         data.failure_message = map['FailureMessage']
         data.mode = map['Mode']
         data.parent_automation_execution_id = map['ParentAutomationExecutionId']
@@ -2990,17 +2992,17 @@ module AWS::SDK::SSM
         data.current_step_name = map['CurrentStepName']
         data.current_action = map['CurrentAction']
         data.target_parameter_name = map['TargetParameterName']
-        data.targets = (Parsers::Targets.parse(map['Targets']) unless map['Targets'].nil?)
-        data.target_maps = (Parsers::TargetMaps.parse(map['TargetMaps']) unless map['TargetMaps'].nil?)
-        data.resolved_targets = (Parsers::ResolvedTargets.parse(map['ResolvedTargets']) unless map['ResolvedTargets'].nil?)
+        data.targets = (Targets.parse(map['Targets']) unless map['Targets'].nil?)
+        data.target_maps = (TargetMaps.parse(map['TargetMaps']) unless map['TargetMaps'].nil?)
+        data.resolved_targets = (ResolvedTargets.parse(map['ResolvedTargets']) unless map['ResolvedTargets'].nil?)
         data.max_concurrency = map['MaxConcurrency']
         data.max_errors = map['MaxErrors']
         data.target = map['Target']
-        data.target_locations = (Parsers::TargetLocations.parse(map['TargetLocations']) unless map['TargetLocations'].nil?)
-        data.progress_counters = (Parsers::ProgressCounters.parse(map['ProgressCounters']) unless map['ProgressCounters'].nil?)
+        data.target_locations = (TargetLocations.parse(map['TargetLocations']) unless map['TargetLocations'].nil?)
+        data.progress_counters = (ProgressCounters.parse(map['ProgressCounters']) unless map['ProgressCounters'].nil?)
         data.automation_subtype = map['AutomationSubtype']
         data.scheduled_time = Time.at(map['ScheduledTime'].to_i) if map['ScheduledTime']
-        data.runbooks = (Parsers::Runbooks.parse(map['Runbooks']) unless map['Runbooks'].nil?)
+        data.runbooks = (Runbooks.parse(map['Runbooks']) unless map['Runbooks'].nil?)
         data.ops_item_id = map['OpsItemId']
         data.association_id = map['AssociationId']
         data.change_request_name = map['ChangeRequestName']
@@ -3081,7 +3083,7 @@ module AWS::SDK::SSM
         data.standard_output_url = map['StandardOutputUrl']
         data.standard_error_content = map['StandardErrorContent']
         data.standard_error_url = map['StandardErrorUrl']
-        data.cloud_watch_output_config = (Parsers::CloudWatchOutputConfig.parse(map['CloudWatchOutputConfig']) unless map['CloudWatchOutputConfig'].nil?)
+        data.cloud_watch_output_config = (CloudWatchOutputConfig.parse(map['CloudWatchOutputConfig']) unless map['CloudWatchOutputConfig'].nil?)
         data
       end
     end
@@ -3187,8 +3189,8 @@ module AWS::SDK::SSM
         data.content = map['Content']
         data.document_type = map['DocumentType']
         data.document_format = map['DocumentFormat']
-        data.requires = (Parsers::DocumentRequiresList.parse(map['Requires']) unless map['Requires'].nil?)
-        data.attachments_content = (Parsers::AttachmentContentList.parse(map['AttachmentsContent']) unless map['AttachmentsContent'].nil?)
+        data.requires = (DocumentRequiresList.parse(map['Requires']) unless map['Requires'].nil?)
+        data.attachments_content = (AttachmentContentList.parse(map['AttachmentsContent']) unless map['AttachmentsContent'].nil?)
         data.review_status = map['ReviewStatus']
         data
       end
@@ -3197,7 +3199,7 @@ module AWS::SDK::SSM
     class AttachmentContentList
       def self.parse(list)
         list.map do |value|
-          Parsers::AttachmentContent.parse(value) unless value.nil?
+          AttachmentContent.parse(value) unless value.nil?
         end
       end
     end
@@ -3221,7 +3223,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entities = (Parsers::InventoryResultEntityList.parse(map['Entities']) unless map['Entities'].nil?)
+        data.entities = (InventoryResultEntityList.parse(map['Entities']) unless map['Entities'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -3230,7 +3232,7 @@ module AWS::SDK::SSM
     class InventoryResultEntityList
       def self.parse(list)
         list.map do |value|
-          Parsers::InventoryResultEntity.parse(value) unless value.nil?
+          InventoryResultEntity.parse(value) unless value.nil?
         end
       end
     end
@@ -3239,7 +3241,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = Types::InventoryResultEntity.new
         data.id = map['Id']
-        data.data = (Parsers::InventoryResultItemMap.parse(map['Data']) unless map['Data'].nil?)
+        data.data = (InventoryResultItemMap.parse(map['Data']) unless map['Data'].nil?)
         return data
       end
     end
@@ -3248,7 +3250,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::InventoryResultItem.parse(value) unless value.nil?
+          data[key] = InventoryResultItem.parse(value) unless value.nil?
         end
         data
       end
@@ -3261,7 +3263,7 @@ module AWS::SDK::SSM
         data.schema_version = map['SchemaVersion']
         data.capture_time = map['CaptureTime']
         data.content_hash = map['ContentHash']
-        data.content = (Parsers::InventoryItemEntryList.parse(map['Content']) unless map['Content'].nil?)
+        data.content = (InventoryItemEntryList.parse(map['Content']) unless map['Content'].nil?)
         return data
       end
     end
@@ -3269,7 +3271,7 @@ module AWS::SDK::SSM
     class InventoryItemEntryList
       def self.parse(list)
         list.map do |value|
-          Parsers::InventoryItemEntry.parse(value) unless value.nil?
+          InventoryItemEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -3327,7 +3329,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.schemas = (Parsers::InventoryItemSchemaResultList.parse(map['Schemas']) unless map['Schemas'].nil?)
+        data.schemas = (InventoryItemSchemaResultList.parse(map['Schemas']) unless map['Schemas'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -3336,7 +3338,7 @@ module AWS::SDK::SSM
     class InventoryItemSchemaResultList
       def self.parse(list)
         list.map do |value|
-          Parsers::InventoryItemSchema.parse(value) unless value.nil?
+          InventoryItemSchema.parse(value) unless value.nil?
         end
       end
     end
@@ -3346,7 +3348,7 @@ module AWS::SDK::SSM
         data = Types::InventoryItemSchema.new
         data.type_name = map['TypeName']
         data.version = map['Version']
-        data.attributes = (Parsers::InventoryItemAttributeList.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (InventoryItemAttributeList.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.display_name = map['DisplayName']
         return data
       end
@@ -3355,7 +3357,7 @@ module AWS::SDK::SSM
     class InventoryItemAttributeList
       def self.parse(list)
         list.map do |value|
-          Parsers::InventoryItemAttribute.parse(value) unless value.nil?
+          InventoryItemAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -3403,7 +3405,7 @@ module AWS::SDK::SSM
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.window_execution_id = map['WindowExecutionId']
-        data.task_ids = (Parsers::MaintenanceWindowExecutionTaskIdList.parse(map['TaskIds']) unless map['TaskIds'].nil?)
+        data.task_ids = (MaintenanceWindowExecutionTaskIdList.parse(map['TaskIds']) unless map['TaskIds'].nil?)
         data.status = map['Status']
         data.status_details = map['StatusDetails']
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
@@ -3432,7 +3434,7 @@ module AWS::SDK::SSM
         data.task_arn = map['TaskArn']
         data.service_role = map['ServiceRole']
         data.type = map['Type']
-        data.task_parameters = (Parsers::MaintenanceWindowTaskParametersList.parse(map['TaskParameters']) unless map['TaskParameters'].nil?)
+        data.task_parameters = (MaintenanceWindowTaskParametersList.parse(map['TaskParameters']) unless map['TaskParameters'].nil?)
         data.priority = map['Priority']
         data.max_concurrency = map['MaxConcurrency']
         data.max_errors = map['MaxErrors']
@@ -3447,7 +3449,7 @@ module AWS::SDK::SSM
     class MaintenanceWindowTaskParametersList
       def self.parse(list)
         list.map do |value|
-          Parsers::MaintenanceWindowTaskParameters.parse(value) unless value.nil?
+          MaintenanceWindowTaskParameters.parse(value) unless value.nil?
         end
       end
     end
@@ -3484,16 +3486,16 @@ module AWS::SDK::SSM
         map = Hearth::JSON.load(body)
         data.window_id = map['WindowId']
         data.window_task_id = map['WindowTaskId']
-        data.targets = (Parsers::Targets.parse(map['Targets']) unless map['Targets'].nil?)
+        data.targets = (Targets.parse(map['Targets']) unless map['Targets'].nil?)
         data.task_arn = map['TaskArn']
         data.service_role_arn = map['ServiceRoleArn']
         data.task_type = map['TaskType']
-        data.task_parameters = (Parsers::MaintenanceWindowTaskParameters.parse(map['TaskParameters']) unless map['TaskParameters'].nil?)
-        data.task_invocation_parameters = (Parsers::MaintenanceWindowTaskInvocationParameters.parse(map['TaskInvocationParameters']) unless map['TaskInvocationParameters'].nil?)
+        data.task_parameters = (MaintenanceWindowTaskParameters.parse(map['TaskParameters']) unless map['TaskParameters'].nil?)
+        data.task_invocation_parameters = (MaintenanceWindowTaskInvocationParameters.parse(map['TaskInvocationParameters']) unless map['TaskInvocationParameters'].nil?)
         data.priority = map['Priority']
         data.max_concurrency = map['MaxConcurrency']
         data.max_errors = map['MaxErrors']
-        data.logging_info = (Parsers::LoggingInfo.parse(map['LoggingInfo']) unless map['LoggingInfo'].nil?)
+        data.logging_info = (LoggingInfo.parse(map['LoggingInfo']) unless map['LoggingInfo'].nil?)
         data.name = map['Name']
         data.description = map['Description']
         data.cutoff_behavior = map['CutoffBehavior']
@@ -3504,10 +3506,10 @@ module AWS::SDK::SSM
     class MaintenanceWindowTaskInvocationParameters
       def self.parse(map)
         data = Types::MaintenanceWindowTaskInvocationParameters.new
-        data.run_command = (Parsers::MaintenanceWindowRunCommandParameters.parse(map['RunCommand']) unless map['RunCommand'].nil?)
-        data.automation = (Parsers::MaintenanceWindowAutomationParameters.parse(map['Automation']) unless map['Automation'].nil?)
-        data.step_functions = (Parsers::MaintenanceWindowStepFunctionsParameters.parse(map['StepFunctions']) unless map['StepFunctions'].nil?)
-        data.lambda = (Parsers::MaintenanceWindowLambdaParameters.parse(map['Lambda']) unless map['Lambda'].nil?)
+        data.run_command = (MaintenanceWindowRunCommandParameters.parse(map['RunCommand']) unless map['RunCommand'].nil?)
+        data.automation = (MaintenanceWindowAutomationParameters.parse(map['Automation']) unless map['Automation'].nil?)
+        data.step_functions = (MaintenanceWindowStepFunctionsParameters.parse(map['StepFunctions']) unless map['StepFunctions'].nil?)
+        data.lambda = (MaintenanceWindowLambdaParameters.parse(map['Lambda']) unless map['Lambda'].nil?)
         return data
       end
     end
@@ -3517,7 +3519,7 @@ module AWS::SDK::SSM
         data = Types::MaintenanceWindowLambdaParameters.new
         data.client_context = map['ClientContext']
         data.qualifier = map['Qualifier']
-        data.payload = Base64::decode64(map['Payload']) unless map['Payload'].nil?
+        data.payload = ::Base64::decode64(map['Payload']) unless map['Payload'].nil?
         return data
       end
     end
@@ -3535,7 +3537,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = Types::MaintenanceWindowAutomationParameters.new
         data.document_version = map['DocumentVersion']
-        data.parameters = (Parsers::AutomationParameterMap.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (AutomationParameterMap.parse(map['Parameters']) unless map['Parameters'].nil?)
         return data
       end
     end
@@ -3544,14 +3546,14 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = Types::MaintenanceWindowRunCommandParameters.new
         data.comment = map['Comment']
-        data.cloud_watch_output_config = (Parsers::CloudWatchOutputConfig.parse(map['CloudWatchOutputConfig']) unless map['CloudWatchOutputConfig'].nil?)
+        data.cloud_watch_output_config = (CloudWatchOutputConfig.parse(map['CloudWatchOutputConfig']) unless map['CloudWatchOutputConfig'].nil?)
         data.document_hash = map['DocumentHash']
         data.document_hash_type = map['DocumentHashType']
         data.document_version = map['DocumentVersion']
-        data.notification_config = (Parsers::NotificationConfig.parse(map['NotificationConfig']) unless map['NotificationConfig'].nil?)
+        data.notification_config = (NotificationConfig.parse(map['NotificationConfig']) unless map['NotificationConfig'].nil?)
         data.output_s3_bucket_name = map['OutputS3BucketName']
         data.output_s3_key_prefix = map['OutputS3KeyPrefix']
-        data.parameters = (Parsers::Parameters.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (Parameters.parse(map['Parameters']) unless map['Parameters'].nil?)
         data.service_role_arn = map['ServiceRoleArn']
         data.timeout_seconds = map['TimeoutSeconds']
         return data
@@ -3562,7 +3564,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = Types::NotificationConfig.new
         data.notification_arn = map['NotificationArn']
-        data.notification_events = (Parsers::NotificationEventList.parse(map['NotificationEvents']) unless map['NotificationEvents'].nil?)
+        data.notification_events = (NotificationEventList.parse(map['NotificationEvents']) unless map['NotificationEvents'].nil?)
         data.notification_type = map['NotificationType']
         return data
       end
@@ -3583,7 +3585,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ops_item = (Parsers::OpsItem.parse(map['OpsItem']) unless map['OpsItem'].nil?)
+        data.ops_item = (OpsItem.parse(map['OpsItem']) unless map['OpsItem'].nil?)
         data
       end
     end
@@ -3597,15 +3599,15 @@ module AWS::SDK::SSM
         data.description = map['Description']
         data.last_modified_by = map['LastModifiedBy']
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
-        data.notifications = (Parsers::OpsItemNotifications.parse(map['Notifications']) unless map['Notifications'].nil?)
+        data.notifications = (OpsItemNotifications.parse(map['Notifications']) unless map['Notifications'].nil?)
         data.priority = map['Priority']
-        data.related_ops_items = (Parsers::RelatedOpsItems.parse(map['RelatedOpsItems']) unless map['RelatedOpsItems'].nil?)
+        data.related_ops_items = (RelatedOpsItems.parse(map['RelatedOpsItems']) unless map['RelatedOpsItems'].nil?)
         data.status = map['Status']
         data.ops_item_id = map['OpsItemId']
         data.version = map['Version']
         data.title = map['Title']
         data.source = map['Source']
-        data.operational_data = (Parsers::OpsItemOperationalData.parse(map['OperationalData']) unless map['OperationalData'].nil?)
+        data.operational_data = (OpsItemOperationalData.parse(map['OperationalData']) unless map['OperationalData'].nil?)
         data.category = map['Category']
         data.severity = map['Severity']
         data.actual_start_time = Time.at(map['ActualStartTime'].to_i) if map['ActualStartTime']
@@ -3619,7 +3621,7 @@ module AWS::SDK::SSM
     class RelatedOpsItems
       def self.parse(list)
         list.map do |value|
-          Parsers::RelatedOpsItem.parse(value) unless value.nil?
+          RelatedOpsItem.parse(value) unless value.nil?
         end
       end
     end
@@ -3635,7 +3637,7 @@ module AWS::SDK::SSM
     class OpsItemNotifications
       def self.parse(list)
         list.map do |value|
-          Parsers::OpsItemNotification.parse(value) unless value.nil?
+          OpsItemNotification.parse(value) unless value.nil?
         end
       end
     end
@@ -3656,7 +3658,7 @@ module AWS::SDK::SSM
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.resource_id = map['ResourceId']
-        data.metadata = (Parsers::MetadataMap.parse(map['Metadata']) unless map['Metadata'].nil?)
+        data.metadata = (MetadataMap.parse(map['Metadata']) unless map['Metadata'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -3666,7 +3668,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::MetadataValue.parse(value) unless value.nil?
+          data[key] = MetadataValue.parse(value) unless value.nil?
         end
         data
       end
@@ -3687,7 +3689,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entities = (Parsers::OpsEntityList.parse(map['Entities']) unless map['Entities'].nil?)
+        data.entities = (OpsEntityList.parse(map['Entities']) unless map['Entities'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -3696,7 +3698,7 @@ module AWS::SDK::SSM
     class OpsEntityList
       def self.parse(list)
         list.map do |value|
-          Parsers::OpsEntity.parse(value) unless value.nil?
+          OpsEntity.parse(value) unless value.nil?
         end
       end
     end
@@ -3705,7 +3707,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = Types::OpsEntity.new
         data.id = map['Id']
-        data.data = (Parsers::OpsEntityItemMap.parse(map['Data']) unless map['Data'].nil?)
+        data.data = (OpsEntityItemMap.parse(map['Data']) unless map['Data'].nil?)
         return data
       end
     end
@@ -3714,7 +3716,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::OpsEntityItem.parse(value) unless value.nil?
+          data[key] = OpsEntityItem.parse(value) unless value.nil?
         end
         data
       end
@@ -3724,7 +3726,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = Types::OpsEntityItem.new
         data.capture_time = map['CaptureTime']
-        data.content = (Parsers::OpsEntityItemEntryList.parse(map['Content']) unless map['Content'].nil?)
+        data.content = (OpsEntityItemEntryList.parse(map['Content']) unless map['Content'].nil?)
         return data
       end
     end
@@ -3732,7 +3734,7 @@ module AWS::SDK::SSM
     class OpsEntityItemEntryList
       def self.parse(list)
         list.map do |value|
-          Parsers::OpsEntityItemEntry.parse(value) unless value.nil?
+          OpsEntityItemEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -3754,7 +3756,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.parameter = (Parsers::Parameter.parse(map['Parameter']) unless map['Parameter'].nil?)
+        data.parameter = (Parameter.parse(map['Parameter']) unless map['Parameter'].nil?)
         data
       end
     end
@@ -3806,7 +3808,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.parameters = (Parsers::ParameterHistoryList.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (ParameterHistoryList.parse(map['Parameters']) unless map['Parameters'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -3815,7 +3817,7 @@ module AWS::SDK::SSM
     class ParameterHistoryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ParameterHistory.parse(value) unless value.nil?
+          ParameterHistory.parse(value) unless value.nil?
         end
       end
     end
@@ -3832,9 +3834,9 @@ module AWS::SDK::SSM
         data.value = map['Value']
         data.allowed_pattern = map['AllowedPattern']
         data.version = map['Version']
-        data.labels = (Parsers::ParameterLabelList.parse(map['Labels']) unless map['Labels'].nil?)
+        data.labels = (ParameterLabelList.parse(map['Labels']) unless map['Labels'].nil?)
         data.tier = map['Tier']
-        data.policies = (Parsers::ParameterPolicyList.parse(map['Policies']) unless map['Policies'].nil?)
+        data.policies = (ParameterPolicyList.parse(map['Policies']) unless map['Policies'].nil?)
         data.data_type = map['DataType']
         return data
       end
@@ -3855,8 +3857,8 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.parameters = (Parsers::ParameterList.parse(map['Parameters']) unless map['Parameters'].nil?)
-        data.invalid_parameters = (Parsers::ParameterNameList.parse(map['InvalidParameters']) unless map['InvalidParameters'].nil?)
+        data.parameters = (ParameterList.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.invalid_parameters = (ParameterNameList.parse(map['InvalidParameters']) unless map['InvalidParameters'].nil?)
         data
       end
     end
@@ -3864,7 +3866,7 @@ module AWS::SDK::SSM
     class ParameterList
       def self.parse(list)
         list.map do |value|
-          Parsers::Parameter.parse(value) unless value.nil?
+          Parameter.parse(value) unless value.nil?
         end
       end
     end
@@ -3876,7 +3878,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.parameters = (Parsers::ParameterList.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (ParameterList.parse(map['Parameters']) unless map['Parameters'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -3892,18 +3894,18 @@ module AWS::SDK::SSM
         data.baseline_id = map['BaselineId']
         data.name = map['Name']
         data.operating_system = map['OperatingSystem']
-        data.global_filters = (Parsers::PatchFilterGroup.parse(map['GlobalFilters']) unless map['GlobalFilters'].nil?)
-        data.approval_rules = (Parsers::PatchRuleGroup.parse(map['ApprovalRules']) unless map['ApprovalRules'].nil?)
-        data.approved_patches = (Parsers::PatchIdList.parse(map['ApprovedPatches']) unless map['ApprovedPatches'].nil?)
+        data.global_filters = (PatchFilterGroup.parse(map['GlobalFilters']) unless map['GlobalFilters'].nil?)
+        data.approval_rules = (PatchRuleGroup.parse(map['ApprovalRules']) unless map['ApprovalRules'].nil?)
+        data.approved_patches = (PatchIdList.parse(map['ApprovedPatches']) unless map['ApprovedPatches'].nil?)
         data.approved_patches_compliance_level = map['ApprovedPatchesComplianceLevel']
         data.approved_patches_enable_non_security = map['ApprovedPatchesEnableNonSecurity']
-        data.rejected_patches = (Parsers::PatchIdList.parse(map['RejectedPatches']) unless map['RejectedPatches'].nil?)
+        data.rejected_patches = (PatchIdList.parse(map['RejectedPatches']) unless map['RejectedPatches'].nil?)
         data.rejected_patches_action = map['RejectedPatchesAction']
-        data.patch_groups = (Parsers::PatchGroupList.parse(map['PatchGroups']) unless map['PatchGroups'].nil?)
+        data.patch_groups = (PatchGroupList.parse(map['PatchGroups']) unless map['PatchGroups'].nil?)
         data.created_date = Time.at(map['CreatedDate'].to_i) if map['CreatedDate']
         data.modified_date = Time.at(map['ModifiedDate'].to_i) if map['ModifiedDate']
         data.description = map['Description']
-        data.sources = (Parsers::PatchSourceList.parse(map['Sources']) unless map['Sources'].nil?)
+        data.sources = (PatchSourceList.parse(map['Sources']) unless map['Sources'].nil?)
         data
       end
     end
@@ -3911,7 +3913,7 @@ module AWS::SDK::SSM
     class PatchSourceList
       def self.parse(list)
         list.map do |value|
-          Parsers::PatchSource.parse(value) unless value.nil?
+          PatchSource.parse(value) unless value.nil?
         end
       end
     end
@@ -3920,7 +3922,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = Types::PatchSource.new
         data.name = map['Name']
-        data.products = (Parsers::PatchSourceProductList.parse(map['Products']) unless map['Products'].nil?)
+        data.products = (PatchSourceProductList.parse(map['Products']) unless map['Products'].nil?)
         data.configuration = map['Configuration']
         return data
       end
@@ -3953,7 +3955,7 @@ module AWS::SDK::SSM
     class PatchRuleGroup
       def self.parse(map)
         data = Types::PatchRuleGroup.new
-        data.patch_rules = (Parsers::PatchRuleList.parse(map['PatchRules']) unless map['PatchRules'].nil?)
+        data.patch_rules = (PatchRuleList.parse(map['PatchRules']) unless map['PatchRules'].nil?)
         return data
       end
     end
@@ -3961,7 +3963,7 @@ module AWS::SDK::SSM
     class PatchRuleList
       def self.parse(list)
         list.map do |value|
-          Parsers::PatchRule.parse(value) unless value.nil?
+          PatchRule.parse(value) unless value.nil?
         end
       end
     end
@@ -3969,7 +3971,7 @@ module AWS::SDK::SSM
     class PatchRule
       def self.parse(map)
         data = Types::PatchRule.new
-        data.patch_filter_group = (Parsers::PatchFilterGroup.parse(map['PatchFilterGroup']) unless map['PatchFilterGroup'].nil?)
+        data.patch_filter_group = (PatchFilterGroup.parse(map['PatchFilterGroup']) unless map['PatchFilterGroup'].nil?)
         data.compliance_level = map['ComplianceLevel']
         data.approve_after_days = map['ApproveAfterDays']
         data.approve_until_date = map['ApproveUntilDate']
@@ -3981,7 +3983,7 @@ module AWS::SDK::SSM
     class PatchFilterGroup
       def self.parse(map)
         data = Types::PatchFilterGroup.new
-        data.patch_filters = (Parsers::PatchFilterList.parse(map['PatchFilters']) unless map['PatchFilters'].nil?)
+        data.patch_filters = (PatchFilterList.parse(map['PatchFilters']) unless map['PatchFilters'].nil?)
         return data
       end
     end
@@ -3989,7 +3991,7 @@ module AWS::SDK::SSM
     class PatchFilterList
       def self.parse(list)
         list.map do |value|
-          Parsers::PatchFilter.parse(value) unless value.nil?
+          PatchFilter.parse(value) unless value.nil?
         end
       end
     end
@@ -3998,7 +4000,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = Types::PatchFilter.new
         data.key = map['Key']
-        data.values = (Parsers::PatchFilterValueList.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (PatchFilterValueList.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -4032,7 +4034,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_setting = (Parsers::ServiceSetting.parse(map['ServiceSetting']) unless map['ServiceSetting'].nil?)
+        data.service_setting = (ServiceSetting.parse(map['ServiceSetting']) unless map['ServiceSetting'].nil?)
         data
       end
     end
@@ -4069,7 +4071,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.invalid_labels = (Parsers::ParameterLabelList.parse(map['InvalidLabels']) unless map['InvalidLabels'].nil?)
+        data.invalid_labels = (ParameterLabelList.parse(map['InvalidLabels']) unless map['InvalidLabels'].nil?)
         data.parameter_version = map['ParameterVersion']
         data
       end
@@ -4094,7 +4096,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.association_versions = (Parsers::AssociationVersionList.parse(map['AssociationVersions']) unless map['AssociationVersions'].nil?)
+        data.association_versions = (AssociationVersionList.parse(map['AssociationVersions']) unless map['AssociationVersions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4103,7 +4105,7 @@ module AWS::SDK::SSM
     class AssociationVersionList
       def self.parse(list)
         list.map do |value|
-          Parsers::AssociationVersionInfo.parse(value) unless value.nil?
+          AssociationVersionInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -4116,20 +4118,20 @@ module AWS::SDK::SSM
         data.created_date = Time.at(map['CreatedDate'].to_i) if map['CreatedDate']
         data.name = map['Name']
         data.document_version = map['DocumentVersion']
-        data.parameters = (Parsers::Parameters.parse(map['Parameters']) unless map['Parameters'].nil?)
-        data.targets = (Parsers::Targets.parse(map['Targets']) unless map['Targets'].nil?)
+        data.parameters = (Parameters.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.targets = (Targets.parse(map['Targets']) unless map['Targets'].nil?)
         data.schedule_expression = map['ScheduleExpression']
-        data.output_location = (Parsers::InstanceAssociationOutputLocation.parse(map['OutputLocation']) unless map['OutputLocation'].nil?)
+        data.output_location = (InstanceAssociationOutputLocation.parse(map['OutputLocation']) unless map['OutputLocation'].nil?)
         data.association_name = map['AssociationName']
         data.max_errors = map['MaxErrors']
         data.max_concurrency = map['MaxConcurrency']
         data.compliance_severity = map['ComplianceSeverity']
         data.sync_compliance = map['SyncCompliance']
         data.apply_only_at_cron_interval = map['ApplyOnlyAtCronInterval']
-        data.calendar_names = (Parsers::CalendarNameOrARNList.parse(map['CalendarNames']) unless map['CalendarNames'].nil?)
-        data.target_locations = (Parsers::TargetLocations.parse(map['TargetLocations']) unless map['TargetLocations'].nil?)
+        data.calendar_names = (CalendarNameOrARNList.parse(map['CalendarNames']) unless map['CalendarNames'].nil?)
+        data.target_locations = (TargetLocations.parse(map['TargetLocations']) unless map['TargetLocations'].nil?)
         data.schedule_offset = map['ScheduleOffset']
-        data.target_maps = (Parsers::TargetMaps.parse(map['TargetMaps']) unless map['TargetMaps'].nil?)
+        data.target_maps = (TargetMaps.parse(map['TargetMaps']) unless map['TargetMaps'].nil?)
         return data
       end
     end
@@ -4141,7 +4143,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.associations = (Parsers::AssociationList.parse(map['Associations']) unless map['Associations'].nil?)
+        data.associations = (AssociationList.parse(map['Associations']) unless map['Associations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4150,7 +4152,7 @@ module AWS::SDK::SSM
     class AssociationList
       def self.parse(list)
         list.map do |value|
-          Parsers::Association.parse(value) unless value.nil?
+          Association.parse(value) unless value.nil?
         end
       end
     end
@@ -4163,13 +4165,13 @@ module AWS::SDK::SSM
         data.association_id = map['AssociationId']
         data.association_version = map['AssociationVersion']
         data.document_version = map['DocumentVersion']
-        data.targets = (Parsers::Targets.parse(map['Targets']) unless map['Targets'].nil?)
+        data.targets = (Targets.parse(map['Targets']) unless map['Targets'].nil?)
         data.last_execution_date = Time.at(map['LastExecutionDate'].to_i) if map['LastExecutionDate']
-        data.overview = (Parsers::AssociationOverview.parse(map['Overview']) unless map['Overview'].nil?)
+        data.overview = (AssociationOverview.parse(map['Overview']) unless map['Overview'].nil?)
         data.schedule_expression = map['ScheduleExpression']
         data.association_name = map['AssociationName']
         data.schedule_offset = map['ScheduleOffset']
-        data.target_maps = (Parsers::TargetMaps.parse(map['TargetMaps']) unless map['TargetMaps'].nil?)
+        data.target_maps = (TargetMaps.parse(map['TargetMaps']) unless map['TargetMaps'].nil?)
         return data
       end
     end
@@ -4181,7 +4183,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.command_invocations = (Parsers::CommandInvocationList.parse(map['CommandInvocations']) unless map['CommandInvocations'].nil?)
+        data.command_invocations = (CommandInvocationList.parse(map['CommandInvocations']) unless map['CommandInvocations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4190,7 +4192,7 @@ module AWS::SDK::SSM
     class CommandInvocationList
       def self.parse(list)
         list.map do |value|
-          Parsers::CommandInvocation.parse(value) unless value.nil?
+          CommandInvocation.parse(value) unless value.nil?
         end
       end
     end
@@ -4210,10 +4212,10 @@ module AWS::SDK::SSM
         data.trace_output = map['TraceOutput']
         data.standard_output_url = map['StandardOutputUrl']
         data.standard_error_url = map['StandardErrorUrl']
-        data.command_plugins = (Parsers::CommandPluginList.parse(map['CommandPlugins']) unless map['CommandPlugins'].nil?)
+        data.command_plugins = (CommandPluginList.parse(map['CommandPlugins']) unless map['CommandPlugins'].nil?)
         data.service_role = map['ServiceRole']
-        data.notification_config = (Parsers::NotificationConfig.parse(map['NotificationConfig']) unless map['NotificationConfig'].nil?)
-        data.cloud_watch_output_config = (Parsers::CloudWatchOutputConfig.parse(map['CloudWatchOutputConfig']) unless map['CloudWatchOutputConfig'].nil?)
+        data.notification_config = (NotificationConfig.parse(map['NotificationConfig']) unless map['NotificationConfig'].nil?)
+        data.cloud_watch_output_config = (CloudWatchOutputConfig.parse(map['CloudWatchOutputConfig']) unless map['CloudWatchOutputConfig'].nil?)
         return data
       end
     end
@@ -4221,7 +4223,7 @@ module AWS::SDK::SSM
     class CommandPluginList
       def self.parse(list)
         list.map do |value|
-          Parsers::CommandPlugin.parse(value) unless value.nil?
+          CommandPlugin.parse(value) unless value.nil?
         end
       end
     end
@@ -4252,7 +4254,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.commands = (Parsers::CommandList.parse(map['Commands']) unless map['Commands'].nil?)
+        data.commands = (CommandList.parse(map['Commands']) unless map['Commands'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4261,7 +4263,7 @@ module AWS::SDK::SSM
     class CommandList
       def self.parse(list)
         list.map do |value|
-          Parsers::Command.parse(value) unless value.nil?
+          Command.parse(value) unless value.nil?
         end
       end
     end
@@ -4274,9 +4276,9 @@ module AWS::SDK::SSM
         data.document_version = map['DocumentVersion']
         data.comment = map['Comment']
         data.expires_after = Time.at(map['ExpiresAfter'].to_i) if map['ExpiresAfter']
-        data.parameters = (Parsers::Parameters.parse(map['Parameters']) unless map['Parameters'].nil?)
-        data.instance_ids = (Parsers::InstanceIdList.parse(map['InstanceIds']) unless map['InstanceIds'].nil?)
-        data.targets = (Parsers::Targets.parse(map['Targets']) unless map['Targets'].nil?)
+        data.parameters = (Parameters.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.instance_ids = (InstanceIdList.parse(map['InstanceIds']) unless map['InstanceIds'].nil?)
+        data.targets = (Targets.parse(map['Targets']) unless map['Targets'].nil?)
         data.requested_date_time = Time.at(map['RequestedDateTime'].to_i) if map['RequestedDateTime']
         data.status = map['Status']
         data.status_details = map['StatusDetails']
@@ -4290,8 +4292,8 @@ module AWS::SDK::SSM
         data.error_count = map['ErrorCount']
         data.delivery_timed_out_count = map['DeliveryTimedOutCount']
         data.service_role = map['ServiceRole']
-        data.notification_config = (Parsers::NotificationConfig.parse(map['NotificationConfig']) unless map['NotificationConfig'].nil?)
-        data.cloud_watch_output_config = (Parsers::CloudWatchOutputConfig.parse(map['CloudWatchOutputConfig']) unless map['CloudWatchOutputConfig'].nil?)
+        data.notification_config = (NotificationConfig.parse(map['NotificationConfig']) unless map['NotificationConfig'].nil?)
+        data.cloud_watch_output_config = (CloudWatchOutputConfig.parse(map['CloudWatchOutputConfig']) unless map['CloudWatchOutputConfig'].nil?)
         data.timeout_seconds = map['TimeoutSeconds']
         return data
       end
@@ -4312,7 +4314,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.compliance_items = (Parsers::ComplianceItemList.parse(map['ComplianceItems']) unless map['ComplianceItems'].nil?)
+        data.compliance_items = (ComplianceItemList.parse(map['ComplianceItems']) unless map['ComplianceItems'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4321,7 +4323,7 @@ module AWS::SDK::SSM
     class ComplianceItemList
       def self.parse(list)
         list.map do |value|
-          Parsers::ComplianceItem.parse(value) unless value.nil?
+          ComplianceItem.parse(value) unless value.nil?
         end
       end
     end
@@ -4336,8 +4338,8 @@ module AWS::SDK::SSM
         data.title = map['Title']
         data.status = map['Status']
         data.severity = map['Severity']
-        data.execution_summary = (Parsers::ComplianceExecutionSummary.parse(map['ExecutionSummary']) unless map['ExecutionSummary'].nil?)
-        data.details = (Parsers::ComplianceItemDetails.parse(map['Details']) unless map['Details'].nil?)
+        data.execution_summary = (ComplianceExecutionSummary.parse(map['ExecutionSummary']) unless map['ExecutionSummary'].nil?)
+        data.details = (ComplianceItemDetails.parse(map['Details']) unless map['Details'].nil?)
         return data
       end
     end
@@ -4369,7 +4371,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.compliance_summary_items = (Parsers::ComplianceSummaryItemList.parse(map['ComplianceSummaryItems']) unless map['ComplianceSummaryItems'].nil?)
+        data.compliance_summary_items = (ComplianceSummaryItemList.parse(map['ComplianceSummaryItems']) unless map['ComplianceSummaryItems'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4378,7 +4380,7 @@ module AWS::SDK::SSM
     class ComplianceSummaryItemList
       def self.parse(list)
         list.map do |value|
-          Parsers::ComplianceSummaryItem.parse(value) unless value.nil?
+          ComplianceSummaryItem.parse(value) unless value.nil?
         end
       end
     end
@@ -4387,8 +4389,8 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = Types::ComplianceSummaryItem.new
         data.compliance_type = map['ComplianceType']
-        data.compliant_summary = (Parsers::CompliantSummary.parse(map['CompliantSummary']) unless map['CompliantSummary'].nil?)
-        data.non_compliant_summary = (Parsers::NonCompliantSummary.parse(map['NonCompliantSummary']) unless map['NonCompliantSummary'].nil?)
+        data.compliant_summary = (CompliantSummary.parse(map['CompliantSummary']) unless map['CompliantSummary'].nil?)
+        data.non_compliant_summary = (NonCompliantSummary.parse(map['NonCompliantSummary']) unless map['NonCompliantSummary'].nil?)
         return data
       end
     end
@@ -4397,7 +4399,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = Types::NonCompliantSummary.new
         data.non_compliant_count = map['NonCompliantCount']
-        data.severity_summary = (Parsers::SeveritySummary.parse(map['SeveritySummary']) unless map['SeveritySummary'].nil?)
+        data.severity_summary = (SeveritySummary.parse(map['SeveritySummary']) unless map['SeveritySummary'].nil?)
         return data
       end
     end
@@ -4419,7 +4421,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = Types::CompliantSummary.new
         data.compliant_count = map['CompliantCount']
-        data.severity_summary = (Parsers::SeveritySummary.parse(map['SeveritySummary']) unless map['SeveritySummary'].nil?)
+        data.severity_summary = (SeveritySummary.parse(map['SeveritySummary']) unless map['SeveritySummary'].nil?)
         return data
       end
     end
@@ -4434,7 +4436,7 @@ module AWS::SDK::SSM
         data.name = map['Name']
         data.document_version = map['DocumentVersion']
         data.author = map['Author']
-        data.metadata = (Parsers::DocumentMetadataResponseInfo.parse(map['Metadata']) unless map['Metadata'].nil?)
+        data.metadata = (DocumentMetadataResponseInfo.parse(map['Metadata']) unless map['Metadata'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4443,7 +4445,7 @@ module AWS::SDK::SSM
     class DocumentMetadataResponseInfo
       def self.parse(map)
         data = Types::DocumentMetadataResponseInfo.new
-        data.reviewer_response = (Parsers::DocumentReviewerResponseList.parse(map['ReviewerResponse']) unless map['ReviewerResponse'].nil?)
+        data.reviewer_response = (DocumentReviewerResponseList.parse(map['ReviewerResponse']) unless map['ReviewerResponse'].nil?)
         return data
       end
     end
@@ -4451,7 +4453,7 @@ module AWS::SDK::SSM
     class DocumentReviewerResponseList
       def self.parse(list)
         list.map do |value|
-          Parsers::DocumentReviewerResponseSource.parse(value) unless value.nil?
+          DocumentReviewerResponseSource.parse(value) unless value.nil?
         end
       end
     end
@@ -4462,7 +4464,7 @@ module AWS::SDK::SSM
         data.create_time = Time.at(map['CreateTime'].to_i) if map['CreateTime']
         data.updated_time = Time.at(map['UpdatedTime'].to_i) if map['UpdatedTime']
         data.review_status = map['ReviewStatus']
-        data.comment = (Parsers::DocumentReviewCommentList.parse(map['Comment']) unless map['Comment'].nil?)
+        data.comment = (DocumentReviewCommentList.parse(map['Comment']) unless map['Comment'].nil?)
         data.reviewer = map['Reviewer']
         return data
       end
@@ -4471,7 +4473,7 @@ module AWS::SDK::SSM
     class DocumentReviewCommentList
       def self.parse(list)
         list.map do |value|
-          Parsers::DocumentReviewCommentSource.parse(value) unless value.nil?
+          DocumentReviewCommentSource.parse(value) unless value.nil?
         end
       end
     end
@@ -4492,7 +4494,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.document_versions = (Parsers::DocumentVersionList.parse(map['DocumentVersions']) unless map['DocumentVersions'].nil?)
+        data.document_versions = (DocumentVersionList.parse(map['DocumentVersions']) unless map['DocumentVersions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4501,7 +4503,7 @@ module AWS::SDK::SSM
     class DocumentVersionList
       def self.parse(list)
         list.map do |value|
-          Parsers::DocumentVersionInfo.parse(value) unless value.nil?
+          DocumentVersionInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -4530,7 +4532,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.document_identifiers = (Parsers::DocumentIdentifierList.parse(map['DocumentIdentifiers']) unless map['DocumentIdentifiers'].nil?)
+        data.document_identifiers = (DocumentIdentifierList.parse(map['DocumentIdentifiers']) unless map['DocumentIdentifiers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4539,7 +4541,7 @@ module AWS::SDK::SSM
     class DocumentIdentifierList
       def self.parse(list)
         list.map do |value|
-          Parsers::DocumentIdentifier.parse(value) unless value.nil?
+          DocumentIdentifier.parse(value) unless value.nil?
         end
       end
     end
@@ -4552,14 +4554,14 @@ module AWS::SDK::SSM
         data.display_name = map['DisplayName']
         data.owner = map['Owner']
         data.version_name = map['VersionName']
-        data.platform_types = (Parsers::PlatformTypeList.parse(map['PlatformTypes']) unless map['PlatformTypes'].nil?)
+        data.platform_types = (PlatformTypeList.parse(map['PlatformTypes']) unless map['PlatformTypes'].nil?)
         data.document_version = map['DocumentVersion']
         data.document_type = map['DocumentType']
         data.schema_version = map['SchemaVersion']
         data.document_format = map['DocumentFormat']
         data.target_type = map['TargetType']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
-        data.requires = (Parsers::DocumentRequiresList.parse(map['Requires']) unless map['Requires'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.requires = (DocumentRequiresList.parse(map['Requires']) unless map['Requires'].nil?)
         data.review_status = map['ReviewStatus']
         data.author = map['Author']
         return data
@@ -4577,7 +4579,7 @@ module AWS::SDK::SSM
         data.instance_id = map['InstanceId']
         data.schema_version = map['SchemaVersion']
         data.capture_time = map['CaptureTime']
-        data.entries = (Parsers::InventoryItemEntryList.parse(map['Entries']) unless map['Entries'].nil?)
+        data.entries = (InventoryItemEntryList.parse(map['Entries']) unless map['Entries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4591,7 +4593,7 @@ module AWS::SDK::SSM
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.summaries = (Parsers::OpsItemEventSummaries.parse(map['Summaries']) unless map['Summaries'].nil?)
+        data.summaries = (OpsItemEventSummaries.parse(map['Summaries']) unless map['Summaries'].nil?)
         data
       end
     end
@@ -4599,7 +4601,7 @@ module AWS::SDK::SSM
     class OpsItemEventSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::OpsItemEventSummary.parse(value) unless value.nil?
+          OpsItemEventSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -4612,7 +4614,7 @@ module AWS::SDK::SSM
         data.source = map['Source']
         data.detail_type = map['DetailType']
         data.detail = map['Detail']
-        data.created_by = (Parsers::OpsItemIdentity.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (OpsItemIdentity.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
         return data
       end
@@ -4634,7 +4636,7 @@ module AWS::SDK::SSM
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.summaries = (Parsers::OpsItemRelatedItemSummaries.parse(map['Summaries']) unless map['Summaries'].nil?)
+        data.summaries = (OpsItemRelatedItemSummaries.parse(map['Summaries']) unless map['Summaries'].nil?)
         data
       end
     end
@@ -4642,7 +4644,7 @@ module AWS::SDK::SSM
     class OpsItemRelatedItemSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::OpsItemRelatedItemSummary.parse(value) unless value.nil?
+          OpsItemRelatedItemSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -4655,9 +4657,9 @@ module AWS::SDK::SSM
         data.resource_type = map['ResourceType']
         data.association_type = map['AssociationType']
         data.resource_uri = map['ResourceUri']
-        data.created_by = (Parsers::OpsItemIdentity.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (OpsItemIdentity.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
-        data.last_modified_by = (Parsers::OpsItemIdentity.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
+        data.last_modified_by = (OpsItemIdentity.parse(map['LastModifiedBy']) unless map['LastModifiedBy'].nil?)
         data.last_modified_time = Time.at(map['LastModifiedTime'].to_i) if map['LastModifiedTime']
         return data
       end
@@ -4670,7 +4672,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ops_metadata_list = (Parsers::OpsMetadataList.parse(map['OpsMetadataList']) unless map['OpsMetadataList'].nil?)
+        data.ops_metadata_list = (OpsMetadataList.parse(map['OpsMetadataList']) unless map['OpsMetadataList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4679,7 +4681,7 @@ module AWS::SDK::SSM
     class OpsMetadataList
       def self.parse(list)
         list.map do |value|
-          Parsers::OpsMetadata.parse(value) unless value.nil?
+          OpsMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -4703,7 +4705,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_compliance_summary_items = (Parsers::ResourceComplianceSummaryItemList.parse(map['ResourceComplianceSummaryItems']) unless map['ResourceComplianceSummaryItems'].nil?)
+        data.resource_compliance_summary_items = (ResourceComplianceSummaryItemList.parse(map['ResourceComplianceSummaryItems']) unless map['ResourceComplianceSummaryItems'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4712,7 +4714,7 @@ module AWS::SDK::SSM
     class ResourceComplianceSummaryItemList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceComplianceSummaryItem.parse(value) unless value.nil?
+          ResourceComplianceSummaryItem.parse(value) unless value.nil?
         end
       end
     end
@@ -4725,9 +4727,9 @@ module AWS::SDK::SSM
         data.resource_id = map['ResourceId']
         data.status = map['Status']
         data.overall_severity = map['OverallSeverity']
-        data.execution_summary = (Parsers::ComplianceExecutionSummary.parse(map['ExecutionSummary']) unless map['ExecutionSummary'].nil?)
-        data.compliant_summary = (Parsers::CompliantSummary.parse(map['CompliantSummary']) unless map['CompliantSummary'].nil?)
-        data.non_compliant_summary = (Parsers::NonCompliantSummary.parse(map['NonCompliantSummary']) unless map['NonCompliantSummary'].nil?)
+        data.execution_summary = (ComplianceExecutionSummary.parse(map['ExecutionSummary']) unless map['ExecutionSummary'].nil?)
+        data.compliant_summary = (CompliantSummary.parse(map['CompliantSummary']) unless map['CompliantSummary'].nil?)
+        data.non_compliant_summary = (NonCompliantSummary.parse(map['NonCompliantSummary']) unless map['NonCompliantSummary'].nil?)
         return data
       end
     end
@@ -4739,7 +4741,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_data_sync_items = (Parsers::ResourceDataSyncItemList.parse(map['ResourceDataSyncItems']) unless map['ResourceDataSyncItems'].nil?)
+        data.resource_data_sync_items = (ResourceDataSyncItemList.parse(map['ResourceDataSyncItems']) unless map['ResourceDataSyncItems'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -4748,7 +4750,7 @@ module AWS::SDK::SSM
     class ResourceDataSyncItemList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceDataSyncItem.parse(value) unless value.nil?
+          ResourceDataSyncItem.parse(value) unless value.nil?
         end
       end
     end
@@ -4758,8 +4760,8 @@ module AWS::SDK::SSM
         data = Types::ResourceDataSyncItem.new
         data.sync_name = map['SyncName']
         data.sync_type = map['SyncType']
-        data.sync_source = (Parsers::ResourceDataSyncSourceWithState.parse(map['SyncSource']) unless map['SyncSource'].nil?)
-        data.s3_destination = (Parsers::ResourceDataSyncS3Destination.parse(map['S3Destination']) unless map['S3Destination'].nil?)
+        data.sync_source = (ResourceDataSyncSourceWithState.parse(map['SyncSource']) unless map['SyncSource'].nil?)
+        data.s3_destination = (ResourceDataSyncS3Destination.parse(map['S3Destination']) unless map['S3Destination'].nil?)
         data.last_sync_time = Time.at(map['LastSyncTime'].to_i) if map['LastSyncTime']
         data.last_successful_sync_time = Time.at(map['LastSuccessfulSyncTime'].to_i) if map['LastSuccessfulSyncTime']
         data.sync_last_modified_time = Time.at(map['SyncLastModifiedTime'].to_i) if map['SyncLastModifiedTime']
@@ -4778,7 +4780,7 @@ module AWS::SDK::SSM
         data.sync_format = map['SyncFormat']
         data.region = map['Region']
         data.awskms_key_arn = map['AWSKMSKeyARN']
-        data.destination_data_sharing = (Parsers::ResourceDataSyncDestinationDataSharing.parse(map['DestinationDataSharing']) unless map['DestinationDataSharing'].nil?)
+        data.destination_data_sharing = (ResourceDataSyncDestinationDataSharing.parse(map['DestinationDataSharing']) unless map['DestinationDataSharing'].nil?)
         return data
       end
     end
@@ -4795,8 +4797,8 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = Types::ResourceDataSyncSourceWithState.new
         data.source_type = map['SourceType']
-        data.aws_organizations_source = (Parsers::ResourceDataSyncAwsOrganizationsSource.parse(map['AwsOrganizationsSource']) unless map['AwsOrganizationsSource'].nil?)
-        data.source_regions = (Parsers::ResourceDataSyncSourceRegionList.parse(map['SourceRegions']) unless map['SourceRegions'].nil?)
+        data.aws_organizations_source = (ResourceDataSyncAwsOrganizationsSource.parse(map['AwsOrganizationsSource']) unless map['AwsOrganizationsSource'].nil?)
+        data.source_regions = (ResourceDataSyncSourceRegionList.parse(map['SourceRegions']) unless map['SourceRegions'].nil?)
         data.include_future_regions = map['IncludeFutureRegions']
         data.state = map['State']
         data.enable_all_ops_data_sources = map['EnableAllOpsDataSources']
@@ -4816,7 +4818,7 @@ module AWS::SDK::SSM
       def self.parse(map)
         data = Types::ResourceDataSyncAwsOrganizationsSource.new
         data.organization_source_type = map['OrganizationSourceType']
-        data.organizational_units = (Parsers::ResourceDataSyncOrganizationalUnitList.parse(map['OrganizationalUnits']) unless map['OrganizationalUnits'].nil?)
+        data.organizational_units = (ResourceDataSyncOrganizationalUnitList.parse(map['OrganizationalUnits']) unless map['OrganizationalUnits'].nil?)
         return data
       end
     end
@@ -4824,7 +4826,7 @@ module AWS::SDK::SSM
     class ResourceDataSyncOrganizationalUnitList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceDataSyncOrganizationalUnit.parse(value) unless value.nil?
+          ResourceDataSyncOrganizationalUnit.parse(value) unless value.nil?
         end
       end
     end
@@ -4844,7 +4846,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tag_list = (Parsers::TagList.parse(map['TagList']) unless map['TagList'].nil?)
+        data.tag_list = (TagList.parse(map['TagList']) unless map['TagList'].nil?)
         data
       end
     end
@@ -5267,7 +5269,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_setting = (Parsers::ServiceSetting.parse(map['ServiceSetting']) unless map['ServiceSetting'].nil?)
+        data.service_setting = (ServiceSetting.parse(map['ServiceSetting']) unless map['ServiceSetting'].nil?)
         data
       end
     end
@@ -5328,7 +5330,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.command = (Parsers::Command.parse(map['Command']) unless map['Command'].nil?)
+        data.command = (Command.parse(map['Command']) unless map['Command'].nil?)
         data
       end
     end
@@ -5543,8 +5545,8 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.removed_labels = (Parsers::ParameterLabelList.parse(map['RemovedLabels']) unless map['RemovedLabels'].nil?)
-        data.invalid_labels = (Parsers::ParameterLabelList.parse(map['InvalidLabels']) unless map['InvalidLabels'].nil?)
+        data.removed_labels = (ParameterLabelList.parse(map['RemovedLabels']) unless map['RemovedLabels'].nil?)
+        data.invalid_labels = (ParameterLabelList.parse(map['InvalidLabels']) unless map['InvalidLabels'].nil?)
         data
       end
     end
@@ -5556,7 +5558,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.association_description = (Parsers::AssociationDescription.parse(map['AssociationDescription']) unless map['AssociationDescription'].nil?)
+        data.association_description = (AssociationDescription.parse(map['AssociationDescription']) unless map['AssociationDescription'].nil?)
         data
       end
     end
@@ -5592,7 +5594,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.association_description = (Parsers::AssociationDescription.parse(map['AssociationDescription']) unless map['AssociationDescription'].nil?)
+        data.association_description = (AssociationDescription.parse(map['AssociationDescription']) unless map['AssociationDescription'].nil?)
         data
       end
     end
@@ -5615,7 +5617,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.document_description = (Parsers::DocumentDescription.parse(map['DocumentDescription']) unless map['DocumentDescription'].nil?)
+        data.document_description = (DocumentDescription.parse(map['DocumentDescription']) unless map['DocumentDescription'].nil?)
         data
       end
     end
@@ -5663,7 +5665,7 @@ module AWS::SDK::SSM
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.description = (Parsers::DocumentDefaultVersionDescription.parse(map['Description']) unless map['Description'].nil?)
+        data.description = (DocumentDefaultVersionDescription.parse(map['Description']) unless map['Description'].nil?)
         data
       end
     end
@@ -5721,7 +5723,7 @@ module AWS::SDK::SSM
         map = Hearth::JSON.load(body)
         data.window_id = map['WindowId']
         data.window_target_id = map['WindowTargetId']
-        data.targets = (Parsers::Targets.parse(map['Targets']) unless map['Targets'].nil?)
+        data.targets = (Targets.parse(map['Targets']) unless map['Targets'].nil?)
         data.owner_information = map['OwnerInformation']
         data.name = map['Name']
         data.description = map['Description']
@@ -5738,15 +5740,15 @@ module AWS::SDK::SSM
         map = Hearth::JSON.load(body)
         data.window_id = map['WindowId']
         data.window_task_id = map['WindowTaskId']
-        data.targets = (Parsers::Targets.parse(map['Targets']) unless map['Targets'].nil?)
+        data.targets = (Targets.parse(map['Targets']) unless map['Targets'].nil?)
         data.task_arn = map['TaskArn']
         data.service_role_arn = map['ServiceRoleArn']
-        data.task_parameters = (Parsers::MaintenanceWindowTaskParameters.parse(map['TaskParameters']) unless map['TaskParameters'].nil?)
-        data.task_invocation_parameters = (Parsers::MaintenanceWindowTaskInvocationParameters.parse(map['TaskInvocationParameters']) unless map['TaskInvocationParameters'].nil?)
+        data.task_parameters = (MaintenanceWindowTaskParameters.parse(map['TaskParameters']) unless map['TaskParameters'].nil?)
+        data.task_invocation_parameters = (MaintenanceWindowTaskInvocationParameters.parse(map['TaskInvocationParameters']) unless map['TaskInvocationParameters'].nil?)
         data.priority = map['Priority']
         data.max_concurrency = map['MaxConcurrency']
         data.max_errors = map['MaxErrors']
-        data.logging_info = (Parsers::LoggingInfo.parse(map['LoggingInfo']) unless map['LoggingInfo'].nil?)
+        data.logging_info = (LoggingInfo.parse(map['LoggingInfo']) unless map['LoggingInfo'].nil?)
         data.name = map['Name']
         data.description = map['Description']
         data.cutoff_behavior = map['CutoffBehavior']
@@ -5810,17 +5812,17 @@ module AWS::SDK::SSM
         data.baseline_id = map['BaselineId']
         data.name = map['Name']
         data.operating_system = map['OperatingSystem']
-        data.global_filters = (Parsers::PatchFilterGroup.parse(map['GlobalFilters']) unless map['GlobalFilters'].nil?)
-        data.approval_rules = (Parsers::PatchRuleGroup.parse(map['ApprovalRules']) unless map['ApprovalRules'].nil?)
-        data.approved_patches = (Parsers::PatchIdList.parse(map['ApprovedPatches']) unless map['ApprovedPatches'].nil?)
+        data.global_filters = (PatchFilterGroup.parse(map['GlobalFilters']) unless map['GlobalFilters'].nil?)
+        data.approval_rules = (PatchRuleGroup.parse(map['ApprovalRules']) unless map['ApprovalRules'].nil?)
+        data.approved_patches = (PatchIdList.parse(map['ApprovedPatches']) unless map['ApprovedPatches'].nil?)
         data.approved_patches_compliance_level = map['ApprovedPatchesComplianceLevel']
         data.approved_patches_enable_non_security = map['ApprovedPatchesEnableNonSecurity']
-        data.rejected_patches = (Parsers::PatchIdList.parse(map['RejectedPatches']) unless map['RejectedPatches'].nil?)
+        data.rejected_patches = (PatchIdList.parse(map['RejectedPatches']) unless map['RejectedPatches'].nil?)
         data.rejected_patches_action = map['RejectedPatchesAction']
         data.created_date = Time.at(map['CreatedDate'].to_i) if map['CreatedDate']
         data.modified_date = Time.at(map['ModifiedDate'].to_i) if map['ModifiedDate']
         data.description = map['Description']
-        data.sources = (Parsers::PatchSourceList.parse(map['Sources']) unless map['Sources'].nil?)
+        data.sources = (PatchSourceList.parse(map['Sources']) unless map['Sources'].nil?)
         data
       end
     end

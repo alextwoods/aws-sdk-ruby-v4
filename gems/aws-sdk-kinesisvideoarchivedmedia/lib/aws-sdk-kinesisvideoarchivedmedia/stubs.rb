@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::KinesisVideoArchivedMedia
   module Stubs
 
@@ -40,7 +42,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['DASHStreamingSessionURL'] = stub[:dash_streaming_session_url] unless stub[:dash_streaming_session_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -57,7 +59,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['HLSStreamingSessionURL'] = stub[:hls_streaming_session_url] unless stub[:hls_streaming_session_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -74,9 +76,9 @@ module AWS::SDK::KinesisVideoArchivedMedia
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Images'] = Stubs::Images.stub(stub[:images]) unless stub[:images].nil?
+        data['Images'] = Images.stub(stub[:images]) unless stub[:images].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -94,7 +96,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Image.stub(element) unless element.nil?
+          data << Image.stub(element) unless element.nil?
         end
         data
       end
@@ -152,9 +154,9 @@ module AWS::SDK::KinesisVideoArchivedMedia
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Fragments'] = Stubs::FragmentList.stub(stub[:fragments]) unless stub[:fragments].nil?
+        data['Fragments'] = FragmentList.stub(stub[:fragments]) unless stub[:fragments].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -172,7 +174,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Fragment.stub(element) unless element.nil?
+          data << Fragment.stub(element) unless element.nil?
         end
         data
       end

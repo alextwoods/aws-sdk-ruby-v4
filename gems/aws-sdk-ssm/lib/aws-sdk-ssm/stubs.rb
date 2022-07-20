@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::SSM
   module Stubs
 
@@ -19,7 +22,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -35,7 +38,7 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['AssociationId'] = stub[:association_id] unless stub[:association_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -49,7 +52,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -65,7 +68,7 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['WindowExecutionId'] = stub[:window_execution_id] unless stub[:window_execution_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -83,7 +86,7 @@ module AWS::SDK::SSM
         data = {}
         data['ActivationId'] = stub[:activation_id] unless stub[:activation_id].nil?
         data['ActivationCode'] = stub[:activation_code] unless stub[:activation_code].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -98,8 +101,8 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AssociationDescription'] = Stubs::AssociationDescription.stub(stub[:association_description]) unless stub[:association_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AssociationDescription'] = AssociationDescription.stub(stub[:association_description]) unless stub[:association_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -147,15 +150,15 @@ module AWS::SDK::SSM
         data['AssociationVersion'] = stub[:association_version] unless stub[:association_version].nil?
         data['Date'] = Hearth::TimeHelper.to_epoch_seconds(stub[:date]).to_i unless stub[:date].nil?
         data['LastUpdateAssociationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_association_date]).to_i unless stub[:last_update_association_date].nil?
-        data['Status'] = Stubs::AssociationStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['Overview'] = Stubs::AssociationOverview.stub(stub[:overview]) unless stub[:overview].nil?
+        data['Status'] = AssociationStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Overview'] = AssociationOverview.stub(stub[:overview]) unless stub[:overview].nil?
         data['DocumentVersion'] = stub[:document_version] unless stub[:document_version].nil?
         data['AutomationTargetParameterName'] = stub[:automation_target_parameter_name] unless stub[:automation_target_parameter_name].nil?
-        data['Parameters'] = Stubs::Parameters.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = Parameters.stub(stub[:parameters]) unless stub[:parameters].nil?
         data['AssociationId'] = stub[:association_id] unless stub[:association_id].nil?
-        data['Targets'] = Stubs::Targets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Targets'] = Targets.stub(stub[:targets]) unless stub[:targets].nil?
         data['ScheduleExpression'] = stub[:schedule_expression] unless stub[:schedule_expression].nil?
-        data['OutputLocation'] = Stubs::InstanceAssociationOutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
+        data['OutputLocation'] = InstanceAssociationOutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
         data['LastExecutionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_execution_date]).to_i unless stub[:last_execution_date].nil?
         data['LastSuccessfulExecutionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_successful_execution_date]).to_i unless stub[:last_successful_execution_date].nil?
         data['AssociationName'] = stub[:association_name] unless stub[:association_name].nil?
@@ -164,10 +167,10 @@ module AWS::SDK::SSM
         data['ComplianceSeverity'] = stub[:compliance_severity] unless stub[:compliance_severity].nil?
         data['SyncCompliance'] = stub[:sync_compliance] unless stub[:sync_compliance].nil?
         data['ApplyOnlyAtCronInterval'] = stub[:apply_only_at_cron_interval] unless stub[:apply_only_at_cron_interval].nil?
-        data['CalendarNames'] = Stubs::CalendarNameOrARNList.stub(stub[:calendar_names]) unless stub[:calendar_names].nil?
-        data['TargetLocations'] = Stubs::TargetLocations.stub(stub[:target_locations]) unless stub[:target_locations].nil?
+        data['CalendarNames'] = CalendarNameOrARNList.stub(stub[:calendar_names]) unless stub[:calendar_names].nil?
+        data['TargetLocations'] = TargetLocations.stub(stub[:target_locations]) unless stub[:target_locations].nil?
         data['ScheduleOffset'] = stub[:schedule_offset] unless stub[:schedule_offset].nil?
-        data['TargetMaps'] = Stubs::TargetMaps.stub(stub[:target_maps]) unless stub[:target_maps].nil?
+        data['TargetMaps'] = TargetMaps.stub(stub[:target_maps]) unless stub[:target_maps].nil?
         data
       end
     end
@@ -186,7 +189,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TargetMap.stub(element) unless element.nil?
+          data << TargetMap.stub(element) unless element.nil?
         end
         data
       end
@@ -206,7 +209,7 @@ module AWS::SDK::SSM
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::TargetMapValueList.stub(value) unless value.nil?
+          data[key] = TargetMapValueList.stub(value) unless value.nil?
         end
         data
       end
@@ -246,7 +249,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TargetLocation.stub(element) unless element.nil?
+          data << TargetLocation.stub(element) unless element.nil?
         end
         data
       end
@@ -269,8 +272,8 @@ module AWS::SDK::SSM
       def self.stub(stub)
         stub ||= Types::TargetLocation.new
         data = {}
-        data['Accounts'] = Stubs::Accounts.stub(stub[:accounts]) unless stub[:accounts].nil?
-        data['Regions'] = Stubs::Regions.stub(stub[:regions]) unless stub[:regions].nil?
+        data['Accounts'] = Accounts.stub(stub[:accounts]) unless stub[:accounts].nil?
+        data['Regions'] = Regions.stub(stub[:regions]) unless stub[:regions].nil?
         data['TargetLocationMaxConcurrency'] = stub[:target_location_max_concurrency] unless stub[:target_location_max_concurrency].nil?
         data['TargetLocationMaxErrors'] = stub[:target_location_max_errors] unless stub[:target_location_max_errors].nil?
         data['ExecutionRoleName'] = stub[:execution_role_name] unless stub[:execution_role_name].nil?
@@ -351,7 +354,7 @@ module AWS::SDK::SSM
       def self.stub(stub)
         stub ||= Types::InstanceAssociationOutputLocation.new
         data = {}
-        data['S3Location'] = Stubs::S3OutputLocation.stub(stub[:s3_location]) unless stub[:s3_location].nil?
+        data['S3Location'] = S3OutputLocation.stub(stub[:s3_location]) unless stub[:s3_location].nil?
         data
       end
     end
@@ -392,7 +395,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Target.stub(element) unless element.nil?
+          data << Target.stub(element) unless element.nil?
         end
         data
       end
@@ -413,7 +416,7 @@ module AWS::SDK::SSM
         stub ||= Types::Target.new
         data = {}
         data['Key'] = stub[:key] unless stub[:key].nil?
-        data['Values'] = Stubs::TargetValues.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = TargetValues.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -452,7 +455,7 @@ module AWS::SDK::SSM
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ParameterValueList.stub(value) unless value.nil?
+          data[key] = ParameterValueList.stub(value) unless value.nil?
         end
         data
       end
@@ -495,7 +498,7 @@ module AWS::SDK::SSM
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['DetailedStatus'] = stub[:detailed_status] unless stub[:detailed_status].nil?
-        data['AssociationStatusAggregatedCount'] = Stubs::AssociationStatusAggregatedCount.stub(stub[:association_status_aggregated_count]) unless stub[:association_status_aggregated_count].nil?
+        data['AssociationStatusAggregatedCount'] = AssociationStatusAggregatedCount.stub(stub[:association_status_aggregated_count]) unless stub[:association_status_aggregated_count].nil?
         data
       end
     end
@@ -555,9 +558,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Successful'] = Stubs::AssociationDescriptionList.stub(stub[:successful]) unless stub[:successful].nil?
-        data['Failed'] = Stubs::FailedCreateAssociationList.stub(stub[:failed]) unless stub[:failed].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Successful'] = AssociationDescriptionList.stub(stub[:successful]) unless stub[:successful].nil?
+        data['Failed'] = FailedCreateAssociationList.stub(stub[:failed]) unless stub[:failed].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -576,7 +579,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedCreateAssociation.stub(element) unless element.nil?
+          data << FailedCreateAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -597,7 +600,7 @@ module AWS::SDK::SSM
       def self.stub(stub)
         stub ||= Types::FailedCreateAssociation.new
         data = {}
-        data['Entry'] = Stubs::CreateAssociationBatchRequestEntry.stub(stub[:entry]) unless stub[:entry].nil?
+        data['Entry'] = CreateAssociationBatchRequestEntry.stub(stub[:entry]) unless stub[:entry].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['Fault'] = stub[:fault] unless stub[:fault].nil?
         data
@@ -636,22 +639,22 @@ module AWS::SDK::SSM
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['InstanceId'] = stub[:instance_id] unless stub[:instance_id].nil?
-        data['Parameters'] = Stubs::Parameters.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = Parameters.stub(stub[:parameters]) unless stub[:parameters].nil?
         data['AutomationTargetParameterName'] = stub[:automation_target_parameter_name] unless stub[:automation_target_parameter_name].nil?
         data['DocumentVersion'] = stub[:document_version] unless stub[:document_version].nil?
-        data['Targets'] = Stubs::Targets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Targets'] = Targets.stub(stub[:targets]) unless stub[:targets].nil?
         data['ScheduleExpression'] = stub[:schedule_expression] unless stub[:schedule_expression].nil?
-        data['OutputLocation'] = Stubs::InstanceAssociationOutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
+        data['OutputLocation'] = InstanceAssociationOutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
         data['AssociationName'] = stub[:association_name] unless stub[:association_name].nil?
         data['MaxErrors'] = stub[:max_errors] unless stub[:max_errors].nil?
         data['MaxConcurrency'] = stub[:max_concurrency] unless stub[:max_concurrency].nil?
         data['ComplianceSeverity'] = stub[:compliance_severity] unless stub[:compliance_severity].nil?
         data['SyncCompliance'] = stub[:sync_compliance] unless stub[:sync_compliance].nil?
         data['ApplyOnlyAtCronInterval'] = stub[:apply_only_at_cron_interval] unless stub[:apply_only_at_cron_interval].nil?
-        data['CalendarNames'] = Stubs::CalendarNameOrARNList.stub(stub[:calendar_names]) unless stub[:calendar_names].nil?
-        data['TargetLocations'] = Stubs::TargetLocations.stub(stub[:target_locations]) unless stub[:target_locations].nil?
+        data['CalendarNames'] = CalendarNameOrARNList.stub(stub[:calendar_names]) unless stub[:calendar_names].nil?
+        data['TargetLocations'] = TargetLocations.stub(stub[:target_locations]) unless stub[:target_locations].nil?
         data['ScheduleOffset'] = stub[:schedule_offset] unless stub[:schedule_offset].nil?
-        data['TargetMaps'] = Stubs::TargetMaps.stub(stub[:target_maps]) unless stub[:target_maps].nil?
+        data['TargetMaps'] = TargetMaps.stub(stub[:target_maps]) unless stub[:target_maps].nil?
         data
       end
     end
@@ -670,7 +673,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssociationDescription.stub(element) unless element.nil?
+          data << AssociationDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -686,8 +689,8 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DocumentDescription'] = Stubs::DocumentDescription.stub(stub[:document_description]) unless stub[:document_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DocumentDescription'] = DocumentDescription.stub(stub[:document_description]) unless stub[:document_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -746,24 +749,24 @@ module AWS::SDK::SSM
         data['StatusInformation'] = stub[:status_information] unless stub[:status_information].nil?
         data['DocumentVersion'] = stub[:document_version] unless stub[:document_version].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Parameters'] = Stubs::DocumentParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
-        data['PlatformTypes'] = Stubs::PlatformTypeList.stub(stub[:platform_types]) unless stub[:platform_types].nil?
+        data['Parameters'] = DocumentParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['PlatformTypes'] = PlatformTypeList.stub(stub[:platform_types]) unless stub[:platform_types].nil?
         data['DocumentType'] = stub[:document_type] unless stub[:document_type].nil?
         data['SchemaVersion'] = stub[:schema_version] unless stub[:schema_version].nil?
         data['LatestVersion'] = stub[:latest_version] unless stub[:latest_version].nil?
         data['DefaultVersion'] = stub[:default_version] unless stub[:default_version].nil?
         data['DocumentFormat'] = stub[:document_format] unless stub[:document_format].nil?
         data['TargetType'] = stub[:target_type] unless stub[:target_type].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['AttachmentsInformation'] = Stubs::AttachmentInformationList.stub(stub[:attachments_information]) unless stub[:attachments_information].nil?
-        data['Requires'] = Stubs::DocumentRequiresList.stub(stub[:requires]) unless stub[:requires].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['AttachmentsInformation'] = AttachmentInformationList.stub(stub[:attachments_information]) unless stub[:attachments_information].nil?
+        data['Requires'] = DocumentRequiresList.stub(stub[:requires]) unless stub[:requires].nil?
         data['Author'] = stub[:author] unless stub[:author].nil?
-        data['ReviewInformation'] = Stubs::ReviewInformationList.stub(stub[:review_information]) unless stub[:review_information].nil?
+        data['ReviewInformation'] = ReviewInformationList.stub(stub[:review_information]) unless stub[:review_information].nil?
         data['ApprovedVersion'] = stub[:approved_version] unless stub[:approved_version].nil?
         data['PendingReviewVersion'] = stub[:pending_review_version] unless stub[:pending_review_version].nil?
         data['ReviewStatus'] = stub[:review_status] unless stub[:review_status].nil?
-        data['Category'] = Stubs::CategoryList.stub(stub[:category]) unless stub[:category].nil?
-        data['CategoryEnum'] = Stubs::CategoryEnumList.stub(stub[:category_enum]) unless stub[:category_enum].nil?
+        data['Category'] = CategoryList.stub(stub[:category]) unless stub[:category].nil?
+        data['CategoryEnum'] = CategoryEnumList.stub(stub[:category_enum]) unless stub[:category_enum].nil?
         data
       end
     end
@@ -822,7 +825,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReviewInformation.stub(element) unless element.nil?
+          data << ReviewInformation.stub(element) unless element.nil?
         end
         data
       end
@@ -864,7 +867,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentRequires.stub(element) unless element.nil?
+          data << DocumentRequires.stub(element) unless element.nil?
         end
         data
       end
@@ -904,7 +907,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttachmentInformation.stub(element) unless element.nil?
+          data << AttachmentInformation.stub(element) unless element.nil?
         end
         data
       end
@@ -942,7 +945,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1002,7 +1005,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentParameter.stub(element) unless element.nil?
+          data << DocumentParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -1043,7 +1046,7 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['WindowId'] = stub[:window_id] unless stub[:window_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1059,7 +1062,7 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['OpsItemId'] = stub[:ops_item_id] unless stub[:ops_item_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1075,7 +1078,7 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['OpsMetadataArn'] = stub[:ops_metadata_arn] unless stub[:ops_metadata_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1091,7 +1094,7 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['BaselineId'] = stub[:baseline_id] unless stub[:baseline_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1105,7 +1108,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1119,7 +1122,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1133,7 +1136,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1147,7 +1150,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1166,8 +1169,8 @@ module AWS::SDK::SSM
         data = {}
         data['DeletionId'] = stub[:deletion_id] unless stub[:deletion_id].nil?
         data['TypeName'] = stub[:type_name] unless stub[:type_name].nil?
-        data['DeletionSummary'] = Stubs::InventoryDeletionSummary.stub(stub[:deletion_summary]) unless stub[:deletion_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeletionSummary'] = InventoryDeletionSummary.stub(stub[:deletion_summary]) unless stub[:deletion_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1189,7 +1192,7 @@ module AWS::SDK::SSM
         data = {}
         data['TotalCount'] = stub[:total_count] unless stub[:total_count].nil?
         data['RemainingCount'] = stub[:remaining_count] unless stub[:remaining_count].nil?
-        data['SummaryItems'] = Stubs::InventoryDeletionSummaryItems.stub(stub[:summary_items]) unless stub[:summary_items].nil?
+        data['SummaryItems'] = InventoryDeletionSummaryItems.stub(stub[:summary_items]) unless stub[:summary_items].nil?
         data
       end
     end
@@ -1208,7 +1211,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InventoryDeletionSummaryItem.stub(element) unless element.nil?
+          data << InventoryDeletionSummaryItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1247,7 +1250,7 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['WindowId'] = stub[:window_id] unless stub[:window_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1261,7 +1264,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1275,7 +1278,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1291,9 +1294,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DeletedParameters'] = Stubs::ParameterNameList.stub(stub[:deleted_parameters]) unless stub[:deleted_parameters].nil?
-        data['InvalidParameters'] = Stubs::ParameterNameList.stub(stub[:invalid_parameters]) unless stub[:invalid_parameters].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeletedParameters'] = ParameterNameList.stub(stub[:deleted_parameters]) unless stub[:deleted_parameters].nil?
+        data['InvalidParameters'] = ParameterNameList.stub(stub[:invalid_parameters]) unless stub[:invalid_parameters].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1329,7 +1332,7 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['BaselineId'] = stub[:baseline_id] unless stub[:baseline_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1343,7 +1346,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1357,7 +1360,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1375,7 +1378,7 @@ module AWS::SDK::SSM
         data = {}
         data['BaselineId'] = stub[:baseline_id] unless stub[:baseline_id].nil?
         data['PatchGroup'] = stub[:patch_group] unless stub[:patch_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1393,7 +1396,7 @@ module AWS::SDK::SSM
         data = {}
         data['WindowId'] = stub[:window_id] unless stub[:window_id].nil?
         data['WindowTargetId'] = stub[:window_target_id] unless stub[:window_target_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1411,7 +1414,7 @@ module AWS::SDK::SSM
         data = {}
         data['WindowId'] = stub[:window_id] unless stub[:window_id].nil?
         data['WindowTaskId'] = stub[:window_task_id] unless stub[:window_task_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1427,9 +1430,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ActivationList'] = Stubs::ActivationList.stub(stub[:activation_list]) unless stub[:activation_list].nil?
+        data['ActivationList'] = ActivationList.stub(stub[:activation_list]) unless stub[:activation_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1448,7 +1451,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Activation.stub(element) unless element.nil?
+          data << Activation.stub(element) unless element.nil?
         end
         data
       end
@@ -1485,7 +1488,7 @@ module AWS::SDK::SSM
         data['ExpirationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration_date]).to_i unless stub[:expiration_date].nil?
         data['Expired'] = stub[:expired] unless stub[:expired].nil?
         data['CreatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1500,8 +1503,8 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AssociationDescription'] = Stubs::AssociationDescription.stub(stub[:association_description]) unless stub[:association_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AssociationDescription'] = AssociationDescription.stub(stub[:association_description]) unless stub[:association_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1517,9 +1520,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AssociationExecutionTargets'] = Stubs::AssociationExecutionTargetsList.stub(stub[:association_execution_targets]) unless stub[:association_execution_targets].nil?
+        data['AssociationExecutionTargets'] = AssociationExecutionTargetsList.stub(stub[:association_execution_targets]) unless stub[:association_execution_targets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1538,7 +1541,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssociationExecutionTarget.stub(element) unless element.nil?
+          data << AssociationExecutionTarget.stub(element) unless element.nil?
         end
         data
       end
@@ -1573,7 +1576,7 @@ module AWS::SDK::SSM
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['DetailedStatus'] = stub[:detailed_status] unless stub[:detailed_status].nil?
         data['LastExecutionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_execution_date]).to_i unless stub[:last_execution_date].nil?
-        data['OutputSource'] = Stubs::OutputSource.stub(stub[:output_source]) unless stub[:output_source].nil?
+        data['OutputSource'] = OutputSource.stub(stub[:output_source]) unless stub[:output_source].nil?
         data
       end
     end
@@ -1609,9 +1612,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AssociationExecutions'] = Stubs::AssociationExecutionsList.stub(stub[:association_executions]) unless stub[:association_executions].nil?
+        data['AssociationExecutions'] = AssociationExecutionsList.stub(stub[:association_executions]) unless stub[:association_executions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1630,7 +1633,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssociationExecution.stub(element) unless element.nil?
+          data << AssociationExecution.stub(element) unless element.nil?
         end
         data
       end
@@ -1679,9 +1682,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AutomationExecutionMetadataList'] = Stubs::AutomationExecutionMetadataList.stub(stub[:automation_execution_metadata_list]) unless stub[:automation_execution_metadata_list].nil?
+        data['AutomationExecutionMetadataList'] = AutomationExecutionMetadataList.stub(stub[:automation_execution_metadata_list]) unless stub[:automation_execution_metadata_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1700,7 +1703,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutomationExecutionMetadata.stub(element) unless element.nil?
+          data << AutomationExecutionMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1754,23 +1757,23 @@ module AWS::SDK::SSM
         data['ExecutionEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:execution_end_time]).to_i unless stub[:execution_end_time].nil?
         data['ExecutedBy'] = stub[:executed_by] unless stub[:executed_by].nil?
         data['LogFile'] = stub[:log_file] unless stub[:log_file].nil?
-        data['Outputs'] = Stubs::AutomationParameterMap.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['Outputs'] = AutomationParameterMap.stub(stub[:outputs]) unless stub[:outputs].nil?
         data['Mode'] = stub[:mode] unless stub[:mode].nil?
         data['ParentAutomationExecutionId'] = stub[:parent_automation_execution_id] unless stub[:parent_automation_execution_id].nil?
         data['CurrentStepName'] = stub[:current_step_name] unless stub[:current_step_name].nil?
         data['CurrentAction'] = stub[:current_action] unless stub[:current_action].nil?
         data['FailureMessage'] = stub[:failure_message] unless stub[:failure_message].nil?
         data['TargetParameterName'] = stub[:target_parameter_name] unless stub[:target_parameter_name].nil?
-        data['Targets'] = Stubs::Targets.stub(stub[:targets]) unless stub[:targets].nil?
-        data['TargetMaps'] = Stubs::TargetMaps.stub(stub[:target_maps]) unless stub[:target_maps].nil?
-        data['ResolvedTargets'] = Stubs::ResolvedTargets.stub(stub[:resolved_targets]) unless stub[:resolved_targets].nil?
+        data['Targets'] = Targets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['TargetMaps'] = TargetMaps.stub(stub[:target_maps]) unless stub[:target_maps].nil?
+        data['ResolvedTargets'] = ResolvedTargets.stub(stub[:resolved_targets]) unless stub[:resolved_targets].nil?
         data['MaxConcurrency'] = stub[:max_concurrency] unless stub[:max_concurrency].nil?
         data['MaxErrors'] = stub[:max_errors] unless stub[:max_errors].nil?
         data['Target'] = stub[:target] unless stub[:target].nil?
         data['AutomationType'] = stub[:automation_type] unless stub[:automation_type].nil?
         data['AutomationSubtype'] = stub[:automation_subtype] unless stub[:automation_subtype].nil?
         data['ScheduledTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:scheduled_time]).to_i unless stub[:scheduled_time].nil?
-        data['Runbooks'] = Stubs::Runbooks.stub(stub[:runbooks]) unless stub[:runbooks].nil?
+        data['Runbooks'] = Runbooks.stub(stub[:runbooks]) unless stub[:runbooks].nil?
         data['OpsItemId'] = stub[:ops_item_id] unless stub[:ops_item_id].nil?
         data['AssociationId'] = stub[:association_id] unless stub[:association_id].nil?
         data['ChangeRequestName'] = stub[:change_request_name] unless stub[:change_request_name].nil?
@@ -1792,7 +1795,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Runbook.stub(element) unless element.nil?
+          data << Runbook.stub(element) unless element.nil?
         end
         data
       end
@@ -1821,13 +1824,13 @@ module AWS::SDK::SSM
         data = {}
         data['DocumentName'] = stub[:document_name] unless stub[:document_name].nil?
         data['DocumentVersion'] = stub[:document_version] unless stub[:document_version].nil?
-        data['Parameters'] = Stubs::AutomationParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = AutomationParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data['TargetParameterName'] = stub[:target_parameter_name] unless stub[:target_parameter_name].nil?
-        data['Targets'] = Stubs::Targets.stub(stub[:targets]) unless stub[:targets].nil?
-        data['TargetMaps'] = Stubs::TargetMaps.stub(stub[:target_maps]) unless stub[:target_maps].nil?
+        data['Targets'] = Targets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['TargetMaps'] = TargetMaps.stub(stub[:target_maps]) unless stub[:target_maps].nil?
         data['MaxConcurrency'] = stub[:max_concurrency] unless stub[:max_concurrency].nil?
         data['MaxErrors'] = stub[:max_errors] unless stub[:max_errors].nil?
-        data['TargetLocations'] = Stubs::TargetLocations.stub(stub[:target_locations]) unless stub[:target_locations].nil?
+        data['TargetLocations'] = TargetLocations.stub(stub[:target_locations]) unless stub[:target_locations].nil?
         data
       end
     end
@@ -1846,7 +1849,7 @@ module AWS::SDK::SSM
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::AutomationParameterValueList.stub(value) unless value.nil?
+          data[key] = AutomationParameterValueList.stub(value) unless value.nil?
         end
         data
       end
@@ -1886,7 +1889,7 @@ module AWS::SDK::SSM
       def self.stub(stub)
         stub ||= Types::ResolvedTargets.new
         data = {}
-        data['ParameterValues'] = Stubs::TargetParameterList.stub(stub[:parameter_values]) unless stub[:parameter_values].nil?
+        data['ParameterValues'] = TargetParameterList.stub(stub[:parameter_values]) unless stub[:parameter_values].nil?
         data['Truncated'] = stub[:truncated] unless stub[:truncated].nil?
         data
       end
@@ -1923,9 +1926,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['StepExecutions'] = Stubs::StepExecutionList.stub(stub[:step_executions]) unless stub[:step_executions].nil?
+        data['StepExecutions'] = StepExecutionList.stub(stub[:step_executions]) unless stub[:step_executions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1944,7 +1947,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StepExecution.stub(element) unless element.nil?
+          data << StepExecution.stub(element) unless element.nil?
         end
         data
       end
@@ -1993,19 +1996,19 @@ module AWS::SDK::SSM
         data['ExecutionEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:execution_end_time]).to_i unless stub[:execution_end_time].nil?
         data['StepStatus'] = stub[:step_status] unless stub[:step_status].nil?
         data['ResponseCode'] = stub[:response_code] unless stub[:response_code].nil?
-        data['Inputs'] = Stubs::NormalStringMap.stub(stub[:inputs]) unless stub[:inputs].nil?
-        data['Outputs'] = Stubs::AutomationParameterMap.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['Inputs'] = NormalStringMap.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['Outputs'] = AutomationParameterMap.stub(stub[:outputs]) unless stub[:outputs].nil?
         data['Response'] = stub[:response] unless stub[:response].nil?
         data['FailureMessage'] = stub[:failure_message] unless stub[:failure_message].nil?
-        data['FailureDetails'] = Stubs::FailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
+        data['FailureDetails'] = FailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
         data['StepExecutionId'] = stub[:step_execution_id] unless stub[:step_execution_id].nil?
-        data['OverriddenParameters'] = Stubs::AutomationParameterMap.stub(stub[:overridden_parameters]) unless stub[:overridden_parameters].nil?
+        data['OverriddenParameters'] = AutomationParameterMap.stub(stub[:overridden_parameters]) unless stub[:overridden_parameters].nil?
         data['IsEnd'] = stub[:is_end] unless stub[:is_end].nil?
         data['NextStep'] = stub[:next_step] unless stub[:next_step].nil?
         data['IsCritical'] = stub[:is_critical] unless stub[:is_critical].nil?
-        data['ValidNextSteps'] = Stubs::ValidNextStepList.stub(stub[:valid_next_steps]) unless stub[:valid_next_steps].nil?
-        data['Targets'] = Stubs::Targets.stub(stub[:targets]) unless stub[:targets].nil?
-        data['TargetLocation'] = Stubs::TargetLocation.stub(stub[:target_location]) unless stub[:target_location].nil?
+        data['ValidNextSteps'] = ValidNextStepList.stub(stub[:valid_next_steps]) unless stub[:valid_next_steps].nil?
+        data['Targets'] = Targets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['TargetLocation'] = TargetLocation.stub(stub[:target_location]) unless stub[:target_location].nil?
         data
       end
     end
@@ -2047,7 +2050,7 @@ module AWS::SDK::SSM
         data = {}
         data['FailureStage'] = stub[:failure_stage] unless stub[:failure_stage].nil?
         data['FailureType'] = stub[:failure_type] unless stub[:failure_type].nil?
-        data['Details'] = Stubs::AutomationParameterMap.stub(stub[:details]) unless stub[:details].nil?
+        data['Details'] = AutomationParameterMap.stub(stub[:details]) unless stub[:details].nil?
         data
       end
     end
@@ -2083,9 +2086,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Patches'] = Stubs::PatchList.stub(stub[:patches]) unless stub[:patches].nil?
+        data['Patches'] = PatchList.stub(stub[:patches]) unless stub[:patches].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2104,7 +2107,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Patch.stub(element) unless element.nil?
+          data << Patch.stub(element) unless element.nil?
         end
         data
       end
@@ -2158,9 +2161,9 @@ module AWS::SDK::SSM
         data['KbNumber'] = stub[:kb_number] unless stub[:kb_number].nil?
         data['MsrcNumber'] = stub[:msrc_number] unless stub[:msrc_number].nil?
         data['Language'] = stub[:language] unless stub[:language].nil?
-        data['AdvisoryIds'] = Stubs::PatchAdvisoryIdList.stub(stub[:advisory_ids]) unless stub[:advisory_ids].nil?
-        data['BugzillaIds'] = Stubs::PatchBugzillaIdList.stub(stub[:bugzilla_ids]) unless stub[:bugzilla_ids].nil?
-        data['CVEIds'] = Stubs::PatchCVEIdList.stub(stub[:cve_ids]) unless stub[:cve_ids].nil?
+        data['AdvisoryIds'] = PatchAdvisoryIdList.stub(stub[:advisory_ids]) unless stub[:advisory_ids].nil?
+        data['BugzillaIds'] = PatchBugzillaIdList.stub(stub[:bugzilla_ids]) unless stub[:bugzilla_ids].nil?
+        data['CVEIds'] = PatchCVEIdList.stub(stub[:cve_ids]) unless stub[:cve_ids].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Epoch'] = stub[:epoch] unless stub[:epoch].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
@@ -2242,8 +2245,8 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Document'] = Stubs::DocumentDescription.stub(stub[:document]) unless stub[:document].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Document'] = DocumentDescription.stub(stub[:document]) unless stub[:document].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2260,10 +2263,10 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AccountIds'] = Stubs::AccountIdList.stub(stub[:account_ids]) unless stub[:account_ids].nil?
-        data['AccountSharingInfoList'] = Stubs::AccountSharingInfoList.stub(stub[:account_sharing_info_list]) unless stub[:account_sharing_info_list].nil?
+        data['AccountIds'] = AccountIdList.stub(stub[:account_ids]) unless stub[:account_ids].nil?
+        data['AccountSharingInfoList'] = AccountSharingInfoList.stub(stub[:account_sharing_info_list]) unless stub[:account_sharing_info_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2282,7 +2285,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccountSharingInfo.stub(element) unless element.nil?
+          data << AccountSharingInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -2339,9 +2342,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Associations'] = Stubs::InstanceAssociationList.stub(stub[:associations]) unless stub[:associations].nil?
+        data['Associations'] = InstanceAssociationList.stub(stub[:associations]) unless stub[:associations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2360,7 +2363,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceAssociation.stub(element) unless element.nil?
+          data << InstanceAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -2401,9 +2404,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EffectivePatches'] = Stubs::EffectivePatchList.stub(stub[:effective_patches]) unless stub[:effective_patches].nil?
+        data['EffectivePatches'] = EffectivePatchList.stub(stub[:effective_patches]) unless stub[:effective_patches].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2422,7 +2425,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EffectivePatch.stub(element) unless element.nil?
+          data << EffectivePatch.stub(element) unless element.nil?
         end
         data
       end
@@ -2442,8 +2445,8 @@ module AWS::SDK::SSM
       def self.stub(stub)
         stub ||= Types::EffectivePatch.new
         data = {}
-        data['Patch'] = Stubs::Patch.stub(stub[:patch]) unless stub[:patch].nil?
-        data['PatchStatus'] = Stubs::PatchStatus.stub(stub[:patch_status]) unless stub[:patch_status].nil?
+        data['Patch'] = Patch.stub(stub[:patch]) unless stub[:patch].nil?
+        data['PatchStatus'] = PatchStatus.stub(stub[:patch_status]) unless stub[:patch_status].nil?
         data
       end
     end
@@ -2481,9 +2484,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['InstanceAssociationStatusInfos'] = Stubs::InstanceAssociationStatusInfos.stub(stub[:instance_association_status_infos]) unless stub[:instance_association_status_infos].nil?
+        data['InstanceAssociationStatusInfos'] = InstanceAssociationStatusInfos.stub(stub[:instance_association_status_infos]) unless stub[:instance_association_status_infos].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2502,7 +2505,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceAssociationStatusInfo.stub(element) unless element.nil?
+          data << InstanceAssociationStatusInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -2542,7 +2545,7 @@ module AWS::SDK::SSM
         data['DetailedStatus'] = stub[:detailed_status] unless stub[:detailed_status].nil?
         data['ExecutionSummary'] = stub[:execution_summary] unless stub[:execution_summary].nil?
         data['ErrorCode'] = stub[:error_code] unless stub[:error_code].nil?
-        data['OutputUrl'] = Stubs::InstanceAssociationOutputUrl.stub(stub[:output_url]) unless stub[:output_url].nil?
+        data['OutputUrl'] = InstanceAssociationOutputUrl.stub(stub[:output_url]) unless stub[:output_url].nil?
         data['AssociationName'] = stub[:association_name] unless stub[:association_name].nil?
         data
       end
@@ -2561,7 +2564,7 @@ module AWS::SDK::SSM
       def self.stub(stub)
         stub ||= Types::InstanceAssociationOutputUrl.new
         data = {}
-        data['S3OutputUrl'] = Stubs::S3OutputUrl.stub(stub[:s3_output_url]) unless stub[:s3_output_url].nil?
+        data['S3OutputUrl'] = S3OutputUrl.stub(stub[:s3_output_url]) unless stub[:s3_output_url].nil?
         data
       end
     end
@@ -2595,9 +2598,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['InstanceInformationList'] = Stubs::InstanceInformationList.stub(stub[:instance_information_list]) unless stub[:instance_information_list].nil?
+        data['InstanceInformationList'] = InstanceInformationList.stub(stub[:instance_information_list]) unless stub[:instance_information_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2616,7 +2619,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceInformation.stub(element) unless element.nil?
+          data << InstanceInformation.stub(element) unless element.nil?
         end
         data
       end
@@ -2673,7 +2676,7 @@ module AWS::SDK::SSM
         data['AssociationStatus'] = stub[:association_status] unless stub[:association_status].nil?
         data['LastAssociationExecutionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_association_execution_date]).to_i unless stub[:last_association_execution_date].nil?
         data['LastSuccessfulAssociationExecutionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_successful_association_execution_date]).to_i unless stub[:last_successful_association_execution_date].nil?
-        data['AssociationOverview'] = Stubs::InstanceAggregatedAssociationOverview.stub(stub[:association_overview]) unless stub[:association_overview].nil?
+        data['AssociationOverview'] = InstanceAggregatedAssociationOverview.stub(stub[:association_overview]) unless stub[:association_overview].nil?
         data['SourceId'] = stub[:source_id] unless stub[:source_id].nil?
         data['SourceType'] = stub[:source_type] unless stub[:source_type].nil?
         data
@@ -2695,7 +2698,7 @@ module AWS::SDK::SSM
         stub ||= Types::InstanceAggregatedAssociationOverview.new
         data = {}
         data['DetailedStatus'] = stub[:detailed_status] unless stub[:detailed_status].nil?
-        data['InstanceAssociationStatusAggregatedCount'] = Stubs::InstanceAssociationStatusAggregatedCount.stub(stub[:instance_association_status_aggregated_count]) unless stub[:instance_association_status_aggregated_count].nil?
+        data['InstanceAssociationStatusAggregatedCount'] = InstanceAssociationStatusAggregatedCount.stub(stub[:instance_association_status_aggregated_count]) unless stub[:instance_association_status_aggregated_count].nil?
         data
       end
     end
@@ -2731,9 +2734,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['InstancePatchStates'] = Stubs::InstancePatchStateList.stub(stub[:instance_patch_states]) unless stub[:instance_patch_states].nil?
+        data['InstancePatchStates'] = InstancePatchStateList.stub(stub[:instance_patch_states]) unless stub[:instance_patch_states].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2752,7 +2755,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstancePatchState.stub(element) unless element.nil?
+          data << InstancePatchState.stub(element) unless element.nil?
         end
         data
       end
@@ -2829,9 +2832,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['InstancePatchStates'] = Stubs::InstancePatchStatesList.stub(stub[:instance_patch_states]) unless stub[:instance_patch_states].nil?
+        data['InstancePatchStates'] = InstancePatchStatesList.stub(stub[:instance_patch_states]) unless stub[:instance_patch_states].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2850,7 +2853,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstancePatchState.stub(element) unless element.nil?
+          data << InstancePatchState.stub(element) unless element.nil?
         end
         data
       end
@@ -2867,9 +2870,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Patches'] = Stubs::PatchComplianceDataList.stub(stub[:patches]) unless stub[:patches].nil?
+        data['Patches'] = PatchComplianceDataList.stub(stub[:patches]) unless stub[:patches].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2888,7 +2891,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PatchComplianceData.stub(element) unless element.nil?
+          data << PatchComplianceData.stub(element) unless element.nil?
         end
         data
       end
@@ -2935,9 +2938,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['InventoryDeletions'] = Stubs::InventoryDeletionsList.stub(stub[:inventory_deletions]) unless stub[:inventory_deletions].nil?
+        data['InventoryDeletions'] = InventoryDeletionsList.stub(stub[:inventory_deletions]) unless stub[:inventory_deletions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2956,7 +2959,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InventoryDeletionStatusItem.stub(element) unless element.nil?
+          data << InventoryDeletionStatusItem.stub(element) unless element.nil?
         end
         data
       end
@@ -2986,7 +2989,7 @@ module AWS::SDK::SSM
         data['DeletionStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:deletion_start_time]).to_i unless stub[:deletion_start_time].nil?
         data['LastStatus'] = stub[:last_status] unless stub[:last_status].nil?
         data['LastStatusMessage'] = stub[:last_status_message] unless stub[:last_status_message].nil?
-        data['DeletionSummary'] = Stubs::InventoryDeletionSummary.stub(stub[:deletion_summary]) unless stub[:deletion_summary].nil?
+        data['DeletionSummary'] = InventoryDeletionSummary.stub(stub[:deletion_summary]) unless stub[:deletion_summary].nil?
         data['LastStatusUpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_status_update_time]).to_i unless stub[:last_status_update_time].nil?
         data
       end
@@ -3003,9 +3006,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['WindowExecutionTaskInvocationIdentities'] = Stubs::MaintenanceWindowExecutionTaskInvocationIdentityList.stub(stub[:window_execution_task_invocation_identities]) unless stub[:window_execution_task_invocation_identities].nil?
+        data['WindowExecutionTaskInvocationIdentities'] = MaintenanceWindowExecutionTaskInvocationIdentityList.stub(stub[:window_execution_task_invocation_identities]) unless stub[:window_execution_task_invocation_identities].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3024,7 +3027,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MaintenanceWindowExecutionTaskInvocationIdentity.stub(element) unless element.nil?
+          data << MaintenanceWindowExecutionTaskInvocationIdentity.stub(element) unless element.nil?
         end
         data
       end
@@ -3081,9 +3084,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['WindowExecutionTaskIdentities'] = Stubs::MaintenanceWindowExecutionTaskIdentityList.stub(stub[:window_execution_task_identities]) unless stub[:window_execution_task_identities].nil?
+        data['WindowExecutionTaskIdentities'] = MaintenanceWindowExecutionTaskIdentityList.stub(stub[:window_execution_task_identities]) unless stub[:window_execution_task_identities].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3102,7 +3105,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MaintenanceWindowExecutionTaskIdentity.stub(element) unless element.nil?
+          data << MaintenanceWindowExecutionTaskIdentity.stub(element) unless element.nil?
         end
         data
       end
@@ -3151,9 +3154,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['WindowExecutions'] = Stubs::MaintenanceWindowExecutionList.stub(stub[:window_executions]) unless stub[:window_executions].nil?
+        data['WindowExecutions'] = MaintenanceWindowExecutionList.stub(stub[:window_executions]) unless stub[:window_executions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3172,7 +3175,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MaintenanceWindowExecution.stub(element) unless element.nil?
+          data << MaintenanceWindowExecution.stub(element) unless element.nil?
         end
         data
       end
@@ -3217,9 +3220,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ScheduledWindowExecutions'] = Stubs::ScheduledWindowExecutionList.stub(stub[:scheduled_window_executions]) unless stub[:scheduled_window_executions].nil?
+        data['ScheduledWindowExecutions'] = ScheduledWindowExecutionList.stub(stub[:scheduled_window_executions]) unless stub[:scheduled_window_executions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3238,7 +3241,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScheduledWindowExecution.stub(element) unless element.nil?
+          data << ScheduledWindowExecution.stub(element) unless element.nil?
         end
         data
       end
@@ -3277,9 +3280,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Targets'] = Stubs::MaintenanceWindowTargetList.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Targets'] = MaintenanceWindowTargetList.stub(stub[:targets]) unless stub[:targets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3298,7 +3301,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MaintenanceWindowTarget.stub(element) unless element.nil?
+          data << MaintenanceWindowTarget.stub(element) unless element.nil?
         end
         data
       end
@@ -3326,7 +3329,7 @@ module AWS::SDK::SSM
         data['WindowId'] = stub[:window_id] unless stub[:window_id].nil?
         data['WindowTargetId'] = stub[:window_target_id] unless stub[:window_target_id].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['Targets'] = Stubs::Targets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Targets'] = Targets.stub(stub[:targets]) unless stub[:targets].nil?
         data['OwnerInformation'] = stub[:owner_information] unless stub[:owner_information].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
@@ -3345,9 +3348,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tasks'] = Stubs::MaintenanceWindowTaskList.stub(stub[:tasks]) unless stub[:tasks].nil?
+        data['Tasks'] = MaintenanceWindowTaskList.stub(stub[:tasks]) unless stub[:tasks].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3366,7 +3369,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MaintenanceWindowTask.stub(element) unless element.nil?
+          data << MaintenanceWindowTask.stub(element) unless element.nil?
         end
         data
       end
@@ -3402,10 +3405,10 @@ module AWS::SDK::SSM
         data['WindowTaskId'] = stub[:window_task_id] unless stub[:window_task_id].nil?
         data['TaskArn'] = stub[:task_arn] unless stub[:task_arn].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Targets'] = Stubs::Targets.stub(stub[:targets]) unless stub[:targets].nil?
-        data['TaskParameters'] = Stubs::MaintenanceWindowTaskParameters.stub(stub[:task_parameters]) unless stub[:task_parameters].nil?
+        data['Targets'] = Targets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['TaskParameters'] = MaintenanceWindowTaskParameters.stub(stub[:task_parameters]) unless stub[:task_parameters].nil?
         data['Priority'] = stub[:priority] unless stub[:priority].nil?
-        data['LoggingInfo'] = Stubs::LoggingInfo.stub(stub[:logging_info]) unless stub[:logging_info].nil?
+        data['LoggingInfo'] = LoggingInfo.stub(stub[:logging_info]) unless stub[:logging_info].nil?
         data['ServiceRoleArn'] = stub[:service_role_arn] unless stub[:service_role_arn].nil?
         data['MaxConcurrency'] = stub[:max_concurrency] unless stub[:max_concurrency].nil?
         data['MaxErrors'] = stub[:max_errors] unless stub[:max_errors].nil?
@@ -3452,7 +3455,7 @@ module AWS::SDK::SSM
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::MaintenanceWindowTaskParameterValueExpression.stub(value) unless value.nil?
+          data[key] = MaintenanceWindowTaskParameterValueExpression.stub(value) unless value.nil?
         end
         data
       end
@@ -3471,7 +3474,7 @@ module AWS::SDK::SSM
       def self.stub(stub)
         stub ||= Types::MaintenanceWindowTaskParameterValueExpression.new
         data = {}
-        data['Values'] = Stubs::MaintenanceWindowTaskParameterValueList.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = MaintenanceWindowTaskParameterValueList.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -3507,9 +3510,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['WindowIdentities'] = Stubs::MaintenanceWindowIdentityList.stub(stub[:window_identities]) unless stub[:window_identities].nil?
+        data['WindowIdentities'] = MaintenanceWindowIdentityList.stub(stub[:window_identities]) unless stub[:window_identities].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3528,7 +3531,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MaintenanceWindowIdentity.stub(element) unless element.nil?
+          data << MaintenanceWindowIdentity.stub(element) unless element.nil?
         end
         data
       end
@@ -3585,9 +3588,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['WindowIdentities'] = Stubs::MaintenanceWindowsForTargetList.stub(stub[:window_identities]) unless stub[:window_identities].nil?
+        data['WindowIdentities'] = MaintenanceWindowsForTargetList.stub(stub[:window_identities]) unless stub[:window_identities].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3606,7 +3609,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MaintenanceWindowIdentityForTarget.stub(element) unless element.nil?
+          data << MaintenanceWindowIdentityForTarget.stub(element) unless element.nil?
         end
         data
       end
@@ -3644,8 +3647,8 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['OpsItemSummaries'] = Stubs::OpsItemSummaries.stub(stub[:ops_item_summaries]) unless stub[:ops_item_summaries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OpsItemSummaries'] = OpsItemSummaries.stub(stub[:ops_item_summaries]) unless stub[:ops_item_summaries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3664,7 +3667,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OpsItemSummary.stub(element) unless element.nil?
+          data << OpsItemSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3708,7 +3711,7 @@ module AWS::SDK::SSM
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['OpsItemId'] = stub[:ops_item_id] unless stub[:ops_item_id].nil?
         data['Title'] = stub[:title] unless stub[:title].nil?
-        data['OperationalData'] = Stubs::OpsItemOperationalData.stub(stub[:operational_data]) unless stub[:operational_data].nil?
+        data['OperationalData'] = OpsItemOperationalData.stub(stub[:operational_data]) unless stub[:operational_data].nil?
         data['Category'] = stub[:category] unless stub[:category].nil?
         data['Severity'] = stub[:severity] unless stub[:severity].nil?
         data['OpsItemType'] = stub[:ops_item_type] unless stub[:ops_item_type].nil?
@@ -3734,7 +3737,7 @@ module AWS::SDK::SSM
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::OpsItemDataValue.stub(value) unless value.nil?
+          data[key] = OpsItemDataValue.stub(value) unless value.nil?
         end
         data
       end
@@ -3771,9 +3774,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Parameters'] = Stubs::ParameterMetadataList.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = ParameterMetadataList.stub(stub[:parameters]) unless stub[:parameters].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3792,7 +3795,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ParameterMetadata.stub(element) unless element.nil?
+          data << ParameterMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -3830,7 +3833,7 @@ module AWS::SDK::SSM
         data['AllowedPattern'] = stub[:allowed_pattern] unless stub[:allowed_pattern].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
         data['Tier'] = stub[:tier] unless stub[:tier].nil?
-        data['Policies'] = Stubs::ParameterPolicyList.stub(stub[:policies]) unless stub[:policies].nil?
+        data['Policies'] = ParameterPolicyList.stub(stub[:policies]) unless stub[:policies].nil?
         data['DataType'] = stub[:data_type] unless stub[:data_type].nil?
         data
       end
@@ -3850,7 +3853,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ParameterInlinePolicy.stub(element) unless element.nil?
+          data << ParameterInlinePolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -3889,9 +3892,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['BaselineIdentities'] = Stubs::PatchBaselineIdentityList.stub(stub[:baseline_identities]) unless stub[:baseline_identities].nil?
+        data['BaselineIdentities'] = PatchBaselineIdentityList.stub(stub[:baseline_identities]) unless stub[:baseline_identities].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3910,7 +3913,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PatchBaselineIdentity.stub(element) unless element.nil?
+          data << PatchBaselineIdentity.stub(element) unless element.nil?
         end
         data
       end
@@ -3975,7 +3978,7 @@ module AWS::SDK::SSM
         data['InstancesWithCriticalNonCompliantPatches'] = stub[:instances_with_critical_non_compliant_patches] unless stub[:instances_with_critical_non_compliant_patches].nil?
         data['InstancesWithSecurityNonCompliantPatches'] = stub[:instances_with_security_non_compliant_patches] unless stub[:instances_with_security_non_compliant_patches].nil?
         data['InstancesWithOtherNonCompliantPatches'] = stub[:instances_with_other_non_compliant_patches] unless stub[:instances_with_other_non_compliant_patches].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3991,9 +3994,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Mappings'] = Stubs::PatchGroupPatchBaselineMappingList.stub(stub[:mappings]) unless stub[:mappings].nil?
+        data['Mappings'] = PatchGroupPatchBaselineMappingList.stub(stub[:mappings]) unless stub[:mappings].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4012,7 +4015,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PatchGroupPatchBaselineMapping.stub(element) unless element.nil?
+          data << PatchGroupPatchBaselineMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -4033,7 +4036,7 @@ module AWS::SDK::SSM
         stub ||= Types::PatchGroupPatchBaselineMapping.new
         data = {}
         data['PatchGroup'] = stub[:patch_group] unless stub[:patch_group].nil?
-        data['BaselineIdentity'] = Stubs::PatchBaselineIdentity.stub(stub[:baseline_identity]) unless stub[:baseline_identity].nil?
+        data['BaselineIdentity'] = PatchBaselineIdentity.stub(stub[:baseline_identity]) unless stub[:baseline_identity].nil?
         data
       end
     end
@@ -4049,9 +4052,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Properties'] = Stubs::PatchPropertiesList.stub(stub[:properties]) unless stub[:properties].nil?
+        data['Properties'] = PatchPropertiesList.stub(stub[:properties]) unless stub[:properties].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4070,7 +4073,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PatchPropertyEntry.stub(element) unless element.nil?
+          data << PatchPropertyEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -4107,9 +4110,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Sessions'] = Stubs::SessionList.stub(stub[:sessions]) unless stub[:sessions].nil?
+        data['Sessions'] = SessionList.stub(stub[:sessions]) unless stub[:sessions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4128,7 +4131,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Session.stub(element) unless element.nil?
+          data << Session.stub(element) unless element.nil?
         end
         data
       end
@@ -4166,7 +4169,7 @@ module AWS::SDK::SSM
         data['Owner'] = stub[:owner] unless stub[:owner].nil?
         data['Reason'] = stub[:reason] unless stub[:reason].nil?
         data['Details'] = stub[:details] unless stub[:details].nil?
-        data['OutputUrl'] = Stubs::SessionManagerOutputUrl.stub(stub[:output_url]) unless stub[:output_url].nil?
+        data['OutputUrl'] = SessionManagerOutputUrl.stub(stub[:output_url]) unless stub[:output_url].nil?
         data['MaxSessionDuration'] = stub[:max_session_duration] unless stub[:max_session_duration].nil?
         data
       end
@@ -4201,7 +4204,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4216,8 +4219,8 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AutomationExecution'] = Stubs::AutomationExecution.stub(stub[:automation_execution]) unless stub[:automation_execution].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AutomationExecution'] = AutomationExecution.stub(stub[:automation_execution]) unless stub[:automation_execution].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4271,10 +4274,10 @@ module AWS::SDK::SSM
         data['ExecutionStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:execution_start_time]).to_i unless stub[:execution_start_time].nil?
         data['ExecutionEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:execution_end_time]).to_i unless stub[:execution_end_time].nil?
         data['AutomationExecutionStatus'] = stub[:automation_execution_status] unless stub[:automation_execution_status].nil?
-        data['StepExecutions'] = Stubs::StepExecutionList.stub(stub[:step_executions]) unless stub[:step_executions].nil?
+        data['StepExecutions'] = StepExecutionList.stub(stub[:step_executions]) unless stub[:step_executions].nil?
         data['StepExecutionsTruncated'] = stub[:step_executions_truncated] unless stub[:step_executions_truncated].nil?
-        data['Parameters'] = Stubs::AutomationParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
-        data['Outputs'] = Stubs::AutomationParameterMap.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['Parameters'] = AutomationParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Outputs'] = AutomationParameterMap.stub(stub[:outputs]) unless stub[:outputs].nil?
         data['FailureMessage'] = stub[:failure_message] unless stub[:failure_message].nil?
         data['Mode'] = stub[:mode] unless stub[:mode].nil?
         data['ParentAutomationExecutionId'] = stub[:parent_automation_execution_id] unless stub[:parent_automation_execution_id].nil?
@@ -4282,17 +4285,17 @@ module AWS::SDK::SSM
         data['CurrentStepName'] = stub[:current_step_name] unless stub[:current_step_name].nil?
         data['CurrentAction'] = stub[:current_action] unless stub[:current_action].nil?
         data['TargetParameterName'] = stub[:target_parameter_name] unless stub[:target_parameter_name].nil?
-        data['Targets'] = Stubs::Targets.stub(stub[:targets]) unless stub[:targets].nil?
-        data['TargetMaps'] = Stubs::TargetMaps.stub(stub[:target_maps]) unless stub[:target_maps].nil?
-        data['ResolvedTargets'] = Stubs::ResolvedTargets.stub(stub[:resolved_targets]) unless stub[:resolved_targets].nil?
+        data['Targets'] = Targets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['TargetMaps'] = TargetMaps.stub(stub[:target_maps]) unless stub[:target_maps].nil?
+        data['ResolvedTargets'] = ResolvedTargets.stub(stub[:resolved_targets]) unless stub[:resolved_targets].nil?
         data['MaxConcurrency'] = stub[:max_concurrency] unless stub[:max_concurrency].nil?
         data['MaxErrors'] = stub[:max_errors] unless stub[:max_errors].nil?
         data['Target'] = stub[:target] unless stub[:target].nil?
-        data['TargetLocations'] = Stubs::TargetLocations.stub(stub[:target_locations]) unless stub[:target_locations].nil?
-        data['ProgressCounters'] = Stubs::ProgressCounters.stub(stub[:progress_counters]) unless stub[:progress_counters].nil?
+        data['TargetLocations'] = TargetLocations.stub(stub[:target_locations]) unless stub[:target_locations].nil?
+        data['ProgressCounters'] = ProgressCounters.stub(stub[:progress_counters]) unless stub[:progress_counters].nil?
         data['AutomationSubtype'] = stub[:automation_subtype] unless stub[:automation_subtype].nil?
         data['ScheduledTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:scheduled_time]).to_i unless stub[:scheduled_time].nil?
-        data['Runbooks'] = Stubs::Runbooks.stub(stub[:runbooks]) unless stub[:runbooks].nil?
+        data['Runbooks'] = Runbooks.stub(stub[:runbooks]) unless stub[:runbooks].nil?
         data['OpsItemId'] = stub[:ops_item_id] unless stub[:ops_item_id].nil?
         data['AssociationId'] = stub[:association_id] unless stub[:association_id].nil?
         data['ChangeRequestName'] = stub[:change_request_name] unless stub[:change_request_name].nil?
@@ -4341,7 +4344,7 @@ module AWS::SDK::SSM
         data['State'] = stub[:state] unless stub[:state].nil?
         data['AtTime'] = stub[:at_time] unless stub[:at_time].nil?
         data['NextTransitionTime'] = stub[:next_transition_time] unless stub[:next_transition_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4388,8 +4391,8 @@ module AWS::SDK::SSM
         data['StandardOutputUrl'] = stub[:standard_output_url] unless stub[:standard_output_url].nil?
         data['StandardErrorContent'] = stub[:standard_error_content] unless stub[:standard_error_content].nil?
         data['StandardErrorUrl'] = stub[:standard_error_url] unless stub[:standard_error_url].nil?
-        data['CloudWatchOutputConfig'] = Stubs::CloudWatchOutputConfig.stub(stub[:cloud_watch_output_config]) unless stub[:cloud_watch_output_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CloudWatchOutputConfig'] = CloudWatchOutputConfig.stub(stub[:cloud_watch_output_config]) unless stub[:cloud_watch_output_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4427,7 +4430,7 @@ module AWS::SDK::SSM
         data = {}
         data['Target'] = stub[:target] unless stub[:target].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4445,7 +4448,7 @@ module AWS::SDK::SSM
         data = {}
         data['BaselineId'] = stub[:baseline_id] unless stub[:baseline_id].nil?
         data['OperatingSystem'] = stub[:operating_system] unless stub[:operating_system].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4467,7 +4470,7 @@ module AWS::SDK::SSM
         data['SnapshotId'] = stub[:snapshot_id] unless stub[:snapshot_id].nil?
         data['SnapshotDownloadUrl'] = stub[:snapshot_download_url] unless stub[:snapshot_download_url].nil?
         data['Product'] = stub[:product] unless stub[:product].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4504,10 +4507,10 @@ module AWS::SDK::SSM
         data['Content'] = stub[:content] unless stub[:content].nil?
         data['DocumentType'] = stub[:document_type] unless stub[:document_type].nil?
         data['DocumentFormat'] = stub[:document_format] unless stub[:document_format].nil?
-        data['Requires'] = Stubs::DocumentRequiresList.stub(stub[:requires]) unless stub[:requires].nil?
-        data['AttachmentsContent'] = Stubs::AttachmentContentList.stub(stub[:attachments_content]) unless stub[:attachments_content].nil?
+        data['Requires'] = DocumentRequiresList.stub(stub[:requires]) unless stub[:requires].nil?
+        data['AttachmentsContent'] = AttachmentContentList.stub(stub[:attachments_content]) unless stub[:attachments_content].nil?
         data['ReviewStatus'] = stub[:review_status] unless stub[:review_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4526,7 +4529,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttachmentContent.stub(element) unless element.nil?
+          data << AttachmentContent.stub(element) unless element.nil?
         end
         data
       end
@@ -4569,9 +4572,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Entities'] = Stubs::InventoryResultEntityList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['Entities'] = InventoryResultEntityList.stub(stub[:entities]) unless stub[:entities].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4590,7 +4593,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InventoryResultEntity.stub(element) unless element.nil?
+          data << InventoryResultEntity.stub(element) unless element.nil?
         end
         data
       end
@@ -4611,7 +4614,7 @@ module AWS::SDK::SSM
         stub ||= Types::InventoryResultEntity.new
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['Data'] = Stubs::InventoryResultItemMap.stub(stub[:data]) unless stub[:data].nil?
+        data['Data'] = InventoryResultItemMap.stub(stub[:data]) unless stub[:data].nil?
         data
       end
     end
@@ -4630,7 +4633,7 @@ module AWS::SDK::SSM
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::InventoryResultItem.stub(value) unless value.nil?
+          data[key] = InventoryResultItem.stub(value) unless value.nil?
         end
         data
       end
@@ -4657,7 +4660,7 @@ module AWS::SDK::SSM
         data['SchemaVersion'] = stub[:schema_version] unless stub[:schema_version].nil?
         data['CaptureTime'] = stub[:capture_time] unless stub[:capture_time].nil?
         data['ContentHash'] = stub[:content_hash] unless stub[:content_hash].nil?
-        data['Content'] = Stubs::InventoryItemEntryList.stub(stub[:content]) unless stub[:content].nil?
+        data['Content'] = InventoryItemEntryList.stub(stub[:content]) unless stub[:content].nil?
         data
       end
     end
@@ -4676,7 +4679,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InventoryItemEntry.stub(element) unless element.nil?
+          data << InventoryItemEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -4713,9 +4716,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Schemas'] = Stubs::InventoryItemSchemaResultList.stub(stub[:schemas]) unless stub[:schemas].nil?
+        data['Schemas'] = InventoryItemSchemaResultList.stub(stub[:schemas]) unless stub[:schemas].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4734,7 +4737,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InventoryItemSchema.stub(element) unless element.nil?
+          data << InventoryItemSchema.stub(element) unless element.nil?
         end
         data
       end
@@ -4758,7 +4761,7 @@ module AWS::SDK::SSM
         data = {}
         data['TypeName'] = stub[:type_name] unless stub[:type_name].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['Attributes'] = Stubs::InventoryItemAttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = InventoryItemAttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
         data
       end
@@ -4778,7 +4781,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InventoryItemAttribute.stub(element) unless element.nil?
+          data << InventoryItemAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -4843,7 +4846,7 @@ module AWS::SDK::SSM
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
         data['CreatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['ModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:modified_date]).to_i unless stub[:modified_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4864,12 +4867,12 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['WindowExecutionId'] = stub[:window_execution_id] unless stub[:window_execution_id].nil?
-        data['TaskIds'] = Stubs::MaintenanceWindowExecutionTaskIdList.stub(stub[:task_ids]) unless stub[:task_ids].nil?
+        data['TaskIds'] = MaintenanceWindowExecutionTaskIdList.stub(stub[:task_ids]) unless stub[:task_ids].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusDetails'] = stub[:status_details] unless stub[:status_details].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4921,7 +4924,7 @@ module AWS::SDK::SSM
         data['TaskArn'] = stub[:task_arn] unless stub[:task_arn].nil?
         data['ServiceRole'] = stub[:service_role] unless stub[:service_role].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['TaskParameters'] = Stubs::MaintenanceWindowTaskParametersList.stub(stub[:task_parameters]) unless stub[:task_parameters].nil?
+        data['TaskParameters'] = MaintenanceWindowTaskParametersList.stub(stub[:task_parameters]) unless stub[:task_parameters].nil?
         data['Priority'] = stub[:priority] unless stub[:priority].nil?
         data['MaxConcurrency'] = stub[:max_concurrency] unless stub[:max_concurrency].nil?
         data['MaxErrors'] = stub[:max_errors] unless stub[:max_errors].nil?
@@ -4929,7 +4932,7 @@ module AWS::SDK::SSM
         data['StatusDetails'] = stub[:status_details] unless stub[:status_details].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4948,7 +4951,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MaintenanceWindowTaskParameters.stub(element) unless element.nil?
+          data << MaintenanceWindowTaskParameters.stub(element) unless element.nil?
         end
         data
       end
@@ -4987,7 +4990,7 @@ module AWS::SDK::SSM
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['OwnerInformation'] = stub[:owner_information] unless stub[:owner_information].nil?
         data['WindowTargetId'] = stub[:window_target_id] unless stub[:window_target_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5018,20 +5021,20 @@ module AWS::SDK::SSM
         data = {}
         data['WindowId'] = stub[:window_id] unless stub[:window_id].nil?
         data['WindowTaskId'] = stub[:window_task_id] unless stub[:window_task_id].nil?
-        data['Targets'] = Stubs::Targets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Targets'] = Targets.stub(stub[:targets]) unless stub[:targets].nil?
         data['TaskArn'] = stub[:task_arn] unless stub[:task_arn].nil?
         data['ServiceRoleArn'] = stub[:service_role_arn] unless stub[:service_role_arn].nil?
         data['TaskType'] = stub[:task_type] unless stub[:task_type].nil?
-        data['TaskParameters'] = Stubs::MaintenanceWindowTaskParameters.stub(stub[:task_parameters]) unless stub[:task_parameters].nil?
-        data['TaskInvocationParameters'] = Stubs::MaintenanceWindowTaskInvocationParameters.stub(stub[:task_invocation_parameters]) unless stub[:task_invocation_parameters].nil?
+        data['TaskParameters'] = MaintenanceWindowTaskParameters.stub(stub[:task_parameters]) unless stub[:task_parameters].nil?
+        data['TaskInvocationParameters'] = MaintenanceWindowTaskInvocationParameters.stub(stub[:task_invocation_parameters]) unless stub[:task_invocation_parameters].nil?
         data['Priority'] = stub[:priority] unless stub[:priority].nil?
         data['MaxConcurrency'] = stub[:max_concurrency] unless stub[:max_concurrency].nil?
         data['MaxErrors'] = stub[:max_errors] unless stub[:max_errors].nil?
-        data['LoggingInfo'] = Stubs::LoggingInfo.stub(stub[:logging_info]) unless stub[:logging_info].nil?
+        data['LoggingInfo'] = LoggingInfo.stub(stub[:logging_info]) unless stub[:logging_info].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CutoffBehavior'] = stub[:cutoff_behavior] unless stub[:cutoff_behavior].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5052,10 +5055,10 @@ module AWS::SDK::SSM
       def self.stub(stub)
         stub ||= Types::MaintenanceWindowTaskInvocationParameters.new
         data = {}
-        data['RunCommand'] = Stubs::MaintenanceWindowRunCommandParameters.stub(stub[:run_command]) unless stub[:run_command].nil?
-        data['Automation'] = Stubs::MaintenanceWindowAutomationParameters.stub(stub[:automation]) unless stub[:automation].nil?
-        data['StepFunctions'] = Stubs::MaintenanceWindowStepFunctionsParameters.stub(stub[:step_functions]) unless stub[:step_functions].nil?
-        data['Lambda'] = Stubs::MaintenanceWindowLambdaParameters.stub(stub[:lambda]) unless stub[:lambda].nil?
+        data['RunCommand'] = MaintenanceWindowRunCommandParameters.stub(stub[:run_command]) unless stub[:run_command].nil?
+        data['Automation'] = MaintenanceWindowAutomationParameters.stub(stub[:automation]) unless stub[:automation].nil?
+        data['StepFunctions'] = MaintenanceWindowStepFunctionsParameters.stub(stub[:step_functions]) unless stub[:step_functions].nil?
+        data['Lambda'] = MaintenanceWindowLambdaParameters.stub(stub[:lambda]) unless stub[:lambda].nil?
         data
       end
     end
@@ -5077,7 +5080,7 @@ module AWS::SDK::SSM
         data = {}
         data['ClientContext'] = stub[:client_context] unless stub[:client_context].nil?
         data['Qualifier'] = stub[:qualifier] unless stub[:qualifier].nil?
-        data['Payload'] = Base64::encode64(stub[:payload]) unless stub[:payload].nil?
+        data['Payload'] = ::Base64::encode64(stub[:payload]) unless stub[:payload].nil?
         data
       end
     end
@@ -5117,7 +5120,7 @@ module AWS::SDK::SSM
         stub ||= Types::MaintenanceWindowAutomationParameters.new
         data = {}
         data['DocumentVersion'] = stub[:document_version] unless stub[:document_version].nil?
-        data['Parameters'] = Stubs::AutomationParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = AutomationParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -5146,14 +5149,14 @@ module AWS::SDK::SSM
         stub ||= Types::MaintenanceWindowRunCommandParameters.new
         data = {}
         data['Comment'] = stub[:comment] unless stub[:comment].nil?
-        data['CloudWatchOutputConfig'] = Stubs::CloudWatchOutputConfig.stub(stub[:cloud_watch_output_config]) unless stub[:cloud_watch_output_config].nil?
+        data['CloudWatchOutputConfig'] = CloudWatchOutputConfig.stub(stub[:cloud_watch_output_config]) unless stub[:cloud_watch_output_config].nil?
         data['DocumentHash'] = stub[:document_hash] unless stub[:document_hash].nil?
         data['DocumentHashType'] = stub[:document_hash_type] unless stub[:document_hash_type].nil?
         data['DocumentVersion'] = stub[:document_version] unless stub[:document_version].nil?
-        data['NotificationConfig'] = Stubs::NotificationConfig.stub(stub[:notification_config]) unless stub[:notification_config].nil?
+        data['NotificationConfig'] = NotificationConfig.stub(stub[:notification_config]) unless stub[:notification_config].nil?
         data['OutputS3BucketName'] = stub[:output_s3_bucket_name] unless stub[:output_s3_bucket_name].nil?
         data['OutputS3KeyPrefix'] = stub[:output_s3_key_prefix] unless stub[:output_s3_key_prefix].nil?
-        data['Parameters'] = Stubs::Parameters.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = Parameters.stub(stub[:parameters]) unless stub[:parameters].nil?
         data['ServiceRoleArn'] = stub[:service_role_arn] unless stub[:service_role_arn].nil?
         data['TimeoutSeconds'] = stub[:timeout_seconds] unless stub[:timeout_seconds].nil?
         data
@@ -5176,7 +5179,7 @@ module AWS::SDK::SSM
         stub ||= Types::NotificationConfig.new
         data = {}
         data['NotificationArn'] = stub[:notification_arn] unless stub[:notification_arn].nil?
-        data['NotificationEvents'] = Stubs::NotificationEventList.stub(stub[:notification_events]) unless stub[:notification_events].nil?
+        data['NotificationEvents'] = NotificationEventList.stub(stub[:notification_events]) unless stub[:notification_events].nil?
         data['NotificationType'] = stub[:notification_type] unless stub[:notification_type].nil?
         data
       end
@@ -5212,8 +5215,8 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['OpsItem'] = Stubs::OpsItem.stub(stub[:ops_item]) unless stub[:ops_item].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OpsItem'] = OpsItem.stub(stub[:ops_item]) unless stub[:ops_item].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5257,15 +5260,15 @@ module AWS::SDK::SSM
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['LastModifiedBy'] = stub[:last_modified_by] unless stub[:last_modified_by].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['Notifications'] = Stubs::OpsItemNotifications.stub(stub[:notifications]) unless stub[:notifications].nil?
+        data['Notifications'] = OpsItemNotifications.stub(stub[:notifications]) unless stub[:notifications].nil?
         data['Priority'] = stub[:priority] unless stub[:priority].nil?
-        data['RelatedOpsItems'] = Stubs::RelatedOpsItems.stub(stub[:related_ops_items]) unless stub[:related_ops_items].nil?
+        data['RelatedOpsItems'] = RelatedOpsItems.stub(stub[:related_ops_items]) unless stub[:related_ops_items].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['OpsItemId'] = stub[:ops_item_id] unless stub[:ops_item_id].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
         data['Title'] = stub[:title] unless stub[:title].nil?
         data['Source'] = stub[:source] unless stub[:source].nil?
-        data['OperationalData'] = Stubs::OpsItemOperationalData.stub(stub[:operational_data]) unless stub[:operational_data].nil?
+        data['OperationalData'] = OpsItemOperationalData.stub(stub[:operational_data]) unless stub[:operational_data].nil?
         data['Category'] = stub[:category] unless stub[:category].nil?
         data['Severity'] = stub[:severity] unless stub[:severity].nil?
         data['ActualStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:actual_start_time]).to_i unless stub[:actual_start_time].nil?
@@ -5290,7 +5293,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RelatedOpsItem.stub(element) unless element.nil?
+          data << RelatedOpsItem.stub(element) unless element.nil?
         end
         data
       end
@@ -5328,7 +5331,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OpsItemNotification.stub(element) unless element.nil?
+          data << OpsItemNotification.stub(element) unless element.nil?
         end
         data
       end
@@ -5365,9 +5368,9 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['ResourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
-        data['Metadata'] = Stubs::MetadataMap.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['Metadata'] = MetadataMap.stub(stub[:metadata]) unless stub[:metadata].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5386,7 +5389,7 @@ module AWS::SDK::SSM
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::MetadataValue.stub(value) unless value.nil?
+          data[key] = MetadataValue.stub(value) unless value.nil?
         end
         data
       end
@@ -5421,9 +5424,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Entities'] = Stubs::OpsEntityList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['Entities'] = OpsEntityList.stub(stub[:entities]) unless stub[:entities].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5442,7 +5445,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OpsEntity.stub(element) unless element.nil?
+          data << OpsEntity.stub(element) unless element.nil?
         end
         data
       end
@@ -5463,7 +5466,7 @@ module AWS::SDK::SSM
         stub ||= Types::OpsEntity.new
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['Data'] = Stubs::OpsEntityItemMap.stub(stub[:data]) unless stub[:data].nil?
+        data['Data'] = OpsEntityItemMap.stub(stub[:data]) unless stub[:data].nil?
         data
       end
     end
@@ -5482,7 +5485,7 @@ module AWS::SDK::SSM
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::OpsEntityItem.stub(value) unless value.nil?
+          data[key] = OpsEntityItem.stub(value) unless value.nil?
         end
         data
       end
@@ -5503,7 +5506,7 @@ module AWS::SDK::SSM
         stub ||= Types::OpsEntityItem.new
         data = {}
         data['CaptureTime'] = stub[:capture_time] unless stub[:capture_time].nil?
-        data['Content'] = Stubs::OpsEntityItemEntryList.stub(stub[:content]) unless stub[:content].nil?
+        data['Content'] = OpsEntityItemEntryList.stub(stub[:content]) unless stub[:content].nil?
         data
       end
     end
@@ -5522,7 +5525,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OpsEntityItemEntry.stub(element) unless element.nil?
+          data << OpsEntityItemEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -5558,8 +5561,8 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Parameter'] = Stubs::Parameter.stub(stub[:parameter]) unless stub[:parameter].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Parameter'] = Parameter.stub(stub[:parameter]) unless stub[:parameter].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5609,9 +5612,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Parameters'] = Stubs::ParameterHistoryList.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = ParameterHistoryList.stub(stub[:parameters]) unless stub[:parameters].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5630,7 +5633,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ParameterHistory.stub(element) unless element.nil?
+          data << ParameterHistory.stub(element) unless element.nil?
         end
         data
       end
@@ -5670,9 +5673,9 @@ module AWS::SDK::SSM
         data['Value'] = stub[:value] unless stub[:value].nil?
         data['AllowedPattern'] = stub[:allowed_pattern] unless stub[:allowed_pattern].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['Labels'] = Stubs::ParameterLabelList.stub(stub[:labels]) unless stub[:labels].nil?
+        data['Labels'] = ParameterLabelList.stub(stub[:labels]) unless stub[:labels].nil?
         data['Tier'] = stub[:tier] unless stub[:tier].nil?
-        data['Policies'] = Stubs::ParameterPolicyList.stub(stub[:policies]) unless stub[:policies].nil?
+        data['Policies'] = ParameterPolicyList.stub(stub[:policies]) unless stub[:policies].nil?
         data['DataType'] = stub[:data_type] unless stub[:data_type].nil?
         data
       end
@@ -5709,9 +5712,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Parameters'] = Stubs::ParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
-        data['InvalidParameters'] = Stubs::ParameterNameList.stub(stub[:invalid_parameters]) unless stub[:invalid_parameters].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Parameters'] = ParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['InvalidParameters'] = ParameterNameList.stub(stub[:invalid_parameters]) unless stub[:invalid_parameters].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5730,7 +5733,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Parameter.stub(element) unless element.nil?
+          data << Parameter.stub(element) unless element.nil?
         end
         data
       end
@@ -5747,9 +5750,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Parameters'] = Stubs::ParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = ParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5781,19 +5784,19 @@ module AWS::SDK::SSM
         data['BaselineId'] = stub[:baseline_id] unless stub[:baseline_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['OperatingSystem'] = stub[:operating_system] unless stub[:operating_system].nil?
-        data['GlobalFilters'] = Stubs::PatchFilterGroup.stub(stub[:global_filters]) unless stub[:global_filters].nil?
-        data['ApprovalRules'] = Stubs::PatchRuleGroup.stub(stub[:approval_rules]) unless stub[:approval_rules].nil?
-        data['ApprovedPatches'] = Stubs::PatchIdList.stub(stub[:approved_patches]) unless stub[:approved_patches].nil?
+        data['GlobalFilters'] = PatchFilterGroup.stub(stub[:global_filters]) unless stub[:global_filters].nil?
+        data['ApprovalRules'] = PatchRuleGroup.stub(stub[:approval_rules]) unless stub[:approval_rules].nil?
+        data['ApprovedPatches'] = PatchIdList.stub(stub[:approved_patches]) unless stub[:approved_patches].nil?
         data['ApprovedPatchesComplianceLevel'] = stub[:approved_patches_compliance_level] unless stub[:approved_patches_compliance_level].nil?
         data['ApprovedPatchesEnableNonSecurity'] = stub[:approved_patches_enable_non_security] unless stub[:approved_patches_enable_non_security].nil?
-        data['RejectedPatches'] = Stubs::PatchIdList.stub(stub[:rejected_patches]) unless stub[:rejected_patches].nil?
+        data['RejectedPatches'] = PatchIdList.stub(stub[:rejected_patches]) unless stub[:rejected_patches].nil?
         data['RejectedPatchesAction'] = stub[:rejected_patches_action] unless stub[:rejected_patches_action].nil?
-        data['PatchGroups'] = Stubs::PatchGroupList.stub(stub[:patch_groups]) unless stub[:patch_groups].nil?
+        data['PatchGroups'] = PatchGroupList.stub(stub[:patch_groups]) unless stub[:patch_groups].nil?
         data['CreatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['ModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:modified_date]).to_i unless stub[:modified_date].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Sources'] = Stubs::PatchSourceList.stub(stub[:sources]) unless stub[:sources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Sources'] = PatchSourceList.stub(stub[:sources]) unless stub[:sources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5812,7 +5815,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PatchSource.stub(element) unless element.nil?
+          data << PatchSource.stub(element) unless element.nil?
         end
         data
       end
@@ -5834,7 +5837,7 @@ module AWS::SDK::SSM
         stub ||= Types::PatchSource.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Products'] = Stubs::PatchSourceProductList.stub(stub[:products]) unless stub[:products].nil?
+        data['Products'] = PatchSourceProductList.stub(stub[:products]) unless stub[:products].nil?
         data['Configuration'] = stub[:configuration] unless stub[:configuration].nil?
         data
       end
@@ -5913,7 +5916,7 @@ module AWS::SDK::SSM
       def self.stub(stub)
         stub ||= Types::PatchRuleGroup.new
         data = {}
-        data['PatchRules'] = Stubs::PatchRuleList.stub(stub[:patch_rules]) unless stub[:patch_rules].nil?
+        data['PatchRules'] = PatchRuleList.stub(stub[:patch_rules]) unless stub[:patch_rules].nil?
         data
       end
     end
@@ -5932,7 +5935,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PatchRule.stub(element) unless element.nil?
+          data << PatchRule.stub(element) unless element.nil?
         end
         data
       end
@@ -5955,7 +5958,7 @@ module AWS::SDK::SSM
       def self.stub(stub)
         stub ||= Types::PatchRule.new
         data = {}
-        data['PatchFilterGroup'] = Stubs::PatchFilterGroup.stub(stub[:patch_filter_group]) unless stub[:patch_filter_group].nil?
+        data['PatchFilterGroup'] = PatchFilterGroup.stub(stub[:patch_filter_group]) unless stub[:patch_filter_group].nil?
         data['ComplianceLevel'] = stub[:compliance_level] unless stub[:compliance_level].nil?
         data['ApproveAfterDays'] = stub[:approve_after_days] unless stub[:approve_after_days].nil?
         data['ApproveUntilDate'] = stub[:approve_until_date] unless stub[:approve_until_date].nil?
@@ -5977,7 +5980,7 @@ module AWS::SDK::SSM
       def self.stub(stub)
         stub ||= Types::PatchFilterGroup.new
         data = {}
-        data['PatchFilters'] = Stubs::PatchFilterList.stub(stub[:patch_filters]) unless stub[:patch_filters].nil?
+        data['PatchFilters'] = PatchFilterList.stub(stub[:patch_filters]) unless stub[:patch_filters].nil?
         data
       end
     end
@@ -5996,7 +5999,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PatchFilter.stub(element) unless element.nil?
+          data << PatchFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -6017,7 +6020,7 @@ module AWS::SDK::SSM
         stub ||= Types::PatchFilter.new
         data = {}
         data['Key'] = stub[:key] unless stub[:key].nil?
-        data['Values'] = Stubs::PatchFilterValueList.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = PatchFilterValueList.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -6057,7 +6060,7 @@ module AWS::SDK::SSM
         data['BaselineId'] = stub[:baseline_id] unless stub[:baseline_id].nil?
         data['PatchGroup'] = stub[:patch_group] unless stub[:patch_group].nil?
         data['OperatingSystem'] = stub[:operating_system] unless stub[:operating_system].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6072,8 +6075,8 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ServiceSetting'] = Stubs::ServiceSetting.stub(stub[:service_setting]) unless stub[:service_setting].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ServiceSetting'] = ServiceSetting.stub(stub[:service_setting]) unless stub[:service_setting].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6117,9 +6120,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['InvalidLabels'] = Stubs::ParameterLabelList.stub(stub[:invalid_labels]) unless stub[:invalid_labels].nil?
+        data['InvalidLabels'] = ParameterLabelList.stub(stub[:invalid_labels]) unless stub[:invalid_labels].nil?
         data['ParameterVersion'] = stub[:parameter_version] unless stub[:parameter_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6135,9 +6138,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AssociationVersions'] = Stubs::AssociationVersionList.stub(stub[:association_versions]) unless stub[:association_versions].nil?
+        data['AssociationVersions'] = AssociationVersionList.stub(stub[:association_versions]) unless stub[:association_versions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6156,7 +6159,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssociationVersionInfo.stub(element) unless element.nil?
+          data << AssociationVersionInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -6198,20 +6201,20 @@ module AWS::SDK::SSM
         data['CreatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['DocumentVersion'] = stub[:document_version] unless stub[:document_version].nil?
-        data['Parameters'] = Stubs::Parameters.stub(stub[:parameters]) unless stub[:parameters].nil?
-        data['Targets'] = Stubs::Targets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Parameters'] = Parameters.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Targets'] = Targets.stub(stub[:targets]) unless stub[:targets].nil?
         data['ScheduleExpression'] = stub[:schedule_expression] unless stub[:schedule_expression].nil?
-        data['OutputLocation'] = Stubs::InstanceAssociationOutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
+        data['OutputLocation'] = InstanceAssociationOutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
         data['AssociationName'] = stub[:association_name] unless stub[:association_name].nil?
         data['MaxErrors'] = stub[:max_errors] unless stub[:max_errors].nil?
         data['MaxConcurrency'] = stub[:max_concurrency] unless stub[:max_concurrency].nil?
         data['ComplianceSeverity'] = stub[:compliance_severity] unless stub[:compliance_severity].nil?
         data['SyncCompliance'] = stub[:sync_compliance] unless stub[:sync_compliance].nil?
         data['ApplyOnlyAtCronInterval'] = stub[:apply_only_at_cron_interval] unless stub[:apply_only_at_cron_interval].nil?
-        data['CalendarNames'] = Stubs::CalendarNameOrARNList.stub(stub[:calendar_names]) unless stub[:calendar_names].nil?
-        data['TargetLocations'] = Stubs::TargetLocations.stub(stub[:target_locations]) unless stub[:target_locations].nil?
+        data['CalendarNames'] = CalendarNameOrARNList.stub(stub[:calendar_names]) unless stub[:calendar_names].nil?
+        data['TargetLocations'] = TargetLocations.stub(stub[:target_locations]) unless stub[:target_locations].nil?
         data['ScheduleOffset'] = stub[:schedule_offset] unless stub[:schedule_offset].nil?
-        data['TargetMaps'] = Stubs::TargetMaps.stub(stub[:target_maps]) unless stub[:target_maps].nil?
+        data['TargetMaps'] = TargetMaps.stub(stub[:target_maps]) unless stub[:target_maps].nil?
         data
       end
     end
@@ -6227,9 +6230,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Associations'] = Stubs::AssociationList.stub(stub[:associations]) unless stub[:associations].nil?
+        data['Associations'] = AssociationList.stub(stub[:associations]) unless stub[:associations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6248,7 +6251,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Association.stub(element) unless element.nil?
+          data << Association.stub(element) unless element.nil?
         end
         data
       end
@@ -6283,13 +6286,13 @@ module AWS::SDK::SSM
         data['AssociationId'] = stub[:association_id] unless stub[:association_id].nil?
         data['AssociationVersion'] = stub[:association_version] unless stub[:association_version].nil?
         data['DocumentVersion'] = stub[:document_version] unless stub[:document_version].nil?
-        data['Targets'] = Stubs::Targets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Targets'] = Targets.stub(stub[:targets]) unless stub[:targets].nil?
         data['LastExecutionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_execution_date]).to_i unless stub[:last_execution_date].nil?
-        data['Overview'] = Stubs::AssociationOverview.stub(stub[:overview]) unless stub[:overview].nil?
+        data['Overview'] = AssociationOverview.stub(stub[:overview]) unless stub[:overview].nil?
         data['ScheduleExpression'] = stub[:schedule_expression] unless stub[:schedule_expression].nil?
         data['AssociationName'] = stub[:association_name] unless stub[:association_name].nil?
         data['ScheduleOffset'] = stub[:schedule_offset] unless stub[:schedule_offset].nil?
-        data['TargetMaps'] = Stubs::TargetMaps.stub(stub[:target_maps]) unless stub[:target_maps].nil?
+        data['TargetMaps'] = TargetMaps.stub(stub[:target_maps]) unless stub[:target_maps].nil?
         data
       end
     end
@@ -6305,9 +6308,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CommandInvocations'] = Stubs::CommandInvocationList.stub(stub[:command_invocations]) unless stub[:command_invocations].nil?
+        data['CommandInvocations'] = CommandInvocationList.stub(stub[:command_invocations]) unless stub[:command_invocations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6326,7 +6329,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CommandInvocation.stub(element) unless element.nil?
+          data << CommandInvocation.stub(element) unless element.nil?
         end
         data
       end
@@ -6372,10 +6375,10 @@ module AWS::SDK::SSM
         data['TraceOutput'] = stub[:trace_output] unless stub[:trace_output].nil?
         data['StandardOutputUrl'] = stub[:standard_output_url] unless stub[:standard_output_url].nil?
         data['StandardErrorUrl'] = stub[:standard_error_url] unless stub[:standard_error_url].nil?
-        data['CommandPlugins'] = Stubs::CommandPluginList.stub(stub[:command_plugins]) unless stub[:command_plugins].nil?
+        data['CommandPlugins'] = CommandPluginList.stub(stub[:command_plugins]) unless stub[:command_plugins].nil?
         data['ServiceRole'] = stub[:service_role] unless stub[:service_role].nil?
-        data['NotificationConfig'] = Stubs::NotificationConfig.stub(stub[:notification_config]) unless stub[:notification_config].nil?
-        data['CloudWatchOutputConfig'] = Stubs::CloudWatchOutputConfig.stub(stub[:cloud_watch_output_config]) unless stub[:cloud_watch_output_config].nil?
+        data['NotificationConfig'] = NotificationConfig.stub(stub[:notification_config]) unless stub[:notification_config].nil?
+        data['CloudWatchOutputConfig'] = CloudWatchOutputConfig.stub(stub[:cloud_watch_output_config]) unless stub[:cloud_watch_output_config].nil?
         data
       end
     end
@@ -6394,7 +6397,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CommandPlugin.stub(element) unless element.nil?
+          data << CommandPlugin.stub(element) unless element.nil?
         end
         data
       end
@@ -6451,9 +6454,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Commands'] = Stubs::CommandList.stub(stub[:commands]) unless stub[:commands].nil?
+        data['Commands'] = CommandList.stub(stub[:commands]) unless stub[:commands].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6472,7 +6475,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Command.stub(element) unless element.nil?
+          data << Command.stub(element) unless element.nil?
         end
         data
       end
@@ -6519,9 +6522,9 @@ module AWS::SDK::SSM
         data['DocumentVersion'] = stub[:document_version] unless stub[:document_version].nil?
         data['Comment'] = stub[:comment] unless stub[:comment].nil?
         data['ExpiresAfter'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expires_after]).to_i unless stub[:expires_after].nil?
-        data['Parameters'] = Stubs::Parameters.stub(stub[:parameters]) unless stub[:parameters].nil?
-        data['InstanceIds'] = Stubs::InstanceIdList.stub(stub[:instance_ids]) unless stub[:instance_ids].nil?
-        data['Targets'] = Stubs::Targets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Parameters'] = Parameters.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['InstanceIds'] = InstanceIdList.stub(stub[:instance_ids]) unless stub[:instance_ids].nil?
+        data['Targets'] = Targets.stub(stub[:targets]) unless stub[:targets].nil?
         data['RequestedDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:requested_date_time]).to_i unless stub[:requested_date_time].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusDetails'] = stub[:status_details] unless stub[:status_details].nil?
@@ -6535,8 +6538,8 @@ module AWS::SDK::SSM
         data['ErrorCount'] = stub[:error_count] unless stub[:error_count].nil?
         data['DeliveryTimedOutCount'] = stub[:delivery_timed_out_count] unless stub[:delivery_timed_out_count].nil?
         data['ServiceRole'] = stub[:service_role] unless stub[:service_role].nil?
-        data['NotificationConfig'] = Stubs::NotificationConfig.stub(stub[:notification_config]) unless stub[:notification_config].nil?
-        data['CloudWatchOutputConfig'] = Stubs::CloudWatchOutputConfig.stub(stub[:cloud_watch_output_config]) unless stub[:cloud_watch_output_config].nil?
+        data['NotificationConfig'] = NotificationConfig.stub(stub[:notification_config]) unless stub[:notification_config].nil?
+        data['CloudWatchOutputConfig'] = CloudWatchOutputConfig.stub(stub[:cloud_watch_output_config]) unless stub[:cloud_watch_output_config].nil?
         data['TimeoutSeconds'] = stub[:timeout_seconds] unless stub[:timeout_seconds].nil?
         data
       end
@@ -6573,9 +6576,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ComplianceItems'] = Stubs::ComplianceItemList.stub(stub[:compliance_items]) unless stub[:compliance_items].nil?
+        data['ComplianceItems'] = ComplianceItemList.stub(stub[:compliance_items]) unless stub[:compliance_items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6594,7 +6597,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComplianceItem.stub(element) unless element.nil?
+          data << ComplianceItem.stub(element) unless element.nil?
         end
         data
       end
@@ -6628,8 +6631,8 @@ module AWS::SDK::SSM
         data['Title'] = stub[:title] unless stub[:title].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Severity'] = stub[:severity] unless stub[:severity].nil?
-        data['ExecutionSummary'] = Stubs::ComplianceExecutionSummary.stub(stub[:execution_summary]) unless stub[:execution_summary].nil?
-        data['Details'] = Stubs::ComplianceItemDetails.stub(stub[:details]) unless stub[:details].nil?
+        data['ExecutionSummary'] = ComplianceExecutionSummary.stub(stub[:execution_summary]) unless stub[:execution_summary].nil?
+        data['Details'] = ComplianceItemDetails.stub(stub[:details]) unless stub[:details].nil?
         data
       end
     end
@@ -6687,9 +6690,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ComplianceSummaryItems'] = Stubs::ComplianceSummaryItemList.stub(stub[:compliance_summary_items]) unless stub[:compliance_summary_items].nil?
+        data['ComplianceSummaryItems'] = ComplianceSummaryItemList.stub(stub[:compliance_summary_items]) unless stub[:compliance_summary_items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6708,7 +6711,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComplianceSummaryItem.stub(element) unless element.nil?
+          data << ComplianceSummaryItem.stub(element) unless element.nil?
         end
         data
       end
@@ -6730,8 +6733,8 @@ module AWS::SDK::SSM
         stub ||= Types::ComplianceSummaryItem.new
         data = {}
         data['ComplianceType'] = stub[:compliance_type] unless stub[:compliance_type].nil?
-        data['CompliantSummary'] = Stubs::CompliantSummary.stub(stub[:compliant_summary]) unless stub[:compliant_summary].nil?
-        data['NonCompliantSummary'] = Stubs::NonCompliantSummary.stub(stub[:non_compliant_summary]) unless stub[:non_compliant_summary].nil?
+        data['CompliantSummary'] = CompliantSummary.stub(stub[:compliant_summary]) unless stub[:compliant_summary].nil?
+        data['NonCompliantSummary'] = NonCompliantSummary.stub(stub[:non_compliant_summary]) unless stub[:non_compliant_summary].nil?
         data
       end
     end
@@ -6751,7 +6754,7 @@ module AWS::SDK::SSM
         stub ||= Types::NonCompliantSummary.new
         data = {}
         data['NonCompliantCount'] = stub[:non_compliant_count] unless stub[:non_compliant_count].nil?
-        data['SeveritySummary'] = Stubs::SeveritySummary.stub(stub[:severity_summary]) unless stub[:severity_summary].nil?
+        data['SeveritySummary'] = SeveritySummary.stub(stub[:severity_summary]) unless stub[:severity_summary].nil?
         data
       end
     end
@@ -6799,7 +6802,7 @@ module AWS::SDK::SSM
         stub ||= Types::CompliantSummary.new
         data = {}
         data['CompliantCount'] = stub[:compliant_count] unless stub[:compliant_count].nil?
-        data['SeveritySummary'] = Stubs::SeveritySummary.stub(stub[:severity_summary]) unless stub[:severity_summary].nil?
+        data['SeveritySummary'] = SeveritySummary.stub(stub[:severity_summary]) unless stub[:severity_summary].nil?
         data
       end
     end
@@ -6821,9 +6824,9 @@ module AWS::SDK::SSM
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['DocumentVersion'] = stub[:document_version] unless stub[:document_version].nil?
         data['Author'] = stub[:author] unless stub[:author].nil?
-        data['Metadata'] = Stubs::DocumentMetadataResponseInfo.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['Metadata'] = DocumentMetadataResponseInfo.stub(stub[:metadata]) unless stub[:metadata].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6841,7 +6844,7 @@ module AWS::SDK::SSM
       def self.stub(stub)
         stub ||= Types::DocumentMetadataResponseInfo.new
         data = {}
-        data['ReviewerResponse'] = Stubs::DocumentReviewerResponseList.stub(stub[:reviewer_response]) unless stub[:reviewer_response].nil?
+        data['ReviewerResponse'] = DocumentReviewerResponseList.stub(stub[:reviewer_response]) unless stub[:reviewer_response].nil?
         data
       end
     end
@@ -6860,7 +6863,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentReviewerResponseSource.stub(element) unless element.nil?
+          data << DocumentReviewerResponseSource.stub(element) unless element.nil?
         end
         data
       end
@@ -6886,7 +6889,7 @@ module AWS::SDK::SSM
         data['CreateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_time]).to_i unless stub[:create_time].nil?
         data['UpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_time]).to_i unless stub[:updated_time].nil?
         data['ReviewStatus'] = stub[:review_status] unless stub[:review_status].nil?
-        data['Comment'] = Stubs::DocumentReviewCommentList.stub(stub[:comment]) unless stub[:comment].nil?
+        data['Comment'] = DocumentReviewCommentList.stub(stub[:comment]) unless stub[:comment].nil?
         data['Reviewer'] = stub[:reviewer] unless stub[:reviewer].nil?
         data
       end
@@ -6906,7 +6909,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentReviewCommentSource.stub(element) unless element.nil?
+          data << DocumentReviewCommentSource.stub(element) unless element.nil?
         end
         data
       end
@@ -6943,9 +6946,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DocumentVersions'] = Stubs::DocumentVersionList.stub(stub[:document_versions]) unless stub[:document_versions].nil?
+        data['DocumentVersions'] = DocumentVersionList.stub(stub[:document_versions]) unless stub[:document_versions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6964,7 +6967,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentVersionInfo.stub(element) unless element.nil?
+          data << DocumentVersionInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -7017,9 +7020,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DocumentIdentifiers'] = Stubs::DocumentIdentifierList.stub(stub[:document_identifiers]) unless stub[:document_identifiers].nil?
+        data['DocumentIdentifiers'] = DocumentIdentifierList.stub(stub[:document_identifiers]) unless stub[:document_identifiers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7038,7 +7041,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentIdentifier.stub(element) unless element.nil?
+          data << DocumentIdentifier.stub(element) unless element.nil?
         end
         data
       end
@@ -7076,14 +7079,14 @@ module AWS::SDK::SSM
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
         data['Owner'] = stub[:owner] unless stub[:owner].nil?
         data['VersionName'] = stub[:version_name] unless stub[:version_name].nil?
-        data['PlatformTypes'] = Stubs::PlatformTypeList.stub(stub[:platform_types]) unless stub[:platform_types].nil?
+        data['PlatformTypes'] = PlatformTypeList.stub(stub[:platform_types]) unless stub[:platform_types].nil?
         data['DocumentVersion'] = stub[:document_version] unless stub[:document_version].nil?
         data['DocumentType'] = stub[:document_type] unless stub[:document_type].nil?
         data['SchemaVersion'] = stub[:schema_version] unless stub[:schema_version].nil?
         data['DocumentFormat'] = stub[:document_format] unless stub[:document_format].nil?
         data['TargetType'] = stub[:target_type] unless stub[:target_type].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['Requires'] = Stubs::DocumentRequiresList.stub(stub[:requires]) unless stub[:requires].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Requires'] = DocumentRequiresList.stub(stub[:requires]) unless stub[:requires].nil?
         data['ReviewStatus'] = stub[:review_status] unless stub[:review_status].nil?
         data['Author'] = stub[:author] unless stub[:author].nil?
         data
@@ -7109,9 +7112,9 @@ module AWS::SDK::SSM
         data['InstanceId'] = stub[:instance_id] unless stub[:instance_id].nil?
         data['SchemaVersion'] = stub[:schema_version] unless stub[:schema_version].nil?
         data['CaptureTime'] = stub[:capture_time] unless stub[:capture_time].nil?
-        data['Entries'] = Stubs::InventoryItemEntryList.stub(stub[:entries]) unless stub[:entries].nil?
+        data['Entries'] = InventoryItemEntryList.stub(stub[:entries]) unless stub[:entries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7128,8 +7131,8 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Summaries'] = Stubs::OpsItemEventSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Summaries'] = OpsItemEventSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7148,7 +7151,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OpsItemEventSummary.stub(element) unless element.nil?
+          data << OpsItemEventSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -7178,7 +7181,7 @@ module AWS::SDK::SSM
         data['Source'] = stub[:source] unless stub[:source].nil?
         data['DetailType'] = stub[:detail_type] unless stub[:detail_type].nil?
         data['Detail'] = stub[:detail] unless stub[:detail].nil?
-        data['CreatedBy'] = Stubs::OpsItemIdentity.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = OpsItemIdentity.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data
       end
@@ -7214,8 +7217,8 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Summaries'] = Stubs::OpsItemRelatedItemSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Summaries'] = OpsItemRelatedItemSummaries.stub(stub[:summaries]) unless stub[:summaries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7234,7 +7237,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OpsItemRelatedItemSummary.stub(element) unless element.nil?
+          data << OpsItemRelatedItemSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -7266,9 +7269,9 @@ module AWS::SDK::SSM
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['AssociationType'] = stub[:association_type] unless stub[:association_type].nil?
         data['ResourceUri'] = stub[:resource_uri] unless stub[:resource_uri].nil?
-        data['CreatedBy'] = Stubs::OpsItemIdentity.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = OpsItemIdentity.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        data['LastModifiedBy'] = Stubs::OpsItemIdentity.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        data['LastModifiedBy'] = OpsItemIdentity.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data
       end
@@ -7285,9 +7288,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['OpsMetadataList'] = Stubs::OpsMetadataList.stub(stub[:ops_metadata_list]) unless stub[:ops_metadata_list].nil?
+        data['OpsMetadataList'] = OpsMetadataList.stub(stub[:ops_metadata_list]) unless stub[:ops_metadata_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7306,7 +7309,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OpsMetadata.stub(element) unless element.nil?
+          data << OpsMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -7349,9 +7352,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResourceComplianceSummaryItems'] = Stubs::ResourceComplianceSummaryItemList.stub(stub[:resource_compliance_summary_items]) unless stub[:resource_compliance_summary_items].nil?
+        data['ResourceComplianceSummaryItems'] = ResourceComplianceSummaryItemList.stub(stub[:resource_compliance_summary_items]) unless stub[:resource_compliance_summary_items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7370,7 +7373,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceComplianceSummaryItem.stub(element) unless element.nil?
+          data << ResourceComplianceSummaryItem.stub(element) unless element.nil?
         end
         data
       end
@@ -7401,9 +7404,9 @@ module AWS::SDK::SSM
         data['ResourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['OverallSeverity'] = stub[:overall_severity] unless stub[:overall_severity].nil?
-        data['ExecutionSummary'] = Stubs::ComplianceExecutionSummary.stub(stub[:execution_summary]) unless stub[:execution_summary].nil?
-        data['CompliantSummary'] = Stubs::CompliantSummary.stub(stub[:compliant_summary]) unless stub[:compliant_summary].nil?
-        data['NonCompliantSummary'] = Stubs::NonCompliantSummary.stub(stub[:non_compliant_summary]) unless stub[:non_compliant_summary].nil?
+        data['ExecutionSummary'] = ComplianceExecutionSummary.stub(stub[:execution_summary]) unless stub[:execution_summary].nil?
+        data['CompliantSummary'] = CompliantSummary.stub(stub[:compliant_summary]) unless stub[:compliant_summary].nil?
+        data['NonCompliantSummary'] = NonCompliantSummary.stub(stub[:non_compliant_summary]) unless stub[:non_compliant_summary].nil?
         data
       end
     end
@@ -7419,9 +7422,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResourceDataSyncItems'] = Stubs::ResourceDataSyncItemList.stub(stub[:resource_data_sync_items]) unless stub[:resource_data_sync_items].nil?
+        data['ResourceDataSyncItems'] = ResourceDataSyncItemList.stub(stub[:resource_data_sync_items]) unless stub[:resource_data_sync_items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7440,7 +7443,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceDataSyncItem.stub(element) unless element.nil?
+          data << ResourceDataSyncItem.stub(element) unless element.nil?
         end
         data
       end
@@ -7470,8 +7473,8 @@ module AWS::SDK::SSM
         data = {}
         data['SyncName'] = stub[:sync_name] unless stub[:sync_name].nil?
         data['SyncType'] = stub[:sync_type] unless stub[:sync_type].nil?
-        data['SyncSource'] = Stubs::ResourceDataSyncSourceWithState.stub(stub[:sync_source]) unless stub[:sync_source].nil?
-        data['S3Destination'] = Stubs::ResourceDataSyncS3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
+        data['SyncSource'] = ResourceDataSyncSourceWithState.stub(stub[:sync_source]) unless stub[:sync_source].nil?
+        data['S3Destination'] = ResourceDataSyncS3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
         data['LastSyncTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_sync_time]).to_i unless stub[:last_sync_time].nil?
         data['LastSuccessfulSyncTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_successful_sync_time]).to_i unless stub[:last_successful_sync_time].nil?
         data['SyncLastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:sync_last_modified_time]).to_i unless stub[:sync_last_modified_time].nil?
@@ -7505,7 +7508,7 @@ module AWS::SDK::SSM
         data['SyncFormat'] = stub[:sync_format] unless stub[:sync_format].nil?
         data['Region'] = stub[:region] unless stub[:region].nil?
         data['AWSKMSKeyARN'] = stub[:awskms_key_arn] unless stub[:awskms_key_arn].nil?
-        data['DestinationDataSharing'] = Stubs::ResourceDataSyncDestinationDataSharing.stub(stub[:destination_data_sharing]) unless stub[:destination_data_sharing].nil?
+        data['DestinationDataSharing'] = ResourceDataSyncDestinationDataSharing.stub(stub[:destination_data_sharing]) unless stub[:destination_data_sharing].nil?
         data
       end
     end
@@ -7547,8 +7550,8 @@ module AWS::SDK::SSM
         stub ||= Types::ResourceDataSyncSourceWithState.new
         data = {}
         data['SourceType'] = stub[:source_type] unless stub[:source_type].nil?
-        data['AwsOrganizationsSource'] = Stubs::ResourceDataSyncAwsOrganizationsSource.stub(stub[:aws_organizations_source]) unless stub[:aws_organizations_source].nil?
-        data['SourceRegions'] = Stubs::ResourceDataSyncSourceRegionList.stub(stub[:source_regions]) unless stub[:source_regions].nil?
+        data['AwsOrganizationsSource'] = ResourceDataSyncAwsOrganizationsSource.stub(stub[:aws_organizations_source]) unless stub[:aws_organizations_source].nil?
+        data['SourceRegions'] = ResourceDataSyncSourceRegionList.stub(stub[:source_regions]) unless stub[:source_regions].nil?
         data['IncludeFutureRegions'] = stub[:include_future_regions] unless stub[:include_future_regions].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['EnableAllOpsDataSources'] = stub[:enable_all_ops_data_sources] unless stub[:enable_all_ops_data_sources].nil?
@@ -7591,7 +7594,7 @@ module AWS::SDK::SSM
         stub ||= Types::ResourceDataSyncAwsOrganizationsSource.new
         data = {}
         data['OrganizationSourceType'] = stub[:organization_source_type] unless stub[:organization_source_type].nil?
-        data['OrganizationalUnits'] = Stubs::ResourceDataSyncOrganizationalUnitList.stub(stub[:organizational_units]) unless stub[:organizational_units].nil?
+        data['OrganizationalUnits'] = ResourceDataSyncOrganizationalUnitList.stub(stub[:organizational_units]) unless stub[:organizational_units].nil?
         data
       end
     end
@@ -7610,7 +7613,7 @@ module AWS::SDK::SSM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceDataSyncOrganizationalUnit.stub(element) unless element.nil?
+          data << ResourceDataSyncOrganizationalUnit.stub(element) unless element.nil?
         end
         data
       end
@@ -7644,8 +7647,8 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7659,7 +7662,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7673,7 +7676,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7689,7 +7692,7 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['Message'] = stub[:message] unless stub[:message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7707,7 +7710,7 @@ module AWS::SDK::SSM
         data = {}
         data['Version'] = stub[:version] unless stub[:version].nil?
         data['Tier'] = stub[:tier] unless stub[:tier].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7723,7 +7726,7 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['BaselineId'] = stub[:baseline_id] unless stub[:baseline_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7741,7 +7744,7 @@ module AWS::SDK::SSM
         data = {}
         data['BaselineId'] = stub[:baseline_id] unless stub[:baseline_id].nil?
         data['PatchGroup'] = stub[:patch_group] unless stub[:patch_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7757,7 +7760,7 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['WindowTargetId'] = stub[:window_target_id] unless stub[:window_target_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7773,7 +7776,7 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['WindowTaskId'] = stub[:window_task_id] unless stub[:window_task_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7787,7 +7790,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7802,8 +7805,8 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ServiceSetting'] = Stubs::ServiceSetting.stub(stub[:service_setting]) unless stub[:service_setting].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ServiceSetting'] = ServiceSetting.stub(stub[:service_setting]) unless stub[:service_setting].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7823,7 +7826,7 @@ module AWS::SDK::SSM
         data['SessionId'] = stub[:session_id] unless stub[:session_id].nil?
         data['TokenValue'] = stub[:token_value] unless stub[:token_value].nil?
         data['StreamUrl'] = stub[:stream_url] unless stub[:stream_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7837,7 +7840,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7852,8 +7855,8 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Command'] = Stubs::Command.stub(stub[:command]) unless stub[:command].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Command'] = Command.stub(stub[:command]) unless stub[:command].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7867,7 +7870,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7883,7 +7886,7 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['AutomationExecutionId'] = stub[:automation_execution_id] unless stub[:automation_execution_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7899,7 +7902,7 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['AutomationExecutionId'] = stub[:automation_execution_id] unless stub[:automation_execution_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7919,7 +7922,7 @@ module AWS::SDK::SSM
         data['SessionId'] = stub[:session_id] unless stub[:session_id].nil?
         data['TokenValue'] = stub[:token_value] unless stub[:token_value].nil?
         data['StreamUrl'] = stub[:stream_url] unless stub[:stream_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7933,7 +7936,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7949,7 +7952,7 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['SessionId'] = stub[:session_id] unless stub[:session_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7965,9 +7968,9 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RemovedLabels'] = Stubs::ParameterLabelList.stub(stub[:removed_labels]) unless stub[:removed_labels].nil?
-        data['InvalidLabels'] = Stubs::ParameterLabelList.stub(stub[:invalid_labels]) unless stub[:invalid_labels].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RemovedLabels'] = ParameterLabelList.stub(stub[:removed_labels]) unless stub[:removed_labels].nil?
+        data['InvalidLabels'] = ParameterLabelList.stub(stub[:invalid_labels]) unless stub[:invalid_labels].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7982,8 +7985,8 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AssociationDescription'] = Stubs::AssociationDescription.stub(stub[:association_description]) unless stub[:association_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AssociationDescription'] = AssociationDescription.stub(stub[:association_description]) unless stub[:association_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7998,8 +8001,8 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AssociationDescription'] = Stubs::AssociationDescription.stub(stub[:association_description]) unless stub[:association_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AssociationDescription'] = AssociationDescription.stub(stub[:association_description]) unless stub[:association_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8014,8 +8017,8 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DocumentDescription'] = Stubs::DocumentDescription.stub(stub[:document_description]) unless stub[:document_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DocumentDescription'] = DocumentDescription.stub(stub[:document_description]) unless stub[:document_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8030,8 +8033,8 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Description'] = Stubs::DocumentDefaultVersionDescription.stub(stub[:description]) unless stub[:description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Description'] = DocumentDefaultVersionDescription.stub(stub[:description]) unless stub[:description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8067,7 +8070,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8105,7 +8108,7 @@ module AWS::SDK::SSM
         data['Cutoff'] = stub[:cutoff] unless stub[:cutoff].nil?
         data['AllowUnassociatedTargets'] = stub[:allow_unassociated_targets] unless stub[:allow_unassociated_targets].nil?
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8127,11 +8130,11 @@ module AWS::SDK::SSM
         data = {}
         data['WindowId'] = stub[:window_id] unless stub[:window_id].nil?
         data['WindowTargetId'] = stub[:window_target_id] unless stub[:window_target_id].nil?
-        data['Targets'] = Stubs::Targets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Targets'] = Targets.stub(stub[:targets]) unless stub[:targets].nil?
         data['OwnerInformation'] = stub[:owner_information] unless stub[:owner_information].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8161,19 +8164,19 @@ module AWS::SDK::SSM
         data = {}
         data['WindowId'] = stub[:window_id] unless stub[:window_id].nil?
         data['WindowTaskId'] = stub[:window_task_id] unless stub[:window_task_id].nil?
-        data['Targets'] = Stubs::Targets.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Targets'] = Targets.stub(stub[:targets]) unless stub[:targets].nil?
         data['TaskArn'] = stub[:task_arn] unless stub[:task_arn].nil?
         data['ServiceRoleArn'] = stub[:service_role_arn] unless stub[:service_role_arn].nil?
-        data['TaskParameters'] = Stubs::MaintenanceWindowTaskParameters.stub(stub[:task_parameters]) unless stub[:task_parameters].nil?
-        data['TaskInvocationParameters'] = Stubs::MaintenanceWindowTaskInvocationParameters.stub(stub[:task_invocation_parameters]) unless stub[:task_invocation_parameters].nil?
+        data['TaskParameters'] = MaintenanceWindowTaskParameters.stub(stub[:task_parameters]) unless stub[:task_parameters].nil?
+        data['TaskInvocationParameters'] = MaintenanceWindowTaskInvocationParameters.stub(stub[:task_invocation_parameters]) unless stub[:task_invocation_parameters].nil?
         data['Priority'] = stub[:priority] unless stub[:priority].nil?
         data['MaxConcurrency'] = stub[:max_concurrency] unless stub[:max_concurrency].nil?
         data['MaxErrors'] = stub[:max_errors] unless stub[:max_errors].nil?
-        data['LoggingInfo'] = Stubs::LoggingInfo.stub(stub[:logging_info]) unless stub[:logging_info].nil?
+        data['LoggingInfo'] = LoggingInfo.stub(stub[:logging_info]) unless stub[:logging_info].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CutoffBehavior'] = stub[:cutoff_behavior] unless stub[:cutoff_behavior].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8187,7 +8190,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8201,7 +8204,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8217,7 +8220,7 @@ module AWS::SDK::SSM
       def self.stub(http_resp, stub:)
         data = {}
         data['OpsMetadataArn'] = stub[:ops_metadata_arn] unless stub[:ops_metadata_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8248,18 +8251,18 @@ module AWS::SDK::SSM
         data['BaselineId'] = stub[:baseline_id] unless stub[:baseline_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['OperatingSystem'] = stub[:operating_system] unless stub[:operating_system].nil?
-        data['GlobalFilters'] = Stubs::PatchFilterGroup.stub(stub[:global_filters]) unless stub[:global_filters].nil?
-        data['ApprovalRules'] = Stubs::PatchRuleGroup.stub(stub[:approval_rules]) unless stub[:approval_rules].nil?
-        data['ApprovedPatches'] = Stubs::PatchIdList.stub(stub[:approved_patches]) unless stub[:approved_patches].nil?
+        data['GlobalFilters'] = PatchFilterGroup.stub(stub[:global_filters]) unless stub[:global_filters].nil?
+        data['ApprovalRules'] = PatchRuleGroup.stub(stub[:approval_rules]) unless stub[:approval_rules].nil?
+        data['ApprovedPatches'] = PatchIdList.stub(stub[:approved_patches]) unless stub[:approved_patches].nil?
         data['ApprovedPatchesComplianceLevel'] = stub[:approved_patches_compliance_level] unless stub[:approved_patches_compliance_level].nil?
         data['ApprovedPatchesEnableNonSecurity'] = stub[:approved_patches_enable_non_security] unless stub[:approved_patches_enable_non_security].nil?
-        data['RejectedPatches'] = Stubs::PatchIdList.stub(stub[:rejected_patches]) unless stub[:rejected_patches].nil?
+        data['RejectedPatches'] = PatchIdList.stub(stub[:rejected_patches]) unless stub[:rejected_patches].nil?
         data['RejectedPatchesAction'] = stub[:rejected_patches_action] unless stub[:rejected_patches_action].nil?
         data['CreatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['ModifiedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:modified_date]).to_i unless stub[:modified_date].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Sources'] = Stubs::PatchSourceList.stub(stub[:sources]) unless stub[:sources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Sources'] = PatchSourceList.stub(stub[:sources]) unless stub[:sources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8273,7 +8276,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8287,7 +8290,7 @@ module AWS::SDK::SSM
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

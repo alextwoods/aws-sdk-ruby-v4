@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Personalize
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::Personalize
       def self.stub(http_resp, stub:)
         data = {}
         data['batchInferenceJobArn'] = stub[:batch_inference_job_arn] unless stub[:batch_inference_job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -37,7 +39,7 @@ module AWS::SDK::Personalize
       def self.stub(http_resp, stub:)
         data = {}
         data['batchSegmentJobArn'] = stub[:batch_segment_job_arn] unless stub[:batch_segment_job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -53,7 +55,7 @@ module AWS::SDK::Personalize
       def self.stub(http_resp, stub:)
         data = {}
         data['campaignArn'] = stub[:campaign_arn] unless stub[:campaign_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -69,7 +71,7 @@ module AWS::SDK::Personalize
       def self.stub(http_resp, stub:)
         data = {}
         data['datasetArn'] = stub[:dataset_arn] unless stub[:dataset_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -85,7 +87,7 @@ module AWS::SDK::Personalize
       def self.stub(http_resp, stub:)
         data = {}
         data['datasetExportJobArn'] = stub[:dataset_export_job_arn] unless stub[:dataset_export_job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -103,7 +105,7 @@ module AWS::SDK::Personalize
         data = {}
         data['datasetGroupArn'] = stub[:dataset_group_arn] unless stub[:dataset_group_arn].nil?
         data['domain'] = stub[:domain] unless stub[:domain].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -119,7 +121,7 @@ module AWS::SDK::Personalize
       def self.stub(http_resp, stub:)
         data = {}
         data['datasetImportJobArn'] = stub[:dataset_import_job_arn] unless stub[:dataset_import_job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -137,7 +139,7 @@ module AWS::SDK::Personalize
         data = {}
         data['eventTrackerArn'] = stub[:event_tracker_arn] unless stub[:event_tracker_arn].nil?
         data['trackingId'] = stub[:tracking_id] unless stub[:tracking_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -153,7 +155,7 @@ module AWS::SDK::Personalize
       def self.stub(http_resp, stub:)
         data = {}
         data['filterArn'] = stub[:filter_arn] unless stub[:filter_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -169,7 +171,7 @@ module AWS::SDK::Personalize
       def self.stub(http_resp, stub:)
         data = {}
         data['recommenderArn'] = stub[:recommender_arn] unless stub[:recommender_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -185,7 +187,7 @@ module AWS::SDK::Personalize
       def self.stub(http_resp, stub:)
         data = {}
         data['schemaArn'] = stub[:schema_arn] unless stub[:schema_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -201,7 +203,7 @@ module AWS::SDK::Personalize
       def self.stub(http_resp, stub:)
         data = {}
         data['solutionArn'] = stub[:solution_arn] unless stub[:solution_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -217,7 +219,7 @@ module AWS::SDK::Personalize
       def self.stub(http_resp, stub:)
         data = {}
         data['solutionVersionArn'] = stub[:solution_version_arn] unless stub[:solution_version_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -231,7 +233,7 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -245,7 +247,7 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -259,7 +261,7 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -273,7 +275,7 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -287,7 +289,7 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -301,7 +303,7 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -315,7 +317,7 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -329,7 +331,7 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -344,8 +346,8 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['algorithm'] = Stubs::Algorithm.stub(stub[:algorithm]) unless stub[:algorithm].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['algorithm'] = Algorithm.stub(stub[:algorithm]) unless stub[:algorithm].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -374,10 +376,10 @@ module AWS::SDK::Personalize
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['algorithmArn'] = stub[:algorithm_arn] unless stub[:algorithm_arn].nil?
-        data['algorithmImage'] = Stubs::AlgorithmImage.stub(stub[:algorithm_image]) unless stub[:algorithm_image].nil?
-        data['defaultHyperParameters'] = Stubs::HyperParameters.stub(stub[:default_hyper_parameters]) unless stub[:default_hyper_parameters].nil?
-        data['defaultHyperParameterRanges'] = Stubs::DefaultHyperParameterRanges.stub(stub[:default_hyper_parameter_ranges]) unless stub[:default_hyper_parameter_ranges].nil?
-        data['defaultResourceConfig'] = Stubs::ResourceConfig.stub(stub[:default_resource_config]) unless stub[:default_resource_config].nil?
+        data['algorithmImage'] = AlgorithmImage.stub(stub[:algorithm_image]) unless stub[:algorithm_image].nil?
+        data['defaultHyperParameters'] = HyperParameters.stub(stub[:default_hyper_parameters]) unless stub[:default_hyper_parameters].nil?
+        data['defaultHyperParameterRanges'] = DefaultHyperParameterRanges.stub(stub[:default_hyper_parameter_ranges]) unless stub[:default_hyper_parameter_ranges].nil?
+        data['defaultResourceConfig'] = ResourceConfig.stub(stub[:default_resource_config]) unless stub[:default_resource_config].nil?
         data['trainingInputMode'] = stub[:training_input_mode] unless stub[:training_input_mode].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
@@ -421,9 +423,9 @@ module AWS::SDK::Personalize
       def self.stub(stub)
         stub ||= Types::DefaultHyperParameterRanges.new
         data = {}
-        data['integerHyperParameterRanges'] = Stubs::DefaultIntegerHyperParameterRanges.stub(stub[:integer_hyper_parameter_ranges]) unless stub[:integer_hyper_parameter_ranges].nil?
-        data['continuousHyperParameterRanges'] = Stubs::DefaultContinuousHyperParameterRanges.stub(stub[:continuous_hyper_parameter_ranges]) unless stub[:continuous_hyper_parameter_ranges].nil?
-        data['categoricalHyperParameterRanges'] = Stubs::DefaultCategoricalHyperParameterRanges.stub(stub[:categorical_hyper_parameter_ranges]) unless stub[:categorical_hyper_parameter_ranges].nil?
+        data['integerHyperParameterRanges'] = DefaultIntegerHyperParameterRanges.stub(stub[:integer_hyper_parameter_ranges]) unless stub[:integer_hyper_parameter_ranges].nil?
+        data['continuousHyperParameterRanges'] = DefaultContinuousHyperParameterRanges.stub(stub[:continuous_hyper_parameter_ranges]) unless stub[:continuous_hyper_parameter_ranges].nil?
+        data['categoricalHyperParameterRanges'] = DefaultCategoricalHyperParameterRanges.stub(stub[:categorical_hyper_parameter_ranges]) unless stub[:categorical_hyper_parameter_ranges].nil?
         data
       end
     end
@@ -442,7 +444,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DefaultCategoricalHyperParameterRange.stub(element) unless element.nil?
+          data << DefaultCategoricalHyperParameterRange.stub(element) unless element.nil?
         end
         data
       end
@@ -464,7 +466,7 @@ module AWS::SDK::Personalize
         stub ||= Types::DefaultCategoricalHyperParameterRange.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['values'] = Stubs::CategoricalValues.stub(stub[:values]) unless stub[:values].nil?
+        data['values'] = CategoricalValues.stub(stub[:values]) unless stub[:values].nil?
         data['isTunable'] = stub[:is_tunable] unless stub[:is_tunable].nil?
         data
       end
@@ -504,7 +506,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DefaultContinuousHyperParameterRange.stub(element) unless element.nil?
+          data << DefaultContinuousHyperParameterRange.stub(element) unless element.nil?
         end
         data
       end
@@ -548,7 +550,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DefaultIntegerHyperParameterRange.stub(element) unless element.nil?
+          data << DefaultIntegerHyperParameterRange.stub(element) unless element.nil?
         end
         data
       end
@@ -628,8 +630,8 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['batchInferenceJob'] = Stubs::BatchInferenceJob.stub(stub[:batch_inference_job]) unless stub[:batch_inference_job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['batchInferenceJob'] = BatchInferenceJob.stub(stub[:batch_inference_job]) unless stub[:batch_inference_job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -665,9 +667,9 @@ module AWS::SDK::Personalize
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['solutionVersionArn'] = stub[:solution_version_arn] unless stub[:solution_version_arn].nil?
         data['numResults'] = stub[:num_results] unless stub[:num_results].nil?
-        data['jobInput'] = Stubs::BatchInferenceJobInput.stub(stub[:job_input]) unless stub[:job_input].nil?
-        data['jobOutput'] = Stubs::BatchInferenceJobOutput.stub(stub[:job_output]) unless stub[:job_output].nil?
-        data['batchInferenceJobConfig'] = Stubs::BatchInferenceJobConfig.stub(stub[:batch_inference_job_config]) unless stub[:batch_inference_job_config].nil?
+        data['jobInput'] = BatchInferenceJobInput.stub(stub[:job_input]) unless stub[:job_input].nil?
+        data['jobOutput'] = BatchInferenceJobOutput.stub(stub[:job_output]) unless stub[:job_output].nil?
+        data['batchInferenceJobConfig'] = BatchInferenceJobConfig.stub(stub[:batch_inference_job_config]) unless stub[:batch_inference_job_config].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
@@ -689,7 +691,7 @@ module AWS::SDK::Personalize
       def self.stub(stub)
         stub ||= Types::BatchInferenceJobConfig.new
         data = {}
-        data['itemExplorationConfig'] = Stubs::HyperParameters.stub(stub[:item_exploration_config]) unless stub[:item_exploration_config].nil?
+        data['itemExplorationConfig'] = HyperParameters.stub(stub[:item_exploration_config]) unless stub[:item_exploration_config].nil?
         data
       end
     end
@@ -707,7 +709,7 @@ module AWS::SDK::Personalize
       def self.stub(stub)
         stub ||= Types::BatchInferenceJobOutput.new
         data = {}
-        data['s3DataDestination'] = Stubs::S3DataConfig.stub(stub[:s3_data_destination]) unless stub[:s3_data_destination].nil?
+        data['s3DataDestination'] = S3DataConfig.stub(stub[:s3_data_destination]) unless stub[:s3_data_destination].nil?
         data
       end
     end
@@ -745,7 +747,7 @@ module AWS::SDK::Personalize
       def self.stub(stub)
         stub ||= Types::BatchInferenceJobInput.new
         data = {}
-        data['s3DataSource'] = Stubs::S3DataConfig.stub(stub[:s3_data_source]) unless stub[:s3_data_source].nil?
+        data['s3DataSource'] = S3DataConfig.stub(stub[:s3_data_source]) unless stub[:s3_data_source].nil?
         data
       end
     end
@@ -760,8 +762,8 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['batchSegmentJob'] = Stubs::BatchSegmentJob.stub(stub[:batch_segment_job]) unless stub[:batch_segment_job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['batchSegmentJob'] = BatchSegmentJob.stub(stub[:batch_segment_job]) unless stub[:batch_segment_job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -796,8 +798,8 @@ module AWS::SDK::Personalize
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['solutionVersionArn'] = stub[:solution_version_arn] unless stub[:solution_version_arn].nil?
         data['numResults'] = stub[:num_results] unless stub[:num_results].nil?
-        data['jobInput'] = Stubs::BatchSegmentJobInput.stub(stub[:job_input]) unless stub[:job_input].nil?
-        data['jobOutput'] = Stubs::BatchSegmentJobOutput.stub(stub[:job_output]) unless stub[:job_output].nil?
+        data['jobInput'] = BatchSegmentJobInput.stub(stub[:job_input]) unless stub[:job_input].nil?
+        data['jobOutput'] = BatchSegmentJobOutput.stub(stub[:job_output]) unless stub[:job_output].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
@@ -819,7 +821,7 @@ module AWS::SDK::Personalize
       def self.stub(stub)
         stub ||= Types::BatchSegmentJobOutput.new
         data = {}
-        data['s3DataDestination'] = Stubs::S3DataConfig.stub(stub[:s3_data_destination]) unless stub[:s3_data_destination].nil?
+        data['s3DataDestination'] = S3DataConfig.stub(stub[:s3_data_destination]) unless stub[:s3_data_destination].nil?
         data
       end
     end
@@ -837,7 +839,7 @@ module AWS::SDK::Personalize
       def self.stub(stub)
         stub ||= Types::BatchSegmentJobInput.new
         data = {}
-        data['s3DataSource'] = Stubs::S3DataConfig.stub(stub[:s3_data_source]) unless stub[:s3_data_source].nil?
+        data['s3DataSource'] = S3DataConfig.stub(stub[:s3_data_source]) unless stub[:s3_data_source].nil?
         data
       end
     end
@@ -852,8 +854,8 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['campaign'] = Stubs::Campaign.stub(stub[:campaign]) unless stub[:campaign].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['campaign'] = Campaign.stub(stub[:campaign]) unless stub[:campaign].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -884,12 +886,12 @@ module AWS::SDK::Personalize
         data['campaignArn'] = stub[:campaign_arn] unless stub[:campaign_arn].nil?
         data['solutionVersionArn'] = stub[:solution_version_arn] unless stub[:solution_version_arn].nil?
         data['minProvisionedTPS'] = stub[:min_provisioned_tps] unless stub[:min_provisioned_tps].nil?
-        data['campaignConfig'] = Stubs::CampaignConfig.stub(stub[:campaign_config]) unless stub[:campaign_config].nil?
+        data['campaignConfig'] = CampaignConfig.stub(stub[:campaign_config]) unless stub[:campaign_config].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
         data['lastUpdatedDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date_time]).to_i unless stub[:last_updated_date_time].nil?
-        data['latestCampaignUpdate'] = Stubs::CampaignUpdateSummary.stub(stub[:latest_campaign_update]) unless stub[:latest_campaign_update].nil?
+        data['latestCampaignUpdate'] = CampaignUpdateSummary.stub(stub[:latest_campaign_update]) unless stub[:latest_campaign_update].nil?
         data
       end
     end
@@ -915,7 +917,7 @@ module AWS::SDK::Personalize
         data = {}
         data['solutionVersionArn'] = stub[:solution_version_arn] unless stub[:solution_version_arn].nil?
         data['minProvisionedTPS'] = stub[:min_provisioned_tps] unless stub[:min_provisioned_tps].nil?
-        data['campaignConfig'] = Stubs::CampaignConfig.stub(stub[:campaign_config]) unless stub[:campaign_config].nil?
+        data['campaignConfig'] = CampaignConfig.stub(stub[:campaign_config]) unless stub[:campaign_config].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
@@ -937,7 +939,7 @@ module AWS::SDK::Personalize
       def self.stub(stub)
         stub ||= Types::CampaignConfig.new
         data = {}
-        data['itemExplorationConfig'] = Stubs::HyperParameters.stub(stub[:item_exploration_config]) unless stub[:item_exploration_config].nil?
+        data['itemExplorationConfig'] = HyperParameters.stub(stub[:item_exploration_config]) unless stub[:item_exploration_config].nil?
         data
       end
     end
@@ -952,8 +954,8 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['dataset'] = Stubs::Dataset.stub(stub[:dataset]) unless stub[:dataset].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dataset'] = Dataset.stub(stub[:dataset]) unless stub[:dataset].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1000,8 +1002,8 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['datasetExportJob'] = Stubs::DatasetExportJob.stub(stub[:dataset_export_job]) unless stub[:dataset_export_job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['datasetExportJob'] = DatasetExportJob.stub(stub[:dataset_export_job]) unless stub[:dataset_export_job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1034,7 +1036,7 @@ module AWS::SDK::Personalize
         data['ingestionMode'] = stub[:ingestion_mode] unless stub[:ingestion_mode].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['jobOutput'] = Stubs::DatasetExportJobOutput.stub(stub[:job_output]) unless stub[:job_output].nil?
+        data['jobOutput'] = DatasetExportJobOutput.stub(stub[:job_output]) unless stub[:job_output].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
         data['lastUpdatedDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date_time]).to_i unless stub[:last_updated_date_time].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
@@ -1055,7 +1057,7 @@ module AWS::SDK::Personalize
       def self.stub(stub)
         stub ||= Types::DatasetExportJobOutput.new
         data = {}
-        data['s3DataDestination'] = Stubs::S3DataConfig.stub(stub[:s3_data_destination]) unless stub[:s3_data_destination].nil?
+        data['s3DataDestination'] = S3DataConfig.stub(stub[:s3_data_destination]) unless stub[:s3_data_destination].nil?
         data
       end
     end
@@ -1070,8 +1072,8 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['datasetGroup'] = Stubs::DatasetGroup.stub(stub[:dataset_group]) unless stub[:dataset_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['datasetGroup'] = DatasetGroup.stub(stub[:dataset_group]) unless stub[:dataset_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1120,8 +1122,8 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['datasetImportJob'] = Stubs::DatasetImportJob.stub(stub[:dataset_import_job]) unless stub[:dataset_import_job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['datasetImportJob'] = DatasetImportJob.stub(stub[:dataset_import_job]) unless stub[:dataset_import_job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1150,7 +1152,7 @@ module AWS::SDK::Personalize
         data['jobName'] = stub[:job_name] unless stub[:job_name].nil?
         data['datasetImportJobArn'] = stub[:dataset_import_job_arn] unless stub[:dataset_import_job_arn].nil?
         data['datasetArn'] = stub[:dataset_arn] unless stub[:dataset_arn].nil?
-        data['dataSource'] = Stubs::DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
+        data['dataSource'] = DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
@@ -1188,8 +1190,8 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['eventTracker'] = Stubs::EventTracker.stub(stub[:event_tracker]) unless stub[:event_tracker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['eventTracker'] = EventTracker.stub(stub[:event_tracker]) unless stub[:event_tracker].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1236,8 +1238,8 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['featureTransformation'] = Stubs::FeatureTransformation.stub(stub[:feature_transformation]) unless stub[:feature_transformation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['featureTransformation'] = FeatureTransformation.stub(stub[:feature_transformation]) unless stub[:feature_transformation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1262,7 +1264,7 @@ module AWS::SDK::Personalize
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['featureTransformationArn'] = stub[:feature_transformation_arn] unless stub[:feature_transformation_arn].nil?
-        data['defaultParameters'] = Stubs::FeaturizationParameters.stub(stub[:default_parameters]) unless stub[:default_parameters].nil?
+        data['defaultParameters'] = FeaturizationParameters.stub(stub[:default_parameters]) unless stub[:default_parameters].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
         data['lastUpdatedDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date_time]).to_i unless stub[:last_updated_date_time].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
@@ -1300,8 +1302,8 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['filter'] = Stubs::Filter.stub(stub[:filter]) unless stub[:filter].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filter'] = Filter.stub(stub[:filter]) unless stub[:filter].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1348,8 +1350,8 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['recipe'] = Stubs::Recipe.stub(stub[:recipe]) unless stub[:recipe].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recipe'] = Recipe.stub(stub[:recipe]) unless stub[:recipe].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1398,8 +1400,8 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['recommender'] = Stubs::Recommender.stub(stub[:recommender]) unless stub[:recommender].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recommender'] = Recommender.stub(stub[:recommender]) unless stub[:recommender].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1431,13 +1433,13 @@ module AWS::SDK::Personalize
         data['datasetGroupArn'] = stub[:dataset_group_arn] unless stub[:dataset_group_arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['recipeArn'] = stub[:recipe_arn] unless stub[:recipe_arn].nil?
-        data['recommenderConfig'] = Stubs::RecommenderConfig.stub(stub[:recommender_config]) unless stub[:recommender_config].nil?
+        data['recommenderConfig'] = RecommenderConfig.stub(stub[:recommender_config]) unless stub[:recommender_config].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
         data['lastUpdatedDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date_time]).to_i unless stub[:last_updated_date_time].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['latestRecommenderUpdate'] = Stubs::RecommenderUpdateSummary.stub(stub[:latest_recommender_update]) unless stub[:latest_recommender_update].nil?
-        data['modelMetrics'] = Stubs::Metrics.stub(stub[:model_metrics]) unless stub[:model_metrics].nil?
+        data['latestRecommenderUpdate'] = RecommenderUpdateSummary.stub(stub[:latest_recommender_update]) unless stub[:latest_recommender_update].nil?
+        data['modelMetrics'] = Metrics.stub(stub[:model_metrics]) unless stub[:model_metrics].nil?
         data
       end
     end
@@ -1479,7 +1481,7 @@ module AWS::SDK::Personalize
       def self.stub(stub)
         stub ||= Types::RecommenderUpdateSummary.new
         data = {}
-        data['recommenderConfig'] = Stubs::RecommenderConfig.stub(stub[:recommender_config]) unless stub[:recommender_config].nil?
+        data['recommenderConfig'] = RecommenderConfig.stub(stub[:recommender_config]) unless stub[:recommender_config].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
         data['lastUpdatedDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date_time]).to_i unless stub[:last_updated_date_time].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
@@ -1502,7 +1504,7 @@ module AWS::SDK::Personalize
       def self.stub(stub)
         stub ||= Types::RecommenderConfig.new
         data = {}
-        data['itemExplorationConfig'] = Stubs::HyperParameters.stub(stub[:item_exploration_config]) unless stub[:item_exploration_config].nil?
+        data['itemExplorationConfig'] = HyperParameters.stub(stub[:item_exploration_config]) unless stub[:item_exploration_config].nil?
         data['minRecommendationRequestsPerSecond'] = stub[:min_recommendation_requests_per_second] unless stub[:min_recommendation_requests_per_second].nil?
         data
       end
@@ -1518,8 +1520,8 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['schema'] = Stubs::DatasetSchema.stub(stub[:schema]) unless stub[:schema].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['schema'] = DatasetSchema.stub(stub[:schema]) unless stub[:schema].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1562,8 +1564,8 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['solution'] = Stubs::Solution.stub(stub[:solution]) unless stub[:solution].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['solution'] = Solution.stub(stub[:solution]) unless stub[:solution].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1600,12 +1602,12 @@ module AWS::SDK::Personalize
         data['recipeArn'] = stub[:recipe_arn] unless stub[:recipe_arn].nil?
         data['datasetGroupArn'] = stub[:dataset_group_arn] unless stub[:dataset_group_arn].nil?
         data['eventType'] = stub[:event_type] unless stub[:event_type].nil?
-        data['solutionConfig'] = Stubs::SolutionConfig.stub(stub[:solution_config]) unless stub[:solution_config].nil?
-        data['autoMLResult'] = Stubs::AutoMLResult.stub(stub[:auto_ml_result]) unless stub[:auto_ml_result].nil?
+        data['solutionConfig'] = SolutionConfig.stub(stub[:solution_config]) unless stub[:solution_config].nil?
+        data['autoMLResult'] = AutoMLResult.stub(stub[:auto_ml_result]) unless stub[:auto_ml_result].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
         data['lastUpdatedDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date_time]).to_i unless stub[:last_updated_date_time].nil?
-        data['latestSolutionVersion'] = Stubs::SolutionVersionSummary.stub(stub[:latest_solution_version]) unless stub[:latest_solution_version].nil?
+        data['latestSolutionVersion'] = SolutionVersionSummary.stub(stub[:latest_solution_version]) unless stub[:latest_solution_version].nil?
         data
       end
     end
@@ -1673,11 +1675,11 @@ module AWS::SDK::Personalize
         stub ||= Types::SolutionConfig.new
         data = {}
         data['eventValueThreshold'] = stub[:event_value_threshold] unless stub[:event_value_threshold].nil?
-        data['hpoConfig'] = Stubs::HPOConfig.stub(stub[:hpo_config]) unless stub[:hpo_config].nil?
-        data['algorithmHyperParameters'] = Stubs::HyperParameters.stub(stub[:algorithm_hyper_parameters]) unless stub[:algorithm_hyper_parameters].nil?
-        data['featureTransformationParameters'] = Stubs::FeatureTransformationParameters.stub(stub[:feature_transformation_parameters]) unless stub[:feature_transformation_parameters].nil?
-        data['autoMLConfig'] = Stubs::AutoMLConfig.stub(stub[:auto_ml_config]) unless stub[:auto_ml_config].nil?
-        data['optimizationObjective'] = Stubs::OptimizationObjective.stub(stub[:optimization_objective]) unless stub[:optimization_objective].nil?
+        data['hpoConfig'] = HPOConfig.stub(stub[:hpo_config]) unless stub[:hpo_config].nil?
+        data['algorithmHyperParameters'] = HyperParameters.stub(stub[:algorithm_hyper_parameters]) unless stub[:algorithm_hyper_parameters].nil?
+        data['featureTransformationParameters'] = FeatureTransformationParameters.stub(stub[:feature_transformation_parameters]) unless stub[:feature_transformation_parameters].nil?
+        data['autoMLConfig'] = AutoMLConfig.stub(stub[:auto_ml_config]) unless stub[:auto_ml_config].nil?
+        data['optimizationObjective'] = OptimizationObjective.stub(stub[:optimization_objective]) unless stub[:optimization_objective].nil?
         data
       end
     end
@@ -1717,7 +1719,7 @@ module AWS::SDK::Personalize
         stub ||= Types::AutoMLConfig.new
         data = {}
         data['metricName'] = stub[:metric_name] unless stub[:metric_name].nil?
-        data['recipeList'] = Stubs::ArnList.stub(stub[:recipe_list]) unless stub[:recipe_list].nil?
+        data['recipeList'] = ArnList.stub(stub[:recipe_list]) unless stub[:recipe_list].nil?
         data
       end
     end
@@ -1777,9 +1779,9 @@ module AWS::SDK::Personalize
       def self.stub(stub)
         stub ||= Types::HPOConfig.new
         data = {}
-        data['hpoObjective'] = Stubs::HPOObjective.stub(stub[:hpo_objective]) unless stub[:hpo_objective].nil?
-        data['hpoResourceConfig'] = Stubs::HPOResourceConfig.stub(stub[:hpo_resource_config]) unless stub[:hpo_resource_config].nil?
-        data['algorithmHyperParameterRanges'] = Stubs::HyperParameterRanges.stub(stub[:algorithm_hyper_parameter_ranges]) unless stub[:algorithm_hyper_parameter_ranges].nil?
+        data['hpoObjective'] = HPOObjective.stub(stub[:hpo_objective]) unless stub[:hpo_objective].nil?
+        data['hpoResourceConfig'] = HPOResourceConfig.stub(stub[:hpo_resource_config]) unless stub[:hpo_resource_config].nil?
+        data['algorithmHyperParameterRanges'] = HyperParameterRanges.stub(stub[:algorithm_hyper_parameter_ranges]) unless stub[:algorithm_hyper_parameter_ranges].nil?
         data
       end
     end
@@ -1799,9 +1801,9 @@ module AWS::SDK::Personalize
       def self.stub(stub)
         stub ||= Types::HyperParameterRanges.new
         data = {}
-        data['integerHyperParameterRanges'] = Stubs::IntegerHyperParameterRanges.stub(stub[:integer_hyper_parameter_ranges]) unless stub[:integer_hyper_parameter_ranges].nil?
-        data['continuousHyperParameterRanges'] = Stubs::ContinuousHyperParameterRanges.stub(stub[:continuous_hyper_parameter_ranges]) unless stub[:continuous_hyper_parameter_ranges].nil?
-        data['categoricalHyperParameterRanges'] = Stubs::CategoricalHyperParameterRanges.stub(stub[:categorical_hyper_parameter_ranges]) unless stub[:categorical_hyper_parameter_ranges].nil?
+        data['integerHyperParameterRanges'] = IntegerHyperParameterRanges.stub(stub[:integer_hyper_parameter_ranges]) unless stub[:integer_hyper_parameter_ranges].nil?
+        data['continuousHyperParameterRanges'] = ContinuousHyperParameterRanges.stub(stub[:continuous_hyper_parameter_ranges]) unless stub[:continuous_hyper_parameter_ranges].nil?
+        data['categoricalHyperParameterRanges'] = CategoricalHyperParameterRanges.stub(stub[:categorical_hyper_parameter_ranges]) unless stub[:categorical_hyper_parameter_ranges].nil?
         data
       end
     end
@@ -1820,7 +1822,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CategoricalHyperParameterRange.stub(element) unless element.nil?
+          data << CategoricalHyperParameterRange.stub(element) unless element.nil?
         end
         data
       end
@@ -1841,7 +1843,7 @@ module AWS::SDK::Personalize
         stub ||= Types::CategoricalHyperParameterRange.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['values'] = Stubs::CategoricalValues.stub(stub[:values]) unless stub[:values].nil?
+        data['values'] = CategoricalValues.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -1860,7 +1862,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContinuousHyperParameterRange.stub(element) unless element.nil?
+          data << ContinuousHyperParameterRange.stub(element) unless element.nil?
         end
         data
       end
@@ -1902,7 +1904,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IntegerHyperParameterRange.stub(element) unless element.nil?
+          data << IntegerHyperParameterRange.stub(element) unless element.nil?
         end
         data
       end
@@ -1982,8 +1984,8 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['solutionVersion'] = Stubs::SolutionVersion.stub(stub[:solution_version]) unless stub[:solution_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['solutionVersion'] = SolutionVersion.stub(stub[:solution_version]) unless stub[:solution_version].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2022,10 +2024,10 @@ module AWS::SDK::Personalize
         data['recipeArn'] = stub[:recipe_arn] unless stub[:recipe_arn].nil?
         data['eventType'] = stub[:event_type] unless stub[:event_type].nil?
         data['datasetGroupArn'] = stub[:dataset_group_arn] unless stub[:dataset_group_arn].nil?
-        data['solutionConfig'] = Stubs::SolutionConfig.stub(stub[:solution_config]) unless stub[:solution_config].nil?
+        data['solutionConfig'] = SolutionConfig.stub(stub[:solution_config]) unless stub[:solution_config].nil?
         data['trainingHours'] = Hearth::NumberHelper.serialize(stub[:training_hours])
         data['trainingMode'] = stub[:training_mode] unless stub[:training_mode].nil?
-        data['tunedHPOParams'] = Stubs::TunedHPOParams.stub(stub[:tuned_hpo_params]) unless stub[:tuned_hpo_params].nil?
+        data['tunedHPOParams'] = TunedHPOParams.stub(stub[:tuned_hpo_params]) unless stub[:tuned_hpo_params].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
@@ -2047,7 +2049,7 @@ module AWS::SDK::Personalize
       def self.stub(stub)
         stub ||= Types::TunedHPOParams.new
         data = {}
-        data['algorithmHyperParameters'] = Stubs::HyperParameters.stub(stub[:algorithm_hyper_parameters]) unless stub[:algorithm_hyper_parameters].nil?
+        data['algorithmHyperParameters'] = HyperParameters.stub(stub[:algorithm_hyper_parameters]) unless stub[:algorithm_hyper_parameters].nil?
         data
       end
     end
@@ -2064,8 +2066,8 @@ module AWS::SDK::Personalize
       def self.stub(http_resp, stub:)
         data = {}
         data['solutionVersionArn'] = stub[:solution_version_arn] unless stub[:solution_version_arn].nil?
-        data['metrics'] = Stubs::Metrics.stub(stub[:metrics]) unless stub[:metrics].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['metrics'] = Metrics.stub(stub[:metrics]) unless stub[:metrics].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2081,9 +2083,9 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['batchInferenceJobs'] = Stubs::BatchInferenceJobs.stub(stub[:batch_inference_jobs]) unless stub[:batch_inference_jobs].nil?
+        data['batchInferenceJobs'] = BatchInferenceJobs.stub(stub[:batch_inference_jobs]) unless stub[:batch_inference_jobs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2102,7 +2104,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchInferenceJobSummary.stub(element) unless element.nil?
+          data << BatchInferenceJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2149,9 +2151,9 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['batchSegmentJobs'] = Stubs::BatchSegmentJobs.stub(stub[:batch_segment_jobs]) unless stub[:batch_segment_jobs].nil?
+        data['batchSegmentJobs'] = BatchSegmentJobs.stub(stub[:batch_segment_jobs]) unless stub[:batch_segment_jobs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2170,7 +2172,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchSegmentJobSummary.stub(element) unless element.nil?
+          data << BatchSegmentJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2217,9 +2219,9 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['campaigns'] = Stubs::Campaigns.stub(stub[:campaigns]) unless stub[:campaigns].nil?
+        data['campaigns'] = Campaigns.stub(stub[:campaigns]) unless stub[:campaigns].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2238,7 +2240,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CampaignSummary.stub(element) unless element.nil?
+          data << CampaignSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2283,9 +2285,9 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['datasetExportJobs'] = Stubs::DatasetExportJobs.stub(stub[:dataset_export_jobs]) unless stub[:dataset_export_jobs].nil?
+        data['datasetExportJobs'] = DatasetExportJobs.stub(stub[:dataset_export_jobs]) unless stub[:dataset_export_jobs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2304,7 +2306,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DatasetExportJobSummary.stub(element) unless element.nil?
+          data << DatasetExportJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2349,9 +2351,9 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['datasetGroups'] = Stubs::DatasetGroups.stub(stub[:dataset_groups]) unless stub[:dataset_groups].nil?
+        data['datasetGroups'] = DatasetGroups.stub(stub[:dataset_groups]) unless stub[:dataset_groups].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2370,7 +2372,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DatasetGroupSummary.stub(element) unless element.nil?
+          data << DatasetGroupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2417,9 +2419,9 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['datasetImportJobs'] = Stubs::DatasetImportJobs.stub(stub[:dataset_import_jobs]) unless stub[:dataset_import_jobs].nil?
+        data['datasetImportJobs'] = DatasetImportJobs.stub(stub[:dataset_import_jobs]) unless stub[:dataset_import_jobs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2438,7 +2440,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DatasetImportJobSummary.stub(element) unless element.nil?
+          data << DatasetImportJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2483,9 +2485,9 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['datasets'] = Stubs::Datasets.stub(stub[:datasets]) unless stub[:datasets].nil?
+        data['datasets'] = Datasets.stub(stub[:datasets]) unless stub[:datasets].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2504,7 +2506,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DatasetSummary.stub(element) unless element.nil?
+          data << DatasetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2549,9 +2551,9 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['eventTrackers'] = Stubs::EventTrackers.stub(stub[:event_trackers]) unless stub[:event_trackers].nil?
+        data['eventTrackers'] = EventTrackers.stub(stub[:event_trackers]) unless stub[:event_trackers].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2570,7 +2572,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventTrackerSummary.stub(element) unless element.nil?
+          data << EventTrackerSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2613,9 +2615,9 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Filters'] = Stubs::Filters.stub(stub[:filters]) unless stub[:filters].nil?
+        data['Filters'] = Filters.stub(stub[:filters]) unless stub[:filters].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2634,7 +2636,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FilterSummary.stub(element) unless element.nil?
+          data << FilterSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2681,9 +2683,9 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['recipes'] = Stubs::Recipes.stub(stub[:recipes]) unless stub[:recipes].nil?
+        data['recipes'] = Recipes.stub(stub[:recipes]) unless stub[:recipes].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2702,7 +2704,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecipeSummary.stub(element) unless element.nil?
+          data << RecipeSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2747,9 +2749,9 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['recommenders'] = Stubs::Recommenders.stub(stub[:recommenders]) unless stub[:recommenders].nil?
+        data['recommenders'] = Recommenders.stub(stub[:recommenders]) unless stub[:recommenders].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2768,7 +2770,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommenderSummary.stub(element) unless element.nil?
+          data << RecommenderSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2798,7 +2800,7 @@ module AWS::SDK::Personalize
         data['recommenderArn'] = stub[:recommender_arn] unless stub[:recommender_arn].nil?
         data['datasetGroupArn'] = stub[:dataset_group_arn] unless stub[:dataset_group_arn].nil?
         data['recipeArn'] = stub[:recipe_arn] unless stub[:recipe_arn].nil?
-        data['recommenderConfig'] = Stubs::RecommenderConfig.stub(stub[:recommender_config]) unless stub[:recommender_config].nil?
+        data['recommenderConfig'] = RecommenderConfig.stub(stub[:recommender_config]) unless stub[:recommender_config].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
         data['lastUpdatedDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date_time]).to_i unless stub[:last_updated_date_time].nil?
@@ -2817,9 +2819,9 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['schemas'] = Stubs::Schemas.stub(stub[:schemas]) unless stub[:schemas].nil?
+        data['schemas'] = Schemas.stub(stub[:schemas]) unless stub[:schemas].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2838,7 +2840,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DatasetSchemaSummary.stub(element) unless element.nil?
+          data << DatasetSchemaSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2881,9 +2883,9 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['solutionVersions'] = Stubs::SolutionVersions.stub(stub[:solution_versions]) unless stub[:solution_versions].nil?
+        data['solutionVersions'] = SolutionVersions.stub(stub[:solution_versions]) unless stub[:solution_versions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2902,7 +2904,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SolutionVersionSummary.stub(element) unless element.nil?
+          data << SolutionVersionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2919,9 +2921,9 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['solutions'] = Stubs::Solutions.stub(stub[:solutions]) unless stub[:solutions].nil?
+        data['solutions'] = Solutions.stub(stub[:solutions]) unless stub[:solutions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2940,7 +2942,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SolutionSummary.stub(element) unless element.nil?
+          data << SolutionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2982,8 +2984,8 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3002,7 +3004,7 @@ module AWS::SDK::Personalize
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -3039,7 +3041,7 @@ module AWS::SDK::Personalize
       def self.stub(http_resp, stub:)
         data = {}
         data['recommenderArn'] = stub[:recommender_arn] unless stub[:recommender_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3055,7 +3057,7 @@ module AWS::SDK::Personalize
       def self.stub(http_resp, stub:)
         data = {}
         data['recommenderArn'] = stub[:recommender_arn] unless stub[:recommender_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3069,7 +3071,7 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3083,7 +3085,7 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3097,7 +3099,7 @@ module AWS::SDK::Personalize
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3113,7 +3115,7 @@ module AWS::SDK::Personalize
       def self.stub(http_resp, stub:)
         data = {}
         data['campaignArn'] = stub[:campaign_arn] unless stub[:campaign_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3129,7 +3131,7 @@ module AWS::SDK::Personalize
       def self.stub(http_resp, stub:)
         data = {}
         data['recommenderArn'] = stub[:recommender_arn] unless stub[:recommender_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::DatabaseMigrationService
   module Parsers
 
@@ -40,7 +42,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_pending_maintenance_actions = (Parsers::ResourcePendingMaintenanceActions.parse(map['ResourcePendingMaintenanceActions']) unless map['ResourcePendingMaintenanceActions'].nil?)
+        data.resource_pending_maintenance_actions = (ResourcePendingMaintenanceActions.parse(map['ResourcePendingMaintenanceActions']) unless map['ResourcePendingMaintenanceActions'].nil?)
         data
       end
     end
@@ -49,7 +51,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.parse(map)
         data = Types::ResourcePendingMaintenanceActions.new
         data.resource_identifier = map['ResourceIdentifier']
-        data.pending_maintenance_action_details = (Parsers::PendingMaintenanceActionDetails.parse(map['PendingMaintenanceActionDetails']) unless map['PendingMaintenanceActionDetails'].nil?)
+        data.pending_maintenance_action_details = (PendingMaintenanceActionDetails.parse(map['PendingMaintenanceActionDetails']) unless map['PendingMaintenanceActionDetails'].nil?)
         return data
       end
     end
@@ -57,7 +59,7 @@ module AWS::SDK::DatabaseMigrationService
     class PendingMaintenanceActionDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::PendingMaintenanceAction.parse(value) unless value.nil?
+          PendingMaintenanceAction.parse(value) unless value.nil?
         end
       end
     end
@@ -82,7 +84,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_task_assessment_run = (Parsers::ReplicationTaskAssessmentRun.parse(map['ReplicationTaskAssessmentRun']) unless map['ReplicationTaskAssessmentRun'].nil?)
+        data.replication_task_assessment_run = (ReplicationTaskAssessmentRun.parse(map['ReplicationTaskAssessmentRun']) unless map['ReplicationTaskAssessmentRun'].nil?)
         data
       end
     end
@@ -94,7 +96,7 @@ module AWS::SDK::DatabaseMigrationService
         data.replication_task_arn = map['ReplicationTaskArn']
         data.status = map['Status']
         data.replication_task_assessment_run_creation_date = Time.at(map['ReplicationTaskAssessmentRunCreationDate'].to_i) if map['ReplicationTaskAssessmentRunCreationDate']
-        data.assessment_progress = (Parsers::ReplicationTaskAssessmentRunProgress.parse(map['AssessmentProgress']) unless map['AssessmentProgress'].nil?)
+        data.assessment_progress = (ReplicationTaskAssessmentRunProgress.parse(map['AssessmentProgress']) unless map['AssessmentProgress'].nil?)
         data.last_failure_message = map['LastFailureMessage']
         data.service_access_role_arn = map['ServiceAccessRoleArn']
         data.result_location_bucket = map['ResultLocationBucket']
@@ -146,7 +148,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoint = (Parsers::Endpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
+        data.endpoint = (Endpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
         data
       end
     end
@@ -171,24 +173,24 @@ module AWS::SDK::DatabaseMigrationService
         data.service_access_role_arn = map['ServiceAccessRoleArn']
         data.external_table_definition = map['ExternalTableDefinition']
         data.external_id = map['ExternalId']
-        data.dynamo_db_settings = (Parsers::DynamoDbSettings.parse(map['DynamoDbSettings']) unless map['DynamoDbSettings'].nil?)
-        data.s3_settings = (Parsers::S3Settings.parse(map['S3Settings']) unless map['S3Settings'].nil?)
-        data.dms_transfer_settings = (Parsers::DmsTransferSettings.parse(map['DmsTransferSettings']) unless map['DmsTransferSettings'].nil?)
-        data.mongo_db_settings = (Parsers::MongoDbSettings.parse(map['MongoDbSettings']) unless map['MongoDbSettings'].nil?)
-        data.kinesis_settings = (Parsers::KinesisSettings.parse(map['KinesisSettings']) unless map['KinesisSettings'].nil?)
-        data.kafka_settings = (Parsers::KafkaSettings.parse(map['KafkaSettings']) unless map['KafkaSettings'].nil?)
-        data.elasticsearch_settings = (Parsers::ElasticsearchSettings.parse(map['ElasticsearchSettings']) unless map['ElasticsearchSettings'].nil?)
-        data.neptune_settings = (Parsers::NeptuneSettings.parse(map['NeptuneSettings']) unless map['NeptuneSettings'].nil?)
-        data.redshift_settings = (Parsers::RedshiftSettings.parse(map['RedshiftSettings']) unless map['RedshiftSettings'].nil?)
-        data.postgre_sql_settings = (Parsers::PostgreSQLSettings.parse(map['PostgreSQLSettings']) unless map['PostgreSQLSettings'].nil?)
-        data.my_sql_settings = (Parsers::MySQLSettings.parse(map['MySQLSettings']) unless map['MySQLSettings'].nil?)
-        data.oracle_settings = (Parsers::OracleSettings.parse(map['OracleSettings']) unless map['OracleSettings'].nil?)
-        data.sybase_settings = (Parsers::SybaseSettings.parse(map['SybaseSettings']) unless map['SybaseSettings'].nil?)
-        data.microsoft_sql_server_settings = (Parsers::MicrosoftSQLServerSettings.parse(map['MicrosoftSQLServerSettings']) unless map['MicrosoftSQLServerSettings'].nil?)
-        data.ibm_db2_settings = (Parsers::IBMDb2Settings.parse(map['IBMDb2Settings']) unless map['IBMDb2Settings'].nil?)
-        data.doc_db_settings = (Parsers::DocDbSettings.parse(map['DocDbSettings']) unless map['DocDbSettings'].nil?)
-        data.redis_settings = (Parsers::RedisSettings.parse(map['RedisSettings']) unless map['RedisSettings'].nil?)
-        data.gcp_my_sql_settings = (Parsers::GcpMySQLSettings.parse(map['GcpMySQLSettings']) unless map['GcpMySQLSettings'].nil?)
+        data.dynamo_db_settings = (DynamoDbSettings.parse(map['DynamoDbSettings']) unless map['DynamoDbSettings'].nil?)
+        data.s3_settings = (S3Settings.parse(map['S3Settings']) unless map['S3Settings'].nil?)
+        data.dms_transfer_settings = (DmsTransferSettings.parse(map['DmsTransferSettings']) unless map['DmsTransferSettings'].nil?)
+        data.mongo_db_settings = (MongoDbSettings.parse(map['MongoDbSettings']) unless map['MongoDbSettings'].nil?)
+        data.kinesis_settings = (KinesisSettings.parse(map['KinesisSettings']) unless map['KinesisSettings'].nil?)
+        data.kafka_settings = (KafkaSettings.parse(map['KafkaSettings']) unless map['KafkaSettings'].nil?)
+        data.elasticsearch_settings = (ElasticsearchSettings.parse(map['ElasticsearchSettings']) unless map['ElasticsearchSettings'].nil?)
+        data.neptune_settings = (NeptuneSettings.parse(map['NeptuneSettings']) unless map['NeptuneSettings'].nil?)
+        data.redshift_settings = (RedshiftSettings.parse(map['RedshiftSettings']) unless map['RedshiftSettings'].nil?)
+        data.postgre_sql_settings = (PostgreSQLSettings.parse(map['PostgreSQLSettings']) unless map['PostgreSQLSettings'].nil?)
+        data.my_sql_settings = (MySQLSettings.parse(map['MySQLSettings']) unless map['MySQLSettings'].nil?)
+        data.oracle_settings = (OracleSettings.parse(map['OracleSettings']) unless map['OracleSettings'].nil?)
+        data.sybase_settings = (SybaseSettings.parse(map['SybaseSettings']) unless map['SybaseSettings'].nil?)
+        data.microsoft_sql_server_settings = (MicrosoftSQLServerSettings.parse(map['MicrosoftSQLServerSettings']) unless map['MicrosoftSQLServerSettings'].nil?)
+        data.ibm_db2_settings = (IBMDb2Settings.parse(map['IBMDb2Settings']) unless map['IBMDb2Settings'].nil?)
+        data.doc_db_settings = (DocDbSettings.parse(map['DocDbSettings']) unless map['DocDbSettings'].nil?)
+        data.redis_settings = (RedisSettings.parse(map['RedisSettings']) unless map['RedisSettings'].nil?)
+        data.gcp_my_sql_settings = (GcpMySQLSettings.parse(map['GcpMySQLSettings']) unless map['GcpMySQLSettings'].nil?)
         return data
       end
     end
@@ -304,7 +306,7 @@ module AWS::SDK::DatabaseMigrationService
         data.add_supplemental_logging = map['AddSupplementalLogging']
         data.archived_log_dest_id = map['ArchivedLogDestId']
         data.additional_archived_log_dest_id = map['AdditionalArchivedLogDestId']
-        data.extra_archived_log_dest_ids = (Parsers::IntegerList.parse(map['ExtraArchivedLogDestIds']) unless map['ExtraArchivedLogDestIds'].nil?)
+        data.extra_archived_log_dest_ids = (IntegerList.parse(map['ExtraArchivedLogDestIds']) unless map['ExtraArchivedLogDestIds'].nil?)
         data.allow_select_nested_tables = map['AllowSelectNestedTables']
         data.parallel_asm_read_threads = map['ParallelAsmReadThreads']
         data.read_ahead_blocks = map['ReadAheadBlocks']
@@ -642,7 +644,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.event_subscription = (Parsers::EventSubscription.parse(map['EventSubscription']) unless map['EventSubscription'].nil?)
+        data.event_subscription = (EventSubscription.parse(map['EventSubscription']) unless map['EventSubscription'].nil?)
         data
       end
     end
@@ -656,8 +658,8 @@ module AWS::SDK::DatabaseMigrationService
         data.status = map['Status']
         data.subscription_creation_time = map['SubscriptionCreationTime']
         data.source_type = map['SourceType']
-        data.source_ids_list = (Parsers::SourceIdsList.parse(map['SourceIdsList']) unless map['SourceIdsList'].nil?)
-        data.event_categories_list = (Parsers::EventCategoriesList.parse(map['EventCategoriesList']) unless map['EventCategoriesList'].nil?)
+        data.source_ids_list = (SourceIdsList.parse(map['SourceIdsList']) unless map['SourceIdsList'].nil?)
+        data.event_categories_list = (EventCategoriesList.parse(map['EventCategoriesList']) unless map['EventCategoriesList'].nil?)
         data.enabled = map['Enabled']
         return data
       end
@@ -798,7 +800,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_instance = (Parsers::ReplicationInstance.parse(map['ReplicationInstance']) unless map['ReplicationInstance'].nil?)
+        data.replication_instance = (ReplicationInstance.parse(map['ReplicationInstance']) unless map['ReplicationInstance'].nil?)
         data
       end
     end
@@ -811,11 +813,11 @@ module AWS::SDK::DatabaseMigrationService
         data.replication_instance_status = map['ReplicationInstanceStatus']
         data.allocated_storage = map['AllocatedStorage']
         data.instance_create_time = Time.at(map['InstanceCreateTime'].to_i) if map['InstanceCreateTime']
-        data.vpc_security_groups = (Parsers::VpcSecurityGroupMembershipList.parse(map['VpcSecurityGroups']) unless map['VpcSecurityGroups'].nil?)
+        data.vpc_security_groups = (VpcSecurityGroupMembershipList.parse(map['VpcSecurityGroups']) unless map['VpcSecurityGroups'].nil?)
         data.availability_zone = map['AvailabilityZone']
-        data.replication_subnet_group = (Parsers::ReplicationSubnetGroup.parse(map['ReplicationSubnetGroup']) unless map['ReplicationSubnetGroup'].nil?)
+        data.replication_subnet_group = (ReplicationSubnetGroup.parse(map['ReplicationSubnetGroup']) unless map['ReplicationSubnetGroup'].nil?)
         data.preferred_maintenance_window = map['PreferredMaintenanceWindow']
-        data.pending_modified_values = (Parsers::ReplicationPendingModifiedValues.parse(map['PendingModifiedValues']) unless map['PendingModifiedValues'].nil?)
+        data.pending_modified_values = (ReplicationPendingModifiedValues.parse(map['PendingModifiedValues']) unless map['PendingModifiedValues'].nil?)
         data.multi_az = map['MultiAZ']
         data.engine_version = map['EngineVersion']
         data.auto_minor_version_upgrade = map['AutoMinorVersionUpgrade']
@@ -823,8 +825,8 @@ module AWS::SDK::DatabaseMigrationService
         data.replication_instance_arn = map['ReplicationInstanceArn']
         data.replication_instance_public_ip_address = map['ReplicationInstancePublicIpAddress']
         data.replication_instance_private_ip_address = map['ReplicationInstancePrivateIpAddress']
-        data.replication_instance_public_ip_addresses = (Parsers::ReplicationInstancePublicIpAddressList.parse(map['ReplicationInstancePublicIpAddresses']) unless map['ReplicationInstancePublicIpAddresses'].nil?)
-        data.replication_instance_private_ip_addresses = (Parsers::ReplicationInstancePrivateIpAddressList.parse(map['ReplicationInstancePrivateIpAddresses']) unless map['ReplicationInstancePrivateIpAddresses'].nil?)
+        data.replication_instance_public_ip_addresses = (ReplicationInstancePublicIpAddressList.parse(map['ReplicationInstancePublicIpAddresses']) unless map['ReplicationInstancePublicIpAddresses'].nil?)
+        data.replication_instance_private_ip_addresses = (ReplicationInstancePrivateIpAddressList.parse(map['ReplicationInstancePrivateIpAddresses']) unless map['ReplicationInstancePrivateIpAddresses'].nil?)
         data.publicly_accessible = map['PubliclyAccessible']
         data.secondary_availability_zone = map['SecondaryAvailabilityZone']
         data.free_until = Time.at(map['FreeUntil'].to_i) if map['FreeUntil']
@@ -867,7 +869,7 @@ module AWS::SDK::DatabaseMigrationService
         data.replication_subnet_group_description = map['ReplicationSubnetGroupDescription']
         data.vpc_id = map['VpcId']
         data.subnet_group_status = map['SubnetGroupStatus']
-        data.subnets = (Parsers::SubnetList.parse(map['Subnets']) unless map['Subnets'].nil?)
+        data.subnets = (SubnetList.parse(map['Subnets']) unless map['Subnets'].nil?)
         return data
       end
     end
@@ -875,7 +877,7 @@ module AWS::SDK::DatabaseMigrationService
     class SubnetList
       def self.parse(list)
         list.map do |value|
-          Parsers::Subnet.parse(value) unless value.nil?
+          Subnet.parse(value) unless value.nil?
         end
       end
     end
@@ -884,7 +886,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.parse(map)
         data = Types::Subnet.new
         data.subnet_identifier = map['SubnetIdentifier']
-        data.subnet_availability_zone = (Parsers::AvailabilityZone.parse(map['SubnetAvailabilityZone']) unless map['SubnetAvailabilityZone'].nil?)
+        data.subnet_availability_zone = (AvailabilityZone.parse(map['SubnetAvailabilityZone']) unless map['SubnetAvailabilityZone'].nil?)
         data.subnet_status = map['SubnetStatus']
         return data
       end
@@ -901,7 +903,7 @@ module AWS::SDK::DatabaseMigrationService
     class VpcSecurityGroupMembershipList
       def self.parse(list)
         list.map do |value|
-          Parsers::VpcSecurityGroupMembership.parse(value) unless value.nil?
+          VpcSecurityGroupMembership.parse(value) unless value.nil?
         end
       end
     end
@@ -970,7 +972,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_subnet_group = (Parsers::ReplicationSubnetGroup.parse(map['ReplicationSubnetGroup']) unless map['ReplicationSubnetGroup'].nil?)
+        data.replication_subnet_group = (ReplicationSubnetGroup.parse(map['ReplicationSubnetGroup']) unless map['ReplicationSubnetGroup'].nil?)
         data
       end
     end
@@ -982,7 +984,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_task = (Parsers::ReplicationTask.parse(map['ReplicationTask']) unless map['ReplicationTask'].nil?)
+        data.replication_task = (ReplicationTask.parse(map['ReplicationTask']) unless map['ReplicationTask'].nil?)
         data
       end
     end
@@ -1006,7 +1008,7 @@ module AWS::SDK::DatabaseMigrationService
         data.cdc_stop_position = map['CdcStopPosition']
         data.recovery_checkpoint = map['RecoveryCheckpoint']
         data.replication_task_arn = map['ReplicationTaskArn']
-        data.replication_task_stats = (Parsers::ReplicationTaskStats.parse(map['ReplicationTaskStats']) unless map['ReplicationTaskStats'].nil?)
+        data.replication_task_stats = (ReplicationTaskStats.parse(map['ReplicationTaskStats']) unless map['ReplicationTaskStats'].nil?)
         data.task_data = map['TaskData']
         data.target_replication_instance_arn = map['TargetReplicationInstanceArn']
         return data
@@ -1038,7 +1040,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.certificate = (Parsers::Certificate.parse(map['Certificate']) unless map['Certificate'].nil?)
+        data.certificate = (Certificate.parse(map['Certificate']) unless map['Certificate'].nil?)
         data
       end
     end
@@ -1049,7 +1051,7 @@ module AWS::SDK::DatabaseMigrationService
         data.certificate_identifier = map['CertificateIdentifier']
         data.certificate_creation_date = Time.at(map['CertificateCreationDate'].to_i) if map['CertificateCreationDate']
         data.certificate_pem = map['CertificatePem']
-        data.certificate_wallet = Base64::decode64(map['CertificateWallet']) unless map['CertificateWallet'].nil?
+        data.certificate_wallet = ::Base64::decode64(map['CertificateWallet']) unless map['CertificateWallet'].nil?
         data.certificate_arn = map['CertificateArn']
         data.certificate_owner = map['CertificateOwner']
         data.valid_from_date = Time.at(map['ValidFromDate'].to_i) if map['ValidFromDate']
@@ -1067,7 +1069,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.connection = (Parsers::Connection.parse(map['Connection']) unless map['Connection'].nil?)
+        data.connection = (Connection.parse(map['Connection']) unless map['Connection'].nil?)
         data
       end
     end
@@ -1092,7 +1094,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoint = (Parsers::Endpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
+        data.endpoint = (Endpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
         data
       end
     end
@@ -1104,7 +1106,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.event_subscription = (Parsers::EventSubscription.parse(map['EventSubscription']) unless map['EventSubscription'].nil?)
+        data.event_subscription = (EventSubscription.parse(map['EventSubscription']) unless map['EventSubscription'].nil?)
         data
       end
     end
@@ -1139,7 +1141,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.database_ids = (Parsers::StringList.parse(map['DatabaseIds']) unless map['DatabaseIds'].nil?)
+        data.database_ids = (StringList.parse(map['DatabaseIds']) unless map['DatabaseIds'].nil?)
         data
       end
     end
@@ -1171,7 +1173,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_instance = (Parsers::ReplicationInstance.parse(map['ReplicationInstance']) unless map['ReplicationInstance'].nil?)
+        data.replication_instance = (ReplicationInstance.parse(map['ReplicationInstance']) unless map['ReplicationInstance'].nil?)
         data
       end
     end
@@ -1194,7 +1196,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_task = (Parsers::ReplicationTask.parse(map['ReplicationTask']) unless map['ReplicationTask'].nil?)
+        data.replication_task = (ReplicationTask.parse(map['ReplicationTask']) unless map['ReplicationTask'].nil?)
         data
       end
     end
@@ -1206,7 +1208,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_task_assessment_run = (Parsers::ReplicationTaskAssessmentRun.parse(map['ReplicationTaskAssessmentRun']) unless map['ReplicationTaskAssessmentRun'].nil?)
+        data.replication_task_assessment_run = (ReplicationTaskAssessmentRun.parse(map['ReplicationTaskAssessmentRun']) unless map['ReplicationTaskAssessmentRun'].nil?)
         data
       end
     end
@@ -1218,7 +1220,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_quotas = (Parsers::AccountQuotaList.parse(map['AccountQuotas']) unless map['AccountQuotas'].nil?)
+        data.account_quotas = (AccountQuotaList.parse(map['AccountQuotas']) unless map['AccountQuotas'].nil?)
         data.unique_account_identifier = map['UniqueAccountIdentifier']
         data
       end
@@ -1227,7 +1229,7 @@ module AWS::SDK::DatabaseMigrationService
     class AccountQuotaList
       def self.parse(list)
         list.map do |value|
-          Parsers::AccountQuota.parse(value) unless value.nil?
+          AccountQuota.parse(value) unless value.nil?
         end
       end
     end
@@ -1249,7 +1251,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.individual_assessment_names = (Parsers::IndividualAssessmentNameList.parse(map['IndividualAssessmentNames']) unless map['IndividualAssessmentNames'].nil?)
+        data.individual_assessment_names = (IndividualAssessmentNameList.parse(map['IndividualAssessmentNames']) unless map['IndividualAssessmentNames'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1271,7 +1273,7 @@ module AWS::SDK::DatabaseMigrationService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.marker = map['Marker']
-        data.certificates = (Parsers::CertificateList.parse(map['Certificates']) unless map['Certificates'].nil?)
+        data.certificates = (CertificateList.parse(map['Certificates']) unless map['Certificates'].nil?)
         data
       end
     end
@@ -1279,7 +1281,7 @@ module AWS::SDK::DatabaseMigrationService
     class CertificateList
       def self.parse(list)
         list.map do |value|
-          Parsers::Certificate.parse(value) unless value.nil?
+          Certificate.parse(value) unless value.nil?
         end
       end
     end
@@ -1292,7 +1294,7 @@ module AWS::SDK::DatabaseMigrationService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.marker = map['Marker']
-        data.connections = (Parsers::ConnectionList.parse(map['Connections']) unless map['Connections'].nil?)
+        data.connections = (ConnectionList.parse(map['Connections']) unless map['Connections'].nil?)
         data
       end
     end
@@ -1300,7 +1302,7 @@ module AWS::SDK::DatabaseMigrationService
     class ConnectionList
       def self.parse(list)
         list.map do |value|
-          Parsers::Connection.parse(value) unless value.nil?
+          Connection.parse(value) unless value.nil?
         end
       end
     end
@@ -1313,7 +1315,7 @@ module AWS::SDK::DatabaseMigrationService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.marker = map['Marker']
-        data.endpoint_settings = (Parsers::EndpointSettingsList.parse(map['EndpointSettings']) unless map['EndpointSettings'].nil?)
+        data.endpoint_settings = (EndpointSettingsList.parse(map['EndpointSettings']) unless map['EndpointSettings'].nil?)
         data
       end
     end
@@ -1321,7 +1323,7 @@ module AWS::SDK::DatabaseMigrationService
     class EndpointSettingsList
       def self.parse(list)
         list.map do |value|
-          Parsers::EndpointSetting.parse(value) unless value.nil?
+          EndpointSetting.parse(value) unless value.nil?
         end
       end
     end
@@ -1331,7 +1333,7 @@ module AWS::SDK::DatabaseMigrationService
         data = Types::EndpointSetting.new
         data.name = map['Name']
         data.type = map['Type']
-        data.enum_values = (Parsers::EndpointSettingEnumValues.parse(map['EnumValues']) unless map['EnumValues'].nil?)
+        data.enum_values = (EndpointSettingEnumValues.parse(map['EnumValues']) unless map['EnumValues'].nil?)
         data.sensitive = map['Sensitive']
         data.units = map['Units']
         data.applicability = map['Applicability']
@@ -1358,7 +1360,7 @@ module AWS::SDK::DatabaseMigrationService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.marker = map['Marker']
-        data.supported_endpoint_types = (Parsers::SupportedEndpointTypeList.parse(map['SupportedEndpointTypes']) unless map['SupportedEndpointTypes'].nil?)
+        data.supported_endpoint_types = (SupportedEndpointTypeList.parse(map['SupportedEndpointTypes']) unless map['SupportedEndpointTypes'].nil?)
         data
       end
     end
@@ -1366,7 +1368,7 @@ module AWS::SDK::DatabaseMigrationService
     class SupportedEndpointTypeList
       def self.parse(list)
         list.map do |value|
-          Parsers::SupportedEndpointType.parse(value) unless value.nil?
+          SupportedEndpointType.parse(value) unless value.nil?
         end
       end
     end
@@ -1391,7 +1393,7 @@ module AWS::SDK::DatabaseMigrationService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.marker = map['Marker']
-        data.endpoints = (Parsers::EndpointList.parse(map['Endpoints']) unless map['Endpoints'].nil?)
+        data.endpoints = (EndpointList.parse(map['Endpoints']) unless map['Endpoints'].nil?)
         data
       end
     end
@@ -1399,7 +1401,7 @@ module AWS::SDK::DatabaseMigrationService
     class EndpointList
       def self.parse(list)
         list.map do |value|
-          Parsers::Endpoint.parse(value) unless value.nil?
+          Endpoint.parse(value) unless value.nil?
         end
       end
     end
@@ -1411,7 +1413,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.event_category_group_list = (Parsers::EventCategoryGroupList.parse(map['EventCategoryGroupList']) unless map['EventCategoryGroupList'].nil?)
+        data.event_category_group_list = (EventCategoryGroupList.parse(map['EventCategoryGroupList']) unless map['EventCategoryGroupList'].nil?)
         data
       end
     end
@@ -1419,7 +1421,7 @@ module AWS::SDK::DatabaseMigrationService
     class EventCategoryGroupList
       def self.parse(list)
         list.map do |value|
-          Parsers::EventCategoryGroup.parse(value) unless value.nil?
+          EventCategoryGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -1428,7 +1430,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.parse(map)
         data = Types::EventCategoryGroup.new
         data.source_type = map['SourceType']
-        data.event_categories = (Parsers::EventCategoriesList.parse(map['EventCategories']) unless map['EventCategories'].nil?)
+        data.event_categories = (EventCategoriesList.parse(map['EventCategories']) unless map['EventCategories'].nil?)
         return data
       end
     end
@@ -1441,7 +1443,7 @@ module AWS::SDK::DatabaseMigrationService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.marker = map['Marker']
-        data.event_subscriptions_list = (Parsers::EventSubscriptionsList.parse(map['EventSubscriptionsList']) unless map['EventSubscriptionsList'].nil?)
+        data.event_subscriptions_list = (EventSubscriptionsList.parse(map['EventSubscriptionsList']) unless map['EventSubscriptionsList'].nil?)
         data
       end
     end
@@ -1449,7 +1451,7 @@ module AWS::SDK::DatabaseMigrationService
     class EventSubscriptionsList
       def self.parse(list)
         list.map do |value|
-          Parsers::EventSubscription.parse(value) unless value.nil?
+          EventSubscription.parse(value) unless value.nil?
         end
       end
     end
@@ -1462,7 +1464,7 @@ module AWS::SDK::DatabaseMigrationService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.marker = map['Marker']
-        data.events = (Parsers::EventList.parse(map['Events']) unless map['Events'].nil?)
+        data.events = (EventList.parse(map['Events']) unless map['Events'].nil?)
         data
       end
     end
@@ -1470,7 +1472,7 @@ module AWS::SDK::DatabaseMigrationService
     class EventList
       def self.parse(list)
         list.map do |value|
-          Parsers::Event.parse(value) unless value.nil?
+          Event.parse(value) unless value.nil?
         end
       end
     end
@@ -1481,7 +1483,7 @@ module AWS::SDK::DatabaseMigrationService
         data.source_identifier = map['SourceIdentifier']
         data.source_type = map['SourceType']
         data.message = map['Message']
-        data.event_categories = (Parsers::EventCategoriesList.parse(map['EventCategories']) unless map['EventCategories'].nil?)
+        data.event_categories = (EventCategoriesList.parse(map['EventCategories']) unless map['EventCategories'].nil?)
         data.date = Time.at(map['Date'].to_i) if map['Date']
         return data
       end
@@ -1494,7 +1496,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.collectors = (Parsers::CollectorResponses.parse(map['Collectors']) unless map['Collectors'].nil?)
+        data.collectors = (CollectorResponses.parse(map['Collectors']) unless map['Collectors'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1503,7 +1505,7 @@ module AWS::SDK::DatabaseMigrationService
     class CollectorResponses
       def self.parse(list)
         list.map do |value|
-          Parsers::CollectorResponse.parse(value) unless value.nil?
+          CollectorResponse.parse(value) unless value.nil?
         end
       end
     end
@@ -1518,12 +1520,12 @@ module AWS::SDK::DatabaseMigrationService
         data.description = map['Description']
         data.s3_bucket_name = map['S3BucketName']
         data.service_access_role_arn = map['ServiceAccessRoleArn']
-        data.collector_health_check = (Parsers::CollectorHealthCheck.parse(map['CollectorHealthCheck']) unless map['CollectorHealthCheck'].nil?)
+        data.collector_health_check = (CollectorHealthCheck.parse(map['CollectorHealthCheck']) unless map['CollectorHealthCheck'].nil?)
         data.last_data_received = map['LastDataReceived']
         data.registered_date = map['RegisteredDate']
         data.created_date = map['CreatedDate']
         data.modified_date = map['ModifiedDate']
-        data.inventory_data = (Parsers::InventoryData.parse(map['InventoryData']) unless map['InventoryData'].nil?)
+        data.inventory_data = (InventoryData.parse(map['InventoryData']) unless map['InventoryData'].nil?)
         return data
       end
     end
@@ -1555,7 +1557,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.databases = (Parsers::DatabaseList.parse(map['Databases']) unless map['Databases'].nil?)
+        data.databases = (DatabaseList.parse(map['Databases']) unless map['Databases'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1564,7 +1566,7 @@ module AWS::SDK::DatabaseMigrationService
     class DatabaseList
       def self.parse(list)
         list.map do |value|
-          Parsers::DatabaseResponse.parse(value) unless value.nil?
+          DatabaseResponse.parse(value) unless value.nil?
         end
       end
     end
@@ -1576,9 +1578,9 @@ module AWS::SDK::DatabaseMigrationService
         data.database_name = map['DatabaseName']
         data.ip_address = map['IpAddress']
         data.number_of_schemas = map['NumberOfSchemas']
-        data.server = (Parsers::ServerShortInfoResponse.parse(map['Server']) unless map['Server'].nil?)
-        data.software_details = (Parsers::DatabaseInstanceSoftwareDetailsResponse.parse(map['SoftwareDetails']) unless map['SoftwareDetails'].nil?)
-        data.collectors = (Parsers::CollectorsList.parse(map['Collectors']) unless map['Collectors'].nil?)
+        data.server = (ServerShortInfoResponse.parse(map['Server']) unless map['Server'].nil?)
+        data.software_details = (DatabaseInstanceSoftwareDetailsResponse.parse(map['SoftwareDetails']) unless map['SoftwareDetails'].nil?)
+        data.collectors = (CollectorsList.parse(map['Collectors']) unless map['Collectors'].nil?)
         return data
       end
     end
@@ -1586,7 +1588,7 @@ module AWS::SDK::DatabaseMigrationService
     class CollectorsList
       def self.parse(list)
         list.map do |value|
-          Parsers::CollectorShortInfoResponse.parse(value) unless value.nil?
+          CollectorShortInfoResponse.parse(value) unless value.nil?
         end
       end
     end
@@ -1631,7 +1633,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.analysis = (Parsers::FleetAdvisorLsaAnalysisResponseList.parse(map['Analysis']) unless map['Analysis'].nil?)
+        data.analysis = (FleetAdvisorLsaAnalysisResponseList.parse(map['Analysis']) unless map['Analysis'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1640,7 +1642,7 @@ module AWS::SDK::DatabaseMigrationService
     class FleetAdvisorLsaAnalysisResponseList
       def self.parse(list)
         list.map do |value|
-          Parsers::FleetAdvisorLsaAnalysisResponse.parse(value) unless value.nil?
+          FleetAdvisorLsaAnalysisResponse.parse(value) unless value.nil?
         end
       end
     end
@@ -1661,7 +1663,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.fleet_advisor_schema_objects = (Parsers::FleetAdvisorSchemaObjectList.parse(map['FleetAdvisorSchemaObjects']) unless map['FleetAdvisorSchemaObjects'].nil?)
+        data.fleet_advisor_schema_objects = (FleetAdvisorSchemaObjectList.parse(map['FleetAdvisorSchemaObjects']) unless map['FleetAdvisorSchemaObjects'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1670,7 +1672,7 @@ module AWS::SDK::DatabaseMigrationService
     class FleetAdvisorSchemaObjectList
       def self.parse(list)
         list.map do |value|
-          Parsers::FleetAdvisorSchemaObjectResponse.parse(value) unless value.nil?
+          FleetAdvisorSchemaObjectResponse.parse(value) unless value.nil?
         end
       end
     end
@@ -1694,7 +1696,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.fleet_advisor_schemas = (Parsers::FleetAdvisorSchemaList.parse(map['FleetAdvisorSchemas']) unless map['FleetAdvisorSchemas'].nil?)
+        data.fleet_advisor_schemas = (FleetAdvisorSchemaList.parse(map['FleetAdvisorSchemas']) unless map['FleetAdvisorSchemas'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1703,7 +1705,7 @@ module AWS::SDK::DatabaseMigrationService
     class FleetAdvisorSchemaList
       def self.parse(list)
         list.map do |value|
-          Parsers::SchemaResponse.parse(value) unless value.nil?
+          SchemaResponse.parse(value) unless value.nil?
         end
       end
     end
@@ -1714,11 +1716,11 @@ module AWS::SDK::DatabaseMigrationService
         data.code_line_count = map['CodeLineCount']
         data.code_size = map['CodeSize']
         data.complexity = map['Complexity']
-        data.server = (Parsers::ServerShortInfoResponse.parse(map['Server']) unless map['Server'].nil?)
-        data.database_instance = (Parsers::DatabaseShortInfoResponse.parse(map['DatabaseInstance']) unless map['DatabaseInstance'].nil?)
+        data.server = (ServerShortInfoResponse.parse(map['Server']) unless map['Server'].nil?)
+        data.database_instance = (DatabaseShortInfoResponse.parse(map['DatabaseInstance']) unless map['DatabaseInstance'].nil?)
         data.schema_id = map['SchemaId']
         data.schema_name = map['SchemaName']
-        data.original_schema = (Parsers::SchemaShortInfoResponse.parse(map['OriginalSchema']) unless map['OriginalSchema'].nil?)
+        data.original_schema = (SchemaShortInfoResponse.parse(map['OriginalSchema']) unless map['OriginalSchema'].nil?)
         data.similarity = Hearth::NumberHelper.deserialize(map['Similarity'])
         return data
       end
@@ -1754,7 +1756,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.orderable_replication_instances = (Parsers::OrderableReplicationInstanceList.parse(map['OrderableReplicationInstances']) unless map['OrderableReplicationInstances'].nil?)
+        data.orderable_replication_instances = (OrderableReplicationInstanceList.parse(map['OrderableReplicationInstances']) unless map['OrderableReplicationInstances'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1763,7 +1765,7 @@ module AWS::SDK::DatabaseMigrationService
     class OrderableReplicationInstanceList
       def self.parse(list)
         list.map do |value|
-          Parsers::OrderableReplicationInstance.parse(value) unless value.nil?
+          OrderableReplicationInstance.parse(value) unless value.nil?
         end
       end
     end
@@ -1778,7 +1780,7 @@ module AWS::SDK::DatabaseMigrationService
         data.max_allocated_storage = map['MaxAllocatedStorage']
         data.default_allocated_storage = map['DefaultAllocatedStorage']
         data.included_allocated_storage = map['IncludedAllocatedStorage']
-        data.availability_zones = (Parsers::AvailabilityZonesList.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
+        data.availability_zones = (AvailabilityZonesList.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
         data.release_status = map['ReleaseStatus']
         return data
       end
@@ -1799,7 +1801,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pending_maintenance_actions = (Parsers::PendingMaintenanceActions.parse(map['PendingMaintenanceActions']) unless map['PendingMaintenanceActions'].nil?)
+        data.pending_maintenance_actions = (PendingMaintenanceActions.parse(map['PendingMaintenanceActions']) unless map['PendingMaintenanceActions'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1808,7 +1810,7 @@ module AWS::SDK::DatabaseMigrationService
     class PendingMaintenanceActions
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourcePendingMaintenanceActions.parse(value) unless value.nil?
+          ResourcePendingMaintenanceActions.parse(value) unless value.nil?
         end
       end
     end
@@ -1820,7 +1822,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.refresh_schemas_status = (Parsers::RefreshSchemasStatus.parse(map['RefreshSchemasStatus']) unless map['RefreshSchemasStatus'].nil?)
+        data.refresh_schemas_status = (RefreshSchemasStatus.parse(map['RefreshSchemasStatus']) unless map['RefreshSchemasStatus'].nil?)
         data
       end
     end
@@ -1845,7 +1847,7 @@ module AWS::SDK::DatabaseMigrationService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.replication_instance_arn = map['ReplicationInstanceArn']
-        data.replication_instance_task_logs = (Parsers::ReplicationInstanceTaskLogsList.parse(map['ReplicationInstanceTaskLogs']) unless map['ReplicationInstanceTaskLogs'].nil?)
+        data.replication_instance_task_logs = (ReplicationInstanceTaskLogsList.parse(map['ReplicationInstanceTaskLogs']) unless map['ReplicationInstanceTaskLogs'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -1854,7 +1856,7 @@ module AWS::SDK::DatabaseMigrationService
     class ReplicationInstanceTaskLogsList
       def self.parse(list)
         list.map do |value|
-          Parsers::ReplicationInstanceTaskLog.parse(value) unless value.nil?
+          ReplicationInstanceTaskLog.parse(value) unless value.nil?
         end
       end
     end
@@ -1877,7 +1879,7 @@ module AWS::SDK::DatabaseMigrationService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.marker = map['Marker']
-        data.replication_instances = (Parsers::ReplicationInstanceList.parse(map['ReplicationInstances']) unless map['ReplicationInstances'].nil?)
+        data.replication_instances = (ReplicationInstanceList.parse(map['ReplicationInstances']) unless map['ReplicationInstances'].nil?)
         data
       end
     end
@@ -1885,7 +1887,7 @@ module AWS::SDK::DatabaseMigrationService
     class ReplicationInstanceList
       def self.parse(list)
         list.map do |value|
-          Parsers::ReplicationInstance.parse(value) unless value.nil?
+          ReplicationInstance.parse(value) unless value.nil?
         end
       end
     end
@@ -1898,7 +1900,7 @@ module AWS::SDK::DatabaseMigrationService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.marker = map['Marker']
-        data.replication_subnet_groups = (Parsers::ReplicationSubnetGroups.parse(map['ReplicationSubnetGroups']) unless map['ReplicationSubnetGroups'].nil?)
+        data.replication_subnet_groups = (ReplicationSubnetGroups.parse(map['ReplicationSubnetGroups']) unless map['ReplicationSubnetGroups'].nil?)
         data
       end
     end
@@ -1906,7 +1908,7 @@ module AWS::SDK::DatabaseMigrationService
     class ReplicationSubnetGroups
       def self.parse(list)
         list.map do |value|
-          Parsers::ReplicationSubnetGroup.parse(value) unless value.nil?
+          ReplicationSubnetGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -1920,7 +1922,7 @@ module AWS::SDK::DatabaseMigrationService
         map = Hearth::JSON.load(body)
         data.marker = map['Marker']
         data.bucket_name = map['BucketName']
-        data.replication_task_assessment_results = (Parsers::ReplicationTaskAssessmentResultList.parse(map['ReplicationTaskAssessmentResults']) unless map['ReplicationTaskAssessmentResults'].nil?)
+        data.replication_task_assessment_results = (ReplicationTaskAssessmentResultList.parse(map['ReplicationTaskAssessmentResults']) unless map['ReplicationTaskAssessmentResults'].nil?)
         data
       end
     end
@@ -1928,7 +1930,7 @@ module AWS::SDK::DatabaseMigrationService
     class ReplicationTaskAssessmentResultList
       def self.parse(list)
         list.map do |value|
-          Parsers::ReplicationTaskAssessmentResult.parse(value) unless value.nil?
+          ReplicationTaskAssessmentResult.parse(value) unless value.nil?
         end
       end
     end
@@ -1955,7 +1957,7 @@ module AWS::SDK::DatabaseMigrationService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.marker = map['Marker']
-        data.replication_task_assessment_runs = (Parsers::ReplicationTaskAssessmentRunList.parse(map['ReplicationTaskAssessmentRuns']) unless map['ReplicationTaskAssessmentRuns'].nil?)
+        data.replication_task_assessment_runs = (ReplicationTaskAssessmentRunList.parse(map['ReplicationTaskAssessmentRuns']) unless map['ReplicationTaskAssessmentRuns'].nil?)
         data
       end
     end
@@ -1963,7 +1965,7 @@ module AWS::SDK::DatabaseMigrationService
     class ReplicationTaskAssessmentRunList
       def self.parse(list)
         list.map do |value|
-          Parsers::ReplicationTaskAssessmentRun.parse(value) unless value.nil?
+          ReplicationTaskAssessmentRun.parse(value) unless value.nil?
         end
       end
     end
@@ -1976,7 +1978,7 @@ module AWS::SDK::DatabaseMigrationService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.marker = map['Marker']
-        data.replication_task_individual_assessments = (Parsers::ReplicationTaskIndividualAssessmentList.parse(map['ReplicationTaskIndividualAssessments']) unless map['ReplicationTaskIndividualAssessments'].nil?)
+        data.replication_task_individual_assessments = (ReplicationTaskIndividualAssessmentList.parse(map['ReplicationTaskIndividualAssessments']) unless map['ReplicationTaskIndividualAssessments'].nil?)
         data
       end
     end
@@ -1984,7 +1986,7 @@ module AWS::SDK::DatabaseMigrationService
     class ReplicationTaskIndividualAssessmentList
       def self.parse(list)
         list.map do |value|
-          Parsers::ReplicationTaskIndividualAssessment.parse(value) unless value.nil?
+          ReplicationTaskIndividualAssessment.parse(value) unless value.nil?
         end
       end
     end
@@ -2009,7 +2011,7 @@ module AWS::SDK::DatabaseMigrationService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.marker = map['Marker']
-        data.replication_tasks = (Parsers::ReplicationTaskList.parse(map['ReplicationTasks']) unless map['ReplicationTasks'].nil?)
+        data.replication_tasks = (ReplicationTaskList.parse(map['ReplicationTasks']) unless map['ReplicationTasks'].nil?)
         data
       end
     end
@@ -2017,7 +2019,7 @@ module AWS::SDK::DatabaseMigrationService
     class ReplicationTaskList
       def self.parse(list)
         list.map do |value|
-          Parsers::ReplicationTask.parse(value) unless value.nil?
+          ReplicationTask.parse(value) unless value.nil?
         end
       end
     end
@@ -2030,7 +2032,7 @@ module AWS::SDK::DatabaseMigrationService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.marker = map['Marker']
-        data.schemas = (Parsers::SchemaList.parse(map['Schemas']) unless map['Schemas'].nil?)
+        data.schemas = (SchemaList.parse(map['Schemas']) unless map['Schemas'].nil?)
         data
       end
     end
@@ -2051,7 +2053,7 @@ module AWS::SDK::DatabaseMigrationService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.replication_task_arn = map['ReplicationTaskArn']
-        data.table_statistics = (Parsers::TableStatisticsList.parse(map['TableStatistics']) unless map['TableStatistics'].nil?)
+        data.table_statistics = (TableStatisticsList.parse(map['TableStatistics']) unless map['TableStatistics'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -2060,7 +2062,7 @@ module AWS::SDK::DatabaseMigrationService
     class TableStatisticsList
       def self.parse(list)
         list.map do |value|
-          Parsers::TableStatistics.parse(value) unless value.nil?
+          TableStatistics.parse(value) unless value.nil?
         end
       end
     end
@@ -2098,7 +2100,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.certificate = (Parsers::Certificate.parse(map['Certificate']) unless map['Certificate'].nil?)
+        data.certificate = (Certificate.parse(map['Certificate']) unless map['Certificate'].nil?)
         data
       end
     end
@@ -2122,7 +2124,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tag_list = (Parsers::TagList.parse(map['TagList']) unless map['TagList'].nil?)
+        data.tag_list = (TagList.parse(map['TagList']) unless map['TagList'].nil?)
         data
       end
     end
@@ -2130,7 +2132,7 @@ module AWS::SDK::DatabaseMigrationService
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -2152,7 +2154,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoint = (Parsers::Endpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
+        data.endpoint = (Endpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
         data
       end
     end
@@ -2164,7 +2166,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.event_subscription = (Parsers::EventSubscription.parse(map['EventSubscription']) unless map['EventSubscription'].nil?)
+        data.event_subscription = (EventSubscription.parse(map['EventSubscription']) unless map['EventSubscription'].nil?)
         data
       end
     end
@@ -2176,7 +2178,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_instance = (Parsers::ReplicationInstance.parse(map['ReplicationInstance']) unless map['ReplicationInstance'].nil?)
+        data.replication_instance = (ReplicationInstance.parse(map['ReplicationInstance']) unless map['ReplicationInstance'].nil?)
         data
       end
     end
@@ -2200,7 +2202,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_subnet_group = (Parsers::ReplicationSubnetGroup.parse(map['ReplicationSubnetGroup']) unless map['ReplicationSubnetGroup'].nil?)
+        data.replication_subnet_group = (ReplicationSubnetGroup.parse(map['ReplicationSubnetGroup']) unless map['ReplicationSubnetGroup'].nil?)
         data
       end
     end
@@ -2224,7 +2226,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_task = (Parsers::ReplicationTask.parse(map['ReplicationTask']) unless map['ReplicationTask'].nil?)
+        data.replication_task = (ReplicationTask.parse(map['ReplicationTask']) unless map['ReplicationTask'].nil?)
         data
       end
     end
@@ -2236,7 +2238,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_task = (Parsers::ReplicationTask.parse(map['ReplicationTask']) unless map['ReplicationTask'].nil?)
+        data.replication_task = (ReplicationTask.parse(map['ReplicationTask']) unless map['ReplicationTask'].nil?)
         data
       end
     end
@@ -2248,7 +2250,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_instance = (Parsers::ReplicationInstance.parse(map['ReplicationInstance']) unless map['ReplicationInstance'].nil?)
+        data.replication_instance = (ReplicationInstance.parse(map['ReplicationInstance']) unless map['ReplicationInstance'].nil?)
         data
       end
     end
@@ -2260,7 +2262,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.refresh_schemas_status = (Parsers::RefreshSchemasStatus.parse(map['RefreshSchemasStatus']) unless map['RefreshSchemasStatus'].nil?)
+        data.refresh_schemas_status = (RefreshSchemasStatus.parse(map['RefreshSchemasStatus']) unless map['RefreshSchemasStatus'].nil?)
         data
       end
     end
@@ -2308,7 +2310,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_task = (Parsers::ReplicationTask.parse(map['ReplicationTask']) unless map['ReplicationTask'].nil?)
+        data.replication_task = (ReplicationTask.parse(map['ReplicationTask']) unless map['ReplicationTask'].nil?)
         data
       end
     end
@@ -2320,7 +2322,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_task = (Parsers::ReplicationTask.parse(map['ReplicationTask']) unless map['ReplicationTask'].nil?)
+        data.replication_task = (ReplicationTask.parse(map['ReplicationTask']) unless map['ReplicationTask'].nil?)
         data
       end
     end
@@ -2332,7 +2334,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_task_assessment_run = (Parsers::ReplicationTaskAssessmentRun.parse(map['ReplicationTaskAssessmentRun']) unless map['ReplicationTaskAssessmentRun'].nil?)
+        data.replication_task_assessment_run = (ReplicationTaskAssessmentRun.parse(map['ReplicationTaskAssessmentRun']) unless map['ReplicationTaskAssessmentRun'].nil?)
         data
       end
     end
@@ -2356,7 +2358,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.replication_task = (Parsers::ReplicationTask.parse(map['ReplicationTask']) unless map['ReplicationTask'].nil?)
+        data.replication_task = (ReplicationTask.parse(map['ReplicationTask']) unless map['ReplicationTask'].nil?)
         data
       end
     end
@@ -2368,7 +2370,7 @@ module AWS::SDK::DatabaseMigrationService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.connection = (Parsers::Connection.parse(map['Connection']) unless map['Connection'].nil?)
+        data.connection = (Connection.parse(map['Connection']) unless map['Connection'].nil?)
         data
       end
     end

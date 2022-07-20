@@ -244,7 +244,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.workspace_bundle = (Parsers::WorkspaceBundle.parse(map['WorkspaceBundle']) unless map['WorkspaceBundle'].nil?)
+        data.workspace_bundle = (WorkspaceBundle.parse(map['WorkspaceBundle']) unless map['WorkspaceBundle'].nil?)
         data
       end
     end
@@ -257,9 +257,9 @@ module AWS::SDK::WorkSpaces
         data.owner = map['Owner']
         data.description = map['Description']
         data.image_id = map['ImageId']
-        data.root_storage = (Parsers::RootStorage.parse(map['RootStorage']) unless map['RootStorage'].nil?)
-        data.user_storage = (Parsers::UserStorage.parse(map['UserStorage']) unless map['UserStorage'].nil?)
-        data.compute_type = (Parsers::ComputeType.parse(map['ComputeType']) unless map['ComputeType'].nil?)
+        data.root_storage = (RootStorage.parse(map['RootStorage']) unless map['RootStorage'].nil?)
+        data.user_storage = (UserStorage.parse(map['UserStorage']) unless map['UserStorage'].nil?)
+        data.compute_type = (ComputeType.parse(map['ComputeType']) unless map['ComputeType'].nil?)
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         return data
@@ -297,8 +297,8 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_requests = (Parsers::FailedCreateWorkspaceRequests.parse(map['FailedRequests']) unless map['FailedRequests'].nil?)
-        data.pending_requests = (Parsers::WorkspaceList.parse(map['PendingRequests']) unless map['PendingRequests'].nil?)
+        data.failed_requests = (FailedCreateWorkspaceRequests.parse(map['FailedRequests']) unless map['FailedRequests'].nil?)
+        data.pending_requests = (WorkspaceList.parse(map['PendingRequests']) unless map['PendingRequests'].nil?)
         data
       end
     end
@@ -306,7 +306,7 @@ module AWS::SDK::WorkSpaces
     class WorkspaceList
       def self.parse(list)
         list.map do |value|
-          Parsers::Workspace.parse(value) unless value.nil?
+          Workspace.parse(value) unless value.nil?
         end
       end
     end
@@ -327,8 +327,8 @@ module AWS::SDK::WorkSpaces
         data.volume_encryption_key = map['VolumeEncryptionKey']
         data.user_volume_encryption_enabled = map['UserVolumeEncryptionEnabled']
         data.root_volume_encryption_enabled = map['RootVolumeEncryptionEnabled']
-        data.workspace_properties = (Parsers::WorkspaceProperties.parse(map['WorkspaceProperties']) unless map['WorkspaceProperties'].nil?)
-        data.modification_states = (Parsers::ModificationStateList.parse(map['ModificationStates']) unless map['ModificationStates'].nil?)
+        data.workspace_properties = (WorkspaceProperties.parse(map['WorkspaceProperties']) unless map['WorkspaceProperties'].nil?)
+        data.modification_states = (ModificationStateList.parse(map['ModificationStates']) unless map['ModificationStates'].nil?)
         return data
       end
     end
@@ -336,7 +336,7 @@ module AWS::SDK::WorkSpaces
     class ModificationStateList
       def self.parse(list)
         list.map do |value|
-          Parsers::ModificationState.parse(value) unless value.nil?
+          ModificationState.parse(value) unless value.nil?
         end
       end
     end
@@ -365,7 +365,7 @@ module AWS::SDK::WorkSpaces
     class FailedCreateWorkspaceRequests
       def self.parse(list)
         list.map do |value|
-          Parsers::FailedCreateWorkspaceRequest.parse(value) unless value.nil?
+          FailedCreateWorkspaceRequest.parse(value) unless value.nil?
         end
       end
     end
@@ -373,7 +373,7 @@ module AWS::SDK::WorkSpaces
     class FailedCreateWorkspaceRequest
       def self.parse(map)
         data = Types::FailedCreateWorkspaceRequest.new
-        data.workspace_request = (Parsers::WorkspaceRequest.parse(map['WorkspaceRequest']) unless map['WorkspaceRequest'].nil?)
+        data.workspace_request = (WorkspaceRequest.parse(map['WorkspaceRequest']) unless map['WorkspaceRequest'].nil?)
         data.error_code = map['ErrorCode']
         data.error_message = map['ErrorMessage']
         return data
@@ -389,8 +389,8 @@ module AWS::SDK::WorkSpaces
         data.volume_encryption_key = map['VolumeEncryptionKey']
         data.user_volume_encryption_enabled = map['UserVolumeEncryptionEnabled']
         data.root_volume_encryption_enabled = map['RootVolumeEncryptionEnabled']
-        data.workspace_properties = (Parsers::WorkspaceProperties.parse(map['WorkspaceProperties']) unless map['WorkspaceProperties'].nil?)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.workspace_properties = (WorkspaceProperties.parse(map['WorkspaceProperties']) unless map['WorkspaceProperties'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -398,7 +398,7 @@ module AWS::SDK::WorkSpaces
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -520,7 +520,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_modifications = (Parsers::AccountModificationList.parse(map['AccountModifications']) unless map['AccountModifications'].nil?)
+        data.account_modifications = (AccountModificationList.parse(map['AccountModifications']) unless map['AccountModifications'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -529,7 +529,7 @@ module AWS::SDK::WorkSpaces
     class AccountModificationList
       def self.parse(list)
         list.map do |value|
-          Parsers::AccountModification.parse(value) unless value.nil?
+          AccountModification.parse(value) unless value.nil?
         end
       end
     end
@@ -554,12 +554,12 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.device_type_windows = (Parsers::DefaultClientBrandingAttributes.parse(map['DeviceTypeWindows']) unless map['DeviceTypeWindows'].nil?)
-        data.device_type_osx = (Parsers::DefaultClientBrandingAttributes.parse(map['DeviceTypeOsx']) unless map['DeviceTypeOsx'].nil?)
-        data.device_type_android = (Parsers::DefaultClientBrandingAttributes.parse(map['DeviceTypeAndroid']) unless map['DeviceTypeAndroid'].nil?)
-        data.device_type_ios = (Parsers::IosClientBrandingAttributes.parse(map['DeviceTypeIos']) unless map['DeviceTypeIos'].nil?)
-        data.device_type_linux = (Parsers::DefaultClientBrandingAttributes.parse(map['DeviceTypeLinux']) unless map['DeviceTypeLinux'].nil?)
-        data.device_type_web = (Parsers::DefaultClientBrandingAttributes.parse(map['DeviceTypeWeb']) unless map['DeviceTypeWeb'].nil?)
+        data.device_type_windows = (DefaultClientBrandingAttributes.parse(map['DeviceTypeWindows']) unless map['DeviceTypeWindows'].nil?)
+        data.device_type_osx = (DefaultClientBrandingAttributes.parse(map['DeviceTypeOsx']) unless map['DeviceTypeOsx'].nil?)
+        data.device_type_android = (DefaultClientBrandingAttributes.parse(map['DeviceTypeAndroid']) unless map['DeviceTypeAndroid'].nil?)
+        data.device_type_ios = (IosClientBrandingAttributes.parse(map['DeviceTypeIos']) unless map['DeviceTypeIos'].nil?)
+        data.device_type_linux = (DefaultClientBrandingAttributes.parse(map['DeviceTypeLinux']) unless map['DeviceTypeLinux'].nil?)
+        data.device_type_web = (DefaultClientBrandingAttributes.parse(map['DeviceTypeWeb']) unless map['DeviceTypeWeb'].nil?)
         data
       end
     end
@@ -571,7 +571,7 @@ module AWS::SDK::WorkSpaces
         data.support_email = map['SupportEmail']
         data.support_link = map['SupportLink']
         data.forgot_password_link = map['ForgotPasswordLink']
-        data.login_message = (Parsers::LoginMessage.parse(map['LoginMessage']) unless map['LoginMessage'].nil?)
+        data.login_message = (LoginMessage.parse(map['LoginMessage']) unless map['LoginMessage'].nil?)
         return data
       end
     end
@@ -595,7 +595,7 @@ module AWS::SDK::WorkSpaces
         data.support_email = map['SupportEmail']
         data.support_link = map['SupportLink']
         data.forgot_password_link = map['ForgotPasswordLink']
-        data.login_message = (Parsers::LoginMessage.parse(map['LoginMessage']) unless map['LoginMessage'].nil?)
+        data.login_message = (LoginMessage.parse(map['LoginMessage']) unless map['LoginMessage'].nil?)
         return data
       end
     end
@@ -607,7 +607,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.client_properties_list = (Parsers::ClientPropertiesList.parse(map['ClientPropertiesList']) unless map['ClientPropertiesList'].nil?)
+        data.client_properties_list = (ClientPropertiesList.parse(map['ClientPropertiesList']) unless map['ClientPropertiesList'].nil?)
         data
       end
     end
@@ -615,7 +615,7 @@ module AWS::SDK::WorkSpaces
     class ClientPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::ClientPropertiesResult.parse(value) unless value.nil?
+          ClientPropertiesResult.parse(value) unless value.nil?
         end
       end
     end
@@ -624,7 +624,7 @@ module AWS::SDK::WorkSpaces
       def self.parse(map)
         data = Types::ClientPropertiesResult.new
         data.resource_id = map['ResourceId']
-        data.client_properties = (Parsers::ClientProperties.parse(map['ClientProperties']) unless map['ClientProperties'].nil?)
+        data.client_properties = (ClientProperties.parse(map['ClientProperties']) unless map['ClientProperties'].nil?)
         return data
       end
     end
@@ -644,7 +644,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.add_ins = (Parsers::ConnectClientAddInList.parse(map['AddIns']) unless map['AddIns'].nil?)
+        data.add_ins = (ConnectClientAddInList.parse(map['AddIns']) unless map['AddIns'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -653,7 +653,7 @@ module AWS::SDK::WorkSpaces
     class ConnectClientAddInList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConnectClientAddIn.parse(value) unless value.nil?
+          ConnectClientAddIn.parse(value) unless value.nil?
         end
       end
     end
@@ -677,7 +677,7 @@ module AWS::SDK::WorkSpaces
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.alias_id = map['AliasId']
-        data.connection_alias_permissions = (Parsers::ConnectionAliasPermissions.parse(map['ConnectionAliasPermissions']) unless map['ConnectionAliasPermissions'].nil?)
+        data.connection_alias_permissions = (ConnectionAliasPermissions.parse(map['ConnectionAliasPermissions']) unless map['ConnectionAliasPermissions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -686,7 +686,7 @@ module AWS::SDK::WorkSpaces
     class ConnectionAliasPermissions
       def self.parse(list)
         list.map do |value|
-          Parsers::ConnectionAliasPermission.parse(value) unless value.nil?
+          ConnectionAliasPermission.parse(value) unless value.nil?
         end
       end
     end
@@ -707,7 +707,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.connection_aliases = (Parsers::ConnectionAliasList.parse(map['ConnectionAliases']) unless map['ConnectionAliases'].nil?)
+        data.connection_aliases = (ConnectionAliasList.parse(map['ConnectionAliases']) unless map['ConnectionAliases'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -716,7 +716,7 @@ module AWS::SDK::WorkSpaces
     class ConnectionAliasList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConnectionAlias.parse(value) unless value.nil?
+          ConnectionAlias.parse(value) unless value.nil?
         end
       end
     end
@@ -728,7 +728,7 @@ module AWS::SDK::WorkSpaces
         data.alias_id = map['AliasId']
         data.state = map['State']
         data.owner_account_id = map['OwnerAccountId']
-        data.associations = (Parsers::ConnectionAliasAssociationList.parse(map['Associations']) unless map['Associations'].nil?)
+        data.associations = (ConnectionAliasAssociationList.parse(map['Associations']) unless map['Associations'].nil?)
         return data
       end
     end
@@ -736,7 +736,7 @@ module AWS::SDK::WorkSpaces
     class ConnectionAliasAssociationList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConnectionAliasAssociation.parse(value) unless value.nil?
+          ConnectionAliasAssociation.parse(value) unless value.nil?
         end
       end
     end
@@ -759,7 +759,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.result = (Parsers::WorkspacesIpGroupsList.parse(map['Result']) unless map['Result'].nil?)
+        data.result = (WorkspacesIpGroupsList.parse(map['Result']) unless map['Result'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -768,7 +768,7 @@ module AWS::SDK::WorkSpaces
     class WorkspacesIpGroupsList
       def self.parse(list)
         list.map do |value|
-          Parsers::WorkspacesIpGroup.parse(value) unless value.nil?
+          WorkspacesIpGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -779,7 +779,7 @@ module AWS::SDK::WorkSpaces
         data.group_id = map['groupId']
         data.group_name = map['groupName']
         data.group_desc = map['groupDesc']
-        data.user_rules = (Parsers::IpRuleList.parse(map['userRules']) unless map['userRules'].nil?)
+        data.user_rules = (IpRuleList.parse(map['userRules']) unless map['userRules'].nil?)
         return data
       end
     end
@@ -787,7 +787,7 @@ module AWS::SDK::WorkSpaces
     class IpRuleList
       def self.parse(list)
         list.map do |value|
-          Parsers::IpRuleItem.parse(value) unless value.nil?
+          IpRuleItem.parse(value) unless value.nil?
         end
       end
     end
@@ -808,7 +808,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tag_list = (Parsers::TagList.parse(map['TagList']) unless map['TagList'].nil?)
+        data.tag_list = (TagList.parse(map['TagList']) unless map['TagList'].nil?)
         data
       end
     end
@@ -820,7 +820,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.bundles = (Parsers::BundleList.parse(map['Bundles']) unless map['Bundles'].nil?)
+        data.bundles = (BundleList.parse(map['Bundles']) unless map['Bundles'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -829,7 +829,7 @@ module AWS::SDK::WorkSpaces
     class BundleList
       def self.parse(list)
         list.map do |value|
-          Parsers::WorkspaceBundle.parse(value) unless value.nil?
+          WorkspaceBundle.parse(value) unless value.nil?
         end
       end
     end
@@ -841,7 +841,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.directories = (Parsers::DirectoryList.parse(map['Directories']) unless map['Directories'].nil?)
+        data.directories = (DirectoryList.parse(map['Directories']) unless map['Directories'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -850,7 +850,7 @@ module AWS::SDK::WorkSpaces
     class DirectoryList
       def self.parse(list)
         list.map do |value|
-          Parsers::WorkspaceDirectory.parse(value) unless value.nil?
+          WorkspaceDirectory.parse(value) unless value.nil?
         end
       end
     end
@@ -862,18 +862,18 @@ module AWS::SDK::WorkSpaces
         data.alias = map['Alias']
         data.directory_name = map['DirectoryName']
         data.registration_code = map['RegistrationCode']
-        data.subnet_ids = (Parsers::SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
-        data.dns_ip_addresses = (Parsers::DnsIpAddresses.parse(map['DnsIpAddresses']) unless map['DnsIpAddresses'].nil?)
+        data.subnet_ids = (SubnetIds.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.dns_ip_addresses = (DnsIpAddresses.parse(map['DnsIpAddresses']) unless map['DnsIpAddresses'].nil?)
         data.customer_user_name = map['CustomerUserName']
         data.iam_role_id = map['IamRoleId']
         data.directory_type = map['DirectoryType']
         data.workspace_security_group_id = map['WorkspaceSecurityGroupId']
         data.state = map['State']
-        data.workspace_creation_properties = (Parsers::DefaultWorkspaceCreationProperties.parse(map['WorkspaceCreationProperties']) unless map['WorkspaceCreationProperties'].nil?)
-        data.ip_group_ids = (Parsers::IpGroupIdList.parse(map['ipGroupIds']) unless map['ipGroupIds'].nil?)
-        data.workspace_access_properties = (Parsers::WorkspaceAccessProperties.parse(map['WorkspaceAccessProperties']) unless map['WorkspaceAccessProperties'].nil?)
+        data.workspace_creation_properties = (DefaultWorkspaceCreationProperties.parse(map['WorkspaceCreationProperties']) unless map['WorkspaceCreationProperties'].nil?)
+        data.ip_group_ids = (IpGroupIdList.parse(map['ipGroupIds']) unless map['ipGroupIds'].nil?)
+        data.workspace_access_properties = (WorkspaceAccessProperties.parse(map['WorkspaceAccessProperties']) unless map['WorkspaceAccessProperties'].nil?)
         data.tenancy = map['Tenancy']
-        data.selfservice_permissions = (Parsers::SelfservicePermissions.parse(map['SelfservicePermissions']) unless map['SelfservicePermissions'].nil?)
+        data.selfservice_permissions = (SelfservicePermissions.parse(map['SelfservicePermissions']) unless map['SelfservicePermissions'].nil?)
         return data
       end
     end
@@ -950,7 +950,7 @@ module AWS::SDK::WorkSpaces
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.image_id = map['ImageId']
-        data.image_permissions = (Parsers::ImagePermissions.parse(map['ImagePermissions']) unless map['ImagePermissions'].nil?)
+        data.image_permissions = (ImagePermissions.parse(map['ImagePermissions']) unless map['ImagePermissions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -959,7 +959,7 @@ module AWS::SDK::WorkSpaces
     class ImagePermissions
       def self.parse(list)
         list.map do |value|
-          Parsers::ImagePermission.parse(value) unless value.nil?
+          ImagePermission.parse(value) unless value.nil?
         end
       end
     end
@@ -979,7 +979,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.images = (Parsers::WorkspaceImageList.parse(map['Images']) unless map['Images'].nil?)
+        data.images = (WorkspaceImageList.parse(map['Images']) unless map['Images'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -988,7 +988,7 @@ module AWS::SDK::WorkSpaces
     class WorkspaceImageList
       def self.parse(list)
         list.map do |value|
-          Parsers::WorkspaceImage.parse(value) unless value.nil?
+          WorkspaceImage.parse(value) unless value.nil?
         end
       end
     end
@@ -999,14 +999,14 @@ module AWS::SDK::WorkSpaces
         data.image_id = map['ImageId']
         data.name = map['Name']
         data.description = map['Description']
-        data.operating_system = (Parsers::OperatingSystem.parse(map['OperatingSystem']) unless map['OperatingSystem'].nil?)
+        data.operating_system = (OperatingSystem.parse(map['OperatingSystem']) unless map['OperatingSystem'].nil?)
         data.state = map['State']
         data.required_tenancy = map['RequiredTenancy']
         data.error_code = map['ErrorCode']
         data.error_message = map['ErrorMessage']
         data.created = Time.at(map['Created'].to_i) if map['Created']
         data.owner_account_id = map['OwnerAccountId']
-        data.updates = (Parsers::UpdateResult.parse(map['Updates']) unless map['Updates'].nil?)
+        data.updates = (UpdateResult.parse(map['Updates']) unless map['Updates'].nil?)
         return data
       end
     end
@@ -1035,8 +1035,8 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rebuild_snapshots = (Parsers::SnapshotList.parse(map['RebuildSnapshots']) unless map['RebuildSnapshots'].nil?)
-        data.restore_snapshots = (Parsers::SnapshotList.parse(map['RestoreSnapshots']) unless map['RestoreSnapshots'].nil?)
+        data.rebuild_snapshots = (SnapshotList.parse(map['RebuildSnapshots']) unless map['RebuildSnapshots'].nil?)
+        data.restore_snapshots = (SnapshotList.parse(map['RestoreSnapshots']) unless map['RestoreSnapshots'].nil?)
         data
       end
     end
@@ -1044,7 +1044,7 @@ module AWS::SDK::WorkSpaces
     class SnapshotList
       def self.parse(list)
         list.map do |value|
-          Parsers::Snapshot.parse(value) unless value.nil?
+          Snapshot.parse(value) unless value.nil?
         end
       end
     end
@@ -1064,7 +1064,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.workspaces = (Parsers::WorkspaceList.parse(map['Workspaces']) unless map['Workspaces'].nil?)
+        data.workspaces = (WorkspaceList.parse(map['Workspaces']) unless map['Workspaces'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1077,7 +1077,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.workspaces_connection_status = (Parsers::WorkspaceConnectionStatusList.parse(map['WorkspacesConnectionStatus']) unless map['WorkspacesConnectionStatus'].nil?)
+        data.workspaces_connection_status = (WorkspaceConnectionStatusList.parse(map['WorkspacesConnectionStatus']) unless map['WorkspacesConnectionStatus'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1086,7 +1086,7 @@ module AWS::SDK::WorkSpaces
     class WorkspaceConnectionStatusList
       def self.parse(list)
         list.map do |value|
-          Parsers::WorkspaceConnectionStatus.parse(value) unless value.nil?
+          WorkspaceConnectionStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -1131,12 +1131,12 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.device_type_windows = (Parsers::DefaultClientBrandingAttributes.parse(map['DeviceTypeWindows']) unless map['DeviceTypeWindows'].nil?)
-        data.device_type_osx = (Parsers::DefaultClientBrandingAttributes.parse(map['DeviceTypeOsx']) unless map['DeviceTypeOsx'].nil?)
-        data.device_type_android = (Parsers::DefaultClientBrandingAttributes.parse(map['DeviceTypeAndroid']) unless map['DeviceTypeAndroid'].nil?)
-        data.device_type_ios = (Parsers::IosClientBrandingAttributes.parse(map['DeviceTypeIos']) unless map['DeviceTypeIos'].nil?)
-        data.device_type_linux = (Parsers::DefaultClientBrandingAttributes.parse(map['DeviceTypeLinux']) unless map['DeviceTypeLinux'].nil?)
-        data.device_type_web = (Parsers::DefaultClientBrandingAttributes.parse(map['DeviceTypeWeb']) unless map['DeviceTypeWeb'].nil?)
+        data.device_type_windows = (DefaultClientBrandingAttributes.parse(map['DeviceTypeWindows']) unless map['DeviceTypeWindows'].nil?)
+        data.device_type_osx = (DefaultClientBrandingAttributes.parse(map['DeviceTypeOsx']) unless map['DeviceTypeOsx'].nil?)
+        data.device_type_android = (DefaultClientBrandingAttributes.parse(map['DeviceTypeAndroid']) unless map['DeviceTypeAndroid'].nil?)
+        data.device_type_ios = (IosClientBrandingAttributes.parse(map['DeviceTypeIos']) unless map['DeviceTypeIos'].nil?)
+        data.device_type_linux = (DefaultClientBrandingAttributes.parse(map['DeviceTypeLinux']) unless map['DeviceTypeLinux'].nil?)
+        data.device_type_web = (DefaultClientBrandingAttributes.parse(map['DeviceTypeWeb']) unless map['DeviceTypeWeb'].nil?)
         data
       end
     end
@@ -1160,7 +1160,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.management_cidr_ranges = (Parsers::DedicatedTenancyCidrRangeList.parse(map['ManagementCidrRanges']) unless map['ManagementCidrRanges'].nil?)
+        data.management_cidr_ranges = (DedicatedTenancyCidrRangeList.parse(map['ManagementCidrRanges']) unless map['ManagementCidrRanges'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1295,7 +1295,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_requests = (Parsers::FailedRebootWorkspaceRequests.parse(map['FailedRequests']) unless map['FailedRequests'].nil?)
+        data.failed_requests = (FailedRebootWorkspaceRequests.parse(map['FailedRequests']) unless map['FailedRequests'].nil?)
         data
       end
     end
@@ -1303,7 +1303,7 @@ module AWS::SDK::WorkSpaces
     class FailedRebootWorkspaceRequests
       def self.parse(list)
         list.map do |value|
-          Parsers::FailedWorkspaceChangeRequest.parse(value) unless value.nil?
+          FailedWorkspaceChangeRequest.parse(value) unless value.nil?
         end
       end
     end
@@ -1325,7 +1325,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_requests = (Parsers::FailedRebuildWorkspaceRequests.parse(map['FailedRequests']) unless map['FailedRequests'].nil?)
+        data.failed_requests = (FailedRebuildWorkspaceRequests.parse(map['FailedRequests']) unless map['FailedRequests'].nil?)
         data
       end
     end
@@ -1333,7 +1333,7 @@ module AWS::SDK::WorkSpaces
     class FailedRebuildWorkspaceRequests
       def self.parse(list)
         list.map do |value|
-          Parsers::FailedWorkspaceChangeRequest.parse(value) unless value.nil?
+          FailedWorkspaceChangeRequest.parse(value) unless value.nil?
         end
       end
     end
@@ -1402,7 +1402,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_requests = (Parsers::FailedStartWorkspaceRequests.parse(map['FailedRequests']) unless map['FailedRequests'].nil?)
+        data.failed_requests = (FailedStartWorkspaceRequests.parse(map['FailedRequests']) unless map['FailedRequests'].nil?)
         data
       end
     end
@@ -1410,7 +1410,7 @@ module AWS::SDK::WorkSpaces
     class FailedStartWorkspaceRequests
       def self.parse(list)
         list.map do |value|
-          Parsers::FailedWorkspaceChangeRequest.parse(value) unless value.nil?
+          FailedWorkspaceChangeRequest.parse(value) unless value.nil?
         end
       end
     end
@@ -1422,7 +1422,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_requests = (Parsers::FailedStopWorkspaceRequests.parse(map['FailedRequests']) unless map['FailedRequests'].nil?)
+        data.failed_requests = (FailedStopWorkspaceRequests.parse(map['FailedRequests']) unless map['FailedRequests'].nil?)
         data
       end
     end
@@ -1430,7 +1430,7 @@ module AWS::SDK::WorkSpaces
     class FailedStopWorkspaceRequests
       def self.parse(list)
         list.map do |value|
-          Parsers::FailedWorkspaceChangeRequest.parse(value) unless value.nil?
+          FailedWorkspaceChangeRequest.parse(value) unless value.nil?
         end
       end
     end
@@ -1442,7 +1442,7 @@ module AWS::SDK::WorkSpaces
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_requests = (Parsers::FailedTerminateWorkspaceRequests.parse(map['FailedRequests']) unless map['FailedRequests'].nil?)
+        data.failed_requests = (FailedTerminateWorkspaceRequests.parse(map['FailedRequests']) unless map['FailedRequests'].nil?)
         data
       end
     end
@@ -1450,7 +1450,7 @@ module AWS::SDK::WorkSpaces
     class FailedTerminateWorkspaceRequests
       def self.parse(list)
         list.map do |value|
-          Parsers::FailedWorkspaceChangeRequest.parse(value) unless value.nil?
+          FailedWorkspaceChangeRequest.parse(value) unless value.nil?
         end
       end
     end

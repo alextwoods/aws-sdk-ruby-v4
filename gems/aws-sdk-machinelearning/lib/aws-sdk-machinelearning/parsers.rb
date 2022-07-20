@@ -179,7 +179,7 @@ module AWS::SDK::MachineLearning
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.ml_model_id = map['MLModelId']
-        data.realtime_endpoint_info = (Parsers::RealtimeEndpointInfo.parse(map['RealtimeEndpointInfo']) unless map['RealtimeEndpointInfo'].nil?)
+        data.realtime_endpoint_info = (RealtimeEndpointInfo.parse(map['RealtimeEndpointInfo']) unless map['RealtimeEndpointInfo'].nil?)
         data
       end
     end
@@ -251,7 +251,7 @@ module AWS::SDK::MachineLearning
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.ml_model_id = map['MLModelId']
-        data.realtime_endpoint_info = (Parsers::RealtimeEndpointInfo.parse(map['RealtimeEndpointInfo']) unless map['RealtimeEndpointInfo'].nil?)
+        data.realtime_endpoint_info = (RealtimeEndpointInfo.parse(map['RealtimeEndpointInfo']) unless map['RealtimeEndpointInfo'].nil?)
         data
       end
     end
@@ -276,7 +276,7 @@ module AWS::SDK::MachineLearning
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.results = (Parsers::BatchPredictions.parse(map['Results']) unless map['Results'].nil?)
+        data.results = (BatchPredictions.parse(map['Results']) unless map['Results'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -285,7 +285,7 @@ module AWS::SDK::MachineLearning
     class BatchPredictions
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchPrediction.parse(value) unless value.nil?
+          BatchPrediction.parse(value) unless value.nil?
         end
       end
     end
@@ -320,7 +320,7 @@ module AWS::SDK::MachineLearning
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.results = (Parsers::DataSources.parse(map['Results']) unless map['Results'].nil?)
+        data.results = (DataSources.parse(map['Results']) unless map['Results'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -329,7 +329,7 @@ module AWS::SDK::MachineLearning
     class DataSources
       def self.parse(list)
         list.map do |value|
-          Parsers::DataSource.parse(value) unless value.nil?
+          DataSource.parse(value) unless value.nil?
         end
       end
     end
@@ -348,8 +348,8 @@ module AWS::SDK::MachineLearning
         data.name = map['Name']
         data.status = map['Status']
         data.message = map['Message']
-        data.redshift_metadata = (Parsers::RedshiftMetadata.parse(map['RedshiftMetadata']) unless map['RedshiftMetadata'].nil?)
-        data.rds_metadata = (Parsers::RDSMetadata.parse(map['RDSMetadata']) unless map['RDSMetadata'].nil?)
+        data.redshift_metadata = (RedshiftMetadata.parse(map['RedshiftMetadata']) unless map['RedshiftMetadata'].nil?)
+        data.rds_metadata = (RDSMetadata.parse(map['RDSMetadata']) unless map['RDSMetadata'].nil?)
         data.role_arn = map['RoleARN']
         data.compute_statistics = map['ComputeStatistics']
         data.compute_time = map['ComputeTime']
@@ -362,7 +362,7 @@ module AWS::SDK::MachineLearning
     class RDSMetadata
       def self.parse(map)
         data = Types::RDSMetadata.new
-        data.database = (Parsers::RDSDatabase.parse(map['Database']) unless map['Database'].nil?)
+        data.database = (RDSDatabase.parse(map['Database']) unless map['Database'].nil?)
         data.database_user_name = map['DatabaseUserName']
         data.select_sql_query = map['SelectSqlQuery']
         data.resource_role = map['ResourceRole']
@@ -384,7 +384,7 @@ module AWS::SDK::MachineLearning
     class RedshiftMetadata
       def self.parse(map)
         data = Types::RedshiftMetadata.new
-        data.redshift_database = (Parsers::RedshiftDatabase.parse(map['RedshiftDatabase']) unless map['RedshiftDatabase'].nil?)
+        data.redshift_database = (RedshiftDatabase.parse(map['RedshiftDatabase']) unless map['RedshiftDatabase'].nil?)
         data.database_user_name = map['DatabaseUserName']
         data.select_sql_query = map['SelectSqlQuery']
         return data
@@ -407,7 +407,7 @@ module AWS::SDK::MachineLearning
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.results = (Parsers::Evaluations.parse(map['Results']) unless map['Results'].nil?)
+        data.results = (Evaluations.parse(map['Results']) unless map['Results'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -416,7 +416,7 @@ module AWS::SDK::MachineLearning
     class Evaluations
       def self.parse(list)
         list.map do |value|
-          Parsers::Evaluation.parse(value) unless value.nil?
+          Evaluation.parse(value) unless value.nil?
         end
       end
     end
@@ -433,7 +433,7 @@ module AWS::SDK::MachineLearning
         data.last_updated_at = Time.at(map['LastUpdatedAt'].to_i) if map['LastUpdatedAt']
         data.name = map['Name']
         data.status = map['Status']
-        data.performance_metrics = (Parsers::PerformanceMetrics.parse(map['PerformanceMetrics']) unless map['PerformanceMetrics'].nil?)
+        data.performance_metrics = (PerformanceMetrics.parse(map['PerformanceMetrics']) unless map['PerformanceMetrics'].nil?)
         data.message = map['Message']
         data.compute_time = map['ComputeTime']
         data.finished_at = Time.at(map['FinishedAt'].to_i) if map['FinishedAt']
@@ -445,7 +445,7 @@ module AWS::SDK::MachineLearning
     class PerformanceMetrics
       def self.parse(map)
         data = Types::PerformanceMetrics.new
-        data.properties = (Parsers::PerformanceMetricsProperties.parse(map['Properties']) unless map['Properties'].nil?)
+        data.properties = (PerformanceMetricsProperties.parse(map['Properties']) unless map['Properties'].nil?)
         return data
       end
     end
@@ -467,7 +467,7 @@ module AWS::SDK::MachineLearning
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.results = (Parsers::MLModels.parse(map['Results']) unless map['Results'].nil?)
+        data.results = (MLModels.parse(map['Results']) unless map['Results'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -476,7 +476,7 @@ module AWS::SDK::MachineLearning
     class MLModels
       def self.parse(list)
         list.map do |value|
-          Parsers::MLModel.parse(value) unless value.nil?
+          MLModel.parse(value) unless value.nil?
         end
       end
     end
@@ -492,8 +492,8 @@ module AWS::SDK::MachineLearning
         data.name = map['Name']
         data.status = map['Status']
         data.size_in_bytes = map['SizeInBytes']
-        data.endpoint_info = (Parsers::RealtimeEndpointInfo.parse(map['EndpointInfo']) unless map['EndpointInfo'].nil?)
-        data.training_parameters = (Parsers::TrainingParameters.parse(map['TrainingParameters']) unless map['TrainingParameters'].nil?)
+        data.endpoint_info = (RealtimeEndpointInfo.parse(map['EndpointInfo']) unless map['EndpointInfo'].nil?)
+        data.training_parameters = (TrainingParameters.parse(map['TrainingParameters']) unless map['TrainingParameters'].nil?)
         data.input_data_location_s3 = map['InputDataLocationS3']
         data.algorithm = map['Algorithm']
         data.ml_model_type = map['MLModelType']
@@ -526,7 +526,7 @@ module AWS::SDK::MachineLearning
         map = Hearth::JSON.load(body)
         data.resource_id = map['ResourceId']
         data.resource_type = map['ResourceType']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -534,7 +534,7 @@ module AWS::SDK::MachineLearning
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -595,8 +595,8 @@ module AWS::SDK::MachineLearning
         data.status = map['Status']
         data.log_uri = map['LogUri']
         data.message = map['Message']
-        data.redshift_metadata = (Parsers::RedshiftMetadata.parse(map['RedshiftMetadata']) unless map['RedshiftMetadata'].nil?)
-        data.rds_metadata = (Parsers::RDSMetadata.parse(map['RDSMetadata']) unless map['RDSMetadata'].nil?)
+        data.redshift_metadata = (RedshiftMetadata.parse(map['RedshiftMetadata']) unless map['RedshiftMetadata'].nil?)
+        data.rds_metadata = (RDSMetadata.parse(map['RDSMetadata']) unless map['RDSMetadata'].nil?)
         data.role_arn = map['RoleARN']
         data.compute_statistics = map['ComputeStatistics']
         data.compute_time = map['ComputeTime']
@@ -623,7 +623,7 @@ module AWS::SDK::MachineLearning
         data.last_updated_at = Time.at(map['LastUpdatedAt'].to_i) if map['LastUpdatedAt']
         data.name = map['Name']
         data.status = map['Status']
-        data.performance_metrics = (Parsers::PerformanceMetrics.parse(map['PerformanceMetrics']) unless map['PerformanceMetrics'].nil?)
+        data.performance_metrics = (PerformanceMetrics.parse(map['PerformanceMetrics']) unless map['PerformanceMetrics'].nil?)
         data.log_uri = map['LogUri']
         data.message = map['Message']
         data.compute_time = map['ComputeTime']
@@ -648,8 +648,8 @@ module AWS::SDK::MachineLearning
         data.name = map['Name']
         data.status = map['Status']
         data.size_in_bytes = map['SizeInBytes']
-        data.endpoint_info = (Parsers::RealtimeEndpointInfo.parse(map['EndpointInfo']) unless map['EndpointInfo'].nil?)
-        data.training_parameters = (Parsers::TrainingParameters.parse(map['TrainingParameters']) unless map['TrainingParameters'].nil?)
+        data.endpoint_info = (RealtimeEndpointInfo.parse(map['EndpointInfo']) unless map['EndpointInfo'].nil?)
+        data.training_parameters = (TrainingParameters.parse(map['TrainingParameters']) unless map['TrainingParameters'].nil?)
         data.input_data_location_s3 = map['InputDataLocationS3']
         data.ml_model_type = map['MLModelType']
         data.score_threshold = Hearth::NumberHelper.deserialize(map['ScoreThreshold'])
@@ -672,7 +672,7 @@ module AWS::SDK::MachineLearning
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.prediction = (Parsers::Prediction.parse(map['Prediction']) unless map['Prediction'].nil?)
+        data.prediction = (Prediction.parse(map['Prediction']) unless map['Prediction'].nil?)
         data
       end
     end
@@ -682,8 +682,8 @@ module AWS::SDK::MachineLearning
         data = Types::Prediction.new
         data.predicted_label = map['predictedLabel']
         data.predicted_value = Hearth::NumberHelper.deserialize(map['predictedValue'])
-        data.predicted_scores = (Parsers::ScoreValuePerLabelMap.parse(map['predictedScores']) unless map['predictedScores'].nil?)
-        data.details = (Parsers::DetailsMap.parse(map['details']) unless map['details'].nil?)
+        data.predicted_scores = (ScoreValuePerLabelMap.parse(map['predictedScores']) unless map['predictedScores'].nil?)
+        data.details = (DetailsMap.parse(map['details']) unless map['details'].nil?)
         return data
       end
     end

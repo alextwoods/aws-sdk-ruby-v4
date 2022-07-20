@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AppConfig
   module Stubs
 
@@ -27,7 +29,7 @@ module AWS::SDK::AppConfig
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -56,9 +58,9 @@ module AWS::SDK::AppConfig
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['LocationUri'] = stub[:location_uri] unless stub[:location_uri].nil?
         data['RetrievalRoleArn'] = stub[:retrieval_role_arn] unless stub[:retrieval_role_arn].nil?
-        data['Validators'] = Stubs::ValidatorList.stub(stub[:validators]) unless stub[:validators].nil?
+        data['Validators'] = ValidatorList.stub(stub[:validators]) unless stub[:validators].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -76,7 +78,7 @@ module AWS::SDK::AppConfig
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Validator.stub(element) unless element.nil?
+          data << Validator.stub(element) unless element.nil?
         end
         data
       end
@@ -129,7 +131,7 @@ module AWS::SDK::AppConfig
         data['GrowthFactor'] = Hearth::NumberHelper.serialize(stub[:growth_factor])
         data['FinalBakeTimeInMinutes'] = stub[:final_bake_time_in_minutes] unless stub[:final_bake_time_in_minutes].nil?
         data['ReplicateTo'] = stub[:replicate_to] unless stub[:replicate_to].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -155,8 +157,8 @@ module AWS::SDK::AppConfig
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Monitors'] = Stubs::MonitorList.stub(stub[:monitors]) unless stub[:monitors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Monitors'] = MonitorList.stub(stub[:monitors]) unless stub[:monitors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -174,7 +176,7 @@ module AWS::SDK::AppConfig
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Monitor.stub(element) unless element.nil?
+          data << Monitor.stub(element) unless element.nil?
         end
         data
       end
@@ -222,7 +224,7 @@ module AWS::SDK::AppConfig
         http_resp.headers['Description'] = stub[:description] unless stub[:description].nil? || stub[:description].empty?
         http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:content] || '')
+        http_resp.body = ::StringIO.new(stub[:content] || '')
       end
     end
 
@@ -308,7 +310,7 @@ module AWS::SDK::AppConfig
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -328,7 +330,7 @@ module AWS::SDK::AppConfig
         http_resp.headers['Configuration-Version'] = stub[:configuration_version] unless stub[:configuration_version].nil? || stub[:configuration_version].empty?
         http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:content] || '')
+        http_resp.body = ::StringIO.new(stub[:content] || '')
       end
     end
 
@@ -357,9 +359,9 @@ module AWS::SDK::AppConfig
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['LocationUri'] = stub[:location_uri] unless stub[:location_uri].nil?
         data['RetrievalRoleArn'] = stub[:retrieval_role_arn] unless stub[:retrieval_role_arn].nil?
-        data['Validators'] = Stubs::ValidatorList.stub(stub[:validators]) unless stub[:validators].nil?
+        data['Validators'] = ValidatorList.stub(stub[:validators]) unless stub[:validators].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -406,11 +408,11 @@ module AWS::SDK::AppConfig
         data['GrowthFactor'] = Hearth::NumberHelper.serialize(stub[:growth_factor])
         data['FinalBakeTimeInMinutes'] = stub[:final_bake_time_in_minutes] unless stub[:final_bake_time_in_minutes].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['EventLog'] = Stubs::DeploymentEvents.stub(stub[:event_log]) unless stub[:event_log].nil?
+        data['EventLog'] = DeploymentEvents.stub(stub[:event_log]) unless stub[:event_log].nil?
         data['PercentageComplete'] = Hearth::NumberHelper.serialize(stub[:percentage_complete])
         data['StartedAt'] = Hearth::TimeHelper.to_date_time(stub[:started_at]) unless stub[:started_at].nil?
         data['CompletedAt'] = Hearth::TimeHelper.to_date_time(stub[:completed_at]) unless stub[:completed_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -428,7 +430,7 @@ module AWS::SDK::AppConfig
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeploymentEvent.stub(element) unless element.nil?
+          data << DeploymentEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -485,7 +487,7 @@ module AWS::SDK::AppConfig
         data['GrowthFactor'] = Hearth::NumberHelper.serialize(stub[:growth_factor])
         data['FinalBakeTimeInMinutes'] = stub[:final_bake_time_in_minutes] unless stub[:final_bake_time_in_minutes].nil?
         data['ReplicateTo'] = stub[:replicate_to] unless stub[:replicate_to].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -511,8 +513,8 @@ module AWS::SDK::AppConfig
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Monitors'] = Stubs::MonitorList.stub(stub[:monitors]) unless stub[:monitors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Monitors'] = MonitorList.stub(stub[:monitors]) unless stub[:monitors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -538,7 +540,7 @@ module AWS::SDK::AppConfig
         http_resp.headers['Description'] = stub[:description] unless stub[:description].nil? || stub[:description].empty?
         http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:content] || '')
+        http_resp.body = ::StringIO.new(stub[:content] || '')
       end
     end
 
@@ -555,9 +557,9 @@ module AWS::SDK::AppConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::ApplicationList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = ApplicationList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -575,7 +577,7 @@ module AWS::SDK::AppConfig
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Application.stub(element) unless element.nil?
+          data << Application.stub(element) unless element.nil?
         end
         data
       end
@@ -616,9 +618,9 @@ module AWS::SDK::AppConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::ConfigurationProfileSummaryList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = ConfigurationProfileSummaryList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -636,7 +638,7 @@ module AWS::SDK::AppConfig
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfigurationProfileSummary.stub(element) unless element.nil?
+          data << ConfigurationProfileSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -664,7 +666,7 @@ module AWS::SDK::AppConfig
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['LocationUri'] = stub[:location_uri] unless stub[:location_uri].nil?
-        data['ValidatorTypes'] = Stubs::ValidatorTypeList.stub(stub[:validator_types]) unless stub[:validator_types].nil?
+        data['ValidatorTypes'] = ValidatorTypeList.stub(stub[:validator_types]) unless stub[:validator_types].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -703,9 +705,9 @@ module AWS::SDK::AppConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::DeploymentStrategyList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = DeploymentStrategyList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -723,7 +725,7 @@ module AWS::SDK::AppConfig
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeploymentStrategy.stub(element) unless element.nil?
+          data << DeploymentStrategy.stub(element) unless element.nil?
         end
         data
       end
@@ -774,9 +776,9 @@ module AWS::SDK::AppConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::DeploymentList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = DeploymentList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -794,7 +796,7 @@ module AWS::SDK::AppConfig
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeploymentSummary.stub(element) unless element.nil?
+          data << DeploymentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -851,9 +853,9 @@ module AWS::SDK::AppConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::EnvironmentList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = EnvironmentList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -871,7 +873,7 @@ module AWS::SDK::AppConfig
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Environment.stub(element) unless element.nil?
+          data << Environment.stub(element) unless element.nil?
         end
         data
       end
@@ -900,7 +902,7 @@ module AWS::SDK::AppConfig
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Monitors'] = Stubs::MonitorList.stub(stub[:monitors]) unless stub[:monitors].nil?
+        data['Monitors'] = MonitorList.stub(stub[:monitors]) unless stub[:monitors].nil?
         data
       end
     end
@@ -918,9 +920,9 @@ module AWS::SDK::AppConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::HostedConfigurationVersionSummaryList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = HostedConfigurationVersionSummaryList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -938,7 +940,7 @@ module AWS::SDK::AppConfig
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HostedConfigurationVersionSummary.stub(element) unless element.nil?
+          data << HostedConfigurationVersionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -982,8 +984,8 @@ module AWS::SDK::AppConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1050,11 +1052,11 @@ module AWS::SDK::AppConfig
         data['GrowthFactor'] = Hearth::NumberHelper.serialize(stub[:growth_factor])
         data['FinalBakeTimeInMinutes'] = stub[:final_bake_time_in_minutes] unless stub[:final_bake_time_in_minutes].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['EventLog'] = Stubs::DeploymentEvents.stub(stub[:event_log]) unless stub[:event_log].nil?
+        data['EventLog'] = DeploymentEvents.stub(stub[:event_log]) unless stub[:event_log].nil?
         data['PercentageComplete'] = Hearth::NumberHelper.serialize(stub[:percentage_complete])
         data['StartedAt'] = Hearth::TimeHelper.to_date_time(stub[:started_at]) unless stub[:started_at].nil?
         data['CompletedAt'] = Hearth::TimeHelper.to_date_time(stub[:completed_at]) unless stub[:completed_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1101,11 +1103,11 @@ module AWS::SDK::AppConfig
         data['GrowthFactor'] = Hearth::NumberHelper.serialize(stub[:growth_factor])
         data['FinalBakeTimeInMinutes'] = stub[:final_bake_time_in_minutes] unless stub[:final_bake_time_in_minutes].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['EventLog'] = Stubs::DeploymentEvents.stub(stub[:event_log]) unless stub[:event_log].nil?
+        data['EventLog'] = DeploymentEvents.stub(stub[:event_log]) unless stub[:event_log].nil?
         data['PercentageComplete'] = Hearth::NumberHelper.serialize(stub[:percentage_complete])
         data['StartedAt'] = Hearth::TimeHelper.to_date_time(stub[:started_at]) unless stub[:started_at].nil?
         data['CompletedAt'] = Hearth::TimeHelper.to_date_time(stub[:completed_at]) unless stub[:completed_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1152,7 +1154,7 @@ module AWS::SDK::AppConfig
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1181,9 +1183,9 @@ module AWS::SDK::AppConfig
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['LocationUri'] = stub[:location_uri] unless stub[:location_uri].nil?
         data['RetrievalRoleArn'] = stub[:retrieval_role_arn] unless stub[:retrieval_role_arn].nil?
-        data['Validators'] = Stubs::ValidatorList.stub(stub[:validators]) unless stub[:validators].nil?
+        data['Validators'] = ValidatorList.stub(stub[:validators]) unless stub[:validators].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1214,7 +1216,7 @@ module AWS::SDK::AppConfig
         data['GrowthFactor'] = Hearth::NumberHelper.serialize(stub[:growth_factor])
         data['FinalBakeTimeInMinutes'] = stub[:final_bake_time_in_minutes] unless stub[:final_bake_time_in_minutes].nil?
         data['ReplicateTo'] = stub[:replicate_to] unless stub[:replicate_to].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1240,8 +1242,8 @@ module AWS::SDK::AppConfig
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Monitors'] = Stubs::MonitorList.stub(stub[:monitors]) unless stub[:monitors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Monitors'] = MonitorList.stub(stub[:monitors]) unless stub[:monitors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

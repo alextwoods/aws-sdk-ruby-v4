@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ResourceGroupsTaggingAPI
   module Stubs
 
@@ -27,7 +29,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         data['S3Location'] = stub[:s3_location] unless stub[:s3_location].nil?
         data['StartDate'] = stub[:start_date] unless stub[:start_date].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -43,9 +45,9 @@ module AWS::SDK::ResourceGroupsTaggingAPI
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SummaryList'] = Stubs::SummaryList.stub(stub[:summary_list]) unless stub[:summary_list].nil?
+        data['SummaryList'] = SummaryList.stub(stub[:summary_list]) unless stub[:summary_list].nil?
         data['PaginationToken'] = stub[:pagination_token] unless stub[:pagination_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -64,7 +66,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Summary.stub(element) unless element.nil?
+          data << Summary.stub(element) unless element.nil?
         end
         data
       end
@@ -110,8 +112,8 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.stub(http_resp, stub:)
         data = {}
         data['PaginationToken'] = stub[:pagination_token] unless stub[:pagination_token].nil?
-        data['ResourceTagMappingList'] = Stubs::ResourceTagMappingList.stub(stub[:resource_tag_mapping_list]) unless stub[:resource_tag_mapping_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceTagMappingList'] = ResourceTagMappingList.stub(stub[:resource_tag_mapping_list]) unless stub[:resource_tag_mapping_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -130,7 +132,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceTagMapping.stub(element) unless element.nil?
+          data << ResourceTagMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -152,8 +154,8 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         stub ||= Types::ResourceTagMapping.new
         data = {}
         data['ResourceARN'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['ComplianceDetails'] = Stubs::ComplianceDetails.stub(stub[:compliance_details]) unless stub[:compliance_details].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['ComplianceDetails'] = ComplianceDetails.stub(stub[:compliance_details]) unless stub[:compliance_details].nil?
         data
       end
     end
@@ -173,8 +175,8 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.stub(stub)
         stub ||= Types::ComplianceDetails.new
         data = {}
-        data['NoncompliantKeys'] = Stubs::TagKeyList.stub(stub[:noncompliant_keys]) unless stub[:noncompliant_keys].nil?
-        data['KeysWithNoncompliantValues'] = Stubs::TagKeyList.stub(stub[:keys_with_noncompliant_values]) unless stub[:keys_with_noncompliant_values].nil?
+        data['NoncompliantKeys'] = TagKeyList.stub(stub[:noncompliant_keys]) unless stub[:noncompliant_keys].nil?
+        data['KeysWithNoncompliantValues'] = TagKeyList.stub(stub[:keys_with_noncompliant_values]) unless stub[:keys_with_noncompliant_values].nil?
         data['ComplianceStatus'] = stub[:compliance_status] unless stub[:compliance_status].nil?
         data
       end
@@ -214,7 +216,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -252,8 +254,8 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.stub(http_resp, stub:)
         data = {}
         data['PaginationToken'] = stub[:pagination_token] unless stub[:pagination_token].nil?
-        data['TagKeys'] = Stubs::TagKeyList.stub(stub[:tag_keys]) unless stub[:tag_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.stub(stub[:tag_keys]) unless stub[:tag_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -270,8 +272,8 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.stub(http_resp, stub:)
         data = {}
         data['PaginationToken'] = stub[:pagination_token] unless stub[:pagination_token].nil?
-        data['TagValues'] = Stubs::TagValuesOutputList.stub(stub[:tag_values]) unless stub[:tag_values].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagValues'] = TagValuesOutputList.stub(stub[:tag_values]) unless stub[:tag_values].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -305,7 +307,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -320,8 +322,8 @@ module AWS::SDK::ResourceGroupsTaggingAPI
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedResourcesMap'] = Stubs::FailedResourcesMap.stub(stub[:failed_resources_map]) unless stub[:failed_resources_map].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedResourcesMap'] = FailedResourcesMap.stub(stub[:failed_resources_map]) unless stub[:failed_resources_map].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -340,7 +342,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::FailureInfo.stub(value) unless value.nil?
+          data[key] = FailureInfo.stub(value) unless value.nil?
         end
         data
       end
@@ -378,8 +380,8 @@ module AWS::SDK::ResourceGroupsTaggingAPI
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedResourcesMap'] = Stubs::FailedResourcesMap.stub(stub[:failed_resources_map]) unless stub[:failed_resources_map].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedResourcesMap'] = FailedResourcesMap.stub(stub[:failed_resources_map]) unless stub[:failed_resources_map].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

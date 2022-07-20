@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::PersonalizeRuntime
   module Stubs
 
@@ -23,9 +25,9 @@ module AWS::SDK::PersonalizeRuntime
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['personalizedRanking'] = Stubs::ItemList.stub(stub[:personalized_ranking]) unless stub[:personalized_ranking].nil?
+        data['personalizedRanking'] = ItemList.stub(stub[:personalized_ranking]) unless stub[:personalized_ranking].nil?
         data['recommendationId'] = stub[:recommendation_id] unless stub[:recommendation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -43,7 +45,7 @@ module AWS::SDK::PersonalizeRuntime
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PredictedItem.stub(element) unless element.nil?
+          data << PredictedItem.stub(element) unless element.nil?
         end
         data
       end
@@ -82,9 +84,9 @@ module AWS::SDK::PersonalizeRuntime
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['itemList'] = Stubs::ItemList.stub(stub[:item_list]) unless stub[:item_list].nil?
+        data['itemList'] = ItemList.stub(stub[:item_list]) unless stub[:item_list].nil?
         data['recommendationId'] = stub[:recommendation_id] unless stub[:recommendation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

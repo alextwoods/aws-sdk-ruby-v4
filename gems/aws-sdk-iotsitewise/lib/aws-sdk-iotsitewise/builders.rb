@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::IoTSiteWise
   module Builders
 
@@ -30,7 +33,7 @@ module AWS::SDK::IoTSiteWise
         data['hierarchyId'] = input[:hierarchy_id] unless input[:hierarchy_id].nil?
         data['childAssetId'] = input[:child_asset_id] unless input[:child_asset_id].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -48,7 +51,7 @@ module AWS::SDK::IoTSiteWise
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -69,9 +72,9 @@ module AWS::SDK::IoTSiteWise
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['assetIds'] = Builders::IDs.build(input[:asset_ids]) unless input[:asset_ids].nil?
+        data['assetIds'] = IDs.build(input[:asset_ids]) unless input[:asset_ids].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -103,9 +106,9 @@ module AWS::SDK::IoTSiteWise
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['assetIds'] = Builders::IDs.build(input[:asset_ids]) unless input[:asset_ids].nil?
+        data['assetIds'] = IDs.build(input[:asset_ids]) unless input[:asset_ids].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -119,10 +122,10 @@ module AWS::SDK::IoTSiteWise
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['entries'] = Builders::BatchGetAssetPropertyAggregatesEntries.build(input[:entries]) unless input[:entries].nil?
+        data['entries'] = BatchGetAssetPropertyAggregatesEntries.build(input[:entries]) unless input[:entries].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -131,7 +134,7 @@ module AWS::SDK::IoTSiteWise
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BatchGetAssetPropertyAggregatesEntry.build(element) unless element.nil?
+          data << BatchGetAssetPropertyAggregatesEntry.build(element) unless element.nil?
         end
         data
       end
@@ -145,11 +148,11 @@ module AWS::SDK::IoTSiteWise
         data['assetId'] = input[:asset_id] unless input[:asset_id].nil?
         data['propertyId'] = input[:property_id] unless input[:property_id].nil?
         data['propertyAlias'] = input[:property_alias] unless input[:property_alias].nil?
-        data['aggregateTypes'] = Builders::AggregateTypes.build(input[:aggregate_types]) unless input[:aggregate_types].nil?
+        data['aggregateTypes'] = AggregateTypes.build(input[:aggregate_types]) unless input[:aggregate_types].nil?
         data['resolution'] = input[:resolution] unless input[:resolution].nil?
         data['startDate'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_date]).to_i unless input[:start_date].nil?
         data['endDate'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_date]).to_i unless input[:end_date].nil?
-        data['qualities'] = Builders::Qualities.build(input[:qualities]) unless input[:qualities].nil?
+        data['qualities'] = Qualities.build(input[:qualities]) unless input[:qualities].nil?
         data['timeOrdering'] = input[:time_ordering] unless input[:time_ordering].nil?
         data
       end
@@ -187,9 +190,9 @@ module AWS::SDK::IoTSiteWise
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['entries'] = Builders::BatchGetAssetPropertyValueEntries.build(input[:entries]) unless input[:entries].nil?
+        data['entries'] = BatchGetAssetPropertyValueEntries.build(input[:entries]) unless input[:entries].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -198,7 +201,7 @@ module AWS::SDK::IoTSiteWise
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BatchGetAssetPropertyValueEntry.build(element) unless element.nil?
+          data << BatchGetAssetPropertyValueEntry.build(element) unless element.nil?
         end
         data
       end
@@ -226,10 +229,10 @@ module AWS::SDK::IoTSiteWise
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['entries'] = Builders::BatchGetAssetPropertyValueHistoryEntries.build(input[:entries]) unless input[:entries].nil?
+        data['entries'] = BatchGetAssetPropertyValueHistoryEntries.build(input[:entries]) unless input[:entries].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -238,7 +241,7 @@ module AWS::SDK::IoTSiteWise
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BatchGetAssetPropertyValueHistoryEntry.build(element) unless element.nil?
+          data << BatchGetAssetPropertyValueHistoryEntry.build(element) unless element.nil?
         end
         data
       end
@@ -254,7 +257,7 @@ module AWS::SDK::IoTSiteWise
         data['propertyAlias'] = input[:property_alias] unless input[:property_alias].nil?
         data['startDate'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_date]).to_i unless input[:start_date].nil?
         data['endDate'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_date]).to_i unless input[:end_date].nil?
-        data['qualities'] = Builders::Qualities.build(input[:qualities]) unless input[:qualities].nil?
+        data['qualities'] = Qualities.build(input[:qualities]) unless input[:qualities].nil?
         data['timeOrdering'] = input[:time_ordering] unless input[:time_ordering].nil?
         data
       end
@@ -270,8 +273,8 @@ module AWS::SDK::IoTSiteWise
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['entries'] = Builders::PutAssetPropertyValueEntries.build(input[:entries]) unless input[:entries].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['entries'] = PutAssetPropertyValueEntries.build(input[:entries]) unless input[:entries].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -280,7 +283,7 @@ module AWS::SDK::IoTSiteWise
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PutAssetPropertyValueEntry.build(element) unless element.nil?
+          data << PutAssetPropertyValueEntry.build(element) unless element.nil?
         end
         data
       end
@@ -294,7 +297,7 @@ module AWS::SDK::IoTSiteWise
         data['assetId'] = input[:asset_id] unless input[:asset_id].nil?
         data['propertyId'] = input[:property_id] unless input[:property_id].nil?
         data['propertyAlias'] = input[:property_alias] unless input[:property_alias].nil?
-        data['propertyValues'] = Builders::AssetPropertyValues.build(input[:property_values]) unless input[:property_values].nil?
+        data['propertyValues'] = AssetPropertyValues.build(input[:property_values]) unless input[:property_values].nil?
         data
       end
     end
@@ -304,7 +307,7 @@ module AWS::SDK::IoTSiteWise
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AssetPropertyValue.build(element) unless element.nil?
+          data << AssetPropertyValue.build(element) unless element.nil?
         end
         data
       end
@@ -314,8 +317,8 @@ module AWS::SDK::IoTSiteWise
     class AssetPropertyValue
       def self.build(input)
         data = {}
-        data['value'] = Builders::Variant.build(input[:value]) unless input[:value].nil?
-        data['timestamp'] = Builders::TimeInNanos.build(input[:timestamp]) unless input[:timestamp].nil?
+        data['value'] = Variant.build(input[:value]) unless input[:value].nil?
+        data['timestamp'] = TimeInNanos.build(input[:timestamp]) unless input[:timestamp].nil?
         data['quality'] = input[:quality] unless input[:quality].nil?
         data
       end
@@ -353,12 +356,12 @@ module AWS::SDK::IoTSiteWise
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['accessPolicyIdentity'] = Builders::Identity.build(input[:access_policy_identity]) unless input[:access_policy_identity].nil?
-        data['accessPolicyResource'] = Builders::Resource.build(input[:access_policy_resource]) unless input[:access_policy_resource].nil?
+        data['accessPolicyIdentity'] = Identity.build(input[:access_policy_identity]) unless input[:access_policy_identity].nil?
+        data['accessPolicyResource'] = Resource.build(input[:access_policy_resource]) unless input[:access_policy_resource].nil?
         data['accessPolicyPermission'] = input[:access_policy_permission] unless input[:access_policy_permission].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -377,8 +380,8 @@ module AWS::SDK::IoTSiteWise
     class Resource
       def self.build(input)
         data = {}
-        data['portal'] = Builders::PortalResource.build(input[:portal]) unless input[:portal].nil?
-        data['project'] = Builders::ProjectResource.build(input[:project]) unless input[:project].nil?
+        data['portal'] = PortalResource.build(input[:portal]) unless input[:portal].nil?
+        data['project'] = ProjectResource.build(input[:project]) unless input[:project].nil?
         data
       end
     end
@@ -405,10 +408,10 @@ module AWS::SDK::IoTSiteWise
     class Identity
       def self.build(input)
         data = {}
-        data['user'] = Builders::UserIdentity.build(input[:user]) unless input[:user].nil?
-        data['group'] = Builders::GroupIdentity.build(input[:group]) unless input[:group].nil?
-        data['iamUser'] = Builders::IAMUserIdentity.build(input[:iam_user]) unless input[:iam_user].nil?
-        data['iamRole'] = Builders::IAMRoleIdentity.build(input[:iam_role]) unless input[:iam_role].nil?
+        data['user'] = UserIdentity.build(input[:user]) unless input[:user].nil?
+        data['group'] = GroupIdentity.build(input[:group]) unless input[:group].nil?
+        data['iamUser'] = IAMUserIdentity.build(input[:iam_user]) unless input[:iam_user].nil?
+        data['iamRole'] = IAMRoleIdentity.build(input[:iam_role]) unless input[:iam_role].nil?
         data
       end
     end
@@ -462,9 +465,9 @@ module AWS::SDK::IoTSiteWise
         data['assetName'] = input[:asset_name] unless input[:asset_name].nil?
         data['assetModelId'] = input[:asset_model_id] unless input[:asset_model_id].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['assetDescription'] = input[:asset_description] unless input[:asset_description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -480,12 +483,12 @@ module AWS::SDK::IoTSiteWise
         data = {}
         data['assetModelName'] = input[:asset_model_name] unless input[:asset_model_name].nil?
         data['assetModelDescription'] = input[:asset_model_description] unless input[:asset_model_description].nil?
-        data['assetModelProperties'] = Builders::AssetModelPropertyDefinitions.build(input[:asset_model_properties]) unless input[:asset_model_properties].nil?
-        data['assetModelHierarchies'] = Builders::AssetModelHierarchyDefinitions.build(input[:asset_model_hierarchies]) unless input[:asset_model_hierarchies].nil?
-        data['assetModelCompositeModels'] = Builders::AssetModelCompositeModelDefinitions.build(input[:asset_model_composite_models]) unless input[:asset_model_composite_models].nil?
+        data['assetModelProperties'] = AssetModelPropertyDefinitions.build(input[:asset_model_properties]) unless input[:asset_model_properties].nil?
+        data['assetModelHierarchies'] = AssetModelHierarchyDefinitions.build(input[:asset_model_hierarchies]) unless input[:asset_model_hierarchies].nil?
+        data['assetModelCompositeModels'] = AssetModelCompositeModelDefinitions.build(input[:asset_model_composite_models]) unless input[:asset_model_composite_models].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -494,7 +497,7 @@ module AWS::SDK::IoTSiteWise
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AssetModelCompositeModelDefinition.build(element) unless element.nil?
+          data << AssetModelCompositeModelDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -507,7 +510,7 @@ module AWS::SDK::IoTSiteWise
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['type'] = input[:type] unless input[:type].nil?
-        data['properties'] = Builders::AssetModelPropertyDefinitions.build(input[:properties]) unless input[:properties].nil?
+        data['properties'] = AssetModelPropertyDefinitions.build(input[:properties]) unless input[:properties].nil?
         data
       end
     end
@@ -517,7 +520,7 @@ module AWS::SDK::IoTSiteWise
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AssetModelPropertyDefinition.build(element) unless element.nil?
+          data << AssetModelPropertyDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -531,7 +534,7 @@ module AWS::SDK::IoTSiteWise
         data['dataType'] = input[:data_type] unless input[:data_type].nil?
         data['dataTypeSpec'] = input[:data_type_spec] unless input[:data_type_spec].nil?
         data['unit'] = input[:unit] unless input[:unit].nil?
-        data['type'] = Builders::PropertyType.build(input[:type]) unless input[:type].nil?
+        data['type'] = PropertyType.build(input[:type]) unless input[:type].nil?
         data
       end
     end
@@ -540,10 +543,10 @@ module AWS::SDK::IoTSiteWise
     class PropertyType
       def self.build(input)
         data = {}
-        data['attribute'] = Builders::Attribute.build(input[:attribute]) unless input[:attribute].nil?
-        data['measurement'] = Builders::Measurement.build(input[:measurement]) unless input[:measurement].nil?
-        data['transform'] = Builders::Transform.build(input[:transform]) unless input[:transform].nil?
-        data['metric'] = Builders::Metric.build(input[:metric]) unless input[:metric].nil?
+        data['attribute'] = Attribute.build(input[:attribute]) unless input[:attribute].nil?
+        data['measurement'] = Measurement.build(input[:measurement]) unless input[:measurement].nil?
+        data['transform'] = Transform.build(input[:transform]) unless input[:transform].nil?
+        data['metric'] = Metric.build(input[:metric]) unless input[:metric].nil?
         data
       end
     end
@@ -553,9 +556,9 @@ module AWS::SDK::IoTSiteWise
       def self.build(input)
         data = {}
         data['expression'] = input[:expression] unless input[:expression].nil?
-        data['variables'] = Builders::ExpressionVariables.build(input[:variables]) unless input[:variables].nil?
-        data['window'] = Builders::MetricWindow.build(input[:window]) unless input[:window].nil?
-        data['processingConfig'] = Builders::MetricProcessingConfig.build(input[:processing_config]) unless input[:processing_config].nil?
+        data['variables'] = ExpressionVariables.build(input[:variables]) unless input[:variables].nil?
+        data['window'] = MetricWindow.build(input[:window]) unless input[:window].nil?
+        data['processingConfig'] = MetricProcessingConfig.build(input[:processing_config]) unless input[:processing_config].nil?
         data
       end
     end
@@ -573,7 +576,7 @@ module AWS::SDK::IoTSiteWise
     class MetricWindow
       def self.build(input)
         data = {}
-        data['tumbling'] = Builders::TumblingWindow.build(input[:tumbling]) unless input[:tumbling].nil?
+        data['tumbling'] = TumblingWindow.build(input[:tumbling]) unless input[:tumbling].nil?
         data
       end
     end
@@ -593,7 +596,7 @@ module AWS::SDK::IoTSiteWise
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ExpressionVariable.build(element) unless element.nil?
+          data << ExpressionVariable.build(element) unless element.nil?
         end
         data
       end
@@ -604,7 +607,7 @@ module AWS::SDK::IoTSiteWise
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['value'] = Builders::VariableValue.build(input[:value]) unless input[:value].nil?
+        data['value'] = VariableValue.build(input[:value]) unless input[:value].nil?
         data
       end
     end
@@ -624,8 +627,8 @@ module AWS::SDK::IoTSiteWise
       def self.build(input)
         data = {}
         data['expression'] = input[:expression] unless input[:expression].nil?
-        data['variables'] = Builders::ExpressionVariables.build(input[:variables]) unless input[:variables].nil?
-        data['processingConfig'] = Builders::TransformProcessingConfig.build(input[:processing_config]) unless input[:processing_config].nil?
+        data['variables'] = ExpressionVariables.build(input[:variables]) unless input[:variables].nil?
+        data['processingConfig'] = TransformProcessingConfig.build(input[:processing_config]) unless input[:processing_config].nil?
         data
       end
     end
@@ -635,7 +638,7 @@ module AWS::SDK::IoTSiteWise
       def self.build(input)
         data = {}
         data['computeLocation'] = input[:compute_location] unless input[:compute_location].nil?
-        data['forwardingConfig'] = Builders::ForwardingConfig.build(input[:forwarding_config]) unless input[:forwarding_config].nil?
+        data['forwardingConfig'] = ForwardingConfig.build(input[:forwarding_config]) unless input[:forwarding_config].nil?
         data
       end
     end
@@ -653,7 +656,7 @@ module AWS::SDK::IoTSiteWise
     class Measurement
       def self.build(input)
         data = {}
-        data['processingConfig'] = Builders::MeasurementProcessingConfig.build(input[:processing_config]) unless input[:processing_config].nil?
+        data['processingConfig'] = MeasurementProcessingConfig.build(input[:processing_config]) unless input[:processing_config].nil?
         data
       end
     end
@@ -662,7 +665,7 @@ module AWS::SDK::IoTSiteWise
     class MeasurementProcessingConfig
       def self.build(input)
         data = {}
-        data['forwardingConfig'] = Builders::ForwardingConfig.build(input[:forwarding_config]) unless input[:forwarding_config].nil?
+        data['forwardingConfig'] = ForwardingConfig.build(input[:forwarding_config]) unless input[:forwarding_config].nil?
         data
       end
     end
@@ -681,7 +684,7 @@ module AWS::SDK::IoTSiteWise
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AssetModelHierarchyDefinition.build(element) unless element.nil?
+          data << AssetModelHierarchyDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -712,8 +715,8 @@ module AWS::SDK::IoTSiteWise
         data['dashboardDescription'] = input[:dashboard_description] unless input[:dashboard_description].nil?
         data['dashboardDefinition'] = input[:dashboard_definition] unless input[:dashboard_definition].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -728,9 +731,9 @@ module AWS::SDK::IoTSiteWise
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['gatewayName'] = input[:gateway_name] unless input[:gateway_name].nil?
-        data['gatewayPlatform'] = Builders::GatewayPlatform.build(input[:gateway_platform]) unless input[:gateway_platform].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['gatewayPlatform'] = GatewayPlatform.build(input[:gateway_platform]) unless input[:gateway_platform].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -738,8 +741,8 @@ module AWS::SDK::IoTSiteWise
     class GatewayPlatform
       def self.build(input)
         data = {}
-        data['greengrass'] = Builders::Greengrass.build(input[:greengrass]) unless input[:greengrass].nil?
-        data['greengrassV2'] = Builders::GreengrassV2.build(input[:greengrass_v2]) unless input[:greengrass_v2].nil?
+        data['greengrass'] = Greengrass.build(input[:greengrass]) unless input[:greengrass].nil?
+        data['greengrassV2'] = GreengrassV2.build(input[:greengrass_v2]) unless input[:greengrass_v2].nil?
         data
       end
     end
@@ -776,13 +779,13 @@ module AWS::SDK::IoTSiteWise
         data['portalDescription'] = input[:portal_description] unless input[:portal_description].nil?
         data['portalContactEmail'] = input[:portal_contact_email] unless input[:portal_contact_email].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['portalLogoImageFile'] = Builders::ImageFile.build(input[:portal_logo_image_file]) unless input[:portal_logo_image_file].nil?
+        data['portalLogoImageFile'] = ImageFile.build(input[:portal_logo_image_file]) unless input[:portal_logo_image_file].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['portalAuthMode'] = input[:portal_auth_mode] unless input[:portal_auth_mode].nil?
         data['notificationSenderEmail'] = input[:notification_sender_email] unless input[:notification_sender_email].nil?
-        data['alarms'] = Builders::Alarms.build(input[:alarms]) unless input[:alarms].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['alarms'] = Alarms.build(input[:alarms]) unless input[:alarms].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -800,7 +803,7 @@ module AWS::SDK::IoTSiteWise
     class ImageFile
       def self.build(input)
         data = {}
-        data['data'] = Base64::encode64(input[:data]).strip unless input[:data].nil?
+        data['data'] = ::Base64::encode64(input[:data]).strip unless input[:data].nil?
         data['type'] = input[:type] unless input[:type].nil?
         data
       end
@@ -820,8 +823,8 @@ module AWS::SDK::IoTSiteWise
         data['projectName'] = input[:project_name] unless input[:project_name].nil?
         data['projectDescription'] = input[:project_description] unless input[:project_description].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -964,7 +967,7 @@ module AWS::SDK::IoTSiteWise
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1192,7 +1195,7 @@ module AWS::SDK::IoTSiteWise
         data['hierarchyId'] = input[:hierarchy_id] unless input[:hierarchy_id].nil?
         data['childAssetId'] = input[:child_asset_id] unless input[:child_asset_id].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1210,7 +1213,7 @@ module AWS::SDK::IoTSiteWise
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1493,7 +1496,7 @@ module AWS::SDK::IoTSiteWise
         data = {}
         data['encryptionType'] = input[:encryption_type] unless input[:encryption_type].nil?
         data['kmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1507,8 +1510,8 @@ module AWS::SDK::IoTSiteWise
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['loggingOptions'] = Builders::LoggingOptions.build(input[:logging_options]) unless input[:logging_options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['loggingOptions'] = LoggingOptions.build(input[:logging_options]) unless input[:logging_options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1532,10 +1535,10 @@ module AWS::SDK::IoTSiteWise
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['storageType'] = input[:storage_type] unless input[:storage_type].nil?
-        data['multiLayerStorage'] = Builders::MultiLayerStorage.build(input[:multi_layer_storage]) unless input[:multi_layer_storage].nil?
+        data['multiLayerStorage'] = MultiLayerStorage.build(input[:multi_layer_storage]) unless input[:multi_layer_storage].nil?
         data['disassociatedDataStorage'] = input[:disassociated_data_storage] unless input[:disassociated_data_storage].nil?
-        data['retentionPeriod'] = Builders::RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['retentionPeriod'] = RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1553,7 +1556,7 @@ module AWS::SDK::IoTSiteWise
     class MultiLayerStorage
       def self.build(input)
         data = {}
-        data['customerManagedS3Storage'] = Builders::CustomerManagedS3Storage.build(input[:customer_managed_s3_storage]) unless input[:customer_managed_s3_storage].nil?
+        data['customerManagedS3Storage'] = CustomerManagedS3Storage.build(input[:customer_managed_s3_storage]) unless input[:customer_managed_s3_storage].nil?
         data
       end
     end
@@ -1579,8 +1582,8 @@ module AWS::SDK::IoTSiteWise
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1628,11 +1631,11 @@ module AWS::SDK::IoTSiteWise
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['accessPolicyIdentity'] = Builders::Identity.build(input[:access_policy_identity]) unless input[:access_policy_identity].nil?
-        data['accessPolicyResource'] = Builders::Resource.build(input[:access_policy_resource]) unless input[:access_policy_resource].nil?
+        data['accessPolicyIdentity'] = Identity.build(input[:access_policy_identity]) unless input[:access_policy_identity].nil?
+        data['accessPolicyResource'] = Resource.build(input[:access_policy_resource]) unless input[:access_policy_resource].nil?
         data['accessPolicyPermission'] = input[:access_policy_permission] unless input[:access_policy_permission].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1656,7 +1659,7 @@ module AWS::SDK::IoTSiteWise
         data['assetName'] = input[:asset_name] unless input[:asset_name].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
         data['assetDescription'] = input[:asset_description] unless input[:asset_description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1679,11 +1682,11 @@ module AWS::SDK::IoTSiteWise
         data = {}
         data['assetModelName'] = input[:asset_model_name] unless input[:asset_model_name].nil?
         data['assetModelDescription'] = input[:asset_model_description] unless input[:asset_model_description].nil?
-        data['assetModelProperties'] = Builders::AssetModelProperties.build(input[:asset_model_properties]) unless input[:asset_model_properties].nil?
-        data['assetModelHierarchies'] = Builders::AssetModelHierarchies.build(input[:asset_model_hierarchies]) unless input[:asset_model_hierarchies].nil?
-        data['assetModelCompositeModels'] = Builders::AssetModelCompositeModels.build(input[:asset_model_composite_models]) unless input[:asset_model_composite_models].nil?
+        data['assetModelProperties'] = AssetModelProperties.build(input[:asset_model_properties]) unless input[:asset_model_properties].nil?
+        data['assetModelHierarchies'] = AssetModelHierarchies.build(input[:asset_model_hierarchies]) unless input[:asset_model_hierarchies].nil?
+        data['assetModelCompositeModels'] = AssetModelCompositeModels.build(input[:asset_model_composite_models]) unless input[:asset_model_composite_models].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1692,7 +1695,7 @@ module AWS::SDK::IoTSiteWise
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AssetModelCompositeModel.build(element) unless element.nil?
+          data << AssetModelCompositeModel.build(element) unless element.nil?
         end
         data
       end
@@ -1705,7 +1708,7 @@ module AWS::SDK::IoTSiteWise
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['type'] = input[:type] unless input[:type].nil?
-        data['properties'] = Builders::AssetModelProperties.build(input[:properties]) unless input[:properties].nil?
+        data['properties'] = AssetModelProperties.build(input[:properties]) unless input[:properties].nil?
         data
       end
     end
@@ -1715,7 +1718,7 @@ module AWS::SDK::IoTSiteWise
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AssetModelProperty.build(element) unless element.nil?
+          data << AssetModelProperty.build(element) unless element.nil?
         end
         data
       end
@@ -1730,7 +1733,7 @@ module AWS::SDK::IoTSiteWise
         data['dataType'] = input[:data_type] unless input[:data_type].nil?
         data['dataTypeSpec'] = input[:data_type_spec] unless input[:data_type_spec].nil?
         data['unit'] = input[:unit] unless input[:unit].nil?
-        data['type'] = Builders::PropertyType.build(input[:type]) unless input[:type].nil?
+        data['type'] = PropertyType.build(input[:type]) unless input[:type].nil?
         data
       end
     end
@@ -1740,7 +1743,7 @@ module AWS::SDK::IoTSiteWise
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AssetModelHierarchy.build(element) unless element.nil?
+          data << AssetModelHierarchy.build(element) unless element.nil?
         end
         data
       end
@@ -1781,7 +1784,7 @@ module AWS::SDK::IoTSiteWise
         data['propertyAlias'] = input[:property_alias] unless input[:property_alias].nil?
         data['propertyNotificationState'] = input[:property_notification_state] unless input[:property_notification_state].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1806,7 +1809,7 @@ module AWS::SDK::IoTSiteWise
         data['dashboardDescription'] = input[:dashboard_description] unless input[:dashboard_description].nil?
         data['dashboardDefinition'] = input[:dashboard_definition] unless input[:dashboard_definition].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1828,7 +1831,7 @@ module AWS::SDK::IoTSiteWise
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['gatewayName'] = input[:gateway_name] unless input[:gateway_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1851,7 +1854,7 @@ module AWS::SDK::IoTSiteWise
         data = {}
         data['capabilityNamespace'] = input[:capability_namespace] unless input[:capability_namespace].nil?
         data['capabilityConfiguration'] = input[:capability_configuration] unless input[:capability_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1875,12 +1878,12 @@ module AWS::SDK::IoTSiteWise
         data['portalName'] = input[:portal_name] unless input[:portal_name].nil?
         data['portalDescription'] = input[:portal_description] unless input[:portal_description].nil?
         data['portalContactEmail'] = input[:portal_contact_email] unless input[:portal_contact_email].nil?
-        data['portalLogoImage'] = Builders::Image.build(input[:portal_logo_image]) unless input[:portal_logo_image].nil?
+        data['portalLogoImage'] = Image.build(input[:portal_logo_image]) unless input[:portal_logo_image].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
         data['notificationSenderEmail'] = input[:notification_sender_email] unless input[:notification_sender_email].nil?
-        data['alarms'] = Builders::Alarms.build(input[:alarms]) unless input[:alarms].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['alarms'] = Alarms.build(input[:alarms]) unless input[:alarms].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1889,7 +1892,7 @@ module AWS::SDK::IoTSiteWise
       def self.build(input)
         data = {}
         data['id'] = input[:id] unless input[:id].nil?
-        data['file'] = Builders::ImageFile.build(input[:file]) unless input[:file].nil?
+        data['file'] = ImageFile.build(input[:file]) unless input[:file].nil?
         data
       end
     end
@@ -1914,7 +1917,7 @@ module AWS::SDK::IoTSiteWise
         data['projectName'] = input[:project_name] unless input[:project_name].nil?
         data['projectDescription'] = input[:project_description] unless input[:project_description].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

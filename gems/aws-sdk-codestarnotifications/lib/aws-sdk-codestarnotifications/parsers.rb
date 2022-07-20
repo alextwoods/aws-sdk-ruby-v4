@@ -106,15 +106,15 @@ module AWS::SDK::CodestarNotifications
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['Arn']
         data.name = map['Name']
-        data.event_types = (Parsers::EventTypeBatch.parse(map['EventTypes']) unless map['EventTypes'].nil?)
+        data.event_types = (EventTypeBatch.parse(map['EventTypes']) unless map['EventTypes'].nil?)
         data.resource = map['Resource']
-        data.targets = (Parsers::TargetsBatch.parse(map['Targets']) unless map['Targets'].nil?)
+        data.targets = (TargetsBatch.parse(map['Targets']) unless map['Targets'].nil?)
         data.detail_type = map['DetailType']
         data.created_by = map['CreatedBy']
         data.status = map['Status']
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
         data.last_modified_timestamp = Time.at(map['LastModifiedTimestamp'].to_i) if map['LastModifiedTimestamp']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -133,7 +133,7 @@ module AWS::SDK::CodestarNotifications
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TargetSummary.parse(value) unless value.nil?
+          data << TargetSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -153,7 +153,7 @@ module AWS::SDK::CodestarNotifications
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EventTypeSummary.parse(value) unless value.nil?
+          data << EventTypeSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -185,7 +185,7 @@ module AWS::SDK::CodestarNotifications
       def self.parse(http_resp)
         data = Types::ListEventTypesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.event_types = (Parsers::EventTypeBatch.parse(map['EventTypes']) unless map['EventTypes'].nil?)
+        data.event_types = (EventTypeBatch.parse(map['EventTypes']) unless map['EventTypes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -207,7 +207,7 @@ module AWS::SDK::CodestarNotifications
         data = Types::ListNotificationRulesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['NextToken']
-        data.notification_rules = (Parsers::NotificationRuleBatch.parse(map['NotificationRules']) unless map['NotificationRules'].nil?)
+        data.notification_rules = (NotificationRuleBatch.parse(map['NotificationRules']) unless map['NotificationRules'].nil?)
         data
       end
     end
@@ -216,7 +216,7 @@ module AWS::SDK::CodestarNotifications
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NotificationRuleSummary.parse(value) unless value.nil?
+          data << NotificationRuleSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -236,7 +236,7 @@ module AWS::SDK::CodestarNotifications
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -246,7 +246,7 @@ module AWS::SDK::CodestarNotifications
       def self.parse(http_resp)
         data = Types::ListTargetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.targets = (Parsers::TargetsBatch.parse(map['Targets']) unless map['Targets'].nil?)
+        data.targets = (TargetsBatch.parse(map['Targets']) unless map['Targets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -267,7 +267,7 @@ module AWS::SDK::CodestarNotifications
       def self.parse(http_resp)
         data = Types::TagResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end

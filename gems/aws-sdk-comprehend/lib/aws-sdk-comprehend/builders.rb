@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Comprehend
   module Builders
 
@@ -18,8 +20,8 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.BatchDetectDominantLanguage'
         data = {}
-        data['TextList'] = Builders::CustomerInputStringList.build(input[:text_list]) unless input[:text_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TextList'] = CustomerInputStringList.build(input[:text_list]) unless input[:text_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -42,9 +44,9 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.BatchDetectEntities'
         data = {}
-        data['TextList'] = Builders::CustomerInputStringList.build(input[:text_list]) unless input[:text_list].nil?
+        data['TextList'] = CustomerInputStringList.build(input[:text_list]) unless input[:text_list].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -56,9 +58,9 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.BatchDetectKeyPhrases'
         data = {}
-        data['TextList'] = Builders::CustomerInputStringList.build(input[:text_list]) unless input[:text_list].nil?
+        data['TextList'] = CustomerInputStringList.build(input[:text_list]) unless input[:text_list].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -70,9 +72,9 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.BatchDetectSentiment'
         data = {}
-        data['TextList'] = Builders::CustomerInputStringList.build(input[:text_list]) unless input[:text_list].nil?
+        data['TextList'] = CustomerInputStringList.build(input[:text_list]) unless input[:text_list].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -84,9 +86,9 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.BatchDetectSyntax'
         data = {}
-        data['TextList'] = Builders::CustomerInputStringList.build(input[:text_list]) unless input[:text_list].nil?
+        data['TextList'] = CustomerInputStringList.build(input[:text_list]) unless input[:text_list].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -100,7 +102,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['Text'] = input[:text] unless input[:text].nil?
         data['EndpointArn'] = input[:endpoint_arn] unless input[:endpoint_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -114,7 +116,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['Text'] = input[:text] unless input[:text].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -129,17 +131,17 @@ module AWS::SDK::Comprehend
         data['DocumentClassifierName'] = input[:document_classifier_name] unless input[:document_classifier_name].nil?
         data['VersionName'] = input[:version_name] unless input[:version_name].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['InputDataConfig'] = Builders::DocumentClassifierInputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::DocumentClassifierOutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['InputDataConfig'] = DocumentClassifierInputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = DocumentClassifierOutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
         data['VolumeKmsKeyId'] = input[:volume_kms_key_id] unless input[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
         data['Mode'] = input[:mode] unless input[:mode].nil?
         data['ModelKmsKeyId'] = input[:model_kms_key_id] unless input[:model_kms_key_id].nil?
         data['ModelPolicy'] = input[:model_policy] unless input[:model_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -147,8 +149,8 @@ module AWS::SDK::Comprehend
     class VpcConfig
       def self.build(input)
         data = {}
-        data['SecurityGroupIds'] = Builders::SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
-        data['Subnets'] = Builders::Subnets.build(input[:subnets]) unless input[:subnets].nil?
+        data['SecurityGroupIds'] = SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['Subnets'] = Subnets.build(input[:subnets]) unless input[:subnets].nil?
         data
       end
     end
@@ -193,7 +195,7 @@ module AWS::SDK::Comprehend
         data['S3Uri'] = input[:s3_uri] unless input[:s3_uri].nil?
         data['TestS3Uri'] = input[:test_s3_uri] unless input[:test_s3_uri].nil?
         data['LabelDelimiter'] = input[:label_delimiter] unless input[:label_delimiter].nil?
-        data['AugmentedManifests'] = Builders::DocumentClassifierAugmentedManifestsList.build(input[:augmented_manifests]) unless input[:augmented_manifests].nil?
+        data['AugmentedManifests'] = DocumentClassifierAugmentedManifestsList.build(input[:augmented_manifests]) unless input[:augmented_manifests].nil?
         data
       end
     end
@@ -203,7 +205,7 @@ module AWS::SDK::Comprehend
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AugmentedManifestsListItem.build(element) unless element.nil?
+          data << AugmentedManifestsListItem.build(element) unless element.nil?
         end
         data
       end
@@ -215,7 +217,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['S3Uri'] = input[:s3_uri] unless input[:s3_uri].nil?
         data['Split'] = input[:split] unless input[:split].nil?
-        data['AttributeNames'] = Builders::AttributeNamesList.build(input[:attribute_names]) unless input[:attribute_names].nil?
+        data['AttributeNames'] = AttributeNamesList.build(input[:attribute_names]) unless input[:attribute_names].nil?
         data['AnnotationDataS3Uri'] = input[:annotation_data_s3_uri] unless input[:annotation_data_s3_uri].nil?
         data['SourceDocumentsS3Uri'] = input[:source_documents_s3_uri] unless input[:source_documents_s3_uri].nil?
         data['DocumentType'] = input[:document_type] unless input[:document_type].nil?
@@ -239,7 +241,7 @@ module AWS::SDK::Comprehend
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -267,9 +269,9 @@ module AWS::SDK::Comprehend
         data['ModelArn'] = input[:model_arn] unless input[:model_arn].nil?
         data['DesiredInferenceUnits'] = input[:desired_inference_units] unless input[:desired_inference_units].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -284,15 +286,15 @@ module AWS::SDK::Comprehend
         data['RecognizerName'] = input[:recognizer_name] unless input[:recognizer_name].nil?
         data['VersionName'] = input[:version_name] unless input[:version_name].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['InputDataConfig'] = Builders::EntityRecognizerInputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['InputDataConfig'] = EntityRecognizerInputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
         data['VolumeKmsKeyId'] = input[:volume_kms_key_id] unless input[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
         data['ModelKmsKeyId'] = input[:model_kms_key_id] unless input[:model_kms_key_id].nil?
         data['ModelPolicy'] = input[:model_policy] unless input[:model_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -301,11 +303,11 @@ module AWS::SDK::Comprehend
       def self.build(input)
         data = {}
         data['DataFormat'] = input[:data_format] unless input[:data_format].nil?
-        data['EntityTypes'] = Builders::EntityTypesList.build(input[:entity_types]) unless input[:entity_types].nil?
-        data['Documents'] = Builders::EntityRecognizerDocuments.build(input[:documents]) unless input[:documents].nil?
-        data['Annotations'] = Builders::EntityRecognizerAnnotations.build(input[:annotations]) unless input[:annotations].nil?
-        data['EntityList'] = Builders::EntityRecognizerEntityList.build(input[:entity_list]) unless input[:entity_list].nil?
-        data['AugmentedManifests'] = Builders::EntityRecognizerAugmentedManifestsList.build(input[:augmented_manifests]) unless input[:augmented_manifests].nil?
+        data['EntityTypes'] = EntityTypesList.build(input[:entity_types]) unless input[:entity_types].nil?
+        data['Documents'] = EntityRecognizerDocuments.build(input[:documents]) unless input[:documents].nil?
+        data['Annotations'] = EntityRecognizerAnnotations.build(input[:annotations]) unless input[:annotations].nil?
+        data['EntityList'] = EntityRecognizerEntityList.build(input[:entity_list]) unless input[:entity_list].nil?
+        data['AugmentedManifests'] = EntityRecognizerAugmentedManifestsList.build(input[:augmented_manifests]) unless input[:augmented_manifests].nil?
         data
       end
     end
@@ -315,7 +317,7 @@ module AWS::SDK::Comprehend
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AugmentedManifestsListItem.build(element) unless element.nil?
+          data << AugmentedManifestsListItem.build(element) unless element.nil?
         end
         data
       end
@@ -356,7 +358,7 @@ module AWS::SDK::Comprehend
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EntityTypesListItem.build(element) unless element.nil?
+          data << EntityTypesListItem.build(element) unless element.nil?
         end
         data
       end
@@ -380,7 +382,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.DeleteDocumentClassifier'
         data = {}
         data['DocumentClassifierArn'] = input[:document_classifier_arn] unless input[:document_classifier_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -393,7 +395,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.DeleteEndpoint'
         data = {}
         data['EndpointArn'] = input[:endpoint_arn] unless input[:endpoint_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -406,7 +408,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.DeleteEntityRecognizer'
         data = {}
         data['EntityRecognizerArn'] = input[:entity_recognizer_arn] unless input[:entity_recognizer_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -420,7 +422,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['PolicyRevisionId'] = input[:policy_revision_id] unless input[:policy_revision_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -433,7 +435,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.DescribeDocumentClassificationJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -446,7 +448,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.DescribeDocumentClassifier'
         data = {}
         data['DocumentClassifierArn'] = input[:document_classifier_arn] unless input[:document_classifier_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -459,7 +461,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.DescribeDominantLanguageDetectionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -472,7 +474,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.DescribeEndpoint'
         data = {}
         data['EndpointArn'] = input[:endpoint_arn] unless input[:endpoint_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -485,7 +487,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.DescribeEntitiesDetectionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -498,7 +500,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.DescribeEntityRecognizer'
         data = {}
         data['EntityRecognizerArn'] = input[:entity_recognizer_arn] unless input[:entity_recognizer_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -511,7 +513,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.DescribeEventsDetectionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -524,7 +526,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.DescribeKeyPhrasesDetectionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -537,7 +539,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.DescribePiiEntitiesDetectionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -550,7 +552,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.DescribeResourcePolicy'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -563,7 +565,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.DescribeSentimentDetectionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -576,7 +578,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.DescribeTargetedSentimentDetectionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -589,7 +591,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.DescribeTopicsDetectionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -602,7 +604,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.DetectDominantLanguage'
         data = {}
         data['Text'] = input[:text] unless input[:text].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -617,7 +619,7 @@ module AWS::SDK::Comprehend
         data['Text'] = input[:text] unless input[:text].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
         data['EndpointArn'] = input[:endpoint_arn] unless input[:endpoint_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -631,7 +633,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['Text'] = input[:text] unless input[:text].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -645,7 +647,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['Text'] = input[:text] unless input[:text].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -659,7 +661,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['Text'] = input[:text] unless input[:text].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -673,7 +675,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['Text'] = input[:text] unless input[:text].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -690,8 +692,8 @@ module AWS::SDK::Comprehend
         data['VersionName'] = input[:version_name] unless input[:version_name].nil?
         data['ModelKmsKeyId'] = input[:model_kms_key_id] unless input[:model_kms_key_id].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -703,10 +705,10 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.ListDocumentClassificationJobs'
         data = {}
-        data['Filter'] = Builders::DocumentClassificationJobFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = DocumentClassificationJobFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -732,7 +734,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -744,10 +746,10 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.ListDocumentClassifiers'
         data = {}
-        data['Filter'] = Builders::DocumentClassifierFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = DocumentClassifierFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -771,10 +773,10 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.ListDominantLanguageDetectionJobs'
         data = {}
-        data['Filter'] = Builders::DominantLanguageDetectionJobFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = DominantLanguageDetectionJobFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -798,10 +800,10 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.ListEndpoints'
         data = {}
-        data['Filter'] = Builders::EndpointFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = EndpointFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -825,10 +827,10 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.ListEntitiesDetectionJobs'
         data = {}
-        data['Filter'] = Builders::EntitiesDetectionJobFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = EntitiesDetectionJobFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -854,7 +856,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -866,10 +868,10 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.ListEntityRecognizers'
         data = {}
-        data['Filter'] = Builders::EntityRecognizerFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = EntityRecognizerFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -893,10 +895,10 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.ListEventsDetectionJobs'
         data = {}
-        data['Filter'] = Builders::EventsDetectionJobFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = EventsDetectionJobFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -920,10 +922,10 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.ListKeyPhrasesDetectionJobs'
         data = {}
-        data['Filter'] = Builders::KeyPhrasesDetectionJobFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = KeyPhrasesDetectionJobFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -947,10 +949,10 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.ListPiiEntitiesDetectionJobs'
         data = {}
-        data['Filter'] = Builders::PiiEntitiesDetectionJobFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = PiiEntitiesDetectionJobFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -974,10 +976,10 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.ListSentimentDetectionJobs'
         data = {}
-        data['Filter'] = Builders::SentimentDetectionJobFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = SentimentDetectionJobFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1002,7 +1004,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1014,10 +1016,10 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.ListTargetedSentimentDetectionJobs'
         data = {}
-        data['Filter'] = Builders::TargetedSentimentDetectionJobFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = TargetedSentimentDetectionJobFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1041,10 +1043,10 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.ListTopicsDetectionJobs'
         data = {}
-        data['Filter'] = Builders::TopicsDetectionJobFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = TopicsDetectionJobFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1071,7 +1073,7 @@ module AWS::SDK::Comprehend
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['ResourcePolicy'] = input[:resource_policy] unless input[:resource_policy].nil?
         data['PolicyRevisionId'] = input[:policy_revision_id] unless input[:policy_revision_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1085,14 +1087,14 @@ module AWS::SDK::Comprehend
         data = {}
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['DocumentClassifierArn'] = input[:document_classifier_arn] unless input[:document_classifier_arn].nil?
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['VolumeKmsKeyId'] = input[:volume_kms_key_id] unless input[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1112,7 +1114,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['S3Uri'] = input[:s3_uri] unless input[:s3_uri].nil?
         data['InputFormat'] = input[:input_format] unless input[:input_format].nil?
-        data['DocumentReaderConfig'] = Builders::DocumentReaderConfig.build(input[:document_reader_config]) unless input[:document_reader_config].nil?
+        data['DocumentReaderConfig'] = DocumentReaderConfig.build(input[:document_reader_config]) unless input[:document_reader_config].nil?
         data
       end
     end
@@ -1123,7 +1125,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['DocumentReadAction'] = input[:document_read_action] unless input[:document_read_action].nil?
         data['DocumentReadMode'] = input[:document_read_mode] unless input[:document_read_mode].nil?
-        data['FeatureTypes'] = Builders::ListOfDocumentReadFeatureTypes.build(input[:feature_types]) unless input[:feature_types].nil?
+        data['FeatureTypes'] = ListOfDocumentReadFeatureTypes.build(input[:feature_types]) unless input[:feature_types].nil?
         data
       end
     end
@@ -1147,15 +1149,15 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.StartDominantLanguageDetectionJob'
         data = {}
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['VolumeKmsKeyId'] = input[:volume_kms_key_id] unless input[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1167,17 +1169,17 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.StartEntitiesDetectionJob'
         data = {}
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['EntityRecognizerArn'] = input[:entity_recognizer_arn] unless input[:entity_recognizer_arn].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['VolumeKmsKeyId'] = input[:volume_kms_key_id] unless input[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1189,15 +1191,15 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.StartEventsDetectionJob'
         data = {}
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['TargetEventTypes'] = Builders::TargetEventTypes.build(input[:target_event_types]) unless input[:target_event_types].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TargetEventTypes'] = TargetEventTypes.build(input[:target_event_types]) unless input[:target_event_types].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1220,16 +1222,16 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.StartKeyPhrasesDetectionJob'
         data = {}
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['VolumeKmsKeyId'] = input[:volume_kms_key_id] unless input[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1241,16 +1243,16 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.StartPiiEntitiesDetectionJob'
         data = {}
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['Mode'] = input[:mode] unless input[:mode].nil?
-        data['RedactionConfig'] = Builders::RedactionConfig.build(input[:redaction_config]) unless input[:redaction_config].nil?
+        data['RedactionConfig'] = RedactionConfig.build(input[:redaction_config]) unless input[:redaction_config].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1258,7 +1260,7 @@ module AWS::SDK::Comprehend
     class RedactionConfig
       def self.build(input)
         data = {}
-        data['PiiEntityTypes'] = Builders::ListOfPiiEntityTypes.build(input[:pii_entity_types]) unless input[:pii_entity_types].nil?
+        data['PiiEntityTypes'] = ListOfPiiEntityTypes.build(input[:pii_entity_types]) unless input[:pii_entity_types].nil?
         data['MaskMode'] = input[:mask_mode] unless input[:mask_mode].nil?
         data['MaskCharacter'] = input[:mask_character] unless input[:mask_character].nil?
         data
@@ -1284,16 +1286,16 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.StartSentimentDetectionJob'
         data = {}
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['VolumeKmsKeyId'] = input[:volume_kms_key_id] unless input[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1305,16 +1307,16 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.StartTargetedSentimentDetectionJob'
         data = {}
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['VolumeKmsKeyId'] = input[:volume_kms_key_id] unless input[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1326,16 +1328,16 @@ module AWS::SDK::Comprehend
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.StartTopicsDetectionJob'
         data = {}
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['NumberOfTopics'] = input[:number_of_topics] unless input[:number_of_topics].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['VolumeKmsKeyId'] = input[:volume_kms_key_id] unless input[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1348,7 +1350,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.StopDominantLanguageDetectionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1361,7 +1363,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.StopEntitiesDetectionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1374,7 +1376,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.StopEventsDetectionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1387,7 +1389,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.StopKeyPhrasesDetectionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1400,7 +1402,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.StopPiiEntitiesDetectionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1413,7 +1415,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.StopSentimentDetectionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1426,7 +1428,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.StopTargetedSentimentDetectionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1439,7 +1441,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.StopTrainingDocumentClassifier'
         data = {}
         data['DocumentClassifierArn'] = input[:document_classifier_arn] unless input[:document_classifier_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1452,7 +1454,7 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.StopTrainingEntityRecognizer'
         data = {}
         data['EntityRecognizerArn'] = input[:entity_recognizer_arn] unless input[:entity_recognizer_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1465,8 +1467,8 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1479,8 +1481,8 @@ module AWS::SDK::Comprehend
         http_req.headers['X-Amz-Target'] = 'Comprehend_20171127.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1507,7 +1509,7 @@ module AWS::SDK::Comprehend
         data['DesiredModelArn'] = input[:desired_model_arn] unless input[:desired_model_arn].nil?
         data['DesiredInferenceUnits'] = input[:desired_inference_units] unless input[:desired_inference_units].nil?
         data['DesiredDataAccessRoleArn'] = input[:desired_data_access_role_arn] unless input[:desired_data_access_role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

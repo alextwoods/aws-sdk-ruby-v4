@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Grafana
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::Grafana
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['workspace'] = Stubs::WorkspaceDescription.stub(stub[:workspace]) unless stub[:workspace].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['workspace'] = WorkspaceDescription.stub(stub[:workspace]) unless stub[:workspace].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -63,7 +65,7 @@ module AWS::SDK::Grafana
         data = {}
         data['accountAccessType'] = stub[:account_access_type] unless stub[:account_access_type].nil?
         data['created'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created]).to_i unless stub[:created].nil?
-        data['dataSources'] = Stubs::DataSourceTypesList.stub(stub[:data_sources]) unless stub[:data_sources].nil?
+        data['dataSources'] = DataSourceTypesList.stub(stub[:data_sources]) unless stub[:data_sources].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['endpoint'] = stub[:endpoint] unless stub[:endpoint].nil?
         data['grafanaVersion'] = stub[:grafana_version] unless stub[:grafana_version].nil?
@@ -71,8 +73,8 @@ module AWS::SDK::Grafana
         data['modified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:modified]).to_i unless stub[:modified].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['organizationRoleName'] = stub[:organization_role_name] unless stub[:organization_role_name].nil?
-        data['notificationDestinations'] = Stubs::NotificationDestinationsList.stub(stub[:notification_destinations]) unless stub[:notification_destinations].nil?
-        data['organizationalUnits'] = Stubs::OrganizationalUnitList.stub(stub[:organizational_units]) unless stub[:organizational_units].nil?
+        data['notificationDestinations'] = NotificationDestinationsList.stub(stub[:notification_destinations]) unless stub[:notification_destinations].nil?
+        data['organizationalUnits'] = OrganizationalUnitList.stub(stub[:organizational_units]) unless stub[:organizational_units].nil?
         data['permissionType'] = stub[:permission_type] unless stub[:permission_type].nil?
         data['stackSetName'] = stub[:stack_set_name] unless stub[:stack_set_name].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
@@ -81,8 +83,8 @@ module AWS::SDK::Grafana
         data['freeTrialConsumed'] = stub[:free_trial_consumed] unless stub[:free_trial_consumed].nil?
         data['licenseExpiration'] = Hearth::TimeHelper.to_epoch_seconds(stub[:license_expiration]).to_i unless stub[:license_expiration].nil?
         data['freeTrialExpiration'] = Hearth::TimeHelper.to_epoch_seconds(stub[:free_trial_expiration]).to_i unless stub[:free_trial_expiration].nil?
-        data['authentication'] = Stubs::AuthenticationSummary.stub(stub[:authentication]) unless stub[:authentication].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['authentication'] = AuthenticationSummary.stub(stub[:authentication]) unless stub[:authentication].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -121,7 +123,7 @@ module AWS::SDK::Grafana
       def self.stub(stub)
         stub ||= Types::AuthenticationSummary.new
         data = {}
-        data['providers'] = Stubs::AuthenticationProviders.stub(stub[:providers]) unless stub[:providers].nil?
+        data['providers'] = AuthenticationProviders.stub(stub[:providers]) unless stub[:providers].nil?
         data['samlConfigurationStatus'] = stub[:saml_configuration_status] unless stub[:saml_configuration_status].nil?
         data
       end
@@ -219,8 +221,8 @@ module AWS::SDK::Grafana
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['workspace'] = Stubs::WorkspaceDescription.stub(stub[:workspace]) unless stub[:workspace].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['workspace'] = WorkspaceDescription.stub(stub[:workspace]) unless stub[:workspace].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -241,7 +243,7 @@ module AWS::SDK::Grafana
         data['keyName'] = stub[:key_name] unless stub[:key_name].nil?
         data['key'] = stub[:key] unless stub[:key].nil?
         data['workspaceId'] = stub[:workspace_id] unless stub[:workspace_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -257,8 +259,8 @@ module AWS::SDK::Grafana
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['workspace'] = Stubs::WorkspaceDescription.stub(stub[:workspace]) unless stub[:workspace].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['workspace'] = WorkspaceDescription.stub(stub[:workspace]) unless stub[:workspace].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -277,7 +279,7 @@ module AWS::SDK::Grafana
         http_resp.headers['Content-Type'] = 'application/json'
         data['keyName'] = stub[:key_name] unless stub[:key_name].nil?
         data['workspaceId'] = stub[:workspace_id] unless stub[:workspace_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -293,8 +295,8 @@ module AWS::SDK::Grafana
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['workspace'] = Stubs::WorkspaceDescription.stub(stub[:workspace]) unless stub[:workspace].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['workspace'] = WorkspaceDescription.stub(stub[:workspace]) unless stub[:workspace].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -310,8 +312,8 @@ module AWS::SDK::Grafana
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['authentication'] = Stubs::AuthenticationDescription.stub(stub[:authentication]) unless stub[:authentication].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['authentication'] = AuthenticationDescription.stub(stub[:authentication]) unless stub[:authentication].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -330,9 +332,9 @@ module AWS::SDK::Grafana
       def self.stub(stub)
         stub ||= Types::AuthenticationDescription.new
         data = {}
-        data['providers'] = Stubs::AuthenticationProviders.stub(stub[:providers]) unless stub[:providers].nil?
-        data['saml'] = Stubs::SamlAuthentication.stub(stub[:saml]) unless stub[:saml].nil?
-        data['awsSso'] = Stubs::AwsSsoAuthentication.stub(stub[:aws_sso]) unless stub[:aws_sso].nil?
+        data['providers'] = AuthenticationProviders.stub(stub[:providers]) unless stub[:providers].nil?
+        data['saml'] = SamlAuthentication.stub(stub[:saml]) unless stub[:saml].nil?
+        data['awsSso'] = AwsSsoAuthentication.stub(stub[:aws_sso]) unless stub[:aws_sso].nil?
         data
       end
     end
@@ -370,7 +372,7 @@ module AWS::SDK::Grafana
         stub ||= Types::SamlAuthentication.new
         data = {}
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['configuration'] = Stubs::SamlConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['configuration'] = SamlConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
         data
       end
     end
@@ -392,10 +394,10 @@ module AWS::SDK::Grafana
       def self.stub(stub)
         stub ||= Types::SamlConfiguration.new
         data = {}
-        data['idpMetadata'] = Stubs::IdpMetadata.stub(stub[:idp_metadata]) unless stub[:idp_metadata].nil?
-        data['assertionAttributes'] = Stubs::AssertionAttributes.stub(stub[:assertion_attributes]) unless stub[:assertion_attributes].nil?
-        data['roleValues'] = Stubs::RoleValues.stub(stub[:role_values]) unless stub[:role_values].nil?
-        data['allowedOrganizations'] = Stubs::AllowedOrganizations.stub(stub[:allowed_organizations]) unless stub[:allowed_organizations].nil?
+        data['idpMetadata'] = IdpMetadata.stub(stub[:idp_metadata]) unless stub[:idp_metadata].nil?
+        data['assertionAttributes'] = AssertionAttributes.stub(stub[:assertion_attributes]) unless stub[:assertion_attributes].nil?
+        data['roleValues'] = RoleValues.stub(stub[:role_values]) unless stub[:role_values].nil?
+        data['allowedOrganizations'] = AllowedOrganizations.stub(stub[:allowed_organizations]) unless stub[:allowed_organizations].nil?
         data['loginValidityDuration'] = stub[:login_validity_duration] unless stub[:login_validity_duration].nil?
         data
       end
@@ -435,8 +437,8 @@ module AWS::SDK::Grafana
       def self.stub(stub)
         stub ||= Types::RoleValues.new
         data = {}
-        data['editor'] = Stubs::RoleValueList.stub(stub[:editor]) unless stub[:editor].nil?
-        data['admin'] = Stubs::RoleValueList.stub(stub[:admin]) unless stub[:admin].nil?
+        data['editor'] = RoleValueList.stub(stub[:editor]) unless stub[:editor].nil?
+        data['admin'] = RoleValueList.stub(stub[:admin]) unless stub[:admin].nil?
         data
       end
     end
@@ -527,8 +529,8 @@ module AWS::SDK::Grafana
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['workspace'] = Stubs::WorkspaceDescription.stub(stub[:workspace]) unless stub[:workspace].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['workspace'] = WorkspaceDescription.stub(stub[:workspace]) unless stub[:workspace].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -546,8 +548,8 @@ module AWS::SDK::Grafana
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['permissions'] = Stubs::PermissionEntryList.stub(stub[:permissions]) unless stub[:permissions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['permissions'] = PermissionEntryList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -565,7 +567,7 @@ module AWS::SDK::Grafana
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PermissionEntry.stub(element) unless element.nil?
+          data << PermissionEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -585,7 +587,7 @@ module AWS::SDK::Grafana
       def self.stub(stub)
         stub ||= Types::PermissionEntry.new
         data = {}
-        data['user'] = Stubs::User.stub(stub[:user]) unless stub[:user].nil?
+        data['user'] = User.stub(stub[:user]) unless stub[:user].nil?
         data['role'] = stub[:role] unless stub[:role].nil?
         data
       end
@@ -623,8 +625,8 @@ module AWS::SDK::Grafana
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -641,9 +643,9 @@ module AWS::SDK::Grafana
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['workspaces'] = Stubs::WorkspaceList.stub(stub[:workspaces]) unless stub[:workspaces].nil?
+        data['workspaces'] = WorkspaceList.stub(stub[:workspaces]) unless stub[:workspaces].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -661,7 +663,7 @@ module AWS::SDK::Grafana
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkspaceSummary.stub(element) unless element.nil?
+          data << WorkspaceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -697,10 +699,10 @@ module AWS::SDK::Grafana
         data['id'] = stub[:id] unless stub[:id].nil?
         data['modified'] = Hearth::TimeHelper.to_epoch_seconds(stub[:modified]).to_i unless stub[:modified].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['notificationDestinations'] = Stubs::NotificationDestinationsList.stub(stub[:notification_destinations]) unless stub[:notification_destinations].nil?
+        data['notificationDestinations'] = NotificationDestinationsList.stub(stub[:notification_destinations]) unless stub[:notification_destinations].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['authentication'] = Stubs::AuthenticationSummary.stub(stub[:authentication]) unless stub[:authentication].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['authentication'] = AuthenticationSummary.stub(stub[:authentication]) unless stub[:authentication].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -743,8 +745,8 @@ module AWS::SDK::Grafana
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['errors'] = Stubs::UpdateErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errors'] = UpdateErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -762,7 +764,7 @@ module AWS::SDK::Grafana
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UpdateError.stub(element) unless element.nil?
+          data << UpdateError.stub(element) unless element.nil?
         end
         data
       end
@@ -785,7 +787,7 @@ module AWS::SDK::Grafana
         data = {}
         data['code'] = stub[:code] unless stub[:code].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
-        data['causedBy'] = Stubs::UpdateInstruction.stub(stub[:caused_by]) unless stub[:caused_by].nil?
+        data['causedBy'] = UpdateInstruction.stub(stub[:caused_by]) unless stub[:caused_by].nil?
         data
       end
     end
@@ -807,7 +809,7 @@ module AWS::SDK::Grafana
         data = {}
         data['action'] = stub[:action] unless stub[:action].nil?
         data['role'] = stub[:role] unless stub[:role].nil?
-        data['users'] = Stubs::UserList.stub(stub[:users]) unless stub[:users].nil?
+        data['users'] = UserList.stub(stub[:users]) unless stub[:users].nil?
         data
       end
     end
@@ -826,7 +828,7 @@ module AWS::SDK::Grafana
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::User.stub(element) unless element.nil?
+          data << User.stub(element) unless element.nil?
         end
         data
       end
@@ -844,8 +846,8 @@ module AWS::SDK::Grafana
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['workspace'] = Stubs::WorkspaceDescription.stub(stub[:workspace]) unless stub[:workspace].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['workspace'] = WorkspaceDescription.stub(stub[:workspace]) unless stub[:workspace].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -861,8 +863,8 @@ module AWS::SDK::Grafana
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['authentication'] = Stubs::AuthenticationDescription.stub(stub[:authentication]) unless stub[:authentication].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['authentication'] = AuthenticationDescription.stub(stub[:authentication]) unless stub[:authentication].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

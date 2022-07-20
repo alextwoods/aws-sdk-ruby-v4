@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IoTTwinMaker
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::IoTTwinMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['errorEntries'] = Stubs::ErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errorEntries'] = ErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -41,7 +43,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchPutPropertyErrorEntry.stub(element) unless element.nil?
+          data << BatchPutPropertyErrorEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -60,7 +62,7 @@ module AWS::SDK::IoTTwinMaker
       def self.stub(stub)
         stub ||= Types::BatchPutPropertyErrorEntry.new
         data = {}
-        data['errors'] = Stubs::Errors.stub(stub[:errors]) unless stub[:errors].nil?
+        data['errors'] = Errors.stub(stub[:errors]) unless stub[:errors].nil?
         data
       end
     end
@@ -79,7 +81,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchPutPropertyError.stub(element) unless element.nil?
+          data << BatchPutPropertyError.stub(element) unless element.nil?
         end
         data
       end
@@ -102,7 +104,7 @@ module AWS::SDK::IoTTwinMaker
         data = {}
         data['errorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        data['entry'] = Stubs::PropertyValueEntry.stub(stub[:entry]) unless stub[:entry].nil?
+        data['entry'] = PropertyValueEntry.stub(stub[:entry]) unless stub[:entry].nil?
         data
       end
     end
@@ -121,8 +123,8 @@ module AWS::SDK::IoTTwinMaker
       def self.stub(stub)
         stub ||= Types::PropertyValueEntry.new
         data = {}
-        data['entityPropertyReference'] = Stubs::EntityPropertyReference.stub(stub[:entity_property_reference]) unless stub[:entity_property_reference].nil?
-        data['propertyValues'] = Stubs::PropertyValues.stub(stub[:property_values]) unless stub[:property_values].nil?
+        data['entityPropertyReference'] = EntityPropertyReference.stub(stub[:entity_property_reference]) unless stub[:entity_property_reference].nil?
+        data['propertyValues'] = PropertyValues.stub(stub[:property_values]) unless stub[:property_values].nil?
         data
       end
     end
@@ -141,7 +143,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PropertyValue.stub(element) unless element.nil?
+          data << PropertyValue.stub(element) unless element.nil?
         end
         data
       end
@@ -163,7 +165,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= Types::PropertyValue.new
         data = {}
         data['timestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:timestamp]).to_i unless stub[:timestamp].nil?
-        data['value'] = Stubs::DataValue.stub(stub[:value]) unless stub[:value].nil?
+        data['value'] = DataValue.stub(stub[:value]) unless stub[:value].nil?
         data['time'] = stub[:time] unless stub[:time].nil?
         data
       end
@@ -195,9 +197,9 @@ module AWS::SDK::IoTTwinMaker
         data['integerValue'] = stub[:integer_value] unless stub[:integer_value].nil?
         data['longValue'] = stub[:long_value] unless stub[:long_value].nil?
         data['stringValue'] = stub[:string_value] unless stub[:string_value].nil?
-        data['listValue'] = Stubs::DataValueList.stub(stub[:list_value]) unless stub[:list_value].nil?
-        data['mapValue'] = Stubs::DataValueMap.stub(stub[:map_value]) unless stub[:map_value].nil?
-        data['relationshipValue'] = Stubs::RelationshipValue.stub(stub[:relationship_value]) unless stub[:relationship_value].nil?
+        data['listValue'] = DataValueList.stub(stub[:list_value]) unless stub[:list_value].nil?
+        data['mapValue'] = DataValueMap.stub(stub[:map_value]) unless stub[:map_value].nil?
+        data['relationshipValue'] = RelationshipValue.stub(stub[:relationship_value]) unless stub[:relationship_value].nil?
         data['expression'] = stub[:expression] unless stub[:expression].nil?
         data
       end
@@ -237,7 +239,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::DataValue.stub(value) unless value.nil?
+          data[key] = DataValue.stub(value) unless value.nil?
         end
         data
       end
@@ -257,7 +259,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataValue.stub(element) unless element.nil?
+          data << DataValue.stub(element) unless element.nil?
         end
         data
       end
@@ -280,7 +282,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= Types::EntityPropertyReference.new
         data = {}
         data['componentName'] = stub[:component_name] unless stub[:component_name].nil?
-        data['externalIdProperty'] = Stubs::ExternalIdProperty.stub(stub[:external_id_property]) unless stub[:external_id_property].nil?
+        data['externalIdProperty'] = ExternalIdProperty.stub(stub[:external_id_property]) unless stub[:external_id_property].nil?
         data['entityId'] = stub[:entity_id] unless stub[:entity_id].nil?
         data['propertyName'] = stub[:property_name] unless stub[:property_name].nil?
         data
@@ -324,7 +326,7 @@ module AWS::SDK::IoTTwinMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -347,7 +349,7 @@ module AWS::SDK::IoTTwinMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -366,7 +368,7 @@ module AWS::SDK::IoTTwinMaker
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -385,7 +387,7 @@ module AWS::SDK::IoTTwinMaker
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -402,7 +404,7 @@ module AWS::SDK::IoTTwinMaker
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['state'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -419,7 +421,7 @@ module AWS::SDK::IoTTwinMaker
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['state'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -477,16 +479,16 @@ module AWS::SDK::IoTTwinMaker
         data['isSingleton'] = stub[:is_singleton] unless stub[:is_singleton].nil?
         data['componentTypeId'] = stub[:component_type_id] unless stub[:component_type_id].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['propertyDefinitions'] = Stubs::PropertyDefinitionsResponse.stub(stub[:property_definitions]) unless stub[:property_definitions].nil?
-        data['extendsFrom'] = Stubs::ExtendsFrom.stub(stub[:extends_from]) unless stub[:extends_from].nil?
-        data['functions'] = Stubs::FunctionsResponse.stub(stub[:functions]) unless stub[:functions].nil?
+        data['propertyDefinitions'] = PropertyDefinitionsResponse.stub(stub[:property_definitions]) unless stub[:property_definitions].nil?
+        data['extendsFrom'] = ExtendsFrom.stub(stub[:extends_from]) unless stub[:extends_from].nil?
+        data['functions'] = FunctionsResponse.stub(stub[:functions]) unless stub[:functions].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
         data['updateDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:update_date_time]).to_i unless stub[:update_date_time].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['isAbstract'] = stub[:is_abstract] unless stub[:is_abstract].nil?
         data['isSchemaInitialized'] = stub[:is_schema_initialized] unless stub[:is_schema_initialized].nil?
-        data['status'] = Stubs::Status.stub(stub[:status]) unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['status'] = Status.stub(stub[:status]) unless stub[:status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -505,7 +507,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= Types::Status.new
         data = {}
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['error'] = Stubs::ErrorDetails.stub(stub[:error]) unless stub[:error].nil?
+        data['error'] = ErrorDetails.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -544,7 +546,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::FunctionResponse.stub(value) unless value.nil?
+          data[key] = FunctionResponse.stub(value) unless value.nil?
         end
         data
       end
@@ -566,9 +568,9 @@ module AWS::SDK::IoTTwinMaker
       def self.stub(stub)
         stub ||= Types::FunctionResponse.new
         data = {}
-        data['requiredProperties'] = Stubs::RequiredProperties.stub(stub[:required_properties]) unless stub[:required_properties].nil?
+        data['requiredProperties'] = RequiredProperties.stub(stub[:required_properties]) unless stub[:required_properties].nil?
         data['scope'] = stub[:scope] unless stub[:scope].nil?
-        data['implementedBy'] = Stubs::DataConnector.stub(stub[:implemented_by]) unless stub[:implemented_by].nil?
+        data['implementedBy'] = DataConnector.stub(stub[:implemented_by]) unless stub[:implemented_by].nil?
         data['isInherited'] = stub[:is_inherited] unless stub[:is_inherited].nil?
         data
       end
@@ -588,7 +590,7 @@ module AWS::SDK::IoTTwinMaker
       def self.stub(stub)
         stub ||= Types::DataConnector.new
         data = {}
-        data['lambda'] = Stubs::LambdaFunction.stub(stub[:lambda]) unless stub[:lambda].nil?
+        data['lambda'] = LambdaFunction.stub(stub[:lambda]) unless stub[:lambda].nil?
         data['isNative'] = stub[:is_native] unless stub[:is_native].nil?
         data
       end
@@ -666,7 +668,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::PropertyDefinitionResponse.stub(value) unless value.nil?
+          data[key] = PropertyDefinitionResponse.stub(value) unless value.nil?
         end
         data
       end
@@ -694,7 +696,7 @@ module AWS::SDK::IoTTwinMaker
       def self.stub(stub)
         stub ||= Types::PropertyDefinitionResponse.new
         data = {}
-        data['dataType'] = Stubs::DataType.stub(stub[:data_type]) unless stub[:data_type].nil?
+        data['dataType'] = DataType.stub(stub[:data_type]) unless stub[:data_type].nil?
         data['isTimeSeries'] = stub[:is_time_series] unless stub[:is_time_series].nil?
         data['isRequiredInEntity'] = stub[:is_required_in_entity] unless stub[:is_required_in_entity].nil?
         data['isExternalId'] = stub[:is_external_id] unless stub[:is_external_id].nil?
@@ -702,8 +704,8 @@ module AWS::SDK::IoTTwinMaker
         data['isImported'] = stub[:is_imported] unless stub[:is_imported].nil?
         data['isFinal'] = stub[:is_final] unless stub[:is_final].nil?
         data['isInherited'] = stub[:is_inherited] unless stub[:is_inherited].nil?
-        data['defaultValue'] = Stubs::DataValue.stub(stub[:default_value]) unless stub[:default_value].nil?
-        data['configuration'] = Stubs::Configuration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['defaultValue'] = DataValue.stub(stub[:default_value]) unless stub[:default_value].nil?
+        data['configuration'] = Configuration.stub(stub[:configuration]) unless stub[:configuration].nil?
         data
       end
     end
@@ -746,10 +748,10 @@ module AWS::SDK::IoTTwinMaker
         stub ||= Types::DataType.new
         data = {}
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['nestedType'] = Stubs::DataType.stub(stub[:nested_type]) unless stub[:nested_type].nil?
-        data['allowedValues'] = Stubs::DataValueList.stub(stub[:allowed_values]) unless stub[:allowed_values].nil?
+        data['nestedType'] = DataType.stub(stub[:nested_type]) unless stub[:nested_type].nil?
+        data['allowedValues'] = DataValueList.stub(stub[:allowed_values]) unless stub[:allowed_values].nil?
         data['unitOfMeasure'] = stub[:unit_of_measure] unless stub[:unit_of_measure].nil?
-        data['relationship'] = Stubs::Relationship.stub(stub[:relationship]) unless stub[:relationship].nil?
+        data['relationship'] = Relationship.stub(stub[:relationship]) unless stub[:relationship].nil?
         data
       end
     end
@@ -799,15 +801,15 @@ module AWS::SDK::IoTTwinMaker
         data['entityId'] = stub[:entity_id] unless stub[:entity_id].nil?
         data['entityName'] = stub[:entity_name] unless stub[:entity_name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['status'] = Stubs::Status.stub(stub[:status]) unless stub[:status].nil?
+        data['status'] = Status.stub(stub[:status]) unless stub[:status].nil?
         data['workspaceId'] = stub[:workspace_id] unless stub[:workspace_id].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['components'] = Stubs::ComponentsMap.stub(stub[:components]) unless stub[:components].nil?
+        data['components'] = ComponentsMap.stub(stub[:components]) unless stub[:components].nil?
         data['parentEntityId'] = stub[:parent_entity_id] unless stub[:parent_entity_id].nil?
         data['hasChildEntities'] = stub[:has_child_entities] unless stub[:has_child_entities].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
         data['updateDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:update_date_time]).to_i unless stub[:update_date_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -825,7 +827,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ComponentResponse.stub(value) unless value.nil?
+          data[key] = ComponentResponse.stub(value) unless value.nil?
         end
         data
       end
@@ -852,9 +854,9 @@ module AWS::SDK::IoTTwinMaker
         data['componentName'] = stub[:component_name] unless stub[:component_name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['componentTypeId'] = stub[:component_type_id] unless stub[:component_type_id].nil?
-        data['status'] = Stubs::Status.stub(stub[:status]) unless stub[:status].nil?
+        data['status'] = Status.stub(stub[:status]) unless stub[:status].nil?
         data['definedIn'] = stub[:defined_in] unless stub[:defined_in].nil?
-        data['properties'] = Stubs::PropertyResponses.stub(stub[:properties]) unless stub[:properties].nil?
+        data['properties'] = PropertyResponses.stub(stub[:properties]) unless stub[:properties].nil?
         data
       end
     end
@@ -873,7 +875,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::PropertyResponse.stub(value) unless value.nil?
+          data[key] = PropertyResponse.stub(value) unless value.nil?
         end
         data
       end
@@ -893,8 +895,8 @@ module AWS::SDK::IoTTwinMaker
       def self.stub(stub)
         stub ||= Types::PropertyResponse.new
         data = {}
-        data['definition'] = Stubs::PropertyDefinitionResponse.stub(stub[:definition]) unless stub[:definition].nil?
-        data['value'] = Stubs::DataValue.stub(stub[:value]) unless stub[:value].nil?
+        data['definition'] = PropertyDefinitionResponse.stub(stub[:definition]) unless stub[:definition].nil?
+        data['value'] = DataValue.stub(stub[:value]) unless stub[:value].nil?
         data
       end
     end
@@ -911,8 +913,8 @@ module AWS::SDK::IoTTwinMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['propertyValues'] = Stubs::PropertyLatestValueMap.stub(stub[:property_values]) unless stub[:property_values].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['propertyValues'] = PropertyLatestValueMap.stub(stub[:property_values]) unless stub[:property_values].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -930,7 +932,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::PropertyLatestValue.stub(value) unless value.nil?
+          data[key] = PropertyLatestValue.stub(value) unless value.nil?
         end
         data
       end
@@ -950,8 +952,8 @@ module AWS::SDK::IoTTwinMaker
       def self.stub(stub)
         stub ||= Types::PropertyLatestValue.new
         data = {}
-        data['propertyReference'] = Stubs::EntityPropertyReference.stub(stub[:property_reference]) unless stub[:property_reference].nil?
-        data['propertyValue'] = Stubs::DataValue.stub(stub[:property_value]) unless stub[:property_value].nil?
+        data['propertyReference'] = EntityPropertyReference.stub(stub[:property_reference]) unless stub[:property_reference].nil?
+        data['propertyValue'] = DataValue.stub(stub[:property_value]) unless stub[:property_value].nil?
         data
       end
     end
@@ -969,9 +971,9 @@ module AWS::SDK::IoTTwinMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['propertyValues'] = Stubs::PropertyValueList.stub(stub[:property_values]) unless stub[:property_values].nil?
+        data['propertyValues'] = PropertyValueList.stub(stub[:property_values]) unless stub[:property_values].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -989,7 +991,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PropertyValueHistory.stub(element) unless element.nil?
+          data << PropertyValueHistory.stub(element) unless element.nil?
         end
         data
       end
@@ -1009,8 +1011,8 @@ module AWS::SDK::IoTTwinMaker
       def self.stub(stub)
         stub ||= Types::PropertyValueHistory.new
         data = {}
-        data['entityPropertyReference'] = Stubs::EntityPropertyReference.stub(stub[:entity_property_reference]) unless stub[:entity_property_reference].nil?
-        data['values'] = Stubs::Values.stub(stub[:values]) unless stub[:values].nil?
+        data['entityPropertyReference'] = EntityPropertyReference.stub(stub[:entity_property_reference]) unless stub[:entity_property_reference].nil?
+        data['values'] = Values.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -1029,7 +1031,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PropertyValue.stub(element) unless element.nil?
+          data << PropertyValue.stub(element) unless element.nil?
         end
         data
       end
@@ -1061,8 +1063,8 @@ module AWS::SDK::IoTTwinMaker
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
         data['updateDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:update_date_time]).to_i unless stub[:update_date_time].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['capabilities'] = Stubs::SceneCapabilities.stub(stub[:capabilities]) unless stub[:capabilities].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['capabilities'] = SceneCapabilities.stub(stub[:capabilities]) unless stub[:capabilities].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1111,7 +1113,7 @@ module AWS::SDK::IoTTwinMaker
         data['role'] = stub[:role] unless stub[:role].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
         data['updateDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:update_date_time]).to_i unless stub[:update_date_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1131,10 +1133,10 @@ module AWS::SDK::IoTTwinMaker
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['workspaceId'] = stub[:workspace_id] unless stub[:workspace_id].nil?
-        data['componentTypeSummaries'] = Stubs::ComponentTypeSummaries.stub(stub[:component_type_summaries]) unless stub[:component_type_summaries].nil?
+        data['componentTypeSummaries'] = ComponentTypeSummaries.stub(stub[:component_type_summaries]) unless stub[:component_type_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['maxResults'] = stub[:max_results] unless stub[:max_results].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1152,7 +1154,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComponentTypeSummary.stub(element) unless element.nil?
+          data << ComponentTypeSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1181,7 +1183,7 @@ module AWS::SDK::IoTTwinMaker
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
         data['updateDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:update_date_time]).to_i unless stub[:update_date_time].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['status'] = Stubs::Status.stub(stub[:status]) unless stub[:status].nil?
+        data['status'] = Status.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -1199,9 +1201,9 @@ module AWS::SDK::IoTTwinMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['entitySummaries'] = Stubs::EntitySummaries.stub(stub[:entity_summaries]) unless stub[:entity_summaries].nil?
+        data['entitySummaries'] = EntitySummaries.stub(stub[:entity_summaries]) unless stub[:entity_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1219,7 +1221,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EntitySummary.stub(element) unless element.nil?
+          data << EntitySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1250,7 +1252,7 @@ module AWS::SDK::IoTTwinMaker
         data['entityName'] = stub[:entity_name] unless stub[:entity_name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['parentEntityId'] = stub[:parent_entity_id] unless stub[:parent_entity_id].nil?
-        data['status'] = Stubs::Status.stub(stub[:status]) unless stub[:status].nil?
+        data['status'] = Status.stub(stub[:status]) unless stub[:status].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['hasChildEntities'] = stub[:has_child_entities] unless stub[:has_child_entities].nil?
         data['creationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
@@ -1272,9 +1274,9 @@ module AWS::SDK::IoTTwinMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['sceneSummaries'] = Stubs::SceneSummaries.stub(stub[:scene_summaries]) unless stub[:scene_summaries].nil?
+        data['sceneSummaries'] = SceneSummaries.stub(stub[:scene_summaries]) unless stub[:scene_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1292,7 +1294,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SceneSummary.stub(element) unless element.nil?
+          data << SceneSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1339,9 +1341,9 @@ module AWS::SDK::IoTTwinMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1378,9 +1380,9 @@ module AWS::SDK::IoTTwinMaker
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['workspaceSummaries'] = Stubs::WorkspaceSummaries.stub(stub[:workspace_summaries]) unless stub[:workspace_summaries].nil?
+        data['workspaceSummaries'] = WorkspaceSummaries.stub(stub[:workspace_summaries]) unless stub[:workspace_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1398,7 +1400,7 @@ module AWS::SDK::IoTTwinMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkspaceSummary.stub(element) unless element.nil?
+          data << WorkspaceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1475,7 +1477,7 @@ module AWS::SDK::IoTTwinMaker
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['componentTypeId'] = stub[:component_type_id] unless stub[:component_type_id].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1494,7 +1496,7 @@ module AWS::SDK::IoTTwinMaker
         http_resp.headers['Content-Type'] = 'application/json'
         data['updateDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:update_date_time]).to_i unless stub[:update_date_time].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1511,7 +1513,7 @@ module AWS::SDK::IoTTwinMaker
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['updateDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:update_date_time]).to_i unless stub[:update_date_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1528,7 +1530,7 @@ module AWS::SDK::IoTTwinMaker
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['updateDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:update_date_time]).to_i unless stub[:update_date_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

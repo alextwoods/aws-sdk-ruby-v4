@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::WAFV2
   module Parsers
 
@@ -151,7 +153,7 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summary = (Parsers::IPSetSummary.parse(map['Summary']) unless map['Summary'].nil?)
+        data.summary = (IPSetSummary.parse(map['Summary']) unless map['Summary'].nil?)
         data
       end
     end
@@ -223,7 +225,7 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summary = (Parsers::RegexPatternSetSummary.parse(map['Summary']) unless map['Summary'].nil?)
+        data.summary = (RegexPatternSetSummary.parse(map['Summary']) unless map['Summary'].nil?)
         data
       end
     end
@@ -247,7 +249,7 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summary = (Parsers::RuleGroupSummary.parse(map['Summary']) unless map['Summary'].nil?)
+        data.summary = (RuleGroupSummary.parse(map['Summary']) unless map['Summary'].nil?)
         data
       end
     end
@@ -271,7 +273,7 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summary = (Parsers::WebACLSummary.parse(map['Summary']) unless map['Summary'].nil?)
+        data.summary = (WebACLSummary.parse(map['Summary']) unless map['Summary'].nil?)
         data
       end
     end
@@ -400,10 +402,10 @@ module AWS::SDK::WAFV2
         data.version_name = map['VersionName']
         data.sns_topic_arn = map['SnsTopicArn']
         data.capacity = map['Capacity']
-        data.rules = (Parsers::RuleSummaries.parse(map['Rules']) unless map['Rules'].nil?)
+        data.rules = (RuleSummaries.parse(map['Rules']) unless map['Rules'].nil?)
         data.label_namespace = map['LabelNamespace']
-        data.available_labels = (Parsers::LabelSummaries.parse(map['AvailableLabels']) unless map['AvailableLabels'].nil?)
-        data.consumed_labels = (Parsers::LabelSummaries.parse(map['ConsumedLabels']) unless map['ConsumedLabels'].nil?)
+        data.available_labels = (LabelSummaries.parse(map['AvailableLabels']) unless map['AvailableLabels'].nil?)
+        data.consumed_labels = (LabelSummaries.parse(map['ConsumedLabels']) unless map['ConsumedLabels'].nil?)
         data
       end
     end
@@ -411,7 +413,7 @@ module AWS::SDK::WAFV2
     class LabelSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::LabelSummary.parse(value) unless value.nil?
+          LabelSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -427,7 +429,7 @@ module AWS::SDK::WAFV2
     class RuleSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::RuleSummary.parse(value) unless value.nil?
+          RuleSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -436,7 +438,7 @@ module AWS::SDK::WAFV2
       def self.parse(map)
         data = Types::RuleSummary.new
         data.name = map['Name']
-        data.action = (Parsers::RuleAction.parse(map['Action']) unless map['Action'].nil?)
+        data.action = (RuleAction.parse(map['Action']) unless map['Action'].nil?)
         return data
       end
     end
@@ -444,10 +446,10 @@ module AWS::SDK::WAFV2
     class RuleAction
       def self.parse(map)
         data = Types::RuleAction.new
-        data.block = (Parsers::BlockAction.parse(map['Block']) unless map['Block'].nil?)
-        data.allow = (Parsers::AllowAction.parse(map['Allow']) unless map['Allow'].nil?)
-        data.count = (Parsers::CountAction.parse(map['Count']) unless map['Count'].nil?)
-        data.captcha = (Parsers::CaptchaAction.parse(map['Captcha']) unless map['Captcha'].nil?)
+        data.block = (BlockAction.parse(map['Block']) unless map['Block'].nil?)
+        data.allow = (AllowAction.parse(map['Allow']) unless map['Allow'].nil?)
+        data.count = (CountAction.parse(map['Count']) unless map['Count'].nil?)
+        data.captcha = (CaptchaAction.parse(map['Captcha']) unless map['Captcha'].nil?)
         return data
       end
     end
@@ -455,7 +457,7 @@ module AWS::SDK::WAFV2
     class CaptchaAction
       def self.parse(map)
         data = Types::CaptchaAction.new
-        data.custom_request_handling = (Parsers::CustomRequestHandling.parse(map['CustomRequestHandling']) unless map['CustomRequestHandling'].nil?)
+        data.custom_request_handling = (CustomRequestHandling.parse(map['CustomRequestHandling']) unless map['CustomRequestHandling'].nil?)
         return data
       end
     end
@@ -463,7 +465,7 @@ module AWS::SDK::WAFV2
     class CustomRequestHandling
       def self.parse(map)
         data = Types::CustomRequestHandling.new
-        data.insert_headers = (Parsers::CustomHTTPHeaders.parse(map['InsertHeaders']) unless map['InsertHeaders'].nil?)
+        data.insert_headers = (CustomHTTPHeaders.parse(map['InsertHeaders']) unless map['InsertHeaders'].nil?)
         return data
       end
     end
@@ -471,7 +473,7 @@ module AWS::SDK::WAFV2
     class CustomHTTPHeaders
       def self.parse(list)
         list.map do |value|
-          Parsers::CustomHTTPHeader.parse(value) unless value.nil?
+          CustomHTTPHeader.parse(value) unless value.nil?
         end
       end
     end
@@ -488,7 +490,7 @@ module AWS::SDK::WAFV2
     class CountAction
       def self.parse(map)
         data = Types::CountAction.new
-        data.custom_request_handling = (Parsers::CustomRequestHandling.parse(map['CustomRequestHandling']) unless map['CustomRequestHandling'].nil?)
+        data.custom_request_handling = (CustomRequestHandling.parse(map['CustomRequestHandling']) unless map['CustomRequestHandling'].nil?)
         return data
       end
     end
@@ -496,7 +498,7 @@ module AWS::SDK::WAFV2
     class AllowAction
       def self.parse(map)
         data = Types::AllowAction.new
-        data.custom_request_handling = (Parsers::CustomRequestHandling.parse(map['CustomRequestHandling']) unless map['CustomRequestHandling'].nil?)
+        data.custom_request_handling = (CustomRequestHandling.parse(map['CustomRequestHandling']) unless map['CustomRequestHandling'].nil?)
         return data
       end
     end
@@ -504,7 +506,7 @@ module AWS::SDK::WAFV2
     class BlockAction
       def self.parse(map)
         data = Types::BlockAction.new
-        data.custom_response = (Parsers::CustomResponse.parse(map['CustomResponse']) unless map['CustomResponse'].nil?)
+        data.custom_response = (CustomResponse.parse(map['CustomResponse']) unless map['CustomResponse'].nil?)
         return data
       end
     end
@@ -514,7 +516,7 @@ module AWS::SDK::WAFV2
         data = Types::CustomResponse.new
         data.response_code = map['ResponseCode']
         data.custom_response_body_key = map['CustomResponseBodyKey']
-        data.response_headers = (Parsers::CustomHTTPHeaders.parse(map['ResponseHeaders']) unless map['ResponseHeaders'].nil?)
+        data.response_headers = (CustomHTTPHeaders.parse(map['ResponseHeaders']) unless map['ResponseHeaders'].nil?)
         return data
       end
     end
@@ -549,7 +551,7 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ip_set = (Parsers::IPSet.parse(map['IPSet']) unless map['IPSet'].nil?)
+        data.ip_set = (IPSet.parse(map['IPSet']) unless map['IPSet'].nil?)
         data.lock_token = map['LockToken']
         data
       end
@@ -563,7 +565,7 @@ module AWS::SDK::WAFV2
         data.arn = map['ARN']
         data.description = map['Description']
         data.ip_address_version = map['IPAddressVersion']
-        data.addresses = (Parsers::IPAddresses.parse(map['Addresses']) unless map['Addresses'].nil?)
+        data.addresses = (IPAddresses.parse(map['Addresses']) unless map['Addresses'].nil?)
         return data
       end
     end
@@ -583,7 +585,7 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.logging_configuration = (Parsers::LoggingConfiguration.parse(map['LoggingConfiguration']) unless map['LoggingConfiguration'].nil?)
+        data.logging_configuration = (LoggingConfiguration.parse(map['LoggingConfiguration']) unless map['LoggingConfiguration'].nil?)
         data
       end
     end
@@ -592,10 +594,10 @@ module AWS::SDK::WAFV2
       def self.parse(map)
         data = Types::LoggingConfiguration.new
         data.resource_arn = map['ResourceArn']
-        data.log_destination_configs = (Parsers::LogDestinationConfigs.parse(map['LogDestinationConfigs']) unless map['LogDestinationConfigs'].nil?)
-        data.redacted_fields = (Parsers::RedactedFields.parse(map['RedactedFields']) unless map['RedactedFields'].nil?)
+        data.log_destination_configs = (LogDestinationConfigs.parse(map['LogDestinationConfigs']) unless map['LogDestinationConfigs'].nil?)
+        data.redacted_fields = (RedactedFields.parse(map['RedactedFields']) unless map['RedactedFields'].nil?)
         data.managed_by_firewall_manager = map['ManagedByFirewallManager']
-        data.logging_filter = (Parsers::LoggingFilter.parse(map['LoggingFilter']) unless map['LoggingFilter'].nil?)
+        data.logging_filter = (LoggingFilter.parse(map['LoggingFilter']) unless map['LoggingFilter'].nil?)
         return data
       end
     end
@@ -603,7 +605,7 @@ module AWS::SDK::WAFV2
     class LoggingFilter
       def self.parse(map)
         data = Types::LoggingFilter.new
-        data.filters = (Parsers::Filters.parse(map['Filters']) unless map['Filters'].nil?)
+        data.filters = (Filters.parse(map['Filters']) unless map['Filters'].nil?)
         data.default_behavior = map['DefaultBehavior']
         return data
       end
@@ -612,7 +614,7 @@ module AWS::SDK::WAFV2
     class Filters
       def self.parse(list)
         list.map do |value|
-          Parsers::Filter.parse(value) unless value.nil?
+          Filter.parse(value) unless value.nil?
         end
       end
     end
@@ -622,7 +624,7 @@ module AWS::SDK::WAFV2
         data = Types::Filter.new
         data.behavior = map['Behavior']
         data.requirement = map['Requirement']
-        data.conditions = (Parsers::Conditions.parse(map['Conditions']) unless map['Conditions'].nil?)
+        data.conditions = (Conditions.parse(map['Conditions']) unless map['Conditions'].nil?)
         return data
       end
     end
@@ -630,7 +632,7 @@ module AWS::SDK::WAFV2
     class Conditions
       def self.parse(list)
         list.map do |value|
-          Parsers::Condition.parse(value) unless value.nil?
+          Condition.parse(value) unless value.nil?
         end
       end
     end
@@ -638,8 +640,8 @@ module AWS::SDK::WAFV2
     class Condition
       def self.parse(map)
         data = Types::Condition.new
-        data.action_condition = (Parsers::ActionCondition.parse(map['ActionCondition']) unless map['ActionCondition'].nil?)
-        data.label_name_condition = (Parsers::LabelNameCondition.parse(map['LabelNameCondition']) unless map['LabelNameCondition'].nil?)
+        data.action_condition = (ActionCondition.parse(map['ActionCondition']) unless map['ActionCondition'].nil?)
+        data.label_name_condition = (LabelNameCondition.parse(map['LabelNameCondition']) unless map['LabelNameCondition'].nil?)
         return data
       end
     end
@@ -663,7 +665,7 @@ module AWS::SDK::WAFV2
     class RedactedFields
       def self.parse(list)
         list.map do |value|
-          Parsers::FieldToMatch.parse(value) unless value.nil?
+          FieldToMatch.parse(value) unless value.nil?
         end
       end
     end
@@ -671,16 +673,16 @@ module AWS::SDK::WAFV2
     class FieldToMatch
       def self.parse(map)
         data = Types::FieldToMatch.new
-        data.single_header = (Parsers::SingleHeader.parse(map['SingleHeader']) unless map['SingleHeader'].nil?)
-        data.single_query_argument = (Parsers::SingleQueryArgument.parse(map['SingleQueryArgument']) unless map['SingleQueryArgument'].nil?)
-        data.all_query_arguments = (Parsers::AllQueryArguments.parse(map['AllQueryArguments']) unless map['AllQueryArguments'].nil?)
-        data.uri_path = (Parsers::UriPath.parse(map['UriPath']) unless map['UriPath'].nil?)
-        data.query_string = (Parsers::QueryString.parse(map['QueryString']) unless map['QueryString'].nil?)
-        data.body = (Parsers::Body.parse(map['Body']) unless map['Body'].nil?)
-        data.member_method = (Parsers::Method.parse(map['Method']) unless map['Method'].nil?)
-        data.json_body = (Parsers::JsonBody.parse(map['JsonBody']) unless map['JsonBody'].nil?)
-        data.headers = (Parsers::Headers.parse(map['Headers']) unless map['Headers'].nil?)
-        data.cookies = (Parsers::Cookies.parse(map['Cookies']) unless map['Cookies'].nil?)
+        data.single_header = (SingleHeader.parse(map['SingleHeader']) unless map['SingleHeader'].nil?)
+        data.single_query_argument = (SingleQueryArgument.parse(map['SingleQueryArgument']) unless map['SingleQueryArgument'].nil?)
+        data.all_query_arguments = (AllQueryArguments.parse(map['AllQueryArguments']) unless map['AllQueryArguments'].nil?)
+        data.uri_path = (UriPath.parse(map['UriPath']) unless map['UriPath'].nil?)
+        data.query_string = (QueryString.parse(map['QueryString']) unless map['QueryString'].nil?)
+        data.body = (Body.parse(map['Body']) unless map['Body'].nil?)
+        data.member_method = (Method.parse(map['Method']) unless map['Method'].nil?)
+        data.json_body = (JsonBody.parse(map['JsonBody']) unless map['JsonBody'].nil?)
+        data.headers = (Headers.parse(map['Headers']) unless map['Headers'].nil?)
+        data.cookies = (Cookies.parse(map['Cookies']) unless map['Cookies'].nil?)
         return data
       end
     end
@@ -688,7 +690,7 @@ module AWS::SDK::WAFV2
     class Cookies
       def self.parse(map)
         data = Types::Cookies.new
-        data.match_pattern = (Parsers::CookieMatchPattern.parse(map['MatchPattern']) unless map['MatchPattern'].nil?)
+        data.match_pattern = (CookieMatchPattern.parse(map['MatchPattern']) unless map['MatchPattern'].nil?)
         data.match_scope = map['MatchScope']
         data.oversize_handling = map['OversizeHandling']
         return data
@@ -698,9 +700,9 @@ module AWS::SDK::WAFV2
     class CookieMatchPattern
       def self.parse(map)
         data = Types::CookieMatchPattern.new
-        data.all = (Parsers::All.parse(map['All']) unless map['All'].nil?)
-        data.included_cookies = (Parsers::CookieNames.parse(map['IncludedCookies']) unless map['IncludedCookies'].nil?)
-        data.excluded_cookies = (Parsers::CookieNames.parse(map['ExcludedCookies']) unless map['ExcludedCookies'].nil?)
+        data.all = (All.parse(map['All']) unless map['All'].nil?)
+        data.included_cookies = (CookieNames.parse(map['IncludedCookies']) unless map['IncludedCookies'].nil?)
+        data.excluded_cookies = (CookieNames.parse(map['ExcludedCookies']) unless map['ExcludedCookies'].nil?)
         return data
       end
     end
@@ -723,7 +725,7 @@ module AWS::SDK::WAFV2
     class Headers
       def self.parse(map)
         data = Types::Headers.new
-        data.match_pattern = (Parsers::HeaderMatchPattern.parse(map['MatchPattern']) unless map['MatchPattern'].nil?)
+        data.match_pattern = (HeaderMatchPattern.parse(map['MatchPattern']) unless map['MatchPattern'].nil?)
         data.match_scope = map['MatchScope']
         data.oversize_handling = map['OversizeHandling']
         return data
@@ -733,9 +735,9 @@ module AWS::SDK::WAFV2
     class HeaderMatchPattern
       def self.parse(map)
         data = Types::HeaderMatchPattern.new
-        data.all = (Parsers::All.parse(map['All']) unless map['All'].nil?)
-        data.included_headers = (Parsers::HeaderNames.parse(map['IncludedHeaders']) unless map['IncludedHeaders'].nil?)
-        data.excluded_headers = (Parsers::HeaderNames.parse(map['ExcludedHeaders']) unless map['ExcludedHeaders'].nil?)
+        data.all = (All.parse(map['All']) unless map['All'].nil?)
+        data.included_headers = (HeaderNames.parse(map['IncludedHeaders']) unless map['IncludedHeaders'].nil?)
+        data.excluded_headers = (HeaderNames.parse(map['ExcludedHeaders']) unless map['ExcludedHeaders'].nil?)
         return data
       end
     end
@@ -751,7 +753,7 @@ module AWS::SDK::WAFV2
     class JsonBody
       def self.parse(map)
         data = Types::JsonBody.new
-        data.match_pattern = (Parsers::JsonMatchPattern.parse(map['MatchPattern']) unless map['MatchPattern'].nil?)
+        data.match_pattern = (JsonMatchPattern.parse(map['MatchPattern']) unless map['MatchPattern'].nil?)
         data.match_scope = map['MatchScope']
         data.invalid_fallback_behavior = map['InvalidFallbackBehavior']
         data.oversize_handling = map['OversizeHandling']
@@ -762,8 +764,8 @@ module AWS::SDK::WAFV2
     class JsonMatchPattern
       def self.parse(map)
         data = Types::JsonMatchPattern.new
-        data.all = (Parsers::All.parse(map['All']) unless map['All'].nil?)
-        data.included_paths = (Parsers::JsonPointerPaths.parse(map['IncludedPaths']) unless map['IncludedPaths'].nil?)
+        data.all = (All.parse(map['All']) unless map['All'].nil?)
+        data.included_paths = (JsonPointerPaths.parse(map['IncludedPaths']) unless map['IncludedPaths'].nil?)
         return data
       end
     end
@@ -843,7 +845,7 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.managed_rule_set = (Parsers::ManagedRuleSet.parse(map['ManagedRuleSet']) unless map['ManagedRuleSet'].nil?)
+        data.managed_rule_set = (ManagedRuleSet.parse(map['ManagedRuleSet']) unless map['ManagedRuleSet'].nil?)
         data.lock_token = map['LockToken']
         data
       end
@@ -856,7 +858,7 @@ module AWS::SDK::WAFV2
         data.id = map['Id']
         data.arn = map['ARN']
         data.description = map['Description']
-        data.published_versions = (Parsers::PublishedVersions.parse(map['PublishedVersions']) unless map['PublishedVersions'].nil?)
+        data.published_versions = (PublishedVersions.parse(map['PublishedVersions']) unless map['PublishedVersions'].nil?)
         data.recommended_version = map['RecommendedVersion']
         data.label_namespace = map['LabelNamespace']
         return data
@@ -867,7 +869,7 @@ module AWS::SDK::WAFV2
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ManagedRuleSetVersion.parse(value) unless value.nil?
+          data[key] = ManagedRuleSetVersion.parse(value) unless value.nil?
         end
         data
       end
@@ -893,7 +895,7 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.mobile_sdk_release = (Parsers::MobileSdkRelease.parse(map['MobileSdkRelease']) unless map['MobileSdkRelease'].nil?)
+        data.mobile_sdk_release = (MobileSdkRelease.parse(map['MobileSdkRelease']) unless map['MobileSdkRelease'].nil?)
         data
       end
     end
@@ -904,7 +906,7 @@ module AWS::SDK::WAFV2
         data.release_version = map['ReleaseVersion']
         data.timestamp = Time.at(map['Timestamp'].to_i) if map['Timestamp']
         data.release_notes = map['ReleaseNotes']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -912,7 +914,7 @@ module AWS::SDK::WAFV2
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -945,8 +947,8 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.managed_keys_ipv4 = (Parsers::RateBasedStatementManagedKeysIPSet.parse(map['ManagedKeysIPV4']) unless map['ManagedKeysIPV4'].nil?)
-        data.managed_keys_ipv6 = (Parsers::RateBasedStatementManagedKeysIPSet.parse(map['ManagedKeysIPV6']) unless map['ManagedKeysIPV6'].nil?)
+        data.managed_keys_ipv4 = (RateBasedStatementManagedKeysIPSet.parse(map['ManagedKeysIPV4']) unless map['ManagedKeysIPV4'].nil?)
+        data.managed_keys_ipv6 = (RateBasedStatementManagedKeysIPSet.parse(map['ManagedKeysIPV6']) unless map['ManagedKeysIPV6'].nil?)
         data
       end
     end
@@ -955,7 +957,7 @@ module AWS::SDK::WAFV2
       def self.parse(map)
         data = Types::RateBasedStatementManagedKeysIPSet.new
         data.ip_address_version = map['IPAddressVersion']
-        data.addresses = (Parsers::IPAddresses.parse(map['Addresses']) unless map['Addresses'].nil?)
+        data.addresses = (IPAddresses.parse(map['Addresses']) unless map['Addresses'].nil?)
         return data
       end
     end
@@ -967,7 +969,7 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.regex_pattern_set = (Parsers::RegexPatternSet.parse(map['RegexPatternSet']) unless map['RegexPatternSet'].nil?)
+        data.regex_pattern_set = (RegexPatternSet.parse(map['RegexPatternSet']) unless map['RegexPatternSet'].nil?)
         data.lock_token = map['LockToken']
         data
       end
@@ -980,7 +982,7 @@ module AWS::SDK::WAFV2
         data.id = map['Id']
         data.arn = map['ARN']
         data.description = map['Description']
-        data.regular_expression_list = (Parsers::RegularExpressionList.parse(map['RegularExpressionList']) unless map['RegularExpressionList'].nil?)
+        data.regular_expression_list = (RegularExpressionList.parse(map['RegularExpressionList']) unless map['RegularExpressionList'].nil?)
         return data
       end
     end
@@ -988,7 +990,7 @@ module AWS::SDK::WAFV2
     class RegularExpressionList
       def self.parse(list)
         list.map do |value|
-          Parsers::Regex.parse(value) unless value.nil?
+          Regex.parse(value) unless value.nil?
         end
       end
     end
@@ -1008,7 +1010,7 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rule_group = (Parsers::RuleGroup.parse(map['RuleGroup']) unless map['RuleGroup'].nil?)
+        data.rule_group = (RuleGroup.parse(map['RuleGroup']) unless map['RuleGroup'].nil?)
         data.lock_token = map['LockToken']
         data
       end
@@ -1022,12 +1024,12 @@ module AWS::SDK::WAFV2
         data.capacity = map['Capacity']
         data.arn = map['ARN']
         data.description = map['Description']
-        data.rules = (Parsers::Rules.parse(map['Rules']) unless map['Rules'].nil?)
-        data.visibility_config = (Parsers::VisibilityConfig.parse(map['VisibilityConfig']) unless map['VisibilityConfig'].nil?)
+        data.rules = (Rules.parse(map['Rules']) unless map['Rules'].nil?)
+        data.visibility_config = (VisibilityConfig.parse(map['VisibilityConfig']) unless map['VisibilityConfig'].nil?)
         data.label_namespace = map['LabelNamespace']
-        data.custom_response_bodies = (Parsers::CustomResponseBodies.parse(map['CustomResponseBodies']) unless map['CustomResponseBodies'].nil?)
-        data.available_labels = (Parsers::LabelSummaries.parse(map['AvailableLabels']) unless map['AvailableLabels'].nil?)
-        data.consumed_labels = (Parsers::LabelSummaries.parse(map['ConsumedLabels']) unless map['ConsumedLabels'].nil?)
+        data.custom_response_bodies = (CustomResponseBodies.parse(map['CustomResponseBodies']) unless map['CustomResponseBodies'].nil?)
+        data.available_labels = (LabelSummaries.parse(map['AvailableLabels']) unless map['AvailableLabels'].nil?)
+        data.consumed_labels = (LabelSummaries.parse(map['ConsumedLabels']) unless map['ConsumedLabels'].nil?)
         return data
       end
     end
@@ -1036,7 +1038,7 @@ module AWS::SDK::WAFV2
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::CustomResponseBody.parse(value) unless value.nil?
+          data[key] = CustomResponseBody.parse(value) unless value.nil?
         end
         data
       end
@@ -1064,7 +1066,7 @@ module AWS::SDK::WAFV2
     class Rules
       def self.parse(list)
         list.map do |value|
-          Parsers::Rule.parse(value) unless value.nil?
+          Rule.parse(value) unless value.nil?
         end
       end
     end
@@ -1074,12 +1076,12 @@ module AWS::SDK::WAFV2
         data = Types::Rule.new
         data.name = map['Name']
         data.priority = map['Priority']
-        data.statement = (Parsers::Statement.parse(map['Statement']) unless map['Statement'].nil?)
-        data.action = (Parsers::RuleAction.parse(map['Action']) unless map['Action'].nil?)
-        data.override_action = (Parsers::OverrideAction.parse(map['OverrideAction']) unless map['OverrideAction'].nil?)
-        data.rule_labels = (Parsers::Labels.parse(map['RuleLabels']) unless map['RuleLabels'].nil?)
-        data.visibility_config = (Parsers::VisibilityConfig.parse(map['VisibilityConfig']) unless map['VisibilityConfig'].nil?)
-        data.captcha_config = (Parsers::CaptchaConfig.parse(map['CaptchaConfig']) unless map['CaptchaConfig'].nil?)
+        data.statement = (Statement.parse(map['Statement']) unless map['Statement'].nil?)
+        data.action = (RuleAction.parse(map['Action']) unless map['Action'].nil?)
+        data.override_action = (OverrideAction.parse(map['OverrideAction']) unless map['OverrideAction'].nil?)
+        data.rule_labels = (Labels.parse(map['RuleLabels']) unless map['RuleLabels'].nil?)
+        data.visibility_config = (VisibilityConfig.parse(map['VisibilityConfig']) unless map['VisibilityConfig'].nil?)
+        data.captcha_config = (CaptchaConfig.parse(map['CaptchaConfig']) unless map['CaptchaConfig'].nil?)
         return data
       end
     end
@@ -1087,7 +1089,7 @@ module AWS::SDK::WAFV2
     class CaptchaConfig
       def self.parse(map)
         data = Types::CaptchaConfig.new
-        data.immunity_time_property = (Parsers::ImmunityTimeProperty.parse(map['ImmunityTimeProperty']) unless map['ImmunityTimeProperty'].nil?)
+        data.immunity_time_property = (ImmunityTimeProperty.parse(map['ImmunityTimeProperty']) unless map['ImmunityTimeProperty'].nil?)
         return data
       end
     end
@@ -1103,7 +1105,7 @@ module AWS::SDK::WAFV2
     class Labels
       def self.parse(list)
         list.map do |value|
-          Parsers::Label.parse(value) unless value.nil?
+          Label.parse(value) unless value.nil?
         end
       end
     end
@@ -1119,8 +1121,8 @@ module AWS::SDK::WAFV2
     class OverrideAction
       def self.parse(map)
         data = Types::OverrideAction.new
-        data.count = (Parsers::CountAction.parse(map['Count']) unless map['Count'].nil?)
-        data.none = (Parsers::NoneAction.parse(map['None']) unless map['None'].nil?)
+        data.count = (CountAction.parse(map['Count']) unless map['Count'].nil?)
+        data.none = (NoneAction.parse(map['None']) unless map['None'].nil?)
         return data
       end
     end
@@ -1135,21 +1137,21 @@ module AWS::SDK::WAFV2
     class Statement
       def self.parse(map)
         data = Types::Statement.new
-        data.byte_match_statement = (Parsers::ByteMatchStatement.parse(map['ByteMatchStatement']) unless map['ByteMatchStatement'].nil?)
-        data.sqli_match_statement = (Parsers::SqliMatchStatement.parse(map['SqliMatchStatement']) unless map['SqliMatchStatement'].nil?)
-        data.xss_match_statement = (Parsers::XssMatchStatement.parse(map['XssMatchStatement']) unless map['XssMatchStatement'].nil?)
-        data.size_constraint_statement = (Parsers::SizeConstraintStatement.parse(map['SizeConstraintStatement']) unless map['SizeConstraintStatement'].nil?)
-        data.geo_match_statement = (Parsers::GeoMatchStatement.parse(map['GeoMatchStatement']) unless map['GeoMatchStatement'].nil?)
-        data.rule_group_reference_statement = (Parsers::RuleGroupReferenceStatement.parse(map['RuleGroupReferenceStatement']) unless map['RuleGroupReferenceStatement'].nil?)
-        data.ip_set_reference_statement = (Parsers::IPSetReferenceStatement.parse(map['IPSetReferenceStatement']) unless map['IPSetReferenceStatement'].nil?)
-        data.regex_pattern_set_reference_statement = (Parsers::RegexPatternSetReferenceStatement.parse(map['RegexPatternSetReferenceStatement']) unless map['RegexPatternSetReferenceStatement'].nil?)
-        data.rate_based_statement = (Parsers::RateBasedStatement.parse(map['RateBasedStatement']) unless map['RateBasedStatement'].nil?)
-        data.and_statement = (Parsers::AndStatement.parse(map['AndStatement']) unless map['AndStatement'].nil?)
-        data.or_statement = (Parsers::OrStatement.parse(map['OrStatement']) unless map['OrStatement'].nil?)
-        data.not_statement = (Parsers::NotStatement.parse(map['NotStatement']) unless map['NotStatement'].nil?)
-        data.managed_rule_group_statement = (Parsers::ManagedRuleGroupStatement.parse(map['ManagedRuleGroupStatement']) unless map['ManagedRuleGroupStatement'].nil?)
-        data.label_match_statement = (Parsers::LabelMatchStatement.parse(map['LabelMatchStatement']) unless map['LabelMatchStatement'].nil?)
-        data.regex_match_statement = (Parsers::RegexMatchStatement.parse(map['RegexMatchStatement']) unless map['RegexMatchStatement'].nil?)
+        data.byte_match_statement = (ByteMatchStatement.parse(map['ByteMatchStatement']) unless map['ByteMatchStatement'].nil?)
+        data.sqli_match_statement = (SqliMatchStatement.parse(map['SqliMatchStatement']) unless map['SqliMatchStatement'].nil?)
+        data.xss_match_statement = (XssMatchStatement.parse(map['XssMatchStatement']) unless map['XssMatchStatement'].nil?)
+        data.size_constraint_statement = (SizeConstraintStatement.parse(map['SizeConstraintStatement']) unless map['SizeConstraintStatement'].nil?)
+        data.geo_match_statement = (GeoMatchStatement.parse(map['GeoMatchStatement']) unless map['GeoMatchStatement'].nil?)
+        data.rule_group_reference_statement = (RuleGroupReferenceStatement.parse(map['RuleGroupReferenceStatement']) unless map['RuleGroupReferenceStatement'].nil?)
+        data.ip_set_reference_statement = (IPSetReferenceStatement.parse(map['IPSetReferenceStatement']) unless map['IPSetReferenceStatement'].nil?)
+        data.regex_pattern_set_reference_statement = (RegexPatternSetReferenceStatement.parse(map['RegexPatternSetReferenceStatement']) unless map['RegexPatternSetReferenceStatement'].nil?)
+        data.rate_based_statement = (RateBasedStatement.parse(map['RateBasedStatement']) unless map['RateBasedStatement'].nil?)
+        data.and_statement = (AndStatement.parse(map['AndStatement']) unless map['AndStatement'].nil?)
+        data.or_statement = (OrStatement.parse(map['OrStatement']) unless map['OrStatement'].nil?)
+        data.not_statement = (NotStatement.parse(map['NotStatement']) unless map['NotStatement'].nil?)
+        data.managed_rule_group_statement = (ManagedRuleGroupStatement.parse(map['ManagedRuleGroupStatement']) unless map['ManagedRuleGroupStatement'].nil?)
+        data.label_match_statement = (LabelMatchStatement.parse(map['LabelMatchStatement']) unless map['LabelMatchStatement'].nil?)
+        data.regex_match_statement = (RegexMatchStatement.parse(map['RegexMatchStatement']) unless map['RegexMatchStatement'].nil?)
         return data
       end
     end
@@ -1158,8 +1160,8 @@ module AWS::SDK::WAFV2
       def self.parse(map)
         data = Types::RegexMatchStatement.new
         data.regex_string = map['RegexString']
-        data.field_to_match = (Parsers::FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
-        data.text_transformations = (Parsers::TextTransformations.parse(map['TextTransformations']) unless map['TextTransformations'].nil?)
+        data.field_to_match = (FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
+        data.text_transformations = (TextTransformations.parse(map['TextTransformations']) unless map['TextTransformations'].nil?)
         return data
       end
     end
@@ -1167,7 +1169,7 @@ module AWS::SDK::WAFV2
     class TextTransformations
       def self.parse(list)
         list.map do |value|
-          Parsers::TextTransformation.parse(value) unless value.nil?
+          TextTransformation.parse(value) unless value.nil?
         end
       end
     end
@@ -1196,9 +1198,9 @@ module AWS::SDK::WAFV2
         data.vendor_name = map['VendorName']
         data.name = map['Name']
         data.version = map['Version']
-        data.excluded_rules = (Parsers::ExcludedRules.parse(map['ExcludedRules']) unless map['ExcludedRules'].nil?)
-        data.scope_down_statement = (Parsers::Statement.parse(map['ScopeDownStatement']) unless map['ScopeDownStatement'].nil?)
-        data.managed_rule_group_configs = (Parsers::ManagedRuleGroupConfigs.parse(map['ManagedRuleGroupConfigs']) unless map['ManagedRuleGroupConfigs'].nil?)
+        data.excluded_rules = (ExcludedRules.parse(map['ExcludedRules']) unless map['ExcludedRules'].nil?)
+        data.scope_down_statement = (Statement.parse(map['ScopeDownStatement']) unless map['ScopeDownStatement'].nil?)
+        data.managed_rule_group_configs = (ManagedRuleGroupConfigs.parse(map['ManagedRuleGroupConfigs']) unless map['ManagedRuleGroupConfigs'].nil?)
         return data
       end
     end
@@ -1206,7 +1208,7 @@ module AWS::SDK::WAFV2
     class ManagedRuleGroupConfigs
       def self.parse(list)
         list.map do |value|
-          Parsers::ManagedRuleGroupConfig.parse(value) unless value.nil?
+          ManagedRuleGroupConfig.parse(value) unless value.nil?
         end
       end
     end
@@ -1216,8 +1218,8 @@ module AWS::SDK::WAFV2
         data = Types::ManagedRuleGroupConfig.new
         data.login_path = map['LoginPath']
         data.payload_type = map['PayloadType']
-        data.username_field = (Parsers::UsernameField.parse(map['UsernameField']) unless map['UsernameField'].nil?)
-        data.password_field = (Parsers::PasswordField.parse(map['PasswordField']) unless map['PasswordField'].nil?)
+        data.username_field = (UsernameField.parse(map['UsernameField']) unless map['UsernameField'].nil?)
+        data.password_field = (PasswordField.parse(map['PasswordField']) unless map['PasswordField'].nil?)
         return data
       end
     end
@@ -1241,7 +1243,7 @@ module AWS::SDK::WAFV2
     class ExcludedRules
       def self.parse(list)
         list.map do |value|
-          Parsers::ExcludedRule.parse(value) unless value.nil?
+          ExcludedRule.parse(value) unless value.nil?
         end
       end
     end
@@ -1257,7 +1259,7 @@ module AWS::SDK::WAFV2
     class NotStatement
       def self.parse(map)
         data = Types::NotStatement.new
-        data.statement = (Parsers::Statement.parse(map['Statement']) unless map['Statement'].nil?)
+        data.statement = (Statement.parse(map['Statement']) unless map['Statement'].nil?)
         return data
       end
     end
@@ -1265,7 +1267,7 @@ module AWS::SDK::WAFV2
     class OrStatement
       def self.parse(map)
         data = Types::OrStatement.new
-        data.statements = (Parsers::Statements.parse(map['Statements']) unless map['Statements'].nil?)
+        data.statements = (Statements.parse(map['Statements']) unless map['Statements'].nil?)
         return data
       end
     end
@@ -1273,7 +1275,7 @@ module AWS::SDK::WAFV2
     class Statements
       def self.parse(list)
         list.map do |value|
-          Parsers::Statement.parse(value) unless value.nil?
+          Statement.parse(value) unless value.nil?
         end
       end
     end
@@ -1281,7 +1283,7 @@ module AWS::SDK::WAFV2
     class AndStatement
       def self.parse(map)
         data = Types::AndStatement.new
-        data.statements = (Parsers::Statements.parse(map['Statements']) unless map['Statements'].nil?)
+        data.statements = (Statements.parse(map['Statements']) unless map['Statements'].nil?)
         return data
       end
     end
@@ -1291,8 +1293,8 @@ module AWS::SDK::WAFV2
         data = Types::RateBasedStatement.new
         data.limit = map['Limit']
         data.aggregate_key_type = map['AggregateKeyType']
-        data.scope_down_statement = (Parsers::Statement.parse(map['ScopeDownStatement']) unless map['ScopeDownStatement'].nil?)
-        data.forwarded_ip_config = (Parsers::ForwardedIPConfig.parse(map['ForwardedIPConfig']) unless map['ForwardedIPConfig'].nil?)
+        data.scope_down_statement = (Statement.parse(map['ScopeDownStatement']) unless map['ScopeDownStatement'].nil?)
+        data.forwarded_ip_config = (ForwardedIPConfig.parse(map['ForwardedIPConfig']) unless map['ForwardedIPConfig'].nil?)
         return data
       end
     end
@@ -1310,8 +1312,8 @@ module AWS::SDK::WAFV2
       def self.parse(map)
         data = Types::RegexPatternSetReferenceStatement.new
         data.arn = map['ARN']
-        data.field_to_match = (Parsers::FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
-        data.text_transformations = (Parsers::TextTransformations.parse(map['TextTransformations']) unless map['TextTransformations'].nil?)
+        data.field_to_match = (FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
+        data.text_transformations = (TextTransformations.parse(map['TextTransformations']) unless map['TextTransformations'].nil?)
         return data
       end
     end
@@ -1320,7 +1322,7 @@ module AWS::SDK::WAFV2
       def self.parse(map)
         data = Types::IPSetReferenceStatement.new
         data.arn = map['ARN']
-        data.ip_set_forwarded_ip_config = (Parsers::IPSetForwardedIPConfig.parse(map['IPSetForwardedIPConfig']) unless map['IPSetForwardedIPConfig'].nil?)
+        data.ip_set_forwarded_ip_config = (IPSetForwardedIPConfig.parse(map['IPSetForwardedIPConfig']) unless map['IPSetForwardedIPConfig'].nil?)
         return data
       end
     end
@@ -1339,7 +1341,7 @@ module AWS::SDK::WAFV2
       def self.parse(map)
         data = Types::RuleGroupReferenceStatement.new
         data.arn = map['ARN']
-        data.excluded_rules = (Parsers::ExcludedRules.parse(map['ExcludedRules']) unless map['ExcludedRules'].nil?)
+        data.excluded_rules = (ExcludedRules.parse(map['ExcludedRules']) unless map['ExcludedRules'].nil?)
         return data
       end
     end
@@ -1347,8 +1349,8 @@ module AWS::SDK::WAFV2
     class GeoMatchStatement
       def self.parse(map)
         data = Types::GeoMatchStatement.new
-        data.country_codes = (Parsers::CountryCodes.parse(map['CountryCodes']) unless map['CountryCodes'].nil?)
-        data.forwarded_ip_config = (Parsers::ForwardedIPConfig.parse(map['ForwardedIPConfig']) unless map['ForwardedIPConfig'].nil?)
+        data.country_codes = (CountryCodes.parse(map['CountryCodes']) unless map['CountryCodes'].nil?)
+        data.forwarded_ip_config = (ForwardedIPConfig.parse(map['ForwardedIPConfig']) unless map['ForwardedIPConfig'].nil?)
         return data
       end
     end
@@ -1364,10 +1366,10 @@ module AWS::SDK::WAFV2
     class SizeConstraintStatement
       def self.parse(map)
         data = Types::SizeConstraintStatement.new
-        data.field_to_match = (Parsers::FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
+        data.field_to_match = (FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
         data.comparison_operator = map['ComparisonOperator']
         data.size = map['Size']
-        data.text_transformations = (Parsers::TextTransformations.parse(map['TextTransformations']) unless map['TextTransformations'].nil?)
+        data.text_transformations = (TextTransformations.parse(map['TextTransformations']) unless map['TextTransformations'].nil?)
         return data
       end
     end
@@ -1375,8 +1377,8 @@ module AWS::SDK::WAFV2
     class XssMatchStatement
       def self.parse(map)
         data = Types::XssMatchStatement.new
-        data.field_to_match = (Parsers::FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
-        data.text_transformations = (Parsers::TextTransformations.parse(map['TextTransformations']) unless map['TextTransformations'].nil?)
+        data.field_to_match = (FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
+        data.text_transformations = (TextTransformations.parse(map['TextTransformations']) unless map['TextTransformations'].nil?)
         return data
       end
     end
@@ -1384,8 +1386,8 @@ module AWS::SDK::WAFV2
     class SqliMatchStatement
       def self.parse(map)
         data = Types::SqliMatchStatement.new
-        data.field_to_match = (Parsers::FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
-        data.text_transformations = (Parsers::TextTransformations.parse(map['TextTransformations']) unless map['TextTransformations'].nil?)
+        data.field_to_match = (FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
+        data.text_transformations = (TextTransformations.parse(map['TextTransformations']) unless map['TextTransformations'].nil?)
         return data
       end
     end
@@ -1393,9 +1395,9 @@ module AWS::SDK::WAFV2
     class ByteMatchStatement
       def self.parse(map)
         data = Types::ByteMatchStatement.new
-        data.search_string = Base64::decode64(map['SearchString']) unless map['SearchString'].nil?
-        data.field_to_match = (Parsers::FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
-        data.text_transformations = (Parsers::TextTransformations.parse(map['TextTransformations']) unless map['TextTransformations'].nil?)
+        data.search_string = ::Base64::decode64(map['SearchString']) unless map['SearchString'].nil?
+        data.field_to_match = (FieldToMatch.parse(map['FieldToMatch']) unless map['FieldToMatch'].nil?)
+        data.text_transformations = (TextTransformations.parse(map['TextTransformations']) unless map['TextTransformations'].nil?)
         data.positional_constraint = map['PositionalConstraint']
         return data
       end
@@ -1408,9 +1410,9 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.sampled_requests = (Parsers::SampledHTTPRequests.parse(map['SampledRequests']) unless map['SampledRequests'].nil?)
+        data.sampled_requests = (SampledHTTPRequests.parse(map['SampledRequests']) unless map['SampledRequests'].nil?)
         data.population_size = map['PopulationSize']
-        data.time_window = (Parsers::TimeWindow.parse(map['TimeWindow']) unless map['TimeWindow'].nil?)
+        data.time_window = (TimeWindow.parse(map['TimeWindow']) unless map['TimeWindow'].nil?)
         data
       end
     end
@@ -1427,7 +1429,7 @@ module AWS::SDK::WAFV2
     class SampledHTTPRequests
       def self.parse(list)
         list.map do |value|
-          Parsers::SampledHTTPRequest.parse(value) unless value.nil?
+          SampledHTTPRequest.parse(value) unless value.nil?
         end
       end
     end
@@ -1435,15 +1437,15 @@ module AWS::SDK::WAFV2
     class SampledHTTPRequest
       def self.parse(map)
         data = Types::SampledHTTPRequest.new
-        data.request = (Parsers::HTTPRequest.parse(map['Request']) unless map['Request'].nil?)
+        data.request = (HTTPRequest.parse(map['Request']) unless map['Request'].nil?)
         data.weight = map['Weight']
         data.timestamp = Time.at(map['Timestamp'].to_i) if map['Timestamp']
         data.action = map['Action']
         data.rule_name_within_rule_group = map['RuleNameWithinRuleGroup']
-        data.request_headers_inserted = (Parsers::HTTPHeaders.parse(map['RequestHeadersInserted']) unless map['RequestHeadersInserted'].nil?)
+        data.request_headers_inserted = (HTTPHeaders.parse(map['RequestHeadersInserted']) unless map['RequestHeadersInserted'].nil?)
         data.response_code_sent = map['ResponseCodeSent']
-        data.labels = (Parsers::Labels.parse(map['Labels']) unless map['Labels'].nil?)
-        data.captcha_response = (Parsers::CaptchaResponse.parse(map['CaptchaResponse']) unless map['CaptchaResponse'].nil?)
+        data.labels = (Labels.parse(map['Labels']) unless map['Labels'].nil?)
+        data.captcha_response = (CaptchaResponse.parse(map['CaptchaResponse']) unless map['CaptchaResponse'].nil?)
         return data
       end
     end
@@ -1461,7 +1463,7 @@ module AWS::SDK::WAFV2
     class HTTPHeaders
       def self.parse(list)
         list.map do |value|
-          Parsers::HTTPHeader.parse(value) unless value.nil?
+          HTTPHeader.parse(value) unless value.nil?
         end
       end
     end
@@ -1483,7 +1485,7 @@ module AWS::SDK::WAFV2
         data.uri = map['URI']
         data.member_method = map['Method']
         data.http_version = map['HTTPVersion']
-        data.headers = (Parsers::HTTPHeaders.parse(map['Headers']) unless map['Headers'].nil?)
+        data.headers = (HTTPHeaders.parse(map['Headers']) unless map['Headers'].nil?)
         return data
       end
     end
@@ -1495,7 +1497,7 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.web_acl = (Parsers::WebACL.parse(map['WebACL']) unless map['WebACL'].nil?)
+        data.web_acl = (WebACL.parse(map['WebACL']) unless map['WebACL'].nil?)
         data.lock_token = map['LockToken']
         data.application_integration_url = map['ApplicationIntegrationURL']
         data
@@ -1508,17 +1510,17 @@ module AWS::SDK::WAFV2
         data.name = map['Name']
         data.id = map['Id']
         data.arn = map['ARN']
-        data.default_action = (Parsers::DefaultAction.parse(map['DefaultAction']) unless map['DefaultAction'].nil?)
+        data.default_action = (DefaultAction.parse(map['DefaultAction']) unless map['DefaultAction'].nil?)
         data.description = map['Description']
-        data.rules = (Parsers::Rules.parse(map['Rules']) unless map['Rules'].nil?)
-        data.visibility_config = (Parsers::VisibilityConfig.parse(map['VisibilityConfig']) unless map['VisibilityConfig'].nil?)
+        data.rules = (Rules.parse(map['Rules']) unless map['Rules'].nil?)
+        data.visibility_config = (VisibilityConfig.parse(map['VisibilityConfig']) unless map['VisibilityConfig'].nil?)
         data.capacity = map['Capacity']
-        data.pre_process_firewall_manager_rule_groups = (Parsers::FirewallManagerRuleGroups.parse(map['PreProcessFirewallManagerRuleGroups']) unless map['PreProcessFirewallManagerRuleGroups'].nil?)
-        data.post_process_firewall_manager_rule_groups = (Parsers::FirewallManagerRuleGroups.parse(map['PostProcessFirewallManagerRuleGroups']) unless map['PostProcessFirewallManagerRuleGroups'].nil?)
+        data.pre_process_firewall_manager_rule_groups = (FirewallManagerRuleGroups.parse(map['PreProcessFirewallManagerRuleGroups']) unless map['PreProcessFirewallManagerRuleGroups'].nil?)
+        data.post_process_firewall_manager_rule_groups = (FirewallManagerRuleGroups.parse(map['PostProcessFirewallManagerRuleGroups']) unless map['PostProcessFirewallManagerRuleGroups'].nil?)
         data.managed_by_firewall_manager = map['ManagedByFirewallManager']
         data.label_namespace = map['LabelNamespace']
-        data.custom_response_bodies = (Parsers::CustomResponseBodies.parse(map['CustomResponseBodies']) unless map['CustomResponseBodies'].nil?)
-        data.captcha_config = (Parsers::CaptchaConfig.parse(map['CaptchaConfig']) unless map['CaptchaConfig'].nil?)
+        data.custom_response_bodies = (CustomResponseBodies.parse(map['CustomResponseBodies']) unless map['CustomResponseBodies'].nil?)
+        data.captcha_config = (CaptchaConfig.parse(map['CaptchaConfig']) unless map['CaptchaConfig'].nil?)
         return data
       end
     end
@@ -1526,7 +1528,7 @@ module AWS::SDK::WAFV2
     class FirewallManagerRuleGroups
       def self.parse(list)
         list.map do |value|
-          Parsers::FirewallManagerRuleGroup.parse(value) unless value.nil?
+          FirewallManagerRuleGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -1536,9 +1538,9 @@ module AWS::SDK::WAFV2
         data = Types::FirewallManagerRuleGroup.new
         data.name = map['Name']
         data.priority = map['Priority']
-        data.firewall_manager_statement = (Parsers::FirewallManagerStatement.parse(map['FirewallManagerStatement']) unless map['FirewallManagerStatement'].nil?)
-        data.override_action = (Parsers::OverrideAction.parse(map['OverrideAction']) unless map['OverrideAction'].nil?)
-        data.visibility_config = (Parsers::VisibilityConfig.parse(map['VisibilityConfig']) unless map['VisibilityConfig'].nil?)
+        data.firewall_manager_statement = (FirewallManagerStatement.parse(map['FirewallManagerStatement']) unless map['FirewallManagerStatement'].nil?)
+        data.override_action = (OverrideAction.parse(map['OverrideAction']) unless map['OverrideAction'].nil?)
+        data.visibility_config = (VisibilityConfig.parse(map['VisibilityConfig']) unless map['VisibilityConfig'].nil?)
         return data
       end
     end
@@ -1546,8 +1548,8 @@ module AWS::SDK::WAFV2
     class FirewallManagerStatement
       def self.parse(map)
         data = Types::FirewallManagerStatement.new
-        data.managed_rule_group_statement = (Parsers::ManagedRuleGroupStatement.parse(map['ManagedRuleGroupStatement']) unless map['ManagedRuleGroupStatement'].nil?)
-        data.rule_group_reference_statement = (Parsers::RuleGroupReferenceStatement.parse(map['RuleGroupReferenceStatement']) unless map['RuleGroupReferenceStatement'].nil?)
+        data.managed_rule_group_statement = (ManagedRuleGroupStatement.parse(map['ManagedRuleGroupStatement']) unless map['ManagedRuleGroupStatement'].nil?)
+        data.rule_group_reference_statement = (RuleGroupReferenceStatement.parse(map['RuleGroupReferenceStatement']) unless map['RuleGroupReferenceStatement'].nil?)
         return data
       end
     end
@@ -1555,8 +1557,8 @@ module AWS::SDK::WAFV2
     class DefaultAction
       def self.parse(map)
         data = Types::DefaultAction.new
-        data.block = (Parsers::BlockAction.parse(map['Block']) unless map['Block'].nil?)
-        data.allow = (Parsers::AllowAction.parse(map['Allow']) unless map['Allow'].nil?)
+        data.block = (BlockAction.parse(map['Block']) unless map['Block'].nil?)
+        data.allow = (AllowAction.parse(map['Allow']) unless map['Allow'].nil?)
         return data
       end
     end
@@ -1568,7 +1570,7 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.web_acl = (Parsers::WebACL.parse(map['WebACL']) unless map['WebACL'].nil?)
+        data.web_acl = (WebACL.parse(map['WebACL']) unless map['WebACL'].nil?)
         data
       end
     end
@@ -1581,7 +1583,7 @@ module AWS::SDK::WAFV2
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.versions = (Parsers::ManagedRuleGroupVersions.parse(map['Versions']) unless map['Versions'].nil?)
+        data.versions = (ManagedRuleGroupVersions.parse(map['Versions']) unless map['Versions'].nil?)
         data.current_default_version = map['CurrentDefaultVersion']
         data
       end
@@ -1590,7 +1592,7 @@ module AWS::SDK::WAFV2
     class ManagedRuleGroupVersions
       def self.parse(list)
         list.map do |value|
-          Parsers::ManagedRuleGroupVersion.parse(value) unless value.nil?
+          ManagedRuleGroupVersion.parse(value) unless value.nil?
         end
       end
     end
@@ -1612,7 +1614,7 @@ module AWS::SDK::WAFV2
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.managed_rule_groups = (Parsers::ManagedRuleGroupSummaries.parse(map['ManagedRuleGroups']) unless map['ManagedRuleGroups'].nil?)
+        data.managed_rule_groups = (ManagedRuleGroupSummaries.parse(map['ManagedRuleGroups']) unless map['ManagedRuleGroups'].nil?)
         data
       end
     end
@@ -1620,7 +1622,7 @@ module AWS::SDK::WAFV2
     class ManagedRuleGroupSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ManagedRuleGroupSummary.parse(value) unless value.nil?
+          ManagedRuleGroupSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1644,7 +1646,7 @@ module AWS::SDK::WAFV2
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.ip_sets = (Parsers::IPSetSummaries.parse(map['IPSets']) unless map['IPSets'].nil?)
+        data.ip_sets = (IPSetSummaries.parse(map['IPSets']) unless map['IPSets'].nil?)
         data
       end
     end
@@ -1652,7 +1654,7 @@ module AWS::SDK::WAFV2
     class IPSetSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::IPSetSummary.parse(value) unless value.nil?
+          IPSetSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1664,7 +1666,7 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.logging_configurations = (Parsers::LoggingConfigurations.parse(map['LoggingConfigurations']) unless map['LoggingConfigurations'].nil?)
+        data.logging_configurations = (LoggingConfigurations.parse(map['LoggingConfigurations']) unless map['LoggingConfigurations'].nil?)
         data.next_marker = map['NextMarker']
         data
       end
@@ -1673,7 +1675,7 @@ module AWS::SDK::WAFV2
     class LoggingConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::LoggingConfiguration.parse(value) unless value.nil?
+          LoggingConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -1686,7 +1688,7 @@ module AWS::SDK::WAFV2
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.managed_rule_sets = (Parsers::ManagedRuleSetSummaries.parse(map['ManagedRuleSets']) unless map['ManagedRuleSets'].nil?)
+        data.managed_rule_sets = (ManagedRuleSetSummaries.parse(map['ManagedRuleSets']) unless map['ManagedRuleSets'].nil?)
         data
       end
     end
@@ -1694,7 +1696,7 @@ module AWS::SDK::WAFV2
     class ManagedRuleSetSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ManagedRuleSetSummary.parse(value) unless value.nil?
+          ManagedRuleSetSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1719,7 +1721,7 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.release_summaries = (Parsers::ReleaseSummaries.parse(map['ReleaseSummaries']) unless map['ReleaseSummaries'].nil?)
+        data.release_summaries = (ReleaseSummaries.parse(map['ReleaseSummaries']) unless map['ReleaseSummaries'].nil?)
         data.next_marker = map['NextMarker']
         data
       end
@@ -1728,7 +1730,7 @@ module AWS::SDK::WAFV2
     class ReleaseSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ReleaseSummary.parse(value) unless value.nil?
+          ReleaseSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1750,7 +1752,7 @@ module AWS::SDK::WAFV2
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.regex_pattern_sets = (Parsers::RegexPatternSetSummaries.parse(map['RegexPatternSets']) unless map['RegexPatternSets'].nil?)
+        data.regex_pattern_sets = (RegexPatternSetSummaries.parse(map['RegexPatternSets']) unless map['RegexPatternSets'].nil?)
         data
       end
     end
@@ -1758,7 +1760,7 @@ module AWS::SDK::WAFV2
     class RegexPatternSetSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::RegexPatternSetSummary.parse(value) unless value.nil?
+          RegexPatternSetSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1770,7 +1772,7 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_arns = (Parsers::ResourceArns.parse(map['ResourceArns']) unless map['ResourceArns'].nil?)
+        data.resource_arns = (ResourceArns.parse(map['ResourceArns']) unless map['ResourceArns'].nil?)
         data
       end
     end
@@ -1791,7 +1793,7 @@ module AWS::SDK::WAFV2
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.rule_groups = (Parsers::RuleGroupSummaries.parse(map['RuleGroups']) unless map['RuleGroups'].nil?)
+        data.rule_groups = (RuleGroupSummaries.parse(map['RuleGroups']) unless map['RuleGroups'].nil?)
         data
       end
     end
@@ -1799,7 +1801,7 @@ module AWS::SDK::WAFV2
     class RuleGroupSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::RuleGroupSummary.parse(value) unless value.nil?
+          RuleGroupSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1812,7 +1814,7 @@ module AWS::SDK::WAFV2
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.tag_info_for_resource = (Parsers::TagInfoForResource.parse(map['TagInfoForResource']) unless map['TagInfoForResource'].nil?)
+        data.tag_info_for_resource = (TagInfoForResource.parse(map['TagInfoForResource']) unless map['TagInfoForResource'].nil?)
         data
       end
     end
@@ -1821,7 +1823,7 @@ module AWS::SDK::WAFV2
       def self.parse(map)
         data = Types::TagInfoForResource.new
         data.resource_arn = map['ResourceARN']
-        data.tag_list = (Parsers::TagList.parse(map['TagList']) unless map['TagList'].nil?)
+        data.tag_list = (TagList.parse(map['TagList']) unless map['TagList'].nil?)
         return data
       end
     end
@@ -1834,7 +1836,7 @@ module AWS::SDK::WAFV2
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_marker = map['NextMarker']
-        data.web_ac_ls = (Parsers::WebACLSummaries.parse(map['WebACLs']) unless map['WebACLs'].nil?)
+        data.web_ac_ls = (WebACLSummaries.parse(map['WebACLs']) unless map['WebACLs'].nil?)
         data
       end
     end
@@ -1842,7 +1844,7 @@ module AWS::SDK::WAFV2
     class WebACLSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::WebACLSummary.parse(value) unless value.nil?
+          WebACLSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1854,7 +1856,7 @@ module AWS::SDK::WAFV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.logging_configuration = (Parsers::LoggingConfiguration.parse(map['LoggingConfiguration']) unless map['LoggingConfiguration'].nil?)
+        data.logging_configuration = (LoggingConfiguration.parse(map['LoggingConfiguration']) unless map['LoggingConfiguration'].nil?)
         data
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MediaStore
   module Builders
 
@@ -19,8 +21,8 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.CreateContainer'
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -29,7 +31,7 @@ module AWS::SDK::MediaStore
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -54,7 +56,7 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.DeleteContainer'
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -67,7 +69,7 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.DeleteContainerPolicy'
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -80,7 +82,7 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.DeleteCorsPolicy'
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -93,7 +95,7 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.DeleteLifecyclePolicy'
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -106,7 +108,7 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.DeleteMetricPolicy'
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -119,7 +121,7 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.DescribeContainer'
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -132,7 +134,7 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.GetContainerPolicy'
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -145,7 +147,7 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.GetCorsPolicy'
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -158,7 +160,7 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.GetLifecyclePolicy'
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -171,7 +173,7 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.GetMetricPolicy'
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -185,7 +187,7 @@ module AWS::SDK::MediaStore
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -198,7 +200,7 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.ListTagsForResource'
         data = {}
         data['Resource'] = input[:resource] unless input[:resource].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -212,7 +214,7 @@ module AWS::SDK::MediaStore
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
         data['Policy'] = input[:policy] unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -225,8 +227,8 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.PutCorsPolicy'
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
-        data['CorsPolicy'] = Builders::CorsPolicy.build(input[:cors_policy]) unless input[:cors_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CorsPolicy'] = CorsPolicy.build(input[:cors_policy]) unless input[:cors_policy].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -235,7 +237,7 @@ module AWS::SDK::MediaStore
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CorsRule.build(element) unless element.nil?
+          data << CorsRule.build(element) unless element.nil?
         end
         data
       end
@@ -245,11 +247,11 @@ module AWS::SDK::MediaStore
     class CorsRule
       def self.build(input)
         data = {}
-        data['AllowedOrigins'] = Builders::AllowedOrigins.build(input[:allowed_origins]) unless input[:allowed_origins].nil?
-        data['AllowedMethods'] = Builders::AllowedMethods.build(input[:allowed_methods]) unless input[:allowed_methods].nil?
-        data['AllowedHeaders'] = Builders::AllowedHeaders.build(input[:allowed_headers]) unless input[:allowed_headers].nil?
+        data['AllowedOrigins'] = AllowedOrigins.build(input[:allowed_origins]) unless input[:allowed_origins].nil?
+        data['AllowedMethods'] = AllowedMethods.build(input[:allowed_methods]) unless input[:allowed_methods].nil?
+        data['AllowedHeaders'] = AllowedHeaders.build(input[:allowed_headers]) unless input[:allowed_headers].nil?
         data['MaxAgeSeconds'] = input[:max_age_seconds] unless input[:max_age_seconds].nil?
-        data['ExposeHeaders'] = Builders::ExposeHeaders.build(input[:expose_headers]) unless input[:expose_headers].nil?
+        data['ExposeHeaders'] = ExposeHeaders.build(input[:expose_headers]) unless input[:expose_headers].nil?
         data
       end
     end
@@ -308,7 +310,7 @@ module AWS::SDK::MediaStore
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
         data['LifecyclePolicy'] = input[:lifecycle_policy] unless input[:lifecycle_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -321,8 +323,8 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.PutMetricPolicy'
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
-        data['MetricPolicy'] = Builders::MetricPolicy.build(input[:metric_policy]) unless input[:metric_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MetricPolicy'] = MetricPolicy.build(input[:metric_policy]) unless input[:metric_policy].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -331,7 +333,7 @@ module AWS::SDK::MediaStore
       def self.build(input)
         data = {}
         data['ContainerLevelMetrics'] = input[:container_level_metrics] unless input[:container_level_metrics].nil?
-        data['MetricPolicyRules'] = Builders::MetricPolicyRules.build(input[:metric_policy_rules]) unless input[:metric_policy_rules].nil?
+        data['MetricPolicyRules'] = MetricPolicyRules.build(input[:metric_policy_rules]) unless input[:metric_policy_rules].nil?
         data
       end
     end
@@ -341,7 +343,7 @@ module AWS::SDK::MediaStore
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MetricPolicyRule.build(element) unless element.nil?
+          data << MetricPolicyRule.build(element) unless element.nil?
         end
         data
       end
@@ -366,7 +368,7 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.StartAccessLogging'
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -379,7 +381,7 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.StopAccessLogging'
         data = {}
         data['ContainerName'] = input[:container_name] unless input[:container_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -392,8 +394,8 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.TagResource'
         data = {}
         data['Resource'] = input[:resource] unless input[:resource].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -406,8 +408,8 @@ module AWS::SDK::MediaStore
         http_req.headers['X-Amz-Target'] = 'MediaStore_20170901.UntagResource'
         data = {}
         data['Resource'] = input[:resource] unless input[:resource].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

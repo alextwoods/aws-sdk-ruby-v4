@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MediaTailor
   module Builders
 
@@ -22,7 +24,7 @@ module AWS::SDK::MediaTailor
         data = {}
         data['PercentEnabled'] = input[:percent_enabled] unless input[:percent_enabled].nil?
         data['PlaybackConfigurationName'] = input[:playback_configuration_name] unless input[:playback_configuration_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -43,12 +45,12 @@ module AWS::SDK::MediaTailor
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['FillerSlate'] = Builders::SlateSource.build(input[:filler_slate]) unless input[:filler_slate].nil?
-        data['Outputs'] = Builders::RequestOutputs.build(input[:outputs]) unless input[:outputs].nil?
+        data['FillerSlate'] = SlateSource.build(input[:filler_slate]) unless input[:filler_slate].nil?
+        data['Outputs'] = RequestOutputs.build(input[:outputs]) unless input[:outputs].nil?
         data['PlaybackMode'] = input[:playback_mode] unless input[:playback_mode].nil?
-        data['tags'] = Builders::Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
         data['Tier'] = input[:tier] unless input[:tier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -68,7 +70,7 @@ module AWS::SDK::MediaTailor
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RequestOutputItem.build(element) unless element.nil?
+          data << RequestOutputItem.build(element) unless element.nil?
         end
         data
       end
@@ -78,8 +80,8 @@ module AWS::SDK::MediaTailor
     class RequestOutputItem
       def self.build(input)
         data = {}
-        data['DashPlaylistSettings'] = Builders::DashPlaylistSettings.build(input[:dash_playlist_settings]) unless input[:dash_playlist_settings].nil?
-        data['HlsPlaylistSettings'] = Builders::HlsPlaylistSettings.build(input[:hls_playlist_settings]) unless input[:hls_playlist_settings].nil?
+        data['DashPlaylistSettings'] = DashPlaylistSettings.build(input[:dash_playlist_settings]) unless input[:dash_playlist_settings].nil?
+        data['HlsPlaylistSettings'] = HlsPlaylistSettings.build(input[:hls_playlist_settings]) unless input[:hls_playlist_settings].nil?
         data['ManifestName'] = input[:manifest_name] unless input[:manifest_name].nil?
         data['SourceGroup'] = input[:source_group] unless input[:source_group].nil?
         data
@@ -138,9 +140,9 @@ module AWS::SDK::MediaTailor
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['HttpPackageConfigurations'] = Builders::HttpPackageConfigurations.build(input[:http_package_configurations]) unless input[:http_package_configurations].nil?
-        data['tags'] = Builders::Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HttpPackageConfigurations'] = HttpPackageConfigurations.build(input[:http_package_configurations]) unless input[:http_package_configurations].nil?
+        data['tags'] = Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -149,7 +151,7 @@ module AWS::SDK::MediaTailor
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::HttpPackageConfiguration.build(element) unless element.nil?
+          data << HttpPackageConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -187,10 +189,10 @@ module AWS::SDK::MediaTailor
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Consumption'] = Builders::PrefetchConsumption.build(input[:consumption]) unless input[:consumption].nil?
-        data['Retrieval'] = Builders::PrefetchRetrieval.build(input[:retrieval]) unless input[:retrieval].nil?
+        data['Consumption'] = PrefetchConsumption.build(input[:consumption]) unless input[:consumption].nil?
+        data['Retrieval'] = PrefetchRetrieval.build(input[:retrieval]) unless input[:retrieval].nil?
         data['StreamId'] = input[:stream_id] unless input[:stream_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -198,7 +200,7 @@ module AWS::SDK::MediaTailor
     class PrefetchRetrieval
       def self.build(input)
         data = {}
-        data['DynamicVariables'] = Builders::Map____mapOf__string.build(input[:dynamic_variables]) unless input[:dynamic_variables].nil?
+        data['DynamicVariables'] = Map____mapOf__string.build(input[:dynamic_variables]) unless input[:dynamic_variables].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data
@@ -209,7 +211,7 @@ module AWS::SDK::MediaTailor
     class PrefetchConsumption
       def self.build(input)
         data = {}
-        data['AvailMatchingCriteria'] = Builders::List____listOfAvailMatchingCriteria.build(input[:avail_matching_criteria]) unless input[:avail_matching_criteria].nil?
+        data['AvailMatchingCriteria'] = List____listOfAvailMatchingCriteria.build(input[:avail_matching_criteria]) unless input[:avail_matching_criteria].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data
@@ -221,7 +223,7 @@ module AWS::SDK::MediaTailor
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AvailMatchingCriteria.build(element) unless element.nil?
+          data << AvailMatchingCriteria.build(element) unless element.nil?
         end
         data
       end
@@ -258,12 +260,12 @@ module AWS::SDK::MediaTailor
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AdBreaks'] = Builders::List____listOfAdBreak.build(input[:ad_breaks]) unless input[:ad_breaks].nil?
+        data['AdBreaks'] = List____listOfAdBreak.build(input[:ad_breaks]) unless input[:ad_breaks].nil?
         data['LiveSourceName'] = input[:live_source_name] unless input[:live_source_name].nil?
-        data['ScheduleConfiguration'] = Builders::ScheduleConfiguration.build(input[:schedule_configuration]) unless input[:schedule_configuration].nil?
+        data['ScheduleConfiguration'] = ScheduleConfiguration.build(input[:schedule_configuration]) unless input[:schedule_configuration].nil?
         data['SourceLocationName'] = input[:source_location_name] unless input[:source_location_name].nil?
         data['VodSourceName'] = input[:vod_source_name] unless input[:vod_source_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -271,7 +273,7 @@ module AWS::SDK::MediaTailor
     class ScheduleConfiguration
       def self.build(input)
         data = {}
-        data['Transition'] = Builders::Transition.build(input[:transition]) unless input[:transition].nil?
+        data['Transition'] = Transition.build(input[:transition]) unless input[:transition].nil?
         data
       end
     end
@@ -294,7 +296,7 @@ module AWS::SDK::MediaTailor
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AdBreak.build(element) unless element.nil?
+          data << AdBreak.build(element) unless element.nil?
         end
         data
       end
@@ -306,8 +308,8 @@ module AWS::SDK::MediaTailor
         data = {}
         data['MessageType'] = input[:message_type] unless input[:message_type].nil?
         data['OffsetMillis'] = input[:offset_millis] unless input[:offset_millis].nil?
-        data['Slate'] = Builders::SlateSource.build(input[:slate]) unless input[:slate].nil?
-        data['SpliceInsertMessage'] = Builders::SpliceInsertMessage.build(input[:splice_insert_message]) unless input[:splice_insert_message].nil?
+        data['Slate'] = SlateSource.build(input[:slate]) unless input[:slate].nil?
+        data['SpliceInsertMessage'] = SpliceInsertMessage.build(input[:splice_insert_message]) unless input[:splice_insert_message].nil?
         data
       end
     end
@@ -341,12 +343,12 @@ module AWS::SDK::MediaTailor
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AccessConfiguration'] = Builders::AccessConfiguration.build(input[:access_configuration]) unless input[:access_configuration].nil?
-        data['DefaultSegmentDeliveryConfiguration'] = Builders::DefaultSegmentDeliveryConfiguration.build(input[:default_segment_delivery_configuration]) unless input[:default_segment_delivery_configuration].nil?
-        data['HttpConfiguration'] = Builders::HttpConfiguration.build(input[:http_configuration]) unless input[:http_configuration].nil?
-        data['SegmentDeliveryConfigurations'] = Builders::List____listOfSegmentDeliveryConfiguration.build(input[:segment_delivery_configurations]) unless input[:segment_delivery_configurations].nil?
-        data['tags'] = Builders::Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccessConfiguration'] = AccessConfiguration.build(input[:access_configuration]) unless input[:access_configuration].nil?
+        data['DefaultSegmentDeliveryConfiguration'] = DefaultSegmentDeliveryConfiguration.build(input[:default_segment_delivery_configuration]) unless input[:default_segment_delivery_configuration].nil?
+        data['HttpConfiguration'] = HttpConfiguration.build(input[:http_configuration]) unless input[:http_configuration].nil?
+        data['SegmentDeliveryConfigurations'] = List____listOfSegmentDeliveryConfiguration.build(input[:segment_delivery_configurations]) unless input[:segment_delivery_configurations].nil?
+        data['tags'] = Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -355,7 +357,7 @@ module AWS::SDK::MediaTailor
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SegmentDeliveryConfiguration.build(element) unless element.nil?
+          data << SegmentDeliveryConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -394,7 +396,7 @@ module AWS::SDK::MediaTailor
       def self.build(input)
         data = {}
         data['AccessType'] = input[:access_type] unless input[:access_type].nil?
-        data['SecretsManagerAccessTokenConfiguration'] = Builders::SecretsManagerAccessTokenConfiguration.build(input[:secrets_manager_access_token_configuration]) unless input[:secrets_manager_access_token_configuration].nil?
+        data['SecretsManagerAccessTokenConfiguration'] = SecretsManagerAccessTokenConfiguration.build(input[:secrets_manager_access_token_configuration]) unless input[:secrets_manager_access_token_configuration].nil?
         data
       end
     end
@@ -431,9 +433,9 @@ module AWS::SDK::MediaTailor
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['HttpPackageConfigurations'] = Builders::HttpPackageConfigurations.build(input[:http_package_configurations]) unless input[:http_package_configurations].nil?
-        data['tags'] = Builders::Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HttpPackageConfigurations'] = HttpPackageConfigurations.build(input[:http_package_configurations]) unless input[:http_package_configurations].nil?
+        data['tags'] = Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -837,7 +839,7 @@ module AWS::SDK::MediaTailor
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['StreamId'] = input[:stream_id] unless input[:stream_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -907,7 +909,7 @@ module AWS::SDK::MediaTailor
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Policy'] = input[:policy] unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -922,20 +924,20 @@ module AWS::SDK::MediaTailor
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AdDecisionServerUrl'] = input[:ad_decision_server_url] unless input[:ad_decision_server_url].nil?
-        data['AvailSuppression'] = Builders::AvailSuppression.build(input[:avail_suppression]) unless input[:avail_suppression].nil?
-        data['Bumper'] = Builders::Bumper.build(input[:bumper]) unless input[:bumper].nil?
-        data['CdnConfiguration'] = Builders::CdnConfiguration.build(input[:cdn_configuration]) unless input[:cdn_configuration].nil?
-        data['ConfigurationAliases'] = Builders::ConfigurationAliasesRequest.build(input[:configuration_aliases]) unless input[:configuration_aliases].nil?
-        data['DashConfiguration'] = Builders::DashConfigurationForPut.build(input[:dash_configuration]) unless input[:dash_configuration].nil?
-        data['LivePreRollConfiguration'] = Builders::LivePreRollConfiguration.build(input[:live_pre_roll_configuration]) unless input[:live_pre_roll_configuration].nil?
-        data['ManifestProcessingRules'] = Builders::ManifestProcessingRules.build(input[:manifest_processing_rules]) unless input[:manifest_processing_rules].nil?
+        data['AvailSuppression'] = AvailSuppression.build(input[:avail_suppression]) unless input[:avail_suppression].nil?
+        data['Bumper'] = Bumper.build(input[:bumper]) unless input[:bumper].nil?
+        data['CdnConfiguration'] = CdnConfiguration.build(input[:cdn_configuration]) unless input[:cdn_configuration].nil?
+        data['ConfigurationAliases'] = ConfigurationAliasesRequest.build(input[:configuration_aliases]) unless input[:configuration_aliases].nil?
+        data['DashConfiguration'] = DashConfigurationForPut.build(input[:dash_configuration]) unless input[:dash_configuration].nil?
+        data['LivePreRollConfiguration'] = LivePreRollConfiguration.build(input[:live_pre_roll_configuration]) unless input[:live_pre_roll_configuration].nil?
+        data['ManifestProcessingRules'] = ManifestProcessingRules.build(input[:manifest_processing_rules]) unless input[:manifest_processing_rules].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['PersonalizationThresholdSeconds'] = input[:personalization_threshold_seconds] unless input[:personalization_threshold_seconds].nil?
         data['SlateAdUrl'] = input[:slate_ad_url] unless input[:slate_ad_url].nil?
-        data['tags'] = Builders::Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
         data['TranscodeProfileName'] = input[:transcode_profile_name] unless input[:transcode_profile_name].nil?
         data['VideoContentSourceUrl'] = input[:video_content_source_url] unless input[:video_content_source_url].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -943,7 +945,7 @@ module AWS::SDK::MediaTailor
     class ManifestProcessingRules
       def self.build(input)
         data = {}
-        data['AdMarkerPassthrough'] = Builders::AdMarkerPassthrough.build(input[:ad_marker_passthrough]) unless input[:ad_marker_passthrough].nil?
+        data['AdMarkerPassthrough'] = AdMarkerPassthrough.build(input[:ad_marker_passthrough]) unless input[:ad_marker_passthrough].nil?
         data
       end
     end
@@ -982,7 +984,7 @@ module AWS::SDK::MediaTailor
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::Map____mapOf__string.build(value) unless value.nil?
+          data[key] = Map____mapOf__string.build(value) unless value.nil?
         end
         data
       end
@@ -1069,8 +1071,8 @@ module AWS::SDK::MediaTailor
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1124,9 +1126,9 @@ module AWS::SDK::MediaTailor
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['FillerSlate'] = Builders::SlateSource.build(input[:filler_slate]) unless input[:filler_slate].nil?
-        data['Outputs'] = Builders::RequestOutputs.build(input[:outputs]) unless input[:outputs].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FillerSlate'] = SlateSource.build(input[:filler_slate]) unless input[:filler_slate].nil?
+        data['Outputs'] = RequestOutputs.build(input[:outputs]) unless input[:outputs].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1151,8 +1153,8 @@ module AWS::SDK::MediaTailor
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['HttpPackageConfigurations'] = Builders::HttpPackageConfigurations.build(input[:http_package_configurations]) unless input[:http_package_configurations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HttpPackageConfigurations'] = HttpPackageConfigurations.build(input[:http_package_configurations]) unless input[:http_package_configurations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1173,11 +1175,11 @@ module AWS::SDK::MediaTailor
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AccessConfiguration'] = Builders::AccessConfiguration.build(input[:access_configuration]) unless input[:access_configuration].nil?
-        data['DefaultSegmentDeliveryConfiguration'] = Builders::DefaultSegmentDeliveryConfiguration.build(input[:default_segment_delivery_configuration]) unless input[:default_segment_delivery_configuration].nil?
-        data['HttpConfiguration'] = Builders::HttpConfiguration.build(input[:http_configuration]) unless input[:http_configuration].nil?
-        data['SegmentDeliveryConfigurations'] = Builders::List____listOfSegmentDeliveryConfiguration.build(input[:segment_delivery_configurations]) unless input[:segment_delivery_configurations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccessConfiguration'] = AccessConfiguration.build(input[:access_configuration]) unless input[:access_configuration].nil?
+        data['DefaultSegmentDeliveryConfiguration'] = DefaultSegmentDeliveryConfiguration.build(input[:default_segment_delivery_configuration]) unless input[:default_segment_delivery_configuration].nil?
+        data['HttpConfiguration'] = HttpConfiguration.build(input[:http_configuration]) unless input[:http_configuration].nil?
+        data['SegmentDeliveryConfigurations'] = List____listOfSegmentDeliveryConfiguration.build(input[:segment_delivery_configurations]) unless input[:segment_delivery_configurations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1202,8 +1204,8 @@ module AWS::SDK::MediaTailor
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['HttpPackageConfigurations'] = Builders::HttpPackageConfigurations.build(input[:http_package_configurations]) unless input[:http_package_configurations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HttpPackageConfigurations'] = HttpPackageConfigurations.build(input[:http_package_configurations]) unless input[:http_package_configurations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

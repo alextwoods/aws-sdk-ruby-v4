@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MarketplaceEntitlementService
   module Stubs
 
@@ -21,9 +23,9 @@ module AWS::SDK::MarketplaceEntitlementService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Entitlements'] = Stubs::EntitlementList.stub(stub[:entitlements]) unless stub[:entitlements].nil?
+        data['Entitlements'] = EntitlementList.stub(stub[:entitlements]) unless stub[:entitlements].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -42,7 +44,7 @@ module AWS::SDK::MarketplaceEntitlementService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Entitlement.stub(element) unless element.nil?
+          data << Entitlement.stub(element) unless element.nil?
         end
         data
       end
@@ -68,7 +70,7 @@ module AWS::SDK::MarketplaceEntitlementService
         data['ProductCode'] = stub[:product_code] unless stub[:product_code].nil?
         data['Dimension'] = stub[:dimension] unless stub[:dimension].nil?
         data['CustomerIdentifier'] = stub[:customer_identifier] unless stub[:customer_identifier].nil?
-        data['Value'] = Stubs::EntitlementValue.stub(stub[:value]) unless stub[:value].nil?
+        data['Value'] = EntitlementValue.stub(stub[:value]) unless stub[:value].nil?
         data['ExpirationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration_date]).to_i unless stub[:expiration_date].nil?
         data
       end

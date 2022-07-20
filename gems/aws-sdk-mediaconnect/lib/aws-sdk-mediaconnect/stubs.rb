@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MediaConnect
   module Stubs
 
@@ -24,8 +26,8 @@ module AWS::SDK::MediaConnect
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
-        data['mediaStreams'] = Stubs::List____listOfMediaStream.stub(stub[:media_streams]) unless stub[:media_streams].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['mediaStreams'] = List____listOfMediaStream.stub(stub[:media_streams]) unless stub[:media_streams].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -43,7 +45,7 @@ module AWS::SDK::MediaConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MediaStream.stub(element) unless element.nil?
+          data << MediaStream.stub(element) unless element.nil?
         end
         data
       end
@@ -69,7 +71,7 @@ module AWS::SDK::MediaConnect
       def self.stub(stub)
         stub ||= Types::MediaStream.new
         data = {}
-        data['attributes'] = Stubs::MediaStreamAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['attributes'] = MediaStreamAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['clockRate'] = stub[:clock_rate] unless stub[:clock_rate].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['fmt'] = stub[:fmt] unless stub[:fmt].nil?
@@ -95,7 +97,7 @@ module AWS::SDK::MediaConnect
       def self.stub(stub)
         stub ||= Types::MediaStreamAttributes.new
         data = {}
-        data['fmtp'] = Stubs::Fmtp.stub(stub[:fmtp]) unless stub[:fmtp].nil?
+        data['fmtp'] = Fmtp.stub(stub[:fmtp]) unless stub[:fmtp].nil?
         data['lang'] = stub[:lang] unless stub[:lang].nil?
         data
       end
@@ -145,8 +147,8 @@ module AWS::SDK::MediaConnect
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
-        data['outputs'] = Stubs::List____listOfOutput.stub(stub[:outputs]) unless stub[:outputs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['outputs'] = List____listOfOutput.stub(stub[:outputs]) unless stub[:outputs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -164,7 +166,7 @@ module AWS::SDK::MediaConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Output.stub(element) unless element.nil?
+          data << Output.stub(element) unless element.nil?
         end
         data
       end
@@ -198,16 +200,16 @@ module AWS::SDK::MediaConnect
         data['dataTransferSubscriberFeePercent'] = stub[:data_transfer_subscriber_fee_percent] unless stub[:data_transfer_subscriber_fee_percent].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['destination'] = stub[:destination] unless stub[:destination].nil?
-        data['encryption'] = Stubs::Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
+        data['encryption'] = Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
         data['entitlementArn'] = stub[:entitlement_arn] unless stub[:entitlement_arn].nil?
         data['listenerAddress'] = stub[:listener_address] unless stub[:listener_address].nil?
         data['mediaLiveInputArn'] = stub[:media_live_input_arn] unless stub[:media_live_input_arn].nil?
-        data['mediaStreamOutputConfigurations'] = Stubs::List____listOfMediaStreamOutputConfiguration.stub(stub[:media_stream_output_configurations]) unless stub[:media_stream_output_configurations].nil?
+        data['mediaStreamOutputConfigurations'] = List____listOfMediaStreamOutputConfiguration.stub(stub[:media_stream_output_configurations]) unless stub[:media_stream_output_configurations].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['outputArn'] = stub[:output_arn] unless stub[:output_arn].nil?
         data['port'] = stub[:port] unless stub[:port].nil?
-        data['transport'] = Stubs::Transport.stub(stub[:transport]) unless stub[:transport].nil?
-        data['vpcInterfaceAttachment'] = Stubs::VpcInterfaceAttachment.stub(stub[:vpc_interface_attachment]) unless stub[:vpc_interface_attachment].nil?
+        data['transport'] = Transport.stub(stub[:transport]) unless stub[:transport].nil?
+        data['vpcInterfaceAttachment'] = VpcInterfaceAttachment.stub(stub[:vpc_interface_attachment]) unless stub[:vpc_interface_attachment].nil?
         data
       end
     end
@@ -253,7 +255,7 @@ module AWS::SDK::MediaConnect
       def self.stub(stub)
         stub ||= Types::Transport.new
         data = {}
-        data['cidrAllowList'] = Stubs::List____listOf__string.stub(stub[:cidr_allow_list]) unless stub[:cidr_allow_list].nil?
+        data['cidrAllowList'] = List____listOf__string.stub(stub[:cidr_allow_list]) unless stub[:cidr_allow_list].nil?
         data['maxBitrate'] = stub[:max_bitrate] unless stub[:max_bitrate].nil?
         data['maxLatency'] = stub[:max_latency] unless stub[:max_latency].nil?
         data['maxSyncBuffer'] = stub[:max_sync_buffer] unless stub[:max_sync_buffer].nil?
@@ -302,7 +304,7 @@ module AWS::SDK::MediaConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MediaStreamOutputConfiguration.stub(element) unless element.nil?
+          data << MediaStreamOutputConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -324,9 +326,9 @@ module AWS::SDK::MediaConnect
       def self.stub(stub)
         stub ||= Types::MediaStreamOutputConfiguration.new
         data = {}
-        data['destinationConfigurations'] = Stubs::List____listOfDestinationConfiguration.stub(stub[:destination_configurations]) unless stub[:destination_configurations].nil?
+        data['destinationConfigurations'] = List____listOfDestinationConfiguration.stub(stub[:destination_configurations]) unless stub[:destination_configurations].nil?
         data['encodingName'] = stub[:encoding_name] unless stub[:encoding_name].nil?
-        data['encodingParameters'] = Stubs::EncodingParameters.stub(stub[:encoding_parameters]) unless stub[:encoding_parameters].nil?
+        data['encodingParameters'] = EncodingParameters.stub(stub[:encoding_parameters]) unless stub[:encoding_parameters].nil?
         data['mediaStreamName'] = stub[:media_stream_name] unless stub[:media_stream_name].nil?
         data
       end
@@ -366,7 +368,7 @@ module AWS::SDK::MediaConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DestinationConfiguration.stub(element) unless element.nil?
+          data << DestinationConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -390,7 +392,7 @@ module AWS::SDK::MediaConnect
         data = {}
         data['destinationIp'] = stub[:destination_ip] unless stub[:destination_ip].nil?
         data['destinationPort'] = stub[:destination_port] unless stub[:destination_port].nil?
-        data['interface'] = Stubs::Interface.stub(stub[:interface]) unless stub[:interface].nil?
+        data['interface'] = Interface.stub(stub[:interface]) unless stub[:interface].nil?
         data['outboundIp'] = stub[:outbound_ip] unless stub[:outbound_ip].nil?
         data
       end
@@ -462,8 +464,8 @@ module AWS::SDK::MediaConnect
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
-        data['sources'] = Stubs::List____listOfSource.stub(stub[:sources]) unless stub[:sources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sources'] = List____listOfSource.stub(stub[:sources]) unless stub[:sources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -481,7 +483,7 @@ module AWS::SDK::MediaConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Source.stub(element) unless element.nil?
+          data << Source.stub(element) unless element.nil?
         end
         data
       end
@@ -514,17 +516,17 @@ module AWS::SDK::MediaConnect
         stub ||= Types::Source.new
         data = {}
         data['dataTransferSubscriberFeePercent'] = stub[:data_transfer_subscriber_fee_percent] unless stub[:data_transfer_subscriber_fee_percent].nil?
-        data['decryption'] = Stubs::Encryption.stub(stub[:decryption]) unless stub[:decryption].nil?
+        data['decryption'] = Encryption.stub(stub[:decryption]) unless stub[:decryption].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['entitlementArn'] = stub[:entitlement_arn] unless stub[:entitlement_arn].nil?
         data['ingestIp'] = stub[:ingest_ip] unless stub[:ingest_ip].nil?
         data['ingestPort'] = stub[:ingest_port] unless stub[:ingest_port].nil?
-        data['mediaStreamSourceConfigurations'] = Stubs::List____listOfMediaStreamSourceConfiguration.stub(stub[:media_stream_source_configurations]) unless stub[:media_stream_source_configurations].nil?
+        data['mediaStreamSourceConfigurations'] = List____listOfMediaStreamSourceConfiguration.stub(stub[:media_stream_source_configurations]) unless stub[:media_stream_source_configurations].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['senderControlPort'] = stub[:sender_control_port] unless stub[:sender_control_port].nil?
         data['senderIpAddress'] = stub[:sender_ip_address] unless stub[:sender_ip_address].nil?
         data['sourceArn'] = stub[:source_arn] unless stub[:source_arn].nil?
-        data['transport'] = Stubs::Transport.stub(stub[:transport]) unless stub[:transport].nil?
+        data['transport'] = Transport.stub(stub[:transport]) unless stub[:transport].nil?
         data['vpcInterfaceName'] = stub[:vpc_interface_name] unless stub[:vpc_interface_name].nil?
         data['whitelistCidr'] = stub[:whitelist_cidr] unless stub[:whitelist_cidr].nil?
         data
@@ -545,7 +547,7 @@ module AWS::SDK::MediaConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MediaStreamSourceConfiguration.stub(element) unless element.nil?
+          data << MediaStreamSourceConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -567,7 +569,7 @@ module AWS::SDK::MediaConnect
         stub ||= Types::MediaStreamSourceConfiguration.new
         data = {}
         data['encodingName'] = stub[:encoding_name] unless stub[:encoding_name].nil?
-        data['inputConfigurations'] = Stubs::List____listOfInputConfiguration.stub(stub[:input_configurations]) unless stub[:input_configurations].nil?
+        data['inputConfigurations'] = List____listOfInputConfiguration.stub(stub[:input_configurations]) unless stub[:input_configurations].nil?
         data['mediaStreamName'] = stub[:media_stream_name] unless stub[:media_stream_name].nil?
         data
       end
@@ -587,7 +589,7 @@ module AWS::SDK::MediaConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InputConfiguration.stub(element) unless element.nil?
+          data << InputConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -610,7 +612,7 @@ module AWS::SDK::MediaConnect
         data = {}
         data['inputIp'] = stub[:input_ip] unless stub[:input_ip].nil?
         data['inputPort'] = stub[:input_port] unless stub[:input_port].nil?
-        data['interface'] = Stubs::Interface.stub(stub[:interface]) unless stub[:interface].nil?
+        data['interface'] = Interface.stub(stub[:interface]) unless stub[:interface].nil?
         data
       end
     end
@@ -629,8 +631,8 @@ module AWS::SDK::MediaConnect
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
-        data['vpcInterfaces'] = Stubs::List____listOfVpcInterface.stub(stub[:vpc_interfaces]) unless stub[:vpc_interfaces].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['vpcInterfaces'] = List____listOfVpcInterface.stub(stub[:vpc_interfaces]) unless stub[:vpc_interfaces].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -648,7 +650,7 @@ module AWS::SDK::MediaConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VpcInterface.stub(element) unless element.nil?
+          data << VpcInterface.stub(element) unless element.nil?
         end
         data
       end
@@ -673,10 +675,10 @@ module AWS::SDK::MediaConnect
         stub ||= Types::VpcInterface.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['networkInterfaceIds'] = Stubs::List____listOf__string.stub(stub[:network_interface_ids]) unless stub[:network_interface_ids].nil?
+        data['networkInterfaceIds'] = List____listOf__string.stub(stub[:network_interface_ids]) unless stub[:network_interface_ids].nil?
         data['networkInterfaceType'] = stub[:network_interface_type] unless stub[:network_interface_type].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['securityGroupIds'] = Stubs::List____listOf__string.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['securityGroupIds'] = List____listOf__string.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data['subnetId'] = stub[:subnet_id] unless stub[:subnet_id].nil?
         data
       end
@@ -694,8 +696,8 @@ module AWS::SDK::MediaConnect
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['flow'] = Stubs::Flow.stub(stub[:flow]) unless stub[:flow].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['flow'] = Flow.stub(stub[:flow]) unless stub[:flow].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -728,17 +730,17 @@ module AWS::SDK::MediaConnect
         data['availabilityZone'] = stub[:availability_zone] unless stub[:availability_zone].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['egressIp'] = stub[:egress_ip] unless stub[:egress_ip].nil?
-        data['entitlements'] = Stubs::List____listOfEntitlement.stub(stub[:entitlements]) unless stub[:entitlements].nil?
+        data['entitlements'] = List____listOfEntitlement.stub(stub[:entitlements]) unless stub[:entitlements].nil?
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
-        data['mediaStreams'] = Stubs::List____listOfMediaStream.stub(stub[:media_streams]) unless stub[:media_streams].nil?
+        data['mediaStreams'] = List____listOfMediaStream.stub(stub[:media_streams]) unless stub[:media_streams].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['outputs'] = Stubs::List____listOfOutput.stub(stub[:outputs]) unless stub[:outputs].nil?
-        data['source'] = Stubs::Source.stub(stub[:source]) unless stub[:source].nil?
-        data['sourceFailoverConfig'] = Stubs::FailoverConfig.stub(stub[:source_failover_config]) unless stub[:source_failover_config].nil?
-        data['sources'] = Stubs::List____listOfSource.stub(stub[:sources]) unless stub[:sources].nil?
+        data['outputs'] = List____listOfOutput.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['source'] = Source.stub(stub[:source]) unless stub[:source].nil?
+        data['sourceFailoverConfig'] = FailoverConfig.stub(stub[:source_failover_config]) unless stub[:source_failover_config].nil?
+        data['sources'] = List____listOfSource.stub(stub[:sources]) unless stub[:sources].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['vpcInterfaces'] = Stubs::List____listOfVpcInterface.stub(stub[:vpc_interfaces]) unless stub[:vpc_interfaces].nil?
-        data['maintenance'] = Stubs::Maintenance.stub(stub[:maintenance]) unless stub[:maintenance].nil?
+        data['vpcInterfaces'] = List____listOfVpcInterface.stub(stub[:vpc_interfaces]) unless stub[:vpc_interfaces].nil?
+        data['maintenance'] = Maintenance.stub(stub[:maintenance]) unless stub[:maintenance].nil?
         data
       end
     end
@@ -785,7 +787,7 @@ module AWS::SDK::MediaConnect
         data = {}
         data['failoverMode'] = stub[:failover_mode] unless stub[:failover_mode].nil?
         data['recoveryWindow'] = stub[:recovery_window] unless stub[:recovery_window].nil?
-        data['sourcePriority'] = Stubs::SourcePriority.stub(stub[:source_priority]) unless stub[:source_priority].nil?
+        data['sourcePriority'] = SourcePriority.stub(stub[:source_priority]) unless stub[:source_priority].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data
       end
@@ -823,7 +825,7 @@ module AWS::SDK::MediaConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Entitlement.stub(element) unless element.nil?
+          data << Entitlement.stub(element) unless element.nil?
         end
         data
       end
@@ -850,11 +852,11 @@ module AWS::SDK::MediaConnect
         data = {}
         data['dataTransferSubscriberFeePercent'] = stub[:data_transfer_subscriber_fee_percent] unless stub[:data_transfer_subscriber_fee_percent].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['encryption'] = Stubs::Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
+        data['encryption'] = Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
         data['entitlementArn'] = stub[:entitlement_arn] unless stub[:entitlement_arn].nil?
         data['entitlementStatus'] = stub[:entitlement_status] unless stub[:entitlement_status].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['subscribers'] = Stubs::List____listOf__string.stub(stub[:subscribers]) unless stub[:subscribers].nil?
+        data['subscribers'] = List____listOf__string.stub(stub[:subscribers]) unless stub[:subscribers].nil?
         data
       end
     end
@@ -874,7 +876,7 @@ module AWS::SDK::MediaConnect
         http_resp.headers['Content-Type'] = 'application/json'
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -891,9 +893,9 @@ module AWS::SDK::MediaConnect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['flow'] = Stubs::Flow.stub(stub[:flow]) unless stub[:flow].nil?
-        data['messages'] = Stubs::Messages.stub(stub[:messages]) unless stub[:messages].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['flow'] = Flow.stub(stub[:flow]) unless stub[:flow].nil?
+        data['messages'] = Messages.stub(stub[:messages]) unless stub[:messages].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -910,7 +912,7 @@ module AWS::SDK::MediaConnect
       def self.stub(stub)
         stub ||= Types::Messages.new
         data = {}
-        data['errors'] = Stubs::List____listOf__string.stub(stub[:errors]) unless stub[:errors].nil?
+        data['errors'] = List____listOf__string.stub(stub[:errors]) unless stub[:errors].nil?
         data
       end
     end
@@ -927,8 +929,8 @@ module AWS::SDK::MediaConnect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['offering'] = Stubs::Offering.stub(stub[:offering]) unless stub[:offering].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['offering'] = Offering.stub(stub[:offering]) unless stub[:offering].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -959,7 +961,7 @@ module AWS::SDK::MediaConnect
         data['offeringDescription'] = stub[:offering_description] unless stub[:offering_description].nil?
         data['pricePerUnit'] = stub[:price_per_unit] unless stub[:price_per_unit].nil?
         data['priceUnits'] = stub[:price_units] unless stub[:price_units].nil?
-        data['resourceSpecification'] = Stubs::ResourceSpecification.stub(stub[:resource_specification]) unless stub[:resource_specification].nil?
+        data['resourceSpecification'] = ResourceSpecification.stub(stub[:resource_specification]) unless stub[:resource_specification].nil?
         data
       end
     end
@@ -996,8 +998,8 @@ module AWS::SDK::MediaConnect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['reservation'] = Stubs::Reservation.stub(stub[:reservation]) unless stub[:reservation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['reservation'] = Reservation.stub(stub[:reservation]) unless stub[:reservation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1037,7 +1039,7 @@ module AWS::SDK::MediaConnect
         data['reservationArn'] = stub[:reservation_arn] unless stub[:reservation_arn].nil?
         data['reservationName'] = stub[:reservation_name] unless stub[:reservation_name].nil?
         data['reservationState'] = stub[:reservation_state] unless stub[:reservation_state].nil?
-        data['resourceSpecification'] = Stubs::ResourceSpecification.stub(stub[:resource_specification]) unless stub[:resource_specification].nil?
+        data['resourceSpecification'] = ResourceSpecification.stub(stub[:resource_specification]) unless stub[:resource_specification].nil?
         data['start'] = stub[:start] unless stub[:start].nil?
         data
       end
@@ -1056,9 +1058,9 @@ module AWS::SDK::MediaConnect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['entitlements'] = Stubs::List____listOfEntitlement.stub(stub[:entitlements]) unless stub[:entitlements].nil?
+        data['entitlements'] = List____listOfEntitlement.stub(stub[:entitlements]) unless stub[:entitlements].nil?
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1075,9 +1077,9 @@ module AWS::SDK::MediaConnect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['entitlements'] = Stubs::List____listOfListedEntitlement.stub(stub[:entitlements]) unless stub[:entitlements].nil?
+        data['entitlements'] = List____listOfListedEntitlement.stub(stub[:entitlements]) unless stub[:entitlements].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1095,7 +1097,7 @@ module AWS::SDK::MediaConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListedEntitlement.stub(element) unless element.nil?
+          data << ListedEntitlement.stub(element) unless element.nil?
         end
         data
       end
@@ -1136,9 +1138,9 @@ module AWS::SDK::MediaConnect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['flows'] = Stubs::List____listOfListedFlow.stub(stub[:flows]) unless stub[:flows].nil?
+        data['flows'] = List____listOfListedFlow.stub(stub[:flows]) unless stub[:flows].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1156,7 +1158,7 @@ module AWS::SDK::MediaConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListedFlow.stub(element) unless element.nil?
+          data << ListedFlow.stub(element) unless element.nil?
         end
         data
       end
@@ -1187,7 +1189,7 @@ module AWS::SDK::MediaConnect
         data['name'] = stub[:name] unless stub[:name].nil?
         data['sourceType'] = stub[:source_type] unless stub[:source_type].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['maintenance'] = Stubs::Maintenance.stub(stub[:maintenance]) unless stub[:maintenance].nil?
+        data['maintenance'] = Maintenance.stub(stub[:maintenance]) unless stub[:maintenance].nil?
         data
       end
     end
@@ -1206,8 +1208,8 @@ module AWS::SDK::MediaConnect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['offerings'] = Stubs::List____listOfOffering.stub(stub[:offerings]) unless stub[:offerings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['offerings'] = List____listOfOffering.stub(stub[:offerings]) unless stub[:offerings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1225,7 +1227,7 @@ module AWS::SDK::MediaConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Offering.stub(element) unless element.nil?
+          data << Offering.stub(element) unless element.nil?
         end
         data
       end
@@ -1245,8 +1247,8 @@ module AWS::SDK::MediaConnect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['reservations'] = Stubs::List____listOfReservation.stub(stub[:reservations]) unless stub[:reservations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['reservations'] = List____listOfReservation.stub(stub[:reservations]) unless stub[:reservations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1264,7 +1266,7 @@ module AWS::SDK::MediaConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Reservation.stub(element) unless element.nil?
+          data << Reservation.stub(element) unless element.nil?
         end
         data
       end
@@ -1282,8 +1284,8 @@ module AWS::SDK::MediaConnect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1319,8 +1321,8 @@ module AWS::SDK::MediaConnect
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['reservation'] = Stubs::Reservation.stub(stub[:reservation]) unless stub[:reservation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['reservation'] = Reservation.stub(stub[:reservation]) unless stub[:reservation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1339,7 +1341,7 @@ module AWS::SDK::MediaConnect
         http_resp.headers['Content-Type'] = 'application/json'
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
         data['mediaStreamName'] = stub[:media_stream_name] unless stub[:media_stream_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1358,7 +1360,7 @@ module AWS::SDK::MediaConnect
         http_resp.headers['Content-Type'] = 'application/json'
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
         data['outputArn'] = stub[:output_arn] unless stub[:output_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1377,7 +1379,7 @@ module AWS::SDK::MediaConnect
         http_resp.headers['Content-Type'] = 'application/json'
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
         data['sourceArn'] = stub[:source_arn] unless stub[:source_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1396,9 +1398,9 @@ module AWS::SDK::MediaConnect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
-        data['nonDeletedNetworkInterfaceIds'] = Stubs::List____listOf__string.stub(stub[:non_deleted_network_interface_ids]) unless stub[:non_deleted_network_interface_ids].nil?
+        data['nonDeletedNetworkInterfaceIds'] = List____listOf__string.stub(stub[:non_deleted_network_interface_ids]) unless stub[:non_deleted_network_interface_ids].nil?
         data['vpcInterfaceName'] = stub[:vpc_interface_name] unless stub[:vpc_interface_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1417,7 +1419,7 @@ module AWS::SDK::MediaConnect
         http_resp.headers['Content-Type'] = 'application/json'
         data['entitlementArn'] = stub[:entitlement_arn] unless stub[:entitlement_arn].nil?
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1436,7 +1438,7 @@ module AWS::SDK::MediaConnect
         http_resp.headers['Content-Type'] = 'application/json'
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1455,7 +1457,7 @@ module AWS::SDK::MediaConnect
         http_resp.headers['Content-Type'] = 'application/json'
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1497,8 +1499,8 @@ module AWS::SDK::MediaConnect
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['flow'] = Stubs::Flow.stub(stub[:flow]) unless stub[:flow].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['flow'] = Flow.stub(stub[:flow]) unless stub[:flow].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1515,9 +1517,9 @@ module AWS::SDK::MediaConnect
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['entitlement'] = Stubs::Entitlement.stub(stub[:entitlement]) unless stub[:entitlement].nil?
+        data['entitlement'] = Entitlement.stub(stub[:entitlement]) unless stub[:entitlement].nil?
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1535,8 +1537,8 @@ module AWS::SDK::MediaConnect
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
-        data['mediaStream'] = Stubs::MediaStream.stub(stub[:media_stream]) unless stub[:media_stream].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['mediaStream'] = MediaStream.stub(stub[:media_stream]) unless stub[:media_stream].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1554,8 +1556,8 @@ module AWS::SDK::MediaConnect
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
-        data['output'] = Stubs::Output.stub(stub[:output]) unless stub[:output].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['output'] = Output.stub(stub[:output]) unless stub[:output].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1573,8 +1575,8 @@ module AWS::SDK::MediaConnect
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
         data['flowArn'] = stub[:flow_arn] unless stub[:flow_arn].nil?
-        data['source'] = Stubs::Source.stub(stub[:source]) unless stub[:source].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['source'] = Source.stub(stub[:source]) unless stub[:source].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

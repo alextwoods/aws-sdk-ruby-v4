@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DLM
   module Builders
 
@@ -23,9 +25,9 @@ module AWS::SDK::DLM
         data['ExecutionRoleArn'] = input[:execution_role_arn] unless input[:execution_role_arn].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['State'] = input[:state] unless input[:state].nil?
-        data['PolicyDetails'] = Builders::PolicyDetails.build(input[:policy_details]) unless input[:policy_details].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PolicyDetails'] = PolicyDetails.build(input[:policy_details]) unless input[:policy_details].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -45,13 +47,13 @@ module AWS::SDK::DLM
       def self.build(input)
         data = {}
         data['PolicyType'] = input[:policy_type] unless input[:policy_type].nil?
-        data['ResourceTypes'] = Builders::ResourceTypeValuesList.build(input[:resource_types]) unless input[:resource_types].nil?
-        data['ResourceLocations'] = Builders::ResourceLocationList.build(input[:resource_locations]) unless input[:resource_locations].nil?
-        data['TargetTags'] = Builders::TargetTagList.build(input[:target_tags]) unless input[:target_tags].nil?
-        data['Schedules'] = Builders::ScheduleList.build(input[:schedules]) unless input[:schedules].nil?
-        data['Parameters'] = Builders::Parameters.build(input[:parameters]) unless input[:parameters].nil?
-        data['EventSource'] = Builders::EventSource.build(input[:event_source]) unless input[:event_source].nil?
-        data['Actions'] = Builders::ActionList.build(input[:actions]) unless input[:actions].nil?
+        data['ResourceTypes'] = ResourceTypeValuesList.build(input[:resource_types]) unless input[:resource_types].nil?
+        data['ResourceLocations'] = ResourceLocationList.build(input[:resource_locations]) unless input[:resource_locations].nil?
+        data['TargetTags'] = TargetTagList.build(input[:target_tags]) unless input[:target_tags].nil?
+        data['Schedules'] = ScheduleList.build(input[:schedules]) unless input[:schedules].nil?
+        data['Parameters'] = Parameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['EventSource'] = EventSource.build(input[:event_source]) unless input[:event_source].nil?
+        data['Actions'] = ActionList.build(input[:actions]) unless input[:actions].nil?
         data
       end
     end
@@ -61,7 +63,7 @@ module AWS::SDK::DLM
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Action.build(element) unless element.nil?
+          data << Action.build(element) unless element.nil?
         end
         data
       end
@@ -72,7 +74,7 @@ module AWS::SDK::DLM
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['CrossRegionCopy'] = Builders::CrossRegionCopyActionList.build(input[:cross_region_copy]) unless input[:cross_region_copy].nil?
+        data['CrossRegionCopy'] = CrossRegionCopyActionList.build(input[:cross_region_copy]) unless input[:cross_region_copy].nil?
         data
       end
     end
@@ -82,7 +84,7 @@ module AWS::SDK::DLM
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CrossRegionCopyAction.build(element) unless element.nil?
+          data << CrossRegionCopyAction.build(element) unless element.nil?
         end
         data
       end
@@ -93,8 +95,8 @@ module AWS::SDK::DLM
       def self.build(input)
         data = {}
         data['Target'] = input[:target] unless input[:target].nil?
-        data['EncryptionConfiguration'] = Builders::EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
-        data['RetainRule'] = Builders::CrossRegionCopyRetainRule.build(input[:retain_rule]) unless input[:retain_rule].nil?
+        data['EncryptionConfiguration'] = EncryptionConfiguration.build(input[:encryption_configuration]) unless input[:encryption_configuration].nil?
+        data['RetainRule'] = CrossRegionCopyRetainRule.build(input[:retain_rule]) unless input[:retain_rule].nil?
         data
       end
     end
@@ -124,7 +126,7 @@ module AWS::SDK::DLM
       def self.build(input)
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
-        data['Parameters'] = Builders::EventParameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['Parameters'] = EventParameters.build(input[:parameters]) unless input[:parameters].nil?
         data
       end
     end
@@ -134,7 +136,7 @@ module AWS::SDK::DLM
       def self.build(input)
         data = {}
         data['EventType'] = input[:event_type] unless input[:event_type].nil?
-        data['SnapshotOwner'] = Builders::SnapshotOwnerList.build(input[:snapshot_owner]) unless input[:snapshot_owner].nil?
+        data['SnapshotOwner'] = SnapshotOwnerList.build(input[:snapshot_owner]) unless input[:snapshot_owner].nil?
         data['DescriptionRegex'] = input[:description_regex] unless input[:description_regex].nil?
         data
       end
@@ -166,7 +168,7 @@ module AWS::SDK::DLM
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Schedule.build(element) unless element.nil?
+          data << Schedule.build(element) unless element.nil?
         end
         data
       end
@@ -178,14 +180,14 @@ module AWS::SDK::DLM
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['CopyTags'] = input[:copy_tags] unless input[:copy_tags].nil?
-        data['TagsToAdd'] = Builders::TagsToAddList.build(input[:tags_to_add]) unless input[:tags_to_add].nil?
-        data['VariableTags'] = Builders::VariableTagsList.build(input[:variable_tags]) unless input[:variable_tags].nil?
-        data['CreateRule'] = Builders::CreateRule.build(input[:create_rule]) unless input[:create_rule].nil?
-        data['RetainRule'] = Builders::RetainRule.build(input[:retain_rule]) unless input[:retain_rule].nil?
-        data['FastRestoreRule'] = Builders::FastRestoreRule.build(input[:fast_restore_rule]) unless input[:fast_restore_rule].nil?
-        data['CrossRegionCopyRules'] = Builders::CrossRegionCopyRules.build(input[:cross_region_copy_rules]) unless input[:cross_region_copy_rules].nil?
-        data['ShareRules'] = Builders::ShareRules.build(input[:share_rules]) unless input[:share_rules].nil?
-        data['DeprecateRule'] = Builders::DeprecateRule.build(input[:deprecate_rule]) unless input[:deprecate_rule].nil?
+        data['TagsToAdd'] = TagsToAddList.build(input[:tags_to_add]) unless input[:tags_to_add].nil?
+        data['VariableTags'] = VariableTagsList.build(input[:variable_tags]) unless input[:variable_tags].nil?
+        data['CreateRule'] = CreateRule.build(input[:create_rule]) unless input[:create_rule].nil?
+        data['RetainRule'] = RetainRule.build(input[:retain_rule]) unless input[:retain_rule].nil?
+        data['FastRestoreRule'] = FastRestoreRule.build(input[:fast_restore_rule]) unless input[:fast_restore_rule].nil?
+        data['CrossRegionCopyRules'] = CrossRegionCopyRules.build(input[:cross_region_copy_rules]) unless input[:cross_region_copy_rules].nil?
+        data['ShareRules'] = ShareRules.build(input[:share_rules]) unless input[:share_rules].nil?
+        data['DeprecateRule'] = DeprecateRule.build(input[:deprecate_rule]) unless input[:deprecate_rule].nil?
         data
       end
     end
@@ -206,7 +208,7 @@ module AWS::SDK::DLM
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ShareRule.build(element) unless element.nil?
+          data << ShareRule.build(element) unless element.nil?
         end
         data
       end
@@ -216,7 +218,7 @@ module AWS::SDK::DLM
     class ShareRule
       def self.build(input)
         data = {}
-        data['TargetAccounts'] = Builders::ShareTargetAccountList.build(input[:target_accounts]) unless input[:target_accounts].nil?
+        data['TargetAccounts'] = ShareTargetAccountList.build(input[:target_accounts]) unless input[:target_accounts].nil?
         data['UnshareInterval'] = input[:unshare_interval] unless input[:unshare_interval].nil?
         data['UnshareIntervalUnit'] = input[:unshare_interval_unit] unless input[:unshare_interval_unit].nil?
         data
@@ -239,7 +241,7 @@ module AWS::SDK::DLM
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CrossRegionCopyRule.build(element) unless element.nil?
+          data << CrossRegionCopyRule.build(element) unless element.nil?
         end
         data
       end
@@ -254,8 +256,8 @@ module AWS::SDK::DLM
         data['Encrypted'] = input[:encrypted] unless input[:encrypted].nil?
         data['CmkArn'] = input[:cmk_arn] unless input[:cmk_arn].nil?
         data['CopyTags'] = input[:copy_tags] unless input[:copy_tags].nil?
-        data['RetainRule'] = Builders::CrossRegionCopyRetainRule.build(input[:retain_rule]) unless input[:retain_rule].nil?
-        data['DeprecateRule'] = Builders::CrossRegionCopyDeprecateRule.build(input[:deprecate_rule]) unless input[:deprecate_rule].nil?
+        data['RetainRule'] = CrossRegionCopyRetainRule.build(input[:retain_rule]) unless input[:retain_rule].nil?
+        data['DeprecateRule'] = CrossRegionCopyDeprecateRule.build(input[:deprecate_rule]) unless input[:deprecate_rule].nil?
         data
       end
     end
@@ -277,7 +279,7 @@ module AWS::SDK::DLM
         data['Count'] = input[:count] unless input[:count].nil?
         data['Interval'] = input[:interval] unless input[:interval].nil?
         data['IntervalUnit'] = input[:interval_unit] unless input[:interval_unit].nil?
-        data['AvailabilityZones'] = Builders::AvailabilityZoneList.build(input[:availability_zones]) unless input[:availability_zones].nil?
+        data['AvailabilityZones'] = AvailabilityZoneList.build(input[:availability_zones]) unless input[:availability_zones].nil?
         data
       end
     end
@@ -311,7 +313,7 @@ module AWS::SDK::DLM
         data['Location'] = input[:location] unless input[:location].nil?
         data['Interval'] = input[:interval] unless input[:interval].nil?
         data['IntervalUnit'] = input[:interval_unit] unless input[:interval_unit].nil?
-        data['Times'] = Builders::TimesList.build(input[:times]) unless input[:times].nil?
+        data['Times'] = TimesList.build(input[:times]) unless input[:times].nil?
         data['CronExpression'] = input[:cron_expression] unless input[:cron_expression].nil?
         data
       end
@@ -333,7 +335,7 @@ module AWS::SDK::DLM
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -354,7 +356,7 @@ module AWS::SDK::DLM
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -365,7 +367,7 @@ module AWS::SDK::DLM
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -525,8 +527,8 @@ module AWS::SDK::DLM
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -583,8 +585,8 @@ module AWS::SDK::DLM
         data['ExecutionRoleArn'] = input[:execution_role_arn] unless input[:execution_role_arn].nil?
         data['State'] = input[:state] unless input[:state].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['PolicyDetails'] = Builders::PolicyDetails.build(input[:policy_details]) unless input[:policy_details].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PolicyDetails'] = PolicyDetails.build(input[:policy_details]) unless input[:policy_details].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

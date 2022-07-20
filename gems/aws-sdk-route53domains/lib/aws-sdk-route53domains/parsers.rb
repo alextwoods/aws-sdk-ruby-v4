@@ -101,7 +101,7 @@ module AWS::SDK::Route53Domains
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.transferability = (Parsers::DomainTransferability.parse(map['Transferability']) unless map['Transferability'].nil?)
+        data.transferability = (DomainTransferability.parse(map['Transferability']) unless map['Transferability'].nil?)
         data
       end
     end
@@ -228,11 +228,11 @@ module AWS::SDK::Route53Domains
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.domain_name = map['DomainName']
-        data.nameservers = (Parsers::NameserverList.parse(map['Nameservers']) unless map['Nameservers'].nil?)
+        data.nameservers = (NameserverList.parse(map['Nameservers']) unless map['Nameservers'].nil?)
         data.auto_renew = map['AutoRenew']
-        data.admin_contact = (Parsers::ContactDetail.parse(map['AdminContact']) unless map['AdminContact'].nil?)
-        data.registrant_contact = (Parsers::ContactDetail.parse(map['RegistrantContact']) unless map['RegistrantContact'].nil?)
-        data.tech_contact = (Parsers::ContactDetail.parse(map['TechContact']) unless map['TechContact'].nil?)
+        data.admin_contact = (ContactDetail.parse(map['AdminContact']) unless map['AdminContact'].nil?)
+        data.registrant_contact = (ContactDetail.parse(map['RegistrantContact']) unless map['RegistrantContact'].nil?)
+        data.tech_contact = (ContactDetail.parse(map['TechContact']) unless map['TechContact'].nil?)
         data.admin_privacy = map['AdminPrivacy']
         data.registrant_privacy = map['RegistrantPrivacy']
         data.tech_privacy = map['TechPrivacy']
@@ -247,7 +247,7 @@ module AWS::SDK::Route53Domains
         data.expiration_date = Time.at(map['ExpirationDate'].to_i) if map['ExpirationDate']
         data.reseller = map['Reseller']
         data.dns_sec = map['DnsSec']
-        data.status_list = (Parsers::DomainStatusList.parse(map['StatusList']) unless map['StatusList'].nil?)
+        data.status_list = (DomainStatusList.parse(map['StatusList']) unless map['StatusList'].nil?)
         data
       end
     end
@@ -276,7 +276,7 @@ module AWS::SDK::Route53Domains
         data.phone_number = map['PhoneNumber']
         data.email = map['Email']
         data.fax = map['Fax']
-        data.extra_params = (Parsers::ExtraParamList.parse(map['ExtraParams']) unless map['ExtraParams'].nil?)
+        data.extra_params = (ExtraParamList.parse(map['ExtraParams']) unless map['ExtraParams'].nil?)
         return data
       end
     end
@@ -284,7 +284,7 @@ module AWS::SDK::Route53Domains
     class ExtraParamList
       def self.parse(list)
         list.map do |value|
-          Parsers::ExtraParam.parse(value) unless value.nil?
+          ExtraParam.parse(value) unless value.nil?
         end
       end
     end
@@ -301,7 +301,7 @@ module AWS::SDK::Route53Domains
     class NameserverList
       def self.parse(list)
         list.map do |value|
-          Parsers::Nameserver.parse(value) unless value.nil?
+          Nameserver.parse(value) unless value.nil?
         end
       end
     end
@@ -310,7 +310,7 @@ module AWS::SDK::Route53Domains
       def self.parse(map)
         data = Types::Nameserver.new
         data.name = map['Name']
-        data.glue_ips = (Parsers::GlueIpList.parse(map['GlueIps']) unless map['GlueIps'].nil?)
+        data.glue_ips = (GlueIpList.parse(map['GlueIps']) unless map['GlueIps'].nil?)
         return data
       end
     end
@@ -330,7 +330,7 @@ module AWS::SDK::Route53Domains
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.suggestions_list = (Parsers::DomainSuggestionsList.parse(map['SuggestionsList']) unless map['SuggestionsList'].nil?)
+        data.suggestions_list = (DomainSuggestionsList.parse(map['SuggestionsList']) unless map['SuggestionsList'].nil?)
         data
       end
     end
@@ -338,7 +338,7 @@ module AWS::SDK::Route53Domains
     class DomainSuggestionsList
       def self.parse(list)
         list.map do |value|
-          Parsers::DomainSuggestion.parse(value) unless value.nil?
+          DomainSuggestion.parse(value) unless value.nil?
         end
       end
     end
@@ -376,7 +376,7 @@ module AWS::SDK::Route53Domains
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.domains = (Parsers::DomainSummaryList.parse(map['Domains']) unless map['Domains'].nil?)
+        data.domains = (DomainSummaryList.parse(map['Domains']) unless map['Domains'].nil?)
         data.next_page_marker = map['NextPageMarker']
         data
       end
@@ -385,7 +385,7 @@ module AWS::SDK::Route53Domains
     class DomainSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::DomainSummary.parse(value) unless value.nil?
+          DomainSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -408,7 +408,7 @@ module AWS::SDK::Route53Domains
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operations = (Parsers::OperationSummaryList.parse(map['Operations']) unless map['Operations'].nil?)
+        data.operations = (OperationSummaryList.parse(map['Operations']) unless map['Operations'].nil?)
         data.next_page_marker = map['NextPageMarker']
         data
       end
@@ -417,7 +417,7 @@ module AWS::SDK::Route53Domains
     class OperationSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::OperationSummary.parse(value) unless value.nil?
+          OperationSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -440,7 +440,7 @@ module AWS::SDK::Route53Domains
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.prices = (Parsers::DomainPriceList.parse(map['Prices']) unless map['Prices'].nil?)
+        data.prices = (DomainPriceList.parse(map['Prices']) unless map['Prices'].nil?)
         data.next_page_marker = map['NextPageMarker']
         data
       end
@@ -449,7 +449,7 @@ module AWS::SDK::Route53Domains
     class DomainPriceList
       def self.parse(list)
         list.map do |value|
-          Parsers::DomainPrice.parse(value) unless value.nil?
+          DomainPrice.parse(value) unless value.nil?
         end
       end
     end
@@ -458,11 +458,11 @@ module AWS::SDK::Route53Domains
       def self.parse(map)
         data = Types::DomainPrice.new
         data.name = map['Name']
-        data.registration_price = (Parsers::PriceWithCurrency.parse(map['RegistrationPrice']) unless map['RegistrationPrice'].nil?)
-        data.transfer_price = (Parsers::PriceWithCurrency.parse(map['TransferPrice']) unless map['TransferPrice'].nil?)
-        data.renewal_price = (Parsers::PriceWithCurrency.parse(map['RenewalPrice']) unless map['RenewalPrice'].nil?)
-        data.change_ownership_price = (Parsers::PriceWithCurrency.parse(map['ChangeOwnershipPrice']) unless map['ChangeOwnershipPrice'].nil?)
-        data.restoration_price = (Parsers::PriceWithCurrency.parse(map['RestorationPrice']) unless map['RestorationPrice'].nil?)
+        data.registration_price = (PriceWithCurrency.parse(map['RegistrationPrice']) unless map['RegistrationPrice'].nil?)
+        data.transfer_price = (PriceWithCurrency.parse(map['TransferPrice']) unless map['TransferPrice'].nil?)
+        data.renewal_price = (PriceWithCurrency.parse(map['RenewalPrice']) unless map['RenewalPrice'].nil?)
+        data.change_ownership_price = (PriceWithCurrency.parse(map['ChangeOwnershipPrice']) unless map['ChangeOwnershipPrice'].nil?)
+        data.restoration_price = (PriceWithCurrency.parse(map['RestorationPrice']) unless map['RestorationPrice'].nil?)
         return data
       end
     end
@@ -483,7 +483,7 @@ module AWS::SDK::Route53Domains
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tag_list = (Parsers::TagList.parse(map['TagList']) unless map['TagList'].nil?)
+        data.tag_list = (TagList.parse(map['TagList']) unless map['TagList'].nil?)
         data
       end
     end
@@ -491,7 +491,7 @@ module AWS::SDK::Route53Domains
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -647,7 +647,7 @@ module AWS::SDK::Route53Domains
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_page_marker = map['NextPageMarker']
-        data.billing_records = (Parsers::BillingRecords.parse(map['BillingRecords']) unless map['BillingRecords'].nil?)
+        data.billing_records = (BillingRecords.parse(map['BillingRecords']) unless map['BillingRecords'].nil?)
         data
       end
     end
@@ -655,7 +655,7 @@ module AWS::SDK::Route53Domains
     class BillingRecords
       def self.parse(list)
         list.map do |value|
-          Parsers::BillingRecord.parse(value) unless value.nil?
+          BillingRecord.parse(value) unless value.nil?
         end
       end
     end

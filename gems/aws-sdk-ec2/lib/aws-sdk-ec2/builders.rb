@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::EC2
   module Builders
 
@@ -21,9 +24,9 @@ module AWS::SDK::EC2
         params['Action'] = 'AcceptReservedInstancesExchangeQuote'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::ReservedInstanceIdSet.build(input[:reserved_instance_ids], params, context: context + 'ReservedInstanceId') unless input[:reserved_instance_ids].nil?
-        Builders::TargetConfigurationRequestSet.build(input[:target_configurations], params, context: context + 'TargetConfiguration') unless input[:target_configurations].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ReservedInstanceIdSet.build(input[:reserved_instance_ids], params, context: context + 'ReservedInstanceId') unless input[:reserved_instance_ids].nil?
+        TargetConfigurationRequestSet.build(input[:target_configurations], params, context: context + 'TargetConfiguration') unless input[:target_configurations].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -31,7 +34,7 @@ module AWS::SDK::EC2
     class TargetConfigurationRequestSet
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::TargetConfigurationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          TargetConfigurationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -65,9 +68,9 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayMulticastDomainId'] = input[:transit_gateway_multicast_domain_id].to_s unless input[:transit_gateway_multicast_domain_id].nil?
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
-        Builders::ValueStringList.build(input[:subnet_ids], params, context: context + 'SubnetIds') unless input[:subnet_ids].nil?
+        ValueStringList.build(input[:subnet_ids], params, context: context + 'SubnetIds') unless input[:subnet_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -92,7 +95,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -108,7 +111,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -124,8 +127,8 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ServiceId'] = input[:service_id].to_s unless input[:service_id].nil?
-        Builders::VpcEndpointIdList.build(input[:vpc_endpoint_ids], params, context: context + 'VpcEndpointId') unless input[:vpc_endpoint_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        VpcEndpointIdList.build(input[:vpc_endpoint_ids], params, context: context + 'VpcEndpointId') unless input[:vpc_endpoint_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -150,7 +153,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'VpcPeeringConnectionId'] = input[:vpc_peering_connection_id].to_s unless input[:vpc_peering_connection_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -166,7 +169,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'Cidr'] = input[:cidr].to_s unless input[:cidr].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -186,8 +189,8 @@ module AWS::SDK::EC2
         params[context + 'NetworkBorderGroup'] = input[:network_border_group].to_s unless input[:network_border_group].nil?
         params[context + 'CustomerOwnedIpv4Pool'] = input[:customer_owned_ipv4_pool].to_s unless input[:customer_owned_ipv4_pool].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -195,7 +198,7 @@ module AWS::SDK::EC2
     class TagSpecificationList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::TagSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          TagSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -204,7 +207,7 @@ module AWS::SDK::EC2
     class TagSpecification
       def self.build(input, params, context: nil)
         params[context + 'ResourceType'] = input[:resource_type].to_s unless input[:resource_type].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tag') unless input[:tags].nil?
+        TagList.build(input[:tags], params, context: context + 'Tag') unless input[:tags].nil?
       end
     end
 
@@ -212,7 +215,7 @@ module AWS::SDK::EC2
     class TagList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -241,10 +244,10 @@ module AWS::SDK::EC2
         params[context + 'InstanceType'] = input[:instance_type].to_s unless input[:instance_type].nil?
         params[context + 'InstanceFamily'] = input[:instance_family].to_s unless input[:instance_family].nil?
         params[context + 'Quantity'] = input[:quantity].to_s unless input[:quantity].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'HostRecovery'] = input[:host_recovery].to_s unless input[:host_recovery].nil?
         params[context + 'OutpostArn'] = input[:outpost_arn].to_s unless input[:outpost_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -265,8 +268,8 @@ module AWS::SDK::EC2
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'PreviewNextCidr'] = input[:preview_next_cidr].to_s unless input[:preview_next_cidr].nil?
-        Builders::IpamPoolAllocationDisallowedCidrs.build(input[:disallowed_cidrs], params, context: context + 'DisallowedCidr') unless input[:disallowed_cidrs].nil?
-        http_req.body = StringIO.new(params.to_s)
+        IpamPoolAllocationDisallowedCidrs.build(input[:disallowed_cidrs], params, context: context + 'DisallowedCidr') unless input[:disallowed_cidrs].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -291,9 +294,9 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'ClientVpnEndpointId'] = input[:client_vpn_endpoint_id].to_s unless input[:client_vpn_endpoint_id].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        Builders::ClientVpnSecurityGroupIdSet.build(input[:security_group_ids], params, context: context + 'SecurityGroupId') unless input[:security_group_ids].nil?
+        ClientVpnSecurityGroupIdSet.build(input[:security_group_ids], params, context: context + 'SecurityGroupId') unless input[:security_group_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -317,11 +320,11 @@ module AWS::SDK::EC2
         params['Action'] = 'AssignIpv6Addresses'
         params['Version'] = '2016-11-15'
         params[context + 'Ipv6AddressCount'] = input[:ipv6_address_count].to_s unless input[:ipv6_address_count].nil?
-        Builders::Ipv6AddressList.build(input[:ipv6_addresses], params, context: context + 'ipv6Addresses') unless input[:ipv6_addresses].nil?
+        Ipv6AddressList.build(input[:ipv6_addresses], params, context: context + 'ipv6Addresses') unless input[:ipv6_addresses].nil?
         params[context + 'Ipv6PrefixCount'] = input[:ipv6_prefix_count].to_s unless input[:ipv6_prefix_count].nil?
-        Builders::IpPrefixList.build(input[:ipv6_prefixes], params, context: context + 'Ipv6Prefix') unless input[:ipv6_prefixes].nil?
+        IpPrefixList.build(input[:ipv6_prefixes], params, context: context + 'Ipv6Prefix') unless input[:ipv6_prefixes].nil?
         params[context + 'NetworkInterfaceId'] = input[:network_interface_id].to_s unless input[:network_interface_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -355,11 +358,11 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'AllowReassignment'] = input[:allow_reassignment].to_s unless input[:allow_reassignment].nil?
         params[context + 'NetworkInterfaceId'] = input[:network_interface_id].to_s unless input[:network_interface_id].nil?
-        Builders::PrivateIpAddressStringList.build(input[:private_ip_addresses], params, context: context + 'privateIpAddress') unless input[:private_ip_addresses].nil?
+        PrivateIpAddressStringList.build(input[:private_ip_addresses], params, context: context + 'privateIpAddress') unless input[:private_ip_addresses].nil?
         params[context + 'SecondaryPrivateIpAddressCount'] = input[:secondary_private_ip_address_count].to_s unless input[:secondary_private_ip_address_count].nil?
-        Builders::IpPrefixList.build(input[:ipv4_prefixes], params, context: context + 'Ipv4Prefix') unless input[:ipv4_prefixes].nil?
+        IpPrefixList.build(input[:ipv4_prefixes], params, context: context + 'Ipv4Prefix') unless input[:ipv4_prefixes].nil?
         params[context + 'Ipv4PrefixCount'] = input[:ipv4_prefix_count].to_s unless input[:ipv4_prefix_count].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -389,7 +392,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NetworkInterfaceId'] = input[:network_interface_id].to_s unless input[:network_interface_id].nil?
         params[context + 'PrivateIpAddress'] = input[:private_ip_address].to_s unless input[:private_ip_address].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -407,7 +410,7 @@ module AWS::SDK::EC2
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -424,7 +427,7 @@ module AWS::SDK::EC2
         params[context + 'DhcpOptionsId'] = input[:dhcp_options_id].to_s unless input[:dhcp_options_id].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -441,7 +444,7 @@ module AWS::SDK::EC2
         params[context + 'CertificateArn'] = input[:certificate_arn].to_s unless input[:certificate_arn].nil?
         params[context + 'RoleArn'] = input[:role_arn].to_s unless input[:role_arn].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -455,9 +458,9 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'AssociateIamInstanceProfile'
         params['Version'] = '2016-11-15'
-        Builders::IamInstanceProfileSpecification.build(input[:iam_instance_profile], params, context: context + 'IamInstanceProfile' + '.') unless input[:iam_instance_profile].nil?
+        IamInstanceProfileSpecification.build(input[:iam_instance_profile], params, context: context + 'IamInstanceProfile' + '.') unless input[:iam_instance_profile].nil?
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -481,17 +484,17 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InstanceEventWindowId'] = input[:instance_event_window_id].to_s unless input[:instance_event_window_id].nil?
-        Builders::InstanceEventWindowAssociationRequest.build(input[:association_target], params, context: context + 'AssociationTarget' + '.') unless input[:association_target].nil?
-        http_req.body = StringIO.new(params.to_s)
+        InstanceEventWindowAssociationRequest.build(input[:association_target], params, context: context + 'AssociationTarget' + '.') unless input[:association_target].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
     # Structure Builder for InstanceEventWindowAssociationRequest
     class InstanceEventWindowAssociationRequest
       def self.build(input, params, context: nil)
-        Builders::InstanceIdList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
-        Builders::TagList.build(input[:instance_tags], params, context: context + 'InstanceTag') unless input[:instance_tags].nil?
-        Builders::DedicatedHostIdList.build(input[:dedicated_host_ids], params, context: context + 'DedicatedHostId') unless input[:dedicated_host_ids].nil?
+        InstanceIdList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
+        TagList.build(input[:instance_tags], params, context: context + 'InstanceTag') unless input[:instance_tags].nil?
+        DedicatedHostIdList.build(input[:dedicated_host_ids], params, context: context + 'DedicatedHostId') unless input[:dedicated_host_ids].nil?
       end
     end
 
@@ -527,7 +530,7 @@ module AWS::SDK::EC2
         params[context + 'RouteTableId'] = input[:route_table_id].to_s unless input[:route_table_id].nil?
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
         params[context + 'GatewayId'] = input[:gateway_id].to_s unless input[:gateway_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -543,7 +546,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'Ipv6CidrBlock'] = input[:ipv6_cidr_block].to_s unless input[:ipv6_cidr_block].nil?
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -559,9 +562,9 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayMulticastDomainId'] = input[:transit_gateway_multicast_domain_id].to_s unless input[:transit_gateway_multicast_domain_id].nil?
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
-        Builders::TransitGatewaySubnetIdList.build(input[:subnet_ids], params, context: context + 'SubnetIds') unless input[:subnet_ids].nil?
+        TransitGatewaySubnetIdList.build(input[:subnet_ids], params, context: context + 'SubnetIds') unless input[:subnet_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -587,7 +590,7 @@ module AWS::SDK::EC2
         params[context + 'TransitGatewayRouteTableId'] = input[:transit_gateway_route_table_id].to_s unless input[:transit_gateway_route_table_id].nil?
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -607,7 +610,7 @@ module AWS::SDK::EC2
         params[context + 'GreKey'] = input[:gre_key].to_s unless input[:gre_key].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -631,7 +634,7 @@ module AWS::SDK::EC2
         params[context + 'Ipv4NetmaskLength'] = input[:ipv4_netmask_length].to_s unless input[:ipv4_netmask_length].nil?
         params[context + 'Ipv6IpamPoolId'] = input[:ipv6_ipam_pool_id].to_s unless input[:ipv6_ipam_pool_id].nil?
         params[context + 'Ipv6NetmaskLength'] = input[:ipv6_netmask_length].to_s unless input[:ipv6_netmask_length].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -646,10 +649,10 @@ module AWS::SDK::EC2
         params['Action'] = 'AttachClassicLinkVpc'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::GroupIdStringList.build(input[:groups], params, context: context + 'SecurityGroupId') unless input[:groups].nil?
+        GroupIdStringList.build(input[:groups], params, context: context + 'SecurityGroupId') unless input[:groups].nil?
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -675,7 +678,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InternetGatewayId'] = input[:internet_gateway_id].to_s unless input[:internet_gateway_id].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -694,7 +697,7 @@ module AWS::SDK::EC2
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'NetworkInterfaceId'] = input[:network_interface_id].to_s unless input[:network_interface_id].nil?
         params[context + 'NetworkCardIndex'] = input[:network_card_index].to_s unless input[:network_card_index].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -712,7 +715,7 @@ module AWS::SDK::EC2
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'VolumeId'] = input[:volume_id].to_s unless input[:volume_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -729,7 +732,7 @@ module AWS::SDK::EC2
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
         params[context + 'VpnGatewayId'] = input[:vpn_gateway_id].to_s unless input[:vpn_gateway_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -750,7 +753,7 @@ module AWS::SDK::EC2
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -766,15 +769,15 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'GroupId'] = input[:group_id].to_s unless input[:group_id].nil?
-        Builders::IpPermissionList.build(input[:ip_permissions], params, context: context + 'ipPermissions') unless input[:ip_permissions].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        IpPermissionList.build(input[:ip_permissions], params, context: context + 'ipPermissions') unless input[:ip_permissions].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'CidrIp'] = input[:cidr_ip].to_s unless input[:cidr_ip].nil?
         params[context + 'FromPort'] = input[:from_port].to_s unless input[:from_port].nil?
         params[context + 'IpProtocol'] = input[:ip_protocol].to_s unless input[:ip_protocol].nil?
         params[context + 'ToPort'] = input[:to_port].to_s unless input[:to_port].nil?
         params[context + 'SourceSecurityGroupName'] = input[:source_security_group_name].to_s unless input[:source_security_group_name].nil?
         params[context + 'SourceSecurityGroupOwnerId'] = input[:source_security_group_owner_id].to_s unless input[:source_security_group_owner_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -782,7 +785,7 @@ module AWS::SDK::EC2
     class IpPermissionList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::IpPermission.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          IpPermission.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -792,11 +795,11 @@ module AWS::SDK::EC2
       def self.build(input, params, context: nil)
         params[context + 'FromPort'] = input[:from_port].to_s unless input[:from_port].nil?
         params[context + 'IpProtocol'] = input[:ip_protocol].to_s unless input[:ip_protocol].nil?
-        Builders::IpRangeList.build(input[:ip_ranges], params, context: context + 'ipRanges') unless input[:ip_ranges].nil?
-        Builders::Ipv6RangeList.build(input[:ipv6_ranges], params, context: context + 'ipv6Ranges') unless input[:ipv6_ranges].nil?
-        Builders::PrefixListIdList.build(input[:prefix_list_ids], params, context: context + 'prefixListIds') unless input[:prefix_list_ids].nil?
+        IpRangeList.build(input[:ip_ranges], params, context: context + 'ipRanges') unless input[:ip_ranges].nil?
+        Ipv6RangeList.build(input[:ipv6_ranges], params, context: context + 'ipv6Ranges') unless input[:ipv6_ranges].nil?
+        PrefixListIdList.build(input[:prefix_list_ids], params, context: context + 'prefixListIds') unless input[:prefix_list_ids].nil?
         params[context + 'ToPort'] = input[:to_port].to_s unless input[:to_port].nil?
-        Builders::UserIdGroupPairList.build(input[:user_id_group_pairs], params, context: context + 'groups') unless input[:user_id_group_pairs].nil?
+        UserIdGroupPairList.build(input[:user_id_group_pairs], params, context: context + 'groups') unless input[:user_id_group_pairs].nil?
       end
     end
 
@@ -804,7 +807,7 @@ module AWS::SDK::EC2
     class UserIdGroupPairList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::UserIdGroupPair.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          UserIdGroupPair.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -826,7 +829,7 @@ module AWS::SDK::EC2
     class PrefixListIdList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::PrefixListId.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          PrefixListId.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -843,7 +846,7 @@ module AWS::SDK::EC2
     class Ipv6RangeList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Ipv6Range.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Ipv6Range.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -860,7 +863,7 @@ module AWS::SDK::EC2
     class IpRangeList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::IpRange.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          IpRange.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -887,14 +890,14 @@ module AWS::SDK::EC2
         params[context + 'FromPort'] = input[:from_port].to_s unless input[:from_port].nil?
         params[context + 'GroupId'] = input[:group_id].to_s unless input[:group_id].nil?
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
-        Builders::IpPermissionList.build(input[:ip_permissions], params, context: context + 'IpPermissions') unless input[:ip_permissions].nil?
+        IpPermissionList.build(input[:ip_permissions], params, context: context + 'IpPermissions') unless input[:ip_permissions].nil?
         params[context + 'IpProtocol'] = input[:ip_protocol].to_s unless input[:ip_protocol].nil?
         params[context + 'SourceSecurityGroupName'] = input[:source_security_group_name].to_s unless input[:source_security_group_name].nil?
         params[context + 'SourceSecurityGroupOwnerId'] = input[:source_security_group_owner_id].to_s unless input[:source_security_group_owner_id].nil?
         params[context + 'ToPort'] = input[:to_port].to_s unless input[:to_port].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -909,16 +912,16 @@ module AWS::SDK::EC2
         params['Action'] = 'BundleInstance'
         params['Version'] = '2016-11-15'
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
-        Builders::Storage.build(input[:storage], params, context: context + 'Storage' + '.') unless input[:storage].nil?
+        Storage.build(input[:storage], params, context: context + 'Storage' + '.') unless input[:storage].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
     # Structure Builder for Storage
     class Storage
       def self.build(input, params, context: nil)
-        Builders::S3Storage.build(input[:s3], params, context: context + 'S3' + '.') unless input[:s3].nil?
+        S3Storage.build(input[:s3], params, context: context + 'S3' + '.') unless input[:s3].nil?
       end
     end
 
@@ -928,7 +931,7 @@ module AWS::SDK::EC2
         params[context + 'AWSAccessKeyId'] = input[:aws_access_key_id].to_s unless input[:aws_access_key_id].nil?
         params[context + 'Bucket'] = input[:bucket].to_s unless input[:bucket].nil?
         params[context + 'Prefix'] = input[:prefix].to_s unless input[:prefix].nil?
-        params[context + 'UploadPolicy'] = Base64::encode64(input[:upload_policy]).strip unless input[:upload_policy].nil?
+        params[context + 'UploadPolicy'] = ::Base64::encode64(input[:upload_policy]).strip unless input[:upload_policy].nil?
         params[context + 'UploadPolicySignature'] = input[:upload_policy_signature].to_s unless input[:upload_policy_signature].nil?
       end
     end
@@ -945,7 +948,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'BundleId'] = input[:bundle_id].to_s unless input[:bundle_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -961,7 +964,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'CapacityReservationId'] = input[:capacity_reservation_id].to_s unless input[:capacity_reservation_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -976,8 +979,8 @@ module AWS::SDK::EC2
         params['Action'] = 'CancelCapacityReservationFleets'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::CapacityReservationFleetIdSet.build(input[:capacity_reservation_fleet_ids], params, context: context + 'CapacityReservationFleetId') unless input[:capacity_reservation_fleet_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        CapacityReservationFleetIdSet.build(input[:capacity_reservation_fleet_ids], params, context: context + 'CapacityReservationFleetId') unless input[:capacity_reservation_fleet_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1003,7 +1006,7 @@ module AWS::SDK::EC2
         params[context + 'ConversionTaskId'] = input[:conversion_task_id].to_s unless input[:conversion_task_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ReasonMessage'] = input[:reason_message].to_s unless input[:reason_message].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1018,7 +1021,7 @@ module AWS::SDK::EC2
         params['Action'] = 'CancelExportTask'
         params['Version'] = '2016-11-15'
         params[context + 'ExportTaskId'] = input[:export_task_id].to_s unless input[:export_task_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1035,7 +1038,7 @@ module AWS::SDK::EC2
         params[context + 'CancelReason'] = input[:cancel_reason].to_s unless input[:cancel_reason].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ImportTaskId'] = input[:import_task_id].to_s unless input[:import_task_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1050,7 +1053,7 @@ module AWS::SDK::EC2
         params['Action'] = 'CancelReservedInstancesListing'
         params['Version'] = '2016-11-15'
         params[context + 'ReservedInstancesListingId'] = input[:reserved_instances_listing_id].to_s unless input[:reserved_instances_listing_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1065,9 +1068,9 @@ module AWS::SDK::EC2
         params['Action'] = 'CancelSpotFleetRequests'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::SpotFleetRequestIdList.build(input[:spot_fleet_request_ids], params, context: context + 'spotFleetRequestId') unless input[:spot_fleet_request_ids].nil?
+        SpotFleetRequestIdList.build(input[:spot_fleet_request_ids], params, context: context + 'spotFleetRequestId') unless input[:spot_fleet_request_ids].nil?
         params[context + 'TerminateInstances'] = input[:terminate_instances].to_s unless input[:terminate_instances].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1091,8 +1094,8 @@ module AWS::SDK::EC2
         params['Action'] = 'CancelSpotInstanceRequests'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::SpotInstanceRequestIdList.build(input[:spot_instance_request_ids], params, context: context + 'SpotInstanceRequestId') unless input[:spot_instance_request_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        SpotInstanceRequestIdList.build(input[:spot_instance_request_ids], params, context: context + 'SpotInstanceRequestId') unless input[:spot_instance_request_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1118,7 +1121,7 @@ module AWS::SDK::EC2
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'ProductCode'] = input[:product_code].to_s unless input[:product_code].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1138,7 +1141,7 @@ module AWS::SDK::EC2
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         params[context + 'SourceRegion'] = input[:source_region].to_s unless input[:source_region].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1161,7 +1164,7 @@ module AWS::SDK::EC2
         params[context + 'SourceRegion'] = input[:source_region].to_s unless input[:source_region].nil?
         params[context + 'DestinationOutpostArn'] = input[:destination_outpost_arn].to_s unless input[:destination_outpost_arn].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1183,9 +1186,9 @@ module AWS::SDK::EC2
         params[context + 'PresignedUrl'] = input[:presigned_url].to_s unless input[:presigned_url].nil?
         params[context + 'SourceRegion'] = input[:source_region].to_s unless input[:source_region].nil?
         params[context + 'SourceSnapshotId'] = input[:source_snapshot_id].to_s unless input[:source_snapshot_id].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1211,11 +1214,11 @@ module AWS::SDK::EC2
         params[context + 'EndDate'] = Hearth::TimeHelper.to_date_time(input[:end_date]) unless input[:end_date].nil?
         params[context + 'EndDateType'] = input[:end_date_type].to_s unless input[:end_date_type].nil?
         params[context + 'InstanceMatchCriteria'] = input[:instance_match_criteria].to_s unless input[:instance_match_criteria].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecifications') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecifications') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'OutpostArn'] = input[:outpost_arn].to_s unless input[:outpost_arn].nil?
         params[context + 'PlacementGroupArn'] = input[:placement_group_arn].to_s unless input[:placement_group_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1231,14 +1234,14 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'AllocationStrategy'] = input[:allocation_strategy].to_s unless input[:allocation_strategy].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        Builders::ReservationFleetInstanceSpecificationList.build(input[:instance_type_specifications], params, context: context + 'InstanceTypeSpecification') unless input[:instance_type_specifications].nil?
+        ReservationFleetInstanceSpecificationList.build(input[:instance_type_specifications], params, context: context + 'InstanceTypeSpecification') unless input[:instance_type_specifications].nil?
         params[context + 'Tenancy'] = input[:tenancy].to_s unless input[:tenancy].nil?
         params[context + 'TotalTargetCapacity'] = input[:total_target_capacity].to_s unless input[:total_target_capacity].nil?
         params[context + 'EndDate'] = Hearth::TimeHelper.to_date_time(input[:end_date]) unless input[:end_date].nil?
         params[context + 'InstanceMatchCriteria'] = input[:instance_match_criteria].to_s unless input[:instance_match_criteria].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1246,7 +1249,7 @@ module AWS::SDK::EC2
     class ReservationFleetInstanceSpecificationList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ReservationFleetInstanceSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ReservationFleetInstanceSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1275,10 +1278,10 @@ module AWS::SDK::EC2
         params['Action'] = 'CreateCarrierGateway'
         params['Version'] = '2016-11-15'
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1294,23 +1297,23 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'ClientCidrBlock'] = input[:client_cidr_block].to_s unless input[:client_cidr_block].nil?
         params[context + 'ServerCertificateArn'] = input[:server_certificate_arn].to_s unless input[:server_certificate_arn].nil?
-        Builders::ClientVpnAuthenticationRequestList.build(input[:authentication_options], params, context: context + 'Authentication') unless input[:authentication_options].nil?
-        Builders::ConnectionLogOptions.build(input[:connection_log_options], params, context: context + 'ConnectionLogOptions' + '.') unless input[:connection_log_options].nil?
-        Builders::ValueStringList.build(input[:dns_servers], params, context: context + 'DnsServers') unless input[:dns_servers].nil?
+        ClientVpnAuthenticationRequestList.build(input[:authentication_options], params, context: context + 'Authentication') unless input[:authentication_options].nil?
+        ConnectionLogOptions.build(input[:connection_log_options], params, context: context + 'ConnectionLogOptions' + '.') unless input[:connection_log_options].nil?
+        ValueStringList.build(input[:dns_servers], params, context: context + 'DnsServers') unless input[:dns_servers].nil?
         params[context + 'TransportProtocol'] = input[:transport_protocol].to_s unless input[:transport_protocol].nil?
         params[context + 'VpnPort'] = input[:vpn_port].to_s unless input[:vpn_port].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'SplitTunnel'] = input[:split_tunnel].to_s unless input[:split_tunnel].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        Builders::ClientVpnSecurityGroupIdSet.build(input[:security_group_ids], params, context: context + 'SecurityGroupId') unless input[:security_group_ids].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        ClientVpnSecurityGroupIdSet.build(input[:security_group_ids], params, context: context + 'SecurityGroupId') unless input[:security_group_ids].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
         params[context + 'SelfServicePortal'] = input[:self_service_portal].to_s unless input[:self_service_portal].nil?
-        Builders::ClientConnectOptions.build(input[:client_connect_options], params, context: context + 'ClientConnectOptions' + '.') unless input[:client_connect_options].nil?
+        ClientConnectOptions.build(input[:client_connect_options], params, context: context + 'ClientConnectOptions' + '.') unless input[:client_connect_options].nil?
         params[context + 'SessionTimeoutHours'] = input[:session_timeout_hours].to_s unless input[:session_timeout_hours].nil?
-        Builders::ClientLoginBannerOptions.build(input[:client_login_banner_options], params, context: context + 'ClientLoginBannerOptions' + '.') unless input[:client_login_banner_options].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ClientLoginBannerOptions.build(input[:client_login_banner_options], params, context: context + 'ClientLoginBannerOptions' + '.') unless input[:client_login_banner_options].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1343,7 +1346,7 @@ module AWS::SDK::EC2
     class ClientVpnAuthenticationRequestList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ClientVpnAuthenticationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ClientVpnAuthenticationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1352,9 +1355,9 @@ module AWS::SDK::EC2
     class ClientVpnAuthenticationRequest
       def self.build(input, params, context: nil)
         params[context + 'Type'] = input[:type].to_s unless input[:type].nil?
-        Builders::DirectoryServiceAuthenticationRequest.build(input[:active_directory], params, context: context + 'ActiveDirectory' + '.') unless input[:active_directory].nil?
-        Builders::CertificateAuthenticationRequest.build(input[:mutual_authentication], params, context: context + 'MutualAuthentication' + '.') unless input[:mutual_authentication].nil?
-        Builders::FederatedAuthenticationRequest.build(input[:federated_authentication], params, context: context + 'FederatedAuthentication' + '.') unless input[:federated_authentication].nil?
+        DirectoryServiceAuthenticationRequest.build(input[:active_directory], params, context: context + 'ActiveDirectory' + '.') unless input[:active_directory].nil?
+        CertificateAuthenticationRequest.build(input[:mutual_authentication], params, context: context + 'MutualAuthentication' + '.') unless input[:mutual_authentication].nil?
+        FederatedAuthenticationRequest.build(input[:federated_authentication], params, context: context + 'FederatedAuthentication' + '.') unless input[:federated_authentication].nil?
       end
     end
 
@@ -1396,7 +1399,7 @@ module AWS::SDK::EC2
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1414,10 +1417,10 @@ module AWS::SDK::EC2
         params[context + 'IpAddress'] = input[:public_ip].to_s unless input[:public_ip].nil?
         params[context + 'CertificateArn'] = input[:certificate_arn].to_s unless input[:certificate_arn].nil?
         params[context + 'Type'] = input[:type].to_s unless input[:type].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DeviceName'] = input[:device_name].to_s unless input[:device_name].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1434,7 +1437,7 @@ module AWS::SDK::EC2
         params[context + 'AvailabilityZone'] = input[:availability_zone].to_s unless input[:availability_zone].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'Ipv6Native'] = input[:ipv6_native].to_s unless input[:ipv6_native].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1449,7 +1452,7 @@ module AWS::SDK::EC2
         params['Action'] = 'CreateDefaultVpc'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1463,10 +1466,10 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'CreateDhcpOptions'
         params['Version'] = '2016-11-15'
-        Builders::NewDhcpConfigurationList.build(input[:dhcp_configurations], params, context: context + 'dhcpConfiguration') unless input[:dhcp_configurations].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        NewDhcpConfigurationList.build(input[:dhcp_configurations], params, context: context + 'dhcpConfiguration') unless input[:dhcp_configurations].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1474,7 +1477,7 @@ module AWS::SDK::EC2
     class NewDhcpConfigurationList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::NewDhcpConfiguration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          NewDhcpConfiguration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1483,7 +1486,7 @@ module AWS::SDK::EC2
     class NewDhcpConfiguration
       def self.build(input, params, context: nil)
         params[context + 'Key'] = input[:key].to_s unless input[:key].nil?
-        Builders::ValueStringList.build(input[:values], params, context: context + 'Value') unless input[:values].nil?
+        ValueStringList.build(input[:values], params, context: context + 'Value') unless input[:values].nil?
       end
     end
 
@@ -1500,8 +1503,8 @@ module AWS::SDK::EC2
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1517,19 +1520,19 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        Builders::SpotOptionsRequest.build(input[:spot_options], params, context: context + 'SpotOptions' + '.') unless input[:spot_options].nil?
-        Builders::OnDemandOptionsRequest.build(input[:on_demand_options], params, context: context + 'OnDemandOptions' + '.') unless input[:on_demand_options].nil?
+        SpotOptionsRequest.build(input[:spot_options], params, context: context + 'SpotOptions' + '.') unless input[:spot_options].nil?
+        OnDemandOptionsRequest.build(input[:on_demand_options], params, context: context + 'OnDemandOptions' + '.') unless input[:on_demand_options].nil?
         params[context + 'ExcessCapacityTerminationPolicy'] = input[:excess_capacity_termination_policy].to_s unless input[:excess_capacity_termination_policy].nil?
-        Builders::FleetLaunchTemplateConfigListRequest.build(input[:launch_template_configs], params, context: context + 'LaunchTemplateConfigs') unless input[:launch_template_configs].nil?
-        Builders::TargetCapacitySpecificationRequest.build(input[:target_capacity_specification], params, context: context + 'TargetCapacitySpecification' + '.') unless input[:target_capacity_specification].nil?
+        FleetLaunchTemplateConfigListRequest.build(input[:launch_template_configs], params, context: context + 'LaunchTemplateConfigs') unless input[:launch_template_configs].nil?
+        TargetCapacitySpecificationRequest.build(input[:target_capacity_specification], params, context: context + 'TargetCapacitySpecification' + '.') unless input[:target_capacity_specification].nil?
         params[context + 'TerminateInstancesWithExpiration'] = input[:terminate_instances_with_expiration].to_s unless input[:terminate_instances_with_expiration].nil?
         params[context + 'Type'] = input[:type].to_s unless input[:type].nil?
         params[context + 'ValidFrom'] = Hearth::TimeHelper.to_date_time(input[:valid_from]) unless input[:valid_from].nil?
         params[context + 'ValidUntil'] = Hearth::TimeHelper.to_date_time(input[:valid_until]) unless input[:valid_until].nil?
         params[context + 'ReplaceUnhealthyInstances'] = input[:replace_unhealthy_instances].to_s unless input[:replace_unhealthy_instances].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'Context'] = input[:context].to_s unless input[:context].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1548,7 +1551,7 @@ module AWS::SDK::EC2
     class FleetLaunchTemplateConfigListRequest
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::FleetLaunchTemplateConfigRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          FleetLaunchTemplateConfigRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1556,8 +1559,8 @@ module AWS::SDK::EC2
     # Structure Builder for FleetLaunchTemplateConfigRequest
     class FleetLaunchTemplateConfigRequest
       def self.build(input, params, context: nil)
-        Builders::FleetLaunchTemplateSpecificationRequest.build(input[:launch_template_specification], params, context: context + 'LaunchTemplateSpecification' + '.') unless input[:launch_template_specification].nil?
-        Builders::FleetLaunchTemplateOverridesListRequest.build(input[:overrides], params, context: context + 'Overrides') unless input[:overrides].nil?
+        FleetLaunchTemplateSpecificationRequest.build(input[:launch_template_specification], params, context: context + 'LaunchTemplateSpecification' + '.') unless input[:launch_template_specification].nil?
+        FleetLaunchTemplateOverridesListRequest.build(input[:overrides], params, context: context + 'Overrides') unless input[:overrides].nil?
       end
     end
 
@@ -1565,7 +1568,7 @@ module AWS::SDK::EC2
     class FleetLaunchTemplateOverridesListRequest
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::FleetLaunchTemplateOverridesRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          FleetLaunchTemplateOverridesRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1579,35 +1582,35 @@ module AWS::SDK::EC2
         params[context + 'AvailabilityZone'] = input[:availability_zone].to_s unless input[:availability_zone].nil?
         params[context + 'WeightedCapacity'] = Hearth::NumberHelper.serialize(input[:weighted_capacity]).to_s unless input[:weighted_capacity].nil?
         params[context + 'Priority'] = Hearth::NumberHelper.serialize(input[:priority]).to_s unless input[:priority].nil?
-        Builders::Placement.build(input[:placement], params, context: context + 'Placement' + '.') unless input[:placement].nil?
-        Builders::InstanceRequirementsRequest.build(input[:instance_requirements], params, context: context + 'InstanceRequirements' + '.') unless input[:instance_requirements].nil?
+        Placement.build(input[:placement], params, context: context + 'Placement' + '.') unless input[:placement].nil?
+        InstanceRequirementsRequest.build(input[:instance_requirements], params, context: context + 'InstanceRequirements' + '.') unless input[:instance_requirements].nil?
       end
     end
 
     # Structure Builder for InstanceRequirementsRequest
     class InstanceRequirementsRequest
       def self.build(input, params, context: nil)
-        Builders::VCpuCountRangeRequest.build(input[:v_cpu_count], params, context: context + 'VCpuCount' + '.') unless input[:v_cpu_count].nil?
-        Builders::MemoryMiBRequest.build(input[:memory_mi_b], params, context: context + 'MemoryMiB' + '.') unless input[:memory_mi_b].nil?
-        Builders::CpuManufacturerSet.build(input[:cpu_manufacturers], params, context: context + 'CpuManufacturer') unless input[:cpu_manufacturers].nil?
-        Builders::MemoryGiBPerVCpuRequest.build(input[:memory_gi_b_per_v_cpu], params, context: context + 'MemoryGiBPerVCpu' + '.') unless input[:memory_gi_b_per_v_cpu].nil?
-        Builders::ExcludedInstanceTypeSet.build(input[:excluded_instance_types], params, context: context + 'ExcludedInstanceType') unless input[:excluded_instance_types].nil?
-        Builders::InstanceGenerationSet.build(input[:instance_generations], params, context: context + 'InstanceGeneration') unless input[:instance_generations].nil?
+        VCpuCountRangeRequest.build(input[:v_cpu_count], params, context: context + 'VCpuCount' + '.') unless input[:v_cpu_count].nil?
+        MemoryMiBRequest.build(input[:memory_mi_b], params, context: context + 'MemoryMiB' + '.') unless input[:memory_mi_b].nil?
+        CpuManufacturerSet.build(input[:cpu_manufacturers], params, context: context + 'CpuManufacturer') unless input[:cpu_manufacturers].nil?
+        MemoryGiBPerVCpuRequest.build(input[:memory_gi_b_per_v_cpu], params, context: context + 'MemoryGiBPerVCpu' + '.') unless input[:memory_gi_b_per_v_cpu].nil?
+        ExcludedInstanceTypeSet.build(input[:excluded_instance_types], params, context: context + 'ExcludedInstanceType') unless input[:excluded_instance_types].nil?
+        InstanceGenerationSet.build(input[:instance_generations], params, context: context + 'InstanceGeneration') unless input[:instance_generations].nil?
         params[context + 'SpotMaxPricePercentageOverLowestPrice'] = input[:spot_max_price_percentage_over_lowest_price].to_s unless input[:spot_max_price_percentage_over_lowest_price].nil?
         params[context + 'OnDemandMaxPricePercentageOverLowestPrice'] = input[:on_demand_max_price_percentage_over_lowest_price].to_s unless input[:on_demand_max_price_percentage_over_lowest_price].nil?
         params[context + 'BareMetal'] = input[:bare_metal].to_s unless input[:bare_metal].nil?
         params[context + 'BurstablePerformance'] = input[:burstable_performance].to_s unless input[:burstable_performance].nil?
         params[context + 'RequireHibernateSupport'] = input[:require_hibernate_support].to_s unless input[:require_hibernate_support].nil?
-        Builders::NetworkInterfaceCountRequest.build(input[:network_interface_count], params, context: context + 'NetworkInterfaceCount' + '.') unless input[:network_interface_count].nil?
+        NetworkInterfaceCountRequest.build(input[:network_interface_count], params, context: context + 'NetworkInterfaceCount' + '.') unless input[:network_interface_count].nil?
         params[context + 'LocalStorage'] = input[:local_storage].to_s unless input[:local_storage].nil?
-        Builders::LocalStorageTypeSet.build(input[:local_storage_types], params, context: context + 'LocalStorageType') unless input[:local_storage_types].nil?
-        Builders::TotalLocalStorageGBRequest.build(input[:total_local_storage_gb], params, context: context + 'TotalLocalStorageGB' + '.') unless input[:total_local_storage_gb].nil?
-        Builders::BaselineEbsBandwidthMbpsRequest.build(input[:baseline_ebs_bandwidth_mbps], params, context: context + 'BaselineEbsBandwidthMbps' + '.') unless input[:baseline_ebs_bandwidth_mbps].nil?
-        Builders::AcceleratorTypeSet.build(input[:accelerator_types], params, context: context + 'AcceleratorType') unless input[:accelerator_types].nil?
-        Builders::AcceleratorCountRequest.build(input[:accelerator_count], params, context: context + 'AcceleratorCount' + '.') unless input[:accelerator_count].nil?
-        Builders::AcceleratorManufacturerSet.build(input[:accelerator_manufacturers], params, context: context + 'AcceleratorManufacturer') unless input[:accelerator_manufacturers].nil?
-        Builders::AcceleratorNameSet.build(input[:accelerator_names], params, context: context + 'AcceleratorName') unless input[:accelerator_names].nil?
-        Builders::AcceleratorTotalMemoryMiBRequest.build(input[:accelerator_total_memory_mi_b], params, context: context + 'AcceleratorTotalMemoryMiB' + '.') unless input[:accelerator_total_memory_mi_b].nil?
+        LocalStorageTypeSet.build(input[:local_storage_types], params, context: context + 'LocalStorageType') unless input[:local_storage_types].nil?
+        TotalLocalStorageGBRequest.build(input[:total_local_storage_gb], params, context: context + 'TotalLocalStorageGB' + '.') unless input[:total_local_storage_gb].nil?
+        BaselineEbsBandwidthMbpsRequest.build(input[:baseline_ebs_bandwidth_mbps], params, context: context + 'BaselineEbsBandwidthMbps' + '.') unless input[:baseline_ebs_bandwidth_mbps].nil?
+        AcceleratorTypeSet.build(input[:accelerator_types], params, context: context + 'AcceleratorType') unless input[:accelerator_types].nil?
+        AcceleratorCountRequest.build(input[:accelerator_count], params, context: context + 'AcceleratorCount' + '.') unless input[:accelerator_count].nil?
+        AcceleratorManufacturerSet.build(input[:accelerator_manufacturers], params, context: context + 'AcceleratorManufacturer') unless input[:accelerator_manufacturers].nil?
+        AcceleratorNameSet.build(input[:accelerator_names], params, context: context + 'AcceleratorName') unless input[:accelerator_names].nil?
+        AcceleratorTotalMemoryMiBRequest.build(input[:accelerator_total_memory_mi_b], params, context: context + 'AcceleratorTotalMemoryMiB' + '.') unless input[:accelerator_total_memory_mi_b].nil?
       end
     end
 
@@ -1765,7 +1768,7 @@ module AWS::SDK::EC2
     class OnDemandOptionsRequest
       def self.build(input, params, context: nil)
         params[context + 'AllocationStrategy'] = input[:allocation_strategy].to_s unless input[:allocation_strategy].nil?
-        Builders::CapacityReservationOptionsRequest.build(input[:capacity_reservation_options], params, context: context + 'CapacityReservationOptions' + '.') unless input[:capacity_reservation_options].nil?
+        CapacityReservationOptionsRequest.build(input[:capacity_reservation_options], params, context: context + 'CapacityReservationOptions' + '.') unless input[:capacity_reservation_options].nil?
         params[context + 'SingleInstanceType'] = input[:single_instance_type].to_s unless input[:single_instance_type].nil?
         params[context + 'SingleAvailabilityZone'] = input[:single_availability_zone].to_s unless input[:single_availability_zone].nil?
         params[context + 'MinTargetCapacity'] = input[:min_target_capacity].to_s unless input[:min_target_capacity].nil?
@@ -1784,7 +1787,7 @@ module AWS::SDK::EC2
     class SpotOptionsRequest
       def self.build(input, params, context: nil)
         params[context + 'AllocationStrategy'] = input[:allocation_strategy].to_s unless input[:allocation_strategy].nil?
-        Builders::FleetSpotMaintenanceStrategiesRequest.build(input[:maintenance_strategies], params, context: context + 'MaintenanceStrategies' + '.') unless input[:maintenance_strategies].nil?
+        FleetSpotMaintenanceStrategiesRequest.build(input[:maintenance_strategies], params, context: context + 'MaintenanceStrategies' + '.') unless input[:maintenance_strategies].nil?
         params[context + 'InstanceInterruptionBehavior'] = input[:instance_interruption_behavior].to_s unless input[:instance_interruption_behavior].nil?
         params[context + 'InstancePoolsToUseCount'] = input[:instance_pools_to_use_count].to_s unless input[:instance_pools_to_use_count].nil?
         params[context + 'SingleInstanceType'] = input[:single_instance_type].to_s unless input[:single_instance_type].nil?
@@ -1797,7 +1800,7 @@ module AWS::SDK::EC2
     # Structure Builder for FleetSpotMaintenanceStrategiesRequest
     class FleetSpotMaintenanceStrategiesRequest
       def self.build(input, params, context: nil)
-        Builders::FleetSpotCapacityRebalanceRequest.build(input[:capacity_rebalance], params, context: context + 'CapacityRebalance' + '.') unless input[:capacity_rebalance].nil?
+        FleetSpotCapacityRebalanceRequest.build(input[:capacity_rebalance], params, context: context + 'CapacityRebalance' + '.') unless input[:capacity_rebalance].nil?
       end
     end
 
@@ -1823,16 +1826,16 @@ module AWS::SDK::EC2
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'DeliverLogsPermissionArn'] = input[:deliver_logs_permission_arn].to_s unless input[:deliver_logs_permission_arn].nil?
         params[context + 'LogGroupName'] = input[:log_group_name].to_s unless input[:log_group_name].nil?
-        Builders::FlowLogResourceIds.build(input[:resource_ids], params, context: context + 'ResourceId') unless input[:resource_ids].nil?
+        FlowLogResourceIds.build(input[:resource_ids], params, context: context + 'ResourceId') unless input[:resource_ids].nil?
         params[context + 'ResourceType'] = input[:resource_type].to_s unless input[:resource_type].nil?
         params[context + 'TrafficType'] = input[:traffic_type].to_s unless input[:traffic_type].nil?
         params[context + 'LogDestinationType'] = input[:log_destination_type].to_s unless input[:log_destination_type].nil?
         params[context + 'LogDestination'] = input[:log_destination].to_s unless input[:log_destination].nil?
         params[context + 'LogFormat'] = input[:log_format].to_s unless input[:log_format].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'MaxAggregationInterval'] = input[:max_aggregation_interval].to_s unless input[:max_aggregation_interval].nil?
-        Builders::DestinationOptionsRequest.build(input[:destination_options], params, context: context + 'DestinationOptions' + '.') unless input[:destination_options].nil?
-        http_req.body = StringIO.new(params.to_s)
+        DestinationOptionsRequest.build(input[:destination_options], params, context: context + 'DestinationOptions' + '.') unless input[:destination_options].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1865,13 +1868,13 @@ module AWS::SDK::EC2
         params['Action'] = 'CreateFpgaImage'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::StorageLocation.build(input[:input_storage_location], params, context: context + 'InputStorageLocation' + '.') unless input[:input_storage_location].nil?
-        Builders::StorageLocation.build(input[:logs_storage_location], params, context: context + 'LogsStorageLocation' + '.') unless input[:logs_storage_location].nil?
+        StorageLocation.build(input[:input_storage_location], params, context: context + 'InputStorageLocation' + '.') unless input[:input_storage_location].nil?
+        StorageLocation.build(input[:logs_storage_location], params, context: context + 'LogsStorageLocation' + '.') unless input[:logs_storage_location].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1893,14 +1896,14 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'CreateImage'
         params['Version'] = '2016-11-15'
-        Builders::BlockDeviceMappingRequestList.build(input[:block_device_mappings], params, context: context + 'blockDeviceMapping') unless input[:block_device_mappings].nil?
+        BlockDeviceMappingRequestList.build(input[:block_device_mappings], params, context: context + 'blockDeviceMapping') unless input[:block_device_mappings].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         params[context + 'NoReboot'] = input[:no_reboot].to_s unless input[:no_reboot].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1908,7 +1911,7 @@ module AWS::SDK::EC2
     class BlockDeviceMappingRequestList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::BlockDeviceMapping.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          BlockDeviceMapping.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1918,7 +1921,7 @@ module AWS::SDK::EC2
       def self.build(input, params, context: nil)
         params[context + 'DeviceName'] = input[:device_name].to_s unless input[:device_name].nil?
         params[context + 'VirtualName'] = input[:virtual_name].to_s unless input[:virtual_name].nil?
-        Builders::EbsBlockDevice.build(input[:ebs], params, context: context + 'Ebs' + '.') unless input[:ebs].nil?
+        EbsBlockDevice.build(input[:ebs], params, context: context + 'Ebs' + '.') unless input[:ebs].nil?
         params[context + 'NoDevice'] = input[:no_device].to_s unless input[:no_device].nil?
       end
     end
@@ -1950,10 +1953,10 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
-        Builders::InstanceEventWindowTimeRangeRequestSet.build(input[:time_ranges], params, context: context + 'TimeRange') unless input[:time_ranges].nil?
+        InstanceEventWindowTimeRangeRequestSet.build(input[:time_ranges], params, context: context + 'TimeRange') unless input[:time_ranges].nil?
         params[context + 'CronExpression'] = input[:cron_expression].to_s unless input[:cron_expression].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1961,7 +1964,7 @@ module AWS::SDK::EC2
     class InstanceEventWindowTimeRangeRequestSet
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::InstanceEventWindowTimeRangeRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          InstanceEventWindowTimeRangeRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1987,11 +1990,11 @@ module AWS::SDK::EC2
         params['Action'] = 'CreateInstanceExportTask'
         params['Version'] = '2016-11-15'
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::ExportToS3TaskSpecification.build(input[:export_to_s3_task], params, context: context + 'ExportToS3' + '.') unless input[:export_to_s3_task].nil?
+        ExportToS3TaskSpecification.build(input[:export_to_s3_task], params, context: context + 'ExportToS3' + '.') unless input[:export_to_s3_task].nil?
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'TargetEnvironment'] = input[:target_environment].to_s unless input[:target_environment].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2015,9 +2018,9 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'CreateInternetGateway'
         params['Version'] = '2016-11-15'
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2033,10 +2036,10 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::AddIpamOperatingRegionSet.build(input[:operating_regions], params, context: context + 'OperatingRegion') unless input[:operating_regions].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        AddIpamOperatingRegionSet.build(input[:operating_regions], params, context: context + 'OperatingRegion') unless input[:operating_regions].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2044,7 +2047,7 @@ module AWS::SDK::EC2
     class AddIpamOperatingRegionSet
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::AddIpamOperatingRegion.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          AddIpamOperatingRegion.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2077,11 +2080,11 @@ module AWS::SDK::EC2
         params[context + 'AllocationMinNetmaskLength'] = input[:allocation_min_netmask_length].to_s unless input[:allocation_min_netmask_length].nil?
         params[context + 'AllocationMaxNetmaskLength'] = input[:allocation_max_netmask_length].to_s unless input[:allocation_max_netmask_length].nil?
         params[context + 'AllocationDefaultNetmaskLength'] = input[:allocation_default_netmask_length].to_s unless input[:allocation_default_netmask_length].nil?
-        Builders::RequestIpamResourceTagList.build(input[:allocation_resource_tags], params, context: context + 'AllocationResourceTag') unless input[:allocation_resource_tags].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        RequestIpamResourceTagList.build(input[:allocation_resource_tags], params, context: context + 'AllocationResourceTag') unless input[:allocation_resource_tags].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'AwsService'] = input[:aws_service].to_s unless input[:aws_service].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2089,7 +2092,7 @@ module AWS::SDK::EC2
     class RequestIpamResourceTagList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::RequestIpamResourceTag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          RequestIpamResourceTag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2115,9 +2118,9 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'IpamId'] = input[:ipam_id].to_s unless input[:ipam_id].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2134,9 +2137,9 @@ module AWS::SDK::EC2
         params[context + 'KeyName'] = input[:key_name].to_s unless input[:key_name].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'KeyType'] = input[:key_type].to_s unless input[:key_type].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'KeyFormat'] = input[:key_format].to_s unless input[:key_format].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2154,9 +2157,9 @@ module AWS::SDK::EC2
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'LaunchTemplateName'] = input[:launch_template_name].to_s unless input[:launch_template_name].nil?
         params[context + 'VersionDescription'] = input[:version_description].to_s unless input[:version_description].nil?
-        Builders::RequestLaunchTemplateData.build(input[:launch_template_data], params, context: context + 'LaunchTemplateData' + '.') unless input[:launch_template_data].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        RequestLaunchTemplateData.build(input[:launch_template_data], params, context: context + 'LaunchTemplateData' + '.') unless input[:launch_template_data].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2165,34 +2168,34 @@ module AWS::SDK::EC2
       def self.build(input, params, context: nil)
         params[context + 'KernelId'] = input[:kernel_id].to_s unless input[:kernel_id].nil?
         params[context + 'EbsOptimized'] = input[:ebs_optimized].to_s unless input[:ebs_optimized].nil?
-        Builders::LaunchTemplateIamInstanceProfileSpecificationRequest.build(input[:iam_instance_profile], params, context: context + 'IamInstanceProfile' + '.') unless input[:iam_instance_profile].nil?
-        Builders::LaunchTemplateBlockDeviceMappingRequestList.build(input[:block_device_mappings], params, context: context + 'BlockDeviceMapping') unless input[:block_device_mappings].nil?
-        Builders::LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList.build(input[:network_interfaces], params, context: context + 'NetworkInterface') unless input[:network_interfaces].nil?
+        LaunchTemplateIamInstanceProfileSpecificationRequest.build(input[:iam_instance_profile], params, context: context + 'IamInstanceProfile' + '.') unless input[:iam_instance_profile].nil?
+        LaunchTemplateBlockDeviceMappingRequestList.build(input[:block_device_mappings], params, context: context + 'BlockDeviceMapping') unless input[:block_device_mappings].nil?
+        LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList.build(input[:network_interfaces], params, context: context + 'NetworkInterface') unless input[:network_interfaces].nil?
         params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
         params[context + 'InstanceType'] = input[:instance_type].to_s unless input[:instance_type].nil?
         params[context + 'KeyName'] = input[:key_name].to_s unless input[:key_name].nil?
-        Builders::LaunchTemplatesMonitoringRequest.build(input[:monitoring], params, context: context + 'Monitoring' + '.') unless input[:monitoring].nil?
-        Builders::LaunchTemplatePlacementRequest.build(input[:placement], params, context: context + 'Placement' + '.') unless input[:placement].nil?
+        LaunchTemplatesMonitoringRequest.build(input[:monitoring], params, context: context + 'Monitoring' + '.') unless input[:monitoring].nil?
+        LaunchTemplatePlacementRequest.build(input[:placement], params, context: context + 'Placement' + '.') unless input[:placement].nil?
         params[context + 'RamDiskId'] = input[:ram_disk_id].to_s unless input[:ram_disk_id].nil?
         params[context + 'DisableApiTermination'] = input[:disable_api_termination].to_s unless input[:disable_api_termination].nil?
         params[context + 'InstanceInitiatedShutdownBehavior'] = input[:instance_initiated_shutdown_behavior].to_s unless input[:instance_initiated_shutdown_behavior].nil?
         params[context + 'UserData'] = input[:user_data].to_s unless input[:user_data].nil?
-        Builders::LaunchTemplateTagSpecificationRequestList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        Builders::ElasticGpuSpecificationList.build(input[:elastic_gpu_specifications], params, context: context + 'ElasticGpuSpecification') unless input[:elastic_gpu_specifications].nil?
-        Builders::LaunchTemplateElasticInferenceAcceleratorList.build(input[:elastic_inference_accelerators], params, context: context + 'ElasticInferenceAccelerator') unless input[:elastic_inference_accelerators].nil?
-        Builders::SecurityGroupIdStringList.build(input[:security_group_ids], params, context: context + 'SecurityGroupId') unless input[:security_group_ids].nil?
-        Builders::SecurityGroupStringList.build(input[:security_groups], params, context: context + 'SecurityGroup') unless input[:security_groups].nil?
-        Builders::LaunchTemplateInstanceMarketOptionsRequest.build(input[:instance_market_options], params, context: context + 'InstanceMarketOptions' + '.') unless input[:instance_market_options].nil?
-        Builders::CreditSpecificationRequest.build(input[:credit_specification], params, context: context + 'CreditSpecification' + '.') unless input[:credit_specification].nil?
-        Builders::LaunchTemplateCpuOptionsRequest.build(input[:cpu_options], params, context: context + 'CpuOptions' + '.') unless input[:cpu_options].nil?
-        Builders::LaunchTemplateCapacityReservationSpecificationRequest.build(input[:capacity_reservation_specification], params, context: context + 'CapacityReservationSpecification' + '.') unless input[:capacity_reservation_specification].nil?
-        Builders::LaunchTemplateLicenseSpecificationListRequest.build(input[:license_specifications], params, context: context + 'LicenseSpecification') unless input[:license_specifications].nil?
-        Builders::LaunchTemplateHibernationOptionsRequest.build(input[:hibernation_options], params, context: context + 'HibernationOptions' + '.') unless input[:hibernation_options].nil?
-        Builders::LaunchTemplateInstanceMetadataOptionsRequest.build(input[:metadata_options], params, context: context + 'MetadataOptions' + '.') unless input[:metadata_options].nil?
-        Builders::LaunchTemplateEnclaveOptionsRequest.build(input[:enclave_options], params, context: context + 'EnclaveOptions' + '.') unless input[:enclave_options].nil?
-        Builders::InstanceRequirementsRequest.build(input[:instance_requirements], params, context: context + 'InstanceRequirements' + '.') unless input[:instance_requirements].nil?
-        Builders::LaunchTemplatePrivateDnsNameOptionsRequest.build(input[:private_dns_name_options], params, context: context + 'PrivateDnsNameOptions' + '.') unless input[:private_dns_name_options].nil?
-        Builders::LaunchTemplateInstanceMaintenanceOptionsRequest.build(input[:maintenance_options], params, context: context + 'MaintenanceOptions' + '.') unless input[:maintenance_options].nil?
+        LaunchTemplateTagSpecificationRequestList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        ElasticGpuSpecificationList.build(input[:elastic_gpu_specifications], params, context: context + 'ElasticGpuSpecification') unless input[:elastic_gpu_specifications].nil?
+        LaunchTemplateElasticInferenceAcceleratorList.build(input[:elastic_inference_accelerators], params, context: context + 'ElasticInferenceAccelerator') unless input[:elastic_inference_accelerators].nil?
+        SecurityGroupIdStringList.build(input[:security_group_ids], params, context: context + 'SecurityGroupId') unless input[:security_group_ids].nil?
+        SecurityGroupStringList.build(input[:security_groups], params, context: context + 'SecurityGroup') unless input[:security_groups].nil?
+        LaunchTemplateInstanceMarketOptionsRequest.build(input[:instance_market_options], params, context: context + 'InstanceMarketOptions' + '.') unless input[:instance_market_options].nil?
+        CreditSpecificationRequest.build(input[:credit_specification], params, context: context + 'CreditSpecification' + '.') unless input[:credit_specification].nil?
+        LaunchTemplateCpuOptionsRequest.build(input[:cpu_options], params, context: context + 'CpuOptions' + '.') unless input[:cpu_options].nil?
+        LaunchTemplateCapacityReservationSpecificationRequest.build(input[:capacity_reservation_specification], params, context: context + 'CapacityReservationSpecification' + '.') unless input[:capacity_reservation_specification].nil?
+        LaunchTemplateLicenseSpecificationListRequest.build(input[:license_specifications], params, context: context + 'LicenseSpecification') unless input[:license_specifications].nil?
+        LaunchTemplateHibernationOptionsRequest.build(input[:hibernation_options], params, context: context + 'HibernationOptions' + '.') unless input[:hibernation_options].nil?
+        LaunchTemplateInstanceMetadataOptionsRequest.build(input[:metadata_options], params, context: context + 'MetadataOptions' + '.') unless input[:metadata_options].nil?
+        LaunchTemplateEnclaveOptionsRequest.build(input[:enclave_options], params, context: context + 'EnclaveOptions' + '.') unless input[:enclave_options].nil?
+        InstanceRequirementsRequest.build(input[:instance_requirements], params, context: context + 'InstanceRequirements' + '.') unless input[:instance_requirements].nil?
+        LaunchTemplatePrivateDnsNameOptionsRequest.build(input[:private_dns_name_options], params, context: context + 'PrivateDnsNameOptions' + '.') unless input[:private_dns_name_options].nil?
+        LaunchTemplateInstanceMaintenanceOptionsRequest.build(input[:maintenance_options], params, context: context + 'MaintenanceOptions' + '.') unless input[:maintenance_options].nil?
         params[context + 'DisableApiStop'] = input[:disable_api_stop].to_s unless input[:disable_api_stop].nil?
       end
     end
@@ -2242,7 +2245,7 @@ module AWS::SDK::EC2
     class LaunchTemplateLicenseSpecificationListRequest
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::LaunchTemplateLicenseConfigurationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          LaunchTemplateLicenseConfigurationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2258,7 +2261,7 @@ module AWS::SDK::EC2
     class LaunchTemplateCapacityReservationSpecificationRequest
       def self.build(input, params, context: nil)
         params[context + 'CapacityReservationPreference'] = input[:capacity_reservation_preference].to_s unless input[:capacity_reservation_preference].nil?
-        Builders::CapacityReservationTarget.build(input[:capacity_reservation_target], params, context: context + 'CapacityReservationTarget' + '.') unless input[:capacity_reservation_target].nil?
+        CapacityReservationTarget.build(input[:capacity_reservation_target], params, context: context + 'CapacityReservationTarget' + '.') unless input[:capacity_reservation_target].nil?
       end
     end
 
@@ -2289,7 +2292,7 @@ module AWS::SDK::EC2
     class LaunchTemplateInstanceMarketOptionsRequest
       def self.build(input, params, context: nil)
         params[context + 'MarketType'] = input[:market_type].to_s unless input[:market_type].nil?
-        Builders::LaunchTemplateSpotMarketOptionsRequest.build(input[:spot_options], params, context: context + 'SpotOptions' + '.') unless input[:spot_options].nil?
+        LaunchTemplateSpotMarketOptionsRequest.build(input[:spot_options], params, context: context + 'SpotOptions' + '.') unless input[:spot_options].nil?
       end
     end
 
@@ -2326,7 +2329,7 @@ module AWS::SDK::EC2
     class LaunchTemplateElasticInferenceAcceleratorList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::LaunchTemplateElasticInferenceAccelerator.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          LaunchTemplateElasticInferenceAccelerator.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2343,7 +2346,7 @@ module AWS::SDK::EC2
     class ElasticGpuSpecificationList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ElasticGpuSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ElasticGpuSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2359,7 +2362,7 @@ module AWS::SDK::EC2
     class LaunchTemplateTagSpecificationRequestList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::LaunchTemplateTagSpecificationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          LaunchTemplateTagSpecificationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2368,7 +2371,7 @@ module AWS::SDK::EC2
     class LaunchTemplateTagSpecificationRequest
       def self.build(input, params, context: nil)
         params[context + 'ResourceType'] = input[:resource_type].to_s unless input[:resource_type].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tag') unless input[:tags].nil?
+        TagList.build(input[:tags], params, context: context + 'Tag') unless input[:tags].nil?
       end
     end
 
@@ -2397,7 +2400,7 @@ module AWS::SDK::EC2
     class LaunchTemplateInstanceNetworkInterfaceSpecificationRequestList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::LaunchTemplateInstanceNetworkInterfaceSpecificationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          LaunchTemplateInstanceNetworkInterfaceSpecificationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2410,19 +2413,19 @@ module AWS::SDK::EC2
         params[context + 'DeleteOnTermination'] = input[:delete_on_termination].to_s unless input[:delete_on_termination].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'DeviceIndex'] = input[:device_index].to_s unless input[:device_index].nil?
-        Builders::SecurityGroupIdStringList.build(input[:groups], params, context: context + 'SecurityGroupId') unless input[:groups].nil?
+        SecurityGroupIdStringList.build(input[:groups], params, context: context + 'SecurityGroupId') unless input[:groups].nil?
         params[context + 'InterfaceType'] = input[:interface_type].to_s unless input[:interface_type].nil?
         params[context + 'Ipv6AddressCount'] = input[:ipv6_address_count].to_s unless input[:ipv6_address_count].nil?
-        Builders::InstanceIpv6AddressListRequest.build(input[:ipv6_addresses], params, context: context + 'Ipv6Addresses') unless input[:ipv6_addresses].nil?
+        InstanceIpv6AddressListRequest.build(input[:ipv6_addresses], params, context: context + 'Ipv6Addresses') unless input[:ipv6_addresses].nil?
         params[context + 'NetworkInterfaceId'] = input[:network_interface_id].to_s unless input[:network_interface_id].nil?
         params[context + 'PrivateIpAddress'] = input[:private_ip_address].to_s unless input[:private_ip_address].nil?
-        Builders::PrivateIpAddressSpecificationList.build(input[:private_ip_addresses], params, context: context + 'PrivateIpAddresses') unless input[:private_ip_addresses].nil?
+        PrivateIpAddressSpecificationList.build(input[:private_ip_addresses], params, context: context + 'PrivateIpAddresses') unless input[:private_ip_addresses].nil?
         params[context + 'SecondaryPrivateIpAddressCount'] = input[:secondary_private_ip_address_count].to_s unless input[:secondary_private_ip_address_count].nil?
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
         params[context + 'NetworkCardIndex'] = input[:network_card_index].to_s unless input[:network_card_index].nil?
-        Builders::Ipv4PrefixList.build(input[:ipv4_prefixes], params, context: context + 'Ipv4Prefix') unless input[:ipv4_prefixes].nil?
+        Ipv4PrefixList.build(input[:ipv4_prefixes], params, context: context + 'Ipv4Prefix') unless input[:ipv4_prefixes].nil?
         params[context + 'Ipv4PrefixCount'] = input[:ipv4_prefix_count].to_s unless input[:ipv4_prefix_count].nil?
-        Builders::Ipv6PrefixList.build(input[:ipv6_prefixes], params, context: context + 'Ipv6Prefix') unless input[:ipv6_prefixes].nil?
+        Ipv6PrefixList.build(input[:ipv6_prefixes], params, context: context + 'Ipv6Prefix') unless input[:ipv6_prefixes].nil?
         params[context + 'Ipv6PrefixCount'] = input[:ipv6_prefix_count].to_s unless input[:ipv6_prefix_count].nil?
       end
     end
@@ -2431,7 +2434,7 @@ module AWS::SDK::EC2
     class Ipv6PrefixList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Ipv6PrefixSpecificationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Ipv6PrefixSpecificationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2447,7 +2450,7 @@ module AWS::SDK::EC2
     class Ipv4PrefixList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Ipv4PrefixSpecificationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Ipv4PrefixSpecificationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2463,7 +2466,7 @@ module AWS::SDK::EC2
     class PrivateIpAddressSpecificationList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::PrivateIpAddressSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          PrivateIpAddressSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2480,7 +2483,7 @@ module AWS::SDK::EC2
     class InstanceIpv6AddressListRequest
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::InstanceIpv6AddressRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          InstanceIpv6AddressRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2496,7 +2499,7 @@ module AWS::SDK::EC2
     class LaunchTemplateBlockDeviceMappingRequestList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::LaunchTemplateBlockDeviceMappingRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          LaunchTemplateBlockDeviceMappingRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2506,7 +2509,7 @@ module AWS::SDK::EC2
       def self.build(input, params, context: nil)
         params[context + 'DeviceName'] = input[:device_name].to_s unless input[:device_name].nil?
         params[context + 'VirtualName'] = input[:virtual_name].to_s unless input[:virtual_name].nil?
-        Builders::LaunchTemplateEbsBlockDeviceRequest.build(input[:ebs], params, context: context + 'Ebs' + '.') unless input[:ebs].nil?
+        LaunchTemplateEbsBlockDeviceRequest.build(input[:ebs], params, context: context + 'Ebs' + '.') unless input[:ebs].nil?
         params[context + 'NoDevice'] = input[:no_device].to_s unless input[:no_device].nil?
       end
     end
@@ -2549,8 +2552,8 @@ module AWS::SDK::EC2
         params[context + 'LaunchTemplateName'] = input[:launch_template_name].to_s unless input[:launch_template_name].nil?
         params[context + 'SourceVersion'] = input[:source_version].to_s unless input[:source_version].nil?
         params[context + 'VersionDescription'] = input[:version_description].to_s unless input[:version_description].nil?
-        Builders::RequestLaunchTemplateData.build(input[:launch_template_data], params, context: context + 'LaunchTemplateData' + '.') unless input[:launch_template_data].nil?
-        http_req.body = StringIO.new(params.to_s)
+        RequestLaunchTemplateData.build(input[:launch_template_data], params, context: context + 'LaunchTemplateData' + '.') unless input[:launch_template_data].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2568,7 +2571,7 @@ module AWS::SDK::EC2
         params[context + 'LocalGatewayRouteTableId'] = input[:local_gateway_route_table_id].to_s unless input[:local_gateway_route_table_id].nil?
         params[context + 'LocalGatewayVirtualInterfaceGroupId'] = input[:local_gateway_virtual_interface_group_id].to_s unless input[:local_gateway_virtual_interface_group_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2584,9 +2587,9 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'LocalGatewayRouteTableId'] = input[:local_gateway_route_table_id].to_s unless input[:local_gateway_route_table_id].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2602,12 +2605,12 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'PrefixListName'] = input[:prefix_list_name].to_s unless input[:prefix_list_name].nil?
-        Builders::AddPrefixListEntries.build(input[:entries], params, context: context + 'Entry') unless input[:entries].nil?
+        AddPrefixListEntries.build(input[:entries], params, context: context + 'Entry') unless input[:entries].nil?
         params[context + 'MaxEntries'] = input[:max_entries].to_s unless input[:max_entries].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'AddressFamily'] = input[:address_family].to_s unless input[:address_family].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2615,7 +2618,7 @@ module AWS::SDK::EC2
     class AddPrefixListEntries
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::AddPrefixListEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          AddPrefixListEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2642,9 +2645,9 @@ module AWS::SDK::EC2
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'ConnectivityType'] = input[:connectivity_type].to_s unless input[:connectivity_type].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2660,8 +2663,8 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2678,14 +2681,14 @@ module AWS::SDK::EC2
         params[context + 'CidrBlock'] = input[:cidr_block].to_s unless input[:cidr_block].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'Egress'] = input[:egress].to_s unless input[:egress].nil?
-        Builders::IcmpTypeCode.build(input[:icmp_type_code], params, context: context + 'Icmp' + '.') unless input[:icmp_type_code].nil?
+        IcmpTypeCode.build(input[:icmp_type_code], params, context: context + 'Icmp' + '.') unless input[:icmp_type_code].nil?
         params[context + 'Ipv6CidrBlock'] = input[:ipv6_cidr_block].to_s unless input[:ipv6_cidr_block].nil?
         params[context + 'NetworkAclId'] = input[:network_acl_id].to_s unless input[:network_acl_id].nil?
-        Builders::PortRange.build(input[:port_range], params, context: context + 'PortRange' + '.') unless input[:port_range].nil?
+        PortRange.build(input[:port_range], params, context: context + 'PortRange' + '.') unless input[:port_range].nil?
         params[context + 'Protocol'] = input[:protocol].to_s unless input[:protocol].nil?
         params[context + 'RuleAction'] = input[:rule_action].to_s unless input[:rule_action].nil?
         params[context + 'RuleNumber'] = input[:rule_number].to_s unless input[:rule_number].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2715,12 +2718,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'CreateNetworkInsightsAccessScope'
         params['Version'] = '2016-11-15'
-        Builders::AccessScopePathListRequest.build(input[:match_paths], params, context: context + 'MatchPath') unless input[:match_paths].nil?
-        Builders::AccessScopePathListRequest.build(input[:exclude_paths], params, context: context + 'ExcludePath') unless input[:exclude_paths].nil?
+        AccessScopePathListRequest.build(input[:match_paths], params, context: context + 'MatchPath') unless input[:match_paths].nil?
+        AccessScopePathListRequest.build(input[:exclude_paths], params, context: context + 'ExcludePath') unless input[:exclude_paths].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2728,7 +2731,7 @@ module AWS::SDK::EC2
     class AccessScopePathListRequest
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::AccessScopePathRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          AccessScopePathRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2736,9 +2739,9 @@ module AWS::SDK::EC2
     # Structure Builder for AccessScopePathRequest
     class AccessScopePathRequest
       def self.build(input, params, context: nil)
-        Builders::PathStatementRequest.build(input[:source], params, context: context + 'Source' + '.') unless input[:source].nil?
-        Builders::PathStatementRequest.build(input[:destination], params, context: context + 'Destination' + '.') unless input[:destination].nil?
-        Builders::ThroughResourcesStatementRequestList.build(input[:through_resources], params, context: context + 'ThroughResource') unless input[:through_resources].nil?
+        PathStatementRequest.build(input[:source], params, context: context + 'Source' + '.') unless input[:source].nil?
+        PathStatementRequest.build(input[:destination], params, context: context + 'Destination' + '.') unless input[:destination].nil?
+        ThroughResourcesStatementRequestList.build(input[:through_resources], params, context: context + 'ThroughResource') unless input[:through_resources].nil?
       end
     end
 
@@ -2746,7 +2749,7 @@ module AWS::SDK::EC2
     class ThroughResourcesStatementRequestList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ThroughResourcesStatementRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ThroughResourcesStatementRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2754,36 +2757,36 @@ module AWS::SDK::EC2
     # Structure Builder for ThroughResourcesStatementRequest
     class ThroughResourcesStatementRequest
       def self.build(input, params, context: nil)
-        Builders::ResourceStatementRequest.build(input[:resource_statement], params, context: context + 'ResourceStatement' + '.') unless input[:resource_statement].nil?
+        ResourceStatementRequest.build(input[:resource_statement], params, context: context + 'ResourceStatement' + '.') unless input[:resource_statement].nil?
       end
     end
 
     # Structure Builder for ResourceStatementRequest
     class ResourceStatementRequest
       def self.build(input, params, context: nil)
-        Builders::ValueStringList.build(input[:resources], params, context: context + 'Resource') unless input[:resources].nil?
-        Builders::ValueStringList.build(input[:resource_types], params, context: context + 'ResourceType') unless input[:resource_types].nil?
+        ValueStringList.build(input[:resources], params, context: context + 'Resource') unless input[:resources].nil?
+        ValueStringList.build(input[:resource_types], params, context: context + 'ResourceType') unless input[:resource_types].nil?
       end
     end
 
     # Structure Builder for PathStatementRequest
     class PathStatementRequest
       def self.build(input, params, context: nil)
-        Builders::PacketHeaderStatementRequest.build(input[:packet_header_statement], params, context: context + 'PacketHeaderStatement' + '.') unless input[:packet_header_statement].nil?
-        Builders::ResourceStatementRequest.build(input[:resource_statement], params, context: context + 'ResourceStatement' + '.') unless input[:resource_statement].nil?
+        PacketHeaderStatementRequest.build(input[:packet_header_statement], params, context: context + 'PacketHeaderStatement' + '.') unless input[:packet_header_statement].nil?
+        ResourceStatementRequest.build(input[:resource_statement], params, context: context + 'ResourceStatement' + '.') unless input[:resource_statement].nil?
       end
     end
 
     # Structure Builder for PacketHeaderStatementRequest
     class PacketHeaderStatementRequest
       def self.build(input, params, context: nil)
-        Builders::ValueStringList.build(input[:source_addresses], params, context: context + 'SourceAddress') unless input[:source_addresses].nil?
-        Builders::ValueStringList.build(input[:destination_addresses], params, context: context + 'DestinationAddress') unless input[:destination_addresses].nil?
-        Builders::ValueStringList.build(input[:source_ports], params, context: context + 'SourcePort') unless input[:source_ports].nil?
-        Builders::ValueStringList.build(input[:destination_ports], params, context: context + 'DestinationPort') unless input[:destination_ports].nil?
-        Builders::ValueStringList.build(input[:source_prefix_lists], params, context: context + 'SourcePrefixList') unless input[:source_prefix_lists].nil?
-        Builders::ValueStringList.build(input[:destination_prefix_lists], params, context: context + 'DestinationPrefixList') unless input[:destination_prefix_lists].nil?
-        Builders::ProtocolList.build(input[:protocols], params, context: context + 'Protocol') unless input[:protocols].nil?
+        ValueStringList.build(input[:source_addresses], params, context: context + 'SourceAddress') unless input[:source_addresses].nil?
+        ValueStringList.build(input[:destination_addresses], params, context: context + 'DestinationAddress') unless input[:destination_addresses].nil?
+        ValueStringList.build(input[:source_ports], params, context: context + 'SourcePort') unless input[:source_ports].nil?
+        ValueStringList.build(input[:destination_ports], params, context: context + 'DestinationPort') unless input[:destination_ports].nil?
+        ValueStringList.build(input[:source_prefix_lists], params, context: context + 'SourcePrefixList') unless input[:source_prefix_lists].nil?
+        ValueStringList.build(input[:destination_prefix_lists], params, context: context + 'DestinationPrefixList') unless input[:destination_prefix_lists].nil?
+        ProtocolList.build(input[:protocols], params, context: context + 'Protocol') unless input[:protocols].nil?
       end
     end
 
@@ -2812,10 +2815,10 @@ module AWS::SDK::EC2
         params[context + 'Destination'] = input[:destination].to_s unless input[:destination].nil?
         params[context + 'Protocol'] = input[:protocol].to_s unless input[:protocol].nil?
         params[context + 'DestinationPort'] = input[:destination_port].to_s unless input[:destination_port].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2831,21 +2834,21 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::SecurityGroupIdStringList.build(input[:groups], params, context: context + 'SecurityGroupId') unless input[:groups].nil?
+        SecurityGroupIdStringList.build(input[:groups], params, context: context + 'SecurityGroupId') unless input[:groups].nil?
         params[context + 'Ipv6AddressCount'] = input[:ipv6_address_count].to_s unless input[:ipv6_address_count].nil?
-        Builders::InstanceIpv6AddressList.build(input[:ipv6_addresses], params, context: context + 'ipv6Addresses') unless input[:ipv6_addresses].nil?
+        InstanceIpv6AddressList.build(input[:ipv6_addresses], params, context: context + 'ipv6Addresses') unless input[:ipv6_addresses].nil?
         params[context + 'PrivateIpAddress'] = input[:private_ip_address].to_s unless input[:private_ip_address].nil?
-        Builders::PrivateIpAddressSpecificationList.build(input[:private_ip_addresses], params, context: context + 'privateIpAddresses') unless input[:private_ip_addresses].nil?
+        PrivateIpAddressSpecificationList.build(input[:private_ip_addresses], params, context: context + 'privateIpAddresses') unless input[:private_ip_addresses].nil?
         params[context + 'SecondaryPrivateIpAddressCount'] = input[:secondary_private_ip_address_count].to_s unless input[:secondary_private_ip_address_count].nil?
-        Builders::Ipv4PrefixList.build(input[:ipv4_prefixes], params, context: context + 'Ipv4Prefix') unless input[:ipv4_prefixes].nil?
+        Ipv4PrefixList.build(input[:ipv4_prefixes], params, context: context + 'Ipv4Prefix') unless input[:ipv4_prefixes].nil?
         params[context + 'Ipv4PrefixCount'] = input[:ipv4_prefix_count].to_s unless input[:ipv4_prefix_count].nil?
-        Builders::Ipv6PrefixList.build(input[:ipv6_prefixes], params, context: context + 'Ipv6Prefix') unless input[:ipv6_prefixes].nil?
+        Ipv6PrefixList.build(input[:ipv6_prefixes], params, context: context + 'Ipv6Prefix') unless input[:ipv6_prefixes].nil?
         params[context + 'Ipv6PrefixCount'] = input[:ipv6_prefix_count].to_s unless input[:ipv6_prefix_count].nil?
         params[context + 'InterfaceType'] = input[:interface_type].to_s unless input[:interface_type].nil?
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2853,7 +2856,7 @@ module AWS::SDK::EC2
     class InstanceIpv6AddressList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::InstanceIpv6Address.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          InstanceIpv6Address.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2880,7 +2883,7 @@ module AWS::SDK::EC2
         params[context + 'AwsService'] = input[:aws_service].to_s unless input[:aws_service].nil?
         params[context + 'Permission'] = input[:permission].to_s unless input[:permission].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2898,8 +2901,8 @@ module AWS::SDK::EC2
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
         params[context + 'Strategy'] = input[:strategy].to_s unless input[:strategy].nil?
         params[context + 'PartitionCount'] = input[:partition_count].to_s unless input[:partition_count].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2914,8 +2917,8 @@ module AWS::SDK::EC2
         params['Action'] = 'CreatePublicIpv4Pool'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2933,8 +2936,8 @@ module AWS::SDK::EC2
         params[context + 'SnapshotId'] = input[:snapshot_id].to_s unless input[:snapshot_id].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2950,9 +2953,9 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'InstanceCount'] = input[:instance_count].to_s unless input[:instance_count].nil?
-        Builders::PriceScheduleSpecificationList.build(input[:price_schedules], params, context: context + 'priceSchedules') unless input[:price_schedules].nil?
+        PriceScheduleSpecificationList.build(input[:price_schedules], params, context: context + 'priceSchedules') unless input[:price_schedules].nil?
         params[context + 'ReservedInstancesId'] = input[:reserved_instances_id].to_s unless input[:reserved_instances_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2960,7 +2963,7 @@ module AWS::SDK::EC2
     class PriceScheduleSpecificationList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::PriceScheduleSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          PriceScheduleSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2987,9 +2990,9 @@ module AWS::SDK::EC2
         params[context + 'Bucket'] = input[:bucket].to_s unless input[:bucket].nil?
         params[context + 'ObjectKey'] = input[:object_key].to_s unless input[:object_key].nil?
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3019,7 +3022,7 @@ module AWS::SDK::EC2
         params[context + 'RouteTableId'] = input[:route_table_id].to_s unless input[:route_table_id].nil?
         params[context + 'VpcPeeringConnectionId'] = input[:vpc_peering_connection_id].to_s unless input[:vpc_peering_connection_id].nil?
         params[context + 'CoreNetworkArn'] = input[:core_network_arn].to_s unless input[:core_network_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3035,8 +3038,8 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3053,9 +3056,9 @@ module AWS::SDK::EC2
         params[context + 'GroupDescription'] = input[:description].to_s unless input[:description].nil?
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3072,9 +3075,9 @@ module AWS::SDK::EC2
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'OutpostArn'] = input[:outpost_arn].to_s unless input[:outpost_arn].nil?
         params[context + 'VolumeId'] = input[:volume_id].to_s unless input[:volume_id].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3089,12 +3092,12 @@ module AWS::SDK::EC2
         params['Action'] = 'CreateSnapshots'
         params['Version'] = '2016-11-15'
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::InstanceSpecification.build(input[:instance_specification], params, context: context + 'InstanceSpecification' + '.') unless input[:instance_specification].nil?
+        InstanceSpecification.build(input[:instance_specification], params, context: context + 'InstanceSpecification' + '.') unless input[:instance_specification].nil?
         params[context + 'OutpostArn'] = input[:outpost_arn].to_s unless input[:outpost_arn].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'CopyTagsFromSource'] = input[:copy_tags_from_source].to_s unless input[:copy_tags_from_source].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3119,7 +3122,7 @@ module AWS::SDK::EC2
         params[context + 'Bucket'] = input[:bucket].to_s unless input[:bucket].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'Prefix'] = input[:prefix].to_s unless input[:prefix].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3135,9 +3138,9 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
         params[context + 'Bucket'] = input[:bucket].to_s unless input[:bucket].nil?
-        Builders::S3ObjectTagList.build(input[:s3_object_tags], params, context: context + 'S3ObjectTag') unless input[:s3_object_tags].nil?
+        S3ObjectTagList.build(input[:s3_object_tags], params, context: context + 'S3ObjectTag') unless input[:s3_object_tags].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3145,7 +3148,7 @@ module AWS::SDK::EC2
     class S3ObjectTagList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::S3ObjectTag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          S3ObjectTag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -3168,7 +3171,7 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'CreateSubnet'
         params['Version'] = '2016-11-15'
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'AvailabilityZone'] = input[:availability_zone].to_s unless input[:availability_zone].nil?
         params[context + 'AvailabilityZoneId'] = input[:availability_zone_id].to_s unless input[:availability_zone_id].nil?
         params[context + 'CidrBlock'] = input[:cidr_block].to_s unless input[:cidr_block].nil?
@@ -3177,7 +3180,7 @@ module AWS::SDK::EC2
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'Ipv6Native'] = input[:ipv6_native].to_s unless input[:ipv6_native].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3196,8 +3199,8 @@ module AWS::SDK::EC2
         params[context + 'ReservationType'] = input[:reservation_type].to_s unless input[:reservation_type].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3212,9 +3215,9 @@ module AWS::SDK::EC2
         params['Action'] = 'CreateTags'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::ResourceIdList.build(input[:resources], params, context: context + 'ResourceId') unless input[:resources].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ResourceIdList.build(input[:resources], params, context: context + 'ResourceId') unless input[:resources].nil?
+        TagList.build(input[:tags], params, context: context + 'Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3238,10 +3241,10 @@ module AWS::SDK::EC2
         params['Action'] = 'CreateTrafficMirrorFilter'
         params['Version'] = '2016-11-15'
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3259,15 +3262,15 @@ module AWS::SDK::EC2
         params[context + 'TrafficDirection'] = input[:traffic_direction].to_s unless input[:traffic_direction].nil?
         params[context + 'RuleNumber'] = input[:rule_number].to_s unless input[:rule_number].nil?
         params[context + 'RuleAction'] = input[:rule_action].to_s unless input[:rule_action].nil?
-        Builders::TrafficMirrorPortRangeRequest.build(input[:destination_port_range], params, context: context + 'DestinationPortRange' + '.') unless input[:destination_port_range].nil?
-        Builders::TrafficMirrorPortRangeRequest.build(input[:source_port_range], params, context: context + 'SourcePortRange' + '.') unless input[:source_port_range].nil?
+        TrafficMirrorPortRangeRequest.build(input[:destination_port_range], params, context: context + 'DestinationPortRange' + '.') unless input[:destination_port_range].nil?
+        TrafficMirrorPortRangeRequest.build(input[:source_port_range], params, context: context + 'SourcePortRange' + '.') unless input[:source_port_range].nil?
         params[context + 'Protocol'] = input[:protocol].to_s unless input[:protocol].nil?
         params[context + 'DestinationCidrBlock'] = input[:destination_cidr_block].to_s unless input[:destination_cidr_block].nil?
         params[context + 'SourceCidrBlock'] = input[:source_cidr_block].to_s unless input[:source_cidr_block].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3296,10 +3299,10 @@ module AWS::SDK::EC2
         params[context + 'SessionNumber'] = input[:session_number].to_s unless input[:session_number].nil?
         params[context + 'VirtualNetworkId'] = input[:virtual_network_id].to_s unless input[:virtual_network_id].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3316,11 +3319,11 @@ module AWS::SDK::EC2
         params[context + 'NetworkInterfaceId'] = input[:network_interface_id].to_s unless input[:network_interface_id].nil?
         params[context + 'NetworkLoadBalancerArn'] = input[:network_load_balancer_arn].to_s unless input[:network_load_balancer_arn].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'GatewayLoadBalancerEndpointId'] = input[:gateway_load_balancer_endpoint_id].to_s unless input[:gateway_load_balancer_endpoint_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3335,10 +3338,10 @@ module AWS::SDK::EC2
         params['Action'] = 'CreateTransitGateway'
         params['Version'] = '2016-11-15'
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::TransitGatewayRequestOptions.build(input[:options], params, context: context + 'Options' + '.') unless input[:options].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TransitGatewayRequestOptions.build(input[:options], params, context: context + 'Options' + '.') unless input[:options].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3352,7 +3355,7 @@ module AWS::SDK::EC2
         params[context + 'VpnEcmpSupport'] = input[:vpn_ecmp_support].to_s unless input[:vpn_ecmp_support].nil?
         params[context + 'DnsSupport'] = input[:dns_support].to_s unless input[:dns_support].nil?
         params[context + 'MulticastSupport'] = input[:multicast_support].to_s unless input[:multicast_support].nil?
-        Builders::TransitGatewayCidrBlockStringList.build(input[:transit_gateway_cidr_blocks], params, context: context + 'TransitGatewayCidrBlocks') unless input[:transit_gateway_cidr_blocks].nil?
+        TransitGatewayCidrBlockStringList.build(input[:transit_gateway_cidr_blocks], params, context: context + 'TransitGatewayCidrBlocks') unless input[:transit_gateway_cidr_blocks].nil?
       end
     end
 
@@ -3376,10 +3379,10 @@ module AWS::SDK::EC2
         params['Action'] = 'CreateTransitGatewayConnect'
         params['Version'] = '2016-11-15'
         params[context + 'TransportTransitGatewayAttachmentId'] = input[:transport_transit_gateway_attachment_id].to_s unless input[:transport_transit_gateway_attachment_id].nil?
-        Builders::CreateTransitGatewayConnectRequestOptions.build(input[:options], params, context: context + 'Options' + '.') unless input[:options].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        CreateTransitGatewayConnectRequestOptions.build(input[:options], params, context: context + 'Options' + '.') unless input[:options].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3403,11 +3406,11 @@ module AWS::SDK::EC2
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
         params[context + 'TransitGatewayAddress'] = input[:transit_gateway_address].to_s unless input[:transit_gateway_address].nil?
         params[context + 'PeerAddress'] = input[:peer_address].to_s unless input[:peer_address].nil?
-        Builders::TransitGatewayConnectRequestBgpOptions.build(input[:bgp_options], params, context: context + 'BgpOptions' + '.') unless input[:bgp_options].nil?
-        Builders::InsideCidrBlocksStringList.build(input[:inside_cidr_blocks], params, context: context + 'InsideCidrBlocks') unless input[:inside_cidr_blocks].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TransitGatewayConnectRequestBgpOptions.build(input[:bgp_options], params, context: context + 'BgpOptions' + '.') unless input[:bgp_options].nil?
+        InsideCidrBlocksStringList.build(input[:inside_cidr_blocks], params, context: context + 'InsideCidrBlocks') unless input[:inside_cidr_blocks].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3438,10 +3441,10 @@ module AWS::SDK::EC2
         params['Action'] = 'CreateTransitGatewayMulticastDomain'
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayId'] = input[:transit_gateway_id].to_s unless input[:transit_gateway_id].nil?
-        Builders::CreateTransitGatewayMulticastDomainRequestOptions.build(input[:options], params, context: context + 'Options' + '.') unless input[:options].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        CreateTransitGatewayMulticastDomainRequestOptions.build(input[:options], params, context: context + 'Options' + '.') unless input[:options].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3468,9 +3471,9 @@ module AWS::SDK::EC2
         params[context + 'PeerTransitGatewayId'] = input[:peer_transit_gateway_id].to_s unless input[:peer_transit_gateway_id].nil?
         params[context + 'PeerAccountId'] = input[:peer_account_id].to_s unless input[:peer_account_id].nil?
         params[context + 'PeerRegion'] = input[:peer_region].to_s unless input[:peer_region].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3489,7 +3492,7 @@ module AWS::SDK::EC2
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
         params[context + 'Blackhole'] = input[:blackhole].to_s unless input[:blackhole].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3508,7 +3511,7 @@ module AWS::SDK::EC2
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
         params[context + 'Blackhole'] = input[:blackhole].to_s unless input[:blackhole].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3523,9 +3526,9 @@ module AWS::SDK::EC2
         params['Action'] = 'CreateTransitGatewayRouteTable'
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayId'] = input[:transit_gateway_id].to_s unless input[:transit_gateway_id].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecifications') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecifications') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3541,11 +3544,11 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayId'] = input[:transit_gateway_id].to_s unless input[:transit_gateway_id].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        Builders::TransitGatewaySubnetIdList.build(input[:subnet_ids], params, context: context + 'SubnetIds') unless input[:subnet_ids].nil?
-        Builders::CreateTransitGatewayVpcAttachmentRequestOptions.build(input[:options], params, context: context + 'Options' + '.') unless input[:options].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecifications') unless input[:tag_specifications].nil?
+        TransitGatewaySubnetIdList.build(input[:subnet_ids], params, context: context + 'SubnetIds') unless input[:subnet_ids].nil?
+        CreateTransitGatewayVpcAttachmentRequestOptions.build(input[:options], params, context: context + 'Options' + '.') unless input[:options].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecifications') unless input[:tag_specifications].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3577,11 +3580,11 @@ module AWS::SDK::EC2
         params[context + 'SnapshotId'] = input[:snapshot_id].to_s unless input[:snapshot_id].nil?
         params[context + 'VolumeType'] = input[:volume_type].to_s unless input[:volume_type].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'MultiAttachEnabled'] = input[:multi_attach_enabled].to_s unless input[:multi_attach_enabled].nil?
         params[context + 'Throughput'] = input[:throughput].to_s unless input[:throughput].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3606,8 +3609,8 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InstanceTenancy'] = input[:instance_tenancy].to_s unless input[:instance_tenancy].nil?
         params[context + 'Ipv6CidrBlockNetworkBorderGroup'] = input[:ipv6_cidr_block_network_border_group].to_s unless input[:ipv6_cidr_block_network_border_group].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3626,15 +3629,15 @@ module AWS::SDK::EC2
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
         params[context + 'ServiceName'] = input[:service_name].to_s unless input[:service_name].nil?
         params[context + 'PolicyDocument'] = input[:policy_document].to_s unless input[:policy_document].nil?
-        Builders::VpcEndpointRouteTableIdList.build(input[:route_table_ids], params, context: context + 'RouteTableId') unless input[:route_table_ids].nil?
-        Builders::VpcEndpointSubnetIdList.build(input[:subnet_ids], params, context: context + 'SubnetId') unless input[:subnet_ids].nil?
-        Builders::VpcEndpointSecurityGroupIdList.build(input[:security_group_ids], params, context: context + 'SecurityGroupId') unless input[:security_group_ids].nil?
+        VpcEndpointRouteTableIdList.build(input[:route_table_ids], params, context: context + 'RouteTableId') unless input[:route_table_ids].nil?
+        VpcEndpointSubnetIdList.build(input[:subnet_ids], params, context: context + 'SubnetId') unless input[:subnet_ids].nil?
+        VpcEndpointSecurityGroupIdList.build(input[:security_group_ids], params, context: context + 'SecurityGroupId') unless input[:security_group_ids].nil?
         params[context + 'IpAddressType'] = input[:ip_address_type].to_s unless input[:ip_address_type].nil?
-        Builders::DnsOptionsSpecification.build(input[:dns_options], params, context: context + 'DnsOptions' + '.') unless input[:dns_options].nil?
+        DnsOptionsSpecification.build(input[:dns_options], params, context: context + 'DnsOptions' + '.') unless input[:dns_options].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'PrivateDnsEnabled'] = input[:private_dns_enabled].to_s unless input[:private_dns_enabled].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3686,9 +3689,9 @@ module AWS::SDK::EC2
         params[context + 'ServiceId'] = input[:service_id].to_s unless input[:service_id].nil?
         params[context + 'VpcEndpointId'] = input[:vpc_endpoint_id].to_s unless input[:vpc_endpoint_id].nil?
         params[context + 'ConnectionNotificationArn'] = input[:connection_notification_arn].to_s unless input[:connection_notification_arn].nil?
-        Builders::ValueStringList.build(input[:connection_events], params, context: context + 'ConnectionEvents') unless input[:connection_events].nil?
+        ValueStringList.build(input[:connection_events], params, context: context + 'ConnectionEvents') unless input[:connection_events].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3705,12 +3708,12 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'AcceptanceRequired'] = input[:acceptance_required].to_s unless input[:acceptance_required].nil?
         params[context + 'PrivateDnsName'] = input[:private_dns_name].to_s unless input[:private_dns_name].nil?
-        Builders::ValueStringList.build(input[:network_load_balancer_arns], params, context: context + 'NetworkLoadBalancerArn') unless input[:network_load_balancer_arns].nil?
-        Builders::ValueStringList.build(input[:gateway_load_balancer_arns], params, context: context + 'GatewayLoadBalancerArn') unless input[:gateway_load_balancer_arns].nil?
-        Builders::ValueStringList.build(input[:supported_ip_address_types], params, context: context + 'SupportedIpAddressType') unless input[:supported_ip_address_types].nil?
+        ValueStringList.build(input[:network_load_balancer_arns], params, context: context + 'NetworkLoadBalancerArn') unless input[:network_load_balancer_arns].nil?
+        ValueStringList.build(input[:gateway_load_balancer_arns], params, context: context + 'GatewayLoadBalancerArn') unless input[:gateway_load_balancer_arns].nil?
+        ValueStringList.build(input[:supported_ip_address_types], params, context: context + 'SupportedIpAddressType') unless input[:supported_ip_address_types].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3729,8 +3732,8 @@ module AWS::SDK::EC2
         params[context + 'PeerVpcId'] = input[:peer_vpc_id].to_s unless input[:peer_vpc_id].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
         params[context + 'PeerRegion'] = input[:peer_region].to_s unless input[:peer_region].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3749,9 +3752,9 @@ module AWS::SDK::EC2
         params[context + 'VpnGatewayId'] = input[:vpn_gateway_id].to_s unless input[:vpn_gateway_id].nil?
         params[context + 'TransitGatewayId'] = input[:transit_gateway_id].to_s unless input[:transit_gateway_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::VpnConnectionOptionsSpecification.build(input[:options], params, context: context + 'Options' + '.') unless input[:options].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        VpnConnectionOptionsSpecification.build(input[:options], params, context: context + 'Options' + '.') unless input[:options].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3761,7 +3764,7 @@ module AWS::SDK::EC2
         params[context + 'EnableAcceleration'] = input[:enable_acceleration].to_s unless input[:enable_acceleration].nil?
         params[context + 'StaticRoutesOnly'] = input[:static_routes_only].to_s unless input[:static_routes_only].nil?
         params[context + 'TunnelInsideIpVersion'] = input[:tunnel_inside_ip_version].to_s unless input[:tunnel_inside_ip_version].nil?
-        Builders::VpnTunnelOptionsSpecificationsList.build(input[:tunnel_options], params, context: context + 'TunnelOptions') unless input[:tunnel_options].nil?
+        VpnTunnelOptionsSpecificationsList.build(input[:tunnel_options], params, context: context + 'TunnelOptions') unless input[:tunnel_options].nil?
         params[context + 'LocalIpv4NetworkCidr'] = input[:local_ipv4_network_cidr].to_s unless input[:local_ipv4_network_cidr].nil?
         params[context + 'RemoteIpv4NetworkCidr'] = input[:remote_ipv4_network_cidr].to_s unless input[:remote_ipv4_network_cidr].nil?
         params[context + 'LocalIpv6NetworkCidr'] = input[:local_ipv6_network_cidr].to_s unless input[:local_ipv6_network_cidr].nil?
@@ -3773,7 +3776,7 @@ module AWS::SDK::EC2
     class VpnTunnelOptionsSpecificationsList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::VpnTunnelOptionsSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          VpnTunnelOptionsSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -3791,13 +3794,13 @@ module AWS::SDK::EC2
         params[context + 'ReplayWindowSize'] = input[:replay_window_size].to_s unless input[:replay_window_size].nil?
         params[context + 'DPDTimeoutSeconds'] = input[:dpd_timeout_seconds].to_s unless input[:dpd_timeout_seconds].nil?
         params[context + 'DPDTimeoutAction'] = input[:dpd_timeout_action].to_s unless input[:dpd_timeout_action].nil?
-        Builders::Phase1EncryptionAlgorithmsRequestList.build(input[:phase1_encryption_algorithms], params, context: context + 'Phase1EncryptionAlgorithm') unless input[:phase1_encryption_algorithms].nil?
-        Builders::Phase2EncryptionAlgorithmsRequestList.build(input[:phase2_encryption_algorithms], params, context: context + 'Phase2EncryptionAlgorithm') unless input[:phase2_encryption_algorithms].nil?
-        Builders::Phase1IntegrityAlgorithmsRequestList.build(input[:phase1_integrity_algorithms], params, context: context + 'Phase1IntegrityAlgorithm') unless input[:phase1_integrity_algorithms].nil?
-        Builders::Phase2IntegrityAlgorithmsRequestList.build(input[:phase2_integrity_algorithms], params, context: context + 'Phase2IntegrityAlgorithm') unless input[:phase2_integrity_algorithms].nil?
-        Builders::Phase1DHGroupNumbersRequestList.build(input[:phase1_dh_group_numbers], params, context: context + 'Phase1DHGroupNumber') unless input[:phase1_dh_group_numbers].nil?
-        Builders::Phase2DHGroupNumbersRequestList.build(input[:phase2_dh_group_numbers], params, context: context + 'Phase2DHGroupNumber') unless input[:phase2_dh_group_numbers].nil?
-        Builders::IKEVersionsRequestList.build(input[:ike_versions], params, context: context + 'IKEVersion') unless input[:ike_versions].nil?
+        Phase1EncryptionAlgorithmsRequestList.build(input[:phase1_encryption_algorithms], params, context: context + 'Phase1EncryptionAlgorithm') unless input[:phase1_encryption_algorithms].nil?
+        Phase2EncryptionAlgorithmsRequestList.build(input[:phase2_encryption_algorithms], params, context: context + 'Phase2EncryptionAlgorithm') unless input[:phase2_encryption_algorithms].nil?
+        Phase1IntegrityAlgorithmsRequestList.build(input[:phase1_integrity_algorithms], params, context: context + 'Phase1IntegrityAlgorithm') unless input[:phase1_integrity_algorithms].nil?
+        Phase2IntegrityAlgorithmsRequestList.build(input[:phase2_integrity_algorithms], params, context: context + 'Phase2IntegrityAlgorithm') unless input[:phase2_integrity_algorithms].nil?
+        Phase1DHGroupNumbersRequestList.build(input[:phase1_dh_group_numbers], params, context: context + 'Phase1DHGroupNumber') unless input[:phase1_dh_group_numbers].nil?
+        Phase2DHGroupNumbersRequestList.build(input[:phase2_dh_group_numbers], params, context: context + 'Phase2DHGroupNumber') unless input[:phase2_dh_group_numbers].nil?
+        IKEVersionsRequestList.build(input[:ike_versions], params, context: context + 'IKEVersion') unless input[:ike_versions].nil?
         params[context + 'StartupAction'] = input[:startup_action].to_s unless input[:startup_action].nil?
       end
     end
@@ -3806,7 +3809,7 @@ module AWS::SDK::EC2
     class IKEVersionsRequestList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::IKEVersionsRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          IKEVersionsRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -3822,7 +3825,7 @@ module AWS::SDK::EC2
     class Phase2DHGroupNumbersRequestList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Phase2DHGroupNumbersRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Phase2DHGroupNumbersRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -3838,7 +3841,7 @@ module AWS::SDK::EC2
     class Phase1DHGroupNumbersRequestList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Phase1DHGroupNumbersRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Phase1DHGroupNumbersRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -3854,7 +3857,7 @@ module AWS::SDK::EC2
     class Phase2IntegrityAlgorithmsRequestList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Phase2IntegrityAlgorithmsRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Phase2IntegrityAlgorithmsRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -3870,7 +3873,7 @@ module AWS::SDK::EC2
     class Phase1IntegrityAlgorithmsRequestList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Phase1IntegrityAlgorithmsRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Phase1IntegrityAlgorithmsRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -3886,7 +3889,7 @@ module AWS::SDK::EC2
     class Phase2EncryptionAlgorithmsRequestList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Phase2EncryptionAlgorithmsRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Phase2EncryptionAlgorithmsRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -3902,7 +3905,7 @@ module AWS::SDK::EC2
     class Phase1EncryptionAlgorithmsRequestList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Phase1EncryptionAlgorithmsRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Phase1EncryptionAlgorithmsRequestListValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -3926,7 +3929,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DestinationCidrBlock'] = input[:destination_cidr_block].to_s unless input[:destination_cidr_block].nil?
         params[context + 'VpnConnectionId'] = input[:vpn_connection_id].to_s unless input[:vpn_connection_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3942,10 +3945,10 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'AvailabilityZone'] = input[:availability_zone].to_s unless input[:availability_zone].nil?
         params[context + 'Type'] = input[:type].to_s unless input[:type].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'AmazonSideAsn'] = input[:amazon_side_asn].to_s unless input[:amazon_side_asn].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3961,7 +3964,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'CarrierGatewayId'] = input[:carrier_gateway_id].to_s unless input[:carrier_gateway_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3977,7 +3980,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'ClientVpnEndpointId'] = input[:client_vpn_endpoint_id].to_s unless input[:client_vpn_endpoint_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -3995,7 +3998,7 @@ module AWS::SDK::EC2
         params[context + 'TargetVpcSubnetId'] = input[:target_vpc_subnet_id].to_s unless input[:target_vpc_subnet_id].nil?
         params[context + 'DestinationCidrBlock'] = input[:destination_cidr_block].to_s unless input[:destination_cidr_block].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4011,7 +4014,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'CustomerGatewayId'] = input[:customer_gateway_id].to_s unless input[:customer_gateway_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4027,7 +4030,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DhcpOptionsId'] = input[:dhcp_options_id].to_s unless input[:dhcp_options_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4043,7 +4046,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'EgressOnlyInternetGatewayId'] = input[:egress_only_internet_gateway_id].to_s unless input[:egress_only_internet_gateway_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4058,9 +4061,9 @@ module AWS::SDK::EC2
         params['Action'] = 'DeleteFleets'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FleetIdSet.build(input[:fleet_ids], params, context: context + 'FleetId') unless input[:fleet_ids].nil?
+        FleetIdSet.build(input[:fleet_ids], params, context: context + 'FleetId') unless input[:fleet_ids].nil?
         params[context + 'TerminateInstances'] = input[:terminate_instances].to_s unless input[:terminate_instances].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4084,8 +4087,8 @@ module AWS::SDK::EC2
         params['Action'] = 'DeleteFlowLogs'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FlowLogIdList.build(input[:flow_log_ids], params, context: context + 'FlowLogId') unless input[:flow_log_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        FlowLogIdList.build(input[:flow_log_ids], params, context: context + 'FlowLogId') unless input[:flow_log_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4110,7 +4113,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'FpgaImageId'] = input[:fpga_image_id].to_s unless input[:fpga_image_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4127,7 +4130,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ForceDelete'] = input[:force_delete].to_s unless input[:force_delete].nil?
         params[context + 'InstanceEventWindowId'] = input[:instance_event_window_id].to_s unless input[:instance_event_window_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4143,7 +4146,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InternetGatewayId'] = input[:internet_gateway_id].to_s unless input[:internet_gateway_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4160,7 +4163,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'IpamId'] = input[:ipam_id].to_s unless input[:ipam_id].nil?
         params[context + 'Cascade'] = input[:cascade].to_s unless input[:cascade].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4176,7 +4179,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'IpamPoolId'] = input[:ipam_pool_id].to_s unless input[:ipam_pool_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4192,7 +4195,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'IpamScopeId'] = input[:ipam_scope_id].to_s unless input[:ipam_scope_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4209,7 +4212,7 @@ module AWS::SDK::EC2
         params[context + 'KeyName'] = input[:key_name].to_s unless input[:key_name].nil?
         params[context + 'KeyPairId'] = input[:key_pair_id].to_s unless input[:key_pair_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4226,7 +4229,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'LaunchTemplateId'] = input[:launch_template_id].to_s unless input[:launch_template_id].nil?
         params[context + 'LaunchTemplateName'] = input[:launch_template_name].to_s unless input[:launch_template_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4243,8 +4246,8 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'LaunchTemplateId'] = input[:launch_template_id].to_s unless input[:launch_template_id].nil?
         params[context + 'LaunchTemplateName'] = input[:launch_template_name].to_s unless input[:launch_template_name].nil?
-        Builders::VersionStringList.build(input[:versions], params, context: context + 'LaunchTemplateVersion') unless input[:versions].nil?
-        http_req.body = StringIO.new(params.to_s)
+        VersionStringList.build(input[:versions], params, context: context + 'LaunchTemplateVersion') unless input[:versions].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4270,7 +4273,7 @@ module AWS::SDK::EC2
         params[context + 'DestinationCidrBlock'] = input[:destination_cidr_block].to_s unless input[:destination_cidr_block].nil?
         params[context + 'LocalGatewayRouteTableId'] = input[:local_gateway_route_table_id].to_s unless input[:local_gateway_route_table_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4286,7 +4289,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'LocalGatewayRouteTableVpcAssociationId'] = input[:local_gateway_route_table_vpc_association_id].to_s unless input[:local_gateway_route_table_vpc_association_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4302,7 +4305,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'PrefixListId'] = input[:prefix_list_id].to_s unless input[:prefix_list_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4318,7 +4321,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NatGatewayId'] = input[:nat_gateway_id].to_s unless input[:nat_gateway_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4334,7 +4337,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NetworkAclId'] = input[:network_acl_id].to_s unless input[:network_acl_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4352,7 +4355,7 @@ module AWS::SDK::EC2
         params[context + 'Egress'] = input[:egress].to_s unless input[:egress].nil?
         params[context + 'NetworkAclId'] = input[:network_acl_id].to_s unless input[:network_acl_id].nil?
         params[context + 'RuleNumber'] = input[:rule_number].to_s unless input[:rule_number].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4368,7 +4371,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NetworkInsightsAccessScopeId'] = input[:network_insights_access_scope_id].to_s unless input[:network_insights_access_scope_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4384,7 +4387,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'NetworkInsightsAccessScopeAnalysisId'] = input[:network_insights_access_scope_analysis_id].to_s unless input[:network_insights_access_scope_analysis_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4400,7 +4403,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NetworkInsightsAnalysisId'] = input[:network_insights_analysis_id].to_s unless input[:network_insights_analysis_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4416,7 +4419,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NetworkInsightsPathId'] = input[:network_insights_path_id].to_s unless input[:network_insights_path_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4432,7 +4435,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NetworkInterfaceId'] = input[:network_interface_id].to_s unless input[:network_interface_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4449,7 +4452,7 @@ module AWS::SDK::EC2
         params[context + 'NetworkInterfacePermissionId'] = input[:network_interface_permission_id].to_s unless input[:network_interface_permission_id].nil?
         params[context + 'Force'] = input[:force].to_s unless input[:force].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4465,7 +4468,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4481,7 +4484,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'PoolId'] = input[:pool_id].to_s unless input[:pool_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4496,8 +4499,8 @@ module AWS::SDK::EC2
         params['Action'] = 'DeleteQueuedReservedInstances'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::DeleteQueuedReservedInstancesIdList.build(input[:reserved_instances_ids], params, context: context + 'ReservedInstancesId') unless input[:reserved_instances_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        DeleteQueuedReservedInstancesIdList.build(input[:reserved_instances_ids], params, context: context + 'ReservedInstancesId') unless input[:reserved_instances_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4525,7 +4528,7 @@ module AWS::SDK::EC2
         params[context + 'DestinationPrefixListId'] = input[:destination_prefix_list_id].to_s unless input[:destination_prefix_list_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'RouteTableId'] = input[:route_table_id].to_s unless input[:route_table_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4541,7 +4544,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'RouteTableId'] = input[:route_table_id].to_s unless input[:route_table_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4558,7 +4561,7 @@ module AWS::SDK::EC2
         params[context + 'GroupId'] = input[:group_id].to_s unless input[:group_id].nil?
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4574,7 +4577,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'SnapshotId'] = input[:snapshot_id].to_s unless input[:snapshot_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4589,7 +4592,7 @@ module AWS::SDK::EC2
         params['Action'] = 'DeleteSpotDatafeedSubscription'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4605,7 +4608,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4621,7 +4624,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'SubnetCidrReservationId'] = input[:subnet_cidr_reservation_id].to_s unless input[:subnet_cidr_reservation_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4636,9 +4639,9 @@ module AWS::SDK::EC2
         params['Action'] = 'DeleteTags'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::ResourceIdList.build(input[:resources], params, context: context + 'resourceId') unless input[:resources].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ResourceIdList.build(input[:resources], params, context: context + 'resourceId') unless input[:resources].nil?
+        TagList.build(input[:tags], params, context: context + 'tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4654,7 +4657,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TrafficMirrorFilterId'] = input[:traffic_mirror_filter_id].to_s unless input[:traffic_mirror_filter_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4670,7 +4673,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TrafficMirrorFilterRuleId'] = input[:traffic_mirror_filter_rule_id].to_s unless input[:traffic_mirror_filter_rule_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4686,7 +4689,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TrafficMirrorSessionId'] = input[:traffic_mirror_session_id].to_s unless input[:traffic_mirror_session_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4702,7 +4705,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TrafficMirrorTargetId'] = input[:traffic_mirror_target_id].to_s unless input[:traffic_mirror_target_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4718,7 +4721,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayId'] = input[:transit_gateway_id].to_s unless input[:transit_gateway_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4734,7 +4737,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4750,7 +4753,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayConnectPeerId'] = input[:transit_gateway_connect_peer_id].to_s unless input[:transit_gateway_connect_peer_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4766,7 +4769,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayMulticastDomainId'] = input[:transit_gateway_multicast_domain_id].to_s unless input[:transit_gateway_multicast_domain_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4782,7 +4785,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4799,7 +4802,7 @@ module AWS::SDK::EC2
         params[context + 'TransitGatewayRouteTableId'] = input[:transit_gateway_route_table_id].to_s unless input[:transit_gateway_route_table_id].nil?
         params[context + 'PrefixListId'] = input[:prefix_list_id].to_s unless input[:prefix_list_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4816,7 +4819,7 @@ module AWS::SDK::EC2
         params[context + 'TransitGatewayRouteTableId'] = input[:transit_gateway_route_table_id].to_s unless input[:transit_gateway_route_table_id].nil?
         params[context + 'DestinationCidrBlock'] = input[:destination_cidr_block].to_s unless input[:destination_cidr_block].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4832,7 +4835,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayRouteTableId'] = input[:transit_gateway_route_table_id].to_s unless input[:transit_gateway_route_table_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4848,7 +4851,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4864,7 +4867,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'VolumeId'] = input[:volume_id].to_s unless input[:volume_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4880,7 +4883,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4895,8 +4898,8 @@ module AWS::SDK::EC2
         params['Action'] = 'DeleteVpcEndpointConnectionNotifications'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::ConnectionNotificationIdsList.build(input[:connection_notification_ids], params, context: context + 'ConnectionNotificationId') unless input[:connection_notification_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ConnectionNotificationIdsList.build(input[:connection_notification_ids], params, context: context + 'ConnectionNotificationId') unless input[:connection_notification_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4920,8 +4923,8 @@ module AWS::SDK::EC2
         params['Action'] = 'DeleteVpcEndpointServiceConfigurations'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::VpcEndpointServiceIdList.build(input[:service_ids], params, context: context + 'ServiceId') unless input[:service_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        VpcEndpointServiceIdList.build(input[:service_ids], params, context: context + 'ServiceId') unless input[:service_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4945,8 +4948,8 @@ module AWS::SDK::EC2
         params['Action'] = 'DeleteVpcEndpoints'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::VpcEndpointIdList.build(input[:vpc_endpoint_ids], params, context: context + 'VpcEndpointId') unless input[:vpc_endpoint_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        VpcEndpointIdList.build(input[:vpc_endpoint_ids], params, context: context + 'VpcEndpointId') unless input[:vpc_endpoint_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4962,7 +4965,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'VpcPeeringConnectionId'] = input[:vpc_peering_connection_id].to_s unless input[:vpc_peering_connection_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4978,7 +4981,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'VpnConnectionId'] = input[:vpn_connection_id].to_s unless input[:vpn_connection_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -4994,7 +4997,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DestinationCidrBlock'] = input[:destination_cidr_block].to_s unless input[:destination_cidr_block].nil?
         params[context + 'VpnConnectionId'] = input[:vpn_connection_id].to_s unless input[:vpn_connection_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5010,7 +5013,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'VpnGatewayId'] = input[:vpn_gateway_id].to_s unless input[:vpn_gateway_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5026,7 +5029,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'Cidr'] = input[:cidr].to_s unless input[:cidr].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5043,7 +5046,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'IpamPoolId'] = input[:ipam_pool_id].to_s unless input[:ipam_pool_id].nil?
         params[context + 'Cidr'] = input[:cidr].to_s unless input[:cidr].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5060,7 +5063,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'PoolId'] = input[:pool_id].to_s unless input[:pool_id].nil?
         params[context + 'Cidr'] = input[:cidr].to_s unless input[:cidr].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5076,7 +5079,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5091,8 +5094,8 @@ module AWS::SDK::EC2
         params['Action'] = 'DeregisterInstanceEventNotificationAttributes'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::DeregisterInstanceTagAttributeRequest.build(input[:instance_tag_attribute], params, context: context + 'InstanceTagAttribute' + '.') unless input[:instance_tag_attribute].nil?
-        http_req.body = StringIO.new(params.to_s)
+        DeregisterInstanceTagAttributeRequest.build(input[:instance_tag_attribute], params, context: context + 'InstanceTagAttribute' + '.') unless input[:instance_tag_attribute].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5100,7 +5103,7 @@ module AWS::SDK::EC2
     class DeregisterInstanceTagAttributeRequest
       def self.build(input, params, context: nil)
         params[context + 'IncludeAllTagsOfInstance'] = input[:include_all_tags_of_instance].to_s unless input[:include_all_tags_of_instance].nil?
-        Builders::InstanceTagKeySet.build(input[:instance_tag_keys], params, context: context + 'InstanceTagKey') unless input[:instance_tag_keys].nil?
+        InstanceTagKeySet.build(input[:instance_tag_keys], params, context: context + 'InstanceTagKey') unless input[:instance_tag_keys].nil?
       end
     end
 
@@ -5125,9 +5128,9 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayMulticastDomainId'] = input[:transit_gateway_multicast_domain_id].to_s unless input[:transit_gateway_multicast_domain_id].nil?
         params[context + 'GroupIpAddress'] = input[:group_ip_address].to_s unless input[:group_ip_address].nil?
-        Builders::TransitGatewayNetworkInterfaceIdList.build(input[:network_interface_ids], params, context: context + 'NetworkInterfaceIds') unless input[:network_interface_ids].nil?
+        TransitGatewayNetworkInterfaceIdList.build(input[:network_interface_ids], params, context: context + 'NetworkInterfaceIds') unless input[:network_interface_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5152,9 +5155,9 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayMulticastDomainId'] = input[:transit_gateway_multicast_domain_id].to_s unless input[:transit_gateway_multicast_domain_id].nil?
         params[context + 'GroupIpAddress'] = input[:group_ip_address].to_s unless input[:group_ip_address].nil?
-        Builders::TransitGatewayNetworkInterfaceIdList.build(input[:network_interface_ids], params, context: context + 'NetworkInterfaceIds') unless input[:network_interface_ids].nil?
+        TransitGatewayNetworkInterfaceIdList.build(input[:network_interface_ids], params, context: context + 'NetworkInterfaceIds') unless input[:network_interface_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5168,9 +5171,9 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeAccountAttributes'
         params['Version'] = '2016-11-15'
-        Builders::AccountAttributeNameStringList.build(input[:attribute_names], params, context: context + 'attributeName') unless input[:attribute_names].nil?
+        AccountAttributeNameStringList.build(input[:attribute_names], params, context: context + 'attributeName') unless input[:attribute_names].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5193,11 +5196,11 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeAddresses'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::PublicIpStringList.build(input[:public_ips], params, context: context + 'PublicIp') unless input[:public_ips].nil?
-        Builders::AllocationIdList.build(input[:allocation_ids], params, context: context + 'AllocationId') unless input[:allocation_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        PublicIpStringList.build(input[:public_ips], params, context: context + 'PublicIp') unless input[:public_ips].nil?
+        AllocationIdList.build(input[:allocation_ids], params, context: context + 'AllocationId') unless input[:allocation_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5223,7 +5226,7 @@ module AWS::SDK::EC2
     class FilterList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Filter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Filter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -5232,7 +5235,7 @@ module AWS::SDK::EC2
     class Filter
       def self.build(input, params, context: nil)
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
-        Builders::ValueStringList.build(input[:values], params, context: context + 'Value') unless input[:values].nil?
+        ValueStringList.build(input[:values], params, context: context + 'Value') unless input[:values].nil?
       end
     end
 
@@ -5246,12 +5249,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeAddressesAttribute'
         params['Version'] = '2016-11-15'
-        Builders::AllocationIds.build(input[:allocation_ids], params, context: context + 'AllocationId') unless input[:allocation_ids].nil?
+        AllocationIds.build(input[:allocation_ids], params, context: context + 'AllocationId') unless input[:allocation_ids].nil?
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5275,7 +5278,7 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeAggregateIdFormat'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5289,12 +5292,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeAvailabilityZones'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::ZoneNameStringList.build(input[:zone_names], params, context: context + 'ZoneName') unless input[:zone_names].nil?
-        Builders::ZoneIdStringList.build(input[:zone_ids], params, context: context + 'ZoneId') unless input[:zone_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        ZoneNameStringList.build(input[:zone_names], params, context: context + 'ZoneName') unless input[:zone_names].nil?
+        ZoneIdStringList.build(input[:zone_ids], params, context: context + 'ZoneId') unless input[:zone_ids].nil?
         params[context + 'AllAvailabilityZones'] = input[:all_availability_zones].to_s unless input[:all_availability_zones].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5326,10 +5329,10 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeBundleTasks'
         params['Version'] = '2016-11-15'
-        Builders::BundleIdStringList.build(input[:bundle_ids], params, context: context + 'BundleId') unless input[:bundle_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        BundleIdStringList.build(input[:bundle_ids], params, context: context + 'BundleId') unless input[:bundle_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5355,7 +5358,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5369,12 +5372,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeCapacityReservationFleets'
         params['Version'] = '2016-11-15'
-        Builders::CapacityReservationFleetIdSet.build(input[:capacity_reservation_fleet_ids], params, context: context + 'CapacityReservationFleetId') unless input[:capacity_reservation_fleet_ids].nil?
+        CapacityReservationFleetIdSet.build(input[:capacity_reservation_fleet_ids], params, context: context + 'CapacityReservationFleetId') unless input[:capacity_reservation_fleet_ids].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5388,12 +5391,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeCapacityReservations'
         params['Version'] = '2016-11-15'
-        Builders::CapacityReservationIdSet.build(input[:capacity_reservation_ids], params, context: context + 'CapacityReservationId') unless input[:capacity_reservation_ids].nil?
+        CapacityReservationIdSet.build(input[:capacity_reservation_ids], params, context: context + 'CapacityReservationId') unless input[:capacity_reservation_ids].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5416,12 +5419,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeCarrierGateways'
         params['Version'] = '2016-11-15'
-        Builders::CarrierGatewayIdSet.build(input[:carrier_gateway_ids], params, context: context + 'CarrierGatewayId') unless input[:carrier_gateway_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        CarrierGatewayIdSet.build(input[:carrier_gateway_ids], params, context: context + 'CarrierGatewayId') unless input[:carrier_gateway_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5444,12 +5447,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeClassicLinkInstances'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
+        InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5475,9 +5478,9 @@ module AWS::SDK::EC2
         params[context + 'ClientVpnEndpointId'] = input[:client_vpn_endpoint_id].to_s unless input[:client_vpn_endpoint_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5492,11 +5495,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeClientVpnConnections'
         params['Version'] = '2016-11-15'
         params[context + 'ClientVpnEndpointId'] = input[:client_vpn_endpoint_id].to_s unless input[:client_vpn_endpoint_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5510,12 +5513,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeClientVpnEndpoints'
         params['Version'] = '2016-11-15'
-        Builders::ClientVpnEndpointIdList.build(input[:client_vpn_endpoint_ids], params, context: context + 'ClientVpnEndpointId') unless input[:client_vpn_endpoint_ids].nil?
+        ClientVpnEndpointIdList.build(input[:client_vpn_endpoint_ids], params, context: context + 'ClientVpnEndpointId') unless input[:client_vpn_endpoint_ids].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5539,11 +5542,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeClientVpnRoutes'
         params['Version'] = '2016-11-15'
         params[context + 'ClientVpnEndpointId'] = input[:client_vpn_endpoint_id].to_s unless input[:client_vpn_endpoint_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5558,12 +5561,12 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeClientVpnTargetNetworks'
         params['Version'] = '2016-11-15'
         params[context + 'ClientVpnEndpointId'] = input[:client_vpn_endpoint_id].to_s unless input[:client_vpn_endpoint_id].nil?
-        Builders::ValueStringList.build(input[:association_ids], params, context: context + 'AssociationIds') unless input[:association_ids].nil?
+        ValueStringList.build(input[:association_ids], params, context: context + 'AssociationIds') unless input[:association_ids].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5577,12 +5580,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeCoipPools'
         params['Version'] = '2016-11-15'
-        Builders::CoipPoolIdSet.build(input[:pool_ids], params, context: context + 'PoolId') unless input[:pool_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        CoipPoolIdSet.build(input[:pool_ids], params, context: context + 'PoolId') unless input[:pool_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5605,9 +5608,9 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeConversionTasks'
         params['Version'] = '2016-11-15'
-        Builders::ConversionIdStringList.build(input[:conversion_task_ids], params, context: context + 'conversionTaskId') unless input[:conversion_task_ids].nil?
+        ConversionIdStringList.build(input[:conversion_task_ids], params, context: context + 'conversionTaskId') unless input[:conversion_task_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5630,10 +5633,10 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeCustomerGateways'
         params['Version'] = '2016-11-15'
-        Builders::CustomerGatewayIdStringList.build(input[:customer_gateway_ids], params, context: context + 'CustomerGatewayId') unless input[:customer_gateway_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        CustomerGatewayIdStringList.build(input[:customer_gateway_ids], params, context: context + 'CustomerGatewayId') unless input[:customer_gateway_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5656,12 +5659,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeDhcpOptions'
         params['Version'] = '2016-11-15'
-        Builders::DhcpOptionsIdStringList.build(input[:dhcp_options_ids], params, context: context + 'DhcpOptionsId') unless input[:dhcp_options_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        DhcpOptionsIdStringList.build(input[:dhcp_options_ids], params, context: context + 'DhcpOptionsId') unless input[:dhcp_options_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5685,11 +5688,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeEgressOnlyInternetGateways'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::EgressOnlyInternetGatewayIdList.build(input[:egress_only_internet_gateway_ids], params, context: context + 'EgressOnlyInternetGatewayId') unless input[:egress_only_internet_gateway_ids].nil?
+        EgressOnlyInternetGatewayIdList.build(input[:egress_only_internet_gateway_ids], params, context: context + 'EgressOnlyInternetGatewayId') unless input[:egress_only_internet_gateway_ids].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        http_req.body = StringIO.new(params.to_s)
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5712,12 +5715,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeElasticGpus'
         params['Version'] = '2016-11-15'
-        Builders::ElasticGpuIdSet.build(input[:elastic_gpu_ids], params, context: context + 'ElasticGpuId') unless input[:elastic_gpu_ids].nil?
+        ElasticGpuIdSet.build(input[:elastic_gpu_ids], params, context: context + 'ElasticGpuId') unless input[:elastic_gpu_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5741,11 +5744,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeExportImageTasks'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::ExportImageTaskIdList.build(input[:export_image_task_ids], params, context: context + 'ExportImageTaskId') unless input[:export_image_task_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        ExportImageTaskIdList.build(input[:export_image_task_ids], params, context: context + 'ExportImageTaskId') unless input[:export_image_task_ids].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5768,9 +5771,9 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeExportTasks'
         params['Version'] = '2016-11-15'
-        Builders::ExportTaskIdStringList.build(input[:export_task_ids], params, context: context + 'exportTaskId') unless input[:export_task_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ExportTaskIdStringList.build(input[:export_task_ids], params, context: context + 'exportTaskId') unless input[:export_task_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5793,12 +5796,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeFastLaunchImages'
         params['Version'] = '2016-11-15'
-        Builders::FastLaunchImageIdList.build(input[:image_ids], params, context: context + 'ImageId') unless input[:image_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FastLaunchImageIdList.build(input[:image_ids], params, context: context + 'ImageId') unless input[:image_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5821,11 +5824,11 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeFastSnapshotRestores'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5845,7 +5848,7 @@ module AWS::SDK::EC2
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'FleetId'] = input[:fleet_id].to_s unless input[:fleet_id].nil?
         params[context + 'StartTime'] = Hearth::TimeHelper.to_date_time(input[:start_time]) unless input[:start_time].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5863,8 +5866,8 @@ module AWS::SDK::EC2
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'FleetId'] = input[:fleet_id].to_s unless input[:fleet_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        http_req.body = StringIO.new(params.to_s)
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5881,9 +5884,9 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::FleetIdSet.build(input[:fleet_ids], params, context: context + 'FleetId') unless input[:fleet_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        http_req.body = StringIO.new(params.to_s)
+        FleetIdSet.build(input[:fleet_ids], params, context: context + 'FleetId') unless input[:fleet_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5898,11 +5901,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeFlowLogs'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filter], params, context: context + 'Filter') unless input[:filter].nil?
-        Builders::FlowLogIdList.build(input[:flow_log_ids], params, context: context + 'FlowLogId') unless input[:flow_log_ids].nil?
+        FilterList.build(input[:filter], params, context: context + 'Filter') unless input[:filter].nil?
+        FlowLogIdList.build(input[:flow_log_ids], params, context: context + 'FlowLogId') unless input[:flow_log_ids].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5919,7 +5922,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'FpgaImageId'] = input[:fpga_image_id].to_s unless input[:fpga_image_id].nil?
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5934,12 +5937,12 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeFpgaImages'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FpgaImageIdList.build(input[:fpga_image_ids], params, context: context + 'FpgaImageId') unless input[:fpga_image_ids].nil?
-        Builders::OwnerStringList.build(input[:owners], params, context: context + 'Owner') unless input[:owners].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FpgaImageIdList.build(input[:fpga_image_ids], params, context: context + 'FpgaImageId') unless input[:fpga_image_ids].nil?
+        OwnerStringList.build(input[:owners], params, context: context + 'Owner') unless input[:owners].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5971,13 +5974,13 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeHostReservationOfferings'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filter], params, context: context + 'Filter') unless input[:filter].nil?
+        FilterList.build(input[:filter], params, context: context + 'Filter') unless input[:filter].nil?
         params[context + 'MaxDuration'] = input[:max_duration].to_s unless input[:max_duration].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'MinDuration'] = input[:min_duration].to_s unless input[:min_duration].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'OfferingId'] = input[:offering_id].to_s unless input[:offering_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -5991,11 +5994,11 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeHostReservations'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filter], params, context: context + 'Filter') unless input[:filter].nil?
-        Builders::HostReservationIdSet.build(input[:host_reservation_id_set], params, context: context + 'HostReservationIdSet') unless input[:host_reservation_id_set].nil?
+        FilterList.build(input[:filter], params, context: context + 'Filter') unless input[:filter].nil?
+        HostReservationIdSet.build(input[:host_reservation_id_set], params, context: context + 'HostReservationIdSet') unless input[:host_reservation_id_set].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6018,11 +6021,11 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeHosts'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filter], params, context: context + 'filter') unless input[:filter].nil?
-        Builders::RequestHostIdList.build(input[:host_ids], params, context: context + 'hostId') unless input[:host_ids].nil?
+        FilterList.build(input[:filter], params, context: context + 'filter') unless input[:filter].nil?
+        RequestHostIdList.build(input[:host_ids], params, context: context + 'hostId') unless input[:host_ids].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6045,11 +6048,11 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeIamInstanceProfileAssociations'
         params['Version'] = '2016-11-15'
-        Builders::AssociationIdList.build(input[:association_ids], params, context: context + 'AssociationId') unless input[:association_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        AssociationIdList.build(input[:association_ids], params, context: context + 'AssociationId') unless input[:association_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6073,7 +6076,7 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeIdFormat'
         params['Version'] = '2016-11-15'
         params[context + 'Resource'] = input[:resource].to_s unless input[:resource].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6089,7 +6092,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'PrincipalArn'] = input[:principal_arn].to_s unless input[:principal_arn].nil?
         params[context + 'Resource'] = input[:resource].to_s unless input[:resource].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6106,7 +6109,7 @@ module AWS::SDK::EC2
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
         params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6120,13 +6123,13 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeImages'
         params['Version'] = '2016-11-15'
-        Builders::ExecutableByStringList.build(input[:executable_users], params, context: context + 'ExecutableBy') unless input[:executable_users].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::ImageIdStringList.build(input[:image_ids], params, context: context + 'ImageId') unless input[:image_ids].nil?
-        Builders::OwnerStringList.build(input[:owners], params, context: context + 'Owner') unless input[:owners].nil?
+        ExecutableByStringList.build(input[:executable_users], params, context: context + 'ExecutableBy') unless input[:executable_users].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        ImageIdStringList.build(input[:image_ids], params, context: context + 'ImageId') unless input[:image_ids].nil?
+        OwnerStringList.build(input[:owners], params, context: context + 'Owner') unless input[:owners].nil?
         params[context + 'IncludeDeprecated'] = input[:include_deprecated].to_s unless input[:include_deprecated].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6159,11 +6162,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeImportImageTasks'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filters') unless input[:filters].nil?
-        Builders::ImportTaskIdList.build(input[:import_task_ids], params, context: context + 'ImportTaskId') unless input[:import_task_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filters') unless input[:filters].nil?
+        ImportTaskIdList.build(input[:import_task_ids], params, context: context + 'ImportTaskId') unless input[:import_task_ids].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6187,11 +6190,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeImportSnapshotTasks'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filters') unless input[:filters].nil?
-        Builders::ImportSnapshotTaskIdList.build(input[:import_task_ids], params, context: context + 'ImportTaskId') unless input[:import_task_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filters') unless input[:filters].nil?
+        ImportSnapshotTaskIdList.build(input[:import_task_ids], params, context: context + 'ImportTaskId') unless input[:import_task_ids].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6217,7 +6220,7 @@ module AWS::SDK::EC2
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6232,11 +6235,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeInstanceCreditSpecifications'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6251,7 +6254,7 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeInstanceEventNotificationAttributes'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6266,11 +6269,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeInstanceEventWindows'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::InstanceEventWindowIdSet.build(input[:instance_event_window_ids], params, context: context + 'InstanceEventWindowId') unless input[:instance_event_window_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        InstanceEventWindowIdSet.build(input[:instance_event_window_ids], params, context: context + 'InstanceEventWindowId') unless input[:instance_event_window_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6293,13 +6296,13 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeInstanceStatus'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'IncludeAllInstances'] = input[:include_all_instances].to_s unless input[:include_all_instances].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6315,10 +6318,10 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'LocationType'] = input[:location_type].to_s unless input[:location_type].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6333,11 +6336,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeInstanceTypes'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::RequestInstanceTypeList.build(input[:instance_types], params, context: context + 'InstanceType') unless input[:instance_types].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        RequestInstanceTypeList.build(input[:instance_types], params, context: context + 'InstanceType') unless input[:instance_types].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6360,12 +6363,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeInstances'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6379,12 +6382,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeInternetGateways'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::InternetGatewayIdList.build(input[:internet_gateway_ids], params, context: context + 'internetGatewayId') unless input[:internet_gateway_ids].nil?
+        InternetGatewayIdList.build(input[:internet_gateway_ids], params, context: context + 'internetGatewayId') unless input[:internet_gateway_ids].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6408,11 +6411,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeIpamPools'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::ValueStringList.build(input[:ipam_pool_ids], params, context: context + 'IpamPoolId') unless input[:ipam_pool_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ValueStringList.build(input[:ipam_pool_ids], params, context: context + 'IpamPoolId') unless input[:ipam_pool_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6427,11 +6430,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeIpamScopes'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::ValueStringList.build(input[:ipam_scope_ids], params, context: context + 'IpamScopeId') unless input[:ipam_scope_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ValueStringList.build(input[:ipam_scope_ids], params, context: context + 'IpamScopeId') unless input[:ipam_scope_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6446,11 +6449,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeIpams'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::ValueStringList.build(input[:ipam_ids], params, context: context + 'IpamId') unless input[:ipam_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ValueStringList.build(input[:ipam_ids], params, context: context + 'IpamId') unless input[:ipam_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6464,12 +6467,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeIpv6Pools'
         params['Version'] = '2016-11-15'
-        Builders::Ipv6PoolIdList.build(input[:pool_ids], params, context: context + 'PoolId') unless input[:pool_ids].nil?
+        Ipv6PoolIdList.build(input[:pool_ids], params, context: context + 'PoolId') unless input[:pool_ids].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        http_req.body = StringIO.new(params.to_s)
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6492,12 +6495,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeKeyPairs'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::KeyNameStringList.build(input[:key_names], params, context: context + 'KeyName') unless input[:key_names].nil?
-        Builders::KeyPairIdStringList.build(input[:key_pair_ids], params, context: context + 'KeyPairId') unless input[:key_pair_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        KeyNameStringList.build(input[:key_names], params, context: context + 'KeyName') unless input[:key_names].nil?
+        KeyPairIdStringList.build(input[:key_pair_ids], params, context: context + 'KeyPairId') unless input[:key_pair_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'IncludePublicKey'] = input[:include_public_key].to_s unless input[:include_public_key].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6532,13 +6535,13 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'LaunchTemplateId'] = input[:launch_template_id].to_s unless input[:launch_template_id].nil?
         params[context + 'LaunchTemplateName'] = input[:launch_template_name].to_s unless input[:launch_template_name].nil?
-        Builders::VersionStringList.build(input[:versions], params, context: context + 'LaunchTemplateVersion') unless input[:versions].nil?
+        VersionStringList.build(input[:versions], params, context: context + 'LaunchTemplateVersion') unless input[:versions].nil?
         params[context + 'MinVersion'] = input[:min_version].to_s unless input[:min_version].nil?
         params[context + 'MaxVersion'] = input[:max_version].to_s unless input[:max_version].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        http_req.body = StringIO.new(params.to_s)
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6553,12 +6556,12 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeLaunchTemplates'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::LaunchTemplateIdStringList.build(input[:launch_template_ids], params, context: context + 'LaunchTemplateId') unless input[:launch_template_ids].nil?
-        Builders::LaunchTemplateNameStringList.build(input[:launch_template_names], params, context: context + 'LaunchTemplateName') unless input[:launch_template_names].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        LaunchTemplateIdStringList.build(input[:launch_template_ids], params, context: context + 'LaunchTemplateId') unless input[:launch_template_ids].nil?
+        LaunchTemplateNameStringList.build(input[:launch_template_names], params, context: context + 'LaunchTemplateName') unless input[:launch_template_names].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6590,12 +6593,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations'
         params['Version'] = '2016-11-15'
-        Builders::LocalGatewayRouteTableVirtualInterfaceGroupAssociationIdSet.build(input[:local_gateway_route_table_virtual_interface_group_association_ids], params, context: context + 'LocalGatewayRouteTableVirtualInterfaceGroupAssociationId') unless input[:local_gateway_route_table_virtual_interface_group_association_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        LocalGatewayRouteTableVirtualInterfaceGroupAssociationIdSet.build(input[:local_gateway_route_table_virtual_interface_group_association_ids], params, context: context + 'LocalGatewayRouteTableVirtualInterfaceGroupAssociationId') unless input[:local_gateway_route_table_virtual_interface_group_association_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6618,12 +6621,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeLocalGatewayRouteTableVpcAssociations'
         params['Version'] = '2016-11-15'
-        Builders::LocalGatewayRouteTableVpcAssociationIdSet.build(input[:local_gateway_route_table_vpc_association_ids], params, context: context + 'LocalGatewayRouteTableVpcAssociationId') unless input[:local_gateway_route_table_vpc_association_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        LocalGatewayRouteTableVpcAssociationIdSet.build(input[:local_gateway_route_table_vpc_association_ids], params, context: context + 'LocalGatewayRouteTableVpcAssociationId') unless input[:local_gateway_route_table_vpc_association_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6646,12 +6649,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeLocalGatewayRouteTables'
         params['Version'] = '2016-11-15'
-        Builders::LocalGatewayRouteTableIdSet.build(input[:local_gateway_route_table_ids], params, context: context + 'LocalGatewayRouteTableId') unless input[:local_gateway_route_table_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        LocalGatewayRouteTableIdSet.build(input[:local_gateway_route_table_ids], params, context: context + 'LocalGatewayRouteTableId') unless input[:local_gateway_route_table_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6674,12 +6677,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeLocalGatewayVirtualInterfaceGroups'
         params['Version'] = '2016-11-15'
-        Builders::LocalGatewayVirtualInterfaceGroupIdSet.build(input[:local_gateway_virtual_interface_group_ids], params, context: context + 'LocalGatewayVirtualInterfaceGroupId') unless input[:local_gateway_virtual_interface_group_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        LocalGatewayVirtualInterfaceGroupIdSet.build(input[:local_gateway_virtual_interface_group_ids], params, context: context + 'LocalGatewayVirtualInterfaceGroupId') unless input[:local_gateway_virtual_interface_group_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6702,12 +6705,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeLocalGatewayVirtualInterfaces'
         params['Version'] = '2016-11-15'
-        Builders::LocalGatewayVirtualInterfaceIdSet.build(input[:local_gateway_virtual_interface_ids], params, context: context + 'LocalGatewayVirtualInterfaceId') unless input[:local_gateway_virtual_interface_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        LocalGatewayVirtualInterfaceIdSet.build(input[:local_gateway_virtual_interface_ids], params, context: context + 'LocalGatewayVirtualInterfaceId') unless input[:local_gateway_virtual_interface_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6730,12 +6733,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeLocalGateways'
         params['Version'] = '2016-11-15'
-        Builders::LocalGatewayIdSet.build(input[:local_gateway_ids], params, context: context + 'LocalGatewayId') unless input[:local_gateway_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        LocalGatewayIdSet.build(input[:local_gateway_ids], params, context: context + 'LocalGatewayId') unless input[:local_gateway_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6759,11 +6762,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeManagedPrefixLists'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::ValueStringList.build(input[:prefix_list_ids], params, context: context + 'PrefixListId') unless input[:prefix_list_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ValueStringList.build(input[:prefix_list_ids], params, context: context + 'PrefixListId') unless input[:prefix_list_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6777,12 +6780,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeMovingAddresses'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::ValueStringList.build(input[:public_ips], params, context: context + 'publicIp') unless input[:public_ips].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ValueStringList.build(input[:public_ips], params, context: context + 'publicIp') unless input[:public_ips].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6797,11 +6800,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeNatGateways'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filter], params, context: context + 'Filter') unless input[:filter].nil?
+        FilterList.build(input[:filter], params, context: context + 'Filter') unless input[:filter].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        Builders::NatGatewayIdStringList.build(input[:nat_gateway_ids], params, context: context + 'NatGatewayId') unless input[:nat_gateway_ids].nil?
+        NatGatewayIdStringList.build(input[:nat_gateway_ids], params, context: context + 'NatGatewayId') unless input[:nat_gateway_ids].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6824,12 +6827,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeNetworkAcls'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::NetworkAclIdStringList.build(input[:network_acl_ids], params, context: context + 'NetworkAclId') unless input[:network_acl_ids].nil?
+        NetworkAclIdStringList.build(input[:network_acl_ids], params, context: context + 'NetworkAclId') unless input[:network_acl_ids].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6852,15 +6855,15 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeNetworkInsightsAccessScopeAnalyses'
         params['Version'] = '2016-11-15'
-        Builders::NetworkInsightsAccessScopeAnalysisIdList.build(input[:network_insights_access_scope_analysis_ids], params, context: context + 'NetworkInsightsAccessScopeAnalysisId') unless input[:network_insights_access_scope_analysis_ids].nil?
+        NetworkInsightsAccessScopeAnalysisIdList.build(input[:network_insights_access_scope_analysis_ids], params, context: context + 'NetworkInsightsAccessScopeAnalysisId') unless input[:network_insights_access_scope_analysis_ids].nil?
         params[context + 'NetworkInsightsAccessScopeId'] = input[:network_insights_access_scope_id].to_s unless input[:network_insights_access_scope_id].nil?
         params[context + 'AnalysisStartTimeBegin'] = Hearth::TimeHelper.to_date_time(input[:analysis_start_time_begin]) unless input[:analysis_start_time_begin].nil?
         params[context + 'AnalysisStartTimeEnd'] = Hearth::TimeHelper.to_date_time(input[:analysis_start_time_end]) unless input[:analysis_start_time_end].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6883,12 +6886,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeNetworkInsightsAccessScopes'
         params['Version'] = '2016-11-15'
-        Builders::NetworkInsightsAccessScopeIdList.build(input[:network_insights_access_scope_ids], params, context: context + 'NetworkInsightsAccessScopeId') unless input[:network_insights_access_scope_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        NetworkInsightsAccessScopeIdList.build(input[:network_insights_access_scope_ids], params, context: context + 'NetworkInsightsAccessScopeId') unless input[:network_insights_access_scope_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6911,15 +6914,15 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeNetworkInsightsAnalyses'
         params['Version'] = '2016-11-15'
-        Builders::NetworkInsightsAnalysisIdList.build(input[:network_insights_analysis_ids], params, context: context + 'NetworkInsightsAnalysisId') unless input[:network_insights_analysis_ids].nil?
+        NetworkInsightsAnalysisIdList.build(input[:network_insights_analysis_ids], params, context: context + 'NetworkInsightsAnalysisId') unless input[:network_insights_analysis_ids].nil?
         params[context + 'NetworkInsightsPathId'] = input[:network_insights_path_id].to_s unless input[:network_insights_path_id].nil?
         params[context + 'AnalysisStartTime'] = Hearth::TimeHelper.to_date_time(input[:analysis_start_time]) unless input[:analysis_start_time].nil?
         params[context + 'AnalysisEndTime'] = Hearth::TimeHelper.to_date_time(input[:analysis_end_time]) unless input[:analysis_end_time].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6942,12 +6945,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeNetworkInsightsPaths'
         params['Version'] = '2016-11-15'
-        Builders::NetworkInsightsPathIdList.build(input[:network_insights_path_ids], params, context: context + 'NetworkInsightsPathId') unless input[:network_insights_path_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        NetworkInsightsPathIdList.build(input[:network_insights_path_ids], params, context: context + 'NetworkInsightsPathId') unless input[:network_insights_path_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6973,7 +6976,7 @@ module AWS::SDK::EC2
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NetworkInterfaceId'] = input[:network_interface_id].to_s unless input[:network_interface_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -6987,11 +6990,11 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeNetworkInterfacePermissions'
         params['Version'] = '2016-11-15'
-        Builders::NetworkInterfacePermissionIdList.build(input[:network_interface_permission_ids], params, context: context + 'NetworkInterfacePermissionId') unless input[:network_interface_permission_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        NetworkInterfacePermissionIdList.build(input[:network_interface_permission_ids], params, context: context + 'NetworkInterfacePermissionId') unless input[:network_interface_permission_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7014,12 +7017,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeNetworkInterfaces'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::NetworkInterfaceIdList.build(input[:network_interface_ids], params, context: context + 'NetworkInterfaceId') unless input[:network_interface_ids].nil?
+        NetworkInterfaceIdList.build(input[:network_interface_ids], params, context: context + 'NetworkInterfaceId') unless input[:network_interface_ids].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7042,11 +7045,11 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribePlacementGroups'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::PlacementGroupStringList.build(input[:group_names], params, context: context + 'groupName') unless input[:group_names].nil?
-        Builders::PlacementGroupIdStringList.build(input[:group_ids], params, context: context + 'GroupId') unless input[:group_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        PlacementGroupStringList.build(input[:group_names], params, context: context + 'groupName') unless input[:group_names].nil?
+        PlacementGroupIdStringList.build(input[:group_ids], params, context: context + 'GroupId') unless input[:group_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7079,11 +7082,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribePrefixLists'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::PrefixListResourceIdStringList.build(input[:prefix_list_ids], params, context: context + 'PrefixListId') unless input[:prefix_list_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        PrefixListResourceIdStringList.build(input[:prefix_list_ids], params, context: context + 'PrefixListId') unless input[:prefix_list_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7107,10 +7110,10 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribePrincipalIdFormat'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::ResourceList.build(input[:resources], params, context: context + 'Resource') unless input[:resources].nil?
+        ResourceList.build(input[:resources], params, context: context + 'Resource') unless input[:resources].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7133,11 +7136,11 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribePublicIpv4Pools'
         params['Version'] = '2016-11-15'
-        Builders::PublicIpv4PoolIdStringList.build(input[:pool_ids], params, context: context + 'PoolId') unless input[:pool_ids].nil?
+        PublicIpv4PoolIdStringList.build(input[:pool_ids], params, context: context + 'PoolId') unless input[:pool_ids].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        http_req.body = StringIO.new(params.to_s)
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7160,11 +7163,11 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeRegions'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::RegionNameStringList.build(input[:region_names], params, context: context + 'RegionName') unless input[:region_names].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        RegionNameStringList.build(input[:region_names], params, context: context + 'RegionName') unless input[:region_names].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'AllRegions'] = input[:all_regions].to_s unless input[:all_regions].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7187,12 +7190,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeReplaceRootVolumeTasks'
         params['Version'] = '2016-11-15'
-        Builders::ReplaceRootVolumeTaskIds.build(input[:replace_root_volume_task_ids], params, context: context + 'ReplaceRootVolumeTaskId') unless input[:replace_root_volume_task_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        ReplaceRootVolumeTaskIds.build(input[:replace_root_volume_task_ids], params, context: context + 'ReplaceRootVolumeTaskId') unless input[:replace_root_volume_task_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7215,12 +7218,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeReservedInstances'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'OfferingClass'] = input[:offering_class].to_s unless input[:offering_class].nil?
-        Builders::ReservedInstancesIdStringList.build(input[:reserved_instances_ids], params, context: context + 'ReservedInstancesId') unless input[:reserved_instances_ids].nil?
+        ReservedInstancesIdStringList.build(input[:reserved_instances_ids], params, context: context + 'ReservedInstancesId') unless input[:reserved_instances_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'OfferingType'] = input[:offering_type].to_s unless input[:offering_type].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7243,10 +7246,10 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeReservedInstancesListings'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'ReservedInstancesId'] = input[:reserved_instances_id].to_s unless input[:reserved_instances_id].nil?
         params[context + 'ReservedInstancesListingId'] = input[:reserved_instances_listing_id].to_s unless input[:reserved_instances_listing_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7260,10 +7263,10 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeReservedInstancesModifications'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::ReservedInstancesModificationIdStringList.build(input[:reserved_instances_modification_ids], params, context: context + 'ReservedInstancesModificationId') unless input[:reserved_instances_modification_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        ReservedInstancesModificationIdStringList.build(input[:reserved_instances_modification_ids], params, context: context + 'ReservedInstancesModificationId') unless input[:reserved_instances_modification_ids].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7287,7 +7290,7 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeReservedInstancesOfferings'
         params['Version'] = '2016-11-15'
         params[context + 'AvailabilityZone'] = input[:availability_zone].to_s unless input[:availability_zone].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'IncludeMarketplace'] = input[:include_marketplace].to_s unless input[:include_marketplace].nil?
         params[context + 'InstanceType'] = input[:instance_type].to_s unless input[:instance_type].nil?
         params[context + 'MaxDuration'] = input[:max_duration].to_s unless input[:max_duration].nil?
@@ -7295,13 +7298,13 @@ module AWS::SDK::EC2
         params[context + 'MinDuration'] = input[:min_duration].to_s unless input[:min_duration].nil?
         params[context + 'OfferingClass'] = input[:offering_class].to_s unless input[:offering_class].nil?
         params[context + 'ProductDescription'] = input[:product_description].to_s unless input[:product_description].nil?
-        Builders::ReservedInstancesOfferingIdStringList.build(input[:reserved_instances_offering_ids], params, context: context + 'ReservedInstancesOfferingId') unless input[:reserved_instances_offering_ids].nil?
+        ReservedInstancesOfferingIdStringList.build(input[:reserved_instances_offering_ids], params, context: context + 'ReservedInstancesOfferingId') unless input[:reserved_instances_offering_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InstanceTenancy'] = input[:instance_tenancy].to_s unless input[:instance_tenancy].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'OfferingType'] = input[:offering_type].to_s unless input[:offering_type].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7324,12 +7327,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeRouteTables'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::RouteTableIdStringList.build(input[:route_table_ids], params, context: context + 'RouteTableId') unless input[:route_table_ids].nil?
+        RouteTableIdStringList.build(input[:route_table_ids], params, context: context + 'RouteTableId') unless input[:route_table_ids].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7353,14 +7356,14 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeScheduledInstanceAvailability'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::SlotDateTimeRangeRequest.build(input[:first_slot_start_time_range], params, context: context + 'FirstSlotStartTimeRange' + '.') unless input[:first_slot_start_time_range].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        SlotDateTimeRangeRequest.build(input[:first_slot_start_time_range], params, context: context + 'FirstSlotStartTimeRange' + '.') unless input[:first_slot_start_time_range].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'MaxSlotDurationInHours'] = input[:max_slot_duration_in_hours].to_s unless input[:max_slot_duration_in_hours].nil?
         params[context + 'MinSlotDurationInHours'] = input[:min_slot_duration_in_hours].to_s unless input[:min_slot_duration_in_hours].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::ScheduledInstanceRecurrenceRequest.build(input[:recurrence], params, context: context + 'Recurrence' + '.') unless input[:recurrence].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ScheduledInstanceRecurrenceRequest.build(input[:recurrence], params, context: context + 'Recurrence' + '.') unless input[:recurrence].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7369,7 +7372,7 @@ module AWS::SDK::EC2
       def self.build(input, params, context: nil)
         params[context + 'Frequency'] = input[:frequency].to_s unless input[:frequency].nil?
         params[context + 'Interval'] = input[:interval].to_s unless input[:interval].nil?
-        Builders::OccurrenceDayRequestSet.build(input[:occurrence_days], params, context: context + 'OccurrenceDay') unless input[:occurrence_days].nil?
+        OccurrenceDayRequestSet.build(input[:occurrence_days], params, context: context + 'OccurrenceDay') unless input[:occurrence_days].nil?
         params[context + 'OccurrenceRelativeToEnd'] = input[:occurrence_relative_to_end].to_s unless input[:occurrence_relative_to_end].nil?
         params[context + 'OccurrenceUnit'] = input[:occurrence_unit].to_s unless input[:occurrence_unit].nil?
       end
@@ -7403,12 +7406,12 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeScheduledInstances'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::ScheduledInstanceIdRequestSet.build(input[:scheduled_instance_ids], params, context: context + 'ScheduledInstanceId') unless input[:scheduled_instance_ids].nil?
-        Builders::SlotStartTimeRangeRequest.build(input[:slot_start_time_range], params, context: context + 'SlotStartTimeRange' + '.') unless input[:slot_start_time_range].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ScheduledInstanceIdRequestSet.build(input[:scheduled_instance_ids], params, context: context + 'ScheduledInstanceId') unless input[:scheduled_instance_ids].nil?
+        SlotStartTimeRangeRequest.build(input[:slot_start_time_range], params, context: context + 'SlotStartTimeRange' + '.') unless input[:slot_start_time_range].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7440,8 +7443,8 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeSecurityGroupReferences'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::GroupIds.build(input[:group_id], params, context: context + 'GroupId') unless input[:group_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        GroupIds.build(input[:group_id], params, context: context + 'GroupId') unless input[:group_id].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7464,12 +7467,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeSecurityGroupRules'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::SecurityGroupRuleIdList.build(input[:security_group_rule_ids], params, context: context + 'SecurityGroupRuleId') unless input[:security_group_rule_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        SecurityGroupRuleIdList.build(input[:security_group_rule_ids], params, context: context + 'SecurityGroupRuleId') unless input[:security_group_rule_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7492,13 +7495,13 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeSecurityGroups'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::GroupIdStringList.build(input[:group_ids], params, context: context + 'GroupId') unless input[:group_ids].nil?
-        Builders::GroupNameStringList.build(input[:group_names], params, context: context + 'GroupName') unless input[:group_names].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        GroupIdStringList.build(input[:group_ids], params, context: context + 'GroupId') unless input[:group_ids].nil?
+        GroupNameStringList.build(input[:group_names], params, context: context + 'GroupName') unless input[:group_names].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7524,7 +7527,7 @@ module AWS::SDK::EC2
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
         params[context + 'SnapshotId'] = input[:snapshot_id].to_s unless input[:snapshot_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7538,11 +7541,11 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeSnapshotTierStatus'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7556,14 +7559,14 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeSnapshots'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::OwnerStringList.build(input[:owner_ids], params, context: context + 'Owner') unless input[:owner_ids].nil?
-        Builders::RestorableByStringList.build(input[:restorable_by_user_ids], params, context: context + 'RestorableBy') unless input[:restorable_by_user_ids].nil?
-        Builders::SnapshotIdStringList.build(input[:snapshot_ids], params, context: context + 'SnapshotId') unless input[:snapshot_ids].nil?
+        OwnerStringList.build(input[:owner_ids], params, context: context + 'Owner') unless input[:owner_ids].nil?
+        RestorableByStringList.build(input[:restorable_by_user_ids], params, context: context + 'RestorableBy') unless input[:restorable_by_user_ids].nil?
+        SnapshotIdStringList.build(input[:snapshot_ids], params, context: context + 'SnapshotId') unless input[:snapshot_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7596,7 +7599,7 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeSpotDatafeedSubscription'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7614,7 +7617,7 @@ module AWS::SDK::EC2
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'SpotFleetRequestId'] = input[:spot_fleet_request_id].to_s unless input[:spot_fleet_request_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7634,7 +7637,7 @@ module AWS::SDK::EC2
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'SpotFleetRequestId'] = input[:spot_fleet_request_id].to_s unless input[:spot_fleet_request_id].nil?
         params[context + 'StartTime'] = Hearth::TimeHelper.to_date_time(input[:start_time]) unless input[:start_time].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7651,8 +7654,8 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::SpotFleetRequestIdList.build(input[:spot_fleet_request_ids], params, context: context + 'spotFleetRequestId') unless input[:spot_fleet_request_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        SpotFleetRequestIdList.build(input[:spot_fleet_request_ids], params, context: context + 'spotFleetRequestId') unless input[:spot_fleet_request_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7666,12 +7669,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeSpotInstanceRequests'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::SpotInstanceRequestIdList.build(input[:spot_instance_request_ids], params, context: context + 'SpotInstanceRequestId') unless input[:spot_instance_request_ids].nil?
+        SpotInstanceRequestIdList.build(input[:spot_instance_request_ids], params, context: context + 'SpotInstanceRequestId') unless input[:spot_instance_request_ids].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7685,16 +7688,16 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeSpotPriceHistory'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'AvailabilityZone'] = input[:availability_zone].to_s unless input[:availability_zone].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'EndTime'] = Hearth::TimeHelper.to_date_time(input[:end_time]) unless input[:end_time].nil?
-        Builders::InstanceTypeList.build(input[:instance_types], params, context: context + 'InstanceType') unless input[:instance_types].nil?
+        InstanceTypeList.build(input[:instance_types], params, context: context + 'InstanceType') unless input[:instance_types].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::ProductDescriptionList.build(input[:product_descriptions], params, context: context + 'ProductDescription') unless input[:product_descriptions].nil?
+        ProductDescriptionList.build(input[:product_descriptions], params, context: context + 'ProductDescription') unless input[:product_descriptions].nil?
         params[context + 'StartTime'] = Hearth::TimeHelper.to_date_time(input[:start_time]) unless input[:start_time].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7730,7 +7733,7 @@ module AWS::SDK::EC2
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7744,12 +7747,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeStoreImageTasks'
         params['Version'] = '2016-11-15'
-        Builders::ImageIdList.build(input[:image_ids], params, context: context + 'ImageId') unless input[:image_ids].nil?
+        ImageIdList.build(input[:image_ids], params, context: context + 'ImageId') unless input[:image_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7772,12 +7775,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeSubnets'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::SubnetIdStringList.build(input[:subnet_ids], params, context: context + 'SubnetId') unless input[:subnet_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        SubnetIdStringList.build(input[:subnet_ids], params, context: context + 'SubnetId') unless input[:subnet_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7801,10 +7804,10 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeTags'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7818,12 +7821,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeTrafficMirrorFilters'
         params['Version'] = '2016-11-15'
-        Builders::TrafficMirrorFilterIdList.build(input[:traffic_mirror_filter_ids], params, context: context + 'TrafficMirrorFilterId') unless input[:traffic_mirror_filter_ids].nil?
+        TrafficMirrorFilterIdList.build(input[:traffic_mirror_filter_ids], params, context: context + 'TrafficMirrorFilterId') unless input[:traffic_mirror_filter_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7846,12 +7849,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeTrafficMirrorSessions'
         params['Version'] = '2016-11-15'
-        Builders::TrafficMirrorSessionIdList.build(input[:traffic_mirror_session_ids], params, context: context + 'TrafficMirrorSessionId') unless input[:traffic_mirror_session_ids].nil?
+        TrafficMirrorSessionIdList.build(input[:traffic_mirror_session_ids], params, context: context + 'TrafficMirrorSessionId') unless input[:traffic_mirror_session_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7874,12 +7877,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeTrafficMirrorTargets'
         params['Version'] = '2016-11-15'
-        Builders::TrafficMirrorTargetIdList.build(input[:traffic_mirror_target_ids], params, context: context + 'TrafficMirrorTargetId') unless input[:traffic_mirror_target_ids].nil?
+        TrafficMirrorTargetIdList.build(input[:traffic_mirror_target_ids], params, context: context + 'TrafficMirrorTargetId') unless input[:traffic_mirror_target_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7902,12 +7905,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeTransitGatewayAttachments'
         params['Version'] = '2016-11-15'
-        Builders::TransitGatewayAttachmentIdStringList.build(input[:transit_gateway_attachment_ids], params, context: context + 'TransitGatewayAttachmentIds') unless input[:transit_gateway_attachment_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        TransitGatewayAttachmentIdStringList.build(input[:transit_gateway_attachment_ids], params, context: context + 'TransitGatewayAttachmentIds') unless input[:transit_gateway_attachment_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7930,12 +7933,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeTransitGatewayConnectPeers'
         params['Version'] = '2016-11-15'
-        Builders::TransitGatewayConnectPeerIdStringList.build(input[:transit_gateway_connect_peer_ids], params, context: context + 'TransitGatewayConnectPeerIds') unless input[:transit_gateway_connect_peer_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        TransitGatewayConnectPeerIdStringList.build(input[:transit_gateway_connect_peer_ids], params, context: context + 'TransitGatewayConnectPeerIds') unless input[:transit_gateway_connect_peer_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7958,12 +7961,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeTransitGatewayConnects'
         params['Version'] = '2016-11-15'
-        Builders::TransitGatewayAttachmentIdStringList.build(input[:transit_gateway_attachment_ids], params, context: context + 'TransitGatewayAttachmentIds') unless input[:transit_gateway_attachment_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        TransitGatewayAttachmentIdStringList.build(input[:transit_gateway_attachment_ids], params, context: context + 'TransitGatewayAttachmentIds') unless input[:transit_gateway_attachment_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -7977,12 +7980,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeTransitGatewayMulticastDomains'
         params['Version'] = '2016-11-15'
-        Builders::TransitGatewayMulticastDomainIdStringList.build(input[:transit_gateway_multicast_domain_ids], params, context: context + 'TransitGatewayMulticastDomainIds') unless input[:transit_gateway_multicast_domain_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        TransitGatewayMulticastDomainIdStringList.build(input[:transit_gateway_multicast_domain_ids], params, context: context + 'TransitGatewayMulticastDomainIds') unless input[:transit_gateway_multicast_domain_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8005,12 +8008,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeTransitGatewayPeeringAttachments'
         params['Version'] = '2016-11-15'
-        Builders::TransitGatewayAttachmentIdStringList.build(input[:transit_gateway_attachment_ids], params, context: context + 'TransitGatewayAttachmentIds') unless input[:transit_gateway_attachment_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        TransitGatewayAttachmentIdStringList.build(input[:transit_gateway_attachment_ids], params, context: context + 'TransitGatewayAttachmentIds') unless input[:transit_gateway_attachment_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8024,12 +8027,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeTransitGatewayRouteTables'
         params['Version'] = '2016-11-15'
-        Builders::TransitGatewayRouteTableIdStringList.build(input[:transit_gateway_route_table_ids], params, context: context + 'TransitGatewayRouteTableIds') unless input[:transit_gateway_route_table_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        TransitGatewayRouteTableIdStringList.build(input[:transit_gateway_route_table_ids], params, context: context + 'TransitGatewayRouteTableIds') unless input[:transit_gateway_route_table_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8052,12 +8055,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeTransitGatewayVpcAttachments'
         params['Version'] = '2016-11-15'
-        Builders::TransitGatewayAttachmentIdStringList.build(input[:transit_gateway_attachment_ids], params, context: context + 'TransitGatewayAttachmentIds') unless input[:transit_gateway_attachment_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        TransitGatewayAttachmentIdStringList.build(input[:transit_gateway_attachment_ids], params, context: context + 'TransitGatewayAttachmentIds') unless input[:transit_gateway_attachment_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8071,12 +8074,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeTransitGateways'
         params['Version'] = '2016-11-15'
-        Builders::TransitGatewayIdStringList.build(input[:transit_gateway_ids], params, context: context + 'TransitGatewayIds') unless input[:transit_gateway_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        TransitGatewayIdStringList.build(input[:transit_gateway_ids], params, context: context + 'TransitGatewayIds') unless input[:transit_gateway_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8099,12 +8102,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeTrunkInterfaceAssociations'
         params['Version'] = '2016-11-15'
-        Builders::TrunkInterfaceAssociationIdList.build(input[:association_ids], params, context: context + 'AssociationId') unless input[:association_ids].nil?
+        TrunkInterfaceAssociationIdList.build(input[:association_ids], params, context: context + 'AssociationId') unless input[:association_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8130,7 +8133,7 @@ module AWS::SDK::EC2
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
         params[context + 'VolumeId'] = input[:volume_id].to_s unless input[:volume_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8144,12 +8147,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeVolumeStatus'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::VolumeIdStringList.build(input[:volume_ids], params, context: context + 'VolumeId') unless input[:volume_ids].nil?
+        VolumeIdStringList.build(input[:volume_ids], params, context: context + 'VolumeId') unless input[:volume_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8172,12 +8175,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeVolumes'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::VolumeIdStringList.build(input[:volume_ids], params, context: context + 'VolumeId') unless input[:volume_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        VolumeIdStringList.build(input[:volume_ids], params, context: context + 'VolumeId') unless input[:volume_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8192,11 +8195,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeVolumesModifications'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::VolumeIdStringList.build(input[:volume_ids], params, context: context + 'VolumeId') unless input[:volume_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        VolumeIdStringList.build(input[:volume_ids], params, context: context + 'VolumeId') unless input[:volume_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8213,7 +8216,7 @@ module AWS::SDK::EC2
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8227,10 +8230,10 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeVpcClassicLink'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::VpcClassicLinkIdList.build(input[:vpc_ids], params, context: context + 'VpcId') unless input[:vpc_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        VpcClassicLinkIdList.build(input[:vpc_ids], params, context: context + 'VpcId') unless input[:vpc_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8255,8 +8258,8 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::VpcClassicLinkIdList.build(input[:vpc_ids], params, context: context + 'VpcIds') unless input[:vpc_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        VpcClassicLinkIdList.build(input[:vpc_ids], params, context: context + 'VpcIds') unless input[:vpc_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8272,10 +8275,10 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ConnectionNotificationId'] = input[:connection_notification_id].to_s unless input[:connection_notification_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8290,10 +8293,10 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeVpcEndpointConnections'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8308,11 +8311,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeVpcEndpointServiceConfigurations'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::VpcEndpointServiceIdList.build(input[:service_ids], params, context: context + 'ServiceId') unless input[:service_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        VpcEndpointServiceIdList.build(input[:service_ids], params, context: context + 'ServiceId') unless input[:service_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8328,10 +8331,10 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ServiceId'] = input[:service_id].to_s unless input[:service_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8346,11 +8349,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeVpcEndpointServices'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::ValueStringList.build(input[:service_names], params, context: context + 'ServiceName') unless input[:service_names].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        ValueStringList.build(input[:service_names], params, context: context + 'ServiceName') unless input[:service_names].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8365,11 +8368,11 @@ module AWS::SDK::EC2
         params['Action'] = 'DescribeVpcEndpoints'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::VpcEndpointIdList.build(input[:vpc_endpoint_ids], params, context: context + 'VpcEndpointId') unless input[:vpc_endpoint_ids].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        VpcEndpointIdList.build(input[:vpc_endpoint_ids], params, context: context + 'VpcEndpointId') unless input[:vpc_endpoint_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8383,12 +8386,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeVpcPeeringConnections'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::VpcPeeringConnectionIdList.build(input[:vpc_peering_connection_ids], params, context: context + 'VpcPeeringConnectionId') unless input[:vpc_peering_connection_ids].nil?
+        VpcPeeringConnectionIdList.build(input[:vpc_peering_connection_ids], params, context: context + 'VpcPeeringConnectionId') unless input[:vpc_peering_connection_ids].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8411,12 +8414,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeVpcs'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::VpcIdStringList.build(input[:vpc_ids], params, context: context + 'VpcId') unless input[:vpc_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        VpcIdStringList.build(input[:vpc_ids], params, context: context + 'VpcId') unless input[:vpc_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8439,10 +8442,10 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeVpnConnections'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::VpnConnectionIdStringList.build(input[:vpn_connection_ids], params, context: context + 'VpnConnectionId') unless input[:vpn_connection_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        VpnConnectionIdStringList.build(input[:vpn_connection_ids], params, context: context + 'VpnConnectionId') unless input[:vpn_connection_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8465,10 +8468,10 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeVpnGateways'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
-        Builders::VpnGatewayIdStringList.build(input[:vpn_gateway_ids], params, context: context + 'VpnGatewayId') unless input[:vpn_gateway_ids].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        VpnGatewayIdStringList.build(input[:vpn_gateway_ids], params, context: context + 'VpnGatewayId') unless input[:vpn_gateway_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8494,7 +8497,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8511,7 +8514,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InternetGatewayId'] = input[:internet_gateway_id].to_s unless input[:internet_gateway_id].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8528,7 +8531,7 @@ module AWS::SDK::EC2
         params[context + 'AttachmentId'] = input[:attachment_id].to_s unless input[:attachment_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'Force'] = input[:force].to_s unless input[:force].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8547,7 +8550,7 @@ module AWS::SDK::EC2
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'VolumeId'] = input[:volume_id].to_s unless input[:volume_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8564,7 +8567,7 @@ module AWS::SDK::EC2
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
         params[context + 'VpnGatewayId'] = input[:vpn_gateway_id].to_s unless input[:vpn_gateway_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8579,7 +8582,7 @@ module AWS::SDK::EC2
         params['Action'] = 'DisableEbsEncryptionByDefault'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8596,7 +8599,7 @@ module AWS::SDK::EC2
         params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
         params[context + 'Force'] = input[:force].to_s unless input[:force].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8610,10 +8613,10 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DisableFastSnapshotRestores'
         params['Version'] = '2016-11-15'
-        Builders::AvailabilityZoneStringList.build(input[:availability_zones], params, context: context + 'AvailabilityZone') unless input[:availability_zones].nil?
-        Builders::SnapshotIdStringList.build(input[:source_snapshot_ids], params, context: context + 'SourceSnapshotId') unless input[:source_snapshot_ids].nil?
+        AvailabilityZoneStringList.build(input[:availability_zones], params, context: context + 'AvailabilityZone') unless input[:availability_zones].nil?
+        SnapshotIdStringList.build(input[:source_snapshot_ids], params, context: context + 'SourceSnapshotId') unless input[:source_snapshot_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8638,7 +8641,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8654,7 +8657,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'DelegatedAdminAccountId'] = input[:delegated_admin_account_id].to_s unless input[:delegated_admin_account_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8669,7 +8672,7 @@ module AWS::SDK::EC2
         params['Action'] = 'DisableSerialConsoleAccess'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8686,7 +8689,7 @@ module AWS::SDK::EC2
         params[context + 'TransitGatewayRouteTableId'] = input[:transit_gateway_route_table_id].to_s unless input[:transit_gateway_route_table_id].nil?
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8703,7 +8706,7 @@ module AWS::SDK::EC2
         params[context + 'GatewayId'] = input[:gateway_id].to_s unless input[:gateway_id].nil?
         params[context + 'RouteTableId'] = input[:route_table_id].to_s unless input[:route_table_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8719,7 +8722,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8734,7 +8737,7 @@ module AWS::SDK::EC2
         params['Action'] = 'DisableVpcClassicLinkDnsSupport'
         params['Version'] = '2016-11-15'
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8751,7 +8754,7 @@ module AWS::SDK::EC2
         params[context + 'AssociationId'] = input[:association_id].to_s unless input[:association_id].nil?
         params[context + 'PublicIp'] = input[:public_ip].to_s unless input[:public_ip].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8768,7 +8771,7 @@ module AWS::SDK::EC2
         params[context + 'ClientVpnEndpointId'] = input[:client_vpn_endpoint_id].to_s unless input[:client_vpn_endpoint_id].nil?
         params[context + 'AssociationId'] = input[:association_id].to_s unless input[:association_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8785,7 +8788,7 @@ module AWS::SDK::EC2
         params[context + 'CertificateArn'] = input[:certificate_arn].to_s unless input[:certificate_arn].nil?
         params[context + 'RoleArn'] = input[:role_arn].to_s unless input[:role_arn].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8800,7 +8803,7 @@ module AWS::SDK::EC2
         params['Action'] = 'DisassociateIamInstanceProfile'
         params['Version'] = '2016-11-15'
         params[context + 'AssociationId'] = input[:association_id].to_s unless input[:association_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8816,17 +8819,17 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InstanceEventWindowId'] = input[:instance_event_window_id].to_s unless input[:instance_event_window_id].nil?
-        Builders::InstanceEventWindowDisassociationRequest.build(input[:association_target], params, context: context + 'AssociationTarget' + '.') unless input[:association_target].nil?
-        http_req.body = StringIO.new(params.to_s)
+        InstanceEventWindowDisassociationRequest.build(input[:association_target], params, context: context + 'AssociationTarget' + '.') unless input[:association_target].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
     # Structure Builder for InstanceEventWindowDisassociationRequest
     class InstanceEventWindowDisassociationRequest
       def self.build(input, params, context: nil)
-        Builders::InstanceIdList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
-        Builders::TagList.build(input[:instance_tags], params, context: context + 'InstanceTag') unless input[:instance_tags].nil?
-        Builders::DedicatedHostIdList.build(input[:dedicated_host_ids], params, context: context + 'DedicatedHostId') unless input[:dedicated_host_ids].nil?
+        InstanceIdList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
+        TagList.build(input[:instance_tags], params, context: context + 'InstanceTag') unless input[:instance_tags].nil?
+        DedicatedHostIdList.build(input[:dedicated_host_ids], params, context: context + 'DedicatedHostId') unless input[:dedicated_host_ids].nil?
       end
     end
 
@@ -8842,7 +8845,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'AssociationId'] = input[:association_id].to_s unless input[:association_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8857,7 +8860,7 @@ module AWS::SDK::EC2
         params['Action'] = 'DisassociateSubnetCidrBlock'
         params['Version'] = '2016-11-15'
         params[context + 'AssociationId'] = input[:association_id].to_s unless input[:association_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8873,9 +8876,9 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayMulticastDomainId'] = input[:transit_gateway_multicast_domain_id].to_s unless input[:transit_gateway_multicast_domain_id].nil?
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
-        Builders::TransitGatewaySubnetIdList.build(input[:subnet_ids], params, context: context + 'SubnetIds') unless input[:subnet_ids].nil?
+        TransitGatewaySubnetIdList.build(input[:subnet_ids], params, context: context + 'SubnetIds') unless input[:subnet_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8892,7 +8895,7 @@ module AWS::SDK::EC2
         params[context + 'TransitGatewayRouteTableId'] = input[:transit_gateway_route_table_id].to_s unless input[:transit_gateway_route_table_id].nil?
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8909,7 +8912,7 @@ module AWS::SDK::EC2
         params[context + 'AssociationId'] = input[:association_id].to_s unless input[:association_id].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8924,7 +8927,7 @@ module AWS::SDK::EC2
         params['Action'] = 'DisassociateVpcCidrBlock'
         params['Version'] = '2016-11-15'
         params[context + 'AssociationId'] = input[:association_id].to_s unless input[:association_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8939,7 +8942,7 @@ module AWS::SDK::EC2
         params['Action'] = 'EnableEbsEncryptionByDefault'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8955,11 +8958,11 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
         params[context + 'ResourceType'] = input[:resource_type].to_s unless input[:resource_type].nil?
-        Builders::FastLaunchSnapshotConfigurationRequest.build(input[:snapshot_configuration], params, context: context + 'SnapshotConfiguration' + '.') unless input[:snapshot_configuration].nil?
-        Builders::FastLaunchLaunchTemplateSpecificationRequest.build(input[:launch_template], params, context: context + 'LaunchTemplate' + '.') unless input[:launch_template].nil?
+        FastLaunchSnapshotConfigurationRequest.build(input[:snapshot_configuration], params, context: context + 'SnapshotConfiguration' + '.') unless input[:snapshot_configuration].nil?
+        FastLaunchLaunchTemplateSpecificationRequest.build(input[:launch_template], params, context: context + 'LaunchTemplate' + '.') unless input[:launch_template].nil?
         params[context + 'MaxParallelLaunches'] = input[:max_parallel_launches].to_s unless input[:max_parallel_launches].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -8989,10 +8992,10 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'EnableFastSnapshotRestores'
         params['Version'] = '2016-11-15'
-        Builders::AvailabilityZoneStringList.build(input[:availability_zones], params, context: context + 'AvailabilityZone') unless input[:availability_zones].nil?
-        Builders::SnapshotIdStringList.build(input[:source_snapshot_ids], params, context: context + 'SourceSnapshotId') unless input[:source_snapshot_ids].nil?
+        AvailabilityZoneStringList.build(input[:availability_zones], params, context: context + 'AvailabilityZone') unless input[:availability_zones].nil?
+        SnapshotIdStringList.build(input[:source_snapshot_ids], params, context: context + 'SourceSnapshotId') unless input[:source_snapshot_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9009,7 +9012,7 @@ module AWS::SDK::EC2
         params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
         params[context + 'DeprecateAt'] = Hearth::TimeHelper.to_date_time(input[:deprecate_at]) unless input[:deprecate_at].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9025,7 +9028,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'DelegatedAdminAccountId'] = input[:delegated_admin_account_id].to_s unless input[:delegated_admin_account_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9040,7 +9043,7 @@ module AWS::SDK::EC2
         params['Action'] = 'EnableSerialConsoleAccess'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9057,7 +9060,7 @@ module AWS::SDK::EC2
         params[context + 'TransitGatewayRouteTableId'] = input[:transit_gateway_route_table_id].to_s unless input[:transit_gateway_route_table_id].nil?
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9074,7 +9077,7 @@ module AWS::SDK::EC2
         params[context + 'GatewayId'] = input[:gateway_id].to_s unless input[:gateway_id].nil?
         params[context + 'RouteTableId'] = input[:route_table_id].to_s unless input[:route_table_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9090,7 +9093,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'VolumeId'] = input[:volume_id].to_s unless input[:volume_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9106,7 +9109,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9121,7 +9124,7 @@ module AWS::SDK::EC2
         params['Action'] = 'EnableVpcClassicLinkDnsSupport'
         params['Version'] = '2016-11-15'
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9137,7 +9140,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'ClientVpnEndpointId'] = input[:client_vpn_endpoint_id].to_s unless input[:client_vpn_endpoint_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9153,7 +9156,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'ClientVpnEndpointId'] = input[:client_vpn_endpoint_id].to_s unless input[:client_vpn_endpoint_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9172,10 +9175,10 @@ module AWS::SDK::EC2
         params[context + 'DiskImageFormat'] = input[:disk_image_format].to_s unless input[:disk_image_format].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
-        Builders::ExportTaskS3LocationRequest.build(input[:s3_export_location], params, context: context + 'S3ExportLocation' + '.') unless input[:s3_export_location].nil?
+        ExportTaskS3LocationRequest.build(input[:s3_export_location], params, context: context + 'S3ExportLocation' + '.') unless input[:s3_export_location].nil?
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9198,10 +9201,10 @@ module AWS::SDK::EC2
         params['Action'] = 'ExportTransitGatewayRoutes'
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayRouteTableId'] = input[:transit_gateway_route_table_id].to_s unless input[:transit_gateway_route_table_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'S3Bucket'] = input[:s3_bucket].to_s unless input[:s3_bucket].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9217,7 +9220,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'CertificateArn'] = input[:certificate_arn].to_s unless input[:certificate_arn].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9235,7 +9238,7 @@ module AWS::SDK::EC2
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9253,7 +9256,7 @@ module AWS::SDK::EC2
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9268,11 +9271,11 @@ module AWS::SDK::EC2
         params['Action'] = 'GetCoipPoolUsage'
         params['Version'] = '2016-11-15'
         params[context + 'PoolId'] = input[:pool_id].to_s unless input[:pool_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9289,7 +9292,7 @@ module AWS::SDK::EC2
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'Latest'] = input[:latest].to_s unless input[:latest].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9306,7 +9309,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'WakeUp'] = input[:wake_up].to_s unless input[:wake_up].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9322,7 +9325,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InstanceFamily'] = input[:instance_family].to_s unless input[:instance_family].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9337,7 +9340,7 @@ module AWS::SDK::EC2
         params['Action'] = 'GetEbsDefaultKmsKeyId'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9352,7 +9355,7 @@ module AWS::SDK::EC2
         params['Action'] = 'GetEbsEncryptionByDefault'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9369,15 +9372,15 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'FlowLogId'] = input[:flow_log_id].to_s unless input[:flow_log_id].nil?
         params[context + 'ConfigDeliveryS3DestinationArn'] = input[:config_delivery_s3_destination_arn].to_s unless input[:config_delivery_s3_destination_arn].nil?
-        Builders::IntegrateServices.build(input[:integrate_services], params, context: context + 'IntegrateService' + '.') unless input[:integrate_services].nil?
-        http_req.body = StringIO.new(params.to_s)
+        IntegrateServices.build(input[:integrate_services], params, context: context + 'IntegrateService' + '.') unless input[:integrate_services].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
     # Structure Builder for IntegrateServices
     class IntegrateServices
       def self.build(input, params, context: nil)
-        Builders::AthenaIntegrationsSet.build(input[:athena_integrations], params, context: context + 'AthenaIntegration') unless input[:athena_integrations].nil?
+        AthenaIntegrationsSet.build(input[:athena_integrations], params, context: context + 'AthenaIntegration') unless input[:athena_integrations].nil?
       end
     end
 
@@ -9385,7 +9388,7 @@ module AWS::SDK::EC2
     class AthenaIntegrationsSet
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::AthenaIntegration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          AthenaIntegration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -9414,7 +9417,7 @@ module AWS::SDK::EC2
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9428,9 +9431,9 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetHostReservationPurchasePreview'
         params['Version'] = '2016-11-15'
-        Builders::RequestHostIdSet.build(input[:host_id_set], params, context: context + 'HostIdSet') unless input[:host_id_set].nil?
+        RequestHostIdSet.build(input[:host_id_set], params, context: context + 'HostIdSet') unless input[:host_id_set].nil?
         params[context + 'OfferingId'] = input[:offering_id].to_s unless input[:offering_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9454,12 +9457,12 @@ module AWS::SDK::EC2
         params['Action'] = 'GetInstanceTypesFromInstanceRequirements'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::ArchitectureTypeSet.build(input[:architecture_types], params, context: context + 'ArchitectureType') unless input[:architecture_types].nil?
-        Builders::VirtualizationTypeSet.build(input[:virtualization_types], params, context: context + 'VirtualizationType') unless input[:virtualization_types].nil?
-        Builders::InstanceRequirementsRequest.build(input[:instance_requirements], params, context: context + 'InstanceRequirements' + '.') unless input[:instance_requirements].nil?
+        ArchitectureTypeSet.build(input[:architecture_types], params, context: context + 'ArchitectureType') unless input[:architecture_types].nil?
+        VirtualizationTypeSet.build(input[:virtualization_types], params, context: context + 'VirtualizationType') unless input[:virtualization_types].nil?
+        InstanceRequirementsRequest.build(input[:instance_requirements], params, context: context + 'InstanceRequirements' + '.') unless input[:instance_requirements].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9493,7 +9496,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9515,7 +9518,7 @@ module AWS::SDK::EC2
         params[context + 'EndTime'] = Hearth::TimeHelper.to_date_time(input[:end_time]) unless input[:end_time].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9532,10 +9535,10 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'IpamPoolId'] = input[:ipam_pool_id].to_s unless input[:ipam_pool_id].nil?
         params[context + 'IpamPoolAllocationId'] = input[:ipam_pool_allocation_id].to_s unless input[:ipam_pool_allocation_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9551,10 +9554,10 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'IpamPoolId'] = input[:ipam_pool_id].to_s unless input[:ipam_pool_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9569,16 +9572,16 @@ module AWS::SDK::EC2
         params['Action'] = 'GetIpamResourceCidrs'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'IpamScopeId'] = input[:ipam_scope_id].to_s unless input[:ipam_scope_id].nil?
         params[context + 'IpamPoolId'] = input[:ipam_pool_id].to_s unless input[:ipam_pool_id].nil?
         params[context + 'ResourceId'] = input[:resource_id].to_s unless input[:resource_id].nil?
         params[context + 'ResourceType'] = input[:resource_type].to_s unless input[:resource_type].nil?
-        Builders::RequestIpamResourceTag.build(input[:resource_tag], params, context: context + 'ResourceTag' + '.') unless input[:resource_tag].nil?
+        RequestIpamResourceTag.build(input[:resource_tag], params, context: context + 'ResourceTag' + '.') unless input[:resource_tag].nil?
         params[context + 'ResourceOwner'] = input[:resource_owner].to_s unless input[:resource_owner].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9594,7 +9597,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9612,7 +9615,7 @@ module AWS::SDK::EC2
         params[context + 'PrefixListId'] = input[:prefix_list_id].to_s unless input[:prefix_list_id].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9631,7 +9634,7 @@ module AWS::SDK::EC2
         params[context + 'TargetVersion'] = input[:target_version].to_s unless input[:target_version].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9649,7 +9652,7 @@ module AWS::SDK::EC2
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9665,7 +9668,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'NetworkInsightsAccessScopeId'] = input[:network_insights_access_scope_id].to_s unless input[:network_insights_access_scope_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9681,7 +9684,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9696,9 +9699,9 @@ module AWS::SDK::EC2
         params['Action'] = 'GetReservedInstancesExchangeQuote'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::ReservedInstanceIdSet.build(input[:reserved_instance_ids], params, context: context + 'ReservedInstanceId') unless input[:reserved_instance_ids].nil?
-        Builders::TargetConfigurationRequestSet.build(input[:target_configurations], params, context: context + 'TargetConfiguration') unless input[:target_configurations].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ReservedInstanceIdSet.build(input[:reserved_instance_ids], params, context: context + 'ReservedInstanceId') unless input[:reserved_instance_ids].nil?
+        TargetConfigurationRequestSet.build(input[:target_configurations], params, context: context + 'TargetConfiguration') unless input[:target_configurations].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9713,7 +9716,7 @@ module AWS::SDK::EC2
         params['Action'] = 'GetSerialConsoleAccessStatus'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9727,25 +9730,25 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetSpotPlacementScores'
         params['Version'] = '2016-11-15'
-        Builders::InstanceTypes.build(input[:instance_types], params, context: context + 'InstanceType') unless input[:instance_types].nil?
+        InstanceTypes.build(input[:instance_types], params, context: context + 'InstanceType') unless input[:instance_types].nil?
         params[context + 'TargetCapacity'] = input[:target_capacity].to_s unless input[:target_capacity].nil?
         params[context + 'TargetCapacityUnitType'] = input[:target_capacity_unit_type].to_s unless input[:target_capacity_unit_type].nil?
         params[context + 'SingleAvailabilityZone'] = input[:single_availability_zone].to_s unless input[:single_availability_zone].nil?
-        Builders::RegionNames.build(input[:region_names], params, context: context + 'RegionName') unless input[:region_names].nil?
-        Builders::InstanceRequirementsWithMetadataRequest.build(input[:instance_requirements_with_metadata], params, context: context + 'InstanceRequirementsWithMetadata' + '.') unless input[:instance_requirements_with_metadata].nil?
+        RegionNames.build(input[:region_names], params, context: context + 'RegionName') unless input[:region_names].nil?
+        InstanceRequirementsWithMetadataRequest.build(input[:instance_requirements_with_metadata], params, context: context + 'InstanceRequirementsWithMetadata' + '.') unless input[:instance_requirements_with_metadata].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
     # Structure Builder for InstanceRequirementsWithMetadataRequest
     class InstanceRequirementsWithMetadataRequest
       def self.build(input, params, context: nil)
-        Builders::ArchitectureTypeSet.build(input[:architecture_types], params, context: context + 'ArchitectureType') unless input[:architecture_types].nil?
-        Builders::VirtualizationTypeSet.build(input[:virtualization_types], params, context: context + 'VirtualizationType') unless input[:virtualization_types].nil?
-        Builders::InstanceRequirementsRequest.build(input[:instance_requirements], params, context: context + 'InstanceRequirements' + '.') unless input[:instance_requirements].nil?
+        ArchitectureTypeSet.build(input[:architecture_types], params, context: context + 'ArchitectureType') unless input[:architecture_types].nil?
+        VirtualizationTypeSet.build(input[:virtualization_types], params, context: context + 'VirtualizationType') unless input[:virtualization_types].nil?
+        InstanceRequirementsRequest.build(input[:instance_requirements], params, context: context + 'InstanceRequirements' + '.') unless input[:instance_requirements].nil?
       end
     end
 
@@ -9777,12 +9780,12 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetSubnetCidrReservations'
         params['Version'] = '2016-11-15'
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9797,11 +9800,11 @@ module AWS::SDK::EC2
         params['Action'] = 'GetTransitGatewayAttachmentPropagations'
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9816,11 +9819,11 @@ module AWS::SDK::EC2
         params['Action'] = 'GetTransitGatewayMulticastDomainAssociations'
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayMulticastDomainId'] = input[:transit_gateway_multicast_domain_id].to_s unless input[:transit_gateway_multicast_domain_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9835,11 +9838,11 @@ module AWS::SDK::EC2
         params['Action'] = 'GetTransitGatewayPrefixListReferences'
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayRouteTableId'] = input[:transit_gateway_route_table_id].to_s unless input[:transit_gateway_route_table_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9854,11 +9857,11 @@ module AWS::SDK::EC2
         params['Action'] = 'GetTransitGatewayRouteTableAssociations'
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayRouteTableId'] = input[:transit_gateway_route_table_id].to_s unless input[:transit_gateway_route_table_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9873,11 +9876,11 @@ module AWS::SDK::EC2
         params['Action'] = 'GetTransitGatewayRouteTablePropagations'
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayRouteTableId'] = input[:transit_gateway_route_table_id].to_s unless input[:transit_gateway_route_table_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9895,7 +9898,7 @@ module AWS::SDK::EC2
         params[context + 'VpnConnectionDeviceTypeId'] = input[:vpn_connection_device_type_id].to_s unless input[:vpn_connection_device_type_id].nil?
         params[context + 'InternetKeyExchangeVersion'] = input[:internet_key_exchange_version].to_s unless input[:internet_key_exchange_version].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9912,7 +9915,7 @@ module AWS::SDK::EC2
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9929,7 +9932,7 @@ module AWS::SDK::EC2
         params[context + 'ClientVpnEndpointId'] = input[:client_vpn_endpoint_id].to_s unless input[:client_vpn_endpoint_id].nil?
         params[context + 'CertificateRevocationList'] = input[:certificate_revocation_list].to_s unless input[:certificate_revocation_list].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9944,10 +9947,10 @@ module AWS::SDK::EC2
         params['Action'] = 'ImportImage'
         params['Version'] = '2016-11-15'
         params[context + 'Architecture'] = input[:architecture].to_s unless input[:architecture].nil?
-        Builders::ClientData.build(input[:client_data], params, context: context + 'ClientData' + '.') unless input[:client_data].nil?
+        ClientData.build(input[:client_data], params, context: context + 'ClientData' + '.') unless input[:client_data].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::ImageDiskContainerList.build(input[:disk_containers], params, context: context + 'DiskContainer') unless input[:disk_containers].nil?
+        ImageDiskContainerList.build(input[:disk_containers], params, context: context + 'DiskContainer') unless input[:disk_containers].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'Encrypted'] = input[:encrypted].to_s unless input[:encrypted].nil?
         params[context + 'Hypervisor'] = input[:hypervisor].to_s unless input[:hypervisor].nil?
@@ -9955,11 +9958,11 @@ module AWS::SDK::EC2
         params[context + 'LicenseType'] = input[:license_type].to_s unless input[:license_type].nil?
         params[context + 'Platform'] = input[:platform].to_s unless input[:platform].nil?
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
-        Builders::ImportImageLicenseSpecificationListRequest.build(input[:license_specifications], params, context: context + 'LicenseSpecifications') unless input[:license_specifications].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        ImportImageLicenseSpecificationListRequest.build(input[:license_specifications], params, context: context + 'LicenseSpecifications') unless input[:license_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'UsageOperation'] = input[:usage_operation].to_s unless input[:usage_operation].nil?
         params[context + 'BootMode'] = input[:boot_mode].to_s unless input[:boot_mode].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -9967,7 +9970,7 @@ module AWS::SDK::EC2
     class ImportImageLicenseSpecificationListRequest
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ImportImageLicenseConfigurationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ImportImageLicenseConfigurationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -9983,7 +9986,7 @@ module AWS::SDK::EC2
     class ImageDiskContainerList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ImageDiskContainer.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ImageDiskContainer.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -9996,7 +9999,7 @@ module AWS::SDK::EC2
         params[context + 'Format'] = input[:format].to_s unless input[:format].nil?
         params[context + 'SnapshotId'] = input[:snapshot_id].to_s unless input[:snapshot_id].nil?
         params[context + 'Url'] = input[:url].to_s unless input[:url].nil?
-        Builders::UserBucket.build(input[:user_bucket], params, context: context + 'UserBucket' + '.') unless input[:user_bucket].nil?
+        UserBucket.build(input[:user_bucket], params, context: context + 'UserBucket' + '.') unless input[:user_bucket].nil?
       end
     end
 
@@ -10029,11 +10032,11 @@ module AWS::SDK::EC2
         params['Action'] = 'ImportInstance'
         params['Version'] = '2016-11-15'
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::DiskImageList.build(input[:disk_images], params, context: context + 'diskImage') unless input[:disk_images].nil?
+        DiskImageList.build(input[:disk_images], params, context: context + 'diskImage') unless input[:disk_images].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::ImportInstanceLaunchSpecification.build(input[:launch_specification], params, context: context + 'LaunchSpecification' + '.') unless input[:launch_specification].nil?
+        ImportInstanceLaunchSpecification.build(input[:launch_specification], params, context: context + 'LaunchSpecification' + '.') unless input[:launch_specification].nil?
         params[context + 'Platform'] = input[:platform].to_s unless input[:platform].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10042,15 +10045,15 @@ module AWS::SDK::EC2
       def self.build(input, params, context: nil)
         params[context + 'AdditionalInfo'] = input[:additional_info].to_s unless input[:additional_info].nil?
         params[context + 'Architecture'] = input[:architecture].to_s unless input[:architecture].nil?
-        Builders::SecurityGroupIdStringList.build(input[:group_ids], params, context: context + 'GroupId') unless input[:group_ids].nil?
-        Builders::SecurityGroupStringList.build(input[:group_names], params, context: context + 'GroupName') unless input[:group_names].nil?
+        SecurityGroupIdStringList.build(input[:group_ids], params, context: context + 'GroupId') unless input[:group_ids].nil?
+        SecurityGroupStringList.build(input[:group_names], params, context: context + 'GroupName') unless input[:group_names].nil?
         params[context + 'InstanceInitiatedShutdownBehavior'] = input[:instance_initiated_shutdown_behavior].to_s unless input[:instance_initiated_shutdown_behavior].nil?
         params[context + 'InstanceType'] = input[:instance_type].to_s unless input[:instance_type].nil?
         params[context + 'Monitoring'] = input[:monitoring].to_s unless input[:monitoring].nil?
-        Builders::Placement.build(input[:placement], params, context: context + 'Placement' + '.') unless input[:placement].nil?
+        Placement.build(input[:placement], params, context: context + 'Placement' + '.') unless input[:placement].nil?
         params[context + 'PrivateIpAddress'] = input[:private_ip_address].to_s unless input[:private_ip_address].nil?
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
-        Builders::UserData.build(input[:user_data], params, context: context + 'UserData' + '.') unless input[:user_data].nil?
+        UserData.build(input[:user_data], params, context: context + 'UserData' + '.') unless input[:user_data].nil?
       end
     end
 
@@ -10065,7 +10068,7 @@ module AWS::SDK::EC2
     class DiskImageList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::DiskImage.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          DiskImage.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -10074,8 +10077,8 @@ module AWS::SDK::EC2
     class DiskImage
       def self.build(input, params, context: nil)
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::DiskImageDetail.build(input[:image], params, context: context + 'Image' + '.') unless input[:image].nil?
-        Builders::VolumeDetail.build(input[:volume], params, context: context + 'Volume' + '.') unless input[:volume].nil?
+        DiskImageDetail.build(input[:image], params, context: context + 'Image' + '.') unless input[:image].nil?
+        VolumeDetail.build(input[:volume], params, context: context + 'Volume' + '.') unless input[:volume].nil?
       end
     end
 
@@ -10107,9 +10110,9 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'KeyName'] = input[:key_name].to_s unless input[:key_name].nil?
-        params[context + 'PublicKeyMaterial'] = Base64::encode64(input[:public_key_material]).strip unless input[:public_key_material].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        params[context + 'PublicKeyMaterial'] = ::Base64::encode64(input[:public_key_material]).strip unless input[:public_key_material].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10123,16 +10126,16 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ImportSnapshot'
         params['Version'] = '2016-11-15'
-        Builders::ClientData.build(input[:client_data], params, context: context + 'ClientData' + '.') unless input[:client_data].nil?
+        ClientData.build(input[:client_data], params, context: context + 'ClientData' + '.') unless input[:client_data].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::SnapshotDiskContainer.build(input[:disk_container], params, context: context + 'DiskContainer' + '.') unless input[:disk_container].nil?
+        SnapshotDiskContainer.build(input[:disk_container], params, context: context + 'DiskContainer' + '.') unless input[:disk_container].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'Encrypted'] = input[:encrypted].to_s unless input[:encrypted].nil?
         params[context + 'KmsKeyId'] = input[:kms_key_id].to_s unless input[:kms_key_id].nil?
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10142,7 +10145,7 @@ module AWS::SDK::EC2
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'Format'] = input[:format].to_s unless input[:format].nil?
         params[context + 'Url'] = input[:url].to_s unless input[:url].nil?
-        Builders::UserBucket.build(input[:user_bucket], params, context: context + 'UserBucket' + '.') unless input[:user_bucket].nil?
+        UserBucket.build(input[:user_bucket], params, context: context + 'UserBucket' + '.') unless input[:user_bucket].nil?
       end
     end
 
@@ -10159,9 +10162,9 @@ module AWS::SDK::EC2
         params[context + 'AvailabilityZone'] = input[:availability_zone].to_s unless input[:availability_zone].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::DiskImageDetail.build(input[:image], params, context: context + 'Image' + '.') unless input[:image].nil?
-        Builders::VolumeDetail.build(input[:volume], params, context: context + 'Volume' + '.') unless input[:volume].nil?
-        http_req.body = StringIO.new(params.to_s)
+        DiskImageDetail.build(input[:image], params, context: context + 'Image' + '.') unless input[:image].nil?
+        VolumeDetail.build(input[:volume], params, context: context + 'Volume' + '.') unless input[:volume].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10175,11 +10178,11 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ListImagesInRecycleBin'
         params['Version'] = '2016-11-15'
-        Builders::ImageIdStringList.build(input[:image_ids], params, context: context + 'ImageId') unless input[:image_ids].nil?
+        ImageIdStringList.build(input[:image_ids], params, context: context + 'ImageId') unless input[:image_ids].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10195,9 +10198,9 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        Builders::SnapshotIdStringList.build(input[:snapshot_ids], params, context: context + 'SnapshotId') unless input[:snapshot_ids].nil?
+        SnapshotIdStringList.build(input[:snapshot_ids], params, context: context + 'SnapshotId') unless input[:snapshot_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10214,7 +10217,7 @@ module AWS::SDK::EC2
         params[context + 'AllocationId'] = input[:allocation_id].to_s unless input[:allocation_id].nil?
         params[context + 'DomainName'] = input[:domain_name].to_s unless input[:domain_name].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10231,7 +10234,7 @@ module AWS::SDK::EC2
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
         params[context + 'OptInStatus'] = input[:opt_in_status].to_s unless input[:opt_in_status].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10252,7 +10255,7 @@ module AWS::SDK::EC2
         params[context + 'Accept'] = input[:accept].to_s unless input[:accept].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'AdditionalInfo'] = input[:additional_info].to_s unless input[:additional_info].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10271,7 +10274,7 @@ module AWS::SDK::EC2
         params[context + 'EndDate'] = Hearth::TimeHelper.to_date_time(input[:end_date]) unless input[:end_date].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'RemoveEndDate'] = input[:remove_end_date].to_s unless input[:remove_end_date].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10287,26 +10290,26 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'ClientVpnEndpointId'] = input[:client_vpn_endpoint_id].to_s unless input[:client_vpn_endpoint_id].nil?
         params[context + 'ServerCertificateArn'] = input[:server_certificate_arn].to_s unless input[:server_certificate_arn].nil?
-        Builders::ConnectionLogOptions.build(input[:connection_log_options], params, context: context + 'ConnectionLogOptions' + '.') unless input[:connection_log_options].nil?
-        Builders::DnsServersOptionsModifyStructure.build(input[:dns_servers], params, context: context + 'DnsServers' + '.') unless input[:dns_servers].nil?
+        ConnectionLogOptions.build(input[:connection_log_options], params, context: context + 'ConnectionLogOptions' + '.') unless input[:connection_log_options].nil?
+        DnsServersOptionsModifyStructure.build(input[:dns_servers], params, context: context + 'DnsServers' + '.') unless input[:dns_servers].nil?
         params[context + 'VpnPort'] = input[:vpn_port].to_s unless input[:vpn_port].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'SplitTunnel'] = input[:split_tunnel].to_s unless input[:split_tunnel].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::ClientVpnSecurityGroupIdSet.build(input[:security_group_ids], params, context: context + 'SecurityGroupId') unless input[:security_group_ids].nil?
+        ClientVpnSecurityGroupIdSet.build(input[:security_group_ids], params, context: context + 'SecurityGroupId') unless input[:security_group_ids].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
         params[context + 'SelfServicePortal'] = input[:self_service_portal].to_s unless input[:self_service_portal].nil?
-        Builders::ClientConnectOptions.build(input[:client_connect_options], params, context: context + 'ClientConnectOptions' + '.') unless input[:client_connect_options].nil?
+        ClientConnectOptions.build(input[:client_connect_options], params, context: context + 'ClientConnectOptions' + '.') unless input[:client_connect_options].nil?
         params[context + 'SessionTimeoutHours'] = input[:session_timeout_hours].to_s unless input[:session_timeout_hours].nil?
-        Builders::ClientLoginBannerOptions.build(input[:client_login_banner_options], params, context: context + 'ClientLoginBannerOptions' + '.') unless input[:client_login_banner_options].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ClientLoginBannerOptions.build(input[:client_login_banner_options], params, context: context + 'ClientLoginBannerOptions' + '.') unless input[:client_login_banner_options].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
     # Structure Builder for DnsServersOptionsModifyStructure
     class DnsServersOptionsModifyStructure
       def self.build(input, params, context: nil)
-        Builders::ValueStringList.build(input[:custom_dns_servers], params, context: context + 'CustomDnsServers') unless input[:custom_dns_servers].nil?
+        ValueStringList.build(input[:custom_dns_servers], params, context: context + 'CustomDnsServers') unless input[:custom_dns_servers].nil?
         params[context + 'Enabled'] = input[:enabled].to_s unless input[:enabled].nil?
       end
     end
@@ -10324,7 +10327,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InstanceFamily'] = input[:instance_family].to_s unless input[:instance_family].nil?
         params[context + 'CpuCredits'] = input[:cpu_credits].to_s unless input[:cpu_credits].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10340,7 +10343,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'KmsKeyId'] = input[:kms_key_id].to_s unless input[:kms_key_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10356,11 +10359,11 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ExcessCapacityTerminationPolicy'] = input[:excess_capacity_termination_policy].to_s unless input[:excess_capacity_termination_policy].nil?
-        Builders::FleetLaunchTemplateConfigListRequest.build(input[:launch_template_configs], params, context: context + 'LaunchTemplateConfig') unless input[:launch_template_configs].nil?
+        FleetLaunchTemplateConfigListRequest.build(input[:launch_template_configs], params, context: context + 'LaunchTemplateConfig') unless input[:launch_template_configs].nil?
         params[context + 'FleetId'] = input[:fleet_id].to_s unless input[:fleet_id].nil?
-        Builders::TargetCapacitySpecificationRequest.build(input[:target_capacity_specification], params, context: context + 'TargetCapacitySpecification' + '.') unless input[:target_capacity_specification].nil?
+        TargetCapacitySpecificationRequest.build(input[:target_capacity_specification], params, context: context + 'TargetCapacitySpecification' + '.') unless input[:target_capacity_specification].nil?
         params[context + 'Context'] = input[:context].to_s unless input[:context].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10378,21 +10381,21 @@ module AWS::SDK::EC2
         params[context + 'FpgaImageId'] = input[:fpga_image_id].to_s unless input[:fpga_image_id].nil?
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
         params[context + 'OperationType'] = input[:operation_type].to_s unless input[:operation_type].nil?
-        Builders::UserIdStringList.build(input[:user_ids], params, context: context + 'UserId') unless input[:user_ids].nil?
-        Builders::UserGroupStringList.build(input[:user_groups], params, context: context + 'UserGroup') unless input[:user_groups].nil?
-        Builders::ProductCodeStringList.build(input[:product_codes], params, context: context + 'ProductCode') unless input[:product_codes].nil?
-        Builders::LoadPermissionModifications.build(input[:load_permission], params, context: context + 'LoadPermission' + '.') unless input[:load_permission].nil?
+        UserIdStringList.build(input[:user_ids], params, context: context + 'UserId') unless input[:user_ids].nil?
+        UserGroupStringList.build(input[:user_groups], params, context: context + 'UserGroup') unless input[:user_groups].nil?
+        ProductCodeStringList.build(input[:product_codes], params, context: context + 'ProductCode') unless input[:product_codes].nil?
+        LoadPermissionModifications.build(input[:load_permission], params, context: context + 'LoadPermission' + '.') unless input[:load_permission].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
     # Structure Builder for LoadPermissionModifications
     class LoadPermissionModifications
       def self.build(input, params, context: nil)
-        Builders::LoadPermissionListRequest.build(input[:add], params, context: context + 'Add') unless input[:add].nil?
-        Builders::LoadPermissionListRequest.build(input[:remove], params, context: context + 'Remove') unless input[:remove].nil?
+        LoadPermissionListRequest.build(input[:add], params, context: context + 'Add') unless input[:add].nil?
+        LoadPermissionListRequest.build(input[:remove], params, context: context + 'Remove') unless input[:remove].nil?
       end
     end
 
@@ -10400,7 +10403,7 @@ module AWS::SDK::EC2
     class LoadPermissionListRequest
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::LoadPermissionRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          LoadPermissionRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -10451,11 +10454,11 @@ module AWS::SDK::EC2
         params['Action'] = 'ModifyHosts'
         params['Version'] = '2016-11-15'
         params[context + 'AutoPlacement'] = input[:auto_placement].to_s unless input[:auto_placement].nil?
-        Builders::RequestHostIdList.build(input[:host_ids], params, context: context + 'hostId') unless input[:host_ids].nil?
+        RequestHostIdList.build(input[:host_ids], params, context: context + 'hostId') unless input[:host_ids].nil?
         params[context + 'HostRecovery'] = input[:host_recovery].to_s unless input[:host_recovery].nil?
         params[context + 'InstanceType'] = input[:instance_type].to_s unless input[:instance_type].nil?
         params[context + 'InstanceFamily'] = input[:instance_family].to_s unless input[:instance_family].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10471,7 +10474,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'Resource'] = input[:resource].to_s unless input[:resource].nil?
         params[context + 'UseLongIds'] = input[:use_long_ids].to_s unless input[:use_long_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10488,7 +10491,7 @@ module AWS::SDK::EC2
         params[context + 'PrincipalArn'] = input[:principal_arn].to_s unless input[:principal_arn].nil?
         params[context + 'Resource'] = input[:resource].to_s unless input[:resource].nil?
         params[context + 'UseLongIds'] = input[:use_long_ids].to_s unless input[:use_long_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10503,18 +10506,18 @@ module AWS::SDK::EC2
         params['Action'] = 'ModifyImageAttribute'
         params['Version'] = '2016-11-15'
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
-        Builders::AttributeValue.build(input[:description], params, context: context + 'Description' + '.') unless input[:description].nil?
+        AttributeValue.build(input[:description], params, context: context + 'Description' + '.') unless input[:description].nil?
         params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
-        Builders::LaunchPermissionModifications.build(input[:launch_permission], params, context: context + 'LaunchPermission' + '.') unless input[:launch_permission].nil?
+        LaunchPermissionModifications.build(input[:launch_permission], params, context: context + 'LaunchPermission' + '.') unless input[:launch_permission].nil?
         params[context + 'OperationType'] = input[:operation_type].to_s unless input[:operation_type].nil?
-        Builders::ProductCodeStringList.build(input[:product_codes], params, context: context + 'ProductCode') unless input[:product_codes].nil?
-        Builders::UserGroupStringList.build(input[:user_groups], params, context: context + 'UserGroup') unless input[:user_groups].nil?
-        Builders::UserIdStringList.build(input[:user_ids], params, context: context + 'UserId') unless input[:user_ids].nil?
+        ProductCodeStringList.build(input[:product_codes], params, context: context + 'ProductCode') unless input[:product_codes].nil?
+        UserGroupStringList.build(input[:user_groups], params, context: context + 'UserGroup') unless input[:user_groups].nil?
+        UserIdStringList.build(input[:user_ids], params, context: context + 'UserId') unless input[:user_ids].nil?
         params[context + 'Value'] = input[:value].to_s unless input[:value].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::OrganizationArnStringList.build(input[:organization_arns], params, context: context + 'OrganizationArn') unless input[:organization_arns].nil?
-        Builders::OrganizationalUnitArnStringList.build(input[:organizational_unit_arns], params, context: context + 'OrganizationalUnitArn') unless input[:organizational_unit_arns].nil?
-        http_req.body = StringIO.new(params.to_s)
+        OrganizationArnStringList.build(input[:organization_arns], params, context: context + 'OrganizationArn') unless input[:organization_arns].nil?
+        OrganizationalUnitArnStringList.build(input[:organizational_unit_arns], params, context: context + 'OrganizationalUnitArn') unless input[:organizational_unit_arns].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10539,8 +10542,8 @@ module AWS::SDK::EC2
     # Structure Builder for LaunchPermissionModifications
     class LaunchPermissionModifications
       def self.build(input, params, context: nil)
-        Builders::LaunchPermissionList.build(input[:add], params, context: context + 'Add') unless input[:add].nil?
-        Builders::LaunchPermissionList.build(input[:remove], params, context: context + 'Remove') unless input[:remove].nil?
+        LaunchPermissionList.build(input[:add], params, context: context + 'Add') unless input[:add].nil?
+        LaunchPermissionList.build(input[:remove], params, context: context + 'Remove') unless input[:remove].nil?
       end
     end
 
@@ -10548,7 +10551,7 @@ module AWS::SDK::EC2
     class LaunchPermissionList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::LaunchPermission.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          LaunchPermission.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -10580,24 +10583,24 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ModifyInstanceAttribute'
         params['Version'] = '2016-11-15'
-        Builders::AttributeBooleanValue.build(input[:source_dest_check], params, context: context + 'SourceDestCheck' + '.') unless input[:source_dest_check].nil?
+        AttributeBooleanValue.build(input[:source_dest_check], params, context: context + 'SourceDestCheck' + '.') unless input[:source_dest_check].nil?
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
-        Builders::InstanceBlockDeviceMappingSpecificationList.build(input[:block_device_mappings], params, context: context + 'blockDeviceMapping') unless input[:block_device_mappings].nil?
-        Builders::AttributeBooleanValue.build(input[:disable_api_termination], params, context: context + 'DisableApiTermination' + '.') unless input[:disable_api_termination].nil?
+        InstanceBlockDeviceMappingSpecificationList.build(input[:block_device_mappings], params, context: context + 'blockDeviceMapping') unless input[:block_device_mappings].nil?
+        AttributeBooleanValue.build(input[:disable_api_termination], params, context: context + 'DisableApiTermination' + '.') unless input[:disable_api_termination].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::AttributeBooleanValue.build(input[:ebs_optimized], params, context: context + 'EbsOptimized' + '.') unless input[:ebs_optimized].nil?
-        Builders::AttributeBooleanValue.build(input[:ena_support], params, context: context + 'EnaSupport' + '.') unless input[:ena_support].nil?
-        Builders::GroupIdStringList.build(input[:groups], params, context: context + 'GroupId') unless input[:groups].nil?
+        AttributeBooleanValue.build(input[:ebs_optimized], params, context: context + 'EbsOptimized' + '.') unless input[:ebs_optimized].nil?
+        AttributeBooleanValue.build(input[:ena_support], params, context: context + 'EnaSupport' + '.') unless input[:ena_support].nil?
+        GroupIdStringList.build(input[:groups], params, context: context + 'GroupId') unless input[:groups].nil?
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
-        Builders::AttributeValue.build(input[:instance_initiated_shutdown_behavior], params, context: context + 'InstanceInitiatedShutdownBehavior' + '.') unless input[:instance_initiated_shutdown_behavior].nil?
-        Builders::AttributeValue.build(input[:instance_type], params, context: context + 'InstanceType' + '.') unless input[:instance_type].nil?
-        Builders::AttributeValue.build(input[:kernel], params, context: context + 'Kernel' + '.') unless input[:kernel].nil?
-        Builders::AttributeValue.build(input[:ramdisk], params, context: context + 'Ramdisk' + '.') unless input[:ramdisk].nil?
-        Builders::AttributeValue.build(input[:sriov_net_support], params, context: context + 'SriovNetSupport' + '.') unless input[:sriov_net_support].nil?
-        Builders::BlobAttributeValue.build(input[:user_data], params, context: context + 'UserData' + '.') unless input[:user_data].nil?
+        AttributeValue.build(input[:instance_initiated_shutdown_behavior], params, context: context + 'InstanceInitiatedShutdownBehavior' + '.') unless input[:instance_initiated_shutdown_behavior].nil?
+        AttributeValue.build(input[:instance_type], params, context: context + 'InstanceType' + '.') unless input[:instance_type].nil?
+        AttributeValue.build(input[:kernel], params, context: context + 'Kernel' + '.') unless input[:kernel].nil?
+        AttributeValue.build(input[:ramdisk], params, context: context + 'Ramdisk' + '.') unless input[:ramdisk].nil?
+        AttributeValue.build(input[:sriov_net_support], params, context: context + 'SriovNetSupport' + '.') unless input[:sriov_net_support].nil?
+        BlobAttributeValue.build(input[:user_data], params, context: context + 'UserData' + '.') unless input[:user_data].nil?
         params[context + 'Value'] = input[:value].to_s unless input[:value].nil?
-        Builders::AttributeBooleanValue.build(input[:disable_api_stop], params, context: context + 'DisableApiStop' + '.') unless input[:disable_api_stop].nil?
-        http_req.body = StringIO.new(params.to_s)
+        AttributeBooleanValue.build(input[:disable_api_stop], params, context: context + 'DisableApiStop' + '.') unless input[:disable_api_stop].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10611,7 +10614,7 @@ module AWS::SDK::EC2
     # Structure Builder for BlobAttributeValue
     class BlobAttributeValue
       def self.build(input, params, context: nil)
-        params[context + 'Value'] = Base64::encode64(input[:value]).strip unless input[:value].nil?
+        params[context + 'Value'] = ::Base64::encode64(input[:value]).strip unless input[:value].nil?
       end
     end
 
@@ -10619,7 +10622,7 @@ module AWS::SDK::EC2
     class InstanceBlockDeviceMappingSpecificationList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::InstanceBlockDeviceMappingSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          InstanceBlockDeviceMappingSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -10628,7 +10631,7 @@ module AWS::SDK::EC2
     class InstanceBlockDeviceMappingSpecification
       def self.build(input, params, context: nil)
         params[context + 'DeviceName'] = input[:device_name].to_s unless input[:device_name].nil?
-        Builders::EbsInstanceBlockDeviceSpecification.build(input[:ebs], params, context: context + 'Ebs' + '.') unless input[:ebs].nil?
+        EbsInstanceBlockDeviceSpecification.build(input[:ebs], params, context: context + 'Ebs' + '.') unless input[:ebs].nil?
         params[context + 'NoDevice'] = input[:no_device].to_s unless input[:no_device].nil?
         params[context + 'VirtualName'] = input[:virtual_name].to_s unless input[:virtual_name].nil?
       end
@@ -10653,9 +10656,9 @@ module AWS::SDK::EC2
         params['Action'] = 'ModifyInstanceCapacityReservationAttributes'
         params['Version'] = '2016-11-15'
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
-        Builders::CapacityReservationSpecification.build(input[:capacity_reservation_specification], params, context: context + 'CapacityReservationSpecification' + '.') unless input[:capacity_reservation_specification].nil?
+        CapacityReservationSpecification.build(input[:capacity_reservation_specification], params, context: context + 'CapacityReservationSpecification' + '.') unless input[:capacity_reservation_specification].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10663,7 +10666,7 @@ module AWS::SDK::EC2
     class CapacityReservationSpecification
       def self.build(input, params, context: nil)
         params[context + 'CapacityReservationPreference'] = input[:capacity_reservation_preference].to_s unless input[:capacity_reservation_preference].nil?
-        Builders::CapacityReservationTarget.build(input[:capacity_reservation_target], params, context: context + 'CapacityReservationTarget' + '.') unless input[:capacity_reservation_target].nil?
+        CapacityReservationTarget.build(input[:capacity_reservation_target], params, context: context + 'CapacityReservationTarget' + '.') unless input[:capacity_reservation_target].nil?
       end
     end
 
@@ -10679,8 +10682,8 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        Builders::InstanceCreditSpecificationListRequest.build(input[:instance_credit_specifications], params, context: context + 'InstanceCreditSpecification') unless input[:instance_credit_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        InstanceCreditSpecificationListRequest.build(input[:instance_credit_specifications], params, context: context + 'InstanceCreditSpecification') unless input[:instance_credit_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10688,7 +10691,7 @@ module AWS::SDK::EC2
     class InstanceCreditSpecificationListRequest
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::InstanceCreditSpecificationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          InstanceCreditSpecificationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -10715,7 +10718,7 @@ module AWS::SDK::EC2
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'InstanceEventId'] = input[:instance_event_id].to_s unless input[:instance_event_id].nil?
         params[context + 'NotBefore'] = Hearth::TimeHelper.to_date_time(input[:not_before]) unless input[:not_before].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10732,9 +10735,9 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         params[context + 'InstanceEventWindowId'] = input[:instance_event_window_id].to_s unless input[:instance_event_window_id].nil?
-        Builders::InstanceEventWindowTimeRangeRequestSet.build(input[:time_ranges], params, context: context + 'TimeRange') unless input[:time_ranges].nil?
+        InstanceEventWindowTimeRangeRequestSet.build(input[:time_ranges], params, context: context + 'TimeRange') unless input[:time_ranges].nil?
         params[context + 'CronExpression'] = input[:cron_expression].to_s unless input[:cron_expression].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10751,7 +10754,7 @@ module AWS::SDK::EC2
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'AutoRecovery'] = input[:auto_recovery].to_s unless input[:auto_recovery].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10772,7 +10775,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'HttpProtocolIpv6'] = input[:http_protocol_ipv6].to_s unless input[:http_protocol_ipv6].nil?
         params[context + 'InstanceMetadataTags'] = input[:instance_metadata_tags].to_s unless input[:instance_metadata_tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10793,7 +10796,7 @@ module AWS::SDK::EC2
         params[context + 'Tenancy'] = input[:tenancy].to_s unless input[:tenancy].nil?
         params[context + 'PartitionNumber'] = input[:partition_number].to_s unless input[:partition_number].nil?
         params[context + 'HostResourceGroupArn'] = input[:host_resource_group_arn].to_s unless input[:host_resource_group_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10810,9 +10813,9 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'IpamId'] = input[:ipam_id].to_s unless input[:ipam_id].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::AddIpamOperatingRegionSet.build(input[:add_operating_regions], params, context: context + 'AddOperatingRegion') unless input[:add_operating_regions].nil?
-        Builders::RemoveIpamOperatingRegionSet.build(input[:remove_operating_regions], params, context: context + 'RemoveOperatingRegion') unless input[:remove_operating_regions].nil?
-        http_req.body = StringIO.new(params.to_s)
+        AddIpamOperatingRegionSet.build(input[:add_operating_regions], params, context: context + 'AddOperatingRegion') unless input[:add_operating_regions].nil?
+        RemoveIpamOperatingRegionSet.build(input[:remove_operating_regions], params, context: context + 'RemoveOperatingRegion') unless input[:remove_operating_regions].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10820,7 +10823,7 @@ module AWS::SDK::EC2
     class RemoveIpamOperatingRegionSet
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::RemoveIpamOperatingRegion.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          RemoveIpamOperatingRegion.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -10850,9 +10853,9 @@ module AWS::SDK::EC2
         params[context + 'AllocationMaxNetmaskLength'] = input[:allocation_max_netmask_length].to_s unless input[:allocation_max_netmask_length].nil?
         params[context + 'AllocationDefaultNetmaskLength'] = input[:allocation_default_netmask_length].to_s unless input[:allocation_default_netmask_length].nil?
         params[context + 'ClearAllocationDefaultNetmaskLength'] = input[:clear_allocation_default_netmask_length].to_s unless input[:clear_allocation_default_netmask_length].nil?
-        Builders::RequestIpamResourceTagList.build(input[:add_allocation_resource_tags], params, context: context + 'AddAllocationResourceTag') unless input[:add_allocation_resource_tags].nil?
-        Builders::RequestIpamResourceTagList.build(input[:remove_allocation_resource_tags], params, context: context + 'RemoveAllocationResourceTag') unless input[:remove_allocation_resource_tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        RequestIpamResourceTagList.build(input[:add_allocation_resource_tags], params, context: context + 'AddAllocationResourceTag') unless input[:add_allocation_resource_tags].nil?
+        RequestIpamResourceTagList.build(input[:remove_allocation_resource_tags], params, context: context + 'RemoveAllocationResourceTag') unless input[:remove_allocation_resource_tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10873,7 +10876,7 @@ module AWS::SDK::EC2
         params[context + 'CurrentIpamScopeId'] = input[:current_ipam_scope_id].to_s unless input[:current_ipam_scope_id].nil?
         params[context + 'DestinationIpamScopeId'] = input[:destination_ipam_scope_id].to_s unless input[:destination_ipam_scope_id].nil?
         params[context + 'Monitored'] = input[:monitored].to_s unless input[:monitored].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10890,7 +10893,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'IpamScopeId'] = input[:ipam_scope_id].to_s unless input[:ipam_scope_id].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10909,7 +10912,7 @@ module AWS::SDK::EC2
         params[context + 'LaunchTemplateId'] = input[:launch_template_id].to_s unless input[:launch_template_id].nil?
         params[context + 'LaunchTemplateName'] = input[:launch_template_name].to_s unless input[:launch_template_name].nil?
         params[context + 'SetDefaultVersion'] = input[:default_version].to_s unless input[:default_version].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10927,10 +10930,10 @@ module AWS::SDK::EC2
         params[context + 'PrefixListId'] = input[:prefix_list_id].to_s unless input[:prefix_list_id].nil?
         params[context + 'CurrentVersion'] = input[:current_version].to_s unless input[:current_version].nil?
         params[context + 'PrefixListName'] = input[:prefix_list_name].to_s unless input[:prefix_list_name].nil?
-        Builders::AddPrefixListEntries.build(input[:add_entries], params, context: context + 'AddEntry') unless input[:add_entries].nil?
-        Builders::RemovePrefixListEntries.build(input[:remove_entries], params, context: context + 'RemoveEntry') unless input[:remove_entries].nil?
+        AddPrefixListEntries.build(input[:add_entries], params, context: context + 'AddEntry') unless input[:add_entries].nil?
+        RemovePrefixListEntries.build(input[:remove_entries], params, context: context + 'RemoveEntry') unless input[:remove_entries].nil?
         params[context + 'MaxEntries'] = input[:max_entries].to_s unless input[:max_entries].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10938,7 +10941,7 @@ module AWS::SDK::EC2
     class RemovePrefixListEntries
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::RemovePrefixListEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          RemovePrefixListEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -10960,13 +10963,13 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ModifyNetworkInterfaceAttribute'
         params['Version'] = '2016-11-15'
-        Builders::NetworkInterfaceAttachmentChanges.build(input[:attachment], params, context: context + 'Attachment' + '.') unless input[:attachment].nil?
-        Builders::AttributeValue.build(input[:description], params, context: context + 'Description' + '.') unless input[:description].nil?
+        NetworkInterfaceAttachmentChanges.build(input[:attachment], params, context: context + 'Attachment' + '.') unless input[:attachment].nil?
+        AttributeValue.build(input[:description], params, context: context + 'Description' + '.') unless input[:description].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::SecurityGroupIdStringList.build(input[:groups], params, context: context + 'SecurityGroupId') unless input[:groups].nil?
+        SecurityGroupIdStringList.build(input[:groups], params, context: context + 'SecurityGroupId') unless input[:groups].nil?
         params[context + 'NetworkInterfaceId'] = input[:network_interface_id].to_s unless input[:network_interface_id].nil?
-        Builders::AttributeBooleanValue.build(input[:source_dest_check], params, context: context + 'SourceDestCheck' + '.') unless input[:source_dest_check].nil?
-        http_req.body = StringIO.new(params.to_s)
+        AttributeBooleanValue.build(input[:source_dest_check], params, context: context + 'SourceDestCheck' + '.') unless input[:source_dest_check].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -10993,7 +10996,7 @@ module AWS::SDK::EC2
         params[context + 'PrivateDnsHostnameType'] = input[:private_dns_hostname_type].to_s unless input[:private_dns_hostname_type].nil?
         params[context + 'EnableResourceNameDnsARecord'] = input[:enable_resource_name_dns_a_record].to_s unless input[:enable_resource_name_dns_a_record].nil?
         params[context + 'EnableResourceNameDnsAAAARecord'] = input[:enable_resource_name_dns_aaaa_record].to_s unless input[:enable_resource_name_dns_aaaa_record].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11007,10 +11010,10 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ModifyReservedInstances'
         params['Version'] = '2016-11-15'
-        Builders::ReservedInstancesIdStringList.build(input[:reserved_instances_ids], params, context: context + 'ReservedInstancesId') unless input[:reserved_instances_ids].nil?
+        ReservedInstancesIdStringList.build(input[:reserved_instances_ids], params, context: context + 'ReservedInstancesId') unless input[:reserved_instances_ids].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        Builders::ReservedInstancesConfigurationList.build(input[:target_configurations], params, context: context + 'ReservedInstancesConfigurationSetItemType') unless input[:target_configurations].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ReservedInstancesConfigurationList.build(input[:target_configurations], params, context: context + 'ReservedInstancesConfigurationSetItemType') unless input[:target_configurations].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11018,7 +11021,7 @@ module AWS::SDK::EC2
     class ReservedInstancesConfigurationList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ReservedInstancesConfiguration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ReservedInstancesConfiguration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -11045,9 +11048,9 @@ module AWS::SDK::EC2
         params['Action'] = 'ModifySecurityGroupRules'
         params['Version'] = '2016-11-15'
         params[context + 'GroupId'] = input[:group_id].to_s unless input[:group_id].nil?
-        Builders::SecurityGroupRuleUpdateList.build(input[:security_group_rules], params, context: context + 'SecurityGroupRule') unless input[:security_group_rules].nil?
+        SecurityGroupRuleUpdateList.build(input[:security_group_rules], params, context: context + 'SecurityGroupRule') unless input[:security_group_rules].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11055,7 +11058,7 @@ module AWS::SDK::EC2
     class SecurityGroupRuleUpdateList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::SecurityGroupRuleUpdate.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          SecurityGroupRuleUpdate.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -11064,7 +11067,7 @@ module AWS::SDK::EC2
     class SecurityGroupRuleUpdate
       def self.build(input, params, context: nil)
         params[context + 'SecurityGroupRuleId'] = input[:security_group_rule_id].to_s unless input[:security_group_rule_id].nil?
-        Builders::SecurityGroupRuleRequest.build(input[:security_group_rule], params, context: context + 'SecurityGroupRule' + '.') unless input[:security_group_rule].nil?
+        SecurityGroupRuleRequest.build(input[:security_group_rule], params, context: context + 'SecurityGroupRule' + '.') unless input[:security_group_rule].nil?
       end
     end
 
@@ -11093,21 +11096,21 @@ module AWS::SDK::EC2
         params['Action'] = 'ModifySnapshotAttribute'
         params['Version'] = '2016-11-15'
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
-        Builders::CreateVolumePermissionModifications.build(input[:create_volume_permission], params, context: context + 'CreateVolumePermission' + '.') unless input[:create_volume_permission].nil?
-        Builders::GroupNameStringList.build(input[:group_names], params, context: context + 'UserGroup') unless input[:group_names].nil?
+        CreateVolumePermissionModifications.build(input[:create_volume_permission], params, context: context + 'CreateVolumePermission' + '.') unless input[:create_volume_permission].nil?
+        GroupNameStringList.build(input[:group_names], params, context: context + 'UserGroup') unless input[:group_names].nil?
         params[context + 'OperationType'] = input[:operation_type].to_s unless input[:operation_type].nil?
         params[context + 'SnapshotId'] = input[:snapshot_id].to_s unless input[:snapshot_id].nil?
-        Builders::UserIdStringList.build(input[:user_ids], params, context: context + 'UserId') unless input[:user_ids].nil?
+        UserIdStringList.build(input[:user_ids], params, context: context + 'UserId') unless input[:user_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
     # Structure Builder for CreateVolumePermissionModifications
     class CreateVolumePermissionModifications
       def self.build(input, params, context: nil)
-        Builders::CreateVolumePermissionList.build(input[:add], params, context: context + 'Add') unless input[:add].nil?
-        Builders::CreateVolumePermissionList.build(input[:remove], params, context: context + 'Remove') unless input[:remove].nil?
+        CreateVolumePermissionList.build(input[:add], params, context: context + 'Add') unless input[:add].nil?
+        CreateVolumePermissionList.build(input[:remove], params, context: context + 'Remove') unless input[:remove].nil?
       end
     end
 
@@ -11115,7 +11118,7 @@ module AWS::SDK::EC2
     class CreateVolumePermissionList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::CreateVolumePermission.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          CreateVolumePermission.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -11141,7 +11144,7 @@ module AWS::SDK::EC2
         params[context + 'SnapshotId'] = input[:snapshot_id].to_s unless input[:snapshot_id].nil?
         params[context + 'StorageTier'] = input[:storage_tier].to_s unless input[:storage_tier].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11156,12 +11159,12 @@ module AWS::SDK::EC2
         params['Action'] = 'ModifySpotFleetRequest'
         params['Version'] = '2016-11-15'
         params[context + 'ExcessCapacityTerminationPolicy'] = input[:excess_capacity_termination_policy].to_s unless input[:excess_capacity_termination_policy].nil?
-        Builders::LaunchTemplateConfigList.build(input[:launch_template_configs], params, context: context + 'LaunchTemplateConfig') unless input[:launch_template_configs].nil?
+        LaunchTemplateConfigList.build(input[:launch_template_configs], params, context: context + 'LaunchTemplateConfig') unless input[:launch_template_configs].nil?
         params[context + 'SpotFleetRequestId'] = input[:spot_fleet_request_id].to_s unless input[:spot_fleet_request_id].nil?
         params[context + 'TargetCapacity'] = input[:target_capacity].to_s unless input[:target_capacity].nil?
         params[context + 'OnDemandTargetCapacity'] = input[:on_demand_target_capacity].to_s unless input[:on_demand_target_capacity].nil?
         params[context + 'Context'] = input[:context].to_s unless input[:context].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11169,7 +11172,7 @@ module AWS::SDK::EC2
     class LaunchTemplateConfigList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::LaunchTemplateConfig.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          LaunchTemplateConfig.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -11177,8 +11180,8 @@ module AWS::SDK::EC2
     # Structure Builder for LaunchTemplateConfig
     class LaunchTemplateConfig
       def self.build(input, params, context: nil)
-        Builders::FleetLaunchTemplateSpecification.build(input[:launch_template_specification], params, context: context + 'LaunchTemplateSpecification' + '.') unless input[:launch_template_specification].nil?
-        Builders::LaunchTemplateOverridesList.build(input[:overrides], params, context: context + 'overrides') unless input[:overrides].nil?
+        FleetLaunchTemplateSpecification.build(input[:launch_template_specification], params, context: context + 'LaunchTemplateSpecification' + '.') unless input[:launch_template_specification].nil?
+        LaunchTemplateOverridesList.build(input[:overrides], params, context: context + 'overrides') unless input[:overrides].nil?
       end
     end
 
@@ -11186,7 +11189,7 @@ module AWS::SDK::EC2
     class LaunchTemplateOverridesList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::LaunchTemplateOverrides.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          LaunchTemplateOverrides.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -11200,34 +11203,34 @@ module AWS::SDK::EC2
         params[context + 'AvailabilityZone'] = input[:availability_zone].to_s unless input[:availability_zone].nil?
         params[context + 'WeightedCapacity'] = Hearth::NumberHelper.serialize(input[:weighted_capacity]).to_s unless input[:weighted_capacity].nil?
         params[context + 'Priority'] = Hearth::NumberHelper.serialize(input[:priority]).to_s unless input[:priority].nil?
-        Builders::InstanceRequirements.build(input[:instance_requirements], params, context: context + 'InstanceRequirements' + '.') unless input[:instance_requirements].nil?
+        InstanceRequirements.build(input[:instance_requirements], params, context: context + 'InstanceRequirements' + '.') unless input[:instance_requirements].nil?
       end
     end
 
     # Structure Builder for InstanceRequirements
     class InstanceRequirements
       def self.build(input, params, context: nil)
-        Builders::VCpuCountRange.build(input[:v_cpu_count], params, context: context + 'VCpuCount' + '.') unless input[:v_cpu_count].nil?
-        Builders::MemoryMiB.build(input[:memory_mi_b], params, context: context + 'MemoryMiB' + '.') unless input[:memory_mi_b].nil?
-        Builders::CpuManufacturerSet.build(input[:cpu_manufacturers], params, context: context + 'cpuManufacturerSet') unless input[:cpu_manufacturers].nil?
-        Builders::MemoryGiBPerVCpu.build(input[:memory_gi_b_per_v_cpu], params, context: context + 'MemoryGiBPerVCpu' + '.') unless input[:memory_gi_b_per_v_cpu].nil?
-        Builders::ExcludedInstanceTypeSet.build(input[:excluded_instance_types], params, context: context + 'excludedInstanceTypeSet') unless input[:excluded_instance_types].nil?
-        Builders::InstanceGenerationSet.build(input[:instance_generations], params, context: context + 'instanceGenerationSet') unless input[:instance_generations].nil?
+        VCpuCountRange.build(input[:v_cpu_count], params, context: context + 'VCpuCount' + '.') unless input[:v_cpu_count].nil?
+        MemoryMiB.build(input[:memory_mi_b], params, context: context + 'MemoryMiB' + '.') unless input[:memory_mi_b].nil?
+        CpuManufacturerSet.build(input[:cpu_manufacturers], params, context: context + 'cpuManufacturerSet') unless input[:cpu_manufacturers].nil?
+        MemoryGiBPerVCpu.build(input[:memory_gi_b_per_v_cpu], params, context: context + 'MemoryGiBPerVCpu' + '.') unless input[:memory_gi_b_per_v_cpu].nil?
+        ExcludedInstanceTypeSet.build(input[:excluded_instance_types], params, context: context + 'excludedInstanceTypeSet') unless input[:excluded_instance_types].nil?
+        InstanceGenerationSet.build(input[:instance_generations], params, context: context + 'instanceGenerationSet') unless input[:instance_generations].nil?
         params[context + 'SpotMaxPricePercentageOverLowestPrice'] = input[:spot_max_price_percentage_over_lowest_price].to_s unless input[:spot_max_price_percentage_over_lowest_price].nil?
         params[context + 'OnDemandMaxPricePercentageOverLowestPrice'] = input[:on_demand_max_price_percentage_over_lowest_price].to_s unless input[:on_demand_max_price_percentage_over_lowest_price].nil?
         params[context + 'BareMetal'] = input[:bare_metal].to_s unless input[:bare_metal].nil?
         params[context + 'BurstablePerformance'] = input[:burstable_performance].to_s unless input[:burstable_performance].nil?
         params[context + 'RequireHibernateSupport'] = input[:require_hibernate_support].to_s unless input[:require_hibernate_support].nil?
-        Builders::NetworkInterfaceCount.build(input[:network_interface_count], params, context: context + 'NetworkInterfaceCount' + '.') unless input[:network_interface_count].nil?
+        NetworkInterfaceCount.build(input[:network_interface_count], params, context: context + 'NetworkInterfaceCount' + '.') unless input[:network_interface_count].nil?
         params[context + 'LocalStorage'] = input[:local_storage].to_s unless input[:local_storage].nil?
-        Builders::LocalStorageTypeSet.build(input[:local_storage_types], params, context: context + 'localStorageTypeSet') unless input[:local_storage_types].nil?
-        Builders::TotalLocalStorageGB.build(input[:total_local_storage_gb], params, context: context + 'TotalLocalStorageGB' + '.') unless input[:total_local_storage_gb].nil?
-        Builders::BaselineEbsBandwidthMbps.build(input[:baseline_ebs_bandwidth_mbps], params, context: context + 'BaselineEbsBandwidthMbps' + '.') unless input[:baseline_ebs_bandwidth_mbps].nil?
-        Builders::AcceleratorTypeSet.build(input[:accelerator_types], params, context: context + 'acceleratorTypeSet') unless input[:accelerator_types].nil?
-        Builders::AcceleratorCount.build(input[:accelerator_count], params, context: context + 'AcceleratorCount' + '.') unless input[:accelerator_count].nil?
-        Builders::AcceleratorManufacturerSet.build(input[:accelerator_manufacturers], params, context: context + 'acceleratorManufacturerSet') unless input[:accelerator_manufacturers].nil?
-        Builders::AcceleratorNameSet.build(input[:accelerator_names], params, context: context + 'acceleratorNameSet') unless input[:accelerator_names].nil?
-        Builders::AcceleratorTotalMemoryMiB.build(input[:accelerator_total_memory_mi_b], params, context: context + 'AcceleratorTotalMemoryMiB' + '.') unless input[:accelerator_total_memory_mi_b].nil?
+        LocalStorageTypeSet.build(input[:local_storage_types], params, context: context + 'localStorageTypeSet') unless input[:local_storage_types].nil?
+        TotalLocalStorageGB.build(input[:total_local_storage_gb], params, context: context + 'TotalLocalStorageGB' + '.') unless input[:total_local_storage_gb].nil?
+        BaselineEbsBandwidthMbps.build(input[:baseline_ebs_bandwidth_mbps], params, context: context + 'BaselineEbsBandwidthMbps' + '.') unless input[:baseline_ebs_bandwidth_mbps].nil?
+        AcceleratorTypeSet.build(input[:accelerator_types], params, context: context + 'acceleratorTypeSet') unless input[:accelerator_types].nil?
+        AcceleratorCount.build(input[:accelerator_count], params, context: context + 'AcceleratorCount' + '.') unless input[:accelerator_count].nil?
+        AcceleratorManufacturerSet.build(input[:accelerator_manufacturers], params, context: context + 'acceleratorManufacturerSet') unless input[:accelerator_manufacturers].nil?
+        AcceleratorNameSet.build(input[:accelerator_names], params, context: context + 'acceleratorNameSet') unless input[:accelerator_names].nil?
+        AcceleratorTotalMemoryMiB.build(input[:accelerator_total_memory_mi_b], params, context: context + 'AcceleratorTotalMemoryMiB' + '.') unless input[:accelerator_total_memory_mi_b].nil?
       end
     end
 
@@ -11314,18 +11317,18 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ModifySubnetAttribute'
         params['Version'] = '2016-11-15'
-        Builders::AttributeBooleanValue.build(input[:assign_ipv6_address_on_creation], params, context: context + 'AssignIpv6AddressOnCreation' + '.') unless input[:assign_ipv6_address_on_creation].nil?
-        Builders::AttributeBooleanValue.build(input[:map_public_ip_on_launch], params, context: context + 'MapPublicIpOnLaunch' + '.') unless input[:map_public_ip_on_launch].nil?
+        AttributeBooleanValue.build(input[:assign_ipv6_address_on_creation], params, context: context + 'AssignIpv6AddressOnCreation' + '.') unless input[:assign_ipv6_address_on_creation].nil?
+        AttributeBooleanValue.build(input[:map_public_ip_on_launch], params, context: context + 'MapPublicIpOnLaunch' + '.') unless input[:map_public_ip_on_launch].nil?
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
-        Builders::AttributeBooleanValue.build(input[:map_customer_owned_ip_on_launch], params, context: context + 'MapCustomerOwnedIpOnLaunch' + '.') unless input[:map_customer_owned_ip_on_launch].nil?
+        AttributeBooleanValue.build(input[:map_customer_owned_ip_on_launch], params, context: context + 'MapCustomerOwnedIpOnLaunch' + '.') unless input[:map_customer_owned_ip_on_launch].nil?
         params[context + 'CustomerOwnedIpv4Pool'] = input[:customer_owned_ipv4_pool].to_s unless input[:customer_owned_ipv4_pool].nil?
-        Builders::AttributeBooleanValue.build(input[:enable_dns64], params, context: context + 'EnableDns64' + '.') unless input[:enable_dns64].nil?
+        AttributeBooleanValue.build(input[:enable_dns64], params, context: context + 'EnableDns64' + '.') unless input[:enable_dns64].nil?
         params[context + 'PrivateDnsHostnameTypeOnLaunch'] = input[:private_dns_hostname_type_on_launch].to_s unless input[:private_dns_hostname_type_on_launch].nil?
-        Builders::AttributeBooleanValue.build(input[:enable_resource_name_dns_a_record_on_launch], params, context: context + 'EnableResourceNameDnsARecordOnLaunch' + '.') unless input[:enable_resource_name_dns_a_record_on_launch].nil?
-        Builders::AttributeBooleanValue.build(input[:enable_resource_name_dns_aaaa_record_on_launch], params, context: context + 'EnableResourceNameDnsAAAARecordOnLaunch' + '.') unless input[:enable_resource_name_dns_aaaa_record_on_launch].nil?
+        AttributeBooleanValue.build(input[:enable_resource_name_dns_a_record_on_launch], params, context: context + 'EnableResourceNameDnsARecordOnLaunch' + '.') unless input[:enable_resource_name_dns_a_record_on_launch].nil?
+        AttributeBooleanValue.build(input[:enable_resource_name_dns_aaaa_record_on_launch], params, context: context + 'EnableResourceNameDnsAAAARecordOnLaunch' + '.') unless input[:enable_resource_name_dns_aaaa_record_on_launch].nil?
         params[context + 'EnableLniAtDeviceIndex'] = input[:enable_lni_at_device_index].to_s unless input[:enable_lni_at_device_index].nil?
-        Builders::AttributeBooleanValue.build(input[:disable_lni_at_device_index], params, context: context + 'DisableLniAtDeviceIndex' + '.') unless input[:disable_lni_at_device_index].nil?
-        http_req.body = StringIO.new(params.to_s)
+        AttributeBooleanValue.build(input[:disable_lni_at_device_index], params, context: context + 'DisableLniAtDeviceIndex' + '.') unless input[:disable_lni_at_device_index].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11340,10 +11343,10 @@ module AWS::SDK::EC2
         params['Action'] = 'ModifyTrafficMirrorFilterNetworkServices'
         params['Version'] = '2016-11-15'
         params[context + 'TrafficMirrorFilterId'] = input[:traffic_mirror_filter_id].to_s unless input[:traffic_mirror_filter_id].nil?
-        Builders::TrafficMirrorNetworkServiceList.build(input[:add_network_services], params, context: context + 'AddNetworkService') unless input[:add_network_services].nil?
-        Builders::TrafficMirrorNetworkServiceList.build(input[:remove_network_services], params, context: context + 'RemoveNetworkService') unless input[:remove_network_services].nil?
+        TrafficMirrorNetworkServiceList.build(input[:add_network_services], params, context: context + 'AddNetworkService') unless input[:add_network_services].nil?
+        TrafficMirrorNetworkServiceList.build(input[:remove_network_services], params, context: context + 'RemoveNetworkService') unless input[:remove_network_services].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11370,15 +11373,15 @@ module AWS::SDK::EC2
         params[context + 'TrafficDirection'] = input[:traffic_direction].to_s unless input[:traffic_direction].nil?
         params[context + 'RuleNumber'] = input[:rule_number].to_s unless input[:rule_number].nil?
         params[context + 'RuleAction'] = input[:rule_action].to_s unless input[:rule_action].nil?
-        Builders::TrafficMirrorPortRangeRequest.build(input[:destination_port_range], params, context: context + 'DestinationPortRange' + '.') unless input[:destination_port_range].nil?
-        Builders::TrafficMirrorPortRangeRequest.build(input[:source_port_range], params, context: context + 'SourcePortRange' + '.') unless input[:source_port_range].nil?
+        TrafficMirrorPortRangeRequest.build(input[:destination_port_range], params, context: context + 'DestinationPortRange' + '.') unless input[:destination_port_range].nil?
+        TrafficMirrorPortRangeRequest.build(input[:source_port_range], params, context: context + 'SourcePortRange' + '.') unless input[:source_port_range].nil?
         params[context + 'Protocol'] = input[:protocol].to_s unless input[:protocol].nil?
         params[context + 'DestinationCidrBlock'] = input[:destination_cidr_block].to_s unless input[:destination_cidr_block].nil?
         params[context + 'SourceCidrBlock'] = input[:source_cidr_block].to_s unless input[:source_cidr_block].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::TrafficMirrorFilterRuleFieldList.build(input[:remove_fields], params, context: context + 'RemoveField') unless input[:remove_fields].nil?
+        TrafficMirrorFilterRuleFieldList.build(input[:remove_fields], params, context: context + 'RemoveField') unless input[:remove_fields].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11408,9 +11411,9 @@ module AWS::SDK::EC2
         params[context + 'SessionNumber'] = input[:session_number].to_s unless input[:session_number].nil?
         params[context + 'VirtualNetworkId'] = input[:virtual_network_id].to_s unless input[:virtual_network_id].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::TrafficMirrorSessionFieldList.build(input[:remove_fields], params, context: context + 'RemoveField') unless input[:remove_fields].nil?
+        TrafficMirrorSessionFieldList.build(input[:remove_fields], params, context: context + 'RemoveField') unless input[:remove_fields].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11435,17 +11438,17 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayId'] = input[:transit_gateway_id].to_s unless input[:transit_gateway_id].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::ModifyTransitGatewayOptions.build(input[:options], params, context: context + 'Options' + '.') unless input[:options].nil?
+        ModifyTransitGatewayOptions.build(input[:options], params, context: context + 'Options' + '.') unless input[:options].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
     # Structure Builder for ModifyTransitGatewayOptions
     class ModifyTransitGatewayOptions
       def self.build(input, params, context: nil)
-        Builders::TransitGatewayCidrBlockStringList.build(input[:add_transit_gateway_cidr_blocks], params, context: context + 'AddTransitGatewayCidrBlocks') unless input[:add_transit_gateway_cidr_blocks].nil?
-        Builders::TransitGatewayCidrBlockStringList.build(input[:remove_transit_gateway_cidr_blocks], params, context: context + 'RemoveTransitGatewayCidrBlocks') unless input[:remove_transit_gateway_cidr_blocks].nil?
+        TransitGatewayCidrBlockStringList.build(input[:add_transit_gateway_cidr_blocks], params, context: context + 'AddTransitGatewayCidrBlocks') unless input[:add_transit_gateway_cidr_blocks].nil?
+        TransitGatewayCidrBlockStringList.build(input[:remove_transit_gateway_cidr_blocks], params, context: context + 'RemoveTransitGatewayCidrBlocks') unless input[:remove_transit_gateway_cidr_blocks].nil?
         params[context + 'VpnEcmpSupport'] = input[:vpn_ecmp_support].to_s unless input[:vpn_ecmp_support].nil?
         params[context + 'DnsSupport'] = input[:dns_support].to_s unless input[:dns_support].nil?
         params[context + 'AutoAcceptSharedAttachments'] = input[:auto_accept_shared_attachments].to_s unless input[:auto_accept_shared_attachments].nil?
@@ -11471,7 +11474,7 @@ module AWS::SDK::EC2
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
         params[context + 'Blackhole'] = input[:blackhole].to_s unless input[:blackhole].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11486,11 +11489,11 @@ module AWS::SDK::EC2
         params['Action'] = 'ModifyTransitGatewayVpcAttachment'
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
-        Builders::TransitGatewaySubnetIdList.build(input[:add_subnet_ids], params, context: context + 'AddSubnetIds') unless input[:add_subnet_ids].nil?
-        Builders::TransitGatewaySubnetIdList.build(input[:remove_subnet_ids], params, context: context + 'RemoveSubnetIds') unless input[:remove_subnet_ids].nil?
-        Builders::ModifyTransitGatewayVpcAttachmentRequestOptions.build(input[:options], params, context: context + 'Options' + '.') unless input[:options].nil?
+        TransitGatewaySubnetIdList.build(input[:add_subnet_ids], params, context: context + 'AddSubnetIds') unless input[:add_subnet_ids].nil?
+        TransitGatewaySubnetIdList.build(input[:remove_subnet_ids], params, context: context + 'RemoveSubnetIds') unless input[:remove_subnet_ids].nil?
+        ModifyTransitGatewayVpcAttachmentRequestOptions.build(input[:options], params, context: context + 'Options' + '.') unless input[:options].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11520,7 +11523,7 @@ module AWS::SDK::EC2
         params[context + 'Iops'] = input[:iops].to_s unless input[:iops].nil?
         params[context + 'Throughput'] = input[:throughput].to_s unless input[:throughput].nil?
         params[context + 'MultiAttachEnabled'] = input[:multi_attach_enabled].to_s unless input[:multi_attach_enabled].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11534,10 +11537,10 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ModifyVolumeAttribute'
         params['Version'] = '2016-11-15'
-        Builders::AttributeBooleanValue.build(input[:auto_enable_io], params, context: context + 'AutoEnableIO' + '.') unless input[:auto_enable_io].nil?
+        AttributeBooleanValue.build(input[:auto_enable_io], params, context: context + 'AutoEnableIO' + '.') unless input[:auto_enable_io].nil?
         params[context + 'VolumeId'] = input[:volume_id].to_s unless input[:volume_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11551,10 +11554,10 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ModifyVpcAttribute'
         params['Version'] = '2016-11-15'
-        Builders::AttributeBooleanValue.build(input[:enable_dns_hostnames], params, context: context + 'EnableDnsHostnames' + '.') unless input[:enable_dns_hostnames].nil?
-        Builders::AttributeBooleanValue.build(input[:enable_dns_support], params, context: context + 'EnableDnsSupport' + '.') unless input[:enable_dns_support].nil?
+        AttributeBooleanValue.build(input[:enable_dns_hostnames], params, context: context + 'EnableDnsHostnames' + '.') unless input[:enable_dns_hostnames].nil?
+        AttributeBooleanValue.build(input[:enable_dns_support], params, context: context + 'EnableDnsSupport' + '.') unless input[:enable_dns_support].nil?
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11572,16 +11575,16 @@ module AWS::SDK::EC2
         params[context + 'VpcEndpointId'] = input[:vpc_endpoint_id].to_s unless input[:vpc_endpoint_id].nil?
         params[context + 'ResetPolicy'] = input[:reset_policy].to_s unless input[:reset_policy].nil?
         params[context + 'PolicyDocument'] = input[:policy_document].to_s unless input[:policy_document].nil?
-        Builders::VpcEndpointRouteTableIdList.build(input[:add_route_table_ids], params, context: context + 'AddRouteTableId') unless input[:add_route_table_ids].nil?
-        Builders::VpcEndpointRouteTableIdList.build(input[:remove_route_table_ids], params, context: context + 'RemoveRouteTableId') unless input[:remove_route_table_ids].nil?
-        Builders::VpcEndpointSubnetIdList.build(input[:add_subnet_ids], params, context: context + 'AddSubnetId') unless input[:add_subnet_ids].nil?
-        Builders::VpcEndpointSubnetIdList.build(input[:remove_subnet_ids], params, context: context + 'RemoveSubnetId') unless input[:remove_subnet_ids].nil?
-        Builders::VpcEndpointSecurityGroupIdList.build(input[:add_security_group_ids], params, context: context + 'AddSecurityGroupId') unless input[:add_security_group_ids].nil?
-        Builders::VpcEndpointSecurityGroupIdList.build(input[:remove_security_group_ids], params, context: context + 'RemoveSecurityGroupId') unless input[:remove_security_group_ids].nil?
+        VpcEndpointRouteTableIdList.build(input[:add_route_table_ids], params, context: context + 'AddRouteTableId') unless input[:add_route_table_ids].nil?
+        VpcEndpointRouteTableIdList.build(input[:remove_route_table_ids], params, context: context + 'RemoveRouteTableId') unless input[:remove_route_table_ids].nil?
+        VpcEndpointSubnetIdList.build(input[:add_subnet_ids], params, context: context + 'AddSubnetId') unless input[:add_subnet_ids].nil?
+        VpcEndpointSubnetIdList.build(input[:remove_subnet_ids], params, context: context + 'RemoveSubnetId') unless input[:remove_subnet_ids].nil?
+        VpcEndpointSecurityGroupIdList.build(input[:add_security_group_ids], params, context: context + 'AddSecurityGroupId') unless input[:add_security_group_ids].nil?
+        VpcEndpointSecurityGroupIdList.build(input[:remove_security_group_ids], params, context: context + 'RemoveSecurityGroupId') unless input[:remove_security_group_ids].nil?
         params[context + 'IpAddressType'] = input[:ip_address_type].to_s unless input[:ip_address_type].nil?
-        Builders::DnsOptionsSpecification.build(input[:dns_options], params, context: context + 'DnsOptions' + '.') unless input[:dns_options].nil?
+        DnsOptionsSpecification.build(input[:dns_options], params, context: context + 'DnsOptions' + '.') unless input[:dns_options].nil?
         params[context + 'PrivateDnsEnabled'] = input[:private_dns_enabled].to_s unless input[:private_dns_enabled].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11598,8 +11601,8 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ConnectionNotificationId'] = input[:connection_notification_id].to_s unless input[:connection_notification_id].nil?
         params[context + 'ConnectionNotificationArn'] = input[:connection_notification_arn].to_s unless input[:connection_notification_arn].nil?
-        Builders::ValueStringList.build(input[:connection_events], params, context: context + 'ConnectionEvents') unless input[:connection_events].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ValueStringList.build(input[:connection_events], params, context: context + 'ConnectionEvents') unless input[:connection_events].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11618,13 +11621,13 @@ module AWS::SDK::EC2
         params[context + 'PrivateDnsName'] = input[:private_dns_name].to_s unless input[:private_dns_name].nil?
         params[context + 'RemovePrivateDnsName'] = input[:remove_private_dns_name].to_s unless input[:remove_private_dns_name].nil?
         params[context + 'AcceptanceRequired'] = input[:acceptance_required].to_s unless input[:acceptance_required].nil?
-        Builders::ValueStringList.build(input[:add_network_load_balancer_arns], params, context: context + 'AddNetworkLoadBalancerArn') unless input[:add_network_load_balancer_arns].nil?
-        Builders::ValueStringList.build(input[:remove_network_load_balancer_arns], params, context: context + 'RemoveNetworkLoadBalancerArn') unless input[:remove_network_load_balancer_arns].nil?
-        Builders::ValueStringList.build(input[:add_gateway_load_balancer_arns], params, context: context + 'AddGatewayLoadBalancerArn') unless input[:add_gateway_load_balancer_arns].nil?
-        Builders::ValueStringList.build(input[:remove_gateway_load_balancer_arns], params, context: context + 'RemoveGatewayLoadBalancerArn') unless input[:remove_gateway_load_balancer_arns].nil?
-        Builders::ValueStringList.build(input[:add_supported_ip_address_types], params, context: context + 'AddSupportedIpAddressType') unless input[:add_supported_ip_address_types].nil?
-        Builders::ValueStringList.build(input[:remove_supported_ip_address_types], params, context: context + 'RemoveSupportedIpAddressType') unless input[:remove_supported_ip_address_types].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ValueStringList.build(input[:add_network_load_balancer_arns], params, context: context + 'AddNetworkLoadBalancerArn') unless input[:add_network_load_balancer_arns].nil?
+        ValueStringList.build(input[:remove_network_load_balancer_arns], params, context: context + 'RemoveNetworkLoadBalancerArn') unless input[:remove_network_load_balancer_arns].nil?
+        ValueStringList.build(input[:add_gateway_load_balancer_arns], params, context: context + 'AddGatewayLoadBalancerArn') unless input[:add_gateway_load_balancer_arns].nil?
+        ValueStringList.build(input[:remove_gateway_load_balancer_arns], params, context: context + 'RemoveGatewayLoadBalancerArn') unless input[:remove_gateway_load_balancer_arns].nil?
+        ValueStringList.build(input[:add_supported_ip_address_types], params, context: context + 'AddSupportedIpAddressType') unless input[:add_supported_ip_address_types].nil?
+        ValueStringList.build(input[:remove_supported_ip_address_types], params, context: context + 'RemoveSupportedIpAddressType') unless input[:remove_supported_ip_address_types].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11641,7 +11644,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ServiceId'] = input[:service_id].to_s unless input[:service_id].nil?
         params[context + 'PayerResponsibility'] = input[:payer_responsibility].to_s unless input[:payer_responsibility].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11657,9 +11660,9 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ServiceId'] = input[:service_id].to_s unless input[:service_id].nil?
-        Builders::ValueStringList.build(input[:add_allowed_principals], params, context: context + 'AddAllowedPrincipals') unless input[:add_allowed_principals].nil?
-        Builders::ValueStringList.build(input[:remove_allowed_principals], params, context: context + 'RemoveAllowedPrincipals') unless input[:remove_allowed_principals].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ValueStringList.build(input[:add_allowed_principals], params, context: context + 'AddAllowedPrincipals') unless input[:add_allowed_principals].nil?
+        ValueStringList.build(input[:remove_allowed_principals], params, context: context + 'RemoveAllowedPrincipals') unless input[:remove_allowed_principals].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11673,11 +11676,11 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ModifyVpcPeeringConnectionOptions'
         params['Version'] = '2016-11-15'
-        Builders::PeeringConnectionOptionsRequest.build(input[:accepter_peering_connection_options], params, context: context + 'AccepterPeeringConnectionOptions' + '.') unless input[:accepter_peering_connection_options].nil?
+        PeeringConnectionOptionsRequest.build(input[:accepter_peering_connection_options], params, context: context + 'AccepterPeeringConnectionOptions' + '.') unless input[:accepter_peering_connection_options].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::PeeringConnectionOptionsRequest.build(input[:requester_peering_connection_options], params, context: context + 'RequesterPeeringConnectionOptions' + '.') unless input[:requester_peering_connection_options].nil?
+        PeeringConnectionOptionsRequest.build(input[:requester_peering_connection_options], params, context: context + 'RequesterPeeringConnectionOptions' + '.') unless input[:requester_peering_connection_options].nil?
         params[context + 'VpcPeeringConnectionId'] = input[:vpc_peering_connection_id].to_s unless input[:vpc_peering_connection_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11703,7 +11706,7 @@ module AWS::SDK::EC2
         params[context + 'VpcId'] = input[:vpc_id].to_s unless input[:vpc_id].nil?
         params[context + 'InstanceTenancy'] = input[:instance_tenancy].to_s unless input[:instance_tenancy].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11722,7 +11725,7 @@ module AWS::SDK::EC2
         params[context + 'CustomerGatewayId'] = input[:customer_gateway_id].to_s unless input[:customer_gateway_id].nil?
         params[context + 'VpnGatewayId'] = input[:vpn_gateway_id].to_s unless input[:vpn_gateway_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11742,7 +11745,7 @@ module AWS::SDK::EC2
         params[context + 'LocalIpv6NetworkCidr'] = input[:local_ipv6_network_cidr].to_s unless input[:local_ipv6_network_cidr].nil?
         params[context + 'RemoteIpv6NetworkCidr'] = input[:remote_ipv6_network_cidr].to_s unless input[:remote_ipv6_network_cidr].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11759,7 +11762,7 @@ module AWS::SDK::EC2
         params[context + 'VpnConnectionId'] = input[:vpn_connection_id].to_s unless input[:vpn_connection_id].nil?
         params[context + 'VpnTunnelOutsideIpAddress'] = input[:vpn_tunnel_outside_ip_address].to_s unless input[:vpn_tunnel_outside_ip_address].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11775,9 +11778,9 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'VpnConnectionId'] = input[:vpn_connection_id].to_s unless input[:vpn_connection_id].nil?
         params[context + 'VpnTunnelOutsideIpAddress'] = input[:vpn_tunnel_outside_ip_address].to_s unless input[:vpn_tunnel_outside_ip_address].nil?
-        Builders::ModifyVpnTunnelOptionsSpecification.build(input[:tunnel_options], params, context: context + 'TunnelOptions' + '.') unless input[:tunnel_options].nil?
+        ModifyVpnTunnelOptionsSpecification.build(input[:tunnel_options], params, context: context + 'TunnelOptions' + '.') unless input[:tunnel_options].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11794,13 +11797,13 @@ module AWS::SDK::EC2
         params[context + 'ReplayWindowSize'] = input[:replay_window_size].to_s unless input[:replay_window_size].nil?
         params[context + 'DPDTimeoutSeconds'] = input[:dpd_timeout_seconds].to_s unless input[:dpd_timeout_seconds].nil?
         params[context + 'DPDTimeoutAction'] = input[:dpd_timeout_action].to_s unless input[:dpd_timeout_action].nil?
-        Builders::Phase1EncryptionAlgorithmsRequestList.build(input[:phase1_encryption_algorithms], params, context: context + 'Phase1EncryptionAlgorithm') unless input[:phase1_encryption_algorithms].nil?
-        Builders::Phase2EncryptionAlgorithmsRequestList.build(input[:phase2_encryption_algorithms], params, context: context + 'Phase2EncryptionAlgorithm') unless input[:phase2_encryption_algorithms].nil?
-        Builders::Phase1IntegrityAlgorithmsRequestList.build(input[:phase1_integrity_algorithms], params, context: context + 'Phase1IntegrityAlgorithm') unless input[:phase1_integrity_algorithms].nil?
-        Builders::Phase2IntegrityAlgorithmsRequestList.build(input[:phase2_integrity_algorithms], params, context: context + 'Phase2IntegrityAlgorithm') unless input[:phase2_integrity_algorithms].nil?
-        Builders::Phase1DHGroupNumbersRequestList.build(input[:phase1_dh_group_numbers], params, context: context + 'Phase1DHGroupNumber') unless input[:phase1_dh_group_numbers].nil?
-        Builders::Phase2DHGroupNumbersRequestList.build(input[:phase2_dh_group_numbers], params, context: context + 'Phase2DHGroupNumber') unless input[:phase2_dh_group_numbers].nil?
-        Builders::IKEVersionsRequestList.build(input[:ike_versions], params, context: context + 'IKEVersion') unless input[:ike_versions].nil?
+        Phase1EncryptionAlgorithmsRequestList.build(input[:phase1_encryption_algorithms], params, context: context + 'Phase1EncryptionAlgorithm') unless input[:phase1_encryption_algorithms].nil?
+        Phase2EncryptionAlgorithmsRequestList.build(input[:phase2_encryption_algorithms], params, context: context + 'Phase2EncryptionAlgorithm') unless input[:phase2_encryption_algorithms].nil?
+        Phase1IntegrityAlgorithmsRequestList.build(input[:phase1_integrity_algorithms], params, context: context + 'Phase1IntegrityAlgorithm') unless input[:phase1_integrity_algorithms].nil?
+        Phase2IntegrityAlgorithmsRequestList.build(input[:phase2_integrity_algorithms], params, context: context + 'Phase2IntegrityAlgorithm') unless input[:phase2_integrity_algorithms].nil?
+        Phase1DHGroupNumbersRequestList.build(input[:phase1_dh_group_numbers], params, context: context + 'Phase1DHGroupNumber') unless input[:phase1_dh_group_numbers].nil?
+        Phase2DHGroupNumbersRequestList.build(input[:phase2_dh_group_numbers], params, context: context + 'Phase2DHGroupNumber') unless input[:phase2_dh_group_numbers].nil?
+        IKEVersionsRequestList.build(input[:ike_versions], params, context: context + 'IKEVersion') unless input[:ike_versions].nil?
         params[context + 'StartupAction'] = input[:startup_action].to_s unless input[:startup_action].nil?
       end
     end
@@ -11815,9 +11818,9 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'MonitorInstances'
         params['Version'] = '2016-11-15'
-        Builders::InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
+        InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11833,7 +11836,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'PublicIp'] = input[:public_ip].to_s unless input[:public_ip].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11851,7 +11854,7 @@ module AWS::SDK::EC2
         params[context + 'Cidr'] = input[:cidr].to_s unless input[:cidr].nil?
         params[context + 'IpamPoolId'] = input[:ipam_pool_id].to_s unless input[:ipam_pool_id].nil?
         params[context + 'IpamPoolOwner'] = input[:ipam_pool_owner].to_s unless input[:ipam_pool_owner].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11866,13 +11869,13 @@ module AWS::SDK::EC2
         params['Action'] = 'ProvisionByoipCidr'
         params['Version'] = '2016-11-15'
         params[context + 'Cidr'] = input[:cidr].to_s unless input[:cidr].nil?
-        Builders::CidrAuthorizationContext.build(input[:cidr_authorization_context], params, context: context + 'CidrAuthorizationContext' + '.') unless input[:cidr_authorization_context].nil?
+        CidrAuthorizationContext.build(input[:cidr_authorization_context], params, context: context + 'CidrAuthorizationContext' + '.') unless input[:cidr_authorization_context].nil?
         params[context + 'PubliclyAdvertisable'] = input[:publicly_advertisable].to_s unless input[:publicly_advertisable].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::TagSpecificationList.build(input[:pool_tag_specifications], params, context: context + 'PoolTagSpecification') unless input[:pool_tag_specifications].nil?
+        TagSpecificationList.build(input[:pool_tag_specifications], params, context: context + 'PoolTagSpecification') unless input[:pool_tag_specifications].nil?
         params[context + 'MultiRegion'] = input[:multi_region].to_s unless input[:multi_region].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11897,8 +11900,8 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'IpamPoolId'] = input[:ipam_pool_id].to_s unless input[:ipam_pool_id].nil?
         params[context + 'Cidr'] = input[:cidr].to_s unless input[:cidr].nil?
-        Builders::IpamCidrAuthorizationContext.build(input[:cidr_authorization_context], params, context: context + 'CidrAuthorizationContext' + '.') unless input[:cidr_authorization_context].nil?
-        http_req.body = StringIO.new(params.to_s)
+        IpamCidrAuthorizationContext.build(input[:cidr_authorization_context], params, context: context + 'CidrAuthorizationContext' + '.') unless input[:cidr_authorization_context].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11924,7 +11927,7 @@ module AWS::SDK::EC2
         params[context + 'IpamPoolId'] = input[:ipam_pool_id].to_s unless input[:ipam_pool_id].nil?
         params[context + 'PoolId'] = input[:pool_id].to_s unless input[:pool_id].nil?
         params[context + 'NetmaskLength'] = input[:netmask_length].to_s unless input[:netmask_length].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11940,11 +11943,11 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'CurrencyCode'] = input[:currency_code].to_s unless input[:currency_code].nil?
-        Builders::RequestHostIdSet.build(input[:host_id_set], params, context: context + 'HostIdSet') unless input[:host_id_set].nil?
+        RequestHostIdSet.build(input[:host_id_set], params, context: context + 'HostIdSet') unless input[:host_id_set].nil?
         params[context + 'LimitPrice'] = input[:limit_price].to_s unless input[:limit_price].nil?
         params[context + 'OfferingId'] = input[:offering_id].to_s unless input[:offering_id].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11961,9 +11964,9 @@ module AWS::SDK::EC2
         params[context + 'InstanceCount'] = input[:instance_count].to_s unless input[:instance_count].nil?
         params[context + 'ReservedInstancesOfferingId'] = input[:reserved_instances_offering_id].to_s unless input[:reserved_instances_offering_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::ReservedInstanceLimitPrice.build(input[:limit_price], params, context: context + 'LimitPrice' + '.') unless input[:limit_price].nil?
+        ReservedInstanceLimitPrice.build(input[:limit_price], params, context: context + 'LimitPrice' + '.') unless input[:limit_price].nil?
         params[context + 'PurchaseTime'] = Hearth::TimeHelper.to_date_time(input[:purchase_time]) unless input[:purchase_time].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11987,8 +11990,8 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::PurchaseRequestSet.build(input[:purchase_requests], params, context: context + 'PurchaseRequest') unless input[:purchase_requests].nil?
-        http_req.body = StringIO.new(params.to_s)
+        PurchaseRequestSet.build(input[:purchase_requests], params, context: context + 'PurchaseRequest') unless input[:purchase_requests].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -11996,7 +11999,7 @@ module AWS::SDK::EC2
     class PurchaseRequestSet
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::PurchaseRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          PurchaseRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -12019,9 +12022,9 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'RebootInstances'
         params['Version'] = '2016-11-15'
-        Builders::InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
+        InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12037,13 +12040,13 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'ImageLocation'] = input[:image_location].to_s unless input[:image_location].nil?
         params[context + 'Architecture'] = input[:architecture].to_s unless input[:architecture].nil?
-        Builders::BlockDeviceMappingRequestList.build(input[:block_device_mappings], params, context: context + 'BlockDeviceMapping') unless input[:block_device_mappings].nil?
+        BlockDeviceMappingRequestList.build(input[:block_device_mappings], params, context: context + 'BlockDeviceMapping') unless input[:block_device_mappings].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'EnaSupport'] = input[:ena_support].to_s unless input[:ena_support].nil?
         params[context + 'KernelId'] = input[:kernel_id].to_s unless input[:kernel_id].nil?
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
-        Builders::BillingProductList.build(input[:billing_products], params, context: context + 'BillingProduct') unless input[:billing_products].nil?
+        BillingProductList.build(input[:billing_products], params, context: context + 'BillingProduct') unless input[:billing_products].nil?
         params[context + 'RamdiskId'] = input[:ramdisk_id].to_s unless input[:ramdisk_id].nil?
         params[context + 'RootDeviceName'] = input[:root_device_name].to_s unless input[:root_device_name].nil?
         params[context + 'SriovNetSupport'] = input[:sriov_net_support].to_s unless input[:sriov_net_support].nil?
@@ -12051,7 +12054,7 @@ module AWS::SDK::EC2
         params[context + 'BootMode'] = input[:boot_mode].to_s unless input[:boot_mode].nil?
         params[context + 'TpmSupport'] = input[:tpm_support].to_s unless input[:tpm_support].nil?
         params[context + 'UefiData'] = input[:uefi_data].to_s unless input[:uefi_data].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12075,8 +12078,8 @@ module AWS::SDK::EC2
         params['Action'] = 'RegisterInstanceEventNotificationAttributes'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::RegisterInstanceTagAttributeRequest.build(input[:instance_tag_attribute], params, context: context + 'InstanceTagAttribute' + '.') unless input[:instance_tag_attribute].nil?
-        http_req.body = StringIO.new(params.to_s)
+        RegisterInstanceTagAttributeRequest.build(input[:instance_tag_attribute], params, context: context + 'InstanceTagAttribute' + '.') unless input[:instance_tag_attribute].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12084,7 +12087,7 @@ module AWS::SDK::EC2
     class RegisterInstanceTagAttributeRequest
       def self.build(input, params, context: nil)
         params[context + 'IncludeAllTagsOfInstance'] = input[:include_all_tags_of_instance].to_s unless input[:include_all_tags_of_instance].nil?
-        Builders::InstanceTagKeySet.build(input[:instance_tag_keys], params, context: context + 'InstanceTagKey') unless input[:instance_tag_keys].nil?
+        InstanceTagKeySet.build(input[:instance_tag_keys], params, context: context + 'InstanceTagKey') unless input[:instance_tag_keys].nil?
       end
     end
 
@@ -12100,9 +12103,9 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayMulticastDomainId'] = input[:transit_gateway_multicast_domain_id].to_s unless input[:transit_gateway_multicast_domain_id].nil?
         params[context + 'GroupIpAddress'] = input[:group_ip_address].to_s unless input[:group_ip_address].nil?
-        Builders::TransitGatewayNetworkInterfaceIdList.build(input[:network_interface_ids], params, context: context + 'NetworkInterfaceIds') unless input[:network_interface_ids].nil?
+        TransitGatewayNetworkInterfaceIdList.build(input[:network_interface_ids], params, context: context + 'NetworkInterfaceIds') unless input[:network_interface_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12118,9 +12121,9 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayMulticastDomainId'] = input[:transit_gateway_multicast_domain_id].to_s unless input[:transit_gateway_multicast_domain_id].nil?
         params[context + 'GroupIpAddress'] = input[:group_ip_address].to_s unless input[:group_ip_address].nil?
-        Builders::TransitGatewayNetworkInterfaceIdList.build(input[:network_interface_ids], params, context: context + 'NetworkInterfaceIds') unless input[:network_interface_ids].nil?
+        TransitGatewayNetworkInterfaceIdList.build(input[:network_interface_ids], params, context: context + 'NetworkInterfaceIds') unless input[:network_interface_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12136,9 +12139,9 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayMulticastDomainId'] = input[:transit_gateway_multicast_domain_id].to_s unless input[:transit_gateway_multicast_domain_id].nil?
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
-        Builders::ValueStringList.build(input[:subnet_ids], params, context: context + 'SubnetIds') unless input[:subnet_ids].nil?
+        ValueStringList.build(input[:subnet_ids], params, context: context + 'SubnetIds') unless input[:subnet_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12154,7 +12157,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12170,7 +12173,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12186,8 +12189,8 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ServiceId'] = input[:service_id].to_s unless input[:service_id].nil?
-        Builders::VpcEndpointIdList.build(input[:vpc_endpoint_ids], params, context: context + 'VpcEndpointId') unless input[:vpc_endpoint_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        VpcEndpointIdList.build(input[:vpc_endpoint_ids], params, context: context + 'VpcEndpointId') unless input[:vpc_endpoint_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12203,7 +12206,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'VpcPeeringConnectionId'] = input[:vpc_peering_connection_id].to_s unless input[:vpc_peering_connection_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12221,7 +12224,7 @@ module AWS::SDK::EC2
         params[context + 'PublicIp'] = input[:public_ip].to_s unless input[:public_ip].nil?
         params[context + 'NetworkBorderGroup'] = input[:network_border_group].to_s unless input[:network_border_group].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12235,8 +12238,8 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ReleaseHosts'
         params['Version'] = '2016-11-15'
-        Builders::RequestHostIdList.build(input[:host_ids], params, context: context + 'hostId') unless input[:host_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        RequestHostIdList.build(input[:host_ids], params, context: context + 'hostId') unless input[:host_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12254,7 +12257,7 @@ module AWS::SDK::EC2
         params[context + 'IpamPoolId'] = input[:ipam_pool_id].to_s unless input[:ipam_pool_id].nil?
         params[context + 'Cidr'] = input[:cidr].to_s unless input[:cidr].nil?
         params[context + 'IpamPoolAllocationId'] = input[:ipam_pool_allocation_id].to_s unless input[:ipam_pool_allocation_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12268,9 +12271,9 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ReplaceIamInstanceProfileAssociation'
         params['Version'] = '2016-11-15'
-        Builders::IamInstanceProfileSpecification.build(input[:iam_instance_profile], params, context: context + 'IamInstanceProfile' + '.') unless input[:iam_instance_profile].nil?
+        IamInstanceProfileSpecification.build(input[:iam_instance_profile], params, context: context + 'IamInstanceProfile' + '.') unless input[:iam_instance_profile].nil?
         params[context + 'AssociationId'] = input[:association_id].to_s unless input[:association_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12287,7 +12290,7 @@ module AWS::SDK::EC2
         params[context + 'AssociationId'] = input[:association_id].to_s unless input[:association_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NetworkAclId'] = input[:network_acl_id].to_s unless input[:network_acl_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12304,14 +12307,14 @@ module AWS::SDK::EC2
         params[context + 'CidrBlock'] = input[:cidr_block].to_s unless input[:cidr_block].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'Egress'] = input[:egress].to_s unless input[:egress].nil?
-        Builders::IcmpTypeCode.build(input[:icmp_type_code], params, context: context + 'Icmp' + '.') unless input[:icmp_type_code].nil?
+        IcmpTypeCode.build(input[:icmp_type_code], params, context: context + 'Icmp' + '.') unless input[:icmp_type_code].nil?
         params[context + 'Ipv6CidrBlock'] = input[:ipv6_cidr_block].to_s unless input[:ipv6_cidr_block].nil?
         params[context + 'NetworkAclId'] = input[:network_acl_id].to_s unless input[:network_acl_id].nil?
-        Builders::PortRange.build(input[:port_range], params, context: context + 'PortRange' + '.') unless input[:port_range].nil?
+        PortRange.build(input[:port_range], params, context: context + 'PortRange' + '.') unless input[:port_range].nil?
         params[context + 'Protocol'] = input[:protocol].to_s unless input[:protocol].nil?
         params[context + 'RuleAction'] = input[:rule_action].to_s unless input[:rule_action].nil?
         params[context + 'RuleNumber'] = input[:rule_number].to_s unless input[:rule_number].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12342,7 +12345,7 @@ module AWS::SDK::EC2
         params[context + 'RouteTableId'] = input[:route_table_id].to_s unless input[:route_table_id].nil?
         params[context + 'VpcPeeringConnectionId'] = input[:vpc_peering_connection_id].to_s unless input[:vpc_peering_connection_id].nil?
         params[context + 'CoreNetworkArn'] = input[:core_network_arn].to_s unless input[:core_network_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12359,7 +12362,7 @@ module AWS::SDK::EC2
         params[context + 'AssociationId'] = input[:association_id].to_s unless input[:association_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'RouteTableId'] = input[:route_table_id].to_s unless input[:route_table_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12378,7 +12381,7 @@ module AWS::SDK::EC2
         params[context + 'TransitGatewayAttachmentId'] = input[:transit_gateway_attachment_id].to_s unless input[:transit_gateway_attachment_id].nil?
         params[context + 'Blackhole'] = input[:blackhole].to_s unless input[:blackhole].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12395,11 +12398,11 @@ module AWS::SDK::EC2
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'EndTime'] = Hearth::TimeHelper.to_date_time(input[:end_time]) unless input[:end_time].nil?
-        Builders::InstanceIdStringList.build(input[:instances], params, context: context + 'instanceId') unless input[:instances].nil?
-        Builders::ReasonCodesList.build(input[:reason_codes], params, context: context + 'reasonCode') unless input[:reason_codes].nil?
+        InstanceIdStringList.build(input[:instances], params, context: context + 'instanceId') unless input[:instances].nil?
+        ReasonCodesList.build(input[:reason_codes], params, context: context + 'reasonCode') unless input[:reason_codes].nil?
         params[context + 'StartTime'] = Hearth::TimeHelper.to_date_time(input[:start_time]) unless input[:start_time].nil?
         params[context + 'Status'] = input[:status].to_s unless input[:status].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12423,8 +12426,8 @@ module AWS::SDK::EC2
         params['Action'] = 'RequestSpotFleet'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::SpotFleetRequestConfigData.build(input[:spot_fleet_request_config], params, context: context + 'SpotFleetRequestConfig' + '.') unless input[:spot_fleet_request_config].nil?
-        http_req.body = StringIO.new(params.to_s)
+        SpotFleetRequestConfigData.build(input[:spot_fleet_request_config], params, context: context + 'SpotFleetRequestConfig' + '.') unless input[:spot_fleet_request_config].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12433,14 +12436,14 @@ module AWS::SDK::EC2
       def self.build(input, params, context: nil)
         params[context + 'AllocationStrategy'] = input[:allocation_strategy].to_s unless input[:allocation_strategy].nil?
         params[context + 'OnDemandAllocationStrategy'] = input[:on_demand_allocation_strategy].to_s unless input[:on_demand_allocation_strategy].nil?
-        Builders::SpotMaintenanceStrategies.build(input[:spot_maintenance_strategies], params, context: context + 'SpotMaintenanceStrategies' + '.') unless input[:spot_maintenance_strategies].nil?
+        SpotMaintenanceStrategies.build(input[:spot_maintenance_strategies], params, context: context + 'SpotMaintenanceStrategies' + '.') unless input[:spot_maintenance_strategies].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'ExcessCapacityTerminationPolicy'] = input[:excess_capacity_termination_policy].to_s unless input[:excess_capacity_termination_policy].nil?
         params[context + 'FulfilledCapacity'] = Hearth::NumberHelper.serialize(input[:fulfilled_capacity]).to_s unless input[:fulfilled_capacity].nil?
         params[context + 'OnDemandFulfilledCapacity'] = Hearth::NumberHelper.serialize(input[:on_demand_fulfilled_capacity]).to_s unless input[:on_demand_fulfilled_capacity].nil?
         params[context + 'IamFleetRole'] = input[:iam_fleet_role].to_s unless input[:iam_fleet_role].nil?
-        Builders::LaunchSpecsList.build(input[:launch_specifications], params, context: context + 'launchSpecifications') unless input[:launch_specifications].nil?
-        Builders::LaunchTemplateConfigList.build(input[:launch_template_configs], params, context: context + 'launchTemplateConfigs') unless input[:launch_template_configs].nil?
+        LaunchSpecsList.build(input[:launch_specifications], params, context: context + 'launchSpecifications') unless input[:launch_specifications].nil?
+        LaunchTemplateConfigList.build(input[:launch_template_configs], params, context: context + 'launchTemplateConfigs') unless input[:launch_template_configs].nil?
         params[context + 'SpotPrice'] = input[:spot_price].to_s unless input[:spot_price].nil?
         params[context + 'TargetCapacity'] = input[:target_capacity].to_s unless input[:target_capacity].nil?
         params[context + 'OnDemandTargetCapacity'] = input[:on_demand_target_capacity].to_s unless input[:on_demand_target_capacity].nil?
@@ -12452,26 +12455,26 @@ module AWS::SDK::EC2
         params[context + 'ValidUntil'] = Hearth::TimeHelper.to_date_time(input[:valid_until]) unless input[:valid_until].nil?
         params[context + 'ReplaceUnhealthyInstances'] = input[:replace_unhealthy_instances].to_s unless input[:replace_unhealthy_instances].nil?
         params[context + 'InstanceInterruptionBehavior'] = input[:instance_interruption_behavior].to_s unless input[:instance_interruption_behavior].nil?
-        Builders::LoadBalancersConfig.build(input[:load_balancers_config], params, context: context + 'LoadBalancersConfig' + '.') unless input[:load_balancers_config].nil?
+        LoadBalancersConfig.build(input[:load_balancers_config], params, context: context + 'LoadBalancersConfig' + '.') unless input[:load_balancers_config].nil?
         params[context + 'InstancePoolsToUseCount'] = input[:instance_pools_to_use_count].to_s unless input[:instance_pools_to_use_count].nil?
         params[context + 'Context'] = input[:context].to_s unless input[:context].nil?
         params[context + 'TargetCapacityUnitType'] = input[:target_capacity_unit_type].to_s unless input[:target_capacity_unit_type].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
       end
     end
 
     # Structure Builder for LoadBalancersConfig
     class LoadBalancersConfig
       def self.build(input, params, context: nil)
-        Builders::ClassicLoadBalancersConfig.build(input[:classic_load_balancers_config], params, context: context + 'ClassicLoadBalancersConfig' + '.') unless input[:classic_load_balancers_config].nil?
-        Builders::TargetGroupsConfig.build(input[:target_groups_config], params, context: context + 'TargetGroupsConfig' + '.') unless input[:target_groups_config].nil?
+        ClassicLoadBalancersConfig.build(input[:classic_load_balancers_config], params, context: context + 'ClassicLoadBalancersConfig' + '.') unless input[:classic_load_balancers_config].nil?
+        TargetGroupsConfig.build(input[:target_groups_config], params, context: context + 'TargetGroupsConfig' + '.') unless input[:target_groups_config].nil?
       end
     end
 
     # Structure Builder for TargetGroupsConfig
     class TargetGroupsConfig
       def self.build(input, params, context: nil)
-        Builders::TargetGroups.build(input[:target_groups], params, context: context + 'targetGroups') unless input[:target_groups].nil?
+        TargetGroups.build(input[:target_groups], params, context: context + 'targetGroups') unless input[:target_groups].nil?
       end
     end
 
@@ -12479,7 +12482,7 @@ module AWS::SDK::EC2
     class TargetGroups
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::TargetGroup.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          TargetGroup.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -12494,7 +12497,7 @@ module AWS::SDK::EC2
     # Structure Builder for ClassicLoadBalancersConfig
     class ClassicLoadBalancersConfig
       def self.build(input, params, context: nil)
-        Builders::ClassicLoadBalancers.build(input[:classic_load_balancers], params, context: context + 'classicLoadBalancers') unless input[:classic_load_balancers].nil?
+        ClassicLoadBalancers.build(input[:classic_load_balancers], params, context: context + 'classicLoadBalancers') unless input[:classic_load_balancers].nil?
       end
     end
 
@@ -12502,7 +12505,7 @@ module AWS::SDK::EC2
     class ClassicLoadBalancers
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ClassicLoadBalancer.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ClassicLoadBalancer.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -12518,7 +12521,7 @@ module AWS::SDK::EC2
     class LaunchSpecsList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::SpotFleetLaunchSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          SpotFleetLaunchSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -12526,25 +12529,25 @@ module AWS::SDK::EC2
     # Structure Builder for SpotFleetLaunchSpecification
     class SpotFleetLaunchSpecification
       def self.build(input, params, context: nil)
-        Builders::GroupIdentifierList.build(input[:security_groups], params, context: context + 'groupSet') unless input[:security_groups].nil?
+        GroupIdentifierList.build(input[:security_groups], params, context: context + 'groupSet') unless input[:security_groups].nil?
         params[context + 'AddressingType'] = input[:addressing_type].to_s unless input[:addressing_type].nil?
-        Builders::BlockDeviceMappingList.build(input[:block_device_mappings], params, context: context + 'blockDeviceMapping') unless input[:block_device_mappings].nil?
+        BlockDeviceMappingList.build(input[:block_device_mappings], params, context: context + 'blockDeviceMapping') unless input[:block_device_mappings].nil?
         params[context + 'EbsOptimized'] = input[:ebs_optimized].to_s unless input[:ebs_optimized].nil?
-        Builders::IamInstanceProfileSpecification.build(input[:iam_instance_profile], params, context: context + 'IamInstanceProfile' + '.') unless input[:iam_instance_profile].nil?
+        IamInstanceProfileSpecification.build(input[:iam_instance_profile], params, context: context + 'IamInstanceProfile' + '.') unless input[:iam_instance_profile].nil?
         params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
         params[context + 'InstanceType'] = input[:instance_type].to_s unless input[:instance_type].nil?
         params[context + 'KernelId'] = input[:kernel_id].to_s unless input[:kernel_id].nil?
         params[context + 'KeyName'] = input[:key_name].to_s unless input[:key_name].nil?
-        Builders::SpotFleetMonitoring.build(input[:monitoring], params, context: context + 'Monitoring' + '.') unless input[:monitoring].nil?
-        Builders::InstanceNetworkInterfaceSpecificationList.build(input[:network_interfaces], params, context: context + 'networkInterfaceSet') unless input[:network_interfaces].nil?
-        Builders::SpotPlacement.build(input[:placement], params, context: context + 'Placement' + '.') unless input[:placement].nil?
+        SpotFleetMonitoring.build(input[:monitoring], params, context: context + 'Monitoring' + '.') unless input[:monitoring].nil?
+        InstanceNetworkInterfaceSpecificationList.build(input[:network_interfaces], params, context: context + 'networkInterfaceSet') unless input[:network_interfaces].nil?
+        SpotPlacement.build(input[:placement], params, context: context + 'Placement' + '.') unless input[:placement].nil?
         params[context + 'RamdiskId'] = input[:ramdisk_id].to_s unless input[:ramdisk_id].nil?
         params[context + 'SpotPrice'] = input[:spot_price].to_s unless input[:spot_price].nil?
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
         params[context + 'UserData'] = input[:user_data].to_s unless input[:user_data].nil?
         params[context + 'WeightedCapacity'] = Hearth::NumberHelper.serialize(input[:weighted_capacity]).to_s unless input[:weighted_capacity].nil?
-        Builders::SpotFleetTagSpecificationList.build(input[:tag_specifications], params, context: context + 'tagSpecificationSet') unless input[:tag_specifications].nil?
-        Builders::InstanceRequirements.build(input[:instance_requirements], params, context: context + 'InstanceRequirements' + '.') unless input[:instance_requirements].nil?
+        SpotFleetTagSpecificationList.build(input[:tag_specifications], params, context: context + 'tagSpecificationSet') unless input[:tag_specifications].nil?
+        InstanceRequirements.build(input[:instance_requirements], params, context: context + 'InstanceRequirements' + '.') unless input[:instance_requirements].nil?
       end
     end
 
@@ -12552,7 +12555,7 @@ module AWS::SDK::EC2
     class SpotFleetTagSpecificationList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::SpotFleetTagSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          SpotFleetTagSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -12561,7 +12564,7 @@ module AWS::SDK::EC2
     class SpotFleetTagSpecification
       def self.build(input, params, context: nil)
         params[context + 'ResourceType'] = input[:resource_type].to_s unless input[:resource_type].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'tag') unless input[:tags].nil?
+        TagList.build(input[:tags], params, context: context + 'tag') unless input[:tags].nil?
       end
     end
 
@@ -12578,7 +12581,7 @@ module AWS::SDK::EC2
     class InstanceNetworkInterfaceSpecificationList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::InstanceNetworkInterfaceSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          InstanceNetworkInterfaceSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -12590,20 +12593,20 @@ module AWS::SDK::EC2
         params[context + 'DeleteOnTermination'] = input[:delete_on_termination].to_s unless input[:delete_on_termination].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'DeviceIndex'] = input[:device_index].to_s unless input[:device_index].nil?
-        Builders::SecurityGroupIdStringList.build(input[:groups], params, context: context + 'SecurityGroupId') unless input[:groups].nil?
+        SecurityGroupIdStringList.build(input[:groups], params, context: context + 'SecurityGroupId') unless input[:groups].nil?
         params[context + 'Ipv6AddressCount'] = input[:ipv6_address_count].to_s unless input[:ipv6_address_count].nil?
-        Builders::InstanceIpv6AddressList.build(input[:ipv6_addresses], params, context: context + 'ipv6AddressesSet') unless input[:ipv6_addresses].nil?
+        InstanceIpv6AddressList.build(input[:ipv6_addresses], params, context: context + 'ipv6AddressesSet') unless input[:ipv6_addresses].nil?
         params[context + 'NetworkInterfaceId'] = input[:network_interface_id].to_s unless input[:network_interface_id].nil?
         params[context + 'PrivateIpAddress'] = input[:private_ip_address].to_s unless input[:private_ip_address].nil?
-        Builders::PrivateIpAddressSpecificationList.build(input[:private_ip_addresses], params, context: context + 'privateIpAddressesSet') unless input[:private_ip_addresses].nil?
+        PrivateIpAddressSpecificationList.build(input[:private_ip_addresses], params, context: context + 'privateIpAddressesSet') unless input[:private_ip_addresses].nil?
         params[context + 'SecondaryPrivateIpAddressCount'] = input[:secondary_private_ip_address_count].to_s unless input[:secondary_private_ip_address_count].nil?
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
         params[context + 'AssociateCarrierIpAddress'] = input[:associate_carrier_ip_address].to_s unless input[:associate_carrier_ip_address].nil?
         params[context + 'InterfaceType'] = input[:interface_type].to_s unless input[:interface_type].nil?
         params[context + 'NetworkCardIndex'] = input[:network_card_index].to_s unless input[:network_card_index].nil?
-        Builders::Ipv4PrefixList.build(input[:ipv4_prefixes], params, context: context + 'Ipv4Prefix') unless input[:ipv4_prefixes].nil?
+        Ipv4PrefixList.build(input[:ipv4_prefixes], params, context: context + 'Ipv4Prefix') unless input[:ipv4_prefixes].nil?
         params[context + 'Ipv4PrefixCount'] = input[:ipv4_prefix_count].to_s unless input[:ipv4_prefix_count].nil?
-        Builders::Ipv6PrefixList.build(input[:ipv6_prefixes], params, context: context + 'Ipv6Prefix') unless input[:ipv6_prefixes].nil?
+        Ipv6PrefixList.build(input[:ipv6_prefixes], params, context: context + 'Ipv6Prefix') unless input[:ipv6_prefixes].nil?
         params[context + 'Ipv6PrefixCount'] = input[:ipv6_prefix_count].to_s unless input[:ipv6_prefix_count].nil?
       end
     end
@@ -12619,7 +12622,7 @@ module AWS::SDK::EC2
     class BlockDeviceMappingList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::BlockDeviceMapping.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          BlockDeviceMapping.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -12628,7 +12631,7 @@ module AWS::SDK::EC2
     class GroupIdentifierList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::GroupIdentifier.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          GroupIdentifier.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -12644,7 +12647,7 @@ module AWS::SDK::EC2
     # Structure Builder for SpotMaintenanceStrategies
     class SpotMaintenanceStrategies
       def self.build(input, params, context: nil)
-        Builders::SpotCapacityRebalance.build(input[:capacity_rebalance], params, context: context + 'CapacityRebalance' + '.') unless input[:capacity_rebalance].nil?
+        SpotCapacityRebalance.build(input[:capacity_rebalance], params, context: context + 'CapacityRebalance' + '.') unless input[:capacity_rebalance].nil?
       end
     end
 
@@ -12672,33 +12675,33 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InstanceCount'] = input[:instance_count].to_s unless input[:instance_count].nil?
         params[context + 'LaunchGroup'] = input[:launch_group].to_s unless input[:launch_group].nil?
-        Builders::RequestSpotLaunchSpecification.build(input[:launch_specification], params, context: context + 'LaunchSpecification' + '.') unless input[:launch_specification].nil?
+        RequestSpotLaunchSpecification.build(input[:launch_specification], params, context: context + 'LaunchSpecification' + '.') unless input[:launch_specification].nil?
         params[context + 'SpotPrice'] = input[:spot_price].to_s unless input[:spot_price].nil?
         params[context + 'Type'] = input[:type].to_s unless input[:type].nil?
         params[context + 'ValidFrom'] = Hearth::TimeHelper.to_date_time(input[:valid_from]) unless input[:valid_from].nil?
         params[context + 'ValidUntil'] = Hearth::TimeHelper.to_date_time(input[:valid_until]) unless input[:valid_until].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'InstanceInterruptionBehavior'] = input[:instance_interruption_behavior].to_s unless input[:instance_interruption_behavior].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
     # Structure Builder for RequestSpotLaunchSpecification
     class RequestSpotLaunchSpecification
       def self.build(input, params, context: nil)
-        Builders::RequestSpotLaunchSpecificationSecurityGroupIdList.build(input[:security_group_ids], params, context: context + 'SecurityGroupId') unless input[:security_group_ids].nil?
-        Builders::RequestSpotLaunchSpecificationSecurityGroupList.build(input[:security_groups], params, context: context + 'SecurityGroup') unless input[:security_groups].nil?
+        RequestSpotLaunchSpecificationSecurityGroupIdList.build(input[:security_group_ids], params, context: context + 'SecurityGroupId') unless input[:security_group_ids].nil?
+        RequestSpotLaunchSpecificationSecurityGroupList.build(input[:security_groups], params, context: context + 'SecurityGroup') unless input[:security_groups].nil?
         params[context + 'AddressingType'] = input[:addressing_type].to_s unless input[:addressing_type].nil?
-        Builders::BlockDeviceMappingList.build(input[:block_device_mappings], params, context: context + 'blockDeviceMapping') unless input[:block_device_mappings].nil?
+        BlockDeviceMappingList.build(input[:block_device_mappings], params, context: context + 'blockDeviceMapping') unless input[:block_device_mappings].nil?
         params[context + 'EbsOptimized'] = input[:ebs_optimized].to_s unless input[:ebs_optimized].nil?
-        Builders::IamInstanceProfileSpecification.build(input[:iam_instance_profile], params, context: context + 'IamInstanceProfile' + '.') unless input[:iam_instance_profile].nil?
+        IamInstanceProfileSpecification.build(input[:iam_instance_profile], params, context: context + 'IamInstanceProfile' + '.') unless input[:iam_instance_profile].nil?
         params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
         params[context + 'InstanceType'] = input[:instance_type].to_s unless input[:instance_type].nil?
         params[context + 'KernelId'] = input[:kernel_id].to_s unless input[:kernel_id].nil?
         params[context + 'KeyName'] = input[:key_name].to_s unless input[:key_name].nil?
-        Builders::RunInstancesMonitoringEnabled.build(input[:monitoring], params, context: context + 'Monitoring' + '.') unless input[:monitoring].nil?
-        Builders::InstanceNetworkInterfaceSpecificationList.build(input[:network_interfaces], params, context: context + 'NetworkInterface') unless input[:network_interfaces].nil?
-        Builders::SpotPlacement.build(input[:placement], params, context: context + 'Placement' + '.') unless input[:placement].nil?
+        RunInstancesMonitoringEnabled.build(input[:monitoring], params, context: context + 'Monitoring' + '.') unless input[:monitoring].nil?
+        InstanceNetworkInterfaceSpecificationList.build(input[:network_interfaces], params, context: context + 'NetworkInterface') unless input[:network_interfaces].nil?
+        SpotPlacement.build(input[:placement], params, context: context + 'Placement' + '.') unless input[:placement].nil?
         params[context + 'RamdiskId'] = input[:ramdisk_id].to_s unless input[:ramdisk_id].nil?
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
         params[context + 'UserData'] = input[:user_data].to_s unless input[:user_data].nil?
@@ -12743,7 +12746,7 @@ module AWS::SDK::EC2
         params[context + 'AllocationId'] = input[:allocation_id].to_s unless input[:allocation_id].nil?
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12758,7 +12761,7 @@ module AWS::SDK::EC2
         params['Action'] = 'ResetEbsDefaultKmsKeyId'
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12775,7 +12778,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'FpgaImageId'] = input[:fpga_image_id].to_s unless input[:fpga_image_id].nil?
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12792,7 +12795,7 @@ module AWS::SDK::EC2
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
         params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12809,7 +12812,7 @@ module AWS::SDK::EC2
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12826,7 +12829,7 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'NetworkInterfaceId'] = input[:network_interface_id].to_s unless input[:network_interface_id].nil?
         params[context + 'SourceDestCheck'] = input[:source_dest_check].to_s unless input[:source_dest_check].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12843,7 +12846,7 @@ module AWS::SDK::EC2
         params[context + 'Attribute'] = input[:attribute].to_s unless input[:attribute].nil?
         params[context + 'SnapshotId'] = input[:snapshot_id].to_s unless input[:snapshot_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12859,7 +12862,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'PublicIp'] = input[:public_ip].to_s unless input[:public_ip].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12875,7 +12878,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12893,7 +12896,7 @@ module AWS::SDK::EC2
         params[context + 'PrefixListId'] = input[:prefix_list_id].to_s unless input[:prefix_list_id].nil?
         params[context + 'PreviousVersion'] = input[:previous_version].to_s unless input[:previous_version].nil?
         params[context + 'CurrentVersion'] = input[:current_version].to_s unless input[:current_version].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12909,7 +12912,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'SnapshotId'] = input[:snapshot_id].to_s unless input[:snapshot_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12927,7 +12930,7 @@ module AWS::SDK::EC2
         params[context + 'TemporaryRestoreDays'] = input[:temporary_restore_days].to_s unless input[:temporary_restore_days].nil?
         params[context + 'PermanentRestore'] = input[:permanent_restore].to_s unless input[:permanent_restore].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12946,7 +12949,7 @@ module AWS::SDK::EC2
         params[context + 'AccessGroupId'] = input[:access_group_id].to_s unless input[:access_group_id].nil?
         params[context + 'RevokeAllGroups'] = input[:revoke_all_groups].to_s unless input[:revoke_all_groups].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12962,15 +12965,15 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'GroupId'] = input[:group_id].to_s unless input[:group_id].nil?
-        Builders::IpPermissionList.build(input[:ip_permissions], params, context: context + 'ipPermissions') unless input[:ip_permissions].nil?
-        Builders::SecurityGroupRuleIdList.build(input[:security_group_rule_ids], params, context: context + 'SecurityGroupRuleId') unless input[:security_group_rule_ids].nil?
+        IpPermissionList.build(input[:ip_permissions], params, context: context + 'ipPermissions') unless input[:ip_permissions].nil?
+        SecurityGroupRuleIdList.build(input[:security_group_rule_ids], params, context: context + 'SecurityGroupRuleId') unless input[:security_group_rule_ids].nil?
         params[context + 'CidrIp'] = input[:cidr_ip].to_s unless input[:cidr_ip].nil?
         params[context + 'FromPort'] = input[:from_port].to_s unless input[:from_port].nil?
         params[context + 'IpProtocol'] = input[:ip_protocol].to_s unless input[:ip_protocol].nil?
         params[context + 'ToPort'] = input[:to_port].to_s unless input[:to_port].nil?
         params[context + 'SourceSecurityGroupName'] = input[:source_security_group_name].to_s unless input[:source_security_group_name].nil?
         params[context + 'SourceSecurityGroupOwnerId'] = input[:source_security_group_owner_id].to_s unless input[:source_security_group_owner_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -12988,14 +12991,14 @@ module AWS::SDK::EC2
         params[context + 'FromPort'] = input[:from_port].to_s unless input[:from_port].nil?
         params[context + 'GroupId'] = input[:group_id].to_s unless input[:group_id].nil?
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
-        Builders::IpPermissionList.build(input[:ip_permissions], params, context: context + 'IpPermissions') unless input[:ip_permissions].nil?
+        IpPermissionList.build(input[:ip_permissions], params, context: context + 'IpPermissions') unless input[:ip_permissions].nil?
         params[context + 'IpProtocol'] = input[:ip_protocol].to_s unless input[:ip_protocol].nil?
         params[context + 'SourceSecurityGroupName'] = input[:source_security_group_name].to_s unless input[:source_security_group_name].nil?
         params[context + 'SourceSecurityGroupOwnerId'] = input[:source_security_group_owner_id].to_s unless input[:source_security_group_owner_id].nil?
         params[context + 'ToPort'] = input[:to_port].to_s unless input[:to_port].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::SecurityGroupRuleIdList.build(input[:security_group_rule_ids], params, context: context + 'SecurityGroupRuleId') unless input[:security_group_rule_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        SecurityGroupRuleIdList.build(input[:security_group_rule_ids], params, context: context + 'SecurityGroupRuleId') unless input[:security_group_rule_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13009,20 +13012,20 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'RunInstances'
         params['Version'] = '2016-11-15'
-        Builders::BlockDeviceMappingRequestList.build(input[:block_device_mappings], params, context: context + 'BlockDeviceMapping') unless input[:block_device_mappings].nil?
+        BlockDeviceMappingRequestList.build(input[:block_device_mappings], params, context: context + 'BlockDeviceMapping') unless input[:block_device_mappings].nil?
         params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
         params[context + 'InstanceType'] = input[:instance_type].to_s unless input[:instance_type].nil?
         params[context + 'Ipv6AddressCount'] = input[:ipv6_address_count].to_s unless input[:ipv6_address_count].nil?
-        Builders::InstanceIpv6AddressList.build(input[:ipv6_addresses], params, context: context + 'Ipv6Address') unless input[:ipv6_addresses].nil?
+        InstanceIpv6AddressList.build(input[:ipv6_addresses], params, context: context + 'Ipv6Address') unless input[:ipv6_addresses].nil?
         params[context + 'KernelId'] = input[:kernel_id].to_s unless input[:kernel_id].nil?
         params[context + 'KeyName'] = input[:key_name].to_s unless input[:key_name].nil?
         params[context + 'MaxCount'] = input[:max_count].to_s unless input[:max_count].nil?
         params[context + 'MinCount'] = input[:min_count].to_s unless input[:min_count].nil?
-        Builders::RunInstancesMonitoringEnabled.build(input[:monitoring], params, context: context + 'Monitoring' + '.') unless input[:monitoring].nil?
-        Builders::Placement.build(input[:placement], params, context: context + 'Placement' + '.') unless input[:placement].nil?
+        RunInstancesMonitoringEnabled.build(input[:monitoring], params, context: context + 'Monitoring' + '.') unless input[:monitoring].nil?
+        Placement.build(input[:placement], params, context: context + 'Placement' + '.') unless input[:placement].nil?
         params[context + 'RamdiskId'] = input[:ramdisk_id].to_s unless input[:ramdisk_id].nil?
-        Builders::SecurityGroupIdStringList.build(input[:security_group_ids], params, context: context + 'SecurityGroupId') unless input[:security_group_ids].nil?
-        Builders::SecurityGroupStringList.build(input[:security_groups], params, context: context + 'SecurityGroup') unless input[:security_groups].nil?
+        SecurityGroupIdStringList.build(input[:security_group_ids], params, context: context + 'SecurityGroupId') unless input[:security_group_ids].nil?
+        SecurityGroupStringList.build(input[:security_groups], params, context: context + 'SecurityGroup') unless input[:security_groups].nil?
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
         params[context + 'UserData'] = input[:user_data].to_s unless input[:user_data].nil?
         params[context + 'AdditionalInfo'] = input[:additional_info].to_s unless input[:additional_info].nil?
@@ -13030,26 +13033,26 @@ module AWS::SDK::EC2
         params[context + 'DisableApiTermination'] = input[:disable_api_termination].to_s unless input[:disable_api_termination].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'EbsOptimized'] = input[:ebs_optimized].to_s unless input[:ebs_optimized].nil?
-        Builders::IamInstanceProfileSpecification.build(input[:iam_instance_profile], params, context: context + 'IamInstanceProfile' + '.') unless input[:iam_instance_profile].nil?
+        IamInstanceProfileSpecification.build(input[:iam_instance_profile], params, context: context + 'IamInstanceProfile' + '.') unless input[:iam_instance_profile].nil?
         params[context + 'InstanceInitiatedShutdownBehavior'] = input[:instance_initiated_shutdown_behavior].to_s unless input[:instance_initiated_shutdown_behavior].nil?
-        Builders::InstanceNetworkInterfaceSpecificationList.build(input[:network_interfaces], params, context: context + 'networkInterface') unless input[:network_interfaces].nil?
+        InstanceNetworkInterfaceSpecificationList.build(input[:network_interfaces], params, context: context + 'networkInterface') unless input[:network_interfaces].nil?
         params[context + 'PrivateIpAddress'] = input[:private_ip_address].to_s unless input[:private_ip_address].nil?
-        Builders::ElasticGpuSpecifications.build(input[:elastic_gpu_specification], params, context: context + 'ElasticGpuSpecification') unless input[:elastic_gpu_specification].nil?
-        Builders::ElasticInferenceAccelerators.build(input[:elastic_inference_accelerators], params, context: context + 'ElasticInferenceAccelerator') unless input[:elastic_inference_accelerators].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
-        Builders::LaunchTemplateSpecification.build(input[:launch_template], params, context: context + 'LaunchTemplate' + '.') unless input[:launch_template].nil?
-        Builders::InstanceMarketOptionsRequest.build(input[:instance_market_options], params, context: context + 'InstanceMarketOptions' + '.') unless input[:instance_market_options].nil?
-        Builders::CreditSpecificationRequest.build(input[:credit_specification], params, context: context + 'CreditSpecification' + '.') unless input[:credit_specification].nil?
-        Builders::CpuOptionsRequest.build(input[:cpu_options], params, context: context + 'CpuOptions' + '.') unless input[:cpu_options].nil?
-        Builders::CapacityReservationSpecification.build(input[:capacity_reservation_specification], params, context: context + 'CapacityReservationSpecification' + '.') unless input[:capacity_reservation_specification].nil?
-        Builders::HibernationOptionsRequest.build(input[:hibernation_options], params, context: context + 'HibernationOptions' + '.') unless input[:hibernation_options].nil?
-        Builders::LicenseSpecificationListRequest.build(input[:license_specifications], params, context: context + 'LicenseSpecification') unless input[:license_specifications].nil?
-        Builders::InstanceMetadataOptionsRequest.build(input[:metadata_options], params, context: context + 'MetadataOptions' + '.') unless input[:metadata_options].nil?
-        Builders::EnclaveOptionsRequest.build(input[:enclave_options], params, context: context + 'EnclaveOptions' + '.') unless input[:enclave_options].nil?
-        Builders::PrivateDnsNameOptionsRequest.build(input[:private_dns_name_options], params, context: context + 'PrivateDnsNameOptions' + '.') unless input[:private_dns_name_options].nil?
-        Builders::InstanceMaintenanceOptionsRequest.build(input[:maintenance_options], params, context: context + 'MaintenanceOptions' + '.') unless input[:maintenance_options].nil?
+        ElasticGpuSpecifications.build(input[:elastic_gpu_specification], params, context: context + 'ElasticGpuSpecification') unless input[:elastic_gpu_specification].nil?
+        ElasticInferenceAccelerators.build(input[:elastic_inference_accelerators], params, context: context + 'ElasticInferenceAccelerator') unless input[:elastic_inference_accelerators].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        LaunchTemplateSpecification.build(input[:launch_template], params, context: context + 'LaunchTemplate' + '.') unless input[:launch_template].nil?
+        InstanceMarketOptionsRequest.build(input[:instance_market_options], params, context: context + 'InstanceMarketOptions' + '.') unless input[:instance_market_options].nil?
+        CreditSpecificationRequest.build(input[:credit_specification], params, context: context + 'CreditSpecification' + '.') unless input[:credit_specification].nil?
+        CpuOptionsRequest.build(input[:cpu_options], params, context: context + 'CpuOptions' + '.') unless input[:cpu_options].nil?
+        CapacityReservationSpecification.build(input[:capacity_reservation_specification], params, context: context + 'CapacityReservationSpecification' + '.') unless input[:capacity_reservation_specification].nil?
+        HibernationOptionsRequest.build(input[:hibernation_options], params, context: context + 'HibernationOptions' + '.') unless input[:hibernation_options].nil?
+        LicenseSpecificationListRequest.build(input[:license_specifications], params, context: context + 'LicenseSpecification') unless input[:license_specifications].nil?
+        InstanceMetadataOptionsRequest.build(input[:metadata_options], params, context: context + 'MetadataOptions' + '.') unless input[:metadata_options].nil?
+        EnclaveOptionsRequest.build(input[:enclave_options], params, context: context + 'EnclaveOptions' + '.') unless input[:enclave_options].nil?
+        PrivateDnsNameOptionsRequest.build(input[:private_dns_name_options], params, context: context + 'PrivateDnsNameOptions' + '.') unless input[:private_dns_name_options].nil?
+        InstanceMaintenanceOptionsRequest.build(input[:maintenance_options], params, context: context + 'MaintenanceOptions' + '.') unless input[:maintenance_options].nil?
         params[context + 'DisableApiStop'] = input[:disable_api_stop].to_s unless input[:disable_api_stop].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13091,7 +13094,7 @@ module AWS::SDK::EC2
     class LicenseSpecificationListRequest
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::LicenseConfigurationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          LicenseConfigurationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -13122,7 +13125,7 @@ module AWS::SDK::EC2
     class InstanceMarketOptionsRequest
       def self.build(input, params, context: nil)
         params[context + 'MarketType'] = input[:market_type].to_s unless input[:market_type].nil?
-        Builders::SpotMarketOptions.build(input[:spot_options], params, context: context + 'SpotOptions' + '.') unless input[:spot_options].nil?
+        SpotMarketOptions.build(input[:spot_options], params, context: context + 'SpotOptions' + '.') unless input[:spot_options].nil?
       end
     end
 
@@ -13150,7 +13153,7 @@ module AWS::SDK::EC2
     class ElasticInferenceAccelerators
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ElasticInferenceAccelerator.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ElasticInferenceAccelerator.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -13167,7 +13170,7 @@ module AWS::SDK::EC2
     class ElasticGpuSpecifications
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ElasticGpuSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ElasticGpuSpecification.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -13185,27 +13188,27 @@ module AWS::SDK::EC2
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'InstanceCount'] = input[:instance_count].to_s unless input[:instance_count].nil?
-        Builders::ScheduledInstancesLaunchSpecification.build(input[:launch_specification], params, context: context + 'LaunchSpecification' + '.') unless input[:launch_specification].nil?
+        ScheduledInstancesLaunchSpecification.build(input[:launch_specification], params, context: context + 'LaunchSpecification' + '.') unless input[:launch_specification].nil?
         params[context + 'ScheduledInstanceId'] = input[:scheduled_instance_id].to_s unless input[:scheduled_instance_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
     # Structure Builder for ScheduledInstancesLaunchSpecification
     class ScheduledInstancesLaunchSpecification
       def self.build(input, params, context: nil)
-        Builders::ScheduledInstancesBlockDeviceMappingSet.build(input[:block_device_mappings], params, context: context + 'BlockDeviceMapping') unless input[:block_device_mappings].nil?
+        ScheduledInstancesBlockDeviceMappingSet.build(input[:block_device_mappings], params, context: context + 'BlockDeviceMapping') unless input[:block_device_mappings].nil?
         params[context + 'EbsOptimized'] = input[:ebs_optimized].to_s unless input[:ebs_optimized].nil?
-        Builders::ScheduledInstancesIamInstanceProfile.build(input[:iam_instance_profile], params, context: context + 'IamInstanceProfile' + '.') unless input[:iam_instance_profile].nil?
+        ScheduledInstancesIamInstanceProfile.build(input[:iam_instance_profile], params, context: context + 'IamInstanceProfile' + '.') unless input[:iam_instance_profile].nil?
         params[context + 'ImageId'] = input[:image_id].to_s unless input[:image_id].nil?
         params[context + 'InstanceType'] = input[:instance_type].to_s unless input[:instance_type].nil?
         params[context + 'KernelId'] = input[:kernel_id].to_s unless input[:kernel_id].nil?
         params[context + 'KeyName'] = input[:key_name].to_s unless input[:key_name].nil?
-        Builders::ScheduledInstancesMonitoring.build(input[:monitoring], params, context: context + 'Monitoring' + '.') unless input[:monitoring].nil?
-        Builders::ScheduledInstancesNetworkInterfaceSet.build(input[:network_interfaces], params, context: context + 'NetworkInterface') unless input[:network_interfaces].nil?
-        Builders::ScheduledInstancesPlacement.build(input[:placement], params, context: context + 'Placement' + '.') unless input[:placement].nil?
+        ScheduledInstancesMonitoring.build(input[:monitoring], params, context: context + 'Monitoring' + '.') unless input[:monitoring].nil?
+        ScheduledInstancesNetworkInterfaceSet.build(input[:network_interfaces], params, context: context + 'NetworkInterface') unless input[:network_interfaces].nil?
+        ScheduledInstancesPlacement.build(input[:placement], params, context: context + 'Placement' + '.') unless input[:placement].nil?
         params[context + 'RamdiskId'] = input[:ramdisk_id].to_s unless input[:ramdisk_id].nil?
-        Builders::ScheduledInstancesSecurityGroupIdSet.build(input[:security_group_ids], params, context: context + 'SecurityGroupId') unless input[:security_group_ids].nil?
+        ScheduledInstancesSecurityGroupIdSet.build(input[:security_group_ids], params, context: context + 'SecurityGroupId') unless input[:security_group_ids].nil?
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
         params[context + 'UserData'] = input[:user_data].to_s unless input[:user_data].nil?
       end
@@ -13232,7 +13235,7 @@ module AWS::SDK::EC2
     class ScheduledInstancesNetworkInterfaceSet
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ScheduledInstancesNetworkInterface.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ScheduledInstancesNetworkInterface.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -13244,12 +13247,12 @@ module AWS::SDK::EC2
         params[context + 'DeleteOnTermination'] = input[:delete_on_termination].to_s unless input[:delete_on_termination].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'DeviceIndex'] = input[:device_index].to_s unless input[:device_index].nil?
-        Builders::ScheduledInstancesSecurityGroupIdSet.build(input[:groups], params, context: context + 'Group') unless input[:groups].nil?
+        ScheduledInstancesSecurityGroupIdSet.build(input[:groups], params, context: context + 'Group') unless input[:groups].nil?
         params[context + 'Ipv6AddressCount'] = input[:ipv6_address_count].to_s unless input[:ipv6_address_count].nil?
-        Builders::ScheduledInstancesIpv6AddressList.build(input[:ipv6_addresses], params, context: context + 'Ipv6Address') unless input[:ipv6_addresses].nil?
+        ScheduledInstancesIpv6AddressList.build(input[:ipv6_addresses], params, context: context + 'Ipv6Address') unless input[:ipv6_addresses].nil?
         params[context + 'NetworkInterfaceId'] = input[:network_interface_id].to_s unless input[:network_interface_id].nil?
         params[context + 'PrivateIpAddress'] = input[:private_ip_address].to_s unless input[:private_ip_address].nil?
-        Builders::PrivateIpAddressConfigSet.build(input[:private_ip_address_configs], params, context: context + 'PrivateIpAddressConfig') unless input[:private_ip_address_configs].nil?
+        PrivateIpAddressConfigSet.build(input[:private_ip_address_configs], params, context: context + 'PrivateIpAddressConfig') unless input[:private_ip_address_configs].nil?
         params[context + 'SecondaryPrivateIpAddressCount'] = input[:secondary_private_ip_address_count].to_s unless input[:secondary_private_ip_address_count].nil?
         params[context + 'SubnetId'] = input[:subnet_id].to_s unless input[:subnet_id].nil?
       end
@@ -13259,7 +13262,7 @@ module AWS::SDK::EC2
     class PrivateIpAddressConfigSet
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ScheduledInstancesPrivateIpAddressConfig.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ScheduledInstancesPrivateIpAddressConfig.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -13276,7 +13279,7 @@ module AWS::SDK::EC2
     class ScheduledInstancesIpv6AddressList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ScheduledInstancesIpv6Address.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ScheduledInstancesIpv6Address.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -13307,7 +13310,7 @@ module AWS::SDK::EC2
     class ScheduledInstancesBlockDeviceMappingSet
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ScheduledInstancesBlockDeviceMapping.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ScheduledInstancesBlockDeviceMapping.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -13316,7 +13319,7 @@ module AWS::SDK::EC2
     class ScheduledInstancesBlockDeviceMapping
       def self.build(input, params, context: nil)
         params[context + 'DeviceName'] = input[:device_name].to_s unless input[:device_name].nil?
-        Builders::ScheduledInstancesEbs.build(input[:ebs], params, context: context + 'Ebs' + '.') unless input[:ebs].nil?
+        ScheduledInstancesEbs.build(input[:ebs], params, context: context + 'Ebs' + '.') unless input[:ebs].nil?
         params[context + 'NoDevice'] = input[:no_device].to_s unless input[:no_device].nil?
         params[context + 'VirtualName'] = input[:virtual_name].to_s unless input[:virtual_name].nil?
       end
@@ -13345,11 +13348,11 @@ module AWS::SDK::EC2
         params['Action'] = 'SearchLocalGatewayRoutes'
         params['Version'] = '2016-11-15'
         params[context + 'LocalGatewayRouteTableId'] = input[:local_gateway_route_table_id].to_s unless input[:local_gateway_route_table_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13364,11 +13367,11 @@ module AWS::SDK::EC2
         params['Action'] = 'SearchTransitGatewayMulticastGroups'
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayMulticastDomainId'] = input[:transit_gateway_multicast_domain_id].to_s unless input[:transit_gateway_multicast_domain_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13383,10 +13386,10 @@ module AWS::SDK::EC2
         params['Action'] = 'SearchTransitGatewayRoutes'
         params['Version'] = '2016-11-15'
         params[context + 'TransitGatewayRouteTableId'] = input[:transit_gateway_route_table_id].to_s unless input[:transit_gateway_route_table_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filter') unless input[:filters].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13402,7 +13405,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'InstanceId'] = input[:instance_id].to_s unless input[:instance_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13416,10 +13419,10 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'StartInstances'
         params['Version'] = '2016-11-15'
-        Builders::InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
+        InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
         params[context + 'AdditionalInfo'] = input[:additional_info].to_s unless input[:additional_info].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13435,9 +13438,9 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'NetworkInsightsAccessScopeId'] = input[:network_insights_access_scope_id].to_s unless input[:network_insights_access_scope_id].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13452,11 +13455,11 @@ module AWS::SDK::EC2
         params['Action'] = 'StartNetworkInsightsAnalysis'
         params['Version'] = '2016-11-15'
         params[context + 'NetworkInsightsPathId'] = input[:network_insights_path_id].to_s unless input[:network_insights_path_id].nil?
-        Builders::ArnList.build(input[:filter_in_arns], params, context: context + 'FilterInArn') unless input[:filter_in_arns].nil?
+        ArnList.build(input[:filter_in_arns], params, context: context + 'FilterInArn') unless input[:filter_in_arns].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        Builders::TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
+        TagSpecificationList.build(input[:tag_specifications], params, context: context + 'TagSpecification') unless input[:tag_specifications].nil?
         params[context + 'ClientToken'] = input[:client_token].to_s unless input[:client_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13481,7 +13484,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'ServiceId'] = input[:service_id].to_s unless input[:service_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13495,11 +13498,11 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'StopInstances'
         params['Version'] = '2016-11-15'
-        Builders::InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
+        InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
         params[context + 'Hibernate'] = input[:hibernate].to_s unless input[:hibernate].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'Force'] = input[:force].to_s unless input[:force].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13517,7 +13520,7 @@ module AWS::SDK::EC2
         params[context + 'ConnectionId'] = input[:connection_id].to_s unless input[:connection_id].nil?
         params[context + 'Username'] = input[:username].to_s unless input[:username].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13531,9 +13534,9 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'TerminateInstances'
         params['Version'] = '2016-11-15'
-        Builders::InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
+        InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13547,10 +13550,10 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'UnassignIpv6Addresses'
         params['Version'] = '2016-11-15'
-        Builders::Ipv6AddressList.build(input[:ipv6_addresses], params, context: context + 'ipv6Addresses') unless input[:ipv6_addresses].nil?
-        Builders::IpPrefixList.build(input[:ipv6_prefixes], params, context: context + 'Ipv6Prefix') unless input[:ipv6_prefixes].nil?
+        Ipv6AddressList.build(input[:ipv6_addresses], params, context: context + 'ipv6Addresses') unless input[:ipv6_addresses].nil?
+        IpPrefixList.build(input[:ipv6_prefixes], params, context: context + 'Ipv6Prefix') unless input[:ipv6_prefixes].nil?
         params[context + 'NetworkInterfaceId'] = input[:network_interface_id].to_s unless input[:network_interface_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13565,9 +13568,9 @@ module AWS::SDK::EC2
         params['Action'] = 'UnassignPrivateIpAddresses'
         params['Version'] = '2016-11-15'
         params[context + 'NetworkInterfaceId'] = input[:network_interface_id].to_s unless input[:network_interface_id].nil?
-        Builders::PrivateIpAddressStringList.build(input[:private_ip_addresses], params, context: context + 'privateIpAddress') unless input[:private_ip_addresses].nil?
-        Builders::IpPrefixList.build(input[:ipv4_prefixes], params, context: context + 'Ipv4Prefix') unless input[:ipv4_prefixes].nil?
-        http_req.body = StringIO.new(params.to_s)
+        PrivateIpAddressStringList.build(input[:private_ip_addresses], params, context: context + 'privateIpAddress') unless input[:private_ip_addresses].nil?
+        IpPrefixList.build(input[:ipv4_prefixes], params, context: context + 'Ipv4Prefix') unless input[:ipv4_prefixes].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13581,9 +13584,9 @@ module AWS::SDK::EC2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'UnmonitorInstances'
         params['Version'] = '2016-11-15'
-        Builders::InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
+        InstanceIdStringList.build(input[:instance_ids], params, context: context + 'InstanceId') unless input[:instance_ids].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13600,9 +13603,9 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'GroupId'] = input[:group_id].to_s unless input[:group_id].nil?
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
-        Builders::IpPermissionList.build(input[:ip_permissions], params, context: context + 'IpPermissions') unless input[:ip_permissions].nil?
-        Builders::SecurityGroupRuleDescriptionList.build(input[:security_group_rule_descriptions], params, context: context + 'SecurityGroupRuleDescription') unless input[:security_group_rule_descriptions].nil?
-        http_req.body = StringIO.new(params.to_s)
+        IpPermissionList.build(input[:ip_permissions], params, context: context + 'IpPermissions') unless input[:ip_permissions].nil?
+        SecurityGroupRuleDescriptionList.build(input[:security_group_rule_descriptions], params, context: context + 'SecurityGroupRuleDescription') unless input[:security_group_rule_descriptions].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13610,7 +13613,7 @@ module AWS::SDK::EC2
     class SecurityGroupRuleDescriptionList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::SecurityGroupRuleDescription.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          SecurityGroupRuleDescription.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -13636,9 +13639,9 @@ module AWS::SDK::EC2
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
         params[context + 'GroupId'] = input[:group_id].to_s unless input[:group_id].nil?
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
-        Builders::IpPermissionList.build(input[:ip_permissions], params, context: context + 'IpPermissions') unless input[:ip_permissions].nil?
-        Builders::SecurityGroupRuleDescriptionList.build(input[:security_group_rule_descriptions], params, context: context + 'SecurityGroupRuleDescription') unless input[:security_group_rule_descriptions].nil?
-        http_req.body = StringIO.new(params.to_s)
+        IpPermissionList.build(input[:ip_permissions], params, context: context + 'IpPermissions') unless input[:ip_permissions].nil?
+        SecurityGroupRuleDescriptionList.build(input[:security_group_rule_descriptions], params, context: context + 'SecurityGroupRuleDescription') unless input[:security_group_rule_descriptions].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -13654,7 +13657,7 @@ module AWS::SDK::EC2
         params['Version'] = '2016-11-15'
         params[context + 'Cidr'] = input[:cidr].to_s unless input[:cidr].nil?
         params[context + 'DryRun'] = input[:dry_run].to_s unless input[:dry_run].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
   end

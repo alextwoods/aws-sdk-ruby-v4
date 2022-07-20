@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MigrationHubStrategy
   module Builders
 
@@ -164,10 +166,10 @@ module AWS::SDK::MigrationHubStrategy
         data['applicationComponentCriteria'] = input[:application_component_criteria] unless input[:application_component_criteria].nil?
         data['filterValue'] = input[:filter_value] unless input[:filter_value].nil?
         data['sort'] = input[:sort] unless input[:sort].nil?
-        data['groupIdFilter'] = Builders::GroupIds.build(input[:group_id_filter]) unless input[:group_id_filter].nil?
+        data['groupIdFilter'] = GroupIds.build(input[:group_id_filter]) unless input[:group_id_filter].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -176,7 +178,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Group.build(element) unless element.nil?
+          data << Group.build(element) unless element.nil?
         end
         data
       end
@@ -229,10 +231,10 @@ module AWS::SDK::MigrationHubStrategy
         data['serverCriteria'] = input[:server_criteria] unless input[:server_criteria].nil?
         data['filterValue'] = input[:filter_value] unless input[:filter_value].nil?
         data['sort'] = input[:sort] unless input[:sort].nil?
-        data['groupIdFilter'] = Builders::GroupIds.build(input[:group_id_filter]) unless input[:group_id_filter].nil?
+        data['groupIdFilter'] = GroupIds.build(input[:group_id_filter]) unless input[:group_id_filter].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -246,10 +248,10 @@ module AWS::SDK::MigrationHubStrategy
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['prioritizeBusinessGoals'] = Builders::PrioritizeBusinessGoals.build(input[:prioritize_business_goals]) unless input[:prioritize_business_goals].nil?
-        data['applicationPreferences'] = Builders::ApplicationPreferences.build(input[:application_preferences]) unless input[:application_preferences].nil?
-        data['databasePreferences'] = Builders::DatabasePreferences.build(input[:database_preferences]) unless input[:database_preferences].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['prioritizeBusinessGoals'] = PrioritizeBusinessGoals.build(input[:prioritize_business_goals]) unless input[:prioritize_business_goals].nil?
+        data['applicationPreferences'] = ApplicationPreferences.build(input[:application_preferences]) unless input[:application_preferences].nil?
+        data['databasePreferences'] = DatabasePreferences.build(input[:database_preferences]) unless input[:database_preferences].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -258,7 +260,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.build(input)
         data = {}
         data['databaseManagementPreference'] = input[:database_management_preference] unless input[:database_management_preference].nil?
-        data['databaseMigrationPreference'] = Builders::DatabaseMigrationPreference.build(input[:database_migration_preference]) unless input[:database_migration_preference].nil?
+        data['databaseMigrationPreference'] = DatabaseMigrationPreference.build(input[:database_migration_preference]) unless input[:database_migration_preference].nil?
         data
       end
     end
@@ -269,11 +271,11 @@ module AWS::SDK::MigrationHubStrategy
         data = {}
         case input
         when Types::DatabaseMigrationPreference::Heterogeneous
-          data['heterogeneous'] = (Builders::Heterogeneous.build(input) unless input.nil?)
+          data['heterogeneous'] = (Heterogeneous.build(input) unless input.nil?)
         when Types::DatabaseMigrationPreference::Homogeneous
-          data['homogeneous'] = (Builders::Homogeneous.build(input) unless input.nil?)
+          data['homogeneous'] = (Homogeneous.build(input) unless input.nil?)
         when Types::DatabaseMigrationPreference::NoPreference
-          data['noPreference'] = (Builders::NoDatabaseMigrationPreference.build(input) unless input.nil?)
+          data['noPreference'] = (NoDatabaseMigrationPreference.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::DatabaseMigrationPreference"
@@ -287,7 +289,7 @@ module AWS::SDK::MigrationHubStrategy
     class NoDatabaseMigrationPreference
       def self.build(input)
         data = {}
-        data['targetDatabaseEngine'] = Builders::TargetDatabaseEngines.build(input[:target_database_engine]) unless input[:target_database_engine].nil?
+        data['targetDatabaseEngine'] = TargetDatabaseEngines.build(input[:target_database_engine]) unless input[:target_database_engine].nil?
         data
       end
     end
@@ -307,7 +309,7 @@ module AWS::SDK::MigrationHubStrategy
     class Homogeneous
       def self.build(input)
         data = {}
-        data['targetDatabaseEngine'] = Builders::HomogeneousTargetDatabaseEngines.build(input[:target_database_engine]) unless input[:target_database_engine].nil?
+        data['targetDatabaseEngine'] = HomogeneousTargetDatabaseEngines.build(input[:target_database_engine]) unless input[:target_database_engine].nil?
         data
       end
     end
@@ -327,7 +329,7 @@ module AWS::SDK::MigrationHubStrategy
     class Heterogeneous
       def self.build(input)
         data = {}
-        data['targetDatabaseEngine'] = Builders::HeterogeneousTargetDatabaseEngines.build(input[:target_database_engine]) unless input[:target_database_engine].nil?
+        data['targetDatabaseEngine'] = HeterogeneousTargetDatabaseEngines.build(input[:target_database_engine]) unless input[:target_database_engine].nil?
         data
       end
     end
@@ -347,7 +349,7 @@ module AWS::SDK::MigrationHubStrategy
     class ApplicationPreferences
       def self.build(input)
         data = {}
-        data['managementPreference'] = Builders::ManagementPreference.build(input[:management_preference]) unless input[:management_preference].nil?
+        data['managementPreference'] = ManagementPreference.build(input[:management_preference]) unless input[:management_preference].nil?
         data
       end
     end
@@ -358,11 +360,11 @@ module AWS::SDK::MigrationHubStrategy
         data = {}
         case input
         when Types::ManagementPreference::AwsManagedResources
-          data['awsManagedResources'] = (Builders::AwsManagedResources.build(input) unless input.nil?)
+          data['awsManagedResources'] = (AwsManagedResources.build(input) unless input.nil?)
         when Types::ManagementPreference::SelfManageResources
-          data['selfManageResources'] = (Builders::SelfManageResources.build(input) unless input.nil?)
+          data['selfManageResources'] = (SelfManageResources.build(input) unless input.nil?)
         when Types::ManagementPreference::NoPreference
-          data['noPreference'] = (Builders::NoManagementPreference.build(input) unless input.nil?)
+          data['noPreference'] = (NoManagementPreference.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ManagementPreference"
@@ -376,7 +378,7 @@ module AWS::SDK::MigrationHubStrategy
     class NoManagementPreference
       def self.build(input)
         data = {}
-        data['targetDestination'] = Builders::NoPreferenceTargetDestinations.build(input[:target_destination]) unless input[:target_destination].nil?
+        data['targetDestination'] = NoPreferenceTargetDestinations.build(input[:target_destination]) unless input[:target_destination].nil?
         data
       end
     end
@@ -396,7 +398,7 @@ module AWS::SDK::MigrationHubStrategy
     class SelfManageResources
       def self.build(input)
         data = {}
-        data['targetDestination'] = Builders::SelfManageTargetDestinations.build(input[:target_destination]) unless input[:target_destination].nil?
+        data['targetDestination'] = SelfManageTargetDestinations.build(input[:target_destination]) unless input[:target_destination].nil?
         data
       end
     end
@@ -416,7 +418,7 @@ module AWS::SDK::MigrationHubStrategy
     class AwsManagedResources
       def self.build(input)
         data = {}
-        data['targetDestination'] = Builders::AwsManagedTargetDestinations.build(input[:target_destination]) unless input[:target_destination].nil?
+        data['targetDestination'] = AwsManagedTargetDestinations.build(input[:target_destination]) unless input[:target_destination].nil?
         data
       end
     end
@@ -436,7 +438,7 @@ module AWS::SDK::MigrationHubStrategy
     class PrioritizeBusinessGoals
       def self.build(input)
         data = {}
-        data['businessGoals'] = Builders::BusinessGoals.build(input[:business_goals]) unless input[:business_goals].nil?
+        data['businessGoals'] = BusinessGoals.build(input[:business_goals]) unless input[:business_goals].nil?
         data
       end
     end
@@ -465,7 +467,7 @@ module AWS::SDK::MigrationHubStrategy
         data = {}
         data['s3bucketForAnalysisData'] = input[:s3bucket_for_analysis_data] unless input[:s3bucket_for_analysis_data].nil?
         data['s3bucketForReportData'] = input[:s3bucket_for_report_data] unless input[:s3bucket_for_report_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -483,9 +485,9 @@ module AWS::SDK::MigrationHubStrategy
         data['S3Bucket'] = input[:s3_bucket] unless input[:s3_bucket].nil?
         data['s3key'] = input[:s3key] unless input[:s3key].nil?
         data['dataSourceType'] = input[:data_source_type] unless input[:data_source_type].nil?
-        data['groupId'] = Builders::GroupIds.build(input[:group_id]) unless input[:group_id].nil?
+        data['groupId'] = GroupIds.build(input[:group_id]) unless input[:group_id].nil?
         data['s3bucketForReportData'] = input[:s3bucket_for_report_data] unless input[:s3bucket_for_report_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -500,8 +502,8 @@ module AWS::SDK::MigrationHubStrategy
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['outputFormat'] = input[:output_format] unless input[:output_format].nil?
-        data['groupIdFilter'] = Builders::GroupIds.build(input[:group_id_filter]) unless input[:group_id_filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['groupIdFilter'] = GroupIds.build(input[:group_id_filter]) unless input[:group_id_filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -516,7 +518,7 @@ module AWS::SDK::MigrationHubStrategy
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['assessmentId'] = input[:assessment_id] unless input[:assessment_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -532,10 +534,10 @@ module AWS::SDK::MigrationHubStrategy
         data = {}
         data['applicationComponentId'] = input[:application_component_id] unless input[:application_component_id].nil?
         data['inclusionStatus'] = input[:inclusion_status] unless input[:inclusion_status].nil?
-        data['strategyOption'] = Builders::StrategyOption.build(input[:strategy_option]) unless input[:strategy_option].nil?
-        data['sourceCodeList'] = Builders::SourceCodeList.build(input[:source_code_list]) unless input[:source_code_list].nil?
+        data['strategyOption'] = StrategyOption.build(input[:strategy_option]) unless input[:strategy_option].nil?
+        data['sourceCodeList'] = SourceCodeList.build(input[:source_code_list]) unless input[:source_code_list].nil?
         data['secretsManagerKey'] = input[:secrets_manager_key] unless input[:secrets_manager_key].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -544,7 +546,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SourceCode.build(element) unless element.nil?
+          data << SourceCode.build(element) unless element.nil?
         end
         data
       end
@@ -584,8 +586,8 @@ module AWS::SDK::MigrationHubStrategy
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['serverId'] = input[:server_id] unless input[:server_id].nil?
-        data['strategyOption'] = Builders::StrategyOption.build(input[:strategy_option]) unless input[:strategy_option].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['strategyOption'] = StrategyOption.build(input[:strategy_option]) unless input[:strategy_option].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

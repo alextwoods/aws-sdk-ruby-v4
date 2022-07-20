@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IoTJobsDataPlane
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::IoTJobsDataPlane
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['execution'] = Stubs::JobExecution.stub(stub[:execution]) unless stub[:execution].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['execution'] = JobExecution.stub(stub[:execution]) unless stub[:execution].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -53,7 +55,7 @@ module AWS::SDK::IoTJobsDataPlane
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['thingName'] = stub[:thing_name] unless stub[:thing_name].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['statusDetails'] = Stubs::DetailsMap.stub(stub[:status_details]) unless stub[:status_details].nil?
+        data['statusDetails'] = DetailsMap.stub(stub[:status_details]) unless stub[:status_details].nil?
         data['queuedAt'] = stub[:queued_at] unless stub[:queued_at].nil?
         data['startedAt'] = stub[:started_at] unless stub[:started_at].nil?
         data['lastUpdatedAt'] = stub[:last_updated_at] unless stub[:last_updated_at].nil?
@@ -98,9 +100,9 @@ module AWS::SDK::IoTJobsDataPlane
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['inProgressJobs'] = Stubs::JobExecutionSummaryList.stub(stub[:in_progress_jobs]) unless stub[:in_progress_jobs].nil?
-        data['queuedJobs'] = Stubs::JobExecutionSummaryList.stub(stub[:queued_jobs]) unless stub[:queued_jobs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['inProgressJobs'] = JobExecutionSummaryList.stub(stub[:in_progress_jobs]) unless stub[:in_progress_jobs].nil?
+        data['queuedJobs'] = JobExecutionSummaryList.stub(stub[:queued_jobs]) unless stub[:queued_jobs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -118,7 +120,7 @@ module AWS::SDK::IoTJobsDataPlane
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobExecutionSummary.stub(element) unless element.nil?
+          data << JobExecutionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -164,8 +166,8 @@ module AWS::SDK::IoTJobsDataPlane
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['execution'] = Stubs::JobExecution.stub(stub[:execution]) unless stub[:execution].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['execution'] = JobExecution.stub(stub[:execution]) unless stub[:execution].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -182,9 +184,9 @@ module AWS::SDK::IoTJobsDataPlane
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['executionState'] = Stubs::JobExecutionState.stub(stub[:execution_state]) unless stub[:execution_state].nil?
+        data['executionState'] = JobExecutionState.stub(stub[:execution_state]) unless stub[:execution_state].nil?
         data['jobDocument'] = stub[:job_document] unless stub[:job_document].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -204,7 +206,7 @@ module AWS::SDK::IoTJobsDataPlane
         stub ||= Types::JobExecutionState.new
         data = {}
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['statusDetails'] = Stubs::DetailsMap.stub(stub[:status_details]) unless stub[:status_details].nil?
+        data['statusDetails'] = DetailsMap.stub(stub[:status_details]) unless stub[:status_details].nil?
         data['versionNumber'] = stub[:version_number] unless stub[:version_number].nil?
         data
       end

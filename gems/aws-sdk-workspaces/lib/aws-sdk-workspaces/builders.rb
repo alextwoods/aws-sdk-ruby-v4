@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::WorkSpaces
   module Builders
 
@@ -20,7 +23,7 @@ module AWS::SDK::WorkSpaces
         data = {}
         data['AliasId'] = input[:alias_id] unless input[:alias_id].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,8 +36,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.AssociateIpGroups'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        data['GroupIds'] = Builders::IpGroupIdList.build(input[:group_ids]) unless input[:group_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GroupIds'] = IpGroupIdList.build(input[:group_ids]) unless input[:group_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -58,8 +61,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.AuthorizeIpRules'
         data = {}
         data['GroupId'] = input[:group_id] unless input[:group_id].nil?
-        data['UserRules'] = Builders::IpRuleList.build(input[:user_rules]) unless input[:user_rules].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserRules'] = IpRuleList.build(input[:user_rules]) unless input[:user_rules].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -68,7 +71,7 @@ module AWS::SDK::WorkSpaces
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::IpRuleItem.build(element) unless element.nil?
+          data << IpRuleItem.build(element) unless element.nil?
         end
         data
       end
@@ -96,8 +99,8 @@ module AWS::SDK::WorkSpaces
         data['Description'] = input[:description] unless input[:description].nil?
         data['SourceImageId'] = input[:source_image_id] unless input[:source_image_id].nil?
         data['SourceRegion'] = input[:source_region] unless input[:source_region].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -106,7 +109,7 @@ module AWS::SDK::WorkSpaces
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -133,7 +136,7 @@ module AWS::SDK::WorkSpaces
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['URL'] = input[:url] unless input[:url].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -146,8 +149,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.CreateConnectionAlias'
         data = {}
         data['ConnectionString'] = input[:connection_string] unless input[:connection_string].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -161,9 +164,9 @@ module AWS::SDK::WorkSpaces
         data = {}
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
         data['GroupDesc'] = input[:group_desc] unless input[:group_desc].nil?
-        data['UserRules'] = Builders::IpRuleList.build(input[:user_rules]) unless input[:user_rules].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserRules'] = IpRuleList.build(input[:user_rules]) unless input[:user_rules].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -176,8 +179,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.CreateTags'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -192,8 +195,8 @@ module AWS::SDK::WorkSpaces
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['SourceImageId'] = input[:source_image_id] unless input[:source_image_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -208,11 +211,11 @@ module AWS::SDK::WorkSpaces
         data['BundleName'] = input[:bundle_name] unless input[:bundle_name].nil?
         data['BundleDescription'] = input[:bundle_description] unless input[:bundle_description].nil?
         data['ImageId'] = input[:image_id] unless input[:image_id].nil?
-        data['ComputeType'] = Builders::ComputeType.build(input[:compute_type]) unless input[:compute_type].nil?
-        data['UserStorage'] = Builders::UserStorage.build(input[:user_storage]) unless input[:user_storage].nil?
-        data['RootStorage'] = Builders::RootStorage.build(input[:root_storage]) unless input[:root_storage].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ComputeType'] = ComputeType.build(input[:compute_type]) unless input[:compute_type].nil?
+        data['UserStorage'] = UserStorage.build(input[:user_storage]) unless input[:user_storage].nil?
+        data['RootStorage'] = RootStorage.build(input[:root_storage]) unless input[:root_storage].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -251,8 +254,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.CreateWorkspaces'
         data = {}
-        data['Workspaces'] = Builders::WorkspaceRequestList.build(input[:workspaces]) unless input[:workspaces].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Workspaces'] = WorkspaceRequestList.build(input[:workspaces]) unless input[:workspaces].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -261,7 +264,7 @@ module AWS::SDK::WorkSpaces
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::WorkspaceRequest.build(element) unless element.nil?
+          data << WorkspaceRequest.build(element) unless element.nil?
         end
         data
       end
@@ -277,8 +280,8 @@ module AWS::SDK::WorkSpaces
         data['VolumeEncryptionKey'] = input[:volume_encryption_key] unless input[:volume_encryption_key].nil?
         data['UserVolumeEncryptionEnabled'] = input[:user_volume_encryption_enabled] unless input[:user_volume_encryption_enabled].nil?
         data['RootVolumeEncryptionEnabled'] = input[:root_volume_encryption_enabled] unless input[:root_volume_encryption_enabled].nil?
-        data['WorkspaceProperties'] = Builders::WorkspaceProperties.build(input[:workspace_properties]) unless input[:workspace_properties].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['WorkspaceProperties'] = WorkspaceProperties.build(input[:workspace_properties]) unless input[:workspace_properties].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -305,8 +308,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DeleteClientBranding'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['Platforms'] = Builders::ClientDeviceTypeList.build(input[:platforms]) unless input[:platforms].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Platforms'] = ClientDeviceTypeList.build(input[:platforms]) unless input[:platforms].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -331,7 +334,7 @@ module AWS::SDK::WorkSpaces
         data = {}
         data['AddInId'] = input[:add_in_id] unless input[:add_in_id].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -344,7 +347,7 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DeleteConnectionAlias'
         data = {}
         data['AliasId'] = input[:alias_id] unless input[:alias_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -357,7 +360,7 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DeleteIpGroup'
         data = {}
         data['GroupId'] = input[:group_id] unless input[:group_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -370,8 +373,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DeleteTags'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -395,7 +398,7 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DeleteWorkspaceBundle'
         data = {}
         data['BundleId'] = input[:bundle_id] unless input[:bundle_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -408,7 +411,7 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DeleteWorkspaceImage'
         data = {}
         data['ImageId'] = input[:image_id] unless input[:image_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -421,7 +424,7 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DeregisterWorkspaceDirectory'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -433,7 +436,7 @@ module AWS::SDK::WorkSpaces
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DescribeAccount'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -446,7 +449,7 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DescribeAccountModifications'
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -459,7 +462,7 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DescribeClientBranding'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -471,8 +474,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DescribeClientProperties'
         data = {}
-        data['ResourceIds'] = Builders::ResourceIdList.build(input[:resource_ids]) unless input[:resource_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceIds'] = ResourceIdList.build(input[:resource_ids]) unless input[:resource_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -498,7 +501,7 @@ module AWS::SDK::WorkSpaces
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -513,7 +516,7 @@ module AWS::SDK::WorkSpaces
         data['AliasId'] = input[:alias_id] unless input[:alias_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -525,11 +528,11 @@ module AWS::SDK::WorkSpaces
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DescribeConnectionAliases'
         data = {}
-        data['AliasIds'] = Builders::ConnectionAliasIdList.build(input[:alias_ids]) unless input[:alias_ids].nil?
+        data['AliasIds'] = ConnectionAliasIdList.build(input[:alias_ids]) unless input[:alias_ids].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -552,10 +555,10 @@ module AWS::SDK::WorkSpaces
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DescribeIpGroups'
         data = {}
-        data['GroupIds'] = Builders::IpGroupIdList.build(input[:group_ids]) unless input[:group_ids].nil?
+        data['GroupIds'] = IpGroupIdList.build(input[:group_ids]) unless input[:group_ids].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -568,7 +571,7 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DescribeTags'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -580,10 +583,10 @@ module AWS::SDK::WorkSpaces
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DescribeWorkspaceBundles'
         data = {}
-        data['BundleIds'] = Builders::BundleIdList.build(input[:bundle_ids]) unless input[:bundle_ids].nil?
+        data['BundleIds'] = BundleIdList.build(input[:bundle_ids]) unless input[:bundle_ids].nil?
         data['Owner'] = input[:owner] unless input[:owner].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -606,10 +609,10 @@ module AWS::SDK::WorkSpaces
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DescribeWorkspaceDirectories'
         data = {}
-        data['DirectoryIds'] = Builders::DirectoryIdList.build(input[:directory_ids]) unless input[:directory_ids].nil?
+        data['DirectoryIds'] = DirectoryIdList.build(input[:directory_ids]) unless input[:directory_ids].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -635,7 +638,7 @@ module AWS::SDK::WorkSpaces
         data['ImageId'] = input[:image_id] unless input[:image_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -647,11 +650,11 @@ module AWS::SDK::WorkSpaces
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DescribeWorkspaceImages'
         data = {}
-        data['ImageIds'] = Builders::WorkspaceImageIdList.build(input[:image_ids]) unless input[:image_ids].nil?
+        data['ImageIds'] = WorkspaceImageIdList.build(input[:image_ids]) unless input[:image_ids].nil?
         data['ImageType'] = input[:image_type] unless input[:image_type].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -675,7 +678,7 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DescribeWorkspaceSnapshots'
         data = {}
         data['WorkspaceId'] = input[:workspace_id] unless input[:workspace_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -687,13 +690,13 @@ module AWS::SDK::WorkSpaces
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DescribeWorkspaces'
         data = {}
-        data['WorkspaceIds'] = Builders::WorkspaceIdList.build(input[:workspace_ids]) unless input[:workspace_ids].nil?
+        data['WorkspaceIds'] = WorkspaceIdList.build(input[:workspace_ids]) unless input[:workspace_ids].nil?
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['UserName'] = input[:user_name] unless input[:user_name].nil?
         data['BundleId'] = input[:bundle_id] unless input[:bundle_id].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -716,9 +719,9 @@ module AWS::SDK::WorkSpaces
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DescribeWorkspacesConnectionStatus'
         data = {}
-        data['WorkspaceIds'] = Builders::WorkspaceIdList.build(input[:workspace_ids]) unless input[:workspace_ids].nil?
+        data['WorkspaceIds'] = WorkspaceIdList.build(input[:workspace_ids]) unless input[:workspace_ids].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -731,7 +734,7 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DisassociateConnectionAlias'
         data = {}
         data['AliasId'] = input[:alias_id] unless input[:alias_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -744,8 +747,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.DisassociateIpGroups'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        data['GroupIds'] = Builders::IpGroupIdList.build(input[:group_ids]) unless input[:group_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GroupIds'] = IpGroupIdList.build(input[:group_ids]) unless input[:group_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -758,13 +761,13 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.ImportClientBranding'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['DeviceTypeWindows'] = Builders::DefaultImportClientBrandingAttributes.build(input[:device_type_windows]) unless input[:device_type_windows].nil?
-        data['DeviceTypeOsx'] = Builders::DefaultImportClientBrandingAttributes.build(input[:device_type_osx]) unless input[:device_type_osx].nil?
-        data['DeviceTypeAndroid'] = Builders::DefaultImportClientBrandingAttributes.build(input[:device_type_android]) unless input[:device_type_android].nil?
-        data['DeviceTypeIos'] = Builders::IosImportClientBrandingAttributes.build(input[:device_type_ios]) unless input[:device_type_ios].nil?
-        data['DeviceTypeLinux'] = Builders::DefaultImportClientBrandingAttributes.build(input[:device_type_linux]) unless input[:device_type_linux].nil?
-        data['DeviceTypeWeb'] = Builders::DefaultImportClientBrandingAttributes.build(input[:device_type_web]) unless input[:device_type_web].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeviceTypeWindows'] = DefaultImportClientBrandingAttributes.build(input[:device_type_windows]) unless input[:device_type_windows].nil?
+        data['DeviceTypeOsx'] = DefaultImportClientBrandingAttributes.build(input[:device_type_osx]) unless input[:device_type_osx].nil?
+        data['DeviceTypeAndroid'] = DefaultImportClientBrandingAttributes.build(input[:device_type_android]) unless input[:device_type_android].nil?
+        data['DeviceTypeIos'] = IosImportClientBrandingAttributes.build(input[:device_type_ios]) unless input[:device_type_ios].nil?
+        data['DeviceTypeLinux'] = DefaultImportClientBrandingAttributes.build(input[:device_type_linux]) unless input[:device_type_linux].nil?
+        data['DeviceTypeWeb'] = DefaultImportClientBrandingAttributes.build(input[:device_type_web]) unless input[:device_type_web].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -772,11 +775,11 @@ module AWS::SDK::WorkSpaces
     class DefaultImportClientBrandingAttributes
       def self.build(input)
         data = {}
-        data['Logo'] = Base64::encode64(input[:logo]).strip unless input[:logo].nil?
+        data['Logo'] = ::Base64::encode64(input[:logo]).strip unless input[:logo].nil?
         data['SupportEmail'] = input[:support_email] unless input[:support_email].nil?
         data['SupportLink'] = input[:support_link] unless input[:support_link].nil?
         data['ForgotPasswordLink'] = input[:forgot_password_link] unless input[:forgot_password_link].nil?
-        data['LoginMessage'] = Builders::LoginMessage.build(input[:login_message]) unless input[:login_message].nil?
+        data['LoginMessage'] = LoginMessage.build(input[:login_message]) unless input[:login_message].nil?
         data
       end
     end
@@ -796,13 +799,13 @@ module AWS::SDK::WorkSpaces
     class IosImportClientBrandingAttributes
       def self.build(input)
         data = {}
-        data['Logo'] = Base64::encode64(input[:logo]).strip unless input[:logo].nil?
-        data['Logo2x'] = Base64::encode64(input[:logo2x]).strip unless input[:logo2x].nil?
-        data['Logo3x'] = Base64::encode64(input[:logo3x]).strip unless input[:logo3x].nil?
+        data['Logo'] = ::Base64::encode64(input[:logo]).strip unless input[:logo].nil?
+        data['Logo2x'] = ::Base64::encode64(input[:logo2x]).strip unless input[:logo2x].nil?
+        data['Logo3x'] = ::Base64::encode64(input[:logo3x]).strip unless input[:logo3x].nil?
         data['SupportEmail'] = input[:support_email] unless input[:support_email].nil?
         data['SupportLink'] = input[:support_link] unless input[:support_link].nil?
         data['ForgotPasswordLink'] = input[:forgot_password_link] unless input[:forgot_password_link].nil?
-        data['LoginMessage'] = Builders::LoginMessage.build(input[:login_message]) unless input[:login_message].nil?
+        data['LoginMessage'] = LoginMessage.build(input[:login_message]) unless input[:login_message].nil?
         data
       end
     end
@@ -819,9 +822,9 @@ module AWS::SDK::WorkSpaces
         data['IngestionProcess'] = input[:ingestion_process] unless input[:ingestion_process].nil?
         data['ImageName'] = input[:image_name] unless input[:image_name].nil?
         data['ImageDescription'] = input[:image_description] unless input[:image_description].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['Applications'] = Builders::ApplicationList.build(input[:applications]) unless input[:applications].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Applications'] = ApplicationList.build(input[:applications]) unless input[:applications].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -847,7 +850,7 @@ module AWS::SDK::WorkSpaces
         data['ManagementCidrRangeConstraint'] = input[:management_cidr_range_constraint] unless input[:management_cidr_range_constraint].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -861,7 +864,7 @@ module AWS::SDK::WorkSpaces
         data = {}
         data['SourceWorkspaceId'] = input[:source_workspace_id] unless input[:source_workspace_id].nil?
         data['BundleId'] = input[:bundle_id] unless input[:bundle_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -875,7 +878,7 @@ module AWS::SDK::WorkSpaces
         data = {}
         data['DedicatedTenancySupport'] = input[:dedicated_tenancy_support] unless input[:dedicated_tenancy_support].nil?
         data['DedicatedTenancyManagementCidrRange'] = input[:dedicated_tenancy_management_cidr_range] unless input[:dedicated_tenancy_management_cidr_range].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -888,8 +891,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.ModifyClientProperties'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['ClientProperties'] = Builders::ClientProperties.build(input[:client_properties]) unless input[:client_properties].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ClientProperties'] = ClientProperties.build(input[:client_properties]) unless input[:client_properties].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -911,8 +914,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.ModifySelfservicePermissions'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['SelfservicePermissions'] = Builders::SelfservicePermissions.build(input[:selfservice_permissions]) unless input[:selfservice_permissions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SelfservicePermissions'] = SelfservicePermissions.build(input[:selfservice_permissions]) unless input[:selfservice_permissions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -938,8 +941,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.ModifyWorkspaceAccessProperties'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['WorkspaceAccessProperties'] = Builders::WorkspaceAccessProperties.build(input[:workspace_access_properties]) unless input[:workspace_access_properties].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WorkspaceAccessProperties'] = WorkspaceAccessProperties.build(input[:workspace_access_properties]) unless input[:workspace_access_properties].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -968,8 +971,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.ModifyWorkspaceCreationProperties'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['WorkspaceCreationProperties'] = Builders::WorkspaceCreationProperties.build(input[:workspace_creation_properties]) unless input[:workspace_creation_properties].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WorkspaceCreationProperties'] = WorkspaceCreationProperties.build(input[:workspace_creation_properties]) unless input[:workspace_creation_properties].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -996,8 +999,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.ModifyWorkspaceProperties'
         data = {}
         data['WorkspaceId'] = input[:workspace_id] unless input[:workspace_id].nil?
-        data['WorkspaceProperties'] = Builders::WorkspaceProperties.build(input[:workspace_properties]) unless input[:workspace_properties].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WorkspaceProperties'] = WorkspaceProperties.build(input[:workspace_properties]) unless input[:workspace_properties].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1011,7 +1014,7 @@ module AWS::SDK::WorkSpaces
         data = {}
         data['WorkspaceId'] = input[:workspace_id] unless input[:workspace_id].nil?
         data['WorkspaceState'] = input[:workspace_state] unless input[:workspace_state].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1023,8 +1026,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.RebootWorkspaces'
         data = {}
-        data['RebootWorkspaceRequests'] = Builders::RebootWorkspaceRequests.build(input[:reboot_workspace_requests]) unless input[:reboot_workspace_requests].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RebootWorkspaceRequests'] = RebootWorkspaceRequests.build(input[:reboot_workspace_requests]) unless input[:reboot_workspace_requests].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1033,7 +1036,7 @@ module AWS::SDK::WorkSpaces
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RebootRequest.build(element) unless element.nil?
+          data << RebootRequest.build(element) unless element.nil?
         end
         data
       end
@@ -1056,8 +1059,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.RebuildWorkspaces'
         data = {}
-        data['RebuildWorkspaceRequests'] = Builders::RebuildWorkspaceRequests.build(input[:rebuild_workspace_requests]) unless input[:rebuild_workspace_requests].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RebuildWorkspaceRequests'] = RebuildWorkspaceRequests.build(input[:rebuild_workspace_requests]) unless input[:rebuild_workspace_requests].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1066,7 +1069,7 @@ module AWS::SDK::WorkSpaces
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RebuildRequest.build(element) unless element.nil?
+          data << RebuildRequest.build(element) unless element.nil?
         end
         data
       end
@@ -1090,12 +1093,12 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.RegisterWorkspaceDirectory'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        data['SubnetIds'] = Builders::SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['SubnetIds'] = SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
         data['EnableWorkDocs'] = input[:enable_work_docs] unless input[:enable_work_docs].nil?
         data['EnableSelfService'] = input[:enable_self_service] unless input[:enable_self_service].nil?
         data['Tenancy'] = input[:tenancy] unless input[:tenancy].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1119,7 +1122,7 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.RestoreWorkspace'
         data = {}
         data['WorkspaceId'] = input[:workspace_id] unless input[:workspace_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1132,8 +1135,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.RevokeIpRules'
         data = {}
         data['GroupId'] = input[:group_id] unless input[:group_id].nil?
-        data['UserRules'] = Builders::IpRevokedRuleList.build(input[:user_rules]) unless input[:user_rules].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserRules'] = IpRevokedRuleList.build(input[:user_rules]) unless input[:user_rules].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1156,8 +1159,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.StartWorkspaces'
         data = {}
-        data['StartWorkspaceRequests'] = Builders::StartWorkspaceRequests.build(input[:start_workspace_requests]) unless input[:start_workspace_requests].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StartWorkspaceRequests'] = StartWorkspaceRequests.build(input[:start_workspace_requests]) unless input[:start_workspace_requests].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1166,7 +1169,7 @@ module AWS::SDK::WorkSpaces
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StartRequest.build(element) unless element.nil?
+          data << StartRequest.build(element) unless element.nil?
         end
         data
       end
@@ -1189,8 +1192,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.StopWorkspaces'
         data = {}
-        data['StopWorkspaceRequests'] = Builders::StopWorkspaceRequests.build(input[:stop_workspace_requests]) unless input[:stop_workspace_requests].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StopWorkspaceRequests'] = StopWorkspaceRequests.build(input[:stop_workspace_requests]) unless input[:stop_workspace_requests].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1199,7 +1202,7 @@ module AWS::SDK::WorkSpaces
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StopRequest.build(element) unless element.nil?
+          data << StopRequest.build(element) unless element.nil?
         end
         data
       end
@@ -1222,8 +1225,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.TerminateWorkspaces'
         data = {}
-        data['TerminateWorkspaceRequests'] = Builders::TerminateWorkspaceRequests.build(input[:terminate_workspace_requests]) unless input[:terminate_workspace_requests].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TerminateWorkspaceRequests'] = TerminateWorkspaceRequests.build(input[:terminate_workspace_requests]) unless input[:terminate_workspace_requests].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1232,7 +1235,7 @@ module AWS::SDK::WorkSpaces
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TerminateRequest.build(element) unless element.nil?
+          data << TerminateRequest.build(element) unless element.nil?
         end
         data
       end
@@ -1259,7 +1262,7 @@ module AWS::SDK::WorkSpaces
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['URL'] = input[:url] unless input[:url].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1272,8 +1275,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.UpdateConnectionAliasPermission'
         data = {}
         data['AliasId'] = input[:alias_id] unless input[:alias_id].nil?
-        data['ConnectionAliasPermission'] = Builders::ConnectionAliasPermission.build(input[:connection_alias_permission]) unless input[:connection_alias_permission].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConnectionAliasPermission'] = ConnectionAliasPermission.build(input[:connection_alias_permission]) unless input[:connection_alias_permission].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1296,8 +1299,8 @@ module AWS::SDK::WorkSpaces
         http_req.headers['X-Amz-Target'] = 'WorkspacesService.UpdateRulesOfIpGroup'
         data = {}
         data['GroupId'] = input[:group_id] unless input[:group_id].nil?
-        data['UserRules'] = Builders::IpRuleList.build(input[:user_rules]) unless input[:user_rules].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserRules'] = IpRuleList.build(input[:user_rules]) unless input[:user_rules].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1311,7 +1314,7 @@ module AWS::SDK::WorkSpaces
         data = {}
         data['BundleId'] = input[:bundle_id] unless input[:bundle_id].nil?
         data['ImageId'] = input[:image_id] unless input[:image_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1326,7 +1329,7 @@ module AWS::SDK::WorkSpaces
         data['ImageId'] = input[:image_id] unless input[:image_id].nil?
         data['AllowCopyImage'] = input[:allow_copy_image] unless input[:allow_copy_image].nil?
         data['SharedAccountId'] = input[:shared_account_id] unless input[:shared_account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

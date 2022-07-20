@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IoTWireless
   module Stubs
 
@@ -23,9 +25,9 @@ module AWS::SDK::IoTWireless
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Sidewalk'] = Stubs::SidewalkAccountInfo.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
+        data['Sidewalk'] = SidewalkAccountInfo.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -114,7 +116,7 @@ module AWS::SDK::IoTWireless
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['IotCertificateId'] = stub[:iot_certificate_id] unless stub[:iot_certificate_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -159,7 +161,7 @@ module AWS::SDK::IoTWireless
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -178,7 +180,7 @@ module AWS::SDK::IoTWireless
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -197,7 +199,7 @@ module AWS::SDK::IoTWireless
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -216,7 +218,7 @@ module AWS::SDK::IoTWireless
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -235,7 +237,7 @@ module AWS::SDK::IoTWireless
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -254,7 +256,7 @@ module AWS::SDK::IoTWireless
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -273,7 +275,7 @@ module AWS::SDK::IoTWireless
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -292,7 +294,7 @@ module AWS::SDK::IoTWireless
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -311,7 +313,7 @@ module AWS::SDK::IoTWireless
         http_resp.headers['Content-Type'] = 'application/json'
         data['WirelessGatewayTaskDefinitionId'] = stub[:wireless_gateway_task_definition_id] unless stub[:wireless_gateway_task_definition_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -330,7 +332,7 @@ module AWS::SDK::IoTWireless
         http_resp.headers['Content-Type'] = 'application/json'
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -591,7 +593,7 @@ module AWS::SDK::IoTWireless
         data['ExpressionType'] = stub[:expression_type] unless stub[:expression_type].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -613,8 +615,8 @@ module AWS::SDK::IoTWireless
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['LoRaWAN'] = Stubs::LoRaWANDeviceProfile.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LoRaWAN'] = LoRaWANDeviceProfile.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -662,7 +664,7 @@ module AWS::SDK::IoTWireless
         data['RxDrOffset1'] = stub[:rx_dr_offset1] unless stub[:rx_dr_offset1].nil?
         data['RxDataRate2'] = stub[:rx_data_rate2] unless stub[:rx_data_rate2].nil?
         data['RxFreq2'] = stub[:rx_freq2] unless stub[:rx_freq2].nil?
-        data['FactoryPresetFreqsList'] = Stubs::FactoryPresetFreqsList.stub(stub[:factory_preset_freqs_list]) unless stub[:factory_preset_freqs_list].nil?
+        data['FactoryPresetFreqsList'] = FactoryPresetFreqsList.stub(stub[:factory_preset_freqs_list]) unless stub[:factory_preset_freqs_list].nil?
         data['MaxEirp'] = stub[:max_eirp] unless stub[:max_eirp].nil?
         data['MaxDutyCycle'] = stub[:max_duty_cycle] unless stub[:max_duty_cycle].nil?
         data['RfRegion'] = stub[:rf_region] unless stub[:rf_region].nil?
@@ -707,11 +709,11 @@ module AWS::SDK::IoTWireless
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DeviceRegistrationState'] = Stubs::DeviceRegistrationStateResourceTypeEventConfiguration.stub(stub[:device_registration_state]) unless stub[:device_registration_state].nil?
-        data['Proximity'] = Stubs::ProximityResourceTypeEventConfiguration.stub(stub[:proximity]) unless stub[:proximity].nil?
-        data['Join'] = Stubs::JoinResourceTypeEventConfiguration.stub(stub[:join]) unless stub[:join].nil?
-        data['ConnectionStatus'] = Stubs::ConnectionStatusResourceTypeEventConfiguration.stub(stub[:connection_status]) unless stub[:connection_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeviceRegistrationState'] = DeviceRegistrationStateResourceTypeEventConfiguration.stub(stub[:device_registration_state]) unless stub[:device_registration_state].nil?
+        data['Proximity'] = ProximityResourceTypeEventConfiguration.stub(stub[:proximity]) unless stub[:proximity].nil?
+        data['Join'] = JoinResourceTypeEventConfiguration.stub(stub[:join]) unless stub[:join].nil?
+        data['ConnectionStatus'] = ConnectionStatusResourceTypeEventConfiguration.stub(stub[:connection_status]) unless stub[:connection_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -728,7 +730,7 @@ module AWS::SDK::IoTWireless
       def self.stub(stub)
         stub ||= Types::ConnectionStatusResourceTypeEventConfiguration.new
         data = {}
-        data['LoRaWAN'] = Stubs::LoRaWANConnectionStatusResourceTypeEventConfiguration.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        data['LoRaWAN'] = LoRaWANConnectionStatusResourceTypeEventConfiguration.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
         data
       end
     end
@@ -764,7 +766,7 @@ module AWS::SDK::IoTWireless
       def self.stub(stub)
         stub ||= Types::JoinResourceTypeEventConfiguration.new
         data = {}
-        data['LoRaWAN'] = Stubs::LoRaWANJoinResourceTypeEventConfiguration.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        data['LoRaWAN'] = LoRaWANJoinResourceTypeEventConfiguration.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
         data
       end
     end
@@ -800,7 +802,7 @@ module AWS::SDK::IoTWireless
       def self.stub(stub)
         stub ||= Types::ProximityResourceTypeEventConfiguration.new
         data = {}
-        data['Sidewalk'] = Stubs::SidewalkResourceTypeEventConfiguration.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
+        data['Sidewalk'] = SidewalkResourceTypeEventConfiguration.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
         data
       end
     end
@@ -836,7 +838,7 @@ module AWS::SDK::IoTWireless
       def self.stub(stub)
         stub ||= Types::DeviceRegistrationStateResourceTypeEventConfiguration.new
         data = {}
-        data['Sidewalk'] = Stubs::SidewalkResourceTypeEventConfiguration.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
+        data['Sidewalk'] = SidewalkResourceTypeEventConfiguration.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
         data
       end
     end
@@ -866,11 +868,11 @@ module AWS::SDK::IoTWireless
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['LoRaWAN'] = Stubs::LoRaWANFuotaTaskGetInfo.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        data['LoRaWAN'] = LoRaWANFuotaTaskGetInfo.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
         data['FirmwareUpdateImage'] = stub[:firmware_update_image] unless stub[:firmware_update_image].nil?
         data['FirmwareUpdateRole'] = stub[:firmware_update_role] unless stub[:firmware_update_role].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -909,9 +911,9 @@ module AWS::SDK::IoTWireless
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['DefaultLogLevel'] = stub[:default_log_level] unless stub[:default_log_level].nil?
-        data['WirelessGatewayLogOptions'] = Stubs::WirelessGatewayLogOptionList.stub(stub[:wireless_gateway_log_options]) unless stub[:wireless_gateway_log_options].nil?
-        data['WirelessDeviceLogOptions'] = Stubs::WirelessDeviceLogOptionList.stub(stub[:wireless_device_log_options]) unless stub[:wireless_device_log_options].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WirelessGatewayLogOptions'] = WirelessGatewayLogOptionList.stub(stub[:wireless_gateway_log_options]) unless stub[:wireless_gateway_log_options].nil?
+        data['WirelessDeviceLogOptions'] = WirelessDeviceLogOptionList.stub(stub[:wireless_device_log_options]) unless stub[:wireless_device_log_options].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -929,7 +931,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WirelessDeviceLogOption.stub(element) unless element.nil?
+          data << WirelessDeviceLogOption.stub(element) unless element.nil?
         end
         data
       end
@@ -952,7 +954,7 @@ module AWS::SDK::IoTWireless
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['LogLevel'] = stub[:log_level] unless stub[:log_level].nil?
-        data['Events'] = Stubs::WirelessDeviceEventLogOptionList.stub(stub[:events]) unless stub[:events].nil?
+        data['Events'] = WirelessDeviceEventLogOptionList.stub(stub[:events]) unless stub[:events].nil?
         data
       end
     end
@@ -971,7 +973,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WirelessDeviceEventLogOption.stub(element) unless element.nil?
+          data << WirelessDeviceEventLogOption.stub(element) unless element.nil?
         end
         data
       end
@@ -1011,7 +1013,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WirelessGatewayLogOption.stub(element) unless element.nil?
+          data << WirelessGatewayLogOption.stub(element) unless element.nil?
         end
         data
       end
@@ -1034,7 +1036,7 @@ module AWS::SDK::IoTWireless
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['LogLevel'] = stub[:log_level] unless stub[:log_level].nil?
-        data['Events'] = Stubs::WirelessGatewayEventLogOptionList.stub(stub[:events]) unless stub[:events].nil?
+        data['Events'] = WirelessGatewayEventLogOptionList.stub(stub[:events]) unless stub[:events].nil?
         data
       end
     end
@@ -1053,7 +1055,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WirelessGatewayEventLogOption.stub(element) unless element.nil?
+          data << WirelessGatewayEventLogOption.stub(element) unless element.nil?
         end
         data
       end
@@ -1102,9 +1104,9 @@ module AWS::SDK::IoTWireless
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['LoRaWAN'] = Stubs::LoRaWANMulticastGet.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        data['LoRaWAN'] = LoRaWANMulticastGet.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1144,8 +1146,8 @@ module AWS::SDK::IoTWireless
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LoRaWAN'] = Stubs::LoRaWANMulticastSession.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LoRaWAN'] = LoRaWANMulticastSession.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1190,13 +1192,13 @@ module AWS::SDK::IoTWireless
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TraceContent'] = Stubs::TraceContent.stub(stub[:trace_content]) unless stub[:trace_content].nil?
-        data['WirelessDevices'] = Stubs::WirelessDeviceList.stub(stub[:wireless_devices]) unless stub[:wireless_devices].nil?
-        data['WirelessGateways'] = Stubs::WirelessGatewayList.stub(stub[:wireless_gateways]) unless stub[:wireless_gateways].nil?
+        data['TraceContent'] = TraceContent.stub(stub[:trace_content]) unless stub[:trace_content].nil?
+        data['WirelessDevices'] = WirelessDeviceList.stub(stub[:wireless_devices]) unless stub[:wireless_devices].nil?
+        data['WirelessGateways'] = WirelessGatewayList.stub(stub[:wireless_gateways]) unless stub[:wireless_gateways].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1273,9 +1275,9 @@ module AWS::SDK::IoTWireless
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Sidewalk'] = Stubs::SidewalkAccountInfoWithFingerprint.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
+        data['Sidewalk'] = SidewalkAccountInfoWithFingerprint.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
         data['AccountLinked'] = stub[:account_linked] unless stub[:account_linked].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1316,11 +1318,11 @@ module AWS::SDK::IoTWireless
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DeviceRegistrationState'] = Stubs::DeviceRegistrationStateEventConfiguration.stub(stub[:device_registration_state]) unless stub[:device_registration_state].nil?
-        data['Proximity'] = Stubs::ProximityEventConfiguration.stub(stub[:proximity]) unless stub[:proximity].nil?
-        data['Join'] = Stubs::JoinEventConfiguration.stub(stub[:join]) unless stub[:join].nil?
-        data['ConnectionStatus'] = Stubs::ConnectionStatusEventConfiguration.stub(stub[:connection_status]) unless stub[:connection_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeviceRegistrationState'] = DeviceRegistrationStateEventConfiguration.stub(stub[:device_registration_state]) unless stub[:device_registration_state].nil?
+        data['Proximity'] = ProximityEventConfiguration.stub(stub[:proximity]) unless stub[:proximity].nil?
+        data['Join'] = JoinEventConfiguration.stub(stub[:join]) unless stub[:join].nil?
+        data['ConnectionStatus'] = ConnectionStatusEventConfiguration.stub(stub[:connection_status]) unless stub[:connection_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1338,7 +1340,7 @@ module AWS::SDK::IoTWireless
       def self.stub(stub)
         stub ||= Types::ConnectionStatusEventConfiguration.new
         data = {}
-        data['LoRaWAN'] = Stubs::LoRaWANConnectionStatusEventNotificationConfigurations.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        data['LoRaWAN'] = LoRaWANConnectionStatusEventNotificationConfigurations.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
         data['WirelessGatewayIdEventTopic'] = stub[:wireless_gateway_id_event_topic] unless stub[:wireless_gateway_id_event_topic].nil?
         data
       end
@@ -1376,7 +1378,7 @@ module AWS::SDK::IoTWireless
       def self.stub(stub)
         stub ||= Types::JoinEventConfiguration.new
         data = {}
-        data['LoRaWAN'] = Stubs::LoRaWANJoinEventNotificationConfigurations.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        data['LoRaWAN'] = LoRaWANJoinEventNotificationConfigurations.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
         data['WirelessDeviceIdEventTopic'] = stub[:wireless_device_id_event_topic] unless stub[:wireless_device_id_event_topic].nil?
         data
       end
@@ -1414,7 +1416,7 @@ module AWS::SDK::IoTWireless
       def self.stub(stub)
         stub ||= Types::ProximityEventConfiguration.new
         data = {}
-        data['Sidewalk'] = Stubs::SidewalkEventNotificationConfigurations.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
+        data['Sidewalk'] = SidewalkEventNotificationConfigurations.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
         data['WirelessDeviceIdEventTopic'] = stub[:wireless_device_id_event_topic] unless stub[:wireless_device_id_event_topic].nil?
         data
       end
@@ -1452,7 +1454,7 @@ module AWS::SDK::IoTWireless
       def self.stub(stub)
         stub ||= Types::DeviceRegistrationStateEventConfiguration.new
         data = {}
-        data['Sidewalk'] = Stubs::SidewalkEventNotificationConfigurations.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
+        data['Sidewalk'] = SidewalkEventNotificationConfigurations.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
         data['WirelessDeviceIdEventTopic'] = stub[:wireless_device_id_event_topic] unless stub[:wireless_device_id_event_topic].nil?
         data
       end
@@ -1471,7 +1473,7 @@ module AWS::SDK::IoTWireless
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['LogLevel'] = stub[:log_level] unless stub[:log_level].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1492,7 +1494,7 @@ module AWS::SDK::IoTWireless
         data['ServiceType'] = stub[:service_type] unless stub[:service_type].nil?
         data['ServiceEndpoint'] = stub[:service_endpoint] unless stub[:service_endpoint].nil?
         data['ServerTrust'] = stub[:server_trust] unless stub[:server_trust].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1514,8 +1516,8 @@ module AWS::SDK::IoTWireless
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['LoRaWAN'] = Stubs::LoRaWANGetServiceProfileInfo.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LoRaWAN'] = LoRaWANGetServiceProfileInfo.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1602,9 +1604,9 @@ module AWS::SDK::IoTWireless
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['ThingName'] = stub[:thing_name] unless stub[:thing_name].nil?
         data['ThingArn'] = stub[:thing_arn] unless stub[:thing_arn].nil?
-        data['LoRaWAN'] = Stubs::LoRaWANDevice.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
-        data['Sidewalk'] = Stubs::SidewalkDevice.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LoRaWAN'] = LoRaWANDevice.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        data['Sidewalk'] = SidewalkDevice.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1627,7 +1629,7 @@ module AWS::SDK::IoTWireless
         data['AmazonId'] = stub[:amazon_id] unless stub[:amazon_id].nil?
         data['SidewalkId'] = stub[:sidewalk_id] unless stub[:sidewalk_id].nil?
         data['SidewalkManufacturingSn'] = stub[:sidewalk_manufacturing_sn] unless stub[:sidewalk_manufacturing_sn].nil?
-        data['DeviceCertificates'] = Stubs::DeviceCertificateList.stub(stub[:device_certificates]) unless stub[:device_certificates].nil?
+        data['DeviceCertificates'] = DeviceCertificateList.stub(stub[:device_certificates]) unless stub[:device_certificates].nil?
         data
       end
     end
@@ -1646,7 +1648,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CertificateList.stub(element) unless element.nil?
+          data << CertificateList.stub(element) unless element.nil?
         end
         data
       end
@@ -1695,11 +1697,11 @@ module AWS::SDK::IoTWireless
         data['DevEui'] = stub[:dev_eui] unless stub[:dev_eui].nil?
         data['DeviceProfileId'] = stub[:device_profile_id] unless stub[:device_profile_id].nil?
         data['ServiceProfileId'] = stub[:service_profile_id] unless stub[:service_profile_id].nil?
-        data['OtaaV1_1'] = Stubs::OtaaV1_1.stub(stub[:otaa_v1_1]) unless stub[:otaa_v1_1].nil?
-        data['OtaaV1_0_x'] = Stubs::OtaaV1_0_x.stub(stub[:otaa_v1_0_x]) unless stub[:otaa_v1_0_x].nil?
-        data['AbpV1_1'] = Stubs::AbpV1_1.stub(stub[:abp_v1_1]) unless stub[:abp_v1_1].nil?
-        data['AbpV1_0_x'] = Stubs::AbpV1_0_x.stub(stub[:abp_v1_0_x]) unless stub[:abp_v1_0_x].nil?
-        data['FPorts'] = Stubs::FPorts.stub(stub[:f_ports]) unless stub[:f_ports].nil?
+        data['OtaaV1_1'] = OtaaV1_1.stub(stub[:otaa_v1_1]) unless stub[:otaa_v1_1].nil?
+        data['OtaaV1_0_x'] = OtaaV1_0_x.stub(stub[:otaa_v1_0_x]) unless stub[:otaa_v1_0_x].nil?
+        data['AbpV1_1'] = AbpV1_1.stub(stub[:abp_v1_1]) unless stub[:abp_v1_1].nil?
+        data['AbpV1_0_x'] = AbpV1_0_x.stub(stub[:abp_v1_0_x]) unless stub[:abp_v1_0_x].nil?
+        data['FPorts'] = FPorts.stub(stub[:f_ports]) unless stub[:f_ports].nil?
         data
       end
     end
@@ -1742,7 +1744,7 @@ module AWS::SDK::IoTWireless
         stub ||= Types::AbpV1_0_x.new
         data = {}
         data['DevAddr'] = stub[:dev_addr] unless stub[:dev_addr].nil?
-        data['SessionKeys'] = Stubs::SessionKeysAbpV1_0_x.stub(stub[:session_keys]) unless stub[:session_keys].nil?
+        data['SessionKeys'] = SessionKeysAbpV1_0_x.stub(stub[:session_keys]) unless stub[:session_keys].nil?
         data['FCntStart'] = stub[:f_cnt_start] unless stub[:f_cnt_start].nil?
         data
       end
@@ -1784,7 +1786,7 @@ module AWS::SDK::IoTWireless
         stub ||= Types::AbpV1_1.new
         data = {}
         data['DevAddr'] = stub[:dev_addr] unless stub[:dev_addr].nil?
-        data['SessionKeys'] = Stubs::SessionKeysAbpV1_1.stub(stub[:session_keys]) unless stub[:session_keys].nil?
+        data['SessionKeys'] = SessionKeysAbpV1_1.stub(stub[:session_keys]) unless stub[:session_keys].nil?
         data['FCntStart'] = stub[:f_cnt_start] unless stub[:f_cnt_start].nil?
         data
       end
@@ -1875,9 +1877,9 @@ module AWS::SDK::IoTWireless
         http_resp.headers['Content-Type'] = 'application/json'
         data['WirelessDeviceId'] = stub[:wireless_device_id] unless stub[:wireless_device_id].nil?
         data['LastUplinkReceivedAt'] = stub[:last_uplink_received_at] unless stub[:last_uplink_received_at].nil?
-        data['LoRaWAN'] = Stubs::LoRaWANDeviceMetadata.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
-        data['Sidewalk'] = Stubs::SidewalkDeviceMetadata.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LoRaWAN'] = LoRaWANDeviceMetadata.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        data['Sidewalk'] = SidewalkDeviceMetadata.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1928,7 +1930,7 @@ module AWS::SDK::IoTWireless
         data['DataRate'] = stub[:data_rate] unless stub[:data_rate].nil?
         data['Frequency'] = stub[:frequency] unless stub[:frequency].nil?
         data['Timestamp'] = stub[:timestamp] unless stub[:timestamp].nil?
-        data['Gateways'] = Stubs::LoRaWANGatewayMetadataList.stub(stub[:gateways]) unless stub[:gateways].nil?
+        data['Gateways'] = LoRaWANGatewayMetadataList.stub(stub[:gateways]) unless stub[:gateways].nil?
         data
       end
     end
@@ -1947,7 +1949,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LoRaWANGatewayMetadata.stub(element) unless element.nil?
+          data << LoRaWANGatewayMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1996,11 +1998,11 @@ module AWS::SDK::IoTWireless
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['LoRaWAN'] = Stubs::LoRaWANGateway.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        data['LoRaWAN'] = LoRaWANGateway.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['ThingName'] = stub[:thing_name] unless stub[:thing_name].nil?
         data['ThingArn'] = stub[:thing_arn] unless stub[:thing_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2023,9 +2025,9 @@ module AWS::SDK::IoTWireless
         data = {}
         data['GatewayEui'] = stub[:gateway_eui] unless stub[:gateway_eui].nil?
         data['RfRegion'] = stub[:rf_region] unless stub[:rf_region].nil?
-        data['JoinEuiFilters'] = Stubs::JoinEuiFilters.stub(stub[:join_eui_filters]) unless stub[:join_eui_filters].nil?
-        data['NetIdFilters'] = Stubs::NetIdFilters.stub(stub[:net_id_filters]) unless stub[:net_id_filters].nil?
-        data['SubBands'] = Stubs::SubBands.stub(stub[:sub_bands]) unless stub[:sub_bands].nil?
+        data['JoinEuiFilters'] = JoinEuiFilters.stub(stub[:join_eui_filters]) unless stub[:join_eui_filters].nil?
+        data['NetIdFilters'] = NetIdFilters.stub(stub[:net_id_filters]) unless stub[:net_id_filters].nil?
+        data['SubBands'] = SubBands.stub(stub[:sub_bands]) unless stub[:sub_bands].nil?
         data
       end
     end
@@ -2084,7 +2086,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JoinEuiRange.stub(element) unless element.nil?
+          data << JoinEuiRange.stub(element) unless element.nil?
         end
         data
       end
@@ -2125,7 +2127,7 @@ module AWS::SDK::IoTWireless
         http_resp.headers['Content-Type'] = 'application/json'
         data['IotCertificateId'] = stub[:iot_certificate_id] unless stub[:iot_certificate_id].nil?
         data['LoRaWANNetworkServerCertificateId'] = stub[:lo_ra_wan_network_server_certificate_id] unless stub[:lo_ra_wan_network_server_certificate_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2141,8 +2143,8 @@ module AWS::SDK::IoTWireless
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LoRaWAN'] = Stubs::LoRaWANGatewayCurrentVersion.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LoRaWAN'] = LoRaWANGatewayCurrentVersion.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2159,7 +2161,7 @@ module AWS::SDK::IoTWireless
       def self.stub(stub)
         stub ||= Types::LoRaWANGatewayCurrentVersion.new
         data = {}
-        data['CurrentVersion'] = Stubs::LoRaWANGatewayVersion.stub(stub[:current_version]) unless stub[:current_version].nil?
+        data['CurrentVersion'] = LoRaWANGatewayVersion.stub(stub[:current_version]) unless stub[:current_version].nil?
         data
       end
     end
@@ -2203,7 +2205,7 @@ module AWS::SDK::IoTWireless
         data['WirelessGatewayId'] = stub[:wireless_gateway_id] unless stub[:wireless_gateway_id].nil?
         data['LastUplinkReceivedAt'] = stub[:last_uplink_received_at] unless stub[:last_uplink_received_at].nil?
         data['ConnectionStatus'] = stub[:connection_status] unless stub[:connection_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2228,7 +2230,7 @@ module AWS::SDK::IoTWireless
         data['LastUplinkReceivedAt'] = stub[:last_uplink_received_at] unless stub[:last_uplink_received_at].nil?
         data['TaskCreatedAt'] = stub[:task_created_at] unless stub[:task_created_at].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2249,9 +2251,9 @@ module AWS::SDK::IoTWireless
         http_resp.headers['Content-Type'] = 'application/json'
         data['AutoCreateTasks'] = stub[:auto_create_tasks] unless stub[:auto_create_tasks].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Update'] = Stubs::UpdateWirelessGatewayTaskCreate.stub(stub[:update]) unless stub[:update].nil?
+        data['Update'] = UpdateWirelessGatewayTaskCreate.stub(stub[:update]) unless stub[:update].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2272,7 +2274,7 @@ module AWS::SDK::IoTWireless
         data = {}
         data['UpdateDataSource'] = stub[:update_data_source] unless stub[:update_data_source].nil?
         data['UpdateDataRole'] = stub[:update_data_role] unless stub[:update_data_role].nil?
-        data['LoRaWAN'] = Stubs::LoRaWANUpdateGatewayTaskCreate.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        data['LoRaWAN'] = LoRaWANUpdateGatewayTaskCreate.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
         data
       end
     end
@@ -2295,8 +2297,8 @@ module AWS::SDK::IoTWireless
         data = {}
         data['UpdateSignature'] = stub[:update_signature] unless stub[:update_signature].nil?
         data['SigKeyCrc'] = stub[:sig_key_crc] unless stub[:sig_key_crc].nil?
-        data['CurrentVersion'] = Stubs::LoRaWANGatewayVersion.stub(stub[:current_version]) unless stub[:current_version].nil?
-        data['UpdateVersion'] = Stubs::LoRaWANGatewayVersion.stub(stub[:update_version]) unless stub[:update_version].nil?
+        data['CurrentVersion'] = LoRaWANGatewayVersion.stub(stub[:current_version]) unless stub[:current_version].nil?
+        data['UpdateVersion'] = LoRaWANGatewayVersion.stub(stub[:update_version]) unless stub[:update_version].nil?
         data
       end
     end
@@ -2315,8 +2317,8 @@ module AWS::SDK::IoTWireless
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['DestinationList'] = Stubs::DestinationList.stub(stub[:destination_list]) unless stub[:destination_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DestinationList'] = DestinationList.stub(stub[:destination_list]) unless stub[:destination_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2334,7 +2336,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Destinations.stub(element) unless element.nil?
+          data << Destinations.stub(element) unless element.nil?
         end
         data
       end
@@ -2382,8 +2384,8 @@ module AWS::SDK::IoTWireless
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['DeviceProfileList'] = Stubs::DeviceProfileList.stub(stub[:device_profile_list]) unless stub[:device_profile_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeviceProfileList'] = DeviceProfileList.stub(stub[:device_profile_list]) unless stub[:device_profile_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2401,7 +2403,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeviceProfile.stub(element) unless element.nil?
+          data << DeviceProfile.stub(element) unless element.nil?
         end
         data
       end
@@ -2443,8 +2445,8 @@ module AWS::SDK::IoTWireless
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['EventConfigurationsList'] = Stubs::EventConfigurationsList.stub(stub[:event_configurations_list]) unless stub[:event_configurations_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventConfigurationsList'] = EventConfigurationsList.stub(stub[:event_configurations_list]) unless stub[:event_configurations_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2462,7 +2464,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventConfigurationItem.stub(element) unless element.nil?
+          data << EventConfigurationItem.stub(element) unless element.nil?
         end
         data
       end
@@ -2487,7 +2489,7 @@ module AWS::SDK::IoTWireless
         data['Identifier'] = stub[:identifier] unless stub[:identifier].nil?
         data['IdentifierType'] = stub[:identifier_type] unless stub[:identifier_type].nil?
         data['PartnerType'] = stub[:partner_type] unless stub[:partner_type].nil?
-        data['Events'] = Stubs::EventNotificationItemConfigurations.stub(stub[:events]) unless stub[:events].nil?
+        data['Events'] = EventNotificationItemConfigurations.stub(stub[:events]) unless stub[:events].nil?
         data
       end
     end
@@ -2508,10 +2510,10 @@ module AWS::SDK::IoTWireless
       def self.stub(stub)
         stub ||= Types::EventNotificationItemConfigurations.new
         data = {}
-        data['DeviceRegistrationState'] = Stubs::DeviceRegistrationStateEventConfiguration.stub(stub[:device_registration_state]) unless stub[:device_registration_state].nil?
-        data['Proximity'] = Stubs::ProximityEventConfiguration.stub(stub[:proximity]) unless stub[:proximity].nil?
-        data['Join'] = Stubs::JoinEventConfiguration.stub(stub[:join]) unless stub[:join].nil?
-        data['ConnectionStatus'] = Stubs::ConnectionStatusEventConfiguration.stub(stub[:connection_status]) unless stub[:connection_status].nil?
+        data['DeviceRegistrationState'] = DeviceRegistrationStateEventConfiguration.stub(stub[:device_registration_state]) unless stub[:device_registration_state].nil?
+        data['Proximity'] = ProximityEventConfiguration.stub(stub[:proximity]) unless stub[:proximity].nil?
+        data['Join'] = JoinEventConfiguration.stub(stub[:join]) unless stub[:join].nil?
+        data['ConnectionStatus'] = ConnectionStatusEventConfiguration.stub(stub[:connection_status]) unless stub[:connection_status].nil?
         data
       end
     end
@@ -2530,8 +2532,8 @@ module AWS::SDK::IoTWireless
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['FuotaTaskList'] = Stubs::FuotaTaskList.stub(stub[:fuota_task_list]) unless stub[:fuota_task_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FuotaTaskList'] = FuotaTaskList.stub(stub[:fuota_task_list]) unless stub[:fuota_task_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2549,7 +2551,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FuotaTask.stub(element) unless element.nil?
+          data << FuotaTask.stub(element) unless element.nil?
         end
         data
       end
@@ -2591,8 +2593,8 @@ module AWS::SDK::IoTWireless
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['MulticastGroupList'] = Stubs::MulticastGroupList.stub(stub[:multicast_group_list]) unless stub[:multicast_group_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MulticastGroupList'] = MulticastGroupList.stub(stub[:multicast_group_list]) unless stub[:multicast_group_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2610,7 +2612,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MulticastGroup.stub(element) unless element.nil?
+          data << MulticastGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -2652,8 +2654,8 @@ module AWS::SDK::IoTWireless
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['MulticastGroupList'] = Stubs::MulticastGroupListByFuotaTask.stub(stub[:multicast_group_list]) unless stub[:multicast_group_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MulticastGroupList'] = MulticastGroupListByFuotaTask.stub(stub[:multicast_group_list]) unless stub[:multicast_group_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2671,7 +2673,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MulticastGroupByFuotaTask.stub(element) unless element.nil?
+          data << MulticastGroupByFuotaTask.stub(element) unless element.nil?
         end
         data
       end
@@ -2709,8 +2711,8 @@ module AWS::SDK::IoTWireless
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['NetworkAnalyzerConfigurationList'] = Stubs::NetworkAnalyzerConfigurationList.stub(stub[:network_analyzer_configuration_list]) unless stub[:network_analyzer_configuration_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NetworkAnalyzerConfigurationList'] = NetworkAnalyzerConfigurationList.stub(stub[:network_analyzer_configuration_list]) unless stub[:network_analyzer_configuration_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2728,7 +2730,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkAnalyzerConfigurations.stub(element) unless element.nil?
+          data << NetworkAnalyzerConfigurations.stub(element) unless element.nil?
         end
         data
       end
@@ -2768,8 +2770,8 @@ module AWS::SDK::IoTWireless
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Sidewalk'] = Stubs::SidewalkAccountList.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Sidewalk'] = SidewalkAccountList.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2787,7 +2789,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SidewalkAccountInfoWithFingerprint.stub(element) unless element.nil?
+          data << SidewalkAccountInfoWithFingerprint.stub(element) unless element.nil?
         end
         data
       end
@@ -2807,8 +2809,8 @@ module AWS::SDK::IoTWireless
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['DownlinkQueueMessagesList'] = Stubs::DownlinkQueueMessagesList.stub(stub[:downlink_queue_messages_list]) unless stub[:downlink_queue_messages_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DownlinkQueueMessagesList'] = DownlinkQueueMessagesList.stub(stub[:downlink_queue_messages_list]) unless stub[:downlink_queue_messages_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2826,7 +2828,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DownlinkQueueMessage.stub(element) unless element.nil?
+          data << DownlinkQueueMessage.stub(element) unless element.nil?
         end
         data
       end
@@ -2851,7 +2853,7 @@ module AWS::SDK::IoTWireless
         data['MessageId'] = stub[:message_id] unless stub[:message_id].nil?
         data['TransmitMode'] = stub[:transmit_mode] unless stub[:transmit_mode].nil?
         data['ReceivedAt'] = stub[:received_at] unless stub[:received_at].nil?
-        data['LoRaWAN'] = Stubs::LoRaWANSendDataToDevice.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        data['LoRaWAN'] = LoRaWANSendDataToDevice.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
         data
       end
     end
@@ -2888,8 +2890,8 @@ module AWS::SDK::IoTWireless
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ServiceProfileList'] = Stubs::ServiceProfileList.stub(stub[:service_profile_list]) unless stub[:service_profile_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ServiceProfileList'] = ServiceProfileList.stub(stub[:service_profile_list]) unless stub[:service_profile_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2907,7 +2909,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceProfile.stub(element) unless element.nil?
+          data << ServiceProfile.stub(element) unless element.nil?
         end
         data
       end
@@ -2947,8 +2949,8 @@ module AWS::SDK::IoTWireless
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2966,7 +2968,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -3006,8 +3008,8 @@ module AWS::SDK::IoTWireless
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['WirelessDeviceList'] = Stubs::WirelessDeviceStatisticsList.stub(stub[:wireless_device_list]) unless stub[:wireless_device_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WirelessDeviceList'] = WirelessDeviceStatisticsList.stub(stub[:wireless_device_list]) unless stub[:wireless_device_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3025,7 +3027,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WirelessDeviceStatistics.stub(element) unless element.nil?
+          data << WirelessDeviceStatistics.stub(element) unless element.nil?
         end
         data
       end
@@ -3060,8 +3062,8 @@ module AWS::SDK::IoTWireless
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['DestinationName'] = stub[:destination_name] unless stub[:destination_name].nil?
         data['LastUplinkReceivedAt'] = stub[:last_uplink_received_at] unless stub[:last_uplink_received_at].nil?
-        data['LoRaWAN'] = Stubs::LoRaWANListDevice.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
-        data['Sidewalk'] = Stubs::SidewalkListDevice.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
+        data['LoRaWAN'] = LoRaWANListDevice.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        data['Sidewalk'] = SidewalkListDevice.stub(stub[:sidewalk]) unless stub[:sidewalk].nil?
         data['FuotaDeviceStatus'] = stub[:fuota_device_status] unless stub[:fuota_device_status].nil?
         data['MulticastDeviceStatus'] = stub[:multicast_device_status] unless stub[:multicast_device_status].nil?
         data['McGroupId'] = stub[:mc_group_id] unless stub[:mc_group_id].nil?
@@ -3088,7 +3090,7 @@ module AWS::SDK::IoTWireless
         data['AmazonId'] = stub[:amazon_id] unless stub[:amazon_id].nil?
         data['SidewalkId'] = stub[:sidewalk_id] unless stub[:sidewalk_id].nil?
         data['SidewalkManufacturingSn'] = stub[:sidewalk_manufacturing_sn] unless stub[:sidewalk_manufacturing_sn].nil?
-        data['DeviceCertificates'] = Stubs::DeviceCertificateList.stub(stub[:device_certificates]) unless stub[:device_certificates].nil?
+        data['DeviceCertificates'] = DeviceCertificateList.stub(stub[:device_certificates]) unless stub[:device_certificates].nil?
         data
       end
     end
@@ -3125,8 +3127,8 @@ module AWS::SDK::IoTWireless
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['TaskDefinitions'] = Stubs::WirelessGatewayTaskDefinitionList.stub(stub[:task_definitions]) unless stub[:task_definitions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TaskDefinitions'] = WirelessGatewayTaskDefinitionList.stub(stub[:task_definitions]) unless stub[:task_definitions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3144,7 +3146,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UpdateWirelessGatewayTaskEntry.stub(element) unless element.nil?
+          data << UpdateWirelessGatewayTaskEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -3166,7 +3168,7 @@ module AWS::SDK::IoTWireless
         stub ||= Types::UpdateWirelessGatewayTaskEntry.new
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['LoRaWAN'] = Stubs::LoRaWANUpdateGatewayTaskEntry.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        data['LoRaWAN'] = LoRaWANUpdateGatewayTaskEntry.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data
       end
@@ -3186,8 +3188,8 @@ module AWS::SDK::IoTWireless
       def self.stub(stub)
         stub ||= Types::LoRaWANUpdateGatewayTaskEntry.new
         data = {}
-        data['CurrentVersion'] = Stubs::LoRaWANGatewayVersion.stub(stub[:current_version]) unless stub[:current_version].nil?
-        data['UpdateVersion'] = Stubs::LoRaWANGatewayVersion.stub(stub[:update_version]) unless stub[:update_version].nil?
+        data['CurrentVersion'] = LoRaWANGatewayVersion.stub(stub[:current_version]) unless stub[:current_version].nil?
+        data['UpdateVersion'] = LoRaWANGatewayVersion.stub(stub[:update_version]) unless stub[:update_version].nil?
         data
       end
     end
@@ -3206,8 +3208,8 @@ module AWS::SDK::IoTWireless
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['WirelessGatewayList'] = Stubs::WirelessGatewayStatisticsList.stub(stub[:wireless_gateway_list]) unless stub[:wireless_gateway_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WirelessGatewayList'] = WirelessGatewayStatisticsList.stub(stub[:wireless_gateway_list]) unless stub[:wireless_gateway_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3225,7 +3227,7 @@ module AWS::SDK::IoTWireless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WirelessGatewayStatistics.stub(element) unless element.nil?
+          data << WirelessGatewayStatistics.stub(element) unless element.nil?
         end
         data
       end
@@ -3253,7 +3255,7 @@ module AWS::SDK::IoTWireless
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['LoRaWAN'] = Stubs::LoRaWANGateway.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
+        data['LoRaWAN'] = LoRaWANGateway.stub(stub[:lo_ra_wan]) unless stub[:lo_ra_wan].nil?
         data['LastUplinkReceivedAt'] = stub[:last_uplink_received_at] unless stub[:last_uplink_received_at].nil?
         data
       end
@@ -3311,7 +3313,7 @@ module AWS::SDK::IoTWireless
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['MessageId'] = stub[:message_id] unless stub[:message_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3328,7 +3330,7 @@ module AWS::SDK::IoTWireless
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
         data['MessageId'] = stub[:message_id] unless stub[:message_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3410,7 +3412,7 @@ module AWS::SDK::IoTWireless
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Result'] = stub[:result] unless stub[:result].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::KMS
   module Builders
 
@@ -19,7 +22,7 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.CancelKeyDeletion'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -32,7 +35,7 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.ConnectCustomKeyStore'
         data = {}
         data['CustomKeyStoreId'] = input[:custom_key_store_id] unless input[:custom_key_store_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -46,7 +49,7 @@ module AWS::SDK::KMS
         data = {}
         data['AliasName'] = input[:alias_name] unless input[:alias_name].nil?
         data['TargetKeyId'] = input[:target_key_id] unless input[:target_key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -62,7 +65,7 @@ module AWS::SDK::KMS
         data['CloudHsmClusterId'] = input[:cloud_hsm_cluster_id] unless input[:cloud_hsm_cluster_id].nil?
         data['TrustAnchorCertificate'] = input[:trust_anchor_certificate] unless input[:trust_anchor_certificate].nil?
         data['KeyStorePassword'] = input[:key_store_password] unless input[:key_store_password].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -77,11 +80,11 @@ module AWS::SDK::KMS
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['GranteePrincipal'] = input[:grantee_principal] unless input[:grantee_principal].nil?
         data['RetiringPrincipal'] = input[:retiring_principal] unless input[:retiring_principal].nil?
-        data['Operations'] = Builders::GrantOperationList.build(input[:operations]) unless input[:operations].nil?
-        data['Constraints'] = Builders::GrantConstraints.build(input[:constraints]) unless input[:constraints].nil?
-        data['GrantTokens'] = Builders::GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
+        data['Operations'] = GrantOperationList.build(input[:operations]) unless input[:operations].nil?
+        data['Constraints'] = GrantConstraints.build(input[:constraints]) unless input[:constraints].nil?
+        data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -100,8 +103,8 @@ module AWS::SDK::KMS
     class GrantConstraints
       def self.build(input)
         data = {}
-        data['EncryptionContextSubset'] = Builders::EncryptionContextType.build(input[:encryption_context_subset]) unless input[:encryption_context_subset].nil?
-        data['EncryptionContextEquals'] = Builders::EncryptionContextType.build(input[:encryption_context_equals]) unless input[:encryption_context_equals].nil?
+        data['EncryptionContextSubset'] = EncryptionContextType.build(input[:encryption_context_subset]) unless input[:encryption_context_subset].nil?
+        data['EncryptionContextEquals'] = EncryptionContextType.build(input[:encryption_context_equals]) unless input[:encryption_context_equals].nil?
         data
       end
     end
@@ -144,9 +147,9 @@ module AWS::SDK::KMS
         data['Origin'] = input[:origin] unless input[:origin].nil?
         data['CustomKeyStoreId'] = input[:custom_key_store_id] unless input[:custom_key_store_id].nil?
         data['BypassPolicyLockoutSafetyCheck'] = input[:bypass_policy_lockout_safety_check] unless input[:bypass_policy_lockout_safety_check].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['MultiRegion'] = input[:multi_region] unless input[:multi_region].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -155,7 +158,7 @@ module AWS::SDK::KMS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -179,12 +182,12 @@ module AWS::SDK::KMS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'TrentService.Decrypt'
         data = {}
-        data['CiphertextBlob'] = Base64::encode64(input[:ciphertext_blob]).strip unless input[:ciphertext_blob].nil?
-        data['EncryptionContext'] = Builders::EncryptionContextType.build(input[:encryption_context]) unless input[:encryption_context].nil?
-        data['GrantTokens'] = Builders::GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
+        data['CiphertextBlob'] = ::Base64::encode64(input[:ciphertext_blob]).strip unless input[:ciphertext_blob].nil?
+        data['EncryptionContext'] = EncryptionContextType.build(input[:encryption_context]) unless input[:encryption_context].nil?
+        data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['EncryptionAlgorithm'] = input[:encryption_algorithm] unless input[:encryption_algorithm].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -197,7 +200,7 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.DeleteAlias'
         data = {}
         data['AliasName'] = input[:alias_name] unless input[:alias_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -210,7 +213,7 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.DeleteCustomKeyStore'
         data = {}
         data['CustomKeyStoreId'] = input[:custom_key_store_id] unless input[:custom_key_store_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -223,7 +226,7 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.DeleteImportedKeyMaterial'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -239,7 +242,7 @@ module AWS::SDK::KMS
         data['CustomKeyStoreName'] = input[:custom_key_store_name] unless input[:custom_key_store_name].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -252,8 +255,8 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.DescribeKey'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        data['GrantTokens'] = Builders::GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -266,7 +269,7 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.DisableKey'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -279,7 +282,7 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.DisableKeyRotation'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -292,7 +295,7 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.DisconnectCustomKeyStore'
         data = {}
         data['CustomKeyStoreId'] = input[:custom_key_store_id] unless input[:custom_key_store_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -305,7 +308,7 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.EnableKey'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -318,7 +321,7 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.EnableKeyRotation'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -331,11 +334,11 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.Encrypt'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        data['Plaintext'] = Base64::encode64(input[:plaintext]).strip unless input[:plaintext].nil?
-        data['EncryptionContext'] = Builders::EncryptionContextType.build(input[:encryption_context]) unless input[:encryption_context].nil?
-        data['GrantTokens'] = Builders::GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
+        data['Plaintext'] = ::Base64::encode64(input[:plaintext]).strip unless input[:plaintext].nil?
+        data['EncryptionContext'] = EncryptionContextType.build(input[:encryption_context]) unless input[:encryption_context].nil?
+        data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
         data['EncryptionAlgorithm'] = input[:encryption_algorithm] unless input[:encryption_algorithm].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -348,11 +351,11 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.GenerateDataKey'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        data['EncryptionContext'] = Builders::EncryptionContextType.build(input[:encryption_context]) unless input[:encryption_context].nil?
+        data['EncryptionContext'] = EncryptionContextType.build(input[:encryption_context]) unless input[:encryption_context].nil?
         data['NumberOfBytes'] = input[:number_of_bytes] unless input[:number_of_bytes].nil?
         data['KeySpec'] = input[:key_spec] unless input[:key_spec].nil?
-        data['GrantTokens'] = Builders::GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -364,11 +367,11 @@ module AWS::SDK::KMS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'TrentService.GenerateDataKeyPair'
         data = {}
-        data['EncryptionContext'] = Builders::EncryptionContextType.build(input[:encryption_context]) unless input[:encryption_context].nil?
+        data['EncryptionContext'] = EncryptionContextType.build(input[:encryption_context]) unless input[:encryption_context].nil?
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['KeyPairSpec'] = input[:key_pair_spec] unless input[:key_pair_spec].nil?
-        data['GrantTokens'] = Builders::GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -380,11 +383,11 @@ module AWS::SDK::KMS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'TrentService.GenerateDataKeyPairWithoutPlaintext'
         data = {}
-        data['EncryptionContext'] = Builders::EncryptionContextType.build(input[:encryption_context]) unless input[:encryption_context].nil?
+        data['EncryptionContext'] = EncryptionContextType.build(input[:encryption_context]) unless input[:encryption_context].nil?
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['KeyPairSpec'] = input[:key_pair_spec] unless input[:key_pair_spec].nil?
-        data['GrantTokens'] = Builders::GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -397,11 +400,11 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.GenerateDataKeyWithoutPlaintext'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        data['EncryptionContext'] = Builders::EncryptionContextType.build(input[:encryption_context]) unless input[:encryption_context].nil?
+        data['EncryptionContext'] = EncryptionContextType.build(input[:encryption_context]) unless input[:encryption_context].nil?
         data['KeySpec'] = input[:key_spec] unless input[:key_spec].nil?
         data['NumberOfBytes'] = input[:number_of_bytes] unless input[:number_of_bytes].nil?
-        data['GrantTokens'] = Builders::GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -413,11 +416,11 @@ module AWS::SDK::KMS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'TrentService.GenerateMac'
         data = {}
-        data['Message'] = Base64::encode64(input[:message]).strip unless input[:message].nil?
+        data['Message'] = ::Base64::encode64(input[:message]).strip unless input[:message].nil?
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['MacAlgorithm'] = input[:mac_algorithm] unless input[:mac_algorithm].nil?
-        data['GrantTokens'] = Builders::GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -431,7 +434,7 @@ module AWS::SDK::KMS
         data = {}
         data['NumberOfBytes'] = input[:number_of_bytes] unless input[:number_of_bytes].nil?
         data['CustomKeyStoreId'] = input[:custom_key_store_id] unless input[:custom_key_store_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -445,7 +448,7 @@ module AWS::SDK::KMS
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['PolicyName'] = input[:policy_name] unless input[:policy_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -458,7 +461,7 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.GetKeyRotationStatus'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -473,7 +476,7 @@ module AWS::SDK::KMS
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['WrappingAlgorithm'] = input[:wrapping_algorithm] unless input[:wrapping_algorithm].nil?
         data['WrappingKeySpec'] = input[:wrapping_key_spec] unless input[:wrapping_key_spec].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -486,8 +489,8 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.GetPublicKey'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        data['GrantTokens'] = Builders::GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -500,11 +503,11 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.ImportKeyMaterial'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        data['ImportToken'] = Base64::encode64(input[:import_token]).strip unless input[:import_token].nil?
-        data['EncryptedKeyMaterial'] = Base64::encode64(input[:encrypted_key_material]).strip unless input[:encrypted_key_material].nil?
+        data['ImportToken'] = ::Base64::encode64(input[:import_token]).strip unless input[:import_token].nil?
+        data['EncryptedKeyMaterial'] = ::Base64::encode64(input[:encrypted_key_material]).strip unless input[:encrypted_key_material].nil?
         data['ValidTo'] = Hearth::TimeHelper.to_epoch_seconds(input[:valid_to]).to_i unless input[:valid_to].nil?
         data['ExpirationModel'] = input[:expiration_model] unless input[:expiration_model].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -519,7 +522,7 @@ module AWS::SDK::KMS
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -536,7 +539,7 @@ module AWS::SDK::KMS
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['GrantId'] = input[:grant_id] unless input[:grant_id].nil?
         data['GranteePrincipal'] = input[:grantee_principal] unless input[:grantee_principal].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -551,7 +554,7 @@ module AWS::SDK::KMS
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -565,7 +568,7 @@ module AWS::SDK::KMS
         data = {}
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -580,7 +583,7 @@ module AWS::SDK::KMS
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -595,7 +598,7 @@ module AWS::SDK::KMS
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
         data['RetiringPrincipal'] = input[:retiring_principal] unless input[:retiring_principal].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -611,7 +614,7 @@ module AWS::SDK::KMS
         data['PolicyName'] = input[:policy_name] unless input[:policy_name].nil?
         data['Policy'] = input[:policy] unless input[:policy].nil?
         data['BypassPolicyLockoutSafetyCheck'] = input[:bypass_policy_lockout_safety_check] unless input[:bypass_policy_lockout_safety_check].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -623,15 +626,15 @@ module AWS::SDK::KMS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'TrentService.ReEncrypt'
         data = {}
-        data['CiphertextBlob'] = Base64::encode64(input[:ciphertext_blob]).strip unless input[:ciphertext_blob].nil?
-        data['SourceEncryptionContext'] = Builders::EncryptionContextType.build(input[:source_encryption_context]) unless input[:source_encryption_context].nil?
+        data['CiphertextBlob'] = ::Base64::encode64(input[:ciphertext_blob]).strip unless input[:ciphertext_blob].nil?
+        data['SourceEncryptionContext'] = EncryptionContextType.build(input[:source_encryption_context]) unless input[:source_encryption_context].nil?
         data['SourceKeyId'] = input[:source_key_id] unless input[:source_key_id].nil?
         data['DestinationKeyId'] = input[:destination_key_id] unless input[:destination_key_id].nil?
-        data['DestinationEncryptionContext'] = Builders::EncryptionContextType.build(input[:destination_encryption_context]) unless input[:destination_encryption_context].nil?
+        data['DestinationEncryptionContext'] = EncryptionContextType.build(input[:destination_encryption_context]) unless input[:destination_encryption_context].nil?
         data['SourceEncryptionAlgorithm'] = input[:source_encryption_algorithm] unless input[:source_encryption_algorithm].nil?
         data['DestinationEncryptionAlgorithm'] = input[:destination_encryption_algorithm] unless input[:destination_encryption_algorithm].nil?
-        data['GrantTokens'] = Builders::GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -648,8 +651,8 @@ module AWS::SDK::KMS
         data['Policy'] = input[:policy] unless input[:policy].nil?
         data['BypassPolicyLockoutSafetyCheck'] = input[:bypass_policy_lockout_safety_check] unless input[:bypass_policy_lockout_safety_check].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -664,7 +667,7 @@ module AWS::SDK::KMS
         data['GrantToken'] = input[:grant_token] unless input[:grant_token].nil?
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['GrantId'] = input[:grant_id] unless input[:grant_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -678,7 +681,7 @@ module AWS::SDK::KMS
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['GrantId'] = input[:grant_id] unless input[:grant_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -692,7 +695,7 @@ module AWS::SDK::KMS
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['PendingWindowInDays'] = input[:pending_window_in_days] unless input[:pending_window_in_days].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -705,11 +708,11 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.Sign'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        data['Message'] = Base64::encode64(input[:message]).strip unless input[:message].nil?
+        data['Message'] = ::Base64::encode64(input[:message]).strip unless input[:message].nil?
         data['MessageType'] = input[:message_type] unless input[:message_type].nil?
-        data['GrantTokens'] = Builders::GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
+        data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
         data['SigningAlgorithm'] = input[:signing_algorithm] unless input[:signing_algorithm].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -722,8 +725,8 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.TagResource'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -736,8 +739,8 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.UntagResource'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -762,7 +765,7 @@ module AWS::SDK::KMS
         data = {}
         data['AliasName'] = input[:alias_name] unless input[:alias_name].nil?
         data['TargetKeyId'] = input[:target_key_id] unless input[:target_key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -778,7 +781,7 @@ module AWS::SDK::KMS
         data['NewCustomKeyStoreName'] = input[:new_custom_key_store_name] unless input[:new_custom_key_store_name].nil?
         data['KeyStorePassword'] = input[:key_store_password] unless input[:key_store_password].nil?
         data['CloudHsmClusterId'] = input[:cloud_hsm_cluster_id] unless input[:cloud_hsm_cluster_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -792,7 +795,7 @@ module AWS::SDK::KMS
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -806,7 +809,7 @@ module AWS::SDK::KMS
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['PrimaryRegion'] = input[:primary_region] unless input[:primary_region].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -819,12 +822,12 @@ module AWS::SDK::KMS
         http_req.headers['X-Amz-Target'] = 'TrentService.Verify'
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
-        data['Message'] = Base64::encode64(input[:message]).strip unless input[:message].nil?
+        data['Message'] = ::Base64::encode64(input[:message]).strip unless input[:message].nil?
         data['MessageType'] = input[:message_type] unless input[:message_type].nil?
-        data['Signature'] = Base64::encode64(input[:signature]).strip unless input[:signature].nil?
+        data['Signature'] = ::Base64::encode64(input[:signature]).strip unless input[:signature].nil?
         data['SigningAlgorithm'] = input[:signing_algorithm] unless input[:signing_algorithm].nil?
-        data['GrantTokens'] = Builders::GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -836,12 +839,12 @@ module AWS::SDK::KMS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'TrentService.VerifyMac'
         data = {}
-        data['Message'] = Base64::encode64(input[:message]).strip unless input[:message].nil?
+        data['Message'] = ::Base64::encode64(input[:message]).strip unless input[:message].nil?
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['MacAlgorithm'] = input[:mac_algorithm] unless input[:mac_algorithm].nil?
-        data['Mac'] = Base64::encode64(input[:mac]).strip unless input[:mac].nil?
-        data['GrantTokens'] = Builders::GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Mac'] = ::Base64::encode64(input[:mac]).strip unless input[:mac].nil?
+        data['GrantTokens'] = GrantTokenList.build(input[:grant_tokens]) unless input[:grant_tokens].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

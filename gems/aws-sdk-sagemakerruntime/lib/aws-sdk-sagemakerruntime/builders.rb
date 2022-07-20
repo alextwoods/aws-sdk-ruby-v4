@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SageMakerRuntime
   module Builders
 
@@ -25,7 +27,7 @@ module AWS::SDK::SageMakerRuntime
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.body = StringIO.new(input[:body] || '')
+        http_req.body = ::StringIO.new(input[:body] || '')
         http_req.headers['Content-Type'] = input[:content_type] unless input[:content_type].nil? || input[:content_type].empty?
         http_req.headers['Accept'] = input[:accept] unless input[:accept].nil? || input[:accept].empty?
         http_req.headers['X-Amzn-SageMaker-Custom-Attributes'] = input[:custom_attributes] unless input[:custom_attributes].nil? || input[:custom_attributes].empty?

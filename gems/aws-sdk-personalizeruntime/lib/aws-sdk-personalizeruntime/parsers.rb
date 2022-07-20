@@ -15,7 +15,7 @@ module AWS::SDK::PersonalizeRuntime
       def self.parse(http_resp)
         data = Types::GetPersonalizedRankingOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.personalized_ranking = (Parsers::ItemList.parse(map['personalizedRanking']) unless map['personalizedRanking'].nil?)
+        data.personalized_ranking = (ItemList.parse(map['personalizedRanking']) unless map['personalizedRanking'].nil?)
         data.recommendation_id = map['recommendationId']
         data
       end
@@ -25,7 +25,7 @@ module AWS::SDK::PersonalizeRuntime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PredictedItem.parse(value) unless value.nil?
+          data << PredictedItem.parse(value) unless value.nil?
         end
         data
       end
@@ -65,7 +65,7 @@ module AWS::SDK::PersonalizeRuntime
       def self.parse(http_resp)
         data = Types::GetRecommendationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.item_list = (Parsers::ItemList.parse(map['itemList']) unless map['itemList'].nil?)
+        data.item_list = (ItemList.parse(map['itemList']) unless map['itemList'].nil?)
         data.recommendation_id = map['recommendationId']
         data
       end

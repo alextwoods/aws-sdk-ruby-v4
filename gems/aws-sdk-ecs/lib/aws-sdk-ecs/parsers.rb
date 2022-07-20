@@ -17,7 +17,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.capacity_provider = (Parsers::CapacityProvider.parse(map['capacityProvider']) unless map['capacityProvider'].nil?)
+        data.capacity_provider = (CapacityProvider.parse(map['capacityProvider']) unless map['capacityProvider'].nil?)
         data
       end
     end
@@ -28,10 +28,10 @@ module AWS::SDK::ECS
         data.capacity_provider_arn = map['capacityProviderArn']
         data.name = map['name']
         data.status = map['status']
-        data.auto_scaling_group_provider = (Parsers::AutoScalingGroupProvider.parse(map['autoScalingGroupProvider']) unless map['autoScalingGroupProvider'].nil?)
+        data.auto_scaling_group_provider = (AutoScalingGroupProvider.parse(map['autoScalingGroupProvider']) unless map['autoScalingGroupProvider'].nil?)
         data.update_status = map['updateStatus']
         data.update_status_reason = map['updateStatusReason']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -39,7 +39,7 @@ module AWS::SDK::ECS
     class Tags
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -57,7 +57,7 @@ module AWS::SDK::ECS
       def self.parse(map)
         data = Types::AutoScalingGroupProvider.new
         data.auto_scaling_group_arn = map['autoScalingGroupArn']
-        data.managed_scaling = (Parsers::ManagedScaling.parse(map['managedScaling']) unless map['managedScaling'].nil?)
+        data.managed_scaling = (ManagedScaling.parse(map['managedScaling']) unless map['managedScaling'].nil?)
         data.managed_termination_protection = map['managedTerminationProtection']
         return data
       end
@@ -142,7 +142,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['cluster']) unless map['cluster'].nil?)
+        data.cluster = (Cluster.parse(map['cluster']) unless map['cluster'].nil?)
         data
       end
     end
@@ -152,18 +152,18 @@ module AWS::SDK::ECS
         data = Types::Cluster.new
         data.cluster_arn = map['clusterArn']
         data.cluster_name = map['clusterName']
-        data.configuration = (Parsers::ClusterConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
+        data.configuration = (ClusterConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
         data.status = map['status']
         data.registered_container_instances_count = map['registeredContainerInstancesCount']
         data.running_tasks_count = map['runningTasksCount']
         data.pending_tasks_count = map['pendingTasksCount']
         data.active_services_count = map['activeServicesCount']
-        data.statistics = (Parsers::Statistics.parse(map['statistics']) unless map['statistics'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
-        data.settings = (Parsers::ClusterSettings.parse(map['settings']) unless map['settings'].nil?)
-        data.capacity_providers = (Parsers::StringList.parse(map['capacityProviders']) unless map['capacityProviders'].nil?)
-        data.default_capacity_provider_strategy = (Parsers::CapacityProviderStrategy.parse(map['defaultCapacityProviderStrategy']) unless map['defaultCapacityProviderStrategy'].nil?)
-        data.attachments = (Parsers::Attachments.parse(map['attachments']) unless map['attachments'].nil?)
+        data.statistics = (Statistics.parse(map['statistics']) unless map['statistics'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.settings = (ClusterSettings.parse(map['settings']) unless map['settings'].nil?)
+        data.capacity_providers = (StringList.parse(map['capacityProviders']) unless map['capacityProviders'].nil?)
+        data.default_capacity_provider_strategy = (CapacityProviderStrategy.parse(map['defaultCapacityProviderStrategy']) unless map['defaultCapacityProviderStrategy'].nil?)
+        data.attachments = (Attachments.parse(map['attachments']) unless map['attachments'].nil?)
         data.attachments_status = map['attachmentsStatus']
         return data
       end
@@ -172,7 +172,7 @@ module AWS::SDK::ECS
     class Attachments
       def self.parse(list)
         list.map do |value|
-          Parsers::Attachment.parse(value) unless value.nil?
+          Attachment.parse(value) unless value.nil?
         end
       end
     end
@@ -183,7 +183,7 @@ module AWS::SDK::ECS
         data.id = map['id']
         data.type = map['type']
         data.status = map['status']
-        data.details = (Parsers::AttachmentDetails.parse(map['details']) unless map['details'].nil?)
+        data.details = (AttachmentDetails.parse(map['details']) unless map['details'].nil?)
         return data
       end
     end
@@ -191,7 +191,7 @@ module AWS::SDK::ECS
     class AttachmentDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::KeyValuePair.parse(value) unless value.nil?
+          KeyValuePair.parse(value) unless value.nil?
         end
       end
     end
@@ -208,7 +208,7 @@ module AWS::SDK::ECS
     class CapacityProviderStrategy
       def self.parse(list)
         list.map do |value|
-          Parsers::CapacityProviderStrategyItem.parse(value) unless value.nil?
+          CapacityProviderStrategyItem.parse(value) unless value.nil?
         end
       end
     end
@@ -234,7 +234,7 @@ module AWS::SDK::ECS
     class ClusterSettings
       def self.parse(list)
         list.map do |value|
-          Parsers::ClusterSetting.parse(value) unless value.nil?
+          ClusterSetting.parse(value) unless value.nil?
         end
       end
     end
@@ -251,7 +251,7 @@ module AWS::SDK::ECS
     class Statistics
       def self.parse(list)
         list.map do |value|
-          Parsers::KeyValuePair.parse(value) unless value.nil?
+          KeyValuePair.parse(value) unless value.nil?
         end
       end
     end
@@ -259,7 +259,7 @@ module AWS::SDK::ECS
     class ClusterConfiguration
       def self.parse(map)
         data = Types::ClusterConfiguration.new
-        data.execute_command_configuration = (Parsers::ExecuteCommandConfiguration.parse(map['executeCommandConfiguration']) unless map['executeCommandConfiguration'].nil?)
+        data.execute_command_configuration = (ExecuteCommandConfiguration.parse(map['executeCommandConfiguration']) unless map['executeCommandConfiguration'].nil?)
         return data
       end
     end
@@ -269,7 +269,7 @@ module AWS::SDK::ECS
         data = Types::ExecuteCommandConfiguration.new
         data.kms_key_id = map['kmsKeyId']
         data.logging = map['logging']
-        data.log_configuration = (Parsers::ExecuteCommandLogConfiguration.parse(map['logConfiguration']) unless map['logConfiguration'].nil?)
+        data.log_configuration = (ExecuteCommandLogConfiguration.parse(map['logConfiguration']) unless map['logConfiguration'].nil?)
         return data
       end
     end
@@ -293,7 +293,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service = (Parsers::Service.parse(map['service']) unless map['service'].nil?)
+        data.service = (Service.parse(map['service']) unless map['service'].nil?)
         data
       end
     end
@@ -304,30 +304,30 @@ module AWS::SDK::ECS
         data.service_arn = map['serviceArn']
         data.service_name = map['serviceName']
         data.cluster_arn = map['clusterArn']
-        data.load_balancers = (Parsers::LoadBalancers.parse(map['loadBalancers']) unless map['loadBalancers'].nil?)
-        data.service_registries = (Parsers::ServiceRegistries.parse(map['serviceRegistries']) unless map['serviceRegistries'].nil?)
+        data.load_balancers = (LoadBalancers.parse(map['loadBalancers']) unless map['loadBalancers'].nil?)
+        data.service_registries = (ServiceRegistries.parse(map['serviceRegistries']) unless map['serviceRegistries'].nil?)
         data.status = map['status']
         data.desired_count = map['desiredCount']
         data.running_count = map['runningCount']
         data.pending_count = map['pendingCount']
         data.launch_type = map['launchType']
-        data.capacity_provider_strategy = (Parsers::CapacityProviderStrategy.parse(map['capacityProviderStrategy']) unless map['capacityProviderStrategy'].nil?)
+        data.capacity_provider_strategy = (CapacityProviderStrategy.parse(map['capacityProviderStrategy']) unless map['capacityProviderStrategy'].nil?)
         data.platform_version = map['platformVersion']
         data.platform_family = map['platformFamily']
         data.task_definition = map['taskDefinition']
-        data.deployment_configuration = (Parsers::DeploymentConfiguration.parse(map['deploymentConfiguration']) unless map['deploymentConfiguration'].nil?)
-        data.task_sets = (Parsers::TaskSets.parse(map['taskSets']) unless map['taskSets'].nil?)
-        data.deployments = (Parsers::Deployments.parse(map['deployments']) unless map['deployments'].nil?)
+        data.deployment_configuration = (DeploymentConfiguration.parse(map['deploymentConfiguration']) unless map['deploymentConfiguration'].nil?)
+        data.task_sets = (TaskSets.parse(map['taskSets']) unless map['taskSets'].nil?)
+        data.deployments = (Deployments.parse(map['deployments']) unless map['deployments'].nil?)
         data.role_arn = map['roleArn']
-        data.events = (Parsers::ServiceEvents.parse(map['events']) unless map['events'].nil?)
+        data.events = (ServiceEvents.parse(map['events']) unless map['events'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.placement_constraints = (Parsers::PlacementConstraints.parse(map['placementConstraints']) unless map['placementConstraints'].nil?)
-        data.placement_strategy = (Parsers::PlacementStrategies.parse(map['placementStrategy']) unless map['placementStrategy'].nil?)
-        data.network_configuration = (Parsers::NetworkConfiguration.parse(map['networkConfiguration']) unless map['networkConfiguration'].nil?)
+        data.placement_constraints = (PlacementConstraints.parse(map['placementConstraints']) unless map['placementConstraints'].nil?)
+        data.placement_strategy = (PlacementStrategies.parse(map['placementStrategy']) unless map['placementStrategy'].nil?)
+        data.network_configuration = (NetworkConfiguration.parse(map['networkConfiguration']) unless map['networkConfiguration'].nil?)
         data.health_check_grace_period_seconds = map['healthCheckGracePeriodSeconds']
         data.scheduling_strategy = map['schedulingStrategy']
-        data.deployment_controller = (Parsers::DeploymentController.parse(map['deploymentController']) unless map['deploymentController'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.deployment_controller = (DeploymentController.parse(map['deploymentController']) unless map['deploymentController'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.created_by = map['createdBy']
         data.enable_ecs_managed_tags = map['enableECSManagedTags']
         data.propagate_tags = map['propagateTags']
@@ -347,7 +347,7 @@ module AWS::SDK::ECS
     class NetworkConfiguration
       def self.parse(map)
         data = Types::NetworkConfiguration.new
-        data.awsvpc_configuration = (Parsers::AwsVpcConfiguration.parse(map['awsvpcConfiguration']) unless map['awsvpcConfiguration'].nil?)
+        data.awsvpc_configuration = (AwsVpcConfiguration.parse(map['awsvpcConfiguration']) unless map['awsvpcConfiguration'].nil?)
         return data
       end
     end
@@ -355,8 +355,8 @@ module AWS::SDK::ECS
     class AwsVpcConfiguration
       def self.parse(map)
         data = Types::AwsVpcConfiguration.new
-        data.subnets = (Parsers::StringList.parse(map['subnets']) unless map['subnets'].nil?)
-        data.security_groups = (Parsers::StringList.parse(map['securityGroups']) unless map['securityGroups'].nil?)
+        data.subnets = (StringList.parse(map['subnets']) unless map['subnets'].nil?)
+        data.security_groups = (StringList.parse(map['securityGroups']) unless map['securityGroups'].nil?)
         data.assign_public_ip = map['assignPublicIp']
         return data
       end
@@ -365,7 +365,7 @@ module AWS::SDK::ECS
     class PlacementStrategies
       def self.parse(list)
         list.map do |value|
-          Parsers::PlacementStrategy.parse(value) unless value.nil?
+          PlacementStrategy.parse(value) unless value.nil?
         end
       end
     end
@@ -382,7 +382,7 @@ module AWS::SDK::ECS
     class PlacementConstraints
       def self.parse(list)
         list.map do |value|
-          Parsers::PlacementConstraint.parse(value) unless value.nil?
+          PlacementConstraint.parse(value) unless value.nil?
         end
       end
     end
@@ -399,7 +399,7 @@ module AWS::SDK::ECS
     class ServiceEvents
       def self.parse(list)
         list.map do |value|
-          Parsers::ServiceEvent.parse(value) unless value.nil?
+          ServiceEvent.parse(value) unless value.nil?
         end
       end
     end
@@ -417,7 +417,7 @@ module AWS::SDK::ECS
     class Deployments
       def self.parse(list)
         list.map do |value|
-          Parsers::Deployment.parse(value) unless value.nil?
+          Deployment.parse(value) unless value.nil?
         end
       end
     end
@@ -434,11 +434,11 @@ module AWS::SDK::ECS
         data.failed_tasks = map['failedTasks']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.updated_at = Time.at(map['updatedAt'].to_i) if map['updatedAt']
-        data.capacity_provider_strategy = (Parsers::CapacityProviderStrategy.parse(map['capacityProviderStrategy']) unless map['capacityProviderStrategy'].nil?)
+        data.capacity_provider_strategy = (CapacityProviderStrategy.parse(map['capacityProviderStrategy']) unless map['capacityProviderStrategy'].nil?)
         data.launch_type = map['launchType']
         data.platform_version = map['platformVersion']
         data.platform_family = map['platformFamily']
-        data.network_configuration = (Parsers::NetworkConfiguration.parse(map['networkConfiguration']) unless map['networkConfiguration'].nil?)
+        data.network_configuration = (NetworkConfiguration.parse(map['networkConfiguration']) unless map['networkConfiguration'].nil?)
         data.rollout_state = map['rolloutState']
         data.rollout_state_reason = map['rolloutStateReason']
         return data
@@ -448,7 +448,7 @@ module AWS::SDK::ECS
     class TaskSets
       def self.parse(list)
         list.map do |value|
-          Parsers::TaskSet.parse(value) unless value.nil?
+          TaskSet.parse(value) unless value.nil?
         end
       end
     end
@@ -470,16 +470,16 @@ module AWS::SDK::ECS
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.updated_at = Time.at(map['updatedAt'].to_i) if map['updatedAt']
         data.launch_type = map['launchType']
-        data.capacity_provider_strategy = (Parsers::CapacityProviderStrategy.parse(map['capacityProviderStrategy']) unless map['capacityProviderStrategy'].nil?)
+        data.capacity_provider_strategy = (CapacityProviderStrategy.parse(map['capacityProviderStrategy']) unless map['capacityProviderStrategy'].nil?)
         data.platform_version = map['platformVersion']
         data.platform_family = map['platformFamily']
-        data.network_configuration = (Parsers::NetworkConfiguration.parse(map['networkConfiguration']) unless map['networkConfiguration'].nil?)
-        data.load_balancers = (Parsers::LoadBalancers.parse(map['loadBalancers']) unless map['loadBalancers'].nil?)
-        data.service_registries = (Parsers::ServiceRegistries.parse(map['serviceRegistries']) unless map['serviceRegistries'].nil?)
-        data.scale = (Parsers::Scale.parse(map['scale']) unless map['scale'].nil?)
+        data.network_configuration = (NetworkConfiguration.parse(map['networkConfiguration']) unless map['networkConfiguration'].nil?)
+        data.load_balancers = (LoadBalancers.parse(map['loadBalancers']) unless map['loadBalancers'].nil?)
+        data.service_registries = (ServiceRegistries.parse(map['serviceRegistries']) unless map['serviceRegistries'].nil?)
+        data.scale = (Scale.parse(map['scale']) unless map['scale'].nil?)
         data.stability_status = map['stabilityStatus']
         data.stability_status_at = Time.at(map['stabilityStatusAt'].to_i) if map['stabilityStatusAt']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -496,7 +496,7 @@ module AWS::SDK::ECS
     class ServiceRegistries
       def self.parse(list)
         list.map do |value|
-          Parsers::ServiceRegistry.parse(value) unless value.nil?
+          ServiceRegistry.parse(value) unless value.nil?
         end
       end
     end
@@ -515,7 +515,7 @@ module AWS::SDK::ECS
     class LoadBalancers
       def self.parse(list)
         list.map do |value|
-          Parsers::LoadBalancer.parse(value) unless value.nil?
+          LoadBalancer.parse(value) unless value.nil?
         end
       end
     end
@@ -534,7 +534,7 @@ module AWS::SDK::ECS
     class DeploymentConfiguration
       def self.parse(map)
         data = Types::DeploymentConfiguration.new
-        data.deployment_circuit_breaker = (Parsers::DeploymentCircuitBreaker.parse(map['deploymentCircuitBreaker']) unless map['deploymentCircuitBreaker'].nil?)
+        data.deployment_circuit_breaker = (DeploymentCircuitBreaker.parse(map['deploymentCircuitBreaker']) unless map['deploymentCircuitBreaker'].nil?)
         data.maximum_percent = map['maximumPercent']
         data.minimum_healthy_percent = map['minimumHealthyPercent']
         return data
@@ -617,7 +617,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.task_set = (Parsers::TaskSet.parse(map['taskSet']) unless map['taskSet'].nil?)
+        data.task_set = (TaskSet.parse(map['taskSet']) unless map['taskSet'].nil?)
         data
       end
     end
@@ -653,7 +653,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.setting = (Parsers::Setting.parse(map['setting']) unless map['setting'].nil?)
+        data.setting = (Setting.parse(map['setting']) unless map['setting'].nil?)
         data
       end
     end
@@ -675,7 +675,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.attributes = (Parsers::Attributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (Attributes.parse(map['attributes']) unless map['attributes'].nil?)
         data
       end
     end
@@ -683,7 +683,7 @@ module AWS::SDK::ECS
     class Attributes
       def self.parse(list)
         list.map do |value|
-          Parsers::Attribute.parse(value) unless value.nil?
+          Attribute.parse(value) unless value.nil?
         end
       end
     end
@@ -718,7 +718,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.capacity_provider = (Parsers::CapacityProvider.parse(map['capacityProvider']) unless map['capacityProvider'].nil?)
+        data.capacity_provider = (CapacityProvider.parse(map['capacityProvider']) unless map['capacityProvider'].nil?)
         data
       end
     end
@@ -730,7 +730,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['cluster']) unless map['cluster'].nil?)
+        data.cluster = (Cluster.parse(map['cluster']) unless map['cluster'].nil?)
         data
       end
     end
@@ -778,7 +778,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service = (Parsers::Service.parse(map['service']) unless map['service'].nil?)
+        data.service = (Service.parse(map['service']) unless map['service'].nil?)
         data
       end
     end
@@ -790,7 +790,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.task_set = (Parsers::TaskSet.parse(map['taskSet']) unless map['taskSet'].nil?)
+        data.task_set = (TaskSet.parse(map['taskSet']) unless map['taskSet'].nil?)
         data
       end
     end
@@ -814,7 +814,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.container_instance = (Parsers::ContainerInstance.parse(map['containerInstance']) unless map['containerInstance'].nil?)
+        data.container_instance = (ContainerInstance.parse(map['containerInstance']) unless map['containerInstance'].nil?)
         data
       end
     end
@@ -826,20 +826,20 @@ module AWS::SDK::ECS
         data.ec2_instance_id = map['ec2InstanceId']
         data.capacity_provider_name = map['capacityProviderName']
         data.version = map['version']
-        data.version_info = (Parsers::VersionInfo.parse(map['versionInfo']) unless map['versionInfo'].nil?)
-        data.remaining_resources = (Parsers::Resources.parse(map['remainingResources']) unless map['remainingResources'].nil?)
-        data.registered_resources = (Parsers::Resources.parse(map['registeredResources']) unless map['registeredResources'].nil?)
+        data.version_info = (VersionInfo.parse(map['versionInfo']) unless map['versionInfo'].nil?)
+        data.remaining_resources = (Resources.parse(map['remainingResources']) unless map['remainingResources'].nil?)
+        data.registered_resources = (Resources.parse(map['registeredResources']) unless map['registeredResources'].nil?)
         data.status = map['status']
         data.status_reason = map['statusReason']
         data.agent_connected = map['agentConnected']
         data.running_tasks_count = map['runningTasksCount']
         data.pending_tasks_count = map['pendingTasksCount']
         data.agent_update_status = map['agentUpdateStatus']
-        data.attributes = (Parsers::Attributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (Attributes.parse(map['attributes']) unless map['attributes'].nil?)
         data.registered_at = Time.at(map['registeredAt'].to_i) if map['registeredAt']
-        data.attachments = (Parsers::Attachments.parse(map['attachments']) unless map['attachments'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
-        data.health_status = (Parsers::ContainerInstanceHealthStatus.parse(map['healthStatus']) unless map['healthStatus'].nil?)
+        data.attachments = (Attachments.parse(map['attachments']) unless map['attachments'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.health_status = (ContainerInstanceHealthStatus.parse(map['healthStatus']) unless map['healthStatus'].nil?)
         return data
       end
     end
@@ -848,7 +848,7 @@ module AWS::SDK::ECS
       def self.parse(map)
         data = Types::ContainerInstanceHealthStatus.new
         data.overall_status = map['overallStatus']
-        data.details = (Parsers::InstanceHealthCheckResultList.parse(map['details']) unless map['details'].nil?)
+        data.details = (InstanceHealthCheckResultList.parse(map['details']) unless map['details'].nil?)
         return data
       end
     end
@@ -856,7 +856,7 @@ module AWS::SDK::ECS
     class InstanceHealthCheckResultList
       def self.parse(list)
         list.map do |value|
-          Parsers::InstanceHealthCheckResult.parse(value) unless value.nil?
+          InstanceHealthCheckResult.parse(value) unless value.nil?
         end
       end
     end
@@ -875,7 +875,7 @@ module AWS::SDK::ECS
     class Resources
       def self.parse(list)
         list.map do |value|
-          Parsers::Resource.parse(value) unless value.nil?
+          Resource.parse(value) unless value.nil?
         end
       end
     end
@@ -888,7 +888,7 @@ module AWS::SDK::ECS
         data.double_value = Hearth::NumberHelper.deserialize(map['doubleValue'])
         data.long_value = map['longValue']
         data.integer_value = map['integerValue']
-        data.string_set_value = (Parsers::StringList.parse(map['stringSetValue']) unless map['stringSetValue'].nil?)
+        data.string_set_value = (StringList.parse(map['stringSetValue']) unless map['stringSetValue'].nil?)
         return data
       end
     end
@@ -910,7 +910,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.task_definition = (Parsers::TaskDefinition.parse(map['taskDefinition']) unless map['taskDefinition'].nil?)
+        data.task_definition = (TaskDefinition.parse(map['taskDefinition']) unless map['taskDefinition'].nil?)
         data
       end
     end
@@ -919,29 +919,29 @@ module AWS::SDK::ECS
       def self.parse(map)
         data = Types::TaskDefinition.new
         data.task_definition_arn = map['taskDefinitionArn']
-        data.container_definitions = (Parsers::ContainerDefinitions.parse(map['containerDefinitions']) unless map['containerDefinitions'].nil?)
+        data.container_definitions = (ContainerDefinitions.parse(map['containerDefinitions']) unless map['containerDefinitions'].nil?)
         data.family = map['family']
         data.task_role_arn = map['taskRoleArn']
         data.execution_role_arn = map['executionRoleArn']
         data.network_mode = map['networkMode']
         data.revision = map['revision']
-        data.volumes = (Parsers::VolumeList.parse(map['volumes']) unless map['volumes'].nil?)
+        data.volumes = (VolumeList.parse(map['volumes']) unless map['volumes'].nil?)
         data.status = map['status']
-        data.requires_attributes = (Parsers::RequiresAttributes.parse(map['requiresAttributes']) unless map['requiresAttributes'].nil?)
-        data.placement_constraints = (Parsers::TaskDefinitionPlacementConstraints.parse(map['placementConstraints']) unless map['placementConstraints'].nil?)
-        data.compatibilities = (Parsers::CompatibilityList.parse(map['compatibilities']) unless map['compatibilities'].nil?)
-        data.runtime_platform = (Parsers::RuntimePlatform.parse(map['runtimePlatform']) unless map['runtimePlatform'].nil?)
-        data.requires_compatibilities = (Parsers::CompatibilityList.parse(map['requiresCompatibilities']) unless map['requiresCompatibilities'].nil?)
+        data.requires_attributes = (RequiresAttributes.parse(map['requiresAttributes']) unless map['requiresAttributes'].nil?)
+        data.placement_constraints = (TaskDefinitionPlacementConstraints.parse(map['placementConstraints']) unless map['placementConstraints'].nil?)
+        data.compatibilities = (CompatibilityList.parse(map['compatibilities']) unless map['compatibilities'].nil?)
+        data.runtime_platform = (RuntimePlatform.parse(map['runtimePlatform']) unless map['runtimePlatform'].nil?)
+        data.requires_compatibilities = (CompatibilityList.parse(map['requiresCompatibilities']) unless map['requiresCompatibilities'].nil?)
         data.cpu = map['cpu']
         data.memory = map['memory']
-        data.inference_accelerators = (Parsers::InferenceAccelerators.parse(map['inferenceAccelerators']) unless map['inferenceAccelerators'].nil?)
+        data.inference_accelerators = (InferenceAccelerators.parse(map['inferenceAccelerators']) unless map['inferenceAccelerators'].nil?)
         data.pid_mode = map['pidMode']
         data.ipc_mode = map['ipcMode']
-        data.proxy_configuration = (Parsers::ProxyConfiguration.parse(map['proxyConfiguration']) unless map['proxyConfiguration'].nil?)
+        data.proxy_configuration = (ProxyConfiguration.parse(map['proxyConfiguration']) unless map['proxyConfiguration'].nil?)
         data.registered_at = Time.at(map['registeredAt'].to_i) if map['registeredAt']
         data.deregistered_at = Time.at(map['deregisteredAt'].to_i) if map['deregisteredAt']
         data.registered_by = map['registeredBy']
-        data.ephemeral_storage = (Parsers::EphemeralStorage.parse(map['ephemeralStorage']) unless map['ephemeralStorage'].nil?)
+        data.ephemeral_storage = (EphemeralStorage.parse(map['ephemeralStorage']) unless map['ephemeralStorage'].nil?)
         return data
       end
     end
@@ -959,7 +959,7 @@ module AWS::SDK::ECS
         data = Types::ProxyConfiguration.new
         data.type = map['type']
         data.container_name = map['containerName']
-        data.properties = (Parsers::ProxyConfigurationProperties.parse(map['properties']) unless map['properties'].nil?)
+        data.properties = (ProxyConfigurationProperties.parse(map['properties']) unless map['properties'].nil?)
         return data
       end
     end
@@ -967,7 +967,7 @@ module AWS::SDK::ECS
     class ProxyConfigurationProperties
       def self.parse(list)
         list.map do |value|
-          Parsers::KeyValuePair.parse(value) unless value.nil?
+          KeyValuePair.parse(value) unless value.nil?
         end
       end
     end
@@ -975,7 +975,7 @@ module AWS::SDK::ECS
     class InferenceAccelerators
       def self.parse(list)
         list.map do |value|
-          Parsers::InferenceAccelerator.parse(value) unless value.nil?
+          InferenceAccelerator.parse(value) unless value.nil?
         end
       end
     end
@@ -1009,7 +1009,7 @@ module AWS::SDK::ECS
     class TaskDefinitionPlacementConstraints
       def self.parse(list)
         list.map do |value|
-          Parsers::TaskDefinitionPlacementConstraint.parse(value) unless value.nil?
+          TaskDefinitionPlacementConstraint.parse(value) unless value.nil?
         end
       end
     end
@@ -1026,7 +1026,7 @@ module AWS::SDK::ECS
     class RequiresAttributes
       def self.parse(list)
         list.map do |value|
-          Parsers::Attribute.parse(value) unless value.nil?
+          Attribute.parse(value) unless value.nil?
         end
       end
     end
@@ -1034,7 +1034,7 @@ module AWS::SDK::ECS
     class VolumeList
       def self.parse(list)
         list.map do |value|
-          Parsers::Volume.parse(value) unless value.nil?
+          Volume.parse(value) unless value.nil?
         end
       end
     end
@@ -1043,10 +1043,10 @@ module AWS::SDK::ECS
       def self.parse(map)
         data = Types::Volume.new
         data.name = map['name']
-        data.host = (Parsers::HostVolumeProperties.parse(map['host']) unless map['host'].nil?)
-        data.docker_volume_configuration = (Parsers::DockerVolumeConfiguration.parse(map['dockerVolumeConfiguration']) unless map['dockerVolumeConfiguration'].nil?)
-        data.efs_volume_configuration = (Parsers::EFSVolumeConfiguration.parse(map['efsVolumeConfiguration']) unless map['efsVolumeConfiguration'].nil?)
-        data.fsx_windows_file_server_volume_configuration = (Parsers::FSxWindowsFileServerVolumeConfiguration.parse(map['fsxWindowsFileServerVolumeConfiguration']) unless map['fsxWindowsFileServerVolumeConfiguration'].nil?)
+        data.host = (HostVolumeProperties.parse(map['host']) unless map['host'].nil?)
+        data.docker_volume_configuration = (DockerVolumeConfiguration.parse(map['dockerVolumeConfiguration']) unless map['dockerVolumeConfiguration'].nil?)
+        data.efs_volume_configuration = (EFSVolumeConfiguration.parse(map['efsVolumeConfiguration']) unless map['efsVolumeConfiguration'].nil?)
+        data.fsx_windows_file_server_volume_configuration = (FSxWindowsFileServerVolumeConfiguration.parse(map['fsxWindowsFileServerVolumeConfiguration']) unless map['fsxWindowsFileServerVolumeConfiguration'].nil?)
         return data
       end
     end
@@ -1056,7 +1056,7 @@ module AWS::SDK::ECS
         data = Types::FSxWindowsFileServerVolumeConfiguration.new
         data.file_system_id = map['fileSystemId']
         data.root_directory = map['rootDirectory']
-        data.authorization_config = (Parsers::FSxWindowsFileServerAuthorizationConfig.parse(map['authorizationConfig']) unless map['authorizationConfig'].nil?)
+        data.authorization_config = (FSxWindowsFileServerAuthorizationConfig.parse(map['authorizationConfig']) unless map['authorizationConfig'].nil?)
         return data
       end
     end
@@ -1077,7 +1077,7 @@ module AWS::SDK::ECS
         data.root_directory = map['rootDirectory']
         data.transit_encryption = map['transitEncryption']
         data.transit_encryption_port = map['transitEncryptionPort']
-        data.authorization_config = (Parsers::EFSAuthorizationConfig.parse(map['authorizationConfig']) unless map['authorizationConfig'].nil?)
+        data.authorization_config = (EFSAuthorizationConfig.parse(map['authorizationConfig']) unless map['authorizationConfig'].nil?)
         return data
       end
     end
@@ -1097,8 +1097,8 @@ module AWS::SDK::ECS
         data.scope = map['scope']
         data.autoprovision = map['autoprovision']
         data.driver = map['driver']
-        data.driver_opts = (Parsers::StringMap.parse(map['driverOpts']) unless map['driverOpts'].nil?)
-        data.labels = (Parsers::StringMap.parse(map['labels']) unless map['labels'].nil?)
+        data.driver_opts = (StringMap.parse(map['driverOpts']) unless map['driverOpts'].nil?)
+        data.labels = (StringMap.parse(map['labels']) unless map['labels'].nil?)
         return data
       end
     end
@@ -1124,7 +1124,7 @@ module AWS::SDK::ECS
     class ContainerDefinitions
       def self.parse(list)
         list.map do |value|
-          Parsers::ContainerDefinition.parse(value) unless value.nil?
+          ContainerDefinition.parse(value) unless value.nil?
         end
       end
     end
@@ -1134,22 +1134,22 @@ module AWS::SDK::ECS
         data = Types::ContainerDefinition.new
         data.name = map['name']
         data.image = map['image']
-        data.repository_credentials = (Parsers::RepositoryCredentials.parse(map['repositoryCredentials']) unless map['repositoryCredentials'].nil?)
+        data.repository_credentials = (RepositoryCredentials.parse(map['repositoryCredentials']) unless map['repositoryCredentials'].nil?)
         data.cpu = map['cpu']
         data.memory = map['memory']
         data.memory_reservation = map['memoryReservation']
-        data.links = (Parsers::StringList.parse(map['links']) unless map['links'].nil?)
-        data.port_mappings = (Parsers::PortMappingList.parse(map['portMappings']) unless map['portMappings'].nil?)
+        data.links = (StringList.parse(map['links']) unless map['links'].nil?)
+        data.port_mappings = (PortMappingList.parse(map['portMappings']) unless map['portMappings'].nil?)
         data.essential = map['essential']
-        data.entry_point = (Parsers::StringList.parse(map['entryPoint']) unless map['entryPoint'].nil?)
-        data.command = (Parsers::StringList.parse(map['command']) unless map['command'].nil?)
-        data.environment = (Parsers::EnvironmentVariables.parse(map['environment']) unless map['environment'].nil?)
-        data.environment_files = (Parsers::EnvironmentFiles.parse(map['environmentFiles']) unless map['environmentFiles'].nil?)
-        data.mount_points = (Parsers::MountPointList.parse(map['mountPoints']) unless map['mountPoints'].nil?)
-        data.volumes_from = (Parsers::VolumeFromList.parse(map['volumesFrom']) unless map['volumesFrom'].nil?)
-        data.linux_parameters = (Parsers::LinuxParameters.parse(map['linuxParameters']) unless map['linuxParameters'].nil?)
-        data.secrets = (Parsers::SecretList.parse(map['secrets']) unless map['secrets'].nil?)
-        data.depends_on = (Parsers::ContainerDependencies.parse(map['dependsOn']) unless map['dependsOn'].nil?)
+        data.entry_point = (StringList.parse(map['entryPoint']) unless map['entryPoint'].nil?)
+        data.command = (StringList.parse(map['command']) unless map['command'].nil?)
+        data.environment = (EnvironmentVariables.parse(map['environment']) unless map['environment'].nil?)
+        data.environment_files = (EnvironmentFiles.parse(map['environmentFiles']) unless map['environmentFiles'].nil?)
+        data.mount_points = (MountPointList.parse(map['mountPoints']) unless map['mountPoints'].nil?)
+        data.volumes_from = (VolumeFromList.parse(map['volumesFrom']) unless map['volumesFrom'].nil?)
+        data.linux_parameters = (LinuxParameters.parse(map['linuxParameters']) unless map['linuxParameters'].nil?)
+        data.secrets = (SecretList.parse(map['secrets']) unless map['secrets'].nil?)
+        data.depends_on = (ContainerDependencies.parse(map['dependsOn']) unless map['dependsOn'].nil?)
         data.start_timeout = map['startTimeout']
         data.stop_timeout = map['stopTimeout']
         data.hostname = map['hostname']
@@ -1158,19 +1158,19 @@ module AWS::SDK::ECS
         data.disable_networking = map['disableNetworking']
         data.privileged = map['privileged']
         data.readonly_root_filesystem = map['readonlyRootFilesystem']
-        data.dns_servers = (Parsers::StringList.parse(map['dnsServers']) unless map['dnsServers'].nil?)
-        data.dns_search_domains = (Parsers::StringList.parse(map['dnsSearchDomains']) unless map['dnsSearchDomains'].nil?)
-        data.extra_hosts = (Parsers::HostEntryList.parse(map['extraHosts']) unless map['extraHosts'].nil?)
-        data.docker_security_options = (Parsers::StringList.parse(map['dockerSecurityOptions']) unless map['dockerSecurityOptions'].nil?)
+        data.dns_servers = (StringList.parse(map['dnsServers']) unless map['dnsServers'].nil?)
+        data.dns_search_domains = (StringList.parse(map['dnsSearchDomains']) unless map['dnsSearchDomains'].nil?)
+        data.extra_hosts = (HostEntryList.parse(map['extraHosts']) unless map['extraHosts'].nil?)
+        data.docker_security_options = (StringList.parse(map['dockerSecurityOptions']) unless map['dockerSecurityOptions'].nil?)
         data.interactive = map['interactive']
         data.pseudo_terminal = map['pseudoTerminal']
-        data.docker_labels = (Parsers::DockerLabelsMap.parse(map['dockerLabels']) unless map['dockerLabels'].nil?)
-        data.ulimits = (Parsers::UlimitList.parse(map['ulimits']) unless map['ulimits'].nil?)
-        data.log_configuration = (Parsers::LogConfiguration.parse(map['logConfiguration']) unless map['logConfiguration'].nil?)
-        data.health_check = (Parsers::HealthCheck.parse(map['healthCheck']) unless map['healthCheck'].nil?)
-        data.system_controls = (Parsers::SystemControls.parse(map['systemControls']) unless map['systemControls'].nil?)
-        data.resource_requirements = (Parsers::ResourceRequirements.parse(map['resourceRequirements']) unless map['resourceRequirements'].nil?)
-        data.firelens_configuration = (Parsers::FirelensConfiguration.parse(map['firelensConfiguration']) unless map['firelensConfiguration'].nil?)
+        data.docker_labels = (DockerLabelsMap.parse(map['dockerLabels']) unless map['dockerLabels'].nil?)
+        data.ulimits = (UlimitList.parse(map['ulimits']) unless map['ulimits'].nil?)
+        data.log_configuration = (LogConfiguration.parse(map['logConfiguration']) unless map['logConfiguration'].nil?)
+        data.health_check = (HealthCheck.parse(map['healthCheck']) unless map['healthCheck'].nil?)
+        data.system_controls = (SystemControls.parse(map['systemControls']) unless map['systemControls'].nil?)
+        data.resource_requirements = (ResourceRequirements.parse(map['resourceRequirements']) unless map['resourceRequirements'].nil?)
+        data.firelens_configuration = (FirelensConfiguration.parse(map['firelensConfiguration']) unless map['firelensConfiguration'].nil?)
         return data
       end
     end
@@ -1179,7 +1179,7 @@ module AWS::SDK::ECS
       def self.parse(map)
         data = Types::FirelensConfiguration.new
         data.type = map['type']
-        data.options = (Parsers::FirelensConfigurationOptionsMap.parse(map['options']) unless map['options'].nil?)
+        data.options = (FirelensConfigurationOptionsMap.parse(map['options']) unless map['options'].nil?)
         return data
       end
     end
@@ -1197,7 +1197,7 @@ module AWS::SDK::ECS
     class ResourceRequirements
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceRequirement.parse(value) unless value.nil?
+          ResourceRequirement.parse(value) unless value.nil?
         end
       end
     end
@@ -1214,7 +1214,7 @@ module AWS::SDK::ECS
     class SystemControls
       def self.parse(list)
         list.map do |value|
-          Parsers::SystemControl.parse(value) unless value.nil?
+          SystemControl.parse(value) unless value.nil?
         end
       end
     end
@@ -1231,7 +1231,7 @@ module AWS::SDK::ECS
     class HealthCheck
       def self.parse(map)
         data = Types::HealthCheck.new
-        data.command = (Parsers::StringList.parse(map['command']) unless map['command'].nil?)
+        data.command = (StringList.parse(map['command']) unless map['command'].nil?)
         data.interval = map['interval']
         data.timeout = map['timeout']
         data.retries = map['retries']
@@ -1244,8 +1244,8 @@ module AWS::SDK::ECS
       def self.parse(map)
         data = Types::LogConfiguration.new
         data.log_driver = map['logDriver']
-        data.options = (Parsers::LogConfigurationOptionsMap.parse(map['options']) unless map['options'].nil?)
-        data.secret_options = (Parsers::SecretList.parse(map['secretOptions']) unless map['secretOptions'].nil?)
+        data.options = (LogConfigurationOptionsMap.parse(map['options']) unless map['options'].nil?)
+        data.secret_options = (SecretList.parse(map['secretOptions']) unless map['secretOptions'].nil?)
         return data
       end
     end
@@ -1253,7 +1253,7 @@ module AWS::SDK::ECS
     class SecretList
       def self.parse(list)
         list.map do |value|
-          Parsers::Secret.parse(value) unless value.nil?
+          Secret.parse(value) unless value.nil?
         end
       end
     end
@@ -1280,7 +1280,7 @@ module AWS::SDK::ECS
     class UlimitList
       def self.parse(list)
         list.map do |value|
-          Parsers::Ulimit.parse(value) unless value.nil?
+          Ulimit.parse(value) unless value.nil?
         end
       end
     end
@@ -1308,7 +1308,7 @@ module AWS::SDK::ECS
     class HostEntryList
       def self.parse(list)
         list.map do |value|
-          Parsers::HostEntry.parse(value) unless value.nil?
+          HostEntry.parse(value) unless value.nil?
         end
       end
     end
@@ -1325,7 +1325,7 @@ module AWS::SDK::ECS
     class ContainerDependencies
       def self.parse(list)
         list.map do |value|
-          Parsers::ContainerDependency.parse(value) unless value.nil?
+          ContainerDependency.parse(value) unless value.nil?
         end
       end
     end
@@ -1342,11 +1342,11 @@ module AWS::SDK::ECS
     class LinuxParameters
       def self.parse(map)
         data = Types::LinuxParameters.new
-        data.capabilities = (Parsers::KernelCapabilities.parse(map['capabilities']) unless map['capabilities'].nil?)
-        data.devices = (Parsers::DevicesList.parse(map['devices']) unless map['devices'].nil?)
+        data.capabilities = (KernelCapabilities.parse(map['capabilities']) unless map['capabilities'].nil?)
+        data.devices = (DevicesList.parse(map['devices']) unless map['devices'].nil?)
         data.init_process_enabled = map['initProcessEnabled']
         data.shared_memory_size = map['sharedMemorySize']
-        data.tmpfs = (Parsers::TmpfsList.parse(map['tmpfs']) unless map['tmpfs'].nil?)
+        data.tmpfs = (TmpfsList.parse(map['tmpfs']) unless map['tmpfs'].nil?)
         data.max_swap = map['maxSwap']
         data.swappiness = map['swappiness']
         return data
@@ -1356,7 +1356,7 @@ module AWS::SDK::ECS
     class TmpfsList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tmpfs.parse(value) unless value.nil?
+          Tmpfs.parse(value) unless value.nil?
         end
       end
     end
@@ -1366,7 +1366,7 @@ module AWS::SDK::ECS
         data = Types::Tmpfs.new
         data.container_path = map['containerPath']
         data.size = map['size']
-        data.mount_options = (Parsers::StringList.parse(map['mountOptions']) unless map['mountOptions'].nil?)
+        data.mount_options = (StringList.parse(map['mountOptions']) unless map['mountOptions'].nil?)
         return data
       end
     end
@@ -1374,7 +1374,7 @@ module AWS::SDK::ECS
     class DevicesList
       def self.parse(list)
         list.map do |value|
-          Parsers::Device.parse(value) unless value.nil?
+          Device.parse(value) unless value.nil?
         end
       end
     end
@@ -1384,7 +1384,7 @@ module AWS::SDK::ECS
         data = Types::Device.new
         data.host_path = map['hostPath']
         data.container_path = map['containerPath']
-        data.permissions = (Parsers::DeviceCgroupPermissions.parse(map['permissions']) unless map['permissions'].nil?)
+        data.permissions = (DeviceCgroupPermissions.parse(map['permissions']) unless map['permissions'].nil?)
         return data
       end
     end
@@ -1400,8 +1400,8 @@ module AWS::SDK::ECS
     class KernelCapabilities
       def self.parse(map)
         data = Types::KernelCapabilities.new
-        data.add = (Parsers::StringList.parse(map['add']) unless map['add'].nil?)
-        data.drop = (Parsers::StringList.parse(map['drop']) unless map['drop'].nil?)
+        data.add = (StringList.parse(map['add']) unless map['add'].nil?)
+        data.drop = (StringList.parse(map['drop']) unless map['drop'].nil?)
         return data
       end
     end
@@ -1409,7 +1409,7 @@ module AWS::SDK::ECS
     class VolumeFromList
       def self.parse(list)
         list.map do |value|
-          Parsers::VolumeFrom.parse(value) unless value.nil?
+          VolumeFrom.parse(value) unless value.nil?
         end
       end
     end
@@ -1426,7 +1426,7 @@ module AWS::SDK::ECS
     class MountPointList
       def self.parse(list)
         list.map do |value|
-          Parsers::MountPoint.parse(value) unless value.nil?
+          MountPoint.parse(value) unless value.nil?
         end
       end
     end
@@ -1444,7 +1444,7 @@ module AWS::SDK::ECS
     class EnvironmentFiles
       def self.parse(list)
         list.map do |value|
-          Parsers::EnvironmentFile.parse(value) unless value.nil?
+          EnvironmentFile.parse(value) unless value.nil?
         end
       end
     end
@@ -1461,7 +1461,7 @@ module AWS::SDK::ECS
     class EnvironmentVariables
       def self.parse(list)
         list.map do |value|
-          Parsers::KeyValuePair.parse(value) unless value.nil?
+          KeyValuePair.parse(value) unless value.nil?
         end
       end
     end
@@ -1469,7 +1469,7 @@ module AWS::SDK::ECS
     class PortMappingList
       def self.parse(list)
         list.map do |value|
-          Parsers::PortMapping.parse(value) unless value.nil?
+          PortMapping.parse(value) unless value.nil?
         end
       end
     end
@@ -1499,8 +1499,8 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.capacity_providers = (Parsers::CapacityProviders.parse(map['capacityProviders']) unless map['capacityProviders'].nil?)
-        data.failures = (Parsers::Failures.parse(map['failures']) unless map['failures'].nil?)
+        data.capacity_providers = (CapacityProviders.parse(map['capacityProviders']) unless map['capacityProviders'].nil?)
+        data.failures = (Failures.parse(map['failures']) unless map['failures'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1509,7 +1509,7 @@ module AWS::SDK::ECS
     class Failures
       def self.parse(list)
         list.map do |value|
-          Parsers::Failure.parse(value) unless value.nil?
+          Failure.parse(value) unless value.nil?
         end
       end
     end
@@ -1527,7 +1527,7 @@ module AWS::SDK::ECS
     class CapacityProviders
       def self.parse(list)
         list.map do |value|
-          Parsers::CapacityProvider.parse(value) unless value.nil?
+          CapacityProvider.parse(value) unless value.nil?
         end
       end
     end
@@ -1539,8 +1539,8 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.clusters = (Parsers::Clusters.parse(map['clusters']) unless map['clusters'].nil?)
-        data.failures = (Parsers::Failures.parse(map['failures']) unless map['failures'].nil?)
+        data.clusters = (Clusters.parse(map['clusters']) unless map['clusters'].nil?)
+        data.failures = (Failures.parse(map['failures']) unless map['failures'].nil?)
         data
       end
     end
@@ -1548,7 +1548,7 @@ module AWS::SDK::ECS
     class Clusters
       def self.parse(list)
         list.map do |value|
-          Parsers::Cluster.parse(value) unless value.nil?
+          Cluster.parse(value) unless value.nil?
         end
       end
     end
@@ -1560,8 +1560,8 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.container_instances = (Parsers::ContainerInstances.parse(map['containerInstances']) unless map['containerInstances'].nil?)
-        data.failures = (Parsers::Failures.parse(map['failures']) unless map['failures'].nil?)
+        data.container_instances = (ContainerInstances.parse(map['containerInstances']) unless map['containerInstances'].nil?)
+        data.failures = (Failures.parse(map['failures']) unless map['failures'].nil?)
         data
       end
     end
@@ -1569,7 +1569,7 @@ module AWS::SDK::ECS
     class ContainerInstances
       def self.parse(list)
         list.map do |value|
-          Parsers::ContainerInstance.parse(value) unless value.nil?
+          ContainerInstance.parse(value) unless value.nil?
         end
       end
     end
@@ -1581,8 +1581,8 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.services = (Parsers::Services.parse(map['services']) unless map['services'].nil?)
-        data.failures = (Parsers::Failures.parse(map['failures']) unless map['failures'].nil?)
+        data.services = (Services.parse(map['services']) unless map['services'].nil?)
+        data.failures = (Failures.parse(map['failures']) unless map['failures'].nil?)
         data
       end
     end
@@ -1590,7 +1590,7 @@ module AWS::SDK::ECS
     class Services
       def self.parse(list)
         list.map do |value|
-          Parsers::Service.parse(value) unless value.nil?
+          Service.parse(value) unless value.nil?
         end
       end
     end
@@ -1602,8 +1602,8 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.task_definition = (Parsers::TaskDefinition.parse(map['taskDefinition']) unless map['taskDefinition'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.task_definition = (TaskDefinition.parse(map['taskDefinition']) unless map['taskDefinition'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1615,8 +1615,8 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.task_sets = (Parsers::TaskSets.parse(map['taskSets']) unless map['taskSets'].nil?)
-        data.failures = (Parsers::Failures.parse(map['failures']) unless map['failures'].nil?)
+        data.task_sets = (TaskSets.parse(map['taskSets']) unless map['taskSets'].nil?)
+        data.failures = (Failures.parse(map['failures']) unless map['failures'].nil?)
         data
       end
     end
@@ -1628,8 +1628,8 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tasks = (Parsers::Tasks.parse(map['tasks']) unless map['tasks'].nil?)
-        data.failures = (Parsers::Failures.parse(map['failures']) unless map['failures'].nil?)
+        data.tasks = (Tasks.parse(map['tasks']) unless map['tasks'].nil?)
+        data.failures = (Failures.parse(map['failures']) unless map['failures'].nil?)
         data
       end
     end
@@ -1637,7 +1637,7 @@ module AWS::SDK::ECS
     class Tasks
       def self.parse(list)
         list.map do |value|
-          Parsers::Task.parse(value) unless value.nil?
+          Task.parse(value) unless value.nil?
         end
       end
     end
@@ -1645,15 +1645,15 @@ module AWS::SDK::ECS
     class Task
       def self.parse(map)
         data = Types::Task.new
-        data.attachments = (Parsers::Attachments.parse(map['attachments']) unless map['attachments'].nil?)
-        data.attributes = (Parsers::Attributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attachments = (Attachments.parse(map['attachments']) unless map['attachments'].nil?)
+        data.attributes = (Attributes.parse(map['attributes']) unless map['attributes'].nil?)
         data.availability_zone = map['availabilityZone']
         data.capacity_provider_name = map['capacityProviderName']
         data.cluster_arn = map['clusterArn']
         data.connectivity = map['connectivity']
         data.connectivity_at = Time.at(map['connectivityAt'].to_i) if map['connectivityAt']
         data.container_instance_arn = map['containerInstanceArn']
-        data.containers = (Parsers::Containers.parse(map['containers']) unless map['containers'].nil?)
+        data.containers = (Containers.parse(map['containers']) unless map['containers'].nil?)
         data.cpu = map['cpu']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.desired_status = map['desiredStatus']
@@ -1661,11 +1661,11 @@ module AWS::SDK::ECS
         data.execution_stopped_at = Time.at(map['executionStoppedAt'].to_i) if map['executionStoppedAt']
         data.group = map['group']
         data.health_status = map['healthStatus']
-        data.inference_accelerators = (Parsers::InferenceAccelerators.parse(map['inferenceAccelerators']) unless map['inferenceAccelerators'].nil?)
+        data.inference_accelerators = (InferenceAccelerators.parse(map['inferenceAccelerators']) unless map['inferenceAccelerators'].nil?)
         data.last_status = map['lastStatus']
         data.launch_type = map['launchType']
         data.memory = map['memory']
-        data.overrides = (Parsers::TaskOverride.parse(map['overrides']) unless map['overrides'].nil?)
+        data.overrides = (TaskOverride.parse(map['overrides']) unless map['overrides'].nil?)
         data.platform_version = map['platformVersion']
         data.platform_family = map['platformFamily']
         data.pull_started_at = Time.at(map['pullStartedAt'].to_i) if map['pullStartedAt']
@@ -1676,11 +1676,11 @@ module AWS::SDK::ECS
         data.stopped_at = Time.at(map['stoppedAt'].to_i) if map['stoppedAt']
         data.stopped_reason = map['stoppedReason']
         data.stopping_at = Time.at(map['stoppingAt'].to_i) if map['stoppingAt']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.task_arn = map['taskArn']
         data.task_definition_arn = map['taskDefinitionArn']
         data.version = map['version']
-        data.ephemeral_storage = (Parsers::EphemeralStorage.parse(map['ephemeralStorage']) unless map['ephemeralStorage'].nil?)
+        data.ephemeral_storage = (EphemeralStorage.parse(map['ephemeralStorage']) unless map['ephemeralStorage'].nil?)
         return data
       end
     end
@@ -1688,13 +1688,13 @@ module AWS::SDK::ECS
     class TaskOverride
       def self.parse(map)
         data = Types::TaskOverride.new
-        data.container_overrides = (Parsers::ContainerOverrides.parse(map['containerOverrides']) unless map['containerOverrides'].nil?)
+        data.container_overrides = (ContainerOverrides.parse(map['containerOverrides']) unless map['containerOverrides'].nil?)
         data.cpu = map['cpu']
-        data.inference_accelerator_overrides = (Parsers::InferenceAcceleratorOverrides.parse(map['inferenceAcceleratorOverrides']) unless map['inferenceAcceleratorOverrides'].nil?)
+        data.inference_accelerator_overrides = (InferenceAcceleratorOverrides.parse(map['inferenceAcceleratorOverrides']) unless map['inferenceAcceleratorOverrides'].nil?)
         data.execution_role_arn = map['executionRoleArn']
         data.memory = map['memory']
         data.task_role_arn = map['taskRoleArn']
-        data.ephemeral_storage = (Parsers::EphemeralStorage.parse(map['ephemeralStorage']) unless map['ephemeralStorage'].nil?)
+        data.ephemeral_storage = (EphemeralStorage.parse(map['ephemeralStorage']) unless map['ephemeralStorage'].nil?)
         return data
       end
     end
@@ -1702,7 +1702,7 @@ module AWS::SDK::ECS
     class InferenceAcceleratorOverrides
       def self.parse(list)
         list.map do |value|
-          Parsers::InferenceAcceleratorOverride.parse(value) unless value.nil?
+          InferenceAcceleratorOverride.parse(value) unless value.nil?
         end
       end
     end
@@ -1719,7 +1719,7 @@ module AWS::SDK::ECS
     class ContainerOverrides
       def self.parse(list)
         list.map do |value|
-          Parsers::ContainerOverride.parse(value) unless value.nil?
+          ContainerOverride.parse(value) unless value.nil?
         end
       end
     end
@@ -1728,13 +1728,13 @@ module AWS::SDK::ECS
       def self.parse(map)
         data = Types::ContainerOverride.new
         data.name = map['name']
-        data.command = (Parsers::StringList.parse(map['command']) unless map['command'].nil?)
-        data.environment = (Parsers::EnvironmentVariables.parse(map['environment']) unless map['environment'].nil?)
-        data.environment_files = (Parsers::EnvironmentFiles.parse(map['environmentFiles']) unless map['environmentFiles'].nil?)
+        data.command = (StringList.parse(map['command']) unless map['command'].nil?)
+        data.environment = (EnvironmentVariables.parse(map['environment']) unless map['environment'].nil?)
+        data.environment_files = (EnvironmentFiles.parse(map['environmentFiles']) unless map['environmentFiles'].nil?)
         data.cpu = map['cpu']
         data.memory = map['memory']
         data.memory_reservation = map['memoryReservation']
-        data.resource_requirements = (Parsers::ResourceRequirements.parse(map['resourceRequirements']) unless map['resourceRequirements'].nil?)
+        data.resource_requirements = (ResourceRequirements.parse(map['resourceRequirements']) unless map['resourceRequirements'].nil?)
         return data
       end
     end
@@ -1742,7 +1742,7 @@ module AWS::SDK::ECS
     class Containers
       def self.parse(list)
         list.map do |value|
-          Parsers::Container.parse(value) unless value.nil?
+          Container.parse(value) unless value.nil?
         end
       end
     end
@@ -1759,14 +1759,14 @@ module AWS::SDK::ECS
         data.last_status = map['lastStatus']
         data.exit_code = map['exitCode']
         data.reason = map['reason']
-        data.network_bindings = (Parsers::NetworkBindings.parse(map['networkBindings']) unless map['networkBindings'].nil?)
-        data.network_interfaces = (Parsers::NetworkInterfaces.parse(map['networkInterfaces']) unless map['networkInterfaces'].nil?)
+        data.network_bindings = (NetworkBindings.parse(map['networkBindings']) unless map['networkBindings'].nil?)
+        data.network_interfaces = (NetworkInterfaces.parse(map['networkInterfaces']) unless map['networkInterfaces'].nil?)
         data.health_status = map['healthStatus']
-        data.managed_agents = (Parsers::ManagedAgents.parse(map['managedAgents']) unless map['managedAgents'].nil?)
+        data.managed_agents = (ManagedAgents.parse(map['managedAgents']) unless map['managedAgents'].nil?)
         data.cpu = map['cpu']
         data.memory = map['memory']
         data.memory_reservation = map['memoryReservation']
-        data.gpu_ids = (Parsers::GpuIds.parse(map['gpuIds']) unless map['gpuIds'].nil?)
+        data.gpu_ids = (GpuIds.parse(map['gpuIds']) unless map['gpuIds'].nil?)
         return data
       end
     end
@@ -1782,7 +1782,7 @@ module AWS::SDK::ECS
     class ManagedAgents
       def self.parse(list)
         list.map do |value|
-          Parsers::ManagedAgent.parse(value) unless value.nil?
+          ManagedAgent.parse(value) unless value.nil?
         end
       end
     end
@@ -1801,7 +1801,7 @@ module AWS::SDK::ECS
     class NetworkInterfaces
       def self.parse(list)
         list.map do |value|
-          Parsers::NetworkInterface.parse(value) unless value.nil?
+          NetworkInterface.parse(value) unless value.nil?
         end
       end
     end
@@ -1819,7 +1819,7 @@ module AWS::SDK::ECS
     class NetworkBindings
       def self.parse(list)
         list.map do |value|
-          Parsers::NetworkBinding.parse(value) unless value.nil?
+          NetworkBinding.parse(value) unless value.nil?
         end
       end
     end
@@ -1859,7 +1859,7 @@ module AWS::SDK::ECS
         data.container_arn = map['containerArn']
         data.container_name = map['containerName']
         data.interactive = map['interactive']
-        data.session = (Parsers::Session.parse(map['session']) unless map['session'].nil?)
+        data.session = (Session.parse(map['session']) unless map['session'].nil?)
         data.task_arn = map['taskArn']
         data
       end
@@ -1894,7 +1894,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.settings = (Parsers::Settings.parse(map['settings']) unless map['settings'].nil?)
+        data.settings = (Settings.parse(map['settings']) unless map['settings'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1903,7 +1903,7 @@ module AWS::SDK::ECS
     class Settings
       def self.parse(list)
         list.map do |value|
-          Parsers::Setting.parse(value) unless value.nil?
+          Setting.parse(value) unless value.nil?
         end
       end
     end
@@ -1915,7 +1915,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.attributes = (Parsers::Attributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (Attributes.parse(map['attributes']) unless map['attributes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1928,7 +1928,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster_arns = (Parsers::StringList.parse(map['clusterArns']) unless map['clusterArns'].nil?)
+        data.cluster_arns = (StringList.parse(map['clusterArns']) unless map['clusterArns'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1941,7 +1941,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.container_instance_arns = (Parsers::StringList.parse(map['containerInstanceArns']) unless map['containerInstanceArns'].nil?)
+        data.container_instance_arns = (StringList.parse(map['containerInstanceArns']) unless map['containerInstanceArns'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1954,7 +1954,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_arns = (Parsers::StringList.parse(map['serviceArns']) unless map['serviceArns'].nil?)
+        data.service_arns = (StringList.parse(map['serviceArns']) unless map['serviceArns'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1967,7 +1967,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1979,7 +1979,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.families = (Parsers::StringList.parse(map['families']) unless map['families'].nil?)
+        data.families = (StringList.parse(map['families']) unless map['families'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1992,7 +1992,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.task_definition_arns = (Parsers::StringList.parse(map['taskDefinitionArns']) unless map['taskDefinitionArns'].nil?)
+        data.task_definition_arns = (StringList.parse(map['taskDefinitionArns']) unless map['taskDefinitionArns'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2005,7 +2005,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.task_arns = (Parsers::StringList.parse(map['taskArns']) unless map['taskArns'].nil?)
+        data.task_arns = (StringList.parse(map['taskArns']) unless map['taskArns'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2018,7 +2018,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.setting = (Parsers::Setting.parse(map['setting']) unless map['setting'].nil?)
+        data.setting = (Setting.parse(map['setting']) unless map['setting'].nil?)
         data
       end
     end
@@ -2030,7 +2030,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.setting = (Parsers::Setting.parse(map['setting']) unless map['setting'].nil?)
+        data.setting = (Setting.parse(map['setting']) unless map['setting'].nil?)
         data
       end
     end
@@ -2042,7 +2042,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.attributes = (Parsers::Attributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (Attributes.parse(map['attributes']) unless map['attributes'].nil?)
         data
       end
     end
@@ -2066,7 +2066,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['cluster']) unless map['cluster'].nil?)
+        data.cluster = (Cluster.parse(map['cluster']) unless map['cluster'].nil?)
         data
       end
     end
@@ -2090,7 +2090,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.container_instance = (Parsers::ContainerInstance.parse(map['containerInstance']) unless map['containerInstance'].nil?)
+        data.container_instance = (ContainerInstance.parse(map['containerInstance']) unless map['containerInstance'].nil?)
         data
       end
     end
@@ -2102,8 +2102,8 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.task_definition = (Parsers::TaskDefinition.parse(map['taskDefinition']) unless map['taskDefinition'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.task_definition = (TaskDefinition.parse(map['taskDefinition']) unless map['taskDefinition'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -2115,8 +2115,8 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tasks = (Parsers::Tasks.parse(map['tasks']) unless map['tasks'].nil?)
-        data.failures = (Parsers::Failures.parse(map['failures']) unless map['failures'].nil?)
+        data.tasks = (Tasks.parse(map['tasks']) unless map['tasks'].nil?)
+        data.failures = (Failures.parse(map['failures']) unless map['failures'].nil?)
         data
       end
     end
@@ -2140,8 +2140,8 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tasks = (Parsers::Tasks.parse(map['tasks']) unless map['tasks'].nil?)
-        data.failures = (Parsers::Failures.parse(map['failures']) unless map['failures'].nil?)
+        data.tasks = (Tasks.parse(map['tasks']) unless map['tasks'].nil?)
+        data.failures = (Failures.parse(map['failures']) unless map['failures'].nil?)
         data
       end
     end
@@ -2153,7 +2153,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.task = (Parsers::Task.parse(map['task']) unless map['task'].nil?)
+        data.task = (Task.parse(map['task']) unless map['task'].nil?)
         data
       end
     end
@@ -2235,7 +2235,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.capacity_provider = (Parsers::CapacityProvider.parse(map['capacityProvider']) unless map['capacityProvider'].nil?)
+        data.capacity_provider = (CapacityProvider.parse(map['capacityProvider']) unless map['capacityProvider'].nil?)
         data
       end
     end
@@ -2247,7 +2247,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['cluster']) unless map['cluster'].nil?)
+        data.cluster = (Cluster.parse(map['cluster']) unless map['cluster'].nil?)
         data
       end
     end
@@ -2259,7 +2259,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['cluster']) unless map['cluster'].nil?)
+        data.cluster = (Cluster.parse(map['cluster']) unless map['cluster'].nil?)
         data
       end
     end
@@ -2271,7 +2271,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.container_instance = (Parsers::ContainerInstance.parse(map['containerInstance']) unless map['containerInstance'].nil?)
+        data.container_instance = (ContainerInstance.parse(map['containerInstance']) unless map['containerInstance'].nil?)
         data
       end
     end
@@ -2307,8 +2307,8 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.container_instances = (Parsers::ContainerInstances.parse(map['containerInstances']) unless map['containerInstances'].nil?)
-        data.failures = (Parsers::Failures.parse(map['failures']) unless map['failures'].nil?)
+        data.container_instances = (ContainerInstances.parse(map['containerInstances']) unless map['containerInstances'].nil?)
+        data.failures = (Failures.parse(map['failures']) unless map['failures'].nil?)
         data
       end
     end
@@ -2320,7 +2320,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service = (Parsers::Service.parse(map['service']) unless map['service'].nil?)
+        data.service = (Service.parse(map['service']) unless map['service'].nil?)
         data
       end
     end
@@ -2332,7 +2332,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.task_set = (Parsers::TaskSet.parse(map['taskSet']) unless map['taskSet'].nil?)
+        data.task_set = (TaskSet.parse(map['taskSet']) unless map['taskSet'].nil?)
         data
       end
     end
@@ -2344,7 +2344,7 @@ module AWS::SDK::ECS
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.task_set = (Parsers::TaskSet.parse(map['taskSet']) unless map['taskSet'].nil?)
+        data.task_set = (TaskSet.parse(map['taskSet']) unless map['taskSet'].nil?)
         data
       end
     end

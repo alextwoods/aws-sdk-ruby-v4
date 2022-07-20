@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Comprehend
   module Stubs
 
@@ -21,9 +23,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResultList'] = Stubs::ListOfDetectDominantLanguageResult.stub(stub[:result_list]) unless stub[:result_list].nil?
-        data['ErrorList'] = Stubs::BatchItemErrorList.stub(stub[:error_list]) unless stub[:error_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResultList'] = ListOfDetectDominantLanguageResult.stub(stub[:result_list]) unless stub[:result_list].nil?
+        data['ErrorList'] = BatchItemErrorList.stub(stub[:error_list]) unless stub[:error_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -42,7 +44,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchItemError.stub(element) unless element.nil?
+          data << BatchItemError.stub(element) unless element.nil?
         end
         data
       end
@@ -84,7 +86,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchDetectDominantLanguageItemResult.stub(element) unless element.nil?
+          data << BatchDetectDominantLanguageItemResult.stub(element) unless element.nil?
         end
         data
       end
@@ -105,7 +107,7 @@ module AWS::SDK::Comprehend
         stub ||= Types::BatchDetectDominantLanguageItemResult.new
         data = {}
         data['Index'] = stub[:index] unless stub[:index].nil?
-        data['Languages'] = Stubs::ListOfDominantLanguages.stub(stub[:languages]) unless stub[:languages].nil?
+        data['Languages'] = ListOfDominantLanguages.stub(stub[:languages]) unless stub[:languages].nil?
         data
       end
     end
@@ -124,7 +126,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DominantLanguage.stub(element) unless element.nil?
+          data << DominantLanguage.stub(element) unless element.nil?
         end
         data
       end
@@ -161,9 +163,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResultList'] = Stubs::ListOfDetectEntitiesResult.stub(stub[:result_list]) unless stub[:result_list].nil?
-        data['ErrorList'] = Stubs::BatchItemErrorList.stub(stub[:error_list]) unless stub[:error_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResultList'] = ListOfDetectEntitiesResult.stub(stub[:result_list]) unless stub[:result_list].nil?
+        data['ErrorList'] = BatchItemErrorList.stub(stub[:error_list]) unless stub[:error_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -182,7 +184,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchDetectEntitiesItemResult.stub(element) unless element.nil?
+          data << BatchDetectEntitiesItemResult.stub(element) unless element.nil?
         end
         data
       end
@@ -203,7 +205,7 @@ module AWS::SDK::Comprehend
         stub ||= Types::BatchDetectEntitiesItemResult.new
         data = {}
         data['Index'] = stub[:index] unless stub[:index].nil?
-        data['Entities'] = Stubs::ListOfEntities.stub(stub[:entities]) unless stub[:entities].nil?
+        data['Entities'] = ListOfEntities.stub(stub[:entities]) unless stub[:entities].nil?
         data
       end
     end
@@ -222,7 +224,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Entity.stub(element) unless element.nil?
+          data << Entity.stub(element) unless element.nil?
         end
         data
       end
@@ -265,9 +267,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResultList'] = Stubs::ListOfDetectKeyPhrasesResult.stub(stub[:result_list]) unless stub[:result_list].nil?
-        data['ErrorList'] = Stubs::BatchItemErrorList.stub(stub[:error_list]) unless stub[:error_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResultList'] = ListOfDetectKeyPhrasesResult.stub(stub[:result_list]) unless stub[:result_list].nil?
+        data['ErrorList'] = BatchItemErrorList.stub(stub[:error_list]) unless stub[:error_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -286,7 +288,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchDetectKeyPhrasesItemResult.stub(element) unless element.nil?
+          data << BatchDetectKeyPhrasesItemResult.stub(element) unless element.nil?
         end
         data
       end
@@ -307,7 +309,7 @@ module AWS::SDK::Comprehend
         stub ||= Types::BatchDetectKeyPhrasesItemResult.new
         data = {}
         data['Index'] = stub[:index] unless stub[:index].nil?
-        data['KeyPhrases'] = Stubs::ListOfKeyPhrases.stub(stub[:key_phrases]) unless stub[:key_phrases].nil?
+        data['KeyPhrases'] = ListOfKeyPhrases.stub(stub[:key_phrases]) unless stub[:key_phrases].nil?
         data
       end
     end
@@ -326,7 +328,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeyPhrase.stub(element) unless element.nil?
+          data << KeyPhrase.stub(element) unless element.nil?
         end
         data
       end
@@ -367,9 +369,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResultList'] = Stubs::ListOfDetectSentimentResult.stub(stub[:result_list]) unless stub[:result_list].nil?
-        data['ErrorList'] = Stubs::BatchItemErrorList.stub(stub[:error_list]) unless stub[:error_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResultList'] = ListOfDetectSentimentResult.stub(stub[:result_list]) unless stub[:result_list].nil?
+        data['ErrorList'] = BatchItemErrorList.stub(stub[:error_list]) unless stub[:error_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -388,7 +390,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchDetectSentimentItemResult.stub(element) unless element.nil?
+          data << BatchDetectSentimentItemResult.stub(element) unless element.nil?
         end
         data
       end
@@ -411,7 +413,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['Index'] = stub[:index] unless stub[:index].nil?
         data['Sentiment'] = stub[:sentiment] unless stub[:sentiment].nil?
-        data['SentimentScore'] = Stubs::SentimentScore.stub(stub[:sentiment_score]) unless stub[:sentiment_score].nil?
+        data['SentimentScore'] = SentimentScore.stub(stub[:sentiment_score]) unless stub[:sentiment_score].nil?
         data
       end
     end
@@ -451,9 +453,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResultList'] = Stubs::ListOfDetectSyntaxResult.stub(stub[:result_list]) unless stub[:result_list].nil?
-        data['ErrorList'] = Stubs::BatchItemErrorList.stub(stub[:error_list]) unless stub[:error_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResultList'] = ListOfDetectSyntaxResult.stub(stub[:result_list]) unless stub[:result_list].nil?
+        data['ErrorList'] = BatchItemErrorList.stub(stub[:error_list]) unless stub[:error_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -472,7 +474,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchDetectSyntaxItemResult.stub(element) unless element.nil?
+          data << BatchDetectSyntaxItemResult.stub(element) unless element.nil?
         end
         data
       end
@@ -493,7 +495,7 @@ module AWS::SDK::Comprehend
         stub ||= Types::BatchDetectSyntaxItemResult.new
         data = {}
         data['Index'] = stub[:index] unless stub[:index].nil?
-        data['SyntaxTokens'] = Stubs::ListOfSyntaxTokens.stub(stub[:syntax_tokens]) unless stub[:syntax_tokens].nil?
+        data['SyntaxTokens'] = ListOfSyntaxTokens.stub(stub[:syntax_tokens]) unless stub[:syntax_tokens].nil?
         data
       end
     end
@@ -512,7 +514,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SyntaxToken.stub(element) unless element.nil?
+          data << SyntaxToken.stub(element) unless element.nil?
         end
         data
       end
@@ -539,7 +541,7 @@ module AWS::SDK::Comprehend
         data['Text'] = stub[:text] unless stub[:text].nil?
         data['BeginOffset'] = stub[:begin_offset] unless stub[:begin_offset].nil?
         data['EndOffset'] = stub[:end_offset] unless stub[:end_offset].nil?
-        data['PartOfSpeech'] = Stubs::PartOfSpeechTag.stub(stub[:part_of_speech]) unless stub[:part_of_speech].nil?
+        data['PartOfSpeech'] = PartOfSpeechTag.stub(stub[:part_of_speech]) unless stub[:part_of_speech].nil?
         data
       end
     end
@@ -575,9 +577,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Classes'] = Stubs::ListOfClasses.stub(stub[:classes]) unless stub[:classes].nil?
-        data['Labels'] = Stubs::ListOfLabels.stub(stub[:labels]) unless stub[:labels].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Classes'] = ListOfClasses.stub(stub[:classes]) unless stub[:classes].nil?
+        data['Labels'] = ListOfLabels.stub(stub[:labels]) unless stub[:labels].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -596,7 +598,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentLabel.stub(element) unless element.nil?
+          data << DocumentLabel.stub(element) unless element.nil?
         end
         data
       end
@@ -636,7 +638,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentClass.stub(element) unless element.nil?
+          data << DocumentClass.stub(element) unless element.nil?
         end
         data
       end
@@ -672,8 +674,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Labels'] = Stubs::ListOfEntityLabels.stub(stub[:labels]) unless stub[:labels].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Labels'] = ListOfEntityLabels.stub(stub[:labels]) unless stub[:labels].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -692,7 +694,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EntityLabel.stub(element) unless element.nil?
+          data << EntityLabel.stub(element) unless element.nil?
         end
         data
       end
@@ -729,7 +731,7 @@ module AWS::SDK::Comprehend
       def self.stub(http_resp, stub:)
         data = {}
         data['DocumentClassifierArn'] = stub[:document_classifier_arn] unless stub[:document_classifier_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -745,7 +747,7 @@ module AWS::SDK::Comprehend
       def self.stub(http_resp, stub:)
         data = {}
         data['EndpointArn'] = stub[:endpoint_arn] unless stub[:endpoint_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -761,7 +763,7 @@ module AWS::SDK::Comprehend
       def self.stub(http_resp, stub:)
         data = {}
         data['EntityRecognizerArn'] = stub[:entity_recognizer_arn] unless stub[:entity_recognizer_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -775,7 +777,7 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -789,7 +791,7 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -803,7 +805,7 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -817,7 +819,7 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -832,8 +834,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DocumentClassificationJobProperties'] = Stubs::DocumentClassificationJobProperties.stub(stub[:document_classification_job_properties]) unless stub[:document_classification_job_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DocumentClassificationJobProperties'] = DocumentClassificationJobProperties.stub(stub[:document_classification_job_properties]) unless stub[:document_classification_job_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -871,11 +873,11 @@ module AWS::SDK::Comprehend
         data['SubmitTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:submit_time]).to_i unless stub[:submit_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['DocumentClassifierArn'] = stub[:document_classifier_arn] unless stub[:document_classifier_arn].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
         data['VolumeKmsKeyId'] = stub[:volume_kms_key_id] unless stub[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data
       end
     end
@@ -894,8 +896,8 @@ module AWS::SDK::Comprehend
       def self.stub(stub)
         stub ||= Types::VpcConfig.new
         data = {}
-        data['SecurityGroupIds'] = Stubs::SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
-        data['Subnets'] = Stubs::Subnets.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['SecurityGroupIds'] = SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['Subnets'] = Subnets.stub(stub[:subnets]) unless stub[:subnets].nil?
         data
       end
     end
@@ -977,7 +979,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['S3Uri'] = stub[:s3_uri] unless stub[:s3_uri].nil?
         data['InputFormat'] = stub[:input_format] unless stub[:input_format].nil?
-        data['DocumentReaderConfig'] = Stubs::DocumentReaderConfig.stub(stub[:document_reader_config]) unless stub[:document_reader_config].nil?
+        data['DocumentReaderConfig'] = DocumentReaderConfig.stub(stub[:document_reader_config]) unless stub[:document_reader_config].nil?
         data
       end
     end
@@ -999,7 +1001,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['DocumentReadAction'] = stub[:document_read_action] unless stub[:document_read_action].nil?
         data['DocumentReadMode'] = stub[:document_read_mode] unless stub[:document_read_mode].nil?
-        data['FeatureTypes'] = Stubs::ListOfDocumentReadFeatureTypes.stub(stub[:feature_types]) unless stub[:feature_types].nil?
+        data['FeatureTypes'] = ListOfDocumentReadFeatureTypes.stub(stub[:feature_types]) unless stub[:feature_types].nil?
         data
       end
     end
@@ -1034,8 +1036,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DocumentClassifierProperties'] = Stubs::DocumentClassifierProperties.stub(stub[:document_classifier_properties]) unless stub[:document_classifier_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DocumentClassifierProperties'] = DocumentClassifierProperties.stub(stub[:document_classifier_properties]) unless stub[:document_classifier_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1078,12 +1080,12 @@ module AWS::SDK::Comprehend
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['TrainingStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:training_start_time]).to_i unless stub[:training_start_time].nil?
         data['TrainingEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:training_end_time]).to_i unless stub[:training_end_time].nil?
-        data['InputDataConfig'] = Stubs::DocumentClassifierInputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::DocumentClassifierOutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
-        data['ClassifierMetadata'] = Stubs::ClassifierMetadata.stub(stub[:classifier_metadata]) unless stub[:classifier_metadata].nil?
+        data['InputDataConfig'] = DocumentClassifierInputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = DocumentClassifierOutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['ClassifierMetadata'] = ClassifierMetadata.stub(stub[:classifier_metadata]) unless stub[:classifier_metadata].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
         data['VolumeKmsKeyId'] = stub[:volume_kms_key_id] unless stub[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data['Mode'] = stub[:mode] unless stub[:mode].nil?
         data['ModelKmsKeyId'] = stub[:model_kms_key_id] unless stub[:model_kms_key_id].nil?
         data['VersionName'] = stub[:version_name] unless stub[:version_name].nil?
@@ -1111,7 +1113,7 @@ module AWS::SDK::Comprehend
         data['NumberOfLabels'] = stub[:number_of_labels] unless stub[:number_of_labels].nil?
         data['NumberOfTrainedDocuments'] = stub[:number_of_trained_documents] unless stub[:number_of_trained_documents].nil?
         data['NumberOfTestDocuments'] = stub[:number_of_test_documents] unless stub[:number_of_test_documents].nil?
-        data['EvaluationMetrics'] = Stubs::ClassifierEvaluationMetrics.stub(stub[:evaluation_metrics]) unless stub[:evaluation_metrics].nil?
+        data['EvaluationMetrics'] = ClassifierEvaluationMetrics.stub(stub[:evaluation_metrics]) unless stub[:evaluation_metrics].nil?
         data
       end
     end
@@ -1189,7 +1191,7 @@ module AWS::SDK::Comprehend
         data['S3Uri'] = stub[:s3_uri] unless stub[:s3_uri].nil?
         data['TestS3Uri'] = stub[:test_s3_uri] unless stub[:test_s3_uri].nil?
         data['LabelDelimiter'] = stub[:label_delimiter] unless stub[:label_delimiter].nil?
-        data['AugmentedManifests'] = Stubs::DocumentClassifierAugmentedManifestsList.stub(stub[:augmented_manifests]) unless stub[:augmented_manifests].nil?
+        data['AugmentedManifests'] = DocumentClassifierAugmentedManifestsList.stub(stub[:augmented_manifests]) unless stub[:augmented_manifests].nil?
         data
       end
     end
@@ -1208,7 +1210,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AugmentedManifestsListItem.stub(element) unless element.nil?
+          data << AugmentedManifestsListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1234,7 +1236,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['S3Uri'] = stub[:s3_uri] unless stub[:s3_uri].nil?
         data['Split'] = stub[:split] unless stub[:split].nil?
-        data['AttributeNames'] = Stubs::AttributeNamesList.stub(stub[:attribute_names]) unless stub[:attribute_names].nil?
+        data['AttributeNames'] = AttributeNamesList.stub(stub[:attribute_names]) unless stub[:attribute_names].nil?
         data['AnnotationDataS3Uri'] = stub[:annotation_data_s3_uri] unless stub[:annotation_data_s3_uri].nil?
         data['SourceDocumentsS3Uri'] = stub[:source_documents_s3_uri] unless stub[:source_documents_s3_uri].nil?
         data['DocumentType'] = stub[:document_type] unless stub[:document_type].nil?
@@ -1272,8 +1274,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DominantLanguageDetectionJobProperties'] = Stubs::DominantLanguageDetectionJobProperties.stub(stub[:dominant_language_detection_job_properties]) unless stub[:dominant_language_detection_job_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DominantLanguageDetectionJobProperties'] = DominantLanguageDetectionJobProperties.stub(stub[:dominant_language_detection_job_properties]) unless stub[:dominant_language_detection_job_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1309,11 +1311,11 @@ module AWS::SDK::Comprehend
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['SubmitTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:submit_time]).to_i unless stub[:submit_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
         data['VolumeKmsKeyId'] = stub[:volume_kms_key_id] unless stub[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data
       end
     end
@@ -1328,8 +1330,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EndpointProperties'] = Stubs::EndpointProperties.stub(stub[:endpoint_properties]) unless stub[:endpoint_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EndpointProperties'] = EndpointProperties.stub(stub[:endpoint_properties]) unless stub[:endpoint_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1382,8 +1384,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EntitiesDetectionJobProperties'] = Stubs::EntitiesDetectionJobProperties.stub(stub[:entities_detection_job_properties]) unless stub[:entities_detection_job_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EntitiesDetectionJobProperties'] = EntitiesDetectionJobProperties.stub(stub[:entities_detection_job_properties]) unless stub[:entities_detection_job_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1422,12 +1424,12 @@ module AWS::SDK::Comprehend
         data['SubmitTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:submit_time]).to_i unless stub[:submit_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['EntityRecognizerArn'] = stub[:entity_recognizer_arn] unless stub[:entity_recognizer_arn].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
         data['VolumeKmsKeyId'] = stub[:volume_kms_key_id] unless stub[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data
       end
     end
@@ -1442,8 +1444,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EntityRecognizerProperties'] = Stubs::EntityRecognizerProperties.stub(stub[:entity_recognizer_properties]) unless stub[:entity_recognizer_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EntityRecognizerProperties'] = EntityRecognizerProperties.stub(stub[:entity_recognizer_properties]) unless stub[:entity_recognizer_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1484,11 +1486,11 @@ module AWS::SDK::Comprehend
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['TrainingStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:training_start_time]).to_i unless stub[:training_start_time].nil?
         data['TrainingEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:training_end_time]).to_i unless stub[:training_end_time].nil?
-        data['InputDataConfig'] = Stubs::EntityRecognizerInputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['RecognizerMetadata'] = Stubs::EntityRecognizerMetadata.stub(stub[:recognizer_metadata]) unless stub[:recognizer_metadata].nil?
+        data['InputDataConfig'] = EntityRecognizerInputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['RecognizerMetadata'] = EntityRecognizerMetadata.stub(stub[:recognizer_metadata]) unless stub[:recognizer_metadata].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
         data['VolumeKmsKeyId'] = stub[:volume_kms_key_id] unless stub[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data['ModelKmsKeyId'] = stub[:model_kms_key_id] unless stub[:model_kms_key_id].nil?
         data['VersionName'] = stub[:version_name] unless stub[:version_name].nil?
         data['SourceModelArn'] = stub[:source_model_arn] unless stub[:source_model_arn].nil?
@@ -1514,8 +1516,8 @@ module AWS::SDK::Comprehend
         data = {}
         data['NumberOfTrainedDocuments'] = stub[:number_of_trained_documents] unless stub[:number_of_trained_documents].nil?
         data['NumberOfTestDocuments'] = stub[:number_of_test_documents] unless stub[:number_of_test_documents].nil?
-        data['EvaluationMetrics'] = Stubs::EntityRecognizerEvaluationMetrics.stub(stub[:evaluation_metrics]) unless stub[:evaluation_metrics].nil?
-        data['EntityTypes'] = Stubs::EntityRecognizerMetadataEntityTypesList.stub(stub[:entity_types]) unless stub[:entity_types].nil?
+        data['EvaluationMetrics'] = EntityRecognizerEvaluationMetrics.stub(stub[:evaluation_metrics]) unless stub[:evaluation_metrics].nil?
+        data['EntityTypes'] = EntityRecognizerMetadataEntityTypesList.stub(stub[:entity_types]) unless stub[:entity_types].nil?
         data
       end
     end
@@ -1534,7 +1536,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EntityRecognizerMetadataEntityTypesListItem.stub(element) unless element.nil?
+          data << EntityRecognizerMetadataEntityTypesListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1556,7 +1558,7 @@ module AWS::SDK::Comprehend
         stub ||= Types::EntityRecognizerMetadataEntityTypesListItem.new
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['EvaluationMetrics'] = Stubs::EntityTypesEvaluationMetrics.stub(stub[:evaluation_metrics]) unless stub[:evaluation_metrics].nil?
+        data['EvaluationMetrics'] = EntityTypesEvaluationMetrics.stub(stub[:evaluation_metrics]) unless stub[:evaluation_metrics].nil?
         data['NumberOfTrainMentions'] = stub[:number_of_train_mentions] unless stub[:number_of_train_mentions].nil?
         data
       end
@@ -1625,11 +1627,11 @@ module AWS::SDK::Comprehend
         stub ||= Types::EntityRecognizerInputDataConfig.new
         data = {}
         data['DataFormat'] = stub[:data_format] unless stub[:data_format].nil?
-        data['EntityTypes'] = Stubs::EntityTypesList.stub(stub[:entity_types]) unless stub[:entity_types].nil?
-        data['Documents'] = Stubs::EntityRecognizerDocuments.stub(stub[:documents]) unless stub[:documents].nil?
-        data['Annotations'] = Stubs::EntityRecognizerAnnotations.stub(stub[:annotations]) unless stub[:annotations].nil?
-        data['EntityList'] = Stubs::EntityRecognizerEntityList.stub(stub[:entity_list]) unless stub[:entity_list].nil?
-        data['AugmentedManifests'] = Stubs::EntityRecognizerAugmentedManifestsList.stub(stub[:augmented_manifests]) unless stub[:augmented_manifests].nil?
+        data['EntityTypes'] = EntityTypesList.stub(stub[:entity_types]) unless stub[:entity_types].nil?
+        data['Documents'] = EntityRecognizerDocuments.stub(stub[:documents]) unless stub[:documents].nil?
+        data['Annotations'] = EntityRecognizerAnnotations.stub(stub[:annotations]) unless stub[:annotations].nil?
+        data['EntityList'] = EntityRecognizerEntityList.stub(stub[:entity_list]) unless stub[:entity_list].nil?
+        data['AugmentedManifests'] = EntityRecognizerAugmentedManifestsList.stub(stub[:augmented_manifests]) unless stub[:augmented_manifests].nil?
         data
       end
     end
@@ -1648,7 +1650,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AugmentedManifestsListItem.stub(element) unless element.nil?
+          data << AugmentedManifestsListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1728,7 +1730,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EntityTypesListItem.stub(element) unless element.nil?
+          data << EntityTypesListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1762,8 +1764,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EventsDetectionJobProperties'] = Stubs::EventsDetectionJobProperties.stub(stub[:events_detection_job_properties]) unless stub[:events_detection_job_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventsDetectionJobProperties'] = EventsDetectionJobProperties.stub(stub[:events_detection_job_properties]) unless stub[:events_detection_job_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1799,11 +1801,11 @@ module AWS::SDK::Comprehend
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['SubmitTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:submit_time]).to_i unless stub[:submit_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
-        data['TargetEventTypes'] = Stubs::TargetEventTypes.stub(stub[:target_event_types]) unless stub[:target_event_types].nil?
+        data['TargetEventTypes'] = TargetEventTypes.stub(stub[:target_event_types]) unless stub[:target_event_types].nil?
         data
       end
     end
@@ -1838,8 +1840,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['KeyPhrasesDetectionJobProperties'] = Stubs::KeyPhrasesDetectionJobProperties.stub(stub[:key_phrases_detection_job_properties]) unless stub[:key_phrases_detection_job_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['KeyPhrasesDetectionJobProperties'] = KeyPhrasesDetectionJobProperties.stub(stub[:key_phrases_detection_job_properties]) unless stub[:key_phrases_detection_job_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1876,12 +1878,12 @@ module AWS::SDK::Comprehend
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['SubmitTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:submit_time]).to_i unless stub[:submit_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
         data['VolumeKmsKeyId'] = stub[:volume_kms_key_id] unless stub[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data
       end
     end
@@ -1896,8 +1898,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PiiEntitiesDetectionJobProperties'] = Stubs::PiiEntitiesDetectionJobProperties.stub(stub[:pii_entities_detection_job_properties]) unless stub[:pii_entities_detection_job_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PiiEntitiesDetectionJobProperties'] = PiiEntitiesDetectionJobProperties.stub(stub[:pii_entities_detection_job_properties]) unless stub[:pii_entities_detection_job_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1934,9 +1936,9 @@ module AWS::SDK::Comprehend
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['SubmitTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:submit_time]).to_i unless stub[:submit_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::PiiOutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
-        data['RedactionConfig'] = Stubs::RedactionConfig.stub(stub[:redaction_config]) unless stub[:redaction_config].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = PiiOutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['RedactionConfig'] = RedactionConfig.stub(stub[:redaction_config]) unless stub[:redaction_config].nil?
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
         data['Mode'] = stub[:mode] unless stub[:mode].nil?
@@ -1959,7 +1961,7 @@ module AWS::SDK::Comprehend
       def self.stub(stub)
         stub ||= Types::RedactionConfig.new
         data = {}
-        data['PiiEntityTypes'] = Stubs::ListOfPiiEntityTypes.stub(stub[:pii_entity_types]) unless stub[:pii_entity_types].nil?
+        data['PiiEntityTypes'] = ListOfPiiEntityTypes.stub(stub[:pii_entity_types]) unless stub[:pii_entity_types].nil?
         data['MaskMode'] = stub[:mask_mode] unless stub[:mask_mode].nil?
         data['MaskCharacter'] = stub[:mask_character] unless stub[:mask_character].nil?
         data
@@ -2023,7 +2025,7 @@ module AWS::SDK::Comprehend
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['PolicyRevisionId'] = stub[:policy_revision_id] unless stub[:policy_revision_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2038,8 +2040,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SentimentDetectionJobProperties'] = Stubs::SentimentDetectionJobProperties.stub(stub[:sentiment_detection_job_properties]) unless stub[:sentiment_detection_job_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SentimentDetectionJobProperties'] = SentimentDetectionJobProperties.stub(stub[:sentiment_detection_job_properties]) unless stub[:sentiment_detection_job_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2076,12 +2078,12 @@ module AWS::SDK::Comprehend
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['SubmitTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:submit_time]).to_i unless stub[:submit_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
         data['VolumeKmsKeyId'] = stub[:volume_kms_key_id] unless stub[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data
       end
     end
@@ -2096,8 +2098,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TargetedSentimentDetectionJobProperties'] = Stubs::TargetedSentimentDetectionJobProperties.stub(stub[:targeted_sentiment_detection_job_properties]) unless stub[:targeted_sentiment_detection_job_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TargetedSentimentDetectionJobProperties'] = TargetedSentimentDetectionJobProperties.stub(stub[:targeted_sentiment_detection_job_properties]) unless stub[:targeted_sentiment_detection_job_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2134,12 +2136,12 @@ module AWS::SDK::Comprehend
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['SubmitTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:submit_time]).to_i unless stub[:submit_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
         data['VolumeKmsKeyId'] = stub[:volume_kms_key_id] unless stub[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data
       end
     end
@@ -2154,8 +2156,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TopicsDetectionJobProperties'] = Stubs::TopicsDetectionJobProperties.stub(stub[:topics_detection_job_properties]) unless stub[:topics_detection_job_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TopicsDetectionJobProperties'] = TopicsDetectionJobProperties.stub(stub[:topics_detection_job_properties]) unless stub[:topics_detection_job_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2192,12 +2194,12 @@ module AWS::SDK::Comprehend
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['SubmitTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:submit_time]).to_i unless stub[:submit_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
         data['NumberOfTopics'] = stub[:number_of_topics] unless stub[:number_of_topics].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
         data['VolumeKmsKeyId'] = stub[:volume_kms_key_id] unless stub[:volume_kms_key_id].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data
       end
     end
@@ -2212,8 +2214,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Languages'] = Stubs::ListOfDominantLanguages.stub(stub[:languages]) unless stub[:languages].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Languages'] = ListOfDominantLanguages.stub(stub[:languages]) unless stub[:languages].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2228,8 +2230,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Entities'] = Stubs::ListOfEntities.stub(stub[:entities]) unless stub[:entities].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Entities'] = ListOfEntities.stub(stub[:entities]) unless stub[:entities].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2244,8 +2246,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['KeyPhrases'] = Stubs::ListOfKeyPhrases.stub(stub[:key_phrases]) unless stub[:key_phrases].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['KeyPhrases'] = ListOfKeyPhrases.stub(stub[:key_phrases]) unless stub[:key_phrases].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2260,8 +2262,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Entities'] = Stubs::ListOfPiiEntities.stub(stub[:entities]) unless stub[:entities].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Entities'] = ListOfPiiEntities.stub(stub[:entities]) unless stub[:entities].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2280,7 +2282,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PiiEntity.stub(element) unless element.nil?
+          data << PiiEntity.stub(element) unless element.nil?
         end
         data
       end
@@ -2322,8 +2324,8 @@ module AWS::SDK::Comprehend
       def self.stub(http_resp, stub:)
         data = {}
         data['Sentiment'] = stub[:sentiment] unless stub[:sentiment].nil?
-        data['SentimentScore'] = Stubs::SentimentScore.stub(stub[:sentiment_score]) unless stub[:sentiment_score].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SentimentScore'] = SentimentScore.stub(stub[:sentiment_score]) unless stub[:sentiment_score].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2338,8 +2340,8 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SyntaxTokens'] = Stubs::ListOfSyntaxTokens.stub(stub[:syntax_tokens]) unless stub[:syntax_tokens].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SyntaxTokens'] = ListOfSyntaxTokens.stub(stub[:syntax_tokens]) unless stub[:syntax_tokens].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2355,7 +2357,7 @@ module AWS::SDK::Comprehend
       def self.stub(http_resp, stub:)
         data = {}
         data['ModelArn'] = stub[:model_arn] unless stub[:model_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2371,9 +2373,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DocumentClassificationJobPropertiesList'] = Stubs::DocumentClassificationJobPropertiesList.stub(stub[:document_classification_job_properties_list]) unless stub[:document_classification_job_properties_list].nil?
+        data['DocumentClassificationJobPropertiesList'] = DocumentClassificationJobPropertiesList.stub(stub[:document_classification_job_properties_list]) unless stub[:document_classification_job_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2392,7 +2394,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentClassificationJobProperties.stub(element) unless element.nil?
+          data << DocumentClassificationJobProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -2409,9 +2411,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DocumentClassifierSummariesList'] = Stubs::DocumentClassifierSummariesList.stub(stub[:document_classifier_summaries_list]) unless stub[:document_classifier_summaries_list].nil?
+        data['DocumentClassifierSummariesList'] = DocumentClassifierSummariesList.stub(stub[:document_classifier_summaries_list]) unless stub[:document_classifier_summaries_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2430,7 +2432,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentClassifierSummary.stub(element) unless element.nil?
+          data << DocumentClassifierSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2473,9 +2475,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DocumentClassifierPropertiesList'] = Stubs::DocumentClassifierPropertiesList.stub(stub[:document_classifier_properties_list]) unless stub[:document_classifier_properties_list].nil?
+        data['DocumentClassifierPropertiesList'] = DocumentClassifierPropertiesList.stub(stub[:document_classifier_properties_list]) unless stub[:document_classifier_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2494,7 +2496,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentClassifierProperties.stub(element) unless element.nil?
+          data << DocumentClassifierProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -2511,9 +2513,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DominantLanguageDetectionJobPropertiesList'] = Stubs::DominantLanguageDetectionJobPropertiesList.stub(stub[:dominant_language_detection_job_properties_list]) unless stub[:dominant_language_detection_job_properties_list].nil?
+        data['DominantLanguageDetectionJobPropertiesList'] = DominantLanguageDetectionJobPropertiesList.stub(stub[:dominant_language_detection_job_properties_list]) unless stub[:dominant_language_detection_job_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2532,7 +2534,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DominantLanguageDetectionJobProperties.stub(element) unless element.nil?
+          data << DominantLanguageDetectionJobProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -2549,9 +2551,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EndpointPropertiesList'] = Stubs::EndpointPropertiesList.stub(stub[:endpoint_properties_list]) unless stub[:endpoint_properties_list].nil?
+        data['EndpointPropertiesList'] = EndpointPropertiesList.stub(stub[:endpoint_properties_list]) unless stub[:endpoint_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2570,7 +2572,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EndpointProperties.stub(element) unless element.nil?
+          data << EndpointProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -2587,9 +2589,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EntitiesDetectionJobPropertiesList'] = Stubs::EntitiesDetectionJobPropertiesList.stub(stub[:entities_detection_job_properties_list]) unless stub[:entities_detection_job_properties_list].nil?
+        data['EntitiesDetectionJobPropertiesList'] = EntitiesDetectionJobPropertiesList.stub(stub[:entities_detection_job_properties_list]) unless stub[:entities_detection_job_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2608,7 +2610,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EntitiesDetectionJobProperties.stub(element) unless element.nil?
+          data << EntitiesDetectionJobProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -2625,9 +2627,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EntityRecognizerSummariesList'] = Stubs::EntityRecognizerSummariesList.stub(stub[:entity_recognizer_summaries_list]) unless stub[:entity_recognizer_summaries_list].nil?
+        data['EntityRecognizerSummariesList'] = EntityRecognizerSummariesList.stub(stub[:entity_recognizer_summaries_list]) unless stub[:entity_recognizer_summaries_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2646,7 +2648,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EntityRecognizerSummary.stub(element) unless element.nil?
+          data << EntityRecognizerSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2689,9 +2691,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EntityRecognizerPropertiesList'] = Stubs::EntityRecognizerPropertiesList.stub(stub[:entity_recognizer_properties_list]) unless stub[:entity_recognizer_properties_list].nil?
+        data['EntityRecognizerPropertiesList'] = EntityRecognizerPropertiesList.stub(stub[:entity_recognizer_properties_list]) unless stub[:entity_recognizer_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2710,7 +2712,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EntityRecognizerProperties.stub(element) unless element.nil?
+          data << EntityRecognizerProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -2727,9 +2729,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EventsDetectionJobPropertiesList'] = Stubs::EventsDetectionJobPropertiesList.stub(stub[:events_detection_job_properties_list]) unless stub[:events_detection_job_properties_list].nil?
+        data['EventsDetectionJobPropertiesList'] = EventsDetectionJobPropertiesList.stub(stub[:events_detection_job_properties_list]) unless stub[:events_detection_job_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2748,7 +2750,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventsDetectionJobProperties.stub(element) unless element.nil?
+          data << EventsDetectionJobProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -2765,9 +2767,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['KeyPhrasesDetectionJobPropertiesList'] = Stubs::KeyPhrasesDetectionJobPropertiesList.stub(stub[:key_phrases_detection_job_properties_list]) unless stub[:key_phrases_detection_job_properties_list].nil?
+        data['KeyPhrasesDetectionJobPropertiesList'] = KeyPhrasesDetectionJobPropertiesList.stub(stub[:key_phrases_detection_job_properties_list]) unless stub[:key_phrases_detection_job_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2786,7 +2788,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeyPhrasesDetectionJobProperties.stub(element) unless element.nil?
+          data << KeyPhrasesDetectionJobProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -2803,9 +2805,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PiiEntitiesDetectionJobPropertiesList'] = Stubs::PiiEntitiesDetectionJobPropertiesList.stub(stub[:pii_entities_detection_job_properties_list]) unless stub[:pii_entities_detection_job_properties_list].nil?
+        data['PiiEntitiesDetectionJobPropertiesList'] = PiiEntitiesDetectionJobPropertiesList.stub(stub[:pii_entities_detection_job_properties_list]) unless stub[:pii_entities_detection_job_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2824,7 +2826,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PiiEntitiesDetectionJobProperties.stub(element) unless element.nil?
+          data << PiiEntitiesDetectionJobProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -2841,9 +2843,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SentimentDetectionJobPropertiesList'] = Stubs::SentimentDetectionJobPropertiesList.stub(stub[:sentiment_detection_job_properties_list]) unless stub[:sentiment_detection_job_properties_list].nil?
+        data['SentimentDetectionJobPropertiesList'] = SentimentDetectionJobPropertiesList.stub(stub[:sentiment_detection_job_properties_list]) unless stub[:sentiment_detection_job_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2862,7 +2864,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SentimentDetectionJobProperties.stub(element) unless element.nil?
+          data << SentimentDetectionJobProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -2880,8 +2882,8 @@ module AWS::SDK::Comprehend
       def self.stub(http_resp, stub:)
         data = {}
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2900,7 +2902,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -2937,9 +2939,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TargetedSentimentDetectionJobPropertiesList'] = Stubs::TargetedSentimentDetectionJobPropertiesList.stub(stub[:targeted_sentiment_detection_job_properties_list]) unless stub[:targeted_sentiment_detection_job_properties_list].nil?
+        data['TargetedSentimentDetectionJobPropertiesList'] = TargetedSentimentDetectionJobPropertiesList.stub(stub[:targeted_sentiment_detection_job_properties_list]) unless stub[:targeted_sentiment_detection_job_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2958,7 +2960,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TargetedSentimentDetectionJobProperties.stub(element) unless element.nil?
+          data << TargetedSentimentDetectionJobProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -2975,9 +2977,9 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TopicsDetectionJobPropertiesList'] = Stubs::TopicsDetectionJobPropertiesList.stub(stub[:topics_detection_job_properties_list]) unless stub[:topics_detection_job_properties_list].nil?
+        data['TopicsDetectionJobPropertiesList'] = TopicsDetectionJobPropertiesList.stub(stub[:topics_detection_job_properties_list]) unless stub[:topics_detection_job_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2996,7 +2998,7 @@ module AWS::SDK::Comprehend
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TopicsDetectionJobProperties.stub(element) unless element.nil?
+          data << TopicsDetectionJobProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -3013,7 +3015,7 @@ module AWS::SDK::Comprehend
       def self.stub(http_resp, stub:)
         data = {}
         data['PolicyRevisionId'] = stub[:policy_revision_id] unless stub[:policy_revision_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3033,7 +3035,7 @@ module AWS::SDK::Comprehend
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3053,7 +3055,7 @@ module AWS::SDK::Comprehend
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3073,7 +3075,7 @@ module AWS::SDK::Comprehend
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3093,7 +3095,7 @@ module AWS::SDK::Comprehend
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3113,7 +3115,7 @@ module AWS::SDK::Comprehend
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3133,7 +3135,7 @@ module AWS::SDK::Comprehend
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3153,7 +3155,7 @@ module AWS::SDK::Comprehend
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3173,7 +3175,7 @@ module AWS::SDK::Comprehend
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3193,7 +3195,7 @@ module AWS::SDK::Comprehend
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3211,7 +3213,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3229,7 +3231,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3247,7 +3249,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3265,7 +3267,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3283,7 +3285,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3301,7 +3303,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3319,7 +3321,7 @@ module AWS::SDK::Comprehend
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3333,7 +3335,7 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3347,7 +3349,7 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3361,7 +3363,7 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3375,7 +3377,7 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3389,7 +3391,7 @@ module AWS::SDK::Comprehend
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

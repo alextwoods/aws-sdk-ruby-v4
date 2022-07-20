@@ -17,7 +17,7 @@ module AWS::SDK::MarketplaceEntitlementService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entitlements = (Parsers::EntitlementList.parse(map['Entitlements']) unless map['Entitlements'].nil?)
+        data.entitlements = (EntitlementList.parse(map['Entitlements']) unless map['Entitlements'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -26,7 +26,7 @@ module AWS::SDK::MarketplaceEntitlementService
     class EntitlementList
       def self.parse(list)
         list.map do |value|
-          Parsers::Entitlement.parse(value) unless value.nil?
+          Entitlement.parse(value) unless value.nil?
         end
       end
     end
@@ -37,7 +37,7 @@ module AWS::SDK::MarketplaceEntitlementService
         data.product_code = map['ProductCode']
         data.dimension = map['Dimension']
         data.customer_identifier = map['CustomerIdentifier']
-        data.value = (Parsers::EntitlementValue.parse(map['Value']) unless map['Value'].nil?)
+        data.value = (EntitlementValue.parse(map['Value']) unless map['Value'].nil?)
         data.expiration_date = Time.at(map['ExpirationDate'].to_i) if map['ExpirationDate']
         return data
       end

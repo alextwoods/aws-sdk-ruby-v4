@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MigrationHubConfig
   module Builders
 
@@ -19,9 +21,9 @@ module AWS::SDK::MigrationHubConfig
         http_req.headers['X-Amz-Target'] = 'AWSMigrationHubMultiAccountService.CreateHomeRegionControl'
         data = {}
         data['HomeRegion'] = input[:home_region] unless input[:home_region].nil?
-        data['Target'] = Builders::Target.build(input[:target]) unless input[:target].nil?
+        data['Target'] = Target.build(input[:target]) unless input[:target].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -45,10 +47,10 @@ module AWS::SDK::MigrationHubConfig
         data = {}
         data['ControlId'] = input[:control_id] unless input[:control_id].nil?
         data['HomeRegion'] = input[:home_region] unless input[:home_region].nil?
-        data['Target'] = Builders::Target.build(input[:target]) unless input[:target].nil?
+        data['Target'] = Target.build(input[:target]) unless input[:target].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -60,7 +62,7 @@ module AWS::SDK::MigrationHubConfig
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSMigrationHubMultiAccountService.GetHomeRegion'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

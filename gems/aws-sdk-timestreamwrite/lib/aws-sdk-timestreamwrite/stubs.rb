@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::TimestreamWrite
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::TimestreamWrite
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Database'] = Stubs::Database.stub(stub[:database]) unless stub[:database].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Database'] = Database.stub(stub[:database]) unless stub[:database].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -64,8 +66,8 @@ module AWS::SDK::TimestreamWrite
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Table'] = Stubs::Table.stub(stub[:table]) unless stub[:table].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Table'] = Table.stub(stub[:table]) unless stub[:table].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -94,10 +96,10 @@ module AWS::SDK::TimestreamWrite
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['DatabaseName'] = stub[:database_name] unless stub[:database_name].nil?
         data['TableStatus'] = stub[:table_status] unless stub[:table_status].nil?
-        data['RetentionProperties'] = Stubs::RetentionProperties.stub(stub[:retention_properties]) unless stub[:retention_properties].nil?
+        data['RetentionProperties'] = RetentionProperties.stub(stub[:retention_properties]) unless stub[:retention_properties].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
-        data['MagneticStoreWriteProperties'] = Stubs::MagneticStoreWriteProperties.stub(stub[:magnetic_store_write_properties]) unless stub[:magnetic_store_write_properties].nil?
+        data['MagneticStoreWriteProperties'] = MagneticStoreWriteProperties.stub(stub[:magnetic_store_write_properties]) unless stub[:magnetic_store_write_properties].nil?
         data
       end
     end
@@ -117,7 +119,7 @@ module AWS::SDK::TimestreamWrite
         stub ||= Types::MagneticStoreWriteProperties.new
         data = {}
         data['EnableMagneticStoreWrites'] = stub[:enable_magnetic_store_writes] unless stub[:enable_magnetic_store_writes].nil?
-        data['MagneticStoreRejectedDataLocation'] = Stubs::MagneticStoreRejectedDataLocation.stub(stub[:magnetic_store_rejected_data_location]) unless stub[:magnetic_store_rejected_data_location].nil?
+        data['MagneticStoreRejectedDataLocation'] = MagneticStoreRejectedDataLocation.stub(stub[:magnetic_store_rejected_data_location]) unless stub[:magnetic_store_rejected_data_location].nil?
         data
       end
     end
@@ -135,7 +137,7 @@ module AWS::SDK::TimestreamWrite
       def self.stub(stub)
         stub ||= Types::MagneticStoreRejectedDataLocation.new
         data = {}
-        data['S3Configuration'] = Stubs::S3Configuration.stub(stub[:s3_configuration]) unless stub[:s3_configuration].nil?
+        data['S3Configuration'] = S3Configuration.stub(stub[:s3_configuration]) unless stub[:s3_configuration].nil?
         data
       end
     end
@@ -193,7 +195,7 @@ module AWS::SDK::TimestreamWrite
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -207,7 +209,7 @@ module AWS::SDK::TimestreamWrite
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -222,8 +224,8 @@ module AWS::SDK::TimestreamWrite
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Database'] = Stubs::Database.stub(stub[:database]) unless stub[:database].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Database'] = Database.stub(stub[:database]) unless stub[:database].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -238,8 +240,8 @@ module AWS::SDK::TimestreamWrite
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Endpoints'] = Stubs::Endpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Endpoints'] = Endpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -258,7 +260,7 @@ module AWS::SDK::TimestreamWrite
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Endpoint.stub(element) unless element.nil?
+          data << Endpoint.stub(element) unless element.nil?
         end
         data
       end
@@ -294,8 +296,8 @@ module AWS::SDK::TimestreamWrite
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Table'] = Stubs::Table.stub(stub[:table]) unless stub[:table].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Table'] = Table.stub(stub[:table]) unless stub[:table].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -311,9 +313,9 @@ module AWS::SDK::TimestreamWrite
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Databases'] = Stubs::DatabaseList.stub(stub[:databases]) unless stub[:databases].nil?
+        data['Databases'] = DatabaseList.stub(stub[:databases]) unless stub[:databases].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -332,7 +334,7 @@ module AWS::SDK::TimestreamWrite
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Database.stub(element) unless element.nil?
+          data << Database.stub(element) unless element.nil?
         end
         data
       end
@@ -349,9 +351,9 @@ module AWS::SDK::TimestreamWrite
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tables'] = Stubs::TableList.stub(stub[:tables]) unless stub[:tables].nil?
+        data['Tables'] = TableList.stub(stub[:tables]) unless stub[:tables].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -370,7 +372,7 @@ module AWS::SDK::TimestreamWrite
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Table.stub(element) unless element.nil?
+          data << Table.stub(element) unless element.nil?
         end
         data
       end
@@ -386,8 +388,8 @@ module AWS::SDK::TimestreamWrite
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -406,7 +408,7 @@ module AWS::SDK::TimestreamWrite
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -441,7 +443,7 @@ module AWS::SDK::TimestreamWrite
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -455,7 +457,7 @@ module AWS::SDK::TimestreamWrite
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -470,8 +472,8 @@ module AWS::SDK::TimestreamWrite
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Database'] = Stubs::Database.stub(stub[:database]) unless stub[:database].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Database'] = Database.stub(stub[:database]) unless stub[:database].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -486,8 +488,8 @@ module AWS::SDK::TimestreamWrite
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Table'] = Stubs::Table.stub(stub[:table]) unless stub[:table].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Table'] = Table.stub(stub[:table]) unless stub[:table].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -502,8 +504,8 @@ module AWS::SDK::TimestreamWrite
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RecordsIngested'] = Stubs::RecordsIngested.stub(stub[:records_ingested]) unless stub[:records_ingested].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RecordsIngested'] = RecordsIngested.stub(stub[:records_ingested]) unless stub[:records_ingested].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

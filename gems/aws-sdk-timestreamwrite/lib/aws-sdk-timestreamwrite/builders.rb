@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::TimestreamWrite
   module Builders
 
@@ -20,8 +22,8 @@ module AWS::SDK::TimestreamWrite
         data = {}
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -30,7 +32,7 @@ module AWS::SDK::TimestreamWrite
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -56,10 +58,10 @@ module AWS::SDK::TimestreamWrite
         data = {}
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['RetentionProperties'] = Builders::RetentionProperties.build(input[:retention_properties]) unless input[:retention_properties].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['MagneticStoreWriteProperties'] = Builders::MagneticStoreWriteProperties.build(input[:magnetic_store_write_properties]) unless input[:magnetic_store_write_properties].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RetentionProperties'] = RetentionProperties.build(input[:retention_properties]) unless input[:retention_properties].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['MagneticStoreWriteProperties'] = MagneticStoreWriteProperties.build(input[:magnetic_store_write_properties]) unless input[:magnetic_store_write_properties].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -68,7 +70,7 @@ module AWS::SDK::TimestreamWrite
       def self.build(input)
         data = {}
         data['EnableMagneticStoreWrites'] = input[:enable_magnetic_store_writes] unless input[:enable_magnetic_store_writes].nil?
-        data['MagneticStoreRejectedDataLocation'] = Builders::MagneticStoreRejectedDataLocation.build(input[:magnetic_store_rejected_data_location]) unless input[:magnetic_store_rejected_data_location].nil?
+        data['MagneticStoreRejectedDataLocation'] = MagneticStoreRejectedDataLocation.build(input[:magnetic_store_rejected_data_location]) unless input[:magnetic_store_rejected_data_location].nil?
         data
       end
     end
@@ -77,7 +79,7 @@ module AWS::SDK::TimestreamWrite
     class MagneticStoreRejectedDataLocation
       def self.build(input)
         data = {}
-        data['S3Configuration'] = Builders::S3Configuration.build(input[:s3_configuration]) unless input[:s3_configuration].nil?
+        data['S3Configuration'] = S3Configuration.build(input[:s3_configuration]) unless input[:s3_configuration].nil?
         data
       end
     end
@@ -113,7 +115,7 @@ module AWS::SDK::TimestreamWrite
         http_req.headers['X-Amz-Target'] = 'Timestream_20181101.DeleteDatabase'
         data = {}
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -127,7 +129,7 @@ module AWS::SDK::TimestreamWrite
         data = {}
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -140,7 +142,7 @@ module AWS::SDK::TimestreamWrite
         http_req.headers['X-Amz-Target'] = 'Timestream_20181101.DescribeDatabase'
         data = {}
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -152,7 +154,7 @@ module AWS::SDK::TimestreamWrite
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'Timestream_20181101.DescribeEndpoints'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -166,7 +168,7 @@ module AWS::SDK::TimestreamWrite
         data = {}
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -180,7 +182,7 @@ module AWS::SDK::TimestreamWrite
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -195,7 +197,7 @@ module AWS::SDK::TimestreamWrite
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -208,7 +210,7 @@ module AWS::SDK::TimestreamWrite
         http_req.headers['X-Amz-Target'] = 'Timestream_20181101.ListTagsForResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -221,8 +223,8 @@ module AWS::SDK::TimestreamWrite
         http_req.headers['X-Amz-Target'] = 'Timestream_20181101.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -235,8 +237,8 @@ module AWS::SDK::TimestreamWrite
         http_req.headers['X-Amz-Target'] = 'Timestream_20181101.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -261,7 +263,7 @@ module AWS::SDK::TimestreamWrite
         data = {}
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -275,9 +277,9 @@ module AWS::SDK::TimestreamWrite
         data = {}
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['RetentionProperties'] = Builders::RetentionProperties.build(input[:retention_properties]) unless input[:retention_properties].nil?
-        data['MagneticStoreWriteProperties'] = Builders::MagneticStoreWriteProperties.build(input[:magnetic_store_write_properties]) unless input[:magnetic_store_write_properties].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RetentionProperties'] = RetentionProperties.build(input[:retention_properties]) unless input[:retention_properties].nil?
+        data['MagneticStoreWriteProperties'] = MagneticStoreWriteProperties.build(input[:magnetic_store_write_properties]) unless input[:magnetic_store_write_properties].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -291,9 +293,9 @@ module AWS::SDK::TimestreamWrite
         data = {}
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['CommonAttributes'] = Builders::Record.build(input[:common_attributes]) unless input[:common_attributes].nil?
-        data['Records'] = Builders::Records.build(input[:records]) unless input[:records].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CommonAttributes'] = Record.build(input[:common_attributes]) unless input[:common_attributes].nil?
+        data['Records'] = Records.build(input[:records]) unless input[:records].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -302,7 +304,7 @@ module AWS::SDK::TimestreamWrite
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Record.build(element) unless element.nil?
+          data << Record.build(element) unless element.nil?
         end
         data
       end
@@ -312,14 +314,14 @@ module AWS::SDK::TimestreamWrite
     class Record
       def self.build(input)
         data = {}
-        data['Dimensions'] = Builders::Dimensions.build(input[:dimensions]) unless input[:dimensions].nil?
+        data['Dimensions'] = Dimensions.build(input[:dimensions]) unless input[:dimensions].nil?
         data['MeasureName'] = input[:measure_name] unless input[:measure_name].nil?
         data['MeasureValue'] = input[:measure_value] unless input[:measure_value].nil?
         data['MeasureValueType'] = input[:measure_value_type] unless input[:measure_value_type].nil?
         data['Time'] = input[:time] unless input[:time].nil?
         data['TimeUnit'] = input[:time_unit] unless input[:time_unit].nil?
         data['Version'] = input[:version] unless input[:version].nil?
-        data['MeasureValues'] = Builders::MeasureValues.build(input[:measure_values]) unless input[:measure_values].nil?
+        data['MeasureValues'] = MeasureValues.build(input[:measure_values]) unless input[:measure_values].nil?
         data
       end
     end
@@ -329,7 +331,7 @@ module AWS::SDK::TimestreamWrite
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MeasureValue.build(element) unless element.nil?
+          data << MeasureValue.build(element) unless element.nil?
         end
         data
       end
@@ -351,7 +353,7 @@ module AWS::SDK::TimestreamWrite
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Dimension.build(element) unless element.nil?
+          data << Dimension.build(element) unless element.nil?
         end
         data
       end

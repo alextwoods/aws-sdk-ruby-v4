@@ -142,10 +142,10 @@ module AWS::SDK::GroundStation
         data.ground_station = map['groundStation']
         data.contact_status = map['contactStatus']
         data.error_message = map['errorMessage']
-        data.maximum_elevation = (Parsers::Elevation.parse(map['maximumElevation']) unless map['maximumElevation'].nil?)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.maximum_elevation = (Elevation.parse(map['maximumElevation']) unless map['maximumElevation'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data.region = map['region']
-        data.dataflow_list = (Parsers::DataflowList.parse(map['dataflowList']) unless map['dataflowList'].nil?)
+        data.dataflow_list = (DataflowList.parse(map['dataflowList']) unless map['dataflowList'].nil?)
         data
       end
     end
@@ -154,7 +154,7 @@ module AWS::SDK::GroundStation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataflowDetail.parse(value) unless value.nil?
+          data << DataflowDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -163,8 +163,8 @@ module AWS::SDK::GroundStation
     class DataflowDetail
       def self.parse(map)
         data = Types::DataflowDetail.new
-        data.source = (Parsers::Source.parse(map['source']) unless map['source'].nil?)
-        data.destination = (Parsers::Destination.parse(map['destination']) unless map['destination'].nil?)
+        data.source = (Source.parse(map['source']) unless map['source'].nil?)
+        data.destination = (Destination.parse(map['destination']) unless map['destination'].nil?)
         data.error_message = map['errorMessage']
         return data
       end
@@ -175,7 +175,7 @@ module AWS::SDK::GroundStation
         data = Types::Destination.new
         data.config_type = map['configType']
         data.config_id = map['configId']
-        data.config_details = (Parsers::ConfigDetails.parse(map['configDetails']) unless map['configDetails'].nil?)
+        data.config_details = (ConfigDetails.parse(map['configDetails']) unless map['configDetails'].nil?)
         data.dataflow_destination_region = map['dataflowDestinationRegion']
         return data
       end
@@ -186,13 +186,13 @@ module AWS::SDK::GroundStation
         key, value = map.flatten
         case key
         when 'endpointDetails'
-          value = (Parsers::EndpointDetails.parse(value) unless value.nil?)
+          value = (EndpointDetails.parse(value) unless value.nil?)
           Types::ConfigDetails::EndpointDetails.new(value) if value
         when 'antennaDemodDecodeDetails'
-          value = (Parsers::AntennaDemodDecodeDetails.parse(value) unless value.nil?)
+          value = (AntennaDemodDecodeDetails.parse(value) unless value.nil?)
           Types::ConfigDetails::AntennaDemodDecodeDetails.new(value) if value
         when 's3RecordingDetails'
-          value = (Parsers::S3RecordingDetails.parse(value) unless value.nil?)
+          value = (S3RecordingDetails.parse(value) unless value.nil?)
           Types::ConfigDetails::S3RecordingDetails.new(value) if value
         else
           Types::ConfigDetails::Unknown.new({name: key, value: value})
@@ -220,8 +220,8 @@ module AWS::SDK::GroundStation
     class EndpointDetails
       def self.parse(map)
         data = Types::EndpointDetails.new
-        data.security_details = (Parsers::SecurityDetails.parse(map['securityDetails']) unless map['securityDetails'].nil?)
-        data.endpoint = (Parsers::DataflowEndpoint.parse(map['endpoint']) unless map['endpoint'].nil?)
+        data.security_details = (SecurityDetails.parse(map['securityDetails']) unless map['securityDetails'].nil?)
+        data.endpoint = (DataflowEndpoint.parse(map['endpoint']) unless map['endpoint'].nil?)
         return data
       end
     end
@@ -230,7 +230,7 @@ module AWS::SDK::GroundStation
       def self.parse(map)
         data = Types::DataflowEndpoint.new
         data.name = map['name']
-        data.address = (Parsers::SocketAddress.parse(map['address']) unless map['address'].nil?)
+        data.address = (SocketAddress.parse(map['address']) unless map['address'].nil?)
         data.status = map['status']
         data.mtu = map['mtu']
         return data
@@ -249,8 +249,8 @@ module AWS::SDK::GroundStation
     class SecurityDetails
       def self.parse(map)
         data = Types::SecurityDetails.new
-        data.subnet_ids = (Parsers::SubnetList.parse(map['subnetIds']) unless map['subnetIds'].nil?)
-        data.security_group_ids = (Parsers::SecurityGroupIdList.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
+        data.subnet_ids = (SubnetList.parse(map['subnetIds']) unless map['subnetIds'].nil?)
+        data.security_group_ids = (SecurityGroupIdList.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
         data.role_arn = map['roleArn']
         return data
       end
@@ -281,7 +281,7 @@ module AWS::SDK::GroundStation
         data = Types::Source.new
         data.config_type = map['configType']
         data.config_id = map['configId']
-        data.config_details = (Parsers::ConfigDetails.parse(map['configDetails']) unless map['configDetails'].nil?)
+        data.config_details = (ConfigDetails.parse(map['configDetails']) unless map['configDetails'].nil?)
         data.dataflow_source_region = map['dataflowSourceRegion']
         return data
       end
@@ -315,8 +315,8 @@ module AWS::SDK::GroundStation
         data.config_arn = map['configArn']
         data.name = map['name']
         data.config_type = map['configType']
-        data.config_data = (Parsers::ConfigTypeData.parse(map['configData']) unless map['configData'].nil?)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.config_data = (ConfigTypeData.parse(map['configData']) unless map['configData'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -326,25 +326,25 @@ module AWS::SDK::GroundStation
         key, value = map.flatten
         case key
         when 'antennaDownlinkConfig'
-          value = (Parsers::AntennaDownlinkConfig.parse(value) unless value.nil?)
+          value = (AntennaDownlinkConfig.parse(value) unless value.nil?)
           Types::ConfigTypeData::AntennaDownlinkConfig.new(value) if value
         when 'trackingConfig'
-          value = (Parsers::TrackingConfig.parse(value) unless value.nil?)
+          value = (TrackingConfig.parse(value) unless value.nil?)
           Types::ConfigTypeData::TrackingConfig.new(value) if value
         when 'dataflowEndpointConfig'
-          value = (Parsers::DataflowEndpointConfig.parse(value) unless value.nil?)
+          value = (DataflowEndpointConfig.parse(value) unless value.nil?)
           Types::ConfigTypeData::DataflowEndpointConfig.new(value) if value
         when 'antennaDownlinkDemodDecodeConfig'
-          value = (Parsers::AntennaDownlinkDemodDecodeConfig.parse(value) unless value.nil?)
+          value = (AntennaDownlinkDemodDecodeConfig.parse(value) unless value.nil?)
           Types::ConfigTypeData::AntennaDownlinkDemodDecodeConfig.new(value) if value
         when 'antennaUplinkConfig'
-          value = (Parsers::AntennaUplinkConfig.parse(value) unless value.nil?)
+          value = (AntennaUplinkConfig.parse(value) unless value.nil?)
           Types::ConfigTypeData::AntennaUplinkConfig.new(value) if value
         when 'uplinkEchoConfig'
-          value = (Parsers::UplinkEchoConfig.parse(value) unless value.nil?)
+          value = (UplinkEchoConfig.parse(value) unless value.nil?)
           Types::ConfigTypeData::UplinkEchoConfig.new(value) if value
         when 's3RecordingConfig'
-          value = (Parsers::S3RecordingConfig.parse(value) unless value.nil?)
+          value = (S3RecordingConfig.parse(value) unless value.nil?)
           Types::ConfigTypeData::S3RecordingConfig.new(value) if value
         else
           Types::ConfigTypeData::Unknown.new({name: key, value: value})
@@ -375,8 +375,8 @@ module AWS::SDK::GroundStation
       def self.parse(map)
         data = Types::AntennaUplinkConfig.new
         data.transmit_disabled = map['transmitDisabled']
-        data.spectrum_config = (Parsers::UplinkSpectrumConfig.parse(map['spectrumConfig']) unless map['spectrumConfig'].nil?)
-        data.target_eirp = (Parsers::Eirp.parse(map['targetEirp']) unless map['targetEirp'].nil?)
+        data.spectrum_config = (UplinkSpectrumConfig.parse(map['spectrumConfig']) unless map['spectrumConfig'].nil?)
+        data.target_eirp = (Eirp.parse(map['targetEirp']) unless map['targetEirp'].nil?)
         return data
       end
     end
@@ -393,7 +393,7 @@ module AWS::SDK::GroundStation
     class UplinkSpectrumConfig
       def self.parse(map)
         data = Types::UplinkSpectrumConfig.new
-        data.center_frequency = (Parsers::Frequency.parse(map['centerFrequency']) unless map['centerFrequency'].nil?)
+        data.center_frequency = (Frequency.parse(map['centerFrequency']) unless map['centerFrequency'].nil?)
         data.polarization = map['polarization']
         return data
       end
@@ -411,9 +411,9 @@ module AWS::SDK::GroundStation
     class AntennaDownlinkDemodDecodeConfig
       def self.parse(map)
         data = Types::AntennaDownlinkDemodDecodeConfig.new
-        data.spectrum_config = (Parsers::SpectrumConfig.parse(map['spectrumConfig']) unless map['spectrumConfig'].nil?)
-        data.demodulation_config = (Parsers::DemodulationConfig.parse(map['demodulationConfig']) unless map['demodulationConfig'].nil?)
-        data.decode_config = (Parsers::DecodeConfig.parse(map['decodeConfig']) unless map['decodeConfig'].nil?)
+        data.spectrum_config = (SpectrumConfig.parse(map['spectrumConfig']) unless map['spectrumConfig'].nil?)
+        data.demodulation_config = (DemodulationConfig.parse(map['demodulationConfig']) unless map['demodulationConfig'].nil?)
+        data.decode_config = (DecodeConfig.parse(map['decodeConfig']) unless map['decodeConfig'].nil?)
         return data
       end
     end
@@ -437,8 +437,8 @@ module AWS::SDK::GroundStation
     class SpectrumConfig
       def self.parse(map)
         data = Types::SpectrumConfig.new
-        data.center_frequency = (Parsers::Frequency.parse(map['centerFrequency']) unless map['centerFrequency'].nil?)
-        data.bandwidth = (Parsers::FrequencyBandwidth.parse(map['bandwidth']) unless map['bandwidth'].nil?)
+        data.center_frequency = (Frequency.parse(map['centerFrequency']) unless map['centerFrequency'].nil?)
+        data.bandwidth = (FrequencyBandwidth.parse(map['bandwidth']) unless map['bandwidth'].nil?)
         data.polarization = map['polarization']
         return data
       end
@@ -473,7 +473,7 @@ module AWS::SDK::GroundStation
     class AntennaDownlinkConfig
       def self.parse(map)
         data = Types::AntennaDownlinkConfig.new
-        data.spectrum_config = (Parsers::SpectrumConfig.parse(map['spectrumConfig']) unless map['spectrumConfig'].nil?)
+        data.spectrum_config = (SpectrumConfig.parse(map['spectrumConfig']) unless map['spectrumConfig'].nil?)
         return data
       end
     end
@@ -485,8 +485,8 @@ module AWS::SDK::GroundStation
         map = Hearth::JSON.load(http_resp.body)
         data.dataflow_endpoint_group_id = map['dataflowEndpointGroupId']
         data.dataflow_endpoint_group_arn = map['dataflowEndpointGroupArn']
-        data.endpoints_details = (Parsers::EndpointDetailsList.parse(map['endpointsDetails']) unless map['endpointsDetails'].nil?)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.endpoints_details = (EndpointDetailsList.parse(map['endpointsDetails']) unless map['endpointsDetails'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -495,7 +495,7 @@ module AWS::SDK::GroundStation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EndpointDetails.parse(value) unless value.nil?
+          data << EndpointDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -527,9 +527,9 @@ module AWS::SDK::GroundStation
         data.contact_pre_pass_duration_seconds = map['contactPrePassDurationSeconds']
         data.contact_post_pass_duration_seconds = map['contactPostPassDurationSeconds']
         data.minimum_viable_contact_duration_seconds = map['minimumViableContactDurationSeconds']
-        data.dataflow_edges = (Parsers::DataflowEdgeList.parse(map['dataflowEdges']) unless map['dataflowEdges'].nil?)
+        data.dataflow_edges = (DataflowEdgeList.parse(map['dataflowEdges']) unless map['dataflowEdges'].nil?)
         data.tracking_config_arn = map['trackingConfigArn']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -538,7 +538,7 @@ module AWS::SDK::GroundStation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataflowEdge.parse(value) unless value.nil?
+          data << DataflowEdge.parse(value) unless value.nil?
         end
         data
       end
@@ -562,7 +562,7 @@ module AWS::SDK::GroundStation
         data.satellite_id = map['satelliteId']
         data.satellite_arn = map['satelliteArn']
         data.norad_satellite_id = map['noradSatelliteID']
-        data.ground_stations = (Parsers::GroundStationIdList.parse(map['groundStations']) unless map['groundStations'].nil?)
+        data.ground_stations = (GroundStationIdList.parse(map['groundStations']) unless map['groundStations'].nil?)
         data
       end
     end
@@ -583,7 +583,7 @@ module AWS::SDK::GroundStation
         data = Types::ListConfigsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.config_list = (Parsers::ConfigList.parse(map['configList']) unless map['configList'].nil?)
+        data.config_list = (ConfigList.parse(map['configList']) unless map['configList'].nil?)
         data
       end
     end
@@ -592,7 +592,7 @@ module AWS::SDK::GroundStation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ConfigListItem.parse(value) unless value.nil?
+          data << ConfigListItem.parse(value) unless value.nil?
         end
         data
       end
@@ -615,7 +615,7 @@ module AWS::SDK::GroundStation
         data = Types::ListContactsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.contact_list = (Parsers::ContactList.parse(map['contactList']) unless map['contactList'].nil?)
+        data.contact_list = (ContactList.parse(map['contactList']) unless map['contactList'].nil?)
         data
       end
     end
@@ -624,7 +624,7 @@ module AWS::SDK::GroundStation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ContactData.parse(value) unless value.nil?
+          data << ContactData.parse(value) unless value.nil?
         end
         data
       end
@@ -643,9 +643,9 @@ module AWS::SDK::GroundStation
         data.ground_station = map['groundStation']
         data.contact_status = map['contactStatus']
         data.error_message = map['errorMessage']
-        data.maximum_elevation = (Parsers::Elevation.parse(map['maximumElevation']) unless map['maximumElevation'].nil?)
+        data.maximum_elevation = (Elevation.parse(map['maximumElevation']) unless map['maximumElevation'].nil?)
         data.region = map['region']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -656,7 +656,7 @@ module AWS::SDK::GroundStation
         data = Types::ListDataflowEndpointGroupsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.dataflow_endpoint_group_list = (Parsers::DataflowEndpointGroupList.parse(map['dataflowEndpointGroupList']) unless map['dataflowEndpointGroupList'].nil?)
+        data.dataflow_endpoint_group_list = (DataflowEndpointGroupList.parse(map['dataflowEndpointGroupList']) unless map['dataflowEndpointGroupList'].nil?)
         data
       end
     end
@@ -665,7 +665,7 @@ module AWS::SDK::GroundStation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataflowEndpointListItem.parse(value) unless value.nil?
+          data << DataflowEndpointListItem.parse(value) unless value.nil?
         end
         data
       end
@@ -686,7 +686,7 @@ module AWS::SDK::GroundStation
         data = Types::ListGroundStationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.ground_station_list = (Parsers::GroundStationList.parse(map['groundStationList']) unless map['groundStationList'].nil?)
+        data.ground_station_list = (GroundStationList.parse(map['groundStationList']) unless map['groundStationList'].nil?)
         data
       end
     end
@@ -695,7 +695,7 @@ module AWS::SDK::GroundStation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GroundStationData.parse(value) unless value.nil?
+          data << GroundStationData.parse(value) unless value.nil?
         end
         data
       end
@@ -717,7 +717,7 @@ module AWS::SDK::GroundStation
         data = Types::ListMissionProfilesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.mission_profile_list = (Parsers::MissionProfileList.parse(map['missionProfileList']) unless map['missionProfileList'].nil?)
+        data.mission_profile_list = (MissionProfileList.parse(map['missionProfileList']) unless map['missionProfileList'].nil?)
         data
       end
     end
@@ -726,7 +726,7 @@ module AWS::SDK::GroundStation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MissionProfileListItem.parse(value) unless value.nil?
+          data << MissionProfileListItem.parse(value) unless value.nil?
         end
         data
       end
@@ -749,7 +749,7 @@ module AWS::SDK::GroundStation
         data = Types::ListSatellitesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.satellites = (Parsers::SatelliteList.parse(map['satellites']) unless map['satellites'].nil?)
+        data.satellites = (SatelliteList.parse(map['satellites']) unless map['satellites'].nil?)
         data
       end
     end
@@ -758,7 +758,7 @@ module AWS::SDK::GroundStation
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SatelliteListItem.parse(value) unless value.nil?
+          data << SatelliteListItem.parse(value) unless value.nil?
         end
         data
       end
@@ -770,7 +770,7 @@ module AWS::SDK::GroundStation
         data.satellite_id = map['satelliteId']
         data.satellite_arn = map['satelliteArn']
         data.norad_satellite_id = map['noradSatelliteID']
-        data.ground_stations = (Parsers::GroundStationIdList.parse(map['groundStations']) unless map['groundStations'].nil?)
+        data.ground_stations = (GroundStationIdList.parse(map['groundStations']) unless map['groundStations'].nil?)
         return data
       end
     end
@@ -780,7 +780,7 @@ module AWS::SDK::GroundStation
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end

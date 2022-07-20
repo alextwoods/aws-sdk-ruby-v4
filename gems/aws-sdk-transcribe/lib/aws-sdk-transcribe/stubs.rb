@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Transcribe
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CategoryProperties'] = Stubs::CategoryProperties.stub(stub[:category_properties]) unless stub[:category_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CategoryProperties'] = CategoryProperties.stub(stub[:category_properties]) unless stub[:category_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -43,7 +45,7 @@ module AWS::SDK::Transcribe
         stub ||= Types::CategoryProperties.new
         data = {}
         data['CategoryName'] = stub[:category_name] unless stub[:category_name].nil?
-        data['Rules'] = Stubs::RuleList.stub(stub[:rules]) unless stub[:rules].nil?
+        data['Rules'] = RuleList.stub(stub[:rules]) unless stub[:rules].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_time]).to_i unless stub[:create_time].nil?
         data['LastUpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_time]).to_i unless stub[:last_update_time].nil?
         data
@@ -64,7 +66,7 @@ module AWS::SDK::Transcribe
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Rule.stub(element) unless element.nil?
+          data << Rule.stub(element) unless element.nil?
         end
         data
       end
@@ -84,13 +86,13 @@ module AWS::SDK::Transcribe
         data = {}
         case stub
         when Types::Rule::NonTalkTimeFilter
-          data['NonTalkTimeFilter'] = (Stubs::NonTalkTimeFilter.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['NonTalkTimeFilter'] = (NonTalkTimeFilter.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::Rule::InterruptionFilter
-          data['InterruptionFilter'] = (Stubs::InterruptionFilter.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['InterruptionFilter'] = (InterruptionFilter.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::Rule::TranscriptFilter
-          data['TranscriptFilter'] = (Stubs::TranscriptFilter.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['TranscriptFilter'] = (TranscriptFilter.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::Rule::SentimentFilter
-          data['SentimentFilter'] = (Stubs::SentimentFilter.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['SentimentFilter'] = (SentimentFilter.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::Rule"
@@ -117,9 +119,9 @@ module AWS::SDK::Transcribe
       def self.stub(stub)
         stub ||= Types::SentimentFilter.new
         data = {}
-        data['Sentiments'] = Stubs::SentimentValueList.stub(stub[:sentiments]) unless stub[:sentiments].nil?
-        data['AbsoluteTimeRange'] = Stubs::AbsoluteTimeRange.stub(stub[:absolute_time_range]) unless stub[:absolute_time_range].nil?
-        data['RelativeTimeRange'] = Stubs::RelativeTimeRange.stub(stub[:relative_time_range]) unless stub[:relative_time_range].nil?
+        data['Sentiments'] = SentimentValueList.stub(stub[:sentiments]) unless stub[:sentiments].nil?
+        data['AbsoluteTimeRange'] = AbsoluteTimeRange.stub(stub[:absolute_time_range]) unless stub[:absolute_time_range].nil?
+        data['RelativeTimeRange'] = RelativeTimeRange.stub(stub[:relative_time_range]) unless stub[:relative_time_range].nil?
         data['ParticipantRole'] = stub[:participant_role] unless stub[:participant_role].nil?
         data['Negate'] = stub[:negate] unless stub[:negate].nil?
         data
@@ -213,11 +215,11 @@ module AWS::SDK::Transcribe
         stub ||= Types::TranscriptFilter.new
         data = {}
         data['TranscriptFilterType'] = stub[:transcript_filter_type] unless stub[:transcript_filter_type].nil?
-        data['AbsoluteTimeRange'] = Stubs::AbsoluteTimeRange.stub(stub[:absolute_time_range]) unless stub[:absolute_time_range].nil?
-        data['RelativeTimeRange'] = Stubs::RelativeTimeRange.stub(stub[:relative_time_range]) unless stub[:relative_time_range].nil?
+        data['AbsoluteTimeRange'] = AbsoluteTimeRange.stub(stub[:absolute_time_range]) unless stub[:absolute_time_range].nil?
+        data['RelativeTimeRange'] = RelativeTimeRange.stub(stub[:relative_time_range]) unless stub[:relative_time_range].nil?
         data['ParticipantRole'] = stub[:participant_role] unless stub[:participant_role].nil?
         data['Negate'] = stub[:negate] unless stub[:negate].nil?
-        data['Targets'] = Stubs::StringTargetList.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Targets'] = StringTargetList.stub(stub[:targets]) unless stub[:targets].nil?
         data
       end
     end
@@ -261,8 +263,8 @@ module AWS::SDK::Transcribe
         data = {}
         data['Threshold'] = stub[:threshold] unless stub[:threshold].nil?
         data['ParticipantRole'] = stub[:participant_role] unless stub[:participant_role].nil?
-        data['AbsoluteTimeRange'] = Stubs::AbsoluteTimeRange.stub(stub[:absolute_time_range]) unless stub[:absolute_time_range].nil?
-        data['RelativeTimeRange'] = Stubs::RelativeTimeRange.stub(stub[:relative_time_range]) unless stub[:relative_time_range].nil?
+        data['AbsoluteTimeRange'] = AbsoluteTimeRange.stub(stub[:absolute_time_range]) unless stub[:absolute_time_range].nil?
+        data['RelativeTimeRange'] = RelativeTimeRange.stub(stub[:relative_time_range]) unless stub[:relative_time_range].nil?
         data['Negate'] = stub[:negate] unless stub[:negate].nil?
         data
       end
@@ -285,8 +287,8 @@ module AWS::SDK::Transcribe
         stub ||= Types::NonTalkTimeFilter.new
         data = {}
         data['Threshold'] = stub[:threshold] unless stub[:threshold].nil?
-        data['AbsoluteTimeRange'] = Stubs::AbsoluteTimeRange.stub(stub[:absolute_time_range]) unless stub[:absolute_time_range].nil?
-        data['RelativeTimeRange'] = Stubs::RelativeTimeRange.stub(stub[:relative_time_range]) unless stub[:relative_time_range].nil?
+        data['AbsoluteTimeRange'] = AbsoluteTimeRange.stub(stub[:absolute_time_range]) unless stub[:absolute_time_range].nil?
+        data['RelativeTimeRange'] = RelativeTimeRange.stub(stub[:relative_time_range]) unless stub[:relative_time_range].nil?
         data['Negate'] = stub[:negate] unless stub[:negate].nil?
         data
       end
@@ -309,9 +311,9 @@ module AWS::SDK::Transcribe
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['BaseModelName'] = stub[:base_model_name] unless stub[:base_model_name].nil?
         data['ModelName'] = stub[:model_name] unless stub[:model_name].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
         data['ModelStatus'] = stub[:model_status] unless stub[:model_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -357,7 +359,7 @@ module AWS::SDK::Transcribe
         data['VocabularyState'] = stub[:vocabulary_state] unless stub[:vocabulary_state].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -381,7 +383,7 @@ module AWS::SDK::Transcribe
         data['VocabularyState'] = stub[:vocabulary_state] unless stub[:vocabulary_state].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -401,7 +403,7 @@ module AWS::SDK::Transcribe
         data['VocabularyFilterName'] = stub[:vocabulary_filter_name] unless stub[:vocabulary_filter_name].nil?
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -415,7 +417,7 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -429,7 +431,7 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -443,7 +445,7 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -457,7 +459,7 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -471,7 +473,7 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -485,7 +487,7 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -499,7 +501,7 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -513,7 +515,7 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -528,8 +530,8 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LanguageModel'] = Stubs::LanguageModel.stub(stub[:language_model]) unless stub[:language_model].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LanguageModel'] = LanguageModel.stub(stub[:language_model]) unless stub[:language_model].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -563,7 +565,7 @@ module AWS::SDK::Transcribe
         data['ModelStatus'] = stub[:model_status] unless stub[:model_status].nil?
         data['UpgradeAvailability'] = stub[:upgrade_availability] unless stub[:upgrade_availability].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
         data
       end
     end
@@ -578,8 +580,8 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CategoryProperties'] = Stubs::CategoryProperties.stub(stub[:category_properties]) unless stub[:category_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CategoryProperties'] = CategoryProperties.stub(stub[:category_properties]) unless stub[:category_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -594,8 +596,8 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CallAnalyticsJob'] = Stubs::CallAnalyticsJob.stub(stub[:call_analytics_job]) unless stub[:call_analytics_job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CallAnalyticsJob'] = CallAnalyticsJob.stub(stub[:call_analytics_job]) unless stub[:call_analytics_job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -632,16 +634,16 @@ module AWS::SDK::Transcribe
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['MediaSampleRateHertz'] = stub[:media_sample_rate_hertz] unless stub[:media_sample_rate_hertz].nil?
         data['MediaFormat'] = stub[:media_format] unless stub[:media_format].nil?
-        data['Media'] = Stubs::Media.stub(stub[:media]) unless stub[:media].nil?
-        data['Transcript'] = Stubs::Transcript.stub(stub[:transcript]) unless stub[:transcript].nil?
+        data['Media'] = Media.stub(stub[:media]) unless stub[:media].nil?
+        data['Transcript'] = Transcript.stub(stub[:transcript]) unless stub[:transcript].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['CompletionTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:completion_time]).to_i unless stub[:completion_time].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
         data['IdentifiedLanguageScore'] = Hearth::NumberHelper.serialize(stub[:identified_language_score])
-        data['Settings'] = Stubs::CallAnalyticsJobSettings.stub(stub[:settings]) unless stub[:settings].nil?
-        data['ChannelDefinitions'] = Stubs::ChannelDefinitions.stub(stub[:channel_definitions]) unless stub[:channel_definitions].nil?
+        data['Settings'] = CallAnalyticsJobSettings.stub(stub[:settings]) unless stub[:settings].nil?
+        data['ChannelDefinitions'] = ChannelDefinitions.stub(stub[:channel_definitions]) unless stub[:channel_definitions].nil?
         data
       end
     end
@@ -660,7 +662,7 @@ module AWS::SDK::Transcribe
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChannelDefinition.stub(element) unless element.nil?
+          data << ChannelDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -709,9 +711,9 @@ module AWS::SDK::Transcribe
         data['VocabularyFilterName'] = stub[:vocabulary_filter_name] unless stub[:vocabulary_filter_name].nil?
         data['VocabularyFilterMethod'] = stub[:vocabulary_filter_method] unless stub[:vocabulary_filter_method].nil?
         data['LanguageModelName'] = stub[:language_model_name] unless stub[:language_model_name].nil?
-        data['ContentRedaction'] = Stubs::ContentRedaction.stub(stub[:content_redaction]) unless stub[:content_redaction].nil?
-        data['LanguageOptions'] = Stubs::LanguageOptions.stub(stub[:language_options]) unless stub[:language_options].nil?
-        data['LanguageIdSettings'] = Stubs::LanguageIdSettingsMap.stub(stub[:language_id_settings]) unless stub[:language_id_settings].nil?
+        data['ContentRedaction'] = ContentRedaction.stub(stub[:content_redaction]) unless stub[:content_redaction].nil?
+        data['LanguageOptions'] = LanguageOptions.stub(stub[:language_options]) unless stub[:language_options].nil?
+        data['LanguageIdSettings'] = LanguageIdSettingsMap.stub(stub[:language_id_settings]) unless stub[:language_id_settings].nil?
         data
       end
     end
@@ -730,7 +732,7 @@ module AWS::SDK::Transcribe
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::LanguageIdSettings.stub(value) unless value.nil?
+          data[key] = LanguageIdSettings.stub(value) unless value.nil?
         end
         data
       end
@@ -795,7 +797,7 @@ module AWS::SDK::Transcribe
         data = {}
         data['RedactionType'] = stub[:redaction_type] unless stub[:redaction_type].nil?
         data['RedactionOutput'] = stub[:redaction_output] unless stub[:redaction_output].nil?
-        data['PiiEntityTypes'] = Stubs::PiiEntityTypes.stub(stub[:pii_entity_types]) unless stub[:pii_entity_types].nil?
+        data['PiiEntityTypes'] = PiiEntityTypes.stub(stub[:pii_entity_types]) unless stub[:pii_entity_types].nil?
         data
       end
     end
@@ -870,8 +872,8 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['MedicalTranscriptionJob'] = Stubs::MedicalTranscriptionJob.stub(stub[:medical_transcription_job]) unless stub[:medical_transcription_job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MedicalTranscriptionJob'] = MedicalTranscriptionJob.stub(stub[:medical_transcription_job]) unless stub[:medical_transcription_job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -909,17 +911,17 @@ module AWS::SDK::Transcribe
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['MediaSampleRateHertz'] = stub[:media_sample_rate_hertz] unless stub[:media_sample_rate_hertz].nil?
         data['MediaFormat'] = stub[:media_format] unless stub[:media_format].nil?
-        data['Media'] = Stubs::Media.stub(stub[:media]) unless stub[:media].nil?
-        data['Transcript'] = Stubs::MedicalTranscript.stub(stub[:transcript]) unless stub[:transcript].nil?
+        data['Media'] = Media.stub(stub[:media]) unless stub[:media].nil?
+        data['Transcript'] = MedicalTranscript.stub(stub[:transcript]) unless stub[:transcript].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['CompletionTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:completion_time]).to_i unless stub[:completion_time].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['Settings'] = Stubs::MedicalTranscriptionSetting.stub(stub[:settings]) unless stub[:settings].nil?
+        data['Settings'] = MedicalTranscriptionSetting.stub(stub[:settings]) unless stub[:settings].nil?
         data['ContentIdentificationType'] = stub[:content_identification_type] unless stub[:content_identification_type].nil?
         data['Specialty'] = stub[:specialty] unless stub[:specialty].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -938,7 +940,7 @@ module AWS::SDK::Transcribe
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1031,7 +1033,7 @@ module AWS::SDK::Transcribe
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['DownloadUri'] = stub[:download_uri] unless stub[:download_uri].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1046,8 +1048,8 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TranscriptionJob'] = Stubs::TranscriptionJob.stub(stub[:transcription_job]) unless stub[:transcription_job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TranscriptionJob'] = TranscriptionJob.stub(stub[:transcription_job]) unless stub[:transcription_job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1092,24 +1094,24 @@ module AWS::SDK::Transcribe
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['MediaSampleRateHertz'] = stub[:media_sample_rate_hertz] unless stub[:media_sample_rate_hertz].nil?
         data['MediaFormat'] = stub[:media_format] unless stub[:media_format].nil?
-        data['Media'] = Stubs::Media.stub(stub[:media]) unless stub[:media].nil?
-        data['Transcript'] = Stubs::Transcript.stub(stub[:transcript]) unless stub[:transcript].nil?
+        data['Media'] = Media.stub(stub[:media]) unless stub[:media].nil?
+        data['Transcript'] = Transcript.stub(stub[:transcript]) unless stub[:transcript].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['CompletionTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:completion_time]).to_i unless stub[:completion_time].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['Settings'] = Stubs::Settings.stub(stub[:settings]) unless stub[:settings].nil?
-        data['ModelSettings'] = Stubs::ModelSettings.stub(stub[:model_settings]) unless stub[:model_settings].nil?
-        data['JobExecutionSettings'] = Stubs::JobExecutionSettings.stub(stub[:job_execution_settings]) unless stub[:job_execution_settings].nil?
-        data['ContentRedaction'] = Stubs::ContentRedaction.stub(stub[:content_redaction]) unless stub[:content_redaction].nil?
+        data['Settings'] = Settings.stub(stub[:settings]) unless stub[:settings].nil?
+        data['ModelSettings'] = ModelSettings.stub(stub[:model_settings]) unless stub[:model_settings].nil?
+        data['JobExecutionSettings'] = JobExecutionSettings.stub(stub[:job_execution_settings]) unless stub[:job_execution_settings].nil?
+        data['ContentRedaction'] = ContentRedaction.stub(stub[:content_redaction]) unless stub[:content_redaction].nil?
         data['IdentifyLanguage'] = stub[:identify_language] unless stub[:identify_language].nil?
         data['IdentifyMultipleLanguages'] = stub[:identify_multiple_languages] unless stub[:identify_multiple_languages].nil?
-        data['LanguageOptions'] = Stubs::LanguageOptions.stub(stub[:language_options]) unless stub[:language_options].nil?
+        data['LanguageOptions'] = LanguageOptions.stub(stub[:language_options]) unless stub[:language_options].nil?
         data['IdentifiedLanguageScore'] = Hearth::NumberHelper.serialize(stub[:identified_language_score])
-        data['LanguageCodes'] = Stubs::LanguageCodeList.stub(stub[:language_codes]) unless stub[:language_codes].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['Subtitles'] = Stubs::SubtitlesOutput.stub(stub[:subtitles]) unless stub[:subtitles].nil?
-        data['LanguageIdSettings'] = Stubs::LanguageIdSettingsMap.stub(stub[:language_id_settings]) unless stub[:language_id_settings].nil?
+        data['LanguageCodes'] = LanguageCodeList.stub(stub[:language_codes]) unless stub[:language_codes].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Subtitles'] = SubtitlesOutput.stub(stub[:subtitles]) unless stub[:subtitles].nil?
+        data['LanguageIdSettings'] = LanguageIdSettingsMap.stub(stub[:language_id_settings]) unless stub[:language_id_settings].nil?
         data
       end
     end
@@ -1129,8 +1131,8 @@ module AWS::SDK::Transcribe
       def self.stub(stub)
         stub ||= Types::SubtitlesOutput.new
         data = {}
-        data['Formats'] = Stubs::SubtitleFormats.stub(stub[:formats]) unless stub[:formats].nil?
-        data['SubtitleFileUris'] = Stubs::SubtitleFileUris.stub(stub[:subtitle_file_uris]) unless stub[:subtitle_file_uris].nil?
+        data['Formats'] = SubtitleFormats.stub(stub[:formats]) unless stub[:formats].nil?
+        data['SubtitleFileUris'] = SubtitleFileUris.stub(stub[:subtitle_file_uris]) unless stub[:subtitle_file_uris].nil?
         data['OutputStartIndex'] = stub[:output_start_index] unless stub[:output_start_index].nil?
         data
       end
@@ -1190,7 +1192,7 @@ module AWS::SDK::Transcribe
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LanguageCodeItem.stub(element) unless element.nil?
+          data << LanguageCodeItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1307,7 +1309,7 @@ module AWS::SDK::Transcribe
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['DownloadUri'] = stub[:download_uri] unless stub[:download_uri].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1329,7 +1331,7 @@ module AWS::SDK::Transcribe
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['DownloadUri'] = stub[:download_uri] unless stub[:download_uri].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1346,8 +1348,8 @@ module AWS::SDK::Transcribe
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Categories'] = Stubs::CategoryPropertiesList.stub(stub[:categories]) unless stub[:categories].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Categories'] = CategoryPropertiesList.stub(stub[:categories]) unless stub[:categories].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1366,7 +1368,7 @@ module AWS::SDK::Transcribe
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CategoryProperties.stub(element) unless element.nil?
+          data << CategoryProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -1386,8 +1388,8 @@ module AWS::SDK::Transcribe
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['CallAnalyticsJobSummaries'] = Stubs::CallAnalyticsJobSummaries.stub(stub[:call_analytics_job_summaries]) unless stub[:call_analytics_job_summaries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CallAnalyticsJobSummaries'] = CallAnalyticsJobSummaries.stub(stub[:call_analytics_job_summaries]) unless stub[:call_analytics_job_summaries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1406,7 +1408,7 @@ module AWS::SDK::Transcribe
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CallAnalyticsJobSummary.stub(element) unless element.nil?
+          data << CallAnalyticsJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1454,8 +1456,8 @@ module AWS::SDK::Transcribe
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Models'] = Stubs::Models.stub(stub[:models]) unless stub[:models].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Models'] = Models.stub(stub[:models]) unless stub[:models].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1474,7 +1476,7 @@ module AWS::SDK::Transcribe
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LanguageModel.stub(element) unless element.nil?
+          data << LanguageModel.stub(element) unless element.nil?
         end
         data
       end
@@ -1494,8 +1496,8 @@ module AWS::SDK::Transcribe
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['MedicalTranscriptionJobSummaries'] = Stubs::MedicalTranscriptionJobSummaries.stub(stub[:medical_transcription_job_summaries]) unless stub[:medical_transcription_job_summaries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MedicalTranscriptionJobSummaries'] = MedicalTranscriptionJobSummaries.stub(stub[:medical_transcription_job_summaries]) unless stub[:medical_transcription_job_summaries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1514,7 +1516,7 @@ module AWS::SDK::Transcribe
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MedicalTranscriptionJobSummary.stub(element) unless element.nil?
+          data << MedicalTranscriptionJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1572,8 +1574,8 @@ module AWS::SDK::Transcribe
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Vocabularies'] = Stubs::Vocabularies.stub(stub[:vocabularies]) unless stub[:vocabularies].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Vocabularies'] = Vocabularies.stub(stub[:vocabularies]) unless stub[:vocabularies].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1592,7 +1594,7 @@ module AWS::SDK::Transcribe
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VocabularyInfo.stub(element) unless element.nil?
+          data << VocabularyInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1634,8 +1636,8 @@ module AWS::SDK::Transcribe
       def self.stub(http_resp, stub:)
         data = {}
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1654,8 +1656,8 @@ module AWS::SDK::Transcribe
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['TranscriptionJobSummaries'] = Stubs::TranscriptionJobSummaries.stub(stub[:transcription_job_summaries]) unless stub[:transcription_job_summaries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TranscriptionJobSummaries'] = TranscriptionJobSummaries.stub(stub[:transcription_job_summaries]) unless stub[:transcription_job_summaries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1674,7 +1676,7 @@ module AWS::SDK::Transcribe
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TranscriptionJobSummary.stub(element) unless element.nil?
+          data << TranscriptionJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1714,12 +1716,12 @@ module AWS::SDK::Transcribe
         data['TranscriptionJobStatus'] = stub[:transcription_job_status] unless stub[:transcription_job_status].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['OutputLocationType'] = stub[:output_location_type] unless stub[:output_location_type].nil?
-        data['ContentRedaction'] = Stubs::ContentRedaction.stub(stub[:content_redaction]) unless stub[:content_redaction].nil?
-        data['ModelSettings'] = Stubs::ModelSettings.stub(stub[:model_settings]) unless stub[:model_settings].nil?
+        data['ContentRedaction'] = ContentRedaction.stub(stub[:content_redaction]) unless stub[:content_redaction].nil?
+        data['ModelSettings'] = ModelSettings.stub(stub[:model_settings]) unless stub[:model_settings].nil?
         data['IdentifyLanguage'] = stub[:identify_language] unless stub[:identify_language].nil?
         data['IdentifyMultipleLanguages'] = stub[:identify_multiple_languages] unless stub[:identify_multiple_languages].nil?
         data['IdentifiedLanguageScore'] = Hearth::NumberHelper.serialize(stub[:identified_language_score])
-        data['LanguageCodes'] = Stubs::LanguageCodeList.stub(stub[:language_codes]) unless stub[:language_codes].nil?
+        data['LanguageCodes'] = LanguageCodeList.stub(stub[:language_codes]) unless stub[:language_codes].nil?
         data
       end
     end
@@ -1738,8 +1740,8 @@ module AWS::SDK::Transcribe
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Vocabularies'] = Stubs::Vocabularies.stub(stub[:vocabularies]) unless stub[:vocabularies].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Vocabularies'] = Vocabularies.stub(stub[:vocabularies]) unless stub[:vocabularies].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1756,8 +1758,8 @@ module AWS::SDK::Transcribe
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['VocabularyFilters'] = Stubs::VocabularyFilters.stub(stub[:vocabulary_filters]) unless stub[:vocabulary_filters].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VocabularyFilters'] = VocabularyFilters.stub(stub[:vocabulary_filters]) unless stub[:vocabulary_filters].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1776,7 +1778,7 @@ module AWS::SDK::Transcribe
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VocabularyFilterInfo.stub(element) unless element.nil?
+          data << VocabularyFilterInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1814,8 +1816,8 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CallAnalyticsJob'] = Stubs::CallAnalyticsJob.stub(stub[:call_analytics_job]) unless stub[:call_analytics_job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CallAnalyticsJob'] = CallAnalyticsJob.stub(stub[:call_analytics_job]) unless stub[:call_analytics_job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1830,8 +1832,8 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['MedicalTranscriptionJob'] = Stubs::MedicalTranscriptionJob.stub(stub[:medical_transcription_job]) unless stub[:medical_transcription_job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MedicalTranscriptionJob'] = MedicalTranscriptionJob.stub(stub[:medical_transcription_job]) unless stub[:medical_transcription_job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1846,8 +1848,8 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TranscriptionJob'] = Stubs::TranscriptionJob.stub(stub[:transcription_job]) unless stub[:transcription_job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TranscriptionJob'] = TranscriptionJob.stub(stub[:transcription_job]) unless stub[:transcription_job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1861,7 +1863,7 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1875,7 +1877,7 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1890,8 +1892,8 @@ module AWS::SDK::Transcribe
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CategoryProperties'] = Stubs::CategoryProperties.stub(stub[:category_properties]) unless stub[:category_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CategoryProperties'] = CategoryProperties.stub(stub[:category_properties]) unless stub[:category_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1913,7 +1915,7 @@ module AWS::SDK::Transcribe
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['VocabularyState'] = stub[:vocabulary_state] unless stub[:vocabulary_state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1935,7 +1937,7 @@ module AWS::SDK::Transcribe
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['VocabularyState'] = stub[:vocabulary_state] unless stub[:vocabulary_state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1955,7 +1957,7 @@ module AWS::SDK::Transcribe
         data['VocabularyFilterName'] = stub[:vocabulary_filter_name] unless stub[:vocabulary_filter_name].nil?
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

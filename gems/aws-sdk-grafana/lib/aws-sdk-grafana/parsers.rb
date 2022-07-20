@@ -15,7 +15,7 @@ module AWS::SDK::Grafana
       def self.parse(http_resp)
         data = Types::AssociateLicenseOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.workspace = (Parsers::WorkspaceDescription.parse(map['workspace']) unless map['workspace'].nil?)
+        data.workspace = (WorkspaceDescription.parse(map['workspace']) unless map['workspace'].nil?)
         data
       end
     end
@@ -25,7 +25,7 @@ module AWS::SDK::Grafana
         data = Types::WorkspaceDescription.new
         data.account_access_type = map['accountAccessType']
         data.created = Time.at(map['created'].to_i) if map['created']
-        data.data_sources = (Parsers::DataSourceTypesList.parse(map['dataSources']) unless map['dataSources'].nil?)
+        data.data_sources = (DataSourceTypesList.parse(map['dataSources']) unless map['dataSources'].nil?)
         data.description = map['description']
         data.endpoint = map['endpoint']
         data.grafana_version = map['grafanaVersion']
@@ -33,8 +33,8 @@ module AWS::SDK::Grafana
         data.modified = Time.at(map['modified'].to_i) if map['modified']
         data.name = map['name']
         data.organization_role_name = map['organizationRoleName']
-        data.notification_destinations = (Parsers::NotificationDestinationsList.parse(map['notificationDestinations']) unless map['notificationDestinations'].nil?)
-        data.organizational_units = (Parsers::OrganizationalUnitList.parse(map['organizationalUnits']) unless map['organizationalUnits'].nil?)
+        data.notification_destinations = (NotificationDestinationsList.parse(map['notificationDestinations']) unless map['notificationDestinations'].nil?)
+        data.organizational_units = (OrganizationalUnitList.parse(map['organizationalUnits']) unless map['organizationalUnits'].nil?)
         data.permission_type = map['permissionType']
         data.stack_set_name = map['stackSetName']
         data.status = map['status']
@@ -43,8 +43,8 @@ module AWS::SDK::Grafana
         data.free_trial_consumed = map['freeTrialConsumed']
         data.license_expiration = Time.at(map['licenseExpiration'].to_i) if map['licenseExpiration']
         data.free_trial_expiration = Time.at(map['freeTrialExpiration'].to_i) if map['freeTrialExpiration']
-        data.authentication = (Parsers::AuthenticationSummary.parse(map['authentication']) unless map['authentication'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.authentication = (AuthenticationSummary.parse(map['authentication']) unless map['authentication'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -62,7 +62,7 @@ module AWS::SDK::Grafana
     class AuthenticationSummary
       def self.parse(map)
         data = Types::AuthenticationSummary.new
-        data.providers = (Parsers::AuthenticationProviders.parse(map['providers']) unless map['providers'].nil?)
+        data.providers = (AuthenticationProviders.parse(map['providers']) unless map['providers'].nil?)
         data.saml_configuration_status = map['samlConfigurationStatus']
         return data
       end
@@ -151,7 +151,7 @@ module AWS::SDK::Grafana
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['message'] || map['Message']
         data.reason = map['reason']
-        data.field_list = (Parsers::ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
+        data.field_list = (ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
         data
       end
     end
@@ -160,7 +160,7 @@ module AWS::SDK::Grafana
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          data << ValidationExceptionField.parse(value) unless value.nil?
         end
         data
       end
@@ -190,7 +190,7 @@ module AWS::SDK::Grafana
       def self.parse(http_resp)
         data = Types::CreateWorkspaceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.workspace = (Parsers::WorkspaceDescription.parse(map['workspace']) unless map['workspace'].nil?)
+        data.workspace = (WorkspaceDescription.parse(map['workspace']) unless map['workspace'].nil?)
         data
       end
     end
@@ -238,7 +238,7 @@ module AWS::SDK::Grafana
       def self.parse(http_resp)
         data = Types::DeleteWorkspaceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.workspace = (Parsers::WorkspaceDescription.parse(map['workspace']) unless map['workspace'].nil?)
+        data.workspace = (WorkspaceDescription.parse(map['workspace']) unless map['workspace'].nil?)
         data
       end
     end
@@ -259,7 +259,7 @@ module AWS::SDK::Grafana
       def self.parse(http_resp)
         data = Types::DescribeWorkspaceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.workspace = (Parsers::WorkspaceDescription.parse(map['workspace']) unless map['workspace'].nil?)
+        data.workspace = (WorkspaceDescription.parse(map['workspace']) unless map['workspace'].nil?)
         data
       end
     end
@@ -269,7 +269,7 @@ module AWS::SDK::Grafana
       def self.parse(http_resp)
         data = Types::DescribeWorkspaceAuthenticationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.authentication = (Parsers::AuthenticationDescription.parse(map['authentication']) unless map['authentication'].nil?)
+        data.authentication = (AuthenticationDescription.parse(map['authentication']) unless map['authentication'].nil?)
         data
       end
     end
@@ -277,9 +277,9 @@ module AWS::SDK::Grafana
     class AuthenticationDescription
       def self.parse(map)
         data = Types::AuthenticationDescription.new
-        data.providers = (Parsers::AuthenticationProviders.parse(map['providers']) unless map['providers'].nil?)
-        data.saml = (Parsers::SamlAuthentication.parse(map['saml']) unless map['saml'].nil?)
-        data.aws_sso = (Parsers::AwsSsoAuthentication.parse(map['awsSso']) unless map['awsSso'].nil?)
+        data.providers = (AuthenticationProviders.parse(map['providers']) unless map['providers'].nil?)
+        data.saml = (SamlAuthentication.parse(map['saml']) unless map['saml'].nil?)
+        data.aws_sso = (AwsSsoAuthentication.parse(map['awsSso']) unless map['awsSso'].nil?)
         return data
       end
     end
@@ -296,7 +296,7 @@ module AWS::SDK::Grafana
       def self.parse(map)
         data = Types::SamlAuthentication.new
         data.status = map['status']
-        data.configuration = (Parsers::SamlConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
+        data.configuration = (SamlConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
         return data
       end
     end
@@ -304,10 +304,10 @@ module AWS::SDK::Grafana
     class SamlConfiguration
       def self.parse(map)
         data = Types::SamlConfiguration.new
-        data.idp_metadata = (Parsers::IdpMetadata.parse(map['idpMetadata']) unless map['idpMetadata'].nil?)
-        data.assertion_attributes = (Parsers::AssertionAttributes.parse(map['assertionAttributes']) unless map['assertionAttributes'].nil?)
-        data.role_values = (Parsers::RoleValues.parse(map['roleValues']) unless map['roleValues'].nil?)
-        data.allowed_organizations = (Parsers::AllowedOrganizations.parse(map['allowedOrganizations']) unless map['allowedOrganizations'].nil?)
+        data.idp_metadata = (IdpMetadata.parse(map['idpMetadata']) unless map['idpMetadata'].nil?)
+        data.assertion_attributes = (AssertionAttributes.parse(map['assertionAttributes']) unless map['assertionAttributes'].nil?)
+        data.role_values = (RoleValues.parse(map['roleValues']) unless map['roleValues'].nil?)
+        data.allowed_organizations = (AllowedOrganizations.parse(map['allowedOrganizations']) unless map['allowedOrganizations'].nil?)
         data.login_validity_duration = map['loginValidityDuration']
         return data
       end
@@ -326,8 +326,8 @@ module AWS::SDK::Grafana
     class RoleValues
       def self.parse(map)
         data = Types::RoleValues.new
-        data.editor = (Parsers::RoleValueList.parse(map['editor']) unless map['editor'].nil?)
-        data.admin = (Parsers::RoleValueList.parse(map['admin']) unless map['admin'].nil?)
+        data.editor = (RoleValueList.parse(map['editor']) unless map['editor'].nil?)
+        data.admin = (RoleValueList.parse(map['admin']) unless map['admin'].nil?)
         return data
       end
     end
@@ -376,7 +376,7 @@ module AWS::SDK::Grafana
       def self.parse(http_resp)
         data = Types::DisassociateLicenseOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.workspace = (Parsers::WorkspaceDescription.parse(map['workspace']) unless map['workspace'].nil?)
+        data.workspace = (WorkspaceDescription.parse(map['workspace']) unless map['workspace'].nil?)
         data
       end
     end
@@ -387,7 +387,7 @@ module AWS::SDK::Grafana
         data = Types::ListPermissionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.permissions = (Parsers::PermissionEntryList.parse(map['permissions']) unless map['permissions'].nil?)
+        data.permissions = (PermissionEntryList.parse(map['permissions']) unless map['permissions'].nil?)
         data
       end
     end
@@ -396,7 +396,7 @@ module AWS::SDK::Grafana
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PermissionEntry.parse(value) unless value.nil?
+          data << PermissionEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -405,7 +405,7 @@ module AWS::SDK::Grafana
     class PermissionEntry
       def self.parse(map)
         data = Types::PermissionEntry.new
-        data.user = (Parsers::User.parse(map['user']) unless map['user'].nil?)
+        data.user = (User.parse(map['user']) unless map['user'].nil?)
         data.role = map['role']
         return data
       end
@@ -425,7 +425,7 @@ module AWS::SDK::Grafana
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -435,7 +435,7 @@ module AWS::SDK::Grafana
       def self.parse(http_resp)
         data = Types::ListWorkspacesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.workspaces = (Parsers::WorkspaceList.parse(map['workspaces']) unless map['workspaces'].nil?)
+        data.workspaces = (WorkspaceList.parse(map['workspaces']) unless map['workspaces'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -445,7 +445,7 @@ module AWS::SDK::Grafana
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WorkspaceSummary.parse(value) unless value.nil?
+          data << WorkspaceSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -461,10 +461,10 @@ module AWS::SDK::Grafana
         data.id = map['id']
         data.modified = Time.at(map['modified'].to_i) if map['modified']
         data.name = map['name']
-        data.notification_destinations = (Parsers::NotificationDestinationsList.parse(map['notificationDestinations']) unless map['notificationDestinations'].nil?)
+        data.notification_destinations = (NotificationDestinationsList.parse(map['notificationDestinations']) unless map['notificationDestinations'].nil?)
         data.status = map['status']
-        data.authentication = (Parsers::AuthenticationSummary.parse(map['authentication']) unless map['authentication'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.authentication = (AuthenticationSummary.parse(map['authentication']) unless map['authentication'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -492,7 +492,7 @@ module AWS::SDK::Grafana
       def self.parse(http_resp)
         data = Types::UpdatePermissionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.errors = (Parsers::UpdateErrorList.parse(map['errors']) unless map['errors'].nil?)
+        data.errors = (UpdateErrorList.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -501,7 +501,7 @@ module AWS::SDK::Grafana
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UpdateError.parse(value) unless value.nil?
+          data << UpdateError.parse(value) unless value.nil?
         end
         data
       end
@@ -512,7 +512,7 @@ module AWS::SDK::Grafana
         data = Types::UpdateError.new
         data.code = map['code']
         data.message = map['message'] || map['Message']
-        data.caused_by = (Parsers::UpdateInstruction.parse(map['causedBy']) unless map['causedBy'].nil?)
+        data.caused_by = (UpdateInstruction.parse(map['causedBy']) unless map['causedBy'].nil?)
         return data
       end
     end
@@ -522,7 +522,7 @@ module AWS::SDK::Grafana
         data = Types::UpdateInstruction.new
         data.action = map['action']
         data.role = map['role']
-        data.users = (Parsers::UserList.parse(map['users']) unless map['users'].nil?)
+        data.users = (UserList.parse(map['users']) unless map['users'].nil?)
         return data
       end
     end
@@ -531,7 +531,7 @@ module AWS::SDK::Grafana
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::User.parse(value) unless value.nil?
+          data << User.parse(value) unless value.nil?
         end
         data
       end
@@ -542,7 +542,7 @@ module AWS::SDK::Grafana
       def self.parse(http_resp)
         data = Types::UpdateWorkspaceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.workspace = (Parsers::WorkspaceDescription.parse(map['workspace']) unless map['workspace'].nil?)
+        data.workspace = (WorkspaceDescription.parse(map['workspace']) unless map['workspace'].nil?)
         data
       end
     end
@@ -552,7 +552,7 @@ module AWS::SDK::Grafana
       def self.parse(http_resp)
         data = Types::UpdateWorkspaceAuthenticationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.authentication = (Parsers::AuthenticationDescription.parse(map['authentication']) unless map['authentication'].nil?)
+        data.authentication = (AuthenticationDescription.parse(map['authentication']) unless map['authentication'].nil?)
         data
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CodeBuild
   module Builders
 
@@ -18,8 +20,8 @@ module AWS::SDK::CodeBuild
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.BatchDeleteBuilds'
         data = {}
-        data['ids'] = Builders::BuildIds.build(input[:ids]) unless input[:ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ids'] = BuildIds.build(input[:ids]) unless input[:ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -42,8 +44,8 @@ module AWS::SDK::CodeBuild
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.BatchGetBuildBatches'
         data = {}
-        data['ids'] = Builders::BuildBatchIds.build(input[:ids]) unless input[:ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ids'] = BuildBatchIds.build(input[:ids]) unless input[:ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -66,8 +68,8 @@ module AWS::SDK::CodeBuild
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.BatchGetBuilds'
         data = {}
-        data['ids'] = Builders::BuildIds.build(input[:ids]) unless input[:ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ids'] = BuildIds.build(input[:ids]) unless input[:ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -79,8 +81,8 @@ module AWS::SDK::CodeBuild
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.BatchGetProjects'
         data = {}
-        data['names'] = Builders::ProjectNames.build(input[:names]) unless input[:names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['names'] = ProjectNames.build(input[:names]) unless input[:names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -103,8 +105,8 @@ module AWS::SDK::CodeBuild
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.BatchGetReportGroups'
         data = {}
-        data['reportGroupArns'] = Builders::ReportGroupArns.build(input[:report_group_arns]) unless input[:report_group_arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['reportGroupArns'] = ReportGroupArns.build(input[:report_group_arns]) unless input[:report_group_arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -127,8 +129,8 @@ module AWS::SDK::CodeBuild
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.BatchGetReports'
         data = {}
-        data['reportArns'] = Builders::ReportArns.build(input[:report_arns]) unless input[:report_arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['reportArns'] = ReportArns.build(input[:report_arns]) unless input[:report_arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -153,26 +155,26 @@ module AWS::SDK::CodeBuild
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['source'] = Builders::ProjectSource.build(input[:source]) unless input[:source].nil?
-        data['secondarySources'] = Builders::ProjectSources.build(input[:secondary_sources]) unless input[:secondary_sources].nil?
+        data['source'] = ProjectSource.build(input[:source]) unless input[:source].nil?
+        data['secondarySources'] = ProjectSources.build(input[:secondary_sources]) unless input[:secondary_sources].nil?
         data['sourceVersion'] = input[:source_version] unless input[:source_version].nil?
-        data['secondarySourceVersions'] = Builders::ProjectSecondarySourceVersions.build(input[:secondary_source_versions]) unless input[:secondary_source_versions].nil?
-        data['artifacts'] = Builders::ProjectArtifacts.build(input[:artifacts]) unless input[:artifacts].nil?
-        data['secondaryArtifacts'] = Builders::ProjectArtifactsList.build(input[:secondary_artifacts]) unless input[:secondary_artifacts].nil?
-        data['cache'] = Builders::ProjectCache.build(input[:cache]) unless input[:cache].nil?
-        data['environment'] = Builders::ProjectEnvironment.build(input[:environment]) unless input[:environment].nil?
+        data['secondarySourceVersions'] = ProjectSecondarySourceVersions.build(input[:secondary_source_versions]) unless input[:secondary_source_versions].nil?
+        data['artifacts'] = ProjectArtifacts.build(input[:artifacts]) unless input[:artifacts].nil?
+        data['secondaryArtifacts'] = ProjectArtifactsList.build(input[:secondary_artifacts]) unless input[:secondary_artifacts].nil?
+        data['cache'] = ProjectCache.build(input[:cache]) unless input[:cache].nil?
+        data['environment'] = ProjectEnvironment.build(input[:environment]) unless input[:environment].nil?
         data['serviceRole'] = input[:service_role] unless input[:service_role].nil?
         data['timeoutInMinutes'] = input[:timeout_in_minutes] unless input[:timeout_in_minutes].nil?
         data['queuedTimeoutInMinutes'] = input[:queued_timeout_in_minutes] unless input[:queued_timeout_in_minutes].nil?
         data['encryptionKey'] = input[:encryption_key] unless input[:encryption_key].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['vpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['vpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
         data['badgeEnabled'] = input[:badge_enabled] unless input[:badge_enabled].nil?
-        data['logsConfig'] = Builders::LogsConfig.build(input[:logs_config]) unless input[:logs_config].nil?
-        data['fileSystemLocations'] = Builders::ProjectFileSystemLocations.build(input[:file_system_locations]) unless input[:file_system_locations].nil?
-        data['buildBatchConfig'] = Builders::ProjectBuildBatchConfig.build(input[:build_batch_config]) unless input[:build_batch_config].nil?
+        data['logsConfig'] = LogsConfig.build(input[:logs_config]) unless input[:logs_config].nil?
+        data['fileSystemLocations'] = ProjectFileSystemLocations.build(input[:file_system_locations]) unless input[:file_system_locations].nil?
+        data['buildBatchConfig'] = ProjectBuildBatchConfig.build(input[:build_batch_config]) unless input[:build_batch_config].nil?
         data['concurrentBuildLimit'] = input[:concurrent_build_limit] unless input[:concurrent_build_limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -182,7 +184,7 @@ module AWS::SDK::CodeBuild
         data = {}
         data['serviceRole'] = input[:service_role] unless input[:service_role].nil?
         data['combineArtifacts'] = input[:combine_artifacts] unless input[:combine_artifacts].nil?
-        data['restrictions'] = Builders::BatchRestrictions.build(input[:restrictions]) unless input[:restrictions].nil?
+        data['restrictions'] = BatchRestrictions.build(input[:restrictions]) unless input[:restrictions].nil?
         data['timeoutInMins'] = input[:timeout_in_mins] unless input[:timeout_in_mins].nil?
         data['batchReportMode'] = input[:batch_report_mode] unless input[:batch_report_mode].nil?
         data
@@ -194,7 +196,7 @@ module AWS::SDK::CodeBuild
       def self.build(input)
         data = {}
         data['maximumBuildsAllowed'] = input[:maximum_builds_allowed] unless input[:maximum_builds_allowed].nil?
-        data['computeTypesAllowed'] = Builders::ComputeTypesAllowed.build(input[:compute_types_allowed]) unless input[:compute_types_allowed].nil?
+        data['computeTypesAllowed'] = ComputeTypesAllowed.build(input[:compute_types_allowed]) unless input[:compute_types_allowed].nil?
         data
       end
     end
@@ -215,7 +217,7 @@ module AWS::SDK::CodeBuild
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ProjectFileSystemLocation.build(element) unless element.nil?
+          data << ProjectFileSystemLocation.build(element) unless element.nil?
         end
         data
       end
@@ -238,8 +240,8 @@ module AWS::SDK::CodeBuild
     class LogsConfig
       def self.build(input)
         data = {}
-        data['cloudWatchLogs'] = Builders::CloudWatchLogsConfig.build(input[:cloud_watch_logs]) unless input[:cloud_watch_logs].nil?
-        data['s3Logs'] = Builders::S3LogsConfig.build(input[:s3_logs]) unless input[:s3_logs].nil?
+        data['cloudWatchLogs'] = CloudWatchLogsConfig.build(input[:cloud_watch_logs]) unless input[:cloud_watch_logs].nil?
+        data['s3Logs'] = S3LogsConfig.build(input[:s3_logs]) unless input[:s3_logs].nil?
         data
       end
     end
@@ -272,8 +274,8 @@ module AWS::SDK::CodeBuild
       def self.build(input)
         data = {}
         data['vpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
-        data['subnets'] = Builders::Subnets.build(input[:subnets]) unless input[:subnets].nil?
-        data['securityGroupIds'] = Builders::SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['subnets'] = Subnets.build(input[:subnets]) unless input[:subnets].nil?
+        data['securityGroupIds'] = SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data
       end
     end
@@ -305,7 +307,7 @@ module AWS::SDK::CodeBuild
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -328,10 +330,10 @@ module AWS::SDK::CodeBuild
         data['type'] = input[:type] unless input[:type].nil?
         data['image'] = input[:image] unless input[:image].nil?
         data['computeType'] = input[:compute_type] unless input[:compute_type].nil?
-        data['environmentVariables'] = Builders::EnvironmentVariables.build(input[:environment_variables]) unless input[:environment_variables].nil?
+        data['environmentVariables'] = EnvironmentVariables.build(input[:environment_variables]) unless input[:environment_variables].nil?
         data['privilegedMode'] = input[:privileged_mode] unless input[:privileged_mode].nil?
         data['certificate'] = input[:certificate] unless input[:certificate].nil?
-        data['registryCredential'] = Builders::RegistryCredential.build(input[:registry_credential]) unless input[:registry_credential].nil?
+        data['registryCredential'] = RegistryCredential.build(input[:registry_credential]) unless input[:registry_credential].nil?
         data['imagePullCredentialsType'] = input[:image_pull_credentials_type] unless input[:image_pull_credentials_type].nil?
         data
       end
@@ -352,7 +354,7 @@ module AWS::SDK::CodeBuild
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EnvironmentVariable.build(element) unless element.nil?
+          data << EnvironmentVariable.build(element) unless element.nil?
         end
         data
       end
@@ -375,7 +377,7 @@ module AWS::SDK::CodeBuild
         data = {}
         data['type'] = input[:type] unless input[:type].nil?
         data['location'] = input[:location] unless input[:location].nil?
-        data['modes'] = Builders::ProjectCacheModes.build(input[:modes]) unless input[:modes].nil?
+        data['modes'] = ProjectCacheModes.build(input[:modes]) unless input[:modes].nil?
         data
       end
     end
@@ -396,7 +398,7 @@ module AWS::SDK::CodeBuild
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ProjectArtifacts.build(element) unless element.nil?
+          data << ProjectArtifacts.build(element) unless element.nil?
         end
         data
       end
@@ -425,7 +427,7 @@ module AWS::SDK::CodeBuild
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ProjectSourceVersion.build(element) unless element.nil?
+          data << ProjectSourceVersion.build(element) unless element.nil?
         end
         data
       end
@@ -446,7 +448,7 @@ module AWS::SDK::CodeBuild
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ProjectSource.build(element) unless element.nil?
+          data << ProjectSource.build(element) unless element.nil?
         end
         data
       end
@@ -459,11 +461,11 @@ module AWS::SDK::CodeBuild
         data['type'] = input[:type] unless input[:type].nil?
         data['location'] = input[:location] unless input[:location].nil?
         data['gitCloneDepth'] = input[:git_clone_depth] unless input[:git_clone_depth].nil?
-        data['gitSubmodulesConfig'] = Builders::GitSubmodulesConfig.build(input[:git_submodules_config]) unless input[:git_submodules_config].nil?
+        data['gitSubmodulesConfig'] = GitSubmodulesConfig.build(input[:git_submodules_config]) unless input[:git_submodules_config].nil?
         data['buildspec'] = input[:buildspec] unless input[:buildspec].nil?
-        data['auth'] = Builders::SourceAuth.build(input[:auth]) unless input[:auth].nil?
+        data['auth'] = SourceAuth.build(input[:auth]) unless input[:auth].nil?
         data['reportBuildStatus'] = input[:report_build_status] unless input[:report_build_status].nil?
-        data['buildStatusConfig'] = Builders::BuildStatusConfig.build(input[:build_status_config]) unless input[:build_status_config].nil?
+        data['buildStatusConfig'] = BuildStatusConfig.build(input[:build_status_config]) unless input[:build_status_config].nil?
         data['insecureSsl'] = input[:insecure_ssl] unless input[:insecure_ssl].nil?
         data['sourceIdentifier'] = input[:source_identifier] unless input[:source_identifier].nil?
         data
@@ -509,9 +511,9 @@ module AWS::SDK::CodeBuild
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['type'] = input[:type] unless input[:type].nil?
-        data['exportConfig'] = Builders::ReportExportConfig.build(input[:export_config]) unless input[:export_config].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['exportConfig'] = ReportExportConfig.build(input[:export_config]) unless input[:export_config].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -520,7 +522,7 @@ module AWS::SDK::CodeBuild
       def self.build(input)
         data = {}
         data['exportConfigType'] = input[:export_config_type] unless input[:export_config_type].nil?
-        data['s3Destination'] = Builders::S3ReportExportConfig.build(input[:s3_destination]) unless input[:s3_destination].nil?
+        data['s3Destination'] = S3ReportExportConfig.build(input[:s3_destination]) unless input[:s3_destination].nil?
         data
       end
     end
@@ -549,9 +551,9 @@ module AWS::SDK::CodeBuild
         data = {}
         data['projectName'] = input[:project_name] unless input[:project_name].nil?
         data['branchFilter'] = input[:branch_filter] unless input[:branch_filter].nil?
-        data['filterGroups'] = Builders::FilterGroups.build(input[:filter_groups]) unless input[:filter_groups].nil?
+        data['filterGroups'] = FilterGroups.build(input[:filter_groups]) unless input[:filter_groups].nil?
         data['buildType'] = input[:build_type] unless input[:build_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -560,7 +562,7 @@ module AWS::SDK::CodeBuild
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FilterGroup.build(element) unless element.nil?
+          data << FilterGroup.build(element) unless element.nil?
         end
         data
       end
@@ -571,7 +573,7 @@ module AWS::SDK::CodeBuild
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::WebhookFilter.build(element) unless element.nil?
+          data << WebhookFilter.build(element) unless element.nil?
         end
         data
       end
@@ -597,7 +599,7 @@ module AWS::SDK::CodeBuild
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.DeleteBuildBatch'
         data = {}
         data['id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -610,7 +612,7 @@ module AWS::SDK::CodeBuild
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.DeleteProject'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -623,7 +625,7 @@ module AWS::SDK::CodeBuild
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.DeleteReport'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -637,7 +639,7 @@ module AWS::SDK::CodeBuild
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['deleteReports'] = input[:delete_reports] unless input[:delete_reports].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -650,7 +652,7 @@ module AWS::SDK::CodeBuild
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.DeleteResourcePolicy'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -663,7 +665,7 @@ module AWS::SDK::CodeBuild
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.DeleteSourceCredentials'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -676,7 +678,7 @@ module AWS::SDK::CodeBuild
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.DeleteWebhook'
         data = {}
         data['projectName'] = input[:project_name] unless input[:project_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -695,7 +697,7 @@ module AWS::SDK::CodeBuild
         data['sortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['minLineCoveragePercentage'] = Hearth::NumberHelper.serialize(input[:min_line_coverage_percentage]) unless input[:min_line_coverage_percentage].nil?
         data['maxLineCoveragePercentage'] = Hearth::NumberHelper.serialize(input[:max_line_coverage_percentage]) unless input[:max_line_coverage_percentage].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -710,8 +712,8 @@ module AWS::SDK::CodeBuild
         data['reportArn'] = input[:report_arn] unless input[:report_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filter'] = Builders::TestCaseFilter.build(input[:filter]) unless input[:filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filter'] = TestCaseFilter.build(input[:filter]) unless input[:filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -736,7 +738,7 @@ module AWS::SDK::CodeBuild
         data['reportGroupArn'] = input[:report_group_arn] unless input[:report_group_arn].nil?
         data['numOfReports'] = input[:num_of_reports] unless input[:num_of_reports].nil?
         data['trendField'] = input[:trend_field] unless input[:trend_field].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -749,7 +751,7 @@ module AWS::SDK::CodeBuild
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.GetResourcePolicy'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -766,7 +768,7 @@ module AWS::SDK::CodeBuild
         data['serverType'] = input[:server_type] unless input[:server_type].nil?
         data['authType'] = input[:auth_type] unless input[:auth_type].nil?
         data['shouldOverwrite'] = input[:should_overwrite] unless input[:should_overwrite].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -779,7 +781,7 @@ module AWS::SDK::CodeBuild
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.InvalidateProjectCache'
         data = {}
         data['projectName'] = input[:project_name] unless input[:project_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -791,11 +793,11 @@ module AWS::SDK::CodeBuild
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.ListBuildBatches'
         data = {}
-        data['filter'] = Builders::BuildBatchFilter.build(input[:filter]) unless input[:filter].nil?
+        data['filter'] = BuildBatchFilter.build(input[:filter]) unless input[:filter].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['sortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -817,11 +819,11 @@ module AWS::SDK::CodeBuild
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.ListBuildBatchesForProject'
         data = {}
         data['projectName'] = input[:project_name] unless input[:project_name].nil?
-        data['filter'] = Builders::BuildBatchFilter.build(input[:filter]) unless input[:filter].nil?
+        data['filter'] = BuildBatchFilter.build(input[:filter]) unless input[:filter].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['sortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -835,7 +837,7 @@ module AWS::SDK::CodeBuild
         data = {}
         data['sortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -850,7 +852,7 @@ module AWS::SDK::CodeBuild
         data['projectName'] = input[:project_name] unless input[:project_name].nil?
         data['sortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -862,7 +864,7 @@ module AWS::SDK::CodeBuild
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.ListCuratedEnvironmentImages'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -877,7 +879,7 @@ module AWS::SDK::CodeBuild
         data['sortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['sortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -893,7 +895,7 @@ module AWS::SDK::CodeBuild
         data['sortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -908,8 +910,8 @@ module AWS::SDK::CodeBuild
         data['sortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filter'] = Builders::ReportFilter.build(input[:filter]) unless input[:filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filter'] = ReportFilter.build(input[:filter]) unless input[:filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -934,8 +936,8 @@ module AWS::SDK::CodeBuild
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['sortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filter'] = Builders::ReportFilter.build(input[:filter]) unless input[:filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filter'] = ReportFilter.build(input[:filter]) unless input[:filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -951,7 +953,7 @@ module AWS::SDK::CodeBuild
         data['sortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -967,7 +969,7 @@ module AWS::SDK::CodeBuild
         data['sortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -979,7 +981,7 @@ module AWS::SDK::CodeBuild
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.ListSourceCredentials'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -993,7 +995,7 @@ module AWS::SDK::CodeBuild
         data = {}
         data['policy'] = input[:policy] unless input[:policy].nil?
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1007,7 +1009,7 @@ module AWS::SDK::CodeBuild
         data = {}
         data['id'] = input[:id] unless input[:id].nil?
         data['idempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1022,7 +1024,7 @@ module AWS::SDK::CodeBuild
         data['id'] = input[:id] unless input[:id].nil?
         data['idempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
         data['retryType'] = input[:retry_type] unless input[:retry_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1035,37 +1037,37 @@ module AWS::SDK::CodeBuild
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.StartBuild'
         data = {}
         data['projectName'] = input[:project_name] unless input[:project_name].nil?
-        data['secondarySourcesOverride'] = Builders::ProjectSources.build(input[:secondary_sources_override]) unless input[:secondary_sources_override].nil?
-        data['secondarySourcesVersionOverride'] = Builders::ProjectSecondarySourceVersions.build(input[:secondary_sources_version_override]) unless input[:secondary_sources_version_override].nil?
+        data['secondarySourcesOverride'] = ProjectSources.build(input[:secondary_sources_override]) unless input[:secondary_sources_override].nil?
+        data['secondarySourcesVersionOverride'] = ProjectSecondarySourceVersions.build(input[:secondary_sources_version_override]) unless input[:secondary_sources_version_override].nil?
         data['sourceVersion'] = input[:source_version] unless input[:source_version].nil?
-        data['artifactsOverride'] = Builders::ProjectArtifacts.build(input[:artifacts_override]) unless input[:artifacts_override].nil?
-        data['secondaryArtifactsOverride'] = Builders::ProjectArtifactsList.build(input[:secondary_artifacts_override]) unless input[:secondary_artifacts_override].nil?
-        data['environmentVariablesOverride'] = Builders::EnvironmentVariables.build(input[:environment_variables_override]) unless input[:environment_variables_override].nil?
+        data['artifactsOverride'] = ProjectArtifacts.build(input[:artifacts_override]) unless input[:artifacts_override].nil?
+        data['secondaryArtifactsOverride'] = ProjectArtifactsList.build(input[:secondary_artifacts_override]) unless input[:secondary_artifacts_override].nil?
+        data['environmentVariablesOverride'] = EnvironmentVariables.build(input[:environment_variables_override]) unless input[:environment_variables_override].nil?
         data['sourceTypeOverride'] = input[:source_type_override] unless input[:source_type_override].nil?
         data['sourceLocationOverride'] = input[:source_location_override] unless input[:source_location_override].nil?
-        data['sourceAuthOverride'] = Builders::SourceAuth.build(input[:source_auth_override]) unless input[:source_auth_override].nil?
+        data['sourceAuthOverride'] = SourceAuth.build(input[:source_auth_override]) unless input[:source_auth_override].nil?
         data['gitCloneDepthOverride'] = input[:git_clone_depth_override] unless input[:git_clone_depth_override].nil?
-        data['gitSubmodulesConfigOverride'] = Builders::GitSubmodulesConfig.build(input[:git_submodules_config_override]) unless input[:git_submodules_config_override].nil?
+        data['gitSubmodulesConfigOverride'] = GitSubmodulesConfig.build(input[:git_submodules_config_override]) unless input[:git_submodules_config_override].nil?
         data['buildspecOverride'] = input[:buildspec_override] unless input[:buildspec_override].nil?
         data['insecureSslOverride'] = input[:insecure_ssl_override] unless input[:insecure_ssl_override].nil?
         data['reportBuildStatusOverride'] = input[:report_build_status_override] unless input[:report_build_status_override].nil?
-        data['buildStatusConfigOverride'] = Builders::BuildStatusConfig.build(input[:build_status_config_override]) unless input[:build_status_config_override].nil?
+        data['buildStatusConfigOverride'] = BuildStatusConfig.build(input[:build_status_config_override]) unless input[:build_status_config_override].nil?
         data['environmentTypeOverride'] = input[:environment_type_override] unless input[:environment_type_override].nil?
         data['imageOverride'] = input[:image_override] unless input[:image_override].nil?
         data['computeTypeOverride'] = input[:compute_type_override] unless input[:compute_type_override].nil?
         data['certificateOverride'] = input[:certificate_override] unless input[:certificate_override].nil?
-        data['cacheOverride'] = Builders::ProjectCache.build(input[:cache_override]) unless input[:cache_override].nil?
+        data['cacheOverride'] = ProjectCache.build(input[:cache_override]) unless input[:cache_override].nil?
         data['serviceRoleOverride'] = input[:service_role_override] unless input[:service_role_override].nil?
         data['privilegedModeOverride'] = input[:privileged_mode_override] unless input[:privileged_mode_override].nil?
         data['timeoutInMinutesOverride'] = input[:timeout_in_minutes_override] unless input[:timeout_in_minutes_override].nil?
         data['queuedTimeoutInMinutesOverride'] = input[:queued_timeout_in_minutes_override] unless input[:queued_timeout_in_minutes_override].nil?
         data['encryptionKeyOverride'] = input[:encryption_key_override] unless input[:encryption_key_override].nil?
         data['idempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        data['logsConfigOverride'] = Builders::LogsConfig.build(input[:logs_config_override]) unless input[:logs_config_override].nil?
-        data['registryCredentialOverride'] = Builders::RegistryCredential.build(input[:registry_credential_override]) unless input[:registry_credential_override].nil?
+        data['logsConfigOverride'] = LogsConfig.build(input[:logs_config_override]) unless input[:logs_config_override].nil?
+        data['registryCredentialOverride'] = RegistryCredential.build(input[:registry_credential_override]) unless input[:registry_credential_override].nil?
         data['imagePullCredentialsTypeOverride'] = input[:image_pull_credentials_type_override] unless input[:image_pull_credentials_type_override].nil?
         data['debugSessionEnabled'] = input[:debug_session_enabled] unless input[:debug_session_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1078,17 +1080,17 @@ module AWS::SDK::CodeBuild
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.StartBuildBatch'
         data = {}
         data['projectName'] = input[:project_name] unless input[:project_name].nil?
-        data['secondarySourcesOverride'] = Builders::ProjectSources.build(input[:secondary_sources_override]) unless input[:secondary_sources_override].nil?
-        data['secondarySourcesVersionOverride'] = Builders::ProjectSecondarySourceVersions.build(input[:secondary_sources_version_override]) unless input[:secondary_sources_version_override].nil?
+        data['secondarySourcesOverride'] = ProjectSources.build(input[:secondary_sources_override]) unless input[:secondary_sources_override].nil?
+        data['secondarySourcesVersionOverride'] = ProjectSecondarySourceVersions.build(input[:secondary_sources_version_override]) unless input[:secondary_sources_version_override].nil?
         data['sourceVersion'] = input[:source_version] unless input[:source_version].nil?
-        data['artifactsOverride'] = Builders::ProjectArtifacts.build(input[:artifacts_override]) unless input[:artifacts_override].nil?
-        data['secondaryArtifactsOverride'] = Builders::ProjectArtifactsList.build(input[:secondary_artifacts_override]) unless input[:secondary_artifacts_override].nil?
-        data['environmentVariablesOverride'] = Builders::EnvironmentVariables.build(input[:environment_variables_override]) unless input[:environment_variables_override].nil?
+        data['artifactsOverride'] = ProjectArtifacts.build(input[:artifacts_override]) unless input[:artifacts_override].nil?
+        data['secondaryArtifactsOverride'] = ProjectArtifactsList.build(input[:secondary_artifacts_override]) unless input[:secondary_artifacts_override].nil?
+        data['environmentVariablesOverride'] = EnvironmentVariables.build(input[:environment_variables_override]) unless input[:environment_variables_override].nil?
         data['sourceTypeOverride'] = input[:source_type_override] unless input[:source_type_override].nil?
         data['sourceLocationOverride'] = input[:source_location_override] unless input[:source_location_override].nil?
-        data['sourceAuthOverride'] = Builders::SourceAuth.build(input[:source_auth_override]) unless input[:source_auth_override].nil?
+        data['sourceAuthOverride'] = SourceAuth.build(input[:source_auth_override]) unless input[:source_auth_override].nil?
         data['gitCloneDepthOverride'] = input[:git_clone_depth_override] unless input[:git_clone_depth_override].nil?
-        data['gitSubmodulesConfigOverride'] = Builders::GitSubmodulesConfig.build(input[:git_submodules_config_override]) unless input[:git_submodules_config_override].nil?
+        data['gitSubmodulesConfigOverride'] = GitSubmodulesConfig.build(input[:git_submodules_config_override]) unless input[:git_submodules_config_override].nil?
         data['buildspecOverride'] = input[:buildspec_override] unless input[:buildspec_override].nil?
         data['insecureSslOverride'] = input[:insecure_ssl_override] unless input[:insecure_ssl_override].nil?
         data['reportBuildBatchStatusOverride'] = input[:report_build_batch_status_override] unless input[:report_build_batch_status_override].nil?
@@ -1096,19 +1098,19 @@ module AWS::SDK::CodeBuild
         data['imageOverride'] = input[:image_override] unless input[:image_override].nil?
         data['computeTypeOverride'] = input[:compute_type_override] unless input[:compute_type_override].nil?
         data['certificateOverride'] = input[:certificate_override] unless input[:certificate_override].nil?
-        data['cacheOverride'] = Builders::ProjectCache.build(input[:cache_override]) unless input[:cache_override].nil?
+        data['cacheOverride'] = ProjectCache.build(input[:cache_override]) unless input[:cache_override].nil?
         data['serviceRoleOverride'] = input[:service_role_override] unless input[:service_role_override].nil?
         data['privilegedModeOverride'] = input[:privileged_mode_override] unless input[:privileged_mode_override].nil?
         data['buildTimeoutInMinutesOverride'] = input[:build_timeout_in_minutes_override] unless input[:build_timeout_in_minutes_override].nil?
         data['queuedTimeoutInMinutesOverride'] = input[:queued_timeout_in_minutes_override] unless input[:queued_timeout_in_minutes_override].nil?
         data['encryptionKeyOverride'] = input[:encryption_key_override] unless input[:encryption_key_override].nil?
         data['idempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        data['logsConfigOverride'] = Builders::LogsConfig.build(input[:logs_config_override]) unless input[:logs_config_override].nil?
-        data['registryCredentialOverride'] = Builders::RegistryCredential.build(input[:registry_credential_override]) unless input[:registry_credential_override].nil?
+        data['logsConfigOverride'] = LogsConfig.build(input[:logs_config_override]) unless input[:logs_config_override].nil?
+        data['registryCredentialOverride'] = RegistryCredential.build(input[:registry_credential_override]) unless input[:registry_credential_override].nil?
         data['imagePullCredentialsTypeOverride'] = input[:image_pull_credentials_type_override] unless input[:image_pull_credentials_type_override].nil?
-        data['buildBatchConfigOverride'] = Builders::ProjectBuildBatchConfig.build(input[:build_batch_config_override]) unless input[:build_batch_config_override].nil?
+        data['buildBatchConfigOverride'] = ProjectBuildBatchConfig.build(input[:build_batch_config_override]) unless input[:build_batch_config_override].nil?
         data['debugSessionEnabled'] = input[:debug_session_enabled] unless input[:debug_session_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1121,7 +1123,7 @@ module AWS::SDK::CodeBuild
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.StopBuild'
         data = {}
         data['id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1134,7 +1136,7 @@ module AWS::SDK::CodeBuild
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.StopBuildBatch'
         data = {}
         data['id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1148,26 +1150,26 @@ module AWS::SDK::CodeBuild
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['source'] = Builders::ProjectSource.build(input[:source]) unless input[:source].nil?
-        data['secondarySources'] = Builders::ProjectSources.build(input[:secondary_sources]) unless input[:secondary_sources].nil?
+        data['source'] = ProjectSource.build(input[:source]) unless input[:source].nil?
+        data['secondarySources'] = ProjectSources.build(input[:secondary_sources]) unless input[:secondary_sources].nil?
         data['sourceVersion'] = input[:source_version] unless input[:source_version].nil?
-        data['secondarySourceVersions'] = Builders::ProjectSecondarySourceVersions.build(input[:secondary_source_versions]) unless input[:secondary_source_versions].nil?
-        data['artifacts'] = Builders::ProjectArtifacts.build(input[:artifacts]) unless input[:artifacts].nil?
-        data['secondaryArtifacts'] = Builders::ProjectArtifactsList.build(input[:secondary_artifacts]) unless input[:secondary_artifacts].nil?
-        data['cache'] = Builders::ProjectCache.build(input[:cache]) unless input[:cache].nil?
-        data['environment'] = Builders::ProjectEnvironment.build(input[:environment]) unless input[:environment].nil?
+        data['secondarySourceVersions'] = ProjectSecondarySourceVersions.build(input[:secondary_source_versions]) unless input[:secondary_source_versions].nil?
+        data['artifacts'] = ProjectArtifacts.build(input[:artifacts]) unless input[:artifacts].nil?
+        data['secondaryArtifacts'] = ProjectArtifactsList.build(input[:secondary_artifacts]) unless input[:secondary_artifacts].nil?
+        data['cache'] = ProjectCache.build(input[:cache]) unless input[:cache].nil?
+        data['environment'] = ProjectEnvironment.build(input[:environment]) unless input[:environment].nil?
         data['serviceRole'] = input[:service_role] unless input[:service_role].nil?
         data['timeoutInMinutes'] = input[:timeout_in_minutes] unless input[:timeout_in_minutes].nil?
         data['queuedTimeoutInMinutes'] = input[:queued_timeout_in_minutes] unless input[:queued_timeout_in_minutes].nil?
         data['encryptionKey'] = input[:encryption_key] unless input[:encryption_key].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['vpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['vpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
         data['badgeEnabled'] = input[:badge_enabled] unless input[:badge_enabled].nil?
-        data['logsConfig'] = Builders::LogsConfig.build(input[:logs_config]) unless input[:logs_config].nil?
-        data['fileSystemLocations'] = Builders::ProjectFileSystemLocations.build(input[:file_system_locations]) unless input[:file_system_locations].nil?
-        data['buildBatchConfig'] = Builders::ProjectBuildBatchConfig.build(input[:build_batch_config]) unless input[:build_batch_config].nil?
+        data['logsConfig'] = LogsConfig.build(input[:logs_config]) unless input[:logs_config].nil?
+        data['fileSystemLocations'] = ProjectFileSystemLocations.build(input[:file_system_locations]) unless input[:file_system_locations].nil?
+        data['buildBatchConfig'] = ProjectBuildBatchConfig.build(input[:build_batch_config]) unless input[:build_batch_config].nil?
         data['concurrentBuildLimit'] = input[:concurrent_build_limit] unless input[:concurrent_build_limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1182,7 +1184,7 @@ module AWS::SDK::CodeBuild
         data['projectArn'] = input[:project_arn] unless input[:project_arn].nil?
         data['projectVisibility'] = input[:project_visibility] unless input[:project_visibility].nil?
         data['resourceAccessRole'] = input[:resource_access_role] unless input[:resource_access_role].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1195,9 +1197,9 @@ module AWS::SDK::CodeBuild
         http_req.headers['X-Amz-Target'] = 'CodeBuild_20161006.UpdateReportGroup'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        data['exportConfig'] = Builders::ReportExportConfig.build(input[:export_config]) unless input[:export_config].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['exportConfig'] = ReportExportConfig.build(input[:export_config]) unless input[:export_config].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1212,9 +1214,9 @@ module AWS::SDK::CodeBuild
         data['projectName'] = input[:project_name] unless input[:project_name].nil?
         data['branchFilter'] = input[:branch_filter] unless input[:branch_filter].nil?
         data['rotateSecret'] = input[:rotate_secret] unless input[:rotate_secret].nil?
-        data['filterGroups'] = Builders::FilterGroups.build(input[:filter_groups]) unless input[:filter_groups].nil?
+        data['filterGroups'] = FilterGroups.build(input[:filter_groups]) unless input[:filter_groups].nil?
         data['buildType'] = input[:build_type] unless input[:build_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

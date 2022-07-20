@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IoTJobsDataPlane
   module Builders
 
@@ -67,9 +69,9 @@ module AWS::SDK::IoTJobsDataPlane
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['statusDetails'] = Builders::DetailsMap.build(input[:status_details]) unless input[:status_details].nil?
+        data['statusDetails'] = DetailsMap.build(input[:status_details]) unless input[:status_details].nil?
         data['stepTimeoutInMinutes'] = input[:step_timeout_in_minutes] unless input[:step_timeout_in_minutes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -106,13 +108,13 @@ module AWS::SDK::IoTJobsDataPlane
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['status'] = input[:status] unless input[:status].nil?
-        data['statusDetails'] = Builders::DetailsMap.build(input[:status_details]) unless input[:status_details].nil?
+        data['statusDetails'] = DetailsMap.build(input[:status_details]) unless input[:status_details].nil?
         data['stepTimeoutInMinutes'] = input[:step_timeout_in_minutes] unless input[:step_timeout_in_minutes].nil?
         data['expectedVersion'] = input[:expected_version] unless input[:expected_version].nil?
         data['includeJobExecutionState'] = input[:include_job_execution_state] unless input[:include_job_execution_state].nil?
         data['includeJobDocument'] = input[:include_job_document] unless input[:include_job_document].nil?
         data['executionNumber'] = input[:execution_number] unless input[:execution_number].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

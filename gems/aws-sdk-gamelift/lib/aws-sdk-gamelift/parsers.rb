@@ -76,7 +76,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_server = (Parsers::GameServer.parse(map['GameServer']) unless map['GameServer'].nil?)
+        data.game_server = (GameServer.parse(map['GameServer']) unless map['GameServer'].nil?)
         data
       end
     end
@@ -142,7 +142,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.alias = (Parsers::Alias.parse(map['Alias']) unless map['Alias'].nil?)
+        data.alias = (Alias.parse(map['Alias']) unless map['Alias'].nil?)
         data
       end
     end
@@ -154,7 +154,7 @@ module AWS::SDK::GameLift
         data.name = map['Name']
         data.alias_arn = map['AliasArn']
         data.description = map['Description']
-        data.routing_strategy = (Parsers::RoutingStrategy.parse(map['RoutingStrategy']) unless map['RoutingStrategy'].nil?)
+        data.routing_strategy = (RoutingStrategy.parse(map['RoutingStrategy']) unless map['RoutingStrategy'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         return data
@@ -202,9 +202,9 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.build = (Parsers::Build.parse(map['Build']) unless map['Build'].nil?)
-        data.upload_credentials = (Parsers::AwsCredentials.parse(map['UploadCredentials']) unless map['UploadCredentials'].nil?)
-        data.storage_location = (Parsers::S3Location.parse(map['StorageLocation']) unless map['StorageLocation'].nil?)
+        data.build = (Build.parse(map['Build']) unless map['Build'].nil?)
+        data.upload_credentials = (AwsCredentials.parse(map['UploadCredentials']) unless map['UploadCredentials'].nil?)
+        data.storage_location = (S3Location.parse(map['StorageLocation']) unless map['StorageLocation'].nil?)
         data
       end
     end
@@ -252,8 +252,8 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.fleet_attributes = (Parsers::FleetAttributes.parse(map['FleetAttributes']) unless map['FleetAttributes'].nil?)
-        data.location_states = (Parsers::LocationStateList.parse(map['LocationStates']) unless map['LocationStates'].nil?)
+        data.fleet_attributes = (FleetAttributes.parse(map['FleetAttributes']) unless map['FleetAttributes'].nil?)
+        data.location_states = (LocationStateList.parse(map['LocationStates']) unless map['LocationStates'].nil?)
         data
       end
     end
@@ -261,7 +261,7 @@ module AWS::SDK::GameLift
     class LocationStateList
       def self.parse(list)
         list.map do |value|
-          Parsers::LocationState.parse(value) unless value.nil?
+          LocationState.parse(value) unless value.nil?
         end
       end
     end
@@ -293,14 +293,14 @@ module AWS::SDK::GameLift
         data.script_arn = map['ScriptArn']
         data.server_launch_path = map['ServerLaunchPath']
         data.server_launch_parameters = map['ServerLaunchParameters']
-        data.log_paths = (Parsers::StringList.parse(map['LogPaths']) unless map['LogPaths'].nil?)
+        data.log_paths = (StringList.parse(map['LogPaths']) unless map['LogPaths'].nil?)
         data.new_game_session_protection_policy = map['NewGameSessionProtectionPolicy']
         data.operating_system = map['OperatingSystem']
-        data.resource_creation_limit_policy = (Parsers::ResourceCreationLimitPolicy.parse(map['ResourceCreationLimitPolicy']) unless map['ResourceCreationLimitPolicy'].nil?)
-        data.metric_groups = (Parsers::MetricGroupList.parse(map['MetricGroups']) unless map['MetricGroups'].nil?)
-        data.stopped_actions = (Parsers::FleetActionList.parse(map['StoppedActions']) unless map['StoppedActions'].nil?)
+        data.resource_creation_limit_policy = (ResourceCreationLimitPolicy.parse(map['ResourceCreationLimitPolicy']) unless map['ResourceCreationLimitPolicy'].nil?)
+        data.metric_groups = (MetricGroupList.parse(map['MetricGroups']) unless map['MetricGroups'].nil?)
+        data.stopped_actions = (FleetActionList.parse(map['StoppedActions']) unless map['StoppedActions'].nil?)
         data.instance_role_arn = map['InstanceRoleArn']
-        data.certificate_configuration = (Parsers::CertificateConfiguration.parse(map['CertificateConfiguration']) unless map['CertificateConfiguration'].nil?)
+        data.certificate_configuration = (CertificateConfiguration.parse(map['CertificateConfiguration']) unless map['CertificateConfiguration'].nil?)
         return data
       end
     end
@@ -355,7 +355,7 @@ module AWS::SDK::GameLift
         map = Hearth::JSON.load(body)
         data.fleet_id = map['FleetId']
         data.fleet_arn = map['FleetArn']
-        data.location_states = (Parsers::LocationStateList.parse(map['LocationStates']) unless map['LocationStates'].nil?)
+        data.location_states = (LocationStateList.parse(map['LocationStates']) unless map['LocationStates'].nil?)
         data
       end
     end
@@ -379,7 +379,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_server_group = (Parsers::GameServerGroup.parse(map['GameServerGroup']) unless map['GameServerGroup'].nil?)
+        data.game_server_group = (GameServerGroup.parse(map['GameServerGroup']) unless map['GameServerGroup'].nil?)
         data
       end
     end
@@ -390,13 +390,13 @@ module AWS::SDK::GameLift
         data.game_server_group_name = map['GameServerGroupName']
         data.game_server_group_arn = map['GameServerGroupArn']
         data.role_arn = map['RoleArn']
-        data.instance_definitions = (Parsers::InstanceDefinitions.parse(map['InstanceDefinitions']) unless map['InstanceDefinitions'].nil?)
+        data.instance_definitions = (InstanceDefinitions.parse(map['InstanceDefinitions']) unless map['InstanceDefinitions'].nil?)
         data.balancing_strategy = map['BalancingStrategy']
         data.game_server_protection_policy = map['GameServerProtectionPolicy']
         data.auto_scaling_group_arn = map['AutoScalingGroupArn']
         data.status = map['Status']
         data.status_reason = map['StatusReason']
-        data.suspended_actions = (Parsers::GameServerGroupActions.parse(map['SuspendedActions']) unless map['SuspendedActions'].nil?)
+        data.suspended_actions = (GameServerGroupActions.parse(map['SuspendedActions']) unless map['SuspendedActions'].nil?)
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
         return data
@@ -414,7 +414,7 @@ module AWS::SDK::GameLift
     class InstanceDefinitions
       def self.parse(list)
         list.map do |value|
-          Parsers::InstanceDefinition.parse(value) unless value.nil?
+          InstanceDefinition.parse(value) unless value.nil?
         end
       end
     end
@@ -435,7 +435,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_session = (Parsers::GameSession.parse(map['GameSession']) unless map['GameSession'].nil?)
+        data.game_session = (GameSession.parse(map['GameSession']) unless map['GameSession'].nil?)
         data
       end
     end
@@ -453,7 +453,7 @@ module AWS::SDK::GameLift
         data.maximum_player_session_count = map['MaximumPlayerSessionCount']
         data.status = map['Status']
         data.status_reason = map['StatusReason']
-        data.game_properties = (Parsers::GamePropertyList.parse(map['GameProperties']) unless map['GameProperties'].nil?)
+        data.game_properties = (GamePropertyList.parse(map['GameProperties']) unless map['GameProperties'].nil?)
         data.ip_address = map['IpAddress']
         data.dns_name = map['DnsName']
         data.port = map['Port']
@@ -469,7 +469,7 @@ module AWS::SDK::GameLift
     class GamePropertyList
       def self.parse(list)
         list.map do |value|
-          Parsers::GameProperty.parse(value) unless value.nil?
+          GameProperty.parse(value) unless value.nil?
         end
       end
     end
@@ -526,7 +526,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_session_queue = (Parsers::GameSessionQueue.parse(map['GameSessionQueue']) unless map['GameSessionQueue'].nil?)
+        data.game_session_queue = (GameSessionQueue.parse(map['GameSessionQueue']) unless map['GameSessionQueue'].nil?)
         data
       end
     end
@@ -537,10 +537,10 @@ module AWS::SDK::GameLift
         data.name = map['Name']
         data.game_session_queue_arn = map['GameSessionQueueArn']
         data.timeout_in_seconds = map['TimeoutInSeconds']
-        data.player_latency_policies = (Parsers::PlayerLatencyPolicyList.parse(map['PlayerLatencyPolicies']) unless map['PlayerLatencyPolicies'].nil?)
-        data.destinations = (Parsers::GameSessionQueueDestinationList.parse(map['Destinations']) unless map['Destinations'].nil?)
-        data.filter_configuration = (Parsers::FilterConfiguration.parse(map['FilterConfiguration']) unless map['FilterConfiguration'].nil?)
-        data.priority_configuration = (Parsers::PriorityConfiguration.parse(map['PriorityConfiguration']) unless map['PriorityConfiguration'].nil?)
+        data.player_latency_policies = (PlayerLatencyPolicyList.parse(map['PlayerLatencyPolicies']) unless map['PlayerLatencyPolicies'].nil?)
+        data.destinations = (GameSessionQueueDestinationList.parse(map['Destinations']) unless map['Destinations'].nil?)
+        data.filter_configuration = (FilterConfiguration.parse(map['FilterConfiguration']) unless map['FilterConfiguration'].nil?)
+        data.priority_configuration = (PriorityConfiguration.parse(map['PriorityConfiguration']) unless map['PriorityConfiguration'].nil?)
         data.custom_event_data = map['CustomEventData']
         data.notification_target = map['NotificationTarget']
         return data
@@ -550,8 +550,8 @@ module AWS::SDK::GameLift
     class PriorityConfiguration
       def self.parse(map)
         data = Types::PriorityConfiguration.new
-        data.priority_order = (Parsers::PriorityTypeList.parse(map['PriorityOrder']) unless map['PriorityOrder'].nil?)
-        data.location_order = (Parsers::LocationList.parse(map['LocationOrder']) unless map['LocationOrder'].nil?)
+        data.priority_order = (PriorityTypeList.parse(map['PriorityOrder']) unless map['PriorityOrder'].nil?)
+        data.location_order = (LocationList.parse(map['LocationOrder']) unless map['LocationOrder'].nil?)
         return data
       end
     end
@@ -575,7 +575,7 @@ module AWS::SDK::GameLift
     class FilterConfiguration
       def self.parse(map)
         data = Types::FilterConfiguration.new
-        data.allowed_locations = (Parsers::LocationList.parse(map['AllowedLocations']) unless map['AllowedLocations'].nil?)
+        data.allowed_locations = (LocationList.parse(map['AllowedLocations']) unless map['AllowedLocations'].nil?)
         return data
       end
     end
@@ -583,7 +583,7 @@ module AWS::SDK::GameLift
     class GameSessionQueueDestinationList
       def self.parse(list)
         list.map do |value|
-          Parsers::GameSessionQueueDestination.parse(value) unless value.nil?
+          GameSessionQueueDestination.parse(value) unless value.nil?
         end
       end
     end
@@ -599,7 +599,7 @@ module AWS::SDK::GameLift
     class PlayerLatencyPolicyList
       def self.parse(list)
         list.map do |value|
-          Parsers::PlayerLatencyPolicy.parse(value) unless value.nil?
+          PlayerLatencyPolicy.parse(value) unless value.nil?
         end
       end
     end
@@ -620,7 +620,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.configuration = (Parsers::MatchmakingConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
+        data.configuration = (MatchmakingConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
         data
       end
     end
@@ -631,7 +631,7 @@ module AWS::SDK::GameLift
         data.name = map['Name']
         data.configuration_arn = map['ConfigurationArn']
         data.description = map['Description']
-        data.game_session_queue_arns = (Parsers::QueueArnsList.parse(map['GameSessionQueueArns']) unless map['GameSessionQueueArns'].nil?)
+        data.game_session_queue_arns = (QueueArnsList.parse(map['GameSessionQueueArns']) unless map['GameSessionQueueArns'].nil?)
         data.request_timeout_seconds = map['RequestTimeoutSeconds']
         data.acceptance_timeout_seconds = map['AcceptanceTimeoutSeconds']
         data.acceptance_required = map['AcceptanceRequired']
@@ -641,7 +641,7 @@ module AWS::SDK::GameLift
         data.additional_player_count = map['AdditionalPlayerCount']
         data.custom_event_data = map['CustomEventData']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.game_properties = (Parsers::GamePropertyList.parse(map['GameProperties']) unless map['GameProperties'].nil?)
+        data.game_properties = (GamePropertyList.parse(map['GameProperties']) unless map['GameProperties'].nil?)
         data.game_session_data = map['GameSessionData']
         data.backfill_mode = map['BackfillMode']
         data.flex_match_mode = map['FlexMatchMode']
@@ -664,7 +664,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rule_set = (Parsers::MatchmakingRuleSet.parse(map['RuleSet']) unless map['RuleSet'].nil?)
+        data.rule_set = (MatchmakingRuleSet.parse(map['RuleSet']) unless map['RuleSet'].nil?)
         data
       end
     end
@@ -687,7 +687,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.player_session = (Parsers::PlayerSession.parse(map['PlayerSession']) unless map['PlayerSession'].nil?)
+        data.player_session = (PlayerSession.parse(map['PlayerSession']) unless map['PlayerSession'].nil?)
         data
       end
     end
@@ -742,7 +742,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.player_sessions = (Parsers::PlayerSessionList.parse(map['PlayerSessions']) unless map['PlayerSessions'].nil?)
+        data.player_sessions = (PlayerSessionList.parse(map['PlayerSessions']) unless map['PlayerSessions'].nil?)
         data
       end
     end
@@ -750,7 +750,7 @@ module AWS::SDK::GameLift
     class PlayerSessionList
       def self.parse(list)
         list.map do |value|
-          Parsers::PlayerSession.parse(value) unless value.nil?
+          PlayerSession.parse(value) unless value.nil?
         end
       end
     end
@@ -762,7 +762,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.script = (Parsers::Script.parse(map['Script']) unless map['Script'].nil?)
+        data.script = (Script.parse(map['Script']) unless map['Script'].nil?)
         data
       end
     end
@@ -776,7 +776,7 @@ module AWS::SDK::GameLift
         data.version = map['Version']
         data.size_on_disk = map['SizeOnDisk']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.storage_location = (Parsers::S3Location.parse(map['StorageLocation']) unless map['StorageLocation'].nil?)
+        data.storage_location = (S3Location.parse(map['StorageLocation']) unless map['StorageLocation'].nil?)
         return data
       end
     end
@@ -788,7 +788,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.vpc_peering_authorization = (Parsers::VpcPeeringAuthorization.parse(map['VpcPeeringAuthorization']) unless map['VpcPeeringAuthorization'].nil?)
+        data.vpc_peering_authorization = (VpcPeeringAuthorization.parse(map['VpcPeeringAuthorization']) unless map['VpcPeeringAuthorization'].nil?)
         data
       end
     end
@@ -858,7 +858,7 @@ module AWS::SDK::GameLift
         map = Hearth::JSON.load(body)
         data.fleet_id = map['FleetId']
         data.fleet_arn = map['FleetArn']
-        data.location_states = (Parsers::LocationStateList.parse(map['LocationStates']) unless map['LocationStates'].nil?)
+        data.location_states = (LocationStateList.parse(map['LocationStates']) unless map['LocationStates'].nil?)
         data
       end
     end
@@ -870,7 +870,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_server_group = (Parsers::GameServerGroup.parse(map['GameServerGroup']) unless map['GameServerGroup'].nil?)
+        data.game_server_group = (GameServerGroup.parse(map['GameServerGroup']) unless map['GameServerGroup'].nil?)
         data
       end
     end
@@ -970,7 +970,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.alias = (Parsers::Alias.parse(map['Alias']) unless map['Alias'].nil?)
+        data.alias = (Alias.parse(map['Alias']) unless map['Alias'].nil?)
         data
       end
     end
@@ -982,7 +982,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.build = (Parsers::Build.parse(map['Build']) unless map['Build'].nil?)
+        data.build = (Build.parse(map['Build']) unless map['Build'].nil?)
         data
       end
     end
@@ -994,7 +994,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ec2_instance_limits = (Parsers::EC2InstanceLimitList.parse(map['EC2InstanceLimits']) unless map['EC2InstanceLimits'].nil?)
+        data.ec2_instance_limits = (EC2InstanceLimitList.parse(map['EC2InstanceLimits']) unless map['EC2InstanceLimits'].nil?)
         data
       end
     end
@@ -1002,7 +1002,7 @@ module AWS::SDK::GameLift
     class EC2InstanceLimitList
       def self.parse(list)
         list.map do |value|
-          Parsers::EC2InstanceLimit.parse(value) unless value.nil?
+          EC2InstanceLimit.parse(value) unless value.nil?
         end
       end
     end
@@ -1025,7 +1025,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.fleet_attributes = (Parsers::FleetAttributesList.parse(map['FleetAttributes']) unless map['FleetAttributes'].nil?)
+        data.fleet_attributes = (FleetAttributesList.parse(map['FleetAttributes']) unless map['FleetAttributes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1034,7 +1034,7 @@ module AWS::SDK::GameLift
     class FleetAttributesList
       def self.parse(list)
         list.map do |value|
-          Parsers::FleetAttributes.parse(value) unless value.nil?
+          FleetAttributes.parse(value) unless value.nil?
         end
       end
     end
@@ -1046,7 +1046,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.fleet_capacity = (Parsers::FleetCapacityList.parse(map['FleetCapacity']) unless map['FleetCapacity'].nil?)
+        data.fleet_capacity = (FleetCapacityList.parse(map['FleetCapacity']) unless map['FleetCapacity'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1055,7 +1055,7 @@ module AWS::SDK::GameLift
     class FleetCapacityList
       def self.parse(list)
         list.map do |value|
-          Parsers::FleetCapacity.parse(value) unless value.nil?
+          FleetCapacity.parse(value) unless value.nil?
         end
       end
     end
@@ -1066,7 +1066,7 @@ module AWS::SDK::GameLift
         data.fleet_id = map['FleetId']
         data.fleet_arn = map['FleetArn']
         data.instance_type = map['InstanceType']
-        data.instance_counts = (Parsers::EC2InstanceCounts.parse(map['InstanceCounts']) unless map['InstanceCounts'].nil?)
+        data.instance_counts = (EC2InstanceCounts.parse(map['InstanceCounts']) unless map['InstanceCounts'].nil?)
         data.location = map['Location']
         return data
       end
@@ -1093,7 +1093,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.events = (Parsers::EventList.parse(map['Events']) unless map['Events'].nil?)
+        data.events = (EventList.parse(map['Events']) unless map['Events'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1102,7 +1102,7 @@ module AWS::SDK::GameLift
     class EventList
       def self.parse(list)
         list.map do |value|
-          Parsers::Event.parse(value) unless value.nil?
+          Event.parse(value) unless value.nil?
         end
       end
     end
@@ -1129,7 +1129,7 @@ module AWS::SDK::GameLift
         map = Hearth::JSON.load(body)
         data.fleet_id = map['FleetId']
         data.fleet_arn = map['FleetArn']
-        data.location_attributes = (Parsers::LocationAttributesList.parse(map['LocationAttributes']) unless map['LocationAttributes'].nil?)
+        data.location_attributes = (LocationAttributesList.parse(map['LocationAttributes']) unless map['LocationAttributes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1138,7 +1138,7 @@ module AWS::SDK::GameLift
     class LocationAttributesList
       def self.parse(list)
         list.map do |value|
-          Parsers::LocationAttributes.parse(value) unless value.nil?
+          LocationAttributes.parse(value) unless value.nil?
         end
       end
     end
@@ -1146,8 +1146,8 @@ module AWS::SDK::GameLift
     class LocationAttributes
       def self.parse(map)
         data = Types::LocationAttributes.new
-        data.location_state = (Parsers::LocationState.parse(map['LocationState']) unless map['LocationState'].nil?)
-        data.stopped_actions = (Parsers::FleetActionList.parse(map['StoppedActions']) unless map['StoppedActions'].nil?)
+        data.location_state = (LocationState.parse(map['LocationState']) unless map['LocationState'].nil?)
+        data.stopped_actions = (FleetActionList.parse(map['StoppedActions']) unless map['StoppedActions'].nil?)
         data.update_status = map['UpdateStatus']
         return data
       end
@@ -1160,7 +1160,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.fleet_capacity = (Parsers::FleetCapacity.parse(map['FleetCapacity']) unless map['FleetCapacity'].nil?)
+        data.fleet_capacity = (FleetCapacity.parse(map['FleetCapacity']) unless map['FleetCapacity'].nil?)
         data
       end
     end
@@ -1172,7 +1172,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.fleet_utilization = (Parsers::FleetUtilization.parse(map['FleetUtilization']) unless map['FleetUtilization'].nil?)
+        data.fleet_utilization = (FleetUtilization.parse(map['FleetUtilization']) unless map['FleetUtilization'].nil?)
         data
       end
     end
@@ -1200,7 +1200,7 @@ module AWS::SDK::GameLift
         map = Hearth::JSON.load(body)
         data.fleet_id = map['FleetId']
         data.fleet_arn = map['FleetArn']
-        data.inbound_permissions = (Parsers::IpPermissionsList.parse(map['InboundPermissions']) unless map['InboundPermissions'].nil?)
+        data.inbound_permissions = (IpPermissionsList.parse(map['InboundPermissions']) unless map['InboundPermissions'].nil?)
         data.update_status = map['UpdateStatus']
         data.location = map['Location']
         data
@@ -1210,7 +1210,7 @@ module AWS::SDK::GameLift
     class IpPermissionsList
       def self.parse(list)
         list.map do |value|
-          Parsers::IpPermission.parse(value) unless value.nil?
+          IpPermission.parse(value) unless value.nil?
         end
       end
     end
@@ -1233,7 +1233,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.fleet_utilization = (Parsers::FleetUtilizationList.parse(map['FleetUtilization']) unless map['FleetUtilization'].nil?)
+        data.fleet_utilization = (FleetUtilizationList.parse(map['FleetUtilization']) unless map['FleetUtilization'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1242,7 +1242,7 @@ module AWS::SDK::GameLift
     class FleetUtilizationList
       def self.parse(list)
         list.map do |value|
-          Parsers::FleetUtilization.parse(value) unless value.nil?
+          FleetUtilization.parse(value) unless value.nil?
         end
       end
     end
@@ -1254,7 +1254,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_server = (Parsers::GameServer.parse(map['GameServer']) unless map['GameServer'].nil?)
+        data.game_server = (GameServer.parse(map['GameServer']) unless map['GameServer'].nil?)
         data
       end
     end
@@ -1266,7 +1266,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_server_group = (Parsers::GameServerGroup.parse(map['GameServerGroup']) unless map['GameServerGroup'].nil?)
+        data.game_server_group = (GameServerGroup.parse(map['GameServerGroup']) unless map['GameServerGroup'].nil?)
         data
       end
     end
@@ -1278,7 +1278,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_server_instances = (Parsers::GameServerInstances.parse(map['GameServerInstances']) unless map['GameServerInstances'].nil?)
+        data.game_server_instances = (GameServerInstances.parse(map['GameServerInstances']) unless map['GameServerInstances'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1287,7 +1287,7 @@ module AWS::SDK::GameLift
     class GameServerInstances
       def self.parse(list)
         list.map do |value|
-          Parsers::GameServerInstance.parse(value) unless value.nil?
+          GameServerInstance.parse(value) unless value.nil?
         end
       end
     end
@@ -1310,7 +1310,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_session_details = (Parsers::GameSessionDetailList.parse(map['GameSessionDetails']) unless map['GameSessionDetails'].nil?)
+        data.game_session_details = (GameSessionDetailList.parse(map['GameSessionDetails']) unless map['GameSessionDetails'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1319,7 +1319,7 @@ module AWS::SDK::GameLift
     class GameSessionDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::GameSessionDetail.parse(value) unless value.nil?
+          GameSessionDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -1327,7 +1327,7 @@ module AWS::SDK::GameLift
     class GameSessionDetail
       def self.parse(map)
         data = Types::GameSessionDetail.new
-        data.game_session = (Parsers::GameSession.parse(map['GameSession']) unless map['GameSession'].nil?)
+        data.game_session = (GameSession.parse(map['GameSession']) unless map['GameSession'].nil?)
         data.protection_policy = map['ProtectionPolicy']
         return data
       end
@@ -1340,7 +1340,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_session_placement = (Parsers::GameSessionPlacement.parse(map['GameSessionPlacement']) unless map['GameSessionPlacement'].nil?)
+        data.game_session_placement = (GameSessionPlacement.parse(map['GameSessionPlacement']) unless map['GameSessionPlacement'].nil?)
         data
       end
     end
@@ -1351,19 +1351,19 @@ module AWS::SDK::GameLift
         data.placement_id = map['PlacementId']
         data.game_session_queue_name = map['GameSessionQueueName']
         data.status = map['Status']
-        data.game_properties = (Parsers::GamePropertyList.parse(map['GameProperties']) unless map['GameProperties'].nil?)
+        data.game_properties = (GamePropertyList.parse(map['GameProperties']) unless map['GameProperties'].nil?)
         data.maximum_player_session_count = map['MaximumPlayerSessionCount']
         data.game_session_name = map['GameSessionName']
         data.game_session_id = map['GameSessionId']
         data.game_session_arn = map['GameSessionArn']
         data.game_session_region = map['GameSessionRegion']
-        data.player_latencies = (Parsers::PlayerLatencyList.parse(map['PlayerLatencies']) unless map['PlayerLatencies'].nil?)
+        data.player_latencies = (PlayerLatencyList.parse(map['PlayerLatencies']) unless map['PlayerLatencies'].nil?)
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.ip_address = map['IpAddress']
         data.dns_name = map['DnsName']
         data.port = map['Port']
-        data.placed_player_sessions = (Parsers::PlacedPlayerSessionList.parse(map['PlacedPlayerSessions']) unless map['PlacedPlayerSessions'].nil?)
+        data.placed_player_sessions = (PlacedPlayerSessionList.parse(map['PlacedPlayerSessions']) unless map['PlacedPlayerSessions'].nil?)
         data.game_session_data = map['GameSessionData']
         data.matchmaker_data = map['MatchmakerData']
         return data
@@ -1373,7 +1373,7 @@ module AWS::SDK::GameLift
     class PlacedPlayerSessionList
       def self.parse(list)
         list.map do |value|
-          Parsers::PlacedPlayerSession.parse(value) unless value.nil?
+          PlacedPlayerSession.parse(value) unless value.nil?
         end
       end
     end
@@ -1390,7 +1390,7 @@ module AWS::SDK::GameLift
     class PlayerLatencyList
       def self.parse(list)
         list.map do |value|
-          Parsers::PlayerLatency.parse(value) unless value.nil?
+          PlayerLatency.parse(value) unless value.nil?
         end
       end
     end
@@ -1412,7 +1412,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_session_queues = (Parsers::GameSessionQueueList.parse(map['GameSessionQueues']) unless map['GameSessionQueues'].nil?)
+        data.game_session_queues = (GameSessionQueueList.parse(map['GameSessionQueues']) unless map['GameSessionQueues'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1421,7 +1421,7 @@ module AWS::SDK::GameLift
     class GameSessionQueueList
       def self.parse(list)
         list.map do |value|
-          Parsers::GameSessionQueue.parse(value) unless value.nil?
+          GameSessionQueue.parse(value) unless value.nil?
         end
       end
     end
@@ -1433,7 +1433,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_sessions = (Parsers::GameSessionList.parse(map['GameSessions']) unless map['GameSessions'].nil?)
+        data.game_sessions = (GameSessionList.parse(map['GameSessions']) unless map['GameSessions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1442,7 +1442,7 @@ module AWS::SDK::GameLift
     class GameSessionList
       def self.parse(list)
         list.map do |value|
-          Parsers::GameSession.parse(value) unless value.nil?
+          GameSession.parse(value) unless value.nil?
         end
       end
     end
@@ -1454,7 +1454,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instances = (Parsers::InstanceList.parse(map['Instances']) unless map['Instances'].nil?)
+        data.instances = (InstanceList.parse(map['Instances']) unless map['Instances'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1463,7 +1463,7 @@ module AWS::SDK::GameLift
     class InstanceList
       def self.parse(list)
         list.map do |value|
-          Parsers::Instance.parse(value) unless value.nil?
+          Instance.parse(value) unless value.nil?
         end
       end
     end
@@ -1492,7 +1492,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.ticket_list = (Parsers::MatchmakingTicketList.parse(map['TicketList']) unless map['TicketList'].nil?)
+        data.ticket_list = (MatchmakingTicketList.parse(map['TicketList']) unless map['TicketList'].nil?)
         data
       end
     end
@@ -1500,7 +1500,7 @@ module AWS::SDK::GameLift
     class MatchmakingTicketList
       def self.parse(list)
         list.map do |value|
-          Parsers::MatchmakingTicket.parse(value) unless value.nil?
+          MatchmakingTicket.parse(value) unless value.nil?
         end
       end
     end
@@ -1516,8 +1516,8 @@ module AWS::SDK::GameLift
         data.status_message = map['StatusMessage']
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
-        data.players = (Parsers::PlayerList.parse(map['Players']) unless map['Players'].nil?)
-        data.game_session_connection_info = (Parsers::GameSessionConnectionInfo.parse(map['GameSessionConnectionInfo']) unless map['GameSessionConnectionInfo'].nil?)
+        data.players = (PlayerList.parse(map['Players']) unless map['Players'].nil?)
+        data.game_session_connection_info = (GameSessionConnectionInfo.parse(map['GameSessionConnectionInfo']) unless map['GameSessionConnectionInfo'].nil?)
         data.estimated_wait_time = map['EstimatedWaitTime']
         return data
       end
@@ -1530,7 +1530,7 @@ module AWS::SDK::GameLift
         data.ip_address = map['IpAddress']
         data.dns_name = map['DnsName']
         data.port = map['Port']
-        data.matched_player_sessions = (Parsers::MatchedPlayerSessionList.parse(map['MatchedPlayerSessions']) unless map['MatchedPlayerSessions'].nil?)
+        data.matched_player_sessions = (MatchedPlayerSessionList.parse(map['MatchedPlayerSessions']) unless map['MatchedPlayerSessions'].nil?)
         return data
       end
     end
@@ -1538,7 +1538,7 @@ module AWS::SDK::GameLift
     class MatchedPlayerSessionList
       def self.parse(list)
         list.map do |value|
-          Parsers::MatchedPlayerSession.parse(value) unless value.nil?
+          MatchedPlayerSession.parse(value) unless value.nil?
         end
       end
     end
@@ -1555,7 +1555,7 @@ module AWS::SDK::GameLift
     class PlayerList
       def self.parse(list)
         list.map do |value|
-          Parsers::Player.parse(value) unless value.nil?
+          Player.parse(value) unless value.nil?
         end
       end
     end
@@ -1564,9 +1564,9 @@ module AWS::SDK::GameLift
       def self.parse(map)
         data = Types::Player.new
         data.player_id = map['PlayerId']
-        data.player_attributes = (Parsers::PlayerAttributeMap.parse(map['PlayerAttributes']) unless map['PlayerAttributes'].nil?)
+        data.player_attributes = (PlayerAttributeMap.parse(map['PlayerAttributes']) unless map['PlayerAttributes'].nil?)
         data.team = map['Team']
-        data.latency_in_ms = (Parsers::LatencyMap.parse(map['LatencyInMs']) unless map['LatencyInMs'].nil?)
+        data.latency_in_ms = (LatencyMap.parse(map['LatencyInMs']) unless map['LatencyInMs'].nil?)
         return data
       end
     end
@@ -1585,7 +1585,7 @@ module AWS::SDK::GameLift
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::AttributeValue.parse(value) unless value.nil?
+          data[key] = AttributeValue.parse(value) unless value.nil?
         end
         data
       end
@@ -1596,8 +1596,8 @@ module AWS::SDK::GameLift
         data = Types::AttributeValue.new
         data.s = map['S']
         data.n = Hearth::NumberHelper.deserialize(map['N'])
-        data.sl = (Parsers::StringList.parse(map['SL']) unless map['SL'].nil?)
-        data.sdm = (Parsers::StringDoubleMap.parse(map['SDM']) unless map['SDM'].nil?)
+        data.sl = (StringList.parse(map['SL']) unless map['SL'].nil?)
+        data.sdm = (StringDoubleMap.parse(map['SDM']) unless map['SDM'].nil?)
         return data
       end
     end
@@ -1619,7 +1619,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.configurations = (Parsers::MatchmakingConfigurationList.parse(map['Configurations']) unless map['Configurations'].nil?)
+        data.configurations = (MatchmakingConfigurationList.parse(map['Configurations']) unless map['Configurations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1628,7 +1628,7 @@ module AWS::SDK::GameLift
     class MatchmakingConfigurationList
       def self.parse(list)
         list.map do |value|
-          Parsers::MatchmakingConfiguration.parse(value) unless value.nil?
+          MatchmakingConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -1640,7 +1640,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rule_sets = (Parsers::MatchmakingRuleSetList.parse(map['RuleSets']) unless map['RuleSets'].nil?)
+        data.rule_sets = (MatchmakingRuleSetList.parse(map['RuleSets']) unless map['RuleSets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1649,7 +1649,7 @@ module AWS::SDK::GameLift
     class MatchmakingRuleSetList
       def self.parse(list)
         list.map do |value|
-          Parsers::MatchmakingRuleSet.parse(value) unless value.nil?
+          MatchmakingRuleSet.parse(value) unless value.nil?
         end
       end
     end
@@ -1661,7 +1661,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.player_sessions = (Parsers::PlayerSessionList.parse(map['PlayerSessions']) unless map['PlayerSessions'].nil?)
+        data.player_sessions = (PlayerSessionList.parse(map['PlayerSessions']) unless map['PlayerSessions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1674,7 +1674,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.runtime_configuration = (Parsers::RuntimeConfiguration.parse(map['RuntimeConfiguration']) unless map['RuntimeConfiguration'].nil?)
+        data.runtime_configuration = (RuntimeConfiguration.parse(map['RuntimeConfiguration']) unless map['RuntimeConfiguration'].nil?)
         data
       end
     end
@@ -1682,7 +1682,7 @@ module AWS::SDK::GameLift
     class RuntimeConfiguration
       def self.parse(map)
         data = Types::RuntimeConfiguration.new
-        data.server_processes = (Parsers::ServerProcessList.parse(map['ServerProcesses']) unless map['ServerProcesses'].nil?)
+        data.server_processes = (ServerProcessList.parse(map['ServerProcesses']) unless map['ServerProcesses'].nil?)
         data.max_concurrent_game_session_activations = map['MaxConcurrentGameSessionActivations']
         data.game_session_activation_timeout_seconds = map['GameSessionActivationTimeoutSeconds']
         return data
@@ -1692,7 +1692,7 @@ module AWS::SDK::GameLift
     class ServerProcessList
       def self.parse(list)
         list.map do |value|
-          Parsers::ServerProcess.parse(value) unless value.nil?
+          ServerProcess.parse(value) unless value.nil?
         end
       end
     end
@@ -1714,7 +1714,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.scaling_policies = (Parsers::ScalingPolicyList.parse(map['ScalingPolicies']) unless map['ScalingPolicies'].nil?)
+        data.scaling_policies = (ScalingPolicyList.parse(map['ScalingPolicies']) unless map['ScalingPolicies'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1723,7 +1723,7 @@ module AWS::SDK::GameLift
     class ScalingPolicyList
       def self.parse(list)
         list.map do |value|
-          Parsers::ScalingPolicy.parse(value) unless value.nil?
+          ScalingPolicy.parse(value) unless value.nil?
         end
       end
     end
@@ -1742,7 +1742,7 @@ module AWS::SDK::GameLift
         data.evaluation_periods = map['EvaluationPeriods']
         data.metric_name = map['MetricName']
         data.policy_type = map['PolicyType']
-        data.target_configuration = (Parsers::TargetConfiguration.parse(map['TargetConfiguration']) unless map['TargetConfiguration'].nil?)
+        data.target_configuration = (TargetConfiguration.parse(map['TargetConfiguration']) unless map['TargetConfiguration'].nil?)
         data.update_status = map['UpdateStatus']
         data.location = map['Location']
         return data
@@ -1764,7 +1764,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.script = (Parsers::Script.parse(map['Script']) unless map['Script'].nil?)
+        data.script = (Script.parse(map['Script']) unless map['Script'].nil?)
         data
       end
     end
@@ -1776,7 +1776,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.vpc_peering_authorizations = (Parsers::VpcPeeringAuthorizationList.parse(map['VpcPeeringAuthorizations']) unless map['VpcPeeringAuthorizations'].nil?)
+        data.vpc_peering_authorizations = (VpcPeeringAuthorizationList.parse(map['VpcPeeringAuthorizations']) unless map['VpcPeeringAuthorizations'].nil?)
         data
       end
     end
@@ -1784,7 +1784,7 @@ module AWS::SDK::GameLift
     class VpcPeeringAuthorizationList
       def self.parse(list)
         list.map do |value|
-          Parsers::VpcPeeringAuthorization.parse(value) unless value.nil?
+          VpcPeeringAuthorization.parse(value) unless value.nil?
         end
       end
     end
@@ -1796,7 +1796,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.vpc_peering_connections = (Parsers::VpcPeeringConnectionList.parse(map['VpcPeeringConnections']) unless map['VpcPeeringConnections'].nil?)
+        data.vpc_peering_connections = (VpcPeeringConnectionList.parse(map['VpcPeeringConnections']) unless map['VpcPeeringConnections'].nil?)
         data
       end
     end
@@ -1804,7 +1804,7 @@ module AWS::SDK::GameLift
     class VpcPeeringConnectionList
       def self.parse(list)
         list.map do |value|
-          Parsers::VpcPeeringConnection.parse(value) unless value.nil?
+          VpcPeeringConnection.parse(value) unless value.nil?
         end
       end
     end
@@ -1816,7 +1816,7 @@ module AWS::SDK::GameLift
         data.fleet_arn = map['FleetArn']
         data.ip_v4_cidr_block = map['IpV4CidrBlock']
         data.vpc_peering_connection_id = map['VpcPeeringConnectionId']
-        data.status = (Parsers::VpcPeeringConnectionStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.status = (VpcPeeringConnectionStatus.parse(map['Status']) unless map['Status'].nil?)
         data.peer_vpc_id = map['PeerVpcId']
         data.game_lift_vpc_id = map['GameLiftVpcId']
         return data
@@ -1851,7 +1851,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.instance_access = (Parsers::InstanceAccess.parse(map['InstanceAccess']) unless map['InstanceAccess'].nil?)
+        data.instance_access = (InstanceAccess.parse(map['InstanceAccess']) unless map['InstanceAccess'].nil?)
         data
       end
     end
@@ -1863,7 +1863,7 @@ module AWS::SDK::GameLift
         data.instance_id = map['InstanceId']
         data.ip_address = map['IpAddress']
         data.operating_system = map['OperatingSystem']
-        data.credentials = (Parsers::InstanceCredentials.parse(map['Credentials']) unless map['Credentials'].nil?)
+        data.credentials = (InstanceCredentials.parse(map['Credentials']) unless map['Credentials'].nil?)
         return data
       end
     end
@@ -1884,7 +1884,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.aliases = (Parsers::AliasList.parse(map['Aliases']) unless map['Aliases'].nil?)
+        data.aliases = (AliasList.parse(map['Aliases']) unless map['Aliases'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1893,7 +1893,7 @@ module AWS::SDK::GameLift
     class AliasList
       def self.parse(list)
         list.map do |value|
-          Parsers::Alias.parse(value) unless value.nil?
+          Alias.parse(value) unless value.nil?
         end
       end
     end
@@ -1905,7 +1905,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.builds = (Parsers::BuildList.parse(map['Builds']) unless map['Builds'].nil?)
+        data.builds = (BuildList.parse(map['Builds']) unless map['Builds'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1914,7 +1914,7 @@ module AWS::SDK::GameLift
     class BuildList
       def self.parse(list)
         list.map do |value|
-          Parsers::Build.parse(value) unless value.nil?
+          Build.parse(value) unless value.nil?
         end
       end
     end
@@ -1926,7 +1926,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.fleet_ids = (Parsers::FleetIdList.parse(map['FleetIds']) unless map['FleetIds'].nil?)
+        data.fleet_ids = (FleetIdList.parse(map['FleetIds']) unless map['FleetIds'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1947,7 +1947,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_server_groups = (Parsers::GameServerGroups.parse(map['GameServerGroups']) unless map['GameServerGroups'].nil?)
+        data.game_server_groups = (GameServerGroups.parse(map['GameServerGroups']) unless map['GameServerGroups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1956,7 +1956,7 @@ module AWS::SDK::GameLift
     class GameServerGroups
       def self.parse(list)
         list.map do |value|
-          Parsers::GameServerGroup.parse(value) unless value.nil?
+          GameServerGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -1968,7 +1968,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_servers = (Parsers::GameServers.parse(map['GameServers']) unless map['GameServers'].nil?)
+        data.game_servers = (GameServers.parse(map['GameServers']) unless map['GameServers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1977,7 +1977,7 @@ module AWS::SDK::GameLift
     class GameServers
       def self.parse(list)
         list.map do |value|
-          Parsers::GameServer.parse(value) unless value.nil?
+          GameServer.parse(value) unless value.nil?
         end
       end
     end
@@ -1989,7 +1989,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.scripts = (Parsers::ScriptList.parse(map['Scripts']) unless map['Scripts'].nil?)
+        data.scripts = (ScriptList.parse(map['Scripts']) unless map['Scripts'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1998,7 +1998,7 @@ module AWS::SDK::GameLift
     class ScriptList
       def self.parse(list)
         list.map do |value|
-          Parsers::Script.parse(value) unless value.nil?
+          Script.parse(value) unless value.nil?
         end
       end
     end
@@ -2010,7 +2010,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -2018,7 +2018,7 @@ module AWS::SDK::GameLift
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -2051,7 +2051,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_server = (Parsers::GameServer.parse(map['GameServer']) unless map['GameServer'].nil?)
+        data.game_server = (GameServer.parse(map['GameServer']) unless map['GameServer'].nil?)
         data
       end
     end
@@ -2063,8 +2063,8 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.upload_credentials = (Parsers::AwsCredentials.parse(map['UploadCredentials']) unless map['UploadCredentials'].nil?)
-        data.storage_location = (Parsers::S3Location.parse(map['StorageLocation']) unless map['StorageLocation'].nil?)
+        data.upload_credentials = (AwsCredentials.parse(map['UploadCredentials']) unless map['UploadCredentials'].nil?)
+        data.storage_location = (S3Location.parse(map['StorageLocation']) unless map['StorageLocation'].nil?)
         data
       end
     end
@@ -2089,7 +2089,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_server_group = (Parsers::GameServerGroup.parse(map['GameServerGroup']) unless map['GameServerGroup'].nil?)
+        data.game_server_group = (GameServerGroup.parse(map['GameServerGroup']) unless map['GameServerGroup'].nil?)
         data
       end
     end
@@ -2101,7 +2101,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_sessions = (Parsers::GameSessionList.parse(map['GameSessions']) unless map['GameSessions'].nil?)
+        data.game_sessions = (GameSessionList.parse(map['GameSessions']) unless map['GameSessions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2127,7 +2127,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_session_placement = (Parsers::GameSessionPlacement.parse(map['GameSessionPlacement']) unless map['GameSessionPlacement'].nil?)
+        data.game_session_placement = (GameSessionPlacement.parse(map['GameSessionPlacement']) unless map['GameSessionPlacement'].nil?)
         data
       end
     end
@@ -2139,7 +2139,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.matchmaking_ticket = (Parsers::MatchmakingTicket.parse(map['MatchmakingTicket']) unless map['MatchmakingTicket'].nil?)
+        data.matchmaking_ticket = (MatchmakingTicket.parse(map['MatchmakingTicket']) unless map['MatchmakingTicket'].nil?)
         data
       end
     end
@@ -2151,7 +2151,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.matchmaking_ticket = (Parsers::MatchmakingTicket.parse(map['MatchmakingTicket']) unless map['MatchmakingTicket'].nil?)
+        data.matchmaking_ticket = (MatchmakingTicket.parse(map['MatchmakingTicket']) unless map['MatchmakingTicket'].nil?)
         data
       end
     end
@@ -2176,7 +2176,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_session_placement = (Parsers::GameSessionPlacement.parse(map['GameSessionPlacement']) unless map['GameSessionPlacement'].nil?)
+        data.game_session_placement = (GameSessionPlacement.parse(map['GameSessionPlacement']) unless map['GameSessionPlacement'].nil?)
         data
       end
     end
@@ -2199,7 +2199,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_server_group = (Parsers::GameServerGroup.parse(map['GameServerGroup']) unless map['GameServerGroup'].nil?)
+        data.game_server_group = (GameServerGroup.parse(map['GameServerGroup']) unless map['GameServerGroup'].nil?)
         data
       end
     end
@@ -2233,7 +2233,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.alias = (Parsers::Alias.parse(map['Alias']) unless map['Alias'].nil?)
+        data.alias = (Alias.parse(map['Alias']) unless map['Alias'].nil?)
         data
       end
     end
@@ -2245,7 +2245,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.build = (Parsers::Build.parse(map['Build']) unless map['Build'].nil?)
+        data.build = (Build.parse(map['Build']) unless map['Build'].nil?)
         data
       end
     end
@@ -2295,7 +2295,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_server = (Parsers::GameServer.parse(map['GameServer']) unless map['GameServer'].nil?)
+        data.game_server = (GameServer.parse(map['GameServer']) unless map['GameServer'].nil?)
         data
       end
     end
@@ -2307,7 +2307,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_server_group = (Parsers::GameServerGroup.parse(map['GameServerGroup']) unless map['GameServerGroup'].nil?)
+        data.game_server_group = (GameServerGroup.parse(map['GameServerGroup']) unless map['GameServerGroup'].nil?)
         data
       end
     end
@@ -2319,7 +2319,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_session = (Parsers::GameSession.parse(map['GameSession']) unless map['GameSession'].nil?)
+        data.game_session = (GameSession.parse(map['GameSession']) unless map['GameSession'].nil?)
         data
       end
     end
@@ -2331,7 +2331,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.game_session_queue = (Parsers::GameSessionQueue.parse(map['GameSessionQueue']) unless map['GameSessionQueue'].nil?)
+        data.game_session_queue = (GameSessionQueue.parse(map['GameSessionQueue']) unless map['GameSessionQueue'].nil?)
         data
       end
     end
@@ -2343,7 +2343,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.configuration = (Parsers::MatchmakingConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
+        data.configuration = (MatchmakingConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
         data
       end
     end
@@ -2355,7 +2355,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.runtime_configuration = (Parsers::RuntimeConfiguration.parse(map['RuntimeConfiguration']) unless map['RuntimeConfiguration'].nil?)
+        data.runtime_configuration = (RuntimeConfiguration.parse(map['RuntimeConfiguration']) unless map['RuntimeConfiguration'].nil?)
         data
       end
     end
@@ -2367,7 +2367,7 @@ module AWS::SDK::GameLift
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.script = (Parsers::Script.parse(map['Script']) unless map['Script'].nil?)
+        data.script = (Script.parse(map['Script']) unless map['Script'].nil?)
         data
       end
     end

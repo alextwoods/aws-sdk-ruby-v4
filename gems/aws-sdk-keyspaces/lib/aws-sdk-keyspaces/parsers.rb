@@ -154,13 +154,13 @@ module AWS::SDK::Keyspaces
         data.resource_arn = map['resourceArn']
         data.creation_timestamp = Time.at(map['creationTimestamp'].to_i) if map['creationTimestamp']
         data.status = map['status']
-        data.schema_definition = (Parsers::SchemaDefinition.parse(map['schemaDefinition']) unless map['schemaDefinition'].nil?)
-        data.capacity_specification = (Parsers::CapacitySpecificationSummary.parse(map['capacitySpecification']) unless map['capacitySpecification'].nil?)
-        data.encryption_specification = (Parsers::EncryptionSpecification.parse(map['encryptionSpecification']) unless map['encryptionSpecification'].nil?)
-        data.point_in_time_recovery = (Parsers::PointInTimeRecoverySummary.parse(map['pointInTimeRecovery']) unless map['pointInTimeRecovery'].nil?)
-        data.ttl = (Parsers::TimeToLive.parse(map['ttl']) unless map['ttl'].nil?)
+        data.schema_definition = (SchemaDefinition.parse(map['schemaDefinition']) unless map['schemaDefinition'].nil?)
+        data.capacity_specification = (CapacitySpecificationSummary.parse(map['capacitySpecification']) unless map['capacitySpecification'].nil?)
+        data.encryption_specification = (EncryptionSpecification.parse(map['encryptionSpecification']) unless map['encryptionSpecification'].nil?)
+        data.point_in_time_recovery = (PointInTimeRecoverySummary.parse(map['pointInTimeRecovery']) unless map['pointInTimeRecovery'].nil?)
+        data.ttl = (TimeToLive.parse(map['ttl']) unless map['ttl'].nil?)
         data.default_time_to_live = map['defaultTimeToLive']
-        data.comment = (Parsers::Comment.parse(map['comment']) unless map['comment'].nil?)
+        data.comment = (Comment.parse(map['comment']) unless map['comment'].nil?)
         data
       end
     end
@@ -213,10 +213,10 @@ module AWS::SDK::Keyspaces
     class SchemaDefinition
       def self.parse(map)
         data = Types::SchemaDefinition.new
-        data.all_columns = (Parsers::ColumnDefinitionList.parse(map['allColumns']) unless map['allColumns'].nil?)
-        data.partition_keys = (Parsers::PartitionKeyList.parse(map['partitionKeys']) unless map['partitionKeys'].nil?)
-        data.clustering_keys = (Parsers::ClusteringKeyList.parse(map['clusteringKeys']) unless map['clusteringKeys'].nil?)
-        data.static_columns = (Parsers::StaticColumnList.parse(map['staticColumns']) unless map['staticColumns'].nil?)
+        data.all_columns = (ColumnDefinitionList.parse(map['allColumns']) unless map['allColumns'].nil?)
+        data.partition_keys = (PartitionKeyList.parse(map['partitionKeys']) unless map['partitionKeys'].nil?)
+        data.clustering_keys = (ClusteringKeyList.parse(map['clusteringKeys']) unless map['clusteringKeys'].nil?)
+        data.static_columns = (StaticColumnList.parse(map['staticColumns']) unless map['staticColumns'].nil?)
         return data
       end
     end
@@ -224,7 +224,7 @@ module AWS::SDK::Keyspaces
     class StaticColumnList
       def self.parse(list)
         list.map do |value|
-          Parsers::StaticColumn.parse(value) unless value.nil?
+          StaticColumn.parse(value) unless value.nil?
         end
       end
     end
@@ -240,7 +240,7 @@ module AWS::SDK::Keyspaces
     class ClusteringKeyList
       def self.parse(list)
         list.map do |value|
-          Parsers::ClusteringKey.parse(value) unless value.nil?
+          ClusteringKey.parse(value) unless value.nil?
         end
       end
     end
@@ -257,7 +257,7 @@ module AWS::SDK::Keyspaces
     class PartitionKeyList
       def self.parse(list)
         list.map do |value|
-          Parsers::PartitionKey.parse(value) unless value.nil?
+          PartitionKey.parse(value) unless value.nil?
         end
       end
     end
@@ -273,7 +273,7 @@ module AWS::SDK::Keyspaces
     class ColumnDefinitionList
       def self.parse(list)
         list.map do |value|
-          Parsers::ColumnDefinition.parse(value) unless value.nil?
+          ColumnDefinition.parse(value) unless value.nil?
         end
       end
     end
@@ -295,7 +295,7 @@ module AWS::SDK::Keyspaces
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.keyspaces = (Parsers::KeyspaceSummaryList.parse(map['keyspaces']) unless map['keyspaces'].nil?)
+        data.keyspaces = (KeyspaceSummaryList.parse(map['keyspaces']) unless map['keyspaces'].nil?)
         data
       end
     end
@@ -303,7 +303,7 @@ module AWS::SDK::Keyspaces
     class KeyspaceSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::KeyspaceSummary.parse(value) unless value.nil?
+          KeyspaceSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -325,7 +325,7 @@ module AWS::SDK::Keyspaces
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.tables = (Parsers::TableSummaryList.parse(map['tables']) unless map['tables'].nil?)
+        data.tables = (TableSummaryList.parse(map['tables']) unless map['tables'].nil?)
         data
       end
     end
@@ -333,7 +333,7 @@ module AWS::SDK::Keyspaces
     class TableSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::TableSummary.parse(value) unless value.nil?
+          TableSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -356,7 +356,7 @@ module AWS::SDK::Keyspaces
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -364,7 +364,7 @@ module AWS::SDK::Keyspaces
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end

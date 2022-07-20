@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::LexRuntimeV2
   module Stubs
 
@@ -29,7 +32,7 @@ module AWS::SDK::LexRuntimeV2
         data['botAliasId'] = stub[:bot_alias_id] unless stub[:bot_alias_id].nil?
         data['localeId'] = stub[:locale_id] unless stub[:locale_id].nil?
         data['sessionId'] = stub[:session_id] unless stub[:session_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -49,10 +52,10 @@ module AWS::SDK::LexRuntimeV2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['sessionId'] = stub[:session_id] unless stub[:session_id].nil?
-        data['messages'] = Stubs::Messages.stub(stub[:messages]) unless stub[:messages].nil?
-        data['interpretations'] = Stubs::Interpretations.stub(stub[:interpretations]) unless stub[:interpretations].nil?
-        data['sessionState'] = Stubs::SessionState.stub(stub[:session_state]) unless stub[:session_state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['messages'] = Messages.stub(stub[:messages]) unless stub[:messages].nil?
+        data['interpretations'] = Interpretations.stub(stub[:interpretations]) unless stub[:interpretations].nil?
+        data['sessionState'] = SessionState.stub(stub[:session_state]) unless stub[:session_state].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -74,12 +77,12 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::SessionState.new
         data = {}
-        data['dialogAction'] = Stubs::DialogAction.stub(stub[:dialog_action]) unless stub[:dialog_action].nil?
-        data['intent'] = Stubs::Intent.stub(stub[:intent]) unless stub[:intent].nil?
-        data['activeContexts'] = Stubs::ActiveContextsList.stub(stub[:active_contexts]) unless stub[:active_contexts].nil?
-        data['sessionAttributes'] = Stubs::StringMap.stub(stub[:session_attributes]) unless stub[:session_attributes].nil?
+        data['dialogAction'] = DialogAction.stub(stub[:dialog_action]) unless stub[:dialog_action].nil?
+        data['intent'] = Intent.stub(stub[:intent]) unless stub[:intent].nil?
+        data['activeContexts'] = ActiveContextsList.stub(stub[:active_contexts]) unless stub[:active_contexts].nil?
+        data['sessionAttributes'] = StringMap.stub(stub[:session_attributes]) unless stub[:session_attributes].nil?
         data['originatingRequestId'] = stub[:originating_request_id] unless stub[:originating_request_id].nil?
-        data['runtimeHints'] = Stubs::RuntimeHints.stub(stub[:runtime_hints]) unless stub[:runtime_hints].nil?
+        data['runtimeHints'] = RuntimeHints.stub(stub[:runtime_hints]) unless stub[:runtime_hints].nil?
         data
       end
     end
@@ -97,7 +100,7 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::RuntimeHints.new
         data = {}
-        data['slotHints'] = Stubs::SlotHintsIntentMap.stub(stub[:slot_hints]) unless stub[:slot_hints].nil?
+        data['slotHints'] = SlotHintsIntentMap.stub(stub[:slot_hints]) unless stub[:slot_hints].nil?
         data
       end
     end
@@ -116,7 +119,7 @@ module AWS::SDK::LexRuntimeV2
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::SlotHintsSlotMap.stub(value) unless value.nil?
+          data[key] = SlotHintsSlotMap.stub(value) unless value.nil?
         end
         data
       end
@@ -136,7 +139,7 @@ module AWS::SDK::LexRuntimeV2
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::RuntimeHintDetails.stub(value) unless value.nil?
+          data[key] = RuntimeHintDetails.stub(value) unless value.nil?
         end
         data
       end
@@ -155,7 +158,7 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::RuntimeHintDetails.new
         data = {}
-        data['runtimeHintValues'] = Stubs::RuntimeHintValuesList.stub(stub[:runtime_hint_values]) unless stub[:runtime_hint_values].nil?
+        data['runtimeHintValues'] = RuntimeHintValuesList.stub(stub[:runtime_hint_values]) unless stub[:runtime_hint_values].nil?
         data
       end
     end
@@ -174,7 +177,7 @@ module AWS::SDK::LexRuntimeV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuntimeHintValue.stub(element) unless element.nil?
+          data << RuntimeHintValue.stub(element) unless element.nil?
         end
         data
       end
@@ -232,7 +235,7 @@ module AWS::SDK::LexRuntimeV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActiveContext.stub(element) unless element.nil?
+          data << ActiveContext.stub(element) unless element.nil?
         end
         data
       end
@@ -254,8 +257,8 @@ module AWS::SDK::LexRuntimeV2
         stub ||= Types::ActiveContext.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['timeToLive'] = Stubs::ActiveContextTimeToLive.stub(stub[:time_to_live]) unless stub[:time_to_live].nil?
-        data['contextAttributes'] = Stubs::ActiveContextParametersMap.stub(stub[:context_attributes]) unless stub[:context_attributes].nil?
+        data['timeToLive'] = ActiveContextTimeToLive.stub(stub[:time_to_live]) unless stub[:time_to_live].nil?
+        data['contextAttributes'] = ActiveContextParametersMap.stub(stub[:context_attributes]) unless stub[:context_attributes].nil?
         data
       end
     end
@@ -317,7 +320,7 @@ module AWS::SDK::LexRuntimeV2
         stub ||= Types::Intent.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['slots'] = Stubs::Slots.stub(stub[:slots]) unless stub[:slots].nil?
+        data['slots'] = Slots.stub(stub[:slots]) unless stub[:slots].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data['confirmationState'] = stub[:confirmation_state] unless stub[:confirmation_state].nil?
         data
@@ -338,7 +341,7 @@ module AWS::SDK::LexRuntimeV2
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::Slot.stub(value) unless value.nil?
+          data[key] = Slot.stub(value) unless value.nil?
         end
         data
       end
@@ -359,9 +362,9 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::Slot.new
         data = {}
-        data['value'] = Stubs::Value.stub(stub[:value]) unless stub[:value].nil?
+        data['value'] = Value.stub(stub[:value]) unless stub[:value].nil?
         data['shape'] = stub[:shape] unless stub[:shape].nil?
-        data['values'] = Stubs::Values.stub(stub[:values]) unless stub[:values].nil?
+        data['values'] = Values.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -380,7 +383,7 @@ module AWS::SDK::LexRuntimeV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Slot.stub(element) unless element.nil?
+          data << Slot.stub(element) unless element.nil?
         end
         data
       end
@@ -403,7 +406,7 @@ module AWS::SDK::LexRuntimeV2
         data = {}
         data['originalValue'] = stub[:original_value] unless stub[:original_value].nil?
         data['interpretedValue'] = stub[:interpreted_value] unless stub[:interpreted_value].nil?
-        data['resolvedValues'] = Stubs::StringList.stub(stub[:resolved_values]) unless stub[:resolved_values].nil?
+        data['resolvedValues'] = StringList.stub(stub[:resolved_values]) unless stub[:resolved_values].nil?
         data
       end
     end
@@ -464,7 +467,7 @@ module AWS::SDK::LexRuntimeV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Interpretation.stub(element) unless element.nil?
+          data << Interpretation.stub(element) unless element.nil?
         end
         data
       end
@@ -485,9 +488,9 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::Interpretation.new
         data = {}
-        data['nluConfidence'] = Stubs::ConfidenceScore.stub(stub[:nlu_confidence]) unless stub[:nlu_confidence].nil?
-        data['sentimentResponse'] = Stubs::SentimentResponse.stub(stub[:sentiment_response]) unless stub[:sentiment_response].nil?
-        data['intent'] = Stubs::Intent.stub(stub[:intent]) unless stub[:intent].nil?
+        data['nluConfidence'] = ConfidenceScore.stub(stub[:nlu_confidence]) unless stub[:nlu_confidence].nil?
+        data['sentimentResponse'] = SentimentResponse.stub(stub[:sentiment_response]) unless stub[:sentiment_response].nil?
+        data['intent'] = Intent.stub(stub[:intent]) unless stub[:intent].nil?
         data
       end
     end
@@ -507,7 +510,7 @@ module AWS::SDK::LexRuntimeV2
         stub ||= Types::SentimentResponse.new
         data = {}
         data['sentiment'] = stub[:sentiment] unless stub[:sentiment].nil?
-        data['sentimentScore'] = Stubs::SentimentScore.stub(stub[:sentiment_score]) unless stub[:sentiment_score].nil?
+        data['sentimentScore'] = SentimentScore.stub(stub[:sentiment_score]) unless stub[:sentiment_score].nil?
         data
       end
     end
@@ -568,7 +571,7 @@ module AWS::SDK::LexRuntimeV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Message.stub(element) unless element.nil?
+          data << Message.stub(element) unless element.nil?
         end
         data
       end
@@ -591,7 +594,7 @@ module AWS::SDK::LexRuntimeV2
         data = {}
         data['content'] = stub[:content] unless stub[:content].nil?
         data['contentType'] = stub[:content_type] unless stub[:content_type].nil?
-        data['imageResponseCard'] = Stubs::ImageResponseCard.stub(stub[:image_response_card]) unless stub[:image_response_card].nil?
+        data['imageResponseCard'] = ImageResponseCard.stub(stub[:image_response_card]) unless stub[:image_response_card].nil?
         data
       end
     end
@@ -615,7 +618,7 @@ module AWS::SDK::LexRuntimeV2
         data['title'] = stub[:title] unless stub[:title].nil?
         data['subtitle'] = stub[:subtitle] unless stub[:subtitle].nil?
         data['imageUrl'] = stub[:image_url] unless stub[:image_url].nil?
-        data['buttons'] = Stubs::ButtonsList.stub(stub[:buttons]) unless stub[:buttons].nil?
+        data['buttons'] = ButtonsList.stub(stub[:buttons]) unless stub[:buttons].nil?
         data
       end
     end
@@ -634,7 +637,7 @@ module AWS::SDK::LexRuntimeV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Button.stub(element) unless element.nil?
+          data << Button.stub(element) unless element.nil?
         end
         data
       end
@@ -701,12 +704,12 @@ module AWS::SDK::LexRuntimeV2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['messages'] = Stubs::Messages.stub(stub[:messages]) unless stub[:messages].nil?
-        data['sessionState'] = Stubs::SessionState.stub(stub[:session_state]) unless stub[:session_state].nil?
-        data['interpretations'] = Stubs::Interpretations.stub(stub[:interpretations]) unless stub[:interpretations].nil?
-        data['requestAttributes'] = Stubs::StringMap.stub(stub[:request_attributes]) unless stub[:request_attributes].nil?
+        data['messages'] = Messages.stub(stub[:messages]) unless stub[:messages].nil?
+        data['sessionState'] = SessionState.stub(stub[:session_state]) unless stub[:session_state].nil?
+        data['interpretations'] = Interpretations.stub(stub[:interpretations]) unless stub[:interpretations].nil?
+        data['requestAttributes'] = StringMap.stub(stub[:request_attributes]) unless stub[:request_attributes].nil?
         data['sessionId'] = stub[:session_id] unless stub[:session_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -770,33 +773,33 @@ module AWS::SDK::LexRuntimeV2
         data = {}
         case stub
         when Types::StartConversationResponseEventStream::PlaybackInterruptionEvent
-          data['PlaybackInterruptionEvent'] = (Stubs::PlaybackInterruptionEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['PlaybackInterruptionEvent'] = (PlaybackInterruptionEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::StartConversationResponseEventStream::TranscriptEvent
-          data['TranscriptEvent'] = (Stubs::TranscriptEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['TranscriptEvent'] = (TranscriptEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::StartConversationResponseEventStream::IntentResultEvent
-          data['IntentResultEvent'] = (Stubs::IntentResultEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['IntentResultEvent'] = (IntentResultEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::StartConversationResponseEventStream::TextResponseEvent
-          data['TextResponseEvent'] = (Stubs::TextResponseEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['TextResponseEvent'] = (TextResponseEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::StartConversationResponseEventStream::AudioResponseEvent
-          data['AudioResponseEvent'] = (Stubs::AudioResponseEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['AudioResponseEvent'] = (AudioResponseEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::StartConversationResponseEventStream::HeartbeatEvent
-          data['HeartbeatEvent'] = (Stubs::HeartbeatEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['HeartbeatEvent'] = (HeartbeatEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::StartConversationResponseEventStream::AccessDeniedException
-          data['AccessDeniedException'] = (Stubs::AccessDeniedException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['AccessDeniedException'] = (AccessDeniedException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::StartConversationResponseEventStream::ResourceNotFoundException
-          data['ResourceNotFoundException'] = (Stubs::ResourceNotFoundException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['ResourceNotFoundException'] = (ResourceNotFoundException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::StartConversationResponseEventStream::ValidationException
-          data['ValidationException'] = (Stubs::ValidationException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['ValidationException'] = (ValidationException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::StartConversationResponseEventStream::ThrottlingException
-          data['ThrottlingException'] = (Stubs::ThrottlingException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['ThrottlingException'] = (ThrottlingException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::StartConversationResponseEventStream::InternalServerException
-          data['InternalServerException'] = (Stubs::InternalServerException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['InternalServerException'] = (InternalServerException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::StartConversationResponseEventStream::ConflictException
-          data['ConflictException'] = (Stubs::ConflictException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['ConflictException'] = (ConflictException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::StartConversationResponseEventStream::DependencyFailedException
-          data['DependencyFailedException'] = (Stubs::DependencyFailedException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['DependencyFailedException'] = (DependencyFailedException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::StartConversationResponseEventStream::BadGatewayException
-          data['BadGatewayException'] = (Stubs::BadGatewayException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['BadGatewayException'] = (BadGatewayException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::StartConversationResponseEventStream"
@@ -983,7 +986,7 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::AudioResponseEvent.new
         data = {}
-        data['audioChunk'] = Base64::encode64(stub[:audio_chunk]) unless stub[:audio_chunk].nil?
+        data['audioChunk'] = ::Base64::encode64(stub[:audio_chunk]) unless stub[:audio_chunk].nil?
         data['contentType'] = stub[:content_type] unless stub[:content_type].nil?
         data['eventId'] = stub[:event_id] unless stub[:event_id].nil?
         data
@@ -1004,7 +1007,7 @@ module AWS::SDK::LexRuntimeV2
       def self.stub(stub)
         stub ||= Types::TextResponseEvent.new
         data = {}
-        data['messages'] = Stubs::Messages.stub(stub[:messages]) unless stub[:messages].nil?
+        data['messages'] = Messages.stub(stub[:messages]) unless stub[:messages].nil?
         data['eventId'] = stub[:event_id] unless stub[:event_id].nil?
         data
       end
@@ -1029,9 +1032,9 @@ module AWS::SDK::LexRuntimeV2
         stub ||= Types::IntentResultEvent.new
         data = {}
         data['inputMode'] = stub[:input_mode] unless stub[:input_mode].nil?
-        data['interpretations'] = Stubs::Interpretations.stub(stub[:interpretations]) unless stub[:interpretations].nil?
-        data['sessionState'] = Stubs::SessionState.stub(stub[:session_state]) unless stub[:session_state].nil?
-        data['requestAttributes'] = Stubs::StringMap.stub(stub[:request_attributes]) unless stub[:request_attributes].nil?
+        data['interpretations'] = Interpretations.stub(stub[:interpretations]) unless stub[:interpretations].nil?
+        data['sessionState'] = SessionState.stub(stub[:session_state]) unless stub[:session_state].nil?
+        data['requestAttributes'] = StringMap.stub(stub[:request_attributes]) unless stub[:request_attributes].nil?
         data['sessionId'] = stub[:session_id] unless stub[:session_id].nil?
         data['eventId'] = stub[:event_id] unless stub[:event_id].nil?
         data

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::PersonalizeRuntime
   module Builders
 
@@ -21,12 +23,12 @@ module AWS::SDK::PersonalizeRuntime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['campaignArn'] = input[:campaign_arn] unless input[:campaign_arn].nil?
-        data['inputList'] = Builders::InputList.build(input[:input_list]) unless input[:input_list].nil?
+        data['inputList'] = InputList.build(input[:input_list]) unless input[:input_list].nil?
         data['userId'] = input[:user_id] unless input[:user_id].nil?
-        data['context'] = Builders::Context.build(input[:context]) unless input[:context].nil?
+        data['context'] = Context.build(input[:context]) unless input[:context].nil?
         data['filterArn'] = input[:filter_arn] unless input[:filter_arn].nil?
-        data['filterValues'] = Builders::FilterValues.build(input[:filter_values]) unless input[:filter_values].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filterValues'] = FilterValues.build(input[:filter_values]) unless input[:filter_values].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -77,11 +79,11 @@ module AWS::SDK::PersonalizeRuntime
         data['itemId'] = input[:item_id] unless input[:item_id].nil?
         data['userId'] = input[:user_id] unless input[:user_id].nil?
         data['numResults'] = input[:num_results] unless input[:num_results].nil?
-        data['context'] = Builders::Context.build(input[:context]) unless input[:context].nil?
+        data['context'] = Context.build(input[:context]) unless input[:context].nil?
         data['filterArn'] = input[:filter_arn] unless input[:filter_arn].nil?
-        data['filterValues'] = Builders::FilterValues.build(input[:filter_values]) unless input[:filter_values].nil?
+        data['filterValues'] = FilterValues.build(input[:filter_values]) unless input[:filter_values].nil?
         data['recommenderArn'] = input[:recommender_arn] unless input[:recommender_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

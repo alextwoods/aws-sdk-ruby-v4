@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Keyspaces
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::Keyspaces
       def self.stub(http_resp, stub:)
         data = {}
         data['resourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -37,7 +39,7 @@ module AWS::SDK::Keyspaces
       def self.stub(http_resp, stub:)
         data = {}
         data['resourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -51,7 +53,7 @@ module AWS::SDK::Keyspaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -65,7 +67,7 @@ module AWS::SDK::Keyspaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -83,7 +85,7 @@ module AWS::SDK::Keyspaces
         data = {}
         data['keyspaceName'] = stub[:keyspace_name] unless stub[:keyspace_name].nil?
         data['resourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -114,14 +116,14 @@ module AWS::SDK::Keyspaces
         data['resourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['creationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_timestamp]).to_i unless stub[:creation_timestamp].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['schemaDefinition'] = Stubs::SchemaDefinition.stub(stub[:schema_definition]) unless stub[:schema_definition].nil?
-        data['capacitySpecification'] = Stubs::CapacitySpecificationSummary.stub(stub[:capacity_specification]) unless stub[:capacity_specification].nil?
-        data['encryptionSpecification'] = Stubs::EncryptionSpecification.stub(stub[:encryption_specification]) unless stub[:encryption_specification].nil?
-        data['pointInTimeRecovery'] = Stubs::PointInTimeRecoverySummary.stub(stub[:point_in_time_recovery]) unless stub[:point_in_time_recovery].nil?
-        data['ttl'] = Stubs::TimeToLive.stub(stub[:ttl]) unless stub[:ttl].nil?
+        data['schemaDefinition'] = SchemaDefinition.stub(stub[:schema_definition]) unless stub[:schema_definition].nil?
+        data['capacitySpecification'] = CapacitySpecificationSummary.stub(stub[:capacity_specification]) unless stub[:capacity_specification].nil?
+        data['encryptionSpecification'] = EncryptionSpecification.stub(stub[:encryption_specification]) unless stub[:encryption_specification].nil?
+        data['pointInTimeRecovery'] = PointInTimeRecoverySummary.stub(stub[:point_in_time_recovery]) unless stub[:point_in_time_recovery].nil?
+        data['ttl'] = TimeToLive.stub(stub[:ttl]) unless stub[:ttl].nil?
         data['defaultTimeToLive'] = stub[:default_time_to_live] unless stub[:default_time_to_live].nil?
-        data['comment'] = Stubs::Comment.stub(stub[:comment]) unless stub[:comment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['comment'] = Comment.stub(stub[:comment]) unless stub[:comment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -242,10 +244,10 @@ module AWS::SDK::Keyspaces
       def self.stub(stub)
         stub ||= Types::SchemaDefinition.new
         data = {}
-        data['allColumns'] = Stubs::ColumnDefinitionList.stub(stub[:all_columns]) unless stub[:all_columns].nil?
-        data['partitionKeys'] = Stubs::PartitionKeyList.stub(stub[:partition_keys]) unless stub[:partition_keys].nil?
-        data['clusteringKeys'] = Stubs::ClusteringKeyList.stub(stub[:clustering_keys]) unless stub[:clustering_keys].nil?
-        data['staticColumns'] = Stubs::StaticColumnList.stub(stub[:static_columns]) unless stub[:static_columns].nil?
+        data['allColumns'] = ColumnDefinitionList.stub(stub[:all_columns]) unless stub[:all_columns].nil?
+        data['partitionKeys'] = PartitionKeyList.stub(stub[:partition_keys]) unless stub[:partition_keys].nil?
+        data['clusteringKeys'] = ClusteringKeyList.stub(stub[:clustering_keys]) unless stub[:clustering_keys].nil?
+        data['staticColumns'] = StaticColumnList.stub(stub[:static_columns]) unless stub[:static_columns].nil?
         data
       end
     end
@@ -264,7 +266,7 @@ module AWS::SDK::Keyspaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StaticColumn.stub(element) unless element.nil?
+          data << StaticColumn.stub(element) unless element.nil?
         end
         data
       end
@@ -302,7 +304,7 @@ module AWS::SDK::Keyspaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ClusteringKey.stub(element) unless element.nil?
+          data << ClusteringKey.stub(element) unless element.nil?
         end
         data
       end
@@ -342,7 +344,7 @@ module AWS::SDK::Keyspaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PartitionKey.stub(element) unless element.nil?
+          data << PartitionKey.stub(element) unless element.nil?
         end
         data
       end
@@ -380,7 +382,7 @@ module AWS::SDK::Keyspaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnDefinition.stub(element) unless element.nil?
+          data << ColumnDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -418,8 +420,8 @@ module AWS::SDK::Keyspaces
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['keyspaces'] = Stubs::KeyspaceSummaryList.stub(stub[:keyspaces]) unless stub[:keyspaces].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['keyspaces'] = KeyspaceSummaryList.stub(stub[:keyspaces]) unless stub[:keyspaces].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -438,7 +440,7 @@ module AWS::SDK::Keyspaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeyspaceSummary.stub(element) unless element.nil?
+          data << KeyspaceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -476,8 +478,8 @@ module AWS::SDK::Keyspaces
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['tables'] = Stubs::TableSummaryList.stub(stub[:tables]) unless stub[:tables].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tables'] = TableSummaryList.stub(stub[:tables]) unless stub[:tables].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -496,7 +498,7 @@ module AWS::SDK::Keyspaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TableSummary.stub(element) unless element.nil?
+          data << TableSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -536,8 +538,8 @@ module AWS::SDK::Keyspaces
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -556,7 +558,7 @@ module AWS::SDK::Keyspaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -593,7 +595,7 @@ module AWS::SDK::Keyspaces
       def self.stub(http_resp, stub:)
         data = {}
         data['restoredTableARN'] = stub[:restored_table_arn] unless stub[:restored_table_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -607,7 +609,7 @@ module AWS::SDK::Keyspaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -621,7 +623,7 @@ module AWS::SDK::Keyspaces
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -637,7 +639,7 @@ module AWS::SDK::Keyspaces
       def self.stub(http_resp, stub:)
         data = {}
         data['resourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

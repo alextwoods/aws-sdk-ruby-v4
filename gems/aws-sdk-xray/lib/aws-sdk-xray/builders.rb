@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::XRay
   module Builders
 
@@ -20,9 +22,9 @@ module AWS::SDK::XRay
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TraceIds'] = Builders::TraceIdList.build(input[:trace_ids]) unless input[:trace_ids].nil?
+        data['TraceIds'] = TraceIdList.build(input[:trace_ids]) unless input[:trace_ids].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -49,9 +51,9 @@ module AWS::SDK::XRay
         data = {}
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
         data['FilterExpression'] = input[:filter_expression] unless input[:filter_expression].nil?
-        data['InsightsConfiguration'] = Builders::InsightsConfiguration.build(input[:insights_configuration]) unless input[:insights_configuration].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InsightsConfiguration'] = InsightsConfiguration.build(input[:insights_configuration]) unless input[:insights_configuration].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -60,7 +62,7 @@ module AWS::SDK::XRay
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -96,9 +98,9 @@ module AWS::SDK::XRay
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['SamplingRule'] = Builders::SamplingRule.build(input[:sampling_rule]) unless input[:sampling_rule].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SamplingRule'] = SamplingRule.build(input[:sampling_rule]) unless input[:sampling_rule].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -118,7 +120,7 @@ module AWS::SDK::XRay
         data['HTTPMethod'] = input[:http_method] unless input[:http_method].nil?
         data['URLPath'] = input[:url_path] unless input[:url_path].nil?
         data['Version'] = input[:version] unless input[:version].nil?
-        data['Attributes'] = Builders::AttributeMap.build(input[:attributes]) unless input[:attributes].nil?
+        data['Attributes'] = AttributeMap.build(input[:attributes]) unless input[:attributes].nil?
         data
       end
     end
@@ -146,7 +148,7 @@ module AWS::SDK::XRay
         data = {}
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
         data['GroupARN'] = input[:group_arn] unless input[:group_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -162,7 +164,7 @@ module AWS::SDK::XRay
         data = {}
         data['RuleName'] = input[:rule_name] unless input[:rule_name].nil?
         data['RuleARN'] = input[:rule_arn] unless input[:rule_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -188,7 +190,7 @@ module AWS::SDK::XRay
         data = {}
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
         data['GroupARN'] = input[:group_arn] unless input[:group_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -203,7 +205,7 @@ module AWS::SDK::XRay
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -218,7 +220,7 @@ module AWS::SDK::XRay
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['InsightId'] = input[:insight_id] unless input[:insight_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -235,7 +237,7 @@ module AWS::SDK::XRay
         data['InsightId'] = input[:insight_id] unless input[:insight_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -253,7 +255,7 @@ module AWS::SDK::XRay
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -267,14 +269,14 @@ module AWS::SDK::XRay
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['States'] = Builders::InsightStateList.build(input[:states]) unless input[:states].nil?
+        data['States'] = InsightStateList.build(input[:states]) unless input[:states].nil?
         data['GroupARN'] = input[:group_arn] unless input[:group_arn].nil?
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -300,7 +302,7 @@ module AWS::SDK::XRay
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -315,7 +317,7 @@ module AWS::SDK::XRay
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -329,8 +331,8 @@ module AWS::SDK::XRay
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['SamplingStatisticsDocuments'] = Builders::SamplingStatisticsDocumentList.build(input[:sampling_statistics_documents]) unless input[:sampling_statistics_documents].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SamplingStatisticsDocuments'] = SamplingStatisticsDocumentList.build(input[:sampling_statistics_documents]) unless input[:sampling_statistics_documents].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -339,7 +341,7 @@ module AWS::SDK::XRay
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SamplingStatisticsDocument.build(element) unless element.nil?
+          data << SamplingStatisticsDocument.build(element) unless element.nil?
         end
         data
       end
@@ -374,7 +376,7 @@ module AWS::SDK::XRay
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
         data['GroupARN'] = input[:group_arn] unless input[:group_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -396,7 +398,7 @@ module AWS::SDK::XRay
         data['Period'] = input[:period] unless input[:period].nil?
         data['ForecastStatistics'] = input[:forecast_statistics] unless input[:forecast_statistics].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -410,9 +412,9 @@ module AWS::SDK::XRay
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TraceIds'] = Builders::TraceIdList.build(input[:trace_ids]) unless input[:trace_ids].nil?
+        data['TraceIds'] = TraceIdList.build(input[:trace_ids]) unless input[:trace_ids].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -430,10 +432,10 @@ module AWS::SDK::XRay
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['TimeRangeType'] = input[:time_range_type] unless input[:time_range_type].nil?
         data['Sampling'] = input[:sampling] unless input[:sampling].nil?
-        data['SamplingStrategy'] = Builders::SamplingStrategy.build(input[:sampling_strategy]) unless input[:sampling_strategy].nil?
+        data['SamplingStrategy'] = SamplingStrategy.build(input[:sampling_strategy]) unless input[:sampling_strategy].nil?
         data['FilterExpression'] = input[:filter_expression] unless input[:filter_expression].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -459,7 +461,7 @@ module AWS::SDK::XRay
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -475,7 +477,7 @@ module AWS::SDK::XRay
         data = {}
         data['KeyId'] = input[:key_id] unless input[:key_id].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -489,11 +491,11 @@ module AWS::SDK::XRay
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TelemetryRecords'] = Builders::TelemetryRecordList.build(input[:telemetry_records]) unless input[:telemetry_records].nil?
+        data['TelemetryRecords'] = TelemetryRecordList.build(input[:telemetry_records]) unless input[:telemetry_records].nil?
         data['EC2InstanceId'] = input[:ec2_instance_id] unless input[:ec2_instance_id].nil?
         data['Hostname'] = input[:hostname] unless input[:hostname].nil?
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -502,7 +504,7 @@ module AWS::SDK::XRay
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TelemetryRecord.build(element) unless element.nil?
+          data << TelemetryRecord.build(element) unless element.nil?
         end
         data
       end
@@ -517,7 +519,7 @@ module AWS::SDK::XRay
         data['SegmentsSentCount'] = input[:segments_sent_count] unless input[:segments_sent_count].nil?
         data['SegmentsSpilloverCount'] = input[:segments_spillover_count] unless input[:segments_spillover_count].nil?
         data['SegmentsRejectedCount'] = input[:segments_rejected_count] unless input[:segments_rejected_count].nil?
-        data['BackendConnectionErrors'] = Builders::BackendConnectionErrors.build(input[:backend_connection_errors]) unless input[:backend_connection_errors].nil?
+        data['BackendConnectionErrors'] = BackendConnectionErrors.build(input[:backend_connection_errors]) unless input[:backend_connection_errors].nil?
         data
       end
     end
@@ -546,8 +548,8 @@ module AWS::SDK::XRay
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TraceSegmentDocuments'] = Builders::TraceSegmentDocumentList.build(input[:trace_segment_documents]) unless input[:trace_segment_documents].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TraceSegmentDocuments'] = TraceSegmentDocumentList.build(input[:trace_segment_documents]) unless input[:trace_segment_documents].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -573,8 +575,8 @@ module AWS::SDK::XRay
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -589,8 +591,8 @@ module AWS::SDK::XRay
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -618,8 +620,8 @@ module AWS::SDK::XRay
         data['GroupName'] = input[:group_name] unless input[:group_name].nil?
         data['GroupARN'] = input[:group_arn] unless input[:group_arn].nil?
         data['FilterExpression'] = input[:filter_expression] unless input[:filter_expression].nil?
-        data['InsightsConfiguration'] = Builders::InsightsConfiguration.build(input[:insights_configuration]) unless input[:insights_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InsightsConfiguration'] = InsightsConfiguration.build(input[:insights_configuration]) unless input[:insights_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -633,8 +635,8 @@ module AWS::SDK::XRay
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['SamplingRuleUpdate'] = Builders::SamplingRuleUpdate.build(input[:sampling_rule_update]) unless input[:sampling_rule_update].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SamplingRuleUpdate'] = SamplingRuleUpdate.build(input[:sampling_rule_update]) unless input[:sampling_rule_update].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -653,7 +655,7 @@ module AWS::SDK::XRay
         data['ServiceType'] = input[:service_type] unless input[:service_type].nil?
         data['HTTPMethod'] = input[:http_method] unless input[:http_method].nil?
         data['URLPath'] = input[:url_path] unless input[:url_path].nil?
-        data['Attributes'] = Builders::AttributeMap.build(input[:attributes]) unless input[:attributes].nil?
+        data['Attributes'] = AttributeMap.build(input[:attributes]) unless input[:attributes].nil?
         data
       end
     end

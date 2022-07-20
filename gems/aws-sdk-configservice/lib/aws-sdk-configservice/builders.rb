@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ConfigService
   module Builders
 
@@ -19,8 +21,8 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.BatchGetAggregateResourceConfig'
         data = {}
         data['ConfigurationAggregatorName'] = input[:configuration_aggregator_name] unless input[:configuration_aggregator_name].nil?
-        data['ResourceIdentifiers'] = Builders::ResourceIdentifiersList.build(input[:resource_identifiers]) unless input[:resource_identifiers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceIdentifiers'] = ResourceIdentifiersList.build(input[:resource_identifiers]) unless input[:resource_identifiers].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -29,7 +31,7 @@ module AWS::SDK::ConfigService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AggregateResourceIdentifier.build(element) unless element.nil?
+          data << AggregateResourceIdentifier.build(element) unless element.nil?
         end
         data
       end
@@ -56,8 +58,8 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.BatchGetResourceConfig'
         data = {}
-        data['resourceKeys'] = Builders::ResourceKeys.build(input[:resource_keys]) unless input[:resource_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resourceKeys'] = ResourceKeys.build(input[:resource_keys]) unless input[:resource_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -66,7 +68,7 @@ module AWS::SDK::ConfigService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ResourceKey.build(element) unless element.nil?
+          data << ResourceKey.build(element) unless element.nil?
         end
         data
       end
@@ -92,7 +94,7 @@ module AWS::SDK::ConfigService
         data = {}
         data['AuthorizedAccountId'] = input[:authorized_account_id] unless input[:authorized_account_id].nil?
         data['AuthorizedAwsRegion'] = input[:authorized_aws_region] unless input[:authorized_aws_region].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -105,7 +107,7 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DeleteConfigRule'
         data = {}
         data['ConfigRuleName'] = input[:config_rule_name] unless input[:config_rule_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -118,7 +120,7 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DeleteConfigurationAggregator'
         data = {}
         data['ConfigurationAggregatorName'] = input[:configuration_aggregator_name] unless input[:configuration_aggregator_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -131,7 +133,7 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DeleteConfigurationRecorder'
         data = {}
         data['ConfigurationRecorderName'] = input[:configuration_recorder_name] unless input[:configuration_recorder_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -144,7 +146,7 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DeleteConformancePack'
         data = {}
         data['ConformancePackName'] = input[:conformance_pack_name] unless input[:conformance_pack_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -157,7 +159,7 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DeleteDeliveryChannel'
         data = {}
         data['DeliveryChannelName'] = input[:delivery_channel_name] unless input[:delivery_channel_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -170,7 +172,7 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DeleteEvaluationResults'
         data = {}
         data['ConfigRuleName'] = input[:config_rule_name] unless input[:config_rule_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -183,7 +185,7 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DeleteOrganizationConfigRule'
         data = {}
         data['OrganizationConfigRuleName'] = input[:organization_config_rule_name] unless input[:organization_config_rule_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -196,7 +198,7 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DeleteOrganizationConformancePack'
         data = {}
         data['OrganizationConformancePackName'] = input[:organization_conformance_pack_name] unless input[:organization_conformance_pack_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -210,7 +212,7 @@ module AWS::SDK::ConfigService
         data = {}
         data['RequesterAccountId'] = input[:requester_account_id] unless input[:requester_account_id].nil?
         data['RequesterAwsRegion'] = input[:requester_aws_region] unless input[:requester_aws_region].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -224,7 +226,7 @@ module AWS::SDK::ConfigService
         data = {}
         data['ConfigRuleName'] = input[:config_rule_name] unless input[:config_rule_name].nil?
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -237,8 +239,8 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DeleteRemediationExceptions'
         data = {}
         data['ConfigRuleName'] = input[:config_rule_name] unless input[:config_rule_name].nil?
-        data['ResourceKeys'] = Builders::RemediationExceptionResourceKeys.build(input[:resource_keys]) unless input[:resource_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceKeys'] = RemediationExceptionResourceKeys.build(input[:resource_keys]) unless input[:resource_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -247,7 +249,7 @@ module AWS::SDK::ConfigService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RemediationExceptionResourceKey.build(element) unless element.nil?
+          data << RemediationExceptionResourceKey.build(element) unless element.nil?
         end
         data
       end
@@ -273,7 +275,7 @@ module AWS::SDK::ConfigService
         data = {}
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -286,7 +288,7 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DeleteRetentionConfiguration'
         data = {}
         data['RetentionConfigurationName'] = input[:retention_configuration_name] unless input[:retention_configuration_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -299,7 +301,7 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DeleteStoredQuery'
         data = {}
         data['QueryName'] = input[:query_name] unless input[:query_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -312,7 +314,7 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DeliverConfigSnapshot'
         data = {}
         data['deliveryChannelName'] = input[:delivery_channel_name] unless input[:delivery_channel_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -325,10 +327,10 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeAggregateComplianceByConfigRules'
         data = {}
         data['ConfigurationAggregatorName'] = input[:configuration_aggregator_name] unless input[:configuration_aggregator_name].nil?
-        data['Filters'] = Builders::ConfigRuleComplianceFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ConfigRuleComplianceFilters.build(input[:filters]) unless input[:filters].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -353,10 +355,10 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeAggregateComplianceByConformancePacks'
         data = {}
         data['ConfigurationAggregatorName'] = input[:configuration_aggregator_name] unless input[:configuration_aggregator_name].nil?
-        data['Filters'] = Builders::AggregateConformancePackComplianceFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = AggregateConformancePackComplianceFilters.build(input[:filters]) unless input[:filters].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -382,7 +384,7 @@ module AWS::SDK::ConfigService
         data = {}
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -394,10 +396,10 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeComplianceByConfigRule'
         data = {}
-        data['ConfigRuleNames'] = Builders::ConfigRuleNames.build(input[:config_rule_names]) unless input[:config_rule_names].nil?
-        data['ComplianceTypes'] = Builders::ComplianceTypes.build(input[:compliance_types]) unless input[:compliance_types].nil?
+        data['ConfigRuleNames'] = ConfigRuleNames.build(input[:config_rule_names]) unless input[:config_rule_names].nil?
+        data['ComplianceTypes'] = ComplianceTypes.build(input[:compliance_types]) unless input[:compliance_types].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -433,10 +435,10 @@ module AWS::SDK::ConfigService
         data = {}
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['ComplianceTypes'] = Builders::ComplianceTypes.build(input[:compliance_types]) unless input[:compliance_types].nil?
+        data['ComplianceTypes'] = ComplianceTypes.build(input[:compliance_types]) unless input[:compliance_types].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -448,10 +450,10 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeConfigRuleEvaluationStatus'
         data = {}
-        data['ConfigRuleNames'] = Builders::ConfigRuleNames.build(input[:config_rule_names]) unless input[:config_rule_names].nil?
+        data['ConfigRuleNames'] = ConfigRuleNames.build(input[:config_rule_names]) unless input[:config_rule_names].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -463,9 +465,9 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeConfigRules'
         data = {}
-        data['ConfigRuleNames'] = Builders::ConfigRuleNames.build(input[:config_rule_names]) unless input[:config_rule_names].nil?
+        data['ConfigRuleNames'] = ConfigRuleNames.build(input[:config_rule_names]) unless input[:config_rule_names].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -478,10 +480,10 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeConfigurationAggregatorSourcesStatus'
         data = {}
         data['ConfigurationAggregatorName'] = input[:configuration_aggregator_name] unless input[:configuration_aggregator_name].nil?
-        data['UpdateStatus'] = Builders::AggregatedSourceStatusTypeList.build(input[:update_status]) unless input[:update_status].nil?
+        data['UpdateStatus'] = AggregatedSourceStatusTypeList.build(input[:update_status]) unless input[:update_status].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -504,10 +506,10 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeConfigurationAggregators'
         data = {}
-        data['ConfigurationAggregatorNames'] = Builders::ConfigurationAggregatorNameList.build(input[:configuration_aggregator_names]) unless input[:configuration_aggregator_names].nil?
+        data['ConfigurationAggregatorNames'] = ConfigurationAggregatorNameList.build(input[:configuration_aggregator_names]) unless input[:configuration_aggregator_names].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -530,8 +532,8 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeConfigurationRecorderStatus'
         data = {}
-        data['ConfigurationRecorderNames'] = Builders::ConfigurationRecorderNameList.build(input[:configuration_recorder_names]) unless input[:configuration_recorder_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConfigurationRecorderNames'] = ConfigurationRecorderNameList.build(input[:configuration_recorder_names]) unless input[:configuration_recorder_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -554,8 +556,8 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeConfigurationRecorders'
         data = {}
-        data['ConfigurationRecorderNames'] = Builders::ConfigurationRecorderNameList.build(input[:configuration_recorder_names]) unless input[:configuration_recorder_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConfigurationRecorderNames'] = ConfigurationRecorderNameList.build(input[:configuration_recorder_names]) unless input[:configuration_recorder_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -568,10 +570,10 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeConformancePackCompliance'
         data = {}
         data['ConformancePackName'] = input[:conformance_pack_name] unless input[:conformance_pack_name].nil?
-        data['Filters'] = Builders::ConformancePackComplianceFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ConformancePackComplianceFilters.build(input[:filters]) unless input[:filters].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -579,7 +581,7 @@ module AWS::SDK::ConfigService
     class ConformancePackComplianceFilters
       def self.build(input)
         data = {}
-        data['ConfigRuleNames'] = Builders::ConformancePackConfigRuleNames.build(input[:config_rule_names]) unless input[:config_rule_names].nil?
+        data['ConfigRuleNames'] = ConformancePackConfigRuleNames.build(input[:config_rule_names]) unless input[:config_rule_names].nil?
         data['ComplianceType'] = input[:compliance_type] unless input[:compliance_type].nil?
         data
       end
@@ -604,10 +606,10 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeConformancePackStatus'
         data = {}
-        data['ConformancePackNames'] = Builders::ConformancePackNamesList.build(input[:conformance_pack_names]) unless input[:conformance_pack_names].nil?
+        data['ConformancePackNames'] = ConformancePackNamesList.build(input[:conformance_pack_names]) unless input[:conformance_pack_names].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -630,10 +632,10 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeConformancePacks'
         data = {}
-        data['ConformancePackNames'] = Builders::ConformancePackNamesList.build(input[:conformance_pack_names]) unless input[:conformance_pack_names].nil?
+        data['ConformancePackNames'] = ConformancePackNamesList.build(input[:conformance_pack_names]) unless input[:conformance_pack_names].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -645,8 +647,8 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeDeliveryChannelStatus'
         data = {}
-        data['DeliveryChannelNames'] = Builders::DeliveryChannelNameList.build(input[:delivery_channel_names]) unless input[:delivery_channel_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeliveryChannelNames'] = DeliveryChannelNameList.build(input[:delivery_channel_names]) unless input[:delivery_channel_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -669,8 +671,8 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeDeliveryChannels'
         data = {}
-        data['DeliveryChannelNames'] = Builders::DeliveryChannelNameList.build(input[:delivery_channel_names]) unless input[:delivery_channel_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeliveryChannelNames'] = DeliveryChannelNameList.build(input[:delivery_channel_names]) unless input[:delivery_channel_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -682,10 +684,10 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeOrganizationConfigRuleStatuses'
         data = {}
-        data['OrganizationConfigRuleNames'] = Builders::OrganizationConfigRuleNames.build(input[:organization_config_rule_names]) unless input[:organization_config_rule_names].nil?
+        data['OrganizationConfigRuleNames'] = OrganizationConfigRuleNames.build(input[:organization_config_rule_names]) unless input[:organization_config_rule_names].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -708,10 +710,10 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeOrganizationConfigRules'
         data = {}
-        data['OrganizationConfigRuleNames'] = Builders::OrganizationConfigRuleNames.build(input[:organization_config_rule_names]) unless input[:organization_config_rule_names].nil?
+        data['OrganizationConfigRuleNames'] = OrganizationConfigRuleNames.build(input[:organization_config_rule_names]) unless input[:organization_config_rule_names].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -723,10 +725,10 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeOrganizationConformancePackStatuses'
         data = {}
-        data['OrganizationConformancePackNames'] = Builders::OrganizationConformancePackNames.build(input[:organization_conformance_pack_names]) unless input[:organization_conformance_pack_names].nil?
+        data['OrganizationConformancePackNames'] = OrganizationConformancePackNames.build(input[:organization_conformance_pack_names]) unless input[:organization_conformance_pack_names].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -749,10 +751,10 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeOrganizationConformancePacks'
         data = {}
-        data['OrganizationConformancePackNames'] = Builders::OrganizationConformancePackNames.build(input[:organization_conformance_pack_names]) unless input[:organization_conformance_pack_names].nil?
+        data['OrganizationConformancePackNames'] = OrganizationConformancePackNames.build(input[:organization_conformance_pack_names]) unless input[:organization_conformance_pack_names].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -766,7 +768,7 @@ module AWS::SDK::ConfigService
         data = {}
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -778,8 +780,8 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeRemediationConfigurations'
         data = {}
-        data['ConfigRuleNames'] = Builders::ConfigRuleNames.build(input[:config_rule_names]) unless input[:config_rule_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConfigRuleNames'] = ConfigRuleNames.build(input[:config_rule_names]) unless input[:config_rule_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -792,10 +794,10 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeRemediationExceptions'
         data = {}
         data['ConfigRuleName'] = input[:config_rule_name] unless input[:config_rule_name].nil?
-        data['ResourceKeys'] = Builders::RemediationExceptionResourceKeys.build(input[:resource_keys]) unless input[:resource_keys].nil?
+        data['ResourceKeys'] = RemediationExceptionResourceKeys.build(input[:resource_keys]) unless input[:resource_keys].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -808,10 +810,10 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeRemediationExecutionStatus'
         data = {}
         data['ConfigRuleName'] = input[:config_rule_name] unless input[:config_rule_name].nil?
-        data['ResourceKeys'] = Builders::ResourceKeys.build(input[:resource_keys]) unless input[:resource_keys].nil?
+        data['ResourceKeys'] = ResourceKeys.build(input[:resource_keys]) unless input[:resource_keys].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -823,9 +825,9 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.DescribeRetentionConfigurations'
         data = {}
-        data['RetentionConfigurationNames'] = Builders::RetentionConfigurationNameList.build(input[:retention_configuration_names]) unless input[:retention_configuration_names].nil?
+        data['RetentionConfigurationNames'] = RetentionConfigurationNameList.build(input[:retention_configuration_names]) unless input[:retention_configuration_names].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -855,7 +857,7 @@ module AWS::SDK::ConfigService
         data['ComplianceType'] = input[:compliance_type] unless input[:compliance_type].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -868,11 +870,11 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.GetAggregateConfigRuleComplianceSummary'
         data = {}
         data['ConfigurationAggregatorName'] = input[:configuration_aggregator_name] unless input[:configuration_aggregator_name].nil?
-        data['Filters'] = Builders::ConfigRuleComplianceSummaryFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ConfigRuleComplianceSummaryFilters.build(input[:filters]) unless input[:filters].nil?
         data['GroupByKey'] = input[:group_by_key] unless input[:group_by_key].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -895,11 +897,11 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.GetAggregateConformancePackComplianceSummary'
         data = {}
         data['ConfigurationAggregatorName'] = input[:configuration_aggregator_name] unless input[:configuration_aggregator_name].nil?
-        data['Filters'] = Builders::AggregateConformancePackComplianceSummaryFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = AggregateConformancePackComplianceSummaryFilters.build(input[:filters]) unless input[:filters].nil?
         data['GroupByKey'] = input[:group_by_key] unless input[:group_by_key].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -922,11 +924,11 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.GetAggregateDiscoveredResourceCounts'
         data = {}
         data['ConfigurationAggregatorName'] = input[:configuration_aggregator_name] unless input[:configuration_aggregator_name].nil?
-        data['Filters'] = Builders::ResourceCountFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ResourceCountFilters.build(input[:filters]) unless input[:filters].nil?
         data['GroupByKey'] = input[:group_by_key] unless input[:group_by_key].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -950,8 +952,8 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.GetAggregateResourceConfig'
         data = {}
         data['ConfigurationAggregatorName'] = input[:configuration_aggregator_name] unless input[:configuration_aggregator_name].nil?
-        data['ResourceIdentifier'] = Builders::AggregateResourceIdentifier.build(input[:resource_identifier]) unless input[:resource_identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceIdentifier'] = AggregateResourceIdentifier.build(input[:resource_identifier]) unless input[:resource_identifier].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -964,10 +966,10 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.GetComplianceDetailsByConfigRule'
         data = {}
         data['ConfigRuleName'] = input[:config_rule_name] unless input[:config_rule_name].nil?
-        data['ComplianceTypes'] = Builders::ComplianceTypes.build(input[:compliance_types]) unless input[:compliance_types].nil?
+        data['ComplianceTypes'] = ComplianceTypes.build(input[:compliance_types]) unless input[:compliance_types].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -981,9 +983,9 @@ module AWS::SDK::ConfigService
         data = {}
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['ComplianceTypes'] = Builders::ComplianceTypes.build(input[:compliance_types]) unless input[:compliance_types].nil?
+        data['ComplianceTypes'] = ComplianceTypes.build(input[:compliance_types]) unless input[:compliance_types].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -995,7 +997,7 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.GetComplianceSummaryByConfigRule'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1007,8 +1009,8 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.GetComplianceSummaryByResourceType'
         data = {}
-        data['ResourceTypes'] = Builders::ResourceTypes.build(input[:resource_types]) unless input[:resource_types].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceTypes'] = ResourceTypes.build(input[:resource_types]) unless input[:resource_types].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1032,10 +1034,10 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.GetConformancePackComplianceDetails'
         data = {}
         data['ConformancePackName'] = input[:conformance_pack_name] unless input[:conformance_pack_name].nil?
-        data['Filters'] = Builders::ConformancePackEvaluationFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ConformancePackEvaluationFilters.build(input[:filters]) unless input[:filters].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1043,10 +1045,10 @@ module AWS::SDK::ConfigService
     class ConformancePackEvaluationFilters
       def self.build(input)
         data = {}
-        data['ConfigRuleNames'] = Builders::ConformancePackConfigRuleNames.build(input[:config_rule_names]) unless input[:config_rule_names].nil?
+        data['ConfigRuleNames'] = ConformancePackConfigRuleNames.build(input[:config_rule_names]) unless input[:config_rule_names].nil?
         data['ComplianceType'] = input[:compliance_type] unless input[:compliance_type].nil?
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['ResourceIds'] = Builders::ConformancePackComplianceResourceIds.build(input[:resource_ids]) unless input[:resource_ids].nil?
+        data['ResourceIds'] = ConformancePackComplianceResourceIds.build(input[:resource_ids]) unless input[:resource_ids].nil?
         data
       end
     end
@@ -1070,10 +1072,10 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.GetConformancePackComplianceSummary'
         data = {}
-        data['ConformancePackNames'] = Builders::ConformancePackNamesToSummarizeList.build(input[:conformance_pack_names]) unless input[:conformance_pack_names].nil?
+        data['ConformancePackNames'] = ConformancePackNamesToSummarizeList.build(input[:conformance_pack_names]) unless input[:conformance_pack_names].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1097,7 +1099,7 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.GetCustomRulePolicy'
         data = {}
         data['ConfigRuleName'] = input[:config_rule_name] unless input[:config_rule_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1109,10 +1111,10 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.GetDiscoveredResourceCounts'
         data = {}
-        data['resourceTypes'] = Builders::ResourceTypes.build(input[:resource_types]) unless input[:resource_types].nil?
+        data['resourceTypes'] = ResourceTypes.build(input[:resource_types]) unless input[:resource_types].nil?
         data['limit'] = input[:limit] unless input[:limit].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1125,10 +1127,10 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.GetOrganizationConfigRuleDetailedStatus'
         data = {}
         data['OrganizationConfigRuleName'] = input[:organization_config_rule_name] unless input[:organization_config_rule_name].nil?
-        data['Filters'] = Builders::StatusDetailFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = StatusDetailFilters.build(input[:filters]) unless input[:filters].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1151,10 +1153,10 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.GetOrganizationConformancePackDetailedStatus'
         data = {}
         data['OrganizationConformancePackName'] = input[:organization_conformance_pack_name] unless input[:organization_conformance_pack_name].nil?
-        data['Filters'] = Builders::OrganizationResourceDetailedStatusFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = OrganizationResourceDetailedStatusFilters.build(input[:filters]) unless input[:filters].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1177,7 +1179,7 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.GetOrganizationCustomRulePolicy'
         data = {}
         data['OrganizationConfigRuleName'] = input[:organization_config_rule_name] unless input[:organization_config_rule_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1196,7 +1198,7 @@ module AWS::SDK::ConfigService
         data['chronologicalOrder'] = input[:chronological_order] unless input[:chronological_order].nil?
         data['limit'] = input[:limit] unless input[:limit].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1209,7 +1211,7 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.GetStoredQuery'
         data = {}
         data['QueryName'] = input[:query_name] unless input[:query_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1223,10 +1225,10 @@ module AWS::SDK::ConfigService
         data = {}
         data['ConfigurationAggregatorName'] = input[:configuration_aggregator_name] unless input[:configuration_aggregator_name].nil?
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['Filters'] = Builders::ResourceFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ResourceFilters.build(input[:filters]) unless input[:filters].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1251,12 +1253,12 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.ListDiscoveredResources'
         data = {}
         data['resourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['resourceIds'] = Builders::ResourceIdList.build(input[:resource_ids]) unless input[:resource_ids].nil?
+        data['resourceIds'] = ResourceIdList.build(input[:resource_ids]) unless input[:resource_ids].nil?
         data['resourceName'] = input[:resource_name] unless input[:resource_name].nil?
         data['limit'] = input[:limit] unless input[:limit].nil?
         data['includeDeletedResources'] = input[:include_deleted_resources] unless input[:include_deleted_resources].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1281,7 +1283,7 @@ module AWS::SDK::ConfigService
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1296,7 +1298,7 @@ module AWS::SDK::ConfigService
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1310,8 +1312,8 @@ module AWS::SDK::ConfigService
         data = {}
         data['AuthorizedAccountId'] = input[:authorized_account_id] unless input[:authorized_account_id].nil?
         data['AuthorizedAwsRegion'] = input[:authorized_aws_region] unless input[:authorized_aws_region].nil?
-        data['Tags'] = Builders::TagsList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagsList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1320,7 +1322,7 @@ module AWS::SDK::ConfigService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -1344,9 +1346,9 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.PutConfigRule'
         data = {}
-        data['ConfigRule'] = Builders::ConfigRule.build(input[:config_rule]) unless input[:config_rule].nil?
-        data['Tags'] = Builders::TagsList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConfigRule'] = ConfigRule.build(input[:config_rule]) unless input[:config_rule].nil?
+        data['Tags'] = TagsList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1358,8 +1360,8 @@ module AWS::SDK::ConfigService
         data['ConfigRuleArn'] = input[:config_rule_arn] unless input[:config_rule_arn].nil?
         data['ConfigRuleId'] = input[:config_rule_id] unless input[:config_rule_id].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Scope'] = Builders::Scope.build(input[:scope]) unless input[:scope].nil?
-        data['Source'] = Builders::Source.build(input[:source]) unless input[:source].nil?
+        data['Scope'] = Scope.build(input[:scope]) unless input[:scope].nil?
+        data['Source'] = Source.build(input[:source]) unless input[:source].nil?
         data['InputParameters'] = input[:input_parameters] unless input[:input_parameters].nil?
         data['MaximumExecutionFrequency'] = input[:maximum_execution_frequency] unless input[:maximum_execution_frequency].nil?
         data['ConfigRuleState'] = input[:config_rule_state] unless input[:config_rule_state].nil?
@@ -1374,8 +1376,8 @@ module AWS::SDK::ConfigService
         data = {}
         data['Owner'] = input[:owner] unless input[:owner].nil?
         data['SourceIdentifier'] = input[:source_identifier] unless input[:source_identifier].nil?
-        data['SourceDetails'] = Builders::SourceDetails.build(input[:source_details]) unless input[:source_details].nil?
-        data['CustomPolicyDetails'] = Builders::CustomPolicyDetails.build(input[:custom_policy_details]) unless input[:custom_policy_details].nil?
+        data['SourceDetails'] = SourceDetails.build(input[:source_details]) unless input[:source_details].nil?
+        data['CustomPolicyDetails'] = CustomPolicyDetails.build(input[:custom_policy_details]) unless input[:custom_policy_details].nil?
         data
       end
     end
@@ -1396,7 +1398,7 @@ module AWS::SDK::ConfigService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SourceDetail.build(element) unless element.nil?
+          data << SourceDetail.build(element) unless element.nil?
         end
         data
       end
@@ -1417,7 +1419,7 @@ module AWS::SDK::ConfigService
     class Scope
       def self.build(input)
         data = {}
-        data['ComplianceResourceTypes'] = Builders::ComplianceResourceTypes.build(input[:compliance_resource_types]) unless input[:compliance_resource_types].nil?
+        data['ComplianceResourceTypes'] = ComplianceResourceTypes.build(input[:compliance_resource_types]) unless input[:compliance_resource_types].nil?
         data['TagKey'] = input[:tag_key] unless input[:tag_key].nil?
         data['TagValue'] = input[:tag_value] unless input[:tag_value].nil?
         data['ComplianceResourceId'] = input[:compliance_resource_id] unless input[:compliance_resource_id].nil?
@@ -1445,10 +1447,10 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.PutConfigurationAggregator'
         data = {}
         data['ConfigurationAggregatorName'] = input[:configuration_aggregator_name] unless input[:configuration_aggregator_name].nil?
-        data['AccountAggregationSources'] = Builders::AccountAggregationSourceList.build(input[:account_aggregation_sources]) unless input[:account_aggregation_sources].nil?
-        data['OrganizationAggregationSource'] = Builders::OrganizationAggregationSource.build(input[:organization_aggregation_source]) unless input[:organization_aggregation_source].nil?
-        data['Tags'] = Builders::TagsList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountAggregationSources'] = AccountAggregationSourceList.build(input[:account_aggregation_sources]) unless input[:account_aggregation_sources].nil?
+        data['OrganizationAggregationSource'] = OrganizationAggregationSource.build(input[:organization_aggregation_source]) unless input[:organization_aggregation_source].nil?
+        data['Tags'] = TagsList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1457,7 +1459,7 @@ module AWS::SDK::ConfigService
       def self.build(input)
         data = {}
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['AwsRegions'] = Builders::AggregatorRegionList.build(input[:aws_regions]) unless input[:aws_regions].nil?
+        data['AwsRegions'] = AggregatorRegionList.build(input[:aws_regions]) unless input[:aws_regions].nil?
         data['AllAwsRegions'] = input[:all_aws_regions] unless input[:all_aws_regions].nil?
         data
       end
@@ -1479,7 +1481,7 @@ module AWS::SDK::ConfigService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AccountAggregationSource.build(element) unless element.nil?
+          data << AccountAggregationSource.build(element) unless element.nil?
         end
         data
       end
@@ -1489,9 +1491,9 @@ module AWS::SDK::ConfigService
     class AccountAggregationSource
       def self.build(input)
         data = {}
-        data['AccountIds'] = Builders::AccountAggregationSourceAccountList.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['AccountIds'] = AccountAggregationSourceAccountList.build(input[:account_ids]) unless input[:account_ids].nil?
         data['AllAwsRegions'] = input[:all_aws_regions] unless input[:all_aws_regions].nil?
-        data['AwsRegions'] = Builders::AggregatorRegionList.build(input[:aws_regions]) unless input[:aws_regions].nil?
+        data['AwsRegions'] = AggregatorRegionList.build(input[:aws_regions]) unless input[:aws_regions].nil?
         data
       end
     end
@@ -1515,8 +1517,8 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.PutConfigurationRecorder'
         data = {}
-        data['ConfigurationRecorder'] = Builders::ConfigurationRecorder.build(input[:configuration_recorder]) unless input[:configuration_recorder].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConfigurationRecorder'] = ConfigurationRecorder.build(input[:configuration_recorder]) unless input[:configuration_recorder].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1526,7 +1528,7 @@ module AWS::SDK::ConfigService
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['roleARN'] = input[:role_arn] unless input[:role_arn].nil?
-        data['recordingGroup'] = Builders::RecordingGroup.build(input[:recording_group]) unless input[:recording_group].nil?
+        data['recordingGroup'] = RecordingGroup.build(input[:recording_group]) unless input[:recording_group].nil?
         data
       end
     end
@@ -1537,7 +1539,7 @@ module AWS::SDK::ConfigService
         data = {}
         data['allSupported'] = input[:all_supported] unless input[:all_supported].nil?
         data['includeGlobalResourceTypes'] = input[:include_global_resource_types] unless input[:include_global_resource_types].nil?
-        data['resourceTypes'] = Builders::ResourceTypeList.build(input[:resource_types]) unless input[:resource_types].nil?
+        data['resourceTypes'] = ResourceTypeList.build(input[:resource_types]) unless input[:resource_types].nil?
         data
       end
     end
@@ -1566,8 +1568,8 @@ module AWS::SDK::ConfigService
         data['TemplateBody'] = input[:template_body] unless input[:template_body].nil?
         data['DeliveryS3Bucket'] = input[:delivery_s3_bucket] unless input[:delivery_s3_bucket].nil?
         data['DeliveryS3KeyPrefix'] = input[:delivery_s3_key_prefix] unless input[:delivery_s3_key_prefix].nil?
-        data['ConformancePackInputParameters'] = Builders::ConformancePackInputParameters.build(input[:conformance_pack_input_parameters]) unless input[:conformance_pack_input_parameters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConformancePackInputParameters'] = ConformancePackInputParameters.build(input[:conformance_pack_input_parameters]) unless input[:conformance_pack_input_parameters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1576,7 +1578,7 @@ module AWS::SDK::ConfigService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ConformancePackInputParameter.build(element) unless element.nil?
+          data << ConformancePackInputParameter.build(element) unless element.nil?
         end
         data
       end
@@ -1600,8 +1602,8 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.PutDeliveryChannel'
         data = {}
-        data['DeliveryChannel'] = Builders::DeliveryChannel.build(input[:delivery_channel]) unless input[:delivery_channel].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeliveryChannel'] = DeliveryChannel.build(input[:delivery_channel]) unless input[:delivery_channel].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1614,7 +1616,7 @@ module AWS::SDK::ConfigService
         data['s3KeyPrefix'] = input[:s3_key_prefix] unless input[:s3_key_prefix].nil?
         data['s3KmsKeyArn'] = input[:s3_kms_key_arn] unless input[:s3_kms_key_arn].nil?
         data['snsTopicARN'] = input[:sns_topic_arn] unless input[:sns_topic_arn].nil?
-        data['configSnapshotDeliveryProperties'] = Builders::ConfigSnapshotDeliveryProperties.build(input[:config_snapshot_delivery_properties]) unless input[:config_snapshot_delivery_properties].nil?
+        data['configSnapshotDeliveryProperties'] = ConfigSnapshotDeliveryProperties.build(input[:config_snapshot_delivery_properties]) unless input[:config_snapshot_delivery_properties].nil?
         data
       end
     end
@@ -1636,10 +1638,10 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.PutEvaluations'
         data = {}
-        data['Evaluations'] = Builders::Evaluations.build(input[:evaluations]) unless input[:evaluations].nil?
+        data['Evaluations'] = Evaluations.build(input[:evaluations]) unless input[:evaluations].nil?
         data['ResultToken'] = input[:result_token] unless input[:result_token].nil?
         data['TestMode'] = input[:test_mode] unless input[:test_mode].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1648,7 +1650,7 @@ module AWS::SDK::ConfigService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Evaluation.build(element) unless element.nil?
+          data << Evaluation.build(element) unless element.nil?
         end
         data
       end
@@ -1676,8 +1678,8 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.PutExternalEvaluation'
         data = {}
         data['ConfigRuleName'] = input[:config_rule_name] unless input[:config_rule_name].nil?
-        data['ExternalEvaluation'] = Builders::ExternalEvaluation.build(input[:external_evaluation]) unless input[:external_evaluation].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ExternalEvaluation'] = ExternalEvaluation.build(input[:external_evaluation]) unless input[:external_evaluation].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1703,11 +1705,11 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.PutOrganizationConfigRule'
         data = {}
         data['OrganizationConfigRuleName'] = input[:organization_config_rule_name] unless input[:organization_config_rule_name].nil?
-        data['OrganizationManagedRuleMetadata'] = Builders::OrganizationManagedRuleMetadata.build(input[:organization_managed_rule_metadata]) unless input[:organization_managed_rule_metadata].nil?
-        data['OrganizationCustomRuleMetadata'] = Builders::OrganizationCustomRuleMetadata.build(input[:organization_custom_rule_metadata]) unless input[:organization_custom_rule_metadata].nil?
-        data['ExcludedAccounts'] = Builders::ExcludedAccounts.build(input[:excluded_accounts]) unless input[:excluded_accounts].nil?
-        data['OrganizationCustomPolicyRuleMetadata'] = Builders::OrganizationCustomPolicyRuleMetadata.build(input[:organization_custom_policy_rule_metadata]) unless input[:organization_custom_policy_rule_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OrganizationManagedRuleMetadata'] = OrganizationManagedRuleMetadata.build(input[:organization_managed_rule_metadata]) unless input[:organization_managed_rule_metadata].nil?
+        data['OrganizationCustomRuleMetadata'] = OrganizationCustomRuleMetadata.build(input[:organization_custom_rule_metadata]) unless input[:organization_custom_rule_metadata].nil?
+        data['ExcludedAccounts'] = ExcludedAccounts.build(input[:excluded_accounts]) unless input[:excluded_accounts].nil?
+        data['OrganizationCustomPolicyRuleMetadata'] = OrganizationCustomPolicyRuleMetadata.build(input[:organization_custom_policy_rule_metadata]) unless input[:organization_custom_policy_rule_metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1716,16 +1718,16 @@ module AWS::SDK::ConfigService
       def self.build(input)
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        data['OrganizationConfigRuleTriggerTypes'] = Builders::OrganizationConfigRuleTriggerTypeNoSNs.build(input[:organization_config_rule_trigger_types]) unless input[:organization_config_rule_trigger_types].nil?
+        data['OrganizationConfigRuleTriggerTypes'] = OrganizationConfigRuleTriggerTypeNoSNs.build(input[:organization_config_rule_trigger_types]) unless input[:organization_config_rule_trigger_types].nil?
         data['InputParameters'] = input[:input_parameters] unless input[:input_parameters].nil?
         data['MaximumExecutionFrequency'] = input[:maximum_execution_frequency] unless input[:maximum_execution_frequency].nil?
-        data['ResourceTypesScope'] = Builders::ResourceTypesScope.build(input[:resource_types_scope]) unless input[:resource_types_scope].nil?
+        data['ResourceTypesScope'] = ResourceTypesScope.build(input[:resource_types_scope]) unless input[:resource_types_scope].nil?
         data['ResourceIdScope'] = input[:resource_id_scope] unless input[:resource_id_scope].nil?
         data['TagKeyScope'] = input[:tag_key_scope] unless input[:tag_key_scope].nil?
         data['TagValueScope'] = input[:tag_value_scope] unless input[:tag_value_scope].nil?
         data['PolicyRuntime'] = input[:policy_runtime] unless input[:policy_runtime].nil?
         data['PolicyText'] = input[:policy_text] unless input[:policy_text].nil?
-        data['DebugLogDeliveryAccounts'] = Builders::DebugLogDeliveryAccounts.build(input[:debug_log_delivery_accounts]) unless input[:debug_log_delivery_accounts].nil?
+        data['DebugLogDeliveryAccounts'] = DebugLogDeliveryAccounts.build(input[:debug_log_delivery_accounts]) unless input[:debug_log_delivery_accounts].nil?
         data
       end
     end
@@ -1780,10 +1782,10 @@ module AWS::SDK::ConfigService
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
         data['LambdaFunctionArn'] = input[:lambda_function_arn] unless input[:lambda_function_arn].nil?
-        data['OrganizationConfigRuleTriggerTypes'] = Builders::OrganizationConfigRuleTriggerTypes.build(input[:organization_config_rule_trigger_types]) unless input[:organization_config_rule_trigger_types].nil?
+        data['OrganizationConfigRuleTriggerTypes'] = OrganizationConfigRuleTriggerTypes.build(input[:organization_config_rule_trigger_types]) unless input[:organization_config_rule_trigger_types].nil?
         data['InputParameters'] = input[:input_parameters] unless input[:input_parameters].nil?
         data['MaximumExecutionFrequency'] = input[:maximum_execution_frequency] unless input[:maximum_execution_frequency].nil?
-        data['ResourceTypesScope'] = Builders::ResourceTypesScope.build(input[:resource_types_scope]) unless input[:resource_types_scope].nil?
+        data['ResourceTypesScope'] = ResourceTypesScope.build(input[:resource_types_scope]) unless input[:resource_types_scope].nil?
         data['ResourceIdScope'] = input[:resource_id_scope] unless input[:resource_id_scope].nil?
         data['TagKeyScope'] = input[:tag_key_scope] unless input[:tag_key_scope].nil?
         data['TagValueScope'] = input[:tag_value_scope] unless input[:tag_value_scope].nil?
@@ -1810,7 +1812,7 @@ module AWS::SDK::ConfigService
         data['RuleIdentifier'] = input[:rule_identifier] unless input[:rule_identifier].nil?
         data['InputParameters'] = input[:input_parameters] unless input[:input_parameters].nil?
         data['MaximumExecutionFrequency'] = input[:maximum_execution_frequency] unless input[:maximum_execution_frequency].nil?
-        data['ResourceTypesScope'] = Builders::ResourceTypesScope.build(input[:resource_types_scope]) unless input[:resource_types_scope].nil?
+        data['ResourceTypesScope'] = ResourceTypesScope.build(input[:resource_types_scope]) unless input[:resource_types_scope].nil?
         data['ResourceIdScope'] = input[:resource_id_scope] unless input[:resource_id_scope].nil?
         data['TagKeyScope'] = input[:tag_key_scope] unless input[:tag_key_scope].nil?
         data['TagValueScope'] = input[:tag_value_scope] unless input[:tag_value_scope].nil?
@@ -1831,9 +1833,9 @@ module AWS::SDK::ConfigService
         data['TemplateBody'] = input[:template_body] unless input[:template_body].nil?
         data['DeliveryS3Bucket'] = input[:delivery_s3_bucket] unless input[:delivery_s3_bucket].nil?
         data['DeliveryS3KeyPrefix'] = input[:delivery_s3_key_prefix] unless input[:delivery_s3_key_prefix].nil?
-        data['ConformancePackInputParameters'] = Builders::ConformancePackInputParameters.build(input[:conformance_pack_input_parameters]) unless input[:conformance_pack_input_parameters].nil?
-        data['ExcludedAccounts'] = Builders::ExcludedAccounts.build(input[:excluded_accounts]) unless input[:excluded_accounts].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConformancePackInputParameters'] = ConformancePackInputParameters.build(input[:conformance_pack_input_parameters]) unless input[:conformance_pack_input_parameters].nil?
+        data['ExcludedAccounts'] = ExcludedAccounts.build(input[:excluded_accounts]) unless input[:excluded_accounts].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1845,8 +1847,8 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.PutRemediationConfigurations'
         data = {}
-        data['RemediationConfigurations'] = Builders::RemediationConfigurations.build(input[:remediation_configurations]) unless input[:remediation_configurations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RemediationConfigurations'] = RemediationConfigurations.build(input[:remediation_configurations]) unless input[:remediation_configurations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1855,7 +1857,7 @@ module AWS::SDK::ConfigService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RemediationConfiguration.build(element) unless element.nil?
+          data << RemediationConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -1869,10 +1871,10 @@ module AWS::SDK::ConfigService
         data['TargetType'] = input[:target_type] unless input[:target_type].nil?
         data['TargetId'] = input[:target_id] unless input[:target_id].nil?
         data['TargetVersion'] = input[:target_version] unless input[:target_version].nil?
-        data['Parameters'] = Builders::RemediationParameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['Parameters'] = RemediationParameters.build(input[:parameters]) unless input[:parameters].nil?
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
         data['Automatic'] = input[:automatic] unless input[:automatic].nil?
-        data['ExecutionControls'] = Builders::ExecutionControls.build(input[:execution_controls]) unless input[:execution_controls].nil?
+        data['ExecutionControls'] = ExecutionControls.build(input[:execution_controls]) unless input[:execution_controls].nil?
         data['MaximumAutomaticAttempts'] = input[:maximum_automatic_attempts] unless input[:maximum_automatic_attempts].nil?
         data['RetryAttemptSeconds'] = input[:retry_attempt_seconds] unless input[:retry_attempt_seconds].nil?
         data['Arn'] = input[:arn] unless input[:arn].nil?
@@ -1885,7 +1887,7 @@ module AWS::SDK::ConfigService
     class ExecutionControls
       def self.build(input)
         data = {}
-        data['SsmControls'] = Builders::SsmControls.build(input[:ssm_controls]) unless input[:ssm_controls].nil?
+        data['SsmControls'] = SsmControls.build(input[:ssm_controls]) unless input[:ssm_controls].nil?
         data
       end
     end
@@ -1905,7 +1907,7 @@ module AWS::SDK::ConfigService
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::RemediationParameterValue.build(value) unless value.nil?
+          data[key] = RemediationParameterValue.build(value) unless value.nil?
         end
         data
       end
@@ -1915,8 +1917,8 @@ module AWS::SDK::ConfigService
     class RemediationParameterValue
       def self.build(input)
         data = {}
-        data['ResourceValue'] = Builders::ResourceValue.build(input[:resource_value]) unless input[:resource_value].nil?
-        data['StaticValue'] = Builders::StaticValue.build(input[:static_value]) unless input[:static_value].nil?
+        data['ResourceValue'] = ResourceValue.build(input[:resource_value]) unless input[:resource_value].nil?
+        data['StaticValue'] = StaticValue.build(input[:static_value]) unless input[:static_value].nil?
         data
       end
     end
@@ -1925,7 +1927,7 @@ module AWS::SDK::ConfigService
     class StaticValue
       def self.build(input)
         data = {}
-        data['Values'] = Builders::StaticParameterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = StaticParameterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -1959,10 +1961,10 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.PutRemediationExceptions'
         data = {}
         data['ConfigRuleName'] = input[:config_rule_name] unless input[:config_rule_name].nil?
-        data['ResourceKeys'] = Builders::RemediationExceptionResourceKeys.build(input[:resource_keys]) unless input[:resource_keys].nil?
+        data['ResourceKeys'] = RemediationExceptionResourceKeys.build(input[:resource_keys]) unless input[:resource_keys].nil?
         data['Message'] = input[:message] unless input[:message].nil?
         data['ExpirationTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:expiration_time]).to_i unless input[:expiration_time].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1979,8 +1981,8 @@ module AWS::SDK::ConfigService
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['ResourceName'] = input[:resource_name] unless input[:resource_name].nil?
         data['Configuration'] = input[:configuration] unless input[:configuration].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2004,7 +2006,7 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.PutRetentionConfiguration'
         data = {}
         data['RetentionPeriodInDays'] = input[:retention_period_in_days] unless input[:retention_period_in_days].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2016,9 +2018,9 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.PutStoredQuery'
         data = {}
-        data['StoredQuery'] = Builders::StoredQuery.build(input[:stored_query]) unless input[:stored_query].nil?
-        data['Tags'] = Builders::TagsList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StoredQuery'] = StoredQuery.build(input[:stored_query]) unless input[:stored_query].nil?
+        data['Tags'] = TagsList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2048,7 +2050,7 @@ module AWS::SDK::ConfigService
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2063,7 +2065,7 @@ module AWS::SDK::ConfigService
         data['Expression'] = input[:expression] unless input[:expression].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2075,8 +2077,8 @@ module AWS::SDK::ConfigService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.StartConfigRulesEvaluation'
         data = {}
-        data['ConfigRuleNames'] = Builders::ReevaluateConfigRuleNames.build(input[:config_rule_names]) unless input[:config_rule_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConfigRuleNames'] = ReevaluateConfigRuleNames.build(input[:config_rule_names]) unless input[:config_rule_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2100,7 +2102,7 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.StartConfigurationRecorder'
         data = {}
         data['ConfigurationRecorderName'] = input[:configuration_recorder_name] unless input[:configuration_recorder_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2113,8 +2115,8 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.StartRemediationExecution'
         data = {}
         data['ConfigRuleName'] = input[:config_rule_name] unless input[:config_rule_name].nil?
-        data['ResourceKeys'] = Builders::ResourceKeys.build(input[:resource_keys]) unless input[:resource_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceKeys'] = ResourceKeys.build(input[:resource_keys]) unless input[:resource_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2127,7 +2129,7 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.StopConfigurationRecorder'
         data = {}
         data['ConfigurationRecorderName'] = input[:configuration_recorder_name] unless input[:configuration_recorder_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2140,8 +2142,8 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2150,7 +2152,7 @@ module AWS::SDK::ConfigService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -2165,8 +2167,8 @@ module AWS::SDK::ConfigService
         http_req.headers['X-Amz-Target'] = 'StarlingDoveService.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

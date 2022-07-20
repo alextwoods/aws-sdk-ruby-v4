@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::SNS
   module Builders
 
@@ -22,9 +25,9 @@ module AWS::SDK::SNS
         params['Version'] = '2010-03-31'
         params[context + 'TopicArn'] = input[:topic_arn].to_s unless input[:topic_arn].nil?
         params[context + 'Label'] = input[:label].to_s unless input[:label].nil?
-        Builders::DelegatesList.build(input[:aws_account_id], params, context: context + 'AWSAccountId' + '.member') unless input[:aws_account_id].nil?
-        Builders::ActionsList.build(input[:action_name], params, context: context + 'ActionName' + '.member') unless input[:action_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        DelegatesList.build(input[:aws_account_id], params, context: context + 'AWSAccountId' + '.member') unless input[:aws_account_id].nil?
+        ActionsList.build(input[:action_name], params, context: context + 'ActionName' + '.member') unless input[:action_name].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -57,7 +60,7 @@ module AWS::SDK::SNS
         params['Action'] = 'CheckIfPhoneNumberIsOptedOut'
         params['Version'] = '2010-03-31'
         params[context + 'phoneNumber'] = input[:phone_number].to_s unless input[:phone_number].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -74,7 +77,7 @@ module AWS::SDK::SNS
         params[context + 'TopicArn'] = input[:topic_arn].to_s unless input[:topic_arn].nil?
         params[context + 'Token'] = input[:token].to_s unless input[:token].nil?
         params[context + 'AuthenticateOnUnsubscribe'] = input[:authenticate_on_unsubscribe].to_s unless input[:authenticate_on_unsubscribe].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -90,8 +93,8 @@ module AWS::SDK::SNS
         params['Version'] = '2010-03-31'
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
         params[context + 'Platform'] = input[:platform].to_s unless input[:platform].nil?
-        Builders::MapStringToString.build(input[:attributes], params, context: context + 'Attributes' + '.entry') unless input[:attributes].nil?
-        http_req.body = StringIO.new(params.to_s)
+        MapStringToString.build(input[:attributes], params, context: context + 'Attributes' + '.entry') unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -118,8 +121,8 @@ module AWS::SDK::SNS
         params[context + 'PlatformApplicationArn'] = input[:platform_application_arn].to_s unless input[:platform_application_arn].nil?
         params[context + 'Token'] = input[:token].to_s unless input[:token].nil?
         params[context + 'CustomUserData'] = input[:custom_user_data].to_s unless input[:custom_user_data].nil?
-        Builders::MapStringToString.build(input[:attributes], params, context: context + 'Attributes' + '.entry') unless input[:attributes].nil?
-        http_req.body = StringIO.new(params.to_s)
+        MapStringToString.build(input[:attributes], params, context: context + 'Attributes' + '.entry') unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -135,7 +138,7 @@ module AWS::SDK::SNS
         params['Version'] = '2010-03-31'
         params[context + 'PhoneNumber'] = input[:phone_number].to_s unless input[:phone_number].nil?
         params[context + 'LanguageCode'] = input[:language_code].to_s unless input[:language_code].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -150,9 +153,9 @@ module AWS::SDK::SNS
         params['Action'] = 'CreateTopic'
         params['Version'] = '2010-03-31'
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
-        Builders::TopicAttributesMap.build(input[:attributes], params, context: context + 'Attributes' + '.entry') unless input[:attributes].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TopicAttributesMap.build(input[:attributes], params, context: context + 'Attributes' + '.entry') unless input[:attributes].nil?
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -160,7 +163,7 @@ module AWS::SDK::SNS
     class TagList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -194,7 +197,7 @@ module AWS::SDK::SNS
         params['Action'] = 'DeleteEndpoint'
         params['Version'] = '2010-03-31'
         params[context + 'EndpointArn'] = input[:endpoint_arn].to_s unless input[:endpoint_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -209,7 +212,7 @@ module AWS::SDK::SNS
         params['Action'] = 'DeletePlatformApplication'
         params['Version'] = '2010-03-31'
         params[context + 'PlatformApplicationArn'] = input[:platform_application_arn].to_s unless input[:platform_application_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -224,7 +227,7 @@ module AWS::SDK::SNS
         params['Action'] = 'DeleteSMSSandboxPhoneNumber'
         params['Version'] = '2010-03-31'
         params[context + 'PhoneNumber'] = input[:phone_number].to_s unless input[:phone_number].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -239,7 +242,7 @@ module AWS::SDK::SNS
         params['Action'] = 'DeleteTopic'
         params['Version'] = '2010-03-31'
         params[context + 'TopicArn'] = input[:topic_arn].to_s unless input[:topic_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -254,7 +257,7 @@ module AWS::SDK::SNS
         params['Action'] = 'GetEndpointAttributes'
         params['Version'] = '2010-03-31'
         params[context + 'EndpointArn'] = input[:endpoint_arn].to_s unless input[:endpoint_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -269,7 +272,7 @@ module AWS::SDK::SNS
         params['Action'] = 'GetPlatformApplicationAttributes'
         params['Version'] = '2010-03-31'
         params[context + 'PlatformApplicationArn'] = input[:platform_application_arn].to_s unless input[:platform_application_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -283,8 +286,8 @@ module AWS::SDK::SNS
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetSMSAttributes'
         params['Version'] = '2010-03-31'
-        Builders::ListString.build(input[:attributes], params, context: context + 'attributes' + '.member') unless input[:attributes].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ListString.build(input[:attributes], params, context: context + 'attributes' + '.member') unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -307,7 +310,7 @@ module AWS::SDK::SNS
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetSMSSandboxAccountStatus'
         params['Version'] = '2010-03-31'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -322,7 +325,7 @@ module AWS::SDK::SNS
         params['Action'] = 'GetSubscriptionAttributes'
         params['Version'] = '2010-03-31'
         params[context + 'SubscriptionArn'] = input[:subscription_arn].to_s unless input[:subscription_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -337,7 +340,7 @@ module AWS::SDK::SNS
         params['Action'] = 'GetTopicAttributes'
         params['Version'] = '2010-03-31'
         params[context + 'TopicArn'] = input[:topic_arn].to_s unless input[:topic_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -353,7 +356,7 @@ module AWS::SDK::SNS
         params['Version'] = '2010-03-31'
         params[context + 'PlatformApplicationArn'] = input[:platform_application_arn].to_s unless input[:platform_application_arn].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -369,7 +372,7 @@ module AWS::SDK::SNS
         params['Version'] = '2010-03-31'
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -384,7 +387,7 @@ module AWS::SDK::SNS
         params['Action'] = 'ListPhoneNumbersOptedOut'
         params['Version'] = '2010-03-31'
         params[context + 'nextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -399,7 +402,7 @@ module AWS::SDK::SNS
         params['Action'] = 'ListPlatformApplications'
         params['Version'] = '2010-03-31'
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -415,7 +418,7 @@ module AWS::SDK::SNS
         params['Version'] = '2010-03-31'
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -430,7 +433,7 @@ module AWS::SDK::SNS
         params['Action'] = 'ListSubscriptions'
         params['Version'] = '2010-03-31'
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -446,7 +449,7 @@ module AWS::SDK::SNS
         params['Version'] = '2010-03-31'
         params[context + 'TopicArn'] = input[:topic_arn].to_s unless input[:topic_arn].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -461,7 +464,7 @@ module AWS::SDK::SNS
         params['Action'] = 'ListTagsForResource'
         params['Version'] = '2010-03-31'
         params[context + 'ResourceArn'] = input[:resource_arn].to_s unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -476,7 +479,7 @@ module AWS::SDK::SNS
         params['Action'] = 'ListTopics'
         params['Version'] = '2010-03-31'
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -491,7 +494,7 @@ module AWS::SDK::SNS
         params['Action'] = 'OptInPhoneNumber'
         params['Version'] = '2010-03-31'
         params[context + 'phoneNumber'] = input[:phone_number].to_s unless input[:phone_number].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -511,10 +514,10 @@ module AWS::SDK::SNS
         params[context + 'Message'] = input[:message].to_s unless input[:message].nil?
         params[context + 'Subject'] = input[:subject].to_s unless input[:subject].nil?
         params[context + 'MessageStructure'] = input[:message_structure].to_s unless input[:message_structure].nil?
-        Builders::MessageAttributeMap.build(input[:message_attributes], params, context: context + 'MessageAttributes' + '.entry') unless input[:message_attributes].nil?
+        MessageAttributeMap.build(input[:message_attributes], params, context: context + 'MessageAttributes' + '.entry') unless input[:message_attributes].nil?
         params[context + 'MessageDeduplicationId'] = input[:message_deduplication_id].to_s unless input[:message_deduplication_id].nil?
         params[context + 'MessageGroupId'] = input[:message_group_id].to_s unless input[:message_group_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -523,7 +526,7 @@ module AWS::SDK::SNS
       def self.build(input, params, context: '')
         input.each_with_index do |(key, value), index|
           params[context + ".#{index+1}.Name"] = key
-          Builders::MessageAttributeValue.build(value, params, context: context + ".#{index+1}.Value" + '.') unless value.nil?
+          MessageAttributeValue.build(value, params, context: context + ".#{index+1}.Value" + '.') unless value.nil?
         end
       end
     end
@@ -533,7 +536,7 @@ module AWS::SDK::SNS
       def self.build(input, params, context: nil)
         params[context + 'DataType'] = input[:data_type].to_s unless input[:data_type].nil?
         params[context + 'StringValue'] = input[:string_value].to_s unless input[:string_value].nil?
-        params[context + 'BinaryValue'] = Base64::encode64(input[:binary_value]).strip unless input[:binary_value].nil?
+        params[context + 'BinaryValue'] = ::Base64::encode64(input[:binary_value]).strip unless input[:binary_value].nil?
       end
     end
 
@@ -548,8 +551,8 @@ module AWS::SDK::SNS
         params['Action'] = 'PublishBatch'
         params['Version'] = '2010-03-31'
         params[context + 'TopicArn'] = input[:topic_arn].to_s unless input[:topic_arn].nil?
-        Builders::PublishBatchRequestEntryList.build(input[:publish_batch_request_entries], params, context: context + 'PublishBatchRequestEntries' + '.member') unless input[:publish_batch_request_entries].nil?
-        http_req.body = StringIO.new(params.to_s)
+        PublishBatchRequestEntryList.build(input[:publish_batch_request_entries], params, context: context + 'PublishBatchRequestEntries' + '.member') unless input[:publish_batch_request_entries].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -557,7 +560,7 @@ module AWS::SDK::SNS
     class PublishBatchRequestEntryList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::PublishBatchRequestEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          PublishBatchRequestEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -569,7 +572,7 @@ module AWS::SDK::SNS
         params[context + 'Message'] = input[:message].to_s unless input[:message].nil?
         params[context + 'Subject'] = input[:subject].to_s unless input[:subject].nil?
         params[context + 'MessageStructure'] = input[:message_structure].to_s unless input[:message_structure].nil?
-        Builders::MessageAttributeMap.build(input[:message_attributes], params, context: context + 'MessageAttributes' + '.entry') unless input[:message_attributes].nil?
+        MessageAttributeMap.build(input[:message_attributes], params, context: context + 'MessageAttributes' + '.entry') unless input[:message_attributes].nil?
         params[context + 'MessageDeduplicationId'] = input[:message_deduplication_id].to_s unless input[:message_deduplication_id].nil?
         params[context + 'MessageGroupId'] = input[:message_group_id].to_s unless input[:message_group_id].nil?
       end
@@ -587,7 +590,7 @@ module AWS::SDK::SNS
         params['Version'] = '2010-03-31'
         params[context + 'TopicArn'] = input[:topic_arn].to_s unless input[:topic_arn].nil?
         params[context + 'Label'] = input[:label].to_s unless input[:label].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -602,8 +605,8 @@ module AWS::SDK::SNS
         params['Action'] = 'SetEndpointAttributes'
         params['Version'] = '2010-03-31'
         params[context + 'EndpointArn'] = input[:endpoint_arn].to_s unless input[:endpoint_arn].nil?
-        Builders::MapStringToString.build(input[:attributes], params, context: context + 'Attributes' + '.entry') unless input[:attributes].nil?
-        http_req.body = StringIO.new(params.to_s)
+        MapStringToString.build(input[:attributes], params, context: context + 'Attributes' + '.entry') unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -618,8 +621,8 @@ module AWS::SDK::SNS
         params['Action'] = 'SetPlatformApplicationAttributes'
         params['Version'] = '2010-03-31'
         params[context + 'PlatformApplicationArn'] = input[:platform_application_arn].to_s unless input[:platform_application_arn].nil?
-        Builders::MapStringToString.build(input[:attributes], params, context: context + 'Attributes' + '.entry') unless input[:attributes].nil?
-        http_req.body = StringIO.new(params.to_s)
+        MapStringToString.build(input[:attributes], params, context: context + 'Attributes' + '.entry') unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -633,8 +636,8 @@ module AWS::SDK::SNS
         params = Hearth::Query::ParamList.new
         params['Action'] = 'SetSMSAttributes'
         params['Version'] = '2010-03-31'
-        Builders::MapStringToString.build(input[:attributes], params, context: context + 'attributes' + '.entry') unless input[:attributes].nil?
-        http_req.body = StringIO.new(params.to_s)
+        MapStringToString.build(input[:attributes], params, context: context + 'attributes' + '.entry') unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -651,7 +654,7 @@ module AWS::SDK::SNS
         params[context + 'SubscriptionArn'] = input[:subscription_arn].to_s unless input[:subscription_arn].nil?
         params[context + 'AttributeName'] = input[:attribute_name].to_s unless input[:attribute_name].nil?
         params[context + 'AttributeValue'] = input[:attribute_value].to_s unless input[:attribute_value].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -668,7 +671,7 @@ module AWS::SDK::SNS
         params[context + 'TopicArn'] = input[:topic_arn].to_s unless input[:topic_arn].nil?
         params[context + 'AttributeName'] = input[:attribute_name].to_s unless input[:attribute_name].nil?
         params[context + 'AttributeValue'] = input[:attribute_value].to_s unless input[:attribute_value].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -685,9 +688,9 @@ module AWS::SDK::SNS
         params[context + 'TopicArn'] = input[:topic_arn].to_s unless input[:topic_arn].nil?
         params[context + 'Protocol'] = input[:protocol].to_s unless input[:protocol].nil?
         params[context + 'Endpoint'] = input[:endpoint].to_s unless input[:endpoint].nil?
-        Builders::SubscriptionAttributesMap.build(input[:attributes], params, context: context + 'Attributes' + '.entry') unless input[:attributes].nil?
+        SubscriptionAttributesMap.build(input[:attributes], params, context: context + 'Attributes' + '.entry') unless input[:attributes].nil?
         params[context + 'ReturnSubscriptionArn'] = input[:return_subscription_arn].to_s unless input[:return_subscription_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -712,8 +715,8 @@ module AWS::SDK::SNS
         params['Action'] = 'TagResource'
         params['Version'] = '2010-03-31'
         params[context + 'ResourceArn'] = input[:resource_arn].to_s unless input[:resource_arn].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -728,7 +731,7 @@ module AWS::SDK::SNS
         params['Action'] = 'Unsubscribe'
         params['Version'] = '2010-03-31'
         params[context + 'SubscriptionArn'] = input[:subscription_arn].to_s unless input[:subscription_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -743,8 +746,8 @@ module AWS::SDK::SNS
         params['Action'] = 'UntagResource'
         params['Version'] = '2010-03-31'
         params[context + 'ResourceArn'] = input[:resource_arn].to_s unless input[:resource_arn].nil?
-        Builders::TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -769,7 +772,7 @@ module AWS::SDK::SNS
         params['Version'] = '2010-03-31'
         params[context + 'PhoneNumber'] = input[:phone_number].to_s unless input[:phone_number].nil?
         params[context + 'OneTimePassword'] = input[:one_time_password].to_s unless input[:one_time_password].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
   end

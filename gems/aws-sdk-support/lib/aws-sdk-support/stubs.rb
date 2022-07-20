@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::Support
   module Stubs
 
@@ -23,7 +26,7 @@ module AWS::SDK::Support
         data = {}
         data['attachmentSetId'] = stub[:attachment_set_id] unless stub[:attachment_set_id].nil?
         data['expiryTime'] = stub[:expiry_time] unless stub[:expiry_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -39,7 +42,7 @@ module AWS::SDK::Support
       def self.stub(http_resp, stub:)
         data = {}
         data['result'] = stub[:result] unless stub[:result].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -55,7 +58,7 @@ module AWS::SDK::Support
       def self.stub(http_resp, stub:)
         data = {}
         data['caseId'] = stub[:case_id] unless stub[:case_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -70,8 +73,8 @@ module AWS::SDK::Support
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['attachment'] = Stubs::Attachment.stub(stub[:attachment]) unless stub[:attachment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['attachment'] = Attachment.stub(stub[:attachment]) unless stub[:attachment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -91,7 +94,7 @@ module AWS::SDK::Support
         stub ||= Types::Attachment.new
         data = {}
         data['fileName'] = stub[:file_name] unless stub[:file_name].nil?
-        data['data'] = Base64::encode64(stub[:data]) unless stub[:data].nil?
+        data['data'] = ::Base64::encode64(stub[:data]) unless stub[:data].nil?
         data
       end
     end
@@ -107,9 +110,9 @@ module AWS::SDK::Support
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['cases'] = Stubs::CaseList.stub(stub[:cases]) unless stub[:cases].nil?
+        data['cases'] = CaseList.stub(stub[:cases]) unless stub[:cases].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -128,7 +131,7 @@ module AWS::SDK::Support
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CaseDetails.stub(element) unless element.nil?
+          data << CaseDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -167,8 +170,8 @@ module AWS::SDK::Support
         data['severityCode'] = stub[:severity_code] unless stub[:severity_code].nil?
         data['submittedBy'] = stub[:submitted_by] unless stub[:submitted_by].nil?
         data['timeCreated'] = stub[:time_created] unless stub[:time_created].nil?
-        data['recentCommunications'] = Stubs::RecentCaseCommunications.stub(stub[:recent_communications]) unless stub[:recent_communications].nil?
-        data['ccEmailAddresses'] = Stubs::CcEmailAddressList.stub(stub[:cc_email_addresses]) unless stub[:cc_email_addresses].nil?
+        data['recentCommunications'] = RecentCaseCommunications.stub(stub[:recent_communications]) unless stub[:recent_communications].nil?
+        data['ccEmailAddresses'] = CcEmailAddressList.stub(stub[:cc_email_addresses]) unless stub[:cc_email_addresses].nil?
         data['language'] = stub[:language] unless stub[:language].nil?
         data
       end
@@ -208,7 +211,7 @@ module AWS::SDK::Support
       def self.stub(stub)
         stub ||= Types::RecentCaseCommunications.new
         data = {}
-        data['communications'] = Stubs::CommunicationList.stub(stub[:communications]) unless stub[:communications].nil?
+        data['communications'] = CommunicationList.stub(stub[:communications]) unless stub[:communications].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -228,7 +231,7 @@ module AWS::SDK::Support
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Communication.stub(element) unless element.nil?
+          data << Communication.stub(element) unless element.nil?
         end
         data
       end
@@ -255,7 +258,7 @@ module AWS::SDK::Support
         data['body'] = stub[:body] unless stub[:body].nil?
         data['submittedBy'] = stub[:submitted_by] unless stub[:submitted_by].nil?
         data['timeCreated'] = stub[:time_created] unless stub[:time_created].nil?
-        data['attachmentSet'] = Stubs::AttachmentSet.stub(stub[:attachment_set]) unless stub[:attachment_set].nil?
+        data['attachmentSet'] = AttachmentSet.stub(stub[:attachment_set]) unless stub[:attachment_set].nil?
         data
       end
     end
@@ -274,7 +277,7 @@ module AWS::SDK::Support
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttachmentDetails.stub(element) unless element.nil?
+          data << AttachmentDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -311,9 +314,9 @@ module AWS::SDK::Support
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['communications'] = Stubs::CommunicationList.stub(stub[:communications]) unless stub[:communications].nil?
+        data['communications'] = CommunicationList.stub(stub[:communications]) unless stub[:communications].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -328,8 +331,8 @@ module AWS::SDK::Support
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['services'] = Stubs::ServiceList.stub(stub[:services]) unless stub[:services].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['services'] = ServiceList.stub(stub[:services]) unless stub[:services].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -348,7 +351,7 @@ module AWS::SDK::Support
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Service.stub(element) unless element.nil?
+          data << Service.stub(element) unless element.nil?
         end
         data
       end
@@ -371,7 +374,7 @@ module AWS::SDK::Support
         data = {}
         data['code'] = stub[:code] unless stub[:code].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['categories'] = Stubs::CategoryList.stub(stub[:categories]) unless stub[:categories].nil?
+        data['categories'] = CategoryList.stub(stub[:categories]) unless stub[:categories].nil?
         data
       end
     end
@@ -390,7 +393,7 @@ module AWS::SDK::Support
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Category.stub(element) unless element.nil?
+          data << Category.stub(element) unless element.nil?
         end
         data
       end
@@ -426,8 +429,8 @@ module AWS::SDK::Support
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['severityLevels'] = Stubs::SeverityLevelsList.stub(stub[:severity_levels]) unless stub[:severity_levels].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['severityLevels'] = SeverityLevelsList.stub(stub[:severity_levels]) unless stub[:severity_levels].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -446,7 +449,7 @@ module AWS::SDK::Support
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SeverityLevel.stub(element) unless element.nil?
+          data << SeverityLevel.stub(element) unless element.nil?
         end
         data
       end
@@ -482,8 +485,8 @@ module AWS::SDK::Support
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['statuses'] = Stubs::TrustedAdvisorCheckRefreshStatusList.stub(stub[:statuses]) unless stub[:statuses].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['statuses'] = TrustedAdvisorCheckRefreshStatusList.stub(stub[:statuses]) unless stub[:statuses].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -502,7 +505,7 @@ module AWS::SDK::Support
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TrustedAdvisorCheckRefreshStatus.stub(element) unless element.nil?
+          data << TrustedAdvisorCheckRefreshStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -540,8 +543,8 @@ module AWS::SDK::Support
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['result'] = Stubs::TrustedAdvisorCheckResult.stub(stub[:result]) unless stub[:result].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['result'] = TrustedAdvisorCheckResult.stub(stub[:result]) unless stub[:result].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -567,9 +570,9 @@ module AWS::SDK::Support
         data['checkId'] = stub[:check_id] unless stub[:check_id].nil?
         data['timestamp'] = stub[:timestamp] unless stub[:timestamp].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['resourcesSummary'] = Stubs::TrustedAdvisorResourcesSummary.stub(stub[:resources_summary]) unless stub[:resources_summary].nil?
-        data['categorySpecificSummary'] = Stubs::TrustedAdvisorCategorySpecificSummary.stub(stub[:category_specific_summary]) unless stub[:category_specific_summary].nil?
-        data['flaggedResources'] = Stubs::TrustedAdvisorResourceDetailList.stub(stub[:flagged_resources]) unless stub[:flagged_resources].nil?
+        data['resourcesSummary'] = TrustedAdvisorResourcesSummary.stub(stub[:resources_summary]) unless stub[:resources_summary].nil?
+        data['categorySpecificSummary'] = TrustedAdvisorCategorySpecificSummary.stub(stub[:category_specific_summary]) unless stub[:category_specific_summary].nil?
+        data['flaggedResources'] = TrustedAdvisorResourceDetailList.stub(stub[:flagged_resources]) unless stub[:flagged_resources].nil?
         data
       end
     end
@@ -588,7 +591,7 @@ module AWS::SDK::Support
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TrustedAdvisorResourceDetail.stub(element) unless element.nil?
+          data << TrustedAdvisorResourceDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -615,7 +618,7 @@ module AWS::SDK::Support
         data['region'] = stub[:region] unless stub[:region].nil?
         data['resourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
         data['isSuppressed'] = stub[:is_suppressed] unless stub[:is_suppressed].nil?
-        data['metadata'] = Stubs::StringList.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['metadata'] = StringList.stub(stub[:metadata]) unless stub[:metadata].nil?
         data
       end
     end
@@ -653,7 +656,7 @@ module AWS::SDK::Support
       def self.stub(stub)
         stub ||= Types::TrustedAdvisorCategorySpecificSummary.new
         data = {}
-        data['costOptimizing'] = Stubs::TrustedAdvisorCostOptimizingSummary.stub(stub[:cost_optimizing]) unless stub[:cost_optimizing].nil?
+        data['costOptimizing'] = TrustedAdvisorCostOptimizingSummary.stub(stub[:cost_optimizing]) unless stub[:cost_optimizing].nil?
         data
       end
     end
@@ -712,8 +715,8 @@ module AWS::SDK::Support
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['summaries'] = Stubs::TrustedAdvisorCheckSummaryList.stub(stub[:summaries]) unless stub[:summaries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['summaries'] = TrustedAdvisorCheckSummaryList.stub(stub[:summaries]) unless stub[:summaries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -732,7 +735,7 @@ module AWS::SDK::Support
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TrustedAdvisorCheckSummary.stub(element) unless element.nil?
+          data << TrustedAdvisorCheckSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -760,8 +763,8 @@ module AWS::SDK::Support
         data['timestamp'] = stub[:timestamp] unless stub[:timestamp].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['hasFlaggedResources'] = stub[:has_flagged_resources] unless stub[:has_flagged_resources].nil?
-        data['resourcesSummary'] = Stubs::TrustedAdvisorResourcesSummary.stub(stub[:resources_summary]) unless stub[:resources_summary].nil?
-        data['categorySpecificSummary'] = Stubs::TrustedAdvisorCategorySpecificSummary.stub(stub[:category_specific_summary]) unless stub[:category_specific_summary].nil?
+        data['resourcesSummary'] = TrustedAdvisorResourcesSummary.stub(stub[:resources_summary]) unless stub[:resources_summary].nil?
+        data['categorySpecificSummary'] = TrustedAdvisorCategorySpecificSummary.stub(stub[:category_specific_summary]) unless stub[:category_specific_summary].nil?
         data
       end
     end
@@ -776,8 +779,8 @@ module AWS::SDK::Support
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['checks'] = Stubs::TrustedAdvisorCheckList.stub(stub[:checks]) unless stub[:checks].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['checks'] = TrustedAdvisorCheckList.stub(stub[:checks]) unless stub[:checks].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -796,7 +799,7 @@ module AWS::SDK::Support
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TrustedAdvisorCheckDescription.stub(element) unless element.nil?
+          data << TrustedAdvisorCheckDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -823,7 +826,7 @@ module AWS::SDK::Support
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['category'] = stub[:category] unless stub[:category].nil?
-        data['metadata'] = Stubs::StringList.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['metadata'] = StringList.stub(stub[:metadata]) unless stub[:metadata].nil?
         data
       end
     end
@@ -838,8 +841,8 @@ module AWS::SDK::Support
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['status'] = Stubs::TrustedAdvisorCheckRefreshStatus.stub(stub[:status]) unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['status'] = TrustedAdvisorCheckRefreshStatus.stub(stub[:status]) unless stub[:status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -857,7 +860,7 @@ module AWS::SDK::Support
         data = {}
         data['initialCaseStatus'] = stub[:initial_case_status] unless stub[:initial_case_status].nil?
         data['finalCaseStatus'] = stub[:final_case_status] unless stub[:final_case_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

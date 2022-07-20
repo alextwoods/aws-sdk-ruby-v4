@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ComprehendMedical
   module Builders
 
@@ -19,7 +21,7 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.DescribeEntitiesDetectionV2Job'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -32,7 +34,7 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.DescribeICD10CMInferenceJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -45,7 +47,7 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.DescribePHIDetectionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -58,7 +60,7 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.DescribeRxNormInferenceJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -71,7 +73,7 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.DescribeSNOMEDCTInferenceJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -84,7 +86,7 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.DetectEntities'
         data = {}
         data['Text'] = input[:text] unless input[:text].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -97,7 +99,7 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.DetectEntitiesV2'
         data = {}
         data['Text'] = input[:text] unless input[:text].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -110,7 +112,7 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.DetectPHI'
         data = {}
         data['Text'] = input[:text] unless input[:text].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -123,7 +125,7 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.InferICD10CM'
         data = {}
         data['Text'] = input[:text] unless input[:text].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -136,7 +138,7 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.InferRxNorm'
         data = {}
         data['Text'] = input[:text] unless input[:text].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -149,7 +151,7 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.InferSNOMEDCT'
         data = {}
         data['Text'] = input[:text] unless input[:text].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -161,10 +163,10 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.ListEntitiesDetectionV2Jobs'
         data = {}
-        data['Filter'] = Builders::ComprehendMedicalAsyncJobFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = ComprehendMedicalAsyncJobFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -188,10 +190,10 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.ListICD10CMInferenceJobs'
         data = {}
-        data['Filter'] = Builders::ComprehendMedicalAsyncJobFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = ComprehendMedicalAsyncJobFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -203,10 +205,10 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.ListPHIDetectionJobs'
         data = {}
-        data['Filter'] = Builders::ComprehendMedicalAsyncJobFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = ComprehendMedicalAsyncJobFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -218,10 +220,10 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.ListRxNormInferenceJobs'
         data = {}
-        data['Filter'] = Builders::ComprehendMedicalAsyncJobFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = ComprehendMedicalAsyncJobFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -233,10 +235,10 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.ListSNOMEDCTInferenceJobs'
         data = {}
-        data['Filter'] = Builders::ComprehendMedicalAsyncJobFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = ComprehendMedicalAsyncJobFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -248,14 +250,14 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.StartEntitiesDetectionV2Job'
         data = {}
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['KMSKey'] = input[:kms_key] unless input[:kms_key].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -287,14 +289,14 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.StartICD10CMInferenceJob'
         data = {}
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['KMSKey'] = input[:kms_key] unless input[:kms_key].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -306,14 +308,14 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.StartPHIDetectionJob'
         data = {}
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['KMSKey'] = input[:kms_key] unless input[:kms_key].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -325,14 +327,14 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.StartRxNormInferenceJob'
         data = {}
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['KMSKey'] = input[:kms_key] unless input[:kms_key].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -344,14 +346,14 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.StartSNOMEDCTInferenceJob'
         data = {}
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['KMSKey'] = input[:kms_key] unless input[:kms_key].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -364,7 +366,7 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.StopEntitiesDetectionV2Job'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -377,7 +379,7 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.StopICD10CMInferenceJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -390,7 +392,7 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.StopPHIDetectionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -403,7 +405,7 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.StopRxNormInferenceJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -416,7 +418,7 @@ module AWS::SDK::ComprehendMedical
         http_req.headers['X-Amz-Target'] = 'ComprehendMedical_20181030.StopSNOMEDCTInferenceJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

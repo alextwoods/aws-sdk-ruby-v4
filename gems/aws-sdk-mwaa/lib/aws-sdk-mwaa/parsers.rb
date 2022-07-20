@@ -96,7 +96,7 @@ module AWS::SDK::MWAA
       def self.parse(http_resp)
         data = Types::GetEnvironmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.environment = (Parsers::Environment.parse(map['Environment']) unless map['Environment'].nil?)
+        data.environment = (Environment.parse(map['Environment']) unless map['Environment'].nil?)
         data
       end
     end
@@ -119,14 +119,14 @@ module AWS::SDK::MWAA
         data.plugins_s3_object_version = map['PluginsS3ObjectVersion']
         data.requirements_s3_path = map['RequirementsS3Path']
         data.requirements_s3_object_version = map['RequirementsS3ObjectVersion']
-        data.airflow_configuration_options = (Parsers::AirflowConfigurationOptions.parse(map['AirflowConfigurationOptions']) unless map['AirflowConfigurationOptions'].nil?)
+        data.airflow_configuration_options = (AirflowConfigurationOptions.parse(map['AirflowConfigurationOptions']) unless map['AirflowConfigurationOptions'].nil?)
         data.environment_class = map['EnvironmentClass']
         data.max_workers = map['MaxWorkers']
-        data.network_configuration = (Parsers::NetworkConfiguration.parse(map['NetworkConfiguration']) unless map['NetworkConfiguration'].nil?)
-        data.logging_configuration = (Parsers::LoggingConfiguration.parse(map['LoggingConfiguration']) unless map['LoggingConfiguration'].nil?)
-        data.last_update = (Parsers::LastUpdate.parse(map['LastUpdate']) unless map['LastUpdate'].nil?)
+        data.network_configuration = (NetworkConfiguration.parse(map['NetworkConfiguration']) unless map['NetworkConfiguration'].nil?)
+        data.logging_configuration = (LoggingConfiguration.parse(map['LoggingConfiguration']) unless map['LoggingConfiguration'].nil?)
+        data.last_update = (LastUpdate.parse(map['LastUpdate']) unless map['LastUpdate'].nil?)
         data.weekly_maintenance_window_start = map['WeeklyMaintenanceWindowStart']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.webserver_access_mode = map['WebserverAccessMode']
         data.min_workers = map['MinWorkers']
         data.schedulers = map['Schedulers']
@@ -149,7 +149,7 @@ module AWS::SDK::MWAA
         data = Types::LastUpdate.new
         data.status = map['Status']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
-        data.error = (Parsers::UpdateError.parse(map['Error']) unless map['Error'].nil?)
+        data.error = (UpdateError.parse(map['Error']) unless map['Error'].nil?)
         data.source = map['Source']
         return data
       end
@@ -167,11 +167,11 @@ module AWS::SDK::MWAA
     class LoggingConfiguration
       def self.parse(map)
         data = Types::LoggingConfiguration.new
-        data.dag_processing_logs = (Parsers::ModuleLoggingConfiguration.parse(map['DagProcessingLogs']) unless map['DagProcessingLogs'].nil?)
-        data.scheduler_logs = (Parsers::ModuleLoggingConfiguration.parse(map['SchedulerLogs']) unless map['SchedulerLogs'].nil?)
-        data.webserver_logs = (Parsers::ModuleLoggingConfiguration.parse(map['WebserverLogs']) unless map['WebserverLogs'].nil?)
-        data.worker_logs = (Parsers::ModuleLoggingConfiguration.parse(map['WorkerLogs']) unless map['WorkerLogs'].nil?)
-        data.task_logs = (Parsers::ModuleLoggingConfiguration.parse(map['TaskLogs']) unless map['TaskLogs'].nil?)
+        data.dag_processing_logs = (ModuleLoggingConfiguration.parse(map['DagProcessingLogs']) unless map['DagProcessingLogs'].nil?)
+        data.scheduler_logs = (ModuleLoggingConfiguration.parse(map['SchedulerLogs']) unless map['SchedulerLogs'].nil?)
+        data.webserver_logs = (ModuleLoggingConfiguration.parse(map['WebserverLogs']) unless map['WebserverLogs'].nil?)
+        data.worker_logs = (ModuleLoggingConfiguration.parse(map['WorkerLogs']) unless map['WorkerLogs'].nil?)
+        data.task_logs = (ModuleLoggingConfiguration.parse(map['TaskLogs']) unless map['TaskLogs'].nil?)
         return data
       end
     end
@@ -189,8 +189,8 @@ module AWS::SDK::MWAA
     class NetworkConfiguration
       def self.parse(map)
         data = Types::NetworkConfiguration.new
-        data.subnet_ids = (Parsers::SubnetList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
-        data.security_group_ids = (Parsers::SecurityGroupList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.subnet_ids = (SubnetList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.security_group_ids = (SecurityGroupList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         return data
       end
     end
@@ -230,7 +230,7 @@ module AWS::SDK::MWAA
       def self.parse(http_resp)
         data = Types::ListEnvironmentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.environments = (Parsers::EnvironmentList.parse(map['Environments']) unless map['Environments'].nil?)
+        data.environments = (EnvironmentList.parse(map['Environments']) unless map['Environments'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -251,7 +251,7 @@ module AWS::SDK::MWAA
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end

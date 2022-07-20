@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IoTEvents
   module Builders
 
@@ -23,14 +25,14 @@ module AWS::SDK::IoTEvents
         data['alarmModelName'] = input[:alarm_model_name] unless input[:alarm_model_name].nil?
         data['alarmModelDescription'] = input[:alarm_model_description] unless input[:alarm_model_description].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['key'] = input[:key] unless input[:key].nil?
         data['severity'] = input[:severity] unless input[:severity].nil?
-        data['alarmRule'] = Builders::AlarmRule.build(input[:alarm_rule]) unless input[:alarm_rule].nil?
-        data['alarmNotification'] = Builders::AlarmNotification.build(input[:alarm_notification]) unless input[:alarm_notification].nil?
-        data['alarmEventActions'] = Builders::AlarmEventActions.build(input[:alarm_event_actions]) unless input[:alarm_event_actions].nil?
-        data['alarmCapabilities'] = Builders::AlarmCapabilities.build(input[:alarm_capabilities]) unless input[:alarm_capabilities].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['alarmRule'] = AlarmRule.build(input[:alarm_rule]) unless input[:alarm_rule].nil?
+        data['alarmNotification'] = AlarmNotification.build(input[:alarm_notification]) unless input[:alarm_notification].nil?
+        data['alarmEventActions'] = AlarmEventActions.build(input[:alarm_event_actions]) unless input[:alarm_event_actions].nil?
+        data['alarmCapabilities'] = AlarmCapabilities.build(input[:alarm_capabilities]) unless input[:alarm_capabilities].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -38,8 +40,8 @@ module AWS::SDK::IoTEvents
     class AlarmCapabilities
       def self.build(input)
         data = {}
-        data['initializationConfiguration'] = Builders::InitializationConfiguration.build(input[:initialization_configuration]) unless input[:initialization_configuration].nil?
-        data['acknowledgeFlow'] = Builders::AcknowledgeFlow.build(input[:acknowledge_flow]) unless input[:acknowledge_flow].nil?
+        data['initializationConfiguration'] = InitializationConfiguration.build(input[:initialization_configuration]) unless input[:initialization_configuration].nil?
+        data['acknowledgeFlow'] = AcknowledgeFlow.build(input[:acknowledge_flow]) unless input[:acknowledge_flow].nil?
         data
       end
     end
@@ -66,7 +68,7 @@ module AWS::SDK::IoTEvents
     class AlarmEventActions
       def self.build(input)
         data = {}
-        data['alarmActions'] = Builders::AlarmActions.build(input[:alarm_actions]) unless input[:alarm_actions].nil?
+        data['alarmActions'] = AlarmActions.build(input[:alarm_actions]) unless input[:alarm_actions].nil?
         data
       end
     end
@@ -76,7 +78,7 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AlarmAction.build(element) unless element.nil?
+          data << AlarmAction.build(element) unless element.nil?
         end
         data
       end
@@ -86,15 +88,15 @@ module AWS::SDK::IoTEvents
     class AlarmAction
       def self.build(input)
         data = {}
-        data['sns'] = Builders::SNSTopicPublishAction.build(input[:sns]) unless input[:sns].nil?
-        data['iotTopicPublish'] = Builders::IotTopicPublishAction.build(input[:iot_topic_publish]) unless input[:iot_topic_publish].nil?
-        data['lambda'] = Builders::LambdaAction.build(input[:lambda]) unless input[:lambda].nil?
-        data['iotEvents'] = Builders::IotEventsAction.build(input[:iot_events]) unless input[:iot_events].nil?
-        data['sqs'] = Builders::SqsAction.build(input[:sqs]) unless input[:sqs].nil?
-        data['firehose'] = Builders::FirehoseAction.build(input[:firehose]) unless input[:firehose].nil?
-        data['dynamoDB'] = Builders::DynamoDBAction.build(input[:dynamo_db]) unless input[:dynamo_db].nil?
-        data['dynamoDBv2'] = Builders::DynamoDBv2Action.build(input[:dynamo_d_bv2]) unless input[:dynamo_d_bv2].nil?
-        data['iotSiteWise'] = Builders::IotSiteWiseAction.build(input[:iot_site_wise]) unless input[:iot_site_wise].nil?
+        data['sns'] = SNSTopicPublishAction.build(input[:sns]) unless input[:sns].nil?
+        data['iotTopicPublish'] = IotTopicPublishAction.build(input[:iot_topic_publish]) unless input[:iot_topic_publish].nil?
+        data['lambda'] = LambdaAction.build(input[:lambda]) unless input[:lambda].nil?
+        data['iotEvents'] = IotEventsAction.build(input[:iot_events]) unless input[:iot_events].nil?
+        data['sqs'] = SqsAction.build(input[:sqs]) unless input[:sqs].nil?
+        data['firehose'] = FirehoseAction.build(input[:firehose]) unless input[:firehose].nil?
+        data['dynamoDB'] = DynamoDBAction.build(input[:dynamo_db]) unless input[:dynamo_db].nil?
+        data['dynamoDBv2'] = DynamoDBv2Action.build(input[:dynamo_d_bv2]) unless input[:dynamo_d_bv2].nil?
+        data['iotSiteWise'] = IotSiteWiseAction.build(input[:iot_site_wise]) unless input[:iot_site_wise].nil?
         data
       end
     end
@@ -107,7 +109,7 @@ module AWS::SDK::IoTEvents
         data['assetId'] = input[:asset_id] unless input[:asset_id].nil?
         data['propertyId'] = input[:property_id] unless input[:property_id].nil?
         data['propertyAlias'] = input[:property_alias] unless input[:property_alias].nil?
-        data['propertyValue'] = Builders::AssetPropertyValue.build(input[:property_value]) unless input[:property_value].nil?
+        data['propertyValue'] = AssetPropertyValue.build(input[:property_value]) unless input[:property_value].nil?
         data
       end
     end
@@ -116,8 +118,8 @@ module AWS::SDK::IoTEvents
     class AssetPropertyValue
       def self.build(input)
         data = {}
-        data['value'] = Builders::AssetPropertyVariant.build(input[:value]) unless input[:value].nil?
-        data['timestamp'] = Builders::AssetPropertyTimestamp.build(input[:timestamp]) unless input[:timestamp].nil?
+        data['value'] = AssetPropertyVariant.build(input[:value]) unless input[:value].nil?
+        data['timestamp'] = AssetPropertyTimestamp.build(input[:timestamp]) unless input[:timestamp].nil?
         data['quality'] = input[:quality] unless input[:quality].nil?
         data
       end
@@ -150,7 +152,7 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = {}
         data['tableName'] = input[:table_name] unless input[:table_name].nil?
-        data['payload'] = Builders::Payload.build(input[:payload]) unless input[:payload].nil?
+        data['payload'] = Payload.build(input[:payload]) unless input[:payload].nil?
         data
       end
     end
@@ -178,7 +180,7 @@ module AWS::SDK::IoTEvents
         data['operation'] = input[:operation] unless input[:operation].nil?
         data['payloadField'] = input[:payload_field] unless input[:payload_field].nil?
         data['tableName'] = input[:table_name] unless input[:table_name].nil?
-        data['payload'] = Builders::Payload.build(input[:payload]) unless input[:payload].nil?
+        data['payload'] = Payload.build(input[:payload]) unless input[:payload].nil?
         data
       end
     end
@@ -189,7 +191,7 @@ module AWS::SDK::IoTEvents
         data = {}
         data['deliveryStreamName'] = input[:delivery_stream_name] unless input[:delivery_stream_name].nil?
         data['separator'] = input[:separator] unless input[:separator].nil?
-        data['payload'] = Builders::Payload.build(input[:payload]) unless input[:payload].nil?
+        data['payload'] = Payload.build(input[:payload]) unless input[:payload].nil?
         data
       end
     end
@@ -200,7 +202,7 @@ module AWS::SDK::IoTEvents
         data = {}
         data['queueUrl'] = input[:queue_url] unless input[:queue_url].nil?
         data['useBase64'] = input[:use_base64] unless input[:use_base64].nil?
-        data['payload'] = Builders::Payload.build(input[:payload]) unless input[:payload].nil?
+        data['payload'] = Payload.build(input[:payload]) unless input[:payload].nil?
         data
       end
     end
@@ -210,7 +212,7 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = {}
         data['inputName'] = input[:input_name] unless input[:input_name].nil?
-        data['payload'] = Builders::Payload.build(input[:payload]) unless input[:payload].nil?
+        data['payload'] = Payload.build(input[:payload]) unless input[:payload].nil?
         data
       end
     end
@@ -220,7 +222,7 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = {}
         data['functionArn'] = input[:function_arn] unless input[:function_arn].nil?
-        data['payload'] = Builders::Payload.build(input[:payload]) unless input[:payload].nil?
+        data['payload'] = Payload.build(input[:payload]) unless input[:payload].nil?
         data
       end
     end
@@ -230,7 +232,7 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = {}
         data['mqttTopic'] = input[:mqtt_topic] unless input[:mqtt_topic].nil?
-        data['payload'] = Builders::Payload.build(input[:payload]) unless input[:payload].nil?
+        data['payload'] = Payload.build(input[:payload]) unless input[:payload].nil?
         data
       end
     end
@@ -240,7 +242,7 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = {}
         data['targetArn'] = input[:target_arn] unless input[:target_arn].nil?
-        data['payload'] = Builders::Payload.build(input[:payload]) unless input[:payload].nil?
+        data['payload'] = Payload.build(input[:payload]) unless input[:payload].nil?
         data
       end
     end
@@ -249,7 +251,7 @@ module AWS::SDK::IoTEvents
     class AlarmNotification
       def self.build(input)
         data = {}
-        data['notificationActions'] = Builders::NotificationActions.build(input[:notification_actions]) unless input[:notification_actions].nil?
+        data['notificationActions'] = NotificationActions.build(input[:notification_actions]) unless input[:notification_actions].nil?
         data
       end
     end
@@ -259,7 +261,7 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::NotificationAction.build(element) unless element.nil?
+          data << NotificationAction.build(element) unless element.nil?
         end
         data
       end
@@ -269,9 +271,9 @@ module AWS::SDK::IoTEvents
     class NotificationAction
       def self.build(input)
         data = {}
-        data['action'] = Builders::NotificationTargetActions.build(input[:action]) unless input[:action].nil?
-        data['smsConfigurations'] = Builders::SMSConfigurations.build(input[:sms_configurations]) unless input[:sms_configurations].nil?
-        data['emailConfigurations'] = Builders::EmailConfigurations.build(input[:email_configurations]) unless input[:email_configurations].nil?
+        data['action'] = NotificationTargetActions.build(input[:action]) unless input[:action].nil?
+        data['smsConfigurations'] = SMSConfigurations.build(input[:sms_configurations]) unless input[:sms_configurations].nil?
+        data['emailConfigurations'] = EmailConfigurations.build(input[:email_configurations]) unless input[:email_configurations].nil?
         data
       end
     end
@@ -281,7 +283,7 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EmailConfiguration.build(element) unless element.nil?
+          data << EmailConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -292,8 +294,8 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = {}
         data['from'] = input[:from] unless input[:from].nil?
-        data['content'] = Builders::EmailContent.build(input[:content]) unless input[:content].nil?
-        data['recipients'] = Builders::EmailRecipients.build(input[:recipients]) unless input[:recipients].nil?
+        data['content'] = EmailContent.build(input[:content]) unless input[:content].nil?
+        data['recipients'] = EmailRecipients.build(input[:recipients]) unless input[:recipients].nil?
         data
       end
     end
@@ -302,7 +304,7 @@ module AWS::SDK::IoTEvents
     class EmailRecipients
       def self.build(input)
         data = {}
-        data['to'] = Builders::RecipientDetails.build(input[:to]) unless input[:to].nil?
+        data['to'] = RecipientDetails.build(input[:to]) unless input[:to].nil?
         data
       end
     end
@@ -312,7 +314,7 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RecipientDetail.build(element) unless element.nil?
+          data << RecipientDetail.build(element) unless element.nil?
         end
         data
       end
@@ -322,7 +324,7 @@ module AWS::SDK::IoTEvents
     class RecipientDetail
       def self.build(input)
         data = {}
-        data['ssoIdentity'] = Builders::SSOIdentity.build(input[:sso_identity]) unless input[:sso_identity].nil?
+        data['ssoIdentity'] = SSOIdentity.build(input[:sso_identity]) unless input[:sso_identity].nil?
         data
       end
     end
@@ -352,7 +354,7 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SMSConfiguration.build(element) unless element.nil?
+          data << SMSConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -364,7 +366,7 @@ module AWS::SDK::IoTEvents
         data = {}
         data['senderId'] = input[:sender_id] unless input[:sender_id].nil?
         data['additionalMessage'] = input[:additional_message] unless input[:additional_message].nil?
-        data['recipients'] = Builders::RecipientDetails.build(input[:recipients]) unless input[:recipients].nil?
+        data['recipients'] = RecipientDetails.build(input[:recipients]) unless input[:recipients].nil?
         data
       end
     end
@@ -373,7 +375,7 @@ module AWS::SDK::IoTEvents
     class NotificationTargetActions
       def self.build(input)
         data = {}
-        data['lambdaAction'] = Builders::LambdaAction.build(input[:lambda_action]) unless input[:lambda_action].nil?
+        data['lambdaAction'] = LambdaAction.build(input[:lambda_action]) unless input[:lambda_action].nil?
         data
       end
     end
@@ -382,7 +384,7 @@ module AWS::SDK::IoTEvents
     class AlarmRule
       def self.build(input)
         data = {}
-        data['simpleRule'] = Builders::SimpleRule.build(input[:simple_rule]) unless input[:simple_rule].nil?
+        data['simpleRule'] = SimpleRule.build(input[:simple_rule]) unless input[:simple_rule].nil?
         data
       end
     end
@@ -403,7 +405,7 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -430,13 +432,13 @@ module AWS::SDK::IoTEvents
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['detectorModelName'] = input[:detector_model_name] unless input[:detector_model_name].nil?
-        data['detectorModelDefinition'] = Builders::DetectorModelDefinition.build(input[:detector_model_definition]) unless input[:detector_model_definition].nil?
+        data['detectorModelDefinition'] = DetectorModelDefinition.build(input[:detector_model_definition]) unless input[:detector_model_definition].nil?
         data['detectorModelDescription'] = input[:detector_model_description] unless input[:detector_model_description].nil?
         data['key'] = input[:key] unless input[:key].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['evaluationMethod'] = input[:evaluation_method] unless input[:evaluation_method].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -444,7 +446,7 @@ module AWS::SDK::IoTEvents
     class DetectorModelDefinition
       def self.build(input)
         data = {}
-        data['states'] = Builders::States.build(input[:states]) unless input[:states].nil?
+        data['states'] = States.build(input[:states]) unless input[:states].nil?
         data['initialStateName'] = input[:initial_state_name] unless input[:initial_state_name].nil?
         data
       end
@@ -455,7 +457,7 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::State.build(element) unless element.nil?
+          data << State.build(element) unless element.nil?
         end
         data
       end
@@ -466,9 +468,9 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = {}
         data['stateName'] = input[:state_name] unless input[:state_name].nil?
-        data['onInput'] = Builders::OnInputLifecycle.build(input[:on_input]) unless input[:on_input].nil?
-        data['onEnter'] = Builders::OnEnterLifecycle.build(input[:on_enter]) unless input[:on_enter].nil?
-        data['onExit'] = Builders::OnExitLifecycle.build(input[:on_exit]) unless input[:on_exit].nil?
+        data['onInput'] = OnInputLifecycle.build(input[:on_input]) unless input[:on_input].nil?
+        data['onEnter'] = OnEnterLifecycle.build(input[:on_enter]) unless input[:on_enter].nil?
+        data['onExit'] = OnExitLifecycle.build(input[:on_exit]) unless input[:on_exit].nil?
         data
       end
     end
@@ -477,7 +479,7 @@ module AWS::SDK::IoTEvents
     class OnExitLifecycle
       def self.build(input)
         data = {}
-        data['events'] = Builders::Events.build(input[:events]) unless input[:events].nil?
+        data['events'] = Events.build(input[:events]) unless input[:events].nil?
         data
       end
     end
@@ -487,7 +489,7 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Event.build(element) unless element.nil?
+          data << Event.build(element) unless element.nil?
         end
         data
       end
@@ -499,7 +501,7 @@ module AWS::SDK::IoTEvents
         data = {}
         data['eventName'] = input[:event_name] unless input[:event_name].nil?
         data['condition'] = input[:condition] unless input[:condition].nil?
-        data['actions'] = Builders::Actions.build(input[:actions]) unless input[:actions].nil?
+        data['actions'] = Actions.build(input[:actions]) unless input[:actions].nil?
         data
       end
     end
@@ -509,7 +511,7 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Action.build(element) unless element.nil?
+          data << Action.build(element) unless element.nil?
         end
         data
       end
@@ -519,19 +521,19 @@ module AWS::SDK::IoTEvents
     class Action
       def self.build(input)
         data = {}
-        data['setVariable'] = Builders::SetVariableAction.build(input[:set_variable]) unless input[:set_variable].nil?
-        data['sns'] = Builders::SNSTopicPublishAction.build(input[:sns]) unless input[:sns].nil?
-        data['iotTopicPublish'] = Builders::IotTopicPublishAction.build(input[:iot_topic_publish]) unless input[:iot_topic_publish].nil?
-        data['setTimer'] = Builders::SetTimerAction.build(input[:set_timer]) unless input[:set_timer].nil?
-        data['clearTimer'] = Builders::ClearTimerAction.build(input[:clear_timer]) unless input[:clear_timer].nil?
-        data['resetTimer'] = Builders::ResetTimerAction.build(input[:reset_timer]) unless input[:reset_timer].nil?
-        data['lambda'] = Builders::LambdaAction.build(input[:lambda]) unless input[:lambda].nil?
-        data['iotEvents'] = Builders::IotEventsAction.build(input[:iot_events]) unless input[:iot_events].nil?
-        data['sqs'] = Builders::SqsAction.build(input[:sqs]) unless input[:sqs].nil?
-        data['firehose'] = Builders::FirehoseAction.build(input[:firehose]) unless input[:firehose].nil?
-        data['dynamoDB'] = Builders::DynamoDBAction.build(input[:dynamo_db]) unless input[:dynamo_db].nil?
-        data['dynamoDBv2'] = Builders::DynamoDBv2Action.build(input[:dynamo_d_bv2]) unless input[:dynamo_d_bv2].nil?
-        data['iotSiteWise'] = Builders::IotSiteWiseAction.build(input[:iot_site_wise]) unless input[:iot_site_wise].nil?
+        data['setVariable'] = SetVariableAction.build(input[:set_variable]) unless input[:set_variable].nil?
+        data['sns'] = SNSTopicPublishAction.build(input[:sns]) unless input[:sns].nil?
+        data['iotTopicPublish'] = IotTopicPublishAction.build(input[:iot_topic_publish]) unless input[:iot_topic_publish].nil?
+        data['setTimer'] = SetTimerAction.build(input[:set_timer]) unless input[:set_timer].nil?
+        data['clearTimer'] = ClearTimerAction.build(input[:clear_timer]) unless input[:clear_timer].nil?
+        data['resetTimer'] = ResetTimerAction.build(input[:reset_timer]) unless input[:reset_timer].nil?
+        data['lambda'] = LambdaAction.build(input[:lambda]) unless input[:lambda].nil?
+        data['iotEvents'] = IotEventsAction.build(input[:iot_events]) unless input[:iot_events].nil?
+        data['sqs'] = SqsAction.build(input[:sqs]) unless input[:sqs].nil?
+        data['firehose'] = FirehoseAction.build(input[:firehose]) unless input[:firehose].nil?
+        data['dynamoDB'] = DynamoDBAction.build(input[:dynamo_db]) unless input[:dynamo_db].nil?
+        data['dynamoDBv2'] = DynamoDBv2Action.build(input[:dynamo_d_bv2]) unless input[:dynamo_d_bv2].nil?
+        data['iotSiteWise'] = IotSiteWiseAction.build(input[:iot_site_wise]) unless input[:iot_site_wise].nil?
         data
       end
     end
@@ -579,7 +581,7 @@ module AWS::SDK::IoTEvents
     class OnEnterLifecycle
       def self.build(input)
         data = {}
-        data['events'] = Builders::Events.build(input[:events]) unless input[:events].nil?
+        data['events'] = Events.build(input[:events]) unless input[:events].nil?
         data
       end
     end
@@ -588,8 +590,8 @@ module AWS::SDK::IoTEvents
     class OnInputLifecycle
       def self.build(input)
         data = {}
-        data['events'] = Builders::Events.build(input[:events]) unless input[:events].nil?
-        data['transitionEvents'] = Builders::TransitionEvents.build(input[:transition_events]) unless input[:transition_events].nil?
+        data['events'] = Events.build(input[:events]) unless input[:events].nil?
+        data['transitionEvents'] = TransitionEvents.build(input[:transition_events]) unless input[:transition_events].nil?
         data
       end
     end
@@ -599,7 +601,7 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TransitionEvent.build(element) unless element.nil?
+          data << TransitionEvent.build(element) unless element.nil?
         end
         data
       end
@@ -611,7 +613,7 @@ module AWS::SDK::IoTEvents
         data = {}
         data['eventName'] = input[:event_name] unless input[:event_name].nil?
         data['condition'] = input[:condition] unless input[:condition].nil?
-        data['actions'] = Builders::Actions.build(input[:actions]) unless input[:actions].nil?
+        data['actions'] = Actions.build(input[:actions]) unless input[:actions].nil?
         data['nextState'] = input[:next_state] unless input[:next_state].nil?
         data
       end
@@ -629,9 +631,9 @@ module AWS::SDK::IoTEvents
         data = {}
         data['inputName'] = input[:input_name] unless input[:input_name].nil?
         data['inputDescription'] = input[:input_description] unless input[:input_description].nil?
-        data['inputDefinition'] = Builders::InputDefinition.build(input[:input_definition]) unless input[:input_definition].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['inputDefinition'] = InputDefinition.build(input[:input_definition]) unless input[:input_definition].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -639,7 +641,7 @@ module AWS::SDK::IoTEvents
     class InputDefinition
       def self.build(input)
         data = {}
-        data['attributes'] = Builders::Attributes.build(input[:attributes]) unless input[:attributes].nil?
+        data['attributes'] = Attributes.build(input[:attributes]) unless input[:attributes].nil?
         data
       end
     end
@@ -649,7 +651,7 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Attribute.build(element) unless element.nil?
+          data << Attribute.build(element) unless element.nil?
         end
         data
       end
@@ -886,10 +888,10 @@ module AWS::SDK::IoTEvents
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['inputIdentifier'] = Builders::InputIdentifier.build(input[:input_identifier]) unless input[:input_identifier].nil?
+        data['inputIdentifier'] = InputIdentifier.build(input[:input_identifier]) unless input[:input_identifier].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -897,8 +899,8 @@ module AWS::SDK::IoTEvents
     class InputIdentifier
       def self.build(input)
         data = {}
-        data['iotEventsInputIdentifier'] = Builders::IotEventsInputIdentifier.build(input[:iot_events_input_identifier]) unless input[:iot_events_input_identifier].nil?
-        data['iotSiteWiseInputIdentifier'] = Builders::IotSiteWiseInputIdentifier.build(input[:iot_site_wise_input_identifier]) unless input[:iot_site_wise_input_identifier].nil?
+        data['iotEventsInputIdentifier'] = IotEventsInputIdentifier.build(input[:iot_events_input_identifier]) unless input[:iot_events_input_identifier].nil?
+        data['iotSiteWiseInputIdentifier'] = IotSiteWiseInputIdentifier.build(input[:iot_site_wise_input_identifier]) unless input[:iot_site_wise_input_identifier].nil?
         data
       end
     end
@@ -907,7 +909,7 @@ module AWS::SDK::IoTEvents
     class IotSiteWiseInputIdentifier
       def self.build(input)
         data = {}
-        data['iotSiteWiseAssetModelPropertyIdentifier'] = Builders::IotSiteWiseAssetModelPropertyIdentifier.build(input[:iot_site_wise_asset_model_property_identifier]) unless input[:iot_site_wise_asset_model_property_identifier].nil?
+        data['iotSiteWiseAssetModelPropertyIdentifier'] = IotSiteWiseAssetModelPropertyIdentifier.build(input[:iot_site_wise_asset_model_property_identifier]) unless input[:iot_site_wise_asset_model_property_identifier].nil?
         data
       end
     end
@@ -964,8 +966,8 @@ module AWS::SDK::IoTEvents
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['loggingOptions'] = Builders::LoggingOptions.build(input[:logging_options]) unless input[:logging_options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['loggingOptions'] = LoggingOptions.build(input[:logging_options]) unless input[:logging_options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -976,7 +978,7 @@ module AWS::SDK::IoTEvents
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['level'] = input[:level] unless input[:level].nil?
         data['enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['detectorDebugOptions'] = Builders::DetectorDebugOptions.build(input[:detector_debug_options]) unless input[:detector_debug_options].nil?
+        data['detectorDebugOptions'] = DetectorDebugOptions.build(input[:detector_debug_options]) unless input[:detector_debug_options].nil?
         data
       end
     end
@@ -986,7 +988,7 @@ module AWS::SDK::IoTEvents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DetectorDebugOption.build(element) unless element.nil?
+          data << DetectorDebugOption.build(element) unless element.nil?
         end
         data
       end
@@ -1012,8 +1014,8 @@ module AWS::SDK::IoTEvents
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['detectorModelDefinition'] = Builders::DetectorModelDefinition.build(input[:detector_model_definition]) unless input[:detector_model_definition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['detectorModelDefinition'] = DetectorModelDefinition.build(input[:detector_model_definition]) unless input[:detector_model_definition].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1028,8 +1030,8 @@ module AWS::SDK::IoTEvents
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1080,11 +1082,11 @@ module AWS::SDK::IoTEvents
         data['alarmModelDescription'] = input[:alarm_model_description] unless input[:alarm_model_description].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['severity'] = input[:severity] unless input[:severity].nil?
-        data['alarmRule'] = Builders::AlarmRule.build(input[:alarm_rule]) unless input[:alarm_rule].nil?
-        data['alarmNotification'] = Builders::AlarmNotification.build(input[:alarm_notification]) unless input[:alarm_notification].nil?
-        data['alarmEventActions'] = Builders::AlarmEventActions.build(input[:alarm_event_actions]) unless input[:alarm_event_actions].nil?
-        data['alarmCapabilities'] = Builders::AlarmCapabilities.build(input[:alarm_capabilities]) unless input[:alarm_capabilities].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['alarmRule'] = AlarmRule.build(input[:alarm_rule]) unless input[:alarm_rule].nil?
+        data['alarmNotification'] = AlarmNotification.build(input[:alarm_notification]) unless input[:alarm_notification].nil?
+        data['alarmEventActions'] = AlarmEventActions.build(input[:alarm_event_actions]) unless input[:alarm_event_actions].nil?
+        data['alarmCapabilities'] = AlarmCapabilities.build(input[:alarm_capabilities]) unless input[:alarm_capabilities].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1105,11 +1107,11 @@ module AWS::SDK::IoTEvents
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['detectorModelDefinition'] = Builders::DetectorModelDefinition.build(input[:detector_model_definition]) unless input[:detector_model_definition].nil?
+        data['detectorModelDefinition'] = DetectorModelDefinition.build(input[:detector_model_definition]) unless input[:detector_model_definition].nil?
         data['detectorModelDescription'] = input[:detector_model_description] unless input[:detector_model_description].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['evaluationMethod'] = input[:evaluation_method] unless input[:evaluation_method].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1131,8 +1133,8 @@ module AWS::SDK::IoTEvents
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['inputDescription'] = input[:input_description] unless input[:input_description].nil?
-        data['inputDefinition'] = Builders::InputDefinition.build(input[:input_definition]) unless input[:input_definition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['inputDefinition'] = InputDefinition.build(input[:input_definition]) unless input[:input_definition].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

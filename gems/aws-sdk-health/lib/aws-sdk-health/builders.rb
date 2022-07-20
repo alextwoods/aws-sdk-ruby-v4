@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Health
   module Builders
 
@@ -21,7 +23,7 @@ module AWS::SDK::Health
         data['eventArn'] = input[:event_arn] unless input[:event_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,11 +35,11 @@ module AWS::SDK::Health
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHealth_20160804.DescribeAffectedEntities'
         data = {}
-        data['filter'] = Builders::EntityFilter.build(input[:filter]) unless input[:filter].nil?
+        data['filter'] = EntityFilter.build(input[:filter]) unless input[:filter].nil?
         data['locale'] = input[:locale] unless input[:locale].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -45,12 +47,12 @@ module AWS::SDK::Health
     class EntityFilter
       def self.build(input)
         data = {}
-        data['eventArns'] = Builders::EventArnList.build(input[:event_arns]) unless input[:event_arns].nil?
-        data['entityArns'] = Builders::EntityArnList.build(input[:entity_arns]) unless input[:entity_arns].nil?
-        data['entityValues'] = Builders::EntityValueList.build(input[:entity_values]) unless input[:entity_values].nil?
-        data['lastUpdatedTimes'] = Builders::DateTimeRangeList.build(input[:last_updated_times]) unless input[:last_updated_times].nil?
-        data['tags'] = Builders::TagFilter.build(input[:tags]) unless input[:tags].nil?
-        data['statusCodes'] = Builders::EntityStatusCodeList.build(input[:status_codes]) unless input[:status_codes].nil?
+        data['eventArns'] = EventArnList.build(input[:event_arns]) unless input[:event_arns].nil?
+        data['entityArns'] = EntityArnList.build(input[:entity_arns]) unless input[:entity_arns].nil?
+        data['entityValues'] = EntityValueList.build(input[:entity_values]) unless input[:entity_values].nil?
+        data['lastUpdatedTimes'] = DateTimeRangeList.build(input[:last_updated_times]) unless input[:last_updated_times].nil?
+        data['tags'] = TagFilter.build(input[:tags]) unless input[:tags].nil?
+        data['statusCodes'] = EntityStatusCodeList.build(input[:status_codes]) unless input[:status_codes].nil?
         data
       end
     end
@@ -71,7 +73,7 @@ module AWS::SDK::Health
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TagSet.build(element) unless element.nil?
+          data << TagSet.build(element) unless element.nil?
         end
         data
       end
@@ -93,7 +95,7 @@ module AWS::SDK::Health
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DateTimeRange.build(element) unless element.nil?
+          data << DateTimeRange.build(element) unless element.nil?
         end
         data
       end
@@ -150,11 +152,11 @@ module AWS::SDK::Health
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHealth_20160804.DescribeAffectedEntitiesForOrganization'
         data = {}
-        data['organizationEntityFilters'] = Builders::OrganizationEntityFiltersList.build(input[:organization_entity_filters]) unless input[:organization_entity_filters].nil?
+        data['organizationEntityFilters'] = OrganizationEntityFiltersList.build(input[:organization_entity_filters]) unless input[:organization_entity_filters].nil?
         data['locale'] = input[:locale] unless input[:locale].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -163,7 +165,7 @@ module AWS::SDK::Health
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EventAccountFilter.build(element) unless element.nil?
+          data << EventAccountFilter.build(element) unless element.nil?
         end
         data
       end
@@ -187,8 +189,8 @@ module AWS::SDK::Health
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHealth_20160804.DescribeEntityAggregates'
         data = {}
-        data['eventArns'] = Builders::EventArnsList.build(input[:event_arns]) unless input[:event_arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['eventArns'] = EventArnsList.build(input[:event_arns]) unless input[:event_arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -211,11 +213,11 @@ module AWS::SDK::Health
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHealth_20160804.DescribeEventAggregates'
         data = {}
-        data['filter'] = Builders::EventFilter.build(input[:filter]) unless input[:filter].nil?
+        data['filter'] = EventFilter.build(input[:filter]) unless input[:filter].nil?
         data['aggregateField'] = input[:aggregate_field] unless input[:aggregate_field].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -223,19 +225,19 @@ module AWS::SDK::Health
     class EventFilter
       def self.build(input)
         data = {}
-        data['eventArns'] = Builders::EventArnList.build(input[:event_arns]) unless input[:event_arns].nil?
-        data['eventTypeCodes'] = Builders::EventTypeList2.build(input[:event_type_codes]) unless input[:event_type_codes].nil?
-        data['services'] = Builders::ServiceList.build(input[:services]) unless input[:services].nil?
-        data['regions'] = Builders::RegionList.build(input[:regions]) unless input[:regions].nil?
-        data['availabilityZones'] = Builders::AvailabilityZones.build(input[:availability_zones]) unless input[:availability_zones].nil?
-        data['startTimes'] = Builders::DateTimeRangeList.build(input[:start_times]) unless input[:start_times].nil?
-        data['endTimes'] = Builders::DateTimeRangeList.build(input[:end_times]) unless input[:end_times].nil?
-        data['lastUpdatedTimes'] = Builders::DateTimeRangeList.build(input[:last_updated_times]) unless input[:last_updated_times].nil?
-        data['entityArns'] = Builders::EntityArnList.build(input[:entity_arns]) unless input[:entity_arns].nil?
-        data['entityValues'] = Builders::EntityValueList.build(input[:entity_values]) unless input[:entity_values].nil?
-        data['eventTypeCategories'] = Builders::EventTypeCategoryList2.build(input[:event_type_categories]) unless input[:event_type_categories].nil?
-        data['tags'] = Builders::TagFilter.build(input[:tags]) unless input[:tags].nil?
-        data['eventStatusCodes'] = Builders::EventStatusCodeList.build(input[:event_status_codes]) unless input[:event_status_codes].nil?
+        data['eventArns'] = EventArnList.build(input[:event_arns]) unless input[:event_arns].nil?
+        data['eventTypeCodes'] = EventTypeList2.build(input[:event_type_codes]) unless input[:event_type_codes].nil?
+        data['services'] = ServiceList.build(input[:services]) unless input[:services].nil?
+        data['regions'] = RegionList.build(input[:regions]) unless input[:regions].nil?
+        data['availabilityZones'] = AvailabilityZones.build(input[:availability_zones]) unless input[:availability_zones].nil?
+        data['startTimes'] = DateTimeRangeList.build(input[:start_times]) unless input[:start_times].nil?
+        data['endTimes'] = DateTimeRangeList.build(input[:end_times]) unless input[:end_times].nil?
+        data['lastUpdatedTimes'] = DateTimeRangeList.build(input[:last_updated_times]) unless input[:last_updated_times].nil?
+        data['entityArns'] = EntityArnList.build(input[:entity_arns]) unless input[:entity_arns].nil?
+        data['entityValues'] = EntityValueList.build(input[:entity_values]) unless input[:entity_values].nil?
+        data['eventTypeCategories'] = EventTypeCategoryList2.build(input[:event_type_categories]) unless input[:event_type_categories].nil?
+        data['tags'] = TagFilter.build(input[:tags]) unless input[:tags].nil?
+        data['eventStatusCodes'] = EventStatusCodeList.build(input[:event_status_codes]) unless input[:event_status_codes].nil?
         data
       end
     end
@@ -314,9 +316,9 @@ module AWS::SDK::Health
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHealth_20160804.DescribeEventDetails'
         data = {}
-        data['eventArns'] = Builders::EventArnList.build(input[:event_arns]) unless input[:event_arns].nil?
+        data['eventArns'] = EventArnList.build(input[:event_arns]) unless input[:event_arns].nil?
         data['locale'] = input[:locale] unless input[:locale].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -328,9 +330,9 @@ module AWS::SDK::Health
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHealth_20160804.DescribeEventDetailsForOrganization'
         data = {}
-        data['organizationEventDetailFilters'] = Builders::OrganizationEventDetailFiltersList.build(input[:organization_event_detail_filters]) unless input[:organization_event_detail_filters].nil?
+        data['organizationEventDetailFilters'] = OrganizationEventDetailFiltersList.build(input[:organization_event_detail_filters]) unless input[:organization_event_detail_filters].nil?
         data['locale'] = input[:locale] unless input[:locale].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -339,7 +341,7 @@ module AWS::SDK::Health
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EventAccountFilter.build(element) unless element.nil?
+          data << EventAccountFilter.build(element) unless element.nil?
         end
         data
       end
@@ -353,11 +355,11 @@ module AWS::SDK::Health
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHealth_20160804.DescribeEventTypes'
         data = {}
-        data['filter'] = Builders::EventTypeFilter.build(input[:filter]) unless input[:filter].nil?
+        data['filter'] = EventTypeFilter.build(input[:filter]) unless input[:filter].nil?
         data['locale'] = input[:locale] unless input[:locale].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -365,9 +367,9 @@ module AWS::SDK::Health
     class EventTypeFilter
       def self.build(input)
         data = {}
-        data['eventTypeCodes'] = Builders::EventTypeCodeList.build(input[:event_type_codes]) unless input[:event_type_codes].nil?
-        data['services'] = Builders::ServiceList.build(input[:services]) unless input[:services].nil?
-        data['eventTypeCategories'] = Builders::EventTypeCategoryList.build(input[:event_type_categories]) unless input[:event_type_categories].nil?
+        data['eventTypeCodes'] = EventTypeCodeList.build(input[:event_type_codes]) unless input[:event_type_codes].nil?
+        data['services'] = ServiceList.build(input[:services]) unless input[:services].nil?
+        data['eventTypeCategories'] = EventTypeCategoryList.build(input[:event_type_categories]) unless input[:event_type_categories].nil?
         data
       end
     end
@@ -402,11 +404,11 @@ module AWS::SDK::Health
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHealth_20160804.DescribeEvents'
         data = {}
-        data['filter'] = Builders::EventFilter.build(input[:filter]) unless input[:filter].nil?
+        data['filter'] = EventFilter.build(input[:filter]) unless input[:filter].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['locale'] = input[:locale] unless input[:locale].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -418,11 +420,11 @@ module AWS::SDK::Health
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHealth_20160804.DescribeEventsForOrganization'
         data = {}
-        data['filter'] = Builders::OrganizationEventFilter.build(input[:filter]) unless input[:filter].nil?
+        data['filter'] = OrganizationEventFilter.build(input[:filter]) unless input[:filter].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['locale'] = input[:locale] unless input[:locale].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -430,17 +432,17 @@ module AWS::SDK::Health
     class OrganizationEventFilter
       def self.build(input)
         data = {}
-        data['eventTypeCodes'] = Builders::EventTypeList2.build(input[:event_type_codes]) unless input[:event_type_codes].nil?
-        data['awsAccountIds'] = Builders::AwsAccountIdsList.build(input[:aws_account_ids]) unless input[:aws_account_ids].nil?
-        data['services'] = Builders::ServiceList.build(input[:services]) unless input[:services].nil?
-        data['regions'] = Builders::RegionList.build(input[:regions]) unless input[:regions].nil?
-        data['startTime'] = Builders::DateTimeRange.build(input[:start_time]) unless input[:start_time].nil?
-        data['endTime'] = Builders::DateTimeRange.build(input[:end_time]) unless input[:end_time].nil?
-        data['lastUpdatedTime'] = Builders::DateTimeRange.build(input[:last_updated_time]) unless input[:last_updated_time].nil?
-        data['entityArns'] = Builders::EntityArnList.build(input[:entity_arns]) unless input[:entity_arns].nil?
-        data['entityValues'] = Builders::EntityValueList.build(input[:entity_values]) unless input[:entity_values].nil?
-        data['eventTypeCategories'] = Builders::EventTypeCategoryList2.build(input[:event_type_categories]) unless input[:event_type_categories].nil?
-        data['eventStatusCodes'] = Builders::EventStatusCodeList.build(input[:event_status_codes]) unless input[:event_status_codes].nil?
+        data['eventTypeCodes'] = EventTypeList2.build(input[:event_type_codes]) unless input[:event_type_codes].nil?
+        data['awsAccountIds'] = AwsAccountIdsList.build(input[:aws_account_ids]) unless input[:aws_account_ids].nil?
+        data['services'] = ServiceList.build(input[:services]) unless input[:services].nil?
+        data['regions'] = RegionList.build(input[:regions]) unless input[:regions].nil?
+        data['startTime'] = DateTimeRange.build(input[:start_time]) unless input[:start_time].nil?
+        data['endTime'] = DateTimeRange.build(input[:end_time]) unless input[:end_time].nil?
+        data['lastUpdatedTime'] = DateTimeRange.build(input[:last_updated_time]) unless input[:last_updated_time].nil?
+        data['entityArns'] = EntityArnList.build(input[:entity_arns]) unless input[:entity_arns].nil?
+        data['entityValues'] = EntityValueList.build(input[:entity_values]) unless input[:entity_values].nil?
+        data['eventTypeCategories'] = EventTypeCategoryList2.build(input[:event_type_categories]) unless input[:event_type_categories].nil?
+        data['eventStatusCodes'] = EventStatusCodeList.build(input[:event_status_codes]) unless input[:event_status_codes].nil?
         data
       end
     end
@@ -464,7 +466,7 @@ module AWS::SDK::Health
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHealth_20160804.DescribeHealthServiceStatusForOrganization'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -476,7 +478,7 @@ module AWS::SDK::Health
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHealth_20160804.DisableHealthServiceAccessForOrganization'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -488,7 +490,7 @@ module AWS::SDK::Health
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSHealth_20160804.EnableHealthServiceAccessForOrganization'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Signer
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::Signer
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['revisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -71,25 +73,25 @@ module AWS::SDK::Signer
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
-        data['source'] = Stubs::Source.stub(stub[:source]) unless stub[:source].nil?
-        data['signingMaterial'] = Stubs::SigningMaterial.stub(stub[:signing_material]) unless stub[:signing_material].nil?
+        data['source'] = Source.stub(stub[:source]) unless stub[:source].nil?
+        data['signingMaterial'] = SigningMaterial.stub(stub[:signing_material]) unless stub[:signing_material].nil?
         data['platformId'] = stub[:platform_id] unless stub[:platform_id].nil?
         data['platformDisplayName'] = stub[:platform_display_name] unless stub[:platform_display_name].nil?
         data['profileName'] = stub[:profile_name] unless stub[:profile_name].nil?
         data['profileVersion'] = stub[:profile_version] unless stub[:profile_version].nil?
-        data['overrides'] = Stubs::SigningPlatformOverrides.stub(stub[:overrides]) unless stub[:overrides].nil?
-        data['signingParameters'] = Stubs::SigningParameters.stub(stub[:signing_parameters]) unless stub[:signing_parameters].nil?
+        data['overrides'] = SigningPlatformOverrides.stub(stub[:overrides]) unless stub[:overrides].nil?
+        data['signingParameters'] = SigningParameters.stub(stub[:signing_parameters]) unless stub[:signing_parameters].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['completedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:completed_at]).to_i unless stub[:completed_at].nil?
         data['signatureExpiresAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:signature_expires_at]).to_i unless stub[:signature_expires_at].nil?
         data['requestedBy'] = stub[:requested_by] unless stub[:requested_by].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
-        data['revocationRecord'] = Stubs::SigningJobRevocationRecord.stub(stub[:revocation_record]) unless stub[:revocation_record].nil?
-        data['signedObject'] = Stubs::SignedObject.stub(stub[:signed_object]) unless stub[:signed_object].nil?
+        data['revocationRecord'] = SigningJobRevocationRecord.stub(stub[:revocation_record]) unless stub[:revocation_record].nil?
+        data['signedObject'] = SignedObject.stub(stub[:signed_object]) unless stub[:signed_object].nil?
         data['jobOwner'] = stub[:job_owner] unless stub[:job_owner].nil?
         data['jobInvoker'] = stub[:job_invoker] unless stub[:job_invoker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -106,7 +108,7 @@ module AWS::SDK::Signer
       def self.stub(stub)
         stub ||= Types::SignedObject.new
         data = {}
-        data['s3'] = Stubs::S3SignedObject.stub(stub[:s3]) unless stub[:s3].nil?
+        data['s3'] = S3SignedObject.stub(stub[:s3]) unless stub[:s3].nil?
         data
       end
     end
@@ -187,7 +189,7 @@ module AWS::SDK::Signer
       def self.stub(stub)
         stub ||= Types::SigningPlatformOverrides.new
         data = {}
-        data['signingConfiguration'] = Stubs::SigningConfigurationOverrides.stub(stub[:signing_configuration]) unless stub[:signing_configuration].nil?
+        data['signingConfiguration'] = SigningConfigurationOverrides.stub(stub[:signing_configuration]) unless stub[:signing_configuration].nil?
         data['signingImageFormat'] = stub[:signing_image_format] unless stub[:signing_image_format].nil?
         data
       end
@@ -244,7 +246,7 @@ module AWS::SDK::Signer
       def self.stub(stub)
         stub ||= Types::Source.new
         data = {}
-        data['s3'] = Stubs::S3Source.stub(stub[:s3]) unless stub[:s3].nil?
+        data['s3'] = S3Source.stub(stub[:s3]) unless stub[:s3].nil?
         data
       end
     end
@@ -296,11 +298,11 @@ module AWS::SDK::Signer
         data['partner'] = stub[:partner] unless stub[:partner].nil?
         data['target'] = stub[:target] unless stub[:target].nil?
         data['category'] = stub[:category] unless stub[:category].nil?
-        data['signingConfiguration'] = Stubs::SigningConfiguration.stub(stub[:signing_configuration]) unless stub[:signing_configuration].nil?
-        data['signingImageFormat'] = Stubs::SigningImageFormat.stub(stub[:signing_image_format]) unless stub[:signing_image_format].nil?
+        data['signingConfiguration'] = SigningConfiguration.stub(stub[:signing_configuration]) unless stub[:signing_configuration].nil?
+        data['signingImageFormat'] = SigningImageFormat.stub(stub[:signing_image_format]) unless stub[:signing_image_format].nil?
         data['maxSizeInMB'] = stub[:max_size_in_mb] unless stub[:max_size_in_mb].nil?
         data['revocationSupported'] = stub[:revocation_supported] unless stub[:revocation_supported].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -318,7 +320,7 @@ module AWS::SDK::Signer
       def self.stub(stub)
         stub ||= Types::SigningImageFormat.new
         data = {}
-        data['supportedFormats'] = Stubs::ImageFormats.stub(stub[:supported_formats]) unless stub[:supported_formats].nil?
+        data['supportedFormats'] = ImageFormats.stub(stub[:supported_formats]) unless stub[:supported_formats].nil?
         data['defaultFormat'] = stub[:default_format] unless stub[:default_format].nil?
         data
       end
@@ -358,8 +360,8 @@ module AWS::SDK::Signer
       def self.stub(stub)
         stub ||= Types::SigningConfiguration.new
         data = {}
-        data['encryptionAlgorithmOptions'] = Stubs::EncryptionAlgorithmOptions.stub(stub[:encryption_algorithm_options]) unless stub[:encryption_algorithm_options].nil?
-        data['hashAlgorithmOptions'] = Stubs::HashAlgorithmOptions.stub(stub[:hash_algorithm_options]) unless stub[:hash_algorithm_options].nil?
+        data['encryptionAlgorithmOptions'] = EncryptionAlgorithmOptions.stub(stub[:encryption_algorithm_options]) unless stub[:encryption_algorithm_options].nil?
+        data['hashAlgorithmOptions'] = HashAlgorithmOptions.stub(stub[:hash_algorithm_options]) unless stub[:hash_algorithm_options].nil?
         data
       end
     end
@@ -378,7 +380,7 @@ module AWS::SDK::Signer
       def self.stub(stub)
         stub ||= Types::HashAlgorithmOptions.new
         data = {}
-        data['allowedValues'] = Stubs::HashAlgorithms.stub(stub[:allowed_values]) unless stub[:allowed_values].nil?
+        data['allowedValues'] = HashAlgorithms.stub(stub[:allowed_values]) unless stub[:allowed_values].nil?
         data['defaultValue'] = stub[:default_value] unless stub[:default_value].nil?
         data
       end
@@ -418,7 +420,7 @@ module AWS::SDK::Signer
       def self.stub(stub)
         stub ||= Types::EncryptionAlgorithmOptions.new
         data = {}
-        data['allowedValues'] = Stubs::EncryptionAlgorithms.stub(stub[:allowed_values]) unless stub[:allowed_values].nil?
+        data['allowedValues'] = EncryptionAlgorithms.stub(stub[:allowed_values]) unless stub[:allowed_values].nil?
         data['defaultValue'] = stub[:default_value] unless stub[:default_value].nil?
         data
       end
@@ -472,18 +474,18 @@ module AWS::SDK::Signer
         data['profileName'] = stub[:profile_name] unless stub[:profile_name].nil?
         data['profileVersion'] = stub[:profile_version] unless stub[:profile_version].nil?
         data['profileVersionArn'] = stub[:profile_version_arn] unless stub[:profile_version_arn].nil?
-        data['revocationRecord'] = Stubs::SigningProfileRevocationRecord.stub(stub[:revocation_record]) unless stub[:revocation_record].nil?
-        data['signingMaterial'] = Stubs::SigningMaterial.stub(stub[:signing_material]) unless stub[:signing_material].nil?
+        data['revocationRecord'] = SigningProfileRevocationRecord.stub(stub[:revocation_record]) unless stub[:revocation_record].nil?
+        data['signingMaterial'] = SigningMaterial.stub(stub[:signing_material]) unless stub[:signing_material].nil?
         data['platformId'] = stub[:platform_id] unless stub[:platform_id].nil?
         data['platformDisplayName'] = stub[:platform_display_name] unless stub[:platform_display_name].nil?
-        data['signatureValidityPeriod'] = Stubs::SignatureValidityPeriod.stub(stub[:signature_validity_period]) unless stub[:signature_validity_period].nil?
-        data['overrides'] = Stubs::SigningPlatformOverrides.stub(stub[:overrides]) unless stub[:overrides].nil?
-        data['signingParameters'] = Stubs::SigningParameters.stub(stub[:signing_parameters]) unless stub[:signing_parameters].nil?
+        data['signatureValidityPeriod'] = SignatureValidityPeriod.stub(stub[:signature_validity_period]) unless stub[:signature_validity_period].nil?
+        data['overrides'] = SigningPlatformOverrides.stub(stub[:overrides]) unless stub[:overrides].nil?
+        data['signingParameters'] = SigningParameters.stub(stub[:signing_parameters]) unless stub[:signing_parameters].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -566,9 +568,9 @@ module AWS::SDK::Signer
         http_resp.headers['Content-Type'] = 'application/json'
         data['revisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
         data['policySizeBytes'] = stub[:policy_size_bytes] unless stub[:policy_size_bytes].nil?
-        data['permissions'] = Stubs::Permissions.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['permissions'] = Permissions.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -586,7 +588,7 @@ module AWS::SDK::Signer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Permission.stub(element) unless element.nil?
+          data << Permission.stub(element) unless element.nil?
         end
         data
       end
@@ -629,9 +631,9 @@ module AWS::SDK::Signer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobs'] = Stubs::SigningJobs.stub(stub[:jobs]) unless stub[:jobs].nil?
+        data['jobs'] = SigningJobs.stub(stub[:jobs]) unless stub[:jobs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -649,7 +651,7 @@ module AWS::SDK::Signer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SigningJob.stub(element) unless element.nil?
+          data << SigningJob.stub(element) unless element.nil?
         end
         data
       end
@@ -682,9 +684,9 @@ module AWS::SDK::Signer
         stub ||= Types::SigningJob.new
         data = {}
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
-        data['source'] = Stubs::Source.stub(stub[:source]) unless stub[:source].nil?
-        data['signedObject'] = Stubs::SignedObject.stub(stub[:signed_object]) unless stub[:signed_object].nil?
-        data['signingMaterial'] = Stubs::SigningMaterial.stub(stub[:signing_material]) unless stub[:signing_material].nil?
+        data['source'] = Source.stub(stub[:source]) unless stub[:source].nil?
+        data['signedObject'] = SignedObject.stub(stub[:signed_object]) unless stub[:signed_object].nil?
+        data['signingMaterial'] = SigningMaterial.stub(stub[:signing_material]) unless stub[:signing_material].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['isRevoked'] = stub[:is_revoked] unless stub[:is_revoked].nil?
@@ -712,9 +714,9 @@ module AWS::SDK::Signer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['platforms'] = Stubs::SigningPlatforms.stub(stub[:platforms]) unless stub[:platforms].nil?
+        data['platforms'] = SigningPlatforms.stub(stub[:platforms]) unless stub[:platforms].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -732,7 +734,7 @@ module AWS::SDK::Signer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SigningPlatform.stub(element) unless element.nil?
+          data << SigningPlatform.stub(element) unless element.nil?
         end
         data
       end
@@ -764,8 +766,8 @@ module AWS::SDK::Signer
         data['partner'] = stub[:partner] unless stub[:partner].nil?
         data['target'] = stub[:target] unless stub[:target].nil?
         data['category'] = stub[:category] unless stub[:category].nil?
-        data['signingConfiguration'] = Stubs::SigningConfiguration.stub(stub[:signing_configuration]) unless stub[:signing_configuration].nil?
-        data['signingImageFormat'] = Stubs::SigningImageFormat.stub(stub[:signing_image_format]) unless stub[:signing_image_format].nil?
+        data['signingConfiguration'] = SigningConfiguration.stub(stub[:signing_configuration]) unless stub[:signing_configuration].nil?
+        data['signingImageFormat'] = SigningImageFormat.stub(stub[:signing_image_format]) unless stub[:signing_image_format].nil?
         data['maxSizeInMB'] = stub[:max_size_in_mb] unless stub[:max_size_in_mb].nil?
         data['revocationSupported'] = stub[:revocation_supported] unless stub[:revocation_supported].nil?
         data
@@ -785,9 +787,9 @@ module AWS::SDK::Signer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['profiles'] = Stubs::SigningProfiles.stub(stub[:profiles]) unless stub[:profiles].nil?
+        data['profiles'] = SigningProfiles.stub(stub[:profiles]) unless stub[:profiles].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -805,7 +807,7 @@ module AWS::SDK::Signer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SigningProfile.stub(element) unless element.nil?
+          data << SigningProfile.stub(element) unless element.nil?
         end
         data
       end
@@ -837,14 +839,14 @@ module AWS::SDK::Signer
         data['profileName'] = stub[:profile_name] unless stub[:profile_name].nil?
         data['profileVersion'] = stub[:profile_version] unless stub[:profile_version].nil?
         data['profileVersionArn'] = stub[:profile_version_arn] unless stub[:profile_version_arn].nil?
-        data['signingMaterial'] = Stubs::SigningMaterial.stub(stub[:signing_material]) unless stub[:signing_material].nil?
-        data['signatureValidityPeriod'] = Stubs::SignatureValidityPeriod.stub(stub[:signature_validity_period]) unless stub[:signature_validity_period].nil?
+        data['signingMaterial'] = SigningMaterial.stub(stub[:signing_material]) unless stub[:signing_material].nil?
+        data['signatureValidityPeriod'] = SignatureValidityPeriod.stub(stub[:signature_validity_period]) unless stub[:signature_validity_period].nil?
         data['platformId'] = stub[:platform_id] unless stub[:platform_id].nil?
         data['platformDisplayName'] = stub[:platform_display_name] unless stub[:platform_display_name].nil?
-        data['signingParameters'] = Stubs::SigningParameters.stub(stub[:signing_parameters]) unless stub[:signing_parameters].nil?
+        data['signingParameters'] = SigningParameters.stub(stub[:signing_parameters]) unless stub[:signing_parameters].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -861,8 +863,8 @@ module AWS::SDK::Signer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -883,7 +885,7 @@ module AWS::SDK::Signer
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['profileVersion'] = stub[:profile_version] unless stub[:profile_version].nil?
         data['profileVersionArn'] = stub[:profile_version_arn] unless stub[:profile_version_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -900,7 +902,7 @@ module AWS::SDK::Signer
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['revisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -945,7 +947,7 @@ module AWS::SDK::Signer
         http_resp.headers['Content-Type'] = 'application/json'
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['jobOwner'] = stub[:job_owner] unless stub[:job_owner].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

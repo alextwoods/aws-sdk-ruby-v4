@@ -15,7 +15,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::CreateAppOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.application_response = Parsers::ApplicationResponse.parse(json)
+        data.application_response = ApplicationResponse.parse(json)
         data
       end
     end
@@ -26,7 +26,7 @@ module AWS::SDK::Pinpoint
         data.arn = map['Arn']
         data.id = map['Id']
         data.name = map['Name']
-        data.tags = (Parsers::MapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (MapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.creation_date = map['CreationDate']
         return data
       end
@@ -124,7 +124,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::CreateCampaignOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.campaign_response = Parsers::CampaignResponse.parse(json)
+        data.campaign_response = CampaignResponse.parse(json)
         data
       end
     end
@@ -132,27 +132,27 @@ module AWS::SDK::Pinpoint
     class CampaignResponse
       def self.parse(map)
         data = Types::CampaignResponse.new
-        data.additional_treatments = (Parsers::ListOfTreatmentResource.parse(map['AdditionalTreatments']) unless map['AdditionalTreatments'].nil?)
+        data.additional_treatments = (ListOfTreatmentResource.parse(map['AdditionalTreatments']) unless map['AdditionalTreatments'].nil?)
         data.application_id = map['ApplicationId']
         data.arn = map['Arn']
         data.creation_date = map['CreationDate']
-        data.custom_delivery_configuration = (Parsers::CustomDeliveryConfiguration.parse(map['CustomDeliveryConfiguration']) unless map['CustomDeliveryConfiguration'].nil?)
-        data.default_state = (Parsers::CampaignState.parse(map['DefaultState']) unless map['DefaultState'].nil?)
+        data.custom_delivery_configuration = (CustomDeliveryConfiguration.parse(map['CustomDeliveryConfiguration']) unless map['CustomDeliveryConfiguration'].nil?)
+        data.default_state = (CampaignState.parse(map['DefaultState']) unless map['DefaultState'].nil?)
         data.description = map['Description']
         data.holdout_percent = map['HoldoutPercent']
-        data.hook = (Parsers::CampaignHook.parse(map['Hook']) unless map['Hook'].nil?)
+        data.hook = (CampaignHook.parse(map['Hook']) unless map['Hook'].nil?)
         data.id = map['Id']
         data.is_paused = map['IsPaused']
         data.last_modified_date = map['LastModifiedDate']
-        data.limits = (Parsers::CampaignLimits.parse(map['Limits']) unless map['Limits'].nil?)
-        data.message_configuration = (Parsers::MessageConfiguration.parse(map['MessageConfiguration']) unless map['MessageConfiguration'].nil?)
+        data.limits = (CampaignLimits.parse(map['Limits']) unless map['Limits'].nil?)
+        data.message_configuration = (MessageConfiguration.parse(map['MessageConfiguration']) unless map['MessageConfiguration'].nil?)
         data.name = map['Name']
-        data.schedule = (Parsers::Schedule.parse(map['Schedule']) unless map['Schedule'].nil?)
+        data.schedule = (Schedule.parse(map['Schedule']) unless map['Schedule'].nil?)
         data.segment_id = map['SegmentId']
         data.segment_version = map['SegmentVersion']
-        data.state = (Parsers::CampaignState.parse(map['State']) unless map['State'].nil?)
-        data.tags = (Parsers::MapOf__string.parse(map['tags']) unless map['tags'].nil?)
-        data.template_configuration = (Parsers::TemplateConfiguration.parse(map['TemplateConfiguration']) unless map['TemplateConfiguration'].nil?)
+        data.state = (CampaignState.parse(map['State']) unless map['State'].nil?)
+        data.tags = (MapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.template_configuration = (TemplateConfiguration.parse(map['TemplateConfiguration']) unless map['TemplateConfiguration'].nil?)
         data.treatment_description = map['TreatmentDescription']
         data.treatment_name = map['TreatmentName']
         data.version = map['Version']
@@ -164,10 +164,10 @@ module AWS::SDK::Pinpoint
     class TemplateConfiguration
       def self.parse(map)
         data = Types::TemplateConfiguration.new
-        data.email_template = (Parsers::Template.parse(map['EmailTemplate']) unless map['EmailTemplate'].nil?)
-        data.push_template = (Parsers::Template.parse(map['PushTemplate']) unless map['PushTemplate'].nil?)
-        data.sms_template = (Parsers::Template.parse(map['SMSTemplate']) unless map['SMSTemplate'].nil?)
-        data.voice_template = (Parsers::Template.parse(map['VoiceTemplate']) unless map['VoiceTemplate'].nil?)
+        data.email_template = (Template.parse(map['EmailTemplate']) unless map['EmailTemplate'].nil?)
+        data.push_template = (Template.parse(map['PushTemplate']) unless map['PushTemplate'].nil?)
+        data.sms_template = (Template.parse(map['SMSTemplate']) unless map['SMSTemplate'].nil?)
+        data.voice_template = (Template.parse(map['VoiceTemplate']) unless map['VoiceTemplate'].nil?)
         return data
       end
     end
@@ -193,10 +193,10 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = Types::Schedule.new
         data.end_time = map['EndTime']
-        data.event_filter = (Parsers::CampaignEventFilter.parse(map['EventFilter']) unless map['EventFilter'].nil?)
+        data.event_filter = (CampaignEventFilter.parse(map['EventFilter']) unless map['EventFilter'].nil?)
         data.frequency = map['Frequency']
         data.is_local_time = map['IsLocalTime']
-        data.quiet_time = (Parsers::QuietTime.parse(map['QuietTime']) unless map['QuietTime'].nil?)
+        data.quiet_time = (QuietTime.parse(map['QuietTime']) unless map['QuietTime'].nil?)
         data.start_time = map['StartTime']
         data.timezone = map['Timezone']
         return data
@@ -215,7 +215,7 @@ module AWS::SDK::Pinpoint
     class CampaignEventFilter
       def self.parse(map)
         data = Types::CampaignEventFilter.new
-        data.dimensions = (Parsers::EventDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.dimensions = (EventDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
         data.filter_type = map['FilterType']
         return data
       end
@@ -224,9 +224,9 @@ module AWS::SDK::Pinpoint
     class EventDimensions
       def self.parse(map)
         data = Types::EventDimensions.new
-        data.attributes = (Parsers::MapOfAttributeDimension.parse(map['Attributes']) unless map['Attributes'].nil?)
-        data.event_type = (Parsers::SetDimension.parse(map['EventType']) unless map['EventType'].nil?)
-        data.metrics = (Parsers::MapOfMetricDimension.parse(map['Metrics']) unless map['Metrics'].nil?)
+        data.attributes = (MapOfAttributeDimension.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.event_type = (SetDimension.parse(map['EventType']) unless map['EventType'].nil?)
+        data.metrics = (MapOfMetricDimension.parse(map['Metrics']) unless map['Metrics'].nil?)
         return data
       end
     end
@@ -235,7 +235,7 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::MetricDimension.parse(value) unless value.nil?
+          data[key] = MetricDimension.parse(value) unless value.nil?
         end
         data
       end
@@ -254,7 +254,7 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = Types::SetDimension.new
         data.dimension_type = map['DimensionType']
-        data.values = (Parsers::ListOf__string.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (ListOf__string.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -273,7 +273,7 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::AttributeDimension.parse(value) unless value.nil?
+          data[key] = AttributeDimension.parse(value) unless value.nil?
         end
         data
       end
@@ -283,7 +283,7 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = Types::AttributeDimension.new
         data.attribute_type = map['AttributeType']
-        data.values = (Parsers::ListOf__string.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (ListOf__string.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -291,15 +291,15 @@ module AWS::SDK::Pinpoint
     class MessageConfiguration
       def self.parse(map)
         data = Types::MessageConfiguration.new
-        data.adm_message = (Parsers::Message.parse(map['ADMMessage']) unless map['ADMMessage'].nil?)
-        data.apns_message = (Parsers::Message.parse(map['APNSMessage']) unless map['APNSMessage'].nil?)
-        data.baidu_message = (Parsers::Message.parse(map['BaiduMessage']) unless map['BaiduMessage'].nil?)
-        data.custom_message = (Parsers::CampaignCustomMessage.parse(map['CustomMessage']) unless map['CustomMessage'].nil?)
-        data.default_message = (Parsers::Message.parse(map['DefaultMessage']) unless map['DefaultMessage'].nil?)
-        data.email_message = (Parsers::CampaignEmailMessage.parse(map['EmailMessage']) unless map['EmailMessage'].nil?)
-        data.gcm_message = (Parsers::Message.parse(map['GCMMessage']) unless map['GCMMessage'].nil?)
-        data.sms_message = (Parsers::CampaignSmsMessage.parse(map['SMSMessage']) unless map['SMSMessage'].nil?)
-        data.in_app_message = (Parsers::CampaignInAppMessage.parse(map['InAppMessage']) unless map['InAppMessage'].nil?)
+        data.adm_message = (Message.parse(map['ADMMessage']) unless map['ADMMessage'].nil?)
+        data.apns_message = (Message.parse(map['APNSMessage']) unless map['APNSMessage'].nil?)
+        data.baidu_message = (Message.parse(map['BaiduMessage']) unless map['BaiduMessage'].nil?)
+        data.custom_message = (CampaignCustomMessage.parse(map['CustomMessage']) unless map['CustomMessage'].nil?)
+        data.default_message = (Message.parse(map['DefaultMessage']) unless map['DefaultMessage'].nil?)
+        data.email_message = (CampaignEmailMessage.parse(map['EmailMessage']) unless map['EmailMessage'].nil?)
+        data.gcm_message = (Message.parse(map['GCMMessage']) unless map['GCMMessage'].nil?)
+        data.sms_message = (CampaignSmsMessage.parse(map['SMSMessage']) unless map['SMSMessage'].nil?)
+        data.in_app_message = (CampaignInAppMessage.parse(map['InAppMessage']) unless map['InAppMessage'].nil?)
         return data
       end
     end
@@ -308,8 +308,8 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = Types::CampaignInAppMessage.new
         data.body = map['Body']
-        data.content = (Parsers::ListOfInAppMessageContent.parse(map['Content']) unless map['Content'].nil?)
-        data.custom_config = (Parsers::MapOf__string.parse(map['CustomConfig']) unless map['CustomConfig'].nil?)
+        data.content = (ListOfInAppMessageContent.parse(map['Content']) unless map['Content'].nil?)
+        data.custom_config = (MapOf__string.parse(map['CustomConfig']) unless map['CustomConfig'].nil?)
         data.layout = map['Layout']
         return data
       end
@@ -319,7 +319,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InAppMessageContent.parse(value) unless value.nil?
+          data << InAppMessageContent.parse(value) unless value.nil?
         end
         data
       end
@@ -329,11 +329,11 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = Types::InAppMessageContent.new
         data.background_color = map['BackgroundColor']
-        data.body_config = (Parsers::InAppMessageBodyConfig.parse(map['BodyConfig']) unless map['BodyConfig'].nil?)
-        data.header_config = (Parsers::InAppMessageHeaderConfig.parse(map['HeaderConfig']) unless map['HeaderConfig'].nil?)
+        data.body_config = (InAppMessageBodyConfig.parse(map['BodyConfig']) unless map['BodyConfig'].nil?)
+        data.header_config = (InAppMessageHeaderConfig.parse(map['HeaderConfig']) unless map['HeaderConfig'].nil?)
         data.image_url = map['ImageUrl']
-        data.primary_btn = (Parsers::InAppMessageButton.parse(map['PrimaryBtn']) unless map['PrimaryBtn'].nil?)
-        data.secondary_btn = (Parsers::InAppMessageButton.parse(map['SecondaryBtn']) unless map['SecondaryBtn'].nil?)
+        data.primary_btn = (InAppMessageButton.parse(map['PrimaryBtn']) unless map['PrimaryBtn'].nil?)
+        data.secondary_btn = (InAppMessageButton.parse(map['SecondaryBtn']) unless map['SecondaryBtn'].nil?)
         return data
       end
     end
@@ -341,10 +341,10 @@ module AWS::SDK::Pinpoint
     class InAppMessageButton
       def self.parse(map)
         data = Types::InAppMessageButton.new
-        data.android = (Parsers::OverrideButtonConfiguration.parse(map['Android']) unless map['Android'].nil?)
-        data.default_config = (Parsers::DefaultButtonConfiguration.parse(map['DefaultConfig']) unless map['DefaultConfig'].nil?)
-        data.ios = (Parsers::OverrideButtonConfiguration.parse(map['IOS']) unless map['IOS'].nil?)
-        data.web = (Parsers::OverrideButtonConfiguration.parse(map['Web']) unless map['Web'].nil?)
+        data.android = (OverrideButtonConfiguration.parse(map['Android']) unless map['Android'].nil?)
+        data.default_config = (DefaultButtonConfiguration.parse(map['DefaultConfig']) unless map['DefaultConfig'].nil?)
+        data.ios = (OverrideButtonConfiguration.parse(map['IOS']) unless map['IOS'].nil?)
+        data.web = (OverrideButtonConfiguration.parse(map['Web']) unless map['Web'].nil?)
         return data
       end
     end
@@ -468,7 +468,7 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = Types::CustomDeliveryConfiguration.new
         data.delivery_uri = map['DeliveryUri']
-        data.endpoint_types = (Parsers::ListOf__EndpointTypesElement.parse(map['EndpointTypes']) unless map['EndpointTypes'].nil?)
+        data.endpoint_types = (ListOf__EndpointTypesElement.parse(map['EndpointTypes']) unless map['EndpointTypes'].nil?)
         return data
       end
     end
@@ -487,7 +487,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TreatmentResource.parse(value) unless value.nil?
+          data << TreatmentResource.parse(value) unless value.nil?
         end
         data
       end
@@ -496,13 +496,13 @@ module AWS::SDK::Pinpoint
     class TreatmentResource
       def self.parse(map)
         data = Types::TreatmentResource.new
-        data.custom_delivery_configuration = (Parsers::CustomDeliveryConfiguration.parse(map['CustomDeliveryConfiguration']) unless map['CustomDeliveryConfiguration'].nil?)
+        data.custom_delivery_configuration = (CustomDeliveryConfiguration.parse(map['CustomDeliveryConfiguration']) unless map['CustomDeliveryConfiguration'].nil?)
         data.id = map['Id']
-        data.message_configuration = (Parsers::MessageConfiguration.parse(map['MessageConfiguration']) unless map['MessageConfiguration'].nil?)
-        data.schedule = (Parsers::Schedule.parse(map['Schedule']) unless map['Schedule'].nil?)
+        data.message_configuration = (MessageConfiguration.parse(map['MessageConfiguration']) unless map['MessageConfiguration'].nil?)
+        data.schedule = (Schedule.parse(map['Schedule']) unless map['Schedule'].nil?)
         data.size_percent = map['SizePercent']
-        data.state = (Parsers::CampaignState.parse(map['State']) unless map['State'].nil?)
-        data.template_configuration = (Parsers::TemplateConfiguration.parse(map['TemplateConfiguration']) unless map['TemplateConfiguration'].nil?)
+        data.state = (CampaignState.parse(map['State']) unless map['State'].nil?)
+        data.template_configuration = (TemplateConfiguration.parse(map['TemplateConfiguration']) unless map['TemplateConfiguration'].nil?)
         data.treatment_description = map['TreatmentDescription']
         data.treatment_name = map['TreatmentName']
         return data
@@ -514,7 +514,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::CreateEmailTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.create_template_message_body = Parsers::CreateTemplateMessageBody.parse(json)
+        data.create_template_message_body = CreateTemplateMessageBody.parse(json)
         data
       end
     end
@@ -534,7 +534,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::CreateExportJobOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.export_job_response = Parsers::ExportJobResponse.parse(json)
+        data.export_job_response = ExportJobResponse.parse(json)
         data
       end
     end
@@ -546,9 +546,9 @@ module AWS::SDK::Pinpoint
         data.completed_pieces = map['CompletedPieces']
         data.completion_date = map['CompletionDate']
         data.creation_date = map['CreationDate']
-        data.definition = (Parsers::ExportJobResource.parse(map['Definition']) unless map['Definition'].nil?)
+        data.definition = (ExportJobResource.parse(map['Definition']) unless map['Definition'].nil?)
         data.failed_pieces = map['FailedPieces']
-        data.failures = (Parsers::ListOf__string.parse(map['Failures']) unless map['Failures'].nil?)
+        data.failures = (ListOf__string.parse(map['Failures']) unless map['Failures'].nil?)
         data.id = map['Id']
         data.job_status = map['JobStatus']
         data.total_failures = map['TotalFailures']
@@ -575,7 +575,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::CreateImportJobOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.import_job_response = Parsers::ImportJobResponse.parse(json)
+        data.import_job_response = ImportJobResponse.parse(json)
         data
       end
     end
@@ -587,9 +587,9 @@ module AWS::SDK::Pinpoint
         data.completed_pieces = map['CompletedPieces']
         data.completion_date = map['CompletionDate']
         data.creation_date = map['CreationDate']
-        data.definition = (Parsers::ImportJobResource.parse(map['Definition']) unless map['Definition'].nil?)
+        data.definition = (ImportJobResource.parse(map['Definition']) unless map['Definition'].nil?)
         data.failed_pieces = map['FailedPieces']
-        data.failures = (Parsers::ListOf__string.parse(map['Failures']) unless map['Failures'].nil?)
+        data.failures = (ListOf__string.parse(map['Failures']) unless map['Failures'].nil?)
         data.id = map['Id']
         data.job_status = map['JobStatus']
         data.total_failures = map['TotalFailures']
@@ -620,7 +620,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::CreateInAppTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.template_create_message_body = Parsers::TemplateCreateMessageBody.parse(json)
+        data.template_create_message_body = TemplateCreateMessageBody.parse(json)
         data
       end
     end
@@ -640,7 +640,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::CreateJourneyOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.journey_response = Parsers::JourneyResponse.parse(json)
+        data.journey_response = JourneyResponse.parse(json)
         data
       end
     end
@@ -648,24 +648,24 @@ module AWS::SDK::Pinpoint
     class JourneyResponse
       def self.parse(map)
         data = Types::JourneyResponse.new
-        data.activities = (Parsers::MapOfActivity.parse(map['Activities']) unless map['Activities'].nil?)
+        data.activities = (MapOfActivity.parse(map['Activities']) unless map['Activities'].nil?)
         data.application_id = map['ApplicationId']
         data.creation_date = map['CreationDate']
         data.id = map['Id']
         data.last_modified_date = map['LastModifiedDate']
-        data.limits = (Parsers::JourneyLimits.parse(map['Limits']) unless map['Limits'].nil?)
+        data.limits = (JourneyLimits.parse(map['Limits']) unless map['Limits'].nil?)
         data.local_time = map['LocalTime']
         data.name = map['Name']
-        data.quiet_time = (Parsers::QuietTime.parse(map['QuietTime']) unless map['QuietTime'].nil?)
+        data.quiet_time = (QuietTime.parse(map['QuietTime']) unless map['QuietTime'].nil?)
         data.refresh_frequency = map['RefreshFrequency']
-        data.schedule = (Parsers::JourneySchedule.parse(map['Schedule']) unless map['Schedule'].nil?)
+        data.schedule = (JourneySchedule.parse(map['Schedule']) unless map['Schedule'].nil?)
         data.start_activity = map['StartActivity']
-        data.start_condition = (Parsers::StartCondition.parse(map['StartCondition']) unless map['StartCondition'].nil?)
+        data.start_condition = (StartCondition.parse(map['StartCondition']) unless map['StartCondition'].nil?)
         data.state = map['State']
-        data.tags = (Parsers::MapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (MapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.wait_for_quiet_time = map['WaitForQuietTime']
         data.refresh_on_segment_update = map['RefreshOnSegmentUpdate']
-        data.journey_channel_settings = (Parsers::JourneyChannelSettings.parse(map['JourneyChannelSettings']) unless map['JourneyChannelSettings'].nil?)
+        data.journey_channel_settings = (JourneyChannelSettings.parse(map['JourneyChannelSettings']) unless map['JourneyChannelSettings'].nil?)
         return data
       end
     end
@@ -683,8 +683,8 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = Types::StartCondition.new
         data.description = map['Description']
-        data.event_start_condition = (Parsers::EventStartCondition.parse(map['EventStartCondition']) unless map['EventStartCondition'].nil?)
-        data.segment_start_condition = (Parsers::SegmentCondition.parse(map['SegmentStartCondition']) unless map['SegmentStartCondition'].nil?)
+        data.event_start_condition = (EventStartCondition.parse(map['EventStartCondition']) unless map['EventStartCondition'].nil?)
+        data.segment_start_condition = (SegmentCondition.parse(map['SegmentStartCondition']) unless map['SegmentStartCondition'].nil?)
         return data
       end
     end
@@ -700,7 +700,7 @@ module AWS::SDK::Pinpoint
     class EventStartCondition
       def self.parse(map)
         data = Types::EventStartCondition.new
-        data.event_filter = (Parsers::EventFilter.parse(map['EventFilter']) unless map['EventFilter'].nil?)
+        data.event_filter = (EventFilter.parse(map['EventFilter']) unless map['EventFilter'].nil?)
         data.segment_id = map['SegmentId']
         return data
       end
@@ -709,7 +709,7 @@ module AWS::SDK::Pinpoint
     class EventFilter
       def self.parse(map)
         data = Types::EventFilter.new
-        data.dimensions = (Parsers::EventDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.dimensions = (EventDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
         data.filter_type = map['FilterType']
         return data
       end
@@ -740,7 +740,7 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::Activity.parse(value) unless value.nil?
+          data[key] = Activity.parse(value) unless value.nil?
         end
         data
       end
@@ -749,17 +749,17 @@ module AWS::SDK::Pinpoint
     class Activity
       def self.parse(map)
         data = Types::Activity.new
-        data.custom = (Parsers::CustomMessageActivity.parse(map['CUSTOM']) unless map['CUSTOM'].nil?)
-        data.conditional_split = (Parsers::ConditionalSplitActivity.parse(map['ConditionalSplit']) unless map['ConditionalSplit'].nil?)
+        data.custom = (CustomMessageActivity.parse(map['CUSTOM']) unless map['CUSTOM'].nil?)
+        data.conditional_split = (ConditionalSplitActivity.parse(map['ConditionalSplit']) unless map['ConditionalSplit'].nil?)
         data.description = map['Description']
-        data.email = (Parsers::EmailMessageActivity.parse(map['EMAIL']) unless map['EMAIL'].nil?)
-        data.holdout = (Parsers::HoldoutActivity.parse(map['Holdout']) unless map['Holdout'].nil?)
-        data.multi_condition = (Parsers::MultiConditionalSplitActivity.parse(map['MultiCondition']) unless map['MultiCondition'].nil?)
-        data.push = (Parsers::PushMessageActivity.parse(map['PUSH']) unless map['PUSH'].nil?)
-        data.random_split = (Parsers::RandomSplitActivity.parse(map['RandomSplit']) unless map['RandomSplit'].nil?)
-        data.sms = (Parsers::SMSMessageActivity.parse(map['SMS']) unless map['SMS'].nil?)
-        data.wait = (Parsers::WaitActivity.parse(map['Wait']) unless map['Wait'].nil?)
-        data.contact_center = (Parsers::ContactCenterActivity.parse(map['ContactCenter']) unless map['ContactCenter'].nil?)
+        data.email = (EmailMessageActivity.parse(map['EMAIL']) unless map['EMAIL'].nil?)
+        data.holdout = (HoldoutActivity.parse(map['Holdout']) unless map['Holdout'].nil?)
+        data.multi_condition = (MultiConditionalSplitActivity.parse(map['MultiCondition']) unless map['MultiCondition'].nil?)
+        data.push = (PushMessageActivity.parse(map['PUSH']) unless map['PUSH'].nil?)
+        data.random_split = (RandomSplitActivity.parse(map['RandomSplit']) unless map['RandomSplit'].nil?)
+        data.sms = (SMSMessageActivity.parse(map['SMS']) unless map['SMS'].nil?)
+        data.wait = (WaitActivity.parse(map['Wait']) unless map['Wait'].nil?)
+        data.contact_center = (ContactCenterActivity.parse(map['ContactCenter']) unless map['ContactCenter'].nil?)
         return data
       end
     end
@@ -776,7 +776,7 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = Types::WaitActivity.new
         data.next_activity = map['NextActivity']
-        data.wait_time = (Parsers::WaitTime.parse(map['WaitTime']) unless map['WaitTime'].nil?)
+        data.wait_time = (WaitTime.parse(map['WaitTime']) unless map['WaitTime'].nil?)
         return data
       end
     end
@@ -793,7 +793,7 @@ module AWS::SDK::Pinpoint
     class SMSMessageActivity
       def self.parse(map)
         data = Types::SMSMessageActivity.new
-        data.message_config = (Parsers::JourneySMSMessage.parse(map['MessageConfig']) unless map['MessageConfig'].nil?)
+        data.message_config = (JourneySMSMessage.parse(map['MessageConfig']) unless map['MessageConfig'].nil?)
         data.next_activity = map['NextActivity']
         data.template_name = map['TemplateName']
         data.template_version = map['TemplateVersion']
@@ -816,7 +816,7 @@ module AWS::SDK::Pinpoint
     class RandomSplitActivity
       def self.parse(map)
         data = Types::RandomSplitActivity.new
-        data.branches = (Parsers::ListOfRandomSplitEntry.parse(map['Branches']) unless map['Branches'].nil?)
+        data.branches = (ListOfRandomSplitEntry.parse(map['Branches']) unless map['Branches'].nil?)
         return data
       end
     end
@@ -825,7 +825,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RandomSplitEntry.parse(value) unless value.nil?
+          data << RandomSplitEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -843,7 +843,7 @@ module AWS::SDK::Pinpoint
     class PushMessageActivity
       def self.parse(map)
         data = Types::PushMessageActivity.new
-        data.message_config = (Parsers::JourneyPushMessage.parse(map['MessageConfig']) unless map['MessageConfig'].nil?)
+        data.message_config = (JourneyPushMessage.parse(map['MessageConfig']) unless map['MessageConfig'].nil?)
         data.next_activity = map['NextActivity']
         data.template_name = map['TemplateName']
         data.template_version = map['TemplateVersion']
@@ -862,9 +862,9 @@ module AWS::SDK::Pinpoint
     class MultiConditionalSplitActivity
       def self.parse(map)
         data = Types::MultiConditionalSplitActivity.new
-        data.branches = (Parsers::ListOfMultiConditionalBranch.parse(map['Branches']) unless map['Branches'].nil?)
+        data.branches = (ListOfMultiConditionalBranch.parse(map['Branches']) unless map['Branches'].nil?)
         data.default_activity = map['DefaultActivity']
-        data.evaluation_wait_time = (Parsers::WaitTime.parse(map['EvaluationWaitTime']) unless map['EvaluationWaitTime'].nil?)
+        data.evaluation_wait_time = (WaitTime.parse(map['EvaluationWaitTime']) unless map['EvaluationWaitTime'].nil?)
         return data
       end
     end
@@ -873,7 +873,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MultiConditionalBranch.parse(value) unless value.nil?
+          data << MultiConditionalBranch.parse(value) unless value.nil?
         end
         data
       end
@@ -882,7 +882,7 @@ module AWS::SDK::Pinpoint
     class MultiConditionalBranch
       def self.parse(map)
         data = Types::MultiConditionalBranch.new
-        data.condition = (Parsers::SimpleCondition.parse(map['Condition']) unless map['Condition'].nil?)
+        data.condition = (SimpleCondition.parse(map['Condition']) unless map['Condition'].nil?)
         data.next_activity = map['NextActivity']
         return data
       end
@@ -891,9 +891,9 @@ module AWS::SDK::Pinpoint
     class SimpleCondition
       def self.parse(map)
         data = Types::SimpleCondition.new
-        data.event_condition = (Parsers::EventCondition.parse(map['EventCondition']) unless map['EventCondition'].nil?)
-        data.segment_condition = (Parsers::SegmentCondition.parse(map['SegmentCondition']) unless map['SegmentCondition'].nil?)
-        data.segment_dimensions = (Parsers::SegmentDimensions.parse(map['segmentDimensions']) unless map['segmentDimensions'].nil?)
+        data.event_condition = (EventCondition.parse(map['EventCondition']) unless map['EventCondition'].nil?)
+        data.segment_condition = (SegmentCondition.parse(map['SegmentCondition']) unless map['SegmentCondition'].nil?)
+        data.segment_dimensions = (SegmentDimensions.parse(map['segmentDimensions']) unless map['segmentDimensions'].nil?)
         return data
       end
     end
@@ -901,12 +901,12 @@ module AWS::SDK::Pinpoint
     class SegmentDimensions
       def self.parse(map)
         data = Types::SegmentDimensions.new
-        data.attributes = (Parsers::MapOfAttributeDimension.parse(map['Attributes']) unless map['Attributes'].nil?)
-        data.behavior = (Parsers::SegmentBehaviors.parse(map['Behavior']) unless map['Behavior'].nil?)
-        data.demographic = (Parsers::SegmentDemographics.parse(map['Demographic']) unless map['Demographic'].nil?)
-        data.location = (Parsers::SegmentLocation.parse(map['Location']) unless map['Location'].nil?)
-        data.metrics = (Parsers::MapOfMetricDimension.parse(map['Metrics']) unless map['Metrics'].nil?)
-        data.user_attributes = (Parsers::MapOfAttributeDimension.parse(map['UserAttributes']) unless map['UserAttributes'].nil?)
+        data.attributes = (MapOfAttributeDimension.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.behavior = (SegmentBehaviors.parse(map['Behavior']) unless map['Behavior'].nil?)
+        data.demographic = (SegmentDemographics.parse(map['Demographic']) unless map['Demographic'].nil?)
+        data.location = (SegmentLocation.parse(map['Location']) unless map['Location'].nil?)
+        data.metrics = (MapOfMetricDimension.parse(map['Metrics']) unless map['Metrics'].nil?)
+        data.user_attributes = (MapOfAttributeDimension.parse(map['UserAttributes']) unless map['UserAttributes'].nil?)
         return data
       end
     end
@@ -914,8 +914,8 @@ module AWS::SDK::Pinpoint
     class SegmentLocation
       def self.parse(map)
         data = Types::SegmentLocation.new
-        data.country = (Parsers::SetDimension.parse(map['Country']) unless map['Country'].nil?)
-        data.gps_point = (Parsers::GPSPointDimension.parse(map['GPSPoint']) unless map['GPSPoint'].nil?)
+        data.country = (SetDimension.parse(map['Country']) unless map['Country'].nil?)
+        data.gps_point = (GPSPointDimension.parse(map['GPSPoint']) unless map['GPSPoint'].nil?)
         return data
       end
     end
@@ -923,7 +923,7 @@ module AWS::SDK::Pinpoint
     class GPSPointDimension
       def self.parse(map)
         data = Types::GPSPointDimension.new
-        data.coordinates = (Parsers::GPSCoordinates.parse(map['Coordinates']) unless map['Coordinates'].nil?)
+        data.coordinates = (GPSCoordinates.parse(map['Coordinates']) unless map['Coordinates'].nil?)
         data.range_in_kilometers = Hearth::NumberHelper.deserialize(map['RangeInKilometers'])
         return data
       end
@@ -941,12 +941,12 @@ module AWS::SDK::Pinpoint
     class SegmentDemographics
       def self.parse(map)
         data = Types::SegmentDemographics.new
-        data.app_version = (Parsers::SetDimension.parse(map['AppVersion']) unless map['AppVersion'].nil?)
-        data.channel = (Parsers::SetDimension.parse(map['Channel']) unless map['Channel'].nil?)
-        data.device_type = (Parsers::SetDimension.parse(map['DeviceType']) unless map['DeviceType'].nil?)
-        data.make = (Parsers::SetDimension.parse(map['Make']) unless map['Make'].nil?)
-        data.model = (Parsers::SetDimension.parse(map['Model']) unless map['Model'].nil?)
-        data.platform = (Parsers::SetDimension.parse(map['Platform']) unless map['Platform'].nil?)
+        data.app_version = (SetDimension.parse(map['AppVersion']) unless map['AppVersion'].nil?)
+        data.channel = (SetDimension.parse(map['Channel']) unless map['Channel'].nil?)
+        data.device_type = (SetDimension.parse(map['DeviceType']) unless map['DeviceType'].nil?)
+        data.make = (SetDimension.parse(map['Make']) unless map['Make'].nil?)
+        data.model = (SetDimension.parse(map['Model']) unless map['Model'].nil?)
+        data.platform = (SetDimension.parse(map['Platform']) unless map['Platform'].nil?)
         return data
       end
     end
@@ -954,7 +954,7 @@ module AWS::SDK::Pinpoint
     class SegmentBehaviors
       def self.parse(map)
         data = Types::SegmentBehaviors.new
-        data.recency = (Parsers::RecencyDimension.parse(map['Recency']) unless map['Recency'].nil?)
+        data.recency = (RecencyDimension.parse(map['Recency']) unless map['Recency'].nil?)
         return data
       end
     end
@@ -971,7 +971,7 @@ module AWS::SDK::Pinpoint
     class EventCondition
       def self.parse(map)
         data = Types::EventCondition.new
-        data.dimensions = (Parsers::EventDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.dimensions = (EventDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
         data.message_activity = map['MessageActivity']
         return data
       end
@@ -989,7 +989,7 @@ module AWS::SDK::Pinpoint
     class EmailMessageActivity
       def self.parse(map)
         data = Types::EmailMessageActivity.new
-        data.message_config = (Parsers::JourneyEmailMessage.parse(map['MessageConfig']) unless map['MessageConfig'].nil?)
+        data.message_config = (JourneyEmailMessage.parse(map['MessageConfig']) unless map['MessageConfig'].nil?)
         data.next_activity = map['NextActivity']
         data.template_name = map['TemplateName']
         data.template_version = map['TemplateVersion']
@@ -1008,8 +1008,8 @@ module AWS::SDK::Pinpoint
     class ConditionalSplitActivity
       def self.parse(map)
         data = Types::ConditionalSplitActivity.new
-        data.condition = (Parsers::Condition.parse(map['Condition']) unless map['Condition'].nil?)
-        data.evaluation_wait_time = (Parsers::WaitTime.parse(map['EvaluationWaitTime']) unless map['EvaluationWaitTime'].nil?)
+        data.condition = (Condition.parse(map['Condition']) unless map['Condition'].nil?)
+        data.evaluation_wait_time = (WaitTime.parse(map['EvaluationWaitTime']) unless map['EvaluationWaitTime'].nil?)
         data.false_activity = map['FalseActivity']
         data.true_activity = map['TrueActivity']
         return data
@@ -1019,7 +1019,7 @@ module AWS::SDK::Pinpoint
     class Condition
       def self.parse(map)
         data = Types::Condition.new
-        data.conditions = (Parsers::ListOfSimpleCondition.parse(map['Conditions']) unless map['Conditions'].nil?)
+        data.conditions = (ListOfSimpleCondition.parse(map['Conditions']) unless map['Conditions'].nil?)
         data.operator = map['Operator']
         return data
       end
@@ -1029,7 +1029,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SimpleCondition.parse(value) unless value.nil?
+          data << SimpleCondition.parse(value) unless value.nil?
         end
         data
       end
@@ -1039,8 +1039,8 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = Types::CustomMessageActivity.new
         data.delivery_uri = map['DeliveryUri']
-        data.endpoint_types = (Parsers::ListOf__EndpointTypesElement.parse(map['EndpointTypes']) unless map['EndpointTypes'].nil?)
-        data.message_config = (Parsers::JourneyCustomMessage.parse(map['MessageConfig']) unless map['MessageConfig'].nil?)
+        data.endpoint_types = (ListOf__EndpointTypesElement.parse(map['EndpointTypes']) unless map['EndpointTypes'].nil?)
+        data.message_config = (JourneyCustomMessage.parse(map['MessageConfig']) unless map['MessageConfig'].nil?)
         data.next_activity = map['NextActivity']
         data.template_name = map['TemplateName']
         data.template_version = map['TemplateVersion']
@@ -1061,7 +1061,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::CreatePushTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.create_template_message_body = Parsers::CreateTemplateMessageBody.parse(json)
+        data.create_template_message_body = CreateTemplateMessageBody.parse(json)
         data
       end
     end
@@ -1071,7 +1071,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::CreateRecommenderConfigurationOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.recommender_configuration_response = Parsers::RecommenderConfigurationResponse.parse(json)
+        data.recommender_configuration_response = RecommenderConfigurationResponse.parse(json)
         data
       end
     end
@@ -1079,7 +1079,7 @@ module AWS::SDK::Pinpoint
     class RecommenderConfigurationResponse
       def self.parse(map)
         data = Types::RecommenderConfigurationResponse.new
-        data.attributes = (Parsers::MapOf__string.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (MapOf__string.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.creation_date = map['CreationDate']
         data.description = map['Description']
         data.id = map['Id']
@@ -1100,7 +1100,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::CreateSegmentOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.segment_response = Parsers::SegmentResponse.parse(json)
+        data.segment_response = SegmentResponse.parse(json)
         data
       end
     end
@@ -1111,14 +1111,14 @@ module AWS::SDK::Pinpoint
         data.application_id = map['ApplicationId']
         data.arn = map['Arn']
         data.creation_date = map['CreationDate']
-        data.dimensions = (Parsers::SegmentDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.dimensions = (SegmentDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
         data.id = map['Id']
-        data.import_definition = (Parsers::SegmentImportResource.parse(map['ImportDefinition']) unless map['ImportDefinition'].nil?)
+        data.import_definition = (SegmentImportResource.parse(map['ImportDefinition']) unless map['ImportDefinition'].nil?)
         data.last_modified_date = map['LastModifiedDate']
         data.name = map['Name']
-        data.segment_groups = (Parsers::SegmentGroupList.parse(map['SegmentGroups']) unless map['SegmentGroups'].nil?)
+        data.segment_groups = (SegmentGroupList.parse(map['SegmentGroups']) unless map['SegmentGroups'].nil?)
         data.segment_type = map['SegmentType']
-        data.tags = (Parsers::MapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (MapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.version = map['Version']
         return data
       end
@@ -1127,7 +1127,7 @@ module AWS::SDK::Pinpoint
     class SegmentGroupList
       def self.parse(map)
         data = Types::SegmentGroupList.new
-        data.groups = (Parsers::ListOfSegmentGroup.parse(map['Groups']) unless map['Groups'].nil?)
+        data.groups = (ListOfSegmentGroup.parse(map['Groups']) unless map['Groups'].nil?)
         data.include = map['Include']
         return data
       end
@@ -1137,7 +1137,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SegmentGroup.parse(value) unless value.nil?
+          data << SegmentGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -1146,8 +1146,8 @@ module AWS::SDK::Pinpoint
     class SegmentGroup
       def self.parse(map)
         data = Types::SegmentGroup.new
-        data.dimensions = (Parsers::ListOfSegmentDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
-        data.source_segments = (Parsers::ListOfSegmentReference.parse(map['SourceSegments']) unless map['SourceSegments'].nil?)
+        data.dimensions = (ListOfSegmentDimensions.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.source_segments = (ListOfSegmentReference.parse(map['SourceSegments']) unless map['SourceSegments'].nil?)
         data.source_type = map['SourceType']
         data.type = map['Type']
         return data
@@ -1158,7 +1158,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SegmentReference.parse(value) unless value.nil?
+          data << SegmentReference.parse(value) unless value.nil?
         end
         data
       end
@@ -1177,7 +1177,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SegmentDimensions.parse(value) unless value.nil?
+          data << SegmentDimensions.parse(value) unless value.nil?
         end
         data
       end
@@ -1186,7 +1186,7 @@ module AWS::SDK::Pinpoint
     class SegmentImportResource
       def self.parse(map)
         data = Types::SegmentImportResource.new
-        data.channel_counts = (Parsers::MapOf__integer.parse(map['ChannelCounts']) unless map['ChannelCounts'].nil?)
+        data.channel_counts = (MapOf__integer.parse(map['ChannelCounts']) unless map['ChannelCounts'].nil?)
         data.external_id = map['ExternalId']
         data.format = map['Format']
         data.role_arn = map['RoleArn']
@@ -1211,7 +1211,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::CreateSmsTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.create_template_message_body = Parsers::CreateTemplateMessageBody.parse(json)
+        data.create_template_message_body = CreateTemplateMessageBody.parse(json)
         data
       end
     end
@@ -1221,7 +1221,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::CreateVoiceTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.create_template_message_body = Parsers::CreateTemplateMessageBody.parse(json)
+        data.create_template_message_body = CreateTemplateMessageBody.parse(json)
         data
       end
     end
@@ -1231,7 +1231,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteAdmChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.adm_channel_response = Parsers::ADMChannelResponse.parse(json)
+        data.adm_channel_response = ADMChannelResponse.parse(json)
         data
       end
     end
@@ -1258,7 +1258,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteApnsChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.apns_channel_response = Parsers::APNSChannelResponse.parse(json)
+        data.apns_channel_response = APNSChannelResponse.parse(json)
         data
       end
     end
@@ -1287,7 +1287,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteApnsSandboxChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.apns_sandbox_channel_response = Parsers::APNSSandboxChannelResponse.parse(json)
+        data.apns_sandbox_channel_response = APNSSandboxChannelResponse.parse(json)
         data
       end
     end
@@ -1316,7 +1316,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteApnsVoipChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.apns_voip_channel_response = Parsers::APNSVoipChannelResponse.parse(json)
+        data.apns_voip_channel_response = APNSVoipChannelResponse.parse(json)
         data
       end
     end
@@ -1345,7 +1345,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteApnsVoipSandboxChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.apns_voip_sandbox_channel_response = Parsers::APNSVoipSandboxChannelResponse.parse(json)
+        data.apns_voip_sandbox_channel_response = APNSVoipSandboxChannelResponse.parse(json)
         data
       end
     end
@@ -1374,7 +1374,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteAppOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.application_response = Parsers::ApplicationResponse.parse(json)
+        data.application_response = ApplicationResponse.parse(json)
         data
       end
     end
@@ -1384,7 +1384,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteBaiduChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.baidu_channel_response = Parsers::BaiduChannelResponse.parse(json)
+        data.baidu_channel_response = BaiduChannelResponse.parse(json)
         data
       end
     end
@@ -1412,7 +1412,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteCampaignOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.campaign_response = Parsers::CampaignResponse.parse(json)
+        data.campaign_response = CampaignResponse.parse(json)
         data
       end
     end
@@ -1422,7 +1422,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteEmailChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.email_channel_response = Parsers::EmailChannelResponse.parse(json)
+        data.email_channel_response = EmailChannelResponse.parse(json)
         data
       end
     end
@@ -1454,7 +1454,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteEmailTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.message_body = Parsers::MessageBody.parse(json)
+        data.message_body = MessageBody.parse(json)
         data
       end
     end
@@ -1473,7 +1473,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteEndpointOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.endpoint_response = Parsers::EndpointResponse.parse(json)
+        data.endpoint_response = EndpointResponse.parse(json)
         data
       end
     end
@@ -1483,19 +1483,19 @@ module AWS::SDK::Pinpoint
         data = Types::EndpointResponse.new
         data.address = map['Address']
         data.application_id = map['ApplicationId']
-        data.attributes = (Parsers::MapOfListOf__string.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (MapOfListOf__string.parse(map['Attributes']) unless map['Attributes'].nil?)
         data.channel_type = map['ChannelType']
         data.cohort_id = map['CohortId']
         data.creation_date = map['CreationDate']
-        data.demographic = (Parsers::EndpointDemographic.parse(map['Demographic']) unless map['Demographic'].nil?)
+        data.demographic = (EndpointDemographic.parse(map['Demographic']) unless map['Demographic'].nil?)
         data.effective_date = map['EffectiveDate']
         data.endpoint_status = map['EndpointStatus']
         data.id = map['Id']
-        data.location = (Parsers::EndpointLocation.parse(map['Location']) unless map['Location'].nil?)
-        data.metrics = (Parsers::MapOf__double.parse(map['Metrics']) unless map['Metrics'].nil?)
+        data.location = (EndpointLocation.parse(map['Location']) unless map['Location'].nil?)
+        data.metrics = (MapOf__double.parse(map['Metrics']) unless map['Metrics'].nil?)
         data.opt_out = map['OptOut']
         data.request_id = map['RequestId']
-        data.user = (Parsers::EndpointUser.parse(map['User']) unless map['User'].nil?)
+        data.user = (EndpointUser.parse(map['User']) unless map['User'].nil?)
         return data
       end
     end
@@ -1503,7 +1503,7 @@ module AWS::SDK::Pinpoint
     class EndpointUser
       def self.parse(map)
         data = Types::EndpointUser.new
-        data.user_attributes = (Parsers::MapOfListOf__string.parse(map['UserAttributes']) unless map['UserAttributes'].nil?)
+        data.user_attributes = (MapOfListOf__string.parse(map['UserAttributes']) unless map['UserAttributes'].nil?)
         data.user_id = map['UserId']
         return data
       end
@@ -1513,7 +1513,7 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ListOf__string.parse(value) unless value.nil?
+          data[key] = ListOf__string.parse(value) unless value.nil?
         end
         data
       end
@@ -1562,7 +1562,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteEventStreamOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.event_stream = Parsers::EventStream.parse(json)
+        data.event_stream = EventStream.parse(json)
         data
       end
     end
@@ -1585,7 +1585,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteGcmChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.gcm_channel_response = Parsers::GCMChannelResponse.parse(json)
+        data.gcm_channel_response = GCMChannelResponse.parse(json)
         data
       end
     end
@@ -1613,7 +1613,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteInAppTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.message_body = Parsers::MessageBody.parse(json)
+        data.message_body = MessageBody.parse(json)
         data
       end
     end
@@ -1623,7 +1623,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteJourneyOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.journey_response = Parsers::JourneyResponse.parse(json)
+        data.journey_response = JourneyResponse.parse(json)
         data
       end
     end
@@ -1633,7 +1633,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeletePushTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.message_body = Parsers::MessageBody.parse(json)
+        data.message_body = MessageBody.parse(json)
         data
       end
     end
@@ -1643,7 +1643,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteRecommenderConfigurationOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.recommender_configuration_response = Parsers::RecommenderConfigurationResponse.parse(json)
+        data.recommender_configuration_response = RecommenderConfigurationResponse.parse(json)
         data
       end
     end
@@ -1653,7 +1653,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteSegmentOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.segment_response = Parsers::SegmentResponse.parse(json)
+        data.segment_response = SegmentResponse.parse(json)
         data
       end
     end
@@ -1663,7 +1663,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteSmsChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.sms_channel_response = Parsers::SMSChannelResponse.parse(json)
+        data.sms_channel_response = SMSChannelResponse.parse(json)
         data
       end
     end
@@ -1694,7 +1694,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteSmsTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.message_body = Parsers::MessageBody.parse(json)
+        data.message_body = MessageBody.parse(json)
         data
       end
     end
@@ -1704,7 +1704,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteUserEndpointsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.endpoints_response = Parsers::EndpointsResponse.parse(json)
+        data.endpoints_response = EndpointsResponse.parse(json)
         data
       end
     end
@@ -1712,7 +1712,7 @@ module AWS::SDK::Pinpoint
     class EndpointsResponse
       def self.parse(map)
         data = Types::EndpointsResponse.new
-        data.item = (Parsers::ListOfEndpointResponse.parse(map['Item']) unless map['Item'].nil?)
+        data.item = (ListOfEndpointResponse.parse(map['Item']) unless map['Item'].nil?)
         return data
       end
     end
@@ -1721,7 +1721,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EndpointResponse.parse(value) unless value.nil?
+          data << EndpointResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -1732,7 +1732,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteVoiceChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.voice_channel_response = Parsers::VoiceChannelResponse.parse(json)
+        data.voice_channel_response = VoiceChannelResponse.parse(json)
         data
       end
     end
@@ -1759,7 +1759,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::DeleteVoiceTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.message_body = Parsers::MessageBody.parse(json)
+        data.message_body = MessageBody.parse(json)
         data
       end
     end
@@ -1769,7 +1769,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetAdmChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.adm_channel_response = Parsers::ADMChannelResponse.parse(json)
+        data.adm_channel_response = ADMChannelResponse.parse(json)
         data
       end
     end
@@ -1779,7 +1779,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetApnsChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.apns_channel_response = Parsers::APNSChannelResponse.parse(json)
+        data.apns_channel_response = APNSChannelResponse.parse(json)
         data
       end
     end
@@ -1789,7 +1789,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetApnsSandboxChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.apns_sandbox_channel_response = Parsers::APNSSandboxChannelResponse.parse(json)
+        data.apns_sandbox_channel_response = APNSSandboxChannelResponse.parse(json)
         data
       end
     end
@@ -1799,7 +1799,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetApnsVoipChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.apns_voip_channel_response = Parsers::APNSVoipChannelResponse.parse(json)
+        data.apns_voip_channel_response = APNSVoipChannelResponse.parse(json)
         data
       end
     end
@@ -1809,7 +1809,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetApnsVoipSandboxChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.apns_voip_sandbox_channel_response = Parsers::APNSVoipSandboxChannelResponse.parse(json)
+        data.apns_voip_sandbox_channel_response = APNSVoipSandboxChannelResponse.parse(json)
         data
       end
     end
@@ -1819,7 +1819,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetAppOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.application_response = Parsers::ApplicationResponse.parse(json)
+        data.application_response = ApplicationResponse.parse(json)
         data
       end
     end
@@ -1829,7 +1829,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetApplicationDateRangeKpiOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.application_date_range_kpi_response = Parsers::ApplicationDateRangeKpiResponse.parse(json)
+        data.application_date_range_kpi_response = ApplicationDateRangeKpiResponse.parse(json)
         data
       end
     end
@@ -1840,7 +1840,7 @@ module AWS::SDK::Pinpoint
         data.application_id = map['ApplicationId']
         data.end_time = Time.parse(map['EndTime']) if map['EndTime']
         data.kpi_name = map['KpiName']
-        data.kpi_result = (Parsers::BaseKpiResult.parse(map['KpiResult']) unless map['KpiResult'].nil?)
+        data.kpi_result = (BaseKpiResult.parse(map['KpiResult']) unless map['KpiResult'].nil?)
         data.next_token = map['NextToken']
         data.start_time = Time.parse(map['StartTime']) if map['StartTime']
         return data
@@ -1850,7 +1850,7 @@ module AWS::SDK::Pinpoint
     class BaseKpiResult
       def self.parse(map)
         data = Types::BaseKpiResult.new
-        data.rows = (Parsers::ListOfResultRow.parse(map['Rows']) unless map['Rows'].nil?)
+        data.rows = (ListOfResultRow.parse(map['Rows']) unless map['Rows'].nil?)
         return data
       end
     end
@@ -1859,7 +1859,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResultRow.parse(value) unless value.nil?
+          data << ResultRow.parse(value) unless value.nil?
         end
         data
       end
@@ -1868,8 +1868,8 @@ module AWS::SDK::Pinpoint
     class ResultRow
       def self.parse(map)
         data = Types::ResultRow.new
-        data.grouped_bys = (Parsers::ListOfResultRowValue.parse(map['GroupedBys']) unless map['GroupedBys'].nil?)
-        data.values = (Parsers::ListOfResultRowValue.parse(map['Values']) unless map['Values'].nil?)
+        data.grouped_bys = (ListOfResultRowValue.parse(map['GroupedBys']) unless map['GroupedBys'].nil?)
+        data.values = (ListOfResultRowValue.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -1878,7 +1878,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResultRowValue.parse(value) unless value.nil?
+          data << ResultRowValue.parse(value) unless value.nil?
         end
         data
       end
@@ -1899,7 +1899,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetApplicationSettingsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.application_settings_resource = Parsers::ApplicationSettingsResource.parse(json)
+        data.application_settings_resource = ApplicationSettingsResource.parse(json)
         data
       end
     end
@@ -1908,10 +1908,10 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = Types::ApplicationSettingsResource.new
         data.application_id = map['ApplicationId']
-        data.campaign_hook = (Parsers::CampaignHook.parse(map['CampaignHook']) unless map['CampaignHook'].nil?)
+        data.campaign_hook = (CampaignHook.parse(map['CampaignHook']) unless map['CampaignHook'].nil?)
         data.last_modified_date = map['LastModifiedDate']
-        data.limits = (Parsers::CampaignLimits.parse(map['Limits']) unless map['Limits'].nil?)
-        data.quiet_time = (Parsers::QuietTime.parse(map['QuietTime']) unless map['QuietTime'].nil?)
+        data.limits = (CampaignLimits.parse(map['Limits']) unless map['Limits'].nil?)
+        data.quiet_time = (QuietTime.parse(map['QuietTime']) unless map['QuietTime'].nil?)
         return data
       end
     end
@@ -1921,7 +1921,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetAppsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.applications_response = Parsers::ApplicationsResponse.parse(json)
+        data.applications_response = ApplicationsResponse.parse(json)
         data
       end
     end
@@ -1929,7 +1929,7 @@ module AWS::SDK::Pinpoint
     class ApplicationsResponse
       def self.parse(map)
         data = Types::ApplicationsResponse.new
-        data.item = (Parsers::ListOfApplicationResponse.parse(map['Item']) unless map['Item'].nil?)
+        data.item = (ListOfApplicationResponse.parse(map['Item']) unless map['Item'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -1939,7 +1939,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ApplicationResponse.parse(value) unless value.nil?
+          data << ApplicationResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -1950,7 +1950,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetBaiduChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.baidu_channel_response = Parsers::BaiduChannelResponse.parse(json)
+        data.baidu_channel_response = BaiduChannelResponse.parse(json)
         data
       end
     end
@@ -1960,7 +1960,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetCampaignOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.campaign_response = Parsers::CampaignResponse.parse(json)
+        data.campaign_response = CampaignResponse.parse(json)
         data
       end
     end
@@ -1970,7 +1970,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetCampaignActivitiesOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.activities_response = Parsers::ActivitiesResponse.parse(json)
+        data.activities_response = ActivitiesResponse.parse(json)
         data
       end
     end
@@ -1978,7 +1978,7 @@ module AWS::SDK::Pinpoint
     class ActivitiesResponse
       def self.parse(map)
         data = Types::ActivitiesResponse.new
-        data.item = (Parsers::ListOfActivityResponse.parse(map['Item']) unless map['Item'].nil?)
+        data.item = (ListOfActivityResponse.parse(map['Item']) unless map['Item'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -1988,7 +1988,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ActivityResponse.parse(value) unless value.nil?
+          data << ActivityResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -2019,7 +2019,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetCampaignDateRangeKpiOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.campaign_date_range_kpi_response = Parsers::CampaignDateRangeKpiResponse.parse(json)
+        data.campaign_date_range_kpi_response = CampaignDateRangeKpiResponse.parse(json)
         data
       end
     end
@@ -2031,7 +2031,7 @@ module AWS::SDK::Pinpoint
         data.campaign_id = map['CampaignId']
         data.end_time = Time.parse(map['EndTime']) if map['EndTime']
         data.kpi_name = map['KpiName']
-        data.kpi_result = (Parsers::BaseKpiResult.parse(map['KpiResult']) unless map['KpiResult'].nil?)
+        data.kpi_result = (BaseKpiResult.parse(map['KpiResult']) unless map['KpiResult'].nil?)
         data.next_token = map['NextToken']
         data.start_time = Time.parse(map['StartTime']) if map['StartTime']
         return data
@@ -2043,7 +2043,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetCampaignVersionOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.campaign_response = Parsers::CampaignResponse.parse(json)
+        data.campaign_response = CampaignResponse.parse(json)
         data
       end
     end
@@ -2053,7 +2053,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetCampaignVersionsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.campaigns_response = Parsers::CampaignsResponse.parse(json)
+        data.campaigns_response = CampaignsResponse.parse(json)
         data
       end
     end
@@ -2061,7 +2061,7 @@ module AWS::SDK::Pinpoint
     class CampaignsResponse
       def self.parse(map)
         data = Types::CampaignsResponse.new
-        data.item = (Parsers::ListOfCampaignResponse.parse(map['Item']) unless map['Item'].nil?)
+        data.item = (ListOfCampaignResponse.parse(map['Item']) unless map['Item'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -2071,7 +2071,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CampaignResponse.parse(value) unless value.nil?
+          data << CampaignResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -2082,7 +2082,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetCampaignsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.campaigns_response = Parsers::CampaignsResponse.parse(json)
+        data.campaigns_response = CampaignsResponse.parse(json)
         data
       end
     end
@@ -2092,7 +2092,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetChannelsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.channels_response = Parsers::ChannelsResponse.parse(json)
+        data.channels_response = ChannelsResponse.parse(json)
         data
       end
     end
@@ -2100,7 +2100,7 @@ module AWS::SDK::Pinpoint
     class ChannelsResponse
       def self.parse(map)
         data = Types::ChannelsResponse.new
-        data.channels = (Parsers::MapOfChannelResponse.parse(map['Channels']) unless map['Channels'].nil?)
+        data.channels = (MapOfChannelResponse.parse(map['Channels']) unless map['Channels'].nil?)
         return data
       end
     end
@@ -2109,7 +2109,7 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ChannelResponse.parse(value) unless value.nil?
+          data[key] = ChannelResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -2136,7 +2136,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetEmailChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.email_channel_response = Parsers::EmailChannelResponse.parse(json)
+        data.email_channel_response = EmailChannelResponse.parse(json)
         data
       end
     end
@@ -2146,7 +2146,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetEmailTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.email_template_response = Parsers::EmailTemplateResponse.parse(json)
+        data.email_template_response = EmailTemplateResponse.parse(json)
         data
       end
     end
@@ -2161,7 +2161,7 @@ module AWS::SDK::Pinpoint
         data.last_modified_date = map['LastModifiedDate']
         data.recommender_id = map['RecommenderId']
         data.subject = map['Subject']
-        data.tags = (Parsers::MapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (MapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.template_description = map['TemplateDescription']
         data.template_name = map['TemplateName']
         data.template_type = map['TemplateType']
@@ -2176,7 +2176,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetEndpointOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.endpoint_response = Parsers::EndpointResponse.parse(json)
+        data.endpoint_response = EndpointResponse.parse(json)
         data
       end
     end
@@ -2186,7 +2186,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetEventStreamOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.event_stream = Parsers::EventStream.parse(json)
+        data.event_stream = EventStream.parse(json)
         data
       end
     end
@@ -2196,7 +2196,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetExportJobOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.export_job_response = Parsers::ExportJobResponse.parse(json)
+        data.export_job_response = ExportJobResponse.parse(json)
         data
       end
     end
@@ -2206,7 +2206,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetExportJobsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.export_jobs_response = Parsers::ExportJobsResponse.parse(json)
+        data.export_jobs_response = ExportJobsResponse.parse(json)
         data
       end
     end
@@ -2214,7 +2214,7 @@ module AWS::SDK::Pinpoint
     class ExportJobsResponse
       def self.parse(map)
         data = Types::ExportJobsResponse.new
-        data.item = (Parsers::ListOfExportJobResponse.parse(map['Item']) unless map['Item'].nil?)
+        data.item = (ListOfExportJobResponse.parse(map['Item']) unless map['Item'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -2224,7 +2224,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ExportJobResponse.parse(value) unless value.nil?
+          data << ExportJobResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -2235,7 +2235,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetGcmChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.gcm_channel_response = Parsers::GCMChannelResponse.parse(json)
+        data.gcm_channel_response = GCMChannelResponse.parse(json)
         data
       end
     end
@@ -2245,7 +2245,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetImportJobOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.import_job_response = Parsers::ImportJobResponse.parse(json)
+        data.import_job_response = ImportJobResponse.parse(json)
         data
       end
     end
@@ -2255,7 +2255,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetImportJobsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.import_jobs_response = Parsers::ImportJobsResponse.parse(json)
+        data.import_jobs_response = ImportJobsResponse.parse(json)
         data
       end
     end
@@ -2263,7 +2263,7 @@ module AWS::SDK::Pinpoint
     class ImportJobsResponse
       def self.parse(map)
         data = Types::ImportJobsResponse.new
-        data.item = (Parsers::ListOfImportJobResponse.parse(map['Item']) unless map['Item'].nil?)
+        data.item = (ListOfImportJobResponse.parse(map['Item']) unless map['Item'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -2273,7 +2273,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ImportJobResponse.parse(value) unless value.nil?
+          data << ImportJobResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -2284,7 +2284,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetInAppMessagesOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.in_app_messages_response = Parsers::InAppMessagesResponse.parse(json)
+        data.in_app_messages_response = InAppMessagesResponse.parse(json)
         data
       end
     end
@@ -2292,7 +2292,7 @@ module AWS::SDK::Pinpoint
     class InAppMessagesResponse
       def self.parse(map)
         data = Types::InAppMessagesResponse.new
-        data.in_app_message_campaigns = (Parsers::ListOfInAppMessageCampaign.parse(map['InAppMessageCampaigns']) unless map['InAppMessageCampaigns'].nil?)
+        data.in_app_message_campaigns = (ListOfInAppMessageCampaign.parse(map['InAppMessageCampaigns']) unless map['InAppMessageCampaigns'].nil?)
         return data
       end
     end
@@ -2301,7 +2301,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InAppMessageCampaign.parse(value) unless value.nil?
+          data << InAppMessageCampaign.parse(value) unless value.nil?
         end
         data
       end
@@ -2312,9 +2312,9 @@ module AWS::SDK::Pinpoint
         data = Types::InAppMessageCampaign.new
         data.campaign_id = map['CampaignId']
         data.daily_cap = map['DailyCap']
-        data.in_app_message = (Parsers::InAppMessage.parse(map['InAppMessage']) unless map['InAppMessage'].nil?)
+        data.in_app_message = (InAppMessage.parse(map['InAppMessage']) unless map['InAppMessage'].nil?)
         data.priority = map['Priority']
-        data.schedule = (Parsers::InAppCampaignSchedule.parse(map['Schedule']) unless map['Schedule'].nil?)
+        data.schedule = (InAppCampaignSchedule.parse(map['Schedule']) unless map['Schedule'].nil?)
         data.session_cap = map['SessionCap']
         data.total_cap = map['TotalCap']
         data.treatment_id = map['TreatmentId']
@@ -2326,8 +2326,8 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = Types::InAppCampaignSchedule.new
         data.end_date = map['EndDate']
-        data.event_filter = (Parsers::CampaignEventFilter.parse(map['EventFilter']) unless map['EventFilter'].nil?)
-        data.quiet_time = (Parsers::QuietTime.parse(map['QuietTime']) unless map['QuietTime'].nil?)
+        data.event_filter = (CampaignEventFilter.parse(map['EventFilter']) unless map['EventFilter'].nil?)
+        data.quiet_time = (QuietTime.parse(map['QuietTime']) unless map['QuietTime'].nil?)
         return data
       end
     end
@@ -2335,8 +2335,8 @@ module AWS::SDK::Pinpoint
     class InAppMessage
       def self.parse(map)
         data = Types::InAppMessage.new
-        data.content = (Parsers::ListOfInAppMessageContent.parse(map['Content']) unless map['Content'].nil?)
-        data.custom_config = (Parsers::MapOf__string.parse(map['CustomConfig']) unless map['CustomConfig'].nil?)
+        data.content = (ListOfInAppMessageContent.parse(map['Content']) unless map['Content'].nil?)
+        data.custom_config = (MapOf__string.parse(map['CustomConfig']) unless map['CustomConfig'].nil?)
         data.layout = map['Layout']
         return data
       end
@@ -2347,7 +2347,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetInAppTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.in_app_template_response = Parsers::InAppTemplateResponse.parse(json)
+        data.in_app_template_response = InAppTemplateResponse.parse(json)
         data
       end
     end
@@ -2356,12 +2356,12 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = Types::InAppTemplateResponse.new
         data.arn = map['Arn']
-        data.content = (Parsers::ListOfInAppMessageContent.parse(map['Content']) unless map['Content'].nil?)
+        data.content = (ListOfInAppMessageContent.parse(map['Content']) unless map['Content'].nil?)
         data.creation_date = map['CreationDate']
-        data.custom_config = (Parsers::MapOf__string.parse(map['CustomConfig']) unless map['CustomConfig'].nil?)
+        data.custom_config = (MapOf__string.parse(map['CustomConfig']) unless map['CustomConfig'].nil?)
         data.last_modified_date = map['LastModifiedDate']
         data.layout = map['Layout']
-        data.tags = (Parsers::MapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (MapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.template_description = map['TemplateDescription']
         data.template_name = map['TemplateName']
         data.template_type = map['TemplateType']
@@ -2375,7 +2375,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetJourneyOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.journey_response = Parsers::JourneyResponse.parse(json)
+        data.journey_response = JourneyResponse.parse(json)
         data
       end
     end
@@ -2385,7 +2385,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetJourneyDateRangeKpiOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.journey_date_range_kpi_response = Parsers::JourneyDateRangeKpiResponse.parse(json)
+        data.journey_date_range_kpi_response = JourneyDateRangeKpiResponse.parse(json)
         data
       end
     end
@@ -2397,7 +2397,7 @@ module AWS::SDK::Pinpoint
         data.end_time = Time.parse(map['EndTime']) if map['EndTime']
         data.journey_id = map['JourneyId']
         data.kpi_name = map['KpiName']
-        data.kpi_result = (Parsers::BaseKpiResult.parse(map['KpiResult']) unless map['KpiResult'].nil?)
+        data.kpi_result = (BaseKpiResult.parse(map['KpiResult']) unless map['KpiResult'].nil?)
         data.next_token = map['NextToken']
         data.start_time = Time.parse(map['StartTime']) if map['StartTime']
         return data
@@ -2409,7 +2409,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetJourneyExecutionActivityMetricsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.journey_execution_activity_metrics_response = Parsers::JourneyExecutionActivityMetricsResponse.parse(json)
+        data.journey_execution_activity_metrics_response = JourneyExecutionActivityMetricsResponse.parse(json)
         data
       end
     end
@@ -2422,7 +2422,7 @@ module AWS::SDK::Pinpoint
         data.journey_activity_id = map['JourneyActivityId']
         data.journey_id = map['JourneyId']
         data.last_evaluated_time = map['LastEvaluatedTime']
-        data.metrics = (Parsers::MapOf__string.parse(map['Metrics']) unless map['Metrics'].nil?)
+        data.metrics = (MapOf__string.parse(map['Metrics']) unless map['Metrics'].nil?)
         return data
       end
     end
@@ -2432,7 +2432,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetJourneyExecutionMetricsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.journey_execution_metrics_response = Parsers::JourneyExecutionMetricsResponse.parse(json)
+        data.journey_execution_metrics_response = JourneyExecutionMetricsResponse.parse(json)
         data
       end
     end
@@ -2443,7 +2443,7 @@ module AWS::SDK::Pinpoint
         data.application_id = map['ApplicationId']
         data.journey_id = map['JourneyId']
         data.last_evaluated_time = map['LastEvaluatedTime']
-        data.metrics = (Parsers::MapOf__string.parse(map['Metrics']) unless map['Metrics'].nil?)
+        data.metrics = (MapOf__string.parse(map['Metrics']) unless map['Metrics'].nil?)
         return data
       end
     end
@@ -2453,7 +2453,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetPushTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.push_notification_template_response = Parsers::PushNotificationTemplateResponse.parse(json)
+        data.push_notification_template_response = PushNotificationTemplateResponse.parse(json)
         data
       end
     end
@@ -2461,17 +2461,17 @@ module AWS::SDK::Pinpoint
     class PushNotificationTemplateResponse
       def self.parse(map)
         data = Types::PushNotificationTemplateResponse.new
-        data.adm = (Parsers::AndroidPushNotificationTemplate.parse(map['ADM']) unless map['ADM'].nil?)
-        data.apns = (Parsers::APNSPushNotificationTemplate.parse(map['APNS']) unless map['APNS'].nil?)
+        data.adm = (AndroidPushNotificationTemplate.parse(map['ADM']) unless map['ADM'].nil?)
+        data.apns = (APNSPushNotificationTemplate.parse(map['APNS']) unless map['APNS'].nil?)
         data.arn = map['Arn']
-        data.baidu = (Parsers::AndroidPushNotificationTemplate.parse(map['Baidu']) unless map['Baidu'].nil?)
+        data.baidu = (AndroidPushNotificationTemplate.parse(map['Baidu']) unless map['Baidu'].nil?)
         data.creation_date = map['CreationDate']
-        data.default = (Parsers::DefaultPushNotificationTemplate.parse(map['Default']) unless map['Default'].nil?)
+        data.default = (DefaultPushNotificationTemplate.parse(map['Default']) unless map['Default'].nil?)
         data.default_substitutions = map['DefaultSubstitutions']
-        data.gcm = (Parsers::AndroidPushNotificationTemplate.parse(map['GCM']) unless map['GCM'].nil?)
+        data.gcm = (AndroidPushNotificationTemplate.parse(map['GCM']) unless map['GCM'].nil?)
         data.last_modified_date = map['LastModifiedDate']
         data.recommender_id = map['RecommenderId']
-        data.tags = (Parsers::MapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (MapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.template_description = map['TemplateDescription']
         data.template_name = map['TemplateName']
         data.template_type = map['TemplateType']
@@ -2527,7 +2527,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetRecommenderConfigurationOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.recommender_configuration_response = Parsers::RecommenderConfigurationResponse.parse(json)
+        data.recommender_configuration_response = RecommenderConfigurationResponse.parse(json)
         data
       end
     end
@@ -2537,7 +2537,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetRecommenderConfigurationsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.list_recommender_configurations_response = Parsers::ListRecommenderConfigurationsResponse.parse(json)
+        data.list_recommender_configurations_response = ListRecommenderConfigurationsResponse.parse(json)
         data
       end
     end
@@ -2545,7 +2545,7 @@ module AWS::SDK::Pinpoint
     class ListRecommenderConfigurationsResponse
       def self.parse(map)
         data = Types::ListRecommenderConfigurationsResponse.new
-        data.item = (Parsers::ListOfRecommenderConfigurationResponse.parse(map['Item']) unless map['Item'].nil?)
+        data.item = (ListOfRecommenderConfigurationResponse.parse(map['Item']) unless map['Item'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -2555,7 +2555,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecommenderConfigurationResponse.parse(value) unless value.nil?
+          data << RecommenderConfigurationResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -2566,7 +2566,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetSegmentOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.segment_response = Parsers::SegmentResponse.parse(json)
+        data.segment_response = SegmentResponse.parse(json)
         data
       end
     end
@@ -2576,7 +2576,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetSegmentExportJobsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.export_jobs_response = Parsers::ExportJobsResponse.parse(json)
+        data.export_jobs_response = ExportJobsResponse.parse(json)
         data
       end
     end
@@ -2586,7 +2586,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetSegmentImportJobsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.import_jobs_response = Parsers::ImportJobsResponse.parse(json)
+        data.import_jobs_response = ImportJobsResponse.parse(json)
         data
       end
     end
@@ -2596,7 +2596,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetSegmentVersionOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.segment_response = Parsers::SegmentResponse.parse(json)
+        data.segment_response = SegmentResponse.parse(json)
         data
       end
     end
@@ -2606,7 +2606,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetSegmentVersionsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.segments_response = Parsers::SegmentsResponse.parse(json)
+        data.segments_response = SegmentsResponse.parse(json)
         data
       end
     end
@@ -2614,7 +2614,7 @@ module AWS::SDK::Pinpoint
     class SegmentsResponse
       def self.parse(map)
         data = Types::SegmentsResponse.new
-        data.item = (Parsers::ListOfSegmentResponse.parse(map['Item']) unless map['Item'].nil?)
+        data.item = (ListOfSegmentResponse.parse(map['Item']) unless map['Item'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -2624,7 +2624,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SegmentResponse.parse(value) unless value.nil?
+          data << SegmentResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -2635,7 +2635,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetSegmentsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.segments_response = Parsers::SegmentsResponse.parse(json)
+        data.segments_response = SegmentsResponse.parse(json)
         data
       end
     end
@@ -2645,7 +2645,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetSmsChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.sms_channel_response = Parsers::SMSChannelResponse.parse(json)
+        data.sms_channel_response = SMSChannelResponse.parse(json)
         data
       end
     end
@@ -2655,7 +2655,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetSmsTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.sms_template_response = Parsers::SMSTemplateResponse.parse(json)
+        data.sms_template_response = SMSTemplateResponse.parse(json)
         data
       end
     end
@@ -2669,7 +2669,7 @@ module AWS::SDK::Pinpoint
         data.default_substitutions = map['DefaultSubstitutions']
         data.last_modified_date = map['LastModifiedDate']
         data.recommender_id = map['RecommenderId']
-        data.tags = (Parsers::MapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (MapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.template_description = map['TemplateDescription']
         data.template_name = map['TemplateName']
         data.template_type = map['TemplateType']
@@ -2683,7 +2683,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetUserEndpointsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.endpoints_response = Parsers::EndpointsResponse.parse(json)
+        data.endpoints_response = EndpointsResponse.parse(json)
         data
       end
     end
@@ -2693,7 +2693,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetVoiceChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.voice_channel_response = Parsers::VoiceChannelResponse.parse(json)
+        data.voice_channel_response = VoiceChannelResponse.parse(json)
         data
       end
     end
@@ -2703,7 +2703,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::GetVoiceTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.voice_template_response = Parsers::VoiceTemplateResponse.parse(json)
+        data.voice_template_response = VoiceTemplateResponse.parse(json)
         data
       end
     end
@@ -2717,7 +2717,7 @@ module AWS::SDK::Pinpoint
         data.default_substitutions = map['DefaultSubstitutions']
         data.language_code = map['LanguageCode']
         data.last_modified_date = map['LastModifiedDate']
-        data.tags = (Parsers::MapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (MapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.template_description = map['TemplateDescription']
         data.template_name = map['TemplateName']
         data.template_type = map['TemplateType']
@@ -2732,7 +2732,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::ListJourneysOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.journeys_response = Parsers::JourneysResponse.parse(json)
+        data.journeys_response = JourneysResponse.parse(json)
         data
       end
     end
@@ -2740,7 +2740,7 @@ module AWS::SDK::Pinpoint
     class JourneysResponse
       def self.parse(map)
         data = Types::JourneysResponse.new
-        data.item = (Parsers::ListOfJourneyResponse.parse(map['Item']) unless map['Item'].nil?)
+        data.item = (ListOfJourneyResponse.parse(map['Item']) unless map['Item'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -2750,7 +2750,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JourneyResponse.parse(value) unless value.nil?
+          data << JourneyResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -2761,7 +2761,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.tags_model = Parsers::TagsModel.parse(json)
+        data.tags_model = TagsModel.parse(json)
         data
       end
     end
@@ -2769,7 +2769,7 @@ module AWS::SDK::Pinpoint
     class TagsModel
       def self.parse(map)
         data = Types::TagsModel.new
-        data.tags = (Parsers::MapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (MapOf__string.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -2779,7 +2779,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::ListTemplateVersionsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.template_versions_response = Parsers::TemplateVersionsResponse.parse(json)
+        data.template_versions_response = TemplateVersionsResponse.parse(json)
         data
       end
     end
@@ -2787,7 +2787,7 @@ module AWS::SDK::Pinpoint
     class TemplateVersionsResponse
       def self.parse(map)
         data = Types::TemplateVersionsResponse.new
-        data.item = (Parsers::ListOfTemplateVersionResponse.parse(map['Item']) unless map['Item'].nil?)
+        data.item = (ListOfTemplateVersionResponse.parse(map['Item']) unless map['Item'].nil?)
         data.message = map['Message']
         data.next_token = map['NextToken']
         data.request_id = map['RequestID']
@@ -2799,7 +2799,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TemplateVersionResponse.parse(value) unless value.nil?
+          data << TemplateVersionResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -2824,7 +2824,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::ListTemplatesOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.templates_response = Parsers::TemplatesResponse.parse(json)
+        data.templates_response = TemplatesResponse.parse(json)
         data
       end
     end
@@ -2832,7 +2832,7 @@ module AWS::SDK::Pinpoint
     class TemplatesResponse
       def self.parse(map)
         data = Types::TemplatesResponse.new
-        data.item = (Parsers::ListOfTemplateResponse.parse(map['Item']) unless map['Item'].nil?)
+        data.item = (ListOfTemplateResponse.parse(map['Item']) unless map['Item'].nil?)
         data.next_token = map['NextToken']
         return data
       end
@@ -2842,7 +2842,7 @@ module AWS::SDK::Pinpoint
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TemplateResponse.parse(value) unless value.nil?
+          data << TemplateResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -2855,7 +2855,7 @@ module AWS::SDK::Pinpoint
         data.creation_date = map['CreationDate']
         data.default_substitutions = map['DefaultSubstitutions']
         data.last_modified_date = map['LastModifiedDate']
-        data.tags = (Parsers::MapOf__string.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (MapOf__string.parse(map['tags']) unless map['tags'].nil?)
         data.template_description = map['TemplateDescription']
         data.template_name = map['TemplateName']
         data.template_type = map['TemplateType']
@@ -2869,7 +2869,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::PhoneNumberValidateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.number_validate_response = Parsers::NumberValidateResponse.parse(json)
+        data.number_validate_response = NumberValidateResponse.parse(json)
         data
       end
     end
@@ -2900,7 +2900,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::PutEventStreamOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.event_stream = Parsers::EventStream.parse(json)
+        data.event_stream = EventStream.parse(json)
         data
       end
     end
@@ -2910,7 +2910,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::PutEventsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.events_response = Parsers::EventsResponse.parse(json)
+        data.events_response = EventsResponse.parse(json)
         data
       end
     end
@@ -2918,7 +2918,7 @@ module AWS::SDK::Pinpoint
     class EventsResponse
       def self.parse(map)
         data = Types::EventsResponse.new
-        data.results = (Parsers::MapOfItemResponse.parse(map['Results']) unless map['Results'].nil?)
+        data.results = (MapOfItemResponse.parse(map['Results']) unless map['Results'].nil?)
         return data
       end
     end
@@ -2927,7 +2927,7 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ItemResponse.parse(value) unless value.nil?
+          data[key] = ItemResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -2936,8 +2936,8 @@ module AWS::SDK::Pinpoint
     class ItemResponse
       def self.parse(map)
         data = Types::ItemResponse.new
-        data.endpoint_item_response = (Parsers::EndpointItemResponse.parse(map['EndpointItemResponse']) unless map['EndpointItemResponse'].nil?)
-        data.events_item_response = (Parsers::MapOfEventItemResponse.parse(map['EventsItemResponse']) unless map['EventsItemResponse'].nil?)
+        data.endpoint_item_response = (EndpointItemResponse.parse(map['EndpointItemResponse']) unless map['EndpointItemResponse'].nil?)
+        data.events_item_response = (MapOfEventItemResponse.parse(map['EventsItemResponse']) unless map['EventsItemResponse'].nil?)
         return data
       end
     end
@@ -2946,7 +2946,7 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::EventItemResponse.parse(value) unless value.nil?
+          data[key] = EventItemResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -2975,7 +2975,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::RemoveAttributesOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.attributes_resource = Parsers::AttributesResource.parse(json)
+        data.attributes_resource = AttributesResource.parse(json)
         data
       end
     end
@@ -2985,7 +2985,7 @@ module AWS::SDK::Pinpoint
         data = Types::AttributesResource.new
         data.application_id = map['ApplicationId']
         data.attribute_type = map['AttributeType']
-        data.attributes = (Parsers::ListOf__string.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (ListOf__string.parse(map['Attributes']) unless map['Attributes'].nil?)
         return data
       end
     end
@@ -2995,7 +2995,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::SendMessagesOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.message_response = Parsers::MessageResponse.parse(json)
+        data.message_response = MessageResponse.parse(json)
         data
       end
     end
@@ -3004,9 +3004,9 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = Types::MessageResponse.new
         data.application_id = map['ApplicationId']
-        data.endpoint_result = (Parsers::MapOfEndpointMessageResult.parse(map['EndpointResult']) unless map['EndpointResult'].nil?)
+        data.endpoint_result = (MapOfEndpointMessageResult.parse(map['EndpointResult']) unless map['EndpointResult'].nil?)
         data.request_id = map['RequestId']
-        data.result = (Parsers::MapOfMessageResult.parse(map['Result']) unless map['Result'].nil?)
+        data.result = (MapOfMessageResult.parse(map['Result']) unless map['Result'].nil?)
         return data
       end
     end
@@ -3015,7 +3015,7 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::MessageResult.parse(value) unless value.nil?
+          data[key] = MessageResult.parse(value) unless value.nil?
         end
         data
       end
@@ -3037,7 +3037,7 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::EndpointMessageResult.parse(value) unless value.nil?
+          data[key] = EndpointMessageResult.parse(value) unless value.nil?
         end
         data
       end
@@ -3061,7 +3061,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::SendOTPMessageOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.message_response = Parsers::MessageResponse.parse(json)
+        data.message_response = MessageResponse.parse(json)
         data
       end
     end
@@ -3071,7 +3071,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::SendUsersMessagesOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.send_users_message_response = Parsers::SendUsersMessageResponse.parse(json)
+        data.send_users_message_response = SendUsersMessageResponse.parse(json)
         data
       end
     end
@@ -3081,7 +3081,7 @@ module AWS::SDK::Pinpoint
         data = Types::SendUsersMessageResponse.new
         data.application_id = map['ApplicationId']
         data.request_id = map['RequestId']
-        data.result = (Parsers::MapOfMapOfEndpointMessageResult.parse(map['Result']) unless map['Result'].nil?)
+        data.result = (MapOfMapOfEndpointMessageResult.parse(map['Result']) unless map['Result'].nil?)
         return data
       end
     end
@@ -3090,7 +3090,7 @@ module AWS::SDK::Pinpoint
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::MapOfEndpointMessageResult.parse(value) unless value.nil?
+          data[key] = MapOfEndpointMessageResult.parse(value) unless value.nil?
         end
         data
       end
@@ -3119,7 +3119,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateAdmChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.adm_channel_response = Parsers::ADMChannelResponse.parse(json)
+        data.adm_channel_response = ADMChannelResponse.parse(json)
         data
       end
     end
@@ -3129,7 +3129,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateApnsChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.apns_channel_response = Parsers::APNSChannelResponse.parse(json)
+        data.apns_channel_response = APNSChannelResponse.parse(json)
         data
       end
     end
@@ -3139,7 +3139,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateApnsSandboxChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.apns_sandbox_channel_response = Parsers::APNSSandboxChannelResponse.parse(json)
+        data.apns_sandbox_channel_response = APNSSandboxChannelResponse.parse(json)
         data
       end
     end
@@ -3149,7 +3149,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateApnsVoipChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.apns_voip_channel_response = Parsers::APNSVoipChannelResponse.parse(json)
+        data.apns_voip_channel_response = APNSVoipChannelResponse.parse(json)
         data
       end
     end
@@ -3159,7 +3159,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateApnsVoipSandboxChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.apns_voip_sandbox_channel_response = Parsers::APNSVoipSandboxChannelResponse.parse(json)
+        data.apns_voip_sandbox_channel_response = APNSVoipSandboxChannelResponse.parse(json)
         data
       end
     end
@@ -3169,7 +3169,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateApplicationSettingsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.application_settings_resource = Parsers::ApplicationSettingsResource.parse(json)
+        data.application_settings_resource = ApplicationSettingsResource.parse(json)
         data
       end
     end
@@ -3179,7 +3179,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateBaiduChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.baidu_channel_response = Parsers::BaiduChannelResponse.parse(json)
+        data.baidu_channel_response = BaiduChannelResponse.parse(json)
         data
       end
     end
@@ -3189,7 +3189,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateCampaignOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.campaign_response = Parsers::CampaignResponse.parse(json)
+        data.campaign_response = CampaignResponse.parse(json)
         data
       end
     end
@@ -3199,7 +3199,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateEmailChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.email_channel_response = Parsers::EmailChannelResponse.parse(json)
+        data.email_channel_response = EmailChannelResponse.parse(json)
         data
       end
     end
@@ -3209,7 +3209,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateEmailTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.message_body = Parsers::MessageBody.parse(json)
+        data.message_body = MessageBody.parse(json)
         data
       end
     end
@@ -3219,7 +3219,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateEndpointOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.message_body = Parsers::MessageBody.parse(json)
+        data.message_body = MessageBody.parse(json)
         data
       end
     end
@@ -3229,7 +3229,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateEndpointsBatchOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.message_body = Parsers::MessageBody.parse(json)
+        data.message_body = MessageBody.parse(json)
         data
       end
     end
@@ -3239,7 +3239,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateGcmChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.gcm_channel_response = Parsers::GCMChannelResponse.parse(json)
+        data.gcm_channel_response = GCMChannelResponse.parse(json)
         data
       end
     end
@@ -3249,7 +3249,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateInAppTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.message_body = Parsers::MessageBody.parse(json)
+        data.message_body = MessageBody.parse(json)
         data
       end
     end
@@ -3259,7 +3259,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateJourneyOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.journey_response = Parsers::JourneyResponse.parse(json)
+        data.journey_response = JourneyResponse.parse(json)
         data
       end
     end
@@ -3280,7 +3280,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateJourneyStateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.journey_response = Parsers::JourneyResponse.parse(json)
+        data.journey_response = JourneyResponse.parse(json)
         data
       end
     end
@@ -3290,7 +3290,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdatePushTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.message_body = Parsers::MessageBody.parse(json)
+        data.message_body = MessageBody.parse(json)
         data
       end
     end
@@ -3300,7 +3300,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateRecommenderConfigurationOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.recommender_configuration_response = Parsers::RecommenderConfigurationResponse.parse(json)
+        data.recommender_configuration_response = RecommenderConfigurationResponse.parse(json)
         data
       end
     end
@@ -3310,7 +3310,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateSegmentOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.segment_response = Parsers::SegmentResponse.parse(json)
+        data.segment_response = SegmentResponse.parse(json)
         data
       end
     end
@@ -3320,7 +3320,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateSmsChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.sms_channel_response = Parsers::SMSChannelResponse.parse(json)
+        data.sms_channel_response = SMSChannelResponse.parse(json)
         data
       end
     end
@@ -3330,7 +3330,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateSmsTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.message_body = Parsers::MessageBody.parse(json)
+        data.message_body = MessageBody.parse(json)
         data
       end
     end
@@ -3340,7 +3340,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateTemplateActiveVersionOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.message_body = Parsers::MessageBody.parse(json)
+        data.message_body = MessageBody.parse(json)
         data
       end
     end
@@ -3350,7 +3350,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateVoiceChannelOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.voice_channel_response = Parsers::VoiceChannelResponse.parse(json)
+        data.voice_channel_response = VoiceChannelResponse.parse(json)
         data
       end
     end
@@ -3360,7 +3360,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::UpdateVoiceTemplateOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.message_body = Parsers::MessageBody.parse(json)
+        data.message_body = MessageBody.parse(json)
         data
       end
     end
@@ -3370,7 +3370,7 @@ module AWS::SDK::Pinpoint
       def self.parse(http_resp)
         data = Types::VerifyOTPMessageOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.verification_response = Parsers::VerificationResponse.parse(json)
+        data.verification_response = VerificationResponse.parse(json)
         data
       end
     end

@@ -335,7 +335,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.algorithm = (Parsers::Algorithm.parse(map['algorithm']) unless map['algorithm'].nil?)
+        data.algorithm = (Algorithm.parse(map['algorithm']) unless map['algorithm'].nil?)
         data
       end
     end
@@ -345,10 +345,10 @@ module AWS::SDK::Personalize
         data = Types::Algorithm.new
         data.name = map['name']
         data.algorithm_arn = map['algorithmArn']
-        data.algorithm_image = (Parsers::AlgorithmImage.parse(map['algorithmImage']) unless map['algorithmImage'].nil?)
-        data.default_hyper_parameters = (Parsers::HyperParameters.parse(map['defaultHyperParameters']) unless map['defaultHyperParameters'].nil?)
-        data.default_hyper_parameter_ranges = (Parsers::DefaultHyperParameterRanges.parse(map['defaultHyperParameterRanges']) unless map['defaultHyperParameterRanges'].nil?)
-        data.default_resource_config = (Parsers::ResourceConfig.parse(map['defaultResourceConfig']) unless map['defaultResourceConfig'].nil?)
+        data.algorithm_image = (AlgorithmImage.parse(map['algorithmImage']) unless map['algorithmImage'].nil?)
+        data.default_hyper_parameters = (HyperParameters.parse(map['defaultHyperParameters']) unless map['defaultHyperParameters'].nil?)
+        data.default_hyper_parameter_ranges = (DefaultHyperParameterRanges.parse(map['defaultHyperParameterRanges']) unless map['defaultHyperParameterRanges'].nil?)
+        data.default_resource_config = (ResourceConfig.parse(map['defaultResourceConfig']) unless map['defaultResourceConfig'].nil?)
         data.training_input_mode = map['trainingInputMode']
         data.role_arn = map['roleArn']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
@@ -370,9 +370,9 @@ module AWS::SDK::Personalize
     class DefaultHyperParameterRanges
       def self.parse(map)
         data = Types::DefaultHyperParameterRanges.new
-        data.integer_hyper_parameter_ranges = (Parsers::DefaultIntegerHyperParameterRanges.parse(map['integerHyperParameterRanges']) unless map['integerHyperParameterRanges'].nil?)
-        data.continuous_hyper_parameter_ranges = (Parsers::DefaultContinuousHyperParameterRanges.parse(map['continuousHyperParameterRanges']) unless map['continuousHyperParameterRanges'].nil?)
-        data.categorical_hyper_parameter_ranges = (Parsers::DefaultCategoricalHyperParameterRanges.parse(map['categoricalHyperParameterRanges']) unless map['categoricalHyperParameterRanges'].nil?)
+        data.integer_hyper_parameter_ranges = (DefaultIntegerHyperParameterRanges.parse(map['integerHyperParameterRanges']) unless map['integerHyperParameterRanges'].nil?)
+        data.continuous_hyper_parameter_ranges = (DefaultContinuousHyperParameterRanges.parse(map['continuousHyperParameterRanges']) unless map['continuousHyperParameterRanges'].nil?)
+        data.categorical_hyper_parameter_ranges = (DefaultCategoricalHyperParameterRanges.parse(map['categoricalHyperParameterRanges']) unless map['categoricalHyperParameterRanges'].nil?)
         return data
       end
     end
@@ -380,7 +380,7 @@ module AWS::SDK::Personalize
     class DefaultCategoricalHyperParameterRanges
       def self.parse(list)
         list.map do |value|
-          Parsers::DefaultCategoricalHyperParameterRange.parse(value) unless value.nil?
+          DefaultCategoricalHyperParameterRange.parse(value) unless value.nil?
         end
       end
     end
@@ -389,7 +389,7 @@ module AWS::SDK::Personalize
       def self.parse(map)
         data = Types::DefaultCategoricalHyperParameterRange.new
         data.name = map['name']
-        data.values = (Parsers::CategoricalValues.parse(map['values']) unless map['values'].nil?)
+        data.values = (CategoricalValues.parse(map['values']) unless map['values'].nil?)
         data.is_tunable = map['isTunable']
         return data
       end
@@ -406,7 +406,7 @@ module AWS::SDK::Personalize
     class DefaultContinuousHyperParameterRanges
       def self.parse(list)
         list.map do |value|
-          Parsers::DefaultContinuousHyperParameterRange.parse(value) unless value.nil?
+          DefaultContinuousHyperParameterRange.parse(value) unless value.nil?
         end
       end
     end
@@ -425,7 +425,7 @@ module AWS::SDK::Personalize
     class DefaultIntegerHyperParameterRanges
       def self.parse(list)
         list.map do |value|
-          Parsers::DefaultIntegerHyperParameterRange.parse(value) unless value.nil?
+          DefaultIntegerHyperParameterRange.parse(value) unless value.nil?
         end
       end
     end
@@ -467,7 +467,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.batch_inference_job = (Parsers::BatchInferenceJob.parse(map['batchInferenceJob']) unless map['batchInferenceJob'].nil?)
+        data.batch_inference_job = (BatchInferenceJob.parse(map['batchInferenceJob']) unless map['batchInferenceJob'].nil?)
         data
       end
     end
@@ -481,9 +481,9 @@ module AWS::SDK::Personalize
         data.failure_reason = map['failureReason']
         data.solution_version_arn = map['solutionVersionArn']
         data.num_results = map['numResults']
-        data.job_input = (Parsers::BatchInferenceJobInput.parse(map['jobInput']) unless map['jobInput'].nil?)
-        data.job_output = (Parsers::BatchInferenceJobOutput.parse(map['jobOutput']) unless map['jobOutput'].nil?)
-        data.batch_inference_job_config = (Parsers::BatchInferenceJobConfig.parse(map['batchInferenceJobConfig']) unless map['batchInferenceJobConfig'].nil?)
+        data.job_input = (BatchInferenceJobInput.parse(map['jobInput']) unless map['jobInput'].nil?)
+        data.job_output = (BatchInferenceJobOutput.parse(map['jobOutput']) unless map['jobOutput'].nil?)
+        data.batch_inference_job_config = (BatchInferenceJobConfig.parse(map['batchInferenceJobConfig']) unless map['batchInferenceJobConfig'].nil?)
         data.role_arn = map['roleArn']
         data.status = map['status']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
@@ -495,7 +495,7 @@ module AWS::SDK::Personalize
     class BatchInferenceJobConfig
       def self.parse(map)
         data = Types::BatchInferenceJobConfig.new
-        data.item_exploration_config = (Parsers::HyperParameters.parse(map['itemExplorationConfig']) unless map['itemExplorationConfig'].nil?)
+        data.item_exploration_config = (HyperParameters.parse(map['itemExplorationConfig']) unless map['itemExplorationConfig'].nil?)
         return data
       end
     end
@@ -503,7 +503,7 @@ module AWS::SDK::Personalize
     class BatchInferenceJobOutput
       def self.parse(map)
         data = Types::BatchInferenceJobOutput.new
-        data.s3_data_destination = (Parsers::S3DataConfig.parse(map['s3DataDestination']) unless map['s3DataDestination'].nil?)
+        data.s3_data_destination = (S3DataConfig.parse(map['s3DataDestination']) unless map['s3DataDestination'].nil?)
         return data
       end
     end
@@ -520,7 +520,7 @@ module AWS::SDK::Personalize
     class BatchInferenceJobInput
       def self.parse(map)
         data = Types::BatchInferenceJobInput.new
-        data.s3_data_source = (Parsers::S3DataConfig.parse(map['s3DataSource']) unless map['s3DataSource'].nil?)
+        data.s3_data_source = (S3DataConfig.parse(map['s3DataSource']) unless map['s3DataSource'].nil?)
         return data
       end
     end
@@ -532,7 +532,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.batch_segment_job = (Parsers::BatchSegmentJob.parse(map['batchSegmentJob']) unless map['batchSegmentJob'].nil?)
+        data.batch_segment_job = (BatchSegmentJob.parse(map['batchSegmentJob']) unless map['batchSegmentJob'].nil?)
         data
       end
     end
@@ -546,8 +546,8 @@ module AWS::SDK::Personalize
         data.failure_reason = map['failureReason']
         data.solution_version_arn = map['solutionVersionArn']
         data.num_results = map['numResults']
-        data.job_input = (Parsers::BatchSegmentJobInput.parse(map['jobInput']) unless map['jobInput'].nil?)
-        data.job_output = (Parsers::BatchSegmentJobOutput.parse(map['jobOutput']) unless map['jobOutput'].nil?)
+        data.job_input = (BatchSegmentJobInput.parse(map['jobInput']) unless map['jobInput'].nil?)
+        data.job_output = (BatchSegmentJobOutput.parse(map['jobOutput']) unless map['jobOutput'].nil?)
         data.role_arn = map['roleArn']
         data.status = map['status']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
@@ -559,7 +559,7 @@ module AWS::SDK::Personalize
     class BatchSegmentJobOutput
       def self.parse(map)
         data = Types::BatchSegmentJobOutput.new
-        data.s3_data_destination = (Parsers::S3DataConfig.parse(map['s3DataDestination']) unless map['s3DataDestination'].nil?)
+        data.s3_data_destination = (S3DataConfig.parse(map['s3DataDestination']) unless map['s3DataDestination'].nil?)
         return data
       end
     end
@@ -567,7 +567,7 @@ module AWS::SDK::Personalize
     class BatchSegmentJobInput
       def self.parse(map)
         data = Types::BatchSegmentJobInput.new
-        data.s3_data_source = (Parsers::S3DataConfig.parse(map['s3DataSource']) unless map['s3DataSource'].nil?)
+        data.s3_data_source = (S3DataConfig.parse(map['s3DataSource']) unless map['s3DataSource'].nil?)
         return data
       end
     end
@@ -579,7 +579,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.campaign = (Parsers::Campaign.parse(map['campaign']) unless map['campaign'].nil?)
+        data.campaign = (Campaign.parse(map['campaign']) unless map['campaign'].nil?)
         data
       end
     end
@@ -591,12 +591,12 @@ module AWS::SDK::Personalize
         data.campaign_arn = map['campaignArn']
         data.solution_version_arn = map['solutionVersionArn']
         data.min_provisioned_tps = map['minProvisionedTPS']
-        data.campaign_config = (Parsers::CampaignConfig.parse(map['campaignConfig']) unless map['campaignConfig'].nil?)
+        data.campaign_config = (CampaignConfig.parse(map['campaignConfig']) unless map['campaignConfig'].nil?)
         data.status = map['status']
         data.failure_reason = map['failureReason']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
-        data.latest_campaign_update = (Parsers::CampaignUpdateSummary.parse(map['latestCampaignUpdate']) unless map['latestCampaignUpdate'].nil?)
+        data.latest_campaign_update = (CampaignUpdateSummary.parse(map['latestCampaignUpdate']) unless map['latestCampaignUpdate'].nil?)
         return data
       end
     end
@@ -606,7 +606,7 @@ module AWS::SDK::Personalize
         data = Types::CampaignUpdateSummary.new
         data.solution_version_arn = map['solutionVersionArn']
         data.min_provisioned_tps = map['minProvisionedTPS']
-        data.campaign_config = (Parsers::CampaignConfig.parse(map['campaignConfig']) unless map['campaignConfig'].nil?)
+        data.campaign_config = (CampaignConfig.parse(map['campaignConfig']) unless map['campaignConfig'].nil?)
         data.status = map['status']
         data.failure_reason = map['failureReason']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
@@ -618,7 +618,7 @@ module AWS::SDK::Personalize
     class CampaignConfig
       def self.parse(map)
         data = Types::CampaignConfig.new
-        data.item_exploration_config = (Parsers::HyperParameters.parse(map['itemExplorationConfig']) unless map['itemExplorationConfig'].nil?)
+        data.item_exploration_config = (HyperParameters.parse(map['itemExplorationConfig']) unless map['itemExplorationConfig'].nil?)
         return data
       end
     end
@@ -630,7 +630,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dataset = (Parsers::Dataset.parse(map['dataset']) unless map['dataset'].nil?)
+        data.dataset = (Dataset.parse(map['dataset']) unless map['dataset'].nil?)
         data
       end
     end
@@ -657,7 +657,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dataset_export_job = (Parsers::DatasetExportJob.parse(map['datasetExportJob']) unless map['datasetExportJob'].nil?)
+        data.dataset_export_job = (DatasetExportJob.parse(map['datasetExportJob']) unless map['datasetExportJob'].nil?)
         data
       end
     end
@@ -671,7 +671,7 @@ module AWS::SDK::Personalize
         data.ingestion_mode = map['ingestionMode']
         data.role_arn = map['roleArn']
         data.status = map['status']
-        data.job_output = (Parsers::DatasetExportJobOutput.parse(map['jobOutput']) unless map['jobOutput'].nil?)
+        data.job_output = (DatasetExportJobOutput.parse(map['jobOutput']) unless map['jobOutput'].nil?)
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
         data.failure_reason = map['failureReason']
@@ -682,7 +682,7 @@ module AWS::SDK::Personalize
     class DatasetExportJobOutput
       def self.parse(map)
         data = Types::DatasetExportJobOutput.new
-        data.s3_data_destination = (Parsers::S3DataConfig.parse(map['s3DataDestination']) unless map['s3DataDestination'].nil?)
+        data.s3_data_destination = (S3DataConfig.parse(map['s3DataDestination']) unless map['s3DataDestination'].nil?)
         return data
       end
     end
@@ -694,7 +694,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dataset_group = (Parsers::DatasetGroup.parse(map['datasetGroup']) unless map['datasetGroup'].nil?)
+        data.dataset_group = (DatasetGroup.parse(map['datasetGroup']) unless map['datasetGroup'].nil?)
         data
       end
     end
@@ -722,7 +722,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dataset_import_job = (Parsers::DatasetImportJob.parse(map['datasetImportJob']) unless map['datasetImportJob'].nil?)
+        data.dataset_import_job = (DatasetImportJob.parse(map['datasetImportJob']) unless map['datasetImportJob'].nil?)
         data
       end
     end
@@ -733,7 +733,7 @@ module AWS::SDK::Personalize
         data.job_name = map['jobName']
         data.dataset_import_job_arn = map['datasetImportJobArn']
         data.dataset_arn = map['datasetArn']
-        data.data_source = (Parsers::DataSource.parse(map['dataSource']) unless map['dataSource'].nil?)
+        data.data_source = (DataSource.parse(map['dataSource']) unless map['dataSource'].nil?)
         data.role_arn = map['roleArn']
         data.status = map['status']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
@@ -758,7 +758,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.event_tracker = (Parsers::EventTracker.parse(map['eventTracker']) unless map['eventTracker'].nil?)
+        data.event_tracker = (EventTracker.parse(map['eventTracker']) unless map['eventTracker'].nil?)
         data
       end
     end
@@ -785,7 +785,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.feature_transformation = (Parsers::FeatureTransformation.parse(map['featureTransformation']) unless map['featureTransformation'].nil?)
+        data.feature_transformation = (FeatureTransformation.parse(map['featureTransformation']) unless map['featureTransformation'].nil?)
         data
       end
     end
@@ -795,7 +795,7 @@ module AWS::SDK::Personalize
         data = Types::FeatureTransformation.new
         data.name = map['name']
         data.feature_transformation_arn = map['featureTransformationArn']
-        data.default_parameters = (Parsers::FeaturizationParameters.parse(map['defaultParameters']) unless map['defaultParameters'].nil?)
+        data.default_parameters = (FeaturizationParameters.parse(map['defaultParameters']) unless map['defaultParameters'].nil?)
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
         data.status = map['status']
@@ -820,7 +820,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.filter = (Parsers::Filter.parse(map['filter']) unless map['filter'].nil?)
+        data.filter = (Filter.parse(map['filter']) unless map['filter'].nil?)
         data
       end
     end
@@ -847,7 +847,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.recipe = (Parsers::Recipe.parse(map['recipe']) unless map['recipe'].nil?)
+        data.recipe = (Recipe.parse(map['recipe']) unless map['recipe'].nil?)
         data
       end
     end
@@ -875,7 +875,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.recommender = (Parsers::Recommender.parse(map['recommender']) unless map['recommender'].nil?)
+        data.recommender = (Recommender.parse(map['recommender']) unless map['recommender'].nil?)
         data
       end
     end
@@ -887,13 +887,13 @@ module AWS::SDK::Personalize
         data.dataset_group_arn = map['datasetGroupArn']
         data.name = map['name']
         data.recipe_arn = map['recipeArn']
-        data.recommender_config = (Parsers::RecommenderConfig.parse(map['recommenderConfig']) unless map['recommenderConfig'].nil?)
+        data.recommender_config = (RecommenderConfig.parse(map['recommenderConfig']) unless map['recommenderConfig'].nil?)
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
         data.status = map['status']
         data.failure_reason = map['failureReason']
-        data.latest_recommender_update = (Parsers::RecommenderUpdateSummary.parse(map['latestRecommenderUpdate']) unless map['latestRecommenderUpdate'].nil?)
-        data.model_metrics = (Parsers::Metrics.parse(map['modelMetrics']) unless map['modelMetrics'].nil?)
+        data.latest_recommender_update = (RecommenderUpdateSummary.parse(map['latestRecommenderUpdate']) unless map['latestRecommenderUpdate'].nil?)
+        data.model_metrics = (Metrics.parse(map['modelMetrics']) unless map['modelMetrics'].nil?)
         return data
       end
     end
@@ -911,7 +911,7 @@ module AWS::SDK::Personalize
     class RecommenderUpdateSummary
       def self.parse(map)
         data = Types::RecommenderUpdateSummary.new
-        data.recommender_config = (Parsers::RecommenderConfig.parse(map['recommenderConfig']) unless map['recommenderConfig'].nil?)
+        data.recommender_config = (RecommenderConfig.parse(map['recommenderConfig']) unless map['recommenderConfig'].nil?)
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
         data.status = map['status']
@@ -923,7 +923,7 @@ module AWS::SDK::Personalize
     class RecommenderConfig
       def self.parse(map)
         data = Types::RecommenderConfig.new
-        data.item_exploration_config = (Parsers::HyperParameters.parse(map['itemExplorationConfig']) unless map['itemExplorationConfig'].nil?)
+        data.item_exploration_config = (HyperParameters.parse(map['itemExplorationConfig']) unless map['itemExplorationConfig'].nil?)
         data.min_recommendation_requests_per_second = map['minRecommendationRequestsPerSecond']
         return data
       end
@@ -936,7 +936,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.schema = (Parsers::DatasetSchema.parse(map['schema']) unless map['schema'].nil?)
+        data.schema = (DatasetSchema.parse(map['schema']) unless map['schema'].nil?)
         data
       end
     end
@@ -961,7 +961,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.solution = (Parsers::Solution.parse(map['solution']) unless map['solution'].nil?)
+        data.solution = (Solution.parse(map['solution']) unless map['solution'].nil?)
         data
       end
     end
@@ -976,12 +976,12 @@ module AWS::SDK::Personalize
         data.recipe_arn = map['recipeArn']
         data.dataset_group_arn = map['datasetGroupArn']
         data.event_type = map['eventType']
-        data.solution_config = (Parsers::SolutionConfig.parse(map['solutionConfig']) unless map['solutionConfig'].nil?)
-        data.auto_ml_result = (Parsers::AutoMLResult.parse(map['autoMLResult']) unless map['autoMLResult'].nil?)
+        data.solution_config = (SolutionConfig.parse(map['solutionConfig']) unless map['solutionConfig'].nil?)
+        data.auto_ml_result = (AutoMLResult.parse(map['autoMLResult']) unless map['autoMLResult'].nil?)
         data.status = map['status']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
-        data.latest_solution_version = (Parsers::SolutionVersionSummary.parse(map['latestSolutionVersion']) unless map['latestSolutionVersion'].nil?)
+        data.latest_solution_version = (SolutionVersionSummary.parse(map['latestSolutionVersion']) unless map['latestSolutionVersion'].nil?)
         return data
       end
     end
@@ -1010,11 +1010,11 @@ module AWS::SDK::Personalize
       def self.parse(map)
         data = Types::SolutionConfig.new
         data.event_value_threshold = map['eventValueThreshold']
-        data.hpo_config = (Parsers::HPOConfig.parse(map['hpoConfig']) unless map['hpoConfig'].nil?)
-        data.algorithm_hyper_parameters = (Parsers::HyperParameters.parse(map['algorithmHyperParameters']) unless map['algorithmHyperParameters'].nil?)
-        data.feature_transformation_parameters = (Parsers::FeatureTransformationParameters.parse(map['featureTransformationParameters']) unless map['featureTransformationParameters'].nil?)
-        data.auto_ml_config = (Parsers::AutoMLConfig.parse(map['autoMLConfig']) unless map['autoMLConfig'].nil?)
-        data.optimization_objective = (Parsers::OptimizationObjective.parse(map['optimizationObjective']) unless map['optimizationObjective'].nil?)
+        data.hpo_config = (HPOConfig.parse(map['hpoConfig']) unless map['hpoConfig'].nil?)
+        data.algorithm_hyper_parameters = (HyperParameters.parse(map['algorithmHyperParameters']) unless map['algorithmHyperParameters'].nil?)
+        data.feature_transformation_parameters = (FeatureTransformationParameters.parse(map['featureTransformationParameters']) unless map['featureTransformationParameters'].nil?)
+        data.auto_ml_config = (AutoMLConfig.parse(map['autoMLConfig']) unless map['autoMLConfig'].nil?)
+        data.optimization_objective = (OptimizationObjective.parse(map['optimizationObjective']) unless map['optimizationObjective'].nil?)
         return data
       end
     end
@@ -1032,7 +1032,7 @@ module AWS::SDK::Personalize
       def self.parse(map)
         data = Types::AutoMLConfig.new
         data.metric_name = map['metricName']
-        data.recipe_list = (Parsers::ArnList.parse(map['recipeList']) unless map['recipeList'].nil?)
+        data.recipe_list = (ArnList.parse(map['recipeList']) unless map['recipeList'].nil?)
         return data
       end
     end
@@ -1058,9 +1058,9 @@ module AWS::SDK::Personalize
     class HPOConfig
       def self.parse(map)
         data = Types::HPOConfig.new
-        data.hpo_objective = (Parsers::HPOObjective.parse(map['hpoObjective']) unless map['hpoObjective'].nil?)
-        data.hpo_resource_config = (Parsers::HPOResourceConfig.parse(map['hpoResourceConfig']) unless map['hpoResourceConfig'].nil?)
-        data.algorithm_hyper_parameter_ranges = (Parsers::HyperParameterRanges.parse(map['algorithmHyperParameterRanges']) unless map['algorithmHyperParameterRanges'].nil?)
+        data.hpo_objective = (HPOObjective.parse(map['hpoObjective']) unless map['hpoObjective'].nil?)
+        data.hpo_resource_config = (HPOResourceConfig.parse(map['hpoResourceConfig']) unless map['hpoResourceConfig'].nil?)
+        data.algorithm_hyper_parameter_ranges = (HyperParameterRanges.parse(map['algorithmHyperParameterRanges']) unless map['algorithmHyperParameterRanges'].nil?)
         return data
       end
     end
@@ -1068,9 +1068,9 @@ module AWS::SDK::Personalize
     class HyperParameterRanges
       def self.parse(map)
         data = Types::HyperParameterRanges.new
-        data.integer_hyper_parameter_ranges = (Parsers::IntegerHyperParameterRanges.parse(map['integerHyperParameterRanges']) unless map['integerHyperParameterRanges'].nil?)
-        data.continuous_hyper_parameter_ranges = (Parsers::ContinuousHyperParameterRanges.parse(map['continuousHyperParameterRanges']) unless map['continuousHyperParameterRanges'].nil?)
-        data.categorical_hyper_parameter_ranges = (Parsers::CategoricalHyperParameterRanges.parse(map['categoricalHyperParameterRanges']) unless map['categoricalHyperParameterRanges'].nil?)
+        data.integer_hyper_parameter_ranges = (IntegerHyperParameterRanges.parse(map['integerHyperParameterRanges']) unless map['integerHyperParameterRanges'].nil?)
+        data.continuous_hyper_parameter_ranges = (ContinuousHyperParameterRanges.parse(map['continuousHyperParameterRanges']) unless map['continuousHyperParameterRanges'].nil?)
+        data.categorical_hyper_parameter_ranges = (CategoricalHyperParameterRanges.parse(map['categoricalHyperParameterRanges']) unless map['categoricalHyperParameterRanges'].nil?)
         return data
       end
     end
@@ -1078,7 +1078,7 @@ module AWS::SDK::Personalize
     class CategoricalHyperParameterRanges
       def self.parse(list)
         list.map do |value|
-          Parsers::CategoricalHyperParameterRange.parse(value) unless value.nil?
+          CategoricalHyperParameterRange.parse(value) unless value.nil?
         end
       end
     end
@@ -1087,7 +1087,7 @@ module AWS::SDK::Personalize
       def self.parse(map)
         data = Types::CategoricalHyperParameterRange.new
         data.name = map['name']
-        data.values = (Parsers::CategoricalValues.parse(map['values']) unless map['values'].nil?)
+        data.values = (CategoricalValues.parse(map['values']) unless map['values'].nil?)
         return data
       end
     end
@@ -1095,7 +1095,7 @@ module AWS::SDK::Personalize
     class ContinuousHyperParameterRanges
       def self.parse(list)
         list.map do |value|
-          Parsers::ContinuousHyperParameterRange.parse(value) unless value.nil?
+          ContinuousHyperParameterRange.parse(value) unless value.nil?
         end
       end
     end
@@ -1113,7 +1113,7 @@ module AWS::SDK::Personalize
     class IntegerHyperParameterRanges
       def self.parse(list)
         list.map do |value|
-          Parsers::IntegerHyperParameterRange.parse(value) unless value.nil?
+          IntegerHyperParameterRange.parse(value) unless value.nil?
         end
       end
     end
@@ -1154,7 +1154,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.solution_version = (Parsers::SolutionVersion.parse(map['solutionVersion']) unless map['solutionVersion'].nil?)
+        data.solution_version = (SolutionVersion.parse(map['solutionVersion']) unless map['solutionVersion'].nil?)
         data
       end
     end
@@ -1169,10 +1169,10 @@ module AWS::SDK::Personalize
         data.recipe_arn = map['recipeArn']
         data.event_type = map['eventType']
         data.dataset_group_arn = map['datasetGroupArn']
-        data.solution_config = (Parsers::SolutionConfig.parse(map['solutionConfig']) unless map['solutionConfig'].nil?)
+        data.solution_config = (SolutionConfig.parse(map['solutionConfig']) unless map['solutionConfig'].nil?)
         data.training_hours = Hearth::NumberHelper.deserialize(map['trainingHours'])
         data.training_mode = map['trainingMode']
-        data.tuned_hpo_params = (Parsers::TunedHPOParams.parse(map['tunedHPOParams']) unless map['tunedHPOParams'].nil?)
+        data.tuned_hpo_params = (TunedHPOParams.parse(map['tunedHPOParams']) unless map['tunedHPOParams'].nil?)
         data.status = map['status']
         data.failure_reason = map['failureReason']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
@@ -1184,7 +1184,7 @@ module AWS::SDK::Personalize
     class TunedHPOParams
       def self.parse(map)
         data = Types::TunedHPOParams.new
-        data.algorithm_hyper_parameters = (Parsers::HyperParameters.parse(map['algorithmHyperParameters']) unless map['algorithmHyperParameters'].nil?)
+        data.algorithm_hyper_parameters = (HyperParameters.parse(map['algorithmHyperParameters']) unless map['algorithmHyperParameters'].nil?)
         return data
       end
     end
@@ -1197,7 +1197,7 @@ module AWS::SDK::Personalize
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.solution_version_arn = map['solutionVersionArn']
-        data.metrics = (Parsers::Metrics.parse(map['metrics']) unless map['metrics'].nil?)
+        data.metrics = (Metrics.parse(map['metrics']) unless map['metrics'].nil?)
         data
       end
     end
@@ -1209,7 +1209,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.batch_inference_jobs = (Parsers::BatchInferenceJobs.parse(map['batchInferenceJobs']) unless map['batchInferenceJobs'].nil?)
+        data.batch_inference_jobs = (BatchInferenceJobs.parse(map['batchInferenceJobs']) unless map['batchInferenceJobs'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1218,7 +1218,7 @@ module AWS::SDK::Personalize
     class BatchInferenceJobs
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchInferenceJobSummary.parse(value) unless value.nil?
+          BatchInferenceJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1256,7 +1256,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.batch_segment_jobs = (Parsers::BatchSegmentJobs.parse(map['batchSegmentJobs']) unless map['batchSegmentJobs'].nil?)
+        data.batch_segment_jobs = (BatchSegmentJobs.parse(map['batchSegmentJobs']) unless map['batchSegmentJobs'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1265,7 +1265,7 @@ module AWS::SDK::Personalize
     class BatchSegmentJobs
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchSegmentJobSummary.parse(value) unless value.nil?
+          BatchSegmentJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1291,7 +1291,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.campaigns = (Parsers::Campaigns.parse(map['campaigns']) unless map['campaigns'].nil?)
+        data.campaigns = (Campaigns.parse(map['campaigns']) unless map['campaigns'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1300,7 +1300,7 @@ module AWS::SDK::Personalize
     class Campaigns
       def self.parse(list)
         list.map do |value|
-          Parsers::CampaignSummary.parse(value) unless value.nil?
+          CampaignSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1325,7 +1325,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dataset_export_jobs = (Parsers::DatasetExportJobs.parse(map['datasetExportJobs']) unless map['datasetExportJobs'].nil?)
+        data.dataset_export_jobs = (DatasetExportJobs.parse(map['datasetExportJobs']) unless map['datasetExportJobs'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1334,7 +1334,7 @@ module AWS::SDK::Personalize
     class DatasetExportJobs
       def self.parse(list)
         list.map do |value|
-          Parsers::DatasetExportJobSummary.parse(value) unless value.nil?
+          DatasetExportJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1359,7 +1359,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dataset_groups = (Parsers::DatasetGroups.parse(map['datasetGroups']) unless map['datasetGroups'].nil?)
+        data.dataset_groups = (DatasetGroups.parse(map['datasetGroups']) unless map['datasetGroups'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1368,7 +1368,7 @@ module AWS::SDK::Personalize
     class DatasetGroups
       def self.parse(list)
         list.map do |value|
-          Parsers::DatasetGroupSummary.parse(value) unless value.nil?
+          DatasetGroupSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1394,7 +1394,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dataset_import_jobs = (Parsers::DatasetImportJobs.parse(map['datasetImportJobs']) unless map['datasetImportJobs'].nil?)
+        data.dataset_import_jobs = (DatasetImportJobs.parse(map['datasetImportJobs']) unless map['datasetImportJobs'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1403,7 +1403,7 @@ module AWS::SDK::Personalize
     class DatasetImportJobs
       def self.parse(list)
         list.map do |value|
-          Parsers::DatasetImportJobSummary.parse(value) unless value.nil?
+          DatasetImportJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1428,7 +1428,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.datasets = (Parsers::Datasets.parse(map['datasets']) unless map['datasets'].nil?)
+        data.datasets = (Datasets.parse(map['datasets']) unless map['datasets'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1437,7 +1437,7 @@ module AWS::SDK::Personalize
     class Datasets
       def self.parse(list)
         list.map do |value|
-          Parsers::DatasetSummary.parse(value) unless value.nil?
+          DatasetSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1462,7 +1462,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.event_trackers = (Parsers::EventTrackers.parse(map['eventTrackers']) unless map['eventTrackers'].nil?)
+        data.event_trackers = (EventTrackers.parse(map['eventTrackers']) unless map['eventTrackers'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1471,7 +1471,7 @@ module AWS::SDK::Personalize
     class EventTrackers
       def self.parse(list)
         list.map do |value|
-          Parsers::EventTrackerSummary.parse(value) unless value.nil?
+          EventTrackerSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1495,7 +1495,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.filters = (Parsers::Filters.parse(map['Filters']) unless map['Filters'].nil?)
+        data.filters = (Filters.parse(map['Filters']) unless map['Filters'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1504,7 +1504,7 @@ module AWS::SDK::Personalize
     class Filters
       def self.parse(list)
         list.map do |value|
-          Parsers::FilterSummary.parse(value) unless value.nil?
+          FilterSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1530,7 +1530,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.recipes = (Parsers::Recipes.parse(map['recipes']) unless map['recipes'].nil?)
+        data.recipes = (Recipes.parse(map['recipes']) unless map['recipes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1539,7 +1539,7 @@ module AWS::SDK::Personalize
     class Recipes
       def self.parse(list)
         list.map do |value|
-          Parsers::RecipeSummary.parse(value) unless value.nil?
+          RecipeSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1564,7 +1564,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.recommenders = (Parsers::Recommenders.parse(map['recommenders']) unless map['recommenders'].nil?)
+        data.recommenders = (Recommenders.parse(map['recommenders']) unless map['recommenders'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1573,7 +1573,7 @@ module AWS::SDK::Personalize
     class Recommenders
       def self.parse(list)
         list.map do |value|
-          Parsers::RecommenderSummary.parse(value) unless value.nil?
+          RecommenderSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1585,7 +1585,7 @@ module AWS::SDK::Personalize
         data.recommender_arn = map['recommenderArn']
         data.dataset_group_arn = map['datasetGroupArn']
         data.recipe_arn = map['recipeArn']
-        data.recommender_config = (Parsers::RecommenderConfig.parse(map['recommenderConfig']) unless map['recommenderConfig'].nil?)
+        data.recommender_config = (RecommenderConfig.parse(map['recommenderConfig']) unless map['recommenderConfig'].nil?)
         data.status = map['status']
         data.creation_date_time = Time.at(map['creationDateTime'].to_i) if map['creationDateTime']
         data.last_updated_date_time = Time.at(map['lastUpdatedDateTime'].to_i) if map['lastUpdatedDateTime']
@@ -1600,7 +1600,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.schemas = (Parsers::Schemas.parse(map['schemas']) unless map['schemas'].nil?)
+        data.schemas = (Schemas.parse(map['schemas']) unless map['schemas'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1609,7 +1609,7 @@ module AWS::SDK::Personalize
     class Schemas
       def self.parse(list)
         list.map do |value|
-          Parsers::DatasetSchemaSummary.parse(value) unless value.nil?
+          DatasetSchemaSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1633,7 +1633,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.solution_versions = (Parsers::SolutionVersions.parse(map['solutionVersions']) unless map['solutionVersions'].nil?)
+        data.solution_versions = (SolutionVersions.parse(map['solutionVersions']) unless map['solutionVersions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1642,7 +1642,7 @@ module AWS::SDK::Personalize
     class SolutionVersions
       def self.parse(list)
         list.map do |value|
-          Parsers::SolutionVersionSummary.parse(value) unless value.nil?
+          SolutionVersionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1654,7 +1654,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.solutions = (Parsers::Solutions.parse(map['solutions']) unless map['solutions'].nil?)
+        data.solutions = (Solutions.parse(map['solutions']) unless map['solutions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1663,7 +1663,7 @@ module AWS::SDK::Personalize
     class Solutions
       def self.parse(list)
         list.map do |value|
-          Parsers::SolutionSummary.parse(value) unless value.nil?
+          SolutionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1687,7 +1687,7 @@ module AWS::SDK::Personalize
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1695,7 +1695,7 @@ module AWS::SDK::Personalize
     class Tags
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end

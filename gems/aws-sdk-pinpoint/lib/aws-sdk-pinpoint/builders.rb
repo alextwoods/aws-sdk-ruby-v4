@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::Pinpoint
   module Builders
 
@@ -19,8 +22,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::CreateApplicationRequest.build(input[:create_application_request]) unless input[:create_application_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = CreateApplicationRequest.build(input[:create_application_request]) unless input[:create_application_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -29,7 +32,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['tags'] = Builders::MapOf__string.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = MapOf__string.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -61,8 +64,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::WriteCampaignRequest.build(input[:write_campaign_request]) unless input[:write_campaign_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = WriteCampaignRequest.build(input[:write_campaign_request]) unless input[:write_campaign_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -70,20 +73,20 @@ module AWS::SDK::Pinpoint
     class WriteCampaignRequest
       def self.build(input)
         data = {}
-        data['AdditionalTreatments'] = Builders::ListOfWriteTreatmentResource.build(input[:additional_treatments]) unless input[:additional_treatments].nil?
-        data['CustomDeliveryConfiguration'] = Builders::CustomDeliveryConfiguration.build(input[:custom_delivery_configuration]) unless input[:custom_delivery_configuration].nil?
+        data['AdditionalTreatments'] = ListOfWriteTreatmentResource.build(input[:additional_treatments]) unless input[:additional_treatments].nil?
+        data['CustomDeliveryConfiguration'] = CustomDeliveryConfiguration.build(input[:custom_delivery_configuration]) unless input[:custom_delivery_configuration].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['HoldoutPercent'] = input[:holdout_percent] unless input[:holdout_percent].nil?
-        data['Hook'] = Builders::CampaignHook.build(input[:hook]) unless input[:hook].nil?
+        data['Hook'] = CampaignHook.build(input[:hook]) unless input[:hook].nil?
         data['IsPaused'] = input[:is_paused] unless input[:is_paused].nil?
-        data['Limits'] = Builders::CampaignLimits.build(input[:limits]) unless input[:limits].nil?
-        data['MessageConfiguration'] = Builders::MessageConfiguration.build(input[:message_configuration]) unless input[:message_configuration].nil?
+        data['Limits'] = CampaignLimits.build(input[:limits]) unless input[:limits].nil?
+        data['MessageConfiguration'] = MessageConfiguration.build(input[:message_configuration]) unless input[:message_configuration].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Schedule'] = Builders::Schedule.build(input[:schedule]) unless input[:schedule].nil?
+        data['Schedule'] = Schedule.build(input[:schedule]) unless input[:schedule].nil?
         data['SegmentId'] = input[:segment_id] unless input[:segment_id].nil?
         data['SegmentVersion'] = input[:segment_version] unless input[:segment_version].nil?
-        data['tags'] = Builders::MapOf__string.build(input[:tags]) unless input[:tags].nil?
-        data['TemplateConfiguration'] = Builders::TemplateConfiguration.build(input[:template_configuration]) unless input[:template_configuration].nil?
+        data['tags'] = MapOf__string.build(input[:tags]) unless input[:tags].nil?
+        data['TemplateConfiguration'] = TemplateConfiguration.build(input[:template_configuration]) unless input[:template_configuration].nil?
         data['TreatmentDescription'] = input[:treatment_description] unless input[:treatment_description].nil?
         data['TreatmentName'] = input[:treatment_name] unless input[:treatment_name].nil?
         data['Priority'] = input[:priority] unless input[:priority].nil?
@@ -95,10 +98,10 @@ module AWS::SDK::Pinpoint
     class TemplateConfiguration
       def self.build(input)
         data = {}
-        data['EmailTemplate'] = Builders::Template.build(input[:email_template]) unless input[:email_template].nil?
-        data['PushTemplate'] = Builders::Template.build(input[:push_template]) unless input[:push_template].nil?
-        data['SMSTemplate'] = Builders::Template.build(input[:sms_template]) unless input[:sms_template].nil?
-        data['VoiceTemplate'] = Builders::Template.build(input[:voice_template]) unless input[:voice_template].nil?
+        data['EmailTemplate'] = Template.build(input[:email_template]) unless input[:email_template].nil?
+        data['PushTemplate'] = Template.build(input[:push_template]) unless input[:push_template].nil?
+        data['SMSTemplate'] = Template.build(input[:sms_template]) unless input[:sms_template].nil?
+        data['VoiceTemplate'] = Template.build(input[:voice_template]) unless input[:voice_template].nil?
         data
       end
     end
@@ -118,10 +121,10 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         data['EndTime'] = input[:end_time] unless input[:end_time].nil?
-        data['EventFilter'] = Builders::CampaignEventFilter.build(input[:event_filter]) unless input[:event_filter].nil?
+        data['EventFilter'] = CampaignEventFilter.build(input[:event_filter]) unless input[:event_filter].nil?
         data['Frequency'] = input[:frequency] unless input[:frequency].nil?
         data['IsLocalTime'] = input[:is_local_time] unless input[:is_local_time].nil?
-        data['QuietTime'] = Builders::QuietTime.build(input[:quiet_time]) unless input[:quiet_time].nil?
+        data['QuietTime'] = QuietTime.build(input[:quiet_time]) unless input[:quiet_time].nil?
         data['StartTime'] = input[:start_time] unless input[:start_time].nil?
         data['Timezone'] = input[:timezone] unless input[:timezone].nil?
         data
@@ -142,7 +145,7 @@ module AWS::SDK::Pinpoint
     class CampaignEventFilter
       def self.build(input)
         data = {}
-        data['Dimensions'] = Builders::EventDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
+        data['Dimensions'] = EventDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
         data['FilterType'] = input[:filter_type] unless input[:filter_type].nil?
         data
       end
@@ -152,9 +155,9 @@ module AWS::SDK::Pinpoint
     class EventDimensions
       def self.build(input)
         data = {}
-        data['Attributes'] = Builders::MapOfAttributeDimension.build(input[:attributes]) unless input[:attributes].nil?
-        data['EventType'] = Builders::SetDimension.build(input[:event_type]) unless input[:event_type].nil?
-        data['Metrics'] = Builders::MapOfMetricDimension.build(input[:metrics]) unless input[:metrics].nil?
+        data['Attributes'] = MapOfAttributeDimension.build(input[:attributes]) unless input[:attributes].nil?
+        data['EventType'] = SetDimension.build(input[:event_type]) unless input[:event_type].nil?
+        data['Metrics'] = MapOfMetricDimension.build(input[:metrics]) unless input[:metrics].nil?
         data
       end
     end
@@ -164,7 +167,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::MetricDimension.build(value) unless value.nil?
+          data[key] = MetricDimension.build(value) unless value.nil?
         end
         data
       end
@@ -185,7 +188,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         data['DimensionType'] = input[:dimension_type] unless input[:dimension_type].nil?
-        data['Values'] = Builders::ListOf__string.build(input[:values]) unless input[:values].nil?
+        data['Values'] = ListOf__string.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -206,7 +209,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::AttributeDimension.build(value) unless value.nil?
+          data[key] = AttributeDimension.build(value) unless value.nil?
         end
         data
       end
@@ -217,7 +220,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         data['AttributeType'] = input[:attribute_type] unless input[:attribute_type].nil?
-        data['Values'] = Builders::ListOf__string.build(input[:values]) unless input[:values].nil?
+        data['Values'] = ListOf__string.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -226,15 +229,15 @@ module AWS::SDK::Pinpoint
     class MessageConfiguration
       def self.build(input)
         data = {}
-        data['ADMMessage'] = Builders::Message.build(input[:adm_message]) unless input[:adm_message].nil?
-        data['APNSMessage'] = Builders::Message.build(input[:apns_message]) unless input[:apns_message].nil?
-        data['BaiduMessage'] = Builders::Message.build(input[:baidu_message]) unless input[:baidu_message].nil?
-        data['CustomMessage'] = Builders::CampaignCustomMessage.build(input[:custom_message]) unless input[:custom_message].nil?
-        data['DefaultMessage'] = Builders::Message.build(input[:default_message]) unless input[:default_message].nil?
-        data['EmailMessage'] = Builders::CampaignEmailMessage.build(input[:email_message]) unless input[:email_message].nil?
-        data['GCMMessage'] = Builders::Message.build(input[:gcm_message]) unless input[:gcm_message].nil?
-        data['SMSMessage'] = Builders::CampaignSmsMessage.build(input[:sms_message]) unless input[:sms_message].nil?
-        data['InAppMessage'] = Builders::CampaignInAppMessage.build(input[:in_app_message]) unless input[:in_app_message].nil?
+        data['ADMMessage'] = Message.build(input[:adm_message]) unless input[:adm_message].nil?
+        data['APNSMessage'] = Message.build(input[:apns_message]) unless input[:apns_message].nil?
+        data['BaiduMessage'] = Message.build(input[:baidu_message]) unless input[:baidu_message].nil?
+        data['CustomMessage'] = CampaignCustomMessage.build(input[:custom_message]) unless input[:custom_message].nil?
+        data['DefaultMessage'] = Message.build(input[:default_message]) unless input[:default_message].nil?
+        data['EmailMessage'] = CampaignEmailMessage.build(input[:email_message]) unless input[:email_message].nil?
+        data['GCMMessage'] = Message.build(input[:gcm_message]) unless input[:gcm_message].nil?
+        data['SMSMessage'] = CampaignSmsMessage.build(input[:sms_message]) unless input[:sms_message].nil?
+        data['InAppMessage'] = CampaignInAppMessage.build(input[:in_app_message]) unless input[:in_app_message].nil?
         data
       end
     end
@@ -244,8 +247,8 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         data['Body'] = input[:body] unless input[:body].nil?
-        data['Content'] = Builders::ListOfInAppMessageContent.build(input[:content]) unless input[:content].nil?
-        data['CustomConfig'] = Builders::MapOf__string.build(input[:custom_config]) unless input[:custom_config].nil?
+        data['Content'] = ListOfInAppMessageContent.build(input[:content]) unless input[:content].nil?
+        data['CustomConfig'] = MapOf__string.build(input[:custom_config]) unless input[:custom_config].nil?
         data['Layout'] = input[:layout] unless input[:layout].nil?
         data
       end
@@ -256,7 +259,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InAppMessageContent.build(element) unless element.nil?
+          data << InAppMessageContent.build(element) unless element.nil?
         end
         data
       end
@@ -267,11 +270,11 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         data['BackgroundColor'] = input[:background_color] unless input[:background_color].nil?
-        data['BodyConfig'] = Builders::InAppMessageBodyConfig.build(input[:body_config]) unless input[:body_config].nil?
-        data['HeaderConfig'] = Builders::InAppMessageHeaderConfig.build(input[:header_config]) unless input[:header_config].nil?
+        data['BodyConfig'] = InAppMessageBodyConfig.build(input[:body_config]) unless input[:body_config].nil?
+        data['HeaderConfig'] = InAppMessageHeaderConfig.build(input[:header_config]) unless input[:header_config].nil?
         data['ImageUrl'] = input[:image_url] unless input[:image_url].nil?
-        data['PrimaryBtn'] = Builders::InAppMessageButton.build(input[:primary_btn]) unless input[:primary_btn].nil?
-        data['SecondaryBtn'] = Builders::InAppMessageButton.build(input[:secondary_btn]) unless input[:secondary_btn].nil?
+        data['PrimaryBtn'] = InAppMessageButton.build(input[:primary_btn]) unless input[:primary_btn].nil?
+        data['SecondaryBtn'] = InAppMessageButton.build(input[:secondary_btn]) unless input[:secondary_btn].nil?
         data
       end
     end
@@ -280,10 +283,10 @@ module AWS::SDK::Pinpoint
     class InAppMessageButton
       def self.build(input)
         data = {}
-        data['Android'] = Builders::OverrideButtonConfiguration.build(input[:android]) unless input[:android].nil?
-        data['DefaultConfig'] = Builders::DefaultButtonConfiguration.build(input[:default_config]) unless input[:default_config].nil?
-        data['IOS'] = Builders::OverrideButtonConfiguration.build(input[:ios]) unless input[:ios].nil?
-        data['Web'] = Builders::OverrideButtonConfiguration.build(input[:web]) unless input[:web].nil?
+        data['Android'] = OverrideButtonConfiguration.build(input[:android]) unless input[:android].nil?
+        data['DefaultConfig'] = DefaultButtonConfiguration.build(input[:default_config]) unless input[:default_config].nil?
+        data['IOS'] = OverrideButtonConfiguration.build(input[:ios]) unless input[:ios].nil?
+        data['Web'] = OverrideButtonConfiguration.build(input[:web]) unless input[:web].nil?
         data
       end
     end
@@ -418,7 +421,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         data['DeliveryUri'] = input[:delivery_uri] unless input[:delivery_uri].nil?
-        data['EndpointTypes'] = Builders::ListOf__EndpointTypesElement.build(input[:endpoint_types]) unless input[:endpoint_types].nil?
+        data['EndpointTypes'] = ListOf__EndpointTypesElement.build(input[:endpoint_types]) unless input[:endpoint_types].nil?
         data
       end
     end
@@ -439,7 +442,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::WriteTreatmentResource.build(element) unless element.nil?
+          data << WriteTreatmentResource.build(element) unless element.nil?
         end
         data
       end
@@ -449,11 +452,11 @@ module AWS::SDK::Pinpoint
     class WriteTreatmentResource
       def self.build(input)
         data = {}
-        data['CustomDeliveryConfiguration'] = Builders::CustomDeliveryConfiguration.build(input[:custom_delivery_configuration]) unless input[:custom_delivery_configuration].nil?
-        data['MessageConfiguration'] = Builders::MessageConfiguration.build(input[:message_configuration]) unless input[:message_configuration].nil?
-        data['Schedule'] = Builders::Schedule.build(input[:schedule]) unless input[:schedule].nil?
+        data['CustomDeliveryConfiguration'] = CustomDeliveryConfiguration.build(input[:custom_delivery_configuration]) unless input[:custom_delivery_configuration].nil?
+        data['MessageConfiguration'] = MessageConfiguration.build(input[:message_configuration]) unless input[:message_configuration].nil?
+        data['Schedule'] = Schedule.build(input[:schedule]) unless input[:schedule].nil?
         data['SizePercent'] = input[:size_percent] unless input[:size_percent].nil?
-        data['TemplateConfiguration'] = Builders::TemplateConfiguration.build(input[:template_configuration]) unless input[:template_configuration].nil?
+        data['TemplateConfiguration'] = TemplateConfiguration.build(input[:template_configuration]) unless input[:template_configuration].nil?
         data['TreatmentDescription'] = input[:treatment_description] unless input[:treatment_description].nil?
         data['TreatmentName'] = input[:treatment_name] unless input[:treatment_name].nil?
         data
@@ -476,8 +479,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::EmailTemplateRequest.build(input[:email_template_request]) unless input[:email_template_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EmailTemplateRequest.build(input[:email_template_request]) unless input[:email_template_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -489,7 +492,7 @@ module AWS::SDK::Pinpoint
         data['HtmlPart'] = input[:html_part] unless input[:html_part].nil?
         data['RecommenderId'] = input[:recommender_id] unless input[:recommender_id].nil?
         data['Subject'] = input[:subject] unless input[:subject].nil?
-        data['tags'] = Builders::MapOf__string.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = MapOf__string.build(input[:tags]) unless input[:tags].nil?
         data['TemplateDescription'] = input[:template_description] unless input[:template_description].nil?
         data['TextPart'] = input[:text_part] unless input[:text_part].nil?
         data
@@ -512,8 +515,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::ExportJobRequest.build(input[:export_job_request]) unless input[:export_job_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ExportJobRequest.build(input[:export_job_request]) unless input[:export_job_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -545,8 +548,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::ImportJobRequest.build(input[:import_job_request]) unless input[:import_job_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ImportJobRequest.build(input[:import_job_request]) unless input[:import_job_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -582,8 +585,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::InAppTemplateRequest.build(input[:in_app_template_request]) unless input[:in_app_template_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = InAppTemplateRequest.build(input[:in_app_template_request]) unless input[:in_app_template_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -591,10 +594,10 @@ module AWS::SDK::Pinpoint
     class InAppTemplateRequest
       def self.build(input)
         data = {}
-        data['Content'] = Builders::ListOfInAppMessageContent.build(input[:content]) unless input[:content].nil?
-        data['CustomConfig'] = Builders::MapOf__string.build(input[:custom_config]) unless input[:custom_config].nil?
+        data['Content'] = ListOfInAppMessageContent.build(input[:content]) unless input[:content].nil?
+        data['CustomConfig'] = MapOf__string.build(input[:custom_config]) unless input[:custom_config].nil?
         data['Layout'] = input[:layout] unless input[:layout].nil?
-        data['tags'] = Builders::MapOf__string.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = MapOf__string.build(input[:tags]) unless input[:tags].nil?
         data['TemplateDescription'] = input[:template_description] unless input[:template_description].nil?
         data
       end
@@ -616,8 +619,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::WriteJourneyRequest.build(input[:write_journey_request]) unless input[:write_journey_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = WriteJourneyRequest.build(input[:write_journey_request]) unless input[:write_journey_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -625,21 +628,21 @@ module AWS::SDK::Pinpoint
     class WriteJourneyRequest
       def self.build(input)
         data = {}
-        data['Activities'] = Builders::MapOfActivity.build(input[:activities]) unless input[:activities].nil?
+        data['Activities'] = MapOfActivity.build(input[:activities]) unless input[:activities].nil?
         data['CreationDate'] = input[:creation_date] unless input[:creation_date].nil?
         data['LastModifiedDate'] = input[:last_modified_date] unless input[:last_modified_date].nil?
-        data['Limits'] = Builders::JourneyLimits.build(input[:limits]) unless input[:limits].nil?
+        data['Limits'] = JourneyLimits.build(input[:limits]) unless input[:limits].nil?
         data['LocalTime'] = input[:local_time] unless input[:local_time].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['QuietTime'] = Builders::QuietTime.build(input[:quiet_time]) unless input[:quiet_time].nil?
+        data['QuietTime'] = QuietTime.build(input[:quiet_time]) unless input[:quiet_time].nil?
         data['RefreshFrequency'] = input[:refresh_frequency] unless input[:refresh_frequency].nil?
-        data['Schedule'] = Builders::JourneySchedule.build(input[:schedule]) unless input[:schedule].nil?
+        data['Schedule'] = JourneySchedule.build(input[:schedule]) unless input[:schedule].nil?
         data['StartActivity'] = input[:start_activity] unless input[:start_activity].nil?
-        data['StartCondition'] = Builders::StartCondition.build(input[:start_condition]) unless input[:start_condition].nil?
+        data['StartCondition'] = StartCondition.build(input[:start_condition]) unless input[:start_condition].nil?
         data['State'] = input[:state] unless input[:state].nil?
         data['WaitForQuietTime'] = input[:wait_for_quiet_time] unless input[:wait_for_quiet_time].nil?
         data['RefreshOnSegmentUpdate'] = input[:refresh_on_segment_update] unless input[:refresh_on_segment_update].nil?
-        data['JourneyChannelSettings'] = Builders::JourneyChannelSettings.build(input[:journey_channel_settings]) unless input[:journey_channel_settings].nil?
+        data['JourneyChannelSettings'] = JourneyChannelSettings.build(input[:journey_channel_settings]) unless input[:journey_channel_settings].nil?
         data
       end
     end
@@ -659,8 +662,8 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        data['EventStartCondition'] = Builders::EventStartCondition.build(input[:event_start_condition]) unless input[:event_start_condition].nil?
-        data['SegmentStartCondition'] = Builders::SegmentCondition.build(input[:segment_start_condition]) unless input[:segment_start_condition].nil?
+        data['EventStartCondition'] = EventStartCondition.build(input[:event_start_condition]) unless input[:event_start_condition].nil?
+        data['SegmentStartCondition'] = SegmentCondition.build(input[:segment_start_condition]) unless input[:segment_start_condition].nil?
         data
       end
     end
@@ -678,7 +681,7 @@ module AWS::SDK::Pinpoint
     class EventStartCondition
       def self.build(input)
         data = {}
-        data['EventFilter'] = Builders::EventFilter.build(input[:event_filter]) unless input[:event_filter].nil?
+        data['EventFilter'] = EventFilter.build(input[:event_filter]) unless input[:event_filter].nil?
         data['SegmentId'] = input[:segment_id] unless input[:segment_id].nil?
         data
       end
@@ -688,7 +691,7 @@ module AWS::SDK::Pinpoint
     class EventFilter
       def self.build(input)
         data = {}
-        data['Dimensions'] = Builders::EventDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
+        data['Dimensions'] = EventDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
         data['FilterType'] = input[:filter_type] unless input[:filter_type].nil?
         data
       end
@@ -722,7 +725,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::Activity.build(value) unless value.nil?
+          data[key] = Activity.build(value) unless value.nil?
         end
         data
       end
@@ -732,17 +735,17 @@ module AWS::SDK::Pinpoint
     class Activity
       def self.build(input)
         data = {}
-        data['CUSTOM'] = Builders::CustomMessageActivity.build(input[:custom]) unless input[:custom].nil?
-        data['ConditionalSplit'] = Builders::ConditionalSplitActivity.build(input[:conditional_split]) unless input[:conditional_split].nil?
+        data['CUSTOM'] = CustomMessageActivity.build(input[:custom]) unless input[:custom].nil?
+        data['ConditionalSplit'] = ConditionalSplitActivity.build(input[:conditional_split]) unless input[:conditional_split].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['EMAIL'] = Builders::EmailMessageActivity.build(input[:email]) unless input[:email].nil?
-        data['Holdout'] = Builders::HoldoutActivity.build(input[:holdout]) unless input[:holdout].nil?
-        data['MultiCondition'] = Builders::MultiConditionalSplitActivity.build(input[:multi_condition]) unless input[:multi_condition].nil?
-        data['PUSH'] = Builders::PushMessageActivity.build(input[:push]) unless input[:push].nil?
-        data['RandomSplit'] = Builders::RandomSplitActivity.build(input[:random_split]) unless input[:random_split].nil?
-        data['SMS'] = Builders::SMSMessageActivity.build(input[:sms]) unless input[:sms].nil?
-        data['Wait'] = Builders::WaitActivity.build(input[:wait]) unless input[:wait].nil?
-        data['ContactCenter'] = Builders::ContactCenterActivity.build(input[:contact_center]) unless input[:contact_center].nil?
+        data['EMAIL'] = EmailMessageActivity.build(input[:email]) unless input[:email].nil?
+        data['Holdout'] = HoldoutActivity.build(input[:holdout]) unless input[:holdout].nil?
+        data['MultiCondition'] = MultiConditionalSplitActivity.build(input[:multi_condition]) unless input[:multi_condition].nil?
+        data['PUSH'] = PushMessageActivity.build(input[:push]) unless input[:push].nil?
+        data['RandomSplit'] = RandomSplitActivity.build(input[:random_split]) unless input[:random_split].nil?
+        data['SMS'] = SMSMessageActivity.build(input[:sms]) unless input[:sms].nil?
+        data['Wait'] = WaitActivity.build(input[:wait]) unless input[:wait].nil?
+        data['ContactCenter'] = ContactCenterActivity.build(input[:contact_center]) unless input[:contact_center].nil?
         data
       end
     end
@@ -761,7 +764,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         data['NextActivity'] = input[:next_activity] unless input[:next_activity].nil?
-        data['WaitTime'] = Builders::WaitTime.build(input[:wait_time]) unless input[:wait_time].nil?
+        data['WaitTime'] = WaitTime.build(input[:wait_time]) unless input[:wait_time].nil?
         data
       end
     end
@@ -780,7 +783,7 @@ module AWS::SDK::Pinpoint
     class SMSMessageActivity
       def self.build(input)
         data = {}
-        data['MessageConfig'] = Builders::JourneySMSMessage.build(input[:message_config]) unless input[:message_config].nil?
+        data['MessageConfig'] = JourneySMSMessage.build(input[:message_config]) unless input[:message_config].nil?
         data['NextActivity'] = input[:next_activity] unless input[:next_activity].nil?
         data['TemplateName'] = input[:template_name] unless input[:template_name].nil?
         data['TemplateVersion'] = input[:template_version] unless input[:template_version].nil?
@@ -805,7 +808,7 @@ module AWS::SDK::Pinpoint
     class RandomSplitActivity
       def self.build(input)
         data = {}
-        data['Branches'] = Builders::ListOfRandomSplitEntry.build(input[:branches]) unless input[:branches].nil?
+        data['Branches'] = ListOfRandomSplitEntry.build(input[:branches]) unless input[:branches].nil?
         data
       end
     end
@@ -815,7 +818,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RandomSplitEntry.build(element) unless element.nil?
+          data << RandomSplitEntry.build(element) unless element.nil?
         end
         data
       end
@@ -835,7 +838,7 @@ module AWS::SDK::Pinpoint
     class PushMessageActivity
       def self.build(input)
         data = {}
-        data['MessageConfig'] = Builders::JourneyPushMessage.build(input[:message_config]) unless input[:message_config].nil?
+        data['MessageConfig'] = JourneyPushMessage.build(input[:message_config]) unless input[:message_config].nil?
         data['NextActivity'] = input[:next_activity] unless input[:next_activity].nil?
         data['TemplateName'] = input[:template_name] unless input[:template_name].nil?
         data['TemplateVersion'] = input[:template_version] unless input[:template_version].nil?
@@ -856,9 +859,9 @@ module AWS::SDK::Pinpoint
     class MultiConditionalSplitActivity
       def self.build(input)
         data = {}
-        data['Branches'] = Builders::ListOfMultiConditionalBranch.build(input[:branches]) unless input[:branches].nil?
+        data['Branches'] = ListOfMultiConditionalBranch.build(input[:branches]) unless input[:branches].nil?
         data['DefaultActivity'] = input[:default_activity] unless input[:default_activity].nil?
-        data['EvaluationWaitTime'] = Builders::WaitTime.build(input[:evaluation_wait_time]) unless input[:evaluation_wait_time].nil?
+        data['EvaluationWaitTime'] = WaitTime.build(input[:evaluation_wait_time]) unless input[:evaluation_wait_time].nil?
         data
       end
     end
@@ -868,7 +871,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MultiConditionalBranch.build(element) unless element.nil?
+          data << MultiConditionalBranch.build(element) unless element.nil?
         end
         data
       end
@@ -878,7 +881,7 @@ module AWS::SDK::Pinpoint
     class MultiConditionalBranch
       def self.build(input)
         data = {}
-        data['Condition'] = Builders::SimpleCondition.build(input[:condition]) unless input[:condition].nil?
+        data['Condition'] = SimpleCondition.build(input[:condition]) unless input[:condition].nil?
         data['NextActivity'] = input[:next_activity] unless input[:next_activity].nil?
         data
       end
@@ -888,9 +891,9 @@ module AWS::SDK::Pinpoint
     class SimpleCondition
       def self.build(input)
         data = {}
-        data['EventCondition'] = Builders::EventCondition.build(input[:event_condition]) unless input[:event_condition].nil?
-        data['SegmentCondition'] = Builders::SegmentCondition.build(input[:segment_condition]) unless input[:segment_condition].nil?
-        data['segmentDimensions'] = Builders::SegmentDimensions.build(input[:segment_dimensions]) unless input[:segment_dimensions].nil?
+        data['EventCondition'] = EventCondition.build(input[:event_condition]) unless input[:event_condition].nil?
+        data['SegmentCondition'] = SegmentCondition.build(input[:segment_condition]) unless input[:segment_condition].nil?
+        data['segmentDimensions'] = SegmentDimensions.build(input[:segment_dimensions]) unless input[:segment_dimensions].nil?
         data
       end
     end
@@ -899,12 +902,12 @@ module AWS::SDK::Pinpoint
     class SegmentDimensions
       def self.build(input)
         data = {}
-        data['Attributes'] = Builders::MapOfAttributeDimension.build(input[:attributes]) unless input[:attributes].nil?
-        data['Behavior'] = Builders::SegmentBehaviors.build(input[:behavior]) unless input[:behavior].nil?
-        data['Demographic'] = Builders::SegmentDemographics.build(input[:demographic]) unless input[:demographic].nil?
-        data['Location'] = Builders::SegmentLocation.build(input[:location]) unless input[:location].nil?
-        data['Metrics'] = Builders::MapOfMetricDimension.build(input[:metrics]) unless input[:metrics].nil?
-        data['UserAttributes'] = Builders::MapOfAttributeDimension.build(input[:user_attributes]) unless input[:user_attributes].nil?
+        data['Attributes'] = MapOfAttributeDimension.build(input[:attributes]) unless input[:attributes].nil?
+        data['Behavior'] = SegmentBehaviors.build(input[:behavior]) unless input[:behavior].nil?
+        data['Demographic'] = SegmentDemographics.build(input[:demographic]) unless input[:demographic].nil?
+        data['Location'] = SegmentLocation.build(input[:location]) unless input[:location].nil?
+        data['Metrics'] = MapOfMetricDimension.build(input[:metrics]) unless input[:metrics].nil?
+        data['UserAttributes'] = MapOfAttributeDimension.build(input[:user_attributes]) unless input[:user_attributes].nil?
         data
       end
     end
@@ -913,8 +916,8 @@ module AWS::SDK::Pinpoint
     class SegmentLocation
       def self.build(input)
         data = {}
-        data['Country'] = Builders::SetDimension.build(input[:country]) unless input[:country].nil?
-        data['GPSPoint'] = Builders::GPSPointDimension.build(input[:gps_point]) unless input[:gps_point].nil?
+        data['Country'] = SetDimension.build(input[:country]) unless input[:country].nil?
+        data['GPSPoint'] = GPSPointDimension.build(input[:gps_point]) unless input[:gps_point].nil?
         data
       end
     end
@@ -923,7 +926,7 @@ module AWS::SDK::Pinpoint
     class GPSPointDimension
       def self.build(input)
         data = {}
-        data['Coordinates'] = Builders::GPSCoordinates.build(input[:coordinates]) unless input[:coordinates].nil?
+        data['Coordinates'] = GPSCoordinates.build(input[:coordinates]) unless input[:coordinates].nil?
         data['RangeInKilometers'] = Hearth::NumberHelper.serialize(input[:range_in_kilometers]) unless input[:range_in_kilometers].nil?
         data
       end
@@ -943,12 +946,12 @@ module AWS::SDK::Pinpoint
     class SegmentDemographics
       def self.build(input)
         data = {}
-        data['AppVersion'] = Builders::SetDimension.build(input[:app_version]) unless input[:app_version].nil?
-        data['Channel'] = Builders::SetDimension.build(input[:channel]) unless input[:channel].nil?
-        data['DeviceType'] = Builders::SetDimension.build(input[:device_type]) unless input[:device_type].nil?
-        data['Make'] = Builders::SetDimension.build(input[:make]) unless input[:make].nil?
-        data['Model'] = Builders::SetDimension.build(input[:model]) unless input[:model].nil?
-        data['Platform'] = Builders::SetDimension.build(input[:platform]) unless input[:platform].nil?
+        data['AppVersion'] = SetDimension.build(input[:app_version]) unless input[:app_version].nil?
+        data['Channel'] = SetDimension.build(input[:channel]) unless input[:channel].nil?
+        data['DeviceType'] = SetDimension.build(input[:device_type]) unless input[:device_type].nil?
+        data['Make'] = SetDimension.build(input[:make]) unless input[:make].nil?
+        data['Model'] = SetDimension.build(input[:model]) unless input[:model].nil?
+        data['Platform'] = SetDimension.build(input[:platform]) unless input[:platform].nil?
         data
       end
     end
@@ -957,7 +960,7 @@ module AWS::SDK::Pinpoint
     class SegmentBehaviors
       def self.build(input)
         data = {}
-        data['Recency'] = Builders::RecencyDimension.build(input[:recency]) unless input[:recency].nil?
+        data['Recency'] = RecencyDimension.build(input[:recency]) unless input[:recency].nil?
         data
       end
     end
@@ -976,7 +979,7 @@ module AWS::SDK::Pinpoint
     class EventCondition
       def self.build(input)
         data = {}
-        data['Dimensions'] = Builders::EventDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
+        data['Dimensions'] = EventDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
         data['MessageActivity'] = input[:message_activity] unless input[:message_activity].nil?
         data
       end
@@ -996,7 +999,7 @@ module AWS::SDK::Pinpoint
     class EmailMessageActivity
       def self.build(input)
         data = {}
-        data['MessageConfig'] = Builders::JourneyEmailMessage.build(input[:message_config]) unless input[:message_config].nil?
+        data['MessageConfig'] = JourneyEmailMessage.build(input[:message_config]) unless input[:message_config].nil?
         data['NextActivity'] = input[:next_activity] unless input[:next_activity].nil?
         data['TemplateName'] = input[:template_name] unless input[:template_name].nil?
         data['TemplateVersion'] = input[:template_version] unless input[:template_version].nil?
@@ -1017,8 +1020,8 @@ module AWS::SDK::Pinpoint
     class ConditionalSplitActivity
       def self.build(input)
         data = {}
-        data['Condition'] = Builders::Condition.build(input[:condition]) unless input[:condition].nil?
-        data['EvaluationWaitTime'] = Builders::WaitTime.build(input[:evaluation_wait_time]) unless input[:evaluation_wait_time].nil?
+        data['Condition'] = Condition.build(input[:condition]) unless input[:condition].nil?
+        data['EvaluationWaitTime'] = WaitTime.build(input[:evaluation_wait_time]) unless input[:evaluation_wait_time].nil?
         data['FalseActivity'] = input[:false_activity] unless input[:false_activity].nil?
         data['TrueActivity'] = input[:true_activity] unless input[:true_activity].nil?
         data
@@ -1029,7 +1032,7 @@ module AWS::SDK::Pinpoint
     class Condition
       def self.build(input)
         data = {}
-        data['Conditions'] = Builders::ListOfSimpleCondition.build(input[:conditions]) unless input[:conditions].nil?
+        data['Conditions'] = ListOfSimpleCondition.build(input[:conditions]) unless input[:conditions].nil?
         data['Operator'] = input[:operator] unless input[:operator].nil?
         data
       end
@@ -1040,7 +1043,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SimpleCondition.build(element) unless element.nil?
+          data << SimpleCondition.build(element) unless element.nil?
         end
         data
       end
@@ -1051,8 +1054,8 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         data['DeliveryUri'] = input[:delivery_uri] unless input[:delivery_uri].nil?
-        data['EndpointTypes'] = Builders::ListOf__EndpointTypesElement.build(input[:endpoint_types]) unless input[:endpoint_types].nil?
-        data['MessageConfig'] = Builders::JourneyCustomMessage.build(input[:message_config]) unless input[:message_config].nil?
+        data['EndpointTypes'] = ListOf__EndpointTypesElement.build(input[:endpoint_types]) unless input[:endpoint_types].nil?
+        data['MessageConfig'] = JourneyCustomMessage.build(input[:message_config]) unless input[:message_config].nil?
         data['NextActivity'] = input[:next_activity] unless input[:next_activity].nil?
         data['TemplateName'] = input[:template_name] unless input[:template_name].nil?
         data['TemplateVersion'] = input[:template_version] unless input[:template_version].nil?
@@ -1085,8 +1088,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::PushNotificationTemplateRequest.build(input[:push_notification_template_request]) unless input[:push_notification_template_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = PushNotificationTemplateRequest.build(input[:push_notification_template_request]) unless input[:push_notification_template_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1094,14 +1097,14 @@ module AWS::SDK::Pinpoint
     class PushNotificationTemplateRequest
       def self.build(input)
         data = {}
-        data['ADM'] = Builders::AndroidPushNotificationTemplate.build(input[:adm]) unless input[:adm].nil?
-        data['APNS'] = Builders::APNSPushNotificationTemplate.build(input[:apns]) unless input[:apns].nil?
-        data['Baidu'] = Builders::AndroidPushNotificationTemplate.build(input[:baidu]) unless input[:baidu].nil?
-        data['Default'] = Builders::DefaultPushNotificationTemplate.build(input[:default]) unless input[:default].nil?
+        data['ADM'] = AndroidPushNotificationTemplate.build(input[:adm]) unless input[:adm].nil?
+        data['APNS'] = APNSPushNotificationTemplate.build(input[:apns]) unless input[:apns].nil?
+        data['Baidu'] = AndroidPushNotificationTemplate.build(input[:baidu]) unless input[:baidu].nil?
+        data['Default'] = DefaultPushNotificationTemplate.build(input[:default]) unless input[:default].nil?
         data['DefaultSubstitutions'] = input[:default_substitutions] unless input[:default_substitutions].nil?
-        data['GCM'] = Builders::AndroidPushNotificationTemplate.build(input[:gcm]) unless input[:gcm].nil?
+        data['GCM'] = AndroidPushNotificationTemplate.build(input[:gcm]) unless input[:gcm].nil?
         data['RecommenderId'] = input[:recommender_id] unless input[:recommender_id].nil?
-        data['tags'] = Builders::MapOf__string.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = MapOf__string.build(input[:tags]) unless input[:tags].nil?
         data['TemplateDescription'] = input[:template_description] unless input[:template_description].nil?
         data
       end
@@ -1161,8 +1164,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::CreateRecommenderConfigurationShape.build(input[:create_recommender_configuration]) unless input[:create_recommender_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = CreateRecommenderConfigurationShape.build(input[:create_recommender_configuration]) unless input[:create_recommender_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1170,7 +1173,7 @@ module AWS::SDK::Pinpoint
     class CreateRecommenderConfigurationShape
       def self.build(input)
         data = {}
-        data['Attributes'] = Builders::MapOf__string.build(input[:attributes]) unless input[:attributes].nil?
+        data['Attributes'] = MapOf__string.build(input[:attributes]) unless input[:attributes].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['RecommendationProviderIdType'] = input[:recommendation_provider_id_type] unless input[:recommendation_provider_id_type].nil?
@@ -1199,8 +1202,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::WriteSegmentRequest.build(input[:write_segment_request]) unless input[:write_segment_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = WriteSegmentRequest.build(input[:write_segment_request]) unless input[:write_segment_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1208,10 +1211,10 @@ module AWS::SDK::Pinpoint
     class WriteSegmentRequest
       def self.build(input)
         data = {}
-        data['Dimensions'] = Builders::SegmentDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
+        data['Dimensions'] = SegmentDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['SegmentGroups'] = Builders::SegmentGroupList.build(input[:segment_groups]) unless input[:segment_groups].nil?
-        data['tags'] = Builders::MapOf__string.build(input[:tags]) unless input[:tags].nil?
+        data['SegmentGroups'] = SegmentGroupList.build(input[:segment_groups]) unless input[:segment_groups].nil?
+        data['tags'] = MapOf__string.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -1220,7 +1223,7 @@ module AWS::SDK::Pinpoint
     class SegmentGroupList
       def self.build(input)
         data = {}
-        data['Groups'] = Builders::ListOfSegmentGroup.build(input[:groups]) unless input[:groups].nil?
+        data['Groups'] = ListOfSegmentGroup.build(input[:groups]) unless input[:groups].nil?
         data['Include'] = input[:include] unless input[:include].nil?
         data
       end
@@ -1231,7 +1234,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SegmentGroup.build(element) unless element.nil?
+          data << SegmentGroup.build(element) unless element.nil?
         end
         data
       end
@@ -1241,8 +1244,8 @@ module AWS::SDK::Pinpoint
     class SegmentGroup
       def self.build(input)
         data = {}
-        data['Dimensions'] = Builders::ListOfSegmentDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
-        data['SourceSegments'] = Builders::ListOfSegmentReference.build(input[:source_segments]) unless input[:source_segments].nil?
+        data['Dimensions'] = ListOfSegmentDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
+        data['SourceSegments'] = ListOfSegmentReference.build(input[:source_segments]) unless input[:source_segments].nil?
         data['SourceType'] = input[:source_type] unless input[:source_type].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data
@@ -1254,7 +1257,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SegmentReference.build(element) unless element.nil?
+          data << SegmentReference.build(element) unless element.nil?
         end
         data
       end
@@ -1275,7 +1278,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SegmentDimensions.build(element) unless element.nil?
+          data << SegmentDimensions.build(element) unless element.nil?
         end
         data
       end
@@ -1297,8 +1300,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::SMSTemplateRequest.build(input[:sms_template_request]) unless input[:sms_template_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = SMSTemplateRequest.build(input[:sms_template_request]) unless input[:sms_template_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1309,7 +1312,7 @@ module AWS::SDK::Pinpoint
         data['Body'] = input[:body] unless input[:body].nil?
         data['DefaultSubstitutions'] = input[:default_substitutions] unless input[:default_substitutions].nil?
         data['RecommenderId'] = input[:recommender_id] unless input[:recommender_id].nil?
-        data['tags'] = Builders::MapOf__string.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = MapOf__string.build(input[:tags]) unless input[:tags].nil?
         data['TemplateDescription'] = input[:template_description] unless input[:template_description].nil?
         data
       end
@@ -1331,8 +1334,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::VoiceTemplateRequest.build(input[:voice_template_request]) unless input[:voice_template_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VoiceTemplateRequest.build(input[:voice_template_request]) unless input[:voice_template_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1343,7 +1346,7 @@ module AWS::SDK::Pinpoint
         data['Body'] = input[:body] unless input[:body].nil?
         data['DefaultSubstitutions'] = input[:default_substitutions] unless input[:default_substitutions].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        data['tags'] = Builders::MapOf__string.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = MapOf__string.build(input[:tags]) unless input[:tags].nil?
         data['TemplateDescription'] = input[:template_description] unless input[:template_description].nil?
         data['VoiceId'] = input[:voice_id] unless input[:voice_id].nil?
         data
@@ -2759,8 +2762,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::NumberValidateRequest.build(input[:number_validate_request]) unless input[:number_validate_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = NumberValidateRequest.build(input[:number_validate_request]) unless input[:number_validate_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2790,8 +2793,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::WriteEventStream.build(input[:write_event_stream]) unless input[:write_event_stream].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = WriteEventStream.build(input[:write_event_stream]) unless input[:write_event_stream].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2821,8 +2824,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::EventsRequest.build(input[:events_request]) unless input[:events_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EventsRequest.build(input[:events_request]) unless input[:events_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2830,7 +2833,7 @@ module AWS::SDK::Pinpoint
     class EventsRequest
       def self.build(input)
         data = {}
-        data['BatchItem'] = Builders::MapOfEventsBatch.build(input[:batch_item]) unless input[:batch_item].nil?
+        data['BatchItem'] = MapOfEventsBatch.build(input[:batch_item]) unless input[:batch_item].nil?
         data
       end
     end
@@ -2840,7 +2843,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::EventsBatch.build(value) unless value.nil?
+          data[key] = EventsBatch.build(value) unless value.nil?
         end
         data
       end
@@ -2850,8 +2853,8 @@ module AWS::SDK::Pinpoint
     class EventsBatch
       def self.build(input)
         data = {}
-        data['Endpoint'] = Builders::PublicEndpoint.build(input[:endpoint]) unless input[:endpoint].nil?
-        data['Events'] = Builders::MapOfEvent.build(input[:events]) unless input[:events].nil?
+        data['Endpoint'] = PublicEndpoint.build(input[:endpoint]) unless input[:endpoint].nil?
+        data['Events'] = MapOfEvent.build(input[:events]) unless input[:events].nil?
         data
       end
     end
@@ -2861,7 +2864,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::Event.build(value) unless value.nil?
+          data[key] = Event.build(value) unless value.nil?
         end
         data
       end
@@ -2874,12 +2877,12 @@ module AWS::SDK::Pinpoint
         data['AppPackageName'] = input[:app_package_name] unless input[:app_package_name].nil?
         data['AppTitle'] = input[:app_title] unless input[:app_title].nil?
         data['AppVersionCode'] = input[:app_version_code] unless input[:app_version_code].nil?
-        data['Attributes'] = Builders::MapOf__string.build(input[:attributes]) unless input[:attributes].nil?
+        data['Attributes'] = MapOf__string.build(input[:attributes]) unless input[:attributes].nil?
         data['ClientSdkVersion'] = input[:client_sdk_version] unless input[:client_sdk_version].nil?
         data['EventType'] = input[:event_type] unless input[:event_type].nil?
-        data['Metrics'] = Builders::MapOf__double.build(input[:metrics]) unless input[:metrics].nil?
+        data['Metrics'] = MapOf__double.build(input[:metrics]) unless input[:metrics].nil?
         data['SdkName'] = input[:sdk_name] unless input[:sdk_name].nil?
-        data['Session'] = Builders::Session.build(input[:session]) unless input[:session].nil?
+        data['Session'] = Session.build(input[:session]) unless input[:session].nil?
         data['Timestamp'] = input[:timestamp] unless input[:timestamp].nil?
         data
       end
@@ -2913,16 +2916,16 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         data['Address'] = input[:address] unless input[:address].nil?
-        data['Attributes'] = Builders::MapOfListOf__string.build(input[:attributes]) unless input[:attributes].nil?
+        data['Attributes'] = MapOfListOf__string.build(input[:attributes]) unless input[:attributes].nil?
         data['ChannelType'] = input[:channel_type] unless input[:channel_type].nil?
-        data['Demographic'] = Builders::EndpointDemographic.build(input[:demographic]) unless input[:demographic].nil?
+        data['Demographic'] = EndpointDemographic.build(input[:demographic]) unless input[:demographic].nil?
         data['EffectiveDate'] = input[:effective_date] unless input[:effective_date].nil?
         data['EndpointStatus'] = input[:endpoint_status] unless input[:endpoint_status].nil?
-        data['Location'] = Builders::EndpointLocation.build(input[:location]) unless input[:location].nil?
-        data['Metrics'] = Builders::MapOf__double.build(input[:metrics]) unless input[:metrics].nil?
+        data['Location'] = EndpointLocation.build(input[:location]) unless input[:location].nil?
+        data['Metrics'] = MapOf__double.build(input[:metrics]) unless input[:metrics].nil?
         data['OptOut'] = input[:opt_out] unless input[:opt_out].nil?
         data['RequestId'] = input[:request_id] unless input[:request_id].nil?
-        data['User'] = Builders::EndpointUser.build(input[:user]) unless input[:user].nil?
+        data['User'] = EndpointUser.build(input[:user]) unless input[:user].nil?
         data
       end
     end
@@ -2931,7 +2934,7 @@ module AWS::SDK::Pinpoint
     class EndpointUser
       def self.build(input)
         data = {}
-        data['UserAttributes'] = Builders::MapOfListOf__string.build(input[:user_attributes]) unless input[:user_attributes].nil?
+        data['UserAttributes'] = MapOfListOf__string.build(input[:user_attributes]) unless input[:user_attributes].nil?
         data['UserId'] = input[:user_id] unless input[:user_id].nil?
         data
       end
@@ -2942,7 +2945,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ListOf__string.build(value) unless value.nil?
+          data[key] = ListOf__string.build(value) unless value.nil?
         end
         data
       end
@@ -2998,8 +3001,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::UpdateAttributesRequest.build(input[:update_attributes_request]) unless input[:update_attributes_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = UpdateAttributesRequest.build(input[:update_attributes_request]) unless input[:update_attributes_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3007,7 +3010,7 @@ module AWS::SDK::Pinpoint
     class UpdateAttributesRequest
       def self.build(input)
         data = {}
-        data['Blacklist'] = Builders::ListOf__string.build(input[:blacklist]) unless input[:blacklist].nil?
+        data['Blacklist'] = ListOf__string.build(input[:blacklist]) unless input[:blacklist].nil?
         data
       end
     end
@@ -3028,8 +3031,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::MessageRequest.build(input[:message_request]) unless input[:message_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = MessageRequest.build(input[:message_request]) unless input[:message_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3037,11 +3040,11 @@ module AWS::SDK::Pinpoint
     class MessageRequest
       def self.build(input)
         data = {}
-        data['Addresses'] = Builders::MapOfAddressConfiguration.build(input[:addresses]) unless input[:addresses].nil?
-        data['Context'] = Builders::MapOf__string.build(input[:context]) unless input[:context].nil?
-        data['Endpoints'] = Builders::MapOfEndpointSendConfiguration.build(input[:endpoints]) unless input[:endpoints].nil?
-        data['MessageConfiguration'] = Builders::DirectMessageConfiguration.build(input[:message_configuration]) unless input[:message_configuration].nil?
-        data['TemplateConfiguration'] = Builders::TemplateConfiguration.build(input[:template_configuration]) unless input[:template_configuration].nil?
+        data['Addresses'] = MapOfAddressConfiguration.build(input[:addresses]) unless input[:addresses].nil?
+        data['Context'] = MapOf__string.build(input[:context]) unless input[:context].nil?
+        data['Endpoints'] = MapOfEndpointSendConfiguration.build(input[:endpoints]) unless input[:endpoints].nil?
+        data['MessageConfiguration'] = DirectMessageConfiguration.build(input[:message_configuration]) unless input[:message_configuration].nil?
+        data['TemplateConfiguration'] = TemplateConfiguration.build(input[:template_configuration]) unless input[:template_configuration].nil?
         data['TraceId'] = input[:trace_id] unless input[:trace_id].nil?
         data
       end
@@ -3051,15 +3054,15 @@ module AWS::SDK::Pinpoint
     class DirectMessageConfiguration
       def self.build(input)
         data = {}
-        data['ADMMessage'] = Builders::ADMMessage.build(input[:adm_message]) unless input[:adm_message].nil?
-        data['APNSMessage'] = Builders::APNSMessage.build(input[:apns_message]) unless input[:apns_message].nil?
-        data['BaiduMessage'] = Builders::BaiduMessage.build(input[:baidu_message]) unless input[:baidu_message].nil?
-        data['DefaultMessage'] = Builders::DefaultMessage.build(input[:default_message]) unless input[:default_message].nil?
-        data['DefaultPushNotificationMessage'] = Builders::DefaultPushNotificationMessage.build(input[:default_push_notification_message]) unless input[:default_push_notification_message].nil?
-        data['EmailMessage'] = Builders::EmailMessage.build(input[:email_message]) unless input[:email_message].nil?
-        data['GCMMessage'] = Builders::GCMMessage.build(input[:gcm_message]) unless input[:gcm_message].nil?
-        data['SMSMessage'] = Builders::SMSMessage.build(input[:sms_message]) unless input[:sms_message].nil?
-        data['VoiceMessage'] = Builders::VoiceMessage.build(input[:voice_message]) unless input[:voice_message].nil?
+        data['ADMMessage'] = ADMMessage.build(input[:adm_message]) unless input[:adm_message].nil?
+        data['APNSMessage'] = APNSMessage.build(input[:apns_message]) unless input[:apns_message].nil?
+        data['BaiduMessage'] = BaiduMessage.build(input[:baidu_message]) unless input[:baidu_message].nil?
+        data['DefaultMessage'] = DefaultMessage.build(input[:default_message]) unless input[:default_message].nil?
+        data['DefaultPushNotificationMessage'] = DefaultPushNotificationMessage.build(input[:default_push_notification_message]) unless input[:default_push_notification_message].nil?
+        data['EmailMessage'] = EmailMessage.build(input[:email_message]) unless input[:email_message].nil?
+        data['GCMMessage'] = GCMMessage.build(input[:gcm_message]) unless input[:gcm_message].nil?
+        data['SMSMessage'] = SMSMessage.build(input[:sms_message]) unless input[:sms_message].nil?
+        data['VoiceMessage'] = VoiceMessage.build(input[:voice_message]) unless input[:voice_message].nil?
         data
       end
     end
@@ -3071,7 +3074,7 @@ module AWS::SDK::Pinpoint
         data['Body'] = input[:body] unless input[:body].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
         data['OriginationNumber'] = input[:origination_number] unless input[:origination_number].nil?
-        data['Substitutions'] = Builders::MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
+        data['Substitutions'] = MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
         data['VoiceId'] = input[:voice_id] unless input[:voice_id].nil?
         data
       end
@@ -3087,7 +3090,7 @@ module AWS::SDK::Pinpoint
         data['MessageType'] = input[:message_type] unless input[:message_type].nil?
         data['OriginationNumber'] = input[:origination_number] unless input[:origination_number].nil?
         data['SenderId'] = input[:sender_id] unless input[:sender_id].nil?
-        data['Substitutions'] = Builders::MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
+        data['Substitutions'] = MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
         data['EntityId'] = input[:entity_id] unless input[:entity_id].nil?
         data['TemplateId'] = input[:template_id] unless input[:template_id].nil?
         data
@@ -3101,7 +3104,7 @@ module AWS::SDK::Pinpoint
         data['Action'] = input[:action] unless input[:action].nil?
         data['Body'] = input[:body] unless input[:body].nil?
         data['CollapseKey'] = input[:collapse_key] unless input[:collapse_key].nil?
-        data['Data'] = Builders::MapOf__string.build(input[:data]) unless input[:data].nil?
+        data['Data'] = MapOf__string.build(input[:data]) unless input[:data].nil?
         data['IconReference'] = input[:icon_reference] unless input[:icon_reference].nil?
         data['ImageIconUrl'] = input[:image_icon_url] unless input[:image_icon_url].nil?
         data['ImageUrl'] = input[:image_url] unless input[:image_url].nil?
@@ -3111,7 +3114,7 @@ module AWS::SDK::Pinpoint
         data['SilentPush'] = input[:silent_push] unless input[:silent_push].nil?
         data['SmallImageIconUrl'] = input[:small_image_icon_url] unless input[:small_image_icon_url].nil?
         data['Sound'] = input[:sound] unless input[:sound].nil?
-        data['Substitutions'] = Builders::MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
+        data['Substitutions'] = MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
         data['TimeToLive'] = input[:time_to_live] unless input[:time_to_live].nil?
         data['Title'] = input[:title] unless input[:title].nil?
         data['Url'] = input[:url] unless input[:url].nil?
@@ -3126,10 +3129,10 @@ module AWS::SDK::Pinpoint
         data['Body'] = input[:body] unless input[:body].nil?
         data['FeedbackForwardingAddress'] = input[:feedback_forwarding_address] unless input[:feedback_forwarding_address].nil?
         data['FromAddress'] = input[:from_address] unless input[:from_address].nil?
-        data['RawEmail'] = Builders::RawEmail.build(input[:raw_email]) unless input[:raw_email].nil?
-        data['ReplyToAddresses'] = Builders::ListOf__string.build(input[:reply_to_addresses]) unless input[:reply_to_addresses].nil?
-        data['SimpleEmail'] = Builders::SimpleEmail.build(input[:simple_email]) unless input[:simple_email].nil?
-        data['Substitutions'] = Builders::MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
+        data['RawEmail'] = RawEmail.build(input[:raw_email]) unless input[:raw_email].nil?
+        data['ReplyToAddresses'] = ListOf__string.build(input[:reply_to_addresses]) unless input[:reply_to_addresses].nil?
+        data['SimpleEmail'] = SimpleEmail.build(input[:simple_email]) unless input[:simple_email].nil?
+        data['Substitutions'] = MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
         data
       end
     end
@@ -3138,9 +3141,9 @@ module AWS::SDK::Pinpoint
     class SimpleEmail
       def self.build(input)
         data = {}
-        data['HtmlPart'] = Builders::SimpleEmailPart.build(input[:html_part]) unless input[:html_part].nil?
-        data['Subject'] = Builders::SimpleEmailPart.build(input[:subject]) unless input[:subject].nil?
-        data['TextPart'] = Builders::SimpleEmailPart.build(input[:text_part]) unless input[:text_part].nil?
+        data['HtmlPart'] = SimpleEmailPart.build(input[:html_part]) unless input[:html_part].nil?
+        data['Subject'] = SimpleEmailPart.build(input[:subject]) unless input[:subject].nil?
+        data['TextPart'] = SimpleEmailPart.build(input[:text_part]) unless input[:text_part].nil?
         data
       end
     end
@@ -3159,7 +3162,7 @@ module AWS::SDK::Pinpoint
     class RawEmail
       def self.build(input)
         data = {}
-        data['Data'] = Base64::encode64(input[:data]).strip unless input[:data].nil?
+        data['Data'] = ::Base64::encode64(input[:data]).strip unless input[:data].nil?
         data
       end
     end
@@ -3170,9 +3173,9 @@ module AWS::SDK::Pinpoint
         data = {}
         data['Action'] = input[:action] unless input[:action].nil?
         data['Body'] = input[:body] unless input[:body].nil?
-        data['Data'] = Builders::MapOf__string.build(input[:data]) unless input[:data].nil?
+        data['Data'] = MapOf__string.build(input[:data]) unless input[:data].nil?
         data['SilentPush'] = input[:silent_push] unless input[:silent_push].nil?
-        data['Substitutions'] = Builders::MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
+        data['Substitutions'] = MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
         data['Title'] = input[:title] unless input[:title].nil?
         data['Url'] = input[:url] unless input[:url].nil?
         data
@@ -3184,7 +3187,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         data['Body'] = input[:body] unless input[:body].nil?
-        data['Substitutions'] = Builders::MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
+        data['Substitutions'] = MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
         data
       end
     end
@@ -3195,7 +3198,7 @@ module AWS::SDK::Pinpoint
         data = {}
         data['Action'] = input[:action] unless input[:action].nil?
         data['Body'] = input[:body] unless input[:body].nil?
-        data['Data'] = Builders::MapOf__string.build(input[:data]) unless input[:data].nil?
+        data['Data'] = MapOf__string.build(input[:data]) unless input[:data].nil?
         data['IconReference'] = input[:icon_reference] unless input[:icon_reference].nil?
         data['ImageIconUrl'] = input[:image_icon_url] unless input[:image_icon_url].nil?
         data['ImageUrl'] = input[:image_url] unless input[:image_url].nil?
@@ -3203,7 +3206,7 @@ module AWS::SDK::Pinpoint
         data['SilentPush'] = input[:silent_push] unless input[:silent_push].nil?
         data['SmallImageIconUrl'] = input[:small_image_icon_url] unless input[:small_image_icon_url].nil?
         data['Sound'] = input[:sound] unless input[:sound].nil?
-        data['Substitutions'] = Builders::MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
+        data['Substitutions'] = MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
         data['TimeToLive'] = input[:time_to_live] unless input[:time_to_live].nil?
         data['Title'] = input[:title] unless input[:title].nil?
         data['Url'] = input[:url] unless input[:url].nil?
@@ -3221,14 +3224,14 @@ module AWS::SDK::Pinpoint
         data['Body'] = input[:body] unless input[:body].nil?
         data['Category'] = input[:category] unless input[:category].nil?
         data['CollapseId'] = input[:collapse_id] unless input[:collapse_id].nil?
-        data['Data'] = Builders::MapOf__string.build(input[:data]) unless input[:data].nil?
+        data['Data'] = MapOf__string.build(input[:data]) unless input[:data].nil?
         data['MediaUrl'] = input[:media_url] unless input[:media_url].nil?
         data['PreferredAuthenticationMethod'] = input[:preferred_authentication_method] unless input[:preferred_authentication_method].nil?
         data['Priority'] = input[:priority] unless input[:priority].nil?
         data['RawContent'] = input[:raw_content] unless input[:raw_content].nil?
         data['SilentPush'] = input[:silent_push] unless input[:silent_push].nil?
         data['Sound'] = input[:sound] unless input[:sound].nil?
-        data['Substitutions'] = Builders::MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
+        data['Substitutions'] = MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
         data['ThreadId'] = input[:thread_id] unless input[:thread_id].nil?
         data['TimeToLive'] = input[:time_to_live] unless input[:time_to_live].nil?
         data['Title'] = input[:title] unless input[:title].nil?
@@ -3244,7 +3247,7 @@ module AWS::SDK::Pinpoint
         data['Action'] = input[:action] unless input[:action].nil?
         data['Body'] = input[:body] unless input[:body].nil?
         data['ConsolidationKey'] = input[:consolidation_key] unless input[:consolidation_key].nil?
-        data['Data'] = Builders::MapOf__string.build(input[:data]) unless input[:data].nil?
+        data['Data'] = MapOf__string.build(input[:data]) unless input[:data].nil?
         data['ExpiresAfter'] = input[:expires_after] unless input[:expires_after].nil?
         data['IconReference'] = input[:icon_reference] unless input[:icon_reference].nil?
         data['ImageIconUrl'] = input[:image_icon_url] unless input[:image_icon_url].nil?
@@ -3254,7 +3257,7 @@ module AWS::SDK::Pinpoint
         data['SilentPush'] = input[:silent_push] unless input[:silent_push].nil?
         data['SmallImageIconUrl'] = input[:small_image_icon_url] unless input[:small_image_icon_url].nil?
         data['Sound'] = input[:sound] unless input[:sound].nil?
-        data['Substitutions'] = Builders::MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
+        data['Substitutions'] = MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
         data['Title'] = input[:title] unless input[:title].nil?
         data['Url'] = input[:url] unless input[:url].nil?
         data
@@ -3266,7 +3269,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::EndpointSendConfiguration.build(value) unless value.nil?
+          data[key] = EndpointSendConfiguration.build(value) unless value.nil?
         end
         data
       end
@@ -3277,9 +3280,9 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         data['BodyOverride'] = input[:body_override] unless input[:body_override].nil?
-        data['Context'] = Builders::MapOf__string.build(input[:context]) unless input[:context].nil?
+        data['Context'] = MapOf__string.build(input[:context]) unless input[:context].nil?
         data['RawContent'] = input[:raw_content] unless input[:raw_content].nil?
-        data['Substitutions'] = Builders::MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
+        data['Substitutions'] = MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
         data['TitleOverride'] = input[:title_override] unless input[:title_override].nil?
         data
       end
@@ -3290,7 +3293,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::AddressConfiguration.build(value) unless value.nil?
+          data[key] = AddressConfiguration.build(value) unless value.nil?
         end
         data
       end
@@ -3302,9 +3305,9 @@ module AWS::SDK::Pinpoint
         data = {}
         data['BodyOverride'] = input[:body_override] unless input[:body_override].nil?
         data['ChannelType'] = input[:channel_type] unless input[:channel_type].nil?
-        data['Context'] = Builders::MapOf__string.build(input[:context]) unless input[:context].nil?
+        data['Context'] = MapOf__string.build(input[:context]) unless input[:context].nil?
         data['RawContent'] = input[:raw_content] unless input[:raw_content].nil?
-        data['Substitutions'] = Builders::MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
+        data['Substitutions'] = MapOfListOf__string.build(input[:substitutions]) unless input[:substitutions].nil?
         data['TitleOverride'] = input[:title_override] unless input[:title_override].nil?
         data
       end
@@ -3326,8 +3329,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::SendOTPMessageRequestParameters.build(input[:send_otp_message_request_parameters]) unless input[:send_otp_message_request_parameters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = SendOTPMessageRequestParameters.build(input[:send_otp_message_request_parameters]) unless input[:send_otp_message_request_parameters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3366,8 +3369,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::SendUsersMessageRequest.build(input[:send_users_message_request]) unless input[:send_users_message_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = SendUsersMessageRequest.build(input[:send_users_message_request]) unless input[:send_users_message_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3375,11 +3378,11 @@ module AWS::SDK::Pinpoint
     class SendUsersMessageRequest
       def self.build(input)
         data = {}
-        data['Context'] = Builders::MapOf__string.build(input[:context]) unless input[:context].nil?
-        data['MessageConfiguration'] = Builders::DirectMessageConfiguration.build(input[:message_configuration]) unless input[:message_configuration].nil?
-        data['TemplateConfiguration'] = Builders::TemplateConfiguration.build(input[:template_configuration]) unless input[:template_configuration].nil?
+        data['Context'] = MapOf__string.build(input[:context]) unless input[:context].nil?
+        data['MessageConfiguration'] = DirectMessageConfiguration.build(input[:message_configuration]) unless input[:message_configuration].nil?
+        data['TemplateConfiguration'] = TemplateConfiguration.build(input[:template_configuration]) unless input[:template_configuration].nil?
         data['TraceId'] = input[:trace_id] unless input[:trace_id].nil?
-        data['Users'] = Builders::MapOfEndpointSendConfiguration.build(input[:users]) unless input[:users].nil?
+        data['Users'] = MapOfEndpointSendConfiguration.build(input[:users]) unless input[:users].nil?
         data
       end
     end
@@ -3400,8 +3403,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::TagsModel.build(input[:tags_model]) unless input[:tags_model].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = TagsModel.build(input[:tags_model]) unless input[:tags_model].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3409,7 +3412,7 @@ module AWS::SDK::Pinpoint
     class TagsModel
       def self.build(input)
         data = {}
-        data['tags'] = Builders::MapOf__string.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = MapOf__string.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -3452,8 +3455,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::ADMChannelRequest.build(input[:adm_channel_request]) unless input[:adm_channel_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ADMChannelRequest.build(input[:adm_channel_request]) unless input[:adm_channel_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3484,8 +3487,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::APNSChannelRequest.build(input[:apns_channel_request]) unless input[:apns_channel_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = APNSChannelRequest.build(input[:apns_channel_request]) unless input[:apns_channel_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3521,8 +3524,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::APNSSandboxChannelRequest.build(input[:apns_sandbox_channel_request]) unless input[:apns_sandbox_channel_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = APNSSandboxChannelRequest.build(input[:apns_sandbox_channel_request]) unless input[:apns_sandbox_channel_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3558,8 +3561,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::APNSVoipChannelRequest.build(input[:apns_voip_channel_request]) unless input[:apns_voip_channel_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = APNSVoipChannelRequest.build(input[:apns_voip_channel_request]) unless input[:apns_voip_channel_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3595,8 +3598,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::APNSVoipSandboxChannelRequest.build(input[:apns_voip_sandbox_channel_request]) unless input[:apns_voip_sandbox_channel_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = APNSVoipSandboxChannelRequest.build(input[:apns_voip_sandbox_channel_request]) unless input[:apns_voip_sandbox_channel_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3632,8 +3635,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::WriteApplicationSettingsRequest.build(input[:write_application_settings_request]) unless input[:write_application_settings_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = WriteApplicationSettingsRequest.build(input[:write_application_settings_request]) unless input[:write_application_settings_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3641,11 +3644,11 @@ module AWS::SDK::Pinpoint
     class WriteApplicationSettingsRequest
       def self.build(input)
         data = {}
-        data['CampaignHook'] = Builders::CampaignHook.build(input[:campaign_hook]) unless input[:campaign_hook].nil?
+        data['CampaignHook'] = CampaignHook.build(input[:campaign_hook]) unless input[:campaign_hook].nil?
         data['CloudWatchMetricsEnabled'] = input[:cloud_watch_metrics_enabled] unless input[:cloud_watch_metrics_enabled].nil?
         data['EventTaggingEnabled'] = input[:event_tagging_enabled] unless input[:event_tagging_enabled].nil?
-        data['Limits'] = Builders::CampaignLimits.build(input[:limits]) unless input[:limits].nil?
-        data['QuietTime'] = Builders::QuietTime.build(input[:quiet_time]) unless input[:quiet_time].nil?
+        data['Limits'] = CampaignLimits.build(input[:limits]) unless input[:limits].nil?
+        data['QuietTime'] = QuietTime.build(input[:quiet_time]) unless input[:quiet_time].nil?
         data
       end
     end
@@ -3666,8 +3669,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::BaiduChannelRequest.build(input[:baidu_channel_request]) unless input[:baidu_channel_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = BaiduChannelRequest.build(input[:baidu_channel_request]) unless input[:baidu_channel_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3702,8 +3705,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::WriteCampaignRequest.build(input[:write_campaign_request]) unless input[:write_campaign_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = WriteCampaignRequest.build(input[:write_campaign_request]) unless input[:write_campaign_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3723,8 +3726,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::EmailChannelRequest.build(input[:email_channel_request]) unless input[:email_channel_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EmailChannelRequest.build(input[:email_channel_request]) unless input[:email_channel_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3759,8 +3762,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::EmailTemplateRequest.build(input[:email_template_request]) unless input[:email_template_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EmailTemplateRequest.build(input[:email_template_request]) unless input[:email_template_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3784,8 +3787,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::EndpointRequest.build(input[:endpoint_request]) unless input[:endpoint_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EndpointRequest.build(input[:endpoint_request]) unless input[:endpoint_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3794,16 +3797,16 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         data['Address'] = input[:address] unless input[:address].nil?
-        data['Attributes'] = Builders::MapOfListOf__string.build(input[:attributes]) unless input[:attributes].nil?
+        data['Attributes'] = MapOfListOf__string.build(input[:attributes]) unless input[:attributes].nil?
         data['ChannelType'] = input[:channel_type] unless input[:channel_type].nil?
-        data['Demographic'] = Builders::EndpointDemographic.build(input[:demographic]) unless input[:demographic].nil?
+        data['Demographic'] = EndpointDemographic.build(input[:demographic]) unless input[:demographic].nil?
         data['EffectiveDate'] = input[:effective_date] unless input[:effective_date].nil?
         data['EndpointStatus'] = input[:endpoint_status] unless input[:endpoint_status].nil?
-        data['Location'] = Builders::EndpointLocation.build(input[:location]) unless input[:location].nil?
-        data['Metrics'] = Builders::MapOf__double.build(input[:metrics]) unless input[:metrics].nil?
+        data['Location'] = EndpointLocation.build(input[:location]) unless input[:location].nil?
+        data['Metrics'] = MapOf__double.build(input[:metrics]) unless input[:metrics].nil?
         data['OptOut'] = input[:opt_out] unless input[:opt_out].nil?
         data['RequestId'] = input[:request_id] unless input[:request_id].nil?
-        data['User'] = Builders::EndpointUser.build(input[:user]) unless input[:user].nil?
+        data['User'] = EndpointUser.build(input[:user]) unless input[:user].nil?
         data
       end
     end
@@ -3824,8 +3827,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::EndpointBatchRequest.build(input[:endpoint_batch_request]) unless input[:endpoint_batch_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = EndpointBatchRequest.build(input[:endpoint_batch_request]) unless input[:endpoint_batch_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3833,7 +3836,7 @@ module AWS::SDK::Pinpoint
     class EndpointBatchRequest
       def self.build(input)
         data = {}
-        data['Item'] = Builders::ListOfEndpointBatchItem.build(input[:item]) unless input[:item].nil?
+        data['Item'] = ListOfEndpointBatchItem.build(input[:item]) unless input[:item].nil?
         data
       end
     end
@@ -3843,7 +3846,7 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EndpointBatchItem.build(element) unless element.nil?
+          data << EndpointBatchItem.build(element) unless element.nil?
         end
         data
       end
@@ -3854,17 +3857,17 @@ module AWS::SDK::Pinpoint
       def self.build(input)
         data = {}
         data['Address'] = input[:address] unless input[:address].nil?
-        data['Attributes'] = Builders::MapOfListOf__string.build(input[:attributes]) unless input[:attributes].nil?
+        data['Attributes'] = MapOfListOf__string.build(input[:attributes]) unless input[:attributes].nil?
         data['ChannelType'] = input[:channel_type] unless input[:channel_type].nil?
-        data['Demographic'] = Builders::EndpointDemographic.build(input[:demographic]) unless input[:demographic].nil?
+        data['Demographic'] = EndpointDemographic.build(input[:demographic]) unless input[:demographic].nil?
         data['EffectiveDate'] = input[:effective_date] unless input[:effective_date].nil?
         data['EndpointStatus'] = input[:endpoint_status] unless input[:endpoint_status].nil?
         data['Id'] = input[:id] unless input[:id].nil?
-        data['Location'] = Builders::EndpointLocation.build(input[:location]) unless input[:location].nil?
-        data['Metrics'] = Builders::MapOf__double.build(input[:metrics]) unless input[:metrics].nil?
+        data['Location'] = EndpointLocation.build(input[:location]) unless input[:location].nil?
+        data['Metrics'] = MapOf__double.build(input[:metrics]) unless input[:metrics].nil?
         data['OptOut'] = input[:opt_out] unless input[:opt_out].nil?
         data['RequestId'] = input[:request_id] unless input[:request_id].nil?
-        data['User'] = Builders::EndpointUser.build(input[:user]) unless input[:user].nil?
+        data['User'] = EndpointUser.build(input[:user]) unless input[:user].nil?
         data
       end
     end
@@ -3885,8 +3888,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::GCMChannelRequest.build(input[:gcm_channel_request]) unless input[:gcm_channel_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = GCMChannelRequest.build(input[:gcm_channel_request]) unless input[:gcm_channel_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3918,8 +3921,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::InAppTemplateRequest.build(input[:in_app_template_request]) unless input[:in_app_template_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = InAppTemplateRequest.build(input[:in_app_template_request]) unless input[:in_app_template_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3943,8 +3946,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::WriteJourneyRequest.build(input[:write_journey_request]) unless input[:write_journey_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = WriteJourneyRequest.build(input[:write_journey_request]) unless input[:write_journey_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3968,8 +3971,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::JourneyStateRequest.build(input[:journey_state_request]) unless input[:journey_state_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = JourneyStateRequest.build(input[:journey_state_request]) unless input[:journey_state_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4000,8 +4003,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::PushNotificationTemplateRequest.build(input[:push_notification_template_request]) unless input[:push_notification_template_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = PushNotificationTemplateRequest.build(input[:push_notification_template_request]) unless input[:push_notification_template_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4021,8 +4024,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::UpdateRecommenderConfigurationShape.build(input[:update_recommender_configuration]) unless input[:update_recommender_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = UpdateRecommenderConfigurationShape.build(input[:update_recommender_configuration]) unless input[:update_recommender_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4030,7 +4033,7 @@ module AWS::SDK::Pinpoint
     class UpdateRecommenderConfigurationShape
       def self.build(input)
         data = {}
-        data['Attributes'] = Builders::MapOf__string.build(input[:attributes]) unless input[:attributes].nil?
+        data['Attributes'] = MapOf__string.build(input[:attributes]) unless input[:attributes].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['RecommendationProviderIdType'] = input[:recommendation_provider_id_type] unless input[:recommendation_provider_id_type].nil?
@@ -4063,8 +4066,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::WriteSegmentRequest.build(input[:write_segment_request]) unless input[:write_segment_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = WriteSegmentRequest.build(input[:write_segment_request]) unless input[:write_segment_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4084,8 +4087,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::SMSChannelRequest.build(input[:sms_channel_request]) unless input[:sms_channel_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = SMSChannelRequest.build(input[:sms_channel_request]) unless input[:sms_channel_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4118,8 +4121,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::SMSTemplateRequest.build(input[:sms_template_request]) unless input[:sms_template_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = SMSTemplateRequest.build(input[:sms_template_request]) unless input[:sms_template_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4143,8 +4146,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::TemplateActiveVersionRequest.build(input[:template_active_version_request]) unless input[:template_active_version_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = TemplateActiveVersionRequest.build(input[:template_active_version_request]) unless input[:template_active_version_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4173,8 +4176,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::VoiceChannelRequest.build(input[:voice_channel_request]) unless input[:voice_channel_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VoiceChannelRequest.build(input[:voice_channel_request]) unless input[:voice_channel_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4205,8 +4208,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::VoiceTemplateRequest.build(input[:voice_template_request]) unless input[:voice_template_request].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VoiceTemplateRequest.build(input[:voice_template_request]) unless input[:voice_template_request].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4226,8 +4229,8 @@ module AWS::SDK::Pinpoint
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data = Builders::VerifyOTPMessageRequestParameters.build(input[:verify_otp_message_request_parameters]) unless input[:verify_otp_message_request_parameters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VerifyOTPMessageRequestParameters.build(input[:verify_otp_message_request_parameters]) unless input[:verify_otp_message_request_parameters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

@@ -80,7 +80,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.summary_list = (Parsers::SummaryList.parse(map['SummaryList']) unless map['SummaryList'].nil?)
+        data.summary_list = (SummaryList.parse(map['SummaryList']) unless map['SummaryList'].nil?)
         data.pagination_token = map['PaginationToken']
         data
       end
@@ -89,7 +89,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     class SummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::Summary.parse(value) unless value.nil?
+          Summary.parse(value) unless value.nil?
         end
       end
     end
@@ -115,7 +115,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.pagination_token = map['PaginationToken']
-        data.resource_tag_mapping_list = (Parsers::ResourceTagMappingList.parse(map['ResourceTagMappingList']) unless map['ResourceTagMappingList'].nil?)
+        data.resource_tag_mapping_list = (ResourceTagMappingList.parse(map['ResourceTagMappingList']) unless map['ResourceTagMappingList'].nil?)
         data
       end
     end
@@ -123,7 +123,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     class ResourceTagMappingList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceTagMapping.parse(value) unless value.nil?
+          ResourceTagMapping.parse(value) unless value.nil?
         end
       end
     end
@@ -132,8 +132,8 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.parse(map)
         data = Types::ResourceTagMapping.new
         data.resource_arn = map['ResourceARN']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
-        data.compliance_details = (Parsers::ComplianceDetails.parse(map['ComplianceDetails']) unless map['ComplianceDetails'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.compliance_details = (ComplianceDetails.parse(map['ComplianceDetails']) unless map['ComplianceDetails'].nil?)
         return data
       end
     end
@@ -141,8 +141,8 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     class ComplianceDetails
       def self.parse(map)
         data = Types::ComplianceDetails.new
-        data.noncompliant_keys = (Parsers::TagKeyList.parse(map['NoncompliantKeys']) unless map['NoncompliantKeys'].nil?)
-        data.keys_with_noncompliant_values = (Parsers::TagKeyList.parse(map['KeysWithNoncompliantValues']) unless map['KeysWithNoncompliantValues'].nil?)
+        data.noncompliant_keys = (TagKeyList.parse(map['NoncompliantKeys']) unless map['NoncompliantKeys'].nil?)
+        data.keys_with_noncompliant_values = (TagKeyList.parse(map['KeysWithNoncompliantValues']) unless map['KeysWithNoncompliantValues'].nil?)
         data.compliance_status = map['ComplianceStatus']
         return data
       end
@@ -159,7 +159,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -193,7 +193,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.pagination_token = map['PaginationToken']
-        data.tag_keys = (Parsers::TagKeyList.parse(map['TagKeys']) unless map['TagKeys'].nil?)
+        data.tag_keys = (TagKeyList.parse(map['TagKeys']) unless map['TagKeys'].nil?)
         data
       end
     end
@@ -206,7 +206,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.pagination_token = map['PaginationToken']
-        data.tag_values = (Parsers::TagValuesOutputList.parse(map['TagValues']) unless map['TagValues'].nil?)
+        data.tag_values = (TagValuesOutputList.parse(map['TagValues']) unless map['TagValues'].nil?)
         data
       end
     end
@@ -249,7 +249,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_resources_map = (Parsers::FailedResourcesMap.parse(map['FailedResourcesMap']) unless map['FailedResourcesMap'].nil?)
+        data.failed_resources_map = (FailedResourcesMap.parse(map['FailedResourcesMap']) unless map['FailedResourcesMap'].nil?)
         data
       end
     end
@@ -258,7 +258,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::FailureInfo.parse(value) unless value.nil?
+          data[key] = FailureInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -281,7 +281,7 @@ module AWS::SDK::ResourceGroupsTaggingAPI
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.failed_resources_map = (Parsers::FailedResourcesMap.parse(map['FailedResourcesMap']) unless map['FailedResourcesMap'].nil?)
+        data.failed_resources_map = (FailedResourcesMap.parse(map['FailedResourcesMap']) unless map['FailedResourcesMap'].nil?)
         data
       end
     end

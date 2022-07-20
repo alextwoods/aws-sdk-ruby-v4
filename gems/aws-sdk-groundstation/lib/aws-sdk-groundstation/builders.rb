@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::GroundStation
   module Builders
 
@@ -38,9 +40,9 @@ module AWS::SDK::GroundStation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['configData'] = Builders::ConfigTypeData.build(input[:config_data]) unless input[:config_data].nil?
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['configData'] = ConfigTypeData.build(input[:config_data]) unless input[:config_data].nil?
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -61,19 +63,19 @@ module AWS::SDK::GroundStation
         data = {}
         case input
         when Types::ConfigTypeData::AntennaDownlinkConfig
-          data['antennaDownlinkConfig'] = (Builders::AntennaDownlinkConfig.build(input) unless input.nil?)
+          data['antennaDownlinkConfig'] = (AntennaDownlinkConfig.build(input) unless input.nil?)
         when Types::ConfigTypeData::TrackingConfig
-          data['trackingConfig'] = (Builders::TrackingConfig.build(input) unless input.nil?)
+          data['trackingConfig'] = (TrackingConfig.build(input) unless input.nil?)
         when Types::ConfigTypeData::DataflowEndpointConfig
-          data['dataflowEndpointConfig'] = (Builders::DataflowEndpointConfig.build(input) unless input.nil?)
+          data['dataflowEndpointConfig'] = (DataflowEndpointConfig.build(input) unless input.nil?)
         when Types::ConfigTypeData::AntennaDownlinkDemodDecodeConfig
-          data['antennaDownlinkDemodDecodeConfig'] = (Builders::AntennaDownlinkDemodDecodeConfig.build(input) unless input.nil?)
+          data['antennaDownlinkDemodDecodeConfig'] = (AntennaDownlinkDemodDecodeConfig.build(input) unless input.nil?)
         when Types::ConfigTypeData::AntennaUplinkConfig
-          data['antennaUplinkConfig'] = (Builders::AntennaUplinkConfig.build(input) unless input.nil?)
+          data['antennaUplinkConfig'] = (AntennaUplinkConfig.build(input) unless input.nil?)
         when Types::ConfigTypeData::UplinkEchoConfig
-          data['uplinkEchoConfig'] = (Builders::UplinkEchoConfig.build(input) unless input.nil?)
+          data['uplinkEchoConfig'] = (UplinkEchoConfig.build(input) unless input.nil?)
         when Types::ConfigTypeData::S3RecordingConfig
-          data['s3RecordingConfig'] = (Builders::S3RecordingConfig.build(input) unless input.nil?)
+          data['s3RecordingConfig'] = (S3RecordingConfig.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ConfigTypeData"
@@ -109,8 +111,8 @@ module AWS::SDK::GroundStation
       def self.build(input)
         data = {}
         data['transmitDisabled'] = input[:transmit_disabled] unless input[:transmit_disabled].nil?
-        data['spectrumConfig'] = Builders::UplinkSpectrumConfig.build(input[:spectrum_config]) unless input[:spectrum_config].nil?
-        data['targetEirp'] = Builders::Eirp.build(input[:target_eirp]) unless input[:target_eirp].nil?
+        data['spectrumConfig'] = UplinkSpectrumConfig.build(input[:spectrum_config]) unless input[:spectrum_config].nil?
+        data['targetEirp'] = Eirp.build(input[:target_eirp]) unless input[:target_eirp].nil?
         data
       end
     end
@@ -129,7 +131,7 @@ module AWS::SDK::GroundStation
     class UplinkSpectrumConfig
       def self.build(input)
         data = {}
-        data['centerFrequency'] = Builders::Frequency.build(input[:center_frequency]) unless input[:center_frequency].nil?
+        data['centerFrequency'] = Frequency.build(input[:center_frequency]) unless input[:center_frequency].nil?
         data['polarization'] = input[:polarization] unless input[:polarization].nil?
         data
       end
@@ -149,9 +151,9 @@ module AWS::SDK::GroundStation
     class AntennaDownlinkDemodDecodeConfig
       def self.build(input)
         data = {}
-        data['spectrumConfig'] = Builders::SpectrumConfig.build(input[:spectrum_config]) unless input[:spectrum_config].nil?
-        data['demodulationConfig'] = Builders::DemodulationConfig.build(input[:demodulation_config]) unless input[:demodulation_config].nil?
-        data['decodeConfig'] = Builders::DecodeConfig.build(input[:decode_config]) unless input[:decode_config].nil?
+        data['spectrumConfig'] = SpectrumConfig.build(input[:spectrum_config]) unless input[:spectrum_config].nil?
+        data['demodulationConfig'] = DemodulationConfig.build(input[:demodulation_config]) unless input[:demodulation_config].nil?
+        data['decodeConfig'] = DecodeConfig.build(input[:decode_config]) unless input[:decode_config].nil?
         data
       end
     end
@@ -178,8 +180,8 @@ module AWS::SDK::GroundStation
     class SpectrumConfig
       def self.build(input)
         data = {}
-        data['centerFrequency'] = Builders::Frequency.build(input[:center_frequency]) unless input[:center_frequency].nil?
-        data['bandwidth'] = Builders::FrequencyBandwidth.build(input[:bandwidth]) unless input[:bandwidth].nil?
+        data['centerFrequency'] = Frequency.build(input[:center_frequency]) unless input[:center_frequency].nil?
+        data['bandwidth'] = FrequencyBandwidth.build(input[:bandwidth]) unless input[:bandwidth].nil?
         data['polarization'] = input[:polarization] unless input[:polarization].nil?
         data
       end
@@ -218,7 +220,7 @@ module AWS::SDK::GroundStation
     class AntennaDownlinkConfig
       def self.build(input)
         data = {}
-        data['spectrumConfig'] = Builders::SpectrumConfig.build(input[:spectrum_config]) unless input[:spectrum_config].nil?
+        data['spectrumConfig'] = SpectrumConfig.build(input[:spectrum_config]) unless input[:spectrum_config].nil?
         data
       end
     end
@@ -233,9 +235,9 @@ module AWS::SDK::GroundStation
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['endpointDetails'] = Builders::EndpointDetailsList.build(input[:endpoint_details]) unless input[:endpoint_details].nil?
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['endpointDetails'] = EndpointDetailsList.build(input[:endpoint_details]) unless input[:endpoint_details].nil?
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -244,7 +246,7 @@ module AWS::SDK::GroundStation
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EndpointDetails.build(element) unless element.nil?
+          data << EndpointDetails.build(element) unless element.nil?
         end
         data
       end
@@ -254,8 +256,8 @@ module AWS::SDK::GroundStation
     class EndpointDetails
       def self.build(input)
         data = {}
-        data['securityDetails'] = Builders::SecurityDetails.build(input[:security_details]) unless input[:security_details].nil?
-        data['endpoint'] = Builders::DataflowEndpoint.build(input[:endpoint]) unless input[:endpoint].nil?
+        data['securityDetails'] = SecurityDetails.build(input[:security_details]) unless input[:security_details].nil?
+        data['endpoint'] = DataflowEndpoint.build(input[:endpoint]) unless input[:endpoint].nil?
         data
       end
     end
@@ -265,7 +267,7 @@ module AWS::SDK::GroundStation
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['address'] = Builders::SocketAddress.build(input[:address]) unless input[:address].nil?
+        data['address'] = SocketAddress.build(input[:address]) unless input[:address].nil?
         data['status'] = input[:status] unless input[:status].nil?
         data['mtu'] = input[:mtu] unless input[:mtu].nil?
         data
@@ -286,8 +288,8 @@ module AWS::SDK::GroundStation
     class SecurityDetails
       def self.build(input)
         data = {}
-        data['subnetIds'] = Builders::SubnetList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['securityGroupIds'] = Builders::SecurityGroupIdList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['subnetIds'] = SubnetList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['securityGroupIds'] = SecurityGroupIdList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data
       end
@@ -329,10 +331,10 @@ module AWS::SDK::GroundStation
         data['contactPrePassDurationSeconds'] = input[:contact_pre_pass_duration_seconds] unless input[:contact_pre_pass_duration_seconds].nil?
         data['contactPostPassDurationSeconds'] = input[:contact_post_pass_duration_seconds] unless input[:contact_post_pass_duration_seconds].nil?
         data['minimumViableContactDurationSeconds'] = input[:minimum_viable_contact_duration_seconds] unless input[:minimum_viable_contact_duration_seconds].nil?
-        data['dataflowEdges'] = Builders::DataflowEdgeList.build(input[:dataflow_edges]) unless input[:dataflow_edges].nil?
+        data['dataflowEdges'] = DataflowEdgeList.build(input[:dataflow_edges]) unless input[:dataflow_edges].nil?
         data['trackingConfigArn'] = input[:tracking_config_arn] unless input[:tracking_config_arn].nil?
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -341,7 +343,7 @@ module AWS::SDK::GroundStation
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DataflowEdge.build(element) unless element.nil?
+          data << DataflowEdge.build(element) unless element.nil?
         end
         data
       end
@@ -480,7 +482,7 @@ module AWS::SDK::GroundStation
         data = {}
         data['month'] = input[:month] unless input[:month].nil?
         data['year'] = input[:year] unless input[:year].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -542,13 +544,13 @@ module AWS::SDK::GroundStation
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['statusList'] = Builders::StatusList.build(input[:status_list]) unless input[:status_list].nil?
+        data['statusList'] = StatusList.build(input[:status_list]) unless input[:status_list].nil?
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['groundStation'] = input[:ground_station] unless input[:ground_station].nil?
         data['satelliteArn'] = input[:satellite_arn] unless input[:satellite_arn].nil?
         data['missionProfileArn'] = input[:mission_profile_arn] unless input[:mission_profile_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -644,8 +646,8 @@ module AWS::SDK::GroundStation
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['groundStation'] = input[:ground_station] unless input[:ground_station].nil?
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -666,8 +668,8 @@ module AWS::SDK::GroundStation
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -726,8 +728,8 @@ module AWS::SDK::GroundStation
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['configData'] = Builders::ConfigTypeData.build(input[:config_data]) unless input[:config_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['configData'] = ConfigTypeData.build(input[:config_data]) unless input[:config_data].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -752,9 +754,9 @@ module AWS::SDK::GroundStation
         data['contactPrePassDurationSeconds'] = input[:contact_pre_pass_duration_seconds] unless input[:contact_pre_pass_duration_seconds].nil?
         data['contactPostPassDurationSeconds'] = input[:contact_post_pass_duration_seconds] unless input[:contact_post_pass_duration_seconds].nil?
         data['minimumViableContactDurationSeconds'] = input[:minimum_viable_contact_duration_seconds] unless input[:minimum_viable_contact_duration_seconds].nil?
-        data['dataflowEdges'] = Builders::DataflowEdgeList.build(input[:dataflow_edges]) unless input[:dataflow_edges].nil?
+        data['dataflowEdges'] = DataflowEdgeList.build(input[:dataflow_edges]) unless input[:dataflow_edges].nil?
         data['trackingConfigArn'] = input[:tracking_config_arn] unless input[:tracking_config_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

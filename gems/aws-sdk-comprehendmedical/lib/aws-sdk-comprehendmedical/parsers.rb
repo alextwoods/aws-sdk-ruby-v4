@@ -17,7 +17,7 @@ module AWS::SDK::ComprehendMedical
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.comprehend_medical_async_job_properties = (Parsers::ComprehendMedicalAsyncJobProperties.parse(map['ComprehendMedicalAsyncJobProperties']) unless map['ComprehendMedicalAsyncJobProperties'].nil?)
+        data.comprehend_medical_async_job_properties = (ComprehendMedicalAsyncJobProperties.parse(map['ComprehendMedicalAsyncJobProperties']) unless map['ComprehendMedicalAsyncJobProperties'].nil?)
         data
       end
     end
@@ -32,8 +32,8 @@ module AWS::SDK::ComprehendMedical
         data.submit_time = Time.at(map['SubmitTime'].to_i) if map['SubmitTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.expiration_time = Time.at(map['ExpirationTime'].to_i) if map['ExpirationTime']
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
         data.language_code = map['LanguageCode']
         data.data_access_role_arn = map['DataAccessRoleArn']
         data.manifest_file_path = map['ManifestFilePath']
@@ -116,7 +116,7 @@ module AWS::SDK::ComprehendMedical
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.comprehend_medical_async_job_properties = (Parsers::ComprehendMedicalAsyncJobProperties.parse(map['ComprehendMedicalAsyncJobProperties']) unless map['ComprehendMedicalAsyncJobProperties'].nil?)
+        data.comprehend_medical_async_job_properties = (ComprehendMedicalAsyncJobProperties.parse(map['ComprehendMedicalAsyncJobProperties']) unless map['ComprehendMedicalAsyncJobProperties'].nil?)
         data
       end
     end
@@ -128,7 +128,7 @@ module AWS::SDK::ComprehendMedical
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.comprehend_medical_async_job_properties = (Parsers::ComprehendMedicalAsyncJobProperties.parse(map['ComprehendMedicalAsyncJobProperties']) unless map['ComprehendMedicalAsyncJobProperties'].nil?)
+        data.comprehend_medical_async_job_properties = (ComprehendMedicalAsyncJobProperties.parse(map['ComprehendMedicalAsyncJobProperties']) unless map['ComprehendMedicalAsyncJobProperties'].nil?)
         data
       end
     end
@@ -140,7 +140,7 @@ module AWS::SDK::ComprehendMedical
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.comprehend_medical_async_job_properties = (Parsers::ComprehendMedicalAsyncJobProperties.parse(map['ComprehendMedicalAsyncJobProperties']) unless map['ComprehendMedicalAsyncJobProperties'].nil?)
+        data.comprehend_medical_async_job_properties = (ComprehendMedicalAsyncJobProperties.parse(map['ComprehendMedicalAsyncJobProperties']) unless map['ComprehendMedicalAsyncJobProperties'].nil?)
         data
       end
     end
@@ -152,7 +152,7 @@ module AWS::SDK::ComprehendMedical
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.comprehend_medical_async_job_properties = (Parsers::ComprehendMedicalAsyncJobProperties.parse(map['ComprehendMedicalAsyncJobProperties']) unless map['ComprehendMedicalAsyncJobProperties'].nil?)
+        data.comprehend_medical_async_job_properties = (ComprehendMedicalAsyncJobProperties.parse(map['ComprehendMedicalAsyncJobProperties']) unless map['ComprehendMedicalAsyncJobProperties'].nil?)
         data
       end
     end
@@ -164,8 +164,8 @@ module AWS::SDK::ComprehendMedical
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entities = (Parsers::EntityList.parse(map['Entities']) unless map['Entities'].nil?)
-        data.unmapped_attributes = (Parsers::UnmappedAttributeList.parse(map['UnmappedAttributes']) unless map['UnmappedAttributes'].nil?)
+        data.entities = (EntityList.parse(map['Entities']) unless map['Entities'].nil?)
+        data.unmapped_attributes = (UnmappedAttributeList.parse(map['UnmappedAttributes']) unless map['UnmappedAttributes'].nil?)
         data.pagination_token = map['PaginationToken']
         data.model_version = map['ModelVersion']
         data
@@ -175,7 +175,7 @@ module AWS::SDK::ComprehendMedical
     class UnmappedAttributeList
       def self.parse(list)
         list.map do |value|
-          Parsers::UnmappedAttribute.parse(value) unless value.nil?
+          UnmappedAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -184,7 +184,7 @@ module AWS::SDK::ComprehendMedical
       def self.parse(map)
         data = Types::UnmappedAttribute.new
         data.type = map['Type']
-        data.attribute = (Parsers::Attribute.parse(map['Attribute']) unless map['Attribute'].nil?)
+        data.attribute = (Attribute.parse(map['Attribute']) unless map['Attribute'].nil?)
         return data
       end
     end
@@ -201,7 +201,7 @@ module AWS::SDK::ComprehendMedical
         data.end_offset = map['EndOffset']
         data.text = map['Text']
         data.category = map['Category']
-        data.traits = (Parsers::TraitList.parse(map['Traits']) unless map['Traits'].nil?)
+        data.traits = (TraitList.parse(map['Traits']) unless map['Traits'].nil?)
         return data
       end
     end
@@ -209,7 +209,7 @@ module AWS::SDK::ComprehendMedical
     class TraitList
       def self.parse(list)
         list.map do |value|
-          Parsers::Trait.parse(value) unless value.nil?
+          Trait.parse(value) unless value.nil?
         end
       end
     end
@@ -226,7 +226,7 @@ module AWS::SDK::ComprehendMedical
     class EntityList
       def self.parse(list)
         list.map do |value|
-          Parsers::Entity.parse(value) unless value.nil?
+          Entity.parse(value) unless value.nil?
         end
       end
     end
@@ -241,8 +241,8 @@ module AWS::SDK::ComprehendMedical
         data.text = map['Text']
         data.category = map['Category']
         data.type = map['Type']
-        data.traits = (Parsers::TraitList.parse(map['Traits']) unless map['Traits'].nil?)
-        data.attributes = (Parsers::AttributeList.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.traits = (TraitList.parse(map['Traits']) unless map['Traits'].nil?)
+        data.attributes = (AttributeList.parse(map['Attributes']) unless map['Attributes'].nil?)
         return data
       end
     end
@@ -250,7 +250,7 @@ module AWS::SDK::ComprehendMedical
     class AttributeList
       def self.parse(list)
         list.map do |value|
-          Parsers::Attribute.parse(value) unless value.nil?
+          Attribute.parse(value) unless value.nil?
         end
       end
     end
@@ -298,8 +298,8 @@ module AWS::SDK::ComprehendMedical
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entities = (Parsers::EntityList.parse(map['Entities']) unless map['Entities'].nil?)
-        data.unmapped_attributes = (Parsers::UnmappedAttributeList.parse(map['UnmappedAttributes']) unless map['UnmappedAttributes'].nil?)
+        data.entities = (EntityList.parse(map['Entities']) unless map['Entities'].nil?)
+        data.unmapped_attributes = (UnmappedAttributeList.parse(map['UnmappedAttributes']) unless map['UnmappedAttributes'].nil?)
         data.pagination_token = map['PaginationToken']
         data.model_version = map['ModelVersion']
         data
@@ -313,7 +313,7 @@ module AWS::SDK::ComprehendMedical
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entities = (Parsers::EntityList.parse(map['Entities']) unless map['Entities'].nil?)
+        data.entities = (EntityList.parse(map['Entities']) unless map['Entities'].nil?)
         data.pagination_token = map['PaginationToken']
         data.model_version = map['ModelVersion']
         data
@@ -327,7 +327,7 @@ module AWS::SDK::ComprehendMedical
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entities = (Parsers::ICD10CMEntityList.parse(map['Entities']) unless map['Entities'].nil?)
+        data.entities = (ICD10CMEntityList.parse(map['Entities']) unless map['Entities'].nil?)
         data.pagination_token = map['PaginationToken']
         data.model_version = map['ModelVersion']
         data
@@ -337,7 +337,7 @@ module AWS::SDK::ComprehendMedical
     class ICD10CMEntityList
       def self.parse(list)
         list.map do |value|
-          Parsers::ICD10CMEntity.parse(value) unless value.nil?
+          ICD10CMEntity.parse(value) unless value.nil?
         end
       end
     end
@@ -352,9 +352,9 @@ module AWS::SDK::ComprehendMedical
         data.score = Hearth::NumberHelper.deserialize(map['Score'])
         data.begin_offset = map['BeginOffset']
         data.end_offset = map['EndOffset']
-        data.attributes = (Parsers::ICD10CMAttributeList.parse(map['Attributes']) unless map['Attributes'].nil?)
-        data.traits = (Parsers::ICD10CMTraitList.parse(map['Traits']) unless map['Traits'].nil?)
-        data.icd10_cm_concepts = (Parsers::ICD10CMConceptList.parse(map['ICD10CMConcepts']) unless map['ICD10CMConcepts'].nil?)
+        data.attributes = (ICD10CMAttributeList.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.traits = (ICD10CMTraitList.parse(map['Traits']) unless map['Traits'].nil?)
+        data.icd10_cm_concepts = (ICD10CMConceptList.parse(map['ICD10CMConcepts']) unless map['ICD10CMConcepts'].nil?)
         return data
       end
     end
@@ -362,7 +362,7 @@ module AWS::SDK::ComprehendMedical
     class ICD10CMConceptList
       def self.parse(list)
         list.map do |value|
-          Parsers::ICD10CMConcept.parse(value) unless value.nil?
+          ICD10CMConcept.parse(value) unless value.nil?
         end
       end
     end
@@ -380,7 +380,7 @@ module AWS::SDK::ComprehendMedical
     class ICD10CMTraitList
       def self.parse(list)
         list.map do |value|
-          Parsers::ICD10CMTrait.parse(value) unless value.nil?
+          ICD10CMTrait.parse(value) unless value.nil?
         end
       end
     end
@@ -397,7 +397,7 @@ module AWS::SDK::ComprehendMedical
     class ICD10CMAttributeList
       def self.parse(list)
         list.map do |value|
-          Parsers::ICD10CMAttribute.parse(value) unless value.nil?
+          ICD10CMAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -412,7 +412,7 @@ module AWS::SDK::ComprehendMedical
         data.begin_offset = map['BeginOffset']
         data.end_offset = map['EndOffset']
         data.text = map['Text']
-        data.traits = (Parsers::ICD10CMTraitList.parse(map['Traits']) unless map['Traits'].nil?)
+        data.traits = (ICD10CMTraitList.parse(map['Traits']) unless map['Traits'].nil?)
         data.category = map['Category']
         data.relationship_type = map['RelationshipType']
         return data
@@ -426,7 +426,7 @@ module AWS::SDK::ComprehendMedical
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entities = (Parsers::RxNormEntityList.parse(map['Entities']) unless map['Entities'].nil?)
+        data.entities = (RxNormEntityList.parse(map['Entities']) unless map['Entities'].nil?)
         data.pagination_token = map['PaginationToken']
         data.model_version = map['ModelVersion']
         data
@@ -436,7 +436,7 @@ module AWS::SDK::ComprehendMedical
     class RxNormEntityList
       def self.parse(list)
         list.map do |value|
-          Parsers::RxNormEntity.parse(value) unless value.nil?
+          RxNormEntity.parse(value) unless value.nil?
         end
       end
     end
@@ -451,9 +451,9 @@ module AWS::SDK::ComprehendMedical
         data.score = Hearth::NumberHelper.deserialize(map['Score'])
         data.begin_offset = map['BeginOffset']
         data.end_offset = map['EndOffset']
-        data.attributes = (Parsers::RxNormAttributeList.parse(map['Attributes']) unless map['Attributes'].nil?)
-        data.traits = (Parsers::RxNormTraitList.parse(map['Traits']) unless map['Traits'].nil?)
-        data.rx_norm_concepts = (Parsers::RxNormConceptList.parse(map['RxNormConcepts']) unless map['RxNormConcepts'].nil?)
+        data.attributes = (RxNormAttributeList.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.traits = (RxNormTraitList.parse(map['Traits']) unless map['Traits'].nil?)
+        data.rx_norm_concepts = (RxNormConceptList.parse(map['RxNormConcepts']) unless map['RxNormConcepts'].nil?)
         return data
       end
     end
@@ -461,7 +461,7 @@ module AWS::SDK::ComprehendMedical
     class RxNormConceptList
       def self.parse(list)
         list.map do |value|
-          Parsers::RxNormConcept.parse(value) unless value.nil?
+          RxNormConcept.parse(value) unless value.nil?
         end
       end
     end
@@ -479,7 +479,7 @@ module AWS::SDK::ComprehendMedical
     class RxNormTraitList
       def self.parse(list)
         list.map do |value|
-          Parsers::RxNormTrait.parse(value) unless value.nil?
+          RxNormTrait.parse(value) unless value.nil?
         end
       end
     end
@@ -496,7 +496,7 @@ module AWS::SDK::ComprehendMedical
     class RxNormAttributeList
       def self.parse(list)
         list.map do |value|
-          Parsers::RxNormAttribute.parse(value) unless value.nil?
+          RxNormAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -511,7 +511,7 @@ module AWS::SDK::ComprehendMedical
         data.begin_offset = map['BeginOffset']
         data.end_offset = map['EndOffset']
         data.text = map['Text']
-        data.traits = (Parsers::RxNormTraitList.parse(map['Traits']) unless map['Traits'].nil?)
+        data.traits = (RxNormTraitList.parse(map['Traits']) unless map['Traits'].nil?)
         return data
       end
     end
@@ -523,11 +523,11 @@ module AWS::SDK::ComprehendMedical
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entities = (Parsers::SNOMEDCTEntityList.parse(map['Entities']) unless map['Entities'].nil?)
+        data.entities = (SNOMEDCTEntityList.parse(map['Entities']) unless map['Entities'].nil?)
         data.pagination_token = map['PaginationToken']
         data.model_version = map['ModelVersion']
-        data.snomedct_details = (Parsers::SNOMEDCTDetails.parse(map['SNOMEDCTDetails']) unless map['SNOMEDCTDetails'].nil?)
-        data.characters = (Parsers::Characters.parse(map['Characters']) unless map['Characters'].nil?)
+        data.snomedct_details = (SNOMEDCTDetails.parse(map['SNOMEDCTDetails']) unless map['SNOMEDCTDetails'].nil?)
+        data.characters = (Characters.parse(map['Characters']) unless map['Characters'].nil?)
         data
       end
     end
@@ -553,7 +553,7 @@ module AWS::SDK::ComprehendMedical
     class SNOMEDCTEntityList
       def self.parse(list)
         list.map do |value|
-          Parsers::SNOMEDCTEntity.parse(value) unless value.nil?
+          SNOMEDCTEntity.parse(value) unless value.nil?
         end
       end
     end
@@ -568,9 +568,9 @@ module AWS::SDK::ComprehendMedical
         data.score = Hearth::NumberHelper.deserialize(map['Score'])
         data.begin_offset = map['BeginOffset']
         data.end_offset = map['EndOffset']
-        data.attributes = (Parsers::SNOMEDCTAttributeList.parse(map['Attributes']) unless map['Attributes'].nil?)
-        data.traits = (Parsers::SNOMEDCTTraitList.parse(map['Traits']) unless map['Traits'].nil?)
-        data.snomedct_concepts = (Parsers::SNOMEDCTConceptList.parse(map['SNOMEDCTConcepts']) unless map['SNOMEDCTConcepts'].nil?)
+        data.attributes = (SNOMEDCTAttributeList.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.traits = (SNOMEDCTTraitList.parse(map['Traits']) unless map['Traits'].nil?)
+        data.snomedct_concepts = (SNOMEDCTConceptList.parse(map['SNOMEDCTConcepts']) unless map['SNOMEDCTConcepts'].nil?)
         return data
       end
     end
@@ -578,7 +578,7 @@ module AWS::SDK::ComprehendMedical
     class SNOMEDCTConceptList
       def self.parse(list)
         list.map do |value|
-          Parsers::SNOMEDCTConcept.parse(value) unless value.nil?
+          SNOMEDCTConcept.parse(value) unless value.nil?
         end
       end
     end
@@ -596,7 +596,7 @@ module AWS::SDK::ComprehendMedical
     class SNOMEDCTTraitList
       def self.parse(list)
         list.map do |value|
-          Parsers::SNOMEDCTTrait.parse(value) unless value.nil?
+          SNOMEDCTTrait.parse(value) unless value.nil?
         end
       end
     end
@@ -613,7 +613,7 @@ module AWS::SDK::ComprehendMedical
     class SNOMEDCTAttributeList
       def self.parse(list)
         list.map do |value|
-          Parsers::SNOMEDCTAttribute.parse(value) unless value.nil?
+          SNOMEDCTAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -630,8 +630,8 @@ module AWS::SDK::ComprehendMedical
         data.begin_offset = map['BeginOffset']
         data.end_offset = map['EndOffset']
         data.text = map['Text']
-        data.traits = (Parsers::SNOMEDCTTraitList.parse(map['Traits']) unless map['Traits'].nil?)
-        data.snomedct_concepts = (Parsers::SNOMEDCTConceptList.parse(map['SNOMEDCTConcepts']) unless map['SNOMEDCTConcepts'].nil?)
+        data.traits = (SNOMEDCTTraitList.parse(map['Traits']) unless map['Traits'].nil?)
+        data.snomedct_concepts = (SNOMEDCTConceptList.parse(map['SNOMEDCTConcepts']) unless map['SNOMEDCTConcepts'].nil?)
         return data
       end
     end
@@ -643,7 +643,7 @@ module AWS::SDK::ComprehendMedical
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.comprehend_medical_async_job_properties_list = (Parsers::ComprehendMedicalAsyncJobPropertiesList.parse(map['ComprehendMedicalAsyncJobPropertiesList']) unless map['ComprehendMedicalAsyncJobPropertiesList'].nil?)
+        data.comprehend_medical_async_job_properties_list = (ComprehendMedicalAsyncJobPropertiesList.parse(map['ComprehendMedicalAsyncJobPropertiesList']) unless map['ComprehendMedicalAsyncJobPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -652,7 +652,7 @@ module AWS::SDK::ComprehendMedical
     class ComprehendMedicalAsyncJobPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::ComprehendMedicalAsyncJobProperties.parse(value) unless value.nil?
+          ComprehendMedicalAsyncJobProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -676,7 +676,7 @@ module AWS::SDK::ComprehendMedical
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.comprehend_medical_async_job_properties_list = (Parsers::ComprehendMedicalAsyncJobPropertiesList.parse(map['ComprehendMedicalAsyncJobPropertiesList']) unless map['ComprehendMedicalAsyncJobPropertiesList'].nil?)
+        data.comprehend_medical_async_job_properties_list = (ComprehendMedicalAsyncJobPropertiesList.parse(map['ComprehendMedicalAsyncJobPropertiesList']) unless map['ComprehendMedicalAsyncJobPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -689,7 +689,7 @@ module AWS::SDK::ComprehendMedical
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.comprehend_medical_async_job_properties_list = (Parsers::ComprehendMedicalAsyncJobPropertiesList.parse(map['ComprehendMedicalAsyncJobPropertiesList']) unless map['ComprehendMedicalAsyncJobPropertiesList'].nil?)
+        data.comprehend_medical_async_job_properties_list = (ComprehendMedicalAsyncJobPropertiesList.parse(map['ComprehendMedicalAsyncJobPropertiesList']) unless map['ComprehendMedicalAsyncJobPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -702,7 +702,7 @@ module AWS::SDK::ComprehendMedical
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.comprehend_medical_async_job_properties_list = (Parsers::ComprehendMedicalAsyncJobPropertiesList.parse(map['ComprehendMedicalAsyncJobPropertiesList']) unless map['ComprehendMedicalAsyncJobPropertiesList'].nil?)
+        data.comprehend_medical_async_job_properties_list = (ComprehendMedicalAsyncJobPropertiesList.parse(map['ComprehendMedicalAsyncJobPropertiesList']) unless map['ComprehendMedicalAsyncJobPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -715,7 +715,7 @@ module AWS::SDK::ComprehendMedical
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.comprehend_medical_async_job_properties_list = (Parsers::ComprehendMedicalAsyncJobPropertiesList.parse(map['ComprehendMedicalAsyncJobPropertiesList']) unless map['ComprehendMedicalAsyncJobPropertiesList'].nil?)
+        data.comprehend_medical_async_job_properties_list = (ComprehendMedicalAsyncJobPropertiesList.parse(map['ComprehendMedicalAsyncJobPropertiesList']) unless map['ComprehendMedicalAsyncJobPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end

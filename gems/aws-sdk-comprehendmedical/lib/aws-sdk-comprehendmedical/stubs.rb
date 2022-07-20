@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ComprehendMedical
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::ComprehendMedical
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ComprehendMedicalAsyncJobProperties'] = Stubs::ComprehendMedicalAsyncJobProperties.stub(stub[:comprehend_medical_async_job_properties]) unless stub[:comprehend_medical_async_job_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ComprehendMedicalAsyncJobProperties'] = ComprehendMedicalAsyncJobProperties.stub(stub[:comprehend_medical_async_job_properties]) unless stub[:comprehend_medical_async_job_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -59,8 +61,8 @@ module AWS::SDK::ComprehendMedical
         data['SubmitTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:submit_time]).to_i unless stub[:submit_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['ExpirationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration_time]).to_i unless stub[:expiration_time].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['DataAccessRoleArn'] = stub[:data_access_role_arn] unless stub[:data_access_role_arn].nil?
         data['ManifestFilePath'] = stub[:manifest_file_path] unless stub[:manifest_file_path].nil?
@@ -120,8 +122,8 @@ module AWS::SDK::ComprehendMedical
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ComprehendMedicalAsyncJobProperties'] = Stubs::ComprehendMedicalAsyncJobProperties.stub(stub[:comprehend_medical_async_job_properties]) unless stub[:comprehend_medical_async_job_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ComprehendMedicalAsyncJobProperties'] = ComprehendMedicalAsyncJobProperties.stub(stub[:comprehend_medical_async_job_properties]) unless stub[:comprehend_medical_async_job_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -136,8 +138,8 @@ module AWS::SDK::ComprehendMedical
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ComprehendMedicalAsyncJobProperties'] = Stubs::ComprehendMedicalAsyncJobProperties.stub(stub[:comprehend_medical_async_job_properties]) unless stub[:comprehend_medical_async_job_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ComprehendMedicalAsyncJobProperties'] = ComprehendMedicalAsyncJobProperties.stub(stub[:comprehend_medical_async_job_properties]) unless stub[:comprehend_medical_async_job_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -152,8 +154,8 @@ module AWS::SDK::ComprehendMedical
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ComprehendMedicalAsyncJobProperties'] = Stubs::ComprehendMedicalAsyncJobProperties.stub(stub[:comprehend_medical_async_job_properties]) unless stub[:comprehend_medical_async_job_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ComprehendMedicalAsyncJobProperties'] = ComprehendMedicalAsyncJobProperties.stub(stub[:comprehend_medical_async_job_properties]) unless stub[:comprehend_medical_async_job_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -168,8 +170,8 @@ module AWS::SDK::ComprehendMedical
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ComprehendMedicalAsyncJobProperties'] = Stubs::ComprehendMedicalAsyncJobProperties.stub(stub[:comprehend_medical_async_job_properties]) unless stub[:comprehend_medical_async_job_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ComprehendMedicalAsyncJobProperties'] = ComprehendMedicalAsyncJobProperties.stub(stub[:comprehend_medical_async_job_properties]) unless stub[:comprehend_medical_async_job_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -187,11 +189,11 @@ module AWS::SDK::ComprehendMedical
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Entities'] = Stubs::EntityList.stub(stub[:entities]) unless stub[:entities].nil?
-        data['UnmappedAttributes'] = Stubs::UnmappedAttributeList.stub(stub[:unmapped_attributes]) unless stub[:unmapped_attributes].nil?
+        data['Entities'] = EntityList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['UnmappedAttributes'] = UnmappedAttributeList.stub(stub[:unmapped_attributes]) unless stub[:unmapped_attributes].nil?
         data['PaginationToken'] = stub[:pagination_token] unless stub[:pagination_token].nil?
         data['ModelVersion'] = stub[:model_version] unless stub[:model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -210,7 +212,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UnmappedAttribute.stub(element) unless element.nil?
+          data << UnmappedAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -231,7 +233,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= Types::UnmappedAttribute.new
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Attribute'] = Stubs::Attribute.stub(stub[:attribute]) unless stub[:attribute].nil?
+        data['Attribute'] = Attribute.stub(stub[:attribute]) unless stub[:attribute].nil?
         data
       end
     end
@@ -267,7 +269,7 @@ module AWS::SDK::ComprehendMedical
         data['EndOffset'] = stub[:end_offset] unless stub[:end_offset].nil?
         data['Text'] = stub[:text] unless stub[:text].nil?
         data['Category'] = stub[:category] unless stub[:category].nil?
-        data['Traits'] = Stubs::TraitList.stub(stub[:traits]) unless stub[:traits].nil?
+        data['Traits'] = TraitList.stub(stub[:traits]) unless stub[:traits].nil?
         data
       end
     end
@@ -286,7 +288,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Trait.stub(element) unless element.nil?
+          data << Trait.stub(element) unless element.nil?
         end
         data
       end
@@ -326,7 +328,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Entity.stub(element) unless element.nil?
+          data << Entity.stub(element) unless element.nil?
         end
         data
       end
@@ -360,8 +362,8 @@ module AWS::SDK::ComprehendMedical
         data['Text'] = stub[:text] unless stub[:text].nil?
         data['Category'] = stub[:category] unless stub[:category].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Traits'] = Stubs::TraitList.stub(stub[:traits]) unless stub[:traits].nil?
-        data['Attributes'] = Stubs::AttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Traits'] = TraitList.stub(stub[:traits]) unless stub[:traits].nil?
+        data['Attributes'] = AttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -380,7 +382,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Attribute.stub(element) unless element.nil?
+          data << Attribute.stub(element) unless element.nil?
         end
         data
       end
@@ -399,11 +401,11 @@ module AWS::SDK::ComprehendMedical
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Entities'] = Stubs::EntityList.stub(stub[:entities]) unless stub[:entities].nil?
-        data['UnmappedAttributes'] = Stubs::UnmappedAttributeList.stub(stub[:unmapped_attributes]) unless stub[:unmapped_attributes].nil?
+        data['Entities'] = EntityList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['UnmappedAttributes'] = UnmappedAttributeList.stub(stub[:unmapped_attributes]) unless stub[:unmapped_attributes].nil?
         data['PaginationToken'] = stub[:pagination_token] unless stub[:pagination_token].nil?
         data['ModelVersion'] = stub[:model_version] unless stub[:model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -420,10 +422,10 @@ module AWS::SDK::ComprehendMedical
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Entities'] = Stubs::EntityList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['Entities'] = EntityList.stub(stub[:entities]) unless stub[:entities].nil?
         data['PaginationToken'] = stub[:pagination_token] unless stub[:pagination_token].nil?
         data['ModelVersion'] = stub[:model_version] unless stub[:model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -440,10 +442,10 @@ module AWS::SDK::ComprehendMedical
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Entities'] = Stubs::ICD10CMEntityList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['Entities'] = ICD10CMEntityList.stub(stub[:entities]) unless stub[:entities].nil?
         data['PaginationToken'] = stub[:pagination_token] unless stub[:pagination_token].nil?
         data['ModelVersion'] = stub[:model_version] unless stub[:model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -462,7 +464,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ICD10CMEntity.stub(element) unless element.nil?
+          data << ICD10CMEntity.stub(element) unless element.nil?
         end
         data
       end
@@ -497,9 +499,9 @@ module AWS::SDK::ComprehendMedical
         data['Score'] = Hearth::NumberHelper.serialize(stub[:score])
         data['BeginOffset'] = stub[:begin_offset] unless stub[:begin_offset].nil?
         data['EndOffset'] = stub[:end_offset] unless stub[:end_offset].nil?
-        data['Attributes'] = Stubs::ICD10CMAttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['Traits'] = Stubs::ICD10CMTraitList.stub(stub[:traits]) unless stub[:traits].nil?
-        data['ICD10CMConcepts'] = Stubs::ICD10CMConceptList.stub(stub[:icd10_cm_concepts]) unless stub[:icd10_cm_concepts].nil?
+        data['Attributes'] = ICD10CMAttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Traits'] = ICD10CMTraitList.stub(stub[:traits]) unless stub[:traits].nil?
+        data['ICD10CMConcepts'] = ICD10CMConceptList.stub(stub[:icd10_cm_concepts]) unless stub[:icd10_cm_concepts].nil?
         data
       end
     end
@@ -518,7 +520,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ICD10CMConcept.stub(element) unless element.nil?
+          data << ICD10CMConcept.stub(element) unless element.nil?
         end
         data
       end
@@ -560,7 +562,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ICD10CMTrait.stub(element) unless element.nil?
+          data << ICD10CMTrait.stub(element) unless element.nil?
         end
         data
       end
@@ -600,7 +602,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ICD10CMAttribute.stub(element) unless element.nil?
+          data << ICD10CMAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -635,7 +637,7 @@ module AWS::SDK::ComprehendMedical
         data['BeginOffset'] = stub[:begin_offset] unless stub[:begin_offset].nil?
         data['EndOffset'] = stub[:end_offset] unless stub[:end_offset].nil?
         data['Text'] = stub[:text] unless stub[:text].nil?
-        data['Traits'] = Stubs::ICD10CMTraitList.stub(stub[:traits]) unless stub[:traits].nil?
+        data['Traits'] = ICD10CMTraitList.stub(stub[:traits]) unless stub[:traits].nil?
         data['Category'] = stub[:category] unless stub[:category].nil?
         data['RelationshipType'] = stub[:relationship_type] unless stub[:relationship_type].nil?
         data
@@ -654,10 +656,10 @@ module AWS::SDK::ComprehendMedical
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Entities'] = Stubs::RxNormEntityList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['Entities'] = RxNormEntityList.stub(stub[:entities]) unless stub[:entities].nil?
         data['PaginationToken'] = stub[:pagination_token] unless stub[:pagination_token].nil?
         data['ModelVersion'] = stub[:model_version] unless stub[:model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -676,7 +678,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RxNormEntity.stub(element) unless element.nil?
+          data << RxNormEntity.stub(element) unless element.nil?
         end
         data
       end
@@ -711,9 +713,9 @@ module AWS::SDK::ComprehendMedical
         data['Score'] = Hearth::NumberHelper.serialize(stub[:score])
         data['BeginOffset'] = stub[:begin_offset] unless stub[:begin_offset].nil?
         data['EndOffset'] = stub[:end_offset] unless stub[:end_offset].nil?
-        data['Attributes'] = Stubs::RxNormAttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['Traits'] = Stubs::RxNormTraitList.stub(stub[:traits]) unless stub[:traits].nil?
-        data['RxNormConcepts'] = Stubs::RxNormConceptList.stub(stub[:rx_norm_concepts]) unless stub[:rx_norm_concepts].nil?
+        data['Attributes'] = RxNormAttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Traits'] = RxNormTraitList.stub(stub[:traits]) unless stub[:traits].nil?
+        data['RxNormConcepts'] = RxNormConceptList.stub(stub[:rx_norm_concepts]) unless stub[:rx_norm_concepts].nil?
         data
       end
     end
@@ -732,7 +734,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RxNormConcept.stub(element) unless element.nil?
+          data << RxNormConcept.stub(element) unless element.nil?
         end
         data
       end
@@ -774,7 +776,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RxNormTrait.stub(element) unless element.nil?
+          data << RxNormTrait.stub(element) unless element.nil?
         end
         data
       end
@@ -814,7 +816,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RxNormAttribute.stub(element) unless element.nil?
+          data << RxNormAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -847,7 +849,7 @@ module AWS::SDK::ComprehendMedical
         data['BeginOffset'] = stub[:begin_offset] unless stub[:begin_offset].nil?
         data['EndOffset'] = stub[:end_offset] unless stub[:end_offset].nil?
         data['Text'] = stub[:text] unless stub[:text].nil?
-        data['Traits'] = Stubs::RxNormTraitList.stub(stub[:traits]) unless stub[:traits].nil?
+        data['Traits'] = RxNormTraitList.stub(stub[:traits]) unless stub[:traits].nil?
         data
       end
     end
@@ -866,12 +868,12 @@ module AWS::SDK::ComprehendMedical
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Entities'] = Stubs::SNOMEDCTEntityList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['Entities'] = SNOMEDCTEntityList.stub(stub[:entities]) unless stub[:entities].nil?
         data['PaginationToken'] = stub[:pagination_token] unless stub[:pagination_token].nil?
         data['ModelVersion'] = stub[:model_version] unless stub[:model_version].nil?
-        data['SNOMEDCTDetails'] = Stubs::SNOMEDCTDetails.stub(stub[:snomedct_details]) unless stub[:snomedct_details].nil?
-        data['Characters'] = Stubs::Characters.stub(stub[:characters]) unless stub[:characters].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SNOMEDCTDetails'] = SNOMEDCTDetails.stub(stub[:snomedct_details]) unless stub[:snomedct_details].nil?
+        data['Characters'] = Characters.stub(stub[:characters]) unless stub[:characters].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -930,7 +932,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SNOMEDCTEntity.stub(element) unless element.nil?
+          data << SNOMEDCTEntity.stub(element) unless element.nil?
         end
         data
       end
@@ -965,9 +967,9 @@ module AWS::SDK::ComprehendMedical
         data['Score'] = Hearth::NumberHelper.serialize(stub[:score])
         data['BeginOffset'] = stub[:begin_offset] unless stub[:begin_offset].nil?
         data['EndOffset'] = stub[:end_offset] unless stub[:end_offset].nil?
-        data['Attributes'] = Stubs::SNOMEDCTAttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['Traits'] = Stubs::SNOMEDCTTraitList.stub(stub[:traits]) unless stub[:traits].nil?
-        data['SNOMEDCTConcepts'] = Stubs::SNOMEDCTConceptList.stub(stub[:snomedct_concepts]) unless stub[:snomedct_concepts].nil?
+        data['Attributes'] = SNOMEDCTAttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Traits'] = SNOMEDCTTraitList.stub(stub[:traits]) unless stub[:traits].nil?
+        data['SNOMEDCTConcepts'] = SNOMEDCTConceptList.stub(stub[:snomedct_concepts]) unless stub[:snomedct_concepts].nil?
         data
       end
     end
@@ -986,7 +988,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SNOMEDCTConcept.stub(element) unless element.nil?
+          data << SNOMEDCTConcept.stub(element) unless element.nil?
         end
         data
       end
@@ -1028,7 +1030,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SNOMEDCTTrait.stub(element) unless element.nil?
+          data << SNOMEDCTTrait.stub(element) unless element.nil?
         end
         data
       end
@@ -1068,7 +1070,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SNOMEDCTAttribute.stub(element) unless element.nil?
+          data << SNOMEDCTAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -1106,8 +1108,8 @@ module AWS::SDK::ComprehendMedical
         data['BeginOffset'] = stub[:begin_offset] unless stub[:begin_offset].nil?
         data['EndOffset'] = stub[:end_offset] unless stub[:end_offset].nil?
         data['Text'] = stub[:text] unless stub[:text].nil?
-        data['Traits'] = Stubs::SNOMEDCTTraitList.stub(stub[:traits]) unless stub[:traits].nil?
-        data['SNOMEDCTConcepts'] = Stubs::SNOMEDCTConceptList.stub(stub[:snomedct_concepts]) unless stub[:snomedct_concepts].nil?
+        data['Traits'] = SNOMEDCTTraitList.stub(stub[:traits]) unless stub[:traits].nil?
+        data['SNOMEDCTConcepts'] = SNOMEDCTConceptList.stub(stub[:snomedct_concepts]) unless stub[:snomedct_concepts].nil?
         data
       end
     end
@@ -1123,9 +1125,9 @@ module AWS::SDK::ComprehendMedical
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ComprehendMedicalAsyncJobPropertiesList'] = Stubs::ComprehendMedicalAsyncJobPropertiesList.stub(stub[:comprehend_medical_async_job_properties_list]) unless stub[:comprehend_medical_async_job_properties_list].nil?
+        data['ComprehendMedicalAsyncJobPropertiesList'] = ComprehendMedicalAsyncJobPropertiesList.stub(stub[:comprehend_medical_async_job_properties_list]) unless stub[:comprehend_medical_async_job_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1144,7 +1146,7 @@ module AWS::SDK::ComprehendMedical
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComprehendMedicalAsyncJobProperties.stub(element) unless element.nil?
+          data << ComprehendMedicalAsyncJobProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -1161,9 +1163,9 @@ module AWS::SDK::ComprehendMedical
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ComprehendMedicalAsyncJobPropertiesList'] = Stubs::ComprehendMedicalAsyncJobPropertiesList.stub(stub[:comprehend_medical_async_job_properties_list]) unless stub[:comprehend_medical_async_job_properties_list].nil?
+        data['ComprehendMedicalAsyncJobPropertiesList'] = ComprehendMedicalAsyncJobPropertiesList.stub(stub[:comprehend_medical_async_job_properties_list]) unless stub[:comprehend_medical_async_job_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1179,9 +1181,9 @@ module AWS::SDK::ComprehendMedical
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ComprehendMedicalAsyncJobPropertiesList'] = Stubs::ComprehendMedicalAsyncJobPropertiesList.stub(stub[:comprehend_medical_async_job_properties_list]) unless stub[:comprehend_medical_async_job_properties_list].nil?
+        data['ComprehendMedicalAsyncJobPropertiesList'] = ComprehendMedicalAsyncJobPropertiesList.stub(stub[:comprehend_medical_async_job_properties_list]) unless stub[:comprehend_medical_async_job_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1197,9 +1199,9 @@ module AWS::SDK::ComprehendMedical
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ComprehendMedicalAsyncJobPropertiesList'] = Stubs::ComprehendMedicalAsyncJobPropertiesList.stub(stub[:comprehend_medical_async_job_properties_list]) unless stub[:comprehend_medical_async_job_properties_list].nil?
+        data['ComprehendMedicalAsyncJobPropertiesList'] = ComprehendMedicalAsyncJobPropertiesList.stub(stub[:comprehend_medical_async_job_properties_list]) unless stub[:comprehend_medical_async_job_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1215,9 +1217,9 @@ module AWS::SDK::ComprehendMedical
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ComprehendMedicalAsyncJobPropertiesList'] = Stubs::ComprehendMedicalAsyncJobPropertiesList.stub(stub[:comprehend_medical_async_job_properties_list]) unless stub[:comprehend_medical_async_job_properties_list].nil?
+        data['ComprehendMedicalAsyncJobPropertiesList'] = ComprehendMedicalAsyncJobPropertiesList.stub(stub[:comprehend_medical_async_job_properties_list]) unless stub[:comprehend_medical_async_job_properties_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1233,7 +1235,7 @@ module AWS::SDK::ComprehendMedical
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1249,7 +1251,7 @@ module AWS::SDK::ComprehendMedical
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1265,7 +1267,7 @@ module AWS::SDK::ComprehendMedical
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1281,7 +1283,7 @@ module AWS::SDK::ComprehendMedical
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1297,7 +1299,7 @@ module AWS::SDK::ComprehendMedical
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1313,7 +1315,7 @@ module AWS::SDK::ComprehendMedical
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1329,7 +1331,7 @@ module AWS::SDK::ComprehendMedical
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1345,7 +1347,7 @@ module AWS::SDK::ComprehendMedical
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1361,7 +1363,7 @@ module AWS::SDK::ComprehendMedical
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1377,7 +1379,7 @@ module AWS::SDK::ComprehendMedical
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

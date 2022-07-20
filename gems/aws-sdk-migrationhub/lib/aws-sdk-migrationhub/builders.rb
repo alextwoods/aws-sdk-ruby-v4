@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MigrationHub
   module Builders
 
@@ -20,9 +22,9 @@ module AWS::SDK::MigrationHub
         data = {}
         data['ProgressUpdateStream'] = input[:progress_update_stream] unless input[:progress_update_stream].nil?
         data['MigrationTaskName'] = input[:migration_task_name] unless input[:migration_task_name].nil?
-        data['CreatedArtifact'] = Builders::CreatedArtifact.build(input[:created_artifact]) unless input[:created_artifact].nil?
+        data['CreatedArtifact'] = CreatedArtifact.build(input[:created_artifact]) unless input[:created_artifact].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -46,9 +48,9 @@ module AWS::SDK::MigrationHub
         data = {}
         data['ProgressUpdateStream'] = input[:progress_update_stream] unless input[:progress_update_stream].nil?
         data['MigrationTaskName'] = input[:migration_task_name] unless input[:migration_task_name].nil?
-        data['DiscoveredResource'] = Builders::DiscoveredResource.build(input[:discovered_resource]) unless input[:discovered_resource].nil?
+        data['DiscoveredResource'] = DiscoveredResource.build(input[:discovered_resource]) unless input[:discovered_resource].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -72,7 +74,7 @@ module AWS::SDK::MigrationHub
         data = {}
         data['ProgressUpdateStreamName'] = input[:progress_update_stream_name] unless input[:progress_update_stream_name].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -86,7 +88,7 @@ module AWS::SDK::MigrationHub
         data = {}
         data['ProgressUpdateStreamName'] = input[:progress_update_stream_name] unless input[:progress_update_stream_name].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -99,7 +101,7 @@ module AWS::SDK::MigrationHub
         http_req.headers['X-Amz-Target'] = 'AWSMigrationHub.DescribeApplicationState'
         data = {}
         data['ApplicationId'] = input[:application_id] unless input[:application_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -113,7 +115,7 @@ module AWS::SDK::MigrationHub
         data = {}
         data['ProgressUpdateStream'] = input[:progress_update_stream] unless input[:progress_update_stream].nil?
         data['MigrationTaskName'] = input[:migration_task_name] unless input[:migration_task_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -129,7 +131,7 @@ module AWS::SDK::MigrationHub
         data['MigrationTaskName'] = input[:migration_task_name] unless input[:migration_task_name].nil?
         data['CreatedArtifactName'] = input[:created_artifact_name] unless input[:created_artifact_name].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -145,7 +147,7 @@ module AWS::SDK::MigrationHub
         data['MigrationTaskName'] = input[:migration_task_name] unless input[:migration_task_name].nil?
         data['ConfigurationId'] = input[:configuration_id] unless input[:configuration_id].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -160,7 +162,7 @@ module AWS::SDK::MigrationHub
         data['ProgressUpdateStream'] = input[:progress_update_stream] unless input[:progress_update_stream].nil?
         data['MigrationTaskName'] = input[:migration_task_name] unless input[:migration_task_name].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -172,10 +174,10 @@ module AWS::SDK::MigrationHub
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSMigrationHub.ListApplicationStates'
         data = {}
-        data['ApplicationIds'] = Builders::ApplicationIds.build(input[:application_ids]) unless input[:application_ids].nil?
+        data['ApplicationIds'] = ApplicationIds.build(input[:application_ids]) unless input[:application_ids].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -202,7 +204,7 @@ module AWS::SDK::MigrationHub
         data['MigrationTaskName'] = input[:migration_task_name] unless input[:migration_task_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -218,7 +220,7 @@ module AWS::SDK::MigrationHub
         data['MigrationTaskName'] = input[:migration_task_name] unless input[:migration_task_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -233,7 +235,7 @@ module AWS::SDK::MigrationHub
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['ResourceName'] = input[:resource_name] unless input[:resource_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -247,7 +249,7 @@ module AWS::SDK::MigrationHub
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -263,7 +265,7 @@ module AWS::SDK::MigrationHub
         data['Status'] = input[:status] unless input[:status].nil?
         data['UpdateDateTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:update_date_time]).to_i unless input[:update_date_time].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -277,11 +279,11 @@ module AWS::SDK::MigrationHub
         data = {}
         data['ProgressUpdateStream'] = input[:progress_update_stream] unless input[:progress_update_stream].nil?
         data['MigrationTaskName'] = input[:migration_task_name] unless input[:migration_task_name].nil?
-        data['Task'] = Builders::Task.build(input[:task]) unless input[:task].nil?
+        data['Task'] = Task.build(input[:task]) unless input[:task].nil?
         data['UpdateDateTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:update_date_time]).to_i unless input[:update_date_time].nil?
         data['NextUpdateSeconds'] = input[:next_update_seconds] unless input[:next_update_seconds].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -306,9 +308,9 @@ module AWS::SDK::MigrationHub
         data = {}
         data['ProgressUpdateStream'] = input[:progress_update_stream] unless input[:progress_update_stream].nil?
         data['MigrationTaskName'] = input[:migration_task_name] unless input[:migration_task_name].nil?
-        data['ResourceAttributeList'] = Builders::ResourceAttributeList.build(input[:resource_attribute_list]) unless input[:resource_attribute_list].nil?
+        data['ResourceAttributeList'] = ResourceAttributeList.build(input[:resource_attribute_list]) unless input[:resource_attribute_list].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -317,7 +319,7 @@ module AWS::SDK::MigrationHub
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ResourceAttribute.build(element) unless element.nil?
+          data << ResourceAttribute.build(element) unless element.nil?
         end
         data
       end

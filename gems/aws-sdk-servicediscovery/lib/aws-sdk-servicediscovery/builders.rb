@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ServiceDiscovery
   module Builders
 
@@ -21,8 +23,8 @@ module AWS::SDK::ServiceDiscovery
         data['Name'] = input[:name] unless input[:name].nil?
         data['CreatorRequestId'] = input[:creator_request_id] unless input[:creator_request_id].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -31,7 +33,7 @@ module AWS::SDK::ServiceDiscovery
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -59,9 +61,9 @@ module AWS::SDK::ServiceDiscovery
         data['CreatorRequestId'] = input[:creator_request_id] unless input[:creator_request_id].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Vpc'] = input[:vpc] unless input[:vpc].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['Properties'] = Builders::PrivateDnsNamespaceProperties.build(input[:properties]) unless input[:properties].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Properties'] = PrivateDnsNamespaceProperties.build(input[:properties]) unless input[:properties].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -69,7 +71,7 @@ module AWS::SDK::ServiceDiscovery
     class PrivateDnsNamespaceProperties
       def self.build(input)
         data = {}
-        data['DnsProperties'] = Builders::PrivateDnsPropertiesMutable.build(input[:dns_properties]) unless input[:dns_properties].nil?
+        data['DnsProperties'] = PrivateDnsPropertiesMutable.build(input[:dns_properties]) unless input[:dns_properties].nil?
         data
       end
     end
@@ -78,7 +80,7 @@ module AWS::SDK::ServiceDiscovery
     class PrivateDnsPropertiesMutable
       def self.build(input)
         data = {}
-        data['SOA'] = Builders::SOA.build(input[:soa]) unless input[:soa].nil?
+        data['SOA'] = SOA.build(input[:soa]) unless input[:soa].nil?
         data
       end
     end
@@ -103,9 +105,9 @@ module AWS::SDK::ServiceDiscovery
         data['Name'] = input[:name] unless input[:name].nil?
         data['CreatorRequestId'] = input[:creator_request_id] unless input[:creator_request_id].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['Properties'] = Builders::PublicDnsNamespaceProperties.build(input[:properties]) unless input[:properties].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Properties'] = PublicDnsNamespaceProperties.build(input[:properties]) unless input[:properties].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -113,7 +115,7 @@ module AWS::SDK::ServiceDiscovery
     class PublicDnsNamespaceProperties
       def self.build(input)
         data = {}
-        data['DnsProperties'] = Builders::PublicDnsPropertiesMutable.build(input[:dns_properties]) unless input[:dns_properties].nil?
+        data['DnsProperties'] = PublicDnsPropertiesMutable.build(input[:dns_properties]) unless input[:dns_properties].nil?
         data
       end
     end
@@ -122,7 +124,7 @@ module AWS::SDK::ServiceDiscovery
     class PublicDnsPropertiesMutable
       def self.build(input)
         data = {}
-        data['SOA'] = Builders::SOA.build(input[:soa]) unless input[:soa].nil?
+        data['SOA'] = SOA.build(input[:soa]) unless input[:soa].nil?
         data
       end
     end
@@ -139,12 +141,12 @@ module AWS::SDK::ServiceDiscovery
         data['NamespaceId'] = input[:namespace_id] unless input[:namespace_id].nil?
         data['CreatorRequestId'] = input[:creator_request_id] unless input[:creator_request_id].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['DnsConfig'] = Builders::DnsConfig.build(input[:dns_config]) unless input[:dns_config].nil?
-        data['HealthCheckConfig'] = Builders::HealthCheckConfig.build(input[:health_check_config]) unless input[:health_check_config].nil?
-        data['HealthCheckCustomConfig'] = Builders::HealthCheckCustomConfig.build(input[:health_check_custom_config]) unless input[:health_check_custom_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['DnsConfig'] = DnsConfig.build(input[:dns_config]) unless input[:dns_config].nil?
+        data['HealthCheckConfig'] = HealthCheckConfig.build(input[:health_check_config]) unless input[:health_check_config].nil?
+        data['HealthCheckCustomConfig'] = HealthCheckCustomConfig.build(input[:health_check_custom_config]) unless input[:health_check_custom_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -174,7 +176,7 @@ module AWS::SDK::ServiceDiscovery
         data = {}
         data['NamespaceId'] = input[:namespace_id] unless input[:namespace_id].nil?
         data['RoutingPolicy'] = input[:routing_policy] unless input[:routing_policy].nil?
-        data['DnsRecords'] = Builders::DnsRecordList.build(input[:dns_records]) unless input[:dns_records].nil?
+        data['DnsRecords'] = DnsRecordList.build(input[:dns_records]) unless input[:dns_records].nil?
         data
       end
     end
@@ -184,7 +186,7 @@ module AWS::SDK::ServiceDiscovery
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DnsRecord.build(element) unless element.nil?
+          data << DnsRecord.build(element) unless element.nil?
         end
         data
       end
@@ -209,7 +211,7 @@ module AWS::SDK::ServiceDiscovery
         http_req.headers['X-Amz-Target'] = 'Route53AutoNaming_v20170314.DeleteNamespace'
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -222,7 +224,7 @@ module AWS::SDK::ServiceDiscovery
         http_req.headers['X-Amz-Target'] = 'Route53AutoNaming_v20170314.DeleteService'
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -236,7 +238,7 @@ module AWS::SDK::ServiceDiscovery
         data = {}
         data['ServiceId'] = input[:service_id] unless input[:service_id].nil?
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -251,10 +253,10 @@ module AWS::SDK::ServiceDiscovery
         data['NamespaceName'] = input[:namespace_name] unless input[:namespace_name].nil?
         data['ServiceName'] = input[:service_name] unless input[:service_name].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['QueryParameters'] = Builders::Attributes.build(input[:query_parameters]) unless input[:query_parameters].nil?
-        data['OptionalParameters'] = Builders::Attributes.build(input[:optional_parameters]) unless input[:optional_parameters].nil?
+        data['QueryParameters'] = Attributes.build(input[:query_parameters]) unless input[:query_parameters].nil?
+        data['OptionalParameters'] = Attributes.build(input[:optional_parameters]) unless input[:optional_parameters].nil?
         data['HealthStatus'] = input[:health_status] unless input[:health_status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -279,7 +281,7 @@ module AWS::SDK::ServiceDiscovery
         data = {}
         data['ServiceId'] = input[:service_id] unless input[:service_id].nil?
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -292,10 +294,10 @@ module AWS::SDK::ServiceDiscovery
         http_req.headers['X-Amz-Target'] = 'Route53AutoNaming_v20170314.GetInstancesHealthStatus'
         data = {}
         data['ServiceId'] = input[:service_id] unless input[:service_id].nil?
-        data['Instances'] = Builders::InstanceIdList.build(input[:instances]) unless input[:instances].nil?
+        data['Instances'] = InstanceIdList.build(input[:instances]) unless input[:instances].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -319,7 +321,7 @@ module AWS::SDK::ServiceDiscovery
         http_req.headers['X-Amz-Target'] = 'Route53AutoNaming_v20170314.GetNamespace'
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -332,7 +334,7 @@ module AWS::SDK::ServiceDiscovery
         http_req.headers['X-Amz-Target'] = 'Route53AutoNaming_v20170314.GetOperation'
         data = {}
         data['OperationId'] = input[:operation_id] unless input[:operation_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -345,7 +347,7 @@ module AWS::SDK::ServiceDiscovery
         http_req.headers['X-Amz-Target'] = 'Route53AutoNaming_v20170314.GetService'
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -360,7 +362,7 @@ module AWS::SDK::ServiceDiscovery
         data['ServiceId'] = input[:service_id] unless input[:service_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -374,8 +376,8 @@ module AWS::SDK::ServiceDiscovery
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::NamespaceFilters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = NamespaceFilters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -384,7 +386,7 @@ module AWS::SDK::ServiceDiscovery
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::NamespaceFilter.build(element) unless element.nil?
+          data << NamespaceFilter.build(element) unless element.nil?
         end
         data
       end
@@ -395,7 +397,7 @@ module AWS::SDK::ServiceDiscovery
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data['Condition'] = input[:condition] unless input[:condition].nil?
         data
       end
@@ -422,8 +424,8 @@ module AWS::SDK::ServiceDiscovery
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::OperationFilters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = OperationFilters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -432,7 +434,7 @@ module AWS::SDK::ServiceDiscovery
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::OperationFilter.build(element) unless element.nil?
+          data << OperationFilter.build(element) unless element.nil?
         end
         data
       end
@@ -443,7 +445,7 @@ module AWS::SDK::ServiceDiscovery
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data['Condition'] = input[:condition] unless input[:condition].nil?
         data
       end
@@ -459,8 +461,8 @@ module AWS::SDK::ServiceDiscovery
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::ServiceFilters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = ServiceFilters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -469,7 +471,7 @@ module AWS::SDK::ServiceDiscovery
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ServiceFilter.build(element) unless element.nil?
+          data << ServiceFilter.build(element) unless element.nil?
         end
         data
       end
@@ -480,7 +482,7 @@ module AWS::SDK::ServiceDiscovery
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data['Condition'] = input[:condition] unless input[:condition].nil?
         data
       end
@@ -495,7 +497,7 @@ module AWS::SDK::ServiceDiscovery
         http_req.headers['X-Amz-Target'] = 'Route53AutoNaming_v20170314.ListTagsForResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -510,8 +512,8 @@ module AWS::SDK::ServiceDiscovery
         data['ServiceId'] = input[:service_id] unless input[:service_id].nil?
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
         data['CreatorRequestId'] = input[:creator_request_id] unless input[:creator_request_id].nil?
-        data['Attributes'] = Builders::Attributes.build(input[:attributes]) unless input[:attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attributes'] = Attributes.build(input[:attributes]) unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -524,8 +526,8 @@ module AWS::SDK::ServiceDiscovery
         http_req.headers['X-Amz-Target'] = 'Route53AutoNaming_v20170314.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -538,8 +540,8 @@ module AWS::SDK::ServiceDiscovery
         http_req.headers['X-Amz-Target'] = 'Route53AutoNaming_v20170314.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -564,8 +566,8 @@ module AWS::SDK::ServiceDiscovery
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
         data['UpdaterRequestId'] = input[:updater_request_id] unless input[:updater_request_id].nil?
-        data['Namespace'] = Builders::HttpNamespaceChange.build(input[:namespace]) unless input[:namespace].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Namespace'] = HttpNamespaceChange.build(input[:namespace]) unless input[:namespace].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -589,7 +591,7 @@ module AWS::SDK::ServiceDiscovery
         data['ServiceId'] = input[:service_id] unless input[:service_id].nil?
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
         data['Status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -603,8 +605,8 @@ module AWS::SDK::ServiceDiscovery
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
         data['UpdaterRequestId'] = input[:updater_request_id] unless input[:updater_request_id].nil?
-        data['Namespace'] = Builders::PrivateDnsNamespaceChange.build(input[:namespace]) unless input[:namespace].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Namespace'] = PrivateDnsNamespaceChange.build(input[:namespace]) unless input[:namespace].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -613,7 +615,7 @@ module AWS::SDK::ServiceDiscovery
       def self.build(input)
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Properties'] = Builders::PrivateDnsNamespacePropertiesChange.build(input[:properties]) unless input[:properties].nil?
+        data['Properties'] = PrivateDnsNamespacePropertiesChange.build(input[:properties]) unless input[:properties].nil?
         data
       end
     end
@@ -622,7 +624,7 @@ module AWS::SDK::ServiceDiscovery
     class PrivateDnsNamespacePropertiesChange
       def self.build(input)
         data = {}
-        data['DnsProperties'] = Builders::PrivateDnsPropertiesMutableChange.build(input[:dns_properties]) unless input[:dns_properties].nil?
+        data['DnsProperties'] = PrivateDnsPropertiesMutableChange.build(input[:dns_properties]) unless input[:dns_properties].nil?
         data
       end
     end
@@ -631,7 +633,7 @@ module AWS::SDK::ServiceDiscovery
     class PrivateDnsPropertiesMutableChange
       def self.build(input)
         data = {}
-        data['SOA'] = Builders::SOAChange.build(input[:soa]) unless input[:soa].nil?
+        data['SOA'] = SOAChange.build(input[:soa]) unless input[:soa].nil?
         data
       end
     end
@@ -655,8 +657,8 @@ module AWS::SDK::ServiceDiscovery
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
         data['UpdaterRequestId'] = input[:updater_request_id] unless input[:updater_request_id].nil?
-        data['Namespace'] = Builders::PublicDnsNamespaceChange.build(input[:namespace]) unless input[:namespace].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Namespace'] = PublicDnsNamespaceChange.build(input[:namespace]) unless input[:namespace].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -665,7 +667,7 @@ module AWS::SDK::ServiceDiscovery
       def self.build(input)
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Properties'] = Builders::PublicDnsNamespacePropertiesChange.build(input[:properties]) unless input[:properties].nil?
+        data['Properties'] = PublicDnsNamespacePropertiesChange.build(input[:properties]) unless input[:properties].nil?
         data
       end
     end
@@ -674,7 +676,7 @@ module AWS::SDK::ServiceDiscovery
     class PublicDnsNamespacePropertiesChange
       def self.build(input)
         data = {}
-        data['DnsProperties'] = Builders::PublicDnsPropertiesMutableChange.build(input[:dns_properties]) unless input[:dns_properties].nil?
+        data['DnsProperties'] = PublicDnsPropertiesMutableChange.build(input[:dns_properties]) unless input[:dns_properties].nil?
         data
       end
     end
@@ -683,7 +685,7 @@ module AWS::SDK::ServiceDiscovery
     class PublicDnsPropertiesMutableChange
       def self.build(input)
         data = {}
-        data['SOA'] = Builders::SOAChange.build(input[:soa]) unless input[:soa].nil?
+        data['SOA'] = SOAChange.build(input[:soa]) unless input[:soa].nil?
         data
       end
     end
@@ -697,8 +699,8 @@ module AWS::SDK::ServiceDiscovery
         http_req.headers['X-Amz-Target'] = 'Route53AutoNaming_v20170314.UpdateService'
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
-        data['Service'] = Builders::ServiceChange.build(input[:service]) unless input[:service].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Service'] = ServiceChange.build(input[:service]) unless input[:service].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -707,8 +709,8 @@ module AWS::SDK::ServiceDiscovery
       def self.build(input)
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        data['DnsConfig'] = Builders::DnsConfigChange.build(input[:dns_config]) unless input[:dns_config].nil?
-        data['HealthCheckConfig'] = Builders::HealthCheckConfig.build(input[:health_check_config]) unless input[:health_check_config].nil?
+        data['DnsConfig'] = DnsConfigChange.build(input[:dns_config]) unless input[:dns_config].nil?
+        data['HealthCheckConfig'] = HealthCheckConfig.build(input[:health_check_config]) unless input[:health_check_config].nil?
         data
       end
     end
@@ -717,7 +719,7 @@ module AWS::SDK::ServiceDiscovery
     class DnsConfigChange
       def self.build(input)
         data = {}
-        data['DnsRecords'] = Builders::DnsRecordList.build(input[:dns_records]) unless input[:dns_records].nil?
+        data['DnsRecords'] = DnsRecordList.build(input[:dns_records]) unless input[:dns_records].nil?
         data
       end
     end

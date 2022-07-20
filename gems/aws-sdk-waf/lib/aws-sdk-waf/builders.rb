@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::WAF
   module Builders
 
@@ -20,7 +23,7 @@ module AWS::SDK::WAF
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -34,7 +37,7 @@ module AWS::SDK::WAF
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -48,7 +51,7 @@ module AWS::SDK::WAF
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -65,8 +68,8 @@ module AWS::SDK::WAF
         data['RateKey'] = input[:rate_key] unless input[:rate_key].nil?
         data['RateLimit'] = input[:rate_limit] unless input[:rate_limit].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -75,7 +78,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -101,7 +104,7 @@ module AWS::SDK::WAF
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -115,7 +118,7 @@ module AWS::SDK::WAF
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -130,8 +133,8 @@ module AWS::SDK::WAF
         data['Name'] = input[:name] unless input[:name].nil?
         data['MetricName'] = input[:metric_name] unless input[:metric_name].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -146,8 +149,8 @@ module AWS::SDK::WAF
         data['Name'] = input[:name] unless input[:name].nil?
         data['MetricName'] = input[:metric_name] unless input[:metric_name].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -161,7 +164,7 @@ module AWS::SDK::WAF
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -175,7 +178,7 @@ module AWS::SDK::WAF
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -189,10 +192,10 @@ module AWS::SDK::WAF
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['MetricName'] = input[:metric_name] unless input[:metric_name].nil?
-        data['DefaultAction'] = Builders::WafAction.build(input[:default_action]) unless input[:default_action].nil?
+        data['DefaultAction'] = WafAction.build(input[:default_action]) unless input[:default_action].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -216,7 +219,7 @@ module AWS::SDK::WAF
         data['WebACLId'] = input[:web_acl_id] unless input[:web_acl_id].nil?
         data['S3BucketName'] = input[:s3_bucket_name] unless input[:s3_bucket_name].nil?
         data['IgnoreUnsupportedType'] = input[:ignore_unsupported_type] unless input[:ignore_unsupported_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -230,7 +233,7 @@ module AWS::SDK::WAF
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -244,7 +247,7 @@ module AWS::SDK::WAF
         data = {}
         data['ByteMatchSetId'] = input[:byte_match_set_id] unless input[:byte_match_set_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -258,7 +261,7 @@ module AWS::SDK::WAF
         data = {}
         data['GeoMatchSetId'] = input[:geo_match_set_id] unless input[:geo_match_set_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -272,7 +275,7 @@ module AWS::SDK::WAF
         data = {}
         data['IPSetId'] = input[:ip_set_id] unless input[:ip_set_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -285,7 +288,7 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.DeleteLoggingConfiguration'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -298,7 +301,7 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.DeletePermissionPolicy'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -312,7 +315,7 @@ module AWS::SDK::WAF
         data = {}
         data['RuleId'] = input[:rule_id] unless input[:rule_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -326,7 +329,7 @@ module AWS::SDK::WAF
         data = {}
         data['RegexMatchSetId'] = input[:regex_match_set_id] unless input[:regex_match_set_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -340,7 +343,7 @@ module AWS::SDK::WAF
         data = {}
         data['RegexPatternSetId'] = input[:regex_pattern_set_id] unless input[:regex_pattern_set_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -354,7 +357,7 @@ module AWS::SDK::WAF
         data = {}
         data['RuleId'] = input[:rule_id] unless input[:rule_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -368,7 +371,7 @@ module AWS::SDK::WAF
         data = {}
         data['RuleGroupId'] = input[:rule_group_id] unless input[:rule_group_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -382,7 +385,7 @@ module AWS::SDK::WAF
         data = {}
         data['SizeConstraintSetId'] = input[:size_constraint_set_id] unless input[:size_constraint_set_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -396,7 +399,7 @@ module AWS::SDK::WAF
         data = {}
         data['SqlInjectionMatchSetId'] = input[:sql_injection_match_set_id] unless input[:sql_injection_match_set_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -410,7 +413,7 @@ module AWS::SDK::WAF
         data = {}
         data['WebACLId'] = input[:web_acl_id] unless input[:web_acl_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -424,7 +427,7 @@ module AWS::SDK::WAF
         data = {}
         data['XssMatchSetId'] = input[:xss_match_set_id] unless input[:xss_match_set_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -437,7 +440,7 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.GetByteMatchSet'
         data = {}
         data['ByteMatchSetId'] = input[:byte_match_set_id] unless input[:byte_match_set_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -449,7 +452,7 @@ module AWS::SDK::WAF
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.GetChangeToken'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -462,7 +465,7 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.GetChangeTokenStatus'
         data = {}
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -475,7 +478,7 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.GetGeoMatchSet'
         data = {}
         data['GeoMatchSetId'] = input[:geo_match_set_id] unless input[:geo_match_set_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -488,7 +491,7 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.GetIPSet'
         data = {}
         data['IPSetId'] = input[:ip_set_id] unless input[:ip_set_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -501,7 +504,7 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.GetLoggingConfiguration'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -514,7 +517,7 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.GetPermissionPolicy'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -527,7 +530,7 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.GetRateBasedRule'
         data = {}
         data['RuleId'] = input[:rule_id] unless input[:rule_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -541,7 +544,7 @@ module AWS::SDK::WAF
         data = {}
         data['RuleId'] = input[:rule_id] unless input[:rule_id].nil?
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -554,7 +557,7 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.GetRegexMatchSet'
         data = {}
         data['RegexMatchSetId'] = input[:regex_match_set_id] unless input[:regex_match_set_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -567,7 +570,7 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.GetRegexPatternSet'
         data = {}
         data['RegexPatternSetId'] = input[:regex_pattern_set_id] unless input[:regex_pattern_set_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -580,7 +583,7 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.GetRule'
         data = {}
         data['RuleId'] = input[:rule_id] unless input[:rule_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -593,7 +596,7 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.GetRuleGroup'
         data = {}
         data['RuleGroupId'] = input[:rule_group_id] unless input[:rule_group_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -607,9 +610,9 @@ module AWS::SDK::WAF
         data = {}
         data['WebAclId'] = input[:web_acl_id] unless input[:web_acl_id].nil?
         data['RuleId'] = input[:rule_id] unless input[:rule_id].nil?
-        data['TimeWindow'] = Builders::TimeWindow.build(input[:time_window]) unless input[:time_window].nil?
+        data['TimeWindow'] = TimeWindow.build(input[:time_window]) unless input[:time_window].nil?
         data['MaxItems'] = input[:max_items] unless input[:max_items].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -632,7 +635,7 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.GetSizeConstraintSet'
         data = {}
         data['SizeConstraintSetId'] = input[:size_constraint_set_id] unless input[:size_constraint_set_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -645,7 +648,7 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.GetSqlInjectionMatchSet'
         data = {}
         data['SqlInjectionMatchSetId'] = input[:sql_injection_match_set_id] unless input[:sql_injection_match_set_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -658,7 +661,7 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.GetWebACL'
         data = {}
         data['WebACLId'] = input[:web_acl_id] unless input[:web_acl_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -671,7 +674,7 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.GetXssMatchSet'
         data = {}
         data['XssMatchSetId'] = input[:xss_match_set_id] unless input[:xss_match_set_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -686,7 +689,7 @@ module AWS::SDK::WAF
         data['RuleGroupId'] = input[:rule_group_id] unless input[:rule_group_id].nil?
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -700,7 +703,7 @@ module AWS::SDK::WAF
         data = {}
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -714,7 +717,7 @@ module AWS::SDK::WAF
         data = {}
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -728,7 +731,7 @@ module AWS::SDK::WAF
         data = {}
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -742,7 +745,7 @@ module AWS::SDK::WAF
         data = {}
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -756,7 +759,7 @@ module AWS::SDK::WAF
         data = {}
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -770,7 +773,7 @@ module AWS::SDK::WAF
         data = {}
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -784,7 +787,7 @@ module AWS::SDK::WAF
         data = {}
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -798,7 +801,7 @@ module AWS::SDK::WAF
         data = {}
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -812,7 +815,7 @@ module AWS::SDK::WAF
         data = {}
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -826,7 +829,7 @@ module AWS::SDK::WAF
         data = {}
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -840,7 +843,7 @@ module AWS::SDK::WAF
         data = {}
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -854,7 +857,7 @@ module AWS::SDK::WAF
         data = {}
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -869,7 +872,7 @@ module AWS::SDK::WAF
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -883,7 +886,7 @@ module AWS::SDK::WAF
         data = {}
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -897,7 +900,7 @@ module AWS::SDK::WAF
         data = {}
         data['NextMarker'] = input[:next_marker] unless input[:next_marker].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -909,8 +912,8 @@ module AWS::SDK::WAF
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.PutLoggingConfiguration'
         data = {}
-        data['LoggingConfiguration'] = Builders::LoggingConfiguration.build(input[:logging_configuration]) unless input[:logging_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LoggingConfiguration'] = LoggingConfiguration.build(input[:logging_configuration]) unless input[:logging_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -919,8 +922,8 @@ module AWS::SDK::WAF
       def self.build(input)
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['LogDestinationConfigs'] = Builders::LogDestinationConfigs.build(input[:log_destination_configs]) unless input[:log_destination_configs].nil?
-        data['RedactedFields'] = Builders::RedactedFields.build(input[:redacted_fields]) unless input[:redacted_fields].nil?
+        data['LogDestinationConfigs'] = LogDestinationConfigs.build(input[:log_destination_configs]) unless input[:log_destination_configs].nil?
+        data['RedactedFields'] = RedactedFields.build(input[:redacted_fields]) unless input[:redacted_fields].nil?
         data
       end
     end
@@ -930,7 +933,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FieldToMatch.build(element) unless element.nil?
+          data << FieldToMatch.build(element) unless element.nil?
         end
         data
       end
@@ -967,7 +970,7 @@ module AWS::SDK::WAF
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['Policy'] = input[:policy] unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -980,8 +983,8 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -994,8 +997,8 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1020,8 +1023,8 @@ module AWS::SDK::WAF
         data = {}
         data['ByteMatchSetId'] = input[:byte_match_set_id] unless input[:byte_match_set_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        data['Updates'] = Builders::ByteMatchSetUpdates.build(input[:updates]) unless input[:updates].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Updates'] = ByteMatchSetUpdates.build(input[:updates]) unless input[:updates].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1030,7 +1033,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ByteMatchSetUpdate.build(element) unless element.nil?
+          data << ByteMatchSetUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1041,7 +1044,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = {}
         data['Action'] = input[:action] unless input[:action].nil?
-        data['ByteMatchTuple'] = Builders::ByteMatchTuple.build(input[:byte_match_tuple]) unless input[:byte_match_tuple].nil?
+        data['ByteMatchTuple'] = ByteMatchTuple.build(input[:byte_match_tuple]) unless input[:byte_match_tuple].nil?
         data
       end
     end
@@ -1050,8 +1053,8 @@ module AWS::SDK::WAF
     class ByteMatchTuple
       def self.build(input)
         data = {}
-        data['FieldToMatch'] = Builders::FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
-        data['TargetString'] = Base64::encode64(input[:target_string]).strip unless input[:target_string].nil?
+        data['FieldToMatch'] = FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
+        data['TargetString'] = ::Base64::encode64(input[:target_string]).strip unless input[:target_string].nil?
         data['TextTransformation'] = input[:text_transformation] unless input[:text_transformation].nil?
         data['PositionalConstraint'] = input[:positional_constraint] unless input[:positional_constraint].nil?
         data
@@ -1068,8 +1071,8 @@ module AWS::SDK::WAF
         data = {}
         data['GeoMatchSetId'] = input[:geo_match_set_id] unless input[:geo_match_set_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        data['Updates'] = Builders::GeoMatchSetUpdates.build(input[:updates]) unless input[:updates].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Updates'] = GeoMatchSetUpdates.build(input[:updates]) unless input[:updates].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1078,7 +1081,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GeoMatchSetUpdate.build(element) unless element.nil?
+          data << GeoMatchSetUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1089,7 +1092,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = {}
         data['Action'] = input[:action] unless input[:action].nil?
-        data['GeoMatchConstraint'] = Builders::GeoMatchConstraint.build(input[:geo_match_constraint]) unless input[:geo_match_constraint].nil?
+        data['GeoMatchConstraint'] = GeoMatchConstraint.build(input[:geo_match_constraint]) unless input[:geo_match_constraint].nil?
         data
       end
     end
@@ -1114,8 +1117,8 @@ module AWS::SDK::WAF
         data = {}
         data['IPSetId'] = input[:ip_set_id] unless input[:ip_set_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        data['Updates'] = Builders::IPSetUpdates.build(input[:updates]) unless input[:updates].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Updates'] = IPSetUpdates.build(input[:updates]) unless input[:updates].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1124,7 +1127,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::IPSetUpdate.build(element) unless element.nil?
+          data << IPSetUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1135,7 +1138,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = {}
         data['Action'] = input[:action] unless input[:action].nil?
-        data['IPSetDescriptor'] = Builders::IPSetDescriptor.build(input[:ip_set_descriptor]) unless input[:ip_set_descriptor].nil?
+        data['IPSetDescriptor'] = IPSetDescriptor.build(input[:ip_set_descriptor]) unless input[:ip_set_descriptor].nil?
         data
       end
     end
@@ -1160,9 +1163,9 @@ module AWS::SDK::WAF
         data = {}
         data['RuleId'] = input[:rule_id] unless input[:rule_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        data['Updates'] = Builders::RuleUpdates.build(input[:updates]) unless input[:updates].nil?
+        data['Updates'] = RuleUpdates.build(input[:updates]) unless input[:updates].nil?
         data['RateLimit'] = input[:rate_limit] unless input[:rate_limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1171,7 +1174,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RuleUpdate.build(element) unless element.nil?
+          data << RuleUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1182,7 +1185,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = {}
         data['Action'] = input[:action] unless input[:action].nil?
-        data['Predicate'] = Builders::Predicate.build(input[:predicate]) unless input[:predicate].nil?
+        data['Predicate'] = Predicate.build(input[:predicate]) unless input[:predicate].nil?
         data
       end
     end
@@ -1207,9 +1210,9 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.UpdateRegexMatchSet'
         data = {}
         data['RegexMatchSetId'] = input[:regex_match_set_id] unless input[:regex_match_set_id].nil?
-        data['Updates'] = Builders::RegexMatchSetUpdates.build(input[:updates]) unless input[:updates].nil?
+        data['Updates'] = RegexMatchSetUpdates.build(input[:updates]) unless input[:updates].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1218,7 +1221,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RegexMatchSetUpdate.build(element) unless element.nil?
+          data << RegexMatchSetUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1229,7 +1232,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = {}
         data['Action'] = input[:action] unless input[:action].nil?
-        data['RegexMatchTuple'] = Builders::RegexMatchTuple.build(input[:regex_match_tuple]) unless input[:regex_match_tuple].nil?
+        data['RegexMatchTuple'] = RegexMatchTuple.build(input[:regex_match_tuple]) unless input[:regex_match_tuple].nil?
         data
       end
     end
@@ -1238,7 +1241,7 @@ module AWS::SDK::WAF
     class RegexMatchTuple
       def self.build(input)
         data = {}
-        data['FieldToMatch'] = Builders::FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
+        data['FieldToMatch'] = FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
         data['TextTransformation'] = input[:text_transformation] unless input[:text_transformation].nil?
         data['RegexPatternSetId'] = input[:regex_pattern_set_id] unless input[:regex_pattern_set_id].nil?
         data
@@ -1254,9 +1257,9 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.UpdateRegexPatternSet'
         data = {}
         data['RegexPatternSetId'] = input[:regex_pattern_set_id] unless input[:regex_pattern_set_id].nil?
-        data['Updates'] = Builders::RegexPatternSetUpdates.build(input[:updates]) unless input[:updates].nil?
+        data['Updates'] = RegexPatternSetUpdates.build(input[:updates]) unless input[:updates].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1265,7 +1268,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RegexPatternSetUpdate.build(element) unless element.nil?
+          data << RegexPatternSetUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1291,8 +1294,8 @@ module AWS::SDK::WAF
         data = {}
         data['RuleId'] = input[:rule_id] unless input[:rule_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        data['Updates'] = Builders::RuleUpdates.build(input[:updates]) unless input[:updates].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Updates'] = RuleUpdates.build(input[:updates]) unless input[:updates].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1305,9 +1308,9 @@ module AWS::SDK::WAF
         http_req.headers['X-Amz-Target'] = 'AWSWAF_20150824.UpdateRuleGroup'
         data = {}
         data['RuleGroupId'] = input[:rule_group_id] unless input[:rule_group_id].nil?
-        data['Updates'] = Builders::RuleGroupUpdates.build(input[:updates]) unless input[:updates].nil?
+        data['Updates'] = RuleGroupUpdates.build(input[:updates]) unless input[:updates].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1316,7 +1319,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RuleGroupUpdate.build(element) unless element.nil?
+          data << RuleGroupUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1327,7 +1330,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = {}
         data['Action'] = input[:action] unless input[:action].nil?
-        data['ActivatedRule'] = Builders::ActivatedRule.build(input[:activated_rule]) unless input[:activated_rule].nil?
+        data['ActivatedRule'] = ActivatedRule.build(input[:activated_rule]) unless input[:activated_rule].nil?
         data
       end
     end
@@ -1338,10 +1341,10 @@ module AWS::SDK::WAF
         data = {}
         data['Priority'] = input[:priority] unless input[:priority].nil?
         data['RuleId'] = input[:rule_id] unless input[:rule_id].nil?
-        data['Action'] = Builders::WafAction.build(input[:action]) unless input[:action].nil?
-        data['OverrideAction'] = Builders::WafOverrideAction.build(input[:override_action]) unless input[:override_action].nil?
+        data['Action'] = WafAction.build(input[:action]) unless input[:action].nil?
+        data['OverrideAction'] = WafOverrideAction.build(input[:override_action]) unless input[:override_action].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        data['ExcludedRules'] = Builders::ExcludedRules.build(input[:excluded_rules]) unless input[:excluded_rules].nil?
+        data['ExcludedRules'] = ExcludedRules.build(input[:excluded_rules]) unless input[:excluded_rules].nil?
         data
       end
     end
@@ -1351,7 +1354,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ExcludedRule.build(element) unless element.nil?
+          data << ExcludedRule.build(element) unless element.nil?
         end
         data
       end
@@ -1385,8 +1388,8 @@ module AWS::SDK::WAF
         data = {}
         data['SizeConstraintSetId'] = input[:size_constraint_set_id] unless input[:size_constraint_set_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        data['Updates'] = Builders::SizeConstraintSetUpdates.build(input[:updates]) unless input[:updates].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Updates'] = SizeConstraintSetUpdates.build(input[:updates]) unless input[:updates].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1395,7 +1398,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SizeConstraintSetUpdate.build(element) unless element.nil?
+          data << SizeConstraintSetUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1406,7 +1409,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = {}
         data['Action'] = input[:action] unless input[:action].nil?
-        data['SizeConstraint'] = Builders::SizeConstraint.build(input[:size_constraint]) unless input[:size_constraint].nil?
+        data['SizeConstraint'] = SizeConstraint.build(input[:size_constraint]) unless input[:size_constraint].nil?
         data
       end
     end
@@ -1415,7 +1418,7 @@ module AWS::SDK::WAF
     class SizeConstraint
       def self.build(input)
         data = {}
-        data['FieldToMatch'] = Builders::FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
+        data['FieldToMatch'] = FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
         data['TextTransformation'] = input[:text_transformation] unless input[:text_transformation].nil?
         data['ComparisonOperator'] = input[:comparison_operator] unless input[:comparison_operator].nil?
         data['Size'] = input[:size] unless input[:size].nil?
@@ -1433,8 +1436,8 @@ module AWS::SDK::WAF
         data = {}
         data['SqlInjectionMatchSetId'] = input[:sql_injection_match_set_id] unless input[:sql_injection_match_set_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        data['Updates'] = Builders::SqlInjectionMatchSetUpdates.build(input[:updates]) unless input[:updates].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Updates'] = SqlInjectionMatchSetUpdates.build(input[:updates]) unless input[:updates].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1443,7 +1446,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SqlInjectionMatchSetUpdate.build(element) unless element.nil?
+          data << SqlInjectionMatchSetUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1454,7 +1457,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = {}
         data['Action'] = input[:action] unless input[:action].nil?
-        data['SqlInjectionMatchTuple'] = Builders::SqlInjectionMatchTuple.build(input[:sql_injection_match_tuple]) unless input[:sql_injection_match_tuple].nil?
+        data['SqlInjectionMatchTuple'] = SqlInjectionMatchTuple.build(input[:sql_injection_match_tuple]) unless input[:sql_injection_match_tuple].nil?
         data
       end
     end
@@ -1463,7 +1466,7 @@ module AWS::SDK::WAF
     class SqlInjectionMatchTuple
       def self.build(input)
         data = {}
-        data['FieldToMatch'] = Builders::FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
+        data['FieldToMatch'] = FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
         data['TextTransformation'] = input[:text_transformation] unless input[:text_transformation].nil?
         data
       end
@@ -1479,9 +1482,9 @@ module AWS::SDK::WAF
         data = {}
         data['WebACLId'] = input[:web_acl_id] unless input[:web_acl_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        data['Updates'] = Builders::WebACLUpdates.build(input[:updates]) unless input[:updates].nil?
-        data['DefaultAction'] = Builders::WafAction.build(input[:default_action]) unless input[:default_action].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Updates'] = WebACLUpdates.build(input[:updates]) unless input[:updates].nil?
+        data['DefaultAction'] = WafAction.build(input[:default_action]) unless input[:default_action].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1490,7 +1493,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::WebACLUpdate.build(element) unless element.nil?
+          data << WebACLUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1501,7 +1504,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = {}
         data['Action'] = input[:action] unless input[:action].nil?
-        data['ActivatedRule'] = Builders::ActivatedRule.build(input[:activated_rule]) unless input[:activated_rule].nil?
+        data['ActivatedRule'] = ActivatedRule.build(input[:activated_rule]) unless input[:activated_rule].nil?
         data
       end
     end
@@ -1516,8 +1519,8 @@ module AWS::SDK::WAF
         data = {}
         data['XssMatchSetId'] = input[:xss_match_set_id] unless input[:xss_match_set_id].nil?
         data['ChangeToken'] = input[:change_token] unless input[:change_token].nil?
-        data['Updates'] = Builders::XssMatchSetUpdates.build(input[:updates]) unless input[:updates].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Updates'] = XssMatchSetUpdates.build(input[:updates]) unless input[:updates].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1526,7 +1529,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::XssMatchSetUpdate.build(element) unless element.nil?
+          data << XssMatchSetUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1537,7 +1540,7 @@ module AWS::SDK::WAF
       def self.build(input)
         data = {}
         data['Action'] = input[:action] unless input[:action].nil?
-        data['XssMatchTuple'] = Builders::XssMatchTuple.build(input[:xss_match_tuple]) unless input[:xss_match_tuple].nil?
+        data['XssMatchTuple'] = XssMatchTuple.build(input[:xss_match_tuple]) unless input[:xss_match_tuple].nil?
         data
       end
     end
@@ -1546,7 +1549,7 @@ module AWS::SDK::WAF
     class XssMatchTuple
       def self.build(input)
         data = {}
-        data['FieldToMatch'] = Builders::FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
+        data['FieldToMatch'] = FieldToMatch.build(input[:field_to_match]) unless input[:field_to_match].nil?
         data['TextTransformation'] = input[:text_transformation] unless input[:text_transformation].nil?
         data
       end

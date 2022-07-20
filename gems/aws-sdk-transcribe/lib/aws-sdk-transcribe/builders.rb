@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Transcribe
   module Builders
 
@@ -19,8 +21,8 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.CreateCallAnalyticsCategory'
         data = {}
         data['CategoryName'] = input[:category_name] unless input[:category_name].nil?
-        data['Rules'] = Builders::RuleList.build(input[:rules]) unless input[:rules].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Rules'] = RuleList.build(input[:rules]) unless input[:rules].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -29,7 +31,7 @@ module AWS::SDK::Transcribe
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Rule.build(element) unless element.nil?
+          data << Rule.build(element) unless element.nil?
         end
         data
       end
@@ -41,13 +43,13 @@ module AWS::SDK::Transcribe
         data = {}
         case input
         when Types::Rule::NonTalkTimeFilter
-          data['NonTalkTimeFilter'] = (Builders::NonTalkTimeFilter.build(input) unless input.nil?)
+          data['NonTalkTimeFilter'] = (NonTalkTimeFilter.build(input) unless input.nil?)
         when Types::Rule::InterruptionFilter
-          data['InterruptionFilter'] = (Builders::InterruptionFilter.build(input) unless input.nil?)
+          data['InterruptionFilter'] = (InterruptionFilter.build(input) unless input.nil?)
         when Types::Rule::TranscriptFilter
-          data['TranscriptFilter'] = (Builders::TranscriptFilter.build(input) unless input.nil?)
+          data['TranscriptFilter'] = (TranscriptFilter.build(input) unless input.nil?)
         when Types::Rule::SentimentFilter
-          data['SentimentFilter'] = (Builders::SentimentFilter.build(input) unless input.nil?)
+          data['SentimentFilter'] = (SentimentFilter.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::Rule"
@@ -61,9 +63,9 @@ module AWS::SDK::Transcribe
     class SentimentFilter
       def self.build(input)
         data = {}
-        data['Sentiments'] = Builders::SentimentValueList.build(input[:sentiments]) unless input[:sentiments].nil?
-        data['AbsoluteTimeRange'] = Builders::AbsoluteTimeRange.build(input[:absolute_time_range]) unless input[:absolute_time_range].nil?
-        data['RelativeTimeRange'] = Builders::RelativeTimeRange.build(input[:relative_time_range]) unless input[:relative_time_range].nil?
+        data['Sentiments'] = SentimentValueList.build(input[:sentiments]) unless input[:sentiments].nil?
+        data['AbsoluteTimeRange'] = AbsoluteTimeRange.build(input[:absolute_time_range]) unless input[:absolute_time_range].nil?
+        data['RelativeTimeRange'] = RelativeTimeRange.build(input[:relative_time_range]) unless input[:relative_time_range].nil?
         data['ParticipantRole'] = input[:participant_role] unless input[:participant_role].nil?
         data['Negate'] = input[:negate] unless input[:negate].nil?
         data
@@ -110,11 +112,11 @@ module AWS::SDK::Transcribe
       def self.build(input)
         data = {}
         data['TranscriptFilterType'] = input[:transcript_filter_type] unless input[:transcript_filter_type].nil?
-        data['AbsoluteTimeRange'] = Builders::AbsoluteTimeRange.build(input[:absolute_time_range]) unless input[:absolute_time_range].nil?
-        data['RelativeTimeRange'] = Builders::RelativeTimeRange.build(input[:relative_time_range]) unless input[:relative_time_range].nil?
+        data['AbsoluteTimeRange'] = AbsoluteTimeRange.build(input[:absolute_time_range]) unless input[:absolute_time_range].nil?
+        data['RelativeTimeRange'] = RelativeTimeRange.build(input[:relative_time_range]) unless input[:relative_time_range].nil?
         data['ParticipantRole'] = input[:participant_role] unless input[:participant_role].nil?
         data['Negate'] = input[:negate] unless input[:negate].nil?
-        data['Targets'] = Builders::StringTargetList.build(input[:targets]) unless input[:targets].nil?
+        data['Targets'] = StringTargetList.build(input[:targets]) unless input[:targets].nil?
         data
       end
     end
@@ -136,8 +138,8 @@ module AWS::SDK::Transcribe
         data = {}
         data['Threshold'] = input[:threshold] unless input[:threshold].nil?
         data['ParticipantRole'] = input[:participant_role] unless input[:participant_role].nil?
-        data['AbsoluteTimeRange'] = Builders::AbsoluteTimeRange.build(input[:absolute_time_range]) unless input[:absolute_time_range].nil?
-        data['RelativeTimeRange'] = Builders::RelativeTimeRange.build(input[:relative_time_range]) unless input[:relative_time_range].nil?
+        data['AbsoluteTimeRange'] = AbsoluteTimeRange.build(input[:absolute_time_range]) unless input[:absolute_time_range].nil?
+        data['RelativeTimeRange'] = RelativeTimeRange.build(input[:relative_time_range]) unless input[:relative_time_range].nil?
         data['Negate'] = input[:negate] unless input[:negate].nil?
         data
       end
@@ -148,8 +150,8 @@ module AWS::SDK::Transcribe
       def self.build(input)
         data = {}
         data['Threshold'] = input[:threshold] unless input[:threshold].nil?
-        data['AbsoluteTimeRange'] = Builders::AbsoluteTimeRange.build(input[:absolute_time_range]) unless input[:absolute_time_range].nil?
-        data['RelativeTimeRange'] = Builders::RelativeTimeRange.build(input[:relative_time_range]) unless input[:relative_time_range].nil?
+        data['AbsoluteTimeRange'] = AbsoluteTimeRange.build(input[:absolute_time_range]) unless input[:absolute_time_range].nil?
+        data['RelativeTimeRange'] = RelativeTimeRange.build(input[:relative_time_range]) unless input[:relative_time_range].nil?
         data['Negate'] = input[:negate] unless input[:negate].nil?
         data
       end
@@ -166,9 +168,9 @@ module AWS::SDK::Transcribe
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
         data['BaseModelName'] = input[:base_model_name] unless input[:base_model_name].nil?
         data['ModelName'] = input[:model_name] unless input[:model_name].nil?
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -177,7 +179,7 @@ module AWS::SDK::Transcribe
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -215,8 +217,8 @@ module AWS::SDK::Transcribe
         data['VocabularyName'] = input[:vocabulary_name] unless input[:vocabulary_name].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
         data['VocabularyFileUri'] = input[:vocabulary_file_uri] unless input[:vocabulary_file_uri].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -230,10 +232,10 @@ module AWS::SDK::Transcribe
         data = {}
         data['VocabularyName'] = input[:vocabulary_name] unless input[:vocabulary_name].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        data['Phrases'] = Builders::Phrases.build(input[:phrases]) unless input[:phrases].nil?
+        data['Phrases'] = Phrases.build(input[:phrases]) unless input[:phrases].nil?
         data['VocabularyFileUri'] = input[:vocabulary_file_uri] unless input[:vocabulary_file_uri].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -258,10 +260,10 @@ module AWS::SDK::Transcribe
         data = {}
         data['VocabularyFilterName'] = input[:vocabulary_filter_name] unless input[:vocabulary_filter_name].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        data['Words'] = Builders::Words.build(input[:words]) unless input[:words].nil?
+        data['Words'] = Words.build(input[:words]) unless input[:words].nil?
         data['VocabularyFilterFileUri'] = input[:vocabulary_filter_file_uri] unless input[:vocabulary_filter_file_uri].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -285,7 +287,7 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.DeleteCallAnalyticsCategory'
         data = {}
         data['CategoryName'] = input[:category_name] unless input[:category_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -298,7 +300,7 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.DeleteCallAnalyticsJob'
         data = {}
         data['CallAnalyticsJobName'] = input[:call_analytics_job_name] unless input[:call_analytics_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -311,7 +313,7 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.DeleteLanguageModel'
         data = {}
         data['ModelName'] = input[:model_name] unless input[:model_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -324,7 +326,7 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.DeleteMedicalTranscriptionJob'
         data = {}
         data['MedicalTranscriptionJobName'] = input[:medical_transcription_job_name] unless input[:medical_transcription_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -337,7 +339,7 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.DeleteMedicalVocabulary'
         data = {}
         data['VocabularyName'] = input[:vocabulary_name] unless input[:vocabulary_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -350,7 +352,7 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.DeleteTranscriptionJob'
         data = {}
         data['TranscriptionJobName'] = input[:transcription_job_name] unless input[:transcription_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -363,7 +365,7 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.DeleteVocabulary'
         data = {}
         data['VocabularyName'] = input[:vocabulary_name] unless input[:vocabulary_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -376,7 +378,7 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.DeleteVocabularyFilter'
         data = {}
         data['VocabularyFilterName'] = input[:vocabulary_filter_name] unless input[:vocabulary_filter_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -389,7 +391,7 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.DescribeLanguageModel'
         data = {}
         data['ModelName'] = input[:model_name] unless input[:model_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -402,7 +404,7 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.GetCallAnalyticsCategory'
         data = {}
         data['CategoryName'] = input[:category_name] unless input[:category_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -415,7 +417,7 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.GetCallAnalyticsJob'
         data = {}
         data['CallAnalyticsJobName'] = input[:call_analytics_job_name] unless input[:call_analytics_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -428,7 +430,7 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.GetMedicalTranscriptionJob'
         data = {}
         data['MedicalTranscriptionJobName'] = input[:medical_transcription_job_name] unless input[:medical_transcription_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -441,7 +443,7 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.GetMedicalVocabulary'
         data = {}
         data['VocabularyName'] = input[:vocabulary_name] unless input[:vocabulary_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -454,7 +456,7 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.GetTranscriptionJob'
         data = {}
         data['TranscriptionJobName'] = input[:transcription_job_name] unless input[:transcription_job_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -467,7 +469,7 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.GetVocabulary'
         data = {}
         data['VocabularyName'] = input[:vocabulary_name] unless input[:vocabulary_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -480,7 +482,7 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.GetVocabularyFilter'
         data = {}
         data['VocabularyFilterName'] = input[:vocabulary_filter_name] unless input[:vocabulary_filter_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -494,7 +496,7 @@ module AWS::SDK::Transcribe
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -510,7 +512,7 @@ module AWS::SDK::Transcribe
         data['JobNameContains'] = input[:job_name_contains] unless input[:job_name_contains].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -526,7 +528,7 @@ module AWS::SDK::Transcribe
         data['NameContains'] = input[:name_contains] unless input[:name_contains].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -542,7 +544,7 @@ module AWS::SDK::Transcribe
         data['JobNameContains'] = input[:job_name_contains] unless input[:job_name_contains].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -558,7 +560,7 @@ module AWS::SDK::Transcribe
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['StateEquals'] = input[:state_equals] unless input[:state_equals].nil?
         data['NameContains'] = input[:name_contains] unless input[:name_contains].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -571,7 +573,7 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -587,7 +589,7 @@ module AWS::SDK::Transcribe
         data['JobNameContains'] = input[:job_name_contains] unless input[:job_name_contains].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -603,7 +605,7 @@ module AWS::SDK::Transcribe
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['StateEquals'] = input[:state_equals] unless input[:state_equals].nil?
         data['NameContains'] = input[:name_contains] unless input[:name_contains].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -618,7 +620,7 @@ module AWS::SDK::Transcribe
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NameContains'] = input[:name_contains] unless input[:name_contains].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -631,13 +633,13 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.StartCallAnalyticsJob'
         data = {}
         data['CallAnalyticsJobName'] = input[:call_analytics_job_name] unless input[:call_analytics_job_name].nil?
-        data['Media'] = Builders::Media.build(input[:media]) unless input[:media].nil?
+        data['Media'] = Media.build(input[:media]) unless input[:media].nil?
         data['OutputLocation'] = input[:output_location] unless input[:output_location].nil?
         data['OutputEncryptionKMSKeyId'] = input[:output_encryption_kms_key_id] unless input[:output_encryption_kms_key_id].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
-        data['Settings'] = Builders::CallAnalyticsJobSettings.build(input[:settings]) unless input[:settings].nil?
-        data['ChannelDefinitions'] = Builders::ChannelDefinitions.build(input[:channel_definitions]) unless input[:channel_definitions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Settings'] = CallAnalyticsJobSettings.build(input[:settings]) unless input[:settings].nil?
+        data['ChannelDefinitions'] = ChannelDefinitions.build(input[:channel_definitions]) unless input[:channel_definitions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -646,7 +648,7 @@ module AWS::SDK::Transcribe
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ChannelDefinition.build(element) unless element.nil?
+          data << ChannelDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -670,9 +672,9 @@ module AWS::SDK::Transcribe
         data['VocabularyFilterName'] = input[:vocabulary_filter_name] unless input[:vocabulary_filter_name].nil?
         data['VocabularyFilterMethod'] = input[:vocabulary_filter_method] unless input[:vocabulary_filter_method].nil?
         data['LanguageModelName'] = input[:language_model_name] unless input[:language_model_name].nil?
-        data['ContentRedaction'] = Builders::ContentRedaction.build(input[:content_redaction]) unless input[:content_redaction].nil?
-        data['LanguageOptions'] = Builders::LanguageOptions.build(input[:language_options]) unless input[:language_options].nil?
-        data['LanguageIdSettings'] = Builders::LanguageIdSettingsMap.build(input[:language_id_settings]) unless input[:language_id_settings].nil?
+        data['ContentRedaction'] = ContentRedaction.build(input[:content_redaction]) unless input[:content_redaction].nil?
+        data['LanguageOptions'] = LanguageOptions.build(input[:language_options]) unless input[:language_options].nil?
+        data['LanguageIdSettings'] = LanguageIdSettingsMap.build(input[:language_id_settings]) unless input[:language_id_settings].nil?
         data
       end
     end
@@ -682,7 +684,7 @@ module AWS::SDK::Transcribe
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::LanguageIdSettings.build(value) unless value.nil?
+          data[key] = LanguageIdSettings.build(value) unless value.nil?
         end
         data
       end
@@ -716,7 +718,7 @@ module AWS::SDK::Transcribe
         data = {}
         data['RedactionType'] = input[:redaction_type] unless input[:redaction_type].nil?
         data['RedactionOutput'] = input[:redaction_output] unless input[:redaction_output].nil?
-        data['PiiEntityTypes'] = Builders::PiiEntityTypes.build(input[:pii_entity_types]) unless input[:pii_entity_types].nil?
+        data['PiiEntityTypes'] = PiiEntityTypes.build(input[:pii_entity_types]) unless input[:pii_entity_types].nil?
         data
       end
     end
@@ -754,17 +756,17 @@ module AWS::SDK::Transcribe
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
         data['MediaSampleRateHertz'] = input[:media_sample_rate_hertz] unless input[:media_sample_rate_hertz].nil?
         data['MediaFormat'] = input[:media_format] unless input[:media_format].nil?
-        data['Media'] = Builders::Media.build(input[:media]) unless input[:media].nil?
+        data['Media'] = Media.build(input[:media]) unless input[:media].nil?
         data['OutputBucketName'] = input[:output_bucket_name] unless input[:output_bucket_name].nil?
         data['OutputKey'] = input[:output_key] unless input[:output_key].nil?
         data['OutputEncryptionKMSKeyId'] = input[:output_encryption_kms_key_id] unless input[:output_encryption_kms_key_id].nil?
-        data['KMSEncryptionContext'] = Builders::KMSEncryptionContextMap.build(input[:kms_encryption_context]) unless input[:kms_encryption_context].nil?
-        data['Settings'] = Builders::MedicalTranscriptionSetting.build(input[:settings]) unless input[:settings].nil?
+        data['KMSEncryptionContext'] = KMSEncryptionContextMap.build(input[:kms_encryption_context]) unless input[:kms_encryption_context].nil?
+        data['Settings'] = MedicalTranscriptionSetting.build(input[:settings]) unless input[:settings].nil?
         data['ContentIdentificationType'] = input[:content_identification_type] unless input[:content_identification_type].nil?
         data['Specialty'] = input[:specialty] unless input[:specialty].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -805,22 +807,22 @@ module AWS::SDK::Transcribe
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
         data['MediaSampleRateHertz'] = input[:media_sample_rate_hertz] unless input[:media_sample_rate_hertz].nil?
         data['MediaFormat'] = input[:media_format] unless input[:media_format].nil?
-        data['Media'] = Builders::Media.build(input[:media]) unless input[:media].nil?
+        data['Media'] = Media.build(input[:media]) unless input[:media].nil?
         data['OutputBucketName'] = input[:output_bucket_name] unless input[:output_bucket_name].nil?
         data['OutputKey'] = input[:output_key] unless input[:output_key].nil?
         data['OutputEncryptionKMSKeyId'] = input[:output_encryption_kms_key_id] unless input[:output_encryption_kms_key_id].nil?
-        data['KMSEncryptionContext'] = Builders::KMSEncryptionContextMap.build(input[:kms_encryption_context]) unless input[:kms_encryption_context].nil?
-        data['Settings'] = Builders::Settings.build(input[:settings]) unless input[:settings].nil?
-        data['ModelSettings'] = Builders::ModelSettings.build(input[:model_settings]) unless input[:model_settings].nil?
-        data['JobExecutionSettings'] = Builders::JobExecutionSettings.build(input[:job_execution_settings]) unless input[:job_execution_settings].nil?
-        data['ContentRedaction'] = Builders::ContentRedaction.build(input[:content_redaction]) unless input[:content_redaction].nil?
+        data['KMSEncryptionContext'] = KMSEncryptionContextMap.build(input[:kms_encryption_context]) unless input[:kms_encryption_context].nil?
+        data['Settings'] = Settings.build(input[:settings]) unless input[:settings].nil?
+        data['ModelSettings'] = ModelSettings.build(input[:model_settings]) unless input[:model_settings].nil?
+        data['JobExecutionSettings'] = JobExecutionSettings.build(input[:job_execution_settings]) unless input[:job_execution_settings].nil?
+        data['ContentRedaction'] = ContentRedaction.build(input[:content_redaction]) unless input[:content_redaction].nil?
         data['IdentifyLanguage'] = input[:identify_language] unless input[:identify_language].nil?
         data['IdentifyMultipleLanguages'] = input[:identify_multiple_languages] unless input[:identify_multiple_languages].nil?
-        data['LanguageOptions'] = Builders::LanguageOptions.build(input[:language_options]) unless input[:language_options].nil?
-        data['Subtitles'] = Builders::Subtitles.build(input[:subtitles]) unless input[:subtitles].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['LanguageIdSettings'] = Builders::LanguageIdSettingsMap.build(input[:language_id_settings]) unless input[:language_id_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LanguageOptions'] = LanguageOptions.build(input[:language_options]) unless input[:language_options].nil?
+        data['Subtitles'] = Subtitles.build(input[:subtitles]) unless input[:subtitles].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['LanguageIdSettings'] = LanguageIdSettingsMap.build(input[:language_id_settings]) unless input[:language_id_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -828,7 +830,7 @@ module AWS::SDK::Transcribe
     class Subtitles
       def self.build(input)
         data = {}
-        data['Formats'] = Builders::SubtitleFormats.build(input[:formats]) unless input[:formats].nil?
+        data['Formats'] = SubtitleFormats.build(input[:formats]) unless input[:formats].nil?
         data['OutputStartIndex'] = input[:output_start_index] unless input[:output_start_index].nil?
         data
       end
@@ -889,8 +891,8 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -903,8 +905,8 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -928,8 +930,8 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.UpdateCallAnalyticsCategory'
         data = {}
         data['CategoryName'] = input[:category_name] unless input[:category_name].nil?
-        data['Rules'] = Builders::RuleList.build(input[:rules]) unless input[:rules].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Rules'] = RuleList.build(input[:rules]) unless input[:rules].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -944,7 +946,7 @@ module AWS::SDK::Transcribe
         data['VocabularyName'] = input[:vocabulary_name] unless input[:vocabulary_name].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
         data['VocabularyFileUri'] = input[:vocabulary_file_uri] unless input[:vocabulary_file_uri].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -958,9 +960,9 @@ module AWS::SDK::Transcribe
         data = {}
         data['VocabularyName'] = input[:vocabulary_name] unless input[:vocabulary_name].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        data['Phrases'] = Builders::Phrases.build(input[:phrases]) unless input[:phrases].nil?
+        data['Phrases'] = Phrases.build(input[:phrases]) unless input[:phrases].nil?
         data['VocabularyFileUri'] = input[:vocabulary_file_uri] unless input[:vocabulary_file_uri].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -973,9 +975,9 @@ module AWS::SDK::Transcribe
         http_req.headers['X-Amz-Target'] = 'Transcribe.UpdateVocabularyFilter'
         data = {}
         data['VocabularyFilterName'] = input[:vocabulary_filter_name] unless input[:vocabulary_filter_name].nil?
-        data['Words'] = Builders::Words.build(input[:words]) unless input[:words].nil?
+        data['Words'] = Words.build(input[:words]) unless input[:words].nil?
         data['VocabularyFilterFileUri'] = input[:vocabulary_filter_file_uri] unless input[:vocabulary_filter_file_uri].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

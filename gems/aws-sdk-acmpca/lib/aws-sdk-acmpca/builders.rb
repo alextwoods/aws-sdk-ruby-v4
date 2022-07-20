@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::ACMPCA
   module Builders
 
@@ -18,13 +21,13 @@ module AWS::SDK::ACMPCA
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ACMPrivateCA.CreateCertificateAuthority'
         data = {}
-        data['CertificateAuthorityConfiguration'] = Builders::CertificateAuthorityConfiguration.build(input[:certificate_authority_configuration]) unless input[:certificate_authority_configuration].nil?
-        data['RevocationConfiguration'] = Builders::RevocationConfiguration.build(input[:revocation_configuration]) unless input[:revocation_configuration].nil?
+        data['CertificateAuthorityConfiguration'] = CertificateAuthorityConfiguration.build(input[:certificate_authority_configuration]) unless input[:certificate_authority_configuration].nil?
+        data['RevocationConfiguration'] = RevocationConfiguration.build(input[:revocation_configuration]) unless input[:revocation_configuration].nil?
         data['CertificateAuthorityType'] = input[:certificate_authority_type] unless input[:certificate_authority_type].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
         data['KeyStorageSecurityStandard'] = input[:key_storage_security_standard] unless input[:key_storage_security_standard].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,7 +36,7 @@ module AWS::SDK::ACMPCA
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -53,8 +56,8 @@ module AWS::SDK::ACMPCA
     class RevocationConfiguration
       def self.build(input)
         data = {}
-        data['CrlConfiguration'] = Builders::CrlConfiguration.build(input[:crl_configuration]) unless input[:crl_configuration].nil?
-        data['OcspConfiguration'] = Builders::OcspConfiguration.build(input[:ocsp_configuration]) unless input[:ocsp_configuration].nil?
+        data['CrlConfiguration'] = CrlConfiguration.build(input[:crl_configuration]) unless input[:crl_configuration].nil?
+        data['OcspConfiguration'] = OcspConfiguration.build(input[:ocsp_configuration]) unless input[:ocsp_configuration].nil?
         data
       end
     end
@@ -88,8 +91,8 @@ module AWS::SDK::ACMPCA
         data = {}
         data['KeyAlgorithm'] = input[:key_algorithm] unless input[:key_algorithm].nil?
         data['SigningAlgorithm'] = input[:signing_algorithm] unless input[:signing_algorithm].nil?
-        data['Subject'] = Builders::ASN1Subject.build(input[:subject]) unless input[:subject].nil?
-        data['CsrExtensions'] = Builders::CsrExtensions.build(input[:csr_extensions]) unless input[:csr_extensions].nil?
+        data['Subject'] = ASN1Subject.build(input[:subject]) unless input[:subject].nil?
+        data['CsrExtensions'] = CsrExtensions.build(input[:csr_extensions]) unless input[:csr_extensions].nil?
         data
       end
     end
@@ -98,8 +101,8 @@ module AWS::SDK::ACMPCA
     class CsrExtensions
       def self.build(input)
         data = {}
-        data['KeyUsage'] = Builders::KeyUsage.build(input[:key_usage]) unless input[:key_usage].nil?
-        data['SubjectInformationAccess'] = Builders::AccessDescriptionList.build(input[:subject_information_access]) unless input[:subject_information_access].nil?
+        data['KeyUsage'] = KeyUsage.build(input[:key_usage]) unless input[:key_usage].nil?
+        data['SubjectInformationAccess'] = AccessDescriptionList.build(input[:subject_information_access]) unless input[:subject_information_access].nil?
         data
       end
     end
@@ -109,7 +112,7 @@ module AWS::SDK::ACMPCA
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AccessDescription.build(element) unless element.nil?
+          data << AccessDescription.build(element) unless element.nil?
         end
         data
       end
@@ -119,8 +122,8 @@ module AWS::SDK::ACMPCA
     class AccessDescription
       def self.build(input)
         data = {}
-        data['AccessMethod'] = Builders::AccessMethod.build(input[:access_method]) unless input[:access_method].nil?
-        data['AccessLocation'] = Builders::GeneralName.build(input[:access_location]) unless input[:access_location].nil?
+        data['AccessMethod'] = AccessMethod.build(input[:access_method]) unless input[:access_method].nil?
+        data['AccessLocation'] = GeneralName.build(input[:access_location]) unless input[:access_location].nil?
         data
       end
     end
@@ -129,11 +132,11 @@ module AWS::SDK::ACMPCA
     class GeneralName
       def self.build(input)
         data = {}
-        data['OtherName'] = Builders::OtherName.build(input[:other_name]) unless input[:other_name].nil?
+        data['OtherName'] = OtherName.build(input[:other_name]) unless input[:other_name].nil?
         data['Rfc822Name'] = input[:rfc822_name] unless input[:rfc822_name].nil?
         data['DnsName'] = input[:dns_name] unless input[:dns_name].nil?
-        data['DirectoryName'] = Builders::ASN1Subject.build(input[:directory_name]) unless input[:directory_name].nil?
-        data['EdiPartyName'] = Builders::EdiPartyName.build(input[:edi_party_name]) unless input[:edi_party_name].nil?
+        data['DirectoryName'] = ASN1Subject.build(input[:directory_name]) unless input[:directory_name].nil?
+        data['EdiPartyName'] = EdiPartyName.build(input[:edi_party_name]) unless input[:edi_party_name].nil?
         data['UniformResourceIdentifier'] = input[:uniform_resource_identifier] unless input[:uniform_resource_identifier].nil?
         data['IpAddress'] = input[:ip_address] unless input[:ip_address].nil?
         data['RegisteredId'] = input[:registered_id] unless input[:registered_id].nil?
@@ -169,7 +172,7 @@ module AWS::SDK::ACMPCA
         data['Initials'] = input[:initials] unless input[:initials].nil?
         data['Pseudonym'] = input[:pseudonym] unless input[:pseudonym].nil?
         data['GenerationQualifier'] = input[:generation_qualifier] unless input[:generation_qualifier].nil?
-        data['CustomAttributes'] = Builders::CustomAttributeList.build(input[:custom_attributes]) unless input[:custom_attributes].nil?
+        data['CustomAttributes'] = CustomAttributeList.build(input[:custom_attributes]) unless input[:custom_attributes].nil?
         data
       end
     end
@@ -179,7 +182,7 @@ module AWS::SDK::ACMPCA
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CustomAttribute.build(element) unless element.nil?
+          data << CustomAttribute.build(element) unless element.nil?
         end
         data
       end
@@ -243,7 +246,7 @@ module AWS::SDK::ACMPCA
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
         data['S3BucketName'] = input[:s3_bucket_name] unless input[:s3_bucket_name].nil?
         data['AuditReportResponseFormat'] = input[:audit_report_response_format] unless input[:audit_report_response_format].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -258,8 +261,8 @@ module AWS::SDK::ACMPCA
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
         data['Principal'] = input[:principal] unless input[:principal].nil?
         data['SourceAccount'] = input[:source_account] unless input[:source_account].nil?
-        data['Actions'] = Builders::ActionList.build(input[:actions]) unless input[:actions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Actions'] = ActionList.build(input[:actions]) unless input[:actions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -284,7 +287,7 @@ module AWS::SDK::ACMPCA
         data = {}
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
         data['PermanentDeletionTimeInDays'] = input[:permanent_deletion_time_in_days] unless input[:permanent_deletion_time_in_days].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -299,7 +302,7 @@ module AWS::SDK::ACMPCA
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
         data['Principal'] = input[:principal] unless input[:principal].nil?
         data['SourceAccount'] = input[:source_account] unless input[:source_account].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -312,7 +315,7 @@ module AWS::SDK::ACMPCA
         http_req.headers['X-Amz-Target'] = 'ACMPrivateCA.DeletePolicy'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -325,7 +328,7 @@ module AWS::SDK::ACMPCA
         http_req.headers['X-Amz-Target'] = 'ACMPrivateCA.DescribeCertificateAuthority'
         data = {}
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -339,7 +342,7 @@ module AWS::SDK::ACMPCA
         data = {}
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
         data['AuditReportId'] = input[:audit_report_id] unless input[:audit_report_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -353,7 +356,7 @@ module AWS::SDK::ACMPCA
         data = {}
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
         data['CertificateArn'] = input[:certificate_arn] unless input[:certificate_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -366,7 +369,7 @@ module AWS::SDK::ACMPCA
         http_req.headers['X-Amz-Target'] = 'ACMPrivateCA.GetCertificateAuthorityCertificate'
         data = {}
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -379,7 +382,7 @@ module AWS::SDK::ACMPCA
         http_req.headers['X-Amz-Target'] = 'ACMPrivateCA.GetCertificateAuthorityCsr'
         data = {}
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -392,7 +395,7 @@ module AWS::SDK::ACMPCA
         http_req.headers['X-Amz-Target'] = 'ACMPrivateCA.GetPolicy'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -405,9 +408,9 @@ module AWS::SDK::ACMPCA
         http_req.headers['X-Amz-Target'] = 'ACMPrivateCA.ImportCertificateAuthorityCertificate'
         data = {}
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
-        data['Certificate'] = Base64::encode64(input[:certificate]).strip unless input[:certificate].nil?
-        data['CertificateChain'] = Base64::encode64(input[:certificate_chain]).strip unless input[:certificate_chain].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Certificate'] = ::Base64::encode64(input[:certificate]).strip unless input[:certificate].nil?
+        data['CertificateChain'] = ::Base64::encode64(input[:certificate_chain]).strip unless input[:certificate_chain].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -419,15 +422,15 @@ module AWS::SDK::ACMPCA
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'ACMPrivateCA.IssueCertificate'
         data = {}
-        data['ApiPassthrough'] = Builders::ApiPassthrough.build(input[:api_passthrough]) unless input[:api_passthrough].nil?
+        data['ApiPassthrough'] = ApiPassthrough.build(input[:api_passthrough]) unless input[:api_passthrough].nil?
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
-        data['Csr'] = Base64::encode64(input[:csr]).strip unless input[:csr].nil?
+        data['Csr'] = ::Base64::encode64(input[:csr]).strip unless input[:csr].nil?
         data['SigningAlgorithm'] = input[:signing_algorithm] unless input[:signing_algorithm].nil?
         data['TemplateArn'] = input[:template_arn] unless input[:template_arn].nil?
-        data['Validity'] = Builders::Validity.build(input[:validity]) unless input[:validity].nil?
-        data['ValidityNotBefore'] = Builders::Validity.build(input[:validity_not_before]) unless input[:validity_not_before].nil?
+        data['Validity'] = Validity.build(input[:validity]) unless input[:validity].nil?
+        data['ValidityNotBefore'] = Validity.build(input[:validity_not_before]) unless input[:validity_not_before].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -445,8 +448,8 @@ module AWS::SDK::ACMPCA
     class ApiPassthrough
       def self.build(input)
         data = {}
-        data['Extensions'] = Builders::Extensions.build(input[:extensions]) unless input[:extensions].nil?
-        data['Subject'] = Builders::ASN1Subject.build(input[:subject]) unless input[:subject].nil?
+        data['Extensions'] = Extensions.build(input[:extensions]) unless input[:extensions].nil?
+        data['Subject'] = ASN1Subject.build(input[:subject]) unless input[:subject].nil?
         data
       end
     end
@@ -455,11 +458,11 @@ module AWS::SDK::ACMPCA
     class Extensions
       def self.build(input)
         data = {}
-        data['CertificatePolicies'] = Builders::CertificatePolicyList.build(input[:certificate_policies]) unless input[:certificate_policies].nil?
-        data['ExtendedKeyUsage'] = Builders::ExtendedKeyUsageList.build(input[:extended_key_usage]) unless input[:extended_key_usage].nil?
-        data['KeyUsage'] = Builders::KeyUsage.build(input[:key_usage]) unless input[:key_usage].nil?
-        data['SubjectAlternativeNames'] = Builders::GeneralNameList.build(input[:subject_alternative_names]) unless input[:subject_alternative_names].nil?
-        data['CustomExtensions'] = Builders::CustomExtensionList.build(input[:custom_extensions]) unless input[:custom_extensions].nil?
+        data['CertificatePolicies'] = CertificatePolicyList.build(input[:certificate_policies]) unless input[:certificate_policies].nil?
+        data['ExtendedKeyUsage'] = ExtendedKeyUsageList.build(input[:extended_key_usage]) unless input[:extended_key_usage].nil?
+        data['KeyUsage'] = KeyUsage.build(input[:key_usage]) unless input[:key_usage].nil?
+        data['SubjectAlternativeNames'] = GeneralNameList.build(input[:subject_alternative_names]) unless input[:subject_alternative_names].nil?
+        data['CustomExtensions'] = CustomExtensionList.build(input[:custom_extensions]) unless input[:custom_extensions].nil?
         data
       end
     end
@@ -469,7 +472,7 @@ module AWS::SDK::ACMPCA
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CustomExtension.build(element) unless element.nil?
+          data << CustomExtension.build(element) unless element.nil?
         end
         data
       end
@@ -491,7 +494,7 @@ module AWS::SDK::ACMPCA
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GeneralName.build(element) unless element.nil?
+          data << GeneralName.build(element) unless element.nil?
         end
         data
       end
@@ -502,7 +505,7 @@ module AWS::SDK::ACMPCA
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ExtendedKeyUsage.build(element) unless element.nil?
+          data << ExtendedKeyUsage.build(element) unless element.nil?
         end
         data
       end
@@ -523,7 +526,7 @@ module AWS::SDK::ACMPCA
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PolicyInformation.build(element) unless element.nil?
+          data << PolicyInformation.build(element) unless element.nil?
         end
         data
       end
@@ -534,7 +537,7 @@ module AWS::SDK::ACMPCA
       def self.build(input)
         data = {}
         data['CertPolicyId'] = input[:cert_policy_id] unless input[:cert_policy_id].nil?
-        data['PolicyQualifiers'] = Builders::PolicyQualifierInfoList.build(input[:policy_qualifiers]) unless input[:policy_qualifiers].nil?
+        data['PolicyQualifiers'] = PolicyQualifierInfoList.build(input[:policy_qualifiers]) unless input[:policy_qualifiers].nil?
         data
       end
     end
@@ -544,7 +547,7 @@ module AWS::SDK::ACMPCA
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PolicyQualifierInfo.build(element) unless element.nil?
+          data << PolicyQualifierInfo.build(element) unless element.nil?
         end
         data
       end
@@ -555,7 +558,7 @@ module AWS::SDK::ACMPCA
       def self.build(input)
         data = {}
         data['PolicyQualifierId'] = input[:policy_qualifier_id] unless input[:policy_qualifier_id].nil?
-        data['Qualifier'] = Builders::Qualifier.build(input[:qualifier]) unless input[:qualifier].nil?
+        data['Qualifier'] = Qualifier.build(input[:qualifier]) unless input[:qualifier].nil?
         data
       end
     end
@@ -580,7 +583,7 @@ module AWS::SDK::ACMPCA
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['ResourceOwner'] = input[:resource_owner] unless input[:resource_owner].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -595,7 +598,7 @@ module AWS::SDK::ACMPCA
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -610,7 +613,7 @@ module AWS::SDK::ACMPCA
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -624,7 +627,7 @@ module AWS::SDK::ACMPCA
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['Policy'] = input[:policy] unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -637,7 +640,7 @@ module AWS::SDK::ACMPCA
         http_req.headers['X-Amz-Target'] = 'ACMPrivateCA.RestoreCertificateAuthority'
         data = {}
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -652,7 +655,7 @@ module AWS::SDK::ACMPCA
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
         data['CertificateSerial'] = input[:certificate_serial] unless input[:certificate_serial].nil?
         data['RevocationReason'] = input[:revocation_reason] unless input[:revocation_reason].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -665,8 +668,8 @@ module AWS::SDK::ACMPCA
         http_req.headers['X-Amz-Target'] = 'ACMPrivateCA.TagCertificateAuthority'
         data = {}
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -679,8 +682,8 @@ module AWS::SDK::ACMPCA
         http_req.headers['X-Amz-Target'] = 'ACMPrivateCA.UntagCertificateAuthority'
         data = {}
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -693,9 +696,9 @@ module AWS::SDK::ACMPCA
         http_req.headers['X-Amz-Target'] = 'ACMPrivateCA.UpdateCertificateAuthority'
         data = {}
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
-        data['RevocationConfiguration'] = Builders::RevocationConfiguration.build(input[:revocation_configuration]) unless input[:revocation_configuration].nil?
+        data['RevocationConfiguration'] = RevocationConfiguration.build(input[:revocation_configuration]) unless input[:revocation_configuration].nil?
         data['Status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

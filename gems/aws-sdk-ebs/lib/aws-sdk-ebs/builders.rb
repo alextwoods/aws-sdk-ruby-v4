@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::EBS
   module Builders
 
@@ -134,13 +136,13 @@ module AWS::SDK::EBS
         data = {}
         data['VolumeSize'] = input[:volume_size] unless input[:volume_size].nil?
         data['ParentSnapshotId'] = input[:parent_snapshot_id] unless input[:parent_snapshot_id].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['Encrypted'] = input[:encrypted] unless input[:encrypted].nil?
         data['KmsKeyArn'] = input[:kms_key_arn] unless input[:kms_key_arn].nil?
         data['Timeout'] = input[:timeout] unless input[:timeout].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -149,7 +151,7 @@ module AWS::SDK::EBS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end

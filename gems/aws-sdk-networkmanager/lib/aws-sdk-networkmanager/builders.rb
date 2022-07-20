@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::NetworkManager
   module Builders
 
@@ -47,7 +49,7 @@ module AWS::SDK::NetworkManager
         data['ConnectPeerId'] = input[:connect_peer_id] unless input[:connect_peer_id].nil?
         data['DeviceId'] = input[:device_id] unless input[:device_id].nil?
         data['LinkId'] = input[:link_id] unless input[:link_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -71,7 +73,7 @@ module AWS::SDK::NetworkManager
         data['CustomerGatewayArn'] = input[:customer_gateway_arn] unless input[:customer_gateway_arn].nil?
         data['DeviceId'] = input[:device_id] unless input[:device_id].nil?
         data['LinkId'] = input[:link_id] unless input[:link_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -94,7 +96,7 @@ module AWS::SDK::NetworkManager
         data = {}
         data['DeviceId'] = input[:device_id] unless input[:device_id].nil?
         data['LinkId'] = input[:link_id] unless input[:link_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -118,7 +120,7 @@ module AWS::SDK::NetworkManager
         data['TransitGatewayConnectPeerArn'] = input[:transit_gateway_connect_peer_arn] unless input[:transit_gateway_connect_peer_arn].nil?
         data['DeviceId'] = input[:device_id] unless input[:device_id].nil?
         data['LinkId'] = input[:link_id] unless input[:link_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -135,10 +137,10 @@ module AWS::SDK::NetworkManager
         data['CoreNetworkId'] = input[:core_network_id] unless input[:core_network_id].nil?
         data['EdgeLocation'] = input[:edge_location] unless input[:edge_location].nil?
         data['TransportAttachmentId'] = input[:transport_attachment_id] unless input[:transport_attachment_id].nil?
-        data['Options'] = Builders::ConnectAttachmentOptions.build(input[:options]) unless input[:options].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Options'] = ConnectAttachmentOptions.build(input[:options]) unless input[:options].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -147,7 +149,7 @@ module AWS::SDK::NetworkManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -185,11 +187,11 @@ module AWS::SDK::NetworkManager
         data['ConnectAttachmentId'] = input[:connect_attachment_id] unless input[:connect_attachment_id].nil?
         data['CoreNetworkAddress'] = input[:core_network_address] unless input[:core_network_address].nil?
         data['PeerAddress'] = input[:peer_address] unless input[:peer_address].nil?
-        data['BgpOptions'] = Builders::BgpOptions.build(input[:bgp_options]) unless input[:bgp_options].nil?
-        data['InsideCidrBlocks'] = Builders::ConstrainedStringList.build(input[:inside_cidr_blocks]) unless input[:inside_cidr_blocks].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['BgpOptions'] = BgpOptions.build(input[:bgp_options]) unless input[:bgp_options].nil?
+        data['InsideCidrBlocks'] = ConstrainedStringList.build(input[:inside_cidr_blocks]) unless input[:inside_cidr_blocks].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -235,8 +237,8 @@ module AWS::SDK::NetworkManager
         data['LinkId'] = input[:link_id] unless input[:link_id].nil?
         data['ConnectedLinkId'] = input[:connected_link_id] unless input[:connected_link_id].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -252,10 +254,10 @@ module AWS::SDK::NetworkManager
         data = {}
         data['GlobalNetworkId'] = input[:global_network_id] unless input[:global_network_id].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['PolicyDocument'] = input[:policy_document] unless input[:policy_document].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -276,16 +278,16 @@ module AWS::SDK::NetworkManager
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AWSLocation'] = Builders::AWSLocation.build(input[:aws_location]) unless input[:aws_location].nil?
+        data['AWSLocation'] = AWSLocation.build(input[:aws_location]) unless input[:aws_location].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data['Vendor'] = input[:vendor] unless input[:vendor].nil?
         data['Model'] = input[:model] unless input[:model].nil?
         data['SerialNumber'] = input[:serial_number] unless input[:serial_number].nil?
-        data['Location'] = Builders::Location.build(input[:location]) unless input[:location].nil?
+        data['Location'] = Location.build(input[:location]) unless input[:location].nil?
         data['SiteId'] = input[:site_id] unless input[:site_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -321,8 +323,8 @@ module AWS::SDK::NetworkManager
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -345,11 +347,11 @@ module AWS::SDK::NetworkManager
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        data['Bandwidth'] = Builders::Bandwidth.build(input[:bandwidth]) unless input[:bandwidth].nil?
+        data['Bandwidth'] = Bandwidth.build(input[:bandwidth]) unless input[:bandwidth].nil?
         data['Provider'] = input[:provider] unless input[:provider].nil?
         data['SiteId'] = input[:site_id] unless input[:site_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -381,9 +383,9 @@ module AWS::SDK::NetworkManager
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Location'] = Builders::Location.build(input[:location]) unless input[:location].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Location'] = Location.build(input[:location]) unless input[:location].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -399,9 +401,9 @@ module AWS::SDK::NetworkManager
         data = {}
         data['CoreNetworkId'] = input[:core_network_id] unless input[:core_network_id].nil?
         data['VpnConnectionArn'] = input[:vpn_connection_arn] unless input[:vpn_connection_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -417,11 +419,11 @@ module AWS::SDK::NetworkManager
         data = {}
         data['CoreNetworkId'] = input[:core_network_id] unless input[:core_network_id].nil?
         data['VpcArn'] = input[:vpc_arn] unless input[:vpc_arn].nil?
-        data['SubnetArns'] = Builders::SubnetArnList.build(input[:subnet_arns]) unless input[:subnet_arns].nil?
-        data['Options'] = Builders::VpcOptions.build(input[:options]) unless input[:options].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['SubnetArns'] = SubnetArnList.build(input[:subnet_arns]) unless input[:subnet_arns].nil?
+        data['Options'] = VpcOptions.build(input[:options]) unless input[:options].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1168,16 +1170,16 @@ module AWS::SDK::NetworkManager
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['RouteTableIdentifier'] = Builders::RouteTableIdentifier.build(input[:route_table_identifier]) unless input[:route_table_identifier].nil?
-        data['ExactCidrMatches'] = Builders::ConstrainedStringList.build(input[:exact_cidr_matches]) unless input[:exact_cidr_matches].nil?
-        data['LongestPrefixMatches'] = Builders::ConstrainedStringList.build(input[:longest_prefix_matches]) unless input[:longest_prefix_matches].nil?
-        data['SubnetOfMatches'] = Builders::ConstrainedStringList.build(input[:subnet_of_matches]) unless input[:subnet_of_matches].nil?
-        data['SupernetOfMatches'] = Builders::ConstrainedStringList.build(input[:supernet_of_matches]) unless input[:supernet_of_matches].nil?
-        data['PrefixListIds'] = Builders::ConstrainedStringList.build(input[:prefix_list_ids]) unless input[:prefix_list_ids].nil?
-        data['States'] = Builders::RouteStateList.build(input[:states]) unless input[:states].nil?
-        data['Types'] = Builders::RouteTypeList.build(input[:types]) unless input[:types].nil?
-        data['DestinationFilters'] = Builders::FilterMap.build(input[:destination_filters]) unless input[:destination_filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RouteTableIdentifier'] = RouteTableIdentifier.build(input[:route_table_identifier]) unless input[:route_table_identifier].nil?
+        data['ExactCidrMatches'] = ConstrainedStringList.build(input[:exact_cidr_matches]) unless input[:exact_cidr_matches].nil?
+        data['LongestPrefixMatches'] = ConstrainedStringList.build(input[:longest_prefix_matches]) unless input[:longest_prefix_matches].nil?
+        data['SubnetOfMatches'] = ConstrainedStringList.build(input[:subnet_of_matches]) unless input[:subnet_of_matches].nil?
+        data['SupernetOfMatches'] = ConstrainedStringList.build(input[:supernet_of_matches]) unless input[:supernet_of_matches].nil?
+        data['PrefixListIds'] = ConstrainedStringList.build(input[:prefix_list_ids]) unless input[:prefix_list_ids].nil?
+        data['States'] = RouteStateList.build(input[:states]) unless input[:states].nil?
+        data['Types'] = RouteTypeList.build(input[:types]) unless input[:types].nil?
+        data['DestinationFilters'] = FilterMap.build(input[:destination_filters]) unless input[:destination_filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1186,7 +1188,7 @@ module AWS::SDK::NetworkManager
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::FilterValues.build(value) unless value.nil?
+          data[key] = FilterValues.build(value) unless value.nil?
         end
         data
       end
@@ -1230,7 +1232,7 @@ module AWS::SDK::NetworkManager
       def self.build(input)
         data = {}
         data['TransitGatewayRouteTableArn'] = input[:transit_gateway_route_table_arn] unless input[:transit_gateway_route_table_arn].nil?
-        data['CoreNetworkSegmentEdge'] = Builders::CoreNetworkSegmentEdgeIdentifier.build(input[:core_network_segment_edge]) unless input[:core_network_segment_edge].nil?
+        data['CoreNetworkSegmentEdge'] = CoreNetworkSegmentEdgeIdentifier.build(input[:core_network_segment_edge]) unless input[:core_network_segment_edge].nil?
         data
       end
     end
@@ -1559,7 +1561,7 @@ module AWS::SDK::NetworkManager
         data['Description'] = input[:description] unless input[:description].nil?
         data['LatestVersionId'] = input[:latest_version_id] unless input[:latest_version_id].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1581,7 +1583,7 @@ module AWS::SDK::NetworkManager
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['PolicyDocument'] = input[:policy_document] unless input[:policy_document].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1603,7 +1605,7 @@ module AWS::SDK::NetworkManager
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['TransitGatewayArn'] = input[:transit_gateway_arn] unless input[:transit_gateway_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1656,7 +1658,7 @@ module AWS::SDK::NetworkManager
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Action'] = input[:action] unless input[:action].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1677,11 +1679,11 @@ module AWS::SDK::NetworkManager
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Source'] = Builders::RouteAnalysisEndpointOptionsSpecification.build(input[:source]) unless input[:source].nil?
-        data['Destination'] = Builders::RouteAnalysisEndpointOptionsSpecification.build(input[:destination]) unless input[:destination].nil?
+        data['Source'] = RouteAnalysisEndpointOptionsSpecification.build(input[:source]) unless input[:source].nil?
+        data['Destination'] = RouteAnalysisEndpointOptionsSpecification.build(input[:destination]) unless input[:destination].nil?
         data['IncludeReturnPath'] = input[:include_return_path] unless input[:include_return_path].nil?
         data['UseMiddleboxes'] = input[:use_middleboxes] unless input[:use_middleboxes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1712,8 +1714,8 @@ module AWS::SDK::NetworkManager
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1774,7 +1776,7 @@ module AWS::SDK::NetworkManager
         data['LinkId'] = input[:link_id] unless input[:link_id].nil?
         data['ConnectedLinkId'] = input[:connected_link_id] unless input[:connected_link_id].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1796,7 +1798,7 @@ module AWS::SDK::NetworkManager
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1821,15 +1823,15 @@ module AWS::SDK::NetworkManager
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AWSLocation'] = Builders::AWSLocation.build(input[:aws_location]) unless input[:aws_location].nil?
+        data['AWSLocation'] = AWSLocation.build(input[:aws_location]) unless input[:aws_location].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data['Vendor'] = input[:vendor] unless input[:vendor].nil?
         data['Model'] = input[:model] unless input[:model].nil?
         data['SerialNumber'] = input[:serial_number] unless input[:serial_number].nil?
-        data['Location'] = Builders::Location.build(input[:location]) unless input[:location].nil?
+        data['Location'] = Location.build(input[:location]) unless input[:location].nil?
         data['SiteId'] = input[:site_id] unless input[:site_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1851,7 +1853,7 @@ module AWS::SDK::NetworkManager
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1878,9 +1880,9 @@ module AWS::SDK::NetworkManager
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        data['Bandwidth'] = Builders::Bandwidth.build(input[:bandwidth]) unless input[:bandwidth].nil?
+        data['Bandwidth'] = Bandwidth.build(input[:bandwidth]) unless input[:bandwidth].nil?
         data['Provider'] = input[:provider] unless input[:provider].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1905,8 +1907,8 @@ module AWS::SDK::NetworkManager
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Metadata'] = Builders::NetworkResourceMetadataMap.build(input[:metadata]) unless input[:metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Metadata'] = NetworkResourceMetadataMap.build(input[:metadata]) unless input[:metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1943,8 +1945,8 @@ module AWS::SDK::NetworkManager
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Location'] = Builders::Location.build(input[:location]) unless input[:location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Location'] = Location.build(input[:location]) unless input[:location].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1965,10 +1967,10 @@ module AWS::SDK::NetworkManager
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AddSubnetArns'] = Builders::SubnetArnList.build(input[:add_subnet_arns]) unless input[:add_subnet_arns].nil?
-        data['RemoveSubnetArns'] = Builders::SubnetArnList.build(input[:remove_subnet_arns]) unless input[:remove_subnet_arns].nil?
-        data['Options'] = Builders::VpcOptions.build(input[:options]) unless input[:options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AddSubnetArns'] = SubnetArnList.build(input[:add_subnet_arns]) unless input[:add_subnet_arns].nil?
+        data['RemoveSubnetArns'] = SubnetArnList.build(input[:remove_subnet_arns]) unless input[:remove_subnet_arns].nil?
+        data['Options'] = VpcOptions.build(input[:options]) unless input[:options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

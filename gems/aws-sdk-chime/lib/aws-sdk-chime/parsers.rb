@@ -112,7 +112,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::AssociatePhoneNumbersWithVoiceConnectorOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.phone_number_errors = (Parsers::PhoneNumberErrorList.parse(map['PhoneNumberErrors']) unless map['PhoneNumberErrors'].nil?)
+        data.phone_number_errors = (PhoneNumberErrorList.parse(map['PhoneNumberErrors']) unless map['PhoneNumberErrors'].nil?)
         data
       end
     end
@@ -121,7 +121,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PhoneNumberError.parse(value) unless value.nil?
+          data << PhoneNumberError.parse(value) unless value.nil?
         end
         data
       end
@@ -142,7 +142,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::AssociatePhoneNumbersWithVoiceConnectorGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.phone_number_errors = (Parsers::PhoneNumberErrorList.parse(map['PhoneNumberErrors']) unless map['PhoneNumberErrors'].nil?)
+        data.phone_number_errors = (PhoneNumberErrorList.parse(map['PhoneNumberErrors']) unless map['PhoneNumberErrors'].nil?)
         data
       end
     end
@@ -161,8 +161,8 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::BatchCreateAttendeeOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attendees = (Parsers::AttendeeList.parse(map['Attendees']) unless map['Attendees'].nil?)
-        data.errors = (Parsers::BatchCreateAttendeeErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.attendees = (AttendeeList.parse(map['Attendees']) unless map['Attendees'].nil?)
+        data.errors = (BatchCreateAttendeeErrorList.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -171,7 +171,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CreateAttendeeError.parse(value) unless value.nil?
+          data << CreateAttendeeError.parse(value) unless value.nil?
         end
         data
       end
@@ -191,7 +191,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Attendee.parse(value) unless value.nil?
+          data << Attendee.parse(value) unless value.nil?
         end
         data
       end
@@ -223,8 +223,8 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::BatchCreateChannelMembershipOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.batch_channel_memberships = (Parsers::BatchChannelMemberships.parse(map['BatchChannelMemberships']) unless map['BatchChannelMemberships'].nil?)
-        data.errors = (Parsers::BatchCreateChannelMembershipErrors.parse(map['Errors']) unless map['Errors'].nil?)
+        data.batch_channel_memberships = (BatchChannelMemberships.parse(map['BatchChannelMemberships']) unless map['BatchChannelMemberships'].nil?)
+        data.errors = (BatchCreateChannelMembershipErrors.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -233,7 +233,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchCreateChannelMembershipError.parse(value) unless value.nil?
+          data << BatchCreateChannelMembershipError.parse(value) unless value.nil?
         end
         data
       end
@@ -252,9 +252,9 @@ module AWS::SDK::Chime
     class BatchChannelMemberships
       def self.parse(map)
         data = Types::BatchChannelMemberships.new
-        data.invited_by = (Parsers::Identity.parse(map['InvitedBy']) unless map['InvitedBy'].nil?)
+        data.invited_by = (Identity.parse(map['InvitedBy']) unless map['InvitedBy'].nil?)
         data.type = map['Type']
-        data.members = (Parsers::Members.parse(map['Members']) unless map['Members'].nil?)
+        data.members = (Members.parse(map['Members']) unless map['Members'].nil?)
         data.channel_arn = map['ChannelArn']
         return data
       end
@@ -264,7 +264,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Identity.parse(value) unless value.nil?
+          data << Identity.parse(value) unless value.nil?
         end
         data
       end
@@ -284,7 +284,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::BatchCreateRoomMembershipOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.errors = (Parsers::MemberErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (MemberErrorList.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -293,7 +293,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MemberError.parse(value) unless value.nil?
+          data << MemberError.parse(value) unless value.nil?
         end
         data
       end
@@ -314,7 +314,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::BatchDeletePhoneNumberOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.phone_number_errors = (Parsers::PhoneNumberErrorList.parse(map['PhoneNumberErrors']) unless map['PhoneNumberErrors'].nil?)
+        data.phone_number_errors = (PhoneNumberErrorList.parse(map['PhoneNumberErrors']) unless map['PhoneNumberErrors'].nil?)
         data
       end
     end
@@ -324,7 +324,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::BatchSuspendUserOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.user_errors = (Parsers::UserErrorList.parse(map['UserErrors']) unless map['UserErrors'].nil?)
+        data.user_errors = (UserErrorList.parse(map['UserErrors']) unless map['UserErrors'].nil?)
         data
       end
     end
@@ -333,7 +333,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UserError.parse(value) unless value.nil?
+          data << UserError.parse(value) unless value.nil?
         end
         data
       end
@@ -354,7 +354,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::BatchUnsuspendUserOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.user_errors = (Parsers::UserErrorList.parse(map['UserErrors']) unless map['UserErrors'].nil?)
+        data.user_errors = (UserErrorList.parse(map['UserErrors']) unless map['UserErrors'].nil?)
         data
       end
     end
@@ -364,7 +364,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::BatchUpdatePhoneNumberOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.phone_number_errors = (Parsers::PhoneNumberErrorList.parse(map['PhoneNumberErrors']) unless map['PhoneNumberErrors'].nil?)
+        data.phone_number_errors = (PhoneNumberErrorList.parse(map['PhoneNumberErrors']) unless map['PhoneNumberErrors'].nil?)
         data
       end
     end
@@ -374,7 +374,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::BatchUpdateUserOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.user_errors = (Parsers::UserErrorList.parse(map['UserErrors']) unless map['UserErrors'].nil?)
+        data.user_errors = (UserErrorList.parse(map['UserErrors']) unless map['UserErrors'].nil?)
         data
       end
     end
@@ -384,7 +384,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::CreateAccountOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.account = (Parsers::Account.parse(map['Account']) unless map['Account'].nil?)
+        data.account = (Account.parse(map['Account']) unless map['Account'].nil?)
         data
       end
     end
@@ -398,9 +398,9 @@ module AWS::SDK::Chime
         data.account_type = map['AccountType']
         data.created_timestamp = Time.parse(map['CreatedTimestamp']) if map['CreatedTimestamp']
         data.default_license = map['DefaultLicense']
-        data.supported_licenses = (Parsers::LicenseList.parse(map['SupportedLicenses']) unless map['SupportedLicenses'].nil?)
+        data.supported_licenses = (LicenseList.parse(map['SupportedLicenses']) unless map['SupportedLicenses'].nil?)
         data.account_status = map['AccountStatus']
-        data.signin_delegate_groups = (Parsers::SigninDelegateGroupList.parse(map['SigninDelegateGroups']) unless map['SigninDelegateGroups'].nil?)
+        data.signin_delegate_groups = (SigninDelegateGroupList.parse(map['SigninDelegateGroups']) unless map['SigninDelegateGroups'].nil?)
         return data
       end
     end
@@ -409,7 +409,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SigninDelegateGroup.parse(value) unless value.nil?
+          data << SigninDelegateGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -459,7 +459,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::CreateAppInstanceAdminOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instance_admin = (Parsers::Identity.parse(map['AppInstanceAdmin']) unless map['AppInstanceAdmin'].nil?)
+        data.app_instance_admin = (Identity.parse(map['AppInstanceAdmin']) unless map['AppInstanceAdmin'].nil?)
         data.app_instance_arn = map['AppInstanceArn']
         data
       end
@@ -480,7 +480,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::CreateAttendeeOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attendee = (Parsers::Attendee.parse(map['Attendee']) unless map['Attendee'].nil?)
+        data.attendee = (Attendee.parse(map['Attendee']) unless map['Attendee'].nil?)
         data
       end
     end
@@ -490,7 +490,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::CreateBotOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.bot = (Parsers::Bot.parse(map['Bot']) unless map['Bot'].nil?)
+        data.bot = (Bot.parse(map['Bot']) unless map['Bot'].nil?)
         data
       end
     end
@@ -527,7 +527,7 @@ module AWS::SDK::Chime
         data = Types::CreateChannelBanOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.channel_arn = map['ChannelArn']
-        data.member = (Parsers::Identity.parse(map['Member']) unless map['Member'].nil?)
+        data.member = (Identity.parse(map['Member']) unless map['Member'].nil?)
         data
       end
     end
@@ -538,7 +538,7 @@ module AWS::SDK::Chime
         data = Types::CreateChannelMembershipOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.channel_arn = map['ChannelArn']
-        data.member = (Parsers::Identity.parse(map['Member']) unless map['Member'].nil?)
+        data.member = (Identity.parse(map['Member']) unless map['Member'].nil?)
         data
       end
     end
@@ -549,7 +549,7 @@ module AWS::SDK::Chime
         data = Types::CreateChannelModeratorOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.channel_arn = map['ChannelArn']
-        data.channel_moderator = (Parsers::Identity.parse(map['ChannelModerator']) unless map['ChannelModerator'].nil?)
+        data.channel_moderator = (Identity.parse(map['ChannelModerator']) unless map['ChannelModerator'].nil?)
         data
       end
     end
@@ -559,7 +559,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::CreateMediaCapturePipelineOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.media_capture_pipeline = (Parsers::MediaCapturePipeline.parse(map['MediaCapturePipeline']) unless map['MediaCapturePipeline'].nil?)
+        data.media_capture_pipeline = (MediaCapturePipeline.parse(map['MediaCapturePipeline']) unless map['MediaCapturePipeline'].nil?)
         data
       end
     end
@@ -575,7 +575,7 @@ module AWS::SDK::Chime
         data.sink_arn = map['SinkArn']
         data.created_timestamp = Time.parse(map['CreatedTimestamp']) if map['CreatedTimestamp']
         data.updated_timestamp = Time.parse(map['UpdatedTimestamp']) if map['UpdatedTimestamp']
-        data.chime_sdk_meeting_configuration = (Parsers::ChimeSdkMeetingConfiguration.parse(map['ChimeSdkMeetingConfiguration']) unless map['ChimeSdkMeetingConfiguration'].nil?)
+        data.chime_sdk_meeting_configuration = (ChimeSdkMeetingConfiguration.parse(map['ChimeSdkMeetingConfiguration']) unless map['ChimeSdkMeetingConfiguration'].nil?)
         return data
       end
     end
@@ -583,8 +583,8 @@ module AWS::SDK::Chime
     class ChimeSdkMeetingConfiguration
       def self.parse(map)
         data = Types::ChimeSdkMeetingConfiguration.new
-        data.source_configuration = (Parsers::SourceConfiguration.parse(map['SourceConfiguration']) unless map['SourceConfiguration'].nil?)
-        data.artifacts_configuration = (Parsers::ArtifactsConfiguration.parse(map['ArtifactsConfiguration']) unless map['ArtifactsConfiguration'].nil?)
+        data.source_configuration = (SourceConfiguration.parse(map['SourceConfiguration']) unless map['SourceConfiguration'].nil?)
+        data.artifacts_configuration = (ArtifactsConfiguration.parse(map['ArtifactsConfiguration']) unless map['ArtifactsConfiguration'].nil?)
         return data
       end
     end
@@ -592,9 +592,9 @@ module AWS::SDK::Chime
     class ArtifactsConfiguration
       def self.parse(map)
         data = Types::ArtifactsConfiguration.new
-        data.audio = (Parsers::AudioArtifactsConfiguration.parse(map['Audio']) unless map['Audio'].nil?)
-        data.video = (Parsers::VideoArtifactsConfiguration.parse(map['Video']) unless map['Video'].nil?)
-        data.content = (Parsers::ContentArtifactsConfiguration.parse(map['Content']) unless map['Content'].nil?)
+        data.audio = (AudioArtifactsConfiguration.parse(map['Audio']) unless map['Audio'].nil?)
+        data.video = (VideoArtifactsConfiguration.parse(map['Video']) unless map['Video'].nil?)
+        data.content = (ContentArtifactsConfiguration.parse(map['Content']) unless map['Content'].nil?)
         return data
       end
     end
@@ -628,7 +628,7 @@ module AWS::SDK::Chime
     class SourceConfiguration
       def self.parse(map)
         data = Types::SourceConfiguration.new
-        data.selected_video_streams = (Parsers::SelectedVideoStreams.parse(map['SelectedVideoStreams']) unless map['SelectedVideoStreams'].nil?)
+        data.selected_video_streams = (SelectedVideoStreams.parse(map['SelectedVideoStreams']) unless map['SelectedVideoStreams'].nil?)
         return data
       end
     end
@@ -636,8 +636,8 @@ module AWS::SDK::Chime
     class SelectedVideoStreams
       def self.parse(map)
         data = Types::SelectedVideoStreams.new
-        data.attendee_ids = (Parsers::AttendeeIdList.parse(map['AttendeeIds']) unless map['AttendeeIds'].nil?)
-        data.external_user_ids = (Parsers::ExternalUserIdList.parse(map['ExternalUserIds']) unless map['ExternalUserIds'].nil?)
+        data.attendee_ids = (AttendeeIdList.parse(map['AttendeeIds']) unless map['AttendeeIds'].nil?)
+        data.external_user_ids = (ExternalUserIdList.parse(map['ExternalUserIds']) unless map['ExternalUserIds'].nil?)
         return data
       end
     end
@@ -667,7 +667,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::CreateMeetingOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.meeting = (Parsers::Meeting.parse(map['Meeting']) unless map['Meeting'].nil?)
+        data.meeting = (Meeting.parse(map['Meeting']) unless map['Meeting'].nil?)
         data
       end
     end
@@ -677,7 +677,7 @@ module AWS::SDK::Chime
         data = Types::Meeting.new
         data.meeting_id = map['MeetingId']
         data.external_meeting_id = map['ExternalMeetingId']
-        data.media_placement = (Parsers::MediaPlacement.parse(map['MediaPlacement']) unless map['MediaPlacement'].nil?)
+        data.media_placement = (MediaPlacement.parse(map['MediaPlacement']) unless map['MediaPlacement'].nil?)
         data.media_region = map['MediaRegion']
         return data
       end
@@ -713,9 +713,9 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::CreateMeetingWithAttendeesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.meeting = (Parsers::Meeting.parse(map['Meeting']) unless map['Meeting'].nil?)
-        data.attendees = (Parsers::AttendeeList.parse(map['Attendees']) unless map['Attendees'].nil?)
-        data.errors = (Parsers::BatchCreateAttendeeErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.meeting = (Meeting.parse(map['Meeting']) unless map['Meeting'].nil?)
+        data.attendees = (AttendeeList.parse(map['Attendees']) unless map['Attendees'].nil?)
+        data.errors = (BatchCreateAttendeeErrorList.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -725,7 +725,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::CreatePhoneNumberOrderOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.phone_number_order = (Parsers::PhoneNumberOrder.parse(map['PhoneNumberOrder']) unless map['PhoneNumberOrder'].nil?)
+        data.phone_number_order = (PhoneNumberOrder.parse(map['PhoneNumberOrder']) unless map['PhoneNumberOrder'].nil?)
         data
       end
     end
@@ -736,7 +736,7 @@ module AWS::SDK::Chime
         data.phone_number_order_id = map['PhoneNumberOrderId']
         data.product_type = map['ProductType']
         data.status = map['Status']
-        data.ordered_phone_numbers = (Parsers::OrderedPhoneNumberList.parse(map['OrderedPhoneNumbers']) unless map['OrderedPhoneNumbers'].nil?)
+        data.ordered_phone_numbers = (OrderedPhoneNumberList.parse(map['OrderedPhoneNumbers']) unless map['OrderedPhoneNumbers'].nil?)
         data.created_timestamp = Time.parse(map['CreatedTimestamp']) if map['CreatedTimestamp']
         data.updated_timestamp = Time.parse(map['UpdatedTimestamp']) if map['UpdatedTimestamp']
         return data
@@ -747,7 +747,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::OrderedPhoneNumber.parse(value) unless value.nil?
+          data << OrderedPhoneNumber.parse(value) unless value.nil?
         end
         data
       end
@@ -767,7 +767,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::CreateProxySessionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.proxy_session = (Parsers::ProxySession.parse(map['ProxySession']) unless map['ProxySession'].nil?)
+        data.proxy_session = (ProxySession.parse(map['ProxySession']) unless map['ProxySession'].nil?)
         data
       end
     end
@@ -780,14 +780,14 @@ module AWS::SDK::Chime
         data.name = map['Name']
         data.status = map['Status']
         data.expiry_minutes = map['ExpiryMinutes']
-        data.capabilities = (Parsers::CapabilityList.parse(map['Capabilities']) unless map['Capabilities'].nil?)
+        data.capabilities = (CapabilityList.parse(map['Capabilities']) unless map['Capabilities'].nil?)
         data.created_timestamp = Time.parse(map['CreatedTimestamp']) if map['CreatedTimestamp']
         data.updated_timestamp = Time.parse(map['UpdatedTimestamp']) if map['UpdatedTimestamp']
         data.ended_timestamp = Time.parse(map['EndedTimestamp']) if map['EndedTimestamp']
-        data.participants = (Parsers::Participants.parse(map['Participants']) unless map['Participants'].nil?)
+        data.participants = (Participants.parse(map['Participants']) unless map['Participants'].nil?)
         data.number_selection_behavior = map['NumberSelectionBehavior']
         data.geo_match_level = map['GeoMatchLevel']
-        data.geo_match_params = (Parsers::GeoMatchParams.parse(map['GeoMatchParams']) unless map['GeoMatchParams'].nil?)
+        data.geo_match_params = (GeoMatchParams.parse(map['GeoMatchParams']) unless map['GeoMatchParams'].nil?)
         return data
       end
     end
@@ -805,7 +805,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Participant.parse(value) unless value.nil?
+          data << Participant.parse(value) unless value.nil?
         end
         data
       end
@@ -835,7 +835,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::CreateRoomOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.room = (Parsers::Room.parse(map['Room']) unless map['Room'].nil?)
+        data.room = (Room.parse(map['Room']) unless map['Room'].nil?)
         data
       end
     end
@@ -858,7 +858,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::CreateRoomMembershipOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.room_membership = (Parsers::RoomMembership.parse(map['RoomMembership']) unless map['RoomMembership'].nil?)
+        data.room_membership = (RoomMembership.parse(map['RoomMembership']) unless map['RoomMembership'].nil?)
         data
       end
     end
@@ -867,7 +867,7 @@ module AWS::SDK::Chime
       def self.parse(map)
         data = Types::RoomMembership.new
         data.room_id = map['RoomId']
-        data.member = (Parsers::Member.parse(map['Member']) unless map['Member'].nil?)
+        data.member = (Member.parse(map['Member']) unless map['Member'].nil?)
         data.role = map['Role']
         data.invited_by = map['InvitedBy']
         data.updated_timestamp = Time.parse(map['UpdatedTimestamp']) if map['UpdatedTimestamp']
@@ -892,7 +892,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::CreateSipMediaApplicationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sip_media_application = (Parsers::SipMediaApplication.parse(map['SipMediaApplication']) unless map['SipMediaApplication'].nil?)
+        data.sip_media_application = (SipMediaApplication.parse(map['SipMediaApplication']) unless map['SipMediaApplication'].nil?)
         data
       end
     end
@@ -903,7 +903,7 @@ module AWS::SDK::Chime
         data.sip_media_application_id = map['SipMediaApplicationId']
         data.aws_region = map['AwsRegion']
         data.name = map['Name']
-        data.endpoints = (Parsers::SipMediaApplicationEndpointList.parse(map['Endpoints']) unless map['Endpoints'].nil?)
+        data.endpoints = (SipMediaApplicationEndpointList.parse(map['Endpoints']) unless map['Endpoints'].nil?)
         data.created_timestamp = Time.parse(map['CreatedTimestamp']) if map['CreatedTimestamp']
         data.updated_timestamp = Time.parse(map['UpdatedTimestamp']) if map['UpdatedTimestamp']
         return data
@@ -914,7 +914,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SipMediaApplicationEndpoint.parse(value) unless value.nil?
+          data << SipMediaApplicationEndpoint.parse(value) unless value.nil?
         end
         data
       end
@@ -933,7 +933,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::CreateSipMediaApplicationCallOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sip_media_application_call = (Parsers::SipMediaApplicationCall.parse(map['SipMediaApplicationCall']) unless map['SipMediaApplicationCall'].nil?)
+        data.sip_media_application_call = (SipMediaApplicationCall.parse(map['SipMediaApplicationCall']) unless map['SipMediaApplicationCall'].nil?)
         data
       end
     end
@@ -951,7 +951,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::CreateSipRuleOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sip_rule = (Parsers::SipRule.parse(map['SipRule']) unless map['SipRule'].nil?)
+        data.sip_rule = (SipRule.parse(map['SipRule']) unless map['SipRule'].nil?)
         data
       end
     end
@@ -964,7 +964,7 @@ module AWS::SDK::Chime
         data.disabled = map['Disabled']
         data.trigger_type = map['TriggerType']
         data.trigger_value = map['TriggerValue']
-        data.target_applications = (Parsers::SipRuleTargetApplicationList.parse(map['TargetApplications']) unless map['TargetApplications'].nil?)
+        data.target_applications = (SipRuleTargetApplicationList.parse(map['TargetApplications']) unless map['TargetApplications'].nil?)
         data.created_timestamp = Time.parse(map['CreatedTimestamp']) if map['CreatedTimestamp']
         data.updated_timestamp = Time.parse(map['UpdatedTimestamp']) if map['UpdatedTimestamp']
         return data
@@ -975,7 +975,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SipRuleTargetApplication.parse(value) unless value.nil?
+          data << SipRuleTargetApplication.parse(value) unless value.nil?
         end
         data
       end
@@ -996,7 +996,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::CreateUserOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.user = (Parsers::User.parse(map['User']) unless map['User'].nil?)
+        data.user = (User.parse(map['User']) unless map['User'].nil?)
         data
       end
     end
@@ -1015,7 +1015,7 @@ module AWS::SDK::Chime
         data.user_invitation_status = map['UserInvitationStatus']
         data.registered_on = Time.parse(map['RegisteredOn']) if map['RegisteredOn']
         data.invited_on = Time.parse(map['InvitedOn']) if map['InvitedOn']
-        data.alexa_for_business_metadata = (Parsers::AlexaForBusinessMetadata.parse(map['AlexaForBusinessMetadata']) unless map['AlexaForBusinessMetadata'].nil?)
+        data.alexa_for_business_metadata = (AlexaForBusinessMetadata.parse(map['AlexaForBusinessMetadata']) unless map['AlexaForBusinessMetadata'].nil?)
         data.personal_pin = map['PersonalPIN']
         return data
       end
@@ -1035,7 +1035,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::CreateVoiceConnectorOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.voice_connector = (Parsers::VoiceConnector.parse(map['VoiceConnector']) unless map['VoiceConnector'].nil?)
+        data.voice_connector = (VoiceConnector.parse(map['VoiceConnector']) unless map['VoiceConnector'].nil?)
         data
       end
     end
@@ -1060,7 +1060,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::CreateVoiceConnectorGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.voice_connector_group = (Parsers::VoiceConnectorGroup.parse(map['VoiceConnectorGroup']) unless map['VoiceConnectorGroup'].nil?)
+        data.voice_connector_group = (VoiceConnectorGroup.parse(map['VoiceConnectorGroup']) unless map['VoiceConnectorGroup'].nil?)
         data
       end
     end
@@ -1070,7 +1070,7 @@ module AWS::SDK::Chime
         data = Types::VoiceConnectorGroup.new
         data.voice_connector_group_id = map['VoiceConnectorGroupId']
         data.name = map['Name']
-        data.voice_connector_items = (Parsers::VoiceConnectorItemList.parse(map['VoiceConnectorItems']) unless map['VoiceConnectorItems'].nil?)
+        data.voice_connector_items = (VoiceConnectorItemList.parse(map['VoiceConnectorItems']) unless map['VoiceConnectorItems'].nil?)
         data.created_timestamp = Time.parse(map['CreatedTimestamp']) if map['CreatedTimestamp']
         data.updated_timestamp = Time.parse(map['UpdatedTimestamp']) if map['UpdatedTimestamp']
         data.voice_connector_group_arn = map['VoiceConnectorGroupArn']
@@ -1082,7 +1082,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VoiceConnectorItem.parse(value) unless value.nil?
+          data << VoiceConnectorItem.parse(value) unless value.nil?
         end
         data
       end
@@ -1365,7 +1365,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::DescribeAppInstanceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instance = (Parsers::AppInstance.parse(map['AppInstance']) unless map['AppInstance'].nil?)
+        data.app_instance = (AppInstance.parse(map['AppInstance']) unless map['AppInstance'].nil?)
         data
       end
     end
@@ -1387,7 +1387,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::DescribeAppInstanceAdminOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instance_admin = (Parsers::AppInstanceAdmin.parse(map['AppInstanceAdmin']) unless map['AppInstanceAdmin'].nil?)
+        data.app_instance_admin = (AppInstanceAdmin.parse(map['AppInstanceAdmin']) unless map['AppInstanceAdmin'].nil?)
         data
       end
     end
@@ -1395,7 +1395,7 @@ module AWS::SDK::Chime
     class AppInstanceAdmin
       def self.parse(map)
         data = Types::AppInstanceAdmin.new
-        data.admin = (Parsers::Identity.parse(map['Admin']) unless map['Admin'].nil?)
+        data.admin = (Identity.parse(map['Admin']) unless map['Admin'].nil?)
         data.app_instance_arn = map['AppInstanceArn']
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
         return data
@@ -1407,7 +1407,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::DescribeAppInstanceUserOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instance_user = (Parsers::AppInstanceUser.parse(map['AppInstanceUser']) unless map['AppInstanceUser'].nil?)
+        data.app_instance_user = (AppInstanceUser.parse(map['AppInstanceUser']) unless map['AppInstanceUser'].nil?)
         data
       end
     end
@@ -1429,7 +1429,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::DescribeChannelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channel = (Parsers::Channel.parse(map['Channel']) unless map['Channel'].nil?)
+        data.channel = (Channel.parse(map['Channel']) unless map['Channel'].nil?)
         data
       end
     end
@@ -1442,7 +1442,7 @@ module AWS::SDK::Chime
         data.mode = map['Mode']
         data.privacy = map['Privacy']
         data.metadata = map['Metadata']
-        data.created_by = (Parsers::Identity.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (Identity.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
         data.last_message_timestamp = Time.at(map['LastMessageTimestamp'].to_i) if map['LastMessageTimestamp']
         data.last_updated_timestamp = Time.at(map['LastUpdatedTimestamp'].to_i) if map['LastUpdatedTimestamp']
@@ -1455,7 +1455,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::DescribeChannelBanOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channel_ban = (Parsers::ChannelBan.parse(map['ChannelBan']) unless map['ChannelBan'].nil?)
+        data.channel_ban = (ChannelBan.parse(map['ChannelBan']) unless map['ChannelBan'].nil?)
         data
       end
     end
@@ -1463,10 +1463,10 @@ module AWS::SDK::Chime
     class ChannelBan
       def self.parse(map)
         data = Types::ChannelBan.new
-        data.member = (Parsers::Identity.parse(map['Member']) unless map['Member'].nil?)
+        data.member = (Identity.parse(map['Member']) unless map['Member'].nil?)
         data.channel_arn = map['ChannelArn']
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
-        data.created_by = (Parsers::Identity.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (Identity.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         return data
       end
     end
@@ -1476,7 +1476,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::DescribeChannelMembershipOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channel_membership = (Parsers::ChannelMembership.parse(map['ChannelMembership']) unless map['ChannelMembership'].nil?)
+        data.channel_membership = (ChannelMembership.parse(map['ChannelMembership']) unless map['ChannelMembership'].nil?)
         data
       end
     end
@@ -1484,9 +1484,9 @@ module AWS::SDK::Chime
     class ChannelMembership
       def self.parse(map)
         data = Types::ChannelMembership.new
-        data.invited_by = (Parsers::Identity.parse(map['InvitedBy']) unless map['InvitedBy'].nil?)
+        data.invited_by = (Identity.parse(map['InvitedBy']) unless map['InvitedBy'].nil?)
         data.type = map['Type']
-        data.member = (Parsers::Identity.parse(map['Member']) unless map['Member'].nil?)
+        data.member = (Identity.parse(map['Member']) unless map['Member'].nil?)
         data.channel_arn = map['ChannelArn']
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
         data.last_updated_timestamp = Time.at(map['LastUpdatedTimestamp'].to_i) if map['LastUpdatedTimestamp']
@@ -1499,7 +1499,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::DescribeChannelMembershipForAppInstanceUserOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channel_membership = (Parsers::ChannelMembershipForAppInstanceUserSummary.parse(map['ChannelMembership']) unless map['ChannelMembership'].nil?)
+        data.channel_membership = (ChannelMembershipForAppInstanceUserSummary.parse(map['ChannelMembership']) unless map['ChannelMembership'].nil?)
         data
       end
     end
@@ -1507,8 +1507,8 @@ module AWS::SDK::Chime
     class ChannelMembershipForAppInstanceUserSummary
       def self.parse(map)
         data = Types::ChannelMembershipForAppInstanceUserSummary.new
-        data.channel_summary = (Parsers::ChannelSummary.parse(map['ChannelSummary']) unless map['ChannelSummary'].nil?)
-        data.app_instance_user_membership_summary = (Parsers::AppInstanceUserMembershipSummary.parse(map['AppInstanceUserMembershipSummary']) unless map['AppInstanceUserMembershipSummary'].nil?)
+        data.channel_summary = (ChannelSummary.parse(map['ChannelSummary']) unless map['ChannelSummary'].nil?)
+        data.app_instance_user_membership_summary = (AppInstanceUserMembershipSummary.parse(map['AppInstanceUserMembershipSummary']) unless map['AppInstanceUserMembershipSummary'].nil?)
         return data
       end
     end
@@ -1540,7 +1540,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::DescribeChannelModeratedByAppInstanceUserOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channel = (Parsers::ChannelModeratedByAppInstanceUserSummary.parse(map['Channel']) unless map['Channel'].nil?)
+        data.channel = (ChannelModeratedByAppInstanceUserSummary.parse(map['Channel']) unless map['Channel'].nil?)
         data
       end
     end
@@ -1548,7 +1548,7 @@ module AWS::SDK::Chime
     class ChannelModeratedByAppInstanceUserSummary
       def self.parse(map)
         data = Types::ChannelModeratedByAppInstanceUserSummary.new
-        data.channel_summary = (Parsers::ChannelSummary.parse(map['ChannelSummary']) unless map['ChannelSummary'].nil?)
+        data.channel_summary = (ChannelSummary.parse(map['ChannelSummary']) unless map['ChannelSummary'].nil?)
         return data
       end
     end
@@ -1558,7 +1558,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::DescribeChannelModeratorOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channel_moderator = (Parsers::ChannelModerator.parse(map['ChannelModerator']) unless map['ChannelModerator'].nil?)
+        data.channel_moderator = (ChannelModerator.parse(map['ChannelModerator']) unless map['ChannelModerator'].nil?)
         data
       end
     end
@@ -1566,10 +1566,10 @@ module AWS::SDK::Chime
     class ChannelModerator
       def self.parse(map)
         data = Types::ChannelModerator.new
-        data.moderator = (Parsers::Identity.parse(map['Moderator']) unless map['Moderator'].nil?)
+        data.moderator = (Identity.parse(map['Moderator']) unless map['Moderator'].nil?)
         data.channel_arn = map['ChannelArn']
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
-        data.created_by = (Parsers::Identity.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
+        data.created_by = (Identity.parse(map['CreatedBy']) unless map['CreatedBy'].nil?)
         return data
       end
     end
@@ -1588,7 +1588,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::DisassociatePhoneNumbersFromVoiceConnectorOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.phone_number_errors = (Parsers::PhoneNumberErrorList.parse(map['PhoneNumberErrors']) unless map['PhoneNumberErrors'].nil?)
+        data.phone_number_errors = (PhoneNumberErrorList.parse(map['PhoneNumberErrors']) unless map['PhoneNumberErrors'].nil?)
         data
       end
     end
@@ -1598,7 +1598,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::DisassociatePhoneNumbersFromVoiceConnectorGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.phone_number_errors = (Parsers::PhoneNumberErrorList.parse(map['PhoneNumberErrors']) unless map['PhoneNumberErrors'].nil?)
+        data.phone_number_errors = (PhoneNumberErrorList.parse(map['PhoneNumberErrors']) unless map['PhoneNumberErrors'].nil?)
         data
       end
     end
@@ -1617,7 +1617,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetAccountOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.account = (Parsers::Account.parse(map['Account']) unless map['Account'].nil?)
+        data.account = (Account.parse(map['Account']) unless map['Account'].nil?)
         data
       end
     end
@@ -1627,7 +1627,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetAccountSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.account_settings = (Parsers::AccountSettings.parse(map['AccountSettings']) unless map['AccountSettings'].nil?)
+        data.account_settings = (AccountSettings.parse(map['AccountSettings']) unless map['AccountSettings'].nil?)
         data
       end
     end
@@ -1646,7 +1646,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetAppInstanceRetentionSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instance_retention_settings = (Parsers::AppInstanceRetentionSettings.parse(map['AppInstanceRetentionSettings']) unless map['AppInstanceRetentionSettings'].nil?)
+        data.app_instance_retention_settings = (AppInstanceRetentionSettings.parse(map['AppInstanceRetentionSettings']) unless map['AppInstanceRetentionSettings'].nil?)
         data.initiate_deletion_timestamp = Time.at(map['InitiateDeletionTimestamp'].to_i) if map['InitiateDeletionTimestamp']
         data
       end
@@ -1655,7 +1655,7 @@ module AWS::SDK::Chime
     class AppInstanceRetentionSettings
       def self.parse(map)
         data = Types::AppInstanceRetentionSettings.new
-        data.channel_retention_settings = (Parsers::ChannelRetentionSettings.parse(map['ChannelRetentionSettings']) unless map['ChannelRetentionSettings'].nil?)
+        data.channel_retention_settings = (ChannelRetentionSettings.parse(map['ChannelRetentionSettings']) unless map['ChannelRetentionSettings'].nil?)
         return data
       end
     end
@@ -1673,7 +1673,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetAppInstanceStreamingConfigurationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instance_streaming_configurations = (Parsers::AppInstanceStreamingConfigurationList.parse(map['AppInstanceStreamingConfigurations']) unless map['AppInstanceStreamingConfigurations'].nil?)
+        data.app_instance_streaming_configurations = (AppInstanceStreamingConfigurationList.parse(map['AppInstanceStreamingConfigurations']) unless map['AppInstanceStreamingConfigurations'].nil?)
         data
       end
     end
@@ -1682,7 +1682,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AppInstanceStreamingConfiguration.parse(value) unless value.nil?
+          data << AppInstanceStreamingConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -1702,7 +1702,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetAttendeeOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attendee = (Parsers::Attendee.parse(map['Attendee']) unless map['Attendee'].nil?)
+        data.attendee = (Attendee.parse(map['Attendee']) unless map['Attendee'].nil?)
         data
       end
     end
@@ -1712,7 +1712,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetBotOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.bot = (Parsers::Bot.parse(map['Bot']) unless map['Bot'].nil?)
+        data.bot = (Bot.parse(map['Bot']) unless map['Bot'].nil?)
         data
       end
     end
@@ -1722,7 +1722,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetChannelMessageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channel_message = (Parsers::ChannelMessage.parse(map['ChannelMessage']) unless map['ChannelMessage'].nil?)
+        data.channel_message = (ChannelMessage.parse(map['ChannelMessage']) unless map['ChannelMessage'].nil?)
         data
       end
     end
@@ -1738,7 +1738,7 @@ module AWS::SDK::Chime
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
         data.last_edited_timestamp = Time.at(map['LastEditedTimestamp'].to_i) if map['LastEditedTimestamp']
         data.last_updated_timestamp = Time.at(map['LastUpdatedTimestamp'].to_i) if map['LastUpdatedTimestamp']
-        data.sender = (Parsers::Identity.parse(map['Sender']) unless map['Sender'].nil?)
+        data.sender = (Identity.parse(map['Sender']) unless map['Sender'].nil?)
         data.redacted = map['Redacted']
         data.persistence = map['Persistence']
         return data
@@ -1750,7 +1750,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetEventsConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.events_configuration = (Parsers::EventsConfiguration.parse(map['EventsConfiguration']) unless map['EventsConfiguration'].nil?)
+        data.events_configuration = (EventsConfiguration.parse(map['EventsConfiguration']) unless map['EventsConfiguration'].nil?)
         data
       end
     end
@@ -1770,8 +1770,8 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetGlobalSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.business_calling = (Parsers::BusinessCallingSettings.parse(map['BusinessCalling']) unless map['BusinessCalling'].nil?)
-        data.voice_connector = (Parsers::VoiceConnectorSettings.parse(map['VoiceConnector']) unless map['VoiceConnector'].nil?)
+        data.business_calling = (BusinessCallingSettings.parse(map['BusinessCalling']) unless map['BusinessCalling'].nil?)
+        data.voice_connector = (VoiceConnectorSettings.parse(map['VoiceConnector']) unless map['VoiceConnector'].nil?)
         data
       end
     end
@@ -1797,7 +1797,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetMediaCapturePipelineOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.media_capture_pipeline = (Parsers::MediaCapturePipeline.parse(map['MediaCapturePipeline']) unless map['MediaCapturePipeline'].nil?)
+        data.media_capture_pipeline = (MediaCapturePipeline.parse(map['MediaCapturePipeline']) unless map['MediaCapturePipeline'].nil?)
         data
       end
     end
@@ -1807,7 +1807,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetMeetingOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.meeting = (Parsers::Meeting.parse(map['Meeting']) unless map['Meeting'].nil?)
+        data.meeting = (Meeting.parse(map['Meeting']) unless map['Meeting'].nil?)
         data
       end
     end
@@ -1817,7 +1817,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetMessagingSessionEndpointOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.endpoint = (Parsers::MessagingSessionEndpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
+        data.endpoint = (MessagingSessionEndpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
         data
       end
     end
@@ -1835,7 +1835,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetPhoneNumberOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.phone_number = (Parsers::PhoneNumber.parse(map['PhoneNumber']) unless map['PhoneNumber'].nil?)
+        data.phone_number = (PhoneNumber.parse(map['PhoneNumber']) unless map['PhoneNumber'].nil?)
         data
       end
     end
@@ -1849,8 +1849,8 @@ module AWS::SDK::Chime
         data.type = map['Type']
         data.product_type = map['ProductType']
         data.status = map['Status']
-        data.capabilities = (Parsers::PhoneNumberCapabilities.parse(map['Capabilities']) unless map['Capabilities'].nil?)
-        data.associations = (Parsers::PhoneNumberAssociationList.parse(map['Associations']) unless map['Associations'].nil?)
+        data.capabilities = (PhoneNumberCapabilities.parse(map['Capabilities']) unless map['Capabilities'].nil?)
+        data.associations = (PhoneNumberAssociationList.parse(map['Associations']) unless map['Associations'].nil?)
         data.calling_name = map['CallingName']
         data.calling_name_status = map['CallingNameStatus']
         data.created_timestamp = Time.parse(map['CreatedTimestamp']) if map['CreatedTimestamp']
@@ -1864,7 +1864,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PhoneNumberAssociation.parse(value) unless value.nil?
+          data << PhoneNumberAssociation.parse(value) unless value.nil?
         end
         data
       end
@@ -1898,7 +1898,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetPhoneNumberOrderOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.phone_number_order = (Parsers::PhoneNumberOrder.parse(map['PhoneNumberOrder']) unless map['PhoneNumberOrder'].nil?)
+        data.phone_number_order = (PhoneNumberOrder.parse(map['PhoneNumberOrder']) unless map['PhoneNumberOrder'].nil?)
         data
       end
     end
@@ -1919,7 +1919,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetProxySessionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.proxy_session = (Parsers::ProxySession.parse(map['ProxySession']) unless map['ProxySession'].nil?)
+        data.proxy_session = (ProxySession.parse(map['ProxySession']) unless map['ProxySession'].nil?)
         data
       end
     end
@@ -1929,7 +1929,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetRetentionSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.retention_settings = (Parsers::RetentionSettings.parse(map['RetentionSettings']) unless map['RetentionSettings'].nil?)
+        data.retention_settings = (RetentionSettings.parse(map['RetentionSettings']) unless map['RetentionSettings'].nil?)
         data.initiate_deletion_timestamp = Time.parse(map['InitiateDeletionTimestamp']) if map['InitiateDeletionTimestamp']
         data
       end
@@ -1938,8 +1938,8 @@ module AWS::SDK::Chime
     class RetentionSettings
       def self.parse(map)
         data = Types::RetentionSettings.new
-        data.room_retention_settings = (Parsers::RoomRetentionSettings.parse(map['RoomRetentionSettings']) unless map['RoomRetentionSettings'].nil?)
-        data.conversation_retention_settings = (Parsers::ConversationRetentionSettings.parse(map['ConversationRetentionSettings']) unless map['ConversationRetentionSettings'].nil?)
+        data.room_retention_settings = (RoomRetentionSettings.parse(map['RoomRetentionSettings']) unless map['RoomRetentionSettings'].nil?)
+        data.conversation_retention_settings = (ConversationRetentionSettings.parse(map['ConversationRetentionSettings']) unless map['ConversationRetentionSettings'].nil?)
         return data
       end
     end
@@ -1965,7 +1965,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetRoomOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.room = (Parsers::Room.parse(map['Room']) unless map['Room'].nil?)
+        data.room = (Room.parse(map['Room']) unless map['Room'].nil?)
         data
       end
     end
@@ -1975,7 +1975,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetSipMediaApplicationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sip_media_application = (Parsers::SipMediaApplication.parse(map['SipMediaApplication']) unless map['SipMediaApplication'].nil?)
+        data.sip_media_application = (SipMediaApplication.parse(map['SipMediaApplication']) unless map['SipMediaApplication'].nil?)
         data
       end
     end
@@ -1985,7 +1985,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetSipMediaApplicationLoggingConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sip_media_application_logging_configuration = (Parsers::SipMediaApplicationLoggingConfiguration.parse(map['SipMediaApplicationLoggingConfiguration']) unless map['SipMediaApplicationLoggingConfiguration'].nil?)
+        data.sip_media_application_logging_configuration = (SipMediaApplicationLoggingConfiguration.parse(map['SipMediaApplicationLoggingConfiguration']) unless map['SipMediaApplicationLoggingConfiguration'].nil?)
         data
       end
     end
@@ -2003,7 +2003,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetSipRuleOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sip_rule = (Parsers::SipRule.parse(map['SipRule']) unless map['SipRule'].nil?)
+        data.sip_rule = (SipRule.parse(map['SipRule']) unless map['SipRule'].nil?)
         data
       end
     end
@@ -2013,7 +2013,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetUserOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.user = (Parsers::User.parse(map['User']) unless map['User'].nil?)
+        data.user = (User.parse(map['User']) unless map['User'].nil?)
         data
       end
     end
@@ -2023,7 +2023,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetUserSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.user_settings = (Parsers::UserSettings.parse(map['UserSettings']) unless map['UserSettings'].nil?)
+        data.user_settings = (UserSettings.parse(map['UserSettings']) unless map['UserSettings'].nil?)
         data
       end
     end
@@ -2031,7 +2031,7 @@ module AWS::SDK::Chime
     class UserSettings
       def self.parse(map)
         data = Types::UserSettings.new
-        data.telephony = (Parsers::TelephonySettings.parse(map['Telephony']) unless map['Telephony'].nil?)
+        data.telephony = (TelephonySettings.parse(map['Telephony']) unless map['Telephony'].nil?)
         return data
       end
     end
@@ -2051,7 +2051,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetVoiceConnectorOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.voice_connector = (Parsers::VoiceConnector.parse(map['VoiceConnector']) unless map['VoiceConnector'].nil?)
+        data.voice_connector = (VoiceConnector.parse(map['VoiceConnector']) unless map['VoiceConnector'].nil?)
         data
       end
     end
@@ -2061,7 +2061,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetVoiceConnectorEmergencyCallingConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.emergency_calling_configuration = (Parsers::EmergencyCallingConfiguration.parse(map['EmergencyCallingConfiguration']) unless map['EmergencyCallingConfiguration'].nil?)
+        data.emergency_calling_configuration = (EmergencyCallingConfiguration.parse(map['EmergencyCallingConfiguration']) unless map['EmergencyCallingConfiguration'].nil?)
         data
       end
     end
@@ -2069,7 +2069,7 @@ module AWS::SDK::Chime
     class EmergencyCallingConfiguration
       def self.parse(map)
         data = Types::EmergencyCallingConfiguration.new
-        data.dnis = (Parsers::DNISEmergencyCallingConfigurationList.parse(map['DNIS']) unless map['DNIS'].nil?)
+        data.dnis = (DNISEmergencyCallingConfigurationList.parse(map['DNIS']) unless map['DNIS'].nil?)
         return data
       end
     end
@@ -2078,7 +2078,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DNISEmergencyCallingConfiguration.parse(value) unless value.nil?
+          data << DNISEmergencyCallingConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -2099,7 +2099,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetVoiceConnectorGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.voice_connector_group = (Parsers::VoiceConnectorGroup.parse(map['VoiceConnectorGroup']) unless map['VoiceConnectorGroup'].nil?)
+        data.voice_connector_group = (VoiceConnectorGroup.parse(map['VoiceConnectorGroup']) unless map['VoiceConnectorGroup'].nil?)
         data
       end
     end
@@ -2109,7 +2109,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetVoiceConnectorLoggingConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.logging_configuration = (Parsers::LoggingConfiguration.parse(map['LoggingConfiguration']) unless map['LoggingConfiguration'].nil?)
+        data.logging_configuration = (LoggingConfiguration.parse(map['LoggingConfiguration']) unless map['LoggingConfiguration'].nil?)
         data
       end
     end
@@ -2128,7 +2128,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetVoiceConnectorOriginationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.origination = (Parsers::Origination.parse(map['Origination']) unless map['Origination'].nil?)
+        data.origination = (Origination.parse(map['Origination']) unless map['Origination'].nil?)
         data
       end
     end
@@ -2136,7 +2136,7 @@ module AWS::SDK::Chime
     class Origination
       def self.parse(map)
         data = Types::Origination.new
-        data.routes = (Parsers::OriginationRouteList.parse(map['Routes']) unless map['Routes'].nil?)
+        data.routes = (OriginationRouteList.parse(map['Routes']) unless map['Routes'].nil?)
         data.disabled = map['Disabled']
         return data
       end
@@ -2146,7 +2146,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::OriginationRoute.parse(value) unless value.nil?
+          data << OriginationRoute.parse(value) unless value.nil?
         end
         data
       end
@@ -2169,7 +2169,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetVoiceConnectorProxyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.proxy = (Parsers::Proxy.parse(map['Proxy']) unless map['Proxy'].nil?)
+        data.proxy = (Proxy.parse(map['Proxy']) unless map['Proxy'].nil?)
         data
       end
     end
@@ -2180,7 +2180,7 @@ module AWS::SDK::Chime
         data.default_session_expiry_minutes = map['DefaultSessionExpiryMinutes']
         data.disabled = map['Disabled']
         data.fall_back_phone_number = map['FallBackPhoneNumber']
-        data.phone_number_countries = (Parsers::StringList.parse(map['PhoneNumberCountries']) unless map['PhoneNumberCountries'].nil?)
+        data.phone_number_countries = (StringList.parse(map['PhoneNumberCountries']) unless map['PhoneNumberCountries'].nil?)
         return data
       end
     end
@@ -2200,7 +2200,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetVoiceConnectorStreamingConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.streaming_configuration = (Parsers::StreamingConfiguration.parse(map['StreamingConfiguration']) unless map['StreamingConfiguration'].nil?)
+        data.streaming_configuration = (StreamingConfiguration.parse(map['StreamingConfiguration']) unless map['StreamingConfiguration'].nil?)
         data
       end
     end
@@ -2210,7 +2210,7 @@ module AWS::SDK::Chime
         data = Types::StreamingConfiguration.new
         data.data_retention_in_hours = map['DataRetentionInHours']
         data.disabled = map['Disabled']
-        data.streaming_notification_targets = (Parsers::StreamingNotificationTargetList.parse(map['StreamingNotificationTargets']) unless map['StreamingNotificationTargets'].nil?)
+        data.streaming_notification_targets = (StreamingNotificationTargetList.parse(map['StreamingNotificationTargets']) unless map['StreamingNotificationTargets'].nil?)
         return data
       end
     end
@@ -2219,7 +2219,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StreamingNotificationTarget.parse(value) unless value.nil?
+          data << StreamingNotificationTarget.parse(value) unless value.nil?
         end
         data
       end
@@ -2238,7 +2238,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetVoiceConnectorTerminationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.termination = (Parsers::Termination.parse(map['Termination']) unless map['Termination'].nil?)
+        data.termination = (Termination.parse(map['Termination']) unless map['Termination'].nil?)
         data
       end
     end
@@ -2248,8 +2248,8 @@ module AWS::SDK::Chime
         data = Types::Termination.new
         data.cps_limit = map['CpsLimit']
         data.default_phone_number = map['DefaultPhoneNumber']
-        data.calling_regions = (Parsers::CallingRegionList.parse(map['CallingRegions']) unless map['CallingRegions'].nil?)
-        data.cidr_allowed_list = (Parsers::StringList.parse(map['CidrAllowedList']) unless map['CidrAllowedList'].nil?)
+        data.calling_regions = (CallingRegionList.parse(map['CallingRegions']) unless map['CallingRegions'].nil?)
+        data.cidr_allowed_list = (StringList.parse(map['CidrAllowedList']) unless map['CidrAllowedList'].nil?)
         data.disabled = map['Disabled']
         return data
       end
@@ -2270,7 +2270,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::GetVoiceConnectorTerminationHealthOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.termination_health = (Parsers::TerminationHealth.parse(map['TerminationHealth']) unless map['TerminationHealth'].nil?)
+        data.termination_health = (TerminationHealth.parse(map['TerminationHealth']) unless map['TerminationHealth'].nil?)
         data
       end
     end
@@ -2289,7 +2289,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::InviteUsersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.invites = (Parsers::InviteList.parse(map['Invites']) unless map['Invites'].nil?)
+        data.invites = (InviteList.parse(map['Invites']) unless map['Invites'].nil?)
         data
       end
     end
@@ -2298,7 +2298,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Invite.parse(value) unless value.nil?
+          data << Invite.parse(value) unless value.nil?
         end
         data
       end
@@ -2320,7 +2320,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListAccountsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.accounts = (Parsers::AccountList.parse(map['Accounts']) unless map['Accounts'].nil?)
+        data.accounts = (AccountList.parse(map['Accounts']) unless map['Accounts'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2330,7 +2330,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Account.parse(value) unless value.nil?
+          data << Account.parse(value) unless value.nil?
         end
         data
       end
@@ -2342,7 +2342,7 @@ module AWS::SDK::Chime
         data = Types::ListAppInstanceAdminsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.app_instance_arn = map['AppInstanceArn']
-        data.app_instance_admins = (Parsers::AppInstanceAdminList.parse(map['AppInstanceAdmins']) unless map['AppInstanceAdmins'].nil?)
+        data.app_instance_admins = (AppInstanceAdminList.parse(map['AppInstanceAdmins']) unless map['AppInstanceAdmins'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2352,7 +2352,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AppInstanceAdminSummary.parse(value) unless value.nil?
+          data << AppInstanceAdminSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2361,7 +2361,7 @@ module AWS::SDK::Chime
     class AppInstanceAdminSummary
       def self.parse(map)
         data = Types::AppInstanceAdminSummary.new
-        data.admin = (Parsers::Identity.parse(map['Admin']) unless map['Admin'].nil?)
+        data.admin = (Identity.parse(map['Admin']) unless map['Admin'].nil?)
         return data
       end
     end
@@ -2372,7 +2372,7 @@ module AWS::SDK::Chime
         data = Types::ListAppInstanceUsersOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.app_instance_arn = map['AppInstanceArn']
-        data.app_instance_users = (Parsers::AppInstanceUserList.parse(map['AppInstanceUsers']) unless map['AppInstanceUsers'].nil?)
+        data.app_instance_users = (AppInstanceUserList.parse(map['AppInstanceUsers']) unless map['AppInstanceUsers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2382,7 +2382,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AppInstanceUserSummary.parse(value) unless value.nil?
+          data << AppInstanceUserSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2403,7 +2403,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListAppInstancesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instances = (Parsers::AppInstanceList.parse(map['AppInstances']) unless map['AppInstances'].nil?)
+        data.app_instances = (AppInstanceList.parse(map['AppInstances']) unless map['AppInstances'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2413,7 +2413,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AppInstanceSummary.parse(value) unless value.nil?
+          data << AppInstanceSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2434,7 +2434,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListAttendeeTagsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -2443,7 +2443,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -2463,7 +2463,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListAttendeesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attendees = (Parsers::AttendeeList.parse(map['Attendees']) unless map['Attendees'].nil?)
+        data.attendees = (AttendeeList.parse(map['Attendees']) unless map['Attendees'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2474,7 +2474,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListBotsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.bots = (Parsers::BotList.parse(map['Bots']) unless map['Bots'].nil?)
+        data.bots = (BotList.parse(map['Bots']) unless map['Bots'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2484,7 +2484,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Bot.parse(value) unless value.nil?
+          data << Bot.parse(value) unless value.nil?
         end
         data
       end
@@ -2497,7 +2497,7 @@ module AWS::SDK::Chime
         map = Hearth::JSON.load(http_resp.body)
         data.channel_arn = map['ChannelArn']
         data.next_token = map['NextToken']
-        data.channel_bans = (Parsers::ChannelBanSummaryList.parse(map['ChannelBans']) unless map['ChannelBans'].nil?)
+        data.channel_bans = (ChannelBanSummaryList.parse(map['ChannelBans']) unless map['ChannelBans'].nil?)
         data
       end
     end
@@ -2506,7 +2506,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChannelBanSummary.parse(value) unless value.nil?
+          data << ChannelBanSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2515,7 +2515,7 @@ module AWS::SDK::Chime
     class ChannelBanSummary
       def self.parse(map)
         data = Types::ChannelBanSummary.new
-        data.member = (Parsers::Identity.parse(map['Member']) unless map['Member'].nil?)
+        data.member = (Identity.parse(map['Member']) unless map['Member'].nil?)
         return data
       end
     end
@@ -2526,7 +2526,7 @@ module AWS::SDK::Chime
         data = Types::ListChannelMembershipsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.channel_arn = map['ChannelArn']
-        data.channel_memberships = (Parsers::ChannelMembershipSummaryList.parse(map['ChannelMemberships']) unless map['ChannelMemberships'].nil?)
+        data.channel_memberships = (ChannelMembershipSummaryList.parse(map['ChannelMemberships']) unless map['ChannelMemberships'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2536,7 +2536,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChannelMembershipSummary.parse(value) unless value.nil?
+          data << ChannelMembershipSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2545,7 +2545,7 @@ module AWS::SDK::Chime
     class ChannelMembershipSummary
       def self.parse(map)
         data = Types::ChannelMembershipSummary.new
-        data.member = (Parsers::Identity.parse(map['Member']) unless map['Member'].nil?)
+        data.member = (Identity.parse(map['Member']) unless map['Member'].nil?)
         return data
       end
     end
@@ -2555,7 +2555,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListChannelMembershipsForAppInstanceUserOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channel_memberships = (Parsers::ChannelMembershipForAppInstanceUserSummaryList.parse(map['ChannelMemberships']) unless map['ChannelMemberships'].nil?)
+        data.channel_memberships = (ChannelMembershipForAppInstanceUserSummaryList.parse(map['ChannelMemberships']) unless map['ChannelMemberships'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2565,7 +2565,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChannelMembershipForAppInstanceUserSummary.parse(value) unless value.nil?
+          data << ChannelMembershipForAppInstanceUserSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2578,7 +2578,7 @@ module AWS::SDK::Chime
         map = Hearth::JSON.load(http_resp.body)
         data.channel_arn = map['ChannelArn']
         data.next_token = map['NextToken']
-        data.channel_messages = (Parsers::ChannelMessageSummaryList.parse(map['ChannelMessages']) unless map['ChannelMessages'].nil?)
+        data.channel_messages = (ChannelMessageSummaryList.parse(map['ChannelMessages']) unless map['ChannelMessages'].nil?)
         data
       end
     end
@@ -2587,7 +2587,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChannelMessageSummary.parse(value) unless value.nil?
+          data << ChannelMessageSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2603,7 +2603,7 @@ module AWS::SDK::Chime
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
         data.last_updated_timestamp = Time.at(map['LastUpdatedTimestamp'].to_i) if map['LastUpdatedTimestamp']
         data.last_edited_timestamp = Time.at(map['LastEditedTimestamp'].to_i) if map['LastEditedTimestamp']
-        data.sender = (Parsers::Identity.parse(map['Sender']) unless map['Sender'].nil?)
+        data.sender = (Identity.parse(map['Sender']) unless map['Sender'].nil?)
         data.redacted = map['Redacted']
         return data
       end
@@ -2616,7 +2616,7 @@ module AWS::SDK::Chime
         map = Hearth::JSON.load(http_resp.body)
         data.channel_arn = map['ChannelArn']
         data.next_token = map['NextToken']
-        data.channel_moderators = (Parsers::ChannelModeratorSummaryList.parse(map['ChannelModerators']) unless map['ChannelModerators'].nil?)
+        data.channel_moderators = (ChannelModeratorSummaryList.parse(map['ChannelModerators']) unless map['ChannelModerators'].nil?)
         data
       end
     end
@@ -2625,7 +2625,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChannelModeratorSummary.parse(value) unless value.nil?
+          data << ChannelModeratorSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2634,7 +2634,7 @@ module AWS::SDK::Chime
     class ChannelModeratorSummary
       def self.parse(map)
         data = Types::ChannelModeratorSummary.new
-        data.moderator = (Parsers::Identity.parse(map['Moderator']) unless map['Moderator'].nil?)
+        data.moderator = (Identity.parse(map['Moderator']) unless map['Moderator'].nil?)
         return data
       end
     end
@@ -2644,7 +2644,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListChannelsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channels = (Parsers::ChannelSummaryList.parse(map['Channels']) unless map['Channels'].nil?)
+        data.channels = (ChannelSummaryList.parse(map['Channels']) unless map['Channels'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2654,7 +2654,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChannelSummary.parse(value) unless value.nil?
+          data << ChannelSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2665,7 +2665,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListChannelsModeratedByAppInstanceUserOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channels = (Parsers::ChannelModeratedByAppInstanceUserSummaryList.parse(map['Channels']) unless map['Channels'].nil?)
+        data.channels = (ChannelModeratedByAppInstanceUserSummaryList.parse(map['Channels']) unless map['Channels'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2675,7 +2675,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChannelModeratedByAppInstanceUserSummary.parse(value) unless value.nil?
+          data << ChannelModeratedByAppInstanceUserSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -2686,7 +2686,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListMediaCapturePipelinesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.media_capture_pipelines = (Parsers::MediaCapturePipelineList.parse(map['MediaCapturePipelines']) unless map['MediaCapturePipelines'].nil?)
+        data.media_capture_pipelines = (MediaCapturePipelineList.parse(map['MediaCapturePipelines']) unless map['MediaCapturePipelines'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2696,7 +2696,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MediaCapturePipeline.parse(value) unless value.nil?
+          data << MediaCapturePipeline.parse(value) unless value.nil?
         end
         data
       end
@@ -2707,7 +2707,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListMeetingTagsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -2717,7 +2717,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListMeetingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.meetings = (Parsers::MeetingList.parse(map['Meetings']) unless map['Meetings'].nil?)
+        data.meetings = (MeetingList.parse(map['Meetings']) unless map['Meetings'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2727,7 +2727,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Meeting.parse(value) unless value.nil?
+          data << Meeting.parse(value) unless value.nil?
         end
         data
       end
@@ -2738,7 +2738,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListPhoneNumberOrdersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.phone_number_orders = (Parsers::PhoneNumberOrderList.parse(map['PhoneNumberOrders']) unless map['PhoneNumberOrders'].nil?)
+        data.phone_number_orders = (PhoneNumberOrderList.parse(map['PhoneNumberOrders']) unless map['PhoneNumberOrders'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2748,7 +2748,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PhoneNumberOrder.parse(value) unless value.nil?
+          data << PhoneNumberOrder.parse(value) unless value.nil?
         end
         data
       end
@@ -2759,7 +2759,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListPhoneNumbersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.phone_numbers = (Parsers::PhoneNumberList.parse(map['PhoneNumbers']) unless map['PhoneNumbers'].nil?)
+        data.phone_numbers = (PhoneNumberList.parse(map['PhoneNumbers']) unless map['PhoneNumbers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2769,7 +2769,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PhoneNumber.parse(value) unless value.nil?
+          data << PhoneNumber.parse(value) unless value.nil?
         end
         data
       end
@@ -2780,7 +2780,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListProxySessionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.proxy_sessions = (Parsers::ProxySessions.parse(map['ProxySessions']) unless map['ProxySessions'].nil?)
+        data.proxy_sessions = (ProxySessions.parse(map['ProxySessions']) unless map['ProxySessions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2790,7 +2790,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ProxySession.parse(value) unless value.nil?
+          data << ProxySession.parse(value) unless value.nil?
         end
         data
       end
@@ -2801,7 +2801,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListRoomMembershipsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.room_memberships = (Parsers::RoomMembershipList.parse(map['RoomMemberships']) unless map['RoomMemberships'].nil?)
+        data.room_memberships = (RoomMembershipList.parse(map['RoomMemberships']) unless map['RoomMemberships'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2811,7 +2811,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RoomMembership.parse(value) unless value.nil?
+          data << RoomMembership.parse(value) unless value.nil?
         end
         data
       end
@@ -2822,7 +2822,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListRoomsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.rooms = (Parsers::RoomList.parse(map['Rooms']) unless map['Rooms'].nil?)
+        data.rooms = (RoomList.parse(map['Rooms']) unless map['Rooms'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2832,7 +2832,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Room.parse(value) unless value.nil?
+          data << Room.parse(value) unless value.nil?
         end
         data
       end
@@ -2843,7 +2843,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListSipMediaApplicationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sip_media_applications = (Parsers::SipMediaApplicationList.parse(map['SipMediaApplications']) unless map['SipMediaApplications'].nil?)
+        data.sip_media_applications = (SipMediaApplicationList.parse(map['SipMediaApplications']) unless map['SipMediaApplications'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2853,7 +2853,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SipMediaApplication.parse(value) unless value.nil?
+          data << SipMediaApplication.parse(value) unless value.nil?
         end
         data
       end
@@ -2864,7 +2864,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListSipRulesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sip_rules = (Parsers::SipRuleList.parse(map['SipRules']) unless map['SipRules'].nil?)
+        data.sip_rules = (SipRuleList.parse(map['SipRules']) unless map['SipRules'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2874,7 +2874,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SipRule.parse(value) unless value.nil?
+          data << SipRule.parse(value) unless value.nil?
         end
         data
       end
@@ -2885,7 +2885,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListSupportedPhoneNumberCountriesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.phone_number_countries = (Parsers::PhoneNumberCountriesList.parse(map['PhoneNumberCountries']) unless map['PhoneNumberCountries'].nil?)
+        data.phone_number_countries = (PhoneNumberCountriesList.parse(map['PhoneNumberCountries']) unless map['PhoneNumberCountries'].nil?)
         data
       end
     end
@@ -2894,7 +2894,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PhoneNumberCountry.parse(value) unless value.nil?
+          data << PhoneNumberCountry.parse(value) unless value.nil?
         end
         data
       end
@@ -2904,7 +2904,7 @@ module AWS::SDK::Chime
       def self.parse(map)
         data = Types::PhoneNumberCountry.new
         data.country_code = map['CountryCode']
-        data.supported_phone_number_types = (Parsers::PhoneNumberTypeList.parse(map['SupportedPhoneNumberTypes']) unless map['SupportedPhoneNumberTypes'].nil?)
+        data.supported_phone_number_types = (PhoneNumberTypeList.parse(map['SupportedPhoneNumberTypes']) unless map['SupportedPhoneNumberTypes'].nil?)
         return data
       end
     end
@@ -2924,7 +2924,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -2934,7 +2934,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListUsersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.users = (Parsers::UserList.parse(map['Users']) unless map['Users'].nil?)
+        data.users = (UserList.parse(map['Users']) unless map['Users'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2944,7 +2944,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::User.parse(value) unless value.nil?
+          data << User.parse(value) unless value.nil?
         end
         data
       end
@@ -2955,7 +2955,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListVoiceConnectorGroupsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.voice_connector_groups = (Parsers::VoiceConnectorGroupList.parse(map['VoiceConnectorGroups']) unless map['VoiceConnectorGroups'].nil?)
+        data.voice_connector_groups = (VoiceConnectorGroupList.parse(map['VoiceConnectorGroups']) unless map['VoiceConnectorGroups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -2965,7 +2965,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VoiceConnectorGroup.parse(value) unless value.nil?
+          data << VoiceConnectorGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -2976,7 +2976,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListVoiceConnectorTerminationCredentialsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.usernames = (Parsers::SensitiveStringList.parse(map['Usernames']) unless map['Usernames'].nil?)
+        data.usernames = (SensitiveStringList.parse(map['Usernames']) unless map['Usernames'].nil?)
         data
       end
     end
@@ -2996,7 +2996,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ListVoiceConnectorsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.voice_connectors = (Parsers::VoiceConnectorList.parse(map['VoiceConnectors']) unless map['VoiceConnectors'].nil?)
+        data.voice_connectors = (VoiceConnectorList.parse(map['VoiceConnectors']) unless map['VoiceConnectors'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -3006,7 +3006,7 @@ module AWS::SDK::Chime
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VoiceConnector.parse(value) unless value.nil?
+          data << VoiceConnector.parse(value) unless value.nil?
         end
         data
       end
@@ -3026,7 +3026,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::PutAppInstanceRetentionSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instance_retention_settings = (Parsers::AppInstanceRetentionSettings.parse(map['AppInstanceRetentionSettings']) unless map['AppInstanceRetentionSettings'].nil?)
+        data.app_instance_retention_settings = (AppInstanceRetentionSettings.parse(map['AppInstanceRetentionSettings']) unless map['AppInstanceRetentionSettings'].nil?)
         data.initiate_deletion_timestamp = Time.at(map['InitiateDeletionTimestamp'].to_i) if map['InitiateDeletionTimestamp']
         data
       end
@@ -3037,7 +3037,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::PutAppInstanceStreamingConfigurationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instance_streaming_configurations = (Parsers::AppInstanceStreamingConfigurationList.parse(map['AppInstanceStreamingConfigurations']) unless map['AppInstanceStreamingConfigurations'].nil?)
+        data.app_instance_streaming_configurations = (AppInstanceStreamingConfigurationList.parse(map['AppInstanceStreamingConfigurations']) unless map['AppInstanceStreamingConfigurations'].nil?)
         data
       end
     end
@@ -3047,7 +3047,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::PutEventsConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.events_configuration = (Parsers::EventsConfiguration.parse(map['EventsConfiguration']) unless map['EventsConfiguration'].nil?)
+        data.events_configuration = (EventsConfiguration.parse(map['EventsConfiguration']) unless map['EventsConfiguration'].nil?)
         data
       end
     end
@@ -3057,7 +3057,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::PutRetentionSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.retention_settings = (Parsers::RetentionSettings.parse(map['RetentionSettings']) unless map['RetentionSettings'].nil?)
+        data.retention_settings = (RetentionSettings.parse(map['RetentionSettings']) unless map['RetentionSettings'].nil?)
         data.initiate_deletion_timestamp = Time.parse(map['InitiateDeletionTimestamp']) if map['InitiateDeletionTimestamp']
         data
       end
@@ -3068,7 +3068,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::PutSipMediaApplicationLoggingConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sip_media_application_logging_configuration = (Parsers::SipMediaApplicationLoggingConfiguration.parse(map['SipMediaApplicationLoggingConfiguration']) unless map['SipMediaApplicationLoggingConfiguration'].nil?)
+        data.sip_media_application_logging_configuration = (SipMediaApplicationLoggingConfiguration.parse(map['SipMediaApplicationLoggingConfiguration']) unless map['SipMediaApplicationLoggingConfiguration'].nil?)
         data
       end
     end
@@ -3078,7 +3078,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::PutVoiceConnectorEmergencyCallingConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.emergency_calling_configuration = (Parsers::EmergencyCallingConfiguration.parse(map['EmergencyCallingConfiguration']) unless map['EmergencyCallingConfiguration'].nil?)
+        data.emergency_calling_configuration = (EmergencyCallingConfiguration.parse(map['EmergencyCallingConfiguration']) unless map['EmergencyCallingConfiguration'].nil?)
         data
       end
     end
@@ -3088,7 +3088,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::PutVoiceConnectorLoggingConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.logging_configuration = (Parsers::LoggingConfiguration.parse(map['LoggingConfiguration']) unless map['LoggingConfiguration'].nil?)
+        data.logging_configuration = (LoggingConfiguration.parse(map['LoggingConfiguration']) unless map['LoggingConfiguration'].nil?)
         data
       end
     end
@@ -3098,7 +3098,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::PutVoiceConnectorOriginationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.origination = (Parsers::Origination.parse(map['Origination']) unless map['Origination'].nil?)
+        data.origination = (Origination.parse(map['Origination']) unless map['Origination'].nil?)
         data
       end
     end
@@ -3108,7 +3108,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::PutVoiceConnectorProxyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.proxy = (Parsers::Proxy.parse(map['Proxy']) unless map['Proxy'].nil?)
+        data.proxy = (Proxy.parse(map['Proxy']) unless map['Proxy'].nil?)
         data
       end
     end
@@ -3118,7 +3118,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::PutVoiceConnectorStreamingConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.streaming_configuration = (Parsers::StreamingConfiguration.parse(map['StreamingConfiguration']) unless map['StreamingConfiguration'].nil?)
+        data.streaming_configuration = (StreamingConfiguration.parse(map['StreamingConfiguration']) unless map['StreamingConfiguration'].nil?)
         data
       end
     end
@@ -3128,7 +3128,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::PutVoiceConnectorTerminationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.termination = (Parsers::Termination.parse(map['Termination']) unless map['Termination'].nil?)
+        data.termination = (Termination.parse(map['Termination']) unless map['Termination'].nil?)
         data
       end
     end
@@ -3176,7 +3176,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::RegenerateSecurityTokenOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.bot = (Parsers::Bot.parse(map['Bot']) unless map['Bot'].nil?)
+        data.bot = (Bot.parse(map['Bot']) unless map['Bot'].nil?)
         data
       end
     end
@@ -3186,7 +3186,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::ResetPersonalPINOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.user = (Parsers::User.parse(map['User']) unless map['User'].nil?)
+        data.user = (User.parse(map['User']) unless map['User'].nil?)
         data
       end
     end
@@ -3196,7 +3196,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::RestorePhoneNumberOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.phone_number = (Parsers::PhoneNumber.parse(map['PhoneNumber']) unless map['PhoneNumber'].nil?)
+        data.phone_number = (PhoneNumber.parse(map['PhoneNumber']) unless map['PhoneNumber'].nil?)
         data
       end
     end
@@ -3206,7 +3206,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::SearchAvailablePhoneNumbersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.e164_phone_numbers = (Parsers::E164PhoneNumberList.parse(map['E164PhoneNumbers']) unless map['E164PhoneNumbers'].nil?)
+        data.e164_phone_numbers = (E164PhoneNumberList.parse(map['E164PhoneNumbers']) unless map['E164PhoneNumbers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -3310,7 +3310,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::UpdateAccountOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.account = (Parsers::Account.parse(map['Account']) unless map['Account'].nil?)
+        data.account = (Account.parse(map['Account']) unless map['Account'].nil?)
         data
       end
     end
@@ -3349,7 +3349,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::UpdateBotOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.bot = (Parsers::Bot.parse(map['Bot']) unless map['Bot'].nil?)
+        data.bot = (Bot.parse(map['Bot']) unless map['Bot'].nil?)
         data
       end
     end
@@ -3399,7 +3399,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::UpdatePhoneNumberOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.phone_number = (Parsers::PhoneNumber.parse(map['PhoneNumber']) unless map['PhoneNumber'].nil?)
+        data.phone_number = (PhoneNumber.parse(map['PhoneNumber']) unless map['PhoneNumber'].nil?)
         data
       end
     end
@@ -3418,7 +3418,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::UpdateProxySessionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.proxy_session = (Parsers::ProxySession.parse(map['ProxySession']) unless map['ProxySession'].nil?)
+        data.proxy_session = (ProxySession.parse(map['ProxySession']) unless map['ProxySession'].nil?)
         data
       end
     end
@@ -3428,7 +3428,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::UpdateRoomOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.room = (Parsers::Room.parse(map['Room']) unless map['Room'].nil?)
+        data.room = (Room.parse(map['Room']) unless map['Room'].nil?)
         data
       end
     end
@@ -3438,7 +3438,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::UpdateRoomMembershipOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.room_membership = (Parsers::RoomMembership.parse(map['RoomMembership']) unless map['RoomMembership'].nil?)
+        data.room_membership = (RoomMembership.parse(map['RoomMembership']) unless map['RoomMembership'].nil?)
         data
       end
     end
@@ -3448,7 +3448,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::UpdateSipMediaApplicationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sip_media_application = (Parsers::SipMediaApplication.parse(map['SipMediaApplication']) unless map['SipMediaApplication'].nil?)
+        data.sip_media_application = (SipMediaApplication.parse(map['SipMediaApplication']) unless map['SipMediaApplication'].nil?)
         data
       end
     end
@@ -3458,7 +3458,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::UpdateSipMediaApplicationCallOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sip_media_application_call = (Parsers::SipMediaApplicationCall.parse(map['SipMediaApplicationCall']) unless map['SipMediaApplicationCall'].nil?)
+        data.sip_media_application_call = (SipMediaApplicationCall.parse(map['SipMediaApplicationCall']) unless map['SipMediaApplicationCall'].nil?)
         data
       end
     end
@@ -3468,7 +3468,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::UpdateSipRuleOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sip_rule = (Parsers::SipRule.parse(map['SipRule']) unless map['SipRule'].nil?)
+        data.sip_rule = (SipRule.parse(map['SipRule']) unless map['SipRule'].nil?)
         data
       end
     end
@@ -3478,7 +3478,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::UpdateUserOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.user = (Parsers::User.parse(map['User']) unless map['User'].nil?)
+        data.user = (User.parse(map['User']) unless map['User'].nil?)
         data
       end
     end
@@ -3497,7 +3497,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::UpdateVoiceConnectorOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.voice_connector = (Parsers::VoiceConnector.parse(map['VoiceConnector']) unless map['VoiceConnector'].nil?)
+        data.voice_connector = (VoiceConnector.parse(map['VoiceConnector']) unless map['VoiceConnector'].nil?)
         data
       end
     end
@@ -3507,7 +3507,7 @@ module AWS::SDK::Chime
       def self.parse(http_resp)
         data = Types::UpdateVoiceConnectorGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.voice_connector_group = (Parsers::VoiceConnectorGroup.parse(map['VoiceConnectorGroup']) unless map['VoiceConnectorGroup'].nil?)
+        data.voice_connector_group = (VoiceConnectorGroup.parse(map['VoiceConnectorGroup']) unless map['VoiceConnectorGroup'].nil?)
         data
       end
     end

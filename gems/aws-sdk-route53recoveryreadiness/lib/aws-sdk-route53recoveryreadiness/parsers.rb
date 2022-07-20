@@ -17,9 +17,9 @@ module AWS::SDK::Route53RecoveryReadiness
         map = Hearth::JSON.load(http_resp.body)
         data.cell_arn = map['cellArn']
         data.cell_name = map['cellName']
-        data.cells = (Parsers::List____listOf__string.parse(map['cells']) unless map['cells'].nil?)
-        data.parent_readiness_scopes = (Parsers::List____listOf__string.parse(map['parentReadinessScopes']) unless map['parentReadinessScopes'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.cells = (List____listOf__string.parse(map['cells']) unless map['cells'].nil?)
+        data.parent_readiness_scopes = (List____listOf__string.parse(map['parentReadinessScopes']) unless map['parentReadinessScopes'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -112,7 +112,7 @@ module AWS::SDK::Route53RecoveryReadiness
         data.readiness_check_arn = map['readinessCheckArn']
         data.readiness_check_name = map['readinessCheckName']
         data.resource_set = map['resourceSet']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -122,10 +122,10 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(http_resp)
         data = Types::CreateRecoveryGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cells = (Parsers::List____listOf__string.parse(map['cells']) unless map['cells'].nil?)
+        data.cells = (List____listOf__string.parse(map['cells']) unless map['cells'].nil?)
         data.recovery_group_arn = map['recoveryGroupArn']
         data.recovery_group_name = map['recoveryGroupName']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -138,8 +138,8 @@ module AWS::SDK::Route53RecoveryReadiness
         data.resource_set_arn = map['resourceSetArn']
         data.resource_set_name = map['resourceSetName']
         data.resource_set_type = map['resourceSetType']
-        data.resources = (Parsers::List____listOfResource.parse(map['resources']) unless map['resources'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.resources = (List____listOfResource.parse(map['resources']) unless map['resources'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -148,7 +148,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Resource.parse(value) unless value.nil?
+          data << Resource.parse(value) unless value.nil?
         end
         data
       end
@@ -158,8 +158,8 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(map)
         data = Types::Resource.new
         data.component_id = map['componentId']
-        data.dns_target_resource = (Parsers::DNSTargetResource.parse(map['dnsTargetResource']) unless map['dnsTargetResource'].nil?)
-        data.readiness_scopes = (Parsers::List____listOf__string.parse(map['readinessScopes']) unless map['readinessScopes'].nil?)
+        data.dns_target_resource = (DNSTargetResource.parse(map['dnsTargetResource']) unless map['dnsTargetResource'].nil?)
+        data.readiness_scopes = (List____listOf__string.parse(map['readinessScopes']) unless map['readinessScopes'].nil?)
         data.resource_arn = map['resourceArn']
         return data
       end
@@ -172,7 +172,7 @@ module AWS::SDK::Route53RecoveryReadiness
         data.hosted_zone_arn = map['hostedZoneArn']
         data.record_set_id = map['recordSetId']
         data.record_type = map['recordType']
-        data.target_resource = (Parsers::TargetResource.parse(map['targetResource']) unless map['targetResource'].nil?)
+        data.target_resource = (TargetResource.parse(map['targetResource']) unless map['targetResource'].nil?)
         return data
       end
     end
@@ -180,8 +180,8 @@ module AWS::SDK::Route53RecoveryReadiness
     class TargetResource
       def self.parse(map)
         data = Types::TargetResource.new
-        data.nlb_resource = (Parsers::NLBResource.parse(map['nLBResource']) unless map['nLBResource'].nil?)
-        data.r53_resource = (Parsers::R53ResourceRecord.parse(map['r53Resource']) unless map['r53Resource'].nil?)
+        data.nlb_resource = (NLBResource.parse(map['nLBResource']) unless map['nLBResource'].nil?)
+        data.r53_resource = (R53ResourceRecord.parse(map['r53Resource']) unless map['r53Resource'].nil?)
         return data
       end
     end
@@ -265,7 +265,7 @@ module AWS::SDK::Route53RecoveryReadiness
         map = Hearth::JSON.load(http_resp.body)
         data.last_audit_timestamp = Time.parse(map['lastAuditTimestamp']) if map['lastAuditTimestamp']
         data.next_token = map['nextToken']
-        data.recommendations = (Parsers::List____listOfRecommendation.parse(map['recommendations']) unless map['recommendations'].nil?)
+        data.recommendations = (List____listOfRecommendation.parse(map['recommendations']) unless map['recommendations'].nil?)
         data
       end
     end
@@ -274,7 +274,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Recommendation.parse(value) unless value.nil?
+          data << Recommendation.parse(value) unless value.nil?
         end
         data
       end
@@ -295,9 +295,9 @@ module AWS::SDK::Route53RecoveryReadiness
         map = Hearth::JSON.load(http_resp.body)
         data.cell_arn = map['cellArn']
         data.cell_name = map['cellName']
-        data.cells = (Parsers::List____listOf__string.parse(map['cells']) unless map['cells'].nil?)
-        data.parent_readiness_scopes = (Parsers::List____listOf__string.parse(map['parentReadinessScopes']) unless map['parentReadinessScopes'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.cells = (List____listOf__string.parse(map['cells']) unless map['cells'].nil?)
+        data.parent_readiness_scopes = (List____listOf__string.parse(map['parentReadinessScopes']) unless map['parentReadinessScopes'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -309,7 +309,7 @@ module AWS::SDK::Route53RecoveryReadiness
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
         data.readiness = map['readiness']
-        data.readiness_checks = (Parsers::List____listOfReadinessCheckSummary.parse(map['readinessChecks']) unless map['readinessChecks'].nil?)
+        data.readiness_checks = (List____listOfReadinessCheckSummary.parse(map['readinessChecks']) unless map['readinessChecks'].nil?)
         data
       end
     end
@@ -318,7 +318,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReadinessCheckSummary.parse(value) unless value.nil?
+          data << ReadinessCheckSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -341,7 +341,7 @@ module AWS::SDK::Route53RecoveryReadiness
         data.readiness_check_arn = map['readinessCheckArn']
         data.readiness_check_name = map['readinessCheckName']
         data.resource_set = map['resourceSet']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -353,7 +353,7 @@ module AWS::SDK::Route53RecoveryReadiness
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
         data.readiness = map['readiness']
-        data.rules = (Parsers::List____listOfRuleResult.parse(map['rules']) unless map['rules'].nil?)
+        data.rules = (List____listOfRuleResult.parse(map['rules']) unless map['rules'].nil?)
         data
       end
     end
@@ -362,7 +362,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RuleResult.parse(value) unless value.nil?
+          data << RuleResult.parse(value) unless value.nil?
         end
         data
       end
@@ -372,7 +372,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(map)
         data = Types::RuleResult.new
         data.last_checked_timestamp = Time.parse(map['lastCheckedTimestamp']) if map['lastCheckedTimestamp']
-        data.messages = (Parsers::List____listOfMessage.parse(map['messages']) unless map['messages'].nil?)
+        data.messages = (List____listOfMessage.parse(map['messages']) unless map['messages'].nil?)
         data.readiness = map['readiness']
         data.rule_id = map['ruleId']
         return data
@@ -383,7 +383,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Message.parse(value) unless value.nil?
+          data << Message.parse(value) unless value.nil?
         end
         data
       end
@@ -402,10 +402,10 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(http_resp)
         data = Types::GetReadinessCheckStatusOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.messages = (Parsers::List____listOfMessage.parse(map['messages']) unless map['messages'].nil?)
+        data.messages = (List____listOfMessage.parse(map['messages']) unless map['messages'].nil?)
         data.next_token = map['nextToken']
         data.readiness = map['readiness']
-        data.resources = (Parsers::List____listOfResourceResult.parse(map['resources']) unless map['resources'].nil?)
+        data.resources = (List____listOfResourceResult.parse(map['resources']) unless map['resources'].nil?)
         data
       end
     end
@@ -414,7 +414,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourceResult.parse(value) unless value.nil?
+          data << ResourceResult.parse(value) unless value.nil?
         end
         data
       end
@@ -436,10 +436,10 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(http_resp)
         data = Types::GetRecoveryGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cells = (Parsers::List____listOf__string.parse(map['cells']) unless map['cells'].nil?)
+        data.cells = (List____listOf__string.parse(map['cells']) unless map['cells'].nil?)
         data.recovery_group_arn = map['recoveryGroupArn']
         data.recovery_group_name = map['recoveryGroupName']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -451,7 +451,7 @@ module AWS::SDK::Route53RecoveryReadiness
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
         data.readiness = map['readiness']
-        data.readiness_checks = (Parsers::List____listOfReadinessCheckSummary.parse(map['readinessChecks']) unless map['readinessChecks'].nil?)
+        data.readiness_checks = (List____listOfReadinessCheckSummary.parse(map['readinessChecks']) unless map['readinessChecks'].nil?)
         data
       end
     end
@@ -464,8 +464,8 @@ module AWS::SDK::Route53RecoveryReadiness
         data.resource_set_arn = map['resourceSetArn']
         data.resource_set_name = map['resourceSetName']
         data.resource_set_type = map['resourceSetType']
-        data.resources = (Parsers::List____listOfResource.parse(map['resources']) unless map['resources'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.resources = (List____listOfResource.parse(map['resources']) unless map['resources'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -475,7 +475,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(http_resp)
         data = Types::ListCellsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cells = (Parsers::List____listOfCellOutput.parse(map['cells']) unless map['cells'].nil?)
+        data.cells = (List____listOfCellOutput.parse(map['cells']) unless map['cells'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -485,7 +485,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CellOutput.parse(value) unless value.nil?
+          data << CellOutput.parse(value) unless value.nil?
         end
         data
       end
@@ -496,9 +496,9 @@ module AWS::SDK::Route53RecoveryReadiness
         data = Types::CellOutput.new
         data.cell_arn = map['cellArn']
         data.cell_name = map['cellName']
-        data.cells = (Parsers::List____listOf__string.parse(map['cells']) unless map['cells'].nil?)
-        data.parent_readiness_scopes = (Parsers::List____listOf__string.parse(map['parentReadinessScopes']) unless map['parentReadinessScopes'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.cells = (List____listOf__string.parse(map['cells']) unless map['cells'].nil?)
+        data.parent_readiness_scopes = (List____listOf__string.parse(map['parentReadinessScopes']) unless map['parentReadinessScopes'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -508,7 +508,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(http_resp)
         data = Types::ListCrossAccountAuthorizationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cross_account_authorizations = (Parsers::List____listOfCrossAccountAuthorization.parse(map['crossAccountAuthorizations']) unless map['crossAccountAuthorizations'].nil?)
+        data.cross_account_authorizations = (List____listOfCrossAccountAuthorization.parse(map['crossAccountAuthorizations']) unless map['crossAccountAuthorizations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -530,7 +530,7 @@ module AWS::SDK::Route53RecoveryReadiness
         data = Types::ListReadinessChecksOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.readiness_checks = (Parsers::List____listOfReadinessCheckOutput.parse(map['readinessChecks']) unless map['readinessChecks'].nil?)
+        data.readiness_checks = (List____listOfReadinessCheckOutput.parse(map['readinessChecks']) unless map['readinessChecks'].nil?)
         data
       end
     end
@@ -539,7 +539,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReadinessCheckOutput.parse(value) unless value.nil?
+          data << ReadinessCheckOutput.parse(value) unless value.nil?
         end
         data
       end
@@ -551,7 +551,7 @@ module AWS::SDK::Route53RecoveryReadiness
         data.readiness_check_arn = map['readinessCheckArn']
         data.readiness_check_name = map['readinessCheckName']
         data.resource_set = map['resourceSet']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -562,7 +562,7 @@ module AWS::SDK::Route53RecoveryReadiness
         data = Types::ListRecoveryGroupsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.recovery_groups = (Parsers::List____listOfRecoveryGroupOutput.parse(map['recoveryGroups']) unless map['recoveryGroups'].nil?)
+        data.recovery_groups = (List____listOfRecoveryGroupOutput.parse(map['recoveryGroups']) unless map['recoveryGroups'].nil?)
         data
       end
     end
@@ -571,7 +571,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecoveryGroupOutput.parse(value) unless value.nil?
+          data << RecoveryGroupOutput.parse(value) unless value.nil?
         end
         data
       end
@@ -580,10 +580,10 @@ module AWS::SDK::Route53RecoveryReadiness
     class RecoveryGroupOutput
       def self.parse(map)
         data = Types::RecoveryGroupOutput.new
-        data.cells = (Parsers::List____listOf__string.parse(map['cells']) unless map['cells'].nil?)
+        data.cells = (List____listOf__string.parse(map['cells']) unless map['cells'].nil?)
         data.recovery_group_arn = map['recoveryGroupArn']
         data.recovery_group_name = map['recoveryGroupName']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -594,7 +594,7 @@ module AWS::SDK::Route53RecoveryReadiness
         data = Types::ListResourceSetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.resource_sets = (Parsers::List____listOfResourceSetOutput.parse(map['resourceSets']) unless map['resourceSets'].nil?)
+        data.resource_sets = (List____listOfResourceSetOutput.parse(map['resourceSets']) unless map['resourceSets'].nil?)
         data
       end
     end
@@ -603,7 +603,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourceSetOutput.parse(value) unless value.nil?
+          data << ResourceSetOutput.parse(value) unless value.nil?
         end
         data
       end
@@ -615,8 +615,8 @@ module AWS::SDK::Route53RecoveryReadiness
         data.resource_set_arn = map['resourceSetArn']
         data.resource_set_name = map['resourceSetName']
         data.resource_set_type = map['resourceSetType']
-        data.resources = (Parsers::List____listOfResource.parse(map['resources']) unless map['resources'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.resources = (List____listOfResource.parse(map['resources']) unless map['resources'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -627,7 +627,7 @@ module AWS::SDK::Route53RecoveryReadiness
         data = Types::ListRulesOperationOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.rules = (Parsers::List____listOfListRulesOutput.parse(map['rules']) unless map['rules'].nil?)
+        data.rules = (List____listOfListRulesOutput.parse(map['rules']) unless map['rules'].nil?)
         data
       end
     end
@@ -636,7 +636,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListRulesOutput.parse(value) unless value.nil?
+          data << ListRulesOutput.parse(value) unless value.nil?
         end
         data
       end
@@ -657,7 +657,7 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(http_resp)
         data = Types::ListTagsForResourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -687,9 +687,9 @@ module AWS::SDK::Route53RecoveryReadiness
         map = Hearth::JSON.load(http_resp.body)
         data.cell_arn = map['cellArn']
         data.cell_name = map['cellName']
-        data.cells = (Parsers::List____listOf__string.parse(map['cells']) unless map['cells'].nil?)
-        data.parent_readiness_scopes = (Parsers::List____listOf__string.parse(map['parentReadinessScopes']) unless map['parentReadinessScopes'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.cells = (List____listOf__string.parse(map['cells']) unless map['cells'].nil?)
+        data.parent_readiness_scopes = (List____listOf__string.parse(map['parentReadinessScopes']) unless map['parentReadinessScopes'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -702,7 +702,7 @@ module AWS::SDK::Route53RecoveryReadiness
         data.readiness_check_arn = map['readinessCheckArn']
         data.readiness_check_name = map['readinessCheckName']
         data.resource_set = map['resourceSet']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -712,10 +712,10 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.parse(http_resp)
         data = Types::UpdateRecoveryGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.cells = (Parsers::List____listOf__string.parse(map['cells']) unless map['cells'].nil?)
+        data.cells = (List____listOf__string.parse(map['cells']) unless map['cells'].nil?)
         data.recovery_group_arn = map['recoveryGroupArn']
         data.recovery_group_name = map['recoveryGroupName']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -728,8 +728,8 @@ module AWS::SDK::Route53RecoveryReadiness
         data.resource_set_arn = map['resourceSetArn']
         data.resource_set_name = map['resourceSetName']
         data.resource_set_type = map['resourceSetType']
-        data.resources = (Parsers::List____listOfResource.parse(map['resources']) unless map['resources'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.resources = (List____listOfResource.parse(map['resources']) unless map['resources'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end

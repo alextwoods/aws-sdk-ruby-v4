@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ElasticLoadBalancingV2
   module Builders
 
@@ -21,8 +23,8 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'AddListenerCertificates'
         params['Version'] = '2015-12-01'
         params[context + 'ListenerArn'] = input[:listener_arn].to_s unless input[:listener_arn].nil?
-        Builders::CertificateList.build(input[:certificates], params, context: context + 'Certificates' + '.member') unless input[:certificates].nil?
-        http_req.body = StringIO.new(params.to_s)
+        CertificateList.build(input[:certificates], params, context: context + 'Certificates' + '.member') unless input[:certificates].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -30,7 +32,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class CertificateList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Certificate.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Certificate.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -53,9 +55,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'AddTags'
         params['Version'] = '2015-12-01'
-        Builders::ResourceArns.build(input[:resource_arns], params, context: context + 'ResourceArns' + '.member') unless input[:resource_arns].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ResourceArns.build(input[:resource_arns], params, context: context + 'ResourceArns' + '.member') unless input[:resource_arns].nil?
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -63,7 +65,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class TagList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -99,11 +101,11 @@ module AWS::SDK::ElasticLoadBalancingV2
         params[context + 'Protocol'] = input[:protocol].to_s unless input[:protocol].nil?
         params[context + 'Port'] = input[:port].to_s unless input[:port].nil?
         params[context + 'SslPolicy'] = input[:ssl_policy].to_s unless input[:ssl_policy].nil?
-        Builders::CertificateList.build(input[:certificates], params, context: context + 'Certificates' + '.member') unless input[:certificates].nil?
-        Builders::Actions.build(input[:default_actions], params, context: context + 'DefaultActions' + '.member') unless input[:default_actions].nil?
-        Builders::AlpnPolicyName.build(input[:alpn_policy], params, context: context + 'AlpnPolicy' + '.member') unless input[:alpn_policy].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        CertificateList.build(input[:certificates], params, context: context + 'Certificates' + '.member') unless input[:certificates].nil?
+        Actions.build(input[:default_actions], params, context: context + 'DefaultActions' + '.member') unless input[:default_actions].nil?
+        AlpnPolicyName.build(input[:alpn_policy], params, context: context + 'AlpnPolicy' + '.member') unless input[:alpn_policy].nil?
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -120,7 +122,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class Actions
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Action.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Action.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -130,20 +132,20 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.build(input, params, context: nil)
         params[context + 'Type'] = input[:type].to_s unless input[:type].nil?
         params[context + 'TargetGroupArn'] = input[:target_group_arn].to_s unless input[:target_group_arn].nil?
-        Builders::AuthenticateOidcActionConfig.build(input[:authenticate_oidc_config], params, context: context + 'AuthenticateOidcConfig' + '.') unless input[:authenticate_oidc_config].nil?
-        Builders::AuthenticateCognitoActionConfig.build(input[:authenticate_cognito_config], params, context: context + 'AuthenticateCognitoConfig' + '.') unless input[:authenticate_cognito_config].nil?
+        AuthenticateOidcActionConfig.build(input[:authenticate_oidc_config], params, context: context + 'AuthenticateOidcConfig' + '.') unless input[:authenticate_oidc_config].nil?
+        AuthenticateCognitoActionConfig.build(input[:authenticate_cognito_config], params, context: context + 'AuthenticateCognitoConfig' + '.') unless input[:authenticate_cognito_config].nil?
         params[context + 'Order'] = input[:order].to_s unless input[:order].nil?
-        Builders::RedirectActionConfig.build(input[:redirect_config], params, context: context + 'RedirectConfig' + '.') unless input[:redirect_config].nil?
-        Builders::FixedResponseActionConfig.build(input[:fixed_response_config], params, context: context + 'FixedResponseConfig' + '.') unless input[:fixed_response_config].nil?
-        Builders::ForwardActionConfig.build(input[:forward_config], params, context: context + 'ForwardConfig' + '.') unless input[:forward_config].nil?
+        RedirectActionConfig.build(input[:redirect_config], params, context: context + 'RedirectConfig' + '.') unless input[:redirect_config].nil?
+        FixedResponseActionConfig.build(input[:fixed_response_config], params, context: context + 'FixedResponseConfig' + '.') unless input[:fixed_response_config].nil?
+        ForwardActionConfig.build(input[:forward_config], params, context: context + 'ForwardConfig' + '.') unless input[:forward_config].nil?
       end
     end
 
     # Structure Builder for ForwardActionConfig
     class ForwardActionConfig
       def self.build(input, params, context: nil)
-        Builders::TargetGroupList.build(input[:target_groups], params, context: context + 'TargetGroups' + '.member') unless input[:target_groups].nil?
-        Builders::TargetGroupStickinessConfig.build(input[:target_group_stickiness_config], params, context: context + 'TargetGroupStickinessConfig' + '.') unless input[:target_group_stickiness_config].nil?
+        TargetGroupList.build(input[:target_groups], params, context: context + 'TargetGroups' + '.member') unless input[:target_groups].nil?
+        TargetGroupStickinessConfig.build(input[:target_group_stickiness_config], params, context: context + 'TargetGroupStickinessConfig' + '.') unless input[:target_group_stickiness_config].nil?
       end
     end
 
@@ -159,7 +161,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class TargetGroupList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::TargetGroupTuple.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          TargetGroupTuple.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -202,7 +204,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         params[context + 'SessionCookieName'] = input[:session_cookie_name].to_s unless input[:session_cookie_name].nil?
         params[context + 'Scope'] = input[:scope].to_s unless input[:scope].nil?
         params[context + 'SessionTimeout'] = input[:session_timeout].to_s unless input[:session_timeout].nil?
-        Builders::AuthenticateCognitoActionAuthenticationRequestExtraParams.build(input[:authentication_request_extra_params], params, context: context + 'AuthenticationRequestExtraParams' + '.entry') unless input[:authentication_request_extra_params].nil?
+        AuthenticateCognitoActionAuthenticationRequestExtraParams.build(input[:authentication_request_extra_params], params, context: context + 'AuthenticationRequestExtraParams' + '.entry') unless input[:authentication_request_extra_params].nil?
         params[context + 'OnUnauthenticatedRequest'] = input[:on_unauthenticated_request].to_s unless input[:on_unauthenticated_request].nil?
       end
     end
@@ -229,7 +231,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         params[context + 'SessionCookieName'] = input[:session_cookie_name].to_s unless input[:session_cookie_name].nil?
         params[context + 'Scope'] = input[:scope].to_s unless input[:scope].nil?
         params[context + 'SessionTimeout'] = input[:session_timeout].to_s unless input[:session_timeout].nil?
-        Builders::AuthenticateOidcActionAuthenticationRequestExtraParams.build(input[:authentication_request_extra_params], params, context: context + 'AuthenticationRequestExtraParams' + '.entry') unless input[:authentication_request_extra_params].nil?
+        AuthenticateOidcActionAuthenticationRequestExtraParams.build(input[:authentication_request_extra_params], params, context: context + 'AuthenticationRequestExtraParams' + '.entry') unless input[:authentication_request_extra_params].nil?
         params[context + 'OnUnauthenticatedRequest'] = input[:on_unauthenticated_request].to_s unless input[:on_unauthenticated_request].nil?
         params[context + 'UseExistingClientSecret'] = input[:use_existing_client_secret].to_s unless input[:use_existing_client_secret].nil?
       end
@@ -256,15 +258,15 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'CreateLoadBalancer'
         params['Version'] = '2015-12-01'
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
-        Builders::Subnets.build(input[:subnets], params, context: context + 'Subnets' + '.member') unless input[:subnets].nil?
-        Builders::SubnetMappings.build(input[:subnet_mappings], params, context: context + 'SubnetMappings' + '.member') unless input[:subnet_mappings].nil?
-        Builders::SecurityGroups.build(input[:security_groups], params, context: context + 'SecurityGroups' + '.member') unless input[:security_groups].nil?
+        Subnets.build(input[:subnets], params, context: context + 'Subnets' + '.member') unless input[:subnets].nil?
+        SubnetMappings.build(input[:subnet_mappings], params, context: context + 'SubnetMappings' + '.member') unless input[:subnet_mappings].nil?
+        SecurityGroups.build(input[:security_groups], params, context: context + 'SecurityGroups' + '.member') unless input[:security_groups].nil?
         params[context + 'Scheme'] = input[:scheme].to_s unless input[:scheme].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
         params[context + 'Type'] = input[:type].to_s unless input[:type].nil?
         params[context + 'IpAddressType'] = input[:ip_address_type].to_s unless input[:ip_address_type].nil?
         params[context + 'CustomerOwnedIpv4Pool'] = input[:customer_owned_ipv4_pool].to_s unless input[:customer_owned_ipv4_pool].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -281,7 +283,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class SubnetMappings
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::SubnetMapping.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          SubnetMapping.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -316,11 +318,11 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'CreateRule'
         params['Version'] = '2015-12-01'
         params[context + 'ListenerArn'] = input[:listener_arn].to_s unless input[:listener_arn].nil?
-        Builders::RuleConditionList.build(input[:conditions], params, context: context + 'Conditions' + '.member') unless input[:conditions].nil?
+        RuleConditionList.build(input[:conditions], params, context: context + 'Conditions' + '.member') unless input[:conditions].nil?
         params[context + 'Priority'] = input[:priority].to_s unless input[:priority].nil?
-        Builders::Actions.build(input[:actions], params, context: context + 'Actions' + '.member') unless input[:actions].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        Actions.build(input[:actions], params, context: context + 'Actions' + '.member') unless input[:actions].nil?
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -328,7 +330,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class RuleConditionList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::RuleCondition.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          RuleCondition.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -337,20 +339,20 @@ module AWS::SDK::ElasticLoadBalancingV2
     class RuleCondition
       def self.build(input, params, context: nil)
         params[context + 'Field'] = input[:field].to_s unless input[:field].nil?
-        Builders::ListOfString.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
-        Builders::HostHeaderConditionConfig.build(input[:host_header_config], params, context: context + 'HostHeaderConfig' + '.') unless input[:host_header_config].nil?
-        Builders::PathPatternConditionConfig.build(input[:path_pattern_config], params, context: context + 'PathPatternConfig' + '.') unless input[:path_pattern_config].nil?
-        Builders::HttpHeaderConditionConfig.build(input[:http_header_config], params, context: context + 'HttpHeaderConfig' + '.') unless input[:http_header_config].nil?
-        Builders::QueryStringConditionConfig.build(input[:query_string_config], params, context: context + 'QueryStringConfig' + '.') unless input[:query_string_config].nil?
-        Builders::HttpRequestMethodConditionConfig.build(input[:http_request_method_config], params, context: context + 'HttpRequestMethodConfig' + '.') unless input[:http_request_method_config].nil?
-        Builders::SourceIpConditionConfig.build(input[:source_ip_config], params, context: context + 'SourceIpConfig' + '.') unless input[:source_ip_config].nil?
+        ListOfString.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
+        HostHeaderConditionConfig.build(input[:host_header_config], params, context: context + 'HostHeaderConfig' + '.') unless input[:host_header_config].nil?
+        PathPatternConditionConfig.build(input[:path_pattern_config], params, context: context + 'PathPatternConfig' + '.') unless input[:path_pattern_config].nil?
+        HttpHeaderConditionConfig.build(input[:http_header_config], params, context: context + 'HttpHeaderConfig' + '.') unless input[:http_header_config].nil?
+        QueryStringConditionConfig.build(input[:query_string_config], params, context: context + 'QueryStringConfig' + '.') unless input[:query_string_config].nil?
+        HttpRequestMethodConditionConfig.build(input[:http_request_method_config], params, context: context + 'HttpRequestMethodConfig' + '.') unless input[:http_request_method_config].nil?
+        SourceIpConditionConfig.build(input[:source_ip_config], params, context: context + 'SourceIpConfig' + '.') unless input[:source_ip_config].nil?
       end
     end
 
     # Structure Builder for SourceIpConditionConfig
     class SourceIpConditionConfig
       def self.build(input, params, context: nil)
-        Builders::ListOfString.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
+        ListOfString.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
       end
     end
 
@@ -366,14 +368,14 @@ module AWS::SDK::ElasticLoadBalancingV2
     # Structure Builder for HttpRequestMethodConditionConfig
     class HttpRequestMethodConditionConfig
       def self.build(input, params, context: nil)
-        Builders::ListOfString.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
+        ListOfString.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
       end
     end
 
     # Structure Builder for QueryStringConditionConfig
     class QueryStringConditionConfig
       def self.build(input, params, context: nil)
-        Builders::QueryStringKeyValuePairList.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
+        QueryStringKeyValuePairList.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
       end
     end
 
@@ -381,7 +383,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class QueryStringKeyValuePairList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::QueryStringKeyValuePair.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          QueryStringKeyValuePair.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -398,21 +400,21 @@ module AWS::SDK::ElasticLoadBalancingV2
     class HttpHeaderConditionConfig
       def self.build(input, params, context: nil)
         params[context + 'HttpHeaderName'] = input[:http_header_name].to_s unless input[:http_header_name].nil?
-        Builders::ListOfString.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
+        ListOfString.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
       end
     end
 
     # Structure Builder for PathPatternConditionConfig
     class PathPatternConditionConfig
       def self.build(input, params, context: nil)
-        Builders::ListOfString.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
+        ListOfString.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
       end
     end
 
     # Structure Builder for HostHeaderConditionConfig
     class HostHeaderConditionConfig
       def self.build(input, params, context: nil)
-        Builders::ListOfString.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
+        ListOfString.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
       end
     end
 
@@ -439,11 +441,11 @@ module AWS::SDK::ElasticLoadBalancingV2
         params[context + 'HealthCheckTimeoutSeconds'] = input[:health_check_timeout_seconds].to_s unless input[:health_check_timeout_seconds].nil?
         params[context + 'HealthyThresholdCount'] = input[:healthy_threshold_count].to_s unless input[:healthy_threshold_count].nil?
         params[context + 'UnhealthyThresholdCount'] = input[:unhealthy_threshold_count].to_s unless input[:unhealthy_threshold_count].nil?
-        Builders::Matcher.build(input[:matcher], params, context: context + 'Matcher' + '.') unless input[:matcher].nil?
+        Matcher.build(input[:matcher], params, context: context + 'Matcher' + '.') unless input[:matcher].nil?
         params[context + 'TargetType'] = input[:target_type].to_s unless input[:target_type].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
         params[context + 'IpAddressType'] = input[:ip_address_type].to_s unless input[:ip_address_type].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -466,7 +468,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'DeleteListener'
         params['Version'] = '2015-12-01'
         params[context + 'ListenerArn'] = input[:listener_arn].to_s unless input[:listener_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -481,7 +483,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'DeleteLoadBalancer'
         params['Version'] = '2015-12-01'
         params[context + 'LoadBalancerArn'] = input[:load_balancer_arn].to_s unless input[:load_balancer_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -496,7 +498,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'DeleteRule'
         params['Version'] = '2015-12-01'
         params[context + 'RuleArn'] = input[:rule_arn].to_s unless input[:rule_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -511,7 +513,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'DeleteTargetGroup'
         params['Version'] = '2015-12-01'
         params[context + 'TargetGroupArn'] = input[:target_group_arn].to_s unless input[:target_group_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -526,8 +528,8 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'DeregisterTargets'
         params['Version'] = '2015-12-01'
         params[context + 'TargetGroupArn'] = input[:target_group_arn].to_s unless input[:target_group_arn].nil?
-        Builders::TargetDescriptions.build(input[:targets], params, context: context + 'Targets' + '.member') unless input[:targets].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TargetDescriptions.build(input[:targets], params, context: context + 'Targets' + '.member') unless input[:targets].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -535,7 +537,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class TargetDescriptions
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::TargetDescription.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          TargetDescription.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -561,7 +563,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Version'] = '2015-12-01'
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'PageSize'] = input[:page_size].to_s unless input[:page_size].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -578,7 +580,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         params[context + 'ListenerArn'] = input[:listener_arn].to_s unless input[:listener_arn].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'PageSize'] = input[:page_size].to_s unless input[:page_size].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -593,10 +595,10 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'DescribeListeners'
         params['Version'] = '2015-12-01'
         params[context + 'LoadBalancerArn'] = input[:load_balancer_arn].to_s unless input[:load_balancer_arn].nil?
-        Builders::ListenerArns.build(input[:listener_arns], params, context: context + 'ListenerArns' + '.member') unless input[:listener_arns].nil?
+        ListenerArns.build(input[:listener_arns], params, context: context + 'ListenerArns' + '.member') unless input[:listener_arns].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'PageSize'] = input[:page_size].to_s unless input[:page_size].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -620,7 +622,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'DescribeLoadBalancerAttributes'
         params['Version'] = '2015-12-01'
         params[context + 'LoadBalancerArn'] = input[:load_balancer_arn].to_s unless input[:load_balancer_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -634,11 +636,11 @@ module AWS::SDK::ElasticLoadBalancingV2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeLoadBalancers'
         params['Version'] = '2015-12-01'
-        Builders::LoadBalancerArns.build(input[:load_balancer_arns], params, context: context + 'LoadBalancerArns' + '.member') unless input[:load_balancer_arns].nil?
-        Builders::LoadBalancerNames.build(input[:names], params, context: context + 'Names' + '.member') unless input[:names].nil?
+        LoadBalancerArns.build(input[:load_balancer_arns], params, context: context + 'LoadBalancerArns' + '.member') unless input[:load_balancer_arns].nil?
+        LoadBalancerNames.build(input[:names], params, context: context + 'Names' + '.member') unless input[:names].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'PageSize'] = input[:page_size].to_s unless input[:page_size].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -671,10 +673,10 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'DescribeRules'
         params['Version'] = '2015-12-01'
         params[context + 'ListenerArn'] = input[:listener_arn].to_s unless input[:listener_arn].nil?
-        Builders::RuleArns.build(input[:rule_arns], params, context: context + 'RuleArns' + '.member') unless input[:rule_arns].nil?
+        RuleArns.build(input[:rule_arns], params, context: context + 'RuleArns' + '.member') unless input[:rule_arns].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'PageSize'] = input[:page_size].to_s unless input[:page_size].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -697,11 +699,11 @@ module AWS::SDK::ElasticLoadBalancingV2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeSSLPolicies'
         params['Version'] = '2015-12-01'
-        Builders::SslPolicyNames.build(input[:names], params, context: context + 'Names' + '.member') unless input[:names].nil?
+        SslPolicyNames.build(input[:names], params, context: context + 'Names' + '.member') unless input[:names].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'PageSize'] = input[:page_size].to_s unless input[:page_size].nil?
         params[context + 'LoadBalancerType'] = input[:load_balancer_type].to_s unless input[:load_balancer_type].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -724,8 +726,8 @@ module AWS::SDK::ElasticLoadBalancingV2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DescribeTags'
         params['Version'] = '2015-12-01'
-        Builders::ResourceArns.build(input[:resource_arns], params, context: context + 'ResourceArns' + '.member') unless input[:resource_arns].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ResourceArns.build(input[:resource_arns], params, context: context + 'ResourceArns' + '.member') unless input[:resource_arns].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -740,7 +742,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'DescribeTargetGroupAttributes'
         params['Version'] = '2015-12-01'
         params[context + 'TargetGroupArn'] = input[:target_group_arn].to_s unless input[:target_group_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -755,11 +757,11 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'DescribeTargetGroups'
         params['Version'] = '2015-12-01'
         params[context + 'LoadBalancerArn'] = input[:load_balancer_arn].to_s unless input[:load_balancer_arn].nil?
-        Builders::TargetGroupArns.build(input[:target_group_arns], params, context: context + 'TargetGroupArns' + '.member') unless input[:target_group_arns].nil?
-        Builders::TargetGroupNames.build(input[:names], params, context: context + 'Names' + '.member') unless input[:names].nil?
+        TargetGroupArns.build(input[:target_group_arns], params, context: context + 'TargetGroupArns' + '.member') unless input[:target_group_arns].nil?
+        TargetGroupNames.build(input[:names], params, context: context + 'Names' + '.member') unless input[:names].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'PageSize'] = input[:page_size].to_s unless input[:page_size].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -792,8 +794,8 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'DescribeTargetHealth'
         params['Version'] = '2015-12-01'
         params[context + 'TargetGroupArn'] = input[:target_group_arn].to_s unless input[:target_group_arn].nil?
-        Builders::TargetDescriptions.build(input[:targets], params, context: context + 'Targets' + '.member') unless input[:targets].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TargetDescriptions.build(input[:targets], params, context: context + 'Targets' + '.member') unless input[:targets].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -811,10 +813,10 @@ module AWS::SDK::ElasticLoadBalancingV2
         params[context + 'Port'] = input[:port].to_s unless input[:port].nil?
         params[context + 'Protocol'] = input[:protocol].to_s unless input[:protocol].nil?
         params[context + 'SslPolicy'] = input[:ssl_policy].to_s unless input[:ssl_policy].nil?
-        Builders::CertificateList.build(input[:certificates], params, context: context + 'Certificates' + '.member') unless input[:certificates].nil?
-        Builders::Actions.build(input[:default_actions], params, context: context + 'DefaultActions' + '.member') unless input[:default_actions].nil?
-        Builders::AlpnPolicyName.build(input[:alpn_policy], params, context: context + 'AlpnPolicy' + '.member') unless input[:alpn_policy].nil?
-        http_req.body = StringIO.new(params.to_s)
+        CertificateList.build(input[:certificates], params, context: context + 'Certificates' + '.member') unless input[:certificates].nil?
+        Actions.build(input[:default_actions], params, context: context + 'DefaultActions' + '.member') unless input[:default_actions].nil?
+        AlpnPolicyName.build(input[:alpn_policy], params, context: context + 'AlpnPolicy' + '.member') unless input[:alpn_policy].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -829,8 +831,8 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'ModifyLoadBalancerAttributes'
         params['Version'] = '2015-12-01'
         params[context + 'LoadBalancerArn'] = input[:load_balancer_arn].to_s unless input[:load_balancer_arn].nil?
-        Builders::LoadBalancerAttributes.build(input[:attributes], params, context: context + 'Attributes' + '.member') unless input[:attributes].nil?
-        http_req.body = StringIO.new(params.to_s)
+        LoadBalancerAttributes.build(input[:attributes], params, context: context + 'Attributes' + '.member') unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -838,7 +840,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class LoadBalancerAttributes
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::LoadBalancerAttribute.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          LoadBalancerAttribute.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -862,9 +864,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'ModifyRule'
         params['Version'] = '2015-12-01'
         params[context + 'RuleArn'] = input[:rule_arn].to_s unless input[:rule_arn].nil?
-        Builders::RuleConditionList.build(input[:conditions], params, context: context + 'Conditions' + '.member') unless input[:conditions].nil?
-        Builders::Actions.build(input[:actions], params, context: context + 'Actions' + '.member') unless input[:actions].nil?
-        http_req.body = StringIO.new(params.to_s)
+        RuleConditionList.build(input[:conditions], params, context: context + 'Conditions' + '.member') unless input[:conditions].nil?
+        Actions.build(input[:actions], params, context: context + 'Actions' + '.member') unless input[:actions].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -887,8 +889,8 @@ module AWS::SDK::ElasticLoadBalancingV2
         params[context + 'HealthCheckTimeoutSeconds'] = input[:health_check_timeout_seconds].to_s unless input[:health_check_timeout_seconds].nil?
         params[context + 'HealthyThresholdCount'] = input[:healthy_threshold_count].to_s unless input[:healthy_threshold_count].nil?
         params[context + 'UnhealthyThresholdCount'] = input[:unhealthy_threshold_count].to_s unless input[:unhealthy_threshold_count].nil?
-        Builders::Matcher.build(input[:matcher], params, context: context + 'Matcher' + '.') unless input[:matcher].nil?
-        http_req.body = StringIO.new(params.to_s)
+        Matcher.build(input[:matcher], params, context: context + 'Matcher' + '.') unless input[:matcher].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -903,8 +905,8 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'ModifyTargetGroupAttributes'
         params['Version'] = '2015-12-01'
         params[context + 'TargetGroupArn'] = input[:target_group_arn].to_s unless input[:target_group_arn].nil?
-        Builders::TargetGroupAttributes.build(input[:attributes], params, context: context + 'Attributes' + '.member') unless input[:attributes].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TargetGroupAttributes.build(input[:attributes], params, context: context + 'Attributes' + '.member') unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -912,7 +914,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class TargetGroupAttributes
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::TargetGroupAttribute.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          TargetGroupAttribute.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -936,8 +938,8 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'RegisterTargets'
         params['Version'] = '2015-12-01'
         params[context + 'TargetGroupArn'] = input[:target_group_arn].to_s unless input[:target_group_arn].nil?
-        Builders::TargetDescriptions.build(input[:targets], params, context: context + 'Targets' + '.member') unless input[:targets].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TargetDescriptions.build(input[:targets], params, context: context + 'Targets' + '.member') unless input[:targets].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -952,8 +954,8 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'RemoveListenerCertificates'
         params['Version'] = '2015-12-01'
         params[context + 'ListenerArn'] = input[:listener_arn].to_s unless input[:listener_arn].nil?
-        Builders::CertificateList.build(input[:certificates], params, context: context + 'Certificates' + '.member') unless input[:certificates].nil?
-        http_req.body = StringIO.new(params.to_s)
+        CertificateList.build(input[:certificates], params, context: context + 'Certificates' + '.member') unless input[:certificates].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -967,9 +969,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'RemoveTags'
         params['Version'] = '2015-12-01'
-        Builders::ResourceArns.build(input[:resource_arns], params, context: context + 'ResourceArns' + '.member') unless input[:resource_arns].nil?
-        Builders::TagKeys.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ResourceArns.build(input[:resource_arns], params, context: context + 'ResourceArns' + '.member') unless input[:resource_arns].nil?
+        TagKeys.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -994,7 +996,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Version'] = '2015-12-01'
         params[context + 'LoadBalancerArn'] = input[:load_balancer_arn].to_s unless input[:load_balancer_arn].nil?
         params[context + 'IpAddressType'] = input[:ip_address_type].to_s unless input[:ip_address_type].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1008,8 +1010,8 @@ module AWS::SDK::ElasticLoadBalancingV2
         params = Hearth::Query::ParamList.new
         params['Action'] = 'SetRulePriorities'
         params['Version'] = '2015-12-01'
-        Builders::RulePriorityList.build(input[:rule_priorities], params, context: context + 'RulePriorities' + '.member') unless input[:rule_priorities].nil?
-        http_req.body = StringIO.new(params.to_s)
+        RulePriorityList.build(input[:rule_priorities], params, context: context + 'RulePriorities' + '.member') unless input[:rule_priorities].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1017,7 +1019,7 @@ module AWS::SDK::ElasticLoadBalancingV2
     class RulePriorityList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::RulePriorityPair.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          RulePriorityPair.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1041,8 +1043,8 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'SetSecurityGroups'
         params['Version'] = '2015-12-01'
         params[context + 'LoadBalancerArn'] = input[:load_balancer_arn].to_s unless input[:load_balancer_arn].nil?
-        Builders::SecurityGroups.build(input[:security_groups], params, context: context + 'SecurityGroups' + '.member') unless input[:security_groups].nil?
-        http_req.body = StringIO.new(params.to_s)
+        SecurityGroups.build(input[:security_groups], params, context: context + 'SecurityGroups' + '.member') unless input[:security_groups].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1057,10 +1059,10 @@ module AWS::SDK::ElasticLoadBalancingV2
         params['Action'] = 'SetSubnets'
         params['Version'] = '2015-12-01'
         params[context + 'LoadBalancerArn'] = input[:load_balancer_arn].to_s unless input[:load_balancer_arn].nil?
-        Builders::Subnets.build(input[:subnets], params, context: context + 'Subnets' + '.member') unless input[:subnets].nil?
-        Builders::SubnetMappings.build(input[:subnet_mappings], params, context: context + 'SubnetMappings' + '.member') unless input[:subnet_mappings].nil?
+        Subnets.build(input[:subnets], params, context: context + 'Subnets' + '.member') unless input[:subnets].nil?
+        SubnetMappings.build(input[:subnet_mappings], params, context: context + 'SubnetMappings' + '.member') unless input[:subnet_mappings].nil?
         params[context + 'IpAddressType'] = input[:ip_address_type].to_s unless input[:ip_address_type].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
   end

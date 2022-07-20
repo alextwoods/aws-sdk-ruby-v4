@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Billingconductor
   module Builders
 
@@ -21,8 +23,8 @@ module AWS::SDK::Billingconductor
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        data['AccountIds'] = Builders::AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountIds'] = AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -48,8 +50,8 @@ module AWS::SDK::Billingconductor
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        data['PricingRuleArns'] = Builders::PricingRuleArnsNonEmptyInput.build(input[:pricing_rule_arns]) unless input[:pricing_rule_arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PricingRuleArns'] = PricingRuleArnsNonEmptyInput.build(input[:pricing_rule_arns]) unless input[:pricing_rule_arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -75,9 +77,9 @@ module AWS::SDK::Billingconductor
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['TargetArn'] = input[:target_arn] unless input[:target_arn].nil?
-        data['ResourceArns'] = Builders::CustomLineItemBatchAssociationsList.build(input[:resource_arns]) unless input[:resource_arns].nil?
-        data['BillingPeriodRange'] = Builders::CustomLineItemBillingPeriodRange.build(input[:billing_period_range]) unless input[:billing_period_range].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceArns'] = CustomLineItemBatchAssociationsList.build(input[:resource_arns]) unless input[:resource_arns].nil?
+        data['BillingPeriodRange'] = CustomLineItemBillingPeriodRange.build(input[:billing_period_range]) unless input[:billing_period_range].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -113,9 +115,9 @@ module AWS::SDK::Billingconductor
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['TargetArn'] = input[:target_arn] unless input[:target_arn].nil?
-        data['ResourceArns'] = Builders::CustomLineItemBatchDisassociationsList.build(input[:resource_arns]) unless input[:resource_arns].nil?
-        data['BillingPeriodRange'] = Builders::CustomLineItemBillingPeriodRange.build(input[:billing_period_range]) unless input[:billing_period_range].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceArns'] = CustomLineItemBatchDisassociationsList.build(input[:resource_arns]) unless input[:resource_arns].nil?
+        data['BillingPeriodRange'] = CustomLineItemBillingPeriodRange.build(input[:billing_period_range]) unless input[:billing_period_range].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -141,12 +143,12 @@ module AWS::SDK::Billingconductor
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['AccountGrouping'] = Builders::AccountGrouping.build(input[:account_grouping]) unless input[:account_grouping].nil?
-        data['ComputationPreference'] = Builders::ComputationPreference.build(input[:computation_preference]) unless input[:computation_preference].nil?
+        data['AccountGrouping'] = AccountGrouping.build(input[:account_grouping]) unless input[:account_grouping].nil?
+        data['ComputationPreference'] = ComputationPreference.build(input[:computation_preference]) unless input[:computation_preference].nil?
         data['PrimaryAccountId'] = input[:primary_account_id] unless input[:primary_account_id].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -175,7 +177,7 @@ module AWS::SDK::Billingconductor
     class AccountGrouping
       def self.build(input)
         data = {}
-        data['LinkedAccountIds'] = Builders::AccountIdList.build(input[:linked_account_ids]) unless input[:linked_account_ids].nil?
+        data['LinkedAccountIds'] = AccountIdList.build(input[:linked_account_ids]) unless input[:linked_account_ids].nil?
         data
       end
     end
@@ -193,10 +195,10 @@ module AWS::SDK::Billingconductor
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['BillingGroupArn'] = input[:billing_group_arn] unless input[:billing_group_arn].nil?
-        data['BillingPeriodRange'] = Builders::CustomLineItemBillingPeriodRange.build(input[:billing_period_range]) unless input[:billing_period_range].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        data['ChargeDetails'] = Builders::CustomLineItemChargeDetails.build(input[:charge_details]) unless input[:charge_details].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BillingPeriodRange'] = CustomLineItemBillingPeriodRange.build(input[:billing_period_range]) unless input[:billing_period_range].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['ChargeDetails'] = CustomLineItemChargeDetails.build(input[:charge_details]) unless input[:charge_details].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -205,8 +207,8 @@ module AWS::SDK::Billingconductor
     class CustomLineItemChargeDetails
       def self.build(input)
         data = {}
-        data['Flat'] = Builders::CustomLineItemFlatChargeDetails.build(input[:flat]) unless input[:flat].nil?
-        data['Percentage'] = Builders::CustomLineItemPercentageChargeDetails.build(input[:percentage]) unless input[:percentage].nil?
+        data['Flat'] = CustomLineItemFlatChargeDetails.build(input[:flat]) unless input[:flat].nil?
+        data['Percentage'] = CustomLineItemPercentageChargeDetails.build(input[:percentage]) unless input[:percentage].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data
       end
@@ -217,7 +219,7 @@ module AWS::SDK::Billingconductor
       def self.build(input)
         data = {}
         data['PercentageValue'] = Hearth::NumberHelper.serialize(input[:percentage_value]) unless input[:percentage_value].nil?
-        data['AssociatedValues'] = Builders::CustomLineItemAssociationsList.build(input[:associated_values]) unless input[:associated_values].nil?
+        data['AssociatedValues'] = CustomLineItemAssociationsList.build(input[:associated_values]) unless input[:associated_values].nil?
         data
       end
     end
@@ -254,9 +256,9 @@ module AWS::SDK::Billingconductor
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['PricingRuleArns'] = Builders::PricingRuleArnsInput.build(input[:pricing_rule_arns]) unless input[:pricing_rule_arns].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PricingRuleArns'] = PricingRuleArnsInput.build(input[:pricing_rule_arns]) unless input[:pricing_rule_arns].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -288,8 +290,8 @@ module AWS::SDK::Billingconductor
         data['Type'] = input[:type] unless input[:type].nil?
         data['ModifierPercentage'] = Hearth::NumberHelper.serialize(input[:modifier_percentage]) unless input[:modifier_percentage].nil?
         data['Service'] = input[:service] unless input[:service].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amzn-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -305,7 +307,7 @@ module AWS::SDK::Billingconductor
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -320,8 +322,8 @@ module AWS::SDK::Billingconductor
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        data['BillingPeriodRange'] = Builders::CustomLineItemBillingPeriodRange.build(input[:billing_period_range]) unless input[:billing_period_range].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BillingPeriodRange'] = CustomLineItemBillingPeriodRange.build(input[:billing_period_range]) unless input[:billing_period_range].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -336,7 +338,7 @@ module AWS::SDK::Billingconductor
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -351,7 +353,7 @@ module AWS::SDK::Billingconductor
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -366,8 +368,8 @@ module AWS::SDK::Billingconductor
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        data['AccountIds'] = Builders::AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountIds'] = AccountIdList.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -382,8 +384,8 @@ module AWS::SDK::Billingconductor
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        data['PricingRuleArns'] = Builders::PricingRuleArnsNonEmptyInput.build(input[:pricing_rule_arns]) unless input[:pricing_rule_arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PricingRuleArns'] = PricingRuleArnsNonEmptyInput.build(input[:pricing_rule_arns]) unless input[:pricing_rule_arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -398,9 +400,9 @@ module AWS::SDK::Billingconductor
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['BillingPeriod'] = input[:billing_period] unless input[:billing_period].nil?
-        data['Filters'] = Builders::ListAccountAssociationsFilter.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ListAccountAssociationsFilter.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -427,8 +429,8 @@ module AWS::SDK::Billingconductor
         data['BillingPeriod'] = input[:billing_period] unless input[:billing_period].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::ListBillingGroupCostReportsFilter.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = ListBillingGroupCostReportsFilter.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -436,7 +438,7 @@ module AWS::SDK::Billingconductor
     class ListBillingGroupCostReportsFilter
       def self.build(input)
         data = {}
-        data['BillingGroupArns'] = Builders::BillingGroupArnList.build(input[:billing_group_arns]) unless input[:billing_group_arns].nil?
+        data['BillingGroupArns'] = BillingGroupArnList.build(input[:billing_group_arns]) unless input[:billing_group_arns].nil?
         data
       end
     end
@@ -465,8 +467,8 @@ module AWS::SDK::Billingconductor
         data['BillingPeriod'] = input[:billing_period] unless input[:billing_period].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::ListBillingGroupsFilter.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = ListBillingGroupsFilter.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -474,7 +476,7 @@ module AWS::SDK::Billingconductor
     class ListBillingGroupsFilter
       def self.build(input)
         data = {}
-        data['Arns'] = Builders::BillingGroupArnList.build(input[:arns]) unless input[:arns].nil?
+        data['Arns'] = BillingGroupArnList.build(input[:arns]) unless input[:arns].nil?
         data['PricingPlan'] = input[:pricing_plan] unless input[:pricing_plan].nil?
         data
       end
@@ -493,8 +495,8 @@ module AWS::SDK::Billingconductor
         data['BillingPeriod'] = input[:billing_period] unless input[:billing_period].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::ListCustomLineItemsFilter.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = ListCustomLineItemsFilter.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -502,9 +504,9 @@ module AWS::SDK::Billingconductor
     class ListCustomLineItemsFilter
       def self.build(input)
         data = {}
-        data['Names'] = Builders::CustomLineItemNameList.build(input[:names]) unless input[:names].nil?
-        data['BillingGroups'] = Builders::BillingGroupArnList.build(input[:billing_groups]) unless input[:billing_groups].nil?
-        data['Arns'] = Builders::CustomLineItemArns.build(input[:arns]) unless input[:arns].nil?
+        data['Names'] = CustomLineItemNameList.build(input[:names]) unless input[:names].nil?
+        data['BillingGroups'] = BillingGroupArnList.build(input[:billing_groups]) unless input[:billing_groups].nil?
+        data['Arns'] = CustomLineItemArns.build(input[:arns]) unless input[:arns].nil?
         data
       end
     end
@@ -542,10 +544,10 @@ module AWS::SDK::Billingconductor
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['BillingPeriod'] = input[:billing_period] unless input[:billing_period].nil?
-        data['Filters'] = Builders::ListPricingPlansFilter.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ListPricingPlansFilter.build(input[:filters]) unless input[:filters].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -553,7 +555,7 @@ module AWS::SDK::Billingconductor
     class ListPricingPlansFilter
       def self.build(input)
         data = {}
-        data['Arns'] = Builders::PricingPlanArns.build(input[:arns]) unless input[:arns].nil?
+        data['Arns'] = PricingPlanArns.build(input[:arns]) unless input[:arns].nil?
         data
       end
     end
@@ -583,7 +585,7 @@ module AWS::SDK::Billingconductor
         data['PricingRuleArn'] = input[:pricing_rule_arn] unless input[:pricing_rule_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -598,10 +600,10 @@ module AWS::SDK::Billingconductor
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['BillingPeriod'] = input[:billing_period] unless input[:billing_period].nil?
-        data['Filters'] = Builders::ListPricingRulesFilter.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ListPricingRulesFilter.build(input[:filters]) unless input[:filters].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -609,7 +611,7 @@ module AWS::SDK::Billingconductor
     class ListPricingRulesFilter
       def self.build(input)
         data = {}
-        data['Arns'] = Builders::PricingRuleArns.build(input[:arns]) unless input[:arns].nil?
+        data['Arns'] = PricingRuleArns.build(input[:arns]) unless input[:arns].nil?
         data
       end
     end
@@ -639,7 +641,7 @@ module AWS::SDK::Billingconductor
         data['PricingPlanArn'] = input[:pricing_plan_arn] unless input[:pricing_plan_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -657,8 +659,8 @@ module AWS::SDK::Billingconductor
         data['Arn'] = input[:arn] unless input[:arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::ListResourcesAssociatedToCustomLineItemFilter.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = ListResourcesAssociatedToCustomLineItemFilter.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -705,8 +707,8 @@ module AWS::SDK::Billingconductor
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -756,9 +758,9 @@ module AWS::SDK::Billingconductor
         data['Arn'] = input[:arn] unless input[:arn].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Status'] = input[:status] unless input[:status].nil?
-        data['ComputationPreference'] = Builders::ComputationPreference.build(input[:computation_preference]) unless input[:computation_preference].nil?
+        data['ComputationPreference'] = ComputationPreference.build(input[:computation_preference]) unless input[:computation_preference].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -775,9 +777,9 @@ module AWS::SDK::Billingconductor
         data['Arn'] = input[:arn] unless input[:arn].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['ChargeDetails'] = Builders::UpdateCustomLineItemChargeDetails.build(input[:charge_details]) unless input[:charge_details].nil?
-        data['BillingPeriodRange'] = Builders::CustomLineItemBillingPeriodRange.build(input[:billing_period_range]) unless input[:billing_period_range].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChargeDetails'] = UpdateCustomLineItemChargeDetails.build(input[:charge_details]) unless input[:charge_details].nil?
+        data['BillingPeriodRange'] = CustomLineItemBillingPeriodRange.build(input[:billing_period_range]) unless input[:billing_period_range].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -785,8 +787,8 @@ module AWS::SDK::Billingconductor
     class UpdateCustomLineItemChargeDetails
       def self.build(input)
         data = {}
-        data['Flat'] = Builders::UpdateCustomLineItemFlatChargeDetails.build(input[:flat]) unless input[:flat].nil?
-        data['Percentage'] = Builders::UpdateCustomLineItemPercentageChargeDetails.build(input[:percentage]) unless input[:percentage].nil?
+        data['Flat'] = UpdateCustomLineItemFlatChargeDetails.build(input[:flat]) unless input[:flat].nil?
+        data['Percentage'] = UpdateCustomLineItemPercentageChargeDetails.build(input[:percentage]) unless input[:percentage].nil?
         data
       end
     end
@@ -822,7 +824,7 @@ module AWS::SDK::Billingconductor
         data['Arn'] = input[:arn] unless input[:arn].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -841,7 +843,7 @@ module AWS::SDK::Billingconductor
         data['Description'] = input[:description] unless input[:description].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data['ModifierPercentage'] = Hearth::NumberHelper.serialize(input[:modifier_percentage]) unless input[:modifier_percentage].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

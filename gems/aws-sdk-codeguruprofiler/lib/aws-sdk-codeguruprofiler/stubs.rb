@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CodeGuruProfiler
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['notificationConfiguration'] = Stubs::NotificationConfiguration.stub(stub[:notification_configuration]) unless stub[:notification_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['notificationConfiguration'] = NotificationConfiguration.stub(stub[:notification_configuration]) unless stub[:notification_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -40,7 +42,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.stub(stub)
         stub ||= Types::NotificationConfiguration.new
         data = {}
-        data['channels'] = Stubs::Channels.stub(stub[:channels]) unless stub[:channels].nil?
+        data['channels'] = Channels.stub(stub[:channels]) unless stub[:channels].nil?
         data
       end
     end
@@ -59,7 +61,7 @@ module AWS::SDK::CodeGuruProfiler
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Channel.stub(element) unless element.nil?
+          data << Channel.stub(element) unless element.nil?
         end
         data
       end
@@ -82,7 +84,7 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
         data['uri'] = stub[:uri] unless stub[:uri].nil?
-        data['eventPublishers'] = Stubs::EventPublishers.stub(stub[:event_publishers]) unless stub[:event_publishers].nil?
+        data['eventPublishers'] = EventPublishers.stub(stub[:event_publishers]) unless stub[:event_publishers].nil?
         data
       end
     end
@@ -127,10 +129,10 @@ module AWS::SDK::CodeGuruProfiler
         data['startTime'] = Hearth::TimeHelper.to_date_time(stub[:start_time]) unless stub[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_date_time(stub[:end_time]) unless stub[:end_time].nil?
         data['resolution'] = stub[:resolution] unless stub[:resolution].nil?
-        data['endTimes'] = Stubs::ListOfTimestamps.stub(stub[:end_times]) unless stub[:end_times].nil?
-        data['unprocessedEndTimes'] = Stubs::UnprocessedEndTimeMap.stub(stub[:unprocessed_end_times]) unless stub[:unprocessed_end_times].nil?
-        data['frameMetricData'] = Stubs::FrameMetricData.stub(stub[:frame_metric_data]) unless stub[:frame_metric_data].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['endTimes'] = ListOfTimestamps.stub(stub[:end_times]) unless stub[:end_times].nil?
+        data['unprocessedEndTimes'] = UnprocessedEndTimeMap.stub(stub[:unprocessed_end_times]) unless stub[:unprocessed_end_times].nil?
+        data['frameMetricData'] = FrameMetricData.stub(stub[:frame_metric_data]) unless stub[:frame_metric_data].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -148,7 +150,7 @@ module AWS::SDK::CodeGuruProfiler
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FrameMetricDatum.stub(element) unless element.nil?
+          data << FrameMetricDatum.stub(element) unless element.nil?
         end
         data
       end
@@ -168,8 +170,8 @@ module AWS::SDK::CodeGuruProfiler
       def self.stub(stub)
         stub ||= Types::FrameMetricDatum.new
         data = {}
-        data['frameMetric'] = Stubs::FrameMetric.stub(stub[:frame_metric]) unless stub[:frame_metric].nil?
-        data['values'] = Stubs::FrameMetricValues.stub(stub[:values]) unless stub[:values].nil?
+        data['frameMetric'] = FrameMetric.stub(stub[:frame_metric]) unless stub[:frame_metric].nil?
+        data['values'] = FrameMetricValues.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -211,7 +213,7 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         data['frameName'] = stub[:frame_name] unless stub[:frame_name].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['threadStates'] = Stubs::ThreadStates.stub(stub[:thread_states]) unless stub[:thread_states].nil?
+        data['threadStates'] = ThreadStates.stub(stub[:thread_states]) unless stub[:thread_states].nil?
         data
       end
     end
@@ -250,7 +252,7 @@ module AWS::SDK::CodeGuruProfiler
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ListOfTimestamps.stub(value) unless value.nil?
+          data[key] = ListOfTimestamps.stub(value) unless value.nil?
         end
         data
       end
@@ -270,7 +272,7 @@ module AWS::SDK::CodeGuruProfiler
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TimestampStructure.stub(element) unless element.nil?
+          data << TimestampStructure.stub(element) unless element.nil?
         end
         data
       end
@@ -306,8 +308,8 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::AgentConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = AgentConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -328,7 +330,7 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         data['shouldProfile'] = stub[:should_profile] unless stub[:should_profile].nil?
         data['periodInSeconds'] = stub[:period_in_seconds] unless stub[:period_in_seconds].nil?
-        data['agentParameters'] = Stubs::AgentParameters.stub(stub[:agent_parameters]) unless stub[:agent_parameters].nil?
+        data['agentParameters'] = AgentParameters.stub(stub[:agent_parameters]) unless stub[:agent_parameters].nil?
         data
       end
     end
@@ -365,8 +367,8 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ProfilingGroupDescription.stub(stub[:profiling_group]) unless stub[:profiling_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ProfilingGroupDescription.stub(stub[:profiling_group]) unless stub[:profiling_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -391,13 +393,13 @@ module AWS::SDK::CodeGuruProfiler
         stub ||= Types::ProfilingGroupDescription.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['agentOrchestrationConfig'] = Stubs::AgentOrchestrationConfig.stub(stub[:agent_orchestration_config]) unless stub[:agent_orchestration_config].nil?
+        data['agentOrchestrationConfig'] = AgentOrchestrationConfig.stub(stub[:agent_orchestration_config]) unless stub[:agent_orchestration_config].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
-        data['profilingStatus'] = Stubs::ProfilingStatus.stub(stub[:profiling_status]) unless stub[:profiling_status].nil?
+        data['profilingStatus'] = ProfilingStatus.stub(stub[:profiling_status]) unless stub[:profiling_status].nil?
         data['computePlatform'] = stub[:compute_platform] unless stub[:compute_platform].nil?
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -438,7 +440,7 @@ module AWS::SDK::CodeGuruProfiler
         stub ||= Types::ProfilingStatus.new
         data = {}
         data['latestAgentProfileReportedAt'] = Hearth::TimeHelper.to_date_time(stub[:latest_agent_profile_reported_at]) unless stub[:latest_agent_profile_reported_at].nil?
-        data['latestAggregatedProfile'] = Stubs::AggregatedProfileTime.stub(stub[:latest_aggregated_profile]) unless stub[:latest_aggregated_profile].nil?
+        data['latestAggregatedProfile'] = AggregatedProfileTime.stub(stub[:latest_aggregated_profile]) unless stub[:latest_aggregated_profile].nil?
         data['latestAgentOrchestratedAt'] = Hearth::TimeHelper.to_date_time(stub[:latest_agent_orchestrated_at]) unless stub[:latest_agent_orchestrated_at].nil?
         data
       end
@@ -507,8 +509,8 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ProfilingGroupDescription.stub(stub[:profiling_group]) unless stub[:profiling_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ProfilingGroupDescription.stub(stub[:profiling_group]) unless stub[:profiling_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -525,9 +527,9 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['reportSummaries'] = Stubs::FindingsReportSummaries.stub(stub[:report_summaries]) unless stub[:report_summaries].nil?
+        data['reportSummaries'] = FindingsReportSummaries.stub(stub[:report_summaries]) unless stub[:report_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -545,7 +547,7 @@ module AWS::SDK::CodeGuruProfiler
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FindingsReportSummary.stub(element) unless element.nil?
+          data << FindingsReportSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -589,8 +591,8 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['notificationConfiguration'] = Stubs::NotificationConfiguration.stub(stub[:notification_configuration]) unless stub[:notification_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['notificationConfiguration'] = NotificationConfiguration.stub(stub[:notification_configuration]) unless stub[:notification_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -609,7 +611,7 @@ module AWS::SDK::CodeGuruProfiler
         http_resp.headers['Content-Type'] = 'application/json'
         data['policy'] = stub[:policy] unless stub[:policy].nil?
         data['revisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -629,7 +631,7 @@ module AWS::SDK::CodeGuruProfiler
         http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
         http_resp.headers['Content-Encoding'] = stub[:content_encoding] unless stub[:content_encoding].nil? || stub[:content_encoding].empty?
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:profile] || '')
+        http_resp.body = ::StringIO.new(stub[:profile] || '')
       end
     end
 
@@ -652,9 +654,9 @@ module AWS::SDK::CodeGuruProfiler
         data['profilingGroupName'] = stub[:profiling_group_name] unless stub[:profiling_group_name].nil?
         data['profileStartTime'] = Hearth::TimeHelper.to_date_time(stub[:profile_start_time]) unless stub[:profile_start_time].nil?
         data['profileEndTime'] = Hearth::TimeHelper.to_date_time(stub[:profile_end_time]) unless stub[:profile_end_time].nil?
-        data['recommendations'] = Stubs::Recommendations.stub(stub[:recommendations]) unless stub[:recommendations].nil?
-        data['anomalies'] = Stubs::Anomalies.stub(stub[:anomalies]) unless stub[:anomalies].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recommendations'] = Recommendations.stub(stub[:recommendations]) unless stub[:recommendations].nil?
+        data['anomalies'] = Anomalies.stub(stub[:anomalies]) unless stub[:anomalies].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -672,7 +674,7 @@ module AWS::SDK::CodeGuruProfiler
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Anomaly.stub(element) unless element.nil?
+          data << Anomaly.stub(element) unless element.nil?
         end
         data
       end
@@ -693,9 +695,9 @@ module AWS::SDK::CodeGuruProfiler
       def self.stub(stub)
         stub ||= Types::Anomaly.new
         data = {}
-        data['metric'] = Stubs::Metric.stub(stub[:metric]) unless stub[:metric].nil?
+        data['metric'] = Metric.stub(stub[:metric]) unless stub[:metric].nil?
         data['reason'] = stub[:reason] unless stub[:reason].nil?
-        data['instances'] = Stubs::AnomalyInstances.stub(stub[:instances]) unless stub[:instances].nil?
+        data['instances'] = AnomalyInstances.stub(stub[:instances]) unless stub[:instances].nil?
         data
       end
     end
@@ -714,7 +716,7 @@ module AWS::SDK::CodeGuruProfiler
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AnomalyInstance.stub(element) unless element.nil?
+          data << AnomalyInstance.stub(element) unless element.nil?
         end
         data
       end
@@ -739,7 +741,7 @@ module AWS::SDK::CodeGuruProfiler
         data['id'] = stub[:id] unless stub[:id].nil?
         data['startTime'] = Hearth::TimeHelper.to_date_time(stub[:start_time]) unless stub[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_date_time(stub[:end_time]) unless stub[:end_time].nil?
-        data['userFeedback'] = Stubs::UserFeedback.stub(stub[:user_feedback]) unless stub[:user_feedback].nil?
+        data['userFeedback'] = UserFeedback.stub(stub[:user_feedback]) unless stub[:user_feedback].nil?
         data
       end
     end
@@ -779,7 +781,7 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         data['frameName'] = stub[:frame_name] unless stub[:frame_name].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['threadStates'] = Stubs::Strings.stub(stub[:thread_states]) unless stub[:thread_states].nil?
+        data['threadStates'] = Strings.stub(stub[:thread_states]) unless stub[:thread_states].nil?
         data
       end
     end
@@ -818,7 +820,7 @@ module AWS::SDK::CodeGuruProfiler
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Recommendation.stub(element) unless element.nil?
+          data << Recommendation.stub(element) unless element.nil?
         end
         data
       end
@@ -844,8 +846,8 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         data['allMatchesCount'] = stub[:all_matches_count] unless stub[:all_matches_count].nil?
         data['allMatchesSum'] = Hearth::NumberHelper.serialize(stub[:all_matches_sum])
-        data['pattern'] = Stubs::Pattern.stub(stub[:pattern]) unless stub[:pattern].nil?
-        data['topMatches'] = Stubs::Matches.stub(stub[:top_matches]) unless stub[:top_matches].nil?
+        data['pattern'] = Pattern.stub(stub[:pattern]) unless stub[:pattern].nil?
+        data['topMatches'] = Matches.stub(stub[:top_matches]) unless stub[:top_matches].nil?
         data['startTime'] = Hearth::TimeHelper.to_date_time(stub[:start_time]) unless stub[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_date_time(stub[:end_time]) unless stub[:end_time].nil?
         data
@@ -866,7 +868,7 @@ module AWS::SDK::CodeGuruProfiler
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Match.stub(element) unless element.nil?
+          data << Match.stub(element) unless element.nil?
         end
         data
       end
@@ -917,9 +919,9 @@ module AWS::SDK::CodeGuruProfiler
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['resolutionSteps'] = stub[:resolution_steps] unless stub[:resolution_steps].nil?
-        data['targetFrames'] = Stubs::TargetFrames.stub(stub[:target_frames]) unless stub[:target_frames].nil?
+        data['targetFrames'] = TargetFrames.stub(stub[:target_frames]) unless stub[:target_frames].nil?
         data['thresholdPercent'] = Hearth::NumberHelper.serialize(stub[:threshold_percent])
-        data['countersToAggregate'] = Stubs::Strings.stub(stub[:counters_to_aggregate]) unless stub[:counters_to_aggregate].nil?
+        data['countersToAggregate'] = Strings.stub(stub[:counters_to_aggregate]) unless stub[:counters_to_aggregate].nil?
         data
       end
     end
@@ -938,7 +940,7 @@ module AWS::SDK::CodeGuruProfiler
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TargetFrame.stub(element) unless element.nil?
+          data << TargetFrame.stub(element) unless element.nil?
         end
         data
       end
@@ -977,9 +979,9 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['findingsReportSummaries'] = Stubs::FindingsReportSummaries.stub(stub[:findings_report_summaries]) unless stub[:findings_report_summaries].nil?
+        data['findingsReportSummaries'] = FindingsReportSummaries.stub(stub[:findings_report_summaries]) unless stub[:findings_report_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -996,9 +998,9 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['profileTimes'] = Stubs::ProfileTimes.stub(stub[:profile_times]) unless stub[:profile_times].nil?
+        data['profileTimes'] = ProfileTimes.stub(stub[:profile_times]) unless stub[:profile_times].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1016,7 +1018,7 @@ module AWS::SDK::CodeGuruProfiler
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProfileTime.stub(element) unless element.nil?
+          data << ProfileTime.stub(element) unless element.nil?
         end
         data
       end
@@ -1054,10 +1056,10 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['profilingGroupNames'] = Stubs::ProfilingGroupNames.stub(stub[:profiling_group_names]) unless stub[:profiling_group_names].nil?
-        data['profilingGroups'] = Stubs::ProfilingGroupDescriptions.stub(stub[:profiling_groups]) unless stub[:profiling_groups].nil?
+        data['profilingGroupNames'] = ProfilingGroupNames.stub(stub[:profiling_group_names]) unless stub[:profiling_group_names].nil?
+        data['profilingGroups'] = ProfilingGroupDescriptions.stub(stub[:profiling_groups]) unless stub[:profiling_groups].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1075,7 +1077,7 @@ module AWS::SDK::CodeGuruProfiler
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProfilingGroupDescription.stub(element) unless element.nil?
+          data << ProfilingGroupDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -1113,8 +1115,8 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1146,7 +1148,7 @@ module AWS::SDK::CodeGuruProfiler
         http_resp.headers['Content-Type'] = 'application/json'
         data['policy'] = stub[:policy] unless stub[:policy].nil?
         data['revisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1162,8 +1164,8 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['notificationConfiguration'] = Stubs::NotificationConfiguration.stub(stub[:notification_configuration]) unless stub[:notification_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['notificationConfiguration'] = NotificationConfiguration.stub(stub[:notification_configuration]) unless stub[:notification_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1182,7 +1184,7 @@ module AWS::SDK::CodeGuruProfiler
         http_resp.headers['Content-Type'] = 'application/json'
         data['policy'] = stub[:policy] unless stub[:policy].nil?
         data['revisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1237,8 +1239,8 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::ProfilingGroupDescription.stub(stub[:profiling_group]) unless stub[:profiling_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = ProfilingGroupDescription.stub(stub[:profiling_group]) unless stub[:profiling_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

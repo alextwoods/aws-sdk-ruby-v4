@@ -76,7 +76,7 @@ module AWS::SDK::Outposts
       def self.parse(http_resp)
         data = Types::CreateOrderOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.order = (Parsers::Order.parse(map['Order']) unless map['Order'].nil?)
+        data.order = (Order.parse(map['Order']) unless map['Order'].nil?)
         data
       end
     end
@@ -87,7 +87,7 @@ module AWS::SDK::Outposts
         data.outpost_id = map['OutpostId']
         data.order_id = map['OrderId']
         data.status = map['Status']
-        data.line_items = (Parsers::LineItemListDefinition.parse(map['LineItems']) unless map['LineItems'].nil?)
+        data.line_items = (LineItemListDefinition.parse(map['LineItems']) unless map['LineItems'].nil?)
         data.payment_option = map['PaymentOption']
         data.order_submission_date = Time.at(map['OrderSubmissionDate'].to_i) if map['OrderSubmissionDate']
         data.order_fulfilled_date = Time.at(map['OrderFulfilledDate'].to_i) if map['OrderFulfilledDate']
@@ -99,7 +99,7 @@ module AWS::SDK::Outposts
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LineItem.parse(value) unless value.nil?
+          data << LineItem.parse(value) unless value.nil?
         end
         data
       end
@@ -131,7 +131,7 @@ module AWS::SDK::Outposts
       def self.parse(http_resp)
         data = Types::CreateOutpostOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.outpost = (Parsers::Outpost.parse(map['Outpost']) unless map['Outpost'].nil?)
+        data.outpost = (Outpost.parse(map['Outpost']) unless map['Outpost'].nil?)
         data
       end
     end
@@ -148,7 +148,7 @@ module AWS::SDK::Outposts
         data.life_cycle_status = map['LifeCycleStatus']
         data.availability_zone = map['AvailabilityZone']
         data.availability_zone_id = map['AvailabilityZoneId']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.site_arn = map['SiteArn']
         data.supported_hardware_type = map['SupportedHardwareType']
         return data
@@ -170,7 +170,7 @@ module AWS::SDK::Outposts
       def self.parse(http_resp)
         data = Types::CreateSiteOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.site = (Parsers::Site.parse(map['Site']) unless map['Site'].nil?)
+        data.site = (Site.parse(map['Site']) unless map['Site'].nil?)
         data
       end
     end
@@ -182,13 +182,13 @@ module AWS::SDK::Outposts
         data.account_id = map['AccountId']
         data.name = map['Name']
         data.description = map['Description']
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.site_arn = map['SiteArn']
         data.notes = map['Notes']
         data.operating_address_country_code = map['OperatingAddressCountryCode']
         data.operating_address_state_or_region = map['OperatingAddressStateOrRegion']
         data.operating_address_city = map['OperatingAddressCity']
-        data.rack_physical_properties = (Parsers::RackPhysicalProperties.parse(map['RackPhysicalProperties']) unless map['RackPhysicalProperties'].nil?)
+        data.rack_physical_properties = (RackPhysicalProperties.parse(map['RackPhysicalProperties']) unless map['RackPhysicalProperties'].nil?)
         return data
       end
     end
@@ -232,7 +232,7 @@ module AWS::SDK::Outposts
       def self.parse(http_resp)
         data = Types::GetCatalogItemOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.catalog_item = (Parsers::CatalogItem.parse(map['CatalogItem']) unless map['CatalogItem'].nil?)
+        data.catalog_item = (CatalogItem.parse(map['CatalogItem']) unless map['CatalogItem'].nil?)
         data
       end
     end
@@ -242,11 +242,11 @@ module AWS::SDK::Outposts
         data = Types::CatalogItem.new
         data.catalog_item_id = map['CatalogItemId']
         data.item_status = map['ItemStatus']
-        data.ec2_capacities = (Parsers::EC2CapacityListDefinition.parse(map['EC2Capacities']) unless map['EC2Capacities'].nil?)
+        data.ec2_capacities = (EC2CapacityListDefinition.parse(map['EC2Capacities']) unless map['EC2Capacities'].nil?)
         data.power_kva = Hearth::NumberHelper.deserialize(map['PowerKva'])
         data.weight_lbs = map['WeightLbs']
-        data.supported_uplink_gbps = (Parsers::SupportedUplinkGbpsListDefinition.parse(map['SupportedUplinkGbps']) unless map['SupportedUplinkGbps'].nil?)
-        data.supported_storage = (Parsers::SupportedStorageList.parse(map['SupportedStorage']) unless map['SupportedStorage'].nil?)
+        data.supported_uplink_gbps = (SupportedUplinkGbpsListDefinition.parse(map['SupportedUplinkGbps']) unless map['SupportedUplinkGbps'].nil?)
+        data.supported_storage = (SupportedStorageList.parse(map['SupportedStorage']) unless map['SupportedStorage'].nil?)
         return data
       end
     end
@@ -275,7 +275,7 @@ module AWS::SDK::Outposts
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EC2Capacity.parse(value) unless value.nil?
+          data << EC2Capacity.parse(value) unless value.nil?
         end
         data
       end
@@ -297,7 +297,7 @@ module AWS::SDK::Outposts
         data = Types::GetConnectionOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.connection_id = map['ConnectionId']
-        data.connection_details = (Parsers::ConnectionDetails.parse(map['ConnectionDetails']) unless map['ConnectionDetails'].nil?)
+        data.connection_details = (ConnectionDetails.parse(map['ConnectionDetails']) unless map['ConnectionDetails'].nil?)
         data
       end
     end
@@ -310,7 +310,7 @@ module AWS::SDK::Outposts
         data.server_endpoint = map['ServerEndpoint']
         data.client_tunnel_address = map['ClientTunnelAddress']
         data.server_tunnel_address = map['ServerTunnelAddress']
-        data.allowed_ips = (Parsers::CIDRList.parse(map['AllowedIps']) unless map['AllowedIps'].nil?)
+        data.allowed_ips = (CIDRList.parse(map['AllowedIps']) unless map['AllowedIps'].nil?)
         return data
       end
     end
@@ -330,7 +330,7 @@ module AWS::SDK::Outposts
       def self.parse(http_resp)
         data = Types::GetOrderOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.order = (Parsers::Order.parse(map['Order']) unless map['Order'].nil?)
+        data.order = (Order.parse(map['Order']) unless map['Order'].nil?)
         data
       end
     end
@@ -340,7 +340,7 @@ module AWS::SDK::Outposts
       def self.parse(http_resp)
         data = Types::GetOutpostOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.outpost = (Parsers::Outpost.parse(map['Outpost']) unless map['Outpost'].nil?)
+        data.outpost = (Outpost.parse(map['Outpost']) unless map['Outpost'].nil?)
         data
       end
     end
@@ -350,7 +350,7 @@ module AWS::SDK::Outposts
       def self.parse(http_resp)
         data = Types::GetOutpostInstanceTypesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.instance_types = (Parsers::InstanceTypeListDefinition.parse(map['InstanceTypes']) unless map['InstanceTypes'].nil?)
+        data.instance_types = (InstanceTypeListDefinition.parse(map['InstanceTypes']) unless map['InstanceTypes'].nil?)
         data.next_token = map['NextToken']
         data.outpost_id = map['OutpostId']
         data.outpost_arn = map['OutpostArn']
@@ -362,7 +362,7 @@ module AWS::SDK::Outposts
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InstanceTypeItem.parse(value) unless value.nil?
+          data << InstanceTypeItem.parse(value) unless value.nil?
         end
         data
       end
@@ -381,7 +381,7 @@ module AWS::SDK::Outposts
       def self.parse(http_resp)
         data = Types::GetSiteOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.site = (Parsers::Site.parse(map['Site']) unless map['Site'].nil?)
+        data.site = (Site.parse(map['Site']) unless map['Site'].nil?)
         data
       end
     end
@@ -393,7 +393,7 @@ module AWS::SDK::Outposts
         map = Hearth::JSON.load(http_resp.body)
         data.site_id = map['SiteId']
         data.address_type = map['AddressType']
-        data.address = (Parsers::Address.parse(map['Address']) unless map['Address'].nil?)
+        data.address = (Address.parse(map['Address']) unless map['Address'].nil?)
         data
       end
     end
@@ -421,7 +421,7 @@ module AWS::SDK::Outposts
       def self.parse(http_resp)
         data = Types::ListAssetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assets = (Parsers::AssetListDefinition.parse(map['Assets']) unless map['Assets'].nil?)
+        data.assets = (AssetListDefinition.parse(map['Assets']) unless map['Assets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -431,7 +431,7 @@ module AWS::SDK::Outposts
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetInfo.parse(value) unless value.nil?
+          data << AssetInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -443,7 +443,7 @@ module AWS::SDK::Outposts
         data.asset_id = map['AssetId']
         data.rack_id = map['RackId']
         data.asset_type = map['AssetType']
-        data.compute_attributes = (Parsers::ComputeAttributes.parse(map['ComputeAttributes']) unless map['ComputeAttributes'].nil?)
+        data.compute_attributes = (ComputeAttributes.parse(map['ComputeAttributes']) unless map['ComputeAttributes'].nil?)
         return data
       end
     end
@@ -461,7 +461,7 @@ module AWS::SDK::Outposts
       def self.parse(http_resp)
         data = Types::ListCatalogItemsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.catalog_items = (Parsers::CatalogItemListDefinition.parse(map['CatalogItems']) unless map['CatalogItems'].nil?)
+        data.catalog_items = (CatalogItemListDefinition.parse(map['CatalogItems']) unless map['CatalogItems'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -471,7 +471,7 @@ module AWS::SDK::Outposts
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CatalogItem.parse(value) unless value.nil?
+          data << CatalogItem.parse(value) unless value.nil?
         end
         data
       end
@@ -482,7 +482,7 @@ module AWS::SDK::Outposts
       def self.parse(http_resp)
         data = Types::ListOrdersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.orders = (Parsers::OrderSummaryListDefinition.parse(map['Orders']) unless map['Orders'].nil?)
+        data.orders = (OrderSummaryListDefinition.parse(map['Orders']) unless map['Orders'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -492,7 +492,7 @@ module AWS::SDK::Outposts
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::OrderSummary.parse(value) unless value.nil?
+          data << OrderSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -505,7 +505,7 @@ module AWS::SDK::Outposts
         data.order_id = map['OrderId']
         data.order_type = map['OrderType']
         data.status = map['Status']
-        data.line_item_counts_by_status = (Parsers::LineItemStatusCounts.parse(map['LineItemCountsByStatus']) unless map['LineItemCountsByStatus'].nil?)
+        data.line_item_counts_by_status = (LineItemStatusCounts.parse(map['LineItemCountsByStatus']) unless map['LineItemCountsByStatus'].nil?)
         data.order_submission_date = Time.at(map['OrderSubmissionDate'].to_i) if map['OrderSubmissionDate']
         data.order_fulfilled_date = Time.at(map['OrderFulfilledDate'].to_i) if map['OrderFulfilledDate']
         return data
@@ -527,7 +527,7 @@ module AWS::SDK::Outposts
       def self.parse(http_resp)
         data = Types::ListOutpostsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.outposts = (Parsers::OutpostListDefinition.parse(map['Outposts']) unless map['Outposts'].nil?)
+        data.outposts = (OutpostListDefinition.parse(map['Outposts']) unless map['Outposts'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -537,7 +537,7 @@ module AWS::SDK::Outposts
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Outpost.parse(value) unless value.nil?
+          data << Outpost.parse(value) unless value.nil?
         end
         data
       end
@@ -548,7 +548,7 @@ module AWS::SDK::Outposts
       def self.parse(http_resp)
         data = Types::ListSitesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sites = (Parsers::SiteListDefinition.parse(map['Sites']) unless map['Sites'].nil?)
+        data.sites = (SiteListDefinition.parse(map['Sites']) unless map['Sites'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -558,7 +558,7 @@ module AWS::SDK::Outposts
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Site.parse(value) unless value.nil?
+          data << Site.parse(value) unless value.nil?
         end
         data
       end
@@ -569,7 +569,7 @@ module AWS::SDK::Outposts
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -608,7 +608,7 @@ module AWS::SDK::Outposts
       def self.parse(http_resp)
         data = Types::UpdateOutpostOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.outpost = (Parsers::Outpost.parse(map['Outpost']) unless map['Outpost'].nil?)
+        data.outpost = (Outpost.parse(map['Outpost']) unless map['Outpost'].nil?)
         data
       end
     end
@@ -618,7 +618,7 @@ module AWS::SDK::Outposts
       def self.parse(http_resp)
         data = Types::UpdateSiteOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.site = (Parsers::Site.parse(map['Site']) unless map['Site'].nil?)
+        data.site = (Site.parse(map['Site']) unless map['Site'].nil?)
         data
       end
     end
@@ -629,7 +629,7 @@ module AWS::SDK::Outposts
         data = Types::UpdateSiteAddressOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.address_type = map['AddressType']
-        data.address = (Parsers::Address.parse(map['Address']) unless map['Address'].nil?)
+        data.address = (Address.parse(map['Address']) unless map['Address'].nil?)
         data
       end
     end
@@ -639,7 +639,7 @@ module AWS::SDK::Outposts
       def self.parse(http_resp)
         data = Types::UpdateSiteRackPhysicalPropertiesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.site = (Parsers::Site.parse(map['Site']) unless map['Site'].nil?)
+        data.site = (Site.parse(map['Site']) unless map['Site'].nil?)
         data
       end
     end

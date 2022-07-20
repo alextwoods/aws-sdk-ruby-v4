@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MarketplaceCatalog
   module Stubs
 
@@ -25,7 +27,7 @@ module AWS::SDK::MarketplaceCatalog
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChangeSetId'] = stub[:change_set_id] unless stub[:change_set_id].nil?
         data['ChangeSetArn'] = stub[:change_set_arn] unless stub[:change_set_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -57,8 +59,8 @@ module AWS::SDK::MarketplaceCatalog
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['FailureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data['FailureDescription'] = stub[:failure_description] unless stub[:failure_description].nil?
-        data['ChangeSet'] = Stubs::ChangeSetDescription.stub(stub[:change_set]) unless stub[:change_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChangeSet'] = ChangeSetDescription.stub(stub[:change_set]) unless stub[:change_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -76,7 +78,7 @@ module AWS::SDK::MarketplaceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChangeSummary.stub(element) unless element.nil?
+          data << ChangeSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -100,9 +102,9 @@ module AWS::SDK::MarketplaceCatalog
         stub ||= Types::ChangeSummary.new
         data = {}
         data['ChangeType'] = stub[:change_type] unless stub[:change_type].nil?
-        data['Entity'] = Stubs::Entity.stub(stub[:entity]) unless stub[:entity].nil?
+        data['Entity'] = Entity.stub(stub[:entity]) unless stub[:entity].nil?
         data['Details'] = stub[:details] unless stub[:details].nil?
-        data['ErrorDetailList'] = Stubs::ErrorDetailList.stub(stub[:error_detail_list]) unless stub[:error_detail_list].nil?
+        data['ErrorDetailList'] = ErrorDetailList.stub(stub[:error_detail_list]) unless stub[:error_detail_list].nil?
         data['ChangeName'] = stub[:change_name] unless stub[:change_name].nil?
         data
       end
@@ -122,7 +124,7 @@ module AWS::SDK::MarketplaceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ErrorDetail.stub(element) unless element.nil?
+          data << ErrorDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -189,7 +191,7 @@ module AWS::SDK::MarketplaceCatalog
         data['EntityArn'] = stub[:entity_arn] unless stub[:entity_arn].nil?
         data['LastModifiedDate'] = stub[:last_modified_date] unless stub[:last_modified_date].nil?
         data['Details'] = stub[:details] unless stub[:details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -206,9 +208,9 @@ module AWS::SDK::MarketplaceCatalog
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ChangeSetSummaryList'] = Stubs::ChangeSetSummaryList.stub(stub[:change_set_summary_list]) unless stub[:change_set_summary_list].nil?
+        data['ChangeSetSummaryList'] = ChangeSetSummaryList.stub(stub[:change_set_summary_list]) unless stub[:change_set_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -226,7 +228,7 @@ module AWS::SDK::MarketplaceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChangeSetSummaryListItem.stub(element) unless element.nil?
+          data << ChangeSetSummaryListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -258,7 +260,7 @@ module AWS::SDK::MarketplaceCatalog
         data['StartTime'] = stub[:start_time] unless stub[:start_time].nil?
         data['EndTime'] = stub[:end_time] unless stub[:end_time].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['EntityIdList'] = Stubs::ResourceIdList.stub(stub[:entity_id_list]) unless stub[:entity_id_list].nil?
+        data['EntityIdList'] = ResourceIdList.stub(stub[:entity_id_list]) unless stub[:entity_id_list].nil?
         data['FailureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data
       end
@@ -297,9 +299,9 @@ module AWS::SDK::MarketplaceCatalog
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['EntitySummaryList'] = Stubs::EntitySummaryList.stub(stub[:entity_summary_list]) unless stub[:entity_summary_list].nil?
+        data['EntitySummaryList'] = EntitySummaryList.stub(stub[:entity_summary_list]) unless stub[:entity_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -317,7 +319,7 @@ module AWS::SDK::MarketplaceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EntitySummary.stub(element) unless element.nil?
+          data << EntitySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -366,7 +368,7 @@ module AWS::SDK::MarketplaceCatalog
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChangeSetId'] = stub[:change_set_id] unless stub[:change_set_id].nil?
         data['ChangeSetArn'] = stub[:change_set_arn] unless stub[:change_set_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

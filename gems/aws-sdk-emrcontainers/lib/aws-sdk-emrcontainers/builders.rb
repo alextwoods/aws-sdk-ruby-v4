@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::EMRContainers
   module Builders
 
@@ -53,10 +55,10 @@ module AWS::SDK::EMRContainers
         data['releaseLabel'] = input[:release_label] unless input[:release_label].nil?
         data['executionRoleArn'] = input[:execution_role_arn] unless input[:execution_role_arn].nil?
         data['certificateArn'] = input[:certificate_arn] unless input[:certificate_arn].nil?
-        data['configurationOverrides'] = Builders::ConfigurationOverrides.build(input[:configuration_overrides]) unless input[:configuration_overrides].nil?
+        data['configurationOverrides'] = ConfigurationOverrides.build(input[:configuration_overrides]) unless input[:configuration_overrides].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -75,8 +77,8 @@ module AWS::SDK::EMRContainers
     class ConfigurationOverrides
       def self.build(input)
         data = {}
-        data['applicationConfiguration'] = Builders::ConfigurationList.build(input[:application_configuration]) unless input[:application_configuration].nil?
-        data['monitoringConfiguration'] = Builders::MonitoringConfiguration.build(input[:monitoring_configuration]) unless input[:monitoring_configuration].nil?
+        data['applicationConfiguration'] = ConfigurationList.build(input[:application_configuration]) unless input[:application_configuration].nil?
+        data['monitoringConfiguration'] = MonitoringConfiguration.build(input[:monitoring_configuration]) unless input[:monitoring_configuration].nil?
         data
       end
     end
@@ -86,8 +88,8 @@ module AWS::SDK::EMRContainers
       def self.build(input)
         data = {}
         data['persistentAppUI'] = input[:persistent_app_ui] unless input[:persistent_app_ui].nil?
-        data['cloudWatchMonitoringConfiguration'] = Builders::CloudWatchMonitoringConfiguration.build(input[:cloud_watch_monitoring_configuration]) unless input[:cloud_watch_monitoring_configuration].nil?
-        data['s3MonitoringConfiguration'] = Builders::S3MonitoringConfiguration.build(input[:s3_monitoring_configuration]) unless input[:s3_monitoring_configuration].nil?
+        data['cloudWatchMonitoringConfiguration'] = CloudWatchMonitoringConfiguration.build(input[:cloud_watch_monitoring_configuration]) unless input[:cloud_watch_monitoring_configuration].nil?
+        data['s3MonitoringConfiguration'] = S3MonitoringConfiguration.build(input[:s3_monitoring_configuration]) unless input[:s3_monitoring_configuration].nil?
         data
       end
     end
@@ -116,7 +118,7 @@ module AWS::SDK::EMRContainers
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Configuration.build(element) unless element.nil?
+          data << Configuration.build(element) unless element.nil?
         end
         data
       end
@@ -127,8 +129,8 @@ module AWS::SDK::EMRContainers
       def self.build(input)
         data = {}
         data['classification'] = input[:classification] unless input[:classification].nil?
-        data['properties'] = Builders::SensitivePropertiesMap.build(input[:properties]) unless input[:properties].nil?
-        data['configurations'] = Builders::ConfigurationList.build(input[:configurations]) unless input[:configurations].nil?
+        data['properties'] = SensitivePropertiesMap.build(input[:properties]) unless input[:properties].nil?
+        data['configurations'] = ConfigurationList.build(input[:configurations]) unless input[:configurations].nil?
         data
       end
     end
@@ -155,10 +157,10 @@ module AWS::SDK::EMRContainers
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['containerProvider'] = Builders::ContainerProvider.build(input[:container_provider]) unless input[:container_provider].nil?
+        data['containerProvider'] = ContainerProvider.build(input[:container_provider]) unless input[:container_provider].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -168,7 +170,7 @@ module AWS::SDK::EMRContainers
         data = {}
         data['type'] = input[:type] unless input[:type].nil?
         data['id'] = input[:id] unless input[:id].nil?
-        data['info'] = Builders::ContainerInfo.build(input[:info]) unless input[:info].nil?
+        data['info'] = ContainerInfo.build(input[:info]) unless input[:info].nil?
         data
       end
     end
@@ -179,7 +181,7 @@ module AWS::SDK::EMRContainers
         data = {}
         case input
         when Types::ContainerInfo::EksInfo
-          data['eksInfo'] = (Builders::EksInfo.build(input) unless input.nil?)
+          data['eksInfo'] = (EksInfo.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ContainerInfo"
@@ -456,10 +458,10 @@ module AWS::SDK::EMRContainers
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
         data['executionRoleArn'] = input[:execution_role_arn] unless input[:execution_role_arn].nil?
         data['releaseLabel'] = input[:release_label] unless input[:release_label].nil?
-        data['jobDriver'] = Builders::JobDriver.build(input[:job_driver]) unless input[:job_driver].nil?
-        data['configurationOverrides'] = Builders::ConfigurationOverrides.build(input[:configuration_overrides]) unless input[:configuration_overrides].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['jobDriver'] = JobDriver.build(input[:job_driver]) unless input[:job_driver].nil?
+        data['configurationOverrides'] = ConfigurationOverrides.build(input[:configuration_overrides]) unless input[:configuration_overrides].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -467,7 +469,7 @@ module AWS::SDK::EMRContainers
     class JobDriver
       def self.build(input)
         data = {}
-        data['sparkSubmitJobDriver'] = Builders::SparkSubmitJobDriver.build(input[:spark_submit_job_driver]) unless input[:spark_submit_job_driver].nil?
+        data['sparkSubmitJobDriver'] = SparkSubmitJobDriver.build(input[:spark_submit_job_driver]) unless input[:spark_submit_job_driver].nil?
         data
       end
     end
@@ -477,7 +479,7 @@ module AWS::SDK::EMRContainers
       def self.build(input)
         data = {}
         data['entryPoint'] = input[:entry_point] unless input[:entry_point].nil?
-        data['entryPointArguments'] = Builders::EntryPointArguments.build(input[:entry_point_arguments]) unless input[:entry_point_arguments].nil?
+        data['entryPointArguments'] = EntryPointArguments.build(input[:entry_point_arguments]) unless input[:entry_point_arguments].nil?
         data['sparkSubmitParameters'] = input[:spark_submit_parameters] unless input[:spark_submit_parameters].nil?
         data
       end
@@ -511,8 +513,8 @@ module AWS::SDK::EMRContainers
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

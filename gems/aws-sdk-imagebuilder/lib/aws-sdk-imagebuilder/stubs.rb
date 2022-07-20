@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Imagebuilder
   module Stubs
 
@@ -27,7 +29,7 @@ module AWS::SDK::Imagebuilder
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['imageBuildVersionArn'] = stub[:image_build_version_arn] unless stub[:image_build_version_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -48,7 +50,7 @@ module AWS::SDK::Imagebuilder
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['componentBuildVersionArn'] = stub[:component_build_version_arn] unless stub[:component_build_version_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -69,7 +71,7 @@ module AWS::SDK::Imagebuilder
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['containerRecipeArn'] = stub[:container_recipe_arn] unless stub[:container_recipe_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -90,7 +92,7 @@ module AWS::SDK::Imagebuilder
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['distributionConfigurationArn'] = stub[:distribution_configuration_arn] unless stub[:distribution_configuration_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -111,7 +113,7 @@ module AWS::SDK::Imagebuilder
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['imageBuildVersionArn'] = stub[:image_build_version_arn] unless stub[:image_build_version_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -132,7 +134,7 @@ module AWS::SDK::Imagebuilder
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['imagePipelineArn'] = stub[:image_pipeline_arn] unless stub[:image_pipeline_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -153,7 +155,7 @@ module AWS::SDK::Imagebuilder
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['imageRecipeArn'] = stub[:image_recipe_arn] unless stub[:image_recipe_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -174,7 +176,7 @@ module AWS::SDK::Imagebuilder
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['infrastructureConfigurationArn'] = stub[:infrastructure_configuration_arn] unless stub[:infrastructure_configuration_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -193,7 +195,7 @@ module AWS::SDK::Imagebuilder
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['componentBuildVersionArn'] = stub[:component_build_version_arn] unless stub[:component_build_version_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -212,7 +214,7 @@ module AWS::SDK::Imagebuilder
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['containerRecipeArn'] = stub[:container_recipe_arn] unless stub[:container_recipe_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -231,7 +233,7 @@ module AWS::SDK::Imagebuilder
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['distributionConfigurationArn'] = stub[:distribution_configuration_arn] unless stub[:distribution_configuration_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -250,7 +252,7 @@ module AWS::SDK::Imagebuilder
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['imageBuildVersionArn'] = stub[:image_build_version_arn] unless stub[:image_build_version_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -269,7 +271,7 @@ module AWS::SDK::Imagebuilder
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['imagePipelineArn'] = stub[:image_pipeline_arn] unless stub[:image_pipeline_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -288,7 +290,7 @@ module AWS::SDK::Imagebuilder
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['imageRecipeArn'] = stub[:image_recipe_arn] unless stub[:image_recipe_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -307,7 +309,7 @@ module AWS::SDK::Imagebuilder
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['infrastructureConfigurationArn'] = stub[:infrastructure_configuration_arn] unless stub[:infrastructure_configuration_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -325,8 +327,8 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['component'] = Stubs::Component.stub(stub[:component]) unless stub[:component].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['component'] = Component.stub(stub[:component]) unless stub[:component].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -365,15 +367,15 @@ module AWS::SDK::Imagebuilder
         data['changeDescription'] = stub[:change_description] unless stub[:change_description].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['platform'] = stub[:platform] unless stub[:platform].nil?
-        data['supportedOsVersions'] = Stubs::OsVersionList.stub(stub[:supported_os_versions]) unless stub[:supported_os_versions].nil?
-        data['state'] = Stubs::ComponentState.stub(stub[:state]) unless stub[:state].nil?
-        data['parameters'] = Stubs::ComponentParameterDetailList.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['supportedOsVersions'] = OsVersionList.stub(stub[:supported_os_versions]) unless stub[:supported_os_versions].nil?
+        data['state'] = ComponentState.stub(stub[:state]) unless stub[:state].nil?
+        data['parameters'] = ComponentParameterDetailList.stub(stub[:parameters]) unless stub[:parameters].nil?
         data['owner'] = stub[:owner] unless stub[:owner].nil?
         data['data'] = stub[:data] unless stub[:data].nil?
         data['kmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['encrypted'] = stub[:encrypted] unless stub[:encrypted].nil?
         data['dateCreated'] = stub[:date_created] unless stub[:date_created].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -412,7 +414,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComponentParameterDetail.stub(element) unless element.nil?
+          data << ComponentParameterDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -436,7 +438,7 @@ module AWS::SDK::Imagebuilder
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['defaultValue'] = Stubs::ComponentParameterValueList.stub(stub[:default_value]) unless stub[:default_value].nil?
+        data['defaultValue'] = ComponentParameterValueList.stub(stub[:default_value]) unless stub[:default_value].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data
       end
@@ -517,7 +519,7 @@ module AWS::SDK::Imagebuilder
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['policy'] = stub[:policy] unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -535,8 +537,8 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['containerRecipe'] = Stubs::ContainerRecipe.stub(stub[:container_recipe]) unless stub[:container_recipe].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['containerRecipe'] = ContainerRecipe.stub(stub[:container_recipe]) unless stub[:container_recipe].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -576,16 +578,16 @@ module AWS::SDK::Imagebuilder
         data['platform'] = stub[:platform] unless stub[:platform].nil?
         data['owner'] = stub[:owner] unless stub[:owner].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['components'] = Stubs::ComponentConfigurationList.stub(stub[:components]) unless stub[:components].nil?
-        data['instanceConfiguration'] = Stubs::InstanceConfiguration.stub(stub[:instance_configuration]) unless stub[:instance_configuration].nil?
+        data['components'] = ComponentConfigurationList.stub(stub[:components]) unless stub[:components].nil?
+        data['instanceConfiguration'] = InstanceConfiguration.stub(stub[:instance_configuration]) unless stub[:instance_configuration].nil?
         data['dockerfileTemplateData'] = stub[:dockerfile_template_data] unless stub[:dockerfile_template_data].nil?
         data['kmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['encrypted'] = stub[:encrypted] unless stub[:encrypted].nil?
         data['parentImage'] = stub[:parent_image] unless stub[:parent_image].nil?
         data['dateCreated'] = stub[:date_created] unless stub[:date_created].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['workingDirectory'] = stub[:working_directory] unless stub[:working_directory].nil?
-        data['targetRepository'] = Stubs::TargetContainerRepository.stub(stub[:target_repository]) unless stub[:target_repository].nil?
+        data['targetRepository'] = TargetContainerRepository.stub(stub[:target_repository]) unless stub[:target_repository].nil?
         data
       end
     end
@@ -625,7 +627,7 @@ module AWS::SDK::Imagebuilder
         stub ||= Types::InstanceConfiguration.new
         data = {}
         data['image'] = stub[:image] unless stub[:image].nil?
-        data['blockDeviceMappings'] = Stubs::InstanceBlockDeviceMappings.stub(stub[:block_device_mappings]) unless stub[:block_device_mappings].nil?
+        data['blockDeviceMappings'] = InstanceBlockDeviceMappings.stub(stub[:block_device_mappings]) unless stub[:block_device_mappings].nil?
         data
       end
     end
@@ -644,7 +646,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceBlockDeviceMapping.stub(element) unless element.nil?
+          data << InstanceBlockDeviceMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -667,7 +669,7 @@ module AWS::SDK::Imagebuilder
         stub ||= Types::InstanceBlockDeviceMapping.new
         data = {}
         data['deviceName'] = stub[:device_name] unless stub[:device_name].nil?
-        data['ebs'] = Stubs::EbsInstanceBlockDeviceSpecification.stub(stub[:ebs]) unless stub[:ebs].nil?
+        data['ebs'] = EbsInstanceBlockDeviceSpecification.stub(stub[:ebs]) unless stub[:ebs].nil?
         data['virtualName'] = stub[:virtual_name] unless stub[:virtual_name].nil?
         data['noDevice'] = stub[:no_device] unless stub[:no_device].nil?
         data
@@ -720,7 +722,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComponentConfiguration.stub(element) unless element.nil?
+          data << ComponentConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -741,7 +743,7 @@ module AWS::SDK::Imagebuilder
         stub ||= Types::ComponentConfiguration.new
         data = {}
         data['componentArn'] = stub[:component_arn] unless stub[:component_arn].nil?
-        data['parameters'] = Stubs::ComponentParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['parameters'] = ComponentParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -760,7 +762,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComponentParameter.stub(element) unless element.nil?
+          data << ComponentParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -781,7 +783,7 @@ module AWS::SDK::Imagebuilder
         stub ||= Types::ComponentParameter.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['value'] = Stubs::ComponentParameterValueList.stub(stub[:value]) unless stub[:value].nil?
+        data['value'] = ComponentParameterValueList.stub(stub[:value]) unless stub[:value].nil?
         data
       end
     end
@@ -801,7 +803,7 @@ module AWS::SDK::Imagebuilder
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['policy'] = stub[:policy] unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -819,8 +821,8 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['distributionConfiguration'] = Stubs::DistributionConfiguration.stub(stub[:distribution_configuration]) unless stub[:distribution_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['distributionConfiguration'] = DistributionConfiguration.stub(stub[:distribution_configuration]) unless stub[:distribution_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -847,11 +849,11 @@ module AWS::SDK::Imagebuilder
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['distributions'] = Stubs::DistributionList.stub(stub[:distributions]) unless stub[:distributions].nil?
+        data['distributions'] = DistributionList.stub(stub[:distributions]) unless stub[:distributions].nil?
         data['timeoutMinutes'] = stub[:timeout_minutes] unless stub[:timeout_minutes].nil?
         data['dateCreated'] = stub[:date_created] unless stub[:date_created].nil?
         data['dateUpdated'] = stub[:date_updated] unless stub[:date_updated].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -870,7 +872,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Distribution.stub(element) unless element.nil?
+          data << Distribution.stub(element) unless element.nil?
         end
         data
       end
@@ -896,12 +898,12 @@ module AWS::SDK::Imagebuilder
         stub ||= Types::Distribution.new
         data = {}
         data['region'] = stub[:region] unless stub[:region].nil?
-        data['amiDistributionConfiguration'] = Stubs::AmiDistributionConfiguration.stub(stub[:ami_distribution_configuration]) unless stub[:ami_distribution_configuration].nil?
-        data['containerDistributionConfiguration'] = Stubs::ContainerDistributionConfiguration.stub(stub[:container_distribution_configuration]) unless stub[:container_distribution_configuration].nil?
-        data['licenseConfigurationArns'] = Stubs::LicenseConfigurationArnList.stub(stub[:license_configuration_arns]) unless stub[:license_configuration_arns].nil?
-        data['launchTemplateConfigurations'] = Stubs::LaunchTemplateConfigurationList.stub(stub[:launch_template_configurations]) unless stub[:launch_template_configurations].nil?
-        data['s3ExportConfiguration'] = Stubs::S3ExportConfiguration.stub(stub[:s3_export_configuration]) unless stub[:s3_export_configuration].nil?
-        data['fastLaunchConfigurations'] = Stubs::FastLaunchConfigurationList.stub(stub[:fast_launch_configurations]) unless stub[:fast_launch_configurations].nil?
+        data['amiDistributionConfiguration'] = AmiDistributionConfiguration.stub(stub[:ami_distribution_configuration]) unless stub[:ami_distribution_configuration].nil?
+        data['containerDistributionConfiguration'] = ContainerDistributionConfiguration.stub(stub[:container_distribution_configuration]) unless stub[:container_distribution_configuration].nil?
+        data['licenseConfigurationArns'] = LicenseConfigurationArnList.stub(stub[:license_configuration_arns]) unless stub[:license_configuration_arns].nil?
+        data['launchTemplateConfigurations'] = LaunchTemplateConfigurationList.stub(stub[:launch_template_configurations]) unless stub[:launch_template_configurations].nil?
+        data['s3ExportConfiguration'] = S3ExportConfiguration.stub(stub[:s3_export_configuration]) unless stub[:s3_export_configuration].nil?
+        data['fastLaunchConfigurations'] = FastLaunchConfigurationList.stub(stub[:fast_launch_configurations]) unless stub[:fast_launch_configurations].nil?
         data
       end
     end
@@ -920,7 +922,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FastLaunchConfiguration.stub(element) unless element.nil?
+          data << FastLaunchConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -944,9 +946,9 @@ module AWS::SDK::Imagebuilder
         stub ||= Types::FastLaunchConfiguration.new
         data = {}
         data['enabled'] = stub[:enabled] unless stub[:enabled].nil?
-        data['snapshotConfiguration'] = Stubs::FastLaunchSnapshotConfiguration.stub(stub[:snapshot_configuration]) unless stub[:snapshot_configuration].nil?
+        data['snapshotConfiguration'] = FastLaunchSnapshotConfiguration.stub(stub[:snapshot_configuration]) unless stub[:snapshot_configuration].nil?
         data['maxParallelLaunches'] = stub[:max_parallel_launches] unless stub[:max_parallel_launches].nil?
-        data['launchTemplate'] = Stubs::FastLaunchLaunchTemplateSpecification.stub(stub[:launch_template]) unless stub[:launch_template].nil?
+        data['launchTemplate'] = FastLaunchLaunchTemplateSpecification.stub(stub[:launch_template]) unless stub[:launch_template].nil?
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
         data
       end
@@ -1030,7 +1032,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LaunchTemplateConfiguration.stub(element) unless element.nil?
+          data << LaunchTemplateConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -1094,8 +1096,8 @@ module AWS::SDK::Imagebuilder
         stub ||= Types::ContainerDistributionConfiguration.new
         data = {}
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['containerTags'] = Stubs::StringList.stub(stub[:container_tags]) unless stub[:container_tags].nil?
-        data['targetRepository'] = Stubs::TargetContainerRepository.stub(stub[:target_repository]) unless stub[:target_repository].nil?
+        data['containerTags'] = StringList.stub(stub[:container_tags]) unless stub[:container_tags].nil?
+        data['targetRepository'] = TargetContainerRepository.stub(stub[:target_repository]) unless stub[:target_repository].nil?
         data
       end
     end
@@ -1140,10 +1142,10 @@ module AWS::SDK::Imagebuilder
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['targetAccountIds'] = Stubs::AccountList.stub(stub[:target_account_ids]) unless stub[:target_account_ids].nil?
-        data['amiTags'] = Stubs::TagMap.stub(stub[:ami_tags]) unless stub[:ami_tags].nil?
+        data['targetAccountIds'] = AccountList.stub(stub[:target_account_ids]) unless stub[:target_account_ids].nil?
+        data['amiTags'] = TagMap.stub(stub[:ami_tags]) unless stub[:ami_tags].nil?
         data['kmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
-        data['launchPermission'] = Stubs::LaunchPermissionConfiguration.stub(stub[:launch_permission]) unless stub[:launch_permission].nil?
+        data['launchPermission'] = LaunchPermissionConfiguration.stub(stub[:launch_permission]) unless stub[:launch_permission].nil?
         data
       end
     end
@@ -1164,10 +1166,10 @@ module AWS::SDK::Imagebuilder
       def self.stub(stub)
         stub ||= Types::LaunchPermissionConfiguration.new
         data = {}
-        data['userIds'] = Stubs::AccountList.stub(stub[:user_ids]) unless stub[:user_ids].nil?
-        data['userGroups'] = Stubs::StringList.stub(stub[:user_groups]) unless stub[:user_groups].nil?
-        data['organizationArns'] = Stubs::OrganizationArnList.stub(stub[:organization_arns]) unless stub[:organization_arns].nil?
-        data['organizationalUnitArns'] = Stubs::OrganizationalUnitArnList.stub(stub[:organizational_unit_arns]) unless stub[:organizational_unit_arns].nil?
+        data['userIds'] = AccountList.stub(stub[:user_ids]) unless stub[:user_ids].nil?
+        data['userGroups'] = StringList.stub(stub[:user_groups]) unless stub[:user_groups].nil?
+        data['organizationArns'] = OrganizationArnList.stub(stub[:organization_arns]) unless stub[:organization_arns].nil?
+        data['organizationalUnitArns'] = OrganizationalUnitArnList.stub(stub[:organizational_unit_arns]) unless stub[:organizational_unit_arns].nil?
         data
       end
     end
@@ -1246,8 +1248,8 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['image'] = Stubs::Image.stub(stub[:image]) unless stub[:image].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['image'] = Image.stub(stub[:image]) unless stub[:image].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1289,17 +1291,17 @@ module AWS::SDK::Imagebuilder
         data['platform'] = stub[:platform] unless stub[:platform].nil?
         data['enhancedImageMetadataEnabled'] = stub[:enhanced_image_metadata_enabled] unless stub[:enhanced_image_metadata_enabled].nil?
         data['osVersion'] = stub[:os_version] unless stub[:os_version].nil?
-        data['state'] = Stubs::ImageState.stub(stub[:state]) unless stub[:state].nil?
-        data['imageRecipe'] = Stubs::ImageRecipe.stub(stub[:image_recipe]) unless stub[:image_recipe].nil?
-        data['containerRecipe'] = Stubs::ContainerRecipe.stub(stub[:container_recipe]) unless stub[:container_recipe].nil?
+        data['state'] = ImageState.stub(stub[:state]) unless stub[:state].nil?
+        data['imageRecipe'] = ImageRecipe.stub(stub[:image_recipe]) unless stub[:image_recipe].nil?
+        data['containerRecipe'] = ContainerRecipe.stub(stub[:container_recipe]) unless stub[:container_recipe].nil?
         data['sourcePipelineName'] = stub[:source_pipeline_name] unless stub[:source_pipeline_name].nil?
         data['sourcePipelineArn'] = stub[:source_pipeline_arn] unless stub[:source_pipeline_arn].nil?
-        data['infrastructureConfiguration'] = Stubs::InfrastructureConfiguration.stub(stub[:infrastructure_configuration]) unless stub[:infrastructure_configuration].nil?
-        data['distributionConfiguration'] = Stubs::DistributionConfiguration.stub(stub[:distribution_configuration]) unless stub[:distribution_configuration].nil?
-        data['imageTestsConfiguration'] = Stubs::ImageTestsConfiguration.stub(stub[:image_tests_configuration]) unless stub[:image_tests_configuration].nil?
+        data['infrastructureConfiguration'] = InfrastructureConfiguration.stub(stub[:infrastructure_configuration]) unless stub[:infrastructure_configuration].nil?
+        data['distributionConfiguration'] = DistributionConfiguration.stub(stub[:distribution_configuration]) unless stub[:distribution_configuration].nil?
+        data['imageTestsConfiguration'] = ImageTestsConfiguration.stub(stub[:image_tests_configuration]) unless stub[:image_tests_configuration].nil?
         data['dateCreated'] = stub[:date_created] unless stub[:date_created].nil?
-        data['outputResources'] = Stubs::OutputResources.stub(stub[:output_resources]) unless stub[:output_resources].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['outputResources'] = OutputResources.stub(stub[:output_resources]) unless stub[:output_resources].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['buildType'] = stub[:build_type] unless stub[:build_type].nil?
         data
       end
@@ -1319,8 +1321,8 @@ module AWS::SDK::Imagebuilder
       def self.stub(stub)
         stub ||= Types::OutputResources.new
         data = {}
-        data['amis'] = Stubs::AmiList.stub(stub[:amis]) unless stub[:amis].nil?
-        data['containers'] = Stubs::ContainerList.stub(stub[:containers]) unless stub[:containers].nil?
+        data['amis'] = AmiList.stub(stub[:amis]) unless stub[:amis].nil?
+        data['containers'] = ContainerList.stub(stub[:containers]) unless stub[:containers].nil?
         data
       end
     end
@@ -1339,7 +1341,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Container.stub(element) unless element.nil?
+          data << Container.stub(element) unless element.nil?
         end
         data
       end
@@ -1360,7 +1362,7 @@ module AWS::SDK::Imagebuilder
         stub ||= Types::Container.new
         data = {}
         data['region'] = stub[:region] unless stub[:region].nil?
-        data['imageUris'] = Stubs::StringList.stub(stub[:image_uris]) unless stub[:image_uris].nil?
+        data['imageUris'] = StringList.stub(stub[:image_uris]) unless stub[:image_uris].nil?
         data
       end
     end
@@ -1379,7 +1381,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Ami.stub(element) unless element.nil?
+          data << Ami.stub(element) unless element.nil?
         end
         data
       end
@@ -1407,7 +1409,7 @@ module AWS::SDK::Imagebuilder
         data['image'] = stub[:image] unless stub[:image].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['state'] = Stubs::ImageState.stub(stub[:state]) unless stub[:state].nil?
+        data['state'] = ImageState.stub(stub[:state]) unless stub[:state].nil?
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
         data
       end
@@ -1484,19 +1486,19 @@ module AWS::SDK::Imagebuilder
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['instanceTypes'] = Stubs::InstanceTypeList.stub(stub[:instance_types]) unless stub[:instance_types].nil?
+        data['instanceTypes'] = InstanceTypeList.stub(stub[:instance_types]) unless stub[:instance_types].nil?
         data['instanceProfileName'] = stub[:instance_profile_name] unless stub[:instance_profile_name].nil?
-        data['securityGroupIds'] = Stubs::SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['securityGroupIds'] = SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data['subnetId'] = stub[:subnet_id] unless stub[:subnet_id].nil?
-        data['logging'] = Stubs::Logging.stub(stub[:logging]) unless stub[:logging].nil?
+        data['logging'] = Logging.stub(stub[:logging]) unless stub[:logging].nil?
         data['keyPair'] = stub[:key_pair] unless stub[:key_pair].nil?
         data['terminateInstanceOnFailure'] = stub[:terminate_instance_on_failure] unless stub[:terminate_instance_on_failure].nil?
         data['snsTopicArn'] = stub[:sns_topic_arn] unless stub[:sns_topic_arn].nil?
         data['dateCreated'] = stub[:date_created] unless stub[:date_created].nil?
         data['dateUpdated'] = stub[:date_updated] unless stub[:date_updated].nil?
-        data['resourceTags'] = Stubs::ResourceTagMap.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
-        data['instanceMetadataOptions'] = Stubs::InstanceMetadataOptions.stub(stub[:instance_metadata_options]) unless stub[:instance_metadata_options].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['resourceTags'] = ResourceTagMap.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
+        data['instanceMetadataOptions'] = InstanceMetadataOptions.stub(stub[:instance_metadata_options]) unless stub[:instance_metadata_options].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1554,7 +1556,7 @@ module AWS::SDK::Imagebuilder
       def self.stub(stub)
         stub ||= Types::Logging.new
         data = {}
-        data['s3Logs'] = Stubs::S3Logs.stub(stub[:s3_logs]) unless stub[:s3_logs].nil?
+        data['s3Logs'] = S3Logs.stub(stub[:s3_logs]) unless stub[:s3_logs].nil?
         data
       end
     end
@@ -1652,13 +1654,13 @@ module AWS::SDK::Imagebuilder
         data['platform'] = stub[:platform] unless stub[:platform].nil?
         data['owner'] = stub[:owner] unless stub[:owner].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['components'] = Stubs::ComponentConfigurationList.stub(stub[:components]) unless stub[:components].nil?
+        data['components'] = ComponentConfigurationList.stub(stub[:components]) unless stub[:components].nil?
         data['parentImage'] = stub[:parent_image] unless stub[:parent_image].nil?
-        data['blockDeviceMappings'] = Stubs::InstanceBlockDeviceMappings.stub(stub[:block_device_mappings]) unless stub[:block_device_mappings].nil?
+        data['blockDeviceMappings'] = InstanceBlockDeviceMappings.stub(stub[:block_device_mappings]) unless stub[:block_device_mappings].nil?
         data['dateCreated'] = stub[:date_created] unless stub[:date_created].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['workingDirectory'] = stub[:working_directory] unless stub[:working_directory].nil?
-        data['additionalInstanceConfiguration'] = Stubs::AdditionalInstanceConfiguration.stub(stub[:additional_instance_configuration]) unless stub[:additional_instance_configuration].nil?
+        data['additionalInstanceConfiguration'] = AdditionalInstanceConfiguration.stub(stub[:additional_instance_configuration]) unless stub[:additional_instance_configuration].nil?
         data
       end
     end
@@ -1677,7 +1679,7 @@ module AWS::SDK::Imagebuilder
       def self.stub(stub)
         stub ||= Types::AdditionalInstanceConfiguration.new
         data = {}
-        data['systemsManagerAgent'] = Stubs::SystemsManagerAgent.stub(stub[:systems_manager_agent]) unless stub[:systems_manager_agent].nil?
+        data['systemsManagerAgent'] = SystemsManagerAgent.stub(stub[:systems_manager_agent]) unless stub[:systems_manager_agent].nil?
         data['userDataOverride'] = stub[:user_data_override] unless stub[:user_data_override].nil?
         data
       end
@@ -1715,8 +1717,8 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['imagePipeline'] = Stubs::ImagePipeline.stub(stub[:image_pipeline]) unless stub[:image_pipeline].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['imagePipeline'] = ImagePipeline.stub(stub[:image_pipeline]) unless stub[:image_pipeline].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1758,14 +1760,14 @@ module AWS::SDK::Imagebuilder
         data['containerRecipeArn'] = stub[:container_recipe_arn] unless stub[:container_recipe_arn].nil?
         data['infrastructureConfigurationArn'] = stub[:infrastructure_configuration_arn] unless stub[:infrastructure_configuration_arn].nil?
         data['distributionConfigurationArn'] = stub[:distribution_configuration_arn] unless stub[:distribution_configuration_arn].nil?
-        data['imageTestsConfiguration'] = Stubs::ImageTestsConfiguration.stub(stub[:image_tests_configuration]) unless stub[:image_tests_configuration].nil?
-        data['schedule'] = Stubs::Schedule.stub(stub[:schedule]) unless stub[:schedule].nil?
+        data['imageTestsConfiguration'] = ImageTestsConfiguration.stub(stub[:image_tests_configuration]) unless stub[:image_tests_configuration].nil?
+        data['schedule'] = Schedule.stub(stub[:schedule]) unless stub[:schedule].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['dateCreated'] = stub[:date_created] unless stub[:date_created].nil?
         data['dateUpdated'] = stub[:date_updated] unless stub[:date_updated].nil?
         data['dateLastRun'] = stub[:date_last_run] unless stub[:date_last_run].nil?
         data['dateNextRun'] = stub[:date_next_run] unless stub[:date_next_run].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1807,7 +1809,7 @@ module AWS::SDK::Imagebuilder
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['policy'] = stub[:policy] unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1825,8 +1827,8 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['imageRecipe'] = Stubs::ImageRecipe.stub(stub[:image_recipe]) unless stub[:image_recipe].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['imageRecipe'] = ImageRecipe.stub(stub[:image_recipe]) unless stub[:image_recipe].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1845,7 +1847,7 @@ module AWS::SDK::Imagebuilder
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['policy'] = stub[:policy] unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1863,8 +1865,8 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['infrastructureConfiguration'] = Stubs::InfrastructureConfiguration.stub(stub[:infrastructure_configuration]) unless stub[:infrastructure_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['infrastructureConfiguration'] = InfrastructureConfiguration.stub(stub[:infrastructure_configuration]) unless stub[:infrastructure_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1885,7 +1887,7 @@ module AWS::SDK::Imagebuilder
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['componentBuildVersionArn'] = stub[:component_build_version_arn] unless stub[:component_build_version_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1906,7 +1908,7 @@ module AWS::SDK::Imagebuilder
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['imageArn'] = stub[:image_arn] unless stub[:image_arn].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1925,9 +1927,9 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['componentSummaryList'] = Stubs::ComponentSummaryList.stub(stub[:component_summary_list]) unless stub[:component_summary_list].nil?
+        data['componentSummaryList'] = ComponentSummaryList.stub(stub[:component_summary_list]) unless stub[:component_summary_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1945,7 +1947,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComponentSummary.stub(element) unless element.nil?
+          data << ComponentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1979,14 +1981,14 @@ module AWS::SDK::Imagebuilder
         data['name'] = stub[:name] unless stub[:name].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
         data['platform'] = stub[:platform] unless stub[:platform].nil?
-        data['supportedOsVersions'] = Stubs::OsVersionList.stub(stub[:supported_os_versions]) unless stub[:supported_os_versions].nil?
-        data['state'] = Stubs::ComponentState.stub(stub[:state]) unless stub[:state].nil?
+        data['supportedOsVersions'] = OsVersionList.stub(stub[:supported_os_versions]) unless stub[:supported_os_versions].nil?
+        data['state'] = ComponentState.stub(stub[:state]) unless stub[:state].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['owner'] = stub[:owner] unless stub[:owner].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['changeDescription'] = stub[:change_description] unless stub[:change_description].nil?
         data['dateCreated'] = stub[:date_created] unless stub[:date_created].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -2006,9 +2008,9 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['componentVersionList'] = Stubs::ComponentVersionList.stub(stub[:component_version_list]) unless stub[:component_version_list].nil?
+        data['componentVersionList'] = ComponentVersionList.stub(stub[:component_version_list]) unless stub[:component_version_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2026,7 +2028,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComponentVersion.stub(element) unless element.nil?
+          data << ComponentVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -2058,7 +2060,7 @@ module AWS::SDK::Imagebuilder
         data['version'] = stub[:version] unless stub[:version].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['platform'] = stub[:platform] unless stub[:platform].nil?
-        data['supportedOsVersions'] = Stubs::OsVersionList.stub(stub[:supported_os_versions]) unless stub[:supported_os_versions].nil?
+        data['supportedOsVersions'] = OsVersionList.stub(stub[:supported_os_versions]) unless stub[:supported_os_versions].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['owner'] = stub[:owner] unless stub[:owner].nil?
         data['dateCreated'] = stub[:date_created] unless stub[:date_created].nil?
@@ -2081,9 +2083,9 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['containerRecipeSummaryList'] = Stubs::ContainerRecipeSummaryList.stub(stub[:container_recipe_summary_list]) unless stub[:container_recipe_summary_list].nil?
+        data['containerRecipeSummaryList'] = ContainerRecipeSummaryList.stub(stub[:container_recipe_summary_list]) unless stub[:container_recipe_summary_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2101,7 +2103,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContainerRecipeSummary.stub(element) unless element.nil?
+          data << ContainerRecipeSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2134,7 +2136,7 @@ module AWS::SDK::Imagebuilder
         data['owner'] = stub[:owner] unless stub[:owner].nil?
         data['parentImage'] = stub[:parent_image] unless stub[:parent_image].nil?
         data['dateCreated'] = stub[:date_created] unless stub[:date_created].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -2154,9 +2156,9 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['distributionConfigurationSummaryList'] = Stubs::DistributionConfigurationSummaryList.stub(stub[:distribution_configuration_summary_list]) unless stub[:distribution_configuration_summary_list].nil?
+        data['distributionConfigurationSummaryList'] = DistributionConfigurationSummaryList.stub(stub[:distribution_configuration_summary_list]) unless stub[:distribution_configuration_summary_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2174,7 +2176,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DistributionConfigurationSummary.stub(element) unless element.nil?
+          data << DistributionConfigurationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2204,8 +2206,8 @@ module AWS::SDK::Imagebuilder
         data['description'] = stub[:description] unless stub[:description].nil?
         data['dateCreated'] = stub[:date_created] unless stub[:date_created].nil?
         data['dateUpdated'] = stub[:date_updated] unless stub[:date_updated].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['regions'] = Stubs::RegionList.stub(stub[:regions]) unless stub[:regions].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['regions'] = RegionList.stub(stub[:regions]) unless stub[:regions].nil?
         data
       end
     end
@@ -2245,9 +2247,9 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['imageSummaryList'] = Stubs::ImageSummaryList.stub(stub[:image_summary_list]) unless stub[:image_summary_list].nil?
+        data['imageSummaryList'] = ImageSummaryList.stub(stub[:image_summary_list]) unless stub[:image_summary_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2265,7 +2267,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImageSummary.stub(element) unless element.nil?
+          data << ImageSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2301,11 +2303,11 @@ module AWS::SDK::Imagebuilder
         data['version'] = stub[:version] unless stub[:version].nil?
         data['platform'] = stub[:platform] unless stub[:platform].nil?
         data['osVersion'] = stub[:os_version] unless stub[:os_version].nil?
-        data['state'] = Stubs::ImageState.stub(stub[:state]) unless stub[:state].nil?
+        data['state'] = ImageState.stub(stub[:state]) unless stub[:state].nil?
         data['owner'] = stub[:owner] unless stub[:owner].nil?
         data['dateCreated'] = stub[:date_created] unless stub[:date_created].nil?
-        data['outputResources'] = Stubs::OutputResources.stub(stub[:output_resources]) unless stub[:output_resources].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['outputResources'] = OutputResources.stub(stub[:output_resources]) unless stub[:output_resources].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['buildType'] = stub[:build_type] unless stub[:build_type].nil?
         data
       end
@@ -2326,9 +2328,9 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['imagePackageList'] = Stubs::ImagePackageList.stub(stub[:image_package_list]) unless stub[:image_package_list].nil?
+        data['imagePackageList'] = ImagePackageList.stub(stub[:image_package_list]) unless stub[:image_package_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2346,7 +2348,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImagePackage.stub(element) unless element.nil?
+          data << ImagePackage.stub(element) unless element.nil?
         end
         data
       end
@@ -2387,9 +2389,9 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['imageSummaryList'] = Stubs::ImageSummaryList.stub(stub[:image_summary_list]) unless stub[:image_summary_list].nil?
+        data['imageSummaryList'] = ImageSummaryList.stub(stub[:image_summary_list]) unless stub[:image_summary_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2408,9 +2410,9 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['imagePipelineList'] = Stubs::ImagePipelineList.stub(stub[:image_pipeline_list]) unless stub[:image_pipeline_list].nil?
+        data['imagePipelineList'] = ImagePipelineList.stub(stub[:image_pipeline_list]) unless stub[:image_pipeline_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2428,7 +2430,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImagePipeline.stub(element) unless element.nil?
+          data << ImagePipeline.stub(element) unless element.nil?
         end
         data
       end
@@ -2449,9 +2451,9 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['imageRecipeSummaryList'] = Stubs::ImageRecipeSummaryList.stub(stub[:image_recipe_summary_list]) unless stub[:image_recipe_summary_list].nil?
+        data['imageRecipeSummaryList'] = ImageRecipeSummaryList.stub(stub[:image_recipe_summary_list]) unless stub[:image_recipe_summary_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2469,7 +2471,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImageRecipeSummary.stub(element) unless element.nil?
+          data << ImageRecipeSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2500,7 +2502,7 @@ module AWS::SDK::Imagebuilder
         data['owner'] = stub[:owner] unless stub[:owner].nil?
         data['parentImage'] = stub[:parent_image] unless stub[:parent_image].nil?
         data['dateCreated'] = stub[:date_created] unless stub[:date_created].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -2520,9 +2522,9 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['imageVersionList'] = Stubs::ImageVersionList.stub(stub[:image_version_list]) unless stub[:image_version_list].nil?
+        data['imageVersionList'] = ImageVersionList.stub(stub[:image_version_list]) unless stub[:image_version_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2540,7 +2542,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImageVersion.stub(element) unless element.nil?
+          data << ImageVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -2595,9 +2597,9 @@ module AWS::SDK::Imagebuilder
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
-        data['infrastructureConfigurationSummaryList'] = Stubs::InfrastructureConfigurationSummaryList.stub(stub[:infrastructure_configuration_summary_list]) unless stub[:infrastructure_configuration_summary_list].nil?
+        data['infrastructureConfigurationSummaryList'] = InfrastructureConfigurationSummaryList.stub(stub[:infrastructure_configuration_summary_list]) unless stub[:infrastructure_configuration_summary_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2615,7 +2617,7 @@ module AWS::SDK::Imagebuilder
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InfrastructureConfigurationSummary.stub(element) unless element.nil?
+          data << InfrastructureConfigurationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2647,9 +2649,9 @@ module AWS::SDK::Imagebuilder
         data['description'] = stub[:description] unless stub[:description].nil?
         data['dateCreated'] = stub[:date_created] unless stub[:date_created].nil?
         data['dateUpdated'] = stub[:date_updated] unless stub[:date_updated].nil?
-        data['resourceTags'] = Stubs::ResourceTagMap.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['instanceTypes'] = Stubs::InstanceTypeList.stub(stub[:instance_types]) unless stub[:instance_types].nil?
+        data['resourceTags'] = ResourceTagMap.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['instanceTypes'] = InstanceTypeList.stub(stub[:instance_types]) unless stub[:instance_types].nil?
         data['instanceProfileName'] = stub[:instance_profile_name] unless stub[:instance_profile_name].nil?
         data
       end
@@ -2667,8 +2669,8 @@ module AWS::SDK::Imagebuilder
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2687,7 +2689,7 @@ module AWS::SDK::Imagebuilder
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['componentArn'] = stub[:component_arn] unless stub[:component_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2706,7 +2708,7 @@ module AWS::SDK::Imagebuilder
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['containerRecipeArn'] = stub[:container_recipe_arn] unless stub[:container_recipe_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2725,7 +2727,7 @@ module AWS::SDK::Imagebuilder
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['imageArn'] = stub[:image_arn] unless stub[:image_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2744,7 +2746,7 @@ module AWS::SDK::Imagebuilder
         http_resp.headers['Content-Type'] = 'application/json'
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['imageRecipeArn'] = stub[:image_recipe_arn] unless stub[:image_recipe_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2765,7 +2767,7 @@ module AWS::SDK::Imagebuilder
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['imageBuildVersionArn'] = stub[:image_build_version_arn] unless stub[:image_build_version_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2812,7 +2814,7 @@ module AWS::SDK::Imagebuilder
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['distributionConfigurationArn'] = stub[:distribution_configuration_arn] unless stub[:distribution_configuration_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2833,7 +2835,7 @@ module AWS::SDK::Imagebuilder
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['imagePipelineArn'] = stub[:image_pipeline_arn] unless stub[:image_pipeline_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2854,7 +2856,7 @@ module AWS::SDK::Imagebuilder
         data['requestId'] = stub[:request_id] unless stub[:request_id].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['infrastructureConfigurationArn'] = stub[:infrastructure_configuration_arn] unless stub[:infrastructure_configuration_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

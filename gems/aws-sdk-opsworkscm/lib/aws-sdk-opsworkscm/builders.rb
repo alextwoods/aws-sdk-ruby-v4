@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::OpsWorksCM
   module Builders
 
@@ -20,8 +22,8 @@ module AWS::SDK::OpsWorksCM
         data = {}
         data['ServerName'] = input[:server_name] unless input[:server_name].nil?
         data['NodeName'] = input[:node_name] unless input[:node_name].nil?
-        data['EngineAttributes'] = Builders::EngineAttributes.build(input[:engine_attributes]) unless input[:engine_attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EngineAttributes'] = EngineAttributes.build(input[:engine_attributes]) unless input[:engine_attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -30,7 +32,7 @@ module AWS::SDK::OpsWorksCM
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EngineAttribute.build(element) unless element.nil?
+          data << EngineAttribute.build(element) unless element.nil?
         end
         data
       end
@@ -56,8 +58,8 @@ module AWS::SDK::OpsWorksCM
         data = {}
         data['ServerName'] = input[:server_name] unless input[:server_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -66,7 +68,7 @@ module AWS::SDK::OpsWorksCM
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -98,7 +100,7 @@ module AWS::SDK::OpsWorksCM
         data['Engine'] = input[:engine] unless input[:engine].nil?
         data['EngineModel'] = input[:engine_model] unless input[:engine_model].nil?
         data['EngineVersion'] = input[:engine_version] unless input[:engine_version].nil?
-        data['EngineAttributes'] = Builders::EngineAttributes.build(input[:engine_attributes]) unless input[:engine_attributes].nil?
+        data['EngineAttributes'] = EngineAttributes.build(input[:engine_attributes]) unless input[:engine_attributes].nil?
         data['BackupRetentionCount'] = input[:backup_retention_count] unless input[:backup_retention_count].nil?
         data['ServerName'] = input[:server_name] unless input[:server_name].nil?
         data['InstanceProfileArn'] = input[:instance_profile_arn] unless input[:instance_profile_arn].nil?
@@ -106,12 +108,12 @@ module AWS::SDK::OpsWorksCM
         data['KeyPair'] = input[:key_pair] unless input[:key_pair].nil?
         data['PreferredMaintenanceWindow'] = input[:preferred_maintenance_window] unless input[:preferred_maintenance_window].nil?
         data['PreferredBackupWindow'] = input[:preferred_backup_window] unless input[:preferred_backup_window].nil?
-        data['SecurityGroupIds'] = Builders::Strings.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SecurityGroupIds'] = Strings.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data['ServiceRoleArn'] = input[:service_role_arn] unless input[:service_role_arn].nil?
-        data['SubnetIds'] = Builders::Strings.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['SubnetIds'] = Strings.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['BackupId'] = input[:backup_id] unless input[:backup_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -135,7 +137,7 @@ module AWS::SDK::OpsWorksCM
         http_req.headers['X-Amz-Target'] = 'OpsWorksCM_V2016_11_01.DeleteBackup'
         data = {}
         data['BackupId'] = input[:backup_id] unless input[:backup_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -148,7 +150,7 @@ module AWS::SDK::OpsWorksCM
         http_req.headers['X-Amz-Target'] = 'OpsWorksCM_V2016_11_01.DeleteServer'
         data = {}
         data['ServerName'] = input[:server_name] unless input[:server_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -160,7 +162,7 @@ module AWS::SDK::OpsWorksCM
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'OpsWorksCM_V2016_11_01.DescribeAccountAttributes'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -176,7 +178,7 @@ module AWS::SDK::OpsWorksCM
         data['ServerName'] = input[:server_name] unless input[:server_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -191,7 +193,7 @@ module AWS::SDK::OpsWorksCM
         data['ServerName'] = input[:server_name] unless input[:server_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -205,7 +207,7 @@ module AWS::SDK::OpsWorksCM
         data = {}
         data['NodeAssociationStatusToken'] = input[:node_association_status_token] unless input[:node_association_status_token].nil?
         data['ServerName'] = input[:server_name] unless input[:server_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -220,7 +222,7 @@ module AWS::SDK::OpsWorksCM
         data['ServerName'] = input[:server_name] unless input[:server_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -234,8 +236,8 @@ module AWS::SDK::OpsWorksCM
         data = {}
         data['ServerName'] = input[:server_name] unless input[:server_name].nil?
         data['NodeName'] = input[:node_name] unless input[:node_name].nil?
-        data['EngineAttributes'] = Builders::EngineAttributes.build(input[:engine_attributes]) unless input[:engine_attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EngineAttributes'] = EngineAttributes.build(input[:engine_attributes]) unless input[:engine_attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -249,8 +251,8 @@ module AWS::SDK::OpsWorksCM
         data = {}
         data['ExportAttributeName'] = input[:export_attribute_name] unless input[:export_attribute_name].nil?
         data['ServerName'] = input[:server_name] unless input[:server_name].nil?
-        data['InputAttributes'] = Builders::EngineAttributes.build(input[:input_attributes]) unless input[:input_attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InputAttributes'] = EngineAttributes.build(input[:input_attributes]) unless input[:input_attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -265,7 +267,7 @@ module AWS::SDK::OpsWorksCM
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -281,7 +283,7 @@ module AWS::SDK::OpsWorksCM
         data['ServerName'] = input[:server_name] unless input[:server_name].nil?
         data['InstanceType'] = input[:instance_type] unless input[:instance_type].nil?
         data['KeyPair'] = input[:key_pair] unless input[:key_pair].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -294,8 +296,8 @@ module AWS::SDK::OpsWorksCM
         http_req.headers['X-Amz-Target'] = 'OpsWorksCM_V2016_11_01.StartMaintenance'
         data = {}
         data['ServerName'] = input[:server_name] unless input[:server_name].nil?
-        data['EngineAttributes'] = Builders::EngineAttributes.build(input[:engine_attributes]) unless input[:engine_attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EngineAttributes'] = EngineAttributes.build(input[:engine_attributes]) unless input[:engine_attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -308,8 +310,8 @@ module AWS::SDK::OpsWorksCM
         http_req.headers['X-Amz-Target'] = 'OpsWorksCM_V2016_11_01.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -322,8 +324,8 @@ module AWS::SDK::OpsWorksCM
         http_req.headers['X-Amz-Target'] = 'OpsWorksCM_V2016_11_01.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -351,7 +353,7 @@ module AWS::SDK::OpsWorksCM
         data['ServerName'] = input[:server_name] unless input[:server_name].nil?
         data['PreferredMaintenanceWindow'] = input[:preferred_maintenance_window] unless input[:preferred_maintenance_window].nil?
         data['PreferredBackupWindow'] = input[:preferred_backup_window] unless input[:preferred_backup_window].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -366,7 +368,7 @@ module AWS::SDK::OpsWorksCM
         data['ServerName'] = input[:server_name] unless input[:server_name].nil?
         data['AttributeName'] = input[:attribute_name] unless input[:attribute_name].nil?
         data['AttributeValue'] = input[:attribute_value] unless input[:attribute_value].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

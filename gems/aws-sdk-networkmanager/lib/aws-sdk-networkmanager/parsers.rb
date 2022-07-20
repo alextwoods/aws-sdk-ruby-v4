@@ -15,7 +15,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::AcceptAttachmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attachment = (Parsers::Attachment.parse(map['Attachment']) unless map['Attachment'].nil?)
+        data.attachment = (Attachment.parse(map['Attachment']) unless map['Attachment'].nil?)
         data
       end
     end
@@ -33,8 +33,8 @@ module AWS::SDK::NetworkManager
         data.resource_arn = map['ResourceArn']
         data.attachment_policy_rule_number = map['AttachmentPolicyRuleNumber']
         data.segment_name = map['SegmentName']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
-        data.proposed_segment_change = (Parsers::ProposedSegmentChange.parse(map['ProposedSegmentChange']) unless map['ProposedSegmentChange'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.proposed_segment_change = (ProposedSegmentChange.parse(map['ProposedSegmentChange']) unless map['ProposedSegmentChange'].nil?)
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.updated_at = Time.at(map['UpdatedAt'].to_i) if map['UpdatedAt']
         return data
@@ -44,7 +44,7 @@ module AWS::SDK::NetworkManager
     class ProposedSegmentChange
       def self.parse(map)
         data = Types::ProposedSegmentChange.new
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.attachment_policy_rule_number = map['AttachmentPolicyRuleNumber']
         data.segment_name = map['SegmentName']
         return data
@@ -55,7 +55,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -111,7 +111,7 @@ module AWS::SDK::NetworkManager
         data.message = map['Message']
         data.resource_id = map['ResourceId']
         data.resource_type = map['ResourceType']
-        data.context = (Parsers::ExceptionContextMap.parse(map['Context']) unless map['Context'].nil?)
+        data.context = (ExceptionContextMap.parse(map['Context']) unless map['Context'].nil?)
         data
       end
     end
@@ -144,7 +144,7 @@ module AWS::SDK::NetworkManager
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['Message']
         data.reason = map['Reason']
-        data.fields = (Parsers::ValidationExceptionFieldList.parse(map['Fields']) unless map['Fields'].nil?)
+        data.fields = (ValidationExceptionFieldList.parse(map['Fields']) unless map['Fields'].nil?)
         data
       end
     end
@@ -153,7 +153,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          data << ValidationExceptionField.parse(value) unless value.nil?
         end
         data
       end
@@ -173,7 +173,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::AssociateConnectPeerOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.connect_peer_association = (Parsers::ConnectPeerAssociation.parse(map['ConnectPeerAssociation']) unless map['ConnectPeerAssociation'].nil?)
+        data.connect_peer_association = (ConnectPeerAssociation.parse(map['ConnectPeerAssociation']) unless map['ConnectPeerAssociation'].nil?)
         data
       end
     end
@@ -209,7 +209,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::AssociateCustomerGatewayOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.customer_gateway_association = (Parsers::CustomerGatewayAssociation.parse(map['CustomerGatewayAssociation']) unless map['CustomerGatewayAssociation'].nil?)
+        data.customer_gateway_association = (CustomerGatewayAssociation.parse(map['CustomerGatewayAssociation']) unless map['CustomerGatewayAssociation'].nil?)
         data
       end
     end
@@ -231,7 +231,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::AssociateLinkOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.link_association = (Parsers::LinkAssociation.parse(map['LinkAssociation']) unless map['LinkAssociation'].nil?)
+        data.link_association = (LinkAssociation.parse(map['LinkAssociation']) unless map['LinkAssociation'].nil?)
         data
       end
     end
@@ -252,7 +252,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::AssociateTransitGatewayConnectPeerOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.transit_gateway_connect_peer_association = (Parsers::TransitGatewayConnectPeerAssociation.parse(map['TransitGatewayConnectPeerAssociation']) unless map['TransitGatewayConnectPeerAssociation'].nil?)
+        data.transit_gateway_connect_peer_association = (TransitGatewayConnectPeerAssociation.parse(map['TransitGatewayConnectPeerAssociation']) unless map['TransitGatewayConnectPeerAssociation'].nil?)
         data
       end
     end
@@ -274,7 +274,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::CreateConnectAttachmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.connect_attachment = (Parsers::ConnectAttachment.parse(map['ConnectAttachment']) unless map['ConnectAttachment'].nil?)
+        data.connect_attachment = (ConnectAttachment.parse(map['ConnectAttachment']) unless map['ConnectAttachment'].nil?)
         data
       end
     end
@@ -282,9 +282,9 @@ module AWS::SDK::NetworkManager
     class ConnectAttachment
       def self.parse(map)
         data = Types::ConnectAttachment.new
-        data.attachment = (Parsers::Attachment.parse(map['Attachment']) unless map['Attachment'].nil?)
+        data.attachment = (Attachment.parse(map['Attachment']) unless map['Attachment'].nil?)
         data.transport_attachment_id = map['TransportAttachmentId']
-        data.options = (Parsers::ConnectAttachmentOptions.parse(map['Options']) unless map['Options'].nil?)
+        data.options = (ConnectAttachmentOptions.parse(map['Options']) unless map['Options'].nil?)
         return data
       end
     end
@@ -302,7 +302,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::CreateConnectPeerOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.connect_peer = (Parsers::ConnectPeer.parse(map['ConnectPeer']) unless map['ConnectPeer'].nil?)
+        data.connect_peer = (ConnectPeer.parse(map['ConnectPeer']) unless map['ConnectPeer'].nil?)
         data
       end
     end
@@ -316,8 +316,8 @@ module AWS::SDK::NetworkManager
         data.edge_location = map['EdgeLocation']
         data.state = map['State']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
-        data.configuration = (Parsers::ConnectPeerConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.configuration = (ConnectPeerConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -327,9 +327,9 @@ module AWS::SDK::NetworkManager
         data = Types::ConnectPeerConfiguration.new
         data.core_network_address = map['CoreNetworkAddress']
         data.peer_address = map['PeerAddress']
-        data.inside_cidr_blocks = (Parsers::ConstrainedStringList.parse(map['InsideCidrBlocks']) unless map['InsideCidrBlocks'].nil?)
+        data.inside_cidr_blocks = (ConstrainedStringList.parse(map['InsideCidrBlocks']) unless map['InsideCidrBlocks'].nil?)
         data.protocol = map['Protocol']
-        data.bgp_configurations = (Parsers::ConnectPeerBgpConfigurationList.parse(map['BgpConfigurations']) unless map['BgpConfigurations'].nil?)
+        data.bgp_configurations = (ConnectPeerBgpConfigurationList.parse(map['BgpConfigurations']) unless map['BgpConfigurations'].nil?)
         return data
       end
     end
@@ -338,7 +338,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ConnectPeerBgpConfiguration.parse(value) unless value.nil?
+          data << ConnectPeerBgpConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -370,7 +370,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::CreateConnectionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.connection = (Parsers::Connection.parse(map['Connection']) unless map['Connection'].nil?)
+        data.connection = (Connection.parse(map['Connection']) unless map['Connection'].nil?)
         data
       end
     end
@@ -388,7 +388,7 @@ module AWS::SDK::NetworkManager
         data.description = map['Description']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.state = map['State']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -398,7 +398,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::CreateCoreNetworkOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.core_network = (Parsers::CoreNetwork.parse(map['CoreNetwork']) unless map['CoreNetwork'].nil?)
+        data.core_network = (CoreNetwork.parse(map['CoreNetwork']) unless map['CoreNetwork'].nil?)
         data
       end
     end
@@ -412,9 +412,9 @@ module AWS::SDK::NetworkManager
         data.description = map['Description']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.state = map['State']
-        data.segments = (Parsers::CoreNetworkSegmentList.parse(map['Segments']) unless map['Segments'].nil?)
-        data.edges = (Parsers::CoreNetworkEdgeList.parse(map['Edges']) unless map['Edges'].nil?)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.segments = (CoreNetworkSegmentList.parse(map['Segments']) unless map['Segments'].nil?)
+        data.edges = (CoreNetworkEdgeList.parse(map['Edges']) unless map['Edges'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -423,7 +423,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CoreNetworkEdge.parse(value) unless value.nil?
+          data << CoreNetworkEdge.parse(value) unless value.nil?
         end
         data
       end
@@ -434,7 +434,7 @@ module AWS::SDK::NetworkManager
         data = Types::CoreNetworkEdge.new
         data.edge_location = map['EdgeLocation']
         data.asn = map['Asn']
-        data.inside_cidr_blocks = (Parsers::ConstrainedStringList.parse(map['InsideCidrBlocks']) unless map['InsideCidrBlocks'].nil?)
+        data.inside_cidr_blocks = (ConstrainedStringList.parse(map['InsideCidrBlocks']) unless map['InsideCidrBlocks'].nil?)
         return data
       end
     end
@@ -443,7 +443,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CoreNetworkSegment.parse(value) unless value.nil?
+          data << CoreNetworkSegment.parse(value) unless value.nil?
         end
         data
       end
@@ -453,8 +453,8 @@ module AWS::SDK::NetworkManager
       def self.parse(map)
         data = Types::CoreNetworkSegment.new
         data.name = map['Name']
-        data.edge_locations = (Parsers::ExternalRegionCodeList.parse(map['EdgeLocations']) unless map['EdgeLocations'].nil?)
-        data.shared_segments = (Parsers::ConstrainedStringList.parse(map['SharedSegments']) unless map['SharedSegments'].nil?)
+        data.edge_locations = (ExternalRegionCodeList.parse(map['EdgeLocations']) unless map['EdgeLocations'].nil?)
+        data.shared_segments = (ConstrainedStringList.parse(map['SharedSegments']) unless map['SharedSegments'].nil?)
         return data
       end
     end
@@ -475,7 +475,7 @@ module AWS::SDK::NetworkManager
         data = Types::CoreNetworkPolicyException.new
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['Message']
-        data.errors = (Parsers::CoreNetworkPolicyErrorList.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (CoreNetworkPolicyErrorList.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -484,7 +484,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CoreNetworkPolicyError.parse(value) unless value.nil?
+          data << CoreNetworkPolicyError.parse(value) unless value.nil?
         end
         data
       end
@@ -505,7 +505,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::CreateDeviceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.device = (Parsers::Device.parse(map['Device']) unless map['Device'].nil?)
+        data.device = (Device.parse(map['Device']) unless map['Device'].nil?)
         data
       end
     end
@@ -516,17 +516,17 @@ module AWS::SDK::NetworkManager
         data.device_id = map['DeviceId']
         data.device_arn = map['DeviceArn']
         data.global_network_id = map['GlobalNetworkId']
-        data.aws_location = (Parsers::AWSLocation.parse(map['AWSLocation']) unless map['AWSLocation'].nil?)
+        data.aws_location = (AWSLocation.parse(map['AWSLocation']) unless map['AWSLocation'].nil?)
         data.description = map['Description']
         data.type = map['Type']
         data.vendor = map['Vendor']
         data.model = map['Model']
         data.serial_number = map['SerialNumber']
-        data.location = (Parsers::Location.parse(map['Location']) unless map['Location'].nil?)
+        data.location = (Location.parse(map['Location']) unless map['Location'].nil?)
         data.site_id = map['SiteId']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.state = map['State']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -555,7 +555,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::CreateGlobalNetworkOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.global_network = (Parsers::GlobalNetwork.parse(map['GlobalNetwork']) unless map['GlobalNetwork'].nil?)
+        data.global_network = (GlobalNetwork.parse(map['GlobalNetwork']) unless map['GlobalNetwork'].nil?)
         data
       end
     end
@@ -568,7 +568,7 @@ module AWS::SDK::NetworkManager
         data.description = map['Description']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.state = map['State']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -578,7 +578,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::CreateLinkOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.link = (Parsers::Link.parse(map['Link']) unless map['Link'].nil?)
+        data.link = (Link.parse(map['Link']) unless map['Link'].nil?)
         data
       end
     end
@@ -592,11 +592,11 @@ module AWS::SDK::NetworkManager
         data.site_id = map['SiteId']
         data.description = map['Description']
         data.type = map['Type']
-        data.bandwidth = (Parsers::Bandwidth.parse(map['Bandwidth']) unless map['Bandwidth'].nil?)
+        data.bandwidth = (Bandwidth.parse(map['Bandwidth']) unless map['Bandwidth'].nil?)
         data.provider = map['Provider']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.state = map['State']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -615,7 +615,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::CreateSiteOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.site = (Parsers::Site.parse(map['Site']) unless map['Site'].nil?)
+        data.site = (Site.parse(map['Site']) unless map['Site'].nil?)
         data
       end
     end
@@ -627,10 +627,10 @@ module AWS::SDK::NetworkManager
         data.site_arn = map['SiteArn']
         data.global_network_id = map['GlobalNetworkId']
         data.description = map['Description']
-        data.location = (Parsers::Location.parse(map['Location']) unless map['Location'].nil?)
+        data.location = (Location.parse(map['Location']) unless map['Location'].nil?)
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.state = map['State']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -640,7 +640,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::CreateSiteToSiteVpnAttachmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.site_to_site_vpn_attachment = (Parsers::SiteToSiteVpnAttachment.parse(map['SiteToSiteVpnAttachment']) unless map['SiteToSiteVpnAttachment'].nil?)
+        data.site_to_site_vpn_attachment = (SiteToSiteVpnAttachment.parse(map['SiteToSiteVpnAttachment']) unless map['SiteToSiteVpnAttachment'].nil?)
         data
       end
     end
@@ -648,7 +648,7 @@ module AWS::SDK::NetworkManager
     class SiteToSiteVpnAttachment
       def self.parse(map)
         data = Types::SiteToSiteVpnAttachment.new
-        data.attachment = (Parsers::Attachment.parse(map['Attachment']) unless map['Attachment'].nil?)
+        data.attachment = (Attachment.parse(map['Attachment']) unless map['Attachment'].nil?)
         data.vpn_connection_arn = map['VpnConnectionArn']
         return data
       end
@@ -659,7 +659,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::CreateVpcAttachmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.vpc_attachment = (Parsers::VpcAttachment.parse(map['VpcAttachment']) unless map['VpcAttachment'].nil?)
+        data.vpc_attachment = (VpcAttachment.parse(map['VpcAttachment']) unless map['VpcAttachment'].nil?)
         data
       end
     end
@@ -667,9 +667,9 @@ module AWS::SDK::NetworkManager
     class VpcAttachment
       def self.parse(map)
         data = Types::VpcAttachment.new
-        data.attachment = (Parsers::Attachment.parse(map['Attachment']) unless map['Attachment'].nil?)
-        data.subnet_arns = (Parsers::SubnetArnList.parse(map['SubnetArns']) unless map['SubnetArns'].nil?)
-        data.options = (Parsers::VpcOptions.parse(map['Options']) unless map['Options'].nil?)
+        data.attachment = (Attachment.parse(map['Attachment']) unless map['Attachment'].nil?)
+        data.subnet_arns = (SubnetArnList.parse(map['SubnetArns']) unless map['SubnetArns'].nil?)
+        data.options = (VpcOptions.parse(map['Options']) unless map['Options'].nil?)
         return data
       end
     end
@@ -697,7 +697,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::DeleteAttachmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attachment = (Parsers::Attachment.parse(map['Attachment']) unless map['Attachment'].nil?)
+        data.attachment = (Attachment.parse(map['Attachment']) unless map['Attachment'].nil?)
         data
       end
     end
@@ -707,7 +707,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::DeleteConnectPeerOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.connect_peer = (Parsers::ConnectPeer.parse(map['ConnectPeer']) unless map['ConnectPeer'].nil?)
+        data.connect_peer = (ConnectPeer.parse(map['ConnectPeer']) unless map['ConnectPeer'].nil?)
         data
       end
     end
@@ -717,7 +717,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::DeleteConnectionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.connection = (Parsers::Connection.parse(map['Connection']) unless map['Connection'].nil?)
+        data.connection = (Connection.parse(map['Connection']) unless map['Connection'].nil?)
         data
       end
     end
@@ -727,7 +727,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::DeleteCoreNetworkOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.core_network = (Parsers::CoreNetwork.parse(map['CoreNetwork']) unless map['CoreNetwork'].nil?)
+        data.core_network = (CoreNetwork.parse(map['CoreNetwork']) unless map['CoreNetwork'].nil?)
         data
       end
     end
@@ -737,7 +737,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::DeleteCoreNetworkPolicyVersionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.core_network_policy = (Parsers::CoreNetworkPolicy.parse(map['CoreNetworkPolicy']) unless map['CoreNetworkPolicy'].nil?)
+        data.core_network_policy = (CoreNetworkPolicy.parse(map['CoreNetworkPolicy']) unless map['CoreNetworkPolicy'].nil?)
         data
       end
     end
@@ -751,7 +751,7 @@ module AWS::SDK::NetworkManager
         data.description = map['Description']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.change_set_state = map['ChangeSetState']
-        data.policy_errors = (Parsers::CoreNetworkPolicyErrorList.parse(map['PolicyErrors']) unless map['PolicyErrors'].nil?)
+        data.policy_errors = (CoreNetworkPolicyErrorList.parse(map['PolicyErrors']) unless map['PolicyErrors'].nil?)
         data.policy_document = map['PolicyDocument']
         return data
       end
@@ -762,7 +762,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::DeleteDeviceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.device = (Parsers::Device.parse(map['Device']) unless map['Device'].nil?)
+        data.device = (Device.parse(map['Device']) unless map['Device'].nil?)
         data
       end
     end
@@ -772,7 +772,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::DeleteGlobalNetworkOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.global_network = (Parsers::GlobalNetwork.parse(map['GlobalNetwork']) unless map['GlobalNetwork'].nil?)
+        data.global_network = (GlobalNetwork.parse(map['GlobalNetwork']) unless map['GlobalNetwork'].nil?)
         data
       end
     end
@@ -782,7 +782,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::DeleteLinkOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.link = (Parsers::Link.parse(map['Link']) unless map['Link'].nil?)
+        data.link = (Link.parse(map['Link']) unless map['Link'].nil?)
         data
       end
     end
@@ -801,7 +801,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::DeleteSiteOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.site = (Parsers::Site.parse(map['Site']) unless map['Site'].nil?)
+        data.site = (Site.parse(map['Site']) unless map['Site'].nil?)
         data
       end
     end
@@ -811,7 +811,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::DeregisterTransitGatewayOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.transit_gateway_registration = (Parsers::TransitGatewayRegistration.parse(map['TransitGatewayRegistration']) unless map['TransitGatewayRegistration'].nil?)
+        data.transit_gateway_registration = (TransitGatewayRegistration.parse(map['TransitGatewayRegistration']) unless map['TransitGatewayRegistration'].nil?)
         data
       end
     end
@@ -821,7 +821,7 @@ module AWS::SDK::NetworkManager
         data = Types::TransitGatewayRegistration.new
         data.global_network_id = map['GlobalNetworkId']
         data.transit_gateway_arn = map['TransitGatewayArn']
-        data.state = (Parsers::TransitGatewayRegistrationStateReason.parse(map['State']) unless map['State'].nil?)
+        data.state = (TransitGatewayRegistrationStateReason.parse(map['State']) unless map['State'].nil?)
         return data
       end
     end
@@ -840,7 +840,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::DescribeGlobalNetworksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.global_networks = (Parsers::GlobalNetworkList.parse(map['GlobalNetworks']) unless map['GlobalNetworks'].nil?)
+        data.global_networks = (GlobalNetworkList.parse(map['GlobalNetworks']) unless map['GlobalNetworks'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -850,7 +850,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GlobalNetwork.parse(value) unless value.nil?
+          data << GlobalNetwork.parse(value) unless value.nil?
         end
         data
       end
@@ -861,7 +861,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::DisassociateConnectPeerOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.connect_peer_association = (Parsers::ConnectPeerAssociation.parse(map['ConnectPeerAssociation']) unless map['ConnectPeerAssociation'].nil?)
+        data.connect_peer_association = (ConnectPeerAssociation.parse(map['ConnectPeerAssociation']) unless map['ConnectPeerAssociation'].nil?)
         data
       end
     end
@@ -871,7 +871,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::DisassociateCustomerGatewayOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.customer_gateway_association = (Parsers::CustomerGatewayAssociation.parse(map['CustomerGatewayAssociation']) unless map['CustomerGatewayAssociation'].nil?)
+        data.customer_gateway_association = (CustomerGatewayAssociation.parse(map['CustomerGatewayAssociation']) unless map['CustomerGatewayAssociation'].nil?)
         data
       end
     end
@@ -881,7 +881,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::DisassociateLinkOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.link_association = (Parsers::LinkAssociation.parse(map['LinkAssociation']) unless map['LinkAssociation'].nil?)
+        data.link_association = (LinkAssociation.parse(map['LinkAssociation']) unless map['LinkAssociation'].nil?)
         data
       end
     end
@@ -891,7 +891,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::DisassociateTransitGatewayConnectPeerOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.transit_gateway_connect_peer_association = (Parsers::TransitGatewayConnectPeerAssociation.parse(map['TransitGatewayConnectPeerAssociation']) unless map['TransitGatewayConnectPeerAssociation'].nil?)
+        data.transit_gateway_connect_peer_association = (TransitGatewayConnectPeerAssociation.parse(map['TransitGatewayConnectPeerAssociation']) unless map['TransitGatewayConnectPeerAssociation'].nil?)
         data
       end
     end
@@ -910,7 +910,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetConnectAttachmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.connect_attachment = (Parsers::ConnectAttachment.parse(map['ConnectAttachment']) unless map['ConnectAttachment'].nil?)
+        data.connect_attachment = (ConnectAttachment.parse(map['ConnectAttachment']) unless map['ConnectAttachment'].nil?)
         data
       end
     end
@@ -920,7 +920,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetConnectPeerOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.connect_peer = (Parsers::ConnectPeer.parse(map['ConnectPeer']) unless map['ConnectPeer'].nil?)
+        data.connect_peer = (ConnectPeer.parse(map['ConnectPeer']) unless map['ConnectPeer'].nil?)
         data
       end
     end
@@ -930,7 +930,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetConnectPeerAssociationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.connect_peer_associations = (Parsers::ConnectPeerAssociationList.parse(map['ConnectPeerAssociations']) unless map['ConnectPeerAssociations'].nil?)
+        data.connect_peer_associations = (ConnectPeerAssociationList.parse(map['ConnectPeerAssociations']) unless map['ConnectPeerAssociations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -940,7 +940,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ConnectPeerAssociation.parse(value) unless value.nil?
+          data << ConnectPeerAssociation.parse(value) unless value.nil?
         end
         data
       end
@@ -951,7 +951,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetConnectionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.connections = (Parsers::ConnectionList.parse(map['Connections']) unless map['Connections'].nil?)
+        data.connections = (ConnectionList.parse(map['Connections']) unless map['Connections'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -961,7 +961,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Connection.parse(value) unless value.nil?
+          data << Connection.parse(value) unless value.nil?
         end
         data
       end
@@ -972,7 +972,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetCoreNetworkOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.core_network = (Parsers::CoreNetwork.parse(map['CoreNetwork']) unless map['CoreNetwork'].nil?)
+        data.core_network = (CoreNetwork.parse(map['CoreNetwork']) unless map['CoreNetwork'].nil?)
         data
       end
     end
@@ -982,7 +982,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetCoreNetworkChangeSetOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.core_network_changes = (Parsers::CoreNetworkChangeList.parse(map['CoreNetworkChanges']) unless map['CoreNetworkChanges'].nil?)
+        data.core_network_changes = (CoreNetworkChangeList.parse(map['CoreNetworkChanges']) unless map['CoreNetworkChanges'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -992,7 +992,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CoreNetworkChange.parse(value) unless value.nil?
+          data << CoreNetworkChange.parse(value) unless value.nil?
         end
         data
       end
@@ -1004,8 +1004,8 @@ module AWS::SDK::NetworkManager
         data.type = map['Type']
         data.action = map['Action']
         data.identifier = map['Identifier']
-        data.previous_values = (Parsers::CoreNetworkChangeValues.parse(map['PreviousValues']) unless map['PreviousValues'].nil?)
-        data.new_values = (Parsers::CoreNetworkChangeValues.parse(map['NewValues']) unless map['NewValues'].nil?)
+        data.previous_values = (CoreNetworkChangeValues.parse(map['PreviousValues']) unless map['PreviousValues'].nil?)
+        data.new_values = (CoreNetworkChangeValues.parse(map['NewValues']) unless map['NewValues'].nil?)
         return data
       end
     end
@@ -1014,12 +1014,12 @@ module AWS::SDK::NetworkManager
       def self.parse(map)
         data = Types::CoreNetworkChangeValues.new
         data.segment_name = map['SegmentName']
-        data.edge_locations = (Parsers::ExternalRegionCodeList.parse(map['EdgeLocations']) unless map['EdgeLocations'].nil?)
+        data.edge_locations = (ExternalRegionCodeList.parse(map['EdgeLocations']) unless map['EdgeLocations'].nil?)
         data.asn = map['Asn']
         data.cidr = map['Cidr']
         data.destination_identifier = map['DestinationIdentifier']
-        data.inside_cidr_blocks = (Parsers::ConstrainedStringList.parse(map['InsideCidrBlocks']) unless map['InsideCidrBlocks'].nil?)
-        data.shared_segments = (Parsers::ConstrainedStringList.parse(map['SharedSegments']) unless map['SharedSegments'].nil?)
+        data.inside_cidr_blocks = (ConstrainedStringList.parse(map['InsideCidrBlocks']) unless map['InsideCidrBlocks'].nil?)
+        data.shared_segments = (ConstrainedStringList.parse(map['SharedSegments']) unless map['SharedSegments'].nil?)
         return data
       end
     end
@@ -1029,7 +1029,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetCoreNetworkPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.core_network_policy = (Parsers::CoreNetworkPolicy.parse(map['CoreNetworkPolicy']) unless map['CoreNetworkPolicy'].nil?)
+        data.core_network_policy = (CoreNetworkPolicy.parse(map['CoreNetworkPolicy']) unless map['CoreNetworkPolicy'].nil?)
         data
       end
     end
@@ -1039,7 +1039,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetCustomerGatewayAssociationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.customer_gateway_associations = (Parsers::CustomerGatewayAssociationList.parse(map['CustomerGatewayAssociations']) unless map['CustomerGatewayAssociations'].nil?)
+        data.customer_gateway_associations = (CustomerGatewayAssociationList.parse(map['CustomerGatewayAssociations']) unless map['CustomerGatewayAssociations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1049,7 +1049,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CustomerGatewayAssociation.parse(value) unless value.nil?
+          data << CustomerGatewayAssociation.parse(value) unless value.nil?
         end
         data
       end
@@ -1060,7 +1060,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetDevicesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.devices = (Parsers::DeviceList.parse(map['Devices']) unless map['Devices'].nil?)
+        data.devices = (DeviceList.parse(map['Devices']) unless map['Devices'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1070,7 +1070,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Device.parse(value) unless value.nil?
+          data << Device.parse(value) unless value.nil?
         end
         data
       end
@@ -1081,7 +1081,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetLinkAssociationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.link_associations = (Parsers::LinkAssociationList.parse(map['LinkAssociations']) unless map['LinkAssociations'].nil?)
+        data.link_associations = (LinkAssociationList.parse(map['LinkAssociations']) unless map['LinkAssociations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1091,7 +1091,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LinkAssociation.parse(value) unless value.nil?
+          data << LinkAssociation.parse(value) unless value.nil?
         end
         data
       end
@@ -1102,7 +1102,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetLinksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.links = (Parsers::LinkList.parse(map['Links']) unless map['Links'].nil?)
+        data.links = (LinkList.parse(map['Links']) unless map['Links'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1112,7 +1112,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Link.parse(value) unless value.nil?
+          data << Link.parse(value) unless value.nil?
         end
         data
       end
@@ -1123,7 +1123,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetNetworkResourceCountsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.network_resource_counts = (Parsers::NetworkResourceCountList.parse(map['NetworkResourceCounts']) unless map['NetworkResourceCounts'].nil?)
+        data.network_resource_counts = (NetworkResourceCountList.parse(map['NetworkResourceCounts']) unless map['NetworkResourceCounts'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1133,7 +1133,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NetworkResourceCount.parse(value) unless value.nil?
+          data << NetworkResourceCount.parse(value) unless value.nil?
         end
         data
       end
@@ -1153,7 +1153,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetNetworkResourceRelationshipsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.relationships = (Parsers::RelationshipList.parse(map['Relationships']) unless map['Relationships'].nil?)
+        data.relationships = (RelationshipList.parse(map['Relationships']) unless map['Relationships'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1163,7 +1163,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Relationship.parse(value) unless value.nil?
+          data << Relationship.parse(value) unless value.nil?
         end
         data
       end
@@ -1183,7 +1183,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetNetworkResourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.network_resources = (Parsers::NetworkResourceList.parse(map['NetworkResources']) unless map['NetworkResources'].nil?)
+        data.network_resources = (NetworkResourceList.parse(map['NetworkResources']) unless map['NetworkResources'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1193,7 +1193,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NetworkResource.parse(value) unless value.nil?
+          data << NetworkResource.parse(value) unless value.nil?
         end
         data
       end
@@ -1211,8 +1211,8 @@ module AWS::SDK::NetworkManager
         data.resource_arn = map['ResourceArn']
         data.definition = map['Definition']
         data.definition_timestamp = Time.at(map['DefinitionTimestamp'].to_i) if map['DefinitionTimestamp']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
-        data.metadata = (Parsers::NetworkResourceMetadataMap.parse(map['Metadata']) unless map['Metadata'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.metadata = (NetworkResourceMetadataMap.parse(map['Metadata']) unless map['Metadata'].nil?)
         return data
       end
     end
@@ -1233,10 +1233,10 @@ module AWS::SDK::NetworkManager
         data = Types::GetNetworkRoutesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.route_table_arn = map['RouteTableArn']
-        data.core_network_segment_edge = (Parsers::CoreNetworkSegmentEdgeIdentifier.parse(map['CoreNetworkSegmentEdge']) unless map['CoreNetworkSegmentEdge'].nil?)
+        data.core_network_segment_edge = (CoreNetworkSegmentEdgeIdentifier.parse(map['CoreNetworkSegmentEdge']) unless map['CoreNetworkSegmentEdge'].nil?)
         data.route_table_type = map['RouteTableType']
         data.route_table_timestamp = Time.at(map['RouteTableTimestamp'].to_i) if map['RouteTableTimestamp']
-        data.network_routes = (Parsers::NetworkRouteList.parse(map['NetworkRoutes']) unless map['NetworkRoutes'].nil?)
+        data.network_routes = (NetworkRouteList.parse(map['NetworkRoutes']) unless map['NetworkRoutes'].nil?)
         data
       end
     end
@@ -1245,7 +1245,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NetworkRoute.parse(value) unless value.nil?
+          data << NetworkRoute.parse(value) unless value.nil?
         end
         data
       end
@@ -1255,7 +1255,7 @@ module AWS::SDK::NetworkManager
       def self.parse(map)
         data = Types::NetworkRoute.new
         data.destination_cidr_block = map['DestinationCidrBlock']
-        data.destinations = (Parsers::NetworkRouteDestinationList.parse(map['Destinations']) unless map['Destinations'].nil?)
+        data.destinations = (NetworkRouteDestinationList.parse(map['Destinations']) unless map['Destinations'].nil?)
         data.prefix_list_id = map['PrefixListId']
         data.state = map['State']
         data.type = map['Type']
@@ -1267,7 +1267,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NetworkRouteDestination.parse(value) unless value.nil?
+          data << NetworkRouteDestination.parse(value) unless value.nil?
         end
         data
       end
@@ -1301,7 +1301,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetNetworkTelemetryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.network_telemetry = (Parsers::NetworkTelemetryList.parse(map['NetworkTelemetry']) unless map['NetworkTelemetry'].nil?)
+        data.network_telemetry = (NetworkTelemetryList.parse(map['NetworkTelemetry']) unless map['NetworkTelemetry'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1311,7 +1311,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NetworkTelemetry.parse(value) unless value.nil?
+          data << NetworkTelemetry.parse(value) unless value.nil?
         end
         data
       end
@@ -1328,7 +1328,7 @@ module AWS::SDK::NetworkManager
         data.resource_id = map['ResourceId']
         data.resource_arn = map['ResourceArn']
         data.address = map['Address']
-        data.health = (Parsers::ConnectionHealth.parse(map['Health']) unless map['Health'].nil?)
+        data.health = (ConnectionHealth.parse(map['Health']) unless map['Health'].nil?)
         return data
       end
     end
@@ -1358,7 +1358,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetRouteAnalysisOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.route_analysis = (Parsers::RouteAnalysis.parse(map['RouteAnalysis']) unless map['RouteAnalysis'].nil?)
+        data.route_analysis = (RouteAnalysis.parse(map['RouteAnalysis']) unless map['RouteAnalysis'].nil?)
         data
       end
     end
@@ -1371,12 +1371,12 @@ module AWS::SDK::NetworkManager
         data.route_analysis_id = map['RouteAnalysisId']
         data.start_timestamp = Time.at(map['StartTimestamp'].to_i) if map['StartTimestamp']
         data.status = map['Status']
-        data.source = (Parsers::RouteAnalysisEndpointOptions.parse(map['Source']) unless map['Source'].nil?)
-        data.destination = (Parsers::RouteAnalysisEndpointOptions.parse(map['Destination']) unless map['Destination'].nil?)
+        data.source = (RouteAnalysisEndpointOptions.parse(map['Source']) unless map['Source'].nil?)
+        data.destination = (RouteAnalysisEndpointOptions.parse(map['Destination']) unless map['Destination'].nil?)
         data.include_return_path = map['IncludeReturnPath']
         data.use_middleboxes = map['UseMiddleboxes']
-        data.forward_path = (Parsers::RouteAnalysisPath.parse(map['ForwardPath']) unless map['ForwardPath'].nil?)
-        data.return_path = (Parsers::RouteAnalysisPath.parse(map['ReturnPath']) unless map['ReturnPath'].nil?)
+        data.forward_path = (RouteAnalysisPath.parse(map['ForwardPath']) unless map['ForwardPath'].nil?)
+        data.return_path = (RouteAnalysisPath.parse(map['ReturnPath']) unless map['ReturnPath'].nil?)
         return data
       end
     end
@@ -1384,8 +1384,8 @@ module AWS::SDK::NetworkManager
     class RouteAnalysisPath
       def self.parse(map)
         data = Types::RouteAnalysisPath.new
-        data.completion_status = (Parsers::RouteAnalysisCompletion.parse(map['CompletionStatus']) unless map['CompletionStatus'].nil?)
-        data.path = (Parsers::PathComponentList.parse(map['Path']) unless map['Path'].nil?)
+        data.completion_status = (RouteAnalysisCompletion.parse(map['CompletionStatus']) unless map['CompletionStatus'].nil?)
+        data.path = (PathComponentList.parse(map['Path']) unless map['Path'].nil?)
         return data
       end
     end
@@ -1394,7 +1394,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PathComponent.parse(value) unless value.nil?
+          data << PathComponent.parse(value) unless value.nil?
         end
         data
       end
@@ -1404,7 +1404,7 @@ module AWS::SDK::NetworkManager
       def self.parse(map)
         data = Types::PathComponent.new
         data.sequence = map['Sequence']
-        data.resource = (Parsers::NetworkResourceSummary.parse(map['Resource']) unless map['Resource'].nil?)
+        data.resource = (NetworkResourceSummary.parse(map['Resource']) unless map['Resource'].nil?)
         data.destination_cidr_block = map['DestinationCidrBlock']
         return data
       end
@@ -1428,7 +1428,7 @@ module AWS::SDK::NetworkManager
         data = Types::RouteAnalysisCompletion.new
         data.result_code = map['ResultCode']
         data.reason_code = map['ReasonCode']
-        data.reason_context = (Parsers::ReasonContextMap.parse(map['ReasonContext']) unless map['ReasonContext'].nil?)
+        data.reason_context = (ReasonContextMap.parse(map['ReasonContext']) unless map['ReasonContext'].nil?)
         return data
       end
     end
@@ -1458,7 +1458,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetSiteToSiteVpnAttachmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.site_to_site_vpn_attachment = (Parsers::SiteToSiteVpnAttachment.parse(map['SiteToSiteVpnAttachment']) unless map['SiteToSiteVpnAttachment'].nil?)
+        data.site_to_site_vpn_attachment = (SiteToSiteVpnAttachment.parse(map['SiteToSiteVpnAttachment']) unless map['SiteToSiteVpnAttachment'].nil?)
         data
       end
     end
@@ -1468,7 +1468,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetSitesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.sites = (Parsers::SiteList.parse(map['Sites']) unless map['Sites'].nil?)
+        data.sites = (SiteList.parse(map['Sites']) unless map['Sites'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1478,7 +1478,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Site.parse(value) unless value.nil?
+          data << Site.parse(value) unless value.nil?
         end
         data
       end
@@ -1489,7 +1489,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetTransitGatewayConnectPeerAssociationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.transit_gateway_connect_peer_associations = (Parsers::TransitGatewayConnectPeerAssociationList.parse(map['TransitGatewayConnectPeerAssociations']) unless map['TransitGatewayConnectPeerAssociations'].nil?)
+        data.transit_gateway_connect_peer_associations = (TransitGatewayConnectPeerAssociationList.parse(map['TransitGatewayConnectPeerAssociations']) unless map['TransitGatewayConnectPeerAssociations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1499,7 +1499,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TransitGatewayConnectPeerAssociation.parse(value) unless value.nil?
+          data << TransitGatewayConnectPeerAssociation.parse(value) unless value.nil?
         end
         data
       end
@@ -1510,7 +1510,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetTransitGatewayRegistrationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.transit_gateway_registrations = (Parsers::TransitGatewayRegistrationList.parse(map['TransitGatewayRegistrations']) unless map['TransitGatewayRegistrations'].nil?)
+        data.transit_gateway_registrations = (TransitGatewayRegistrationList.parse(map['TransitGatewayRegistrations']) unless map['TransitGatewayRegistrations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1520,7 +1520,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TransitGatewayRegistration.parse(value) unless value.nil?
+          data << TransitGatewayRegistration.parse(value) unless value.nil?
         end
         data
       end
@@ -1531,7 +1531,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::GetVpcAttachmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.vpc_attachment = (Parsers::VpcAttachment.parse(map['VpcAttachment']) unless map['VpcAttachment'].nil?)
+        data.vpc_attachment = (VpcAttachment.parse(map['VpcAttachment']) unless map['VpcAttachment'].nil?)
         data
       end
     end
@@ -1541,7 +1541,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::ListAttachmentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attachments = (Parsers::AttachmentList.parse(map['Attachments']) unless map['Attachments'].nil?)
+        data.attachments = (AttachmentList.parse(map['Attachments']) unless map['Attachments'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1551,7 +1551,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Attachment.parse(value) unless value.nil?
+          data << Attachment.parse(value) unless value.nil?
         end
         data
       end
@@ -1562,7 +1562,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::ListConnectPeersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.connect_peers = (Parsers::ConnectPeerSummaryList.parse(map['ConnectPeers']) unless map['ConnectPeers'].nil?)
+        data.connect_peers = (ConnectPeerSummaryList.parse(map['ConnectPeers']) unless map['ConnectPeers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1572,7 +1572,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ConnectPeerSummary.parse(value) unless value.nil?
+          data << ConnectPeerSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1587,7 +1587,7 @@ module AWS::SDK::NetworkManager
         data.edge_location = map['EdgeLocation']
         data.connect_peer_state = map['ConnectPeerState']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -1597,7 +1597,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::ListCoreNetworkPolicyVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.core_network_policy_versions = (Parsers::CoreNetworkPolicyVersionList.parse(map['CoreNetworkPolicyVersions']) unless map['CoreNetworkPolicyVersions'].nil?)
+        data.core_network_policy_versions = (CoreNetworkPolicyVersionList.parse(map['CoreNetworkPolicyVersions']) unless map['CoreNetworkPolicyVersions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1607,7 +1607,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CoreNetworkPolicyVersion.parse(value) unless value.nil?
+          data << CoreNetworkPolicyVersion.parse(value) unless value.nil?
         end
         data
       end
@@ -1631,7 +1631,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::ListCoreNetworksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.core_networks = (Parsers::CoreNetworkSummaryList.parse(map['CoreNetworks']) unless map['CoreNetworks'].nil?)
+        data.core_networks = (CoreNetworkSummaryList.parse(map['CoreNetworks']) unless map['CoreNetworks'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1641,7 +1641,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CoreNetworkSummary.parse(value) unless value.nil?
+          data << CoreNetworkSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1656,7 +1656,7 @@ module AWS::SDK::NetworkManager
         data.owner_account_id = map['OwnerAccountId']
         data.state = map['State']
         data.description = map['Description']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -1666,7 +1666,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::ListOrganizationServiceAccessStatusOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.organization_status = (Parsers::OrganizationStatus.parse(map['OrganizationStatus']) unless map['OrganizationStatus'].nil?)
+        data.organization_status = (OrganizationStatus.parse(map['OrganizationStatus']) unless map['OrganizationStatus'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1678,7 +1678,7 @@ module AWS::SDK::NetworkManager
         data.organization_id = map['OrganizationId']
         data.organization_aws_service_access_status = map['OrganizationAwsServiceAccessStatus']
         data.slr_deployment_status = map['SLRDeploymentStatus']
-        data.account_status_list = (Parsers::AccountStatusList.parse(map['AccountStatusList']) unless map['AccountStatusList'].nil?)
+        data.account_status_list = (AccountStatusList.parse(map['AccountStatusList']) unless map['AccountStatusList'].nil?)
         return data
       end
     end
@@ -1687,7 +1687,7 @@ module AWS::SDK::NetworkManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AccountStatus.parse(value) unless value.nil?
+          data << AccountStatus.parse(value) unless value.nil?
         end
         data
       end
@@ -1707,7 +1707,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tag_list = (Parsers::TagList.parse(map['TagList']) unless map['TagList'].nil?)
+        data.tag_list = (TagList.parse(map['TagList']) unless map['TagList'].nil?)
         data
       end
     end
@@ -1717,7 +1717,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::PutCoreNetworkPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.core_network_policy = (Parsers::CoreNetworkPolicy.parse(map['CoreNetworkPolicy']) unless map['CoreNetworkPolicy'].nil?)
+        data.core_network_policy = (CoreNetworkPolicy.parse(map['CoreNetworkPolicy']) unless map['CoreNetworkPolicy'].nil?)
         data
       end
     end
@@ -1736,7 +1736,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::RegisterTransitGatewayOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.transit_gateway_registration = (Parsers::TransitGatewayRegistration.parse(map['TransitGatewayRegistration']) unless map['TransitGatewayRegistration'].nil?)
+        data.transit_gateway_registration = (TransitGatewayRegistration.parse(map['TransitGatewayRegistration']) unless map['TransitGatewayRegistration'].nil?)
         data
       end
     end
@@ -1746,7 +1746,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::RejectAttachmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attachment = (Parsers::Attachment.parse(map['Attachment']) unless map['Attachment'].nil?)
+        data.attachment = (Attachment.parse(map['Attachment']) unless map['Attachment'].nil?)
         data
       end
     end
@@ -1756,7 +1756,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::RestoreCoreNetworkPolicyVersionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.core_network_policy = (Parsers::CoreNetworkPolicy.parse(map['CoreNetworkPolicy']) unless map['CoreNetworkPolicy'].nil?)
+        data.core_network_policy = (CoreNetworkPolicy.parse(map['CoreNetworkPolicy']) unless map['CoreNetworkPolicy'].nil?)
         data
       end
     end
@@ -1766,7 +1766,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::StartOrganizationServiceAccessUpdateOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.organization_status = (Parsers::OrganizationStatus.parse(map['OrganizationStatus']) unless map['OrganizationStatus'].nil?)
+        data.organization_status = (OrganizationStatus.parse(map['OrganizationStatus']) unless map['OrganizationStatus'].nil?)
         data
       end
     end
@@ -1776,7 +1776,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::StartRouteAnalysisOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.route_analysis = (Parsers::RouteAnalysis.parse(map['RouteAnalysis']) unless map['RouteAnalysis'].nil?)
+        data.route_analysis = (RouteAnalysis.parse(map['RouteAnalysis']) unless map['RouteAnalysis'].nil?)
         data
       end
     end
@@ -1804,7 +1804,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::UpdateConnectionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.connection = (Parsers::Connection.parse(map['Connection']) unless map['Connection'].nil?)
+        data.connection = (Connection.parse(map['Connection']) unless map['Connection'].nil?)
         data
       end
     end
@@ -1814,7 +1814,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::UpdateCoreNetworkOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.core_network = (Parsers::CoreNetwork.parse(map['CoreNetwork']) unless map['CoreNetwork'].nil?)
+        data.core_network = (CoreNetwork.parse(map['CoreNetwork']) unless map['CoreNetwork'].nil?)
         data
       end
     end
@@ -1824,7 +1824,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::UpdateDeviceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.device = (Parsers::Device.parse(map['Device']) unless map['Device'].nil?)
+        data.device = (Device.parse(map['Device']) unless map['Device'].nil?)
         data
       end
     end
@@ -1834,7 +1834,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::UpdateGlobalNetworkOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.global_network = (Parsers::GlobalNetwork.parse(map['GlobalNetwork']) unless map['GlobalNetwork'].nil?)
+        data.global_network = (GlobalNetwork.parse(map['GlobalNetwork']) unless map['GlobalNetwork'].nil?)
         data
       end
     end
@@ -1844,7 +1844,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::UpdateLinkOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.link = (Parsers::Link.parse(map['Link']) unless map['Link'].nil?)
+        data.link = (Link.parse(map['Link']) unless map['Link'].nil?)
         data
       end
     end
@@ -1855,7 +1855,7 @@ module AWS::SDK::NetworkManager
         data = Types::UpdateNetworkResourceMetadataOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.resource_arn = map['ResourceArn']
-        data.metadata = (Parsers::NetworkResourceMetadataMap.parse(map['Metadata']) unless map['Metadata'].nil?)
+        data.metadata = (NetworkResourceMetadataMap.parse(map['Metadata']) unless map['Metadata'].nil?)
         data
       end
     end
@@ -1865,7 +1865,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::UpdateSiteOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.site = (Parsers::Site.parse(map['Site']) unless map['Site'].nil?)
+        data.site = (Site.parse(map['Site']) unless map['Site'].nil?)
         data
       end
     end
@@ -1875,7 +1875,7 @@ module AWS::SDK::NetworkManager
       def self.parse(http_resp)
         data = Types::UpdateVpcAttachmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.vpc_attachment = (Parsers::VpcAttachment.parse(map['VpcAttachment']) unless map['VpcAttachment'].nil?)
+        data.vpc_attachment = (VpcAttachment.parse(map['VpcAttachment']) unless map['VpcAttachment'].nil?)
         data
       end
     end

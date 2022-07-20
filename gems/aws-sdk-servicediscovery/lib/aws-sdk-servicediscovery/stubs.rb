@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ServiceDiscovery
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::ServiceDiscovery
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -37,7 +39,7 @@ module AWS::SDK::ServiceDiscovery
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -53,7 +55,7 @@ module AWS::SDK::ServiceDiscovery
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -68,8 +70,8 @@ module AWS::SDK::ServiceDiscovery
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Service'] = Stubs::Service.stub(stub[:service]) unless stub[:service].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Service'] = Service.stub(stub[:service]) unless stub[:service].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -104,10 +106,10 @@ module AWS::SDK::ServiceDiscovery
         data['NamespaceId'] = stub[:namespace_id] unless stub[:namespace_id].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['InstanceCount'] = stub[:instance_count] unless stub[:instance_count].nil?
-        data['DnsConfig'] = Stubs::DnsConfig.stub(stub[:dns_config]) unless stub[:dns_config].nil?
+        data['DnsConfig'] = DnsConfig.stub(stub[:dns_config]) unless stub[:dns_config].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['HealthCheckConfig'] = Stubs::HealthCheckConfig.stub(stub[:health_check_config]) unless stub[:health_check_config].nil?
-        data['HealthCheckCustomConfig'] = Stubs::HealthCheckCustomConfig.stub(stub[:health_check_custom_config]) unless stub[:health_check_custom_config].nil?
+        data['HealthCheckConfig'] = HealthCheckConfig.stub(stub[:health_check_config]) unless stub[:health_check_config].nil?
+        data['HealthCheckCustomConfig'] = HealthCheckCustomConfig.stub(stub[:health_check_custom_config]) unless stub[:health_check_custom_config].nil?
         data['CreateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_date]).to_i unless stub[:create_date].nil?
         data['CreatorRequestId'] = stub[:creator_request_id] unless stub[:creator_request_id].nil?
         data
@@ -171,7 +173,7 @@ module AWS::SDK::ServiceDiscovery
         data = {}
         data['NamespaceId'] = stub[:namespace_id] unless stub[:namespace_id].nil?
         data['RoutingPolicy'] = stub[:routing_policy] unless stub[:routing_policy].nil?
-        data['DnsRecords'] = Stubs::DnsRecordList.stub(stub[:dns_records]) unless stub[:dns_records].nil?
+        data['DnsRecords'] = DnsRecordList.stub(stub[:dns_records]) unless stub[:dns_records].nil?
         data
       end
     end
@@ -190,7 +192,7 @@ module AWS::SDK::ServiceDiscovery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DnsRecord.stub(element) unless element.nil?
+          data << DnsRecord.stub(element) unless element.nil?
         end
         data
       end
@@ -227,7 +229,7 @@ module AWS::SDK::ServiceDiscovery
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -241,7 +243,7 @@ module AWS::SDK::ServiceDiscovery
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -257,7 +259,7 @@ module AWS::SDK::ServiceDiscovery
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -272,8 +274,8 @@ module AWS::SDK::ServiceDiscovery
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Instances'] = Stubs::HttpInstanceSummaryList.stub(stub[:instances]) unless stub[:instances].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Instances'] = HttpInstanceSummaryList.stub(stub[:instances]) unless stub[:instances].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -292,7 +294,7 @@ module AWS::SDK::ServiceDiscovery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HttpInstanceSummary.stub(element) unless element.nil?
+          data << HttpInstanceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -319,7 +321,7 @@ module AWS::SDK::ServiceDiscovery
         data['NamespaceName'] = stub[:namespace_name] unless stub[:namespace_name].nil?
         data['ServiceName'] = stub[:service_name] unless stub[:service_name].nil?
         data['HealthStatus'] = stub[:health_status] unless stub[:health_status].nil?
-        data['Attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -354,8 +356,8 @@ module AWS::SDK::ServiceDiscovery
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Instance'] = Stubs::Instance.stub(stub[:instance]) unless stub[:instance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Instance'] = Instance.stub(stub[:instance]) unless stub[:instance].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -377,7 +379,7 @@ module AWS::SDK::ServiceDiscovery
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['CreatorRequestId'] = stub[:creator_request_id] unless stub[:creator_request_id].nil?
-        data['Attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -393,9 +395,9 @@ module AWS::SDK::ServiceDiscovery
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Status'] = Stubs::InstanceHealthStatusMap.stub(stub[:status]) unless stub[:status].nil?
+        data['Status'] = InstanceHealthStatusMap.stub(stub[:status]) unless stub[:status].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -430,8 +432,8 @@ module AWS::SDK::ServiceDiscovery
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Namespace'] = Stubs::Namespace.stub(stub[:namespace]) unless stub[:namespace].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Namespace'] = Namespace.stub(stub[:namespace]) unless stub[:namespace].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -463,7 +465,7 @@ module AWS::SDK::ServiceDiscovery
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['ServiceCount'] = stub[:service_count] unless stub[:service_count].nil?
-        data['Properties'] = Stubs::NamespaceProperties.stub(stub[:properties]) unless stub[:properties].nil?
+        data['Properties'] = NamespaceProperties.stub(stub[:properties]) unless stub[:properties].nil?
         data['CreateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_date]).to_i unless stub[:create_date].nil?
         data['CreatorRequestId'] = stub[:creator_request_id] unless stub[:creator_request_id].nil?
         data
@@ -484,8 +486,8 @@ module AWS::SDK::ServiceDiscovery
       def self.stub(stub)
         stub ||= Types::NamespaceProperties.new
         data = {}
-        data['DnsProperties'] = Stubs::DnsProperties.stub(stub[:dns_properties]) unless stub[:dns_properties].nil?
-        data['HttpProperties'] = Stubs::HttpProperties.stub(stub[:http_properties]) unless stub[:http_properties].nil?
+        data['DnsProperties'] = DnsProperties.stub(stub[:dns_properties]) unless stub[:dns_properties].nil?
+        data['HttpProperties'] = HttpProperties.stub(stub[:http_properties]) unless stub[:http_properties].nil?
         data
       end
     end
@@ -523,7 +525,7 @@ module AWS::SDK::ServiceDiscovery
         stub ||= Types::DnsProperties.new
         data = {}
         data['HostedZoneId'] = stub[:hosted_zone_id] unless stub[:hosted_zone_id].nil?
-        data['SOA'] = Stubs::SOA.stub(stub[:soa]) unless stub[:soa].nil?
+        data['SOA'] = SOA.stub(stub[:soa]) unless stub[:soa].nil?
         data
       end
     end
@@ -556,8 +558,8 @@ module AWS::SDK::ServiceDiscovery
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -589,7 +591,7 @@ module AWS::SDK::ServiceDiscovery
         data['ErrorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['CreateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_date]).to_i unless stub[:create_date].nil?
         data['UpdateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:update_date]).to_i unless stub[:update_date].nil?
-        data['Targets'] = Stubs::OperationTargetsMap.stub(stub[:targets]) unless stub[:targets].nil?
+        data['Targets'] = OperationTargetsMap.stub(stub[:targets]) unless stub[:targets].nil?
         data
       end
     end
@@ -624,8 +626,8 @@ module AWS::SDK::ServiceDiscovery
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Service'] = Stubs::Service.stub(stub[:service]) unless stub[:service].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Service'] = Service.stub(stub[:service]) unless stub[:service].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -641,9 +643,9 @@ module AWS::SDK::ServiceDiscovery
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Instances'] = Stubs::InstanceSummaryList.stub(stub[:instances]) unless stub[:instances].nil?
+        data['Instances'] = InstanceSummaryList.stub(stub[:instances]) unless stub[:instances].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -662,7 +664,7 @@ module AWS::SDK::ServiceDiscovery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceSummary.stub(element) unless element.nil?
+          data << InstanceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -683,7 +685,7 @@ module AWS::SDK::ServiceDiscovery
         stub ||= Types::InstanceSummary.new
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['Attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -699,9 +701,9 @@ module AWS::SDK::ServiceDiscovery
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Namespaces'] = Stubs::NamespaceSummariesList.stub(stub[:namespaces]) unless stub[:namespaces].nil?
+        data['Namespaces'] = NamespaceSummariesList.stub(stub[:namespaces]) unless stub[:namespaces].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -720,7 +722,7 @@ module AWS::SDK::ServiceDiscovery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NamespaceSummary.stub(element) unless element.nil?
+          data << NamespaceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -752,7 +754,7 @@ module AWS::SDK::ServiceDiscovery
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['ServiceCount'] = stub[:service_count] unless stub[:service_count].nil?
-        data['Properties'] = Stubs::NamespaceProperties.stub(stub[:properties]) unless stub[:properties].nil?
+        data['Properties'] = NamespaceProperties.stub(stub[:properties]) unless stub[:properties].nil?
         data['CreateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_date]).to_i unless stub[:create_date].nil?
         data
       end
@@ -769,9 +771,9 @@ module AWS::SDK::ServiceDiscovery
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Operations'] = Stubs::OperationSummaryList.stub(stub[:operations]) unless stub[:operations].nil?
+        data['Operations'] = OperationSummaryList.stub(stub[:operations]) unless stub[:operations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -790,7 +792,7 @@ module AWS::SDK::ServiceDiscovery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OperationSummary.stub(element) unless element.nil?
+          data << OperationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -827,9 +829,9 @@ module AWS::SDK::ServiceDiscovery
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Services'] = Stubs::ServiceSummariesList.stub(stub[:services]) unless stub[:services].nil?
+        data['Services'] = ServiceSummariesList.stub(stub[:services]) unless stub[:services].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -848,7 +850,7 @@ module AWS::SDK::ServiceDiscovery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceSummary.stub(element) unless element.nil?
+          data << ServiceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -882,9 +884,9 @@ module AWS::SDK::ServiceDiscovery
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['InstanceCount'] = stub[:instance_count] unless stub[:instance_count].nil?
-        data['DnsConfig'] = Stubs::DnsConfig.stub(stub[:dns_config]) unless stub[:dns_config].nil?
-        data['HealthCheckConfig'] = Stubs::HealthCheckConfig.stub(stub[:health_check_config]) unless stub[:health_check_config].nil?
-        data['HealthCheckCustomConfig'] = Stubs::HealthCheckCustomConfig.stub(stub[:health_check_custom_config]) unless stub[:health_check_custom_config].nil?
+        data['DnsConfig'] = DnsConfig.stub(stub[:dns_config]) unless stub[:dns_config].nil?
+        data['HealthCheckConfig'] = HealthCheckConfig.stub(stub[:health_check_config]) unless stub[:health_check_config].nil?
+        data['HealthCheckCustomConfig'] = HealthCheckCustomConfig.stub(stub[:health_check_custom_config]) unless stub[:health_check_custom_config].nil?
         data['CreateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_date]).to_i unless stub[:create_date].nil?
         data
       end
@@ -900,8 +902,8 @@ module AWS::SDK::ServiceDiscovery
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -920,7 +922,7 @@ module AWS::SDK::ServiceDiscovery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -957,7 +959,7 @@ module AWS::SDK::ServiceDiscovery
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -971,7 +973,7 @@ module AWS::SDK::ServiceDiscovery
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -985,7 +987,7 @@ module AWS::SDK::ServiceDiscovery
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1001,7 +1003,7 @@ module AWS::SDK::ServiceDiscovery
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1015,7 +1017,7 @@ module AWS::SDK::ServiceDiscovery
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1031,7 +1033,7 @@ module AWS::SDK::ServiceDiscovery
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1047,7 +1049,7 @@ module AWS::SDK::ServiceDiscovery
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1063,7 +1065,7 @@ module AWS::SDK::ServiceDiscovery
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

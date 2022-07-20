@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Evidently
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['results'] = Stubs::EvaluationResultsList.stub(stub[:results]) unless stub[:results].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['results'] = EvaluationResultsList.stub(stub[:results]) unless stub[:results].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -41,7 +43,7 @@ module AWS::SDK::Evidently
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EvaluationResult.stub(element) unless element.nil?
+          data << EvaluationResult.stub(element) unless element.nil?
         end
         data
       end
@@ -69,7 +71,7 @@ module AWS::SDK::Evidently
         data['project'] = stub[:project] unless stub[:project].nil?
         data['feature'] = stub[:feature] unless stub[:feature].nil?
         data['variation'] = stub[:variation] unless stub[:variation].nil?
-        data['value'] = Stubs::VariableValue.stub(stub[:value]) unless stub[:value].nil?
+        data['value'] = VariableValue.stub(stub[:value]) unless stub[:value].nil?
         data['entityId'] = stub[:entity_id] unless stub[:entity_id].nil?
         data['reason'] = stub[:reason] unless stub[:reason].nil?
         data['details'] = stub[:details] unless stub[:details].nil?
@@ -119,8 +121,8 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['experiment'] = Stubs::Experiment.stub(stub[:experiment]) unless stub[:experiment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['experiment'] = Experiment.stub(stub[:experiment]) unless stub[:experiment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -161,15 +163,15 @@ module AWS::SDK::Evidently
         data['description'] = stub[:description] unless stub[:description].nil?
         data['createdTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['lastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
-        data['schedule'] = Stubs::ExperimentSchedule.stub(stub[:schedule]) unless stub[:schedule].nil?
-        data['execution'] = Stubs::ExperimentExecution.stub(stub[:execution]) unless stub[:execution].nil?
-        data['treatments'] = Stubs::TreatmentList.stub(stub[:treatments]) unless stub[:treatments].nil?
-        data['metricGoals'] = Stubs::MetricGoalsList.stub(stub[:metric_goals]) unless stub[:metric_goals].nil?
+        data['schedule'] = ExperimentSchedule.stub(stub[:schedule]) unless stub[:schedule].nil?
+        data['execution'] = ExperimentExecution.stub(stub[:execution]) unless stub[:execution].nil?
+        data['treatments'] = TreatmentList.stub(stub[:treatments]) unless stub[:treatments].nil?
+        data['metricGoals'] = MetricGoalsList.stub(stub[:metric_goals]) unless stub[:metric_goals].nil?
         data['randomizationSalt'] = stub[:randomization_salt] unless stub[:randomization_salt].nil?
         data['samplingRate'] = stub[:sampling_rate] unless stub[:sampling_rate].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['onlineAbDefinition'] = Stubs::OnlineAbDefinition.stub(stub[:online_ab_definition]) unless stub[:online_ab_definition].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['onlineAbDefinition'] = OnlineAbDefinition.stub(stub[:online_ab_definition]) unless stub[:online_ab_definition].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -209,7 +211,7 @@ module AWS::SDK::Evidently
         stub ||= Types::OnlineAbDefinition.new
         data = {}
         data['controlTreatmentName'] = stub[:control_treatment_name] unless stub[:control_treatment_name].nil?
-        data['treatmentWeights'] = Stubs::TreatmentToWeightMap.stub(stub[:treatment_weights]) unless stub[:treatment_weights].nil?
+        data['treatmentWeights'] = TreatmentToWeightMap.stub(stub[:treatment_weights]) unless stub[:treatment_weights].nil?
         data
       end
     end
@@ -248,7 +250,7 @@ module AWS::SDK::Evidently
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricGoal.stub(element) unless element.nil?
+          data << MetricGoal.stub(element) unless element.nil?
         end
         data
       end
@@ -268,7 +270,7 @@ module AWS::SDK::Evidently
       def self.stub(stub)
         stub ||= Types::MetricGoal.new
         data = {}
-        data['metricDefinition'] = Stubs::MetricDefinition.stub(stub[:metric_definition]) unless stub[:metric_definition].nil?
+        data['metricDefinition'] = MetricDefinition.stub(stub[:metric_definition]) unless stub[:metric_definition].nil?
         data['desiredChange'] = stub[:desired_change] unless stub[:desired_change].nil?
         data
       end
@@ -314,7 +316,7 @@ module AWS::SDK::Evidently
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Treatment.stub(element) unless element.nil?
+          data << Treatment.stub(element) unless element.nil?
         end
         data
       end
@@ -337,7 +339,7 @@ module AWS::SDK::Evidently
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['featureVariations'] = Stubs::FeatureToVariationMap.stub(stub[:feature_variations]) unless stub[:feature_variations].nil?
+        data['featureVariations'] = FeatureToVariationMap.stub(stub[:feature_variations]) unless stub[:feature_variations].nil?
         data
       end
     end
@@ -412,8 +414,8 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['feature'] = Stubs::Feature.stub(stub[:feature]) unless stub[:feature].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['feature'] = Feature.stub(stub[:feature]) unless stub[:feature].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -452,11 +454,11 @@ module AWS::SDK::Evidently
         data['description'] = stub[:description] unless stub[:description].nil?
         data['evaluationStrategy'] = stub[:evaluation_strategy] unless stub[:evaluation_strategy].nil?
         data['valueType'] = stub[:value_type] unless stub[:value_type].nil?
-        data['variations'] = Stubs::VariationsList.stub(stub[:variations]) unless stub[:variations].nil?
+        data['variations'] = VariationsList.stub(stub[:variations]) unless stub[:variations].nil?
         data['defaultVariation'] = stub[:default_variation] unless stub[:default_variation].nil?
-        data['evaluationRules'] = Stubs::EvaluationRulesList.stub(stub[:evaluation_rules]) unless stub[:evaluation_rules].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['entityOverrides'] = Stubs::EntityOverrideMap.stub(stub[:entity_overrides]) unless stub[:entity_overrides].nil?
+        data['evaluationRules'] = EvaluationRulesList.stub(stub[:evaluation_rules]) unless stub[:evaluation_rules].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['entityOverrides'] = EntityOverrideMap.stub(stub[:entity_overrides]) unless stub[:entity_overrides].nil?
         data
       end
     end
@@ -495,7 +497,7 @@ module AWS::SDK::Evidently
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EvaluationRule.stub(element) unless element.nil?
+          data << EvaluationRule.stub(element) unless element.nil?
         end
         data
       end
@@ -535,7 +537,7 @@ module AWS::SDK::Evidently
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Variation.stub(element) unless element.nil?
+          data << Variation.stub(element) unless element.nil?
         end
         data
       end
@@ -556,7 +558,7 @@ module AWS::SDK::Evidently
         stub ||= Types::Variation.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['value'] = Stubs::VariableValue.stub(stub[:value]) unless stub[:value].nil?
+        data['value'] = VariableValue.stub(stub[:value]) unless stub[:value].nil?
         data
       end
     end
@@ -573,8 +575,8 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['launch'] = Stubs::Launch.stub(stub[:launch]) unless stub[:launch].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['launch'] = Launch.stub(stub[:launch]) unless stub[:launch].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -613,13 +615,13 @@ module AWS::SDK::Evidently
         data['description'] = stub[:description] unless stub[:description].nil?
         data['createdTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['lastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
-        data['execution'] = Stubs::LaunchExecution.stub(stub[:execution]) unless stub[:execution].nil?
-        data['groups'] = Stubs::LaunchGroupList.stub(stub[:groups]) unless stub[:groups].nil?
-        data['metricMonitors'] = Stubs::MetricMonitorList.stub(stub[:metric_monitors]) unless stub[:metric_monitors].nil?
+        data['execution'] = LaunchExecution.stub(stub[:execution]) unless stub[:execution].nil?
+        data['groups'] = LaunchGroupList.stub(stub[:groups]) unless stub[:groups].nil?
+        data['metricMonitors'] = MetricMonitorList.stub(stub[:metric_monitors]) unless stub[:metric_monitors].nil?
         data['randomizationSalt'] = stub[:randomization_salt] unless stub[:randomization_salt].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['scheduledSplitsDefinition'] = Stubs::ScheduledSplitsLaunchDefinition.stub(stub[:scheduled_splits_definition]) unless stub[:scheduled_splits_definition].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['scheduledSplitsDefinition'] = ScheduledSplitsLaunchDefinition.stub(stub[:scheduled_splits_definition]) unless stub[:scheduled_splits_definition].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -637,7 +639,7 @@ module AWS::SDK::Evidently
       def self.stub(stub)
         stub ||= Types::ScheduledSplitsLaunchDefinition.new
         data = {}
-        data['steps'] = Stubs::ScheduledStepList.stub(stub[:steps]) unless stub[:steps].nil?
+        data['steps'] = ScheduledStepList.stub(stub[:steps]) unless stub[:steps].nil?
         data
       end
     end
@@ -656,7 +658,7 @@ module AWS::SDK::Evidently
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScheduledSplit.stub(element) unless element.nil?
+          data << ScheduledSplit.stub(element) unless element.nil?
         end
         data
       end
@@ -677,7 +679,7 @@ module AWS::SDK::Evidently
         stub ||= Types::ScheduledSplit.new
         data = {}
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
-        data['groupWeights'] = Stubs::GroupToWeightMap.stub(stub[:group_weights]) unless stub[:group_weights].nil?
+        data['groupWeights'] = GroupToWeightMap.stub(stub[:group_weights]) unless stub[:group_weights].nil?
         data
       end
     end
@@ -716,7 +718,7 @@ module AWS::SDK::Evidently
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricMonitor.stub(element) unless element.nil?
+          data << MetricMonitor.stub(element) unless element.nil?
         end
         data
       end
@@ -735,7 +737,7 @@ module AWS::SDK::Evidently
       def self.stub(stub)
         stub ||= Types::MetricMonitor.new
         data = {}
-        data['metricDefinition'] = Stubs::MetricDefinition.stub(stub[:metric_definition]) unless stub[:metric_definition].nil?
+        data['metricDefinition'] = MetricDefinition.stub(stub[:metric_definition]) unless stub[:metric_definition].nil?
         data
       end
     end
@@ -754,7 +756,7 @@ module AWS::SDK::Evidently
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LaunchGroup.stub(element) unless element.nil?
+          data << LaunchGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -777,7 +779,7 @@ module AWS::SDK::Evidently
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['featureVariations'] = Stubs::FeatureToVariationMap.stub(stub[:feature_variations]) unless stub[:feature_variations].nil?
+        data['featureVariations'] = FeatureToVariationMap.stub(stub[:feature_variations]) unless stub[:feature_variations].nil?
         data
       end
     end
@@ -814,8 +816,8 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['project'] = Stubs::Project.stub(stub[:project]) unless stub[:project].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['project'] = Project.stub(stub[:project]) unless stub[:project].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -855,8 +857,8 @@ module AWS::SDK::Evidently
         data['activeLaunchCount'] = stub[:active_launch_count] unless stub[:active_launch_count].nil?
         data['experimentCount'] = stub[:experiment_count] unless stub[:experiment_count].nil?
         data['activeExperimentCount'] = stub[:active_experiment_count] unless stub[:active_experiment_count].nil?
-        data['dataDelivery'] = Stubs::ProjectDataDelivery.stub(stub[:data_delivery]) unless stub[:data_delivery].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['dataDelivery'] = ProjectDataDelivery.stub(stub[:data_delivery]) unless stub[:data_delivery].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -875,8 +877,8 @@ module AWS::SDK::Evidently
       def self.stub(stub)
         stub ||= Types::ProjectDataDelivery.new
         data = {}
-        data['s3Destination'] = Stubs::S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
-        data['cloudWatchLogs'] = Stubs::CloudWatchLogsDestination.stub(stub[:cloud_watch_logs]) unless stub[:cloud_watch_logs].nil?
+        data['s3Destination'] = S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
+        data['cloudWatchLogs'] = CloudWatchLogsDestination.stub(stub[:cloud_watch_logs]) unless stub[:cloud_watch_logs].nil?
         data
       end
     end
@@ -987,10 +989,10 @@ module AWS::SDK::Evidently
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['variation'] = stub[:variation] unless stub[:variation].nil?
-        data['value'] = Stubs::VariableValue.stub(stub[:value]) unless stub[:value].nil?
+        data['value'] = VariableValue.stub(stub[:value]) unless stub[:value].nil?
         data['reason'] = stub[:reason] unless stub[:reason].nil?
         data['details'] = stub[:details] unless stub[:details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1006,8 +1008,8 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['experiment'] = Stubs::Experiment.stub(stub[:experiment]) unless stub[:experiment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['experiment'] = Experiment.stub(stub[:experiment]) unless stub[:experiment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1026,11 +1028,11 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resultsData'] = Stubs::ExperimentResultsDataList.stub(stub[:results_data]) unless stub[:results_data].nil?
-        data['reports'] = Stubs::ExperimentReportList.stub(stub[:reports]) unless stub[:reports].nil?
-        data['timestamps'] = Stubs::TimestampList.stub(stub[:timestamps]) unless stub[:timestamps].nil?
+        data['resultsData'] = ExperimentResultsDataList.stub(stub[:results_data]) unless stub[:results_data].nil?
+        data['reports'] = ExperimentReportList.stub(stub[:reports]) unless stub[:reports].nil?
+        data['timestamps'] = TimestampList.stub(stub[:timestamps]) unless stub[:timestamps].nil?
         data['details'] = stub[:details] unless stub[:details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1068,7 +1070,7 @@ module AWS::SDK::Evidently
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExperimentReport.stub(element) unless element.nil?
+          data << ExperimentReport.stub(element) unless element.nil?
         end
         data
       end
@@ -1112,7 +1114,7 @@ module AWS::SDK::Evidently
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExperimentResultsData.stub(element) unless element.nil?
+          data << ExperimentResultsData.stub(element) unless element.nil?
         end
         data
       end
@@ -1137,7 +1139,7 @@ module AWS::SDK::Evidently
         data['metricName'] = stub[:metric_name] unless stub[:metric_name].nil?
         data['treatmentName'] = stub[:treatment_name] unless stub[:treatment_name].nil?
         data['resultStat'] = stub[:result_stat] unless stub[:result_stat].nil?
-        data['values'] = Stubs::DoubleValueList.stub(stub[:values]) unless stub[:values].nil?
+        data['values'] = DoubleValueList.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -1174,8 +1176,8 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['feature'] = Stubs::Feature.stub(stub[:feature]) unless stub[:feature].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['feature'] = Feature.stub(stub[:feature]) unless stub[:feature].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1191,8 +1193,8 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['launch'] = Stubs::Launch.stub(stub[:launch]) unless stub[:launch].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['launch'] = Launch.stub(stub[:launch]) unless stub[:launch].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1208,8 +1210,8 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['project'] = Stubs::Project.stub(stub[:project]) unless stub[:project].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['project'] = Project.stub(stub[:project]) unless stub[:project].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1226,9 +1228,9 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['experiments'] = Stubs::ExperimentList.stub(stub[:experiments]) unless stub[:experiments].nil?
+        data['experiments'] = ExperimentList.stub(stub[:experiments]) unless stub[:experiments].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1246,7 +1248,7 @@ module AWS::SDK::Evidently
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Experiment.stub(element) unless element.nil?
+          data << Experiment.stub(element) unless element.nil?
         end
         data
       end
@@ -1265,9 +1267,9 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['features'] = Stubs::FeatureSummariesList.stub(stub[:features]) unless stub[:features].nil?
+        data['features'] = FeatureSummariesList.stub(stub[:features]) unless stub[:features].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1285,7 +1287,7 @@ module AWS::SDK::Evidently
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FeatureSummary.stub(element) unless element.nil?
+          data << FeatureSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1320,9 +1322,9 @@ module AWS::SDK::Evidently
         data['createdTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['lastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['evaluationStrategy'] = stub[:evaluation_strategy] unless stub[:evaluation_strategy].nil?
-        data['evaluationRules'] = Stubs::EvaluationRulesList.stub(stub[:evaluation_rules]) unless stub[:evaluation_rules].nil?
+        data['evaluationRules'] = EvaluationRulesList.stub(stub[:evaluation_rules]) unless stub[:evaluation_rules].nil?
         data['defaultVariation'] = stub[:default_variation] unless stub[:default_variation].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1340,9 +1342,9 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['launches'] = Stubs::LaunchesList.stub(stub[:launches]) unless stub[:launches].nil?
+        data['launches'] = LaunchesList.stub(stub[:launches]) unless stub[:launches].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1360,7 +1362,7 @@ module AWS::SDK::Evidently
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Launch.stub(element) unless element.nil?
+          data << Launch.stub(element) unless element.nil?
         end
         data
       end
@@ -1379,9 +1381,9 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['projects'] = Stubs::ProjectSummariesList.stub(stub[:projects]) unless stub[:projects].nil?
+        data['projects'] = ProjectSummariesList.stub(stub[:projects]) unless stub[:projects].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1399,7 +1401,7 @@ module AWS::SDK::Evidently
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProjectSummary.stub(element) unless element.nil?
+          data << ProjectSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1440,7 +1442,7 @@ module AWS::SDK::Evidently
         data['activeLaunchCount'] = stub[:active_launch_count] unless stub[:active_launch_count].nil?
         data['experimentCount'] = stub[:experiment_count] unless stub[:experiment_count].nil?
         data['activeExperimentCount'] = stub[:active_experiment_count] unless stub[:active_experiment_count].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1457,8 +1459,8 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1476,8 +1478,8 @@ module AWS::SDK::Evidently
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['failedEventCount'] = stub[:failed_event_count] unless stub[:failed_event_count].nil?
-        data['eventResults'] = Stubs::PutProjectEventsResultEntryList.stub(stub[:event_results]) unless stub[:event_results].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['eventResults'] = PutProjectEventsResultEntryList.stub(stub[:event_results]) unless stub[:event_results].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1495,7 +1497,7 @@ module AWS::SDK::Evidently
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PutProjectEventsResultEntry.stub(element) unless element.nil?
+          data << PutProjectEventsResultEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1536,7 +1538,7 @@ module AWS::SDK::Evidently
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['startedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started_time]).to_i unless stub[:started_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1552,8 +1554,8 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['launch'] = Stubs::Launch.stub(stub[:launch]) unless stub[:launch].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['launch'] = Launch.stub(stub[:launch]) unless stub[:launch].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1570,7 +1572,7 @@ module AWS::SDK::Evidently
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['endedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:ended_time]).to_i unless stub[:ended_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1587,7 +1589,7 @@ module AWS::SDK::Evidently
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['endedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:ended_time]).to_i unless stub[:ended_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1629,8 +1631,8 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['experiment'] = Stubs::Experiment.stub(stub[:experiment]) unless stub[:experiment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['experiment'] = Experiment.stub(stub[:experiment]) unless stub[:experiment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1646,8 +1648,8 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['feature'] = Stubs::Feature.stub(stub[:feature]) unless stub[:feature].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['feature'] = Feature.stub(stub[:feature]) unless stub[:feature].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1663,8 +1665,8 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['launch'] = Stubs::Launch.stub(stub[:launch]) unless stub[:launch].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['launch'] = Launch.stub(stub[:launch]) unless stub[:launch].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1680,8 +1682,8 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['project'] = Stubs::Project.stub(stub[:project]) unless stub[:project].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['project'] = Project.stub(stub[:project]) unless stub[:project].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1697,8 +1699,8 @@ module AWS::SDK::Evidently
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['project'] = Stubs::Project.stub(stub[:project]) unless stub[:project].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['project'] = Project.stub(stub[:project]) unless stub[:project].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

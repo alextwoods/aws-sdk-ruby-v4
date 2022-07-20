@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::SecretsManager
   module Stubs
 
@@ -25,7 +28,7 @@ module AWS::SDK::SecretsManager
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['VersionId'] = stub[:version_id] unless stub[:version_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -46,8 +49,8 @@ module AWS::SDK::SecretsManager
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['VersionId'] = stub[:version_id] unless stub[:version_id].nil?
-        data['ReplicationStatus'] = Stubs::ReplicationStatusListType.stub(stub[:replication_status]) unless stub[:replication_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationStatus'] = ReplicationStatusListType.stub(stub[:replication_status]) unless stub[:replication_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -66,7 +69,7 @@ module AWS::SDK::SecretsManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicationStatusType.stub(element) unless element.nil?
+          data << ReplicationStatusType.stub(element) unless element.nil?
         end
         data
       end
@@ -111,7 +114,7 @@ module AWS::SDK::SecretsManager
         data = {}
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -131,7 +134,7 @@ module AWS::SDK::SecretsManager
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['DeletionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:deletion_date]).to_i unless stub[:deletion_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -168,18 +171,18 @@ module AWS::SDK::SecretsManager
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['RotationEnabled'] = stub[:rotation_enabled] unless stub[:rotation_enabled].nil?
         data['RotationLambdaARN'] = stub[:rotation_lambda_arn] unless stub[:rotation_lambda_arn].nil?
-        data['RotationRules'] = Stubs::RotationRulesType.stub(stub[:rotation_rules]) unless stub[:rotation_rules].nil?
+        data['RotationRules'] = RotationRulesType.stub(stub[:rotation_rules]) unless stub[:rotation_rules].nil?
         data['LastRotatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_rotated_date]).to_i unless stub[:last_rotated_date].nil?
         data['LastChangedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_changed_date]).to_i unless stub[:last_changed_date].nil?
         data['LastAccessedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_accessed_date]).to_i unless stub[:last_accessed_date].nil?
         data['DeletedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:deleted_date]).to_i unless stub[:deleted_date].nil?
-        data['Tags'] = Stubs::TagListType.stub(stub[:tags]) unless stub[:tags].nil?
-        data['VersionIdsToStages'] = Stubs::SecretVersionsToStagesMapType.stub(stub[:version_ids_to_stages]) unless stub[:version_ids_to_stages].nil?
+        data['Tags'] = TagListType.stub(stub[:tags]) unless stub[:tags].nil?
+        data['VersionIdsToStages'] = SecretVersionsToStagesMapType.stub(stub[:version_ids_to_stages]) unless stub[:version_ids_to_stages].nil?
         data['OwningService'] = stub[:owning_service] unless stub[:owning_service].nil?
         data['CreatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['PrimaryRegion'] = stub[:primary_region] unless stub[:primary_region].nil?
-        data['ReplicationStatus'] = Stubs::ReplicationStatusListType.stub(stub[:replication_status]) unless stub[:replication_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationStatus'] = ReplicationStatusListType.stub(stub[:replication_status]) unless stub[:replication_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -198,7 +201,7 @@ module AWS::SDK::SecretsManager
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::SecretVersionStagesType.stub(value) unless value.nil?
+          data[key] = SecretVersionStagesType.stub(value) unless value.nil?
         end
         data
       end
@@ -238,7 +241,7 @@ module AWS::SDK::SecretsManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -297,7 +300,7 @@ module AWS::SDK::SecretsManager
       def self.stub(http_resp, stub:)
         data = {}
         data['RandomPassword'] = stub[:random_password] unless stub[:random_password].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -317,7 +320,7 @@ module AWS::SDK::SecretsManager
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['ResourcePolicy'] = stub[:resource_policy] unless stub[:resource_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -341,11 +344,11 @@ module AWS::SDK::SecretsManager
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['VersionId'] = stub[:version_id] unless stub[:version_id].nil?
-        data['SecretBinary'] = Base64::encode64(stub[:secret_binary]) unless stub[:secret_binary].nil?
+        data['SecretBinary'] = ::Base64::encode64(stub[:secret_binary]) unless stub[:secret_binary].nil?
         data['SecretString'] = stub[:secret_string] unless stub[:secret_string].nil?
-        data['VersionStages'] = Stubs::SecretVersionStagesType.stub(stub[:version_stages]) unless stub[:version_stages].nil?
+        data['VersionStages'] = SecretVersionStagesType.stub(stub[:version_stages]) unless stub[:version_stages].nil?
         data['CreatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -363,11 +366,11 @@ module AWS::SDK::SecretsManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Versions'] = Stubs::SecretVersionsListType.stub(stub[:versions]) unless stub[:versions].nil?
+        data['Versions'] = SecretVersionsListType.stub(stub[:versions]) unless stub[:versions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -386,7 +389,7 @@ module AWS::SDK::SecretsManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SecretVersionsListEntry.stub(element) unless element.nil?
+          data << SecretVersionsListEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -410,10 +413,10 @@ module AWS::SDK::SecretsManager
         stub ||= Types::SecretVersionsListEntry.new
         data = {}
         data['VersionId'] = stub[:version_id] unless stub[:version_id].nil?
-        data['VersionStages'] = Stubs::SecretVersionStagesType.stub(stub[:version_stages]) unless stub[:version_stages].nil?
+        data['VersionStages'] = SecretVersionStagesType.stub(stub[:version_stages]) unless stub[:version_stages].nil?
         data['LastAccessedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_accessed_date]).to_i unless stub[:last_accessed_date].nil?
         data['CreatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
-        data['KmsKeyIds'] = Stubs::KmsKeyIdListType.stub(stub[:kms_key_ids]) unless stub[:kms_key_ids].nil?
+        data['KmsKeyIds'] = KmsKeyIdListType.stub(stub[:kms_key_ids]) unless stub[:kms_key_ids].nil?
         data
       end
     end
@@ -449,9 +452,9 @@ module AWS::SDK::SecretsManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SecretList'] = Stubs::SecretListType.stub(stub[:secret_list]) unless stub[:secret_list].nil?
+        data['SecretList'] = SecretListType.stub(stub[:secret_list]) unless stub[:secret_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -470,7 +473,7 @@ module AWS::SDK::SecretsManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SecretListEntry.stub(element) unless element.nil?
+          data << SecretListEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -510,13 +513,13 @@ module AWS::SDK::SecretsManager
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['RotationEnabled'] = stub[:rotation_enabled] unless stub[:rotation_enabled].nil?
         data['RotationLambdaARN'] = stub[:rotation_lambda_arn] unless stub[:rotation_lambda_arn].nil?
-        data['RotationRules'] = Stubs::RotationRulesType.stub(stub[:rotation_rules]) unless stub[:rotation_rules].nil?
+        data['RotationRules'] = RotationRulesType.stub(stub[:rotation_rules]) unless stub[:rotation_rules].nil?
         data['LastRotatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_rotated_date]).to_i unless stub[:last_rotated_date].nil?
         data['LastChangedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_changed_date]).to_i unless stub[:last_changed_date].nil?
         data['LastAccessedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_accessed_date]).to_i unless stub[:last_accessed_date].nil?
         data['DeletedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:deleted_date]).to_i unless stub[:deleted_date].nil?
-        data['Tags'] = Stubs::TagListType.stub(stub[:tags]) unless stub[:tags].nil?
-        data['SecretVersionsToStages'] = Stubs::SecretVersionsToStagesMapType.stub(stub[:secret_versions_to_stages]) unless stub[:secret_versions_to_stages].nil?
+        data['Tags'] = TagListType.stub(stub[:tags]) unless stub[:tags].nil?
+        data['SecretVersionsToStages'] = SecretVersionsToStagesMapType.stub(stub[:secret_versions_to_stages]) unless stub[:secret_versions_to_stages].nil?
         data['OwningService'] = stub[:owning_service] unless stub[:owning_service].nil?
         data['CreatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['PrimaryRegion'] = stub[:primary_region] unless stub[:primary_region].nil?
@@ -537,7 +540,7 @@ module AWS::SDK::SecretsManager
         data = {}
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -558,8 +561,8 @@ module AWS::SDK::SecretsManager
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['VersionId'] = stub[:version_id] unless stub[:version_id].nil?
-        data['VersionStages'] = Stubs::SecretVersionStagesType.stub(stub[:version_stages]) unless stub[:version_stages].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VersionStages'] = SecretVersionStagesType.stub(stub[:version_stages]) unless stub[:version_stages].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -576,8 +579,8 @@ module AWS::SDK::SecretsManager
       def self.stub(http_resp, stub:)
         data = {}
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
-        data['ReplicationStatus'] = Stubs::ReplicationStatusListType.stub(stub[:replication_status]) unless stub[:replication_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationStatus'] = ReplicationStatusListType.stub(stub[:replication_status]) unless stub[:replication_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -594,8 +597,8 @@ module AWS::SDK::SecretsManager
       def self.stub(http_resp, stub:)
         data = {}
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
-        data['ReplicationStatus'] = Stubs::ReplicationStatusListType.stub(stub[:replication_status]) unless stub[:replication_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationStatus'] = ReplicationStatusListType.stub(stub[:replication_status]) unless stub[:replication_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -613,7 +616,7 @@ module AWS::SDK::SecretsManager
         data = {}
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -633,7 +636,7 @@ module AWS::SDK::SecretsManager
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['VersionId'] = stub[:version_id] unless stub[:version_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -649,7 +652,7 @@ module AWS::SDK::SecretsManager
       def self.stub(http_resp, stub:)
         data = {}
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -663,7 +666,7 @@ module AWS::SDK::SecretsManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -677,7 +680,7 @@ module AWS::SDK::SecretsManager
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -697,7 +700,7 @@ module AWS::SDK::SecretsManager
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['VersionId'] = stub[:version_id] unless stub[:version_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -715,7 +718,7 @@ module AWS::SDK::SecretsManager
         data = {}
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -732,8 +735,8 @@ module AWS::SDK::SecretsManager
       def self.stub(http_resp, stub:)
         data = {}
         data['PolicyValidationPassed'] = stub[:policy_validation_passed] unless stub[:policy_validation_passed].nil?
-        data['ValidationErrors'] = Stubs::ValidationErrorsType.stub(stub[:validation_errors]) unless stub[:validation_errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ValidationErrors'] = ValidationErrorsType.stub(stub[:validation_errors]) unless stub[:validation_errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -752,7 +755,7 @@ module AWS::SDK::SecretsManager
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ValidationErrorsEntry.stub(element) unless element.nil?
+          data << ValidationErrorsEntry.stub(element) unless element.nil?
         end
         data
       end

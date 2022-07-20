@@ -17,7 +17,7 @@ module AWS::SDK::MediaStore
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.container = (Parsers::Container.parse(map['Container']) unless map['Container'].nil?)
+        data.container = (Container.parse(map['Container']) unless map['Container'].nil?)
         data
       end
     end
@@ -169,7 +169,7 @@ module AWS::SDK::MediaStore
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.container = (Parsers::Container.parse(map['Container']) unless map['Container'].nil?)
+        data.container = (Container.parse(map['Container']) unless map['Container'].nil?)
         data
       end
     end
@@ -193,7 +193,7 @@ module AWS::SDK::MediaStore
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cors_policy = (Parsers::CorsPolicy.parse(map['CorsPolicy']) unless map['CorsPolicy'].nil?)
+        data.cors_policy = (CorsPolicy.parse(map['CorsPolicy']) unless map['CorsPolicy'].nil?)
         data
       end
     end
@@ -201,7 +201,7 @@ module AWS::SDK::MediaStore
     class CorsPolicy
       def self.parse(list)
         list.map do |value|
-          Parsers::CorsRule.parse(value) unless value.nil?
+          CorsRule.parse(value) unless value.nil?
         end
       end
     end
@@ -209,11 +209,11 @@ module AWS::SDK::MediaStore
     class CorsRule
       def self.parse(map)
         data = Types::CorsRule.new
-        data.allowed_origins = (Parsers::AllowedOrigins.parse(map['AllowedOrigins']) unless map['AllowedOrigins'].nil?)
-        data.allowed_methods = (Parsers::AllowedMethods.parse(map['AllowedMethods']) unless map['AllowedMethods'].nil?)
-        data.allowed_headers = (Parsers::AllowedHeaders.parse(map['AllowedHeaders']) unless map['AllowedHeaders'].nil?)
+        data.allowed_origins = (AllowedOrigins.parse(map['AllowedOrigins']) unless map['AllowedOrigins'].nil?)
+        data.allowed_methods = (AllowedMethods.parse(map['AllowedMethods']) unless map['AllowedMethods'].nil?)
+        data.allowed_headers = (AllowedHeaders.parse(map['AllowedHeaders']) unless map['AllowedHeaders'].nil?)
         data.max_age_seconds = map['MaxAgeSeconds']
-        data.expose_headers = (Parsers::ExposeHeaders.parse(map['ExposeHeaders']) unless map['ExposeHeaders'].nil?)
+        data.expose_headers = (ExposeHeaders.parse(map['ExposeHeaders']) unless map['ExposeHeaders'].nil?)
         return data
       end
     end
@@ -269,7 +269,7 @@ module AWS::SDK::MediaStore
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.metric_policy = (Parsers::MetricPolicy.parse(map['MetricPolicy']) unless map['MetricPolicy'].nil?)
+        data.metric_policy = (MetricPolicy.parse(map['MetricPolicy']) unless map['MetricPolicy'].nil?)
         data
       end
     end
@@ -278,7 +278,7 @@ module AWS::SDK::MediaStore
       def self.parse(map)
         data = Types::MetricPolicy.new
         data.container_level_metrics = map['ContainerLevelMetrics']
-        data.metric_policy_rules = (Parsers::MetricPolicyRules.parse(map['MetricPolicyRules']) unless map['MetricPolicyRules'].nil?)
+        data.metric_policy_rules = (MetricPolicyRules.parse(map['MetricPolicyRules']) unless map['MetricPolicyRules'].nil?)
         return data
       end
     end
@@ -286,7 +286,7 @@ module AWS::SDK::MediaStore
     class MetricPolicyRules
       def self.parse(list)
         list.map do |value|
-          Parsers::MetricPolicyRule.parse(value) unless value.nil?
+          MetricPolicyRule.parse(value) unless value.nil?
         end
       end
     end
@@ -307,7 +307,7 @@ module AWS::SDK::MediaStore
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.containers = (Parsers::ContainerList.parse(map['Containers']) unless map['Containers'].nil?)
+        data.containers = (ContainerList.parse(map['Containers']) unless map['Containers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -316,7 +316,7 @@ module AWS::SDK::MediaStore
     class ContainerList
       def self.parse(list)
         list.map do |value|
-          Parsers::Container.parse(value) unless value.nil?
+          Container.parse(value) unless value.nil?
         end
       end
     end
@@ -328,7 +328,7 @@ module AWS::SDK::MediaStore
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -336,7 +336,7 @@ module AWS::SDK::MediaStore
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end

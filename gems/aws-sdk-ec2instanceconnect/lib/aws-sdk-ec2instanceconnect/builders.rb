@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::EC2InstanceConnect
   module Builders
 
@@ -22,7 +24,7 @@ module AWS::SDK::EC2InstanceConnect
         data['InstanceOSUser'] = input[:instance_os_user] unless input[:instance_os_user].nil?
         data['SSHPublicKey'] = input[:ssh_public_key] unless input[:ssh_public_key].nil?
         data['AvailabilityZone'] = input[:availability_zone] unless input[:availability_zone].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -37,7 +39,7 @@ module AWS::SDK::EC2InstanceConnect
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
         data['SerialPort'] = input[:serial_port] unless input[:serial_port].nil?
         data['SSHPublicKey'] = input[:ssh_public_key] unless input[:ssh_public_key].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

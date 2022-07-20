@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::EMRServerless
   module Stubs
 
@@ -25,7 +27,7 @@ module AWS::SDK::EMRServerless
         http_resp.headers['Content-Type'] = 'application/json'
         data['applicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['jobRunId'] = stub[:job_run_id] unless stub[:job_run_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -46,7 +48,7 @@ module AWS::SDK::EMRServerless
         data['applicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -75,8 +77,8 @@ module AWS::SDK::EMRServerless
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['application'] = Stubs::Application.stub(stub[:application]) unless stub[:application].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['application'] = Application.stub(stub[:application]) unless stub[:application].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -114,14 +116,14 @@ module AWS::SDK::EMRServerless
         data['type'] = stub[:type] unless stub[:type].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data['stateDetails'] = stub[:state_details] unless stub[:state_details].nil?
-        data['initialCapacity'] = Stubs::InitialCapacityConfigMap.stub(stub[:initial_capacity]) unless stub[:initial_capacity].nil?
-        data['maximumCapacity'] = Stubs::MaximumAllowedResources.stub(stub[:maximum_capacity]) unless stub[:maximum_capacity].nil?
+        data['initialCapacity'] = InitialCapacityConfigMap.stub(stub[:initial_capacity]) unless stub[:initial_capacity].nil?
+        data['maximumCapacity'] = MaximumAllowedResources.stub(stub[:maximum_capacity]) unless stub[:maximum_capacity].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['autoStartConfiguration'] = Stubs::AutoStartConfig.stub(stub[:auto_start_configuration]) unless stub[:auto_start_configuration].nil?
-        data['autoStopConfiguration'] = Stubs::AutoStopConfig.stub(stub[:auto_stop_configuration]) unless stub[:auto_stop_configuration].nil?
-        data['networkConfiguration'] = Stubs::NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['autoStartConfiguration'] = AutoStartConfig.stub(stub[:auto_start_configuration]) unless stub[:auto_start_configuration].nil?
+        data['autoStopConfiguration'] = AutoStopConfig.stub(stub[:auto_stop_configuration]) unless stub[:auto_stop_configuration].nil?
+        data['networkConfiguration'] = NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
         data
       end
     end
@@ -140,8 +142,8 @@ module AWS::SDK::EMRServerless
       def self.stub(stub)
         stub ||= Types::NetworkConfiguration.new
         data = {}
-        data['subnetIds'] = Stubs::SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['securityGroupIds'] = Stubs::SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['subnetIds'] = SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['securityGroupIds'] = SecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data
       end
     end
@@ -280,7 +282,7 @@ module AWS::SDK::EMRServerless
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::InitialCapacityConfig.stub(value) unless value.nil?
+          data[key] = InitialCapacityConfig.stub(value) unless value.nil?
         end
         data
       end
@@ -301,7 +303,7 @@ module AWS::SDK::EMRServerless
         stub ||= Types::InitialCapacityConfig.new
         data = {}
         data['workerCount'] = stub[:worker_count] unless stub[:worker_count].nil?
-        data['workerConfiguration'] = Stubs::WorkerResourceConfig.stub(stub[:worker_configuration]) unless stub[:worker_configuration].nil?
+        data['workerConfiguration'] = WorkerResourceConfig.stub(stub[:worker_configuration]) unless stub[:worker_configuration].nil?
         data
       end
     end
@@ -340,8 +342,8 @@ module AWS::SDK::EMRServerless
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobRun'] = Stubs::JobRun.stub(stub[:job_run]) unless stub[:job_run].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['jobRun'] = JobRun.stub(stub[:job_run]) unless stub[:job_run].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -385,11 +387,11 @@ module AWS::SDK::EMRServerless
         data['state'] = stub[:state] unless stub[:state].nil?
         data['stateDetails'] = stub[:state_details] unless stub[:state_details].nil?
         data['releaseLabel'] = stub[:release_label] unless stub[:release_label].nil?
-        data['configurationOverrides'] = Stubs::ConfigurationOverrides.stub(stub[:configuration_overrides]) unless stub[:configuration_overrides].nil?
-        data['jobDriver'] = Stubs::JobDriver.stub(stub[:job_driver]) unless stub[:job_driver].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['totalResourceUtilization'] = Stubs::TotalResourceUtilization.stub(stub[:total_resource_utilization]) unless stub[:total_resource_utilization].nil?
-        data['networkConfiguration'] = Stubs::NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
+        data['configurationOverrides'] = ConfigurationOverrides.stub(stub[:configuration_overrides]) unless stub[:configuration_overrides].nil?
+        data['jobDriver'] = JobDriver.stub(stub[:job_driver]) unless stub[:job_driver].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['totalResourceUtilization'] = TotalResourceUtilization.stub(stub[:total_resource_utilization]) unless stub[:total_resource_utilization].nil?
+        data['networkConfiguration'] = NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
         data['totalExecutionDurationSeconds'] = stub[:total_execution_duration_seconds] unless stub[:total_execution_duration_seconds].nil?
         data
       end
@@ -431,9 +433,9 @@ module AWS::SDK::EMRServerless
         data = {}
         case stub
         when Types::JobDriver::SparkSubmit
-          data['sparkSubmit'] = (Stubs::SparkSubmit.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['sparkSubmit'] = (SparkSubmit.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::JobDriver::Hive
-          data['hive'] = (Stubs::Hive.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['hive'] = (Hive.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::JobDriver"
@@ -481,7 +483,7 @@ module AWS::SDK::EMRServerless
         stub ||= Types::SparkSubmit.new
         data = {}
         data['entryPoint'] = stub[:entry_point] unless stub[:entry_point].nil?
-        data['entryPointArguments'] = Stubs::EntryPointArguments.stub(stub[:entry_point_arguments]) unless stub[:entry_point_arguments].nil?
+        data['entryPointArguments'] = EntryPointArguments.stub(stub[:entry_point_arguments]) unless stub[:entry_point_arguments].nil?
         data['sparkSubmitParameters'] = stub[:spark_submit_parameters] unless stub[:spark_submit_parameters].nil?
         data
       end
@@ -521,8 +523,8 @@ module AWS::SDK::EMRServerless
       def self.stub(stub)
         stub ||= Types::ConfigurationOverrides.new
         data = {}
-        data['applicationConfiguration'] = Stubs::ConfigurationList.stub(stub[:application_configuration]) unless stub[:application_configuration].nil?
-        data['monitoringConfiguration'] = Stubs::MonitoringConfiguration.stub(stub[:monitoring_configuration]) unless stub[:monitoring_configuration].nil?
+        data['applicationConfiguration'] = ConfigurationList.stub(stub[:application_configuration]) unless stub[:application_configuration].nil?
+        data['monitoringConfiguration'] = MonitoringConfiguration.stub(stub[:monitoring_configuration]) unless stub[:monitoring_configuration].nil?
         data
       end
     end
@@ -541,8 +543,8 @@ module AWS::SDK::EMRServerless
       def self.stub(stub)
         stub ||= Types::MonitoringConfiguration.new
         data = {}
-        data['s3MonitoringConfiguration'] = Stubs::S3MonitoringConfiguration.stub(stub[:s3_monitoring_configuration]) unless stub[:s3_monitoring_configuration].nil?
-        data['managedPersistenceMonitoringConfiguration'] = Stubs::ManagedPersistenceMonitoringConfiguration.stub(stub[:managed_persistence_monitoring_configuration]) unless stub[:managed_persistence_monitoring_configuration].nil?
+        data['s3MonitoringConfiguration'] = S3MonitoringConfiguration.stub(stub[:s3_monitoring_configuration]) unless stub[:s3_monitoring_configuration].nil?
+        data['managedPersistenceMonitoringConfiguration'] = ManagedPersistenceMonitoringConfiguration.stub(stub[:managed_persistence_monitoring_configuration]) unless stub[:managed_persistence_monitoring_configuration].nil?
         data
       end
     end
@@ -601,7 +603,7 @@ module AWS::SDK::EMRServerless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Configuration.stub(element) unless element.nil?
+          data << Configuration.stub(element) unless element.nil?
         end
         data
       end
@@ -623,8 +625,8 @@ module AWS::SDK::EMRServerless
         stub ||= Types::Configuration.new
         data = {}
         data['classification'] = stub[:classification] unless stub[:classification].nil?
-        data['properties'] = Stubs::SensitivePropertiesMap.stub(stub[:properties]) unless stub[:properties].nil?
-        data['configurations'] = Stubs::ConfigurationList.stub(stub[:configurations]) unless stub[:configurations].nil?
+        data['properties'] = SensitivePropertiesMap.stub(stub[:properties]) unless stub[:properties].nil?
+        data['configurations'] = ConfigurationList.stub(stub[:configurations]) unless stub[:configurations].nil?
         data
       end
     end
@@ -662,9 +664,9 @@ module AWS::SDK::EMRServerless
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['applications'] = Stubs::ApplicationList.stub(stub[:applications]) unless stub[:applications].nil?
+        data['applications'] = ApplicationList.stub(stub[:applications]) unless stub[:applications].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -682,7 +684,7 @@ module AWS::SDK::EMRServerless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApplicationSummary.stub(element) unless element.nil?
+          data << ApplicationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -735,9 +737,9 @@ module AWS::SDK::EMRServerless
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobRuns'] = Stubs::JobRuns.stub(stub[:job_runs]) unless stub[:job_runs].nil?
+        data['jobRuns'] = JobRuns.stub(stub[:job_runs]) unless stub[:job_runs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -755,7 +757,7 @@ module AWS::SDK::EMRServerless
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobRunSummary.stub(element) unless element.nil?
+          data << JobRunSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -813,8 +815,8 @@ module AWS::SDK::EMRServerless
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -848,7 +850,7 @@ module AWS::SDK::EMRServerless
         data['applicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['jobRunId'] = stub[:job_run_id] unless stub[:job_run_id].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -903,8 +905,8 @@ module AWS::SDK::EMRServerless
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['application'] = Stubs::Application.stub(stub[:application]) unless stub[:application].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['application'] = Application.stub(stub[:application]) unless stub[:application].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

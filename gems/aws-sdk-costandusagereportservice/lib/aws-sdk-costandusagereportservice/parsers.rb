@@ -53,7 +53,7 @@ module AWS::SDK::CostAndUsageReportService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.report_definitions = (Parsers::ReportDefinitionList.parse(map['ReportDefinitions']) unless map['ReportDefinitions'].nil?)
+        data.report_definitions = (ReportDefinitionList.parse(map['ReportDefinitions']) unless map['ReportDefinitions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -62,7 +62,7 @@ module AWS::SDK::CostAndUsageReportService
     class ReportDefinitionList
       def self.parse(list)
         list.map do |value|
-          Parsers::ReportDefinition.parse(value) unless value.nil?
+          ReportDefinition.parse(value) unless value.nil?
         end
       end
     end
@@ -74,11 +74,11 @@ module AWS::SDK::CostAndUsageReportService
         data.time_unit = map['TimeUnit']
         data.format = map['Format']
         data.compression = map['Compression']
-        data.additional_schema_elements = (Parsers::SchemaElementList.parse(map['AdditionalSchemaElements']) unless map['AdditionalSchemaElements'].nil?)
+        data.additional_schema_elements = (SchemaElementList.parse(map['AdditionalSchemaElements']) unless map['AdditionalSchemaElements'].nil?)
         data.s3_bucket = map['S3Bucket']
         data.s3_prefix = map['S3Prefix']
         data.s3_region = map['S3Region']
-        data.additional_artifacts = (Parsers::AdditionalArtifactList.parse(map['AdditionalArtifacts']) unless map['AdditionalArtifacts'].nil?)
+        data.additional_artifacts = (AdditionalArtifactList.parse(map['AdditionalArtifacts']) unless map['AdditionalArtifacts'].nil?)
         data.refresh_closed_reports = map['RefreshClosedReports']
         data.report_versioning = map['ReportVersioning']
         data.billing_view_arn = map['BillingViewArn']

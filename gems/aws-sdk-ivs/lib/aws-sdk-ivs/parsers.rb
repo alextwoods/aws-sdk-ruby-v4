@@ -15,8 +15,8 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::BatchGetChannelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channels = (Parsers::Channels.parse(map['channels']) unless map['channels'].nil?)
-        data.errors = (Parsers::BatchErrors.parse(map['errors']) unless map['errors'].nil?)
+        data.channels = (Channels.parse(map['channels']) unless map['channels'].nil?)
+        data.errors = (BatchErrors.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -25,7 +25,7 @@ module AWS::SDK::Ivs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchError.parse(value) unless value.nil?
+          data << BatchError.parse(value) unless value.nil?
         end
         data
       end
@@ -45,7 +45,7 @@ module AWS::SDK::Ivs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Channel.parse(value) unless value.nil?
+          data << Channel.parse(value) unless value.nil?
         end
         data
       end
@@ -62,7 +62,7 @@ module AWS::SDK::Ivs
         data.ingest_endpoint = map['ingestEndpoint']
         data.playback_url = map['playbackUrl']
         data.authorized = map['authorized']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -82,8 +82,8 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::BatchGetStreamKeyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stream_keys = (Parsers::StreamKeys.parse(map['streamKeys']) unless map['streamKeys'].nil?)
-        data.errors = (Parsers::BatchErrors.parse(map['errors']) unless map['errors'].nil?)
+        data.stream_keys = (StreamKeys.parse(map['streamKeys']) unless map['streamKeys'].nil?)
+        data.errors = (BatchErrors.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -92,7 +92,7 @@ module AWS::SDK::Ivs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StreamKey.parse(value) unless value.nil?
+          data << StreamKey.parse(value) unless value.nil?
         end
         data
       end
@@ -104,7 +104,7 @@ module AWS::SDK::Ivs
         data.arn = map['arn']
         data.value = map['value']
         data.channel_arn = map['channelArn']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -114,8 +114,8 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::CreateChannelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channel = (Parsers::Channel.parse(map['channel']) unless map['channel'].nil?)
-        data.stream_key = (Parsers::StreamKey.parse(map['streamKey']) unless map['streamKey'].nil?)
+        data.channel = (Channel.parse(map['channel']) unless map['channel'].nil?)
+        data.stream_key = (StreamKey.parse(map['streamKey']) unless map['streamKey'].nil?)
         data
       end
     end
@@ -175,7 +175,7 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::CreateRecordingConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.recording_configuration = (Parsers::RecordingConfiguration.parse(map['recordingConfiguration']) unless map['recordingConfiguration'].nil?)
+        data.recording_configuration = (RecordingConfiguration.parse(map['recordingConfiguration']) unless map['recordingConfiguration'].nil?)
         data
       end
     end
@@ -185,10 +185,10 @@ module AWS::SDK::Ivs
         data = Types::RecordingConfiguration.new
         data.arn = map['arn']
         data.name = map['name']
-        data.destination_configuration = (Parsers::DestinationConfiguration.parse(map['destinationConfiguration']) unless map['destinationConfiguration'].nil?)
+        data.destination_configuration = (DestinationConfiguration.parse(map['destinationConfiguration']) unless map['destinationConfiguration'].nil?)
         data.state = map['state']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
-        data.thumbnail_configuration = (Parsers::ThumbnailConfiguration.parse(map['thumbnailConfiguration']) unless map['thumbnailConfiguration'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.thumbnail_configuration = (ThumbnailConfiguration.parse(map['thumbnailConfiguration']) unless map['thumbnailConfiguration'].nil?)
         return data
       end
     end
@@ -205,7 +205,7 @@ module AWS::SDK::Ivs
     class DestinationConfiguration
       def self.parse(map)
         data = Types::DestinationConfiguration.new
-        data.s3 = (Parsers::S3DestinationConfiguration.parse(map['s3']) unless map['s3'].nil?)
+        data.s3 = (S3DestinationConfiguration.parse(map['s3']) unless map['s3'].nil?)
         return data
       end
     end
@@ -243,7 +243,7 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::CreateStreamKeyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stream_key = (Parsers::StreamKey.parse(map['streamKey']) unless map['streamKey'].nil?)
+        data.stream_key = (StreamKey.parse(map['streamKey']) unless map['streamKey'].nil?)
         data
       end
     end
@@ -289,7 +289,7 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::GetChannelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channel = (Parsers::Channel.parse(map['channel']) unless map['channel'].nil?)
+        data.channel = (Channel.parse(map['channel']) unless map['channel'].nil?)
         data
       end
     end
@@ -299,7 +299,7 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::GetPlaybackKeyPairOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.key_pair = (Parsers::PlaybackKeyPair.parse(map['keyPair']) unless map['keyPair'].nil?)
+        data.key_pair = (PlaybackKeyPair.parse(map['keyPair']) unless map['keyPair'].nil?)
         data
       end
     end
@@ -310,7 +310,7 @@ module AWS::SDK::Ivs
         data.arn = map['arn']
         data.name = map['name']
         data.fingerprint = map['fingerprint']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -320,7 +320,7 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::GetRecordingConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.recording_configuration = (Parsers::RecordingConfiguration.parse(map['recordingConfiguration']) unless map['recordingConfiguration'].nil?)
+        data.recording_configuration = (RecordingConfiguration.parse(map['recordingConfiguration']) unless map['recordingConfiguration'].nil?)
         data
       end
     end
@@ -330,7 +330,7 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::GetStreamOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stream = (Parsers::Stream.parse(map['stream']) unless map['stream'].nil?)
+        data.stream = (Stream.parse(map['stream']) unless map['stream'].nil?)
         data
       end
     end
@@ -364,7 +364,7 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::GetStreamKeyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stream_key = (Parsers::StreamKey.parse(map['streamKey']) unless map['streamKey'].nil?)
+        data.stream_key = (StreamKey.parse(map['streamKey']) unless map['streamKey'].nil?)
         data
       end
     end
@@ -374,7 +374,7 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::GetStreamSessionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stream_session = (Parsers::StreamSession.parse(map['streamSession']) unless map['streamSession'].nil?)
+        data.stream_session = (StreamSession.parse(map['streamSession']) unless map['streamSession'].nil?)
         data
       end
     end
@@ -385,10 +385,10 @@ module AWS::SDK::Ivs
         data.stream_id = map['streamId']
         data.start_time = Time.parse(map['startTime']) if map['startTime']
         data.end_time = Time.parse(map['endTime']) if map['endTime']
-        data.channel = (Parsers::Channel.parse(map['channel']) unless map['channel'].nil?)
-        data.ingest_configuration = (Parsers::IngestConfiguration.parse(map['ingestConfiguration']) unless map['ingestConfiguration'].nil?)
-        data.recording_configuration = (Parsers::RecordingConfiguration.parse(map['recordingConfiguration']) unless map['recordingConfiguration'].nil?)
-        data.truncated_events = (Parsers::StreamEvents.parse(map['truncatedEvents']) unless map['truncatedEvents'].nil?)
+        data.channel = (Channel.parse(map['channel']) unless map['channel'].nil?)
+        data.ingest_configuration = (IngestConfiguration.parse(map['ingestConfiguration']) unless map['ingestConfiguration'].nil?)
+        data.recording_configuration = (RecordingConfiguration.parse(map['recordingConfiguration']) unless map['recordingConfiguration'].nil?)
+        data.truncated_events = (StreamEvents.parse(map['truncatedEvents']) unless map['truncatedEvents'].nil?)
         return data
       end
     end
@@ -397,7 +397,7 @@ module AWS::SDK::Ivs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StreamEvent.parse(value) unless value.nil?
+          data << StreamEvent.parse(value) unless value.nil?
         end
         data
       end
@@ -416,8 +416,8 @@ module AWS::SDK::Ivs
     class IngestConfiguration
       def self.parse(map)
         data = Types::IngestConfiguration.new
-        data.video = (Parsers::VideoConfiguration.parse(map['video']) unless map['video'].nil?)
-        data.audio = (Parsers::AudioConfiguration.parse(map['audio']) unless map['audio'].nil?)
+        data.video = (VideoConfiguration.parse(map['video']) unless map['video'].nil?)
+        data.audio = (AudioConfiguration.parse(map['audio']) unless map['audio'].nil?)
         return data
       end
     end
@@ -453,7 +453,7 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::ImportPlaybackKeyPairOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.key_pair = (Parsers::PlaybackKeyPair.parse(map['keyPair']) unless map['keyPair'].nil?)
+        data.key_pair = (PlaybackKeyPair.parse(map['keyPair']) unless map['keyPair'].nil?)
         data
       end
     end
@@ -463,7 +463,7 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::ListChannelsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channels = (Parsers::ChannelList.parse(map['channels']) unless map['channels'].nil?)
+        data.channels = (ChannelList.parse(map['channels']) unless map['channels'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -473,7 +473,7 @@ module AWS::SDK::Ivs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChannelSummary.parse(value) unless value.nil?
+          data << ChannelSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -487,7 +487,7 @@ module AWS::SDK::Ivs
         data.latency_mode = map['latencyMode']
         data.authorized = map['authorized']
         data.recording_configuration_arn = map['recordingConfigurationArn']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -497,7 +497,7 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::ListPlaybackKeyPairsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.key_pairs = (Parsers::PlaybackKeyPairList.parse(map['keyPairs']) unless map['keyPairs'].nil?)
+        data.key_pairs = (PlaybackKeyPairList.parse(map['keyPairs']) unless map['keyPairs'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -507,7 +507,7 @@ module AWS::SDK::Ivs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PlaybackKeyPairSummary.parse(value) unless value.nil?
+          data << PlaybackKeyPairSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -518,7 +518,7 @@ module AWS::SDK::Ivs
         data = Types::PlaybackKeyPairSummary.new
         data.arn = map['arn']
         data.name = map['name']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -528,7 +528,7 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::ListRecordingConfigurationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.recording_configurations = (Parsers::RecordingConfigurationList.parse(map['recordingConfigurations']) unless map['recordingConfigurations'].nil?)
+        data.recording_configurations = (RecordingConfigurationList.parse(map['recordingConfigurations']) unless map['recordingConfigurations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -538,7 +538,7 @@ module AWS::SDK::Ivs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecordingConfigurationSummary.parse(value) unless value.nil?
+          data << RecordingConfigurationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -549,9 +549,9 @@ module AWS::SDK::Ivs
         data = Types::RecordingConfigurationSummary.new
         data.arn = map['arn']
         data.name = map['name']
-        data.destination_configuration = (Parsers::DestinationConfiguration.parse(map['destinationConfiguration']) unless map['destinationConfiguration'].nil?)
+        data.destination_configuration = (DestinationConfiguration.parse(map['destinationConfiguration']) unless map['destinationConfiguration'].nil?)
         data.state = map['state']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -561,7 +561,7 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::ListStreamKeysOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stream_keys = (Parsers::StreamKeyList.parse(map['streamKeys']) unless map['streamKeys'].nil?)
+        data.stream_keys = (StreamKeyList.parse(map['streamKeys']) unless map['streamKeys'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -571,7 +571,7 @@ module AWS::SDK::Ivs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StreamKeySummary.parse(value) unless value.nil?
+          data << StreamKeySummary.parse(value) unless value.nil?
         end
         data
       end
@@ -582,7 +582,7 @@ module AWS::SDK::Ivs
         data = Types::StreamKeySummary.new
         data.arn = map['arn']
         data.channel_arn = map['channelArn']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -592,7 +592,7 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::ListStreamSessionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stream_sessions = (Parsers::StreamSessionList.parse(map['streamSessions']) unless map['streamSessions'].nil?)
+        data.stream_sessions = (StreamSessionList.parse(map['streamSessions']) unless map['streamSessions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -602,7 +602,7 @@ module AWS::SDK::Ivs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StreamSessionSummary.parse(value) unless value.nil?
+          data << StreamSessionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -624,7 +624,7 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::ListStreamsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.streams = (Parsers::StreamList.parse(map['streams']) unless map['streams'].nil?)
+        data.streams = (StreamList.parse(map['streams']) unless map['streams'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -634,7 +634,7 @@ module AWS::SDK::Ivs
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StreamSummary.parse(value) unless value.nil?
+          data << StreamSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -658,7 +658,7 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -724,7 +724,7 @@ module AWS::SDK::Ivs
       def self.parse(http_resp)
         data = Types::UpdateChannelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channel = (Parsers::Channel.parse(map['channel']) unless map['channel'].nil?)
+        data.channel = (Channel.parse(map['channel']) unless map['channel'].nil?)
         data
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DataExchange
   module Builders
 
@@ -40,8 +42,8 @@ module AWS::SDK::DataExchange
         data['AssetType'] = input[:asset_type] unless input[:asset_type].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Tags'] = Builders::MapOf__string.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = MapOf__string.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -66,9 +68,9 @@ module AWS::SDK::DataExchange
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Action'] = Builders::Action.build(input[:action]) unless input[:action].nil?
-        data['Event'] = Builders::Event.build(input[:event]) unless input[:event].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Action'] = Action.build(input[:action]) unless input[:action].nil?
+        data['Event'] = Event.build(input[:event]) unless input[:event].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -76,7 +78,7 @@ module AWS::SDK::DataExchange
     class Event
       def self.build(input)
         data = {}
-        data['RevisionPublished'] = Builders::RevisionPublished.build(input[:revision_published]) unless input[:revision_published].nil?
+        data['RevisionPublished'] = RevisionPublished.build(input[:revision_published]) unless input[:revision_published].nil?
         data
       end
     end
@@ -94,7 +96,7 @@ module AWS::SDK::DataExchange
     class Action
       def self.build(input)
         data = {}
-        data['ExportRevisionToS3'] = Builders::AutoExportRevisionToS3RequestDetails.build(input[:export_revision_to_s3]) unless input[:export_revision_to_s3].nil?
+        data['ExportRevisionToS3'] = AutoExportRevisionToS3RequestDetails.build(input[:export_revision_to_s3]) unless input[:export_revision_to_s3].nil?
         data
       end
     end
@@ -103,8 +105,8 @@ module AWS::SDK::DataExchange
     class AutoExportRevisionToS3RequestDetails
       def self.build(input)
         data = {}
-        data['Encryption'] = Builders::ExportServerSideEncryption.build(input[:encryption]) unless input[:encryption].nil?
-        data['RevisionDestination'] = Builders::AutoExportRevisionDestinationEntry.build(input[:revision_destination]) unless input[:revision_destination].nil?
+        data['Encryption'] = ExportServerSideEncryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['RevisionDestination'] = AutoExportRevisionDestinationEntry.build(input[:revision_destination]) unless input[:revision_destination].nil?
         data
       end
     end
@@ -139,9 +141,9 @@ module AWS::SDK::DataExchange
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Details'] = Builders::RequestDetails.build(input[:details]) unless input[:details].nil?
+        data['Details'] = RequestDetails.build(input[:details]) unless input[:details].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -149,13 +151,13 @@ module AWS::SDK::DataExchange
     class RequestDetails
       def self.build(input)
         data = {}
-        data['ExportAssetToSignedUrl'] = Builders::ExportAssetToSignedUrlRequestDetails.build(input[:export_asset_to_signed_url]) unless input[:export_asset_to_signed_url].nil?
-        data['ExportAssetsToS3'] = Builders::ExportAssetsToS3RequestDetails.build(input[:export_assets_to_s3]) unless input[:export_assets_to_s3].nil?
-        data['ExportRevisionsToS3'] = Builders::ExportRevisionsToS3RequestDetails.build(input[:export_revisions_to_s3]) unless input[:export_revisions_to_s3].nil?
-        data['ImportAssetFromSignedUrl'] = Builders::ImportAssetFromSignedUrlRequestDetails.build(input[:import_asset_from_signed_url]) unless input[:import_asset_from_signed_url].nil?
-        data['ImportAssetsFromS3'] = Builders::ImportAssetsFromS3RequestDetails.build(input[:import_assets_from_s3]) unless input[:import_assets_from_s3].nil?
-        data['ImportAssetsFromRedshiftDataShares'] = Builders::ImportAssetsFromRedshiftDataSharesRequestDetails.build(input[:import_assets_from_redshift_data_shares]) unless input[:import_assets_from_redshift_data_shares].nil?
-        data['ImportAssetFromApiGatewayApi'] = Builders::ImportAssetFromApiGatewayApiRequestDetails.build(input[:import_asset_from_api_gateway_api]) unless input[:import_asset_from_api_gateway_api].nil?
+        data['ExportAssetToSignedUrl'] = ExportAssetToSignedUrlRequestDetails.build(input[:export_asset_to_signed_url]) unless input[:export_asset_to_signed_url].nil?
+        data['ExportAssetsToS3'] = ExportAssetsToS3RequestDetails.build(input[:export_assets_to_s3]) unless input[:export_assets_to_s3].nil?
+        data['ExportRevisionsToS3'] = ExportRevisionsToS3RequestDetails.build(input[:export_revisions_to_s3]) unless input[:export_revisions_to_s3].nil?
+        data['ImportAssetFromSignedUrl'] = ImportAssetFromSignedUrlRequestDetails.build(input[:import_asset_from_signed_url]) unless input[:import_asset_from_signed_url].nil?
+        data['ImportAssetsFromS3'] = ImportAssetsFromS3RequestDetails.build(input[:import_assets_from_s3]) unless input[:import_assets_from_s3].nil?
+        data['ImportAssetsFromRedshiftDataShares'] = ImportAssetsFromRedshiftDataSharesRequestDetails.build(input[:import_assets_from_redshift_data_shares]) unless input[:import_assets_from_redshift_data_shares].nil?
+        data['ImportAssetFromApiGatewayApi'] = ImportAssetFromApiGatewayApiRequestDetails.build(input[:import_asset_from_api_gateway_api]) unless input[:import_asset_from_api_gateway_api].nil?
         data
       end
     end
@@ -181,7 +183,7 @@ module AWS::SDK::DataExchange
     class ImportAssetsFromRedshiftDataSharesRequestDetails
       def self.build(input)
         data = {}
-        data['AssetSources'] = Builders::ListOfRedshiftDataShareAssetSourceEntry.build(input[:asset_sources]) unless input[:asset_sources].nil?
+        data['AssetSources'] = ListOfRedshiftDataShareAssetSourceEntry.build(input[:asset_sources]) unless input[:asset_sources].nil?
         data['DataSetId'] = input[:data_set_id] unless input[:data_set_id].nil?
         data['RevisionId'] = input[:revision_id] unless input[:revision_id].nil?
         data
@@ -193,7 +195,7 @@ module AWS::SDK::DataExchange
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RedshiftDataShareAssetSourceEntry.build(element) unless element.nil?
+          data << RedshiftDataShareAssetSourceEntry.build(element) unless element.nil?
         end
         data
       end
@@ -212,7 +214,7 @@ module AWS::SDK::DataExchange
     class ImportAssetsFromS3RequestDetails
       def self.build(input)
         data = {}
-        data['AssetSources'] = Builders::ListOfAssetSourceEntry.build(input[:asset_sources]) unless input[:asset_sources].nil?
+        data['AssetSources'] = ListOfAssetSourceEntry.build(input[:asset_sources]) unless input[:asset_sources].nil?
         data['DataSetId'] = input[:data_set_id] unless input[:data_set_id].nil?
         data['RevisionId'] = input[:revision_id] unless input[:revision_id].nil?
         data
@@ -224,7 +226,7 @@ module AWS::SDK::DataExchange
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AssetSourceEntry.build(element) unless element.nil?
+          data << AssetSourceEntry.build(element) unless element.nil?
         end
         data
       end
@@ -257,8 +259,8 @@ module AWS::SDK::DataExchange
       def self.build(input)
         data = {}
         data['DataSetId'] = input[:data_set_id] unless input[:data_set_id].nil?
-        data['Encryption'] = Builders::ExportServerSideEncryption.build(input[:encryption]) unless input[:encryption].nil?
-        data['RevisionDestinations'] = Builders::ListOfRevisionDestinationEntry.build(input[:revision_destinations]) unless input[:revision_destinations].nil?
+        data['Encryption'] = ExportServerSideEncryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['RevisionDestinations'] = ListOfRevisionDestinationEntry.build(input[:revision_destinations]) unless input[:revision_destinations].nil?
         data
       end
     end
@@ -268,7 +270,7 @@ module AWS::SDK::DataExchange
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RevisionDestinationEntry.build(element) unless element.nil?
+          data << RevisionDestinationEntry.build(element) unless element.nil?
         end
         data
       end
@@ -289,9 +291,9 @@ module AWS::SDK::DataExchange
     class ExportAssetsToS3RequestDetails
       def self.build(input)
         data = {}
-        data['AssetDestinations'] = Builders::ListOfAssetDestinationEntry.build(input[:asset_destinations]) unless input[:asset_destinations].nil?
+        data['AssetDestinations'] = ListOfAssetDestinationEntry.build(input[:asset_destinations]) unless input[:asset_destinations].nil?
         data['DataSetId'] = input[:data_set_id] unless input[:data_set_id].nil?
-        data['Encryption'] = Builders::ExportServerSideEncryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['Encryption'] = ExportServerSideEncryption.build(input[:encryption]) unless input[:encryption].nil?
         data['RevisionId'] = input[:revision_id] unless input[:revision_id].nil?
         data
       end
@@ -302,7 +304,7 @@ module AWS::SDK::DataExchange
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AssetDestinationEntry.build(element) unless element.nil?
+          data << AssetDestinationEntry.build(element) unless element.nil?
         end
         data
       end
@@ -348,8 +350,8 @@ module AWS::SDK::DataExchange
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Comment'] = input[:comment] unless input[:comment].nil?
-        data['Tags'] = Builders::MapOf__string.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = MapOf__string.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -651,7 +653,7 @@ module AWS::SDK::DataExchange
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['RevocationComment'] = input[:revocation_comment] unless input[:revocation_comment].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -668,7 +670,7 @@ module AWS::SDK::DataExchange
         end
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'text/plain'
-        http_req.body = StringIO.new(input[:body] || '')
+        http_req.body = ::StringIO.new(input[:body] || '')
         http_req.headers['x-amzn-dataexchange-asset-id'] = input[:asset_id] unless input[:asset_id].nil? || input[:asset_id].empty?
         http_req.headers['x-amzn-dataexchange-data-set-id'] = input[:data_set_id] unless input[:data_set_id].nil? || input[:data_set_id].empty?
         http_req.headers['x-amzn-dataexchange-http-method'] = input[:member_method] unless input[:member_method].nil? || input[:member_method].empty?
@@ -714,8 +716,8 @@ module AWS::SDK::DataExchange
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::MapOf__string.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = MapOf__string.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -778,7 +780,7 @@ module AWS::SDK::DataExchange
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -801,7 +803,7 @@ module AWS::SDK::DataExchange
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -822,8 +824,8 @@ module AWS::SDK::DataExchange
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Action'] = Builders::Action.build(input[:action]) unless input[:action].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Action'] = Action.build(input[:action]) unless input[:action].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -850,7 +852,7 @@ module AWS::SDK::DataExchange
         data = {}
         data['Comment'] = input[:comment] unless input[:comment].nil?
         data['Finalized'] = input[:finalized] unless input[:finalized].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

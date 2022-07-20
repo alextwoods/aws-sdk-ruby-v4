@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Backup
   module Stubs
 
@@ -30,8 +32,8 @@ module AWS::SDK::Backup
         data['BackupPlanArn'] = stub[:backup_plan_arn] unless stub[:backup_plan_arn].nil?
         data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['VersionId'] = stub[:version_id] unless stub[:version_id].nil?
-        data['AdvancedBackupSettings'] = Stubs::AdvancedBackupSettings.stub(stub[:advanced_backup_settings]) unless stub[:advanced_backup_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AdvancedBackupSettings'] = AdvancedBackupSettings.stub(stub[:advanced_backup_settings]) unless stub[:advanced_backup_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -49,7 +51,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AdvancedBackupSetting.stub(element) unless element.nil?
+          data << AdvancedBackupSetting.stub(element) unless element.nil?
         end
         data
       end
@@ -70,7 +72,7 @@ module AWS::SDK::Backup
         stub ||= Types::AdvancedBackupSetting.new
         data = {}
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['BackupOptions'] = Stubs::BackupOptions.stub(stub[:backup_options]) unless stub[:backup_options].nil?
+        data['BackupOptions'] = BackupOptions.stub(stub[:backup_options]) unless stub[:backup_options].nil?
         data
       end
     end
@@ -112,7 +114,7 @@ module AWS::SDK::Backup
         data['SelectionId'] = stub[:selection_id] unless stub[:selection_id].nil?
         data['BackupPlanId'] = stub[:backup_plan_id] unless stub[:backup_plan_id].nil?
         data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -133,7 +135,7 @@ module AWS::SDK::Backup
         data['BackupVaultName'] = stub[:backup_vault_name] unless stub[:backup_vault_name].nil?
         data['BackupVaultArn'] = stub[:backup_vault_arn] unless stub[:backup_vault_arn].nil?
         data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -152,7 +154,7 @@ module AWS::SDK::Backup
         http_resp.headers['Content-Type'] = 'application/json'
         data['FrameworkName'] = stub[:framework_name] unless stub[:framework_name].nil?
         data['FrameworkArn'] = stub[:framework_arn] unless stub[:framework_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -173,7 +175,7 @@ module AWS::SDK::Backup
         data['ReportPlanName'] = stub[:report_plan_name] unless stub[:report_plan_name].nil?
         data['ReportPlanArn'] = stub[:report_plan_arn] unless stub[:report_plan_arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -196,7 +198,7 @@ module AWS::SDK::Backup
         data['BackupPlanArn'] = stub[:backup_plan_arn] unless stub[:backup_plan_arn].nil?
         data['DeletionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:deletion_date]).to_i unless stub[:deletion_date].nil?
         data['VersionId'] = stub[:version_id] unless stub[:version_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -348,14 +350,14 @@ module AWS::SDK::Backup
         data['PercentDone'] = stub[:percent_done] unless stub[:percent_done].nil?
         data['BackupSizeInBytes'] = stub[:backup_size_in_bytes] unless stub[:backup_size_in_bytes].nil?
         data['IamRoleArn'] = stub[:iam_role_arn] unless stub[:iam_role_arn].nil?
-        data['CreatedBy'] = Stubs::RecoveryPointCreator.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = RecoveryPointCreator.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['BytesTransferred'] = stub[:bytes_transferred] unless stub[:bytes_transferred].nil?
         data['ExpectedCompletionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expected_completion_date]).to_i unless stub[:expected_completion_date].nil?
         data['StartBy'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_by]).to_i unless stub[:start_by].nil?
-        data['BackupOptions'] = Stubs::BackupOptions.stub(stub[:backup_options]) unless stub[:backup_options].nil?
+        data['BackupOptions'] = BackupOptions.stub(stub[:backup_options]) unless stub[:backup_options].nil?
         data['BackupType'] = stub[:backup_type] unless stub[:backup_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -414,7 +416,7 @@ module AWS::SDK::Backup
         data['MinRetentionDays'] = stub[:min_retention_days] unless stub[:min_retention_days].nil?
         data['MaxRetentionDays'] = stub[:max_retention_days] unless stub[:max_retention_days].nil?
         data['LockDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:lock_date]).to_i unless stub[:lock_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -430,8 +432,8 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CopyJob'] = Stubs::CopyJob.stub(stub[:copy_job]) unless stub[:copy_job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CopyJob'] = CopyJob.stub(stub[:copy_job]) unless stub[:copy_job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -475,7 +477,7 @@ module AWS::SDK::Backup
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['BackupSizeInBytes'] = stub[:backup_size_in_bytes] unless stub[:backup_size_in_bytes].nil?
         data['IamRoleArn'] = stub[:iam_role_arn] unless stub[:iam_role_arn].nil?
-        data['CreatedBy'] = Stubs::RecoveryPointCreator.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = RecoveryPointCreator.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data
       end
@@ -503,12 +505,12 @@ module AWS::SDK::Backup
         data['FrameworkName'] = stub[:framework_name] unless stub[:framework_name].nil?
         data['FrameworkArn'] = stub[:framework_arn] unless stub[:framework_arn].nil?
         data['FrameworkDescription'] = stub[:framework_description] unless stub[:framework_description].nil?
-        data['FrameworkControls'] = Stubs::FrameworkControls.stub(stub[:framework_controls]) unless stub[:framework_controls].nil?
+        data['FrameworkControls'] = FrameworkControls.stub(stub[:framework_controls]) unless stub[:framework_controls].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['DeploymentStatus'] = stub[:deployment_status] unless stub[:deployment_status].nil?
         data['FrameworkStatus'] = stub[:framework_status] unless stub[:framework_status].nil?
         data['IdempotencyToken'] = stub[:idempotency_token] unless stub[:idempotency_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -526,7 +528,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FrameworkControl.stub(element) unless element.nil?
+          data << FrameworkControl.stub(element) unless element.nil?
         end
         data
       end
@@ -548,8 +550,8 @@ module AWS::SDK::Backup
         stub ||= Types::FrameworkControl.new
         data = {}
         data['ControlName'] = stub[:control_name] unless stub[:control_name].nil?
-        data['ControlInputParameters'] = Stubs::ControlInputParameters.stub(stub[:control_input_parameters]) unless stub[:control_input_parameters].nil?
-        data['ControlScope'] = Stubs::ControlScope.stub(stub[:control_scope]) unless stub[:control_scope].nil?
+        data['ControlInputParameters'] = ControlInputParameters.stub(stub[:control_input_parameters]) unless stub[:control_input_parameters].nil?
+        data['ControlScope'] = ControlScope.stub(stub[:control_scope]) unless stub[:control_scope].nil?
         data
       end
     end
@@ -569,9 +571,9 @@ module AWS::SDK::Backup
       def self.stub(stub)
         stub ||= Types::ControlScope.new
         data = {}
-        data['ComplianceResourceIds'] = Stubs::ComplianceResourceIdList.stub(stub[:compliance_resource_ids]) unless stub[:compliance_resource_ids].nil?
-        data['ComplianceResourceTypes'] = Stubs::ResourceTypeList.stub(stub[:compliance_resource_types]) unless stub[:compliance_resource_types].nil?
-        data['Tags'] = Stubs::StringMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['ComplianceResourceIds'] = ComplianceResourceIdList.stub(stub[:compliance_resource_ids]) unless stub[:compliance_resource_ids].nil?
+        data['ComplianceResourceTypes'] = ResourceTypeList.stub(stub[:compliance_resource_types]) unless stub[:compliance_resource_types].nil?
+        data['Tags'] = StringMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -650,7 +652,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ControlInputParameter.stub(element) unless element.nil?
+          data << ControlInputParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -689,9 +691,9 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GlobalSettings'] = Stubs::GlobalSettings.stub(stub[:global_settings]) unless stub[:global_settings].nil?
+        data['GlobalSettings'] = GlobalSettings.stub(stub[:global_settings]) unless stub[:global_settings].nil?
         data['LastUpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_time]).to_i unless stub[:last_update_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -732,7 +734,7 @@ module AWS::SDK::Backup
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['LastBackupTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_backup_time]).to_i unless stub[:last_backup_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -772,20 +774,20 @@ module AWS::SDK::Backup
         data['SourceBackupVaultArn'] = stub[:source_backup_vault_arn] unless stub[:source_backup_vault_arn].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['CreatedBy'] = Stubs::RecoveryPointCreator.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = RecoveryPointCreator.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['IamRoleArn'] = stub[:iam_role_arn] unless stub[:iam_role_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['CompletionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:completion_date]).to_i unless stub[:completion_date].nil?
         data['BackupSizeInBytes'] = stub[:backup_size_in_bytes] unless stub[:backup_size_in_bytes].nil?
-        data['CalculatedLifecycle'] = Stubs::CalculatedLifecycle.stub(stub[:calculated_lifecycle]) unless stub[:calculated_lifecycle].nil?
-        data['Lifecycle'] = Stubs::Lifecycle.stub(stub[:lifecycle]) unless stub[:lifecycle].nil?
+        data['CalculatedLifecycle'] = CalculatedLifecycle.stub(stub[:calculated_lifecycle]) unless stub[:calculated_lifecycle].nil?
+        data['Lifecycle'] = Lifecycle.stub(stub[:lifecycle]) unless stub[:lifecycle].nil?
         data['EncryptionKeyArn'] = stub[:encryption_key_arn] unless stub[:encryption_key_arn].nil?
         data['IsEncrypted'] = stub[:is_encrypted] unless stub[:is_encrypted].nil?
         data['StorageClass'] = stub[:storage_class] unless stub[:storage_class].nil?
         data['LastRestoreTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_restore_time]).to_i unless stub[:last_restore_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -842,9 +844,9 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ResourceTypeOptInPreference'] = Stubs::ResourceTypeOptInPreference.stub(stub[:resource_type_opt_in_preference]) unless stub[:resource_type_opt_in_preference].nil?
-        data['ResourceTypeManagementPreference'] = Stubs::ResourceTypeManagementPreference.stub(stub[:resource_type_management_preference]) unless stub[:resource_type_management_preference].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceTypeOptInPreference'] = ResourceTypeOptInPreference.stub(stub[:resource_type_opt_in_preference]) unless stub[:resource_type_opt_in_preference].nil?
+        data['ResourceTypeManagementPreference'] = ResourceTypeManagementPreference.stub(stub[:resource_type_management_preference]) unless stub[:resource_type_management_preference].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -900,8 +902,8 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ReportJob'] = Stubs::ReportJob.stub(stub[:report_job]) unless stub[:report_job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReportJob'] = ReportJob.stub(stub[:report_job]) unless stub[:report_job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -932,7 +934,7 @@ module AWS::SDK::Backup
         data['CompletionTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:completion_time]).to_i unless stub[:completion_time].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['ReportDestination'] = Stubs::ReportDestination.stub(stub[:report_destination]) unless stub[:report_destination].nil?
+        data['ReportDestination'] = ReportDestination.stub(stub[:report_destination]) unless stub[:report_destination].nil?
         data
       end
     end
@@ -952,7 +954,7 @@ module AWS::SDK::Backup
         stub ||= Types::ReportDestination.new
         data = {}
         data['S3BucketName'] = stub[:s3_bucket_name] unless stub[:s3_bucket_name].nil?
-        data['S3Keys'] = Stubs::StringList.stub(stub[:s3_keys]) unless stub[:s3_keys].nil?
+        data['S3Keys'] = StringList.stub(stub[:s3_keys]) unless stub[:s3_keys].nil?
         data
       end
     end
@@ -989,8 +991,8 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ReportPlan'] = Stubs::ReportPlan.stub(stub[:report_plan]) unless stub[:report_plan].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReportPlan'] = ReportPlan.stub(stub[:report_plan]) unless stub[:report_plan].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1018,8 +1020,8 @@ module AWS::SDK::Backup
         data['ReportPlanArn'] = stub[:report_plan_arn] unless stub[:report_plan_arn].nil?
         data['ReportPlanName'] = stub[:report_plan_name] unless stub[:report_plan_name].nil?
         data['ReportPlanDescription'] = stub[:report_plan_description] unless stub[:report_plan_description].nil?
-        data['ReportSetting'] = Stubs::ReportSetting.stub(stub[:report_setting]) unless stub[:report_setting].nil?
-        data['ReportDeliveryChannel'] = Stubs::ReportDeliveryChannel.stub(stub[:report_delivery_channel]) unless stub[:report_delivery_channel].nil?
+        data['ReportSetting'] = ReportSetting.stub(stub[:report_setting]) unless stub[:report_setting].nil?
+        data['ReportDeliveryChannel'] = ReportDeliveryChannel.stub(stub[:report_delivery_channel]) unless stub[:report_delivery_channel].nil?
         data['DeploymentStatus'] = stub[:deployment_status] unless stub[:deployment_status].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastAttemptedExecutionTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_attempted_execution_time]).to_i unless stub[:last_attempted_execution_time].nil?
@@ -1045,7 +1047,7 @@ module AWS::SDK::Backup
         data = {}
         data['S3BucketName'] = stub[:s3_bucket_name] unless stub[:s3_bucket_name].nil?
         data['S3KeyPrefix'] = stub[:s3_key_prefix] unless stub[:s3_key_prefix].nil?
-        data['Formats'] = Stubs::FormatList.stub(stub[:formats]) unless stub[:formats].nil?
+        data['Formats'] = FormatList.stub(stub[:formats]) unless stub[:formats].nil?
         data
       end
     end
@@ -1086,7 +1088,7 @@ module AWS::SDK::Backup
         stub ||= Types::ReportSetting.new
         data = {}
         data['ReportTemplate'] = stub[:report_template] unless stub[:report_template].nil?
-        data['FrameworkArns'] = Stubs::StringList.stub(stub[:framework_arns]) unless stub[:framework_arns].nil?
+        data['FrameworkArns'] = StringList.stub(stub[:framework_arns]) unless stub[:framework_arns].nil?
         data['NumberOfFrameworks'] = stub[:number_of_frameworks] unless stub[:number_of_frameworks].nil?
         data
       end
@@ -1129,7 +1131,7 @@ module AWS::SDK::Backup
         data['ExpectedCompletionTimeMinutes'] = stub[:expected_completion_time_minutes] unless stub[:expected_completion_time_minutes].nil?
         data['CreatedResourceArn'] = stub[:created_resource_arn] unless stub[:created_resource_arn].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1159,7 +1161,7 @@ module AWS::SDK::Backup
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['BackupPlanTemplateJson'] = stub[:backup_plan_template_json] unless stub[:backup_plan_template_json].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1183,7 +1185,7 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['BackupPlan'] = Stubs::BackupPlan.stub(stub[:backup_plan]) unless stub[:backup_plan].nil?
+        data['BackupPlan'] = BackupPlan.stub(stub[:backup_plan]) unless stub[:backup_plan].nil?
         data['BackupPlanId'] = stub[:backup_plan_id] unless stub[:backup_plan_id].nil?
         data['BackupPlanArn'] = stub[:backup_plan_arn] unless stub[:backup_plan_arn].nil?
         data['VersionId'] = stub[:version_id] unless stub[:version_id].nil?
@@ -1191,8 +1193,8 @@ module AWS::SDK::Backup
         data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['DeletionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:deletion_date]).to_i unless stub[:deletion_date].nil?
         data['LastExecutionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_execution_date]).to_i unless stub[:last_execution_date].nil?
-        data['AdvancedBackupSettings'] = Stubs::AdvancedBackupSettings.stub(stub[:advanced_backup_settings]) unless stub[:advanced_backup_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AdvancedBackupSettings'] = AdvancedBackupSettings.stub(stub[:advanced_backup_settings]) unless stub[:advanced_backup_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1212,8 +1214,8 @@ module AWS::SDK::Backup
         stub ||= Types::BackupPlan.new
         data = {}
         data['BackupPlanName'] = stub[:backup_plan_name] unless stub[:backup_plan_name].nil?
-        data['Rules'] = Stubs::BackupRules.stub(stub[:rules]) unless stub[:rules].nil?
-        data['AdvancedBackupSettings'] = Stubs::AdvancedBackupSettings.stub(stub[:advanced_backup_settings]) unless stub[:advanced_backup_settings].nil?
+        data['Rules'] = BackupRules.stub(stub[:rules]) unless stub[:rules].nil?
+        data['AdvancedBackupSettings'] = AdvancedBackupSettings.stub(stub[:advanced_backup_settings]) unless stub[:advanced_backup_settings].nil?
         data
       end
     end
@@ -1232,7 +1234,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BackupRule.stub(element) unless element.nil?
+          data << BackupRule.stub(element) unless element.nil?
         end
         data
       end
@@ -1265,10 +1267,10 @@ module AWS::SDK::Backup
         data['ScheduleExpression'] = stub[:schedule_expression] unless stub[:schedule_expression].nil?
         data['StartWindowMinutes'] = stub[:start_window_minutes] unless stub[:start_window_minutes].nil?
         data['CompletionWindowMinutes'] = stub[:completion_window_minutes] unless stub[:completion_window_minutes].nil?
-        data['Lifecycle'] = Stubs::Lifecycle.stub(stub[:lifecycle]) unless stub[:lifecycle].nil?
-        data['RecoveryPointTags'] = Stubs::Tags.stub(stub[:recovery_point_tags]) unless stub[:recovery_point_tags].nil?
+        data['Lifecycle'] = Lifecycle.stub(stub[:lifecycle]) unless stub[:lifecycle].nil?
+        data['RecoveryPointTags'] = Tags.stub(stub[:recovery_point_tags]) unless stub[:recovery_point_tags].nil?
         data['RuleId'] = stub[:rule_id] unless stub[:rule_id].nil?
-        data['CopyActions'] = Stubs::CopyActions.stub(stub[:copy_actions]) unless stub[:copy_actions].nil?
+        data['CopyActions'] = CopyActions.stub(stub[:copy_actions]) unless stub[:copy_actions].nil?
         data['EnableContinuousBackup'] = stub[:enable_continuous_backup] unless stub[:enable_continuous_backup].nil?
         data
       end
@@ -1288,7 +1290,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CopyAction.stub(element) unless element.nil?
+          data << CopyAction.stub(element) unless element.nil?
         end
         data
       end
@@ -1308,7 +1310,7 @@ module AWS::SDK::Backup
       def self.stub(stub)
         stub ||= Types::CopyAction.new
         data = {}
-        data['Lifecycle'] = Stubs::Lifecycle.stub(stub[:lifecycle]) unless stub[:lifecycle].nil?
+        data['Lifecycle'] = Lifecycle.stub(stub[:lifecycle]) unless stub[:lifecycle].nil?
         data['DestinationBackupVaultArn'] = stub[:destination_backup_vault_arn] unless stub[:destination_backup_vault_arn].nil?
         data
       end
@@ -1346,8 +1348,8 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['BackupPlan'] = Stubs::BackupPlan.stub(stub[:backup_plan]) unless stub[:backup_plan].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BackupPlan'] = BackupPlan.stub(stub[:backup_plan]) unless stub[:backup_plan].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1363,8 +1365,8 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['BackupPlanDocument'] = Stubs::BackupPlan.stub(stub[:backup_plan_document]) unless stub[:backup_plan_document].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BackupPlanDocument'] = BackupPlan.stub(stub[:backup_plan_document]) unless stub[:backup_plan_document].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1384,12 +1386,12 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['BackupSelection'] = Stubs::BackupSelection.stub(stub[:backup_selection]) unless stub[:backup_selection].nil?
+        data['BackupSelection'] = BackupSelection.stub(stub[:backup_selection]) unless stub[:backup_selection].nil?
         data['SelectionId'] = stub[:selection_id] unless stub[:selection_id].nil?
         data['BackupPlanId'] = stub[:backup_plan_id] unless stub[:backup_plan_id].nil?
         data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['CreatorRequestId'] = stub[:creator_request_id] unless stub[:creator_request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1413,10 +1415,10 @@ module AWS::SDK::Backup
         data = {}
         data['SelectionName'] = stub[:selection_name] unless stub[:selection_name].nil?
         data['IamRoleArn'] = stub[:iam_role_arn] unless stub[:iam_role_arn].nil?
-        data['Resources'] = Stubs::ResourceArns.stub(stub[:resources]) unless stub[:resources].nil?
-        data['ListOfTags'] = Stubs::ListOfTags.stub(stub[:list_of_tags]) unless stub[:list_of_tags].nil?
-        data['NotResources'] = Stubs::ResourceArns.stub(stub[:not_resources]) unless stub[:not_resources].nil?
-        data['Conditions'] = Stubs::Conditions.stub(stub[:conditions]) unless stub[:conditions].nil?
+        data['Resources'] = ResourceArns.stub(stub[:resources]) unless stub[:resources].nil?
+        data['ListOfTags'] = ListOfTags.stub(stub[:list_of_tags]) unless stub[:list_of_tags].nil?
+        data['NotResources'] = ResourceArns.stub(stub[:not_resources]) unless stub[:not_resources].nil?
+        data['Conditions'] = Conditions.stub(stub[:conditions]) unless stub[:conditions].nil?
         data
       end
     end
@@ -1437,10 +1439,10 @@ module AWS::SDK::Backup
       def self.stub(stub)
         stub ||= Types::Conditions.new
         data = {}
-        data['StringEquals'] = Stubs::ConditionParameters.stub(stub[:string_equals]) unless stub[:string_equals].nil?
-        data['StringNotEquals'] = Stubs::ConditionParameters.stub(stub[:string_not_equals]) unless stub[:string_not_equals].nil?
-        data['StringLike'] = Stubs::ConditionParameters.stub(stub[:string_like]) unless stub[:string_like].nil?
-        data['StringNotLike'] = Stubs::ConditionParameters.stub(stub[:string_not_like]) unless stub[:string_not_like].nil?
+        data['StringEquals'] = ConditionParameters.stub(stub[:string_equals]) unless stub[:string_equals].nil?
+        data['StringNotEquals'] = ConditionParameters.stub(stub[:string_not_equals]) unless stub[:string_not_equals].nil?
+        data['StringLike'] = ConditionParameters.stub(stub[:string_like]) unless stub[:string_like].nil?
+        data['StringNotLike'] = ConditionParameters.stub(stub[:string_not_like]) unless stub[:string_not_like].nil?
         data
       end
     end
@@ -1459,7 +1461,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConditionParameter.stub(element) unless element.nil?
+          data << ConditionParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -1519,7 +1521,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Condition.stub(element) unless element.nil?
+          data << Condition.stub(element) unless element.nil?
         end
         data
       end
@@ -1564,7 +1566,7 @@ module AWS::SDK::Backup
         data['BackupVaultName'] = stub[:backup_vault_name] unless stub[:backup_vault_name].nil?
         data['BackupVaultArn'] = stub[:backup_vault_arn] unless stub[:backup_vault_arn].nil?
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1586,8 +1588,8 @@ module AWS::SDK::Backup
         data['BackupVaultName'] = stub[:backup_vault_name] unless stub[:backup_vault_name].nil?
         data['BackupVaultArn'] = stub[:backup_vault_arn] unless stub[:backup_vault_arn].nil?
         data['SNSTopicArn'] = stub[:sns_topic_arn] unless stub[:sns_topic_arn].nil?
-        data['BackupVaultEvents'] = Stubs::BackupVaultEvents.stub(stub[:backup_vault_events]) unless stub[:backup_vault_events].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BackupVaultEvents'] = BackupVaultEvents.stub(stub[:backup_vault_events]) unless stub[:backup_vault_events].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1627,8 +1629,8 @@ module AWS::SDK::Backup
         http_resp.headers['Content-Type'] = 'application/json'
         data['BackupVaultArn'] = stub[:backup_vault_arn] unless stub[:backup_vault_arn].nil?
         data['RecoveryPointArn'] = stub[:recovery_point_arn] unless stub[:recovery_point_arn].nil?
-        data['RestoreMetadata'] = Stubs::Metadata.stub(stub[:restore_metadata]) unless stub[:restore_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RestoreMetadata'] = Metadata.stub(stub[:restore_metadata]) unless stub[:restore_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1664,8 +1666,8 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ResourceTypes'] = Stubs::ResourceTypes.stub(stub[:resource_types]) unless stub[:resource_types].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceTypes'] = ResourceTypes.stub(stub[:resource_types]) unless stub[:resource_types].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1702,9 +1704,9 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['BackupJobs'] = Stubs::BackupJobsList.stub(stub[:backup_jobs]) unless stub[:backup_jobs].nil?
+        data['BackupJobs'] = BackupJobsList.stub(stub[:backup_jobs]) unless stub[:backup_jobs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1722,7 +1724,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BackupJob.stub(element) unless element.nil?
+          data << BackupJob.stub(element) unless element.nil?
         end
         data
       end
@@ -1773,12 +1775,12 @@ module AWS::SDK::Backup
         data['PercentDone'] = stub[:percent_done] unless stub[:percent_done].nil?
         data['BackupSizeInBytes'] = stub[:backup_size_in_bytes] unless stub[:backup_size_in_bytes].nil?
         data['IamRoleArn'] = stub[:iam_role_arn] unless stub[:iam_role_arn].nil?
-        data['CreatedBy'] = Stubs::RecoveryPointCreator.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = RecoveryPointCreator.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['ExpectedCompletionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expected_completion_date]).to_i unless stub[:expected_completion_date].nil?
         data['StartBy'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_by]).to_i unless stub[:start_by].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['BytesTransferred'] = stub[:bytes_transferred] unless stub[:bytes_transferred].nil?
-        data['BackupOptions'] = Stubs::BackupOptions.stub(stub[:backup_options]) unless stub[:backup_options].nil?
+        data['BackupOptions'] = BackupOptions.stub(stub[:backup_options]) unless stub[:backup_options].nil?
         data['BackupType'] = stub[:backup_type] unless stub[:backup_type].nil?
         data
       end
@@ -1798,8 +1800,8 @@ module AWS::SDK::Backup
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['BackupPlanTemplatesList'] = Stubs::BackupPlanTemplatesList.stub(stub[:backup_plan_templates_list]) unless stub[:backup_plan_templates_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BackupPlanTemplatesList'] = BackupPlanTemplatesList.stub(stub[:backup_plan_templates_list]) unless stub[:backup_plan_templates_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1817,7 +1819,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BackupPlanTemplatesListMember.stub(element) unless element.nil?
+          data << BackupPlanTemplatesListMember.stub(element) unless element.nil?
         end
         data
       end
@@ -1857,8 +1859,8 @@ module AWS::SDK::Backup
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['BackupPlanVersionsList'] = Stubs::BackupPlanVersionsList.stub(stub[:backup_plan_versions_list]) unless stub[:backup_plan_versions_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BackupPlanVersionsList'] = BackupPlanVersionsList.stub(stub[:backup_plan_versions_list]) unless stub[:backup_plan_versions_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1876,7 +1878,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BackupPlansListMember.stub(element) unless element.nil?
+          data << BackupPlansListMember.stub(element) unless element.nil?
         end
         data
       end
@@ -1911,7 +1913,7 @@ module AWS::SDK::Backup
         data['BackupPlanName'] = stub[:backup_plan_name] unless stub[:backup_plan_name].nil?
         data['CreatorRequestId'] = stub[:creator_request_id] unless stub[:creator_request_id].nil?
         data['LastExecutionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_execution_date]).to_i unless stub[:last_execution_date].nil?
-        data['AdvancedBackupSettings'] = Stubs::AdvancedBackupSettings.stub(stub[:advanced_backup_settings]) unless stub[:advanced_backup_settings].nil?
+        data['AdvancedBackupSettings'] = AdvancedBackupSettings.stub(stub[:advanced_backup_settings]) unless stub[:advanced_backup_settings].nil?
         data
       end
     end
@@ -1930,8 +1932,8 @@ module AWS::SDK::Backup
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['BackupPlansList'] = Stubs::BackupPlansList.stub(stub[:backup_plans_list]) unless stub[:backup_plans_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BackupPlansList'] = BackupPlansList.stub(stub[:backup_plans_list]) unless stub[:backup_plans_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1949,7 +1951,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BackupPlansListMember.stub(element) unless element.nil?
+          data << BackupPlansListMember.stub(element) unless element.nil?
         end
         data
       end
@@ -1969,8 +1971,8 @@ module AWS::SDK::Backup
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['BackupSelectionsList'] = Stubs::BackupSelectionsList.stub(stub[:backup_selections_list]) unless stub[:backup_selections_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BackupSelectionsList'] = BackupSelectionsList.stub(stub[:backup_selections_list]) unless stub[:backup_selections_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1988,7 +1990,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BackupSelectionsListMember.stub(element) unless element.nil?
+          data << BackupSelectionsListMember.stub(element) unless element.nil?
         end
         data
       end
@@ -2035,9 +2037,9 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['BackupVaultList'] = Stubs::BackupVaultList.stub(stub[:backup_vault_list]) unless stub[:backup_vault_list].nil?
+        data['BackupVaultList'] = BackupVaultList.stub(stub[:backup_vault_list]) unless stub[:backup_vault_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2055,7 +2057,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BackupVaultListMember.stub(element) unless element.nil?
+          data << BackupVaultListMember.stub(element) unless element.nil?
         end
         data
       end
@@ -2110,9 +2112,9 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CopyJobs'] = Stubs::CopyJobsList.stub(stub[:copy_jobs]) unless stub[:copy_jobs].nil?
+        data['CopyJobs'] = CopyJobsList.stub(stub[:copy_jobs]) unless stub[:copy_jobs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2130,7 +2132,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CopyJob.stub(element) unless element.nil?
+          data << CopyJob.stub(element) unless element.nil?
         end
         data
       end
@@ -2149,9 +2151,9 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Frameworks'] = Stubs::FrameworkList.stub(stub[:frameworks]) unless stub[:frameworks].nil?
+        data['Frameworks'] = FrameworkList.stub(stub[:frameworks]) unless stub[:frameworks].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2169,7 +2171,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Framework.stub(element) unless element.nil?
+          data << Framework.stub(element) unless element.nil?
         end
         data
       end
@@ -2216,9 +2218,9 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Results'] = Stubs::ProtectedResourcesList.stub(stub[:results]) unless stub[:results].nil?
+        data['Results'] = ProtectedResourcesList.stub(stub[:results]) unless stub[:results].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2236,7 +2238,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProtectedResource.stub(element) unless element.nil?
+          data << ProtectedResource.stub(element) unless element.nil?
         end
         data
       end
@@ -2278,8 +2280,8 @@ module AWS::SDK::Backup
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['RecoveryPoints'] = Stubs::RecoveryPointByBackupVaultList.stub(stub[:recovery_points]) unless stub[:recovery_points].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RecoveryPoints'] = RecoveryPointByBackupVaultList.stub(stub[:recovery_points]) unless stub[:recovery_points].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2297,7 +2299,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecoveryPointByBackupVault.stub(element) unless element.nil?
+          data << RecoveryPointByBackupVault.stub(element) unless element.nil?
         end
         data
       end
@@ -2339,15 +2341,15 @@ module AWS::SDK::Backup
         data['SourceBackupVaultArn'] = stub[:source_backup_vault_arn] unless stub[:source_backup_vault_arn].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['CreatedBy'] = Stubs::RecoveryPointCreator.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = RecoveryPointCreator.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['IamRoleArn'] = stub[:iam_role_arn] unless stub[:iam_role_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['CompletionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:completion_date]).to_i unless stub[:completion_date].nil?
         data['BackupSizeInBytes'] = stub[:backup_size_in_bytes] unless stub[:backup_size_in_bytes].nil?
-        data['CalculatedLifecycle'] = Stubs::CalculatedLifecycle.stub(stub[:calculated_lifecycle]) unless stub[:calculated_lifecycle].nil?
-        data['Lifecycle'] = Stubs::Lifecycle.stub(stub[:lifecycle]) unless stub[:lifecycle].nil?
+        data['CalculatedLifecycle'] = CalculatedLifecycle.stub(stub[:calculated_lifecycle]) unless stub[:calculated_lifecycle].nil?
+        data['Lifecycle'] = Lifecycle.stub(stub[:lifecycle]) unless stub[:lifecycle].nil?
         data['EncryptionKeyArn'] = stub[:encryption_key_arn] unless stub[:encryption_key_arn].nil?
         data['IsEncrypted'] = stub[:is_encrypted] unless stub[:is_encrypted].nil?
         data['LastRestoreTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_restore_time]).to_i unless stub[:last_restore_time].nil?
@@ -2369,8 +2371,8 @@ module AWS::SDK::Backup
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['RecoveryPoints'] = Stubs::RecoveryPointByResourceList.stub(stub[:recovery_points]) unless stub[:recovery_points].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RecoveryPoints'] = RecoveryPointByResourceList.stub(stub[:recovery_points]) unless stub[:recovery_points].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2388,7 +2390,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecoveryPointByResource.stub(element) unless element.nil?
+          data << RecoveryPointByResource.stub(element) unless element.nil?
         end
         data
       end
@@ -2437,9 +2439,9 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ReportJobs'] = Stubs::ReportJobList.stub(stub[:report_jobs]) unless stub[:report_jobs].nil?
+        data['ReportJobs'] = ReportJobList.stub(stub[:report_jobs]) unless stub[:report_jobs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2457,7 +2459,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReportJob.stub(element) unless element.nil?
+          data << ReportJob.stub(element) unless element.nil?
         end
         data
       end
@@ -2476,9 +2478,9 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ReportPlans'] = Stubs::ReportPlanList.stub(stub[:report_plans]) unless stub[:report_plans].nil?
+        data['ReportPlans'] = ReportPlanList.stub(stub[:report_plans]) unless stub[:report_plans].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2496,7 +2498,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReportPlan.stub(element) unless element.nil?
+          data << ReportPlan.stub(element) unless element.nil?
         end
         data
       end
@@ -2515,9 +2517,9 @@ module AWS::SDK::Backup
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RestoreJobs'] = Stubs::RestoreJobsList.stub(stub[:restore_jobs]) unless stub[:restore_jobs].nil?
+        data['RestoreJobs'] = RestoreJobsList.stub(stub[:restore_jobs]) unless stub[:restore_jobs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2535,7 +2537,7 @@ module AWS::SDK::Backup
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RestoreJobsListMember.stub(element) unless element.nil?
+          data << RestoreJobsListMember.stub(element) unless element.nil?
         end
         data
       end
@@ -2597,8 +2599,8 @@ module AWS::SDK::Backup
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2658,7 +2660,7 @@ module AWS::SDK::Backup
         data['BackupJobId'] = stub[:backup_job_id] unless stub[:backup_job_id].nil?
         data['RecoveryPointArn'] = stub[:recovery_point_arn] unless stub[:recovery_point_arn].nil?
         data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2677,7 +2679,7 @@ module AWS::SDK::Backup
         http_resp.headers['Content-Type'] = 'application/json'
         data['CopyJobId'] = stub[:copy_job_id] unless stub[:copy_job_id].nil?
         data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2694,7 +2696,7 @@ module AWS::SDK::Backup
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ReportJobId'] = stub[:report_job_id] unless stub[:report_job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2711,7 +2713,7 @@ module AWS::SDK::Backup
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['RestoreJobId'] = stub[:restore_job_id] unless stub[:restore_job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2774,8 +2776,8 @@ module AWS::SDK::Backup
         data['BackupPlanArn'] = stub[:backup_plan_arn] unless stub[:backup_plan_arn].nil?
         data['CreationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
         data['VersionId'] = stub[:version_id] unless stub[:version_id].nil?
-        data['AdvancedBackupSettings'] = Stubs::AdvancedBackupSettings.stub(stub[:advanced_backup_settings]) unless stub[:advanced_backup_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AdvancedBackupSettings'] = AdvancedBackupSettings.stub(stub[:advanced_backup_settings]) unless stub[:advanced_backup_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2796,7 +2798,7 @@ module AWS::SDK::Backup
         data['FrameworkName'] = stub[:framework_name] unless stub[:framework_name].nil?
         data['FrameworkArn'] = stub[:framework_arn] unless stub[:framework_arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2830,9 +2832,9 @@ module AWS::SDK::Backup
         http_resp.headers['Content-Type'] = 'application/json'
         data['BackupVaultArn'] = stub[:backup_vault_arn] unless stub[:backup_vault_arn].nil?
         data['RecoveryPointArn'] = stub[:recovery_point_arn] unless stub[:recovery_point_arn].nil?
-        data['Lifecycle'] = Stubs::Lifecycle.stub(stub[:lifecycle]) unless stub[:lifecycle].nil?
-        data['CalculatedLifecycle'] = Stubs::CalculatedLifecycle.stub(stub[:calculated_lifecycle]) unless stub[:calculated_lifecycle].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Lifecycle'] = Lifecycle.stub(stub[:lifecycle]) unless stub[:lifecycle].nil?
+        data['CalculatedLifecycle'] = CalculatedLifecycle.stub(stub[:calculated_lifecycle]) unless stub[:calculated_lifecycle].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2866,7 +2868,7 @@ module AWS::SDK::Backup
         data['ReportPlanName'] = stub[:report_plan_name] unless stub[:report_plan_name].nil?
         data['ReportPlanArn'] = stub[:report_plan_arn] unless stub[:report_plan_arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

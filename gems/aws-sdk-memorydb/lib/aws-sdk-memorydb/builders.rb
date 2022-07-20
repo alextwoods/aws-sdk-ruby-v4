@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MemoryDB
   module Builders
 
@@ -18,9 +20,9 @@ module AWS::SDK::MemoryDB
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonMemoryDB.BatchUpdateCluster'
         data = {}
-        data['ClusterNames'] = Builders::ClusterNameList.build(input[:cluster_names]) unless input[:cluster_names].nil?
-        data['ServiceUpdate'] = Builders::ServiceUpdateRequest.build(input[:service_update]) unless input[:service_update].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ClusterNames'] = ClusterNameList.build(input[:cluster_names]) unless input[:cluster_names].nil?
+        data['ServiceUpdate'] = ServiceUpdateRequest.build(input[:service_update]) unless input[:service_update].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -56,8 +58,8 @@ module AWS::SDK::MemoryDB
         data['TargetSnapshotName'] = input[:target_snapshot_name] unless input[:target_snapshot_name].nil?
         data['TargetBucket'] = input[:target_bucket] unless input[:target_bucket].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -66,7 +68,7 @@ module AWS::SDK::MemoryDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -91,9 +93,9 @@ module AWS::SDK::MemoryDB
         http_req.headers['X-Amz-Target'] = 'AmazonMemoryDB.CreateACL'
         data = {}
         data['ACLName'] = input[:acl_name] unless input[:acl_name].nil?
-        data['UserNames'] = Builders::UserNameListInput.build(input[:user_names]) unless input[:user_names].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserNames'] = UserNameListInput.build(input[:user_names]) unless input[:user_names].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -123,21 +125,21 @@ module AWS::SDK::MemoryDB
         data['NumShards'] = input[:num_shards] unless input[:num_shards].nil?
         data['NumReplicasPerShard'] = input[:num_replicas_per_shard] unless input[:num_replicas_per_shard].nil?
         data['SubnetGroupName'] = input[:subnet_group_name] unless input[:subnet_group_name].nil?
-        data['SecurityGroupIds'] = Builders::SecurityGroupIdsList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIdsList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data['MaintenanceWindow'] = input[:maintenance_window] unless input[:maintenance_window].nil?
         data['Port'] = input[:port] unless input[:port].nil?
         data['SnsTopicArn'] = input[:sns_topic_arn] unless input[:sns_topic_arn].nil?
         data['TLSEnabled'] = input[:tls_enabled] unless input[:tls_enabled].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['SnapshotArns'] = Builders::SnapshotArnsList.build(input[:snapshot_arns]) unless input[:snapshot_arns].nil?
+        data['SnapshotArns'] = SnapshotArnsList.build(input[:snapshot_arns]) unless input[:snapshot_arns].nil?
         data['SnapshotName'] = input[:snapshot_name] unless input[:snapshot_name].nil?
         data['SnapshotRetentionLimit'] = input[:snapshot_retention_limit] unless input[:snapshot_retention_limit].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['SnapshotWindow'] = input[:snapshot_window] unless input[:snapshot_window].nil?
         data['ACLName'] = input[:acl_name] unless input[:acl_name].nil?
         data['EngineVersion'] = input[:engine_version] unless input[:engine_version].nil?
         data['AutoMinorVersionUpgrade'] = input[:auto_minor_version_upgrade] unless input[:auto_minor_version_upgrade].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -174,8 +176,8 @@ module AWS::SDK::MemoryDB
         data['ParameterGroupName'] = input[:parameter_group_name] unless input[:parameter_group_name].nil?
         data['Family'] = input[:family] unless input[:family].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -190,8 +192,8 @@ module AWS::SDK::MemoryDB
         data['ClusterName'] = input[:cluster_name] unless input[:cluster_name].nil?
         data['SnapshotName'] = input[:snapshot_name] unless input[:snapshot_name].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -205,9 +207,9 @@ module AWS::SDK::MemoryDB
         data = {}
         data['SubnetGroupName'] = input[:subnet_group_name] unless input[:subnet_group_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['SubnetIds'] = Builders::SubnetIdentifierList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubnetIds'] = SubnetIdentifierList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -231,10 +233,10 @@ module AWS::SDK::MemoryDB
         http_req.headers['X-Amz-Target'] = 'AmazonMemoryDB.CreateUser'
         data = {}
         data['UserName'] = input[:user_name] unless input[:user_name].nil?
-        data['AuthenticationMode'] = Builders::AuthenticationMode.build(input[:authentication_mode]) unless input[:authentication_mode].nil?
+        data['AuthenticationMode'] = AuthenticationMode.build(input[:authentication_mode]) unless input[:authentication_mode].nil?
         data['AccessString'] = input[:access_string] unless input[:access_string].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -243,7 +245,7 @@ module AWS::SDK::MemoryDB
       def self.build(input)
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
-        data['Passwords'] = Builders::PasswordListInput.build(input[:passwords]) unless input[:passwords].nil?
+        data['Passwords'] = PasswordListInput.build(input[:passwords]) unless input[:passwords].nil?
         data
       end
     end
@@ -268,7 +270,7 @@ module AWS::SDK::MemoryDB
         http_req.headers['X-Amz-Target'] = 'AmazonMemoryDB.DeleteACL'
         data = {}
         data['ACLName'] = input[:acl_name] unless input[:acl_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -282,7 +284,7 @@ module AWS::SDK::MemoryDB
         data = {}
         data['ClusterName'] = input[:cluster_name] unless input[:cluster_name].nil?
         data['FinalSnapshotName'] = input[:final_snapshot_name] unless input[:final_snapshot_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -295,7 +297,7 @@ module AWS::SDK::MemoryDB
         http_req.headers['X-Amz-Target'] = 'AmazonMemoryDB.DeleteParameterGroup'
         data = {}
         data['ParameterGroupName'] = input[:parameter_group_name] unless input[:parameter_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -308,7 +310,7 @@ module AWS::SDK::MemoryDB
         http_req.headers['X-Amz-Target'] = 'AmazonMemoryDB.DeleteSnapshot'
         data = {}
         data['SnapshotName'] = input[:snapshot_name] unless input[:snapshot_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -321,7 +323,7 @@ module AWS::SDK::MemoryDB
         http_req.headers['X-Amz-Target'] = 'AmazonMemoryDB.DeleteSubnetGroup'
         data = {}
         data['SubnetGroupName'] = input[:subnet_group_name] unless input[:subnet_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -334,7 +336,7 @@ module AWS::SDK::MemoryDB
         http_req.headers['X-Amz-Target'] = 'AmazonMemoryDB.DeleteUser'
         data = {}
         data['UserName'] = input[:user_name] unless input[:user_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -349,7 +351,7 @@ module AWS::SDK::MemoryDB
         data['ACLName'] = input[:acl_name] unless input[:acl_name].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -365,7 +367,7 @@ module AWS::SDK::MemoryDB
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['ShowShardDetails'] = input[:show_shard_details] unless input[:show_shard_details].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -382,7 +384,7 @@ module AWS::SDK::MemoryDB
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['DefaultOnly'] = input[:default_only] unless input[:default_only].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -401,7 +403,7 @@ module AWS::SDK::MemoryDB
         data['Duration'] = input[:duration] unless input[:duration].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -416,7 +418,7 @@ module AWS::SDK::MemoryDB
         data['ParameterGroupName'] = input[:parameter_group_name] unless input[:parameter_group_name].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -431,7 +433,7 @@ module AWS::SDK::MemoryDB
         data['ParameterGroupName'] = input[:parameter_group_name] unless input[:parameter_group_name].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -444,11 +446,11 @@ module AWS::SDK::MemoryDB
         http_req.headers['X-Amz-Target'] = 'AmazonMemoryDB.DescribeServiceUpdates'
         data = {}
         data['ServiceUpdateName'] = input[:service_update_name] unless input[:service_update_name].nil?
-        data['ClusterNames'] = Builders::ClusterNameList.build(input[:cluster_names]) unless input[:cluster_names].nil?
-        data['Status'] = Builders::ServiceUpdateStatusList.build(input[:status]) unless input[:status].nil?
+        data['ClusterNames'] = ClusterNameList.build(input[:cluster_names]) unless input[:cluster_names].nil?
+        data['Status'] = ServiceUpdateStatusList.build(input[:status]) unless input[:status].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -477,7 +479,7 @@ module AWS::SDK::MemoryDB
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['ShowDetail'] = input[:show_detail] unless input[:show_detail].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -492,7 +494,7 @@ module AWS::SDK::MemoryDB
         data['SubnetGroupName'] = input[:subnet_group_name] unless input[:subnet_group_name].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -505,10 +507,10 @@ module AWS::SDK::MemoryDB
         http_req.headers['X-Amz-Target'] = 'AmazonMemoryDB.DescribeUsers'
         data = {}
         data['UserName'] = input[:user_name] unless input[:user_name].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -517,7 +519,7 @@ module AWS::SDK::MemoryDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -528,7 +530,7 @@ module AWS::SDK::MemoryDB
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::FilterValueList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValueList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -554,7 +556,7 @@ module AWS::SDK::MemoryDB
         data = {}
         data['ClusterName'] = input[:cluster_name] unless input[:cluster_name].nil?
         data['ShardName'] = input[:shard_name] unless input[:shard_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -567,7 +569,7 @@ module AWS::SDK::MemoryDB
         http_req.headers['X-Amz-Target'] = 'AmazonMemoryDB.ListAllowedNodeTypeUpdates'
         data = {}
         data['ClusterName'] = input[:cluster_name] unless input[:cluster_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -580,7 +582,7 @@ module AWS::SDK::MemoryDB
         http_req.headers['X-Amz-Target'] = 'AmazonMemoryDB.ListTags'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -594,8 +596,8 @@ module AWS::SDK::MemoryDB
         data = {}
         data['ParameterGroupName'] = input[:parameter_group_name] unless input[:parameter_group_name].nil?
         data['AllParameters'] = input[:all_parameters] unless input[:all_parameters].nil?
-        data['ParameterNames'] = Builders::ParameterNameList.build(input[:parameter_names]) unless input[:parameter_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ParameterNames'] = ParameterNameList.build(input[:parameter_names]) unless input[:parameter_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -619,8 +621,8 @@ module AWS::SDK::MemoryDB
         http_req.headers['X-Amz-Target'] = 'AmazonMemoryDB.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -633,8 +635,8 @@ module AWS::SDK::MemoryDB
         http_req.headers['X-Amz-Target'] = 'AmazonMemoryDB.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::KeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = KeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -658,9 +660,9 @@ module AWS::SDK::MemoryDB
         http_req.headers['X-Amz-Target'] = 'AmazonMemoryDB.UpdateACL'
         data = {}
         data['ACLName'] = input[:acl_name] unless input[:acl_name].nil?
-        data['UserNamesToAdd'] = Builders::UserNameListInput.build(input[:user_names_to_add]) unless input[:user_names_to_add].nil?
-        data['UserNamesToRemove'] = Builders::UserNameListInput.build(input[:user_names_to_remove]) unless input[:user_names_to_remove].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserNamesToAdd'] = UserNameListInput.build(input[:user_names_to_add]) unless input[:user_names_to_add].nil?
+        data['UserNamesToRemove'] = UserNameListInput.build(input[:user_names_to_remove]) unless input[:user_names_to_remove].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -674,7 +676,7 @@ module AWS::SDK::MemoryDB
         data = {}
         data['ClusterName'] = input[:cluster_name] unless input[:cluster_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['SecurityGroupIds'] = Builders::SecurityGroupIdsList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIdsList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data['MaintenanceWindow'] = input[:maintenance_window] unless input[:maintenance_window].nil?
         data['SnsTopicArn'] = input[:sns_topic_arn] unless input[:sns_topic_arn].nil?
         data['SnsTopicStatus'] = input[:sns_topic_status] unless input[:sns_topic_status].nil?
@@ -683,10 +685,10 @@ module AWS::SDK::MemoryDB
         data['SnapshotRetentionLimit'] = input[:snapshot_retention_limit] unless input[:snapshot_retention_limit].nil?
         data['NodeType'] = input[:node_type] unless input[:node_type].nil?
         data['EngineVersion'] = input[:engine_version] unless input[:engine_version].nil?
-        data['ReplicaConfiguration'] = Builders::ReplicaConfigurationRequest.build(input[:replica_configuration]) unless input[:replica_configuration].nil?
-        data['ShardConfiguration'] = Builders::ShardConfigurationRequest.build(input[:shard_configuration]) unless input[:shard_configuration].nil?
+        data['ReplicaConfiguration'] = ReplicaConfigurationRequest.build(input[:replica_configuration]) unless input[:replica_configuration].nil?
+        data['ShardConfiguration'] = ShardConfigurationRequest.build(input[:shard_configuration]) unless input[:shard_configuration].nil?
         data['ACLName'] = input[:acl_name] unless input[:acl_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -717,8 +719,8 @@ module AWS::SDK::MemoryDB
         http_req.headers['X-Amz-Target'] = 'AmazonMemoryDB.UpdateParameterGroup'
         data = {}
         data['ParameterGroupName'] = input[:parameter_group_name] unless input[:parameter_group_name].nil?
-        data['ParameterNameValues'] = Builders::ParameterNameValueList.build(input[:parameter_name_values]) unless input[:parameter_name_values].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ParameterNameValues'] = ParameterNameValueList.build(input[:parameter_name_values]) unless input[:parameter_name_values].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -727,7 +729,7 @@ module AWS::SDK::MemoryDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ParameterNameValue.build(element) unless element.nil?
+          data << ParameterNameValue.build(element) unless element.nil?
         end
         data
       end
@@ -753,8 +755,8 @@ module AWS::SDK::MemoryDB
         data = {}
         data['SubnetGroupName'] = input[:subnet_group_name] unless input[:subnet_group_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['SubnetIds'] = Builders::SubnetIdentifierList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubnetIds'] = SubnetIdentifierList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -767,9 +769,9 @@ module AWS::SDK::MemoryDB
         http_req.headers['X-Amz-Target'] = 'AmazonMemoryDB.UpdateUser'
         data = {}
         data['UserName'] = input[:user_name] unless input[:user_name].nil?
-        data['AuthenticationMode'] = Builders::AuthenticationMode.build(input[:authentication_mode]) unless input[:authentication_mode].nil?
+        data['AuthenticationMode'] = AuthenticationMode.build(input[:authentication_mode]) unless input[:authentication_mode].nil?
         data['AccessString'] = input[:access_string] unless input[:access_string].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

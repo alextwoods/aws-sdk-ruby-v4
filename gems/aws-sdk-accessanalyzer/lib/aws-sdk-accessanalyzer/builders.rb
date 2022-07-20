@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AccessAnalyzer
   module Builders
 
@@ -23,7 +25,7 @@ module AWS::SDK::AccessAnalyzer
         data['analyzerArn'] = input[:analyzer_arn] unless input[:analyzer_arn].nil?
         data['ruleName'] = input[:rule_name] unless input[:rule_name].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -55,9 +57,9 @@ module AWS::SDK::AccessAnalyzer
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['analyzerArn'] = input[:analyzer_arn] unless input[:analyzer_arn].nil?
-        data['configurations'] = Builders::ConfigurationsMap.build(input[:configurations]) unless input[:configurations].nil?
+        data['configurations'] = ConfigurationsMap.build(input[:configurations]) unless input[:configurations].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -66,7 +68,7 @@ module AWS::SDK::AccessAnalyzer
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::Configuration.build(value) unless value.nil?
+          data[key] = Configuration.build(value) unless value.nil?
         end
         data
       end
@@ -78,15 +80,15 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         case input
         when Types::Configuration::IamRole
-          data['iamRole'] = (Builders::IamRoleConfiguration.build(input) unless input.nil?)
+          data['iamRole'] = (IamRoleConfiguration.build(input) unless input.nil?)
         when Types::Configuration::KmsKey
-          data['kmsKey'] = (Builders::KmsKeyConfiguration.build(input) unless input.nil?)
+          data['kmsKey'] = (KmsKeyConfiguration.build(input) unless input.nil?)
         when Types::Configuration::SecretsManagerSecret
-          data['secretsManagerSecret'] = (Builders::SecretsManagerSecretConfiguration.build(input) unless input.nil?)
+          data['secretsManagerSecret'] = (SecretsManagerSecretConfiguration.build(input) unless input.nil?)
         when Types::Configuration::S3Bucket
-          data['s3Bucket'] = (Builders::S3BucketConfiguration.build(input) unless input.nil?)
+          data['s3Bucket'] = (S3BucketConfiguration.build(input) unless input.nil?)
         when Types::Configuration::SqsQueue
-          data['sqsQueue'] = (Builders::SqsQueueConfiguration.build(input) unless input.nil?)
+          data['sqsQueue'] = (SqsQueueConfiguration.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::Configuration"
@@ -110,9 +112,9 @@ module AWS::SDK::AccessAnalyzer
       def self.build(input)
         data = {}
         data['bucketPolicy'] = input[:bucket_policy] unless input[:bucket_policy].nil?
-        data['bucketAclGrants'] = Builders::S3BucketAclGrantConfigurationsList.build(input[:bucket_acl_grants]) unless input[:bucket_acl_grants].nil?
-        data['bucketPublicAccessBlock'] = Builders::S3PublicAccessBlockConfiguration.build(input[:bucket_public_access_block]) unless input[:bucket_public_access_block].nil?
-        data['accessPoints'] = Builders::S3AccessPointConfigurationsMap.build(input[:access_points]) unless input[:access_points].nil?
+        data['bucketAclGrants'] = S3BucketAclGrantConfigurationsList.build(input[:bucket_acl_grants]) unless input[:bucket_acl_grants].nil?
+        data['bucketPublicAccessBlock'] = S3PublicAccessBlockConfiguration.build(input[:bucket_public_access_block]) unless input[:bucket_public_access_block].nil?
+        data['accessPoints'] = S3AccessPointConfigurationsMap.build(input[:access_points]) unless input[:access_points].nil?
         data
       end
     end
@@ -122,7 +124,7 @@ module AWS::SDK::AccessAnalyzer
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::S3AccessPointConfiguration.build(value) unless value.nil?
+          data[key] = S3AccessPointConfiguration.build(value) unless value.nil?
         end
         data
       end
@@ -133,8 +135,8 @@ module AWS::SDK::AccessAnalyzer
       def self.build(input)
         data = {}
         data['accessPointPolicy'] = input[:access_point_policy] unless input[:access_point_policy].nil?
-        data['publicAccessBlock'] = Builders::S3PublicAccessBlockConfiguration.build(input[:public_access_block]) unless input[:public_access_block].nil?
-        data['networkOrigin'] = Builders::NetworkOriginConfiguration.build(input[:network_origin]) unless input[:network_origin].nil?
+        data['publicAccessBlock'] = S3PublicAccessBlockConfiguration.build(input[:public_access_block]) unless input[:public_access_block].nil?
+        data['networkOrigin'] = NetworkOriginConfiguration.build(input[:network_origin]) unless input[:network_origin].nil?
         data
       end
     end
@@ -145,9 +147,9 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         case input
         when Types::NetworkOriginConfiguration::VpcConfiguration
-          data['vpcConfiguration'] = (Builders::VpcConfiguration.build(input) unless input.nil?)
+          data['vpcConfiguration'] = (VpcConfiguration.build(input) unless input.nil?)
         when Types::NetworkOriginConfiguration::InternetConfiguration
-          data['internetConfiguration'] = (Builders::InternetConfiguration.build(input) unless input.nil?)
+          data['internetConfiguration'] = (InternetConfiguration.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::NetworkOriginConfiguration"
@@ -189,7 +191,7 @@ module AWS::SDK::AccessAnalyzer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::S3BucketAclGrantConfiguration.build(element) unless element.nil?
+          data << S3BucketAclGrantConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -200,7 +202,7 @@ module AWS::SDK::AccessAnalyzer
       def self.build(input)
         data = {}
         data['permission'] = input[:permission] unless input[:permission].nil?
-        data['grantee'] = Builders::AclGrantee.build(input[:grantee]) unless input[:grantee].nil?
+        data['grantee'] = AclGrantee.build(input[:grantee]) unless input[:grantee].nil?
         data
       end
     end
@@ -237,8 +239,8 @@ module AWS::SDK::AccessAnalyzer
     class KmsKeyConfiguration
       def self.build(input)
         data = {}
-        data['keyPolicies'] = Builders::KmsKeyPoliciesMap.build(input[:key_policies]) unless input[:key_policies].nil?
-        data['grants'] = Builders::KmsGrantConfigurationsList.build(input[:grants]) unless input[:grants].nil?
+        data['keyPolicies'] = KmsKeyPoliciesMap.build(input[:key_policies]) unless input[:key_policies].nil?
+        data['grants'] = KmsGrantConfigurationsList.build(input[:grants]) unless input[:grants].nil?
         data
       end
     end
@@ -248,7 +250,7 @@ module AWS::SDK::AccessAnalyzer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::KmsGrantConfiguration.build(element) unless element.nil?
+          data << KmsGrantConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -258,10 +260,10 @@ module AWS::SDK::AccessAnalyzer
     class KmsGrantConfiguration
       def self.build(input)
         data = {}
-        data['operations'] = Builders::KmsGrantOperationsList.build(input[:operations]) unless input[:operations].nil?
+        data['operations'] = KmsGrantOperationsList.build(input[:operations]) unless input[:operations].nil?
         data['granteePrincipal'] = input[:grantee_principal] unless input[:grantee_principal].nil?
         data['retiringPrincipal'] = input[:retiring_principal] unless input[:retiring_principal].nil?
-        data['constraints'] = Builders::KmsGrantConstraints.build(input[:constraints]) unless input[:constraints].nil?
+        data['constraints'] = KmsGrantConstraints.build(input[:constraints]) unless input[:constraints].nil?
         data['issuingAccount'] = input[:issuing_account] unless input[:issuing_account].nil?
         data
       end
@@ -271,8 +273,8 @@ module AWS::SDK::AccessAnalyzer
     class KmsGrantConstraints
       def self.build(input)
         data = {}
-        data['encryptionContextEquals'] = Builders::KmsConstraintsMap.build(input[:encryption_context_equals]) unless input[:encryption_context_equals].nil?
-        data['encryptionContextSubset'] = Builders::KmsConstraintsMap.build(input[:encryption_context_subset]) unless input[:encryption_context_subset].nil?
+        data['encryptionContextEquals'] = KmsConstraintsMap.build(input[:encryption_context_equals]) unless input[:encryption_context_equals].nil?
+        data['encryptionContextSubset'] = KmsConstraintsMap.build(input[:encryption_context_subset]) unless input[:encryption_context_subset].nil?
         data
       end
     end
@@ -331,10 +333,10 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         data['analyzerName'] = input[:analyzer_name] unless input[:analyzer_name].nil?
         data['type'] = input[:type] unless input[:type].nil?
-        data['archiveRules'] = Builders::InlineArchiveRulesList.build(input[:archive_rules]) unless input[:archive_rules].nil?
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
+        data['archiveRules'] = InlineArchiveRulesList.build(input[:archive_rules]) unless input[:archive_rules].nil?
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -354,7 +356,7 @@ module AWS::SDK::AccessAnalyzer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InlineArchiveRule.build(element) unless element.nil?
+          data << InlineArchiveRule.build(element) unless element.nil?
         end
         data
       end
@@ -365,7 +367,7 @@ module AWS::SDK::AccessAnalyzer
       def self.build(input)
         data = {}
         data['ruleName'] = input[:rule_name] unless input[:rule_name].nil?
-        data['filter'] = Builders::FilterCriteriaMap.build(input[:filter]) unless input[:filter].nil?
+        data['filter'] = FilterCriteriaMap.build(input[:filter]) unless input[:filter].nil?
         data
       end
     end
@@ -375,7 +377,7 @@ module AWS::SDK::AccessAnalyzer
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::Criterion.build(value) unless value.nil?
+          data[key] = Criterion.build(value) unless value.nil?
         end
         data
       end
@@ -385,9 +387,9 @@ module AWS::SDK::AccessAnalyzer
     class Criterion
       def self.build(input)
         data = {}
-        data['eq'] = Builders::ValueList.build(input[:eq]) unless input[:eq].nil?
-        data['neq'] = Builders::ValueList.build(input[:neq]) unless input[:neq].nil?
-        data['contains'] = Builders::ValueList.build(input[:contains]) unless input[:contains].nil?
+        data['eq'] = ValueList.build(input[:eq]) unless input[:eq].nil?
+        data['neq'] = ValueList.build(input[:neq]) unless input[:neq].nil?
+        data['contains'] = ValueList.build(input[:contains]) unless input[:contains].nil?
         data['exists'] = input[:exists] unless input[:exists].nil?
         data
       end
@@ -422,9 +424,9 @@ module AWS::SDK::AccessAnalyzer
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ruleName'] = input[:rule_name] unless input[:rule_name].nil?
-        data['filter'] = Builders::FilterCriteriaMap.build(input[:filter]) unless input[:filter].nil?
+        data['filter'] = FilterCriteriaMap.build(input[:filter]) unless input[:filter].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -591,10 +593,10 @@ module AWS::SDK::AccessAnalyzer
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['analyzerArn'] = input[:analyzer_arn] unless input[:analyzer_arn].nil?
-        data['filter'] = Builders::FilterCriteriaMap.build(input[:filter]) unless input[:filter].nil?
+        data['filter'] = FilterCriteriaMap.build(input[:filter]) unless input[:filter].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -625,7 +627,7 @@ module AWS::SDK::AccessAnalyzer
         data['resourceType'] = input[:resource_type] unless input[:resource_type].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -672,11 +674,11 @@ module AWS::SDK::AccessAnalyzer
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['analyzerArn'] = input[:analyzer_arn] unless input[:analyzer_arn].nil?
-        data['filter'] = Builders::FilterCriteriaMap.build(input[:filter]) unless input[:filter].nil?
-        data['sort'] = Builders::SortCriteria.build(input[:sort]) unless input[:sort].nil?
+        data['filter'] = FilterCriteriaMap.build(input[:filter]) unless input[:filter].nil?
+        data['sort'] = SortCriteria.build(input[:sort]) unless input[:sort].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -730,10 +732,10 @@ module AWS::SDK::AccessAnalyzer
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['policyGenerationDetails'] = Builders::PolicyGenerationDetails.build(input[:policy_generation_details]) unless input[:policy_generation_details].nil?
-        data['cloudTrailDetails'] = Builders::CloudTrailDetails.build(input[:cloud_trail_details]) unless input[:cloud_trail_details].nil?
+        data['policyGenerationDetails'] = PolicyGenerationDetails.build(input[:policy_generation_details]) unless input[:policy_generation_details].nil?
+        data['cloudTrailDetails'] = CloudTrailDetails.build(input[:cloud_trail_details]) unless input[:cloud_trail_details].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -741,7 +743,7 @@ module AWS::SDK::AccessAnalyzer
     class CloudTrailDetails
       def self.build(input)
         data = {}
-        data['trails'] = Builders::TrailList.build(input[:trails]) unless input[:trails].nil?
+        data['trails'] = TrailList.build(input[:trails]) unless input[:trails].nil?
         data['accessRole'] = input[:access_role] unless input[:access_role].nil?
         data['startTime'] = Hearth::TimeHelper.to_date_time(input[:start_time]) unless input[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_date_time(input[:end_time]) unless input[:end_time].nil?
@@ -754,7 +756,7 @@ module AWS::SDK::AccessAnalyzer
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Trail.build(element) unless element.nil?
+          data << Trail.build(element) unless element.nil?
         end
         data
       end
@@ -765,7 +767,7 @@ module AWS::SDK::AccessAnalyzer
       def self.build(input)
         data = {}
         data['cloudTrailArn'] = input[:cloud_trail_arn] unless input[:cloud_trail_arn].nil?
-        data['regions'] = Builders::RegionList.build(input[:regions]) unless input[:regions].nil?
+        data['regions'] = RegionList.build(input[:regions]) unless input[:regions].nil?
         data['allRegions'] = input[:all_regions] unless input[:all_regions].nil?
         data
       end
@@ -803,7 +805,7 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         data['analyzerArn'] = input[:analyzer_arn] unless input[:analyzer_arn].nil?
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -824,8 +826,8 @@ module AWS::SDK::AccessAnalyzer
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -883,9 +885,9 @@ module AWS::SDK::AccessAnalyzer
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['filter'] = Builders::FilterCriteriaMap.build(input[:filter]) unless input[:filter].nil?
+        data['filter'] = FilterCriteriaMap.build(input[:filter]) unless input[:filter].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -901,10 +903,10 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         data['analyzerArn'] = input[:analyzer_arn] unless input[:analyzer_arn].nil?
         data['status'] = input[:status] unless input[:status].nil?
-        data['ids'] = Builders::FindingIdList.build(input[:ids]) unless input[:ids].nil?
+        data['ids'] = FindingIdList.build(input[:ids]) unless input[:ids].nil?
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -935,7 +937,7 @@ module AWS::SDK::AccessAnalyzer
         data['policyDocument'] = input[:policy_document] unless input[:policy_document].nil?
         data['policyType'] = input[:policy_type] unless input[:policy_type].nil?
         data['validatePolicyResourceType'] = input[:validate_policy_resource_type] unless input[:validate_policy_resource_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

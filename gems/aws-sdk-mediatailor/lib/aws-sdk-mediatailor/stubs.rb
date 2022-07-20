@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MediaTailor
   module Stubs
 
@@ -25,7 +27,7 @@ module AWS::SDK::MediaTailor
         http_resp.headers['Content-Type'] = 'application/json'
         data['PercentEnabled'] = stub[:percent_enabled] unless stub[:percent_enabled].nil?
         data['PlaybackConfigurationName'] = stub[:playback_configuration_name] unless stub[:playback_configuration_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -54,13 +56,13 @@ module AWS::SDK::MediaTailor
         data['ChannelName'] = stub[:channel_name] unless stub[:channel_name].nil?
         data['ChannelState'] = stub[:channel_state] unless stub[:channel_state].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['FillerSlate'] = Stubs::SlateSource.stub(stub[:filler_slate]) unless stub[:filler_slate].nil?
+        data['FillerSlate'] = SlateSource.stub(stub[:filler_slate]) unless stub[:filler_slate].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['Outputs'] = Stubs::ResponseOutputs.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['Outputs'] = ResponseOutputs.stub(stub[:outputs]) unless stub[:outputs].nil?
         data['PlaybackMode'] = stub[:playback_mode] unless stub[:playback_mode].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['Tier'] = stub[:tier] unless stub[:tier].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -98,7 +100,7 @@ module AWS::SDK::MediaTailor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResponseOutputItem.stub(element) unless element.nil?
+          data << ResponseOutputItem.stub(element) unless element.nil?
         end
         data
       end
@@ -121,8 +123,8 @@ module AWS::SDK::MediaTailor
       def self.stub(stub)
         stub ||= Types::ResponseOutputItem.new
         data = {}
-        data['DashPlaylistSettings'] = Stubs::DashPlaylistSettings.stub(stub[:dash_playlist_settings]) unless stub[:dash_playlist_settings].nil?
-        data['HlsPlaylistSettings'] = Stubs::HlsPlaylistSettings.stub(stub[:hls_playlist_settings]) unless stub[:hls_playlist_settings].nil?
+        data['DashPlaylistSettings'] = DashPlaylistSettings.stub(stub[:dash_playlist_settings]) unless stub[:dash_playlist_settings].nil?
+        data['HlsPlaylistSettings'] = HlsPlaylistSettings.stub(stub[:hls_playlist_settings]) unless stub[:hls_playlist_settings].nil?
         data['ManifestName'] = stub[:manifest_name] unless stub[:manifest_name].nil?
         data['PlaybackUrl'] = stub[:playback_url] unless stub[:playback_url].nil?
         data['SourceGroup'] = stub[:source_group] unless stub[:source_group].nil?
@@ -212,12 +214,12 @@ module AWS::SDK::MediaTailor
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['HttpPackageConfigurations'] = Stubs::HttpPackageConfigurations.stub(stub[:http_package_configurations]) unless stub[:http_package_configurations].nil?
+        data['HttpPackageConfigurations'] = HttpPackageConfigurations.stub(stub[:http_package_configurations]) unless stub[:http_package_configurations].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['LiveSourceName'] = stub[:live_source_name] unless stub[:live_source_name].nil?
         data['SourceLocationName'] = stub[:source_location_name] unless stub[:source_location_name].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -235,7 +237,7 @@ module AWS::SDK::MediaTailor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HttpPackageConfiguration.stub(element) unless element.nil?
+          data << HttpPackageConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -281,12 +283,12 @@ module AWS::SDK::MediaTailor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['Consumption'] = Stubs::PrefetchConsumption.stub(stub[:consumption]) unless stub[:consumption].nil?
+        data['Consumption'] = PrefetchConsumption.stub(stub[:consumption]) unless stub[:consumption].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['PlaybackConfigurationName'] = stub[:playback_configuration_name] unless stub[:playback_configuration_name].nil?
-        data['Retrieval'] = Stubs::PrefetchRetrieval.stub(stub[:retrieval]) unless stub[:retrieval].nil?
+        data['Retrieval'] = PrefetchRetrieval.stub(stub[:retrieval]) unless stub[:retrieval].nil?
         data['StreamId'] = stub[:stream_id] unless stub[:stream_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -305,7 +307,7 @@ module AWS::SDK::MediaTailor
       def self.stub(stub)
         stub ||= Types::PrefetchRetrieval.new
         data = {}
-        data['DynamicVariables'] = Stubs::Map____mapOf__string.stub(stub[:dynamic_variables]) unless stub[:dynamic_variables].nil?
+        data['DynamicVariables'] = Map____mapOf__string.stub(stub[:dynamic_variables]) unless stub[:dynamic_variables].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data
@@ -327,7 +329,7 @@ module AWS::SDK::MediaTailor
       def self.stub(stub)
         stub ||= Types::PrefetchConsumption.new
         data = {}
-        data['AvailMatchingCriteria'] = Stubs::List____listOfAvailMatchingCriteria.stub(stub[:avail_matching_criteria]) unless stub[:avail_matching_criteria].nil?
+        data['AvailMatchingCriteria'] = List____listOfAvailMatchingCriteria.stub(stub[:avail_matching_criteria]) unless stub[:avail_matching_criteria].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data
@@ -348,7 +350,7 @@ module AWS::SDK::MediaTailor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AvailMatchingCriteria.stub(element) unless element.nil?
+          data << AvailMatchingCriteria.stub(element) unless element.nil?
         end
         data
       end
@@ -394,7 +396,7 @@ module AWS::SDK::MediaTailor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AdBreaks'] = Stubs::List____listOfAdBreak.stub(stub[:ad_breaks]) unless stub[:ad_breaks].nil?
+        data['AdBreaks'] = List____listOfAdBreak.stub(stub[:ad_breaks]) unless stub[:ad_breaks].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['ChannelName'] = stub[:channel_name] unless stub[:channel_name].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
@@ -403,7 +405,7 @@ module AWS::SDK::MediaTailor
         data['ScheduledStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:scheduled_start_time]).to_i unless stub[:scheduled_start_time].nil?
         data['SourceLocationName'] = stub[:source_location_name] unless stub[:source_location_name].nil?
         data['VodSourceName'] = stub[:vod_source_name] unless stub[:vod_source_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -421,7 +423,7 @@ module AWS::SDK::MediaTailor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AdBreak.stub(element) unless element.nil?
+          data << AdBreak.stub(element) unless element.nil?
         end
         data
       end
@@ -445,8 +447,8 @@ module AWS::SDK::MediaTailor
         data = {}
         data['MessageType'] = stub[:message_type] unless stub[:message_type].nil?
         data['OffsetMillis'] = stub[:offset_millis] unless stub[:offset_millis].nil?
-        data['Slate'] = Stubs::SlateSource.stub(stub[:slate]) unless stub[:slate].nil?
-        data['SpliceInsertMessage'] = Stubs::SpliceInsertMessage.stub(stub[:splice_insert_message]) unless stub[:splice_insert_message].nil?
+        data['Slate'] = SlateSource.stub(stub[:slate]) unless stub[:slate].nil?
+        data['SpliceInsertMessage'] = SpliceInsertMessage.stub(stub[:splice_insert_message]) unless stub[:splice_insert_message].nil?
         data
       end
     end
@@ -495,16 +497,16 @@ module AWS::SDK::MediaTailor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AccessConfiguration'] = Stubs::AccessConfiguration.stub(stub[:access_configuration]) unless stub[:access_configuration].nil?
+        data['AccessConfiguration'] = AccessConfiguration.stub(stub[:access_configuration]) unless stub[:access_configuration].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['DefaultSegmentDeliveryConfiguration'] = Stubs::DefaultSegmentDeliveryConfiguration.stub(stub[:default_segment_delivery_configuration]) unless stub[:default_segment_delivery_configuration].nil?
-        data['HttpConfiguration'] = Stubs::HttpConfiguration.stub(stub[:http_configuration]) unless stub[:http_configuration].nil?
+        data['DefaultSegmentDeliveryConfiguration'] = DefaultSegmentDeliveryConfiguration.stub(stub[:default_segment_delivery_configuration]) unless stub[:default_segment_delivery_configuration].nil?
+        data['HttpConfiguration'] = HttpConfiguration.stub(stub[:http_configuration]) unless stub[:http_configuration].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['SegmentDeliveryConfigurations'] = Stubs::List____listOfSegmentDeliveryConfiguration.stub(stub[:segment_delivery_configurations]) unless stub[:segment_delivery_configurations].nil?
+        data['SegmentDeliveryConfigurations'] = List____listOfSegmentDeliveryConfiguration.stub(stub[:segment_delivery_configurations]) unless stub[:segment_delivery_configurations].nil?
         data['SourceLocationName'] = stub[:source_location_name] unless stub[:source_location_name].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -522,7 +524,7 @@ module AWS::SDK::MediaTailor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SegmentDeliveryConfiguration.stub(element) unless element.nil?
+          data << SegmentDeliveryConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -599,7 +601,7 @@ module AWS::SDK::MediaTailor
         stub ||= Types::AccessConfiguration.new
         data = {}
         data['AccessType'] = stub[:access_type] unless stub[:access_type].nil?
-        data['SecretsManagerAccessTokenConfiguration'] = Stubs::SecretsManagerAccessTokenConfiguration.stub(stub[:secrets_manager_access_token_configuration]) unless stub[:secrets_manager_access_token_configuration].nil?
+        data['SecretsManagerAccessTokenConfiguration'] = SecretsManagerAccessTokenConfiguration.stub(stub[:secrets_manager_access_token_configuration]) unless stub[:secrets_manager_access_token_configuration].nil?
         data
       end
     end
@@ -646,12 +648,12 @@ module AWS::SDK::MediaTailor
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['HttpPackageConfigurations'] = Stubs::HttpPackageConfigurations.stub(stub[:http_package_configurations]) unless stub[:http_package_configurations].nil?
+        data['HttpPackageConfigurations'] = HttpPackageConfigurations.stub(stub[:http_package_configurations]) unless stub[:http_package_configurations].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['SourceLocationName'] = stub[:source_location_name] unless stub[:source_location_name].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['VodSourceName'] = stub[:vod_source_name] unless stub[:vod_source_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -784,13 +786,13 @@ module AWS::SDK::MediaTailor
         data['ChannelName'] = stub[:channel_name] unless stub[:channel_name].nil?
         data['ChannelState'] = stub[:channel_state] unless stub[:channel_state].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['FillerSlate'] = Stubs::SlateSource.stub(stub[:filler_slate]) unless stub[:filler_slate].nil?
+        data['FillerSlate'] = SlateSource.stub(stub[:filler_slate]) unless stub[:filler_slate].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['Outputs'] = Stubs::ResponseOutputs.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['Outputs'] = ResponseOutputs.stub(stub[:outputs]) unless stub[:outputs].nil?
         data['PlaybackMode'] = stub[:playback_mode] unless stub[:playback_mode].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['Tier'] = stub[:tier] unless stub[:tier].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -814,12 +816,12 @@ module AWS::SDK::MediaTailor
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['HttpPackageConfigurations'] = Stubs::HttpPackageConfigurations.stub(stub[:http_package_configurations]) unless stub[:http_package_configurations].nil?
+        data['HttpPackageConfigurations'] = HttpPackageConfigurations.stub(stub[:http_package_configurations]) unless stub[:http_package_configurations].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['LiveSourceName'] = stub[:live_source_name] unless stub[:live_source_name].nil?
         data['SourceLocationName'] = stub[:source_location_name] unless stub[:source_location_name].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -843,7 +845,7 @@ module AWS::SDK::MediaTailor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AdBreaks'] = Stubs::List____listOfAdBreak.stub(stub[:ad_breaks]) unless stub[:ad_breaks].nil?
+        data['AdBreaks'] = List____listOfAdBreak.stub(stub[:ad_breaks]) unless stub[:ad_breaks].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['ChannelName'] = stub[:channel_name] unless stub[:channel_name].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
@@ -852,7 +854,7 @@ module AWS::SDK::MediaTailor
         data['ScheduledStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:scheduled_start_time]).to_i unless stub[:scheduled_start_time].nil?
         data['SourceLocationName'] = stub[:source_location_name] unless stub[:source_location_name].nil?
         data['VodSourceName'] = stub[:vod_source_name] unless stub[:vod_source_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -876,16 +878,16 @@ module AWS::SDK::MediaTailor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AccessConfiguration'] = Stubs::AccessConfiguration.stub(stub[:access_configuration]) unless stub[:access_configuration].nil?
+        data['AccessConfiguration'] = AccessConfiguration.stub(stub[:access_configuration]) unless stub[:access_configuration].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['DefaultSegmentDeliveryConfiguration'] = Stubs::DefaultSegmentDeliveryConfiguration.stub(stub[:default_segment_delivery_configuration]) unless stub[:default_segment_delivery_configuration].nil?
-        data['HttpConfiguration'] = Stubs::HttpConfiguration.stub(stub[:http_configuration]) unless stub[:http_configuration].nil?
+        data['DefaultSegmentDeliveryConfiguration'] = DefaultSegmentDeliveryConfiguration.stub(stub[:default_segment_delivery_configuration]) unless stub[:default_segment_delivery_configuration].nil?
+        data['HttpConfiguration'] = HttpConfiguration.stub(stub[:http_configuration]) unless stub[:http_configuration].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['SegmentDeliveryConfigurations'] = Stubs::List____listOfSegmentDeliveryConfiguration.stub(stub[:segment_delivery_configurations]) unless stub[:segment_delivery_configurations].nil?
+        data['SegmentDeliveryConfigurations'] = List____listOfSegmentDeliveryConfiguration.stub(stub[:segment_delivery_configurations]) unless stub[:segment_delivery_configurations].nil?
         data['SourceLocationName'] = stub[:source_location_name] unless stub[:source_location_name].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -909,12 +911,12 @@ module AWS::SDK::MediaTailor
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['HttpPackageConfigurations'] = Stubs::HttpPackageConfigurations.stub(stub[:http_package_configurations]) unless stub[:http_package_configurations].nil?
+        data['HttpPackageConfigurations'] = HttpPackageConfigurations.stub(stub[:http_package_configurations]) unless stub[:http_package_configurations].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['SourceLocationName'] = stub[:source_location_name] unless stub[:source_location_name].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['VodSourceName'] = stub[:vod_source_name] unless stub[:vod_source_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -931,7 +933,7 @@ module AWS::SDK::MediaTailor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -948,9 +950,9 @@ module AWS::SDK::MediaTailor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::List____listOfScheduleEntry.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = List____listOfScheduleEntry.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -968,7 +970,7 @@ module AWS::SDK::MediaTailor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScheduleEntry.stub(element) unless element.nil?
+          data << ScheduleEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1002,7 +1004,7 @@ module AWS::SDK::MediaTailor
         data['ChannelName'] = stub[:channel_name] unless stub[:channel_name].nil?
         data['LiveSourceName'] = stub[:live_source_name] unless stub[:live_source_name].nil?
         data['ProgramName'] = stub[:program_name] unless stub[:program_name].nil?
-        data['ScheduleAdBreaks'] = Stubs::List____listOfScheduleAdBreak.stub(stub[:schedule_ad_breaks]) unless stub[:schedule_ad_breaks].nil?
+        data['ScheduleAdBreaks'] = List____listOfScheduleAdBreak.stub(stub[:schedule_ad_breaks]) unless stub[:schedule_ad_breaks].nil?
         data['ScheduleEntryType'] = stub[:schedule_entry_type] unless stub[:schedule_entry_type].nil?
         data['SourceLocationName'] = stub[:source_location_name] unless stub[:source_location_name].nil?
         data['VodSourceName'] = stub[:vod_source_name] unless stub[:vod_source_name].nil?
@@ -1024,7 +1026,7 @@ module AWS::SDK::MediaTailor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScheduleAdBreak.stub(element) unless element.nil?
+          data << ScheduleAdBreak.stub(element) unless element.nil?
         end
         data
       end
@@ -1085,25 +1087,25 @@ module AWS::SDK::MediaTailor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AdDecisionServerUrl'] = stub[:ad_decision_server_url] unless stub[:ad_decision_server_url].nil?
-        data['AvailSuppression'] = Stubs::AvailSuppression.stub(stub[:avail_suppression]) unless stub[:avail_suppression].nil?
-        data['Bumper'] = Stubs::Bumper.stub(stub[:bumper]) unless stub[:bumper].nil?
-        data['CdnConfiguration'] = Stubs::CdnConfiguration.stub(stub[:cdn_configuration]) unless stub[:cdn_configuration].nil?
-        data['ConfigurationAliases'] = Stubs::ConfigurationAliasesResponse.stub(stub[:configuration_aliases]) unless stub[:configuration_aliases].nil?
-        data['DashConfiguration'] = Stubs::DashConfiguration.stub(stub[:dash_configuration]) unless stub[:dash_configuration].nil?
-        data['HlsConfiguration'] = Stubs::HlsConfiguration.stub(stub[:hls_configuration]) unless stub[:hls_configuration].nil?
-        data['LivePreRollConfiguration'] = Stubs::LivePreRollConfiguration.stub(stub[:live_pre_roll_configuration]) unless stub[:live_pre_roll_configuration].nil?
-        data['LogConfiguration'] = Stubs::LogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
-        data['ManifestProcessingRules'] = Stubs::ManifestProcessingRules.stub(stub[:manifest_processing_rules]) unless stub[:manifest_processing_rules].nil?
+        data['AvailSuppression'] = AvailSuppression.stub(stub[:avail_suppression]) unless stub[:avail_suppression].nil?
+        data['Bumper'] = Bumper.stub(stub[:bumper]) unless stub[:bumper].nil?
+        data['CdnConfiguration'] = CdnConfiguration.stub(stub[:cdn_configuration]) unless stub[:cdn_configuration].nil?
+        data['ConfigurationAliases'] = ConfigurationAliasesResponse.stub(stub[:configuration_aliases]) unless stub[:configuration_aliases].nil?
+        data['DashConfiguration'] = DashConfiguration.stub(stub[:dash_configuration]) unless stub[:dash_configuration].nil?
+        data['HlsConfiguration'] = HlsConfiguration.stub(stub[:hls_configuration]) unless stub[:hls_configuration].nil?
+        data['LivePreRollConfiguration'] = LivePreRollConfiguration.stub(stub[:live_pre_roll_configuration]) unless stub[:live_pre_roll_configuration].nil?
+        data['LogConfiguration'] = LogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
+        data['ManifestProcessingRules'] = ManifestProcessingRules.stub(stub[:manifest_processing_rules]) unless stub[:manifest_processing_rules].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['PersonalizationThresholdSeconds'] = stub[:personalization_threshold_seconds] unless stub[:personalization_threshold_seconds].nil?
         data['PlaybackConfigurationArn'] = stub[:playback_configuration_arn] unless stub[:playback_configuration_arn].nil?
         data['PlaybackEndpointPrefix'] = stub[:playback_endpoint_prefix] unless stub[:playback_endpoint_prefix].nil?
         data['SessionInitializationEndpointPrefix'] = stub[:session_initialization_endpoint_prefix] unless stub[:session_initialization_endpoint_prefix].nil?
         data['SlateAdUrl'] = stub[:slate_ad_url] unless stub[:slate_ad_url].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['TranscodeProfileName'] = stub[:transcode_profile_name] unless stub[:transcode_profile_name].nil?
         data['VideoContentSourceUrl'] = stub[:video_content_source_url] unless stub[:video_content_source_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1120,7 +1122,7 @@ module AWS::SDK::MediaTailor
       def self.stub(stub)
         stub ||= Types::ManifestProcessingRules.new
         data = {}
-        data['AdMarkerPassthrough'] = Stubs::AdMarkerPassthrough.stub(stub[:ad_marker_passthrough]) unless stub[:ad_marker_passthrough].nil?
+        data['AdMarkerPassthrough'] = AdMarkerPassthrough.stub(stub[:ad_marker_passthrough]) unless stub[:ad_marker_passthrough].nil?
         data
       end
     end
@@ -1235,7 +1237,7 @@ module AWS::SDK::MediaTailor
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::Map____mapOf__string.stub(value) unless value.nil?
+          data[key] = Map____mapOf__string.stub(value) unless value.nil?
         end
         data
       end
@@ -1319,12 +1321,12 @@ module AWS::SDK::MediaTailor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['Consumption'] = Stubs::PrefetchConsumption.stub(stub[:consumption]) unless stub[:consumption].nil?
+        data['Consumption'] = PrefetchConsumption.stub(stub[:consumption]) unless stub[:consumption].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['PlaybackConfigurationName'] = stub[:playback_configuration_name] unless stub[:playback_configuration_name].nil?
-        data['Retrieval'] = Stubs::PrefetchRetrieval.stub(stub[:retrieval]) unless stub[:retrieval].nil?
+        data['Retrieval'] = PrefetchRetrieval.stub(stub[:retrieval]) unless stub[:retrieval].nil?
         data['StreamId'] = stub[:stream_id] unless stub[:stream_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1341,9 +1343,9 @@ module AWS::SDK::MediaTailor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::List____listOfAlert.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = List____listOfAlert.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1361,7 +1363,7 @@ module AWS::SDK::MediaTailor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Alert.stub(element) unless element.nil?
+          data << Alert.stub(element) unless element.nil?
         end
         data
       end
@@ -1387,7 +1389,7 @@ module AWS::SDK::MediaTailor
         data['AlertCode'] = stub[:alert_code] unless stub[:alert_code].nil?
         data['AlertMessage'] = stub[:alert_message] unless stub[:alert_message].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['RelatedResourceArns'] = Stubs::List____listOf__string.stub(stub[:related_resource_arns]) unless stub[:related_resource_arns].nil?
+        data['RelatedResourceArns'] = List____listOf__string.stub(stub[:related_resource_arns]) unless stub[:related_resource_arns].nil?
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data
       end
@@ -1426,9 +1428,9 @@ module AWS::SDK::MediaTailor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::List____listOfChannel.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = List____listOfChannel.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1446,7 +1448,7 @@ module AWS::SDK::MediaTailor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Channel.stub(element) unless element.nil?
+          data << Channel.stub(element) unless element.nil?
         end
         data
       end
@@ -1478,11 +1480,11 @@ module AWS::SDK::MediaTailor
         data['ChannelName'] = stub[:channel_name] unless stub[:channel_name].nil?
         data['ChannelState'] = stub[:channel_state] unless stub[:channel_state].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['FillerSlate'] = Stubs::SlateSource.stub(stub[:filler_slate]) unless stub[:filler_slate].nil?
+        data['FillerSlate'] = SlateSource.stub(stub[:filler_slate]) unless stub[:filler_slate].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['Outputs'] = Stubs::ResponseOutputs.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['Outputs'] = ResponseOutputs.stub(stub[:outputs]) unless stub[:outputs].nil?
         data['PlaybackMode'] = stub[:playback_mode] unless stub[:playback_mode].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['Tier'] = stub[:tier] unless stub[:tier].nil?
         data
       end
@@ -1501,9 +1503,9 @@ module AWS::SDK::MediaTailor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::List____listOfLiveSource.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = List____listOfLiveSource.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1521,7 +1523,7 @@ module AWS::SDK::MediaTailor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LiveSource.stub(element) unless element.nil?
+          data << LiveSource.stub(element) unless element.nil?
         end
         data
       end
@@ -1548,11 +1550,11 @@ module AWS::SDK::MediaTailor
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['HttpPackageConfigurations'] = Stubs::HttpPackageConfigurations.stub(stub[:http_package_configurations]) unless stub[:http_package_configurations].nil?
+        data['HttpPackageConfigurations'] = HttpPackageConfigurations.stub(stub[:http_package_configurations]) unless stub[:http_package_configurations].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['LiveSourceName'] = stub[:live_source_name] unless stub[:live_source_name].nil?
         data['SourceLocationName'] = stub[:source_location_name] unless stub[:source_location_name].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1570,9 +1572,9 @@ module AWS::SDK::MediaTailor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::List____listOfPlaybackConfiguration.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = List____listOfPlaybackConfiguration.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1590,7 +1592,7 @@ module AWS::SDK::MediaTailor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PlaybackConfiguration.stub(element) unless element.nil?
+          data << PlaybackConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -1628,22 +1630,22 @@ module AWS::SDK::MediaTailor
         stub ||= Types::PlaybackConfiguration.new
         data = {}
         data['AdDecisionServerUrl'] = stub[:ad_decision_server_url] unless stub[:ad_decision_server_url].nil?
-        data['AvailSuppression'] = Stubs::AvailSuppression.stub(stub[:avail_suppression]) unless stub[:avail_suppression].nil?
-        data['Bumper'] = Stubs::Bumper.stub(stub[:bumper]) unless stub[:bumper].nil?
-        data['CdnConfiguration'] = Stubs::CdnConfiguration.stub(stub[:cdn_configuration]) unless stub[:cdn_configuration].nil?
-        data['ConfigurationAliases'] = Stubs::ConfigurationAliasesResponse.stub(stub[:configuration_aliases]) unless stub[:configuration_aliases].nil?
-        data['DashConfiguration'] = Stubs::DashConfiguration.stub(stub[:dash_configuration]) unless stub[:dash_configuration].nil?
-        data['HlsConfiguration'] = Stubs::HlsConfiguration.stub(stub[:hls_configuration]) unless stub[:hls_configuration].nil?
-        data['LivePreRollConfiguration'] = Stubs::LivePreRollConfiguration.stub(stub[:live_pre_roll_configuration]) unless stub[:live_pre_roll_configuration].nil?
-        data['LogConfiguration'] = Stubs::LogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
-        data['ManifestProcessingRules'] = Stubs::ManifestProcessingRules.stub(stub[:manifest_processing_rules]) unless stub[:manifest_processing_rules].nil?
+        data['AvailSuppression'] = AvailSuppression.stub(stub[:avail_suppression]) unless stub[:avail_suppression].nil?
+        data['Bumper'] = Bumper.stub(stub[:bumper]) unless stub[:bumper].nil?
+        data['CdnConfiguration'] = CdnConfiguration.stub(stub[:cdn_configuration]) unless stub[:cdn_configuration].nil?
+        data['ConfigurationAliases'] = ConfigurationAliasesResponse.stub(stub[:configuration_aliases]) unless stub[:configuration_aliases].nil?
+        data['DashConfiguration'] = DashConfiguration.stub(stub[:dash_configuration]) unless stub[:dash_configuration].nil?
+        data['HlsConfiguration'] = HlsConfiguration.stub(stub[:hls_configuration]) unless stub[:hls_configuration].nil?
+        data['LivePreRollConfiguration'] = LivePreRollConfiguration.stub(stub[:live_pre_roll_configuration]) unless stub[:live_pre_roll_configuration].nil?
+        data['LogConfiguration'] = LogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
+        data['ManifestProcessingRules'] = ManifestProcessingRules.stub(stub[:manifest_processing_rules]) unless stub[:manifest_processing_rules].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['PersonalizationThresholdSeconds'] = stub[:personalization_threshold_seconds] unless stub[:personalization_threshold_seconds].nil?
         data['PlaybackConfigurationArn'] = stub[:playback_configuration_arn] unless stub[:playback_configuration_arn].nil?
         data['PlaybackEndpointPrefix'] = stub[:playback_endpoint_prefix] unless stub[:playback_endpoint_prefix].nil?
         data['SessionInitializationEndpointPrefix'] = stub[:session_initialization_endpoint_prefix] unless stub[:session_initialization_endpoint_prefix].nil?
         data['SlateAdUrl'] = stub[:slate_ad_url] unless stub[:slate_ad_url].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['TranscodeProfileName'] = stub[:transcode_profile_name] unless stub[:transcode_profile_name].nil?
         data['VideoContentSourceUrl'] = stub[:video_content_source_url] unless stub[:video_content_source_url].nil?
         data
@@ -1663,9 +1665,9 @@ module AWS::SDK::MediaTailor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::List____listOfPrefetchSchedule.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = List____listOfPrefetchSchedule.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1683,7 +1685,7 @@ module AWS::SDK::MediaTailor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PrefetchSchedule.stub(element) unless element.nil?
+          data << PrefetchSchedule.stub(element) unless element.nil?
         end
         data
       end
@@ -1708,10 +1710,10 @@ module AWS::SDK::MediaTailor
         stub ||= Types::PrefetchSchedule.new
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['Consumption'] = Stubs::PrefetchConsumption.stub(stub[:consumption]) unless stub[:consumption].nil?
+        data['Consumption'] = PrefetchConsumption.stub(stub[:consumption]) unless stub[:consumption].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['PlaybackConfigurationName'] = stub[:playback_configuration_name] unless stub[:playback_configuration_name].nil?
-        data['Retrieval'] = Stubs::PrefetchRetrieval.stub(stub[:retrieval]) unless stub[:retrieval].nil?
+        data['Retrieval'] = PrefetchRetrieval.stub(stub[:retrieval]) unless stub[:retrieval].nil?
         data['StreamId'] = stub[:stream_id] unless stub[:stream_id].nil?
         data
       end
@@ -1730,9 +1732,9 @@ module AWS::SDK::MediaTailor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::List____listOfSourceLocation.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = List____listOfSourceLocation.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1750,7 +1752,7 @@ module AWS::SDK::MediaTailor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SourceLocation.stub(element) unless element.nil?
+          data << SourceLocation.stub(element) unless element.nil?
         end
         data
       end
@@ -1777,15 +1779,15 @@ module AWS::SDK::MediaTailor
       def self.stub(stub)
         stub ||= Types::SourceLocation.new
         data = {}
-        data['AccessConfiguration'] = Stubs::AccessConfiguration.stub(stub[:access_configuration]) unless stub[:access_configuration].nil?
+        data['AccessConfiguration'] = AccessConfiguration.stub(stub[:access_configuration]) unless stub[:access_configuration].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['DefaultSegmentDeliveryConfiguration'] = Stubs::DefaultSegmentDeliveryConfiguration.stub(stub[:default_segment_delivery_configuration]) unless stub[:default_segment_delivery_configuration].nil?
-        data['HttpConfiguration'] = Stubs::HttpConfiguration.stub(stub[:http_configuration]) unless stub[:http_configuration].nil?
+        data['DefaultSegmentDeliveryConfiguration'] = DefaultSegmentDeliveryConfiguration.stub(stub[:default_segment_delivery_configuration]) unless stub[:default_segment_delivery_configuration].nil?
+        data['HttpConfiguration'] = HttpConfiguration.stub(stub[:http_configuration]) unless stub[:http_configuration].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['SegmentDeliveryConfigurations'] = Stubs::List____listOfSegmentDeliveryConfiguration.stub(stub[:segment_delivery_configurations]) unless stub[:segment_delivery_configurations].nil?
+        data['SegmentDeliveryConfigurations'] = List____listOfSegmentDeliveryConfiguration.stub(stub[:segment_delivery_configurations]) unless stub[:segment_delivery_configurations].nil?
         data['SourceLocationName'] = stub[:source_location_name] unless stub[:source_location_name].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1802,8 +1804,8 @@ module AWS::SDK::MediaTailor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1820,9 +1822,9 @@ module AWS::SDK::MediaTailor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::List____listOfVodSource.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = List____listOfVodSource.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1840,7 +1842,7 @@ module AWS::SDK::MediaTailor
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VodSource.stub(element) unless element.nil?
+          data << VodSource.stub(element) unless element.nil?
         end
         data
       end
@@ -1867,10 +1869,10 @@ module AWS::SDK::MediaTailor
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['HttpPackageConfigurations'] = Stubs::HttpPackageConfigurations.stub(stub[:http_package_configurations]) unless stub[:http_package_configurations].nil?
+        data['HttpPackageConfigurations'] = HttpPackageConfigurations.stub(stub[:http_package_configurations]) unless stub[:http_package_configurations].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['SourceLocationName'] = stub[:source_location_name] unless stub[:source_location_name].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['VodSourceName'] = stub[:vod_source_name] unless stub[:vod_source_name].nil?
         data
       end
@@ -1920,25 +1922,25 @@ module AWS::SDK::MediaTailor
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AdDecisionServerUrl'] = stub[:ad_decision_server_url] unless stub[:ad_decision_server_url].nil?
-        data['AvailSuppression'] = Stubs::AvailSuppression.stub(stub[:avail_suppression]) unless stub[:avail_suppression].nil?
-        data['Bumper'] = Stubs::Bumper.stub(stub[:bumper]) unless stub[:bumper].nil?
-        data['CdnConfiguration'] = Stubs::CdnConfiguration.stub(stub[:cdn_configuration]) unless stub[:cdn_configuration].nil?
-        data['ConfigurationAliases'] = Stubs::ConfigurationAliasesResponse.stub(stub[:configuration_aliases]) unless stub[:configuration_aliases].nil?
-        data['DashConfiguration'] = Stubs::DashConfiguration.stub(stub[:dash_configuration]) unless stub[:dash_configuration].nil?
-        data['HlsConfiguration'] = Stubs::HlsConfiguration.stub(stub[:hls_configuration]) unless stub[:hls_configuration].nil?
-        data['LivePreRollConfiguration'] = Stubs::LivePreRollConfiguration.stub(stub[:live_pre_roll_configuration]) unless stub[:live_pre_roll_configuration].nil?
-        data['LogConfiguration'] = Stubs::LogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
-        data['ManifestProcessingRules'] = Stubs::ManifestProcessingRules.stub(stub[:manifest_processing_rules]) unless stub[:manifest_processing_rules].nil?
+        data['AvailSuppression'] = AvailSuppression.stub(stub[:avail_suppression]) unless stub[:avail_suppression].nil?
+        data['Bumper'] = Bumper.stub(stub[:bumper]) unless stub[:bumper].nil?
+        data['CdnConfiguration'] = CdnConfiguration.stub(stub[:cdn_configuration]) unless stub[:cdn_configuration].nil?
+        data['ConfigurationAliases'] = ConfigurationAliasesResponse.stub(stub[:configuration_aliases]) unless stub[:configuration_aliases].nil?
+        data['DashConfiguration'] = DashConfiguration.stub(stub[:dash_configuration]) unless stub[:dash_configuration].nil?
+        data['HlsConfiguration'] = HlsConfiguration.stub(stub[:hls_configuration]) unless stub[:hls_configuration].nil?
+        data['LivePreRollConfiguration'] = LivePreRollConfiguration.stub(stub[:live_pre_roll_configuration]) unless stub[:live_pre_roll_configuration].nil?
+        data['LogConfiguration'] = LogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
+        data['ManifestProcessingRules'] = ManifestProcessingRules.stub(stub[:manifest_processing_rules]) unless stub[:manifest_processing_rules].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['PersonalizationThresholdSeconds'] = stub[:personalization_threshold_seconds] unless stub[:personalization_threshold_seconds].nil?
         data['PlaybackConfigurationArn'] = stub[:playback_configuration_arn] unless stub[:playback_configuration_arn].nil?
         data['PlaybackEndpointPrefix'] = stub[:playback_endpoint_prefix] unless stub[:playback_endpoint_prefix].nil?
         data['SessionInitializationEndpointPrefix'] = stub[:session_initialization_endpoint_prefix] unless stub[:session_initialization_endpoint_prefix].nil?
         data['SlateAdUrl'] = stub[:slate_ad_url] unless stub[:slate_ad_url].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['TranscodeProfileName'] = stub[:transcode_profile_name] unless stub[:transcode_profile_name].nil?
         data['VideoContentSourceUrl'] = stub[:video_content_source_url] unless stub[:video_content_source_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2019,13 +2021,13 @@ module AWS::SDK::MediaTailor
         data['ChannelName'] = stub[:channel_name] unless stub[:channel_name].nil?
         data['ChannelState'] = stub[:channel_state] unless stub[:channel_state].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['FillerSlate'] = Stubs::SlateSource.stub(stub[:filler_slate]) unless stub[:filler_slate].nil?
+        data['FillerSlate'] = SlateSource.stub(stub[:filler_slate]) unless stub[:filler_slate].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['Outputs'] = Stubs::ResponseOutputs.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['Outputs'] = ResponseOutputs.stub(stub[:outputs]) unless stub[:outputs].nil?
         data['PlaybackMode'] = stub[:playback_mode] unless stub[:playback_mode].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['Tier'] = stub[:tier] unless stub[:tier].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2049,12 +2051,12 @@ module AWS::SDK::MediaTailor
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['HttpPackageConfigurations'] = Stubs::HttpPackageConfigurations.stub(stub[:http_package_configurations]) unless stub[:http_package_configurations].nil?
+        data['HttpPackageConfigurations'] = HttpPackageConfigurations.stub(stub[:http_package_configurations]) unless stub[:http_package_configurations].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['LiveSourceName'] = stub[:live_source_name] unless stub[:live_source_name].nil?
         data['SourceLocationName'] = stub[:source_location_name] unless stub[:source_location_name].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2078,16 +2080,16 @@ module AWS::SDK::MediaTailor
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AccessConfiguration'] = Stubs::AccessConfiguration.stub(stub[:access_configuration]) unless stub[:access_configuration].nil?
+        data['AccessConfiguration'] = AccessConfiguration.stub(stub[:access_configuration]) unless stub[:access_configuration].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['DefaultSegmentDeliveryConfiguration'] = Stubs::DefaultSegmentDeliveryConfiguration.stub(stub[:default_segment_delivery_configuration]) unless stub[:default_segment_delivery_configuration].nil?
-        data['HttpConfiguration'] = Stubs::HttpConfiguration.stub(stub[:http_configuration]) unless stub[:http_configuration].nil?
+        data['DefaultSegmentDeliveryConfiguration'] = DefaultSegmentDeliveryConfiguration.stub(stub[:default_segment_delivery_configuration]) unless stub[:default_segment_delivery_configuration].nil?
+        data['HttpConfiguration'] = HttpConfiguration.stub(stub[:http_configuration]) unless stub[:http_configuration].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['SegmentDeliveryConfigurations'] = Stubs::List____listOfSegmentDeliveryConfiguration.stub(stub[:segment_delivery_configurations]) unless stub[:segment_delivery_configurations].nil?
+        data['SegmentDeliveryConfigurations'] = List____listOfSegmentDeliveryConfiguration.stub(stub[:segment_delivery_configurations]) unless stub[:segment_delivery_configurations].nil?
         data['SourceLocationName'] = stub[:source_location_name] unless stub[:source_location_name].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2111,12 +2113,12 @@ module AWS::SDK::MediaTailor
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['HttpPackageConfigurations'] = Stubs::HttpPackageConfigurations.stub(stub[:http_package_configurations]) unless stub[:http_package_configurations].nil?
+        data['HttpPackageConfigurations'] = HttpPackageConfigurations.stub(stub[:http_package_configurations]) unless stub[:http_package_configurations].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['SourceLocationName'] = stub[:source_location_name] unless stub[:source_location_name].nil?
-        data['tags'] = Stubs::Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Map____mapOf__string.stub(stub[:tags]) unless stub[:tags].nil?
         data['VodSourceName'] = stub[:vod_source_name] unless stub[:vod_source_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

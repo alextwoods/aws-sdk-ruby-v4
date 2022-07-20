@@ -186,10 +186,10 @@ module AWS::SDK::Glacier
         data.archive_sha256_tree_hash = map['ArchiveSHA256TreeHash']
         data.retrieval_byte_range = map['RetrievalByteRange']
         data.tier = map['Tier']
-        data.inventory_retrieval_parameters = (Parsers::InventoryRetrievalJobDescription.parse(map['InventoryRetrievalParameters']) unless map['InventoryRetrievalParameters'].nil?)
+        data.inventory_retrieval_parameters = (InventoryRetrievalJobDescription.parse(map['InventoryRetrievalParameters']) unless map['InventoryRetrievalParameters'].nil?)
         data.job_output_path = map['JobOutputPath']
-        data.select_parameters = (Parsers::SelectParameters.parse(map['SelectParameters']) unless map['SelectParameters'].nil?)
-        data.output_location = (Parsers::OutputLocation.parse(map['OutputLocation']) unless map['OutputLocation'].nil?)
+        data.select_parameters = (SelectParameters.parse(map['SelectParameters']) unless map['SelectParameters'].nil?)
+        data.output_location = (OutputLocation.parse(map['OutputLocation']) unless map['OutputLocation'].nil?)
         data
       end
     end
@@ -197,7 +197,7 @@ module AWS::SDK::Glacier
     class OutputLocation
       def self.parse(map)
         data = Types::OutputLocation.new
-        data.s3 = (Parsers::S3Location.parse(map['S3']) unless map['S3'].nil?)
+        data.s3 = (S3Location.parse(map['S3']) unless map['S3'].nil?)
         return data
       end
     end
@@ -207,11 +207,11 @@ module AWS::SDK::Glacier
         data = Types::S3Location.new
         data.bucket_name = map['BucketName']
         data.prefix = map['Prefix']
-        data.encryption = (Parsers::Encryption.parse(map['Encryption']) unless map['Encryption'].nil?)
+        data.encryption = (Encryption.parse(map['Encryption']) unless map['Encryption'].nil?)
         data.canned_acl = map['CannedACL']
-        data.access_control_list = (Parsers::AccessControlPolicyList.parse(map['AccessControlList']) unless map['AccessControlList'].nil?)
-        data.tagging = (Parsers::Hashmap.parse(map['Tagging']) unless map['Tagging'].nil?)
-        data.user_metadata = (Parsers::Hashmap.parse(map['UserMetadata']) unless map['UserMetadata'].nil?)
+        data.access_control_list = (AccessControlPolicyList.parse(map['AccessControlList']) unless map['AccessControlList'].nil?)
+        data.tagging = (Hashmap.parse(map['Tagging']) unless map['Tagging'].nil?)
+        data.user_metadata = (Hashmap.parse(map['UserMetadata']) unless map['UserMetadata'].nil?)
         data.storage_class = map['StorageClass']
         return data
       end
@@ -231,7 +231,7 @@ module AWS::SDK::Glacier
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Grant.parse(value) unless value.nil?
+          data << Grant.parse(value) unless value.nil?
         end
         data
       end
@@ -240,7 +240,7 @@ module AWS::SDK::Glacier
     class Grant
       def self.parse(map)
         data = Types::Grant.new
-        data.grantee = (Parsers::Grantee.parse(map['Grantee']) unless map['Grantee'].nil?)
+        data.grantee = (Grantee.parse(map['Grantee']) unless map['Grantee'].nil?)
         data.permission = map['Permission']
         return data
       end
@@ -271,10 +271,10 @@ module AWS::SDK::Glacier
     class SelectParameters
       def self.parse(map)
         data = Types::SelectParameters.new
-        data.input_serialization = (Parsers::InputSerialization.parse(map['InputSerialization']) unless map['InputSerialization'].nil?)
+        data.input_serialization = (InputSerialization.parse(map['InputSerialization']) unless map['InputSerialization'].nil?)
         data.expression_type = map['ExpressionType']
         data.expression = map['Expression']
-        data.output_serialization = (Parsers::OutputSerialization.parse(map['OutputSerialization']) unless map['OutputSerialization'].nil?)
+        data.output_serialization = (OutputSerialization.parse(map['OutputSerialization']) unless map['OutputSerialization'].nil?)
         return data
       end
     end
@@ -282,7 +282,7 @@ module AWS::SDK::Glacier
     class OutputSerialization
       def self.parse(map)
         data = Types::OutputSerialization.new
-        data.csv = (Parsers::CSVOutput.parse(map['csv']) unless map['csv'].nil?)
+        data.csv = (CSVOutput.parse(map['csv']) unless map['csv'].nil?)
         return data
       end
     end
@@ -302,7 +302,7 @@ module AWS::SDK::Glacier
     class InputSerialization
       def self.parse(map)
         data = Types::InputSerialization.new
-        data.csv = (Parsers::CSVInput.parse(map['csv']) unless map['csv'].nil?)
+        data.csv = (CSVInput.parse(map['csv']) unless map['csv'].nil?)
         return data
       end
     end
@@ -352,7 +352,7 @@ module AWS::SDK::Glacier
       def self.parse(http_resp)
         data = Types::GetDataRetrievalPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policy = (Parsers::DataRetrievalPolicy.parse(map['Policy']) unless map['Policy'].nil?)
+        data.policy = (DataRetrievalPolicy.parse(map['Policy']) unless map['Policy'].nil?)
         data
       end
     end
@@ -360,7 +360,7 @@ module AWS::SDK::Glacier
     class DataRetrievalPolicy
       def self.parse(map)
         data = Types::DataRetrievalPolicy.new
-        data.rules = (Parsers::DataRetrievalRulesList.parse(map['Rules']) unless map['Rules'].nil?)
+        data.rules = (DataRetrievalRulesList.parse(map['Rules']) unless map['Rules'].nil?)
         return data
       end
     end
@@ -369,7 +369,7 @@ module AWS::SDK::Glacier
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataRetrievalRule.parse(value) unless value.nil?
+          data << DataRetrievalRule.parse(value) unless value.nil?
         end
         data
       end
@@ -404,7 +404,7 @@ module AWS::SDK::Glacier
       def self.parse(http_resp)
         data = Types::GetVaultAccessPolicyOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.policy = Parsers::VaultAccessPolicy.parse(json)
+        data.policy = VaultAccessPolicy.parse(json)
         data
       end
     end
@@ -435,7 +435,7 @@ module AWS::SDK::Glacier
       def self.parse(http_resp)
         data = Types::GetVaultNotificationsOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.vault_notification_config = Parsers::VaultNotificationConfig.parse(json)
+        data.vault_notification_config = VaultNotificationConfig.parse(json)
         data
       end
     end
@@ -444,7 +444,7 @@ module AWS::SDK::Glacier
       def self.parse(map)
         data = Types::VaultNotificationConfig.new
         data.sns_topic = map['SNSTopic']
-        data.events = (Parsers::NotificationEventList.parse(map['Events']) unless map['Events'].nil?)
+        data.events = (NotificationEventList.parse(map['Events']) unless map['Events'].nil?)
         return data
       end
     end
@@ -521,7 +521,7 @@ module AWS::SDK::Glacier
       def self.parse(http_resp)
         data = Types::ListJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_list = (Parsers::JobList.parse(map['JobList']) unless map['JobList'].nil?)
+        data.job_list = (JobList.parse(map['JobList']) unless map['JobList'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -531,7 +531,7 @@ module AWS::SDK::Glacier
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GlacierJobDescription.parse(value) unless value.nil?
+          data << GlacierJobDescription.parse(value) unless value.nil?
         end
         data
       end
@@ -557,10 +557,10 @@ module AWS::SDK::Glacier
         data.archive_sha256_tree_hash = map['ArchiveSHA256TreeHash']
         data.retrieval_byte_range = map['RetrievalByteRange']
         data.tier = map['Tier']
-        data.inventory_retrieval_parameters = (Parsers::InventoryRetrievalJobDescription.parse(map['InventoryRetrievalParameters']) unless map['InventoryRetrievalParameters'].nil?)
+        data.inventory_retrieval_parameters = (InventoryRetrievalJobDescription.parse(map['InventoryRetrievalParameters']) unless map['InventoryRetrievalParameters'].nil?)
         data.job_output_path = map['JobOutputPath']
-        data.select_parameters = (Parsers::SelectParameters.parse(map['SelectParameters']) unless map['SelectParameters'].nil?)
-        data.output_location = (Parsers::OutputLocation.parse(map['OutputLocation']) unless map['OutputLocation'].nil?)
+        data.select_parameters = (SelectParameters.parse(map['SelectParameters']) unless map['SelectParameters'].nil?)
+        data.output_location = (OutputLocation.parse(map['OutputLocation']) unless map['OutputLocation'].nil?)
         return data
       end
     end
@@ -570,7 +570,7 @@ module AWS::SDK::Glacier
       def self.parse(http_resp)
         data = Types::ListMultipartUploadsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.uploads_list = (Parsers::UploadsList.parse(map['UploadsList']) unless map['UploadsList'].nil?)
+        data.uploads_list = (UploadsList.parse(map['UploadsList']) unless map['UploadsList'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -580,7 +580,7 @@ module AWS::SDK::Glacier
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UploadListElement.parse(value) unless value.nil?
+          data << UploadListElement.parse(value) unless value.nil?
         end
         data
       end
@@ -608,7 +608,7 @@ module AWS::SDK::Glacier
         data.archive_description = map['ArchiveDescription']
         data.part_size_in_bytes = map['PartSizeInBytes']
         data.creation_date = map['CreationDate']
-        data.parts = (Parsers::PartList.parse(map['Parts']) unless map['Parts'].nil?)
+        data.parts = (PartList.parse(map['Parts']) unless map['Parts'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -618,7 +618,7 @@ module AWS::SDK::Glacier
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PartListElement.parse(value) unless value.nil?
+          data << PartListElement.parse(value) unless value.nil?
         end
         data
       end
@@ -638,7 +638,7 @@ module AWS::SDK::Glacier
       def self.parse(http_resp)
         data = Types::ListProvisionedCapacityOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.provisioned_capacity_list = (Parsers::ProvisionedCapacityList.parse(map['ProvisionedCapacityList']) unless map['ProvisionedCapacityList'].nil?)
+        data.provisioned_capacity_list = (ProvisionedCapacityList.parse(map['ProvisionedCapacityList']) unless map['ProvisionedCapacityList'].nil?)
         data
       end
     end
@@ -647,7 +647,7 @@ module AWS::SDK::Glacier
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ProvisionedCapacityDescription.parse(value) unless value.nil?
+          data << ProvisionedCapacityDescription.parse(value) unless value.nil?
         end
         data
       end
@@ -668,7 +668,7 @@ module AWS::SDK::Glacier
       def self.parse(http_resp)
         data = Types::ListTagsForVaultOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -688,7 +688,7 @@ module AWS::SDK::Glacier
       def self.parse(http_resp)
         data = Types::ListVaultsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.vault_list = (Parsers::VaultList.parse(map['VaultList']) unless map['VaultList'].nil?)
+        data.vault_list = (VaultList.parse(map['VaultList']) unless map['VaultList'].nil?)
         data.marker = map['Marker']
         data
       end
@@ -698,7 +698,7 @@ module AWS::SDK::Glacier
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DescribeVaultOutput.parse(value) unless value.nil?
+          data << DescribeVaultOutput.parse(value) unless value.nil?
         end
         data
       end

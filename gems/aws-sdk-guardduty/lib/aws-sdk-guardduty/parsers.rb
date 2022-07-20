@@ -85,7 +85,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::CreateMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_accounts = (Parsers::UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
+        data.unprocessed_accounts = (UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
         data
       end
     end
@@ -94,7 +94,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UnprocessedAccount.parse(value) unless value.nil?
+          data << UnprocessedAccount.parse(value) unless value.nil?
         end
         data
       end
@@ -143,7 +143,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::DeclineInvitationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_accounts = (Parsers::UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
+        data.unprocessed_accounts = (UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
         data
       end
     end
@@ -180,7 +180,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::DeleteInvitationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_accounts = (Parsers::UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
+        data.unprocessed_accounts = (UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
         data
       end
     end
@@ -190,7 +190,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::DeleteMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_accounts = (Parsers::UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
+        data.unprocessed_accounts = (UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
         data
       end
     end
@@ -220,7 +220,7 @@ module AWS::SDK::GuardDuty
         map = Hearth::JSON.load(http_resp.body)
         data.auto_enable = map['autoEnable']
         data.member_account_limit_reached = map['memberAccountLimitReached']
-        data.data_sources = (Parsers::OrganizationDataSourceConfigurationsResult.parse(map['dataSources']) unless map['dataSources'].nil?)
+        data.data_sources = (OrganizationDataSourceConfigurationsResult.parse(map['dataSources']) unless map['dataSources'].nil?)
         data
       end
     end
@@ -228,8 +228,8 @@ module AWS::SDK::GuardDuty
     class OrganizationDataSourceConfigurationsResult
       def self.parse(map)
         data = Types::OrganizationDataSourceConfigurationsResult.new
-        data.s3_logs = (Parsers::OrganizationS3LogsConfigurationResult.parse(map['s3Logs']) unless map['s3Logs'].nil?)
-        data.kubernetes = (Parsers::OrganizationKubernetesConfigurationResult.parse(map['kubernetes']) unless map['kubernetes'].nil?)
+        data.s3_logs = (OrganizationS3LogsConfigurationResult.parse(map['s3Logs']) unless map['s3Logs'].nil?)
+        data.kubernetes = (OrganizationKubernetesConfigurationResult.parse(map['kubernetes']) unless map['kubernetes'].nil?)
         return data
       end
     end
@@ -237,7 +237,7 @@ module AWS::SDK::GuardDuty
     class OrganizationKubernetesConfigurationResult
       def self.parse(map)
         data = Types::OrganizationKubernetesConfigurationResult.new
-        data.audit_logs = (Parsers::OrganizationKubernetesAuditLogsConfigurationResult.parse(map['auditLogs']) unless map['auditLogs'].nil?)
+        data.audit_logs = (OrganizationKubernetesAuditLogsConfigurationResult.parse(map['auditLogs']) unless map['auditLogs'].nil?)
         return data
       end
     end
@@ -267,7 +267,7 @@ module AWS::SDK::GuardDuty
         data.destination_type = map['destinationType']
         data.status = map['status']
         data.publishing_failure_start_timestamp = map['publishingFailureStartTimestamp']
-        data.destination_properties = (Parsers::DestinationProperties.parse(map['destinationProperties']) unless map['destinationProperties'].nil?)
+        data.destination_properties = (DestinationProperties.parse(map['destinationProperties']) unless map['destinationProperties'].nil?)
         data
       end
     end
@@ -304,7 +304,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::DisassociateMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_accounts = (Parsers::UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
+        data.unprocessed_accounts = (UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
         data
       end
     end
@@ -328,8 +328,8 @@ module AWS::SDK::GuardDuty
         data.service_role = map['serviceRole']
         data.status = map['status']
         data.updated_at = map['updatedAt']
-        data.data_sources = (Parsers::DataSourceConfigurationsResult.parse(map['dataSources']) unless map['dataSources'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.data_sources = (DataSourceConfigurationsResult.parse(map['dataSources']) unless map['dataSources'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -347,11 +347,11 @@ module AWS::SDK::GuardDuty
     class DataSourceConfigurationsResult
       def self.parse(map)
         data = Types::DataSourceConfigurationsResult.new
-        data.cloud_trail = (Parsers::CloudTrailConfigurationResult.parse(map['cloudTrail']) unless map['cloudTrail'].nil?)
-        data.dns_logs = (Parsers::DNSLogsConfigurationResult.parse(map['dnsLogs']) unless map['dnsLogs'].nil?)
-        data.flow_logs = (Parsers::FlowLogsConfigurationResult.parse(map['flowLogs']) unless map['flowLogs'].nil?)
-        data.s3_logs = (Parsers::S3LogsConfigurationResult.parse(map['s3Logs']) unless map['s3Logs'].nil?)
-        data.kubernetes = (Parsers::KubernetesConfigurationResult.parse(map['kubernetes']) unless map['kubernetes'].nil?)
+        data.cloud_trail = (CloudTrailConfigurationResult.parse(map['cloudTrail']) unless map['cloudTrail'].nil?)
+        data.dns_logs = (DNSLogsConfigurationResult.parse(map['dnsLogs']) unless map['dnsLogs'].nil?)
+        data.flow_logs = (FlowLogsConfigurationResult.parse(map['flowLogs']) unless map['flowLogs'].nil?)
+        data.s3_logs = (S3LogsConfigurationResult.parse(map['s3Logs']) unless map['s3Logs'].nil?)
+        data.kubernetes = (KubernetesConfigurationResult.parse(map['kubernetes']) unless map['kubernetes'].nil?)
         return data
       end
     end
@@ -359,7 +359,7 @@ module AWS::SDK::GuardDuty
     class KubernetesConfigurationResult
       def self.parse(map)
         data = Types::KubernetesConfigurationResult.new
-        data.audit_logs = (Parsers::KubernetesAuditLogsConfigurationResult.parse(map['auditLogs']) unless map['auditLogs'].nil?)
+        data.audit_logs = (KubernetesAuditLogsConfigurationResult.parse(map['auditLogs']) unless map['auditLogs'].nil?)
         return data
       end
     end
@@ -413,8 +413,8 @@ module AWS::SDK::GuardDuty
         data.description = map['description']
         data.action = map['action']
         data.rank = map['rank']
-        data.finding_criteria = (Parsers::FindingCriteria.parse(map['findingCriteria']) unless map['findingCriteria'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.finding_criteria = (FindingCriteria.parse(map['findingCriteria']) unless map['findingCriteria'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -422,7 +422,7 @@ module AWS::SDK::GuardDuty
     class FindingCriteria
       def self.parse(map)
         data = Types::FindingCriteria.new
-        data.criterion = (Parsers::Criterion.parse(map['criterion']) unless map['criterion'].nil?)
+        data.criterion = (Criterion.parse(map['criterion']) unless map['criterion'].nil?)
         return data
       end
     end
@@ -431,7 +431,7 @@ module AWS::SDK::GuardDuty
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::Condition.parse(value) unless value.nil?
+          data[key] = Condition.parse(value) unless value.nil?
         end
         data
       end
@@ -440,14 +440,14 @@ module AWS::SDK::GuardDuty
     class Condition
       def self.parse(map)
         data = Types::Condition.new
-        data.eq = (Parsers::Eq.parse(map['eq']) unless map['eq'].nil?)
-        data.neq = (Parsers::Neq.parse(map['neq']) unless map['neq'].nil?)
+        data.eq = (Eq.parse(map['eq']) unless map['eq'].nil?)
+        data.neq = (Neq.parse(map['neq']) unless map['neq'].nil?)
         data.gt = map['gt']
         data.gte = map['gte']
         data.lt = map['lt']
         data.lte = map['lte']
-        data.equals = (Parsers::Equals.parse(map['equals']) unless map['equals'].nil?)
-        data.not_equals = (Parsers::NotEquals.parse(map['notEquals']) unless map['notEquals'].nil?)
+        data.equals = (Equals.parse(map['equals']) unless map['equals'].nil?)
+        data.not_equals = (NotEquals.parse(map['notEquals']) unless map['notEquals'].nil?)
         data.greater_than = map['greaterThan']
         data.greater_than_or_equal = map['greaterThanOrEqual']
         data.less_than = map['lessThan']
@@ -501,7 +501,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::GetFindingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.findings = (Parsers::Findings.parse(map['findings']) unless map['findings'].nil?)
+        data.findings = (Findings.parse(map['findings']) unless map['findings'].nil?)
         data
       end
     end
@@ -510,7 +510,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Finding.parse(value) unless value.nil?
+          data << Finding.parse(value) unless value.nil?
         end
         data
       end
@@ -527,9 +527,9 @@ module AWS::SDK::GuardDuty
         data.id = map['id']
         data.partition = map['partition']
         data.region = map['region']
-        data.resource = (Parsers::Resource.parse(map['resource']) unless map['resource'].nil?)
+        data.resource = (Resource.parse(map['resource']) unless map['resource'].nil?)
         data.schema_version = map['schemaVersion']
-        data.service = (Parsers::Service.parse(map['service']) unless map['service'].nil?)
+        data.service = (Service.parse(map['service']) unless map['service'].nil?)
         data.severity = Hearth::NumberHelper.deserialize(map['severity'])
         data.title = map['title']
         data.type = map['type']
@@ -541,8 +541,8 @@ module AWS::SDK::GuardDuty
     class Service
       def self.parse(map)
         data = Types::Service.new
-        data.action = (Parsers::Action.parse(map['action']) unless map['action'].nil?)
-        data.evidence = (Parsers::Evidence.parse(map['evidence']) unless map['evidence'].nil?)
+        data.action = (Action.parse(map['action']) unless map['action'].nil?)
+        data.evidence = (Evidence.parse(map['evidence']) unless map['evidence'].nil?)
         data.archived = map['archived']
         data.count = map['count']
         data.detector_id = map['detectorId']
@@ -558,7 +558,7 @@ module AWS::SDK::GuardDuty
     class Evidence
       def self.parse(map)
         data = Types::Evidence.new
-        data.threat_intelligence_details = (Parsers::ThreatIntelligenceDetails.parse(map['threatIntelligenceDetails']) unless map['threatIntelligenceDetails'].nil?)
+        data.threat_intelligence_details = (ThreatIntelligenceDetails.parse(map['threatIntelligenceDetails']) unless map['threatIntelligenceDetails'].nil?)
         return data
       end
     end
@@ -567,7 +567,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ThreatIntelligenceDetail.parse(value) unless value.nil?
+          data << ThreatIntelligenceDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -577,7 +577,7 @@ module AWS::SDK::GuardDuty
       def self.parse(map)
         data = Types::ThreatIntelligenceDetail.new
         data.threat_list_name = map['threatListName']
-        data.threat_names = (Parsers::ThreatNames.parse(map['threatNames']) unless map['threatNames'].nil?)
+        data.threat_names = (ThreatNames.parse(map['threatNames']) unless map['threatNames'].nil?)
         return data
       end
     end
@@ -596,11 +596,11 @@ module AWS::SDK::GuardDuty
       def self.parse(map)
         data = Types::Action.new
         data.action_type = map['actionType']
-        data.aws_api_call_action = (Parsers::AwsApiCallAction.parse(map['awsApiCallAction']) unless map['awsApiCallAction'].nil?)
-        data.dns_request_action = (Parsers::DnsRequestAction.parse(map['dnsRequestAction']) unless map['dnsRequestAction'].nil?)
-        data.network_connection_action = (Parsers::NetworkConnectionAction.parse(map['networkConnectionAction']) unless map['networkConnectionAction'].nil?)
-        data.port_probe_action = (Parsers::PortProbeAction.parse(map['portProbeAction']) unless map['portProbeAction'].nil?)
-        data.kubernetes_api_call_action = (Parsers::KubernetesApiCallAction.parse(map['kubernetesApiCallAction']) unless map['kubernetesApiCallAction'].nil?)
+        data.aws_api_call_action = (AwsApiCallAction.parse(map['awsApiCallAction']) unless map['awsApiCallAction'].nil?)
+        data.dns_request_action = (DnsRequestAction.parse(map['dnsRequestAction']) unless map['dnsRequestAction'].nil?)
+        data.network_connection_action = (NetworkConnectionAction.parse(map['networkConnectionAction']) unless map['networkConnectionAction'].nil?)
+        data.port_probe_action = (PortProbeAction.parse(map['portProbeAction']) unless map['portProbeAction'].nil?)
+        data.kubernetes_api_call_action = (KubernetesApiCallAction.parse(map['kubernetesApiCallAction']) unless map['kubernetesApiCallAction'].nil?)
         return data
       end
     end
@@ -610,9 +610,9 @@ module AWS::SDK::GuardDuty
         data = Types::KubernetesApiCallAction.new
         data.request_uri = map['requestUri']
         data.verb = map['verb']
-        data.source_ips = (Parsers::SourceIps.parse(map['sourceIps']) unless map['sourceIps'].nil?)
+        data.source_ips = (SourceIps.parse(map['sourceIps']) unless map['sourceIps'].nil?)
         data.user_agent = map['userAgent']
-        data.remote_ip_details = (Parsers::RemoteIpDetails.parse(map['remoteIpDetails']) unless map['remoteIpDetails'].nil?)
+        data.remote_ip_details = (RemoteIpDetails.parse(map['remoteIpDetails']) unless map['remoteIpDetails'].nil?)
         data.status_code = map['statusCode']
         data.parameters = map['parameters']
         return data
@@ -622,11 +622,11 @@ module AWS::SDK::GuardDuty
     class RemoteIpDetails
       def self.parse(map)
         data = Types::RemoteIpDetails.new
-        data.city = (Parsers::City.parse(map['city']) unless map['city'].nil?)
-        data.country = (Parsers::Country.parse(map['country']) unless map['country'].nil?)
-        data.geo_location = (Parsers::GeoLocation.parse(map['geoLocation']) unless map['geoLocation'].nil?)
+        data.city = (City.parse(map['city']) unless map['city'].nil?)
+        data.country = (Country.parse(map['country']) unless map['country'].nil?)
+        data.geo_location = (GeoLocation.parse(map['geoLocation']) unless map['geoLocation'].nil?)
         data.ip_address_v4 = map['ipAddressV4']
-        data.organization = (Parsers::Organization.parse(map['organization']) unless map['organization'].nil?)
+        data.organization = (Organization.parse(map['organization']) unless map['organization'].nil?)
         return data
       end
     end
@@ -682,7 +682,7 @@ module AWS::SDK::GuardDuty
       def self.parse(map)
         data = Types::PortProbeAction.new
         data.blocked = map['blocked']
-        data.port_probe_details = (Parsers::PortProbeDetails.parse(map['portProbeDetails']) unless map['portProbeDetails'].nil?)
+        data.port_probe_details = (PortProbeDetails.parse(map['portProbeDetails']) unless map['portProbeDetails'].nil?)
         return data
       end
     end
@@ -691,7 +691,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PortProbeDetail.parse(value) unless value.nil?
+          data << PortProbeDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -700,9 +700,9 @@ module AWS::SDK::GuardDuty
     class PortProbeDetail
       def self.parse(map)
         data = Types::PortProbeDetail.new
-        data.local_port_details = (Parsers::LocalPortDetails.parse(map['localPortDetails']) unless map['localPortDetails'].nil?)
-        data.local_ip_details = (Parsers::LocalIpDetails.parse(map['localIpDetails']) unless map['localIpDetails'].nil?)
-        data.remote_ip_details = (Parsers::RemoteIpDetails.parse(map['remoteIpDetails']) unless map['remoteIpDetails'].nil?)
+        data.local_port_details = (LocalPortDetails.parse(map['localPortDetails']) unless map['localPortDetails'].nil?)
+        data.local_ip_details = (LocalIpDetails.parse(map['localIpDetails']) unless map['localIpDetails'].nil?)
+        data.remote_ip_details = (RemoteIpDetails.parse(map['remoteIpDetails']) unless map['remoteIpDetails'].nil?)
         return data
       end
     end
@@ -729,11 +729,11 @@ module AWS::SDK::GuardDuty
         data = Types::NetworkConnectionAction.new
         data.blocked = map['blocked']
         data.connection_direction = map['connectionDirection']
-        data.local_port_details = (Parsers::LocalPortDetails.parse(map['localPortDetails']) unless map['localPortDetails'].nil?)
+        data.local_port_details = (LocalPortDetails.parse(map['localPortDetails']) unless map['localPortDetails'].nil?)
         data.protocol = map['protocol']
-        data.local_ip_details = (Parsers::LocalIpDetails.parse(map['localIpDetails']) unless map['localIpDetails'].nil?)
-        data.remote_ip_details = (Parsers::RemoteIpDetails.parse(map['remoteIpDetails']) unless map['remoteIpDetails'].nil?)
-        data.remote_port_details = (Parsers::RemotePortDetails.parse(map['remotePortDetails']) unless map['remotePortDetails'].nil?)
+        data.local_ip_details = (LocalIpDetails.parse(map['localIpDetails']) unless map['localIpDetails'].nil?)
+        data.remote_ip_details = (RemoteIpDetails.parse(map['remoteIpDetails']) unless map['remoteIpDetails'].nil?)
+        data.remote_port_details = (RemotePortDetails.parse(map['remotePortDetails']) unless map['remotePortDetails'].nil?)
         return data
       end
     end
@@ -760,12 +760,12 @@ module AWS::SDK::GuardDuty
         data = Types::AwsApiCallAction.new
         data.api = map['api']
         data.caller_type = map['callerType']
-        data.domain_details = (Parsers::DomainDetails.parse(map['domainDetails']) unless map['domainDetails'].nil?)
+        data.domain_details = (DomainDetails.parse(map['domainDetails']) unless map['domainDetails'].nil?)
         data.error_code = map['errorCode']
         data.user_agent = map['userAgent']
-        data.remote_ip_details = (Parsers::RemoteIpDetails.parse(map['remoteIpDetails']) unless map['remoteIpDetails'].nil?)
+        data.remote_ip_details = (RemoteIpDetails.parse(map['remoteIpDetails']) unless map['remoteIpDetails'].nil?)
         data.service_name = map['serviceName']
-        data.remote_account_details = (Parsers::RemoteAccountDetails.parse(map['remoteAccountDetails']) unless map['remoteAccountDetails'].nil?)
+        data.remote_account_details = (RemoteAccountDetails.parse(map['remoteAccountDetails']) unless map['remoteAccountDetails'].nil?)
         return data
       end
     end
@@ -790,11 +790,11 @@ module AWS::SDK::GuardDuty
     class Resource
       def self.parse(map)
         data = Types::Resource.new
-        data.access_key_details = (Parsers::AccessKeyDetails.parse(map['accessKeyDetails']) unless map['accessKeyDetails'].nil?)
-        data.s3_bucket_details = (Parsers::S3BucketDetails.parse(map['s3BucketDetails']) unless map['s3BucketDetails'].nil?)
-        data.instance_details = (Parsers::InstanceDetails.parse(map['instanceDetails']) unless map['instanceDetails'].nil?)
-        data.eks_cluster_details = (Parsers::EksClusterDetails.parse(map['eksClusterDetails']) unless map['eksClusterDetails'].nil?)
-        data.kubernetes_details = (Parsers::KubernetesDetails.parse(map['kubernetesDetails']) unless map['kubernetesDetails'].nil?)
+        data.access_key_details = (AccessKeyDetails.parse(map['accessKeyDetails']) unless map['accessKeyDetails'].nil?)
+        data.s3_bucket_details = (S3BucketDetails.parse(map['s3BucketDetails']) unless map['s3BucketDetails'].nil?)
+        data.instance_details = (InstanceDetails.parse(map['instanceDetails']) unless map['instanceDetails'].nil?)
+        data.eks_cluster_details = (EksClusterDetails.parse(map['eksClusterDetails']) unless map['eksClusterDetails'].nil?)
+        data.kubernetes_details = (KubernetesDetails.parse(map['kubernetesDetails']) unless map['kubernetesDetails'].nil?)
         data.resource_type = map['resourceType']
         return data
       end
@@ -803,8 +803,8 @@ module AWS::SDK::GuardDuty
     class KubernetesDetails
       def self.parse(map)
         data = Types::KubernetesDetails.new
-        data.kubernetes_user_details = (Parsers::KubernetesUserDetails.parse(map['kubernetesUserDetails']) unless map['kubernetesUserDetails'].nil?)
-        data.kubernetes_workload_details = (Parsers::KubernetesWorkloadDetails.parse(map['kubernetesWorkloadDetails']) unless map['kubernetesWorkloadDetails'].nil?)
+        data.kubernetes_user_details = (KubernetesUserDetails.parse(map['kubernetesUserDetails']) unless map['kubernetesUserDetails'].nil?)
+        data.kubernetes_workload_details = (KubernetesWorkloadDetails.parse(map['kubernetesWorkloadDetails']) unless map['kubernetesWorkloadDetails'].nil?)
         return data
       end
     end
@@ -817,8 +817,8 @@ module AWS::SDK::GuardDuty
         data.uid = map['uid']
         data.namespace = map['namespace']
         data.host_network = map['hostNetwork']
-        data.containers = (Parsers::Containers.parse(map['containers']) unless map['containers'].nil?)
-        data.volumes = (Parsers::Volumes.parse(map['volumes']) unless map['volumes'].nil?)
+        data.containers = (Containers.parse(map['containers']) unless map['containers'].nil?)
+        data.volumes = (Volumes.parse(map['volumes']) unless map['volumes'].nil?)
         return data
       end
     end
@@ -827,7 +827,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Volume.parse(value) unless value.nil?
+          data << Volume.parse(value) unless value.nil?
         end
         data
       end
@@ -837,7 +837,7 @@ module AWS::SDK::GuardDuty
       def self.parse(map)
         data = Types::Volume.new
         data.name = map['name']
-        data.host_path = (Parsers::HostPath.parse(map['hostPath']) unless map['hostPath'].nil?)
+        data.host_path = (HostPath.parse(map['hostPath']) unless map['hostPath'].nil?)
         return data
       end
     end
@@ -854,7 +854,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Container.parse(value) unless value.nil?
+          data << Container.parse(value) unless value.nil?
         end
         data
       end
@@ -868,8 +868,8 @@ module AWS::SDK::GuardDuty
         data.name = map['name']
         data.image = map['image']
         data.image_prefix = map['imagePrefix']
-        data.volume_mounts = (Parsers::VolumeMounts.parse(map['volumeMounts']) unless map['volumeMounts'].nil?)
-        data.security_context = (Parsers::SecurityContext.parse(map['securityContext']) unless map['securityContext'].nil?)
+        data.volume_mounts = (VolumeMounts.parse(map['volumeMounts']) unless map['volumeMounts'].nil?)
+        data.security_context = (SecurityContext.parse(map['securityContext']) unless map['securityContext'].nil?)
         return data
       end
     end
@@ -886,7 +886,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VolumeMount.parse(value) unless value.nil?
+          data << VolumeMount.parse(value) unless value.nil?
         end
         data
       end
@@ -906,7 +906,7 @@ module AWS::SDK::GuardDuty
         data = Types::KubernetesUserDetails.new
         data.username = map['username']
         data.uid = map['uid']
-        data.groups = (Parsers::Groups.parse(map['groups']) unless map['groups'].nil?)
+        data.groups = (Groups.parse(map['groups']) unless map['groups'].nil?)
         return data
       end
     end
@@ -928,7 +928,7 @@ module AWS::SDK::GuardDuty
         data.arn = map['arn']
         data.vpc_id = map['vpcId']
         data.status = map['status']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         return data
       end
@@ -938,7 +938,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -957,7 +957,7 @@ module AWS::SDK::GuardDuty
       def self.parse(map)
         data = Types::InstanceDetails.new
         data.availability_zone = map['availabilityZone']
-        data.iam_instance_profile = (Parsers::IamInstanceProfile.parse(map['iamInstanceProfile']) unless map['iamInstanceProfile'].nil?)
+        data.iam_instance_profile = (IamInstanceProfile.parse(map['iamInstanceProfile']) unless map['iamInstanceProfile'].nil?)
         data.image_description = map['imageDescription']
         data.image_id = map['imageId']
         data.instance_id = map['instanceId']
@@ -965,10 +965,10 @@ module AWS::SDK::GuardDuty
         data.instance_type = map['instanceType']
         data.outpost_arn = map['outpostArn']
         data.launch_time = map['launchTime']
-        data.network_interfaces = (Parsers::NetworkInterfaces.parse(map['networkInterfaces']) unless map['networkInterfaces'].nil?)
+        data.network_interfaces = (NetworkInterfaces.parse(map['networkInterfaces']) unless map['networkInterfaces'].nil?)
         data.platform = map['platform']
-        data.product_codes = (Parsers::ProductCodes.parse(map['productCodes']) unless map['productCodes'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.product_codes = (ProductCodes.parse(map['productCodes']) unless map['productCodes'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -977,7 +977,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ProductCode.parse(value) unless value.nil?
+          data << ProductCode.parse(value) unless value.nil?
         end
         data
       end
@@ -996,7 +996,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NetworkInterface.parse(value) unless value.nil?
+          data << NetworkInterface.parse(value) unless value.nil?
         end
         data
       end
@@ -1005,14 +1005,14 @@ module AWS::SDK::GuardDuty
     class NetworkInterface
       def self.parse(map)
         data = Types::NetworkInterface.new
-        data.ipv6_addresses = (Parsers::Ipv6Addresses.parse(map['ipv6Addresses']) unless map['ipv6Addresses'].nil?)
+        data.ipv6_addresses = (Ipv6Addresses.parse(map['ipv6Addresses']) unless map['ipv6Addresses'].nil?)
         data.network_interface_id = map['networkInterfaceId']
         data.private_dns_name = map['privateDnsName']
         data.private_ip_address = map['privateIpAddress']
-        data.private_ip_addresses = (Parsers::PrivateIpAddresses.parse(map['privateIpAddresses']) unless map['privateIpAddresses'].nil?)
+        data.private_ip_addresses = (PrivateIpAddresses.parse(map['privateIpAddresses']) unless map['privateIpAddresses'].nil?)
         data.public_dns_name = map['publicDnsName']
         data.public_ip = map['publicIp']
-        data.security_groups = (Parsers::SecurityGroups.parse(map['securityGroups']) unless map['securityGroups'].nil?)
+        data.security_groups = (SecurityGroups.parse(map['securityGroups']) unless map['securityGroups'].nil?)
         data.subnet_id = map['subnetId']
         data.vpc_id = map['vpcId']
         return data
@@ -1023,7 +1023,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SecurityGroup.parse(value) unless value.nil?
+          data << SecurityGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -1042,7 +1042,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PrivateIpAddressDetails.parse(value) unless value.nil?
+          data << PrivateIpAddressDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -1080,7 +1080,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::S3BucketDetail.parse(value) unless value.nil?
+          data << S3BucketDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -1093,10 +1093,10 @@ module AWS::SDK::GuardDuty
         data.name = map['name']
         data.type = map['type']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.owner = (Parsers::Owner.parse(map['owner']) unless map['owner'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
-        data.default_server_side_encryption = (Parsers::DefaultServerSideEncryption.parse(map['defaultServerSideEncryption']) unless map['defaultServerSideEncryption'].nil?)
-        data.public_access = (Parsers::PublicAccess.parse(map['publicAccess']) unless map['publicAccess'].nil?)
+        data.owner = (Owner.parse(map['owner']) unless map['owner'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.default_server_side_encryption = (DefaultServerSideEncryption.parse(map['defaultServerSideEncryption']) unless map['defaultServerSideEncryption'].nil?)
+        data.public_access = (PublicAccess.parse(map['publicAccess']) unless map['publicAccess'].nil?)
         return data
       end
     end
@@ -1104,7 +1104,7 @@ module AWS::SDK::GuardDuty
     class PublicAccess
       def self.parse(map)
         data = Types::PublicAccess.new
-        data.permission_configuration = (Parsers::PermissionConfiguration.parse(map['permissionConfiguration']) unless map['permissionConfiguration'].nil?)
+        data.permission_configuration = (PermissionConfiguration.parse(map['permissionConfiguration']) unless map['permissionConfiguration'].nil?)
         data.effective_permission = map['effectivePermission']
         return data
       end
@@ -1113,8 +1113,8 @@ module AWS::SDK::GuardDuty
     class PermissionConfiguration
       def self.parse(map)
         data = Types::PermissionConfiguration.new
-        data.bucket_level_permissions = (Parsers::BucketLevelPermissions.parse(map['bucketLevelPermissions']) unless map['bucketLevelPermissions'].nil?)
-        data.account_level_permissions = (Parsers::AccountLevelPermissions.parse(map['accountLevelPermissions']) unless map['accountLevelPermissions'].nil?)
+        data.bucket_level_permissions = (BucketLevelPermissions.parse(map['bucketLevelPermissions']) unless map['bucketLevelPermissions'].nil?)
+        data.account_level_permissions = (AccountLevelPermissions.parse(map['accountLevelPermissions']) unless map['accountLevelPermissions'].nil?)
         return data
       end
     end
@@ -1122,7 +1122,7 @@ module AWS::SDK::GuardDuty
     class AccountLevelPermissions
       def self.parse(map)
         data = Types::AccountLevelPermissions.new
-        data.block_public_access = (Parsers::BlockPublicAccess.parse(map['blockPublicAccess']) unless map['blockPublicAccess'].nil?)
+        data.block_public_access = (BlockPublicAccess.parse(map['blockPublicAccess']) unless map['blockPublicAccess'].nil?)
         return data
       end
     end
@@ -1141,9 +1141,9 @@ module AWS::SDK::GuardDuty
     class BucketLevelPermissions
       def self.parse(map)
         data = Types::BucketLevelPermissions.new
-        data.access_control_list = (Parsers::AccessControlList.parse(map['accessControlList']) unless map['accessControlList'].nil?)
-        data.bucket_policy = (Parsers::BucketPolicy.parse(map['bucketPolicy']) unless map['bucketPolicy'].nil?)
-        data.block_public_access = (Parsers::BlockPublicAccess.parse(map['blockPublicAccess']) unless map['blockPublicAccess'].nil?)
+        data.access_control_list = (AccessControlList.parse(map['accessControlList']) unless map['accessControlList'].nil?)
+        data.bucket_policy = (BucketPolicy.parse(map['bucketPolicy']) unless map['bucketPolicy'].nil?)
+        data.block_public_access = (BlockPublicAccess.parse(map['blockPublicAccess']) unless map['blockPublicAccess'].nil?)
         return data
       end
     end
@@ -1199,7 +1199,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::GetFindingsStatisticsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.finding_statistics = (Parsers::FindingStatistics.parse(map['findingStatistics']) unless map['findingStatistics'].nil?)
+        data.finding_statistics = (FindingStatistics.parse(map['findingStatistics']) unless map['findingStatistics'].nil?)
         data
       end
     end
@@ -1207,7 +1207,7 @@ module AWS::SDK::GuardDuty
     class FindingStatistics
       def self.parse(map)
         data = Types::FindingStatistics.new
-        data.count_by_severity = (Parsers::CountBySeverity.parse(map['countBySeverity']) unless map['countBySeverity'].nil?)
+        data.count_by_severity = (CountBySeverity.parse(map['countBySeverity']) unless map['countBySeverity'].nil?)
         return data
       end
     end
@@ -1231,7 +1231,7 @@ module AWS::SDK::GuardDuty
         data.format = map['format']
         data.location = map['location']
         data.status = map['status']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1251,7 +1251,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::GetMasterAccountOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.master = (Parsers::Master.parse(map['master']) unless map['master'].nil?)
+        data.master = (Master.parse(map['master']) unless map['master'].nil?)
         data
       end
     end
@@ -1272,8 +1272,8 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::GetMemberDetectorsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.member_data_source_configurations = (Parsers::MemberDataSourceConfigurations.parse(map['members']) unless map['members'].nil?)
-        data.unprocessed_accounts = (Parsers::UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
+        data.member_data_source_configurations = (MemberDataSourceConfigurations.parse(map['members']) unless map['members'].nil?)
+        data.unprocessed_accounts = (UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
         data
       end
     end
@@ -1282,7 +1282,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MemberDataSourceConfiguration.parse(value) unless value.nil?
+          data << MemberDataSourceConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -1292,7 +1292,7 @@ module AWS::SDK::GuardDuty
       def self.parse(map)
         data = Types::MemberDataSourceConfiguration.new
         data.account_id = map['accountId']
-        data.data_sources = (Parsers::DataSourceConfigurationsResult.parse(map['dataSources']) unless map['dataSources'].nil?)
+        data.data_sources = (DataSourceConfigurationsResult.parse(map['dataSources']) unless map['dataSources'].nil?)
         return data
       end
     end
@@ -1302,8 +1302,8 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::GetMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.members = (Parsers::Members.parse(map['members']) unless map['members'].nil?)
-        data.unprocessed_accounts = (Parsers::UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
+        data.members = (Members.parse(map['members']) unless map['members'].nil?)
+        data.unprocessed_accounts = (UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
         data
       end
     end
@@ -1312,7 +1312,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Member.parse(value) unless value.nil?
+          data << Member.parse(value) unless value.nil?
         end
         data
       end
@@ -1341,7 +1341,7 @@ module AWS::SDK::GuardDuty
         data.format = map['format']
         data.location = map['location']
         data.status = map['status']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1351,7 +1351,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::GetUsageStatisticsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.usage_statistics = (Parsers::UsageStatistics.parse(map['usageStatistics']) unless map['usageStatistics'].nil?)
+        data.usage_statistics = (UsageStatistics.parse(map['usageStatistics']) unless map['usageStatistics'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1360,10 +1360,10 @@ module AWS::SDK::GuardDuty
     class UsageStatistics
       def self.parse(map)
         data = Types::UsageStatistics.new
-        data.sum_by_account = (Parsers::UsageAccountResultList.parse(map['sumByAccount']) unless map['sumByAccount'].nil?)
-        data.sum_by_data_source = (Parsers::UsageDataSourceResultList.parse(map['sumByDataSource']) unless map['sumByDataSource'].nil?)
-        data.sum_by_resource = (Parsers::UsageResourceResultList.parse(map['sumByResource']) unless map['sumByResource'].nil?)
-        data.top_resources = (Parsers::UsageResourceResultList.parse(map['topResources']) unless map['topResources'].nil?)
+        data.sum_by_account = (UsageAccountResultList.parse(map['sumByAccount']) unless map['sumByAccount'].nil?)
+        data.sum_by_data_source = (UsageDataSourceResultList.parse(map['sumByDataSource']) unless map['sumByDataSource'].nil?)
+        data.sum_by_resource = (UsageResourceResultList.parse(map['sumByResource']) unless map['sumByResource'].nil?)
+        data.top_resources = (UsageResourceResultList.parse(map['topResources']) unless map['topResources'].nil?)
         return data
       end
     end
@@ -1372,7 +1372,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UsageResourceResult.parse(value) unless value.nil?
+          data << UsageResourceResult.parse(value) unless value.nil?
         end
         data
       end
@@ -1382,7 +1382,7 @@ module AWS::SDK::GuardDuty
       def self.parse(map)
         data = Types::UsageResourceResult.new
         data.resource = map['resource']
-        data.total = (Parsers::Total.parse(map['total']) unless map['total'].nil?)
+        data.total = (Total.parse(map['total']) unless map['total'].nil?)
         return data
       end
     end
@@ -1400,7 +1400,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UsageDataSourceResult.parse(value) unless value.nil?
+          data << UsageDataSourceResult.parse(value) unless value.nil?
         end
         data
       end
@@ -1410,7 +1410,7 @@ module AWS::SDK::GuardDuty
       def self.parse(map)
         data = Types::UsageDataSourceResult.new
         data.data_source = map['dataSource']
-        data.total = (Parsers::Total.parse(map['total']) unless map['total'].nil?)
+        data.total = (Total.parse(map['total']) unless map['total'].nil?)
         return data
       end
     end
@@ -1419,7 +1419,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UsageAccountResult.parse(value) unless value.nil?
+          data << UsageAccountResult.parse(value) unless value.nil?
         end
         data
       end
@@ -1429,7 +1429,7 @@ module AWS::SDK::GuardDuty
       def self.parse(map)
         data = Types::UsageAccountResult.new
         data.account_id = map['accountId']
-        data.total = (Parsers::Total.parse(map['total']) unless map['total'].nil?)
+        data.total = (Total.parse(map['total']) unless map['total'].nil?)
         return data
       end
     end
@@ -1439,7 +1439,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::InviteMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_accounts = (Parsers::UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
+        data.unprocessed_accounts = (UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
         data
       end
     end
@@ -1449,7 +1449,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::ListDetectorsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.detector_ids = (Parsers::DetectorIds.parse(map['detectorIds']) unless map['detectorIds'].nil?)
+        data.detector_ids = (DetectorIds.parse(map['detectorIds']) unless map['detectorIds'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1470,7 +1470,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::ListFiltersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.filter_names = (Parsers::FilterNames.parse(map['filterNames']) unless map['filterNames'].nil?)
+        data.filter_names = (FilterNames.parse(map['filterNames']) unless map['filterNames'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1491,7 +1491,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::ListFindingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.finding_ids = (Parsers::FindingIds.parse(map['findingIds']) unless map['findingIds'].nil?)
+        data.finding_ids = (FindingIds.parse(map['findingIds']) unless map['findingIds'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1512,7 +1512,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::ListIPSetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.ip_set_ids = (Parsers::IpSetIds.parse(map['ipSetIds']) unless map['ipSetIds'].nil?)
+        data.ip_set_ids = (IpSetIds.parse(map['ipSetIds']) unless map['ipSetIds'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1533,7 +1533,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::ListInvitationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.invitations = (Parsers::Invitations.parse(map['invitations']) unless map['invitations'].nil?)
+        data.invitations = (Invitations.parse(map['invitations']) unless map['invitations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1543,7 +1543,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Invitation.parse(value) unless value.nil?
+          data << Invitation.parse(value) unless value.nil?
         end
         data
       end
@@ -1565,7 +1565,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::ListMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.members = (Parsers::Members.parse(map['members']) unless map['members'].nil?)
+        data.members = (Members.parse(map['members']) unless map['members'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1576,7 +1576,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::ListOrganizationAdminAccountsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.admin_accounts = (Parsers::AdminAccounts.parse(map['adminAccounts']) unless map['adminAccounts'].nil?)
+        data.admin_accounts = (AdminAccounts.parse(map['adminAccounts']) unless map['adminAccounts'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1586,7 +1586,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AdminAccount.parse(value) unless value.nil?
+          data << AdminAccount.parse(value) unless value.nil?
         end
         data
       end
@@ -1606,7 +1606,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::ListPublishingDestinationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.destinations = (Parsers::Destinations.parse(map['destinations']) unless map['destinations'].nil?)
+        data.destinations = (Destinations.parse(map['destinations']) unless map['destinations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1616,7 +1616,7 @@ module AWS::SDK::GuardDuty
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Destination.parse(value) unless value.nil?
+          data << Destination.parse(value) unless value.nil?
         end
         data
       end
@@ -1637,7 +1637,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1647,7 +1647,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::ListThreatIntelSetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.threat_intel_set_ids = (Parsers::ThreatIntelSetIds.parse(map['threatIntelSetIds']) unless map['threatIntelSetIds'].nil?)
+        data.threat_intel_set_ids = (ThreatIntelSetIds.parse(map['threatIntelSetIds']) unless map['threatIntelSetIds'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1668,7 +1668,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::StartMonitoringMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_accounts = (Parsers::UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
+        data.unprocessed_accounts = (UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
         data
       end
     end
@@ -1678,7 +1678,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::StopMonitoringMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_accounts = (Parsers::UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
+        data.unprocessed_accounts = (UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
         data
       end
     end
@@ -1752,7 +1752,7 @@ module AWS::SDK::GuardDuty
       def self.parse(http_resp)
         data = Types::UpdateMemberDetectorsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_accounts = (Parsers::UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
+        data.unprocessed_accounts = (UnprocessedAccounts.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
         data
       end
     end

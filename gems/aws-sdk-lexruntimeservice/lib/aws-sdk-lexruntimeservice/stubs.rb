@@ -8,6 +8,7 @@
 # WARNING ABOUT GENERATED CODE
 
 require 'base64'
+require 'stringio'
 
 module AWS::SDK::LexRuntimeService
   module Stubs
@@ -31,7 +32,7 @@ module AWS::SDK::LexRuntimeService
         data['botAlias'] = stub[:bot_alias] unless stub[:bot_alias].nil?
         data['userId'] = stub[:user_id] unless stub[:user_id].nil?
         data['sessionId'] = stub[:session_id] unless stub[:session_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -51,12 +52,12 @@ module AWS::SDK::LexRuntimeService
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['recentIntentSummaryView'] = Stubs::IntentSummaryList.stub(stub[:recent_intent_summary_view]) unless stub[:recent_intent_summary_view].nil?
-        data['sessionAttributes'] = Stubs::StringMap.stub(stub[:session_attributes]) unless stub[:session_attributes].nil?
+        data['recentIntentSummaryView'] = IntentSummaryList.stub(stub[:recent_intent_summary_view]) unless stub[:recent_intent_summary_view].nil?
+        data['sessionAttributes'] = StringMap.stub(stub[:session_attributes]) unless stub[:session_attributes].nil?
         data['sessionId'] = stub[:session_id] unless stub[:session_id].nil?
-        data['dialogAction'] = Stubs::DialogAction.stub(stub[:dialog_action]) unless stub[:dialog_action].nil?
-        data['activeContexts'] = Stubs::ActiveContextsList.stub(stub[:active_contexts]) unless stub[:active_contexts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dialogAction'] = DialogAction.stub(stub[:dialog_action]) unless stub[:dialog_action].nil?
+        data['activeContexts'] = ActiveContextsList.stub(stub[:active_contexts]) unless stub[:active_contexts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -74,7 +75,7 @@ module AWS::SDK::LexRuntimeService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActiveContext.stub(element) unless element.nil?
+          data << ActiveContext.stub(element) unless element.nil?
         end
         data
       end
@@ -96,8 +97,8 @@ module AWS::SDK::LexRuntimeService
         stub ||= Types::ActiveContext.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['timeToLive'] = Stubs::ActiveContextTimeToLive.stub(stub[:time_to_live]) unless stub[:time_to_live].nil?
-        data['parameters'] = Stubs::ActiveContextParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['timeToLive'] = ActiveContextTimeToLive.stub(stub[:time_to_live]) unless stub[:time_to_live].nil?
+        data['parameters'] = ActiveContextParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -163,7 +164,7 @@ module AWS::SDK::LexRuntimeService
         data = {}
         data['type'] = stub[:type] unless stub[:type].nil?
         data['intentName'] = stub[:intent_name] unless stub[:intent_name].nil?
-        data['slots'] = Stubs::StringMap.stub(stub[:slots]) unless stub[:slots].nil?
+        data['slots'] = StringMap.stub(stub[:slots]) unless stub[:slots].nil?
         data['slotToElicit'] = stub[:slot_to_elicit] unless stub[:slot_to_elicit].nil?
         data['fulfillmentState'] = stub[:fulfillment_state] unless stub[:fulfillment_state].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
@@ -206,7 +207,7 @@ module AWS::SDK::LexRuntimeService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IntentSummary.stub(element) unless element.nil?
+          data << IntentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -233,7 +234,7 @@ module AWS::SDK::LexRuntimeService
         data = {}
         data['intentName'] = stub[:intent_name] unless stub[:intent_name].nil?
         data['checkpointLabel'] = stub[:checkpoint_label] unless stub[:checkpoint_label].nil?
-        data['slots'] = Stubs::StringMap.stub(stub[:slots]) unless stub[:slots].nil?
+        data['slots'] = StringMap.stub(stub[:slots]) unless stub[:slots].nil?
         data['confirmationStatus'] = stub[:confirmation_status] unless stub[:confirmation_status].nil?
         data['dialogActionType'] = stub[:dialog_action_type] unless stub[:dialog_action_type].nil?
         data['fulfillmentState'] = stub[:fulfillment_state] unless stub[:fulfillment_state].nil?
@@ -317,20 +318,20 @@ module AWS::SDK::LexRuntimeService
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['intentName'] = stub[:intent_name] unless stub[:intent_name].nil?
-        data['nluIntentConfidence'] = Stubs::IntentConfidence.stub(stub[:nlu_intent_confidence]) unless stub[:nlu_intent_confidence].nil?
-        data['alternativeIntents'] = Stubs::IntentList.stub(stub[:alternative_intents]) unless stub[:alternative_intents].nil?
-        data['slots'] = Stubs::StringMap.stub(stub[:slots]) unless stub[:slots].nil?
-        data['sessionAttributes'] = Stubs::StringMap.stub(stub[:session_attributes]) unless stub[:session_attributes].nil?
+        data['nluIntentConfidence'] = IntentConfidence.stub(stub[:nlu_intent_confidence]) unless stub[:nlu_intent_confidence].nil?
+        data['alternativeIntents'] = IntentList.stub(stub[:alternative_intents]) unless stub[:alternative_intents].nil?
+        data['slots'] = StringMap.stub(stub[:slots]) unless stub[:slots].nil?
+        data['sessionAttributes'] = StringMap.stub(stub[:session_attributes]) unless stub[:session_attributes].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
-        data['sentimentResponse'] = Stubs::SentimentResponse.stub(stub[:sentiment_response]) unless stub[:sentiment_response].nil?
+        data['sentimentResponse'] = SentimentResponse.stub(stub[:sentiment_response]) unless stub[:sentiment_response].nil?
         data['messageFormat'] = stub[:message_format] unless stub[:message_format].nil?
         data['dialogState'] = stub[:dialog_state] unless stub[:dialog_state].nil?
         data['slotToElicit'] = stub[:slot_to_elicit] unless stub[:slot_to_elicit].nil?
-        data['responseCard'] = Stubs::ResponseCard.stub(stub[:response_card]) unless stub[:response_card].nil?
+        data['responseCard'] = ResponseCard.stub(stub[:response_card]) unless stub[:response_card].nil?
         data['sessionId'] = stub[:session_id] unless stub[:session_id].nil?
         data['botVersion'] = stub[:bot_version] unless stub[:bot_version].nil?
-        data['activeContexts'] = Stubs::ActiveContextsList.stub(stub[:active_contexts]) unless stub[:active_contexts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['activeContexts'] = ActiveContextsList.stub(stub[:active_contexts]) unless stub[:active_contexts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -351,7 +352,7 @@ module AWS::SDK::LexRuntimeService
         data = {}
         data['version'] = stub[:version] unless stub[:version].nil?
         data['contentType'] = stub[:content_type] unless stub[:content_type].nil?
-        data['genericAttachments'] = Stubs::GenericAttachmentList.stub(stub[:generic_attachments]) unless stub[:generic_attachments].nil?
+        data['genericAttachments'] = GenericAttachmentList.stub(stub[:generic_attachments]) unless stub[:generic_attachments].nil?
         data
       end
     end
@@ -370,7 +371,7 @@ module AWS::SDK::LexRuntimeService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GenericAttachment.stub(element) unless element.nil?
+          data << GenericAttachment.stub(element) unless element.nil?
         end
         data
       end
@@ -397,7 +398,7 @@ module AWS::SDK::LexRuntimeService
         data['subTitle'] = stub[:sub_title] unless stub[:sub_title].nil?
         data['attachmentLinkUrl'] = stub[:attachment_link_url] unless stub[:attachment_link_url].nil?
         data['imageUrl'] = stub[:image_url] unless stub[:image_url].nil?
-        data['buttons'] = Stubs::ListOfButtons.stub(stub[:buttons]) unless stub[:buttons].nil?
+        data['buttons'] = ListOfButtons.stub(stub[:buttons]) unless stub[:buttons].nil?
         data
       end
     end
@@ -416,7 +417,7 @@ module AWS::SDK::LexRuntimeService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Button.stub(element) unless element.nil?
+          data << Button.stub(element) unless element.nil?
         end
         data
       end
@@ -476,7 +477,7 @@ module AWS::SDK::LexRuntimeService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PredictedIntent.stub(element) unless element.nil?
+          data << PredictedIntent.stub(element) unless element.nil?
         end
         data
       end
@@ -498,8 +499,8 @@ module AWS::SDK::LexRuntimeService
         stub ||= Types::PredictedIntent.new
         data = {}
         data['intentName'] = stub[:intent_name] unless stub[:intent_name].nil?
-        data['nluIntentConfidence'] = Stubs::IntentConfidence.stub(stub[:nlu_intent_confidence]) unless stub[:nlu_intent_confidence].nil?
-        data['slots'] = Stubs::StringMap.stub(stub[:slots]) unless stub[:slots].nil?
+        data['nluIntentConfidence'] = IntentConfidence.stub(stub[:nlu_intent_confidence]) unless stub[:nlu_intent_confidence].nil?
+        data['slots'] = StringMap.stub(stub[:slots]) unless stub[:slots].nil?
         data
       end
     end

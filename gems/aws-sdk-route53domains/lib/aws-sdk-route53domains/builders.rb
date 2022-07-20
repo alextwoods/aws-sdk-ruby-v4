@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Route53Domains
   module Builders
 
@@ -20,7 +22,7 @@ module AWS::SDK::Route53Domains
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['Password'] = input[:password] unless input[:password].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,7 +35,7 @@ module AWS::SDK::Route53Domains
         http_req.headers['X-Amz-Target'] = 'Route53Domains_v20140515.CancelDomainTransferToAnotherAwsAccount'
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -47,7 +49,7 @@ module AWS::SDK::Route53Domains
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['IdnLangCode'] = input[:idn_lang_code] unless input[:idn_lang_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -61,7 +63,7 @@ module AWS::SDK::Route53Domains
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['AuthCode'] = input[:auth_code] unless input[:auth_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -74,7 +76,7 @@ module AWS::SDK::Route53Domains
         http_req.headers['X-Amz-Target'] = 'Route53Domains_v20140515.DeleteDomain'
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -87,8 +89,8 @@ module AWS::SDK::Route53Domains
         http_req.headers['X-Amz-Target'] = 'Route53Domains_v20140515.DeleteTagsForDomain'
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        data['TagsToDelete'] = Builders::TagKeyList.build(input[:tags_to_delete]) unless input[:tags_to_delete].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagsToDelete'] = TagKeyList.build(input[:tags_to_delete]) unless input[:tags_to_delete].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -112,7 +114,7 @@ module AWS::SDK::Route53Domains
         http_req.headers['X-Amz-Target'] = 'Route53Domains_v20140515.DisableDomainAutoRenew'
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -125,7 +127,7 @@ module AWS::SDK::Route53Domains
         http_req.headers['X-Amz-Target'] = 'Route53Domains_v20140515.DisableDomainTransferLock'
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -138,7 +140,7 @@ module AWS::SDK::Route53Domains
         http_req.headers['X-Amz-Target'] = 'Route53Domains_v20140515.EnableDomainAutoRenew'
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -151,7 +153,7 @@ module AWS::SDK::Route53Domains
         http_req.headers['X-Amz-Target'] = 'Route53Domains_v20140515.EnableDomainTransferLock'
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -164,7 +166,7 @@ module AWS::SDK::Route53Domains
         http_req.headers['X-Amz-Target'] = 'Route53Domains_v20140515.GetContactReachabilityStatus'
         data = {}
         data['domainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -177,7 +179,7 @@ module AWS::SDK::Route53Domains
         http_req.headers['X-Amz-Target'] = 'Route53Domains_v20140515.GetDomainDetail'
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -192,7 +194,7 @@ module AWS::SDK::Route53Domains
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['SuggestionCount'] = input[:suggestion_count] unless input[:suggestion_count].nil?
         data['OnlyAvailable'] = input[:only_available] unless input[:only_available].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -205,7 +207,7 @@ module AWS::SDK::Route53Domains
         http_req.headers['X-Amz-Target'] = 'Route53Domains_v20140515.GetOperationDetail'
         data = {}
         data['OperationId'] = input[:operation_id] unless input[:operation_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -217,11 +219,11 @@ module AWS::SDK::Route53Domains
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'Route53Domains_v20140515.ListDomains'
         data = {}
-        data['FilterConditions'] = Builders::FilterConditions.build(input[:filter_conditions]) unless input[:filter_conditions].nil?
-        data['SortCondition'] = Builders::SortCondition.build(input[:sort_condition]) unless input[:sort_condition].nil?
+        data['FilterConditions'] = FilterConditions.build(input[:filter_conditions]) unless input[:filter_conditions].nil?
+        data['SortCondition'] = SortCondition.build(input[:sort_condition]) unless input[:sort_condition].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
         data['MaxItems'] = input[:max_items] unless input[:max_items].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -240,7 +242,7 @@ module AWS::SDK::Route53Domains
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FilterCondition.build(element) unless element.nil?
+          data << FilterCondition.build(element) unless element.nil?
         end
         data
       end
@@ -252,7 +254,7 @@ module AWS::SDK::Route53Domains
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Operator'] = input[:operator] unless input[:operator].nil?
-        data['Values'] = Builders::Values.build(input[:values]) unless input[:values].nil?
+        data['Values'] = Values.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -279,7 +281,7 @@ module AWS::SDK::Route53Domains
         data['SubmittedSince'] = Hearth::TimeHelper.to_epoch_seconds(input[:submitted_since]).to_i unless input[:submitted_since].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
         data['MaxItems'] = input[:max_items] unless input[:max_items].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -294,7 +296,7 @@ module AWS::SDK::Route53Domains
         data['Tld'] = input[:tld] unless input[:tld].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
         data['MaxItems'] = input[:max_items] unless input[:max_items].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -307,7 +309,7 @@ module AWS::SDK::Route53Domains
         http_req.headers['X-Amz-Target'] = 'Route53Domains_v20140515.ListTagsForDomain'
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -323,13 +325,13 @@ module AWS::SDK::Route53Domains
         data['IdnLangCode'] = input[:idn_lang_code] unless input[:idn_lang_code].nil?
         data['DurationInYears'] = input[:duration_in_years] unless input[:duration_in_years].nil?
         data['AutoRenew'] = input[:auto_renew] unless input[:auto_renew].nil?
-        data['AdminContact'] = Builders::ContactDetail.build(input[:admin_contact]) unless input[:admin_contact].nil?
-        data['RegistrantContact'] = Builders::ContactDetail.build(input[:registrant_contact]) unless input[:registrant_contact].nil?
-        data['TechContact'] = Builders::ContactDetail.build(input[:tech_contact]) unless input[:tech_contact].nil?
+        data['AdminContact'] = ContactDetail.build(input[:admin_contact]) unless input[:admin_contact].nil?
+        data['RegistrantContact'] = ContactDetail.build(input[:registrant_contact]) unless input[:registrant_contact].nil?
+        data['TechContact'] = ContactDetail.build(input[:tech_contact]) unless input[:tech_contact].nil?
         data['PrivacyProtectAdminContact'] = input[:privacy_protect_admin_contact] unless input[:privacy_protect_admin_contact].nil?
         data['PrivacyProtectRegistrantContact'] = input[:privacy_protect_registrant_contact] unless input[:privacy_protect_registrant_contact].nil?
         data['PrivacyProtectTechContact'] = input[:privacy_protect_tech_contact] unless input[:privacy_protect_tech_contact].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -350,7 +352,7 @@ module AWS::SDK::Route53Domains
         data['PhoneNumber'] = input[:phone_number] unless input[:phone_number].nil?
         data['Email'] = input[:email] unless input[:email].nil?
         data['Fax'] = input[:fax] unless input[:fax].nil?
-        data['ExtraParams'] = Builders::ExtraParamList.build(input[:extra_params]) unless input[:extra_params].nil?
+        data['ExtraParams'] = ExtraParamList.build(input[:extra_params]) unless input[:extra_params].nil?
         data
       end
     end
@@ -360,7 +362,7 @@ module AWS::SDK::Route53Domains
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ExtraParam.build(element) unless element.nil?
+          data << ExtraParam.build(element) unless element.nil?
         end
         data
       end
@@ -385,7 +387,7 @@ module AWS::SDK::Route53Domains
         http_req.headers['X-Amz-Target'] = 'Route53Domains_v20140515.RejectDomainTransferFromAnotherAwsAccount'
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -400,7 +402,7 @@ module AWS::SDK::Route53Domains
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['DurationInYears'] = input[:duration_in_years] unless input[:duration_in_years].nil?
         data['CurrentExpiryYear'] = input[:current_expiry_year] unless input[:current_expiry_year].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -413,7 +415,7 @@ module AWS::SDK::Route53Domains
         http_req.headers['X-Amz-Target'] = 'Route53Domains_v20140515.ResendContactReachabilityEmail'
         data = {}
         data['domainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -426,7 +428,7 @@ module AWS::SDK::Route53Domains
         http_req.headers['X-Amz-Target'] = 'Route53Domains_v20140515.RetrieveDomainAuthCode'
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -441,16 +443,16 @@ module AWS::SDK::Route53Domains
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['IdnLangCode'] = input[:idn_lang_code] unless input[:idn_lang_code].nil?
         data['DurationInYears'] = input[:duration_in_years] unless input[:duration_in_years].nil?
-        data['Nameservers'] = Builders::NameserverList.build(input[:nameservers]) unless input[:nameservers].nil?
+        data['Nameservers'] = NameserverList.build(input[:nameservers]) unless input[:nameservers].nil?
         data['AuthCode'] = input[:auth_code] unless input[:auth_code].nil?
         data['AutoRenew'] = input[:auto_renew] unless input[:auto_renew].nil?
-        data['AdminContact'] = Builders::ContactDetail.build(input[:admin_contact]) unless input[:admin_contact].nil?
-        data['RegistrantContact'] = Builders::ContactDetail.build(input[:registrant_contact]) unless input[:registrant_contact].nil?
-        data['TechContact'] = Builders::ContactDetail.build(input[:tech_contact]) unless input[:tech_contact].nil?
+        data['AdminContact'] = ContactDetail.build(input[:admin_contact]) unless input[:admin_contact].nil?
+        data['RegistrantContact'] = ContactDetail.build(input[:registrant_contact]) unless input[:registrant_contact].nil?
+        data['TechContact'] = ContactDetail.build(input[:tech_contact]) unless input[:tech_contact].nil?
         data['PrivacyProtectAdminContact'] = input[:privacy_protect_admin_contact] unless input[:privacy_protect_admin_contact].nil?
         data['PrivacyProtectRegistrantContact'] = input[:privacy_protect_registrant_contact] unless input[:privacy_protect_registrant_contact].nil?
         data['PrivacyProtectTechContact'] = input[:privacy_protect_tech_contact] unless input[:privacy_protect_tech_contact].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -459,7 +461,7 @@ module AWS::SDK::Route53Domains
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Nameserver.build(element) unless element.nil?
+          data << Nameserver.build(element) unless element.nil?
         end
         data
       end
@@ -470,7 +472,7 @@ module AWS::SDK::Route53Domains
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['GlueIps'] = Builders::GlueIpList.build(input[:glue_ips]) unless input[:glue_ips].nil?
+        data['GlueIps'] = GlueIpList.build(input[:glue_ips]) unless input[:glue_ips].nil?
         data
       end
     end
@@ -496,7 +498,7 @@ module AWS::SDK::Route53Domains
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -509,10 +511,10 @@ module AWS::SDK::Route53Domains
         http_req.headers['X-Amz-Target'] = 'Route53Domains_v20140515.UpdateDomainContact'
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        data['AdminContact'] = Builders::ContactDetail.build(input[:admin_contact]) unless input[:admin_contact].nil?
-        data['RegistrantContact'] = Builders::ContactDetail.build(input[:registrant_contact]) unless input[:registrant_contact].nil?
-        data['TechContact'] = Builders::ContactDetail.build(input[:tech_contact]) unless input[:tech_contact].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AdminContact'] = ContactDetail.build(input[:admin_contact]) unless input[:admin_contact].nil?
+        data['RegistrantContact'] = ContactDetail.build(input[:registrant_contact]) unless input[:registrant_contact].nil?
+        data['TechContact'] = ContactDetail.build(input[:tech_contact]) unless input[:tech_contact].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -528,7 +530,7 @@ module AWS::SDK::Route53Domains
         data['AdminPrivacy'] = input[:admin_privacy] unless input[:admin_privacy].nil?
         data['RegistrantPrivacy'] = input[:registrant_privacy] unless input[:registrant_privacy].nil?
         data['TechPrivacy'] = input[:tech_privacy] unless input[:tech_privacy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -542,8 +544,8 @@ module AWS::SDK::Route53Domains
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['FIAuthKey'] = input[:fi_auth_key] unless input[:fi_auth_key].nil?
-        data['Nameservers'] = Builders::NameserverList.build(input[:nameservers]) unless input[:nameservers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Nameservers'] = NameserverList.build(input[:nameservers]) unless input[:nameservers].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -556,8 +558,8 @@ module AWS::SDK::Route53Domains
         http_req.headers['X-Amz-Target'] = 'Route53Domains_v20140515.UpdateTagsForDomain'
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        data['TagsToUpdate'] = Builders::TagList.build(input[:tags_to_update]) unless input[:tags_to_update].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagsToUpdate'] = TagList.build(input[:tags_to_update]) unless input[:tags_to_update].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -566,7 +568,7 @@ module AWS::SDK::Route53Domains
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -594,7 +596,7 @@ module AWS::SDK::Route53Domains
         data['End'] = Hearth::TimeHelper.to_epoch_seconds(input[:end]).to_i unless input[:end].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
         data['MaxItems'] = input[:max_items] unless input[:max_items].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

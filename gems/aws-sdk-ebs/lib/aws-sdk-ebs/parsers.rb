@@ -102,7 +102,7 @@ module AWS::SDK::EBS
       def self.parse(http_resp)
         data = Types::ListChangedBlocksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.changed_blocks = (Parsers::ChangedBlocks.parse(map['ChangedBlocks']) unless map['ChangedBlocks'].nil?)
+        data.changed_blocks = (ChangedBlocks.parse(map['ChangedBlocks']) unless map['ChangedBlocks'].nil?)
         data.expiry_time = Time.at(map['ExpiryTime'].to_i) if map['ExpiryTime']
         data.volume_size = map['VolumeSize']
         data.block_size = map['BlockSize']
@@ -115,7 +115,7 @@ module AWS::SDK::EBS
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChangedBlock.parse(value) unless value.nil?
+          data << ChangedBlock.parse(value) unless value.nil?
         end
         data
       end
@@ -136,7 +136,7 @@ module AWS::SDK::EBS
       def self.parse(http_resp)
         data = Types::ListSnapshotBlocksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.blocks = (Parsers::Blocks.parse(map['Blocks']) unless map['Blocks'].nil?)
+        data.blocks = (Blocks.parse(map['Blocks']) unless map['Blocks'].nil?)
         data.expiry_time = Time.at(map['ExpiryTime'].to_i) if map['ExpiryTime']
         data.volume_size = map['VolumeSize']
         data.block_size = map['BlockSize']
@@ -149,7 +149,7 @@ module AWS::SDK::EBS
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Block.parse(value) unless value.nil?
+          data << Block.parse(value) unless value.nil?
         end
         data
       end
@@ -187,7 +187,7 @@ module AWS::SDK::EBS
         data.start_time = Time.at(map['StartTime'].to_i) if map['StartTime']
         data.volume_size = map['VolumeSize']
         data.block_size = map['BlockSize']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.parent_snapshot_id = map['ParentSnapshotId']
         data.kms_key_arn = map['KmsKeyArn']
         data
@@ -198,7 +198,7 @@ module AWS::SDK::EBS
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end

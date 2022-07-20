@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Keyspaces
   module Builders
 
@@ -19,8 +21,8 @@ module AWS::SDK::Keyspaces
         http_req.headers['X-Amz-Target'] = 'KeyspacesService.CreateKeyspace'
         data = {}
         data['keyspaceName'] = input[:keyspace_name] unless input[:keyspace_name].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -29,7 +31,7 @@ module AWS::SDK::Keyspaces
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -55,15 +57,15 @@ module AWS::SDK::Keyspaces
         data = {}
         data['keyspaceName'] = input[:keyspace_name] unless input[:keyspace_name].nil?
         data['tableName'] = input[:table_name] unless input[:table_name].nil?
-        data['schemaDefinition'] = Builders::SchemaDefinition.build(input[:schema_definition]) unless input[:schema_definition].nil?
-        data['comment'] = Builders::Comment.build(input[:comment]) unless input[:comment].nil?
-        data['capacitySpecification'] = Builders::CapacitySpecification.build(input[:capacity_specification]) unless input[:capacity_specification].nil?
-        data['encryptionSpecification'] = Builders::EncryptionSpecification.build(input[:encryption_specification]) unless input[:encryption_specification].nil?
-        data['pointInTimeRecovery'] = Builders::PointInTimeRecovery.build(input[:point_in_time_recovery]) unless input[:point_in_time_recovery].nil?
-        data['ttl'] = Builders::TimeToLive.build(input[:ttl]) unless input[:ttl].nil?
+        data['schemaDefinition'] = SchemaDefinition.build(input[:schema_definition]) unless input[:schema_definition].nil?
+        data['comment'] = Comment.build(input[:comment]) unless input[:comment].nil?
+        data['capacitySpecification'] = CapacitySpecification.build(input[:capacity_specification]) unless input[:capacity_specification].nil?
+        data['encryptionSpecification'] = EncryptionSpecification.build(input[:encryption_specification]) unless input[:encryption_specification].nil?
+        data['pointInTimeRecovery'] = PointInTimeRecovery.build(input[:point_in_time_recovery]) unless input[:point_in_time_recovery].nil?
+        data['ttl'] = TimeToLive.build(input[:ttl]) unless input[:ttl].nil?
         data['defaultTimeToLive'] = input[:default_time_to_live] unless input[:default_time_to_live].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -119,10 +121,10 @@ module AWS::SDK::Keyspaces
     class SchemaDefinition
       def self.build(input)
         data = {}
-        data['allColumns'] = Builders::ColumnDefinitionList.build(input[:all_columns]) unless input[:all_columns].nil?
-        data['partitionKeys'] = Builders::PartitionKeyList.build(input[:partition_keys]) unless input[:partition_keys].nil?
-        data['clusteringKeys'] = Builders::ClusteringKeyList.build(input[:clustering_keys]) unless input[:clustering_keys].nil?
-        data['staticColumns'] = Builders::StaticColumnList.build(input[:static_columns]) unless input[:static_columns].nil?
+        data['allColumns'] = ColumnDefinitionList.build(input[:all_columns]) unless input[:all_columns].nil?
+        data['partitionKeys'] = PartitionKeyList.build(input[:partition_keys]) unless input[:partition_keys].nil?
+        data['clusteringKeys'] = ClusteringKeyList.build(input[:clustering_keys]) unless input[:clustering_keys].nil?
+        data['staticColumns'] = StaticColumnList.build(input[:static_columns]) unless input[:static_columns].nil?
         data
       end
     end
@@ -132,7 +134,7 @@ module AWS::SDK::Keyspaces
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StaticColumn.build(element) unless element.nil?
+          data << StaticColumn.build(element) unless element.nil?
         end
         data
       end
@@ -152,7 +154,7 @@ module AWS::SDK::Keyspaces
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ClusteringKey.build(element) unless element.nil?
+          data << ClusteringKey.build(element) unless element.nil?
         end
         data
       end
@@ -173,7 +175,7 @@ module AWS::SDK::Keyspaces
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PartitionKey.build(element) unless element.nil?
+          data << PartitionKey.build(element) unless element.nil?
         end
         data
       end
@@ -193,7 +195,7 @@ module AWS::SDK::Keyspaces
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ColumnDefinition.build(element) unless element.nil?
+          data << ColumnDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -218,7 +220,7 @@ module AWS::SDK::Keyspaces
         http_req.headers['X-Amz-Target'] = 'KeyspacesService.DeleteKeyspace'
         data = {}
         data['keyspaceName'] = input[:keyspace_name] unless input[:keyspace_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -232,7 +234,7 @@ module AWS::SDK::Keyspaces
         data = {}
         data['keyspaceName'] = input[:keyspace_name] unless input[:keyspace_name].nil?
         data['tableName'] = input[:table_name] unless input[:table_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -245,7 +247,7 @@ module AWS::SDK::Keyspaces
         http_req.headers['X-Amz-Target'] = 'KeyspacesService.GetKeyspace'
         data = {}
         data['keyspaceName'] = input[:keyspace_name] unless input[:keyspace_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -259,7 +261,7 @@ module AWS::SDK::Keyspaces
         data = {}
         data['keyspaceName'] = input[:keyspace_name] unless input[:keyspace_name].nil?
         data['tableName'] = input[:table_name] unless input[:table_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -273,7 +275,7 @@ module AWS::SDK::Keyspaces
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -288,7 +290,7 @@ module AWS::SDK::Keyspaces
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['keyspaceName'] = input[:keyspace_name] unless input[:keyspace_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -303,7 +305,7 @@ module AWS::SDK::Keyspaces
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -320,11 +322,11 @@ module AWS::SDK::Keyspaces
         data['targetKeyspaceName'] = input[:target_keyspace_name] unless input[:target_keyspace_name].nil?
         data['targetTableName'] = input[:target_table_name] unless input[:target_table_name].nil?
         data['restoreTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(input[:restore_timestamp]).to_i unless input[:restore_timestamp].nil?
-        data['capacitySpecificationOverride'] = Builders::CapacitySpecification.build(input[:capacity_specification_override]) unless input[:capacity_specification_override].nil?
-        data['encryptionSpecificationOverride'] = Builders::EncryptionSpecification.build(input[:encryption_specification_override]) unless input[:encryption_specification_override].nil?
-        data['pointInTimeRecoveryOverride'] = Builders::PointInTimeRecovery.build(input[:point_in_time_recovery_override]) unless input[:point_in_time_recovery_override].nil?
-        data['tagsOverride'] = Builders::TagList.build(input[:tags_override]) unless input[:tags_override].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['capacitySpecificationOverride'] = CapacitySpecification.build(input[:capacity_specification_override]) unless input[:capacity_specification_override].nil?
+        data['encryptionSpecificationOverride'] = EncryptionSpecification.build(input[:encryption_specification_override]) unless input[:encryption_specification_override].nil?
+        data['pointInTimeRecoveryOverride'] = PointInTimeRecovery.build(input[:point_in_time_recovery_override]) unless input[:point_in_time_recovery_override].nil?
+        data['tagsOverride'] = TagList.build(input[:tags_override]) unless input[:tags_override].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -337,8 +339,8 @@ module AWS::SDK::Keyspaces
         http_req.headers['X-Amz-Target'] = 'KeyspacesService.TagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -351,8 +353,8 @@ module AWS::SDK::Keyspaces
         http_req.headers['X-Amz-Target'] = 'KeyspacesService.UntagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -366,13 +368,13 @@ module AWS::SDK::Keyspaces
         data = {}
         data['keyspaceName'] = input[:keyspace_name] unless input[:keyspace_name].nil?
         data['tableName'] = input[:table_name] unless input[:table_name].nil?
-        data['addColumns'] = Builders::ColumnDefinitionList.build(input[:add_columns]) unless input[:add_columns].nil?
-        data['capacitySpecification'] = Builders::CapacitySpecification.build(input[:capacity_specification]) unless input[:capacity_specification].nil?
-        data['encryptionSpecification'] = Builders::EncryptionSpecification.build(input[:encryption_specification]) unless input[:encryption_specification].nil?
-        data['pointInTimeRecovery'] = Builders::PointInTimeRecovery.build(input[:point_in_time_recovery]) unless input[:point_in_time_recovery].nil?
-        data['ttl'] = Builders::TimeToLive.build(input[:ttl]) unless input[:ttl].nil?
+        data['addColumns'] = ColumnDefinitionList.build(input[:add_columns]) unless input[:add_columns].nil?
+        data['capacitySpecification'] = CapacitySpecification.build(input[:capacity_specification]) unless input[:capacity_specification].nil?
+        data['encryptionSpecification'] = EncryptionSpecification.build(input[:encryption_specification]) unless input[:encryption_specification].nil?
+        data['pointInTimeRecovery'] = PointInTimeRecovery.build(input[:point_in_time_recovery]) unless input[:point_in_time_recovery].nil?
+        data['ttl'] = TimeToLive.build(input[:ttl]) unless input[:ttl].nil?
         data['defaultTimeToLive'] = input[:default_time_to_live] unless input[:default_time_to_live].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

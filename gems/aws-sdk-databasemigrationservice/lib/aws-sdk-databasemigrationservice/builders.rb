@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::DatabaseMigrationService
   module Builders
 
@@ -19,8 +22,8 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.AddTagsToResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -29,7 +32,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -57,7 +60,7 @@ module AWS::SDK::DatabaseMigrationService
         data['ReplicationInstanceArn'] = input[:replication_instance_arn] unless input[:replication_instance_arn].nil?
         data['ApplyAction'] = input[:apply_action] unless input[:apply_action].nil?
         data['OptInType'] = input[:opt_in_type] unless input[:opt_in_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -70,7 +73,7 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.CancelReplicationTaskAssessmentRun'
         data = {}
         data['ReplicationTaskAssessmentRunArn'] = input[:replication_task_assessment_run_arn] unless input[:replication_task_assessment_run_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -92,31 +95,31 @@ module AWS::SDK::DatabaseMigrationService
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['ExtraConnectionAttributes'] = input[:extra_connection_attributes] unless input[:extra_connection_attributes].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['CertificateArn'] = input[:certificate_arn] unless input[:certificate_arn].nil?
         data['SslMode'] = input[:ssl_mode] unless input[:ssl_mode].nil?
         data['ServiceAccessRoleArn'] = input[:service_access_role_arn] unless input[:service_access_role_arn].nil?
         data['ExternalTableDefinition'] = input[:external_table_definition] unless input[:external_table_definition].nil?
-        data['DynamoDbSettings'] = Builders::DynamoDbSettings.build(input[:dynamo_db_settings]) unless input[:dynamo_db_settings].nil?
-        data['S3Settings'] = Builders::S3Settings.build(input[:s3_settings]) unless input[:s3_settings].nil?
-        data['DmsTransferSettings'] = Builders::DmsTransferSettings.build(input[:dms_transfer_settings]) unless input[:dms_transfer_settings].nil?
-        data['MongoDbSettings'] = Builders::MongoDbSettings.build(input[:mongo_db_settings]) unless input[:mongo_db_settings].nil?
-        data['KinesisSettings'] = Builders::KinesisSettings.build(input[:kinesis_settings]) unless input[:kinesis_settings].nil?
-        data['KafkaSettings'] = Builders::KafkaSettings.build(input[:kafka_settings]) unless input[:kafka_settings].nil?
-        data['ElasticsearchSettings'] = Builders::ElasticsearchSettings.build(input[:elasticsearch_settings]) unless input[:elasticsearch_settings].nil?
-        data['NeptuneSettings'] = Builders::NeptuneSettings.build(input[:neptune_settings]) unless input[:neptune_settings].nil?
-        data['RedshiftSettings'] = Builders::RedshiftSettings.build(input[:redshift_settings]) unless input[:redshift_settings].nil?
-        data['PostgreSQLSettings'] = Builders::PostgreSQLSettings.build(input[:postgre_sql_settings]) unless input[:postgre_sql_settings].nil?
-        data['MySQLSettings'] = Builders::MySQLSettings.build(input[:my_sql_settings]) unless input[:my_sql_settings].nil?
-        data['OracleSettings'] = Builders::OracleSettings.build(input[:oracle_settings]) unless input[:oracle_settings].nil?
-        data['SybaseSettings'] = Builders::SybaseSettings.build(input[:sybase_settings]) unless input[:sybase_settings].nil?
-        data['MicrosoftSQLServerSettings'] = Builders::MicrosoftSQLServerSettings.build(input[:microsoft_sql_server_settings]) unless input[:microsoft_sql_server_settings].nil?
-        data['IBMDb2Settings'] = Builders::IBMDb2Settings.build(input[:ibm_db2_settings]) unless input[:ibm_db2_settings].nil?
+        data['DynamoDbSettings'] = DynamoDbSettings.build(input[:dynamo_db_settings]) unless input[:dynamo_db_settings].nil?
+        data['S3Settings'] = S3Settings.build(input[:s3_settings]) unless input[:s3_settings].nil?
+        data['DmsTransferSettings'] = DmsTransferSettings.build(input[:dms_transfer_settings]) unless input[:dms_transfer_settings].nil?
+        data['MongoDbSettings'] = MongoDbSettings.build(input[:mongo_db_settings]) unless input[:mongo_db_settings].nil?
+        data['KinesisSettings'] = KinesisSettings.build(input[:kinesis_settings]) unless input[:kinesis_settings].nil?
+        data['KafkaSettings'] = KafkaSettings.build(input[:kafka_settings]) unless input[:kafka_settings].nil?
+        data['ElasticsearchSettings'] = ElasticsearchSettings.build(input[:elasticsearch_settings]) unless input[:elasticsearch_settings].nil?
+        data['NeptuneSettings'] = NeptuneSettings.build(input[:neptune_settings]) unless input[:neptune_settings].nil?
+        data['RedshiftSettings'] = RedshiftSettings.build(input[:redshift_settings]) unless input[:redshift_settings].nil?
+        data['PostgreSQLSettings'] = PostgreSQLSettings.build(input[:postgre_sql_settings]) unless input[:postgre_sql_settings].nil?
+        data['MySQLSettings'] = MySQLSettings.build(input[:my_sql_settings]) unless input[:my_sql_settings].nil?
+        data['OracleSettings'] = OracleSettings.build(input[:oracle_settings]) unless input[:oracle_settings].nil?
+        data['SybaseSettings'] = SybaseSettings.build(input[:sybase_settings]) unless input[:sybase_settings].nil?
+        data['MicrosoftSQLServerSettings'] = MicrosoftSQLServerSettings.build(input[:microsoft_sql_server_settings]) unless input[:microsoft_sql_server_settings].nil?
+        data['IBMDb2Settings'] = IBMDb2Settings.build(input[:ibm_db2_settings]) unless input[:ibm_db2_settings].nil?
         data['ResourceIdentifier'] = input[:resource_identifier] unless input[:resource_identifier].nil?
-        data['DocDbSettings'] = Builders::DocDbSettings.build(input[:doc_db_settings]) unless input[:doc_db_settings].nil?
-        data['RedisSettings'] = Builders::RedisSettings.build(input[:redis_settings]) unless input[:redis_settings].nil?
-        data['GcpMySQLSettings'] = Builders::GcpMySQLSettings.build(input[:gcp_my_sql_settings]) unless input[:gcp_my_sql_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DocDbSettings'] = DocDbSettings.build(input[:doc_db_settings]) unless input[:doc_db_settings].nil?
+        data['RedisSettings'] = RedisSettings.build(input[:redis_settings]) unless input[:redis_settings].nil?
+        data['GcpMySQLSettings'] = GcpMySQLSettings.build(input[:gcp_my_sql_settings]) unless input[:gcp_my_sql_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -238,7 +241,7 @@ module AWS::SDK::DatabaseMigrationService
         data['AddSupplementalLogging'] = input[:add_supplemental_logging] unless input[:add_supplemental_logging].nil?
         data['ArchivedLogDestId'] = input[:archived_log_dest_id] unless input[:archived_log_dest_id].nil?
         data['AdditionalArchivedLogDestId'] = input[:additional_archived_log_dest_id] unless input[:additional_archived_log_dest_id].nil?
-        data['ExtraArchivedLogDestIds'] = Builders::IntegerList.build(input[:extra_archived_log_dest_ids]) unless input[:extra_archived_log_dest_ids].nil?
+        data['ExtraArchivedLogDestIds'] = IntegerList.build(input[:extra_archived_log_dest_ids]) unless input[:extra_archived_log_dest_ids].nil?
         data['AllowSelectNestedTables'] = input[:allow_select_nested_tables] unless input[:allow_select_nested_tables].nil?
         data['ParallelAsmReadThreads'] = input[:parallel_asm_read_threads] unless input[:parallel_asm_read_threads].nil?
         data['ReadAheadBlocks'] = input[:read_ahead_blocks] unless input[:read_ahead_blocks].nil?
@@ -545,11 +548,11 @@ module AWS::SDK::DatabaseMigrationService
         data['SubscriptionName'] = input[:subscription_name] unless input[:subscription_name].nil?
         data['SnsTopicArn'] = input[:sns_topic_arn] unless input[:sns_topic_arn].nil?
         data['SourceType'] = input[:source_type] unless input[:source_type].nil?
-        data['EventCategories'] = Builders::EventCategoriesList.build(input[:event_categories]) unless input[:event_categories].nil?
-        data['SourceIds'] = Builders::SourceIdsList.build(input[:source_ids]) unless input[:source_ids].nil?
+        data['EventCategories'] = EventCategoriesList.build(input[:event_categories]) unless input[:event_categories].nil?
+        data['SourceIds'] = SourceIdsList.build(input[:source_ids]) unless input[:source_ids].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -587,7 +590,7 @@ module AWS::SDK::DatabaseMigrationService
         data['Description'] = input[:description] unless input[:description].nil?
         data['ServiceAccessRoleArn'] = input[:service_access_role_arn] unless input[:service_access_role_arn].nil?
         data['S3BucketName'] = input[:s3_bucket_name] unless input[:s3_bucket_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -602,19 +605,19 @@ module AWS::SDK::DatabaseMigrationService
         data['ReplicationInstanceIdentifier'] = input[:replication_instance_identifier] unless input[:replication_instance_identifier].nil?
         data['AllocatedStorage'] = input[:allocated_storage] unless input[:allocated_storage].nil?
         data['ReplicationInstanceClass'] = input[:replication_instance_class] unless input[:replication_instance_class].nil?
-        data['VpcSecurityGroupIds'] = Builders::VpcSecurityGroupIdList.build(input[:vpc_security_group_ids]) unless input[:vpc_security_group_ids].nil?
+        data['VpcSecurityGroupIds'] = VpcSecurityGroupIdList.build(input[:vpc_security_group_ids]) unless input[:vpc_security_group_ids].nil?
         data['AvailabilityZone'] = input[:availability_zone] unless input[:availability_zone].nil?
         data['ReplicationSubnetGroupIdentifier'] = input[:replication_subnet_group_identifier] unless input[:replication_subnet_group_identifier].nil?
         data['PreferredMaintenanceWindow'] = input[:preferred_maintenance_window] unless input[:preferred_maintenance_window].nil?
         data['MultiAZ'] = input[:multi_az] unless input[:multi_az].nil?
         data['EngineVersion'] = input[:engine_version] unless input[:engine_version].nil?
         data['AutoMinorVersionUpgrade'] = input[:auto_minor_version_upgrade] unless input[:auto_minor_version_upgrade].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data['PubliclyAccessible'] = input[:publicly_accessible] unless input[:publicly_accessible].nil?
         data['DnsNameServers'] = input[:dns_name_servers] unless input[:dns_name_servers].nil?
         data['ResourceIdentifier'] = input[:resource_identifier] unless input[:resource_identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -639,9 +642,9 @@ module AWS::SDK::DatabaseMigrationService
         data = {}
         data['ReplicationSubnetGroupIdentifier'] = input[:replication_subnet_group_identifier] unless input[:replication_subnet_group_identifier].nil?
         data['ReplicationSubnetGroupDescription'] = input[:replication_subnet_group_description] unless input[:replication_subnet_group_description].nil?
-        data['SubnetIds'] = Builders::SubnetIdentifierList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubnetIds'] = SubnetIdentifierList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -674,10 +677,10 @@ module AWS::SDK::DatabaseMigrationService
         data['CdcStartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:cdc_start_time]).to_i unless input[:cdc_start_time].nil?
         data['CdcStartPosition'] = input[:cdc_start_position] unless input[:cdc_start_position].nil?
         data['CdcStopPosition'] = input[:cdc_stop_position] unless input[:cdc_stop_position].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['TaskData'] = input[:task_data] unless input[:task_data].nil?
         data['ResourceIdentifier'] = input[:resource_identifier] unless input[:resource_identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -690,7 +693,7 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DeleteCertificate'
         data = {}
         data['CertificateArn'] = input[:certificate_arn] unless input[:certificate_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -704,7 +707,7 @@ module AWS::SDK::DatabaseMigrationService
         data = {}
         data['EndpointArn'] = input[:endpoint_arn] unless input[:endpoint_arn].nil?
         data['ReplicationInstanceArn'] = input[:replication_instance_arn] unless input[:replication_instance_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -717,7 +720,7 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DeleteEndpoint'
         data = {}
         data['EndpointArn'] = input[:endpoint_arn] unless input[:endpoint_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -730,7 +733,7 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DeleteEventSubscription'
         data = {}
         data['SubscriptionName'] = input[:subscription_name] unless input[:subscription_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -743,7 +746,7 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DeleteFleetAdvisorCollector'
         data = {}
         data['CollectorReferencedId'] = input[:collector_referenced_id] unless input[:collector_referenced_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -755,8 +758,8 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DeleteFleetAdvisorDatabases'
         data = {}
-        data['DatabaseIds'] = Builders::StringList.build(input[:database_ids]) unless input[:database_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DatabaseIds'] = StringList.build(input[:database_ids]) unless input[:database_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -780,7 +783,7 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DeleteReplicationInstance'
         data = {}
         data['ReplicationInstanceArn'] = input[:replication_instance_arn] unless input[:replication_instance_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -793,7 +796,7 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DeleteReplicationSubnetGroup'
         data = {}
         data['ReplicationSubnetGroupIdentifier'] = input[:replication_subnet_group_identifier] unless input[:replication_subnet_group_identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -806,7 +809,7 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DeleteReplicationTask'
         data = {}
         data['ReplicationTaskArn'] = input[:replication_task_arn] unless input[:replication_task_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -819,7 +822,7 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DeleteReplicationTaskAssessmentRun'
         data = {}
         data['ReplicationTaskAssessmentRunArn'] = input[:replication_task_assessment_run_arn] unless input[:replication_task_assessment_run_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -831,7 +834,7 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribeAccountAttributes'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -850,7 +853,7 @@ module AWS::SDK::DatabaseMigrationService
         data['MigrationType'] = input[:migration_type] unless input[:migration_type].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -862,10 +865,10 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribeCertificates'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -874,7 +877,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -885,7 +888,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::FilterValueList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValueList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -909,10 +912,10 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribeConnections'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -927,7 +930,7 @@ module AWS::SDK::DatabaseMigrationService
         data['EngineName'] = input[:engine_name] unless input[:engine_name].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -939,10 +942,10 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribeEndpointTypes'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -954,10 +957,10 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribeEndpoints'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -970,8 +973,8 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribeEventCategories'
         data = {}
         data['SourceType'] = input[:source_type] unless input[:source_type].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -984,10 +987,10 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribeEventSubscriptions'
         data = {}
         data['SubscriptionName'] = input[:subscription_name] unless input[:subscription_name].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1004,11 +1007,11 @@ module AWS::SDK::DatabaseMigrationService
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
         data['Duration'] = input[:duration] unless input[:duration].nil?
-        data['EventCategories'] = Builders::EventCategoriesList.build(input[:event_categories]) unless input[:event_categories].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['EventCategories'] = EventCategoriesList.build(input[:event_categories]) unless input[:event_categories].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1020,10 +1023,10 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribeFleetAdvisorCollectors'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1035,10 +1038,10 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribeFleetAdvisorDatabases'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1052,7 +1055,7 @@ module AWS::SDK::DatabaseMigrationService
         data = {}
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1064,10 +1067,10 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribeFleetAdvisorSchemaObjectSummary'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1079,10 +1082,10 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribeFleetAdvisorSchemas'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1096,7 +1099,7 @@ module AWS::SDK::DatabaseMigrationService
         data = {}
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1109,10 +1112,10 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribePendingMaintenanceActions'
         data = {}
         data['ReplicationInstanceArn'] = input[:replication_instance_arn] unless input[:replication_instance_arn].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1125,7 +1128,7 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribeRefreshSchemasStatus'
         data = {}
         data['EndpointArn'] = input[:endpoint_arn] unless input[:endpoint_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1140,7 +1143,7 @@ module AWS::SDK::DatabaseMigrationService
         data['ReplicationInstanceArn'] = input[:replication_instance_arn] unless input[:replication_instance_arn].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1152,10 +1155,10 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribeReplicationInstances'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1167,10 +1170,10 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribeReplicationSubnetGroups'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1185,7 +1188,7 @@ module AWS::SDK::DatabaseMigrationService
         data['ReplicationTaskArn'] = input[:replication_task_arn] unless input[:replication_task_arn].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1197,10 +1200,10 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribeReplicationTaskAssessmentRuns'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1212,10 +1215,10 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribeReplicationTaskIndividualAssessments'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1227,11 +1230,11 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.DescribeReplicationTasks'
         data = {}
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
         data['WithoutSettings'] = input[:without_settings] unless input[:without_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1246,7 +1249,7 @@ module AWS::SDK::DatabaseMigrationService
         data['EndpointArn'] = input[:endpoint_arn] unless input[:endpoint_arn].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1261,8 +1264,8 @@ module AWS::SDK::DatabaseMigrationService
         data['ReplicationTaskArn'] = input[:replication_task_arn] unless input[:replication_task_arn].nil?
         data['MaxRecords'] = input[:max_records] unless input[:max_records].nil?
         data['Marker'] = input[:marker] unless input[:marker].nil?
-        data['Filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1276,9 +1279,9 @@ module AWS::SDK::DatabaseMigrationService
         data = {}
         data['CertificateIdentifier'] = input[:certificate_identifier] unless input[:certificate_identifier].nil?
         data['CertificatePem'] = input[:certificate_pem] unless input[:certificate_pem].nil?
-        data['CertificateWallet'] = Base64::encode64(input[:certificate_wallet]).strip unless input[:certificate_wallet].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CertificateWallet'] = ::Base64::encode64(input[:certificate_wallet]).strip unless input[:certificate_wallet].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1291,8 +1294,8 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['ResourceArnList'] = Builders::ArnList.build(input[:resource_arn_list]) unless input[:resource_arn_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceArnList'] = ArnList.build(input[:resource_arn_list]) unless input[:resource_arn_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1329,26 +1332,26 @@ module AWS::SDK::DatabaseMigrationService
         data['SslMode'] = input[:ssl_mode] unless input[:ssl_mode].nil?
         data['ServiceAccessRoleArn'] = input[:service_access_role_arn] unless input[:service_access_role_arn].nil?
         data['ExternalTableDefinition'] = input[:external_table_definition] unless input[:external_table_definition].nil?
-        data['DynamoDbSettings'] = Builders::DynamoDbSettings.build(input[:dynamo_db_settings]) unless input[:dynamo_db_settings].nil?
-        data['S3Settings'] = Builders::S3Settings.build(input[:s3_settings]) unless input[:s3_settings].nil?
-        data['DmsTransferSettings'] = Builders::DmsTransferSettings.build(input[:dms_transfer_settings]) unless input[:dms_transfer_settings].nil?
-        data['MongoDbSettings'] = Builders::MongoDbSettings.build(input[:mongo_db_settings]) unless input[:mongo_db_settings].nil?
-        data['KinesisSettings'] = Builders::KinesisSettings.build(input[:kinesis_settings]) unless input[:kinesis_settings].nil?
-        data['KafkaSettings'] = Builders::KafkaSettings.build(input[:kafka_settings]) unless input[:kafka_settings].nil?
-        data['ElasticsearchSettings'] = Builders::ElasticsearchSettings.build(input[:elasticsearch_settings]) unless input[:elasticsearch_settings].nil?
-        data['NeptuneSettings'] = Builders::NeptuneSettings.build(input[:neptune_settings]) unless input[:neptune_settings].nil?
-        data['RedshiftSettings'] = Builders::RedshiftSettings.build(input[:redshift_settings]) unless input[:redshift_settings].nil?
-        data['PostgreSQLSettings'] = Builders::PostgreSQLSettings.build(input[:postgre_sql_settings]) unless input[:postgre_sql_settings].nil?
-        data['MySQLSettings'] = Builders::MySQLSettings.build(input[:my_sql_settings]) unless input[:my_sql_settings].nil?
-        data['OracleSettings'] = Builders::OracleSettings.build(input[:oracle_settings]) unless input[:oracle_settings].nil?
-        data['SybaseSettings'] = Builders::SybaseSettings.build(input[:sybase_settings]) unless input[:sybase_settings].nil?
-        data['MicrosoftSQLServerSettings'] = Builders::MicrosoftSQLServerSettings.build(input[:microsoft_sql_server_settings]) unless input[:microsoft_sql_server_settings].nil?
-        data['IBMDb2Settings'] = Builders::IBMDb2Settings.build(input[:ibm_db2_settings]) unless input[:ibm_db2_settings].nil?
-        data['DocDbSettings'] = Builders::DocDbSettings.build(input[:doc_db_settings]) unless input[:doc_db_settings].nil?
-        data['RedisSettings'] = Builders::RedisSettings.build(input[:redis_settings]) unless input[:redis_settings].nil?
+        data['DynamoDbSettings'] = DynamoDbSettings.build(input[:dynamo_db_settings]) unless input[:dynamo_db_settings].nil?
+        data['S3Settings'] = S3Settings.build(input[:s3_settings]) unless input[:s3_settings].nil?
+        data['DmsTransferSettings'] = DmsTransferSettings.build(input[:dms_transfer_settings]) unless input[:dms_transfer_settings].nil?
+        data['MongoDbSettings'] = MongoDbSettings.build(input[:mongo_db_settings]) unless input[:mongo_db_settings].nil?
+        data['KinesisSettings'] = KinesisSettings.build(input[:kinesis_settings]) unless input[:kinesis_settings].nil?
+        data['KafkaSettings'] = KafkaSettings.build(input[:kafka_settings]) unless input[:kafka_settings].nil?
+        data['ElasticsearchSettings'] = ElasticsearchSettings.build(input[:elasticsearch_settings]) unless input[:elasticsearch_settings].nil?
+        data['NeptuneSettings'] = NeptuneSettings.build(input[:neptune_settings]) unless input[:neptune_settings].nil?
+        data['RedshiftSettings'] = RedshiftSettings.build(input[:redshift_settings]) unless input[:redshift_settings].nil?
+        data['PostgreSQLSettings'] = PostgreSQLSettings.build(input[:postgre_sql_settings]) unless input[:postgre_sql_settings].nil?
+        data['MySQLSettings'] = MySQLSettings.build(input[:my_sql_settings]) unless input[:my_sql_settings].nil?
+        data['OracleSettings'] = OracleSettings.build(input[:oracle_settings]) unless input[:oracle_settings].nil?
+        data['SybaseSettings'] = SybaseSettings.build(input[:sybase_settings]) unless input[:sybase_settings].nil?
+        data['MicrosoftSQLServerSettings'] = MicrosoftSQLServerSettings.build(input[:microsoft_sql_server_settings]) unless input[:microsoft_sql_server_settings].nil?
+        data['IBMDb2Settings'] = IBMDb2Settings.build(input[:ibm_db2_settings]) unless input[:ibm_db2_settings].nil?
+        data['DocDbSettings'] = DocDbSettings.build(input[:doc_db_settings]) unless input[:doc_db_settings].nil?
+        data['RedisSettings'] = RedisSettings.build(input[:redis_settings]) unless input[:redis_settings].nil?
         data['ExactSettings'] = input[:exact_settings] unless input[:exact_settings].nil?
-        data['GcpMySQLSettings'] = Builders::GcpMySQLSettings.build(input[:gcp_my_sql_settings]) unless input[:gcp_my_sql_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GcpMySQLSettings'] = GcpMySQLSettings.build(input[:gcp_my_sql_settings]) unless input[:gcp_my_sql_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1363,9 +1366,9 @@ module AWS::SDK::DatabaseMigrationService
         data['SubscriptionName'] = input[:subscription_name] unless input[:subscription_name].nil?
         data['SnsTopicArn'] = input[:sns_topic_arn] unless input[:sns_topic_arn].nil?
         data['SourceType'] = input[:source_type] unless input[:source_type].nil?
-        data['EventCategories'] = Builders::EventCategoriesList.build(input[:event_categories]) unless input[:event_categories].nil?
+        data['EventCategories'] = EventCategoriesList.build(input[:event_categories]) unless input[:event_categories].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1381,14 +1384,14 @@ module AWS::SDK::DatabaseMigrationService
         data['AllocatedStorage'] = input[:allocated_storage] unless input[:allocated_storage].nil?
         data['ApplyImmediately'] = input[:apply_immediately] unless input[:apply_immediately].nil?
         data['ReplicationInstanceClass'] = input[:replication_instance_class] unless input[:replication_instance_class].nil?
-        data['VpcSecurityGroupIds'] = Builders::VpcSecurityGroupIdList.build(input[:vpc_security_group_ids]) unless input[:vpc_security_group_ids].nil?
+        data['VpcSecurityGroupIds'] = VpcSecurityGroupIdList.build(input[:vpc_security_group_ids]) unless input[:vpc_security_group_ids].nil?
         data['PreferredMaintenanceWindow'] = input[:preferred_maintenance_window] unless input[:preferred_maintenance_window].nil?
         data['MultiAZ'] = input[:multi_az] unless input[:multi_az].nil?
         data['EngineVersion'] = input[:engine_version] unless input[:engine_version].nil?
         data['AllowMajorVersionUpgrade'] = input[:allow_major_version_upgrade] unless input[:allow_major_version_upgrade].nil?
         data['AutoMinorVersionUpgrade'] = input[:auto_minor_version_upgrade] unless input[:auto_minor_version_upgrade].nil?
         data['ReplicationInstanceIdentifier'] = input[:replication_instance_identifier] unless input[:replication_instance_identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1402,8 +1405,8 @@ module AWS::SDK::DatabaseMigrationService
         data = {}
         data['ReplicationSubnetGroupIdentifier'] = input[:replication_subnet_group_identifier] unless input[:replication_subnet_group_identifier].nil?
         data['ReplicationSubnetGroupDescription'] = input[:replication_subnet_group_description] unless input[:replication_subnet_group_description].nil?
-        data['SubnetIds'] = Builders::SubnetIdentifierList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubnetIds'] = SubnetIdentifierList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1424,7 +1427,7 @@ module AWS::SDK::DatabaseMigrationService
         data['CdcStartPosition'] = input[:cdc_start_position] unless input[:cdc_start_position].nil?
         data['CdcStopPosition'] = input[:cdc_stop_position] unless input[:cdc_stop_position].nil?
         data['TaskData'] = input[:task_data] unless input[:task_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1438,7 +1441,7 @@ module AWS::SDK::DatabaseMigrationService
         data = {}
         data['ReplicationTaskArn'] = input[:replication_task_arn] unless input[:replication_task_arn].nil?
         data['TargetReplicationInstanceArn'] = input[:target_replication_instance_arn] unless input[:target_replication_instance_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1453,7 +1456,7 @@ module AWS::SDK::DatabaseMigrationService
         data['ReplicationInstanceArn'] = input[:replication_instance_arn] unless input[:replication_instance_arn].nil?
         data['ForceFailover'] = input[:force_failover] unless input[:force_failover].nil?
         data['ForcePlannedFailover'] = input[:force_planned_failover] unless input[:force_planned_failover].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1467,7 +1470,7 @@ module AWS::SDK::DatabaseMigrationService
         data = {}
         data['EndpointArn'] = input[:endpoint_arn] unless input[:endpoint_arn].nil?
         data['ReplicationInstanceArn'] = input[:replication_instance_arn] unless input[:replication_instance_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1480,9 +1483,9 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.ReloadTables'
         data = {}
         data['ReplicationTaskArn'] = input[:replication_task_arn] unless input[:replication_task_arn].nil?
-        data['TablesToReload'] = Builders::TableListToReload.build(input[:tables_to_reload]) unless input[:tables_to_reload].nil?
+        data['TablesToReload'] = TableListToReload.build(input[:tables_to_reload]) unless input[:tables_to_reload].nil?
         data['ReloadOption'] = input[:reload_option] unless input[:reload_option].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1491,7 +1494,7 @@ module AWS::SDK::DatabaseMigrationService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TableToReload.build(element) unless element.nil?
+          data << TableToReload.build(element) unless element.nil?
         end
         data
       end
@@ -1516,8 +1519,8 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.RemoveTagsFromResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::KeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = KeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1540,7 +1543,7 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.RunFleetAdvisorLsaAnalysis'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1557,7 +1560,7 @@ module AWS::SDK::DatabaseMigrationService
         data['CdcStartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:cdc_start_time]).to_i unless input[:cdc_start_time].nil?
         data['CdcStartPosition'] = input[:cdc_start_position] unless input[:cdc_start_position].nil?
         data['CdcStopPosition'] = input[:cdc_stop_position] unless input[:cdc_stop_position].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1570,7 +1573,7 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.StartReplicationTaskAssessment'
         data = {}
         data['ReplicationTaskArn'] = input[:replication_task_arn] unless input[:replication_task_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1589,9 +1592,9 @@ module AWS::SDK::DatabaseMigrationService
         data['ResultEncryptionMode'] = input[:result_encryption_mode] unless input[:result_encryption_mode].nil?
         data['ResultKmsKeyArn'] = input[:result_kms_key_arn] unless input[:result_kms_key_arn].nil?
         data['AssessmentRunName'] = input[:assessment_run_name] unless input[:assessment_run_name].nil?
-        data['IncludeOnly'] = Builders::IncludeTestList.build(input[:include_only]) unless input[:include_only].nil?
-        data['Exclude'] = Builders::ExcludeTestList.build(input[:exclude]) unless input[:exclude].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['IncludeOnly'] = IncludeTestList.build(input[:include_only]) unless input[:include_only].nil?
+        data['Exclude'] = ExcludeTestList.build(input[:exclude]) unless input[:exclude].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1626,7 +1629,7 @@ module AWS::SDK::DatabaseMigrationService
         http_req.headers['X-Amz-Target'] = 'AmazonDMSv20160101.StopReplicationTask'
         data = {}
         data['ReplicationTaskArn'] = input[:replication_task_arn] unless input[:replication_task_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1640,7 +1643,7 @@ module AWS::SDK::DatabaseMigrationService
         data = {}
         data['ReplicationInstanceArn'] = input[:replication_instance_arn] unless input[:replication_instance_arn].nil?
         data['EndpointArn'] = input[:endpoint_arn] unless input[:endpoint_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

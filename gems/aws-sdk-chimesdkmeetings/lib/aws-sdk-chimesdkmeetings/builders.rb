@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ChimeSDKMeetings
   module Builders
 
@@ -30,8 +32,8 @@ module AWS::SDK::ChimeSDKMeetings
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Attendees'] = Builders::CreateAttendeeRequestItemList.build(input[:attendees]) unless input[:attendees].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attendees'] = CreateAttendeeRequestItemList.build(input[:attendees]) unless input[:attendees].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -40,7 +42,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CreateAttendeeRequestItem.build(element) unless element.nil?
+          data << CreateAttendeeRequestItem.build(element) unless element.nil?
         end
         data
       end
@@ -51,7 +53,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.build(input)
         data = {}
         data['ExternalUserId'] = input[:external_user_id] unless input[:external_user_id].nil?
-        data['Capabilities'] = Builders::AttendeeCapabilities.build(input[:capabilities]) unless input[:capabilities].nil?
+        data['Capabilities'] = AttendeeCapabilities.build(input[:capabilities]) unless input[:capabilities].nil?
         data
       end
     end
@@ -87,9 +89,9 @@ module AWS::SDK::ChimeSDKMeetings
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ExcludedAttendeeIds'] = Builders::AttendeeIdsList.build(input[:excluded_attendee_ids]) unless input[:excluded_attendee_ids].nil?
-        data['Capabilities'] = Builders::AttendeeCapabilities.build(input[:capabilities]) unless input[:capabilities].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ExcludedAttendeeIds'] = AttendeeIdsList.build(input[:excluded_attendee_ids]) unless input[:excluded_attendee_ids].nil?
+        data['Capabilities'] = AttendeeCapabilities.build(input[:capabilities]) unless input[:capabilities].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -98,7 +100,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AttendeeIdItem.build(element) unless element.nil?
+          data << AttendeeIdItem.build(element) unless element.nil?
         end
         data
       end
@@ -131,8 +133,8 @@ module AWS::SDK::ChimeSDKMeetings
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ExternalUserId'] = input[:external_user_id] unless input[:external_user_id].nil?
-        data['Capabilities'] = Builders::AttendeeCapabilities.build(input[:capabilities]) unless input[:capabilities].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Capabilities'] = AttendeeCapabilities.build(input[:capabilities]) unless input[:capabilities].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -150,10 +152,10 @@ module AWS::SDK::ChimeSDKMeetings
         data['MediaRegion'] = input[:media_region] unless input[:media_region].nil?
         data['MeetingHostId'] = input[:meeting_host_id] unless input[:meeting_host_id].nil?
         data['ExternalMeetingId'] = input[:external_meeting_id] unless input[:external_meeting_id].nil?
-        data['NotificationsConfiguration'] = Builders::NotificationsConfiguration.build(input[:notifications_configuration]) unless input[:notifications_configuration].nil?
-        data['MeetingFeatures'] = Builders::MeetingFeaturesConfiguration.build(input[:meeting_features]) unless input[:meeting_features].nil?
+        data['NotificationsConfiguration'] = NotificationsConfiguration.build(input[:notifications_configuration]) unless input[:notifications_configuration].nil?
+        data['MeetingFeatures'] = MeetingFeaturesConfiguration.build(input[:meeting_features]) unless input[:meeting_features].nil?
         data['PrimaryMeetingId'] = input[:primary_meeting_id] unless input[:primary_meeting_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -161,7 +163,7 @@ module AWS::SDK::ChimeSDKMeetings
     class MeetingFeaturesConfiguration
       def self.build(input)
         data = {}
-        data['Audio'] = Builders::AudioFeatures.build(input[:audio]) unless input[:audio].nil?
+        data['Audio'] = AudioFeatures.build(input[:audio]) unless input[:audio].nil?
         data
       end
     end
@@ -203,11 +205,11 @@ module AWS::SDK::ChimeSDKMeetings
         data['MediaRegion'] = input[:media_region] unless input[:media_region].nil?
         data['MeetingHostId'] = input[:meeting_host_id] unless input[:meeting_host_id].nil?
         data['ExternalMeetingId'] = input[:external_meeting_id] unless input[:external_meeting_id].nil?
-        data['MeetingFeatures'] = Builders::MeetingFeaturesConfiguration.build(input[:meeting_features]) unless input[:meeting_features].nil?
-        data['NotificationsConfiguration'] = Builders::NotificationsConfiguration.build(input[:notifications_configuration]) unless input[:notifications_configuration].nil?
-        data['Attendees'] = Builders::CreateMeetingWithAttendeesRequestItemList.build(input[:attendees]) unless input[:attendees].nil?
+        data['MeetingFeatures'] = MeetingFeaturesConfiguration.build(input[:meeting_features]) unless input[:meeting_features].nil?
+        data['NotificationsConfiguration'] = NotificationsConfiguration.build(input[:notifications_configuration]) unless input[:notifications_configuration].nil?
+        data['Attendees'] = CreateMeetingWithAttendeesRequestItemList.build(input[:attendees]) unless input[:attendees].nil?
         data['PrimaryMeetingId'] = input[:primary_meeting_id] unless input[:primary_meeting_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -216,7 +218,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CreateAttendeeRequestItem.build(element) unless element.nil?
+          data << CreateAttendeeRequestItem.build(element) unless element.nil?
         end
         data
       end
@@ -337,8 +339,8 @@ module AWS::SDK::ChimeSDKMeetings
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TranscriptionConfiguration'] = Builders::TranscriptionConfiguration.build(input[:transcription_configuration]) unless input[:transcription_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TranscriptionConfiguration'] = TranscriptionConfiguration.build(input[:transcription_configuration]) unless input[:transcription_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -346,8 +348,8 @@ module AWS::SDK::ChimeSDKMeetings
     class TranscriptionConfiguration
       def self.build(input)
         data = {}
-        data['EngineTranscribeSettings'] = Builders::EngineTranscribeSettings.build(input[:engine_transcribe_settings]) unless input[:engine_transcribe_settings].nil?
-        data['EngineTranscribeMedicalSettings'] = Builders::EngineTranscribeMedicalSettings.build(input[:engine_transcribe_medical_settings]) unless input[:engine_transcribe_medical_settings].nil?
+        data['EngineTranscribeSettings'] = EngineTranscribeSettings.build(input[:engine_transcribe_settings]) unless input[:engine_transcribe_settings].nil?
+        data['EngineTranscribeMedicalSettings'] = EngineTranscribeMedicalSettings.build(input[:engine_transcribe_medical_settings]) unless input[:engine_transcribe_medical_settings].nil?
         data
       end
     end
@@ -429,8 +431,8 @@ module AWS::SDK::ChimeSDKMeetings
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Capabilities'] = Builders::AttendeeCapabilities.build(input[:capabilities]) unless input[:capabilities].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Capabilities'] = AttendeeCapabilities.build(input[:capabilities]) unless input[:capabilities].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Imagebuilder
   module Builders
 
@@ -22,7 +24,7 @@ module AWS::SDK::Imagebuilder
         data = {}
         data['imageBuildVersionArn'] = input[:image_build_version_arn] unless input[:image_build_version_arn].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -41,13 +43,13 @@ module AWS::SDK::Imagebuilder
         data['description'] = input[:description] unless input[:description].nil?
         data['changeDescription'] = input[:change_description] unless input[:change_description].nil?
         data['platform'] = input[:platform] unless input[:platform].nil?
-        data['supportedOsVersions'] = Builders::OsVersionList.build(input[:supported_os_versions]) unless input[:supported_os_versions].nil?
+        data['supportedOsVersions'] = OsVersionList.build(input[:supported_os_versions]) unless input[:supported_os_versions].nil?
         data['data'] = input[:data] unless input[:data].nil?
         data['uri'] = input[:uri] unless input[:uri].nil?
         data['kmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -87,19 +89,19 @@ module AWS::SDK::Imagebuilder
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['semanticVersion'] = input[:semantic_version] unless input[:semantic_version].nil?
-        data['components'] = Builders::ComponentConfigurationList.build(input[:components]) unless input[:components].nil?
-        data['instanceConfiguration'] = Builders::InstanceConfiguration.build(input[:instance_configuration]) unless input[:instance_configuration].nil?
+        data['components'] = ComponentConfigurationList.build(input[:components]) unless input[:components].nil?
+        data['instanceConfiguration'] = InstanceConfiguration.build(input[:instance_configuration]) unless input[:instance_configuration].nil?
         data['dockerfileTemplateData'] = input[:dockerfile_template_data] unless input[:dockerfile_template_data].nil?
         data['dockerfileTemplateUri'] = input[:dockerfile_template_uri] unless input[:dockerfile_template_uri].nil?
         data['platformOverride'] = input[:platform_override] unless input[:platform_override].nil?
         data['imageOsVersionOverride'] = input[:image_os_version_override] unless input[:image_os_version_override].nil?
         data['parentImage'] = input[:parent_image] unless input[:parent_image].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['workingDirectory'] = input[:working_directory] unless input[:working_directory].nil?
-        data['targetRepository'] = Builders::TargetContainerRepository.build(input[:target_repository]) unless input[:target_repository].nil?
+        data['targetRepository'] = TargetContainerRepository.build(input[:target_repository]) unless input[:target_repository].nil?
         data['kmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -118,7 +120,7 @@ module AWS::SDK::Imagebuilder
       def self.build(input)
         data = {}
         data['image'] = input[:image] unless input[:image].nil?
-        data['blockDeviceMappings'] = Builders::InstanceBlockDeviceMappings.build(input[:block_device_mappings]) unless input[:block_device_mappings].nil?
+        data['blockDeviceMappings'] = InstanceBlockDeviceMappings.build(input[:block_device_mappings]) unless input[:block_device_mappings].nil?
         data
       end
     end
@@ -128,7 +130,7 @@ module AWS::SDK::Imagebuilder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InstanceBlockDeviceMapping.build(element) unless element.nil?
+          data << InstanceBlockDeviceMapping.build(element) unless element.nil?
         end
         data
       end
@@ -139,7 +141,7 @@ module AWS::SDK::Imagebuilder
       def self.build(input)
         data = {}
         data['deviceName'] = input[:device_name] unless input[:device_name].nil?
-        data['ebs'] = Builders::EbsInstanceBlockDeviceSpecification.build(input[:ebs]) unless input[:ebs].nil?
+        data['ebs'] = EbsInstanceBlockDeviceSpecification.build(input[:ebs]) unless input[:ebs].nil?
         data['virtualName'] = input[:virtual_name] unless input[:virtual_name].nil?
         data['noDevice'] = input[:no_device] unless input[:no_device].nil?
         data
@@ -167,7 +169,7 @@ module AWS::SDK::Imagebuilder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ComponentConfiguration.build(element) unless element.nil?
+          data << ComponentConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -178,7 +180,7 @@ module AWS::SDK::Imagebuilder
       def self.build(input)
         data = {}
         data['componentArn'] = input[:component_arn] unless input[:component_arn].nil?
-        data['parameters'] = Builders::ComponentParameterList.build(input[:parameters]) unless input[:parameters].nil?
+        data['parameters'] = ComponentParameterList.build(input[:parameters]) unless input[:parameters].nil?
         data
       end
     end
@@ -188,7 +190,7 @@ module AWS::SDK::Imagebuilder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ComponentParameter.build(element) unless element.nil?
+          data << ComponentParameter.build(element) unless element.nil?
         end
         data
       end
@@ -199,7 +201,7 @@ module AWS::SDK::Imagebuilder
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['value'] = Builders::ComponentParameterValueList.build(input[:value]) unless input[:value].nil?
+        data['value'] = ComponentParameterValueList.build(input[:value]) unless input[:value].nil?
         data
       end
     end
@@ -227,10 +229,10 @@ module AWS::SDK::Imagebuilder
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['distributions'] = Builders::DistributionList.build(input[:distributions]) unless input[:distributions].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['distributions'] = DistributionList.build(input[:distributions]) unless input[:distributions].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -239,7 +241,7 @@ module AWS::SDK::Imagebuilder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Distribution.build(element) unless element.nil?
+          data << Distribution.build(element) unless element.nil?
         end
         data
       end
@@ -250,12 +252,12 @@ module AWS::SDK::Imagebuilder
       def self.build(input)
         data = {}
         data['region'] = input[:region] unless input[:region].nil?
-        data['amiDistributionConfiguration'] = Builders::AmiDistributionConfiguration.build(input[:ami_distribution_configuration]) unless input[:ami_distribution_configuration].nil?
-        data['containerDistributionConfiguration'] = Builders::ContainerDistributionConfiguration.build(input[:container_distribution_configuration]) unless input[:container_distribution_configuration].nil?
-        data['licenseConfigurationArns'] = Builders::LicenseConfigurationArnList.build(input[:license_configuration_arns]) unless input[:license_configuration_arns].nil?
-        data['launchTemplateConfigurations'] = Builders::LaunchTemplateConfigurationList.build(input[:launch_template_configurations]) unless input[:launch_template_configurations].nil?
-        data['s3ExportConfiguration'] = Builders::S3ExportConfiguration.build(input[:s3_export_configuration]) unless input[:s3_export_configuration].nil?
-        data['fastLaunchConfigurations'] = Builders::FastLaunchConfigurationList.build(input[:fast_launch_configurations]) unless input[:fast_launch_configurations].nil?
+        data['amiDistributionConfiguration'] = AmiDistributionConfiguration.build(input[:ami_distribution_configuration]) unless input[:ami_distribution_configuration].nil?
+        data['containerDistributionConfiguration'] = ContainerDistributionConfiguration.build(input[:container_distribution_configuration]) unless input[:container_distribution_configuration].nil?
+        data['licenseConfigurationArns'] = LicenseConfigurationArnList.build(input[:license_configuration_arns]) unless input[:license_configuration_arns].nil?
+        data['launchTemplateConfigurations'] = LaunchTemplateConfigurationList.build(input[:launch_template_configurations]) unless input[:launch_template_configurations].nil?
+        data['s3ExportConfiguration'] = S3ExportConfiguration.build(input[:s3_export_configuration]) unless input[:s3_export_configuration].nil?
+        data['fastLaunchConfigurations'] = FastLaunchConfigurationList.build(input[:fast_launch_configurations]) unless input[:fast_launch_configurations].nil?
         data
       end
     end
@@ -265,7 +267,7 @@ module AWS::SDK::Imagebuilder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FastLaunchConfiguration.build(element) unless element.nil?
+          data << FastLaunchConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -276,9 +278,9 @@ module AWS::SDK::Imagebuilder
       def self.build(input)
         data = {}
         data['enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['snapshotConfiguration'] = Builders::FastLaunchSnapshotConfiguration.build(input[:snapshot_configuration]) unless input[:snapshot_configuration].nil?
+        data['snapshotConfiguration'] = FastLaunchSnapshotConfiguration.build(input[:snapshot_configuration]) unless input[:snapshot_configuration].nil?
         data['maxParallelLaunches'] = input[:max_parallel_launches] unless input[:max_parallel_launches].nil?
-        data['launchTemplate'] = Builders::FastLaunchLaunchTemplateSpecification.build(input[:launch_template]) unless input[:launch_template].nil?
+        data['launchTemplate'] = FastLaunchLaunchTemplateSpecification.build(input[:launch_template]) unless input[:launch_template].nil?
         data['accountId'] = input[:account_id] unless input[:account_id].nil?
         data
       end
@@ -321,7 +323,7 @@ module AWS::SDK::Imagebuilder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LaunchTemplateConfiguration.build(element) unless element.nil?
+          data << LaunchTemplateConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -354,8 +356,8 @@ module AWS::SDK::Imagebuilder
       def self.build(input)
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['containerTags'] = Builders::StringList.build(input[:container_tags]) unless input[:container_tags].nil?
-        data['targetRepository'] = Builders::TargetContainerRepository.build(input[:target_repository]) unless input[:target_repository].nil?
+        data['containerTags'] = StringList.build(input[:container_tags]) unless input[:container_tags].nil?
+        data['targetRepository'] = TargetContainerRepository.build(input[:target_repository]) unless input[:target_repository].nil?
         data
       end
     end
@@ -377,10 +379,10 @@ module AWS::SDK::Imagebuilder
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['targetAccountIds'] = Builders::AccountList.build(input[:target_account_ids]) unless input[:target_account_ids].nil?
-        data['amiTags'] = Builders::TagMap.build(input[:ami_tags]) unless input[:ami_tags].nil?
+        data['targetAccountIds'] = AccountList.build(input[:target_account_ids]) unless input[:target_account_ids].nil?
+        data['amiTags'] = TagMap.build(input[:ami_tags]) unless input[:ami_tags].nil?
         data['kmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['launchPermission'] = Builders::LaunchPermissionConfiguration.build(input[:launch_permission]) unless input[:launch_permission].nil?
+        data['launchPermission'] = LaunchPermissionConfiguration.build(input[:launch_permission]) unless input[:launch_permission].nil?
         data
       end
     end
@@ -389,10 +391,10 @@ module AWS::SDK::Imagebuilder
     class LaunchPermissionConfiguration
       def self.build(input)
         data = {}
-        data['userIds'] = Builders::AccountList.build(input[:user_ids]) unless input[:user_ids].nil?
-        data['userGroups'] = Builders::StringList.build(input[:user_groups]) unless input[:user_groups].nil?
-        data['organizationArns'] = Builders::OrganizationArnList.build(input[:organization_arns]) unless input[:organization_arns].nil?
-        data['organizationalUnitArns'] = Builders::OrganizationalUnitArnList.build(input[:organizational_unit_arns]) unless input[:organizational_unit_arns].nil?
+        data['userIds'] = AccountList.build(input[:user_ids]) unless input[:user_ids].nil?
+        data['userGroups'] = StringList.build(input[:user_groups]) unless input[:user_groups].nil?
+        data['organizationArns'] = OrganizationArnList.build(input[:organization_arns]) unless input[:organization_arns].nil?
+        data['organizationalUnitArns'] = OrganizationalUnitArnList.build(input[:organizational_unit_arns]) unless input[:organizational_unit_arns].nil?
         data
       end
     end
@@ -444,11 +446,11 @@ module AWS::SDK::Imagebuilder
         data['containerRecipeArn'] = input[:container_recipe_arn] unless input[:container_recipe_arn].nil?
         data['distributionConfigurationArn'] = input[:distribution_configuration_arn] unless input[:distribution_configuration_arn].nil?
         data['infrastructureConfigurationArn'] = input[:infrastructure_configuration_arn] unless input[:infrastructure_configuration_arn].nil?
-        data['imageTestsConfiguration'] = Builders::ImageTestsConfiguration.build(input[:image_tests_configuration]) unless input[:image_tests_configuration].nil?
+        data['imageTestsConfiguration'] = ImageTestsConfiguration.build(input[:image_tests_configuration]) unless input[:image_tests_configuration].nil?
         data['enhancedImageMetadataEnabled'] = input[:enhanced_image_metadata_enabled] unless input[:enhanced_image_metadata_enabled].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -478,13 +480,13 @@ module AWS::SDK::Imagebuilder
         data['containerRecipeArn'] = input[:container_recipe_arn] unless input[:container_recipe_arn].nil?
         data['infrastructureConfigurationArn'] = input[:infrastructure_configuration_arn] unless input[:infrastructure_configuration_arn].nil?
         data['distributionConfigurationArn'] = input[:distribution_configuration_arn] unless input[:distribution_configuration_arn].nil?
-        data['imageTestsConfiguration'] = Builders::ImageTestsConfiguration.build(input[:image_tests_configuration]) unless input[:image_tests_configuration].nil?
+        data['imageTestsConfiguration'] = ImageTestsConfiguration.build(input[:image_tests_configuration]) unless input[:image_tests_configuration].nil?
         data['enhancedImageMetadataEnabled'] = input[:enhanced_image_metadata_enabled] unless input[:enhanced_image_metadata_enabled].nil?
-        data['schedule'] = Builders::Schedule.build(input[:schedule]) unless input[:schedule].nil?
+        data['schedule'] = Schedule.build(input[:schedule]) unless input[:schedule].nil?
         data['status'] = input[:status] unless input[:status].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -512,14 +514,14 @@ module AWS::SDK::Imagebuilder
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['semanticVersion'] = input[:semantic_version] unless input[:semantic_version].nil?
-        data['components'] = Builders::ComponentConfigurationList.build(input[:components]) unless input[:components].nil?
+        data['components'] = ComponentConfigurationList.build(input[:components]) unless input[:components].nil?
         data['parentImage'] = input[:parent_image] unless input[:parent_image].nil?
-        data['blockDeviceMappings'] = Builders::InstanceBlockDeviceMappings.build(input[:block_device_mappings]) unless input[:block_device_mappings].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['blockDeviceMappings'] = InstanceBlockDeviceMappings.build(input[:block_device_mappings]) unless input[:block_device_mappings].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['workingDirectory'] = input[:working_directory] unless input[:working_directory].nil?
-        data['additionalInstanceConfiguration'] = Builders::AdditionalInstanceConfiguration.build(input[:additional_instance_configuration]) unless input[:additional_instance_configuration].nil?
+        data['additionalInstanceConfiguration'] = AdditionalInstanceConfiguration.build(input[:additional_instance_configuration]) unless input[:additional_instance_configuration].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -527,7 +529,7 @@ module AWS::SDK::Imagebuilder
     class AdditionalInstanceConfiguration
       def self.build(input)
         data = {}
-        data['systemsManagerAgent'] = Builders::SystemsManagerAgent.build(input[:systems_manager_agent]) unless input[:systems_manager_agent].nil?
+        data['systemsManagerAgent'] = SystemsManagerAgent.build(input[:systems_manager_agent]) unless input[:systems_manager_agent].nil?
         data['userDataOverride'] = input[:user_data_override] unless input[:user_data_override].nil?
         data
       end
@@ -554,19 +556,19 @@ module AWS::SDK::Imagebuilder
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['instanceTypes'] = Builders::InstanceTypeList.build(input[:instance_types]) unless input[:instance_types].nil?
+        data['instanceTypes'] = InstanceTypeList.build(input[:instance_types]) unless input[:instance_types].nil?
         data['instanceProfileName'] = input[:instance_profile_name] unless input[:instance_profile_name].nil?
-        data['securityGroupIds'] = Builders::SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['securityGroupIds'] = SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data['subnetId'] = input[:subnet_id] unless input[:subnet_id].nil?
-        data['logging'] = Builders::Logging.build(input[:logging]) unless input[:logging].nil?
+        data['logging'] = Logging.build(input[:logging]) unless input[:logging].nil?
         data['keyPair'] = input[:key_pair] unless input[:key_pair].nil?
         data['terminateInstanceOnFailure'] = input[:terminate_instance_on_failure] unless input[:terminate_instance_on_failure].nil?
         data['snsTopicArn'] = input[:sns_topic_arn] unless input[:sns_topic_arn].nil?
-        data['resourceTags'] = Builders::ResourceTagMap.build(input[:resource_tags]) unless input[:resource_tags].nil?
-        data['instanceMetadataOptions'] = Builders::InstanceMetadataOptions.build(input[:instance_metadata_options]) unless input[:instance_metadata_options].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['resourceTags'] = ResourceTagMap.build(input[:resource_tags]) unless input[:resource_tags].nil?
+        data['instanceMetadataOptions'] = InstanceMetadataOptions.build(input[:instance_metadata_options]) unless input[:instance_metadata_options].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -595,7 +597,7 @@ module AWS::SDK::Imagebuilder
     class Logging
       def self.build(input)
         data = {}
-        data['s3Logs'] = Builders::S3Logs.build(input[:s3_logs]) unless input[:s3_logs].nil?
+        data['s3Logs'] = S3Logs.build(input[:s3_logs]) unless input[:s3_logs].nil?
         data
       end
     end
@@ -850,9 +852,9 @@ module AWS::SDK::Imagebuilder
         data['data'] = input[:data] unless input[:data].nil?
         data['uri'] = input[:uri] unless input[:uri].nil?
         data['kmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -872,9 +874,9 @@ module AWS::SDK::Imagebuilder
         data['platform'] = input[:platform] unless input[:platform].nil?
         data['osVersion'] = input[:os_version] unless input[:os_version].nil?
         data['vmImportTaskId'] = input[:vm_import_task_id] unless input[:vm_import_task_id].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -891,7 +893,7 @@ module AWS::SDK::Imagebuilder
         data['componentVersionArn'] = input[:component_version_arn] unless input[:component_version_arn].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -906,11 +908,11 @@ module AWS::SDK::Imagebuilder
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['owner'] = input[:owner] unless input[:owner].nil?
-        data['filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['byName'] = input[:by_name] unless input[:by_name].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -919,7 +921,7 @@ module AWS::SDK::Imagebuilder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -930,7 +932,7 @@ module AWS::SDK::Imagebuilder
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -957,10 +959,10 @@ module AWS::SDK::Imagebuilder
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['owner'] = input[:owner] unless input[:owner].nil?
-        data['filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -974,10 +976,10 @@ module AWS::SDK::Imagebuilder
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -992,10 +994,10 @@ module AWS::SDK::Imagebuilder
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['imageVersionArn'] = input[:image_version_arn] unless input[:image_version_arn].nil?
-        data['filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1012,7 +1014,7 @@ module AWS::SDK::Imagebuilder
         data['imageBuildVersionArn'] = input[:image_build_version_arn] unless input[:image_build_version_arn].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1027,10 +1029,10 @@ module AWS::SDK::Imagebuilder
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['imagePipelineArn'] = input[:image_pipeline_arn] unless input[:image_pipeline_arn].nil?
-        data['filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1044,10 +1046,10 @@ module AWS::SDK::Imagebuilder
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1062,10 +1064,10 @@ module AWS::SDK::Imagebuilder
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['owner'] = input[:owner] unless input[:owner].nil?
-        data['filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1080,12 +1082,12 @@ module AWS::SDK::Imagebuilder
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['owner'] = input[:owner] unless input[:owner].nil?
-        data['filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['byName'] = input[:by_name] unless input[:by_name].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['includeDeprecated'] = input[:include_deprecated] unless input[:include_deprecated].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1099,10 +1101,10 @@ module AWS::SDK::Imagebuilder
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1135,7 +1137,7 @@ module AWS::SDK::Imagebuilder
         data = {}
         data['componentArn'] = input[:component_arn] unless input[:component_arn].nil?
         data['policy'] = input[:policy] unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1151,7 +1153,7 @@ module AWS::SDK::Imagebuilder
         data = {}
         data['containerRecipeArn'] = input[:container_recipe_arn] unless input[:container_recipe_arn].nil?
         data['policy'] = input[:policy] unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1167,7 +1169,7 @@ module AWS::SDK::Imagebuilder
         data = {}
         data['imageArn'] = input[:image_arn] unless input[:image_arn].nil?
         data['policy'] = input[:policy] unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1183,7 +1185,7 @@ module AWS::SDK::Imagebuilder
         data = {}
         data['imageRecipeArn'] = input[:image_recipe_arn] unless input[:image_recipe_arn].nil?
         data['policy'] = input[:policy] unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1199,7 +1201,7 @@ module AWS::SDK::Imagebuilder
         data = {}
         data['imagePipelineArn'] = input[:image_pipeline_arn] unless input[:image_pipeline_arn].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1220,8 +1222,8 @@ module AWS::SDK::Imagebuilder
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1270,9 +1272,9 @@ module AWS::SDK::Imagebuilder
         data = {}
         data['distributionConfigurationArn'] = input[:distribution_configuration_arn] unless input[:distribution_configuration_arn].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['distributions'] = Builders::DistributionList.build(input[:distributions]) unless input[:distributions].nil?
+        data['distributions'] = DistributionList.build(input[:distributions]) unless input[:distributions].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1292,12 +1294,12 @@ module AWS::SDK::Imagebuilder
         data['containerRecipeArn'] = input[:container_recipe_arn] unless input[:container_recipe_arn].nil?
         data['infrastructureConfigurationArn'] = input[:infrastructure_configuration_arn] unless input[:infrastructure_configuration_arn].nil?
         data['distributionConfigurationArn'] = input[:distribution_configuration_arn] unless input[:distribution_configuration_arn].nil?
-        data['imageTestsConfiguration'] = Builders::ImageTestsConfiguration.build(input[:image_tests_configuration]) unless input[:image_tests_configuration].nil?
+        data['imageTestsConfiguration'] = ImageTestsConfiguration.build(input[:image_tests_configuration]) unless input[:image_tests_configuration].nil?
         data['enhancedImageMetadataEnabled'] = input[:enhanced_image_metadata_enabled] unless input[:enhanced_image_metadata_enabled].nil?
-        data['schedule'] = Builders::Schedule.build(input[:schedule]) unless input[:schedule].nil?
+        data['schedule'] = Schedule.build(input[:schedule]) unless input[:schedule].nil?
         data['status'] = input[:status] unless input[:status].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1313,18 +1315,18 @@ module AWS::SDK::Imagebuilder
         data = {}
         data['infrastructureConfigurationArn'] = input[:infrastructure_configuration_arn] unless input[:infrastructure_configuration_arn].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['instanceTypes'] = Builders::InstanceTypeList.build(input[:instance_types]) unless input[:instance_types].nil?
+        data['instanceTypes'] = InstanceTypeList.build(input[:instance_types]) unless input[:instance_types].nil?
         data['instanceProfileName'] = input[:instance_profile_name] unless input[:instance_profile_name].nil?
-        data['securityGroupIds'] = Builders::SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['securityGroupIds'] = SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data['subnetId'] = input[:subnet_id] unless input[:subnet_id].nil?
-        data['logging'] = Builders::Logging.build(input[:logging]) unless input[:logging].nil?
+        data['logging'] = Logging.build(input[:logging]) unless input[:logging].nil?
         data['keyPair'] = input[:key_pair] unless input[:key_pair].nil?
         data['terminateInstanceOnFailure'] = input[:terminate_instance_on_failure] unless input[:terminate_instance_on_failure].nil?
         data['snsTopicArn'] = input[:sns_topic_arn] unless input[:sns_topic_arn].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['resourceTags'] = Builders::ResourceTagMap.build(input[:resource_tags]) unless input[:resource_tags].nil?
-        data['instanceMetadataOptions'] = Builders::InstanceMetadataOptions.build(input[:instance_metadata_options]) unless input[:instance_metadata_options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resourceTags'] = ResourceTagMap.build(input[:resource_tags]) unless input[:resource_tags].nil?
+        data['instanceMetadataOptions'] = InstanceMetadataOptions.build(input[:instance_metadata_options]) unless input[:instance_metadata_options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

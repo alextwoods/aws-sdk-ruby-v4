@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::EBS
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::EBS
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -64,12 +66,12 @@ module AWS::SDK::EBS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ChangedBlocks'] = Stubs::ChangedBlocks.stub(stub[:changed_blocks]) unless stub[:changed_blocks].nil?
+        data['ChangedBlocks'] = ChangedBlocks.stub(stub[:changed_blocks]) unless stub[:changed_blocks].nil?
         data['ExpiryTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiry_time]).to_i unless stub[:expiry_time].nil?
         data['VolumeSize'] = stub[:volume_size] unless stub[:volume_size].nil?
         data['BlockSize'] = stub[:block_size] unless stub[:block_size].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -87,7 +89,7 @@ module AWS::SDK::EBS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChangedBlock.stub(element) unless element.nil?
+          data << ChangedBlock.stub(element) unless element.nil?
         end
         data
       end
@@ -131,12 +133,12 @@ module AWS::SDK::EBS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Blocks'] = Stubs::Blocks.stub(stub[:blocks]) unless stub[:blocks].nil?
+        data['Blocks'] = Blocks.stub(stub[:blocks]) unless stub[:blocks].nil?
         data['ExpiryTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiry_time]).to_i unless stub[:expiry_time].nil?
         data['VolumeSize'] = stub[:volume_size] unless stub[:volume_size].nil?
         data['BlockSize'] = stub[:block_size] unless stub[:block_size].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -154,7 +156,7 @@ module AWS::SDK::EBS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Block.stub(element) unless element.nil?
+          data << Block.stub(element) unless element.nil?
         end
         data
       end
@@ -225,10 +227,10 @@ module AWS::SDK::EBS
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['VolumeSize'] = stub[:volume_size] unless stub[:volume_size].nil?
         data['BlockSize'] = stub[:block_size] unless stub[:block_size].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['ParentSnapshotId'] = stub[:parent_snapshot_id] unless stub[:parent_snapshot_id].nil?
         data['KmsKeyArn'] = stub[:kms_key_arn] unless stub[:kms_key_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -246,7 +248,7 @@ module AWS::SDK::EBS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end

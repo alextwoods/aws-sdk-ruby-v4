@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MTurk
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -33,7 +35,7 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -47,7 +49,7 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -61,7 +63,7 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -76,8 +78,8 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['HIT'] = Stubs::HIT.stub(stub[:hit]) unless stub[:hit].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HIT'] = HIT.stub(stub[:hit]) unless stub[:hit].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -131,7 +133,7 @@ module AWS::SDK::MTurk
         data['Expiration'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration]).to_i unless stub[:expiration].nil?
         data['AssignmentDurationInSeconds'] = stub[:assignment_duration_in_seconds] unless stub[:assignment_duration_in_seconds].nil?
         data['RequesterAnnotation'] = stub[:requester_annotation] unless stub[:requester_annotation].nil?
-        data['QualificationRequirements'] = Stubs::QualificationRequirementList.stub(stub[:qualification_requirements]) unless stub[:qualification_requirements].nil?
+        data['QualificationRequirements'] = QualificationRequirementList.stub(stub[:qualification_requirements]) unless stub[:qualification_requirements].nil?
         data['HITReviewStatus'] = stub[:hit_review_status] unless stub[:hit_review_status].nil?
         data['NumberOfAssignmentsPending'] = stub[:number_of_assignments_pending] unless stub[:number_of_assignments_pending].nil?
         data['NumberOfAssignmentsAvailable'] = stub[:number_of_assignments_available] unless stub[:number_of_assignments_available].nil?
@@ -154,7 +156,7 @@ module AWS::SDK::MTurk
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::QualificationRequirement.stub(element) unless element.nil?
+          data << QualificationRequirement.stub(element) unless element.nil?
         end
         data
       end
@@ -180,8 +182,8 @@ module AWS::SDK::MTurk
         data = {}
         data['QualificationTypeId'] = stub[:qualification_type_id] unless stub[:qualification_type_id].nil?
         data['Comparator'] = stub[:comparator] unless stub[:comparator].nil?
-        data['IntegerValues'] = Stubs::IntegerList.stub(stub[:integer_values]) unless stub[:integer_values].nil?
-        data['LocaleValues'] = Stubs::LocaleList.stub(stub[:locale_values]) unless stub[:locale_values].nil?
+        data['IntegerValues'] = IntegerList.stub(stub[:integer_values]) unless stub[:integer_values].nil?
+        data['LocaleValues'] = LocaleList.stub(stub[:locale_values]) unless stub[:locale_values].nil?
         data['RequiredToPreview'] = stub[:required_to_preview] unless stub[:required_to_preview].nil?
         data['ActionsGuarded'] = stub[:actions_guarded] unless stub[:actions_guarded].nil?
         data
@@ -202,7 +204,7 @@ module AWS::SDK::MTurk
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Locale.stub(element) unless element.nil?
+          data << Locale.stub(element) unless element.nil?
         end
         data
       end
@@ -259,7 +261,7 @@ module AWS::SDK::MTurk
       def self.stub(http_resp, stub:)
         data = {}
         data['HITTypeId'] = stub[:hit_type_id] unless stub[:hit_type_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -274,8 +276,8 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['HIT'] = Stubs::HIT.stub(stub[:hit]) unless stub[:hit].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HIT'] = HIT.stub(stub[:hit]) unless stub[:hit].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -290,8 +292,8 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['QualificationType'] = Stubs::QualificationType.stub(stub[:qualification_type]) unless stub[:qualification_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QualificationType'] = QualificationType.stub(stub[:qualification_type]) unless stub[:qualification_type].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -347,7 +349,7 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -361,7 +363,7 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -375,7 +377,7 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -389,7 +391,7 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -403,7 +405,7 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -421,7 +423,7 @@ module AWS::SDK::MTurk
         data = {}
         data['AvailableBalance'] = stub[:available_balance] unless stub[:available_balance].nil?
         data['OnHoldBalance'] = stub[:on_hold_balance] unless stub[:on_hold_balance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -437,9 +439,9 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Assignment'] = Stubs::Assignment.stub(stub[:assignment]) unless stub[:assignment].nil?
-        data['HIT'] = Stubs::HIT.stub(stub[:hit]) unless stub[:hit].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Assignment'] = Assignment.stub(stub[:assignment]) unless stub[:assignment].nil?
+        data['HIT'] = HIT.stub(stub[:hit]) unless stub[:hit].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -495,7 +497,7 @@ module AWS::SDK::MTurk
       def self.stub(http_resp, stub:)
         data = {}
         data['FileUploadURL'] = stub[:file_upload_url] unless stub[:file_upload_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -510,8 +512,8 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['HIT'] = Stubs::HIT.stub(stub[:hit]) unless stub[:hit].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HIT'] = HIT.stub(stub[:hit]) unless stub[:hit].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -526,8 +528,8 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Qualification'] = Stubs::Qualification.stub(stub[:qualification]) unless stub[:qualification].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Qualification'] = Qualification.stub(stub[:qualification]) unless stub[:qualification].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -554,7 +556,7 @@ module AWS::SDK::MTurk
         data['WorkerId'] = stub[:worker_id] unless stub[:worker_id].nil?
         data['GrantTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:grant_time]).to_i unless stub[:grant_time].nil?
         data['IntegerValue'] = stub[:integer_value] unless stub[:integer_value].nil?
-        data['LocaleValue'] = Stubs::Locale.stub(stub[:locale_value]) unless stub[:locale_value].nil?
+        data['LocaleValue'] = Locale.stub(stub[:locale_value]) unless stub[:locale_value].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data
       end
@@ -570,8 +572,8 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['QualificationType'] = Stubs::QualificationType.stub(stub[:qualification_type]) unless stub[:qualification_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QualificationType'] = QualificationType.stub(stub[:qualification_type]) unless stub[:qualification_type].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -590,8 +592,8 @@ module AWS::SDK::MTurk
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['NumResults'] = stub[:num_results] unless stub[:num_results].nil?
-        data['Assignments'] = Stubs::AssignmentList.stub(stub[:assignments]) unless stub[:assignments].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Assignments'] = AssignmentList.stub(stub[:assignments]) unless stub[:assignments].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -610,7 +612,7 @@ module AWS::SDK::MTurk
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Assignment.stub(element) unless element.nil?
+          data << Assignment.stub(element) unless element.nil?
         end
         data
       end
@@ -630,8 +632,8 @@ module AWS::SDK::MTurk
         data = {}
         data['NumResults'] = stub[:num_results] unless stub[:num_results].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['BonusPayments'] = Stubs::BonusPaymentList.stub(stub[:bonus_payments]) unless stub[:bonus_payments].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BonusPayments'] = BonusPaymentList.stub(stub[:bonus_payments]) unless stub[:bonus_payments].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -650,7 +652,7 @@ module AWS::SDK::MTurk
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BonusPayment.stub(element) unless element.nil?
+          data << BonusPayment.stub(element) unless element.nil?
         end
         data
       end
@@ -696,8 +698,8 @@ module AWS::SDK::MTurk
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['NumResults'] = stub[:num_results] unless stub[:num_results].nil?
-        data['HITs'] = Stubs::HITList.stub(stub[:hi_ts]) unless stub[:hi_ts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HITs'] = HITList.stub(stub[:hi_ts]) unless stub[:hi_ts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -716,7 +718,7 @@ module AWS::SDK::MTurk
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HIT.stub(element) unless element.nil?
+          data << HIT.stub(element) unless element.nil?
         end
         data
       end
@@ -736,8 +738,8 @@ module AWS::SDK::MTurk
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['NumResults'] = stub[:num_results] unless stub[:num_results].nil?
-        data['HITs'] = Stubs::HITList.stub(stub[:hi_ts]) unless stub[:hi_ts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HITs'] = HITList.stub(stub[:hi_ts]) unless stub[:hi_ts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -756,8 +758,8 @@ module AWS::SDK::MTurk
         data = {}
         data['NumResults'] = stub[:num_results] unless stub[:num_results].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['QualificationRequests'] = Stubs::QualificationRequestList.stub(stub[:qualification_requests]) unless stub[:qualification_requests].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QualificationRequests'] = QualificationRequestList.stub(stub[:qualification_requests]) unless stub[:qualification_requests].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -776,7 +778,7 @@ module AWS::SDK::MTurk
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::QualificationRequest.stub(element) unless element.nil?
+          data << QualificationRequest.stub(element) unless element.nil?
         end
         data
       end
@@ -824,8 +826,8 @@ module AWS::SDK::MTurk
         data = {}
         data['NumResults'] = stub[:num_results] unless stub[:num_results].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['QualificationTypes'] = Stubs::QualificationTypeList.stub(stub[:qualification_types]) unless stub[:qualification_types].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QualificationTypes'] = QualificationTypeList.stub(stub[:qualification_types]) unless stub[:qualification_types].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -844,7 +846,7 @@ module AWS::SDK::MTurk
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::QualificationType.stub(element) unless element.nil?
+          data << QualificationType.stub(element) unless element.nil?
         end
         data
       end
@@ -866,12 +868,12 @@ module AWS::SDK::MTurk
       def self.stub(http_resp, stub:)
         data = {}
         data['HITId'] = stub[:hit_id] unless stub[:hit_id].nil?
-        data['AssignmentReviewPolicy'] = Stubs::ReviewPolicy.stub(stub[:assignment_review_policy]) unless stub[:assignment_review_policy].nil?
-        data['HITReviewPolicy'] = Stubs::ReviewPolicy.stub(stub[:hit_review_policy]) unless stub[:hit_review_policy].nil?
-        data['AssignmentReviewReport'] = Stubs::ReviewReport.stub(stub[:assignment_review_report]) unless stub[:assignment_review_report].nil?
-        data['HITReviewReport'] = Stubs::ReviewReport.stub(stub[:hit_review_report]) unless stub[:hit_review_report].nil?
+        data['AssignmentReviewPolicy'] = ReviewPolicy.stub(stub[:assignment_review_policy]) unless stub[:assignment_review_policy].nil?
+        data['HITReviewPolicy'] = ReviewPolicy.stub(stub[:hit_review_policy]) unless stub[:hit_review_policy].nil?
+        data['AssignmentReviewReport'] = ReviewReport.stub(stub[:assignment_review_report]) unless stub[:assignment_review_report].nil?
+        data['HITReviewReport'] = ReviewReport.stub(stub[:hit_review_report]) unless stub[:hit_review_report].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -890,8 +892,8 @@ module AWS::SDK::MTurk
       def self.stub(stub)
         stub ||= Types::ReviewReport.new
         data = {}
-        data['ReviewResults'] = Stubs::ReviewResultDetailList.stub(stub[:review_results]) unless stub[:review_results].nil?
-        data['ReviewActions'] = Stubs::ReviewActionDetailList.stub(stub[:review_actions]) unless stub[:review_actions].nil?
+        data['ReviewResults'] = ReviewResultDetailList.stub(stub[:review_results]) unless stub[:review_results].nil?
+        data['ReviewActions'] = ReviewActionDetailList.stub(stub[:review_actions]) unless stub[:review_actions].nil?
         data
       end
     end
@@ -910,7 +912,7 @@ module AWS::SDK::MTurk
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReviewActionDetail.stub(element) unless element.nil?
+          data << ReviewActionDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -962,7 +964,7 @@ module AWS::SDK::MTurk
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReviewResultDetail.stub(element) unless element.nil?
+          data << ReviewResultDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1011,7 +1013,7 @@ module AWS::SDK::MTurk
         stub ||= Types::ReviewPolicy.new
         data = {}
         data['PolicyName'] = stub[:policy_name] unless stub[:policy_name].nil?
-        data['Parameters'] = Stubs::PolicyParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = PolicyParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -1030,7 +1032,7 @@ module AWS::SDK::MTurk
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PolicyParameter.stub(element) unless element.nil?
+          data << PolicyParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -1052,8 +1054,8 @@ module AWS::SDK::MTurk
         stub ||= Types::PolicyParameter.new
         data = {}
         data['Key'] = stub[:key] unless stub[:key].nil?
-        data['Values'] = Stubs::StringList.stub(stub[:values]) unless stub[:values].nil?
-        data['MapEntries'] = Stubs::ParameterMapEntryList.stub(stub[:map_entries]) unless stub[:map_entries].nil?
+        data['Values'] = StringList.stub(stub[:values]) unless stub[:values].nil?
+        data['MapEntries'] = ParameterMapEntryList.stub(stub[:map_entries]) unless stub[:map_entries].nil?
         data
       end
     end
@@ -1072,7 +1074,7 @@ module AWS::SDK::MTurk
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ParameterMapEntry.stub(element) unless element.nil?
+          data << ParameterMapEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1093,7 +1095,7 @@ module AWS::SDK::MTurk
         stub ||= Types::ParameterMapEntry.new
         data = {}
         data['Key'] = stub[:key] unless stub[:key].nil?
-        data['Values'] = Stubs::StringList.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = StringList.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -1132,8 +1134,8 @@ module AWS::SDK::MTurk
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['NumResults'] = stub[:num_results] unless stub[:num_results].nil?
-        data['HITs'] = Stubs::HITList.stub(stub[:hi_ts]) unless stub[:hi_ts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HITs'] = HITList.stub(stub[:hi_ts]) unless stub[:hi_ts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1152,8 +1154,8 @@ module AWS::SDK::MTurk
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['NumResults'] = stub[:num_results] unless stub[:num_results].nil?
-        data['WorkerBlocks'] = Stubs::WorkerBlockList.stub(stub[:worker_blocks]) unless stub[:worker_blocks].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WorkerBlocks'] = WorkerBlockList.stub(stub[:worker_blocks]) unless stub[:worker_blocks].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1172,7 +1174,7 @@ module AWS::SDK::MTurk
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkerBlock.stub(element) unless element.nil?
+          data << WorkerBlock.stub(element) unless element.nil?
         end
         data
       end
@@ -1212,8 +1214,8 @@ module AWS::SDK::MTurk
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['NumResults'] = stub[:num_results] unless stub[:num_results].nil?
-        data['Qualifications'] = Stubs::QualificationList.stub(stub[:qualifications]) unless stub[:qualifications].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Qualifications'] = QualificationList.stub(stub[:qualifications]) unless stub[:qualifications].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1232,7 +1234,7 @@ module AWS::SDK::MTurk
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Qualification.stub(element) unless element.nil?
+          data << Qualification.stub(element) unless element.nil?
         end
         data
       end
@@ -1248,8 +1250,8 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['NotifyWorkersFailureStatuses'] = Stubs::NotifyWorkersFailureStatusList.stub(stub[:notify_workers_failure_statuses]) unless stub[:notify_workers_failure_statuses].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NotifyWorkersFailureStatuses'] = NotifyWorkersFailureStatusList.stub(stub[:notify_workers_failure_statuses]) unless stub[:notify_workers_failure_statuses].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1268,7 +1270,7 @@ module AWS::SDK::MTurk
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NotifyWorkersFailureStatus.stub(element) unless element.nil?
+          data << NotifyWorkersFailureStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -1305,7 +1307,7 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1319,7 +1321,7 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1333,7 +1335,7 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1347,7 +1349,7 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1361,7 +1363,7 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1375,7 +1377,7 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1389,7 +1391,7 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1403,7 +1405,7 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1418,8 +1420,8 @@ module AWS::SDK::MTurk
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['QualificationType'] = Stubs::QualificationType.stub(stub[:qualification_type]) unless stub[:qualification_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QualificationType'] = QualificationType.stub(stub[:qualification_type]) unless stub[:qualification_type].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

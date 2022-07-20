@@ -18,7 +18,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('AcceptReservedNodeExchangeResult')
         xml.at('ExchangedReservedNode') do |node|
-          data.exchanged_reserved_node = Parsers::ReservedNode.parse(node)
+          data.exchanged_reserved_node = ReservedNode.parse(node)
         end
         data
       end
@@ -62,7 +62,7 @@ module AWS::SDK::Redshift
         end
         xml.at('RecurringCharges') do |node|
           children = node.children('RecurringCharge')
-          data.recurring_charges = Parsers::RecurringChargeList.parse(children)
+          data.recurring_charges = RecurringChargeList.parse(children)
         end
         xml.at('ReservedNodeOfferingType') do |node|
           data.reserved_node_offering_type = (node.text || '')
@@ -75,7 +75,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::RecurringCharge.parse(node)
+          data << RecurringCharge.parse(node)
         end
         data
       end
@@ -269,7 +269,7 @@ module AWS::SDK::Redshift
         end
         xml.at('DataShareAssociations') do |node|
           children = node.children('member')
-          data.data_share_associations = Parsers::DataShareAssociationList.parse(children)
+          data.data_share_associations = DataShareAssociationList.parse(children)
         end
         xml.at('ManagedBy') do |node|
           data.managed_by = (node.text || '')
@@ -282,7 +282,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DataShareAssociation.parse(node)
+          data << DataShareAssociation.parse(node)
         end
         data
       end
@@ -346,7 +346,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('AuthorizeClusterSecurityGroupIngressResult')
         xml.at('ClusterSecurityGroup') do |node|
-          data.cluster_security_group = Parsers::ClusterSecurityGroup.parse(node)
+          data.cluster_security_group = ClusterSecurityGroup.parse(node)
         end
         data
       end
@@ -363,15 +363,15 @@ module AWS::SDK::Redshift
         end
         xml.at('EC2SecurityGroups') do |node|
           children = node.children('EC2SecurityGroup')
-          data.ec2_security_groups = Parsers::EC2SecurityGroupList.parse(children)
+          data.ec2_security_groups = EC2SecurityGroupList.parse(children)
         end
         xml.at('IPRanges') do |node|
           children = node.children('IPRange')
-          data.ip_ranges = Parsers::IPRangeList.parse(children)
+          data.ip_ranges = IPRangeList.parse(children)
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -381,7 +381,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Tag.parse(node)
+          data << Tag.parse(node)
         end
         data
       end
@@ -404,7 +404,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::IPRange.parse(node)
+          data << IPRange.parse(node)
         end
         data
       end
@@ -421,7 +421,7 @@ module AWS::SDK::Redshift
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -431,7 +431,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EC2SecurityGroup.parse(node)
+          data << EC2SecurityGroup.parse(node)
         end
         data
       end
@@ -451,7 +451,7 @@ module AWS::SDK::Redshift
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -531,7 +531,7 @@ module AWS::SDK::Redshift
         end
         xml.at('DataShareAssociations') do |node|
           children = node.children('member')
-          data.data_share_associations = Parsers::DataShareAssociationList.parse(children)
+          data.data_share_associations = DataShareAssociationList.parse(children)
         end
         xml.at('ManagedBy') do |node|
           data.managed_by = (node.text || '')
@@ -570,7 +570,7 @@ module AWS::SDK::Redshift
         end
         xml.at('AllowedVPCs') do |node|
           children = node.children('VpcIdentifier')
-          data.allowed_vp_cs = Parsers::VpcIdentifierList.parse(children)
+          data.allowed_vp_cs = VpcIdentifierList.parse(children)
         end
         xml.at('EndpointCount') do |node|
           data.endpoint_count = node.text&.to_i
@@ -653,7 +653,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('AuthorizeSnapshotAccessResult')
         xml.at('Snapshot') do |node|
-          data.snapshot = Parsers::Snapshot.parse(node)
+          data.snapshot = Snapshot.parse(node)
         end
         data
       end
@@ -718,7 +718,7 @@ module AWS::SDK::Redshift
         end
         xml.at('AccountsWithRestoreAccess') do |node|
           children = node.children('AccountWithRestoreAccess')
-          data.accounts_with_restore_access = Parsers::AccountsWithRestoreAccessList.parse(children)
+          data.accounts_with_restore_access = AccountsWithRestoreAccessList.parse(children)
         end
         xml.at('OwnerAccount') do |node|
           data.owner_account = (node.text || '')
@@ -746,11 +746,11 @@ module AWS::SDK::Redshift
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('RestorableNodeTypes') do |node|
           children = node.children('NodeType')
-          data.restorable_node_types = Parsers::RestorableNodeTypeList.parse(children)
+          data.restorable_node_types = RestorableNodeTypeList.parse(children)
         end
         xml.at('EnhancedVpcRouting') do |node|
           data.enhanced_vpc_routing = (node.text == 'true')
@@ -785,7 +785,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AccountWithRestoreAccess.parse(node)
+          data << AccountWithRestoreAccess.parse(node)
         end
         data
       end
@@ -869,11 +869,11 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('BatchDeleteClusterSnapshotsResult')
         xml.at('Resources') do |node|
           children = node.children('String')
-          data.resources = Parsers::SnapshotIdentifierList.parse(children)
+          data.resources = SnapshotIdentifierList.parse(children)
         end
         xml.at('Errors') do |node|
           children = node.children('SnapshotErrorMessage')
-          data.errors = Parsers::BatchSnapshotOperationErrorList.parse(children)
+          data.errors = BatchSnapshotOperationErrorList.parse(children)
         end
         data
       end
@@ -883,7 +883,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SnapshotErrorMessage.parse(node)
+          data << SnapshotErrorMessage.parse(node)
         end
         data
       end
@@ -941,11 +941,11 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('BatchModifyClusterSnapshotsResult')
         xml.at('Resources') do |node|
           children = node.children('String')
-          data.resources = Parsers::SnapshotIdentifierList.parse(children)
+          data.resources = SnapshotIdentifierList.parse(children)
         end
         xml.at('Errors') do |node|
           children = node.children('SnapshotErrorMessage')
-          data.errors = Parsers::BatchSnapshotOperationErrors.parse(children)
+          data.errors = BatchSnapshotOperationErrors.parse(children)
         end
         data
       end
@@ -955,7 +955,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SnapshotErrorMessage.parse(node)
+          data << SnapshotErrorMessage.parse(node)
         end
         data
       end
@@ -1010,15 +1010,15 @@ module AWS::SDK::Redshift
         end
         xml.at('ImportTablesCompleted') do |node|
           children = node.children('member')
-          data.import_tables_completed = Parsers::ImportTablesCompleted.parse(children)
+          data.import_tables_completed = ImportTablesCompleted.parse(children)
         end
         xml.at('ImportTablesInProgress') do |node|
           children = node.children('member')
-          data.import_tables_in_progress = Parsers::ImportTablesInProgress.parse(children)
+          data.import_tables_in_progress = ImportTablesInProgress.parse(children)
         end
         xml.at('ImportTablesNotStarted') do |node|
           children = node.children('member')
-          data.import_tables_not_started = Parsers::ImportTablesNotStarted.parse(children)
+          data.import_tables_not_started = ImportTablesNotStarted.parse(children)
         end
         xml.at('AvgResizeRateInMegaBytesPerSecond') do |node|
           data.avg_resize_rate_in_mega_bytes_per_second = Hearth::NumberHelper.deserialize(node.text)
@@ -1103,7 +1103,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CopyClusterSnapshotResult')
         xml.at('Snapshot') do |node|
-          data.snapshot = Parsers::Snapshot.parse(node)
+          data.snapshot = Snapshot.parse(node)
         end
         data
       end
@@ -1204,7 +1204,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateClusterResult')
         xml.at('Cluster') do |node|
-          data.cluster = Parsers::Cluster.parse(node)
+          data.cluster = Cluster.parse(node)
         end
         data
       end
@@ -1235,7 +1235,7 @@ module AWS::SDK::Redshift
           data.db_name = (node.text || '')
         end
         xml.at('Endpoint') do |node|
-          data.endpoint = Parsers::Endpoint.parse(node)
+          data.endpoint = Endpoint.parse(node)
         end
         xml.at('ClusterCreateTime') do |node|
           data.cluster_create_time = Time.parse(node.text) if node.text
@@ -1248,15 +1248,15 @@ module AWS::SDK::Redshift
         end
         xml.at('ClusterSecurityGroups') do |node|
           children = node.children('ClusterSecurityGroup')
-          data.cluster_security_groups = Parsers::ClusterSecurityGroupMembershipList.parse(children)
+          data.cluster_security_groups = ClusterSecurityGroupMembershipList.parse(children)
         end
         xml.at('VpcSecurityGroups') do |node|
           children = node.children('VpcSecurityGroup')
-          data.vpc_security_groups = Parsers::VpcSecurityGroupMembershipList.parse(children)
+          data.vpc_security_groups = VpcSecurityGroupMembershipList.parse(children)
         end
         xml.at('ClusterParameterGroups') do |node|
           children = node.children('ClusterParameterGroup')
-          data.cluster_parameter_groups = Parsers::ClusterParameterGroupStatusList.parse(children)
+          data.cluster_parameter_groups = ClusterParameterGroupStatusList.parse(children)
         end
         xml.at('ClusterSubnetGroupName') do |node|
           data.cluster_subnet_group_name = (node.text || '')
@@ -1271,7 +1271,7 @@ module AWS::SDK::Redshift
           data.preferred_maintenance_window = (node.text || '')
         end
         xml.at('PendingModifiedValues') do |node|
-          data.pending_modified_values = Parsers::PendingModifiedValues.parse(node)
+          data.pending_modified_values = PendingModifiedValues.parse(node)
         end
         xml.at('ClusterVersion') do |node|
           data.cluster_version = (node.text || '')
@@ -1289,33 +1289,33 @@ module AWS::SDK::Redshift
           data.encrypted = (node.text == 'true')
         end
         xml.at('RestoreStatus') do |node|
-          data.restore_status = Parsers::RestoreStatus.parse(node)
+          data.restore_status = RestoreStatus.parse(node)
         end
         xml.at('DataTransferProgress') do |node|
-          data.data_transfer_progress = Parsers::DataTransferProgress.parse(node)
+          data.data_transfer_progress = DataTransferProgress.parse(node)
         end
         xml.at('HsmStatus') do |node|
-          data.hsm_status = Parsers::HsmStatus.parse(node)
+          data.hsm_status = HsmStatus.parse(node)
         end
         xml.at('ClusterSnapshotCopyStatus') do |node|
-          data.cluster_snapshot_copy_status = Parsers::ClusterSnapshotCopyStatus.parse(node)
+          data.cluster_snapshot_copy_status = ClusterSnapshotCopyStatus.parse(node)
         end
         xml.at('ClusterPublicKey') do |node|
           data.cluster_public_key = (node.text || '')
         end
         xml.at('ClusterNodes') do |node|
           children = node.children('member')
-          data.cluster_nodes = Parsers::ClusterNodesList.parse(children)
+          data.cluster_nodes = ClusterNodesList.parse(children)
         end
         xml.at('ElasticIpStatus') do |node|
-          data.elastic_ip_status = Parsers::ElasticIpStatus.parse(node)
+          data.elastic_ip_status = ElasticIpStatus.parse(node)
         end
         xml.at('ClusterRevisionNumber') do |node|
           data.cluster_revision_number = (node.text || '')
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('KmsKeyId') do |node|
           data.kms_key_id = (node.text || '')
@@ -1325,11 +1325,11 @@ module AWS::SDK::Redshift
         end
         xml.at('IamRoles') do |node|
           children = node.children('ClusterIamRole')
-          data.iam_roles = Parsers::ClusterIamRoleList.parse(children)
+          data.iam_roles = ClusterIamRoleList.parse(children)
         end
         xml.at('PendingActions') do |node|
           children = node.children('member')
-          data.pending_actions = Parsers::PendingActionsList.parse(children)
+          data.pending_actions = PendingActionsList.parse(children)
         end
         xml.at('MaintenanceTrackName') do |node|
           data.maintenance_track_name = (node.text || '')
@@ -1339,7 +1339,7 @@ module AWS::SDK::Redshift
         end
         xml.at('DeferredMaintenanceWindows') do |node|
           children = node.children('DeferredMaintenanceWindow')
-          data.deferred_maintenance_windows = Parsers::DeferredMaintenanceWindowsList.parse(children)
+          data.deferred_maintenance_windows = DeferredMaintenanceWindowsList.parse(children)
         end
         xml.at('SnapshotScheduleIdentifier') do |node|
           data.snapshot_schedule_identifier = (node.text || '')
@@ -1357,7 +1357,7 @@ module AWS::SDK::Redshift
           data.next_maintenance_window_start_time = Time.parse(node.text) if node.text
         end
         xml.at('ResizeInfo') do |node|
-          data.resize_info = Parsers::ResizeInfo.parse(node)
+          data.resize_info = ResizeInfo.parse(node)
         end
         xml.at('AvailabilityZoneRelocationStatus') do |node|
           data.availability_zone_relocation_status = (node.text || '')
@@ -1369,13 +1369,13 @@ module AWS::SDK::Redshift
           data.total_storage_capacity_in_mega_bytes = node.text&.to_i
         end
         xml.at('AquaConfiguration') do |node|
-          data.aqua_configuration = Parsers::AquaConfiguration.parse(node)
+          data.aqua_configuration = AquaConfiguration.parse(node)
         end
         xml.at('DefaultIamRoleArn') do |node|
           data.default_iam_role_arn = (node.text || '')
         end
         xml.at('ReservedNodeExchangeStatus') do |node|
-          data.reserved_node_exchange_status = Parsers::ReservedNodeExchangeStatus.parse(node)
+          data.reserved_node_exchange_status = ReservedNodeExchangeStatus.parse(node)
         end
         return data
       end
@@ -1445,7 +1445,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DeferredMaintenanceWindow.parse(node)
+          data << DeferredMaintenanceWindow.parse(node)
         end
         data
       end
@@ -1481,7 +1481,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClusterIamRole.parse(node)
+          data << ClusterIamRole.parse(node)
         end
         data
       end
@@ -1517,7 +1517,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClusterNode.parse(node)
+          data << ClusterNode.parse(node)
         end
         data
       end
@@ -1668,7 +1668,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClusterParameterGroupStatus.parse(node)
+          data << ClusterParameterGroupStatus.parse(node)
         end
         data
       end
@@ -1685,7 +1685,7 @@ module AWS::SDK::Redshift
         end
         xml.at('ClusterParameterStatusList') do |node|
           children = node.children('member')
-          data.cluster_parameter_status_list = Parsers::ClusterParameterStatusList.parse(children)
+          data.cluster_parameter_status_list = ClusterParameterStatusList.parse(children)
         end
         return data
       end
@@ -1695,7 +1695,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClusterParameterStatus.parse(node)
+          data << ClusterParameterStatus.parse(node)
         end
         data
       end
@@ -1721,7 +1721,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VpcSecurityGroupMembership.parse(node)
+          data << VpcSecurityGroupMembership.parse(node)
         end
         data
       end
@@ -1744,7 +1744,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClusterSecurityGroupMembership.parse(node)
+          data << ClusterSecurityGroupMembership.parse(node)
         end
         data
       end
@@ -1774,7 +1774,7 @@ module AWS::SDK::Redshift
         end
         xml.at('VpcEndpoints') do |node|
           children = node.children('VpcEndpoint')
-          data.vpc_endpoints = Parsers::VpcEndpointsList.parse(children)
+          data.vpc_endpoints = VpcEndpointsList.parse(children)
         end
         return data
       end
@@ -1784,7 +1784,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VpcEndpoint.parse(node)
+          data << VpcEndpoint.parse(node)
         end
         data
       end
@@ -1801,7 +1801,7 @@ module AWS::SDK::Redshift
         end
         xml.at('NetworkInterfaces') do |node|
           children = node.children('NetworkInterface')
-          data.network_interfaces = Parsers::NetworkInterfaceList.parse(children)
+          data.network_interfaces = NetworkInterfaceList.parse(children)
         end
         return data
       end
@@ -1811,7 +1811,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NetworkInterface.parse(node)
+          data << NetworkInterface.parse(node)
         end
         data
       end
@@ -2096,7 +2096,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateClusterParameterGroupResult')
         xml.at('ClusterParameterGroup') do |node|
-          data.cluster_parameter_group = Parsers::ClusterParameterGroup.parse(node)
+          data.cluster_parameter_group = ClusterParameterGroup.parse(node)
         end
         data
       end
@@ -2116,7 +2116,7 @@ module AWS::SDK::Redshift
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -2158,7 +2158,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateClusterSecurityGroupResult')
         xml.at('ClusterSecurityGroup') do |node|
-          data.cluster_security_group = Parsers::ClusterSecurityGroup.parse(node)
+          data.cluster_security_group = ClusterSecurityGroup.parse(node)
         end
         data
       end
@@ -2200,7 +2200,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateClusterSnapshotResult')
         xml.at('Snapshot') do |node|
-          data.snapshot = Parsers::Snapshot.parse(node)
+          data.snapshot = Snapshot.parse(node)
         end
         data
       end
@@ -2214,7 +2214,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateClusterSubnetGroupResult')
         xml.at('ClusterSubnetGroup') do |node|
-          data.cluster_subnet_group = Parsers::ClusterSubnetGroup.parse(node)
+          data.cluster_subnet_group = ClusterSubnetGroup.parse(node)
         end
         data
       end
@@ -2237,11 +2237,11 @@ module AWS::SDK::Redshift
         end
         xml.at('Subnets') do |node|
           children = node.children('Subnet')
-          data.subnets = Parsers::SubnetList.parse(children)
+          data.subnets = SubnetList.parse(children)
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -2251,7 +2251,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Subnet.parse(node)
+          data << Subnet.parse(node)
         end
         data
       end
@@ -2264,7 +2264,7 @@ module AWS::SDK::Redshift
           data.subnet_identifier = (node.text || '')
         end
         xml.at('SubnetAvailabilityZone') do |node|
-          data.subnet_availability_zone = Parsers::AvailabilityZone.parse(node)
+          data.subnet_availability_zone = AvailabilityZone.parse(node)
         end
         xml.at('SubnetStatus') do |node|
           data.subnet_status = (node.text || '')
@@ -2281,7 +2281,7 @@ module AWS::SDK::Redshift
         end
         xml.at('SupportedPlatforms') do |node|
           children = node.children('SupportedPlatform')
-          data.supported_platforms = Parsers::SupportedPlatformsList.parse(children)
+          data.supported_platforms = SupportedPlatformsList.parse(children)
         end
         return data
       end
@@ -2291,7 +2291,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SupportedPlatform.parse(node)
+          data << SupportedPlatform.parse(node)
         end
         data
       end
@@ -2382,10 +2382,10 @@ module AWS::SDK::Redshift
         end
         xml.at('VpcSecurityGroups') do |node|
           children = node.children('VpcSecurityGroup')
-          data.vpc_security_groups = Parsers::VpcSecurityGroupMembershipList.parse(children)
+          data.vpc_security_groups = VpcSecurityGroupMembershipList.parse(children)
         end
         xml.at('VpcEndpoint') do |node|
-          data.vpc_endpoint = Parsers::VpcEndpoint.parse(node)
+          data.vpc_endpoint = VpcEndpoint.parse(node)
         end
         data
       end
@@ -2455,7 +2455,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateEventSubscriptionResult')
         xml.at('EventSubscription') do |node|
-          data.event_subscription = Parsers::EventSubscription.parse(node)
+          data.event_subscription = EventSubscription.parse(node)
         end
         data
       end
@@ -2484,11 +2484,11 @@ module AWS::SDK::Redshift
         end
         xml.at('SourceIdsList') do |node|
           children = node.children('SourceId')
-          data.source_ids_list = Parsers::SourceIdsList.parse(children)
+          data.source_ids_list = SourceIdsList.parse(children)
         end
         xml.at('EventCategoriesList') do |node|
           children = node.children('EventCategory')
-          data.event_categories_list = Parsers::EventCategoriesList.parse(children)
+          data.event_categories_list = EventCategoriesList.parse(children)
         end
         xml.at('Severity') do |node|
           data.severity = (node.text || '')
@@ -2498,7 +2498,7 @@ module AWS::SDK::Redshift
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -2658,7 +2658,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateHsmClientCertificateResult')
         xml.at('HsmClientCertificate') do |node|
-          data.hsm_client_certificate = Parsers::HsmClientCertificate.parse(node)
+          data.hsm_client_certificate = HsmClientCertificate.parse(node)
         end
         data
       end
@@ -2675,7 +2675,7 @@ module AWS::SDK::Redshift
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -2717,7 +2717,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateHsmConfigurationResult')
         xml.at('HsmConfiguration') do |node|
-          data.hsm_configuration = Parsers::HsmConfiguration.parse(node)
+          data.hsm_configuration = HsmConfiguration.parse(node)
         end
         data
       end
@@ -2740,7 +2740,7 @@ module AWS::SDK::Redshift
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -2785,7 +2785,7 @@ module AWS::SDK::Redshift
           data.scheduled_action_name = (node.text || '')
         end
         xml.at('TargetAction') do |node|
-          data.target_action = Parsers::ScheduledActionType.parse(node)
+          data.target_action = ScheduledActionType.parse(node)
         end
         xml.at('Schedule') do |node|
           data.schedule = (node.text || '')
@@ -2801,7 +2801,7 @@ module AWS::SDK::Redshift
         end
         xml.at('NextInvocations') do |node|
           children = node.children('ScheduledActionTime')
-          data.next_invocations = Parsers::ScheduledActionTimeList.parse(children)
+          data.next_invocations = ScheduledActionTimeList.parse(children)
         end
         xml.at('StartTime') do |node|
           data.start_time = Time.parse(node.text) if node.text
@@ -2827,13 +2827,13 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = Types::ScheduledActionType.new
         xml.at('ResizeCluster') do |node|
-          data.resize_cluster = Parsers::ResizeClusterMessage.parse(node)
+          data.resize_cluster = ResizeClusterMessage.parse(node)
         end
         xml.at('PauseCluster') do |node|
-          data.pause_cluster = Parsers::PauseClusterMessage.parse(node)
+          data.pause_cluster = PauseClusterMessage.parse(node)
         end
         xml.at('ResumeCluster') do |node|
-          data.resume_cluster = Parsers::ResumeClusterMessage.parse(node)
+          data.resume_cluster = ResumeClusterMessage.parse(node)
         end
         return data
       end
@@ -2965,7 +2965,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateSnapshotCopyGrantResult')
         xml.at('SnapshotCopyGrant') do |node|
-          data.snapshot_copy_grant = Parsers::SnapshotCopyGrant.parse(node)
+          data.snapshot_copy_grant = SnapshotCopyGrant.parse(node)
         end
         data
       end
@@ -2982,7 +2982,7 @@ module AWS::SDK::Redshift
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -3025,7 +3025,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('CreateSnapshotScheduleResult')
         xml.at('ScheduleDefinitions') do |node|
           children = node.children('ScheduleDefinition')
-          data.schedule_definitions = Parsers::ScheduleDefinitionList.parse(children)
+          data.schedule_definitions = ScheduleDefinitionList.parse(children)
         end
         xml.at('ScheduleIdentifier') do |node|
           data.schedule_identifier = (node.text || '')
@@ -3035,18 +3035,18 @@ module AWS::SDK::Redshift
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('NextInvocations') do |node|
           children = node.children('SnapshotTime')
-          data.next_invocations = Parsers::ScheduledSnapshotTimeList.parse(children)
+          data.next_invocations = ScheduledSnapshotTimeList.parse(children)
         end
         xml.at('AssociatedClusterCount') do |node|
           data.associated_cluster_count = node.text&.to_i
         end
         xml.at('AssociatedClusters') do |node|
           children = node.children('ClusterAssociatedToSchedule')
-          data.associated_clusters = Parsers::AssociatedClusterList.parse(children)
+          data.associated_clusters = AssociatedClusterList.parse(children)
         end
         data
       end
@@ -3056,7 +3056,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClusterAssociatedToSchedule.parse(node)
+          data << ClusterAssociatedToSchedule.parse(node)
         end
         data
       end
@@ -3192,7 +3192,7 @@ module AWS::SDK::Redshift
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         data
       end
@@ -3244,7 +3244,7 @@ module AWS::SDK::Redshift
         end
         xml.at('DataShareAssociations') do |node|
           children = node.children('member')
-          data.data_share_associations = Parsers::DataShareAssociationList.parse(children)
+          data.data_share_associations = DataShareAssociationList.parse(children)
         end
         xml.at('ManagedBy') do |node|
           data.managed_by = (node.text || '')
@@ -3289,7 +3289,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteClusterResult')
         xml.at('Cluster') do |node|
-          data.cluster = Parsers::Cluster.parse(node)
+          data.cluster = Cluster.parse(node)
         end
         data
       end
@@ -3339,7 +3339,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteClusterSnapshotResult')
         xml.at('Snapshot') do |node|
-          data.snapshot = Parsers::Snapshot.parse(node)
+          data.snapshot = Snapshot.parse(node)
         end
         data
       end
@@ -3403,10 +3403,10 @@ module AWS::SDK::Redshift
         end
         xml.at('VpcSecurityGroups') do |node|
           children = node.children('VpcSecurityGroup')
-          data.vpc_security_groups = Parsers::VpcSecurityGroupMembershipList.parse(children)
+          data.vpc_security_groups = VpcSecurityGroupMembershipList.parse(children)
         end
         xml.at('VpcEndpoint') do |node|
-          data.vpc_endpoint = Parsers::VpcEndpoint.parse(node)
+          data.vpc_endpoint = VpcEndpoint.parse(node)
         end
         data
       end
@@ -3680,7 +3680,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribeAccountAttributesResult')
         xml.at('AccountAttributes') do |node|
           children = node.children('AccountAttribute')
-          data.account_attributes = Parsers::AttributeList.parse(children)
+          data.account_attributes = AttributeList.parse(children)
         end
         data
       end
@@ -3690,7 +3690,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AccountAttribute.parse(node)
+          data << AccountAttribute.parse(node)
         end
         data
       end
@@ -3704,7 +3704,7 @@ module AWS::SDK::Redshift
         end
         xml.at('AttributeValues') do |node|
           children = node.children('AttributeValueTarget')
-          data.attribute_values = Parsers::AttributeValueList.parse(children)
+          data.attribute_values = AttributeValueList.parse(children)
         end
         return data
       end
@@ -3714,7 +3714,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AttributeValueTarget.parse(node)
+          data << AttributeValueTarget.parse(node)
         end
         data
       end
@@ -3739,7 +3739,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribeAuthenticationProfilesResult')
         xml.at('AuthenticationProfiles') do |node|
           children = node.children('member')
-          data.authentication_profiles = Parsers::AuthenticationProfileList.parse(children)
+          data.authentication_profiles = AuthenticationProfileList.parse(children)
         end
         data
       end
@@ -3749,7 +3749,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AuthenticationProfile.parse(node)
+          data << AuthenticationProfile.parse(node)
         end
         data
       end
@@ -3780,7 +3780,7 @@ module AWS::SDK::Redshift
         end
         xml.at('ClusterDbRevisions') do |node|
           children = node.children('ClusterDbRevision')
-          data.cluster_db_revisions = Parsers::ClusterDbRevisionsList.parse(children)
+          data.cluster_db_revisions = ClusterDbRevisionsList.parse(children)
         end
         data
       end
@@ -3790,7 +3790,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClusterDbRevision.parse(node)
+          data << ClusterDbRevision.parse(node)
         end
         data
       end
@@ -3810,7 +3810,7 @@ module AWS::SDK::Redshift
         end
         xml.at('RevisionTargets') do |node|
           children = node.children('RevisionTarget')
-          data.revision_targets = Parsers::RevisionTargetsList.parse(children)
+          data.revision_targets = RevisionTargetsList.parse(children)
         end
         return data
       end
@@ -3820,7 +3820,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::RevisionTarget.parse(node)
+          data << RevisionTarget.parse(node)
         end
         data
       end
@@ -3854,7 +3854,7 @@ module AWS::SDK::Redshift
         end
         xml.at('ParameterGroups') do |node|
           children = node.children('ClusterParameterGroup')
-          data.parameter_groups = Parsers::ParameterGroupList.parse(children)
+          data.parameter_groups = ParameterGroupList.parse(children)
         end
         data
       end
@@ -3864,7 +3864,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClusterParameterGroup.parse(node)
+          data << ClusterParameterGroup.parse(node)
         end
         data
       end
@@ -3879,7 +3879,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribeClusterParametersResult')
         xml.at('Parameters') do |node|
           children = node.children('Parameter')
-          data.parameters = Parsers::ParametersList.parse(children)
+          data.parameters = ParametersList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -3892,7 +3892,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Parameter.parse(node)
+          data << Parameter.parse(node)
         end
         data
       end
@@ -3944,7 +3944,7 @@ module AWS::SDK::Redshift
         end
         xml.at('ClusterSecurityGroups') do |node|
           children = node.children('ClusterSecurityGroup')
-          data.cluster_security_groups = Parsers::ClusterSecurityGroups.parse(children)
+          data.cluster_security_groups = ClusterSecurityGroups.parse(children)
         end
         data
       end
@@ -3954,7 +3954,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClusterSecurityGroup.parse(node)
+          data << ClusterSecurityGroup.parse(node)
         end
         data
       end
@@ -3972,7 +3972,7 @@ module AWS::SDK::Redshift
         end
         xml.at('Snapshots') do |node|
           children = node.children('Snapshot')
-          data.snapshots = Parsers::SnapshotList.parse(children)
+          data.snapshots = SnapshotList.parse(children)
         end
         data
       end
@@ -3982,7 +3982,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Snapshot.parse(node)
+          data << Snapshot.parse(node)
         end
         data
       end
@@ -4000,7 +4000,7 @@ module AWS::SDK::Redshift
         end
         xml.at('ClusterSubnetGroups') do |node|
           children = node.children('ClusterSubnetGroup')
-          data.cluster_subnet_groups = Parsers::ClusterSubnetGroups.parse(children)
+          data.cluster_subnet_groups = ClusterSubnetGroups.parse(children)
         end
         data
       end
@@ -4010,7 +4010,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClusterSubnetGroup.parse(node)
+          data << ClusterSubnetGroup.parse(node)
         end
         data
       end
@@ -4025,7 +4025,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribeClusterTracksResult')
         xml.at('MaintenanceTracks') do |node|
           children = node.children('MaintenanceTrack')
-          data.maintenance_tracks = Parsers::TrackList.parse(children)
+          data.maintenance_tracks = TrackList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -4038,7 +4038,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MaintenanceTrack.parse(node)
+          data << MaintenanceTrack.parse(node)
         end
         data
       end
@@ -4055,7 +4055,7 @@ module AWS::SDK::Redshift
         end
         xml.at('UpdateTargets') do |node|
           children = node.children('UpdateTarget')
-          data.update_targets = Parsers::EligibleTracksToUpdateList.parse(children)
+          data.update_targets = EligibleTracksToUpdateList.parse(children)
         end
         return data
       end
@@ -4065,7 +4065,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::UpdateTarget.parse(node)
+          data << UpdateTarget.parse(node)
         end
         data
       end
@@ -4082,7 +4082,7 @@ module AWS::SDK::Redshift
         end
         xml.at('SupportedOperations') do |node|
           children = node.children('SupportedOperation')
-          data.supported_operations = Parsers::SupportedOperationList.parse(children)
+          data.supported_operations = SupportedOperationList.parse(children)
         end
         return data
       end
@@ -4092,7 +4092,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SupportedOperation.parse(node)
+          data << SupportedOperation.parse(node)
         end
         data
       end
@@ -4120,7 +4120,7 @@ module AWS::SDK::Redshift
         end
         xml.at('ClusterVersions') do |node|
           children = node.children('ClusterVersion')
-          data.cluster_versions = Parsers::ClusterVersionList.parse(children)
+          data.cluster_versions = ClusterVersionList.parse(children)
         end
         data
       end
@@ -4130,7 +4130,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClusterVersion.parse(node)
+          data << ClusterVersion.parse(node)
         end
         data
       end
@@ -4164,7 +4164,7 @@ module AWS::SDK::Redshift
         end
         xml.at('Clusters') do |node|
           children = node.children('Cluster')
-          data.clusters = Parsers::ClusterList.parse(children)
+          data.clusters = ClusterList.parse(children)
         end
         data
       end
@@ -4174,7 +4174,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Cluster.parse(node)
+          data << Cluster.parse(node)
         end
         data
       end
@@ -4189,7 +4189,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribeDataSharesResult')
         xml.at('DataShares') do |node|
           children = node.children('member')
-          data.data_shares = Parsers::DataShareList.parse(children)
+          data.data_shares = DataShareList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -4202,7 +4202,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DataShare.parse(node)
+          data << DataShare.parse(node)
         end
         data
       end
@@ -4222,7 +4222,7 @@ module AWS::SDK::Redshift
         end
         xml.at('DataShareAssociations') do |node|
           children = node.children('member')
-          data.data_share_associations = Parsers::DataShareAssociationList.parse(children)
+          data.data_share_associations = DataShareAssociationList.parse(children)
         end
         xml.at('ManagedBy') do |node|
           data.managed_by = (node.text || '')
@@ -4240,7 +4240,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribeDataSharesForConsumerResult')
         xml.at('DataShares') do |node|
           children = node.children('member')
-          data.data_shares = Parsers::DataShareList.parse(children)
+          data.data_shares = DataShareList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -4258,7 +4258,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribeDataSharesForProducerResult')
         xml.at('DataShares') do |node|
           children = node.children('member')
-          data.data_shares = Parsers::DataShareList.parse(children)
+          data.data_shares = DataShareList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -4275,7 +4275,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeDefaultClusterParametersResult')
         xml.at('DefaultClusterParameters') do |node|
-          data.default_cluster_parameters = Parsers::DefaultClusterParameters.parse(node)
+          data.default_cluster_parameters = DefaultClusterParameters.parse(node)
         end
         data
       end
@@ -4292,7 +4292,7 @@ module AWS::SDK::Redshift
         end
         xml.at('Parameters') do |node|
           children = node.children('Parameter')
-          data.parameters = Parsers::ParametersList.parse(children)
+          data.parameters = ParametersList.parse(children)
         end
         return data
       end
@@ -4307,7 +4307,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribeEndpointAccessResult')
         xml.at('EndpointAccessList') do |node|
           children = node.children('member')
-          data.endpoint_access_list = Parsers::EndpointAccesses.parse(children)
+          data.endpoint_access_list = EndpointAccesses.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -4320,7 +4320,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EndpointAccess.parse(node)
+          data << EndpointAccess.parse(node)
         end
         data
       end
@@ -4355,10 +4355,10 @@ module AWS::SDK::Redshift
         end
         xml.at('VpcSecurityGroups') do |node|
           children = node.children('VpcSecurityGroup')
-          data.vpc_security_groups = Parsers::VpcSecurityGroupMembershipList.parse(children)
+          data.vpc_security_groups = VpcSecurityGroupMembershipList.parse(children)
         end
         xml.at('VpcEndpoint') do |node|
-          data.vpc_endpoint = Parsers::VpcEndpoint.parse(node)
+          data.vpc_endpoint = VpcEndpoint.parse(node)
         end
         return data
       end
@@ -4373,7 +4373,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribeEndpointAuthorizationResult')
         xml.at('EndpointAuthorizationList') do |node|
           children = node.children('member')
-          data.endpoint_authorization_list = Parsers::EndpointAuthorizations.parse(children)
+          data.endpoint_authorization_list = EndpointAuthorizations.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -4386,7 +4386,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EndpointAuthorization.parse(node)
+          data << EndpointAuthorization.parse(node)
         end
         data
       end
@@ -4418,7 +4418,7 @@ module AWS::SDK::Redshift
         end
         xml.at('AllowedVPCs') do |node|
           children = node.children('VpcIdentifier')
-          data.allowed_vp_cs = Parsers::VpcIdentifierList.parse(children)
+          data.allowed_vp_cs = VpcIdentifierList.parse(children)
         end
         xml.at('EndpointCount') do |node|
           data.endpoint_count = node.text&.to_i
@@ -4436,7 +4436,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribeEventCategoriesResult')
         xml.at('EventCategoriesMapList') do |node|
           children = node.children('EventCategoriesMap')
-          data.event_categories_map_list = Parsers::EventCategoriesMapList.parse(children)
+          data.event_categories_map_list = EventCategoriesMapList.parse(children)
         end
         data
       end
@@ -4446,7 +4446,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EventCategoriesMap.parse(node)
+          data << EventCategoriesMap.parse(node)
         end
         data
       end
@@ -4460,7 +4460,7 @@ module AWS::SDK::Redshift
         end
         xml.at('Events') do |node|
           children = node.children('EventInfoMap')
-          data.events = Parsers::EventInfoMapList.parse(children)
+          data.events = EventInfoMapList.parse(children)
         end
         return data
       end
@@ -4470,7 +4470,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EventInfoMap.parse(node)
+          data << EventInfoMap.parse(node)
         end
         data
       end
@@ -4484,7 +4484,7 @@ module AWS::SDK::Redshift
         end
         xml.at('EventCategories') do |node|
           children = node.children('EventCategory')
-          data.event_categories = Parsers::EventCategoriesList.parse(children)
+          data.event_categories = EventCategoriesList.parse(children)
         end
         xml.at('EventDescription') do |node|
           data.event_description = (node.text || '')
@@ -4508,7 +4508,7 @@ module AWS::SDK::Redshift
         end
         xml.at('EventSubscriptionsList') do |node|
           children = node.children('EventSubscription')
-          data.event_subscriptions_list = Parsers::EventSubscriptionsList.parse(children)
+          data.event_subscriptions_list = EventSubscriptionsList.parse(children)
         end
         data
       end
@@ -4518,7 +4518,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EventSubscription.parse(node)
+          data << EventSubscription.parse(node)
         end
         data
       end
@@ -4536,7 +4536,7 @@ module AWS::SDK::Redshift
         end
         xml.at('Events') do |node|
           children = node.children('Event')
-          data.events = Parsers::EventList.parse(children)
+          data.events = EventList.parse(children)
         end
         data
       end
@@ -4546,7 +4546,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Event.parse(node)
+          data << Event.parse(node)
         end
         data
       end
@@ -4566,7 +4566,7 @@ module AWS::SDK::Redshift
         end
         xml.at('EventCategories') do |node|
           children = node.children('EventCategory')
-          data.event_categories = Parsers::EventCategoriesList.parse(children)
+          data.event_categories = EventCategoriesList.parse(children)
         end
         xml.at('Severity') do |node|
           data.severity = (node.text || '')
@@ -4593,7 +4593,7 @@ module AWS::SDK::Redshift
         end
         xml.at('HsmClientCertificates') do |node|
           children = node.children('HsmClientCertificate')
-          data.hsm_client_certificates = Parsers::HsmClientCertificateList.parse(children)
+          data.hsm_client_certificates = HsmClientCertificateList.parse(children)
         end
         data
       end
@@ -4603,7 +4603,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::HsmClientCertificate.parse(node)
+          data << HsmClientCertificate.parse(node)
         end
         data
       end
@@ -4621,7 +4621,7 @@ module AWS::SDK::Redshift
         end
         xml.at('HsmConfigurations') do |node|
           children = node.children('HsmConfiguration')
-          data.hsm_configurations = Parsers::HsmConfigurationList.parse(children)
+          data.hsm_configurations = HsmConfigurationList.parse(children)
         end
         data
       end
@@ -4631,7 +4631,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::HsmConfiguration.parse(node)
+          data << HsmConfiguration.parse(node)
         end
         data
       end
@@ -4667,7 +4667,7 @@ module AWS::SDK::Redshift
         end
         xml.at('LogExports') do |node|
           children = node.children('member')
-          data.log_exports = Parsers::LogTypeList.parse(children)
+          data.log_exports = LogTypeList.parse(children)
         end
         data
       end
@@ -4692,7 +4692,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribeNodeConfigurationOptionsResult')
         xml.at('NodeConfigurationOptionList') do |node|
           children = node.children('NodeConfigurationOption')
-          data.node_configuration_option_list = Parsers::NodeConfigurationOptionList.parse(children)
+          data.node_configuration_option_list = NodeConfigurationOptionList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -4705,7 +4705,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NodeConfigurationOption.parse(node)
+          data << NodeConfigurationOption.parse(node)
         end
         data
       end
@@ -4753,7 +4753,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribeOrderableClusterOptionsResult')
         xml.at('OrderableClusterOptions') do |node|
           children = node.children('OrderableClusterOption')
-          data.orderable_cluster_options = Parsers::OrderableClusterOptionsList.parse(children)
+          data.orderable_cluster_options = OrderableClusterOptionsList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -4766,7 +4766,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::OrderableClusterOption.parse(node)
+          data << OrderableClusterOption.parse(node)
         end
         data
       end
@@ -4786,7 +4786,7 @@ module AWS::SDK::Redshift
         end
         xml.at('AvailabilityZones') do |node|
           children = node.children('AvailabilityZone')
-          data.availability_zones = Parsers::AvailabilityZoneList.parse(children)
+          data.availability_zones = AvailabilityZoneList.parse(children)
         end
         return data
       end
@@ -4796,7 +4796,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AvailabilityZone.parse(node)
+          data << AvailabilityZone.parse(node)
         end
         data
       end
@@ -4811,7 +4811,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribePartnersResult')
         xml.at('PartnerIntegrationInfoList') do |node|
           children = node.children('PartnerIntegrationInfo')
-          data.partner_integration_info_list = Parsers::PartnerIntegrationInfoList.parse(children)
+          data.partner_integration_info_list = PartnerIntegrationInfoList.parse(children)
         end
         data
       end
@@ -4821,7 +4821,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PartnerIntegrationInfo.parse(node)
+          data << PartnerIntegrationInfo.parse(node)
         end
         data
       end
@@ -4861,7 +4861,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribeReservedNodeExchangeStatusResult')
         xml.at('ReservedNodeExchangeStatusDetails') do |node|
           children = node.children('ReservedNodeExchangeStatus')
-          data.reserved_node_exchange_status_details = Parsers::ReservedNodeExchangeStatusList.parse(children)
+          data.reserved_node_exchange_status_details = ReservedNodeExchangeStatusList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -4874,7 +4874,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReservedNodeExchangeStatus.parse(node)
+          data << ReservedNodeExchangeStatus.parse(node)
         end
         data
       end
@@ -4906,7 +4906,7 @@ module AWS::SDK::Redshift
         end
         xml.at('ReservedNodeOfferings') do |node|
           children = node.children('ReservedNodeOffering')
-          data.reserved_node_offerings = Parsers::ReservedNodeOfferingList.parse(children)
+          data.reserved_node_offerings = ReservedNodeOfferingList.parse(children)
         end
         data
       end
@@ -4916,7 +4916,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReservedNodeOffering.parse(node)
+          data << ReservedNodeOffering.parse(node)
         end
         data
       end
@@ -4948,7 +4948,7 @@ module AWS::SDK::Redshift
         end
         xml.at('RecurringCharges') do |node|
           children = node.children('RecurringCharge')
-          data.recurring_charges = Parsers::RecurringChargeList.parse(children)
+          data.recurring_charges = RecurringChargeList.parse(children)
         end
         xml.at('ReservedNodeOfferingType') do |node|
           data.reserved_node_offering_type = (node.text || '')
@@ -4969,7 +4969,7 @@ module AWS::SDK::Redshift
         end
         xml.at('ReservedNodes') do |node|
           children = node.children('ReservedNode')
-          data.reserved_nodes = Parsers::ReservedNodeList.parse(children)
+          data.reserved_nodes = ReservedNodeList.parse(children)
         end
         data
       end
@@ -4979,7 +4979,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReservedNode.parse(node)
+          data << ReservedNode.parse(node)
         end
         data
       end
@@ -5006,15 +5006,15 @@ module AWS::SDK::Redshift
         end
         xml.at('ImportTablesCompleted') do |node|
           children = node.children('member')
-          data.import_tables_completed = Parsers::ImportTablesCompleted.parse(children)
+          data.import_tables_completed = ImportTablesCompleted.parse(children)
         end
         xml.at('ImportTablesInProgress') do |node|
           children = node.children('member')
-          data.import_tables_in_progress = Parsers::ImportTablesInProgress.parse(children)
+          data.import_tables_in_progress = ImportTablesInProgress.parse(children)
         end
         xml.at('ImportTablesNotStarted') do |node|
           children = node.children('member')
-          data.import_tables_not_started = Parsers::ImportTablesNotStarted.parse(children)
+          data.import_tables_not_started = ImportTablesNotStarted.parse(children)
         end
         xml.at('AvgResizeRateInMegaBytesPerSecond') do |node|
           data.avg_resize_rate_in_mega_bytes_per_second = Hearth::NumberHelper.deserialize(node.text)
@@ -5059,7 +5059,7 @@ module AWS::SDK::Redshift
         end
         xml.at('ScheduledActions') do |node|
           children = node.children('ScheduledAction')
-          data.scheduled_actions = Parsers::ScheduledActionList.parse(children)
+          data.scheduled_actions = ScheduledActionList.parse(children)
         end
         data
       end
@@ -5069,7 +5069,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ScheduledAction.parse(node)
+          data << ScheduledAction.parse(node)
         end
         data
       end
@@ -5082,7 +5082,7 @@ module AWS::SDK::Redshift
           data.scheduled_action_name = (node.text || '')
         end
         xml.at('TargetAction') do |node|
-          data.target_action = Parsers::ScheduledActionType.parse(node)
+          data.target_action = ScheduledActionType.parse(node)
         end
         xml.at('Schedule') do |node|
           data.schedule = (node.text || '')
@@ -5098,7 +5098,7 @@ module AWS::SDK::Redshift
         end
         xml.at('NextInvocations') do |node|
           children = node.children('ScheduledActionTime')
-          data.next_invocations = Parsers::ScheduledActionTimeList.parse(children)
+          data.next_invocations = ScheduledActionTimeList.parse(children)
         end
         xml.at('StartTime') do |node|
           data.start_time = Time.parse(node.text) if node.text
@@ -5122,7 +5122,7 @@ module AWS::SDK::Redshift
         end
         xml.at('SnapshotCopyGrants') do |node|
           children = node.children('SnapshotCopyGrant')
-          data.snapshot_copy_grants = Parsers::SnapshotCopyGrantList.parse(children)
+          data.snapshot_copy_grants = SnapshotCopyGrantList.parse(children)
         end
         data
       end
@@ -5132,7 +5132,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SnapshotCopyGrant.parse(node)
+          data << SnapshotCopyGrant.parse(node)
         end
         data
       end
@@ -5147,7 +5147,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribeSnapshotSchedulesResult')
         xml.at('SnapshotSchedules') do |node|
           children = node.children('SnapshotSchedule')
-          data.snapshot_schedules = Parsers::SnapshotScheduleList.parse(children)
+          data.snapshot_schedules = SnapshotScheduleList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -5160,7 +5160,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SnapshotSchedule.parse(node)
+          data << SnapshotSchedule.parse(node)
         end
         data
       end
@@ -5171,7 +5171,7 @@ module AWS::SDK::Redshift
         data = Types::SnapshotSchedule.new
         xml.at('ScheduleDefinitions') do |node|
           children = node.children('ScheduleDefinition')
-          data.schedule_definitions = Parsers::ScheduleDefinitionList.parse(children)
+          data.schedule_definitions = ScheduleDefinitionList.parse(children)
         end
         xml.at('ScheduleIdentifier') do |node|
           data.schedule_identifier = (node.text || '')
@@ -5181,18 +5181,18 @@ module AWS::SDK::Redshift
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('NextInvocations') do |node|
           children = node.children('SnapshotTime')
-          data.next_invocations = Parsers::ScheduledSnapshotTimeList.parse(children)
+          data.next_invocations = ScheduledSnapshotTimeList.parse(children)
         end
         xml.at('AssociatedClusterCount') do |node|
           data.associated_cluster_count = node.text&.to_i
         end
         xml.at('AssociatedClusters') do |node|
           children = node.children('ClusterAssociatedToSchedule')
-          data.associated_clusters = Parsers::AssociatedClusterList.parse(children)
+          data.associated_clusters = AssociatedClusterList.parse(children)
         end
         return data
       end
@@ -5224,7 +5224,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribeTableRestoreStatusResult')
         xml.at('TableRestoreStatusDetails') do |node|
           children = node.children('TableRestoreStatus')
-          data.table_restore_status_details = Parsers::TableRestoreStatusList.parse(children)
+          data.table_restore_status_details = TableRestoreStatusList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -5237,7 +5237,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TableRestoreStatus.parse(node)
+          data << TableRestoreStatus.parse(node)
         end
         data
       end
@@ -5315,7 +5315,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribeTagsResult')
         xml.at('TaggedResources') do |node|
           children = node.children('TaggedResource')
-          data.tagged_resources = Parsers::TaggedResourceList.parse(children)
+          data.tagged_resources = TaggedResourceList.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -5328,7 +5328,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TaggedResource.parse(node)
+          data << TaggedResource.parse(node)
         end
         data
       end
@@ -5338,7 +5338,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = Types::TaggedResource.new
         xml.at('Tag') do |node|
-          data.tag = Parsers::Tag.parse(node)
+          data.tag = Tag.parse(node)
         end
         xml.at('ResourceName') do |node|
           data.resource_name = (node.text || '')
@@ -5359,7 +5359,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('DescribeUsageLimitsResult')
         xml.at('UsageLimits') do |node|
           children = node.children('member')
-          data.usage_limits = Parsers::UsageLimits.parse(children)
+          data.usage_limits = UsageLimits.parse(children)
         end
         xml.at('Marker') do |node|
           data.marker = (node.text || '')
@@ -5372,7 +5372,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::UsageLimit.parse(node)
+          data << UsageLimit.parse(node)
         end
         data
       end
@@ -5404,7 +5404,7 @@ module AWS::SDK::Redshift
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -5440,7 +5440,7 @@ module AWS::SDK::Redshift
         end
         xml.at('LogExports') do |node|
           children = node.children('member')
-          data.log_exports = Parsers::LogTypeList.parse(children)
+          data.log_exports = LogTypeList.parse(children)
         end
         data
       end
@@ -5454,7 +5454,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DisableSnapshotCopyResult')
         xml.at('Cluster') do |node|
-          data.cluster = Parsers::Cluster.parse(node)
+          data.cluster = Cluster.parse(node)
         end
         data
       end
@@ -5492,7 +5492,7 @@ module AWS::SDK::Redshift
         end
         xml.at('DataShareAssociations') do |node|
           children = node.children('member')
-          data.data_share_associations = Parsers::DataShareAssociationList.parse(children)
+          data.data_share_associations = DataShareAssociationList.parse(children)
         end
         xml.at('ManagedBy') do |node|
           data.managed_by = (node.text || '')
@@ -5531,7 +5531,7 @@ module AWS::SDK::Redshift
         end
         xml.at('LogExports') do |node|
           children = node.children('member')
-          data.log_exports = Parsers::LogTypeList.parse(children)
+          data.log_exports = LogTypeList.parse(children)
         end
         data
       end
@@ -5601,7 +5601,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('EnableSnapshotCopyResult')
         xml.at('Cluster') do |node|
-          data.cluster = Parsers::Cluster.parse(node)
+          data.cluster = Cluster.parse(node)
         end
         data
       end
@@ -5718,7 +5718,7 @@ module AWS::SDK::Redshift
         end
         xml.at('ReservedNodeConfigurationOptionList') do |node|
           children = node.children('ReservedNodeConfigurationOption')
-          data.reserved_node_configuration_option_list = Parsers::ReservedNodeConfigurationOptionList.parse(children)
+          data.reserved_node_configuration_option_list = ReservedNodeConfigurationOptionList.parse(children)
         end
         data
       end
@@ -5728,7 +5728,7 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReservedNodeConfigurationOption.parse(node)
+          data << ReservedNodeConfigurationOption.parse(node)
         end
         data
       end
@@ -5738,13 +5738,13 @@ module AWS::SDK::Redshift
       def self.parse(xml)
         data = Types::ReservedNodeConfigurationOption.new
         xml.at('SourceReservedNode') do |node|
-          data.source_reserved_node = Parsers::ReservedNode.parse(node)
+          data.source_reserved_node = ReservedNode.parse(node)
         end
         xml.at('TargetReservedNodeCount') do |node|
           data.target_reserved_node_count = node.text&.to_i
         end
         xml.at('TargetReservedNodeOffering') do |node|
-          data.target_reserved_node_offering = Parsers::ReservedNodeOffering.parse(node)
+          data.target_reserved_node_offering = ReservedNodeOffering.parse(node)
         end
         return data
       end
@@ -5762,7 +5762,7 @@ module AWS::SDK::Redshift
         end
         xml.at('ReservedNodeOfferings') do |node|
           children = node.children('ReservedNodeOffering')
-          data.reserved_node_offerings = Parsers::ReservedNodeOfferingList.parse(children)
+          data.reserved_node_offerings = ReservedNodeOfferingList.parse(children)
         end
         data
       end
@@ -5776,7 +5776,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyAquaConfigurationResult')
         xml.at('AquaConfiguration') do |node|
-          data.aqua_configuration = Parsers::AquaConfiguration.parse(node)
+          data.aqua_configuration = AquaConfiguration.parse(node)
         end
         data
       end
@@ -5807,7 +5807,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyClusterResult')
         xml.at('Cluster') do |node|
-          data.cluster = Parsers::Cluster.parse(node)
+          data.cluster = Cluster.parse(node)
         end
         data
       end
@@ -5849,7 +5849,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyClusterDbRevisionResult')
         xml.at('Cluster') do |node|
-          data.cluster = Parsers::Cluster.parse(node)
+          data.cluster = Cluster.parse(node)
         end
         data
       end
@@ -5877,7 +5877,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyClusterIamRolesResult')
         xml.at('Cluster') do |node|
-          data.cluster = Parsers::Cluster.parse(node)
+          data.cluster = Cluster.parse(node)
         end
         data
       end
@@ -5891,7 +5891,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyClusterMaintenanceResult')
         xml.at('Cluster') do |node|
-          data.cluster = Parsers::Cluster.parse(node)
+          data.cluster = Cluster.parse(node)
         end
         data
       end
@@ -5922,7 +5922,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyClusterSnapshotResult')
         xml.at('Snapshot') do |node|
-          data.snapshot = Parsers::Snapshot.parse(node)
+          data.snapshot = Snapshot.parse(node)
         end
         data
       end
@@ -5947,7 +5947,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyClusterSubnetGroupResult')
         xml.at('ClusterSubnetGroup') do |node|
-          data.cluster_subnet_group = Parsers::ClusterSubnetGroup.parse(node)
+          data.cluster_subnet_group = ClusterSubnetGroup.parse(node)
         end
         data
       end
@@ -6000,10 +6000,10 @@ module AWS::SDK::Redshift
         end
         xml.at('VpcSecurityGroups') do |node|
           children = node.children('VpcSecurityGroup')
-          data.vpc_security_groups = Parsers::VpcSecurityGroupMembershipList.parse(children)
+          data.vpc_security_groups = VpcSecurityGroupMembershipList.parse(children)
         end
         xml.at('VpcEndpoint') do |node|
-          data.vpc_endpoint = Parsers::VpcEndpoint.parse(node)
+          data.vpc_endpoint = VpcEndpoint.parse(node)
         end
         data
       end
@@ -6017,7 +6017,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifyEventSubscriptionResult')
         xml.at('EventSubscription') do |node|
-          data.event_subscription = Parsers::EventSubscription.parse(node)
+          data.event_subscription = EventSubscription.parse(node)
         end
         data
       end
@@ -6034,7 +6034,7 @@ module AWS::SDK::Redshift
           data.scheduled_action_name = (node.text || '')
         end
         xml.at('TargetAction') do |node|
-          data.target_action = Parsers::ScheduledActionType.parse(node)
+          data.target_action = ScheduledActionType.parse(node)
         end
         xml.at('Schedule') do |node|
           data.schedule = (node.text || '')
@@ -6050,7 +6050,7 @@ module AWS::SDK::Redshift
         end
         xml.at('NextInvocations') do |node|
           children = node.children('ScheduledActionTime')
-          data.next_invocations = Parsers::ScheduledActionTimeList.parse(children)
+          data.next_invocations = ScheduledActionTimeList.parse(children)
         end
         xml.at('StartTime') do |node|
           data.start_time = Time.parse(node.text) if node.text
@@ -6070,7 +6070,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ModifySnapshotCopyRetentionPeriodResult')
         xml.at('Cluster') do |node|
-          data.cluster = Parsers::Cluster.parse(node)
+          data.cluster = Cluster.parse(node)
         end
         data
       end
@@ -6099,7 +6099,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML.parse(body).at('ModifySnapshotScheduleResult')
         xml.at('ScheduleDefinitions') do |node|
           children = node.children('ScheduleDefinition')
-          data.schedule_definitions = Parsers::ScheduleDefinitionList.parse(children)
+          data.schedule_definitions = ScheduleDefinitionList.parse(children)
         end
         xml.at('ScheduleIdentifier') do |node|
           data.schedule_identifier = (node.text || '')
@@ -6109,18 +6109,18 @@ module AWS::SDK::Redshift
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('NextInvocations') do |node|
           children = node.children('SnapshotTime')
-          data.next_invocations = Parsers::ScheduledSnapshotTimeList.parse(children)
+          data.next_invocations = ScheduledSnapshotTimeList.parse(children)
         end
         xml.at('AssociatedClusterCount') do |node|
           data.associated_cluster_count = node.text&.to_i
         end
         xml.at('AssociatedClusters') do |node|
           children = node.children('ClusterAssociatedToSchedule')
-          data.associated_clusters = Parsers::AssociatedClusterList.parse(children)
+          data.associated_clusters = AssociatedClusterList.parse(children)
         end
         data
       end
@@ -6170,7 +6170,7 @@ module AWS::SDK::Redshift
         end
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         data
       end
@@ -6184,7 +6184,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('PauseClusterResult')
         xml.at('Cluster') do |node|
-          data.cluster = Parsers::Cluster.parse(node)
+          data.cluster = Cluster.parse(node)
         end
         data
       end
@@ -6198,7 +6198,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('PurchaseReservedNodeOfferingResult')
         xml.at('ReservedNode') do |node|
-          data.reserved_node = Parsers::ReservedNode.parse(node)
+          data.reserved_node = ReservedNode.parse(node)
         end
         data
       end
@@ -6226,7 +6226,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RebootClusterResult')
         xml.at('Cluster') do |node|
-          data.cluster = Parsers::Cluster.parse(node)
+          data.cluster = Cluster.parse(node)
         end
         data
       end
@@ -6250,7 +6250,7 @@ module AWS::SDK::Redshift
         end
         xml.at('DataShareAssociations') do |node|
           children = node.children('member')
-          data.data_share_associations = Parsers::DataShareAssociationList.parse(children)
+          data.data_share_associations = DataShareAssociationList.parse(children)
         end
         xml.at('ManagedBy') do |node|
           data.managed_by = (node.text || '')
@@ -6284,7 +6284,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ResizeClusterResult')
         xml.at('Cluster') do |node|
-          data.cluster = Parsers::Cluster.parse(node)
+          data.cluster = Cluster.parse(node)
         end
         data
       end
@@ -6298,7 +6298,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RestoreFromClusterSnapshotResult')
         xml.at('Cluster') do |node|
-          data.cluster = Parsers::Cluster.parse(node)
+          data.cluster = Cluster.parse(node)
         end
         data
       end
@@ -6326,7 +6326,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RestoreTableFromClusterSnapshotResult')
         xml.at('TableRestoreStatus') do |node|
-          data.table_restore_status = Parsers::TableRestoreStatus.parse(node)
+          data.table_restore_status = TableRestoreStatus.parse(node)
         end
         data
       end
@@ -6368,7 +6368,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('ResumeClusterResult')
         xml.at('Cluster') do |node|
-          data.cluster = Parsers::Cluster.parse(node)
+          data.cluster = Cluster.parse(node)
         end
         data
       end
@@ -6382,7 +6382,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RevokeClusterSecurityGroupIngressResult')
         xml.at('ClusterSecurityGroup') do |node|
-          data.cluster_security_group = Parsers::ClusterSecurityGroup.parse(node)
+          data.cluster_security_group = ClusterSecurityGroup.parse(node)
         end
         data
       end
@@ -6432,7 +6432,7 @@ module AWS::SDK::Redshift
         end
         xml.at('AllowedVPCs') do |node|
           children = node.children('VpcIdentifier')
-          data.allowed_vp_cs = Parsers::VpcIdentifierList.parse(children)
+          data.allowed_vp_cs = VpcIdentifierList.parse(children)
         end
         xml.at('EndpointCount') do |node|
           data.endpoint_count = node.text&.to_i
@@ -6463,7 +6463,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RevokeSnapshotAccessResult')
         xml.at('Snapshot') do |node|
-          data.snapshot = Parsers::Snapshot.parse(node)
+          data.snapshot = Snapshot.parse(node)
         end
         data
       end
@@ -6477,7 +6477,7 @@ module AWS::SDK::Redshift
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('RotateEncryptionKeyResult')
         xml.at('Cluster') do |node|
-          data.cluster = Parsers::Cluster.parse(node)
+          data.cluster = Cluster.parse(node)
         end
         data
       end

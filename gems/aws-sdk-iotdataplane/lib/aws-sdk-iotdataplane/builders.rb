@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IoTDataPlane
   module Builders
 
@@ -111,7 +113,7 @@ module AWS::SDK::IoTDataPlane
         params['retain'] = input[:retain].to_s unless input[:retain].nil?
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.body = StringIO.new(input[:payload] || '')
+        http_req.body = ::StringIO.new(input[:payload] || '')
       end
     end
 
@@ -131,7 +133,7 @@ module AWS::SDK::IoTDataPlane
         params['name'] = input[:shadow_name].to_s unless input[:shadow_name].nil?
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.body = StringIO.new(input[:payload] || '')
+        http_req.body = ::StringIO.new(input[:payload] || '')
       end
     end
   end

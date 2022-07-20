@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ComputeOptimizer
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::ComputeOptimizer
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -35,9 +37,9 @@ module AWS::SDK::ComputeOptimizer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['recommendationExportJobs'] = Stubs::RecommendationExportJobs.stub(stub[:recommendation_export_jobs]) unless stub[:recommendation_export_jobs].nil?
+        data['recommendationExportJobs'] = RecommendationExportJobs.stub(stub[:recommendation_export_jobs]) unless stub[:recommendation_export_jobs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -56,7 +58,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommendationExportJob.stub(element) unless element.nil?
+          data << RecommendationExportJob.stub(element) unless element.nil?
         end
         data
       end
@@ -82,7 +84,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= Types::RecommendationExportJob.new
         data = {}
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
-        data['destination'] = Stubs::ExportDestination.stub(stub[:destination]) unless stub[:destination].nil?
+        data['destination'] = ExportDestination.stub(stub[:destination]) unless stub[:destination].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['creationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_timestamp]).to_i unless stub[:creation_timestamp].nil?
@@ -105,7 +107,7 @@ module AWS::SDK::ComputeOptimizer
       def self.stub(stub)
         stub ||= Types::ExportDestination.new
         data = {}
-        data['s3'] = Stubs::S3Destination.stub(stub[:s3]) unless stub[:s3].nil?
+        data['s3'] = S3Destination.stub(stub[:s3]) unless stub[:s3].nil?
         data
       end
     end
@@ -144,8 +146,8 @@ module AWS::SDK::ComputeOptimizer
       def self.stub(http_resp, stub:)
         data = {}
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
-        data['s3Destination'] = Stubs::S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['s3Destination'] = S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -162,8 +164,8 @@ module AWS::SDK::ComputeOptimizer
       def self.stub(http_resp, stub:)
         data = {}
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
-        data['s3Destination'] = Stubs::S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['s3Destination'] = S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -180,8 +182,8 @@ module AWS::SDK::ComputeOptimizer
       def self.stub(http_resp, stub:)
         data = {}
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
-        data['s3Destination'] = Stubs::S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['s3Destination'] = S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -198,8 +200,8 @@ module AWS::SDK::ComputeOptimizer
       def self.stub(http_resp, stub:)
         data = {}
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
-        data['s3Destination'] = Stubs::S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['s3Destination'] = S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -217,9 +219,9 @@ module AWS::SDK::ComputeOptimizer
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['autoScalingGroupRecommendations'] = Stubs::AutoScalingGroupRecommendations.stub(stub[:auto_scaling_group_recommendations]) unless stub[:auto_scaling_group_recommendations].nil?
-        data['errors'] = Stubs::GetRecommendationErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['autoScalingGroupRecommendations'] = AutoScalingGroupRecommendations.stub(stub[:auto_scaling_group_recommendations]) unless stub[:auto_scaling_group_recommendations].nil?
+        data['errors'] = GetRecommendationErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -238,7 +240,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GetRecommendationError.stub(element) unless element.nil?
+          data << GetRecommendationError.stub(element) unless element.nil?
         end
         data
       end
@@ -280,7 +282,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutoScalingGroupRecommendation.stub(element) unless element.nil?
+          data << AutoScalingGroupRecommendation.stub(element) unless element.nil?
         end
         data
       end
@@ -314,14 +316,14 @@ module AWS::SDK::ComputeOptimizer
         data['autoScalingGroupArn'] = stub[:auto_scaling_group_arn] unless stub[:auto_scaling_group_arn].nil?
         data['autoScalingGroupName'] = stub[:auto_scaling_group_name] unless stub[:auto_scaling_group_name].nil?
         data['finding'] = stub[:finding] unless stub[:finding].nil?
-        data['utilizationMetrics'] = Stubs::UtilizationMetrics.stub(stub[:utilization_metrics]) unless stub[:utilization_metrics].nil?
+        data['utilizationMetrics'] = UtilizationMetrics.stub(stub[:utilization_metrics]) unless stub[:utilization_metrics].nil?
         data['lookBackPeriodInDays'] = Hearth::NumberHelper.serialize(stub[:look_back_period_in_days])
-        data['currentConfiguration'] = Stubs::AutoScalingGroupConfiguration.stub(stub[:current_configuration]) unless stub[:current_configuration].nil?
-        data['recommendationOptions'] = Stubs::AutoScalingGroupRecommendationOptions.stub(stub[:recommendation_options]) unless stub[:recommendation_options].nil?
+        data['currentConfiguration'] = AutoScalingGroupConfiguration.stub(stub[:current_configuration]) unless stub[:current_configuration].nil?
+        data['recommendationOptions'] = AutoScalingGroupRecommendationOptions.stub(stub[:recommendation_options]) unless stub[:recommendation_options].nil?
         data['lastRefreshTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_refresh_timestamp]).to_i unless stub[:last_refresh_timestamp].nil?
         data['currentPerformanceRisk'] = stub[:current_performance_risk] unless stub[:current_performance_risk].nil?
-        data['effectiveRecommendationPreferences'] = Stubs::EffectiveRecommendationPreferences.stub(stub[:effective_recommendation_preferences]) unless stub[:effective_recommendation_preferences].nil?
-        data['inferredWorkloadTypes'] = Stubs::InferredWorkloadTypes.stub(stub[:inferred_workload_types]) unless stub[:inferred_workload_types].nil?
+        data['effectiveRecommendationPreferences'] = EffectiveRecommendationPreferences.stub(stub[:effective_recommendation_preferences]) unless stub[:effective_recommendation_preferences].nil?
+        data['inferredWorkloadTypes'] = InferredWorkloadTypes.stub(stub[:inferred_workload_types]) unless stub[:inferred_workload_types].nil?
         data
       end
     end
@@ -361,7 +363,7 @@ module AWS::SDK::ComputeOptimizer
       def self.stub(stub)
         stub ||= Types::EffectiveRecommendationPreferences.new
         data = {}
-        data['cpuVendorArchitectures'] = Stubs::CpuVendorArchitectures.stub(stub[:cpu_vendor_architectures]) unless stub[:cpu_vendor_architectures].nil?
+        data['cpuVendorArchitectures'] = CpuVendorArchitectures.stub(stub[:cpu_vendor_architectures]) unless stub[:cpu_vendor_architectures].nil?
         data['enhancedInfrastructureMetrics'] = stub[:enhanced_infrastructure_metrics] unless stub[:enhanced_infrastructure_metrics].nil?
         data['inferredWorkloadTypes'] = stub[:inferred_workload_types] unless stub[:inferred_workload_types].nil?
         data
@@ -402,7 +404,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutoScalingGroupRecommendationOption.stub(element) unless element.nil?
+          data << AutoScalingGroupRecommendationOption.stub(element) unless element.nil?
         end
         data
       end
@@ -426,11 +428,11 @@ module AWS::SDK::ComputeOptimizer
       def self.stub(stub)
         stub ||= Types::AutoScalingGroupRecommendationOption.new
         data = {}
-        data['configuration'] = Stubs::AutoScalingGroupConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
-        data['projectedUtilizationMetrics'] = Stubs::ProjectedUtilizationMetrics.stub(stub[:projected_utilization_metrics]) unless stub[:projected_utilization_metrics].nil?
+        data['configuration'] = AutoScalingGroupConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['projectedUtilizationMetrics'] = ProjectedUtilizationMetrics.stub(stub[:projected_utilization_metrics]) unless stub[:projected_utilization_metrics].nil?
         data['performanceRisk'] = Hearth::NumberHelper.serialize(stub[:performance_risk])
         data['rank'] = stub[:rank] unless stub[:rank].nil?
-        data['savingsOpportunity'] = Stubs::SavingsOpportunity.stub(stub[:savings_opportunity]) unless stub[:savings_opportunity].nil?
+        data['savingsOpportunity'] = SavingsOpportunity.stub(stub[:savings_opportunity]) unless stub[:savings_opportunity].nil?
         data['migrationEffort'] = stub[:migration_effort] unless stub[:migration_effort].nil?
         data
       end
@@ -451,7 +453,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= Types::SavingsOpportunity.new
         data = {}
         data['savingsOpportunityPercentage'] = Hearth::NumberHelper.serialize(stub[:savings_opportunity_percentage])
-        data['estimatedMonthlySavings'] = Stubs::EstimatedMonthlySavings.stub(stub[:estimated_monthly_savings]) unless stub[:estimated_monthly_savings].nil?
+        data['estimatedMonthlySavings'] = EstimatedMonthlySavings.stub(stub[:estimated_monthly_savings]) unless stub[:estimated_monthly_savings].nil?
         data
       end
     end
@@ -490,7 +492,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UtilizationMetric.stub(element) unless element.nil?
+          data << UtilizationMetric.stub(element) unless element.nil?
         end
         data
       end
@@ -556,7 +558,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UtilizationMetric.stub(element) unless element.nil?
+          data << UtilizationMetric.stub(element) unless element.nil?
         end
         data
       end
@@ -575,9 +577,9 @@ module AWS::SDK::ComputeOptimizer
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['volumeRecommendations'] = Stubs::VolumeRecommendations.stub(stub[:volume_recommendations]) unless stub[:volume_recommendations].nil?
-        data['errors'] = Stubs::GetRecommendationErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['volumeRecommendations'] = VolumeRecommendations.stub(stub[:volume_recommendations]) unless stub[:volume_recommendations].nil?
+        data['errors'] = GetRecommendationErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -596,7 +598,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VolumeRecommendation.stub(element) unless element.nil?
+          data << VolumeRecommendation.stub(element) unless element.nil?
         end
         data
       end
@@ -625,11 +627,11 @@ module AWS::SDK::ComputeOptimizer
         data = {}
         data['volumeArn'] = stub[:volume_arn] unless stub[:volume_arn].nil?
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['currentConfiguration'] = Stubs::VolumeConfiguration.stub(stub[:current_configuration]) unless stub[:current_configuration].nil?
+        data['currentConfiguration'] = VolumeConfiguration.stub(stub[:current_configuration]) unless stub[:current_configuration].nil?
         data['finding'] = stub[:finding] unless stub[:finding].nil?
-        data['utilizationMetrics'] = Stubs::EBSUtilizationMetrics.stub(stub[:utilization_metrics]) unless stub[:utilization_metrics].nil?
+        data['utilizationMetrics'] = EBSUtilizationMetrics.stub(stub[:utilization_metrics]) unless stub[:utilization_metrics].nil?
         data['lookBackPeriodInDays'] = Hearth::NumberHelper.serialize(stub[:look_back_period_in_days])
-        data['volumeRecommendationOptions'] = Stubs::VolumeRecommendationOptions.stub(stub[:volume_recommendation_options]) unless stub[:volume_recommendation_options].nil?
+        data['volumeRecommendationOptions'] = VolumeRecommendationOptions.stub(stub[:volume_recommendation_options]) unless stub[:volume_recommendation_options].nil?
         data['lastRefreshTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_refresh_timestamp]).to_i unless stub[:last_refresh_timestamp].nil?
         data['currentPerformanceRisk'] = stub[:current_performance_risk] unless stub[:current_performance_risk].nil?
         data
@@ -650,7 +652,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VolumeRecommendationOption.stub(element) unless element.nil?
+          data << VolumeRecommendationOption.stub(element) unless element.nil?
         end
         data
       end
@@ -672,10 +674,10 @@ module AWS::SDK::ComputeOptimizer
       def self.stub(stub)
         stub ||= Types::VolumeRecommendationOption.new
         data = {}
-        data['configuration'] = Stubs::VolumeConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['configuration'] = VolumeConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
         data['performanceRisk'] = Hearth::NumberHelper.serialize(stub[:performance_risk])
         data['rank'] = stub[:rank] unless stub[:rank].nil?
-        data['savingsOpportunity'] = Stubs::SavingsOpportunity.stub(stub[:savings_opportunity]) unless stub[:savings_opportunity].nil?
+        data['savingsOpportunity'] = SavingsOpportunity.stub(stub[:savings_opportunity]) unless stub[:savings_opportunity].nil?
         data
       end
     end
@@ -722,7 +724,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EBSUtilizationMetric.stub(element) unless element.nil?
+          data << EBSUtilizationMetric.stub(element) unless element.nil?
         end
         data
       end
@@ -763,9 +765,9 @@ module AWS::SDK::ComputeOptimizer
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['instanceRecommendations'] = Stubs::InstanceRecommendations.stub(stub[:instance_recommendations]) unless stub[:instance_recommendations].nil?
-        data['errors'] = Stubs::GetRecommendationErrors.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['instanceRecommendations'] = InstanceRecommendations.stub(stub[:instance_recommendations]) unless stub[:instance_recommendations].nil?
+        data['errors'] = GetRecommendationErrors.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -784,7 +786,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceRecommendation.stub(element) unless element.nil?
+          data << InstanceRecommendation.stub(element) unless element.nil?
         end
         data
       end
@@ -821,15 +823,15 @@ module AWS::SDK::ComputeOptimizer
         data['instanceName'] = stub[:instance_name] unless stub[:instance_name].nil?
         data['currentInstanceType'] = stub[:current_instance_type] unless stub[:current_instance_type].nil?
         data['finding'] = stub[:finding] unless stub[:finding].nil?
-        data['findingReasonCodes'] = Stubs::InstanceRecommendationFindingReasonCodes.stub(stub[:finding_reason_codes]) unless stub[:finding_reason_codes].nil?
-        data['utilizationMetrics'] = Stubs::UtilizationMetrics.stub(stub[:utilization_metrics]) unless stub[:utilization_metrics].nil?
+        data['findingReasonCodes'] = InstanceRecommendationFindingReasonCodes.stub(stub[:finding_reason_codes]) unless stub[:finding_reason_codes].nil?
+        data['utilizationMetrics'] = UtilizationMetrics.stub(stub[:utilization_metrics]) unless stub[:utilization_metrics].nil?
         data['lookBackPeriodInDays'] = Hearth::NumberHelper.serialize(stub[:look_back_period_in_days])
-        data['recommendationOptions'] = Stubs::RecommendationOptions.stub(stub[:recommendation_options]) unless stub[:recommendation_options].nil?
-        data['recommendationSources'] = Stubs::RecommendationSources.stub(stub[:recommendation_sources]) unless stub[:recommendation_sources].nil?
+        data['recommendationOptions'] = RecommendationOptions.stub(stub[:recommendation_options]) unless stub[:recommendation_options].nil?
+        data['recommendationSources'] = RecommendationSources.stub(stub[:recommendation_sources]) unless stub[:recommendation_sources].nil?
         data['lastRefreshTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_refresh_timestamp]).to_i unless stub[:last_refresh_timestamp].nil?
         data['currentPerformanceRisk'] = stub[:current_performance_risk] unless stub[:current_performance_risk].nil?
-        data['effectiveRecommendationPreferences'] = Stubs::EffectiveRecommendationPreferences.stub(stub[:effective_recommendation_preferences]) unless stub[:effective_recommendation_preferences].nil?
-        data['inferredWorkloadTypes'] = Stubs::InferredWorkloadTypes.stub(stub[:inferred_workload_types]) unless stub[:inferred_workload_types].nil?
+        data['effectiveRecommendationPreferences'] = EffectiveRecommendationPreferences.stub(stub[:effective_recommendation_preferences]) unless stub[:effective_recommendation_preferences].nil?
+        data['inferredWorkloadTypes'] = InferredWorkloadTypes.stub(stub[:inferred_workload_types]) unless stub[:inferred_workload_types].nil?
         data
       end
     end
@@ -848,7 +850,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommendationSource.stub(element) unless element.nil?
+          data << RecommendationSource.stub(element) unless element.nil?
         end
         data
       end
@@ -888,7 +890,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceRecommendationOption.stub(element) unless element.nil?
+          data << InstanceRecommendationOption.stub(element) unless element.nil?
         end
         data
       end
@@ -914,11 +916,11 @@ module AWS::SDK::ComputeOptimizer
         stub ||= Types::InstanceRecommendationOption.new
         data = {}
         data['instanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
-        data['projectedUtilizationMetrics'] = Stubs::ProjectedUtilizationMetrics.stub(stub[:projected_utilization_metrics]) unless stub[:projected_utilization_metrics].nil?
-        data['platformDifferences'] = Stubs::PlatformDifferences.stub(stub[:platform_differences]) unless stub[:platform_differences].nil?
+        data['projectedUtilizationMetrics'] = ProjectedUtilizationMetrics.stub(stub[:projected_utilization_metrics]) unless stub[:projected_utilization_metrics].nil?
+        data['platformDifferences'] = PlatformDifferences.stub(stub[:platform_differences]) unless stub[:platform_differences].nil?
         data['performanceRisk'] = Hearth::NumberHelper.serialize(stub[:performance_risk])
         data['rank'] = stub[:rank] unless stub[:rank].nil?
-        data['savingsOpportunity'] = Stubs::SavingsOpportunity.stub(stub[:savings_opportunity]) unless stub[:savings_opportunity].nil?
+        data['savingsOpportunity'] = SavingsOpportunity.stub(stub[:savings_opportunity]) unless stub[:savings_opportunity].nil?
         data['migrationEffort'] = stub[:migration_effort] unless stub[:migration_effort].nil?
         data
       end
@@ -974,8 +976,8 @@ module AWS::SDK::ComputeOptimizer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['recommendedOptionProjectedMetrics'] = Stubs::RecommendedOptionProjectedMetrics.stub(stub[:recommended_option_projected_metrics]) unless stub[:recommended_option_projected_metrics].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recommendedOptionProjectedMetrics'] = RecommendedOptionProjectedMetrics.stub(stub[:recommended_option_projected_metrics]) unless stub[:recommended_option_projected_metrics].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -994,7 +996,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommendedOptionProjectedMetric.stub(element) unless element.nil?
+          data << RecommendedOptionProjectedMetric.stub(element) unless element.nil?
         end
         data
       end
@@ -1017,7 +1019,7 @@ module AWS::SDK::ComputeOptimizer
         data = {}
         data['recommendedInstanceType'] = stub[:recommended_instance_type] unless stub[:recommended_instance_type].nil?
         data['rank'] = stub[:rank] unless stub[:rank].nil?
-        data['projectedMetrics'] = Stubs::ProjectedMetrics.stub(stub[:projected_metrics]) unless stub[:projected_metrics].nil?
+        data['projectedMetrics'] = ProjectedMetrics.stub(stub[:projected_metrics]) unless stub[:projected_metrics].nil?
         data
       end
     end
@@ -1036,7 +1038,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProjectedMetric.stub(element) unless element.nil?
+          data << ProjectedMetric.stub(element) unless element.nil?
         end
         data
       end
@@ -1058,8 +1060,8 @@ module AWS::SDK::ComputeOptimizer
         stub ||= Types::ProjectedMetric.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['timestamps'] = Stubs::Timestamps.stub(stub[:timestamps]) unless stub[:timestamps].nil?
-        data['values'] = Stubs::MetricValues.stub(stub[:values]) unless stub[:values].nil?
+        data['timestamps'] = Timestamps.stub(stub[:timestamps]) unless stub[:timestamps].nil?
+        data['values'] = MetricValues.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -1115,7 +1117,7 @@ module AWS::SDK::ComputeOptimizer
       def self.stub(http_resp, stub:)
         data = {}
         data['enhancedInfrastructureMetrics'] = stub[:enhanced_infrastructure_metrics] unless stub[:enhanced_infrastructure_metrics].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1139,7 +1141,7 @@ module AWS::SDK::ComputeOptimizer
         data['memberAccountsEnrolled'] = stub[:member_accounts_enrolled] unless stub[:member_accounts_enrolled].nil?
         data['lastUpdatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_timestamp]).to_i unless stub[:last_updated_timestamp].nil?
         data['numberOfMemberAccountsOptedIn'] = stub[:number_of_member_accounts_opted_in] unless stub[:number_of_member_accounts_opted_in].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1155,9 +1157,9 @@ module AWS::SDK::ComputeOptimizer
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['accountEnrollmentStatuses'] = Stubs::AccountEnrollmentStatuses.stub(stub[:account_enrollment_statuses]) unless stub[:account_enrollment_statuses].nil?
+        data['accountEnrollmentStatuses'] = AccountEnrollmentStatuses.stub(stub[:account_enrollment_statuses]) unless stub[:account_enrollment_statuses].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1176,7 +1178,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccountEnrollmentStatus.stub(element) unless element.nil?
+          data << AccountEnrollmentStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -1218,8 +1220,8 @@ module AWS::SDK::ComputeOptimizer
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['lambdaFunctionRecommendations'] = Stubs::LambdaFunctionRecommendations.stub(stub[:lambda_function_recommendations]) unless stub[:lambda_function_recommendations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['lambdaFunctionRecommendations'] = LambdaFunctionRecommendations.stub(stub[:lambda_function_recommendations]) unless stub[:lambda_function_recommendations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1238,7 +1240,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LambdaFunctionRecommendation.stub(element) unless element.nil?
+          data << LambdaFunctionRecommendation.stub(element) unless element.nil?
         end
         data
       end
@@ -1273,12 +1275,12 @@ module AWS::SDK::ComputeOptimizer
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['currentMemorySize'] = stub[:current_memory_size] unless stub[:current_memory_size].nil?
         data['numberOfInvocations'] = stub[:number_of_invocations] unless stub[:number_of_invocations].nil?
-        data['utilizationMetrics'] = Stubs::LambdaFunctionUtilizationMetrics.stub(stub[:utilization_metrics]) unless stub[:utilization_metrics].nil?
+        data['utilizationMetrics'] = LambdaFunctionUtilizationMetrics.stub(stub[:utilization_metrics]) unless stub[:utilization_metrics].nil?
         data['lookbackPeriodInDays'] = Hearth::NumberHelper.serialize(stub[:lookback_period_in_days])
         data['lastRefreshTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_refresh_timestamp]).to_i unless stub[:last_refresh_timestamp].nil?
         data['finding'] = stub[:finding] unless stub[:finding].nil?
-        data['findingReasonCodes'] = Stubs::LambdaFunctionRecommendationFindingReasonCodes.stub(stub[:finding_reason_codes]) unless stub[:finding_reason_codes].nil?
-        data['memorySizeRecommendationOptions'] = Stubs::LambdaFunctionMemoryRecommendationOptions.stub(stub[:memory_size_recommendation_options]) unless stub[:memory_size_recommendation_options].nil?
+        data['findingReasonCodes'] = LambdaFunctionRecommendationFindingReasonCodes.stub(stub[:finding_reason_codes]) unless stub[:finding_reason_codes].nil?
+        data['memorySizeRecommendationOptions'] = LambdaFunctionMemoryRecommendationOptions.stub(stub[:memory_size_recommendation_options]) unless stub[:memory_size_recommendation_options].nil?
         data['currentPerformanceRisk'] = stub[:current_performance_risk] unless stub[:current_performance_risk].nil?
         data
       end
@@ -1298,7 +1300,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LambdaFunctionMemoryRecommendationOption.stub(element) unless element.nil?
+          data << LambdaFunctionMemoryRecommendationOption.stub(element) unless element.nil?
         end
         data
       end
@@ -1322,8 +1324,8 @@ module AWS::SDK::ComputeOptimizer
         data = {}
         data['rank'] = stub[:rank] unless stub[:rank].nil?
         data['memorySize'] = stub[:memory_size] unless stub[:memory_size].nil?
-        data['projectedUtilizationMetrics'] = Stubs::LambdaFunctionMemoryProjectedMetrics.stub(stub[:projected_utilization_metrics]) unless stub[:projected_utilization_metrics].nil?
-        data['savingsOpportunity'] = Stubs::SavingsOpportunity.stub(stub[:savings_opportunity]) unless stub[:savings_opportunity].nil?
+        data['projectedUtilizationMetrics'] = LambdaFunctionMemoryProjectedMetrics.stub(stub[:projected_utilization_metrics]) unless stub[:projected_utilization_metrics].nil?
+        data['savingsOpportunity'] = SavingsOpportunity.stub(stub[:savings_opportunity]) unless stub[:savings_opportunity].nil?
         data
       end
     end
@@ -1342,7 +1344,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LambdaFunctionMemoryProjectedMetric.stub(element) unless element.nil?
+          data << LambdaFunctionMemoryProjectedMetric.stub(element) unless element.nil?
         end
         data
       end
@@ -1404,7 +1406,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LambdaFunctionUtilizationMetric.stub(element) unless element.nil?
+          data << LambdaFunctionUtilizationMetric.stub(element) unless element.nil?
         end
         data
       end
@@ -1444,8 +1446,8 @@ module AWS::SDK::ComputeOptimizer
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['recommendationPreferencesDetails'] = Stubs::RecommendationPreferencesDetails.stub(stub[:recommendation_preferences_details]) unless stub[:recommendation_preferences_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recommendationPreferencesDetails'] = RecommendationPreferencesDetails.stub(stub[:recommendation_preferences_details]) unless stub[:recommendation_preferences_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1464,7 +1466,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommendationPreferencesDetail.stub(element) unless element.nil?
+          data << RecommendationPreferencesDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1486,7 +1488,7 @@ module AWS::SDK::ComputeOptimizer
       def self.stub(stub)
         stub ||= Types::RecommendationPreferencesDetail.new
         data = {}
-        data['scope'] = Stubs::Scope.stub(stub[:scope]) unless stub[:scope].nil?
+        data['scope'] = Scope.stub(stub[:scope]) unless stub[:scope].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['enhancedInfrastructureMetrics'] = stub[:enhanced_infrastructure_metrics] unless stub[:enhanced_infrastructure_metrics].nil?
         data['inferredWorkloadTypes'] = stub[:inferred_workload_types] unless stub[:inferred_workload_types].nil?
@@ -1526,8 +1528,8 @@ module AWS::SDK::ComputeOptimizer
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['recommendationSummaries'] = Stubs::RecommendationSummaries.stub(stub[:recommendation_summaries]) unless stub[:recommendation_summaries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recommendationSummaries'] = RecommendationSummaries.stub(stub[:recommendation_summaries]) unless stub[:recommendation_summaries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1546,7 +1548,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecommendationSummary.stub(element) unless element.nil?
+          data << RecommendationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1569,11 +1571,11 @@ module AWS::SDK::ComputeOptimizer
       def self.stub(stub)
         stub ||= Types::RecommendationSummary.new
         data = {}
-        data['summaries'] = Stubs::Summaries.stub(stub[:summaries]) unless stub[:summaries].nil?
+        data['summaries'] = Summaries.stub(stub[:summaries]) unless stub[:summaries].nil?
         data['recommendationResourceType'] = stub[:recommendation_resource_type] unless stub[:recommendation_resource_type].nil?
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['savingsOpportunity'] = Stubs::SavingsOpportunity.stub(stub[:savings_opportunity]) unless stub[:savings_opportunity].nil?
-        data['currentPerformanceRiskRatings'] = Stubs::CurrentPerformanceRiskRatings.stub(stub[:current_performance_risk_ratings]) unless stub[:current_performance_risk_ratings].nil?
+        data['savingsOpportunity'] = SavingsOpportunity.stub(stub[:savings_opportunity]) unless stub[:savings_opportunity].nil?
+        data['currentPerformanceRiskRatings'] = CurrentPerformanceRiskRatings.stub(stub[:current_performance_risk_ratings]) unless stub[:current_performance_risk_ratings].nil?
         data
       end
     end
@@ -1616,7 +1618,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Summary.stub(element) unless element.nil?
+          data << Summary.stub(element) unless element.nil?
         end
         data
       end
@@ -1639,7 +1641,7 @@ module AWS::SDK::ComputeOptimizer
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['value'] = Hearth::NumberHelper.serialize(stub[:value])
-        data['reasonCodeSummaries'] = Stubs::ReasonCodeSummaries.stub(stub[:reason_code_summaries]) unless stub[:reason_code_summaries].nil?
+        data['reasonCodeSummaries'] = ReasonCodeSummaries.stub(stub[:reason_code_summaries]) unless stub[:reason_code_summaries].nil?
         data
       end
     end
@@ -1658,7 +1660,7 @@ module AWS::SDK::ComputeOptimizer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReasonCodeSummary.stub(element) unless element.nil?
+          data << ReasonCodeSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1693,7 +1695,7 @@ module AWS::SDK::ComputeOptimizer
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1711,7 +1713,7 @@ module AWS::SDK::ComputeOptimizer
         data = {}
         data['status'] = stub[:status] unless stub[:status].nil?
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

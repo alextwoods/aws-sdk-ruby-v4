@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MemoryDB
   module Stubs
 
@@ -21,9 +23,9 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProcessedClusters'] = Stubs::ClusterList.stub(stub[:processed_clusters]) unless stub[:processed_clusters].nil?
-        data['UnprocessedClusters'] = Stubs::UnprocessedClusterList.stub(stub[:unprocessed_clusters]) unless stub[:unprocessed_clusters].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProcessedClusters'] = ClusterList.stub(stub[:processed_clusters]) unless stub[:processed_clusters].nil?
+        data['UnprocessedClusters'] = UnprocessedClusterList.stub(stub[:unprocessed_clusters]) unless stub[:unprocessed_clusters].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -42,7 +44,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UnprocessedCluster.stub(element) unless element.nil?
+          data << UnprocessedCluster.stub(element) unless element.nil?
         end
         data
       end
@@ -84,7 +86,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Cluster.stub(element) unless element.nil?
+          data << Cluster.stub(element) unless element.nil?
         end
         data
       end
@@ -130,17 +132,17 @@ module AWS::SDK::MemoryDB
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['PendingUpdates'] = Stubs::ClusterPendingUpdates.stub(stub[:pending_updates]) unless stub[:pending_updates].nil?
+        data['PendingUpdates'] = ClusterPendingUpdates.stub(stub[:pending_updates]) unless stub[:pending_updates].nil?
         data['NumberOfShards'] = stub[:number_of_shards] unless stub[:number_of_shards].nil?
-        data['Shards'] = Stubs::ShardList.stub(stub[:shards]) unless stub[:shards].nil?
+        data['Shards'] = ShardList.stub(stub[:shards]) unless stub[:shards].nil?
         data['AvailabilityMode'] = stub[:availability_mode] unless stub[:availability_mode].nil?
-        data['ClusterEndpoint'] = Stubs::Endpoint.stub(stub[:cluster_endpoint]) unless stub[:cluster_endpoint].nil?
+        data['ClusterEndpoint'] = Endpoint.stub(stub[:cluster_endpoint]) unless stub[:cluster_endpoint].nil?
         data['NodeType'] = stub[:node_type] unless stub[:node_type].nil?
         data['EngineVersion'] = stub[:engine_version] unless stub[:engine_version].nil?
         data['EnginePatchVersion'] = stub[:engine_patch_version] unless stub[:engine_patch_version].nil?
         data['ParameterGroupName'] = stub[:parameter_group_name] unless stub[:parameter_group_name].nil?
         data['ParameterGroupStatus'] = stub[:parameter_group_status] unless stub[:parameter_group_status].nil?
-        data['SecurityGroups'] = Stubs::SecurityGroupMembershipList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['SecurityGroups'] = SecurityGroupMembershipList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
         data['SubnetGroupName'] = stub[:subnet_group_name] unless stub[:subnet_group_name].nil?
         data['TLSEnabled'] = stub[:tls_enabled] unless stub[:tls_enabled].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
@@ -170,7 +172,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SecurityGroupMembership.stub(element) unless element.nil?
+          data << SecurityGroupMembership.stub(element) unless element.nil?
         end
         data
       end
@@ -230,7 +232,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Shard.stub(element) unless element.nil?
+          data << Shard.stub(element) unless element.nil?
         end
         data
       end
@@ -256,7 +258,7 @@ module AWS::SDK::MemoryDB
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Slots'] = stub[:slots] unless stub[:slots].nil?
-        data['Nodes'] = Stubs::NodeList.stub(stub[:nodes]) unless stub[:nodes].nil?
+        data['Nodes'] = NodeList.stub(stub[:nodes]) unless stub[:nodes].nil?
         data['NumberOfNodes'] = stub[:number_of_nodes] unless stub[:number_of_nodes].nil?
         data
       end
@@ -276,7 +278,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Node.stub(element) unless element.nil?
+          data << Node.stub(element) unless element.nil?
         end
         data
       end
@@ -303,7 +305,7 @@ module AWS::SDK::MemoryDB
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['AvailabilityZone'] = stub[:availability_zone] unless stub[:availability_zone].nil?
         data['CreateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_time]).to_i unless stub[:create_time].nil?
-        data['Endpoint'] = Stubs::Endpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
+        data['Endpoint'] = Endpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
         data
       end
     end
@@ -323,9 +325,9 @@ module AWS::SDK::MemoryDB
       def self.stub(stub)
         stub ||= Types::ClusterPendingUpdates.new
         data = {}
-        data['Resharding'] = Stubs::ReshardingStatus.stub(stub[:resharding]) unless stub[:resharding].nil?
-        data['ACLs'] = Stubs::ACLsUpdateStatus.stub(stub[:ac_ls]) unless stub[:ac_ls].nil?
-        data['ServiceUpdates'] = Stubs::PendingModifiedServiceUpdateList.stub(stub[:service_updates]) unless stub[:service_updates].nil?
+        data['Resharding'] = ReshardingStatus.stub(stub[:resharding]) unless stub[:resharding].nil?
+        data['ACLs'] = ACLsUpdateStatus.stub(stub[:ac_ls]) unless stub[:ac_ls].nil?
+        data['ServiceUpdates'] = PendingModifiedServiceUpdateList.stub(stub[:service_updates]) unless stub[:service_updates].nil?
         data
       end
     end
@@ -344,7 +346,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PendingModifiedServiceUpdate.stub(element) unless element.nil?
+          data << PendingModifiedServiceUpdate.stub(element) unless element.nil?
         end
         data
       end
@@ -401,7 +403,7 @@ module AWS::SDK::MemoryDB
       def self.stub(stub)
         stub ||= Types::ReshardingStatus.new
         data = {}
-        data['SlotMigration'] = Stubs::SlotMigration.stub(stub[:slot_migration]) unless stub[:slot_migration].nil?
+        data['SlotMigration'] = SlotMigration.stub(stub[:slot_migration]) unless stub[:slot_migration].nil?
         data
       end
     end
@@ -434,8 +436,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Snapshot'] = Stubs::Snapshot.stub(stub[:snapshot]) unless stub[:snapshot].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Snapshot'] = Snapshot.stub(stub[:snapshot]) unless stub[:snapshot].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -463,7 +465,7 @@ module AWS::SDK::MemoryDB
         data['Source'] = stub[:source] unless stub[:source].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
-        data['ClusterConfiguration'] = Stubs::ClusterConfiguration.stub(stub[:cluster_configuration]) unless stub[:cluster_configuration].nil?
+        data['ClusterConfiguration'] = ClusterConfiguration.stub(stub[:cluster_configuration]) unless stub[:cluster_configuration].nil?
         data
       end
     end
@@ -507,7 +509,7 @@ module AWS::SDK::MemoryDB
         data['SnapshotRetentionLimit'] = stub[:snapshot_retention_limit] unless stub[:snapshot_retention_limit].nil?
         data['SnapshotWindow'] = stub[:snapshot_window] unless stub[:snapshot_window].nil?
         data['NumShards'] = stub[:num_shards] unless stub[:num_shards].nil?
-        data['Shards'] = Stubs::ShardDetails.stub(stub[:shards]) unless stub[:shards].nil?
+        data['Shards'] = ShardDetails.stub(stub[:shards]) unless stub[:shards].nil?
         data
       end
     end
@@ -526,7 +528,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ShardDetail.stub(element) unless element.nil?
+          data << ShardDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -549,7 +551,7 @@ module AWS::SDK::MemoryDB
         stub ||= Types::ShardDetail.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Configuration'] = Stubs::ShardConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['Configuration'] = ShardConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
         data['Size'] = stub[:size] unless stub[:size].nil?
         data['SnapshotCreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:snapshot_creation_time]).to_i unless stub[:snapshot_creation_time].nil?
         data
@@ -586,8 +588,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ACL'] = Stubs::ACL.stub(stub[:acl]) unless stub[:acl].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ACL'] = ACL.stub(stub[:acl]) unless stub[:acl].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -613,10 +615,10 @@ module AWS::SDK::MemoryDB
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['UserNames'] = Stubs::UserNameList.stub(stub[:user_names]) unless stub[:user_names].nil?
+        data['UserNames'] = UserNameList.stub(stub[:user_names]) unless stub[:user_names].nil?
         data['MinimumEngineVersion'] = stub[:minimum_engine_version] unless stub[:minimum_engine_version].nil?
-        data['PendingChanges'] = Stubs::ACLPendingChanges.stub(stub[:pending_changes]) unless stub[:pending_changes].nil?
-        data['Clusters'] = Stubs::ACLClusterNameList.stub(stub[:clusters]) unless stub[:clusters].nil?
+        data['PendingChanges'] = ACLPendingChanges.stub(stub[:pending_changes]) unless stub[:pending_changes].nil?
+        data['Clusters'] = ACLClusterNameList.stub(stub[:clusters]) unless stub[:clusters].nil?
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data
       end
@@ -656,8 +658,8 @@ module AWS::SDK::MemoryDB
       def self.stub(stub)
         stub ||= Types::ACLPendingChanges.new
         data = {}
-        data['UserNamesToRemove'] = Stubs::UserNameList.stub(stub[:user_names_to_remove]) unless stub[:user_names_to_remove].nil?
-        data['UserNamesToAdd'] = Stubs::UserNameList.stub(stub[:user_names_to_add]) unless stub[:user_names_to_add].nil?
+        data['UserNamesToRemove'] = UserNameList.stub(stub[:user_names_to_remove]) unless stub[:user_names_to_remove].nil?
+        data['UserNamesToAdd'] = UserNameList.stub(stub[:user_names_to_add]) unless stub[:user_names_to_add].nil?
         data
       end
     end
@@ -692,8 +694,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -708,8 +710,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ParameterGroup'] = Stubs::ParameterGroup.stub(stub[:parameter_group]) unless stub[:parameter_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ParameterGroup'] = ParameterGroup.stub(stub[:parameter_group]) unless stub[:parameter_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -748,8 +750,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Snapshot'] = Stubs::Snapshot.stub(stub[:snapshot]) unless stub[:snapshot].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Snapshot'] = Snapshot.stub(stub[:snapshot]) unless stub[:snapshot].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -764,8 +766,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SubnetGroup'] = Stubs::SubnetGroup.stub(stub[:subnet_group]) unless stub[:subnet_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubnetGroup'] = SubnetGroup.stub(stub[:subnet_group]) unless stub[:subnet_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -790,7 +792,7 @@ module AWS::SDK::MemoryDB
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['Subnets'] = Stubs::SubnetList.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['Subnets'] = SubnetList.stub(stub[:subnets]) unless stub[:subnets].nil?
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data
       end
@@ -810,7 +812,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Subnet.stub(element) unless element.nil?
+          data << Subnet.stub(element) unless element.nil?
         end
         data
       end
@@ -831,7 +833,7 @@ module AWS::SDK::MemoryDB
         stub ||= Types::Subnet.new
         data = {}
         data['Identifier'] = stub[:identifier] unless stub[:identifier].nil?
-        data['AvailabilityZone'] = Stubs::AvailabilityZone.stub(stub[:availability_zone]) unless stub[:availability_zone].nil?
+        data['AvailabilityZone'] = AvailabilityZone.stub(stub[:availability_zone]) unless stub[:availability_zone].nil?
         data
       end
     end
@@ -864,8 +866,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['User'] = Stubs::User.stub(stub[:user]) unless stub[:user].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['User'] = User.stub(stub[:user]) unless stub[:user].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -892,9 +894,9 @@ module AWS::SDK::MemoryDB
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['AccessString'] = stub[:access_string] unless stub[:access_string].nil?
-        data['ACLNames'] = Stubs::ACLNameList.stub(stub[:acl_names]) unless stub[:acl_names].nil?
+        data['ACLNames'] = ACLNameList.stub(stub[:acl_names]) unless stub[:acl_names].nil?
         data['MinimumEngineVersion'] = stub[:minimum_engine_version] unless stub[:minimum_engine_version].nil?
-        data['Authentication'] = Stubs::Authentication.stub(stub[:authentication]) unless stub[:authentication].nil?
+        data['Authentication'] = Authentication.stub(stub[:authentication]) unless stub[:authentication].nil?
         data['ARN'] = stub[:arn] unless stub[:arn].nil?
         data
       end
@@ -950,8 +952,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ACL'] = Stubs::ACL.stub(stub[:acl]) unless stub[:acl].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ACL'] = ACL.stub(stub[:acl]) unless stub[:acl].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -966,8 +968,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -982,8 +984,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ParameterGroup'] = Stubs::ParameterGroup.stub(stub[:parameter_group]) unless stub[:parameter_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ParameterGroup'] = ParameterGroup.stub(stub[:parameter_group]) unless stub[:parameter_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -998,8 +1000,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Snapshot'] = Stubs::Snapshot.stub(stub[:snapshot]) unless stub[:snapshot].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Snapshot'] = Snapshot.stub(stub[:snapshot]) unless stub[:snapshot].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1014,8 +1016,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SubnetGroup'] = Stubs::SubnetGroup.stub(stub[:subnet_group]) unless stub[:subnet_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubnetGroup'] = SubnetGroup.stub(stub[:subnet_group]) unless stub[:subnet_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1030,8 +1032,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['User'] = Stubs::User.stub(stub[:user]) unless stub[:user].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['User'] = User.stub(stub[:user]) unless stub[:user].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1047,9 +1049,9 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ACLs'] = Stubs::ACLList.stub(stub[:ac_ls]) unless stub[:ac_ls].nil?
+        data['ACLs'] = ACLList.stub(stub[:ac_ls]) unless stub[:ac_ls].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1068,7 +1070,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ACL.stub(element) unless element.nil?
+          data << ACL.stub(element) unless element.nil?
         end
         data
       end
@@ -1086,8 +1088,8 @@ module AWS::SDK::MemoryDB
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Clusters'] = Stubs::ClusterList.stub(stub[:clusters]) unless stub[:clusters].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Clusters'] = ClusterList.stub(stub[:clusters]) unless stub[:clusters].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1104,8 +1106,8 @@ module AWS::SDK::MemoryDB
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['EngineVersions'] = Stubs::EngineVersionInfoList.stub(stub[:engine_versions]) unless stub[:engine_versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EngineVersions'] = EngineVersionInfoList.stub(stub[:engine_versions]) unless stub[:engine_versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1124,7 +1126,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EngineVersionInfo.stub(element) unless element.nil?
+          data << EngineVersionInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1164,8 +1166,8 @@ module AWS::SDK::MemoryDB
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Events'] = Stubs::EventList.stub(stub[:events]) unless stub[:events].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Events'] = EventList.stub(stub[:events]) unless stub[:events].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1184,7 +1186,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Event.stub(element) unless element.nil?
+          data << Event.stub(element) unless element.nil?
         end
         data
       end
@@ -1226,8 +1228,8 @@ module AWS::SDK::MemoryDB
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ParameterGroups'] = Stubs::ParameterGroupList.stub(stub[:parameter_groups]) unless stub[:parameter_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ParameterGroups'] = ParameterGroupList.stub(stub[:parameter_groups]) unless stub[:parameter_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1246,7 +1248,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ParameterGroup.stub(element) unless element.nil?
+          data << ParameterGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -1264,8 +1266,8 @@ module AWS::SDK::MemoryDB
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Parameters'] = Stubs::ParametersList.stub(stub[:parameters]) unless stub[:parameters].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Parameters'] = ParametersList.stub(stub[:parameters]) unless stub[:parameters].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1284,7 +1286,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Parameter.stub(element) unless element.nil?
+          data << Parameter.stub(element) unless element.nil?
         end
         data
       end
@@ -1330,8 +1332,8 @@ module AWS::SDK::MemoryDB
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ServiceUpdates'] = Stubs::ServiceUpdateList.stub(stub[:service_updates]) unless stub[:service_updates].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ServiceUpdates'] = ServiceUpdateList.stub(stub[:service_updates]) unless stub[:service_updates].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1350,7 +1352,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceUpdate.stub(element) unless element.nil?
+          data << ServiceUpdate.stub(element) unless element.nil?
         end
         data
       end
@@ -1400,8 +1402,8 @@ module AWS::SDK::MemoryDB
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Snapshots'] = Stubs::SnapshotList.stub(stub[:snapshots]) unless stub[:snapshots].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Snapshots'] = SnapshotList.stub(stub[:snapshots]) unless stub[:snapshots].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1420,7 +1422,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Snapshot.stub(element) unless element.nil?
+          data << Snapshot.stub(element) unless element.nil?
         end
         data
       end
@@ -1438,8 +1440,8 @@ module AWS::SDK::MemoryDB
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['SubnetGroups'] = Stubs::SubnetGroupList.stub(stub[:subnet_groups]) unless stub[:subnet_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubnetGroups'] = SubnetGroupList.stub(stub[:subnet_groups]) unless stub[:subnet_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1458,7 +1460,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SubnetGroup.stub(element) unless element.nil?
+          data << SubnetGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -1475,9 +1477,9 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Users'] = Stubs::UserList.stub(stub[:users]) unless stub[:users].nil?
+        data['Users'] = UserList.stub(stub[:users]) unless stub[:users].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1496,7 +1498,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::User.stub(element) unless element.nil?
+          data << User.stub(element) unless element.nil?
         end
         data
       end
@@ -1512,8 +1514,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1529,9 +1531,9 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ScaleUpNodeTypes'] = Stubs::NodeTypeList.stub(stub[:scale_up_node_types]) unless stub[:scale_up_node_types].nil?
-        data['ScaleDownNodeTypes'] = Stubs::NodeTypeList.stub(stub[:scale_down_node_types]) unless stub[:scale_down_node_types].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ScaleUpNodeTypes'] = NodeTypeList.stub(stub[:scale_up_node_types]) unless stub[:scale_up_node_types].nil?
+        data['ScaleDownNodeTypes'] = NodeTypeList.stub(stub[:scale_down_node_types]) unless stub[:scale_down_node_types].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1566,8 +1568,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1586,7 +1588,7 @@ module AWS::SDK::MemoryDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1622,8 +1624,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ParameterGroup'] = Stubs::ParameterGroup.stub(stub[:parameter_group]) unless stub[:parameter_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ParameterGroup'] = ParameterGroup.stub(stub[:parameter_group]) unless stub[:parameter_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1638,8 +1640,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1654,8 +1656,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1670,8 +1672,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ACL'] = Stubs::ACL.stub(stub[:acl]) unless stub[:acl].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ACL'] = ACL.stub(stub[:acl]) unless stub[:acl].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1686,8 +1688,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1702,8 +1704,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ParameterGroup'] = Stubs::ParameterGroup.stub(stub[:parameter_group]) unless stub[:parameter_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ParameterGroup'] = ParameterGroup.stub(stub[:parameter_group]) unless stub[:parameter_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1718,8 +1720,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SubnetGroup'] = Stubs::SubnetGroup.stub(stub[:subnet_group]) unless stub[:subnet_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubnetGroup'] = SubnetGroup.stub(stub[:subnet_group]) unless stub[:subnet_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1734,8 +1736,8 @@ module AWS::SDK::MemoryDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['User'] = Stubs::User.stub(stub[:user]) unless stub[:user].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['User'] = User.stub(stub[:user]) unless stub[:user].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

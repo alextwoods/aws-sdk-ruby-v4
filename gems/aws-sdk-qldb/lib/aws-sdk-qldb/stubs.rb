@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::QLDB
   module Stubs
 
@@ -23,7 +26,7 @@ module AWS::SDK::QLDB
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['StreamId'] = stub[:stream_id] unless stub[:stream_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -52,7 +55,7 @@ module AWS::SDK::QLDB
         data['PermissionsMode'] = stub[:permissions_mode] unless stub[:permissions_mode].nil?
         data['DeletionProtection'] = stub[:deletion_protection] unless stub[:deletion_protection].nil?
         data['KmsKeyArn'] = stub[:kms_key_arn] unless stub[:kms_key_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -81,8 +84,8 @@ module AWS::SDK::QLDB
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Stream'] = Stubs::JournalKinesisStreamDescription.stub(stub[:stream]) unless stub[:stream].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Stream'] = JournalKinesisStreamDescription.stub(stub[:stream]) unless stub[:stream].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -117,7 +120,7 @@ module AWS::SDK::QLDB
         data['StreamId'] = stub[:stream_id] unless stub[:stream_id].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['KinesisConfiguration'] = Stubs::KinesisConfiguration.stub(stub[:kinesis_configuration]) unless stub[:kinesis_configuration].nil?
+        data['KinesisConfiguration'] = KinesisConfiguration.stub(stub[:kinesis_configuration]) unless stub[:kinesis_configuration].nil?
         data['ErrorCause'] = stub[:error_cause] unless stub[:error_cause].nil?
         data['StreamName'] = stub[:stream_name] unless stub[:stream_name].nil?
         data
@@ -156,8 +159,8 @@ module AWS::SDK::QLDB
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ExportDescription'] = Stubs::JournalS3ExportDescription.stub(stub[:export_description]) unless stub[:export_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ExportDescription'] = JournalS3ExportDescription.stub(stub[:export_description]) unless stub[:export_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -188,7 +191,7 @@ module AWS::SDK::QLDB
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['InclusiveStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:inclusive_start_time]).to_i unless stub[:inclusive_start_time].nil?
         data['ExclusiveEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:exclusive_end_time]).to_i unless stub[:exclusive_end_time].nil?
-        data['S3ExportConfiguration'] = Stubs::S3ExportConfiguration.stub(stub[:s3_export_configuration]) unless stub[:s3_export_configuration].nil?
+        data['S3ExportConfiguration'] = S3ExportConfiguration.stub(stub[:s3_export_configuration]) unless stub[:s3_export_configuration].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['OutputFormat'] = stub[:output_format] unless stub[:output_format].nil?
         data
@@ -212,7 +215,7 @@ module AWS::SDK::QLDB
         data = {}
         data['Bucket'] = stub[:bucket] unless stub[:bucket].nil?
         data['Prefix'] = stub[:prefix] unless stub[:prefix].nil?
-        data['EncryptionConfiguration'] = Stubs::S3EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
+        data['EncryptionConfiguration'] = S3EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
         data
       end
     end
@@ -261,8 +264,8 @@ module AWS::SDK::QLDB
         data['CreationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
         data['PermissionsMode'] = stub[:permissions_mode] unless stub[:permissions_mode].nil?
         data['DeletionProtection'] = stub[:deletion_protection] unless stub[:deletion_protection].nil?
-        data['EncryptionDescription'] = Stubs::LedgerEncryptionDescription.stub(stub[:encryption_description]) unless stub[:encryption_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EncryptionDescription'] = LedgerEncryptionDescription.stub(stub[:encryption_description]) unless stub[:encryption_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -301,7 +304,7 @@ module AWS::SDK::QLDB
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ExportId'] = stub[:export_id] unless stub[:export_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -318,9 +321,9 @@ module AWS::SDK::QLDB
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Block'] = Stubs::ValueHolder.stub(stub[:block]) unless stub[:block].nil?
-        data['Proof'] = Stubs::ValueHolder.stub(stub[:proof]) unless stub[:proof].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Block'] = ValueHolder.stub(stub[:block]) unless stub[:block].nil?
+        data['Proof'] = ValueHolder.stub(stub[:proof]) unless stub[:proof].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -355,9 +358,9 @@ module AWS::SDK::QLDB
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Digest'] = Base64::encode64(stub[:digest]) unless stub[:digest].nil?
-        data['DigestTipAddress'] = Stubs::ValueHolder.stub(stub[:digest_tip_address]) unless stub[:digest_tip_address].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Digest'] = ::Base64::encode64(stub[:digest]) unless stub[:digest].nil?
+        data['DigestTipAddress'] = ValueHolder.stub(stub[:digest_tip_address]) unless stub[:digest_tip_address].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -374,9 +377,9 @@ module AWS::SDK::QLDB
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Proof'] = Stubs::ValueHolder.stub(stub[:proof]) unless stub[:proof].nil?
-        data['Revision'] = Stubs::ValueHolder.stub(stub[:revision]) unless stub[:revision].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Proof'] = ValueHolder.stub(stub[:proof]) unless stub[:proof].nil?
+        data['Revision'] = ValueHolder.stub(stub[:revision]) unless stub[:revision].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -393,9 +396,9 @@ module AWS::SDK::QLDB
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Streams'] = Stubs::JournalKinesisStreamDescriptionList.stub(stub[:streams]) unless stub[:streams].nil?
+        data['Streams'] = JournalKinesisStreamDescriptionList.stub(stub[:streams]) unless stub[:streams].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -413,7 +416,7 @@ module AWS::SDK::QLDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JournalKinesisStreamDescription.stub(element) unless element.nil?
+          data << JournalKinesisStreamDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -432,9 +435,9 @@ module AWS::SDK::QLDB
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['JournalS3Exports'] = Stubs::JournalS3ExportList.stub(stub[:journal_s3_exports]) unless stub[:journal_s3_exports].nil?
+        data['JournalS3Exports'] = JournalS3ExportList.stub(stub[:journal_s3_exports]) unless stub[:journal_s3_exports].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -452,7 +455,7 @@ module AWS::SDK::QLDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JournalS3ExportDescription.stub(element) unless element.nil?
+          data << JournalS3ExportDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -471,9 +474,9 @@ module AWS::SDK::QLDB
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['JournalS3Exports'] = Stubs::JournalS3ExportList.stub(stub[:journal_s3_exports]) unless stub[:journal_s3_exports].nil?
+        data['JournalS3Exports'] = JournalS3ExportList.stub(stub[:journal_s3_exports]) unless stub[:journal_s3_exports].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -490,9 +493,9 @@ module AWS::SDK::QLDB
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Ledgers'] = Stubs::LedgerList.stub(stub[:ledgers]) unless stub[:ledgers].nil?
+        data['Ledgers'] = LedgerList.stub(stub[:ledgers]) unless stub[:ledgers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -510,7 +513,7 @@ module AWS::SDK::QLDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LedgerSummary.stub(element) unless element.nil?
+          data << LedgerSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -550,8 +553,8 @@ module AWS::SDK::QLDB
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -588,7 +591,7 @@ module AWS::SDK::QLDB
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['StreamId'] = stub[:stream_id] unless stub[:stream_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -640,8 +643,8 @@ module AWS::SDK::QLDB
         data['State'] = stub[:state] unless stub[:state].nil?
         data['CreationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
         data['DeletionProtection'] = stub[:deletion_protection] unless stub[:deletion_protection].nil?
-        data['EncryptionDescription'] = Stubs::LedgerEncryptionDescription.stub(stub[:encryption_description]) unless stub[:encryption_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EncryptionDescription'] = LedgerEncryptionDescription.stub(stub[:encryption_description]) unless stub[:encryption_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -662,7 +665,7 @@ module AWS::SDK::QLDB
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['PermissionsMode'] = stub[:permissions_mode] unless stub[:permissions_mode].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

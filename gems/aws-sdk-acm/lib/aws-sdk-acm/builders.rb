@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::ACM
   module Builders
 
@@ -19,8 +22,8 @@ module AWS::SDK::ACM
         http_req.headers['X-Amz-Target'] = 'CertificateManager.AddTagsToCertificate'
         data = {}
         data['CertificateArn'] = input[:certificate_arn] unless input[:certificate_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -29,7 +32,7 @@ module AWS::SDK::ACM
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -54,7 +57,7 @@ module AWS::SDK::ACM
         http_req.headers['X-Amz-Target'] = 'CertificateManager.DeleteCertificate'
         data = {}
         data['CertificateArn'] = input[:certificate_arn] unless input[:certificate_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -67,7 +70,7 @@ module AWS::SDK::ACM
         http_req.headers['X-Amz-Target'] = 'CertificateManager.DescribeCertificate'
         data = {}
         data['CertificateArn'] = input[:certificate_arn] unless input[:certificate_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -80,8 +83,8 @@ module AWS::SDK::ACM
         http_req.headers['X-Amz-Target'] = 'CertificateManager.ExportCertificate'
         data = {}
         data['CertificateArn'] = input[:certificate_arn] unless input[:certificate_arn].nil?
-        data['Passphrase'] = Base64::encode64(input[:passphrase]).strip unless input[:passphrase].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Passphrase'] = ::Base64::encode64(input[:passphrase]).strip unless input[:passphrase].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -93,7 +96,7 @@ module AWS::SDK::ACM
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CertificateManager.GetAccountConfiguration'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -106,7 +109,7 @@ module AWS::SDK::ACM
         http_req.headers['X-Amz-Target'] = 'CertificateManager.GetCertificate'
         data = {}
         data['CertificateArn'] = input[:certificate_arn] unless input[:certificate_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -119,11 +122,11 @@ module AWS::SDK::ACM
         http_req.headers['X-Amz-Target'] = 'CertificateManager.ImportCertificate'
         data = {}
         data['CertificateArn'] = input[:certificate_arn] unless input[:certificate_arn].nil?
-        data['Certificate'] = Base64::encode64(input[:certificate]).strip unless input[:certificate].nil?
-        data['PrivateKey'] = Base64::encode64(input[:private_key]).strip unless input[:private_key].nil?
-        data['CertificateChain'] = Base64::encode64(input[:certificate_chain]).strip unless input[:certificate_chain].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Certificate'] = ::Base64::encode64(input[:certificate]).strip unless input[:certificate].nil?
+        data['PrivateKey'] = ::Base64::encode64(input[:private_key]).strip unless input[:private_key].nil?
+        data['CertificateChain'] = ::Base64::encode64(input[:certificate_chain]).strip unless input[:certificate_chain].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -135,11 +138,11 @@ module AWS::SDK::ACM
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CertificateManager.ListCertificates'
         data = {}
-        data['CertificateStatuses'] = Builders::CertificateStatuses.build(input[:certificate_statuses]) unless input[:certificate_statuses].nil?
-        data['Includes'] = Builders::Filters.build(input[:includes]) unless input[:includes].nil?
+        data['CertificateStatuses'] = CertificateStatuses.build(input[:certificate_statuses]) unless input[:certificate_statuses].nil?
+        data['Includes'] = Filters.build(input[:includes]) unless input[:includes].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxItems'] = input[:max_items] unless input[:max_items].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -147,9 +150,9 @@ module AWS::SDK::ACM
     class Filters
       def self.build(input)
         data = {}
-        data['extendedKeyUsage'] = Builders::ExtendedKeyUsageFilterList.build(input[:extended_key_usage]) unless input[:extended_key_usage].nil?
-        data['keyUsage'] = Builders::KeyUsageFilterList.build(input[:key_usage]) unless input[:key_usage].nil?
-        data['keyTypes'] = Builders::KeyAlgorithmList.build(input[:key_types]) unless input[:key_types].nil?
+        data['extendedKeyUsage'] = ExtendedKeyUsageFilterList.build(input[:extended_key_usage]) unless input[:extended_key_usage].nil?
+        data['keyUsage'] = KeyUsageFilterList.build(input[:key_usage]) unless input[:key_usage].nil?
+        data['keyTypes'] = KeyAlgorithmList.build(input[:key_types]) unless input[:key_types].nil?
         data
       end
     end
@@ -207,7 +210,7 @@ module AWS::SDK::ACM
         http_req.headers['X-Amz-Target'] = 'CertificateManager.ListTagsForCertificate'
         data = {}
         data['CertificateArn'] = input[:certificate_arn] unless input[:certificate_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -219,9 +222,9 @@ module AWS::SDK::ACM
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CertificateManager.PutAccountConfiguration'
         data = {}
-        data['ExpiryEvents'] = Builders::ExpiryEventsConfiguration.build(input[:expiry_events]) unless input[:expiry_events].nil?
+        data['ExpiryEvents'] = ExpiryEventsConfiguration.build(input[:expiry_events]) unless input[:expiry_events].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -243,8 +246,8 @@ module AWS::SDK::ACM
         http_req.headers['X-Amz-Target'] = 'CertificateManager.RemoveTagsFromCertificate'
         data = {}
         data['CertificateArn'] = input[:certificate_arn] unless input[:certificate_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -257,7 +260,7 @@ module AWS::SDK::ACM
         http_req.headers['X-Amz-Target'] = 'CertificateManager.RenewCertificate'
         data = {}
         data['CertificateArn'] = input[:certificate_arn] unless input[:certificate_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -271,13 +274,13 @@ module AWS::SDK::ACM
         data = {}
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['ValidationMethod'] = input[:validation_method] unless input[:validation_method].nil?
-        data['SubjectAlternativeNames'] = Builders::DomainList.build(input[:subject_alternative_names]) unless input[:subject_alternative_names].nil?
+        data['SubjectAlternativeNames'] = DomainList.build(input[:subject_alternative_names]) unless input[:subject_alternative_names].nil?
         data['IdempotencyToken'] = input[:idempotency_token] unless input[:idempotency_token].nil?
-        data['DomainValidationOptions'] = Builders::DomainValidationOptionList.build(input[:domain_validation_options]) unless input[:domain_validation_options].nil?
-        data['Options'] = Builders::CertificateOptions.build(input[:options]) unless input[:options].nil?
+        data['DomainValidationOptions'] = DomainValidationOptionList.build(input[:domain_validation_options]) unless input[:domain_validation_options].nil?
+        data['Options'] = CertificateOptions.build(input[:options]) unless input[:options].nil?
         data['CertificateAuthorityArn'] = input[:certificate_authority_arn] unless input[:certificate_authority_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -295,7 +298,7 @@ module AWS::SDK::ACM
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DomainValidationOption.build(element) unless element.nil?
+          data << DomainValidationOption.build(element) unless element.nil?
         end
         data
       end
@@ -333,7 +336,7 @@ module AWS::SDK::ACM
         data['CertificateArn'] = input[:certificate_arn] unless input[:certificate_arn].nil?
         data['Domain'] = input[:domain] unless input[:domain].nil?
         data['ValidationDomain'] = input[:validation_domain] unless input[:validation_domain].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -346,8 +349,8 @@ module AWS::SDK::ACM
         http_req.headers['X-Amz-Target'] = 'CertificateManager.UpdateCertificateOptions'
         data = {}
         data['CertificateArn'] = input[:certificate_arn] unless input[:certificate_arn].nil?
-        data['Options'] = Builders::CertificateOptions.build(input[:options]) unless input[:options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Options'] = CertificateOptions.build(input[:options]) unless input[:options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

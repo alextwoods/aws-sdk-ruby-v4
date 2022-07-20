@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::EMR
   module Stubs
 
@@ -25,7 +27,7 @@ module AWS::SDK::EMR
         data['ClusterId'] = stub[:cluster_id] unless stub[:cluster_id].nil?
         data['InstanceFleetId'] = stub[:instance_fleet_id] unless stub[:instance_fleet_id].nil?
         data['ClusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -43,9 +45,9 @@ module AWS::SDK::EMR
       def self.stub(http_resp, stub:)
         data = {}
         data['JobFlowId'] = stub[:job_flow_id] unless stub[:job_flow_id].nil?
-        data['InstanceGroupIds'] = Stubs::InstanceGroupIdsList.stub(stub[:instance_group_ids]) unless stub[:instance_group_ids].nil?
+        data['InstanceGroupIds'] = InstanceGroupIdsList.stub(stub[:instance_group_ids]) unless stub[:instance_group_ids].nil?
         data['ClusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -80,8 +82,8 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['StepIds'] = Stubs::StepIdsList.stub(stub[:step_ids]) unless stub[:step_ids].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StepIds'] = StepIdsList.stub(stub[:step_ids]) unless stub[:step_ids].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -115,7 +117,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -130,8 +132,8 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CancelStepsInfoList'] = Stubs::CancelStepsInfoList.stub(stub[:cancel_steps_info_list]) unless stub[:cancel_steps_info_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CancelStepsInfoList'] = CancelStepsInfoList.stub(stub[:cancel_steps_info_list]) unless stub[:cancel_steps_info_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -150,7 +152,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CancelStepsInfo.stub(element) unless element.nil?
+          data << CancelStepsInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -191,7 +193,7 @@ module AWS::SDK::EMR
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['CreationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -209,7 +211,7 @@ module AWS::SDK::EMR
         data = {}
         data['StudioId'] = stub[:studio_id] unless stub[:studio_id].nil?
         data['Url'] = stub[:url] unless stub[:url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -223,7 +225,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -237,7 +239,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -251,7 +253,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -265,7 +267,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -280,8 +282,8 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -331,8 +333,8 @@ module AWS::SDK::EMR
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Status'] = Stubs::ClusterStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['Ec2InstanceAttributes'] = Stubs::Ec2InstanceAttributes.stub(stub[:ec2_instance_attributes]) unless stub[:ec2_instance_attributes].nil?
+        data['Status'] = ClusterStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Ec2InstanceAttributes'] = Ec2InstanceAttributes.stub(stub[:ec2_instance_attributes]) unless stub[:ec2_instance_attributes].nil?
         data['InstanceCollectionType'] = stub[:instance_collection_type] unless stub[:instance_collection_type].nil?
         data['LogUri'] = stub[:log_uri] unless stub[:log_uri].nil?
         data['LogEncryptionKmsKeyId'] = stub[:log_encryption_kms_key_id] unless stub[:log_encryption_kms_key_id].nil?
@@ -342,23 +344,23 @@ module AWS::SDK::EMR
         data['AutoTerminate'] = stub[:auto_terminate] unless stub[:auto_terminate].nil?
         data['TerminationProtected'] = stub[:termination_protected] unless stub[:termination_protected].nil?
         data['VisibleToAllUsers'] = stub[:visible_to_all_users] unless stub[:visible_to_all_users].nil?
-        data['Applications'] = Stubs::ApplicationList.stub(stub[:applications]) unless stub[:applications].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Applications'] = ApplicationList.stub(stub[:applications]) unless stub[:applications].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['ServiceRole'] = stub[:service_role] unless stub[:service_role].nil?
         data['NormalizedInstanceHours'] = stub[:normalized_instance_hours] unless stub[:normalized_instance_hours].nil?
         data['MasterPublicDnsName'] = stub[:master_public_dns_name] unless stub[:master_public_dns_name].nil?
-        data['Configurations'] = Stubs::ConfigurationList.stub(stub[:configurations]) unless stub[:configurations].nil?
+        data['Configurations'] = ConfigurationList.stub(stub[:configurations]) unless stub[:configurations].nil?
         data['SecurityConfiguration'] = stub[:security_configuration] unless stub[:security_configuration].nil?
         data['AutoScalingRole'] = stub[:auto_scaling_role] unless stub[:auto_scaling_role].nil?
         data['ScaleDownBehavior'] = stub[:scale_down_behavior] unless stub[:scale_down_behavior].nil?
         data['CustomAmiId'] = stub[:custom_ami_id] unless stub[:custom_ami_id].nil?
         data['EbsRootVolumeSize'] = stub[:ebs_root_volume_size] unless stub[:ebs_root_volume_size].nil?
         data['RepoUpgradeOnBoot'] = stub[:repo_upgrade_on_boot] unless stub[:repo_upgrade_on_boot].nil?
-        data['KerberosAttributes'] = Stubs::KerberosAttributes.stub(stub[:kerberos_attributes]) unless stub[:kerberos_attributes].nil?
+        data['KerberosAttributes'] = KerberosAttributes.stub(stub[:kerberos_attributes]) unless stub[:kerberos_attributes].nil?
         data['ClusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
         data['OutpostArn'] = stub[:outpost_arn] unless stub[:outpost_arn].nil?
         data['StepConcurrencyLevel'] = stub[:step_concurrency_level] unless stub[:step_concurrency_level].nil?
-        data['PlacementGroups'] = Stubs::PlacementGroupConfigList.stub(stub[:placement_groups]) unless stub[:placement_groups].nil?
+        data['PlacementGroups'] = PlacementGroupConfigList.stub(stub[:placement_groups]) unless stub[:placement_groups].nil?
         data['OSReleaseLabel'] = stub[:os_release_label] unless stub[:os_release_label].nil?
         data
       end
@@ -378,7 +380,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PlacementGroupConfig.stub(element) unless element.nil?
+          data << PlacementGroupConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -444,7 +446,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Configuration.stub(element) unless element.nil?
+          data << Configuration.stub(element) unless element.nil?
         end
         data
       end
@@ -466,8 +468,8 @@ module AWS::SDK::EMR
         stub ||= Types::Configuration.new
         data = {}
         data['Classification'] = stub[:classification] unless stub[:classification].nil?
-        data['Configurations'] = Stubs::ConfigurationList.stub(stub[:configurations]) unless stub[:configurations].nil?
-        data['Properties'] = Stubs::StringMap.stub(stub[:properties]) unless stub[:properties].nil?
+        data['Configurations'] = ConfigurationList.stub(stub[:configurations]) unless stub[:configurations].nil?
+        data['Properties'] = StringMap.stub(stub[:properties]) unless stub[:properties].nil?
         data
       end
     end
@@ -506,7 +508,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -546,7 +548,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Application.stub(element) unless element.nil?
+          data << Application.stub(element) unless element.nil?
         end
         data
       end
@@ -570,8 +572,8 @@ module AWS::SDK::EMR
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['Args'] = Stubs::StringList.stub(stub[:args]) unless stub[:args].nil?
-        data['AdditionalInfo'] = Stubs::StringMap.stub(stub[:additional_info]) unless stub[:additional_info].nil?
+        data['Args'] = StringList.stub(stub[:args]) unless stub[:args].nil?
+        data['AdditionalInfo'] = StringMap.stub(stub[:additional_info]) unless stub[:additional_info].nil?
         data
       end
     end
@@ -621,15 +623,15 @@ module AWS::SDK::EMR
         data = {}
         data['Ec2KeyName'] = stub[:ec2_key_name] unless stub[:ec2_key_name].nil?
         data['Ec2SubnetId'] = stub[:ec2_subnet_id] unless stub[:ec2_subnet_id].nil?
-        data['RequestedEc2SubnetIds'] = Stubs::XmlStringMaxLen256List.stub(stub[:requested_ec2_subnet_ids]) unless stub[:requested_ec2_subnet_ids].nil?
+        data['RequestedEc2SubnetIds'] = XmlStringMaxLen256List.stub(stub[:requested_ec2_subnet_ids]) unless stub[:requested_ec2_subnet_ids].nil?
         data['Ec2AvailabilityZone'] = stub[:ec2_availability_zone] unless stub[:ec2_availability_zone].nil?
-        data['RequestedEc2AvailabilityZones'] = Stubs::XmlStringMaxLen256List.stub(stub[:requested_ec2_availability_zones]) unless stub[:requested_ec2_availability_zones].nil?
+        data['RequestedEc2AvailabilityZones'] = XmlStringMaxLen256List.stub(stub[:requested_ec2_availability_zones]) unless stub[:requested_ec2_availability_zones].nil?
         data['IamInstanceProfile'] = stub[:iam_instance_profile] unless stub[:iam_instance_profile].nil?
         data['EmrManagedMasterSecurityGroup'] = stub[:emr_managed_master_security_group] unless stub[:emr_managed_master_security_group].nil?
         data['EmrManagedSlaveSecurityGroup'] = stub[:emr_managed_slave_security_group] unless stub[:emr_managed_slave_security_group].nil?
         data['ServiceAccessSecurityGroup'] = stub[:service_access_security_group] unless stub[:service_access_security_group].nil?
-        data['AdditionalMasterSecurityGroups'] = Stubs::StringList.stub(stub[:additional_master_security_groups]) unless stub[:additional_master_security_groups].nil?
-        data['AdditionalSlaveSecurityGroups'] = Stubs::StringList.stub(stub[:additional_slave_security_groups]) unless stub[:additional_slave_security_groups].nil?
+        data['AdditionalMasterSecurityGroups'] = StringList.stub(stub[:additional_master_security_groups]) unless stub[:additional_master_security_groups].nil?
+        data['AdditionalSlaveSecurityGroups'] = StringList.stub(stub[:additional_slave_security_groups]) unless stub[:additional_slave_security_groups].nil?
         data
       end
     end
@@ -670,8 +672,8 @@ module AWS::SDK::EMR
         stub ||= Types::ClusterStatus.new
         data = {}
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['StateChangeReason'] = Stubs::ClusterStateChangeReason.stub(stub[:state_change_reason]) unless stub[:state_change_reason].nil?
-        data['Timeline'] = Stubs::ClusterTimeline.stub(stub[:timeline]) unless stub[:timeline].nil?
+        data['StateChangeReason'] = ClusterStateChangeReason.stub(stub[:state_change_reason]) unless stub[:state_change_reason].nil?
+        data['Timeline'] = ClusterTimeline.stub(stub[:timeline]) unless stub[:timeline].nil?
         data
       end
     end
@@ -728,8 +730,8 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['JobFlows'] = Stubs::JobFlowDetailList.stub(stub[:job_flows]) unless stub[:job_flows].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['JobFlows'] = JobFlowDetailList.stub(stub[:job_flows]) unless stub[:job_flows].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -748,7 +750,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobFlowDetail.stub(element) unless element.nil?
+          data << JobFlowDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -786,11 +788,11 @@ module AWS::SDK::EMR
         data['LogUri'] = stub[:log_uri] unless stub[:log_uri].nil?
         data['LogEncryptionKmsKeyId'] = stub[:log_encryption_kms_key_id] unless stub[:log_encryption_kms_key_id].nil?
         data['AmiVersion'] = stub[:ami_version] unless stub[:ami_version].nil?
-        data['ExecutionStatusDetail'] = Stubs::JobFlowExecutionStatusDetail.stub(stub[:execution_status_detail]) unless stub[:execution_status_detail].nil?
-        data['Instances'] = Stubs::JobFlowInstancesDetail.stub(stub[:instances]) unless stub[:instances].nil?
-        data['Steps'] = Stubs::StepDetailList.stub(stub[:steps]) unless stub[:steps].nil?
-        data['BootstrapActions'] = Stubs::BootstrapActionDetailList.stub(stub[:bootstrap_actions]) unless stub[:bootstrap_actions].nil?
-        data['SupportedProducts'] = Stubs::SupportedProductsList.stub(stub[:supported_products]) unless stub[:supported_products].nil?
+        data['ExecutionStatusDetail'] = JobFlowExecutionStatusDetail.stub(stub[:execution_status_detail]) unless stub[:execution_status_detail].nil?
+        data['Instances'] = JobFlowInstancesDetail.stub(stub[:instances]) unless stub[:instances].nil?
+        data['Steps'] = StepDetailList.stub(stub[:steps]) unless stub[:steps].nil?
+        data['BootstrapActions'] = BootstrapActionDetailList.stub(stub[:bootstrap_actions]) unless stub[:bootstrap_actions].nil?
+        data['SupportedProducts'] = SupportedProductsList.stub(stub[:supported_products]) unless stub[:supported_products].nil?
         data['VisibleToAllUsers'] = stub[:visible_to_all_users] unless stub[:visible_to_all_users].nil?
         data['JobFlowRole'] = stub[:job_flow_role] unless stub[:job_flow_role].nil?
         data['ServiceRole'] = stub[:service_role] unless stub[:service_role].nil?
@@ -834,7 +836,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BootstrapActionDetail.stub(element) unless element.nil?
+          data << BootstrapActionDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -853,7 +855,7 @@ module AWS::SDK::EMR
       def self.stub(stub)
         stub ||= Types::BootstrapActionDetail.new
         data = {}
-        data['BootstrapActionConfig'] = Stubs::BootstrapActionConfig.stub(stub[:bootstrap_action_config]) unless stub[:bootstrap_action_config].nil?
+        data['BootstrapActionConfig'] = BootstrapActionConfig.stub(stub[:bootstrap_action_config]) unless stub[:bootstrap_action_config].nil?
         data
       end
     end
@@ -873,7 +875,7 @@ module AWS::SDK::EMR
         stub ||= Types::BootstrapActionConfig.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['ScriptBootstrapAction'] = Stubs::ScriptBootstrapActionConfig.stub(stub[:script_bootstrap_action]) unless stub[:script_bootstrap_action].nil?
+        data['ScriptBootstrapAction'] = ScriptBootstrapActionConfig.stub(stub[:script_bootstrap_action]) unless stub[:script_bootstrap_action].nil?
         data
       end
     end
@@ -893,7 +895,7 @@ module AWS::SDK::EMR
         stub ||= Types::ScriptBootstrapActionConfig.new
         data = {}
         data['Path'] = stub[:path] unless stub[:path].nil?
-        data['Args'] = Stubs::XmlStringList.stub(stub[:args]) unless stub[:args].nil?
+        data['Args'] = XmlStringList.stub(stub[:args]) unless stub[:args].nil?
         data
       end
     end
@@ -932,7 +934,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StepDetail.stub(element) unless element.nil?
+          data << StepDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -952,8 +954,8 @@ module AWS::SDK::EMR
       def self.stub(stub)
         stub ||= Types::StepDetail.new
         data = {}
-        data['StepConfig'] = Stubs::StepConfig.stub(stub[:step_config]) unless stub[:step_config].nil?
-        data['ExecutionStatusDetail'] = Stubs::StepExecutionStatusDetail.stub(stub[:execution_status_detail]) unless stub[:execution_status_detail].nil?
+        data['StepConfig'] = StepConfig.stub(stub[:step_config]) unless stub[:step_config].nil?
+        data['ExecutionStatusDetail'] = StepExecutionStatusDetail.stub(stub[:execution_status_detail]) unless stub[:execution_status_detail].nil?
         data
       end
     end
@@ -1001,7 +1003,7 @@ module AWS::SDK::EMR
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['ActionOnFailure'] = stub[:action_on_failure] unless stub[:action_on_failure].nil?
-        data['HadoopJarStep'] = Stubs::HadoopJarStepConfig.stub(stub[:hadoop_jar_step]) unless stub[:hadoop_jar_step].nil?
+        data['HadoopJarStep'] = HadoopJarStepConfig.stub(stub[:hadoop_jar_step]) unless stub[:hadoop_jar_step].nil?
         data
       end
     end
@@ -1022,10 +1024,10 @@ module AWS::SDK::EMR
       def self.stub(stub)
         stub ||= Types::HadoopJarStepConfig.new
         data = {}
-        data['Properties'] = Stubs::KeyValueList.stub(stub[:properties]) unless stub[:properties].nil?
+        data['Properties'] = KeyValueList.stub(stub[:properties]) unless stub[:properties].nil?
         data['Jar'] = stub[:jar] unless stub[:jar].nil?
         data['MainClass'] = stub[:main_class] unless stub[:main_class].nil?
-        data['Args'] = Stubs::XmlStringList.stub(stub[:args]) unless stub[:args].nil?
+        data['Args'] = XmlStringList.stub(stub[:args]) unless stub[:args].nil?
         data
       end
     end
@@ -1044,7 +1046,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeyValue.stub(element) unless element.nil?
+          data << KeyValue.stub(element) unless element.nil?
         end
         data
       end
@@ -1100,11 +1102,11 @@ module AWS::SDK::EMR
         data['MasterInstanceId'] = stub[:master_instance_id] unless stub[:master_instance_id].nil?
         data['SlaveInstanceType'] = stub[:slave_instance_type] unless stub[:slave_instance_type].nil?
         data['InstanceCount'] = stub[:instance_count] unless stub[:instance_count].nil?
-        data['InstanceGroups'] = Stubs::InstanceGroupDetailList.stub(stub[:instance_groups]) unless stub[:instance_groups].nil?
+        data['InstanceGroups'] = InstanceGroupDetailList.stub(stub[:instance_groups]) unless stub[:instance_groups].nil?
         data['NormalizedInstanceHours'] = stub[:normalized_instance_hours] unless stub[:normalized_instance_hours].nil?
         data['Ec2KeyName'] = stub[:ec2_key_name] unless stub[:ec2_key_name].nil?
         data['Ec2SubnetId'] = stub[:ec2_subnet_id] unless stub[:ec2_subnet_id].nil?
-        data['Placement'] = Stubs::PlacementType.stub(stub[:placement]) unless stub[:placement].nil?
+        data['Placement'] = PlacementType.stub(stub[:placement]) unless stub[:placement].nil?
         data['KeepJobFlowAliveWhenNoSteps'] = stub[:keep_job_flow_alive_when_no_steps] unless stub[:keep_job_flow_alive_when_no_steps].nil?
         data['TerminationProtected'] = stub[:termination_protected] unless stub[:termination_protected].nil?
         data['HadoopVersion'] = stub[:hadoop_version] unless stub[:hadoop_version].nil?
@@ -1127,7 +1129,7 @@ module AWS::SDK::EMR
         stub ||= Types::PlacementType.new
         data = {}
         data['AvailabilityZone'] = stub[:availability_zone] unless stub[:availability_zone].nil?
-        data['AvailabilityZones'] = Stubs::XmlStringMaxLen256List.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['AvailabilityZones'] = XmlStringMaxLen256List.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
         data
       end
     end
@@ -1146,7 +1148,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceGroupDetail.stub(element) unless element.nil?
+          data << InstanceGroupDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1236,8 +1238,8 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['NotebookExecution'] = Stubs::NotebookExecution.stub(stub[:notebook_execution]) unless stub[:notebook_execution].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NotebookExecution'] = NotebookExecution.stub(stub[:notebook_execution]) unless stub[:notebook_execution].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1269,7 +1271,7 @@ module AWS::SDK::EMR
         data = {}
         data['NotebookExecutionId'] = stub[:notebook_execution_id] unless stub[:notebook_execution_id].nil?
         data['EditorId'] = stub[:editor_id] unless stub[:editor_id].nil?
-        data['ExecutionEngine'] = Stubs::ExecutionEngineConfig.stub(stub[:execution_engine]) unless stub[:execution_engine].nil?
+        data['ExecutionEngine'] = ExecutionEngineConfig.stub(stub[:execution_engine]) unless stub[:execution_engine].nil?
         data['NotebookExecutionName'] = stub[:notebook_execution_name] unless stub[:notebook_execution_name].nil?
         data['NotebookParams'] = stub[:notebook_params] unless stub[:notebook_params].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
@@ -1279,7 +1281,7 @@ module AWS::SDK::EMR
         data['OutputNotebookURI'] = stub[:output_notebook_uri] unless stub[:output_notebook_uri].nil?
         data['LastStateChangeReason'] = stub[:last_state_change_reason] unless stub[:last_state_change_reason].nil?
         data['NotebookInstanceSecurityGroupId'] = stub[:notebook_instance_security_group_id] unless stub[:notebook_instance_security_group_id].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1320,10 +1322,10 @@ module AWS::SDK::EMR
       def self.stub(http_resp, stub:)
         data = {}
         data['ReleaseLabel'] = stub[:release_label] unless stub[:release_label].nil?
-        data['Applications'] = Stubs::SimplifiedApplicationList.stub(stub[:applications]) unless stub[:applications].nil?
+        data['Applications'] = SimplifiedApplicationList.stub(stub[:applications]) unless stub[:applications].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['AvailableOSReleases'] = Stubs::OSReleaseList.stub(stub[:available_os_releases]) unless stub[:available_os_releases].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AvailableOSReleases'] = OSReleaseList.stub(stub[:available_os_releases]) unless stub[:available_os_releases].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1342,7 +1344,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OSRelease.stub(element) unless element.nil?
+          data << OSRelease.stub(element) unless element.nil?
         end
         data
       end
@@ -1380,7 +1382,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SimplifiedApplication.stub(element) unless element.nil?
+          data << SimplifiedApplication.stub(element) unless element.nil?
         end
         data
       end
@@ -1421,7 +1423,7 @@ module AWS::SDK::EMR
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['SecurityConfiguration'] = stub[:security_configuration] unless stub[:security_configuration].nil?
         data['CreationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1436,8 +1438,8 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Step'] = Stubs::Step.stub(stub[:step]) unless stub[:step].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Step'] = Step.stub(stub[:step]) unless stub[:step].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1461,9 +1463,9 @@ module AWS::SDK::EMR
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Config'] = Stubs::HadoopStepConfig.stub(stub[:config]) unless stub[:config].nil?
+        data['Config'] = HadoopStepConfig.stub(stub[:config]) unless stub[:config].nil?
         data['ActionOnFailure'] = stub[:action_on_failure] unless stub[:action_on_failure].nil?
-        data['Status'] = Stubs::StepStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Status'] = StepStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -1485,9 +1487,9 @@ module AWS::SDK::EMR
         stub ||= Types::StepStatus.new
         data = {}
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['StateChangeReason'] = Stubs::StepStateChangeReason.stub(stub[:state_change_reason]) unless stub[:state_change_reason].nil?
-        data['FailureDetails'] = Stubs::FailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
-        data['Timeline'] = Stubs::StepTimeline.stub(stub[:timeline]) unless stub[:timeline].nil?
+        data['StateChangeReason'] = StepStateChangeReason.stub(stub[:state_change_reason]) unless stub[:state_change_reason].nil?
+        data['FailureDetails'] = FailureDetails.stub(stub[:failure_details]) unless stub[:failure_details].nil?
+        data['Timeline'] = StepTimeline.stub(stub[:timeline]) unless stub[:timeline].nil?
         data
       end
     end
@@ -1573,9 +1575,9 @@ module AWS::SDK::EMR
         stub ||= Types::HadoopStepConfig.new
         data = {}
         data['Jar'] = stub[:jar] unless stub[:jar].nil?
-        data['Properties'] = Stubs::StringMap.stub(stub[:properties]) unless stub[:properties].nil?
+        data['Properties'] = StringMap.stub(stub[:properties]) unless stub[:properties].nil?
         data['MainClass'] = stub[:main_class] unless stub[:main_class].nil?
-        data['Args'] = Stubs::StringList.stub(stub[:args]) unless stub[:args].nil?
+        data['Args'] = StringList.stub(stub[:args]) unless stub[:args].nil?
         data
       end
     end
@@ -1590,8 +1592,8 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Studio'] = Stubs::Studio.stub(stub[:studio]) unless stub[:studio].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Studio'] = Studio.stub(stub[:studio]) unless stub[:studio].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1631,7 +1633,7 @@ module AWS::SDK::EMR
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['AuthMode'] = stub[:auth_mode] unless stub[:auth_mode].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['SubnetIds'] = Stubs::SubnetIdList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SubnetIds'] = SubnetIdList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
         data['ServiceRole'] = stub[:service_role] unless stub[:service_role].nil?
         data['UserRole'] = stub[:user_role] unless stub[:user_role].nil?
         data['WorkspaceSecurityGroupId'] = stub[:workspace_security_group_id] unless stub[:workspace_security_group_id].nil?
@@ -1641,7 +1643,7 @@ module AWS::SDK::EMR
         data['DefaultS3Location'] = stub[:default_s3_location] unless stub[:default_s3_location].nil?
         data['IdpAuthUrl'] = stub[:idp_auth_url] unless stub[:idp_auth_url].nil?
         data['IdpRelayStateParameterName'] = stub[:idp_relay_state_parameter_name] unless stub[:idp_relay_state_parameter_name].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1676,8 +1678,8 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AutoTerminationPolicy'] = Stubs::AutoTerminationPolicy.stub(stub[:auto_termination_policy]) unless stub[:auto_termination_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AutoTerminationPolicy'] = AutoTerminationPolicy.stub(stub[:auto_termination_policy]) unless stub[:auto_termination_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1711,9 +1713,9 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['BlockPublicAccessConfiguration'] = Stubs::BlockPublicAccessConfiguration.stub(stub[:block_public_access_configuration]) unless stub[:block_public_access_configuration].nil?
-        data['BlockPublicAccessConfigurationMetadata'] = Stubs::BlockPublicAccessConfigurationMetadata.stub(stub[:block_public_access_configuration_metadata]) unless stub[:block_public_access_configuration_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BlockPublicAccessConfiguration'] = BlockPublicAccessConfiguration.stub(stub[:block_public_access_configuration]) unless stub[:block_public_access_configuration].nil?
+        data['BlockPublicAccessConfigurationMetadata'] = BlockPublicAccessConfigurationMetadata.stub(stub[:block_public_access_configuration_metadata]) unless stub[:block_public_access_configuration_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1756,10 +1758,10 @@ module AWS::SDK::EMR
         stub ||= Types::BlockPublicAccessConfiguration.new
         data = {}
         data['BlockPublicSecurityGroupRules'] = stub[:block_public_security_group_rules] unless stub[:block_public_security_group_rules].nil?
-        data['PermittedPublicSecurityGroupRuleRanges'] = Stubs::PortRanges.stub(stub[:permitted_public_security_group_rule_ranges]) unless stub[:permitted_public_security_group_rule_ranges].nil?
+        data['PermittedPublicSecurityGroupRuleRanges'] = PortRanges.stub(stub[:permitted_public_security_group_rule_ranges]) unless stub[:permitted_public_security_group_rule_ranges].nil?
         data['Classification'] = stub[:classification] unless stub[:classification].nil?
-        data['Configurations'] = Stubs::ConfigurationList.stub(stub[:configurations]) unless stub[:configurations].nil?
-        data['Properties'] = Stubs::StringMap.stub(stub[:properties]) unless stub[:properties].nil?
+        data['Configurations'] = ConfigurationList.stub(stub[:configurations]) unless stub[:configurations].nil?
+        data['Properties'] = StringMap.stub(stub[:properties]) unless stub[:properties].nil?
         data
       end
     end
@@ -1778,7 +1780,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PortRange.stub(element) unless element.nil?
+          data << PortRange.stub(element) unless element.nil?
         end
         data
       end
@@ -1814,8 +1816,8 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ManagedScalingPolicy'] = Stubs::ManagedScalingPolicy.stub(stub[:managed_scaling_policy]) unless stub[:managed_scaling_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ManagedScalingPolicy'] = ManagedScalingPolicy.stub(stub[:managed_scaling_policy]) unless stub[:managed_scaling_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1833,7 +1835,7 @@ module AWS::SDK::EMR
       def self.stub(stub)
         stub ||= Types::ManagedScalingPolicy.new
         data = {}
-        data['ComputeLimits'] = Stubs::ComputeLimits.stub(stub[:compute_limits]) unless stub[:compute_limits].nil?
+        data['ComputeLimits'] = ComputeLimits.stub(stub[:compute_limits]) unless stub[:compute_limits].nil?
         data
       end
     end
@@ -1874,8 +1876,8 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SessionMapping'] = Stubs::SessionMappingDetail.stub(stub[:session_mapping]) unless stub[:session_mapping].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SessionMapping'] = SessionMappingDetail.stub(stub[:session_mapping]) unless stub[:session_mapping].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1921,9 +1923,9 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['BootstrapActions'] = Stubs::CommandList.stub(stub[:bootstrap_actions]) unless stub[:bootstrap_actions].nil?
+        data['BootstrapActions'] = CommandList.stub(stub[:bootstrap_actions]) unless stub[:bootstrap_actions].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1942,7 +1944,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Command.stub(element) unless element.nil?
+          data << Command.stub(element) unless element.nil?
         end
         data
       end
@@ -1965,7 +1967,7 @@ module AWS::SDK::EMR
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['ScriptPath'] = stub[:script_path] unless stub[:script_path].nil?
-        data['Args'] = Stubs::StringList.stub(stub[:args]) unless stub[:args].nil?
+        data['Args'] = StringList.stub(stub[:args]) unless stub[:args].nil?
         data
       end
     end
@@ -1981,9 +1983,9 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Clusters'] = Stubs::ClusterSummaryList.stub(stub[:clusters]) unless stub[:clusters].nil?
+        data['Clusters'] = ClusterSummaryList.stub(stub[:clusters]) unless stub[:clusters].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2002,7 +2004,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ClusterSummary.stub(element) unless element.nil?
+          data << ClusterSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2028,7 +2030,7 @@ module AWS::SDK::EMR
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Status'] = Stubs::ClusterStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Status'] = ClusterStatus.stub(stub[:status]) unless stub[:status].nil?
         data['NormalizedInstanceHours'] = stub[:normalized_instance_hours] unless stub[:normalized_instance_hours].nil?
         data['ClusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
         data['OutpostArn'] = stub[:outpost_arn] unless stub[:outpost_arn].nil?
@@ -2047,9 +2049,9 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['InstanceFleets'] = Stubs::InstanceFleetList.stub(stub[:instance_fleets]) unless stub[:instance_fleets].nil?
+        data['InstanceFleets'] = InstanceFleetList.stub(stub[:instance_fleets]) unless stub[:instance_fleets].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2068,7 +2070,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceFleet.stub(element) unless element.nil?
+          data << InstanceFleet.stub(element) unless element.nil?
         end
         data
       end
@@ -2098,14 +2100,14 @@ module AWS::SDK::EMR
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Status'] = Stubs::InstanceFleetStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Status'] = InstanceFleetStatus.stub(stub[:status]) unless stub[:status].nil?
         data['InstanceFleetType'] = stub[:instance_fleet_type] unless stub[:instance_fleet_type].nil?
         data['TargetOnDemandCapacity'] = stub[:target_on_demand_capacity] unless stub[:target_on_demand_capacity].nil?
         data['TargetSpotCapacity'] = stub[:target_spot_capacity] unless stub[:target_spot_capacity].nil?
         data['ProvisionedOnDemandCapacity'] = stub[:provisioned_on_demand_capacity] unless stub[:provisioned_on_demand_capacity].nil?
         data['ProvisionedSpotCapacity'] = stub[:provisioned_spot_capacity] unless stub[:provisioned_spot_capacity].nil?
-        data['InstanceTypeSpecifications'] = Stubs::InstanceTypeSpecificationList.stub(stub[:instance_type_specifications]) unless stub[:instance_type_specifications].nil?
-        data['LaunchSpecifications'] = Stubs::InstanceFleetProvisioningSpecifications.stub(stub[:launch_specifications]) unless stub[:launch_specifications].nil?
+        data['InstanceTypeSpecifications'] = InstanceTypeSpecificationList.stub(stub[:instance_type_specifications]) unless stub[:instance_type_specifications].nil?
+        data['LaunchSpecifications'] = InstanceFleetProvisioningSpecifications.stub(stub[:launch_specifications]) unless stub[:launch_specifications].nil?
         data
       end
     end
@@ -2124,8 +2126,8 @@ module AWS::SDK::EMR
       def self.stub(stub)
         stub ||= Types::InstanceFleetProvisioningSpecifications.new
         data = {}
-        data['SpotSpecification'] = Stubs::SpotProvisioningSpecification.stub(stub[:spot_specification]) unless stub[:spot_specification].nil?
-        data['OnDemandSpecification'] = Stubs::OnDemandProvisioningSpecification.stub(stub[:on_demand_specification]) unless stub[:on_demand_specification].nil?
+        data['SpotSpecification'] = SpotProvisioningSpecification.stub(stub[:spot_specification]) unless stub[:spot_specification].nil?
+        data['OnDemandSpecification'] = OnDemandProvisioningSpecification.stub(stub[:on_demand_specification]) unless stub[:on_demand_specification].nil?
         data
       end
     end
@@ -2145,7 +2147,7 @@ module AWS::SDK::EMR
         stub ||= Types::OnDemandProvisioningSpecification.new
         data = {}
         data['AllocationStrategy'] = stub[:allocation_strategy] unless stub[:allocation_strategy].nil?
-        data['CapacityReservationOptions'] = Stubs::OnDemandCapacityReservationOptions.stub(stub[:capacity_reservation_options]) unless stub[:capacity_reservation_options].nil?
+        data['CapacityReservationOptions'] = OnDemandCapacityReservationOptions.stub(stub[:capacity_reservation_options]) unless stub[:capacity_reservation_options].nil?
         data
       end
     end
@@ -2210,7 +2212,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceTypeSpecification.stub(element) unless element.nil?
+          data << InstanceTypeSpecification.stub(element) unless element.nil?
         end
         data
       end
@@ -2240,8 +2242,8 @@ module AWS::SDK::EMR
         data['WeightedCapacity'] = stub[:weighted_capacity] unless stub[:weighted_capacity].nil?
         data['BidPrice'] = stub[:bid_price] unless stub[:bid_price].nil?
         data['BidPriceAsPercentageOfOnDemandPrice'] = Hearth::NumberHelper.serialize(stub[:bid_price_as_percentage_of_on_demand_price])
-        data['Configurations'] = Stubs::ConfigurationList.stub(stub[:configurations]) unless stub[:configurations].nil?
-        data['EbsBlockDevices'] = Stubs::EbsBlockDeviceList.stub(stub[:ebs_block_devices]) unless stub[:ebs_block_devices].nil?
+        data['Configurations'] = ConfigurationList.stub(stub[:configurations]) unless stub[:configurations].nil?
+        data['EbsBlockDevices'] = EbsBlockDeviceList.stub(stub[:ebs_block_devices]) unless stub[:ebs_block_devices].nil?
         data['EbsOptimized'] = stub[:ebs_optimized] unless stub[:ebs_optimized].nil?
         data['CustomAmiId'] = stub[:custom_ami_id] unless stub[:custom_ami_id].nil?
         data
@@ -2262,7 +2264,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EbsBlockDevice.stub(element) unless element.nil?
+          data << EbsBlockDevice.stub(element) unless element.nil?
         end
         data
       end
@@ -2282,7 +2284,7 @@ module AWS::SDK::EMR
       def self.stub(stub)
         stub ||= Types::EbsBlockDevice.new
         data = {}
-        data['VolumeSpecification'] = Stubs::VolumeSpecification.stub(stub[:volume_specification]) unless stub[:volume_specification].nil?
+        data['VolumeSpecification'] = VolumeSpecification.stub(stub[:volume_specification]) unless stub[:volume_specification].nil?
         data['Device'] = stub[:device] unless stub[:device].nil?
         data
       end
@@ -2326,8 +2328,8 @@ module AWS::SDK::EMR
         stub ||= Types::InstanceFleetStatus.new
         data = {}
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['StateChangeReason'] = Stubs::InstanceFleetStateChangeReason.stub(stub[:state_change_reason]) unless stub[:state_change_reason].nil?
-        data['Timeline'] = Stubs::InstanceFleetTimeline.stub(stub[:timeline]) unless stub[:timeline].nil?
+        data['StateChangeReason'] = InstanceFleetStateChangeReason.stub(stub[:state_change_reason]) unless stub[:state_change_reason].nil?
+        data['Timeline'] = InstanceFleetTimeline.stub(stub[:timeline]) unless stub[:timeline].nil?
         data
       end
     end
@@ -2385,9 +2387,9 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['InstanceGroups'] = Stubs::InstanceGroupList.stub(stub[:instance_groups]) unless stub[:instance_groups].nil?
+        data['InstanceGroups'] = InstanceGroupList.stub(stub[:instance_groups]) unless stub[:instance_groups].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2406,7 +2408,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceGroup.stub(element) unless element.nil?
+          data << InstanceGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -2450,15 +2452,15 @@ module AWS::SDK::EMR
         data['InstanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
         data['RequestedInstanceCount'] = stub[:requested_instance_count] unless stub[:requested_instance_count].nil?
         data['RunningInstanceCount'] = stub[:running_instance_count] unless stub[:running_instance_count].nil?
-        data['Status'] = Stubs::InstanceGroupStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['Configurations'] = Stubs::ConfigurationList.stub(stub[:configurations]) unless stub[:configurations].nil?
+        data['Status'] = InstanceGroupStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Configurations'] = ConfigurationList.stub(stub[:configurations]) unless stub[:configurations].nil?
         data['ConfigurationsVersion'] = stub[:configurations_version] unless stub[:configurations_version].nil?
-        data['LastSuccessfullyAppliedConfigurations'] = Stubs::ConfigurationList.stub(stub[:last_successfully_applied_configurations]) unless stub[:last_successfully_applied_configurations].nil?
+        data['LastSuccessfullyAppliedConfigurations'] = ConfigurationList.stub(stub[:last_successfully_applied_configurations]) unless stub[:last_successfully_applied_configurations].nil?
         data['LastSuccessfullyAppliedConfigurationsVersion'] = stub[:last_successfully_applied_configurations_version] unless stub[:last_successfully_applied_configurations_version].nil?
-        data['EbsBlockDevices'] = Stubs::EbsBlockDeviceList.stub(stub[:ebs_block_devices]) unless stub[:ebs_block_devices].nil?
+        data['EbsBlockDevices'] = EbsBlockDeviceList.stub(stub[:ebs_block_devices]) unless stub[:ebs_block_devices].nil?
         data['EbsOptimized'] = stub[:ebs_optimized] unless stub[:ebs_optimized].nil?
-        data['ShrinkPolicy'] = Stubs::ShrinkPolicy.stub(stub[:shrink_policy]) unless stub[:shrink_policy].nil?
-        data['AutoScalingPolicy'] = Stubs::AutoScalingPolicyDescription.stub(stub[:auto_scaling_policy]) unless stub[:auto_scaling_policy].nil?
+        data['ShrinkPolicy'] = ShrinkPolicy.stub(stub[:shrink_policy]) unless stub[:shrink_policy].nil?
+        data['AutoScalingPolicy'] = AutoScalingPolicyDescription.stub(stub[:auto_scaling_policy]) unless stub[:auto_scaling_policy].nil?
         data['CustomAmiId'] = stub[:custom_ami_id] unless stub[:custom_ami_id].nil?
         data
       end
@@ -2479,9 +2481,9 @@ module AWS::SDK::EMR
       def self.stub(stub)
         stub ||= Types::AutoScalingPolicyDescription.new
         data = {}
-        data['Status'] = Stubs::AutoScalingPolicyStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['Constraints'] = Stubs::ScalingConstraints.stub(stub[:constraints]) unless stub[:constraints].nil?
-        data['Rules'] = Stubs::ScalingRuleList.stub(stub[:rules]) unless stub[:rules].nil?
+        data['Status'] = AutoScalingPolicyStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Constraints'] = ScalingConstraints.stub(stub[:constraints]) unless stub[:constraints].nil?
+        data['Rules'] = ScalingRuleList.stub(stub[:rules]) unless stub[:rules].nil?
         data
       end
     end
@@ -2500,7 +2502,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScalingRule.stub(element) unless element.nil?
+          data << ScalingRule.stub(element) unless element.nil?
         end
         data
       end
@@ -2524,8 +2526,8 @@ module AWS::SDK::EMR
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Action'] = Stubs::ScalingAction.stub(stub[:action]) unless stub[:action].nil?
-        data['Trigger'] = Stubs::ScalingTrigger.stub(stub[:trigger]) unless stub[:trigger].nil?
+        data['Action'] = ScalingAction.stub(stub[:action]) unless stub[:action].nil?
+        data['Trigger'] = ScalingTrigger.stub(stub[:trigger]) unless stub[:trigger].nil?
         data
       end
     end
@@ -2543,7 +2545,7 @@ module AWS::SDK::EMR
       def self.stub(stub)
         stub ||= Types::ScalingTrigger.new
         data = {}
-        data['CloudWatchAlarmDefinition'] = Stubs::CloudWatchAlarmDefinition.stub(stub[:cloud_watch_alarm_definition]) unless stub[:cloud_watch_alarm_definition].nil?
+        data['CloudWatchAlarmDefinition'] = CloudWatchAlarmDefinition.stub(stub[:cloud_watch_alarm_definition]) unless stub[:cloud_watch_alarm_definition].nil?
         data
       end
     end
@@ -2577,7 +2579,7 @@ module AWS::SDK::EMR
         data['Statistic'] = stub[:statistic] unless stub[:statistic].nil?
         data['Threshold'] = Hearth::NumberHelper.serialize(stub[:threshold])
         data['Unit'] = stub[:unit] unless stub[:unit].nil?
-        data['Dimensions'] = Stubs::MetricDimensionList.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Dimensions'] = MetricDimensionList.stub(stub[:dimensions]) unless stub[:dimensions].nil?
         data
       end
     end
@@ -2596,7 +2598,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricDimension.stub(element) unless element.nil?
+          data << MetricDimension.stub(element) unless element.nil?
         end
         data
       end
@@ -2637,7 +2639,7 @@ module AWS::SDK::EMR
         stub ||= Types::ScalingAction.new
         data = {}
         data['Market'] = stub[:market] unless stub[:market].nil?
-        data['SimpleScalingPolicyConfiguration'] = Stubs::SimpleScalingPolicyConfiguration.stub(stub[:simple_scaling_policy_configuration]) unless stub[:simple_scaling_policy_configuration].nil?
+        data['SimpleScalingPolicyConfiguration'] = SimpleScalingPolicyConfiguration.stub(stub[:simple_scaling_policy_configuration]) unless stub[:simple_scaling_policy_configuration].nil?
         data
       end
     end
@@ -2699,7 +2701,7 @@ module AWS::SDK::EMR
         stub ||= Types::AutoScalingPolicyStatus.new
         data = {}
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['StateChangeReason'] = Stubs::AutoScalingPolicyStateChangeReason.stub(stub[:state_change_reason]) unless stub[:state_change_reason].nil?
+        data['StateChangeReason'] = AutoScalingPolicyStateChangeReason.stub(stub[:state_change_reason]) unless stub[:state_change_reason].nil?
         data
       end
     end
@@ -2739,7 +2741,7 @@ module AWS::SDK::EMR
         stub ||= Types::ShrinkPolicy.new
         data = {}
         data['DecommissionTimeout'] = stub[:decommission_timeout] unless stub[:decommission_timeout].nil?
-        data['InstanceResizePolicy'] = Stubs::InstanceResizePolicy.stub(stub[:instance_resize_policy]) unless stub[:instance_resize_policy].nil?
+        data['InstanceResizePolicy'] = InstanceResizePolicy.stub(stub[:instance_resize_policy]) unless stub[:instance_resize_policy].nil?
         data
       end
     end
@@ -2759,8 +2761,8 @@ module AWS::SDK::EMR
       def self.stub(stub)
         stub ||= Types::InstanceResizePolicy.new
         data = {}
-        data['InstancesToTerminate'] = Stubs::EC2InstanceIdsList.stub(stub[:instances_to_terminate]) unless stub[:instances_to_terminate].nil?
-        data['InstancesToProtect'] = Stubs::EC2InstanceIdsList.stub(stub[:instances_to_protect]) unless stub[:instances_to_protect].nil?
+        data['InstancesToTerminate'] = EC2InstanceIdsList.stub(stub[:instances_to_terminate]) unless stub[:instances_to_terminate].nil?
+        data['InstancesToProtect'] = EC2InstanceIdsList.stub(stub[:instances_to_protect]) unless stub[:instances_to_protect].nil?
         data['InstanceTerminationTimeout'] = stub[:instance_termination_timeout] unless stub[:instance_termination_timeout].nil?
         data
       end
@@ -2802,8 +2804,8 @@ module AWS::SDK::EMR
         stub ||= Types::InstanceGroupStatus.new
         data = {}
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['StateChangeReason'] = Stubs::InstanceGroupStateChangeReason.stub(stub[:state_change_reason]) unless stub[:state_change_reason].nil?
-        data['Timeline'] = Stubs::InstanceGroupTimeline.stub(stub[:timeline]) unless stub[:timeline].nil?
+        data['StateChangeReason'] = InstanceGroupStateChangeReason.stub(stub[:state_change_reason]) unless stub[:state_change_reason].nil?
+        data['Timeline'] = InstanceGroupTimeline.stub(stub[:timeline]) unless stub[:timeline].nil?
         data
       end
     end
@@ -2861,9 +2863,9 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Instances'] = Stubs::InstanceList.stub(stub[:instances]) unless stub[:instances].nil?
+        data['Instances'] = InstanceList.stub(stub[:instances]) unless stub[:instances].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2882,7 +2884,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Instance.stub(element) unless element.nil?
+          data << Instance.stub(element) unless element.nil?
         end
         data
       end
@@ -2918,12 +2920,12 @@ module AWS::SDK::EMR
         data['PublicIpAddress'] = stub[:public_ip_address] unless stub[:public_ip_address].nil?
         data['PrivateDnsName'] = stub[:private_dns_name] unless stub[:private_dns_name].nil?
         data['PrivateIpAddress'] = stub[:private_ip_address] unless stub[:private_ip_address].nil?
-        data['Status'] = Stubs::InstanceStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Status'] = InstanceStatus.stub(stub[:status]) unless stub[:status].nil?
         data['InstanceGroupId'] = stub[:instance_group_id] unless stub[:instance_group_id].nil?
         data['InstanceFleetId'] = stub[:instance_fleet_id] unless stub[:instance_fleet_id].nil?
         data['Market'] = stub[:market] unless stub[:market].nil?
         data['InstanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
-        data['EbsVolumes'] = Stubs::EbsVolumeList.stub(stub[:ebs_volumes]) unless stub[:ebs_volumes].nil?
+        data['EbsVolumes'] = EbsVolumeList.stub(stub[:ebs_volumes]) unless stub[:ebs_volumes].nil?
         data
       end
     end
@@ -2942,7 +2944,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EbsVolume.stub(element) unless element.nil?
+          data << EbsVolume.stub(element) unless element.nil?
         end
         data
       end
@@ -2984,8 +2986,8 @@ module AWS::SDK::EMR
         stub ||= Types::InstanceStatus.new
         data = {}
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['StateChangeReason'] = Stubs::InstanceStateChangeReason.stub(stub[:state_change_reason]) unless stub[:state_change_reason].nil?
-        data['Timeline'] = Stubs::InstanceTimeline.stub(stub[:timeline]) unless stub[:timeline].nil?
+        data['StateChangeReason'] = InstanceStateChangeReason.stub(stub[:state_change_reason]) unless stub[:state_change_reason].nil?
+        data['Timeline'] = InstanceTimeline.stub(stub[:timeline]) unless stub[:timeline].nil?
         data
       end
     end
@@ -3043,9 +3045,9 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['NotebookExecutions'] = Stubs::NotebookExecutionSummaryList.stub(stub[:notebook_executions]) unless stub[:notebook_executions].nil?
+        data['NotebookExecutions'] = NotebookExecutionSummaryList.stub(stub[:notebook_executions]) unless stub[:notebook_executions].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3064,7 +3066,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NotebookExecutionSummary.stub(element) unless element.nil?
+          data << NotebookExecutionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3109,9 +3111,9 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ReleaseLabels'] = Stubs::StringList.stub(stub[:release_labels]) unless stub[:release_labels].nil?
+        data['ReleaseLabels'] = StringList.stub(stub[:release_labels]) unless stub[:release_labels].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3127,9 +3129,9 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SecurityConfigurations'] = Stubs::SecurityConfigurationList.stub(stub[:security_configurations]) unless stub[:security_configurations].nil?
+        data['SecurityConfigurations'] = SecurityConfigurationList.stub(stub[:security_configurations]) unless stub[:security_configurations].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3148,7 +3150,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SecurityConfigurationSummary.stub(element) unless element.nil?
+          data << SecurityConfigurationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3185,9 +3187,9 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Steps'] = Stubs::StepSummaryList.stub(stub[:steps]) unless stub[:steps].nil?
+        data['Steps'] = StepSummaryList.stub(stub[:steps]) unless stub[:steps].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3206,7 +3208,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StepSummary.stub(element) unless element.nil?
+          data << StepSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3231,9 +3233,9 @@ module AWS::SDK::EMR
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Config'] = Stubs::HadoopStepConfig.stub(stub[:config]) unless stub[:config].nil?
+        data['Config'] = HadoopStepConfig.stub(stub[:config]) unless stub[:config].nil?
         data['ActionOnFailure'] = stub[:action_on_failure] unless stub[:action_on_failure].nil?
-        data['Status'] = Stubs::StepStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Status'] = StepStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -3249,9 +3251,9 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SessionMappings'] = Stubs::SessionMappingSummaryList.stub(stub[:session_mappings]) unless stub[:session_mappings].nil?
+        data['SessionMappings'] = SessionMappingSummaryList.stub(stub[:session_mappings]) unless stub[:session_mappings].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3270,7 +3272,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SessionMappingSummary.stub(element) unless element.nil?
+          data << SessionMappingSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3315,9 +3317,9 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Studios'] = Stubs::StudioSummaryList.stub(stub[:studios]) unless stub[:studios].nil?
+        data['Studios'] = StudioSummaryList.stub(stub[:studios]) unless stub[:studios].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3336,7 +3338,7 @@ module AWS::SDK::EMR
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StudioSummary.stub(element) unless element.nil?
+          data << StudioSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3383,7 +3385,7 @@ module AWS::SDK::EMR
       def self.stub(http_resp, stub:)
         data = {}
         data['StepConcurrencyLevel'] = stub[:step_concurrency_level] unless stub[:step_concurrency_level].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3397,7 +3399,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3411,7 +3413,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3431,9 +3433,9 @@ module AWS::SDK::EMR
         data = {}
         data['ClusterId'] = stub[:cluster_id] unless stub[:cluster_id].nil?
         data['InstanceGroupId'] = stub[:instance_group_id] unless stub[:instance_group_id].nil?
-        data['AutoScalingPolicy'] = Stubs::AutoScalingPolicyDescription.stub(stub[:auto_scaling_policy]) unless stub[:auto_scaling_policy].nil?
+        data['AutoScalingPolicy'] = AutoScalingPolicyDescription.stub(stub[:auto_scaling_policy]) unless stub[:auto_scaling_policy].nil?
         data['ClusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3447,7 +3449,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3461,7 +3463,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3475,7 +3477,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3489,7 +3491,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3503,7 +3505,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3517,7 +3519,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3531,7 +3533,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3549,7 +3551,7 @@ module AWS::SDK::EMR
         data = {}
         data['JobFlowId'] = stub[:job_flow_id] unless stub[:job_flow_id].nil?
         data['ClusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3563,7 +3565,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3577,7 +3579,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3593,7 +3595,7 @@ module AWS::SDK::EMR
       def self.stub(http_resp, stub:)
         data = {}
         data['NotebookExecutionId'] = stub[:notebook_execution_id] unless stub[:notebook_execution_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3607,7 +3609,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3621,7 +3623,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3635,7 +3637,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3649,7 +3651,7 @@ module AWS::SDK::EMR
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

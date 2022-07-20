@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Personalize
   module Builders
 
@@ -22,12 +24,12 @@ module AWS::SDK::Personalize
         data['solutionVersionArn'] = input[:solution_version_arn] unless input[:solution_version_arn].nil?
         data['filterArn'] = input[:filter_arn] unless input[:filter_arn].nil?
         data['numResults'] = input[:num_results] unless input[:num_results].nil?
-        data['jobInput'] = Builders::BatchInferenceJobInput.build(input[:job_input]) unless input[:job_input].nil?
-        data['jobOutput'] = Builders::BatchInferenceJobOutput.build(input[:job_output]) unless input[:job_output].nil?
+        data['jobInput'] = BatchInferenceJobInput.build(input[:job_input]) unless input[:job_input].nil?
+        data['jobOutput'] = BatchInferenceJobOutput.build(input[:job_output]) unless input[:job_output].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['batchInferenceJobConfig'] = Builders::BatchInferenceJobConfig.build(input[:batch_inference_job_config]) unless input[:batch_inference_job_config].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['batchInferenceJobConfig'] = BatchInferenceJobConfig.build(input[:batch_inference_job_config]) unless input[:batch_inference_job_config].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -36,7 +38,7 @@ module AWS::SDK::Personalize
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -56,7 +58,7 @@ module AWS::SDK::Personalize
     class BatchInferenceJobConfig
       def self.build(input)
         data = {}
-        data['itemExplorationConfig'] = Builders::HyperParameters.build(input[:item_exploration_config]) unless input[:item_exploration_config].nil?
+        data['itemExplorationConfig'] = HyperParameters.build(input[:item_exploration_config]) unless input[:item_exploration_config].nil?
         data
       end
     end
@@ -76,7 +78,7 @@ module AWS::SDK::Personalize
     class BatchInferenceJobOutput
       def self.build(input)
         data = {}
-        data['s3DataDestination'] = Builders::S3DataConfig.build(input[:s3_data_destination]) unless input[:s3_data_destination].nil?
+        data['s3DataDestination'] = S3DataConfig.build(input[:s3_data_destination]) unless input[:s3_data_destination].nil?
         data
       end
     end
@@ -95,7 +97,7 @@ module AWS::SDK::Personalize
     class BatchInferenceJobInput
       def self.build(input)
         data = {}
-        data['s3DataSource'] = Builders::S3DataConfig.build(input[:s3_data_source]) unless input[:s3_data_source].nil?
+        data['s3DataSource'] = S3DataConfig.build(input[:s3_data_source]) unless input[:s3_data_source].nil?
         data
       end
     end
@@ -112,11 +114,11 @@ module AWS::SDK::Personalize
         data['solutionVersionArn'] = input[:solution_version_arn] unless input[:solution_version_arn].nil?
         data['filterArn'] = input[:filter_arn] unless input[:filter_arn].nil?
         data['numResults'] = input[:num_results] unless input[:num_results].nil?
-        data['jobInput'] = Builders::BatchSegmentJobInput.build(input[:job_input]) unless input[:job_input].nil?
-        data['jobOutput'] = Builders::BatchSegmentJobOutput.build(input[:job_output]) unless input[:job_output].nil?
+        data['jobInput'] = BatchSegmentJobInput.build(input[:job_input]) unless input[:job_input].nil?
+        data['jobOutput'] = BatchSegmentJobOutput.build(input[:job_output]) unless input[:job_output].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -124,7 +126,7 @@ module AWS::SDK::Personalize
     class BatchSegmentJobOutput
       def self.build(input)
         data = {}
-        data['s3DataDestination'] = Builders::S3DataConfig.build(input[:s3_data_destination]) unless input[:s3_data_destination].nil?
+        data['s3DataDestination'] = S3DataConfig.build(input[:s3_data_destination]) unless input[:s3_data_destination].nil?
         data
       end
     end
@@ -133,7 +135,7 @@ module AWS::SDK::Personalize
     class BatchSegmentJobInput
       def self.build(input)
         data = {}
-        data['s3DataSource'] = Builders::S3DataConfig.build(input[:s3_data_source]) unless input[:s3_data_source].nil?
+        data['s3DataSource'] = S3DataConfig.build(input[:s3_data_source]) unless input[:s3_data_source].nil?
         data
       end
     end
@@ -149,9 +151,9 @@ module AWS::SDK::Personalize
         data['name'] = input[:name] unless input[:name].nil?
         data['solutionVersionArn'] = input[:solution_version_arn] unless input[:solution_version_arn].nil?
         data['minProvisionedTPS'] = input[:min_provisioned_tps] unless input[:min_provisioned_tps].nil?
-        data['campaignConfig'] = Builders::CampaignConfig.build(input[:campaign_config]) unless input[:campaign_config].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['campaignConfig'] = CampaignConfig.build(input[:campaign_config]) unless input[:campaign_config].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -159,7 +161,7 @@ module AWS::SDK::Personalize
     class CampaignConfig
       def self.build(input)
         data = {}
-        data['itemExplorationConfig'] = Builders::HyperParameters.build(input[:item_exploration_config]) unless input[:item_exploration_config].nil?
+        data['itemExplorationConfig'] = HyperParameters.build(input[:item_exploration_config]) unless input[:item_exploration_config].nil?
         data
       end
     end
@@ -176,8 +178,8 @@ module AWS::SDK::Personalize
         data['schemaArn'] = input[:schema_arn] unless input[:schema_arn].nil?
         data['datasetGroupArn'] = input[:dataset_group_arn] unless input[:dataset_group_arn].nil?
         data['datasetType'] = input[:dataset_type] unless input[:dataset_type].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -193,9 +195,9 @@ module AWS::SDK::Personalize
         data['datasetArn'] = input[:dataset_arn] unless input[:dataset_arn].nil?
         data['ingestionMode'] = input[:ingestion_mode] unless input[:ingestion_mode].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['jobOutput'] = Builders::DatasetExportJobOutput.build(input[:job_output]) unless input[:job_output].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['jobOutput'] = DatasetExportJobOutput.build(input[:job_output]) unless input[:job_output].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -203,7 +205,7 @@ module AWS::SDK::Personalize
     class DatasetExportJobOutput
       def self.build(input)
         data = {}
-        data['s3DataDestination'] = Builders::S3DataConfig.build(input[:s3_data_destination]) unless input[:s3_data_destination].nil?
+        data['s3DataDestination'] = S3DataConfig.build(input[:s3_data_destination]) unless input[:s3_data_destination].nil?
         data
       end
     end
@@ -220,8 +222,8 @@ module AWS::SDK::Personalize
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['kmsKeyArn'] = input[:kms_key_arn] unless input[:kms_key_arn].nil?
         data['domain'] = input[:domain] unless input[:domain].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -235,10 +237,10 @@ module AWS::SDK::Personalize
         data = {}
         data['jobName'] = input[:job_name] unless input[:job_name].nil?
         data['datasetArn'] = input[:dataset_arn] unless input[:dataset_arn].nil?
-        data['dataSource'] = Builders::DataSource.build(input[:data_source]) unless input[:data_source].nil?
+        data['dataSource'] = DataSource.build(input[:data_source]) unless input[:data_source].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -261,8 +263,8 @@ module AWS::SDK::Personalize
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['datasetGroupArn'] = input[:dataset_group_arn] unless input[:dataset_group_arn].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -277,8 +279,8 @@ module AWS::SDK::Personalize
         data['name'] = input[:name] unless input[:name].nil?
         data['datasetGroupArn'] = input[:dataset_group_arn] unless input[:dataset_group_arn].nil?
         data['filterExpression'] = input[:filter_expression] unless input[:filter_expression].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -293,9 +295,9 @@ module AWS::SDK::Personalize
         data['name'] = input[:name] unless input[:name].nil?
         data['datasetGroupArn'] = input[:dataset_group_arn] unless input[:dataset_group_arn].nil?
         data['recipeArn'] = input[:recipe_arn] unless input[:recipe_arn].nil?
-        data['recommenderConfig'] = Builders::RecommenderConfig.build(input[:recommender_config]) unless input[:recommender_config].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recommenderConfig'] = RecommenderConfig.build(input[:recommender_config]) unless input[:recommender_config].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -303,7 +305,7 @@ module AWS::SDK::Personalize
     class RecommenderConfig
       def self.build(input)
         data = {}
-        data['itemExplorationConfig'] = Builders::HyperParameters.build(input[:item_exploration_config]) unless input[:item_exploration_config].nil?
+        data['itemExplorationConfig'] = HyperParameters.build(input[:item_exploration_config]) unless input[:item_exploration_config].nil?
         data['minRecommendationRequestsPerSecond'] = input[:min_recommendation_requests_per_second] unless input[:min_recommendation_requests_per_second].nil?
         data
       end
@@ -320,7 +322,7 @@ module AWS::SDK::Personalize
         data['name'] = input[:name] unless input[:name].nil?
         data['schema'] = input[:schema] unless input[:schema].nil?
         data['domain'] = input[:domain] unless input[:domain].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -338,9 +340,9 @@ module AWS::SDK::Personalize
         data['recipeArn'] = input[:recipe_arn] unless input[:recipe_arn].nil?
         data['datasetGroupArn'] = input[:dataset_group_arn] unless input[:dataset_group_arn].nil?
         data['eventType'] = input[:event_type] unless input[:event_type].nil?
-        data['solutionConfig'] = Builders::SolutionConfig.build(input[:solution_config]) unless input[:solution_config].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['solutionConfig'] = SolutionConfig.build(input[:solution_config]) unless input[:solution_config].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -349,11 +351,11 @@ module AWS::SDK::Personalize
       def self.build(input)
         data = {}
         data['eventValueThreshold'] = input[:event_value_threshold] unless input[:event_value_threshold].nil?
-        data['hpoConfig'] = Builders::HPOConfig.build(input[:hpo_config]) unless input[:hpo_config].nil?
-        data['algorithmHyperParameters'] = Builders::HyperParameters.build(input[:algorithm_hyper_parameters]) unless input[:algorithm_hyper_parameters].nil?
-        data['featureTransformationParameters'] = Builders::FeatureTransformationParameters.build(input[:feature_transformation_parameters]) unless input[:feature_transformation_parameters].nil?
-        data['autoMLConfig'] = Builders::AutoMLConfig.build(input[:auto_ml_config]) unless input[:auto_ml_config].nil?
-        data['optimizationObjective'] = Builders::OptimizationObjective.build(input[:optimization_objective]) unless input[:optimization_objective].nil?
+        data['hpoConfig'] = HPOConfig.build(input[:hpo_config]) unless input[:hpo_config].nil?
+        data['algorithmHyperParameters'] = HyperParameters.build(input[:algorithm_hyper_parameters]) unless input[:algorithm_hyper_parameters].nil?
+        data['featureTransformationParameters'] = FeatureTransformationParameters.build(input[:feature_transformation_parameters]) unless input[:feature_transformation_parameters].nil?
+        data['autoMLConfig'] = AutoMLConfig.build(input[:auto_ml_config]) unless input[:auto_ml_config].nil?
+        data['optimizationObjective'] = OptimizationObjective.build(input[:optimization_objective]) unless input[:optimization_objective].nil?
         data
       end
     end
@@ -373,7 +375,7 @@ module AWS::SDK::Personalize
       def self.build(input)
         data = {}
         data['metricName'] = input[:metric_name] unless input[:metric_name].nil?
-        data['recipeList'] = Builders::ArnList.build(input[:recipe_list]) unless input[:recipe_list].nil?
+        data['recipeList'] = ArnList.build(input[:recipe_list]) unless input[:recipe_list].nil?
         data
       end
     end
@@ -404,9 +406,9 @@ module AWS::SDK::Personalize
     class HPOConfig
       def self.build(input)
         data = {}
-        data['hpoObjective'] = Builders::HPOObjective.build(input[:hpo_objective]) unless input[:hpo_objective].nil?
-        data['hpoResourceConfig'] = Builders::HPOResourceConfig.build(input[:hpo_resource_config]) unless input[:hpo_resource_config].nil?
-        data['algorithmHyperParameterRanges'] = Builders::HyperParameterRanges.build(input[:algorithm_hyper_parameter_ranges]) unless input[:algorithm_hyper_parameter_ranges].nil?
+        data['hpoObjective'] = HPOObjective.build(input[:hpo_objective]) unless input[:hpo_objective].nil?
+        data['hpoResourceConfig'] = HPOResourceConfig.build(input[:hpo_resource_config]) unless input[:hpo_resource_config].nil?
+        data['algorithmHyperParameterRanges'] = HyperParameterRanges.build(input[:algorithm_hyper_parameter_ranges]) unless input[:algorithm_hyper_parameter_ranges].nil?
         data
       end
     end
@@ -415,9 +417,9 @@ module AWS::SDK::Personalize
     class HyperParameterRanges
       def self.build(input)
         data = {}
-        data['integerHyperParameterRanges'] = Builders::IntegerHyperParameterRanges.build(input[:integer_hyper_parameter_ranges]) unless input[:integer_hyper_parameter_ranges].nil?
-        data['continuousHyperParameterRanges'] = Builders::ContinuousHyperParameterRanges.build(input[:continuous_hyper_parameter_ranges]) unless input[:continuous_hyper_parameter_ranges].nil?
-        data['categoricalHyperParameterRanges'] = Builders::CategoricalHyperParameterRanges.build(input[:categorical_hyper_parameter_ranges]) unless input[:categorical_hyper_parameter_ranges].nil?
+        data['integerHyperParameterRanges'] = IntegerHyperParameterRanges.build(input[:integer_hyper_parameter_ranges]) unless input[:integer_hyper_parameter_ranges].nil?
+        data['continuousHyperParameterRanges'] = ContinuousHyperParameterRanges.build(input[:continuous_hyper_parameter_ranges]) unless input[:continuous_hyper_parameter_ranges].nil?
+        data['categoricalHyperParameterRanges'] = CategoricalHyperParameterRanges.build(input[:categorical_hyper_parameter_ranges]) unless input[:categorical_hyper_parameter_ranges].nil?
         data
       end
     end
@@ -427,7 +429,7 @@ module AWS::SDK::Personalize
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CategoricalHyperParameterRange.build(element) unless element.nil?
+          data << CategoricalHyperParameterRange.build(element) unless element.nil?
         end
         data
       end
@@ -438,7 +440,7 @@ module AWS::SDK::Personalize
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::CategoricalValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = CategoricalValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -459,7 +461,7 @@ module AWS::SDK::Personalize
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ContinuousHyperParameterRange.build(element) unless element.nil?
+          data << ContinuousHyperParameterRange.build(element) unless element.nil?
         end
         data
       end
@@ -481,7 +483,7 @@ module AWS::SDK::Personalize
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::IntegerHyperParameterRange.build(element) unless element.nil?
+          data << IntegerHyperParameterRange.build(element) unless element.nil?
         end
         data
       end
@@ -529,8 +531,8 @@ module AWS::SDK::Personalize
         data = {}
         data['solutionArn'] = input[:solution_arn] unless input[:solution_arn].nil?
         data['trainingMode'] = input[:training_mode] unless input[:training_mode].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -543,7 +545,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DeleteCampaign'
         data = {}
         data['campaignArn'] = input[:campaign_arn] unless input[:campaign_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -556,7 +558,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DeleteDataset'
         data = {}
         data['datasetArn'] = input[:dataset_arn] unless input[:dataset_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -569,7 +571,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DeleteDatasetGroup'
         data = {}
         data['datasetGroupArn'] = input[:dataset_group_arn] unless input[:dataset_group_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -582,7 +584,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DeleteEventTracker'
         data = {}
         data['eventTrackerArn'] = input[:event_tracker_arn] unless input[:event_tracker_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -595,7 +597,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DeleteFilter'
         data = {}
         data['filterArn'] = input[:filter_arn] unless input[:filter_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -608,7 +610,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DeleteRecommender'
         data = {}
         data['recommenderArn'] = input[:recommender_arn] unless input[:recommender_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -621,7 +623,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DeleteSchema'
         data = {}
         data['schemaArn'] = input[:schema_arn] unless input[:schema_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -634,7 +636,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DeleteSolution'
         data = {}
         data['solutionArn'] = input[:solution_arn] unless input[:solution_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -647,7 +649,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DescribeAlgorithm'
         data = {}
         data['algorithmArn'] = input[:algorithm_arn] unless input[:algorithm_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -660,7 +662,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DescribeBatchInferenceJob'
         data = {}
         data['batchInferenceJobArn'] = input[:batch_inference_job_arn] unless input[:batch_inference_job_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -673,7 +675,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DescribeBatchSegmentJob'
         data = {}
         data['batchSegmentJobArn'] = input[:batch_segment_job_arn] unless input[:batch_segment_job_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -686,7 +688,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DescribeCampaign'
         data = {}
         data['campaignArn'] = input[:campaign_arn] unless input[:campaign_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -699,7 +701,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DescribeDataset'
         data = {}
         data['datasetArn'] = input[:dataset_arn] unless input[:dataset_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -712,7 +714,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DescribeDatasetExportJob'
         data = {}
         data['datasetExportJobArn'] = input[:dataset_export_job_arn] unless input[:dataset_export_job_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -725,7 +727,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DescribeDatasetGroup'
         data = {}
         data['datasetGroupArn'] = input[:dataset_group_arn] unless input[:dataset_group_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -738,7 +740,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DescribeDatasetImportJob'
         data = {}
         data['datasetImportJobArn'] = input[:dataset_import_job_arn] unless input[:dataset_import_job_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -751,7 +753,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DescribeEventTracker'
         data = {}
         data['eventTrackerArn'] = input[:event_tracker_arn] unless input[:event_tracker_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -764,7 +766,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DescribeFeatureTransformation'
         data = {}
         data['featureTransformationArn'] = input[:feature_transformation_arn] unless input[:feature_transformation_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -777,7 +779,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DescribeFilter'
         data = {}
         data['filterArn'] = input[:filter_arn] unless input[:filter_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -790,7 +792,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DescribeRecipe'
         data = {}
         data['recipeArn'] = input[:recipe_arn] unless input[:recipe_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -803,7 +805,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DescribeRecommender'
         data = {}
         data['recommenderArn'] = input[:recommender_arn] unless input[:recommender_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -816,7 +818,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DescribeSchema'
         data = {}
         data['schemaArn'] = input[:schema_arn] unless input[:schema_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -829,7 +831,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DescribeSolution'
         data = {}
         data['solutionArn'] = input[:solution_arn] unless input[:solution_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -842,7 +844,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.DescribeSolutionVersion'
         data = {}
         data['solutionVersionArn'] = input[:solution_version_arn] unless input[:solution_version_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -855,7 +857,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.GetSolutionMetrics'
         data = {}
         data['solutionVersionArn'] = input[:solution_version_arn] unless input[:solution_version_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -870,7 +872,7 @@ module AWS::SDK::Personalize
         data['solutionVersionArn'] = input[:solution_version_arn] unless input[:solution_version_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -885,7 +887,7 @@ module AWS::SDK::Personalize
         data['solutionVersionArn'] = input[:solution_version_arn] unless input[:solution_version_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -900,7 +902,7 @@ module AWS::SDK::Personalize
         data['solutionArn'] = input[:solution_arn] unless input[:solution_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -915,7 +917,7 @@ module AWS::SDK::Personalize
         data['datasetArn'] = input[:dataset_arn] unless input[:dataset_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -929,7 +931,7 @@ module AWS::SDK::Personalize
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -944,7 +946,7 @@ module AWS::SDK::Personalize
         data['datasetArn'] = input[:dataset_arn] unless input[:dataset_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -959,7 +961,7 @@ module AWS::SDK::Personalize
         data['datasetGroupArn'] = input[:dataset_group_arn] unless input[:dataset_group_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -974,7 +976,7 @@ module AWS::SDK::Personalize
         data['datasetGroupArn'] = input[:dataset_group_arn] unless input[:dataset_group_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -989,7 +991,7 @@ module AWS::SDK::Personalize
         data['datasetGroupArn'] = input[:dataset_group_arn] unless input[:dataset_group_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1005,7 +1007,7 @@ module AWS::SDK::Personalize
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['domain'] = input[:domain] unless input[:domain].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1020,7 +1022,7 @@ module AWS::SDK::Personalize
         data['datasetGroupArn'] = input[:dataset_group_arn] unless input[:dataset_group_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1034,7 +1036,7 @@ module AWS::SDK::Personalize
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1049,7 +1051,7 @@ module AWS::SDK::Personalize
         data['solutionArn'] = input[:solution_arn] unless input[:solution_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1064,7 +1066,7 @@ module AWS::SDK::Personalize
         data['datasetGroupArn'] = input[:dataset_group_arn] unless input[:dataset_group_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1077,7 +1079,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.ListTagsForResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1090,7 +1092,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.StartRecommender'
         data = {}
         data['recommenderArn'] = input[:recommender_arn] unless input[:recommender_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1103,7 +1105,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.StopRecommender'
         data = {}
         data['recommenderArn'] = input[:recommender_arn] unless input[:recommender_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1116,7 +1118,7 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.StopSolutionVersionCreation'
         data = {}
         data['solutionVersionArn'] = input[:solution_version_arn] unless input[:solution_version_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1129,8 +1131,8 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.TagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1143,8 +1145,8 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.UntagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tagKeys'] = Builders::TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tagKeys'] = TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1170,8 +1172,8 @@ module AWS::SDK::Personalize
         data['campaignArn'] = input[:campaign_arn] unless input[:campaign_arn].nil?
         data['solutionVersionArn'] = input[:solution_version_arn] unless input[:solution_version_arn].nil?
         data['minProvisionedTPS'] = input[:min_provisioned_tps] unless input[:min_provisioned_tps].nil?
-        data['campaignConfig'] = Builders::CampaignConfig.build(input[:campaign_config]) unless input[:campaign_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['campaignConfig'] = CampaignConfig.build(input[:campaign_config]) unless input[:campaign_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1184,8 +1186,8 @@ module AWS::SDK::Personalize
         http_req.headers['X-Amz-Target'] = 'AmazonPersonalize.UpdateRecommender'
         data = {}
         data['recommenderArn'] = input[:recommender_arn] unless input[:recommender_arn].nil?
-        data['recommenderConfig'] = Builders::RecommenderConfig.build(input[:recommender_config]) unless input[:recommender_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recommenderConfig'] = RecommenderConfig.build(input[:recommender_config]) unless input[:recommender_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ElastiCache
   module Builders
 
@@ -21,8 +23,8 @@ module AWS::SDK::ElastiCache
         params['Action'] = 'AddTagsToResource'
         params['Version'] = '2015-02-02'
         params[context + 'ResourceName'] = input[:resource_name].to_s unless input[:resource_name].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -30,7 +32,7 @@ module AWS::SDK::ElastiCache
     class TagList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -56,7 +58,7 @@ module AWS::SDK::ElastiCache
         params[context + 'CacheSecurityGroupName'] = input[:cache_security_group_name].to_s unless input[:cache_security_group_name].nil?
         params[context + 'EC2SecurityGroupName'] = input[:ec2_security_group_name].to_s unless input[:ec2_security_group_name].nil?
         params[context + 'EC2SecurityGroupOwnerId'] = input[:ec2_security_group_owner_id].to_s unless input[:ec2_security_group_owner_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -70,10 +72,10 @@ module AWS::SDK::ElastiCache
         params = Hearth::Query::ParamList.new
         params['Action'] = 'BatchApplyUpdateAction'
         params['Version'] = '2015-02-02'
-        Builders::ReplicationGroupIdList.build(input[:replication_group_ids], params, context: context + 'ReplicationGroupIds' + '.member') unless input[:replication_group_ids].nil?
-        Builders::CacheClusterIdList.build(input[:cache_cluster_ids], params, context: context + 'CacheClusterIds' + '.member') unless input[:cache_cluster_ids].nil?
+        ReplicationGroupIdList.build(input[:replication_group_ids], params, context: context + 'ReplicationGroupIds' + '.member') unless input[:replication_group_ids].nil?
+        CacheClusterIdList.build(input[:cache_cluster_ids], params, context: context + 'CacheClusterIds' + '.member') unless input[:cache_cluster_ids].nil?
         params[context + 'ServiceUpdateName'] = input[:service_update_name].to_s unless input[:service_update_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -105,10 +107,10 @@ module AWS::SDK::ElastiCache
         params = Hearth::Query::ParamList.new
         params['Action'] = 'BatchStopUpdateAction'
         params['Version'] = '2015-02-02'
-        Builders::ReplicationGroupIdList.build(input[:replication_group_ids], params, context: context + 'ReplicationGroupIds' + '.member') unless input[:replication_group_ids].nil?
-        Builders::CacheClusterIdList.build(input[:cache_cluster_ids], params, context: context + 'CacheClusterIds' + '.member') unless input[:cache_cluster_ids].nil?
+        ReplicationGroupIdList.build(input[:replication_group_ids], params, context: context + 'ReplicationGroupIds' + '.member') unless input[:replication_group_ids].nil?
+        CacheClusterIdList.build(input[:cache_cluster_ids], params, context: context + 'CacheClusterIds' + '.member') unless input[:cache_cluster_ids].nil?
         params[context + 'ServiceUpdateName'] = input[:service_update_name].to_s unless input[:service_update_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -124,7 +126,7 @@ module AWS::SDK::ElastiCache
         params['Version'] = '2015-02-02'
         params[context + 'ReplicationGroupId'] = input[:replication_group_id].to_s unless input[:replication_group_id].nil?
         params[context + 'Force'] = input[:force].to_s unless input[:force].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -142,8 +144,8 @@ module AWS::SDK::ElastiCache
         params[context + 'TargetSnapshotName'] = input[:target_snapshot_name].to_s unless input[:target_snapshot_name].nil?
         params[context + 'TargetBucket'] = input[:target_bucket].to_s unless input[:target_bucket].nil?
         params[context + 'KmsKeyId'] = input[:kms_key_id].to_s unless input[:kms_key_id].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -161,17 +163,17 @@ module AWS::SDK::ElastiCache
         params[context + 'ReplicationGroupId'] = input[:replication_group_id].to_s unless input[:replication_group_id].nil?
         params[context + 'AZMode'] = input[:az_mode].to_s unless input[:az_mode].nil?
         params[context + 'PreferredAvailabilityZone'] = input[:preferred_availability_zone].to_s unless input[:preferred_availability_zone].nil?
-        Builders::PreferredAvailabilityZoneList.build(input[:preferred_availability_zones], params, context: context + 'PreferredAvailabilityZones' + '.PreferredAvailabilityZone') unless input[:preferred_availability_zones].nil?
+        PreferredAvailabilityZoneList.build(input[:preferred_availability_zones], params, context: context + 'PreferredAvailabilityZones' + '.PreferredAvailabilityZone') unless input[:preferred_availability_zones].nil?
         params[context + 'NumCacheNodes'] = input[:num_cache_nodes].to_s unless input[:num_cache_nodes].nil?
         params[context + 'CacheNodeType'] = input[:cache_node_type].to_s unless input[:cache_node_type].nil?
         params[context + 'Engine'] = input[:engine].to_s unless input[:engine].nil?
         params[context + 'EngineVersion'] = input[:engine_version].to_s unless input[:engine_version].nil?
         params[context + 'CacheParameterGroupName'] = input[:cache_parameter_group_name].to_s unless input[:cache_parameter_group_name].nil?
         params[context + 'CacheSubnetGroupName'] = input[:cache_subnet_group_name].to_s unless input[:cache_subnet_group_name].nil?
-        Builders::CacheSecurityGroupNameList.build(input[:cache_security_group_names], params, context: context + 'CacheSecurityGroupNames' + '.CacheSecurityGroupName') unless input[:cache_security_group_names].nil?
-        Builders::SecurityGroupIdsList.build(input[:security_group_ids], params, context: context + 'SecurityGroupIds' + '.SecurityGroupId') unless input[:security_group_ids].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        Builders::SnapshotArnsList.build(input[:snapshot_arns], params, context: context + 'SnapshotArns' + '.SnapshotArn') unless input[:snapshot_arns].nil?
+        CacheSecurityGroupNameList.build(input[:cache_security_group_names], params, context: context + 'CacheSecurityGroupNames' + '.CacheSecurityGroupName') unless input[:cache_security_group_names].nil?
+        SecurityGroupIdsList.build(input[:security_group_ids], params, context: context + 'SecurityGroupIds' + '.SecurityGroupId') unless input[:security_group_ids].nil?
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        SnapshotArnsList.build(input[:snapshot_arns], params, context: context + 'SnapshotArns' + '.SnapshotArn') unless input[:snapshot_arns].nil?
         params[context + 'SnapshotName'] = input[:snapshot_name].to_s unless input[:snapshot_name].nil?
         params[context + 'PreferredMaintenanceWindow'] = input[:preferred_maintenance_window].to_s unless input[:preferred_maintenance_window].nil?
         params[context + 'Port'] = input[:port].to_s unless input[:port].nil?
@@ -182,10 +184,10 @@ module AWS::SDK::ElastiCache
         params[context + 'AuthToken'] = input[:auth_token].to_s unless input[:auth_token].nil?
         params[context + 'OutpostMode'] = input[:outpost_mode].to_s unless input[:outpost_mode].nil?
         params[context + 'PreferredOutpostArn'] = input[:preferred_outpost_arn].to_s unless input[:preferred_outpost_arn].nil?
-        Builders::PreferredOutpostArnList.build(input[:preferred_outpost_arns], params, context: context + 'PreferredOutpostArns' + '.PreferredOutpostArn') unless input[:preferred_outpost_arns].nil?
-        Builders::LogDeliveryConfigurationRequestList.build(input[:log_delivery_configurations], params, context: context + 'LogDeliveryConfigurations' + '.LogDeliveryConfigurationRequest') unless input[:log_delivery_configurations].nil?
+        PreferredOutpostArnList.build(input[:preferred_outpost_arns], params, context: context + 'PreferredOutpostArns' + '.PreferredOutpostArn') unless input[:preferred_outpost_arns].nil?
+        LogDeliveryConfigurationRequestList.build(input[:log_delivery_configurations], params, context: context + 'LogDeliveryConfigurations' + '.LogDeliveryConfigurationRequest') unless input[:log_delivery_configurations].nil?
         params[context + 'TransitEncryptionEnabled'] = input[:transit_encryption_enabled].to_s unless input[:transit_encryption_enabled].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -193,7 +195,7 @@ module AWS::SDK::ElastiCache
     class LogDeliveryConfigurationRequestList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::LogDeliveryConfigurationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          LogDeliveryConfigurationRequest.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -203,7 +205,7 @@ module AWS::SDK::ElastiCache
       def self.build(input, params, context: nil)
         params[context + 'LogType'] = input[:log_type].to_s unless input[:log_type].nil?
         params[context + 'DestinationType'] = input[:destination_type].to_s unless input[:destination_type].nil?
-        Builders::DestinationDetails.build(input[:destination_details], params, context: context + 'DestinationDetails' + '.') unless input[:destination_details].nil?
+        DestinationDetails.build(input[:destination_details], params, context: context + 'DestinationDetails' + '.') unless input[:destination_details].nil?
         params[context + 'LogFormat'] = input[:log_format].to_s unless input[:log_format].nil?
         params[context + 'Enabled'] = input[:enabled].to_s unless input[:enabled].nil?
       end
@@ -212,8 +214,8 @@ module AWS::SDK::ElastiCache
     # Structure Builder for DestinationDetails
     class DestinationDetails
       def self.build(input, params, context: nil)
-        Builders::CloudWatchLogsDestinationDetails.build(input[:cloud_watch_logs_details], params, context: context + 'CloudWatchLogsDetails' + '.') unless input[:cloud_watch_logs_details].nil?
-        Builders::KinesisFirehoseDestinationDetails.build(input[:kinesis_firehose_details], params, context: context + 'KinesisFirehoseDetails' + '.') unless input[:kinesis_firehose_details].nil?
+        CloudWatchLogsDestinationDetails.build(input[:cloud_watch_logs_details], params, context: context + 'CloudWatchLogsDetails' + '.') unless input[:cloud_watch_logs_details].nil?
+        KinesisFirehoseDestinationDetails.build(input[:kinesis_firehose_details], params, context: context + 'KinesisFirehoseDetails' + '.') unless input[:kinesis_firehose_details].nil?
       end
     end
 
@@ -289,8 +291,8 @@ module AWS::SDK::ElastiCache
         params[context + 'CacheParameterGroupName'] = input[:cache_parameter_group_name].to_s unless input[:cache_parameter_group_name].nil?
         params[context + 'CacheParameterGroupFamily'] = input[:cache_parameter_group_family].to_s unless input[:cache_parameter_group_family].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -306,8 +308,8 @@ module AWS::SDK::ElastiCache
         params['Version'] = '2015-02-02'
         params[context + 'CacheSecurityGroupName'] = input[:cache_security_group_name].to_s unless input[:cache_security_group_name].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -323,9 +325,9 @@ module AWS::SDK::ElastiCache
         params['Version'] = '2015-02-02'
         params[context + 'CacheSubnetGroupName'] = input[:cache_subnet_group_name].to_s unless input[:cache_subnet_group_name].nil?
         params[context + 'CacheSubnetGroupDescription'] = input[:cache_subnet_group_description].to_s unless input[:cache_subnet_group_description].nil?
-        Builders::SubnetIdentifierList.build(input[:subnet_ids], params, context: context + 'SubnetIds' + '.SubnetIdentifier') unless input[:subnet_ids].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        SubnetIdentifierList.build(input[:subnet_ids], params, context: context + 'SubnetIds' + '.SubnetIdentifier') unless input[:subnet_ids].nil?
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -351,7 +353,7 @@ module AWS::SDK::ElastiCache
         params[context + 'GlobalReplicationGroupIdSuffix'] = input[:global_replication_group_id_suffix].to_s unless input[:global_replication_group_id_suffix].nil?
         params[context + 'GlobalReplicationGroupDescription'] = input[:global_replication_group_description].to_s unless input[:global_replication_group_description].nil?
         params[context + 'PrimaryReplicationGroupId'] = input[:primary_replication_group_id].to_s unless input[:primary_replication_group_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -372,19 +374,19 @@ module AWS::SDK::ElastiCache
         params[context + 'AutomaticFailoverEnabled'] = input[:automatic_failover_enabled].to_s unless input[:automatic_failover_enabled].nil?
         params[context + 'MultiAZEnabled'] = input[:multi_az_enabled].to_s unless input[:multi_az_enabled].nil?
         params[context + 'NumCacheClusters'] = input[:num_cache_clusters].to_s unless input[:num_cache_clusters].nil?
-        Builders::AvailabilityZonesList.build(input[:preferred_cache_cluster_a_zs], params, context: context + 'PreferredCacheClusterAZs' + '.AvailabilityZone') unless input[:preferred_cache_cluster_a_zs].nil?
+        AvailabilityZonesList.build(input[:preferred_cache_cluster_a_zs], params, context: context + 'PreferredCacheClusterAZs' + '.AvailabilityZone') unless input[:preferred_cache_cluster_a_zs].nil?
         params[context + 'NumNodeGroups'] = input[:num_node_groups].to_s unless input[:num_node_groups].nil?
         params[context + 'ReplicasPerNodeGroup'] = input[:replicas_per_node_group].to_s unless input[:replicas_per_node_group].nil?
-        Builders::NodeGroupConfigurationList.build(input[:node_group_configuration], params, context: context + 'NodeGroupConfiguration' + '.NodeGroupConfiguration') unless input[:node_group_configuration].nil?
+        NodeGroupConfigurationList.build(input[:node_group_configuration], params, context: context + 'NodeGroupConfiguration' + '.NodeGroupConfiguration') unless input[:node_group_configuration].nil?
         params[context + 'CacheNodeType'] = input[:cache_node_type].to_s unless input[:cache_node_type].nil?
         params[context + 'Engine'] = input[:engine].to_s unless input[:engine].nil?
         params[context + 'EngineVersion'] = input[:engine_version].to_s unless input[:engine_version].nil?
         params[context + 'CacheParameterGroupName'] = input[:cache_parameter_group_name].to_s unless input[:cache_parameter_group_name].nil?
         params[context + 'CacheSubnetGroupName'] = input[:cache_subnet_group_name].to_s unless input[:cache_subnet_group_name].nil?
-        Builders::CacheSecurityGroupNameList.build(input[:cache_security_group_names], params, context: context + 'CacheSecurityGroupNames' + '.CacheSecurityGroupName') unless input[:cache_security_group_names].nil?
-        Builders::SecurityGroupIdsList.build(input[:security_group_ids], params, context: context + 'SecurityGroupIds' + '.SecurityGroupId') unless input[:security_group_ids].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        Builders::SnapshotArnsList.build(input[:snapshot_arns], params, context: context + 'SnapshotArns' + '.SnapshotArn') unless input[:snapshot_arns].nil?
+        CacheSecurityGroupNameList.build(input[:cache_security_group_names], params, context: context + 'CacheSecurityGroupNames' + '.CacheSecurityGroupName') unless input[:cache_security_group_names].nil?
+        SecurityGroupIdsList.build(input[:security_group_ids], params, context: context + 'SecurityGroupIds' + '.SecurityGroupId') unless input[:security_group_ids].nil?
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        SnapshotArnsList.build(input[:snapshot_arns], params, context: context + 'SnapshotArns' + '.SnapshotArn') unless input[:snapshot_arns].nil?
         params[context + 'SnapshotName'] = input[:snapshot_name].to_s unless input[:snapshot_name].nil?
         params[context + 'PreferredMaintenanceWindow'] = input[:preferred_maintenance_window].to_s unless input[:preferred_maintenance_window].nil?
         params[context + 'Port'] = input[:port].to_s unless input[:port].nil?
@@ -396,10 +398,10 @@ module AWS::SDK::ElastiCache
         params[context + 'TransitEncryptionEnabled'] = input[:transit_encryption_enabled].to_s unless input[:transit_encryption_enabled].nil?
         params[context + 'AtRestEncryptionEnabled'] = input[:at_rest_encryption_enabled].to_s unless input[:at_rest_encryption_enabled].nil?
         params[context + 'KmsKeyId'] = input[:kms_key_id].to_s unless input[:kms_key_id].nil?
-        Builders::UserGroupIdListInput.build(input[:user_group_ids], params, context: context + 'UserGroupIds' + '.member') unless input[:user_group_ids].nil?
-        Builders::LogDeliveryConfigurationRequestList.build(input[:log_delivery_configurations], params, context: context + 'LogDeliveryConfigurations' + '.LogDeliveryConfigurationRequest') unless input[:log_delivery_configurations].nil?
+        UserGroupIdListInput.build(input[:user_group_ids], params, context: context + 'UserGroupIds' + '.member') unless input[:user_group_ids].nil?
+        LogDeliveryConfigurationRequestList.build(input[:log_delivery_configurations], params, context: context + 'LogDeliveryConfigurations' + '.LogDeliveryConfigurationRequest') unless input[:log_delivery_configurations].nil?
         params[context + 'DataTieringEnabled'] = input[:data_tiering_enabled].to_s unless input[:data_tiering_enabled].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -416,7 +418,7 @@ module AWS::SDK::ElastiCache
     class NodeGroupConfigurationList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::NodeGroupConfiguration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          NodeGroupConfiguration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -428,9 +430,9 @@ module AWS::SDK::ElastiCache
         params[context + 'Slots'] = input[:slots].to_s unless input[:slots].nil?
         params[context + 'ReplicaCount'] = input[:replica_count].to_s unless input[:replica_count].nil?
         params[context + 'PrimaryAvailabilityZone'] = input[:primary_availability_zone].to_s unless input[:primary_availability_zone].nil?
-        Builders::AvailabilityZonesList.build(input[:replica_availability_zones], params, context: context + 'ReplicaAvailabilityZones' + '.AvailabilityZone') unless input[:replica_availability_zones].nil?
+        AvailabilityZonesList.build(input[:replica_availability_zones], params, context: context + 'ReplicaAvailabilityZones' + '.AvailabilityZone') unless input[:replica_availability_zones].nil?
         params[context + 'PrimaryOutpostArn'] = input[:primary_outpost_arn].to_s unless input[:primary_outpost_arn].nil?
-        Builders::OutpostArnsList.build(input[:replica_outpost_arns], params, context: context + 'ReplicaOutpostArns' + '.OutpostArn') unless input[:replica_outpost_arns].nil?
+        OutpostArnsList.build(input[:replica_outpost_arns], params, context: context + 'ReplicaOutpostArns' + '.OutpostArn') unless input[:replica_outpost_arns].nil?
       end
     end
 
@@ -466,8 +468,8 @@ module AWS::SDK::ElastiCache
         params[context + 'CacheClusterId'] = input[:cache_cluster_id].to_s unless input[:cache_cluster_id].nil?
         params[context + 'SnapshotName'] = input[:snapshot_name].to_s unless input[:snapshot_name].nil?
         params[context + 'KmsKeyId'] = input[:kms_key_id].to_s unless input[:kms_key_id].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -484,11 +486,11 @@ module AWS::SDK::ElastiCache
         params[context + 'UserId'] = input[:user_id].to_s unless input[:user_id].nil?
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'Engine'] = input[:engine].to_s unless input[:engine].nil?
-        Builders::PasswordListInput.build(input[:passwords], params, context: context + 'Passwords' + '.member') unless input[:passwords].nil?
+        PasswordListInput.build(input[:passwords], params, context: context + 'Passwords' + '.member') unless input[:passwords].nil?
         params[context + 'AccessString'] = input[:access_string].to_s unless input[:access_string].nil?
         params[context + 'NoPasswordRequired'] = input[:no_password_required].to_s unless input[:no_password_required].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -513,9 +515,9 @@ module AWS::SDK::ElastiCache
         params['Version'] = '2015-02-02'
         params[context + 'UserGroupId'] = input[:user_group_id].to_s unless input[:user_group_id].nil?
         params[context + 'Engine'] = input[:engine].to_s unless input[:engine].nil?
-        Builders::UserIdListInput.build(input[:user_ids], params, context: context + 'UserIds' + '.member') unless input[:user_ids].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        UserIdListInput.build(input[:user_ids], params, context: context + 'UserIds' + '.member') unless input[:user_ids].nil?
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -540,10 +542,10 @@ module AWS::SDK::ElastiCache
         params['Version'] = '2015-02-02'
         params[context + 'GlobalReplicationGroupId'] = input[:global_replication_group_id].to_s unless input[:global_replication_group_id].nil?
         params[context + 'NodeGroupCount'] = input[:node_group_count].to_s unless input[:node_group_count].nil?
-        Builders::GlobalNodeGroupIdList.build(input[:global_node_groups_to_remove], params, context: context + 'GlobalNodeGroupsToRemove' + '.GlobalNodeGroupId') unless input[:global_node_groups_to_remove].nil?
-        Builders::GlobalNodeGroupIdList.build(input[:global_node_groups_to_retain], params, context: context + 'GlobalNodeGroupsToRetain' + '.GlobalNodeGroupId') unless input[:global_node_groups_to_retain].nil?
+        GlobalNodeGroupIdList.build(input[:global_node_groups_to_remove], params, context: context + 'GlobalNodeGroupsToRemove' + '.GlobalNodeGroupId') unless input[:global_node_groups_to_remove].nil?
+        GlobalNodeGroupIdList.build(input[:global_node_groups_to_retain], params, context: context + 'GlobalNodeGroupsToRetain' + '.GlobalNodeGroupId') unless input[:global_node_groups_to_retain].nil?
         params[context + 'ApplyImmediately'] = input[:apply_immediately].to_s unless input[:apply_immediately].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -568,10 +570,10 @@ module AWS::SDK::ElastiCache
         params['Version'] = '2015-02-02'
         params[context + 'ReplicationGroupId'] = input[:replication_group_id].to_s unless input[:replication_group_id].nil?
         params[context + 'NewReplicaCount'] = input[:new_replica_count].to_s unless input[:new_replica_count].nil?
-        Builders::ReplicaConfigurationList.build(input[:replica_configuration], params, context: context + 'ReplicaConfiguration' + '.ConfigureShard') unless input[:replica_configuration].nil?
-        Builders::RemoveReplicasList.build(input[:replicas_to_remove], params, context: context + 'ReplicasToRemove' + '.member') unless input[:replicas_to_remove].nil?
+        ReplicaConfigurationList.build(input[:replica_configuration], params, context: context + 'ReplicaConfiguration' + '.ConfigureShard') unless input[:replica_configuration].nil?
+        RemoveReplicasList.build(input[:replicas_to_remove], params, context: context + 'ReplicasToRemove' + '.member') unless input[:replicas_to_remove].nil?
         params[context + 'ApplyImmediately'] = input[:apply_immediately].to_s unless input[:apply_immediately].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -588,7 +590,7 @@ module AWS::SDK::ElastiCache
     class ReplicaConfigurationList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ConfigureShard.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ConfigureShard.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -598,8 +600,8 @@ module AWS::SDK::ElastiCache
       def self.build(input, params, context: nil)
         params[context + 'NodeGroupId'] = input[:node_group_id].to_s unless input[:node_group_id].nil?
         params[context + 'NewReplicaCount'] = input[:new_replica_count].to_s unless input[:new_replica_count].nil?
-        Builders::PreferredAvailabilityZoneList.build(input[:preferred_availability_zones], params, context: context + 'PreferredAvailabilityZones' + '.PreferredAvailabilityZone') unless input[:preferred_availability_zones].nil?
-        Builders::PreferredOutpostArnList.build(input[:preferred_outpost_arns], params, context: context + 'PreferredOutpostArns' + '.PreferredOutpostArn') unless input[:preferred_outpost_arns].nil?
+        PreferredAvailabilityZoneList.build(input[:preferred_availability_zones], params, context: context + 'PreferredAvailabilityZones' + '.PreferredAvailabilityZone') unless input[:preferred_availability_zones].nil?
+        PreferredOutpostArnList.build(input[:preferred_outpost_arns], params, context: context + 'PreferredOutpostArns' + '.PreferredOutpostArn') unless input[:preferred_outpost_arns].nil?
       end
     end
 
@@ -615,7 +617,7 @@ module AWS::SDK::ElastiCache
         params['Version'] = '2015-02-02'
         params[context + 'CacheClusterId'] = input[:cache_cluster_id].to_s unless input[:cache_cluster_id].nil?
         params[context + 'FinalSnapshotIdentifier'] = input[:final_snapshot_identifier].to_s unless input[:final_snapshot_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -630,7 +632,7 @@ module AWS::SDK::ElastiCache
         params['Action'] = 'DeleteCacheParameterGroup'
         params['Version'] = '2015-02-02'
         params[context + 'CacheParameterGroupName'] = input[:cache_parameter_group_name].to_s unless input[:cache_parameter_group_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -645,7 +647,7 @@ module AWS::SDK::ElastiCache
         params['Action'] = 'DeleteCacheSecurityGroup'
         params['Version'] = '2015-02-02'
         params[context + 'CacheSecurityGroupName'] = input[:cache_security_group_name].to_s unless input[:cache_security_group_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -660,7 +662,7 @@ module AWS::SDK::ElastiCache
         params['Action'] = 'DeleteCacheSubnetGroup'
         params['Version'] = '2015-02-02'
         params[context + 'CacheSubnetGroupName'] = input[:cache_subnet_group_name].to_s unless input[:cache_subnet_group_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -676,7 +678,7 @@ module AWS::SDK::ElastiCache
         params['Version'] = '2015-02-02'
         params[context + 'GlobalReplicationGroupId'] = input[:global_replication_group_id].to_s unless input[:global_replication_group_id].nil?
         params[context + 'RetainPrimaryReplicationGroup'] = input[:retain_primary_replication_group].to_s unless input[:retain_primary_replication_group].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -693,7 +695,7 @@ module AWS::SDK::ElastiCache
         params[context + 'ReplicationGroupId'] = input[:replication_group_id].to_s unless input[:replication_group_id].nil?
         params[context + 'RetainPrimaryCluster'] = input[:retain_primary_cluster].to_s unless input[:retain_primary_cluster].nil?
         params[context + 'FinalSnapshotIdentifier'] = input[:final_snapshot_identifier].to_s unless input[:final_snapshot_identifier].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -708,7 +710,7 @@ module AWS::SDK::ElastiCache
         params['Action'] = 'DeleteSnapshot'
         params['Version'] = '2015-02-02'
         params[context + 'SnapshotName'] = input[:snapshot_name].to_s unless input[:snapshot_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -723,7 +725,7 @@ module AWS::SDK::ElastiCache
         params['Action'] = 'DeleteUser'
         params['Version'] = '2015-02-02'
         params[context + 'UserId'] = input[:user_id].to_s unless input[:user_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -738,7 +740,7 @@ module AWS::SDK::ElastiCache
         params['Action'] = 'DeleteUserGroup'
         params['Version'] = '2015-02-02'
         params[context + 'UserGroupId'] = input[:user_group_id].to_s unless input[:user_group_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -757,7 +759,7 @@ module AWS::SDK::ElastiCache
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'ShowCacheNodeInfo'] = input[:show_cache_node_info].to_s unless input[:show_cache_node_info].nil?
         params[context + 'ShowCacheClustersNotInReplicationGroups'] = input[:show_cache_clusters_not_in_replication_groups].to_s unless input[:show_cache_clusters_not_in_replication_groups].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -777,7 +779,7 @@ module AWS::SDK::ElastiCache
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'DefaultOnly'] = input[:default_only].to_s unless input[:default_only].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -794,7 +796,7 @@ module AWS::SDK::ElastiCache
         params[context + 'CacheParameterGroupName'] = input[:cache_parameter_group_name].to_s unless input[:cache_parameter_group_name].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -812,7 +814,7 @@ module AWS::SDK::ElastiCache
         params[context + 'Source'] = input[:source].to_s unless input[:source].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -829,7 +831,7 @@ module AWS::SDK::ElastiCache
         params[context + 'CacheSecurityGroupName'] = input[:cache_security_group_name].to_s unless input[:cache_security_group_name].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -846,7 +848,7 @@ module AWS::SDK::ElastiCache
         params[context + 'CacheSubnetGroupName'] = input[:cache_subnet_group_name].to_s unless input[:cache_subnet_group_name].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -863,7 +865,7 @@ module AWS::SDK::ElastiCache
         params[context + 'CacheParameterGroupFamily'] = input[:cache_parameter_group_family].to_s unless input[:cache_parameter_group_family].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -884,7 +886,7 @@ module AWS::SDK::ElastiCache
         params[context + 'Duration'] = input[:duration].to_s unless input[:duration].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -902,7 +904,7 @@ module AWS::SDK::ElastiCache
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'ShowMemberInfo'] = input[:show_member_info].to_s unless input[:show_member_info].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -919,7 +921,7 @@ module AWS::SDK::ElastiCache
         params[context + 'ReplicationGroupId'] = input[:replication_group_id].to_s unless input[:replication_group_id].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -941,7 +943,7 @@ module AWS::SDK::ElastiCache
         params[context + 'OfferingType'] = input[:offering_type].to_s unless input[:offering_type].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -962,7 +964,7 @@ module AWS::SDK::ElastiCache
         params[context + 'OfferingType'] = input[:offering_type].to_s unless input[:offering_type].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -977,10 +979,10 @@ module AWS::SDK::ElastiCache
         params['Action'] = 'DescribeServiceUpdates'
         params['Version'] = '2015-02-02'
         params[context + 'ServiceUpdateName'] = input[:service_update_name].to_s unless input[:service_update_name].nil?
-        Builders::ServiceUpdateStatusList.build(input[:service_update_status], params, context: context + 'ServiceUpdateStatus' + '.member') unless input[:service_update_status].nil?
+        ServiceUpdateStatusList.build(input[:service_update_status], params, context: context + 'ServiceUpdateStatus' + '.member') unless input[:service_update_status].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1010,7 +1012,7 @@ module AWS::SDK::ElastiCache
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'ShowNodeGroupConfig'] = input[:show_node_group_config].to_s unless input[:show_node_group_config].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1025,16 +1027,16 @@ module AWS::SDK::ElastiCache
         params['Action'] = 'DescribeUpdateActions'
         params['Version'] = '2015-02-02'
         params[context + 'ServiceUpdateName'] = input[:service_update_name].to_s unless input[:service_update_name].nil?
-        Builders::ReplicationGroupIdList.build(input[:replication_group_ids], params, context: context + 'ReplicationGroupIds' + '.member') unless input[:replication_group_ids].nil?
-        Builders::CacheClusterIdList.build(input[:cache_cluster_ids], params, context: context + 'CacheClusterIds' + '.member') unless input[:cache_cluster_ids].nil?
+        ReplicationGroupIdList.build(input[:replication_group_ids], params, context: context + 'ReplicationGroupIds' + '.member') unless input[:replication_group_ids].nil?
+        CacheClusterIdList.build(input[:cache_cluster_ids], params, context: context + 'CacheClusterIds' + '.member') unless input[:cache_cluster_ids].nil?
         params[context + 'Engine'] = input[:engine].to_s unless input[:engine].nil?
-        Builders::ServiceUpdateStatusList.build(input[:service_update_status], params, context: context + 'ServiceUpdateStatus' + '.member') unless input[:service_update_status].nil?
-        Builders::TimeRangeFilter.build(input[:service_update_time_range], params, context: context + 'ServiceUpdateTimeRange' + '.') unless input[:service_update_time_range].nil?
-        Builders::UpdateActionStatusList.build(input[:update_action_status], params, context: context + 'UpdateActionStatus' + '.member') unless input[:update_action_status].nil?
+        ServiceUpdateStatusList.build(input[:service_update_status], params, context: context + 'ServiceUpdateStatus' + '.member') unless input[:service_update_status].nil?
+        TimeRangeFilter.build(input[:service_update_time_range], params, context: context + 'ServiceUpdateTimeRange' + '.') unless input[:service_update_time_range].nil?
+        UpdateActionStatusList.build(input[:update_action_status], params, context: context + 'UpdateActionStatus' + '.member') unless input[:update_action_status].nil?
         params[context + 'ShowNodeLevelUpdateStatus'] = input[:show_node_level_update_status].to_s unless input[:show_node_level_update_status].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1068,7 +1070,7 @@ module AWS::SDK::ElastiCache
         params[context + 'UserGroupId'] = input[:user_group_id].to_s unless input[:user_group_id].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1084,10 +1086,10 @@ module AWS::SDK::ElastiCache
         params['Version'] = '2015-02-02'
         params[context + 'Engine'] = input[:engine].to_s unless input[:engine].nil?
         params[context + 'UserId'] = input[:user_id].to_s unless input[:user_id].nil?
-        Builders::FilterList.build(input[:filters], params, context: context + 'Filters' + '.member') unless input[:filters].nil?
+        FilterList.build(input[:filters], params, context: context + 'Filters' + '.member') unless input[:filters].nil?
         params[context + 'MaxRecords'] = input[:max_records].to_s unless input[:max_records].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1095,7 +1097,7 @@ module AWS::SDK::ElastiCache
     class FilterList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Filter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Filter.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1104,7 +1106,7 @@ module AWS::SDK::ElastiCache
     class Filter
       def self.build(input, params, context: nil)
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
-        Builders::FilterValueList.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
+        FilterValueList.build(input[:values], params, context: context + 'Values' + '.member') unless input[:values].nil?
       end
     end
 
@@ -1130,7 +1132,7 @@ module AWS::SDK::ElastiCache
         params[context + 'GlobalReplicationGroupId'] = input[:global_replication_group_id].to_s unless input[:global_replication_group_id].nil?
         params[context + 'ReplicationGroupId'] = input[:replication_group_id].to_s unless input[:replication_group_id].nil?
         params[context + 'ReplicationGroupRegion'] = input[:replication_group_region].to_s unless input[:replication_group_region].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1147,7 +1149,7 @@ module AWS::SDK::ElastiCache
         params[context + 'GlobalReplicationGroupId'] = input[:global_replication_group_id].to_s unless input[:global_replication_group_id].nil?
         params[context + 'PrimaryRegion'] = input[:primary_region].to_s unless input[:primary_region].nil?
         params[context + 'PrimaryReplicationGroupId'] = input[:primary_replication_group_id].to_s unless input[:primary_replication_group_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1163,9 +1165,9 @@ module AWS::SDK::ElastiCache
         params['Version'] = '2015-02-02'
         params[context + 'GlobalReplicationGroupId'] = input[:global_replication_group_id].to_s unless input[:global_replication_group_id].nil?
         params[context + 'NodeGroupCount'] = input[:node_group_count].to_s unless input[:node_group_count].nil?
-        Builders::RegionalConfigurationList.build(input[:regional_configurations], params, context: context + 'RegionalConfigurations' + '.RegionalConfiguration') unless input[:regional_configurations].nil?
+        RegionalConfigurationList.build(input[:regional_configurations], params, context: context + 'RegionalConfigurations' + '.RegionalConfiguration') unless input[:regional_configurations].nil?
         params[context + 'ApplyImmediately'] = input[:apply_immediately].to_s unless input[:apply_immediately].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1173,7 +1175,7 @@ module AWS::SDK::ElastiCache
     class RegionalConfigurationList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::RegionalConfiguration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          RegionalConfiguration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1183,7 +1185,7 @@ module AWS::SDK::ElastiCache
       def self.build(input, params, context: nil)
         params[context + 'ReplicationGroupId'] = input[:replication_group_id].to_s unless input[:replication_group_id].nil?
         params[context + 'ReplicationGroupRegion'] = input[:replication_group_region].to_s unless input[:replication_group_region].nil?
-        Builders::ReshardingConfigurationList.build(input[:resharding_configuration], params, context: context + 'ReshardingConfiguration' + '.ReshardingConfiguration') unless input[:resharding_configuration].nil?
+        ReshardingConfigurationList.build(input[:resharding_configuration], params, context: context + 'ReshardingConfiguration' + '.ReshardingConfiguration') unless input[:resharding_configuration].nil?
       end
     end
 
@@ -1191,7 +1193,7 @@ module AWS::SDK::ElastiCache
     class ReshardingConfigurationList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ReshardingConfiguration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ReshardingConfiguration.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1200,7 +1202,7 @@ module AWS::SDK::ElastiCache
     class ReshardingConfiguration
       def self.build(input, params, context: nil)
         params[context + 'NodeGroupId'] = input[:node_group_id].to_s unless input[:node_group_id].nil?
-        Builders::AvailabilityZonesList.build(input[:preferred_availability_zones], params, context: context + 'PreferredAvailabilityZones' + '.AvailabilityZone') unless input[:preferred_availability_zones].nil?
+        AvailabilityZonesList.build(input[:preferred_availability_zones], params, context: context + 'PreferredAvailabilityZones' + '.AvailabilityZone') unless input[:preferred_availability_zones].nil?
       end
     end
 
@@ -1216,9 +1218,9 @@ module AWS::SDK::ElastiCache
         params['Version'] = '2015-02-02'
         params[context + 'ReplicationGroupId'] = input[:replication_group_id].to_s unless input[:replication_group_id].nil?
         params[context + 'NewReplicaCount'] = input[:new_replica_count].to_s unless input[:new_replica_count].nil?
-        Builders::ReplicaConfigurationList.build(input[:replica_configuration], params, context: context + 'ReplicaConfiguration' + '.ConfigureShard') unless input[:replica_configuration].nil?
+        ReplicaConfigurationList.build(input[:replica_configuration], params, context: context + 'ReplicaConfiguration' + '.ConfigureShard') unless input[:replica_configuration].nil?
         params[context + 'ApplyImmediately'] = input[:apply_immediately].to_s unless input[:apply_immediately].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1234,7 +1236,7 @@ module AWS::SDK::ElastiCache
         params['Version'] = '2015-02-02'
         params[context + 'CacheClusterId'] = input[:cache_cluster_id].to_s unless input[:cache_cluster_id].nil?
         params[context + 'ReplicationGroupId'] = input[:replication_group_id].to_s unless input[:replication_group_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1249,7 +1251,7 @@ module AWS::SDK::ElastiCache
         params['Action'] = 'ListTagsForResource'
         params['Version'] = '2015-02-02'
         params[context + 'ResourceName'] = input[:resource_name].to_s unless input[:resource_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1265,11 +1267,11 @@ module AWS::SDK::ElastiCache
         params['Version'] = '2015-02-02'
         params[context + 'CacheClusterId'] = input[:cache_cluster_id].to_s unless input[:cache_cluster_id].nil?
         params[context + 'NumCacheNodes'] = input[:num_cache_nodes].to_s unless input[:num_cache_nodes].nil?
-        Builders::CacheNodeIdsList.build(input[:cache_node_ids_to_remove], params, context: context + 'CacheNodeIdsToRemove' + '.CacheNodeId') unless input[:cache_node_ids_to_remove].nil?
+        CacheNodeIdsList.build(input[:cache_node_ids_to_remove], params, context: context + 'CacheNodeIdsToRemove' + '.CacheNodeId') unless input[:cache_node_ids_to_remove].nil?
         params[context + 'AZMode'] = input[:az_mode].to_s unless input[:az_mode].nil?
-        Builders::PreferredAvailabilityZoneList.build(input[:new_availability_zones], params, context: context + 'NewAvailabilityZones' + '.PreferredAvailabilityZone') unless input[:new_availability_zones].nil?
-        Builders::CacheSecurityGroupNameList.build(input[:cache_security_group_names], params, context: context + 'CacheSecurityGroupNames' + '.CacheSecurityGroupName') unless input[:cache_security_group_names].nil?
-        Builders::SecurityGroupIdsList.build(input[:security_group_ids], params, context: context + 'SecurityGroupIds' + '.SecurityGroupId') unless input[:security_group_ids].nil?
+        PreferredAvailabilityZoneList.build(input[:new_availability_zones], params, context: context + 'NewAvailabilityZones' + '.PreferredAvailabilityZone') unless input[:new_availability_zones].nil?
+        CacheSecurityGroupNameList.build(input[:cache_security_group_names], params, context: context + 'CacheSecurityGroupNames' + '.CacheSecurityGroupName') unless input[:cache_security_group_names].nil?
+        SecurityGroupIdsList.build(input[:security_group_ids], params, context: context + 'SecurityGroupIds' + '.SecurityGroupId') unless input[:security_group_ids].nil?
         params[context + 'PreferredMaintenanceWindow'] = input[:preferred_maintenance_window].to_s unless input[:preferred_maintenance_window].nil?
         params[context + 'NotificationTopicArn'] = input[:notification_topic_arn].to_s unless input[:notification_topic_arn].nil?
         params[context + 'CacheParameterGroupName'] = input[:cache_parameter_group_name].to_s unless input[:cache_parameter_group_name].nil?
@@ -1282,8 +1284,8 @@ module AWS::SDK::ElastiCache
         params[context + 'CacheNodeType'] = input[:cache_node_type].to_s unless input[:cache_node_type].nil?
         params[context + 'AuthToken'] = input[:auth_token].to_s unless input[:auth_token].nil?
         params[context + 'AuthTokenUpdateStrategy'] = input[:auth_token_update_strategy].to_s unless input[:auth_token_update_strategy].nil?
-        Builders::LogDeliveryConfigurationRequestList.build(input[:log_delivery_configurations], params, context: context + 'LogDeliveryConfigurations' + '.LogDeliveryConfigurationRequest') unless input[:log_delivery_configurations].nil?
-        http_req.body = StringIO.new(params.to_s)
+        LogDeliveryConfigurationRequestList.build(input[:log_delivery_configurations], params, context: context + 'LogDeliveryConfigurations' + '.LogDeliveryConfigurationRequest') unless input[:log_delivery_configurations].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1307,8 +1309,8 @@ module AWS::SDK::ElastiCache
         params['Action'] = 'ModifyCacheParameterGroup'
         params['Version'] = '2015-02-02'
         params[context + 'CacheParameterGroupName'] = input[:cache_parameter_group_name].to_s unless input[:cache_parameter_group_name].nil?
-        Builders::ParameterNameValueList.build(input[:parameter_name_values], params, context: context + 'ParameterNameValues' + '.ParameterNameValue') unless input[:parameter_name_values].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ParameterNameValueList.build(input[:parameter_name_values], params, context: context + 'ParameterNameValues' + '.ParameterNameValue') unless input[:parameter_name_values].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1316,7 +1318,7 @@ module AWS::SDK::ElastiCache
     class ParameterNameValueList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ParameterNameValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ParameterNameValue.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1341,8 +1343,8 @@ module AWS::SDK::ElastiCache
         params['Version'] = '2015-02-02'
         params[context + 'CacheSubnetGroupName'] = input[:cache_subnet_group_name].to_s unless input[:cache_subnet_group_name].nil?
         params[context + 'CacheSubnetGroupDescription'] = input[:cache_subnet_group_description].to_s unless input[:cache_subnet_group_description].nil?
-        Builders::SubnetIdentifierList.build(input[:subnet_ids], params, context: context + 'SubnetIds' + '.SubnetIdentifier') unless input[:subnet_ids].nil?
-        http_req.body = StringIO.new(params.to_s)
+        SubnetIdentifierList.build(input[:subnet_ids], params, context: context + 'SubnetIds' + '.SubnetIdentifier') unless input[:subnet_ids].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1363,7 +1365,7 @@ module AWS::SDK::ElastiCache
         params[context + 'CacheParameterGroupName'] = input[:cache_parameter_group_name].to_s unless input[:cache_parameter_group_name].nil?
         params[context + 'GlobalReplicationGroupDescription'] = input[:global_replication_group_description].to_s unless input[:global_replication_group_description].nil?
         params[context + 'AutomaticFailoverEnabled'] = input[:automatic_failover_enabled].to_s unless input[:automatic_failover_enabled].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1384,8 +1386,8 @@ module AWS::SDK::ElastiCache
         params[context + 'AutomaticFailoverEnabled'] = input[:automatic_failover_enabled].to_s unless input[:automatic_failover_enabled].nil?
         params[context + 'MultiAZEnabled'] = input[:multi_az_enabled].to_s unless input[:multi_az_enabled].nil?
         params[context + 'NodeGroupId'] = input[:node_group_id].to_s unless input[:node_group_id].nil?
-        Builders::CacheSecurityGroupNameList.build(input[:cache_security_group_names], params, context: context + 'CacheSecurityGroupNames' + '.CacheSecurityGroupName') unless input[:cache_security_group_names].nil?
-        Builders::SecurityGroupIdsList.build(input[:security_group_ids], params, context: context + 'SecurityGroupIds' + '.SecurityGroupId') unless input[:security_group_ids].nil?
+        CacheSecurityGroupNameList.build(input[:cache_security_group_names], params, context: context + 'CacheSecurityGroupNames' + '.CacheSecurityGroupName') unless input[:cache_security_group_names].nil?
+        SecurityGroupIdsList.build(input[:security_group_ids], params, context: context + 'SecurityGroupIds' + '.SecurityGroupId') unless input[:security_group_ids].nil?
         params[context + 'PreferredMaintenanceWindow'] = input[:preferred_maintenance_window].to_s unless input[:preferred_maintenance_window].nil?
         params[context + 'NotificationTopicArn'] = input[:notification_topic_arn].to_s unless input[:notification_topic_arn].nil?
         params[context + 'CacheParameterGroupName'] = input[:cache_parameter_group_name].to_s unless input[:cache_parameter_group_name].nil?
@@ -1398,11 +1400,11 @@ module AWS::SDK::ElastiCache
         params[context + 'CacheNodeType'] = input[:cache_node_type].to_s unless input[:cache_node_type].nil?
         params[context + 'AuthToken'] = input[:auth_token].to_s unless input[:auth_token].nil?
         params[context + 'AuthTokenUpdateStrategy'] = input[:auth_token_update_strategy].to_s unless input[:auth_token_update_strategy].nil?
-        Builders::UserGroupIdList.build(input[:user_group_ids_to_add], params, context: context + 'UserGroupIdsToAdd' + '.member') unless input[:user_group_ids_to_add].nil?
-        Builders::UserGroupIdList.build(input[:user_group_ids_to_remove], params, context: context + 'UserGroupIdsToRemove' + '.member') unless input[:user_group_ids_to_remove].nil?
+        UserGroupIdList.build(input[:user_group_ids_to_add], params, context: context + 'UserGroupIdsToAdd' + '.member') unless input[:user_group_ids_to_add].nil?
+        UserGroupIdList.build(input[:user_group_ids_to_remove], params, context: context + 'UserGroupIdsToRemove' + '.member') unless input[:user_group_ids_to_remove].nil?
         params[context + 'RemoveUserGroups'] = input[:remove_user_groups].to_s unless input[:remove_user_groups].nil?
-        Builders::LogDeliveryConfigurationRequestList.build(input[:log_delivery_configurations], params, context: context + 'LogDeliveryConfigurations' + '.LogDeliveryConfigurationRequest') unless input[:log_delivery_configurations].nil?
-        http_req.body = StringIO.new(params.to_s)
+        LogDeliveryConfigurationRequestList.build(input[:log_delivery_configurations], params, context: context + 'LogDeliveryConfigurations' + '.LogDeliveryConfigurationRequest') unless input[:log_delivery_configurations].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1428,10 +1430,10 @@ module AWS::SDK::ElastiCache
         params[context + 'ReplicationGroupId'] = input[:replication_group_id].to_s unless input[:replication_group_id].nil?
         params[context + 'NodeGroupCount'] = input[:node_group_count].to_s unless input[:node_group_count].nil?
         params[context + 'ApplyImmediately'] = input[:apply_immediately].to_s unless input[:apply_immediately].nil?
-        Builders::ReshardingConfigurationList.build(input[:resharding_configuration], params, context: context + 'ReshardingConfiguration' + '.ReshardingConfiguration') unless input[:resharding_configuration].nil?
-        Builders::NodeGroupsToRemoveList.build(input[:node_groups_to_remove], params, context: context + 'NodeGroupsToRemove' + '.NodeGroupToRemove') unless input[:node_groups_to_remove].nil?
-        Builders::NodeGroupsToRetainList.build(input[:node_groups_to_retain], params, context: context + 'NodeGroupsToRetain' + '.NodeGroupToRetain') unless input[:node_groups_to_retain].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ReshardingConfigurationList.build(input[:resharding_configuration], params, context: context + 'ReshardingConfiguration' + '.ReshardingConfiguration') unless input[:resharding_configuration].nil?
+        NodeGroupsToRemoveList.build(input[:node_groups_to_remove], params, context: context + 'NodeGroupsToRemove' + '.NodeGroupToRemove') unless input[:node_groups_to_remove].nil?
+        NodeGroupsToRetainList.build(input[:node_groups_to_retain], params, context: context + 'NodeGroupsToRetain' + '.NodeGroupToRetain') unless input[:node_groups_to_retain].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1466,9 +1468,9 @@ module AWS::SDK::ElastiCache
         params[context + 'UserId'] = input[:user_id].to_s unless input[:user_id].nil?
         params[context + 'AccessString'] = input[:access_string].to_s unless input[:access_string].nil?
         params[context + 'AppendAccessString'] = input[:append_access_string].to_s unless input[:append_access_string].nil?
-        Builders::PasswordListInput.build(input[:passwords], params, context: context + 'Passwords' + '.member') unless input[:passwords].nil?
+        PasswordListInput.build(input[:passwords], params, context: context + 'Passwords' + '.member') unless input[:passwords].nil?
         params[context + 'NoPasswordRequired'] = input[:no_password_required].to_s unless input[:no_password_required].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1483,9 +1485,9 @@ module AWS::SDK::ElastiCache
         params['Action'] = 'ModifyUserGroup'
         params['Version'] = '2015-02-02'
         params[context + 'UserGroupId'] = input[:user_group_id].to_s unless input[:user_group_id].nil?
-        Builders::UserIdListInput.build(input[:user_ids_to_add], params, context: context + 'UserIdsToAdd' + '.member') unless input[:user_ids_to_add].nil?
-        Builders::UserIdListInput.build(input[:user_ids_to_remove], params, context: context + 'UserIdsToRemove' + '.member') unless input[:user_ids_to_remove].nil?
-        http_req.body = StringIO.new(params.to_s)
+        UserIdListInput.build(input[:user_ids_to_add], params, context: context + 'UserIdsToAdd' + '.member') unless input[:user_ids_to_add].nil?
+        UserIdListInput.build(input[:user_ids_to_remove], params, context: context + 'UserIdsToRemove' + '.member') unless input[:user_ids_to_remove].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1502,8 +1504,8 @@ module AWS::SDK::ElastiCache
         params[context + 'ReservedCacheNodesOfferingId'] = input[:reserved_cache_nodes_offering_id].to_s unless input[:reserved_cache_nodes_offering_id].nil?
         params[context + 'ReservedCacheNodeId'] = input[:reserved_cache_node_id].to_s unless input[:reserved_cache_node_id].nil?
         params[context + 'CacheNodeCount'] = input[:cache_node_count].to_s unless input[:cache_node_count].nil?
-        Builders::TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagList.build(input[:tags], params, context: context + 'Tags' + '.Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1519,7 +1521,7 @@ module AWS::SDK::ElastiCache
         params['Version'] = '2015-02-02'
         params[context + 'GlobalReplicationGroupId'] = input[:global_replication_group_id].to_s unless input[:global_replication_group_id].nil?
         params[context + 'ApplyImmediately'] = input[:apply_immediately].to_s unless input[:apply_immediately].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1534,8 +1536,8 @@ module AWS::SDK::ElastiCache
         params['Action'] = 'RebootCacheCluster'
         params['Version'] = '2015-02-02'
         params[context + 'CacheClusterId'] = input[:cache_cluster_id].to_s unless input[:cache_cluster_id].nil?
-        Builders::CacheNodeIdsList.build(input[:cache_node_ids_to_reboot], params, context: context + 'CacheNodeIdsToReboot' + '.CacheNodeId') unless input[:cache_node_ids_to_reboot].nil?
-        http_req.body = StringIO.new(params.to_s)
+        CacheNodeIdsList.build(input[:cache_node_ids_to_reboot], params, context: context + 'CacheNodeIdsToReboot' + '.CacheNodeId') unless input[:cache_node_ids_to_reboot].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1550,8 +1552,8 @@ module AWS::SDK::ElastiCache
         params['Action'] = 'RemoveTagsFromResource'
         params['Version'] = '2015-02-02'
         params[context + 'ResourceName'] = input[:resource_name].to_s unless input[:resource_name].nil?
-        Builders::KeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(params.to_s)
+        KeyList.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1576,8 +1578,8 @@ module AWS::SDK::ElastiCache
         params['Version'] = '2015-02-02'
         params[context + 'CacheParameterGroupName'] = input[:cache_parameter_group_name].to_s unless input[:cache_parameter_group_name].nil?
         params[context + 'ResetAllParameters'] = input[:reset_all_parameters].to_s unless input[:reset_all_parameters].nil?
-        Builders::ParameterNameValueList.build(input[:parameter_name_values], params, context: context + 'ParameterNameValues' + '.ParameterNameValue') unless input[:parameter_name_values].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ParameterNameValueList.build(input[:parameter_name_values], params, context: context + 'ParameterNameValues' + '.ParameterNameValue') unless input[:parameter_name_values].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1594,7 +1596,7 @@ module AWS::SDK::ElastiCache
         params[context + 'CacheSecurityGroupName'] = input[:cache_security_group_name].to_s unless input[:cache_security_group_name].nil?
         params[context + 'EC2SecurityGroupName'] = input[:ec2_security_group_name].to_s unless input[:ec2_security_group_name].nil?
         params[context + 'EC2SecurityGroupOwnerId'] = input[:ec2_security_group_owner_id].to_s unless input[:ec2_security_group_owner_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1609,8 +1611,8 @@ module AWS::SDK::ElastiCache
         params['Action'] = 'StartMigration'
         params['Version'] = '2015-02-02'
         params[context + 'ReplicationGroupId'] = input[:replication_group_id].to_s unless input[:replication_group_id].nil?
-        Builders::CustomerNodeEndpointList.build(input[:customer_node_endpoint_list], params, context: context + 'CustomerNodeEndpointList' + '.member') unless input[:customer_node_endpoint_list].nil?
-        http_req.body = StringIO.new(params.to_s)
+        CustomerNodeEndpointList.build(input[:customer_node_endpoint_list], params, context: context + 'CustomerNodeEndpointList' + '.member') unless input[:customer_node_endpoint_list].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1618,7 +1620,7 @@ module AWS::SDK::ElastiCache
     class CustomerNodeEndpointList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::CustomerNodeEndpoint.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          CustomerNodeEndpoint.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -1643,7 +1645,7 @@ module AWS::SDK::ElastiCache
         params['Version'] = '2015-02-02'
         params[context + 'ReplicationGroupId'] = input[:replication_group_id].to_s unless input[:replication_group_id].nil?
         params[context + 'NodeGroupId'] = input[:node_group_id].to_s unless input[:node_group_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
   end

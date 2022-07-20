@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Nimble
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['eulaAcceptances'] = Stubs::EulaAcceptanceList.stub(stub[:eula_acceptances]) unless stub[:eula_acceptances].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['eulaAcceptances'] = EulaAcceptanceList.stub(stub[:eula_acceptances]) unless stub[:eula_acceptances].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -41,7 +43,7 @@ module AWS::SDK::Nimble
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EulaAcceptance.stub(element) unless element.nil?
+          data << EulaAcceptance.stub(element) unless element.nil?
         end
         data
       end
@@ -85,8 +87,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['launchProfile'] = Stubs::LaunchProfile.stub(stub[:launch_profile]) unless stub[:launch_profile].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['launchProfile'] = LaunchProfile.stub(stub[:launch_profile]) unless stub[:launch_profile].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -123,19 +125,19 @@ module AWS::SDK::Nimble
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['createdBy'] = stub[:created_by] unless stub[:created_by].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['ec2SubnetIds'] = Stubs::EC2SubnetIdList.stub(stub[:ec2_subnet_ids]) unless stub[:ec2_subnet_ids].nil?
+        data['ec2SubnetIds'] = EC2SubnetIdList.stub(stub[:ec2_subnet_ids]) unless stub[:ec2_subnet_ids].nil?
         data['launchProfileId'] = stub[:launch_profile_id] unless stub[:launch_profile_id].nil?
-        data['launchProfileProtocolVersions'] = Stubs::LaunchProfileProtocolVersionList.stub(stub[:launch_profile_protocol_versions]) unless stub[:launch_profile_protocol_versions].nil?
+        data['launchProfileProtocolVersions'] = LaunchProfileProtocolVersionList.stub(stub[:launch_profile_protocol_versions]) unless stub[:launch_profile_protocol_versions].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
         data['statusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['streamConfiguration'] = Stubs::StreamConfiguration.stub(stub[:stream_configuration]) unless stub[:stream_configuration].nil?
-        data['studioComponentIds'] = Stubs::LaunchProfileStudioComponentIdList.stub(stub[:studio_component_ids]) unless stub[:studio_component_ids].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['streamConfiguration'] = StreamConfiguration.stub(stub[:stream_configuration]) unless stub[:stream_configuration].nil?
+        data['studioComponentIds'] = LaunchProfileStudioComponentIdList.stub(stub[:studio_component_ids]) unless stub[:studio_component_ids].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
         data['updatedBy'] = stub[:updated_by] unless stub[:updated_by].nil?
-        data['validationResults'] = Stubs::ValidationResults.stub(stub[:validation_results]) unless stub[:validation_results].nil?
+        data['validationResults'] = ValidationResults.stub(stub[:validation_results]) unless stub[:validation_results].nil?
         data
       end
     end
@@ -154,7 +156,7 @@ module AWS::SDK::Nimble
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ValidationResult.stub(element) unless element.nil?
+          data << ValidationResult.stub(element) unless element.nil?
         end
         data
       end
@@ -243,11 +245,11 @@ module AWS::SDK::Nimble
         stub ||= Types::StreamConfiguration.new
         data = {}
         data['clipboardMode'] = stub[:clipboard_mode] unless stub[:clipboard_mode].nil?
-        data['ec2InstanceTypes'] = Stubs::StreamingInstanceTypeList.stub(stub[:ec2_instance_types]) unless stub[:ec2_instance_types].nil?
+        data['ec2InstanceTypes'] = StreamingInstanceTypeList.stub(stub[:ec2_instance_types]) unless stub[:ec2_instance_types].nil?
         data['maxSessionLengthInMinutes'] = stub[:max_session_length_in_minutes] unless stub[:max_session_length_in_minutes].nil?
-        data['streamingImageIds'] = Stubs::StreamingImageIdList.stub(stub[:streaming_image_ids]) unless stub[:streaming_image_ids].nil?
+        data['streamingImageIds'] = StreamingImageIdList.stub(stub[:streaming_image_ids]) unless stub[:streaming_image_ids].nil?
         data['maxStoppedSessionLengthInMinutes'] = stub[:max_stopped_session_length_in_minutes] unless stub[:max_stopped_session_length_in_minutes].nil?
-        data['sessionStorage'] = Stubs::StreamConfigurationSessionStorage.stub(stub[:session_storage]) unless stub[:session_storage].nil?
+        data['sessionStorage'] = StreamConfigurationSessionStorage.stub(stub[:session_storage]) unless stub[:session_storage].nil?
         data
       end
     end
@@ -266,8 +268,8 @@ module AWS::SDK::Nimble
       def self.stub(stub)
         stub ||= Types::StreamConfigurationSessionStorage.new
         data = {}
-        data['root'] = Stubs::StreamingSessionStorageRoot.stub(stub[:root]) unless stub[:root].nil?
-        data['mode'] = Stubs::StreamingSessionStorageModeList.stub(stub[:mode]) unless stub[:mode].nil?
+        data['root'] = StreamingSessionStorageRoot.stub(stub[:root]) unless stub[:root].nil?
+        data['mode'] = StreamingSessionStorageModeList.stub(stub[:mode]) unless stub[:mode].nil?
         data
       end
     end
@@ -404,8 +406,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['streamingImage'] = Stubs::StreamingImage.stub(stub[:streaming_image]) unless stub[:streaming_image].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['streamingImage'] = StreamingImage.stub(stub[:streaming_image]) unless stub[:streaming_image].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -437,8 +439,8 @@ module AWS::SDK::Nimble
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['ec2ImageId'] = stub[:ec2_image_id] unless stub[:ec2_image_id].nil?
-        data['encryptionConfiguration'] = Stubs::StreamingImageEncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
-        data['eulaIds'] = Stubs::EulaIdList.stub(stub[:eula_ids]) unless stub[:eula_ids].nil?
+        data['encryptionConfiguration'] = StreamingImageEncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
+        data['eulaIds'] = EulaIdList.stub(stub[:eula_ids]) unless stub[:eula_ids].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['owner'] = stub[:owner] unless stub[:owner].nil?
         data['platform'] = stub[:platform] unless stub[:platform].nil?
@@ -446,7 +448,7 @@ module AWS::SDK::Nimble
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
         data['statusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['streamingImageId'] = stub[:streaming_image_id] unless stub[:streaming_image_id].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -503,8 +505,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['session'] = Stubs::StreamingSession.stub(stub[:session]) unless stub[:session].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['session'] = StreamingSession.stub(stub[:session]) unless stub[:session].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -551,7 +553,7 @@ module AWS::SDK::Nimble
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
         data['statusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['streamingImageId'] = stub[:streaming_image_id] unless stub[:streaming_image_id].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['terminateAt'] = Hearth::TimeHelper.to_date_time(stub[:terminate_at]) unless stub[:terminate_at].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
         data['updatedBy'] = stub[:updated_by] unless stub[:updated_by].nil?
@@ -576,8 +578,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['stream'] = Stubs::StreamingSessionStream.stub(stub[:stream]) unless stub[:stream].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stream'] = StreamingSessionStream.stub(stub[:stream]) unless stub[:stream].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -625,8 +627,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['studio'] = Stubs::Studio.stub(stub[:studio]) unless stub[:studio].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['studio'] = Studio.stub(stub[:studio]) unless stub[:studio].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -667,11 +669,11 @@ module AWS::SDK::Nimble
         data['state'] = stub[:state] unless stub[:state].nil?
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
         data['statusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['studioEncryptionConfiguration'] = Stubs::StudioEncryptionConfiguration.stub(stub[:studio_encryption_configuration]) unless stub[:studio_encryption_configuration].nil?
+        data['studioEncryptionConfiguration'] = StudioEncryptionConfiguration.stub(stub[:studio_encryption_configuration]) unless stub[:studio_encryption_configuration].nil?
         data['studioId'] = stub[:studio_id] unless stub[:studio_id].nil?
         data['studioName'] = stub[:studio_name] unless stub[:studio_name].nil?
         data['studioUrl'] = stub[:studio_url] unless stub[:studio_url].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
         data['userRoleArn'] = stub[:user_role_arn] unless stub[:user_role_arn].nil?
         data
@@ -710,8 +712,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['studioComponent'] = Stubs::StudioComponent.stub(stub[:studio_component]) unless stub[:studio_component].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['studioComponent'] = StudioComponent.stub(stub[:studio_component]) unless stub[:studio_component].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -748,20 +750,20 @@ module AWS::SDK::Nimble
         stub ||= Types::StudioComponent.new
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['configuration'] = Stubs::StudioComponentConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['configuration'] = StudioComponentConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['createdBy'] = stub[:created_by] unless stub[:created_by].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['ec2SecurityGroupIds'] = Stubs::StudioComponentSecurityGroupIdList.stub(stub[:ec2_security_group_ids]) unless stub[:ec2_security_group_ids].nil?
-        data['initializationScripts'] = Stubs::StudioComponentInitializationScriptList.stub(stub[:initialization_scripts]) unless stub[:initialization_scripts].nil?
+        data['ec2SecurityGroupIds'] = StudioComponentSecurityGroupIdList.stub(stub[:ec2_security_group_ids]) unless stub[:ec2_security_group_ids].nil?
+        data['initializationScripts'] = StudioComponentInitializationScriptList.stub(stub[:initialization_scripts]) unless stub[:initialization_scripts].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['scriptParameters'] = Stubs::StudioComponentScriptParameterKeyValueList.stub(stub[:script_parameters]) unless stub[:script_parameters].nil?
+        data['scriptParameters'] = StudioComponentScriptParameterKeyValueList.stub(stub[:script_parameters]) unless stub[:script_parameters].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
         data['statusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['studioComponentId'] = stub[:studio_component_id] unless stub[:studio_component_id].nil?
         data['subtype'] = stub[:subtype] unless stub[:subtype].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
         data['updatedBy'] = stub[:updated_by] unless stub[:updated_by].nil?
@@ -785,7 +787,7 @@ module AWS::SDK::Nimble
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScriptParameterKeyValue.stub(element) unless element.nil?
+          data << ScriptParameterKeyValue.stub(element) unless element.nil?
         end
         data
       end
@@ -825,7 +827,7 @@ module AWS::SDK::Nimble
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StudioComponentInitializationScript.stub(element) unless element.nil?
+          data << StudioComponentInitializationScript.stub(element) unless element.nil?
         end
         data
       end
@@ -889,13 +891,13 @@ module AWS::SDK::Nimble
         data = {}
         case stub
         when Types::StudioComponentConfiguration::ActiveDirectoryConfiguration
-          data['activeDirectoryConfiguration'] = (Stubs::ActiveDirectoryConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['activeDirectoryConfiguration'] = (ActiveDirectoryConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::StudioComponentConfiguration::ComputeFarmConfiguration
-          data['computeFarmConfiguration'] = (Stubs::ComputeFarmConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['computeFarmConfiguration'] = (ComputeFarmConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::StudioComponentConfiguration::LicenseServiceConfiguration
-          data['licenseServiceConfiguration'] = (Stubs::LicenseServiceConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['licenseServiceConfiguration'] = (LicenseServiceConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::StudioComponentConfiguration::SharedFileSystemConfiguration
-          data['sharedFileSystemConfiguration'] = (Stubs::SharedFileSystemConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['sharedFileSystemConfiguration'] = (SharedFileSystemConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::StudioComponentConfiguration"
@@ -984,7 +986,7 @@ module AWS::SDK::Nimble
       def self.stub(stub)
         stub ||= Types::ActiveDirectoryConfiguration.new
         data = {}
-        data['computerAttributes'] = Stubs::ActiveDirectoryComputerAttributeList.stub(stub[:computer_attributes]) unless stub[:computer_attributes].nil?
+        data['computerAttributes'] = ActiveDirectoryComputerAttributeList.stub(stub[:computer_attributes]) unless stub[:computer_attributes].nil?
         data['directoryId'] = stub[:directory_id] unless stub[:directory_id].nil?
         data['organizationalUnitDistinguishedName'] = stub[:organizational_unit_distinguished_name] unless stub[:organizational_unit_distinguished_name].nil?
         data
@@ -1005,7 +1007,7 @@ module AWS::SDK::Nimble
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActiveDirectoryComputerAttribute.stub(element) unless element.nil?
+          data << ActiveDirectoryComputerAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -1043,8 +1045,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['launchProfile'] = Stubs::LaunchProfile.stub(stub[:launch_profile]) unless stub[:launch_profile].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['launchProfile'] = LaunchProfile.stub(stub[:launch_profile]) unless stub[:launch_profile].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1073,8 +1075,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['streamingImage'] = Stubs::StreamingImage.stub(stub[:streaming_image]) unless stub[:streaming_image].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['streamingImage'] = StreamingImage.stub(stub[:streaming_image]) unless stub[:streaming_image].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1090,8 +1092,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['session'] = Stubs::StreamingSession.stub(stub[:session]) unless stub[:session].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['session'] = StreamingSession.stub(stub[:session]) unless stub[:session].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1107,8 +1109,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['studio'] = Stubs::Studio.stub(stub[:studio]) unless stub[:studio].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['studio'] = Studio.stub(stub[:studio]) unless stub[:studio].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1124,8 +1126,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['studioComponent'] = Stubs::StudioComponent.stub(stub[:studio_component]) unless stub[:studio_component].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['studioComponent'] = StudioComponent.stub(stub[:studio_component]) unless stub[:studio_component].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1154,8 +1156,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['eula'] = Stubs::Eula.stub(stub[:eula]) unless stub[:eula].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['eula'] = Eula.stub(stub[:eula]) unless stub[:eula].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1197,8 +1199,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['launchProfile'] = Stubs::LaunchProfile.stub(stub[:launch_profile]) unless stub[:launch_profile].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['launchProfile'] = LaunchProfile.stub(stub[:launch_profile]) unless stub[:launch_profile].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1216,10 +1218,10 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['launchProfile'] = Stubs::LaunchProfile.stub(stub[:launch_profile]) unless stub[:launch_profile].nil?
-        data['streamingImages'] = Stubs::StreamingImageList.stub(stub[:streaming_images]) unless stub[:streaming_images].nil?
-        data['studioComponentSummaries'] = Stubs::StudioComponentSummaryList.stub(stub[:studio_component_summaries]) unless stub[:studio_component_summaries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['launchProfile'] = LaunchProfile.stub(stub[:launch_profile]) unless stub[:launch_profile].nil?
+        data['streamingImages'] = StreamingImageList.stub(stub[:streaming_images]) unless stub[:streaming_images].nil?
+        data['studioComponentSummaries'] = StudioComponentSummaryList.stub(stub[:studio_component_summaries]) unless stub[:studio_component_summaries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1237,7 +1239,7 @@ module AWS::SDK::Nimble
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StudioComponentSummary.stub(element) unless element.nil?
+          data << StudioComponentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1291,7 +1293,7 @@ module AWS::SDK::Nimble
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StreamingImage.stub(element) unless element.nil?
+          data << StreamingImage.stub(element) unless element.nil?
         end
         data
       end
@@ -1309,8 +1311,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['launchProfileInitialization'] = Stubs::LaunchProfileInitialization.stub(stub[:launch_profile_initialization]) unless stub[:launch_profile_initialization].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['launchProfileInitialization'] = LaunchProfileInitialization.stub(stub[:launch_profile_initialization]) unless stub[:launch_profile_initialization].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1335,15 +1337,15 @@ module AWS::SDK::Nimble
       def self.stub(stub)
         stub ||= Types::LaunchProfileInitialization.new
         data = {}
-        data['activeDirectory'] = Stubs::LaunchProfileInitializationActiveDirectory.stub(stub[:active_directory]) unless stub[:active_directory].nil?
-        data['ec2SecurityGroupIds'] = Stubs::LaunchProfileSecurityGroupIdList.stub(stub[:ec2_security_group_ids]) unless stub[:ec2_security_group_ids].nil?
+        data['activeDirectory'] = LaunchProfileInitializationActiveDirectory.stub(stub[:active_directory]) unless stub[:active_directory].nil?
+        data['ec2SecurityGroupIds'] = LaunchProfileSecurityGroupIdList.stub(stub[:ec2_security_group_ids]) unless stub[:ec2_security_group_ids].nil?
         data['launchProfileId'] = stub[:launch_profile_id] unless stub[:launch_profile_id].nil?
         data['launchProfileProtocolVersion'] = stub[:launch_profile_protocol_version] unless stub[:launch_profile_protocol_version].nil?
         data['launchPurpose'] = stub[:launch_purpose] unless stub[:launch_purpose].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['platform'] = stub[:platform] unless stub[:platform].nil?
-        data['systemInitializationScripts'] = Stubs::LaunchProfileInitializationScriptList.stub(stub[:system_initialization_scripts]) unless stub[:system_initialization_scripts].nil?
-        data['userInitializationScripts'] = Stubs::LaunchProfileInitializationScriptList.stub(stub[:user_initialization_scripts]) unless stub[:user_initialization_scripts].nil?
+        data['systemInitializationScripts'] = LaunchProfileInitializationScriptList.stub(stub[:system_initialization_scripts]) unless stub[:system_initialization_scripts].nil?
+        data['userInitializationScripts'] = LaunchProfileInitializationScriptList.stub(stub[:user_initialization_scripts]) unless stub[:user_initialization_scripts].nil?
         data
       end
     end
@@ -1362,7 +1364,7 @@ module AWS::SDK::Nimble
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LaunchProfileInitializationScript.stub(element) unless element.nil?
+          data << LaunchProfileInitializationScript.stub(element) unless element.nil?
         end
         data
       end
@@ -1433,10 +1435,10 @@ module AWS::SDK::Nimble
       def self.stub(stub)
         stub ||= Types::LaunchProfileInitializationActiveDirectory.new
         data = {}
-        data['computerAttributes'] = Stubs::ActiveDirectoryComputerAttributeList.stub(stub[:computer_attributes]) unless stub[:computer_attributes].nil?
+        data['computerAttributes'] = ActiveDirectoryComputerAttributeList.stub(stub[:computer_attributes]) unless stub[:computer_attributes].nil?
         data['directoryId'] = stub[:directory_id] unless stub[:directory_id].nil?
         data['directoryName'] = stub[:directory_name] unless stub[:directory_name].nil?
-        data['dnsIpAddresses'] = Stubs::ActiveDirectoryDnsIpAddressList.stub(stub[:dns_ip_addresses]) unless stub[:dns_ip_addresses].nil?
+        data['dnsIpAddresses'] = ActiveDirectoryDnsIpAddressList.stub(stub[:dns_ip_addresses]) unless stub[:dns_ip_addresses].nil?
         data['organizationalUnitDistinguishedName'] = stub[:organizational_unit_distinguished_name] unless stub[:organizational_unit_distinguished_name].nil?
         data['studioComponentId'] = stub[:studio_component_id] unless stub[:studio_component_id].nil?
         data['studioComponentName'] = stub[:studio_component_name] unless stub[:studio_component_name].nil?
@@ -1476,8 +1478,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['member'] = Stubs::LaunchProfileMembership.stub(stub[:member]) unless stub[:member].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['member'] = LaunchProfileMembership.stub(stub[:member]) unless stub[:member].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1517,8 +1519,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['streamingImage'] = Stubs::StreamingImage.stub(stub[:streaming_image]) unless stub[:streaming_image].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['streamingImage'] = StreamingImage.stub(stub[:streaming_image]) unless stub[:streaming_image].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1534,8 +1536,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['session'] = Stubs::StreamingSession.stub(stub[:session]) unless stub[:session].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['session'] = StreamingSession.stub(stub[:session]) unless stub[:session].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1551,8 +1553,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['stream'] = Stubs::StreamingSessionStream.stub(stub[:stream]) unless stub[:stream].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stream'] = StreamingSessionStream.stub(stub[:stream]) unless stub[:stream].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1568,8 +1570,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['studio'] = Stubs::Studio.stub(stub[:studio]) unless stub[:studio].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['studio'] = Studio.stub(stub[:studio]) unless stub[:studio].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1585,8 +1587,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['studioComponent'] = Stubs::StudioComponent.stub(stub[:studio_component]) unless stub[:studio_component].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['studioComponent'] = StudioComponent.stub(stub[:studio_component]) unless stub[:studio_component].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1602,8 +1604,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['member'] = Stubs::StudioMembership.stub(stub[:member]) unless stub[:member].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['member'] = StudioMembership.stub(stub[:member]) unless stub[:member].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1644,9 +1646,9 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['eulaAcceptances'] = Stubs::EulaAcceptanceList.stub(stub[:eula_acceptances]) unless stub[:eula_acceptances].nil?
+        data['eulaAcceptances'] = EulaAcceptanceList.stub(stub[:eula_acceptances]) unless stub[:eula_acceptances].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1663,9 +1665,9 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['eulas'] = Stubs::EulaList.stub(stub[:eulas]) unless stub[:eulas].nil?
+        data['eulas'] = EulaList.stub(stub[:eulas]) unless stub[:eulas].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1683,7 +1685,7 @@ module AWS::SDK::Nimble
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Eula.stub(element) unless element.nil?
+          data << Eula.stub(element) unless element.nil?
         end
         data
       end
@@ -1702,9 +1704,9 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['members'] = Stubs::LaunchProfileMembershipList.stub(stub[:members]) unless stub[:members].nil?
+        data['members'] = LaunchProfileMembershipList.stub(stub[:members]) unless stub[:members].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1722,7 +1724,7 @@ module AWS::SDK::Nimble
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LaunchProfileMembership.stub(element) unless element.nil?
+          data << LaunchProfileMembership.stub(element) unless element.nil?
         end
         data
       end
@@ -1741,9 +1743,9 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['launchProfiles'] = Stubs::LaunchProfileList.stub(stub[:launch_profiles]) unless stub[:launch_profiles].nil?
+        data['launchProfiles'] = LaunchProfileList.stub(stub[:launch_profiles]) unless stub[:launch_profiles].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1761,7 +1763,7 @@ module AWS::SDK::Nimble
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LaunchProfile.stub(element) unless element.nil?
+          data << LaunchProfile.stub(element) unless element.nil?
         end
         data
       end
@@ -1781,8 +1783,8 @@ module AWS::SDK::Nimble
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['streamingImages'] = Stubs::StreamingImageList.stub(stub[:streaming_images]) unless stub[:streaming_images].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['streamingImages'] = StreamingImageList.stub(stub[:streaming_images]) unless stub[:streaming_images].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1800,8 +1802,8 @@ module AWS::SDK::Nimble
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['sessions'] = Stubs::StreamingSessionList.stub(stub[:sessions]) unless stub[:sessions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sessions'] = StreamingSessionList.stub(stub[:sessions]) unless stub[:sessions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1819,7 +1821,7 @@ module AWS::SDK::Nimble
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StreamingSession.stub(element) unless element.nil?
+          data << StreamingSession.stub(element) unless element.nil?
         end
         data
       end
@@ -1839,8 +1841,8 @@ module AWS::SDK::Nimble
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['studioComponents'] = Stubs::StudioComponentList.stub(stub[:studio_components]) unless stub[:studio_components].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['studioComponents'] = StudioComponentList.stub(stub[:studio_components]) unless stub[:studio_components].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1858,7 +1860,7 @@ module AWS::SDK::Nimble
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StudioComponent.stub(element) unless element.nil?
+          data << StudioComponent.stub(element) unless element.nil?
         end
         data
       end
@@ -1877,9 +1879,9 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['members'] = Stubs::StudioMembershipList.stub(stub[:members]) unless stub[:members].nil?
+        data['members'] = StudioMembershipList.stub(stub[:members]) unless stub[:members].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1897,7 +1899,7 @@ module AWS::SDK::Nimble
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StudioMembership.stub(element) unless element.nil?
+          data << StudioMembership.stub(element) unless element.nil?
         end
         data
       end
@@ -1917,8 +1919,8 @@ module AWS::SDK::Nimble
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['studios'] = Stubs::StudioList.stub(stub[:studios]) unless stub[:studios].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['studios'] = StudioList.stub(stub[:studios]) unless stub[:studios].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1936,7 +1938,7 @@ module AWS::SDK::Nimble
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Studio.stub(element) unless element.nil?
+          data << Studio.stub(element) unless element.nil?
         end
         data
       end
@@ -1954,8 +1956,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1997,8 +1999,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['session'] = Stubs::StreamingSession.stub(stub[:session]) unless stub[:session].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['session'] = StreamingSession.stub(stub[:session]) unless stub[:session].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2014,8 +2016,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['studio'] = Stubs::Studio.stub(stub[:studio]) unless stub[:studio].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['studio'] = Studio.stub(stub[:studio]) unless stub[:studio].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2031,8 +2033,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['session'] = Stubs::StreamingSession.stub(stub[:session]) unless stub[:session].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['session'] = StreamingSession.stub(stub[:session]) unless stub[:session].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2074,8 +2076,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['launchProfile'] = Stubs::LaunchProfile.stub(stub[:launch_profile]) unless stub[:launch_profile].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['launchProfile'] = LaunchProfile.stub(stub[:launch_profile]) unless stub[:launch_profile].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2091,8 +2093,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['member'] = Stubs::LaunchProfileMembership.stub(stub[:member]) unless stub[:member].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['member'] = LaunchProfileMembership.stub(stub[:member]) unless stub[:member].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2108,8 +2110,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['streamingImage'] = Stubs::StreamingImage.stub(stub[:streaming_image]) unless stub[:streaming_image].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['streamingImage'] = StreamingImage.stub(stub[:streaming_image]) unless stub[:streaming_image].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2125,8 +2127,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['studio'] = Stubs::Studio.stub(stub[:studio]) unless stub[:studio].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['studio'] = Studio.stub(stub[:studio]) unless stub[:studio].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2142,8 +2144,8 @@ module AWS::SDK::Nimble
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['studioComponent'] = Stubs::StudioComponent.stub(stub[:studio_component]) unless stub[:studio_component].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['studioComponent'] = StudioComponent.stub(stub[:studio_component]) unless stub[:studio_component].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

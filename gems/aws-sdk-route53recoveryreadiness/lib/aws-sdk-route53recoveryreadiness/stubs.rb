@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Route53RecoveryReadiness
   module Stubs
 
@@ -28,10 +30,10 @@ module AWS::SDK::Route53RecoveryReadiness
         http_resp.headers['Content-Type'] = 'application/json'
         data['cellArn'] = stub[:cell_arn] unless stub[:cell_arn].nil?
         data['cellName'] = stub[:cell_name] unless stub[:cell_name].nil?
-        data['cells'] = Stubs::List____listOf__string.stub(stub[:cells]) unless stub[:cells].nil?
-        data['parentReadinessScopes'] = Stubs::List____listOf__string.stub(stub[:parent_readiness_scopes]) unless stub[:parent_readiness_scopes].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cells'] = List____listOf__string.stub(stub[:cells]) unless stub[:cells].nil?
+        data['parentReadinessScopes'] = List____listOf__string.stub(stub[:parent_readiness_scopes]) unless stub[:parent_readiness_scopes].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -88,7 +90,7 @@ module AWS::SDK::Route53RecoveryReadiness
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['crossAccountAuthorization'] = stub[:cross_account_authorization] unless stub[:cross_account_authorization].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -110,8 +112,8 @@ module AWS::SDK::Route53RecoveryReadiness
         data['readinessCheckArn'] = stub[:readiness_check_arn] unless stub[:readiness_check_arn].nil?
         data['readinessCheckName'] = stub[:readiness_check_name] unless stub[:readiness_check_name].nil?
         data['resourceSet'] = stub[:resource_set] unless stub[:resource_set].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -130,11 +132,11 @@ module AWS::SDK::Route53RecoveryReadiness
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['cells'] = Stubs::List____listOf__string.stub(stub[:cells]) unless stub[:cells].nil?
+        data['cells'] = List____listOf__string.stub(stub[:cells]) unless stub[:cells].nil?
         data['recoveryGroupArn'] = stub[:recovery_group_arn] unless stub[:recovery_group_arn].nil?
         data['recoveryGroupName'] = stub[:recovery_group_name] unless stub[:recovery_group_name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -157,9 +159,9 @@ module AWS::SDK::Route53RecoveryReadiness
         data['resourceSetArn'] = stub[:resource_set_arn] unless stub[:resource_set_arn].nil?
         data['resourceSetName'] = stub[:resource_set_name] unless stub[:resource_set_name].nil?
         data['resourceSetType'] = stub[:resource_set_type] unless stub[:resource_set_type].nil?
-        data['resources'] = Stubs::List____listOfResource.stub(stub[:resources]) unless stub[:resources].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resources'] = List____listOfResource.stub(stub[:resources]) unless stub[:resources].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -177,7 +179,7 @@ module AWS::SDK::Route53RecoveryReadiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Resource.stub(element) unless element.nil?
+          data << Resource.stub(element) unless element.nil?
         end
         data
       end
@@ -200,8 +202,8 @@ module AWS::SDK::Route53RecoveryReadiness
         stub ||= Types::Resource.new
         data = {}
         data['componentId'] = stub[:component_id] unless stub[:component_id].nil?
-        data['dnsTargetResource'] = Stubs::DNSTargetResource.stub(stub[:dns_target_resource]) unless stub[:dns_target_resource].nil?
-        data['readinessScopes'] = Stubs::List____listOf__string.stub(stub[:readiness_scopes]) unless stub[:readiness_scopes].nil?
+        data['dnsTargetResource'] = DNSTargetResource.stub(stub[:dns_target_resource]) unless stub[:dns_target_resource].nil?
+        data['readinessScopes'] = List____listOf__string.stub(stub[:readiness_scopes]) unless stub[:readiness_scopes].nil?
         data['resourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data
       end
@@ -228,7 +230,7 @@ module AWS::SDK::Route53RecoveryReadiness
         data['hostedZoneArn'] = stub[:hosted_zone_arn] unless stub[:hosted_zone_arn].nil?
         data['recordSetId'] = stub[:record_set_id] unless stub[:record_set_id].nil?
         data['recordType'] = stub[:record_type] unless stub[:record_type].nil?
-        data['targetResource'] = Stubs::TargetResource.stub(stub[:target_resource]) unless stub[:target_resource].nil?
+        data['targetResource'] = TargetResource.stub(stub[:target_resource]) unless stub[:target_resource].nil?
         data
       end
     end
@@ -247,8 +249,8 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.stub(stub)
         stub ||= Types::TargetResource.new
         data = {}
-        data['nLBResource'] = Stubs::NLBResource.stub(stub[:nlb_resource]) unless stub[:nlb_resource].nil?
-        data['r53Resource'] = Stubs::R53ResourceRecord.stub(stub[:r53_resource]) unless stub[:r53_resource].nil?
+        data['nLBResource'] = NLBResource.stub(stub[:nlb_resource]) unless stub[:nlb_resource].nil?
+        data['r53Resource'] = R53ResourceRecord.stub(stub[:r53_resource]) unless stub[:r53_resource].nil?
         data
       end
     end
@@ -372,8 +374,8 @@ module AWS::SDK::Route53RecoveryReadiness
         http_resp.headers['Content-Type'] = 'application/json'
         data['lastAuditTimestamp'] = Hearth::TimeHelper.to_date_time(stub[:last_audit_timestamp]) unless stub[:last_audit_timestamp].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['recommendations'] = Stubs::List____listOfRecommendation.stub(stub[:recommendations]) unless stub[:recommendations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recommendations'] = List____listOfRecommendation.stub(stub[:recommendations]) unless stub[:recommendations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -391,7 +393,7 @@ module AWS::SDK::Route53RecoveryReadiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Recommendation.stub(element) unless element.nil?
+          data << Recommendation.stub(element) unless element.nil?
         end
         data
       end
@@ -433,10 +435,10 @@ module AWS::SDK::Route53RecoveryReadiness
         http_resp.headers['Content-Type'] = 'application/json'
         data['cellArn'] = stub[:cell_arn] unless stub[:cell_arn].nil?
         data['cellName'] = stub[:cell_name] unless stub[:cell_name].nil?
-        data['cells'] = Stubs::List____listOf__string.stub(stub[:cells]) unless stub[:cells].nil?
-        data['parentReadinessScopes'] = Stubs::List____listOf__string.stub(stub[:parent_readiness_scopes]) unless stub[:parent_readiness_scopes].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cells'] = List____listOf__string.stub(stub[:cells]) unless stub[:cells].nil?
+        data['parentReadinessScopes'] = List____listOf__string.stub(stub[:parent_readiness_scopes]) unless stub[:parent_readiness_scopes].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -456,8 +458,8 @@ module AWS::SDK::Route53RecoveryReadiness
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['readiness'] = stub[:readiness] unless stub[:readiness].nil?
-        data['readinessChecks'] = Stubs::List____listOfReadinessCheckSummary.stub(stub[:readiness_checks]) unless stub[:readiness_checks].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['readinessChecks'] = List____listOfReadinessCheckSummary.stub(stub[:readiness_checks]) unless stub[:readiness_checks].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -475,7 +477,7 @@ module AWS::SDK::Route53RecoveryReadiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReadinessCheckSummary.stub(element) unless element.nil?
+          data << ReadinessCheckSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -519,8 +521,8 @@ module AWS::SDK::Route53RecoveryReadiness
         data['readinessCheckArn'] = stub[:readiness_check_arn] unless stub[:readiness_check_arn].nil?
         data['readinessCheckName'] = stub[:readiness_check_name] unless stub[:readiness_check_name].nil?
         data['resourceSet'] = stub[:resource_set] unless stub[:resource_set].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -540,8 +542,8 @@ module AWS::SDK::Route53RecoveryReadiness
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['readiness'] = stub[:readiness] unless stub[:readiness].nil?
-        data['rules'] = Stubs::List____listOfRuleResult.stub(stub[:rules]) unless stub[:rules].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['rules'] = List____listOfRuleResult.stub(stub[:rules]) unless stub[:rules].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -559,7 +561,7 @@ module AWS::SDK::Route53RecoveryReadiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleResult.stub(element) unless element.nil?
+          data << RuleResult.stub(element) unless element.nil?
         end
         data
       end
@@ -582,7 +584,7 @@ module AWS::SDK::Route53RecoveryReadiness
         stub ||= Types::RuleResult.new
         data = {}
         data['lastCheckedTimestamp'] = Hearth::TimeHelper.to_date_time(stub[:last_checked_timestamp]) unless stub[:last_checked_timestamp].nil?
-        data['messages'] = Stubs::List____listOfMessage.stub(stub[:messages]) unless stub[:messages].nil?
+        data['messages'] = List____listOfMessage.stub(stub[:messages]) unless stub[:messages].nil?
         data['readiness'] = stub[:readiness] unless stub[:readiness].nil?
         data['ruleId'] = stub[:rule_id] unless stub[:rule_id].nil?
         data
@@ -603,7 +605,7 @@ module AWS::SDK::Route53RecoveryReadiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Message.stub(element) unless element.nil?
+          data << Message.stub(element) unless element.nil?
         end
         data
       end
@@ -642,11 +644,11 @@ module AWS::SDK::Route53RecoveryReadiness
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['messages'] = Stubs::List____listOfMessage.stub(stub[:messages]) unless stub[:messages].nil?
+        data['messages'] = List____listOfMessage.stub(stub[:messages]) unless stub[:messages].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['readiness'] = stub[:readiness] unless stub[:readiness].nil?
-        data['resources'] = Stubs::List____listOfResourceResult.stub(stub[:resources]) unless stub[:resources].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resources'] = List____listOfResourceResult.stub(stub[:resources]) unless stub[:resources].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -664,7 +666,7 @@ module AWS::SDK::Route53RecoveryReadiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceResult.stub(element) unless element.nil?
+          data << ResourceResult.stub(element) unless element.nil?
         end
         data
       end
@@ -709,11 +711,11 @@ module AWS::SDK::Route53RecoveryReadiness
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['cells'] = Stubs::List____listOf__string.stub(stub[:cells]) unless stub[:cells].nil?
+        data['cells'] = List____listOf__string.stub(stub[:cells]) unless stub[:cells].nil?
         data['recoveryGroupArn'] = stub[:recovery_group_arn] unless stub[:recovery_group_arn].nil?
         data['recoveryGroupName'] = stub[:recovery_group_name] unless stub[:recovery_group_name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -733,8 +735,8 @@ module AWS::SDK::Route53RecoveryReadiness
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['readiness'] = stub[:readiness] unless stub[:readiness].nil?
-        data['readinessChecks'] = Stubs::List____listOfReadinessCheckSummary.stub(stub[:readiness_checks]) unless stub[:readiness_checks].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['readinessChecks'] = List____listOfReadinessCheckSummary.stub(stub[:readiness_checks]) unless stub[:readiness_checks].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -757,9 +759,9 @@ module AWS::SDK::Route53RecoveryReadiness
         data['resourceSetArn'] = stub[:resource_set_arn] unless stub[:resource_set_arn].nil?
         data['resourceSetName'] = stub[:resource_set_name] unless stub[:resource_set_name].nil?
         data['resourceSetType'] = stub[:resource_set_type] unless stub[:resource_set_type].nil?
-        data['resources'] = Stubs::List____listOfResource.stub(stub[:resources]) unless stub[:resources].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resources'] = List____listOfResource.stub(stub[:resources]) unless stub[:resources].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -776,9 +778,9 @@ module AWS::SDK::Route53RecoveryReadiness
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['cells'] = Stubs::List____listOfCellOutput.stub(stub[:cells]) unless stub[:cells].nil?
+        data['cells'] = List____listOfCellOutput.stub(stub[:cells]) unless stub[:cells].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -796,7 +798,7 @@ module AWS::SDK::Route53RecoveryReadiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CellOutput.stub(element) unless element.nil?
+          data << CellOutput.stub(element) unless element.nil?
         end
         data
       end
@@ -821,9 +823,9 @@ module AWS::SDK::Route53RecoveryReadiness
         data = {}
         data['cellArn'] = stub[:cell_arn] unless stub[:cell_arn].nil?
         data['cellName'] = stub[:cell_name] unless stub[:cell_name].nil?
-        data['cells'] = Stubs::List____listOf__string.stub(stub[:cells]) unless stub[:cells].nil?
-        data['parentReadinessScopes'] = Stubs::List____listOf__string.stub(stub[:parent_readiness_scopes]) unless stub[:parent_readiness_scopes].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['cells'] = List____listOf__string.stub(stub[:cells]) unless stub[:cells].nil?
+        data['parentReadinessScopes'] = List____listOf__string.stub(stub[:parent_readiness_scopes]) unless stub[:parent_readiness_scopes].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -841,9 +843,9 @@ module AWS::SDK::Route53RecoveryReadiness
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['crossAccountAuthorizations'] = Stubs::List____listOfCrossAccountAuthorization.stub(stub[:cross_account_authorizations]) unless stub[:cross_account_authorizations].nil?
+        data['crossAccountAuthorizations'] = List____listOfCrossAccountAuthorization.stub(stub[:cross_account_authorizations]) unless stub[:cross_account_authorizations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -881,8 +883,8 @@ module AWS::SDK::Route53RecoveryReadiness
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['readinessChecks'] = Stubs::List____listOfReadinessCheckOutput.stub(stub[:readiness_checks]) unless stub[:readiness_checks].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['readinessChecks'] = List____listOfReadinessCheckOutput.stub(stub[:readiness_checks]) unless stub[:readiness_checks].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -900,7 +902,7 @@ module AWS::SDK::Route53RecoveryReadiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReadinessCheckOutput.stub(element) unless element.nil?
+          data << ReadinessCheckOutput.stub(element) unless element.nil?
         end
         data
       end
@@ -925,7 +927,7 @@ module AWS::SDK::Route53RecoveryReadiness
         data['readinessCheckArn'] = stub[:readiness_check_arn] unless stub[:readiness_check_arn].nil?
         data['readinessCheckName'] = stub[:readiness_check_name] unless stub[:readiness_check_name].nil?
         data['resourceSet'] = stub[:resource_set] unless stub[:resource_set].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -944,8 +946,8 @@ module AWS::SDK::Route53RecoveryReadiness
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['recoveryGroups'] = Stubs::List____listOfRecoveryGroupOutput.stub(stub[:recovery_groups]) unless stub[:recovery_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recoveryGroups'] = List____listOfRecoveryGroupOutput.stub(stub[:recovery_groups]) unless stub[:recovery_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -963,7 +965,7 @@ module AWS::SDK::Route53RecoveryReadiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecoveryGroupOutput.stub(element) unless element.nil?
+          data << RecoveryGroupOutput.stub(element) unless element.nil?
         end
         data
       end
@@ -985,10 +987,10 @@ module AWS::SDK::Route53RecoveryReadiness
       def self.stub(stub)
         stub ||= Types::RecoveryGroupOutput.new
         data = {}
-        data['cells'] = Stubs::List____listOf__string.stub(stub[:cells]) unless stub[:cells].nil?
+        data['cells'] = List____listOf__string.stub(stub[:cells]) unless stub[:cells].nil?
         data['recoveryGroupArn'] = stub[:recovery_group_arn] unless stub[:recovery_group_arn].nil?
         data['recoveryGroupName'] = stub[:recovery_group_name] unless stub[:recovery_group_name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1007,8 +1009,8 @@ module AWS::SDK::Route53RecoveryReadiness
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['resourceSets'] = Stubs::List____listOfResourceSetOutput.stub(stub[:resource_sets]) unless stub[:resource_sets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resourceSets'] = List____listOfResourceSetOutput.stub(stub[:resource_sets]) unless stub[:resource_sets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1026,7 +1028,7 @@ module AWS::SDK::Route53RecoveryReadiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceSetOutput.stub(element) unless element.nil?
+          data << ResourceSetOutput.stub(element) unless element.nil?
         end
         data
       end
@@ -1052,8 +1054,8 @@ module AWS::SDK::Route53RecoveryReadiness
         data['resourceSetArn'] = stub[:resource_set_arn] unless stub[:resource_set_arn].nil?
         data['resourceSetName'] = stub[:resource_set_name] unless stub[:resource_set_name].nil?
         data['resourceSetType'] = stub[:resource_set_type] unless stub[:resource_set_type].nil?
-        data['resources'] = Stubs::List____listOfResource.stub(stub[:resources]) unless stub[:resources].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['resources'] = List____listOfResource.stub(stub[:resources]) unless stub[:resources].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1072,8 +1074,8 @@ module AWS::SDK::Route53RecoveryReadiness
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['rules'] = Stubs::List____listOfListRulesOutput.stub(stub[:rules]) unless stub[:rules].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['rules'] = List____listOfListRulesOutput.stub(stub[:rules]) unless stub[:rules].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1091,7 +1093,7 @@ module AWS::SDK::Route53RecoveryReadiness
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListRulesOutput.stub(element) unless element.nil?
+          data << ListRulesOutput.stub(element) unless element.nil?
         end
         data
       end
@@ -1131,8 +1133,8 @@ module AWS::SDK::Route53RecoveryReadiness
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1180,10 +1182,10 @@ module AWS::SDK::Route53RecoveryReadiness
         http_resp.headers['Content-Type'] = 'application/json'
         data['cellArn'] = stub[:cell_arn] unless stub[:cell_arn].nil?
         data['cellName'] = stub[:cell_name] unless stub[:cell_name].nil?
-        data['cells'] = Stubs::List____listOf__string.stub(stub[:cells]) unless stub[:cells].nil?
-        data['parentReadinessScopes'] = Stubs::List____listOf__string.stub(stub[:parent_readiness_scopes]) unless stub[:parent_readiness_scopes].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cells'] = List____listOf__string.stub(stub[:cells]) unless stub[:cells].nil?
+        data['parentReadinessScopes'] = List____listOf__string.stub(stub[:parent_readiness_scopes]) unless stub[:parent_readiness_scopes].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1205,8 +1207,8 @@ module AWS::SDK::Route53RecoveryReadiness
         data['readinessCheckArn'] = stub[:readiness_check_arn] unless stub[:readiness_check_arn].nil?
         data['readinessCheckName'] = stub[:readiness_check_name] unless stub[:readiness_check_name].nil?
         data['resourceSet'] = stub[:resource_set] unless stub[:resource_set].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1225,11 +1227,11 @@ module AWS::SDK::Route53RecoveryReadiness
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['cells'] = Stubs::List____listOf__string.stub(stub[:cells]) unless stub[:cells].nil?
+        data['cells'] = List____listOf__string.stub(stub[:cells]) unless stub[:cells].nil?
         data['recoveryGroupArn'] = stub[:recovery_group_arn] unless stub[:recovery_group_arn].nil?
         data['recoveryGroupName'] = stub[:recovery_group_name] unless stub[:recovery_group_name].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1252,9 +1254,9 @@ module AWS::SDK::Route53RecoveryReadiness
         data['resourceSetArn'] = stub[:resource_set_arn] unless stub[:resource_set_arn].nil?
         data['resourceSetName'] = stub[:resource_set_name] unless stub[:resource_set_name].nil?
         data['resourceSetType'] = stub[:resource_set_type] unless stub[:resource_set_type].nil?
-        data['resources'] = Stubs::List____listOfResource.stub(stub[:resources]) unless stub[:resources].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resources'] = List____listOfResource.stub(stub[:resources]) unless stub[:resources].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

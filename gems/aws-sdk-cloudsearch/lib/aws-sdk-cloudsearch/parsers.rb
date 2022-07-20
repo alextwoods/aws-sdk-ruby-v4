@@ -19,7 +19,7 @@ module AWS::SDK::CloudSearch
         xml = Hearth::XML.parse(body).at('BuildSuggestersResult')
         xml.at('FieldNames') do |node|
           children = node.children('member')
-          data.field_names = Parsers::FieldNameList.parse(children)
+          data.field_names = FieldNameList.parse(children)
         end
         data
       end
@@ -111,7 +111,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateDomainResult')
         xml.at('DomainStatus') do |node|
-          data.domain_status = Parsers::DomainStatus.parse(node)
+          data.domain_status = DomainStatus.parse(node)
         end
         data
       end
@@ -136,10 +136,10 @@ module AWS::SDK::CloudSearch
           data.deleted = (node.text == 'true')
         end
         xml.at('DocService') do |node|
-          data.doc_service = Parsers::ServiceEndpoint.parse(node)
+          data.doc_service = ServiceEndpoint.parse(node)
         end
         xml.at('SearchService') do |node|
-          data.search_service = Parsers::ServiceEndpoint.parse(node)
+          data.search_service = ServiceEndpoint.parse(node)
         end
         xml.at('RequiresIndexDocuments') do |node|
           data.requires_index_documents = (node.text == 'true')
@@ -157,7 +157,7 @@ module AWS::SDK::CloudSearch
           data.search_instance_count = node.text&.to_i
         end
         xml.at('Limits') do |node|
-          data.limits = Parsers::Limits.parse(node)
+          data.limits = Limits.parse(node)
         end
         return data
       end
@@ -228,7 +228,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DefineAnalysisSchemeResult')
         xml.at('AnalysisScheme') do |node|
-          data.analysis_scheme = Parsers::AnalysisSchemeStatus.parse(node)
+          data.analysis_scheme = AnalysisSchemeStatus.parse(node)
         end
         data
       end
@@ -238,10 +238,10 @@ module AWS::SDK::CloudSearch
       def self.parse(xml)
         data = Types::AnalysisSchemeStatus.new
         xml.at('Options') do |node|
-          data.options = Parsers::AnalysisScheme.parse(node)
+          data.options = AnalysisScheme.parse(node)
         end
         xml.at('Status') do |node|
-          data.status = Parsers::OptionStatus.parse(node)
+          data.status = OptionStatus.parse(node)
         end
         return data
       end
@@ -279,7 +279,7 @@ module AWS::SDK::CloudSearch
           data.analysis_scheme_language = (node.text || '')
         end
         xml.at('AnalysisOptions') do |node|
-          data.analysis_options = Parsers::AnalysisOptions.parse(node)
+          data.analysis_options = AnalysisOptions.parse(node)
         end
         return data
       end
@@ -332,7 +332,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DefineExpressionResult')
         xml.at('Expression') do |node|
-          data.expression = Parsers::ExpressionStatus.parse(node)
+          data.expression = ExpressionStatus.parse(node)
         end
         data
       end
@@ -342,10 +342,10 @@ module AWS::SDK::CloudSearch
       def self.parse(xml)
         data = Types::ExpressionStatus.new
         xml.at('Options') do |node|
-          data.options = Parsers::Expression.parse(node)
+          data.options = Expression.parse(node)
         end
         xml.at('Status') do |node|
-          data.status = Parsers::OptionStatus.parse(node)
+          data.status = OptionStatus.parse(node)
         end
         return data
       end
@@ -372,7 +372,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DefineIndexFieldResult')
         xml.at('IndexField') do |node|
-          data.index_field = Parsers::IndexFieldStatus.parse(node)
+          data.index_field = IndexFieldStatus.parse(node)
         end
         data
       end
@@ -382,10 +382,10 @@ module AWS::SDK::CloudSearch
       def self.parse(xml)
         data = Types::IndexFieldStatus.new
         xml.at('Options') do |node|
-          data.options = Parsers::IndexField.parse(node)
+          data.options = IndexField.parse(node)
         end
         xml.at('Status') do |node|
-          data.status = Parsers::OptionStatus.parse(node)
+          data.status = OptionStatus.parse(node)
         end
         return data
       end
@@ -401,37 +401,37 @@ module AWS::SDK::CloudSearch
           data.index_field_type = (node.text || '')
         end
         xml.at('IntOptions') do |node|
-          data.int_options = Parsers::IntOptions.parse(node)
+          data.int_options = IntOptions.parse(node)
         end
         xml.at('DoubleOptions') do |node|
-          data.double_options = Parsers::DoubleOptions.parse(node)
+          data.double_options = DoubleOptions.parse(node)
         end
         xml.at('LiteralOptions') do |node|
-          data.literal_options = Parsers::LiteralOptions.parse(node)
+          data.literal_options = LiteralOptions.parse(node)
         end
         xml.at('TextOptions') do |node|
-          data.text_options = Parsers::TextOptions.parse(node)
+          data.text_options = TextOptions.parse(node)
         end
         xml.at('DateOptions') do |node|
-          data.date_options = Parsers::DateOptions.parse(node)
+          data.date_options = DateOptions.parse(node)
         end
         xml.at('LatLonOptions') do |node|
-          data.lat_lon_options = Parsers::LatLonOptions.parse(node)
+          data.lat_lon_options = LatLonOptions.parse(node)
         end
         xml.at('IntArrayOptions') do |node|
-          data.int_array_options = Parsers::IntArrayOptions.parse(node)
+          data.int_array_options = IntArrayOptions.parse(node)
         end
         xml.at('DoubleArrayOptions') do |node|
-          data.double_array_options = Parsers::DoubleArrayOptions.parse(node)
+          data.double_array_options = DoubleArrayOptions.parse(node)
         end
         xml.at('LiteralArrayOptions') do |node|
-          data.literal_array_options = Parsers::LiteralArrayOptions.parse(node)
+          data.literal_array_options = LiteralArrayOptions.parse(node)
         end
         xml.at('TextArrayOptions') do |node|
-          data.text_array_options = Parsers::TextArrayOptions.parse(node)
+          data.text_array_options = TextArrayOptions.parse(node)
         end
         xml.at('DateArrayOptions') do |node|
-          data.date_array_options = Parsers::DateArrayOptions.parse(node)
+          data.date_array_options = DateArrayOptions.parse(node)
         end
         return data
       end
@@ -705,7 +705,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DefineSuggesterResult')
         xml.at('Suggester') do |node|
-          data.suggester = Parsers::SuggesterStatus.parse(node)
+          data.suggester = SuggesterStatus.parse(node)
         end
         data
       end
@@ -715,10 +715,10 @@ module AWS::SDK::CloudSearch
       def self.parse(xml)
         data = Types::SuggesterStatus.new
         xml.at('Options') do |node|
-          data.options = Parsers::Suggester.parse(node)
+          data.options = Suggester.parse(node)
         end
         xml.at('Status') do |node|
-          data.status = Parsers::OptionStatus.parse(node)
+          data.status = OptionStatus.parse(node)
         end
         return data
       end
@@ -731,7 +731,7 @@ module AWS::SDK::CloudSearch
           data.suggester_name = (node.text || '')
         end
         xml.at('DocumentSuggesterOptions') do |node|
-          data.document_suggester_options = Parsers::DocumentSuggesterOptions.parse(node)
+          data.document_suggester_options = DocumentSuggesterOptions.parse(node)
         end
         return data
       end
@@ -761,7 +761,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteAnalysisSchemeResult')
         xml.at('AnalysisScheme') do |node|
-          data.analysis_scheme = Parsers::AnalysisSchemeStatus.parse(node)
+          data.analysis_scheme = AnalysisSchemeStatus.parse(node)
         end
         data
       end
@@ -775,7 +775,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteDomainResult')
         xml.at('DomainStatus') do |node|
-          data.domain_status = Parsers::DomainStatus.parse(node)
+          data.domain_status = DomainStatus.parse(node)
         end
         data
       end
@@ -789,7 +789,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteExpressionResult')
         xml.at('Expression') do |node|
-          data.expression = Parsers::ExpressionStatus.parse(node)
+          data.expression = ExpressionStatus.parse(node)
         end
         data
       end
@@ -803,7 +803,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteIndexFieldResult')
         xml.at('IndexField') do |node|
-          data.index_field = Parsers::IndexFieldStatus.parse(node)
+          data.index_field = IndexFieldStatus.parse(node)
         end
         data
       end
@@ -817,7 +817,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeleteSuggesterResult')
         xml.at('Suggester') do |node|
-          data.suggester = Parsers::SuggesterStatus.parse(node)
+          data.suggester = SuggesterStatus.parse(node)
         end
         data
       end
@@ -832,7 +832,7 @@ module AWS::SDK::CloudSearch
         xml = Hearth::XML.parse(body).at('DescribeAnalysisSchemesResult')
         xml.at('AnalysisSchemes') do |node|
           children = node.children('member')
-          data.analysis_schemes = Parsers::AnalysisSchemeStatusList.parse(children)
+          data.analysis_schemes = AnalysisSchemeStatusList.parse(children)
         end
         data
       end
@@ -842,7 +842,7 @@ module AWS::SDK::CloudSearch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AnalysisSchemeStatus.parse(node)
+          data << AnalysisSchemeStatus.parse(node)
         end
         data
       end
@@ -856,7 +856,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeAvailabilityOptionsResult')
         xml.at('AvailabilityOptions') do |node|
-          data.availability_options = Parsers::AvailabilityOptionsStatus.parse(node)
+          data.availability_options = AvailabilityOptionsStatus.parse(node)
         end
         data
       end
@@ -869,7 +869,7 @@ module AWS::SDK::CloudSearch
           data.options = (node.text == 'true')
         end
         xml.at('Status') do |node|
-          data.status = Parsers::OptionStatus.parse(node)
+          data.status = OptionStatus.parse(node)
         end
         return data
       end
@@ -900,7 +900,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeDomainEndpointOptionsResult')
         xml.at('DomainEndpointOptions') do |node|
-          data.domain_endpoint_options = Parsers::DomainEndpointOptionsStatus.parse(node)
+          data.domain_endpoint_options = DomainEndpointOptionsStatus.parse(node)
         end
         data
       end
@@ -910,10 +910,10 @@ module AWS::SDK::CloudSearch
       def self.parse(xml)
         data = Types::DomainEndpointOptionsStatus.new
         xml.at('Options') do |node|
-          data.options = Parsers::DomainEndpointOptions.parse(node)
+          data.options = DomainEndpointOptions.parse(node)
         end
         xml.at('Status') do |node|
-          data.status = Parsers::OptionStatus.parse(node)
+          data.status = OptionStatus.parse(node)
         end
         return data
       end
@@ -941,7 +941,7 @@ module AWS::SDK::CloudSearch
         xml = Hearth::XML.parse(body).at('DescribeDomainsResult')
         xml.at('DomainStatusList') do |node|
           children = node.children('member')
-          data.domain_status_list = Parsers::DomainStatusList.parse(children)
+          data.domain_status_list = DomainStatusList.parse(children)
         end
         data
       end
@@ -951,7 +951,7 @@ module AWS::SDK::CloudSearch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DomainStatus.parse(node)
+          data << DomainStatus.parse(node)
         end
         data
       end
@@ -966,7 +966,7 @@ module AWS::SDK::CloudSearch
         xml = Hearth::XML.parse(body).at('DescribeExpressionsResult')
         xml.at('Expressions') do |node|
           children = node.children('member')
-          data.expressions = Parsers::ExpressionStatusList.parse(children)
+          data.expressions = ExpressionStatusList.parse(children)
         end
         data
       end
@@ -976,7 +976,7 @@ module AWS::SDK::CloudSearch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ExpressionStatus.parse(node)
+          data << ExpressionStatus.parse(node)
         end
         data
       end
@@ -991,7 +991,7 @@ module AWS::SDK::CloudSearch
         xml = Hearth::XML.parse(body).at('DescribeIndexFieldsResult')
         xml.at('IndexFields') do |node|
           children = node.children('member')
-          data.index_fields = Parsers::IndexFieldStatusList.parse(children)
+          data.index_fields = IndexFieldStatusList.parse(children)
         end
         data
       end
@@ -1001,7 +1001,7 @@ module AWS::SDK::CloudSearch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::IndexFieldStatus.parse(node)
+          data << IndexFieldStatus.parse(node)
         end
         data
       end
@@ -1015,7 +1015,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeScalingParametersResult')
         xml.at('ScalingParameters') do |node|
-          data.scaling_parameters = Parsers::ScalingParametersStatus.parse(node)
+          data.scaling_parameters = ScalingParametersStatus.parse(node)
         end
         data
       end
@@ -1025,10 +1025,10 @@ module AWS::SDK::CloudSearch
       def self.parse(xml)
         data = Types::ScalingParametersStatus.new
         xml.at('Options') do |node|
-          data.options = Parsers::ScalingParameters.parse(node)
+          data.options = ScalingParameters.parse(node)
         end
         xml.at('Status') do |node|
-          data.status = Parsers::OptionStatus.parse(node)
+          data.status = OptionStatus.parse(node)
         end
         return data
       end
@@ -1058,7 +1058,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeServiceAccessPoliciesResult')
         xml.at('AccessPolicies') do |node|
-          data.access_policies = Parsers::AccessPoliciesStatus.parse(node)
+          data.access_policies = AccessPoliciesStatus.parse(node)
         end
         data
       end
@@ -1071,7 +1071,7 @@ module AWS::SDK::CloudSearch
           data.options = (node.text || '')
         end
         xml.at('Status') do |node|
-          data.status = Parsers::OptionStatus.parse(node)
+          data.status = OptionStatus.parse(node)
         end
         return data
       end
@@ -1086,7 +1086,7 @@ module AWS::SDK::CloudSearch
         xml = Hearth::XML.parse(body).at('DescribeSuggestersResult')
         xml.at('Suggesters') do |node|
           children = node.children('member')
-          data.suggesters = Parsers::SuggesterStatusList.parse(children)
+          data.suggesters = SuggesterStatusList.parse(children)
         end
         data
       end
@@ -1096,7 +1096,7 @@ module AWS::SDK::CloudSearch
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SuggesterStatus.parse(node)
+          data << SuggesterStatus.parse(node)
         end
         data
       end
@@ -1111,7 +1111,7 @@ module AWS::SDK::CloudSearch
         xml = Hearth::XML.parse(body).at('IndexDocumentsResult')
         xml.at('FieldNames') do |node|
           children = node.children('member')
-          data.field_names = Parsers::FieldNameList.parse(children)
+          data.field_names = FieldNameList.parse(children)
         end
         data
       end
@@ -1126,7 +1126,7 @@ module AWS::SDK::CloudSearch
         xml = Hearth::XML.parse(body).at('ListDomainNamesResult')
         xml.at('DomainNames') do |node|
           children = node.children('entry')
-          data.domain_names = Parsers::DomainNameMap.parse(children)
+          data.domain_names = DomainNameMap.parse(children)
         end
         data
       end
@@ -1152,7 +1152,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('UpdateAvailabilityOptionsResult')
         xml.at('AvailabilityOptions') do |node|
-          data.availability_options = Parsers::AvailabilityOptionsStatus.parse(node)
+          data.availability_options = AvailabilityOptionsStatus.parse(node)
         end
         data
       end
@@ -1166,7 +1166,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('UpdateDomainEndpointOptionsResult')
         xml.at('DomainEndpointOptions') do |node|
-          data.domain_endpoint_options = Parsers::DomainEndpointOptionsStatus.parse(node)
+          data.domain_endpoint_options = DomainEndpointOptionsStatus.parse(node)
         end
         data
       end
@@ -1180,7 +1180,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('UpdateScalingParametersResult')
         xml.at('ScalingParameters') do |node|
-          data.scaling_parameters = Parsers::ScalingParametersStatus.parse(node)
+          data.scaling_parameters = ScalingParametersStatus.parse(node)
         end
         data
       end
@@ -1194,7 +1194,7 @@ module AWS::SDK::CloudSearch
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('UpdateServiceAccessPoliciesResult')
         xml.at('AccessPolicies') do |node|
-          data.access_policies = Parsers::AccessPoliciesStatus.parse(node)
+          data.access_policies = AccessPoliciesStatus.parse(node)
         end
         data
       end

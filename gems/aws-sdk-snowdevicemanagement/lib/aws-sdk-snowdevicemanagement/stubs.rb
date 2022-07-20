@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SnowDeviceManagement
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::SnowDeviceManagement
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['taskId'] = stub[:task_id] unless stub[:task_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -42,7 +44,7 @@ module AWS::SDK::SnowDeviceManagement
         http_resp.headers['Content-Type'] = 'application/json'
         data['taskId'] = stub[:task_id] unless stub[:task_id].nil?
         data['taskArn'] = stub[:task_arn] unless stub[:task_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -70,16 +72,16 @@ module AWS::SDK::SnowDeviceManagement
         http_resp.headers['Content-Type'] = 'application/json'
         data['lastReachedOutAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_reached_out_at]).to_i unless stub[:last_reached_out_at].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['managedDeviceId'] = stub[:managed_device_id] unless stub[:managed_device_id].nil?
         data['managedDeviceArn'] = stub[:managed_device_arn] unless stub[:managed_device_arn].nil?
         data['deviceType'] = stub[:device_type] unless stub[:device_type].nil?
         data['associatedWithJob'] = stub[:associated_with_job] unless stub[:associated_with_job].nil?
         data['deviceState'] = stub[:device_state] unless stub[:device_state].nil?
-        data['physicalNetworkInterfaces'] = Stubs::PhysicalNetworkInterfaceList.stub(stub[:physical_network_interfaces]) unless stub[:physical_network_interfaces].nil?
-        data['deviceCapacities'] = Stubs::CapacityList.stub(stub[:device_capacities]) unless stub[:device_capacities].nil?
-        data['software'] = Stubs::SoftwareInformation.stub(stub[:software]) unless stub[:software].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['physicalNetworkInterfaces'] = PhysicalNetworkInterfaceList.stub(stub[:physical_network_interfaces]) unless stub[:physical_network_interfaces].nil?
+        data['deviceCapacities'] = CapacityList.stub(stub[:device_capacities]) unless stub[:device_capacities].nil?
+        data['software'] = SoftwareInformation.stub(stub[:software]) unless stub[:software].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -119,7 +121,7 @@ module AWS::SDK::SnowDeviceManagement
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Capacity.stub(element) unless element.nil?
+          data << Capacity.stub(element) unless element.nil?
         end
         data
       end
@@ -165,7 +167,7 @@ module AWS::SDK::SnowDeviceManagement
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PhysicalNetworkInterface.stub(element) unless element.nil?
+          data << PhysicalNetworkInterface.stub(element) unless element.nil?
         end
         data
       end
@@ -233,8 +235,8 @@ module AWS::SDK::SnowDeviceManagement
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['instances'] = Stubs::InstanceSummaryList.stub(stub[:instances]) unless stub[:instances].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['instances'] = InstanceSummaryList.stub(stub[:instances]) unless stub[:instances].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -252,7 +254,7 @@ module AWS::SDK::SnowDeviceManagement
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceSummary.stub(element) unless element.nil?
+          data << InstanceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -272,7 +274,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.stub(stub)
         stub ||= Types::InstanceSummary.new
         data = {}
-        data['instance'] = Stubs::Instance.stub(stub[:instance]) unless stub[:instance].nil?
+        data['instance'] = Instance.stub(stub[:instance]) unless stub[:instance].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data
       end
@@ -306,15 +308,15 @@ module AWS::SDK::SnowDeviceManagement
         data['imageId'] = stub[:image_id] unless stub[:image_id].nil?
         data['amiLaunchIndex'] = stub[:ami_launch_index] unless stub[:ami_launch_index].nil?
         data['instanceId'] = stub[:instance_id] unless stub[:instance_id].nil?
-        data['state'] = Stubs::InstanceState.stub(stub[:state]) unless stub[:state].nil?
+        data['state'] = InstanceState.stub(stub[:state]) unless stub[:state].nil?
         data['instanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
         data['privateIpAddress'] = stub[:private_ip_address] unless stub[:private_ip_address].nil?
         data['publicIpAddress'] = stub[:public_ip_address] unless stub[:public_ip_address].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
-        data['blockDeviceMappings'] = Stubs::InstanceBlockDeviceMappingList.stub(stub[:block_device_mappings]) unless stub[:block_device_mappings].nil?
-        data['securityGroups'] = Stubs::SecurityGroupIdentifierList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
-        data['cpuOptions'] = Stubs::CpuOptions.stub(stub[:cpu_options]) unless stub[:cpu_options].nil?
+        data['blockDeviceMappings'] = InstanceBlockDeviceMappingList.stub(stub[:block_device_mappings]) unless stub[:block_device_mappings].nil?
+        data['securityGroups'] = SecurityGroupIdentifierList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['cpuOptions'] = CpuOptions.stub(stub[:cpu_options]) unless stub[:cpu_options].nil?
         data['rootDeviceName'] = stub[:root_device_name] unless stub[:root_device_name].nil?
         data
       end
@@ -354,7 +356,7 @@ module AWS::SDK::SnowDeviceManagement
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SecurityGroupIdentifier.stub(element) unless element.nil?
+          data << SecurityGroupIdentifier.stub(element) unless element.nil?
         end
         data
       end
@@ -394,7 +396,7 @@ module AWS::SDK::SnowDeviceManagement
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceBlockDeviceMapping.stub(element) unless element.nil?
+          data << InstanceBlockDeviceMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -415,7 +417,7 @@ module AWS::SDK::SnowDeviceManagement
         stub ||= Types::InstanceBlockDeviceMapping.new
         data = {}
         data['deviceName'] = stub[:device_name] unless stub[:device_name].nil?
-        data['ebs'] = Stubs::EbsInstanceBlockDevice.stub(stub[:ebs]) unless stub[:ebs].nil?
+        data['ebs'] = EbsInstanceBlockDevice.stub(stub[:ebs]) unless stub[:ebs].nil?
         data
       end
     end
@@ -487,7 +489,7 @@ module AWS::SDK::SnowDeviceManagement
         data['state'] = stub[:state] unless stub[:state].nil?
         data['startedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started_at]).to_i unless stub[:started_at].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -513,14 +515,14 @@ module AWS::SDK::SnowDeviceManagement
         http_resp.headers['Content-Type'] = 'application/json'
         data['taskId'] = stub[:task_id] unless stub[:task_id].nil?
         data['taskArn'] = stub[:task_arn] unless stub[:task_arn].nil?
-        data['targets'] = Stubs::TargetList.stub(stub[:targets]) unless stub[:targets].nil?
+        data['targets'] = TargetList.stub(stub[:targets]) unless stub[:targets].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['completedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:completed_at]).to_i unless stub[:completed_at].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -557,9 +559,9 @@ module AWS::SDK::SnowDeviceManagement
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resources'] = Stubs::ResourceSummaryList.stub(stub[:resources]) unless stub[:resources].nil?
+        data['resources'] = ResourceSummaryList.stub(stub[:resources]) unless stub[:resources].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -577,7 +579,7 @@ module AWS::SDK::SnowDeviceManagement
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceSummary.stub(element) unless element.nil?
+          data << ResourceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -618,9 +620,9 @@ module AWS::SDK::SnowDeviceManagement
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['devices'] = Stubs::DeviceSummaryList.stub(stub[:devices]) unless stub[:devices].nil?
+        data['devices'] = DeviceSummaryList.stub(stub[:devices]) unless stub[:devices].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -638,7 +640,7 @@ module AWS::SDK::SnowDeviceManagement
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeviceSummary.stub(element) unless element.nil?
+          data << DeviceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -663,7 +665,7 @@ module AWS::SDK::SnowDeviceManagement
         data['managedDeviceId'] = stub[:managed_device_id] unless stub[:managed_device_id].nil?
         data['managedDeviceArn'] = stub[:managed_device_arn] unless stub[:managed_device_arn].nil?
         data['associatedWithJob'] = stub[:associated_with_job] unless stub[:associated_with_job].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -681,9 +683,9 @@ module AWS::SDK::SnowDeviceManagement
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['executions'] = Stubs::ExecutionSummaryList.stub(stub[:executions]) unless stub[:executions].nil?
+        data['executions'] = ExecutionSummaryList.stub(stub[:executions]) unless stub[:executions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -701,7 +703,7 @@ module AWS::SDK::SnowDeviceManagement
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExecutionSummary.stub(element) unless element.nil?
+          data << ExecutionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -743,8 +745,8 @@ module AWS::SDK::SnowDeviceManagement
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -761,9 +763,9 @@ module AWS::SDK::SnowDeviceManagement
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tasks'] = Stubs::TaskSummaryList.stub(stub[:tasks]) unless stub[:tasks].nil?
+        data['tasks'] = TaskSummaryList.stub(stub[:tasks]) unless stub[:tasks].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -781,7 +783,7 @@ module AWS::SDK::SnowDeviceManagement
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TaskSummary.stub(element) unless element.nil?
+          data << TaskSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -806,7 +808,7 @@ module AWS::SDK::SnowDeviceManagement
         data['taskId'] = stub[:task_id] unless stub[:task_id].nil?
         data['taskArn'] = stub[:task_arn] unless stub[:task_arn].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end

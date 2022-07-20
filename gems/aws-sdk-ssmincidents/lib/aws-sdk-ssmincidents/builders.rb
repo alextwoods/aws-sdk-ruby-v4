@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SSMIncidents
   module Builders
 
@@ -20,9 +22,9 @@ module AWS::SDK::SSMIncidents
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['regions'] = Builders::RegionMapInput.build(input[:regions]) unless input[:regions].nil?
+        data['regions'] = RegionMapInput.build(input[:regions]) unless input[:regions].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -31,7 +33,7 @@ module AWS::SDK::SSMIncidents
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::RegionMapInputValue.build(value) unless value.nil?
+          data[key] = RegionMapInputValue.build(value) unless value.nil?
         end
         data
       end
@@ -59,12 +61,12 @@ module AWS::SDK::SSMIncidents
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['displayName'] = input[:display_name] unless input[:display_name].nil?
-        data['incidentTemplate'] = Builders::IncidentTemplate.build(input[:incident_template]) unless input[:incident_template].nil?
-        data['chatChannel'] = Builders::ChatChannel.build(input[:chat_channel]) unless input[:chat_channel].nil?
-        data['engagements'] = Builders::EngagementSet.build(input[:engagements]).to_a unless input[:engagements].nil?
-        data['actions'] = Builders::ActionsList.build(input[:actions]) unless input[:actions].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['incidentTemplate'] = IncidentTemplate.build(input[:incident_template]) unless input[:incident_template].nil?
+        data['chatChannel'] = ChatChannel.build(input[:chat_channel]) unless input[:chat_channel].nil?
+        data['engagements'] = EngagementSet.build(input[:engagements]) unless input[:engagements].nil?
+        data['actions'] = ActionsList.build(input[:actions]) unless input[:actions].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -84,7 +86,7 @@ module AWS::SDK::SSMIncidents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Action.build(element) unless element.nil?
+          data << Action.build(element) unless element.nil?
         end
         data
       end
@@ -96,7 +98,7 @@ module AWS::SDK::SSMIncidents
         data = {}
         case input
         when Types::Action::SsmAutomation
-          data['ssmAutomation'] = (Builders::SsmAutomation.build(input) unless input.nil?)
+          data['ssmAutomation'] = (SsmAutomation.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::Action"
@@ -114,8 +116,8 @@ module AWS::SDK::SSMIncidents
         data['documentName'] = input[:document_name] unless input[:document_name].nil?
         data['documentVersion'] = input[:document_version] unless input[:document_version].nil?
         data['targetAccount'] = input[:target_account] unless input[:target_account].nil?
-        data['parameters'] = Builders::SsmParameters.build(input[:parameters]) unless input[:parameters].nil?
-        data['dynamicParameters'] = Builders::DynamicSsmParameters.build(input[:dynamic_parameters]) unless input[:dynamic_parameters].nil?
+        data['parameters'] = SsmParameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['dynamicParameters'] = DynamicSsmParameters.build(input[:dynamic_parameters]) unless input[:dynamic_parameters].nil?
         data
       end
     end
@@ -125,7 +127,7 @@ module AWS::SDK::SSMIncidents
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::DynamicSsmParameterValue.build(value) unless value.nil?
+          data[key] = DynamicSsmParameterValue.build(value) unless value.nil?
         end
         data
       end
@@ -152,7 +154,7 @@ module AWS::SDK::SSMIncidents
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::SsmParameterValues.build(value) unless value.nil?
+          data[key] = SsmParameterValues.build(value) unless value.nil?
         end
         data
       end
@@ -186,9 +188,9 @@ module AWS::SDK::SSMIncidents
         data = {}
         case input
         when Types::ChatChannel::Empty
-          data['empty'] = (Builders::EmptyChatChannel.build(input) unless input.nil?)
+          data['empty'] = (EmptyChatChannel.build(input) unless input.nil?)
         when Types::ChatChannel::ChatbotSns
-          data['chatbotSns'] = (Builders::ChatbotSnsConfigurationSet.build(input).to_a unless input.nil?)
+          data['chatbotSns'] = (ChatbotSnsConfigurationSet.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ChatChannel"
@@ -225,7 +227,7 @@ module AWS::SDK::SSMIncidents
         data['impact'] = input[:impact] unless input[:impact].nil?
         data['summary'] = input[:summary] unless input[:summary].nil?
         data['dedupeString'] = input[:dedupe_string] unless input[:dedupe_string].nil?
-        data['notificationTargets'] = Builders::NotificationTargetSet.build(input[:notification_targets]) unless input[:notification_targets].nil?
+        data['notificationTargets'] = NotificationTargetSet.build(input[:notification_targets]) unless input[:notification_targets].nil?
         data
       end
     end
@@ -235,7 +237,7 @@ module AWS::SDK::SSMIncidents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::NotificationTargetItem.build(element) unless element.nil?
+          data << NotificationTargetItem.build(element) unless element.nil?
         end
         data
       end
@@ -272,7 +274,7 @@ module AWS::SDK::SSMIncidents
         data['eventTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:event_time]).to_i unless input[:event_time].nil?
         data['eventType'] = input[:event_type] unless input[:event_type].nil?
         data['eventData'] = input[:event_data] unless input[:event_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -287,7 +289,7 @@ module AWS::SDK::SSMIncidents
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -314,7 +316,7 @@ module AWS::SDK::SSMIncidents
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['policyId'] = input[:policy_id] unless input[:policy_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -329,7 +331,7 @@ module AWS::SDK::SSMIncidents
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -345,7 +347,7 @@ module AWS::SDK::SSMIncidents
         data = {}
         data['incidentRecordArn'] = input[:incident_record_arn] unless input[:incident_record_arn].nil?
         data['eventId'] = input[:event_id] unless input[:event_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -384,7 +386,7 @@ module AWS::SDK::SSMIncidents
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -421,10 +423,10 @@ module AWS::SDK::SSMIncidents
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -433,7 +435,7 @@ module AWS::SDK::SSMIncidents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -444,7 +446,7 @@ module AWS::SDK::SSMIncidents
       def self.build(input)
         data = {}
         data['key'] = input[:key] unless input[:key].nil?
-        data['condition'] = Builders::Condition.build(input[:condition]) unless input[:condition].nil?
+        data['condition'] = Condition.build(input[:condition]) unless input[:condition].nil?
         data
       end
     end
@@ -460,7 +462,7 @@ module AWS::SDK::SSMIncidents
           data['after'] = Hearth::TimeHelper.to_epoch_seconds(input).to_i
         when Types::Condition::Equals
           input = input.__getobj__
-          data['equals'] = (Builders::AttributeValueList.build(input) unless input.nil?)
+          data['equals'] = (AttributeValueList.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::Condition"
@@ -476,9 +478,9 @@ module AWS::SDK::SSMIncidents
         data = {}
         case input
         when Types::AttributeValueList::StringValues
-          data['stringValues'] = (Builders::StringList.build(input) unless input.nil?)
+          data['stringValues'] = (StringList.build(input) unless input.nil?)
         when Types::AttributeValueList::IntegerValues
-          data['integerValues'] = (Builders::IntegerList.build(input) unless input.nil?)
+          data['integerValues'] = (IntegerList.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::AttributeValueList"
@@ -523,7 +525,7 @@ module AWS::SDK::SSMIncidents
         data['incidentRecordArn'] = input[:incident_record_arn] unless input[:incident_record_arn].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -539,7 +541,7 @@ module AWS::SDK::SSMIncidents
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -555,7 +557,7 @@ module AWS::SDK::SSMIncidents
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -587,12 +589,12 @@ module AWS::SDK::SSMIncidents
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['incidentRecordArn'] = input[:incident_record_arn] unless input[:incident_record_arn].nil?
-        data['filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['sortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['sortOrder'] = input[:sort_order] unless input[:sort_order].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -608,7 +610,7 @@ module AWS::SDK::SSMIncidents
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['policy'] = input[:policy] unless input[:policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -626,9 +628,9 @@ module AWS::SDK::SSMIncidents
         data['responsePlanArn'] = input[:response_plan_arn] unless input[:response_plan_arn].nil?
         data['title'] = input[:title] unless input[:title].nil?
         data['impact'] = input[:impact] unless input[:impact].nil?
-        data['triggerDetails'] = Builders::TriggerDetails.build(input[:trigger_details]) unless input[:trigger_details].nil?
-        data['relatedItems'] = Builders::RelatedItemList.build(input[:related_items]) unless input[:related_items].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['triggerDetails'] = TriggerDetails.build(input[:trigger_details]) unless input[:trigger_details].nil?
+        data['relatedItems'] = RelatedItemList.build(input[:related_items]) unless input[:related_items].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -637,7 +639,7 @@ module AWS::SDK::SSMIncidents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RelatedItem.build(element) unless element.nil?
+          data << RelatedItem.build(element) unless element.nil?
         end
         data
       end
@@ -647,7 +649,7 @@ module AWS::SDK::SSMIncidents
     class RelatedItem
       def self.build(input)
         data = {}
-        data['identifier'] = Builders::ItemIdentifier.build(input[:identifier]) unless input[:identifier].nil?
+        data['identifier'] = ItemIdentifier.build(input[:identifier]) unless input[:identifier].nil?
         data['title'] = input[:title] unless input[:title].nil?
         data
       end
@@ -657,7 +659,7 @@ module AWS::SDK::SSMIncidents
     class ItemIdentifier
       def self.build(input)
         data = {}
-        data['value'] = Builders::ItemValue.build(input[:value]) unless input[:value].nil?
+        data['value'] = ItemValue.build(input[:value]) unless input[:value].nil?
         data['type'] = input[:type] unless input[:type].nil?
         data
       end
@@ -712,8 +714,8 @@ module AWS::SDK::SSMIncidents
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -763,7 +765,7 @@ module AWS::SDK::SSMIncidents
         data['arn'] = input[:arn] unless input[:arn].nil?
         data['deletionProtected'] = input[:deletion_protected] unless input[:deletion_protected].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -783,9 +785,9 @@ module AWS::SDK::SSMIncidents
         data['summary'] = input[:summary] unless input[:summary].nil?
         data['impact'] = input[:impact] unless input[:impact].nil?
         data['status'] = input[:status] unless input[:status].nil?
-        data['chatChannel'] = Builders::ChatChannel.build(input[:chat_channel]) unless input[:chat_channel].nil?
-        data['notificationTargets'] = Builders::NotificationTargetSet.build(input[:notification_targets]) unless input[:notification_targets].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['chatChannel'] = ChatChannel.build(input[:chat_channel]) unless input[:chat_channel].nil?
+        data['notificationTargets'] = NotificationTargetSet.build(input[:notification_targets]) unless input[:notification_targets].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -801,8 +803,8 @@ module AWS::SDK::SSMIncidents
         data = {}
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
         data['incidentRecordArn'] = input[:incident_record_arn] unless input[:incident_record_arn].nil?
-        data['relatedItemsUpdate'] = Builders::RelatedItemsUpdate.build(input[:related_items_update]) unless input[:related_items_update].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['relatedItemsUpdate'] = RelatedItemsUpdate.build(input[:related_items_update]) unless input[:related_items_update].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -812,9 +814,9 @@ module AWS::SDK::SSMIncidents
         data = {}
         case input
         when Types::RelatedItemsUpdate::ItemToAdd
-          data['itemToAdd'] = (Builders::RelatedItem.build(input) unless input.nil?)
+          data['itemToAdd'] = (RelatedItem.build(input) unless input.nil?)
         when Types::RelatedItemsUpdate::ItemToRemove
-          data['itemToRemove'] = (Builders::ItemIdentifier.build(input) unless input.nil?)
+          data['itemToRemove'] = (ItemIdentifier.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::RelatedItemsUpdate"
@@ -835,9 +837,9 @@ module AWS::SDK::SSMIncidents
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        data['actions'] = Builders::UpdateActionList.build(input[:actions]) unless input[:actions].nil?
+        data['actions'] = UpdateActionList.build(input[:actions]) unless input[:actions].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -846,7 +848,7 @@ module AWS::SDK::SSMIncidents
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UpdateReplicationSetAction.build(element) unless element.nil?
+          data << UpdateReplicationSetAction.build(element) unless element.nil?
         end
         data
       end
@@ -858,9 +860,9 @@ module AWS::SDK::SSMIncidents
         data = {}
         case input
         when Types::UpdateReplicationSetAction::AddRegionAction
-          data['addRegionAction'] = (Builders::AddRegionAction.build(input) unless input.nil?)
+          data['addRegionAction'] = (AddRegionAction.build(input) unless input.nil?)
         when Types::UpdateReplicationSetAction::DeleteRegionAction
-          data['deleteRegionAction'] = (Builders::DeleteRegionAction.build(input) unless input.nil?)
+          data['deleteRegionAction'] = (DeleteRegionAction.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::UpdateReplicationSetAction"
@@ -906,11 +908,11 @@ module AWS::SDK::SSMIncidents
         data['incidentTemplateImpact'] = input[:incident_template_impact] unless input[:incident_template_impact].nil?
         data['incidentTemplateSummary'] = input[:incident_template_summary] unless input[:incident_template_summary].nil?
         data['incidentTemplateDedupeString'] = input[:incident_template_dedupe_string] unless input[:incident_template_dedupe_string].nil?
-        data['incidentTemplateNotificationTargets'] = Builders::NotificationTargetSet.build(input[:incident_template_notification_targets]) unless input[:incident_template_notification_targets].nil?
-        data['chatChannel'] = Builders::ChatChannel.build(input[:chat_channel]) unless input[:chat_channel].nil?
-        data['engagements'] = Builders::EngagementSet.build(input[:engagements]).to_a unless input[:engagements].nil?
-        data['actions'] = Builders::ActionsList.build(input[:actions]) unless input[:actions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['incidentTemplateNotificationTargets'] = NotificationTargetSet.build(input[:incident_template_notification_targets]) unless input[:incident_template_notification_targets].nil?
+        data['chatChannel'] = ChatChannel.build(input[:chat_channel]) unless input[:chat_channel].nil?
+        data['engagements'] = EngagementSet.build(input[:engagements]) unless input[:engagements].nil?
+        data['actions'] = ActionsList.build(input[:actions]) unless input[:actions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -930,7 +932,7 @@ module AWS::SDK::SSMIncidents
         data['eventTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:event_time]).to_i unless input[:event_time].nil?
         data['eventType'] = input[:event_type] unless input[:event_type].nil?
         data['eventData'] = input[:event_data] unless input[:event_data].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

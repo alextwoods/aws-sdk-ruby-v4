@@ -17,12 +17,12 @@ module AWS::SDK::EFS
         map = Hearth::JSON.load(http_resp.body)
         data.client_token = map['ClientToken']
         data.name = map['Name']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.access_point_id = map['AccessPointId']
         data.access_point_arn = map['AccessPointArn']
         data.file_system_id = map['FileSystemId']
-        data.posix_user = (Parsers::PosixUser.parse(map['PosixUser']) unless map['PosixUser'].nil?)
-        data.root_directory = (Parsers::RootDirectory.parse(map['RootDirectory']) unless map['RootDirectory'].nil?)
+        data.posix_user = (PosixUser.parse(map['PosixUser']) unless map['PosixUser'].nil?)
+        data.root_directory = (RootDirectory.parse(map['RootDirectory']) unless map['RootDirectory'].nil?)
         data.owner_id = map['OwnerId']
         data.life_cycle_state = map['LifeCycleState']
         data
@@ -33,7 +33,7 @@ module AWS::SDK::EFS
       def self.parse(map)
         data = Types::RootDirectory.new
         data.path = map['Path']
-        data.creation_info = (Parsers::CreationInfo.parse(map['CreationInfo']) unless map['CreationInfo'].nil?)
+        data.creation_info = (CreationInfo.parse(map['CreationInfo']) unless map['CreationInfo'].nil?)
         return data
       end
     end
@@ -53,7 +53,7 @@ module AWS::SDK::EFS
         data = Types::PosixUser.new
         data.uid = map['Uid']
         data.gid = map['Gid']
-        data.secondary_gids = (Parsers::SecondaryGids.parse(map['SecondaryGids']) unless map['SecondaryGids'].nil?)
+        data.secondary_gids = (SecondaryGids.parse(map['SecondaryGids']) unless map['SecondaryGids'].nil?)
         return data
       end
     end
@@ -72,7 +72,7 @@ module AWS::SDK::EFS
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -178,7 +178,7 @@ module AWS::SDK::EFS
         data.life_cycle_state = map['LifeCycleState']
         data.name = map['Name']
         data.number_of_mount_targets = map['NumberOfMountTargets']
-        data.size_in_bytes = (Parsers::FileSystemSize.parse(map['SizeInBytes']) unless map['SizeInBytes'].nil?)
+        data.size_in_bytes = (FileSystemSize.parse(map['SizeInBytes']) unless map['SizeInBytes'].nil?)
         data.performance_mode = map['PerformanceMode']
         data.encrypted = map['Encrypted']
         data.kms_key_id = map['KmsKeyId']
@@ -186,7 +186,7 @@ module AWS::SDK::EFS
         data.provisioned_throughput_in_mibps = Hearth::NumberHelper.deserialize(map['ProvisionedThroughputInMibps'])
         data.availability_zone_name = map['AvailabilityZoneName']
         data.availability_zone_id = map['AvailabilityZoneId']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -375,7 +375,7 @@ module AWS::SDK::EFS
         data.source_file_system_arn = map['SourceFileSystemArn']
         data.original_source_file_system_arn = map['OriginalSourceFileSystemArn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.destinations = (Parsers::Destinations.parse(map['Destinations']) unless map['Destinations'].nil?)
+        data.destinations = (Destinations.parse(map['Destinations']) unless map['Destinations'].nil?)
         data
       end
     end
@@ -384,7 +384,7 @@ module AWS::SDK::EFS
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Destination.parse(value) unless value.nil?
+          data << Destination.parse(value) unless value.nil?
         end
         data
       end
@@ -535,7 +535,7 @@ module AWS::SDK::EFS
       def self.parse(http_resp)
         data = Types::DescribeAccessPointsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.access_points = (Parsers::AccessPointDescriptions.parse(map['AccessPoints']) unless map['AccessPoints'].nil?)
+        data.access_points = (AccessPointDescriptions.parse(map['AccessPoints']) unless map['AccessPoints'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -545,7 +545,7 @@ module AWS::SDK::EFS
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AccessPointDescription.parse(value) unless value.nil?
+          data << AccessPointDescription.parse(value) unless value.nil?
         end
         data
       end
@@ -556,12 +556,12 @@ module AWS::SDK::EFS
         data = Types::AccessPointDescription.new
         data.client_token = map['ClientToken']
         data.name = map['Name']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.access_point_id = map['AccessPointId']
         data.access_point_arn = map['AccessPointArn']
         data.file_system_id = map['FileSystemId']
-        data.posix_user = (Parsers::PosixUser.parse(map['PosixUser']) unless map['PosixUser'].nil?)
-        data.root_directory = (Parsers::RootDirectory.parse(map['RootDirectory']) unless map['RootDirectory'].nil?)
+        data.posix_user = (PosixUser.parse(map['PosixUser']) unless map['PosixUser'].nil?)
+        data.root_directory = (RootDirectory.parse(map['RootDirectory']) unless map['RootDirectory'].nil?)
         data.owner_id = map['OwnerId']
         data.life_cycle_state = map['LifeCycleState']
         return data
@@ -573,7 +573,7 @@ module AWS::SDK::EFS
       def self.parse(http_resp)
         data = Types::DescribeAccountPreferencesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_id_preference = (Parsers::ResourceIdPreference.parse(map['ResourceIdPreference']) unless map['ResourceIdPreference'].nil?)
+        data.resource_id_preference = (ResourceIdPreference.parse(map['ResourceIdPreference']) unless map['ResourceIdPreference'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -583,7 +583,7 @@ module AWS::SDK::EFS
       def self.parse(map)
         data = Types::ResourceIdPreference.new
         data.resource_id_type = map['ResourceIdType']
-        data.resources = (Parsers::Resources.parse(map['Resources']) unless map['Resources'].nil?)
+        data.resources = (Resources.parse(map['Resources']) unless map['Resources'].nil?)
         return data
       end
     end
@@ -603,7 +603,7 @@ module AWS::SDK::EFS
       def self.parse(http_resp)
         data = Types::DescribeBackupPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.backup_policy = (Parsers::BackupPolicy.parse(map['BackupPolicy']) unless map['BackupPolicy'].nil?)
+        data.backup_policy = (BackupPolicy.parse(map['BackupPolicy']) unless map['BackupPolicy'].nil?)
         data
       end
     end
@@ -644,7 +644,7 @@ module AWS::SDK::EFS
         data = Types::DescribeFileSystemsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.marker = map['Marker']
-        data.file_systems = (Parsers::FileSystemDescriptions.parse(map['FileSystems']) unless map['FileSystems'].nil?)
+        data.file_systems = (FileSystemDescriptions.parse(map['FileSystems']) unless map['FileSystems'].nil?)
         data.next_marker = map['NextMarker']
         data
       end
@@ -654,7 +654,7 @@ module AWS::SDK::EFS
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FileSystemDescription.parse(value) unless value.nil?
+          data << FileSystemDescription.parse(value) unless value.nil?
         end
         data
       end
@@ -671,7 +671,7 @@ module AWS::SDK::EFS
         data.life_cycle_state = map['LifeCycleState']
         data.name = map['Name']
         data.number_of_mount_targets = map['NumberOfMountTargets']
-        data.size_in_bytes = (Parsers::FileSystemSize.parse(map['SizeInBytes']) unless map['SizeInBytes'].nil?)
+        data.size_in_bytes = (FileSystemSize.parse(map['SizeInBytes']) unless map['SizeInBytes'].nil?)
         data.performance_mode = map['PerformanceMode']
         data.encrypted = map['Encrypted']
         data.kms_key_id = map['KmsKeyId']
@@ -679,7 +679,7 @@ module AWS::SDK::EFS
         data.provisioned_throughput_in_mibps = Hearth::NumberHelper.deserialize(map['ProvisionedThroughputInMibps'])
         data.availability_zone_name = map['AvailabilityZoneName']
         data.availability_zone_id = map['AvailabilityZoneId']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         return data
       end
     end
@@ -689,7 +689,7 @@ module AWS::SDK::EFS
       def self.parse(http_resp)
         data = Types::DescribeLifecycleConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.lifecycle_policies = (Parsers::LifecyclePolicies.parse(map['LifecyclePolicies']) unless map['LifecyclePolicies'].nil?)
+        data.lifecycle_policies = (LifecyclePolicies.parse(map['LifecyclePolicies']) unless map['LifecyclePolicies'].nil?)
         data
       end
     end
@@ -698,7 +698,7 @@ module AWS::SDK::EFS
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LifecyclePolicy.parse(value) unless value.nil?
+          data << LifecyclePolicy.parse(value) unless value.nil?
         end
         data
       end
@@ -718,7 +718,7 @@ module AWS::SDK::EFS
       def self.parse(http_resp)
         data = Types::DescribeMountTargetSecurityGroupsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.security_groups = (Parsers::SecurityGroups.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
+        data.security_groups = (SecurityGroups.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
         data
       end
     end
@@ -750,7 +750,7 @@ module AWS::SDK::EFS
         data = Types::DescribeMountTargetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.marker = map['Marker']
-        data.mount_targets = (Parsers::MountTargetDescriptions.parse(map['MountTargets']) unless map['MountTargets'].nil?)
+        data.mount_targets = (MountTargetDescriptions.parse(map['MountTargets']) unless map['MountTargets'].nil?)
         data.next_marker = map['NextMarker']
         data
       end
@@ -760,7 +760,7 @@ module AWS::SDK::EFS
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MountTargetDescription.parse(value) unless value.nil?
+          data << MountTargetDescription.parse(value) unless value.nil?
         end
         data
       end
@@ -788,7 +788,7 @@ module AWS::SDK::EFS
       def self.parse(http_resp)
         data = Types::DescribeReplicationConfigurationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.replications = (Parsers::ReplicationConfigurationDescriptions.parse(map['Replications']) unless map['Replications'].nil?)
+        data.replications = (ReplicationConfigurationDescriptions.parse(map['Replications']) unless map['Replications'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -798,7 +798,7 @@ module AWS::SDK::EFS
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReplicationConfigurationDescription.parse(value) unless value.nil?
+          data << ReplicationConfigurationDescription.parse(value) unless value.nil?
         end
         data
       end
@@ -812,7 +812,7 @@ module AWS::SDK::EFS
         data.source_file_system_arn = map['SourceFileSystemArn']
         data.original_source_file_system_arn = map['OriginalSourceFileSystemArn']
         data.creation_time = Time.at(map['CreationTime'].to_i) if map['CreationTime']
-        data.destinations = (Parsers::Destinations.parse(map['Destinations']) unless map['Destinations'].nil?)
+        data.destinations = (Destinations.parse(map['Destinations']) unless map['Destinations'].nil?)
         return data
       end
     end
@@ -823,7 +823,7 @@ module AWS::SDK::EFS
         data = Types::DescribeTagsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.marker = map['Marker']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_marker = map['NextMarker']
         data
       end
@@ -834,7 +834,7 @@ module AWS::SDK::EFS
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -854,7 +854,7 @@ module AWS::SDK::EFS
       def self.parse(http_resp)
         data = Types::PutAccountPreferencesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_id_preference = (Parsers::ResourceIdPreference.parse(map['ResourceIdPreference']) unless map['ResourceIdPreference'].nil?)
+        data.resource_id_preference = (ResourceIdPreference.parse(map['ResourceIdPreference']) unless map['ResourceIdPreference'].nil?)
         data
       end
     end
@@ -864,7 +864,7 @@ module AWS::SDK::EFS
       def self.parse(http_resp)
         data = Types::PutBackupPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.backup_policy = (Parsers::BackupPolicy.parse(map['BackupPolicy']) unless map['BackupPolicy'].nil?)
+        data.backup_policy = (BackupPolicy.parse(map['BackupPolicy']) unless map['BackupPolicy'].nil?)
         data
       end
     end
@@ -896,7 +896,7 @@ module AWS::SDK::EFS
       def self.parse(http_resp)
         data = Types::PutLifecycleConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.lifecycle_policies = (Parsers::LifecyclePolicies.parse(map['LifecyclePolicies']) unless map['LifecyclePolicies'].nil?)
+        data.lifecycle_policies = (LifecyclePolicies.parse(map['LifecyclePolicies']) unless map['LifecyclePolicies'].nil?)
         data
       end
     end
@@ -932,7 +932,7 @@ module AWS::SDK::EFS
         data.life_cycle_state = map['LifeCycleState']
         data.name = map['Name']
         data.number_of_mount_targets = map['NumberOfMountTargets']
-        data.size_in_bytes = (Parsers::FileSystemSize.parse(map['SizeInBytes']) unless map['SizeInBytes'].nil?)
+        data.size_in_bytes = (FileSystemSize.parse(map['SizeInBytes']) unless map['SizeInBytes'].nil?)
         data.performance_mode = map['PerformanceMode']
         data.encrypted = map['Encrypted']
         data.kms_key_id = map['KmsKeyId']
@@ -940,7 +940,7 @@ module AWS::SDK::EFS
         data.provisioned_throughput_in_mibps = Hearth::NumberHelper.deserialize(map['ProvisionedThroughputInMibps'])
         data.availability_zone_name = map['AvailabilityZoneName']
         data.availability_zone_id = map['AvailabilityZoneId']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end

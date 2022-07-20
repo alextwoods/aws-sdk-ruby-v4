@@ -38,7 +38,7 @@ module AWS::SDK::GreengrassV2
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['message'] || map['Message']
         data.reason = map['reason']
-        data.fields = (Parsers::ValidationExceptionFieldList.parse(map['fields']) unless map['fields'].nil?)
+        data.fields = (ValidationExceptionFieldList.parse(map['fields']) unless map['fields'].nil?)
         data
       end
     end
@@ -47,7 +47,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          data << ValidationExceptionField.parse(value) unless value.nil?
         end
         data
       end
@@ -67,7 +67,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(http_resp)
         data = Types::BatchAssociateClientDeviceWithCoreDeviceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.error_entries = (Parsers::AssociateClientDeviceWithCoreDeviceErrorList.parse(map['errorEntries']) unless map['errorEntries'].nil?)
+        data.error_entries = (AssociateClientDeviceWithCoreDeviceErrorList.parse(map['errorEntries']) unless map['errorEntries'].nil?)
         data
       end
     end
@@ -76,7 +76,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssociateClientDeviceWithCoreDeviceErrorEntry.parse(value) unless value.nil?
+          data << AssociateClientDeviceWithCoreDeviceErrorEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -132,7 +132,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(http_resp)
         data = Types::BatchDisassociateClientDeviceFromCoreDeviceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.error_entries = (Parsers::DisassociateClientDeviceFromCoreDeviceErrorList.parse(map['errorEntries']) unless map['errorEntries'].nil?)
+        data.error_entries = (DisassociateClientDeviceFromCoreDeviceErrorList.parse(map['errorEntries']) unless map['errorEntries'].nil?)
         data
       end
     end
@@ -141,7 +141,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DisassociateClientDeviceFromCoreDeviceErrorEntry.parse(value) unless value.nil?
+          data << DisassociateClientDeviceFromCoreDeviceErrorEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -188,7 +188,7 @@ module AWS::SDK::GreengrassV2
         data.component_name = map['componentName']
         data.component_version = map['componentVersion']
         data.creation_timestamp = Time.at(map['creationTimestamp'].to_i) if map['creationTimestamp']
-        data.status = (Parsers::CloudComponentStatus.parse(map['status']) unless map['status'].nil?)
+        data.status = (CloudComponentStatus.parse(map['status']) unless map['status'].nil?)
         data
       end
     end
@@ -198,7 +198,7 @@ module AWS::SDK::GreengrassV2
         data = Types::CloudComponentStatus.new
         data.component_state = map['componentState']
         data.message = map['message'] || map['Message']
-        data.errors = (Parsers::StringMap.parse(map['errors']) unless map['errors'].nil?)
+        data.errors = (StringMap.parse(map['errors']) unless map['errors'].nil?)
         data.vendor_guidance = map['vendorGuidance']
         data.vendor_guidance_message = map['vendorGuidanceMessage']
         return data
@@ -289,9 +289,9 @@ module AWS::SDK::GreengrassV2
         data.creation_timestamp = Time.at(map['creationTimestamp'].to_i) if map['creationTimestamp']
         data.publisher = map['publisher']
         data.description = map['description']
-        data.status = (Parsers::CloudComponentStatus.parse(map['status']) unless map['status'].nil?)
-        data.platforms = (Parsers::ComponentPlatformList.parse(map['platforms']) unless map['platforms'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.status = (CloudComponentStatus.parse(map['status']) unless map['status'].nil?)
+        data.platforms = (ComponentPlatformList.parse(map['platforms']) unless map['platforms'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -310,7 +310,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ComponentPlatform.parse(value) unless value.nil?
+          data << ComponentPlatform.parse(value) unless value.nil?
         end
         data
       end
@@ -320,7 +320,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(map)
         data = Types::ComponentPlatform.new
         data.name = map['name']
-        data.attributes = (Parsers::PlatformAttributesMap.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (PlatformAttributesMap.parse(map['attributes']) unless map['attributes'].nil?)
         return data
       end
     end
@@ -352,7 +352,7 @@ module AWS::SDK::GreengrassV2
         map = Hearth::JSON.load(http_resp.body)
         data.recipe_output_format = map['recipeOutputFormat']
         data.recipe = Base64::decode64(map['recipe']) unless map['recipe'].nil?
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -372,7 +372,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(http_resp)
         data = Types::GetConnectivityInfoOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.connectivity_info = (Parsers::ConnectivityInfoList.parse(map['ConnectivityInfo']) unless map['ConnectivityInfo'].nil?)
+        data.connectivity_info = (ConnectivityInfoList.parse(map['ConnectivityInfo']) unless map['ConnectivityInfo'].nil?)
         data.message = map['Message']
         data
       end
@@ -382,7 +382,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ConnectivityInfo.parse(value) unless value.nil?
+          data << ConnectivityInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -410,7 +410,7 @@ module AWS::SDK::GreengrassV2
         data.architecture = map['architecture']
         data.status = map['status']
         data.last_status_update_timestamp = Time.at(map['lastStatusUpdateTimestamp'].to_i) if map['lastStatusUpdateTimestamp']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -427,12 +427,12 @@ module AWS::SDK::GreengrassV2
         data.deployment_status = map['deploymentStatus']
         data.iot_job_id = map['iotJobId']
         data.iot_job_arn = map['iotJobArn']
-        data.components = (Parsers::ComponentDeploymentSpecifications.parse(map['components']) unless map['components'].nil?)
-        data.deployment_policies = (Parsers::DeploymentPolicies.parse(map['deploymentPolicies']) unless map['deploymentPolicies'].nil?)
-        data.iot_job_configuration = (Parsers::DeploymentIoTJobConfiguration.parse(map['iotJobConfiguration']) unless map['iotJobConfiguration'].nil?)
+        data.components = (ComponentDeploymentSpecifications.parse(map['components']) unless map['components'].nil?)
+        data.deployment_policies = (DeploymentPolicies.parse(map['deploymentPolicies']) unless map['deploymentPolicies'].nil?)
+        data.iot_job_configuration = (DeploymentIoTJobConfiguration.parse(map['iotJobConfiguration']) unless map['iotJobConfiguration'].nil?)
         data.creation_timestamp = Time.at(map['creationTimestamp'].to_i) if map['creationTimestamp']
         data.is_latest_for_target = map['isLatestForTarget']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -440,9 +440,9 @@ module AWS::SDK::GreengrassV2
     class DeploymentIoTJobConfiguration
       def self.parse(map)
         data = Types::DeploymentIoTJobConfiguration.new
-        data.job_executions_rollout_config = (Parsers::IoTJobExecutionsRolloutConfig.parse(map['jobExecutionsRolloutConfig']) unless map['jobExecutionsRolloutConfig'].nil?)
-        data.abort_config = (Parsers::IoTJobAbortConfig.parse(map['abortConfig']) unless map['abortConfig'].nil?)
-        data.timeout_config = (Parsers::IoTJobTimeoutConfig.parse(map['timeoutConfig']) unless map['timeoutConfig'].nil?)
+        data.job_executions_rollout_config = (IoTJobExecutionsRolloutConfig.parse(map['jobExecutionsRolloutConfig']) unless map['jobExecutionsRolloutConfig'].nil?)
+        data.abort_config = (IoTJobAbortConfig.parse(map['abortConfig']) unless map['abortConfig'].nil?)
+        data.timeout_config = (IoTJobTimeoutConfig.parse(map['timeoutConfig']) unless map['timeoutConfig'].nil?)
         return data
       end
     end
@@ -458,7 +458,7 @@ module AWS::SDK::GreengrassV2
     class IoTJobAbortConfig
       def self.parse(map)
         data = Types::IoTJobAbortConfig.new
-        data.criteria_list = (Parsers::IoTJobAbortCriteriaList.parse(map['criteriaList']) unless map['criteriaList'].nil?)
+        data.criteria_list = (IoTJobAbortCriteriaList.parse(map['criteriaList']) unless map['criteriaList'].nil?)
         return data
       end
     end
@@ -467,7 +467,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IoTJobAbortCriteria.parse(value) unless value.nil?
+          data << IoTJobAbortCriteria.parse(value) unless value.nil?
         end
         data
       end
@@ -487,7 +487,7 @@ module AWS::SDK::GreengrassV2
     class IoTJobExecutionsRolloutConfig
       def self.parse(map)
         data = Types::IoTJobExecutionsRolloutConfig.new
-        data.exponential_rate = (Parsers::IoTJobExponentialRolloutRate.parse(map['exponentialRate']) unless map['exponentialRate'].nil?)
+        data.exponential_rate = (IoTJobExponentialRolloutRate.parse(map['exponentialRate']) unless map['exponentialRate'].nil?)
         data.maximum_per_minute = map['maximumPerMinute']
         return data
       end
@@ -498,7 +498,7 @@ module AWS::SDK::GreengrassV2
         data = Types::IoTJobExponentialRolloutRate.new
         data.base_rate_per_minute = map['baseRatePerMinute']
         data.increment_factor = Hearth::NumberHelper.deserialize(map['incrementFactor'])
-        data.rate_increase_criteria = (Parsers::IoTJobRateIncreaseCriteria.parse(map['rateIncreaseCriteria']) unless map['rateIncreaseCriteria'].nil?)
+        data.rate_increase_criteria = (IoTJobRateIncreaseCriteria.parse(map['rateIncreaseCriteria']) unless map['rateIncreaseCriteria'].nil?)
         return data
       end
     end
@@ -516,8 +516,8 @@ module AWS::SDK::GreengrassV2
       def self.parse(map)
         data = Types::DeploymentPolicies.new
         data.failure_handling_policy = map['failureHandlingPolicy']
-        data.component_update_policy = (Parsers::DeploymentComponentUpdatePolicy.parse(map['componentUpdatePolicy']) unless map['componentUpdatePolicy'].nil?)
-        data.configuration_validation_policy = (Parsers::DeploymentConfigurationValidationPolicy.parse(map['configurationValidationPolicy']) unless map['configurationValidationPolicy'].nil?)
+        data.component_update_policy = (DeploymentComponentUpdatePolicy.parse(map['componentUpdatePolicy']) unless map['componentUpdatePolicy'].nil?)
+        data.configuration_validation_policy = (DeploymentConfigurationValidationPolicy.parse(map['configurationValidationPolicy']) unless map['configurationValidationPolicy'].nil?)
         return data
       end
     end
@@ -543,7 +543,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ComponentDeploymentSpecification.parse(value) unless value.nil?
+          data[key] = ComponentDeploymentSpecification.parse(value) unless value.nil?
         end
         data
       end
@@ -553,8 +553,8 @@ module AWS::SDK::GreengrassV2
       def self.parse(map)
         data = Types::ComponentDeploymentSpecification.new
         data.component_version = map['componentVersion']
-        data.configuration_update = (Parsers::ComponentConfigurationUpdate.parse(map['configurationUpdate']) unless map['configurationUpdate'].nil?)
-        data.run_with = (Parsers::ComponentRunWith.parse(map['runWith']) unless map['runWith'].nil?)
+        data.configuration_update = (ComponentConfigurationUpdate.parse(map['configurationUpdate']) unless map['configurationUpdate'].nil?)
+        data.run_with = (ComponentRunWith.parse(map['runWith']) unless map['runWith'].nil?)
         return data
       end
     end
@@ -563,7 +563,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(map)
         data = Types::ComponentRunWith.new
         data.posix_user = map['posixUser']
-        data.system_resource_limits = (Parsers::SystemResourceLimits.parse(map['systemResourceLimits']) unless map['systemResourceLimits'].nil?)
+        data.system_resource_limits = (SystemResourceLimits.parse(map['systemResourceLimits']) unless map['systemResourceLimits'].nil?)
         data.windows_user = map['windowsUser']
         return data
       end
@@ -582,7 +582,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(map)
         data = Types::ComponentConfigurationUpdate.new
         data.merge = map['merge']
-        data.reset = (Parsers::ComponentConfigurationPathList.parse(map['reset']) unless map['reset'].nil?)
+        data.reset = (ComponentConfigurationPathList.parse(map['reset']) unless map['reset'].nil?)
         return data
       end
     end
@@ -613,7 +613,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(http_resp)
         data = Types::ListClientDevicesAssociatedWithCoreDeviceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.associated_client_devices = (Parsers::AssociatedClientDeviceList.parse(map['associatedClientDevices']) unless map['associatedClientDevices'].nil?)
+        data.associated_client_devices = (AssociatedClientDeviceList.parse(map['associatedClientDevices']) unless map['associatedClientDevices'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -623,7 +623,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssociatedClientDevice.parse(value) unless value.nil?
+          data << AssociatedClientDevice.parse(value) unless value.nil?
         end
         data
       end
@@ -643,7 +643,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(http_resp)
         data = Types::ListComponentVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.component_versions = (Parsers::ComponentVersionList.parse(map['componentVersions']) unless map['componentVersions'].nil?)
+        data.component_versions = (ComponentVersionList.parse(map['componentVersions']) unless map['componentVersions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -653,7 +653,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ComponentVersionListItem.parse(value) unless value.nil?
+          data << ComponentVersionListItem.parse(value) unless value.nil?
         end
         data
       end
@@ -674,7 +674,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(http_resp)
         data = Types::ListComponentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.components = (Parsers::ComponentList.parse(map['components']) unless map['components'].nil?)
+        data.components = (ComponentList.parse(map['components']) unless map['components'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -684,7 +684,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Component.parse(value) unless value.nil?
+          data << Component.parse(value) unless value.nil?
         end
         data
       end
@@ -695,7 +695,7 @@ module AWS::SDK::GreengrassV2
         data = Types::Component.new
         data.arn = map['arn']
         data.component_name = map['componentName']
-        data.latest_version = (Parsers::ComponentLatestVersion.parse(map['latestVersion']) unless map['latestVersion'].nil?)
+        data.latest_version = (ComponentLatestVersion.parse(map['latestVersion']) unless map['latestVersion'].nil?)
         return data
       end
     end
@@ -708,7 +708,7 @@ module AWS::SDK::GreengrassV2
         data.creation_timestamp = Time.at(map['creationTimestamp'].to_i) if map['creationTimestamp']
         data.description = map['description']
         data.publisher = map['publisher']
-        data.platforms = (Parsers::ComponentPlatformList.parse(map['platforms']) unless map['platforms'].nil?)
+        data.platforms = (ComponentPlatformList.parse(map['platforms']) unless map['platforms'].nil?)
         return data
       end
     end
@@ -718,7 +718,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(http_resp)
         data = Types::ListCoreDevicesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.core_devices = (Parsers::CoreDevicesList.parse(map['coreDevices']) unless map['coreDevices'].nil?)
+        data.core_devices = (CoreDevicesList.parse(map['coreDevices']) unless map['coreDevices'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -728,7 +728,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CoreDevice.parse(value) unless value.nil?
+          data << CoreDevice.parse(value) unless value.nil?
         end
         data
       end
@@ -749,7 +749,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(http_resp)
         data = Types::ListDeploymentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.deployments = (Parsers::DeploymentList.parse(map['deployments']) unless map['deployments'].nil?)
+        data.deployments = (DeploymentList.parse(map['deployments']) unless map['deployments'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -759,7 +759,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Deployment.parse(value) unless value.nil?
+          data << Deployment.parse(value) unless value.nil?
         end
         data
       end
@@ -784,7 +784,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(http_resp)
         data = Types::ListEffectiveDeploymentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.effective_deployments = (Parsers::EffectiveDeploymentsList.parse(map['effectiveDeployments']) unless map['effectiveDeployments'].nil?)
+        data.effective_deployments = (EffectiveDeploymentsList.parse(map['effectiveDeployments']) unless map['effectiveDeployments'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -794,7 +794,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EffectiveDeployment.parse(value) unless value.nil?
+          data << EffectiveDeployment.parse(value) unless value.nil?
         end
         data
       end
@@ -822,7 +822,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(http_resp)
         data = Types::ListInstalledComponentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.installed_components = (Parsers::InstalledComponentList.parse(map['installedComponents']) unless map['installedComponents'].nil?)
+        data.installed_components = (InstalledComponentList.parse(map['installedComponents']) unless map['installedComponents'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -832,7 +832,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InstalledComponent.parse(value) unless value.nil?
+          data << InstalledComponent.parse(value) unless value.nil?
         end
         data
       end
@@ -855,7 +855,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -865,7 +865,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(http_resp)
         data = Types::ResolveComponentCandidatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resolved_component_versions = (Parsers::ResolvedComponentVersionsList.parse(map['resolvedComponentVersions']) unless map['resolvedComponentVersions'].nil?)
+        data.resolved_component_versions = (ResolvedComponentVersionsList.parse(map['resolvedComponentVersions']) unless map['resolvedComponentVersions'].nil?)
         data
       end
     end
@@ -874,7 +874,7 @@ module AWS::SDK::GreengrassV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResolvedComponentVersion.parse(value) unless value.nil?
+          data << ResolvedComponentVersion.parse(value) unless value.nil?
         end
         data
       end

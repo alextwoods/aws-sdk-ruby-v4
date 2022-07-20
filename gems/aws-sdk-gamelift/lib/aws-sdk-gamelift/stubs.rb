@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::GameLift
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -34,8 +36,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameServer'] = Stubs::GameServer.stub(stub[:game_server]) unless stub[:game_server].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameServer'] = GameServer.stub(stub[:game_server]) unless stub[:game_server].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -88,8 +90,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Alias'] = Stubs::Alias.stub(stub[:alias]) unless stub[:alias].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Alias'] = Alias.stub(stub[:alias]) unless stub[:alias].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -117,7 +119,7 @@ module AWS::SDK::GameLift
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['AliasArn'] = stub[:alias_arn] unless stub[:alias_arn].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['RoutingStrategy'] = Stubs::RoutingStrategy.stub(stub[:routing_strategy]) unless stub[:routing_strategy].nil?
+        data['RoutingStrategy'] = RoutingStrategy.stub(stub[:routing_strategy]) unless stub[:routing_strategy].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data
@@ -158,10 +160,10 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Build'] = Stubs::Build.stub(stub[:build]) unless stub[:build].nil?
-        data['UploadCredentials'] = Stubs::AwsCredentials.stub(stub[:upload_credentials]) unless stub[:upload_credentials].nil?
-        data['StorageLocation'] = Stubs::S3Location.stub(stub[:storage_location]) unless stub[:storage_location].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Build'] = Build.stub(stub[:build]) unless stub[:build].nil?
+        data['UploadCredentials'] = AwsCredentials.stub(stub[:upload_credentials]) unless stub[:upload_credentials].nil?
+        data['StorageLocation'] = S3Location.stub(stub[:storage_location]) unless stub[:storage_location].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -255,9 +257,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FleetAttributes'] = Stubs::FleetAttributes.stub(stub[:fleet_attributes]) unless stub[:fleet_attributes].nil?
-        data['LocationStates'] = Stubs::LocationStateList.stub(stub[:location_states]) unless stub[:location_states].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FleetAttributes'] = FleetAttributes.stub(stub[:fleet_attributes]) unless stub[:fleet_attributes].nil?
+        data['LocationStates'] = LocationStateList.stub(stub[:location_states]) unless stub[:location_states].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -276,7 +278,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LocationState.stub(element) unless element.nil?
+          data << LocationState.stub(element) unless element.nil?
         end
         data
       end
@@ -352,14 +354,14 @@ module AWS::SDK::GameLift
         data['ScriptArn'] = stub[:script_arn] unless stub[:script_arn].nil?
         data['ServerLaunchPath'] = stub[:server_launch_path] unless stub[:server_launch_path].nil?
         data['ServerLaunchParameters'] = stub[:server_launch_parameters] unless stub[:server_launch_parameters].nil?
-        data['LogPaths'] = Stubs::StringList.stub(stub[:log_paths]) unless stub[:log_paths].nil?
+        data['LogPaths'] = StringList.stub(stub[:log_paths]) unless stub[:log_paths].nil?
         data['NewGameSessionProtectionPolicy'] = stub[:new_game_session_protection_policy] unless stub[:new_game_session_protection_policy].nil?
         data['OperatingSystem'] = stub[:operating_system] unless stub[:operating_system].nil?
-        data['ResourceCreationLimitPolicy'] = Stubs::ResourceCreationLimitPolicy.stub(stub[:resource_creation_limit_policy]) unless stub[:resource_creation_limit_policy].nil?
-        data['MetricGroups'] = Stubs::MetricGroupList.stub(stub[:metric_groups]) unless stub[:metric_groups].nil?
-        data['StoppedActions'] = Stubs::FleetActionList.stub(stub[:stopped_actions]) unless stub[:stopped_actions].nil?
+        data['ResourceCreationLimitPolicy'] = ResourceCreationLimitPolicy.stub(stub[:resource_creation_limit_policy]) unless stub[:resource_creation_limit_policy].nil?
+        data['MetricGroups'] = MetricGroupList.stub(stub[:metric_groups]) unless stub[:metric_groups].nil?
+        data['StoppedActions'] = FleetActionList.stub(stub[:stopped_actions]) unless stub[:stopped_actions].nil?
         data['InstanceRoleArn'] = stub[:instance_role_arn] unless stub[:instance_role_arn].nil?
-        data['CertificateConfiguration'] = Stubs::CertificateConfiguration.stub(stub[:certificate_configuration]) unless stub[:certificate_configuration].nil?
+        data['CertificateConfiguration'] = CertificateConfiguration.stub(stub[:certificate_configuration]) unless stub[:certificate_configuration].nil?
         data
       end
     end
@@ -476,8 +478,8 @@ module AWS::SDK::GameLift
         data = {}
         data['FleetId'] = stub[:fleet_id] unless stub[:fleet_id].nil?
         data['FleetArn'] = stub[:fleet_arn] unless stub[:fleet_arn].nil?
-        data['LocationStates'] = Stubs::LocationStateList.stub(stub[:location_states]) unless stub[:location_states].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LocationStates'] = LocationStateList.stub(stub[:location_states]) unless stub[:location_states].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -492,8 +494,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameServerGroup'] = Stubs::GameServerGroup.stub(stub[:game_server_group]) unless stub[:game_server_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameServerGroup'] = GameServerGroup.stub(stub[:game_server_group]) unless stub[:game_server_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -525,13 +527,13 @@ module AWS::SDK::GameLift
         data['GameServerGroupName'] = stub[:game_server_group_name] unless stub[:game_server_group_name].nil?
         data['GameServerGroupArn'] = stub[:game_server_group_arn] unless stub[:game_server_group_arn].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['InstanceDefinitions'] = Stubs::InstanceDefinitions.stub(stub[:instance_definitions]) unless stub[:instance_definitions].nil?
+        data['InstanceDefinitions'] = InstanceDefinitions.stub(stub[:instance_definitions]) unless stub[:instance_definitions].nil?
         data['BalancingStrategy'] = stub[:balancing_strategy] unless stub[:balancing_strategy].nil?
         data['GameServerProtectionPolicy'] = stub[:game_server_protection_policy] unless stub[:game_server_protection_policy].nil?
         data['AutoScalingGroupArn'] = stub[:auto_scaling_group_arn] unless stub[:auto_scaling_group_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
-        data['SuspendedActions'] = Stubs::GameServerGroupActions.stub(stub[:suspended_actions]) unless stub[:suspended_actions].nil?
+        data['SuspendedActions'] = GameServerGroupActions.stub(stub[:suspended_actions]) unless stub[:suspended_actions].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data
@@ -572,7 +574,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceDefinition.stub(element) unless element.nil?
+          data << InstanceDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -608,8 +610,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameSession'] = Stubs::GameSession.stub(stub[:game_session]) unless stub[:game_session].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameSession'] = GameSession.stub(stub[:game_session]) unless stub[:game_session].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -655,7 +657,7 @@ module AWS::SDK::GameLift
         data['MaximumPlayerSessionCount'] = stub[:maximum_player_session_count] unless stub[:maximum_player_session_count].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
-        data['GameProperties'] = Stubs::GamePropertyList.stub(stub[:game_properties]) unless stub[:game_properties].nil?
+        data['GameProperties'] = GamePropertyList.stub(stub[:game_properties]) unless stub[:game_properties].nil?
         data['IpAddress'] = stub[:ip_address] unless stub[:ip_address].nil?
         data['DnsName'] = stub[:dns_name] unless stub[:dns_name].nil?
         data['Port'] = stub[:port] unless stub[:port].nil?
@@ -682,7 +684,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GameProperty.stub(element) unless element.nil?
+          data << GameProperty.stub(element) unless element.nil?
         end
         data
       end
@@ -718,8 +720,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameSessionQueue'] = Stubs::GameSessionQueue.stub(stub[:game_session_queue]) unless stub[:game_session_queue].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameSessionQueue'] = GameSessionQueue.stub(stub[:game_session_queue]) unless stub[:game_session_queue].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -748,10 +750,10 @@ module AWS::SDK::GameLift
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['GameSessionQueueArn'] = stub[:game_session_queue_arn] unless stub[:game_session_queue_arn].nil?
         data['TimeoutInSeconds'] = stub[:timeout_in_seconds] unless stub[:timeout_in_seconds].nil?
-        data['PlayerLatencyPolicies'] = Stubs::PlayerLatencyPolicyList.stub(stub[:player_latency_policies]) unless stub[:player_latency_policies].nil?
-        data['Destinations'] = Stubs::GameSessionQueueDestinationList.stub(stub[:destinations]) unless stub[:destinations].nil?
-        data['FilterConfiguration'] = Stubs::FilterConfiguration.stub(stub[:filter_configuration]) unless stub[:filter_configuration].nil?
-        data['PriorityConfiguration'] = Stubs::PriorityConfiguration.stub(stub[:priority_configuration]) unless stub[:priority_configuration].nil?
+        data['PlayerLatencyPolicies'] = PlayerLatencyPolicyList.stub(stub[:player_latency_policies]) unless stub[:player_latency_policies].nil?
+        data['Destinations'] = GameSessionQueueDestinationList.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['FilterConfiguration'] = FilterConfiguration.stub(stub[:filter_configuration]) unless stub[:filter_configuration].nil?
+        data['PriorityConfiguration'] = PriorityConfiguration.stub(stub[:priority_configuration]) unless stub[:priority_configuration].nil?
         data['CustomEventData'] = stub[:custom_event_data] unless stub[:custom_event_data].nil?
         data['NotificationTarget'] = stub[:notification_target] unless stub[:notification_target].nil?
         data
@@ -772,8 +774,8 @@ module AWS::SDK::GameLift
       def self.stub(stub)
         stub ||= Types::PriorityConfiguration.new
         data = {}
-        data['PriorityOrder'] = Stubs::PriorityTypeList.stub(stub[:priority_order]) unless stub[:priority_order].nil?
-        data['LocationOrder'] = Stubs::LocationList.stub(stub[:location_order]) unless stub[:location_order].nil?
+        data['PriorityOrder'] = PriorityTypeList.stub(stub[:priority_order]) unless stub[:priority_order].nil?
+        data['LocationOrder'] = LocationList.stub(stub[:location_order]) unless stub[:location_order].nil?
         data
       end
     end
@@ -831,7 +833,7 @@ module AWS::SDK::GameLift
       def self.stub(stub)
         stub ||= Types::FilterConfiguration.new
         data = {}
-        data['AllowedLocations'] = Stubs::LocationList.stub(stub[:allowed_locations]) unless stub[:allowed_locations].nil?
+        data['AllowedLocations'] = LocationList.stub(stub[:allowed_locations]) unless stub[:allowed_locations].nil?
         data
       end
     end
@@ -850,7 +852,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GameSessionQueueDestination.stub(element) unless element.nil?
+          data << GameSessionQueueDestination.stub(element) unless element.nil?
         end
         data
       end
@@ -888,7 +890,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PlayerLatencyPolicy.stub(element) unless element.nil?
+          data << PlayerLatencyPolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -924,8 +926,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Configuration'] = Stubs::MatchmakingConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Configuration'] = MatchmakingConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -962,7 +964,7 @@ module AWS::SDK::GameLift
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['ConfigurationArn'] = stub[:configuration_arn] unless stub[:configuration_arn].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['GameSessionQueueArns'] = Stubs::QueueArnsList.stub(stub[:game_session_queue_arns]) unless stub[:game_session_queue_arns].nil?
+        data['GameSessionQueueArns'] = QueueArnsList.stub(stub[:game_session_queue_arns]) unless stub[:game_session_queue_arns].nil?
         data['RequestTimeoutSeconds'] = stub[:request_timeout_seconds] unless stub[:request_timeout_seconds].nil?
         data['AcceptanceTimeoutSeconds'] = stub[:acceptance_timeout_seconds] unless stub[:acceptance_timeout_seconds].nil?
         data['AcceptanceRequired'] = stub[:acceptance_required] unless stub[:acceptance_required].nil?
@@ -972,7 +974,7 @@ module AWS::SDK::GameLift
         data['AdditionalPlayerCount'] = stub[:additional_player_count] unless stub[:additional_player_count].nil?
         data['CustomEventData'] = stub[:custom_event_data] unless stub[:custom_event_data].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['GameProperties'] = Stubs::GamePropertyList.stub(stub[:game_properties]) unless stub[:game_properties].nil?
+        data['GameProperties'] = GamePropertyList.stub(stub[:game_properties]) unless stub[:game_properties].nil?
         data['GameSessionData'] = stub[:game_session_data] unless stub[:game_session_data].nil?
         data['BackfillMode'] = stub[:backfill_mode] unless stub[:backfill_mode].nil?
         data['FlexMatchMode'] = stub[:flex_match_mode] unless stub[:flex_match_mode].nil?
@@ -1010,8 +1012,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RuleSet'] = Stubs::MatchmakingRuleSet.stub(stub[:rule_set]) unless stub[:rule_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RuleSet'] = MatchmakingRuleSet.stub(stub[:rule_set]) unless stub[:rule_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1050,8 +1052,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PlayerSession'] = Stubs::PlayerSession.stub(stub[:player_session]) unless stub[:player_session].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PlayerSession'] = PlayerSession.stub(stub[:player_session]) unless stub[:player_session].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1106,8 +1108,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PlayerSessions'] = Stubs::PlayerSessionList.stub(stub[:player_sessions]) unless stub[:player_sessions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PlayerSessions'] = PlayerSessionList.stub(stub[:player_sessions]) unless stub[:player_sessions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1126,7 +1128,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PlayerSession.stub(element) unless element.nil?
+          data << PlayerSession.stub(element) unless element.nil?
         end
         data
       end
@@ -1142,8 +1144,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Script'] = Stubs::Script.stub(stub[:script]) unless stub[:script].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Script'] = Script.stub(stub[:script]) unless stub[:script].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1173,7 +1175,7 @@ module AWS::SDK::GameLift
         data['Version'] = stub[:version] unless stub[:version].nil?
         data['SizeOnDisk'] = stub[:size_on_disk] unless stub[:size_on_disk].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['StorageLocation'] = Stubs::S3Location.stub(stub[:storage_location]) unless stub[:storage_location].nil?
+        data['StorageLocation'] = S3Location.stub(stub[:storage_location]) unless stub[:storage_location].nil?
         data
       end
     end
@@ -1188,8 +1190,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['VpcPeeringAuthorization'] = Stubs::VpcPeeringAuthorization.stub(stub[:vpc_peering_authorization]) unless stub[:vpc_peering_authorization].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcPeeringAuthorization'] = VpcPeeringAuthorization.stub(stub[:vpc_peering_authorization]) unless stub[:vpc_peering_authorization].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1229,7 +1231,7 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1243,7 +1245,7 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1257,7 +1259,7 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1271,7 +1273,7 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1290,8 +1292,8 @@ module AWS::SDK::GameLift
         data = {}
         data['FleetId'] = stub[:fleet_id] unless stub[:fleet_id].nil?
         data['FleetArn'] = stub[:fleet_arn] unless stub[:fleet_arn].nil?
-        data['LocationStates'] = Stubs::LocationStateList.stub(stub[:location_states]) unless stub[:location_states].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LocationStates'] = LocationStateList.stub(stub[:location_states]) unless stub[:location_states].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1306,8 +1308,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameServerGroup'] = Stubs::GameServerGroup.stub(stub[:game_server_group]) unless stub[:game_server_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameServerGroup'] = GameServerGroup.stub(stub[:game_server_group]) unless stub[:game_server_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1321,7 +1323,7 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1335,7 +1337,7 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1349,7 +1351,7 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1363,7 +1365,7 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1377,7 +1379,7 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1391,7 +1393,7 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1405,7 +1407,7 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1419,7 +1421,7 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1434,8 +1436,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Alias'] = Stubs::Alias.stub(stub[:alias]) unless stub[:alias].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Alias'] = Alias.stub(stub[:alias]) unless stub[:alias].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1450,8 +1452,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Build'] = Stubs::Build.stub(stub[:build]) unless stub[:build].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Build'] = Build.stub(stub[:build]) unless stub[:build].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1466,8 +1468,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EC2InstanceLimits'] = Stubs::EC2InstanceLimitList.stub(stub[:ec2_instance_limits]) unless stub[:ec2_instance_limits].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EC2InstanceLimits'] = EC2InstanceLimitList.stub(stub[:ec2_instance_limits]) unless stub[:ec2_instance_limits].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1486,7 +1488,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EC2InstanceLimit.stub(element) unless element.nil?
+          data << EC2InstanceLimit.stub(element) unless element.nil?
         end
         data
       end
@@ -1527,9 +1529,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FleetAttributes'] = Stubs::FleetAttributesList.stub(stub[:fleet_attributes]) unless stub[:fleet_attributes].nil?
+        data['FleetAttributes'] = FleetAttributesList.stub(stub[:fleet_attributes]) unless stub[:fleet_attributes].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1548,7 +1550,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FleetAttributes.stub(element) unless element.nil?
+          data << FleetAttributes.stub(element) unless element.nil?
         end
         data
       end
@@ -1565,9 +1567,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FleetCapacity'] = Stubs::FleetCapacityList.stub(stub[:fleet_capacity]) unless stub[:fleet_capacity].nil?
+        data['FleetCapacity'] = FleetCapacityList.stub(stub[:fleet_capacity]) unless stub[:fleet_capacity].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1586,7 +1588,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FleetCapacity.stub(element) unless element.nil?
+          data << FleetCapacity.stub(element) unless element.nil?
         end
         data
       end
@@ -1612,7 +1614,7 @@ module AWS::SDK::GameLift
         data['FleetId'] = stub[:fleet_id] unless stub[:fleet_id].nil?
         data['FleetArn'] = stub[:fleet_arn] unless stub[:fleet_arn].nil?
         data['InstanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
-        data['InstanceCounts'] = Stubs::EC2InstanceCounts.stub(stub[:instance_counts]) unless stub[:instance_counts].nil?
+        data['InstanceCounts'] = EC2InstanceCounts.stub(stub[:instance_counts]) unless stub[:instance_counts].nil?
         data['Location'] = stub[:location] unless stub[:location].nil?
         data
       end
@@ -1659,9 +1661,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Events'] = Stubs::EventList.stub(stub[:events]) unless stub[:events].nil?
+        data['Events'] = EventList.stub(stub[:events]) unless stub[:events].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1680,7 +1682,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Event.stub(element) unless element.nil?
+          data << Event.stub(element) unless element.nil?
         end
         data
       end
@@ -1729,9 +1731,9 @@ module AWS::SDK::GameLift
         data = {}
         data['FleetId'] = stub[:fleet_id] unless stub[:fleet_id].nil?
         data['FleetArn'] = stub[:fleet_arn] unless stub[:fleet_arn].nil?
-        data['LocationAttributes'] = Stubs::LocationAttributesList.stub(stub[:location_attributes]) unless stub[:location_attributes].nil?
+        data['LocationAttributes'] = LocationAttributesList.stub(stub[:location_attributes]) unless stub[:location_attributes].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1750,7 +1752,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LocationAttributes.stub(element) unless element.nil?
+          data << LocationAttributes.stub(element) unless element.nil?
         end
         data
       end
@@ -1771,8 +1773,8 @@ module AWS::SDK::GameLift
       def self.stub(stub)
         stub ||= Types::LocationAttributes.new
         data = {}
-        data['LocationState'] = Stubs::LocationState.stub(stub[:location_state]) unless stub[:location_state].nil?
-        data['StoppedActions'] = Stubs::FleetActionList.stub(stub[:stopped_actions]) unless stub[:stopped_actions].nil?
+        data['LocationState'] = LocationState.stub(stub[:location_state]) unless stub[:location_state].nil?
+        data['StoppedActions'] = FleetActionList.stub(stub[:stopped_actions]) unless stub[:stopped_actions].nil?
         data['UpdateStatus'] = stub[:update_status] unless stub[:update_status].nil?
         data
       end
@@ -1788,8 +1790,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FleetCapacity'] = Stubs::FleetCapacity.stub(stub[:fleet_capacity]) unless stub[:fleet_capacity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FleetCapacity'] = FleetCapacity.stub(stub[:fleet_capacity]) unless stub[:fleet_capacity].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1804,8 +1806,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FleetUtilization'] = Stubs::FleetUtilization.stub(stub[:fleet_utilization]) unless stub[:fleet_utilization].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FleetUtilization'] = FleetUtilization.stub(stub[:fleet_utilization]) unless stub[:fleet_utilization].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1856,10 +1858,10 @@ module AWS::SDK::GameLift
         data = {}
         data['FleetId'] = stub[:fleet_id] unless stub[:fleet_id].nil?
         data['FleetArn'] = stub[:fleet_arn] unless stub[:fleet_arn].nil?
-        data['InboundPermissions'] = Stubs::IpPermissionsList.stub(stub[:inbound_permissions]) unless stub[:inbound_permissions].nil?
+        data['InboundPermissions'] = IpPermissionsList.stub(stub[:inbound_permissions]) unless stub[:inbound_permissions].nil?
         data['UpdateStatus'] = stub[:update_status] unless stub[:update_status].nil?
         data['Location'] = stub[:location] unless stub[:location].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1878,7 +1880,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IpPermission.stub(element) unless element.nil?
+          data << IpPermission.stub(element) unless element.nil?
         end
         data
       end
@@ -1919,9 +1921,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FleetUtilization'] = Stubs::FleetUtilizationList.stub(stub[:fleet_utilization]) unless stub[:fleet_utilization].nil?
+        data['FleetUtilization'] = FleetUtilizationList.stub(stub[:fleet_utilization]) unless stub[:fleet_utilization].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1940,7 +1942,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FleetUtilization.stub(element) unless element.nil?
+          data << FleetUtilization.stub(element) unless element.nil?
         end
         data
       end
@@ -1956,8 +1958,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameServer'] = Stubs::GameServer.stub(stub[:game_server]) unless stub[:game_server].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameServer'] = GameServer.stub(stub[:game_server]) unless stub[:game_server].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1972,8 +1974,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameServerGroup'] = Stubs::GameServerGroup.stub(stub[:game_server_group]) unless stub[:game_server_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameServerGroup'] = GameServerGroup.stub(stub[:game_server_group]) unless stub[:game_server_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1989,9 +1991,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameServerInstances'] = Stubs::GameServerInstances.stub(stub[:game_server_instances]) unless stub[:game_server_instances].nil?
+        data['GameServerInstances'] = GameServerInstances.stub(stub[:game_server_instances]) unless stub[:game_server_instances].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2010,7 +2012,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GameServerInstance.stub(element) unless element.nil?
+          data << GameServerInstance.stub(element) unless element.nil?
         end
         data
       end
@@ -2051,9 +2053,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameSessionDetails'] = Stubs::GameSessionDetailList.stub(stub[:game_session_details]) unless stub[:game_session_details].nil?
+        data['GameSessionDetails'] = GameSessionDetailList.stub(stub[:game_session_details]) unless stub[:game_session_details].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2072,7 +2074,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GameSessionDetail.stub(element) unless element.nil?
+          data << GameSessionDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -2092,7 +2094,7 @@ module AWS::SDK::GameLift
       def self.stub(stub)
         stub ||= Types::GameSessionDetail.new
         data = {}
-        data['GameSession'] = Stubs::GameSession.stub(stub[:game_session]) unless stub[:game_session].nil?
+        data['GameSession'] = GameSession.stub(stub[:game_session]) unless stub[:game_session].nil?
         data['ProtectionPolicy'] = stub[:protection_policy] unless stub[:protection_policy].nil?
         data
       end
@@ -2108,8 +2110,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameSessionPlacement'] = Stubs::GameSessionPlacement.stub(stub[:game_session_placement]) unless stub[:game_session_placement].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameSessionPlacement'] = GameSessionPlacement.stub(stub[:game_session_placement]) unless stub[:game_session_placement].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2147,19 +2149,19 @@ module AWS::SDK::GameLift
         data['PlacementId'] = stub[:placement_id] unless stub[:placement_id].nil?
         data['GameSessionQueueName'] = stub[:game_session_queue_name] unless stub[:game_session_queue_name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['GameProperties'] = Stubs::GamePropertyList.stub(stub[:game_properties]) unless stub[:game_properties].nil?
+        data['GameProperties'] = GamePropertyList.stub(stub[:game_properties]) unless stub[:game_properties].nil?
         data['MaximumPlayerSessionCount'] = stub[:maximum_player_session_count] unless stub[:maximum_player_session_count].nil?
         data['GameSessionName'] = stub[:game_session_name] unless stub[:game_session_name].nil?
         data['GameSessionId'] = stub[:game_session_id] unless stub[:game_session_id].nil?
         data['GameSessionArn'] = stub[:game_session_arn] unless stub[:game_session_arn].nil?
         data['GameSessionRegion'] = stub[:game_session_region] unless stub[:game_session_region].nil?
-        data['PlayerLatencies'] = Stubs::PlayerLatencyList.stub(stub[:player_latencies]) unless stub[:player_latencies].nil?
+        data['PlayerLatencies'] = PlayerLatencyList.stub(stub[:player_latencies]) unless stub[:player_latencies].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['IpAddress'] = stub[:ip_address] unless stub[:ip_address].nil?
         data['DnsName'] = stub[:dns_name] unless stub[:dns_name].nil?
         data['Port'] = stub[:port] unless stub[:port].nil?
-        data['PlacedPlayerSessions'] = Stubs::PlacedPlayerSessionList.stub(stub[:placed_player_sessions]) unless stub[:placed_player_sessions].nil?
+        data['PlacedPlayerSessions'] = PlacedPlayerSessionList.stub(stub[:placed_player_sessions]) unless stub[:placed_player_sessions].nil?
         data['GameSessionData'] = stub[:game_session_data] unless stub[:game_session_data].nil?
         data['MatchmakerData'] = stub[:matchmaker_data] unless stub[:matchmaker_data].nil?
         data
@@ -2180,7 +2182,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PlacedPlayerSession.stub(element) unless element.nil?
+          data << PlacedPlayerSession.stub(element) unless element.nil?
         end
         data
       end
@@ -2220,7 +2222,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PlayerLatency.stub(element) unless element.nil?
+          data << PlayerLatency.stub(element) unless element.nil?
         end
         data
       end
@@ -2259,9 +2261,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameSessionQueues'] = Stubs::GameSessionQueueList.stub(stub[:game_session_queues]) unless stub[:game_session_queues].nil?
+        data['GameSessionQueues'] = GameSessionQueueList.stub(stub[:game_session_queues]) unless stub[:game_session_queues].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2280,7 +2282,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GameSessionQueue.stub(element) unless element.nil?
+          data << GameSessionQueue.stub(element) unless element.nil?
         end
         data
       end
@@ -2297,9 +2299,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameSessions'] = Stubs::GameSessionList.stub(stub[:game_sessions]) unless stub[:game_sessions].nil?
+        data['GameSessions'] = GameSessionList.stub(stub[:game_sessions]) unless stub[:game_sessions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2318,7 +2320,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GameSession.stub(element) unless element.nil?
+          data << GameSession.stub(element) unless element.nil?
         end
         data
       end
@@ -2335,9 +2337,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Instances'] = Stubs::InstanceList.stub(stub[:instances]) unless stub[:instances].nil?
+        data['Instances'] = InstanceList.stub(stub[:instances]) unless stub[:instances].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2356,7 +2358,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Instance.stub(element) unless element.nil?
+          data << Instance.stub(element) unless element.nil?
         end
         data
       end
@@ -2408,8 +2410,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TicketList'] = Stubs::MatchmakingTicketList.stub(stub[:ticket_list]) unless stub[:ticket_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TicketList'] = MatchmakingTicketList.stub(stub[:ticket_list]) unless stub[:ticket_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2428,7 +2430,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MatchmakingTicket.stub(element) unless element.nil?
+          data << MatchmakingTicket.stub(element) unless element.nil?
         end
         data
       end
@@ -2465,8 +2467,8 @@ module AWS::SDK::GameLift
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['Players'] = Stubs::PlayerList.stub(stub[:players]) unless stub[:players].nil?
-        data['GameSessionConnectionInfo'] = Stubs::GameSessionConnectionInfo.stub(stub[:game_session_connection_info]) unless stub[:game_session_connection_info].nil?
+        data['Players'] = PlayerList.stub(stub[:players]) unless stub[:players].nil?
+        data['GameSessionConnectionInfo'] = GameSessionConnectionInfo.stub(stub[:game_session_connection_info]) unless stub[:game_session_connection_info].nil?
         data['EstimatedWaitTime'] = stub[:estimated_wait_time] unless stub[:estimated_wait_time].nil?
         data
       end
@@ -2493,7 +2495,7 @@ module AWS::SDK::GameLift
         data['IpAddress'] = stub[:ip_address] unless stub[:ip_address].nil?
         data['DnsName'] = stub[:dns_name] unless stub[:dns_name].nil?
         data['Port'] = stub[:port] unless stub[:port].nil?
-        data['MatchedPlayerSessions'] = Stubs::MatchedPlayerSessionList.stub(stub[:matched_player_sessions]) unless stub[:matched_player_sessions].nil?
+        data['MatchedPlayerSessions'] = MatchedPlayerSessionList.stub(stub[:matched_player_sessions]) unless stub[:matched_player_sessions].nil?
         data
       end
     end
@@ -2512,7 +2514,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MatchedPlayerSession.stub(element) unless element.nil?
+          data << MatchedPlayerSession.stub(element) unless element.nil?
         end
         data
       end
@@ -2552,7 +2554,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Player.stub(element) unless element.nil?
+          data << Player.stub(element) unless element.nil?
         end
         data
       end
@@ -2575,9 +2577,9 @@ module AWS::SDK::GameLift
         stub ||= Types::Player.new
         data = {}
         data['PlayerId'] = stub[:player_id] unless stub[:player_id].nil?
-        data['PlayerAttributes'] = Stubs::PlayerAttributeMap.stub(stub[:player_attributes]) unless stub[:player_attributes].nil?
+        data['PlayerAttributes'] = PlayerAttributeMap.stub(stub[:player_attributes]) unless stub[:player_attributes].nil?
         data['Team'] = stub[:team] unless stub[:team].nil?
-        data['LatencyInMs'] = Stubs::LatencyMap.stub(stub[:latency_in_ms]) unless stub[:latency_in_ms].nil?
+        data['LatencyInMs'] = LatencyMap.stub(stub[:latency_in_ms]) unless stub[:latency_in_ms].nil?
         data
       end
     end
@@ -2616,7 +2618,7 @@ module AWS::SDK::GameLift
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::AttributeValue.stub(value) unless value.nil?
+          data[key] = AttributeValue.stub(value) unless value.nil?
         end
         data
       end
@@ -2640,8 +2642,8 @@ module AWS::SDK::GameLift
         data = {}
         data['S'] = stub[:s] unless stub[:s].nil?
         data['N'] = Hearth::NumberHelper.serialize(stub[:n])
-        data['SL'] = Stubs::StringList.stub(stub[:sl]) unless stub[:sl].nil?
-        data['SDM'] = Stubs::StringDoubleMap.stub(stub[:sdm]) unless stub[:sdm].nil?
+        data['SL'] = StringList.stub(stub[:sl]) unless stub[:sl].nil?
+        data['SDM'] = StringDoubleMap.stub(stub[:sdm]) unless stub[:sdm].nil?
         data
       end
     end
@@ -2677,9 +2679,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Configurations'] = Stubs::MatchmakingConfigurationList.stub(stub[:configurations]) unless stub[:configurations].nil?
+        data['Configurations'] = MatchmakingConfigurationList.stub(stub[:configurations]) unless stub[:configurations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2698,7 +2700,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MatchmakingConfiguration.stub(element) unless element.nil?
+          data << MatchmakingConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -2715,9 +2717,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RuleSets'] = Stubs::MatchmakingRuleSetList.stub(stub[:rule_sets]) unless stub[:rule_sets].nil?
+        data['RuleSets'] = MatchmakingRuleSetList.stub(stub[:rule_sets]) unless stub[:rule_sets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2736,7 +2738,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MatchmakingRuleSet.stub(element) unless element.nil?
+          data << MatchmakingRuleSet.stub(element) unless element.nil?
         end
         data
       end
@@ -2753,9 +2755,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PlayerSessions'] = Stubs::PlayerSessionList.stub(stub[:player_sessions]) unless stub[:player_sessions].nil?
+        data['PlayerSessions'] = PlayerSessionList.stub(stub[:player_sessions]) unless stub[:player_sessions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2770,8 +2772,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RuntimeConfiguration'] = Stubs::RuntimeConfiguration.stub(stub[:runtime_configuration]) unless stub[:runtime_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RuntimeConfiguration'] = RuntimeConfiguration.stub(stub[:runtime_configuration]) unless stub[:runtime_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2791,7 +2793,7 @@ module AWS::SDK::GameLift
       def self.stub(stub)
         stub ||= Types::RuntimeConfiguration.new
         data = {}
-        data['ServerProcesses'] = Stubs::ServerProcessList.stub(stub[:server_processes]) unless stub[:server_processes].nil?
+        data['ServerProcesses'] = ServerProcessList.stub(stub[:server_processes]) unless stub[:server_processes].nil?
         data['MaxConcurrentGameSessionActivations'] = stub[:max_concurrent_game_session_activations] unless stub[:max_concurrent_game_session_activations].nil?
         data['GameSessionActivationTimeoutSeconds'] = stub[:game_session_activation_timeout_seconds] unless stub[:game_session_activation_timeout_seconds].nil?
         data
@@ -2812,7 +2814,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServerProcess.stub(element) unless element.nil?
+          data << ServerProcess.stub(element) unless element.nil?
         end
         data
       end
@@ -2851,9 +2853,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ScalingPolicies'] = Stubs::ScalingPolicyList.stub(stub[:scaling_policies]) unless stub[:scaling_policies].nil?
+        data['ScalingPolicies'] = ScalingPolicyList.stub(stub[:scaling_policies]) unless stub[:scaling_policies].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2872,7 +2874,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScalingPolicy.stub(element) unless element.nil?
+          data << ScalingPolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -2915,7 +2917,7 @@ module AWS::SDK::GameLift
         data['EvaluationPeriods'] = stub[:evaluation_periods] unless stub[:evaluation_periods].nil?
         data['MetricName'] = stub[:metric_name] unless stub[:metric_name].nil?
         data['PolicyType'] = stub[:policy_type] unless stub[:policy_type].nil?
-        data['TargetConfiguration'] = Stubs::TargetConfiguration.stub(stub[:target_configuration]) unless stub[:target_configuration].nil?
+        data['TargetConfiguration'] = TargetConfiguration.stub(stub[:target_configuration]) unless stub[:target_configuration].nil?
         data['UpdateStatus'] = stub[:update_status] unless stub[:update_status].nil?
         data['Location'] = stub[:location] unless stub[:location].nil?
         data
@@ -2950,8 +2952,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Script'] = Stubs::Script.stub(stub[:script]) unless stub[:script].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Script'] = Script.stub(stub[:script]) unless stub[:script].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2966,8 +2968,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['VpcPeeringAuthorizations'] = Stubs::VpcPeeringAuthorizationList.stub(stub[:vpc_peering_authorizations]) unless stub[:vpc_peering_authorizations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcPeeringAuthorizations'] = VpcPeeringAuthorizationList.stub(stub[:vpc_peering_authorizations]) unless stub[:vpc_peering_authorizations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2986,7 +2988,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VpcPeeringAuthorization.stub(element) unless element.nil?
+          data << VpcPeeringAuthorization.stub(element) unless element.nil?
         end
         data
       end
@@ -3002,8 +3004,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['VpcPeeringConnections'] = Stubs::VpcPeeringConnectionList.stub(stub[:vpc_peering_connections]) unless stub[:vpc_peering_connections].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcPeeringConnections'] = VpcPeeringConnectionList.stub(stub[:vpc_peering_connections]) unless stub[:vpc_peering_connections].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3022,7 +3024,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VpcPeeringConnection.stub(element) unless element.nil?
+          data << VpcPeeringConnection.stub(element) unless element.nil?
         end
         data
       end
@@ -3051,7 +3053,7 @@ module AWS::SDK::GameLift
         data['FleetArn'] = stub[:fleet_arn] unless stub[:fleet_arn].nil?
         data['IpV4CidrBlock'] = stub[:ip_v4_cidr_block] unless stub[:ip_v4_cidr_block].nil?
         data['VpcPeeringConnectionId'] = stub[:vpc_peering_connection_id] unless stub[:vpc_peering_connection_id].nil?
-        data['Status'] = Stubs::VpcPeeringConnectionStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Status'] = VpcPeeringConnectionStatus.stub(stub[:status]) unless stub[:status].nil?
         data['PeerVpcId'] = stub[:peer_vpc_id] unless stub[:peer_vpc_id].nil?
         data['GameLiftVpcId'] = stub[:game_lift_vpc_id] unless stub[:game_lift_vpc_id].nil?
         data
@@ -3089,7 +3091,7 @@ module AWS::SDK::GameLift
       def self.stub(http_resp, stub:)
         data = {}
         data['PreSignedUrl'] = stub[:pre_signed_url] unless stub[:pre_signed_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3104,8 +3106,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['InstanceAccess'] = Stubs::InstanceAccess.stub(stub[:instance_access]) unless stub[:instance_access].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InstanceAccess'] = InstanceAccess.stub(stub[:instance_access]) unless stub[:instance_access].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3131,7 +3133,7 @@ module AWS::SDK::GameLift
         data['InstanceId'] = stub[:instance_id] unless stub[:instance_id].nil?
         data['IpAddress'] = stub[:ip_address] unless stub[:ip_address].nil?
         data['OperatingSystem'] = stub[:operating_system] unless stub[:operating_system].nil?
-        data['Credentials'] = Stubs::InstanceCredentials.stub(stub[:credentials]) unless stub[:credentials].nil?
+        data['Credentials'] = InstanceCredentials.stub(stub[:credentials]) unless stub[:credentials].nil?
         data
       end
     end
@@ -3167,9 +3169,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Aliases'] = Stubs::AliasList.stub(stub[:aliases]) unless stub[:aliases].nil?
+        data['Aliases'] = AliasList.stub(stub[:aliases]) unless stub[:aliases].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3188,7 +3190,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Alias.stub(element) unless element.nil?
+          data << Alias.stub(element) unless element.nil?
         end
         data
       end
@@ -3205,9 +3207,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Builds'] = Stubs::BuildList.stub(stub[:builds]) unless stub[:builds].nil?
+        data['Builds'] = BuildList.stub(stub[:builds]) unless stub[:builds].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3226,7 +3228,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Build.stub(element) unless element.nil?
+          data << Build.stub(element) unless element.nil?
         end
         data
       end
@@ -3243,9 +3245,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FleetIds'] = Stubs::FleetIdList.stub(stub[:fleet_ids]) unless stub[:fleet_ids].nil?
+        data['FleetIds'] = FleetIdList.stub(stub[:fleet_ids]) unless stub[:fleet_ids].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3281,9 +3283,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameServerGroups'] = Stubs::GameServerGroups.stub(stub[:game_server_groups]) unless stub[:game_server_groups].nil?
+        data['GameServerGroups'] = GameServerGroups.stub(stub[:game_server_groups]) unless stub[:game_server_groups].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3302,7 +3304,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GameServerGroup.stub(element) unless element.nil?
+          data << GameServerGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -3319,9 +3321,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameServers'] = Stubs::GameServers.stub(stub[:game_servers]) unless stub[:game_servers].nil?
+        data['GameServers'] = GameServers.stub(stub[:game_servers]) unless stub[:game_servers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3340,7 +3342,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GameServer.stub(element) unless element.nil?
+          data << GameServer.stub(element) unless element.nil?
         end
         data
       end
@@ -3357,9 +3359,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Scripts'] = Stubs::ScriptList.stub(stub[:scripts]) unless stub[:scripts].nil?
+        data['Scripts'] = ScriptList.stub(stub[:scripts]) unless stub[:scripts].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3378,7 +3380,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Script.stub(element) unless element.nil?
+          data << Script.stub(element) unless element.nil?
         end
         data
       end
@@ -3394,8 +3396,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3414,7 +3416,7 @@ module AWS::SDK::GameLift
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -3451,7 +3453,7 @@ module AWS::SDK::GameLift
       def self.stub(http_resp, stub:)
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3466,8 +3468,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameServer'] = Stubs::GameServer.stub(stub[:game_server]) unless stub[:game_server].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameServer'] = GameServer.stub(stub[:game_server]) unless stub[:game_server].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3483,9 +3485,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['UploadCredentials'] = Stubs::AwsCredentials.stub(stub[:upload_credentials]) unless stub[:upload_credentials].nil?
-        data['StorageLocation'] = Stubs::S3Location.stub(stub[:storage_location]) unless stub[:storage_location].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UploadCredentials'] = AwsCredentials.stub(stub[:upload_credentials]) unless stub[:upload_credentials].nil?
+        data['StorageLocation'] = S3Location.stub(stub[:storage_location]) unless stub[:storage_location].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3503,7 +3505,7 @@ module AWS::SDK::GameLift
         data = {}
         data['FleetId'] = stub[:fleet_id] unless stub[:fleet_id].nil?
         data['FleetArn'] = stub[:fleet_arn] unless stub[:fleet_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3518,8 +3520,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameServerGroup'] = Stubs::GameServerGroup.stub(stub[:game_server_group]) unless stub[:game_server_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameServerGroup'] = GameServerGroup.stub(stub[:game_server_group]) unless stub[:game_server_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3535,9 +3537,9 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameSessions'] = Stubs::GameSessionList.stub(stub[:game_sessions]) unless stub[:game_sessions].nil?
+        data['GameSessions'] = GameSessionList.stub(stub[:game_sessions]) unless stub[:game_sessions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3555,7 +3557,7 @@ module AWS::SDK::GameLift
         data = {}
         data['FleetId'] = stub[:fleet_id] unless stub[:fleet_id].nil?
         data['FleetArn'] = stub[:fleet_arn] unless stub[:fleet_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3570,8 +3572,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameSessionPlacement'] = Stubs::GameSessionPlacement.stub(stub[:game_session_placement]) unless stub[:game_session_placement].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameSessionPlacement'] = GameSessionPlacement.stub(stub[:game_session_placement]) unless stub[:game_session_placement].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3586,8 +3588,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['MatchmakingTicket'] = Stubs::MatchmakingTicket.stub(stub[:matchmaking_ticket]) unless stub[:matchmaking_ticket].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MatchmakingTicket'] = MatchmakingTicket.stub(stub[:matchmaking_ticket]) unless stub[:matchmaking_ticket].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3602,8 +3604,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['MatchmakingTicket'] = Stubs::MatchmakingTicket.stub(stub[:matchmaking_ticket]) unless stub[:matchmaking_ticket].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MatchmakingTicket'] = MatchmakingTicket.stub(stub[:matchmaking_ticket]) unless stub[:matchmaking_ticket].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3621,7 +3623,7 @@ module AWS::SDK::GameLift
         data = {}
         data['FleetId'] = stub[:fleet_id] unless stub[:fleet_id].nil?
         data['FleetArn'] = stub[:fleet_arn] unless stub[:fleet_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3636,8 +3638,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameSessionPlacement'] = Stubs::GameSessionPlacement.stub(stub[:game_session_placement]) unless stub[:game_session_placement].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameSessionPlacement'] = GameSessionPlacement.stub(stub[:game_session_placement]) unless stub[:game_session_placement].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3651,7 +3653,7 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3666,8 +3668,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameServerGroup'] = Stubs::GameServerGroup.stub(stub[:game_server_group]) unless stub[:game_server_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameServerGroup'] = GameServerGroup.stub(stub[:game_server_group]) unless stub[:game_server_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3681,7 +3683,7 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3695,7 +3697,7 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3710,8 +3712,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Alias'] = Stubs::Alias.stub(stub[:alias]) unless stub[:alias].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Alias'] = Alias.stub(stub[:alias]) unless stub[:alias].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3726,8 +3728,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Build'] = Stubs::Build.stub(stub[:build]) unless stub[:build].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Build'] = Build.stub(stub[:build]) unless stub[:build].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3743,7 +3745,7 @@ module AWS::SDK::GameLift
       def self.stub(http_resp, stub:)
         data = {}
         data['FleetId'] = stub[:fleet_id] unless stub[:fleet_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3763,7 +3765,7 @@ module AWS::SDK::GameLift
         data['FleetId'] = stub[:fleet_id] unless stub[:fleet_id].nil?
         data['FleetArn'] = stub[:fleet_arn] unless stub[:fleet_arn].nil?
         data['Location'] = stub[:location] unless stub[:location].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3779,7 +3781,7 @@ module AWS::SDK::GameLift
       def self.stub(http_resp, stub:)
         data = {}
         data['FleetId'] = stub[:fleet_id] unless stub[:fleet_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3794,8 +3796,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameServer'] = Stubs::GameServer.stub(stub[:game_server]) unless stub[:game_server].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameServer'] = GameServer.stub(stub[:game_server]) unless stub[:game_server].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3810,8 +3812,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameServerGroup'] = Stubs::GameServerGroup.stub(stub[:game_server_group]) unless stub[:game_server_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameServerGroup'] = GameServerGroup.stub(stub[:game_server_group]) unless stub[:game_server_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3826,8 +3828,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameSession'] = Stubs::GameSession.stub(stub[:game_session]) unless stub[:game_session].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameSession'] = GameSession.stub(stub[:game_session]) unless stub[:game_session].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3842,8 +3844,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GameSessionQueue'] = Stubs::GameSessionQueue.stub(stub[:game_session_queue]) unless stub[:game_session_queue].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameSessionQueue'] = GameSessionQueue.stub(stub[:game_session_queue]) unless stub[:game_session_queue].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3858,8 +3860,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Configuration'] = Stubs::MatchmakingConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Configuration'] = MatchmakingConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3874,8 +3876,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RuntimeConfiguration'] = Stubs::RuntimeConfiguration.stub(stub[:runtime_configuration]) unless stub[:runtime_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RuntimeConfiguration'] = RuntimeConfiguration.stub(stub[:runtime_configuration]) unless stub[:runtime_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3890,8 +3892,8 @@ module AWS::SDK::GameLift
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Script'] = Stubs::Script.stub(stub[:script]) unless stub[:script].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Script'] = Script.stub(stub[:script]) unless stub[:script].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3907,7 +3909,7 @@ module AWS::SDK::GameLift
       def self.stub(http_resp, stub:)
         data = {}
         data['Valid'] = stub[:valid] unless stub[:valid].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

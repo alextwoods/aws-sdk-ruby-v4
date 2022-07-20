@@ -17,9 +17,9 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.source_image_face = (Parsers::ComparedSourceImageFace.parse(map['SourceImageFace']) unless map['SourceImageFace'].nil?)
-        data.face_matches = (Parsers::CompareFacesMatchList.parse(map['FaceMatches']) unless map['FaceMatches'].nil?)
-        data.unmatched_faces = (Parsers::CompareFacesUnmatchList.parse(map['UnmatchedFaces']) unless map['UnmatchedFaces'].nil?)
+        data.source_image_face = (ComparedSourceImageFace.parse(map['SourceImageFace']) unless map['SourceImageFace'].nil?)
+        data.face_matches = (CompareFacesMatchList.parse(map['FaceMatches']) unless map['FaceMatches'].nil?)
+        data.unmatched_faces = (CompareFacesUnmatchList.parse(map['UnmatchedFaces']) unless map['UnmatchedFaces'].nil?)
         data.source_image_orientation_correction = map['SourceImageOrientationCorrection']
         data.target_image_orientation_correction = map['TargetImageOrientationCorrection']
         data
@@ -29,7 +29,7 @@ module AWS::SDK::Rekognition
     class CompareFacesUnmatchList
       def self.parse(list)
         list.map do |value|
-          Parsers::ComparedFace.parse(value) unless value.nil?
+          ComparedFace.parse(value) unless value.nil?
         end
       end
     end
@@ -37,13 +37,13 @@ module AWS::SDK::Rekognition
     class ComparedFace
       def self.parse(map)
         data = Types::ComparedFace.new
-        data.bounding_box = (Parsers::BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
+        data.bounding_box = (BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
         data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
-        data.landmarks = (Parsers::Landmarks.parse(map['Landmarks']) unless map['Landmarks'].nil?)
-        data.pose = (Parsers::Pose.parse(map['Pose']) unless map['Pose'].nil?)
-        data.quality = (Parsers::ImageQuality.parse(map['Quality']) unless map['Quality'].nil?)
-        data.emotions = (Parsers::Emotions.parse(map['Emotions']) unless map['Emotions'].nil?)
-        data.smile = (Parsers::Smile.parse(map['Smile']) unless map['Smile'].nil?)
+        data.landmarks = (Landmarks.parse(map['Landmarks']) unless map['Landmarks'].nil?)
+        data.pose = (Pose.parse(map['Pose']) unless map['Pose'].nil?)
+        data.quality = (ImageQuality.parse(map['Quality']) unless map['Quality'].nil?)
+        data.emotions = (Emotions.parse(map['Emotions']) unless map['Emotions'].nil?)
+        data.smile = (Smile.parse(map['Smile']) unless map['Smile'].nil?)
         return data
       end
     end
@@ -60,7 +60,7 @@ module AWS::SDK::Rekognition
     class Emotions
       def self.parse(list)
         list.map do |value|
-          Parsers::Emotion.parse(value) unless value.nil?
+          Emotion.parse(value) unless value.nil?
         end
       end
     end
@@ -96,7 +96,7 @@ module AWS::SDK::Rekognition
     class Landmarks
       def self.parse(list)
         list.map do |value|
-          Parsers::Landmark.parse(value) unless value.nil?
+          Landmark.parse(value) unless value.nil?
         end
       end
     end
@@ -125,7 +125,7 @@ module AWS::SDK::Rekognition
     class CompareFacesMatchList
       def self.parse(list)
         list.map do |value|
-          Parsers::CompareFacesMatch.parse(value) unless value.nil?
+          CompareFacesMatch.parse(value) unless value.nil?
         end
       end
     end
@@ -134,7 +134,7 @@ module AWS::SDK::Rekognition
       def self.parse(map)
         data = Types::CompareFacesMatch.new
         data.similarity = Hearth::NumberHelper.deserialize(map['Similarity'])
-        data.face = (Parsers::ComparedFace.parse(map['Face']) unless map['Face'].nil?)
+        data.face = (ComparedFace.parse(map['Face']) unless map['Face'].nil?)
         return data
       end
     end
@@ -142,7 +142,7 @@ module AWS::SDK::Rekognition
     class ComparedSourceImageFace
       def self.parse(map)
         data = Types::ComparedSourceImageFace.new
-        data.bounding_box = (Parsers::BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
+        data.bounding_box = (BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
         data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
         return data
       end
@@ -422,7 +422,7 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.deleted_faces = (Parsers::FaceIdList.parse(map['DeletedFaces']) unless map['DeletedFaces'].nil?)
+        data.deleted_faces = (FaceIdList.parse(map['DeletedFaces']) unless map['DeletedFaces'].nil?)
         data
       end
     end
@@ -492,7 +492,7 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dataset_description = (Parsers::DatasetDescription.parse(map['DatasetDescription']) unless map['DatasetDescription'].nil?)
+        data.dataset_description = (DatasetDescription.parse(map['DatasetDescription']) unless map['DatasetDescription'].nil?)
         data
       end
     end
@@ -505,7 +505,7 @@ module AWS::SDK::Rekognition
         data.status = map['Status']
         data.status_message = map['StatusMessage']
         data.status_message_code = map['StatusMessageCode']
-        data.dataset_stats = (Parsers::DatasetStats.parse(map['DatasetStats']) unless map['DatasetStats'].nil?)
+        data.dataset_stats = (DatasetStats.parse(map['DatasetStats']) unless map['DatasetStats'].nil?)
         return data
       end
     end
@@ -528,7 +528,7 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.project_version_descriptions = (Parsers::ProjectVersionDescriptions.parse(map['ProjectVersionDescriptions']) unless map['ProjectVersionDescriptions'].nil?)
+        data.project_version_descriptions = (ProjectVersionDescriptions.parse(map['ProjectVersionDescriptions']) unless map['ProjectVersionDescriptions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -537,7 +537,7 @@ module AWS::SDK::Rekognition
     class ProjectVersionDescriptions
       def self.parse(list)
         list.map do |value|
-          Parsers::ProjectVersionDescription.parse(value) unless value.nil?
+          ProjectVersionDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -552,11 +552,11 @@ module AWS::SDK::Rekognition
         data.status_message = map['StatusMessage']
         data.billable_training_time_in_seconds = map['BillableTrainingTimeInSeconds']
         data.training_end_timestamp = Time.at(map['TrainingEndTimestamp'].to_i) if map['TrainingEndTimestamp']
-        data.output_config = (Parsers::OutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
-        data.training_data_result = (Parsers::TrainingDataResult.parse(map['TrainingDataResult']) unless map['TrainingDataResult'].nil?)
-        data.testing_data_result = (Parsers::TestingDataResult.parse(map['TestingDataResult']) unless map['TestingDataResult'].nil?)
-        data.evaluation_result = (Parsers::EvaluationResult.parse(map['EvaluationResult']) unless map['EvaluationResult'].nil?)
-        data.manifest_summary = (Parsers::GroundTruthManifest.parse(map['ManifestSummary']) unless map['ManifestSummary'].nil?)
+        data.output_config = (OutputConfig.parse(map['OutputConfig']) unless map['OutputConfig'].nil?)
+        data.training_data_result = (TrainingDataResult.parse(map['TrainingDataResult']) unless map['TrainingDataResult'].nil?)
+        data.testing_data_result = (TestingDataResult.parse(map['TestingDataResult']) unless map['TestingDataResult'].nil?)
+        data.evaluation_result = (EvaluationResult.parse(map['EvaluationResult']) unless map['EvaluationResult'].nil?)
+        data.manifest_summary = (GroundTruthManifest.parse(map['ManifestSummary']) unless map['ManifestSummary'].nil?)
         data.kms_key_id = map['KmsKeyId']
         return data
       end
@@ -565,7 +565,7 @@ module AWS::SDK::Rekognition
     class GroundTruthManifest
       def self.parse(map)
         data = Types::GroundTruthManifest.new
-        data.s3_object = (Parsers::S3Object.parse(map['S3Object']) unless map['S3Object'].nil?)
+        data.s3_object = (S3Object.parse(map['S3Object']) unless map['S3Object'].nil?)
         return data
       end
     end
@@ -584,7 +584,7 @@ module AWS::SDK::Rekognition
       def self.parse(map)
         data = Types::EvaluationResult.new
         data.f1_score = Hearth::NumberHelper.deserialize(map['F1Score'])
-        data.summary = (Parsers::Summary.parse(map['Summary']) unless map['Summary'].nil?)
+        data.summary = (Summary.parse(map['Summary']) unless map['Summary'].nil?)
         return data
       end
     end
@@ -592,7 +592,7 @@ module AWS::SDK::Rekognition
     class Summary
       def self.parse(map)
         data = Types::Summary.new
-        data.s3_object = (Parsers::S3Object.parse(map['S3Object']) unless map['S3Object'].nil?)
+        data.s3_object = (S3Object.parse(map['S3Object']) unless map['S3Object'].nil?)
         return data
       end
     end
@@ -600,9 +600,9 @@ module AWS::SDK::Rekognition
     class TestingDataResult
       def self.parse(map)
         data = Types::TestingDataResult.new
-        data.input = (Parsers::TestingData.parse(map['Input']) unless map['Input'].nil?)
-        data.output = (Parsers::TestingData.parse(map['Output']) unless map['Output'].nil?)
-        data.validation = (Parsers::ValidationData.parse(map['Validation']) unless map['Validation'].nil?)
+        data.input = (TestingData.parse(map['Input']) unless map['Input'].nil?)
+        data.output = (TestingData.parse(map['Output']) unless map['Output'].nil?)
+        data.validation = (ValidationData.parse(map['Validation']) unless map['Validation'].nil?)
         return data
       end
     end
@@ -610,7 +610,7 @@ module AWS::SDK::Rekognition
     class ValidationData
       def self.parse(map)
         data = Types::ValidationData.new
-        data.assets = (Parsers::Assets.parse(map['Assets']) unless map['Assets'].nil?)
+        data.assets = (Assets.parse(map['Assets']) unless map['Assets'].nil?)
         return data
       end
     end
@@ -618,7 +618,7 @@ module AWS::SDK::Rekognition
     class Assets
       def self.parse(list)
         list.map do |value|
-          Parsers::Asset.parse(value) unless value.nil?
+          Asset.parse(value) unless value.nil?
         end
       end
     end
@@ -626,7 +626,7 @@ module AWS::SDK::Rekognition
     class Asset
       def self.parse(map)
         data = Types::Asset.new
-        data.ground_truth_manifest = (Parsers::GroundTruthManifest.parse(map['GroundTruthManifest']) unless map['GroundTruthManifest'].nil?)
+        data.ground_truth_manifest = (GroundTruthManifest.parse(map['GroundTruthManifest']) unless map['GroundTruthManifest'].nil?)
         return data
       end
     end
@@ -634,7 +634,7 @@ module AWS::SDK::Rekognition
     class TestingData
       def self.parse(map)
         data = Types::TestingData.new
-        data.assets = (Parsers::Assets.parse(map['Assets']) unless map['Assets'].nil?)
+        data.assets = (Assets.parse(map['Assets']) unless map['Assets'].nil?)
         data.auto_create = map['AutoCreate']
         return data
       end
@@ -643,9 +643,9 @@ module AWS::SDK::Rekognition
     class TrainingDataResult
       def self.parse(map)
         data = Types::TrainingDataResult.new
-        data.input = (Parsers::TrainingData.parse(map['Input']) unless map['Input'].nil?)
-        data.output = (Parsers::TrainingData.parse(map['Output']) unless map['Output'].nil?)
-        data.validation = (Parsers::ValidationData.parse(map['Validation']) unless map['Validation'].nil?)
+        data.input = (TrainingData.parse(map['Input']) unless map['Input'].nil?)
+        data.output = (TrainingData.parse(map['Output']) unless map['Output'].nil?)
+        data.validation = (ValidationData.parse(map['Validation']) unless map['Validation'].nil?)
         return data
       end
     end
@@ -653,7 +653,7 @@ module AWS::SDK::Rekognition
     class TrainingData
       def self.parse(map)
         data = Types::TrainingData.new
-        data.assets = (Parsers::Assets.parse(map['Assets']) unless map['Assets'].nil?)
+        data.assets = (Assets.parse(map['Assets']) unless map['Assets'].nil?)
         return data
       end
     end
@@ -688,7 +688,7 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.project_descriptions = (Parsers::ProjectDescriptions.parse(map['ProjectDescriptions']) unless map['ProjectDescriptions'].nil?)
+        data.project_descriptions = (ProjectDescriptions.parse(map['ProjectDescriptions']) unless map['ProjectDescriptions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -697,7 +697,7 @@ module AWS::SDK::Rekognition
     class ProjectDescriptions
       def self.parse(list)
         list.map do |value|
-          Parsers::ProjectDescription.parse(value) unless value.nil?
+          ProjectDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -708,7 +708,7 @@ module AWS::SDK::Rekognition
         data.project_arn = map['ProjectArn']
         data.creation_timestamp = Time.at(map['CreationTimestamp'].to_i) if map['CreationTimestamp']
         data.status = map['Status']
-        data.datasets = (Parsers::DatasetMetadataList.parse(map['Datasets']) unless map['Datasets'].nil?)
+        data.datasets = (DatasetMetadataList.parse(map['Datasets']) unless map['Datasets'].nil?)
         return data
       end
     end
@@ -716,7 +716,7 @@ module AWS::SDK::Rekognition
     class DatasetMetadataList
       def self.parse(list)
         list.map do |value|
-          Parsers::DatasetMetadata.parse(value) unless value.nil?
+          DatasetMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -747,14 +747,14 @@ module AWS::SDK::Rekognition
         data.status_message = map['StatusMessage']
         data.creation_timestamp = Time.at(map['CreationTimestamp'].to_i) if map['CreationTimestamp']
         data.last_update_timestamp = Time.at(map['LastUpdateTimestamp'].to_i) if map['LastUpdateTimestamp']
-        data.input = (Parsers::StreamProcessorInput.parse(map['Input']) unless map['Input'].nil?)
-        data.output = (Parsers::StreamProcessorOutput.parse(map['Output']) unless map['Output'].nil?)
+        data.input = (StreamProcessorInput.parse(map['Input']) unless map['Input'].nil?)
+        data.output = (StreamProcessorOutput.parse(map['Output']) unless map['Output'].nil?)
         data.role_arn = map['RoleArn']
-        data.settings = (Parsers::StreamProcessorSettings.parse(map['Settings']) unless map['Settings'].nil?)
-        data.notification_channel = (Parsers::StreamProcessorNotificationChannel.parse(map['NotificationChannel']) unless map['NotificationChannel'].nil?)
+        data.settings = (StreamProcessorSettings.parse(map['Settings']) unless map['Settings'].nil?)
+        data.notification_channel = (StreamProcessorNotificationChannel.parse(map['NotificationChannel']) unless map['NotificationChannel'].nil?)
         data.kms_key_id = map['KmsKeyId']
-        data.regions_of_interest = (Parsers::RegionsOfInterest.parse(map['RegionsOfInterest']) unless map['RegionsOfInterest'].nil?)
-        data.data_sharing_preference = (Parsers::StreamProcessorDataSharingPreference.parse(map['DataSharingPreference']) unless map['DataSharingPreference'].nil?)
+        data.regions_of_interest = (RegionsOfInterest.parse(map['RegionsOfInterest']) unless map['RegionsOfInterest'].nil?)
+        data.data_sharing_preference = (StreamProcessorDataSharingPreference.parse(map['DataSharingPreference']) unless map['DataSharingPreference'].nil?)
         data
       end
     end
@@ -770,7 +770,7 @@ module AWS::SDK::Rekognition
     class RegionsOfInterest
       def self.parse(list)
         list.map do |value|
-          Parsers::RegionOfInterest.parse(value) unless value.nil?
+          RegionOfInterest.parse(value) unless value.nil?
         end
       end
     end
@@ -778,8 +778,8 @@ module AWS::SDK::Rekognition
     class RegionOfInterest
       def self.parse(map)
         data = Types::RegionOfInterest.new
-        data.bounding_box = (Parsers::BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
-        data.polygon = (Parsers::Polygon.parse(map['Polygon']) unless map['Polygon'].nil?)
+        data.bounding_box = (BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
+        data.polygon = (Polygon.parse(map['Polygon']) unless map['Polygon'].nil?)
         return data
       end
     end
@@ -787,7 +787,7 @@ module AWS::SDK::Rekognition
     class Polygon
       def self.parse(list)
         list.map do |value|
-          Parsers::Point.parse(value) unless value.nil?
+          Point.parse(value) unless value.nil?
         end
       end
     end
@@ -812,8 +812,8 @@ module AWS::SDK::Rekognition
     class StreamProcessorSettings
       def self.parse(map)
         data = Types::StreamProcessorSettings.new
-        data.face_search = (Parsers::FaceSearchSettings.parse(map['FaceSearch']) unless map['FaceSearch'].nil?)
-        data.connected_home = (Parsers::ConnectedHomeSettings.parse(map['ConnectedHome']) unless map['ConnectedHome'].nil?)
+        data.face_search = (FaceSearchSettings.parse(map['FaceSearch']) unless map['FaceSearch'].nil?)
+        data.connected_home = (ConnectedHomeSettings.parse(map['ConnectedHome']) unless map['ConnectedHome'].nil?)
         return data
       end
     end
@@ -821,7 +821,7 @@ module AWS::SDK::Rekognition
     class ConnectedHomeSettings
       def self.parse(map)
         data = Types::ConnectedHomeSettings.new
-        data.labels = (Parsers::ConnectedHomeLabels.parse(map['Labels']) unless map['Labels'].nil?)
+        data.labels = (ConnectedHomeLabels.parse(map['Labels']) unless map['Labels'].nil?)
         data.min_confidence = Hearth::NumberHelper.deserialize(map['MinConfidence'])
         return data
       end
@@ -847,8 +847,8 @@ module AWS::SDK::Rekognition
     class StreamProcessorOutput
       def self.parse(map)
         data = Types::StreamProcessorOutput.new
-        data.kinesis_data_stream = (Parsers::KinesisDataStream.parse(map['KinesisDataStream']) unless map['KinesisDataStream'].nil?)
-        data.s3_destination = (Parsers::S3Destination.parse(map['S3Destination']) unless map['S3Destination'].nil?)
+        data.kinesis_data_stream = (KinesisDataStream.parse(map['KinesisDataStream']) unless map['KinesisDataStream'].nil?)
+        data.s3_destination = (S3Destination.parse(map['S3Destination']) unless map['S3Destination'].nil?)
         return data
       end
     end
@@ -873,7 +873,7 @@ module AWS::SDK::Rekognition
     class StreamProcessorInput
       def self.parse(map)
         data = Types::StreamProcessorInput.new
-        data.kinesis_video_stream = (Parsers::KinesisVideoStream.parse(map['KinesisVideoStream']) unless map['KinesisVideoStream'].nil?)
+        data.kinesis_video_stream = (KinesisVideoStream.parse(map['KinesisVideoStream']) unless map['KinesisVideoStream'].nil?)
         return data
       end
     end
@@ -893,7 +893,7 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.custom_labels = (Parsers::CustomLabels.parse(map['CustomLabels']) unless map['CustomLabels'].nil?)
+        data.custom_labels = (CustomLabels.parse(map['CustomLabels']) unless map['CustomLabels'].nil?)
         data
       end
     end
@@ -901,7 +901,7 @@ module AWS::SDK::Rekognition
     class CustomLabels
       def self.parse(list)
         list.map do |value|
-          Parsers::CustomLabel.parse(value) unless value.nil?
+          CustomLabel.parse(value) unless value.nil?
         end
       end
     end
@@ -911,7 +911,7 @@ module AWS::SDK::Rekognition
         data = Types::CustomLabel.new
         data.name = map['Name']
         data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
-        data.geometry = (Parsers::Geometry.parse(map['Geometry']) unless map['Geometry'].nil?)
+        data.geometry = (Geometry.parse(map['Geometry']) unless map['Geometry'].nil?)
         return data
       end
     end
@@ -919,8 +919,8 @@ module AWS::SDK::Rekognition
     class Geometry
       def self.parse(map)
         data = Types::Geometry.new
-        data.bounding_box = (Parsers::BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
-        data.polygon = (Parsers::Polygon.parse(map['Polygon']) unless map['Polygon'].nil?)
+        data.bounding_box = (BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
+        data.polygon = (Polygon.parse(map['Polygon']) unless map['Polygon'].nil?)
         return data
       end
     end
@@ -946,7 +946,7 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.face_details = (Parsers::FaceDetailList.parse(map['FaceDetails']) unless map['FaceDetails'].nil?)
+        data.face_details = (FaceDetailList.parse(map['FaceDetails']) unless map['FaceDetails'].nil?)
         data.orientation_correction = map['OrientationCorrection']
         data
       end
@@ -955,7 +955,7 @@ module AWS::SDK::Rekognition
     class FaceDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::FaceDetail.parse(value) unless value.nil?
+          FaceDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -963,20 +963,20 @@ module AWS::SDK::Rekognition
     class FaceDetail
       def self.parse(map)
         data = Types::FaceDetail.new
-        data.bounding_box = (Parsers::BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
-        data.age_range = (Parsers::AgeRange.parse(map['AgeRange']) unless map['AgeRange'].nil?)
-        data.smile = (Parsers::Smile.parse(map['Smile']) unless map['Smile'].nil?)
-        data.eyeglasses = (Parsers::Eyeglasses.parse(map['Eyeglasses']) unless map['Eyeglasses'].nil?)
-        data.sunglasses = (Parsers::Sunglasses.parse(map['Sunglasses']) unless map['Sunglasses'].nil?)
-        data.gender = (Parsers::Gender.parse(map['Gender']) unless map['Gender'].nil?)
-        data.beard = (Parsers::Beard.parse(map['Beard']) unless map['Beard'].nil?)
-        data.mustache = (Parsers::Mustache.parse(map['Mustache']) unless map['Mustache'].nil?)
-        data.eyes_open = (Parsers::EyeOpen.parse(map['EyesOpen']) unless map['EyesOpen'].nil?)
-        data.mouth_open = (Parsers::MouthOpen.parse(map['MouthOpen']) unless map['MouthOpen'].nil?)
-        data.emotions = (Parsers::Emotions.parse(map['Emotions']) unless map['Emotions'].nil?)
-        data.landmarks = (Parsers::Landmarks.parse(map['Landmarks']) unless map['Landmarks'].nil?)
-        data.pose = (Parsers::Pose.parse(map['Pose']) unless map['Pose'].nil?)
-        data.quality = (Parsers::ImageQuality.parse(map['Quality']) unless map['Quality'].nil?)
+        data.bounding_box = (BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
+        data.age_range = (AgeRange.parse(map['AgeRange']) unless map['AgeRange'].nil?)
+        data.smile = (Smile.parse(map['Smile']) unless map['Smile'].nil?)
+        data.eyeglasses = (Eyeglasses.parse(map['Eyeglasses']) unless map['Eyeglasses'].nil?)
+        data.sunglasses = (Sunglasses.parse(map['Sunglasses']) unless map['Sunglasses'].nil?)
+        data.gender = (Gender.parse(map['Gender']) unless map['Gender'].nil?)
+        data.beard = (Beard.parse(map['Beard']) unless map['Beard'].nil?)
+        data.mustache = (Mustache.parse(map['Mustache']) unless map['Mustache'].nil?)
+        data.eyes_open = (EyeOpen.parse(map['EyesOpen']) unless map['EyesOpen'].nil?)
+        data.mouth_open = (MouthOpen.parse(map['MouthOpen']) unless map['MouthOpen'].nil?)
+        data.emotions = (Emotions.parse(map['Emotions']) unless map['Emotions'].nil?)
+        data.landmarks = (Landmarks.parse(map['Landmarks']) unless map['Landmarks'].nil?)
+        data.pose = (Pose.parse(map['Pose']) unless map['Pose'].nil?)
+        data.quality = (ImageQuality.parse(map['Quality']) unless map['Quality'].nil?)
         data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
         return data
       end
@@ -1061,7 +1061,7 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.labels = (Parsers::Labels.parse(map['Labels']) unless map['Labels'].nil?)
+        data.labels = (Labels.parse(map['Labels']) unless map['Labels'].nil?)
         data.orientation_correction = map['OrientationCorrection']
         data.label_model_version = map['LabelModelVersion']
         data
@@ -1071,7 +1071,7 @@ module AWS::SDK::Rekognition
     class Labels
       def self.parse(list)
         list.map do |value|
-          Parsers::Label.parse(value) unless value.nil?
+          Label.parse(value) unless value.nil?
         end
       end
     end
@@ -1081,8 +1081,8 @@ module AWS::SDK::Rekognition
         data = Types::Label.new
         data.name = map['Name']
         data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
-        data.instances = (Parsers::Instances.parse(map['Instances']) unless map['Instances'].nil?)
-        data.parents = (Parsers::Parents.parse(map['Parents']) unless map['Parents'].nil?)
+        data.instances = (Instances.parse(map['Instances']) unless map['Instances'].nil?)
+        data.parents = (Parents.parse(map['Parents']) unless map['Parents'].nil?)
         return data
       end
     end
@@ -1090,7 +1090,7 @@ module AWS::SDK::Rekognition
     class Parents
       def self.parse(list)
         list.map do |value|
-          Parsers::Parent.parse(value) unless value.nil?
+          Parent.parse(value) unless value.nil?
         end
       end
     end
@@ -1106,7 +1106,7 @@ module AWS::SDK::Rekognition
     class Instances
       def self.parse(list)
         list.map do |value|
-          Parsers::Instance.parse(value) unless value.nil?
+          Instance.parse(value) unless value.nil?
         end
       end
     end
@@ -1114,7 +1114,7 @@ module AWS::SDK::Rekognition
     class Instance
       def self.parse(map)
         data = Types::Instance.new
-        data.bounding_box = (Parsers::BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
+        data.bounding_box = (BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
         data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
         return data
       end
@@ -1127,9 +1127,9 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.moderation_labels = (Parsers::ModerationLabels.parse(map['ModerationLabels']) unless map['ModerationLabels'].nil?)
+        data.moderation_labels = (ModerationLabels.parse(map['ModerationLabels']) unless map['ModerationLabels'].nil?)
         data.moderation_model_version = map['ModerationModelVersion']
-        data.human_loop_activation_output = (Parsers::HumanLoopActivationOutput.parse(map['HumanLoopActivationOutput']) unless map['HumanLoopActivationOutput'].nil?)
+        data.human_loop_activation_output = (HumanLoopActivationOutput.parse(map['HumanLoopActivationOutput']) unless map['HumanLoopActivationOutput'].nil?)
         data
       end
     end
@@ -1138,7 +1138,7 @@ module AWS::SDK::Rekognition
       def self.parse(map)
         data = Types::HumanLoopActivationOutput.new
         data.human_loop_arn = map['HumanLoopArn']
-        data.human_loop_activation_reasons = (Parsers::HumanLoopActivationReasons.parse(map['HumanLoopActivationReasons']) unless map['HumanLoopActivationReasons'].nil?)
+        data.human_loop_activation_reasons = (HumanLoopActivationReasons.parse(map['HumanLoopActivationReasons']) unless map['HumanLoopActivationReasons'].nil?)
         data.human_loop_activation_conditions_evaluation_results = map['HumanLoopActivationConditionsEvaluationResults']
         return data
       end
@@ -1155,7 +1155,7 @@ module AWS::SDK::Rekognition
     class ModerationLabels
       def self.parse(list)
         list.map do |value|
-          Parsers::ModerationLabel.parse(value) unless value.nil?
+          ModerationLabel.parse(value) unless value.nil?
         end
       end
     end
@@ -1195,8 +1195,8 @@ module AWS::SDK::Rekognition
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.protective_equipment_model_version = map['ProtectiveEquipmentModelVersion']
-        data.persons = (Parsers::ProtectiveEquipmentPersons.parse(map['Persons']) unless map['Persons'].nil?)
-        data.summary = (Parsers::ProtectiveEquipmentSummary.parse(map['Summary']) unless map['Summary'].nil?)
+        data.persons = (ProtectiveEquipmentPersons.parse(map['Persons']) unless map['Persons'].nil?)
+        data.summary = (ProtectiveEquipmentSummary.parse(map['Summary']) unless map['Summary'].nil?)
         data
       end
     end
@@ -1204,9 +1204,9 @@ module AWS::SDK::Rekognition
     class ProtectiveEquipmentSummary
       def self.parse(map)
         data = Types::ProtectiveEquipmentSummary.new
-        data.persons_with_required_equipment = (Parsers::ProtectiveEquipmentPersonIds.parse(map['PersonsWithRequiredEquipment']) unless map['PersonsWithRequiredEquipment'].nil?)
-        data.persons_without_required_equipment = (Parsers::ProtectiveEquipmentPersonIds.parse(map['PersonsWithoutRequiredEquipment']) unless map['PersonsWithoutRequiredEquipment'].nil?)
-        data.persons_indeterminate = (Parsers::ProtectiveEquipmentPersonIds.parse(map['PersonsIndeterminate']) unless map['PersonsIndeterminate'].nil?)
+        data.persons_with_required_equipment = (ProtectiveEquipmentPersonIds.parse(map['PersonsWithRequiredEquipment']) unless map['PersonsWithRequiredEquipment'].nil?)
+        data.persons_without_required_equipment = (ProtectiveEquipmentPersonIds.parse(map['PersonsWithoutRequiredEquipment']) unless map['PersonsWithoutRequiredEquipment'].nil?)
+        data.persons_indeterminate = (ProtectiveEquipmentPersonIds.parse(map['PersonsIndeterminate']) unless map['PersonsIndeterminate'].nil?)
         return data
       end
     end
@@ -1222,7 +1222,7 @@ module AWS::SDK::Rekognition
     class ProtectiveEquipmentPersons
       def self.parse(list)
         list.map do |value|
-          Parsers::ProtectiveEquipmentPerson.parse(value) unless value.nil?
+          ProtectiveEquipmentPerson.parse(value) unless value.nil?
         end
       end
     end
@@ -1230,8 +1230,8 @@ module AWS::SDK::Rekognition
     class ProtectiveEquipmentPerson
       def self.parse(map)
         data = Types::ProtectiveEquipmentPerson.new
-        data.body_parts = (Parsers::BodyParts.parse(map['BodyParts']) unless map['BodyParts'].nil?)
-        data.bounding_box = (Parsers::BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
+        data.body_parts = (BodyParts.parse(map['BodyParts']) unless map['BodyParts'].nil?)
+        data.bounding_box = (BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
         data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
         data.id = map['Id']
         return data
@@ -1241,7 +1241,7 @@ module AWS::SDK::Rekognition
     class BodyParts
       def self.parse(list)
         list.map do |value|
-          Parsers::ProtectiveEquipmentBodyPart.parse(value) unless value.nil?
+          ProtectiveEquipmentBodyPart.parse(value) unless value.nil?
         end
       end
     end
@@ -1251,7 +1251,7 @@ module AWS::SDK::Rekognition
         data = Types::ProtectiveEquipmentBodyPart.new
         data.name = map['Name']
         data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
-        data.equipment_detections = (Parsers::EquipmentDetections.parse(map['EquipmentDetections']) unless map['EquipmentDetections'].nil?)
+        data.equipment_detections = (EquipmentDetections.parse(map['EquipmentDetections']) unless map['EquipmentDetections'].nil?)
         return data
       end
     end
@@ -1259,7 +1259,7 @@ module AWS::SDK::Rekognition
     class EquipmentDetections
       def self.parse(list)
         list.map do |value|
-          Parsers::EquipmentDetection.parse(value) unless value.nil?
+          EquipmentDetection.parse(value) unless value.nil?
         end
       end
     end
@@ -1267,10 +1267,10 @@ module AWS::SDK::Rekognition
     class EquipmentDetection
       def self.parse(map)
         data = Types::EquipmentDetection.new
-        data.bounding_box = (Parsers::BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
+        data.bounding_box = (BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
         data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
         data.type = map['Type']
-        data.covers_body_part = (Parsers::CoversBodyPart.parse(map['CoversBodyPart']) unless map['CoversBodyPart'].nil?)
+        data.covers_body_part = (CoversBodyPart.parse(map['CoversBodyPart']) unless map['CoversBodyPart'].nil?)
         return data
       end
     end
@@ -1291,7 +1291,7 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.text_detections = (Parsers::TextDetectionList.parse(map['TextDetections']) unless map['TextDetections'].nil?)
+        data.text_detections = (TextDetectionList.parse(map['TextDetections']) unless map['TextDetections'].nil?)
         data.text_model_version = map['TextModelVersion']
         data
       end
@@ -1300,7 +1300,7 @@ module AWS::SDK::Rekognition
     class TextDetectionList
       def self.parse(list)
         list.map do |value|
-          Parsers::TextDetection.parse(value) unless value.nil?
+          TextDetection.parse(value) unless value.nil?
         end
       end
     end
@@ -1313,7 +1313,7 @@ module AWS::SDK::Rekognition
         data.id = map['Id']
         data.parent_id = map['ParentId']
         data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
-        data.geometry = (Parsers::Geometry.parse(map['Geometry']) unless map['Geometry'].nil?)
+        data.geometry = (Geometry.parse(map['Geometry']) unless map['Geometry'].nil?)
         return data
       end
     end
@@ -1336,9 +1336,9 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.urls = (Parsers::Urls.parse(map['Urls']) unless map['Urls'].nil?)
+        data.urls = (Urls.parse(map['Urls']) unless map['Urls'].nil?)
         data.name = map['Name']
-        data.known_gender = (Parsers::KnownGender.parse(map['KnownGender']) unless map['KnownGender'].nil?)
+        data.known_gender = (KnownGender.parse(map['KnownGender']) unless map['KnownGender'].nil?)
         data
       end
     end
@@ -1368,9 +1368,9 @@ module AWS::SDK::Rekognition
         map = Hearth::JSON.load(body)
         data.job_status = map['JobStatus']
         data.status_message = map['StatusMessage']
-        data.video_metadata = (Parsers::VideoMetadata.parse(map['VideoMetadata']) unless map['VideoMetadata'].nil?)
+        data.video_metadata = (VideoMetadata.parse(map['VideoMetadata']) unless map['VideoMetadata'].nil?)
         data.next_token = map['NextToken']
-        data.celebrities = (Parsers::CelebrityRecognitions.parse(map['Celebrities']) unless map['Celebrities'].nil?)
+        data.celebrities = (CelebrityRecognitions.parse(map['Celebrities']) unless map['Celebrities'].nil?)
         data
       end
     end
@@ -1378,7 +1378,7 @@ module AWS::SDK::Rekognition
     class CelebrityRecognitions
       def self.parse(list)
         list.map do |value|
-          Parsers::CelebrityRecognition.parse(value) unless value.nil?
+          CelebrityRecognition.parse(value) unless value.nil?
         end
       end
     end
@@ -1387,7 +1387,7 @@ module AWS::SDK::Rekognition
       def self.parse(map)
         data = Types::CelebrityRecognition.new
         data.timestamp = map['Timestamp']
-        data.celebrity = (Parsers::CelebrityDetail.parse(map['Celebrity']) unless map['Celebrity'].nil?)
+        data.celebrity = (CelebrityDetail.parse(map['Celebrity']) unless map['Celebrity'].nil?)
         return data
       end
     end
@@ -1395,13 +1395,13 @@ module AWS::SDK::Rekognition
     class CelebrityDetail
       def self.parse(map)
         data = Types::CelebrityDetail.new
-        data.urls = (Parsers::Urls.parse(map['Urls']) unless map['Urls'].nil?)
+        data.urls = (Urls.parse(map['Urls']) unless map['Urls'].nil?)
         data.name = map['Name']
         data.id = map['Id']
         data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
-        data.bounding_box = (Parsers::BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
-        data.face = (Parsers::FaceDetail.parse(map['Face']) unless map['Face'].nil?)
-        data.known_gender = (Parsers::KnownGender.parse(map['KnownGender']) unless map['KnownGender'].nil?)
+        data.bounding_box = (BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
+        data.face = (FaceDetail.parse(map['Face']) unless map['Face'].nil?)
+        data.known_gender = (KnownGender.parse(map['KnownGender']) unless map['KnownGender'].nil?)
         return data
       end
     end
@@ -1429,8 +1429,8 @@ module AWS::SDK::Rekognition
         map = Hearth::JSON.load(body)
         data.job_status = map['JobStatus']
         data.status_message = map['StatusMessage']
-        data.video_metadata = (Parsers::VideoMetadata.parse(map['VideoMetadata']) unless map['VideoMetadata'].nil?)
-        data.moderation_labels = (Parsers::ContentModerationDetections.parse(map['ModerationLabels']) unless map['ModerationLabels'].nil?)
+        data.video_metadata = (VideoMetadata.parse(map['VideoMetadata']) unless map['VideoMetadata'].nil?)
+        data.moderation_labels = (ContentModerationDetections.parse(map['ModerationLabels']) unless map['ModerationLabels'].nil?)
         data.next_token = map['NextToken']
         data.moderation_model_version = map['ModerationModelVersion']
         data
@@ -1440,7 +1440,7 @@ module AWS::SDK::Rekognition
     class ContentModerationDetections
       def self.parse(list)
         list.map do |value|
-          Parsers::ContentModerationDetection.parse(value) unless value.nil?
+          ContentModerationDetection.parse(value) unless value.nil?
         end
       end
     end
@@ -1449,7 +1449,7 @@ module AWS::SDK::Rekognition
       def self.parse(map)
         data = Types::ContentModerationDetection.new
         data.timestamp = map['Timestamp']
-        data.moderation_label = (Parsers::ModerationLabel.parse(map['ModerationLabel']) unless map['ModerationLabel'].nil?)
+        data.moderation_label = (ModerationLabel.parse(map['ModerationLabel']) unless map['ModerationLabel'].nil?)
         return data
       end
     end
@@ -1463,9 +1463,9 @@ module AWS::SDK::Rekognition
         map = Hearth::JSON.load(body)
         data.job_status = map['JobStatus']
         data.status_message = map['StatusMessage']
-        data.video_metadata = (Parsers::VideoMetadata.parse(map['VideoMetadata']) unless map['VideoMetadata'].nil?)
+        data.video_metadata = (VideoMetadata.parse(map['VideoMetadata']) unless map['VideoMetadata'].nil?)
         data.next_token = map['NextToken']
-        data.faces = (Parsers::FaceDetections.parse(map['Faces']) unless map['Faces'].nil?)
+        data.faces = (FaceDetections.parse(map['Faces']) unless map['Faces'].nil?)
         data
       end
     end
@@ -1473,7 +1473,7 @@ module AWS::SDK::Rekognition
     class FaceDetections
       def self.parse(list)
         list.map do |value|
-          Parsers::FaceDetection.parse(value) unless value.nil?
+          FaceDetection.parse(value) unless value.nil?
         end
       end
     end
@@ -1482,7 +1482,7 @@ module AWS::SDK::Rekognition
       def self.parse(map)
         data = Types::FaceDetection.new
         data.timestamp = map['Timestamp']
-        data.face = (Parsers::FaceDetail.parse(map['Face']) unless map['Face'].nil?)
+        data.face = (FaceDetail.parse(map['Face']) unless map['Face'].nil?)
         return data
       end
     end
@@ -1497,8 +1497,8 @@ module AWS::SDK::Rekognition
         data.job_status = map['JobStatus']
         data.status_message = map['StatusMessage']
         data.next_token = map['NextToken']
-        data.video_metadata = (Parsers::VideoMetadata.parse(map['VideoMetadata']) unless map['VideoMetadata'].nil?)
-        data.persons = (Parsers::PersonMatches.parse(map['Persons']) unless map['Persons'].nil?)
+        data.video_metadata = (VideoMetadata.parse(map['VideoMetadata']) unless map['VideoMetadata'].nil?)
+        data.persons = (PersonMatches.parse(map['Persons']) unless map['Persons'].nil?)
         data
       end
     end
@@ -1506,7 +1506,7 @@ module AWS::SDK::Rekognition
     class PersonMatches
       def self.parse(list)
         list.map do |value|
-          Parsers::PersonMatch.parse(value) unless value.nil?
+          PersonMatch.parse(value) unless value.nil?
         end
       end
     end
@@ -1515,8 +1515,8 @@ module AWS::SDK::Rekognition
       def self.parse(map)
         data = Types::PersonMatch.new
         data.timestamp = map['Timestamp']
-        data.person = (Parsers::PersonDetail.parse(map['Person']) unless map['Person'].nil?)
-        data.face_matches = (Parsers::FaceMatchList.parse(map['FaceMatches']) unless map['FaceMatches'].nil?)
+        data.person = (PersonDetail.parse(map['Person']) unless map['Person'].nil?)
+        data.face_matches = (FaceMatchList.parse(map['FaceMatches']) unless map['FaceMatches'].nil?)
         return data
       end
     end
@@ -1524,7 +1524,7 @@ module AWS::SDK::Rekognition
     class FaceMatchList
       def self.parse(list)
         list.map do |value|
-          Parsers::FaceMatch.parse(value) unless value.nil?
+          FaceMatch.parse(value) unless value.nil?
         end
       end
     end
@@ -1533,7 +1533,7 @@ module AWS::SDK::Rekognition
       def self.parse(map)
         data = Types::FaceMatch.new
         data.similarity = Hearth::NumberHelper.deserialize(map['Similarity'])
-        data.face = (Parsers::Face.parse(map['Face']) unless map['Face'].nil?)
+        data.face = (Face.parse(map['Face']) unless map['Face'].nil?)
         return data
       end
     end
@@ -1542,7 +1542,7 @@ module AWS::SDK::Rekognition
       def self.parse(map)
         data = Types::Face.new
         data.face_id = map['FaceId']
-        data.bounding_box = (Parsers::BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
+        data.bounding_box = (BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
         data.image_id = map['ImageId']
         data.external_image_id = map['ExternalImageId']
         data.confidence = Hearth::NumberHelper.deserialize(map['Confidence'])
@@ -1555,8 +1555,8 @@ module AWS::SDK::Rekognition
       def self.parse(map)
         data = Types::PersonDetail.new
         data.index = map['Index']
-        data.bounding_box = (Parsers::BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
-        data.face = (Parsers::FaceDetail.parse(map['Face']) unless map['Face'].nil?)
+        data.bounding_box = (BoundingBox.parse(map['BoundingBox']) unless map['BoundingBox'].nil?)
+        data.face = (FaceDetail.parse(map['Face']) unless map['Face'].nil?)
         return data
       end
     end
@@ -1570,9 +1570,9 @@ module AWS::SDK::Rekognition
         map = Hearth::JSON.load(body)
         data.job_status = map['JobStatus']
         data.status_message = map['StatusMessage']
-        data.video_metadata = (Parsers::VideoMetadata.parse(map['VideoMetadata']) unless map['VideoMetadata'].nil?)
+        data.video_metadata = (VideoMetadata.parse(map['VideoMetadata']) unless map['VideoMetadata'].nil?)
         data.next_token = map['NextToken']
-        data.labels = (Parsers::LabelDetections.parse(map['Labels']) unless map['Labels'].nil?)
+        data.labels = (LabelDetections.parse(map['Labels']) unless map['Labels'].nil?)
         data.label_model_version = map['LabelModelVersion']
         data
       end
@@ -1581,7 +1581,7 @@ module AWS::SDK::Rekognition
     class LabelDetections
       def self.parse(list)
         list.map do |value|
-          Parsers::LabelDetection.parse(value) unless value.nil?
+          LabelDetection.parse(value) unless value.nil?
         end
       end
     end
@@ -1590,7 +1590,7 @@ module AWS::SDK::Rekognition
       def self.parse(map)
         data = Types::LabelDetection.new
         data.timestamp = map['Timestamp']
-        data.label = (Parsers::Label.parse(map['Label']) unless map['Label'].nil?)
+        data.label = (Label.parse(map['Label']) unless map['Label'].nil?)
         return data
       end
     end
@@ -1604,9 +1604,9 @@ module AWS::SDK::Rekognition
         map = Hearth::JSON.load(body)
         data.job_status = map['JobStatus']
         data.status_message = map['StatusMessage']
-        data.video_metadata = (Parsers::VideoMetadata.parse(map['VideoMetadata']) unless map['VideoMetadata'].nil?)
+        data.video_metadata = (VideoMetadata.parse(map['VideoMetadata']) unless map['VideoMetadata'].nil?)
         data.next_token = map['NextToken']
-        data.persons = (Parsers::PersonDetections.parse(map['Persons']) unless map['Persons'].nil?)
+        data.persons = (PersonDetections.parse(map['Persons']) unless map['Persons'].nil?)
         data
       end
     end
@@ -1614,7 +1614,7 @@ module AWS::SDK::Rekognition
     class PersonDetections
       def self.parse(list)
         list.map do |value|
-          Parsers::PersonDetection.parse(value) unless value.nil?
+          PersonDetection.parse(value) unless value.nil?
         end
       end
     end
@@ -1623,7 +1623,7 @@ module AWS::SDK::Rekognition
       def self.parse(map)
         data = Types::PersonDetection.new
         data.timestamp = map['Timestamp']
-        data.person = (Parsers::PersonDetail.parse(map['Person']) unless map['Person'].nil?)
+        data.person = (PersonDetail.parse(map['Person']) unless map['Person'].nil?)
         return data
       end
     end
@@ -1637,11 +1637,11 @@ module AWS::SDK::Rekognition
         map = Hearth::JSON.load(body)
         data.job_status = map['JobStatus']
         data.status_message = map['StatusMessage']
-        data.video_metadata = (Parsers::VideoMetadataList.parse(map['VideoMetadata']) unless map['VideoMetadata'].nil?)
-        data.audio_metadata = (Parsers::AudioMetadataList.parse(map['AudioMetadata']) unless map['AudioMetadata'].nil?)
+        data.video_metadata = (VideoMetadataList.parse(map['VideoMetadata']) unless map['VideoMetadata'].nil?)
+        data.audio_metadata = (AudioMetadataList.parse(map['AudioMetadata']) unless map['AudioMetadata'].nil?)
         data.next_token = map['NextToken']
-        data.segments = (Parsers::SegmentDetections.parse(map['Segments']) unless map['Segments'].nil?)
-        data.selected_segment_types = (Parsers::SegmentTypesInfo.parse(map['SelectedSegmentTypes']) unless map['SelectedSegmentTypes'].nil?)
+        data.segments = (SegmentDetections.parse(map['Segments']) unless map['Segments'].nil?)
+        data.selected_segment_types = (SegmentTypesInfo.parse(map['SelectedSegmentTypes']) unless map['SelectedSegmentTypes'].nil?)
         data
       end
     end
@@ -1649,7 +1649,7 @@ module AWS::SDK::Rekognition
     class SegmentTypesInfo
       def self.parse(list)
         list.map do |value|
-          Parsers::SegmentTypeInfo.parse(value) unless value.nil?
+          SegmentTypeInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1666,7 +1666,7 @@ module AWS::SDK::Rekognition
     class SegmentDetections
       def self.parse(list)
         list.map do |value|
-          Parsers::SegmentDetection.parse(value) unless value.nil?
+          SegmentDetection.parse(value) unless value.nil?
         end
       end
     end
@@ -1681,8 +1681,8 @@ module AWS::SDK::Rekognition
         data.start_timecode_smpte = map['StartTimecodeSMPTE']
         data.end_timecode_smpte = map['EndTimecodeSMPTE']
         data.duration_smpte = map['DurationSMPTE']
-        data.technical_cue_segment = (Parsers::TechnicalCueSegment.parse(map['TechnicalCueSegment']) unless map['TechnicalCueSegment'].nil?)
-        data.shot_segment = (Parsers::ShotSegment.parse(map['ShotSegment']) unless map['ShotSegment'].nil?)
+        data.technical_cue_segment = (TechnicalCueSegment.parse(map['TechnicalCueSegment']) unless map['TechnicalCueSegment'].nil?)
+        data.shot_segment = (ShotSegment.parse(map['ShotSegment']) unless map['ShotSegment'].nil?)
         data.start_frame_number = map['StartFrameNumber']
         data.end_frame_number = map['EndFrameNumber']
         data.duration_frames = map['DurationFrames']
@@ -1711,7 +1711,7 @@ module AWS::SDK::Rekognition
     class AudioMetadataList
       def self.parse(list)
         list.map do |value|
-          Parsers::AudioMetadata.parse(value) unless value.nil?
+          AudioMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -1730,7 +1730,7 @@ module AWS::SDK::Rekognition
     class VideoMetadataList
       def self.parse(list)
         list.map do |value|
-          Parsers::VideoMetadata.parse(value) unless value.nil?
+          VideoMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -1744,8 +1744,8 @@ module AWS::SDK::Rekognition
         map = Hearth::JSON.load(body)
         data.job_status = map['JobStatus']
         data.status_message = map['StatusMessage']
-        data.video_metadata = (Parsers::VideoMetadata.parse(map['VideoMetadata']) unless map['VideoMetadata'].nil?)
-        data.text_detections = (Parsers::TextDetectionResults.parse(map['TextDetections']) unless map['TextDetections'].nil?)
+        data.video_metadata = (VideoMetadata.parse(map['VideoMetadata']) unless map['VideoMetadata'].nil?)
+        data.text_detections = (TextDetectionResults.parse(map['TextDetections']) unless map['TextDetections'].nil?)
         data.next_token = map['NextToken']
         data.text_model_version = map['TextModelVersion']
         data
@@ -1755,7 +1755,7 @@ module AWS::SDK::Rekognition
     class TextDetectionResults
       def self.parse(list)
         list.map do |value|
-          Parsers::TextDetectionResult.parse(value) unless value.nil?
+          TextDetectionResult.parse(value) unless value.nil?
         end
       end
     end
@@ -1764,7 +1764,7 @@ module AWS::SDK::Rekognition
       def self.parse(map)
         data = Types::TextDetectionResult.new
         data.timestamp = map['Timestamp']
-        data.text_detection = (Parsers::TextDetection.parse(map['TextDetection']) unless map['TextDetection'].nil?)
+        data.text_detection = (TextDetection.parse(map['TextDetection']) unless map['TextDetection'].nil?)
         return data
       end
     end
@@ -1776,10 +1776,10 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.face_records = (Parsers::FaceRecordList.parse(map['FaceRecords']) unless map['FaceRecords'].nil?)
+        data.face_records = (FaceRecordList.parse(map['FaceRecords']) unless map['FaceRecords'].nil?)
         data.orientation_correction = map['OrientationCorrection']
         data.face_model_version = map['FaceModelVersion']
-        data.unindexed_faces = (Parsers::UnindexedFaces.parse(map['UnindexedFaces']) unless map['UnindexedFaces'].nil?)
+        data.unindexed_faces = (UnindexedFaces.parse(map['UnindexedFaces']) unless map['UnindexedFaces'].nil?)
         data
       end
     end
@@ -1787,7 +1787,7 @@ module AWS::SDK::Rekognition
     class UnindexedFaces
       def self.parse(list)
         list.map do |value|
-          Parsers::UnindexedFace.parse(value) unless value.nil?
+          UnindexedFace.parse(value) unless value.nil?
         end
       end
     end
@@ -1795,8 +1795,8 @@ module AWS::SDK::Rekognition
     class UnindexedFace
       def self.parse(map)
         data = Types::UnindexedFace.new
-        data.reasons = (Parsers::Reasons.parse(map['Reasons']) unless map['Reasons'].nil?)
-        data.face_detail = (Parsers::FaceDetail.parse(map['FaceDetail']) unless map['FaceDetail'].nil?)
+        data.reasons = (Reasons.parse(map['Reasons']) unless map['Reasons'].nil?)
+        data.face_detail = (FaceDetail.parse(map['FaceDetail']) unless map['FaceDetail'].nil?)
         return data
       end
     end
@@ -1812,7 +1812,7 @@ module AWS::SDK::Rekognition
     class FaceRecordList
       def self.parse(list)
         list.map do |value|
-          Parsers::FaceRecord.parse(value) unless value.nil?
+          FaceRecord.parse(value) unless value.nil?
         end
       end
     end
@@ -1820,8 +1820,8 @@ module AWS::SDK::Rekognition
     class FaceRecord
       def self.parse(map)
         data = Types::FaceRecord.new
-        data.face = (Parsers::Face.parse(map['Face']) unless map['Face'].nil?)
-        data.face_detail = (Parsers::FaceDetail.parse(map['FaceDetail']) unless map['FaceDetail'].nil?)
+        data.face = (Face.parse(map['Face']) unless map['Face'].nil?)
+        data.face_detail = (FaceDetail.parse(map['FaceDetail']) unless map['FaceDetail'].nil?)
         return data
       end
     end
@@ -1833,9 +1833,9 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.collection_ids = (Parsers::CollectionIdList.parse(map['CollectionIds']) unless map['CollectionIds'].nil?)
+        data.collection_ids = (CollectionIdList.parse(map['CollectionIds']) unless map['CollectionIds'].nil?)
         data.next_token = map['NextToken']
-        data.face_model_versions = (Parsers::FaceModelVersionList.parse(map['FaceModelVersions']) unless map['FaceModelVersions'].nil?)
+        data.face_model_versions = (FaceModelVersionList.parse(map['FaceModelVersions']) unless map['FaceModelVersions'].nil?)
         data
       end
     end
@@ -1863,7 +1863,7 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dataset_entries = (Parsers::DatasetEntries.parse(map['DatasetEntries']) unless map['DatasetEntries'].nil?)
+        data.dataset_entries = (DatasetEntries.parse(map['DatasetEntries']) unless map['DatasetEntries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1884,7 +1884,7 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dataset_label_descriptions = (Parsers::DatasetLabelDescriptions.parse(map['DatasetLabelDescriptions']) unless map['DatasetLabelDescriptions'].nil?)
+        data.dataset_label_descriptions = (DatasetLabelDescriptions.parse(map['DatasetLabelDescriptions']) unless map['DatasetLabelDescriptions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1893,7 +1893,7 @@ module AWS::SDK::Rekognition
     class DatasetLabelDescriptions
       def self.parse(list)
         list.map do |value|
-          Parsers::DatasetLabelDescription.parse(value) unless value.nil?
+          DatasetLabelDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -1902,7 +1902,7 @@ module AWS::SDK::Rekognition
       def self.parse(map)
         data = Types::DatasetLabelDescription.new
         data.label_name = map['LabelName']
-        data.label_stats = (Parsers::DatasetLabelStats.parse(map['LabelStats']) unless map['LabelStats'].nil?)
+        data.label_stats = (DatasetLabelStats.parse(map['LabelStats']) unless map['LabelStats'].nil?)
         return data
       end
     end
@@ -1923,7 +1923,7 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.faces = (Parsers::FaceList.parse(map['Faces']) unless map['Faces'].nil?)
+        data.faces = (FaceList.parse(map['Faces']) unless map['Faces'].nil?)
         data.next_token = map['NextToken']
         data.face_model_version = map['FaceModelVersion']
         data
@@ -1933,7 +1933,7 @@ module AWS::SDK::Rekognition
     class FaceList
       def self.parse(list)
         list.map do |value|
-          Parsers::Face.parse(value) unless value.nil?
+          Face.parse(value) unless value.nil?
         end
       end
     end
@@ -1946,7 +1946,7 @@ module AWS::SDK::Rekognition
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.stream_processors = (Parsers::StreamProcessorList.parse(map['StreamProcessors']) unless map['StreamProcessors'].nil?)
+        data.stream_processors = (StreamProcessorList.parse(map['StreamProcessors']) unless map['StreamProcessors'].nil?)
         data
       end
     end
@@ -1954,7 +1954,7 @@ module AWS::SDK::Rekognition
     class StreamProcessorList
       def self.parse(list)
         list.map do |value|
-          Parsers::StreamProcessor.parse(value) unless value.nil?
+          StreamProcessor.parse(value) unless value.nil?
         end
       end
     end
@@ -1975,7 +1975,7 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -1997,8 +1997,8 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.celebrity_faces = (Parsers::CelebrityList.parse(map['CelebrityFaces']) unless map['CelebrityFaces'].nil?)
-        data.unrecognized_faces = (Parsers::ComparedFaceList.parse(map['UnrecognizedFaces']) unless map['UnrecognizedFaces'].nil?)
+        data.celebrity_faces = (CelebrityList.parse(map['CelebrityFaces']) unless map['CelebrityFaces'].nil?)
+        data.unrecognized_faces = (ComparedFaceList.parse(map['UnrecognizedFaces']) unless map['UnrecognizedFaces'].nil?)
         data.orientation_correction = map['OrientationCorrection']
         data
       end
@@ -2007,7 +2007,7 @@ module AWS::SDK::Rekognition
     class ComparedFaceList
       def self.parse(list)
         list.map do |value|
-          Parsers::ComparedFace.parse(value) unless value.nil?
+          ComparedFace.parse(value) unless value.nil?
         end
       end
     end
@@ -2015,7 +2015,7 @@ module AWS::SDK::Rekognition
     class CelebrityList
       def self.parse(list)
         list.map do |value|
-          Parsers::Celebrity.parse(value) unless value.nil?
+          Celebrity.parse(value) unless value.nil?
         end
       end
     end
@@ -2023,12 +2023,12 @@ module AWS::SDK::Rekognition
     class Celebrity
       def self.parse(map)
         data = Types::Celebrity.new
-        data.urls = (Parsers::Urls.parse(map['Urls']) unless map['Urls'].nil?)
+        data.urls = (Urls.parse(map['Urls']) unless map['Urls'].nil?)
         data.name = map['Name']
         data.id = map['Id']
-        data.face = (Parsers::ComparedFace.parse(map['Face']) unless map['Face'].nil?)
+        data.face = (ComparedFace.parse(map['Face']) unless map['Face'].nil?)
         data.match_confidence = Hearth::NumberHelper.deserialize(map['MatchConfidence'])
-        data.known_gender = (Parsers::KnownGender.parse(map['KnownGender']) unless map['KnownGender'].nil?)
+        data.known_gender = (KnownGender.parse(map['KnownGender']) unless map['KnownGender'].nil?)
         return data
       end
     end
@@ -2041,7 +2041,7 @@ module AWS::SDK::Rekognition
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.searched_face_id = map['SearchedFaceId']
-        data.face_matches = (Parsers::FaceMatchList.parse(map['FaceMatches']) unless map['FaceMatches'].nil?)
+        data.face_matches = (FaceMatchList.parse(map['FaceMatches']) unless map['FaceMatches'].nil?)
         data.face_model_version = map['FaceModelVersion']
         data
       end
@@ -2054,9 +2054,9 @@ module AWS::SDK::Rekognition
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.searched_face_bounding_box = (Parsers::BoundingBox.parse(map['SearchedFaceBoundingBox']) unless map['SearchedFaceBoundingBox'].nil?)
+        data.searched_face_bounding_box = (BoundingBox.parse(map['SearchedFaceBoundingBox']) unless map['SearchedFaceBoundingBox'].nil?)
         data.searched_face_confidence = Hearth::NumberHelper.deserialize(map['SearchedFaceConfidence'])
-        data.face_matches = (Parsers::FaceMatchList.parse(map['FaceMatches']) unless map['FaceMatches'].nil?)
+        data.face_matches = (FaceMatchList.parse(map['FaceMatches']) unless map['FaceMatches'].nil?)
         data.face_model_version = map['FaceModelVersion']
         data
       end

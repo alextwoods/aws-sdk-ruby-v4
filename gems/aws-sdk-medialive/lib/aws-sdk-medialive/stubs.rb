@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MediaLive
   module Stubs
 
@@ -36,9 +38,9 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['failed'] = Stubs::List____listOfBatchFailedResultModel.stub(stub[:failed]) unless stub[:failed].nil?
-        data['successful'] = Stubs::List____listOfBatchSuccessfulResultModel.stub(stub[:successful]) unless stub[:successful].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['failed'] = List____listOfBatchFailedResultModel.stub(stub[:failed]) unless stub[:failed].nil?
+        data['successful'] = List____listOfBatchSuccessfulResultModel.stub(stub[:successful]) unless stub[:successful].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -56,7 +58,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchSuccessfulResultModel.stub(element) unless element.nil?
+          data << BatchSuccessfulResultModel.stub(element) unless element.nil?
         end
         data
       end
@@ -98,7 +100,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchFailedResultModel.stub(element) unless element.nil?
+          data << BatchFailedResultModel.stub(element) unless element.nil?
         end
         data
       end
@@ -141,9 +143,9 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['failed'] = Stubs::List____listOfBatchFailedResultModel.stub(stub[:failed]) unless stub[:failed].nil?
-        data['successful'] = Stubs::List____listOfBatchSuccessfulResultModel.stub(stub[:successful]) unless stub[:successful].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['failed'] = List____listOfBatchFailedResultModel.stub(stub[:failed]) unless stub[:failed].nil?
+        data['successful'] = List____listOfBatchSuccessfulResultModel.stub(stub[:successful]) unless stub[:successful].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -160,9 +162,9 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['failed'] = Stubs::List____listOfBatchFailedResultModel.stub(stub[:failed]) unless stub[:failed].nil?
-        data['successful'] = Stubs::List____listOfBatchSuccessfulResultModel.stub(stub[:successful]) unless stub[:successful].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['failed'] = List____listOfBatchFailedResultModel.stub(stub[:failed]) unless stub[:failed].nil?
+        data['successful'] = List____listOfBatchSuccessfulResultModel.stub(stub[:successful]) unless stub[:successful].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -179,9 +181,9 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['creates'] = Stubs::BatchScheduleActionCreateResult.stub(stub[:creates]) unless stub[:creates].nil?
-        data['deletes'] = Stubs::BatchScheduleActionDeleteResult.stub(stub[:deletes]) unless stub[:deletes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['creates'] = BatchScheduleActionCreateResult.stub(stub[:creates]) unless stub[:creates].nil?
+        data['deletes'] = BatchScheduleActionDeleteResult.stub(stub[:deletes]) unless stub[:deletes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -198,7 +200,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::BatchScheduleActionDeleteResult.new
         data = {}
-        data['scheduleActions'] = Stubs::List____listOfScheduleAction.stub(stub[:schedule_actions]) unless stub[:schedule_actions].nil?
+        data['scheduleActions'] = List____listOfScheduleAction.stub(stub[:schedule_actions]) unless stub[:schedule_actions].nil?
         data
       end
     end
@@ -217,7 +219,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScheduleAction.stub(element) unless element.nil?
+          data << ScheduleAction.stub(element) unless element.nil?
         end
         data
       end
@@ -239,8 +241,8 @@ module AWS::SDK::MediaLive
         stub ||= Types::ScheduleAction.new
         data = {}
         data['actionName'] = stub[:action_name] unless stub[:action_name].nil?
-        data['scheduleActionSettings'] = Stubs::ScheduleActionSettings.stub(stub[:schedule_action_settings]) unless stub[:schedule_action_settings].nil?
-        data['scheduleActionStartSettings'] = Stubs::ScheduleActionStartSettings.stub(stub[:schedule_action_start_settings]) unless stub[:schedule_action_start_settings].nil?
+        data['scheduleActionSettings'] = ScheduleActionSettings.stub(stub[:schedule_action_settings]) unless stub[:schedule_action_settings].nil?
+        data['scheduleActionStartSettings'] = ScheduleActionStartSettings.stub(stub[:schedule_action_start_settings]) unless stub[:schedule_action_start_settings].nil?
         data
       end
     end
@@ -260,9 +262,9 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::ScheduleActionStartSettings.new
         data = {}
-        data['fixedModeScheduleActionStartSettings'] = Stubs::FixedModeScheduleActionStartSettings.stub(stub[:fixed_mode_schedule_action_start_settings]) unless stub[:fixed_mode_schedule_action_start_settings].nil?
-        data['followModeScheduleActionStartSettings'] = Stubs::FollowModeScheduleActionStartSettings.stub(stub[:follow_mode_schedule_action_start_settings]) unless stub[:follow_mode_schedule_action_start_settings].nil?
-        data['immediateModeScheduleActionStartSettings'] = Stubs::ImmediateModeScheduleActionStartSettings.stub(stub[:immediate_mode_schedule_action_start_settings]) unless stub[:immediate_mode_schedule_action_start_settings].nil?
+        data['fixedModeScheduleActionStartSettings'] = FixedModeScheduleActionStartSettings.stub(stub[:fixed_mode_schedule_action_start_settings]) unless stub[:fixed_mode_schedule_action_start_settings].nil?
+        data['followModeScheduleActionStartSettings'] = FollowModeScheduleActionStartSettings.stub(stub[:follow_mode_schedule_action_start_settings]) unless stub[:follow_mode_schedule_action_start_settings].nil?
+        data['immediateModeScheduleActionStartSettings'] = ImmediateModeScheduleActionStartSettings.stub(stub[:immediate_mode_schedule_action_start_settings]) unless stub[:immediate_mode_schedule_action_start_settings].nil?
         data
       end
     end
@@ -345,18 +347,18 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::ScheduleActionSettings.new
         data = {}
-        data['hlsId3SegmentTaggingSettings'] = Stubs::HlsId3SegmentTaggingScheduleActionSettings.stub(stub[:hls_id3_segment_tagging_settings]) unless stub[:hls_id3_segment_tagging_settings].nil?
-        data['hlsTimedMetadataSettings'] = Stubs::HlsTimedMetadataScheduleActionSettings.stub(stub[:hls_timed_metadata_settings]) unless stub[:hls_timed_metadata_settings].nil?
-        data['inputPrepareSettings'] = Stubs::InputPrepareScheduleActionSettings.stub(stub[:input_prepare_settings]) unless stub[:input_prepare_settings].nil?
-        data['inputSwitchSettings'] = Stubs::InputSwitchScheduleActionSettings.stub(stub[:input_switch_settings]) unless stub[:input_switch_settings].nil?
-        data['motionGraphicsImageActivateSettings'] = Stubs::MotionGraphicsActivateScheduleActionSettings.stub(stub[:motion_graphics_image_activate_settings]) unless stub[:motion_graphics_image_activate_settings].nil?
-        data['motionGraphicsImageDeactivateSettings'] = Stubs::MotionGraphicsDeactivateScheduleActionSettings.stub(stub[:motion_graphics_image_deactivate_settings]) unless stub[:motion_graphics_image_deactivate_settings].nil?
-        data['pauseStateSettings'] = Stubs::PauseStateScheduleActionSettings.stub(stub[:pause_state_settings]) unless stub[:pause_state_settings].nil?
-        data['scte35ReturnToNetworkSettings'] = Stubs::Scte35ReturnToNetworkScheduleActionSettings.stub(stub[:scte35_return_to_network_settings]) unless stub[:scte35_return_to_network_settings].nil?
-        data['scte35SpliceInsertSettings'] = Stubs::Scte35SpliceInsertScheduleActionSettings.stub(stub[:scte35_splice_insert_settings]) unless stub[:scte35_splice_insert_settings].nil?
-        data['scte35TimeSignalSettings'] = Stubs::Scte35TimeSignalScheduleActionSettings.stub(stub[:scte35_time_signal_settings]) unless stub[:scte35_time_signal_settings].nil?
-        data['staticImageActivateSettings'] = Stubs::StaticImageActivateScheduleActionSettings.stub(stub[:static_image_activate_settings]) unless stub[:static_image_activate_settings].nil?
-        data['staticImageDeactivateSettings'] = Stubs::StaticImageDeactivateScheduleActionSettings.stub(stub[:static_image_deactivate_settings]) unless stub[:static_image_deactivate_settings].nil?
+        data['hlsId3SegmentTaggingSettings'] = HlsId3SegmentTaggingScheduleActionSettings.stub(stub[:hls_id3_segment_tagging_settings]) unless stub[:hls_id3_segment_tagging_settings].nil?
+        data['hlsTimedMetadataSettings'] = HlsTimedMetadataScheduleActionSettings.stub(stub[:hls_timed_metadata_settings]) unless stub[:hls_timed_metadata_settings].nil?
+        data['inputPrepareSettings'] = InputPrepareScheduleActionSettings.stub(stub[:input_prepare_settings]) unless stub[:input_prepare_settings].nil?
+        data['inputSwitchSettings'] = InputSwitchScheduleActionSettings.stub(stub[:input_switch_settings]) unless stub[:input_switch_settings].nil?
+        data['motionGraphicsImageActivateSettings'] = MotionGraphicsActivateScheduleActionSettings.stub(stub[:motion_graphics_image_activate_settings]) unless stub[:motion_graphics_image_activate_settings].nil?
+        data['motionGraphicsImageDeactivateSettings'] = MotionGraphicsDeactivateScheduleActionSettings.stub(stub[:motion_graphics_image_deactivate_settings]) unless stub[:motion_graphics_image_deactivate_settings].nil?
+        data['pauseStateSettings'] = PauseStateScheduleActionSettings.stub(stub[:pause_state_settings]) unless stub[:pause_state_settings].nil?
+        data['scte35ReturnToNetworkSettings'] = Scte35ReturnToNetworkScheduleActionSettings.stub(stub[:scte35_return_to_network_settings]) unless stub[:scte35_return_to_network_settings].nil?
+        data['scte35SpliceInsertSettings'] = Scte35SpliceInsertScheduleActionSettings.stub(stub[:scte35_splice_insert_settings]) unless stub[:scte35_splice_insert_settings].nil?
+        data['scte35TimeSignalSettings'] = Scte35TimeSignalScheduleActionSettings.stub(stub[:scte35_time_signal_settings]) unless stub[:scte35_time_signal_settings].nil?
+        data['staticImageActivateSettings'] = StaticImageActivateScheduleActionSettings.stub(stub[:static_image_activate_settings]) unless stub[:static_image_activate_settings].nil?
+        data['staticImageDeactivateSettings'] = StaticImageDeactivateScheduleActionSettings.stub(stub[:static_image_deactivate_settings]) unless stub[:static_image_deactivate_settings].nil?
         data
       end
     end
@@ -407,7 +409,7 @@ module AWS::SDK::MediaLive
         data['fadeIn'] = stub[:fade_in] unless stub[:fade_in].nil?
         data['fadeOut'] = stub[:fade_out] unless stub[:fade_out].nil?
         data['height'] = stub[:height] unless stub[:height].nil?
-        data['image'] = Stubs::InputLocation.stub(stub[:image]) unless stub[:image].nil?
+        data['image'] = InputLocation.stub(stub[:image]) unless stub[:image].nil?
         data['imageX'] = stub[:image_x] unless stub[:image_x].nil?
         data['imageY'] = stub[:image_y] unless stub[:image_y].nil?
         data['layer'] = stub[:layer] unless stub[:layer].nil?
@@ -452,7 +454,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::Scte35TimeSignalScheduleActionSettings.new
         data = {}
-        data['scte35Descriptors'] = Stubs::List____listOfScte35Descriptor.stub(stub[:scte35_descriptors]) unless stub[:scte35_descriptors].nil?
+        data['scte35Descriptors'] = List____listOfScte35Descriptor.stub(stub[:scte35_descriptors]) unless stub[:scte35_descriptors].nil?
         data
       end
     end
@@ -471,7 +473,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Scte35Descriptor.stub(element) unless element.nil?
+          data << Scte35Descriptor.stub(element) unless element.nil?
         end
         data
       end
@@ -490,7 +492,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::Scte35Descriptor.new
         data = {}
-        data['scte35DescriptorSettings'] = Stubs::Scte35DescriptorSettings.stub(stub[:scte35_descriptor_settings]) unless stub[:scte35_descriptor_settings].nil?
+        data['scte35DescriptorSettings'] = Scte35DescriptorSettings.stub(stub[:scte35_descriptor_settings]) unless stub[:scte35_descriptor_settings].nil?
         data
       end
     end
@@ -508,7 +510,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::Scte35DescriptorSettings.new
         data = {}
-        data['segmentationDescriptorScte35DescriptorSettings'] = Stubs::Scte35SegmentationDescriptor.stub(stub[:segmentation_descriptor_scte35_descriptor_settings]) unless stub[:segmentation_descriptor_scte35_descriptor_settings].nil?
+        data['segmentationDescriptorScte35DescriptorSettings'] = Scte35SegmentationDescriptor.stub(stub[:segmentation_descriptor_scte35_descriptor_settings]) unless stub[:segmentation_descriptor_scte35_descriptor_settings].nil?
         data
       end
     end
@@ -536,7 +538,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::Scte35SegmentationDescriptor.new
         data = {}
-        data['deliveryRestrictions'] = Stubs::Scte35DeliveryRestrictions.stub(stub[:delivery_restrictions]) unless stub[:delivery_restrictions].nil?
+        data['deliveryRestrictions'] = Scte35DeliveryRestrictions.stub(stub[:delivery_restrictions]) unless stub[:delivery_restrictions].nil?
         data['segmentNum'] = stub[:segment_num] unless stub[:segment_num].nil?
         data['segmentationCancelIndicator'] = stub[:segmentation_cancel_indicator] unless stub[:segmentation_cancel_indicator].nil?
         data['segmentationDuration'] = stub[:segmentation_duration] unless stub[:segmentation_duration].nil?
@@ -626,7 +628,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::PauseStateScheduleActionSettings.new
         data = {}
-        data['pipelines'] = Stubs::List____listOfPipelinePauseStateSettings.stub(stub[:pipelines]) unless stub[:pipelines].nil?
+        data['pipelines'] = List____listOfPipelinePauseStateSettings.stub(stub[:pipelines]) unless stub[:pipelines].nil?
         data
       end
     end
@@ -645,7 +647,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PipelinePauseStateSettings.stub(element) unless element.nil?
+          data << PipelinePauseStateSettings.stub(element) unless element.nil?
         end
         data
       end
@@ -725,8 +727,8 @@ module AWS::SDK::MediaLive
         stub ||= Types::InputSwitchScheduleActionSettings.new
         data = {}
         data['inputAttachmentNameReference'] = stub[:input_attachment_name_reference] unless stub[:input_attachment_name_reference].nil?
-        data['inputClippingSettings'] = Stubs::InputClippingSettings.stub(stub[:input_clipping_settings]) unless stub[:input_clipping_settings].nil?
-        data['urlPath'] = Stubs::List____listOf__string.stub(stub[:url_path]) unless stub[:url_path].nil?
+        data['inputClippingSettings'] = InputClippingSettings.stub(stub[:input_clipping_settings]) unless stub[:input_clipping_settings].nil?
+        data['urlPath'] = List____listOf__string.stub(stub[:url_path]) unless stub[:url_path].nil?
         data
       end
     end
@@ -767,8 +769,8 @@ module AWS::SDK::MediaLive
         stub ||= Types::InputClippingSettings.new
         data = {}
         data['inputTimecodeSource'] = stub[:input_timecode_source] unless stub[:input_timecode_source].nil?
-        data['startTimecode'] = Stubs::StartTimecode.stub(stub[:start_timecode]) unless stub[:start_timecode].nil?
-        data['stopTimecode'] = Stubs::StopTimecode.stub(stub[:stop_timecode]) unless stub[:stop_timecode].nil?
+        data['startTimecode'] = StartTimecode.stub(stub[:start_timecode]) unless stub[:start_timecode].nil?
+        data['stopTimecode'] = StopTimecode.stub(stub[:stop_timecode]) unless stub[:stop_timecode].nil?
         data
       end
     end
@@ -827,8 +829,8 @@ module AWS::SDK::MediaLive
         stub ||= Types::InputPrepareScheduleActionSettings.new
         data = {}
         data['inputAttachmentNameReference'] = stub[:input_attachment_name_reference] unless stub[:input_attachment_name_reference].nil?
-        data['inputClippingSettings'] = Stubs::InputClippingSettings.stub(stub[:input_clipping_settings]) unless stub[:input_clipping_settings].nil?
-        data['urlPath'] = Stubs::List____listOf__string.stub(stub[:url_path]) unless stub[:url_path].nil?
+        data['inputClippingSettings'] = InputClippingSettings.stub(stub[:input_clipping_settings]) unless stub[:input_clipping_settings].nil?
+        data['urlPath'] = List____listOf__string.stub(stub[:url_path]) unless stub[:url_path].nil?
         data
       end
     end
@@ -882,7 +884,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::BatchScheduleActionCreateResult.new
         data = {}
-        data['scheduleActions'] = Stubs::List____listOfScheduleAction.stub(stub[:schedule_actions]) unless stub[:schedule_actions].nil?
+        data['scheduleActions'] = List____listOfScheduleAction.stub(stub[:schedule_actions]) unless stub[:schedule_actions].nil?
         data
       end
     end
@@ -925,8 +927,8 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['channel'] = Stubs::Channel.stub(stub[:channel]) unless stub[:channel].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['channel'] = Channel.stub(stub[:channel]) unless stub[:channel].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -961,23 +963,23 @@ module AWS::SDK::MediaLive
         stub ||= Types::Channel.new
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['cdiInputSpecification'] = Stubs::CdiInputSpecification.stub(stub[:cdi_input_specification]) unless stub[:cdi_input_specification].nil?
+        data['cdiInputSpecification'] = CdiInputSpecification.stub(stub[:cdi_input_specification]) unless stub[:cdi_input_specification].nil?
         data['channelClass'] = stub[:channel_class] unless stub[:channel_class].nil?
-        data['destinations'] = Stubs::List____listOfOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
-        data['egressEndpoints'] = Stubs::List____listOfChannelEgressEndpoint.stub(stub[:egress_endpoints]) unless stub[:egress_endpoints].nil?
-        data['encoderSettings'] = Stubs::EncoderSettings.stub(stub[:encoder_settings]) unless stub[:encoder_settings].nil?
+        data['destinations'] = List____listOfOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['egressEndpoints'] = List____listOfChannelEgressEndpoint.stub(stub[:egress_endpoints]) unless stub[:egress_endpoints].nil?
+        data['encoderSettings'] = EncoderSettings.stub(stub[:encoder_settings]) unless stub[:encoder_settings].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['inputAttachments'] = Stubs::List____listOfInputAttachment.stub(stub[:input_attachments]) unless stub[:input_attachments].nil?
-        data['inputSpecification'] = Stubs::InputSpecification.stub(stub[:input_specification]) unless stub[:input_specification].nil?
+        data['inputAttachments'] = List____listOfInputAttachment.stub(stub[:input_attachments]) unless stub[:input_attachments].nil?
+        data['inputSpecification'] = InputSpecification.stub(stub[:input_specification]) unless stub[:input_specification].nil?
         data['logLevel'] = stub[:log_level] unless stub[:log_level].nil?
-        data['maintenance'] = Stubs::MaintenanceStatus.stub(stub[:maintenance]) unless stub[:maintenance].nil?
+        data['maintenance'] = MaintenanceStatus.stub(stub[:maintenance]) unless stub[:maintenance].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['pipelineDetails'] = Stubs::List____listOfPipelineDetail.stub(stub[:pipeline_details]) unless stub[:pipeline_details].nil?
+        data['pipelineDetails'] = List____listOfPipelineDetail.stub(stub[:pipeline_details]) unless stub[:pipeline_details].nil?
         data['pipelinesRunningCount'] = stub[:pipelines_running_count] unless stub[:pipelines_running_count].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['vpc'] = Stubs::VpcOutputSettingsDescription.stub(stub[:vpc]) unless stub[:vpc].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['vpc'] = VpcOutputSettingsDescription.stub(stub[:vpc]) unless stub[:vpc].nil?
         data
       end
     end
@@ -998,10 +1000,10 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::VpcOutputSettingsDescription.new
         data = {}
-        data['availabilityZones'] = Stubs::List____listOf__string.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
-        data['networkInterfaceIds'] = Stubs::List____listOf__string.stub(stub[:network_interface_ids]) unless stub[:network_interface_ids].nil?
-        data['securityGroupIds'] = Stubs::List____listOf__string.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
-        data['subnetIds'] = Stubs::List____listOf__string.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['availabilityZones'] = List____listOf__string.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['networkInterfaceIds'] = List____listOf__string.stub(stub[:network_interface_ids]) unless stub[:network_interface_ids].nil?
+        data['securityGroupIds'] = List____listOf__string.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['subnetIds'] = List____listOf__string.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
         data
       end
     end
@@ -1040,7 +1042,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PipelineDetail.stub(element) unless element.nil?
+          data << PipelineDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1132,7 +1134,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InputAttachment.stub(element) unless element.nil?
+          data << InputAttachment.stub(element) unless element.nil?
         end
         data
       end
@@ -1154,10 +1156,10 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::InputAttachment.new
         data = {}
-        data['automaticInputFailoverSettings'] = Stubs::AutomaticInputFailoverSettings.stub(stub[:automatic_input_failover_settings]) unless stub[:automatic_input_failover_settings].nil?
+        data['automaticInputFailoverSettings'] = AutomaticInputFailoverSettings.stub(stub[:automatic_input_failover_settings]) unless stub[:automatic_input_failover_settings].nil?
         data['inputAttachmentName'] = stub[:input_attachment_name] unless stub[:input_attachment_name].nil?
         data['inputId'] = stub[:input_id] unless stub[:input_id].nil?
-        data['inputSettings'] = Stubs::InputSettings.stub(stub[:input_settings]) unless stub[:input_settings].nil?
+        data['inputSettings'] = InputSettings.stub(stub[:input_settings]) unless stub[:input_settings].nil?
         data
       end
     end
@@ -1185,17 +1187,17 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::InputSettings.new
         data = {}
-        data['audioSelectors'] = Stubs::List____listOfAudioSelector.stub(stub[:audio_selectors]) unless stub[:audio_selectors].nil?
-        data['captionSelectors'] = Stubs::List____listOfCaptionSelector.stub(stub[:caption_selectors]) unless stub[:caption_selectors].nil?
+        data['audioSelectors'] = List____listOfAudioSelector.stub(stub[:audio_selectors]) unless stub[:audio_selectors].nil?
+        data['captionSelectors'] = List____listOfCaptionSelector.stub(stub[:caption_selectors]) unless stub[:caption_selectors].nil?
         data['deblockFilter'] = stub[:deblock_filter] unless stub[:deblock_filter].nil?
         data['denoiseFilter'] = stub[:denoise_filter] unless stub[:denoise_filter].nil?
         data['filterStrength'] = stub[:filter_strength] unless stub[:filter_strength].nil?
         data['inputFilter'] = stub[:input_filter] unless stub[:input_filter].nil?
-        data['networkInputSettings'] = Stubs::NetworkInputSettings.stub(stub[:network_input_settings]) unless stub[:network_input_settings].nil?
+        data['networkInputSettings'] = NetworkInputSettings.stub(stub[:network_input_settings]) unless stub[:network_input_settings].nil?
         data['scte35Pid'] = stub[:scte35_pid] unless stub[:scte35_pid].nil?
         data['smpte2038DataPreference'] = stub[:smpte2038_data_preference] unless stub[:smpte2038_data_preference].nil?
         data['sourceEndBehavior'] = stub[:source_end_behavior] unless stub[:source_end_behavior].nil?
-        data['videoSelector'] = Stubs::VideoSelector.stub(stub[:video_selector]) unless stub[:video_selector].nil?
+        data['videoSelector'] = VideoSelector.stub(stub[:video_selector]) unless stub[:video_selector].nil?
         data
       end
     end
@@ -1217,9 +1219,9 @@ module AWS::SDK::MediaLive
         stub ||= Types::VideoSelector.new
         data = {}
         data['colorSpace'] = stub[:color_space] unless stub[:color_space].nil?
-        data['colorSpaceSettings'] = Stubs::VideoSelectorColorSpaceSettings.stub(stub[:color_space_settings]) unless stub[:color_space_settings].nil?
+        data['colorSpaceSettings'] = VideoSelectorColorSpaceSettings.stub(stub[:color_space_settings]) unless stub[:color_space_settings].nil?
         data['colorSpaceUsage'] = stub[:color_space_usage] unless stub[:color_space_usage].nil?
-        data['selectorSettings'] = Stubs::VideoSelectorSettings.stub(stub[:selector_settings]) unless stub[:selector_settings].nil?
+        data['selectorSettings'] = VideoSelectorSettings.stub(stub[:selector_settings]) unless stub[:selector_settings].nil?
         data
       end
     end
@@ -1238,8 +1240,8 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::VideoSelectorSettings.new
         data = {}
-        data['videoSelectorPid'] = Stubs::VideoSelectorPid.stub(stub[:video_selector_pid]) unless stub[:video_selector_pid].nil?
-        data['videoSelectorProgramId'] = Stubs::VideoSelectorProgramId.stub(stub[:video_selector_program_id]) unless stub[:video_selector_program_id].nil?
+        data['videoSelectorPid'] = VideoSelectorPid.stub(stub[:video_selector_pid]) unless stub[:video_selector_pid].nil?
+        data['videoSelectorProgramId'] = VideoSelectorProgramId.stub(stub[:video_selector_program_id]) unless stub[:video_selector_program_id].nil?
         data
       end
     end
@@ -1293,7 +1295,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::VideoSelectorColorSpaceSettings.new
         data = {}
-        data['hdr10Settings'] = Stubs::Hdr10Settings.stub(stub[:hdr10_settings]) unless stub[:hdr10_settings].nil?
+        data['hdr10Settings'] = Hdr10Settings.stub(stub[:hdr10_settings]) unless stub[:hdr10_settings].nil?
         data
       end
     end
@@ -1332,7 +1334,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::NetworkInputSettings.new
         data = {}
-        data['hlsInputSettings'] = Stubs::HlsInputSettings.stub(stub[:hls_input_settings]) unless stub[:hls_input_settings].nil?
+        data['hlsInputSettings'] = HlsInputSettings.stub(stub[:hls_input_settings]) unless stub[:hls_input_settings].nil?
         data['serverValidation'] = stub[:server_validation] unless stub[:server_validation].nil?
         data
       end
@@ -1378,7 +1380,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CaptionSelector.stub(element) unless element.nil?
+          data << CaptionSelector.stub(element) unless element.nil?
         end
         data
       end
@@ -1401,7 +1403,7 @@ module AWS::SDK::MediaLive
         data = {}
         data['languageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['selectorSettings'] = Stubs::CaptionSelectorSettings.stub(stub[:selector_settings]) unless stub[:selector_settings].nil?
+        data['selectorSettings'] = CaptionSelectorSettings.stub(stub[:selector_settings]) unless stub[:selector_settings].nil?
         data
       end
     end
@@ -1425,13 +1427,13 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::CaptionSelectorSettings.new
         data = {}
-        data['ancillarySourceSettings'] = Stubs::AncillarySourceSettings.stub(stub[:ancillary_source_settings]) unless stub[:ancillary_source_settings].nil?
-        data['aribSourceSettings'] = Stubs::AribSourceSettings.stub(stub[:arib_source_settings]) unless stub[:arib_source_settings].nil?
-        data['dvbSubSourceSettings'] = Stubs::DvbSubSourceSettings.stub(stub[:dvb_sub_source_settings]) unless stub[:dvb_sub_source_settings].nil?
-        data['embeddedSourceSettings'] = Stubs::EmbeddedSourceSettings.stub(stub[:embedded_source_settings]) unless stub[:embedded_source_settings].nil?
-        data['scte20SourceSettings'] = Stubs::Scte20SourceSettings.stub(stub[:scte20_source_settings]) unless stub[:scte20_source_settings].nil?
-        data['scte27SourceSettings'] = Stubs::Scte27SourceSettings.stub(stub[:scte27_source_settings]) unless stub[:scte27_source_settings].nil?
-        data['teletextSourceSettings'] = Stubs::TeletextSourceSettings.stub(stub[:teletext_source_settings]) unless stub[:teletext_source_settings].nil?
+        data['ancillarySourceSettings'] = AncillarySourceSettings.stub(stub[:ancillary_source_settings]) unless stub[:ancillary_source_settings].nil?
+        data['aribSourceSettings'] = AribSourceSettings.stub(stub[:arib_source_settings]) unless stub[:arib_source_settings].nil?
+        data['dvbSubSourceSettings'] = DvbSubSourceSettings.stub(stub[:dvb_sub_source_settings]) unless stub[:dvb_sub_source_settings].nil?
+        data['embeddedSourceSettings'] = EmbeddedSourceSettings.stub(stub[:embedded_source_settings]) unless stub[:embedded_source_settings].nil?
+        data['scte20SourceSettings'] = Scte20SourceSettings.stub(stub[:scte20_source_settings]) unless stub[:scte20_source_settings].nil?
+        data['scte27SourceSettings'] = Scte27SourceSettings.stub(stub[:scte27_source_settings]) unless stub[:scte27_source_settings].nil?
+        data['teletextSourceSettings'] = TeletextSourceSettings.stub(stub[:teletext_source_settings]) unless stub[:teletext_source_settings].nil?
         data
       end
     end
@@ -1450,7 +1452,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::TeletextSourceSettings.new
         data = {}
-        data['outputRectangle'] = Stubs::CaptionRectangle.stub(stub[:output_rectangle]) unless stub[:output_rectangle].nil?
+        data['outputRectangle'] = CaptionRectangle.stub(stub[:output_rectangle]) unless stub[:output_rectangle].nil?
         data['pageNumber'] = stub[:page_number] unless stub[:page_number].nil?
         data
       end
@@ -1612,7 +1614,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AudioSelector.stub(element) unless element.nil?
+          data << AudioSelector.stub(element) unless element.nil?
         end
         data
       end
@@ -1633,7 +1635,7 @@ module AWS::SDK::MediaLive
         stub ||= Types::AudioSelector.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['selectorSettings'] = Stubs::AudioSelectorSettings.stub(stub[:selector_settings]) unless stub[:selector_settings].nil?
+        data['selectorSettings'] = AudioSelectorSettings.stub(stub[:selector_settings]) unless stub[:selector_settings].nil?
         data
       end
     end
@@ -1654,10 +1656,10 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::AudioSelectorSettings.new
         data = {}
-        data['audioHlsRenditionSelection'] = Stubs::AudioHlsRenditionSelection.stub(stub[:audio_hls_rendition_selection]) unless stub[:audio_hls_rendition_selection].nil?
-        data['audioLanguageSelection'] = Stubs::AudioLanguageSelection.stub(stub[:audio_language_selection]) unless stub[:audio_language_selection].nil?
-        data['audioPidSelection'] = Stubs::AudioPidSelection.stub(stub[:audio_pid_selection]) unless stub[:audio_pid_selection].nil?
-        data['audioTrackSelection'] = Stubs::AudioTrackSelection.stub(stub[:audio_track_selection]) unless stub[:audio_track_selection].nil?
+        data['audioHlsRenditionSelection'] = AudioHlsRenditionSelection.stub(stub[:audio_hls_rendition_selection]) unless stub[:audio_hls_rendition_selection].nil?
+        data['audioLanguageSelection'] = AudioLanguageSelection.stub(stub[:audio_language_selection]) unless stub[:audio_language_selection].nil?
+        data['audioPidSelection'] = AudioPidSelection.stub(stub[:audio_pid_selection]) unless stub[:audio_pid_selection].nil?
+        data['audioTrackSelection'] = AudioTrackSelection.stub(stub[:audio_track_selection]) unless stub[:audio_track_selection].nil?
         data
       end
     end
@@ -1675,7 +1677,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::AudioTrackSelection.new
         data = {}
-        data['tracks'] = Stubs::List____listOfAudioTrack.stub(stub[:tracks]) unless stub[:tracks].nil?
+        data['tracks'] = List____listOfAudioTrack.stub(stub[:tracks]) unless stub[:tracks].nil?
         data
       end
     end
@@ -1694,7 +1696,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AudioTrack.stub(element) unless element.nil?
+          data << AudioTrack.stub(element) unless element.nil?
         end
         data
       end
@@ -1793,7 +1795,7 @@ module AWS::SDK::MediaLive
         stub ||= Types::AutomaticInputFailoverSettings.new
         data = {}
         data['errorClearTimeMsec'] = stub[:error_clear_time_msec] unless stub[:error_clear_time_msec].nil?
-        data['failoverConditions'] = Stubs::List____listOfFailoverCondition.stub(stub[:failover_conditions]) unless stub[:failover_conditions].nil?
+        data['failoverConditions'] = List____listOfFailoverCondition.stub(stub[:failover_conditions]) unless stub[:failover_conditions].nil?
         data['inputPreference'] = stub[:input_preference] unless stub[:input_preference].nil?
         data['secondaryInputId'] = stub[:secondary_input_id] unless stub[:secondary_input_id].nil?
         data
@@ -1814,7 +1816,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailoverCondition.stub(element) unless element.nil?
+          data << FailoverCondition.stub(element) unless element.nil?
         end
         data
       end
@@ -1833,7 +1835,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::FailoverCondition.new
         data = {}
-        data['failoverConditionSettings'] = Stubs::FailoverConditionSettings.stub(stub[:failover_condition_settings]) unless stub[:failover_condition_settings].nil?
+        data['failoverConditionSettings'] = FailoverConditionSettings.stub(stub[:failover_condition_settings]) unless stub[:failover_condition_settings].nil?
         data
       end
     end
@@ -1853,9 +1855,9 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::FailoverConditionSettings.new
         data = {}
-        data['audioSilenceSettings'] = Stubs::AudioSilenceFailoverSettings.stub(stub[:audio_silence_settings]) unless stub[:audio_silence_settings].nil?
-        data['inputLossSettings'] = Stubs::InputLossFailoverSettings.stub(stub[:input_loss_settings]) unless stub[:input_loss_settings].nil?
-        data['videoBlackSettings'] = Stubs::VideoBlackFailoverSettings.stub(stub[:video_black_settings]) unless stub[:video_black_settings].nil?
+        data['audioSilenceSettings'] = AudioSilenceFailoverSettings.stub(stub[:audio_silence_settings]) unless stub[:audio_silence_settings].nil?
+        data['inputLossSettings'] = InputLossFailoverSettings.stub(stub[:input_loss_settings]) unless stub[:input_loss_settings].nil?
+        data['videoBlackSettings'] = VideoBlackFailoverSettings.stub(stub[:video_black_settings]) unless stub[:video_black_settings].nil?
         data
       end
     end
@@ -1942,18 +1944,18 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::EncoderSettings.new
         data = {}
-        data['audioDescriptions'] = Stubs::List____listOfAudioDescription.stub(stub[:audio_descriptions]) unless stub[:audio_descriptions].nil?
-        data['availBlanking'] = Stubs::AvailBlanking.stub(stub[:avail_blanking]) unless stub[:avail_blanking].nil?
-        data['availConfiguration'] = Stubs::AvailConfiguration.stub(stub[:avail_configuration]) unless stub[:avail_configuration].nil?
-        data['blackoutSlate'] = Stubs::BlackoutSlate.stub(stub[:blackout_slate]) unless stub[:blackout_slate].nil?
-        data['captionDescriptions'] = Stubs::List____listOfCaptionDescription.stub(stub[:caption_descriptions]) unless stub[:caption_descriptions].nil?
-        data['featureActivations'] = Stubs::FeatureActivations.stub(stub[:feature_activations]) unless stub[:feature_activations].nil?
-        data['globalConfiguration'] = Stubs::GlobalConfiguration.stub(stub[:global_configuration]) unless stub[:global_configuration].nil?
-        data['motionGraphicsConfiguration'] = Stubs::MotionGraphicsConfiguration.stub(stub[:motion_graphics_configuration]) unless stub[:motion_graphics_configuration].nil?
-        data['nielsenConfiguration'] = Stubs::NielsenConfiguration.stub(stub[:nielsen_configuration]) unless stub[:nielsen_configuration].nil?
-        data['outputGroups'] = Stubs::List____listOfOutputGroup.stub(stub[:output_groups]) unless stub[:output_groups].nil?
-        data['timecodeConfig'] = Stubs::TimecodeConfig.stub(stub[:timecode_config]) unless stub[:timecode_config].nil?
-        data['videoDescriptions'] = Stubs::List____listOfVideoDescription.stub(stub[:video_descriptions]) unless stub[:video_descriptions].nil?
+        data['audioDescriptions'] = List____listOfAudioDescription.stub(stub[:audio_descriptions]) unless stub[:audio_descriptions].nil?
+        data['availBlanking'] = AvailBlanking.stub(stub[:avail_blanking]) unless stub[:avail_blanking].nil?
+        data['availConfiguration'] = AvailConfiguration.stub(stub[:avail_configuration]) unless stub[:avail_configuration].nil?
+        data['blackoutSlate'] = BlackoutSlate.stub(stub[:blackout_slate]) unless stub[:blackout_slate].nil?
+        data['captionDescriptions'] = List____listOfCaptionDescription.stub(stub[:caption_descriptions]) unless stub[:caption_descriptions].nil?
+        data['featureActivations'] = FeatureActivations.stub(stub[:feature_activations]) unless stub[:feature_activations].nil?
+        data['globalConfiguration'] = GlobalConfiguration.stub(stub[:global_configuration]) unless stub[:global_configuration].nil?
+        data['motionGraphicsConfiguration'] = MotionGraphicsConfiguration.stub(stub[:motion_graphics_configuration]) unless stub[:motion_graphics_configuration].nil?
+        data['nielsenConfiguration'] = NielsenConfiguration.stub(stub[:nielsen_configuration]) unless stub[:nielsen_configuration].nil?
+        data['outputGroups'] = List____listOfOutputGroup.stub(stub[:output_groups]) unless stub[:output_groups].nil?
+        data['timecodeConfig'] = TimecodeConfig.stub(stub[:timecode_config]) unless stub[:timecode_config].nil?
+        data['videoDescriptions'] = List____listOfVideoDescription.stub(stub[:video_descriptions]) unless stub[:video_descriptions].nil?
         data
       end
     end
@@ -1972,7 +1974,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VideoDescription.stub(element) unless element.nil?
+          data << VideoDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -1997,7 +1999,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::VideoDescription.new
         data = {}
-        data['codecSettings'] = Stubs::VideoCodecSettings.stub(stub[:codec_settings]) unless stub[:codec_settings].nil?
+        data['codecSettings'] = VideoCodecSettings.stub(stub[:codec_settings]) unless stub[:codec_settings].nil?
         data['height'] = stub[:height] unless stub[:height].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['respondToAfd'] = stub[:respond_to_afd] unless stub[:respond_to_afd].nil?
@@ -2024,10 +2026,10 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::VideoCodecSettings.new
         data = {}
-        data['frameCaptureSettings'] = Stubs::FrameCaptureSettings.stub(stub[:frame_capture_settings]) unless stub[:frame_capture_settings].nil?
-        data['h264Settings'] = Stubs::H264Settings.stub(stub[:h264_settings]) unless stub[:h264_settings].nil?
-        data['h265Settings'] = Stubs::H265Settings.stub(stub[:h265_settings]) unless stub[:h265_settings].nil?
-        data['mpeg2Settings'] = Stubs::Mpeg2Settings.stub(stub[:mpeg2_settings]) unless stub[:mpeg2_settings].nil?
+        data['frameCaptureSettings'] = FrameCaptureSettings.stub(stub[:frame_capture_settings]) unless stub[:frame_capture_settings].nil?
+        data['h264Settings'] = H264Settings.stub(stub[:h264_settings]) unless stub[:h264_settings].nil?
+        data['h265Settings'] = H265Settings.stub(stub[:h265_settings]) unless stub[:h265_settings].nil?
+        data['mpeg2Settings'] = Mpeg2Settings.stub(stub[:mpeg2_settings]) unless stub[:mpeg2_settings].nil?
         data
       end
     end
@@ -2065,7 +2067,7 @@ module AWS::SDK::MediaLive
         data['colorMetadata'] = stub[:color_metadata] unless stub[:color_metadata].nil?
         data['colorSpace'] = stub[:color_space] unless stub[:color_space].nil?
         data['displayAspectRatio'] = stub[:display_aspect_ratio] unless stub[:display_aspect_ratio].nil?
-        data['filterSettings'] = Stubs::Mpeg2FilterSettings.stub(stub[:filter_settings]) unless stub[:filter_settings].nil?
+        data['filterSettings'] = Mpeg2FilterSettings.stub(stub[:filter_settings]) unless stub[:filter_settings].nil?
         data['fixedAfd'] = stub[:fixed_afd] unless stub[:fixed_afd].nil?
         data['framerateDenominator'] = stub[:framerate_denominator] unless stub[:framerate_denominator].nil?
         data['framerateNumerator'] = stub[:framerate_numerator] unless stub[:framerate_numerator].nil?
@@ -2093,7 +2095,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::Mpeg2FilterSettings.new
         data = {}
-        data['temporalFilterSettings'] = Stubs::TemporalFilterSettings.stub(stub[:temporal_filter_settings]) unless stub[:temporal_filter_settings].nil?
+        data['temporalFilterSettings'] = TemporalFilterSettings.stub(stub[:temporal_filter_settings]) unless stub[:temporal_filter_settings].nil?
         data
       end
     end
@@ -2165,8 +2167,8 @@ module AWS::SDK::MediaLive
         data['bitrate'] = stub[:bitrate] unless stub[:bitrate].nil?
         data['bufSize'] = stub[:buf_size] unless stub[:buf_size].nil?
         data['colorMetadata'] = stub[:color_metadata] unless stub[:color_metadata].nil?
-        data['colorSpaceSettings'] = Stubs::H265ColorSpaceSettings.stub(stub[:color_space_settings]) unless stub[:color_space_settings].nil?
-        data['filterSettings'] = Stubs::H265FilterSettings.stub(stub[:filter_settings]) unless stub[:filter_settings].nil?
+        data['colorSpaceSettings'] = H265ColorSpaceSettings.stub(stub[:color_space_settings]) unless stub[:color_space_settings].nil?
+        data['filterSettings'] = H265FilterSettings.stub(stub[:filter_settings]) unless stub[:filter_settings].nil?
         data['fixedAfd'] = stub[:fixed_afd] unless stub[:fixed_afd].nil?
         data['flickerAq'] = stub[:flicker_aq] unless stub[:flicker_aq].nil?
         data['framerateDenominator'] = stub[:framerate_denominator] unless stub[:framerate_denominator].nil?
@@ -2205,7 +2207,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::H265FilterSettings.new
         data = {}
-        data['temporalFilterSettings'] = Stubs::TemporalFilterSettings.stub(stub[:temporal_filter_settings]) unless stub[:temporal_filter_settings].nil?
+        data['temporalFilterSettings'] = TemporalFilterSettings.stub(stub[:temporal_filter_settings]) unless stub[:temporal_filter_settings].nil?
         data
       end
     end
@@ -2226,10 +2228,10 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::H265ColorSpaceSettings.new
         data = {}
-        data['colorSpacePassthroughSettings'] = Stubs::ColorSpacePassthroughSettings.stub(stub[:color_space_passthrough_settings]) unless stub[:color_space_passthrough_settings].nil?
-        data['hdr10Settings'] = Stubs::Hdr10Settings.stub(stub[:hdr10_settings]) unless stub[:hdr10_settings].nil?
-        data['rec601Settings'] = Stubs::Rec601Settings.stub(stub[:rec601_settings]) unless stub[:rec601_settings].nil?
-        data['rec709Settings'] = Stubs::Rec709Settings.stub(stub[:rec709_settings]) unless stub[:rec709_settings].nil?
+        data['colorSpacePassthroughSettings'] = ColorSpacePassthroughSettings.stub(stub[:color_space_passthrough_settings]) unless stub[:color_space_passthrough_settings].nil?
+        data['hdr10Settings'] = Hdr10Settings.stub(stub[:hdr10_settings]) unless stub[:hdr10_settings].nil?
+        data['rec601Settings'] = Rec601Settings.stub(stub[:rec601_settings]) unless stub[:rec601_settings].nil?
+        data['rec709Settings'] = Rec709Settings.stub(stub[:rec709_settings]) unless stub[:rec709_settings].nil?
         data
       end
     end
@@ -2341,9 +2343,9 @@ module AWS::SDK::MediaLive
         data['bufFillPct'] = stub[:buf_fill_pct] unless stub[:buf_fill_pct].nil?
         data['bufSize'] = stub[:buf_size] unless stub[:buf_size].nil?
         data['colorMetadata'] = stub[:color_metadata] unless stub[:color_metadata].nil?
-        data['colorSpaceSettings'] = Stubs::H264ColorSpaceSettings.stub(stub[:color_space_settings]) unless stub[:color_space_settings].nil?
+        data['colorSpaceSettings'] = H264ColorSpaceSettings.stub(stub[:color_space_settings]) unless stub[:color_space_settings].nil?
         data['entropyEncoding'] = stub[:entropy_encoding] unless stub[:entropy_encoding].nil?
-        data['filterSettings'] = Stubs::H264FilterSettings.stub(stub[:filter_settings]) unless stub[:filter_settings].nil?
+        data['filterSettings'] = H264FilterSettings.stub(stub[:filter_settings]) unless stub[:filter_settings].nil?
         data['fixedAfd'] = stub[:fixed_afd] unless stub[:fixed_afd].nil?
         data['flickerAq'] = stub[:flicker_aq] unless stub[:flicker_aq].nil?
         data['forceFieldPictures'] = stub[:force_field_pictures] unless stub[:force_field_pictures].nil?
@@ -2393,7 +2395,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::H264FilterSettings.new
         data = {}
-        data['temporalFilterSettings'] = Stubs::TemporalFilterSettings.stub(stub[:temporal_filter_settings]) unless stub[:temporal_filter_settings].nil?
+        data['temporalFilterSettings'] = TemporalFilterSettings.stub(stub[:temporal_filter_settings]) unless stub[:temporal_filter_settings].nil?
         data
       end
     end
@@ -2413,9 +2415,9 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::H264ColorSpaceSettings.new
         data = {}
-        data['colorSpacePassthroughSettings'] = Stubs::ColorSpacePassthroughSettings.stub(stub[:color_space_passthrough_settings]) unless stub[:color_space_passthrough_settings].nil?
-        data['rec601Settings'] = Stubs::Rec601Settings.stub(stub[:rec601_settings]) unless stub[:rec601_settings].nil?
-        data['rec709Settings'] = Stubs::Rec709Settings.stub(stub[:rec709_settings]) unless stub[:rec709_settings].nil?
+        data['colorSpacePassthroughSettings'] = ColorSpacePassthroughSettings.stub(stub[:color_space_passthrough_settings]) unless stub[:color_space_passthrough_settings].nil?
+        data['rec601Settings'] = Rec601Settings.stub(stub[:rec601_settings]) unless stub[:rec601_settings].nil?
+        data['rec709Settings'] = Rec709Settings.stub(stub[:rec709_settings]) unless stub[:rec709_settings].nil?
         data
       end
     end
@@ -2474,7 +2476,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OutputGroup.stub(element) unless element.nil?
+          data << OutputGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -2496,8 +2498,8 @@ module AWS::SDK::MediaLive
         stub ||= Types::OutputGroup.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['outputGroupSettings'] = Stubs::OutputGroupSettings.stub(stub[:output_group_settings]) unless stub[:output_group_settings].nil?
-        data['outputs'] = Stubs::List____listOfOutput.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['outputGroupSettings'] = OutputGroupSettings.stub(stub[:output_group_settings]) unless stub[:output_group_settings].nil?
+        data['outputs'] = List____listOfOutput.stub(stub[:outputs]) unless stub[:outputs].nil?
         data
       end
     end
@@ -2516,7 +2518,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Output.stub(element) unless element.nil?
+          data << Output.stub(element) unless element.nil?
         end
         data
       end
@@ -2539,10 +2541,10 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::Output.new
         data = {}
-        data['audioDescriptionNames'] = Stubs::List____listOf__string.stub(stub[:audio_description_names]) unless stub[:audio_description_names].nil?
-        data['captionDescriptionNames'] = Stubs::List____listOf__string.stub(stub[:caption_description_names]) unless stub[:caption_description_names].nil?
+        data['audioDescriptionNames'] = List____listOf__string.stub(stub[:audio_description_names]) unless stub[:audio_description_names].nil?
+        data['captionDescriptionNames'] = List____listOf__string.stub(stub[:caption_description_names]) unless stub[:caption_description_names].nil?
         data['outputName'] = stub[:output_name] unless stub[:output_name].nil?
-        data['outputSettings'] = Stubs::OutputSettings.stub(stub[:output_settings]) unless stub[:output_settings].nil?
+        data['outputSettings'] = OutputSettings.stub(stub[:output_settings]) unless stub[:output_settings].nil?
         data['videoDescriptionName'] = stub[:video_description_name] unless stub[:video_description_name].nil?
         data
       end
@@ -2568,14 +2570,14 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::OutputSettings.new
         data = {}
-        data['archiveOutputSettings'] = Stubs::ArchiveOutputSettings.stub(stub[:archive_output_settings]) unless stub[:archive_output_settings].nil?
-        data['frameCaptureOutputSettings'] = Stubs::FrameCaptureOutputSettings.stub(stub[:frame_capture_output_settings]) unless stub[:frame_capture_output_settings].nil?
-        data['hlsOutputSettings'] = Stubs::HlsOutputSettings.stub(stub[:hls_output_settings]) unless stub[:hls_output_settings].nil?
-        data['mediaPackageOutputSettings'] = Stubs::MediaPackageOutputSettings.stub(stub[:media_package_output_settings]) unless stub[:media_package_output_settings].nil?
-        data['msSmoothOutputSettings'] = Stubs::MsSmoothOutputSettings.stub(stub[:ms_smooth_output_settings]) unless stub[:ms_smooth_output_settings].nil?
-        data['multiplexOutputSettings'] = Stubs::MultiplexOutputSettings.stub(stub[:multiplex_output_settings]) unless stub[:multiplex_output_settings].nil?
-        data['rtmpOutputSettings'] = Stubs::RtmpOutputSettings.stub(stub[:rtmp_output_settings]) unless stub[:rtmp_output_settings].nil?
-        data['udpOutputSettings'] = Stubs::UdpOutputSettings.stub(stub[:udp_output_settings]) unless stub[:udp_output_settings].nil?
+        data['archiveOutputSettings'] = ArchiveOutputSettings.stub(stub[:archive_output_settings]) unless stub[:archive_output_settings].nil?
+        data['frameCaptureOutputSettings'] = FrameCaptureOutputSettings.stub(stub[:frame_capture_output_settings]) unless stub[:frame_capture_output_settings].nil?
+        data['hlsOutputSettings'] = HlsOutputSettings.stub(stub[:hls_output_settings]) unless stub[:hls_output_settings].nil?
+        data['mediaPackageOutputSettings'] = MediaPackageOutputSettings.stub(stub[:media_package_output_settings]) unless stub[:media_package_output_settings].nil?
+        data['msSmoothOutputSettings'] = MsSmoothOutputSettings.stub(stub[:ms_smooth_output_settings]) unless stub[:ms_smooth_output_settings].nil?
+        data['multiplexOutputSettings'] = MultiplexOutputSettings.stub(stub[:multiplex_output_settings]) unless stub[:multiplex_output_settings].nil?
+        data['rtmpOutputSettings'] = RtmpOutputSettings.stub(stub[:rtmp_output_settings]) unless stub[:rtmp_output_settings].nil?
+        data['udpOutputSettings'] = UdpOutputSettings.stub(stub[:udp_output_settings]) unless stub[:udp_output_settings].nil?
         data
       end
     end
@@ -2597,9 +2599,9 @@ module AWS::SDK::MediaLive
         stub ||= Types::UdpOutputSettings.new
         data = {}
         data['bufferMsec'] = stub[:buffer_msec] unless stub[:buffer_msec].nil?
-        data['containerSettings'] = Stubs::UdpContainerSettings.stub(stub[:container_settings]) unless stub[:container_settings].nil?
-        data['destination'] = Stubs::OutputLocationRef.stub(stub[:destination]) unless stub[:destination].nil?
-        data['fecOutputSettings'] = Stubs::FecOutputSettings.stub(stub[:fec_output_settings]) unless stub[:fec_output_settings].nil?
+        data['containerSettings'] = UdpContainerSettings.stub(stub[:container_settings]) unless stub[:container_settings].nil?
+        data['destination'] = OutputLocationRef.stub(stub[:destination]) unless stub[:destination].nil?
+        data['fecOutputSettings'] = FecOutputSettings.stub(stub[:fec_output_settings]) unless stub[:fec_output_settings].nil?
         data
       end
     end
@@ -2657,7 +2659,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::UdpContainerSettings.new
         data = {}
-        data['m2tsSettings'] = Stubs::M2tsSettings.stub(stub[:m2ts_settings]) unless stub[:m2ts_settings].nil?
+        data['m2tsSettings'] = M2tsSettings.stub(stub[:m2ts_settings]) unless stub[:m2ts_settings].nil?
         data
       end
     end
@@ -2732,10 +2734,10 @@ module AWS::SDK::MediaLive
         data['bitrate'] = stub[:bitrate] unless stub[:bitrate].nil?
         data['bufferModel'] = stub[:buffer_model] unless stub[:buffer_model].nil?
         data['ccDescriptor'] = stub[:cc_descriptor] unless stub[:cc_descriptor].nil?
-        data['dvbNitSettings'] = Stubs::DvbNitSettings.stub(stub[:dvb_nit_settings]) unless stub[:dvb_nit_settings].nil?
-        data['dvbSdtSettings'] = Stubs::DvbSdtSettings.stub(stub[:dvb_sdt_settings]) unless stub[:dvb_sdt_settings].nil?
+        data['dvbNitSettings'] = DvbNitSettings.stub(stub[:dvb_nit_settings]) unless stub[:dvb_nit_settings].nil?
+        data['dvbSdtSettings'] = DvbSdtSettings.stub(stub[:dvb_sdt_settings]) unless stub[:dvb_sdt_settings].nil?
         data['dvbSubPids'] = stub[:dvb_sub_pids] unless stub[:dvb_sub_pids].nil?
-        data['dvbTdtSettings'] = Stubs::DvbTdtSettings.stub(stub[:dvb_tdt_settings]) unless stub[:dvb_tdt_settings].nil?
+        data['dvbTdtSettings'] = DvbTdtSettings.stub(stub[:dvb_tdt_settings]) unless stub[:dvb_tdt_settings].nil?
         data['dvbTeletextPid'] = stub[:dvb_teletext_pid] unless stub[:dvb_teletext_pid].nil?
         data['ebif'] = stub[:ebif] unless stub[:ebif].nil?
         data['ebpAudioInterval'] = stub[:ebp_audio_interval] unless stub[:ebp_audio_interval].nil?
@@ -2854,7 +2856,7 @@ module AWS::SDK::MediaLive
         data = {}
         data['certificateMode'] = stub[:certificate_mode] unless stub[:certificate_mode].nil?
         data['connectionRetryInterval'] = stub[:connection_retry_interval] unless stub[:connection_retry_interval].nil?
-        data['destination'] = Stubs::OutputLocationRef.stub(stub[:destination]) unless stub[:destination].nil?
+        data['destination'] = OutputLocationRef.stub(stub[:destination]) unless stub[:destination].nil?
         data['numRetries'] = stub[:num_retries] unless stub[:num_retries].nil?
         data
       end
@@ -2873,7 +2875,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::MultiplexOutputSettings.new
         data = {}
-        data['destination'] = Stubs::OutputLocationRef.stub(stub[:destination]) unless stub[:destination].nil?
+        data['destination'] = OutputLocationRef.stub(stub[:destination]) unless stub[:destination].nil?
         data
       end
     end
@@ -2931,7 +2933,7 @@ module AWS::SDK::MediaLive
         stub ||= Types::HlsOutputSettings.new
         data = {}
         data['h265PackagingType'] = stub[:h265_packaging_type] unless stub[:h265_packaging_type].nil?
-        data['hlsSettings'] = Stubs::HlsSettings.stub(stub[:hls_settings]) unless stub[:hls_settings].nil?
+        data['hlsSettings'] = HlsSettings.stub(stub[:hls_settings]) unless stub[:hls_settings].nil?
         data['nameModifier'] = stub[:name_modifier] unless stub[:name_modifier].nil?
         data['segmentModifier'] = stub[:segment_modifier] unless stub[:segment_modifier].nil?
         data
@@ -2954,10 +2956,10 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::HlsSettings.new
         data = {}
-        data['audioOnlyHlsSettings'] = Stubs::AudioOnlyHlsSettings.stub(stub[:audio_only_hls_settings]) unless stub[:audio_only_hls_settings].nil?
-        data['fmp4HlsSettings'] = Stubs::Fmp4HlsSettings.stub(stub[:fmp4_hls_settings]) unless stub[:fmp4_hls_settings].nil?
-        data['frameCaptureHlsSettings'] = Stubs::FrameCaptureHlsSettings.stub(stub[:frame_capture_hls_settings]) unless stub[:frame_capture_hls_settings].nil?
-        data['standardHlsSettings'] = Stubs::StandardHlsSettings.stub(stub[:standard_hls_settings]) unless stub[:standard_hls_settings].nil?
+        data['audioOnlyHlsSettings'] = AudioOnlyHlsSettings.stub(stub[:audio_only_hls_settings]) unless stub[:audio_only_hls_settings].nil?
+        data['fmp4HlsSettings'] = Fmp4HlsSettings.stub(stub[:fmp4_hls_settings]) unless stub[:fmp4_hls_settings].nil?
+        data['frameCaptureHlsSettings'] = FrameCaptureHlsSettings.stub(stub[:frame_capture_hls_settings]) unless stub[:frame_capture_hls_settings].nil?
+        data['standardHlsSettings'] = StandardHlsSettings.stub(stub[:standard_hls_settings]) unless stub[:standard_hls_settings].nil?
         data
       end
     end
@@ -2977,7 +2979,7 @@ module AWS::SDK::MediaLive
         stub ||= Types::StandardHlsSettings.new
         data = {}
         data['audioRenditionSets'] = stub[:audio_rendition_sets] unless stub[:audio_rendition_sets].nil?
-        data['m3u8Settings'] = Stubs::M3u8Settings.stub(stub[:m3u8_settings]) unless stub[:m3u8_settings].nil?
+        data['m3u8Settings'] = M3u8Settings.stub(stub[:m3u8_settings]) unless stub[:m3u8_settings].nil?
         data
       end
     end
@@ -3087,7 +3089,7 @@ module AWS::SDK::MediaLive
         stub ||= Types::AudioOnlyHlsSettings.new
         data = {}
         data['audioGroupId'] = stub[:audio_group_id] unless stub[:audio_group_id].nil?
-        data['audioOnlyImage'] = Stubs::InputLocation.stub(stub[:audio_only_image]) unless stub[:audio_only_image].nil?
+        data['audioOnlyImage'] = InputLocation.stub(stub[:audio_only_image]) unless stub[:audio_only_image].nil?
         data['audioTrackType'] = stub[:audio_track_type] unless stub[:audio_track_type].nil?
         data['segmentType'] = stub[:segment_type] unless stub[:segment_type].nil?
         data
@@ -3127,7 +3129,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::ArchiveOutputSettings.new
         data = {}
-        data['containerSettings'] = Stubs::ArchiveContainerSettings.stub(stub[:container_settings]) unless stub[:container_settings].nil?
+        data['containerSettings'] = ArchiveContainerSettings.stub(stub[:container_settings]) unless stub[:container_settings].nil?
         data['extension'] = stub[:extension] unless stub[:extension].nil?
         data['nameModifier'] = stub[:name_modifier] unless stub[:name_modifier].nil?
         data
@@ -3148,8 +3150,8 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::ArchiveContainerSettings.new
         data = {}
-        data['m2tsSettings'] = Stubs::M2tsSettings.stub(stub[:m2ts_settings]) unless stub[:m2ts_settings].nil?
-        data['rawSettings'] = Stubs::RawSettings.stub(stub[:raw_settings]) unless stub[:raw_settings].nil?
+        data['m2tsSettings'] = M2tsSettings.stub(stub[:m2ts_settings]) unless stub[:m2ts_settings].nil?
+        data['rawSettings'] = RawSettings.stub(stub[:raw_settings]) unless stub[:raw_settings].nil?
         data
       end
     end
@@ -3190,14 +3192,14 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::OutputGroupSettings.new
         data = {}
-        data['archiveGroupSettings'] = Stubs::ArchiveGroupSettings.stub(stub[:archive_group_settings]) unless stub[:archive_group_settings].nil?
-        data['frameCaptureGroupSettings'] = Stubs::FrameCaptureGroupSettings.stub(stub[:frame_capture_group_settings]) unless stub[:frame_capture_group_settings].nil?
-        data['hlsGroupSettings'] = Stubs::HlsGroupSettings.stub(stub[:hls_group_settings]) unless stub[:hls_group_settings].nil?
-        data['mediaPackageGroupSettings'] = Stubs::MediaPackageGroupSettings.stub(stub[:media_package_group_settings]) unless stub[:media_package_group_settings].nil?
-        data['msSmoothGroupSettings'] = Stubs::MsSmoothGroupSettings.stub(stub[:ms_smooth_group_settings]) unless stub[:ms_smooth_group_settings].nil?
-        data['multiplexGroupSettings'] = Stubs::MultiplexGroupSettings.stub(stub[:multiplex_group_settings]) unless stub[:multiplex_group_settings].nil?
-        data['rtmpGroupSettings'] = Stubs::RtmpGroupSettings.stub(stub[:rtmp_group_settings]) unless stub[:rtmp_group_settings].nil?
-        data['udpGroupSettings'] = Stubs::UdpGroupSettings.stub(stub[:udp_group_settings]) unless stub[:udp_group_settings].nil?
+        data['archiveGroupSettings'] = ArchiveGroupSettings.stub(stub[:archive_group_settings]) unless stub[:archive_group_settings].nil?
+        data['frameCaptureGroupSettings'] = FrameCaptureGroupSettings.stub(stub[:frame_capture_group_settings]) unless stub[:frame_capture_group_settings].nil?
+        data['hlsGroupSettings'] = HlsGroupSettings.stub(stub[:hls_group_settings]) unless stub[:hls_group_settings].nil?
+        data['mediaPackageGroupSettings'] = MediaPackageGroupSettings.stub(stub[:media_package_group_settings]) unless stub[:media_package_group_settings].nil?
+        data['msSmoothGroupSettings'] = MsSmoothGroupSettings.stub(stub[:ms_smooth_group_settings]) unless stub[:ms_smooth_group_settings].nil?
+        data['multiplexGroupSettings'] = MultiplexGroupSettings.stub(stub[:multiplex_group_settings]) unless stub[:multiplex_group_settings].nil?
+        data['rtmpGroupSettings'] = RtmpGroupSettings.stub(stub[:rtmp_group_settings]) unless stub[:rtmp_group_settings].nil?
+        data['udpGroupSettings'] = UdpGroupSettings.stub(stub[:udp_group_settings]) unless stub[:udp_group_settings].nil?
         data
       end
     end
@@ -3243,7 +3245,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::RtmpGroupSettings.new
         data = {}
-        data['adMarkers'] = Stubs::List____listOfRtmpAdMarkers.stub(stub[:ad_markers]) unless stub[:ad_markers].nil?
+        data['adMarkers'] = List____listOfRtmpAdMarkers.stub(stub[:ad_markers]) unless stub[:ad_markers].nil?
         data['authenticationScheme'] = stub[:authentication_scheme] unless stub[:authentication_scheme].nil?
         data['cacheFullBehavior'] = stub[:cache_full_behavior] unless stub[:cache_full_behavior].nil?
         data['cacheLength'] = stub[:cache_length] unless stub[:cache_length].nil?
@@ -3325,7 +3327,7 @@ module AWS::SDK::MediaLive
         data['audioOnlyTimecodeControl'] = stub[:audio_only_timecode_control] unless stub[:audio_only_timecode_control].nil?
         data['certificateMode'] = stub[:certificate_mode] unless stub[:certificate_mode].nil?
         data['connectionRetryInterval'] = stub[:connection_retry_interval] unless stub[:connection_retry_interval].nil?
-        data['destination'] = Stubs::OutputLocationRef.stub(stub[:destination]) unless stub[:destination].nil?
+        data['destination'] = OutputLocationRef.stub(stub[:destination]) unless stub[:destination].nil?
         data['eventId'] = stub[:event_id] unless stub[:event_id].nil?
         data['eventIdMode'] = stub[:event_id_mode] unless stub[:event_id_mode].nil?
         data['eventStopBehavior'] = stub[:event_stop_behavior] unless stub[:event_stop_behavior].nil?
@@ -3357,7 +3359,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::MediaPackageGroupSettings.new
         data = {}
-        data['destination'] = Stubs::OutputLocationRef.stub(stub[:destination]) unless stub[:destination].nil?
+        data['destination'] = OutputLocationRef.stub(stub[:destination]) unless stub[:destination].nil?
         data
       end
     end
@@ -3417,21 +3419,21 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::HlsGroupSettings.new
         data = {}
-        data['adMarkers'] = Stubs::List____listOfHlsAdMarkers.stub(stub[:ad_markers]) unless stub[:ad_markers].nil?
+        data['adMarkers'] = List____listOfHlsAdMarkers.stub(stub[:ad_markers]) unless stub[:ad_markers].nil?
         data['baseUrlContent'] = stub[:base_url_content] unless stub[:base_url_content].nil?
         data['baseUrlContent1'] = stub[:base_url_content1] unless stub[:base_url_content1].nil?
         data['baseUrlManifest'] = stub[:base_url_manifest] unless stub[:base_url_manifest].nil?
         data['baseUrlManifest1'] = stub[:base_url_manifest1] unless stub[:base_url_manifest1].nil?
-        data['captionLanguageMappings'] = Stubs::List____listOfCaptionLanguageMapping.stub(stub[:caption_language_mappings]) unless stub[:caption_language_mappings].nil?
+        data['captionLanguageMappings'] = List____listOfCaptionLanguageMapping.stub(stub[:caption_language_mappings]) unless stub[:caption_language_mappings].nil?
         data['captionLanguageSetting'] = stub[:caption_language_setting] unless stub[:caption_language_setting].nil?
         data['clientCache'] = stub[:client_cache] unless stub[:client_cache].nil?
         data['codecSpecification'] = stub[:codec_specification] unless stub[:codec_specification].nil?
         data['constantIv'] = stub[:constant_iv] unless stub[:constant_iv].nil?
-        data['destination'] = Stubs::OutputLocationRef.stub(stub[:destination]) unless stub[:destination].nil?
+        data['destination'] = OutputLocationRef.stub(stub[:destination]) unless stub[:destination].nil?
         data['directoryStructure'] = stub[:directory_structure] unless stub[:directory_structure].nil?
         data['discontinuityTags'] = stub[:discontinuity_tags] unless stub[:discontinuity_tags].nil?
         data['encryptionType'] = stub[:encryption_type] unless stub[:encryption_type].nil?
-        data['hlsCdnSettings'] = Stubs::HlsCdnSettings.stub(stub[:hls_cdn_settings]) unless stub[:hls_cdn_settings].nil?
+        data['hlsCdnSettings'] = HlsCdnSettings.stub(stub[:hls_cdn_settings]) unless stub[:hls_cdn_settings].nil?
         data['hlsId3SegmentTagging'] = stub[:hls_id3_segment_tagging] unless stub[:hls_id3_segment_tagging].nil?
         data['iFrameOnlyPlaylists'] = stub[:i_frame_only_playlists] unless stub[:i_frame_only_playlists].nil?
         data['incompleteSegmentBehavior'] = stub[:incomplete_segment_behavior] unless stub[:incomplete_segment_behavior].nil?
@@ -3442,7 +3444,7 @@ module AWS::SDK::MediaLive
         data['keepSegments'] = stub[:keep_segments] unless stub[:keep_segments].nil?
         data['keyFormat'] = stub[:key_format] unless stub[:key_format].nil?
         data['keyFormatVersions'] = stub[:key_format_versions] unless stub[:key_format_versions].nil?
-        data['keyProviderSettings'] = Stubs::KeyProviderSettings.stub(stub[:key_provider_settings]) unless stub[:key_provider_settings].nil?
+        data['keyProviderSettings'] = KeyProviderSettings.stub(stub[:key_provider_settings]) unless stub[:key_provider_settings].nil?
         data['manifestCompression'] = stub[:manifest_compression] unless stub[:manifest_compression].nil?
         data['manifestDurationFormat'] = stub[:manifest_duration_format] unless stub[:manifest_duration_format].nil?
         data['minSegmentLength'] = stub[:min_segment_length] unless stub[:min_segment_length].nil?
@@ -3477,7 +3479,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::KeyProviderSettings.new
         data = {}
-        data['staticKeySettings'] = Stubs::StaticKeySettings.stub(stub[:static_key_settings]) unless stub[:static_key_settings].nil?
+        data['staticKeySettings'] = StaticKeySettings.stub(stub[:static_key_settings]) unless stub[:static_key_settings].nil?
         data
       end
     end
@@ -3496,7 +3498,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::StaticKeySettings.new
         data = {}
-        data['keyProviderServer'] = Stubs::InputLocation.stub(stub[:key_provider_server]) unless stub[:key_provider_server].nil?
+        data['keyProviderServer'] = InputLocation.stub(stub[:key_provider_server]) unless stub[:key_provider_server].nil?
         data['staticKeyValue'] = stub[:static_key_value] unless stub[:static_key_value].nil?
         data
       end
@@ -3519,11 +3521,11 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::HlsCdnSettings.new
         data = {}
-        data['hlsAkamaiSettings'] = Stubs::HlsAkamaiSettings.stub(stub[:hls_akamai_settings]) unless stub[:hls_akamai_settings].nil?
-        data['hlsBasicPutSettings'] = Stubs::HlsBasicPutSettings.stub(stub[:hls_basic_put_settings]) unless stub[:hls_basic_put_settings].nil?
-        data['hlsMediaStoreSettings'] = Stubs::HlsMediaStoreSettings.stub(stub[:hls_media_store_settings]) unless stub[:hls_media_store_settings].nil?
-        data['hlsS3Settings'] = Stubs::HlsS3Settings.stub(stub[:hls_s3_settings]) unless stub[:hls_s3_settings].nil?
-        data['hlsWebdavSettings'] = Stubs::HlsWebdavSettings.stub(stub[:hls_webdav_settings]) unless stub[:hls_webdav_settings].nil?
+        data['hlsAkamaiSettings'] = HlsAkamaiSettings.stub(stub[:hls_akamai_settings]) unless stub[:hls_akamai_settings].nil?
+        data['hlsBasicPutSettings'] = HlsBasicPutSettings.stub(stub[:hls_basic_put_settings]) unless stub[:hls_basic_put_settings].nil?
+        data['hlsMediaStoreSettings'] = HlsMediaStoreSettings.stub(stub[:hls_media_store_settings]) unless stub[:hls_media_store_settings].nil?
+        data['hlsS3Settings'] = HlsS3Settings.stub(stub[:hls_s3_settings]) unless stub[:hls_s3_settings].nil?
+        data['hlsWebdavSettings'] = HlsWebdavSettings.stub(stub[:hls_webdav_settings]) unless stub[:hls_webdav_settings].nil?
         data
       end
     end
@@ -3666,7 +3668,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CaptionLanguageMapping.stub(element) unless element.nil?
+          data << CaptionLanguageMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -3728,8 +3730,8 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::FrameCaptureGroupSettings.new
         data = {}
-        data['destination'] = Stubs::OutputLocationRef.stub(stub[:destination]) unless stub[:destination].nil?
-        data['frameCaptureCdnSettings'] = Stubs::FrameCaptureCdnSettings.stub(stub[:frame_capture_cdn_settings]) unless stub[:frame_capture_cdn_settings].nil?
+        data['destination'] = OutputLocationRef.stub(stub[:destination]) unless stub[:destination].nil?
+        data['frameCaptureCdnSettings'] = FrameCaptureCdnSettings.stub(stub[:frame_capture_cdn_settings]) unless stub[:frame_capture_cdn_settings].nil?
         data
       end
     end
@@ -3747,7 +3749,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::FrameCaptureCdnSettings.new
         data = {}
-        data['frameCaptureS3Settings'] = Stubs::FrameCaptureS3Settings.stub(stub[:frame_capture_s3_settings]) unless stub[:frame_capture_s3_settings].nil?
+        data['frameCaptureS3Settings'] = FrameCaptureS3Settings.stub(stub[:frame_capture_s3_settings]) unless stub[:frame_capture_s3_settings].nil?
         data
       end
     end
@@ -3785,8 +3787,8 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::ArchiveGroupSettings.new
         data = {}
-        data['archiveCdnSettings'] = Stubs::ArchiveCdnSettings.stub(stub[:archive_cdn_settings]) unless stub[:archive_cdn_settings].nil?
-        data['destination'] = Stubs::OutputLocationRef.stub(stub[:destination]) unless stub[:destination].nil?
+        data['archiveCdnSettings'] = ArchiveCdnSettings.stub(stub[:archive_cdn_settings]) unless stub[:archive_cdn_settings].nil?
+        data['destination'] = OutputLocationRef.stub(stub[:destination]) unless stub[:destination].nil?
         data['rolloverInterval'] = stub[:rollover_interval] unless stub[:rollover_interval].nil?
         data
       end
@@ -3805,7 +3807,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::ArchiveCdnSettings.new
         data = {}
-        data['archiveS3Settings'] = Stubs::ArchiveS3Settings.stub(stub[:archive_s3_settings]) unless stub[:archive_s3_settings].nil?
+        data['archiveS3Settings'] = ArchiveS3Settings.stub(stub[:archive_s3_settings]) unless stub[:archive_s3_settings].nil?
         data
       end
     end
@@ -3863,7 +3865,7 @@ module AWS::SDK::MediaLive
         stub ||= Types::MotionGraphicsConfiguration.new
         data = {}
         data['motionGraphicsInsertion'] = stub[:motion_graphics_insertion] unless stub[:motion_graphics_insertion].nil?
-        data['motionGraphicsSettings'] = Stubs::MotionGraphicsSettings.stub(stub[:motion_graphics_settings]) unless stub[:motion_graphics_settings].nil?
+        data['motionGraphicsSettings'] = MotionGraphicsSettings.stub(stub[:motion_graphics_settings]) unless stub[:motion_graphics_settings].nil?
         data
       end
     end
@@ -3881,7 +3883,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::MotionGraphicsSettings.new
         data = {}
-        data['htmlMotionGraphicsSettings'] = Stubs::HtmlMotionGraphicsSettings.stub(stub[:html_motion_graphics_settings]) unless stub[:html_motion_graphics_settings].nil?
+        data['htmlMotionGraphicsSettings'] = HtmlMotionGraphicsSettings.stub(stub[:html_motion_graphics_settings]) unless stub[:html_motion_graphics_settings].nil?
         data
       end
     end
@@ -3922,7 +3924,7 @@ module AWS::SDK::MediaLive
         data = {}
         data['initialAudioGain'] = stub[:initial_audio_gain] unless stub[:initial_audio_gain].nil?
         data['inputEndAction'] = stub[:input_end_action] unless stub[:input_end_action].nil?
-        data['inputLossBehavior'] = Stubs::InputLossBehavior.stub(stub[:input_loss_behavior]) unless stub[:input_loss_behavior].nil?
+        data['inputLossBehavior'] = InputLossBehavior.stub(stub[:input_loss_behavior]) unless stub[:input_loss_behavior].nil?
         data['outputLockingMode'] = stub[:output_locking_mode] unless stub[:output_locking_mode].nil?
         data['outputTimingSource'] = stub[:output_timing_source] unless stub[:output_timing_source].nil?
         data['supportLowFramerateInputs'] = stub[:support_low_framerate_inputs] unless stub[:support_low_framerate_inputs].nil?
@@ -3949,7 +3951,7 @@ module AWS::SDK::MediaLive
         data = {}
         data['blackFrameMsec'] = stub[:black_frame_msec] unless stub[:black_frame_msec].nil?
         data['inputLossImageColor'] = stub[:input_loss_image_color] unless stub[:input_loss_image_color].nil?
-        data['inputLossImageSlate'] = Stubs::InputLocation.stub(stub[:input_loss_image_slate]) unless stub[:input_loss_image_slate].nil?
+        data['inputLossImageSlate'] = InputLocation.stub(stub[:input_loss_image_slate]) unless stub[:input_loss_image_slate].nil?
         data['inputLossImageType'] = stub[:input_loss_image_type] unless stub[:input_loss_image_type].nil?
         data['repeatFrameMsec'] = stub[:repeat_frame_msec] unless stub[:repeat_frame_msec].nil?
         data
@@ -3988,7 +3990,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CaptionDescription.stub(element) unless element.nil?
+          data << CaptionDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -4012,7 +4014,7 @@ module AWS::SDK::MediaLive
         stub ||= Types::CaptionDescription.new
         data = {}
         data['captionSelectorName'] = stub[:caption_selector_name] unless stub[:caption_selector_name].nil?
-        data['destinationSettings'] = Stubs::CaptionDestinationSettings.stub(stub[:destination_settings]) unless stub[:destination_settings].nil?
+        data['destinationSettings'] = CaptionDestinationSettings.stub(stub[:destination_settings]) unless stub[:destination_settings].nil?
         data['languageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['languageDescription'] = stub[:language_description] unless stub[:language_description].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
@@ -4045,19 +4047,19 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::CaptionDestinationSettings.new
         data = {}
-        data['aribDestinationSettings'] = Stubs::AribDestinationSettings.stub(stub[:arib_destination_settings]) unless stub[:arib_destination_settings].nil?
-        data['burnInDestinationSettings'] = Stubs::BurnInDestinationSettings.stub(stub[:burn_in_destination_settings]) unless stub[:burn_in_destination_settings].nil?
-        data['dvbSubDestinationSettings'] = Stubs::DvbSubDestinationSettings.stub(stub[:dvb_sub_destination_settings]) unless stub[:dvb_sub_destination_settings].nil?
-        data['ebuTtDDestinationSettings'] = Stubs::EbuTtDDestinationSettings.stub(stub[:ebu_tt_d_destination_settings]) unless stub[:ebu_tt_d_destination_settings].nil?
-        data['embeddedDestinationSettings'] = Stubs::EmbeddedDestinationSettings.stub(stub[:embedded_destination_settings]) unless stub[:embedded_destination_settings].nil?
-        data['embeddedPlusScte20DestinationSettings'] = Stubs::EmbeddedPlusScte20DestinationSettings.stub(stub[:embedded_plus_scte20_destination_settings]) unless stub[:embedded_plus_scte20_destination_settings].nil?
-        data['rtmpCaptionInfoDestinationSettings'] = Stubs::RtmpCaptionInfoDestinationSettings.stub(stub[:rtmp_caption_info_destination_settings]) unless stub[:rtmp_caption_info_destination_settings].nil?
-        data['scte20PlusEmbeddedDestinationSettings'] = Stubs::Scte20PlusEmbeddedDestinationSettings.stub(stub[:scte20_plus_embedded_destination_settings]) unless stub[:scte20_plus_embedded_destination_settings].nil?
-        data['scte27DestinationSettings'] = Stubs::Scte27DestinationSettings.stub(stub[:scte27_destination_settings]) unless stub[:scte27_destination_settings].nil?
-        data['smpteTtDestinationSettings'] = Stubs::SmpteTtDestinationSettings.stub(stub[:smpte_tt_destination_settings]) unless stub[:smpte_tt_destination_settings].nil?
-        data['teletextDestinationSettings'] = Stubs::TeletextDestinationSettings.stub(stub[:teletext_destination_settings]) unless stub[:teletext_destination_settings].nil?
-        data['ttmlDestinationSettings'] = Stubs::TtmlDestinationSettings.stub(stub[:ttml_destination_settings]) unless stub[:ttml_destination_settings].nil?
-        data['webvttDestinationSettings'] = Stubs::WebvttDestinationSettings.stub(stub[:webvtt_destination_settings]) unless stub[:webvtt_destination_settings].nil?
+        data['aribDestinationSettings'] = AribDestinationSettings.stub(stub[:arib_destination_settings]) unless stub[:arib_destination_settings].nil?
+        data['burnInDestinationSettings'] = BurnInDestinationSettings.stub(stub[:burn_in_destination_settings]) unless stub[:burn_in_destination_settings].nil?
+        data['dvbSubDestinationSettings'] = DvbSubDestinationSettings.stub(stub[:dvb_sub_destination_settings]) unless stub[:dvb_sub_destination_settings].nil?
+        data['ebuTtDDestinationSettings'] = EbuTtDDestinationSettings.stub(stub[:ebu_tt_d_destination_settings]) unless stub[:ebu_tt_d_destination_settings].nil?
+        data['embeddedDestinationSettings'] = EmbeddedDestinationSettings.stub(stub[:embedded_destination_settings]) unless stub[:embedded_destination_settings].nil?
+        data['embeddedPlusScte20DestinationSettings'] = EmbeddedPlusScte20DestinationSettings.stub(stub[:embedded_plus_scte20_destination_settings]) unless stub[:embedded_plus_scte20_destination_settings].nil?
+        data['rtmpCaptionInfoDestinationSettings'] = RtmpCaptionInfoDestinationSettings.stub(stub[:rtmp_caption_info_destination_settings]) unless stub[:rtmp_caption_info_destination_settings].nil?
+        data['scte20PlusEmbeddedDestinationSettings'] = Scte20PlusEmbeddedDestinationSettings.stub(stub[:scte20_plus_embedded_destination_settings]) unless stub[:scte20_plus_embedded_destination_settings].nil?
+        data['scte27DestinationSettings'] = Scte27DestinationSettings.stub(stub[:scte27_destination_settings]) unless stub[:scte27_destination_settings].nil?
+        data['smpteTtDestinationSettings'] = SmpteTtDestinationSettings.stub(stub[:smpte_tt_destination_settings]) unless stub[:smpte_tt_destination_settings].nil?
+        data['teletextDestinationSettings'] = TeletextDestinationSettings.stub(stub[:teletext_destination_settings]) unless stub[:teletext_destination_settings].nil?
+        data['ttmlDestinationSettings'] = TtmlDestinationSettings.stub(stub[:ttml_destination_settings]) unless stub[:ttml_destination_settings].nil?
+        data['webvttDestinationSettings'] = WebvttDestinationSettings.stub(stub[:webvtt_destination_settings]) unless stub[:webvtt_destination_settings].nil?
         data
       end
     end
@@ -4266,7 +4268,7 @@ module AWS::SDK::MediaLive
         data['alignment'] = stub[:alignment] unless stub[:alignment].nil?
         data['backgroundColor'] = stub[:background_color] unless stub[:background_color].nil?
         data['backgroundOpacity'] = stub[:background_opacity] unless stub[:background_opacity].nil?
-        data['font'] = Stubs::InputLocation.stub(stub[:font]) unless stub[:font].nil?
+        data['font'] = InputLocation.stub(stub[:font]) unless stub[:font].nil?
         data['fontColor'] = stub[:font_color] unless stub[:font_color].nil?
         data['fontOpacity'] = stub[:font_opacity] unless stub[:font_opacity].nil?
         data['fontResolution'] = stub[:font_resolution] unless stub[:font_resolution].nil?
@@ -4316,7 +4318,7 @@ module AWS::SDK::MediaLive
         data['alignment'] = stub[:alignment] unless stub[:alignment].nil?
         data['backgroundColor'] = stub[:background_color] unless stub[:background_color].nil?
         data['backgroundOpacity'] = stub[:background_opacity] unless stub[:background_opacity].nil?
-        data['font'] = Stubs::InputLocation.stub(stub[:font]) unless stub[:font].nil?
+        data['font'] = InputLocation.stub(stub[:font]) unless stub[:font].nil?
         data['fontColor'] = stub[:font_color] unless stub[:font_color].nil?
         data['fontOpacity'] = stub[:font_opacity] unless stub[:font_opacity].nil?
         data['fontResolution'] = stub[:font_resolution] unless stub[:font_resolution].nil?
@@ -4367,9 +4369,9 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::BlackoutSlate.new
         data = {}
-        data['blackoutSlateImage'] = Stubs::InputLocation.stub(stub[:blackout_slate_image]) unless stub[:blackout_slate_image].nil?
+        data['blackoutSlateImage'] = InputLocation.stub(stub[:blackout_slate_image]) unless stub[:blackout_slate_image].nil?
         data['networkEndBlackout'] = stub[:network_end_blackout] unless stub[:network_end_blackout].nil?
-        data['networkEndBlackoutImage'] = Stubs::InputLocation.stub(stub[:network_end_blackout_image]) unless stub[:network_end_blackout_image].nil?
+        data['networkEndBlackoutImage'] = InputLocation.stub(stub[:network_end_blackout_image]) unless stub[:network_end_blackout_image].nil?
         data['networkId'] = stub[:network_id] unless stub[:network_id].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data
@@ -4389,7 +4391,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::AvailConfiguration.new
         data = {}
-        data['availSettings'] = Stubs::AvailSettings.stub(stub[:avail_settings]) unless stub[:avail_settings].nil?
+        data['availSettings'] = AvailSettings.stub(stub[:avail_settings]) unless stub[:avail_settings].nil?
         data
       end
     end
@@ -4408,8 +4410,8 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::AvailSettings.new
         data = {}
-        data['scte35SpliceInsert'] = Stubs::Scte35SpliceInsert.stub(stub[:scte35_splice_insert]) unless stub[:scte35_splice_insert].nil?
-        data['scte35TimeSignalApos'] = Stubs::Scte35TimeSignalApos.stub(stub[:scte35_time_signal_apos]) unless stub[:scte35_time_signal_apos].nil?
+        data['scte35SpliceInsert'] = Scte35SpliceInsert.stub(stub[:scte35_splice_insert]) unless stub[:scte35_splice_insert].nil?
+        data['scte35TimeSignalApos'] = Scte35TimeSignalApos.stub(stub[:scte35_time_signal_apos]) unless stub[:scte35_time_signal_apos].nil?
         data
       end
     end
@@ -4472,7 +4474,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::AvailBlanking.new
         data = {}
-        data['availBlankingImage'] = Stubs::InputLocation.stub(stub[:avail_blanking_image]) unless stub[:avail_blanking_image].nil?
+        data['availBlankingImage'] = InputLocation.stub(stub[:avail_blanking_image]) unless stub[:avail_blanking_image].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data
       end
@@ -4492,7 +4494,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AudioDescription.stub(element) unless element.nil?
+          data << AudioDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -4521,16 +4523,16 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::AudioDescription.new
         data = {}
-        data['audioNormalizationSettings'] = Stubs::AudioNormalizationSettings.stub(stub[:audio_normalization_settings]) unless stub[:audio_normalization_settings].nil?
+        data['audioNormalizationSettings'] = AudioNormalizationSettings.stub(stub[:audio_normalization_settings]) unless stub[:audio_normalization_settings].nil?
         data['audioSelectorName'] = stub[:audio_selector_name] unless stub[:audio_selector_name].nil?
         data['audioType'] = stub[:audio_type] unless stub[:audio_type].nil?
         data['audioTypeControl'] = stub[:audio_type_control] unless stub[:audio_type_control].nil?
-        data['audioWatermarkingSettings'] = Stubs::AudioWatermarkSettings.stub(stub[:audio_watermarking_settings]) unless stub[:audio_watermarking_settings].nil?
-        data['codecSettings'] = Stubs::AudioCodecSettings.stub(stub[:codec_settings]) unless stub[:codec_settings].nil?
+        data['audioWatermarkingSettings'] = AudioWatermarkSettings.stub(stub[:audio_watermarking_settings]) unless stub[:audio_watermarking_settings].nil?
+        data['codecSettings'] = AudioCodecSettings.stub(stub[:codec_settings]) unless stub[:codec_settings].nil?
         data['languageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['languageCodeControl'] = stub[:language_code_control] unless stub[:language_code_control].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['remixSettings'] = Stubs::RemixSettings.stub(stub[:remix_settings]) unless stub[:remix_settings].nil?
+        data['remixSettings'] = RemixSettings.stub(stub[:remix_settings]) unless stub[:remix_settings].nil?
         data['streamName'] = stub[:stream_name] unless stub[:stream_name].nil?
         data
       end
@@ -4551,7 +4553,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::RemixSettings.new
         data = {}
-        data['channelMappings'] = Stubs::List____listOfAudioChannelMapping.stub(stub[:channel_mappings]) unless stub[:channel_mappings].nil?
+        data['channelMappings'] = List____listOfAudioChannelMapping.stub(stub[:channel_mappings]) unless stub[:channel_mappings].nil?
         data['channelsIn'] = stub[:channels_in] unless stub[:channels_in].nil?
         data['channelsOut'] = stub[:channels_out] unless stub[:channels_out].nil?
         data
@@ -4572,7 +4574,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AudioChannelMapping.stub(element) unless element.nil?
+          data << AudioChannelMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -4592,7 +4594,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::AudioChannelMapping.new
         data = {}
-        data['inputChannelLevels'] = Stubs::List____listOfInputChannelLevel.stub(stub[:input_channel_levels]) unless stub[:input_channel_levels].nil?
+        data['inputChannelLevels'] = List____listOfInputChannelLevel.stub(stub[:input_channel_levels]) unless stub[:input_channel_levels].nil?
         data['outputChannel'] = stub[:output_channel] unless stub[:output_channel].nil?
         data
       end
@@ -4612,7 +4614,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InputChannelLevel.stub(element) unless element.nil?
+          data << InputChannelLevel.stub(element) unless element.nil?
         end
         data
       end
@@ -4656,12 +4658,12 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::AudioCodecSettings.new
         data = {}
-        data['aacSettings'] = Stubs::AacSettings.stub(stub[:aac_settings]) unless stub[:aac_settings].nil?
-        data['ac3Settings'] = Stubs::Ac3Settings.stub(stub[:ac3_settings]) unless stub[:ac3_settings].nil?
-        data['eac3Settings'] = Stubs::Eac3Settings.stub(stub[:eac3_settings]) unless stub[:eac3_settings].nil?
-        data['mp2Settings'] = Stubs::Mp2Settings.stub(stub[:mp2_settings]) unless stub[:mp2_settings].nil?
-        data['passThroughSettings'] = Stubs::PassThroughSettings.stub(stub[:pass_through_settings]) unless stub[:pass_through_settings].nil?
-        data['wavSettings'] = Stubs::WavSettings.stub(stub[:wav_settings]) unless stub[:wav_settings].nil?
+        data['aacSettings'] = AacSettings.stub(stub[:aac_settings]) unless stub[:aac_settings].nil?
+        data['ac3Settings'] = Ac3Settings.stub(stub[:ac3_settings]) unless stub[:ac3_settings].nil?
+        data['eac3Settings'] = Eac3Settings.stub(stub[:eac3_settings]) unless stub[:eac3_settings].nil?
+        data['mp2Settings'] = Mp2Settings.stub(stub[:mp2_settings]) unless stub[:mp2_settings].nil?
+        data['passThroughSettings'] = PassThroughSettings.stub(stub[:pass_through_settings]) unless stub[:pass_through_settings].nil?
+        data['wavSettings'] = WavSettings.stub(stub[:wav_settings]) unless stub[:wav_settings].nil?
         data
       end
     end
@@ -4859,7 +4861,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::AudioWatermarkSettings.new
         data = {}
-        data['nielsenWatermarksSettings'] = Stubs::NielsenWatermarksSettings.stub(stub[:nielsen_watermarks_settings]) unless stub[:nielsen_watermarks_settings].nil?
+        data['nielsenWatermarksSettings'] = NielsenWatermarksSettings.stub(stub[:nielsen_watermarks_settings]) unless stub[:nielsen_watermarks_settings].nil?
         data
       end
     end
@@ -4879,9 +4881,9 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::NielsenWatermarksSettings.new
         data = {}
-        data['nielsenCbetSettings'] = Stubs::NielsenCBET.stub(stub[:nielsen_cbet_settings]) unless stub[:nielsen_cbet_settings].nil?
+        data['nielsenCbetSettings'] = NielsenCBET.stub(stub[:nielsen_cbet_settings]) unless stub[:nielsen_cbet_settings].nil?
         data['nielsenDistributionType'] = stub[:nielsen_distribution_type] unless stub[:nielsen_distribution_type].nil?
-        data['nielsenNaesIiNwSettings'] = Stubs::NielsenNaesIiNw.stub(stub[:nielsen_naes_ii_nw_settings]) unless stub[:nielsen_naes_ii_nw_settings].nil?
+        data['nielsenNaesIiNwSettings'] = NielsenNaesIiNw.stub(stub[:nielsen_naes_ii_nw_settings]) unless stub[:nielsen_naes_ii_nw_settings].nil?
         data
       end
     end
@@ -4964,7 +4966,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChannelEgressEndpoint.stub(element) unless element.nil?
+          data << ChannelEgressEndpoint.stub(element) unless element.nil?
         end
         data
       end
@@ -5002,7 +5004,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OutputDestination.stub(element) unless element.nil?
+          data << OutputDestination.stub(element) unless element.nil?
         end
         data
       end
@@ -5025,9 +5027,9 @@ module AWS::SDK::MediaLive
         stub ||= Types::OutputDestination.new
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['mediaPackageSettings'] = Stubs::List____listOfMediaPackageOutputDestinationSettings.stub(stub[:media_package_settings]) unless stub[:media_package_settings].nil?
-        data['multiplexSettings'] = Stubs::MultiplexProgramChannelDestinationSettings.stub(stub[:multiplex_settings]) unless stub[:multiplex_settings].nil?
-        data['settings'] = Stubs::List____listOfOutputDestinationSettings.stub(stub[:settings]) unless stub[:settings].nil?
+        data['mediaPackageSettings'] = List____listOfMediaPackageOutputDestinationSettings.stub(stub[:media_package_settings]) unless stub[:media_package_settings].nil?
+        data['multiplexSettings'] = MultiplexProgramChannelDestinationSettings.stub(stub[:multiplex_settings]) unless stub[:multiplex_settings].nil?
+        data['settings'] = List____listOfOutputDestinationSettings.stub(stub[:settings]) unless stub[:settings].nil?
         data
       end
     end
@@ -5046,7 +5048,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OutputDestinationSettings.stub(element) unless element.nil?
+          data << OutputDestinationSettings.stub(element) unless element.nil?
         end
         data
       end
@@ -5110,7 +5112,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MediaPackageOutputDestinationSettings.stub(element) unless element.nil?
+          data << MediaPackageOutputDestinationSettings.stub(element) unless element.nil?
         end
         data
       end
@@ -5164,8 +5166,8 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['input'] = Stubs::Input.stub(stub[:input]) unless stub[:input].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['input'] = Input.stub(stub[:input]) unless stub[:input].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5198,20 +5200,20 @@ module AWS::SDK::MediaLive
         stub ||= Types::Input.new
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['attachedChannels'] = Stubs::List____listOf__string.stub(stub[:attached_channels]) unless stub[:attached_channels].nil?
-        data['destinations'] = Stubs::List____listOfInputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['attachedChannels'] = List____listOf__string.stub(stub[:attached_channels]) unless stub[:attached_channels].nil?
+        data['destinations'] = List____listOfInputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['inputClass'] = stub[:input_class] unless stub[:input_class].nil?
-        data['inputDevices'] = Stubs::List____listOfInputDeviceSettings.stub(stub[:input_devices]) unless stub[:input_devices].nil?
-        data['inputPartnerIds'] = Stubs::List____listOf__string.stub(stub[:input_partner_ids]) unless stub[:input_partner_ids].nil?
+        data['inputDevices'] = List____listOfInputDeviceSettings.stub(stub[:input_devices]) unless stub[:input_devices].nil?
+        data['inputPartnerIds'] = List____listOf__string.stub(stub[:input_partner_ids]) unless stub[:input_partner_ids].nil?
         data['inputSourceType'] = stub[:input_source_type] unless stub[:input_source_type].nil?
-        data['mediaConnectFlows'] = Stubs::List____listOfMediaConnectFlow.stub(stub[:media_connect_flows]) unless stub[:media_connect_flows].nil?
+        data['mediaConnectFlows'] = List____listOfMediaConnectFlow.stub(stub[:media_connect_flows]) unless stub[:media_connect_flows].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['securityGroups'] = Stubs::List____listOf__string.stub(stub[:security_groups]) unless stub[:security_groups].nil?
-        data['sources'] = Stubs::List____listOfInputSource.stub(stub[:sources]) unless stub[:sources].nil?
+        data['securityGroups'] = List____listOf__string.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['sources'] = List____listOfInputSource.stub(stub[:sources]) unless stub[:sources].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -5231,7 +5233,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InputSource.stub(element) unless element.nil?
+          data << InputSource.stub(element) unless element.nil?
         end
         data
       end
@@ -5273,7 +5275,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MediaConnectFlow.stub(element) unless element.nil?
+          data << MediaConnectFlow.stub(element) unless element.nil?
         end
         data
       end
@@ -5311,7 +5313,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InputDeviceSettings.stub(element) unless element.nil?
+          data << InputDeviceSettings.stub(element) unless element.nil?
         end
         data
       end
@@ -5349,7 +5351,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InputDestination.stub(element) unless element.nil?
+          data << InputDestination.stub(element) unless element.nil?
         end
         data
       end
@@ -5374,7 +5376,7 @@ module AWS::SDK::MediaLive
         data['ip'] = stub[:ip] unless stub[:ip].nil?
         data['port'] = stub[:port] unless stub[:port].nil?
         data['url'] = stub[:url] unless stub[:url].nil?
-        data['vpc'] = Stubs::InputDestinationVpc.stub(stub[:vpc]) unless stub[:vpc].nil?
+        data['vpc'] = InputDestinationVpc.stub(stub[:vpc]) unless stub[:vpc].nil?
         data
       end
     end
@@ -5411,8 +5413,8 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['securityGroup'] = Stubs::InputSecurityGroup.stub(stub[:security_group]) unless stub[:security_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['securityGroup'] = InputSecurityGroup.stub(stub[:security_group]) unless stub[:security_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5436,10 +5438,10 @@ module AWS::SDK::MediaLive
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['inputs'] = Stubs::List____listOf__string.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['inputs'] = List____listOf__string.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['whitelistRules'] = Stubs::List____listOfInputWhitelistRule.stub(stub[:whitelist_rules]) unless stub[:whitelist_rules].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['whitelistRules'] = List____listOfInputWhitelistRule.stub(stub[:whitelist_rules]) unless stub[:whitelist_rules].nil?
         data
       end
     end
@@ -5458,7 +5460,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InputWhitelistRule.stub(element) unless element.nil?
+          data << InputWhitelistRule.stub(element) unless element.nil?
         end
         data
       end
@@ -5494,8 +5496,8 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['multiplex'] = Stubs::Multiplex.stub(stub[:multiplex]) unless stub[:multiplex].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['multiplex'] = Multiplex.stub(stub[:multiplex]) unless stub[:multiplex].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5522,15 +5524,15 @@ module AWS::SDK::MediaLive
         stub ||= Types::Multiplex.new
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['availabilityZones'] = Stubs::List____listOf__string.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
-        data['destinations'] = Stubs::List____listOfMultiplexOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['availabilityZones'] = List____listOf__string.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['destinations'] = List____listOfMultiplexOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['multiplexSettings'] = Stubs::MultiplexSettings.stub(stub[:multiplex_settings]) unless stub[:multiplex_settings].nil?
+        data['multiplexSettings'] = MultiplexSettings.stub(stub[:multiplex_settings]) unless stub[:multiplex_settings].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['pipelinesRunningCount'] = stub[:pipelines_running_count] unless stub[:pipelines_running_count].nil?
         data['programCount'] = stub[:program_count] unless stub[:program_count].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -5573,7 +5575,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MultiplexOutputDestination.stub(element) unless element.nil?
+          data << MultiplexOutputDestination.stub(element) unless element.nil?
         end
         data
       end
@@ -5592,7 +5594,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::MultiplexOutputDestination.new
         data = {}
-        data['mediaConnectSettings'] = Stubs::MultiplexMediaConnectOutputDestinationSettings.stub(stub[:media_connect_settings]) unless stub[:media_connect_settings].nil?
+        data['mediaConnectSettings'] = MultiplexMediaConnectOutputDestinationSettings.stub(stub[:media_connect_settings]) unless stub[:media_connect_settings].nil?
         data
       end
     end
@@ -5627,8 +5629,8 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['multiplexProgram'] = Stubs::MultiplexProgram.stub(stub[:multiplex_program]) unless stub[:multiplex_program].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['multiplexProgram'] = MultiplexProgram.stub(stub[:multiplex_program]) unless stub[:multiplex_program].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5650,9 +5652,9 @@ module AWS::SDK::MediaLive
         stub ||= Types::MultiplexProgram.new
         data = {}
         data['channelId'] = stub[:channel_id] unless stub[:channel_id].nil?
-        data['multiplexProgramSettings'] = Stubs::MultiplexProgramSettings.stub(stub[:multiplex_program_settings]) unless stub[:multiplex_program_settings].nil?
-        data['packetIdentifiersMap'] = Stubs::MultiplexProgramPacketIdentifiersMap.stub(stub[:packet_identifiers_map]) unless stub[:packet_identifiers_map].nil?
-        data['pipelineDetails'] = Stubs::List____listOfMultiplexProgramPipelineDetail.stub(stub[:pipeline_details]) unless stub[:pipeline_details].nil?
+        data['multiplexProgramSettings'] = MultiplexProgramSettings.stub(stub[:multiplex_program_settings]) unless stub[:multiplex_program_settings].nil?
+        data['packetIdentifiersMap'] = MultiplexProgramPacketIdentifiersMap.stub(stub[:packet_identifiers_map]) unless stub[:packet_identifiers_map].nil?
+        data['pipelineDetails'] = List____listOfMultiplexProgramPipelineDetail.stub(stub[:pipeline_details]) unless stub[:pipeline_details].nil?
         data['programName'] = stub[:program_name] unless stub[:program_name].nil?
         data
       end
@@ -5672,7 +5674,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MultiplexProgramPipelineDetail.stub(element) unless element.nil?
+          data << MultiplexProgramPipelineDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -5723,16 +5725,16 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::MultiplexProgramPacketIdentifiersMap.new
         data = {}
-        data['audioPids'] = Stubs::List____listOf__integer.stub(stub[:audio_pids]) unless stub[:audio_pids].nil?
-        data['dvbSubPids'] = Stubs::List____listOf__integer.stub(stub[:dvb_sub_pids]) unless stub[:dvb_sub_pids].nil?
+        data['audioPids'] = List____listOf__integer.stub(stub[:audio_pids]) unless stub[:audio_pids].nil?
+        data['dvbSubPids'] = List____listOf__integer.stub(stub[:dvb_sub_pids]) unless stub[:dvb_sub_pids].nil?
         data['dvbTeletextPid'] = stub[:dvb_teletext_pid] unless stub[:dvb_teletext_pid].nil?
         data['etvPlatformPid'] = stub[:etv_platform_pid] unless stub[:etv_platform_pid].nil?
         data['etvSignalPid'] = stub[:etv_signal_pid] unless stub[:etv_signal_pid].nil?
-        data['klvDataPids'] = Stubs::List____listOf__integer.stub(stub[:klv_data_pids]) unless stub[:klv_data_pids].nil?
+        data['klvDataPids'] = List____listOf__integer.stub(stub[:klv_data_pids]) unless stub[:klv_data_pids].nil?
         data['pcrPid'] = stub[:pcr_pid] unless stub[:pcr_pid].nil?
         data['pmtPid'] = stub[:pmt_pid] unless stub[:pmt_pid].nil?
         data['privateMetadataPid'] = stub[:private_metadata_pid] unless stub[:private_metadata_pid].nil?
-        data['scte27Pids'] = Stubs::List____listOf__integer.stub(stub[:scte27_pids]) unless stub[:scte27_pids].nil?
+        data['scte27Pids'] = List____listOf__integer.stub(stub[:scte27_pids]) unless stub[:scte27_pids].nil?
         data['scte35Pid'] = stub[:scte35_pid] unless stub[:scte35_pid].nil?
         data['timedMetadataPid'] = stub[:timed_metadata_pid] unless stub[:timed_metadata_pid].nil?
         data['videoPid'] = stub[:video_pid] unless stub[:video_pid].nil?
@@ -5778,8 +5780,8 @@ module AWS::SDK::MediaLive
         data = {}
         data['preferredChannelPipeline'] = stub[:preferred_channel_pipeline] unless stub[:preferred_channel_pipeline].nil?
         data['programNumber'] = stub[:program_number] unless stub[:program_number].nil?
-        data['serviceDescriptor'] = Stubs::MultiplexProgramServiceDescriptor.stub(stub[:service_descriptor]) unless stub[:service_descriptor].nil?
-        data['videoSettings'] = Stubs::MultiplexVideoSettings.stub(stub[:video_settings]) unless stub[:video_settings].nil?
+        data['serviceDescriptor'] = MultiplexProgramServiceDescriptor.stub(stub[:service_descriptor]) unless stub[:service_descriptor].nil?
+        data['videoSettings'] = MultiplexVideoSettings.stub(stub[:video_settings]) unless stub[:video_settings].nil?
         data
       end
     end
@@ -5799,7 +5801,7 @@ module AWS::SDK::MediaLive
         stub ||= Types::MultiplexVideoSettings.new
         data = {}
         data['constantBitrate'] = stub[:constant_bitrate] unless stub[:constant_bitrate].nil?
-        data['statmuxSettings'] = Stubs::MultiplexStatmuxVideoSettings.stub(stub[:statmux_settings]) unless stub[:statmux_settings].nil?
+        data['statmuxSettings'] = MultiplexStatmuxVideoSettings.stub(stub[:statmux_settings]) unless stub[:statmux_settings].nil?
         data
       end
     end
@@ -5858,8 +5860,8 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['input'] = Stubs::Input.stub(stub[:input]) unless stub[:input].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['input'] = Input.stub(stub[:input]) unless stub[:input].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5906,24 +5908,24 @@ module AWS::SDK::MediaLive
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['cdiInputSpecification'] = Stubs::CdiInputSpecification.stub(stub[:cdi_input_specification]) unless stub[:cdi_input_specification].nil?
+        data['cdiInputSpecification'] = CdiInputSpecification.stub(stub[:cdi_input_specification]) unless stub[:cdi_input_specification].nil?
         data['channelClass'] = stub[:channel_class] unless stub[:channel_class].nil?
-        data['destinations'] = Stubs::List____listOfOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
-        data['egressEndpoints'] = Stubs::List____listOfChannelEgressEndpoint.stub(stub[:egress_endpoints]) unless stub[:egress_endpoints].nil?
-        data['encoderSettings'] = Stubs::EncoderSettings.stub(stub[:encoder_settings]) unless stub[:encoder_settings].nil?
+        data['destinations'] = List____listOfOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['egressEndpoints'] = List____listOfChannelEgressEndpoint.stub(stub[:egress_endpoints]) unless stub[:egress_endpoints].nil?
+        data['encoderSettings'] = EncoderSettings.stub(stub[:encoder_settings]) unless stub[:encoder_settings].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['inputAttachments'] = Stubs::List____listOfInputAttachment.stub(stub[:input_attachments]) unless stub[:input_attachments].nil?
-        data['inputSpecification'] = Stubs::InputSpecification.stub(stub[:input_specification]) unless stub[:input_specification].nil?
+        data['inputAttachments'] = List____listOfInputAttachment.stub(stub[:input_attachments]) unless stub[:input_attachments].nil?
+        data['inputSpecification'] = InputSpecification.stub(stub[:input_specification]) unless stub[:input_specification].nil?
         data['logLevel'] = stub[:log_level] unless stub[:log_level].nil?
-        data['maintenance'] = Stubs::MaintenanceStatus.stub(stub[:maintenance]) unless stub[:maintenance].nil?
+        data['maintenance'] = MaintenanceStatus.stub(stub[:maintenance]) unless stub[:maintenance].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['pipelineDetails'] = Stubs::List____listOfPipelineDetail.stub(stub[:pipeline_details]) unless stub[:pipeline_details].nil?
+        data['pipelineDetails'] = List____listOfPipelineDetail.stub(stub[:pipeline_details]) unless stub[:pipeline_details].nil?
         data['pipelinesRunningCount'] = stub[:pipelines_running_count] unless stub[:pipelines_running_count].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['vpc'] = Stubs::VpcOutputSettingsDescription.stub(stub[:vpc]) unless stub[:vpc].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['vpc'] = VpcOutputSettingsDescription.stub(stub[:vpc]) unless stub[:vpc].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -5975,16 +5977,16 @@ module AWS::SDK::MediaLive
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['availabilityZones'] = Stubs::List____listOf__string.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
-        data['destinations'] = Stubs::List____listOfMultiplexOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['availabilityZones'] = List____listOf__string.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['destinations'] = List____listOfMultiplexOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['multiplexSettings'] = Stubs::MultiplexSettings.stub(stub[:multiplex_settings]) unless stub[:multiplex_settings].nil?
+        data['multiplexSettings'] = MultiplexSettings.stub(stub[:multiplex_settings]) unless stub[:multiplex_settings].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['pipelinesRunningCount'] = stub[:pipelines_running_count] unless stub[:pipelines_running_count].nil?
         data['programCount'] = stub[:program_count] unless stub[:program_count].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6005,11 +6007,11 @@ module AWS::SDK::MediaLive
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['channelId'] = stub[:channel_id] unless stub[:channel_id].nil?
-        data['multiplexProgramSettings'] = Stubs::MultiplexProgramSettings.stub(stub[:multiplex_program_settings]) unless stub[:multiplex_program_settings].nil?
-        data['packetIdentifiersMap'] = Stubs::MultiplexProgramPacketIdentifiersMap.stub(stub[:packet_identifiers_map]) unless stub[:packet_identifiers_map].nil?
-        data['pipelineDetails'] = Stubs::List____listOfMultiplexProgramPipelineDetail.stub(stub[:pipeline_details]) unless stub[:pipeline_details].nil?
+        data['multiplexProgramSettings'] = MultiplexProgramSettings.stub(stub[:multiplex_program_settings]) unless stub[:multiplex_program_settings].nil?
+        data['packetIdentifiersMap'] = MultiplexProgramPacketIdentifiersMap.stub(stub[:packet_identifiers_map]) unless stub[:packet_identifiers_map].nil?
+        data['pipelineDetails'] = List____listOfMultiplexProgramPipelineDetail.stub(stub[:pipeline_details]) unless stub[:pipeline_details].nil?
         data['programName'] = stub[:program_name] unless stub[:program_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6055,12 +6057,12 @@ module AWS::SDK::MediaLive
         data['offeringType'] = stub[:offering_type] unless stub[:offering_type].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
         data['reservationId'] = stub[:reservation_id] unless stub[:reservation_id].nil?
-        data['resourceSpecification'] = Stubs::ReservationResourceSpecification.stub(stub[:resource_specification]) unless stub[:resource_specification].nil?
+        data['resourceSpecification'] = ReservationResourceSpecification.stub(stub[:resource_specification]) unless stub[:resource_specification].nil?
         data['start'] = stub[:start] unless stub[:start].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['usagePrice'] = Hearth::NumberHelper.serialize(stub[:usage_price])
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6152,24 +6154,24 @@ module AWS::SDK::MediaLive
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['cdiInputSpecification'] = Stubs::CdiInputSpecification.stub(stub[:cdi_input_specification]) unless stub[:cdi_input_specification].nil?
+        data['cdiInputSpecification'] = CdiInputSpecification.stub(stub[:cdi_input_specification]) unless stub[:cdi_input_specification].nil?
         data['channelClass'] = stub[:channel_class] unless stub[:channel_class].nil?
-        data['destinations'] = Stubs::List____listOfOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
-        data['egressEndpoints'] = Stubs::List____listOfChannelEgressEndpoint.stub(stub[:egress_endpoints]) unless stub[:egress_endpoints].nil?
-        data['encoderSettings'] = Stubs::EncoderSettings.stub(stub[:encoder_settings]) unless stub[:encoder_settings].nil?
+        data['destinations'] = List____listOfOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['egressEndpoints'] = List____listOfChannelEgressEndpoint.stub(stub[:egress_endpoints]) unless stub[:egress_endpoints].nil?
+        data['encoderSettings'] = EncoderSettings.stub(stub[:encoder_settings]) unless stub[:encoder_settings].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['inputAttachments'] = Stubs::List____listOfInputAttachment.stub(stub[:input_attachments]) unless stub[:input_attachments].nil?
-        data['inputSpecification'] = Stubs::InputSpecification.stub(stub[:input_specification]) unless stub[:input_specification].nil?
+        data['inputAttachments'] = List____listOfInputAttachment.stub(stub[:input_attachments]) unless stub[:input_attachments].nil?
+        data['inputSpecification'] = InputSpecification.stub(stub[:input_specification]) unless stub[:input_specification].nil?
         data['logLevel'] = stub[:log_level] unless stub[:log_level].nil?
-        data['maintenance'] = Stubs::MaintenanceStatus.stub(stub[:maintenance]) unless stub[:maintenance].nil?
+        data['maintenance'] = MaintenanceStatus.stub(stub[:maintenance]) unless stub[:maintenance].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['pipelineDetails'] = Stubs::List____listOfPipelineDetail.stub(stub[:pipeline_details]) unless stub[:pipeline_details].nil?
+        data['pipelineDetails'] = List____listOfPipelineDetail.stub(stub[:pipeline_details]) unless stub[:pipeline_details].nil?
         data['pipelinesRunningCount'] = stub[:pipelines_running_count] unless stub[:pipelines_running_count].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['vpc'] = Stubs::VpcOutputSettingsDescription.stub(stub[:vpc]) unless stub[:vpc].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['vpc'] = VpcOutputSettingsDescription.stub(stub[:vpc]) unless stub[:vpc].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6201,22 +6203,22 @@ module AWS::SDK::MediaLive
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['attachedChannels'] = Stubs::List____listOf__string.stub(stub[:attached_channels]) unless stub[:attached_channels].nil?
-        data['destinations'] = Stubs::List____listOfInputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['attachedChannels'] = List____listOf__string.stub(stub[:attached_channels]) unless stub[:attached_channels].nil?
+        data['destinations'] = List____listOfInputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['inputClass'] = stub[:input_class] unless stub[:input_class].nil?
-        data['inputDevices'] = Stubs::List____listOfInputDeviceSettings.stub(stub[:input_devices]) unless stub[:input_devices].nil?
-        data['inputPartnerIds'] = Stubs::List____listOf__string.stub(stub[:input_partner_ids]) unless stub[:input_partner_ids].nil?
+        data['inputDevices'] = List____listOfInputDeviceSettings.stub(stub[:input_devices]) unless stub[:input_devices].nil?
+        data['inputPartnerIds'] = List____listOf__string.stub(stub[:input_partner_ids]) unless stub[:input_partner_ids].nil?
         data['inputSourceType'] = stub[:input_source_type] unless stub[:input_source_type].nil?
-        data['mediaConnectFlows'] = Stubs::List____listOfMediaConnectFlow.stub(stub[:media_connect_flows]) unless stub[:media_connect_flows].nil?
+        data['mediaConnectFlows'] = List____listOfMediaConnectFlow.stub(stub[:media_connect_flows]) unless stub[:media_connect_flows].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['securityGroups'] = Stubs::List____listOf__string.stub(stub[:security_groups]) unless stub[:security_groups].nil?
-        data['sources'] = Stubs::List____listOfInputSource.stub(stub[:sources]) unless stub[:sources].nil?
+        data['securityGroups'] = List____listOf__string.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['sources'] = List____listOfInputSource.stub(stub[:sources]) unless stub[:sources].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6247,15 +6249,15 @@ module AWS::SDK::MediaLive
         data['connectionState'] = stub[:connection_state] unless stub[:connection_state].nil?
         data['deviceSettingsSyncState'] = stub[:device_settings_sync_state] unless stub[:device_settings_sync_state].nil?
         data['deviceUpdateStatus'] = stub[:device_update_status] unless stub[:device_update_status].nil?
-        data['hdDeviceSettings'] = Stubs::InputDeviceHdSettings.stub(stub[:hd_device_settings]) unless stub[:hd_device_settings].nil?
+        data['hdDeviceSettings'] = InputDeviceHdSettings.stub(stub[:hd_device_settings]) unless stub[:hd_device_settings].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['macAddress'] = stub[:mac_address] unless stub[:mac_address].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['networkSettings'] = Stubs::InputDeviceNetworkSettings.stub(stub[:network_settings]) unless stub[:network_settings].nil?
+        data['networkSettings'] = InputDeviceNetworkSettings.stub(stub[:network_settings]) unless stub[:network_settings].nil?
         data['serialNumber'] = stub[:serial_number] unless stub[:serial_number].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['uhdDeviceSettings'] = Stubs::InputDeviceUhdSettings.stub(stub[:uhd_device_settings]) unless stub[:uhd_device_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['uhdDeviceSettings'] = InputDeviceUhdSettings.stub(stub[:uhd_device_settings]) unless stub[:uhd_device_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6308,7 +6310,7 @@ module AWS::SDK::MediaLive
       def self.stub(stub)
         stub ||= Types::InputDeviceNetworkSettings.new
         data = {}
-        data['dnsAddresses'] = Stubs::List____listOf__string.stub(stub[:dns_addresses]) unless stub[:dns_addresses].nil?
+        data['dnsAddresses'] = List____listOf__string.stub(stub[:dns_addresses]) unless stub[:dns_addresses].nil?
         data['gateway'] = stub[:gateway] unless stub[:gateway].nil?
         data['ipAddress'] = stub[:ip_address] unless stub[:ip_address].nil?
         data['ipScheme'] = stub[:ip_scheme] unless stub[:ip_scheme].nil?
@@ -6391,11 +6393,11 @@ module AWS::SDK::MediaLive
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['inputs'] = Stubs::List____listOf__string.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['inputs'] = List____listOf__string.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['whitelistRules'] = Stubs::List____listOfInputWhitelistRule.stub(stub[:whitelist_rules]) unless stub[:whitelist_rules].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['whitelistRules'] = List____listOfInputWhitelistRule.stub(stub[:whitelist_rules]) unless stub[:whitelist_rules].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6421,16 +6423,16 @@ module AWS::SDK::MediaLive
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['availabilityZones'] = Stubs::List____listOf__string.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
-        data['destinations'] = Stubs::List____listOfMultiplexOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['availabilityZones'] = List____listOf__string.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['destinations'] = List____listOfMultiplexOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['multiplexSettings'] = Stubs::MultiplexSettings.stub(stub[:multiplex_settings]) unless stub[:multiplex_settings].nil?
+        data['multiplexSettings'] = MultiplexSettings.stub(stub[:multiplex_settings]) unless stub[:multiplex_settings].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['pipelinesRunningCount'] = stub[:pipelines_running_count] unless stub[:pipelines_running_count].nil?
         data['programCount'] = stub[:program_count] unless stub[:program_count].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6451,11 +6453,11 @@ module AWS::SDK::MediaLive
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['channelId'] = stub[:channel_id] unless stub[:channel_id].nil?
-        data['multiplexProgramSettings'] = Stubs::MultiplexProgramSettings.stub(stub[:multiplex_program_settings]) unless stub[:multiplex_program_settings].nil?
-        data['packetIdentifiersMap'] = Stubs::MultiplexProgramPacketIdentifiersMap.stub(stub[:packet_identifiers_map]) unless stub[:packet_identifiers_map].nil?
-        data['pipelineDetails'] = Stubs::List____listOfMultiplexProgramPipelineDetail.stub(stub[:pipeline_details]) unless stub[:pipeline_details].nil?
+        data['multiplexProgramSettings'] = MultiplexProgramSettings.stub(stub[:multiplex_program_settings]) unless stub[:multiplex_program_settings].nil?
+        data['packetIdentifiersMap'] = MultiplexProgramPacketIdentifiersMap.stub(stub[:packet_identifiers_map]) unless stub[:packet_identifiers_map].nil?
+        data['pipelineDetails'] = List____listOfMultiplexProgramPipelineDetail.stub(stub[:pipeline_details]) unless stub[:pipeline_details].nil?
         data['programName'] = stub[:program_name] unless stub[:program_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6490,9 +6492,9 @@ module AWS::SDK::MediaLive
         data['offeringId'] = stub[:offering_id] unless stub[:offering_id].nil?
         data['offeringType'] = stub[:offering_type] unless stub[:offering_type].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
-        data['resourceSpecification'] = Stubs::ReservationResourceSpecification.stub(stub[:resource_specification]) unless stub[:resource_specification].nil?
+        data['resourceSpecification'] = ReservationResourceSpecification.stub(stub[:resource_specification]) unless stub[:resource_specification].nil?
         data['usagePrice'] = Hearth::NumberHelper.serialize(stub[:usage_price])
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6538,12 +6540,12 @@ module AWS::SDK::MediaLive
         data['offeringType'] = stub[:offering_type] unless stub[:offering_type].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
         data['reservationId'] = stub[:reservation_id] unless stub[:reservation_id].nil?
-        data['resourceSpecification'] = Stubs::ReservationResourceSpecification.stub(stub[:resource_specification]) unless stub[:resource_specification].nil?
+        data['resourceSpecification'] = ReservationResourceSpecification.stub(stub[:resource_specification]) unless stub[:resource_specification].nil?
         data['start'] = stub[:start] unless stub[:start].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['usagePrice'] = Hearth::NumberHelper.serialize(stub[:usage_price])
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6561,8 +6563,8 @@ module AWS::SDK::MediaLive
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['scheduleActions'] = Stubs::List____listOfScheduleAction.stub(stub[:schedule_actions]) unless stub[:schedule_actions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['scheduleActions'] = List____listOfScheduleAction.stub(stub[:schedule_actions]) unless stub[:schedule_actions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6579,9 +6581,9 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['channels'] = Stubs::List____listOfChannelSummary.stub(stub[:channels]) unless stub[:channels].nil?
+        data['channels'] = List____listOfChannelSummary.stub(stub[:channels]) unless stub[:channels].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6599,7 +6601,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChannelSummary.stub(element) unless element.nil?
+          data << ChannelSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -6634,21 +6636,21 @@ module AWS::SDK::MediaLive
         stub ||= Types::ChannelSummary.new
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['cdiInputSpecification'] = Stubs::CdiInputSpecification.stub(stub[:cdi_input_specification]) unless stub[:cdi_input_specification].nil?
+        data['cdiInputSpecification'] = CdiInputSpecification.stub(stub[:cdi_input_specification]) unless stub[:cdi_input_specification].nil?
         data['channelClass'] = stub[:channel_class] unless stub[:channel_class].nil?
-        data['destinations'] = Stubs::List____listOfOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
-        data['egressEndpoints'] = Stubs::List____listOfChannelEgressEndpoint.stub(stub[:egress_endpoints]) unless stub[:egress_endpoints].nil?
+        data['destinations'] = List____listOfOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['egressEndpoints'] = List____listOfChannelEgressEndpoint.stub(stub[:egress_endpoints]) unless stub[:egress_endpoints].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['inputAttachments'] = Stubs::List____listOfInputAttachment.stub(stub[:input_attachments]) unless stub[:input_attachments].nil?
-        data['inputSpecification'] = Stubs::InputSpecification.stub(stub[:input_specification]) unless stub[:input_specification].nil?
+        data['inputAttachments'] = List____listOfInputAttachment.stub(stub[:input_attachments]) unless stub[:input_attachments].nil?
+        data['inputSpecification'] = InputSpecification.stub(stub[:input_specification]) unless stub[:input_specification].nil?
         data['logLevel'] = stub[:log_level] unless stub[:log_level].nil?
-        data['maintenance'] = Stubs::MaintenanceStatus.stub(stub[:maintenance]) unless stub[:maintenance].nil?
+        data['maintenance'] = MaintenanceStatus.stub(stub[:maintenance]) unless stub[:maintenance].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['pipelinesRunningCount'] = stub[:pipelines_running_count] unless stub[:pipelines_running_count].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['vpc'] = Stubs::VpcOutputSettingsDescription.stub(stub[:vpc]) unless stub[:vpc].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['vpc'] = VpcOutputSettingsDescription.stub(stub[:vpc]) unless stub[:vpc].nil?
         data
       end
     end
@@ -6666,9 +6668,9 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['inputDeviceTransfers'] = Stubs::List____listOfTransferringInputDeviceSummary.stub(stub[:input_device_transfers]) unless stub[:input_device_transfers].nil?
+        data['inputDeviceTransfers'] = List____listOfTransferringInputDeviceSummary.stub(stub[:input_device_transfers]) unless stub[:input_device_transfers].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6686,7 +6688,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TransferringInputDeviceSummary.stub(element) unless element.nil?
+          data << TransferringInputDeviceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -6729,9 +6731,9 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['inputDevices'] = Stubs::List____listOfInputDeviceSummary.stub(stub[:input_devices]) unless stub[:input_devices].nil?
+        data['inputDevices'] = List____listOfInputDeviceSummary.stub(stub[:input_devices]) unless stub[:input_devices].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6749,7 +6751,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InputDeviceSummary.stub(element) unless element.nil?
+          data << InputDeviceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -6783,14 +6785,14 @@ module AWS::SDK::MediaLive
         data['connectionState'] = stub[:connection_state] unless stub[:connection_state].nil?
         data['deviceSettingsSyncState'] = stub[:device_settings_sync_state] unless stub[:device_settings_sync_state].nil?
         data['deviceUpdateStatus'] = stub[:device_update_status] unless stub[:device_update_status].nil?
-        data['hdDeviceSettings'] = Stubs::InputDeviceHdSettings.stub(stub[:hd_device_settings]) unless stub[:hd_device_settings].nil?
+        data['hdDeviceSettings'] = InputDeviceHdSettings.stub(stub[:hd_device_settings]) unless stub[:hd_device_settings].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['macAddress'] = stub[:mac_address] unless stub[:mac_address].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['networkSettings'] = Stubs::InputDeviceNetworkSettings.stub(stub[:network_settings]) unless stub[:network_settings].nil?
+        data['networkSettings'] = InputDeviceNetworkSettings.stub(stub[:network_settings]) unless stub[:network_settings].nil?
         data['serialNumber'] = stub[:serial_number] unless stub[:serial_number].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['uhdDeviceSettings'] = Stubs::InputDeviceUhdSettings.stub(stub[:uhd_device_settings]) unless stub[:uhd_device_settings].nil?
+        data['uhdDeviceSettings'] = InputDeviceUhdSettings.stub(stub[:uhd_device_settings]) unless stub[:uhd_device_settings].nil?
         data
       end
     end
@@ -6808,9 +6810,9 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['inputSecurityGroups'] = Stubs::List____listOfInputSecurityGroup.stub(stub[:input_security_groups]) unless stub[:input_security_groups].nil?
+        data['inputSecurityGroups'] = List____listOfInputSecurityGroup.stub(stub[:input_security_groups]) unless stub[:input_security_groups].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6828,7 +6830,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InputSecurityGroup.stub(element) unless element.nil?
+          data << InputSecurityGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -6847,9 +6849,9 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['inputs'] = Stubs::List____listOfInput.stub(stub[:inputs]) unless stub[:inputs].nil?
+        data['inputs'] = List____listOfInput.stub(stub[:inputs]) unless stub[:inputs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6867,7 +6869,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Input.stub(element) unless element.nil?
+          data << Input.stub(element) unless element.nil?
         end
         data
       end
@@ -6886,9 +6888,9 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['multiplexPrograms'] = Stubs::List____listOfMultiplexProgramSummary.stub(stub[:multiplex_programs]) unless stub[:multiplex_programs].nil?
+        data['multiplexPrograms'] = List____listOfMultiplexProgramSummary.stub(stub[:multiplex_programs]) unless stub[:multiplex_programs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6906,7 +6908,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MultiplexProgramSummary.stub(element) unless element.nil?
+          data << MultiplexProgramSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -6945,9 +6947,9 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['multiplexes'] = Stubs::List____listOfMultiplexSummary.stub(stub[:multiplexes]) unless stub[:multiplexes].nil?
+        data['multiplexes'] = List____listOfMultiplexSummary.stub(stub[:multiplexes]) unless stub[:multiplexes].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -6965,7 +6967,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MultiplexSummary.stub(element) unless element.nil?
+          data << MultiplexSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -6993,14 +6995,14 @@ module AWS::SDK::MediaLive
         stub ||= Types::MultiplexSummary.new
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['availabilityZones'] = Stubs::List____listOf__string.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['availabilityZones'] = List____listOf__string.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['multiplexSettings'] = Stubs::MultiplexSettingsSummary.stub(stub[:multiplex_settings]) unless stub[:multiplex_settings].nil?
+        data['multiplexSettings'] = MultiplexSettingsSummary.stub(stub[:multiplex_settings]) unless stub[:multiplex_settings].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['pipelinesRunningCount'] = stub[:pipelines_running_count] unless stub[:pipelines_running_count].nil?
         data['programCount'] = stub[:program_count] unless stub[:program_count].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -7037,8 +7039,8 @@ module AWS::SDK::MediaLive
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['offerings'] = Stubs::List____listOfOffering.stub(stub[:offerings]) unless stub[:offerings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['offerings'] = List____listOfOffering.stub(stub[:offerings]) unless stub[:offerings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7056,7 +7058,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Offering.stub(element) unless element.nil?
+          data << Offering.stub(element) unless element.nil?
         end
         data
       end
@@ -7094,7 +7096,7 @@ module AWS::SDK::MediaLive
         data['offeringId'] = stub[:offering_id] unless stub[:offering_id].nil?
         data['offeringType'] = stub[:offering_type] unless stub[:offering_type].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
-        data['resourceSpecification'] = Stubs::ReservationResourceSpecification.stub(stub[:resource_specification]) unless stub[:resource_specification].nil?
+        data['resourceSpecification'] = ReservationResourceSpecification.stub(stub[:resource_specification]) unless stub[:resource_specification].nil?
         data['usagePrice'] = Hearth::NumberHelper.serialize(stub[:usage_price])
         data
       end
@@ -7114,8 +7116,8 @@ module AWS::SDK::MediaLive
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['reservations'] = Stubs::List____listOfReservation.stub(stub[:reservations]) unless stub[:reservations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['reservations'] = List____listOfReservation.stub(stub[:reservations]) unless stub[:reservations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7133,7 +7135,7 @@ module AWS::SDK::MediaLive
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Reservation.stub(element) unless element.nil?
+          data << Reservation.stub(element) unless element.nil?
         end
         data
       end
@@ -7182,10 +7184,10 @@ module AWS::SDK::MediaLive
         data['offeringType'] = stub[:offering_type] unless stub[:offering_type].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
         data['reservationId'] = stub[:reservation_id] unless stub[:reservation_id].nil?
-        data['resourceSpecification'] = Stubs::ReservationResourceSpecification.stub(stub[:resource_specification]) unless stub[:resource_specification].nil?
+        data['resourceSpecification'] = ReservationResourceSpecification.stub(stub[:resource_specification]) unless stub[:resource_specification].nil?
         data['start'] = stub[:start] unless stub[:start].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['usagePrice'] = Hearth::NumberHelper.serialize(stub[:usage_price])
         data
       end
@@ -7203,8 +7205,8 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7220,8 +7222,8 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['reservation'] = Stubs::Reservation.stub(stub[:reservation]) unless stub[:reservation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['reservation'] = Reservation.stub(stub[:reservation]) unless stub[:reservation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7268,24 +7270,24 @@ module AWS::SDK::MediaLive
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['cdiInputSpecification'] = Stubs::CdiInputSpecification.stub(stub[:cdi_input_specification]) unless stub[:cdi_input_specification].nil?
+        data['cdiInputSpecification'] = CdiInputSpecification.stub(stub[:cdi_input_specification]) unless stub[:cdi_input_specification].nil?
         data['channelClass'] = stub[:channel_class] unless stub[:channel_class].nil?
-        data['destinations'] = Stubs::List____listOfOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
-        data['egressEndpoints'] = Stubs::List____listOfChannelEgressEndpoint.stub(stub[:egress_endpoints]) unless stub[:egress_endpoints].nil?
-        data['encoderSettings'] = Stubs::EncoderSettings.stub(stub[:encoder_settings]) unless stub[:encoder_settings].nil?
+        data['destinations'] = List____listOfOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['egressEndpoints'] = List____listOfChannelEgressEndpoint.stub(stub[:egress_endpoints]) unless stub[:egress_endpoints].nil?
+        data['encoderSettings'] = EncoderSettings.stub(stub[:encoder_settings]) unless stub[:encoder_settings].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['inputAttachments'] = Stubs::List____listOfInputAttachment.stub(stub[:input_attachments]) unless stub[:input_attachments].nil?
-        data['inputSpecification'] = Stubs::InputSpecification.stub(stub[:input_specification]) unless stub[:input_specification].nil?
+        data['inputAttachments'] = List____listOfInputAttachment.stub(stub[:input_attachments]) unless stub[:input_attachments].nil?
+        data['inputSpecification'] = InputSpecification.stub(stub[:input_specification]) unless stub[:input_specification].nil?
         data['logLevel'] = stub[:log_level] unless stub[:log_level].nil?
-        data['maintenance'] = Stubs::MaintenanceStatus.stub(stub[:maintenance]) unless stub[:maintenance].nil?
+        data['maintenance'] = MaintenanceStatus.stub(stub[:maintenance]) unless stub[:maintenance].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['pipelineDetails'] = Stubs::List____listOfPipelineDetail.stub(stub[:pipeline_details]) unless stub[:pipeline_details].nil?
+        data['pipelineDetails'] = List____listOfPipelineDetail.stub(stub[:pipeline_details]) unless stub[:pipeline_details].nil?
         data['pipelinesRunningCount'] = stub[:pipelines_running_count] unless stub[:pipelines_running_count].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['vpc'] = Stubs::VpcOutputSettingsDescription.stub(stub[:vpc]) unless stub[:vpc].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['vpc'] = VpcOutputSettingsDescription.stub(stub[:vpc]) unless stub[:vpc].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7311,16 +7313,16 @@ module AWS::SDK::MediaLive
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['availabilityZones'] = Stubs::List____listOf__string.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
-        data['destinations'] = Stubs::List____listOfMultiplexOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['availabilityZones'] = List____listOf__string.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['destinations'] = List____listOfMultiplexOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['multiplexSettings'] = Stubs::MultiplexSettings.stub(stub[:multiplex_settings]) unless stub[:multiplex_settings].nil?
+        data['multiplexSettings'] = MultiplexSettings.stub(stub[:multiplex_settings]) unless stub[:multiplex_settings].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['pipelinesRunningCount'] = stub[:pipelines_running_count] unless stub[:pipelines_running_count].nil?
         data['programCount'] = stub[:program_count] unless stub[:program_count].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7354,24 +7356,24 @@ module AWS::SDK::MediaLive
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['cdiInputSpecification'] = Stubs::CdiInputSpecification.stub(stub[:cdi_input_specification]) unless stub[:cdi_input_specification].nil?
+        data['cdiInputSpecification'] = CdiInputSpecification.stub(stub[:cdi_input_specification]) unless stub[:cdi_input_specification].nil?
         data['channelClass'] = stub[:channel_class] unless stub[:channel_class].nil?
-        data['destinations'] = Stubs::List____listOfOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
-        data['egressEndpoints'] = Stubs::List____listOfChannelEgressEndpoint.stub(stub[:egress_endpoints]) unless stub[:egress_endpoints].nil?
-        data['encoderSettings'] = Stubs::EncoderSettings.stub(stub[:encoder_settings]) unless stub[:encoder_settings].nil?
+        data['destinations'] = List____listOfOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['egressEndpoints'] = List____listOfChannelEgressEndpoint.stub(stub[:egress_endpoints]) unless stub[:egress_endpoints].nil?
+        data['encoderSettings'] = EncoderSettings.stub(stub[:encoder_settings]) unless stub[:encoder_settings].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['inputAttachments'] = Stubs::List____listOfInputAttachment.stub(stub[:input_attachments]) unless stub[:input_attachments].nil?
-        data['inputSpecification'] = Stubs::InputSpecification.stub(stub[:input_specification]) unless stub[:input_specification].nil?
+        data['inputAttachments'] = List____listOfInputAttachment.stub(stub[:input_attachments]) unless stub[:input_attachments].nil?
+        data['inputSpecification'] = InputSpecification.stub(stub[:input_specification]) unless stub[:input_specification].nil?
         data['logLevel'] = stub[:log_level] unless stub[:log_level].nil?
-        data['maintenance'] = Stubs::MaintenanceStatus.stub(stub[:maintenance]) unless stub[:maintenance].nil?
+        data['maintenance'] = MaintenanceStatus.stub(stub[:maintenance]) unless stub[:maintenance].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['pipelineDetails'] = Stubs::List____listOfPipelineDetail.stub(stub[:pipeline_details]) unless stub[:pipeline_details].nil?
+        data['pipelineDetails'] = List____listOfPipelineDetail.stub(stub[:pipeline_details]) unless stub[:pipeline_details].nil?
         data['pipelinesRunningCount'] = stub[:pipelines_running_count] unless stub[:pipelines_running_count].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['vpc'] = Stubs::VpcOutputSettingsDescription.stub(stub[:vpc]) unless stub[:vpc].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['vpc'] = VpcOutputSettingsDescription.stub(stub[:vpc]) unless stub[:vpc].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7397,16 +7399,16 @@ module AWS::SDK::MediaLive
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['availabilityZones'] = Stubs::List____listOf__string.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
-        data['destinations'] = Stubs::List____listOfMultiplexOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['availabilityZones'] = List____listOf__string.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['destinations'] = List____listOfMultiplexOutputDestination.stub(stub[:destinations]) unless stub[:destinations].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['multiplexSettings'] = Stubs::MultiplexSettings.stub(stub[:multiplex_settings]) unless stub[:multiplex_settings].nil?
+        data['multiplexSettings'] = MultiplexSettings.stub(stub[:multiplex_settings]) unless stub[:multiplex_settings].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['pipelinesRunningCount'] = stub[:pipelines_running_count] unless stub[:pipelines_running_count].nil?
         data['programCount'] = stub[:program_count] unless stub[:program_count].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7435,8 +7437,8 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['channel'] = Stubs::Channel.stub(stub[:channel]) unless stub[:channel].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['channel'] = Channel.stub(stub[:channel]) unless stub[:channel].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7452,8 +7454,8 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['channel'] = Stubs::Channel.stub(stub[:channel]) unless stub[:channel].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['channel'] = Channel.stub(stub[:channel]) unless stub[:channel].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7469,8 +7471,8 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['input'] = Stubs::Input.stub(stub[:input]) unless stub[:input].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['input'] = Input.stub(stub[:input]) unless stub[:input].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7501,15 +7503,15 @@ module AWS::SDK::MediaLive
         data['connectionState'] = stub[:connection_state] unless stub[:connection_state].nil?
         data['deviceSettingsSyncState'] = stub[:device_settings_sync_state] unless stub[:device_settings_sync_state].nil?
         data['deviceUpdateStatus'] = stub[:device_update_status] unless stub[:device_update_status].nil?
-        data['hdDeviceSettings'] = Stubs::InputDeviceHdSettings.stub(stub[:hd_device_settings]) unless stub[:hd_device_settings].nil?
+        data['hdDeviceSettings'] = InputDeviceHdSettings.stub(stub[:hd_device_settings]) unless stub[:hd_device_settings].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['macAddress'] = stub[:mac_address] unless stub[:mac_address].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['networkSettings'] = Stubs::InputDeviceNetworkSettings.stub(stub[:network_settings]) unless stub[:network_settings].nil?
+        data['networkSettings'] = InputDeviceNetworkSettings.stub(stub[:network_settings]) unless stub[:network_settings].nil?
         data['serialNumber'] = stub[:serial_number] unless stub[:serial_number].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['uhdDeviceSettings'] = Stubs::InputDeviceUhdSettings.stub(stub[:uhd_device_settings]) unless stub[:uhd_device_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['uhdDeviceSettings'] = InputDeviceUhdSettings.stub(stub[:uhd_device_settings]) unless stub[:uhd_device_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7525,8 +7527,8 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['securityGroup'] = Stubs::InputSecurityGroup.stub(stub[:security_group]) unless stub[:security_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['securityGroup'] = InputSecurityGroup.stub(stub[:security_group]) unless stub[:security_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7542,8 +7544,8 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['multiplex'] = Stubs::Multiplex.stub(stub[:multiplex]) unless stub[:multiplex].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['multiplex'] = Multiplex.stub(stub[:multiplex]) unless stub[:multiplex].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7559,8 +7561,8 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['multiplexProgram'] = Stubs::MultiplexProgram.stub(stub[:multiplex_program]) unless stub[:multiplex_program].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['multiplexProgram'] = MultiplexProgram.stub(stub[:multiplex_program]) unless stub[:multiplex_program].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -7576,8 +7578,8 @@ module AWS::SDK::MediaLive
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['reservation'] = Stubs::Reservation.stub(stub[:reservation]) unless stub[:reservation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['reservation'] = Reservation.stub(stub[:reservation]) unless stub[:reservation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CodeGuruProfiler
   module Builders
 
@@ -27,8 +29,8 @@ module AWS::SDK::CodeGuruProfiler
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['channels'] = Builders::Channels.build(input[:channels]).to_a unless input[:channels].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['channels'] = Channels.build(input[:channels]) unless input[:channels].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -37,7 +39,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Channel.build(element) unless element.nil?
+          data << Channel.build(element) unless element.nil?
         end
         data
       end
@@ -49,7 +51,7 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         data['id'] = input[:id] unless input[:id].nil?
         data['uri'] = input[:uri] unless input[:uri].nil?
-        data['eventPublishers'] = Builders::EventPublishers.build(input[:event_publishers]).to_a unless input[:event_publishers].nil?
+        data['eventPublishers'] = EventPublishers.build(input[:event_publishers]) unless input[:event_publishers].nil?
         data
       end
     end
@@ -86,8 +88,8 @@ module AWS::SDK::CodeGuruProfiler
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['frameMetrics'] = Builders::FrameMetrics.build(input[:frame_metrics]) unless input[:frame_metrics].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['frameMetrics'] = FrameMetrics.build(input[:frame_metrics]) unless input[:frame_metrics].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -96,7 +98,7 @@ module AWS::SDK::CodeGuruProfiler
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FrameMetric.build(element) unless element.nil?
+          data << FrameMetric.build(element) unless element.nil?
         end
         data
       end
@@ -108,7 +110,7 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         data['frameName'] = input[:frame_name] unless input[:frame_name].nil?
         data['type'] = input[:type] unless input[:type].nil?
-        data['threadStates'] = Builders::ThreadStates.build(input[:thread_states]) unless input[:thread_states].nil?
+        data['threadStates'] = ThreadStates.build(input[:thread_states]) unless input[:thread_states].nil?
         data
       end
     end
@@ -142,8 +144,8 @@ module AWS::SDK::CodeGuruProfiler
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['fleetInstanceId'] = input[:fleet_instance_id] unless input[:fleet_instance_id].nil?
-        data['metadata'] = Builders::Metadata.build(input[:metadata]) unless input[:metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['metadata'] = Metadata.build(input[:metadata]) unless input[:metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -171,9 +173,9 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         data['profilingGroupName'] = input[:profiling_group_name] unless input[:profiling_group_name].nil?
         data['computePlatform'] = input[:compute_platform] unless input[:compute_platform].nil?
-        data['agentOrchestrationConfig'] = Builders::AgentOrchestrationConfig.build(input[:agent_orchestration_config]) unless input[:agent_orchestration_config].nil?
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['agentOrchestrationConfig'] = AgentOrchestrationConfig.build(input[:agent_orchestration_config]) unless input[:agent_orchestration_config].nil?
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -411,7 +413,7 @@ module AWS::SDK::CodeGuruProfiler
         params['profileToken'] = input[:profile_token].to_s unless input[:profile_token].nil?
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.body = StringIO.new(input[:agent_profile] || '')
+        http_req.body = ::StringIO.new(input[:agent_profile] || '')
         http_req.headers['Content-Type'] = input[:content_type] unless input[:content_type].nil? || input[:content_type].empty?
       end
     end
@@ -437,9 +439,9 @@ module AWS::SDK::CodeGuruProfiler
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['principals'] = Builders::Principals.build(input[:principals]) unless input[:principals].nil?
+        data['principals'] = Principals.build(input[:principals]) unless input[:principals].nil?
         data['revisionId'] = input[:revision_id] unless input[:revision_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -520,7 +522,7 @@ module AWS::SDK::CodeGuruProfiler
         data = {}
         data['type'] = input[:type] unless input[:type].nil?
         data['comment'] = input[:comment] unless input[:comment].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -541,8 +543,8 @@ module AWS::SDK::CodeGuruProfiler
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -596,8 +598,8 @@ module AWS::SDK::CodeGuruProfiler
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['agentOrchestrationConfig'] = Builders::AgentOrchestrationConfig.build(input[:agent_orchestration_config]) unless input[:agent_orchestration_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['agentOrchestrationConfig'] = AgentOrchestrationConfig.build(input[:agent_orchestration_config]) unless input[:agent_orchestration_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

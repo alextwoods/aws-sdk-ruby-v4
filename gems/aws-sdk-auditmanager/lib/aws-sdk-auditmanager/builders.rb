@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AuditManager
   module Builders
 
@@ -28,7 +30,7 @@ module AWS::SDK::AuditManager
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['evidenceFolderId'] = input[:evidence_folder_id] unless input[:evidence_folder_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -50,8 +52,8 @@ module AWS::SDK::AuditManager
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['evidenceFolderId'] = input[:evidence_folder_id] unless input[:evidence_folder_id].nil?
-        data['evidenceIds'] = Builders::EvidenceIds.build(input[:evidence_ids]) unless input[:evidence_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['evidenceIds'] = EvidenceIds.build(input[:evidence_ids]) unless input[:evidence_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -83,8 +85,8 @@ module AWS::SDK::AuditManager
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['createDelegationRequests'] = Builders::CreateDelegationRequests.build(input[:create_delegation_requests]) unless input[:create_delegation_requests].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['createDelegationRequests'] = CreateDelegationRequests.build(input[:create_delegation_requests]) unless input[:create_delegation_requests].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -93,7 +95,7 @@ module AWS::SDK::AuditManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CreateDelegationRequest.build(element) unless element.nil?
+          data << CreateDelegationRequest.build(element) unless element.nil?
         end
         data
       end
@@ -128,8 +130,8 @@ module AWS::SDK::AuditManager
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['delegationIds'] = Builders::DelegationIds.build(input[:delegation_ids]) unless input[:delegation_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['delegationIds'] = DelegationIds.build(input[:delegation_ids]) unless input[:delegation_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -162,8 +164,8 @@ module AWS::SDK::AuditManager
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['evidenceFolderId'] = input[:evidence_folder_id] unless input[:evidence_folder_id].nil?
-        data['evidenceIds'] = Builders::EvidenceIds.build(input[:evidence_ids]) unless input[:evidence_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['evidenceIds'] = EvidenceIds.build(input[:evidence_ids]) unless input[:evidence_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -192,8 +194,8 @@ module AWS::SDK::AuditManager
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['manualEvidence'] = Builders::ManualEvidenceList.build(input[:manual_evidence]) unless input[:manual_evidence].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['manualEvidence'] = ManualEvidenceList.build(input[:manual_evidence]) unless input[:manual_evidence].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -202,7 +204,7 @@ module AWS::SDK::AuditManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ManualEvidence.build(element) unless element.nil?
+          data << ManualEvidence.build(element) unless element.nil?
         end
         data
       end
@@ -229,12 +231,12 @@ module AWS::SDK::AuditManager
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['assessmentReportsDestination'] = Builders::AssessmentReportsDestination.build(input[:assessment_reports_destination]) unless input[:assessment_reports_destination].nil?
-        data['scope'] = Builders::Scope.build(input[:scope]) unless input[:scope].nil?
-        data['roles'] = Builders::Roles.build(input[:roles]) unless input[:roles].nil?
+        data['assessmentReportsDestination'] = AssessmentReportsDestination.build(input[:assessment_reports_destination]) unless input[:assessment_reports_destination].nil?
+        data['scope'] = Scope.build(input[:scope]) unless input[:scope].nil?
+        data['roles'] = Roles.build(input[:roles]) unless input[:roles].nil?
         data['frameworkId'] = input[:framework_id] unless input[:framework_id].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -254,7 +256,7 @@ module AWS::SDK::AuditManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Role.build(element) unless element.nil?
+          data << Role.build(element) unless element.nil?
         end
         data
       end
@@ -274,8 +276,8 @@ module AWS::SDK::AuditManager
     class Scope
       def self.build(input)
         data = {}
-        data['awsAccounts'] = Builders::AWSAccounts.build(input[:aws_accounts]) unless input[:aws_accounts].nil?
-        data['awsServices'] = Builders::AWSServices.build(input[:aws_services]) unless input[:aws_services].nil?
+        data['awsAccounts'] = AWSAccounts.build(input[:aws_accounts]) unless input[:aws_accounts].nil?
+        data['awsServices'] = AWSServices.build(input[:aws_services]) unless input[:aws_services].nil?
         data
       end
     end
@@ -285,7 +287,7 @@ module AWS::SDK::AuditManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AWSService.build(element) unless element.nil?
+          data << AWSService.build(element) unless element.nil?
         end
         data
       end
@@ -305,7 +307,7 @@ module AWS::SDK::AuditManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AWSAccount.build(element) unless element.nil?
+          data << AWSAccount.build(element) unless element.nil?
         end
         data
       end
@@ -345,9 +347,9 @@ module AWS::SDK::AuditManager
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['complianceType'] = input[:compliance_type] unless input[:compliance_type].nil?
-        data['controlSets'] = Builders::CreateAssessmentFrameworkControlSets.build(input[:control_sets]) unless input[:control_sets].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['controlSets'] = CreateAssessmentFrameworkControlSets.build(input[:control_sets]) unless input[:control_sets].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -356,7 +358,7 @@ module AWS::SDK::AuditManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CreateAssessmentFrameworkControlSet.build(element) unless element.nil?
+          data << CreateAssessmentFrameworkControlSet.build(element) unless element.nil?
         end
         data
       end
@@ -367,7 +369,7 @@ module AWS::SDK::AuditManager
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['controls'] = Builders::CreateAssessmentFrameworkControls.build(input[:controls]) unless input[:controls].nil?
+        data['controls'] = CreateAssessmentFrameworkControls.build(input[:controls]) unless input[:controls].nil?
         data
       end
     end
@@ -377,7 +379,7 @@ module AWS::SDK::AuditManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CreateAssessmentFrameworkControl.build(element) unless element.nil?
+          data << CreateAssessmentFrameworkControl.build(element) unless element.nil?
         end
         data
       end
@@ -411,7 +413,7 @@ module AWS::SDK::AuditManager
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -430,9 +432,9 @@ module AWS::SDK::AuditManager
         data['testingInformation'] = input[:testing_information] unless input[:testing_information].nil?
         data['actionPlanTitle'] = input[:action_plan_title] unless input[:action_plan_title].nil?
         data['actionPlanInstructions'] = input[:action_plan_instructions] unless input[:action_plan_instructions].nil?
-        data['controlMappingSources'] = Builders::CreateControlMappingSources.build(input[:control_mapping_sources]) unless input[:control_mapping_sources].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['controlMappingSources'] = CreateControlMappingSources.build(input[:control_mapping_sources]) unless input[:control_mapping_sources].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -441,7 +443,7 @@ module AWS::SDK::AuditManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CreateControlMappingSource.build(element) unless element.nil?
+          data << CreateControlMappingSource.build(element) unless element.nil?
         end
         data
       end
@@ -455,7 +457,7 @@ module AWS::SDK::AuditManager
         data['sourceDescription'] = input[:source_description] unless input[:source_description].nil?
         data['sourceSetUpOption'] = input[:source_set_up_option] unless input[:source_set_up_option].nil?
         data['sourceType'] = input[:source_type] unless input[:source_type].nil?
-        data['sourceKeyword'] = Builders::SourceKeyword.build(input[:source_keyword]) unless input[:source_keyword].nil?
+        data['sourceKeyword'] = SourceKeyword.build(input[:source_keyword]) unless input[:source_keyword].nil?
         data['sourceFrequency'] = input[:source_frequency] unless input[:source_frequency].nil?
         data['troubleshootingText'] = input[:troubleshooting_text] unless input[:troubleshooting_text].nil?
         data
@@ -583,7 +585,7 @@ module AWS::SDK::AuditManager
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['adminAccountId'] = input[:admin_account_id] unless input[:admin_account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -605,7 +607,7 @@ module AWS::SDK::AuditManager
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['evidenceFolderId'] = input[:evidence_folder_id] unless input[:evidence_folder_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1085,7 +1087,7 @@ module AWS::SDK::AuditManager
         data = {}
         data['kmsKey'] = input[:kms_key] unless input[:kms_key].nil?
         data['delegatedAdminAccount'] = input[:delegated_admin_account] unless input[:delegated_admin_account].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1100,7 +1102,7 @@ module AWS::SDK::AuditManager
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['adminAccountId'] = input[:admin_account_id] unless input[:admin_account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1124,7 +1126,7 @@ module AWS::SDK::AuditManager
         data['destinationAccount'] = input[:destination_account] unless input[:destination_account].nil?
         data['destinationRegion'] = input[:destination_region] unless input[:destination_region].nil?
         data['comment'] = input[:comment] unless input[:comment].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1145,8 +1147,8 @@ module AWS::SDK::AuditManager
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1202,10 +1204,10 @@ module AWS::SDK::AuditManager
         data = {}
         data['assessmentName'] = input[:assessment_name] unless input[:assessment_name].nil?
         data['assessmentDescription'] = input[:assessment_description] unless input[:assessment_description].nil?
-        data['scope'] = Builders::Scope.build(input[:scope]) unless input[:scope].nil?
-        data['assessmentReportsDestination'] = Builders::AssessmentReportsDestination.build(input[:assessment_reports_destination]) unless input[:assessment_reports_destination].nil?
-        data['roles'] = Builders::Roles.build(input[:roles]) unless input[:roles].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['scope'] = Scope.build(input[:scope]) unless input[:scope].nil?
+        data['assessmentReportsDestination'] = AssessmentReportsDestination.build(input[:assessment_reports_destination]) unless input[:assessment_reports_destination].nil?
+        data['roles'] = Roles.build(input[:roles]) unless input[:roles].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1236,7 +1238,7 @@ module AWS::SDK::AuditManager
         data = {}
         data['controlStatus'] = input[:control_status] unless input[:control_status].nil?
         data['commentBody'] = input[:comment_body] unless input[:comment_body].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1263,7 +1265,7 @@ module AWS::SDK::AuditManager
         data = {}
         data['status'] = input[:status] unless input[:status].nil?
         data['comment'] = input[:comment] unless input[:comment].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1287,8 +1289,8 @@ module AWS::SDK::AuditManager
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['complianceType'] = input[:compliance_type] unless input[:compliance_type].nil?
-        data['controlSets'] = Builders::UpdateAssessmentFrameworkControlSets.build(input[:control_sets]) unless input[:control_sets].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['controlSets'] = UpdateAssessmentFrameworkControlSets.build(input[:control_sets]) unless input[:control_sets].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1297,7 +1299,7 @@ module AWS::SDK::AuditManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UpdateAssessmentFrameworkControlSet.build(element) unless element.nil?
+          data << UpdateAssessmentFrameworkControlSet.build(element) unless element.nil?
         end
         data
       end
@@ -1309,7 +1311,7 @@ module AWS::SDK::AuditManager
         data = {}
         data['id'] = input[:id] unless input[:id].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['controls'] = Builders::CreateAssessmentFrameworkControls.build(input[:controls]) unless input[:controls].nil?
+        data['controls'] = CreateAssessmentFrameworkControls.build(input[:controls]) unless input[:controls].nil?
         data
       end
     end
@@ -1333,7 +1335,7 @@ module AWS::SDK::AuditManager
         data = {}
         data['requestType'] = input[:request_type] unless input[:request_type].nil?
         data['action'] = input[:action] unless input[:action].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1355,7 +1357,7 @@ module AWS::SDK::AuditManager
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1381,8 +1383,8 @@ module AWS::SDK::AuditManager
         data['testingInformation'] = input[:testing_information] unless input[:testing_information].nil?
         data['actionPlanTitle'] = input[:action_plan_title] unless input[:action_plan_title].nil?
         data['actionPlanInstructions'] = input[:action_plan_instructions] unless input[:action_plan_instructions].nil?
-        data['controlMappingSources'] = Builders::ControlMappingSources.build(input[:control_mapping_sources]) unless input[:control_mapping_sources].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['controlMappingSources'] = ControlMappingSources.build(input[:control_mapping_sources]) unless input[:control_mapping_sources].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1391,7 +1393,7 @@ module AWS::SDK::AuditManager
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ControlMappingSource.build(element) unless element.nil?
+          data << ControlMappingSource.build(element) unless element.nil?
         end
         data
       end
@@ -1406,7 +1408,7 @@ module AWS::SDK::AuditManager
         data['sourceDescription'] = input[:source_description] unless input[:source_description].nil?
         data['sourceSetUpOption'] = input[:source_set_up_option] unless input[:source_set_up_option].nil?
         data['sourceType'] = input[:source_type] unless input[:source_type].nil?
-        data['sourceKeyword'] = Builders::SourceKeyword.build(input[:source_keyword]) unless input[:source_keyword].nil?
+        data['sourceKeyword'] = SourceKeyword.build(input[:source_keyword]) unless input[:source_keyword].nil?
         data['sourceFrequency'] = input[:source_frequency] unless input[:source_frequency].nil?
         data['troubleshootingText'] = input[:troubleshooting_text] unless input[:troubleshooting_text].nil?
         data
@@ -1424,10 +1426,10 @@ module AWS::SDK::AuditManager
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['snsTopic'] = input[:sns_topic] unless input[:sns_topic].nil?
-        data['defaultAssessmentReportsDestination'] = Builders::AssessmentReportsDestination.build(input[:default_assessment_reports_destination]) unless input[:default_assessment_reports_destination].nil?
-        data['defaultProcessOwners'] = Builders::Roles.build(input[:default_process_owners]) unless input[:default_process_owners].nil?
+        data['defaultAssessmentReportsDestination'] = AssessmentReportsDestination.build(input[:default_assessment_reports_destination]) unless input[:default_assessment_reports_destination].nil?
+        data['defaultProcessOwners'] = Roles.build(input[:default_process_owners]) unless input[:default_process_owners].nil?
         data['kmsKey'] = input[:kms_key] unless input[:kms_key].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1442,7 +1444,7 @@ module AWS::SDK::AuditManager
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['s3RelativePath'] = input[:s3_relative_path] unless input[:s3_relative_path].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

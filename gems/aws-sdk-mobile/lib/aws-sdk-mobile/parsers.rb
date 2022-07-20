@@ -15,7 +15,7 @@ module AWS::SDK::Mobile
       def self.parse(http_resp)
         data = Types::CreateProjectOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.details = (Parsers::ProjectDetails.parse(map['details']) unless map['details'].nil?)
+        data.details = (ProjectDetails.parse(map['details']) unless map['details'].nil?)
         data
       end
     end
@@ -30,7 +30,7 @@ module AWS::SDK::Mobile
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data.last_updated_date = Time.at(map['lastUpdatedDate'].to_i) if map['lastUpdatedDate']
         data.console_url = map['consoleUrl']
-        data.resources = (Parsers::Resources.parse(map['resources']) unless map['resources'].nil?)
+        data.resources = (Resources.parse(map['resources']) unless map['resources'].nil?)
         return data
       end
     end
@@ -39,7 +39,7 @@ module AWS::SDK::Mobile
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Resource.parse(value) unless value.nil?
+          data << Resource.parse(value) unless value.nil?
         end
         data
       end
@@ -52,7 +52,7 @@ module AWS::SDK::Mobile
         data.name = map['name']
         data.arn = map['arn']
         data.feature = map['feature']
-        data.attributes = (Parsers::Attributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (Attributes.parse(map['attributes']) unless map['attributes'].nil?)
         return data
       end
     end
@@ -145,8 +145,8 @@ module AWS::SDK::Mobile
       def self.parse(http_resp)
         data = Types::DeleteProjectOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.deleted_resources = (Parsers::Resources.parse(map['deletedResources']) unless map['deletedResources'].nil?)
-        data.orphaned_resources = (Parsers::Resources.parse(map['orphanedResources']) unless map['orphanedResources'].nil?)
+        data.deleted_resources = (Resources.parse(map['deletedResources']) unless map['deletedResources'].nil?)
+        data.orphaned_resources = (Resources.parse(map['orphanedResources']) unless map['orphanedResources'].nil?)
         data
       end
     end
@@ -156,7 +156,7 @@ module AWS::SDK::Mobile
       def self.parse(http_resp)
         data = Types::DescribeBundleOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.details = (Parsers::BundleDetails.parse(map['details']) unless map['details'].nil?)
+        data.details = (BundleDetails.parse(map['details']) unless map['details'].nil?)
         data
       end
     end
@@ -169,7 +169,7 @@ module AWS::SDK::Mobile
         data.version = map['version']
         data.description = map['description']
         data.icon_url = map['iconUrl']
-        data.available_platforms = (Parsers::Platforms.parse(map['availablePlatforms']) unless map['availablePlatforms'].nil?)
+        data.available_platforms = (Platforms.parse(map['availablePlatforms']) unless map['availablePlatforms'].nil?)
         return data
       end
     end
@@ -189,7 +189,7 @@ module AWS::SDK::Mobile
       def self.parse(http_resp)
         data = Types::DescribeProjectOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.details = (Parsers::ProjectDetails.parse(map['details']) unless map['details'].nil?)
+        data.details = (ProjectDetails.parse(map['details']) unless map['details'].nil?)
         data
       end
     end
@@ -221,7 +221,7 @@ module AWS::SDK::Mobile
       def self.parse(http_resp)
         data = Types::ListBundlesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.bundle_list = (Parsers::BundleList.parse(map['bundleList']) unless map['bundleList'].nil?)
+        data.bundle_list = (BundleList.parse(map['bundleList']) unless map['bundleList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -231,7 +231,7 @@ module AWS::SDK::Mobile
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BundleDetails.parse(value) unless value.nil?
+          data << BundleDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -242,7 +242,7 @@ module AWS::SDK::Mobile
       def self.parse(http_resp)
         data = Types::ListProjectsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.projects = (Parsers::ProjectSummaries.parse(map['projects']) unless map['projects'].nil?)
+        data.projects = (ProjectSummaries.parse(map['projects']) unless map['projects'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -252,7 +252,7 @@ module AWS::SDK::Mobile
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ProjectSummary.parse(value) unless value.nil?
+          data << ProjectSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -272,7 +272,7 @@ module AWS::SDK::Mobile
       def self.parse(http_resp)
         data = Types::UpdateProjectOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.details = (Parsers::ProjectDetails.parse(map['details']) unless map['details'].nil?)
+        data.details = (ProjectDetails.parse(map['details']) unless map['details'].nil?)
         data
       end
     end

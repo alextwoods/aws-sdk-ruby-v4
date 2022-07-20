@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::PinpointSMSVoice
   module Builders
 
@@ -21,7 +23,7 @@ module AWS::SDK::PinpointSMSVoice
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -42,9 +44,9 @@ module AWS::SDK::PinpointSMSVoice
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['EventDestination'] = Builders::EventDestinationDefinition.build(input[:event_destination]) unless input[:event_destination].nil?
+        data['EventDestination'] = EventDestinationDefinition.build(input[:event_destination]) unless input[:event_destination].nil?
         data['EventDestinationName'] = input[:event_destination_name] unless input[:event_destination_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -52,11 +54,11 @@ module AWS::SDK::PinpointSMSVoice
     class EventDestinationDefinition
       def self.build(input)
         data = {}
-        data['CloudWatchLogsDestination'] = Builders::CloudWatchLogsDestination.build(input[:cloud_watch_logs_destination]) unless input[:cloud_watch_logs_destination].nil?
+        data['CloudWatchLogsDestination'] = CloudWatchLogsDestination.build(input[:cloud_watch_logs_destination]) unless input[:cloud_watch_logs_destination].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['KinesisFirehoseDestination'] = Builders::KinesisFirehoseDestination.build(input[:kinesis_firehose_destination]) unless input[:kinesis_firehose_destination].nil?
-        data['MatchingEventTypes'] = Builders::EventTypes.build(input[:matching_event_types]) unless input[:matching_event_types].nil?
-        data['SnsDestination'] = Builders::SnsDestination.build(input[:sns_destination]) unless input[:sns_destination].nil?
+        data['KinesisFirehoseDestination'] = KinesisFirehoseDestination.build(input[:kinesis_firehose_destination]) unless input[:kinesis_firehose_destination].nil?
+        data['MatchingEventTypes'] = EventTypes.build(input[:matching_event_types]) unless input[:matching_event_types].nil?
+        data['SnsDestination'] = SnsDestination.build(input[:sns_destination]) unless input[:sns_destination].nil?
         data
       end
     end
@@ -180,10 +182,10 @@ module AWS::SDK::PinpointSMSVoice
         data = {}
         data['CallerId'] = input[:caller_id] unless input[:caller_id].nil?
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
-        data['Content'] = Builders::VoiceMessageContent.build(input[:content]) unless input[:content].nil?
+        data['Content'] = VoiceMessageContent.build(input[:content]) unless input[:content].nil?
         data['DestinationPhoneNumber'] = input[:destination_phone_number] unless input[:destination_phone_number].nil?
         data['OriginationPhoneNumber'] = input[:origination_phone_number] unless input[:origination_phone_number].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -191,9 +193,9 @@ module AWS::SDK::PinpointSMSVoice
     class VoiceMessageContent
       def self.build(input)
         data = {}
-        data['CallInstructionsMessage'] = Builders::CallInstructionsMessageType.build(input[:call_instructions_message]) unless input[:call_instructions_message].nil?
-        data['PlainTextMessage'] = Builders::PlainTextMessageType.build(input[:plain_text_message]) unless input[:plain_text_message].nil?
-        data['SSMLMessage'] = Builders::SSMLMessageType.build(input[:ssml_message]) unless input[:ssml_message].nil?
+        data['CallInstructionsMessage'] = CallInstructionsMessageType.build(input[:call_instructions_message]) unless input[:call_instructions_message].nil?
+        data['PlainTextMessage'] = PlainTextMessageType.build(input[:plain_text_message]) unless input[:plain_text_message].nil?
+        data['SSMLMessage'] = SSMLMessageType.build(input[:ssml_message]) unless input[:ssml_message].nil?
         data
       end
     end
@@ -250,8 +252,8 @@ module AWS::SDK::PinpointSMSVoice
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['EventDestination'] = Builders::EventDestinationDefinition.build(input[:event_destination]) unless input[:event_destination].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventDestination'] = EventDestinationDefinition.build(input[:event_destination]) unless input[:event_destination].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

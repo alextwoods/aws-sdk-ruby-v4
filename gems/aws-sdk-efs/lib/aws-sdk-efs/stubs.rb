@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::EFS
   module Stubs
 
@@ -33,15 +35,15 @@ module AWS::SDK::EFS
         http_resp.headers['Content-Type'] = 'application/json'
         data['ClientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['AccessPointId'] = stub[:access_point_id] unless stub[:access_point_id].nil?
         data['AccessPointArn'] = stub[:access_point_arn] unless stub[:access_point_arn].nil?
         data['FileSystemId'] = stub[:file_system_id] unless stub[:file_system_id].nil?
-        data['PosixUser'] = Stubs::PosixUser.stub(stub[:posix_user]) unless stub[:posix_user].nil?
-        data['RootDirectory'] = Stubs::RootDirectory.stub(stub[:root_directory]) unless stub[:root_directory].nil?
+        data['PosixUser'] = PosixUser.stub(stub[:posix_user]) unless stub[:posix_user].nil?
+        data['RootDirectory'] = RootDirectory.stub(stub[:root_directory]) unless stub[:root_directory].nil?
         data['OwnerId'] = stub[:owner_id] unless stub[:owner_id].nil?
         data['LifeCycleState'] = stub[:life_cycle_state] unless stub[:life_cycle_state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -60,7 +62,7 @@ module AWS::SDK::EFS
         stub ||= Types::RootDirectory.new
         data = {}
         data['Path'] = stub[:path] unless stub[:path].nil?
-        data['CreationInfo'] = Stubs::CreationInfo.stub(stub[:creation_info]) unless stub[:creation_info].nil?
+        data['CreationInfo'] = CreationInfo.stub(stub[:creation_info]) unless stub[:creation_info].nil?
         data
       end
     end
@@ -104,7 +106,7 @@ module AWS::SDK::EFS
         data = {}
         data['Uid'] = stub[:uid] unless stub[:uid].nil?
         data['Gid'] = stub[:gid] unless stub[:gid].nil?
-        data['SecondaryGids'] = Stubs::SecondaryGids.stub(stub[:secondary_gids]) unless stub[:secondary_gids].nil?
+        data['SecondaryGids'] = SecondaryGids.stub(stub[:secondary_gids]) unless stub[:secondary_gids].nil?
         data
       end
     end
@@ -143,7 +145,7 @@ module AWS::SDK::EFS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -205,7 +207,7 @@ module AWS::SDK::EFS
         data['LifeCycleState'] = stub[:life_cycle_state] unless stub[:life_cycle_state].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['NumberOfMountTargets'] = stub[:number_of_mount_targets] unless stub[:number_of_mount_targets].nil?
-        data['SizeInBytes'] = Stubs::FileSystemSize.stub(stub[:size_in_bytes]) unless stub[:size_in_bytes].nil?
+        data['SizeInBytes'] = FileSystemSize.stub(stub[:size_in_bytes]) unless stub[:size_in_bytes].nil?
         data['PerformanceMode'] = stub[:performance_mode] unless stub[:performance_mode].nil?
         data['Encrypted'] = stub[:encrypted] unless stub[:encrypted].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
@@ -213,8 +215,8 @@ module AWS::SDK::EFS
         data['ProvisionedThroughputInMibps'] = Hearth::NumberHelper.serialize(stub[:provisioned_throughput_in_mibps])
         data['AvailabilityZoneName'] = stub[:availability_zone_name] unless stub[:availability_zone_name].nil?
         data['AvailabilityZoneId'] = stub[:availability_zone_id] unless stub[:availability_zone_id].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -273,7 +275,7 @@ module AWS::SDK::EFS
         data['AvailabilityZoneId'] = stub[:availability_zone_id] unless stub[:availability_zone_id].nil?
         data['AvailabilityZoneName'] = stub[:availability_zone_name] unless stub[:availability_zone_name].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -299,8 +301,8 @@ module AWS::SDK::EFS
         data['SourceFileSystemArn'] = stub[:source_file_system_arn] unless stub[:source_file_system_arn].nil?
         data['OriginalSourceFileSystemArn'] = stub[:original_source_file_system_arn] unless stub[:original_source_file_system_arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['Destinations'] = Stubs::Destinations.stub(stub[:destinations]) unless stub[:destinations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Destinations'] = Destinations.stub(stub[:destinations]) unless stub[:destinations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -318,7 +320,7 @@ module AWS::SDK::EFS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Destination.stub(element) unless element.nil?
+          data << Destination.stub(element) unless element.nil?
         end
         data
       end
@@ -452,9 +454,9 @@ module AWS::SDK::EFS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AccessPoints'] = Stubs::AccessPointDescriptions.stub(stub[:access_points]) unless stub[:access_points].nil?
+        data['AccessPoints'] = AccessPointDescriptions.stub(stub[:access_points]) unless stub[:access_points].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -472,7 +474,7 @@ module AWS::SDK::EFS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccessPointDescription.stub(element) unless element.nil?
+          data << AccessPointDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -502,12 +504,12 @@ module AWS::SDK::EFS
         data = {}
         data['ClientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['AccessPointId'] = stub[:access_point_id] unless stub[:access_point_id].nil?
         data['AccessPointArn'] = stub[:access_point_arn] unless stub[:access_point_arn].nil?
         data['FileSystemId'] = stub[:file_system_id] unless stub[:file_system_id].nil?
-        data['PosixUser'] = Stubs::PosixUser.stub(stub[:posix_user]) unless stub[:posix_user].nil?
-        data['RootDirectory'] = Stubs::RootDirectory.stub(stub[:root_directory]) unless stub[:root_directory].nil?
+        data['PosixUser'] = PosixUser.stub(stub[:posix_user]) unless stub[:posix_user].nil?
+        data['RootDirectory'] = RootDirectory.stub(stub[:root_directory]) unless stub[:root_directory].nil?
         data['OwnerId'] = stub[:owner_id] unless stub[:owner_id].nil?
         data['LifeCycleState'] = stub[:life_cycle_state] unless stub[:life_cycle_state].nil?
         data
@@ -527,9 +529,9 @@ module AWS::SDK::EFS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ResourceIdPreference'] = Stubs::ResourceIdPreference.stub(stub[:resource_id_preference]) unless stub[:resource_id_preference].nil?
+        data['ResourceIdPreference'] = ResourceIdPreference.stub(stub[:resource_id_preference]) unless stub[:resource_id_preference].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -548,7 +550,7 @@ module AWS::SDK::EFS
         stub ||= Types::ResourceIdPreference.new
         data = {}
         data['ResourceIdType'] = stub[:resource_id_type] unless stub[:resource_id_type].nil?
-        data['Resources'] = Stubs::Resources.stub(stub[:resources]) unless stub[:resources].nil?
+        data['Resources'] = Resources.stub(stub[:resources]) unless stub[:resources].nil?
         data
       end
     end
@@ -585,8 +587,8 @@ module AWS::SDK::EFS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['BackupPolicy'] = Stubs::BackupPolicy.stub(stub[:backup_policy]) unless stub[:backup_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BackupPolicy'] = BackupPolicy.stub(stub[:backup_policy]) unless stub[:backup_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -623,7 +625,7 @@ module AWS::SDK::EFS
         http_resp.headers['Content-Type'] = 'application/json'
         data['FileSystemId'] = stub[:file_system_id] unless stub[:file_system_id].nil?
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -642,9 +644,9 @@ module AWS::SDK::EFS
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['FileSystems'] = Stubs::FileSystemDescriptions.stub(stub[:file_systems]) unless stub[:file_systems].nil?
+        data['FileSystems'] = FileSystemDescriptions.stub(stub[:file_systems]) unless stub[:file_systems].nil?
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -662,7 +664,7 @@ module AWS::SDK::EFS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FileSystemDescription.stub(element) unless element.nil?
+          data << FileSystemDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -705,7 +707,7 @@ module AWS::SDK::EFS
         data['LifeCycleState'] = stub[:life_cycle_state] unless stub[:life_cycle_state].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['NumberOfMountTargets'] = stub[:number_of_mount_targets] unless stub[:number_of_mount_targets].nil?
-        data['SizeInBytes'] = Stubs::FileSystemSize.stub(stub[:size_in_bytes]) unless stub[:size_in_bytes].nil?
+        data['SizeInBytes'] = FileSystemSize.stub(stub[:size_in_bytes]) unless stub[:size_in_bytes].nil?
         data['PerformanceMode'] = stub[:performance_mode] unless stub[:performance_mode].nil?
         data['Encrypted'] = stub[:encrypted] unless stub[:encrypted].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
@@ -713,7 +715,7 @@ module AWS::SDK::EFS
         data['ProvisionedThroughputInMibps'] = Hearth::NumberHelper.serialize(stub[:provisioned_throughput_in_mibps])
         data['AvailabilityZoneName'] = stub[:availability_zone_name] unless stub[:availability_zone_name].nil?
         data['AvailabilityZoneId'] = stub[:availability_zone_id] unless stub[:availability_zone_id].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -730,8 +732,8 @@ module AWS::SDK::EFS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LifecyclePolicies'] = Stubs::LifecyclePolicies.stub(stub[:lifecycle_policies]) unless stub[:lifecycle_policies].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LifecyclePolicies'] = LifecyclePolicies.stub(stub[:lifecycle_policies]) unless stub[:lifecycle_policies].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -749,7 +751,7 @@ module AWS::SDK::EFS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LifecyclePolicy.stub(element) unless element.nil?
+          data << LifecyclePolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -787,8 +789,8 @@ module AWS::SDK::EFS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SecurityGroups'] = Stubs::SecurityGroups.stub(stub[:security_groups]) unless stub[:security_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SecurityGroups'] = SecurityGroups.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -827,9 +829,9 @@ module AWS::SDK::EFS
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['MountTargets'] = Stubs::MountTargetDescriptions.stub(stub[:mount_targets]) unless stub[:mount_targets].nil?
+        data['MountTargets'] = MountTargetDescriptions.stub(stub[:mount_targets]) unless stub[:mount_targets].nil?
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -847,7 +849,7 @@ module AWS::SDK::EFS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MountTargetDescription.stub(element) unless element.nil?
+          data << MountTargetDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -902,9 +904,9 @@ module AWS::SDK::EFS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Replications'] = Stubs::ReplicationConfigurationDescriptions.stub(stub[:replications]) unless stub[:replications].nil?
+        data['Replications'] = ReplicationConfigurationDescriptions.stub(stub[:replications]) unless stub[:replications].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -922,7 +924,7 @@ module AWS::SDK::EFS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicationConfigurationDescription.stub(element) unless element.nil?
+          data << ReplicationConfigurationDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -951,7 +953,7 @@ module AWS::SDK::EFS
         data['SourceFileSystemArn'] = stub[:source_file_system_arn] unless stub[:source_file_system_arn].nil?
         data['OriginalSourceFileSystemArn'] = stub[:original_source_file_system_arn] unless stub[:original_source_file_system_arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['Destinations'] = Stubs::Destinations.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['Destinations'] = Destinations.stub(stub[:destinations]) unless stub[:destinations].nil?
         data
       end
     end
@@ -971,9 +973,9 @@ module AWS::SDK::EFS
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -990,9 +992,9 @@ module AWS::SDK::EFS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1021,8 +1023,8 @@ module AWS::SDK::EFS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ResourceIdPreference'] = Stubs::ResourceIdPreference.stub(stub[:resource_id_preference]) unless stub[:resource_id_preference].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceIdPreference'] = ResourceIdPreference.stub(stub[:resource_id_preference]) unless stub[:resource_id_preference].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1038,8 +1040,8 @@ module AWS::SDK::EFS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['BackupPolicy'] = Stubs::BackupPolicy.stub(stub[:backup_policy]) unless stub[:backup_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BackupPolicy'] = BackupPolicy.stub(stub[:backup_policy]) unless stub[:backup_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1058,7 +1060,7 @@ module AWS::SDK::EFS
         http_resp.headers['Content-Type'] = 'application/json'
         data['FileSystemId'] = stub[:file_system_id] unless stub[:file_system_id].nil?
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1074,8 +1076,8 @@ module AWS::SDK::EFS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LifecyclePolicies'] = Stubs::LifecyclePolicies.stub(stub[:lifecycle_policies]) unless stub[:lifecycle_policies].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LifecyclePolicies'] = LifecyclePolicies.stub(stub[:lifecycle_policies]) unless stub[:lifecycle_policies].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1141,7 +1143,7 @@ module AWS::SDK::EFS
         data['LifeCycleState'] = stub[:life_cycle_state] unless stub[:life_cycle_state].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['NumberOfMountTargets'] = stub[:number_of_mount_targets] unless stub[:number_of_mount_targets].nil?
-        data['SizeInBytes'] = Stubs::FileSystemSize.stub(stub[:size_in_bytes]) unless stub[:size_in_bytes].nil?
+        data['SizeInBytes'] = FileSystemSize.stub(stub[:size_in_bytes]) unless stub[:size_in_bytes].nil?
         data['PerformanceMode'] = stub[:performance_mode] unless stub[:performance_mode].nil?
         data['Encrypted'] = stub[:encrypted] unless stub[:encrypted].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
@@ -1149,8 +1151,8 @@ module AWS::SDK::EFS
         data['ProvisionedThroughputInMibps'] = Hearth::NumberHelper.serialize(stub[:provisioned_throughput_in_mibps])
         data['AvailabilityZoneName'] = stub[:availability_zone_name] unless stub[:availability_zone_name].nil?
         data['AvailabilityZoneId'] = stub[:availability_zone_id] unless stub[:availability_zone_id].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Location
   module Builders
 
@@ -28,7 +30,7 @@ module AWS::SDK::Location
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ConsumerArn'] = input[:consumer_arn] unless input[:consumer_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -49,8 +51,8 @@ module AWS::SDK::Location
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['DeviceIds'] = Builders::DeviceIdsList.build(input[:device_ids]) unless input[:device_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeviceIds'] = DeviceIdsList.build(input[:device_ids]) unless input[:device_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -82,8 +84,8 @@ module AWS::SDK::Location
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['GeofenceIds'] = Builders::IdList.build(input[:geofence_ids]) unless input[:geofence_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GeofenceIds'] = IdList.build(input[:geofence_ids]) unless input[:geofence_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -115,8 +117,8 @@ module AWS::SDK::Location
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['DevicePositionUpdates'] = Builders::DevicePositionUpdateList.build(input[:device_position_updates]) unless input[:device_position_updates].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DevicePositionUpdates'] = DevicePositionUpdateList.build(input[:device_position_updates]) unless input[:device_position_updates].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -125,7 +127,7 @@ module AWS::SDK::Location
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DevicePositionUpdate.build(element) unless element.nil?
+          data << DevicePositionUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -137,9 +139,9 @@ module AWS::SDK::Location
         data = {}
         data['DeviceId'] = input[:device_id] unless input[:device_id].nil?
         data['SampleTime'] = Hearth::TimeHelper.to_date_time(input[:sample_time]) unless input[:sample_time].nil?
-        data['Position'] = Builders::Position.build(input[:position]) unless input[:position].nil?
-        data['Accuracy'] = Builders::PositionalAccuracy.build(input[:accuracy]) unless input[:accuracy].nil?
-        data['PositionProperties'] = Builders::PropertyMap.build(input[:position_properties]) unless input[:position_properties].nil?
+        data['Position'] = Position.build(input[:position]) unless input[:position].nil?
+        data['Accuracy'] = PositionalAccuracy.build(input[:accuracy]) unless input[:accuracy].nil?
+        data['PositionProperties'] = PropertyMap.build(input[:position_properties]) unless input[:position_properties].nil?
         data
       end
     end
@@ -192,8 +194,8 @@ module AWS::SDK::Location
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['DeviceIds'] = Builders::IdList.build(input[:device_ids]) unless input[:device_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeviceIds'] = IdList.build(input[:device_ids]) unless input[:device_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -214,8 +216,8 @@ module AWS::SDK::Location
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Entries'] = Builders::BatchPutGeofenceRequestEntryList.build(input[:entries]) unless input[:entries].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Entries'] = BatchPutGeofenceRequestEntryList.build(input[:entries]) unless input[:entries].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -224,7 +226,7 @@ module AWS::SDK::Location
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BatchPutGeofenceRequestEntry.build(element) unless element.nil?
+          data << BatchPutGeofenceRequestEntry.build(element) unless element.nil?
         end
         data
       end
@@ -235,7 +237,7 @@ module AWS::SDK::Location
       def self.build(input)
         data = {}
         data['GeofenceId'] = input[:geofence_id] unless input[:geofence_id].nil?
-        data['Geometry'] = Builders::GeofenceGeometry.build(input[:geometry]) unless input[:geometry].nil?
+        data['Geometry'] = GeofenceGeometry.build(input[:geometry]) unless input[:geometry].nil?
         data
       end
     end
@@ -244,7 +246,7 @@ module AWS::SDK::Location
     class GeofenceGeometry
       def self.build(input)
         data = {}
-        data['Polygon'] = Builders::LinearRings.build(input[:polygon]) unless input[:polygon].nil?
+        data['Polygon'] = LinearRings.build(input[:polygon]) unless input[:polygon].nil?
         data
       end
     end
@@ -254,7 +256,7 @@ module AWS::SDK::Location
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LinearRing.build(element) unless element.nil?
+          data << LinearRing.build(element) unless element.nil?
         end
         data
       end
@@ -265,7 +267,7 @@ module AWS::SDK::Location
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Position.build(element) unless element.nil?
+          data << Position.build(element) unless element.nil?
         end
         data
       end
@@ -288,8 +290,8 @@ module AWS::SDK::Location
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Updates'] = Builders::DevicePositionUpdateList.build(input[:updates]) unless input[:updates].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Updates'] = DevicePositionUpdateList.build(input[:updates]) unless input[:updates].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -310,17 +312,17 @@ module AWS::SDK::Location
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['DeparturePosition'] = Builders::Position.build(input[:departure_position]) unless input[:departure_position].nil?
-        data['DestinationPosition'] = Builders::Position.build(input[:destination_position]) unless input[:destination_position].nil?
-        data['WaypointPositions'] = Builders::WaypointPositionList.build(input[:waypoint_positions]) unless input[:waypoint_positions].nil?
+        data['DeparturePosition'] = Position.build(input[:departure_position]) unless input[:departure_position].nil?
+        data['DestinationPosition'] = Position.build(input[:destination_position]) unless input[:destination_position].nil?
+        data['WaypointPositions'] = WaypointPositionList.build(input[:waypoint_positions]) unless input[:waypoint_positions].nil?
         data['TravelMode'] = input[:travel_mode] unless input[:travel_mode].nil?
         data['DepartureTime'] = Hearth::TimeHelper.to_date_time(input[:departure_time]) unless input[:departure_time].nil?
         data['DepartNow'] = input[:depart_now] unless input[:depart_now].nil?
         data['DistanceUnit'] = input[:distance_unit] unless input[:distance_unit].nil?
         data['IncludeLegGeometry'] = input[:include_leg_geometry] unless input[:include_leg_geometry].nil?
-        data['CarModeOptions'] = Builders::CalculateRouteCarModeOptions.build(input[:car_mode_options]) unless input[:car_mode_options].nil?
-        data['TruckModeOptions'] = Builders::CalculateRouteTruckModeOptions.build(input[:truck_mode_options]) unless input[:truck_mode_options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CarModeOptions'] = CalculateRouteCarModeOptions.build(input[:car_mode_options]) unless input[:car_mode_options].nil?
+        data['TruckModeOptions'] = CalculateRouteTruckModeOptions.build(input[:truck_mode_options]) unless input[:truck_mode_options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -330,8 +332,8 @@ module AWS::SDK::Location
         data = {}
         data['AvoidFerries'] = input[:avoid_ferries] unless input[:avoid_ferries].nil?
         data['AvoidTolls'] = input[:avoid_tolls] unless input[:avoid_tolls].nil?
-        data['Dimensions'] = Builders::TruckDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
-        data['Weight'] = Builders::TruckWeight.build(input[:weight]) unless input[:weight].nil?
+        data['Dimensions'] = TruckDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
+        data['Weight'] = TruckWeight.build(input[:weight]) unless input[:weight].nil?
         data
       end
     end
@@ -373,7 +375,7 @@ module AWS::SDK::Location
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Position.build(element) unless element.nil?
+          data << Position.build(element) unless element.nil?
         end
         data
       end
@@ -396,15 +398,15 @@ module AWS::SDK::Location
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['DeparturePositions'] = Builders::PositionList.build(input[:departure_positions]) unless input[:departure_positions].nil?
-        data['DestinationPositions'] = Builders::PositionList.build(input[:destination_positions]) unless input[:destination_positions].nil?
+        data['DeparturePositions'] = PositionList.build(input[:departure_positions]) unless input[:departure_positions].nil?
+        data['DestinationPositions'] = PositionList.build(input[:destination_positions]) unless input[:destination_positions].nil?
         data['TravelMode'] = input[:travel_mode] unless input[:travel_mode].nil?
         data['DepartureTime'] = Hearth::TimeHelper.to_date_time(input[:departure_time]) unless input[:departure_time].nil?
         data['DepartNow'] = input[:depart_now] unless input[:depart_now].nil?
         data['DistanceUnit'] = input[:distance_unit] unless input[:distance_unit].nil?
-        data['CarModeOptions'] = Builders::CalculateRouteCarModeOptions.build(input[:car_mode_options]) unless input[:car_mode_options].nil?
-        data['TruckModeOptions'] = Builders::CalculateRouteTruckModeOptions.build(input[:truck_mode_options]) unless input[:truck_mode_options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CarModeOptions'] = CalculateRouteCarModeOptions.build(input[:car_mode_options]) unless input[:car_mode_options].nil?
+        data['TruckModeOptions'] = CalculateRouteTruckModeOptions.build(input[:truck_mode_options]) unless input[:truck_mode_options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -413,7 +415,7 @@ module AWS::SDK::Location
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Position.build(element) unless element.nil?
+          data << Position.build(element) unless element.nil?
         end
         data
       end
@@ -433,9 +435,9 @@ module AWS::SDK::Location
         data['PricingPlan'] = input[:pricing_plan] unless input[:pricing_plan].nil?
         data['PricingPlanDataSource'] = input[:pricing_plan_data_source] unless input[:pricing_plan_data_source].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -461,11 +463,11 @@ module AWS::SDK::Location
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['MapName'] = input[:map_name] unless input[:map_name].nil?
-        data['Configuration'] = Builders::MapConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        data['Configuration'] = MapConfiguration.build(input[:configuration]) unless input[:configuration].nil?
         data['PricingPlan'] = input[:pricing_plan] unless input[:pricing_plan].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -492,9 +494,9 @@ module AWS::SDK::Location
         data['DataSource'] = input[:data_source] unless input[:data_source].nil?
         data['PricingPlan'] = input[:pricing_plan] unless input[:pricing_plan].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['DataSourceConfiguration'] = Builders::DataSourceConfiguration.build(input[:data_source_configuration]) unless input[:data_source_configuration].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DataSourceConfiguration'] = DataSourceConfiguration.build(input[:data_source_configuration]) unless input[:data_source_configuration].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -521,8 +523,8 @@ module AWS::SDK::Location
         data['DataSource'] = input[:data_source] unless input[:data_source].nil?
         data['PricingPlan'] = input[:pricing_plan] unless input[:pricing_plan].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -541,9 +543,9 @@ module AWS::SDK::Location
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data['PricingPlanDataSource'] = input[:pricing_plan_data_source] unless input[:pricing_plan_data_source].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['PositionFiltering'] = input[:position_filtering] unless input[:position_filtering].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -784,7 +786,7 @@ module AWS::SDK::Location
         data['StartTimeInclusive'] = Hearth::TimeHelper.to_date_time(input[:start_time_inclusive]) unless input[:start_time_inclusive].nil?
         data['EndTimeExclusive'] = Hearth::TimeHelper.to_date_time(input[:end_time_exclusive]) unless input[:end_time_exclusive].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -920,7 +922,7 @@ module AWS::SDK::Location
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -936,7 +938,7 @@ module AWS::SDK::Location
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -959,7 +961,7 @@ module AWS::SDK::Location
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -975,7 +977,7 @@ module AWS::SDK::Location
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -991,7 +993,7 @@ module AWS::SDK::Location
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1007,7 +1009,7 @@ module AWS::SDK::Location
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1047,7 +1049,7 @@ module AWS::SDK::Location
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1063,7 +1065,7 @@ module AWS::SDK::Location
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1088,8 +1090,8 @@ module AWS::SDK::Location
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Geometry'] = Builders::GeofenceGeometry.build(input[:geometry]) unless input[:geometry].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Geometry'] = GeofenceGeometry.build(input[:geometry]) unless input[:geometry].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1110,10 +1112,10 @@ module AWS::SDK::Location
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Position'] = Builders::Position.build(input[:position]) unless input[:position].nil?
+        data['Position'] = Position.build(input[:position]) unless input[:position].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['Language'] = input[:language] unless input[:language].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1135,12 +1137,12 @@ module AWS::SDK::Location
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Text'] = input[:text] unless input[:text].nil?
-        data['BiasPosition'] = Builders::Position.build(input[:bias_position]) unless input[:bias_position].nil?
-        data['FilterBBox'] = Builders::BoundingBox.build(input[:filter_b_box]) unless input[:filter_b_box].nil?
-        data['FilterCountries'] = Builders::CountryCodeList.build(input[:filter_countries]) unless input[:filter_countries].nil?
+        data['BiasPosition'] = Position.build(input[:bias_position]) unless input[:bias_position].nil?
+        data['FilterBBox'] = BoundingBox.build(input[:filter_b_box]) unless input[:filter_b_box].nil?
+        data['FilterCountries'] = CountryCodeList.build(input[:filter_countries]) unless input[:filter_countries].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['Language'] = input[:language] unless input[:language].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1184,12 +1186,12 @@ module AWS::SDK::Location
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Text'] = input[:text] unless input[:text].nil?
-        data['BiasPosition'] = Builders::Position.build(input[:bias_position]) unless input[:bias_position].nil?
-        data['FilterBBox'] = Builders::BoundingBox.build(input[:filter_b_box]) unless input[:filter_b_box].nil?
-        data['FilterCountries'] = Builders::CountryCodeList.build(input[:filter_countries]) unless input[:filter_countries].nil?
+        data['BiasPosition'] = Position.build(input[:bias_position]) unless input[:bias_position].nil?
+        data['FilterBBox'] = BoundingBox.build(input[:filter_b_box]) unless input[:filter_b_box].nil?
+        data['FilterCountries'] = CountryCodeList.build(input[:filter_countries]) unless input[:filter_countries].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['Language'] = input[:language] unless input[:language].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1210,8 +1212,8 @@ module AWS::SDK::Location
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1268,7 +1270,7 @@ module AWS::SDK::Location
         data['PricingPlan'] = input[:pricing_plan] unless input[:pricing_plan].nil?
         data['PricingPlanDataSource'] = input[:pricing_plan_data_source] unless input[:pricing_plan_data_source].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1291,7 +1293,7 @@ module AWS::SDK::Location
         data = {}
         data['PricingPlan'] = input[:pricing_plan] unless input[:pricing_plan].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1314,8 +1316,8 @@ module AWS::SDK::Location
         data = {}
         data['PricingPlan'] = input[:pricing_plan] unless input[:pricing_plan].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['DataSourceConfiguration'] = Builders::DataSourceConfiguration.build(input[:data_source_configuration]) unless input[:data_source_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DataSourceConfiguration'] = DataSourceConfiguration.build(input[:data_source_configuration]) unless input[:data_source_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1338,7 +1340,7 @@ module AWS::SDK::Location
         data = {}
         data['PricingPlan'] = input[:pricing_plan] unless input[:pricing_plan].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1363,7 +1365,7 @@ module AWS::SDK::Location
         data['PricingPlanDataSource'] = input[:pricing_plan_data_source] unless input[:pricing_plan_data_source].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['PositionFiltering'] = input[:position_filtering] unless input[:position_filtering].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

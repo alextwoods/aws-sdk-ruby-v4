@@ -15,10 +15,10 @@ module AWS::SDK::CloudSearchDomain
       def self.parse(http_resp)
         data = Types::SearchOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.status = (Parsers::SearchStatus.parse(map['status']) unless map['status'].nil?)
-        data.hits = (Parsers::Hits.parse(map['hits']) unless map['hits'].nil?)
-        data.facets = (Parsers::Facets.parse(map['facets']) unless map['facets'].nil?)
-        data.stats = (Parsers::Stats.parse(map['stats']) unless map['stats'].nil?)
+        data.status = (SearchStatus.parse(map['status']) unless map['status'].nil?)
+        data.hits = (Hits.parse(map['hits']) unless map['hits'].nil?)
+        data.facets = (Facets.parse(map['facets']) unless map['facets'].nil?)
+        data.stats = (Stats.parse(map['stats']) unless map['stats'].nil?)
         data
       end
     end
@@ -27,7 +27,7 @@ module AWS::SDK::CloudSearchDomain
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::FieldStats.parse(value) unless value.nil?
+          data[key] = FieldStats.parse(value) unless value.nil?
         end
         data
       end
@@ -52,7 +52,7 @@ module AWS::SDK::CloudSearchDomain
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::BucketInfo.parse(value) unless value.nil?
+          data[key] = BucketInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -61,7 +61,7 @@ module AWS::SDK::CloudSearchDomain
     class BucketInfo
       def self.parse(map)
         data = Types::BucketInfo.new
-        data.buckets = (Parsers::BucketList.parse(map['buckets']) unless map['buckets'].nil?)
+        data.buckets = (BucketList.parse(map['buckets']) unless map['buckets'].nil?)
         return data
       end
     end
@@ -70,7 +70,7 @@ module AWS::SDK::CloudSearchDomain
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Bucket.parse(value) unless value.nil?
+          data << Bucket.parse(value) unless value.nil?
         end
         data
       end
@@ -91,7 +91,7 @@ module AWS::SDK::CloudSearchDomain
         data.found = map['found']
         data.start = map['start']
         data.cursor = map['cursor']
-        data.hit = (Parsers::HitList.parse(map['hit']) unless map['hit'].nil?)
+        data.hit = (HitList.parse(map['hit']) unless map['hit'].nil?)
         return data
       end
     end
@@ -100,7 +100,7 @@ module AWS::SDK::CloudSearchDomain
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Hit.parse(value) unless value.nil?
+          data << Hit.parse(value) unless value.nil?
         end
         data
       end
@@ -110,9 +110,9 @@ module AWS::SDK::CloudSearchDomain
       def self.parse(map)
         data = Types::Hit.new
         data.id = map['id']
-        data.fields = (Parsers::Fields.parse(map['fields']) unless map['fields'].nil?)
-        data.exprs = (Parsers::Exprs.parse(map['exprs']) unless map['exprs'].nil?)
-        data.highlights = (Parsers::Highlights.parse(map['highlights']) unless map['highlights'].nil?)
+        data.fields = (Fields.parse(map['fields']) unless map['fields'].nil?)
+        data.exprs = (Exprs.parse(map['exprs']) unless map['exprs'].nil?)
+        data.highlights = (Highlights.parse(map['highlights']) unless map['highlights'].nil?)
         return data
       end
     end
@@ -141,7 +141,7 @@ module AWS::SDK::CloudSearchDomain
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::FieldValue.parse(value) unless value.nil?
+          data[key] = FieldValue.parse(value) unless value.nil?
         end
         data
       end
@@ -181,8 +181,8 @@ module AWS::SDK::CloudSearchDomain
       def self.parse(http_resp)
         data = Types::SuggestOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.status = (Parsers::SuggestStatus.parse(map['status']) unless map['status'].nil?)
-        data.suggest = (Parsers::SuggestModel.parse(map['suggest']) unless map['suggest'].nil?)
+        data.status = (SuggestStatus.parse(map['status']) unless map['status'].nil?)
+        data.suggest = (SuggestModel.parse(map['suggest']) unless map['suggest'].nil?)
         data
       end
     end
@@ -192,7 +192,7 @@ module AWS::SDK::CloudSearchDomain
         data = Types::SuggestModel.new
         data.query = map['query']
         data.found = map['found']
-        data.suggestions = (Parsers::Suggestions.parse(map['suggestions']) unless map['suggestions'].nil?)
+        data.suggestions = (Suggestions.parse(map['suggestions']) unless map['suggestions'].nil?)
         return data
       end
     end
@@ -201,7 +201,7 @@ module AWS::SDK::CloudSearchDomain
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SuggestionMatch.parse(value) unless value.nil?
+          data << SuggestionMatch.parse(value) unless value.nil?
         end
         data
       end
@@ -234,7 +234,7 @@ module AWS::SDK::CloudSearchDomain
         data.status = map['status']
         data.adds = map['adds']
         data.deletes = map['deletes']
-        data.warnings = (Parsers::DocumentServiceWarnings.parse(map['warnings']) unless map['warnings'].nil?)
+        data.warnings = (DocumentServiceWarnings.parse(map['warnings']) unless map['warnings'].nil?)
         data
       end
     end
@@ -243,7 +243,7 @@ module AWS::SDK::CloudSearchDomain
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DocumentServiceWarning.parse(value) unless value.nil?
+          data << DocumentServiceWarning.parse(value) unless value.nil?
         end
         data
       end

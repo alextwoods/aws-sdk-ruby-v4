@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MediaStore
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Container'] = Stubs::Container.stub(stub[:container]) unless stub[:container].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Container'] = Container.stub(stub[:container]) unless stub[:container].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -63,7 +65,7 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -77,7 +79,7 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -91,7 +93,7 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -105,7 +107,7 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -119,7 +121,7 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -134,8 +136,8 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Container'] = Stubs::Container.stub(stub[:container]) unless stub[:container].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Container'] = Container.stub(stub[:container]) unless stub[:container].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -151,7 +153,7 @@ module AWS::SDK::MediaStore
       def self.stub(http_resp, stub:)
         data = {}
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -166,8 +168,8 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CorsPolicy'] = Stubs::CorsPolicy.stub(stub[:cors_policy]) unless stub[:cors_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CorsPolicy'] = CorsPolicy.stub(stub[:cors_policy]) unless stub[:cors_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -186,7 +188,7 @@ module AWS::SDK::MediaStore
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CorsRule.stub(element) unless element.nil?
+          data << CorsRule.stub(element) unless element.nil?
         end
         data
       end
@@ -209,11 +211,11 @@ module AWS::SDK::MediaStore
       def self.stub(stub)
         stub ||= Types::CorsRule.new
         data = {}
-        data['AllowedOrigins'] = Stubs::AllowedOrigins.stub(stub[:allowed_origins]) unless stub[:allowed_origins].nil?
-        data['AllowedMethods'] = Stubs::AllowedMethods.stub(stub[:allowed_methods]) unless stub[:allowed_methods].nil?
-        data['AllowedHeaders'] = Stubs::AllowedHeaders.stub(stub[:allowed_headers]) unless stub[:allowed_headers].nil?
+        data['AllowedOrigins'] = AllowedOrigins.stub(stub[:allowed_origins]) unless stub[:allowed_origins].nil?
+        data['AllowedMethods'] = AllowedMethods.stub(stub[:allowed_methods]) unless stub[:allowed_methods].nil?
+        data['AllowedHeaders'] = AllowedHeaders.stub(stub[:allowed_headers]) unless stub[:allowed_headers].nil?
         data['MaxAgeSeconds'] = stub[:max_age_seconds] unless stub[:max_age_seconds].nil?
-        data['ExposeHeaders'] = Stubs::ExposeHeaders.stub(stub[:expose_headers]) unless stub[:expose_headers].nil?
+        data['ExposeHeaders'] = ExposeHeaders.stub(stub[:expose_headers]) unless stub[:expose_headers].nil?
         data
       end
     end
@@ -309,7 +311,7 @@ module AWS::SDK::MediaStore
       def self.stub(http_resp, stub:)
         data = {}
         data['LifecyclePolicy'] = stub[:lifecycle_policy] unless stub[:lifecycle_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -324,8 +326,8 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['MetricPolicy'] = Stubs::MetricPolicy.stub(stub[:metric_policy]) unless stub[:metric_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MetricPolicy'] = MetricPolicy.stub(stub[:metric_policy]) unless stub[:metric_policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -345,7 +347,7 @@ module AWS::SDK::MediaStore
         stub ||= Types::MetricPolicy.new
         data = {}
         data['ContainerLevelMetrics'] = stub[:container_level_metrics] unless stub[:container_level_metrics].nil?
-        data['MetricPolicyRules'] = Stubs::MetricPolicyRules.stub(stub[:metric_policy_rules]) unless stub[:metric_policy_rules].nil?
+        data['MetricPolicyRules'] = MetricPolicyRules.stub(stub[:metric_policy_rules]) unless stub[:metric_policy_rules].nil?
         data
       end
     end
@@ -364,7 +366,7 @@ module AWS::SDK::MediaStore
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricPolicyRule.stub(element) unless element.nil?
+          data << MetricPolicyRule.stub(element) unless element.nil?
         end
         data
       end
@@ -401,9 +403,9 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Containers'] = Stubs::ContainerList.stub(stub[:containers]) unless stub[:containers].nil?
+        data['Containers'] = ContainerList.stub(stub[:containers]) unless stub[:containers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -422,7 +424,7 @@ module AWS::SDK::MediaStore
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Container.stub(element) unless element.nil?
+          data << Container.stub(element) unless element.nil?
         end
         data
       end
@@ -438,8 +440,8 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -458,7 +460,7 @@ module AWS::SDK::MediaStore
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -493,7 +495,7 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -507,7 +509,7 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -521,7 +523,7 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -535,7 +537,7 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -549,7 +551,7 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -563,7 +565,7 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -577,7 +579,7 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -591,7 +593,7 @@ module AWS::SDK::MediaStore
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

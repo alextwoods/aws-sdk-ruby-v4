@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ResourceGroups
   module Stubs
 
@@ -25,11 +27,11 @@ module AWS::SDK::ResourceGroups
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Group'] = Stubs::Group.stub(stub[:group]) unless stub[:group].nil?
-        data['ResourceQuery'] = Stubs::ResourceQuery.stub(stub[:resource_query]) unless stub[:resource_query].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['GroupConfiguration'] = Stubs::GroupConfiguration.stub(stub[:group_configuration]) unless stub[:group_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Group'] = Group.stub(stub[:group]) unless stub[:group].nil?
+        data['ResourceQuery'] = ResourceQuery.stub(stub[:resource_query]) unless stub[:resource_query].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['GroupConfiguration'] = GroupConfiguration.stub(stub[:group_configuration]) unless stub[:group_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -49,8 +51,8 @@ module AWS::SDK::ResourceGroups
       def self.stub(stub)
         stub ||= Types::GroupConfiguration.new
         data = {}
-        data['Configuration'] = Stubs::GroupConfigurationList.stub(stub[:configuration]) unless stub[:configuration].nil?
-        data['ProposedConfiguration'] = Stubs::GroupConfigurationList.stub(stub[:proposed_configuration]) unless stub[:proposed_configuration].nil?
+        data['Configuration'] = GroupConfigurationList.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['ProposedConfiguration'] = GroupConfigurationList.stub(stub[:proposed_configuration]) unless stub[:proposed_configuration].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data
@@ -71,7 +73,7 @@ module AWS::SDK::ResourceGroups
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GroupConfigurationItem.stub(element) unless element.nil?
+          data << GroupConfigurationItem.stub(element) unless element.nil?
         end
         data
       end
@@ -92,7 +94,7 @@ module AWS::SDK::ResourceGroups
         stub ||= Types::GroupConfigurationItem.new
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Parameters'] = Stubs::GroupParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = GroupParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -111,7 +113,7 @@ module AWS::SDK::ResourceGroups
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GroupConfigurationParameter.stub(element) unless element.nil?
+          data << GroupConfigurationParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -132,7 +134,7 @@ module AWS::SDK::ResourceGroups
         stub ||= Types::GroupConfigurationParameter.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Values'] = Stubs::GroupConfigurationParameterValueList.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = GroupConfigurationParameterValueList.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -231,8 +233,8 @@ module AWS::SDK::ResourceGroups
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Group'] = Stubs::Group.stub(stub[:group]) unless stub[:group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Group'] = Group.stub(stub[:group]) unless stub[:group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -248,8 +250,8 @@ module AWS::SDK::ResourceGroups
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Group'] = Stubs::Group.stub(stub[:group]) unless stub[:group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Group'] = Group.stub(stub[:group]) unless stub[:group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -265,8 +267,8 @@ module AWS::SDK::ResourceGroups
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GroupConfiguration'] = Stubs::GroupConfiguration.stub(stub[:group_configuration]) unless stub[:group_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GroupConfiguration'] = GroupConfiguration.stub(stub[:group_configuration]) unless stub[:group_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -282,8 +284,8 @@ module AWS::SDK::ResourceGroups
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GroupQuery'] = Stubs::GroupQuery.stub(stub[:group_query]) unless stub[:group_query].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GroupQuery'] = GroupQuery.stub(stub[:group_query]) unless stub[:group_query].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -302,7 +304,7 @@ module AWS::SDK::ResourceGroups
         stub ||= Types::GroupQuery.new
         data = {}
         data['GroupName'] = stub[:group_name] unless stub[:group_name].nil?
-        data['ResourceQuery'] = Stubs::ResourceQuery.stub(stub[:resource_query]) unless stub[:resource_query].nil?
+        data['ResourceQuery'] = ResourceQuery.stub(stub[:resource_query]) unless stub[:resource_query].nil?
         data
       end
     end
@@ -321,8 +323,8 @@ module AWS::SDK::ResourceGroups
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -340,10 +342,10 @@ module AWS::SDK::ResourceGroups
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Succeeded'] = Stubs::ResourceArnList.stub(stub[:succeeded]) unless stub[:succeeded].nil?
-        data['Failed'] = Stubs::FailedResourceList.stub(stub[:failed]) unless stub[:failed].nil?
-        data['Pending'] = Stubs::PendingResourceList.stub(stub[:pending]) unless stub[:pending].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Succeeded'] = ResourceArnList.stub(stub[:succeeded]) unless stub[:succeeded].nil?
+        data['Failed'] = FailedResourceList.stub(stub[:failed]) unless stub[:failed].nil?
+        data['Pending'] = PendingResourceList.stub(stub[:pending]) unless stub[:pending].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -361,7 +363,7 @@ module AWS::SDK::ResourceGroups
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PendingResource.stub(element) unless element.nil?
+          data << PendingResource.stub(element) unless element.nil?
         end
         data
       end
@@ -399,7 +401,7 @@ module AWS::SDK::ResourceGroups
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedResource.stub(element) unless element.nil?
+          data << FailedResource.stub(element) unless element.nil?
         end
         data
       end
@@ -462,11 +464,11 @@ module AWS::SDK::ResourceGroups
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Resources'] = Stubs::ListGroupResourcesItemList.stub(stub[:resources]) unless stub[:resources].nil?
-        data['ResourceIdentifiers'] = Stubs::ResourceIdentifierList.stub(stub[:resource_identifiers]) unless stub[:resource_identifiers].nil?
+        data['Resources'] = ListGroupResourcesItemList.stub(stub[:resources]) unless stub[:resources].nil?
+        data['ResourceIdentifiers'] = ResourceIdentifierList.stub(stub[:resource_identifiers]) unless stub[:resource_identifiers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['QueryErrors'] = Stubs::QueryErrorList.stub(stub[:query_errors]) unless stub[:query_errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QueryErrors'] = QueryErrorList.stub(stub[:query_errors]) unless stub[:query_errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -484,7 +486,7 @@ module AWS::SDK::ResourceGroups
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::QueryError.stub(element) unless element.nil?
+          data << QueryError.stub(element) unless element.nil?
         end
         data
       end
@@ -524,7 +526,7 @@ module AWS::SDK::ResourceGroups
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceIdentifier.stub(element) unless element.nil?
+          data << ResourceIdentifier.stub(element) unless element.nil?
         end
         data
       end
@@ -564,7 +566,7 @@ module AWS::SDK::ResourceGroups
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListGroupResourcesItem.stub(element) unless element.nil?
+          data << ListGroupResourcesItem.stub(element) unless element.nil?
         end
         data
       end
@@ -584,8 +586,8 @@ module AWS::SDK::ResourceGroups
       def self.stub(stub)
         stub ||= Types::ListGroupResourcesItem.new
         data = {}
-        data['Identifier'] = Stubs::ResourceIdentifier.stub(stub[:identifier]) unless stub[:identifier].nil?
-        data['Status'] = Stubs::ResourceStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Identifier'] = ResourceIdentifier.stub(stub[:identifier]) unless stub[:identifier].nil?
+        data['Status'] = ResourceStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -622,10 +624,10 @@ module AWS::SDK::ResourceGroups
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GroupIdentifiers'] = Stubs::GroupIdentifierList.stub(stub[:group_identifiers]) unless stub[:group_identifiers].nil?
-        data['Groups'] = Stubs::GroupList.stub(stub[:groups]) unless stub[:groups].nil?
+        data['GroupIdentifiers'] = GroupIdentifierList.stub(stub[:group_identifiers]) unless stub[:group_identifiers].nil?
+        data['Groups'] = GroupList.stub(stub[:groups]) unless stub[:groups].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -643,7 +645,7 @@ module AWS::SDK::ResourceGroups
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Group.stub(element) unless element.nil?
+          data << Group.stub(element) unless element.nil?
         end
         data
       end
@@ -663,7 +665,7 @@ module AWS::SDK::ResourceGroups
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GroupIdentifier.stub(element) unless element.nil?
+          data << GroupIdentifier.stub(element) unless element.nil?
         end
         data
       end
@@ -716,10 +718,10 @@ module AWS::SDK::ResourceGroups
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ResourceIdentifiers'] = Stubs::ResourceIdentifierList.stub(stub[:resource_identifiers]) unless stub[:resource_identifiers].nil?
+        data['ResourceIdentifiers'] = ResourceIdentifierList.stub(stub[:resource_identifiers]) unless stub[:resource_identifiers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['QueryErrors'] = Stubs::QueryErrorList.stub(stub[:query_errors]) unless stub[:query_errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QueryErrors'] = QueryErrorList.stub(stub[:query_errors]) unless stub[:query_errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -737,8 +739,8 @@ module AWS::SDK::ResourceGroups
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -756,10 +758,10 @@ module AWS::SDK::ResourceGroups
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Succeeded'] = Stubs::ResourceArnList.stub(stub[:succeeded]) unless stub[:succeeded].nil?
-        data['Failed'] = Stubs::FailedResourceList.stub(stub[:failed]) unless stub[:failed].nil?
-        data['Pending'] = Stubs::PendingResourceList.stub(stub[:pending]) unless stub[:pending].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Succeeded'] = ResourceArnList.stub(stub[:succeeded]) unless stub[:succeeded].nil?
+        data['Failed'] = FailedResourceList.stub(stub[:failed]) unless stub[:failed].nil?
+        data['Pending'] = PendingResourceList.stub(stub[:pending]) unless stub[:pending].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -777,8 +779,8 @@ module AWS::SDK::ResourceGroups
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['Keys'] = Stubs::TagKeyList.stub(stub[:keys]) unless stub[:keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Keys'] = TagKeyList.stub(stub[:keys]) unless stub[:keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -814,8 +816,8 @@ module AWS::SDK::ResourceGroups
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Group'] = Stubs::Group.stub(stub[:group]) unless stub[:group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Group'] = Group.stub(stub[:group]) unless stub[:group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -831,8 +833,8 @@ module AWS::SDK::ResourceGroups
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GroupQuery'] = Stubs::GroupQuery.stub(stub[:group_query]) unless stub[:group_query].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GroupQuery'] = GroupQuery.stub(stub[:group_query]) unless stub[:group_query].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

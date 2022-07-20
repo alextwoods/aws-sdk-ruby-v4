@@ -110,7 +110,7 @@ module AWS::SDK::Identitystore
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.groups = (Parsers::Groups.parse(map['Groups']) unless map['Groups'].nil?)
+        data.groups = (Groups.parse(map['Groups']) unless map['Groups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -119,7 +119,7 @@ module AWS::SDK::Identitystore
     class Groups
       def self.parse(list)
         list.map do |value|
-          Parsers::Group.parse(value) unless value.nil?
+          Group.parse(value) unless value.nil?
         end
       end
     end
@@ -140,7 +140,7 @@ module AWS::SDK::Identitystore
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.users = (Parsers::Users.parse(map['Users']) unless map['Users'].nil?)
+        data.users = (Users.parse(map['Users']) unless map['Users'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -149,7 +149,7 @@ module AWS::SDK::Identitystore
     class Users
       def self.parse(list)
         list.map do |value|
-          Parsers::User.parse(value) unless value.nil?
+          User.parse(value) unless value.nil?
         end
       end
     end

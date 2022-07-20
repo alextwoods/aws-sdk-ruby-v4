@@ -149,7 +149,7 @@ module AWS::SDK::Budgets
         map = Hearth::JSON.load(body)
         data.account_id = map['AccountId']
         data.budget_name = map['BudgetName']
-        data.action = (Parsers::Action.parse(map['Action']) unless map['Action'].nil?)
+        data.action = (Action.parse(map['Action']) unless map['Action'].nil?)
         data
       end
     end
@@ -161,12 +161,12 @@ module AWS::SDK::Budgets
         data.budget_name = map['BudgetName']
         data.notification_type = map['NotificationType']
         data.action_type = map['ActionType']
-        data.action_threshold = (Parsers::ActionThreshold.parse(map['ActionThreshold']) unless map['ActionThreshold'].nil?)
-        data.definition = (Parsers::Definition.parse(map['Definition']) unless map['Definition'].nil?)
+        data.action_threshold = (ActionThreshold.parse(map['ActionThreshold']) unless map['ActionThreshold'].nil?)
+        data.definition = (Definition.parse(map['Definition']) unless map['Definition'].nil?)
         data.execution_role_arn = map['ExecutionRoleArn']
         data.approval_model = map['ApprovalModel']
         data.status = map['Status']
-        data.subscribers = (Parsers::Subscribers.parse(map['Subscribers']) unless map['Subscribers'].nil?)
+        data.subscribers = (Subscribers.parse(map['Subscribers']) unless map['Subscribers'].nil?)
         return data
       end
     end
@@ -174,7 +174,7 @@ module AWS::SDK::Budgets
     class Subscribers
       def self.parse(list)
         list.map do |value|
-          Parsers::Subscriber.parse(value) unless value.nil?
+          Subscriber.parse(value) unless value.nil?
         end
       end
     end
@@ -191,9 +191,9 @@ module AWS::SDK::Budgets
     class Definition
       def self.parse(map)
         data = Types::Definition.new
-        data.iam_action_definition = (Parsers::IamActionDefinition.parse(map['IamActionDefinition']) unless map['IamActionDefinition'].nil?)
-        data.scp_action_definition = (Parsers::ScpActionDefinition.parse(map['ScpActionDefinition']) unless map['ScpActionDefinition'].nil?)
-        data.ssm_action_definition = (Parsers::SsmActionDefinition.parse(map['SsmActionDefinition']) unless map['SsmActionDefinition'].nil?)
+        data.iam_action_definition = (IamActionDefinition.parse(map['IamActionDefinition']) unless map['IamActionDefinition'].nil?)
+        data.scp_action_definition = (ScpActionDefinition.parse(map['ScpActionDefinition']) unless map['ScpActionDefinition'].nil?)
+        data.ssm_action_definition = (SsmActionDefinition.parse(map['SsmActionDefinition']) unless map['SsmActionDefinition'].nil?)
         return data
       end
     end
@@ -203,7 +203,7 @@ module AWS::SDK::Budgets
         data = Types::SsmActionDefinition.new
         data.action_sub_type = map['ActionSubType']
         data.region = map['Region']
-        data.instance_ids = (Parsers::InstanceIds.parse(map['InstanceIds']) unless map['InstanceIds'].nil?)
+        data.instance_ids = (InstanceIds.parse(map['InstanceIds']) unless map['InstanceIds'].nil?)
         return data
       end
     end
@@ -220,7 +220,7 @@ module AWS::SDK::Budgets
       def self.parse(map)
         data = Types::ScpActionDefinition.new
         data.policy_id = map['PolicyId']
-        data.target_ids = (Parsers::TargetIds.parse(map['TargetIds']) unless map['TargetIds'].nil?)
+        data.target_ids = (TargetIds.parse(map['TargetIds']) unless map['TargetIds'].nil?)
         return data
       end
     end
@@ -237,9 +237,9 @@ module AWS::SDK::Budgets
       def self.parse(map)
         data = Types::IamActionDefinition.new
         data.policy_arn = map['PolicyArn']
-        data.roles = (Parsers::Roles.parse(map['Roles']) unless map['Roles'].nil?)
-        data.groups = (Parsers::Groups.parse(map['Groups']) unless map['Groups'].nil?)
-        data.users = (Parsers::Users.parse(map['Users']) unless map['Users'].nil?)
+        data.roles = (Roles.parse(map['Roles']) unless map['Roles'].nil?)
+        data.groups = (Groups.parse(map['Groups']) unless map['Groups'].nil?)
+        data.users = (Users.parse(map['Users']) unless map['Users'].nil?)
         return data
       end
     end
@@ -318,7 +318,7 @@ module AWS::SDK::Budgets
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.budget = (Parsers::Budget.parse(map['Budget']) unless map['Budget'].nil?)
+        data.budget = (Budget.parse(map['Budget']) unless map['Budget'].nil?)
         data
       end
     end
@@ -327,16 +327,16 @@ module AWS::SDK::Budgets
       def self.parse(map)
         data = Types::Budget.new
         data.budget_name = map['BudgetName']
-        data.budget_limit = (Parsers::Spend.parse(map['BudgetLimit']) unless map['BudgetLimit'].nil?)
-        data.planned_budget_limits = (Parsers::PlannedBudgetLimits.parse(map['PlannedBudgetLimits']) unless map['PlannedBudgetLimits'].nil?)
-        data.cost_filters = (Parsers::CostFilters.parse(map['CostFilters']) unless map['CostFilters'].nil?)
-        data.cost_types = (Parsers::CostTypes.parse(map['CostTypes']) unless map['CostTypes'].nil?)
+        data.budget_limit = (Spend.parse(map['BudgetLimit']) unless map['BudgetLimit'].nil?)
+        data.planned_budget_limits = (PlannedBudgetLimits.parse(map['PlannedBudgetLimits']) unless map['PlannedBudgetLimits'].nil?)
+        data.cost_filters = (CostFilters.parse(map['CostFilters']) unless map['CostFilters'].nil?)
+        data.cost_types = (CostTypes.parse(map['CostTypes']) unless map['CostTypes'].nil?)
         data.time_unit = map['TimeUnit']
-        data.time_period = (Parsers::TimePeriod.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
-        data.calculated_spend = (Parsers::CalculatedSpend.parse(map['CalculatedSpend']) unless map['CalculatedSpend'].nil?)
+        data.time_period = (TimePeriod.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
+        data.calculated_spend = (CalculatedSpend.parse(map['CalculatedSpend']) unless map['CalculatedSpend'].nil?)
         data.budget_type = map['BudgetType']
         data.last_updated_time = Time.at(map['LastUpdatedTime'].to_i) if map['LastUpdatedTime']
-        data.auto_adjust_data = (Parsers::AutoAdjustData.parse(map['AutoAdjustData']) unless map['AutoAdjustData'].nil?)
+        data.auto_adjust_data = (AutoAdjustData.parse(map['AutoAdjustData']) unless map['AutoAdjustData'].nil?)
         return data
       end
     end
@@ -345,7 +345,7 @@ module AWS::SDK::Budgets
       def self.parse(map)
         data = Types::AutoAdjustData.new
         data.auto_adjust_type = map['AutoAdjustType']
-        data.historical_options = (Parsers::HistoricalOptions.parse(map['HistoricalOptions']) unless map['HistoricalOptions'].nil?)
+        data.historical_options = (HistoricalOptions.parse(map['HistoricalOptions']) unless map['HistoricalOptions'].nil?)
         data.last_auto_adjust_time = Time.at(map['LastAutoAdjustTime'].to_i) if map['LastAutoAdjustTime']
         return data
       end
@@ -363,8 +363,8 @@ module AWS::SDK::Budgets
     class CalculatedSpend
       def self.parse(map)
         data = Types::CalculatedSpend.new
-        data.actual_spend = (Parsers::Spend.parse(map['ActualSpend']) unless map['ActualSpend'].nil?)
-        data.forecasted_spend = (Parsers::Spend.parse(map['ForecastedSpend']) unless map['ForecastedSpend'].nil?)
+        data.actual_spend = (Spend.parse(map['ActualSpend']) unless map['ActualSpend'].nil?)
+        data.forecasted_spend = (Spend.parse(map['ForecastedSpend']) unless map['ForecastedSpend'].nil?)
         return data
       end
     end
@@ -409,7 +409,7 @@ module AWS::SDK::Budgets
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::DimensionValues.parse(value) unless value.nil?
+          data[key] = DimensionValues.parse(value) unless value.nil?
         end
         data
       end
@@ -427,7 +427,7 @@ module AWS::SDK::Budgets
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::Spend.parse(value) unless value.nil?
+          data[key] = Spend.parse(value) unless value.nil?
         end
         data
       end
@@ -442,7 +442,7 @@ module AWS::SDK::Budgets
         map = Hearth::JSON.load(body)
         data.account_id = map['AccountId']
         data.budget_name = map['BudgetName']
-        data.action = (Parsers::Action.parse(map['Action']) unless map['Action'].nil?)
+        data.action = (Action.parse(map['Action']) unless map['Action'].nil?)
         data
       end
     end
@@ -454,7 +454,7 @@ module AWS::SDK::Budgets
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.action_histories = (Parsers::ActionHistories.parse(map['ActionHistories']) unless map['ActionHistories'].nil?)
+        data.action_histories = (ActionHistories.parse(map['ActionHistories']) unless map['ActionHistories'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -463,7 +463,7 @@ module AWS::SDK::Budgets
     class ActionHistories
       def self.parse(list)
         list.map do |value|
-          Parsers::ActionHistory.parse(value) unless value.nil?
+          ActionHistory.parse(value) unless value.nil?
         end
       end
     end
@@ -474,7 +474,7 @@ module AWS::SDK::Budgets
         data.timestamp = Time.at(map['Timestamp'].to_i) if map['Timestamp']
         data.status = map['Status']
         data.event_type = map['EventType']
-        data.action_history_details = (Parsers::ActionHistoryDetails.parse(map['ActionHistoryDetails']) unless map['ActionHistoryDetails'].nil?)
+        data.action_history_details = (ActionHistoryDetails.parse(map['ActionHistoryDetails']) unless map['ActionHistoryDetails'].nil?)
         return data
       end
     end
@@ -483,7 +483,7 @@ module AWS::SDK::Budgets
       def self.parse(map)
         data = Types::ActionHistoryDetails.new
         data.message = map['Message']
-        data.action = (Parsers::Action.parse(map['Action']) unless map['Action'].nil?)
+        data.action = (Action.parse(map['Action']) unless map['Action'].nil?)
         return data
       end
     end
@@ -507,7 +507,7 @@ module AWS::SDK::Budgets
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.actions = (Parsers::Actions.parse(map['Actions']) unless map['Actions'].nil?)
+        data.actions = (Actions.parse(map['Actions']) unless map['Actions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -516,7 +516,7 @@ module AWS::SDK::Budgets
     class Actions
       def self.parse(list)
         list.map do |value|
-          Parsers::Action.parse(value) unless value.nil?
+          Action.parse(value) unless value.nil?
         end
       end
     end
@@ -528,7 +528,7 @@ module AWS::SDK::Budgets
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.actions = (Parsers::Actions.parse(map['Actions']) unless map['Actions'].nil?)
+        data.actions = (Actions.parse(map['Actions']) unless map['Actions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -541,7 +541,7 @@ module AWS::SDK::Budgets
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.budget_notifications_for_account = (Parsers::BudgetNotificationsForAccountList.parse(map['BudgetNotificationsForAccount']) unless map['BudgetNotificationsForAccount'].nil?)
+        data.budget_notifications_for_account = (BudgetNotificationsForAccountList.parse(map['BudgetNotificationsForAccount']) unless map['BudgetNotificationsForAccount'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -550,7 +550,7 @@ module AWS::SDK::Budgets
     class BudgetNotificationsForAccountList
       def self.parse(list)
         list.map do |value|
-          Parsers::BudgetNotificationsForAccount.parse(value) unless value.nil?
+          BudgetNotificationsForAccount.parse(value) unless value.nil?
         end
       end
     end
@@ -558,7 +558,7 @@ module AWS::SDK::Budgets
     class BudgetNotificationsForAccount
       def self.parse(map)
         data = Types::BudgetNotificationsForAccount.new
-        data.notifications = (Parsers::Notifications.parse(map['Notifications']) unless map['Notifications'].nil?)
+        data.notifications = (Notifications.parse(map['Notifications']) unless map['Notifications'].nil?)
         data.budget_name = map['BudgetName']
         return data
       end
@@ -567,7 +567,7 @@ module AWS::SDK::Budgets
     class Notifications
       def self.parse(list)
         list.map do |value|
-          Parsers::Notification.parse(value) unless value.nil?
+          Notification.parse(value) unless value.nil?
         end
       end
     end
@@ -603,7 +603,7 @@ module AWS::SDK::Budgets
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.budget_performance_history = (Parsers::BudgetPerformanceHistory.parse(map['BudgetPerformanceHistory']) unless map['BudgetPerformanceHistory'].nil?)
+        data.budget_performance_history = (BudgetPerformanceHistory.parse(map['BudgetPerformanceHistory']) unless map['BudgetPerformanceHistory'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -614,10 +614,10 @@ module AWS::SDK::Budgets
         data = Types::BudgetPerformanceHistory.new
         data.budget_name = map['BudgetName']
         data.budget_type = map['BudgetType']
-        data.cost_filters = (Parsers::CostFilters.parse(map['CostFilters']) unless map['CostFilters'].nil?)
-        data.cost_types = (Parsers::CostTypes.parse(map['CostTypes']) unless map['CostTypes'].nil?)
+        data.cost_filters = (CostFilters.parse(map['CostFilters']) unless map['CostFilters'].nil?)
+        data.cost_types = (CostTypes.parse(map['CostTypes']) unless map['CostTypes'].nil?)
         data.time_unit = map['TimeUnit']
-        data.budgeted_and_actual_amounts_list = (Parsers::BudgetedAndActualAmountsList.parse(map['BudgetedAndActualAmountsList']) unless map['BudgetedAndActualAmountsList'].nil?)
+        data.budgeted_and_actual_amounts_list = (BudgetedAndActualAmountsList.parse(map['BudgetedAndActualAmountsList']) unless map['BudgetedAndActualAmountsList'].nil?)
         return data
       end
     end
@@ -625,7 +625,7 @@ module AWS::SDK::Budgets
     class BudgetedAndActualAmountsList
       def self.parse(list)
         list.map do |value|
-          Parsers::BudgetedAndActualAmounts.parse(value) unless value.nil?
+          BudgetedAndActualAmounts.parse(value) unless value.nil?
         end
       end
     end
@@ -633,9 +633,9 @@ module AWS::SDK::Budgets
     class BudgetedAndActualAmounts
       def self.parse(map)
         data = Types::BudgetedAndActualAmounts.new
-        data.budgeted_amount = (Parsers::Spend.parse(map['BudgetedAmount']) unless map['BudgetedAmount'].nil?)
-        data.actual_amount = (Parsers::Spend.parse(map['ActualAmount']) unless map['ActualAmount'].nil?)
-        data.time_period = (Parsers::TimePeriod.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
+        data.budgeted_amount = (Spend.parse(map['BudgetedAmount']) unless map['BudgetedAmount'].nil?)
+        data.actual_amount = (Spend.parse(map['ActualAmount']) unless map['ActualAmount'].nil?)
+        data.time_period = (TimePeriod.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
         return data
       end
     end
@@ -647,7 +647,7 @@ module AWS::SDK::Budgets
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.budgets = (Parsers::Budgets.parse(map['Budgets']) unless map['Budgets'].nil?)
+        data.budgets = (Budgets.parse(map['Budgets']) unless map['Budgets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -656,7 +656,7 @@ module AWS::SDK::Budgets
     class Budgets
       def self.parse(list)
         list.map do |value|
-          Parsers::Budget.parse(value) unless value.nil?
+          Budget.parse(value) unless value.nil?
         end
       end
     end
@@ -668,7 +668,7 @@ module AWS::SDK::Budgets
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.notifications = (Parsers::Notifications.parse(map['Notifications']) unless map['Notifications'].nil?)
+        data.notifications = (Notifications.parse(map['Notifications']) unless map['Notifications'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -681,7 +681,7 @@ module AWS::SDK::Budgets
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.subscribers = (Parsers::Subscribers.parse(map['Subscribers']) unless map['Subscribers'].nil?)
+        data.subscribers = (Subscribers.parse(map['Subscribers']) unless map['Subscribers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -722,8 +722,8 @@ module AWS::SDK::Budgets
         map = Hearth::JSON.load(body)
         data.account_id = map['AccountId']
         data.budget_name = map['BudgetName']
-        data.old_action = (Parsers::Action.parse(map['OldAction']) unless map['OldAction'].nil?)
-        data.new_action = (Parsers::Action.parse(map['NewAction']) unless map['NewAction'].nil?)
+        data.old_action = (Action.parse(map['OldAction']) unless map['OldAction'].nil?)
+        data.new_action = (Action.parse(map['NewAction']) unless map['NewAction'].nil?)
         data
       end
     end

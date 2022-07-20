@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Athena
   module Stubs
 
@@ -21,9 +23,9 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['NamedQueries'] = Stubs::NamedQueryList.stub(stub[:named_queries]) unless stub[:named_queries].nil?
-        data['UnprocessedNamedQueryIds'] = Stubs::UnprocessedNamedQueryIdList.stub(stub[:unprocessed_named_query_ids]) unless stub[:unprocessed_named_query_ids].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NamedQueries'] = NamedQueryList.stub(stub[:named_queries]) unless stub[:named_queries].nil?
+        data['UnprocessedNamedQueryIds'] = UnprocessedNamedQueryIdList.stub(stub[:unprocessed_named_query_ids]) unless stub[:unprocessed_named_query_ids].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -42,7 +44,7 @@ module AWS::SDK::Athena
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UnprocessedNamedQueryId.stub(element) unless element.nil?
+          data << UnprocessedNamedQueryId.stub(element) unless element.nil?
         end
         data
       end
@@ -84,7 +86,7 @@ module AWS::SDK::Athena
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NamedQuery.stub(element) unless element.nil?
+          data << NamedQuery.stub(element) unless element.nil?
         end
         data
       end
@@ -129,9 +131,9 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['QueryExecutions'] = Stubs::QueryExecutionList.stub(stub[:query_executions]) unless stub[:query_executions].nil?
-        data['UnprocessedQueryExecutionIds'] = Stubs::UnprocessedQueryExecutionIdList.stub(stub[:unprocessed_query_execution_ids]) unless stub[:unprocessed_query_execution_ids].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QueryExecutions'] = QueryExecutionList.stub(stub[:query_executions]) unless stub[:query_executions].nil?
+        data['UnprocessedQueryExecutionIds'] = UnprocessedQueryExecutionIdList.stub(stub[:unprocessed_query_execution_ids]) unless stub[:unprocessed_query_execution_ids].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -150,7 +152,7 @@ module AWS::SDK::Athena
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UnprocessedQueryExecutionId.stub(element) unless element.nil?
+          data << UnprocessedQueryExecutionId.stub(element) unless element.nil?
         end
         data
       end
@@ -192,7 +194,7 @@ module AWS::SDK::Athena
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::QueryExecution.stub(element) unless element.nil?
+          data << QueryExecution.stub(element) unless element.nil?
         end
         data
       end
@@ -222,12 +224,12 @@ module AWS::SDK::Athena
         data['QueryExecutionId'] = stub[:query_execution_id] unless stub[:query_execution_id].nil?
         data['Query'] = stub[:query] unless stub[:query].nil?
         data['StatementType'] = stub[:statement_type] unless stub[:statement_type].nil?
-        data['ResultConfiguration'] = Stubs::ResultConfiguration.stub(stub[:result_configuration]) unless stub[:result_configuration].nil?
-        data['QueryExecutionContext'] = Stubs::QueryExecutionContext.stub(stub[:query_execution_context]) unless stub[:query_execution_context].nil?
-        data['Status'] = Stubs::QueryExecutionStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['Statistics'] = Stubs::QueryExecutionStatistics.stub(stub[:statistics]) unless stub[:statistics].nil?
+        data['ResultConfiguration'] = ResultConfiguration.stub(stub[:result_configuration]) unless stub[:result_configuration].nil?
+        data['QueryExecutionContext'] = QueryExecutionContext.stub(stub[:query_execution_context]) unless stub[:query_execution_context].nil?
+        data['Status'] = QueryExecutionStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Statistics'] = QueryExecutionStatistics.stub(stub[:statistics]) unless stub[:statistics].nil?
         data['WorkGroup'] = stub[:work_group] unless stub[:work_group].nil?
-        data['EngineVersion'] = Stubs::EngineVersion.stub(stub[:engine_version]) unless stub[:engine_version].nil?
+        data['EngineVersion'] = EngineVersion.stub(stub[:engine_version]) unless stub[:engine_version].nil?
         data
       end
     end
@@ -303,7 +305,7 @@ module AWS::SDK::Athena
         data['StateChangeReason'] = stub[:state_change_reason] unless stub[:state_change_reason].nil?
         data['SubmissionDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:submission_date_time]).to_i unless stub[:submission_date_time].nil?
         data['CompletionDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:completion_date_time]).to_i unless stub[:completion_date_time].nil?
-        data['AthenaError'] = Stubs::AthenaError.stub(stub[:athena_error]) unless stub[:athena_error].nil?
+        data['AthenaError'] = AthenaError.stub(stub[:athena_error]) unless stub[:athena_error].nil?
         data
       end
     end
@@ -369,9 +371,9 @@ module AWS::SDK::Athena
         stub ||= Types::ResultConfiguration.new
         data = {}
         data['OutputLocation'] = stub[:output_location] unless stub[:output_location].nil?
-        data['EncryptionConfiguration'] = Stubs::EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
+        data['EncryptionConfiguration'] = EncryptionConfiguration.stub(stub[:encryption_configuration]) unless stub[:encryption_configuration].nil?
         data['ExpectedBucketOwner'] = stub[:expected_bucket_owner] unless stub[:expected_bucket_owner].nil?
-        data['AclConfiguration'] = Stubs::AclConfiguration.stub(stub[:acl_configuration]) unless stub[:acl_configuration].nil?
+        data['AclConfiguration'] = AclConfiguration.stub(stub[:acl_configuration]) unless stub[:acl_configuration].nil?
         data
       end
     end
@@ -423,7 +425,7 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -439,7 +441,7 @@ module AWS::SDK::Athena
       def self.stub(http_resp, stub:)
         data = {}
         data['NamedQueryId'] = stub[:named_query_id] unless stub[:named_query_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -453,7 +455,7 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -467,7 +469,7 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -481,7 +483,7 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -495,7 +497,7 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -509,7 +511,7 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -523,7 +525,7 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -538,8 +540,8 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DataCatalog'] = Stubs::DataCatalog.stub(stub[:data_catalog]) unless stub[:data_catalog].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DataCatalog'] = DataCatalog.stub(stub[:data_catalog]) unless stub[:data_catalog].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -563,7 +565,7 @@ module AWS::SDK::Athena
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Parameters'] = Stubs::ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -598,8 +600,8 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Database'] = Stubs::Database.stub(stub[:database]) unless stub[:database].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Database'] = Database.stub(stub[:database]) unless stub[:database].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -621,7 +623,7 @@ module AWS::SDK::Athena
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Parameters'] = Stubs::ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -636,8 +638,8 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['NamedQuery'] = Stubs::NamedQuery.stub(stub[:named_query]) unless stub[:named_query].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NamedQuery'] = NamedQuery.stub(stub[:named_query]) unless stub[:named_query].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -652,8 +654,8 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PreparedStatement'] = Stubs::PreparedStatement.stub(stub[:prepared_statement]) unless stub[:prepared_statement].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PreparedStatement'] = PreparedStatement.stub(stub[:prepared_statement]) unless stub[:prepared_statement].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -694,8 +696,8 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['QueryExecution'] = Stubs::QueryExecution.stub(stub[:query_execution]) unless stub[:query_execution].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QueryExecution'] = QueryExecution.stub(stub[:query_execution]) unless stub[:query_execution].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -713,9 +715,9 @@ module AWS::SDK::Athena
       def self.stub(http_resp, stub:)
         data = {}
         data['UpdateCount'] = stub[:update_count] unless stub[:update_count].nil?
-        data['ResultSet'] = Stubs::ResultSet.stub(stub[:result_set]) unless stub[:result_set].nil?
+        data['ResultSet'] = ResultSet.stub(stub[:result_set]) unless stub[:result_set].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -734,8 +736,8 @@ module AWS::SDK::Athena
       def self.stub(stub)
         stub ||= Types::ResultSet.new
         data = {}
-        data['Rows'] = Stubs::RowList.stub(stub[:rows]) unless stub[:rows].nil?
-        data['ResultSetMetadata'] = Stubs::ResultSetMetadata.stub(stub[:result_set_metadata]) unless stub[:result_set_metadata].nil?
+        data['Rows'] = RowList.stub(stub[:rows]) unless stub[:rows].nil?
+        data['ResultSetMetadata'] = ResultSetMetadata.stub(stub[:result_set_metadata]) unless stub[:result_set_metadata].nil?
         data
       end
     end
@@ -753,7 +755,7 @@ module AWS::SDK::Athena
       def self.stub(stub)
         stub ||= Types::ResultSetMetadata.new
         data = {}
-        data['ColumnInfo'] = Stubs::ColumnInfoList.stub(stub[:column_info]) unless stub[:column_info].nil?
+        data['ColumnInfo'] = ColumnInfoList.stub(stub[:column_info]) unless stub[:column_info].nil?
         data
       end
     end
@@ -772,7 +774,7 @@ module AWS::SDK::Athena
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnInfo.stub(element) unless element.nil?
+          data << ColumnInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -828,7 +830,7 @@ module AWS::SDK::Athena
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Row.stub(element) unless element.nil?
+          data << Row.stub(element) unless element.nil?
         end
         data
       end
@@ -847,7 +849,7 @@ module AWS::SDK::Athena
       def self.stub(stub)
         stub ||= Types::Row.new
         data = {}
-        data['Data'] = Stubs::DatumList.stub(stub[:data]) unless stub[:data].nil?
+        data['Data'] = DatumList.stub(stub[:data]) unless stub[:data].nil?
         data
       end
     end
@@ -866,7 +868,7 @@ module AWS::SDK::Athena
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Datum.stub(element) unless element.nil?
+          data << Datum.stub(element) unless element.nil?
         end
         data
       end
@@ -900,8 +902,8 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TableMetadata'] = Stubs::TableMetadata.stub(stub[:table_metadata]) unless stub[:table_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TableMetadata'] = TableMetadata.stub(stub[:table_metadata]) unless stub[:table_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -929,9 +931,9 @@ module AWS::SDK::Athena
         data['CreateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_time]).to_i unless stub[:create_time].nil?
         data['LastAccessTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_access_time]).to_i unless stub[:last_access_time].nil?
         data['TableType'] = stub[:table_type] unless stub[:table_type].nil?
-        data['Columns'] = Stubs::ColumnList.stub(stub[:columns]) unless stub[:columns].nil?
-        data['PartitionKeys'] = Stubs::ColumnList.stub(stub[:partition_keys]) unless stub[:partition_keys].nil?
-        data['Parameters'] = Stubs::ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Columns'] = ColumnList.stub(stub[:columns]) unless stub[:columns].nil?
+        data['PartitionKeys'] = ColumnList.stub(stub[:partition_keys]) unless stub[:partition_keys].nil?
+        data['Parameters'] = ParametersMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -950,7 +952,7 @@ module AWS::SDK::Athena
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Column.stub(element) unless element.nil?
+          data << Column.stub(element) unless element.nil?
         end
         data
       end
@@ -988,8 +990,8 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['WorkGroup'] = Stubs::WorkGroup.stub(stub[:work_group]) unless stub[:work_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WorkGroup'] = WorkGroup.stub(stub[:work_group]) unless stub[:work_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1013,7 +1015,7 @@ module AWS::SDK::Athena
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Configuration'] = Stubs::WorkGroupConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['Configuration'] = WorkGroupConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data
@@ -1038,12 +1040,12 @@ module AWS::SDK::Athena
       def self.stub(stub)
         stub ||= Types::WorkGroupConfiguration.new
         data = {}
-        data['ResultConfiguration'] = Stubs::ResultConfiguration.stub(stub[:result_configuration]) unless stub[:result_configuration].nil?
+        data['ResultConfiguration'] = ResultConfiguration.stub(stub[:result_configuration]) unless stub[:result_configuration].nil?
         data['EnforceWorkGroupConfiguration'] = stub[:enforce_work_group_configuration] unless stub[:enforce_work_group_configuration].nil?
         data['PublishCloudWatchMetricsEnabled'] = stub[:publish_cloud_watch_metrics_enabled] unless stub[:publish_cloud_watch_metrics_enabled].nil?
         data['BytesScannedCutoffPerQuery'] = stub[:bytes_scanned_cutoff_per_query] unless stub[:bytes_scanned_cutoff_per_query].nil?
         data['RequesterPaysEnabled'] = stub[:requester_pays_enabled] unless stub[:requester_pays_enabled].nil?
-        data['EngineVersion'] = Stubs::EngineVersion.stub(stub[:engine_version]) unless stub[:engine_version].nil?
+        data['EngineVersion'] = EngineVersion.stub(stub[:engine_version]) unless stub[:engine_version].nil?
         data
       end
     end
@@ -1059,9 +1061,9 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DataCatalogsSummary'] = Stubs::DataCatalogSummaryList.stub(stub[:data_catalogs_summary]) unless stub[:data_catalogs_summary].nil?
+        data['DataCatalogsSummary'] = DataCatalogSummaryList.stub(stub[:data_catalogs_summary]) unless stub[:data_catalogs_summary].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1080,7 +1082,7 @@ module AWS::SDK::Athena
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataCatalogSummary.stub(element) unless element.nil?
+          data << DataCatalogSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1117,9 +1119,9 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DatabaseList'] = Stubs::DatabaseList.stub(stub[:database_list]) unless stub[:database_list].nil?
+        data['DatabaseList'] = DatabaseList.stub(stub[:database_list]) unless stub[:database_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1138,7 +1140,7 @@ module AWS::SDK::Athena
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Database.stub(element) unless element.nil?
+          data << Database.stub(element) unless element.nil?
         end
         data
       end
@@ -1155,9 +1157,9 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EngineVersions'] = Stubs::EngineVersionsList.stub(stub[:engine_versions]) unless stub[:engine_versions].nil?
+        data['EngineVersions'] = EngineVersionsList.stub(stub[:engine_versions]) unless stub[:engine_versions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1176,7 +1178,7 @@ module AWS::SDK::Athena
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EngineVersion.stub(element) unless element.nil?
+          data << EngineVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -1193,9 +1195,9 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['NamedQueryIds'] = Stubs::NamedQueryIdList.stub(stub[:named_query_ids]) unless stub[:named_query_ids].nil?
+        data['NamedQueryIds'] = NamedQueryIdList.stub(stub[:named_query_ids]) unless stub[:named_query_ids].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1231,9 +1233,9 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PreparedStatements'] = Stubs::PreparedStatementsList.stub(stub[:prepared_statements]) unless stub[:prepared_statements].nil?
+        data['PreparedStatements'] = PreparedStatementsList.stub(stub[:prepared_statements]) unless stub[:prepared_statements].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1252,7 +1254,7 @@ module AWS::SDK::Athena
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PreparedStatementSummary.stub(element) unless element.nil?
+          data << PreparedStatementSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1289,9 +1291,9 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['QueryExecutionIds'] = Stubs::QueryExecutionIdList.stub(stub[:query_execution_ids]) unless stub[:query_execution_ids].nil?
+        data['QueryExecutionIds'] = QueryExecutionIdList.stub(stub[:query_execution_ids]) unless stub[:query_execution_ids].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1327,9 +1329,9 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TableMetadataList'] = Stubs::TableMetadataList.stub(stub[:table_metadata_list]) unless stub[:table_metadata_list].nil?
+        data['TableMetadataList'] = TableMetadataList.stub(stub[:table_metadata_list]) unless stub[:table_metadata_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1348,7 +1350,7 @@ module AWS::SDK::Athena
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TableMetadata.stub(element) unless element.nil?
+          data << TableMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1365,9 +1367,9 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1386,7 +1388,7 @@ module AWS::SDK::Athena
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1423,9 +1425,9 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['WorkGroups'] = Stubs::WorkGroupsList.stub(stub[:work_groups]) unless stub[:work_groups].nil?
+        data['WorkGroups'] = WorkGroupsList.stub(stub[:work_groups]) unless stub[:work_groups].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1444,7 +1446,7 @@ module AWS::SDK::Athena
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkGroupSummary.stub(element) unless element.nil?
+          data << WorkGroupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1471,7 +1473,7 @@ module AWS::SDK::Athena
         data['State'] = stub[:state] unless stub[:state].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['EngineVersion'] = Stubs::EngineVersion.stub(stub[:engine_version]) unless stub[:engine_version].nil?
+        data['EngineVersion'] = EngineVersion.stub(stub[:engine_version]) unless stub[:engine_version].nil?
         data
       end
     end
@@ -1487,7 +1489,7 @@ module AWS::SDK::Athena
       def self.stub(http_resp, stub:)
         data = {}
         data['QueryExecutionId'] = stub[:query_execution_id] unless stub[:query_execution_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1501,7 +1503,7 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1515,7 +1517,7 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1529,7 +1531,7 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1543,7 +1545,7 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1557,7 +1559,7 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1571,7 +1573,7 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1585,7 +1587,7 @@ module AWS::SDK::Athena
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

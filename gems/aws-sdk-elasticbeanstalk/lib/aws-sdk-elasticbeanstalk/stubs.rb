@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ElasticBeanstalk
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::ElasticBeanstalk
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('AbortEnvironmentUpdateResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -49,7 +51,7 @@ module AWS::SDK::ElasticBeanstalk
         xml << Hearth::XML::Node.new('ActionType', stub[:action_type].to_s) unless stub[:action_type].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -67,7 +69,7 @@ module AWS::SDK::ElasticBeanstalk
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('AssociateEnvironmentOperationsRoleResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -89,7 +91,7 @@ module AWS::SDK::ElasticBeanstalk
         xml << Hearth::XML::Node.new('Available', stub[:available].to_s) unless stub[:available].nil?
         xml << Hearth::XML::Node.new('FullyQualifiedCNAME', stub[:fully_qualified_cname].to_s) unless stub[:fully_qualified_cname].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -108,10 +110,10 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('ComposeEnvironmentsResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('ComposeEnvironmentsResult')
-        xml << Hearth::XML::Node.new('Environments', Stubs::EnvironmentDescriptionsList.stub('member', stub[:environments])) unless stub[:environments].nil?
+        xml << Hearth::XML::Node.new('Environments', EnvironmentDescriptionsList.stub('member', stub[:environments])) unless stub[:environments].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -129,7 +131,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::EnvironmentDescription.stub(node_name, element) unless element.nil?
+          xml << EnvironmentDescription.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -184,9 +186,9 @@ module AWS::SDK::ElasticBeanstalk
         xml << Hearth::XML::Node.new('AbortableOperationInProgress', stub[:abortable_operation_in_progress].to_s) unless stub[:abortable_operation_in_progress].nil?
         xml << Hearth::XML::Node.new('Health', stub[:health].to_s) unless stub[:health].nil?
         xml << Hearth::XML::Node.new('HealthStatus', stub[:health_status].to_s) unless stub[:health_status].nil?
-        xml << Stubs::EnvironmentResourcesDescription.stub('Resources', stub[:resources]) unless stub[:resources].nil?
-        xml << Stubs::EnvironmentTier.stub('Tier', stub[:tier]) unless stub[:tier].nil?
-        xml << Hearth::XML::Node.new('EnvironmentLinks', Stubs::EnvironmentLinks.stub('member', stub[:environment_links])) unless stub[:environment_links].nil?
+        xml << EnvironmentResourcesDescription.stub('Resources', stub[:resources]) unless stub[:resources].nil?
+        xml << EnvironmentTier.stub('Tier', stub[:tier]) unless stub[:tier].nil?
+        xml << Hearth::XML::Node.new('EnvironmentLinks', EnvironmentLinks.stub('member', stub[:environment_links])) unless stub[:environment_links].nil?
         xml << Hearth::XML::Node.new('EnvironmentArn', stub[:environment_arn].to_s) unless stub[:environment_arn].nil?
         xml << Hearth::XML::Node.new('OperationsRole', stub[:operations_role].to_s) unless stub[:operations_role].nil?
         xml
@@ -206,7 +208,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::EnvironmentLink.stub(node_name, element) unless element.nil?
+          xml << EnvironmentLink.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -267,7 +269,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         stub ||= Types::EnvironmentResourcesDescription.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::LoadBalancerDescription.stub('LoadBalancer', stub[:load_balancer]) unless stub[:load_balancer].nil?
+        xml << LoadBalancerDescription.stub('LoadBalancer', stub[:load_balancer]) unless stub[:load_balancer].nil?
         xml
       end
     end
@@ -289,7 +291,7 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('LoadBalancerName', stub[:load_balancer_name].to_s) unless stub[:load_balancer_name].nil?
         xml << Hearth::XML::Node.new('Domain', stub[:domain].to_s) unless stub[:domain].nil?
-        xml << Hearth::XML::Node.new('Listeners', Stubs::LoadBalancerListenersDescription.stub('member', stub[:listeners])) unless stub[:listeners].nil?
+        xml << Hearth::XML::Node.new('Listeners', LoadBalancerListenersDescription.stub('member', stub[:listeners])) unless stub[:listeners].nil?
         xml
       end
     end
@@ -307,7 +309,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Listener.stub(node_name, element) unless element.nil?
+          xml << Listener.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -346,9 +348,9 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('CreateApplicationResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('CreateApplicationResult')
-        xml << Stubs::ApplicationDescription.stub('Application', stub[:application]) unless stub[:application].nil?
+        xml << ApplicationDescription.stub('Application', stub[:application]) unless stub[:application].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -378,9 +380,9 @@ module AWS::SDK::ElasticBeanstalk
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('DateCreated', Hearth::TimeHelper.to_date_time(stub[:date_created])) unless stub[:date_created].nil?
         xml << Hearth::XML::Node.new('DateUpdated', Hearth::TimeHelper.to_date_time(stub[:date_updated])) unless stub[:date_updated].nil?
-        xml << Hearth::XML::Node.new('Versions', Stubs::VersionLabelsList.stub('member', stub[:versions])) unless stub[:versions].nil?
-        xml << Hearth::XML::Node.new('ConfigurationTemplates', Stubs::ConfigurationTemplateNamesList.stub('member', stub[:configuration_templates])) unless stub[:configuration_templates].nil?
-        xml << Stubs::ApplicationResourceLifecycleConfig.stub('ResourceLifecycleConfig', stub[:resource_lifecycle_config]) unless stub[:resource_lifecycle_config].nil?
+        xml << Hearth::XML::Node.new('Versions', VersionLabelsList.stub('member', stub[:versions])) unless stub[:versions].nil?
+        xml << Hearth::XML::Node.new('ConfigurationTemplates', ConfigurationTemplateNamesList.stub('member', stub[:configuration_templates])) unless stub[:configuration_templates].nil?
+        xml << ApplicationResourceLifecycleConfig.stub('ResourceLifecycleConfig', stub[:resource_lifecycle_config]) unless stub[:resource_lifecycle_config].nil?
         xml
       end
     end
@@ -400,7 +402,7 @@ module AWS::SDK::ElasticBeanstalk
         stub ||= Types::ApplicationResourceLifecycleConfig.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ServiceRole', stub[:service_role].to_s) unless stub[:service_role].nil?
-        xml << Stubs::ApplicationVersionLifecycleConfig.stub('VersionLifecycleConfig', stub[:version_lifecycle_config]) unless stub[:version_lifecycle_config].nil?
+        xml << ApplicationVersionLifecycleConfig.stub('VersionLifecycleConfig', stub[:version_lifecycle_config]) unless stub[:version_lifecycle_config].nil?
         xml
       end
     end
@@ -419,8 +421,8 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         stub ||= Types::ApplicationVersionLifecycleConfig.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::MaxCountRule.stub('MaxCountRule', stub[:max_count_rule]) unless stub[:max_count_rule].nil?
-        xml << Stubs::MaxAgeRule.stub('MaxAgeRule', stub[:max_age_rule]) unless stub[:max_age_rule].nil?
+        xml << MaxCountRule.stub('MaxCountRule', stub[:max_count_rule]) unless stub[:max_count_rule].nil?
+        xml << MaxAgeRule.stub('MaxAgeRule', stub[:max_age_rule]) unless stub[:max_age_rule].nil?
         xml
       end
     end
@@ -520,9 +522,9 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('CreateApplicationVersionResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('CreateApplicationVersionResult')
-        xml << Stubs::ApplicationVersionDescription.stub('ApplicationVersion', stub[:application_version]) unless stub[:application_version].nil?
+        xml << ApplicationVersionDescription.stub('ApplicationVersion', stub[:application_version]) unless stub[:application_version].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -553,9 +555,9 @@ module AWS::SDK::ElasticBeanstalk
         xml << Hearth::XML::Node.new('ApplicationName', stub[:application_name].to_s) unless stub[:application_name].nil?
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('VersionLabel', stub[:version_label].to_s) unless stub[:version_label].nil?
-        xml << Stubs::SourceBuildInformation.stub('SourceBuildInformation', stub[:source_build_information]) unless stub[:source_build_information].nil?
+        xml << SourceBuildInformation.stub('SourceBuildInformation', stub[:source_build_information]) unless stub[:source_build_information].nil?
         xml << Hearth::XML::Node.new('BuildArn', stub[:build_arn].to_s) unless stub[:build_arn].nil?
-        xml << Stubs::S3Location.stub('SourceBundle', stub[:source_bundle]) unless stub[:source_bundle].nil?
+        xml << S3Location.stub('SourceBundle', stub[:source_bundle]) unless stub[:source_bundle].nil?
         xml << Hearth::XML::Node.new('DateCreated', Hearth::TimeHelper.to_date_time(stub[:date_created])) unless stub[:date_created].nil?
         xml << Hearth::XML::Node.new('DateUpdated', Hearth::TimeHelper.to_date_time(stub[:date_updated])) unless stub[:date_updated].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
@@ -636,9 +638,9 @@ module AWS::SDK::ElasticBeanstalk
         xml << Hearth::XML::Node.new('DeploymentStatus', stub[:deployment_status].to_s) unless stub[:deployment_status].nil?
         xml << Hearth::XML::Node.new('DateCreated', Hearth::TimeHelper.to_date_time(stub[:date_created])) unless stub[:date_created].nil?
         xml << Hearth::XML::Node.new('DateUpdated', Hearth::TimeHelper.to_date_time(stub[:date_updated])) unless stub[:date_updated].nil?
-        xml << Hearth::XML::Node.new('OptionSettings', Stubs::ConfigurationOptionSettingsList.stub('member', stub[:option_settings])) unless stub[:option_settings].nil?
+        xml << Hearth::XML::Node.new('OptionSettings', ConfigurationOptionSettingsList.stub('member', stub[:option_settings])) unless stub[:option_settings].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -656,7 +658,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ConfigurationOptionSetting.stub(node_name, element) unless element.nil?
+          xml << ConfigurationOptionSetting.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -735,13 +737,13 @@ module AWS::SDK::ElasticBeanstalk
         xml << Hearth::XML::Node.new('AbortableOperationInProgress', stub[:abortable_operation_in_progress].to_s) unless stub[:abortable_operation_in_progress].nil?
         xml << Hearth::XML::Node.new('Health', stub[:health].to_s) unless stub[:health].nil?
         xml << Hearth::XML::Node.new('HealthStatus', stub[:health_status].to_s) unless stub[:health_status].nil?
-        xml << Stubs::EnvironmentResourcesDescription.stub('Resources', stub[:resources]) unless stub[:resources].nil?
-        xml << Stubs::EnvironmentTier.stub('Tier', stub[:tier]) unless stub[:tier].nil?
-        xml << Hearth::XML::Node.new('EnvironmentLinks', Stubs::EnvironmentLinks.stub('member', stub[:environment_links])) unless stub[:environment_links].nil?
+        xml << EnvironmentResourcesDescription.stub('Resources', stub[:resources]) unless stub[:resources].nil?
+        xml << EnvironmentTier.stub('Tier', stub[:tier]) unless stub[:tier].nil?
+        xml << Hearth::XML::Node.new('EnvironmentLinks', EnvironmentLinks.stub('member', stub[:environment_links])) unless stub[:environment_links].nil?
         xml << Hearth::XML::Node.new('EnvironmentArn', stub[:environment_arn].to_s) unless stub[:environment_arn].nil?
         xml << Hearth::XML::Node.new('OperationsRole', stub[:operations_role].to_s) unless stub[:operations_role].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -760,10 +762,10 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('CreatePlatformVersionResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('CreatePlatformVersionResult')
-        xml << Stubs::PlatformSummary.stub('PlatformSummary', stub[:platform_summary]) unless stub[:platform_summary].nil?
-        xml << Stubs::Builder.stub('Builder', stub[:builder]) unless stub[:builder].nil?
+        xml << PlatformSummary.stub('PlatformSummary', stub[:platform_summary]) unless stub[:platform_summary].nil?
+        xml << Builder.stub('Builder', stub[:builder]) unless stub[:builder].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -816,8 +818,8 @@ module AWS::SDK::ElasticBeanstalk
         xml << Hearth::XML::Node.new('PlatformCategory', stub[:platform_category].to_s) unless stub[:platform_category].nil?
         xml << Hearth::XML::Node.new('OperatingSystemName', stub[:operating_system_name].to_s) unless stub[:operating_system_name].nil?
         xml << Hearth::XML::Node.new('OperatingSystemVersion', stub[:operating_system_version].to_s) unless stub[:operating_system_version].nil?
-        xml << Hearth::XML::Node.new('SupportedTierList', Stubs::SupportedTierList.stub('member', stub[:supported_tier_list])) unless stub[:supported_tier_list].nil?
-        xml << Hearth::XML::Node.new('SupportedAddonList', Stubs::SupportedAddonList.stub('member', stub[:supported_addon_list])) unless stub[:supported_addon_list].nil?
+        xml << Hearth::XML::Node.new('SupportedTierList', SupportedTierList.stub('member', stub[:supported_tier_list])) unless stub[:supported_tier_list].nil?
+        xml << Hearth::XML::Node.new('SupportedAddonList', SupportedAddonList.stub('member', stub[:supported_addon_list])) unless stub[:supported_addon_list].nil?
         xml << Hearth::XML::Node.new('PlatformLifecycleState', stub[:platform_lifecycle_state].to_s) unless stub[:platform_lifecycle_state].nil?
         xml << Hearth::XML::Node.new('PlatformVersion', stub[:platform_version].to_s) unless stub[:platform_version].nil?
         xml << Hearth::XML::Node.new('PlatformBranchName', stub[:platform_branch_name].to_s) unless stub[:platform_branch_name].nil?
@@ -879,7 +881,7 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML::Node.new('CreateStorageLocationResult')
         xml << Hearth::XML::Node.new('S3Bucket', stub[:s3_bucket].to_s) unless stub[:s3_bucket].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -897,7 +899,7 @@ module AWS::SDK::ElasticBeanstalk
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('DeleteApplicationResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -915,7 +917,7 @@ module AWS::SDK::ElasticBeanstalk
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('DeleteApplicationVersionResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -933,7 +935,7 @@ module AWS::SDK::ElasticBeanstalk
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('DeleteConfigurationTemplateResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -951,7 +953,7 @@ module AWS::SDK::ElasticBeanstalk
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('DeleteEnvironmentConfigurationResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -969,9 +971,9 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('DeletePlatformVersionResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('DeletePlatformVersionResult')
-        xml << Stubs::PlatformSummary.stub('PlatformSummary', stub[:platform_summary]) unless stub[:platform_summary].nil?
+        xml << PlatformSummary.stub('PlatformSummary', stub[:platform_summary]) unless stub[:platform_summary].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -989,9 +991,9 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('DescribeAccountAttributesResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('DescribeAccountAttributesResult')
-        xml << Stubs::ResourceQuotas.stub('ResourceQuotas', stub[:resource_quotas]) unless stub[:resource_quotas].nil?
+        xml << ResourceQuotas.stub('ResourceQuotas', stub[:resource_quotas]) unless stub[:resource_quotas].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1013,11 +1015,11 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         stub ||= Types::ResourceQuotas.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::ResourceQuota.stub('ApplicationQuota', stub[:application_quota]) unless stub[:application_quota].nil?
-        xml << Stubs::ResourceQuota.stub('ApplicationVersionQuota', stub[:application_version_quota]) unless stub[:application_version_quota].nil?
-        xml << Stubs::ResourceQuota.stub('EnvironmentQuota', stub[:environment_quota]) unless stub[:environment_quota].nil?
-        xml << Stubs::ResourceQuota.stub('ConfigurationTemplateQuota', stub[:configuration_template_quota]) unless stub[:configuration_template_quota].nil?
-        xml << Stubs::ResourceQuota.stub('CustomPlatformQuota', stub[:custom_platform_quota]) unless stub[:custom_platform_quota].nil?
+        xml << ResourceQuota.stub('ApplicationQuota', stub[:application_quota]) unless stub[:application_quota].nil?
+        xml << ResourceQuota.stub('ApplicationVersionQuota', stub[:application_version_quota]) unless stub[:application_version_quota].nil?
+        xml << ResourceQuota.stub('EnvironmentQuota', stub[:environment_quota]) unless stub[:environment_quota].nil?
+        xml << ResourceQuota.stub('ConfigurationTemplateQuota', stub[:configuration_template_quota]) unless stub[:configuration_template_quota].nil?
+        xml << ResourceQuota.stub('CustomPlatformQuota', stub[:custom_platform_quota]) unless stub[:custom_platform_quota].nil?
         xml
       end
     end
@@ -1054,10 +1056,10 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('DescribeApplicationVersionsResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('DescribeApplicationVersionsResult')
-        xml << Hearth::XML::Node.new('ApplicationVersions', Stubs::ApplicationVersionDescriptionList.stub('member', stub[:application_versions])) unless stub[:application_versions].nil?
+        xml << Hearth::XML::Node.new('ApplicationVersions', ApplicationVersionDescriptionList.stub('member', stub[:application_versions])) unless stub[:application_versions].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1075,7 +1077,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ApplicationVersionDescription.stub(node_name, element) unless element.nil?
+          xml << ApplicationVersionDescription.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1094,9 +1096,9 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('DescribeApplicationsResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('DescribeApplicationsResult')
-        xml << Hearth::XML::Node.new('Applications', Stubs::ApplicationDescriptionList.stub('member', stub[:applications])) unless stub[:applications].nil?
+        xml << Hearth::XML::Node.new('Applications', ApplicationDescriptionList.stub('member', stub[:applications])) unless stub[:applications].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1114,7 +1116,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ApplicationDescription.stub(node_name, element) unless element.nil?
+          xml << ApplicationDescription.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1137,9 +1139,9 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML::Node.new('DescribeConfigurationOptionsResult')
         xml << Hearth::XML::Node.new('SolutionStackName', stub[:solution_stack_name].to_s) unless stub[:solution_stack_name].nil?
         xml << Hearth::XML::Node.new('PlatformArn', stub[:platform_arn].to_s) unless stub[:platform_arn].nil?
-        xml << Hearth::XML::Node.new('Options', Stubs::ConfigurationOptionDescriptionsList.stub('member', stub[:options])) unless stub[:options].nil?
+        xml << Hearth::XML::Node.new('Options', ConfigurationOptionDescriptionsList.stub('member', stub[:options])) unless stub[:options].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1157,7 +1159,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ConfigurationOptionDescription.stub(node_name, element) unless element.nil?
+          xml << ConfigurationOptionDescription.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1192,11 +1194,11 @@ module AWS::SDK::ElasticBeanstalk
         xml << Hearth::XML::Node.new('ChangeSeverity', stub[:change_severity].to_s) unless stub[:change_severity].nil?
         xml << Hearth::XML::Node.new('UserDefined', stub[:user_defined].to_s) unless stub[:user_defined].nil?
         xml << Hearth::XML::Node.new('ValueType', stub[:value_type].to_s) unless stub[:value_type].nil?
-        xml << Hearth::XML::Node.new('ValueOptions', Stubs::ConfigurationOptionPossibleValues.stub('member', stub[:value_options])) unless stub[:value_options].nil?
+        xml << Hearth::XML::Node.new('ValueOptions', ConfigurationOptionPossibleValues.stub('member', stub[:value_options])) unless stub[:value_options].nil?
         xml << Hearth::XML::Node.new('MinValue', stub[:min_value].to_s) unless stub[:min_value].nil?
         xml << Hearth::XML::Node.new('MaxValue', stub[:max_value].to_s) unless stub[:max_value].nil?
         xml << Hearth::XML::Node.new('MaxLength', stub[:max_length].to_s) unless stub[:max_length].nil?
-        xml << Stubs::OptionRestrictionRegex.stub('Regex', stub[:regex]) unless stub[:regex].nil?
+        xml << OptionRestrictionRegex.stub('Regex', stub[:regex]) unless stub[:regex].nil?
         xml
       end
     end
@@ -1253,9 +1255,9 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('DescribeConfigurationSettingsResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('DescribeConfigurationSettingsResult')
-        xml << Hearth::XML::Node.new('ConfigurationSettings', Stubs::ConfigurationSettingsDescriptionList.stub('member', stub[:configuration_settings])) unless stub[:configuration_settings].nil?
+        xml << Hearth::XML::Node.new('ConfigurationSettings', ConfigurationSettingsDescriptionList.stub('member', stub[:configuration_settings])) unless stub[:configuration_settings].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1273,7 +1275,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ConfigurationSettingsDescription.stub(node_name, element) unless element.nil?
+          xml << ConfigurationSettingsDescription.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1310,7 +1312,7 @@ module AWS::SDK::ElasticBeanstalk
         xml << Hearth::XML::Node.new('DeploymentStatus', stub[:deployment_status].to_s) unless stub[:deployment_status].nil?
         xml << Hearth::XML::Node.new('DateCreated', Hearth::TimeHelper.to_date_time(stub[:date_created])) unless stub[:date_created].nil?
         xml << Hearth::XML::Node.new('DateUpdated', Hearth::TimeHelper.to_date_time(stub[:date_updated])) unless stub[:date_updated].nil?
-        xml << Hearth::XML::Node.new('OptionSettings', Stubs::ConfigurationOptionSettingsList.stub('member', stub[:option_settings])) unless stub[:option_settings].nil?
+        xml << Hearth::XML::Node.new('OptionSettings', ConfigurationOptionSettingsList.stub('member', stub[:option_settings])) unless stub[:option_settings].nil?
         xml
       end
     end
@@ -1339,12 +1341,12 @@ module AWS::SDK::ElasticBeanstalk
         xml << Hearth::XML::Node.new('HealthStatus', stub[:health_status].to_s) unless stub[:health_status].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('Color', stub[:color].to_s) unless stub[:color].nil?
-        xml << Hearth::XML::Node.new('Causes', Stubs::Causes.stub('member', stub[:causes])) unless stub[:causes].nil?
-        xml << Stubs::ApplicationMetrics.stub('ApplicationMetrics', stub[:application_metrics]) unless stub[:application_metrics].nil?
-        xml << Stubs::InstanceHealthSummary.stub('InstancesHealth', stub[:instances_health]) unless stub[:instances_health].nil?
+        xml << Hearth::XML::Node.new('Causes', Causes.stub('member', stub[:causes])) unless stub[:causes].nil?
+        xml << ApplicationMetrics.stub('ApplicationMetrics', stub[:application_metrics]) unless stub[:application_metrics].nil?
+        xml << InstanceHealthSummary.stub('InstancesHealth', stub[:instances_health]) unless stub[:instances_health].nil?
         xml << Hearth::XML::Node.new('RefreshedAt', Hearth::TimeHelper.to_date_time(stub[:refreshed_at])) unless stub[:refreshed_at].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1399,8 +1401,8 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Duration', stub[:duration].to_s) unless stub[:duration].nil?
         xml << Hearth::XML::Node.new('RequestCount', stub[:request_count].to_s) unless stub[:request_count].nil?
-        xml << Stubs::StatusCodes.stub('StatusCodes', stub[:status_codes]) unless stub[:status_codes].nil?
-        xml << Stubs::Latency.stub('Latency', stub[:latency]) unless stub[:latency].nil?
+        xml << StatusCodes.stub('StatusCodes', stub[:status_codes]) unless stub[:status_codes].nil?
+        xml << Latency.stub('Latency', stub[:latency]) unless stub[:latency].nil?
         xml
       end
     end
@@ -1494,10 +1496,10 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('DescribeEnvironmentManagedActionHistoryResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('DescribeEnvironmentManagedActionHistoryResult')
-        xml << Hearth::XML::Node.new('ManagedActionHistoryItems', Stubs::ManagedActionHistoryItems.stub('member', stub[:managed_action_history_items])) unless stub[:managed_action_history_items].nil?
+        xml << Hearth::XML::Node.new('ManagedActionHistoryItems', ManagedActionHistoryItems.stub('member', stub[:managed_action_history_items])) unless stub[:managed_action_history_items].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1515,7 +1517,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ManagedActionHistoryItem.stub(node_name, element) unless element.nil?
+          xml << ManagedActionHistoryItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1566,9 +1568,9 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('DescribeEnvironmentManagedActionsResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('DescribeEnvironmentManagedActionsResult')
-        xml << Hearth::XML::Node.new('ManagedActions', Stubs::ManagedActions.stub('member', stub[:managed_actions])) unless stub[:managed_actions].nil?
+        xml << Hearth::XML::Node.new('ManagedActions', ManagedActions.stub('member', stub[:managed_actions])) unless stub[:managed_actions].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1586,7 +1588,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ManagedAction.stub(node_name, element) unless element.nil?
+          xml << ManagedAction.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1631,9 +1633,9 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('DescribeEnvironmentResourcesResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('DescribeEnvironmentResourcesResult')
-        xml << Stubs::EnvironmentResourceDescription.stub('EnvironmentResources', stub[:environment_resources]) unless stub[:environment_resources].nil?
+        xml << EnvironmentResourceDescription.stub('EnvironmentResources', stub[:environment_resources]) unless stub[:environment_resources].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1659,13 +1661,13 @@ module AWS::SDK::ElasticBeanstalk
         stub ||= Types::EnvironmentResourceDescription.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('EnvironmentName', stub[:environment_name].to_s) unless stub[:environment_name].nil?
-        xml << Hearth::XML::Node.new('AutoScalingGroups', Stubs::AutoScalingGroupList.stub('member', stub[:auto_scaling_groups])) unless stub[:auto_scaling_groups].nil?
-        xml << Hearth::XML::Node.new('Instances', Stubs::InstanceList.stub('member', stub[:instances])) unless stub[:instances].nil?
-        xml << Hearth::XML::Node.new('LaunchConfigurations', Stubs::LaunchConfigurationList.stub('member', stub[:launch_configurations])) unless stub[:launch_configurations].nil?
-        xml << Hearth::XML::Node.new('LaunchTemplates', Stubs::LaunchTemplateList.stub('member', stub[:launch_templates])) unless stub[:launch_templates].nil?
-        xml << Hearth::XML::Node.new('LoadBalancers', Stubs::LoadBalancerList.stub('member', stub[:load_balancers])) unless stub[:load_balancers].nil?
-        xml << Hearth::XML::Node.new('Triggers', Stubs::TriggerList.stub('member', stub[:triggers])) unless stub[:triggers].nil?
-        xml << Hearth::XML::Node.new('Queues', Stubs::QueueList.stub('member', stub[:queues])) unless stub[:queues].nil?
+        xml << Hearth::XML::Node.new('AutoScalingGroups', AutoScalingGroupList.stub('member', stub[:auto_scaling_groups])) unless stub[:auto_scaling_groups].nil?
+        xml << Hearth::XML::Node.new('Instances', InstanceList.stub('member', stub[:instances])) unless stub[:instances].nil?
+        xml << Hearth::XML::Node.new('LaunchConfigurations', LaunchConfigurationList.stub('member', stub[:launch_configurations])) unless stub[:launch_configurations].nil?
+        xml << Hearth::XML::Node.new('LaunchTemplates', LaunchTemplateList.stub('member', stub[:launch_templates])) unless stub[:launch_templates].nil?
+        xml << Hearth::XML::Node.new('LoadBalancers', LoadBalancerList.stub('member', stub[:load_balancers])) unless stub[:load_balancers].nil?
+        xml << Hearth::XML::Node.new('Triggers', TriggerList.stub('member', stub[:triggers])) unless stub[:triggers].nil?
+        xml << Hearth::XML::Node.new('Queues', QueueList.stub('member', stub[:queues])) unless stub[:queues].nil?
         xml
       end
     end
@@ -1683,7 +1685,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Queue.stub(node_name, element) unless element.nil?
+          xml << Queue.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1722,7 +1724,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Trigger.stub(node_name, element) unless element.nil?
+          xml << Trigger.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1759,7 +1761,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::LoadBalancer.stub(node_name, element) unless element.nil?
+          xml << LoadBalancer.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1796,7 +1798,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::LaunchTemplate.stub(node_name, element) unless element.nil?
+          xml << LaunchTemplate.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1833,7 +1835,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::LaunchConfiguration.stub(node_name, element) unless element.nil?
+          xml << LaunchConfiguration.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1870,7 +1872,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Instance.stub(node_name, element) unless element.nil?
+          xml << Instance.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1907,7 +1909,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AutoScalingGroup.stub(node_name, element) unless element.nil?
+          xml << AutoScalingGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1945,10 +1947,10 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('DescribeEnvironmentsResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('DescribeEnvironmentsResult')
-        xml << Hearth::XML::Node.new('Environments', Stubs::EnvironmentDescriptionsList.stub('member', stub[:environments])) unless stub[:environments].nil?
+        xml << Hearth::XML::Node.new('Environments', EnvironmentDescriptionsList.stub('member', stub[:environments])) unless stub[:environments].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1967,10 +1969,10 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('DescribeEventsResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('DescribeEventsResult')
-        xml << Hearth::XML::Node.new('Events', Stubs::EventDescriptionList.stub('member', stub[:events])) unless stub[:events].nil?
+        xml << Hearth::XML::Node.new('Events', EventDescriptionList.stub('member', stub[:events])) unless stub[:events].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1988,7 +1990,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::EventDescription.stub(node_name, element) unless element.nil?
+          xml << EventDescription.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2043,11 +2045,11 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('DescribeInstancesHealthResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('DescribeInstancesHealthResult')
-        xml << Hearth::XML::Node.new('InstanceHealthList', Stubs::InstanceHealthList.stub('member', stub[:instance_health_list])) unless stub[:instance_health_list].nil?
+        xml << Hearth::XML::Node.new('InstanceHealthList', InstanceHealthList.stub('member', stub[:instance_health_list])) unless stub[:instance_health_list].nil?
         xml << Hearth::XML::Node.new('RefreshedAt', Hearth::TimeHelper.to_date_time(stub[:refreshed_at])) unless stub[:refreshed_at].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2065,7 +2067,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SingleInstanceHealth.stub(node_name, element) unless element.nil?
+          xml << SingleInstanceHealth.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2096,11 +2098,11 @@ module AWS::SDK::ElasticBeanstalk
         xml << Hearth::XML::Node.new('InstanceId', stub[:instance_id].to_s) unless stub[:instance_id].nil?
         xml << Hearth::XML::Node.new('HealthStatus', stub[:health_status].to_s) unless stub[:health_status].nil?
         xml << Hearth::XML::Node.new('Color', stub[:color].to_s) unless stub[:color].nil?
-        xml << Hearth::XML::Node.new('Causes', Stubs::Causes.stub('member', stub[:causes])) unless stub[:causes].nil?
+        xml << Hearth::XML::Node.new('Causes', Causes.stub('member', stub[:causes])) unless stub[:causes].nil?
         xml << Hearth::XML::Node.new('LaunchedAt', Hearth::TimeHelper.to_date_time(stub[:launched_at])) unless stub[:launched_at].nil?
-        xml << Stubs::ApplicationMetrics.stub('ApplicationMetrics', stub[:application_metrics]) unless stub[:application_metrics].nil?
-        xml << Stubs::SystemStatus.stub('System', stub[:system]) unless stub[:system].nil?
-        xml << Stubs::Deployment.stub('Deployment', stub[:deployment]) unless stub[:deployment].nil?
+        xml << ApplicationMetrics.stub('ApplicationMetrics', stub[:application_metrics]) unless stub[:application_metrics].nil?
+        xml << SystemStatus.stub('System', stub[:system]) unless stub[:system].nil?
+        xml << Deployment.stub('Deployment', stub[:deployment]) unless stub[:deployment].nil?
         xml << Hearth::XML::Node.new('AvailabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
         xml << Hearth::XML::Node.new('InstanceType', stub[:instance_type].to_s) unless stub[:instance_type].nil?
         xml
@@ -2145,8 +2147,8 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         stub ||= Types::SystemStatus.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::CPUUtilization.stub('CPUUtilization', stub[:cpu_utilization]) unless stub[:cpu_utilization].nil?
-        xml << Hearth::XML::Node.new('LoadAverage', Stubs::LoadAverage.stub('member', stub[:load_average])) unless stub[:load_average].nil?
+        xml << CPUUtilization.stub('CPUUtilization', stub[:cpu_utilization]) unless stub[:cpu_utilization].nil?
+        xml << Hearth::XML::Node.new('LoadAverage', LoadAverage.stub('member', stub[:load_average])) unless stub[:load_average].nil?
         xml
       end
     end
@@ -2215,9 +2217,9 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('DescribePlatformVersionResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('DescribePlatformVersionResult')
-        xml << Stubs::PlatformDescription.stub('PlatformDescription', stub[:platform_description]) unless stub[:platform_description].nil?
+        xml << PlatformDescription.stub('PlatformDescription', stub[:platform_description]) unless stub[:platform_description].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2268,11 +2270,11 @@ module AWS::SDK::ElasticBeanstalk
         xml << Hearth::XML::Node.new('Maintainer', stub[:maintainer].to_s) unless stub[:maintainer].nil?
         xml << Hearth::XML::Node.new('OperatingSystemName', stub[:operating_system_name].to_s) unless stub[:operating_system_name].nil?
         xml << Hearth::XML::Node.new('OperatingSystemVersion', stub[:operating_system_version].to_s) unless stub[:operating_system_version].nil?
-        xml << Hearth::XML::Node.new('ProgrammingLanguages', Stubs::PlatformProgrammingLanguages.stub('member', stub[:programming_languages])) unless stub[:programming_languages].nil?
-        xml << Hearth::XML::Node.new('Frameworks', Stubs::PlatformFrameworks.stub('member', stub[:frameworks])) unless stub[:frameworks].nil?
-        xml << Hearth::XML::Node.new('CustomAmiList', Stubs::CustomAmiList.stub('member', stub[:custom_ami_list])) unless stub[:custom_ami_list].nil?
-        xml << Hearth::XML::Node.new('SupportedTierList', Stubs::SupportedTierList.stub('member', stub[:supported_tier_list])) unless stub[:supported_tier_list].nil?
-        xml << Hearth::XML::Node.new('SupportedAddonList', Stubs::SupportedAddonList.stub('member', stub[:supported_addon_list])) unless stub[:supported_addon_list].nil?
+        xml << Hearth::XML::Node.new('ProgrammingLanguages', PlatformProgrammingLanguages.stub('member', stub[:programming_languages])) unless stub[:programming_languages].nil?
+        xml << Hearth::XML::Node.new('Frameworks', PlatformFrameworks.stub('member', stub[:frameworks])) unless stub[:frameworks].nil?
+        xml << Hearth::XML::Node.new('CustomAmiList', CustomAmiList.stub('member', stub[:custom_ami_list])) unless stub[:custom_ami_list].nil?
+        xml << Hearth::XML::Node.new('SupportedTierList', SupportedTierList.stub('member', stub[:supported_tier_list])) unless stub[:supported_tier_list].nil?
+        xml << Hearth::XML::Node.new('SupportedAddonList', SupportedAddonList.stub('member', stub[:supported_addon_list])) unless stub[:supported_addon_list].nil?
         xml << Hearth::XML::Node.new('PlatformLifecycleState', stub[:platform_lifecycle_state].to_s) unless stub[:platform_lifecycle_state].nil?
         xml << Hearth::XML::Node.new('PlatformBranchName', stub[:platform_branch_name].to_s) unless stub[:platform_branch_name].nil?
         xml << Hearth::XML::Node.new('PlatformBranchLifecycleState', stub[:platform_branch_lifecycle_state].to_s) unless stub[:platform_branch_lifecycle_state].nil?
@@ -2293,7 +2295,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::CustomAmi.stub(node_name, element) unless element.nil?
+          xml << CustomAmi.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2332,7 +2334,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PlatformFramework.stub(node_name, element) unless element.nil?
+          xml << PlatformFramework.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2371,7 +2373,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PlatformProgrammingLanguage.stub(node_name, element) unless element.nil?
+          xml << PlatformProgrammingLanguage.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2410,7 +2412,7 @@ module AWS::SDK::ElasticBeanstalk
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('DisassociateEnvironmentOperationsRoleResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2429,10 +2431,10 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('ListAvailableSolutionStacksResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('ListAvailableSolutionStacksResult')
-        xml << Hearth::XML::Node.new('SolutionStacks', Stubs::AvailableSolutionStackNamesList.stub('member', stub[:solution_stacks])) unless stub[:solution_stacks].nil?
-        xml << Hearth::XML::Node.new('SolutionStackDetails', Stubs::AvailableSolutionStackDetailsList.stub('member', stub[:solution_stack_details])) unless stub[:solution_stack_details].nil?
+        xml << Hearth::XML::Node.new('SolutionStacks', AvailableSolutionStackNamesList.stub('member', stub[:solution_stacks])) unless stub[:solution_stacks].nil?
+        xml << Hearth::XML::Node.new('SolutionStackDetails', AvailableSolutionStackDetailsList.stub('member', stub[:solution_stack_details])) unless stub[:solution_stack_details].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2450,7 +2452,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SolutionStackDescription.stub(node_name, element) unless element.nil?
+          xml << SolutionStackDescription.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2471,7 +2473,7 @@ module AWS::SDK::ElasticBeanstalk
         stub ||= Types::SolutionStackDescription.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('SolutionStackName', stub[:solution_stack_name].to_s) unless stub[:solution_stack_name].nil?
-        xml << Hearth::XML::Node.new('PermittedFileTypes', Stubs::SolutionStackFileTypeList.stub('member', stub[:permitted_file_types])) unless stub[:permitted_file_types].nil?
+        xml << Hearth::XML::Node.new('PermittedFileTypes', SolutionStackFileTypeList.stub('member', stub[:permitted_file_types])) unless stub[:permitted_file_types].nil?
         xml
       end
     end
@@ -2528,10 +2530,10 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('ListPlatformBranchesResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('ListPlatformBranchesResult')
-        xml << Hearth::XML::Node.new('PlatformBranchSummaryList', Stubs::PlatformBranchSummaryList.stub('member', stub[:platform_branch_summary_list])) unless stub[:platform_branch_summary_list].nil?
+        xml << Hearth::XML::Node.new('PlatformBranchSummaryList', PlatformBranchSummaryList.stub('member', stub[:platform_branch_summary_list])) unless stub[:platform_branch_summary_list].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2549,7 +2551,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PlatformBranchSummary.stub(node_name, element) unless element.nil?
+          xml << PlatformBranchSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2576,7 +2578,7 @@ module AWS::SDK::ElasticBeanstalk
         xml << Hearth::XML::Node.new('BranchName', stub[:branch_name].to_s) unless stub[:branch_name].nil?
         xml << Hearth::XML::Node.new('LifecycleState', stub[:lifecycle_state].to_s) unless stub[:lifecycle_state].nil?
         xml << Hearth::XML::Node.new('BranchOrder', stub[:branch_order].to_s) unless stub[:branch_order].nil?
-        xml << Hearth::XML::Node.new('SupportedTierList', Stubs::SupportedTierList.stub('member', stub[:supported_tier_list])) unless stub[:supported_tier_list].nil?
+        xml << Hearth::XML::Node.new('SupportedTierList', SupportedTierList.stub('member', stub[:supported_tier_list])) unless stub[:supported_tier_list].nil?
         xml
       end
     end
@@ -2595,10 +2597,10 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('ListPlatformVersionsResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('ListPlatformVersionsResult')
-        xml << Hearth::XML::Node.new('PlatformSummaryList', Stubs::PlatformSummaryList.stub('member', stub[:platform_summary_list])) unless stub[:platform_summary_list].nil?
+        xml << Hearth::XML::Node.new('PlatformSummaryList', PlatformSummaryList.stub('member', stub[:platform_summary_list])) unless stub[:platform_summary_list].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2616,7 +2618,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PlatformSummary.stub(node_name, element) unless element.nil?
+          xml << PlatformSummary.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2637,9 +2639,9 @@ module AWS::SDK::ElasticBeanstalk
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('ListTagsForResourceResult')
         xml << Hearth::XML::Node.new('ResourceArn', stub[:resource_arn].to_s) unless stub[:resource_arn].nil?
-        xml << Hearth::XML::Node.new('ResourceTags', Stubs::TagList.stub('member', stub[:resource_tags])) unless stub[:resource_tags].nil?
+        xml << Hearth::XML::Node.new('ResourceTags', TagList.stub('member', stub[:resource_tags])) unless stub[:resource_tags].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2657,7 +2659,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Tag.stub(node_name, element) unless element.nil?
+          xml << Tag.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2696,7 +2698,7 @@ module AWS::SDK::ElasticBeanstalk
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('RebuildEnvironmentResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2714,7 +2716,7 @@ module AWS::SDK::ElasticBeanstalk
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('RequestEnvironmentInfoResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2732,7 +2734,7 @@ module AWS::SDK::ElasticBeanstalk
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('RestartAppServerResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2750,9 +2752,9 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('RetrieveEnvironmentInfoResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('RetrieveEnvironmentInfoResult')
-        xml << Hearth::XML::Node.new('EnvironmentInfo', Stubs::EnvironmentInfoDescriptionList.stub('member', stub[:environment_info])) unless stub[:environment_info].nil?
+        xml << Hearth::XML::Node.new('EnvironmentInfo', EnvironmentInfoDescriptionList.stub('member', stub[:environment_info])) unless stub[:environment_info].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2770,7 +2772,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::EnvironmentInfoDescription.stub(node_name, element) unless element.nil?
+          xml << EnvironmentInfoDescription.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2813,7 +2815,7 @@ module AWS::SDK::ElasticBeanstalk
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('SwapEnvironmentCNAMEsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2867,13 +2869,13 @@ module AWS::SDK::ElasticBeanstalk
         xml << Hearth::XML::Node.new('AbortableOperationInProgress', stub[:abortable_operation_in_progress].to_s) unless stub[:abortable_operation_in_progress].nil?
         xml << Hearth::XML::Node.new('Health', stub[:health].to_s) unless stub[:health].nil?
         xml << Hearth::XML::Node.new('HealthStatus', stub[:health_status].to_s) unless stub[:health_status].nil?
-        xml << Stubs::EnvironmentResourcesDescription.stub('Resources', stub[:resources]) unless stub[:resources].nil?
-        xml << Stubs::EnvironmentTier.stub('Tier', stub[:tier]) unless stub[:tier].nil?
-        xml << Hearth::XML::Node.new('EnvironmentLinks', Stubs::EnvironmentLinks.stub('member', stub[:environment_links])) unless stub[:environment_links].nil?
+        xml << EnvironmentResourcesDescription.stub('Resources', stub[:resources]) unless stub[:resources].nil?
+        xml << EnvironmentTier.stub('Tier', stub[:tier]) unless stub[:tier].nil?
+        xml << Hearth::XML::Node.new('EnvironmentLinks', EnvironmentLinks.stub('member', stub[:environment_links])) unless stub[:environment_links].nil?
         xml << Hearth::XML::Node.new('EnvironmentArn', stub[:environment_arn].to_s) unless stub[:environment_arn].nil?
         xml << Hearth::XML::Node.new('OperationsRole', stub[:operations_role].to_s) unless stub[:operations_role].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2891,9 +2893,9 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('UpdateApplicationResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('UpdateApplicationResult')
-        xml << Stubs::ApplicationDescription.stub('Application', stub[:application]) unless stub[:application].nil?
+        xml << ApplicationDescription.stub('Application', stub[:application]) unless stub[:application].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2913,9 +2915,9 @@ module AWS::SDK::ElasticBeanstalk
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('UpdateApplicationResourceLifecycleResult')
         xml << Hearth::XML::Node.new('ApplicationName', stub[:application_name].to_s) unless stub[:application_name].nil?
-        xml << Stubs::ApplicationResourceLifecycleConfig.stub('ResourceLifecycleConfig', stub[:resource_lifecycle_config]) unless stub[:resource_lifecycle_config].nil?
+        xml << ApplicationResourceLifecycleConfig.stub('ResourceLifecycleConfig', stub[:resource_lifecycle_config]) unless stub[:resource_lifecycle_config].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2933,9 +2935,9 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('UpdateApplicationVersionResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('UpdateApplicationVersionResult')
-        xml << Stubs::ApplicationVersionDescription.stub('ApplicationVersion', stub[:application_version]) unless stub[:application_version].nil?
+        xml << ApplicationVersionDescription.stub('ApplicationVersion', stub[:application_version]) unless stub[:application_version].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2971,9 +2973,9 @@ module AWS::SDK::ElasticBeanstalk
         xml << Hearth::XML::Node.new('DeploymentStatus', stub[:deployment_status].to_s) unless stub[:deployment_status].nil?
         xml << Hearth::XML::Node.new('DateCreated', Hearth::TimeHelper.to_date_time(stub[:date_created])) unless stub[:date_created].nil?
         xml << Hearth::XML::Node.new('DateUpdated', Hearth::TimeHelper.to_date_time(stub[:date_updated])) unless stub[:date_updated].nil?
-        xml << Hearth::XML::Node.new('OptionSettings', Stubs::ConfigurationOptionSettingsList.stub('member', stub[:option_settings])) unless stub[:option_settings].nil?
+        xml << Hearth::XML::Node.new('OptionSettings', ConfigurationOptionSettingsList.stub('member', stub[:option_settings])) unless stub[:option_settings].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3027,13 +3029,13 @@ module AWS::SDK::ElasticBeanstalk
         xml << Hearth::XML::Node.new('AbortableOperationInProgress', stub[:abortable_operation_in_progress].to_s) unless stub[:abortable_operation_in_progress].nil?
         xml << Hearth::XML::Node.new('Health', stub[:health].to_s) unless stub[:health].nil?
         xml << Hearth::XML::Node.new('HealthStatus', stub[:health_status].to_s) unless stub[:health_status].nil?
-        xml << Stubs::EnvironmentResourcesDescription.stub('Resources', stub[:resources]) unless stub[:resources].nil?
-        xml << Stubs::EnvironmentTier.stub('Tier', stub[:tier]) unless stub[:tier].nil?
-        xml << Hearth::XML::Node.new('EnvironmentLinks', Stubs::EnvironmentLinks.stub('member', stub[:environment_links])) unless stub[:environment_links].nil?
+        xml << EnvironmentResourcesDescription.stub('Resources', stub[:resources]) unless stub[:resources].nil?
+        xml << EnvironmentTier.stub('Tier', stub[:tier]) unless stub[:tier].nil?
+        xml << Hearth::XML::Node.new('EnvironmentLinks', EnvironmentLinks.stub('member', stub[:environment_links])) unless stub[:environment_links].nil?
         xml << Hearth::XML::Node.new('EnvironmentArn', stub[:environment_arn].to_s) unless stub[:environment_arn].nil?
         xml << Hearth::XML::Node.new('OperationsRole', stub[:operations_role].to_s) unless stub[:operations_role].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3051,7 +3053,7 @@ module AWS::SDK::ElasticBeanstalk
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('UpdateTagsForResourceResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3069,9 +3071,9 @@ module AWS::SDK::ElasticBeanstalk
         response = Hearth::XML::Node.new('ValidateConfigurationSettingsResponse')
         response.attributes['xmlns'] = 'http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/'
         xml = Hearth::XML::Node.new('ValidateConfigurationSettingsResult')
-        xml << Hearth::XML::Node.new('Messages', Stubs::ValidationMessagesList.stub('member', stub[:messages])) unless stub[:messages].nil?
+        xml << Hearth::XML::Node.new('Messages', ValidationMessagesList.stub('member', stub[:messages])) unless stub[:messages].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3089,7 +3091,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ValidationMessage.stub(node_name, element) unless element.nil?
+          xml << ValidationMessage.stub(node_name, element) unless element.nil?
         end
         xml
       end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::WorkDocs
   module Builders
 
@@ -67,9 +69,9 @@ module AWS::SDK::WorkDocs
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Principals'] = Builders::SharePrincipalList.build(input[:principals]) unless input[:principals].nil?
-        data['NotificationOptions'] = Builders::NotificationOptions.build(input[:notification_options]) unless input[:notification_options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Principals'] = SharePrincipalList.build(input[:principals]) unless input[:principals].nil?
+        data['NotificationOptions'] = NotificationOptions.build(input[:notification_options]) unless input[:notification_options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['Authentication'] = input[:authentication_token] unless input[:authentication_token].nil? || input[:authentication_token].empty?
       end
     end
@@ -89,7 +91,7 @@ module AWS::SDK::WorkDocs
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SharePrincipal.build(element) unless element.nil?
+          data << SharePrincipal.build(element) unless element.nil?
         end
         data
       end
@@ -132,7 +134,7 @@ module AWS::SDK::WorkDocs
         data['Text'] = input[:text] unless input[:text].nil?
         data['Visibility'] = input[:visibility] unless input[:visibility].nil?
         data['NotifyCollaborators'] = input[:notify_collaborators] unless input[:notify_collaborators].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['Authentication'] = input[:authentication_token] unless input[:authentication_token].nil? || input[:authentication_token].empty?
       end
     end
@@ -155,8 +157,8 @@ module AWS::SDK::WorkDocs
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['CustomMetadata'] = Builders::CustomMetadataMap.build(input[:custom_metadata]) unless input[:custom_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CustomMetadata'] = CustomMetadataMap.build(input[:custom_metadata]) unless input[:custom_metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['Authentication'] = input[:authentication_token] unless input[:authentication_token].nil? || input[:authentication_token].empty?
       end
     end
@@ -184,7 +186,7 @@ module AWS::SDK::WorkDocs
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['ParentFolderId'] = input[:parent_folder_id] unless input[:parent_folder_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['Authentication'] = input[:authentication_token] unless input[:authentication_token].nil? || input[:authentication_token].empty?
       end
     end
@@ -206,8 +208,8 @@ module AWS::SDK::WorkDocs
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Labels'] = Builders::SharedLabels.build(input[:labels]) unless input[:labels].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Labels'] = SharedLabels.build(input[:labels]) unless input[:labels].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['Authentication'] = input[:authentication_token] unless input[:authentication_token].nil? || input[:authentication_token].empty?
       end
     end
@@ -243,7 +245,7 @@ module AWS::SDK::WorkDocs
         data['Endpoint'] = input[:endpoint] unless input[:endpoint].nil?
         data['Protocol'] = input[:protocol] unless input[:protocol].nil?
         data['SubscriptionType'] = input[:subscription_type] unless input[:subscription_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -264,8 +266,8 @@ module AWS::SDK::WorkDocs
         data['Surname'] = input[:surname] unless input[:surname].nil?
         data['Password'] = input[:password] unless input[:password].nil?
         data['TimeZoneId'] = input[:time_zone_id] unless input[:time_zone_id].nil?
-        data['StorageRule'] = Builders::StorageRuleType.build(input[:storage_rule]) unless input[:storage_rule].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StorageRule'] = StorageRuleType.build(input[:storage_rule]) unless input[:storage_rule].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['Authentication'] = input[:authentication_token] unless input[:authentication_token].nil? || input[:authentication_token].empty?
       end
     end
@@ -802,7 +804,7 @@ module AWS::SDK::WorkDocs
         data['ContentType'] = input[:content_type] unless input[:content_type].nil?
         data['DocumentSizeInBytes'] = input[:document_size_in_bytes] unless input[:document_size_in_bytes].nil?
         data['ParentFolderId'] = input[:parent_folder_id] unless input[:parent_folder_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['Authentication'] = input[:authentication_token] unless input[:authentication_token].nil? || input[:authentication_token].empty?
       end
     end
@@ -868,7 +870,7 @@ module AWS::SDK::WorkDocs
         data['Name'] = input[:name] unless input[:name].nil?
         data['ParentFolderId'] = input[:parent_folder_id] unless input[:parent_folder_id].nil?
         data['ResourceState'] = input[:resource_state] unless input[:resource_state].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['Authentication'] = input[:authentication_token] unless input[:authentication_token].nil? || input[:authentication_token].empty?
       end
     end
@@ -895,7 +897,7 @@ module AWS::SDK::WorkDocs
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['VersionStatus'] = input[:version_status] unless input[:version_status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['Authentication'] = input[:authentication_token] unless input[:authentication_token].nil? || input[:authentication_token].empty?
       end
     end
@@ -920,7 +922,7 @@ module AWS::SDK::WorkDocs
         data['Name'] = input[:name] unless input[:name].nil?
         data['ParentFolderId'] = input[:parent_folder_id] unless input[:parent_folder_id].nil?
         data['ResourceState'] = input[:resource_state] unless input[:resource_state].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['Authentication'] = input[:authentication_token] unless input[:authentication_token].nil? || input[:authentication_token].empty?
       end
     end
@@ -945,11 +947,11 @@ module AWS::SDK::WorkDocs
         data['GivenName'] = input[:given_name] unless input[:given_name].nil?
         data['Surname'] = input[:surname] unless input[:surname].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        data['StorageRule'] = Builders::StorageRuleType.build(input[:storage_rule]) unless input[:storage_rule].nil?
+        data['StorageRule'] = StorageRuleType.build(input[:storage_rule]) unless input[:storage_rule].nil?
         data['TimeZoneId'] = input[:time_zone_id] unless input[:time_zone_id].nil?
         data['Locale'] = input[:locale] unless input[:locale].nil?
         data['GrantPoweruserPrivileges'] = input[:grant_poweruser_privileges] unless input[:grant_poweruser_privileges].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['Authentication'] = input[:authentication_token] unless input[:authentication_token].nil? || input[:authentication_token].empty?
       end
     end

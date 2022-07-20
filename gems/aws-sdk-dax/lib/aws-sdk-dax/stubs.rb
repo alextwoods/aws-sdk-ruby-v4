@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DAX
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::DAX
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -63,16 +65,16 @@ module AWS::SDK::DAX
         data['ActiveNodes'] = stub[:active_nodes] unless stub[:active_nodes].nil?
         data['NodeType'] = stub[:node_type] unless stub[:node_type].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['ClusterDiscoveryEndpoint'] = Stubs::Endpoint.stub(stub[:cluster_discovery_endpoint]) unless stub[:cluster_discovery_endpoint].nil?
-        data['NodeIdsToRemove'] = Stubs::NodeIdentifierList.stub(stub[:node_ids_to_remove]) unless stub[:node_ids_to_remove].nil?
-        data['Nodes'] = Stubs::NodeList.stub(stub[:nodes]) unless stub[:nodes].nil?
+        data['ClusterDiscoveryEndpoint'] = Endpoint.stub(stub[:cluster_discovery_endpoint]) unless stub[:cluster_discovery_endpoint].nil?
+        data['NodeIdsToRemove'] = NodeIdentifierList.stub(stub[:node_ids_to_remove]) unless stub[:node_ids_to_remove].nil?
+        data['Nodes'] = NodeList.stub(stub[:nodes]) unless stub[:nodes].nil?
         data['PreferredMaintenanceWindow'] = stub[:preferred_maintenance_window] unless stub[:preferred_maintenance_window].nil?
-        data['NotificationConfiguration'] = Stubs::NotificationConfiguration.stub(stub[:notification_configuration]) unless stub[:notification_configuration].nil?
+        data['NotificationConfiguration'] = NotificationConfiguration.stub(stub[:notification_configuration]) unless stub[:notification_configuration].nil?
         data['SubnetGroup'] = stub[:subnet_group] unless stub[:subnet_group].nil?
-        data['SecurityGroups'] = Stubs::SecurityGroupMembershipList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['SecurityGroups'] = SecurityGroupMembershipList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
         data['IamRoleArn'] = stub[:iam_role_arn] unless stub[:iam_role_arn].nil?
-        data['ParameterGroup'] = Stubs::ParameterGroupStatus.stub(stub[:parameter_group]) unless stub[:parameter_group].nil?
-        data['SSEDescription'] = Stubs::SSEDescription.stub(stub[:sse_description]) unless stub[:sse_description].nil?
+        data['ParameterGroup'] = ParameterGroupStatus.stub(stub[:parameter_group]) unless stub[:parameter_group].nil?
+        data['SSEDescription'] = SSEDescription.stub(stub[:sse_description]) unless stub[:sse_description].nil?
         data['ClusterEndpointEncryptionType'] = stub[:cluster_endpoint_encryption_type] unless stub[:cluster_endpoint_encryption_type].nil?
         data
       end
@@ -113,7 +115,7 @@ module AWS::SDK::DAX
         data = {}
         data['ParameterGroupName'] = stub[:parameter_group_name] unless stub[:parameter_group_name].nil?
         data['ParameterApplyStatus'] = stub[:parameter_apply_status] unless stub[:parameter_apply_status].nil?
-        data['NodeIdsToReboot'] = Stubs::NodeIdentifierList.stub(stub[:node_ids_to_reboot]) unless stub[:node_ids_to_reboot].nil?
+        data['NodeIdsToReboot'] = NodeIdentifierList.stub(stub[:node_ids_to_reboot]) unless stub[:node_ids_to_reboot].nil?
         data
       end
     end
@@ -152,7 +154,7 @@ module AWS::SDK::DAX
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SecurityGroupMembership.stub(element) unless element.nil?
+          data << SecurityGroupMembership.stub(element) unless element.nil?
         end
         data
       end
@@ -212,7 +214,7 @@ module AWS::SDK::DAX
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Node.stub(element) unless element.nil?
+          data << Node.stub(element) unless element.nil?
         end
         data
       end
@@ -237,7 +239,7 @@ module AWS::SDK::DAX
         stub ||= Types::Node.new
         data = {}
         data['NodeId'] = stub[:node_id] unless stub[:node_id].nil?
-        data['Endpoint'] = Stubs::Endpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
+        data['Endpoint'] = Endpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
         data['NodeCreateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:node_create_time]).to_i unless stub[:node_create_time].nil?
         data['AvailabilityZone'] = stub[:availability_zone] unless stub[:availability_zone].nil?
         data['NodeStatus'] = stub[:node_status] unless stub[:node_status].nil?
@@ -278,8 +280,8 @@ module AWS::SDK::DAX
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ParameterGroup'] = Stubs::ParameterGroup.stub(stub[:parameter_group]) unless stub[:parameter_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ParameterGroup'] = ParameterGroup.stub(stub[:parameter_group]) unless stub[:parameter_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -314,8 +316,8 @@ module AWS::SDK::DAX
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SubnetGroup'] = Stubs::SubnetGroup.stub(stub[:subnet_group]) unless stub[:subnet_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubnetGroup'] = SubnetGroup.stub(stub[:subnet_group]) unless stub[:subnet_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -339,7 +341,7 @@ module AWS::SDK::DAX
         data['SubnetGroupName'] = stub[:subnet_group_name] unless stub[:subnet_group_name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['Subnets'] = Stubs::SubnetList.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['Subnets'] = SubnetList.stub(stub[:subnets]) unless stub[:subnets].nil?
         data
       end
     end
@@ -358,7 +360,7 @@ module AWS::SDK::DAX
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Subnet.stub(element) unless element.nil?
+          data << Subnet.stub(element) unless element.nil?
         end
         data
       end
@@ -394,8 +396,8 @@ module AWS::SDK::DAX
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -410,8 +412,8 @@ module AWS::SDK::DAX
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -427,7 +429,7 @@ module AWS::SDK::DAX
       def self.stub(http_resp, stub:)
         data = {}
         data['DeletionMessage'] = stub[:deletion_message] unless stub[:deletion_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -443,7 +445,7 @@ module AWS::SDK::DAX
       def self.stub(http_resp, stub:)
         data = {}
         data['DeletionMessage'] = stub[:deletion_message] unless stub[:deletion_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -460,8 +462,8 @@ module AWS::SDK::DAX
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Clusters'] = Stubs::ClusterList.stub(stub[:clusters]) unless stub[:clusters].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Clusters'] = ClusterList.stub(stub[:clusters]) unless stub[:clusters].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -480,7 +482,7 @@ module AWS::SDK::DAX
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Cluster.stub(element) unless element.nil?
+          data << Cluster.stub(element) unless element.nil?
         end
         data
       end
@@ -498,8 +500,8 @@ module AWS::SDK::DAX
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Parameters'] = Stubs::ParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Parameters'] = ParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -518,7 +520,7 @@ module AWS::SDK::DAX
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Parameter.stub(element) unless element.nil?
+          data << Parameter.stub(element) unless element.nil?
         end
         data
       end
@@ -549,7 +551,7 @@ module AWS::SDK::DAX
         data['ParameterName'] = stub[:parameter_name] unless stub[:parameter_name].nil?
         data['ParameterType'] = stub[:parameter_type] unless stub[:parameter_type].nil?
         data['ParameterValue'] = stub[:parameter_value] unless stub[:parameter_value].nil?
-        data['NodeTypeSpecificValues'] = Stubs::NodeTypeSpecificValueList.stub(stub[:node_type_specific_values]) unless stub[:node_type_specific_values].nil?
+        data['NodeTypeSpecificValues'] = NodeTypeSpecificValueList.stub(stub[:node_type_specific_values]) unless stub[:node_type_specific_values].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Source'] = stub[:source] unless stub[:source].nil?
         data['DataType'] = stub[:data_type] unless stub[:data_type].nil?
@@ -574,7 +576,7 @@ module AWS::SDK::DAX
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NodeTypeSpecificValue.stub(element) unless element.nil?
+          data << NodeTypeSpecificValue.stub(element) unless element.nil?
         end
         data
       end
@@ -612,8 +614,8 @@ module AWS::SDK::DAX
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Events'] = Stubs::EventList.stub(stub[:events]) unless stub[:events].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Events'] = EventList.stub(stub[:events]) unless stub[:events].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -632,7 +634,7 @@ module AWS::SDK::DAX
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Event.stub(element) unless element.nil?
+          data << Event.stub(element) unless element.nil?
         end
         data
       end
@@ -674,8 +676,8 @@ module AWS::SDK::DAX
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ParameterGroups'] = Stubs::ParameterGroupList.stub(stub[:parameter_groups]) unless stub[:parameter_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ParameterGroups'] = ParameterGroupList.stub(stub[:parameter_groups]) unless stub[:parameter_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -694,7 +696,7 @@ module AWS::SDK::DAX
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ParameterGroup.stub(element) unless element.nil?
+          data << ParameterGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -712,8 +714,8 @@ module AWS::SDK::DAX
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Parameters'] = Stubs::ParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Parameters'] = ParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -730,8 +732,8 @@ module AWS::SDK::DAX
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['SubnetGroups'] = Stubs::SubnetGroupList.stub(stub[:subnet_groups]) unless stub[:subnet_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubnetGroups'] = SubnetGroupList.stub(stub[:subnet_groups]) unless stub[:subnet_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -750,7 +752,7 @@ module AWS::SDK::DAX
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SubnetGroup.stub(element) unless element.nil?
+          data << SubnetGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -766,8 +768,8 @@ module AWS::SDK::DAX
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -783,9 +785,9 @@ module AWS::SDK::DAX
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -804,7 +806,7 @@ module AWS::SDK::DAX
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -840,8 +842,8 @@ module AWS::SDK::DAX
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -856,8 +858,8 @@ module AWS::SDK::DAX
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -872,8 +874,8 @@ module AWS::SDK::DAX
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -888,8 +890,8 @@ module AWS::SDK::DAX
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -904,8 +906,8 @@ module AWS::SDK::DAX
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ParameterGroup'] = Stubs::ParameterGroup.stub(stub[:parameter_group]) unless stub[:parameter_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ParameterGroup'] = ParameterGroup.stub(stub[:parameter_group]) unless stub[:parameter_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -920,8 +922,8 @@ module AWS::SDK::DAX
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SubnetGroup'] = Stubs::SubnetGroup.stub(stub[:subnet_group]) unless stub[:subnet_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubnetGroup'] = SubnetGroup.stub(stub[:subnet_group]) unless stub[:subnet_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

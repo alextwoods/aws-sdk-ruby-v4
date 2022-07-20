@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::WellArchitected
   module Builders
 
@@ -27,8 +29,8 @@ module AWS::SDK::WellArchitected
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['LensAliases'] = Builders::LensAliases.build(input[:lens_aliases]) unless input[:lens_aliases].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LensAliases'] = LensAliases.build(input[:lens_aliases]) unless input[:lens_aliases].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -62,7 +64,7 @@ module AWS::SDK::WellArchitected
         data = {}
         data['SharedWith'] = input[:shared_with] unless input[:shared_with].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -86,7 +88,7 @@ module AWS::SDK::WellArchitected
         data['LensVersion'] = input[:lens_version] unless input[:lens_version].nil?
         data['IsMajorVersion'] = input[:is_major_version] unless input[:is_major_version].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -109,7 +111,7 @@ module AWS::SDK::WellArchitected
         data = {}
         data['MilestoneName'] = input[:milestone_name] unless input[:milestone_name].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -126,19 +128,19 @@ module AWS::SDK::WellArchitected
         data['WorkloadName'] = input[:workload_name] unless input[:workload_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Environment'] = input[:environment] unless input[:environment].nil?
-        data['AccountIds'] = Builders::WorkloadAccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        data['AwsRegions'] = Builders::WorkloadAwsRegions.build(input[:aws_regions]) unless input[:aws_regions].nil?
-        data['NonAwsRegions'] = Builders::WorkloadNonAwsRegions.build(input[:non_aws_regions]) unless input[:non_aws_regions].nil?
-        data['PillarPriorities'] = Builders::WorkloadPillarPriorities.build(input[:pillar_priorities]) unless input[:pillar_priorities].nil?
+        data['AccountIds'] = WorkloadAccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['AwsRegions'] = WorkloadAwsRegions.build(input[:aws_regions]) unless input[:aws_regions].nil?
+        data['NonAwsRegions'] = WorkloadNonAwsRegions.build(input[:non_aws_regions]) unless input[:non_aws_regions].nil?
+        data['PillarPriorities'] = WorkloadPillarPriorities.build(input[:pillar_priorities]) unless input[:pillar_priorities].nil?
         data['ArchitecturalDesign'] = input[:architectural_design] unless input[:architectural_design].nil?
         data['ReviewOwner'] = input[:review_owner] unless input[:review_owner].nil?
         data['IndustryType'] = input[:industry_type] unless input[:industry_type].nil?
         data['Industry'] = input[:industry] unless input[:industry].nil?
-        data['Lenses'] = Builders::WorkloadLenses.build(input[:lenses]) unless input[:lenses].nil?
+        data['Lenses'] = WorkloadLenses.build(input[:lenses]) unless input[:lenses].nil?
         data['Notes'] = input[:notes] unless input[:notes].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -228,7 +230,7 @@ module AWS::SDK::WellArchitected
         data['SharedWith'] = input[:shared_with] unless input[:shared_with].nil?
         data['PermissionType'] = input[:permission_type] unless input[:permission_type].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -330,8 +332,8 @@ module AWS::SDK::WellArchitected
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['LensAliases'] = Builders::LensAliases.build(input[:lens_aliases]) unless input[:lens_aliases].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LensAliases'] = LensAliases.build(input[:lens_aliases]) unless input[:lens_aliases].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -511,8 +513,8 @@ module AWS::SDK::WellArchitected
         data['LensAlias'] = input[:lens_alias] unless input[:lens_alias].nil?
         data['JSONString'] = input[:json_string] unless input[:json_string].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -640,7 +642,7 @@ module AWS::SDK::WellArchitected
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -657,7 +659,7 @@ module AWS::SDK::WellArchitected
         data['WorkloadId'] = input[:workload_id] unless input[:workload_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -726,7 +728,7 @@ module AWS::SDK::WellArchitected
         data['WorkloadNamePrefix'] = input[:workload_name_prefix] unless input[:workload_name_prefix].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -747,8 +749,8 @@ module AWS::SDK::WellArchitected
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -810,12 +812,12 @@ module AWS::SDK::WellArchitected
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['SelectedChoices'] = Builders::SelectedChoices.build(input[:selected_choices]) unless input[:selected_choices].nil?
-        data['ChoiceUpdates'] = Builders::ChoiceUpdates.build(input[:choice_updates]) unless input[:choice_updates].nil?
+        data['SelectedChoices'] = SelectedChoices.build(input[:selected_choices]) unless input[:selected_choices].nil?
+        data['ChoiceUpdates'] = ChoiceUpdates.build(input[:choice_updates]) unless input[:choice_updates].nil?
         data['Notes'] = input[:notes] unless input[:notes].nil?
         data['IsApplicable'] = input[:is_applicable] unless input[:is_applicable].nil?
         data['Reason'] = input[:reason] unless input[:reason].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -824,7 +826,7 @@ module AWS::SDK::WellArchitected
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ChoiceUpdate.build(value) unless value.nil?
+          data[key] = ChoiceUpdate.build(value) unless value.nil?
         end
         data
       end
@@ -874,8 +876,8 @@ module AWS::SDK::WellArchitected
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['LensNotes'] = input[:lens_notes] unless input[:lens_notes].nil?
-        data['PillarNotes'] = Builders::PillarNotes.build(input[:pillar_notes]) unless input[:pillar_notes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PillarNotes'] = PillarNotes.build(input[:pillar_notes]) unless input[:pillar_notes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -908,7 +910,7 @@ module AWS::SDK::WellArchitected
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ShareInvitationAction'] = input[:share_invitation_action] unless input[:share_invitation_action].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -932,10 +934,10 @@ module AWS::SDK::WellArchitected
         data['WorkloadName'] = input[:workload_name] unless input[:workload_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Environment'] = input[:environment] unless input[:environment].nil?
-        data['AccountIds'] = Builders::WorkloadAccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
-        data['AwsRegions'] = Builders::WorkloadAwsRegions.build(input[:aws_regions]) unless input[:aws_regions].nil?
-        data['NonAwsRegions'] = Builders::WorkloadNonAwsRegions.build(input[:non_aws_regions]) unless input[:non_aws_regions].nil?
-        data['PillarPriorities'] = Builders::WorkloadPillarPriorities.build(input[:pillar_priorities]) unless input[:pillar_priorities].nil?
+        data['AccountIds'] = WorkloadAccountIds.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['AwsRegions'] = WorkloadAwsRegions.build(input[:aws_regions]) unless input[:aws_regions].nil?
+        data['NonAwsRegions'] = WorkloadNonAwsRegions.build(input[:non_aws_regions]) unless input[:non_aws_regions].nil?
+        data['PillarPriorities'] = WorkloadPillarPriorities.build(input[:pillar_priorities]) unless input[:pillar_priorities].nil?
         data['ArchitecturalDesign'] = input[:architectural_design] unless input[:architectural_design].nil?
         data['ReviewOwner'] = input[:review_owner] unless input[:review_owner].nil?
         data['IsReviewOwnerUpdateAcknowledged'] = input[:is_review_owner_update_acknowledged] unless input[:is_review_owner_update_acknowledged].nil?
@@ -943,7 +945,7 @@ module AWS::SDK::WellArchitected
         data['Industry'] = input[:industry] unless input[:industry].nil?
         data['Notes'] = input[:notes] unless input[:notes].nil?
         data['ImprovementStatus'] = input[:improvement_status] unless input[:improvement_status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -969,7 +971,7 @@ module AWS::SDK::WellArchitected
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['PermissionType'] = input[:permission_type] unless input[:permission_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -996,7 +998,7 @@ module AWS::SDK::WellArchitected
         data = {}
         data['MilestoneName'] = input[:milestone_name] unless input[:milestone_name].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -113,7 +113,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.parse(http_resp)
         data = Types::CreateAppInstanceAdminOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instance_admin = (Parsers::Identity.parse(map['AppInstanceAdmin']) unless map['AppInstanceAdmin'].nil?)
+        data.app_instance_admin = (Identity.parse(map['AppInstanceAdmin']) unless map['AppInstanceAdmin'].nil?)
         data.app_instance_arn = map['AppInstanceArn']
         data
       end
@@ -179,7 +179,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.parse(http_resp)
         data = Types::DescribeAppInstanceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instance = (Parsers::AppInstance.parse(map['AppInstance']) unless map['AppInstance'].nil?)
+        data.app_instance = (AppInstance.parse(map['AppInstance']) unless map['AppInstance'].nil?)
         data
       end
     end
@@ -201,7 +201,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.parse(http_resp)
         data = Types::DescribeAppInstanceAdminOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instance_admin = (Parsers::AppInstanceAdmin.parse(map['AppInstanceAdmin']) unless map['AppInstanceAdmin'].nil?)
+        data.app_instance_admin = (AppInstanceAdmin.parse(map['AppInstanceAdmin']) unless map['AppInstanceAdmin'].nil?)
         data
       end
     end
@@ -209,7 +209,7 @@ module AWS::SDK::ChimeSDKIdentity
     class AppInstanceAdmin
       def self.parse(map)
         data = Types::AppInstanceAdmin.new
-        data.admin = (Parsers::Identity.parse(map['Admin']) unless map['Admin'].nil?)
+        data.admin = (Identity.parse(map['Admin']) unless map['Admin'].nil?)
         data.app_instance_arn = map['AppInstanceArn']
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
         return data
@@ -221,7 +221,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.parse(http_resp)
         data = Types::DescribeAppInstanceUserOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instance_user = (Parsers::AppInstanceUser.parse(map['AppInstanceUser']) unless map['AppInstanceUser'].nil?)
+        data.app_instance_user = (AppInstanceUser.parse(map['AppInstanceUser']) unless map['AppInstanceUser'].nil?)
         data
       end
     end
@@ -243,7 +243,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.parse(http_resp)
         data = Types::DescribeAppInstanceUserEndpointOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instance_user_endpoint = (Parsers::AppInstanceUserEndpoint.parse(map['AppInstanceUserEndpoint']) unless map['AppInstanceUserEndpoint'].nil?)
+        data.app_instance_user_endpoint = (AppInstanceUserEndpoint.parse(map['AppInstanceUserEndpoint']) unless map['AppInstanceUserEndpoint'].nil?)
         data
       end
     end
@@ -256,11 +256,11 @@ module AWS::SDK::ChimeSDKIdentity
         data.name = map['Name']
         data.type = map['Type']
         data.resource_arn = map['ResourceArn']
-        data.endpoint_attributes = (Parsers::EndpointAttributes.parse(map['EndpointAttributes']) unless map['EndpointAttributes'].nil?)
+        data.endpoint_attributes = (EndpointAttributes.parse(map['EndpointAttributes']) unless map['EndpointAttributes'].nil?)
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
         data.last_updated_timestamp = Time.at(map['LastUpdatedTimestamp'].to_i) if map['LastUpdatedTimestamp']
         data.allow_messages = map['AllowMessages']
-        data.endpoint_state = (Parsers::EndpointState.parse(map['EndpointState']) unless map['EndpointState'].nil?)
+        data.endpoint_state = (EndpointState.parse(map['EndpointState']) unless map['EndpointState'].nil?)
         return data
       end
     end
@@ -288,7 +288,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.parse(http_resp)
         data = Types::GetAppInstanceRetentionSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instance_retention_settings = (Parsers::AppInstanceRetentionSettings.parse(map['AppInstanceRetentionSettings']) unless map['AppInstanceRetentionSettings'].nil?)
+        data.app_instance_retention_settings = (AppInstanceRetentionSettings.parse(map['AppInstanceRetentionSettings']) unless map['AppInstanceRetentionSettings'].nil?)
         data.initiate_deletion_timestamp = Time.at(map['InitiateDeletionTimestamp'].to_i) if map['InitiateDeletionTimestamp']
         data
       end
@@ -297,7 +297,7 @@ module AWS::SDK::ChimeSDKIdentity
     class AppInstanceRetentionSettings
       def self.parse(map)
         data = Types::AppInstanceRetentionSettings.new
-        data.channel_retention_settings = (Parsers::ChannelRetentionSettings.parse(map['ChannelRetentionSettings']) unless map['ChannelRetentionSettings'].nil?)
+        data.channel_retention_settings = (ChannelRetentionSettings.parse(map['ChannelRetentionSettings']) unless map['ChannelRetentionSettings'].nil?)
         return data
       end
     end
@@ -316,7 +316,7 @@ module AWS::SDK::ChimeSDKIdentity
         data = Types::ListAppInstanceAdminsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.app_instance_arn = map['AppInstanceArn']
-        data.app_instance_admins = (Parsers::AppInstanceAdminList.parse(map['AppInstanceAdmins']) unless map['AppInstanceAdmins'].nil?)
+        data.app_instance_admins = (AppInstanceAdminList.parse(map['AppInstanceAdmins']) unless map['AppInstanceAdmins'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -326,7 +326,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AppInstanceAdminSummary.parse(value) unless value.nil?
+          data << AppInstanceAdminSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -335,7 +335,7 @@ module AWS::SDK::ChimeSDKIdentity
     class AppInstanceAdminSummary
       def self.parse(map)
         data = Types::AppInstanceAdminSummary.new
-        data.admin = (Parsers::Identity.parse(map['Admin']) unless map['Admin'].nil?)
+        data.admin = (Identity.parse(map['Admin']) unless map['Admin'].nil?)
         return data
       end
     end
@@ -345,7 +345,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.parse(http_resp)
         data = Types::ListAppInstanceUserEndpointsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instance_user_endpoints = (Parsers::AppInstanceUserEndpointSummaryList.parse(map['AppInstanceUserEndpoints']) unless map['AppInstanceUserEndpoints'].nil?)
+        data.app_instance_user_endpoints = (AppInstanceUserEndpointSummaryList.parse(map['AppInstanceUserEndpoints']) unless map['AppInstanceUserEndpoints'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -355,7 +355,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AppInstanceUserEndpointSummary.parse(value) unless value.nil?
+          data << AppInstanceUserEndpointSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -369,7 +369,7 @@ module AWS::SDK::ChimeSDKIdentity
         data.name = map['Name']
         data.type = map['Type']
         data.allow_messages = map['AllowMessages']
-        data.endpoint_state = (Parsers::EndpointState.parse(map['EndpointState']) unless map['EndpointState'].nil?)
+        data.endpoint_state = (EndpointState.parse(map['EndpointState']) unless map['EndpointState'].nil?)
         return data
       end
     end
@@ -380,7 +380,7 @@ module AWS::SDK::ChimeSDKIdentity
         data = Types::ListAppInstanceUsersOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.app_instance_arn = map['AppInstanceArn']
-        data.app_instance_users = (Parsers::AppInstanceUserList.parse(map['AppInstanceUsers']) unless map['AppInstanceUsers'].nil?)
+        data.app_instance_users = (AppInstanceUserList.parse(map['AppInstanceUsers']) unless map['AppInstanceUsers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -390,7 +390,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AppInstanceUserSummary.parse(value) unless value.nil?
+          data << AppInstanceUserSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -411,7 +411,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.parse(http_resp)
         data = Types::ListAppInstancesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instances = (Parsers::AppInstanceList.parse(map['AppInstances']) unless map['AppInstances'].nil?)
+        data.app_instances = (AppInstanceList.parse(map['AppInstances']) unless map['AppInstances'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -421,7 +421,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AppInstanceSummary.parse(value) unless value.nil?
+          data << AppInstanceSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -442,7 +442,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -451,7 +451,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -471,7 +471,7 @@ module AWS::SDK::ChimeSDKIdentity
       def self.parse(http_resp)
         data = Types::PutAppInstanceRetentionSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_instance_retention_settings = (Parsers::AppInstanceRetentionSettings.parse(map['AppInstanceRetentionSettings']) unless map['AppInstanceRetentionSettings'].nil?)
+        data.app_instance_retention_settings = (AppInstanceRetentionSettings.parse(map['AppInstanceRetentionSettings']) unless map['AppInstanceRetentionSettings'].nil?)
         data.initiate_deletion_timestamp = Time.at(map['InitiateDeletionTimestamp'].to_i) if map['InitiateDeletionTimestamp']
         data
       end

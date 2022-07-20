@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Macie2
   module Builders
 
@@ -23,7 +25,7 @@ module AWS::SDK::Macie2
         data['administratorAccountId'] = input[:administrator_account_id] unless input[:administrator_account_id].nil?
         data['invitationId'] = input[:invitation_id] unless input[:invitation_id].nil?
         data['masterAccount'] = input[:master_account] unless input[:master_account].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -37,8 +39,8 @@ module AWS::SDK::Macie2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ids'] = Builders::List____listOf__string.build(input[:ids]) unless input[:ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ids'] = List____listOf__string.build(input[:ids]) unless input[:ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -64,18 +66,18 @@ module AWS::SDK::Macie2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['customDataIdentifierIds'] = Builders::List____listOf__string.build(input[:custom_data_identifier_ids]) unless input[:custom_data_identifier_ids].nil?
+        data['customDataIdentifierIds'] = List____listOf__string.build(input[:custom_data_identifier_ids]) unless input[:custom_data_identifier_ids].nil?
         data['description'] = input[:description] unless input[:description].nil?
         data['initialRun'] = input[:initial_run] unless input[:initial_run].nil?
         data['jobType'] = input[:job_type] unless input[:job_type].nil?
-        data['managedDataIdentifierIds'] = Builders::List____listOf__string.build(input[:managed_data_identifier_ids]) unless input[:managed_data_identifier_ids].nil?
+        data['managedDataIdentifierIds'] = List____listOf__string.build(input[:managed_data_identifier_ids]) unless input[:managed_data_identifier_ids].nil?
         data['managedDataIdentifierSelector'] = input[:managed_data_identifier_selector] unless input[:managed_data_identifier_selector].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['s3JobDefinition'] = Builders::S3JobDefinition.build(input[:s3_job_definition]) unless input[:s3_job_definition].nil?
+        data['s3JobDefinition'] = S3JobDefinition.build(input[:s3_job_definition]) unless input[:s3_job_definition].nil?
         data['samplingPercentage'] = input[:sampling_percentage] unless input[:sampling_percentage].nil?
-        data['scheduleFrequency'] = Builders::JobScheduleFrequency.build(input[:schedule_frequency]) unless input[:schedule_frequency].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['scheduleFrequency'] = JobScheduleFrequency.build(input[:schedule_frequency]) unless input[:schedule_frequency].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -94,9 +96,9 @@ module AWS::SDK::Macie2
     class JobScheduleFrequency
       def self.build(input)
         data = {}
-        data['dailySchedule'] = Builders::DailySchedule.build(input[:daily_schedule]) unless input[:daily_schedule].nil?
-        data['monthlySchedule'] = Builders::MonthlySchedule.build(input[:monthly_schedule]) unless input[:monthly_schedule].nil?
-        data['weeklySchedule'] = Builders::WeeklySchedule.build(input[:weekly_schedule]) unless input[:weekly_schedule].nil?
+        data['dailySchedule'] = DailySchedule.build(input[:daily_schedule]) unless input[:daily_schedule].nil?
+        data['monthlySchedule'] = MonthlySchedule.build(input[:monthly_schedule]) unless input[:monthly_schedule].nil?
+        data['weeklySchedule'] = WeeklySchedule.build(input[:weekly_schedule]) unless input[:weekly_schedule].nil?
         data
       end
     end
@@ -131,9 +133,9 @@ module AWS::SDK::Macie2
     class S3JobDefinition
       def self.build(input)
         data = {}
-        data['bucketDefinitions'] = Builders::List____listOfS3BucketDefinitionForJob.build(input[:bucket_definitions]) unless input[:bucket_definitions].nil?
-        data['scoping'] = Builders::Scoping.build(input[:scoping]) unless input[:scoping].nil?
-        data['bucketCriteria'] = Builders::S3BucketCriteriaForJob.build(input[:bucket_criteria]) unless input[:bucket_criteria].nil?
+        data['bucketDefinitions'] = List____listOfS3BucketDefinitionForJob.build(input[:bucket_definitions]) unless input[:bucket_definitions].nil?
+        data['scoping'] = Scoping.build(input[:scoping]) unless input[:scoping].nil?
+        data['bucketCriteria'] = S3BucketCriteriaForJob.build(input[:bucket_criteria]) unless input[:bucket_criteria].nil?
         data
       end
     end
@@ -142,8 +144,8 @@ module AWS::SDK::Macie2
     class S3BucketCriteriaForJob
       def self.build(input)
         data = {}
-        data['excludes'] = Builders::CriteriaBlockForJob.build(input[:excludes]) unless input[:excludes].nil?
-        data['includes'] = Builders::CriteriaBlockForJob.build(input[:includes]) unless input[:includes].nil?
+        data['excludes'] = CriteriaBlockForJob.build(input[:excludes]) unless input[:excludes].nil?
+        data['includes'] = CriteriaBlockForJob.build(input[:includes]) unless input[:includes].nil?
         data
       end
     end
@@ -152,7 +154,7 @@ module AWS::SDK::Macie2
     class CriteriaBlockForJob
       def self.build(input)
         data = {}
-        data['and'] = Builders::List____listOfCriteriaForJob.build(input[:and]) unless input[:and].nil?
+        data['and'] = List____listOfCriteriaForJob.build(input[:and]) unless input[:and].nil?
         data
       end
     end
@@ -162,7 +164,7 @@ module AWS::SDK::Macie2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CriteriaForJob.build(element) unless element.nil?
+          data << CriteriaForJob.build(element) unless element.nil?
         end
         data
       end
@@ -172,8 +174,8 @@ module AWS::SDK::Macie2
     class CriteriaForJob
       def self.build(input)
         data = {}
-        data['simpleCriterion'] = Builders::SimpleCriterionForJob.build(input[:simple_criterion]) unless input[:simple_criterion].nil?
-        data['tagCriterion'] = Builders::TagCriterionForJob.build(input[:tag_criterion]) unless input[:tag_criterion].nil?
+        data['simpleCriterion'] = SimpleCriterionForJob.build(input[:simple_criterion]) unless input[:simple_criterion].nil?
+        data['tagCriterion'] = TagCriterionForJob.build(input[:tag_criterion]) unless input[:tag_criterion].nil?
         data
       end
     end
@@ -183,7 +185,7 @@ module AWS::SDK::Macie2
       def self.build(input)
         data = {}
         data['comparator'] = input[:comparator] unless input[:comparator].nil?
-        data['tagValues'] = Builders::List____listOfTagCriterionPairForJob.build(input[:tag_values]) unless input[:tag_values].nil?
+        data['tagValues'] = List____listOfTagCriterionPairForJob.build(input[:tag_values]) unless input[:tag_values].nil?
         data
       end
     end
@@ -193,7 +195,7 @@ module AWS::SDK::Macie2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TagCriterionPairForJob.build(element) unless element.nil?
+          data << TagCriterionPairForJob.build(element) unless element.nil?
         end
         data
       end
@@ -215,7 +217,7 @@ module AWS::SDK::Macie2
         data = {}
         data['comparator'] = input[:comparator] unless input[:comparator].nil?
         data['key'] = input[:key] unless input[:key].nil?
-        data['values'] = Builders::List____listOf__string.build(input[:values]) unless input[:values].nil?
+        data['values'] = List____listOf__string.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -224,8 +226,8 @@ module AWS::SDK::Macie2
     class Scoping
       def self.build(input)
         data = {}
-        data['excludes'] = Builders::JobScopingBlock.build(input[:excludes]) unless input[:excludes].nil?
-        data['includes'] = Builders::JobScopingBlock.build(input[:includes]) unless input[:includes].nil?
+        data['excludes'] = JobScopingBlock.build(input[:excludes]) unless input[:excludes].nil?
+        data['includes'] = JobScopingBlock.build(input[:includes]) unless input[:includes].nil?
         data
       end
     end
@@ -234,7 +236,7 @@ module AWS::SDK::Macie2
     class JobScopingBlock
       def self.build(input)
         data = {}
-        data['and'] = Builders::List____listOfJobScopeTerm.build(input[:and]) unless input[:and].nil?
+        data['and'] = List____listOfJobScopeTerm.build(input[:and]) unless input[:and].nil?
         data
       end
     end
@@ -244,7 +246,7 @@ module AWS::SDK::Macie2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::JobScopeTerm.build(element) unless element.nil?
+          data << JobScopeTerm.build(element) unless element.nil?
         end
         data
       end
@@ -254,8 +256,8 @@ module AWS::SDK::Macie2
     class JobScopeTerm
       def self.build(input)
         data = {}
-        data['simpleScopeTerm'] = Builders::SimpleScopeTerm.build(input[:simple_scope_term]) unless input[:simple_scope_term].nil?
-        data['tagScopeTerm'] = Builders::TagScopeTerm.build(input[:tag_scope_term]) unless input[:tag_scope_term].nil?
+        data['simpleScopeTerm'] = SimpleScopeTerm.build(input[:simple_scope_term]) unless input[:simple_scope_term].nil?
+        data['tagScopeTerm'] = TagScopeTerm.build(input[:tag_scope_term]) unless input[:tag_scope_term].nil?
         data
       end
     end
@@ -266,7 +268,7 @@ module AWS::SDK::Macie2
         data = {}
         data['comparator'] = input[:comparator] unless input[:comparator].nil?
         data['key'] = input[:key] unless input[:key].nil?
-        data['tagValues'] = Builders::List____listOfTagValuePair.build(input[:tag_values]) unless input[:tag_values].nil?
+        data['tagValues'] = List____listOfTagValuePair.build(input[:tag_values]) unless input[:tag_values].nil?
         data['target'] = input[:target] unless input[:target].nil?
         data
       end
@@ -277,7 +279,7 @@ module AWS::SDK::Macie2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TagValuePair.build(element) unless element.nil?
+          data << TagValuePair.build(element) unless element.nil?
         end
         data
       end
@@ -299,7 +301,7 @@ module AWS::SDK::Macie2
         data = {}
         data['comparator'] = input[:comparator] unless input[:comparator].nil?
         data['key'] = input[:key] unless input[:key].nil?
-        data['values'] = Builders::List____listOf__string.build(input[:values]) unless input[:values].nil?
+        data['values'] = List____listOf__string.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -309,7 +311,7 @@ module AWS::SDK::Macie2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::S3BucketDefinitionForJob.build(element) unless element.nil?
+          data << S3BucketDefinitionForJob.build(element) unless element.nil?
         end
         data
       end
@@ -320,7 +322,7 @@ module AWS::SDK::Macie2
       def self.build(input)
         data = {}
         data['accountId'] = input[:account_id] unless input[:account_id].nil?
-        data['buckets'] = Builders::List____listOf__string.build(input[:buckets]) unless input[:buckets].nil?
+        data['buckets'] = List____listOf__string.build(input[:buckets]) unless input[:buckets].nil?
         data
       end
     end
@@ -337,14 +339,14 @@ module AWS::SDK::Macie2
         data = {}
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['ignoreWords'] = Builders::List____listOf__string.build(input[:ignore_words]) unless input[:ignore_words].nil?
-        data['keywords'] = Builders::List____listOf__string.build(input[:keywords]) unless input[:keywords].nil?
+        data['ignoreWords'] = List____listOf__string.build(input[:ignore_words]) unless input[:ignore_words].nil?
+        data['keywords'] = List____listOf__string.build(input[:keywords]) unless input[:keywords].nil?
         data['maximumMatchDistance'] = input[:maximum_match_distance] unless input[:maximum_match_distance].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['regex'] = input[:regex] unless input[:regex].nil?
-        data['severityLevels'] = Builders::SeverityLevelList.build(input[:severity_levels]) unless input[:severity_levels].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['severityLevels'] = SeverityLevelList.build(input[:severity_levels]) unless input[:severity_levels].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -353,7 +355,7 @@ module AWS::SDK::Macie2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SeverityLevel.build(element) unless element.nil?
+          data << SeverityLevel.build(element) unless element.nil?
         end
         data
       end
@@ -382,11 +384,11 @@ module AWS::SDK::Macie2
         data['action'] = input[:action] unless input[:action].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['findingCriteria'] = Builders::FindingCriteria.build(input[:finding_criteria]) unless input[:finding_criteria].nil?
+        data['findingCriteria'] = FindingCriteria.build(input[:finding_criteria]) unless input[:finding_criteria].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['position'] = input[:position] unless input[:position].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -394,7 +396,7 @@ module AWS::SDK::Macie2
     class FindingCriteria
       def self.build(input)
         data = {}
-        data['criterion'] = Builders::Criterion.build(input[:criterion]) unless input[:criterion].nil?
+        data['criterion'] = Criterion.build(input[:criterion]) unless input[:criterion].nil?
         data
       end
     end
@@ -404,7 +406,7 @@ module AWS::SDK::Macie2
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::CriterionAdditionalProperties.build(value) unless value.nil?
+          data[key] = CriterionAdditionalProperties.build(value) unless value.nil?
         end
         data
       end
@@ -414,13 +416,13 @@ module AWS::SDK::Macie2
     class CriterionAdditionalProperties
       def self.build(input)
         data = {}
-        data['eq'] = Builders::List____listOf__string.build(input[:eq]) unless input[:eq].nil?
-        data['eqExactMatch'] = Builders::List____listOf__string.build(input[:eq_exact_match]) unless input[:eq_exact_match].nil?
+        data['eq'] = List____listOf__string.build(input[:eq]) unless input[:eq].nil?
+        data['eqExactMatch'] = List____listOf__string.build(input[:eq_exact_match]) unless input[:eq_exact_match].nil?
         data['gt'] = input[:gt] unless input[:gt].nil?
         data['gte'] = input[:gte] unless input[:gte].nil?
         data['lt'] = input[:lt] unless input[:lt].nil?
         data['lte'] = input[:lte] unless input[:lte].nil?
-        data['neq'] = Builders::List____listOf__string.build(input[:neq]) unless input[:neq].nil?
+        data['neq'] = List____listOf__string.build(input[:neq]) unless input[:neq].nil?
         data
       end
     end
@@ -435,10 +437,10 @@ module AWS::SDK::Macie2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['accountIds'] = Builders::List____listOf__string.build(input[:account_ids]) unless input[:account_ids].nil?
+        data['accountIds'] = List____listOf__string.build(input[:account_ids]) unless input[:account_ids].nil?
         data['disableEmailNotification'] = input[:disable_email_notification] unless input[:disable_email_notification].nil?
         data['message'] = input[:message] unless input[:message].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -452,9 +454,9 @@ module AWS::SDK::Macie2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['account'] = Builders::AccountDetail.build(input[:account]) unless input[:account].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['account'] = AccountDetail.build(input[:account]) unless input[:account].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -478,8 +480,8 @@ module AWS::SDK::Macie2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['findingTypes'] = Builders::List____listOfFindingType.build(input[:finding_types]) unless input[:finding_types].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['findingTypes'] = List____listOfFindingType.build(input[:finding_types]) unless input[:finding_types].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -504,8 +506,8 @@ module AWS::SDK::Macie2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['accountIds'] = Builders::List____listOf__string.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accountIds'] = List____listOf__string.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -553,8 +555,8 @@ module AWS::SDK::Macie2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['accountIds'] = Builders::List____listOf__string.build(input[:account_ids]) unless input[:account_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accountIds'] = List____listOf__string.build(input[:account_ids]) unless input[:account_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -585,11 +587,11 @@ module AWS::SDK::Macie2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['criteria'] = Builders::BucketCriteria.build(input[:criteria]) unless input[:criteria].nil?
+        data['criteria'] = BucketCriteria.build(input[:criteria]) unless input[:criteria].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['sortCriteria'] = Builders::BucketSortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sortCriteria'] = BucketSortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -608,7 +610,7 @@ module AWS::SDK::Macie2
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::BucketCriteriaAdditionalProperties.build(value) unless value.nil?
+          data[key] = BucketCriteriaAdditionalProperties.build(value) unless value.nil?
         end
         data
       end
@@ -618,12 +620,12 @@ module AWS::SDK::Macie2
     class BucketCriteriaAdditionalProperties
       def self.build(input)
         data = {}
-        data['eq'] = Builders::List____listOf__string.build(input[:eq]) unless input[:eq].nil?
+        data['eq'] = List____listOf__string.build(input[:eq]) unless input[:eq].nil?
         data['gt'] = input[:gt] unless input[:gt].nil?
         data['gte'] = input[:gte] unless input[:gte].nil?
         data['lt'] = input[:lt] unless input[:lt].nil?
         data['lte'] = input[:lte] unless input[:lte].nil?
-        data['neq'] = Builders::List____listOf__string.build(input[:neq]) unless input[:neq].nil?
+        data['neq'] = List____listOf__string.build(input[:neq]) unless input[:neq].nil?
         data['prefix'] = input[:prefix] unless input[:prefix].nil?
         data
       end
@@ -727,7 +729,7 @@ module AWS::SDK::Macie2
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
         data['findingPublishingFrequency'] = input[:finding_publishing_frequency] unless input[:finding_publishing_frequency].nil?
         data['status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -743,7 +745,7 @@ module AWS::SDK::Macie2
         data = {}
         data['adminAccountId'] = input[:admin_account_id] unless input[:admin_account_id].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -768,7 +770,7 @@ module AWS::SDK::Macie2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['accountId'] = input[:account_id] unless input[:account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -809,11 +811,11 @@ module AWS::SDK::Macie2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['findingCriteria'] = Builders::FindingCriteria.build(input[:finding_criteria]) unless input[:finding_criteria].nil?
+        data['findingCriteria'] = FindingCriteria.build(input[:finding_criteria]) unless input[:finding_criteria].nil?
         data['groupBy'] = input[:group_by] unless input[:group_by].nil?
         data['size'] = input[:size] unless input[:size].nil?
-        data['sortCriteria'] = Builders::FindingStatisticsSortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sortCriteria'] = FindingStatisticsSortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -837,9 +839,9 @@ module AWS::SDK::Macie2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['findingIds'] = Builders::List____listOf__string.build(input[:finding_ids]) unless input[:finding_ids].nil?
-        data['sortCriteria'] = Builders::SortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['findingIds'] = List____listOf__string.build(input[:finding_ids]) unless input[:finding_ids].nil?
+        data['sortCriteria'] = SortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -937,12 +939,12 @@ module AWS::SDK::Macie2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['filterBy'] = Builders::List____listOfUsageStatisticsFilter.build(input[:filter_by]) unless input[:filter_by].nil?
+        data['filterBy'] = List____listOfUsageStatisticsFilter.build(input[:filter_by]) unless input[:filter_by].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['sortBy'] = Builders::UsageStatisticsSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
+        data['sortBy'] = UsageStatisticsSortBy.build(input[:sort_by]) unless input[:sort_by].nil?
         data['timeRange'] = input[:time_range] unless input[:time_range].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -961,7 +963,7 @@ module AWS::SDK::Macie2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UsageStatisticsFilter.build(element) unless element.nil?
+          data << UsageStatisticsFilter.build(element) unless element.nil?
         end
         data
       end
@@ -973,7 +975,7 @@ module AWS::SDK::Macie2
         data = {}
         data['comparator'] = input[:comparator] unless input[:comparator].nil?
         data['key'] = input[:key] unless input[:key].nil?
-        data['values'] = Builders::List____listOf__string.build(input[:values]) unless input[:values].nil?
+        data['values'] = List____listOf__string.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -999,11 +1001,11 @@ module AWS::SDK::Macie2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['filterCriteria'] = Builders::ListJobsFilterCriteria.build(input[:filter_criteria]) unless input[:filter_criteria].nil?
+        data['filterCriteria'] = ListJobsFilterCriteria.build(input[:filter_criteria]) unless input[:filter_criteria].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['sortCriteria'] = Builders::ListJobsSortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sortCriteria'] = ListJobsSortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1021,8 +1023,8 @@ module AWS::SDK::Macie2
     class ListJobsFilterCriteria
       def self.build(input)
         data = {}
-        data['excludes'] = Builders::List____listOfListJobsFilterTerm.build(input[:excludes]) unless input[:excludes].nil?
-        data['includes'] = Builders::List____listOfListJobsFilterTerm.build(input[:includes]) unless input[:includes].nil?
+        data['excludes'] = List____listOfListJobsFilterTerm.build(input[:excludes]) unless input[:excludes].nil?
+        data['includes'] = List____listOfListJobsFilterTerm.build(input[:includes]) unless input[:includes].nil?
         data
       end
     end
@@ -1032,7 +1034,7 @@ module AWS::SDK::Macie2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ListJobsFilterTerm.build(element) unless element.nil?
+          data << ListJobsFilterTerm.build(element) unless element.nil?
         end
         data
       end
@@ -1044,7 +1046,7 @@ module AWS::SDK::Macie2
         data = {}
         data['comparator'] = input[:comparator] unless input[:comparator].nil?
         data['key'] = input[:key] unless input[:key].nil?
-        data['values'] = Builders::List____listOf__string.build(input[:values]) unless input[:values].nil?
+        data['values'] = List____listOf__string.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -1061,7 +1063,7 @@ module AWS::SDK::Macie2
         data = {}
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1075,11 +1077,11 @@ module AWS::SDK::Macie2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['findingCriteria'] = Builders::FindingCriteria.build(input[:finding_criteria]) unless input[:finding_criteria].nil?
+        data['findingCriteria'] = FindingCriteria.build(input[:finding_criteria]) unless input[:finding_criteria].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['sortCriteria'] = Builders::SortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sortCriteria'] = SortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1118,7 +1120,7 @@ module AWS::SDK::Macie2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1174,8 +1176,8 @@ module AWS::SDK::Macie2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['configuration'] = Builders::ClassificationExportConfiguration.build(input[:configuration]) unless input[:configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['configuration'] = ClassificationExportConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1183,7 +1185,7 @@ module AWS::SDK::Macie2
     class ClassificationExportConfiguration
       def self.build(input)
         data = {}
-        data['s3Destination'] = Builders::S3Destination.build(input[:s3_destination]) unless input[:s3_destination].nil?
+        data['s3Destination'] = S3Destination.build(input[:s3_destination]) unless input[:s3_destination].nil?
         data
       end
     end
@@ -1210,8 +1212,8 @@ module AWS::SDK::Macie2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['securityHubConfiguration'] = Builders::SecurityHubConfiguration.build(input[:security_hub_configuration]) unless input[:security_hub_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['securityHubConfiguration'] = SecurityHubConfiguration.build(input[:security_hub_configuration]) unless input[:security_hub_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1235,11 +1237,11 @@ module AWS::SDK::Macie2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['bucketCriteria'] = Builders::SearchResourcesBucketCriteria.build(input[:bucket_criteria]) unless input[:bucket_criteria].nil?
+        data['bucketCriteria'] = SearchResourcesBucketCriteria.build(input[:bucket_criteria]) unless input[:bucket_criteria].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['sortCriteria'] = Builders::SearchResourcesSortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sortCriteria'] = SearchResourcesSortCriteria.build(input[:sort_criteria]) unless input[:sort_criteria].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1257,8 +1259,8 @@ module AWS::SDK::Macie2
     class SearchResourcesBucketCriteria
       def self.build(input)
         data = {}
-        data['excludes'] = Builders::SearchResourcesCriteriaBlock.build(input[:excludes]) unless input[:excludes].nil?
-        data['includes'] = Builders::SearchResourcesCriteriaBlock.build(input[:includes]) unless input[:includes].nil?
+        data['excludes'] = SearchResourcesCriteriaBlock.build(input[:excludes]) unless input[:excludes].nil?
+        data['includes'] = SearchResourcesCriteriaBlock.build(input[:includes]) unless input[:includes].nil?
         data
       end
     end
@@ -1267,7 +1269,7 @@ module AWS::SDK::Macie2
     class SearchResourcesCriteriaBlock
       def self.build(input)
         data = {}
-        data['and'] = Builders::List____listOfSearchResourcesCriteria.build(input[:and]) unless input[:and].nil?
+        data['and'] = List____listOfSearchResourcesCriteria.build(input[:and]) unless input[:and].nil?
         data
       end
     end
@@ -1277,7 +1279,7 @@ module AWS::SDK::Macie2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SearchResourcesCriteria.build(element) unless element.nil?
+          data << SearchResourcesCriteria.build(element) unless element.nil?
         end
         data
       end
@@ -1287,8 +1289,8 @@ module AWS::SDK::Macie2
     class SearchResourcesCriteria
       def self.build(input)
         data = {}
-        data['simpleCriterion'] = Builders::SearchResourcesSimpleCriterion.build(input[:simple_criterion]) unless input[:simple_criterion].nil?
-        data['tagCriterion'] = Builders::SearchResourcesTagCriterion.build(input[:tag_criterion]) unless input[:tag_criterion].nil?
+        data['simpleCriterion'] = SearchResourcesSimpleCriterion.build(input[:simple_criterion]) unless input[:simple_criterion].nil?
+        data['tagCriterion'] = SearchResourcesTagCriterion.build(input[:tag_criterion]) unless input[:tag_criterion].nil?
         data
       end
     end
@@ -1298,7 +1300,7 @@ module AWS::SDK::Macie2
       def self.build(input)
         data = {}
         data['comparator'] = input[:comparator] unless input[:comparator].nil?
-        data['tagValues'] = Builders::List____listOfSearchResourcesTagCriterionPair.build(input[:tag_values]) unless input[:tag_values].nil?
+        data['tagValues'] = List____listOfSearchResourcesTagCriterionPair.build(input[:tag_values]) unless input[:tag_values].nil?
         data
       end
     end
@@ -1308,7 +1310,7 @@ module AWS::SDK::Macie2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SearchResourcesTagCriterionPair.build(element) unless element.nil?
+          data << SearchResourcesTagCriterionPair.build(element) unless element.nil?
         end
         data
       end
@@ -1330,7 +1332,7 @@ module AWS::SDK::Macie2
         data = {}
         data['comparator'] = input[:comparator] unless input[:comparator].nil?
         data['key'] = input[:key] unless input[:key].nil?
-        data['values'] = Builders::List____listOf__string.build(input[:values]) unless input[:values].nil?
+        data['values'] = List____listOf__string.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -1352,8 +1354,8 @@ module AWS::SDK::Macie2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1367,12 +1369,12 @@ module AWS::SDK::Macie2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ignoreWords'] = Builders::List____listOf__string.build(input[:ignore_words]) unless input[:ignore_words].nil?
-        data['keywords'] = Builders::List____listOf__string.build(input[:keywords]) unless input[:keywords].nil?
+        data['ignoreWords'] = List____listOf__string.build(input[:ignore_words]) unless input[:ignore_words].nil?
+        data['keywords'] = List____listOf__string.build(input[:keywords]) unless input[:keywords].nil?
         data['maximumMatchDistance'] = input[:maximum_match_distance] unless input[:maximum_match_distance].nil?
         data['regex'] = input[:regex] unless input[:regex].nil?
         data['sampleText'] = input[:sample_text] unless input[:sample_text].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1416,7 +1418,7 @@ module AWS::SDK::Macie2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['jobStatus'] = input[:job_status] unless input[:job_status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1439,11 +1441,11 @@ module AWS::SDK::Macie2
         data = {}
         data['action'] = input[:action] unless input[:action].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['findingCriteria'] = Builders::FindingCriteria.build(input[:finding_criteria]) unless input[:finding_criteria].nil?
+        data['findingCriteria'] = FindingCriteria.build(input[:finding_criteria]) unless input[:finding_criteria].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['position'] = input[:position] unless input[:position].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1459,7 +1461,7 @@ module AWS::SDK::Macie2
         data = {}
         data['findingPublishingFrequency'] = input[:finding_publishing_frequency] unless input[:finding_publishing_frequency].nil?
         data['status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1481,7 +1483,7 @@ module AWS::SDK::Macie2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1496,7 +1498,7 @@ module AWS::SDK::Macie2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['autoEnable'] = input[:auto_enable] unless input[:auto_enable].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

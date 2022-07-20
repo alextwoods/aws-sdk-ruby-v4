@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CodeDeploy
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -38,8 +40,8 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['applicationName'] = stub[:application_name] unless stub[:application_name].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        data['revisions'] = Stubs::RevisionInfoList.stub(stub[:revisions]) unless stub[:revisions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['revisions'] = RevisionInfoList.stub(stub[:revisions]) unless stub[:revisions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -58,7 +60,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RevisionInfo.stub(element) unless element.nil?
+          data << RevisionInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -78,8 +80,8 @@ module AWS::SDK::CodeDeploy
       def self.stub(stub)
         stub ||= Types::RevisionInfo.new
         data = {}
-        data['revisionLocation'] = Stubs::RevisionLocation.stub(stub[:revision_location]) unless stub[:revision_location].nil?
-        data['genericRevisionInfo'] = Stubs::GenericRevisionInfo.stub(stub[:generic_revision_info]) unless stub[:generic_revision_info].nil?
+        data['revisionLocation'] = RevisionLocation.stub(stub[:revision_location]) unless stub[:revision_location].nil?
+        data['genericRevisionInfo'] = GenericRevisionInfo.stub(stub[:generic_revision_info]) unless stub[:generic_revision_info].nil?
         data
       end
     end
@@ -102,7 +104,7 @@ module AWS::SDK::CodeDeploy
         stub ||= Types::GenericRevisionInfo.new
         data = {}
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['deploymentGroups'] = Stubs::DeploymentGroupsList.stub(stub[:deployment_groups]) unless stub[:deployment_groups].nil?
+        data['deploymentGroups'] = DeploymentGroupsList.stub(stub[:deployment_groups]) unless stub[:deployment_groups].nil?
         data['firstUsedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:first_used_time]).to_i unless stub[:first_used_time].nil?
         data['lastUsedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_used_time]).to_i unless stub[:last_used_time].nil?
         data['registerTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:register_time]).to_i unless stub[:register_time].nil?
@@ -148,10 +150,10 @@ module AWS::SDK::CodeDeploy
         stub ||= Types::RevisionLocation.new
         data = {}
         data['revisionType'] = stub[:revision_type] unless stub[:revision_type].nil?
-        data['s3Location'] = Stubs::S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
-        data['gitHubLocation'] = Stubs::GitHubLocation.stub(stub[:git_hub_location]) unless stub[:git_hub_location].nil?
-        data['string'] = Stubs::RawString.stub(stub[:string]) unless stub[:string].nil?
-        data['appSpecContent'] = Stubs::AppSpecContent.stub(stub[:app_spec_content]) unless stub[:app_spec_content].nil?
+        data['s3Location'] = S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
+        data['gitHubLocation'] = GitHubLocation.stub(stub[:git_hub_location]) unless stub[:git_hub_location].nil?
+        data['string'] = RawString.stub(stub[:string]) unless stub[:string].nil?
+        data['appSpecContent'] = AppSpecContent.stub(stub[:app_spec_content]) unless stub[:app_spec_content].nil?
         data
       end
     end
@@ -252,8 +254,8 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['applicationsInfo'] = Stubs::ApplicationsInfoList.stub(stub[:applications_info]) unless stub[:applications_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['applicationsInfo'] = ApplicationsInfoList.stub(stub[:applications_info]) unless stub[:applications_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -272,7 +274,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApplicationInfo.stub(element) unless element.nil?
+          data << ApplicationInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -317,9 +319,9 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['deploymentGroupsInfo'] = Stubs::DeploymentGroupInfoList.stub(stub[:deployment_groups_info]) unless stub[:deployment_groups_info].nil?
+        data['deploymentGroupsInfo'] = DeploymentGroupInfoList.stub(stub[:deployment_groups_info]) unless stub[:deployment_groups_info].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -338,7 +340,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeploymentGroupInfo.stub(element) unless element.nil?
+          data << DeploymentGroupInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -382,24 +384,24 @@ module AWS::SDK::CodeDeploy
         data['deploymentGroupId'] = stub[:deployment_group_id] unless stub[:deployment_group_id].nil?
         data['deploymentGroupName'] = stub[:deployment_group_name] unless stub[:deployment_group_name].nil?
         data['deploymentConfigName'] = stub[:deployment_config_name] unless stub[:deployment_config_name].nil?
-        data['ec2TagFilters'] = Stubs::EC2TagFilterList.stub(stub[:ec2_tag_filters]) unless stub[:ec2_tag_filters].nil?
-        data['onPremisesInstanceTagFilters'] = Stubs::TagFilterList.stub(stub[:on_premises_instance_tag_filters]) unless stub[:on_premises_instance_tag_filters].nil?
-        data['autoScalingGroups'] = Stubs::AutoScalingGroupList.stub(stub[:auto_scaling_groups]) unless stub[:auto_scaling_groups].nil?
+        data['ec2TagFilters'] = EC2TagFilterList.stub(stub[:ec2_tag_filters]) unless stub[:ec2_tag_filters].nil?
+        data['onPremisesInstanceTagFilters'] = TagFilterList.stub(stub[:on_premises_instance_tag_filters]) unless stub[:on_premises_instance_tag_filters].nil?
+        data['autoScalingGroups'] = AutoScalingGroupList.stub(stub[:auto_scaling_groups]) unless stub[:auto_scaling_groups].nil?
         data['serviceRoleArn'] = stub[:service_role_arn] unless stub[:service_role_arn].nil?
-        data['targetRevision'] = Stubs::RevisionLocation.stub(stub[:target_revision]) unless stub[:target_revision].nil?
-        data['triggerConfigurations'] = Stubs::TriggerConfigList.stub(stub[:trigger_configurations]) unless stub[:trigger_configurations].nil?
-        data['alarmConfiguration'] = Stubs::AlarmConfiguration.stub(stub[:alarm_configuration]) unless stub[:alarm_configuration].nil?
-        data['autoRollbackConfiguration'] = Stubs::AutoRollbackConfiguration.stub(stub[:auto_rollback_configuration]) unless stub[:auto_rollback_configuration].nil?
-        data['deploymentStyle'] = Stubs::DeploymentStyle.stub(stub[:deployment_style]) unless stub[:deployment_style].nil?
+        data['targetRevision'] = RevisionLocation.stub(stub[:target_revision]) unless stub[:target_revision].nil?
+        data['triggerConfigurations'] = TriggerConfigList.stub(stub[:trigger_configurations]) unless stub[:trigger_configurations].nil?
+        data['alarmConfiguration'] = AlarmConfiguration.stub(stub[:alarm_configuration]) unless stub[:alarm_configuration].nil?
+        data['autoRollbackConfiguration'] = AutoRollbackConfiguration.stub(stub[:auto_rollback_configuration]) unless stub[:auto_rollback_configuration].nil?
+        data['deploymentStyle'] = DeploymentStyle.stub(stub[:deployment_style]) unless stub[:deployment_style].nil?
         data['outdatedInstancesStrategy'] = stub[:outdated_instances_strategy] unless stub[:outdated_instances_strategy].nil?
-        data['blueGreenDeploymentConfiguration'] = Stubs::BlueGreenDeploymentConfiguration.stub(stub[:blue_green_deployment_configuration]) unless stub[:blue_green_deployment_configuration].nil?
-        data['loadBalancerInfo'] = Stubs::LoadBalancerInfo.stub(stub[:load_balancer_info]) unless stub[:load_balancer_info].nil?
-        data['lastSuccessfulDeployment'] = Stubs::LastDeploymentInfo.stub(stub[:last_successful_deployment]) unless stub[:last_successful_deployment].nil?
-        data['lastAttemptedDeployment'] = Stubs::LastDeploymentInfo.stub(stub[:last_attempted_deployment]) unless stub[:last_attempted_deployment].nil?
-        data['ec2TagSet'] = Stubs::EC2TagSet.stub(stub[:ec2_tag_set]) unless stub[:ec2_tag_set].nil?
-        data['onPremisesTagSet'] = Stubs::OnPremisesTagSet.stub(stub[:on_premises_tag_set]) unless stub[:on_premises_tag_set].nil?
+        data['blueGreenDeploymentConfiguration'] = BlueGreenDeploymentConfiguration.stub(stub[:blue_green_deployment_configuration]) unless stub[:blue_green_deployment_configuration].nil?
+        data['loadBalancerInfo'] = LoadBalancerInfo.stub(stub[:load_balancer_info]) unless stub[:load_balancer_info].nil?
+        data['lastSuccessfulDeployment'] = LastDeploymentInfo.stub(stub[:last_successful_deployment]) unless stub[:last_successful_deployment].nil?
+        data['lastAttemptedDeployment'] = LastDeploymentInfo.stub(stub[:last_attempted_deployment]) unless stub[:last_attempted_deployment].nil?
+        data['ec2TagSet'] = EC2TagSet.stub(stub[:ec2_tag_set]) unless stub[:ec2_tag_set].nil?
+        data['onPremisesTagSet'] = OnPremisesTagSet.stub(stub[:on_premises_tag_set]) unless stub[:on_premises_tag_set].nil?
         data['computePlatform'] = stub[:compute_platform] unless stub[:compute_platform].nil?
-        data['ecsServices'] = Stubs::ECSServiceList.stub(stub[:ecs_services]) unless stub[:ecs_services].nil?
+        data['ecsServices'] = ECSServiceList.stub(stub[:ecs_services]) unless stub[:ecs_services].nil?
         data
       end
     end
@@ -418,7 +420,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ECSService.stub(element) unless element.nil?
+          data << ECSService.stub(element) unless element.nil?
         end
         data
       end
@@ -457,7 +459,7 @@ module AWS::SDK::CodeDeploy
       def self.stub(stub)
         stub ||= Types::OnPremisesTagSet.new
         data = {}
-        data['onPremisesTagSetList'] = Stubs::OnPremisesTagSetList.stub(stub[:on_premises_tag_set_list]) unless stub[:on_premises_tag_set_list].nil?
+        data['onPremisesTagSetList'] = OnPremisesTagSetList.stub(stub[:on_premises_tag_set_list]) unless stub[:on_premises_tag_set_list].nil?
         data
       end
     end
@@ -476,7 +478,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TagFilterList.stub(element) unless element.nil?
+          data << TagFilterList.stub(element) unless element.nil?
         end
         data
       end
@@ -496,7 +498,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TagFilter.stub(element) unless element.nil?
+          data << TagFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -537,7 +539,7 @@ module AWS::SDK::CodeDeploy
       def self.stub(stub)
         stub ||= Types::EC2TagSet.new
         data = {}
-        data['ec2TagSetList'] = Stubs::EC2TagSetList.stub(stub[:ec2_tag_set_list]) unless stub[:ec2_tag_set_list].nil?
+        data['ec2TagSetList'] = EC2TagSetList.stub(stub[:ec2_tag_set_list]) unless stub[:ec2_tag_set_list].nil?
         data
       end
     end
@@ -556,7 +558,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EC2TagFilterList.stub(element) unless element.nil?
+          data << EC2TagFilterList.stub(element) unless element.nil?
         end
         data
       end
@@ -576,7 +578,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EC2TagFilter.stub(element) unless element.nil?
+          data << EC2TagFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -643,9 +645,9 @@ module AWS::SDK::CodeDeploy
       def self.stub(stub)
         stub ||= Types::LoadBalancerInfo.new
         data = {}
-        data['elbInfoList'] = Stubs::ELBInfoList.stub(stub[:elb_info_list]) unless stub[:elb_info_list].nil?
-        data['targetGroupInfoList'] = Stubs::TargetGroupInfoList.stub(stub[:target_group_info_list]) unless stub[:target_group_info_list].nil?
-        data['targetGroupPairInfoList'] = Stubs::TargetGroupPairInfoList.stub(stub[:target_group_pair_info_list]) unless stub[:target_group_pair_info_list].nil?
+        data['elbInfoList'] = ELBInfoList.stub(stub[:elb_info_list]) unless stub[:elb_info_list].nil?
+        data['targetGroupInfoList'] = TargetGroupInfoList.stub(stub[:target_group_info_list]) unless stub[:target_group_info_list].nil?
+        data['targetGroupPairInfoList'] = TargetGroupPairInfoList.stub(stub[:target_group_pair_info_list]) unless stub[:target_group_pair_info_list].nil?
         data
       end
     end
@@ -664,7 +666,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TargetGroupPairInfo.stub(element) unless element.nil?
+          data << TargetGroupPairInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -685,9 +687,9 @@ module AWS::SDK::CodeDeploy
       def self.stub(stub)
         stub ||= Types::TargetGroupPairInfo.new
         data = {}
-        data['targetGroups'] = Stubs::TargetGroupInfoList.stub(stub[:target_groups]) unless stub[:target_groups].nil?
-        data['prodTrafficRoute'] = Stubs::TrafficRoute.stub(stub[:prod_traffic_route]) unless stub[:prod_traffic_route].nil?
-        data['testTrafficRoute'] = Stubs::TrafficRoute.stub(stub[:test_traffic_route]) unless stub[:test_traffic_route].nil?
+        data['targetGroups'] = TargetGroupInfoList.stub(stub[:target_groups]) unless stub[:target_groups].nil?
+        data['prodTrafficRoute'] = TrafficRoute.stub(stub[:prod_traffic_route]) unless stub[:prod_traffic_route].nil?
+        data['testTrafficRoute'] = TrafficRoute.stub(stub[:test_traffic_route]) unless stub[:test_traffic_route].nil?
         data
       end
     end
@@ -705,7 +707,7 @@ module AWS::SDK::CodeDeploy
       def self.stub(stub)
         stub ||= Types::TrafficRoute.new
         data = {}
-        data['listenerArns'] = Stubs::ListenerArnList.stub(stub[:listener_arns]) unless stub[:listener_arns].nil?
+        data['listenerArns'] = ListenerArnList.stub(stub[:listener_arns]) unless stub[:listener_arns].nil?
         data
       end
     end
@@ -744,7 +746,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TargetGroupInfo.stub(element) unless element.nil?
+          data << TargetGroupInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -782,7 +784,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ELBInfo.stub(element) unless element.nil?
+          data << ELBInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -821,9 +823,9 @@ module AWS::SDK::CodeDeploy
       def self.stub(stub)
         stub ||= Types::BlueGreenDeploymentConfiguration.new
         data = {}
-        data['terminateBlueInstancesOnDeploymentSuccess'] = Stubs::BlueInstanceTerminationOption.stub(stub[:terminate_blue_instances_on_deployment_success]) unless stub[:terminate_blue_instances_on_deployment_success].nil?
-        data['deploymentReadyOption'] = Stubs::DeploymentReadyOption.stub(stub[:deployment_ready_option]) unless stub[:deployment_ready_option].nil?
-        data['greenFleetProvisioningOption'] = Stubs::GreenFleetProvisioningOption.stub(stub[:green_fleet_provisioning_option]) unless stub[:green_fleet_provisioning_option].nil?
+        data['terminateBlueInstancesOnDeploymentSuccess'] = BlueInstanceTerminationOption.stub(stub[:terminate_blue_instances_on_deployment_success]) unless stub[:terminate_blue_instances_on_deployment_success].nil?
+        data['deploymentReadyOption'] = DeploymentReadyOption.stub(stub[:deployment_ready_option]) unless stub[:deployment_ready_option].nil?
+        data['greenFleetProvisioningOption'] = GreenFleetProvisioningOption.stub(stub[:green_fleet_provisioning_option]) unless stub[:green_fleet_provisioning_option].nil?
         data
       end
     end
@@ -921,7 +923,7 @@ module AWS::SDK::CodeDeploy
         stub ||= Types::AutoRollbackConfiguration.new
         data = {}
         data['enabled'] = stub[:enabled] unless stub[:enabled].nil?
-        data['events'] = Stubs::AutoRollbackEventsList.stub(stub[:events]) unless stub[:events].nil?
+        data['events'] = AutoRollbackEventsList.stub(stub[:events]) unless stub[:events].nil?
         data
       end
     end
@@ -963,7 +965,7 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['enabled'] = stub[:enabled] unless stub[:enabled].nil?
         data['ignorePollAlarmFailure'] = stub[:ignore_poll_alarm_failure] unless stub[:ignore_poll_alarm_failure].nil?
-        data['alarms'] = Stubs::AlarmList.stub(stub[:alarms]) unless stub[:alarms].nil?
+        data['alarms'] = AlarmList.stub(stub[:alarms]) unless stub[:alarms].nil?
         data
       end
     end
@@ -982,7 +984,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Alarm.stub(element) unless element.nil?
+          data << Alarm.stub(element) unless element.nil?
         end
         data
       end
@@ -1020,7 +1022,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TriggerConfig.stub(element) unless element.nil?
+          data << TriggerConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -1043,7 +1045,7 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['triggerName'] = stub[:trigger_name] unless stub[:trigger_name].nil?
         data['triggerTargetArn'] = stub[:trigger_target_arn] unless stub[:trigger_target_arn].nil?
-        data['triggerEvents'] = Stubs::TriggerEventTypeList.stub(stub[:trigger_events]) unless stub[:trigger_events].nil?
+        data['triggerEvents'] = TriggerEventTypeList.stub(stub[:trigger_events]) unless stub[:trigger_events].nil?
         data
       end
     end
@@ -1082,7 +1084,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutoScalingGroup.stub(element) unless element.nil?
+          data << AutoScalingGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -1119,9 +1121,9 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['instancesSummary'] = Stubs::InstanceSummaryList.stub(stub[:instances_summary]) unless stub[:instances_summary].nil?
+        data['instancesSummary'] = InstanceSummaryList.stub(stub[:instances_summary]) unless stub[:instances_summary].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1140,7 +1142,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceSummary.stub(element) unless element.nil?
+          data << InstanceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1168,7 +1170,7 @@ module AWS::SDK::CodeDeploy
         data['instanceId'] = stub[:instance_id] unless stub[:instance_id].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['lifecycleEvents'] = Stubs::LifecycleEventList.stub(stub[:lifecycle_events]) unless stub[:lifecycle_events].nil?
+        data['lifecycleEvents'] = LifecycleEventList.stub(stub[:lifecycle_events]) unless stub[:lifecycle_events].nil?
         data['instanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
         data
       end
@@ -1188,7 +1190,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LifecycleEvent.stub(element) unless element.nil?
+          data << LifecycleEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -1212,7 +1214,7 @@ module AWS::SDK::CodeDeploy
         stub ||= Types::LifecycleEvent.new
         data = {}
         data['lifecycleEventName'] = stub[:lifecycle_event_name] unless stub[:lifecycle_event_name].nil?
-        data['diagnostics'] = Stubs::Diagnostics.stub(stub[:diagnostics]) unless stub[:diagnostics].nil?
+        data['diagnostics'] = Diagnostics.stub(stub[:diagnostics]) unless stub[:diagnostics].nil?
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
@@ -1254,8 +1256,8 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['deploymentTargets'] = Stubs::DeploymentTargetList.stub(stub[:deployment_targets]) unless stub[:deployment_targets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deploymentTargets'] = DeploymentTargetList.stub(stub[:deployment_targets]) unless stub[:deployment_targets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1274,7 +1276,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeploymentTarget.stub(element) unless element.nil?
+          data << DeploymentTarget.stub(element) unless element.nil?
         end
         data
       end
@@ -1298,10 +1300,10 @@ module AWS::SDK::CodeDeploy
         stub ||= Types::DeploymentTarget.new
         data = {}
         data['deploymentTargetType'] = stub[:deployment_target_type] unless stub[:deployment_target_type].nil?
-        data['instanceTarget'] = Stubs::InstanceTarget.stub(stub[:instance_target]) unless stub[:instance_target].nil?
-        data['lambdaTarget'] = Stubs::LambdaTarget.stub(stub[:lambda_target]) unless stub[:lambda_target].nil?
-        data['ecsTarget'] = Stubs::ECSTarget.stub(stub[:ecs_target]) unless stub[:ecs_target].nil?
-        data['cloudFormationTarget'] = Stubs::CloudFormationTarget.stub(stub[:cloud_formation_target]) unless stub[:cloud_formation_target].nil?
+        data['instanceTarget'] = InstanceTarget.stub(stub[:instance_target]) unless stub[:instance_target].nil?
+        data['lambdaTarget'] = LambdaTarget.stub(stub[:lambda_target]) unless stub[:lambda_target].nil?
+        data['ecsTarget'] = ECSTarget.stub(stub[:ecs_target]) unless stub[:ecs_target].nil?
+        data['cloudFormationTarget'] = CloudFormationTarget.stub(stub[:cloud_formation_target]) unless stub[:cloud_formation_target].nil?
         data
       end
     end
@@ -1328,7 +1330,7 @@ module AWS::SDK::CodeDeploy
         data['deploymentId'] = stub[:deployment_id] unless stub[:deployment_id].nil?
         data['targetId'] = stub[:target_id] unless stub[:target_id].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['lifecycleEvents'] = Stubs::LifecycleEventList.stub(stub[:lifecycle_events]) unless stub[:lifecycle_events].nil?
+        data['lifecycleEvents'] = LifecycleEventList.stub(stub[:lifecycle_events]) unless stub[:lifecycle_events].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['targetVersionWeight'] = Hearth::NumberHelper.serialize(stub[:target_version_weight])
@@ -1359,9 +1361,9 @@ module AWS::SDK::CodeDeploy
         data['targetId'] = stub[:target_id] unless stub[:target_id].nil?
         data['targetArn'] = stub[:target_arn] unless stub[:target_arn].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['lifecycleEvents'] = Stubs::LifecycleEventList.stub(stub[:lifecycle_events]) unless stub[:lifecycle_events].nil?
+        data['lifecycleEvents'] = LifecycleEventList.stub(stub[:lifecycle_events]) unless stub[:lifecycle_events].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['taskSetsInfo'] = Stubs::ECSTaskSetList.stub(stub[:task_sets_info]) unless stub[:task_sets_info].nil?
+        data['taskSetsInfo'] = ECSTaskSetList.stub(stub[:task_sets_info]) unless stub[:task_sets_info].nil?
         data
       end
     end
@@ -1380,7 +1382,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ECSTaskSet.stub(element) unless element.nil?
+          data << ECSTaskSet.stub(element) unless element.nil?
         end
         data
       end
@@ -1412,7 +1414,7 @@ module AWS::SDK::CodeDeploy
         data['runningCount'] = stub[:running_count] unless stub[:running_count].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['trafficWeight'] = Hearth::NumberHelper.serialize(stub[:traffic_weight])
-        data['targetGroup'] = Stubs::TargetGroupInfo.stub(stub[:target_group]) unless stub[:target_group].nil?
+        data['targetGroup'] = TargetGroupInfo.stub(stub[:target_group]) unless stub[:target_group].nil?
         data['taskSetLabel'] = stub[:task_set_label] unless stub[:task_set_label].nil?
         data
       end
@@ -1442,8 +1444,8 @@ module AWS::SDK::CodeDeploy
         data['targetArn'] = stub[:target_arn] unless stub[:target_arn].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['lifecycleEvents'] = Stubs::LifecycleEventList.stub(stub[:lifecycle_events]) unless stub[:lifecycle_events].nil?
-        data['lambdaFunctionInfo'] = Stubs::LambdaFunctionInfo.stub(stub[:lambda_function_info]) unless stub[:lambda_function_info].nil?
+        data['lifecycleEvents'] = LifecycleEventList.stub(stub[:lifecycle_events]) unless stub[:lifecycle_events].nil?
+        data['lambdaFunctionInfo'] = LambdaFunctionInfo.stub(stub[:lambda_function_info]) unless stub[:lambda_function_info].nil?
         data
       end
     end
@@ -1498,7 +1500,7 @@ module AWS::SDK::CodeDeploy
         data['targetArn'] = stub[:target_arn] unless stub[:target_arn].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
-        data['lifecycleEvents'] = Stubs::LifecycleEventList.stub(stub[:lifecycle_events]) unless stub[:lifecycle_events].nil?
+        data['lifecycleEvents'] = LifecycleEventList.stub(stub[:lifecycle_events]) unless stub[:lifecycle_events].nil?
         data['instanceLabel'] = stub[:instance_label] unless stub[:instance_label].nil?
         data
       end
@@ -1514,8 +1516,8 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['deploymentsInfo'] = Stubs::DeploymentsInfoList.stub(stub[:deployments_info]) unless stub[:deployments_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deploymentsInfo'] = DeploymentsInfoList.stub(stub[:deployments_info]) unless stub[:deployments_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1534,7 +1536,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeploymentInfo.stub(element) unless element.nil?
+          data << DeploymentInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1585,31 +1587,31 @@ module AWS::SDK::CodeDeploy
         data['deploymentGroupName'] = stub[:deployment_group_name] unless stub[:deployment_group_name].nil?
         data['deploymentConfigName'] = stub[:deployment_config_name] unless stub[:deployment_config_name].nil?
         data['deploymentId'] = stub[:deployment_id] unless stub[:deployment_id].nil?
-        data['previousRevision'] = Stubs::RevisionLocation.stub(stub[:previous_revision]) unless stub[:previous_revision].nil?
-        data['revision'] = Stubs::RevisionLocation.stub(stub[:revision]) unless stub[:revision].nil?
+        data['previousRevision'] = RevisionLocation.stub(stub[:previous_revision]) unless stub[:previous_revision].nil?
+        data['revision'] = RevisionLocation.stub(stub[:revision]) unless stub[:revision].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['errorInformation'] = Stubs::ErrorInformation.stub(stub[:error_information]) unless stub[:error_information].nil?
+        data['errorInformation'] = ErrorInformation.stub(stub[:error_information]) unless stub[:error_information].nil?
         data['createTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_time]).to_i unless stub[:create_time].nil?
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['completeTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:complete_time]).to_i unless stub[:complete_time].nil?
-        data['deploymentOverview'] = Stubs::DeploymentOverview.stub(stub[:deployment_overview]) unless stub[:deployment_overview].nil?
+        data['deploymentOverview'] = DeploymentOverview.stub(stub[:deployment_overview]) unless stub[:deployment_overview].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['creator'] = stub[:creator] unless stub[:creator].nil?
         data['ignoreApplicationStopFailures'] = stub[:ignore_application_stop_failures] unless stub[:ignore_application_stop_failures].nil?
-        data['autoRollbackConfiguration'] = Stubs::AutoRollbackConfiguration.stub(stub[:auto_rollback_configuration]) unless stub[:auto_rollback_configuration].nil?
+        data['autoRollbackConfiguration'] = AutoRollbackConfiguration.stub(stub[:auto_rollback_configuration]) unless stub[:auto_rollback_configuration].nil?
         data['updateOutdatedInstancesOnly'] = stub[:update_outdated_instances_only] unless stub[:update_outdated_instances_only].nil?
-        data['rollbackInfo'] = Stubs::RollbackInfo.stub(stub[:rollback_info]) unless stub[:rollback_info].nil?
-        data['deploymentStyle'] = Stubs::DeploymentStyle.stub(stub[:deployment_style]) unless stub[:deployment_style].nil?
-        data['targetInstances'] = Stubs::TargetInstances.stub(stub[:target_instances]) unless stub[:target_instances].nil?
+        data['rollbackInfo'] = RollbackInfo.stub(stub[:rollback_info]) unless stub[:rollback_info].nil?
+        data['deploymentStyle'] = DeploymentStyle.stub(stub[:deployment_style]) unless stub[:deployment_style].nil?
+        data['targetInstances'] = TargetInstances.stub(stub[:target_instances]) unless stub[:target_instances].nil?
         data['instanceTerminationWaitTimeStarted'] = stub[:instance_termination_wait_time_started] unless stub[:instance_termination_wait_time_started].nil?
-        data['blueGreenDeploymentConfiguration'] = Stubs::BlueGreenDeploymentConfiguration.stub(stub[:blue_green_deployment_configuration]) unless stub[:blue_green_deployment_configuration].nil?
-        data['loadBalancerInfo'] = Stubs::LoadBalancerInfo.stub(stub[:load_balancer_info]) unless stub[:load_balancer_info].nil?
+        data['blueGreenDeploymentConfiguration'] = BlueGreenDeploymentConfiguration.stub(stub[:blue_green_deployment_configuration]) unless stub[:blue_green_deployment_configuration].nil?
+        data['loadBalancerInfo'] = LoadBalancerInfo.stub(stub[:load_balancer_info]) unless stub[:load_balancer_info].nil?
         data['additionalDeploymentStatusInfo'] = stub[:additional_deployment_status_info] unless stub[:additional_deployment_status_info].nil?
         data['fileExistsBehavior'] = stub[:file_exists_behavior] unless stub[:file_exists_behavior].nil?
-        data['deploymentStatusMessages'] = Stubs::DeploymentStatusMessageList.stub(stub[:deployment_status_messages]) unless stub[:deployment_status_messages].nil?
+        data['deploymentStatusMessages'] = DeploymentStatusMessageList.stub(stub[:deployment_status_messages]) unless stub[:deployment_status_messages].nil?
         data['computePlatform'] = stub[:compute_platform] unless stub[:compute_platform].nil?
         data['externalId'] = stub[:external_id] unless stub[:external_id].nil?
-        data['relatedDeployments'] = Stubs::RelatedDeployments.stub(stub[:related_deployments]) unless stub[:related_deployments].nil?
+        data['relatedDeployments'] = RelatedDeployments.stub(stub[:related_deployments]) unless stub[:related_deployments].nil?
         data
       end
     end
@@ -1629,7 +1631,7 @@ module AWS::SDK::CodeDeploy
         stub ||= Types::RelatedDeployments.new
         data = {}
         data['autoUpdateOutdatedInstancesRootDeploymentId'] = stub[:auto_update_outdated_instances_root_deployment_id] unless stub[:auto_update_outdated_instances_root_deployment_id].nil?
-        data['autoUpdateOutdatedInstancesDeploymentIds'] = Stubs::DeploymentsList.stub(stub[:auto_update_outdated_instances_deployment_ids]) unless stub[:auto_update_outdated_instances_deployment_ids].nil?
+        data['autoUpdateOutdatedInstancesDeploymentIds'] = DeploymentsList.stub(stub[:auto_update_outdated_instances_deployment_ids]) unless stub[:auto_update_outdated_instances_deployment_ids].nil?
         data
       end
     end
@@ -1689,9 +1691,9 @@ module AWS::SDK::CodeDeploy
       def self.stub(stub)
         stub ||= Types::TargetInstances.new
         data = {}
-        data['tagFilters'] = Stubs::EC2TagFilterList.stub(stub[:tag_filters]) unless stub[:tag_filters].nil?
-        data['autoScalingGroups'] = Stubs::AutoScalingGroupNameList.stub(stub[:auto_scaling_groups]) unless stub[:auto_scaling_groups].nil?
-        data['ec2TagSet'] = Stubs::EC2TagSet.stub(stub[:ec2_tag_set]) unless stub[:ec2_tag_set].nil?
+        data['tagFilters'] = EC2TagFilterList.stub(stub[:tag_filters]) unless stub[:tag_filters].nil?
+        data['autoScalingGroups'] = AutoScalingGroupNameList.stub(stub[:auto_scaling_groups]) unless stub[:auto_scaling_groups].nil?
+        data['ec2TagSet'] = EC2TagSet.stub(stub[:ec2_tag_set]) unless stub[:ec2_tag_set].nil?
         data
       end
     end
@@ -1796,8 +1798,8 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['instanceInfos'] = Stubs::InstanceInfoList.stub(stub[:instance_infos]) unless stub[:instance_infos].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['instanceInfos'] = InstanceInfoList.stub(stub[:instance_infos]) unless stub[:instance_infos].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1816,7 +1818,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceInfo.stub(element) unless element.nil?
+          data << InstanceInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1847,7 +1849,7 @@ module AWS::SDK::CodeDeploy
         data['instanceArn'] = stub[:instance_arn] unless stub[:instance_arn].nil?
         data['registerTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:register_time]).to_i unless stub[:register_time].nil?
         data['deregisterTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:deregister_time]).to_i unless stub[:deregister_time].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1866,7 +1868,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1901,7 +1903,7 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1917,7 +1919,7 @@ module AWS::SDK::CodeDeploy
       def self.stub(http_resp, stub:)
         data = {}
         data['applicationId'] = stub[:application_id] unless stub[:application_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1933,7 +1935,7 @@ module AWS::SDK::CodeDeploy
       def self.stub(http_resp, stub:)
         data = {}
         data['deploymentId'] = stub[:deployment_id] unless stub[:deployment_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1949,7 +1951,7 @@ module AWS::SDK::CodeDeploy
       def self.stub(http_resp, stub:)
         data = {}
         data['deploymentConfigId'] = stub[:deployment_config_id] unless stub[:deployment_config_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1965,7 +1967,7 @@ module AWS::SDK::CodeDeploy
       def self.stub(http_resp, stub:)
         data = {}
         data['deploymentGroupId'] = stub[:deployment_group_id] unless stub[:deployment_group_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1979,7 +1981,7 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1993,7 +1995,7 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2008,8 +2010,8 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['hooksNotCleanedUp'] = Stubs::AutoScalingGroupList.stub(stub[:hooks_not_cleaned_up]) unless stub[:hooks_not_cleaned_up].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['hooksNotCleanedUp'] = AutoScalingGroupList.stub(stub[:hooks_not_cleaned_up]) unless stub[:hooks_not_cleaned_up].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2025,7 +2027,7 @@ module AWS::SDK::CodeDeploy
       def self.stub(http_resp, stub:)
         data = {}
         data['tokenName'] = stub[:token_name] unless stub[:token_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2039,7 +2041,7 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2053,7 +2055,7 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2068,8 +2070,8 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['application'] = Stubs::ApplicationInfo.stub(stub[:application]) unless stub[:application].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['application'] = ApplicationInfo.stub(stub[:application]) unless stub[:application].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2087,9 +2089,9 @@ module AWS::SDK::CodeDeploy
       def self.stub(http_resp, stub:)
         data = {}
         data['applicationName'] = stub[:application_name] unless stub[:application_name].nil?
-        data['revision'] = Stubs::RevisionLocation.stub(stub[:revision]) unless stub[:revision].nil?
-        data['revisionInfo'] = Stubs::GenericRevisionInfo.stub(stub[:revision_info]) unless stub[:revision_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['revision'] = RevisionLocation.stub(stub[:revision]) unless stub[:revision].nil?
+        data['revisionInfo'] = GenericRevisionInfo.stub(stub[:revision_info]) unless stub[:revision_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2104,8 +2106,8 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['deploymentInfo'] = Stubs::DeploymentInfo.stub(stub[:deployment_info]) unless stub[:deployment_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deploymentInfo'] = DeploymentInfo.stub(stub[:deployment_info]) unless stub[:deployment_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2120,8 +2122,8 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['deploymentConfigInfo'] = Stubs::DeploymentConfigInfo.stub(stub[:deployment_config_info]) unless stub[:deployment_config_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deploymentConfigInfo'] = DeploymentConfigInfo.stub(stub[:deployment_config_info]) unless stub[:deployment_config_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2146,10 +2148,10 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['deploymentConfigId'] = stub[:deployment_config_id] unless stub[:deployment_config_id].nil?
         data['deploymentConfigName'] = stub[:deployment_config_name] unless stub[:deployment_config_name].nil?
-        data['minimumHealthyHosts'] = Stubs::MinimumHealthyHosts.stub(stub[:minimum_healthy_hosts]) unless stub[:minimum_healthy_hosts].nil?
+        data['minimumHealthyHosts'] = MinimumHealthyHosts.stub(stub[:minimum_healthy_hosts]) unless stub[:minimum_healthy_hosts].nil?
         data['createTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_time]).to_i unless stub[:create_time].nil?
         data['computePlatform'] = stub[:compute_platform] unless stub[:compute_platform].nil?
-        data['trafficRoutingConfig'] = Stubs::TrafficRoutingConfig.stub(stub[:traffic_routing_config]) unless stub[:traffic_routing_config].nil?
+        data['trafficRoutingConfig'] = TrafficRoutingConfig.stub(stub[:traffic_routing_config]) unless stub[:traffic_routing_config].nil?
         data
       end
     end
@@ -2170,8 +2172,8 @@ module AWS::SDK::CodeDeploy
         stub ||= Types::TrafficRoutingConfig.new
         data = {}
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['timeBasedCanary'] = Stubs::TimeBasedCanary.stub(stub[:time_based_canary]) unless stub[:time_based_canary].nil?
-        data['timeBasedLinear'] = Stubs::TimeBasedLinear.stub(stub[:time_based_linear]) unless stub[:time_based_linear].nil?
+        data['timeBasedCanary'] = TimeBasedCanary.stub(stub[:time_based_canary]) unless stub[:time_based_canary].nil?
+        data['timeBasedLinear'] = TimeBasedLinear.stub(stub[:time_based_linear]) unless stub[:time_based_linear].nil?
         data
       end
     end
@@ -2246,8 +2248,8 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['deploymentGroupInfo'] = Stubs::DeploymentGroupInfo.stub(stub[:deployment_group_info]) unless stub[:deployment_group_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deploymentGroupInfo'] = DeploymentGroupInfo.stub(stub[:deployment_group_info]) unless stub[:deployment_group_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2262,8 +2264,8 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['instanceSummary'] = Stubs::InstanceSummary.stub(stub[:instance_summary]) unless stub[:instance_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['instanceSummary'] = InstanceSummary.stub(stub[:instance_summary]) unless stub[:instance_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2278,8 +2280,8 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['deploymentTarget'] = Stubs::DeploymentTarget.stub(stub[:deployment_target]) unless stub[:deployment_target].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deploymentTarget'] = DeploymentTarget.stub(stub[:deployment_target]) unless stub[:deployment_target].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2294,8 +2296,8 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['instanceInfo'] = Stubs::InstanceInfo.stub(stub[:instance_info]) unless stub[:instance_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['instanceInfo'] = InstanceInfo.stub(stub[:instance_info]) unless stub[:instance_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2311,9 +2313,9 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['revisions'] = Stubs::RevisionLocationList.stub(stub[:revisions]) unless stub[:revisions].nil?
+        data['revisions'] = RevisionLocationList.stub(stub[:revisions]) unless stub[:revisions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2332,7 +2334,7 @@ module AWS::SDK::CodeDeploy
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RevisionLocation.stub(element) unless element.nil?
+          data << RevisionLocation.stub(element) unless element.nil?
         end
         data
       end
@@ -2349,9 +2351,9 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['applications'] = Stubs::ApplicationsList.stub(stub[:applications]) unless stub[:applications].nil?
+        data['applications'] = ApplicationsList.stub(stub[:applications]) unless stub[:applications].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2387,9 +2389,9 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['deploymentConfigsList'] = Stubs::DeploymentConfigsList.stub(stub[:deployment_configs_list]) unless stub[:deployment_configs_list].nil?
+        data['deploymentConfigsList'] = DeploymentConfigsList.stub(stub[:deployment_configs_list]) unless stub[:deployment_configs_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2427,9 +2429,9 @@ module AWS::SDK::CodeDeploy
       def self.stub(http_resp, stub:)
         data = {}
         data['applicationName'] = stub[:application_name] unless stub[:application_name].nil?
-        data['deploymentGroups'] = Stubs::DeploymentGroupsList.stub(stub[:deployment_groups]) unless stub[:deployment_groups].nil?
+        data['deploymentGroups'] = DeploymentGroupsList.stub(stub[:deployment_groups]) unless stub[:deployment_groups].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2445,9 +2447,9 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['instancesList'] = Stubs::InstancesList.stub(stub[:instances_list]) unless stub[:instances_list].nil?
+        data['instancesList'] = InstancesList.stub(stub[:instances_list]) unless stub[:instances_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2483,9 +2485,9 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['targetIds'] = Stubs::TargetIdList.stub(stub[:target_ids]) unless stub[:target_ids].nil?
+        data['targetIds'] = TargetIdList.stub(stub[:target_ids]) unless stub[:target_ids].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2521,9 +2523,9 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['deployments'] = Stubs::DeploymentsList.stub(stub[:deployments]) unless stub[:deployments].nil?
+        data['deployments'] = DeploymentsList.stub(stub[:deployments]) unless stub[:deployments].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2539,9 +2541,9 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tokenNameList'] = Stubs::GitHubAccountTokenNameList.stub(stub[:token_name_list]) unless stub[:token_name_list].nil?
+        data['tokenNameList'] = GitHubAccountTokenNameList.stub(stub[:token_name_list]) unless stub[:token_name_list].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2577,9 +2579,9 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['instanceNames'] = Stubs::InstanceNameList.stub(stub[:instance_names]) unless stub[:instance_names].nil?
+        data['instanceNames'] = InstanceNameList.stub(stub[:instance_names]) unless stub[:instance_names].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2615,9 +2617,9 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2633,7 +2635,7 @@ module AWS::SDK::CodeDeploy
       def self.stub(http_resp, stub:)
         data = {}
         data['lifecycleEventHookExecutionId'] = stub[:lifecycle_event_hook_execution_id] unless stub[:lifecycle_event_hook_execution_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2647,7 +2649,7 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2661,7 +2663,7 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2675,7 +2677,7 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2689,7 +2691,7 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2707,7 +2709,7 @@ module AWS::SDK::CodeDeploy
         data = {}
         data['status'] = stub[:status] unless stub[:status].nil?
         data['statusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2721,7 +2723,7 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2735,7 +2737,7 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2749,7 +2751,7 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2764,8 +2766,8 @@ module AWS::SDK::CodeDeploy
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['hooksNotCleanedUp'] = Stubs::AutoScalingGroupList.stub(stub[:hooks_not_cleaned_up]) unless stub[:hooks_not_cleaned_up].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['hooksNotCleanedUp'] = AutoScalingGroupList.stub(stub[:hooks_not_cleaned_up]) unless stub[:hooks_not_cleaned_up].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

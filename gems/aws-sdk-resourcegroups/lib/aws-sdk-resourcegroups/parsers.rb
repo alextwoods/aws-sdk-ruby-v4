@@ -15,10 +15,10 @@ module AWS::SDK::ResourceGroups
       def self.parse(http_resp)
         data = Types::CreateGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.group = (Parsers::Group.parse(map['Group']) unless map['Group'].nil?)
-        data.resource_query = (Parsers::ResourceQuery.parse(map['ResourceQuery']) unless map['ResourceQuery'].nil?)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
-        data.group_configuration = (Parsers::GroupConfiguration.parse(map['GroupConfiguration']) unless map['GroupConfiguration'].nil?)
+        data.group = (Group.parse(map['Group']) unless map['Group'].nil?)
+        data.resource_query = (ResourceQuery.parse(map['ResourceQuery']) unless map['ResourceQuery'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.group_configuration = (GroupConfiguration.parse(map['GroupConfiguration']) unless map['GroupConfiguration'].nil?)
         data
       end
     end
@@ -26,8 +26,8 @@ module AWS::SDK::ResourceGroups
     class GroupConfiguration
       def self.parse(map)
         data = Types::GroupConfiguration.new
-        data.configuration = (Parsers::GroupConfigurationList.parse(map['Configuration']) unless map['Configuration'].nil?)
-        data.proposed_configuration = (Parsers::GroupConfigurationList.parse(map['ProposedConfiguration']) unless map['ProposedConfiguration'].nil?)
+        data.configuration = (GroupConfigurationList.parse(map['Configuration']) unless map['Configuration'].nil?)
+        data.proposed_configuration = (GroupConfigurationList.parse(map['ProposedConfiguration']) unless map['ProposedConfiguration'].nil?)
         data.status = map['Status']
         data.failure_reason = map['FailureReason']
         return data
@@ -38,7 +38,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GroupConfigurationItem.parse(value) unless value.nil?
+          data << GroupConfigurationItem.parse(value) unless value.nil?
         end
         data
       end
@@ -48,7 +48,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(map)
         data = Types::GroupConfigurationItem.new
         data.type = map['Type']
-        data.parameters = (Parsers::GroupParameterList.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (GroupParameterList.parse(map['Parameters']) unless map['Parameters'].nil?)
         return data
       end
     end
@@ -57,7 +57,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GroupConfigurationParameter.parse(value) unless value.nil?
+          data << GroupConfigurationParameter.parse(value) unless value.nil?
         end
         data
       end
@@ -67,7 +67,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(map)
         data = Types::GroupConfigurationParameter.new
         data.name = map['Name']
-        data.values = (Parsers::GroupConfigurationParameterValueList.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (GroupConfigurationParameterValueList.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -166,7 +166,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(http_resp)
         data = Types::DeleteGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.group = (Parsers::Group.parse(map['Group']) unless map['Group'].nil?)
+        data.group = (Group.parse(map['Group']) unless map['Group'].nil?)
         data
       end
     end
@@ -186,7 +186,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(http_resp)
         data = Types::GetGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.group = (Parsers::Group.parse(map['Group']) unless map['Group'].nil?)
+        data.group = (Group.parse(map['Group']) unless map['Group'].nil?)
         data
       end
     end
@@ -196,7 +196,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(http_resp)
         data = Types::GetGroupConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.group_configuration = (Parsers::GroupConfiguration.parse(map['GroupConfiguration']) unless map['GroupConfiguration'].nil?)
+        data.group_configuration = (GroupConfiguration.parse(map['GroupConfiguration']) unless map['GroupConfiguration'].nil?)
         data
       end
     end
@@ -206,7 +206,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(http_resp)
         data = Types::GetGroupQueryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.group_query = (Parsers::GroupQuery.parse(map['GroupQuery']) unless map['GroupQuery'].nil?)
+        data.group_query = (GroupQuery.parse(map['GroupQuery']) unless map['GroupQuery'].nil?)
         data
       end
     end
@@ -215,7 +215,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(map)
         data = Types::GroupQuery.new
         data.group_name = map['GroupName']
-        data.resource_query = (Parsers::ResourceQuery.parse(map['ResourceQuery']) unless map['ResourceQuery'].nil?)
+        data.resource_query = (ResourceQuery.parse(map['ResourceQuery']) unless map['ResourceQuery'].nil?)
         return data
       end
     end
@@ -226,7 +226,7 @@ module AWS::SDK::ResourceGroups
         data = Types::GetTagsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['Arn']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -236,9 +236,9 @@ module AWS::SDK::ResourceGroups
       def self.parse(http_resp)
         data = Types::GroupResourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.succeeded = (Parsers::ResourceArnList.parse(map['Succeeded']) unless map['Succeeded'].nil?)
-        data.failed = (Parsers::FailedResourceList.parse(map['Failed']) unless map['Failed'].nil?)
-        data.pending = (Parsers::PendingResourceList.parse(map['Pending']) unless map['Pending'].nil?)
+        data.succeeded = (ResourceArnList.parse(map['Succeeded']) unless map['Succeeded'].nil?)
+        data.failed = (FailedResourceList.parse(map['Failed']) unless map['Failed'].nil?)
+        data.pending = (PendingResourceList.parse(map['Pending']) unless map['Pending'].nil?)
         data
       end
     end
@@ -247,7 +247,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PendingResource.parse(value) unless value.nil?
+          data << PendingResource.parse(value) unless value.nil?
         end
         data
       end
@@ -265,7 +265,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FailedResource.parse(value) unless value.nil?
+          data << FailedResource.parse(value) unless value.nil?
         end
         data
       end
@@ -296,10 +296,10 @@ module AWS::SDK::ResourceGroups
       def self.parse(http_resp)
         data = Types::ListGroupResourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resources = (Parsers::ListGroupResourcesItemList.parse(map['Resources']) unless map['Resources'].nil?)
-        data.resource_identifiers = (Parsers::ResourceIdentifierList.parse(map['ResourceIdentifiers']) unless map['ResourceIdentifiers'].nil?)
+        data.resources = (ListGroupResourcesItemList.parse(map['Resources']) unless map['Resources'].nil?)
+        data.resource_identifiers = (ResourceIdentifierList.parse(map['ResourceIdentifiers']) unless map['ResourceIdentifiers'].nil?)
         data.next_token = map['NextToken']
-        data.query_errors = (Parsers::QueryErrorList.parse(map['QueryErrors']) unless map['QueryErrors'].nil?)
+        data.query_errors = (QueryErrorList.parse(map['QueryErrors']) unless map['QueryErrors'].nil?)
         data
       end
     end
@@ -308,7 +308,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::QueryError.parse(value) unless value.nil?
+          data << QueryError.parse(value) unless value.nil?
         end
         data
       end
@@ -327,7 +327,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourceIdentifier.parse(value) unless value.nil?
+          data << ResourceIdentifier.parse(value) unless value.nil?
         end
         data
       end
@@ -346,7 +346,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ListGroupResourcesItem.parse(value) unless value.nil?
+          data << ListGroupResourcesItem.parse(value) unless value.nil?
         end
         data
       end
@@ -355,8 +355,8 @@ module AWS::SDK::ResourceGroups
     class ListGroupResourcesItem
       def self.parse(map)
         data = Types::ListGroupResourcesItem.new
-        data.identifier = (Parsers::ResourceIdentifier.parse(map['Identifier']) unless map['Identifier'].nil?)
-        data.status = (Parsers::ResourceStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.identifier = (ResourceIdentifier.parse(map['Identifier']) unless map['Identifier'].nil?)
+        data.status = (ResourceStatus.parse(map['Status']) unless map['Status'].nil?)
         return data
       end
     end
@@ -384,8 +384,8 @@ module AWS::SDK::ResourceGroups
       def self.parse(http_resp)
         data = Types::ListGroupsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.group_identifiers = (Parsers::GroupIdentifierList.parse(map['GroupIdentifiers']) unless map['GroupIdentifiers'].nil?)
-        data.groups = (Parsers::GroupList.parse(map['Groups']) unless map['Groups'].nil?)
+        data.group_identifiers = (GroupIdentifierList.parse(map['GroupIdentifiers']) unless map['GroupIdentifiers'].nil?)
+        data.groups = (GroupList.parse(map['Groups']) unless map['Groups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -395,7 +395,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Group.parse(value) unless value.nil?
+          data << Group.parse(value) unless value.nil?
         end
         data
       end
@@ -405,7 +405,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GroupIdentifier.parse(value) unless value.nil?
+          data << GroupIdentifier.parse(value) unless value.nil?
         end
         data
       end
@@ -434,9 +434,9 @@ module AWS::SDK::ResourceGroups
       def self.parse(http_resp)
         data = Types::SearchResourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_identifiers = (Parsers::ResourceIdentifierList.parse(map['ResourceIdentifiers']) unless map['ResourceIdentifiers'].nil?)
+        data.resource_identifiers = (ResourceIdentifierList.parse(map['ResourceIdentifiers']) unless map['ResourceIdentifiers'].nil?)
         data.next_token = map['NextToken']
-        data.query_errors = (Parsers::QueryErrorList.parse(map['QueryErrors']) unless map['QueryErrors'].nil?)
+        data.query_errors = (QueryErrorList.parse(map['QueryErrors']) unless map['QueryErrors'].nil?)
         data
       end
     end
@@ -447,7 +447,7 @@ module AWS::SDK::ResourceGroups
         data = Types::TagOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['Arn']
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -457,9 +457,9 @@ module AWS::SDK::ResourceGroups
       def self.parse(http_resp)
         data = Types::UngroupResourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.succeeded = (Parsers::ResourceArnList.parse(map['Succeeded']) unless map['Succeeded'].nil?)
-        data.failed = (Parsers::FailedResourceList.parse(map['Failed']) unless map['Failed'].nil?)
-        data.pending = (Parsers::PendingResourceList.parse(map['Pending']) unless map['Pending'].nil?)
+        data.succeeded = (ResourceArnList.parse(map['Succeeded']) unless map['Succeeded'].nil?)
+        data.failed = (FailedResourceList.parse(map['Failed']) unless map['Failed'].nil?)
+        data.pending = (PendingResourceList.parse(map['Pending']) unless map['Pending'].nil?)
         data
       end
     end
@@ -470,7 +470,7 @@ module AWS::SDK::ResourceGroups
         data = Types::UntagOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.arn = map['Arn']
-        data.keys = (Parsers::TagKeyList.parse(map['Keys']) unless map['Keys'].nil?)
+        data.keys = (TagKeyList.parse(map['Keys']) unless map['Keys'].nil?)
         data
       end
     end
@@ -490,7 +490,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(http_resp)
         data = Types::UpdateGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.group = (Parsers::Group.parse(map['Group']) unless map['Group'].nil?)
+        data.group = (Group.parse(map['Group']) unless map['Group'].nil?)
         data
       end
     end
@@ -500,7 +500,7 @@ module AWS::SDK::ResourceGroups
       def self.parse(http_resp)
         data = Types::UpdateGroupQueryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.group_query = (Parsers::GroupQuery.parse(map['GroupQuery']) unless map['GroupQuery'].nil?)
+        data.group_query = (GroupQuery.parse(map['GroupQuery']) unless map['GroupQuery'].nil?)
         data
       end
     end

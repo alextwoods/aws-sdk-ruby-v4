@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IoTFleetHub
   module Stubs
 
@@ -25,7 +27,7 @@ module AWS::SDK::IoTFleetHub
         http_resp.headers['Content-Type'] = 'application/json'
         data['applicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['applicationArn'] = stub[:application_arn] unless stub[:application_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -76,8 +78,8 @@ module AWS::SDK::IoTFleetHub
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['ssoClientId'] = stub[:sso_client_id] unless stub[:sso_client_id].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -114,9 +116,9 @@ module AWS::SDK::IoTFleetHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['applicationSummaries'] = Stubs::ApplicationSummaries.stub(stub[:application_summaries]) unless stub[:application_summaries].nil?
+        data['applicationSummaries'] = ApplicationSummaries.stub(stub[:application_summaries]) unless stub[:application_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -134,7 +136,7 @@ module AWS::SDK::IoTFleetHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApplicationSummary.stub(element) unless element.nil?
+          data << ApplicationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -182,8 +184,8 @@ module AWS::SDK::IoTFleetHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

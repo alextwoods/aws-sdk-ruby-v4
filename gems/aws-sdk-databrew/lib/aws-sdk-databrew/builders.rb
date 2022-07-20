@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DataBrew
   module Builders
 
@@ -27,8 +29,8 @@ module AWS::SDK::DataBrew
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['RecipeVersions'] = Builders::RecipeVersionList.build(input[:recipe_versions]) unless input[:recipe_versions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RecipeVersions'] = RecipeVersionList.build(input[:recipe_versions]) unless input[:recipe_versions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -55,11 +57,11 @@ module AWS::SDK::DataBrew
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Format'] = input[:format] unless input[:format].nil?
-        data['FormatOptions'] = Builders::FormatOptions.build(input[:format_options]) unless input[:format_options].nil?
-        data['Input'] = Builders::Input.build(input[:input]) unless input[:input].nil?
-        data['PathOptions'] = Builders::PathOptions.build(input[:path_options]) unless input[:path_options].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FormatOptions'] = FormatOptions.build(input[:format_options]) unless input[:format_options].nil?
+        data['Input'] = Input.build(input[:input]) unless input[:input].nil?
+        data['PathOptions'] = PathOptions.build(input[:path_options]) unless input[:path_options].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -78,9 +80,9 @@ module AWS::SDK::DataBrew
     class PathOptions
       def self.build(input)
         data = {}
-        data['LastModifiedDateCondition'] = Builders::FilterExpression.build(input[:last_modified_date_condition]) unless input[:last_modified_date_condition].nil?
-        data['FilesLimit'] = Builders::FilesLimit.build(input[:files_limit]) unless input[:files_limit].nil?
-        data['Parameters'] = Builders::PathParametersMap.build(input[:parameters]) unless input[:parameters].nil?
+        data['LastModifiedDateCondition'] = FilterExpression.build(input[:last_modified_date_condition]) unless input[:last_modified_date_condition].nil?
+        data['FilesLimit'] = FilesLimit.build(input[:files_limit]) unless input[:files_limit].nil?
+        data['Parameters'] = PathParametersMap.build(input[:parameters]) unless input[:parameters].nil?
         data
       end
     end
@@ -90,7 +92,7 @@ module AWS::SDK::DataBrew
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::DatasetParameter.build(value) unless value.nil?
+          data[key] = DatasetParameter.build(value) unless value.nil?
         end
         data
       end
@@ -102,9 +104,9 @@ module AWS::SDK::DataBrew
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        data['DatetimeOptions'] = Builders::DatetimeOptions.build(input[:datetime_options]) unless input[:datetime_options].nil?
+        data['DatetimeOptions'] = DatetimeOptions.build(input[:datetime_options]) unless input[:datetime_options].nil?
         data['CreateColumn'] = input[:create_column] unless input[:create_column].nil?
-        data['Filter'] = Builders::FilterExpression.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = FilterExpression.build(input[:filter]) unless input[:filter].nil?
         data
       end
     end
@@ -114,7 +116,7 @@ module AWS::SDK::DataBrew
       def self.build(input)
         data = {}
         data['Expression'] = input[:expression] unless input[:expression].nil?
-        data['ValuesMap'] = Builders::ValuesMap.build(input[:values_map]) unless input[:values_map].nil?
+        data['ValuesMap'] = ValuesMap.build(input[:values_map]) unless input[:values_map].nil?
         data
       end
     end
@@ -156,10 +158,10 @@ module AWS::SDK::DataBrew
     class Input
       def self.build(input)
         data = {}
-        data['S3InputDefinition'] = Builders::S3Location.build(input[:s3_input_definition]) unless input[:s3_input_definition].nil?
-        data['DataCatalogInputDefinition'] = Builders::DataCatalogInputDefinition.build(input[:data_catalog_input_definition]) unless input[:data_catalog_input_definition].nil?
-        data['DatabaseInputDefinition'] = Builders::DatabaseInputDefinition.build(input[:database_input_definition]) unless input[:database_input_definition].nil?
-        data['Metadata'] = Builders::Metadata.build(input[:metadata]) unless input[:metadata].nil?
+        data['S3InputDefinition'] = S3Location.build(input[:s3_input_definition]) unless input[:s3_input_definition].nil?
+        data['DataCatalogInputDefinition'] = DataCatalogInputDefinition.build(input[:data_catalog_input_definition]) unless input[:data_catalog_input_definition].nil?
+        data['DatabaseInputDefinition'] = DatabaseInputDefinition.build(input[:database_input_definition]) unless input[:database_input_definition].nil?
+        data['Metadata'] = Metadata.build(input[:metadata]) unless input[:metadata].nil?
         data
       end
     end
@@ -179,7 +181,7 @@ module AWS::SDK::DataBrew
         data = {}
         data['GlueConnectionName'] = input[:glue_connection_name] unless input[:glue_connection_name].nil?
         data['DatabaseTableName'] = input[:database_table_name] unless input[:database_table_name].nil?
-        data['TempDirectory'] = Builders::S3Location.build(input[:temp_directory]) unless input[:temp_directory].nil?
+        data['TempDirectory'] = S3Location.build(input[:temp_directory]) unless input[:temp_directory].nil?
         data['QueryString'] = input[:query_string] unless input[:query_string].nil?
         data
       end
@@ -203,7 +205,7 @@ module AWS::SDK::DataBrew
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['TempDirectory'] = Builders::S3Location.build(input[:temp_directory]) unless input[:temp_directory].nil?
+        data['TempDirectory'] = S3Location.build(input[:temp_directory]) unless input[:temp_directory].nil?
         data
       end
     end
@@ -212,9 +214,9 @@ module AWS::SDK::DataBrew
     class FormatOptions
       def self.build(input)
         data = {}
-        data['Json'] = Builders::JsonOptions.build(input[:json]) unless input[:json].nil?
-        data['Excel'] = Builders::ExcelOptions.build(input[:excel]) unless input[:excel].nil?
-        data['Csv'] = Builders::CsvOptions.build(input[:csv]) unless input[:csv].nil?
+        data['Json'] = JsonOptions.build(input[:json]) unless input[:json].nil?
+        data['Excel'] = ExcelOptions.build(input[:excel]) unless input[:excel].nil?
+        data['Csv'] = CsvOptions.build(input[:csv]) unless input[:csv].nil?
         data
       end
     end
@@ -233,8 +235,8 @@ module AWS::SDK::DataBrew
     class ExcelOptions
       def self.build(input)
         data = {}
-        data['SheetNames'] = Builders::SheetNameList.build(input[:sheet_names]) unless input[:sheet_names].nil?
-        data['SheetIndexes'] = Builders::SheetIndexList.build(input[:sheet_indexes]) unless input[:sheet_indexes].nil?
+        data['SheetNames'] = SheetNameList.build(input[:sheet_names]) unless input[:sheet_names].nil?
+        data['SheetIndexes'] = SheetIndexList.build(input[:sheet_indexes]) unless input[:sheet_indexes].nil?
         data['HeaderRow'] = input[:header_row] unless input[:header_row].nil?
         data
       end
@@ -288,14 +290,14 @@ module AWS::SDK::DataBrew
         data['LogSubscription'] = input[:log_subscription] unless input[:log_subscription].nil?
         data['MaxCapacity'] = input[:max_capacity] unless input[:max_capacity].nil?
         data['MaxRetries'] = input[:max_retries] unless input[:max_retries].nil?
-        data['OutputLocation'] = Builders::S3Location.build(input[:output_location]) unless input[:output_location].nil?
-        data['Configuration'] = Builders::ProfileConfiguration.build(input[:configuration]) unless input[:configuration].nil?
-        data['ValidationConfigurations'] = Builders::ValidationConfigurationList.build(input[:validation_configurations]) unless input[:validation_configurations].nil?
+        data['OutputLocation'] = S3Location.build(input[:output_location]) unless input[:output_location].nil?
+        data['Configuration'] = ProfileConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        data['ValidationConfigurations'] = ValidationConfigurationList.build(input[:validation_configurations]) unless input[:validation_configurations].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['Timeout'] = input[:timeout] unless input[:timeout].nil?
-        data['JobSample'] = Builders::JobSample.build(input[:job_sample]) unless input[:job_sample].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['JobSample'] = JobSample.build(input[:job_sample]) unless input[:job_sample].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -314,7 +316,7 @@ module AWS::SDK::DataBrew
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ValidationConfiguration.build(element) unless element.nil?
+          data << ValidationConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -334,10 +336,10 @@ module AWS::SDK::DataBrew
     class ProfileConfiguration
       def self.build(input)
         data = {}
-        data['DatasetStatisticsConfiguration'] = Builders::StatisticsConfiguration.build(input[:dataset_statistics_configuration]) unless input[:dataset_statistics_configuration].nil?
-        data['ProfileColumns'] = Builders::ColumnSelectorList.build(input[:profile_columns]) unless input[:profile_columns].nil?
-        data['ColumnStatisticsConfigurations'] = Builders::ColumnStatisticsConfigurationList.build(input[:column_statistics_configurations]) unless input[:column_statistics_configurations].nil?
-        data['EntityDetectorConfiguration'] = Builders::EntityDetectorConfiguration.build(input[:entity_detector_configuration]) unless input[:entity_detector_configuration].nil?
+        data['DatasetStatisticsConfiguration'] = StatisticsConfiguration.build(input[:dataset_statistics_configuration]) unless input[:dataset_statistics_configuration].nil?
+        data['ProfileColumns'] = ColumnSelectorList.build(input[:profile_columns]) unless input[:profile_columns].nil?
+        data['ColumnStatisticsConfigurations'] = ColumnStatisticsConfigurationList.build(input[:column_statistics_configurations]) unless input[:column_statistics_configurations].nil?
+        data['EntityDetectorConfiguration'] = EntityDetectorConfiguration.build(input[:entity_detector_configuration]) unless input[:entity_detector_configuration].nil?
         data
       end
     end
@@ -346,8 +348,8 @@ module AWS::SDK::DataBrew
     class EntityDetectorConfiguration
       def self.build(input)
         data = {}
-        data['EntityTypes'] = Builders::EntityTypeList.build(input[:entity_types]) unless input[:entity_types].nil?
-        data['AllowedStatistics'] = Builders::AllowedStatisticList.build(input[:allowed_statistics]) unless input[:allowed_statistics].nil?
+        data['EntityTypes'] = EntityTypeList.build(input[:entity_types]) unless input[:entity_types].nil?
+        data['AllowedStatistics'] = AllowedStatisticList.build(input[:allowed_statistics]) unless input[:allowed_statistics].nil?
         data
       end
     end
@@ -357,7 +359,7 @@ module AWS::SDK::DataBrew
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AllowedStatistics.build(element) unless element.nil?
+          data << AllowedStatistics.build(element) unless element.nil?
         end
         data
       end
@@ -367,7 +369,7 @@ module AWS::SDK::DataBrew
     class AllowedStatistics
       def self.build(input)
         data = {}
-        data['Statistics'] = Builders::StatisticList.build(input[:statistics]) unless input[:statistics].nil?
+        data['Statistics'] = StatisticList.build(input[:statistics]) unless input[:statistics].nil?
         data
       end
     end
@@ -399,7 +401,7 @@ module AWS::SDK::DataBrew
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ColumnStatisticsConfiguration.build(element) unless element.nil?
+          data << ColumnStatisticsConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -409,8 +411,8 @@ module AWS::SDK::DataBrew
     class ColumnStatisticsConfiguration
       def self.build(input)
         data = {}
-        data['Selectors'] = Builders::ColumnSelectorList.build(input[:selectors]) unless input[:selectors].nil?
-        data['Statistics'] = Builders::StatisticsConfiguration.build(input[:statistics]) unless input[:statistics].nil?
+        data['Selectors'] = ColumnSelectorList.build(input[:selectors]) unless input[:selectors].nil?
+        data['Statistics'] = StatisticsConfiguration.build(input[:statistics]) unless input[:statistics].nil?
         data
       end
     end
@@ -419,8 +421,8 @@ module AWS::SDK::DataBrew
     class StatisticsConfiguration
       def self.build(input)
         data = {}
-        data['IncludedStatistics'] = Builders::StatisticList.build(input[:included_statistics]) unless input[:included_statistics].nil?
-        data['Overrides'] = Builders::StatisticOverrideList.build(input[:overrides]) unless input[:overrides].nil?
+        data['IncludedStatistics'] = StatisticList.build(input[:included_statistics]) unless input[:included_statistics].nil?
+        data['Overrides'] = StatisticOverrideList.build(input[:overrides]) unless input[:overrides].nil?
         data
       end
     end
@@ -430,7 +432,7 @@ module AWS::SDK::DataBrew
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StatisticOverride.build(element) unless element.nil?
+          data << StatisticOverride.build(element) unless element.nil?
         end
         data
       end
@@ -441,7 +443,7 @@ module AWS::SDK::DataBrew
       def self.build(input)
         data = {}
         data['Statistic'] = input[:statistic] unless input[:statistic].nil?
-        data['Parameters'] = Builders::ParameterMap.build(input[:parameters]) unless input[:parameters].nil?
+        data['Parameters'] = ParameterMap.build(input[:parameters]) unless input[:parameters].nil?
         data
       end
     end
@@ -462,7 +464,7 @@ module AWS::SDK::DataBrew
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ColumnSelector.build(element) unless element.nil?
+          data << ColumnSelector.build(element) unless element.nil?
         end
         data
       end
@@ -491,10 +493,10 @@ module AWS::SDK::DataBrew
         data['DatasetName'] = input[:dataset_name] unless input[:dataset_name].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['RecipeName'] = input[:recipe_name] unless input[:recipe_name].nil?
-        data['Sample'] = Builders::Sample.build(input[:sample]) unless input[:sample].nil?
+        data['Sample'] = Sample.build(input[:sample]) unless input[:sample].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -520,9 +522,9 @@ module AWS::SDK::DataBrew
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Steps'] = Builders::RecipeStepList.build(input[:steps]) unless input[:steps].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Steps'] = RecipeStepList.build(input[:steps]) unless input[:steps].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -531,7 +533,7 @@ module AWS::SDK::DataBrew
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RecipeStep.build(element) unless element.nil?
+          data << RecipeStep.build(element) unless element.nil?
         end
         data
       end
@@ -541,8 +543,8 @@ module AWS::SDK::DataBrew
     class RecipeStep
       def self.build(input)
         data = {}
-        data['Action'] = Builders::RecipeAction.build(input[:action]) unless input[:action].nil?
-        data['ConditionExpressions'] = Builders::ConditionExpressionList.build(input[:condition_expressions]) unless input[:condition_expressions].nil?
+        data['Action'] = RecipeAction.build(input[:action]) unless input[:action].nil?
+        data['ConditionExpressions'] = ConditionExpressionList.build(input[:condition_expressions]) unless input[:condition_expressions].nil?
         data
       end
     end
@@ -552,7 +554,7 @@ module AWS::SDK::DataBrew
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ConditionExpression.build(element) unless element.nil?
+          data << ConditionExpression.build(element) unless element.nil?
         end
         data
       end
@@ -574,7 +576,7 @@ module AWS::SDK::DataBrew
       def self.build(input)
         data = {}
         data['Operation'] = input[:operation] unless input[:operation].nil?
-        data['Parameters'] = Builders::ParameterMap.build(input[:parameters]) unless input[:parameters].nil?
+        data['Parameters'] = ParameterMap.build(input[:parameters]) unless input[:parameters].nil?
         data
       end
     end
@@ -596,15 +598,15 @@ module AWS::SDK::DataBrew
         data['LogSubscription'] = input[:log_subscription] unless input[:log_subscription].nil?
         data['MaxCapacity'] = input[:max_capacity] unless input[:max_capacity].nil?
         data['MaxRetries'] = input[:max_retries] unless input[:max_retries].nil?
-        data['Outputs'] = Builders::OutputList.build(input[:outputs]) unless input[:outputs].nil?
-        data['DataCatalogOutputs'] = Builders::DataCatalogOutputList.build(input[:data_catalog_outputs]) unless input[:data_catalog_outputs].nil?
-        data['DatabaseOutputs'] = Builders::DatabaseOutputList.build(input[:database_outputs]) unless input[:database_outputs].nil?
+        data['Outputs'] = OutputList.build(input[:outputs]) unless input[:outputs].nil?
+        data['DataCatalogOutputs'] = DataCatalogOutputList.build(input[:data_catalog_outputs]) unless input[:data_catalog_outputs].nil?
+        data['DatabaseOutputs'] = DatabaseOutputList.build(input[:database_outputs]) unless input[:database_outputs].nil?
         data['ProjectName'] = input[:project_name] unless input[:project_name].nil?
-        data['RecipeReference'] = Builders::RecipeReference.build(input[:recipe_reference]) unless input[:recipe_reference].nil?
+        data['RecipeReference'] = RecipeReference.build(input[:recipe_reference]) unless input[:recipe_reference].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['Timeout'] = input[:timeout] unless input[:timeout].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -623,7 +625,7 @@ module AWS::SDK::DataBrew
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DatabaseOutput.build(element) unless element.nil?
+          data << DatabaseOutput.build(element) unless element.nil?
         end
         data
       end
@@ -634,7 +636,7 @@ module AWS::SDK::DataBrew
       def self.build(input)
         data = {}
         data['GlueConnectionName'] = input[:glue_connection_name] unless input[:glue_connection_name].nil?
-        data['DatabaseOptions'] = Builders::DatabaseTableOutputOptions.build(input[:database_options]) unless input[:database_options].nil?
+        data['DatabaseOptions'] = DatabaseTableOutputOptions.build(input[:database_options]) unless input[:database_options].nil?
         data['DatabaseOutputMode'] = input[:database_output_mode] unless input[:database_output_mode].nil?
         data
       end
@@ -644,7 +646,7 @@ module AWS::SDK::DataBrew
     class DatabaseTableOutputOptions
       def self.build(input)
         data = {}
-        data['TempDirectory'] = Builders::S3Location.build(input[:temp_directory]) unless input[:temp_directory].nil?
+        data['TempDirectory'] = S3Location.build(input[:temp_directory]) unless input[:temp_directory].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data
       end
@@ -655,7 +657,7 @@ module AWS::SDK::DataBrew
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DataCatalogOutput.build(element) unless element.nil?
+          data << DataCatalogOutput.build(element) unless element.nil?
         end
         data
       end
@@ -668,8 +670,8 @@ module AWS::SDK::DataBrew
         data['CatalogId'] = input[:catalog_id] unless input[:catalog_id].nil?
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['S3Options'] = Builders::S3TableOutputOptions.build(input[:s3_options]) unless input[:s3_options].nil?
-        data['DatabaseOptions'] = Builders::DatabaseTableOutputOptions.build(input[:database_options]) unless input[:database_options].nil?
+        data['S3Options'] = S3TableOutputOptions.build(input[:s3_options]) unless input[:s3_options].nil?
+        data['DatabaseOptions'] = DatabaseTableOutputOptions.build(input[:database_options]) unless input[:database_options].nil?
         data['Overwrite'] = input[:overwrite] unless input[:overwrite].nil?
         data
       end
@@ -679,7 +681,7 @@ module AWS::SDK::DataBrew
     class S3TableOutputOptions
       def self.build(input)
         data = {}
-        data['Location'] = Builders::S3Location.build(input[:location]) unless input[:location].nil?
+        data['Location'] = S3Location.build(input[:location]) unless input[:location].nil?
         data
       end
     end
@@ -689,7 +691,7 @@ module AWS::SDK::DataBrew
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Output.build(element) unless element.nil?
+          data << Output.build(element) unless element.nil?
         end
         data
       end
@@ -701,10 +703,10 @@ module AWS::SDK::DataBrew
         data = {}
         data['CompressionFormat'] = input[:compression_format] unless input[:compression_format].nil?
         data['Format'] = input[:format] unless input[:format].nil?
-        data['PartitionColumns'] = Builders::ColumnNameList.build(input[:partition_columns]) unless input[:partition_columns].nil?
-        data['Location'] = Builders::S3Location.build(input[:location]) unless input[:location].nil?
+        data['PartitionColumns'] = ColumnNameList.build(input[:partition_columns]) unless input[:partition_columns].nil?
+        data['Location'] = S3Location.build(input[:location]) unless input[:location].nil?
         data['Overwrite'] = input[:overwrite] unless input[:overwrite].nil?
-        data['FormatOptions'] = Builders::OutputFormatOptions.build(input[:format_options]) unless input[:format_options].nil?
+        data['FormatOptions'] = OutputFormatOptions.build(input[:format_options]) unless input[:format_options].nil?
         data['MaxOutputFiles'] = input[:max_output_files] unless input[:max_output_files].nil?
         data
       end
@@ -714,7 +716,7 @@ module AWS::SDK::DataBrew
     class OutputFormatOptions
       def self.build(input)
         data = {}
-        data['Csv'] = Builders::CsvOutputOptions.build(input[:csv]) unless input[:csv].nil?
+        data['Csv'] = CsvOutputOptions.build(input[:csv]) unless input[:csv].nil?
         data
       end
     end
@@ -752,9 +754,9 @@ module AWS::SDK::DataBrew
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['TargetArn'] = input[:target_arn] unless input[:target_arn].nil?
-        data['Rules'] = Builders::RuleList.build(input[:rules]) unless input[:rules].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Rules'] = RuleList.build(input[:rules]) unless input[:rules].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -763,7 +765,7 @@ module AWS::SDK::DataBrew
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Rule.build(element) unless element.nil?
+          data << Rule.build(element) unless element.nil?
         end
         data
       end
@@ -776,9 +778,9 @@ module AWS::SDK::DataBrew
         data['Name'] = input[:name] unless input[:name].nil?
         data['Disabled'] = input[:disabled] unless input[:disabled].nil?
         data['CheckExpression'] = input[:check_expression] unless input[:check_expression].nil?
-        data['SubstitutionMap'] = Builders::ValuesMap.build(input[:substitution_map]) unless input[:substitution_map].nil?
-        data['Threshold'] = Builders::Threshold.build(input[:threshold]) unless input[:threshold].nil?
-        data['ColumnSelectors'] = Builders::ColumnSelectorList.build(input[:column_selectors]) unless input[:column_selectors].nil?
+        data['SubstitutionMap'] = ValuesMap.build(input[:substitution_map]) unless input[:substitution_map].nil?
+        data['Threshold'] = Threshold.build(input[:threshold]) unless input[:threshold].nil?
+        data['ColumnSelectors'] = ColumnSelectorList.build(input[:column_selectors]) unless input[:column_selectors].nil?
         data
       end
     end
@@ -804,11 +806,11 @@ module AWS::SDK::DataBrew
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['JobNames'] = Builders::JobNameList.build(input[:job_names]) unless input[:job_names].nil?
+        data['JobNames'] = JobNameList.build(input[:job_names]) unless input[:job_names].nil?
         data['CronExpression'] = input[:cron_expression] unless input[:cron_expression].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1197,7 +1199,7 @@ module AWS::SDK::DataBrew
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1219,11 +1221,11 @@ module AWS::SDK::DataBrew
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Preview'] = input[:preview] unless input[:preview].nil?
-        data['RecipeStep'] = Builders::RecipeStep.build(input[:recipe_step]) unless input[:recipe_step].nil?
+        data['RecipeStep'] = RecipeStep.build(input[:recipe_step]) unless input[:recipe_step].nil?
         data['StepIndex'] = input[:step_index] unless input[:step_index].nil?
         data['ClientSessionId'] = input[:client_session_id] unless input[:client_session_id].nil?
-        data['ViewFrame'] = Builders::ViewFrame.build(input[:view_frame]) unless input[:view_frame].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ViewFrame'] = ViewFrame.build(input[:view_frame]) unless input[:view_frame].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1233,7 +1235,7 @@ module AWS::SDK::DataBrew
         data = {}
         data['StartColumnIndex'] = input[:start_column_index] unless input[:start_column_index].nil?
         data['ColumnRange'] = input[:column_range] unless input[:column_range].nil?
-        data['HiddenColumns'] = Builders::HiddenColumnList.build(input[:hidden_columns]) unless input[:hidden_columns].nil?
+        data['HiddenColumns'] = HiddenColumnList.build(input[:hidden_columns]) unless input[:hidden_columns].nil?
         data['StartRowIndex'] = input[:start_row_index] unless input[:start_row_index].nil?
         data['RowRange'] = input[:row_range] unless input[:row_range].nil?
         data['Analytics'] = input[:analytics] unless input[:analytics].nil?
@@ -1287,7 +1289,7 @@ module AWS::SDK::DataBrew
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AssumeControl'] = input[:assume_control] unless input[:assume_control].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1329,8 +1331,8 @@ module AWS::SDK::DataBrew
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1385,10 +1387,10 @@ module AWS::SDK::DataBrew
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Format'] = input[:format] unless input[:format].nil?
-        data['FormatOptions'] = Builders::FormatOptions.build(input[:format_options]) unless input[:format_options].nil?
-        data['Input'] = Builders::Input.build(input[:input]) unless input[:input].nil?
-        data['PathOptions'] = Builders::PathOptions.build(input[:path_options]) unless input[:path_options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FormatOptions'] = FormatOptions.build(input[:format_options]) unless input[:format_options].nil?
+        data['Input'] = Input.build(input[:input]) unless input[:input].nil?
+        data['PathOptions'] = PathOptions.build(input[:path_options]) unless input[:path_options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1409,18 +1411,18 @@ module AWS::SDK::DataBrew
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Configuration'] = Builders::ProfileConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        data['Configuration'] = ProfileConfiguration.build(input[:configuration]) unless input[:configuration].nil?
         data['EncryptionKeyArn'] = input[:encryption_key_arn] unless input[:encryption_key_arn].nil?
         data['EncryptionMode'] = input[:encryption_mode] unless input[:encryption_mode].nil?
         data['LogSubscription'] = input[:log_subscription] unless input[:log_subscription].nil?
         data['MaxCapacity'] = input[:max_capacity] unless input[:max_capacity].nil?
         data['MaxRetries'] = input[:max_retries] unless input[:max_retries].nil?
-        data['OutputLocation'] = Builders::S3Location.build(input[:output_location]) unless input[:output_location].nil?
-        data['ValidationConfigurations'] = Builders::ValidationConfigurationList.build(input[:validation_configurations]) unless input[:validation_configurations].nil?
+        data['OutputLocation'] = S3Location.build(input[:output_location]) unless input[:output_location].nil?
+        data['ValidationConfigurations'] = ValidationConfigurationList.build(input[:validation_configurations]) unless input[:validation_configurations].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['Timeout'] = input[:timeout] unless input[:timeout].nil?
-        data['JobSample'] = Builders::JobSample.build(input[:job_sample]) unless input[:job_sample].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['JobSample'] = JobSample.build(input[:job_sample]) unless input[:job_sample].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1441,9 +1443,9 @@ module AWS::SDK::DataBrew
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Sample'] = Builders::Sample.build(input[:sample]) unless input[:sample].nil?
+        data['Sample'] = Sample.build(input[:sample]) unless input[:sample].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1465,8 +1467,8 @@ module AWS::SDK::DataBrew
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Steps'] = Builders::RecipeStepList.build(input[:steps]) unless input[:steps].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Steps'] = RecipeStepList.build(input[:steps]) unless input[:steps].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1492,12 +1494,12 @@ module AWS::SDK::DataBrew
         data['LogSubscription'] = input[:log_subscription] unless input[:log_subscription].nil?
         data['MaxCapacity'] = input[:max_capacity] unless input[:max_capacity].nil?
         data['MaxRetries'] = input[:max_retries] unless input[:max_retries].nil?
-        data['Outputs'] = Builders::OutputList.build(input[:outputs]) unless input[:outputs].nil?
-        data['DataCatalogOutputs'] = Builders::DataCatalogOutputList.build(input[:data_catalog_outputs]) unless input[:data_catalog_outputs].nil?
-        data['DatabaseOutputs'] = Builders::DatabaseOutputList.build(input[:database_outputs]) unless input[:database_outputs].nil?
+        data['Outputs'] = OutputList.build(input[:outputs]) unless input[:outputs].nil?
+        data['DataCatalogOutputs'] = DataCatalogOutputList.build(input[:data_catalog_outputs]) unless input[:data_catalog_outputs].nil?
+        data['DatabaseOutputs'] = DatabaseOutputList.build(input[:database_outputs]) unless input[:database_outputs].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['Timeout'] = input[:timeout] unless input[:timeout].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1519,8 +1521,8 @@ module AWS::SDK::DataBrew
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Rules'] = Builders::RuleList.build(input[:rules]) unless input[:rules].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Rules'] = RuleList.build(input[:rules]) unless input[:rules].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1541,9 +1543,9 @@ module AWS::SDK::DataBrew
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['JobNames'] = Builders::JobNameList.build(input[:job_names]) unless input[:job_names].nil?
+        data['JobNames'] = JobNameList.build(input[:job_names]) unless input[:job_names].nil?
         data['CronExpression'] = input[:cron_expression] unless input[:cron_expression].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CodePipeline
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::CodePipeline
       def self.stub(http_resp, stub:)
         data = {}
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -37,7 +39,7 @@ module AWS::SDK::CodePipeline
       def self.stub(http_resp, stub:)
         data = {}
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -53,9 +55,9 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['actionType'] = Stubs::ActionType.stub(stub[:action_type]) unless stub[:action_type].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['actionType'] = ActionType.stub(stub[:action_type]) unless stub[:action_type].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -74,7 +76,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -117,11 +119,11 @@ module AWS::SDK::CodePipeline
       def self.stub(stub)
         stub ||= Types::ActionType.new
         data = {}
-        data['id'] = Stubs::ActionTypeId.stub(stub[:id]) unless stub[:id].nil?
-        data['settings'] = Stubs::ActionTypeSettings.stub(stub[:settings]) unless stub[:settings].nil?
-        data['actionConfigurationProperties'] = Stubs::ActionConfigurationPropertyList.stub(stub[:action_configuration_properties]) unless stub[:action_configuration_properties].nil?
-        data['inputArtifactDetails'] = Stubs::ArtifactDetails.stub(stub[:input_artifact_details]) unless stub[:input_artifact_details].nil?
-        data['outputArtifactDetails'] = Stubs::ArtifactDetails.stub(stub[:output_artifact_details]) unless stub[:output_artifact_details].nil?
+        data['id'] = ActionTypeId.stub(stub[:id]) unless stub[:id].nil?
+        data['settings'] = ActionTypeSettings.stub(stub[:settings]) unless stub[:settings].nil?
+        data['actionConfigurationProperties'] = ActionConfigurationPropertyList.stub(stub[:action_configuration_properties]) unless stub[:action_configuration_properties].nil?
+        data['inputArtifactDetails'] = ArtifactDetails.stub(stub[:input_artifact_details]) unless stub[:input_artifact_details].nil?
+        data['outputArtifactDetails'] = ArtifactDetails.stub(stub[:output_artifact_details]) unless stub[:output_artifact_details].nil?
         data
       end
     end
@@ -160,7 +162,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActionConfigurationProperty.stub(element) unless element.nil?
+          data << ActionConfigurationProperty.stub(element) unless element.nil?
         end
         data
       end
@@ -255,9 +257,9 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pipeline'] = Stubs::PipelineDeclaration.stub(stub[:pipeline]) unless stub[:pipeline].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pipeline'] = PipelineDeclaration.stub(stub[:pipeline]) unless stub[:pipeline].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -282,9 +284,9 @@ module AWS::SDK::CodePipeline
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['artifactStore'] = Stubs::ArtifactStore.stub(stub[:artifact_store]) unless stub[:artifact_store].nil?
-        data['artifactStores'] = Stubs::ArtifactStoreMap.stub(stub[:artifact_stores]) unless stub[:artifact_stores].nil?
-        data['stages'] = Stubs::PipelineStageDeclarationList.stub(stub[:stages]) unless stub[:stages].nil?
+        data['artifactStore'] = ArtifactStore.stub(stub[:artifact_store]) unless stub[:artifact_store].nil?
+        data['artifactStores'] = ArtifactStoreMap.stub(stub[:artifact_stores]) unless stub[:artifact_stores].nil?
+        data['stages'] = PipelineStageDeclarationList.stub(stub[:stages]) unless stub[:stages].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
         data
       end
@@ -304,7 +306,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StageDeclaration.stub(element) unless element.nil?
+          data << StageDeclaration.stub(element) unless element.nil?
         end
         data
       end
@@ -326,8 +328,8 @@ module AWS::SDK::CodePipeline
         stub ||= Types::StageDeclaration.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['blockers'] = Stubs::StageBlockerDeclarationList.stub(stub[:blockers]) unless stub[:blockers].nil?
-        data['actions'] = Stubs::StageActionDeclarationList.stub(stub[:actions]) unless stub[:actions].nil?
+        data['blockers'] = StageBlockerDeclarationList.stub(stub[:blockers]) unless stub[:blockers].nil?
+        data['actions'] = StageActionDeclarationList.stub(stub[:actions]) unless stub[:actions].nil?
         data
       end
     end
@@ -346,7 +348,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActionDeclaration.stub(element) unless element.nil?
+          data << ActionDeclaration.stub(element) unless element.nil?
         end
         data
       end
@@ -374,11 +376,11 @@ module AWS::SDK::CodePipeline
         stub ||= Types::ActionDeclaration.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['actionTypeId'] = Stubs::ActionTypeId.stub(stub[:action_type_id]) unless stub[:action_type_id].nil?
+        data['actionTypeId'] = ActionTypeId.stub(stub[:action_type_id]) unless stub[:action_type_id].nil?
         data['runOrder'] = stub[:run_order] unless stub[:run_order].nil?
-        data['configuration'] = Stubs::ActionConfigurationMap.stub(stub[:configuration]) unless stub[:configuration].nil?
-        data['outputArtifacts'] = Stubs::OutputArtifactList.stub(stub[:output_artifacts]) unless stub[:output_artifacts].nil?
-        data['inputArtifacts'] = Stubs::InputArtifactList.stub(stub[:input_artifacts]) unless stub[:input_artifacts].nil?
+        data['configuration'] = ActionConfigurationMap.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['outputArtifacts'] = OutputArtifactList.stub(stub[:output_artifacts]) unless stub[:output_artifacts].nil?
+        data['inputArtifacts'] = InputArtifactList.stub(stub[:input_artifacts]) unless stub[:input_artifacts].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
         data['namespace'] = stub[:namespace] unless stub[:namespace].nil?
@@ -400,7 +402,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InputArtifact.stub(element) unless element.nil?
+          data << InputArtifact.stub(element) unless element.nil?
         end
         data
       end
@@ -438,7 +440,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OutputArtifact.stub(element) unless element.nil?
+          data << OutputArtifact.stub(element) unless element.nil?
         end
         data
       end
@@ -496,7 +498,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BlockerDeclaration.stub(element) unless element.nil?
+          data << BlockerDeclaration.stub(element) unless element.nil?
         end
         data
       end
@@ -536,7 +538,7 @@ module AWS::SDK::CodePipeline
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ArtifactStore.stub(value) unless value.nil?
+          data[key] = ArtifactStore.stub(value) unless value.nil?
         end
         data
       end
@@ -559,7 +561,7 @@ module AWS::SDK::CodePipeline
         data = {}
         data['type'] = stub[:type] unless stub[:type].nil?
         data['location'] = stub[:location] unless stub[:location].nil?
-        data['encryptionKey'] = Stubs::EncryptionKey.stub(stub[:encryption_key]) unless stub[:encryption_key].nil?
+        data['encryptionKey'] = EncryptionKey.stub(stub[:encryption_key]) unless stub[:encryption_key].nil?
         data
       end
     end
@@ -593,7 +595,7 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -607,7 +609,7 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -621,7 +623,7 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -635,7 +637,7 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -649,7 +651,7 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -663,7 +665,7 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -678,8 +680,8 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['actionType'] = Stubs::ActionTypeDeclaration.stub(stub[:action_type]) unless stub[:action_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['actionType'] = ActionTypeDeclaration.stub(stub[:action_type]) unless stub[:action_type].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -705,13 +707,13 @@ module AWS::SDK::CodePipeline
         stub ||= Types::ActionTypeDeclaration.new
         data = {}
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['executor'] = Stubs::ActionTypeExecutor.stub(stub[:executor]) unless stub[:executor].nil?
-        data['id'] = Stubs::ActionTypeIdentifier.stub(stub[:id]) unless stub[:id].nil?
-        data['inputArtifactDetails'] = Stubs::ActionTypeArtifactDetails.stub(stub[:input_artifact_details]) unless stub[:input_artifact_details].nil?
-        data['outputArtifactDetails'] = Stubs::ActionTypeArtifactDetails.stub(stub[:output_artifact_details]) unless stub[:output_artifact_details].nil?
-        data['permissions'] = Stubs::ActionTypePermissions.stub(stub[:permissions]) unless stub[:permissions].nil?
-        data['properties'] = Stubs::ActionTypeProperties.stub(stub[:properties]) unless stub[:properties].nil?
-        data['urls'] = Stubs::ActionTypeUrls.stub(stub[:urls]) unless stub[:urls].nil?
+        data['executor'] = ActionTypeExecutor.stub(stub[:executor]) unless stub[:executor].nil?
+        data['id'] = ActionTypeIdentifier.stub(stub[:id]) unless stub[:id].nil?
+        data['inputArtifactDetails'] = ActionTypeArtifactDetails.stub(stub[:input_artifact_details]) unless stub[:input_artifact_details].nil?
+        data['outputArtifactDetails'] = ActionTypeArtifactDetails.stub(stub[:output_artifact_details]) unless stub[:output_artifact_details].nil?
+        data['permissions'] = ActionTypePermissions.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['properties'] = ActionTypeProperties.stub(stub[:properties]) unless stub[:properties].nil?
+        data['urls'] = ActionTypeUrls.stub(stub[:urls]) unless stub[:urls].nil?
         data
       end
     end
@@ -754,7 +756,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActionTypeProperty.stub(element) unless element.nil?
+          data << ActionTypeProperty.stub(element) unless element.nil?
         end
         data
       end
@@ -801,7 +803,7 @@ module AWS::SDK::CodePipeline
       def self.stub(stub)
         stub ||= Types::ActionTypePermissions.new
         data = {}
-        data['allowedAccounts'] = Stubs::AllowedAccounts.stub(stub[:allowed_accounts]) unless stub[:allowed_accounts].nil?
+        data['allowedAccounts'] = AllowedAccounts.stub(stub[:allowed_accounts]) unless stub[:allowed_accounts].nil?
         data
       end
     end
@@ -886,7 +888,7 @@ module AWS::SDK::CodePipeline
       def self.stub(stub)
         stub ||= Types::ActionTypeExecutor.new
         data = {}
-        data['configuration'] = Stubs::ExecutorConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['configuration'] = ExecutorConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['policyStatementsTemplate'] = stub[:policy_statements_template] unless stub[:policy_statements_template].nil?
         data['jobTimeout'] = stub[:job_timeout] unless stub[:job_timeout].nil?
@@ -908,8 +910,8 @@ module AWS::SDK::CodePipeline
       def self.stub(stub)
         stub ||= Types::ExecutorConfiguration.new
         data = {}
-        data['lambdaExecutorConfiguration'] = Stubs::LambdaExecutorConfiguration.stub(stub[:lambda_executor_configuration]) unless stub[:lambda_executor_configuration].nil?
-        data['jobWorkerExecutorConfiguration'] = Stubs::JobWorkerExecutorConfiguration.stub(stub[:job_worker_executor_configuration]) unless stub[:job_worker_executor_configuration].nil?
+        data['lambdaExecutorConfiguration'] = LambdaExecutorConfiguration.stub(stub[:lambda_executor_configuration]) unless stub[:lambda_executor_configuration].nil?
+        data['jobWorkerExecutorConfiguration'] = JobWorkerExecutorConfiguration.stub(stub[:job_worker_executor_configuration]) unless stub[:job_worker_executor_configuration].nil?
         data
       end
     end
@@ -928,8 +930,8 @@ module AWS::SDK::CodePipeline
       def self.stub(stub)
         stub ||= Types::JobWorkerExecutorConfiguration.new
         data = {}
-        data['pollingAccounts'] = Stubs::PollingAccountList.stub(stub[:polling_accounts]) unless stub[:polling_accounts].nil?
-        data['pollingServicePrincipals'] = Stubs::PollingServicePrincipalList.stub(stub[:polling_service_principals]) unless stub[:polling_service_principals].nil?
+        data['pollingAccounts'] = PollingAccountList.stub(stub[:polling_accounts]) unless stub[:polling_accounts].nil?
+        data['pollingServicePrincipals'] = PollingServicePrincipalList.stub(stub[:polling_service_principals]) unless stub[:polling_service_principals].nil?
         data
       end
     end
@@ -1002,8 +1004,8 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['jobDetails'] = Stubs::JobDetails.stub(stub[:job_details]) unless stub[:job_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['jobDetails'] = JobDetails.stub(stub[:job_details]) unless stub[:job_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1024,7 +1026,7 @@ module AWS::SDK::CodePipeline
         stub ||= Types::JobDetails.new
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['data'] = Stubs::JobData.stub(stub[:data]) unless stub[:data].nil?
+        data['data'] = JobData.stub(stub[:data]) unless stub[:data].nil?
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
         data
       end
@@ -1050,14 +1052,14 @@ module AWS::SDK::CodePipeline
       def self.stub(stub)
         stub ||= Types::JobData.new
         data = {}
-        data['actionTypeId'] = Stubs::ActionTypeId.stub(stub[:action_type_id]) unless stub[:action_type_id].nil?
-        data['actionConfiguration'] = Stubs::ActionConfiguration.stub(stub[:action_configuration]) unless stub[:action_configuration].nil?
-        data['pipelineContext'] = Stubs::PipelineContext.stub(stub[:pipeline_context]) unless stub[:pipeline_context].nil?
-        data['inputArtifacts'] = Stubs::ArtifactList.stub(stub[:input_artifacts]) unless stub[:input_artifacts].nil?
-        data['outputArtifacts'] = Stubs::ArtifactList.stub(stub[:output_artifacts]) unless stub[:output_artifacts].nil?
-        data['artifactCredentials'] = Stubs::AWSSessionCredentials.stub(stub[:artifact_credentials]) unless stub[:artifact_credentials].nil?
+        data['actionTypeId'] = ActionTypeId.stub(stub[:action_type_id]) unless stub[:action_type_id].nil?
+        data['actionConfiguration'] = ActionConfiguration.stub(stub[:action_configuration]) unless stub[:action_configuration].nil?
+        data['pipelineContext'] = PipelineContext.stub(stub[:pipeline_context]) unless stub[:pipeline_context].nil?
+        data['inputArtifacts'] = ArtifactList.stub(stub[:input_artifacts]) unless stub[:input_artifacts].nil?
+        data['outputArtifacts'] = ArtifactList.stub(stub[:output_artifacts]) unless stub[:output_artifacts].nil?
+        data['artifactCredentials'] = AWSSessionCredentials.stub(stub[:artifact_credentials]) unless stub[:artifact_credentials].nil?
         data['continuationToken'] = stub[:continuation_token] unless stub[:continuation_token].nil?
-        data['encryptionKey'] = Stubs::EncryptionKey.stub(stub[:encryption_key]) unless stub[:encryption_key].nil?
+        data['encryptionKey'] = EncryptionKey.stub(stub[:encryption_key]) unless stub[:encryption_key].nil?
         data
       end
     end
@@ -1098,7 +1100,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Artifact.stub(element) unless element.nil?
+          data << Artifact.stub(element) unless element.nil?
         end
         data
       end
@@ -1121,7 +1123,7 @@ module AWS::SDK::CodePipeline
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['revision'] = stub[:revision] unless stub[:revision].nil?
-        data['location'] = Stubs::ArtifactLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ArtifactLocation.stub(stub[:location]) unless stub[:location].nil?
         data
       end
     end
@@ -1141,7 +1143,7 @@ module AWS::SDK::CodePipeline
         stub ||= Types::ArtifactLocation.new
         data = {}
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['s3Location'] = Stubs::S3ArtifactLocation.stub(stub[:s3_location]) unless stub[:s3_location].nil?
+        data['s3Location'] = S3ArtifactLocation.stub(stub[:s3_location]) unless stub[:s3_location].nil?
         data
       end
     end
@@ -1184,8 +1186,8 @@ module AWS::SDK::CodePipeline
         stub ||= Types::PipelineContext.new
         data = {}
         data['pipelineName'] = stub[:pipeline_name] unless stub[:pipeline_name].nil?
-        data['stage'] = Stubs::StageContext.stub(stub[:stage]) unless stub[:stage].nil?
-        data['action'] = Stubs::ActionContext.stub(stub[:action]) unless stub[:action].nil?
+        data['stage'] = StageContext.stub(stub[:stage]) unless stub[:stage].nil?
+        data['action'] = ActionContext.stub(stub[:action]) unless stub[:action].nil?
         data['pipelineArn'] = stub[:pipeline_arn] unless stub[:pipeline_arn].nil?
         data['pipelineExecutionId'] = stub[:pipeline_execution_id] unless stub[:pipeline_execution_id].nil?
         data
@@ -1243,7 +1245,7 @@ module AWS::SDK::CodePipeline
       def self.stub(stub)
         stub ||= Types::ActionConfiguration.new
         data = {}
-        data['configuration'] = Stubs::ActionConfigurationMap.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['configuration'] = ActionConfigurationMap.stub(stub[:configuration]) unless stub[:configuration].nil?
         data
       end
     end
@@ -1259,9 +1261,9 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pipeline'] = Stubs::PipelineDeclaration.stub(stub[:pipeline]) unless stub[:pipeline].nil?
-        data['metadata'] = Stubs::PipelineMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pipeline'] = PipelineDeclaration.stub(stub[:pipeline]) unless stub[:pipeline].nil?
+        data['metadata'] = PipelineMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1298,8 +1300,8 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pipelineExecution'] = Stubs::PipelineExecution.stub(stub[:pipeline_execution]) unless stub[:pipeline_execution].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pipelineExecution'] = PipelineExecution.stub(stub[:pipeline_execution]) unless stub[:pipeline_execution].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1327,7 +1329,7 @@ module AWS::SDK::CodePipeline
         data['pipelineExecutionId'] = stub[:pipeline_execution_id] unless stub[:pipeline_execution_id].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['statusSummary'] = stub[:status_summary] unless stub[:status_summary].nil?
-        data['artifactRevisions'] = Stubs::ArtifactRevisionList.stub(stub[:artifact_revisions]) unless stub[:artifact_revisions].nil?
+        data['artifactRevisions'] = ArtifactRevisionList.stub(stub[:artifact_revisions]) unless stub[:artifact_revisions].nil?
         data
       end
     end
@@ -1346,7 +1348,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ArtifactRevision.stub(element) unless element.nil?
+          data << ArtifactRevision.stub(element) unless element.nil?
         end
         data
       end
@@ -1396,10 +1398,10 @@ module AWS::SDK::CodePipeline
         data = {}
         data['pipelineName'] = stub[:pipeline_name] unless stub[:pipeline_name].nil?
         data['pipelineVersion'] = stub[:pipeline_version] unless stub[:pipeline_version].nil?
-        data['stageStates'] = Stubs::StageStateList.stub(stub[:stage_states]) unless stub[:stage_states].nil?
+        data['stageStates'] = StageStateList.stub(stub[:stage_states]) unless stub[:stage_states].nil?
         data['created'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created]).to_i unless stub[:created].nil?
         data['updated'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated]).to_i unless stub[:updated].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1418,7 +1420,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StageState.stub(element) unless element.nil?
+          data << StageState.stub(element) unless element.nil?
         end
         data
       end
@@ -1442,10 +1444,10 @@ module AWS::SDK::CodePipeline
         stub ||= Types::StageState.new
         data = {}
         data['stageName'] = stub[:stage_name] unless stub[:stage_name].nil?
-        data['inboundExecution'] = Stubs::StageExecution.stub(stub[:inbound_execution]) unless stub[:inbound_execution].nil?
-        data['inboundTransitionState'] = Stubs::TransitionState.stub(stub[:inbound_transition_state]) unless stub[:inbound_transition_state].nil?
-        data['actionStates'] = Stubs::ActionStateList.stub(stub[:action_states]) unless stub[:action_states].nil?
-        data['latestExecution'] = Stubs::StageExecution.stub(stub[:latest_execution]) unless stub[:latest_execution].nil?
+        data['inboundExecution'] = StageExecution.stub(stub[:inbound_execution]) unless stub[:inbound_execution].nil?
+        data['inboundTransitionState'] = TransitionState.stub(stub[:inbound_transition_state]) unless stub[:inbound_transition_state].nil?
+        data['actionStates'] = ActionStateList.stub(stub[:action_states]) unless stub[:action_states].nil?
+        data['latestExecution'] = StageExecution.stub(stub[:latest_execution]) unless stub[:latest_execution].nil?
         data
       end
     end
@@ -1484,7 +1486,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActionState.stub(element) unless element.nil?
+          data << ActionState.stub(element) unless element.nil?
         end
         data
       end
@@ -1508,8 +1510,8 @@ module AWS::SDK::CodePipeline
         stub ||= Types::ActionState.new
         data = {}
         data['actionName'] = stub[:action_name] unless stub[:action_name].nil?
-        data['currentRevision'] = Stubs::ActionRevision.stub(stub[:current_revision]) unless stub[:current_revision].nil?
-        data['latestExecution'] = Stubs::ActionExecution.stub(stub[:latest_execution]) unless stub[:latest_execution].nil?
+        data['currentRevision'] = ActionRevision.stub(stub[:current_revision]) unless stub[:current_revision].nil?
+        data['latestExecution'] = ActionExecution.stub(stub[:latest_execution]) unless stub[:latest_execution].nil?
         data['entityUrl'] = stub[:entity_url] unless stub[:entity_url].nil?
         data['revisionUrl'] = stub[:revision_url] unless stub[:revision_url].nil?
         data
@@ -1547,7 +1549,7 @@ module AWS::SDK::CodePipeline
         data['externalExecutionId'] = stub[:external_execution_id] unless stub[:external_execution_id].nil?
         data['externalExecutionUrl'] = stub[:external_execution_url] unless stub[:external_execution_url].nil?
         data['percentComplete'] = stub[:percent_complete] unless stub[:percent_complete].nil?
-        data['errorDetails'] = Stubs::ErrorDetails.stub(stub[:error_details]) unless stub[:error_details].nil?
+        data['errorDetails'] = ErrorDetails.stub(stub[:error_details]) unless stub[:error_details].nil?
         data
       end
     end
@@ -1628,8 +1630,8 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['jobDetails'] = Stubs::ThirdPartyJobDetails.stub(stub[:job_details]) unless stub[:job_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['jobDetails'] = ThirdPartyJobDetails.stub(stub[:job_details]) unless stub[:job_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1650,7 +1652,7 @@ module AWS::SDK::CodePipeline
         stub ||= Types::ThirdPartyJobDetails.new
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['data'] = Stubs::ThirdPartyJobData.stub(stub[:data]) unless stub[:data].nil?
+        data['data'] = ThirdPartyJobData.stub(stub[:data]) unless stub[:data].nil?
         data['nonce'] = stub[:nonce] unless stub[:nonce].nil?
         data
       end
@@ -1676,14 +1678,14 @@ module AWS::SDK::CodePipeline
       def self.stub(stub)
         stub ||= Types::ThirdPartyJobData.new
         data = {}
-        data['actionTypeId'] = Stubs::ActionTypeId.stub(stub[:action_type_id]) unless stub[:action_type_id].nil?
-        data['actionConfiguration'] = Stubs::ActionConfiguration.stub(stub[:action_configuration]) unless stub[:action_configuration].nil?
-        data['pipelineContext'] = Stubs::PipelineContext.stub(stub[:pipeline_context]) unless stub[:pipeline_context].nil?
-        data['inputArtifacts'] = Stubs::ArtifactList.stub(stub[:input_artifacts]) unless stub[:input_artifacts].nil?
-        data['outputArtifacts'] = Stubs::ArtifactList.stub(stub[:output_artifacts]) unless stub[:output_artifacts].nil?
-        data['artifactCredentials'] = Stubs::AWSSessionCredentials.stub(stub[:artifact_credentials]) unless stub[:artifact_credentials].nil?
+        data['actionTypeId'] = ActionTypeId.stub(stub[:action_type_id]) unless stub[:action_type_id].nil?
+        data['actionConfiguration'] = ActionConfiguration.stub(stub[:action_configuration]) unless stub[:action_configuration].nil?
+        data['pipelineContext'] = PipelineContext.stub(stub[:pipeline_context]) unless stub[:pipeline_context].nil?
+        data['inputArtifacts'] = ArtifactList.stub(stub[:input_artifacts]) unless stub[:input_artifacts].nil?
+        data['outputArtifacts'] = ArtifactList.stub(stub[:output_artifacts]) unless stub[:output_artifacts].nil?
+        data['artifactCredentials'] = AWSSessionCredentials.stub(stub[:artifact_credentials]) unless stub[:artifact_credentials].nil?
         data['continuationToken'] = stub[:continuation_token] unless stub[:continuation_token].nil?
-        data['encryptionKey'] = Stubs::EncryptionKey.stub(stub[:encryption_key]) unless stub[:encryption_key].nil?
+        data['encryptionKey'] = EncryptionKey.stub(stub[:encryption_key]) unless stub[:encryption_key].nil?
         data
       end
     end
@@ -1699,9 +1701,9 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['actionExecutionDetails'] = Stubs::ActionExecutionDetailList.stub(stub[:action_execution_details]) unless stub[:action_execution_details].nil?
+        data['actionExecutionDetails'] = ActionExecutionDetailList.stub(stub[:action_execution_details]) unless stub[:action_execution_details].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1720,7 +1722,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActionExecutionDetail.stub(element) unless element.nil?
+          data << ActionExecutionDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1756,8 +1758,8 @@ module AWS::SDK::CodePipeline
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['lastUpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_time]).to_i unless stub[:last_update_time].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['input'] = Stubs::ActionExecutionInput.stub(stub[:input]) unless stub[:input].nil?
-        data['output'] = Stubs::ActionExecutionOutput.stub(stub[:output]) unless stub[:output].nil?
+        data['input'] = ActionExecutionInput.stub(stub[:input]) unless stub[:input].nil?
+        data['output'] = ActionExecutionOutput.stub(stub[:output]) unless stub[:output].nil?
         data
       end
     end
@@ -1777,9 +1779,9 @@ module AWS::SDK::CodePipeline
       def self.stub(stub)
         stub ||= Types::ActionExecutionOutput.new
         data = {}
-        data['outputArtifacts'] = Stubs::ArtifactDetailList.stub(stub[:output_artifacts]) unless stub[:output_artifacts].nil?
-        data['executionResult'] = Stubs::ActionExecutionResult.stub(stub[:execution_result]) unless stub[:execution_result].nil?
-        data['outputVariables'] = Stubs::OutputVariablesMap.stub(stub[:output_variables]) unless stub[:output_variables].nil?
+        data['outputArtifacts'] = ArtifactDetailList.stub(stub[:output_artifacts]) unless stub[:output_artifacts].nil?
+        data['executionResult'] = ActionExecutionResult.stub(stub[:execution_result]) unless stub[:execution_result].nil?
+        data['outputVariables'] = OutputVariablesMap.stub(stub[:output_variables]) unless stub[:output_variables].nil?
         data
       end
     end
@@ -1840,7 +1842,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ArtifactDetail.stub(element) unless element.nil?
+          data << ArtifactDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1861,7 +1863,7 @@ module AWS::SDK::CodePipeline
         stub ||= Types::ArtifactDetail.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['s3location'] = Stubs::S3Location.stub(stub[:s3location]) unless stub[:s3location].nil?
+        data['s3location'] = S3Location.stub(stub[:s3location]) unless stub[:s3location].nil?
         data
       end
     end
@@ -1905,12 +1907,12 @@ module AWS::SDK::CodePipeline
       def self.stub(stub)
         stub ||= Types::ActionExecutionInput.new
         data = {}
-        data['actionTypeId'] = Stubs::ActionTypeId.stub(stub[:action_type_id]) unless stub[:action_type_id].nil?
-        data['configuration'] = Stubs::ActionConfigurationMap.stub(stub[:configuration]) unless stub[:configuration].nil?
-        data['resolvedConfiguration'] = Stubs::ResolvedActionConfigurationMap.stub(stub[:resolved_configuration]) unless stub[:resolved_configuration].nil?
+        data['actionTypeId'] = ActionTypeId.stub(stub[:action_type_id]) unless stub[:action_type_id].nil?
+        data['configuration'] = ActionConfigurationMap.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['resolvedConfiguration'] = ResolvedActionConfigurationMap.stub(stub[:resolved_configuration]) unless stub[:resolved_configuration].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
-        data['inputArtifacts'] = Stubs::ArtifactDetailList.stub(stub[:input_artifacts]) unless stub[:input_artifacts].nil?
+        data['inputArtifacts'] = ArtifactDetailList.stub(stub[:input_artifacts]) unless stub[:input_artifacts].nil?
         data['namespace'] = stub[:namespace] unless stub[:namespace].nil?
         data
       end
@@ -1947,9 +1949,9 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['actionTypes'] = Stubs::ActionTypeList.stub(stub[:action_types]) unless stub[:action_types].nil?
+        data['actionTypes'] = ActionTypeList.stub(stub[:action_types]) unless stub[:action_types].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1968,7 +1970,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActionType.stub(element) unless element.nil?
+          data << ActionType.stub(element) unless element.nil?
         end
         data
       end
@@ -1985,9 +1987,9 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pipelineExecutionSummaries'] = Stubs::PipelineExecutionSummaryList.stub(stub[:pipeline_execution_summaries]) unless stub[:pipeline_execution_summaries].nil?
+        data['pipelineExecutionSummaries'] = PipelineExecutionSummaryList.stub(stub[:pipeline_execution_summaries]) unless stub[:pipeline_execution_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2006,7 +2008,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PipelineExecutionSummary.stub(element) unless element.nil?
+          data << PipelineExecutionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2035,9 +2037,9 @@ module AWS::SDK::CodePipeline
         data['status'] = stub[:status] unless stub[:status].nil?
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['lastUpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_time]).to_i unless stub[:last_update_time].nil?
-        data['sourceRevisions'] = Stubs::SourceRevisionList.stub(stub[:source_revisions]) unless stub[:source_revisions].nil?
-        data['trigger'] = Stubs::ExecutionTrigger.stub(stub[:trigger]) unless stub[:trigger].nil?
-        data['stopTrigger'] = Stubs::StopExecutionTrigger.stub(stub[:stop_trigger]) unless stub[:stop_trigger].nil?
+        data['sourceRevisions'] = SourceRevisionList.stub(stub[:source_revisions]) unless stub[:source_revisions].nil?
+        data['trigger'] = ExecutionTrigger.stub(stub[:trigger]) unless stub[:trigger].nil?
+        data['stopTrigger'] = StopExecutionTrigger.stub(stub[:stop_trigger]) unless stub[:stop_trigger].nil?
         data
       end
     end
@@ -2094,7 +2096,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SourceRevision.stub(element) unless element.nil?
+          data << SourceRevision.stub(element) unless element.nil?
         end
         data
       end
@@ -2135,9 +2137,9 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pipelines'] = Stubs::PipelineList.stub(stub[:pipelines]) unless stub[:pipelines].nil?
+        data['pipelines'] = PipelineList.stub(stub[:pipelines]) unless stub[:pipelines].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2156,7 +2158,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PipelineSummary.stub(element) unless element.nil?
+          data << PipelineSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2197,9 +2199,9 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2215,9 +2217,9 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['webhooks'] = Stubs::WebhookList.stub(stub[:webhooks]) unless stub[:webhooks].nil?
+        data['webhooks'] = WebhookList.stub(stub[:webhooks]) unless stub[:webhooks].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2236,7 +2238,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListWebhookItem.stub(element) unless element.nil?
+          data << ListWebhookItem.stub(element) unless element.nil?
         end
         data
       end
@@ -2261,13 +2263,13 @@ module AWS::SDK::CodePipeline
       def self.stub(stub)
         stub ||= Types::ListWebhookItem.new
         data = {}
-        data['definition'] = Stubs::WebhookDefinition.stub(stub[:definition]) unless stub[:definition].nil?
+        data['definition'] = WebhookDefinition.stub(stub[:definition]) unless stub[:definition].nil?
         data['url'] = stub[:url] unless stub[:url].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data['errorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['lastTriggered'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_triggered]).to_i unless stub[:last_triggered].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -2293,9 +2295,9 @@ module AWS::SDK::CodePipeline
         data['name'] = stub[:name] unless stub[:name].nil?
         data['targetPipeline'] = stub[:target_pipeline] unless stub[:target_pipeline].nil?
         data['targetAction'] = stub[:target_action] unless stub[:target_action].nil?
-        data['filters'] = Stubs::WebhookFilters.stub(stub[:filters]) unless stub[:filters].nil?
+        data['filters'] = WebhookFilters.stub(stub[:filters]) unless stub[:filters].nil?
         data['authentication'] = stub[:authentication] unless stub[:authentication].nil?
-        data['authenticationConfiguration'] = Stubs::WebhookAuthConfiguration.stub(stub[:authentication_configuration]) unless stub[:authentication_configuration].nil?
+        data['authenticationConfiguration'] = WebhookAuthConfiguration.stub(stub[:authentication_configuration]) unless stub[:authentication_configuration].nil?
         data
       end
     end
@@ -2334,7 +2336,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WebhookFilterRule.stub(element) unless element.nil?
+          data << WebhookFilterRule.stub(element) unless element.nil?
         end
         data
       end
@@ -2370,8 +2372,8 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['jobs'] = Stubs::JobList.stub(stub[:jobs]) unless stub[:jobs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['jobs'] = JobList.stub(stub[:jobs]) unless stub[:jobs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2390,7 +2392,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Job.stub(element) unless element.nil?
+          data << Job.stub(element) unless element.nil?
         end
         data
       end
@@ -2413,7 +2415,7 @@ module AWS::SDK::CodePipeline
         stub ||= Types::Job.new
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['data'] = Stubs::JobData.stub(stub[:data]) unless stub[:data].nil?
+        data['data'] = JobData.stub(stub[:data]) unless stub[:data].nil?
         data['nonce'] = stub[:nonce] unless stub[:nonce].nil?
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
         data
@@ -2430,8 +2432,8 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['jobs'] = Stubs::ThirdPartyJobList.stub(stub[:jobs]) unless stub[:jobs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['jobs'] = ThirdPartyJobList.stub(stub[:jobs]) unless stub[:jobs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2450,7 +2452,7 @@ module AWS::SDK::CodePipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ThirdPartyJob.stub(element) unless element.nil?
+          data << ThirdPartyJob.stub(element) unless element.nil?
         end
         data
       end
@@ -2489,7 +2491,7 @@ module AWS::SDK::CodePipeline
         data = {}
         data['newRevision'] = stub[:new_revision] unless stub[:new_revision].nil?
         data['pipelineExecutionId'] = stub[:pipeline_execution_id] unless stub[:pipeline_execution_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2505,7 +2507,7 @@ module AWS::SDK::CodePipeline
       def self.stub(http_resp, stub:)
         data = {}
         data['approvedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:approved_at]).to_i unless stub[:approved_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2519,7 +2521,7 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2533,7 +2535,7 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2547,7 +2549,7 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2561,7 +2563,7 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2576,8 +2578,8 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['webhook'] = Stubs::ListWebhookItem.stub(stub[:webhook]) unless stub[:webhook].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['webhook'] = ListWebhookItem.stub(stub[:webhook]) unless stub[:webhook].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2591,7 +2593,7 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2607,7 +2609,7 @@ module AWS::SDK::CodePipeline
       def self.stub(http_resp, stub:)
         data = {}
         data['pipelineExecutionId'] = stub[:pipeline_execution_id] unless stub[:pipeline_execution_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2623,7 +2625,7 @@ module AWS::SDK::CodePipeline
       def self.stub(http_resp, stub:)
         data = {}
         data['pipelineExecutionId'] = stub[:pipeline_execution_id] unless stub[:pipeline_execution_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2639,7 +2641,7 @@ module AWS::SDK::CodePipeline
       def self.stub(http_resp, stub:)
         data = {}
         data['pipelineExecutionId'] = stub[:pipeline_execution_id] unless stub[:pipeline_execution_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2653,7 +2655,7 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2667,7 +2669,7 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2681,7 +2683,7 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2696,8 +2698,8 @@ module AWS::SDK::CodePipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pipeline'] = Stubs::PipelineDeclaration.stub(stub[:pipeline]) unless stub[:pipeline].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pipeline'] = PipelineDeclaration.stub(stub[:pipeline]) unless stub[:pipeline].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

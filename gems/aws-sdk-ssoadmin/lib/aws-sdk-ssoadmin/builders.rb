@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SSOAdmin
   module Builders
 
@@ -21,7 +23,7 @@ module AWS::SDK::SSOAdmin
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['PermissionSetArn'] = input[:permission_set_arn] unless input[:permission_set_arn].nil?
         data['ManagedPolicyArn'] = input[:managed_policy_arn] unless input[:managed_policy_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -39,7 +41,7 @@ module AWS::SDK::SSOAdmin
         data['PermissionSetArn'] = input[:permission_set_arn] unless input[:permission_set_arn].nil?
         data['PrincipalType'] = input[:principal_type] unless input[:principal_type].nil?
         data['PrincipalId'] = input[:principal_id] unless input[:principal_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -52,8 +54,8 @@ module AWS::SDK::SSOAdmin
         http_req.headers['X-Amz-Target'] = 'SWBExternalService.CreateInstanceAccessControlAttributeConfiguration'
         data = {}
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
-        data['InstanceAccessControlAttributeConfiguration'] = Builders::InstanceAccessControlAttributeConfiguration.build(input[:instance_access_control_attribute_configuration]) unless input[:instance_access_control_attribute_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InstanceAccessControlAttributeConfiguration'] = InstanceAccessControlAttributeConfiguration.build(input[:instance_access_control_attribute_configuration]) unless input[:instance_access_control_attribute_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -61,7 +63,7 @@ module AWS::SDK::SSOAdmin
     class InstanceAccessControlAttributeConfiguration
       def self.build(input)
         data = {}
-        data['AccessControlAttributes'] = Builders::AccessControlAttributeList.build(input[:access_control_attributes]) unless input[:access_control_attributes].nil?
+        data['AccessControlAttributes'] = AccessControlAttributeList.build(input[:access_control_attributes]) unless input[:access_control_attributes].nil?
         data
       end
     end
@@ -71,7 +73,7 @@ module AWS::SDK::SSOAdmin
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AccessControlAttribute.build(element) unless element.nil?
+          data << AccessControlAttribute.build(element) unless element.nil?
         end
         data
       end
@@ -82,7 +84,7 @@ module AWS::SDK::SSOAdmin
       def self.build(input)
         data = {}
         data['Key'] = input[:key] unless input[:key].nil?
-        data['Value'] = Builders::AccessControlAttributeValue.build(input[:value]) unless input[:value].nil?
+        data['Value'] = AccessControlAttributeValue.build(input[:value]) unless input[:value].nil?
         data
       end
     end
@@ -91,7 +93,7 @@ module AWS::SDK::SSOAdmin
     class AccessControlAttributeValue
       def self.build(input)
         data = {}
-        data['Source'] = Builders::AccessControlAttributeValueSourceList.build(input[:source]) unless input[:source].nil?
+        data['Source'] = AccessControlAttributeValueSourceList.build(input[:source]) unless input[:source].nil?
         data
       end
     end
@@ -120,8 +122,8 @@ module AWS::SDK::SSOAdmin
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['SessionDuration'] = input[:session_duration] unless input[:session_duration].nil?
         data['RelayState'] = input[:relay_state] unless input[:relay_state].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -130,7 +132,7 @@ module AWS::SDK::SSOAdmin
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -160,7 +162,7 @@ module AWS::SDK::SSOAdmin
         data['PermissionSetArn'] = input[:permission_set_arn] unless input[:permission_set_arn].nil?
         data['PrincipalType'] = input[:principal_type] unless input[:principal_type].nil?
         data['PrincipalId'] = input[:principal_id] unless input[:principal_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -174,7 +176,7 @@ module AWS::SDK::SSOAdmin
         data = {}
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['PermissionSetArn'] = input[:permission_set_arn] unless input[:permission_set_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -187,7 +189,7 @@ module AWS::SDK::SSOAdmin
         http_req.headers['X-Amz-Target'] = 'SWBExternalService.DeleteInstanceAccessControlAttributeConfiguration'
         data = {}
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -201,7 +203,7 @@ module AWS::SDK::SSOAdmin
         data = {}
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['PermissionSetArn'] = input[:permission_set_arn] unless input[:permission_set_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -215,7 +217,7 @@ module AWS::SDK::SSOAdmin
         data = {}
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['AccountAssignmentCreationRequestId'] = input[:account_assignment_creation_request_id] unless input[:account_assignment_creation_request_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -229,7 +231,7 @@ module AWS::SDK::SSOAdmin
         data = {}
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['AccountAssignmentDeletionRequestId'] = input[:account_assignment_deletion_request_id] unless input[:account_assignment_deletion_request_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -242,7 +244,7 @@ module AWS::SDK::SSOAdmin
         http_req.headers['X-Amz-Target'] = 'SWBExternalService.DescribeInstanceAccessControlAttributeConfiguration'
         data = {}
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -256,7 +258,7 @@ module AWS::SDK::SSOAdmin
         data = {}
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['PermissionSetArn'] = input[:permission_set_arn] unless input[:permission_set_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -270,7 +272,7 @@ module AWS::SDK::SSOAdmin
         data = {}
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['ProvisionPermissionSetRequestId'] = input[:provision_permission_set_request_id] unless input[:provision_permission_set_request_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -285,7 +287,7 @@ module AWS::SDK::SSOAdmin
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['PermissionSetArn'] = input[:permission_set_arn] unless input[:permission_set_arn].nil?
         data['ManagedPolicyArn'] = input[:managed_policy_arn] unless input[:managed_policy_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -299,7 +301,7 @@ module AWS::SDK::SSOAdmin
         data = {}
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['PermissionSetArn'] = input[:permission_set_arn] unless input[:permission_set_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -314,8 +316,8 @@ module AWS::SDK::SSOAdmin
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filter'] = Builders::OperationStatusFilter.build(input[:filter]) unless input[:filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filter'] = OperationStatusFilter.build(input[:filter]) unless input[:filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -339,8 +341,8 @@ module AWS::SDK::SSOAdmin
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filter'] = Builders::OperationStatusFilter.build(input[:filter]) unless input[:filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filter'] = OperationStatusFilter.build(input[:filter]) unless input[:filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -357,7 +359,7 @@ module AWS::SDK::SSOAdmin
         data['PermissionSetArn'] = input[:permission_set_arn] unless input[:permission_set_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -374,7 +376,7 @@ module AWS::SDK::SSOAdmin
         data['ProvisioningStatus'] = input[:provisioning_status] unless input[:provisioning_status].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -388,7 +390,7 @@ module AWS::SDK::SSOAdmin
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -404,7 +406,7 @@ module AWS::SDK::SSOAdmin
         data['PermissionSetArn'] = input[:permission_set_arn] unless input[:permission_set_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -419,8 +421,8 @@ module AWS::SDK::SSOAdmin
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filter'] = Builders::OperationStatusFilter.build(input[:filter]) unless input[:filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filter'] = OperationStatusFilter.build(input[:filter]) unless input[:filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -435,7 +437,7 @@ module AWS::SDK::SSOAdmin
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -452,7 +454,7 @@ module AWS::SDK::SSOAdmin
         data['ProvisioningStatus'] = input[:provisioning_status] unless input[:provisioning_status].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -467,7 +469,7 @@ module AWS::SDK::SSOAdmin
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -483,7 +485,7 @@ module AWS::SDK::SSOAdmin
         data['PermissionSetArn'] = input[:permission_set_arn] unless input[:permission_set_arn].nil?
         data['TargetId'] = input[:target_id] unless input[:target_id].nil?
         data['TargetType'] = input[:target_type] unless input[:target_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -498,7 +500,7 @@ module AWS::SDK::SSOAdmin
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['PermissionSetArn'] = input[:permission_set_arn] unless input[:permission_set_arn].nil?
         data['InlinePolicy'] = input[:inline_policy] unless input[:inline_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -512,8 +514,8 @@ module AWS::SDK::SSOAdmin
         data = {}
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -527,8 +529,8 @@ module AWS::SDK::SSOAdmin
         data = {}
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -552,8 +554,8 @@ module AWS::SDK::SSOAdmin
         http_req.headers['X-Amz-Target'] = 'SWBExternalService.UpdateInstanceAccessControlAttributeConfiguration'
         data = {}
         data['InstanceArn'] = input[:instance_arn] unless input[:instance_arn].nil?
-        data['InstanceAccessControlAttributeConfiguration'] = Builders::InstanceAccessControlAttributeConfiguration.build(input[:instance_access_control_attribute_configuration]) unless input[:instance_access_control_attribute_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InstanceAccessControlAttributeConfiguration'] = InstanceAccessControlAttributeConfiguration.build(input[:instance_access_control_attribute_configuration]) unless input[:instance_access_control_attribute_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -570,7 +572,7 @@ module AWS::SDK::SSOAdmin
         data['Description'] = input[:description] unless input[:description].nil?
         data['SessionDuration'] = input[:session_duration] unless input[:session_duration].nil?
         data['RelayState'] = input[:relay_state] unless input[:relay_state].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

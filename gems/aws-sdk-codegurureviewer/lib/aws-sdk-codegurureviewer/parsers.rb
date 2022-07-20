@@ -15,8 +15,8 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(http_resp)
         data = Types::AssociateRepositoryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.repository_association = (Parsers::RepositoryAssociation.parse(map['RepositoryAssociation']) unless map['RepositoryAssociation'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.repository_association = (RepositoryAssociation.parse(map['RepositoryAssociation']) unless map['RepositoryAssociation'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -44,8 +44,8 @@ module AWS::SDK::CodeGuruReviewer
         data.state_reason = map['StateReason']
         data.last_updated_time_stamp = Time.at(map['LastUpdatedTimeStamp'].to_i) if map['LastUpdatedTimeStamp']
         data.created_time_stamp = Time.at(map['CreatedTimeStamp'].to_i) if map['CreatedTimeStamp']
-        data.kms_key_details = (Parsers::KMSKeyDetails.parse(map['KMSKeyDetails']) unless map['KMSKeyDetails'].nil?)
-        data.s3_repository_details = (Parsers::S3RepositoryDetails.parse(map['S3RepositoryDetails']) unless map['S3RepositoryDetails'].nil?)
+        data.kms_key_details = (KMSKeyDetails.parse(map['KMSKeyDetails']) unless map['KMSKeyDetails'].nil?)
+        data.s3_repository_details = (S3RepositoryDetails.parse(map['S3RepositoryDetails']) unless map['S3RepositoryDetails'].nil?)
         return data
       end
     end
@@ -54,7 +54,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(map)
         data = Types::S3RepositoryDetails.new
         data.bucket_name = map['BucketName']
-        data.code_artifacts = (Parsers::CodeArtifacts.parse(map['CodeArtifacts']) unless map['CodeArtifacts'].nil?)
+        data.code_artifacts = (CodeArtifacts.parse(map['CodeArtifacts']) unless map['CodeArtifacts'].nil?)
         return data
       end
     end
@@ -132,7 +132,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(http_resp)
         data = Types::CreateCodeReviewOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.code_review = (Parsers::CodeReview.parse(map['CodeReview']) unless map['CodeReview'].nil?)
+        data.code_review = (CodeReview.parse(map['CodeReview']) unless map['CodeReview'].nil?)
         data
       end
     end
@@ -151,10 +151,10 @@ module AWS::SDK::CodeGuruReviewer
         data.last_updated_time_stamp = Time.at(map['LastUpdatedTimeStamp'].to_i) if map['LastUpdatedTimeStamp']
         data.type = map['Type']
         data.pull_request_id = map['PullRequestId']
-        data.source_code_type = (Parsers::SourceCodeType.parse(map['SourceCodeType']) unless map['SourceCodeType'].nil?)
+        data.source_code_type = (SourceCodeType.parse(map['SourceCodeType']) unless map['SourceCodeType'].nil?)
         data.association_arn = map['AssociationArn']
-        data.metrics = (Parsers::Metrics.parse(map['Metrics']) unless map['Metrics'].nil?)
-        data.analysis_types = (Parsers::AnalysisTypes.parse(map['AnalysisTypes']) unless map['AnalysisTypes'].nil?)
+        data.metrics = (Metrics.parse(map['Metrics']) unless map['Metrics'].nil?)
+        data.analysis_types = (AnalysisTypes.parse(map['AnalysisTypes']) unless map['AnalysisTypes'].nil?)
         data.config_file_state = map['ConfigFileState']
         return data
       end
@@ -183,11 +183,11 @@ module AWS::SDK::CodeGuruReviewer
     class SourceCodeType
       def self.parse(map)
         data = Types::SourceCodeType.new
-        data.commit_diff = (Parsers::CommitDiffSourceCodeType.parse(map['CommitDiff']) unless map['CommitDiff'].nil?)
-        data.repository_head = (Parsers::RepositoryHeadSourceCodeType.parse(map['RepositoryHead']) unless map['RepositoryHead'].nil?)
-        data.branch_diff = (Parsers::BranchDiffSourceCodeType.parse(map['BranchDiff']) unless map['BranchDiff'].nil?)
-        data.s3_bucket_repository = (Parsers::S3BucketRepository.parse(map['S3BucketRepository']) unless map['S3BucketRepository'].nil?)
-        data.request_metadata = (Parsers::RequestMetadata.parse(map['RequestMetadata']) unless map['RequestMetadata'].nil?)
+        data.commit_diff = (CommitDiffSourceCodeType.parse(map['CommitDiff']) unless map['CommitDiff'].nil?)
+        data.repository_head = (RepositoryHeadSourceCodeType.parse(map['RepositoryHead']) unless map['RepositoryHead'].nil?)
+        data.branch_diff = (BranchDiffSourceCodeType.parse(map['BranchDiff']) unless map['BranchDiff'].nil?)
+        data.s3_bucket_repository = (S3BucketRepository.parse(map['S3BucketRepository']) unless map['S3BucketRepository'].nil?)
+        data.request_metadata = (RequestMetadata.parse(map['RequestMetadata']) unless map['RequestMetadata'].nil?)
         return data
       end
     end
@@ -197,7 +197,7 @@ module AWS::SDK::CodeGuruReviewer
         data = Types::RequestMetadata.new
         data.request_id = map['RequestId']
         data.requester = map['Requester']
-        data.event_info = (Parsers::EventInfo.parse(map['EventInfo']) unless map['EventInfo'].nil?)
+        data.event_info = (EventInfo.parse(map['EventInfo']) unless map['EventInfo'].nil?)
         data.vendor_name = map['VendorName']
         return data
       end
@@ -216,7 +216,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(map)
         data = Types::S3BucketRepository.new
         data.name = map['Name']
-        data.details = (Parsers::S3RepositoryDetails.parse(map['Details']) unless map['Details'].nil?)
+        data.details = (S3RepositoryDetails.parse(map['Details']) unless map['Details'].nil?)
         return data
       end
     end
@@ -263,7 +263,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(http_resp)
         data = Types::DescribeCodeReviewOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.code_review = (Parsers::CodeReview.parse(map['CodeReview']) unless map['CodeReview'].nil?)
+        data.code_review = (CodeReview.parse(map['CodeReview']) unless map['CodeReview'].nil?)
         data
       end
     end
@@ -273,7 +273,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(http_resp)
         data = Types::DescribeRecommendationFeedbackOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.recommendation_feedback = (Parsers::RecommendationFeedback.parse(map['RecommendationFeedback']) unless map['RecommendationFeedback'].nil?)
+        data.recommendation_feedback = (RecommendationFeedback.parse(map['RecommendationFeedback']) unless map['RecommendationFeedback'].nil?)
         data
       end
     end
@@ -283,7 +283,7 @@ module AWS::SDK::CodeGuruReviewer
         data = Types::RecommendationFeedback.new
         data.code_review_arn = map['CodeReviewArn']
         data.recommendation_id = map['RecommendationId']
-        data.reactions = (Parsers::Reactions.parse(map['Reactions']) unless map['Reactions'].nil?)
+        data.reactions = (Reactions.parse(map['Reactions']) unless map['Reactions'].nil?)
         data.user_id = map['UserId']
         data.created_time_stamp = Time.at(map['CreatedTimeStamp'].to_i) if map['CreatedTimeStamp']
         data.last_updated_time_stamp = Time.at(map['LastUpdatedTimeStamp'].to_i) if map['LastUpdatedTimeStamp']
@@ -306,8 +306,8 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(http_resp)
         data = Types::DescribeRepositoryAssociationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.repository_association = (Parsers::RepositoryAssociation.parse(map['RepositoryAssociation']) unless map['RepositoryAssociation'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.repository_association = (RepositoryAssociation.parse(map['RepositoryAssociation']) unless map['RepositoryAssociation'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -327,8 +327,8 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(http_resp)
         data = Types::DisassociateRepositoryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.repository_association = (Parsers::RepositoryAssociation.parse(map['RepositoryAssociation']) unless map['RepositoryAssociation'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.repository_association = (RepositoryAssociation.parse(map['RepositoryAssociation']) unless map['RepositoryAssociation'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -338,7 +338,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(http_resp)
         data = Types::ListCodeReviewsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.code_review_summaries = (Parsers::CodeReviewSummaries.parse(map['CodeReviewSummaries']) unless map['CodeReviewSummaries'].nil?)
+        data.code_review_summaries = (CodeReviewSummaries.parse(map['CodeReviewSummaries']) unless map['CodeReviewSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -348,7 +348,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CodeReviewSummary.parse(value) unless value.nil?
+          data << CodeReviewSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -367,8 +367,8 @@ module AWS::SDK::CodeGuruReviewer
         data.last_updated_time_stamp = Time.at(map['LastUpdatedTimeStamp'].to_i) if map['LastUpdatedTimeStamp']
         data.type = map['Type']
         data.pull_request_id = map['PullRequestId']
-        data.metrics_summary = (Parsers::MetricsSummary.parse(map['MetricsSummary']) unless map['MetricsSummary'].nil?)
-        data.source_code_type = (Parsers::SourceCodeType.parse(map['SourceCodeType']) unless map['SourceCodeType'].nil?)
+        data.metrics_summary = (MetricsSummary.parse(map['MetricsSummary']) unless map['MetricsSummary'].nil?)
+        data.source_code_type = (SourceCodeType.parse(map['SourceCodeType']) unless map['SourceCodeType'].nil?)
         return data
       end
     end
@@ -388,7 +388,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(http_resp)
         data = Types::ListRecommendationFeedbackOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.recommendation_feedback_summaries = (Parsers::RecommendationFeedbackSummaries.parse(map['RecommendationFeedbackSummaries']) unless map['RecommendationFeedbackSummaries'].nil?)
+        data.recommendation_feedback_summaries = (RecommendationFeedbackSummaries.parse(map['RecommendationFeedbackSummaries']) unless map['RecommendationFeedbackSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -398,7 +398,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecommendationFeedbackSummary.parse(value) unless value.nil?
+          data << RecommendationFeedbackSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -408,7 +408,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(map)
         data = Types::RecommendationFeedbackSummary.new
         data.recommendation_id = map['RecommendationId']
-        data.reactions = (Parsers::Reactions.parse(map['Reactions']) unless map['Reactions'].nil?)
+        data.reactions = (Reactions.parse(map['Reactions']) unless map['Reactions'].nil?)
         data.user_id = map['UserId']
         return data
       end
@@ -419,7 +419,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(http_resp)
         data = Types::ListRecommendationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.recommendation_summaries = (Parsers::RecommendationSummaries.parse(map['RecommendationSummaries']) unless map['RecommendationSummaries'].nil?)
+        data.recommendation_summaries = (RecommendationSummaries.parse(map['RecommendationSummaries']) unless map['RecommendationSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -429,7 +429,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecommendationSummary.parse(value) unless value.nil?
+          data << RecommendationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -444,7 +444,7 @@ module AWS::SDK::CodeGuruReviewer
         data.end_line = map['EndLine']
         data.description = map['Description']
         data.recommendation_category = map['RecommendationCategory']
-        data.rule_metadata = (Parsers::RuleMetadata.parse(map['RuleMetadata']) unless map['RuleMetadata'].nil?)
+        data.rule_metadata = (RuleMetadata.parse(map['RuleMetadata']) unless map['RuleMetadata'].nil?)
         data.severity = map['Severity']
         return data
       end
@@ -457,7 +457,7 @@ module AWS::SDK::CodeGuruReviewer
         data.rule_name = map['RuleName']
         data.short_description = map['ShortDescription']
         data.long_description = map['LongDescription']
-        data.rule_tags = (Parsers::RuleTags.parse(map['RuleTags']) unless map['RuleTags'].nil?)
+        data.rule_tags = (RuleTags.parse(map['RuleTags']) unless map['RuleTags'].nil?)
         return data
       end
     end
@@ -477,7 +477,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(http_resp)
         data = Types::ListRepositoryAssociationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.repository_association_summaries = (Parsers::RepositoryAssociationSummaries.parse(map['RepositoryAssociationSummaries']) unless map['RepositoryAssociationSummaries'].nil?)
+        data.repository_association_summaries = (RepositoryAssociationSummaries.parse(map['RepositoryAssociationSummaries']) unless map['RepositoryAssociationSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -487,7 +487,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RepositoryAssociationSummary.parse(value) unless value.nil?
+          data << RepositoryAssociationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -513,7 +513,7 @@ module AWS::SDK::CodeGuruReviewer
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end

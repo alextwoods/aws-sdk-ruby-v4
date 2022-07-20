@@ -113,7 +113,7 @@ module AWS::SDK::Batch
       def self.parse(http_resp)
         data = Types::DescribeComputeEnvironmentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.compute_environments = (Parsers::ComputeEnvironmentDetailList.parse(map['computeEnvironments']) unless map['computeEnvironments'].nil?)
+        data.compute_environments = (ComputeEnvironmentDetailList.parse(map['computeEnvironments']) unless map['computeEnvironments'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -123,7 +123,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ComputeEnvironmentDetail.parse(value) unless value.nil?
+          data << ComputeEnvironmentDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -136,14 +136,14 @@ module AWS::SDK::Batch
         data.compute_environment_arn = map['computeEnvironmentArn']
         data.unmanagedv_cpus = map['unmanagedvCpus']
         data.ecs_cluster_arn = map['ecsClusterArn']
-        data.tags = (Parsers::TagrisTagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagrisTagsMap.parse(map['tags']) unless map['tags'].nil?)
         data.type = map['type']
         data.state = map['state']
         data.status = map['status']
         data.status_reason = map['statusReason']
-        data.compute_resources = (Parsers::ComputeResource.parse(map['computeResources']) unless map['computeResources'].nil?)
+        data.compute_resources = (ComputeResource.parse(map['computeResources']) unless map['computeResources'].nil?)
         data.service_role = map['serviceRole']
-        data.update_policy = (Parsers::UpdatePolicy.parse(map['updatePolicy']) unless map['updatePolicy'].nil?)
+        data.update_policy = (UpdatePolicy.parse(map['updatePolicy']) unless map['updatePolicy'].nil?)
         return data
       end
     end
@@ -165,18 +165,18 @@ module AWS::SDK::Batch
         data.minv_cpus = map['minvCpus']
         data.maxv_cpus = map['maxvCpus']
         data.desiredv_cpus = map['desiredvCpus']
-        data.instance_types = (Parsers::StringList.parse(map['instanceTypes']) unless map['instanceTypes'].nil?)
+        data.instance_types = (StringList.parse(map['instanceTypes']) unless map['instanceTypes'].nil?)
         data.image_id = map['imageId']
-        data.subnets = (Parsers::StringList.parse(map['subnets']) unless map['subnets'].nil?)
-        data.security_group_ids = (Parsers::StringList.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
+        data.subnets = (StringList.parse(map['subnets']) unless map['subnets'].nil?)
+        data.security_group_ids = (StringList.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
         data.ec2_key_pair = map['ec2KeyPair']
         data.instance_role = map['instanceRole']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data.placement_group = map['placementGroup']
         data.bid_percentage = map['bidPercentage']
         data.spot_iam_fleet_role = map['spotIamFleetRole']
-        data.launch_template = (Parsers::LaunchTemplateSpecification.parse(map['launchTemplate']) unless map['launchTemplate'].nil?)
-        data.ec2_configuration = (Parsers::Ec2ConfigurationList.parse(map['ec2Configuration']) unless map['ec2Configuration'].nil?)
+        data.launch_template = (LaunchTemplateSpecification.parse(map['launchTemplate']) unless map['launchTemplate'].nil?)
+        data.ec2_configuration = (Ec2ConfigurationList.parse(map['ec2Configuration']) unless map['ec2Configuration'].nil?)
         return data
       end
     end
@@ -185,7 +185,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Ec2Configuration.parse(value) unless value.nil?
+          data << Ec2Configuration.parse(value) unless value.nil?
         end
         data
       end
@@ -245,7 +245,7 @@ module AWS::SDK::Batch
       def self.parse(http_resp)
         data = Types::DescribeJobDefinitionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_definitions = (Parsers::JobDefinitionList.parse(map['jobDefinitions']) unless map['jobDefinitions'].nil?)
+        data.job_definitions = (JobDefinitionList.parse(map['jobDefinitions']) unless map['jobDefinitions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -255,7 +255,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobDefinition.parse(value) unless value.nil?
+          data << JobDefinition.parse(value) unless value.nil?
         end
         data
       end
@@ -270,14 +270,14 @@ module AWS::SDK::Batch
         data.status = map['status']
         data.type = map['type']
         data.scheduling_priority = map['schedulingPriority']
-        data.parameters = (Parsers::ParametersMap.parse(map['parameters']) unless map['parameters'].nil?)
-        data.retry_strategy = (Parsers::RetryStrategy.parse(map['retryStrategy']) unless map['retryStrategy'].nil?)
-        data.container_properties = (Parsers::ContainerProperties.parse(map['containerProperties']) unless map['containerProperties'].nil?)
-        data.timeout = (Parsers::JobTimeout.parse(map['timeout']) unless map['timeout'].nil?)
-        data.node_properties = (Parsers::NodeProperties.parse(map['nodeProperties']) unless map['nodeProperties'].nil?)
-        data.tags = (Parsers::TagrisTagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.parameters = (ParametersMap.parse(map['parameters']) unless map['parameters'].nil?)
+        data.retry_strategy = (RetryStrategy.parse(map['retryStrategy']) unless map['retryStrategy'].nil?)
+        data.container_properties = (ContainerProperties.parse(map['containerProperties']) unless map['containerProperties'].nil?)
+        data.timeout = (JobTimeout.parse(map['timeout']) unless map['timeout'].nil?)
+        data.node_properties = (NodeProperties.parse(map['nodeProperties']) unless map['nodeProperties'].nil?)
+        data.tags = (TagrisTagsMap.parse(map['tags']) unless map['tags'].nil?)
         data.propagate_tags = map['propagateTags']
-        data.platform_capabilities = (Parsers::PlatformCapabilityList.parse(map['platformCapabilities']) unless map['platformCapabilities'].nil?)
+        data.platform_capabilities = (PlatformCapabilityList.parse(map['platformCapabilities']) unless map['platformCapabilities'].nil?)
         return data
       end
     end
@@ -297,7 +297,7 @@ module AWS::SDK::Batch
         data = Types::NodeProperties.new
         data.num_nodes = map['numNodes']
         data.main_node = map['mainNode']
-        data.node_range_properties = (Parsers::NodeRangeProperties.parse(map['nodeRangeProperties']) unless map['nodeRangeProperties'].nil?)
+        data.node_range_properties = (NodeRangeProperties.parse(map['nodeRangeProperties']) unless map['nodeRangeProperties'].nil?)
         return data
       end
     end
@@ -306,7 +306,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NodeRangeProperty.parse(value) unless value.nil?
+          data << NodeRangeProperty.parse(value) unless value.nil?
         end
         data
       end
@@ -316,7 +316,7 @@ module AWS::SDK::Batch
       def self.parse(map)
         data = Types::NodeRangeProperty.new
         data.target_nodes = map['targetNodes']
-        data.container = (Parsers::ContainerProperties.parse(map['container']) unless map['container'].nil?)
+        data.container = (ContainerProperties.parse(map['container']) unless map['container'].nil?)
         return data
       end
     end
@@ -327,23 +327,23 @@ module AWS::SDK::Batch
         data.image = map['image']
         data.vcpus = map['vcpus']
         data.memory = map['memory']
-        data.command = (Parsers::StringList.parse(map['command']) unless map['command'].nil?)
+        data.command = (StringList.parse(map['command']) unless map['command'].nil?)
         data.job_role_arn = map['jobRoleArn']
         data.execution_role_arn = map['executionRoleArn']
-        data.volumes = (Parsers::Volumes.parse(map['volumes']) unless map['volumes'].nil?)
-        data.environment = (Parsers::EnvironmentVariables.parse(map['environment']) unless map['environment'].nil?)
-        data.mount_points = (Parsers::MountPoints.parse(map['mountPoints']) unless map['mountPoints'].nil?)
+        data.volumes = (Volumes.parse(map['volumes']) unless map['volumes'].nil?)
+        data.environment = (EnvironmentVariables.parse(map['environment']) unless map['environment'].nil?)
+        data.mount_points = (MountPoints.parse(map['mountPoints']) unless map['mountPoints'].nil?)
         data.readonly_root_filesystem = map['readonlyRootFilesystem']
         data.privileged = map['privileged']
-        data.ulimits = (Parsers::Ulimits.parse(map['ulimits']) unless map['ulimits'].nil?)
+        data.ulimits = (Ulimits.parse(map['ulimits']) unless map['ulimits'].nil?)
         data.user = map['user']
         data.instance_type = map['instanceType']
-        data.resource_requirements = (Parsers::ResourceRequirements.parse(map['resourceRequirements']) unless map['resourceRequirements'].nil?)
-        data.linux_parameters = (Parsers::LinuxParameters.parse(map['linuxParameters']) unless map['linuxParameters'].nil?)
-        data.log_configuration = (Parsers::LogConfiguration.parse(map['logConfiguration']) unless map['logConfiguration'].nil?)
-        data.secrets = (Parsers::SecretList.parse(map['secrets']) unless map['secrets'].nil?)
-        data.network_configuration = (Parsers::NetworkConfiguration.parse(map['networkConfiguration']) unless map['networkConfiguration'].nil?)
-        data.fargate_platform_configuration = (Parsers::FargatePlatformConfiguration.parse(map['fargatePlatformConfiguration']) unless map['fargatePlatformConfiguration'].nil?)
+        data.resource_requirements = (ResourceRequirements.parse(map['resourceRequirements']) unless map['resourceRequirements'].nil?)
+        data.linux_parameters = (LinuxParameters.parse(map['linuxParameters']) unless map['linuxParameters'].nil?)
+        data.log_configuration = (LogConfiguration.parse(map['logConfiguration']) unless map['logConfiguration'].nil?)
+        data.secrets = (SecretList.parse(map['secrets']) unless map['secrets'].nil?)
+        data.network_configuration = (NetworkConfiguration.parse(map['networkConfiguration']) unless map['networkConfiguration'].nil?)
+        data.fargate_platform_configuration = (FargatePlatformConfiguration.parse(map['fargatePlatformConfiguration']) unless map['fargatePlatformConfiguration'].nil?)
         return data
       end
     end
@@ -368,7 +368,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Secret.parse(value) unless value.nil?
+          data << Secret.parse(value) unless value.nil?
         end
         data
       end
@@ -387,8 +387,8 @@ module AWS::SDK::Batch
       def self.parse(map)
         data = Types::LogConfiguration.new
         data.log_driver = map['logDriver']
-        data.options = (Parsers::LogConfigurationOptionsMap.parse(map['options']) unless map['options'].nil?)
-        data.secret_options = (Parsers::SecretList.parse(map['secretOptions']) unless map['secretOptions'].nil?)
+        data.options = (LogConfigurationOptionsMap.parse(map['options']) unless map['options'].nil?)
+        data.secret_options = (SecretList.parse(map['secretOptions']) unless map['secretOptions'].nil?)
         return data
       end
     end
@@ -406,10 +406,10 @@ module AWS::SDK::Batch
     class LinuxParameters
       def self.parse(map)
         data = Types::LinuxParameters.new
-        data.devices = (Parsers::DevicesList.parse(map['devices']) unless map['devices'].nil?)
+        data.devices = (DevicesList.parse(map['devices']) unless map['devices'].nil?)
         data.init_process_enabled = map['initProcessEnabled']
         data.shared_memory_size = map['sharedMemorySize']
-        data.tmpfs = (Parsers::TmpfsList.parse(map['tmpfs']) unless map['tmpfs'].nil?)
+        data.tmpfs = (TmpfsList.parse(map['tmpfs']) unless map['tmpfs'].nil?)
         data.max_swap = map['maxSwap']
         data.swappiness = map['swappiness']
         return data
@@ -420,7 +420,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tmpfs.parse(value) unless value.nil?
+          data << Tmpfs.parse(value) unless value.nil?
         end
         data
       end
@@ -431,7 +431,7 @@ module AWS::SDK::Batch
         data = Types::Tmpfs.new
         data.container_path = map['containerPath']
         data.size = map['size']
-        data.mount_options = (Parsers::StringList.parse(map['mountOptions']) unless map['mountOptions'].nil?)
+        data.mount_options = (StringList.parse(map['mountOptions']) unless map['mountOptions'].nil?)
         return data
       end
     end
@@ -440,7 +440,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Device.parse(value) unless value.nil?
+          data << Device.parse(value) unless value.nil?
         end
         data
       end
@@ -451,7 +451,7 @@ module AWS::SDK::Batch
         data = Types::Device.new
         data.host_path = map['hostPath']
         data.container_path = map['containerPath']
-        data.permissions = (Parsers::DeviceCgroupPermissions.parse(map['permissions']) unless map['permissions'].nil?)
+        data.permissions = (DeviceCgroupPermissions.parse(map['permissions']) unless map['permissions'].nil?)
         return data
       end
     end
@@ -470,7 +470,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourceRequirement.parse(value) unless value.nil?
+          data << ResourceRequirement.parse(value) unless value.nil?
         end
         data
       end
@@ -489,7 +489,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Ulimit.parse(value) unless value.nil?
+          data << Ulimit.parse(value) unless value.nil?
         end
         data
       end
@@ -509,7 +509,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MountPoint.parse(value) unless value.nil?
+          data << MountPoint.parse(value) unless value.nil?
         end
         data
       end
@@ -529,7 +529,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::KeyValuePair.parse(value) unless value.nil?
+          data << KeyValuePair.parse(value) unless value.nil?
         end
         data
       end
@@ -548,7 +548,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Volume.parse(value) unless value.nil?
+          data << Volume.parse(value) unless value.nil?
         end
         data
       end
@@ -557,9 +557,9 @@ module AWS::SDK::Batch
     class Volume
       def self.parse(map)
         data = Types::Volume.new
-        data.host = (Parsers::Host.parse(map['host']) unless map['host'].nil?)
+        data.host = (Host.parse(map['host']) unless map['host'].nil?)
         data.name = map['name']
-        data.efs_volume_configuration = (Parsers::EFSVolumeConfiguration.parse(map['efsVolumeConfiguration']) unless map['efsVolumeConfiguration'].nil?)
+        data.efs_volume_configuration = (EFSVolumeConfiguration.parse(map['efsVolumeConfiguration']) unless map['efsVolumeConfiguration'].nil?)
         return data
       end
     end
@@ -571,7 +571,7 @@ module AWS::SDK::Batch
         data.root_directory = map['rootDirectory']
         data.transit_encryption = map['transitEncryption']
         data.transit_encryption_port = map['transitEncryptionPort']
-        data.authorization_config = (Parsers::EFSAuthorizationConfig.parse(map['authorizationConfig']) unless map['authorizationConfig'].nil?)
+        data.authorization_config = (EFSAuthorizationConfig.parse(map['authorizationConfig']) unless map['authorizationConfig'].nil?)
         return data
       end
     end
@@ -605,7 +605,7 @@ module AWS::SDK::Batch
       def self.parse(map)
         data = Types::RetryStrategy.new
         data.attempts = map['attempts']
-        data.evaluate_on_exit = (Parsers::EvaluateOnExitList.parse(map['evaluateOnExit']) unless map['evaluateOnExit'].nil?)
+        data.evaluate_on_exit = (EvaluateOnExitList.parse(map['evaluateOnExit']) unless map['evaluateOnExit'].nil?)
         return data
       end
     end
@@ -614,7 +614,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EvaluateOnExit.parse(value) unless value.nil?
+          data << EvaluateOnExit.parse(value) unless value.nil?
         end
         data
       end
@@ -646,7 +646,7 @@ module AWS::SDK::Batch
       def self.parse(http_resp)
         data = Types::DescribeJobQueuesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_queues = (Parsers::JobQueueDetailList.parse(map['jobQueues']) unless map['jobQueues'].nil?)
+        data.job_queues = (JobQueueDetailList.parse(map['jobQueues']) unless map['jobQueues'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -656,7 +656,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobQueueDetail.parse(value) unless value.nil?
+          data << JobQueueDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -672,8 +672,8 @@ module AWS::SDK::Batch
         data.status = map['status']
         data.status_reason = map['statusReason']
         data.priority = map['priority']
-        data.compute_environment_order = (Parsers::ComputeEnvironmentOrders.parse(map['computeEnvironmentOrder']) unless map['computeEnvironmentOrder'].nil?)
-        data.tags = (Parsers::TagrisTagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.compute_environment_order = (ComputeEnvironmentOrders.parse(map['computeEnvironmentOrder']) unless map['computeEnvironmentOrder'].nil?)
+        data.tags = (TagrisTagsMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -682,7 +682,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ComputeEnvironmentOrder.parse(value) unless value.nil?
+          data << ComputeEnvironmentOrder.parse(value) unless value.nil?
         end
         data
       end
@@ -702,7 +702,7 @@ module AWS::SDK::Batch
       def self.parse(http_resp)
         data = Types::DescribeJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.jobs = (Parsers::JobDetailList.parse(map['jobs']) unless map['jobs'].nil?)
+        data.jobs = (JobDetailList.parse(map['jobs']) unless map['jobs'].nil?)
         data
       end
     end
@@ -711,7 +711,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobDetail.parse(value) unless value.nil?
+          data << JobDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -727,23 +727,23 @@ module AWS::SDK::Batch
         data.status = map['status']
         data.share_identifier = map['shareIdentifier']
         data.scheduling_priority = map['schedulingPriority']
-        data.attempts = (Parsers::AttemptDetails.parse(map['attempts']) unless map['attempts'].nil?)
+        data.attempts = (AttemptDetails.parse(map['attempts']) unless map['attempts'].nil?)
         data.status_reason = map['statusReason']
         data.created_at = map['createdAt']
-        data.retry_strategy = (Parsers::RetryStrategy.parse(map['retryStrategy']) unless map['retryStrategy'].nil?)
+        data.retry_strategy = (RetryStrategy.parse(map['retryStrategy']) unless map['retryStrategy'].nil?)
         data.started_at = map['startedAt']
         data.stopped_at = map['stoppedAt']
-        data.depends_on = (Parsers::JobDependencyList.parse(map['dependsOn']) unless map['dependsOn'].nil?)
+        data.depends_on = (JobDependencyList.parse(map['dependsOn']) unless map['dependsOn'].nil?)
         data.job_definition = map['jobDefinition']
-        data.parameters = (Parsers::ParametersMap.parse(map['parameters']) unless map['parameters'].nil?)
-        data.container = (Parsers::ContainerDetail.parse(map['container']) unless map['container'].nil?)
-        data.node_details = (Parsers::NodeDetails.parse(map['nodeDetails']) unless map['nodeDetails'].nil?)
-        data.node_properties = (Parsers::NodeProperties.parse(map['nodeProperties']) unless map['nodeProperties'].nil?)
-        data.array_properties = (Parsers::ArrayPropertiesDetail.parse(map['arrayProperties']) unless map['arrayProperties'].nil?)
-        data.timeout = (Parsers::JobTimeout.parse(map['timeout']) unless map['timeout'].nil?)
-        data.tags = (Parsers::TagrisTagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.parameters = (ParametersMap.parse(map['parameters']) unless map['parameters'].nil?)
+        data.container = (ContainerDetail.parse(map['container']) unless map['container'].nil?)
+        data.node_details = (NodeDetails.parse(map['nodeDetails']) unless map['nodeDetails'].nil?)
+        data.node_properties = (NodeProperties.parse(map['nodeProperties']) unless map['nodeProperties'].nil?)
+        data.array_properties = (ArrayPropertiesDetail.parse(map['arrayProperties']) unless map['arrayProperties'].nil?)
+        data.timeout = (JobTimeout.parse(map['timeout']) unless map['timeout'].nil?)
+        data.tags = (TagrisTagsMap.parse(map['tags']) unless map['tags'].nil?)
         data.propagate_tags = map['propagateTags']
-        data.platform_capabilities = (Parsers::PlatformCapabilityList.parse(map['platformCapabilities']) unless map['platformCapabilities'].nil?)
+        data.platform_capabilities = (PlatformCapabilityList.parse(map['platformCapabilities']) unless map['platformCapabilities'].nil?)
         return data
       end
     end
@@ -751,7 +751,7 @@ module AWS::SDK::Batch
     class ArrayPropertiesDetail
       def self.parse(map)
         data = Types::ArrayPropertiesDetail.new
-        data.status_summary = (Parsers::ArrayJobStatusSummary.parse(map['statusSummary']) unless map['statusSummary'].nil?)
+        data.status_summary = (ArrayJobStatusSummary.parse(map['statusSummary']) unless map['statusSummary'].nil?)
         data.size = map['size']
         data.index = map['index']
         return data
@@ -783,14 +783,14 @@ module AWS::SDK::Batch
         data.image = map['image']
         data.vcpus = map['vcpus']
         data.memory = map['memory']
-        data.command = (Parsers::StringList.parse(map['command']) unless map['command'].nil?)
+        data.command = (StringList.parse(map['command']) unless map['command'].nil?)
         data.job_role_arn = map['jobRoleArn']
         data.execution_role_arn = map['executionRoleArn']
-        data.volumes = (Parsers::Volumes.parse(map['volumes']) unless map['volumes'].nil?)
-        data.environment = (Parsers::EnvironmentVariables.parse(map['environment']) unless map['environment'].nil?)
-        data.mount_points = (Parsers::MountPoints.parse(map['mountPoints']) unless map['mountPoints'].nil?)
+        data.volumes = (Volumes.parse(map['volumes']) unless map['volumes'].nil?)
+        data.environment = (EnvironmentVariables.parse(map['environment']) unless map['environment'].nil?)
+        data.mount_points = (MountPoints.parse(map['mountPoints']) unless map['mountPoints'].nil?)
         data.readonly_root_filesystem = map['readonlyRootFilesystem']
-        data.ulimits = (Parsers::Ulimits.parse(map['ulimits']) unless map['ulimits'].nil?)
+        data.ulimits = (Ulimits.parse(map['ulimits']) unless map['ulimits'].nil?)
         data.privileged = map['privileged']
         data.user = map['user']
         data.exit_code = map['exitCode']
@@ -799,13 +799,13 @@ module AWS::SDK::Batch
         data.task_arn = map['taskArn']
         data.log_stream_name = map['logStreamName']
         data.instance_type = map['instanceType']
-        data.network_interfaces = (Parsers::NetworkInterfaceList.parse(map['networkInterfaces']) unless map['networkInterfaces'].nil?)
-        data.resource_requirements = (Parsers::ResourceRequirements.parse(map['resourceRequirements']) unless map['resourceRequirements'].nil?)
-        data.linux_parameters = (Parsers::LinuxParameters.parse(map['linuxParameters']) unless map['linuxParameters'].nil?)
-        data.log_configuration = (Parsers::LogConfiguration.parse(map['logConfiguration']) unless map['logConfiguration'].nil?)
-        data.secrets = (Parsers::SecretList.parse(map['secrets']) unless map['secrets'].nil?)
-        data.network_configuration = (Parsers::NetworkConfiguration.parse(map['networkConfiguration']) unless map['networkConfiguration'].nil?)
-        data.fargate_platform_configuration = (Parsers::FargatePlatformConfiguration.parse(map['fargatePlatformConfiguration']) unless map['fargatePlatformConfiguration'].nil?)
+        data.network_interfaces = (NetworkInterfaceList.parse(map['networkInterfaces']) unless map['networkInterfaces'].nil?)
+        data.resource_requirements = (ResourceRequirements.parse(map['resourceRequirements']) unless map['resourceRequirements'].nil?)
+        data.linux_parameters = (LinuxParameters.parse(map['linuxParameters']) unless map['linuxParameters'].nil?)
+        data.log_configuration = (LogConfiguration.parse(map['logConfiguration']) unless map['logConfiguration'].nil?)
+        data.secrets = (SecretList.parse(map['secrets']) unless map['secrets'].nil?)
+        data.network_configuration = (NetworkConfiguration.parse(map['networkConfiguration']) unless map['networkConfiguration'].nil?)
+        data.fargate_platform_configuration = (FargatePlatformConfiguration.parse(map['fargatePlatformConfiguration']) unless map['fargatePlatformConfiguration'].nil?)
         return data
       end
     end
@@ -814,7 +814,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NetworkInterface.parse(value) unless value.nil?
+          data << NetworkInterface.parse(value) unless value.nil?
         end
         data
       end
@@ -834,7 +834,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobDependency.parse(value) unless value.nil?
+          data << JobDependency.parse(value) unless value.nil?
         end
         data
       end
@@ -853,7 +853,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AttemptDetail.parse(value) unless value.nil?
+          data << AttemptDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -862,7 +862,7 @@ module AWS::SDK::Batch
     class AttemptDetail
       def self.parse(map)
         data = Types::AttemptDetail.new
-        data.container = (Parsers::AttemptContainerDetail.parse(map['container']) unless map['container'].nil?)
+        data.container = (AttemptContainerDetail.parse(map['container']) unless map['container'].nil?)
         data.started_at = map['startedAt']
         data.stopped_at = map['stoppedAt']
         data.status_reason = map['statusReason']
@@ -878,7 +878,7 @@ module AWS::SDK::Batch
         data.exit_code = map['exitCode']
         data.reason = map['reason']
         data.log_stream_name = map['logStreamName']
-        data.network_interfaces = (Parsers::NetworkInterfaceList.parse(map['networkInterfaces']) unless map['networkInterfaces'].nil?)
+        data.network_interfaces = (NetworkInterfaceList.parse(map['networkInterfaces']) unless map['networkInterfaces'].nil?)
         return data
       end
     end
@@ -888,7 +888,7 @@ module AWS::SDK::Batch
       def self.parse(http_resp)
         data = Types::DescribeSchedulingPoliciesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.scheduling_policies = (Parsers::SchedulingPolicyDetailList.parse(map['schedulingPolicies']) unless map['schedulingPolicies'].nil?)
+        data.scheduling_policies = (SchedulingPolicyDetailList.parse(map['schedulingPolicies']) unless map['schedulingPolicies'].nil?)
         data
       end
     end
@@ -897,7 +897,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SchedulingPolicyDetail.parse(value) unless value.nil?
+          data << SchedulingPolicyDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -908,8 +908,8 @@ module AWS::SDK::Batch
         data = Types::SchedulingPolicyDetail.new
         data.name = map['name']
         data.arn = map['arn']
-        data.fairshare_policy = (Parsers::FairsharePolicy.parse(map['fairsharePolicy']) unless map['fairsharePolicy'].nil?)
-        data.tags = (Parsers::TagrisTagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.fairshare_policy = (FairsharePolicy.parse(map['fairsharePolicy']) unless map['fairsharePolicy'].nil?)
+        data.tags = (TagrisTagsMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -919,7 +919,7 @@ module AWS::SDK::Batch
         data = Types::FairsharePolicy.new
         data.share_decay_seconds = map['shareDecaySeconds']
         data.compute_reservation = map['computeReservation']
-        data.share_distribution = (Parsers::ShareAttributesList.parse(map['shareDistribution']) unless map['shareDistribution'].nil?)
+        data.share_distribution = (ShareAttributesList.parse(map['shareDistribution']) unless map['shareDistribution'].nil?)
         return data
       end
     end
@@ -928,7 +928,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ShareAttributes.parse(value) unless value.nil?
+          data << ShareAttributes.parse(value) unless value.nil?
         end
         data
       end
@@ -948,7 +948,7 @@ module AWS::SDK::Batch
       def self.parse(http_resp)
         data = Types::ListJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_summary_list = (Parsers::JobSummaryList.parse(map['jobSummaryList']) unless map['jobSummaryList'].nil?)
+        data.job_summary_list = (JobSummaryList.parse(map['jobSummaryList']) unless map['jobSummaryList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -958,7 +958,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobSummary.parse(value) unless value.nil?
+          data << JobSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -975,9 +975,9 @@ module AWS::SDK::Batch
         data.status_reason = map['statusReason']
         data.started_at = map['startedAt']
         data.stopped_at = map['stoppedAt']
-        data.container = (Parsers::ContainerSummary.parse(map['container']) unless map['container'].nil?)
-        data.array_properties = (Parsers::ArrayPropertiesSummary.parse(map['arrayProperties']) unless map['arrayProperties'].nil?)
-        data.node_properties = (Parsers::NodePropertiesSummary.parse(map['nodeProperties']) unless map['nodeProperties'].nil?)
+        data.container = (ContainerSummary.parse(map['container']) unless map['container'].nil?)
+        data.array_properties = (ArrayPropertiesSummary.parse(map['arrayProperties']) unless map['arrayProperties'].nil?)
+        data.node_properties = (NodePropertiesSummary.parse(map['nodeProperties']) unless map['nodeProperties'].nil?)
         data.job_definition = map['jobDefinition']
         return data
       end
@@ -1016,7 +1016,7 @@ module AWS::SDK::Batch
       def self.parse(http_resp)
         data = Types::ListSchedulingPoliciesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.scheduling_policies = (Parsers::SchedulingPolicyListingDetailList.parse(map['schedulingPolicies']) unless map['schedulingPolicies'].nil?)
+        data.scheduling_policies = (SchedulingPolicyListingDetailList.parse(map['schedulingPolicies']) unless map['schedulingPolicies'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1026,7 +1026,7 @@ module AWS::SDK::Batch
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SchedulingPolicyListingDetail.parse(value) unless value.nil?
+          data << SchedulingPolicyListingDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -1045,7 +1045,7 @@ module AWS::SDK::Batch
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagrisTagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagrisTagsMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end

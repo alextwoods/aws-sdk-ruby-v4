@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::XRay
   module Stubs
 
@@ -24,10 +26,10 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Traces'] = Stubs::TraceList.stub(stub[:traces]) unless stub[:traces].nil?
-        data['UnprocessedTraceIds'] = Stubs::UnprocessedTraceIdList.stub(stub[:unprocessed_trace_ids]) unless stub[:unprocessed_trace_ids].nil?
+        data['Traces'] = TraceList.stub(stub[:traces]) unless stub[:traces].nil?
+        data['UnprocessedTraceIds'] = UnprocessedTraceIdList.stub(stub[:unprocessed_trace_ids]) unless stub[:unprocessed_trace_ids].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -65,7 +67,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Trace.stub(element) unless element.nil?
+          data << Trace.stub(element) unless element.nil?
         end
         data
       end
@@ -90,7 +92,7 @@ module AWS::SDK::XRay
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Duration'] = Hearth::NumberHelper.serialize(stub[:duration])
         data['LimitExceeded'] = stub[:limit_exceeded] unless stub[:limit_exceeded].nil?
-        data['Segments'] = Stubs::SegmentList.stub(stub[:segments]) unless stub[:segments].nil?
+        data['Segments'] = SegmentList.stub(stub[:segments]) unless stub[:segments].nil?
         data
       end
     end
@@ -109,7 +111,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Segment.stub(element) unless element.nil?
+          data << Segment.stub(element) unless element.nil?
         end
         data
       end
@@ -147,8 +149,8 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Group'] = Stubs::Group.stub(stub[:group]) unless stub[:group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Group'] = Group.stub(stub[:group]) unless stub[:group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -171,7 +173,7 @@ module AWS::SDK::XRay
         data['GroupName'] = stub[:group_name] unless stub[:group_name].nil?
         data['GroupARN'] = stub[:group_arn] unless stub[:group_arn].nil?
         data['FilterExpression'] = stub[:filter_expression] unless stub[:filter_expression].nil?
-        data['InsightsConfiguration'] = Stubs::InsightsConfiguration.stub(stub[:insights_configuration]) unless stub[:insights_configuration].nil?
+        data['InsightsConfiguration'] = InsightsConfiguration.stub(stub[:insights_configuration]) unless stub[:insights_configuration].nil?
         data
       end
     end
@@ -208,8 +210,8 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SamplingRuleRecord'] = Stubs::SamplingRuleRecord.stub(stub[:sampling_rule_record]) unless stub[:sampling_rule_record].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SamplingRuleRecord'] = SamplingRuleRecord.stub(stub[:sampling_rule_record]) unless stub[:sampling_rule_record].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -228,7 +230,7 @@ module AWS::SDK::XRay
       def self.stub(stub)
         stub ||= Types::SamplingRuleRecord.new
         data = {}
-        data['SamplingRule'] = Stubs::SamplingRule.stub(stub[:sampling_rule]) unless stub[:sampling_rule].nil?
+        data['SamplingRule'] = SamplingRule.stub(stub[:sampling_rule]) unless stub[:sampling_rule].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['ModifiedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:modified_at]).to_i unless stub[:modified_at].nil?
         data
@@ -272,7 +274,7 @@ module AWS::SDK::XRay
         data['HTTPMethod'] = stub[:http_method] unless stub[:http_method].nil?
         data['URLPath'] = stub[:url_path] unless stub[:url_path].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['Attributes'] = Stubs::AttributeMap.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = AttributeMap.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -322,8 +324,8 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SamplingRuleRecord'] = Stubs::SamplingRuleRecord.stub(stub[:sampling_rule_record]) unless stub[:sampling_rule_record].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SamplingRuleRecord'] = SamplingRuleRecord.stub(stub[:sampling_rule_record]) unless stub[:sampling_rule_record].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -339,8 +341,8 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['EncryptionConfig'] = Stubs::EncryptionConfig.stub(stub[:encryption_config]) unless stub[:encryption_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EncryptionConfig'] = EncryptionConfig.stub(stub[:encryption_config]) unless stub[:encryption_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -378,8 +380,8 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Group'] = Stubs::Group.stub(stub[:group]) unless stub[:group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Group'] = Group.stub(stub[:group]) unless stub[:group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -396,9 +398,9 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Groups'] = Stubs::GroupSummaryList.stub(stub[:groups]) unless stub[:groups].nil?
+        data['Groups'] = GroupSummaryList.stub(stub[:groups]) unless stub[:groups].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -416,7 +418,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GroupSummary.stub(element) unless element.nil?
+          data << GroupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -441,7 +443,7 @@ module AWS::SDK::XRay
         data['GroupName'] = stub[:group_name] unless stub[:group_name].nil?
         data['GroupARN'] = stub[:group_arn] unless stub[:group_arn].nil?
         data['FilterExpression'] = stub[:filter_expression] unless stub[:filter_expression].nil?
-        data['InsightsConfiguration'] = Stubs::InsightsConfiguration.stub(stub[:insights_configuration]) unless stub[:insights_configuration].nil?
+        data['InsightsConfiguration'] = InsightsConfiguration.stub(stub[:insights_configuration]) unless stub[:insights_configuration].nil?
         data
       end
     end
@@ -458,8 +460,8 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Insight'] = Stubs::Insight.stub(stub[:insight]) unless stub[:insight].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Insight'] = Insight.stub(stub[:insight]) unless stub[:insight].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -490,15 +492,15 @@ module AWS::SDK::XRay
         data['InsightId'] = stub[:insight_id] unless stub[:insight_id].nil?
         data['GroupARN'] = stub[:group_arn] unless stub[:group_arn].nil?
         data['GroupName'] = stub[:group_name] unless stub[:group_name].nil?
-        data['RootCauseServiceId'] = Stubs::ServiceId.stub(stub[:root_cause_service_id]) unless stub[:root_cause_service_id].nil?
-        data['Categories'] = Stubs::InsightCategoryList.stub(stub[:categories]) unless stub[:categories].nil?
+        data['RootCauseServiceId'] = ServiceId.stub(stub[:root_cause_service_id]) unless stub[:root_cause_service_id].nil?
+        data['Categories'] = InsightCategoryList.stub(stub[:categories]) unless stub[:categories].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['Summary'] = stub[:summary] unless stub[:summary].nil?
-        data['ClientRequestImpactStatistics'] = Stubs::RequestImpactStatistics.stub(stub[:client_request_impact_statistics]) unless stub[:client_request_impact_statistics].nil?
-        data['RootCauseServiceRequestImpactStatistics'] = Stubs::RequestImpactStatistics.stub(stub[:root_cause_service_request_impact_statistics]) unless stub[:root_cause_service_request_impact_statistics].nil?
-        data['TopAnomalousServices'] = Stubs::AnomalousServiceList.stub(stub[:top_anomalous_services]) unless stub[:top_anomalous_services].nil?
+        data['ClientRequestImpactStatistics'] = RequestImpactStatistics.stub(stub[:client_request_impact_statistics]) unless stub[:client_request_impact_statistics].nil?
+        data['RootCauseServiceRequestImpactStatistics'] = RequestImpactStatistics.stub(stub[:root_cause_service_request_impact_statistics]) unless stub[:root_cause_service_request_impact_statistics].nil?
+        data['TopAnomalousServices'] = AnomalousServiceList.stub(stub[:top_anomalous_services]) unless stub[:top_anomalous_services].nil?
         data
       end
     end
@@ -517,7 +519,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AnomalousService.stub(element) unless element.nil?
+          data << AnomalousService.stub(element) unless element.nil?
         end
         data
       end
@@ -536,7 +538,7 @@ module AWS::SDK::XRay
       def self.stub(stub)
         stub ||= Types::AnomalousService.new
         data = {}
-        data['ServiceId'] = Stubs::ServiceId.stub(stub[:service_id]) unless stub[:service_id].nil?
+        data['ServiceId'] = ServiceId.stub(stub[:service_id]) unless stub[:service_id].nil?
         data
       end
     end
@@ -558,7 +560,7 @@ module AWS::SDK::XRay
         stub ||= Types::ServiceId.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Names'] = Stubs::ServiceNames.stub(stub[:names]) unless stub[:names].nil?
+        data['Names'] = ServiceNames.stub(stub[:names]) unless stub[:names].nil?
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data
@@ -640,9 +642,9 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['InsightEvents'] = Stubs::InsightEventList.stub(stub[:insight_events]) unless stub[:insight_events].nil?
+        data['InsightEvents'] = InsightEventList.stub(stub[:insight_events]) unless stub[:insight_events].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -660,7 +662,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InsightEvent.stub(element) unless element.nil?
+          data << InsightEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -685,9 +687,9 @@ module AWS::SDK::XRay
         data = {}
         data['Summary'] = stub[:summary] unless stub[:summary].nil?
         data['EventTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:event_time]).to_i unless stub[:event_time].nil?
-        data['ClientRequestImpactStatistics'] = Stubs::RequestImpactStatistics.stub(stub[:client_request_impact_statistics]) unless stub[:client_request_impact_statistics].nil?
-        data['RootCauseServiceRequestImpactStatistics'] = Stubs::RequestImpactStatistics.stub(stub[:root_cause_service_request_impact_statistics]) unless stub[:root_cause_service_request_impact_statistics].nil?
-        data['TopAnomalousServices'] = Stubs::AnomalousServiceList.stub(stub[:top_anomalous_services]) unless stub[:top_anomalous_services].nil?
+        data['ClientRequestImpactStatistics'] = RequestImpactStatistics.stub(stub[:client_request_impact_statistics]) unless stub[:client_request_impact_statistics].nil?
+        data['RootCauseServiceRequestImpactStatistics'] = RequestImpactStatistics.stub(stub[:root_cause_service_request_impact_statistics]) unless stub[:root_cause_service_request_impact_statistics].nil?
+        data['TopAnomalousServices'] = AnomalousServiceList.stub(stub[:top_anomalous_services]) unless stub[:top_anomalous_services].nil?
         data
       end
     end
@@ -715,9 +717,9 @@ module AWS::SDK::XRay
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['ServiceGraphStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:service_graph_start_time]).to_i unless stub[:service_graph_start_time].nil?
         data['ServiceGraphEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:service_graph_end_time]).to_i unless stub[:service_graph_end_time].nil?
-        data['Services'] = Stubs::InsightImpactGraphServiceList.stub(stub[:services]) unless stub[:services].nil?
+        data['Services'] = InsightImpactGraphServiceList.stub(stub[:services]) unless stub[:services].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -735,7 +737,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InsightImpactGraphService.stub(element) unless element.nil?
+          data << InsightImpactGraphService.stub(element) unless element.nil?
         end
         data
       end
@@ -762,9 +764,9 @@ module AWS::SDK::XRay
         data['ReferenceId'] = stub[:reference_id] unless stub[:reference_id].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Names'] = Stubs::ServiceNames.stub(stub[:names]) unless stub[:names].nil?
+        data['Names'] = ServiceNames.stub(stub[:names]) unless stub[:names].nil?
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['Edges'] = Stubs::InsightImpactGraphEdgeList.stub(stub[:edges]) unless stub[:edges].nil?
+        data['Edges'] = InsightImpactGraphEdgeList.stub(stub[:edges]) unless stub[:edges].nil?
         data
       end
     end
@@ -783,7 +785,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InsightImpactGraphEdge.stub(element) unless element.nil?
+          data << InsightImpactGraphEdge.stub(element) unless element.nil?
         end
         data
       end
@@ -820,9 +822,9 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['InsightSummaries'] = Stubs::InsightSummaryList.stub(stub[:insight_summaries]) unless stub[:insight_summaries].nil?
+        data['InsightSummaries'] = InsightSummaryList.stub(stub[:insight_summaries]) unless stub[:insight_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -840,7 +842,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InsightSummary.stub(element) unless element.nil?
+          data << InsightSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -874,15 +876,15 @@ module AWS::SDK::XRay
         data['InsightId'] = stub[:insight_id] unless stub[:insight_id].nil?
         data['GroupARN'] = stub[:group_arn] unless stub[:group_arn].nil?
         data['GroupName'] = stub[:group_name] unless stub[:group_name].nil?
-        data['RootCauseServiceId'] = Stubs::ServiceId.stub(stub[:root_cause_service_id]) unless stub[:root_cause_service_id].nil?
-        data['Categories'] = Stubs::InsightCategoryList.stub(stub[:categories]) unless stub[:categories].nil?
+        data['RootCauseServiceId'] = ServiceId.stub(stub[:root_cause_service_id]) unless stub[:root_cause_service_id].nil?
+        data['Categories'] = InsightCategoryList.stub(stub[:categories]) unless stub[:categories].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['Summary'] = stub[:summary] unless stub[:summary].nil?
-        data['ClientRequestImpactStatistics'] = Stubs::RequestImpactStatistics.stub(stub[:client_request_impact_statistics]) unless stub[:client_request_impact_statistics].nil?
-        data['RootCauseServiceRequestImpactStatistics'] = Stubs::RequestImpactStatistics.stub(stub[:root_cause_service_request_impact_statistics]) unless stub[:root_cause_service_request_impact_statistics].nil?
-        data['TopAnomalousServices'] = Stubs::AnomalousServiceList.stub(stub[:top_anomalous_services]) unless stub[:top_anomalous_services].nil?
+        data['ClientRequestImpactStatistics'] = RequestImpactStatistics.stub(stub[:client_request_impact_statistics]) unless stub[:client_request_impact_statistics].nil?
+        data['RootCauseServiceRequestImpactStatistics'] = RequestImpactStatistics.stub(stub[:root_cause_service_request_impact_statistics]) unless stub[:root_cause_service_request_impact_statistics].nil?
+        data['TopAnomalousServices'] = AnomalousServiceList.stub(stub[:top_anomalous_services]) unless stub[:top_anomalous_services].nil?
         data['LastUpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_time]).to_i unless stub[:last_update_time].nil?
         data
       end
@@ -901,9 +903,9 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SamplingRuleRecords'] = Stubs::SamplingRuleRecordList.stub(stub[:sampling_rule_records]) unless stub[:sampling_rule_records].nil?
+        data['SamplingRuleRecords'] = SamplingRuleRecordList.stub(stub[:sampling_rule_records]) unless stub[:sampling_rule_records].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -921,7 +923,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SamplingRuleRecord.stub(element) unless element.nil?
+          data << SamplingRuleRecord.stub(element) unless element.nil?
         end
         data
       end
@@ -940,9 +942,9 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SamplingStatisticSummaries'] = Stubs::SamplingStatisticSummaryList.stub(stub[:sampling_statistic_summaries]) unless stub[:sampling_statistic_summaries].nil?
+        data['SamplingStatisticSummaries'] = SamplingStatisticSummaryList.stub(stub[:sampling_statistic_summaries]) unless stub[:sampling_statistic_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -960,7 +962,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SamplingStatisticSummary.stub(element) unless element.nil?
+          data << SamplingStatisticSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1006,10 +1008,10 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SamplingTargetDocuments'] = Stubs::SamplingTargetDocumentList.stub(stub[:sampling_target_documents]) unless stub[:sampling_target_documents].nil?
+        data['SamplingTargetDocuments'] = SamplingTargetDocumentList.stub(stub[:sampling_target_documents]) unless stub[:sampling_target_documents].nil?
         data['LastRuleModification'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_rule_modification]).to_i unless stub[:last_rule_modification].nil?
-        data['UnprocessedStatistics'] = Stubs::UnprocessedStatisticsList.stub(stub[:unprocessed_statistics]) unless stub[:unprocessed_statistics].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UnprocessedStatistics'] = UnprocessedStatisticsList.stub(stub[:unprocessed_statistics]) unless stub[:unprocessed_statistics].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1027,7 +1029,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UnprocessedStatistics.stub(element) unless element.nil?
+          data << UnprocessedStatistics.stub(element) unless element.nil?
         end
         data
       end
@@ -1069,7 +1071,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SamplingTargetDocument.stub(element) unless element.nil?
+          data << SamplingTargetDocument.stub(element) unless element.nil?
         end
         data
       end
@@ -1119,10 +1121,10 @@ module AWS::SDK::XRay
         http_resp.headers['Content-Type'] = 'application/json'
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['Services'] = Stubs::ServiceList.stub(stub[:services]) unless stub[:services].nil?
+        data['Services'] = ServiceList.stub(stub[:services]) unless stub[:services].nil?
         data['ContainsOldGroupVersions'] = stub[:contains_old_group_versions] unless stub[:contains_old_group_versions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1140,7 +1142,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Service.stub(element) unless element.nil?
+          data << Service.stub(element) unless element.nil?
         end
         data
       end
@@ -1173,17 +1175,17 @@ module AWS::SDK::XRay
         data = {}
         data['ReferenceId'] = stub[:reference_id] unless stub[:reference_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Names'] = Stubs::ServiceNames.stub(stub[:names]) unless stub[:names].nil?
+        data['Names'] = ServiceNames.stub(stub[:names]) unless stub[:names].nil?
         data['Root'] = stub[:root] unless stub[:root].nil?
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['Edges'] = Stubs::EdgeList.stub(stub[:edges]) unless stub[:edges].nil?
-        data['SummaryStatistics'] = Stubs::ServiceStatistics.stub(stub[:summary_statistics]) unless stub[:summary_statistics].nil?
-        data['DurationHistogram'] = Stubs::Histogram.stub(stub[:duration_histogram]) unless stub[:duration_histogram].nil?
-        data['ResponseTimeHistogram'] = Stubs::Histogram.stub(stub[:response_time_histogram]) unless stub[:response_time_histogram].nil?
+        data['Edges'] = EdgeList.stub(stub[:edges]) unless stub[:edges].nil?
+        data['SummaryStatistics'] = ServiceStatistics.stub(stub[:summary_statistics]) unless stub[:summary_statistics].nil?
+        data['DurationHistogram'] = Histogram.stub(stub[:duration_histogram]) unless stub[:duration_histogram].nil?
+        data['ResponseTimeHistogram'] = Histogram.stub(stub[:response_time_histogram]) unless stub[:response_time_histogram].nil?
         data
       end
     end
@@ -1202,7 +1204,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HistogramEntry.stub(element) unless element.nil?
+          data << HistogramEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -1246,8 +1248,8 @@ module AWS::SDK::XRay
         stub ||= Types::ServiceStatistics.new
         data = {}
         data['OkCount'] = stub[:ok_count] unless stub[:ok_count].nil?
-        data['ErrorStatistics'] = Stubs::ErrorStatistics.stub(stub[:error_statistics]) unless stub[:error_statistics].nil?
-        data['FaultStatistics'] = Stubs::FaultStatistics.stub(stub[:fault_statistics]) unless stub[:fault_statistics].nil?
+        data['ErrorStatistics'] = ErrorStatistics.stub(stub[:error_statistics]) unless stub[:error_statistics].nil?
+        data['FaultStatistics'] = FaultStatistics.stub(stub[:fault_statistics]) unless stub[:fault_statistics].nil?
         data['TotalCount'] = stub[:total_count] unless stub[:total_count].nil?
         data['TotalResponseTime'] = Hearth::NumberHelper.serialize(stub[:total_response_time])
         data
@@ -1310,7 +1312,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Edge.stub(element) unless element.nil?
+          data << Edge.stub(element) unless element.nil?
         end
         data
       end
@@ -1337,9 +1339,9 @@ module AWS::SDK::XRay
         data['ReferenceId'] = stub[:reference_id] unless stub[:reference_id].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['SummaryStatistics'] = Stubs::EdgeStatistics.stub(stub[:summary_statistics]) unless stub[:summary_statistics].nil?
-        data['ResponseTimeHistogram'] = Stubs::Histogram.stub(stub[:response_time_histogram]) unless stub[:response_time_histogram].nil?
-        data['Aliases'] = Stubs::AliasList.stub(stub[:aliases]) unless stub[:aliases].nil?
+        data['SummaryStatistics'] = EdgeStatistics.stub(stub[:summary_statistics]) unless stub[:summary_statistics].nil?
+        data['ResponseTimeHistogram'] = Histogram.stub(stub[:response_time_histogram]) unless stub[:response_time_histogram].nil?
+        data['Aliases'] = AliasList.stub(stub[:aliases]) unless stub[:aliases].nil?
         data
       end
     end
@@ -1358,7 +1360,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Alias.stub(element) unless element.nil?
+          data << Alias.stub(element) unless element.nil?
         end
         data
       end
@@ -1380,7 +1382,7 @@ module AWS::SDK::XRay
         stub ||= Types::Alias.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Names'] = Stubs::AliasNames.stub(stub[:names]) unless stub[:names].nil?
+        data['Names'] = AliasNames.stub(stub[:names]) unless stub[:names].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -1424,8 +1426,8 @@ module AWS::SDK::XRay
         stub ||= Types::EdgeStatistics.new
         data = {}
         data['OkCount'] = stub[:ok_count] unless stub[:ok_count].nil?
-        data['ErrorStatistics'] = Stubs::ErrorStatistics.stub(stub[:error_statistics]) unless stub[:error_statistics].nil?
-        data['FaultStatistics'] = Stubs::FaultStatistics.stub(stub[:fault_statistics]) unless stub[:fault_statistics].nil?
+        data['ErrorStatistics'] = ErrorStatistics.stub(stub[:error_statistics]) unless stub[:error_statistics].nil?
+        data['FaultStatistics'] = FaultStatistics.stub(stub[:fault_statistics]) unless stub[:fault_statistics].nil?
         data['TotalCount'] = stub[:total_count] unless stub[:total_count].nil?
         data['TotalResponseTime'] = Hearth::NumberHelper.serialize(stub[:total_response_time])
         data
@@ -1446,10 +1448,10 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TimeSeriesServiceStatistics'] = Stubs::TimeSeriesServiceStatisticsList.stub(stub[:time_series_service_statistics]) unless stub[:time_series_service_statistics].nil?
+        data['TimeSeriesServiceStatistics'] = TimeSeriesServiceStatisticsList.stub(stub[:time_series_service_statistics]) unless stub[:time_series_service_statistics].nil?
         data['ContainsOldGroupVersions'] = stub[:contains_old_group_versions] unless stub[:contains_old_group_versions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1467,7 +1469,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TimeSeriesServiceStatistics.stub(element) unless element.nil?
+          data << TimeSeriesServiceStatistics.stub(element) unless element.nil?
         end
         data
       end
@@ -1491,10 +1493,10 @@ module AWS::SDK::XRay
         stub ||= Types::TimeSeriesServiceStatistics.new
         data = {}
         data['Timestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:timestamp]).to_i unless stub[:timestamp].nil?
-        data['EdgeSummaryStatistics'] = Stubs::EdgeStatistics.stub(stub[:edge_summary_statistics]) unless stub[:edge_summary_statistics].nil?
-        data['ServiceSummaryStatistics'] = Stubs::ServiceStatistics.stub(stub[:service_summary_statistics]) unless stub[:service_summary_statistics].nil?
-        data['ServiceForecastStatistics'] = Stubs::ForecastStatistics.stub(stub[:service_forecast_statistics]) unless stub[:service_forecast_statistics].nil?
-        data['ResponseTimeHistogram'] = Stubs::Histogram.stub(stub[:response_time_histogram]) unless stub[:response_time_histogram].nil?
+        data['EdgeSummaryStatistics'] = EdgeStatistics.stub(stub[:edge_summary_statistics]) unless stub[:edge_summary_statistics].nil?
+        data['ServiceSummaryStatistics'] = ServiceStatistics.stub(stub[:service_summary_statistics]) unless stub[:service_summary_statistics].nil?
+        data['ServiceForecastStatistics'] = ForecastStatistics.stub(stub[:service_forecast_statistics]) unless stub[:service_forecast_statistics].nil?
+        data['ResponseTimeHistogram'] = Histogram.stub(stub[:response_time_histogram]) unless stub[:response_time_histogram].nil?
         data
       end
     end
@@ -1532,9 +1534,9 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Services'] = Stubs::ServiceList.stub(stub[:services]) unless stub[:services].nil?
+        data['Services'] = ServiceList.stub(stub[:services]) unless stub[:services].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1553,11 +1555,11 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TraceSummaries'] = Stubs::TraceSummaryList.stub(stub[:trace_summaries]) unless stub[:trace_summaries].nil?
+        data['TraceSummaries'] = TraceSummaryList.stub(stub[:trace_summaries]) unless stub[:trace_summaries].nil?
         data['ApproximateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:approximate_time]).to_i unless stub[:approximate_time].nil?
         data['TracesProcessedCount'] = stub[:traces_processed_count] unless stub[:traces_processed_count].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1575,7 +1577,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TraceSummary.stub(element) unless element.nil?
+          data << TraceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1620,17 +1622,17 @@ module AWS::SDK::XRay
         data['HasError'] = stub[:has_error] unless stub[:has_error].nil?
         data['HasThrottle'] = stub[:has_throttle] unless stub[:has_throttle].nil?
         data['IsPartial'] = stub[:is_partial] unless stub[:is_partial].nil?
-        data['Http'] = Stubs::Http.stub(stub[:http]) unless stub[:http].nil?
-        data['Annotations'] = Stubs::Annotations.stub(stub[:annotations]) unless stub[:annotations].nil?
-        data['Users'] = Stubs::TraceUsers.stub(stub[:users]) unless stub[:users].nil?
-        data['ServiceIds'] = Stubs::ServiceIds.stub(stub[:service_ids]) unless stub[:service_ids].nil?
-        data['ResourceARNs'] = Stubs::TraceResourceARNs.stub(stub[:resource_ar_ns]) unless stub[:resource_ar_ns].nil?
-        data['InstanceIds'] = Stubs::TraceInstanceIds.stub(stub[:instance_ids]) unless stub[:instance_ids].nil?
-        data['AvailabilityZones'] = Stubs::TraceAvailabilityZones.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
-        data['EntryPoint'] = Stubs::ServiceId.stub(stub[:entry_point]) unless stub[:entry_point].nil?
-        data['FaultRootCauses'] = Stubs::FaultRootCauses.stub(stub[:fault_root_causes]) unless stub[:fault_root_causes].nil?
-        data['ErrorRootCauses'] = Stubs::ErrorRootCauses.stub(stub[:error_root_causes]) unless stub[:error_root_causes].nil?
-        data['ResponseTimeRootCauses'] = Stubs::ResponseTimeRootCauses.stub(stub[:response_time_root_causes]) unless stub[:response_time_root_causes].nil?
+        data['Http'] = Http.stub(stub[:http]) unless stub[:http].nil?
+        data['Annotations'] = Annotations.stub(stub[:annotations]) unless stub[:annotations].nil?
+        data['Users'] = TraceUsers.stub(stub[:users]) unless stub[:users].nil?
+        data['ServiceIds'] = ServiceIds.stub(stub[:service_ids]) unless stub[:service_ids].nil?
+        data['ResourceARNs'] = TraceResourceARNs.stub(stub[:resource_ar_ns]) unless stub[:resource_ar_ns].nil?
+        data['InstanceIds'] = TraceInstanceIds.stub(stub[:instance_ids]) unless stub[:instance_ids].nil?
+        data['AvailabilityZones'] = TraceAvailabilityZones.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['EntryPoint'] = ServiceId.stub(stub[:entry_point]) unless stub[:entry_point].nil?
+        data['FaultRootCauses'] = FaultRootCauses.stub(stub[:fault_root_causes]) unless stub[:fault_root_causes].nil?
+        data['ErrorRootCauses'] = ErrorRootCauses.stub(stub[:error_root_causes]) unless stub[:error_root_causes].nil?
+        data['ResponseTimeRootCauses'] = ResponseTimeRootCauses.stub(stub[:response_time_root_causes]) unless stub[:response_time_root_causes].nil?
         data['Revision'] = stub[:revision] unless stub[:revision].nil?
         data['MatchedEventTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:matched_event_time]).to_i unless stub[:matched_event_time].nil?
         data
@@ -1651,7 +1653,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResponseTimeRootCause.stub(element) unless element.nil?
+          data << ResponseTimeRootCause.stub(element) unless element.nil?
         end
         data
       end
@@ -1671,7 +1673,7 @@ module AWS::SDK::XRay
       def self.stub(stub)
         stub ||= Types::ResponseTimeRootCause.new
         data = {}
-        data['Services'] = Stubs::ResponseTimeRootCauseServices.stub(stub[:services]) unless stub[:services].nil?
+        data['Services'] = ResponseTimeRootCauseServices.stub(stub[:services]) unless stub[:services].nil?
         data['ClientImpacting'] = stub[:client_impacting] unless stub[:client_impacting].nil?
         data
       end
@@ -1691,7 +1693,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResponseTimeRootCauseService.stub(element) unless element.nil?
+          data << ResponseTimeRootCauseService.stub(element) unless element.nil?
         end
         data
       end
@@ -1716,10 +1718,10 @@ module AWS::SDK::XRay
         stub ||= Types::ResponseTimeRootCauseService.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Names'] = Stubs::ServiceNames.stub(stub[:names]) unless stub[:names].nil?
+        data['Names'] = ServiceNames.stub(stub[:names]) unless stub[:names].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['EntityPath'] = Stubs::ResponseTimeRootCauseEntityPath.stub(stub[:entity_path]) unless stub[:entity_path].nil?
+        data['EntityPath'] = ResponseTimeRootCauseEntityPath.stub(stub[:entity_path]) unless stub[:entity_path].nil?
         data['Inferred'] = stub[:inferred] unless stub[:inferred].nil?
         data
       end
@@ -1739,7 +1741,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResponseTimeRootCauseEntity.stub(element) unless element.nil?
+          data << ResponseTimeRootCauseEntity.stub(element) unless element.nil?
         end
         data
       end
@@ -1781,7 +1783,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ErrorRootCause.stub(element) unless element.nil?
+          data << ErrorRootCause.stub(element) unless element.nil?
         end
         data
       end
@@ -1801,7 +1803,7 @@ module AWS::SDK::XRay
       def self.stub(stub)
         stub ||= Types::ErrorRootCause.new
         data = {}
-        data['Services'] = Stubs::ErrorRootCauseServices.stub(stub[:services]) unless stub[:services].nil?
+        data['Services'] = ErrorRootCauseServices.stub(stub[:services]) unless stub[:services].nil?
         data['ClientImpacting'] = stub[:client_impacting] unless stub[:client_impacting].nil?
         data
       end
@@ -1821,7 +1823,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ErrorRootCauseService.stub(element) unless element.nil?
+          data << ErrorRootCauseService.stub(element) unless element.nil?
         end
         data
       end
@@ -1846,10 +1848,10 @@ module AWS::SDK::XRay
         stub ||= Types::ErrorRootCauseService.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Names'] = Stubs::ServiceNames.stub(stub[:names]) unless stub[:names].nil?
+        data['Names'] = ServiceNames.stub(stub[:names]) unless stub[:names].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['EntityPath'] = Stubs::ErrorRootCauseEntityPath.stub(stub[:entity_path]) unless stub[:entity_path].nil?
+        data['EntityPath'] = ErrorRootCauseEntityPath.stub(stub[:entity_path]) unless stub[:entity_path].nil?
         data['Inferred'] = stub[:inferred] unless stub[:inferred].nil?
         data
       end
@@ -1869,7 +1871,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ErrorRootCauseEntity.stub(element) unless element.nil?
+          data << ErrorRootCauseEntity.stub(element) unless element.nil?
         end
         data
       end
@@ -1891,7 +1893,7 @@ module AWS::SDK::XRay
         stub ||= Types::ErrorRootCauseEntity.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Exceptions'] = Stubs::RootCauseExceptions.stub(stub[:exceptions]) unless stub[:exceptions].nil?
+        data['Exceptions'] = RootCauseExceptions.stub(stub[:exceptions]) unless stub[:exceptions].nil?
         data['Remote'] = stub[:remote] unless stub[:remote].nil?
         data
       end
@@ -1911,7 +1913,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RootCauseException.stub(element) unless element.nil?
+          data << RootCauseException.stub(element) unless element.nil?
         end
         data
       end
@@ -1951,7 +1953,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FaultRootCause.stub(element) unless element.nil?
+          data << FaultRootCause.stub(element) unless element.nil?
         end
         data
       end
@@ -1971,7 +1973,7 @@ module AWS::SDK::XRay
       def self.stub(stub)
         stub ||= Types::FaultRootCause.new
         data = {}
-        data['Services'] = Stubs::FaultRootCauseServices.stub(stub[:services]) unless stub[:services].nil?
+        data['Services'] = FaultRootCauseServices.stub(stub[:services]) unless stub[:services].nil?
         data['ClientImpacting'] = stub[:client_impacting] unless stub[:client_impacting].nil?
         data
       end
@@ -1991,7 +1993,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FaultRootCauseService.stub(element) unless element.nil?
+          data << FaultRootCauseService.stub(element) unless element.nil?
         end
         data
       end
@@ -2016,10 +2018,10 @@ module AWS::SDK::XRay
         stub ||= Types::FaultRootCauseService.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Names'] = Stubs::ServiceNames.stub(stub[:names]) unless stub[:names].nil?
+        data['Names'] = ServiceNames.stub(stub[:names]) unless stub[:names].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['EntityPath'] = Stubs::FaultRootCauseEntityPath.stub(stub[:entity_path]) unless stub[:entity_path].nil?
+        data['EntityPath'] = FaultRootCauseEntityPath.stub(stub[:entity_path]) unless stub[:entity_path].nil?
         data['Inferred'] = stub[:inferred] unless stub[:inferred].nil?
         data
       end
@@ -2039,7 +2041,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FaultRootCauseEntity.stub(element) unless element.nil?
+          data << FaultRootCauseEntity.stub(element) unless element.nil?
         end
         data
       end
@@ -2061,7 +2063,7 @@ module AWS::SDK::XRay
         stub ||= Types::FaultRootCauseEntity.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Exceptions'] = Stubs::RootCauseExceptions.stub(stub[:exceptions]) unless stub[:exceptions].nil?
+        data['Exceptions'] = RootCauseExceptions.stub(stub[:exceptions]) unless stub[:exceptions].nil?
         data['Remote'] = stub[:remote] unless stub[:remote].nil?
         data
       end
@@ -2081,7 +2083,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AvailabilityZoneDetail.stub(element) unless element.nil?
+          data << AvailabilityZoneDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -2119,7 +2121,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceIdDetail.stub(element) unless element.nil?
+          data << InstanceIdDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -2157,7 +2159,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceARNDetail.stub(element) unless element.nil?
+          data << ResourceARNDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -2195,7 +2197,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceId.stub(element) unless element.nil?
+          data << ServiceId.stub(element) unless element.nil?
         end
         data
       end
@@ -2215,7 +2217,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TraceUser.stub(element) unless element.nil?
+          data << TraceUser.stub(element) unless element.nil?
         end
         data
       end
@@ -2236,7 +2238,7 @@ module AWS::SDK::XRay
         stub ||= Types::TraceUser.new
         data = {}
         data['UserName'] = stub[:user_name] unless stub[:user_name].nil?
-        data['ServiceIds'] = Stubs::ServiceIds.stub(stub[:service_ids]) unless stub[:service_ids].nil?
+        data['ServiceIds'] = ServiceIds.stub(stub[:service_ids]) unless stub[:service_ids].nil?
         data
       end
     end
@@ -2255,7 +2257,7 @@ module AWS::SDK::XRay
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ValuesWithServiceIds.stub(value) unless value.nil?
+          data[key] = ValuesWithServiceIds.stub(value) unless value.nil?
         end
         data
       end
@@ -2275,7 +2277,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ValueWithServiceIds.stub(element) unless element.nil?
+          data << ValueWithServiceIds.stub(element) unless element.nil?
         end
         data
       end
@@ -2295,8 +2297,8 @@ module AWS::SDK::XRay
       def self.stub(stub)
         stub ||= Types::ValueWithServiceIds.new
         data = {}
-        data['AnnotationValue'] = Stubs::AnnotationValue.stub(stub[:annotation_value]) unless stub[:annotation_value].nil?
-        data['ServiceIds'] = Stubs::ServiceIds.stub(stub[:service_ids]) unless stub[:service_ids].nil?
+        data['AnnotationValue'] = AnnotationValue.stub(stub[:annotation_value]) unless stub[:annotation_value].nil?
+        data['ServiceIds'] = ServiceIds.stub(stub[:service_ids]) unless stub[:service_ids].nil?
         data
       end
     end
@@ -2368,9 +2370,9 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2388,7 +2390,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -2426,8 +2428,8 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['EncryptionConfig'] = Stubs::EncryptionConfig.stub(stub[:encryption_config]) unless stub[:encryption_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EncryptionConfig'] = EncryptionConfig.stub(stub[:encryption_config]) unless stub[:encryption_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2456,8 +2458,8 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['UnprocessedTraceSegments'] = Stubs::UnprocessedTraceSegmentList.stub(stub[:unprocessed_trace_segments]) unless stub[:unprocessed_trace_segments].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UnprocessedTraceSegments'] = UnprocessedTraceSegmentList.stub(stub[:unprocessed_trace_segments]) unless stub[:unprocessed_trace_segments].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2475,7 +2477,7 @@ module AWS::SDK::XRay
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UnprocessedTraceSegment.stub(element) unless element.nil?
+          data << UnprocessedTraceSegment.stub(element) unless element.nil?
         end
         data
       end
@@ -2541,8 +2543,8 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Group'] = Stubs::Group.stub(stub[:group]) unless stub[:group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Group'] = Group.stub(stub[:group]) unless stub[:group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2558,8 +2560,8 @@ module AWS::SDK::XRay
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SamplingRuleRecord'] = Stubs::SamplingRuleRecord.stub(stub[:sampling_rule_record]) unless stub[:sampling_rule_record].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SamplingRuleRecord'] = SamplingRuleRecord.stub(stub[:sampling_rule_record]) unless stub[:sampling_rule_record].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -15,7 +15,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::AcceptResourceShareInvitationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_share_invitation = (Parsers::ResourceShareInvitation.parse(map['resourceShareInvitation']) unless map['resourceShareInvitation'].nil?)
+        data.resource_share_invitation = (ResourceShareInvitation.parse(map['resourceShareInvitation']) unless map['resourceShareInvitation'].nil?)
         data.client_token = map['clientToken']
         data
       end
@@ -31,7 +31,7 @@ module AWS::SDK::RAM
         data.receiver_account_id = map['receiverAccountId']
         data.invitation_timestamp = Time.at(map['invitationTimestamp'].to_i) if map['invitationTimestamp']
         data.status = map['status']
-        data.resource_share_associations = (Parsers::ResourceShareAssociationList.parse(map['resourceShareAssociations']) unless map['resourceShareAssociations'].nil?)
+        data.resource_share_associations = (ResourceShareAssociationList.parse(map['resourceShareAssociations']) unless map['resourceShareAssociations'].nil?)
         data.receiver_arn = map['receiverArn']
         return data
       end
@@ -41,7 +41,7 @@ module AWS::SDK::RAM
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourceShareAssociation.parse(value) unless value.nil?
+          data << ResourceShareAssociation.parse(value) unless value.nil?
         end
         data
       end
@@ -168,7 +168,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::AssociateResourceShareOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_share_associations = (Parsers::ResourceShareAssociationList.parse(map['resourceShareAssociations']) unless map['resourceShareAssociations'].nil?)
+        data.resource_share_associations = (ResourceShareAssociationList.parse(map['resourceShareAssociations']) unless map['resourceShareAssociations'].nil?)
         data.client_token = map['clientToken']
         data
       end
@@ -240,7 +240,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::CreateResourceShareOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_share = (Parsers::ResourceShare.parse(map['resourceShare']) unless map['resourceShare'].nil?)
+        data.resource_share = (ResourceShare.parse(map['resourceShare']) unless map['resourceShare'].nil?)
         data.client_token = map['clientToken']
         data
       end
@@ -255,7 +255,7 @@ module AWS::SDK::RAM
         data.allow_external_principals = map['allowExternalPrincipals']
         data.status = map['status']
         data.status_message = map['statusMessage']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_updated_time = Time.at(map['lastUpdatedTime'].to_i) if map['lastUpdatedTime']
         data.feature_set = map['featureSet']
@@ -267,7 +267,7 @@ module AWS::SDK::RAM
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -308,7 +308,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::DisassociateResourceShareOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_share_associations = (Parsers::ResourceShareAssociationList.parse(map['resourceShareAssociations']) unless map['resourceShareAssociations'].nil?)
+        data.resource_share_associations = (ResourceShareAssociationList.parse(map['resourceShareAssociations']) unless map['resourceShareAssociations'].nil?)
         data.client_token = map['clientToken']
         data
       end
@@ -340,7 +340,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::GetPermissionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.permission = (Parsers::ResourceSharePermissionDetail.parse(map['permission']) unless map['permission'].nil?)
+        data.permission = (ResourceSharePermissionDetail.parse(map['permission']) unless map['permission'].nil?)
         data
       end
     end
@@ -366,7 +366,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::GetResourcePoliciesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policies = (Parsers::PolicyList.parse(map['policies']) unless map['policies'].nil?)
+        data.policies = (PolicyList.parse(map['policies']) unless map['policies'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -407,7 +407,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::GetResourceShareAssociationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_share_associations = (Parsers::ResourceShareAssociationList.parse(map['resourceShareAssociations']) unless map['resourceShareAssociations'].nil?)
+        data.resource_share_associations = (ResourceShareAssociationList.parse(map['resourceShareAssociations']) unless map['resourceShareAssociations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -418,7 +418,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::GetResourceShareInvitationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_share_invitations = (Parsers::ResourceShareInvitationList.parse(map['resourceShareInvitations']) unless map['resourceShareInvitations'].nil?)
+        data.resource_share_invitations = (ResourceShareInvitationList.parse(map['resourceShareInvitations']) unless map['resourceShareInvitations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -428,7 +428,7 @@ module AWS::SDK::RAM
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourceShareInvitation.parse(value) unless value.nil?
+          data << ResourceShareInvitation.parse(value) unless value.nil?
         end
         data
       end
@@ -449,7 +449,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::GetResourceSharesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_shares = (Parsers::ResourceShareList.parse(map['resourceShares']) unless map['resourceShares'].nil?)
+        data.resource_shares = (ResourceShareList.parse(map['resourceShares']) unless map['resourceShares'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -459,7 +459,7 @@ module AWS::SDK::RAM
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourceShare.parse(value) unless value.nil?
+          data << ResourceShare.parse(value) unless value.nil?
         end
         data
       end
@@ -470,7 +470,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::ListPendingInvitationResourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resources = (Parsers::ResourceList.parse(map['resources']) unless map['resources'].nil?)
+        data.resources = (ResourceList.parse(map['resources']) unless map['resources'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -480,7 +480,7 @@ module AWS::SDK::RAM
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Resource.parse(value) unless value.nil?
+          data << Resource.parse(value) unless value.nil?
         end
         data
       end
@@ -517,7 +517,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::ListPermissionVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.permissions = (Parsers::ResourceSharePermissionList.parse(map['permissions']) unless map['permissions'].nil?)
+        data.permissions = (ResourceSharePermissionList.parse(map['permissions']) unless map['permissions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -527,7 +527,7 @@ module AWS::SDK::RAM
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourceSharePermissionSummary.parse(value) unless value.nil?
+          data << ResourceSharePermissionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -554,7 +554,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::ListPermissionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.permissions = (Parsers::ResourceSharePermissionList.parse(map['permissions']) unless map['permissions'].nil?)
+        data.permissions = (ResourceSharePermissionList.parse(map['permissions']) unless map['permissions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -565,7 +565,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::ListPrincipalsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.principals = (Parsers::PrincipalList.parse(map['principals']) unless map['principals'].nil?)
+        data.principals = (PrincipalList.parse(map['principals']) unless map['principals'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -575,7 +575,7 @@ module AWS::SDK::RAM
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Principal.parse(value) unless value.nil?
+          data << Principal.parse(value) unless value.nil?
         end
         data
       end
@@ -598,7 +598,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::ListResourceSharePermissionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.permissions = (Parsers::ResourceSharePermissionList.parse(map['permissions']) unless map['permissions'].nil?)
+        data.permissions = (ResourceSharePermissionList.parse(map['permissions']) unless map['permissions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -609,7 +609,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::ListResourceTypesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_types = (Parsers::ServiceNameAndResourceTypeList.parse(map['resourceTypes']) unless map['resourceTypes'].nil?)
+        data.resource_types = (ServiceNameAndResourceTypeList.parse(map['resourceTypes']) unless map['resourceTypes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -619,7 +619,7 @@ module AWS::SDK::RAM
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ServiceNameAndResourceType.parse(value) unless value.nil?
+          data << ServiceNameAndResourceType.parse(value) unless value.nil?
         end
         data
       end
@@ -640,7 +640,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::ListResourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resources = (Parsers::ResourceList.parse(map['resources']) unless map['resources'].nil?)
+        data.resources = (ResourceList.parse(map['resources']) unless map['resources'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -671,7 +671,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::RejectResourceShareInvitationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_share_invitation = (Parsers::ResourceShareInvitation.parse(map['resourceShareInvitation']) unless map['resourceShareInvitation'].nil?)
+        data.resource_share_invitation = (ResourceShareInvitation.parse(map['resourceShareInvitation']) unless map['resourceShareInvitation'].nil?)
         data.client_token = map['clientToken']
         data
       end
@@ -710,7 +710,7 @@ module AWS::SDK::RAM
       def self.parse(http_resp)
         data = Types::UpdateResourceShareOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_share = (Parsers::ResourceShare.parse(map['resourceShare']) unless map['resourceShare'].nil?)
+        data.resource_share = (ResourceShare.parse(map['resourceShare']) unless map['resourceShare'].nil?)
         data.client_token = map['clientToken']
         data
       end

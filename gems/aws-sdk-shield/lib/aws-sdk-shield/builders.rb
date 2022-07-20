@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Shield
   module Builders
 
@@ -19,7 +21,7 @@ module AWS::SDK::Shield
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.AssociateDRTLogBucket'
         data = {}
         data['LogBucket'] = input[:log_bucket] unless input[:log_bucket].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -32,7 +34,7 @@ module AWS::SDK::Shield
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.AssociateDRTRole'
         data = {}
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -46,7 +48,7 @@ module AWS::SDK::Shield
         data = {}
         data['ProtectionId'] = input[:protection_id] unless input[:protection_id].nil?
         data['HealthCheckArn'] = input[:health_check_arn] unless input[:health_check_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -58,8 +60,8 @@ module AWS::SDK::Shield
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.AssociateProactiveEngagementDetails'
         data = {}
-        data['EmergencyContactList'] = Builders::EmergencyContactList.build(input[:emergency_contact_list]) unless input[:emergency_contact_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EmergencyContactList'] = EmergencyContactList.build(input[:emergency_contact_list]) unless input[:emergency_contact_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -68,7 +70,7 @@ module AWS::SDK::Shield
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EmergencyContact.build(element) unless element.nil?
+          data << EmergencyContact.build(element) unless element.nil?
         end
         data
       end
@@ -95,8 +97,8 @@ module AWS::SDK::Shield
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -105,7 +107,7 @@ module AWS::SDK::Shield
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -133,9 +135,9 @@ module AWS::SDK::Shield
         data['Aggregation'] = input[:aggregation] unless input[:aggregation].nil?
         data['Pattern'] = input[:pattern] unless input[:pattern].nil?
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['Members'] = Builders::ProtectionGroupMembers.build(input[:members]) unless input[:members].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Members'] = ProtectionGroupMembers.build(input[:members]) unless input[:members].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -158,7 +160,7 @@ module AWS::SDK::Shield
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.CreateSubscription'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -171,7 +173,7 @@ module AWS::SDK::Shield
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.DeleteProtection'
         data = {}
         data['ProtectionId'] = input[:protection_id] unless input[:protection_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -184,7 +186,7 @@ module AWS::SDK::Shield
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.DeleteProtectionGroup'
         data = {}
         data['ProtectionGroupId'] = input[:protection_group_id] unless input[:protection_group_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -196,7 +198,7 @@ module AWS::SDK::Shield
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.DeleteSubscription'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -209,7 +211,7 @@ module AWS::SDK::Shield
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.DescribeAttack'
         data = {}
         data['AttackId'] = input[:attack_id] unless input[:attack_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -221,7 +223,7 @@ module AWS::SDK::Shield
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.DescribeAttackStatistics'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -233,7 +235,7 @@ module AWS::SDK::Shield
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.DescribeDRTAccess'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -245,7 +247,7 @@ module AWS::SDK::Shield
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.DescribeEmergencyContactSettings'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -259,7 +261,7 @@ module AWS::SDK::Shield
         data = {}
         data['ProtectionId'] = input[:protection_id] unless input[:protection_id].nil?
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -272,7 +274,7 @@ module AWS::SDK::Shield
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.DescribeProtectionGroup'
         data = {}
         data['ProtectionGroupId'] = input[:protection_group_id] unless input[:protection_group_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -284,7 +286,7 @@ module AWS::SDK::Shield
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.DescribeSubscription'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -297,7 +299,7 @@ module AWS::SDK::Shield
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.DisableApplicationLayerAutomaticResponse'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -309,7 +311,7 @@ module AWS::SDK::Shield
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.DisableProactiveEngagement'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -322,7 +324,7 @@ module AWS::SDK::Shield
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.DisassociateDRTLogBucket'
         data = {}
         data['LogBucket'] = input[:log_bucket] unless input[:log_bucket].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -334,7 +336,7 @@ module AWS::SDK::Shield
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.DisassociateDRTRole'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -348,7 +350,7 @@ module AWS::SDK::Shield
         data = {}
         data['ProtectionId'] = input[:protection_id] unless input[:protection_id].nil?
         data['HealthCheckArn'] = input[:health_check_arn] unless input[:health_check_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -361,8 +363,8 @@ module AWS::SDK::Shield
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.EnableApplicationLayerAutomaticResponse'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Action'] = Builders::ResponseAction.build(input[:action]) unless input[:action].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Action'] = ResponseAction.build(input[:action]) unless input[:action].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -370,8 +372,8 @@ module AWS::SDK::Shield
     class ResponseAction
       def self.build(input)
         data = {}
-        data['Block'] = Builders::BlockAction.build(input[:block]) unless input[:block].nil?
-        data['Count'] = Builders::CountAction.build(input[:count]) unless input[:count].nil?
+        data['Block'] = BlockAction.build(input[:block]) unless input[:block].nil?
+        data['Count'] = CountAction.build(input[:count]) unless input[:count].nil?
         data
       end
     end
@@ -400,7 +402,7 @@ module AWS::SDK::Shield
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.EnableProactiveEngagement'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -412,7 +414,7 @@ module AWS::SDK::Shield
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.GetSubscriptionState'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -424,12 +426,12 @@ module AWS::SDK::Shield
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.ListAttacks'
         data = {}
-        data['ResourceArns'] = Builders::ResourceArnFilterList.build(input[:resource_arns]) unless input[:resource_arns].nil?
-        data['StartTime'] = Builders::TimeRange.build(input[:start_time]) unless input[:start_time].nil?
-        data['EndTime'] = Builders::TimeRange.build(input[:end_time]) unless input[:end_time].nil?
+        data['ResourceArns'] = ResourceArnFilterList.build(input[:resource_arns]) unless input[:resource_arns].nil?
+        data['StartTime'] = TimeRange.build(input[:start_time]) unless input[:start_time].nil?
+        data['EndTime'] = TimeRange.build(input[:end_time]) unless input[:end_time].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -464,7 +466,7 @@ module AWS::SDK::Shield
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -478,7 +480,7 @@ module AWS::SDK::Shield
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -493,7 +495,7 @@ module AWS::SDK::Shield
         data['ProtectionGroupId'] = input[:protection_group_id] unless input[:protection_group_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -506,7 +508,7 @@ module AWS::SDK::Shield
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.ListTagsForResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -519,8 +521,8 @@ module AWS::SDK::Shield
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -533,8 +535,8 @@ module AWS::SDK::Shield
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -558,8 +560,8 @@ module AWS::SDK::Shield
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.UpdateApplicationLayerAutomaticResponse'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Action'] = Builders::ResponseAction.build(input[:action]) unless input[:action].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Action'] = ResponseAction.build(input[:action]) unless input[:action].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -571,8 +573,8 @@ module AWS::SDK::Shield
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.UpdateEmergencyContactSettings'
         data = {}
-        data['EmergencyContactList'] = Builders::EmergencyContactList.build(input[:emergency_contact_list]) unless input[:emergency_contact_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EmergencyContactList'] = EmergencyContactList.build(input[:emergency_contact_list]) unless input[:emergency_contact_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -588,8 +590,8 @@ module AWS::SDK::Shield
         data['Aggregation'] = input[:aggregation] unless input[:aggregation].nil?
         data['Pattern'] = input[:pattern] unless input[:pattern].nil?
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['Members'] = Builders::ProtectionGroupMembers.build(input[:members]) unless input[:members].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Members'] = ProtectionGroupMembers.build(input[:members]) unless input[:members].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -602,7 +604,7 @@ module AWS::SDK::Shield
         http_req.headers['X-Amz-Target'] = 'AWSShield_20160616.UpdateSubscription'
         data = {}
         data['AutoRenew'] = input[:auto_renew] unless input[:auto_renew].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

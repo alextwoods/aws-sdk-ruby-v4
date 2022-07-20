@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::EC2
   module Parsers
 
@@ -32,7 +34,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('associations') do |node|
-          data.associations = Parsers::TransitGatewayMulticastDomainAssociations.parse(node)
+          data.associations = TransitGatewayMulticastDomainAssociations.parse(node)
         end
         data
       end
@@ -58,7 +60,7 @@ module AWS::SDK::EC2
         end
         xml.at('subnets') do |node|
           children = node.children('item')
-          data.subnets = Parsers::SubnetAssociationList.parse(children)
+          data.subnets = SubnetAssociationList.parse(children)
         end
         return data
       end
@@ -68,7 +70,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SubnetAssociation.parse(node)
+          data << SubnetAssociation.parse(node)
         end
         data
       end
@@ -95,7 +97,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayPeeringAttachment') do |node|
-          data.transit_gateway_peering_attachment = Parsers::TransitGatewayPeeringAttachment.parse(node)
+          data.transit_gateway_peering_attachment = TransitGatewayPeeringAttachment.parse(node)
         end
         data
       end
@@ -108,13 +110,13 @@ module AWS::SDK::EC2
           data.transit_gateway_attachment_id = (node.text || '')
         end
         xml.at('requesterTgwInfo') do |node|
-          data.requester_tgw_info = Parsers::PeeringTgwInfo.parse(node)
+          data.requester_tgw_info = PeeringTgwInfo.parse(node)
         end
         xml.at('accepterTgwInfo') do |node|
-          data.accepter_tgw_info = Parsers::PeeringTgwInfo.parse(node)
+          data.accepter_tgw_info = PeeringTgwInfo.parse(node)
         end
         xml.at('status') do |node|
-          data.status = Parsers::PeeringAttachmentStatus.parse(node)
+          data.status = PeeringAttachmentStatus.parse(node)
         end
         xml.at('state') do |node|
           data.state = (node.text || '')
@@ -124,7 +126,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -134,7 +136,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Tag.parse(node)
+          data << Tag.parse(node)
         end
         data
       end
@@ -190,7 +192,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayVpcAttachment') do |node|
-          data.transit_gateway_vpc_attachment = Parsers::TransitGatewayVpcAttachment.parse(node)
+          data.transit_gateway_vpc_attachment = TransitGatewayVpcAttachment.parse(node)
         end
         data
       end
@@ -216,17 +218,17 @@ module AWS::SDK::EC2
         end
         xml.at('subnetIds') do |node|
           children = node.children('item')
-          data.subnet_ids = Parsers::ValueStringList.parse(children)
+          data.subnet_ids = ValueStringList.parse(children)
         end
         xml.at('creationTime') do |node|
           data.creation_time = Time.parse(node.text) if node.text
         end
         xml.at('options') do |node|
-          data.options = Parsers::TransitGatewayVpcAttachmentOptions.parse(node)
+          data.options = TransitGatewayVpcAttachmentOptions.parse(node)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -267,7 +269,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('unsuccessful') do |node|
           children = node.children('item')
-          data.unsuccessful = Parsers::UnsuccessfulItemSet.parse(children)
+          data.unsuccessful = UnsuccessfulItemSet.parse(children)
         end
         data
       end
@@ -277,7 +279,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::UnsuccessfulItem.parse(node)
+          data << UnsuccessfulItem.parse(node)
         end
         data
       end
@@ -287,7 +289,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::UnsuccessfulItem.new
         xml.at('error') do |node|
-          data.error = Parsers::UnsuccessfulItemError.parse(node)
+          data.error = UnsuccessfulItemError.parse(node)
         end
         xml.at('resourceId') do |node|
           data.resource_id = (node.text || '')
@@ -317,7 +319,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('vpcPeeringConnection') do |node|
-          data.vpc_peering_connection = Parsers::VpcPeeringConnection.parse(node)
+          data.vpc_peering_connection = VpcPeeringConnection.parse(node)
         end
         data
       end
@@ -327,20 +329,20 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::VpcPeeringConnection.new
         xml.at('accepterVpcInfo') do |node|
-          data.accepter_vpc_info = Parsers::VpcPeeringConnectionVpcInfo.parse(node)
+          data.accepter_vpc_info = VpcPeeringConnectionVpcInfo.parse(node)
         end
         xml.at('expirationTime') do |node|
           data.expiration_time = Time.parse(node.text) if node.text
         end
         xml.at('requesterVpcInfo') do |node|
-          data.requester_vpc_info = Parsers::VpcPeeringConnectionVpcInfo.parse(node)
+          data.requester_vpc_info = VpcPeeringConnectionVpcInfo.parse(node)
         end
         xml.at('status') do |node|
-          data.status = Parsers::VpcPeeringConnectionStateReason.parse(node)
+          data.status = VpcPeeringConnectionStateReason.parse(node)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('vpcPeeringConnectionId') do |node|
           data.vpc_peering_connection_id = (node.text || '')
@@ -370,17 +372,17 @@ module AWS::SDK::EC2
         end
         xml.at('ipv6CidrBlockSet') do |node|
           children = node.children('item')
-          data.ipv6_cidr_block_set = Parsers::Ipv6CidrBlockSet.parse(children)
+          data.ipv6_cidr_block_set = Ipv6CidrBlockSet.parse(children)
         end
         xml.at('cidrBlockSet') do |node|
           children = node.children('item')
-          data.cidr_block_set = Parsers::CidrBlockSet.parse(children)
+          data.cidr_block_set = CidrBlockSet.parse(children)
         end
         xml.at('ownerId') do |node|
           data.owner_id = (node.text || '')
         end
         xml.at('peeringOptions') do |node|
-          data.peering_options = Parsers::VpcPeeringConnectionOptionsDescription.parse(node)
+          data.peering_options = VpcPeeringConnectionOptionsDescription.parse(node)
         end
         xml.at('vpcId') do |node|
           data.vpc_id = (node.text || '')
@@ -412,7 +414,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CidrBlock.parse(node)
+          data << CidrBlock.parse(node)
         end
         data
       end
@@ -432,7 +434,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Ipv6CidrBlock.parse(node)
+          data << Ipv6CidrBlock.parse(node)
         end
         data
       end
@@ -456,7 +458,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('byoipCidr') do |node|
-          data.byoip_cidr = Parsers::ByoipCidr.parse(node)
+          data.byoip_cidr = ByoipCidr.parse(node)
         end
         data
       end
@@ -525,7 +527,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('hostIdSet') do |node|
           children = node.children('item')
-          data.host_ids = Parsers::ResponseHostIdList.parse(children)
+          data.host_ids = ResponseHostIdList.parse(children)
         end
         data
       end
@@ -549,7 +551,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ipamPoolAllocation') do |node|
-          data.ipam_pool_allocation = Parsers::IpamPoolAllocation.parse(node)
+          data.ipam_pool_allocation = IpamPoolAllocation.parse(node)
         end
         data
       end
@@ -592,7 +594,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('securityGroupIds') do |node|
           children = node.children('item')
-          data.security_group_ids = Parsers::ClientVpnSecurityGroupIdSet.parse(children)
+          data.security_group_ids = ClientVpnSecurityGroupIdSet.parse(children)
         end
         data
       end
@@ -617,11 +619,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('assignedIpv6Addresses') do |node|
           children = node.children('item')
-          data.assigned_ipv6_addresses = Parsers::Ipv6AddressList.parse(children)
+          data.assigned_ipv6_addresses = Ipv6AddressList.parse(children)
         end
         xml.at('assignedIpv6PrefixSet') do |node|
           children = node.children('item')
-          data.assigned_ipv6_prefixes = Parsers::IpPrefixList.parse(children)
+          data.assigned_ipv6_prefixes = IpPrefixList.parse(children)
         end
         xml.at('networkInterfaceId') do |node|
           data.network_interface_id = (node.text || '')
@@ -662,11 +664,11 @@ module AWS::SDK::EC2
         end
         xml.at('assignedPrivateIpAddressesSet') do |node|
           children = node.children('item')
-          data.assigned_private_ip_addresses = Parsers::AssignedPrivateIpAddressList.parse(children)
+          data.assigned_private_ip_addresses = AssignedPrivateIpAddressList.parse(children)
         end
         xml.at('assignedIpv4PrefixSet') do |node|
           children = node.children('item')
-          data.assigned_ipv4_prefixes = Parsers::Ipv4PrefixesList.parse(children)
+          data.assigned_ipv4_prefixes = Ipv4PrefixesList.parse(children)
         end
         data
       end
@@ -676,7 +678,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Ipv4PrefixSpecification.parse(node)
+          data << Ipv4PrefixSpecification.parse(node)
         end
         data
       end
@@ -696,7 +698,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AssignedPrivateIpAddress.parse(node)
+          data << AssignedPrivateIpAddress.parse(node)
         end
         data
       end
@@ -737,7 +739,7 @@ module AWS::SDK::EC2
           data.association_id = (node.text || '')
         end
         xml.at('status') do |node|
-          data.status = Parsers::AssociationStatus.parse(node)
+          data.status = AssociationStatus.parse(node)
         end
         data
       end
@@ -795,7 +797,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('iamInstanceProfileAssociation') do |node|
-          data.iam_instance_profile_association = Parsers::IamInstanceProfileAssociation.parse(node)
+          data.iam_instance_profile_association = IamInstanceProfileAssociation.parse(node)
         end
         data
       end
@@ -811,7 +813,7 @@ module AWS::SDK::EC2
           data.instance_id = (node.text || '')
         end
         xml.at('iamInstanceProfile') do |node|
-          data.iam_instance_profile = Parsers::IamInstanceProfile.parse(node)
+          data.iam_instance_profile = IamInstanceProfile.parse(node)
         end
         xml.at('state') do |node|
           data.state = (node.text || '')
@@ -844,7 +846,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('instanceEventWindow') do |node|
-          data.instance_event_window = Parsers::InstanceEventWindow.parse(node)
+          data.instance_event_window = InstanceEventWindow.parse(node)
         end
         data
       end
@@ -858,7 +860,7 @@ module AWS::SDK::EC2
         end
         xml.at('timeRangeSet') do |node|
           children = node.children('item')
-          data.time_ranges = Parsers::InstanceEventWindowTimeRangeList.parse(children)
+          data.time_ranges = InstanceEventWindowTimeRangeList.parse(children)
         end
         xml.at('name') do |node|
           data.name = (node.text || '')
@@ -867,14 +869,14 @@ module AWS::SDK::EC2
           data.cron_expression = (node.text || '')
         end
         xml.at('associationTarget') do |node|
-          data.association_target = Parsers::InstanceEventWindowAssociationTarget.parse(node)
+          data.association_target = InstanceEventWindowAssociationTarget.parse(node)
         end
         xml.at('state') do |node|
           data.state = (node.text || '')
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -885,15 +887,15 @@ module AWS::SDK::EC2
         data = Types::InstanceEventWindowAssociationTarget.new
         xml.at('instanceIdSet') do |node|
           children = node.children('item')
-          data.instance_ids = Parsers::InstanceIdList.parse(children)
+          data.instance_ids = InstanceIdList.parse(children)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('dedicatedHostIdSet') do |node|
           children = node.children('item')
-          data.dedicated_host_ids = Parsers::DedicatedHostIdList.parse(children)
+          data.dedicated_host_ids = DedicatedHostIdList.parse(children)
         end
         return data
       end
@@ -923,7 +925,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceEventWindowTimeRange.parse(node)
+          data << InstanceEventWindowTimeRange.parse(node)
         end
         data
       end
@@ -959,7 +961,7 @@ module AWS::SDK::EC2
           data.association_id = (node.text || '')
         end
         xml.at('associationState') do |node|
-          data.association_state = Parsers::RouteTableAssociationState.parse(node)
+          data.association_state = RouteTableAssociationState.parse(node)
         end
         data
       end
@@ -986,7 +988,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ipv6CidrBlockAssociation') do |node|
-          data.ipv6_cidr_block_association = Parsers::SubnetIpv6CidrBlockAssociation.parse(node)
+          data.ipv6_cidr_block_association = SubnetIpv6CidrBlockAssociation.parse(node)
         end
         xml.at('subnetId') do |node|
           data.subnet_id = (node.text || '')
@@ -1005,7 +1007,7 @@ module AWS::SDK::EC2
           data.ipv6_cidr_block = (node.text || '')
         end
         xml.at('ipv6CidrBlockState') do |node|
-          data.ipv6_cidr_block_state = Parsers::SubnetCidrBlockState.parse(node)
+          data.ipv6_cidr_block_state = SubnetCidrBlockState.parse(node)
         end
         return data
       end
@@ -1032,7 +1034,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('associations') do |node|
-          data.associations = Parsers::TransitGatewayMulticastDomainAssociations.parse(node)
+          data.associations = TransitGatewayMulticastDomainAssociations.parse(node)
         end
         data
       end
@@ -1046,7 +1048,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('association') do |node|
-          data.association = Parsers::TransitGatewayAssociation.parse(node)
+          data.association = TransitGatewayAssociation.parse(node)
         end
         data
       end
@@ -1082,7 +1084,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('interfaceAssociation') do |node|
-          data.interface_association = Parsers::TrunkInterfaceAssociation.parse(node)
+          data.interface_association = TrunkInterfaceAssociation.parse(node)
         end
         xml.at('clientToken') do |node|
           data.client_token = (node.text || '')
@@ -1114,7 +1116,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -1128,10 +1130,10 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ipv6CidrBlockAssociation') do |node|
-          data.ipv6_cidr_block_association = Parsers::VpcIpv6CidrBlockAssociation.parse(node)
+          data.ipv6_cidr_block_association = VpcIpv6CidrBlockAssociation.parse(node)
         end
         xml.at('cidrBlockAssociation') do |node|
-          data.cidr_block_association = Parsers::VpcCidrBlockAssociation.parse(node)
+          data.cidr_block_association = VpcCidrBlockAssociation.parse(node)
         end
         xml.at('vpcId') do |node|
           data.vpc_id = (node.text || '')
@@ -1150,7 +1152,7 @@ module AWS::SDK::EC2
           data.cidr_block = (node.text || '')
         end
         xml.at('cidrBlockState') do |node|
-          data.cidr_block_state = Parsers::VpcCidrBlockState.parse(node)
+          data.cidr_block_state = VpcCidrBlockState.parse(node)
         end
         return data
       end
@@ -1179,7 +1181,7 @@ module AWS::SDK::EC2
           data.ipv6_cidr_block = (node.text || '')
         end
         xml.at('ipv6CidrBlockState') do |node|
-          data.ipv6_cidr_block_state = Parsers::VpcCidrBlockState.parse(node)
+          data.ipv6_cidr_block_state = VpcCidrBlockState.parse(node)
         end
         xml.at('networkBorderGroup') do |node|
           data.network_border_group = (node.text || '')
@@ -1270,7 +1272,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('attachment') do |node|
-          data.vpc_attachment = Parsers::VpcAttachment.parse(node)
+          data.vpc_attachment = VpcAttachment.parse(node)
         end
         data
       end
@@ -1297,7 +1299,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('status') do |node|
-          data.status = Parsers::ClientVpnAuthorizationRuleStatus.parse(node)
+          data.status = ClientVpnAuthorizationRuleStatus.parse(node)
         end
         data
       end
@@ -1328,7 +1330,7 @@ module AWS::SDK::EC2
         end
         xml.at('securityGroupRuleSet') do |node|
           children = node.children('item')
-          data.security_group_rules = Parsers::SecurityGroupRuleList.parse(children)
+          data.security_group_rules = SecurityGroupRuleList.parse(children)
         end
         data
       end
@@ -1338,7 +1340,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SecurityGroupRule.parse(node)
+          data << SecurityGroupRule.parse(node)
         end
         data
       end
@@ -1378,14 +1380,14 @@ module AWS::SDK::EC2
           data.prefix_list_id = (node.text || '')
         end
         xml.at('referencedGroupInfo') do |node|
-          data.referenced_group_info = Parsers::ReferencedSecurityGroup.parse(node)
+          data.referenced_group_info = ReferencedSecurityGroup.parse(node)
         end
         xml.at('description') do |node|
           data.description = (node.text || '')
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -1425,7 +1427,7 @@ module AWS::SDK::EC2
         end
         xml.at('securityGroupRuleSet') do |node|
           children = node.children('item')
-          data.security_group_rules = Parsers::SecurityGroupRuleList.parse(children)
+          data.security_group_rules = SecurityGroupRuleList.parse(children)
         end
         data
       end
@@ -1439,7 +1441,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('bundleInstanceTask') do |node|
-          data.bundle_task = Parsers::BundleTask.parse(node)
+          data.bundle_task = BundleTask.parse(node)
         end
         data
       end
@@ -1452,7 +1454,7 @@ module AWS::SDK::EC2
           data.bundle_id = (node.text || '')
         end
         xml.at('error') do |node|
-          data.bundle_task_error = Parsers::BundleTaskError.parse(node)
+          data.bundle_task_error = BundleTaskError.parse(node)
         end
         xml.at('instanceId') do |node|
           data.instance_id = (node.text || '')
@@ -1467,7 +1469,7 @@ module AWS::SDK::EC2
           data.state = (node.text || '')
         end
         xml.at('storage') do |node|
-          data.storage = Parsers::Storage.parse(node)
+          data.storage = Storage.parse(node)
         end
         xml.at('updateTime') do |node|
           data.update_time = Time.parse(node.text) if node.text
@@ -1480,7 +1482,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::Storage.new
         xml.at('S3') do |node|
-          data.s3 = Parsers::S3Storage.parse(node)
+          data.s3 = S3Storage.parse(node)
         end
         return data
       end
@@ -1499,7 +1501,7 @@ module AWS::SDK::EC2
           data.prefix = (node.text || '')
         end
         xml.at('uploadPolicy') do |node|
-          data.upload_policy = ((Base64::decode64(node.text) unless node.text.nil?) || '')
+          data.upload_policy = ((::Base64::decode64(node.text) unless node.text.nil?) || '')
         end
         xml.at('uploadPolicySignature') do |node|
           data.upload_policy_signature = (node.text || '')
@@ -1529,7 +1531,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('bundleInstanceTask') do |node|
-          data.bundle_task = Parsers::BundleTask.parse(node)
+          data.bundle_task = BundleTask.parse(node)
         end
         data
       end
@@ -1558,11 +1560,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('successfulFleetCancellationSet') do |node|
           children = node.children('item')
-          data.successful_fleet_cancellations = Parsers::CapacityReservationFleetCancellationStateSet.parse(children)
+          data.successful_fleet_cancellations = CapacityReservationFleetCancellationStateSet.parse(children)
         end
         xml.at('failedFleetCancellationSet') do |node|
           children = node.children('item')
-          data.failed_fleet_cancellations = Parsers::FailedCapacityReservationFleetCancellationResultSet.parse(children)
+          data.failed_fleet_cancellations = FailedCapacityReservationFleetCancellationResultSet.parse(children)
         end
         data
       end
@@ -1572,7 +1574,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::FailedCapacityReservationFleetCancellationResult.parse(node)
+          data << FailedCapacityReservationFleetCancellationResult.parse(node)
         end
         data
       end
@@ -1585,7 +1587,7 @@ module AWS::SDK::EC2
           data.capacity_reservation_fleet_id = (node.text || '')
         end
         xml.at('cancelCapacityReservationFleetError') do |node|
-          data.cancel_capacity_reservation_fleet_error = Parsers::CancelCapacityReservationFleetError.parse(node)
+          data.cancel_capacity_reservation_fleet_error = CancelCapacityReservationFleetError.parse(node)
         end
         return data
       end
@@ -1608,7 +1610,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CapacityReservationFleetCancellationState.parse(node)
+          data << CapacityReservationFleetCancellationState.parse(node)
         end
         data
       end
@@ -1681,7 +1683,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('reservedInstancesListingsSet') do |node|
           children = node.children('item')
-          data.reserved_instances_listings = Parsers::ReservedInstancesListingList.parse(children)
+          data.reserved_instances_listings = ReservedInstancesListingList.parse(children)
         end
         data
       end
@@ -1691,7 +1693,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReservedInstancesListing.parse(node)
+          data << ReservedInstancesListing.parse(node)
         end
         data
       end
@@ -1708,11 +1710,11 @@ module AWS::SDK::EC2
         end
         xml.at('instanceCounts') do |node|
           children = node.children('item')
-          data.instance_counts = Parsers::InstanceCountList.parse(children)
+          data.instance_counts = InstanceCountList.parse(children)
         end
         xml.at('priceSchedules') do |node|
           children = node.children('item')
-          data.price_schedules = Parsers::PriceScheduleList.parse(children)
+          data.price_schedules = PriceScheduleList.parse(children)
         end
         xml.at('reservedInstancesId') do |node|
           data.reserved_instances_id = (node.text || '')
@@ -1728,7 +1730,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('updateDate') do |node|
           data.update_date = Time.parse(node.text) if node.text
@@ -1741,7 +1743,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PriceSchedule.parse(node)
+          data << PriceSchedule.parse(node)
         end
         data
       end
@@ -1770,7 +1772,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceCount.parse(node)
+          data << InstanceCount.parse(node)
         end
         data
       end
@@ -1798,11 +1800,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('successfulFleetRequestSet') do |node|
           children = node.children('item')
-          data.successful_fleet_requests = Parsers::CancelSpotFleetRequestsSuccessSet.parse(children)
+          data.successful_fleet_requests = CancelSpotFleetRequestsSuccessSet.parse(children)
         end
         xml.at('unsuccessfulFleetRequestSet') do |node|
           children = node.children('item')
-          data.unsuccessful_fleet_requests = Parsers::CancelSpotFleetRequestsErrorSet.parse(children)
+          data.unsuccessful_fleet_requests = CancelSpotFleetRequestsErrorSet.parse(children)
         end
         data
       end
@@ -1812,7 +1814,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CancelSpotFleetRequestsErrorItem.parse(node)
+          data << CancelSpotFleetRequestsErrorItem.parse(node)
         end
         data
       end
@@ -1822,7 +1824,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::CancelSpotFleetRequestsErrorItem.new
         xml.at('error') do |node|
-          data.error = Parsers::CancelSpotFleetRequestsError.parse(node)
+          data.error = CancelSpotFleetRequestsError.parse(node)
         end
         xml.at('spotFleetRequestId') do |node|
           data.spot_fleet_request_id = (node.text || '')
@@ -1848,7 +1850,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CancelSpotFleetRequestsSuccessItem.parse(node)
+          data << CancelSpotFleetRequestsSuccessItem.parse(node)
         end
         data
       end
@@ -1879,7 +1881,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('spotInstanceRequestSet') do |node|
           children = node.children('item')
-          data.cancelled_spot_instance_requests = Parsers::CancelledSpotInstanceRequestList.parse(children)
+          data.cancelled_spot_instance_requests = CancelledSpotInstanceRequestList.parse(children)
         end
         data
       end
@@ -1889,7 +1891,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CancelledSpotInstanceRequest.parse(node)
+          data << CancelledSpotInstanceRequest.parse(node)
         end
         data
       end
@@ -1965,7 +1967,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         data
       end
@@ -1979,7 +1981,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('capacityReservation') do |node|
-          data.capacity_reservation = Parsers::CapacityReservation.parse(node)
+          data.capacity_reservation = CapacityReservation.parse(node)
         end
         data
       end
@@ -2044,7 +2046,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('outpostArn') do |node|
           data.outpost_arn = (node.text || '')
@@ -2095,11 +2097,11 @@ module AWS::SDK::EC2
         end
         xml.at('fleetCapacityReservationSet') do |node|
           children = node.children('item')
-          data.fleet_capacity_reservations = Parsers::FleetCapacityReservationSet.parse(children)
+          data.fleet_capacity_reservations = FleetCapacityReservationSet.parse(children)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         data
       end
@@ -2109,7 +2111,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::FleetCapacityReservation.parse(node)
+          data << FleetCapacityReservation.parse(node)
         end
         data
       end
@@ -2163,7 +2165,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('carrierGateway') do |node|
-          data.carrier_gateway = Parsers::CarrierGateway.parse(node)
+          data.carrier_gateway = CarrierGateway.parse(node)
         end
         data
       end
@@ -2186,7 +2188,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -2203,7 +2205,7 @@ module AWS::SDK::EC2
           data.client_vpn_endpoint_id = (node.text || '')
         end
         xml.at('status') do |node|
-          data.status = Parsers::ClientVpnEndpointStatus.parse(node)
+          data.status = ClientVpnEndpointStatus.parse(node)
         end
         xml.at('dnsName') do |node|
           data.dns_name = (node.text || '')
@@ -2233,7 +2235,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('status') do |node|
-          data.status = Parsers::ClientVpnRouteStatus.parse(node)
+          data.status = ClientVpnRouteStatus.parse(node)
         end
         data
       end
@@ -2260,7 +2262,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('customerGateway') do |node|
-          data.customer_gateway = Parsers::CustomerGateway.parse(node)
+          data.customer_gateway = CustomerGateway.parse(node)
         end
         data
       end
@@ -2292,7 +2294,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -2306,7 +2308,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('subnet') do |node|
-          data.subnet = Parsers::Subnet.parse(node)
+          data.subnet = Subnet.parse(node)
         end
         data
       end
@@ -2359,11 +2361,11 @@ module AWS::SDK::EC2
         end
         xml.at('ipv6CidrBlockAssociationSet') do |node|
           children = node.children('item')
-          data.ipv6_cidr_block_association_set = Parsers::SubnetIpv6CidrBlockAssociationSet.parse(children)
+          data.ipv6_cidr_block_association_set = SubnetIpv6CidrBlockAssociationSet.parse(children)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('subnetArn') do |node|
           data.subnet_arn = (node.text || '')
@@ -2378,7 +2380,7 @@ module AWS::SDK::EC2
           data.ipv6_native = (node.text == 'true')
         end
         xml.at('privateDnsNameOptionsOnLaunch') do |node|
-          data.private_dns_name_options_on_launch = Parsers::PrivateDnsNameOptionsOnLaunch.parse(node)
+          data.private_dns_name_options_on_launch = PrivateDnsNameOptionsOnLaunch.parse(node)
         end
         return data
       end
@@ -2404,7 +2406,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SubnetIpv6CidrBlockAssociation.parse(node)
+          data << SubnetIpv6CidrBlockAssociation.parse(node)
         end
         data
       end
@@ -2418,7 +2420,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('vpc') do |node|
-          data.vpc = Parsers::Vpc.parse(node)
+          data.vpc = Vpc.parse(node)
         end
         data
       end
@@ -2447,18 +2449,18 @@ module AWS::SDK::EC2
         end
         xml.at('ipv6CidrBlockAssociationSet') do |node|
           children = node.children('item')
-          data.ipv6_cidr_block_association_set = Parsers::VpcIpv6CidrBlockAssociationSet.parse(children)
+          data.ipv6_cidr_block_association_set = VpcIpv6CidrBlockAssociationSet.parse(children)
         end
         xml.at('cidrBlockAssociationSet') do |node|
           children = node.children('item')
-          data.cidr_block_association_set = Parsers::VpcCidrBlockAssociationSet.parse(children)
+          data.cidr_block_association_set = VpcCidrBlockAssociationSet.parse(children)
         end
         xml.at('isDefault') do |node|
           data.is_default = (node.text == 'true')
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -2468,7 +2470,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VpcCidrBlockAssociation.parse(node)
+          data << VpcCidrBlockAssociation.parse(node)
         end
         data
       end
@@ -2478,7 +2480,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VpcIpv6CidrBlockAssociation.parse(node)
+          data << VpcIpv6CidrBlockAssociation.parse(node)
         end
         data
       end
@@ -2492,7 +2494,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('dhcpOptions') do |node|
-          data.dhcp_options = Parsers::DhcpOptions.parse(node)
+          data.dhcp_options = DhcpOptions.parse(node)
         end
         data
       end
@@ -2503,7 +2505,7 @@ module AWS::SDK::EC2
         data = Types::DhcpOptions.new
         xml.at('dhcpConfigurationSet') do |node|
           children = node.children('item')
-          data.dhcp_configurations = Parsers::DhcpConfigurationList.parse(children)
+          data.dhcp_configurations = DhcpConfigurationList.parse(children)
         end
         xml.at('dhcpOptionsId') do |node|
           data.dhcp_options_id = (node.text || '')
@@ -2513,7 +2515,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -2523,7 +2525,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DhcpConfiguration.parse(node)
+          data << DhcpConfiguration.parse(node)
         end
         data
       end
@@ -2537,7 +2539,7 @@ module AWS::SDK::EC2
         end
         xml.at('valueSet') do |node|
           children = node.children('item')
-          data.values = Parsers::DhcpConfigurationValueList.parse(children)
+          data.values = DhcpConfigurationValueList.parse(children)
         end
         return data
       end
@@ -2547,7 +2549,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AttributeValue.parse(node)
+          data << AttributeValue.parse(node)
         end
         data
       end
@@ -2574,7 +2576,7 @@ module AWS::SDK::EC2
           data.client_token = (node.text || '')
         end
         xml.at('egressOnlyInternetGateway') do |node|
-          data.egress_only_internet_gateway = Parsers::EgressOnlyInternetGateway.parse(node)
+          data.egress_only_internet_gateway = EgressOnlyInternetGateway.parse(node)
         end
         data
       end
@@ -2585,14 +2587,14 @@ module AWS::SDK::EC2
         data = Types::EgressOnlyInternetGateway.new
         xml.at('attachmentSet') do |node|
           children = node.children('item')
-          data.attachments = Parsers::InternetGatewayAttachmentList.parse(children)
+          data.attachments = InternetGatewayAttachmentList.parse(children)
         end
         xml.at('egressOnlyInternetGatewayId') do |node|
           data.egress_only_internet_gateway_id = (node.text || '')
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -2602,7 +2604,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InternetGatewayAttachment.parse(node)
+          data << InternetGatewayAttachment.parse(node)
         end
         data
       end
@@ -2633,11 +2635,11 @@ module AWS::SDK::EC2
         end
         xml.at('errorSet') do |node|
           children = node.children('item')
-          data.errors = Parsers::CreateFleetErrorsSet.parse(children)
+          data.errors = CreateFleetErrorsSet.parse(children)
         end
         xml.at('fleetInstanceSet') do |node|
           children = node.children('item')
-          data.instances = Parsers::CreateFleetInstancesSet.parse(children)
+          data.instances = CreateFleetInstancesSet.parse(children)
         end
         data
       end
@@ -2647,7 +2649,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CreateFleetInstance.parse(node)
+          data << CreateFleetInstance.parse(node)
         end
         data
       end
@@ -2657,14 +2659,14 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::CreateFleetInstance.new
         xml.at('launchTemplateAndOverrides') do |node|
-          data.launch_template_and_overrides = Parsers::LaunchTemplateAndOverridesResponse.parse(node)
+          data.launch_template_and_overrides = LaunchTemplateAndOverridesResponse.parse(node)
         end
         xml.at('lifecycle') do |node|
           data.lifecycle = (node.text || '')
         end
         xml.at('instanceIds') do |node|
           children = node.children('item')
-          data.instance_ids = Parsers::InstanceIdsSet.parse(children)
+          data.instance_ids = InstanceIdsSet.parse(children)
         end
         xml.at('instanceType') do |node|
           data.instance_type = (node.text || '')
@@ -2690,10 +2692,10 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::LaunchTemplateAndOverridesResponse.new
         xml.at('launchTemplateSpecification') do |node|
-          data.launch_template_specification = Parsers::FleetLaunchTemplateSpecification.parse(node)
+          data.launch_template_specification = FleetLaunchTemplateSpecification.parse(node)
         end
         xml.at('overrides') do |node|
-          data.overrides = Parsers::FleetLaunchTemplateOverrides.parse(node)
+          data.overrides = FleetLaunchTemplateOverrides.parse(node)
         end
         return data
       end
@@ -2721,10 +2723,10 @@ module AWS::SDK::EC2
           data.priority = Hearth::NumberHelper.deserialize(node.text)
         end
         xml.at('placement') do |node|
-          data.placement = Parsers::PlacementResponse.parse(node)
+          data.placement = PlacementResponse.parse(node)
         end
         xml.at('instanceRequirements') do |node|
-          data.instance_requirements = Parsers::InstanceRequirements.parse(node)
+          data.instance_requirements = InstanceRequirements.parse(node)
         end
         return data
       end
@@ -2734,25 +2736,25 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::InstanceRequirements.new
         xml.at('vCpuCount') do |node|
-          data.v_cpu_count = Parsers::VCpuCountRange.parse(node)
+          data.v_cpu_count = VCpuCountRange.parse(node)
         end
         xml.at('memoryMiB') do |node|
-          data.memory_mi_b = Parsers::MemoryMiB.parse(node)
+          data.memory_mi_b = MemoryMiB.parse(node)
         end
         xml.at('cpuManufacturerSet') do |node|
           children = node.children('item')
-          data.cpu_manufacturers = Parsers::CpuManufacturerSet.parse(children)
+          data.cpu_manufacturers = CpuManufacturerSet.parse(children)
         end
         xml.at('memoryGiBPerVCpu') do |node|
-          data.memory_gi_b_per_v_cpu = Parsers::MemoryGiBPerVCpu.parse(node)
+          data.memory_gi_b_per_v_cpu = MemoryGiBPerVCpu.parse(node)
         end
         xml.at('excludedInstanceTypeSet') do |node|
           children = node.children('item')
-          data.excluded_instance_types = Parsers::ExcludedInstanceTypeSet.parse(children)
+          data.excluded_instance_types = ExcludedInstanceTypeSet.parse(children)
         end
         xml.at('instanceGenerationSet') do |node|
           children = node.children('item')
-          data.instance_generations = Parsers::InstanceGenerationSet.parse(children)
+          data.instance_generations = InstanceGenerationSet.parse(children)
         end
         xml.at('spotMaxPricePercentageOverLowestPrice') do |node|
           data.spot_max_price_percentage_over_lowest_price = node.text&.to_i
@@ -2770,38 +2772,38 @@ module AWS::SDK::EC2
           data.require_hibernate_support = (node.text == 'true')
         end
         xml.at('networkInterfaceCount') do |node|
-          data.network_interface_count = Parsers::NetworkInterfaceCount.parse(node)
+          data.network_interface_count = NetworkInterfaceCount.parse(node)
         end
         xml.at('localStorage') do |node|
           data.local_storage = (node.text || '')
         end
         xml.at('localStorageTypeSet') do |node|
           children = node.children('item')
-          data.local_storage_types = Parsers::LocalStorageTypeSet.parse(children)
+          data.local_storage_types = LocalStorageTypeSet.parse(children)
         end
         xml.at('totalLocalStorageGB') do |node|
-          data.total_local_storage_gb = Parsers::TotalLocalStorageGB.parse(node)
+          data.total_local_storage_gb = TotalLocalStorageGB.parse(node)
         end
         xml.at('baselineEbsBandwidthMbps') do |node|
-          data.baseline_ebs_bandwidth_mbps = Parsers::BaselineEbsBandwidthMbps.parse(node)
+          data.baseline_ebs_bandwidth_mbps = BaselineEbsBandwidthMbps.parse(node)
         end
         xml.at('acceleratorTypeSet') do |node|
           children = node.children('item')
-          data.accelerator_types = Parsers::AcceleratorTypeSet.parse(children)
+          data.accelerator_types = AcceleratorTypeSet.parse(children)
         end
         xml.at('acceleratorCount') do |node|
-          data.accelerator_count = Parsers::AcceleratorCount.parse(node)
+          data.accelerator_count = AcceleratorCount.parse(node)
         end
         xml.at('acceleratorManufacturerSet') do |node|
           children = node.children('item')
-          data.accelerator_manufacturers = Parsers::AcceleratorManufacturerSet.parse(children)
+          data.accelerator_manufacturers = AcceleratorManufacturerSet.parse(children)
         end
         xml.at('acceleratorNameSet') do |node|
           children = node.children('item')
-          data.accelerator_names = Parsers::AcceleratorNameSet.parse(children)
+          data.accelerator_names = AcceleratorNameSet.parse(children)
         end
         xml.at('acceleratorTotalMemoryMiB') do |node|
-          data.accelerator_total_memory_mi_b = Parsers::AcceleratorTotalMemoryMiB.parse(node)
+          data.accelerator_total_memory_mi_b = AcceleratorTotalMemoryMiB.parse(node)
         end
         return data
       end
@@ -3011,7 +3013,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CreateFleetError.parse(node)
+          data << CreateFleetError.parse(node)
         end
         data
       end
@@ -3021,7 +3023,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::CreateFleetError.new
         xml.at('launchTemplateAndOverrides') do |node|
-          data.launch_template_and_overrides = Parsers::LaunchTemplateAndOverridesResponse.parse(node)
+          data.launch_template_and_overrides = LaunchTemplateAndOverridesResponse.parse(node)
         end
         xml.at('lifecycle') do |node|
           data.lifecycle = (node.text || '')
@@ -3048,11 +3050,11 @@ module AWS::SDK::EC2
         end
         xml.at('flowLogIdSet') do |node|
           children = node.children('item')
-          data.flow_log_ids = Parsers::ValueStringList.parse(children)
+          data.flow_log_ids = ValueStringList.parse(children)
         end
         xml.at('unsuccessful') do |node|
           children = node.children('item')
-          data.unsuccessful = Parsers::UnsuccessfulItemSet.parse(children)
+          data.unsuccessful = UnsuccessfulItemSet.parse(children)
         end
         data
       end
@@ -3097,7 +3099,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('instanceEventWindow') do |node|
-          data.instance_event_window = Parsers::InstanceEventWindow.parse(node)
+          data.instance_event_window = InstanceEventWindow.parse(node)
         end
         data
       end
@@ -3111,7 +3113,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('exportTask') do |node|
-          data.export_task = Parsers::ExportTask.parse(node)
+          data.export_task = ExportTask.parse(node)
         end
         data
       end
@@ -3127,10 +3129,10 @@ module AWS::SDK::EC2
           data.export_task_id = (node.text || '')
         end
         xml.at('exportToS3') do |node|
-          data.export_to_s3_task = Parsers::ExportToS3Task.parse(node)
+          data.export_to_s3_task = ExportToS3Task.parse(node)
         end
         xml.at('instanceExport') do |node|
-          data.instance_export_details = Parsers::InstanceExportDetails.parse(node)
+          data.instance_export_details = InstanceExportDetails.parse(node)
         end
         xml.at('state') do |node|
           data.state = (node.text || '')
@@ -3140,7 +3142,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -3186,7 +3188,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('internetGateway') do |node|
-          data.internet_gateway = Parsers::InternetGateway.parse(node)
+          data.internet_gateway = InternetGateway.parse(node)
         end
         data
       end
@@ -3197,7 +3199,7 @@ module AWS::SDK::EC2
         data = Types::InternetGateway.new
         xml.at('attachmentSet') do |node|
           children = node.children('item')
-          data.attachments = Parsers::InternetGatewayAttachmentList.parse(children)
+          data.attachments = InternetGatewayAttachmentList.parse(children)
         end
         xml.at('internetGatewayId') do |node|
           data.internet_gateway_id = (node.text || '')
@@ -3207,7 +3209,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -3221,7 +3223,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ipam') do |node|
-          data.ipam = Parsers::Ipam.parse(node)
+          data.ipam = Ipam.parse(node)
         end
         data
       end
@@ -3256,14 +3258,14 @@ module AWS::SDK::EC2
         end
         xml.at('operatingRegionSet') do |node|
           children = node.children('item')
-          data.operating_regions = Parsers::IpamOperatingRegionSet.parse(children)
+          data.operating_regions = IpamOperatingRegionSet.parse(children)
         end
         xml.at('state') do |node|
           data.state = (node.text || '')
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -3273,7 +3275,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::IpamOperatingRegion.parse(node)
+          data << IpamOperatingRegion.parse(node)
         end
         data
       end
@@ -3297,7 +3299,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ipamPool') do |node|
-          data.ipam_pool = Parsers::IpamPool.parse(node)
+          data.ipam_pool = IpamPool.parse(node)
         end
         data
       end
@@ -3365,11 +3367,11 @@ module AWS::SDK::EC2
         end
         xml.at('allocationResourceTagSet') do |node|
           children = node.children('item')
-          data.allocation_resource_tags = Parsers::IpamResourceTagList.parse(children)
+          data.allocation_resource_tags = IpamResourceTagList.parse(children)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('awsService') do |node|
           data.aws_service = (node.text || '')
@@ -3382,7 +3384,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::IpamResourceTag.parse(node)
+          data << IpamResourceTag.parse(node)
         end
         data
       end
@@ -3409,7 +3411,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ipamScope') do |node|
-          data.ipam_scope = Parsers::IpamScope.parse(node)
+          data.ipam_scope = IpamScope.parse(node)
         end
         data
       end
@@ -3450,7 +3452,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -3477,7 +3479,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         data
       end
@@ -3491,10 +3493,10 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('launchTemplate') do |node|
-          data.launch_template = Parsers::LaunchTemplate.parse(node)
+          data.launch_template = LaunchTemplate.parse(node)
         end
         xml.at('warning') do |node|
-          data.warning = Parsers::ValidationWarning.parse(node)
+          data.warning = ValidationWarning.parse(node)
         end
         data
       end
@@ -3505,7 +3507,7 @@ module AWS::SDK::EC2
         data = Types::ValidationWarning.new
         xml.at('errorSet') do |node|
           children = node.children('item')
-          data.errors = Parsers::ErrorSet.parse(children)
+          data.errors = ErrorSet.parse(children)
         end
         return data
       end
@@ -3515,7 +3517,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ValidationError.parse(node)
+          data << ValidationError.parse(node)
         end
         data
       end
@@ -3557,7 +3559,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -3571,10 +3573,10 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('launchTemplateVersion') do |node|
-          data.launch_template_version = Parsers::LaunchTemplateVersion.parse(node)
+          data.launch_template_version = LaunchTemplateVersion.parse(node)
         end
         xml.at('warning') do |node|
-          data.warning = Parsers::ValidationWarning.parse(node)
+          data.warning = ValidationWarning.parse(node)
         end
         data
       end
@@ -3605,7 +3607,7 @@ module AWS::SDK::EC2
           data.default_version = (node.text == 'true')
         end
         xml.at('launchTemplateData') do |node|
-          data.launch_template_data = Parsers::ResponseLaunchTemplateData.parse(node)
+          data.launch_template_data = ResponseLaunchTemplateData.parse(node)
         end
         return data
       end
@@ -3621,15 +3623,15 @@ module AWS::SDK::EC2
           data.ebs_optimized = (node.text == 'true')
         end
         xml.at('iamInstanceProfile') do |node|
-          data.iam_instance_profile = Parsers::LaunchTemplateIamInstanceProfileSpecification.parse(node)
+          data.iam_instance_profile = LaunchTemplateIamInstanceProfileSpecification.parse(node)
         end
         xml.at('blockDeviceMappingSet') do |node|
           children = node.children('item')
-          data.block_device_mappings = Parsers::LaunchTemplateBlockDeviceMappingList.parse(children)
+          data.block_device_mappings = LaunchTemplateBlockDeviceMappingList.parse(children)
         end
         xml.at('networkInterfaceSet') do |node|
           children = node.children('item')
-          data.network_interfaces = Parsers::LaunchTemplateInstanceNetworkInterfaceSpecificationList.parse(children)
+          data.network_interfaces = LaunchTemplateInstanceNetworkInterfaceSpecificationList.parse(children)
         end
         xml.at('imageId') do |node|
           data.image_id = (node.text || '')
@@ -3641,10 +3643,10 @@ module AWS::SDK::EC2
           data.key_name = (node.text || '')
         end
         xml.at('monitoring') do |node|
-          data.monitoring = Parsers::LaunchTemplatesMonitoring.parse(node)
+          data.monitoring = LaunchTemplatesMonitoring.parse(node)
         end
         xml.at('placement') do |node|
-          data.placement = Parsers::LaunchTemplatePlacement.parse(node)
+          data.placement = LaunchTemplatePlacement.parse(node)
         end
         xml.at('ramDiskId') do |node|
           data.ram_disk_id = (node.text || '')
@@ -3660,57 +3662,57 @@ module AWS::SDK::EC2
         end
         xml.at('tagSpecificationSet') do |node|
           children = node.children('item')
-          data.tag_specifications = Parsers::LaunchTemplateTagSpecificationList.parse(children)
+          data.tag_specifications = LaunchTemplateTagSpecificationList.parse(children)
         end
         xml.at('elasticGpuSpecificationSet') do |node|
           children = node.children('item')
-          data.elastic_gpu_specifications = Parsers::ElasticGpuSpecificationResponseList.parse(children)
+          data.elastic_gpu_specifications = ElasticGpuSpecificationResponseList.parse(children)
         end
         xml.at('elasticInferenceAcceleratorSet') do |node|
           children = node.children('item')
-          data.elastic_inference_accelerators = Parsers::LaunchTemplateElasticInferenceAcceleratorResponseList.parse(children)
+          data.elastic_inference_accelerators = LaunchTemplateElasticInferenceAcceleratorResponseList.parse(children)
         end
         xml.at('securityGroupIdSet') do |node|
           children = node.children('item')
-          data.security_group_ids = Parsers::ValueStringList.parse(children)
+          data.security_group_ids = ValueStringList.parse(children)
         end
         xml.at('securityGroupSet') do |node|
           children = node.children('item')
-          data.security_groups = Parsers::ValueStringList.parse(children)
+          data.security_groups = ValueStringList.parse(children)
         end
         xml.at('instanceMarketOptions') do |node|
-          data.instance_market_options = Parsers::LaunchTemplateInstanceMarketOptions.parse(node)
+          data.instance_market_options = LaunchTemplateInstanceMarketOptions.parse(node)
         end
         xml.at('creditSpecification') do |node|
-          data.credit_specification = Parsers::CreditSpecification.parse(node)
+          data.credit_specification = CreditSpecification.parse(node)
         end
         xml.at('cpuOptions') do |node|
-          data.cpu_options = Parsers::LaunchTemplateCpuOptions.parse(node)
+          data.cpu_options = LaunchTemplateCpuOptions.parse(node)
         end
         xml.at('capacityReservationSpecification') do |node|
-          data.capacity_reservation_specification = Parsers::LaunchTemplateCapacityReservationSpecificationResponse.parse(node)
+          data.capacity_reservation_specification = LaunchTemplateCapacityReservationSpecificationResponse.parse(node)
         end
         xml.at('licenseSet') do |node|
           children = node.children('item')
-          data.license_specifications = Parsers::LaunchTemplateLicenseList.parse(children)
+          data.license_specifications = LaunchTemplateLicenseList.parse(children)
         end
         xml.at('hibernationOptions') do |node|
-          data.hibernation_options = Parsers::LaunchTemplateHibernationOptions.parse(node)
+          data.hibernation_options = LaunchTemplateHibernationOptions.parse(node)
         end
         xml.at('metadataOptions') do |node|
-          data.metadata_options = Parsers::LaunchTemplateInstanceMetadataOptions.parse(node)
+          data.metadata_options = LaunchTemplateInstanceMetadataOptions.parse(node)
         end
         xml.at('enclaveOptions') do |node|
-          data.enclave_options = Parsers::LaunchTemplateEnclaveOptions.parse(node)
+          data.enclave_options = LaunchTemplateEnclaveOptions.parse(node)
         end
         xml.at('instanceRequirements') do |node|
-          data.instance_requirements = Parsers::InstanceRequirements.parse(node)
+          data.instance_requirements = InstanceRequirements.parse(node)
         end
         xml.at('privateDnsNameOptions') do |node|
-          data.private_dns_name_options = Parsers::LaunchTemplatePrivateDnsNameOptions.parse(node)
+          data.private_dns_name_options = LaunchTemplatePrivateDnsNameOptions.parse(node)
         end
         xml.at('maintenanceOptions') do |node|
-          data.maintenance_options = Parsers::LaunchTemplateInstanceMaintenanceOptions.parse(node)
+          data.maintenance_options = LaunchTemplateInstanceMaintenanceOptions.parse(node)
         end
         xml.at('disableApiStop') do |node|
           data.disable_api_stop = (node.text == 'true')
@@ -3794,7 +3796,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LaunchTemplateLicenseConfiguration.parse(node)
+          data << LaunchTemplateLicenseConfiguration.parse(node)
         end
         data
       end
@@ -3817,7 +3819,7 @@ module AWS::SDK::EC2
           data.capacity_reservation_preference = (node.text || '')
         end
         xml.at('capacityReservationTarget') do |node|
-          data.capacity_reservation_target = Parsers::CapacityReservationTargetResponse.parse(node)
+          data.capacity_reservation_target = CapacityReservationTargetResponse.parse(node)
         end
         return data
       end
@@ -3866,7 +3868,7 @@ module AWS::SDK::EC2
           data.market_type = (node.text || '')
         end
         xml.at('spotOptions') do |node|
-          data.spot_options = Parsers::LaunchTemplateSpotMarketOptions.parse(node)
+          data.spot_options = LaunchTemplateSpotMarketOptions.parse(node)
         end
         return data
       end
@@ -3898,7 +3900,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LaunchTemplateElasticInferenceAcceleratorResponse.parse(node)
+          data << LaunchTemplateElasticInferenceAcceleratorResponse.parse(node)
         end
         data
       end
@@ -3921,7 +3923,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ElasticGpuSpecificationResponse.parse(node)
+          data << ElasticGpuSpecificationResponse.parse(node)
         end
         data
       end
@@ -3941,7 +3943,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LaunchTemplateTagSpecification.parse(node)
+          data << LaunchTemplateTagSpecification.parse(node)
         end
         data
       end
@@ -3955,7 +3957,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -4006,7 +4008,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LaunchTemplateInstanceNetworkInterfaceSpecification.parse(node)
+          data << LaunchTemplateInstanceNetworkInterfaceSpecification.parse(node)
         end
         data
       end
@@ -4032,7 +4034,7 @@ module AWS::SDK::EC2
         end
         xml.at('groupSet') do |node|
           children = node.children('groupId')
-          data.groups = Parsers::GroupIdStringList.parse(children)
+          data.groups = GroupIdStringList.parse(children)
         end
         xml.at('interfaceType') do |node|
           data.interface_type = (node.text || '')
@@ -4042,7 +4044,7 @@ module AWS::SDK::EC2
         end
         xml.at('ipv6AddressesSet') do |node|
           children = node.children('item')
-          data.ipv6_addresses = Parsers::InstanceIpv6AddressList.parse(children)
+          data.ipv6_addresses = InstanceIpv6AddressList.parse(children)
         end
         xml.at('networkInterfaceId') do |node|
           data.network_interface_id = (node.text || '')
@@ -4052,7 +4054,7 @@ module AWS::SDK::EC2
         end
         xml.at('privateIpAddressesSet') do |node|
           children = node.children('item')
-          data.private_ip_addresses = Parsers::PrivateIpAddressSpecificationList.parse(children)
+          data.private_ip_addresses = PrivateIpAddressSpecificationList.parse(children)
         end
         xml.at('secondaryPrivateIpAddressCount') do |node|
           data.secondary_private_ip_address_count = node.text&.to_i
@@ -4065,14 +4067,14 @@ module AWS::SDK::EC2
         end
         xml.at('ipv4PrefixSet') do |node|
           children = node.children('item')
-          data.ipv4_prefixes = Parsers::Ipv4PrefixListResponse.parse(children)
+          data.ipv4_prefixes = Ipv4PrefixListResponse.parse(children)
         end
         xml.at('ipv4PrefixCount') do |node|
           data.ipv4_prefix_count = node.text&.to_i
         end
         xml.at('ipv6PrefixSet') do |node|
           children = node.children('item')
-          data.ipv6_prefixes = Parsers::Ipv6PrefixListResponse.parse(children)
+          data.ipv6_prefixes = Ipv6PrefixListResponse.parse(children)
         end
         xml.at('ipv6PrefixCount') do |node|
           data.ipv6_prefix_count = node.text&.to_i
@@ -4085,7 +4087,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Ipv6PrefixSpecificationResponse.parse(node)
+          data << Ipv6PrefixSpecificationResponse.parse(node)
         end
         data
       end
@@ -4105,7 +4107,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Ipv4PrefixSpecificationResponse.parse(node)
+          data << Ipv4PrefixSpecificationResponse.parse(node)
         end
         data
       end
@@ -4125,7 +4127,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PrivateIpAddressSpecification.parse(node)
+          data << PrivateIpAddressSpecification.parse(node)
         end
         data
       end
@@ -4148,7 +4150,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceIpv6Address.parse(node)
+          data << InstanceIpv6Address.parse(node)
         end
         data
       end
@@ -4178,7 +4180,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LaunchTemplateBlockDeviceMapping.parse(node)
+          data << LaunchTemplateBlockDeviceMapping.parse(node)
         end
         data
       end
@@ -4194,7 +4196,7 @@ module AWS::SDK::EC2
           data.virtual_name = (node.text || '')
         end
         xml.at('ebs') do |node|
-          data.ebs = Parsers::LaunchTemplateEbsBlockDevice.parse(node)
+          data.ebs = LaunchTemplateEbsBlockDevice.parse(node)
         end
         xml.at('noDevice') do |node|
           data.no_device = (node.text || '')
@@ -4255,7 +4257,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('route') do |node|
-          data.route = Parsers::LocalGatewayRoute.parse(node)
+          data.route = LocalGatewayRoute.parse(node)
         end
         data
       end
@@ -4297,7 +4299,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('localGatewayRouteTableVpcAssociation') do |node|
-          data.local_gateway_route_table_vpc_association = Parsers::LocalGatewayRouteTableVpcAssociation.parse(node)
+          data.local_gateway_route_table_vpc_association = LocalGatewayRouteTableVpcAssociation.parse(node)
         end
         data
       end
@@ -4329,7 +4331,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -4343,7 +4345,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('prefixList') do |node|
-          data.prefix_list = Parsers::ManagedPrefixList.parse(node)
+          data.prefix_list = ManagedPrefixList.parse(node)
         end
         data
       end
@@ -4378,7 +4380,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('ownerId') do |node|
           data.owner_id = (node.text || '')
@@ -4398,7 +4400,7 @@ module AWS::SDK::EC2
           data.client_token = (node.text || '')
         end
         xml.at('natGateway') do |node|
-          data.nat_gateway = Parsers::NatGateway.parse(node)
+          data.nat_gateway = NatGateway.parse(node)
         end
         data
       end
@@ -4421,13 +4423,13 @@ module AWS::SDK::EC2
         end
         xml.at('natGatewayAddressSet') do |node|
           children = node.children('item')
-          data.nat_gateway_addresses = Parsers::NatGatewayAddressList.parse(children)
+          data.nat_gateway_addresses = NatGatewayAddressList.parse(children)
         end
         xml.at('natGatewayId') do |node|
           data.nat_gateway_id = (node.text || '')
         end
         xml.at('provisionedBandwidth') do |node|
-          data.provisioned_bandwidth = Parsers::ProvisionedBandwidth.parse(node)
+          data.provisioned_bandwidth = ProvisionedBandwidth.parse(node)
         end
         xml.at('state') do |node|
           data.state = (node.text || '')
@@ -4440,7 +4442,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('connectivityType') do |node|
           data.connectivity_type = (node.text || '')
@@ -4475,7 +4477,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NatGatewayAddress.parse(node)
+          data << NatGatewayAddress.parse(node)
         end
         data
       end
@@ -4508,7 +4510,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('networkAcl') do |node|
-          data.network_acl = Parsers::NetworkAcl.parse(node)
+          data.network_acl = NetworkAcl.parse(node)
         end
         data
       end
@@ -4519,11 +4521,11 @@ module AWS::SDK::EC2
         data = Types::NetworkAcl.new
         xml.at('associationSet') do |node|
           children = node.children('item')
-          data.associations = Parsers::NetworkAclAssociationList.parse(children)
+          data.associations = NetworkAclAssociationList.parse(children)
         end
         xml.at('entrySet') do |node|
           children = node.children('item')
-          data.entries = Parsers::NetworkAclEntryList.parse(children)
+          data.entries = NetworkAclEntryList.parse(children)
         end
         xml.at('default') do |node|
           data.is_default = (node.text == 'true')
@@ -4533,7 +4535,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('vpcId') do |node|
           data.vpc_id = (node.text || '')
@@ -4549,7 +4551,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NetworkAclEntry.parse(node)
+          data << NetworkAclEntry.parse(node)
         end
         data
       end
@@ -4565,13 +4567,13 @@ module AWS::SDK::EC2
           data.egress = (node.text == 'true')
         end
         xml.at('icmpTypeCode') do |node|
-          data.icmp_type_code = Parsers::IcmpTypeCode.parse(node)
+          data.icmp_type_code = IcmpTypeCode.parse(node)
         end
         xml.at('ipv6CidrBlock') do |node|
           data.ipv6_cidr_block = (node.text || '')
         end
         xml.at('portRange') do |node|
-          data.port_range = Parsers::PortRange.parse(node)
+          data.port_range = PortRange.parse(node)
         end
         xml.at('protocol') do |node|
           data.protocol = (node.text || '')
@@ -4616,7 +4618,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NetworkAclAssociation.parse(node)
+          data << NetworkAclAssociation.parse(node)
         end
         data
       end
@@ -4657,10 +4659,10 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('networkInsightsAccessScope') do |node|
-          data.network_insights_access_scope = Parsers::NetworkInsightsAccessScope.parse(node)
+          data.network_insights_access_scope = NetworkInsightsAccessScope.parse(node)
         end
         xml.at('networkInsightsAccessScopeContent') do |node|
-          data.network_insights_access_scope_content = Parsers::NetworkInsightsAccessScopeContent.parse(node)
+          data.network_insights_access_scope_content = NetworkInsightsAccessScopeContent.parse(node)
         end
         data
       end
@@ -4674,11 +4676,11 @@ module AWS::SDK::EC2
         end
         xml.at('matchPathSet') do |node|
           children = node.children('item')
-          data.match_paths = Parsers::AccessScopePathList.parse(children)
+          data.match_paths = AccessScopePathList.parse(children)
         end
         xml.at('excludePathSet') do |node|
           children = node.children('item')
-          data.exclude_paths = Parsers::AccessScopePathList.parse(children)
+          data.exclude_paths = AccessScopePathList.parse(children)
         end
         return data
       end
@@ -4688,7 +4690,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AccessScopePath.parse(node)
+          data << AccessScopePath.parse(node)
         end
         data
       end
@@ -4698,14 +4700,14 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::AccessScopePath.new
         xml.at('source') do |node|
-          data.source = Parsers::PathStatement.parse(node)
+          data.source = PathStatement.parse(node)
         end
         xml.at('destination') do |node|
-          data.destination = Parsers::PathStatement.parse(node)
+          data.destination = PathStatement.parse(node)
         end
         xml.at('throughResourceSet') do |node|
           children = node.children('item')
-          data.through_resources = Parsers::ThroughResourcesStatementList.parse(children)
+          data.through_resources = ThroughResourcesStatementList.parse(children)
         end
         return data
       end
@@ -4715,7 +4717,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ThroughResourcesStatement.parse(node)
+          data << ThroughResourcesStatement.parse(node)
         end
         data
       end
@@ -4725,7 +4727,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::ThroughResourcesStatement.new
         xml.at('resourceStatement') do |node|
-          data.resource_statement = Parsers::ResourceStatement.parse(node)
+          data.resource_statement = ResourceStatement.parse(node)
         end
         return data
       end
@@ -4736,11 +4738,11 @@ module AWS::SDK::EC2
         data = Types::ResourceStatement.new
         xml.at('resourceSet') do |node|
           children = node.children('item')
-          data.resources = Parsers::ValueStringList.parse(children)
+          data.resources = ValueStringList.parse(children)
         end
         xml.at('resourceTypeSet') do |node|
           children = node.children('item')
-          data.resource_types = Parsers::ValueStringList.parse(children)
+          data.resource_types = ValueStringList.parse(children)
         end
         return data
       end
@@ -4750,10 +4752,10 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::PathStatement.new
         xml.at('packetHeaderStatement') do |node|
-          data.packet_header_statement = Parsers::PacketHeaderStatement.parse(node)
+          data.packet_header_statement = PacketHeaderStatement.parse(node)
         end
         xml.at('resourceStatement') do |node|
-          data.resource_statement = Parsers::ResourceStatement.parse(node)
+          data.resource_statement = ResourceStatement.parse(node)
         end
         return data
       end
@@ -4764,31 +4766,31 @@ module AWS::SDK::EC2
         data = Types::PacketHeaderStatement.new
         xml.at('sourceAddressSet') do |node|
           children = node.children('item')
-          data.source_addresses = Parsers::ValueStringList.parse(children)
+          data.source_addresses = ValueStringList.parse(children)
         end
         xml.at('destinationAddressSet') do |node|
           children = node.children('item')
-          data.destination_addresses = Parsers::ValueStringList.parse(children)
+          data.destination_addresses = ValueStringList.parse(children)
         end
         xml.at('sourcePortSet') do |node|
           children = node.children('item')
-          data.source_ports = Parsers::ValueStringList.parse(children)
+          data.source_ports = ValueStringList.parse(children)
         end
         xml.at('destinationPortSet') do |node|
           children = node.children('item')
-          data.destination_ports = Parsers::ValueStringList.parse(children)
+          data.destination_ports = ValueStringList.parse(children)
         end
         xml.at('sourcePrefixListSet') do |node|
           children = node.children('item')
-          data.source_prefix_lists = Parsers::ValueStringList.parse(children)
+          data.source_prefix_lists = ValueStringList.parse(children)
         end
         xml.at('destinationPrefixListSet') do |node|
           children = node.children('item')
-          data.destination_prefix_lists = Parsers::ValueStringList.parse(children)
+          data.destination_prefix_lists = ValueStringList.parse(children)
         end
         xml.at('protocolSet') do |node|
           children = node.children('item')
-          data.protocols = Parsers::ProtocolList.parse(children)
+          data.protocols = ProtocolList.parse(children)
         end
         return data
       end
@@ -4821,7 +4823,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -4835,7 +4837,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('networkInsightsPath') do |node|
-          data.network_insights_path = Parsers::NetworkInsightsPath.parse(node)
+          data.network_insights_path = NetworkInsightsPath.parse(node)
         end
         data
       end
@@ -4873,7 +4875,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -4887,7 +4889,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('networkInterface') do |node|
-          data.network_interface = Parsers::NetworkInterface.parse(node)
+          data.network_interface = NetworkInterface.parse(node)
         end
         xml.at('clientToken') do |node|
           data.client_token = (node.text || '')
@@ -4900,10 +4902,10 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::NetworkInterface.new
         xml.at('association') do |node|
-          data.association = Parsers::NetworkInterfaceAssociation.parse(node)
+          data.association = NetworkInterfaceAssociation.parse(node)
         end
         xml.at('attachment') do |node|
-          data.attachment = Parsers::NetworkInterfaceAttachment.parse(node)
+          data.attachment = NetworkInterfaceAttachment.parse(node)
         end
         xml.at('availabilityZone') do |node|
           data.availability_zone = (node.text || '')
@@ -4913,14 +4915,14 @@ module AWS::SDK::EC2
         end
         xml.at('groupSet') do |node|
           children = node.children('item')
-          data.groups = Parsers::GroupIdentifierList.parse(children)
+          data.groups = GroupIdentifierList.parse(children)
         end
         xml.at('interfaceType') do |node|
           data.interface_type = (node.text || '')
         end
         xml.at('ipv6AddressesSet') do |node|
           children = node.children('item')
-          data.ipv6_addresses = Parsers::NetworkInterfaceIpv6AddressesList.parse(children)
+          data.ipv6_addresses = NetworkInterfaceIpv6AddressesList.parse(children)
         end
         xml.at('macAddress') do |node|
           data.mac_address = (node.text || '')
@@ -4942,15 +4944,15 @@ module AWS::SDK::EC2
         end
         xml.at('privateIpAddressesSet') do |node|
           children = node.children('item')
-          data.private_ip_addresses = Parsers::NetworkInterfacePrivateIpAddressList.parse(children)
+          data.private_ip_addresses = NetworkInterfacePrivateIpAddressList.parse(children)
         end
         xml.at('ipv4PrefixSet') do |node|
           children = node.children('item')
-          data.ipv4_prefixes = Parsers::Ipv4PrefixesList.parse(children)
+          data.ipv4_prefixes = Ipv4PrefixesList.parse(children)
         end
         xml.at('ipv6PrefixSet') do |node|
           children = node.children('item')
-          data.ipv6_prefixes = Parsers::Ipv6PrefixesList.parse(children)
+          data.ipv6_prefixes = Ipv6PrefixesList.parse(children)
         end
         xml.at('requesterId') do |node|
           data.requester_id = (node.text || '')
@@ -4969,7 +4971,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tag_set = Parsers::TagList.parse(children)
+          data.tag_set = TagList.parse(children)
         end
         xml.at('vpcId') do |node|
           data.vpc_id = (node.text || '')
@@ -4991,7 +4993,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Ipv6PrefixSpecification.parse(node)
+          data << Ipv6PrefixSpecification.parse(node)
         end
         data
       end
@@ -5011,7 +5013,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NetworkInterfacePrivateIpAddress.parse(node)
+          data << NetworkInterfacePrivateIpAddress.parse(node)
         end
         data
       end
@@ -5021,7 +5023,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::NetworkInterfacePrivateIpAddress.new
         xml.at('association') do |node|
-          data.association = Parsers::NetworkInterfaceAssociation.parse(node)
+          data.association = NetworkInterfaceAssociation.parse(node)
         end
         xml.at('primary') do |node|
           data.primary = (node.text == 'true')
@@ -5068,7 +5070,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NetworkInterfaceIpv6Address.parse(node)
+          data << NetworkInterfaceIpv6Address.parse(node)
         end
         data
       end
@@ -5088,7 +5090,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::GroupIdentifier.parse(node)
+          data << GroupIdentifier.parse(node)
         end
         data
       end
@@ -5146,7 +5148,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('interfacePermission') do |node|
-          data.interface_permission = Parsers::NetworkInterfacePermission.parse(node)
+          data.interface_permission = NetworkInterfacePermission.parse(node)
         end
         data
       end
@@ -5171,7 +5173,7 @@ module AWS::SDK::EC2
           data.permission = (node.text || '')
         end
         xml.at('permissionState') do |node|
-          data.permission_state = Parsers::NetworkInterfacePermissionState.parse(node)
+          data.permission_state = NetworkInterfacePermissionState.parse(node)
         end
         return data
       end
@@ -5198,7 +5200,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('placementGroup') do |node|
-          data.placement_group = Parsers::PlacementGroup.parse(node)
+          data.placement_group = PlacementGroup.parse(node)
         end
         data
       end
@@ -5224,7 +5226,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('groupArn') do |node|
           data.group_arn = (node.text || '')
@@ -5255,7 +5257,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('replaceRootVolumeTask') do |node|
-          data.replace_root_volume_task = Parsers::ReplaceRootVolumeTask.parse(node)
+          data.replace_root_volume_task = ReplaceRootVolumeTask.parse(node)
         end
         data
       end
@@ -5281,7 +5283,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -5296,7 +5298,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('reservedInstancesListingsSet') do |node|
           children = node.children('item')
-          data.reserved_instances_listings = Parsers::ReservedInstancesListingList.parse(children)
+          data.reserved_instances_listings = ReservedInstancesListingList.parse(children)
         end
         data
       end
@@ -5338,7 +5340,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('routeTable') do |node|
-          data.route_table = Parsers::RouteTable.parse(node)
+          data.route_table = RouteTable.parse(node)
         end
         data
       end
@@ -5349,22 +5351,22 @@ module AWS::SDK::EC2
         data = Types::RouteTable.new
         xml.at('associationSet') do |node|
           children = node.children('item')
-          data.associations = Parsers::RouteTableAssociationList.parse(children)
+          data.associations = RouteTableAssociationList.parse(children)
         end
         xml.at('propagatingVgwSet') do |node|
           children = node.children('item')
-          data.propagating_vgws = Parsers::PropagatingVgwList.parse(children)
+          data.propagating_vgws = PropagatingVgwList.parse(children)
         end
         xml.at('routeTableId') do |node|
           data.route_table_id = (node.text || '')
         end
         xml.at('routeSet') do |node|
           children = node.children('item')
-          data.routes = Parsers::RouteList.parse(children)
+          data.routes = RouteList.parse(children)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('vpcId') do |node|
           data.vpc_id = (node.text || '')
@@ -5380,7 +5382,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Route.parse(node)
+          data << Route.parse(node)
         end
         data
       end
@@ -5445,7 +5447,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PropagatingVgw.parse(node)
+          data << PropagatingVgw.parse(node)
         end
         data
       end
@@ -5465,7 +5467,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::RouteTableAssociation.parse(node)
+          data << RouteTableAssociation.parse(node)
         end
         data
       end
@@ -5490,7 +5492,7 @@ module AWS::SDK::EC2
           data.gateway_id = (node.text || '')
         end
         xml.at('associationState') do |node|
-          data.association_state = Parsers::RouteTableAssociationState.parse(node)
+          data.association_state = RouteTableAssociationState.parse(node)
         end
         return data
       end
@@ -5508,7 +5510,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         data
       end
@@ -5565,7 +5567,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('storageTier') do |node|
           data.storage_tier = (node.text || '')
@@ -5586,7 +5588,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('snapshotSet') do |node|
           children = node.children('item')
-          data.snapshots = Parsers::SnapshotSet.parse(children)
+          data.snapshots = SnapshotSet.parse(children)
         end
         data
       end
@@ -5596,7 +5598,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SnapshotInfo.parse(node)
+          data << SnapshotInfo.parse(node)
         end
         data
       end
@@ -5610,7 +5612,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('encrypted') do |node|
           data.encrypted = (node.text == 'true')
@@ -5651,7 +5653,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('spotDatafeedSubscription') do |node|
-          data.spot_datafeed_subscription = Parsers::SpotDatafeedSubscription.parse(node)
+          data.spot_datafeed_subscription = SpotDatafeedSubscription.parse(node)
         end
         data
       end
@@ -5664,7 +5666,7 @@ module AWS::SDK::EC2
           data.bucket = (node.text || '')
         end
         xml.at('fault') do |node|
-          data.fault = Parsers::SpotInstanceStateFault.parse(node)
+          data.fault = SpotInstanceStateFault.parse(node)
         end
         xml.at('ownerId') do |node|
           data.owner_id = (node.text || '')
@@ -5714,7 +5716,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('subnet') do |node|
-          data.subnet = Parsers::Subnet.parse(node)
+          data.subnet = Subnet.parse(node)
         end
         data
       end
@@ -5728,7 +5730,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('subnetCidrReservation') do |node|
-          data.subnet_cidr_reservation = Parsers::SubnetCidrReservation.parse(node)
+          data.subnet_cidr_reservation = SubnetCidrReservation.parse(node)
         end
         data
       end
@@ -5757,7 +5759,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -5782,7 +5784,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('trafficMirrorFilter') do |node|
-          data.traffic_mirror_filter = Parsers::TrafficMirrorFilter.parse(node)
+          data.traffic_mirror_filter = TrafficMirrorFilter.parse(node)
         end
         xml.at('clientToken') do |node|
           data.client_token = (node.text || '')
@@ -5799,22 +5801,22 @@ module AWS::SDK::EC2
         end
         xml.at('ingressFilterRuleSet') do |node|
           children = node.children('item')
-          data.ingress_filter_rules = Parsers::TrafficMirrorFilterRuleList.parse(children)
+          data.ingress_filter_rules = TrafficMirrorFilterRuleList.parse(children)
         end
         xml.at('egressFilterRuleSet') do |node|
           children = node.children('item')
-          data.egress_filter_rules = Parsers::TrafficMirrorFilterRuleList.parse(children)
+          data.egress_filter_rules = TrafficMirrorFilterRuleList.parse(children)
         end
         xml.at('networkServiceSet') do |node|
           children = node.children('item')
-          data.network_services = Parsers::TrafficMirrorNetworkServiceList.parse(children)
+          data.network_services = TrafficMirrorNetworkServiceList.parse(children)
         end
         xml.at('description') do |node|
           data.description = (node.text || '')
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -5834,7 +5836,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TrafficMirrorFilterRule.parse(node)
+          data << TrafficMirrorFilterRule.parse(node)
         end
         data
       end
@@ -5862,10 +5864,10 @@ module AWS::SDK::EC2
           data.protocol = node.text&.to_i
         end
         xml.at('destinationPortRange') do |node|
-          data.destination_port_range = Parsers::TrafficMirrorPortRange.parse(node)
+          data.destination_port_range = TrafficMirrorPortRange.parse(node)
         end
         xml.at('sourcePortRange') do |node|
-          data.source_port_range = Parsers::TrafficMirrorPortRange.parse(node)
+          data.source_port_range = TrafficMirrorPortRange.parse(node)
         end
         xml.at('destinationCidrBlock') do |node|
           data.destination_cidr_block = (node.text || '')
@@ -5901,7 +5903,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('trafficMirrorFilterRule') do |node|
-          data.traffic_mirror_filter_rule = Parsers::TrafficMirrorFilterRule.parse(node)
+          data.traffic_mirror_filter_rule = TrafficMirrorFilterRule.parse(node)
         end
         xml.at('clientToken') do |node|
           data.client_token = (node.text || '')
@@ -5918,7 +5920,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('trafficMirrorSession') do |node|
-          data.traffic_mirror_session = Parsers::TrafficMirrorSession.parse(node)
+          data.traffic_mirror_session = TrafficMirrorSession.parse(node)
         end
         xml.at('clientToken') do |node|
           data.client_token = (node.text || '')
@@ -5959,7 +5961,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -5973,7 +5975,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('trafficMirrorTarget') do |node|
-          data.traffic_mirror_target = Parsers::TrafficMirrorTarget.parse(node)
+          data.traffic_mirror_target = TrafficMirrorTarget.parse(node)
         end
         xml.at('clientToken') do |node|
           data.client_token = (node.text || '')
@@ -6005,7 +6007,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('gatewayLoadBalancerEndpointId') do |node|
           data.gateway_load_balancer_endpoint_id = (node.text || '')
@@ -6022,7 +6024,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGateway') do |node|
-          data.transit_gateway = Parsers::TransitGateway.parse(node)
+          data.transit_gateway = TransitGateway.parse(node)
         end
         data
       end
@@ -6050,11 +6052,11 @@ module AWS::SDK::EC2
           data.creation_time = Time.parse(node.text) if node.text
         end
         xml.at('options') do |node|
-          data.options = Parsers::TransitGatewayOptions.parse(node)
+          data.options = TransitGatewayOptions.parse(node)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -6068,7 +6070,7 @@ module AWS::SDK::EC2
         end
         xml.at('transitGatewayCidrBlocks') do |node|
           children = node.children('item')
-          data.transit_gateway_cidr_blocks = Parsers::ValueStringList.parse(children)
+          data.transit_gateway_cidr_blocks = ValueStringList.parse(children)
         end
         xml.at('autoAcceptSharedAttachments') do |node|
           data.auto_accept_shared_attachments = (node.text || '')
@@ -6106,7 +6108,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayConnect') do |node|
-          data.transit_gateway_connect = Parsers::TransitGatewayConnect.parse(node)
+          data.transit_gateway_connect = TransitGatewayConnect.parse(node)
         end
         data
       end
@@ -6131,11 +6133,11 @@ module AWS::SDK::EC2
           data.creation_time = Time.parse(node.text) if node.text
         end
         xml.at('options') do |node|
-          data.options = Parsers::TransitGatewayConnectOptions.parse(node)
+          data.options = TransitGatewayConnectOptions.parse(node)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -6159,7 +6161,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayConnectPeer') do |node|
-          data.transit_gateway_connect_peer = Parsers::TransitGatewayConnectPeer.parse(node)
+          data.transit_gateway_connect_peer = TransitGatewayConnectPeer.parse(node)
         end
         data
       end
@@ -6181,11 +6183,11 @@ module AWS::SDK::EC2
           data.creation_time = Time.parse(node.text) if node.text
         end
         xml.at('connectPeerConfiguration') do |node|
-          data.connect_peer_configuration = Parsers::TransitGatewayConnectPeerConfiguration.parse(node)
+          data.connect_peer_configuration = TransitGatewayConnectPeerConfiguration.parse(node)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -6202,14 +6204,14 @@ module AWS::SDK::EC2
         end
         xml.at('insideCidrBlocks') do |node|
           children = node.children('item')
-          data.inside_cidr_blocks = Parsers::InsideCidrBlocksStringList.parse(children)
+          data.inside_cidr_blocks = InsideCidrBlocksStringList.parse(children)
         end
         xml.at('protocol') do |node|
           data.protocol = (node.text || '')
         end
         xml.at('bgpConfigurations') do |node|
           children = node.children('item')
-          data.bgp_configurations = Parsers::TransitGatewayAttachmentBgpConfigurationList.parse(children)
+          data.bgp_configurations = TransitGatewayAttachmentBgpConfigurationList.parse(children)
         end
         return data
       end
@@ -6219,7 +6221,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TransitGatewayAttachmentBgpConfiguration.parse(node)
+          data << TransitGatewayAttachmentBgpConfiguration.parse(node)
         end
         data
       end
@@ -6265,7 +6267,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayMulticastDomain') do |node|
-          data.transit_gateway_multicast_domain = Parsers::TransitGatewayMulticastDomain.parse(node)
+          data.transit_gateway_multicast_domain = TransitGatewayMulticastDomain.parse(node)
         end
         data
       end
@@ -6287,7 +6289,7 @@ module AWS::SDK::EC2
           data.owner_id = (node.text || '')
         end
         xml.at('options') do |node|
-          data.options = Parsers::TransitGatewayMulticastDomainOptions.parse(node)
+          data.options = TransitGatewayMulticastDomainOptions.parse(node)
         end
         xml.at('state') do |node|
           data.state = (node.text || '')
@@ -6297,7 +6299,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -6327,7 +6329,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayPeeringAttachment') do |node|
-          data.transit_gateway_peering_attachment = Parsers::TransitGatewayPeeringAttachment.parse(node)
+          data.transit_gateway_peering_attachment = TransitGatewayPeeringAttachment.parse(node)
         end
         data
       end
@@ -6341,7 +6343,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayPrefixListReference') do |node|
-          data.transit_gateway_prefix_list_reference = Parsers::TransitGatewayPrefixListReference.parse(node)
+          data.transit_gateway_prefix_list_reference = TransitGatewayPrefixListReference.parse(node)
         end
         data
       end
@@ -6366,7 +6368,7 @@ module AWS::SDK::EC2
           data.blackhole = (node.text == 'true')
         end
         xml.at('transitGatewayAttachment') do |node|
-          data.transit_gateway_attachment = Parsers::TransitGatewayPrefixListAttachment.parse(node)
+          data.transit_gateway_attachment = TransitGatewayPrefixListAttachment.parse(node)
         end
         return data
       end
@@ -6396,7 +6398,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('route') do |node|
-          data.route = Parsers::TransitGatewayRoute.parse(node)
+          data.route = TransitGatewayRoute.parse(node)
         end
         data
       end
@@ -6413,7 +6415,7 @@ module AWS::SDK::EC2
         end
         xml.at('transitGatewayAttachments') do |node|
           children = node.children('item')
-          data.transit_gateway_attachments = Parsers::TransitGatewayRouteAttachmentList.parse(children)
+          data.transit_gateway_attachments = TransitGatewayRouteAttachmentList.parse(children)
         end
         xml.at('type') do |node|
           data.type = (node.text || '')
@@ -6429,7 +6431,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TransitGatewayRouteAttachment.parse(node)
+          data << TransitGatewayRouteAttachment.parse(node)
         end
         data
       end
@@ -6459,7 +6461,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayRouteTable') do |node|
-          data.transit_gateway_route_table = Parsers::TransitGatewayRouteTable.parse(node)
+          data.transit_gateway_route_table = TransitGatewayRouteTable.parse(node)
         end
         data
       end
@@ -6488,7 +6490,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -6502,7 +6504,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayVpcAttachment') do |node|
-          data.transit_gateway_vpc_attachment = Parsers::TransitGatewayVpcAttachment.parse(node)
+          data.transit_gateway_vpc_attachment = TransitGatewayVpcAttachment.parse(node)
         end
         data
       end
@@ -6517,7 +6519,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('attachmentSet') do |node|
           children = node.children('item')
-          data.attachments = Parsers::VolumeAttachmentList.parse(children)
+          data.attachments = VolumeAttachmentList.parse(children)
         end
         xml.at('availabilityZone') do |node|
           data.availability_zone = (node.text || '')
@@ -6551,7 +6553,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('volumeType') do |node|
           data.volume_type = (node.text || '')
@@ -6573,7 +6575,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VolumeAttachment.parse(node)
+          data << VolumeAttachment.parse(node)
         end
         data
       end
@@ -6612,7 +6614,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('vpc') do |node|
-          data.vpc = Parsers::Vpc.parse(node)
+          data.vpc = Vpc.parse(node)
         end
         data
       end
@@ -6626,7 +6628,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('vpcEndpoint') do |node|
-          data.vpc_endpoint = Parsers::VpcEndpoint.parse(node)
+          data.vpc_endpoint = VpcEndpoint.parse(node)
         end
         xml.at('clientToken') do |node|
           data.client_token = (node.text || '')
@@ -6658,21 +6660,21 @@ module AWS::SDK::EC2
         end
         xml.at('routeTableIdSet') do |node|
           children = node.children('item')
-          data.route_table_ids = Parsers::ValueStringList.parse(children)
+          data.route_table_ids = ValueStringList.parse(children)
         end
         xml.at('subnetIdSet') do |node|
           children = node.children('item')
-          data.subnet_ids = Parsers::ValueStringList.parse(children)
+          data.subnet_ids = ValueStringList.parse(children)
         end
         xml.at('groupSet') do |node|
           children = node.children('item')
-          data.groups = Parsers::GroupIdentifierSet.parse(children)
+          data.groups = GroupIdentifierSet.parse(children)
         end
         xml.at('ipAddressType') do |node|
           data.ip_address_type = (node.text || '')
         end
         xml.at('dnsOptions') do |node|
-          data.dns_options = Parsers::DnsOptions.parse(node)
+          data.dns_options = DnsOptions.parse(node)
         end
         xml.at('privateDnsEnabled') do |node|
           data.private_dns_enabled = (node.text == 'true')
@@ -6682,24 +6684,24 @@ module AWS::SDK::EC2
         end
         xml.at('networkInterfaceIdSet') do |node|
           children = node.children('item')
-          data.network_interface_ids = Parsers::ValueStringList.parse(children)
+          data.network_interface_ids = ValueStringList.parse(children)
         end
         xml.at('dnsEntrySet') do |node|
           children = node.children('item')
-          data.dns_entries = Parsers::DnsEntrySet.parse(children)
+          data.dns_entries = DnsEntrySet.parse(children)
         end
         xml.at('creationTimestamp') do |node|
           data.creation_timestamp = Time.parse(node.text) if node.text
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('ownerId') do |node|
           data.owner_id = (node.text || '')
         end
         xml.at('lastError') do |node|
-          data.last_error = Parsers::LastError.parse(node)
+          data.last_error = LastError.parse(node)
         end
         return data
       end
@@ -6722,7 +6724,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DnsEntry.parse(node)
+          data << DnsEntry.parse(node)
         end
         data
       end
@@ -6755,7 +6757,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SecurityGroupIdentifier.parse(node)
+          data << SecurityGroupIdentifier.parse(node)
         end
         data
       end
@@ -6782,7 +6784,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('connectionNotification') do |node|
-          data.connection_notification = Parsers::ConnectionNotification.parse(node)
+          data.connection_notification = ConnectionNotification.parse(node)
         end
         xml.at('clientToken') do |node|
           data.client_token = (node.text || '')
@@ -6811,7 +6813,7 @@ module AWS::SDK::EC2
         end
         xml.at('connectionEvents') do |node|
           children = node.children('item')
-          data.connection_events = Parsers::ValueStringList.parse(children)
+          data.connection_events = ValueStringList.parse(children)
         end
         xml.at('connectionNotificationState') do |node|
           data.connection_notification_state = (node.text || '')
@@ -6828,7 +6830,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('serviceConfiguration') do |node|
-          data.service_configuration = Parsers::ServiceConfiguration.parse(node)
+          data.service_configuration = ServiceConfiguration.parse(node)
         end
         xml.at('clientToken') do |node|
           data.client_token = (node.text || '')
@@ -6842,7 +6844,7 @@ module AWS::SDK::EC2
         data = Types::ServiceConfiguration.new
         xml.at('serviceType') do |node|
           children = node.children('item')
-          data.service_type = Parsers::ServiceTypeDetailSet.parse(children)
+          data.service_type = ServiceTypeDetailSet.parse(children)
         end
         xml.at('serviceId') do |node|
           data.service_id = (node.text || '')
@@ -6855,7 +6857,7 @@ module AWS::SDK::EC2
         end
         xml.at('availabilityZoneSet') do |node|
           children = node.children('item')
-          data.availability_zones = Parsers::ValueStringList.parse(children)
+          data.availability_zones = ValueStringList.parse(children)
         end
         xml.at('acceptanceRequired') do |node|
           data.acceptance_required = (node.text == 'true')
@@ -6865,32 +6867,32 @@ module AWS::SDK::EC2
         end
         xml.at('networkLoadBalancerArnSet') do |node|
           children = node.children('item')
-          data.network_load_balancer_arns = Parsers::ValueStringList.parse(children)
+          data.network_load_balancer_arns = ValueStringList.parse(children)
         end
         xml.at('gatewayLoadBalancerArnSet') do |node|
           children = node.children('item')
-          data.gateway_load_balancer_arns = Parsers::ValueStringList.parse(children)
+          data.gateway_load_balancer_arns = ValueStringList.parse(children)
         end
         xml.at('supportedIpAddressTypeSet') do |node|
           children = node.children('item')
-          data.supported_ip_address_types = Parsers::SupportedIpAddressTypes.parse(children)
+          data.supported_ip_address_types = SupportedIpAddressTypes.parse(children)
         end
         xml.at('baseEndpointDnsNameSet') do |node|
           children = node.children('item')
-          data.base_endpoint_dns_names = Parsers::ValueStringList.parse(children)
+          data.base_endpoint_dns_names = ValueStringList.parse(children)
         end
         xml.at('privateDnsName') do |node|
           data.private_dns_name = (node.text || '')
         end
         xml.at('privateDnsNameConfiguration') do |node|
-          data.private_dns_name_configuration = Parsers::PrivateDnsNameConfiguration.parse(node)
+          data.private_dns_name_configuration = PrivateDnsNameConfiguration.parse(node)
         end
         xml.at('payerResponsibility') do |node|
           data.payer_responsibility = (node.text || '')
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -6929,7 +6931,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ServiceTypeDetail.parse(node)
+          data << ServiceTypeDetail.parse(node)
         end
         data
       end
@@ -6953,7 +6955,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('vpcPeeringConnection') do |node|
-          data.vpc_peering_connection = Parsers::VpcPeeringConnection.parse(node)
+          data.vpc_peering_connection = VpcPeeringConnection.parse(node)
         end
         data
       end
@@ -6967,7 +6969,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('vpnConnection') do |node|
-          data.vpn_connection = Parsers::VpnConnection.parse(node)
+          data.vpn_connection = VpnConnection.parse(node)
         end
         data
       end
@@ -7010,19 +7012,19 @@ module AWS::SDK::EC2
           data.gateway_association_state = (node.text || '')
         end
         xml.at('options') do |node|
-          data.options = Parsers::VpnConnectionOptions.parse(node)
+          data.options = VpnConnectionOptions.parse(node)
         end
         xml.at('routes') do |node|
           children = node.children('item')
-          data.routes = Parsers::VpnStaticRouteList.parse(children)
+          data.routes = VpnStaticRouteList.parse(children)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('vgwTelemetry') do |node|
           children = node.children('item')
-          data.vgw_telemetry = Parsers::VgwTelemetryList.parse(children)
+          data.vgw_telemetry = VgwTelemetryList.parse(children)
         end
         return data
       end
@@ -7032,7 +7034,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VgwTelemetry.parse(node)
+          data << VgwTelemetry.parse(node)
         end
         data
       end
@@ -7067,7 +7069,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VpnStaticRoute.parse(node)
+          data << VpnStaticRoute.parse(node)
         end
         data
       end
@@ -7115,7 +7117,7 @@ module AWS::SDK::EC2
         end
         xml.at('tunnelOptionSet') do |node|
           children = node.children('item')
-          data.tunnel_options = Parsers::TunnelOptionsList.parse(children)
+          data.tunnel_options = TunnelOptionsList.parse(children)
         end
         return data
       end
@@ -7125,7 +7127,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TunnelOption.parse(node)
+          data << TunnelOption.parse(node)
         end
         data
       end
@@ -7169,31 +7171,31 @@ module AWS::SDK::EC2
         end
         xml.at('phase1EncryptionAlgorithmSet') do |node|
           children = node.children('item')
-          data.phase1_encryption_algorithms = Parsers::Phase1EncryptionAlgorithmsList.parse(children)
+          data.phase1_encryption_algorithms = Phase1EncryptionAlgorithmsList.parse(children)
         end
         xml.at('phase2EncryptionAlgorithmSet') do |node|
           children = node.children('item')
-          data.phase2_encryption_algorithms = Parsers::Phase2EncryptionAlgorithmsList.parse(children)
+          data.phase2_encryption_algorithms = Phase2EncryptionAlgorithmsList.parse(children)
         end
         xml.at('phase1IntegrityAlgorithmSet') do |node|
           children = node.children('item')
-          data.phase1_integrity_algorithms = Parsers::Phase1IntegrityAlgorithmsList.parse(children)
+          data.phase1_integrity_algorithms = Phase1IntegrityAlgorithmsList.parse(children)
         end
         xml.at('phase2IntegrityAlgorithmSet') do |node|
           children = node.children('item')
-          data.phase2_integrity_algorithms = Parsers::Phase2IntegrityAlgorithmsList.parse(children)
+          data.phase2_integrity_algorithms = Phase2IntegrityAlgorithmsList.parse(children)
         end
         xml.at('phase1DHGroupNumberSet') do |node|
           children = node.children('item')
-          data.phase1_dh_group_numbers = Parsers::Phase1DHGroupNumbersList.parse(children)
+          data.phase1_dh_group_numbers = Phase1DHGroupNumbersList.parse(children)
         end
         xml.at('phase2DHGroupNumberSet') do |node|
           children = node.children('item')
-          data.phase2_dh_group_numbers = Parsers::Phase2DHGroupNumbersList.parse(children)
+          data.phase2_dh_group_numbers = Phase2DHGroupNumbersList.parse(children)
         end
         xml.at('ikeVersionSet') do |node|
           children = node.children('item')
-          data.ike_versions = Parsers::IKEVersionsList.parse(children)
+          data.ike_versions = IKEVersionsList.parse(children)
         end
         xml.at('startupAction') do |node|
           data.startup_action = (node.text || '')
@@ -7206,7 +7208,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::IKEVersionsListValue.parse(node)
+          data << IKEVersionsListValue.parse(node)
         end
         data
       end
@@ -7226,7 +7228,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Phase2DHGroupNumbersListValue.parse(node)
+          data << Phase2DHGroupNumbersListValue.parse(node)
         end
         data
       end
@@ -7246,7 +7248,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Phase1DHGroupNumbersListValue.parse(node)
+          data << Phase1DHGroupNumbersListValue.parse(node)
         end
         data
       end
@@ -7266,7 +7268,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Phase2IntegrityAlgorithmsListValue.parse(node)
+          data << Phase2IntegrityAlgorithmsListValue.parse(node)
         end
         data
       end
@@ -7286,7 +7288,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Phase1IntegrityAlgorithmsListValue.parse(node)
+          data << Phase1IntegrityAlgorithmsListValue.parse(node)
         end
         data
       end
@@ -7306,7 +7308,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Phase2EncryptionAlgorithmsListValue.parse(node)
+          data << Phase2EncryptionAlgorithmsListValue.parse(node)
         end
         data
       end
@@ -7326,7 +7328,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Phase1EncryptionAlgorithmsListValue.parse(node)
+          data << Phase1EncryptionAlgorithmsListValue.parse(node)
         end
         data
       end
@@ -7361,7 +7363,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('vpnGateway') do |node|
-          data.vpn_gateway = Parsers::VpnGateway.parse(node)
+          data.vpn_gateway = VpnGateway.parse(node)
         end
         data
       end
@@ -7381,7 +7383,7 @@ module AWS::SDK::EC2
         end
         xml.at('attachments') do |node|
           children = node.children('item')
-          data.vpc_attachments = Parsers::VpcAttachmentList.parse(children)
+          data.vpc_attachments = VpcAttachmentList.parse(children)
         end
         xml.at('vpnGatewayId') do |node|
           data.vpn_gateway_id = (node.text || '')
@@ -7391,7 +7393,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -7401,7 +7403,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VpcAttachment.parse(node)
+          data << VpcAttachment.parse(node)
         end
         data
       end
@@ -7415,7 +7417,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('carrierGateway') do |node|
-          data.carrier_gateway = Parsers::CarrierGateway.parse(node)
+          data.carrier_gateway = CarrierGateway.parse(node)
         end
         data
       end
@@ -7429,7 +7431,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('status') do |node|
-          data.status = Parsers::ClientVpnEndpointStatus.parse(node)
+          data.status = ClientVpnEndpointStatus.parse(node)
         end
         data
       end
@@ -7443,7 +7445,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('status') do |node|
-          data.status = Parsers::ClientVpnRouteStatus.parse(node)
+          data.status = ClientVpnRouteStatus.parse(node)
         end
         data
       end
@@ -7494,11 +7496,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('successfulFleetDeletionSet') do |node|
           children = node.children('item')
-          data.successful_fleet_deletions = Parsers::DeleteFleetSuccessSet.parse(children)
+          data.successful_fleet_deletions = DeleteFleetSuccessSet.parse(children)
         end
         xml.at('unsuccessfulFleetDeletionSet') do |node|
           children = node.children('item')
-          data.unsuccessful_fleet_deletions = Parsers::DeleteFleetErrorSet.parse(children)
+          data.unsuccessful_fleet_deletions = DeleteFleetErrorSet.parse(children)
         end
         data
       end
@@ -7508,7 +7510,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DeleteFleetErrorItem.parse(node)
+          data << DeleteFleetErrorItem.parse(node)
         end
         data
       end
@@ -7518,7 +7520,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::DeleteFleetErrorItem.new
         xml.at('error') do |node|
-          data.error = Parsers::DeleteFleetError.parse(node)
+          data.error = DeleteFleetError.parse(node)
         end
         xml.at('fleetId') do |node|
           data.fleet_id = (node.text || '')
@@ -7544,7 +7546,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DeleteFleetSuccessItem.parse(node)
+          data << DeleteFleetSuccessItem.parse(node)
         end
         data
       end
@@ -7575,7 +7577,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('unsuccessful') do |node|
           children = node.children('item')
-          data.unsuccessful = Parsers::UnsuccessfulItemSet.parse(children)
+          data.unsuccessful = UnsuccessfulItemSet.parse(children)
         end
         data
       end
@@ -7603,7 +7605,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('instanceEventWindowState') do |node|
-          data.instance_event_window_state = Parsers::InstanceEventWindowStateChange.parse(node)
+          data.instance_event_window_state = InstanceEventWindowStateChange.parse(node)
         end
         data
       end
@@ -7641,7 +7643,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ipam') do |node|
-          data.ipam = Parsers::Ipam.parse(node)
+          data.ipam = Ipam.parse(node)
         end
         data
       end
@@ -7655,7 +7657,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ipamPool') do |node|
-          data.ipam_pool = Parsers::IpamPool.parse(node)
+          data.ipam_pool = IpamPool.parse(node)
         end
         data
       end
@@ -7669,7 +7671,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ipamScope') do |node|
-          data.ipam_scope = Parsers::IpamScope.parse(node)
+          data.ipam_scope = IpamScope.parse(node)
         end
         data
       end
@@ -7694,7 +7696,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('launchTemplate') do |node|
-          data.launch_template = Parsers::LaunchTemplate.parse(node)
+          data.launch_template = LaunchTemplate.parse(node)
         end
         data
       end
@@ -7709,11 +7711,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('successfullyDeletedLaunchTemplateVersionSet') do |node|
           children = node.children('item')
-          data.successfully_deleted_launch_template_versions = Parsers::DeleteLaunchTemplateVersionsResponseSuccessSet.parse(children)
+          data.successfully_deleted_launch_template_versions = DeleteLaunchTemplateVersionsResponseSuccessSet.parse(children)
         end
         xml.at('unsuccessfullyDeletedLaunchTemplateVersionSet') do |node|
           children = node.children('item')
-          data.unsuccessfully_deleted_launch_template_versions = Parsers::DeleteLaunchTemplateVersionsResponseErrorSet.parse(children)
+          data.unsuccessfully_deleted_launch_template_versions = DeleteLaunchTemplateVersionsResponseErrorSet.parse(children)
         end
         data
       end
@@ -7723,7 +7725,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DeleteLaunchTemplateVersionsResponseErrorItem.parse(node)
+          data << DeleteLaunchTemplateVersionsResponseErrorItem.parse(node)
         end
         data
       end
@@ -7742,7 +7744,7 @@ module AWS::SDK::EC2
           data.version_number = node.text&.to_i
         end
         xml.at('responseError') do |node|
-          data.response_error = Parsers::ResponseError.parse(node)
+          data.response_error = ResponseError.parse(node)
         end
         return data
       end
@@ -7765,7 +7767,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DeleteLaunchTemplateVersionsResponseSuccessItem.parse(node)
+          data << DeleteLaunchTemplateVersionsResponseSuccessItem.parse(node)
         end
         data
       end
@@ -7795,7 +7797,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('route') do |node|
-          data.route = Parsers::LocalGatewayRoute.parse(node)
+          data.route = LocalGatewayRoute.parse(node)
         end
         data
       end
@@ -7809,7 +7811,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('localGatewayRouteTableVpcAssociation') do |node|
-          data.local_gateway_route_table_vpc_association = Parsers::LocalGatewayRouteTableVpcAssociation.parse(node)
+          data.local_gateway_route_table_vpc_association = LocalGatewayRouteTableVpcAssociation.parse(node)
         end
         data
       end
@@ -7823,7 +7825,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('prefixList') do |node|
-          data.prefix_list = Parsers::ManagedPrefixList.parse(node)
+          data.prefix_list = ManagedPrefixList.parse(node)
         end
         data
       end
@@ -7980,11 +7982,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('successfulQueuedPurchaseDeletionSet') do |node|
           children = node.children('item')
-          data.successful_queued_purchase_deletions = Parsers::SuccessfulQueuedPurchaseDeletionSet.parse(children)
+          data.successful_queued_purchase_deletions = SuccessfulQueuedPurchaseDeletionSet.parse(children)
         end
         xml.at('failedQueuedPurchaseDeletionSet') do |node|
           children = node.children('item')
-          data.failed_queued_purchase_deletions = Parsers::FailedQueuedPurchaseDeletionSet.parse(children)
+          data.failed_queued_purchase_deletions = FailedQueuedPurchaseDeletionSet.parse(children)
         end
         data
       end
@@ -7994,7 +7996,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::FailedQueuedPurchaseDeletion.parse(node)
+          data << FailedQueuedPurchaseDeletion.parse(node)
         end
         data
       end
@@ -8004,7 +8006,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::FailedQueuedPurchaseDeletion.new
         xml.at('error') do |node|
-          data.error = Parsers::DeleteQueuedReservedInstancesError.parse(node)
+          data.error = DeleteQueuedReservedInstancesError.parse(node)
         end
         xml.at('reservedInstancesId') do |node|
           data.reserved_instances_id = (node.text || '')
@@ -8030,7 +8032,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SuccessfulQueuedPurchaseDeletion.parse(node)
+          data << SuccessfulQueuedPurchaseDeletion.parse(node)
         end
         data
       end
@@ -8120,7 +8122,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('deletedSubnetCidrReservation') do |node|
-          data.deleted_subnet_cidr_reservation = Parsers::SubnetCidrReservation.parse(node)
+          data.deleted_subnet_cidr_reservation = SubnetCidrReservation.parse(node)
         end
         data
       end
@@ -8201,7 +8203,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGateway') do |node|
-          data.transit_gateway = Parsers::TransitGateway.parse(node)
+          data.transit_gateway = TransitGateway.parse(node)
         end
         data
       end
@@ -8215,7 +8217,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayConnect') do |node|
-          data.transit_gateway_connect = Parsers::TransitGatewayConnect.parse(node)
+          data.transit_gateway_connect = TransitGatewayConnect.parse(node)
         end
         data
       end
@@ -8229,7 +8231,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayConnectPeer') do |node|
-          data.transit_gateway_connect_peer = Parsers::TransitGatewayConnectPeer.parse(node)
+          data.transit_gateway_connect_peer = TransitGatewayConnectPeer.parse(node)
         end
         data
       end
@@ -8243,7 +8245,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayMulticastDomain') do |node|
-          data.transit_gateway_multicast_domain = Parsers::TransitGatewayMulticastDomain.parse(node)
+          data.transit_gateway_multicast_domain = TransitGatewayMulticastDomain.parse(node)
         end
         data
       end
@@ -8257,7 +8259,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayPeeringAttachment') do |node|
-          data.transit_gateway_peering_attachment = Parsers::TransitGatewayPeeringAttachment.parse(node)
+          data.transit_gateway_peering_attachment = TransitGatewayPeeringAttachment.parse(node)
         end
         data
       end
@@ -8271,7 +8273,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayPrefixListReference') do |node|
-          data.transit_gateway_prefix_list_reference = Parsers::TransitGatewayPrefixListReference.parse(node)
+          data.transit_gateway_prefix_list_reference = TransitGatewayPrefixListReference.parse(node)
         end
         data
       end
@@ -8285,7 +8287,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('route') do |node|
-          data.route = Parsers::TransitGatewayRoute.parse(node)
+          data.route = TransitGatewayRoute.parse(node)
         end
         data
       end
@@ -8299,7 +8301,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayRouteTable') do |node|
-          data.transit_gateway_route_table = Parsers::TransitGatewayRouteTable.parse(node)
+          data.transit_gateway_route_table = TransitGatewayRouteTable.parse(node)
         end
         data
       end
@@ -8313,7 +8315,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayVpcAttachment') do |node|
-          data.transit_gateway_vpc_attachment = Parsers::TransitGatewayVpcAttachment.parse(node)
+          data.transit_gateway_vpc_attachment = TransitGatewayVpcAttachment.parse(node)
         end
         data
       end
@@ -8350,7 +8352,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('unsuccessful') do |node|
           children = node.children('item')
-          data.unsuccessful = Parsers::UnsuccessfulItemSet.parse(children)
+          data.unsuccessful = UnsuccessfulItemSet.parse(children)
         end
         data
       end
@@ -8365,7 +8367,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('unsuccessful') do |node|
           children = node.children('item')
-          data.unsuccessful = Parsers::UnsuccessfulItemSet.parse(children)
+          data.unsuccessful = UnsuccessfulItemSet.parse(children)
         end
         data
       end
@@ -8380,7 +8382,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('unsuccessful') do |node|
           children = node.children('item')
-          data.unsuccessful = Parsers::UnsuccessfulItemSet.parse(children)
+          data.unsuccessful = UnsuccessfulItemSet.parse(children)
         end
         data
       end
@@ -8441,7 +8443,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('byoipCidr') do |node|
-          data.byoip_cidr = Parsers::ByoipCidr.parse(node)
+          data.byoip_cidr = ByoipCidr.parse(node)
         end
         data
       end
@@ -8455,7 +8457,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ipamPoolCidr') do |node|
-          data.ipam_pool_cidr = Parsers::IpamPoolCidr.parse(node)
+          data.ipam_pool_cidr = IpamPoolCidr.parse(node)
         end
         data
       end
@@ -8471,7 +8473,7 @@ module AWS::SDK::EC2
           data.state = (node.text || '')
         end
         xml.at('failureReason') do |node|
-          data.failure_reason = Parsers::IpamPoolCidrFailureReason.parse(node)
+          data.failure_reason = IpamPoolCidrFailureReason.parse(node)
         end
         return data
       end
@@ -8502,7 +8504,7 @@ module AWS::SDK::EC2
         end
         xml.at('deprovisionedAddressSet') do |node|
           children = node.children('item')
-          data.deprovisioned_addresses = Parsers::DeprovisionedAddressSet.parse(children)
+          data.deprovisioned_addresses = DeprovisionedAddressSet.parse(children)
         end
         data
       end
@@ -8537,7 +8539,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('instanceTagAttribute') do |node|
-          data.instance_tag_attribute = Parsers::InstanceTagNotificationAttribute.parse(node)
+          data.instance_tag_attribute = InstanceTagNotificationAttribute.parse(node)
         end
         data
       end
@@ -8548,7 +8550,7 @@ module AWS::SDK::EC2
         data = Types::InstanceTagNotificationAttribute.new
         xml.at('instanceTagKeySet') do |node|
           children = node.children('item')
-          data.instance_tag_keys = Parsers::InstanceTagKeySet.parse(children)
+          data.instance_tag_keys = InstanceTagKeySet.parse(children)
         end
         xml.at('includeAllTagsOfInstance') do |node|
           data.include_all_tags_of_instance = (node.text == 'true')
@@ -8575,7 +8577,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('deregisteredMulticastGroupMembers') do |node|
-          data.deregistered_multicast_group_members = Parsers::TransitGatewayMulticastDeregisteredGroupMembers.parse(node)
+          data.deregistered_multicast_group_members = TransitGatewayMulticastDeregisteredGroupMembers.parse(node)
         end
         data
       end
@@ -8589,7 +8591,7 @@ module AWS::SDK::EC2
         end
         xml.at('deregisteredNetworkInterfaceIds') do |node|
           children = node.children('item')
-          data.deregistered_network_interface_ids = Parsers::ValueStringList.parse(children)
+          data.deregistered_network_interface_ids = ValueStringList.parse(children)
         end
         xml.at('groupIpAddress') do |node|
           data.group_ip_address = (node.text || '')
@@ -8606,7 +8608,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('deregisteredMulticastGroupSources') do |node|
-          data.deregistered_multicast_group_sources = Parsers::TransitGatewayMulticastDeregisteredGroupSources.parse(node)
+          data.deregistered_multicast_group_sources = TransitGatewayMulticastDeregisteredGroupSources.parse(node)
         end
         data
       end
@@ -8620,7 +8622,7 @@ module AWS::SDK::EC2
         end
         xml.at('deregisteredNetworkInterfaceIds') do |node|
           children = node.children('item')
-          data.deregistered_network_interface_ids = Parsers::ValueStringList.parse(children)
+          data.deregistered_network_interface_ids = ValueStringList.parse(children)
         end
         xml.at('groupIpAddress') do |node|
           data.group_ip_address = (node.text || '')
@@ -8638,7 +8640,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('accountAttributeSet') do |node|
           children = node.children('item')
-          data.account_attributes = Parsers::AccountAttributeList.parse(children)
+          data.account_attributes = AccountAttributeList.parse(children)
         end
         data
       end
@@ -8648,7 +8650,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AccountAttribute.parse(node)
+          data << AccountAttribute.parse(node)
         end
         data
       end
@@ -8662,7 +8664,7 @@ module AWS::SDK::EC2
         end
         xml.at('attributeValueSet') do |node|
           children = node.children('item')
-          data.attribute_values = Parsers::AccountAttributeValueList.parse(children)
+          data.attribute_values = AccountAttributeValueList.parse(children)
         end
         return data
       end
@@ -8672,7 +8674,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AccountAttributeValue.parse(node)
+          data << AccountAttributeValue.parse(node)
         end
         data
       end
@@ -8697,7 +8699,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('addressesSet') do |node|
           children = node.children('item')
-          data.addresses = Parsers::AddressList.parse(children)
+          data.addresses = AddressList.parse(children)
         end
         data
       end
@@ -8707,7 +8709,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Address.parse(node)
+          data << Address.parse(node)
         end
         data
       end
@@ -8742,7 +8744,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('publicIpv4Pool') do |node|
           data.public_ipv4_pool = (node.text || '')
@@ -8772,7 +8774,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('addressSet') do |node|
           children = node.children('item')
-          data.addresses = Parsers::AddressSet.parse(children)
+          data.addresses = AddressSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -8785,7 +8787,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AddressAttribute.parse(node)
+          data << AddressAttribute.parse(node)
         end
         data
       end
@@ -8804,7 +8806,7 @@ module AWS::SDK::EC2
           data.ptr_record = (node.text || '')
         end
         xml.at('ptrRecordUpdate') do |node|
-          data.ptr_record_update = Parsers::PtrUpdateStatus.parse(node)
+          data.ptr_record_update = PtrUpdateStatus.parse(node)
         end
         return data
       end
@@ -8838,7 +8840,7 @@ module AWS::SDK::EC2
         end
         xml.at('statusSet') do |node|
           children = node.children('item')
-          data.statuses = Parsers::IdFormatList.parse(children)
+          data.statuses = IdFormatList.parse(children)
         end
         data
       end
@@ -8848,7 +8850,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::IdFormat.parse(node)
+          data << IdFormat.parse(node)
         end
         data
       end
@@ -8879,7 +8881,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('availabilityZoneInfo') do |node|
           children = node.children('item')
-          data.availability_zones = Parsers::AvailabilityZoneList.parse(children)
+          data.availability_zones = AvailabilityZoneList.parse(children)
         end
         data
       end
@@ -8889,7 +8891,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AvailabilityZone.parse(node)
+          data << AvailabilityZone.parse(node)
         end
         data
       end
@@ -8906,7 +8908,7 @@ module AWS::SDK::EC2
         end
         xml.at('messageSet') do |node|
           children = node.children('item')
-          data.messages = Parsers::AvailabilityZoneMessageList.parse(children)
+          data.messages = AvailabilityZoneMessageList.parse(children)
         end
         xml.at('regionName') do |node|
           data.region_name = (node.text || '')
@@ -8940,7 +8942,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AvailabilityZoneMessage.parse(node)
+          data << AvailabilityZoneMessage.parse(node)
         end
         data
       end
@@ -8965,7 +8967,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('bundleInstanceTasksSet') do |node|
           children = node.children('item')
-          data.bundle_tasks = Parsers::BundleTaskList.parse(children)
+          data.bundle_tasks = BundleTaskList.parse(children)
         end
         data
       end
@@ -8975,7 +8977,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::BundleTask.parse(node)
+          data << BundleTask.parse(node)
         end
         data
       end
@@ -8990,7 +8992,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('byoipCidrSet') do |node|
           children = node.children('item')
-          data.byoip_cidrs = Parsers::ByoipCidrSet.parse(children)
+          data.byoip_cidrs = ByoipCidrSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -9003,7 +9005,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ByoipCidr.parse(node)
+          data << ByoipCidr.parse(node)
         end
         data
       end
@@ -9018,7 +9020,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('capacityReservationFleetSet') do |node|
           children = node.children('item')
-          data.capacity_reservation_fleets = Parsers::CapacityReservationFleetSet.parse(children)
+          data.capacity_reservation_fleets = CapacityReservationFleetSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -9031,7 +9033,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CapacityReservationFleet.parse(node)
+          data << CapacityReservationFleet.parse(node)
         end
         data
       end
@@ -9072,11 +9074,11 @@ module AWS::SDK::EC2
         end
         xml.at('instanceTypeSpecificationSet') do |node|
           children = node.children('item')
-          data.instance_type_specifications = Parsers::FleetCapacityReservationSet.parse(children)
+          data.instance_type_specifications = FleetCapacityReservationSet.parse(children)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -9094,7 +9096,7 @@ module AWS::SDK::EC2
         end
         xml.at('capacityReservationSet') do |node|
           children = node.children('item')
-          data.capacity_reservations = Parsers::CapacityReservationSet.parse(children)
+          data.capacity_reservations = CapacityReservationSet.parse(children)
         end
         data
       end
@@ -9104,7 +9106,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CapacityReservation.parse(node)
+          data << CapacityReservation.parse(node)
         end
         data
       end
@@ -9119,7 +9121,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('carrierGatewaySet') do |node|
           children = node.children('item')
-          data.carrier_gateways = Parsers::CarrierGatewaySet.parse(children)
+          data.carrier_gateways = CarrierGatewaySet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -9132,7 +9134,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CarrierGateway.parse(node)
+          data << CarrierGateway.parse(node)
         end
         data
       end
@@ -9147,7 +9149,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('instancesSet') do |node|
           children = node.children('item')
-          data.instances = Parsers::ClassicLinkInstanceList.parse(children)
+          data.instances = ClassicLinkInstanceList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -9160,7 +9162,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClassicLinkInstance.parse(node)
+          data << ClassicLinkInstance.parse(node)
         end
         data
       end
@@ -9171,14 +9173,14 @@ module AWS::SDK::EC2
         data = Types::ClassicLinkInstance.new
         xml.at('groupSet') do |node|
           children = node.children('item')
-          data.groups = Parsers::GroupIdentifierList.parse(children)
+          data.groups = GroupIdentifierList.parse(children)
         end
         xml.at('instanceId') do |node|
           data.instance_id = (node.text || '')
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('vpcId') do |node|
           data.vpc_id = (node.text || '')
@@ -9196,7 +9198,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('authorizationRule') do |node|
           children = node.children('item')
-          data.authorization_rules = Parsers::AuthorizationRuleSet.parse(children)
+          data.authorization_rules = AuthorizationRuleSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -9209,7 +9211,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AuthorizationRule.parse(node)
+          data << AuthorizationRule.parse(node)
         end
         data
       end
@@ -9234,7 +9236,7 @@ module AWS::SDK::EC2
           data.destination_cidr = (node.text || '')
         end
         xml.at('status') do |node|
-          data.status = Parsers::ClientVpnAuthorizationRuleStatus.parse(node)
+          data.status = ClientVpnAuthorizationRuleStatus.parse(node)
         end
         return data
       end
@@ -9249,7 +9251,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('connections') do |node|
           children = node.children('item')
-          data.connections = Parsers::ClientVpnConnectionSet.parse(children)
+          data.connections = ClientVpnConnectionSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -9262,7 +9264,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClientVpnConnection.parse(node)
+          data << ClientVpnConnection.parse(node)
         end
         data
       end
@@ -9305,14 +9307,14 @@ module AWS::SDK::EC2
           data.common_name = (node.text || '')
         end
         xml.at('status') do |node|
-          data.status = Parsers::ClientVpnConnectionStatus.parse(node)
+          data.status = ClientVpnConnectionStatus.parse(node)
         end
         xml.at('connectionEndTime') do |node|
           data.connection_end_time = (node.text || '')
         end
         xml.at('postureComplianceStatusSet') do |node|
           children = node.children('item')
-          data.posture_compliance_statuses = Parsers::ValueStringList.parse(children)
+          data.posture_compliance_statuses = ValueStringList.parse(children)
         end
         return data
       end
@@ -9340,7 +9342,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('clientVpnEndpoint') do |node|
           children = node.children('item')
-          data.client_vpn_endpoints = Parsers::EndpointSet.parse(children)
+          data.client_vpn_endpoints = EndpointSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -9353,7 +9355,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClientVpnEndpoint.parse(node)
+          data << ClientVpnEndpoint.parse(node)
         end
         data
       end
@@ -9369,7 +9371,7 @@ module AWS::SDK::EC2
           data.description = (node.text || '')
         end
         xml.at('status') do |node|
-          data.status = Parsers::ClientVpnEndpointStatus.parse(node)
+          data.status = ClientVpnEndpointStatus.parse(node)
         end
         xml.at('creationTime') do |node|
           data.creation_time = (node.text || '')
@@ -9385,7 +9387,7 @@ module AWS::SDK::EC2
         end
         xml.at('dnsServer') do |node|
           children = node.children('item')
-          data.dns_servers = Parsers::ValueStringList.parse(children)
+          data.dns_servers = ValueStringList.parse(children)
         end
         xml.at('splitTunnel') do |node|
           data.split_tunnel = (node.text == 'true')
@@ -9401,25 +9403,25 @@ module AWS::SDK::EC2
         end
         xml.at('associatedTargetNetwork') do |node|
           children = node.children('item')
-          data.associated_target_networks = Parsers::AssociatedTargetNetworkSet.parse(children)
+          data.associated_target_networks = AssociatedTargetNetworkSet.parse(children)
         end
         xml.at('serverCertificateArn') do |node|
           data.server_certificate_arn = (node.text || '')
         end
         xml.at('authenticationOptions') do |node|
           children = node.children('item')
-          data.authentication_options = Parsers::ClientVpnAuthenticationList.parse(children)
+          data.authentication_options = ClientVpnAuthenticationList.parse(children)
         end
         xml.at('connectionLogOptions') do |node|
-          data.connection_log_options = Parsers::ConnectionLogResponseOptions.parse(node)
+          data.connection_log_options = ConnectionLogResponseOptions.parse(node)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('securityGroupIdSet') do |node|
           children = node.children('item')
-          data.security_group_ids = Parsers::ClientVpnSecurityGroupIdSet.parse(children)
+          data.security_group_ids = ClientVpnSecurityGroupIdSet.parse(children)
         end
         xml.at('vpcId') do |node|
           data.vpc_id = (node.text || '')
@@ -9428,13 +9430,13 @@ module AWS::SDK::EC2
           data.self_service_portal_url = (node.text || '')
         end
         xml.at('clientConnectOptions') do |node|
-          data.client_connect_options = Parsers::ClientConnectResponseOptions.parse(node)
+          data.client_connect_options = ClientConnectResponseOptions.parse(node)
         end
         xml.at('sessionTimeoutHours') do |node|
           data.session_timeout_hours = node.text&.to_i
         end
         xml.at('clientLoginBannerOptions') do |node|
-          data.client_login_banner_options = Parsers::ClientLoginBannerResponseOptions.parse(node)
+          data.client_login_banner_options = ClientLoginBannerResponseOptions.parse(node)
         end
         return data
       end
@@ -9463,7 +9465,7 @@ module AWS::SDK::EC2
           data.lambda_function_arn = (node.text || '')
         end
         xml.at('status') do |node|
-          data.status = Parsers::ClientVpnEndpointAttributeStatus.parse(node)
+          data.status = ClientVpnEndpointAttributeStatus.parse(node)
         end
         return data
       end
@@ -9502,7 +9504,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClientVpnAuthentication.parse(node)
+          data << ClientVpnAuthentication.parse(node)
         end
         data
       end
@@ -9515,13 +9517,13 @@ module AWS::SDK::EC2
           data.type = (node.text || '')
         end
         xml.at('activeDirectory') do |node|
-          data.active_directory = Parsers::DirectoryServiceAuthentication.parse(node)
+          data.active_directory = DirectoryServiceAuthentication.parse(node)
         end
         xml.at('mutualAuthentication') do |node|
-          data.mutual_authentication = Parsers::CertificateAuthentication.parse(node)
+          data.mutual_authentication = CertificateAuthentication.parse(node)
         end
         xml.at('federatedAuthentication') do |node|
-          data.federated_authentication = Parsers::FederatedAuthentication.parse(node)
+          data.federated_authentication = FederatedAuthentication.parse(node)
         end
         return data
       end
@@ -9564,7 +9566,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AssociatedTargetNetwork.parse(node)
+          data << AssociatedTargetNetwork.parse(node)
         end
         data
       end
@@ -9592,7 +9594,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('routes') do |node|
           children = node.children('item')
-          data.routes = Parsers::ClientVpnRouteSet.parse(children)
+          data.routes = ClientVpnRouteSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -9605,7 +9607,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClientVpnRoute.parse(node)
+          data << ClientVpnRoute.parse(node)
         end
         data
       end
@@ -9630,7 +9632,7 @@ module AWS::SDK::EC2
           data.origin = (node.text || '')
         end
         xml.at('status') do |node|
-          data.status = Parsers::ClientVpnRouteStatus.parse(node)
+          data.status = ClientVpnRouteStatus.parse(node)
         end
         xml.at('description') do |node|
           data.description = (node.text || '')
@@ -9648,7 +9650,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('clientVpnTargetNetworks') do |node|
           children = node.children('item')
-          data.client_vpn_target_networks = Parsers::TargetNetworkSet.parse(children)
+          data.client_vpn_target_networks = TargetNetworkSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -9661,7 +9663,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TargetNetwork.parse(node)
+          data << TargetNetwork.parse(node)
         end
         data
       end
@@ -9683,11 +9685,11 @@ module AWS::SDK::EC2
           data.client_vpn_endpoint_id = (node.text || '')
         end
         xml.at('status') do |node|
-          data.status = Parsers::AssociationStatus.parse(node)
+          data.status = AssociationStatus.parse(node)
         end
         xml.at('securityGroups') do |node|
           children = node.children('item')
-          data.security_groups = Parsers::ValueStringList.parse(children)
+          data.security_groups = ValueStringList.parse(children)
         end
         return data
       end
@@ -9702,7 +9704,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('coipPoolSet') do |node|
           children = node.children('item')
-          data.coip_pools = Parsers::CoipPoolSet.parse(children)
+          data.coip_pools = CoipPoolSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -9715,7 +9717,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CoipPool.parse(node)
+          data << CoipPool.parse(node)
         end
         data
       end
@@ -9729,14 +9731,14 @@ module AWS::SDK::EC2
         end
         xml.at('poolCidrSet') do |node|
           children = node.children('item')
-          data.pool_cidrs = Parsers::ValueStringList.parse(children)
+          data.pool_cidrs = ValueStringList.parse(children)
         end
         xml.at('localGatewayRouteTableId') do |node|
           data.local_gateway_route_table_id = (node.text || '')
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('poolArn') do |node|
           data.pool_arn = (node.text || '')
@@ -9754,7 +9756,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('conversionTasks') do |node|
           children = node.children('item')
-          data.conversion_tasks = Parsers::DescribeConversionTaskList.parse(children)
+          data.conversion_tasks = DescribeConversionTaskList.parse(children)
         end
         data
       end
@@ -9764,7 +9766,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ConversionTask.parse(node)
+          data << ConversionTask.parse(node)
         end
         data
       end
@@ -9780,10 +9782,10 @@ module AWS::SDK::EC2
           data.expiration_time = (node.text || '')
         end
         xml.at('importInstance') do |node|
-          data.import_instance = Parsers::ImportInstanceTaskDetails.parse(node)
+          data.import_instance = ImportInstanceTaskDetails.parse(node)
         end
         xml.at('importVolume') do |node|
-          data.import_volume = Parsers::ImportVolumeTaskDetails.parse(node)
+          data.import_volume = ImportVolumeTaskDetails.parse(node)
         end
         xml.at('state') do |node|
           data.state = (node.text || '')
@@ -9793,7 +9795,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -9812,10 +9814,10 @@ module AWS::SDK::EC2
           data.description = (node.text || '')
         end
         xml.at('image') do |node|
-          data.image = Parsers::DiskImageDescription.parse(node)
+          data.image = DiskImageDescription.parse(node)
         end
         xml.at('volume') do |node|
-          data.volume = Parsers::DiskImageVolumeDescription.parse(node)
+          data.volume = DiskImageVolumeDescription.parse(node)
         end
         return data
       end
@@ -9867,7 +9869,7 @@ module AWS::SDK::EC2
         end
         xml.at('volumes') do |node|
           children = node.children('item')
-          data.volumes = Parsers::ImportInstanceVolumeDetailSet.parse(children)
+          data.volumes = ImportInstanceVolumeDetailSet.parse(children)
         end
         return data
       end
@@ -9877,7 +9879,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ImportInstanceVolumeDetailItem.parse(node)
+          data << ImportInstanceVolumeDetailItem.parse(node)
         end
         data
       end
@@ -9896,7 +9898,7 @@ module AWS::SDK::EC2
           data.description = (node.text || '')
         end
         xml.at('image') do |node|
-          data.image = Parsers::DiskImageDescription.parse(node)
+          data.image = DiskImageDescription.parse(node)
         end
         xml.at('status') do |node|
           data.status = (node.text || '')
@@ -9905,7 +9907,7 @@ module AWS::SDK::EC2
           data.status_message = (node.text || '')
         end
         xml.at('volume') do |node|
-          data.volume = Parsers::DiskImageVolumeDescription.parse(node)
+          data.volume = DiskImageVolumeDescription.parse(node)
         end
         return data
       end
@@ -9920,7 +9922,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('customerGatewaySet') do |node|
           children = node.children('item')
-          data.customer_gateways = Parsers::CustomerGatewayList.parse(children)
+          data.customer_gateways = CustomerGatewayList.parse(children)
         end
         data
       end
@@ -9930,7 +9932,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CustomerGateway.parse(node)
+          data << CustomerGateway.parse(node)
         end
         data
       end
@@ -9945,7 +9947,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('dhcpOptionsSet') do |node|
           children = node.children('item')
-          data.dhcp_options = Parsers::DhcpOptionsList.parse(children)
+          data.dhcp_options = DhcpOptionsList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -9958,7 +9960,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DhcpOptions.parse(node)
+          data << DhcpOptions.parse(node)
         end
         data
       end
@@ -9973,7 +9975,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('egressOnlyInternetGatewaySet') do |node|
           children = node.children('item')
-          data.egress_only_internet_gateways = Parsers::EgressOnlyInternetGatewayList.parse(children)
+          data.egress_only_internet_gateways = EgressOnlyInternetGatewayList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -9986,7 +9988,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EgressOnlyInternetGateway.parse(node)
+          data << EgressOnlyInternetGateway.parse(node)
         end
         data
       end
@@ -10001,7 +10003,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('elasticGpuSet') do |node|
           children = node.children('item')
-          data.elastic_gpu_set = Parsers::ElasticGpuSet.parse(children)
+          data.elastic_gpu_set = ElasticGpuSet.parse(children)
         end
         xml.at('maxResults') do |node|
           data.max_results = node.text&.to_i
@@ -10017,7 +10019,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ElasticGpus.parse(node)
+          data << ElasticGpus.parse(node)
         end
         data
       end
@@ -10036,7 +10038,7 @@ module AWS::SDK::EC2
           data.elastic_gpu_type = (node.text || '')
         end
         xml.at('elasticGpuHealth') do |node|
-          data.elastic_gpu_health = Parsers::ElasticGpuHealth.parse(node)
+          data.elastic_gpu_health = ElasticGpuHealth.parse(node)
         end
         xml.at('elasticGpuState') do |node|
           data.elastic_gpu_state = (node.text || '')
@@ -10046,7 +10048,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -10071,7 +10073,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('exportImageTaskSet') do |node|
           children = node.children('item')
-          data.export_image_tasks = Parsers::ExportImageTaskList.parse(children)
+          data.export_image_tasks = ExportImageTaskList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -10084,7 +10086,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ExportImageTask.parse(node)
+          data << ExportImageTask.parse(node)
         end
         data
       end
@@ -10106,7 +10108,7 @@ module AWS::SDK::EC2
           data.progress = (node.text || '')
         end
         xml.at('s3ExportLocation') do |node|
-          data.s3_export_location = Parsers::ExportTaskS3Location.parse(node)
+          data.s3_export_location = ExportTaskS3Location.parse(node)
         end
         xml.at('status') do |node|
           data.status = (node.text || '')
@@ -10116,7 +10118,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -10144,7 +10146,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('exportTaskSet') do |node|
           children = node.children('item')
-          data.export_tasks = Parsers::ExportTaskList.parse(children)
+          data.export_tasks = ExportTaskList.parse(children)
         end
         data
       end
@@ -10154,7 +10156,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ExportTask.parse(node)
+          data << ExportTask.parse(node)
         end
         data
       end
@@ -10169,7 +10171,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('fastLaunchImageSet') do |node|
           children = node.children('item')
-          data.fast_launch_images = Parsers::DescribeFastLaunchImagesSuccessSet.parse(children)
+          data.fast_launch_images = DescribeFastLaunchImagesSuccessSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -10182,7 +10184,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DescribeFastLaunchImagesSuccessItem.parse(node)
+          data << DescribeFastLaunchImagesSuccessItem.parse(node)
         end
         data
       end
@@ -10198,10 +10200,10 @@ module AWS::SDK::EC2
           data.resource_type = (node.text || '')
         end
         xml.at('snapshotConfiguration') do |node|
-          data.snapshot_configuration = Parsers::FastLaunchSnapshotConfigurationResponse.parse(node)
+          data.snapshot_configuration = FastLaunchSnapshotConfigurationResponse.parse(node)
         end
         xml.at('launchTemplate') do |node|
-          data.launch_template = Parsers::FastLaunchLaunchTemplateSpecificationResponse.parse(node)
+          data.launch_template = FastLaunchLaunchTemplateSpecificationResponse.parse(node)
         end
         xml.at('maxParallelLaunches') do |node|
           data.max_parallel_launches = node.text&.to_i
@@ -10257,7 +10259,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('fastSnapshotRestoreSet') do |node|
           children = node.children('item')
-          data.fast_snapshot_restores = Parsers::DescribeFastSnapshotRestoreSuccessSet.parse(children)
+          data.fast_snapshot_restores = DescribeFastSnapshotRestoreSuccessSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -10270,7 +10272,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DescribeFastSnapshotRestoreSuccessItem.parse(node)
+          data << DescribeFastSnapshotRestoreSuccessItem.parse(node)
         end
         data
       end
@@ -10325,7 +10327,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('historyRecordSet') do |node|
           children = node.children('item')
-          data.history_records = Parsers::HistoryRecordSet.parse(children)
+          data.history_records = HistoryRecordSet.parse(children)
         end
         xml.at('lastEvaluatedTime') do |node|
           data.last_evaluated_time = Time.parse(node.text) if node.text
@@ -10347,7 +10349,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::HistoryRecordEntry.parse(node)
+          data << HistoryRecordEntry.parse(node)
         end
         data
       end
@@ -10357,7 +10359,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::HistoryRecordEntry.new
         xml.at('eventInformation') do |node|
-          data.event_information = Parsers::EventInformation.parse(node)
+          data.event_information = EventInformation.parse(node)
         end
         xml.at('eventType') do |node|
           data.event_type = (node.text || '')
@@ -10394,7 +10396,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('activeInstanceSet') do |node|
           children = node.children('item')
-          data.active_instances = Parsers::ActiveInstanceSet.parse(children)
+          data.active_instances = ActiveInstanceSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -10410,7 +10412,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ActiveInstance.parse(node)
+          data << ActiveInstance.parse(node)
         end
         data
       end
@@ -10447,7 +10449,7 @@ module AWS::SDK::EC2
         end
         xml.at('fleetSet') do |node|
           children = node.children('item')
-          data.fleets = Parsers::FleetSet.parse(children)
+          data.fleets = FleetSet.parse(children)
         end
         data
       end
@@ -10457,7 +10459,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::FleetData.parse(node)
+          data << FleetData.parse(node)
         end
         data
       end
@@ -10492,10 +10494,10 @@ module AWS::SDK::EC2
         end
         xml.at('launchTemplateConfigs') do |node|
           children = node.children('item')
-          data.launch_template_configs = Parsers::FleetLaunchTemplateConfigList.parse(children)
+          data.launch_template_configs = FleetLaunchTemplateConfigList.parse(children)
         end
         xml.at('targetCapacitySpecification') do |node|
-          data.target_capacity_specification = Parsers::TargetCapacitySpecification.parse(node)
+          data.target_capacity_specification = TargetCapacitySpecification.parse(node)
         end
         xml.at('terminateInstancesWithExpiration') do |node|
           data.terminate_instances_with_expiration = (node.text == 'true')
@@ -10513,22 +10515,22 @@ module AWS::SDK::EC2
           data.replace_unhealthy_instances = (node.text == 'true')
         end
         xml.at('spotOptions') do |node|
-          data.spot_options = Parsers::SpotOptions.parse(node)
+          data.spot_options = SpotOptions.parse(node)
         end
         xml.at('onDemandOptions') do |node|
-          data.on_demand_options = Parsers::OnDemandOptions.parse(node)
+          data.on_demand_options = OnDemandOptions.parse(node)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('errorSet') do |node|
           children = node.children('item')
-          data.errors = Parsers::DescribeFleetsErrorSet.parse(children)
+          data.errors = DescribeFleetsErrorSet.parse(children)
         end
         xml.at('fleetInstanceSet') do |node|
           children = node.children('item')
-          data.instances = Parsers::DescribeFleetsInstancesSet.parse(children)
+          data.instances = DescribeFleetsInstancesSet.parse(children)
         end
         xml.at('context') do |node|
           data.context = (node.text || '')
@@ -10541,7 +10543,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DescribeFleetsInstances.parse(node)
+          data << DescribeFleetsInstances.parse(node)
         end
         data
       end
@@ -10551,14 +10553,14 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::DescribeFleetsInstances.new
         xml.at('launchTemplateAndOverrides') do |node|
-          data.launch_template_and_overrides = Parsers::LaunchTemplateAndOverridesResponse.parse(node)
+          data.launch_template_and_overrides = LaunchTemplateAndOverridesResponse.parse(node)
         end
         xml.at('lifecycle') do |node|
           data.lifecycle = (node.text || '')
         end
         xml.at('instanceIds') do |node|
           children = node.children('item')
-          data.instance_ids = Parsers::InstanceIdsSet.parse(children)
+          data.instance_ids = InstanceIdsSet.parse(children)
         end
         xml.at('instanceType') do |node|
           data.instance_type = (node.text || '')
@@ -10574,7 +10576,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DescribeFleetError.parse(node)
+          data << DescribeFleetError.parse(node)
         end
         data
       end
@@ -10584,7 +10586,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::DescribeFleetError.new
         xml.at('launchTemplateAndOverrides') do |node|
-          data.launch_template_and_overrides = Parsers::LaunchTemplateAndOverridesResponse.parse(node)
+          data.launch_template_and_overrides = LaunchTemplateAndOverridesResponse.parse(node)
         end
         xml.at('lifecycle') do |node|
           data.lifecycle = (node.text || '')
@@ -10606,7 +10608,7 @@ module AWS::SDK::EC2
           data.allocation_strategy = (node.text || '')
         end
         xml.at('capacityReservationOptions') do |node|
-          data.capacity_reservation_options = Parsers::CapacityReservationOptions.parse(node)
+          data.capacity_reservation_options = CapacityReservationOptions.parse(node)
         end
         xml.at('singleInstanceType') do |node|
           data.single_instance_type = (node.text == 'true')
@@ -10641,7 +10643,7 @@ module AWS::SDK::EC2
           data.allocation_strategy = (node.text || '')
         end
         xml.at('maintenanceStrategies') do |node|
-          data.maintenance_strategies = Parsers::FleetSpotMaintenanceStrategies.parse(node)
+          data.maintenance_strategies = FleetSpotMaintenanceStrategies.parse(node)
         end
         xml.at('instanceInterruptionBehavior') do |node|
           data.instance_interruption_behavior = (node.text || '')
@@ -10669,7 +10671,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::FleetSpotMaintenanceStrategies.new
         xml.at('capacityRebalance') do |node|
-          data.capacity_rebalance = Parsers::FleetSpotCapacityRebalance.parse(node)
+          data.capacity_rebalance = FleetSpotCapacityRebalance.parse(node)
         end
         return data
       end
@@ -10714,7 +10716,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::FleetLaunchTemplateConfig.parse(node)
+          data << FleetLaunchTemplateConfig.parse(node)
         end
         data
       end
@@ -10724,11 +10726,11 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::FleetLaunchTemplateConfig.new
         xml.at('launchTemplateSpecification') do |node|
-          data.launch_template_specification = Parsers::FleetLaunchTemplateSpecification.parse(node)
+          data.launch_template_specification = FleetLaunchTemplateSpecification.parse(node)
         end
         xml.at('overrides') do |node|
           children = node.children('item')
-          data.overrides = Parsers::FleetLaunchTemplateOverridesList.parse(children)
+          data.overrides = FleetLaunchTemplateOverridesList.parse(children)
         end
         return data
       end
@@ -10738,7 +10740,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::FleetLaunchTemplateOverrides.parse(node)
+          data << FleetLaunchTemplateOverrides.parse(node)
         end
         data
       end
@@ -10753,7 +10755,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('flowLogSet') do |node|
           children = node.children('item')
-          data.flow_logs = Parsers::FlowLogSet.parse(children)
+          data.flow_logs = FlowLogSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -10766,7 +10768,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::FlowLog.parse(node)
+          data << FlowLog.parse(node)
         end
         data
       end
@@ -10813,13 +10815,13 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('maxAggregationInterval') do |node|
           data.max_aggregation_interval = node.text&.to_i
         end
         xml.at('destinationOptions') do |node|
-          data.destination_options = Parsers::DestinationOptionsResponse.parse(node)
+          data.destination_options = DestinationOptionsResponse.parse(node)
         end
         return data
       end
@@ -10849,7 +10851,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('fpgaImageAttribute') do |node|
-          data.fpga_image_attribute = Parsers::FpgaImageAttribute.parse(node)
+          data.fpga_image_attribute = FpgaImageAttribute.parse(node)
         end
         data
       end
@@ -10869,11 +10871,11 @@ module AWS::SDK::EC2
         end
         xml.at('loadPermissions') do |node|
           children = node.children('item')
-          data.load_permissions = Parsers::LoadPermissionList.parse(children)
+          data.load_permissions = LoadPermissionList.parse(children)
         end
         xml.at('productCodes') do |node|
           children = node.children('item')
-          data.product_codes = Parsers::ProductCodeList.parse(children)
+          data.product_codes = ProductCodeList.parse(children)
         end
         return data
       end
@@ -10883,7 +10885,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ProductCode.parse(node)
+          data << ProductCode.parse(node)
         end
         data
       end
@@ -10906,7 +10908,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LoadPermission.parse(node)
+          data << LoadPermission.parse(node)
         end
         data
       end
@@ -10934,7 +10936,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('fpgaImageSet') do |node|
           children = node.children('item')
-          data.fpga_images = Parsers::FpgaImageList.parse(children)
+          data.fpga_images = FpgaImageList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -10947,7 +10949,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::FpgaImage.parse(node)
+          data << FpgaImage.parse(node)
         end
         data
       end
@@ -10972,10 +10974,10 @@ module AWS::SDK::EC2
           data.shell_version = (node.text || '')
         end
         xml.at('pciId') do |node|
-          data.pci_id = Parsers::PciId.parse(node)
+          data.pci_id = PciId.parse(node)
         end
         xml.at('state') do |node|
-          data.state = Parsers::FpgaImageState.parse(node)
+          data.state = FpgaImageState.parse(node)
         end
         xml.at('createTime') do |node|
           data.create_time = Time.parse(node.text) if node.text
@@ -10991,11 +10993,11 @@ module AWS::SDK::EC2
         end
         xml.at('productCodes') do |node|
           children = node.children('item')
-          data.product_codes = Parsers::ProductCodeList.parse(children)
+          data.product_codes = ProductCodeList.parse(children)
         end
         xml.at('tags') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('public') do |node|
           data.public = (node.text == 'true')
@@ -11051,7 +11053,7 @@ module AWS::SDK::EC2
         end
         xml.at('offeringSet') do |node|
           children = node.children('item')
-          data.offering_set = Parsers::HostOfferingSet.parse(children)
+          data.offering_set = HostOfferingSet.parse(children)
         end
         data
       end
@@ -11061,7 +11063,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::HostOffering.parse(node)
+          data << HostOffering.parse(node)
         end
         data
       end
@@ -11104,7 +11106,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('hostReservationSet') do |node|
           children = node.children('item')
-          data.host_reservation_set = Parsers::HostReservationSet.parse(children)
+          data.host_reservation_set = HostReservationSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -11117,7 +11119,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::HostReservation.parse(node)
+          data << HostReservation.parse(node)
         end
         data
       end
@@ -11140,7 +11142,7 @@ module AWS::SDK::EC2
         end
         xml.at('hostIdSet') do |node|
           children = node.children('item')
-          data.host_id_set = Parsers::ResponseHostIdSet.parse(children)
+          data.host_id_set = ResponseHostIdSet.parse(children)
         end
         xml.at('hostReservationId') do |node|
           data.host_reservation_id = (node.text || '')
@@ -11168,7 +11170,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -11193,7 +11195,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('hostSet') do |node|
           children = node.children('item')
-          data.hosts = Parsers::HostList.parse(children)
+          data.hosts = HostList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -11206,7 +11208,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Host.parse(node)
+          data << Host.parse(node)
         end
         data
       end
@@ -11222,7 +11224,7 @@ module AWS::SDK::EC2
           data.availability_zone = (node.text || '')
         end
         xml.at('availableCapacity') do |node|
-          data.available_capacity = Parsers::AvailableCapacity.parse(node)
+          data.available_capacity = AvailableCapacity.parse(node)
         end
         xml.at('clientToken') do |node|
           data.client_token = (node.text || '')
@@ -11231,14 +11233,14 @@ module AWS::SDK::EC2
           data.host_id = (node.text || '')
         end
         xml.at('hostProperties') do |node|
-          data.host_properties = Parsers::HostProperties.parse(node)
+          data.host_properties = HostProperties.parse(node)
         end
         xml.at('hostReservationId') do |node|
           data.host_reservation_id = (node.text || '')
         end
         xml.at('instances') do |node|
           children = node.children('item')
-          data.instances = Parsers::HostInstanceList.parse(children)
+          data.instances = HostInstanceList.parse(children)
         end
         xml.at('state') do |node|
           data.state = (node.text || '')
@@ -11251,7 +11253,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('hostRecovery') do |node|
           data.host_recovery = (node.text || '')
@@ -11279,7 +11281,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::HostInstance.parse(node)
+          data << HostInstance.parse(node)
         end
         data
       end
@@ -11328,7 +11330,7 @@ module AWS::SDK::EC2
         data = Types::AvailableCapacity.new
         xml.at('availableInstanceCapacity') do |node|
           children = node.children('item')
-          data.available_instance_capacity = Parsers::AvailableInstanceCapacityList.parse(children)
+          data.available_instance_capacity = AvailableInstanceCapacityList.parse(children)
         end
         xml.at('availableVCpus') do |node|
           data.available_v_cpus = node.text&.to_i
@@ -11341,7 +11343,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceCapacity.parse(node)
+          data << InstanceCapacity.parse(node)
         end
         data
       end
@@ -11372,7 +11374,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('iamInstanceProfileAssociationSet') do |node|
           children = node.children('item')
-          data.iam_instance_profile_associations = Parsers::IamInstanceProfileAssociationSet.parse(children)
+          data.iam_instance_profile_associations = IamInstanceProfileAssociationSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -11385,7 +11387,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::IamInstanceProfileAssociation.parse(node)
+          data << IamInstanceProfileAssociation.parse(node)
         end
         data
       end
@@ -11400,7 +11402,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('statusSet') do |node|
           children = node.children('item')
-          data.statuses = Parsers::IdFormatList.parse(children)
+          data.statuses = IdFormatList.parse(children)
         end
         data
       end
@@ -11415,7 +11417,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('statusSet') do |node|
           children = node.children('item')
-          data.statuses = Parsers::IdFormatList.parse(children)
+          data.statuses = IdFormatList.parse(children)
         end
         data
       end
@@ -11430,42 +11432,42 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('blockDeviceMapping') do |node|
           children = node.children('item')
-          data.block_device_mappings = Parsers::BlockDeviceMappingList.parse(children)
+          data.block_device_mappings = BlockDeviceMappingList.parse(children)
         end
         xml.at('imageId') do |node|
           data.image_id = (node.text || '')
         end
         xml.at('launchPermission') do |node|
           children = node.children('item')
-          data.launch_permissions = Parsers::LaunchPermissionList.parse(children)
+          data.launch_permissions = LaunchPermissionList.parse(children)
         end
         xml.at('productCodes') do |node|
           children = node.children('item')
-          data.product_codes = Parsers::ProductCodeList.parse(children)
+          data.product_codes = ProductCodeList.parse(children)
         end
         xml.at('description') do |node|
-          data.description = Parsers::AttributeValue.parse(node)
+          data.description = AttributeValue.parse(node)
         end
         xml.at('kernel') do |node|
-          data.kernel_id = Parsers::AttributeValue.parse(node)
+          data.kernel_id = AttributeValue.parse(node)
         end
         xml.at('ramdisk') do |node|
-          data.ramdisk_id = Parsers::AttributeValue.parse(node)
+          data.ramdisk_id = AttributeValue.parse(node)
         end
         xml.at('sriovNetSupport') do |node|
-          data.sriov_net_support = Parsers::AttributeValue.parse(node)
+          data.sriov_net_support = AttributeValue.parse(node)
         end
         xml.at('bootMode') do |node|
-          data.boot_mode = Parsers::AttributeValue.parse(node)
+          data.boot_mode = AttributeValue.parse(node)
         end
         xml.at('tpmSupport') do |node|
-          data.tpm_support = Parsers::AttributeValue.parse(node)
+          data.tpm_support = AttributeValue.parse(node)
         end
         xml.at('uefiData') do |node|
-          data.uefi_data = Parsers::AttributeValue.parse(node)
+          data.uefi_data = AttributeValue.parse(node)
         end
         xml.at('lastLaunchedTime') do |node|
-          data.last_launched_time = Parsers::AttributeValue.parse(node)
+          data.last_launched_time = AttributeValue.parse(node)
         end
         data
       end
@@ -11475,7 +11477,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LaunchPermission.parse(node)
+          data << LaunchPermission.parse(node)
         end
         data
       end
@@ -11504,7 +11506,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::BlockDeviceMapping.parse(node)
+          data << BlockDeviceMapping.parse(node)
         end
         data
       end
@@ -11520,7 +11522,7 @@ module AWS::SDK::EC2
           data.virtual_name = (node.text || '')
         end
         xml.at('ebs') do |node|
-          data.ebs = Parsers::EbsBlockDevice.parse(node)
+          data.ebs = EbsBlockDevice.parse(node)
         end
         xml.at('noDevice') do |node|
           data.no_device = (node.text || '')
@@ -11572,7 +11574,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('imagesSet') do |node|
           children = node.children('item')
-          data.images = Parsers::ImageList.parse(children)
+          data.images = ImageList.parse(children)
         end
         data
       end
@@ -11582,7 +11584,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Image.parse(node)
+          data << Image.parse(node)
         end
         data
       end
@@ -11626,7 +11628,7 @@ module AWS::SDK::EC2
         end
         xml.at('productCodes') do |node|
           children = node.children('item')
-          data.product_codes = Parsers::ProductCodeList.parse(children)
+          data.product_codes = ProductCodeList.parse(children)
         end
         xml.at('ramdiskId') do |node|
           data.ramdisk_id = (node.text || '')
@@ -11636,7 +11638,7 @@ module AWS::SDK::EC2
         end
         xml.at('blockDeviceMapping') do |node|
           children = node.children('item')
-          data.block_device_mappings = Parsers::BlockDeviceMappingList.parse(children)
+          data.block_device_mappings = BlockDeviceMappingList.parse(children)
         end
         xml.at('description') do |node|
           data.description = (node.text || '')
@@ -11663,11 +11665,11 @@ module AWS::SDK::EC2
           data.sriov_net_support = (node.text || '')
         end
         xml.at('stateReason') do |node|
-          data.state_reason = Parsers::StateReason.parse(node)
+          data.state_reason = StateReason.parse(node)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('virtualizationType') do |node|
           data.virtualization_type = (node.text || '')
@@ -11707,7 +11709,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('importImageTaskSet') do |node|
           children = node.children('item')
-          data.import_image_tasks = Parsers::ImportImageTaskList.parse(children)
+          data.import_image_tasks = ImportImageTaskList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -11720,7 +11722,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ImportImageTask.parse(node)
+          data << ImportImageTask.parse(node)
         end
         data
       end
@@ -11761,7 +11763,7 @@ module AWS::SDK::EC2
         end
         xml.at('snapshotDetailSet') do |node|
           children = node.children('item')
-          data.snapshot_details = Parsers::SnapshotDetailList.parse(children)
+          data.snapshot_details = SnapshotDetailList.parse(children)
         end
         xml.at('status') do |node|
           data.status = (node.text || '')
@@ -11771,11 +11773,11 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('licenseSpecifications') do |node|
           children = node.children('item')
-          data.license_specifications = Parsers::ImportImageLicenseSpecificationListResponse.parse(children)
+          data.license_specifications = ImportImageLicenseSpecificationListResponse.parse(children)
         end
         xml.at('usageOperation') do |node|
           data.usage_operation = (node.text || '')
@@ -11791,7 +11793,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ImportImageLicenseConfigurationResponse.parse(node)
+          data << ImportImageLicenseConfigurationResponse.parse(node)
         end
         data
       end
@@ -11811,7 +11813,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SnapshotDetail.parse(node)
+          data << SnapshotDetail.parse(node)
         end
         data
       end
@@ -11848,7 +11850,7 @@ module AWS::SDK::EC2
           data.url = (node.text || '')
         end
         xml.at('userBucket') do |node|
-          data.user_bucket = Parsers::UserBucketDetails.parse(node)
+          data.user_bucket = UserBucketDetails.parse(node)
         end
         return data
       end
@@ -11876,7 +11878,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('importSnapshotTaskSet') do |node|
           children = node.children('item')
-          data.import_snapshot_tasks = Parsers::ImportSnapshotTaskList.parse(children)
+          data.import_snapshot_tasks = ImportSnapshotTaskList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -11889,7 +11891,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ImportSnapshotTask.parse(node)
+          data << ImportSnapshotTask.parse(node)
         end
         data
       end
@@ -11905,11 +11907,11 @@ module AWS::SDK::EC2
           data.import_task_id = (node.text || '')
         end
         xml.at('snapshotTaskDetail') do |node|
-          data.snapshot_task_detail = Parsers::SnapshotTaskDetail.parse(node)
+          data.snapshot_task_detail = SnapshotTaskDetail.parse(node)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -11949,7 +11951,7 @@ module AWS::SDK::EC2
           data.url = (node.text || '')
         end
         xml.at('userBucket') do |node|
-          data.user_bucket = Parsers::UserBucketDetails.parse(node)
+          data.user_bucket = UserBucketDetails.parse(node)
         end
         return data
       end
@@ -11964,57 +11966,57 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('groupSet') do |node|
           children = node.children('item')
-          data.groups = Parsers::GroupIdentifierList.parse(children)
+          data.groups = GroupIdentifierList.parse(children)
         end
         xml.at('blockDeviceMapping') do |node|
           children = node.children('item')
-          data.block_device_mappings = Parsers::InstanceBlockDeviceMappingList.parse(children)
+          data.block_device_mappings = InstanceBlockDeviceMappingList.parse(children)
         end
         xml.at('disableApiTermination') do |node|
-          data.disable_api_termination = Parsers::AttributeBooleanValue.parse(node)
+          data.disable_api_termination = AttributeBooleanValue.parse(node)
         end
         xml.at('enaSupport') do |node|
-          data.ena_support = Parsers::AttributeBooleanValue.parse(node)
+          data.ena_support = AttributeBooleanValue.parse(node)
         end
         xml.at('enclaveOptions') do |node|
-          data.enclave_options = Parsers::EnclaveOptions.parse(node)
+          data.enclave_options = EnclaveOptions.parse(node)
         end
         xml.at('ebsOptimized') do |node|
-          data.ebs_optimized = Parsers::AttributeBooleanValue.parse(node)
+          data.ebs_optimized = AttributeBooleanValue.parse(node)
         end
         xml.at('instanceId') do |node|
           data.instance_id = (node.text || '')
         end
         xml.at('instanceInitiatedShutdownBehavior') do |node|
-          data.instance_initiated_shutdown_behavior = Parsers::AttributeValue.parse(node)
+          data.instance_initiated_shutdown_behavior = AttributeValue.parse(node)
         end
         xml.at('instanceType') do |node|
-          data.instance_type = Parsers::AttributeValue.parse(node)
+          data.instance_type = AttributeValue.parse(node)
         end
         xml.at('kernel') do |node|
-          data.kernel_id = Parsers::AttributeValue.parse(node)
+          data.kernel_id = AttributeValue.parse(node)
         end
         xml.at('productCodes') do |node|
           children = node.children('item')
-          data.product_codes = Parsers::ProductCodeList.parse(children)
+          data.product_codes = ProductCodeList.parse(children)
         end
         xml.at('ramdisk') do |node|
-          data.ramdisk_id = Parsers::AttributeValue.parse(node)
+          data.ramdisk_id = AttributeValue.parse(node)
         end
         xml.at('rootDeviceName') do |node|
-          data.root_device_name = Parsers::AttributeValue.parse(node)
+          data.root_device_name = AttributeValue.parse(node)
         end
         xml.at('sourceDestCheck') do |node|
-          data.source_dest_check = Parsers::AttributeBooleanValue.parse(node)
+          data.source_dest_check = AttributeBooleanValue.parse(node)
         end
         xml.at('sriovNetSupport') do |node|
-          data.sriov_net_support = Parsers::AttributeValue.parse(node)
+          data.sriov_net_support = AttributeValue.parse(node)
         end
         xml.at('userData') do |node|
-          data.user_data = Parsers::AttributeValue.parse(node)
+          data.user_data = AttributeValue.parse(node)
         end
         xml.at('disableApiStop') do |node|
-          data.disable_api_stop = Parsers::AttributeBooleanValue.parse(node)
+          data.disable_api_stop = AttributeBooleanValue.parse(node)
         end
         data
       end
@@ -12044,7 +12046,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceBlockDeviceMapping.parse(node)
+          data << InstanceBlockDeviceMapping.parse(node)
         end
         data
       end
@@ -12057,7 +12059,7 @@ module AWS::SDK::EC2
           data.device_name = (node.text || '')
         end
         xml.at('ebs') do |node|
-          data.ebs = Parsers::EbsInstanceBlockDevice.parse(node)
+          data.ebs = EbsInstanceBlockDevice.parse(node)
         end
         return data
       end
@@ -12091,7 +12093,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('instanceCreditSpecificationSet') do |node|
           children = node.children('item')
-          data.instance_credit_specifications = Parsers::InstanceCreditSpecificationList.parse(children)
+          data.instance_credit_specifications = InstanceCreditSpecificationList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -12104,7 +12106,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceCreditSpecification.parse(node)
+          data << InstanceCreditSpecification.parse(node)
         end
         data
       end
@@ -12131,7 +12133,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('instanceTagAttribute') do |node|
-          data.instance_tag_attribute = Parsers::InstanceTagNotificationAttribute.parse(node)
+          data.instance_tag_attribute = InstanceTagNotificationAttribute.parse(node)
         end
         data
       end
@@ -12146,7 +12148,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('instanceEventWindowSet') do |node|
           children = node.children('item')
-          data.instance_event_windows = Parsers::InstanceEventWindowSet.parse(children)
+          data.instance_event_windows = InstanceEventWindowSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -12159,7 +12161,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceEventWindow.parse(node)
+          data << InstanceEventWindow.parse(node)
         end
         data
       end
@@ -12174,7 +12176,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('instanceStatusSet') do |node|
           children = node.children('item')
-          data.instance_statuses = Parsers::InstanceStatusList.parse(children)
+          data.instance_statuses = InstanceStatusList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -12187,7 +12189,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceStatus.parse(node)
+          data << InstanceStatus.parse(node)
         end
         data
       end
@@ -12204,19 +12206,19 @@ module AWS::SDK::EC2
         end
         xml.at('eventsSet') do |node|
           children = node.children('item')
-          data.events = Parsers::InstanceStatusEventList.parse(children)
+          data.events = InstanceStatusEventList.parse(children)
         end
         xml.at('instanceId') do |node|
           data.instance_id = (node.text || '')
         end
         xml.at('instanceState') do |node|
-          data.instance_state = Parsers::InstanceState.parse(node)
+          data.instance_state = InstanceState.parse(node)
         end
         xml.at('instanceStatus') do |node|
-          data.instance_status = Parsers::InstanceStatusSummary.parse(node)
+          data.instance_status = InstanceStatusSummary.parse(node)
         end
         xml.at('systemStatus') do |node|
-          data.system_status = Parsers::InstanceStatusSummary.parse(node)
+          data.system_status = InstanceStatusSummary.parse(node)
         end
         return data
       end
@@ -12227,7 +12229,7 @@ module AWS::SDK::EC2
         data = Types::InstanceStatusSummary.new
         xml.at('details') do |node|
           children = node.children('item')
-          data.details = Parsers::InstanceStatusDetailsList.parse(children)
+          data.details = InstanceStatusDetailsList.parse(children)
         end
         xml.at('status') do |node|
           data.status = (node.text || '')
@@ -12240,7 +12242,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceStatusDetails.parse(node)
+          data << InstanceStatusDetails.parse(node)
         end
         data
       end
@@ -12279,7 +12281,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceStatusEvent.parse(node)
+          data << InstanceStatusEvent.parse(node)
         end
         data
       end
@@ -12319,7 +12321,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('instanceTypeOfferingSet') do |node|
           children = node.children('item')
-          data.instance_type_offerings = Parsers::InstanceTypeOfferingsList.parse(children)
+          data.instance_type_offerings = InstanceTypeOfferingsList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -12332,7 +12334,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceTypeOffering.parse(node)
+          data << InstanceTypeOffering.parse(node)
         end
         data
       end
@@ -12363,7 +12365,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('instanceTypeSet') do |node|
           children = node.children('item')
-          data.instance_types = Parsers::InstanceTypeInfoList.parse(children)
+          data.instance_types = InstanceTypeInfoList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -12376,7 +12378,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceTypeInfo.parse(node)
+          data << InstanceTypeInfo.parse(node)
         end
         data
       end
@@ -12396,15 +12398,15 @@ module AWS::SDK::EC2
         end
         xml.at('supportedUsageClasses') do |node|
           children = node.children('item')
-          data.supported_usage_classes = Parsers::UsageClassTypeList.parse(children)
+          data.supported_usage_classes = UsageClassTypeList.parse(children)
         end
         xml.at('supportedRootDeviceTypes') do |node|
           children = node.children('item')
-          data.supported_root_device_types = Parsers::RootDeviceTypeList.parse(children)
+          data.supported_root_device_types = RootDeviceTypeList.parse(children)
         end
         xml.at('supportedVirtualizationTypes') do |node|
           children = node.children('item')
-          data.supported_virtualization_types = Parsers::VirtualizationTypeList.parse(children)
+          data.supported_virtualization_types = VirtualizationTypeList.parse(children)
         end
         xml.at('bareMetal') do |node|
           data.bare_metal = (node.text == 'true')
@@ -12413,37 +12415,37 @@ module AWS::SDK::EC2
           data.hypervisor = (node.text || '')
         end
         xml.at('processorInfo') do |node|
-          data.processor_info = Parsers::ProcessorInfo.parse(node)
+          data.processor_info = ProcessorInfo.parse(node)
         end
         xml.at('vCpuInfo') do |node|
-          data.v_cpu_info = Parsers::VCpuInfo.parse(node)
+          data.v_cpu_info = VCpuInfo.parse(node)
         end
         xml.at('memoryInfo') do |node|
-          data.memory_info = Parsers::MemoryInfo.parse(node)
+          data.memory_info = MemoryInfo.parse(node)
         end
         xml.at('instanceStorageSupported') do |node|
           data.instance_storage_supported = (node.text == 'true')
         end
         xml.at('instanceStorageInfo') do |node|
-          data.instance_storage_info = Parsers::InstanceStorageInfo.parse(node)
+          data.instance_storage_info = InstanceStorageInfo.parse(node)
         end
         xml.at('ebsInfo') do |node|
-          data.ebs_info = Parsers::EbsInfo.parse(node)
+          data.ebs_info = EbsInfo.parse(node)
         end
         xml.at('networkInfo') do |node|
-          data.network_info = Parsers::NetworkInfo.parse(node)
+          data.network_info = NetworkInfo.parse(node)
         end
         xml.at('gpuInfo') do |node|
-          data.gpu_info = Parsers::GpuInfo.parse(node)
+          data.gpu_info = GpuInfo.parse(node)
         end
         xml.at('fpgaInfo') do |node|
-          data.fpga_info = Parsers::FpgaInfo.parse(node)
+          data.fpga_info = FpgaInfo.parse(node)
         end
         xml.at('placementGroupInfo') do |node|
-          data.placement_group_info = Parsers::PlacementGroupInfo.parse(node)
+          data.placement_group_info = PlacementGroupInfo.parse(node)
         end
         xml.at('inferenceAcceleratorInfo') do |node|
-          data.inference_accelerator_info = Parsers::InferenceAcceleratorInfo.parse(node)
+          data.inference_accelerator_info = InferenceAcceleratorInfo.parse(node)
         end
         xml.at('hibernationSupported') do |node|
           data.hibernation_supported = (node.text == 'true')
@@ -12459,7 +12461,7 @@ module AWS::SDK::EC2
         end
         xml.at('supportedBootModes') do |node|
           children = node.children('item')
-          data.supported_boot_modes = Parsers::BootModeTypeList.parse(children)
+          data.supported_boot_modes = BootModeTypeList.parse(children)
         end
         return data
       end
@@ -12480,7 +12482,7 @@ module AWS::SDK::EC2
         data = Types::InferenceAcceleratorInfo.new
         xml.at('accelerators') do |node|
           children = node.children('member')
-          data.accelerators = Parsers::InferenceDeviceInfoList.parse(children)
+          data.accelerators = InferenceDeviceInfoList.parse(children)
         end
         return data
       end
@@ -12490,7 +12492,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InferenceDeviceInfo.parse(node)
+          data << InferenceDeviceInfo.parse(node)
         end
         data
       end
@@ -12517,7 +12519,7 @@ module AWS::SDK::EC2
         data = Types::PlacementGroupInfo.new
         xml.at('supportedStrategies') do |node|
           children = node.children('item')
-          data.supported_strategies = Parsers::PlacementGroupStrategyList.parse(children)
+          data.supported_strategies = PlacementGroupStrategyList.parse(children)
         end
         return data
       end
@@ -12538,7 +12540,7 @@ module AWS::SDK::EC2
         data = Types::FpgaInfo.new
         xml.at('fpgas') do |node|
           children = node.children('item')
-          data.fpgas = Parsers::FpgaDeviceInfoList.parse(children)
+          data.fpgas = FpgaDeviceInfoList.parse(children)
         end
         xml.at('totalFpgaMemoryInMiB') do |node|
           data.total_fpga_memory_in_mi_b = node.text&.to_i
@@ -12551,7 +12553,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::FpgaDeviceInfo.parse(node)
+          data << FpgaDeviceInfo.parse(node)
         end
         data
       end
@@ -12570,7 +12572,7 @@ module AWS::SDK::EC2
           data.count = node.text&.to_i
         end
         xml.at('memoryInfo') do |node|
-          data.memory_info = Parsers::FpgaDeviceMemoryInfo.parse(node)
+          data.memory_info = FpgaDeviceMemoryInfo.parse(node)
         end
         return data
       end
@@ -12591,7 +12593,7 @@ module AWS::SDK::EC2
         data = Types::GpuInfo.new
         xml.at('gpus') do |node|
           children = node.children('item')
-          data.gpus = Parsers::GpuDeviceInfoList.parse(children)
+          data.gpus = GpuDeviceInfoList.parse(children)
         end
         xml.at('totalGpuMemoryInMiB') do |node|
           data.total_gpu_memory_in_mi_b = node.text&.to_i
@@ -12604,7 +12606,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::GpuDeviceInfo.parse(node)
+          data << GpuDeviceInfo.parse(node)
         end
         data
       end
@@ -12623,7 +12625,7 @@ module AWS::SDK::EC2
           data.count = node.text&.to_i
         end
         xml.at('memoryInfo') do |node|
-          data.memory_info = Parsers::GpuDeviceMemoryInfo.parse(node)
+          data.memory_info = GpuDeviceMemoryInfo.parse(node)
         end
         return data
       end
@@ -12656,7 +12658,7 @@ module AWS::SDK::EC2
         end
         xml.at('networkCards') do |node|
           children = node.children('item')
-          data.network_cards = Parsers::NetworkCardInfoList.parse(children)
+          data.network_cards = NetworkCardInfoList.parse(children)
         end
         xml.at('ipv4AddressesPerInterface') do |node|
           data.ipv4_addresses_per_interface = node.text&.to_i
@@ -12674,7 +12676,7 @@ module AWS::SDK::EC2
           data.efa_supported = (node.text == 'true')
         end
         xml.at('efaInfo') do |node|
-          data.efa_info = Parsers::EfaInfo.parse(node)
+          data.efa_info = EfaInfo.parse(node)
         end
         xml.at('encryptionInTransitSupported') do |node|
           data.encryption_in_transit_supported = (node.text == 'true')
@@ -12697,7 +12699,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NetworkCardInfo.parse(node)
+          data << NetworkCardInfo.parse(node)
         end
         data
       end
@@ -12729,7 +12731,7 @@ module AWS::SDK::EC2
           data.encryption_support = (node.text || '')
         end
         xml.at('ebsOptimizedInfo') do |node|
-          data.ebs_optimized_info = Parsers::EbsOptimizedInfo.parse(node)
+          data.ebs_optimized_info = EbsOptimizedInfo.parse(node)
         end
         xml.at('nvmeSupport') do |node|
           data.nvme_support = (node.text || '')
@@ -12771,7 +12773,7 @@ module AWS::SDK::EC2
         end
         xml.at('disks') do |node|
           children = node.children('item')
-          data.disks = Parsers::DiskInfoList.parse(children)
+          data.disks = DiskInfoList.parse(children)
         end
         xml.at('nvmeSupport') do |node|
           data.nvme_support = (node.text || '')
@@ -12787,7 +12789,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DiskInfo.parse(node)
+          data << DiskInfo.parse(node)
         end
         data
       end
@@ -12833,11 +12835,11 @@ module AWS::SDK::EC2
         end
         xml.at('validCores') do |node|
           children = node.children('item')
-          data.valid_cores = Parsers::CoreCountList.parse(children)
+          data.valid_cores = CoreCountList.parse(children)
         end
         xml.at('validThreadsPerCore') do |node|
           children = node.children('item')
-          data.valid_threads_per_core = Parsers::ThreadsPerCoreList.parse(children)
+          data.valid_threads_per_core = ThreadsPerCoreList.parse(children)
         end
         return data
       end
@@ -12868,7 +12870,7 @@ module AWS::SDK::EC2
         data = Types::ProcessorInfo.new
         xml.at('supportedArchitectures') do |node|
           children = node.children('item')
-          data.supported_architectures = Parsers::ArchitectureTypeList.parse(children)
+          data.supported_architectures = ArchitectureTypeList.parse(children)
         end
         xml.at('sustainedClockSpeedInGhz') do |node|
           data.sustained_clock_speed_in_ghz = Hearth::NumberHelper.deserialize(node.text)
@@ -12926,7 +12928,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('reservationSet') do |node|
           children = node.children('item')
-          data.reservations = Parsers::ReservationList.parse(children)
+          data.reservations = ReservationList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -12939,7 +12941,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Reservation.parse(node)
+          data << Reservation.parse(node)
         end
         data
       end
@@ -12950,11 +12952,11 @@ module AWS::SDK::EC2
         data = Types::Reservation.new
         xml.at('groupSet') do |node|
           children = node.children('item')
-          data.groups = Parsers::GroupIdentifierList.parse(children)
+          data.groups = GroupIdentifierList.parse(children)
         end
         xml.at('instancesSet') do |node|
           children = node.children('item')
-          data.instances = Parsers::InstanceList.parse(children)
+          data.instances = InstanceList.parse(children)
         end
         xml.at('ownerId') do |node|
           data.owner_id = (node.text || '')
@@ -12973,7 +12975,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Instance.parse(node)
+          data << Instance.parse(node)
         end
         data
       end
@@ -13004,10 +13006,10 @@ module AWS::SDK::EC2
           data.launch_time = Time.parse(node.text) if node.text
         end
         xml.at('monitoring') do |node|
-          data.monitoring = Parsers::Monitoring.parse(node)
+          data.monitoring = Monitoring.parse(node)
         end
         xml.at('placement') do |node|
-          data.placement = Parsers::Placement.parse(node)
+          data.placement = Placement.parse(node)
         end
         xml.at('platform') do |node|
           data.platform = (node.text || '')
@@ -13020,7 +13022,7 @@ module AWS::SDK::EC2
         end
         xml.at('productCodes') do |node|
           children = node.children('item')
-          data.product_codes = Parsers::ProductCodeList.parse(children)
+          data.product_codes = ProductCodeList.parse(children)
         end
         xml.at('dnsName') do |node|
           data.public_dns_name = (node.text || '')
@@ -13032,7 +13034,7 @@ module AWS::SDK::EC2
           data.ramdisk_id = (node.text || '')
         end
         xml.at('instanceState') do |node|
-          data.state = Parsers::InstanceState.parse(node)
+          data.state = InstanceState.parse(node)
         end
         xml.at('reason') do |node|
           data.state_transition_reason = (node.text || '')
@@ -13048,7 +13050,7 @@ module AWS::SDK::EC2
         end
         xml.at('blockDeviceMapping') do |node|
           children = node.children('item')
-          data.block_device_mappings = Parsers::InstanceBlockDeviceMappingList.parse(children)
+          data.block_device_mappings = InstanceBlockDeviceMappingList.parse(children)
         end
         xml.at('clientToken') do |node|
           data.client_token = (node.text || '')
@@ -13063,22 +13065,22 @@ module AWS::SDK::EC2
           data.hypervisor = (node.text || '')
         end
         xml.at('iamInstanceProfile') do |node|
-          data.iam_instance_profile = Parsers::IamInstanceProfile.parse(node)
+          data.iam_instance_profile = IamInstanceProfile.parse(node)
         end
         xml.at('instanceLifecycle') do |node|
           data.instance_lifecycle = (node.text || '')
         end
         xml.at('elasticGpuAssociationSet') do |node|
           children = node.children('item')
-          data.elastic_gpu_associations = Parsers::ElasticGpuAssociationList.parse(children)
+          data.elastic_gpu_associations = ElasticGpuAssociationList.parse(children)
         end
         xml.at('elasticInferenceAcceleratorAssociationSet') do |node|
           children = node.children('item')
-          data.elastic_inference_accelerator_associations = Parsers::ElasticInferenceAcceleratorAssociationList.parse(children)
+          data.elastic_inference_accelerator_associations = ElasticInferenceAcceleratorAssociationList.parse(children)
         end
         xml.at('networkInterfaceSet') do |node|
           children = node.children('item')
-          data.network_interfaces = Parsers::InstanceNetworkInterfaceList.parse(children)
+          data.network_interfaces = InstanceNetworkInterfaceList.parse(children)
         end
         xml.at('outpostArn') do |node|
           data.outpost_arn = (node.text || '')
@@ -13091,7 +13093,7 @@ module AWS::SDK::EC2
         end
         xml.at('groupSet') do |node|
           children = node.children('item')
-          data.security_groups = Parsers::GroupIdentifierList.parse(children)
+          data.security_groups = GroupIdentifierList.parse(children)
         end
         xml.at('sourceDestCheck') do |node|
           data.source_dest_check = (node.text == 'true')
@@ -13103,36 +13105,36 @@ module AWS::SDK::EC2
           data.sriov_net_support = (node.text || '')
         end
         xml.at('stateReason') do |node|
-          data.state_reason = Parsers::StateReason.parse(node)
+          data.state_reason = StateReason.parse(node)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('virtualizationType') do |node|
           data.virtualization_type = (node.text || '')
         end
         xml.at('cpuOptions') do |node|
-          data.cpu_options = Parsers::CpuOptions.parse(node)
+          data.cpu_options = CpuOptions.parse(node)
         end
         xml.at('capacityReservationId') do |node|
           data.capacity_reservation_id = (node.text || '')
         end
         xml.at('capacityReservationSpecification') do |node|
-          data.capacity_reservation_specification = Parsers::CapacityReservationSpecificationResponse.parse(node)
+          data.capacity_reservation_specification = CapacityReservationSpecificationResponse.parse(node)
         end
         xml.at('hibernationOptions') do |node|
-          data.hibernation_options = Parsers::HibernationOptions.parse(node)
+          data.hibernation_options = HibernationOptions.parse(node)
         end
         xml.at('licenseSet') do |node|
           children = node.children('item')
-          data.licenses = Parsers::LicenseList.parse(children)
+          data.licenses = LicenseList.parse(children)
         end
         xml.at('metadataOptions') do |node|
-          data.metadata_options = Parsers::InstanceMetadataOptionsResponse.parse(node)
+          data.metadata_options = InstanceMetadataOptionsResponse.parse(node)
         end
         xml.at('enclaveOptions') do |node|
-          data.enclave_options = Parsers::EnclaveOptions.parse(node)
+          data.enclave_options = EnclaveOptions.parse(node)
         end
         xml.at('bootMode') do |node|
           data.boot_mode = (node.text || '')
@@ -13147,7 +13149,7 @@ module AWS::SDK::EC2
           data.usage_operation_update_time = Time.parse(node.text) if node.text
         end
         xml.at('privateDnsNameOptions') do |node|
-          data.private_dns_name_options = Parsers::PrivateDnsNameOptionsResponse.parse(node)
+          data.private_dns_name_options = PrivateDnsNameOptionsResponse.parse(node)
         end
         xml.at('ipv6Address') do |node|
           data.ipv6_address = (node.text || '')
@@ -13156,7 +13158,7 @@ module AWS::SDK::EC2
           data.tpm_support = (node.text || '')
         end
         xml.at('maintenanceOptions') do |node|
-          data.maintenance_options = Parsers::InstanceMaintenanceOptions.parse(node)
+          data.maintenance_options = InstanceMaintenanceOptions.parse(node)
         end
         return data
       end
@@ -13217,7 +13219,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LicenseConfiguration.parse(node)
+          data << LicenseConfiguration.parse(node)
         end
         data
       end
@@ -13250,7 +13252,7 @@ module AWS::SDK::EC2
           data.capacity_reservation_preference = (node.text || '')
         end
         xml.at('capacityReservationTarget') do |node|
-          data.capacity_reservation_target = Parsers::CapacityReservationTargetResponse.parse(node)
+          data.capacity_reservation_target = CapacityReservationTargetResponse.parse(node)
         end
         return data
       end
@@ -13273,7 +13275,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceNetworkInterface.parse(node)
+          data << InstanceNetworkInterface.parse(node)
         end
         data
       end
@@ -13283,21 +13285,21 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::InstanceNetworkInterface.new
         xml.at('association') do |node|
-          data.association = Parsers::InstanceNetworkInterfaceAssociation.parse(node)
+          data.association = InstanceNetworkInterfaceAssociation.parse(node)
         end
         xml.at('attachment') do |node|
-          data.attachment = Parsers::InstanceNetworkInterfaceAttachment.parse(node)
+          data.attachment = InstanceNetworkInterfaceAttachment.parse(node)
         end
         xml.at('description') do |node|
           data.description = (node.text || '')
         end
         xml.at('groupSet') do |node|
           children = node.children('item')
-          data.groups = Parsers::GroupIdentifierList.parse(children)
+          data.groups = GroupIdentifierList.parse(children)
         end
         xml.at('ipv6AddressesSet') do |node|
           children = node.children('item')
-          data.ipv6_addresses = Parsers::InstanceIpv6AddressList.parse(children)
+          data.ipv6_addresses = InstanceIpv6AddressList.parse(children)
         end
         xml.at('macAddress') do |node|
           data.mac_address = (node.text || '')
@@ -13316,7 +13318,7 @@ module AWS::SDK::EC2
         end
         xml.at('privateIpAddressesSet') do |node|
           children = node.children('item')
-          data.private_ip_addresses = Parsers::InstancePrivateIpAddressList.parse(children)
+          data.private_ip_addresses = InstancePrivateIpAddressList.parse(children)
         end
         xml.at('sourceDestCheck') do |node|
           data.source_dest_check = (node.text == 'true')
@@ -13335,11 +13337,11 @@ module AWS::SDK::EC2
         end
         xml.at('ipv4PrefixSet') do |node|
           children = node.children('item')
-          data.ipv4_prefixes = Parsers::InstanceIpv4PrefixList.parse(children)
+          data.ipv4_prefixes = InstanceIpv4PrefixList.parse(children)
         end
         xml.at('ipv6PrefixSet') do |node|
           children = node.children('item')
-          data.ipv6_prefixes = Parsers::InstanceIpv6PrefixList.parse(children)
+          data.ipv6_prefixes = InstanceIpv6PrefixList.parse(children)
         end
         return data
       end
@@ -13349,7 +13351,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceIpv6Prefix.parse(node)
+          data << InstanceIpv6Prefix.parse(node)
         end
         data
       end
@@ -13369,7 +13371,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceIpv4Prefix.parse(node)
+          data << InstanceIpv4Prefix.parse(node)
         end
         data
       end
@@ -13389,7 +13391,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstancePrivateIpAddress.parse(node)
+          data << InstancePrivateIpAddress.parse(node)
         end
         data
       end
@@ -13399,7 +13401,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::InstancePrivateIpAddress.new
         xml.at('association') do |node|
-          data.association = Parsers::InstanceNetworkInterfaceAssociation.parse(node)
+          data.association = InstanceNetworkInterfaceAssociation.parse(node)
         end
         xml.at('primary') do |node|
           data.primary = (node.text == 'true')
@@ -13465,7 +13467,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ElasticInferenceAcceleratorAssociation.parse(node)
+          data << ElasticInferenceAcceleratorAssociation.parse(node)
         end
         data
       end
@@ -13494,7 +13496,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ElasticGpuAssociation.parse(node)
+          data << ElasticGpuAssociation.parse(node)
         end
         data
       end
@@ -13569,7 +13571,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('internetGatewaySet') do |node|
           children = node.children('item')
-          data.internet_gateways = Parsers::InternetGatewayList.parse(children)
+          data.internet_gateways = InternetGatewayList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -13582,7 +13584,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InternetGateway.parse(node)
+          data << InternetGateway.parse(node)
         end
         data
       end
@@ -13600,7 +13602,7 @@ module AWS::SDK::EC2
         end
         xml.at('ipamPoolSet') do |node|
           children = node.children('item')
-          data.ipam_pools = Parsers::IpamPoolSet.parse(children)
+          data.ipam_pools = IpamPoolSet.parse(children)
         end
         data
       end
@@ -13610,7 +13612,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::IpamPool.parse(node)
+          data << IpamPool.parse(node)
         end
         data
       end
@@ -13628,7 +13630,7 @@ module AWS::SDK::EC2
         end
         xml.at('ipamScopeSet') do |node|
           children = node.children('item')
-          data.ipam_scopes = Parsers::IpamScopeSet.parse(children)
+          data.ipam_scopes = IpamScopeSet.parse(children)
         end
         data
       end
@@ -13638,7 +13640,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::IpamScope.parse(node)
+          data << IpamScope.parse(node)
         end
         data
       end
@@ -13656,7 +13658,7 @@ module AWS::SDK::EC2
         end
         xml.at('ipamSet') do |node|
           children = node.children('item')
-          data.ipams = Parsers::IpamSet.parse(children)
+          data.ipams = IpamSet.parse(children)
         end
         data
       end
@@ -13666,7 +13668,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Ipam.parse(node)
+          data << Ipam.parse(node)
         end
         data
       end
@@ -13681,7 +13683,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('ipv6PoolSet') do |node|
           children = node.children('item')
-          data.ipv6_pools = Parsers::Ipv6PoolSet.parse(children)
+          data.ipv6_pools = Ipv6PoolSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -13694,7 +13696,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Ipv6Pool.parse(node)
+          data << Ipv6Pool.parse(node)
         end
         data
       end
@@ -13711,11 +13713,11 @@ module AWS::SDK::EC2
         end
         xml.at('poolCidrBlockSet') do |node|
           children = node.children('item')
-          data.pool_cidr_blocks = Parsers::PoolCidrBlocksSet.parse(children)
+          data.pool_cidr_blocks = PoolCidrBlocksSet.parse(children)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -13725,7 +13727,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PoolCidrBlock.parse(node)
+          data << PoolCidrBlock.parse(node)
         end
         data
       end
@@ -13750,7 +13752,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('keySet') do |node|
           children = node.children('item')
-          data.key_pairs = Parsers::KeyPairList.parse(children)
+          data.key_pairs = KeyPairList.parse(children)
         end
         data
       end
@@ -13760,7 +13762,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::KeyPairInfo.parse(node)
+          data << KeyPairInfo.parse(node)
         end
         data
       end
@@ -13783,7 +13785,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('publicKey') do |node|
           data.public_key = (node.text || '')
@@ -13804,7 +13806,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('launchTemplateVersionSet') do |node|
           children = node.children('item')
-          data.launch_template_versions = Parsers::LaunchTemplateVersionSet.parse(children)
+          data.launch_template_versions = LaunchTemplateVersionSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -13817,7 +13819,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LaunchTemplateVersion.parse(node)
+          data << LaunchTemplateVersion.parse(node)
         end
         data
       end
@@ -13832,7 +13834,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('launchTemplates') do |node|
           children = node.children('item')
-          data.launch_templates = Parsers::LaunchTemplateSet.parse(children)
+          data.launch_templates = LaunchTemplateSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -13845,7 +13847,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LaunchTemplate.parse(node)
+          data << LaunchTemplate.parse(node)
         end
         data
       end
@@ -13860,7 +13862,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('localGatewayRouteTableVirtualInterfaceGroupAssociationSet') do |node|
           children = node.children('item')
-          data.local_gateway_route_table_virtual_interface_group_associations = Parsers::LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet.parse(children)
+          data.local_gateway_route_table_virtual_interface_group_associations = LocalGatewayRouteTableVirtualInterfaceGroupAssociationSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -13873,7 +13875,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LocalGatewayRouteTableVirtualInterfaceGroupAssociation.parse(node)
+          data << LocalGatewayRouteTableVirtualInterfaceGroupAssociation.parse(node)
         end
         data
       end
@@ -13905,7 +13907,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -13920,7 +13922,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('localGatewayRouteTableVpcAssociationSet') do |node|
           children = node.children('item')
-          data.local_gateway_route_table_vpc_associations = Parsers::LocalGatewayRouteTableVpcAssociationSet.parse(children)
+          data.local_gateway_route_table_vpc_associations = LocalGatewayRouteTableVpcAssociationSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -13933,7 +13935,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LocalGatewayRouteTableVpcAssociation.parse(node)
+          data << LocalGatewayRouteTableVpcAssociation.parse(node)
         end
         data
       end
@@ -13948,7 +13950,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('localGatewayRouteTableSet') do |node|
           children = node.children('item')
-          data.local_gateway_route_tables = Parsers::LocalGatewayRouteTableSet.parse(children)
+          data.local_gateway_route_tables = LocalGatewayRouteTableSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -13961,7 +13963,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LocalGatewayRouteTable.parse(node)
+          data << LocalGatewayRouteTable.parse(node)
         end
         data
       end
@@ -13990,7 +13992,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -14005,7 +14007,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('localGatewayVirtualInterfaceGroupSet') do |node|
           children = node.children('item')
-          data.local_gateway_virtual_interface_groups = Parsers::LocalGatewayVirtualInterfaceGroupSet.parse(children)
+          data.local_gateway_virtual_interface_groups = LocalGatewayVirtualInterfaceGroupSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -14018,7 +14020,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LocalGatewayVirtualInterfaceGroup.parse(node)
+          data << LocalGatewayVirtualInterfaceGroup.parse(node)
         end
         data
       end
@@ -14032,7 +14034,7 @@ module AWS::SDK::EC2
         end
         xml.at('localGatewayVirtualInterfaceIdSet') do |node|
           children = node.children('item')
-          data.local_gateway_virtual_interface_ids = Parsers::LocalGatewayVirtualInterfaceIdSet.parse(children)
+          data.local_gateway_virtual_interface_ids = LocalGatewayVirtualInterfaceIdSet.parse(children)
         end
         xml.at('localGatewayId') do |node|
           data.local_gateway_id = (node.text || '')
@@ -14042,7 +14044,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -14067,7 +14069,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('localGatewayVirtualInterfaceSet') do |node|
           children = node.children('item')
-          data.local_gateway_virtual_interfaces = Parsers::LocalGatewayVirtualInterfaceSet.parse(children)
+          data.local_gateway_virtual_interfaces = LocalGatewayVirtualInterfaceSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -14080,7 +14082,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LocalGatewayVirtualInterface.parse(node)
+          data << LocalGatewayVirtualInterface.parse(node)
         end
         data
       end
@@ -14115,7 +14117,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -14130,7 +14132,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('localGatewaySet') do |node|
           children = node.children('item')
-          data.local_gateways = Parsers::LocalGatewaySet.parse(children)
+          data.local_gateways = LocalGatewaySet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -14143,7 +14145,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LocalGateway.parse(node)
+          data << LocalGateway.parse(node)
         end
         data
       end
@@ -14166,7 +14168,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -14184,7 +14186,7 @@ module AWS::SDK::EC2
         end
         xml.at('prefixListSet') do |node|
           children = node.children('item')
-          data.prefix_lists = Parsers::ManagedPrefixListSet.parse(children)
+          data.prefix_lists = ManagedPrefixListSet.parse(children)
         end
         data
       end
@@ -14194,7 +14196,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ManagedPrefixList.parse(node)
+          data << ManagedPrefixList.parse(node)
         end
         data
       end
@@ -14209,7 +14211,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('movingAddressStatusSet') do |node|
           children = node.children('item')
-          data.moving_address_statuses = Parsers::MovingAddressStatusSet.parse(children)
+          data.moving_address_statuses = MovingAddressStatusSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -14222,7 +14224,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MovingAddressStatus.parse(node)
+          data << MovingAddressStatus.parse(node)
         end
         data
       end
@@ -14250,7 +14252,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('natGatewaySet') do |node|
           children = node.children('item')
-          data.nat_gateways = Parsers::NatGatewayList.parse(children)
+          data.nat_gateways = NatGatewayList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -14263,7 +14265,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NatGateway.parse(node)
+          data << NatGateway.parse(node)
         end
         data
       end
@@ -14278,7 +14280,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('networkAclSet') do |node|
           children = node.children('item')
-          data.network_acls = Parsers::NetworkAclList.parse(children)
+          data.network_acls = NetworkAclList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -14291,7 +14293,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NetworkAcl.parse(node)
+          data << NetworkAcl.parse(node)
         end
         data
       end
@@ -14306,7 +14308,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('networkInsightsAccessScopeAnalysisSet') do |node|
           children = node.children('item')
-          data.network_insights_access_scope_analyses = Parsers::NetworkInsightsAccessScopeAnalysisList.parse(children)
+          data.network_insights_access_scope_analyses = NetworkInsightsAccessScopeAnalysisList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -14319,7 +14321,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NetworkInsightsAccessScopeAnalysis.parse(node)
+          data << NetworkInsightsAccessScopeAnalysis.parse(node)
         end
         data
       end
@@ -14360,7 +14362,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -14375,7 +14377,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('networkInsightsAccessScopeSet') do |node|
           children = node.children('item')
-          data.network_insights_access_scopes = Parsers::NetworkInsightsAccessScopeList.parse(children)
+          data.network_insights_access_scopes = NetworkInsightsAccessScopeList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -14388,7 +14390,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NetworkInsightsAccessScope.parse(node)
+          data << NetworkInsightsAccessScope.parse(node)
         end
         data
       end
@@ -14403,7 +14405,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('networkInsightsAnalysisSet') do |node|
           children = node.children('item')
-          data.network_insights_analyses = Parsers::NetworkInsightsAnalysisList.parse(children)
+          data.network_insights_analyses = NetworkInsightsAnalysisList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -14416,7 +14418,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NetworkInsightsAnalysis.parse(node)
+          data << NetworkInsightsAnalysis.parse(node)
         end
         data
       end
@@ -14436,7 +14438,7 @@ module AWS::SDK::EC2
         end
         xml.at('filterInArnSet') do |node|
           children = node.children('item')
-          data.filter_in_arns = Parsers::ArnList.parse(children)
+          data.filter_in_arns = ArnList.parse(children)
         end
         xml.at('startDate') do |node|
           data.start_date = Time.parse(node.text) if node.text
@@ -14455,23 +14457,23 @@ module AWS::SDK::EC2
         end
         xml.at('forwardPathComponentSet') do |node|
           children = node.children('item')
-          data.forward_path_components = Parsers::PathComponentList.parse(children)
+          data.forward_path_components = PathComponentList.parse(children)
         end
         xml.at('returnPathComponentSet') do |node|
           children = node.children('item')
-          data.return_path_components = Parsers::PathComponentList.parse(children)
+          data.return_path_components = PathComponentList.parse(children)
         end
         xml.at('explanationSet') do |node|
           children = node.children('item')
-          data.explanations = Parsers::ExplanationList.parse(children)
+          data.explanations = ExplanationList.parse(children)
         end
         xml.at('alternatePathHintSet') do |node|
           children = node.children('item')
-          data.alternate_path_hints = Parsers::AlternatePathHintList.parse(children)
+          data.alternate_path_hints = AlternatePathHintList.parse(children)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -14481,7 +14483,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AlternatePathHint.parse(node)
+          data << AlternatePathHint.parse(node)
         end
         data
       end
@@ -14504,7 +14506,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Explanation.parse(node)
+          data << Explanation.parse(node)
         end
         data
       end
@@ -14514,40 +14516,40 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::Explanation.new
         xml.at('acl') do |node|
-          data.acl = Parsers::AnalysisComponent.parse(node)
+          data.acl = AnalysisComponent.parse(node)
         end
         xml.at('aclRule') do |node|
-          data.acl_rule = Parsers::AnalysisAclRule.parse(node)
+          data.acl_rule = AnalysisAclRule.parse(node)
         end
         xml.at('address') do |node|
           data.address = (node.text || '')
         end
         xml.at('addressSet') do |node|
           children = node.children('item')
-          data.addresses = Parsers::IpAddressList.parse(children)
+          data.addresses = IpAddressList.parse(children)
         end
         xml.at('attachedTo') do |node|
-          data.attached_to = Parsers::AnalysisComponent.parse(node)
+          data.attached_to = AnalysisComponent.parse(node)
         end
         xml.at('availabilityZoneSet') do |node|
           children = node.children('item')
-          data.availability_zones = Parsers::ValueStringList.parse(children)
+          data.availability_zones = ValueStringList.parse(children)
         end
         xml.at('cidrSet') do |node|
           children = node.children('item')
-          data.cidrs = Parsers::ValueStringList.parse(children)
+          data.cidrs = ValueStringList.parse(children)
         end
         xml.at('component') do |node|
-          data.component = Parsers::AnalysisComponent.parse(node)
+          data.component = AnalysisComponent.parse(node)
         end
         xml.at('customerGateway') do |node|
-          data.customer_gateway = Parsers::AnalysisComponent.parse(node)
+          data.customer_gateway = AnalysisComponent.parse(node)
         end
         xml.at('destination') do |node|
-          data.destination = Parsers::AnalysisComponent.parse(node)
+          data.destination = AnalysisComponent.parse(node)
         end
         xml.at('destinationVpc') do |node|
-          data.destination_vpc = Parsers::AnalysisComponent.parse(node)
+          data.destination_vpc = AnalysisComponent.parse(node)
         end
         xml.at('direction') do |node|
           data.direction = (node.text || '')
@@ -14556,116 +14558,116 @@ module AWS::SDK::EC2
           data.explanation_code = (node.text || '')
         end
         xml.at('ingressRouteTable') do |node|
-          data.ingress_route_table = Parsers::AnalysisComponent.parse(node)
+          data.ingress_route_table = AnalysisComponent.parse(node)
         end
         xml.at('internetGateway') do |node|
-          data.internet_gateway = Parsers::AnalysisComponent.parse(node)
+          data.internet_gateway = AnalysisComponent.parse(node)
         end
         xml.at('loadBalancerArn') do |node|
           data.load_balancer_arn = (node.text || '')
         end
         xml.at('classicLoadBalancerListener') do |node|
-          data.classic_load_balancer_listener = Parsers::AnalysisLoadBalancerListener.parse(node)
+          data.classic_load_balancer_listener = AnalysisLoadBalancerListener.parse(node)
         end
         xml.at('loadBalancerListenerPort') do |node|
           data.load_balancer_listener_port = node.text&.to_i
         end
         xml.at('loadBalancerTarget') do |node|
-          data.load_balancer_target = Parsers::AnalysisLoadBalancerTarget.parse(node)
+          data.load_balancer_target = AnalysisLoadBalancerTarget.parse(node)
         end
         xml.at('loadBalancerTargetGroup') do |node|
-          data.load_balancer_target_group = Parsers::AnalysisComponent.parse(node)
+          data.load_balancer_target_group = AnalysisComponent.parse(node)
         end
         xml.at('loadBalancerTargetGroupSet') do |node|
           children = node.children('item')
-          data.load_balancer_target_groups = Parsers::AnalysisComponentList.parse(children)
+          data.load_balancer_target_groups = AnalysisComponentList.parse(children)
         end
         xml.at('loadBalancerTargetPort') do |node|
           data.load_balancer_target_port = node.text&.to_i
         end
         xml.at('elasticLoadBalancerListener') do |node|
-          data.elastic_load_balancer_listener = Parsers::AnalysisComponent.parse(node)
+          data.elastic_load_balancer_listener = AnalysisComponent.parse(node)
         end
         xml.at('missingComponent') do |node|
           data.missing_component = (node.text || '')
         end
         xml.at('natGateway') do |node|
-          data.nat_gateway = Parsers::AnalysisComponent.parse(node)
+          data.nat_gateway = AnalysisComponent.parse(node)
         end
         xml.at('networkInterface') do |node|
-          data.network_interface = Parsers::AnalysisComponent.parse(node)
+          data.network_interface = AnalysisComponent.parse(node)
         end
         xml.at('packetField') do |node|
           data.packet_field = (node.text || '')
         end
         xml.at('vpcPeeringConnection') do |node|
-          data.vpc_peering_connection = Parsers::AnalysisComponent.parse(node)
+          data.vpc_peering_connection = AnalysisComponent.parse(node)
         end
         xml.at('port') do |node|
           data.port = node.text&.to_i
         end
         xml.at('portRangeSet') do |node|
           children = node.children('item')
-          data.port_ranges = Parsers::PortRangeList.parse(children)
+          data.port_ranges = PortRangeList.parse(children)
         end
         xml.at('prefixList') do |node|
-          data.prefix_list = Parsers::AnalysisComponent.parse(node)
+          data.prefix_list = AnalysisComponent.parse(node)
         end
         xml.at('protocolSet') do |node|
           children = node.children('item')
-          data.protocols = Parsers::StringList.parse(children)
+          data.protocols = StringList.parse(children)
         end
         xml.at('routeTableRoute') do |node|
-          data.route_table_route = Parsers::AnalysisRouteTableRoute.parse(node)
+          data.route_table_route = AnalysisRouteTableRoute.parse(node)
         end
         xml.at('routeTable') do |node|
-          data.route_table = Parsers::AnalysisComponent.parse(node)
+          data.route_table = AnalysisComponent.parse(node)
         end
         xml.at('securityGroup') do |node|
-          data.security_group = Parsers::AnalysisComponent.parse(node)
+          data.security_group = AnalysisComponent.parse(node)
         end
         xml.at('securityGroupRule') do |node|
-          data.security_group_rule = Parsers::AnalysisSecurityGroupRule.parse(node)
+          data.security_group_rule = AnalysisSecurityGroupRule.parse(node)
         end
         xml.at('securityGroupSet') do |node|
           children = node.children('item')
-          data.security_groups = Parsers::AnalysisComponentList.parse(children)
+          data.security_groups = AnalysisComponentList.parse(children)
         end
         xml.at('sourceVpc') do |node|
-          data.source_vpc = Parsers::AnalysisComponent.parse(node)
+          data.source_vpc = AnalysisComponent.parse(node)
         end
         xml.at('state') do |node|
           data.state = (node.text || '')
         end
         xml.at('subnet') do |node|
-          data.subnet = Parsers::AnalysisComponent.parse(node)
+          data.subnet = AnalysisComponent.parse(node)
         end
         xml.at('subnetRouteTable') do |node|
-          data.subnet_route_table = Parsers::AnalysisComponent.parse(node)
+          data.subnet_route_table = AnalysisComponent.parse(node)
         end
         xml.at('vpc') do |node|
-          data.vpc = Parsers::AnalysisComponent.parse(node)
+          data.vpc = AnalysisComponent.parse(node)
         end
         xml.at('vpcEndpoint') do |node|
-          data.vpc_endpoint = Parsers::AnalysisComponent.parse(node)
+          data.vpc_endpoint = AnalysisComponent.parse(node)
         end
         xml.at('vpnConnection') do |node|
-          data.vpn_connection = Parsers::AnalysisComponent.parse(node)
+          data.vpn_connection = AnalysisComponent.parse(node)
         end
         xml.at('vpnGateway') do |node|
-          data.vpn_gateway = Parsers::AnalysisComponent.parse(node)
+          data.vpn_gateway = AnalysisComponent.parse(node)
         end
         xml.at('transitGateway') do |node|
-          data.transit_gateway = Parsers::AnalysisComponent.parse(node)
+          data.transit_gateway = AnalysisComponent.parse(node)
         end
         xml.at('transitGatewayRouteTable') do |node|
-          data.transit_gateway_route_table = Parsers::AnalysisComponent.parse(node)
+          data.transit_gateway_route_table = AnalysisComponent.parse(node)
         end
         xml.at('transitGatewayRouteTableRoute') do |node|
-          data.transit_gateway_route_table_route = Parsers::TransitGatewayRouteTableRoute.parse(node)
+          data.transit_gateway_route_table_route = TransitGatewayRouteTableRoute.parse(node)
         end
         xml.at('transitGatewayAttachment') do |node|
-          data.transit_gateway_attachment = Parsers::AnalysisComponent.parse(node)
+          data.transit_gateway_attachment = AnalysisComponent.parse(node)
         end
         return data
       end
@@ -14719,7 +14721,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AnalysisComponent.parse(node)
+          data << AnalysisComponent.parse(node)
         end
         data
       end
@@ -14738,7 +14740,7 @@ module AWS::SDK::EC2
           data.security_group_id = (node.text || '')
         end
         xml.at('portRange') do |node|
-          data.port_range = Parsers::PortRange.parse(node)
+          data.port_range = PortRange.parse(node)
         end
         xml.at('prefixListId') do |node|
           data.prefix_list_id = (node.text || '')
@@ -14801,7 +14803,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PortRange.parse(node)
+          data << PortRange.parse(node)
         end
         data
       end
@@ -14817,7 +14819,7 @@ module AWS::SDK::EC2
           data.availability_zone = (node.text || '')
         end
         xml.at('instance') do |node|
-          data.instance = Parsers::AnalysisComponent.parse(node)
+          data.instance = AnalysisComponent.parse(node)
         end
         xml.at('port') do |node|
           data.port = node.text&.to_i
@@ -14859,7 +14861,7 @@ module AWS::SDK::EC2
           data.egress = (node.text == 'true')
         end
         xml.at('portRange') do |node|
-          data.port_range = Parsers::PortRange.parse(node)
+          data.port_range = PortRange.parse(node)
         end
         xml.at('protocol') do |node|
           data.protocol = (node.text || '')
@@ -14878,7 +14880,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PathComponent.parse(node)
+          data << PathComponent.parse(node)
         end
         data
       end
@@ -14891,47 +14893,47 @@ module AWS::SDK::EC2
           data.sequence_number = node.text&.to_i
         end
         xml.at('aclRule') do |node|
-          data.acl_rule = Parsers::AnalysisAclRule.parse(node)
+          data.acl_rule = AnalysisAclRule.parse(node)
         end
         xml.at('attachedTo') do |node|
-          data.attached_to = Parsers::AnalysisComponent.parse(node)
+          data.attached_to = AnalysisComponent.parse(node)
         end
         xml.at('component') do |node|
-          data.component = Parsers::AnalysisComponent.parse(node)
+          data.component = AnalysisComponent.parse(node)
         end
         xml.at('destinationVpc') do |node|
-          data.destination_vpc = Parsers::AnalysisComponent.parse(node)
+          data.destination_vpc = AnalysisComponent.parse(node)
         end
         xml.at('outboundHeader') do |node|
-          data.outbound_header = Parsers::AnalysisPacketHeader.parse(node)
+          data.outbound_header = AnalysisPacketHeader.parse(node)
         end
         xml.at('inboundHeader') do |node|
-          data.inbound_header = Parsers::AnalysisPacketHeader.parse(node)
+          data.inbound_header = AnalysisPacketHeader.parse(node)
         end
         xml.at('routeTableRoute') do |node|
-          data.route_table_route = Parsers::AnalysisRouteTableRoute.parse(node)
+          data.route_table_route = AnalysisRouteTableRoute.parse(node)
         end
         xml.at('securityGroupRule') do |node|
-          data.security_group_rule = Parsers::AnalysisSecurityGroupRule.parse(node)
+          data.security_group_rule = AnalysisSecurityGroupRule.parse(node)
         end
         xml.at('sourceVpc') do |node|
-          data.source_vpc = Parsers::AnalysisComponent.parse(node)
+          data.source_vpc = AnalysisComponent.parse(node)
         end
         xml.at('subnet') do |node|
-          data.subnet = Parsers::AnalysisComponent.parse(node)
+          data.subnet = AnalysisComponent.parse(node)
         end
         xml.at('vpc') do |node|
-          data.vpc = Parsers::AnalysisComponent.parse(node)
+          data.vpc = AnalysisComponent.parse(node)
         end
         xml.at('additionalDetailSet') do |node|
           children = node.children('item')
-          data.additional_details = Parsers::AdditionalDetailList.parse(children)
+          data.additional_details = AdditionalDetailList.parse(children)
         end
         xml.at('transitGateway') do |node|
-          data.transit_gateway = Parsers::AnalysisComponent.parse(node)
+          data.transit_gateway = AnalysisComponent.parse(node)
         end
         xml.at('transitGatewayRouteTableRoute') do |node|
-          data.transit_gateway_route_table_route = Parsers::TransitGatewayRouteTableRoute.parse(node)
+          data.transit_gateway_route_table_route = TransitGatewayRouteTableRoute.parse(node)
         end
         return data
       end
@@ -14941,7 +14943,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AdditionalDetail.parse(node)
+          data << AdditionalDetail.parse(node)
         end
         data
       end
@@ -14954,7 +14956,7 @@ module AWS::SDK::EC2
           data.additional_detail_type = (node.text || '')
         end
         xml.at('component') do |node|
-          data.component = Parsers::AnalysisComponent.parse(node)
+          data.component = AnalysisComponent.parse(node)
         end
         return data
       end
@@ -14965,22 +14967,22 @@ module AWS::SDK::EC2
         data = Types::AnalysisPacketHeader.new
         xml.at('destinationAddressSet') do |node|
           children = node.children('item')
-          data.destination_addresses = Parsers::IpAddressList.parse(children)
+          data.destination_addresses = IpAddressList.parse(children)
         end
         xml.at('destinationPortRangeSet') do |node|
           children = node.children('item')
-          data.destination_port_ranges = Parsers::PortRangeList.parse(children)
+          data.destination_port_ranges = PortRangeList.parse(children)
         end
         xml.at('protocol') do |node|
           data.protocol = (node.text || '')
         end
         xml.at('sourceAddressSet') do |node|
           children = node.children('item')
-          data.source_addresses = Parsers::IpAddressList.parse(children)
+          data.source_addresses = IpAddressList.parse(children)
         end
         xml.at('sourcePortRangeSet') do |node|
           children = node.children('item')
-          data.source_port_ranges = Parsers::PortRangeList.parse(children)
+          data.source_port_ranges = PortRangeList.parse(children)
         end
         return data
       end
@@ -15005,7 +15007,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('networkInsightsPathSet') do |node|
           children = node.children('item')
-          data.network_insights_paths = Parsers::NetworkInsightsPathList.parse(children)
+          data.network_insights_paths = NetworkInsightsPathList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -15018,7 +15020,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NetworkInsightsPath.parse(node)
+          data << NetworkInsightsPath.parse(node)
         end
         data
       end
@@ -15032,20 +15034,20 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('attachment') do |node|
-          data.attachment = Parsers::NetworkInterfaceAttachment.parse(node)
+          data.attachment = NetworkInterfaceAttachment.parse(node)
         end
         xml.at('description') do |node|
-          data.description = Parsers::AttributeValue.parse(node)
+          data.description = AttributeValue.parse(node)
         end
         xml.at('groupSet') do |node|
           children = node.children('item')
-          data.groups = Parsers::GroupIdentifierList.parse(children)
+          data.groups = GroupIdentifierList.parse(children)
         end
         xml.at('networkInterfaceId') do |node|
           data.network_interface_id = (node.text || '')
         end
         xml.at('sourceDestCheck') do |node|
-          data.source_dest_check = Parsers::AttributeBooleanValue.parse(node)
+          data.source_dest_check = AttributeBooleanValue.parse(node)
         end
         data
       end
@@ -15060,7 +15062,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('networkInterfacePermissions') do |node|
           children = node.children('item')
-          data.network_interface_permissions = Parsers::NetworkInterfacePermissionList.parse(children)
+          data.network_interface_permissions = NetworkInterfacePermissionList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -15073,7 +15075,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NetworkInterfacePermission.parse(node)
+          data << NetworkInterfacePermission.parse(node)
         end
         data
       end
@@ -15088,7 +15090,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('networkInterfaceSet') do |node|
           children = node.children('item')
-          data.network_interfaces = Parsers::NetworkInterfaceList.parse(children)
+          data.network_interfaces = NetworkInterfaceList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -15101,7 +15103,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NetworkInterface.parse(node)
+          data << NetworkInterface.parse(node)
         end
         data
       end
@@ -15116,7 +15118,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('placementGroupSet') do |node|
           children = node.children('item')
-          data.placement_groups = Parsers::PlacementGroupList.parse(children)
+          data.placement_groups = PlacementGroupList.parse(children)
         end
         data
       end
@@ -15126,7 +15128,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PlacementGroup.parse(node)
+          data << PlacementGroup.parse(node)
         end
         data
       end
@@ -15144,7 +15146,7 @@ module AWS::SDK::EC2
         end
         xml.at('prefixListSet') do |node|
           children = node.children('item')
-          data.prefix_lists = Parsers::PrefixListSet.parse(children)
+          data.prefix_lists = PrefixListSet.parse(children)
         end
         data
       end
@@ -15154,7 +15156,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PrefixList.parse(node)
+          data << PrefixList.parse(node)
         end
         data
       end
@@ -15165,7 +15167,7 @@ module AWS::SDK::EC2
         data = Types::PrefixList.new
         xml.at('cidrSet') do |node|
           children = node.children('item')
-          data.cidrs = Parsers::ValueStringList.parse(children)
+          data.cidrs = ValueStringList.parse(children)
         end
         xml.at('prefixListId') do |node|
           data.prefix_list_id = (node.text || '')
@@ -15186,7 +15188,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('principalSet') do |node|
           children = node.children('item')
-          data.principals = Parsers::PrincipalIdFormatList.parse(children)
+          data.principals = PrincipalIdFormatList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -15199,7 +15201,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PrincipalIdFormat.parse(node)
+          data << PrincipalIdFormat.parse(node)
         end
         data
       end
@@ -15213,7 +15215,7 @@ module AWS::SDK::EC2
         end
         xml.at('statusSet') do |node|
           children = node.children('item')
-          data.statuses = Parsers::IdFormatList.parse(children)
+          data.statuses = IdFormatList.parse(children)
         end
         return data
       end
@@ -15228,7 +15230,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('publicIpv4PoolSet') do |node|
           children = node.children('item')
-          data.public_ipv4_pools = Parsers::PublicIpv4PoolSet.parse(children)
+          data.public_ipv4_pools = PublicIpv4PoolSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -15241,7 +15243,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PublicIpv4Pool.parse(node)
+          data << PublicIpv4Pool.parse(node)
         end
         data
       end
@@ -15258,7 +15260,7 @@ module AWS::SDK::EC2
         end
         xml.at('poolAddressRangeSet') do |node|
           children = node.children('item')
-          data.pool_address_ranges = Parsers::PublicIpv4PoolRangeSet.parse(children)
+          data.pool_address_ranges = PublicIpv4PoolRangeSet.parse(children)
         end
         xml.at('totalAddressCount') do |node|
           data.total_address_count = node.text&.to_i
@@ -15271,7 +15273,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -15281,7 +15283,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PublicIpv4PoolRange.parse(node)
+          data << PublicIpv4PoolRange.parse(node)
         end
         data
       end
@@ -15315,7 +15317,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('regionInfo') do |node|
           children = node.children('item')
-          data.regions = Parsers::RegionList.parse(children)
+          data.regions = RegionList.parse(children)
         end
         data
       end
@@ -15325,7 +15327,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Region.parse(node)
+          data << Region.parse(node)
         end
         data
       end
@@ -15356,7 +15358,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('replaceRootVolumeTaskSet') do |node|
           children = node.children('item')
-          data.replace_root_volume_tasks = Parsers::ReplaceRootVolumeTasks.parse(children)
+          data.replace_root_volume_tasks = ReplaceRootVolumeTasks.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -15369,7 +15371,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReplaceRootVolumeTask.parse(node)
+          data << ReplaceRootVolumeTask.parse(node)
         end
         data
       end
@@ -15384,7 +15386,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('reservedInstancesSet') do |node|
           children = node.children('item')
-          data.reserved_instances = Parsers::ReservedInstancesList.parse(children)
+          data.reserved_instances = ReservedInstancesList.parse(children)
         end
         data
       end
@@ -15394,7 +15396,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReservedInstances.parse(node)
+          data << ReservedInstances.parse(node)
         end
         data
       end
@@ -15450,14 +15452,14 @@ module AWS::SDK::EC2
         end
         xml.at('recurringCharges') do |node|
           children = node.children('item')
-          data.recurring_charges = Parsers::RecurringChargesList.parse(children)
+          data.recurring_charges = RecurringChargesList.parse(children)
         end
         xml.at('scope') do |node|
           data.scope = (node.text || '')
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -15467,7 +15469,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::RecurringCharge.parse(node)
+          data << RecurringCharge.parse(node)
         end
         data
       end
@@ -15495,7 +15497,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('reservedInstancesListingsSet') do |node|
           children = node.children('item')
-          data.reserved_instances_listings = Parsers::ReservedInstancesListingList.parse(children)
+          data.reserved_instances_listings = ReservedInstancesListingList.parse(children)
         end
         data
       end
@@ -15513,7 +15515,7 @@ module AWS::SDK::EC2
         end
         xml.at('reservedInstancesModificationsSet') do |node|
           children = node.children('item')
-          data.reserved_instances_modifications = Parsers::ReservedInstancesModificationList.parse(children)
+          data.reserved_instances_modifications = ReservedInstancesModificationList.parse(children)
         end
         data
       end
@@ -15523,7 +15525,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReservedInstancesModification.parse(node)
+          data << ReservedInstancesModification.parse(node)
         end
         data
       end
@@ -15543,11 +15545,11 @@ module AWS::SDK::EC2
         end
         xml.at('modificationResultSet') do |node|
           children = node.children('item')
-          data.modification_results = Parsers::ReservedInstancesModificationResultList.parse(children)
+          data.modification_results = ReservedInstancesModificationResultList.parse(children)
         end
         xml.at('reservedInstancesSet') do |node|
           children = node.children('item')
-          data.reserved_instances_ids = Parsers::ReservedIntancesIds.parse(children)
+          data.reserved_instances_ids = ReservedIntancesIds.parse(children)
         end
         xml.at('reservedInstancesModificationId') do |node|
           data.reserved_instances_modification_id = (node.text || '')
@@ -15569,7 +15571,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReservedInstancesId.parse(node)
+          data << ReservedInstancesId.parse(node)
         end
         data
       end
@@ -15589,7 +15591,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReservedInstancesModificationResult.parse(node)
+          data << ReservedInstancesModificationResult.parse(node)
         end
         data
       end
@@ -15602,7 +15604,7 @@ module AWS::SDK::EC2
           data.reserved_instances_id = (node.text || '')
         end
         xml.at('targetConfiguration') do |node|
-          data.target_configuration = Parsers::ReservedInstancesConfiguration.parse(node)
+          data.target_configuration = ReservedInstancesConfiguration.parse(node)
         end
         return data
       end
@@ -15639,7 +15641,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('reservedInstancesOfferingsSet') do |node|
           children = node.children('item')
-          data.reserved_instances_offerings = Parsers::ReservedInstancesOfferingList.parse(children)
+          data.reserved_instances_offerings = ReservedInstancesOfferingList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -15652,7 +15654,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReservedInstancesOffering.parse(node)
+          data << ReservedInstancesOffering.parse(node)
         end
         data
       end
@@ -15699,11 +15701,11 @@ module AWS::SDK::EC2
         end
         xml.at('pricingDetailsSet') do |node|
           children = node.children('item')
-          data.pricing_details = Parsers::PricingDetailsList.parse(children)
+          data.pricing_details = PricingDetailsList.parse(children)
         end
         xml.at('recurringCharges') do |node|
           children = node.children('item')
-          data.recurring_charges = Parsers::RecurringChargesList.parse(children)
+          data.recurring_charges = RecurringChargesList.parse(children)
         end
         xml.at('scope') do |node|
           data.scope = (node.text || '')
@@ -15716,7 +15718,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PricingDetail.parse(node)
+          data << PricingDetail.parse(node)
         end
         data
       end
@@ -15744,7 +15746,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('routeTableSet') do |node|
           children = node.children('item')
-          data.route_tables = Parsers::RouteTableList.parse(children)
+          data.route_tables = RouteTableList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -15757,7 +15759,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::RouteTable.parse(node)
+          data << RouteTable.parse(node)
         end
         data
       end
@@ -15775,7 +15777,7 @@ module AWS::SDK::EC2
         end
         xml.at('scheduledInstanceAvailabilitySet') do |node|
           children = node.children('item')
-          data.scheduled_instance_availability_set = Parsers::ScheduledInstanceAvailabilitySet.parse(children)
+          data.scheduled_instance_availability_set = ScheduledInstanceAvailabilitySet.parse(children)
         end
         data
       end
@@ -15785,7 +15787,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ScheduledInstanceAvailability.parse(node)
+          data << ScheduledInstanceAvailability.parse(node)
         end
         data
       end
@@ -15825,7 +15827,7 @@ module AWS::SDK::EC2
           data.purchase_token = (node.text || '')
         end
         xml.at('recurrence') do |node|
-          data.recurrence = Parsers::ScheduledInstanceRecurrence.parse(node)
+          data.recurrence = ScheduledInstanceRecurrence.parse(node)
         end
         xml.at('slotDurationInHours') do |node|
           data.slot_duration_in_hours = node.text&.to_i
@@ -15848,7 +15850,7 @@ module AWS::SDK::EC2
         end
         xml.at('occurrenceDaySet') do |node|
           children = node.children('item')
-          data.occurrence_day_set = Parsers::OccurrenceDaySet.parse(children)
+          data.occurrence_day_set = OccurrenceDaySet.parse(children)
         end
         xml.at('occurrenceRelativeToEnd') do |node|
           data.occurrence_relative_to_end = (node.text == 'true')
@@ -15882,7 +15884,7 @@ module AWS::SDK::EC2
         end
         xml.at('scheduledInstanceSet') do |node|
           children = node.children('item')
-          data.scheduled_instance_set = Parsers::ScheduledInstanceSet.parse(children)
+          data.scheduled_instance_set = ScheduledInstanceSet.parse(children)
         end
         data
       end
@@ -15892,7 +15894,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ScheduledInstance.parse(node)
+          data << ScheduledInstance.parse(node)
         end
         data
       end
@@ -15929,7 +15931,7 @@ module AWS::SDK::EC2
           data.previous_slot_end_time = Time.parse(node.text) if node.text
         end
         xml.at('recurrence') do |node|
-          data.recurrence = Parsers::ScheduledInstanceRecurrence.parse(node)
+          data.recurrence = ScheduledInstanceRecurrence.parse(node)
         end
         xml.at('scheduledInstanceId') do |node|
           data.scheduled_instance_id = (node.text || '')
@@ -15959,7 +15961,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('securityGroupReferenceSet') do |node|
           children = node.children('item')
-          data.security_group_reference_set = Parsers::SecurityGroupReferences.parse(children)
+          data.security_group_reference_set = SecurityGroupReferences.parse(children)
         end
         data
       end
@@ -15969,7 +15971,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SecurityGroupReference.parse(node)
+          data << SecurityGroupReference.parse(node)
         end
         data
       end
@@ -16000,7 +16002,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('securityGroupRuleSet') do |node|
           children = node.children('item')
-          data.security_group_rules = Parsers::SecurityGroupRuleList.parse(children)
+          data.security_group_rules = SecurityGroupRuleList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -16018,7 +16020,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('securityGroupInfo') do |node|
           children = node.children('item')
-          data.security_groups = Parsers::SecurityGroupList.parse(children)
+          data.security_groups = SecurityGroupList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -16031,7 +16033,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SecurityGroup.parse(node)
+          data << SecurityGroup.parse(node)
         end
         data
       end
@@ -16048,7 +16050,7 @@ module AWS::SDK::EC2
         end
         xml.at('ipPermissions') do |node|
           children = node.children('item')
-          data.ip_permissions = Parsers::IpPermissionList.parse(children)
+          data.ip_permissions = IpPermissionList.parse(children)
         end
         xml.at('ownerId') do |node|
           data.owner_id = (node.text || '')
@@ -16058,11 +16060,11 @@ module AWS::SDK::EC2
         end
         xml.at('ipPermissionsEgress') do |node|
           children = node.children('item')
-          data.ip_permissions_egress = Parsers::IpPermissionList.parse(children)
+          data.ip_permissions_egress = IpPermissionList.parse(children)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('vpcId') do |node|
           data.vpc_id = (node.text || '')
@@ -16075,7 +16077,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::IpPermission.parse(node)
+          data << IpPermission.parse(node)
         end
         data
       end
@@ -16092,22 +16094,22 @@ module AWS::SDK::EC2
         end
         xml.at('ipRanges') do |node|
           children = node.children('item')
-          data.ip_ranges = Parsers::IpRangeList.parse(children)
+          data.ip_ranges = IpRangeList.parse(children)
         end
         xml.at('ipv6Ranges') do |node|
           children = node.children('item')
-          data.ipv6_ranges = Parsers::Ipv6RangeList.parse(children)
+          data.ipv6_ranges = Ipv6RangeList.parse(children)
         end
         xml.at('prefixListIds') do |node|
           children = node.children('item')
-          data.prefix_list_ids = Parsers::PrefixListIdList.parse(children)
+          data.prefix_list_ids = PrefixListIdList.parse(children)
         end
         xml.at('toPort') do |node|
           data.to_port = node.text&.to_i
         end
         xml.at('groups') do |node|
           children = node.children('item')
-          data.user_id_group_pairs = Parsers::UserIdGroupPairList.parse(children)
+          data.user_id_group_pairs = UserIdGroupPairList.parse(children)
         end
         return data
       end
@@ -16117,7 +16119,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::UserIdGroupPair.parse(node)
+          data << UserIdGroupPair.parse(node)
         end
         data
       end
@@ -16155,7 +16157,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PrefixListId.parse(node)
+          data << PrefixListId.parse(node)
         end
         data
       end
@@ -16178,7 +16180,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Ipv6Range.parse(node)
+          data << Ipv6Range.parse(node)
         end
         data
       end
@@ -16201,7 +16203,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::IpRange.parse(node)
+          data << IpRange.parse(node)
         end
         data
       end
@@ -16229,11 +16231,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('createVolumePermission') do |node|
           children = node.children('item')
-          data.create_volume_permissions = Parsers::CreateVolumePermissionList.parse(children)
+          data.create_volume_permissions = CreateVolumePermissionList.parse(children)
         end
         xml.at('productCodes') do |node|
           children = node.children('item')
-          data.product_codes = Parsers::ProductCodeList.parse(children)
+          data.product_codes = ProductCodeList.parse(children)
         end
         xml.at('snapshotId') do |node|
           data.snapshot_id = (node.text || '')
@@ -16246,7 +16248,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CreateVolumePermission.parse(node)
+          data << CreateVolumePermission.parse(node)
         end
         data
       end
@@ -16274,7 +16276,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('snapshotTierStatusSet') do |node|
           children = node.children('item')
-          data.snapshot_tier_statuses = Parsers::SnapshotTierStatusSet.parse(children)
+          data.snapshot_tier_statuses = SnapshotTierStatusSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -16287,7 +16289,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SnapshotTierStatus.parse(node)
+          data << SnapshotTierStatus.parse(node)
         end
         data
       end
@@ -16310,7 +16312,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('storageTier') do |node|
           data.storage_tier = (node.text || '')
@@ -16346,7 +16348,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('snapshotSet') do |node|
           children = node.children('item')
-          data.snapshots = Parsers::SnapshotList.parse(children)
+          data.snapshots = SnapshotList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -16359,7 +16361,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Snapshot.parse(node)
+          data << Snapshot.parse(node)
         end
         data
       end
@@ -16412,7 +16414,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('storageTier') do |node|
           data.storage_tier = (node.text || '')
@@ -16432,7 +16434,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('spotDatafeedSubscription') do |node|
-          data.spot_datafeed_subscription = Parsers::SpotDatafeedSubscription.parse(node)
+          data.spot_datafeed_subscription = SpotDatafeedSubscription.parse(node)
         end
         data
       end
@@ -16447,7 +16449,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('activeInstanceSet') do |node|
           children = node.children('item')
-          data.active_instances = Parsers::ActiveInstanceSet.parse(children)
+          data.active_instances = ActiveInstanceSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -16468,7 +16470,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('historyRecordSet') do |node|
           children = node.children('item')
-          data.history_records = Parsers::HistoryRecords.parse(children)
+          data.history_records = HistoryRecords.parse(children)
         end
         xml.at('lastEvaluatedTime') do |node|
           data.last_evaluated_time = Time.parse(node.text) if node.text
@@ -16490,7 +16492,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::HistoryRecord.parse(node)
+          data << HistoryRecord.parse(node)
         end
         data
       end
@@ -16500,7 +16502,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::HistoryRecord.new
         xml.at('eventInformation') do |node|
-          data.event_information = Parsers::EventInformation.parse(node)
+          data.event_information = EventInformation.parse(node)
         end
         xml.at('eventType') do |node|
           data.event_type = (node.text || '')
@@ -16524,7 +16526,7 @@ module AWS::SDK::EC2
         end
         xml.at('spotFleetRequestConfigSet') do |node|
           children = node.children('item')
-          data.spot_fleet_request_configs = Parsers::SpotFleetRequestConfigSet.parse(children)
+          data.spot_fleet_request_configs = SpotFleetRequestConfigSet.parse(children)
         end
         data
       end
@@ -16534,7 +16536,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SpotFleetRequestConfig.parse(node)
+          data << SpotFleetRequestConfig.parse(node)
         end
         data
       end
@@ -16550,7 +16552,7 @@ module AWS::SDK::EC2
           data.create_time = Time.parse(node.text) if node.text
         end
         xml.at('spotFleetRequestConfig') do |node|
-          data.spot_fleet_request_config = Parsers::SpotFleetRequestConfigData.parse(node)
+          data.spot_fleet_request_config = SpotFleetRequestConfigData.parse(node)
         end
         xml.at('spotFleetRequestId') do |node|
           data.spot_fleet_request_id = (node.text || '')
@@ -16560,7 +16562,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -16576,7 +16578,7 @@ module AWS::SDK::EC2
           data.on_demand_allocation_strategy = (node.text || '')
         end
         xml.at('spotMaintenanceStrategies') do |node|
-          data.spot_maintenance_strategies = Parsers::SpotMaintenanceStrategies.parse(node)
+          data.spot_maintenance_strategies = SpotMaintenanceStrategies.parse(node)
         end
         xml.at('clientToken') do |node|
           data.client_token = (node.text || '')
@@ -16595,11 +16597,11 @@ module AWS::SDK::EC2
         end
         xml.at('launchSpecifications') do |node|
           children = node.children('item')
-          data.launch_specifications = Parsers::LaunchSpecsList.parse(children)
+          data.launch_specifications = LaunchSpecsList.parse(children)
         end
         xml.at('launchTemplateConfigs') do |node|
           children = node.children('item')
-          data.launch_template_configs = Parsers::LaunchTemplateConfigList.parse(children)
+          data.launch_template_configs = LaunchTemplateConfigList.parse(children)
         end
         xml.at('spotPrice') do |node|
           data.spot_price = (node.text || '')
@@ -16635,7 +16637,7 @@ module AWS::SDK::EC2
           data.instance_interruption_behavior = (node.text || '')
         end
         xml.at('loadBalancersConfig') do |node|
-          data.load_balancers_config = Parsers::LoadBalancersConfig.parse(node)
+          data.load_balancers_config = LoadBalancersConfig.parse(node)
         end
         xml.at('instancePoolsToUseCount') do |node|
           data.instance_pools_to_use_count = node.text&.to_i
@@ -16648,7 +16650,7 @@ module AWS::SDK::EC2
         end
         xml.at('TagSpecification') do |node|
           children = node.children('item')
-          data.tag_specifications = Parsers::TagSpecificationList.parse(children)
+          data.tag_specifications = TagSpecificationList.parse(children)
         end
         return data
       end
@@ -16658,7 +16660,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TagSpecification.parse(node)
+          data << TagSpecification.parse(node)
         end
         data
       end
@@ -16672,7 +16674,7 @@ module AWS::SDK::EC2
         end
         xml.at('Tag') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -16682,10 +16684,10 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::LoadBalancersConfig.new
         xml.at('classicLoadBalancersConfig') do |node|
-          data.classic_load_balancers_config = Parsers::ClassicLoadBalancersConfig.parse(node)
+          data.classic_load_balancers_config = ClassicLoadBalancersConfig.parse(node)
         end
         xml.at('targetGroupsConfig') do |node|
-          data.target_groups_config = Parsers::TargetGroupsConfig.parse(node)
+          data.target_groups_config = TargetGroupsConfig.parse(node)
         end
         return data
       end
@@ -16696,7 +16698,7 @@ module AWS::SDK::EC2
         data = Types::TargetGroupsConfig.new
         xml.at('targetGroups') do |node|
           children = node.children('item')
-          data.target_groups = Parsers::TargetGroups.parse(children)
+          data.target_groups = TargetGroups.parse(children)
         end
         return data
       end
@@ -16706,7 +16708,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TargetGroup.parse(node)
+          data << TargetGroup.parse(node)
         end
         data
       end
@@ -16727,7 +16729,7 @@ module AWS::SDK::EC2
         data = Types::ClassicLoadBalancersConfig.new
         xml.at('classicLoadBalancers') do |node|
           children = node.children('item')
-          data.classic_load_balancers = Parsers::ClassicLoadBalancers.parse(children)
+          data.classic_load_balancers = ClassicLoadBalancers.parse(children)
         end
         return data
       end
@@ -16737,7 +16739,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClassicLoadBalancer.parse(node)
+          data << ClassicLoadBalancer.parse(node)
         end
         data
       end
@@ -16757,7 +16759,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LaunchTemplateConfig.parse(node)
+          data << LaunchTemplateConfig.parse(node)
         end
         data
       end
@@ -16767,11 +16769,11 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::LaunchTemplateConfig.new
         xml.at('launchTemplateSpecification') do |node|
-          data.launch_template_specification = Parsers::FleetLaunchTemplateSpecification.parse(node)
+          data.launch_template_specification = FleetLaunchTemplateSpecification.parse(node)
         end
         xml.at('overrides') do |node|
           children = node.children('item')
-          data.overrides = Parsers::LaunchTemplateOverridesList.parse(children)
+          data.overrides = LaunchTemplateOverridesList.parse(children)
         end
         return data
       end
@@ -16781,7 +16783,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LaunchTemplateOverrides.parse(node)
+          data << LaunchTemplateOverrides.parse(node)
         end
         data
       end
@@ -16809,7 +16811,7 @@ module AWS::SDK::EC2
           data.priority = Hearth::NumberHelper.deserialize(node.text)
         end
         xml.at('instanceRequirements') do |node|
-          data.instance_requirements = Parsers::InstanceRequirements.parse(node)
+          data.instance_requirements = InstanceRequirements.parse(node)
         end
         return data
       end
@@ -16819,7 +16821,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SpotFleetLaunchSpecification.parse(node)
+          data << SpotFleetLaunchSpecification.parse(node)
         end
         data
       end
@@ -16830,20 +16832,20 @@ module AWS::SDK::EC2
         data = Types::SpotFleetLaunchSpecification.new
         xml.at('groupSet') do |node|
           children = node.children('item')
-          data.security_groups = Parsers::GroupIdentifierList.parse(children)
+          data.security_groups = GroupIdentifierList.parse(children)
         end
         xml.at('addressingType') do |node|
           data.addressing_type = (node.text || '')
         end
         xml.at('blockDeviceMapping') do |node|
           children = node.children('item')
-          data.block_device_mappings = Parsers::BlockDeviceMappingList.parse(children)
+          data.block_device_mappings = BlockDeviceMappingList.parse(children)
         end
         xml.at('ebsOptimized') do |node|
           data.ebs_optimized = (node.text == 'true')
         end
         xml.at('iamInstanceProfile') do |node|
-          data.iam_instance_profile = Parsers::IamInstanceProfileSpecification.parse(node)
+          data.iam_instance_profile = IamInstanceProfileSpecification.parse(node)
         end
         xml.at('imageId') do |node|
           data.image_id = (node.text || '')
@@ -16858,14 +16860,14 @@ module AWS::SDK::EC2
           data.key_name = (node.text || '')
         end
         xml.at('monitoring') do |node|
-          data.monitoring = Parsers::SpotFleetMonitoring.parse(node)
+          data.monitoring = SpotFleetMonitoring.parse(node)
         end
         xml.at('networkInterfaceSet') do |node|
           children = node.children('item')
-          data.network_interfaces = Parsers::InstanceNetworkInterfaceSpecificationList.parse(children)
+          data.network_interfaces = InstanceNetworkInterfaceSpecificationList.parse(children)
         end
         xml.at('placement') do |node|
-          data.placement = Parsers::SpotPlacement.parse(node)
+          data.placement = SpotPlacement.parse(node)
         end
         xml.at('ramdiskId') do |node|
           data.ramdisk_id = (node.text || '')
@@ -16884,10 +16886,10 @@ module AWS::SDK::EC2
         end
         xml.at('tagSpecificationSet') do |node|
           children = node.children('item')
-          data.tag_specifications = Parsers::SpotFleetTagSpecificationList.parse(children)
+          data.tag_specifications = SpotFleetTagSpecificationList.parse(children)
         end
         xml.at('instanceRequirements') do |node|
-          data.instance_requirements = Parsers::InstanceRequirements.parse(node)
+          data.instance_requirements = InstanceRequirements.parse(node)
         end
         return data
       end
@@ -16897,7 +16899,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SpotFleetTagSpecification.parse(node)
+          data << SpotFleetTagSpecification.parse(node)
         end
         data
       end
@@ -16911,7 +16913,7 @@ module AWS::SDK::EC2
         end
         xml.at('tag') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -16937,7 +16939,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceNetworkInterfaceSpecification.parse(node)
+          data << InstanceNetworkInterfaceSpecification.parse(node)
         end
         data
       end
@@ -16960,14 +16962,14 @@ module AWS::SDK::EC2
         end
         xml.at('SecurityGroupId') do |node|
           children = node.children('SecurityGroupId')
-          data.groups = Parsers::SecurityGroupIdStringList.parse(children)
+          data.groups = SecurityGroupIdStringList.parse(children)
         end
         xml.at('ipv6AddressCount') do |node|
           data.ipv6_address_count = node.text&.to_i
         end
         xml.at('ipv6AddressesSet') do |node|
           children = node.children('item')
-          data.ipv6_addresses = Parsers::InstanceIpv6AddressList.parse(children)
+          data.ipv6_addresses = InstanceIpv6AddressList.parse(children)
         end
         xml.at('networkInterfaceId') do |node|
           data.network_interface_id = (node.text || '')
@@ -16977,7 +16979,7 @@ module AWS::SDK::EC2
         end
         xml.at('privateIpAddressesSet') do |node|
           children = node.children('item')
-          data.private_ip_addresses = Parsers::PrivateIpAddressSpecificationList.parse(children)
+          data.private_ip_addresses = PrivateIpAddressSpecificationList.parse(children)
         end
         xml.at('secondaryPrivateIpAddressCount') do |node|
           data.secondary_private_ip_address_count = node.text&.to_i
@@ -16996,14 +16998,14 @@ module AWS::SDK::EC2
         end
         xml.at('Ipv4Prefix') do |node|
           children = node.children('item')
-          data.ipv4_prefixes = Parsers::Ipv4PrefixList.parse(children)
+          data.ipv4_prefixes = Ipv4PrefixList.parse(children)
         end
         xml.at('Ipv4PrefixCount') do |node|
           data.ipv4_prefix_count = node.text&.to_i
         end
         xml.at('Ipv6Prefix') do |node|
           children = node.children('item')
-          data.ipv6_prefixes = Parsers::Ipv6PrefixList.parse(children)
+          data.ipv6_prefixes = Ipv6PrefixList.parse(children)
         end
         xml.at('Ipv6PrefixCount') do |node|
           data.ipv6_prefix_count = node.text&.to_i
@@ -17016,7 +17018,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Ipv6PrefixSpecificationRequest.parse(node)
+          data << Ipv6PrefixSpecificationRequest.parse(node)
         end
         data
       end
@@ -17036,7 +17038,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Ipv4PrefixSpecificationRequest.parse(node)
+          data << Ipv4PrefixSpecificationRequest.parse(node)
         end
         data
       end
@@ -17089,7 +17091,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::SpotMaintenanceStrategies.new
         xml.at('capacityRebalance') do |node|
-          data.capacity_rebalance = Parsers::SpotCapacityRebalance.parse(node)
+          data.capacity_rebalance = SpotCapacityRebalance.parse(node)
         end
         return data
       end
@@ -17117,7 +17119,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('spotInstanceRequestSet') do |node|
           children = node.children('item')
-          data.spot_instance_requests = Parsers::SpotInstanceRequestList.parse(children)
+          data.spot_instance_requests = SpotInstanceRequestList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -17130,7 +17132,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SpotInstanceRequest.parse(node)
+          data << SpotInstanceRequest.parse(node)
         end
         data
       end
@@ -17152,7 +17154,7 @@ module AWS::SDK::EC2
           data.create_time = Time.parse(node.text) if node.text
         end
         xml.at('fault') do |node|
-          data.fault = Parsers::SpotInstanceStateFault.parse(node)
+          data.fault = SpotInstanceStateFault.parse(node)
         end
         xml.at('instanceId') do |node|
           data.instance_id = (node.text || '')
@@ -17161,7 +17163,7 @@ module AWS::SDK::EC2
           data.launch_group = (node.text || '')
         end
         xml.at('launchSpecification') do |node|
-          data.launch_specification = Parsers::LaunchSpecification.parse(node)
+          data.launch_specification = LaunchSpecification.parse(node)
         end
         xml.at('launchedAvailabilityZone') do |node|
           data.launched_availability_zone = (node.text || '')
@@ -17179,11 +17181,11 @@ module AWS::SDK::EC2
           data.state = (node.text || '')
         end
         xml.at('status') do |node|
-          data.status = Parsers::SpotInstanceStatus.parse(node)
+          data.status = SpotInstanceStatus.parse(node)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('type') do |node|
           data.type = (node.text || '')
@@ -17225,20 +17227,20 @@ module AWS::SDK::EC2
         end
         xml.at('groupSet') do |node|
           children = node.children('item')
-          data.security_groups = Parsers::GroupIdentifierList.parse(children)
+          data.security_groups = GroupIdentifierList.parse(children)
         end
         xml.at('addressingType') do |node|
           data.addressing_type = (node.text || '')
         end
         xml.at('blockDeviceMapping') do |node|
           children = node.children('item')
-          data.block_device_mappings = Parsers::BlockDeviceMappingList.parse(children)
+          data.block_device_mappings = BlockDeviceMappingList.parse(children)
         end
         xml.at('ebsOptimized') do |node|
           data.ebs_optimized = (node.text == 'true')
         end
         xml.at('iamInstanceProfile') do |node|
-          data.iam_instance_profile = Parsers::IamInstanceProfileSpecification.parse(node)
+          data.iam_instance_profile = IamInstanceProfileSpecification.parse(node)
         end
         xml.at('imageId') do |node|
           data.image_id = (node.text || '')
@@ -17254,10 +17256,10 @@ module AWS::SDK::EC2
         end
         xml.at('networkInterfaceSet') do |node|
           children = node.children('item')
-          data.network_interfaces = Parsers::InstanceNetworkInterfaceSpecificationList.parse(children)
+          data.network_interfaces = InstanceNetworkInterfaceSpecificationList.parse(children)
         end
         xml.at('placement') do |node|
-          data.placement = Parsers::SpotPlacement.parse(node)
+          data.placement = SpotPlacement.parse(node)
         end
         xml.at('ramdiskId') do |node|
           data.ramdisk_id = (node.text || '')
@@ -17266,7 +17268,7 @@ module AWS::SDK::EC2
           data.subnet_id = (node.text || '')
         end
         xml.at('monitoring') do |node|
-          data.monitoring = Parsers::RunInstancesMonitoringEnabled.parse(node)
+          data.monitoring = RunInstancesMonitoringEnabled.parse(node)
         end
         return data
       end
@@ -17294,7 +17296,7 @@ module AWS::SDK::EC2
         end
         xml.at('spotPriceHistorySet') do |node|
           children = node.children('item')
-          data.spot_price_history = Parsers::SpotPriceHistoryList.parse(children)
+          data.spot_price_history = SpotPriceHistoryList.parse(children)
         end
         data
       end
@@ -17304,7 +17306,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SpotPrice.parse(node)
+          data << SpotPrice.parse(node)
         end
         data
       end
@@ -17344,7 +17346,7 @@ module AWS::SDK::EC2
         end
         xml.at('staleSecurityGroupSet') do |node|
           children = node.children('item')
-          data.stale_security_group_set = Parsers::StaleSecurityGroupSet.parse(children)
+          data.stale_security_group_set = StaleSecurityGroupSet.parse(children)
         end
         data
       end
@@ -17354,7 +17356,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::StaleSecurityGroup.parse(node)
+          data << StaleSecurityGroup.parse(node)
         end
         data
       end
@@ -17374,11 +17376,11 @@ module AWS::SDK::EC2
         end
         xml.at('staleIpPermissions') do |node|
           children = node.children('item')
-          data.stale_ip_permissions = Parsers::StaleIpPermissionSet.parse(children)
+          data.stale_ip_permissions = StaleIpPermissionSet.parse(children)
         end
         xml.at('staleIpPermissionsEgress') do |node|
           children = node.children('item')
-          data.stale_ip_permissions_egress = Parsers::StaleIpPermissionSet.parse(children)
+          data.stale_ip_permissions_egress = StaleIpPermissionSet.parse(children)
         end
         xml.at('vpcId') do |node|
           data.vpc_id = (node.text || '')
@@ -17391,7 +17393,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::StaleIpPermission.parse(node)
+          data << StaleIpPermission.parse(node)
         end
         data
       end
@@ -17408,18 +17410,18 @@ module AWS::SDK::EC2
         end
         xml.at('ipRanges') do |node|
           children = node.children('item')
-          data.ip_ranges = Parsers::IpRanges.parse(children)
+          data.ip_ranges = IpRanges.parse(children)
         end
         xml.at('prefixListIds') do |node|
           children = node.children('item')
-          data.prefix_list_ids = Parsers::PrefixListIdSet.parse(children)
+          data.prefix_list_ids = PrefixListIdSet.parse(children)
         end
         xml.at('toPort') do |node|
           data.to_port = node.text&.to_i
         end
         xml.at('groups') do |node|
           children = node.children('item')
-          data.user_id_group_pairs = Parsers::UserIdGroupPairSet.parse(children)
+          data.user_id_group_pairs = UserIdGroupPairSet.parse(children)
         end
         return data
       end
@@ -17429,7 +17431,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::UserIdGroupPair.parse(node)
+          data << UserIdGroupPair.parse(node)
         end
         data
       end
@@ -17464,7 +17466,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('storeImageTaskResultSet') do |node|
           children = node.children('item')
-          data.store_image_task_results = Parsers::StoreImageTaskResultSet.parse(children)
+          data.store_image_task_results = StoreImageTaskResultSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -17477,7 +17479,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::StoreImageTaskResult.parse(node)
+          data << StoreImageTaskResult.parse(node)
         end
         data
       end
@@ -17520,7 +17522,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('subnetSet') do |node|
           children = node.children('item')
-          data.subnets = Parsers::SubnetList.parse(children)
+          data.subnets = SubnetList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -17533,7 +17535,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Subnet.parse(node)
+          data << Subnet.parse(node)
         end
         data
       end
@@ -17551,7 +17553,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagDescriptionList.parse(children)
+          data.tags = TagDescriptionList.parse(children)
         end
         data
       end
@@ -17561,7 +17563,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TagDescription.parse(node)
+          data << TagDescription.parse(node)
         end
         data
       end
@@ -17595,7 +17597,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('trafficMirrorFilterSet') do |node|
           children = node.children('item')
-          data.traffic_mirror_filters = Parsers::TrafficMirrorFilterSet.parse(children)
+          data.traffic_mirror_filters = TrafficMirrorFilterSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -17608,7 +17610,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TrafficMirrorFilter.parse(node)
+          data << TrafficMirrorFilter.parse(node)
         end
         data
       end
@@ -17623,7 +17625,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('trafficMirrorSessionSet') do |node|
           children = node.children('item')
-          data.traffic_mirror_sessions = Parsers::TrafficMirrorSessionSet.parse(children)
+          data.traffic_mirror_sessions = TrafficMirrorSessionSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -17636,7 +17638,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TrafficMirrorSession.parse(node)
+          data << TrafficMirrorSession.parse(node)
         end
         data
       end
@@ -17651,7 +17653,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('trafficMirrorTargetSet') do |node|
           children = node.children('item')
-          data.traffic_mirror_targets = Parsers::TrafficMirrorTargetSet.parse(children)
+          data.traffic_mirror_targets = TrafficMirrorTargetSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -17664,7 +17666,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TrafficMirrorTarget.parse(node)
+          data << TrafficMirrorTarget.parse(node)
         end
         data
       end
@@ -17679,7 +17681,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayAttachments') do |node|
           children = node.children('item')
-          data.transit_gateway_attachments = Parsers::TransitGatewayAttachmentList.parse(children)
+          data.transit_gateway_attachments = TransitGatewayAttachmentList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -17692,7 +17694,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TransitGatewayAttachment.parse(node)
+          data << TransitGatewayAttachment.parse(node)
         end
         data
       end
@@ -17723,14 +17725,14 @@ module AWS::SDK::EC2
           data.state = (node.text || '')
         end
         xml.at('association') do |node|
-          data.association = Parsers::TransitGatewayAttachmentAssociation.parse(node)
+          data.association = TransitGatewayAttachmentAssociation.parse(node)
         end
         xml.at('creationTime') do |node|
           data.creation_time = Time.parse(node.text) if node.text
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         return data
       end
@@ -17758,7 +17760,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayConnectPeerSet') do |node|
           children = node.children('item')
-          data.transit_gateway_connect_peers = Parsers::TransitGatewayConnectPeerList.parse(children)
+          data.transit_gateway_connect_peers = TransitGatewayConnectPeerList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -17771,7 +17773,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TransitGatewayConnectPeer.parse(node)
+          data << TransitGatewayConnectPeer.parse(node)
         end
         data
       end
@@ -17786,7 +17788,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayConnectSet') do |node|
           children = node.children('item')
-          data.transit_gateway_connects = Parsers::TransitGatewayConnectList.parse(children)
+          data.transit_gateway_connects = TransitGatewayConnectList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -17799,7 +17801,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TransitGatewayConnect.parse(node)
+          data << TransitGatewayConnect.parse(node)
         end
         data
       end
@@ -17814,7 +17816,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayMulticastDomains') do |node|
           children = node.children('item')
-          data.transit_gateway_multicast_domains = Parsers::TransitGatewayMulticastDomainList.parse(children)
+          data.transit_gateway_multicast_domains = TransitGatewayMulticastDomainList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -17827,7 +17829,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TransitGatewayMulticastDomain.parse(node)
+          data << TransitGatewayMulticastDomain.parse(node)
         end
         data
       end
@@ -17842,7 +17844,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayPeeringAttachments') do |node|
           children = node.children('item')
-          data.transit_gateway_peering_attachments = Parsers::TransitGatewayPeeringAttachmentList.parse(children)
+          data.transit_gateway_peering_attachments = TransitGatewayPeeringAttachmentList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -17855,7 +17857,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TransitGatewayPeeringAttachment.parse(node)
+          data << TransitGatewayPeeringAttachment.parse(node)
         end
         data
       end
@@ -17870,7 +17872,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayRouteTables') do |node|
           children = node.children('item')
-          data.transit_gateway_route_tables = Parsers::TransitGatewayRouteTableList.parse(children)
+          data.transit_gateway_route_tables = TransitGatewayRouteTableList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -17883,7 +17885,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TransitGatewayRouteTable.parse(node)
+          data << TransitGatewayRouteTable.parse(node)
         end
         data
       end
@@ -17898,7 +17900,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayVpcAttachments') do |node|
           children = node.children('item')
-          data.transit_gateway_vpc_attachments = Parsers::TransitGatewayVpcAttachmentList.parse(children)
+          data.transit_gateway_vpc_attachments = TransitGatewayVpcAttachmentList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -17911,7 +17913,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TransitGatewayVpcAttachment.parse(node)
+          data << TransitGatewayVpcAttachment.parse(node)
         end
         data
       end
@@ -17926,7 +17928,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewaySet') do |node|
           children = node.children('item')
-          data.transit_gateways = Parsers::TransitGatewayList.parse(children)
+          data.transit_gateways = TransitGatewayList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -17939,7 +17941,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TransitGateway.parse(node)
+          data << TransitGateway.parse(node)
         end
         data
       end
@@ -17954,7 +17956,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('interfaceAssociationSet') do |node|
           children = node.children('item')
-          data.interface_associations = Parsers::TrunkInterfaceAssociationList.parse(children)
+          data.interface_associations = TrunkInterfaceAssociationList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -17967,7 +17969,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TrunkInterfaceAssociation.parse(node)
+          data << TrunkInterfaceAssociation.parse(node)
         end
         data
       end
@@ -17981,11 +17983,11 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('autoEnableIO') do |node|
-          data.auto_enable_io = Parsers::AttributeBooleanValue.parse(node)
+          data.auto_enable_io = AttributeBooleanValue.parse(node)
         end
         xml.at('productCodes') do |node|
           children = node.children('item')
-          data.product_codes = Parsers::ProductCodeList.parse(children)
+          data.product_codes = ProductCodeList.parse(children)
         end
         xml.at('volumeId') do |node|
           data.volume_id = (node.text || '')
@@ -18006,7 +18008,7 @@ module AWS::SDK::EC2
         end
         xml.at('volumeStatusSet') do |node|
           children = node.children('item')
-          data.volume_statuses = Parsers::VolumeStatusList.parse(children)
+          data.volume_statuses = VolumeStatusList.parse(children)
         end
         data
       end
@@ -18016,7 +18018,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VolumeStatusItem.parse(node)
+          data << VolumeStatusItem.parse(node)
         end
         data
       end
@@ -18027,7 +18029,7 @@ module AWS::SDK::EC2
         data = Types::VolumeStatusItem.new
         xml.at('actionsSet') do |node|
           children = node.children('item')
-          data.actions = Parsers::VolumeStatusActionsList.parse(children)
+          data.actions = VolumeStatusActionsList.parse(children)
         end
         xml.at('availabilityZone') do |node|
           data.availability_zone = (node.text || '')
@@ -18037,17 +18039,17 @@ module AWS::SDK::EC2
         end
         xml.at('eventsSet') do |node|
           children = node.children('item')
-          data.events = Parsers::VolumeStatusEventsList.parse(children)
+          data.events = VolumeStatusEventsList.parse(children)
         end
         xml.at('volumeId') do |node|
           data.volume_id = (node.text || '')
         end
         xml.at('volumeStatus') do |node|
-          data.volume_status = Parsers::VolumeStatusInfo.parse(node)
+          data.volume_status = VolumeStatusInfo.parse(node)
         end
         xml.at('attachmentStatuses') do |node|
           children = node.children('item')
-          data.attachment_statuses = Parsers::VolumeStatusAttachmentStatusList.parse(children)
+          data.attachment_statuses = VolumeStatusAttachmentStatusList.parse(children)
         end
         return data
       end
@@ -18057,7 +18059,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VolumeStatusAttachmentStatus.parse(node)
+          data << VolumeStatusAttachmentStatus.parse(node)
         end
         data
       end
@@ -18081,7 +18083,7 @@ module AWS::SDK::EC2
         data = Types::VolumeStatusInfo.new
         xml.at('details') do |node|
           children = node.children('item')
-          data.details = Parsers::VolumeStatusDetailsList.parse(children)
+          data.details = VolumeStatusDetailsList.parse(children)
         end
         xml.at('status') do |node|
           data.status = (node.text || '')
@@ -18094,7 +18096,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VolumeStatusDetails.parse(node)
+          data << VolumeStatusDetails.parse(node)
         end
         data
       end
@@ -18117,7 +18119,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VolumeStatusEvent.parse(node)
+          data << VolumeStatusEvent.parse(node)
         end
         data
       end
@@ -18152,7 +18154,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VolumeStatusAction.parse(node)
+          data << VolumeStatusAction.parse(node)
         end
         data
       end
@@ -18186,7 +18188,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('volumeSet') do |node|
           children = node.children('item')
-          data.volumes = Parsers::VolumeList.parse(children)
+          data.volumes = VolumeList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -18199,7 +18201,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Volume.parse(node)
+          data << Volume.parse(node)
         end
         data
       end
@@ -18210,7 +18212,7 @@ module AWS::SDK::EC2
         data = Types::Volume.new
         xml.at('attachmentSet') do |node|
           children = node.children('item')
-          data.attachments = Parsers::VolumeAttachmentList.parse(children)
+          data.attachments = VolumeAttachmentList.parse(children)
         end
         xml.at('availabilityZone') do |node|
           data.availability_zone = (node.text || '')
@@ -18244,7 +18246,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('volumeType') do |node|
           data.volume_type = (node.text || '')
@@ -18271,7 +18273,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('volumeModificationSet') do |node|
           children = node.children('item')
-          data.volumes_modifications = Parsers::VolumeModificationList.parse(children)
+          data.volumes_modifications = VolumeModificationList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -18284,7 +18286,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VolumeModification.parse(node)
+          data << VolumeModification.parse(node)
         end
         data
       end
@@ -18356,10 +18358,10 @@ module AWS::SDK::EC2
           data.vpc_id = (node.text || '')
         end
         xml.at('enableDnsHostnames') do |node|
-          data.enable_dns_hostnames = Parsers::AttributeBooleanValue.parse(node)
+          data.enable_dns_hostnames = AttributeBooleanValue.parse(node)
         end
         xml.at('enableDnsSupport') do |node|
-          data.enable_dns_support = Parsers::AttributeBooleanValue.parse(node)
+          data.enable_dns_support = AttributeBooleanValue.parse(node)
         end
         data
       end
@@ -18374,7 +18376,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('vpcSet') do |node|
           children = node.children('item')
-          data.vpcs = Parsers::VpcClassicLinkList.parse(children)
+          data.vpcs = VpcClassicLinkList.parse(children)
         end
         data
       end
@@ -18384,7 +18386,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VpcClassicLink.parse(node)
+          data << VpcClassicLink.parse(node)
         end
         data
       end
@@ -18398,7 +18400,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('vpcId') do |node|
           data.vpc_id = (node.text || '')
@@ -18419,7 +18421,7 @@ module AWS::SDK::EC2
         end
         xml.at('vpcs') do |node|
           children = node.children('item')
-          data.vpcs = Parsers::ClassicLinkDnsSupportList.parse(children)
+          data.vpcs = ClassicLinkDnsSupportList.parse(children)
         end
         data
       end
@@ -18429,7 +18431,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ClassicLinkDnsSupport.parse(node)
+          data << ClassicLinkDnsSupport.parse(node)
         end
         data
       end
@@ -18457,7 +18459,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('connectionNotificationSet') do |node|
           children = node.children('item')
-          data.connection_notification_set = Parsers::ConnectionNotificationSet.parse(children)
+          data.connection_notification_set = ConnectionNotificationSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -18470,7 +18472,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ConnectionNotification.parse(node)
+          data << ConnectionNotification.parse(node)
         end
         data
       end
@@ -18485,7 +18487,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('vpcEndpointConnectionSet') do |node|
           children = node.children('item')
-          data.vpc_endpoint_connections = Parsers::VpcEndpointConnectionSet.parse(children)
+          data.vpc_endpoint_connections = VpcEndpointConnectionSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -18498,7 +18500,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VpcEndpointConnection.parse(node)
+          data << VpcEndpointConnection.parse(node)
         end
         data
       end
@@ -18524,15 +18526,15 @@ module AWS::SDK::EC2
         end
         xml.at('dnsEntrySet') do |node|
           children = node.children('item')
-          data.dns_entries = Parsers::DnsEntrySet.parse(children)
+          data.dns_entries = DnsEntrySet.parse(children)
         end
         xml.at('networkLoadBalancerArnSet') do |node|
           children = node.children('item')
-          data.network_load_balancer_arns = Parsers::ValueStringList.parse(children)
+          data.network_load_balancer_arns = ValueStringList.parse(children)
         end
         xml.at('gatewayLoadBalancerArnSet') do |node|
           children = node.children('item')
-          data.gateway_load_balancer_arns = Parsers::ValueStringList.parse(children)
+          data.gateway_load_balancer_arns = ValueStringList.parse(children)
         end
         xml.at('ipAddressType') do |node|
           data.ip_address_type = (node.text || '')
@@ -18550,7 +18552,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('serviceConfigurationSet') do |node|
           children = node.children('item')
-          data.service_configurations = Parsers::ServiceConfigurationSet.parse(children)
+          data.service_configurations = ServiceConfigurationSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -18563,7 +18565,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ServiceConfiguration.parse(node)
+          data << ServiceConfiguration.parse(node)
         end
         data
       end
@@ -18578,7 +18580,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('allowedPrincipals') do |node|
           children = node.children('item')
-          data.allowed_principals = Parsers::AllowedPrincipalSet.parse(children)
+          data.allowed_principals = AllowedPrincipalSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -18591,7 +18593,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AllowedPrincipal.parse(node)
+          data << AllowedPrincipal.parse(node)
         end
         data
       end
@@ -18619,11 +18621,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('serviceNameSet') do |node|
           children = node.children('item')
-          data.service_names = Parsers::ValueStringList.parse(children)
+          data.service_names = ValueStringList.parse(children)
         end
         xml.at('serviceDetailSet') do |node|
           children = node.children('item')
-          data.service_details = Parsers::ServiceDetailSet.parse(children)
+          data.service_details = ServiceDetailSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -18636,7 +18638,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ServiceDetail.parse(node)
+          data << ServiceDetail.parse(node)
         end
         data
       end
@@ -18653,25 +18655,25 @@ module AWS::SDK::EC2
         end
         xml.at('serviceType') do |node|
           children = node.children('item')
-          data.service_type = Parsers::ServiceTypeDetailSet.parse(children)
+          data.service_type = ServiceTypeDetailSet.parse(children)
         end
         xml.at('availabilityZoneSet') do |node|
           children = node.children('item')
-          data.availability_zones = Parsers::ValueStringList.parse(children)
+          data.availability_zones = ValueStringList.parse(children)
         end
         xml.at('owner') do |node|
           data.owner = (node.text || '')
         end
         xml.at('baseEndpointDnsNameSet') do |node|
           children = node.children('item')
-          data.base_endpoint_dns_names = Parsers::ValueStringList.parse(children)
+          data.base_endpoint_dns_names = ValueStringList.parse(children)
         end
         xml.at('privateDnsName') do |node|
           data.private_dns_name = (node.text || '')
         end
         xml.at('privateDnsNameSet') do |node|
           children = node.children('item')
-          data.private_dns_names = Parsers::PrivateDnsDetailsSet.parse(children)
+          data.private_dns_names = PrivateDnsDetailsSet.parse(children)
         end
         xml.at('vpcEndpointPolicySupported') do |node|
           data.vpc_endpoint_policy_supported = (node.text == 'true')
@@ -18687,14 +18689,14 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('privateDnsNameVerificationState') do |node|
           data.private_dns_name_verification_state = (node.text || '')
         end
         xml.at('supportedIpAddressTypeSet') do |node|
           children = node.children('item')
-          data.supported_ip_address_types = Parsers::SupportedIpAddressTypes.parse(children)
+          data.supported_ip_address_types = SupportedIpAddressTypes.parse(children)
         end
         return data
       end
@@ -18704,7 +18706,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PrivateDnsDetails.parse(node)
+          data << PrivateDnsDetails.parse(node)
         end
         data
       end
@@ -18729,7 +18731,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('vpcEndpointSet') do |node|
           children = node.children('item')
-          data.vpc_endpoints = Parsers::VpcEndpointSet.parse(children)
+          data.vpc_endpoints = VpcEndpointSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -18742,7 +18744,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VpcEndpoint.parse(node)
+          data << VpcEndpoint.parse(node)
         end
         data
       end
@@ -18757,7 +18759,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('vpcPeeringConnectionSet') do |node|
           children = node.children('item')
-          data.vpc_peering_connections = Parsers::VpcPeeringConnectionList.parse(children)
+          data.vpc_peering_connections = VpcPeeringConnectionList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -18770,7 +18772,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VpcPeeringConnection.parse(node)
+          data << VpcPeeringConnection.parse(node)
         end
         data
       end
@@ -18785,7 +18787,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('vpcSet') do |node|
           children = node.children('item')
-          data.vpcs = Parsers::VpcList.parse(children)
+          data.vpcs = VpcList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -18798,7 +18800,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Vpc.parse(node)
+          data << Vpc.parse(node)
         end
         data
       end
@@ -18813,7 +18815,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('vpnConnectionSet') do |node|
           children = node.children('item')
-          data.vpn_connections = Parsers::VpnConnectionList.parse(children)
+          data.vpn_connections = VpnConnectionList.parse(children)
         end
         data
       end
@@ -18823,7 +18825,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VpnConnection.parse(node)
+          data << VpnConnection.parse(node)
         end
         data
       end
@@ -18838,7 +18840,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('vpnGatewaySet') do |node|
           children = node.children('item')
-          data.vpn_gateways = Parsers::VpnGatewayList.parse(children)
+          data.vpn_gateways = VpnGatewayList.parse(children)
         end
         data
       end
@@ -18848,7 +18850,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VpnGateway.parse(node)
+          data << VpnGateway.parse(node)
         end
         data
       end
@@ -18958,10 +18960,10 @@ module AWS::SDK::EC2
           data.resource_type = (node.text || '')
         end
         xml.at('snapshotConfiguration') do |node|
-          data.snapshot_configuration = Parsers::FastLaunchSnapshotConfigurationResponse.parse(node)
+          data.snapshot_configuration = FastLaunchSnapshotConfigurationResponse.parse(node)
         end
         xml.at('launchTemplate') do |node|
-          data.launch_template = Parsers::FastLaunchLaunchTemplateSpecificationResponse.parse(node)
+          data.launch_template = FastLaunchLaunchTemplateSpecificationResponse.parse(node)
         end
         xml.at('maxParallelLaunches') do |node|
           data.max_parallel_launches = node.text&.to_i
@@ -18991,11 +18993,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('successful') do |node|
           children = node.children('item')
-          data.successful = Parsers::DisableFastSnapshotRestoreSuccessSet.parse(children)
+          data.successful = DisableFastSnapshotRestoreSuccessSet.parse(children)
         end
         xml.at('unsuccessful') do |node|
           children = node.children('item')
-          data.unsuccessful = Parsers::DisableFastSnapshotRestoreErrorSet.parse(children)
+          data.unsuccessful = DisableFastSnapshotRestoreErrorSet.parse(children)
         end
         data
       end
@@ -19005,7 +19007,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DisableFastSnapshotRestoreErrorItem.parse(node)
+          data << DisableFastSnapshotRestoreErrorItem.parse(node)
         end
         data
       end
@@ -19019,7 +19021,7 @@ module AWS::SDK::EC2
         end
         xml.at('fastSnapshotRestoreStateErrorSet') do |node|
           children = node.children('item')
-          data.fast_snapshot_restore_state_errors = Parsers::DisableFastSnapshotRestoreStateErrorSet.parse(children)
+          data.fast_snapshot_restore_state_errors = DisableFastSnapshotRestoreStateErrorSet.parse(children)
         end
         return data
       end
@@ -19029,7 +19031,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DisableFastSnapshotRestoreStateErrorItem.parse(node)
+          data << DisableFastSnapshotRestoreStateErrorItem.parse(node)
         end
         data
       end
@@ -19042,7 +19044,7 @@ module AWS::SDK::EC2
           data.availability_zone = (node.text || '')
         end
         xml.at('error') do |node|
-          data.error = Parsers::DisableFastSnapshotRestoreStateError.parse(node)
+          data.error = DisableFastSnapshotRestoreStateError.parse(node)
         end
         return data
       end
@@ -19065,7 +19067,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DisableFastSnapshotRestoreSuccessItem.parse(node)
+          data << DisableFastSnapshotRestoreSuccessItem.parse(node)
         end
         data
       end
@@ -19161,7 +19163,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('propagation') do |node|
-          data.propagation = Parsers::TransitGatewayPropagation.parse(node)
+          data.propagation = TransitGatewayPropagation.parse(node)
         end
         data
       end
@@ -19250,7 +19252,7 @@ module AWS::SDK::EC2
           data.association_id = (node.text || '')
         end
         xml.at('status') do |node|
-          data.status = Parsers::AssociationStatus.parse(node)
+          data.status = AssociationStatus.parse(node)
         end
         data
       end
@@ -19278,7 +19280,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('iamInstanceProfileAssociation') do |node|
-          data.iam_instance_profile_association = Parsers::IamInstanceProfileAssociation.parse(node)
+          data.iam_instance_profile_association = IamInstanceProfileAssociation.parse(node)
         end
         data
       end
@@ -19292,7 +19294,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('instanceEventWindow') do |node|
-          data.instance_event_window = Parsers::InstanceEventWindow.parse(node)
+          data.instance_event_window = InstanceEventWindow.parse(node)
         end
         data
       end
@@ -19317,7 +19319,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ipv6CidrBlockAssociation') do |node|
-          data.ipv6_cidr_block_association = Parsers::SubnetIpv6CidrBlockAssociation.parse(node)
+          data.ipv6_cidr_block_association = SubnetIpv6CidrBlockAssociation.parse(node)
         end
         xml.at('subnetId') do |node|
           data.subnet_id = (node.text || '')
@@ -19334,7 +19336,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('associations') do |node|
-          data.associations = Parsers::TransitGatewayMulticastDomainAssociations.parse(node)
+          data.associations = TransitGatewayMulticastDomainAssociations.parse(node)
         end
         data
       end
@@ -19348,7 +19350,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('association') do |node|
-          data.association = Parsers::TransitGatewayAssociation.parse(node)
+          data.association = TransitGatewayAssociation.parse(node)
         end
         data
       end
@@ -19379,10 +19381,10 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ipv6CidrBlockAssociation') do |node|
-          data.ipv6_cidr_block_association = Parsers::VpcIpv6CidrBlockAssociation.parse(node)
+          data.ipv6_cidr_block_association = VpcIpv6CidrBlockAssociation.parse(node)
         end
         xml.at('cidrBlockAssociation') do |node|
-          data.cidr_block_association = Parsers::VpcCidrBlockAssociation.parse(node)
+          data.cidr_block_association = VpcCidrBlockAssociation.parse(node)
         end
         xml.at('vpcId') do |node|
           data.vpc_id = (node.text || '')
@@ -19419,10 +19421,10 @@ module AWS::SDK::EC2
           data.resource_type = (node.text || '')
         end
         xml.at('snapshotConfiguration') do |node|
-          data.snapshot_configuration = Parsers::FastLaunchSnapshotConfigurationResponse.parse(node)
+          data.snapshot_configuration = FastLaunchSnapshotConfigurationResponse.parse(node)
         end
         xml.at('launchTemplate') do |node|
-          data.launch_template = Parsers::FastLaunchLaunchTemplateSpecificationResponse.parse(node)
+          data.launch_template = FastLaunchLaunchTemplateSpecificationResponse.parse(node)
         end
         xml.at('maxParallelLaunches') do |node|
           data.max_parallel_launches = node.text&.to_i
@@ -19452,11 +19454,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('successful') do |node|
           children = node.children('item')
-          data.successful = Parsers::EnableFastSnapshotRestoreSuccessSet.parse(children)
+          data.successful = EnableFastSnapshotRestoreSuccessSet.parse(children)
         end
         xml.at('unsuccessful') do |node|
           children = node.children('item')
-          data.unsuccessful = Parsers::EnableFastSnapshotRestoreErrorSet.parse(children)
+          data.unsuccessful = EnableFastSnapshotRestoreErrorSet.parse(children)
         end
         data
       end
@@ -19466,7 +19468,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EnableFastSnapshotRestoreErrorItem.parse(node)
+          data << EnableFastSnapshotRestoreErrorItem.parse(node)
         end
         data
       end
@@ -19480,7 +19482,7 @@ module AWS::SDK::EC2
         end
         xml.at('fastSnapshotRestoreStateErrorSet') do |node|
           children = node.children('item')
-          data.fast_snapshot_restore_state_errors = Parsers::EnableFastSnapshotRestoreStateErrorSet.parse(children)
+          data.fast_snapshot_restore_state_errors = EnableFastSnapshotRestoreStateErrorSet.parse(children)
         end
         return data
       end
@@ -19490,7 +19492,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EnableFastSnapshotRestoreStateErrorItem.parse(node)
+          data << EnableFastSnapshotRestoreStateErrorItem.parse(node)
         end
         data
       end
@@ -19503,7 +19505,7 @@ module AWS::SDK::EC2
           data.availability_zone = (node.text || '')
         end
         xml.at('error') do |node|
-          data.error = Parsers::EnableFastSnapshotRestoreStateError.parse(node)
+          data.error = EnableFastSnapshotRestoreStateError.parse(node)
         end
         return data
       end
@@ -19526,7 +19528,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EnableFastSnapshotRestoreSuccessItem.parse(node)
+          data << EnableFastSnapshotRestoreSuccessItem.parse(node)
         end
         data
       end
@@ -19622,7 +19624,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('propagation') do |node|
-          data.propagation = Parsers::TransitGatewayPropagation.parse(node)
+          data.propagation = TransitGatewayPropagation.parse(node)
         end
         data
       end
@@ -19689,7 +19691,7 @@ module AWS::SDK::EC2
           data.certificate_revocation_list = (node.text || '')
         end
         xml.at('status') do |node|
-          data.status = Parsers::ClientCertificateRevocationListStatus.parse(node)
+          data.status = ClientCertificateRevocationListStatus.parse(node)
         end
         data
       end
@@ -19748,7 +19750,7 @@ module AWS::SDK::EC2
           data.progress = (node.text || '')
         end
         xml.at('s3ExportLocation') do |node|
-          data.s3_export_location = Parsers::ExportTaskS3Location.parse(node)
+          data.s3_export_location = ExportTaskS3Location.parse(node)
         end
         xml.at('status') do |node|
           data.status = (node.text || '')
@@ -19758,7 +19760,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         data
       end
@@ -19787,7 +19789,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('associatedRoleSet') do |node|
           children = node.children('item')
-          data.associated_roles = Parsers::AssociatedRolesList.parse(children)
+          data.associated_roles = AssociatedRolesList.parse(children)
         end
         data
       end
@@ -19797,7 +19799,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AssociatedRole.parse(node)
+          data << AssociatedRole.parse(node)
         end
         data
       end
@@ -19831,7 +19833,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('ipv6CidrAssociationSet') do |node|
           children = node.children('item')
-          data.ipv6_cidr_associations = Parsers::Ipv6CidrAssociationSet.parse(children)
+          data.ipv6_cidr_associations = Ipv6CidrAssociationSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -19844,7 +19846,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Ipv6CidrAssociation.parse(node)
+          data << Ipv6CidrAssociation.parse(node)
         end
         data
       end
@@ -19890,7 +19892,7 @@ module AWS::SDK::EC2
         end
         xml.at('instanceUsageSet') do |node|
           children = node.children('item')
-          data.instance_usages = Parsers::InstanceUsageSet.parse(children)
+          data.instance_usages = InstanceUsageSet.parse(children)
         end
         data
       end
@@ -19900,7 +19902,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceUsage.parse(node)
+          data << InstanceUsage.parse(node)
         end
         data
       end
@@ -19931,7 +19933,7 @@ module AWS::SDK::EC2
         end
         xml.at('coipAddressUsageSet') do |node|
           children = node.children('item')
-          data.coip_address_usages = Parsers::CoipAddressUsageSet.parse(children)
+          data.coip_address_usages = CoipAddressUsageSet.parse(children)
         end
         xml.at('localGatewayRouteTableId') do |node|
           data.local_gateway_route_table_id = (node.text || '')
@@ -19944,7 +19946,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CoipAddressUsage.parse(node)
+          data << CoipAddressUsage.parse(node)
         end
         data
       end
@@ -20014,7 +20016,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('instanceFamilyCreditSpecification') do |node|
-          data.instance_family_credit_specification = Parsers::InstanceFamilyCreditSpecification.parse(node)
+          data.instance_family_credit_specification = InstanceFamilyCreditSpecification.parse(node)
         end
         data
       end
@@ -20087,7 +20089,7 @@ module AWS::SDK::EC2
         end
         xml.at('capacityReservationGroupSet') do |node|
           children = node.children('item')
-          data.capacity_reservation_groups = Parsers::CapacityReservationGroupSet.parse(children)
+          data.capacity_reservation_groups = CapacityReservationGroupSet.parse(children)
         end
         data
       end
@@ -20097,7 +20099,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CapacityReservationGroup.parse(node)
+          data << CapacityReservationGroup.parse(node)
         end
         data
       end
@@ -20128,7 +20130,7 @@ module AWS::SDK::EC2
         end
         xml.at('purchase') do |node|
           children = node.children('item')
-          data.purchase = Parsers::PurchaseSet.parse(children)
+          data.purchase = PurchaseSet.parse(children)
         end
         xml.at('totalHourlyPrice') do |node|
           data.total_hourly_price = (node.text || '')
@@ -20144,7 +20146,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Purchase.parse(node)
+          data << Purchase.parse(node)
         end
         data
       end
@@ -20161,7 +20163,7 @@ module AWS::SDK::EC2
         end
         xml.at('hostIdSet') do |node|
           children = node.children('item')
-          data.host_id_set = Parsers::ResponseHostIdSet.parse(children)
+          data.host_id_set = ResponseHostIdSet.parse(children)
         end
         xml.at('hostReservationId') do |node|
           data.host_reservation_id = (node.text || '')
@@ -20191,7 +20193,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('instanceTypeSet') do |node|
           children = node.children('item')
-          data.instance_types = Parsers::InstanceTypeInfoFromInstanceRequirementsSet.parse(children)
+          data.instance_types = InstanceTypeInfoFromInstanceRequirementsSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -20204,7 +20206,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceTypeInfoFromInstanceRequirements.parse(node)
+          data << InstanceTypeInfoFromInstanceRequirements.parse(node)
         end
         data
       end
@@ -20246,7 +20248,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('historyRecordSet') do |node|
           children = node.children('item')
-          data.history_records = Parsers::IpamAddressHistoryRecordSet.parse(children)
+          data.history_records = IpamAddressHistoryRecordSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -20259,7 +20261,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::IpamAddressHistoryRecord.parse(node)
+          data << IpamAddressHistoryRecord.parse(node)
         end
         data
       end
@@ -20314,7 +20316,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('ipamPoolAllocationSet') do |node|
           children = node.children('item')
-          data.ipam_pool_allocations = Parsers::IpamPoolAllocationSet.parse(children)
+          data.ipam_pool_allocations = IpamPoolAllocationSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -20327,7 +20329,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::IpamPoolAllocation.parse(node)
+          data << IpamPoolAllocation.parse(node)
         end
         data
       end
@@ -20342,7 +20344,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('ipamPoolCidrSet') do |node|
           children = node.children('item')
-          data.ipam_pool_cidrs = Parsers::IpamPoolCidrSet.parse(children)
+          data.ipam_pool_cidrs = IpamPoolCidrSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -20355,7 +20357,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::IpamPoolCidr.parse(node)
+          data << IpamPoolCidr.parse(node)
         end
         data
       end
@@ -20373,7 +20375,7 @@ module AWS::SDK::EC2
         end
         xml.at('ipamResourceCidrSet') do |node|
           children = node.children('item')
-          data.ipam_resource_cidrs = Parsers::IpamResourceCidrSet.parse(children)
+          data.ipam_resource_cidrs = IpamResourceCidrSet.parse(children)
         end
         data
       end
@@ -20383,7 +20385,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::IpamResourceCidr.parse(node)
+          data << IpamResourceCidr.parse(node)
         end
         data
       end
@@ -20421,7 +20423,7 @@ module AWS::SDK::EC2
         end
         xml.at('resourceTagSet') do |node|
           children = node.children('item')
-          data.resource_tags = Parsers::IpamResourceTagList.parse(children)
+          data.resource_tags = IpamResourceTagList.parse(children)
         end
         xml.at('ipUsage') do |node|
           data.ip_usage = Hearth::NumberHelper.deserialize(node.text)
@@ -20450,7 +20452,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('launchTemplateData') do |node|
-          data.launch_template_data = Parsers::ResponseLaunchTemplateData.parse(node)
+          data.launch_template_data = ResponseLaunchTemplateData.parse(node)
         end
         data
       end
@@ -20465,7 +20467,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('prefixListAssociationSet') do |node|
           children = node.children('item')
-          data.prefix_list_associations = Parsers::PrefixListAssociationSet.parse(children)
+          data.prefix_list_associations = PrefixListAssociationSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -20478,7 +20480,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PrefixListAssociation.parse(node)
+          data << PrefixListAssociation.parse(node)
         end
         data
       end
@@ -20506,7 +20508,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('entrySet') do |node|
           children = node.children('item')
-          data.entries = Parsers::PrefixListEntrySet.parse(children)
+          data.entries = PrefixListEntrySet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -20519,7 +20521,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PrefixListEntry.parse(node)
+          data << PrefixListEntry.parse(node)
         end
         data
       end
@@ -20553,7 +20555,7 @@ module AWS::SDK::EC2
         end
         xml.at('analysisFindingSet') do |node|
           children = node.children('item')
-          data.analysis_findings = Parsers::AccessScopeAnalysisFindingList.parse(children)
+          data.analysis_findings = AccessScopeAnalysisFindingList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -20566,7 +20568,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AccessScopeAnalysisFinding.parse(node)
+          data << AccessScopeAnalysisFinding.parse(node)
         end
         data
       end
@@ -20586,7 +20588,7 @@ module AWS::SDK::EC2
         end
         xml.at('findingComponentSet') do |node|
           children = node.children('item')
-          data.finding_components = Parsers::PathComponentList.parse(children)
+          data.finding_components = PathComponentList.parse(children)
         end
         return data
       end
@@ -20600,7 +20602,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('networkInsightsAccessScopeContent') do |node|
-          data.network_insights_access_scope_content = Parsers::NetworkInsightsAccessScopeContent.parse(node)
+          data.network_insights_access_scope_content = NetworkInsightsAccessScopeContent.parse(node)
         end
         data
       end
@@ -20646,18 +20648,18 @@ module AWS::SDK::EC2
           data.payment_due = (node.text || '')
         end
         xml.at('reservedInstanceValueRollup') do |node|
-          data.reserved_instance_value_rollup = Parsers::ReservationValue.parse(node)
+          data.reserved_instance_value_rollup = ReservationValue.parse(node)
         end
         xml.at('reservedInstanceValueSet') do |node|
           children = node.children('item')
-          data.reserved_instance_value_set = Parsers::ReservedInstanceReservationValueSet.parse(children)
+          data.reserved_instance_value_set = ReservedInstanceReservationValueSet.parse(children)
         end
         xml.at('targetConfigurationValueRollup') do |node|
-          data.target_configuration_value_rollup = Parsers::ReservationValue.parse(node)
+          data.target_configuration_value_rollup = ReservationValue.parse(node)
         end
         xml.at('targetConfigurationValueSet') do |node|
           children = node.children('item')
-          data.target_configuration_value_set = Parsers::TargetReservationValueSet.parse(children)
+          data.target_configuration_value_set = TargetReservationValueSet.parse(children)
         end
         xml.at('validationFailureReason') do |node|
           data.validation_failure_reason = (node.text || '')
@@ -20670,7 +20672,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TargetReservationValue.parse(node)
+          data << TargetReservationValue.parse(node)
         end
         data
       end
@@ -20680,10 +20682,10 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::TargetReservationValue.new
         xml.at('reservationValue') do |node|
-          data.reservation_value = Parsers::ReservationValue.parse(node)
+          data.reservation_value = ReservationValue.parse(node)
         end
         xml.at('targetConfiguration') do |node|
-          data.target_configuration = Parsers::TargetConfiguration.parse(node)
+          data.target_configuration = TargetConfiguration.parse(node)
         end
         return data
       end
@@ -20722,7 +20724,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ReservedInstanceReservationValue.parse(node)
+          data << ReservedInstanceReservationValue.parse(node)
         end
         data
       end
@@ -20732,7 +20734,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::ReservedInstanceReservationValue.new
         xml.at('reservationValue') do |node|
-          data.reservation_value = Parsers::ReservationValue.parse(node)
+          data.reservation_value = ReservationValue.parse(node)
         end
         xml.at('reservedInstanceId') do |node|
           data.reserved_instance_id = (node.text || '')
@@ -20764,7 +20766,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('spotPlacementScoreSet') do |node|
           children = node.children('item')
-          data.spot_placement_scores = Parsers::SpotPlacementScores.parse(children)
+          data.spot_placement_scores = SpotPlacementScores.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -20777,7 +20779,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SpotPlacementScore.parse(node)
+          data << SpotPlacementScore.parse(node)
         end
         data
       end
@@ -20808,11 +20810,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('subnetIpv4CidrReservationSet') do |node|
           children = node.children('item')
-          data.subnet_ipv4_cidr_reservations = Parsers::SubnetCidrReservationList.parse(children)
+          data.subnet_ipv4_cidr_reservations = SubnetCidrReservationList.parse(children)
         end
         xml.at('subnetIpv6CidrReservationSet') do |node|
           children = node.children('item')
-          data.subnet_ipv6_cidr_reservations = Parsers::SubnetCidrReservationList.parse(children)
+          data.subnet_ipv6_cidr_reservations = SubnetCidrReservationList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -20825,7 +20827,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SubnetCidrReservation.parse(node)
+          data << SubnetCidrReservation.parse(node)
         end
         data
       end
@@ -20840,7 +20842,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayAttachmentPropagations') do |node|
           children = node.children('item')
-          data.transit_gateway_attachment_propagations = Parsers::TransitGatewayAttachmentPropagationList.parse(children)
+          data.transit_gateway_attachment_propagations = TransitGatewayAttachmentPropagationList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -20853,7 +20855,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TransitGatewayAttachmentPropagation.parse(node)
+          data << TransitGatewayAttachmentPropagation.parse(node)
         end
         data
       end
@@ -20881,7 +20883,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('multicastDomainAssociations') do |node|
           children = node.children('item')
-          data.multicast_domain_associations = Parsers::TransitGatewayMulticastDomainAssociationList.parse(children)
+          data.multicast_domain_associations = TransitGatewayMulticastDomainAssociationList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -20894,7 +20896,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TransitGatewayMulticastDomainAssociation.parse(node)
+          data << TransitGatewayMulticastDomainAssociation.parse(node)
         end
         data
       end
@@ -20916,7 +20918,7 @@ module AWS::SDK::EC2
           data.resource_owner_id = (node.text || '')
         end
         xml.at('subnet') do |node|
-          data.subnet = Parsers::SubnetAssociation.parse(node)
+          data.subnet = SubnetAssociation.parse(node)
         end
         return data
       end
@@ -20931,7 +20933,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayPrefixListReferenceSet') do |node|
           children = node.children('item')
-          data.transit_gateway_prefix_list_references = Parsers::TransitGatewayPrefixListReferenceSet.parse(children)
+          data.transit_gateway_prefix_list_references = TransitGatewayPrefixListReferenceSet.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -20944,7 +20946,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TransitGatewayPrefixListReference.parse(node)
+          data << TransitGatewayPrefixListReference.parse(node)
         end
         data
       end
@@ -20959,7 +20961,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('associations') do |node|
           children = node.children('item')
-          data.associations = Parsers::TransitGatewayRouteTableAssociationList.parse(children)
+          data.associations = TransitGatewayRouteTableAssociationList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -20972,7 +20974,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TransitGatewayRouteTableAssociation.parse(node)
+          data << TransitGatewayRouteTableAssociation.parse(node)
         end
         data
       end
@@ -21006,7 +21008,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayRouteTablePropagations') do |node|
           children = node.children('item')
-          data.transit_gateway_route_table_propagations = Parsers::TransitGatewayRouteTablePropagationList.parse(children)
+          data.transit_gateway_route_table_propagations = TransitGatewayRouteTablePropagationList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -21019,7 +21021,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TransitGatewayRouteTablePropagation.parse(node)
+          data << TransitGatewayRouteTablePropagation.parse(node)
         end
         data
       end
@@ -21067,7 +21069,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('vpnConnectionDeviceTypeSet') do |node|
           children = node.children('item')
-          data.vpn_connection_device_types = Parsers::VpnConnectionDeviceTypeList.parse(children)
+          data.vpn_connection_device_types = VpnConnectionDeviceTypeList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -21080,7 +21082,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::VpnConnectionDeviceType.parse(node)
+          data << VpnConnectionDeviceType.parse(node)
         end
         data
       end
@@ -21158,7 +21160,7 @@ module AWS::SDK::EC2
         end
         xml.at('snapshotDetailSet') do |node|
           children = node.children('item')
-          data.snapshot_details = Parsers::SnapshotDetailList.parse(children)
+          data.snapshot_details = SnapshotDetailList.parse(children)
         end
         xml.at('status') do |node|
           data.status = (node.text || '')
@@ -21168,11 +21170,11 @@ module AWS::SDK::EC2
         end
         xml.at('licenseSpecifications') do |node|
           children = node.children('item')
-          data.license_specifications = Parsers::ImportImageLicenseSpecificationListResponse.parse(children)
+          data.license_specifications = ImportImageLicenseSpecificationListResponse.parse(children)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         xml.at('usageOperation') do |node|
           data.usage_operation = (node.text || '')
@@ -21189,7 +21191,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('conversionTask') do |node|
-          data.conversion_task = Parsers::ConversionTask.parse(node)
+          data.conversion_task = ConversionTask.parse(node)
         end
         data
       end
@@ -21213,7 +21215,7 @@ module AWS::SDK::EC2
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         data
       end
@@ -21233,11 +21235,11 @@ module AWS::SDK::EC2
           data.import_task_id = (node.text || '')
         end
         xml.at('snapshotTaskDetail') do |node|
-          data.snapshot_task_detail = Parsers::SnapshotTaskDetail.parse(node)
+          data.snapshot_task_detail = SnapshotTaskDetail.parse(node)
         end
         xml.at('tagSet') do |node|
           children = node.children('item')
-          data.tags = Parsers::TagList.parse(children)
+          data.tags = TagList.parse(children)
         end
         data
       end
@@ -21251,7 +21253,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('conversionTask') do |node|
-          data.conversion_task = Parsers::ConversionTask.parse(node)
+          data.conversion_task = ConversionTask.parse(node)
         end
         data
       end
@@ -21266,7 +21268,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('imageSet') do |node|
           children = node.children('item')
-          data.images = Parsers::ImageRecycleBinInfoList.parse(children)
+          data.images = ImageRecycleBinInfoList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -21279,7 +21281,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ImageRecycleBinInfo.parse(node)
+          data << ImageRecycleBinInfo.parse(node)
         end
         data
       end
@@ -21316,7 +21318,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('snapshotSet') do |node|
           children = node.children('item')
-          data.snapshots = Parsers::SnapshotRecycleBinInfoList.parse(children)
+          data.snapshots = SnapshotRecycleBinInfoList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -21329,7 +21331,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SnapshotRecycleBinInfo.parse(node)
+          data << SnapshotRecycleBinInfo.parse(node)
         end
         data
       end
@@ -21365,7 +21367,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('address') do |node|
-          data.address = Parsers::AddressAttribute.parse(node)
+          data.address = AddressAttribute.parse(node)
         end
         data
       end
@@ -21435,7 +21437,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('instanceFamilyCreditSpecification') do |node|
-          data.instance_family_credit_specification = Parsers::InstanceFamilyCreditSpecification.parse(node)
+          data.instance_family_credit_specification = InstanceFamilyCreditSpecification.parse(node)
         end
         data
       end
@@ -21477,7 +21479,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('fpgaImageAttribute') do |node|
-          data.fpga_image_attribute = Parsers::FpgaImageAttribute.parse(node)
+          data.fpga_image_attribute = FpgaImageAttribute.parse(node)
         end
         data
       end
@@ -21492,11 +21494,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('successful') do |node|
           children = node.children('item')
-          data.successful = Parsers::ResponseHostIdList.parse(children)
+          data.successful = ResponseHostIdList.parse(children)
         end
         xml.at('unsuccessful') do |node|
           children = node.children('item')
-          data.unsuccessful = Parsers::UnsuccessfulItemList.parse(children)
+          data.unsuccessful = UnsuccessfulItemList.parse(children)
         end
         data
       end
@@ -21506,7 +21508,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::UnsuccessfulItem.parse(node)
+          data << UnsuccessfulItem.parse(node)
         end
         data
       end
@@ -21579,11 +21581,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('successfulInstanceCreditSpecificationSet') do |node|
           children = node.children('item')
-          data.successful_instance_credit_specifications = Parsers::SuccessfulInstanceCreditSpecificationSet.parse(children)
+          data.successful_instance_credit_specifications = SuccessfulInstanceCreditSpecificationSet.parse(children)
         end
         xml.at('unsuccessfulInstanceCreditSpecificationSet') do |node|
           children = node.children('item')
-          data.unsuccessful_instance_credit_specifications = Parsers::UnsuccessfulInstanceCreditSpecificationSet.parse(children)
+          data.unsuccessful_instance_credit_specifications = UnsuccessfulInstanceCreditSpecificationSet.parse(children)
         end
         data
       end
@@ -21593,7 +21595,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::UnsuccessfulInstanceCreditSpecificationItem.parse(node)
+          data << UnsuccessfulInstanceCreditSpecificationItem.parse(node)
         end
         data
       end
@@ -21606,7 +21608,7 @@ module AWS::SDK::EC2
           data.instance_id = (node.text || '')
         end
         xml.at('error') do |node|
-          data.error = Parsers::UnsuccessfulInstanceCreditSpecificationItemError.parse(node)
+          data.error = UnsuccessfulInstanceCreditSpecificationItemError.parse(node)
         end
         return data
       end
@@ -21629,7 +21631,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SuccessfulInstanceCreditSpecificationItem.parse(node)
+          data << SuccessfulInstanceCreditSpecificationItem.parse(node)
         end
         data
       end
@@ -21653,7 +21655,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('event') do |node|
-          data.event = Parsers::InstanceStatusEvent.parse(node)
+          data.event = InstanceStatusEvent.parse(node)
         end
         data
       end
@@ -21667,7 +21669,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('instanceEventWindow') do |node|
-          data.instance_event_window = Parsers::InstanceEventWindow.parse(node)
+          data.instance_event_window = InstanceEventWindow.parse(node)
         end
         data
       end
@@ -21701,7 +21703,7 @@ module AWS::SDK::EC2
           data.instance_id = (node.text || '')
         end
         xml.at('instanceMetadataOptions') do |node|
-          data.instance_metadata_options = Parsers::InstanceMetadataOptionsResponse.parse(node)
+          data.instance_metadata_options = InstanceMetadataOptionsResponse.parse(node)
         end
         data
       end
@@ -21729,7 +21731,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ipam') do |node|
-          data.ipam = Parsers::Ipam.parse(node)
+          data.ipam = Ipam.parse(node)
         end
         data
       end
@@ -21743,7 +21745,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ipamPool') do |node|
-          data.ipam_pool = Parsers::IpamPool.parse(node)
+          data.ipam_pool = IpamPool.parse(node)
         end
         data
       end
@@ -21757,7 +21759,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ipamResourceCidr') do |node|
-          data.ipam_resource_cidr = Parsers::IpamResourceCidr.parse(node)
+          data.ipam_resource_cidr = IpamResourceCidr.parse(node)
         end
         data
       end
@@ -21771,7 +21773,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ipamScope') do |node|
-          data.ipam_scope = Parsers::IpamScope.parse(node)
+          data.ipam_scope = IpamScope.parse(node)
         end
         data
       end
@@ -21785,7 +21787,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('launchTemplate') do |node|
-          data.launch_template = Parsers::LaunchTemplate.parse(node)
+          data.launch_template = LaunchTemplate.parse(node)
         end
         data
       end
@@ -21799,7 +21801,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('prefixList') do |node|
-          data.prefix_list = Parsers::ManagedPrefixList.parse(node)
+          data.prefix_list = ManagedPrefixList.parse(node)
         end
         data
       end
@@ -21919,7 +21921,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('trafficMirrorFilter') do |node|
-          data.traffic_mirror_filter = Parsers::TrafficMirrorFilter.parse(node)
+          data.traffic_mirror_filter = TrafficMirrorFilter.parse(node)
         end
         data
       end
@@ -21933,7 +21935,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('trafficMirrorFilterRule') do |node|
-          data.traffic_mirror_filter_rule = Parsers::TrafficMirrorFilterRule.parse(node)
+          data.traffic_mirror_filter_rule = TrafficMirrorFilterRule.parse(node)
         end
         data
       end
@@ -21947,7 +21949,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('trafficMirrorSession') do |node|
-          data.traffic_mirror_session = Parsers::TrafficMirrorSession.parse(node)
+          data.traffic_mirror_session = TrafficMirrorSession.parse(node)
         end
         data
       end
@@ -21961,7 +21963,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGateway') do |node|
-          data.transit_gateway = Parsers::TransitGateway.parse(node)
+          data.transit_gateway = TransitGateway.parse(node)
         end
         data
       end
@@ -21975,7 +21977,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayPrefixListReference') do |node|
-          data.transit_gateway_prefix_list_reference = Parsers::TransitGatewayPrefixListReference.parse(node)
+          data.transit_gateway_prefix_list_reference = TransitGatewayPrefixListReference.parse(node)
         end
         data
       end
@@ -21989,7 +21991,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayVpcAttachment') do |node|
-          data.transit_gateway_vpc_attachment = Parsers::TransitGatewayVpcAttachment.parse(node)
+          data.transit_gateway_vpc_attachment = TransitGatewayVpcAttachment.parse(node)
         end
         data
       end
@@ -22003,7 +22005,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('volumeModification') do |node|
-          data.volume_modification = Parsers::VolumeModification.parse(node)
+          data.volume_modification = VolumeModification.parse(node)
         end
         data
       end
@@ -22109,10 +22111,10 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('accepterPeeringConnectionOptions') do |node|
-          data.accepter_peering_connection_options = Parsers::PeeringConnectionOptions.parse(node)
+          data.accepter_peering_connection_options = PeeringConnectionOptions.parse(node)
         end
         xml.at('requesterPeeringConnectionOptions') do |node|
-          data.requester_peering_connection_options = Parsers::PeeringConnectionOptions.parse(node)
+          data.requester_peering_connection_options = PeeringConnectionOptions.parse(node)
         end
         data
       end
@@ -22156,7 +22158,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('vpnConnection') do |node|
-          data.vpn_connection = Parsers::VpnConnection.parse(node)
+          data.vpn_connection = VpnConnection.parse(node)
         end
         data
       end
@@ -22170,7 +22172,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('vpnConnection') do |node|
-          data.vpn_connection = Parsers::VpnConnection.parse(node)
+          data.vpn_connection = VpnConnection.parse(node)
         end
         data
       end
@@ -22184,7 +22186,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('vpnConnection') do |node|
-          data.vpn_connection = Parsers::VpnConnection.parse(node)
+          data.vpn_connection = VpnConnection.parse(node)
         end
         data
       end
@@ -22198,7 +22200,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('vpnConnection') do |node|
-          data.vpn_connection = Parsers::VpnConnection.parse(node)
+          data.vpn_connection = VpnConnection.parse(node)
         end
         data
       end
@@ -22213,7 +22215,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('instancesSet') do |node|
           children = node.children('item')
-          data.instance_monitorings = Parsers::InstanceMonitoringList.parse(children)
+          data.instance_monitorings = InstanceMonitoringList.parse(children)
         end
         data
       end
@@ -22223,7 +22225,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceMonitoring.parse(node)
+          data << InstanceMonitoring.parse(node)
         end
         data
       end
@@ -22236,7 +22238,7 @@ module AWS::SDK::EC2
           data.instance_id = (node.text || '')
         end
         xml.at('monitoring') do |node|
-          data.monitoring = Parsers::Monitoring.parse(node)
+          data.monitoring = Monitoring.parse(node)
         end
         return data
       end
@@ -22267,7 +22269,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('byoipCidr') do |node|
-          data.byoip_cidr = Parsers::ByoipCidr.parse(node)
+          data.byoip_cidr = ByoipCidr.parse(node)
         end
         data
       end
@@ -22281,7 +22283,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('byoipCidr') do |node|
-          data.byoip_cidr = Parsers::ByoipCidr.parse(node)
+          data.byoip_cidr = ByoipCidr.parse(node)
         end
         data
       end
@@ -22295,7 +22297,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('ipamPoolCidr') do |node|
-          data.ipam_pool_cidr = Parsers::IpamPoolCidr.parse(node)
+          data.ipam_pool_cidr = IpamPoolCidr.parse(node)
         end
         data
       end
@@ -22312,7 +22314,7 @@ module AWS::SDK::EC2
           data.pool_id = (node.text || '')
         end
         xml.at('poolAddressRange') do |node|
-          data.pool_address_range = Parsers::PublicIpv4PoolRange.parse(node)
+          data.pool_address_range = PublicIpv4PoolRange.parse(node)
         end
         data
       end
@@ -22333,7 +22335,7 @@ module AWS::SDK::EC2
         end
         xml.at('purchase') do |node|
           children = node.children('item')
-          data.purchase = Parsers::PurchaseSet.parse(children)
+          data.purchase = PurchaseSet.parse(children)
         end
         xml.at('totalHourlyPrice') do |node|
           data.total_hourly_price = (node.text || '')
@@ -22368,7 +22370,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('scheduledInstanceSet') do |node|
           children = node.children('item')
-          data.scheduled_instance_set = Parsers::PurchasedScheduledInstanceSet.parse(children)
+          data.scheduled_instance_set = PurchasedScheduledInstanceSet.parse(children)
         end
         data
       end
@@ -22378,7 +22380,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ScheduledInstance.parse(node)
+          data << ScheduledInstance.parse(node)
         end
         data
       end
@@ -22417,7 +22419,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('instanceTagAttribute') do |node|
-          data.instance_tag_attribute = Parsers::InstanceTagNotificationAttribute.parse(node)
+          data.instance_tag_attribute = InstanceTagNotificationAttribute.parse(node)
         end
         data
       end
@@ -22431,7 +22433,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('registeredMulticastGroupMembers') do |node|
-          data.registered_multicast_group_members = Parsers::TransitGatewayMulticastRegisteredGroupMembers.parse(node)
+          data.registered_multicast_group_members = TransitGatewayMulticastRegisteredGroupMembers.parse(node)
         end
         data
       end
@@ -22445,7 +22447,7 @@ module AWS::SDK::EC2
         end
         xml.at('registeredNetworkInterfaceIds') do |node|
           children = node.children('item')
-          data.registered_network_interface_ids = Parsers::ValueStringList.parse(children)
+          data.registered_network_interface_ids = ValueStringList.parse(children)
         end
         xml.at('groupIpAddress') do |node|
           data.group_ip_address = (node.text || '')
@@ -22462,7 +22464,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('registeredMulticastGroupSources') do |node|
-          data.registered_multicast_group_sources = Parsers::TransitGatewayMulticastRegisteredGroupSources.parse(node)
+          data.registered_multicast_group_sources = TransitGatewayMulticastRegisteredGroupSources.parse(node)
         end
         data
       end
@@ -22476,7 +22478,7 @@ module AWS::SDK::EC2
         end
         xml.at('registeredNetworkInterfaceIds') do |node|
           children = node.children('item')
-          data.registered_network_interface_ids = Parsers::ValueStringList.parse(children)
+          data.registered_network_interface_ids = ValueStringList.parse(children)
         end
         xml.at('groupIpAddress') do |node|
           data.group_ip_address = (node.text || '')
@@ -22493,7 +22495,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('associations') do |node|
-          data.associations = Parsers::TransitGatewayMulticastDomainAssociations.parse(node)
+          data.associations = TransitGatewayMulticastDomainAssociations.parse(node)
         end
         data
       end
@@ -22507,7 +22509,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayPeeringAttachment') do |node|
-          data.transit_gateway_peering_attachment = Parsers::TransitGatewayPeeringAttachment.parse(node)
+          data.transit_gateway_peering_attachment = TransitGatewayPeeringAttachment.parse(node)
         end
         data
       end
@@ -22521,7 +22523,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('transitGatewayVpcAttachment') do |node|
-          data.transit_gateway_vpc_attachment = Parsers::TransitGatewayVpcAttachment.parse(node)
+          data.transit_gateway_vpc_attachment = TransitGatewayVpcAttachment.parse(node)
         end
         data
       end
@@ -22536,7 +22538,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('unsuccessful') do |node|
           children = node.children('item')
-          data.unsuccessful = Parsers::UnsuccessfulItemSet.parse(children)
+          data.unsuccessful = UnsuccessfulItemSet.parse(children)
         end
         data
       end
@@ -22576,11 +22578,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('successful') do |node|
           children = node.children('item')
-          data.successful = Parsers::ResponseHostIdList.parse(children)
+          data.successful = ResponseHostIdList.parse(children)
         end
         xml.at('unsuccessful') do |node|
           children = node.children('item')
-          data.unsuccessful = Parsers::UnsuccessfulItemList.parse(children)
+          data.unsuccessful = UnsuccessfulItemList.parse(children)
         end
         data
       end
@@ -22608,7 +22610,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('iamInstanceProfileAssociation') do |node|
-          data.iam_instance_profile_association = Parsers::IamInstanceProfileAssociation.parse(node)
+          data.iam_instance_profile_association = IamInstanceProfileAssociation.parse(node)
         end
         data
       end
@@ -22661,7 +22663,7 @@ module AWS::SDK::EC2
           data.new_association_id = (node.text || '')
         end
         xml.at('associationState') do |node|
-          data.association_state = Parsers::RouteTableAssociationState.parse(node)
+          data.association_state = RouteTableAssociationState.parse(node)
         end
         data
       end
@@ -22675,7 +22677,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('route') do |node|
-          data.route = Parsers::TransitGatewayRoute.parse(node)
+          data.route = TransitGatewayRoute.parse(node)
         end
         data
       end
@@ -22715,7 +22717,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('spotInstanceRequestSet') do |node|
           children = node.children('item')
-          data.spot_instance_requests = Parsers::SpotInstanceRequestList.parse(children)
+          data.spot_instance_requests = SpotInstanceRequestList.parse(children)
         end
         data
       end
@@ -22729,7 +22731,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('address') do |node|
-          data.address = Parsers::AddressAttribute.parse(node)
+          data.address = AddressAttribute.parse(node)
         end
         data
       end
@@ -22846,7 +22848,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('prefixList') do |node|
-          data.prefix_list = Parsers::ManagedPrefixList.parse(node)
+          data.prefix_list = ManagedPrefixList.parse(node)
         end
         data
       end
@@ -22924,7 +22926,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('status') do |node|
-          data.status = Parsers::ClientVpnAuthorizationRuleStatus.parse(node)
+          data.status = ClientVpnAuthorizationRuleStatus.parse(node)
         end
         data
       end
@@ -22942,7 +22944,7 @@ module AWS::SDK::EC2
         end
         xml.at('unknownIpPermissionSet') do |node|
           children = node.children('item')
-          data.unknown_ip_permissions = Parsers::IpPermissionList.parse(children)
+          data.unknown_ip_permissions = IpPermissionList.parse(children)
         end
         data
       end
@@ -22960,7 +22962,7 @@ module AWS::SDK::EC2
         end
         xml.at('unknownIpPermissionSet') do |node|
           children = node.children('item')
-          data.unknown_ip_permissions = Parsers::IpPermissionList.parse(children)
+          data.unknown_ip_permissions = IpPermissionList.parse(children)
         end
         data
       end
@@ -22975,11 +22977,11 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('groupSet') do |node|
           children = node.children('item')
-          data.groups = Parsers::GroupIdentifierList.parse(children)
+          data.groups = GroupIdentifierList.parse(children)
         end
         xml.at('instancesSet') do |node|
           children = node.children('item')
-          data.instances = Parsers::InstanceList.parse(children)
+          data.instances = InstanceList.parse(children)
         end
         xml.at('ownerId') do |node|
           data.owner_id = (node.text || '')
@@ -23003,7 +23005,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('instanceIdSet') do |node|
           children = node.children('item')
-          data.instance_id_set = Parsers::InstanceIdSet.parse(children)
+          data.instance_id_set = InstanceIdSet.parse(children)
         end
         data
       end
@@ -23028,7 +23030,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('routeSet') do |node|
           children = node.children('item')
-          data.routes = Parsers::LocalGatewayRouteList.parse(children)
+          data.routes = LocalGatewayRouteList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -23041,7 +23043,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LocalGatewayRoute.parse(node)
+          data << LocalGatewayRoute.parse(node)
         end
         data
       end
@@ -23056,7 +23058,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('multicastGroups') do |node|
           children = node.children('item')
-          data.multicast_groups = Parsers::TransitGatewayMulticastGroupList.parse(children)
+          data.multicast_groups = TransitGatewayMulticastGroupList.parse(children)
         end
         xml.at('nextToken') do |node|
           data.next_token = (node.text || '')
@@ -23069,7 +23071,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TransitGatewayMulticastGroup.parse(node)
+          data << TransitGatewayMulticastGroup.parse(node)
         end
         data
       end
@@ -23124,7 +23126,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('routeSet') do |node|
           children = node.children('item')
-          data.routes = Parsers::TransitGatewayRouteList.parse(children)
+          data.routes = TransitGatewayRouteList.parse(children)
         end
         xml.at('additionalRoutesAvailable') do |node|
           data.additional_routes_available = (node.text == 'true')
@@ -23137,7 +23139,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TransitGatewayRoute.parse(node)
+          data << TransitGatewayRoute.parse(node)
         end
         data
       end
@@ -23163,7 +23165,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('instancesSet') do |node|
           children = node.children('item')
-          data.starting_instances = Parsers::InstanceStateChangeList.parse(children)
+          data.starting_instances = InstanceStateChangeList.parse(children)
         end
         data
       end
@@ -23173,7 +23175,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InstanceStateChange.parse(node)
+          data << InstanceStateChange.parse(node)
         end
         data
       end
@@ -23183,13 +23185,13 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = Types::InstanceStateChange.new
         xml.at('currentState') do |node|
-          data.current_state = Parsers::InstanceState.parse(node)
+          data.current_state = InstanceState.parse(node)
         end
         xml.at('instanceId') do |node|
           data.instance_id = (node.text || '')
         end
         xml.at('previousState') do |node|
-          data.previous_state = Parsers::InstanceState.parse(node)
+          data.previous_state = InstanceState.parse(node)
         end
         return data
       end
@@ -23203,7 +23205,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('networkInsightsAccessScopeAnalysis') do |node|
-          data.network_insights_access_scope_analysis = Parsers::NetworkInsightsAccessScopeAnalysis.parse(node)
+          data.network_insights_access_scope_analysis = NetworkInsightsAccessScopeAnalysis.parse(node)
         end
         data
       end
@@ -23217,7 +23219,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('networkInsightsAnalysis') do |node|
-          data.network_insights_analysis = Parsers::NetworkInsightsAnalysis.parse(node)
+          data.network_insights_analysis = NetworkInsightsAnalysis.parse(node)
         end
         data
       end
@@ -23246,7 +23248,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('instancesSet') do |node|
           children = node.children('item')
-          data.stopping_instances = Parsers::InstanceStateChangeList.parse(children)
+          data.stopping_instances = InstanceStateChangeList.parse(children)
         end
         data
       end
@@ -23267,7 +23269,7 @@ module AWS::SDK::EC2
         end
         xml.at('connectionStatuses') do |node|
           children = node.children('item')
-          data.connection_statuses = Parsers::TerminateConnectionStatusSet.parse(children)
+          data.connection_statuses = TerminateConnectionStatusSet.parse(children)
         end
         data
       end
@@ -23277,7 +23279,7 @@ module AWS::SDK::EC2
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::TerminateConnectionStatus.parse(node)
+          data << TerminateConnectionStatus.parse(node)
         end
         data
       end
@@ -23290,10 +23292,10 @@ module AWS::SDK::EC2
           data.connection_id = (node.text || '')
         end
         xml.at('previousStatus') do |node|
-          data.previous_status = Parsers::ClientVpnConnectionStatus.parse(node)
+          data.previous_status = ClientVpnConnectionStatus.parse(node)
         end
         xml.at('currentStatus') do |node|
-          data.current_status = Parsers::ClientVpnConnectionStatus.parse(node)
+          data.current_status = ClientVpnConnectionStatus.parse(node)
         end
         return data
       end
@@ -23308,7 +23310,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('instancesSet') do |node|
           children = node.children('item')
-          data.terminating_instances = Parsers::InstanceStateChangeList.parse(children)
+          data.terminating_instances = InstanceStateChangeList.parse(children)
         end
         data
       end
@@ -23326,11 +23328,11 @@ module AWS::SDK::EC2
         end
         xml.at('unassignedIpv6Addresses') do |node|
           children = node.children('item')
-          data.unassigned_ipv6_addresses = Parsers::Ipv6AddressList.parse(children)
+          data.unassigned_ipv6_addresses = Ipv6AddressList.parse(children)
         end
         xml.at('unassignedIpv6PrefixSet') do |node|
           children = node.children('item')
-          data.unassigned_ipv6_prefixes = Parsers::IpPrefixList.parse(children)
+          data.unassigned_ipv6_prefixes = IpPrefixList.parse(children)
         end
         data
       end
@@ -23356,7 +23358,7 @@ module AWS::SDK::EC2
         xml = Hearth::XML.parse(body)
         xml.at('instancesSet') do |node|
           children = node.children('item')
-          data.instance_monitorings = Parsers::InstanceMonitoringList.parse(children)
+          data.instance_monitorings = InstanceMonitoringList.parse(children)
         end
         data
       end
@@ -23398,7 +23400,7 @@ module AWS::SDK::EC2
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('byoipCidr') do |node|
-          data.byoip_cidr = Parsers::ByoipCidr.parse(node)
+          data.byoip_cidr = ByoipCidr.parse(node)
         end
         data
       end

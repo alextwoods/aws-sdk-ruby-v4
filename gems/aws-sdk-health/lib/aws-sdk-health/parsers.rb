@@ -17,7 +17,7 @@ module AWS::SDK::Health
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.affected_accounts = (Parsers::AffectedAccountsList.parse(map['affectedAccounts']) unless map['affectedAccounts'].nil?)
+        data.affected_accounts = (AffectedAccountsList.parse(map['affectedAccounts']) unless map['affectedAccounts'].nil?)
         data.event_scope_code = map['eventScopeCode']
         data.next_token = map['nextToken']
         data
@@ -51,7 +51,7 @@ module AWS::SDK::Health
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entities = (Parsers::EntityList.parse(map['entities']) unless map['entities'].nil?)
+        data.entities = (EntityList.parse(map['entities']) unless map['entities'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -60,7 +60,7 @@ module AWS::SDK::Health
     class EntityList
       def self.parse(list)
         list.map do |value|
-          Parsers::AffectedEntity.parse(value) unless value.nil?
+          AffectedEntity.parse(value) unless value.nil?
         end
       end
     end
@@ -75,7 +75,7 @@ module AWS::SDK::Health
         data.aws_account_id = map['awsAccountId']
         data.last_updated_time = Time.at(map['lastUpdatedTime'].to_i) if map['lastUpdatedTime']
         data.status_code = map['statusCode']
-        data.tags = (Parsers::TagSet.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagSet.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -109,8 +109,8 @@ module AWS::SDK::Health
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entities = (Parsers::EntityList.parse(map['entities']) unless map['entities'].nil?)
-        data.failed_set = (Parsers::DescribeAffectedEntitiesForOrganizationFailedSet.parse(map['failedSet']) unless map['failedSet'].nil?)
+        data.entities = (EntityList.parse(map['entities']) unless map['entities'].nil?)
+        data.failed_set = (DescribeAffectedEntitiesForOrganizationFailedSet.parse(map['failedSet']) unless map['failedSet'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -119,7 +119,7 @@ module AWS::SDK::Health
     class DescribeAffectedEntitiesForOrganizationFailedSet
       def self.parse(list)
         list.map do |value|
-          Parsers::OrganizationAffectedEntitiesErrorItem.parse(value) unless value.nil?
+          OrganizationAffectedEntitiesErrorItem.parse(value) unless value.nil?
         end
       end
     end
@@ -142,7 +142,7 @@ module AWS::SDK::Health
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entity_aggregates = (Parsers::EntityAggregateList.parse(map['entityAggregates']) unless map['entityAggregates'].nil?)
+        data.entity_aggregates = (EntityAggregateList.parse(map['entityAggregates']) unless map['entityAggregates'].nil?)
         data
       end
     end
@@ -150,7 +150,7 @@ module AWS::SDK::Health
     class EntityAggregateList
       def self.parse(list)
         list.map do |value|
-          Parsers::EntityAggregate.parse(value) unless value.nil?
+          EntityAggregate.parse(value) unless value.nil?
         end
       end
     end
@@ -171,7 +171,7 @@ module AWS::SDK::Health
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.event_aggregates = (Parsers::EventAggregateList.parse(map['eventAggregates']) unless map['eventAggregates'].nil?)
+        data.event_aggregates = (EventAggregateList.parse(map['eventAggregates']) unless map['eventAggregates'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -180,7 +180,7 @@ module AWS::SDK::Health
     class EventAggregateList
       def self.parse(list)
         list.map do |value|
-          Parsers::EventAggregate.parse(value) unless value.nil?
+          EventAggregate.parse(value) unless value.nil?
         end
       end
     end
@@ -201,8 +201,8 @@ module AWS::SDK::Health
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.successful_set = (Parsers::DescribeEventDetailsSuccessfulSet.parse(map['successfulSet']) unless map['successfulSet'].nil?)
-        data.failed_set = (Parsers::DescribeEventDetailsFailedSet.parse(map['failedSet']) unless map['failedSet'].nil?)
+        data.successful_set = (DescribeEventDetailsSuccessfulSet.parse(map['successfulSet']) unless map['successfulSet'].nil?)
+        data.failed_set = (DescribeEventDetailsFailedSet.parse(map['failedSet']) unless map['failedSet'].nil?)
         data
       end
     end
@@ -210,7 +210,7 @@ module AWS::SDK::Health
     class DescribeEventDetailsFailedSet
       def self.parse(list)
         list.map do |value|
-          Parsers::EventDetailsErrorItem.parse(value) unless value.nil?
+          EventDetailsErrorItem.parse(value) unless value.nil?
         end
       end
     end
@@ -228,7 +228,7 @@ module AWS::SDK::Health
     class DescribeEventDetailsSuccessfulSet
       def self.parse(list)
         list.map do |value|
-          Parsers::EventDetails.parse(value) unless value.nil?
+          EventDetails.parse(value) unless value.nil?
         end
       end
     end
@@ -236,9 +236,9 @@ module AWS::SDK::Health
     class EventDetails
       def self.parse(map)
         data = Types::EventDetails.new
-        data.event = (Parsers::Event.parse(map['event']) unless map['event'].nil?)
-        data.event_description = (Parsers::EventDescription.parse(map['eventDescription']) unless map['eventDescription'].nil?)
-        data.event_metadata = (Parsers::EventMetadata.parse(map['eventMetadata']) unless map['eventMetadata'].nil?)
+        data.event = (Event.parse(map['event']) unless map['event'].nil?)
+        data.event_description = (EventDescription.parse(map['eventDescription']) unless map['eventDescription'].nil?)
+        data.event_metadata = (EventMetadata.parse(map['eventMetadata']) unless map['eventMetadata'].nil?)
         return data
       end
     end
@@ -286,8 +286,8 @@ module AWS::SDK::Health
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.successful_set = (Parsers::DescribeEventDetailsForOrganizationSuccessfulSet.parse(map['successfulSet']) unless map['successfulSet'].nil?)
-        data.failed_set = (Parsers::DescribeEventDetailsForOrganizationFailedSet.parse(map['failedSet']) unless map['failedSet'].nil?)
+        data.successful_set = (DescribeEventDetailsForOrganizationSuccessfulSet.parse(map['successfulSet']) unless map['successfulSet'].nil?)
+        data.failed_set = (DescribeEventDetailsForOrganizationFailedSet.parse(map['failedSet']) unless map['failedSet'].nil?)
         data
       end
     end
@@ -295,7 +295,7 @@ module AWS::SDK::Health
     class DescribeEventDetailsForOrganizationFailedSet
       def self.parse(list)
         list.map do |value|
-          Parsers::OrganizationEventDetailsErrorItem.parse(value) unless value.nil?
+          OrganizationEventDetailsErrorItem.parse(value) unless value.nil?
         end
       end
     end
@@ -314,7 +314,7 @@ module AWS::SDK::Health
     class DescribeEventDetailsForOrganizationSuccessfulSet
       def self.parse(list)
         list.map do |value|
-          Parsers::OrganizationEventDetails.parse(value) unless value.nil?
+          OrganizationEventDetails.parse(value) unless value.nil?
         end
       end
     end
@@ -323,9 +323,9 @@ module AWS::SDK::Health
       def self.parse(map)
         data = Types::OrganizationEventDetails.new
         data.aws_account_id = map['awsAccountId']
-        data.event = (Parsers::Event.parse(map['event']) unless map['event'].nil?)
-        data.event_description = (Parsers::EventDescription.parse(map['eventDescription']) unless map['eventDescription'].nil?)
-        data.event_metadata = (Parsers::EventMetadata.parse(map['eventMetadata']) unless map['eventMetadata'].nil?)
+        data.event = (Event.parse(map['event']) unless map['event'].nil?)
+        data.event_description = (EventDescription.parse(map['eventDescription']) unless map['eventDescription'].nil?)
+        data.event_metadata = (EventMetadata.parse(map['eventMetadata']) unless map['eventMetadata'].nil?)
         return data
       end
     end
@@ -337,7 +337,7 @@ module AWS::SDK::Health
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.event_types = (Parsers::EventTypeList.parse(map['eventTypes']) unless map['eventTypes'].nil?)
+        data.event_types = (EventTypeList.parse(map['eventTypes']) unless map['eventTypes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -346,7 +346,7 @@ module AWS::SDK::Health
     class EventTypeList
       def self.parse(list)
         list.map do |value|
-          Parsers::EventType.parse(value) unless value.nil?
+          EventType.parse(value) unless value.nil?
         end
       end
     end
@@ -368,7 +368,7 @@ module AWS::SDK::Health
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.events = (Parsers::EventList.parse(map['events']) unless map['events'].nil?)
+        data.events = (EventList.parse(map['events']) unless map['events'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -377,7 +377,7 @@ module AWS::SDK::Health
     class EventList
       def self.parse(list)
         list.map do |value|
-          Parsers::Event.parse(value) unless value.nil?
+          Event.parse(value) unless value.nil?
         end
       end
     end
@@ -389,7 +389,7 @@ module AWS::SDK::Health
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.events = (Parsers::OrganizationEventList.parse(map['events']) unless map['events'].nil?)
+        data.events = (OrganizationEventList.parse(map['events']) unless map['events'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -398,7 +398,7 @@ module AWS::SDK::Health
     class OrganizationEventList
       def self.parse(list)
         list.map do |value|
-          Parsers::OrganizationEvent.parse(value) unless value.nil?
+          OrganizationEvent.parse(value) unless value.nil?
         end
       end
     end

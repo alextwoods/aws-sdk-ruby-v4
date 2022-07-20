@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::WorkSpacesWeb
   module Stubs
 
@@ -25,7 +28,7 @@ module AWS::SDK::WorkSpacesWeb
         http_resp.headers['Content-Type'] = 'application/json'
         data['portalArn'] = stub[:portal_arn] unless stub[:portal_arn].nil?
         data['browserSettingsArn'] = stub[:browser_settings_arn] unless stub[:browser_settings_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -44,7 +47,7 @@ module AWS::SDK::WorkSpacesWeb
         http_resp.headers['Content-Type'] = 'application/json'
         data['portalArn'] = stub[:portal_arn] unless stub[:portal_arn].nil?
         data['networkSettingsArn'] = stub[:network_settings_arn] unless stub[:network_settings_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -63,7 +66,7 @@ module AWS::SDK::WorkSpacesWeb
         http_resp.headers['Content-Type'] = 'application/json'
         data['portalArn'] = stub[:portal_arn] unless stub[:portal_arn].nil?
         data['trustStoreArn'] = stub[:trust_store_arn] unless stub[:trust_store_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -82,7 +85,7 @@ module AWS::SDK::WorkSpacesWeb
         http_resp.headers['Content-Type'] = 'application/json'
         data['portalArn'] = stub[:portal_arn] unless stub[:portal_arn].nil?
         data['userSettingsArn'] = stub[:user_settings_arn] unless stub[:user_settings_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -99,7 +102,7 @@ module AWS::SDK::WorkSpacesWeb
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['browserSettingsArn'] = stub[:browser_settings_arn] unless stub[:browser_settings_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -116,7 +119,7 @@ module AWS::SDK::WorkSpacesWeb
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['identityProviderArn'] = stub[:identity_provider_arn] unless stub[:identity_provider_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -133,7 +136,7 @@ module AWS::SDK::WorkSpacesWeb
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['networkSettingsArn'] = stub[:network_settings_arn] unless stub[:network_settings_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -152,7 +155,7 @@ module AWS::SDK::WorkSpacesWeb
         http_resp.headers['Content-Type'] = 'application/json'
         data['portalArn'] = stub[:portal_arn] unless stub[:portal_arn].nil?
         data['portalEndpoint'] = stub[:portal_endpoint] unless stub[:portal_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -169,7 +172,7 @@ module AWS::SDK::WorkSpacesWeb
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['trustStoreArn'] = stub[:trust_store_arn] unless stub[:trust_store_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -186,7 +189,7 @@ module AWS::SDK::WorkSpacesWeb
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['userSettingsArn'] = stub[:user_settings_arn] unless stub[:user_settings_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -332,8 +335,8 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['browserSettings'] = Stubs::BrowserSettings.stub(stub[:browser_settings]) unless stub[:browser_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['browserSettings'] = BrowserSettings.stub(stub[:browser_settings]) unless stub[:browser_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -353,7 +356,7 @@ module AWS::SDK::WorkSpacesWeb
         stub ||= Types::BrowserSettings.new
         data = {}
         data['browserSettingsArn'] = stub[:browser_settings_arn] unless stub[:browser_settings_arn].nil?
-        data['associatedPortalArns'] = Stubs::ArnList.stub(stub[:associated_portal_arns]) unless stub[:associated_portal_arns].nil?
+        data['associatedPortalArns'] = ArnList.stub(stub[:associated_portal_arns]) unless stub[:associated_portal_arns].nil?
         data['browserPolicy'] = stub[:browser_policy] unless stub[:browser_policy].nil?
         data
       end
@@ -391,8 +394,8 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['identityProvider'] = Stubs::IdentityProvider.stub(stub[:identity_provider]) unless stub[:identity_provider].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['identityProvider'] = IdentityProvider.stub(stub[:identity_provider]) unless stub[:identity_provider].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -415,7 +418,7 @@ module AWS::SDK::WorkSpacesWeb
         data['identityProviderArn'] = stub[:identity_provider_arn] unless stub[:identity_provider_arn].nil?
         data['identityProviderName'] = stub[:identity_provider_name] unless stub[:identity_provider_name].nil?
         data['identityProviderType'] = stub[:identity_provider_type] unless stub[:identity_provider_type].nil?
-        data['identityProviderDetails'] = Stubs::IdentityProviderDetails.stub(stub[:identity_provider_details]) unless stub[:identity_provider_details].nil?
+        data['identityProviderDetails'] = IdentityProviderDetails.stub(stub[:identity_provider_details]) unless stub[:identity_provider_details].nil?
         data
       end
     end
@@ -452,8 +455,8 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['networkSettings'] = Stubs::NetworkSettings.stub(stub[:network_settings]) unless stub[:network_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['networkSettings'] = NetworkSettings.stub(stub[:network_settings]) unless stub[:network_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -475,10 +478,10 @@ module AWS::SDK::WorkSpacesWeb
         stub ||= Types::NetworkSettings.new
         data = {}
         data['networkSettingsArn'] = stub[:network_settings_arn] unless stub[:network_settings_arn].nil?
-        data['associatedPortalArns'] = Stubs::ArnList.stub(stub[:associated_portal_arns]) unless stub[:associated_portal_arns].nil?
+        data['associatedPortalArns'] = ArnList.stub(stub[:associated_portal_arns]) unless stub[:associated_portal_arns].nil?
         data['vpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['subnetIds'] = Stubs::SubnetIdList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['securityGroupIds'] = Stubs::SecurityGroupIdList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['subnetIds'] = SubnetIdList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['securityGroupIds'] = SecurityGroupIdList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data
       end
     end
@@ -535,8 +538,8 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['portal'] = Stubs::Portal.stub(stub[:portal]) unless stub[:portal].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['portal'] = Portal.stub(stub[:portal]) unless stub[:portal].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -595,7 +598,7 @@ module AWS::SDK::WorkSpacesWeb
         http_resp.headers['Content-Type'] = 'application/json'
         data['portalArn'] = stub[:portal_arn] unless stub[:portal_arn].nil?
         data['serviceProviderSamlMetadata'] = stub[:service_provider_saml_metadata] unless stub[:service_provider_saml_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -611,8 +614,8 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['trustStore'] = Stubs::TrustStore.stub(stub[:trust_store]) unless stub[:trust_store].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['trustStore'] = TrustStore.stub(stub[:trust_store]) unless stub[:trust_store].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -630,7 +633,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.stub(stub)
         stub ||= Types::TrustStore.new
         data = {}
-        data['associatedPortalArns'] = Stubs::ArnList.stub(stub[:associated_portal_arns]) unless stub[:associated_portal_arns].nil?
+        data['associatedPortalArns'] = ArnList.stub(stub[:associated_portal_arns]) unless stub[:associated_portal_arns].nil?
         data['trustStoreArn'] = stub[:trust_store_arn] unless stub[:trust_store_arn].nil?
         data
       end
@@ -650,8 +653,8 @@ module AWS::SDK::WorkSpacesWeb
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['trustStoreArn'] = stub[:trust_store_arn] unless stub[:trust_store_arn].nil?
-        data['certificate'] = Stubs::Certificate.stub(stub[:certificate]) unless stub[:certificate].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['certificate'] = Certificate.stub(stub[:certificate]) unless stub[:certificate].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -678,7 +681,7 @@ module AWS::SDK::WorkSpacesWeb
         data['issuer'] = stub[:issuer] unless stub[:issuer].nil?
         data['notValidBefore'] = Hearth::TimeHelper.to_epoch_seconds(stub[:not_valid_before]).to_i unless stub[:not_valid_before].nil?
         data['notValidAfter'] = Hearth::TimeHelper.to_epoch_seconds(stub[:not_valid_after]).to_i unless stub[:not_valid_after].nil?
-        data['body'] = Base64::encode64(stub[:body]) unless stub[:body].nil?
+        data['body'] = ::Base64::encode64(stub[:body]) unless stub[:body].nil?
         data
       end
     end
@@ -695,8 +698,8 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['userSettings'] = Stubs::UserSettings.stub(stub[:user_settings]) unless stub[:user_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['userSettings'] = UserSettings.stub(stub[:user_settings]) unless stub[:user_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -722,7 +725,7 @@ module AWS::SDK::WorkSpacesWeb
         stub ||= Types::UserSettings.new
         data = {}
         data['userSettingsArn'] = stub[:user_settings_arn] unless stub[:user_settings_arn].nil?
-        data['associatedPortalArns'] = Stubs::ArnList.stub(stub[:associated_portal_arns]) unless stub[:associated_portal_arns].nil?
+        data['associatedPortalArns'] = ArnList.stub(stub[:associated_portal_arns]) unless stub[:associated_portal_arns].nil?
         data['copyAllowed'] = stub[:copy_allowed] unless stub[:copy_allowed].nil?
         data['pasteAllowed'] = stub[:paste_allowed] unless stub[:paste_allowed].nil?
         data['downloadAllowed'] = stub[:download_allowed] unless stub[:download_allowed].nil?
@@ -747,9 +750,9 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['browserSettings'] = Stubs::BrowserSettingsList.stub(stub[:browser_settings]) unless stub[:browser_settings].nil?
+        data['browserSettings'] = BrowserSettingsList.stub(stub[:browser_settings]) unless stub[:browser_settings].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -767,7 +770,7 @@ module AWS::SDK::WorkSpacesWeb
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BrowserSettingsSummary.stub(element) unless element.nil?
+          data << BrowserSettingsSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -805,8 +808,8 @@ module AWS::SDK::WorkSpacesWeb
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['identityProviders'] = Stubs::IdentityProviderList.stub(stub[:identity_providers]) unless stub[:identity_providers].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['identityProviders'] = IdentityProviderList.stub(stub[:identity_providers]) unless stub[:identity_providers].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -824,7 +827,7 @@ module AWS::SDK::WorkSpacesWeb
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IdentityProviderSummary.stub(element) unless element.nil?
+          data << IdentityProviderSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -865,9 +868,9 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['networkSettings'] = Stubs::NetworkSettingsList.stub(stub[:network_settings]) unless stub[:network_settings].nil?
+        data['networkSettings'] = NetworkSettingsList.stub(stub[:network_settings]) unless stub[:network_settings].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -885,7 +888,7 @@ module AWS::SDK::WorkSpacesWeb
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkSettingsSummary.stub(element) unless element.nil?
+          data << NetworkSettingsSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -924,9 +927,9 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['portals'] = Stubs::PortalList.stub(stub[:portals]) unless stub[:portals].nil?
+        data['portals'] = PortalList.stub(stub[:portals]) unless stub[:portals].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -944,7 +947,7 @@ module AWS::SDK::WorkSpacesWeb
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PortalSummary.stub(element) unless element.nil?
+          data << PortalSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1000,8 +1003,8 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1019,7 +1022,7 @@ module AWS::SDK::WorkSpacesWeb
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1059,10 +1062,10 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['certificateList'] = Stubs::CertificateSummaryList.stub(stub[:certificate_list]) unless stub[:certificate_list].nil?
+        data['certificateList'] = CertificateSummaryList.stub(stub[:certificate_list]) unless stub[:certificate_list].nil?
         data['trustStoreArn'] = stub[:trust_store_arn] unless stub[:trust_store_arn].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1080,7 +1083,7 @@ module AWS::SDK::WorkSpacesWeb
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CertificateSummary.stub(element) unless element.nil?
+          data << CertificateSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1125,9 +1128,9 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['trustStores'] = Stubs::TrustStoreSummaryList.stub(stub[:trust_stores]) unless stub[:trust_stores].nil?
+        data['trustStores'] = TrustStoreSummaryList.stub(stub[:trust_stores]) unless stub[:trust_stores].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1145,7 +1148,7 @@ module AWS::SDK::WorkSpacesWeb
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TrustStoreSummary.stub(element) unless element.nil?
+          data << TrustStoreSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1182,9 +1185,9 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['userSettings'] = Stubs::UserSettingsList.stub(stub[:user_settings]) unless stub[:user_settings].nil?
+        data['userSettings'] = UserSettingsList.stub(stub[:user_settings]) unless stub[:user_settings].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1202,7 +1205,7 @@ module AWS::SDK::WorkSpacesWeb
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UserSettingsSummary.stub(element) unless element.nil?
+          data << UserSettingsSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1278,8 +1281,8 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['browserSettings'] = Stubs::BrowserSettings.stub(stub[:browser_settings]) unless stub[:browser_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['browserSettings'] = BrowserSettings.stub(stub[:browser_settings]) unless stub[:browser_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1295,8 +1298,8 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['identityProvider'] = Stubs::IdentityProvider.stub(stub[:identity_provider]) unless stub[:identity_provider].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['identityProvider'] = IdentityProvider.stub(stub[:identity_provider]) unless stub[:identity_provider].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1312,8 +1315,8 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['networkSettings'] = Stubs::NetworkSettings.stub(stub[:network_settings]) unless stub[:network_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['networkSettings'] = NetworkSettings.stub(stub[:network_settings]) unless stub[:network_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1329,8 +1332,8 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['portal'] = Stubs::Portal.stub(stub[:portal]) unless stub[:portal].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['portal'] = Portal.stub(stub[:portal]) unless stub[:portal].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1347,7 +1350,7 @@ module AWS::SDK::WorkSpacesWeb
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['trustStoreArn'] = stub[:trust_store_arn] unless stub[:trust_store_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1363,8 +1366,8 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['userSettings'] = Stubs::UserSettings.stub(stub[:user_settings]) unless stub[:user_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['userSettings'] = UserSettings.stub(stub[:user_settings]) unless stub[:user_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

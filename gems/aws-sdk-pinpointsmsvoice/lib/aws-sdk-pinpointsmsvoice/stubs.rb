@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::PinpointSMSVoice
   module Stubs
 
@@ -74,8 +76,8 @@ module AWS::SDK::PinpointSMSVoice
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['EventDestinations'] = Stubs::EventDestinations.stub(stub[:event_destinations]) unless stub[:event_destinations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventDestinations'] = EventDestinations.stub(stub[:event_destinations]) unless stub[:event_destinations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -93,7 +95,7 @@ module AWS::SDK::PinpointSMSVoice
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventDestination.stub(element) unless element.nil?
+          data << EventDestination.stub(element) unless element.nil?
         end
         data
       end
@@ -117,12 +119,12 @@ module AWS::SDK::PinpointSMSVoice
       def self.stub(stub)
         stub ||= Types::EventDestination.new
         data = {}
-        data['CloudWatchLogsDestination'] = Stubs::CloudWatchLogsDestination.stub(stub[:cloud_watch_logs_destination]) unless stub[:cloud_watch_logs_destination].nil?
+        data['CloudWatchLogsDestination'] = CloudWatchLogsDestination.stub(stub[:cloud_watch_logs_destination]) unless stub[:cloud_watch_logs_destination].nil?
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
-        data['KinesisFirehoseDestination'] = Stubs::KinesisFirehoseDestination.stub(stub[:kinesis_firehose_destination]) unless stub[:kinesis_firehose_destination].nil?
-        data['MatchingEventTypes'] = Stubs::EventTypes.stub(stub[:matching_event_types]) unless stub[:matching_event_types].nil?
+        data['KinesisFirehoseDestination'] = KinesisFirehoseDestination.stub(stub[:kinesis_firehose_destination]) unless stub[:kinesis_firehose_destination].nil?
+        data['MatchingEventTypes'] = EventTypes.stub(stub[:matching_event_types]) unless stub[:matching_event_types].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['SnsDestination'] = Stubs::SnsDestination.stub(stub[:sns_destination]) unless stub[:sns_destination].nil?
+        data['SnsDestination'] = SnsDestination.stub(stub[:sns_destination]) unless stub[:sns_destination].nil?
         data
       end
     end
@@ -218,9 +220,9 @@ module AWS::SDK::PinpointSMSVoice
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ConfigurationSets'] = Stubs::ConfigurationSets.stub(stub[:configuration_sets]) unless stub[:configuration_sets].nil?
+        data['ConfigurationSets'] = ConfigurationSets.stub(stub[:configuration_sets]) unless stub[:configuration_sets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -257,7 +259,7 @@ module AWS::SDK::PinpointSMSVoice
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['MessageId'] = stub[:message_id] unless stub[:message_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

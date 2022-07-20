@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AppStream
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ApplicationFleetAssociation'] = Stubs::ApplicationFleetAssociation.stub(stub[:application_fleet_association]) unless stub[:application_fleet_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ApplicationFleetAssociation'] = ApplicationFleetAssociation.stub(stub[:application_fleet_association]) unless stub[:application_fleet_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -55,7 +57,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -69,7 +71,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -84,8 +86,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['errors'] = Stubs::UserStackAssociationErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errors'] = UserStackAssociationErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -104,7 +106,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UserStackAssociationError.stub(element) unless element.nil?
+          data << UserStackAssociationError.stub(element) unless element.nil?
         end
         data
       end
@@ -125,7 +127,7 @@ module AWS::SDK::AppStream
       def self.stub(stub)
         stub ||= Types::UserStackAssociationError.new
         data = {}
-        data['UserStackAssociation'] = Stubs::UserStackAssociation.stub(stub[:user_stack_association]) unless stub[:user_stack_association].nil?
+        data['UserStackAssociation'] = UserStackAssociation.stub(stub[:user_stack_association]) unless stub[:user_stack_association].nil?
         data['ErrorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data
@@ -166,8 +168,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['errors'] = Stubs::UserStackAssociationErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errors'] = UserStackAssociationErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -183,7 +185,7 @@ module AWS::SDK::AppStream
       def self.stub(http_resp, stub:)
         data = {}
         data['DestinationImageName'] = stub[:destination_image_name] unless stub[:destination_image_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -198,8 +200,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AppBlock'] = Stubs::AppBlock.stub(stub[:app_block]) unless stub[:app_block].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AppBlock'] = AppBlock.stub(stub[:app_block]) unless stub[:app_block].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -227,8 +229,8 @@ module AWS::SDK::AppStream
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
-        data['SourceS3Location'] = Stubs::S3Location.stub(stub[:source_s3_location]) unless stub[:source_s3_location].nil?
-        data['SetupScriptDetails'] = Stubs::ScriptDetails.stub(stub[:setup_script_details]) unless stub[:setup_script_details].nil?
+        data['SourceS3Location'] = S3Location.stub(stub[:source_s3_location]) unless stub[:source_s3_location].nil?
+        data['SetupScriptDetails'] = ScriptDetails.stub(stub[:setup_script_details]) unless stub[:setup_script_details].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data
       end
@@ -250,7 +252,7 @@ module AWS::SDK::AppStream
       def self.stub(stub)
         stub ||= Types::ScriptDetails.new
         data = {}
-        data['ScriptS3Location'] = Stubs::S3Location.stub(stub[:script_s3_location]) unless stub[:script_s3_location].nil?
+        data['ScriptS3Location'] = S3Location.stub(stub[:script_s3_location]) unless stub[:script_s3_location].nil?
         data['ExecutablePath'] = stub[:executable_path] unless stub[:executable_path].nil?
         data['ExecutableParameters'] = stub[:executable_parameters] unless stub[:executable_parameters].nil?
         data['TimeoutInSeconds'] = stub[:timeout_in_seconds] unless stub[:timeout_in_seconds].nil?
@@ -288,8 +290,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Application'] = Stubs::Application.stub(stub[:application]) unless stub[:application].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Application'] = Application.stub(stub[:application]) unless stub[:application].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -327,14 +329,14 @@ module AWS::SDK::AppStream
         data['LaunchPath'] = stub[:launch_path] unless stub[:launch_path].nil?
         data['LaunchParameters'] = stub[:launch_parameters] unless stub[:launch_parameters].nil?
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
-        data['Metadata'] = Stubs::Metadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['Metadata'] = Metadata.stub(stub[:metadata]) unless stub[:metadata].nil?
         data['WorkingDirectory'] = stub[:working_directory] unless stub[:working_directory].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['AppBlockArn'] = stub[:app_block_arn] unless stub[:app_block_arn].nil?
-        data['IconS3Location'] = Stubs::S3Location.stub(stub[:icon_s3_location]) unless stub[:icon_s3_location].nil?
-        data['Platforms'] = Stubs::Platforms.stub(stub[:platforms]) unless stub[:platforms].nil?
-        data['InstanceFamilies'] = Stubs::StringList.stub(stub[:instance_families]) unless stub[:instance_families].nil?
+        data['IconS3Location'] = S3Location.stub(stub[:icon_s3_location]) unless stub[:icon_s3_location].nil?
+        data['Platforms'] = Platforms.stub(stub[:platforms]) unless stub[:platforms].nil?
+        data['InstanceFamilies'] = StringList.stub(stub[:instance_families]) unless stub[:instance_families].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data
       end
@@ -410,8 +412,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DirectoryConfig'] = Stubs::DirectoryConfig.stub(stub[:directory_config]) unless stub[:directory_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DirectoryConfig'] = DirectoryConfig.stub(stub[:directory_config]) unless stub[:directory_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -433,8 +435,8 @@ module AWS::SDK::AppStream
         stub ||= Types::DirectoryConfig.new
         data = {}
         data['DirectoryName'] = stub[:directory_name] unless stub[:directory_name].nil?
-        data['OrganizationalUnitDistinguishedNames'] = Stubs::OrganizationalUnitDistinguishedNamesList.stub(stub[:organizational_unit_distinguished_names]) unless stub[:organizational_unit_distinguished_names].nil?
-        data['ServiceAccountCredentials'] = Stubs::ServiceAccountCredentials.stub(stub[:service_account_credentials]) unless stub[:service_account_credentials].nil?
+        data['OrganizationalUnitDistinguishedNames'] = OrganizationalUnitDistinguishedNamesList.stub(stub[:organizational_unit_distinguished_names]) unless stub[:organizational_unit_distinguished_names].nil?
+        data['ServiceAccountCredentials'] = ServiceAccountCredentials.stub(stub[:service_account_credentials]) unless stub[:service_account_credentials].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data
       end
@@ -490,8 +492,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Entitlement'] = Stubs::Entitlement.stub(stub[:entitlement]) unless stub[:entitlement].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Entitlement'] = Entitlement.stub(stub[:entitlement]) unless stub[:entitlement].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -519,7 +521,7 @@ module AWS::SDK::AppStream
         data['StackName'] = stub[:stack_name] unless stub[:stack_name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['AppVisibility'] = stub[:app_visibility] unless stub[:app_visibility].nil?
-        data['Attributes'] = Stubs::EntitlementAttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = EntitlementAttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data
@@ -540,7 +542,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EntitlementAttribute.stub(element) unless element.nil?
+          data << EntitlementAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -576,8 +578,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Fleet'] = Stubs::Fleet.stub(stub[:fleet]) unless stub[:fleet].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Fleet'] = Fleet.stub(stub[:fleet]) unless stub[:fleet].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -626,22 +628,22 @@ module AWS::SDK::AppStream
         data['ImageArn'] = stub[:image_arn] unless stub[:image_arn].nil?
         data['InstanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
         data['FleetType'] = stub[:fleet_type] unless stub[:fleet_type].nil?
-        data['ComputeCapacityStatus'] = Stubs::ComputeCapacityStatus.stub(stub[:compute_capacity_status]) unless stub[:compute_capacity_status].nil?
+        data['ComputeCapacityStatus'] = ComputeCapacityStatus.stub(stub[:compute_capacity_status]) unless stub[:compute_capacity_status].nil?
         data['MaxUserDurationInSeconds'] = stub[:max_user_duration_in_seconds] unless stub[:max_user_duration_in_seconds].nil?
         data['DisconnectTimeoutInSeconds'] = stub[:disconnect_timeout_in_seconds] unless stub[:disconnect_timeout_in_seconds].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        data['FleetErrors'] = Stubs::FleetErrors.stub(stub[:fleet_errors]) unless stub[:fleet_errors].nil?
+        data['FleetErrors'] = FleetErrors.stub(stub[:fleet_errors]) unless stub[:fleet_errors].nil?
         data['EnableDefaultInternetAccess'] = stub[:enable_default_internet_access] unless stub[:enable_default_internet_access].nil?
-        data['DomainJoinInfo'] = Stubs::DomainJoinInfo.stub(stub[:domain_join_info]) unless stub[:domain_join_info].nil?
+        data['DomainJoinInfo'] = DomainJoinInfo.stub(stub[:domain_join_info]) unless stub[:domain_join_info].nil?
         data['IdleDisconnectTimeoutInSeconds'] = stub[:idle_disconnect_timeout_in_seconds] unless stub[:idle_disconnect_timeout_in_seconds].nil?
         data['IamRoleArn'] = stub[:iam_role_arn] unless stub[:iam_role_arn].nil?
         data['StreamView'] = stub[:stream_view] unless stub[:stream_view].nil?
         data['Platform'] = stub[:platform] unless stub[:platform].nil?
         data['MaxConcurrentSessions'] = stub[:max_concurrent_sessions] unless stub[:max_concurrent_sessions].nil?
-        data['UsbDeviceFilterStrings'] = Stubs::UsbDeviceFilterStrings.stub(stub[:usb_device_filter_strings]) unless stub[:usb_device_filter_strings].nil?
-        data['SessionScriptS3Location'] = Stubs::S3Location.stub(stub[:session_script_s3_location]) unless stub[:session_script_s3_location].nil?
+        data['UsbDeviceFilterStrings'] = UsbDeviceFilterStrings.stub(stub[:usb_device_filter_strings]) unless stub[:usb_device_filter_strings].nil?
+        data['SessionScriptS3Location'] = S3Location.stub(stub[:session_script_s3_location]) unless stub[:session_script_s3_location].nil?
         data
       end
     end
@@ -700,7 +702,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FleetError.stub(element) unless element.nil?
+          data << FleetError.stub(element) unless element.nil?
         end
         data
       end
@@ -740,8 +742,8 @@ module AWS::SDK::AppStream
       def self.stub(stub)
         stub ||= Types::VpcConfig.new
         data = {}
-        data['SubnetIds'] = Stubs::SubnetIdList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['SecurityGroupIds'] = Stubs::SecurityGroupIdList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SubnetIds'] = SubnetIdList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIdList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data
       end
     end
@@ -820,8 +822,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ImageBuilder'] = Stubs::ImageBuilder.stub(stub[:image_builder]) unless stub[:image_builder].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ImageBuilder'] = ImageBuilder.stub(stub[:image_builder]) unless stub[:image_builder].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -861,19 +863,19 @@ module AWS::SDK::AppStream
         data['ImageArn'] = stub[:image_arn] unless stub[:image_arn].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data['InstanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
         data['Platform'] = stub[:platform] unless stub[:platform].nil?
         data['IamRoleArn'] = stub[:iam_role_arn] unless stub[:iam_role_arn].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['StateChangeReason'] = Stubs::ImageBuilderStateChangeReason.stub(stub[:state_change_reason]) unless stub[:state_change_reason].nil?
+        data['StateChangeReason'] = ImageBuilderStateChangeReason.stub(stub[:state_change_reason]) unless stub[:state_change_reason].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['EnableDefaultInternetAccess'] = stub[:enable_default_internet_access] unless stub[:enable_default_internet_access].nil?
-        data['DomainJoinInfo'] = Stubs::DomainJoinInfo.stub(stub[:domain_join_info]) unless stub[:domain_join_info].nil?
-        data['NetworkAccessConfiguration'] = Stubs::NetworkAccessConfiguration.stub(stub[:network_access_configuration]) unless stub[:network_access_configuration].nil?
-        data['ImageBuilderErrors'] = Stubs::ResourceErrors.stub(stub[:image_builder_errors]) unless stub[:image_builder_errors].nil?
+        data['DomainJoinInfo'] = DomainJoinInfo.stub(stub[:domain_join_info]) unless stub[:domain_join_info].nil?
+        data['NetworkAccessConfiguration'] = NetworkAccessConfiguration.stub(stub[:network_access_configuration]) unless stub[:network_access_configuration].nil?
+        data['ImageBuilderErrors'] = ResourceErrors.stub(stub[:image_builder_errors]) unless stub[:image_builder_errors].nil?
         data['AppstreamAgentVersion'] = stub[:appstream_agent_version] unless stub[:appstream_agent_version].nil?
-        data['AccessEndpoints'] = Stubs::AccessEndpointList.stub(stub[:access_endpoints]) unless stub[:access_endpoints].nil?
+        data['AccessEndpoints'] = AccessEndpointList.stub(stub[:access_endpoints]) unless stub[:access_endpoints].nil?
         data
       end
     end
@@ -892,7 +894,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccessEndpoint.stub(element) unless element.nil?
+          data << AccessEndpoint.stub(element) unless element.nil?
         end
         data
       end
@@ -932,7 +934,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceError.stub(element) unless element.nil?
+          data << ResourceError.stub(element) unless element.nil?
         end
         data
       end
@@ -1013,7 +1015,7 @@ module AWS::SDK::AppStream
         data = {}
         data['StreamingURL'] = stub[:streaming_url] unless stub[:streaming_url].nil?
         data['Expires'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expires]).to_i unless stub[:expires].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1028,8 +1030,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Stack'] = Stubs::Stack.stub(stub[:stack]) unless stub[:stack].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Stack'] = Stack.stub(stub[:stack]) unless stub[:stack].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1064,14 +1066,14 @@ module AWS::SDK::AppStream
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        data['StorageConnectors'] = Stubs::StorageConnectorList.stub(stub[:storage_connectors]) unless stub[:storage_connectors].nil?
+        data['StorageConnectors'] = StorageConnectorList.stub(stub[:storage_connectors]) unless stub[:storage_connectors].nil?
         data['RedirectURL'] = stub[:redirect_url] unless stub[:redirect_url].nil?
         data['FeedbackURL'] = stub[:feedback_url] unless stub[:feedback_url].nil?
-        data['StackErrors'] = Stubs::StackErrors.stub(stub[:stack_errors]) unless stub[:stack_errors].nil?
-        data['UserSettings'] = Stubs::UserSettingList.stub(stub[:user_settings]) unless stub[:user_settings].nil?
-        data['ApplicationSettings'] = Stubs::ApplicationSettingsResponse.stub(stub[:application_settings]) unless stub[:application_settings].nil?
-        data['AccessEndpoints'] = Stubs::AccessEndpointList.stub(stub[:access_endpoints]) unless stub[:access_endpoints].nil?
-        data['EmbedHostDomains'] = Stubs::EmbedHostDomains.stub(stub[:embed_host_domains]) unless stub[:embed_host_domains].nil?
+        data['StackErrors'] = StackErrors.stub(stub[:stack_errors]) unless stub[:stack_errors].nil?
+        data['UserSettings'] = UserSettingList.stub(stub[:user_settings]) unless stub[:user_settings].nil?
+        data['ApplicationSettings'] = ApplicationSettingsResponse.stub(stub[:application_settings]) unless stub[:application_settings].nil?
+        data['AccessEndpoints'] = AccessEndpointList.stub(stub[:access_endpoints]) unless stub[:access_endpoints].nil?
+        data['EmbedHostDomains'] = EmbedHostDomains.stub(stub[:embed_host_domains]) unless stub[:embed_host_domains].nil?
         data
       end
     end
@@ -1132,7 +1134,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UserSetting.stub(element) unless element.nil?
+          data << UserSetting.stub(element) unless element.nil?
         end
         data
       end
@@ -1172,7 +1174,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StackError.stub(element) unless element.nil?
+          data << StackError.stub(element) unless element.nil?
         end
         data
       end
@@ -1212,7 +1214,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StorageConnector.stub(element) unless element.nil?
+          data << StorageConnector.stub(element) unless element.nil?
         end
         data
       end
@@ -1235,7 +1237,7 @@ module AWS::SDK::AppStream
         data = {}
         data['ConnectorType'] = stub[:connector_type] unless stub[:connector_type].nil?
         data['ResourceIdentifier'] = stub[:resource_identifier] unless stub[:resource_identifier].nil?
-        data['Domains'] = Stubs::DomainList.stub(stub[:domains]) unless stub[:domains].nil?
+        data['Domains'] = DomainList.stub(stub[:domains]) unless stub[:domains].nil?
         data
       end
     end
@@ -1273,7 +1275,7 @@ module AWS::SDK::AppStream
         data = {}
         data['StreamingURL'] = stub[:streaming_url] unless stub[:streaming_url].nil?
         data['Expires'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expires]).to_i unless stub[:expires].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1289,9 +1291,9 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['image'] = Stubs::Image.stub(stub[:image]) unless stub[:image].nil?
+        data['image'] = Image.stub(stub[:image]) unless stub[:image].nil?
         data['canUpdateImage'] = stub[:can_update_image] unless stub[:can_update_image].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1335,13 +1337,13 @@ module AWS::SDK::AppStream
         data['ImageBuilderName'] = stub[:image_builder_name] unless stub[:image_builder_name].nil?
         data['Platform'] = stub[:platform] unless stub[:platform].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['StateChangeReason'] = Stubs::ImageStateChangeReason.stub(stub[:state_change_reason]) unless stub[:state_change_reason].nil?
-        data['Applications'] = Stubs::Applications.stub(stub[:applications]) unless stub[:applications].nil?
+        data['StateChangeReason'] = ImageStateChangeReason.stub(stub[:state_change_reason]) unless stub[:state_change_reason].nil?
+        data['Applications'] = Applications.stub(stub[:applications]) unless stub[:applications].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data['PublicBaseImageReleasedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:public_base_image_released_date]).to_i unless stub[:public_base_image_released_date].nil?
         data['AppstreamAgentVersion'] = stub[:appstream_agent_version] unless stub[:appstream_agent_version].nil?
-        data['ImagePermissions'] = Stubs::ImagePermissions.stub(stub[:image_permissions]) unless stub[:image_permissions].nil?
-        data['ImageErrors'] = Stubs::ResourceErrors.stub(stub[:image_errors]) unless stub[:image_errors].nil?
+        data['ImagePermissions'] = ImagePermissions.stub(stub[:image_permissions]) unless stub[:image_permissions].nil?
+        data['ImageErrors'] = ResourceErrors.stub(stub[:image_errors]) unless stub[:image_errors].nil?
         data
       end
     end
@@ -1380,7 +1382,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Application.stub(element) unless element.nil?
+          data << Application.stub(element) unless element.nil?
         end
         data
       end
@@ -1419,7 +1421,7 @@ module AWS::SDK::AppStream
         data = {}
         data['S3BucketName'] = stub[:s3_bucket_name] unless stub[:s3_bucket_name].nil?
         data['Schedule'] = stub[:schedule] unless stub[:schedule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1433,7 +1435,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1447,7 +1449,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1461,7 +1463,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1475,7 +1477,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1489,7 +1491,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1503,7 +1505,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1518,8 +1520,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Image'] = Stubs::Image.stub(stub[:image]) unless stub[:image].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Image'] = Image.stub(stub[:image]) unless stub[:image].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1534,8 +1536,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ImageBuilder'] = Stubs::ImageBuilder.stub(stub[:image_builder]) unless stub[:image_builder].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ImageBuilder'] = ImageBuilder.stub(stub[:image_builder]) unless stub[:image_builder].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1549,7 +1551,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1563,7 +1565,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1577,7 +1579,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1591,7 +1593,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1607,9 +1609,9 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AppBlocks'] = Stubs::AppBlocks.stub(stub[:app_blocks]) unless stub[:app_blocks].nil?
+        data['AppBlocks'] = AppBlocks.stub(stub[:app_blocks]) unless stub[:app_blocks].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1628,7 +1630,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AppBlock.stub(element) unless element.nil?
+          data << AppBlock.stub(element) unless element.nil?
         end
         data
       end
@@ -1645,9 +1647,9 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ApplicationFleetAssociations'] = Stubs::ApplicationFleetAssociationList.stub(stub[:application_fleet_associations]) unless stub[:application_fleet_associations].nil?
+        data['ApplicationFleetAssociations'] = ApplicationFleetAssociationList.stub(stub[:application_fleet_associations]) unless stub[:application_fleet_associations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1666,7 +1668,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApplicationFleetAssociation.stub(element) unless element.nil?
+          data << ApplicationFleetAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -1683,9 +1685,9 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Applications'] = Stubs::Applications.stub(stub[:applications]) unless stub[:applications].nil?
+        data['Applications'] = Applications.stub(stub[:applications]) unless stub[:applications].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1701,9 +1703,9 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DirectoryConfigs'] = Stubs::DirectoryConfigList.stub(stub[:directory_configs]) unless stub[:directory_configs].nil?
+        data['DirectoryConfigs'] = DirectoryConfigList.stub(stub[:directory_configs]) unless stub[:directory_configs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1722,7 +1724,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DirectoryConfig.stub(element) unless element.nil?
+          data << DirectoryConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -1739,9 +1741,9 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Entitlements'] = Stubs::EntitlementList.stub(stub[:entitlements]) unless stub[:entitlements].nil?
+        data['Entitlements'] = EntitlementList.stub(stub[:entitlements]) unless stub[:entitlements].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1760,7 +1762,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Entitlement.stub(element) unless element.nil?
+          data << Entitlement.stub(element) unless element.nil?
         end
         data
       end
@@ -1777,9 +1779,9 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Fleets'] = Stubs::FleetList.stub(stub[:fleets]) unless stub[:fleets].nil?
+        data['Fleets'] = FleetList.stub(stub[:fleets]) unless stub[:fleets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1798,7 +1800,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Fleet.stub(element) unless element.nil?
+          data << Fleet.stub(element) unless element.nil?
         end
         data
       end
@@ -1815,9 +1817,9 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ImageBuilders'] = Stubs::ImageBuilderList.stub(stub[:image_builders]) unless stub[:image_builders].nil?
+        data['ImageBuilders'] = ImageBuilderList.stub(stub[:image_builders]) unless stub[:image_builders].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1836,7 +1838,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImageBuilder.stub(element) unless element.nil?
+          data << ImageBuilder.stub(element) unless element.nil?
         end
         data
       end
@@ -1855,9 +1857,9 @@ module AWS::SDK::AppStream
       def self.stub(http_resp, stub:)
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['SharedImagePermissionsList'] = Stubs::SharedImagePermissionsList.stub(stub[:shared_image_permissions_list]) unless stub[:shared_image_permissions_list].nil?
+        data['SharedImagePermissionsList'] = SharedImagePermissionsList.stub(stub[:shared_image_permissions_list]) unless stub[:shared_image_permissions_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1876,7 +1878,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SharedImagePermissions.stub(element) unless element.nil?
+          data << SharedImagePermissions.stub(element) unless element.nil?
         end
         data
       end
@@ -1897,7 +1899,7 @@ module AWS::SDK::AppStream
         stub ||= Types::SharedImagePermissions.new
         data = {}
         data['sharedAccountId'] = stub[:shared_account_id] unless stub[:shared_account_id].nil?
-        data['imagePermissions'] = Stubs::ImagePermissions.stub(stub[:image_permissions]) unless stub[:image_permissions].nil?
+        data['imagePermissions'] = ImagePermissions.stub(stub[:image_permissions]) unless stub[:image_permissions].nil?
         data
       end
     end
@@ -1913,9 +1915,9 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Images'] = Stubs::ImageList.stub(stub[:images]) unless stub[:images].nil?
+        data['Images'] = ImageList.stub(stub[:images]) unless stub[:images].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1934,7 +1936,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Image.stub(element) unless element.nil?
+          data << Image.stub(element) unless element.nil?
         end
         data
       end
@@ -1951,9 +1953,9 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Sessions'] = Stubs::SessionList.stub(stub[:sessions]) unless stub[:sessions].nil?
+        data['Sessions'] = SessionList.stub(stub[:sessions]) unless stub[:sessions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1972,7 +1974,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Session.stub(element) unless element.nil?
+          data << Session.stub(element) unless element.nil?
         end
         data
       end
@@ -2009,7 +2011,7 @@ module AWS::SDK::AppStream
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['MaxExpirationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:max_expiration_time]).to_i unless stub[:max_expiration_time].nil?
         data['AuthenticationType'] = stub[:authentication_type] unless stub[:authentication_type].nil?
-        data['NetworkAccessConfiguration'] = Stubs::NetworkAccessConfiguration.stub(stub[:network_access_configuration]) unless stub[:network_access_configuration].nil?
+        data['NetworkAccessConfiguration'] = NetworkAccessConfiguration.stub(stub[:network_access_configuration]) unless stub[:network_access_configuration].nil?
         data
       end
     end
@@ -2025,9 +2027,9 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Stacks'] = Stubs::StackList.stub(stub[:stacks]) unless stub[:stacks].nil?
+        data['Stacks'] = StackList.stub(stub[:stacks]) unless stub[:stacks].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2046,7 +2048,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Stack.stub(element) unless element.nil?
+          data << Stack.stub(element) unless element.nil?
         end
         data
       end
@@ -2063,9 +2065,9 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['UsageReportSubscriptions'] = Stubs::UsageReportSubscriptionList.stub(stub[:usage_report_subscriptions]) unless stub[:usage_report_subscriptions].nil?
+        data['UsageReportSubscriptions'] = UsageReportSubscriptionList.stub(stub[:usage_report_subscriptions]) unless stub[:usage_report_subscriptions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2084,7 +2086,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UsageReportSubscription.stub(element) unless element.nil?
+          data << UsageReportSubscription.stub(element) unless element.nil?
         end
         data
       end
@@ -2109,7 +2111,7 @@ module AWS::SDK::AppStream
         data['S3BucketName'] = stub[:s3_bucket_name] unless stub[:s3_bucket_name].nil?
         data['Schedule'] = stub[:schedule] unless stub[:schedule].nil?
         data['LastGeneratedReportDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_generated_report_date]).to_i unless stub[:last_generated_report_date].nil?
-        data['SubscriptionErrors'] = Stubs::LastReportGenerationExecutionErrors.stub(stub[:subscription_errors]) unless stub[:subscription_errors].nil?
+        data['SubscriptionErrors'] = LastReportGenerationExecutionErrors.stub(stub[:subscription_errors]) unless stub[:subscription_errors].nil?
         data
       end
     end
@@ -2128,7 +2130,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LastReportGenerationExecutionError.stub(element) unless element.nil?
+          data << LastReportGenerationExecutionError.stub(element) unless element.nil?
         end
         data
       end
@@ -2165,9 +2167,9 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['UserStackAssociations'] = Stubs::UserStackAssociationList.stub(stub[:user_stack_associations]) unless stub[:user_stack_associations].nil?
+        data['UserStackAssociations'] = UserStackAssociationList.stub(stub[:user_stack_associations]) unless stub[:user_stack_associations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2186,7 +2188,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UserStackAssociation.stub(element) unless element.nil?
+          data << UserStackAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -2203,9 +2205,9 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Users'] = Stubs::UserList.stub(stub[:users]) unless stub[:users].nil?
+        data['Users'] = UserList.stub(stub[:users]) unless stub[:users].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2224,7 +2226,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::User.stub(element) unless element.nil?
+          data << User.stub(element) unless element.nil?
         end
         data
       end
@@ -2271,7 +2273,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2285,7 +2287,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2299,7 +2301,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2313,7 +2315,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2327,7 +2329,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2341,7 +2343,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2357,9 +2359,9 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Names'] = Stubs::StringList.stub(stub[:names]) unless stub[:names].nil?
+        data['Names'] = StringList.stub(stub[:names]) unless stub[:names].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2375,9 +2377,9 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Names'] = Stubs::StringList.stub(stub[:names]) unless stub[:names].nil?
+        data['Names'] = StringList.stub(stub[:names]) unless stub[:names].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2393,9 +2395,9 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EntitledApplications'] = Stubs::EntitledApplicationList.stub(stub[:entitled_applications]) unless stub[:entitled_applications].nil?
+        data['EntitledApplications'] = EntitledApplicationList.stub(stub[:entitled_applications]) unless stub[:entitled_applications].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2414,7 +2416,7 @@ module AWS::SDK::AppStream
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EntitledApplication.stub(element) unless element.nil?
+          data << EntitledApplication.stub(element) unless element.nil?
         end
         data
       end
@@ -2448,8 +2450,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2483,7 +2485,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2498,8 +2500,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ImageBuilder'] = Stubs::ImageBuilder.stub(stub[:image_builder]) unless stub[:image_builder].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ImageBuilder'] = ImageBuilder.stub(stub[:image_builder]) unless stub[:image_builder].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2513,7 +2515,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2528,8 +2530,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ImageBuilder'] = Stubs::ImageBuilder.stub(stub[:image_builder]) unless stub[:image_builder].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ImageBuilder'] = ImageBuilder.stub(stub[:image_builder]) unless stub[:image_builder].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2543,7 +2545,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2557,7 +2559,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2572,8 +2574,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Application'] = Stubs::Application.stub(stub[:application]) unless stub[:application].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Application'] = Application.stub(stub[:application]) unless stub[:application].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2588,8 +2590,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DirectoryConfig'] = Stubs::DirectoryConfig.stub(stub[:directory_config]) unless stub[:directory_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DirectoryConfig'] = DirectoryConfig.stub(stub[:directory_config]) unless stub[:directory_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2604,8 +2606,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Entitlement'] = Stubs::Entitlement.stub(stub[:entitlement]) unless stub[:entitlement].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Entitlement'] = Entitlement.stub(stub[:entitlement]) unless stub[:entitlement].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2620,8 +2622,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Fleet'] = Stubs::Fleet.stub(stub[:fleet]) unless stub[:fleet].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Fleet'] = Fleet.stub(stub[:fleet]) unless stub[:fleet].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2635,7 +2637,7 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2650,8 +2652,8 @@ module AWS::SDK::AppStream
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Stack'] = Stubs::Stack.stub(stub[:stack]) unless stub[:stack].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Stack'] = Stack.stub(stub[:stack]) unless stub[:stack].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

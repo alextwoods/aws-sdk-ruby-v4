@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::EFS
   module Builders
 
@@ -21,11 +23,11 @@ module AWS::SDK::EFS
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['FileSystemId'] = input[:file_system_id] unless input[:file_system_id].nil?
-        data['PosixUser'] = Builders::PosixUser.build(input[:posix_user]) unless input[:posix_user].nil?
-        data['RootDirectory'] = Builders::RootDirectory.build(input[:root_directory]) unless input[:root_directory].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PosixUser'] = PosixUser.build(input[:posix_user]) unless input[:posix_user].nil?
+        data['RootDirectory'] = RootDirectory.build(input[:root_directory]) unless input[:root_directory].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -34,7 +36,7 @@ module AWS::SDK::EFS
       def self.build(input)
         data = {}
         data['Path'] = input[:path] unless input[:path].nil?
-        data['CreationInfo'] = Builders::CreationInfo.build(input[:creation_info]) unless input[:creation_info].nil?
+        data['CreationInfo'] = CreationInfo.build(input[:creation_info]) unless input[:creation_info].nil?
         data
       end
     end
@@ -56,7 +58,7 @@ module AWS::SDK::EFS
         data = {}
         data['Uid'] = input[:uid] unless input[:uid].nil?
         data['Gid'] = input[:gid] unless input[:gid].nil?
-        data['SecondaryGids'] = Builders::SecondaryGids.build(input[:secondary_gids]) unless input[:secondary_gids].nil?
+        data['SecondaryGids'] = SecondaryGids.build(input[:secondary_gids]) unless input[:secondary_gids].nil?
         data
       end
     end
@@ -77,7 +79,7 @@ module AWS::SDK::EFS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -111,8 +113,8 @@ module AWS::SDK::EFS
         data['ProvisionedThroughputInMibps'] = Hearth::NumberHelper.serialize(input[:provisioned_throughput_in_mibps]) unless input[:provisioned_throughput_in_mibps].nil?
         data['AvailabilityZoneName'] = input[:availability_zone_name] unless input[:availability_zone_name].nil?
         data['Backup'] = input[:backup] unless input[:backup].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -129,8 +131,8 @@ module AWS::SDK::EFS
         data['FileSystemId'] = input[:file_system_id] unless input[:file_system_id].nil?
         data['SubnetId'] = input[:subnet_id] unless input[:subnet_id].nil?
         data['IpAddress'] = input[:ip_address] unless input[:ip_address].nil?
-        data['SecurityGroups'] = Builders::SecurityGroups.build(input[:security_groups]) unless input[:security_groups].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SecurityGroups'] = SecurityGroups.build(input[:security_groups]) unless input[:security_groups].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -162,8 +164,8 @@ module AWS::SDK::EFS
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Destinations'] = Builders::DestinationsToCreate.build(input[:destinations]) unless input[:destinations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Destinations'] = DestinationsToCreate.build(input[:destinations]) unless input[:destinations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -172,7 +174,7 @@ module AWS::SDK::EFS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DestinationToCreate.build(element) unless element.nil?
+          data << DestinationToCreate.build(element) unless element.nil?
         end
         data
       end
@@ -206,8 +208,8 @@ module AWS::SDK::EFS
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -313,8 +315,8 @@ module AWS::SDK::EFS
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TagKeys'] = Builders::TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -355,7 +357,7 @@ module AWS::SDK::EFS
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -524,8 +526,8 @@ module AWS::SDK::EFS
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['SecurityGroups'] = Builders::SecurityGroups.build(input[:security_groups]) unless input[:security_groups].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SecurityGroups'] = SecurityGroups.build(input[:security_groups]) unless input[:security_groups].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -540,7 +542,7 @@ module AWS::SDK::EFS
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceIdType'] = input[:resource_id_type] unless input[:resource_id_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -561,8 +563,8 @@ module AWS::SDK::EFS
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['BackupPolicy'] = Builders::BackupPolicy.build(input[:backup_policy]) unless input[:backup_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BackupPolicy'] = BackupPolicy.build(input[:backup_policy]) unless input[:backup_policy].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -594,7 +596,7 @@ module AWS::SDK::EFS
         data = {}
         data['Policy'] = input[:policy] unless input[:policy].nil?
         data['BypassPolicyLockoutSafetyCheck'] = input[:bypass_policy_lockout_safety_check] unless input[:bypass_policy_lockout_safety_check].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -615,8 +617,8 @@ module AWS::SDK::EFS
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['LifecyclePolicies'] = Builders::LifecyclePolicies.build(input[:lifecycle_policies]) unless input[:lifecycle_policies].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LifecyclePolicies'] = LifecyclePolicies.build(input[:lifecycle_policies]) unless input[:lifecycle_policies].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -625,7 +627,7 @@ module AWS::SDK::EFS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LifecyclePolicy.build(element) unless element.nil?
+          data << LifecyclePolicy.build(element) unless element.nil?
         end
         data
       end
@@ -658,8 +660,8 @@ module AWS::SDK::EFS
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -704,7 +706,7 @@ module AWS::SDK::EFS
         data = {}
         data['ThroughputMode'] = input[:throughput_mode] unless input[:throughput_mode].nil?
         data['ProvisionedThroughputInMibps'] = Hearth::NumberHelper.serialize(input[:provisioned_throughput_in_mibps]) unless input[:provisioned_throughput_in_mibps].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

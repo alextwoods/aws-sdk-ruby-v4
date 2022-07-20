@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SSOOIDC
   module Stubs
 
@@ -31,7 +33,7 @@ module AWS::SDK::SSOOIDC
         data['expiresIn'] = stub[:expires_in] unless stub[:expires_in].nil?
         data['refreshToken'] = stub[:refresh_token] unless stub[:refresh_token].nil?
         data['idToken'] = stub[:id_token] unless stub[:id_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -58,7 +60,7 @@ module AWS::SDK::SSOOIDC
         data['clientSecretExpiresAt'] = stub[:client_secret_expires_at] unless stub[:client_secret_expires_at].nil?
         data['authorizationEndpoint'] = stub[:authorization_endpoint] unless stub[:authorization_endpoint].nil?
         data['tokenEndpoint'] = stub[:token_endpoint] unless stub[:token_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -85,7 +87,7 @@ module AWS::SDK::SSOOIDC
         data['verificationUriComplete'] = stub[:verification_uri_complete] unless stub[:verification_uri_complete].nil?
         data['expiresIn'] = stub[:expires_in] unless stub[:expires_in].nil?
         data['interval'] = stub[:interval] unless stub[:interval].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

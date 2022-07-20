@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ServiceCatalog
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -33,7 +35,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -47,7 +49,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -61,7 +63,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -75,7 +77,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -89,7 +91,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -104,8 +106,8 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedServiceActionAssociations'] = Stubs::FailedServiceActionAssociations.stub(stub[:failed_service_action_associations]) unless stub[:failed_service_action_associations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedServiceActionAssociations'] = FailedServiceActionAssociations.stub(stub[:failed_service_action_associations]) unless stub[:failed_service_action_associations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -124,7 +126,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FailedServiceActionAssociation.stub(element) unless element.nil?
+          data << FailedServiceActionAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -166,8 +168,8 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FailedServiceActionAssociations'] = Stubs::FailedServiceActionAssociations.stub(stub[:failed_service_action_associations]) unless stub[:failed_service_action_associations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedServiceActionAssociations'] = FailedServiceActionAssociations.stub(stub[:failed_service_action_associations]) unless stub[:failed_service_action_associations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -183,7 +185,7 @@ module AWS::SDK::ServiceCatalog
       def self.stub(http_resp, stub:)
         data = {}
         data['CopyProductToken'] = stub[:copy_product_token] unless stub[:copy_product_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -200,10 +202,10 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConstraintDetail'] = Stubs::ConstraintDetail.stub(stub[:constraint_detail]) unless stub[:constraint_detail].nil?
+        data['ConstraintDetail'] = ConstraintDetail.stub(stub[:constraint_detail]) unless stub[:constraint_detail].nil?
         data['ConstraintParameters'] = stub[:constraint_parameters] unless stub[:constraint_parameters].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -247,9 +249,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PortfolioDetail'] = Stubs::PortfolioDetail.stub(stub[:portfolio_detail]) unless stub[:portfolio_detail].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PortfolioDetail'] = PortfolioDetail.stub(stub[:portfolio_detail]) unless stub[:portfolio_detail].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -268,7 +270,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -333,7 +335,7 @@ module AWS::SDK::ServiceCatalog
       def self.stub(http_resp, stub:)
         data = {}
         data['PortfolioShareToken'] = stub[:portfolio_share_token] unless stub[:portfolio_share_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -350,10 +352,10 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProductViewDetail'] = Stubs::ProductViewDetail.stub(stub[:product_view_detail]) unless stub[:product_view_detail].nil?
-        data['ProvisioningArtifactDetail'] = Stubs::ProvisioningArtifactDetail.stub(stub[:provisioning_artifact_detail]) unless stub[:provisioning_artifact_detail].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProductViewDetail'] = ProductViewDetail.stub(stub[:product_view_detail]) unless stub[:product_view_detail].nil?
+        data['ProvisioningArtifactDetail'] = ProvisioningArtifactDetail.stub(stub[:provisioning_artifact_detail]) unless stub[:provisioning_artifact_detail].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -404,7 +406,7 @@ module AWS::SDK::ServiceCatalog
       def self.stub(stub)
         stub ||= Types::ProductViewDetail.new
         data = {}
-        data['ProductViewSummary'] = Stubs::ProductViewSummary.stub(stub[:product_view_summary]) unless stub[:product_view_summary].nil?
+        data['ProductViewSummary'] = ProductViewSummary.stub(stub[:product_view_summary]) unless stub[:product_view_summary].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['ProductARN'] = stub[:product_arn] unless stub[:product_arn].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
@@ -469,7 +471,7 @@ module AWS::SDK::ServiceCatalog
         data['ProvisionProductId'] = stub[:provision_product_id] unless stub[:provision_product_id].nil?
         data['ProvisionedProductName'] = stub[:provisioned_product_name] unless stub[:provisioned_product_name].nil?
         data['ProvisioningArtifactId'] = stub[:provisioning_artifact_id] unless stub[:provisioning_artifact_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -486,10 +488,10 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProvisioningArtifactDetail'] = Stubs::ProvisioningArtifactDetail.stub(stub[:provisioning_artifact_detail]) unless stub[:provisioning_artifact_detail].nil?
-        data['Info'] = Stubs::ProvisioningArtifactInfo.stub(stub[:info]) unless stub[:info].nil?
+        data['ProvisioningArtifactDetail'] = ProvisioningArtifactDetail.stub(stub[:provisioning_artifact_detail]) unless stub[:provisioning_artifact_detail].nil?
+        data['Info'] = ProvisioningArtifactInfo.stub(stub[:info]) unless stub[:info].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -524,8 +526,8 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ServiceActionDetail'] = Stubs::ServiceActionDetail.stub(stub[:service_action_detail]) unless stub[:service_action_detail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ServiceActionDetail'] = ServiceActionDetail.stub(stub[:service_action_detail]) unless stub[:service_action_detail].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -544,8 +546,8 @@ module AWS::SDK::ServiceCatalog
       def self.stub(stub)
         stub ||= Types::ServiceActionDetail.new
         data = {}
-        data['ServiceActionSummary'] = Stubs::ServiceActionSummary.stub(stub[:service_action_summary]) unless stub[:service_action_summary].nil?
-        data['Definition'] = Stubs::ServiceActionDefinitionMap.stub(stub[:definition]) unless stub[:definition].nil?
+        data['ServiceActionSummary'] = ServiceActionSummary.stub(stub[:service_action_summary]) unless stub[:service_action_summary].nil?
+        data['Definition'] = ServiceActionDefinitionMap.stub(stub[:definition]) unless stub[:definition].nil?
         data
       end
     end
@@ -604,8 +606,8 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TagOptionDetail'] = Stubs::TagOptionDetail.stub(stub[:tag_option_detail]) unless stub[:tag_option_detail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagOptionDetail'] = TagOptionDetail.stub(stub[:tag_option_detail]) unless stub[:tag_option_detail].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -645,7 +647,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -659,7 +661,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -675,7 +677,7 @@ module AWS::SDK::ServiceCatalog
       def self.stub(http_resp, stub:)
         data = {}
         data['PortfolioShareToken'] = stub[:portfolio_share_token] unless stub[:portfolio_share_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -689,7 +691,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -703,7 +705,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -717,7 +719,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -731,7 +733,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -745,7 +747,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -762,10 +764,10 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConstraintDetail'] = Stubs::ConstraintDetail.stub(stub[:constraint_detail]) unless stub[:constraint_detail].nil?
+        data['ConstraintDetail'] = ConstraintDetail.stub(stub[:constraint_detail]) unless stub[:constraint_detail].nil?
         data['ConstraintParameters'] = stub[:constraint_parameters] unless stub[:constraint_parameters].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -785,7 +787,7 @@ module AWS::SDK::ServiceCatalog
         data['CopyProductStatus'] = stub[:copy_product_status] unless stub[:copy_product_status].nil?
         data['TargetProductId'] = stub[:target_product_id] unless stub[:target_product_id].nil?
         data['StatusDetail'] = stub[:status_detail] unless stub[:status_detail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -803,11 +805,11 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PortfolioDetail'] = Stubs::PortfolioDetail.stub(stub[:portfolio_detail]) unless stub[:portfolio_detail].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['TagOptions'] = Stubs::TagOptionDetails.stub(stub[:tag_options]) unless stub[:tag_options].nil?
-        data['Budgets'] = Stubs::Budgets.stub(stub[:budgets]) unless stub[:budgets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PortfolioDetail'] = PortfolioDetail.stub(stub[:portfolio_detail]) unless stub[:portfolio_detail].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['TagOptions'] = TagOptionDetails.stub(stub[:tag_options]) unless stub[:tag_options].nil?
+        data['Budgets'] = Budgets.stub(stub[:budgets]) unless stub[:budgets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -826,7 +828,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BudgetDetail.stub(element) unless element.nil?
+          data << BudgetDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -864,7 +866,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TagOptionDetail.stub(element) unless element.nil?
+          data << TagOptionDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -888,8 +890,8 @@ module AWS::SDK::ServiceCatalog
         data['PortfolioId'] = stub[:portfolio_id] unless stub[:portfolio_id].nil?
         data['OrganizationNodeValue'] = stub[:organization_node_value] unless stub[:organization_node_value].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['ShareDetails'] = Stubs::ShareDetails.stub(stub[:share_details]) unless stub[:share_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ShareDetails'] = ShareDetails.stub(stub[:share_details]) unless stub[:share_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -908,8 +910,8 @@ module AWS::SDK::ServiceCatalog
       def self.stub(stub)
         stub ||= Types::ShareDetails.new
         data = {}
-        data['SuccessfulShares'] = Stubs::SuccessfulShares.stub(stub[:successful_shares]) unless stub[:successful_shares].nil?
-        data['ShareErrors'] = Stubs::ShareErrors.stub(stub[:share_errors]) unless stub[:share_errors].nil?
+        data['SuccessfulShares'] = SuccessfulShares.stub(stub[:successful_shares]) unless stub[:successful_shares].nil?
+        data['ShareErrors'] = ShareErrors.stub(stub[:share_errors]) unless stub[:share_errors].nil?
         data
       end
     end
@@ -928,7 +930,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ShareError.stub(element) unless element.nil?
+          data << ShareError.stub(element) unless element.nil?
         end
         data
       end
@@ -949,7 +951,7 @@ module AWS::SDK::ServiceCatalog
       def self.stub(stub)
         stub ||= Types::ShareError.new
         data = {}
-        data['Accounts'] = Stubs::Namespaces.stub(stub[:accounts]) unless stub[:accounts].nil?
+        data['Accounts'] = Namespaces.stub(stub[:accounts]) unless stub[:accounts].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['Error'] = stub[:error] unless stub[:error].nil?
         data
@@ -1008,8 +1010,8 @@ module AWS::SDK::ServiceCatalog
       def self.stub(http_resp, stub:)
         data = {}
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        data['PortfolioShareDetails'] = Stubs::PortfolioShareDetails.stub(stub[:portfolio_share_details]) unless stub[:portfolio_share_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PortfolioShareDetails'] = PortfolioShareDetails.stub(stub[:portfolio_share_details]) unless stub[:portfolio_share_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1028,7 +1030,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PortfolioShareDetail.stub(element) unless element.nil?
+          data << PortfolioShareDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1071,11 +1073,11 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProductViewSummary'] = Stubs::ProductViewSummary.stub(stub[:product_view_summary]) unless stub[:product_view_summary].nil?
-        data['ProvisioningArtifacts'] = Stubs::ProvisioningArtifacts.stub(stub[:provisioning_artifacts]) unless stub[:provisioning_artifacts].nil?
-        data['Budgets'] = Stubs::Budgets.stub(stub[:budgets]) unless stub[:budgets].nil?
-        data['LaunchPaths'] = Stubs::LaunchPaths.stub(stub[:launch_paths]) unless stub[:launch_paths].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProductViewSummary'] = ProductViewSummary.stub(stub[:product_view_summary]) unless stub[:product_view_summary].nil?
+        data['ProvisioningArtifacts'] = ProvisioningArtifacts.stub(stub[:provisioning_artifacts]) unless stub[:provisioning_artifacts].nil?
+        data['Budgets'] = Budgets.stub(stub[:budgets]) unless stub[:budgets].nil?
+        data['LaunchPaths'] = LaunchPaths.stub(stub[:launch_paths]) unless stub[:launch_paths].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1094,7 +1096,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LaunchPath.stub(element) unless element.nil?
+          data << LaunchPath.stub(element) unless element.nil?
         end
         data
       end
@@ -1134,7 +1136,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProvisioningArtifact.stub(element) unless element.nil?
+          data << ProvisioningArtifact.stub(element) unless element.nil?
         end
         data
       end
@@ -1180,12 +1182,12 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProductViewDetail'] = Stubs::ProductViewDetail.stub(stub[:product_view_detail]) unless stub[:product_view_detail].nil?
-        data['ProvisioningArtifactSummaries'] = Stubs::ProvisioningArtifactSummaries.stub(stub[:provisioning_artifact_summaries]) unless stub[:provisioning_artifact_summaries].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['TagOptions'] = Stubs::TagOptionDetails.stub(stub[:tag_options]) unless stub[:tag_options].nil?
-        data['Budgets'] = Stubs::Budgets.stub(stub[:budgets]) unless stub[:budgets].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProductViewDetail'] = ProductViewDetail.stub(stub[:product_view_detail]) unless stub[:product_view_detail].nil?
+        data['ProvisioningArtifactSummaries'] = ProvisioningArtifactSummaries.stub(stub[:provisioning_artifact_summaries]) unless stub[:provisioning_artifact_summaries].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['TagOptions'] = TagOptionDetails.stub(stub[:tag_options]) unless stub[:tag_options].nil?
+        data['Budgets'] = Budgets.stub(stub[:budgets]) unless stub[:budgets].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1204,7 +1206,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProvisioningArtifactSummary.stub(element) unless element.nil?
+          data << ProvisioningArtifactSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1231,7 +1233,7 @@ module AWS::SDK::ServiceCatalog
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        data['ProvisioningArtifactMetadata'] = Stubs::ProvisioningArtifactInfo.stub(stub[:provisioning_artifact_metadata]) unless stub[:provisioning_artifact_metadata].nil?
+        data['ProvisioningArtifactMetadata'] = ProvisioningArtifactInfo.stub(stub[:provisioning_artifact_metadata]) unless stub[:provisioning_artifact_metadata].nil?
         data
       end
     end
@@ -1247,9 +1249,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProductViewSummary'] = Stubs::ProductViewSummary.stub(stub[:product_view_summary]) unless stub[:product_view_summary].nil?
-        data['ProvisioningArtifacts'] = Stubs::ProvisioningArtifacts.stub(stub[:provisioning_artifacts]) unless stub[:provisioning_artifacts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProductViewSummary'] = ProductViewSummary.stub(stub[:product_view_summary]) unless stub[:product_view_summary].nil?
+        data['ProvisioningArtifacts'] = ProvisioningArtifacts.stub(stub[:provisioning_artifacts]) unless stub[:provisioning_artifacts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1265,9 +1267,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProvisionedProductDetail'] = Stubs::ProvisionedProductDetail.stub(stub[:provisioned_product_detail]) unless stub[:provisioned_product_detail].nil?
-        data['CloudWatchDashboards'] = Stubs::CloudWatchDashboards.stub(stub[:cloud_watch_dashboards]) unless stub[:cloud_watch_dashboards].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProvisionedProductDetail'] = ProvisionedProductDetail.stub(stub[:provisioned_product_detail]) unless stub[:provisioned_product_detail].nil?
+        data['CloudWatchDashboards'] = CloudWatchDashboards.stub(stub[:cloud_watch_dashboards]) unless stub[:cloud_watch_dashboards].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1286,7 +1288,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CloudWatchDashboard.stub(element) unless element.nil?
+          data << CloudWatchDashboard.stub(element) unless element.nil?
         end
         data
       end
@@ -1366,10 +1368,10 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProvisionedProductPlanDetails'] = Stubs::ProvisionedProductPlanDetails.stub(stub[:provisioned_product_plan_details]) unless stub[:provisioned_product_plan_details].nil?
-        data['ResourceChanges'] = Stubs::ResourceChanges.stub(stub[:resource_changes]) unless stub[:resource_changes].nil?
+        data['ProvisionedProductPlanDetails'] = ProvisionedProductPlanDetails.stub(stub[:provisioned_product_plan_details]) unless stub[:provisioned_product_plan_details].nil?
+        data['ResourceChanges'] = ResourceChanges.stub(stub[:resource_changes]) unless stub[:resource_changes].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1388,7 +1390,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceChange.stub(element) unless element.nil?
+          data << ResourceChange.stub(element) unless element.nil?
         end
         data
       end
@@ -1418,8 +1420,8 @@ module AWS::SDK::ServiceCatalog
         data['PhysicalResourceId'] = stub[:physical_resource_id] unless stub[:physical_resource_id].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['Replacement'] = stub[:replacement] unless stub[:replacement].nil?
-        data['Scope'] = Stubs::Scope.stub(stub[:scope]) unless stub[:scope].nil?
-        data['Details'] = Stubs::ResourceChangeDetails.stub(stub[:details]) unless stub[:details].nil?
+        data['Scope'] = Scope.stub(stub[:scope]) unless stub[:scope].nil?
+        data['Details'] = ResourceChangeDetails.stub(stub[:details]) unless stub[:details].nil?
         data
       end
     end
@@ -1438,7 +1440,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceChangeDetail.stub(element) unless element.nil?
+          data << ResourceChangeDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1459,7 +1461,7 @@ module AWS::SDK::ServiceCatalog
       def self.stub(stub)
         stub ||= Types::ResourceChangeDetail.new
         data = {}
-        data['Target'] = Stubs::ResourceTargetDefinition.stub(stub[:target]) unless stub[:target].nil?
+        data['Target'] = ResourceTargetDefinition.stub(stub[:target]) unless stub[:target].nil?
         data['Evaluation'] = stub[:evaluation] unless stub[:evaluation].nil?
         data['CausingEntity'] = stub[:causing_entity] unless stub[:causing_entity].nil?
         data
@@ -1546,9 +1548,9 @@ module AWS::SDK::ServiceCatalog
         data['ProvisioningArtifactId'] = stub[:provisioning_artifact_id] unless stub[:provisioning_artifact_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['UpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_time]).to_i unless stub[:updated_time].nil?
-        data['NotificationArns'] = Stubs::NotificationArns.stub(stub[:notification_arns]) unless stub[:notification_arns].nil?
-        data['ProvisioningParameters'] = Stubs::UpdateProvisioningParameters.stub(stub[:provisioning_parameters]) unless stub[:provisioning_parameters].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['NotificationArns'] = NotificationArns.stub(stub[:notification_arns]) unless stub[:notification_arns].nil?
+        data['ProvisioningParameters'] = UpdateProvisioningParameters.stub(stub[:provisioning_parameters]) unless stub[:provisioning_parameters].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data
       end
@@ -1568,7 +1570,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UpdateProvisioningParameter.stub(element) unless element.nil?
+          data << UpdateProvisioningParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -1628,10 +1630,10 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProvisioningArtifactDetail'] = Stubs::ProvisioningArtifactDetail.stub(stub[:provisioning_artifact_detail]) unless stub[:provisioning_artifact_detail].nil?
-        data['Info'] = Stubs::ProvisioningArtifactInfo.stub(stub[:info]) unless stub[:info].nil?
+        data['ProvisioningArtifactDetail'] = ProvisioningArtifactDetail.stub(stub[:provisioning_artifact_detail]) unless stub[:provisioning_artifact_detail].nil?
+        data['Info'] = ProvisioningArtifactInfo.stub(stub[:info]) unless stub[:info].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1652,14 +1654,14 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProvisioningArtifactParameters'] = Stubs::ProvisioningArtifactParameters.stub(stub[:provisioning_artifact_parameters]) unless stub[:provisioning_artifact_parameters].nil?
-        data['ConstraintSummaries'] = Stubs::ConstraintSummaries.stub(stub[:constraint_summaries]) unless stub[:constraint_summaries].nil?
-        data['UsageInstructions'] = Stubs::UsageInstructions.stub(stub[:usage_instructions]) unless stub[:usage_instructions].nil?
-        data['TagOptions'] = Stubs::TagOptionSummaries.stub(stub[:tag_options]) unless stub[:tag_options].nil?
-        data['ProvisioningArtifactPreferences'] = Stubs::ProvisioningArtifactPreferences.stub(stub[:provisioning_artifact_preferences]) unless stub[:provisioning_artifact_preferences].nil?
-        data['ProvisioningArtifactOutputs'] = Stubs::ProvisioningArtifactOutputs.stub(stub[:provisioning_artifact_outputs]) unless stub[:provisioning_artifact_outputs].nil?
-        data['ProvisioningArtifactOutputKeys'] = Stubs::ProvisioningArtifactOutputs.stub(stub[:provisioning_artifact_output_keys]) unless stub[:provisioning_artifact_output_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProvisioningArtifactParameters'] = ProvisioningArtifactParameters.stub(stub[:provisioning_artifact_parameters]) unless stub[:provisioning_artifact_parameters].nil?
+        data['ConstraintSummaries'] = ConstraintSummaries.stub(stub[:constraint_summaries]) unless stub[:constraint_summaries].nil?
+        data['UsageInstructions'] = UsageInstructions.stub(stub[:usage_instructions]) unless stub[:usage_instructions].nil?
+        data['TagOptions'] = TagOptionSummaries.stub(stub[:tag_options]) unless stub[:tag_options].nil?
+        data['ProvisioningArtifactPreferences'] = ProvisioningArtifactPreferences.stub(stub[:provisioning_artifact_preferences]) unless stub[:provisioning_artifact_preferences].nil?
+        data['ProvisioningArtifactOutputs'] = ProvisioningArtifactOutputs.stub(stub[:provisioning_artifact_outputs]) unless stub[:provisioning_artifact_outputs].nil?
+        data['ProvisioningArtifactOutputKeys'] = ProvisioningArtifactOutputs.stub(stub[:provisioning_artifact_output_keys]) unless stub[:provisioning_artifact_output_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1678,7 +1680,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProvisioningArtifactOutput.stub(element) unless element.nil?
+          data << ProvisioningArtifactOutput.stub(element) unless element.nil?
         end
         data
       end
@@ -1718,8 +1720,8 @@ module AWS::SDK::ServiceCatalog
       def self.stub(stub)
         stub ||= Types::ProvisioningArtifactPreferences.new
         data = {}
-        data['StackSetAccounts'] = Stubs::StackSetAccounts.stub(stub[:stack_set_accounts]) unless stub[:stack_set_accounts].nil?
-        data['StackSetRegions'] = Stubs::StackSetRegions.stub(stub[:stack_set_regions]) unless stub[:stack_set_regions].nil?
+        data['StackSetAccounts'] = StackSetAccounts.stub(stub[:stack_set_accounts]) unless stub[:stack_set_accounts].nil?
+        data['StackSetRegions'] = StackSetRegions.stub(stub[:stack_set_regions]) unless stub[:stack_set_regions].nil?
         data
       end
     end
@@ -1778,7 +1780,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TagOptionSummary.stub(element) unless element.nil?
+          data << TagOptionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1799,7 +1801,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= Types::TagOptionSummary.new
         data = {}
         data['Key'] = stub[:key] unless stub[:key].nil?
-        data['Values'] = Stubs::TagOptionValues.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = TagOptionValues.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -1838,7 +1840,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UsageInstruction.stub(element) unless element.nil?
+          data << UsageInstruction.stub(element) unless element.nil?
         end
         data
       end
@@ -1878,7 +1880,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConstraintSummary.stub(element) unless element.nil?
+          data << ConstraintSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1918,7 +1920,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProvisioningArtifactParameter.stub(element) unless element.nil?
+          data << ProvisioningArtifactParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -1947,7 +1949,7 @@ module AWS::SDK::ServiceCatalog
         data['ParameterType'] = stub[:parameter_type] unless stub[:parameter_type].nil?
         data['IsNoEcho'] = stub[:is_no_echo] unless stub[:is_no_echo].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['ParameterConstraints'] = Stubs::ParameterConstraints.stub(stub[:parameter_constraints]) unless stub[:parameter_constraints].nil?
+        data['ParameterConstraints'] = ParameterConstraints.stub(stub[:parameter_constraints]) unless stub[:parameter_constraints].nil?
         data
       end
     end
@@ -1971,7 +1973,7 @@ module AWS::SDK::ServiceCatalog
       def self.stub(stub)
         stub ||= Types::ParameterConstraints.new
         data = {}
-        data['AllowedValues'] = Stubs::AllowedValues.stub(stub[:allowed_values]) unless stub[:allowed_values].nil?
+        data['AllowedValues'] = AllowedValues.stub(stub[:allowed_values]) unless stub[:allowed_values].nil?
         data['AllowedPattern'] = stub[:allowed_pattern] unless stub[:allowed_pattern].nil?
         data['ConstraintDescription'] = stub[:constraint_description] unless stub[:constraint_description].nil?
         data['MaxLength'] = stub[:max_length] unless stub[:max_length].nil?
@@ -2014,10 +2016,10 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RecordDetail'] = Stubs::RecordDetail.stub(stub[:record_detail]) unless stub[:record_detail].nil?
-        data['RecordOutputs'] = Stubs::RecordOutputs.stub(stub[:record_outputs]) unless stub[:record_outputs].nil?
+        data['RecordDetail'] = RecordDetail.stub(stub[:record_detail]) unless stub[:record_detail].nil?
+        data['RecordOutputs'] = RecordOutputs.stub(stub[:record_outputs]) unless stub[:record_outputs].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2036,7 +2038,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecordOutput.stub(element) unless element.nil?
+          data << RecordOutput.stub(element) unless element.nil?
         end
         data
       end
@@ -2101,8 +2103,8 @@ module AWS::SDK::ServiceCatalog
         data['ProductId'] = stub[:product_id] unless stub[:product_id].nil?
         data['ProvisioningArtifactId'] = stub[:provisioning_artifact_id] unless stub[:provisioning_artifact_id].nil?
         data['PathId'] = stub[:path_id] unless stub[:path_id].nil?
-        data['RecordErrors'] = Stubs::RecordErrors.stub(stub[:record_errors]) unless stub[:record_errors].nil?
-        data['RecordTags'] = Stubs::RecordTags.stub(stub[:record_tags]) unless stub[:record_tags].nil?
+        data['RecordErrors'] = RecordErrors.stub(stub[:record_errors]) unless stub[:record_errors].nil?
+        data['RecordTags'] = RecordTags.stub(stub[:record_tags]) unless stub[:record_tags].nil?
         data['LaunchRoleArn'] = stub[:launch_role_arn] unless stub[:launch_role_arn].nil?
         data
       end
@@ -2122,7 +2124,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecordTag.stub(element) unless element.nil?
+          data << RecordTag.stub(element) unless element.nil?
         end
         data
       end
@@ -2162,7 +2164,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecordError.stub(element) unless element.nil?
+          data << RecordError.stub(element) unless element.nil?
         end
         data
       end
@@ -2198,8 +2200,8 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ServiceActionDetail'] = Stubs::ServiceActionDetail.stub(stub[:service_action_detail]) unless stub[:service_action_detail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ServiceActionDetail'] = ServiceActionDetail.stub(stub[:service_action_detail]) unless stub[:service_action_detail].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2214,8 +2216,8 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ServiceActionParameters'] = Stubs::ExecutionParameters.stub(stub[:service_action_parameters]) unless stub[:service_action_parameters].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ServiceActionParameters'] = ExecutionParameters.stub(stub[:service_action_parameters]) unless stub[:service_action_parameters].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2234,7 +2236,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExecutionParameter.stub(element) unless element.nil?
+          data << ExecutionParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -2257,7 +2259,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['DefaultValues'] = Stubs::ExecutionParameterValueList.stub(stub[:default_values]) unless stub[:default_values].nil?
+        data['DefaultValues'] = ExecutionParameterValueList.stub(stub[:default_values]) unless stub[:default_values].nil?
         data
       end
     end
@@ -2292,8 +2294,8 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TagOptionDetail'] = Stubs::TagOptionDetail.stub(stub[:tag_option_detail]) unless stub[:tag_option_detail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagOptionDetail'] = TagOptionDetail.stub(stub[:tag_option_detail]) unless stub[:tag_option_detail].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2307,7 +2309,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2321,7 +2323,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2335,7 +2337,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2349,7 +2351,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2363,7 +2365,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2377,7 +2379,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2391,7 +2393,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2406,8 +2408,8 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RecordDetail'] = Stubs::RecordDetail.stub(stub[:record_detail]) unless stub[:record_detail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RecordDetail'] = RecordDetail.stub(stub[:record_detail]) unless stub[:record_detail].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2422,8 +2424,8 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RecordDetail'] = Stubs::RecordDetail.stub(stub[:record_detail]) unless stub[:record_detail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RecordDetail'] = RecordDetail.stub(stub[:record_detail]) unless stub[:record_detail].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2439,7 +2441,7 @@ module AWS::SDK::ServiceCatalog
       def self.stub(http_resp, stub:)
         data = {}
         data['AccessStatus'] = stub[:access_status] unless stub[:access_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2455,9 +2457,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Outputs'] = Stubs::RecordOutputs.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['Outputs'] = RecordOutputs.stub(stub[:outputs]) unless stub[:outputs].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2472,8 +2474,8 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RecordDetail'] = Stubs::RecordDetail.stub(stub[:record_detail]) unless stub[:record_detail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RecordDetail'] = RecordDetail.stub(stub[:record_detail]) unless stub[:record_detail].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2489,9 +2491,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PortfolioDetails'] = Stubs::PortfolioDetails.stub(stub[:portfolio_details]) unless stub[:portfolio_details].nil?
+        data['PortfolioDetails'] = PortfolioDetails.stub(stub[:portfolio_details]) unless stub[:portfolio_details].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2510,7 +2512,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PortfolioDetail.stub(element) unless element.nil?
+          data << PortfolioDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -2527,9 +2529,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Budgets'] = Stubs::Budgets.stub(stub[:budgets]) unless stub[:budgets].nil?
+        data['Budgets'] = Budgets.stub(stub[:budgets]) unless stub[:budgets].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2545,9 +2547,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConstraintDetails'] = Stubs::ConstraintDetails.stub(stub[:constraint_details]) unless stub[:constraint_details].nil?
+        data['ConstraintDetails'] = ConstraintDetails.stub(stub[:constraint_details]) unless stub[:constraint_details].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2566,7 +2568,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConstraintDetail.stub(element) unless element.nil?
+          data << ConstraintDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -2583,9 +2585,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LaunchPathSummaries'] = Stubs::LaunchPathSummaries.stub(stub[:launch_path_summaries]) unless stub[:launch_path_summaries].nil?
+        data['LaunchPathSummaries'] = LaunchPathSummaries.stub(stub[:launch_path_summaries]) unless stub[:launch_path_summaries].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2604,7 +2606,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LaunchPathSummary.stub(element) unless element.nil?
+          data << LaunchPathSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2627,8 +2629,8 @@ module AWS::SDK::ServiceCatalog
         stub ||= Types::LaunchPathSummary.new
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['ConstraintSummaries'] = Stubs::ConstraintSummaries.stub(stub[:constraint_summaries]) unless stub[:constraint_summaries].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['ConstraintSummaries'] = ConstraintSummaries.stub(stub[:constraint_summaries]) unless stub[:constraint_summaries].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data
       end
@@ -2645,9 +2647,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['OrganizationNodes'] = Stubs::OrganizationNodes.stub(stub[:organization_nodes]) unless stub[:organization_nodes].nil?
+        data['OrganizationNodes'] = OrganizationNodes.stub(stub[:organization_nodes]) unless stub[:organization_nodes].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2666,7 +2668,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OrganizationNode.stub(element) unless element.nil?
+          data << OrganizationNode.stub(element) unless element.nil?
         end
         data
       end
@@ -2703,9 +2705,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AccountIds'] = Stubs::AccountIds.stub(stub[:account_ids]) unless stub[:account_ids].nil?
+        data['AccountIds'] = AccountIds.stub(stub[:account_ids]) unless stub[:account_ids].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2741,9 +2743,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PortfolioDetails'] = Stubs::PortfolioDetails.stub(stub[:portfolio_details]) unless stub[:portfolio_details].nil?
+        data['PortfolioDetails'] = PortfolioDetails.stub(stub[:portfolio_details]) unless stub[:portfolio_details].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2759,9 +2761,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PortfolioDetails'] = Stubs::PortfolioDetails.stub(stub[:portfolio_details]) unless stub[:portfolio_details].nil?
+        data['PortfolioDetails'] = PortfolioDetails.stub(stub[:portfolio_details]) unless stub[:portfolio_details].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2777,9 +2779,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Principals'] = Stubs::Principals.stub(stub[:principals]) unless stub[:principals].nil?
+        data['Principals'] = Principals.stub(stub[:principals]) unless stub[:principals].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2798,7 +2800,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Principal.stub(element) unless element.nil?
+          data << Principal.stub(element) unless element.nil?
         end
         data
       end
@@ -2835,9 +2837,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProvisionedProductPlans'] = Stubs::ProvisionedProductPlans.stub(stub[:provisioned_product_plans]) unless stub[:provisioned_product_plans].nil?
+        data['ProvisionedProductPlans'] = ProvisionedProductPlans.stub(stub[:provisioned_product_plans]) unless stub[:provisioned_product_plans].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2856,7 +2858,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProvisionedProductPlanSummary.stub(element) unless element.nil?
+          data << ProvisionedProductPlanSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2901,9 +2903,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProvisioningArtifactDetails'] = Stubs::ProvisioningArtifactDetails.stub(stub[:provisioning_artifact_details]) unless stub[:provisioning_artifact_details].nil?
+        data['ProvisioningArtifactDetails'] = ProvisioningArtifactDetails.stub(stub[:provisioning_artifact_details]) unless stub[:provisioning_artifact_details].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2922,7 +2924,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProvisioningArtifactDetail.stub(element) unless element.nil?
+          data << ProvisioningArtifactDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -2939,9 +2941,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProvisioningArtifactViews'] = Stubs::ProvisioningArtifactViews.stub(stub[:provisioning_artifact_views]) unless stub[:provisioning_artifact_views].nil?
+        data['ProvisioningArtifactViews'] = ProvisioningArtifactViews.stub(stub[:provisioning_artifact_views]) unless stub[:provisioning_artifact_views].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2960,7 +2962,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProvisioningArtifactView.stub(element) unless element.nil?
+          data << ProvisioningArtifactView.stub(element) unless element.nil?
         end
         data
       end
@@ -2980,8 +2982,8 @@ module AWS::SDK::ServiceCatalog
       def self.stub(stub)
         stub ||= Types::ProvisioningArtifactView.new
         data = {}
-        data['ProductViewSummary'] = Stubs::ProductViewSummary.stub(stub[:product_view_summary]) unless stub[:product_view_summary].nil?
-        data['ProvisioningArtifact'] = Stubs::ProvisioningArtifact.stub(stub[:provisioning_artifact]) unless stub[:provisioning_artifact].nil?
+        data['ProductViewSummary'] = ProductViewSummary.stub(stub[:product_view_summary]) unless stub[:product_view_summary].nil?
+        data['ProvisioningArtifact'] = ProvisioningArtifact.stub(stub[:provisioning_artifact]) unless stub[:provisioning_artifact].nil?
         data
       end
     end
@@ -2997,9 +2999,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RecordDetails'] = Stubs::RecordDetails.stub(stub[:record_details]) unless stub[:record_details].nil?
+        data['RecordDetails'] = RecordDetails.stub(stub[:record_details]) unless stub[:record_details].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3018,7 +3020,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecordDetail.stub(element) unless element.nil?
+          data << RecordDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -3035,9 +3037,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ResourceDetails'] = Stubs::ResourceDetails.stub(stub[:resource_details]) unless stub[:resource_details].nil?
+        data['ResourceDetails'] = ResourceDetails.stub(stub[:resource_details]) unless stub[:resource_details].nil?
         data['PageToken'] = stub[:page_token] unless stub[:page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3056,7 +3058,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceDetail.stub(element) unless element.nil?
+          data << ResourceDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -3099,9 +3101,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ServiceActionSummaries'] = Stubs::ServiceActionSummaries.stub(stub[:service_action_summaries]) unless stub[:service_action_summaries].nil?
+        data['ServiceActionSummaries'] = ServiceActionSummaries.stub(stub[:service_action_summaries]) unless stub[:service_action_summaries].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3120,7 +3122,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceActionSummary.stub(element) unless element.nil?
+          data << ServiceActionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3137,9 +3139,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ServiceActionSummaries'] = Stubs::ServiceActionSummaries.stub(stub[:service_action_summaries]) unless stub[:service_action_summaries].nil?
+        data['ServiceActionSummaries'] = ServiceActionSummaries.stub(stub[:service_action_summaries]) unless stub[:service_action_summaries].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3155,9 +3157,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['StackInstances'] = Stubs::StackInstances.stub(stub[:stack_instances]) unless stub[:stack_instances].nil?
+        data['StackInstances'] = StackInstances.stub(stub[:stack_instances]) unless stub[:stack_instances].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3176,7 +3178,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StackInstance.stub(element) unless element.nil?
+          data << StackInstance.stub(element) unless element.nil?
         end
         data
       end
@@ -3215,9 +3217,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TagOptionDetails'] = Stubs::TagOptionDetails.stub(stub[:tag_option_details]) unless stub[:tag_option_details].nil?
+        data['TagOptionDetails'] = TagOptionDetails.stub(stub[:tag_option_details]) unless stub[:tag_option_details].nil?
         data['PageToken'] = stub[:page_token] unless stub[:page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3232,8 +3234,8 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RecordDetail'] = Stubs::RecordDetail.stub(stub[:record_detail]) unless stub[:record_detail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RecordDetail'] = RecordDetail.stub(stub[:record_detail]) unless stub[:record_detail].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3247,7 +3249,7 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3263,9 +3265,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProvisionedProducts'] = Stubs::ProvisionedProductDetails.stub(stub[:provisioned_products]) unless stub[:provisioned_products].nil?
+        data['ProvisionedProducts'] = ProvisionedProductDetails.stub(stub[:provisioned_products]) unless stub[:provisioned_products].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3284,7 +3286,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProvisionedProductDetail.stub(element) unless element.nil?
+          data << ProvisionedProductDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -3302,10 +3304,10 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProductViewSummaries'] = Stubs::ProductViewSummaries.stub(stub[:product_view_summaries]) unless stub[:product_view_summaries].nil?
-        data['ProductViewAggregations'] = Stubs::ProductViewAggregations.stub(stub[:product_view_aggregations]) unless stub[:product_view_aggregations].nil?
+        data['ProductViewSummaries'] = ProductViewSummaries.stub(stub[:product_view_summaries]) unless stub[:product_view_summaries].nil?
+        data['ProductViewAggregations'] = ProductViewAggregations.stub(stub[:product_view_aggregations]) unless stub[:product_view_aggregations].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3324,7 +3326,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ProductViewAggregationValues.stub(value) unless value.nil?
+          data[key] = ProductViewAggregationValues.stub(value) unless value.nil?
         end
         data
       end
@@ -3344,7 +3346,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProductViewAggregationValue.stub(element) unless element.nil?
+          data << ProductViewAggregationValue.stub(element) unless element.nil?
         end
         data
       end
@@ -3384,7 +3386,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProductViewSummary.stub(element) unless element.nil?
+          data << ProductViewSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3401,9 +3403,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProductViewDetails'] = Stubs::ProductViewDetails.stub(stub[:product_view_details]) unless stub[:product_view_details].nil?
+        data['ProductViewDetails'] = ProductViewDetails.stub(stub[:product_view_details]) unless stub[:product_view_details].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3422,7 +3424,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProductViewDetail.stub(element) unless element.nil?
+          data << ProductViewDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -3440,10 +3442,10 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProvisionedProducts'] = Stubs::ProvisionedProductAttributes.stub(stub[:provisioned_products]) unless stub[:provisioned_products].nil?
+        data['ProvisionedProducts'] = ProvisionedProductAttributes.stub(stub[:provisioned_products]) unless stub[:provisioned_products].nil?
         data['TotalResultsCount'] = stub[:total_results_count] unless stub[:total_results_count].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3462,7 +3464,7 @@ module AWS::SDK::ServiceCatalog
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProvisionedProductAttribute.stub(element) unless element.nil?
+          data << ProvisionedProductAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -3510,7 +3512,7 @@ module AWS::SDK::ServiceCatalog
         data['LastRecordId'] = stub[:last_record_id] unless stub[:last_record_id].nil?
         data['LastProvisioningRecordId'] = stub[:last_provisioning_record_id] unless stub[:last_provisioning_record_id].nil?
         data['LastSuccessfulProvisioningRecordId'] = stub[:last_successful_provisioning_record_id] unless stub[:last_successful_provisioning_record_id].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['PhysicalId'] = stub[:physical_id] unless stub[:physical_id].nil?
         data['ProductId'] = stub[:product_id] unless stub[:product_id].nil?
         data['ProductName'] = stub[:product_name] unless stub[:product_name].nil?
@@ -3532,8 +3534,8 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RecordDetail'] = Stubs::RecordDetail.stub(stub[:record_detail]) unless stub[:record_detail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RecordDetail'] = RecordDetail.stub(stub[:record_detail]) unless stub[:record_detail].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3550,10 +3552,10 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConstraintDetail'] = Stubs::ConstraintDetail.stub(stub[:constraint_detail]) unless stub[:constraint_detail].nil?
+        data['ConstraintDetail'] = ConstraintDetail.stub(stub[:constraint_detail]) unless stub[:constraint_detail].nil?
         data['ConstraintParameters'] = stub[:constraint_parameters] unless stub[:constraint_parameters].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3569,9 +3571,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PortfolioDetail'] = Stubs::PortfolioDetail.stub(stub[:portfolio_detail]) unless stub[:portfolio_detail].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PortfolioDetail'] = PortfolioDetail.stub(stub[:portfolio_detail]) unless stub[:portfolio_detail].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3589,7 +3591,7 @@ module AWS::SDK::ServiceCatalog
         data = {}
         data['PortfolioShareToken'] = stub[:portfolio_share_token] unless stub[:portfolio_share_token].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3605,9 +3607,9 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProductViewDetail'] = Stubs::ProductViewDetail.stub(stub[:product_view_detail]) unless stub[:product_view_detail].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProductViewDetail'] = ProductViewDetail.stub(stub[:product_view_detail]) unless stub[:product_view_detail].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3622,8 +3624,8 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['RecordDetail'] = Stubs::RecordDetail.stub(stub[:record_detail]) unless stub[:record_detail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RecordDetail'] = RecordDetail.stub(stub[:record_detail]) unless stub[:record_detail].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3642,10 +3644,10 @@ module AWS::SDK::ServiceCatalog
       def self.stub(http_resp, stub:)
         data = {}
         data['ProvisionedProductId'] = stub[:provisioned_product_id] unless stub[:provisioned_product_id].nil?
-        data['ProvisionedProductProperties'] = Stubs::ProvisionedProductProperties.stub(stub[:provisioned_product_properties]) unless stub[:provisioned_product_properties].nil?
+        data['ProvisionedProductProperties'] = ProvisionedProductProperties.stub(stub[:provisioned_product_properties]) unless stub[:provisioned_product_properties].nil?
         data['RecordId'] = stub[:record_id] unless stub[:record_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3682,10 +3684,10 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProvisioningArtifactDetail'] = Stubs::ProvisioningArtifactDetail.stub(stub[:provisioning_artifact_detail]) unless stub[:provisioning_artifact_detail].nil?
-        data['Info'] = Stubs::ProvisioningArtifactInfo.stub(stub[:info]) unless stub[:info].nil?
+        data['ProvisioningArtifactDetail'] = ProvisioningArtifactDetail.stub(stub[:provisioning_artifact_detail]) unless stub[:provisioning_artifact_detail].nil?
+        data['Info'] = ProvisioningArtifactInfo.stub(stub[:info]) unless stub[:info].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3700,8 +3702,8 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ServiceActionDetail'] = Stubs::ServiceActionDetail.stub(stub[:service_action_detail]) unless stub[:service_action_detail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ServiceActionDetail'] = ServiceActionDetail.stub(stub[:service_action_detail]) unless stub[:service_action_detail].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3716,8 +3718,8 @@ module AWS::SDK::ServiceCatalog
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TagOptionDetail'] = Stubs::TagOptionDetail.stub(stub[:tag_option_detail]) unless stub[:tag_option_detail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagOptionDetail'] = TagOptionDetail.stub(stub[:tag_option_detail]) unless stub[:tag_option_detail].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

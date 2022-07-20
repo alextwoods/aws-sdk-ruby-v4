@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Outposts
   module Builders
 
@@ -38,10 +40,10 @@ module AWS::SDK::Outposts
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['OutpostIdentifier'] = input[:outpost_identifier] unless input[:outpost_identifier].nil?
-        data['LineItems'] = Builders::LineItemRequestListDefinition.build(input[:line_items]) unless input[:line_items].nil?
+        data['LineItems'] = LineItemRequestListDefinition.build(input[:line_items]) unless input[:line_items].nil?
         data['PaymentOption'] = input[:payment_option] unless input[:payment_option].nil?
         data['PaymentTerm'] = input[:payment_term] unless input[:payment_term].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -50,7 +52,7 @@ module AWS::SDK::Outposts
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LineItemRequest.build(element) unless element.nil?
+          data << LineItemRequest.build(element) unless element.nil?
         end
         data
       end
@@ -81,9 +83,9 @@ module AWS::SDK::Outposts
         data['SiteId'] = input[:site_id] unless input[:site_id].nil?
         data['AvailabilityZone'] = input[:availability_zone] unless input[:availability_zone].nil?
         data['AvailabilityZoneId'] = input[:availability_zone_id] unless input[:availability_zone_id].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['SupportedHardwareType'] = input[:supported_hardware_type] unless input[:supported_hardware_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -111,11 +113,11 @@ module AWS::SDK::Outposts
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Notes'] = input[:notes] unless input[:notes].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        data['OperatingAddress'] = Builders::Address.build(input[:operating_address]) unless input[:operating_address].nil?
-        data['ShippingAddress'] = Builders::Address.build(input[:shipping_address]) unless input[:shipping_address].nil?
-        data['RackPhysicalProperties'] = Builders::RackPhysicalProperties.build(input[:rack_physical_properties]) unless input[:rack_physical_properties].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['OperatingAddress'] = Address.build(input[:operating_address]) unless input[:operating_address].nil?
+        data['ShippingAddress'] = Address.build(input[:shipping_address]) unless input[:shipping_address].nil?
+        data['RackPhysicalProperties'] = RackPhysicalProperties.build(input[:rack_physical_properties]) unless input[:rack_physical_properties].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -570,7 +572,7 @@ module AWS::SDK::Outposts
         data['AssetId'] = input[:asset_id] unless input[:asset_id].nil?
         data['ClientPublicKey'] = input[:client_public_key] unless input[:client_public_key].nil?
         data['NetworkInterfaceDeviceIndex'] = input[:network_interface_device_index] unless input[:network_interface_device_index].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -591,8 +593,8 @@ module AWS::SDK::Outposts
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -649,7 +651,7 @@ module AWS::SDK::Outposts
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['SupportedHardwareType'] = input[:supported_hardware_type] unless input[:supported_hardware_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -673,7 +675,7 @@ module AWS::SDK::Outposts
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Notes'] = input[:notes] unless input[:notes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -695,8 +697,8 @@ module AWS::SDK::Outposts
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AddressType'] = input[:address_type] unless input[:address_type].nil?
-        data['Address'] = Builders::Address.build(input[:address]) unless input[:address].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Address'] = Address.build(input[:address]) unless input[:address].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -726,7 +728,7 @@ module AWS::SDK::Outposts
         data['FiberOpticCableType'] = input[:fiber_optic_cable_type] unless input[:fiber_optic_cable_type].nil?
         data['OpticalStandard'] = input[:optical_standard] unless input[:optical_standard].nil?
         data['MaximumSupportedWeightLbs'] = input[:maximum_supported_weight_lbs] unless input[:maximum_supported_weight_lbs].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

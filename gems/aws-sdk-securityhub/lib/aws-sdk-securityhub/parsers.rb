@@ -88,7 +88,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::BatchDisableStandardsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.standards_subscriptions = (Parsers::StandardsSubscriptions.parse(map['StandardsSubscriptions']) unless map['StandardsSubscriptions'].nil?)
+        data.standards_subscriptions = (StandardsSubscriptions.parse(map['StandardsSubscriptions']) unless map['StandardsSubscriptions'].nil?)
         data
       end
     end
@@ -97,7 +97,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StandardsSubscription.parse(value) unless value.nil?
+          data << StandardsSubscription.parse(value) unless value.nil?
         end
         data
       end
@@ -108,9 +108,9 @@ module AWS::SDK::SecurityHub
         data = Types::StandardsSubscription.new
         data.standards_subscription_arn = map['StandardsSubscriptionArn']
         data.standards_arn = map['StandardsArn']
-        data.standards_input = (Parsers::StandardsInputParameterMap.parse(map['StandardsInput']) unless map['StandardsInput'].nil?)
+        data.standards_input = (StandardsInputParameterMap.parse(map['StandardsInput']) unless map['StandardsInput'].nil?)
         data.standards_status = map['StandardsStatus']
-        data.standards_status_reason = (Parsers::StandardsStatusReason.parse(map['StandardsStatusReason']) unless map['StandardsStatusReason'].nil?)
+        data.standards_status_reason = (StandardsStatusReason.parse(map['StandardsStatusReason']) unless map['StandardsStatusReason'].nil?)
         return data
       end
     end
@@ -138,7 +138,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::BatchEnableStandardsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.standards_subscriptions = (Parsers::StandardsSubscriptions.parse(map['StandardsSubscriptions']) unless map['StandardsSubscriptions'].nil?)
+        data.standards_subscriptions = (StandardsSubscriptions.parse(map['StandardsSubscriptions']) unless map['StandardsSubscriptions'].nil?)
         data
       end
     end
@@ -150,7 +150,7 @@ module AWS::SDK::SecurityHub
         map = Hearth::JSON.load(http_resp.body)
         data.failed_count = map['FailedCount']
         data.success_count = map['SuccessCount']
-        data.failed_findings = (Parsers::ImportFindingsErrorList.parse(map['FailedFindings']) unless map['FailedFindings'].nil?)
+        data.failed_findings = (ImportFindingsErrorList.parse(map['FailedFindings']) unless map['FailedFindings'].nil?)
         data
       end
     end
@@ -159,7 +159,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ImportFindingsError.parse(value) unless value.nil?
+          data << ImportFindingsError.parse(value) unless value.nil?
         end
         data
       end
@@ -180,8 +180,8 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::BatchUpdateFindingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.processed_findings = (Parsers::AwsSecurityFindingIdentifierList.parse(map['ProcessedFindings']) unless map['ProcessedFindings'].nil?)
-        data.unprocessed_findings = (Parsers::BatchUpdateFindingsUnprocessedFindingsList.parse(map['UnprocessedFindings']) unless map['UnprocessedFindings'].nil?)
+        data.processed_findings = (AwsSecurityFindingIdentifierList.parse(map['ProcessedFindings']) unless map['ProcessedFindings'].nil?)
+        data.unprocessed_findings = (BatchUpdateFindingsUnprocessedFindingsList.parse(map['UnprocessedFindings']) unless map['UnprocessedFindings'].nil?)
         data
       end
     end
@@ -190,7 +190,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchUpdateFindingsUnprocessedFinding.parse(value) unless value.nil?
+          data << BatchUpdateFindingsUnprocessedFinding.parse(value) unless value.nil?
         end
         data
       end
@@ -199,7 +199,7 @@ module AWS::SDK::SecurityHub
     class BatchUpdateFindingsUnprocessedFinding
       def self.parse(map)
         data = Types::BatchUpdateFindingsUnprocessedFinding.new
-        data.finding_identifier = (Parsers::AwsSecurityFindingIdentifier.parse(map['FindingIdentifier']) unless map['FindingIdentifier'].nil?)
+        data.finding_identifier = (AwsSecurityFindingIdentifier.parse(map['FindingIdentifier']) unless map['FindingIdentifier'].nil?)
         data.error_code = map['ErrorCode']
         data.error_message = map['ErrorMessage']
         return data
@@ -219,7 +219,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsSecurityFindingIdentifier.parse(value) unless value.nil?
+          data << AwsSecurityFindingIdentifier.parse(value) unless value.nil?
         end
         data
       end
@@ -254,7 +254,7 @@ module AWS::SDK::SecurityHub
         data.finding_aggregator_arn = map['FindingAggregatorArn']
         data.finding_aggregation_region = map['FindingAggregationRegion']
         data.region_linking_mode = map['RegionLinkingMode']
-        data.regions = (Parsers::StringList.parse(map['Regions']) unless map['Regions'].nil?)
+        data.regions = (StringList.parse(map['Regions']) unless map['Regions'].nil?)
         data
       end
     end
@@ -295,7 +295,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::CreateMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_accounts = (Parsers::ResultList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
+        data.unprocessed_accounts = (ResultList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
         data
       end
     end
@@ -304,7 +304,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Result.parse(value) unless value.nil?
+          data << Result.parse(value) unless value.nil?
         end
         data
       end
@@ -324,7 +324,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::DeclineInvitationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_accounts = (Parsers::ResultList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
+        data.unprocessed_accounts = (ResultList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
         data
       end
     end
@@ -363,7 +363,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::DeleteInvitationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_accounts = (Parsers::ResultList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
+        data.unprocessed_accounts = (ResultList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
         data
       end
     end
@@ -373,7 +373,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::DeleteMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_accounts = (Parsers::ResultList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
+        data.unprocessed_accounts = (ResultList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
         data
       end
     end
@@ -383,7 +383,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::DescribeActionTargetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.action_targets = (Parsers::ActionTargetList.parse(map['ActionTargets']) unless map['ActionTargets'].nil?)
+        data.action_targets = (ActionTargetList.parse(map['ActionTargets']) unless map['ActionTargets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -393,7 +393,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ActionTarget.parse(value) unless value.nil?
+          data << ActionTarget.parse(value) unless value.nil?
         end
         data
       end
@@ -438,7 +438,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::DescribeProductsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.products = (Parsers::ProductsList.parse(map['Products']) unless map['Products'].nil?)
+        data.products = (ProductsList.parse(map['Products']) unless map['Products'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -448,7 +448,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Product.parse(value) unless value.nil?
+          data << Product.parse(value) unless value.nil?
         end
         data
       end
@@ -461,8 +461,8 @@ module AWS::SDK::SecurityHub
         data.product_name = map['ProductName']
         data.company_name = map['CompanyName']
         data.description = map['Description']
-        data.categories = (Parsers::CategoryList.parse(map['Categories']) unless map['Categories'].nil?)
-        data.integration_types = (Parsers::IntegrationTypeList.parse(map['IntegrationTypes']) unless map['IntegrationTypes'].nil?)
+        data.categories = (CategoryList.parse(map['Categories']) unless map['Categories'].nil?)
+        data.integration_types = (IntegrationTypeList.parse(map['IntegrationTypes']) unless map['IntegrationTypes'].nil?)
         data.marketplace_url = map['MarketplaceUrl']
         data.activation_url = map['ActivationUrl']
         data.product_subscription_resource_policy = map['ProductSubscriptionResourcePolicy']
@@ -495,7 +495,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::DescribeStandardsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.standards = (Parsers::Standards.parse(map['Standards']) unless map['Standards'].nil?)
+        data.standards = (Standards.parse(map['Standards']) unless map['Standards'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -505,7 +505,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Standard.parse(value) unless value.nil?
+          data << Standard.parse(value) unless value.nil?
         end
         data
       end
@@ -527,7 +527,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::DescribeStandardsControlsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.controls = (Parsers::StandardsControls.parse(map['Controls']) unless map['Controls'].nil?)
+        data.controls = (StandardsControls.parse(map['Controls']) unless map['Controls'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -537,7 +537,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StandardsControl.parse(value) unless value.nil?
+          data << StandardsControl.parse(value) unless value.nil?
         end
         data
       end
@@ -555,7 +555,7 @@ module AWS::SDK::SecurityHub
         data.description = map['Description']
         data.remediation_url = map['RemediationUrl']
         data.severity_rating = map['SeverityRating']
-        data.related_requirements = (Parsers::RelatedRequirementsList.parse(map['RelatedRequirements']) unless map['RelatedRequirements'].nil?)
+        data.related_requirements = (RelatedRequirementsList.parse(map['RelatedRequirements']) unless map['RelatedRequirements'].nil?)
         return data
       end
     end
@@ -657,7 +657,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::GetAdministratorAccountOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.administrator = (Parsers::Invitation.parse(map['Administrator']) unless map['Administrator'].nil?)
+        data.administrator = (Invitation.parse(map['Administrator']) unless map['Administrator'].nil?)
         data
       end
     end
@@ -678,7 +678,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::GetEnabledStandardsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.standards_subscriptions = (Parsers::StandardsSubscriptions.parse(map['StandardsSubscriptions']) unless map['StandardsSubscriptions'].nil?)
+        data.standards_subscriptions = (StandardsSubscriptions.parse(map['StandardsSubscriptions']) unless map['StandardsSubscriptions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -692,7 +692,7 @@ module AWS::SDK::SecurityHub
         data.finding_aggregator_arn = map['FindingAggregatorArn']
         data.finding_aggregation_region = map['FindingAggregationRegion']
         data.region_linking_mode = map['RegionLinkingMode']
-        data.regions = (Parsers::StringList.parse(map['Regions']) unless map['Regions'].nil?)
+        data.regions = (StringList.parse(map['Regions']) unless map['Regions'].nil?)
         data
       end
     end
@@ -702,7 +702,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::GetFindingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.findings = (Parsers::AwsSecurityFindingList.parse(map['Findings']) unless map['Findings'].nil?)
+        data.findings = (AwsSecurityFindingList.parse(map['Findings']) unless map['Findings'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -712,7 +712,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsSecurityFinding.parse(value) unless value.nil?
+          data << AwsSecurityFinding.parse(value) unless value.nil?
         end
         data
       end
@@ -729,37 +729,37 @@ module AWS::SDK::SecurityHub
         data.region = map['Region']
         data.generator_id = map['GeneratorId']
         data.aws_account_id = map['AwsAccountId']
-        data.types = (Parsers::TypeList.parse(map['Types']) unless map['Types'].nil?)
+        data.types = (TypeList.parse(map['Types']) unless map['Types'].nil?)
         data.first_observed_at = map['FirstObservedAt']
         data.last_observed_at = map['LastObservedAt']
         data.created_at = map['CreatedAt']
         data.updated_at = map['UpdatedAt']
-        data.severity = (Parsers::Severity.parse(map['Severity']) unless map['Severity'].nil?)
+        data.severity = (Severity.parse(map['Severity']) unless map['Severity'].nil?)
         data.confidence = map['Confidence']
         data.criticality = map['Criticality']
         data.title = map['Title']
         data.description = map['Description']
-        data.remediation = (Parsers::Remediation.parse(map['Remediation']) unless map['Remediation'].nil?)
+        data.remediation = (Remediation.parse(map['Remediation']) unless map['Remediation'].nil?)
         data.source_url = map['SourceUrl']
-        data.product_fields = (Parsers::FieldMap.parse(map['ProductFields']) unless map['ProductFields'].nil?)
-        data.user_defined_fields = (Parsers::FieldMap.parse(map['UserDefinedFields']) unless map['UserDefinedFields'].nil?)
-        data.malware = (Parsers::MalwareList.parse(map['Malware']) unless map['Malware'].nil?)
-        data.network = (Parsers::Network.parse(map['Network']) unless map['Network'].nil?)
-        data.network_path = (Parsers::NetworkPathList.parse(map['NetworkPath']) unless map['NetworkPath'].nil?)
-        data.process = (Parsers::ProcessDetails.parse(map['Process']) unless map['Process'].nil?)
-        data.threat_intel_indicators = (Parsers::ThreatIntelIndicatorList.parse(map['ThreatIntelIndicators']) unless map['ThreatIntelIndicators'].nil?)
-        data.resources = (Parsers::ResourceList.parse(map['Resources']) unless map['Resources'].nil?)
-        data.compliance = (Parsers::Compliance.parse(map['Compliance']) unless map['Compliance'].nil?)
+        data.product_fields = (FieldMap.parse(map['ProductFields']) unless map['ProductFields'].nil?)
+        data.user_defined_fields = (FieldMap.parse(map['UserDefinedFields']) unless map['UserDefinedFields'].nil?)
+        data.malware = (MalwareList.parse(map['Malware']) unless map['Malware'].nil?)
+        data.network = (Network.parse(map['Network']) unless map['Network'].nil?)
+        data.network_path = (NetworkPathList.parse(map['NetworkPath']) unless map['NetworkPath'].nil?)
+        data.process = (ProcessDetails.parse(map['Process']) unless map['Process'].nil?)
+        data.threat_intel_indicators = (ThreatIntelIndicatorList.parse(map['ThreatIntelIndicators']) unless map['ThreatIntelIndicators'].nil?)
+        data.resources = (ResourceList.parse(map['Resources']) unless map['Resources'].nil?)
+        data.compliance = (Compliance.parse(map['Compliance']) unless map['Compliance'].nil?)
         data.verification_state = map['VerificationState']
         data.workflow_state = map['WorkflowState']
-        data.workflow = (Parsers::Workflow.parse(map['Workflow']) unless map['Workflow'].nil?)
+        data.workflow = (Workflow.parse(map['Workflow']) unless map['Workflow'].nil?)
         data.record_state = map['RecordState']
-        data.related_findings = (Parsers::RelatedFindingList.parse(map['RelatedFindings']) unless map['RelatedFindings'].nil?)
-        data.note = (Parsers::Note.parse(map['Note']) unless map['Note'].nil?)
-        data.vulnerabilities = (Parsers::VulnerabilityList.parse(map['Vulnerabilities']) unless map['Vulnerabilities'].nil?)
-        data.patch_summary = (Parsers::PatchSummary.parse(map['PatchSummary']) unless map['PatchSummary'].nil?)
-        data.action = (Parsers::Action.parse(map['Action']) unless map['Action'].nil?)
-        data.finding_provider_fields = (Parsers::FindingProviderFields.parse(map['FindingProviderFields']) unless map['FindingProviderFields'].nil?)
+        data.related_findings = (RelatedFindingList.parse(map['RelatedFindings']) unless map['RelatedFindings'].nil?)
+        data.note = (Note.parse(map['Note']) unless map['Note'].nil?)
+        data.vulnerabilities = (VulnerabilityList.parse(map['Vulnerabilities']) unless map['Vulnerabilities'].nil?)
+        data.patch_summary = (PatchSummary.parse(map['PatchSummary']) unless map['PatchSummary'].nil?)
+        data.action = (Action.parse(map['Action']) unless map['Action'].nil?)
+        data.finding_provider_fields = (FindingProviderFields.parse(map['FindingProviderFields']) unless map['FindingProviderFields'].nil?)
         data.sample = map['Sample']
         return data
       end
@@ -770,9 +770,9 @@ module AWS::SDK::SecurityHub
         data = Types::FindingProviderFields.new
         data.confidence = map['Confidence']
         data.criticality = map['Criticality']
-        data.related_findings = (Parsers::RelatedFindingList.parse(map['RelatedFindings']) unless map['RelatedFindings'].nil?)
-        data.severity = (Parsers::FindingProviderSeverity.parse(map['Severity']) unless map['Severity'].nil?)
-        data.types = (Parsers::TypeList.parse(map['Types']) unless map['Types'].nil?)
+        data.related_findings = (RelatedFindingList.parse(map['RelatedFindings']) unless map['RelatedFindings'].nil?)
+        data.severity = (FindingProviderSeverity.parse(map['Severity']) unless map['Severity'].nil?)
+        data.types = (TypeList.parse(map['Types']) unless map['Types'].nil?)
         return data
       end
     end
@@ -800,7 +800,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RelatedFinding.parse(value) unless value.nil?
+          data << RelatedFinding.parse(value) unless value.nil?
         end
         data
       end
@@ -819,10 +819,10 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::Action.new
         data.action_type = map['ActionType']
-        data.network_connection_action = (Parsers::NetworkConnectionAction.parse(map['NetworkConnectionAction']) unless map['NetworkConnectionAction'].nil?)
-        data.aws_api_call_action = (Parsers::AwsApiCallAction.parse(map['AwsApiCallAction']) unless map['AwsApiCallAction'].nil?)
-        data.dns_request_action = (Parsers::DnsRequestAction.parse(map['DnsRequestAction']) unless map['DnsRequestAction'].nil?)
-        data.port_probe_action = (Parsers::PortProbeAction.parse(map['PortProbeAction']) unless map['PortProbeAction'].nil?)
+        data.network_connection_action = (NetworkConnectionAction.parse(map['NetworkConnectionAction']) unless map['NetworkConnectionAction'].nil?)
+        data.aws_api_call_action = (AwsApiCallAction.parse(map['AwsApiCallAction']) unless map['AwsApiCallAction'].nil?)
+        data.dns_request_action = (DnsRequestAction.parse(map['DnsRequestAction']) unless map['DnsRequestAction'].nil?)
+        data.port_probe_action = (PortProbeAction.parse(map['PortProbeAction']) unless map['PortProbeAction'].nil?)
         return data
       end
     end
@@ -830,7 +830,7 @@ module AWS::SDK::SecurityHub
     class PortProbeAction
       def self.parse(map)
         data = Types::PortProbeAction.new
-        data.port_probe_details = (Parsers::PortProbeDetailList.parse(map['PortProbeDetails']) unless map['PortProbeDetails'].nil?)
+        data.port_probe_details = (PortProbeDetailList.parse(map['PortProbeDetails']) unless map['PortProbeDetails'].nil?)
         data.blocked = map['Blocked']
         return data
       end
@@ -840,7 +840,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PortProbeDetail.parse(value) unless value.nil?
+          data << PortProbeDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -849,9 +849,9 @@ module AWS::SDK::SecurityHub
     class PortProbeDetail
       def self.parse(map)
         data = Types::PortProbeDetail.new
-        data.local_port_details = (Parsers::ActionLocalPortDetails.parse(map['LocalPortDetails']) unless map['LocalPortDetails'].nil?)
-        data.local_ip_details = (Parsers::ActionLocalIpDetails.parse(map['LocalIpDetails']) unless map['LocalIpDetails'].nil?)
-        data.remote_ip_details = (Parsers::ActionRemoteIpDetails.parse(map['RemoteIpDetails']) unless map['RemoteIpDetails'].nil?)
+        data.local_port_details = (ActionLocalPortDetails.parse(map['LocalPortDetails']) unless map['LocalPortDetails'].nil?)
+        data.local_ip_details = (ActionLocalIpDetails.parse(map['LocalIpDetails']) unless map['LocalIpDetails'].nil?)
+        data.remote_ip_details = (ActionRemoteIpDetails.parse(map['RemoteIpDetails']) unless map['RemoteIpDetails'].nil?)
         return data
       end
     end
@@ -860,10 +860,10 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::ActionRemoteIpDetails.new
         data.ip_address_v4 = map['IpAddressV4']
-        data.organization = (Parsers::IpOrganizationDetails.parse(map['Organization']) unless map['Organization'].nil?)
-        data.country = (Parsers::Country.parse(map['Country']) unless map['Country'].nil?)
-        data.city = (Parsers::City.parse(map['City']) unless map['City'].nil?)
-        data.geo_location = (Parsers::GeoLocation.parse(map['GeoLocation']) unless map['GeoLocation'].nil?)
+        data.organization = (IpOrganizationDetails.parse(map['Organization']) unless map['Organization'].nil?)
+        data.country = (Country.parse(map['Country']) unless map['Country'].nil?)
+        data.city = (City.parse(map['City']) unless map['City'].nil?)
+        data.geo_location = (GeoLocation.parse(map['GeoLocation']) unless map['GeoLocation'].nil?)
         return data
       end
     end
@@ -938,9 +938,9 @@ module AWS::SDK::SecurityHub
         data.api = map['Api']
         data.service_name = map['ServiceName']
         data.caller_type = map['CallerType']
-        data.remote_ip_details = (Parsers::ActionRemoteIpDetails.parse(map['RemoteIpDetails']) unless map['RemoteIpDetails'].nil?)
-        data.domain_details = (Parsers::AwsApiCallActionDomainDetails.parse(map['DomainDetails']) unless map['DomainDetails'].nil?)
-        data.affected_resources = (Parsers::FieldMap.parse(map['AffectedResources']) unless map['AffectedResources'].nil?)
+        data.remote_ip_details = (ActionRemoteIpDetails.parse(map['RemoteIpDetails']) unless map['RemoteIpDetails'].nil?)
+        data.domain_details = (AwsApiCallActionDomainDetails.parse(map['DomainDetails']) unless map['DomainDetails'].nil?)
+        data.affected_resources = (FieldMap.parse(map['AffectedResources']) unless map['AffectedResources'].nil?)
         data.first_seen = map['FirstSeen']
         data.last_seen = map['LastSeen']
         return data
@@ -969,9 +969,9 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::NetworkConnectionAction.new
         data.connection_direction = map['ConnectionDirection']
-        data.remote_ip_details = (Parsers::ActionRemoteIpDetails.parse(map['RemoteIpDetails']) unless map['RemoteIpDetails'].nil?)
-        data.remote_port_details = (Parsers::ActionRemotePortDetails.parse(map['RemotePortDetails']) unless map['RemotePortDetails'].nil?)
-        data.local_port_details = (Parsers::ActionLocalPortDetails.parse(map['LocalPortDetails']) unless map['LocalPortDetails'].nil?)
+        data.remote_ip_details = (ActionRemoteIpDetails.parse(map['RemoteIpDetails']) unless map['RemoteIpDetails'].nil?)
+        data.remote_port_details = (ActionRemotePortDetails.parse(map['RemotePortDetails']) unless map['RemotePortDetails'].nil?)
+        data.local_port_details = (ActionLocalPortDetails.parse(map['LocalPortDetails']) unless map['LocalPortDetails'].nil?)
         data.protocol = map['Protocol']
         data.blocked = map['Blocked']
         return data
@@ -1009,7 +1009,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Vulnerability.parse(value) unless value.nil?
+          data << Vulnerability.parse(value) unless value.nil?
         end
         data
       end
@@ -1019,11 +1019,11 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::Vulnerability.new
         data.id = map['Id']
-        data.vulnerable_packages = (Parsers::SoftwarePackageList.parse(map['VulnerablePackages']) unless map['VulnerablePackages'].nil?)
-        data.cvss = (Parsers::CvssList.parse(map['Cvss']) unless map['Cvss'].nil?)
-        data.related_vulnerabilities = (Parsers::StringList.parse(map['RelatedVulnerabilities']) unless map['RelatedVulnerabilities'].nil?)
-        data.vendor = (Parsers::VulnerabilityVendor.parse(map['Vendor']) unless map['Vendor'].nil?)
-        data.reference_urls = (Parsers::StringList.parse(map['ReferenceUrls']) unless map['ReferenceUrls'].nil?)
+        data.vulnerable_packages = (SoftwarePackageList.parse(map['VulnerablePackages']) unless map['VulnerablePackages'].nil?)
+        data.cvss = (CvssList.parse(map['Cvss']) unless map['Cvss'].nil?)
+        data.related_vulnerabilities = (StringList.parse(map['RelatedVulnerabilities']) unless map['RelatedVulnerabilities'].nil?)
+        data.vendor = (VulnerabilityVendor.parse(map['Vendor']) unless map['Vendor'].nil?)
+        data.reference_urls = (StringList.parse(map['ReferenceUrls']) unless map['ReferenceUrls'].nil?)
         return data
       end
     end
@@ -1044,7 +1044,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Cvss.parse(value) unless value.nil?
+          data << Cvss.parse(value) unless value.nil?
         end
         data
       end
@@ -1057,7 +1057,7 @@ module AWS::SDK::SecurityHub
         data.base_score = Hearth::NumberHelper.deserialize(map['BaseScore'])
         data.base_vector = map['BaseVector']
         data.source = map['Source']
-        data.adjustments = (Parsers::AdjustmentList.parse(map['Adjustments']) unless map['Adjustments'].nil?)
+        data.adjustments = (AdjustmentList.parse(map['Adjustments']) unless map['Adjustments'].nil?)
         return data
       end
     end
@@ -1066,7 +1066,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Adjustment.parse(value) unless value.nil?
+          data << Adjustment.parse(value) unless value.nil?
         end
         data
       end
@@ -1085,7 +1085,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SoftwarePackage.parse(value) unless value.nil?
+          data << SoftwarePackage.parse(value) unless value.nil?
         end
         data
       end
@@ -1127,8 +1127,8 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::Compliance.new
         data.status = map['Status']
-        data.related_requirements = (Parsers::RelatedRequirementsList.parse(map['RelatedRequirements']) unless map['RelatedRequirements'].nil?)
-        data.status_reasons = (Parsers::StatusReasonsList.parse(map['StatusReasons']) unless map['StatusReasons'].nil?)
+        data.related_requirements = (RelatedRequirementsList.parse(map['RelatedRequirements']) unless map['RelatedRequirements'].nil?)
+        data.status_reasons = (StatusReasonsList.parse(map['StatusReasons']) unless map['StatusReasons'].nil?)
         return data
       end
     end
@@ -1137,7 +1137,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StatusReason.parse(value) unless value.nil?
+          data << StatusReason.parse(value) unless value.nil?
         end
         data
       end
@@ -1156,7 +1156,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Resource.parse(value) unless value.nil?
+          data << Resource.parse(value) unless value.nil?
         end
         data
       end
@@ -1170,9 +1170,9 @@ module AWS::SDK::SecurityHub
         data.partition = map['Partition']
         data.region = map['Region']
         data.resource_role = map['ResourceRole']
-        data.tags = (Parsers::FieldMap.parse(map['Tags']) unless map['Tags'].nil?)
-        data.data_classification = (Parsers::DataClassificationDetails.parse(map['DataClassification']) unless map['DataClassification'].nil?)
-        data.details = (Parsers::ResourceDetails.parse(map['Details']) unless map['Details'].nil?)
+        data.tags = (FieldMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.data_classification = (DataClassificationDetails.parse(map['DataClassification']) unless map['DataClassification'].nil?)
+        data.details = (ResourceDetails.parse(map['Details']) unless map['Details'].nil?)
         return data
       end
     end
@@ -1180,69 +1180,69 @@ module AWS::SDK::SecurityHub
     class ResourceDetails
       def self.parse(map)
         data = Types::ResourceDetails.new
-        data.aws_auto_scaling_auto_scaling_group = (Parsers::AwsAutoScalingAutoScalingGroupDetails.parse(map['AwsAutoScalingAutoScalingGroup']) unless map['AwsAutoScalingAutoScalingGroup'].nil?)
-        data.aws_code_build_project = (Parsers::AwsCodeBuildProjectDetails.parse(map['AwsCodeBuildProject']) unless map['AwsCodeBuildProject'].nil?)
-        data.aws_cloud_front_distribution = (Parsers::AwsCloudFrontDistributionDetails.parse(map['AwsCloudFrontDistribution']) unless map['AwsCloudFrontDistribution'].nil?)
-        data.aws_ec2_instance = (Parsers::AwsEc2InstanceDetails.parse(map['AwsEc2Instance']) unless map['AwsEc2Instance'].nil?)
-        data.aws_ec2_network_interface = (Parsers::AwsEc2NetworkInterfaceDetails.parse(map['AwsEc2NetworkInterface']) unless map['AwsEc2NetworkInterface'].nil?)
-        data.aws_ec2_security_group = (Parsers::AwsEc2SecurityGroupDetails.parse(map['AwsEc2SecurityGroup']) unless map['AwsEc2SecurityGroup'].nil?)
-        data.aws_ec2_volume = (Parsers::AwsEc2VolumeDetails.parse(map['AwsEc2Volume']) unless map['AwsEc2Volume'].nil?)
-        data.aws_ec2_vpc = (Parsers::AwsEc2VpcDetails.parse(map['AwsEc2Vpc']) unless map['AwsEc2Vpc'].nil?)
-        data.aws_ec2_eip = (Parsers::AwsEc2EipDetails.parse(map['AwsEc2Eip']) unless map['AwsEc2Eip'].nil?)
-        data.aws_ec2_subnet = (Parsers::AwsEc2SubnetDetails.parse(map['AwsEc2Subnet']) unless map['AwsEc2Subnet'].nil?)
-        data.aws_ec2_network_acl = (Parsers::AwsEc2NetworkAclDetails.parse(map['AwsEc2NetworkAcl']) unless map['AwsEc2NetworkAcl'].nil?)
-        data.aws_elbv2_load_balancer = (Parsers::AwsElbv2LoadBalancerDetails.parse(map['AwsElbv2LoadBalancer']) unless map['AwsElbv2LoadBalancer'].nil?)
-        data.aws_elastic_beanstalk_environment = (Parsers::AwsElasticBeanstalkEnvironmentDetails.parse(map['AwsElasticBeanstalkEnvironment']) unless map['AwsElasticBeanstalkEnvironment'].nil?)
-        data.aws_elasticsearch_domain = (Parsers::AwsElasticsearchDomainDetails.parse(map['AwsElasticsearchDomain']) unless map['AwsElasticsearchDomain'].nil?)
-        data.aws_s3_bucket = (Parsers::AwsS3BucketDetails.parse(map['AwsS3Bucket']) unless map['AwsS3Bucket'].nil?)
-        data.aws_s3_account_public_access_block = (Parsers::AwsS3AccountPublicAccessBlockDetails.parse(map['AwsS3AccountPublicAccessBlock']) unless map['AwsS3AccountPublicAccessBlock'].nil?)
-        data.aws_s3_object = (Parsers::AwsS3ObjectDetails.parse(map['AwsS3Object']) unless map['AwsS3Object'].nil?)
-        data.aws_secrets_manager_secret = (Parsers::AwsSecretsManagerSecretDetails.parse(map['AwsSecretsManagerSecret']) unless map['AwsSecretsManagerSecret'].nil?)
-        data.aws_iam_access_key = (Parsers::AwsIamAccessKeyDetails.parse(map['AwsIamAccessKey']) unless map['AwsIamAccessKey'].nil?)
-        data.aws_iam_user = (Parsers::AwsIamUserDetails.parse(map['AwsIamUser']) unless map['AwsIamUser'].nil?)
-        data.aws_iam_policy = (Parsers::AwsIamPolicyDetails.parse(map['AwsIamPolicy']) unless map['AwsIamPolicy'].nil?)
-        data.aws_api_gateway_v2_stage = (Parsers::AwsApiGatewayV2StageDetails.parse(map['AwsApiGatewayV2Stage']) unless map['AwsApiGatewayV2Stage'].nil?)
-        data.aws_api_gateway_v2_api = (Parsers::AwsApiGatewayV2ApiDetails.parse(map['AwsApiGatewayV2Api']) unless map['AwsApiGatewayV2Api'].nil?)
-        data.aws_dynamo_db_table = (Parsers::AwsDynamoDbTableDetails.parse(map['AwsDynamoDbTable']) unless map['AwsDynamoDbTable'].nil?)
-        data.aws_api_gateway_stage = (Parsers::AwsApiGatewayStageDetails.parse(map['AwsApiGatewayStage']) unless map['AwsApiGatewayStage'].nil?)
-        data.aws_api_gateway_rest_api = (Parsers::AwsApiGatewayRestApiDetails.parse(map['AwsApiGatewayRestApi']) unless map['AwsApiGatewayRestApi'].nil?)
-        data.aws_cloud_trail_trail = (Parsers::AwsCloudTrailTrailDetails.parse(map['AwsCloudTrailTrail']) unless map['AwsCloudTrailTrail'].nil?)
-        data.aws_ssm_patch_compliance = (Parsers::AwsSsmPatchComplianceDetails.parse(map['AwsSsmPatchCompliance']) unless map['AwsSsmPatchCompliance'].nil?)
-        data.aws_certificate_manager_certificate = (Parsers::AwsCertificateManagerCertificateDetails.parse(map['AwsCertificateManagerCertificate']) unless map['AwsCertificateManagerCertificate'].nil?)
-        data.aws_redshift_cluster = (Parsers::AwsRedshiftClusterDetails.parse(map['AwsRedshiftCluster']) unless map['AwsRedshiftCluster'].nil?)
-        data.aws_elb_load_balancer = (Parsers::AwsElbLoadBalancerDetails.parse(map['AwsElbLoadBalancer']) unless map['AwsElbLoadBalancer'].nil?)
-        data.aws_iam_group = (Parsers::AwsIamGroupDetails.parse(map['AwsIamGroup']) unless map['AwsIamGroup'].nil?)
-        data.aws_iam_role = (Parsers::AwsIamRoleDetails.parse(map['AwsIamRole']) unless map['AwsIamRole'].nil?)
-        data.aws_kms_key = (Parsers::AwsKmsKeyDetails.parse(map['AwsKmsKey']) unless map['AwsKmsKey'].nil?)
-        data.aws_lambda_function = (Parsers::AwsLambdaFunctionDetails.parse(map['AwsLambdaFunction']) unless map['AwsLambdaFunction'].nil?)
-        data.aws_lambda_layer_version = (Parsers::AwsLambdaLayerVersionDetails.parse(map['AwsLambdaLayerVersion']) unless map['AwsLambdaLayerVersion'].nil?)
-        data.aws_rds_db_instance = (Parsers::AwsRdsDbInstanceDetails.parse(map['AwsRdsDbInstance']) unless map['AwsRdsDbInstance'].nil?)
-        data.aws_sns_topic = (Parsers::AwsSnsTopicDetails.parse(map['AwsSnsTopic']) unless map['AwsSnsTopic'].nil?)
-        data.aws_sqs_queue = (Parsers::AwsSqsQueueDetails.parse(map['AwsSqsQueue']) unless map['AwsSqsQueue'].nil?)
-        data.aws_waf_web_acl = (Parsers::AwsWafWebAclDetails.parse(map['AwsWafWebAcl']) unless map['AwsWafWebAcl'].nil?)
-        data.aws_rds_db_snapshot = (Parsers::AwsRdsDbSnapshotDetails.parse(map['AwsRdsDbSnapshot']) unless map['AwsRdsDbSnapshot'].nil?)
-        data.aws_rds_db_cluster_snapshot = (Parsers::AwsRdsDbClusterSnapshotDetails.parse(map['AwsRdsDbClusterSnapshot']) unless map['AwsRdsDbClusterSnapshot'].nil?)
-        data.aws_rds_db_cluster = (Parsers::AwsRdsDbClusterDetails.parse(map['AwsRdsDbCluster']) unless map['AwsRdsDbCluster'].nil?)
-        data.aws_ecs_cluster = (Parsers::AwsEcsClusterDetails.parse(map['AwsEcsCluster']) unless map['AwsEcsCluster'].nil?)
-        data.aws_ecs_task_definition = (Parsers::AwsEcsTaskDefinitionDetails.parse(map['AwsEcsTaskDefinition']) unless map['AwsEcsTaskDefinition'].nil?)
-        data.container = (Parsers::ContainerDetails.parse(map['Container']) unless map['Container'].nil?)
-        data.other = (Parsers::FieldMap.parse(map['Other']) unless map['Other'].nil?)
-        data.aws_rds_event_subscription = (Parsers::AwsRdsEventSubscriptionDetails.parse(map['AwsRdsEventSubscription']) unless map['AwsRdsEventSubscription'].nil?)
-        data.aws_ecs_service = (Parsers::AwsEcsServiceDetails.parse(map['AwsEcsService']) unless map['AwsEcsService'].nil?)
-        data.aws_auto_scaling_launch_configuration = (Parsers::AwsAutoScalingLaunchConfigurationDetails.parse(map['AwsAutoScalingLaunchConfiguration']) unless map['AwsAutoScalingLaunchConfiguration'].nil?)
-        data.aws_ec2_vpn_connection = (Parsers::AwsEc2VpnConnectionDetails.parse(map['AwsEc2VpnConnection']) unless map['AwsEc2VpnConnection'].nil?)
-        data.aws_ecr_container_image = (Parsers::AwsEcrContainerImageDetails.parse(map['AwsEcrContainerImage']) unless map['AwsEcrContainerImage'].nil?)
-        data.aws_open_search_service_domain = (Parsers::AwsOpenSearchServiceDomainDetails.parse(map['AwsOpenSearchServiceDomain']) unless map['AwsOpenSearchServiceDomain'].nil?)
-        data.aws_ec2_vpc_endpoint_service = (Parsers::AwsEc2VpcEndpointServiceDetails.parse(map['AwsEc2VpcEndpointService']) unless map['AwsEc2VpcEndpointService'].nil?)
-        data.aws_xray_encryption_config = (Parsers::AwsXrayEncryptionConfigDetails.parse(map['AwsXrayEncryptionConfig']) unless map['AwsXrayEncryptionConfig'].nil?)
-        data.aws_waf_rate_based_rule = (Parsers::AwsWafRateBasedRuleDetails.parse(map['AwsWafRateBasedRule']) unless map['AwsWafRateBasedRule'].nil?)
-        data.aws_waf_regional_rate_based_rule = (Parsers::AwsWafRegionalRateBasedRuleDetails.parse(map['AwsWafRegionalRateBasedRule']) unless map['AwsWafRegionalRateBasedRule'].nil?)
-        data.aws_ecr_repository = (Parsers::AwsEcrRepositoryDetails.parse(map['AwsEcrRepository']) unless map['AwsEcrRepository'].nil?)
-        data.aws_eks_cluster = (Parsers::AwsEksClusterDetails.parse(map['AwsEksCluster']) unless map['AwsEksCluster'].nil?)
-        data.aws_network_firewall_firewall_policy = (Parsers::AwsNetworkFirewallFirewallPolicyDetails.parse(map['AwsNetworkFirewallFirewallPolicy']) unless map['AwsNetworkFirewallFirewallPolicy'].nil?)
-        data.aws_network_firewall_firewall = (Parsers::AwsNetworkFirewallFirewallDetails.parse(map['AwsNetworkFirewallFirewall']) unless map['AwsNetworkFirewallFirewall'].nil?)
-        data.aws_network_firewall_rule_group = (Parsers::AwsNetworkFirewallRuleGroupDetails.parse(map['AwsNetworkFirewallRuleGroup']) unless map['AwsNetworkFirewallRuleGroup'].nil?)
-        data.aws_rds_db_security_group = (Parsers::AwsRdsDbSecurityGroupDetails.parse(map['AwsRdsDbSecurityGroup']) unless map['AwsRdsDbSecurityGroup'].nil?)
+        data.aws_auto_scaling_auto_scaling_group = (AwsAutoScalingAutoScalingGroupDetails.parse(map['AwsAutoScalingAutoScalingGroup']) unless map['AwsAutoScalingAutoScalingGroup'].nil?)
+        data.aws_code_build_project = (AwsCodeBuildProjectDetails.parse(map['AwsCodeBuildProject']) unless map['AwsCodeBuildProject'].nil?)
+        data.aws_cloud_front_distribution = (AwsCloudFrontDistributionDetails.parse(map['AwsCloudFrontDistribution']) unless map['AwsCloudFrontDistribution'].nil?)
+        data.aws_ec2_instance = (AwsEc2InstanceDetails.parse(map['AwsEc2Instance']) unless map['AwsEc2Instance'].nil?)
+        data.aws_ec2_network_interface = (AwsEc2NetworkInterfaceDetails.parse(map['AwsEc2NetworkInterface']) unless map['AwsEc2NetworkInterface'].nil?)
+        data.aws_ec2_security_group = (AwsEc2SecurityGroupDetails.parse(map['AwsEc2SecurityGroup']) unless map['AwsEc2SecurityGroup'].nil?)
+        data.aws_ec2_volume = (AwsEc2VolumeDetails.parse(map['AwsEc2Volume']) unless map['AwsEc2Volume'].nil?)
+        data.aws_ec2_vpc = (AwsEc2VpcDetails.parse(map['AwsEc2Vpc']) unless map['AwsEc2Vpc'].nil?)
+        data.aws_ec2_eip = (AwsEc2EipDetails.parse(map['AwsEc2Eip']) unless map['AwsEc2Eip'].nil?)
+        data.aws_ec2_subnet = (AwsEc2SubnetDetails.parse(map['AwsEc2Subnet']) unless map['AwsEc2Subnet'].nil?)
+        data.aws_ec2_network_acl = (AwsEc2NetworkAclDetails.parse(map['AwsEc2NetworkAcl']) unless map['AwsEc2NetworkAcl'].nil?)
+        data.aws_elbv2_load_balancer = (AwsElbv2LoadBalancerDetails.parse(map['AwsElbv2LoadBalancer']) unless map['AwsElbv2LoadBalancer'].nil?)
+        data.aws_elastic_beanstalk_environment = (AwsElasticBeanstalkEnvironmentDetails.parse(map['AwsElasticBeanstalkEnvironment']) unless map['AwsElasticBeanstalkEnvironment'].nil?)
+        data.aws_elasticsearch_domain = (AwsElasticsearchDomainDetails.parse(map['AwsElasticsearchDomain']) unless map['AwsElasticsearchDomain'].nil?)
+        data.aws_s3_bucket = (AwsS3BucketDetails.parse(map['AwsS3Bucket']) unless map['AwsS3Bucket'].nil?)
+        data.aws_s3_account_public_access_block = (AwsS3AccountPublicAccessBlockDetails.parse(map['AwsS3AccountPublicAccessBlock']) unless map['AwsS3AccountPublicAccessBlock'].nil?)
+        data.aws_s3_object = (AwsS3ObjectDetails.parse(map['AwsS3Object']) unless map['AwsS3Object'].nil?)
+        data.aws_secrets_manager_secret = (AwsSecretsManagerSecretDetails.parse(map['AwsSecretsManagerSecret']) unless map['AwsSecretsManagerSecret'].nil?)
+        data.aws_iam_access_key = (AwsIamAccessKeyDetails.parse(map['AwsIamAccessKey']) unless map['AwsIamAccessKey'].nil?)
+        data.aws_iam_user = (AwsIamUserDetails.parse(map['AwsIamUser']) unless map['AwsIamUser'].nil?)
+        data.aws_iam_policy = (AwsIamPolicyDetails.parse(map['AwsIamPolicy']) unless map['AwsIamPolicy'].nil?)
+        data.aws_api_gateway_v2_stage = (AwsApiGatewayV2StageDetails.parse(map['AwsApiGatewayV2Stage']) unless map['AwsApiGatewayV2Stage'].nil?)
+        data.aws_api_gateway_v2_api = (AwsApiGatewayV2ApiDetails.parse(map['AwsApiGatewayV2Api']) unless map['AwsApiGatewayV2Api'].nil?)
+        data.aws_dynamo_db_table = (AwsDynamoDbTableDetails.parse(map['AwsDynamoDbTable']) unless map['AwsDynamoDbTable'].nil?)
+        data.aws_api_gateway_stage = (AwsApiGatewayStageDetails.parse(map['AwsApiGatewayStage']) unless map['AwsApiGatewayStage'].nil?)
+        data.aws_api_gateway_rest_api = (AwsApiGatewayRestApiDetails.parse(map['AwsApiGatewayRestApi']) unless map['AwsApiGatewayRestApi'].nil?)
+        data.aws_cloud_trail_trail = (AwsCloudTrailTrailDetails.parse(map['AwsCloudTrailTrail']) unless map['AwsCloudTrailTrail'].nil?)
+        data.aws_ssm_patch_compliance = (AwsSsmPatchComplianceDetails.parse(map['AwsSsmPatchCompliance']) unless map['AwsSsmPatchCompliance'].nil?)
+        data.aws_certificate_manager_certificate = (AwsCertificateManagerCertificateDetails.parse(map['AwsCertificateManagerCertificate']) unless map['AwsCertificateManagerCertificate'].nil?)
+        data.aws_redshift_cluster = (AwsRedshiftClusterDetails.parse(map['AwsRedshiftCluster']) unless map['AwsRedshiftCluster'].nil?)
+        data.aws_elb_load_balancer = (AwsElbLoadBalancerDetails.parse(map['AwsElbLoadBalancer']) unless map['AwsElbLoadBalancer'].nil?)
+        data.aws_iam_group = (AwsIamGroupDetails.parse(map['AwsIamGroup']) unless map['AwsIamGroup'].nil?)
+        data.aws_iam_role = (AwsIamRoleDetails.parse(map['AwsIamRole']) unless map['AwsIamRole'].nil?)
+        data.aws_kms_key = (AwsKmsKeyDetails.parse(map['AwsKmsKey']) unless map['AwsKmsKey'].nil?)
+        data.aws_lambda_function = (AwsLambdaFunctionDetails.parse(map['AwsLambdaFunction']) unless map['AwsLambdaFunction'].nil?)
+        data.aws_lambda_layer_version = (AwsLambdaLayerVersionDetails.parse(map['AwsLambdaLayerVersion']) unless map['AwsLambdaLayerVersion'].nil?)
+        data.aws_rds_db_instance = (AwsRdsDbInstanceDetails.parse(map['AwsRdsDbInstance']) unless map['AwsRdsDbInstance'].nil?)
+        data.aws_sns_topic = (AwsSnsTopicDetails.parse(map['AwsSnsTopic']) unless map['AwsSnsTopic'].nil?)
+        data.aws_sqs_queue = (AwsSqsQueueDetails.parse(map['AwsSqsQueue']) unless map['AwsSqsQueue'].nil?)
+        data.aws_waf_web_acl = (AwsWafWebAclDetails.parse(map['AwsWafWebAcl']) unless map['AwsWafWebAcl'].nil?)
+        data.aws_rds_db_snapshot = (AwsRdsDbSnapshotDetails.parse(map['AwsRdsDbSnapshot']) unless map['AwsRdsDbSnapshot'].nil?)
+        data.aws_rds_db_cluster_snapshot = (AwsRdsDbClusterSnapshotDetails.parse(map['AwsRdsDbClusterSnapshot']) unless map['AwsRdsDbClusterSnapshot'].nil?)
+        data.aws_rds_db_cluster = (AwsRdsDbClusterDetails.parse(map['AwsRdsDbCluster']) unless map['AwsRdsDbCluster'].nil?)
+        data.aws_ecs_cluster = (AwsEcsClusterDetails.parse(map['AwsEcsCluster']) unless map['AwsEcsCluster'].nil?)
+        data.aws_ecs_task_definition = (AwsEcsTaskDefinitionDetails.parse(map['AwsEcsTaskDefinition']) unless map['AwsEcsTaskDefinition'].nil?)
+        data.container = (ContainerDetails.parse(map['Container']) unless map['Container'].nil?)
+        data.other = (FieldMap.parse(map['Other']) unless map['Other'].nil?)
+        data.aws_rds_event_subscription = (AwsRdsEventSubscriptionDetails.parse(map['AwsRdsEventSubscription']) unless map['AwsRdsEventSubscription'].nil?)
+        data.aws_ecs_service = (AwsEcsServiceDetails.parse(map['AwsEcsService']) unless map['AwsEcsService'].nil?)
+        data.aws_auto_scaling_launch_configuration = (AwsAutoScalingLaunchConfigurationDetails.parse(map['AwsAutoScalingLaunchConfiguration']) unless map['AwsAutoScalingLaunchConfiguration'].nil?)
+        data.aws_ec2_vpn_connection = (AwsEc2VpnConnectionDetails.parse(map['AwsEc2VpnConnection']) unless map['AwsEc2VpnConnection'].nil?)
+        data.aws_ecr_container_image = (AwsEcrContainerImageDetails.parse(map['AwsEcrContainerImage']) unless map['AwsEcrContainerImage'].nil?)
+        data.aws_open_search_service_domain = (AwsOpenSearchServiceDomainDetails.parse(map['AwsOpenSearchServiceDomain']) unless map['AwsOpenSearchServiceDomain'].nil?)
+        data.aws_ec2_vpc_endpoint_service = (AwsEc2VpcEndpointServiceDetails.parse(map['AwsEc2VpcEndpointService']) unless map['AwsEc2VpcEndpointService'].nil?)
+        data.aws_xray_encryption_config = (AwsXrayEncryptionConfigDetails.parse(map['AwsXrayEncryptionConfig']) unless map['AwsXrayEncryptionConfig'].nil?)
+        data.aws_waf_rate_based_rule = (AwsWafRateBasedRuleDetails.parse(map['AwsWafRateBasedRule']) unless map['AwsWafRateBasedRule'].nil?)
+        data.aws_waf_regional_rate_based_rule = (AwsWafRegionalRateBasedRuleDetails.parse(map['AwsWafRegionalRateBasedRule']) unless map['AwsWafRegionalRateBasedRule'].nil?)
+        data.aws_ecr_repository = (AwsEcrRepositoryDetails.parse(map['AwsEcrRepository']) unless map['AwsEcrRepository'].nil?)
+        data.aws_eks_cluster = (AwsEksClusterDetails.parse(map['AwsEksCluster']) unless map['AwsEksCluster'].nil?)
+        data.aws_network_firewall_firewall_policy = (AwsNetworkFirewallFirewallPolicyDetails.parse(map['AwsNetworkFirewallFirewallPolicy']) unless map['AwsNetworkFirewallFirewallPolicy'].nil?)
+        data.aws_network_firewall_firewall = (AwsNetworkFirewallFirewallDetails.parse(map['AwsNetworkFirewallFirewall']) unless map['AwsNetworkFirewallFirewall'].nil?)
+        data.aws_network_firewall_rule_group = (AwsNetworkFirewallRuleGroupDetails.parse(map['AwsNetworkFirewallRuleGroup']) unless map['AwsNetworkFirewallRuleGroup'].nil?)
+        data.aws_rds_db_security_group = (AwsRdsDbSecurityGroupDetails.parse(map['AwsRdsDbSecurityGroup']) unless map['AwsRdsDbSecurityGroup'].nil?)
         return data
       end
     end
@@ -1253,8 +1253,8 @@ module AWS::SDK::SecurityHub
         data.db_security_group_arn = map['DbSecurityGroupArn']
         data.db_security_group_description = map['DbSecurityGroupDescription']
         data.db_security_group_name = map['DbSecurityGroupName']
-        data.ec2_security_groups = (Parsers::AwsRdsDbSecurityGroupEc2SecurityGroups.parse(map['Ec2SecurityGroups']) unless map['Ec2SecurityGroups'].nil?)
-        data.ip_ranges = (Parsers::AwsRdsDbSecurityGroupIpRanges.parse(map['IpRanges']) unless map['IpRanges'].nil?)
+        data.ec2_security_groups = (AwsRdsDbSecurityGroupEc2SecurityGroups.parse(map['Ec2SecurityGroups']) unless map['Ec2SecurityGroups'].nil?)
+        data.ip_ranges = (AwsRdsDbSecurityGroupIpRanges.parse(map['IpRanges']) unless map['IpRanges'].nil?)
         data.owner_id = map['OwnerId']
         data.vpc_id = map['VpcId']
         return data
@@ -1265,7 +1265,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRdsDbSecurityGroupIpRange.parse(value) unless value.nil?
+          data << AwsRdsDbSecurityGroupIpRange.parse(value) unless value.nil?
         end
         data
       end
@@ -1284,7 +1284,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRdsDbSecurityGroupEc2SecurityGroup.parse(value) unless value.nil?
+          data << AwsRdsDbSecurityGroupEc2SecurityGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -1306,7 +1306,7 @@ module AWS::SDK::SecurityHub
         data = Types::AwsNetworkFirewallRuleGroupDetails.new
         data.capacity = map['Capacity']
         data.description = map['Description']
-        data.rule_group = (Parsers::RuleGroupDetails.parse(map['RuleGroup']) unless map['RuleGroup'].nil?)
+        data.rule_group = (RuleGroupDetails.parse(map['RuleGroup']) unless map['RuleGroup'].nil?)
         data.rule_group_arn = map['RuleGroupArn']
         data.rule_group_id = map['RuleGroupId']
         data.rule_group_name = map['RuleGroupName']
@@ -1318,8 +1318,8 @@ module AWS::SDK::SecurityHub
     class RuleGroupDetails
       def self.parse(map)
         data = Types::RuleGroupDetails.new
-        data.rule_variables = (Parsers::RuleGroupVariables.parse(map['RuleVariables']) unless map['RuleVariables'].nil?)
-        data.rules_source = (Parsers::RuleGroupSource.parse(map['RulesSource']) unless map['RulesSource'].nil?)
+        data.rule_variables = (RuleGroupVariables.parse(map['RuleVariables']) unless map['RuleVariables'].nil?)
+        data.rules_source = (RuleGroupSource.parse(map['RulesSource']) unless map['RulesSource'].nil?)
         return data
       end
     end
@@ -1327,10 +1327,10 @@ module AWS::SDK::SecurityHub
     class RuleGroupSource
       def self.parse(map)
         data = Types::RuleGroupSource.new
-        data.rules_source_list = (Parsers::RuleGroupSourceListDetails.parse(map['RulesSourceList']) unless map['RulesSourceList'].nil?)
+        data.rules_source_list = (RuleGroupSourceListDetails.parse(map['RulesSourceList']) unless map['RulesSourceList'].nil?)
         data.rules_string = map['RulesString']
-        data.stateful_rules = (Parsers::RuleGroupSourceStatefulRulesList.parse(map['StatefulRules']) unless map['StatefulRules'].nil?)
-        data.stateless_rules_and_custom_actions = (Parsers::RuleGroupSourceStatelessRulesAndCustomActionsDetails.parse(map['StatelessRulesAndCustomActions']) unless map['StatelessRulesAndCustomActions'].nil?)
+        data.stateful_rules = (RuleGroupSourceStatefulRulesList.parse(map['StatefulRules']) unless map['StatefulRules'].nil?)
+        data.stateless_rules_and_custom_actions = (RuleGroupSourceStatelessRulesAndCustomActionsDetails.parse(map['StatelessRulesAndCustomActions']) unless map['StatelessRulesAndCustomActions'].nil?)
         return data
       end
     end
@@ -1338,8 +1338,8 @@ module AWS::SDK::SecurityHub
     class RuleGroupSourceStatelessRulesAndCustomActionsDetails
       def self.parse(map)
         data = Types::RuleGroupSourceStatelessRulesAndCustomActionsDetails.new
-        data.custom_actions = (Parsers::RuleGroupSourceCustomActionsList.parse(map['CustomActions']) unless map['CustomActions'].nil?)
-        data.stateless_rules = (Parsers::RuleGroupSourceStatelessRulesList.parse(map['StatelessRules']) unless map['StatelessRules'].nil?)
+        data.custom_actions = (RuleGroupSourceCustomActionsList.parse(map['CustomActions']) unless map['CustomActions'].nil?)
+        data.stateless_rules = (RuleGroupSourceStatelessRulesList.parse(map['StatelessRules']) unless map['StatelessRules'].nil?)
         return data
       end
     end
@@ -1348,7 +1348,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RuleGroupSourceStatelessRulesDetails.parse(value) unless value.nil?
+          data << RuleGroupSourceStatelessRulesDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -1358,7 +1358,7 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::RuleGroupSourceStatelessRulesDetails.new
         data.priority = map['Priority']
-        data.rule_definition = (Parsers::RuleGroupSourceStatelessRuleDefinition.parse(map['RuleDefinition']) unless map['RuleDefinition'].nil?)
+        data.rule_definition = (RuleGroupSourceStatelessRuleDefinition.parse(map['RuleDefinition']) unless map['RuleDefinition'].nil?)
         return data
       end
     end
@@ -1366,8 +1366,8 @@ module AWS::SDK::SecurityHub
     class RuleGroupSourceStatelessRuleDefinition
       def self.parse(map)
         data = Types::RuleGroupSourceStatelessRuleDefinition.new
-        data.actions = (Parsers::NonEmptyStringList.parse(map['Actions']) unless map['Actions'].nil?)
-        data.match_attributes = (Parsers::RuleGroupSourceStatelessRuleMatchAttributes.parse(map['MatchAttributes']) unless map['MatchAttributes'].nil?)
+        data.actions = (NonEmptyStringList.parse(map['Actions']) unless map['Actions'].nil?)
+        data.match_attributes = (RuleGroupSourceStatelessRuleMatchAttributes.parse(map['MatchAttributes']) unless map['MatchAttributes'].nil?)
         return data
       end
     end
@@ -1375,12 +1375,12 @@ module AWS::SDK::SecurityHub
     class RuleGroupSourceStatelessRuleMatchAttributes
       def self.parse(map)
         data = Types::RuleGroupSourceStatelessRuleMatchAttributes.new
-        data.destination_ports = (Parsers::RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList.parse(map['DestinationPorts']) unless map['DestinationPorts'].nil?)
-        data.destinations = (Parsers::RuleGroupSourceStatelessRuleMatchAttributesDestinationsList.parse(map['Destinations']) unless map['Destinations'].nil?)
-        data.protocols = (Parsers::RuleGroupSourceStatelessRuleMatchAttributesProtocolsList.parse(map['Protocols']) unless map['Protocols'].nil?)
-        data.source_ports = (Parsers::RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList.parse(map['SourcePorts']) unless map['SourcePorts'].nil?)
-        data.sources = (Parsers::RuleGroupSourceStatelessRuleMatchAttributesSourcesList.parse(map['Sources']) unless map['Sources'].nil?)
-        data.tcp_flags = (Parsers::RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList.parse(map['TcpFlags']) unless map['TcpFlags'].nil?)
+        data.destination_ports = (RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList.parse(map['DestinationPorts']) unless map['DestinationPorts'].nil?)
+        data.destinations = (RuleGroupSourceStatelessRuleMatchAttributesDestinationsList.parse(map['Destinations']) unless map['Destinations'].nil?)
+        data.protocols = (RuleGroupSourceStatelessRuleMatchAttributesProtocolsList.parse(map['Protocols']) unless map['Protocols'].nil?)
+        data.source_ports = (RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList.parse(map['SourcePorts']) unless map['SourcePorts'].nil?)
+        data.sources = (RuleGroupSourceStatelessRuleMatchAttributesSourcesList.parse(map['Sources']) unless map['Sources'].nil?)
+        data.tcp_flags = (RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList.parse(map['TcpFlags']) unless map['TcpFlags'].nil?)
         return data
       end
     end
@@ -1389,7 +1389,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RuleGroupSourceStatelessRuleMatchAttributesTcpFlags.parse(value) unless value.nil?
+          data << RuleGroupSourceStatelessRuleMatchAttributesTcpFlags.parse(value) unless value.nil?
         end
         data
       end
@@ -1398,8 +1398,8 @@ module AWS::SDK::SecurityHub
     class RuleGroupSourceStatelessRuleMatchAttributesTcpFlags
       def self.parse(map)
         data = Types::RuleGroupSourceStatelessRuleMatchAttributesTcpFlags.new
-        data.flags = (Parsers::NonEmptyStringList.parse(map['Flags']) unless map['Flags'].nil?)
-        data.masks = (Parsers::NonEmptyStringList.parse(map['Masks']) unless map['Masks'].nil?)
+        data.flags = (NonEmptyStringList.parse(map['Flags']) unless map['Flags'].nil?)
+        data.masks = (NonEmptyStringList.parse(map['Masks']) unless map['Masks'].nil?)
         return data
       end
     end
@@ -1418,7 +1418,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RuleGroupSourceStatelessRuleMatchAttributesSources.parse(value) unless value.nil?
+          data << RuleGroupSourceStatelessRuleMatchAttributesSources.parse(value) unless value.nil?
         end
         data
       end
@@ -1436,7 +1436,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RuleGroupSourceStatelessRuleMatchAttributesSourcePorts.parse(value) unless value.nil?
+          data << RuleGroupSourceStatelessRuleMatchAttributesSourcePorts.parse(value) unless value.nil?
         end
         data
       end
@@ -1465,7 +1465,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RuleGroupSourceStatelessRuleMatchAttributesDestinations.parse(value) unless value.nil?
+          data << RuleGroupSourceStatelessRuleMatchAttributesDestinations.parse(value) unless value.nil?
         end
         data
       end
@@ -1483,7 +1483,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts.parse(value) unless value.nil?
+          data << RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts.parse(value) unless value.nil?
         end
         data
       end
@@ -1502,7 +1502,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RuleGroupSourceCustomActionsDetails.parse(value) unless value.nil?
+          data << RuleGroupSourceCustomActionsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -1511,7 +1511,7 @@ module AWS::SDK::SecurityHub
     class RuleGroupSourceCustomActionsDetails
       def self.parse(map)
         data = Types::RuleGroupSourceCustomActionsDetails.new
-        data.action_definition = (Parsers::StatelessCustomActionDefinition.parse(map['ActionDefinition']) unless map['ActionDefinition'].nil?)
+        data.action_definition = (StatelessCustomActionDefinition.parse(map['ActionDefinition']) unless map['ActionDefinition'].nil?)
         data.action_name = map['ActionName']
         return data
       end
@@ -1520,7 +1520,7 @@ module AWS::SDK::SecurityHub
     class StatelessCustomActionDefinition
       def self.parse(map)
         data = Types::StatelessCustomActionDefinition.new
-        data.publish_metric_action = (Parsers::StatelessCustomPublishMetricAction.parse(map['PublishMetricAction']) unless map['PublishMetricAction'].nil?)
+        data.publish_metric_action = (StatelessCustomPublishMetricAction.parse(map['PublishMetricAction']) unless map['PublishMetricAction'].nil?)
         return data
       end
     end
@@ -1528,7 +1528,7 @@ module AWS::SDK::SecurityHub
     class StatelessCustomPublishMetricAction
       def self.parse(map)
         data = Types::StatelessCustomPublishMetricAction.new
-        data.dimensions = (Parsers::StatelessCustomPublishMetricActionDimensionsList.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.dimensions = (StatelessCustomPublishMetricActionDimensionsList.parse(map['Dimensions']) unless map['Dimensions'].nil?)
         return data
       end
     end
@@ -1537,7 +1537,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StatelessCustomPublishMetricActionDimension.parse(value) unless value.nil?
+          data << StatelessCustomPublishMetricActionDimension.parse(value) unless value.nil?
         end
         data
       end
@@ -1555,7 +1555,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RuleGroupSourceStatefulRulesDetails.parse(value) unless value.nil?
+          data << RuleGroupSourceStatefulRulesDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -1565,8 +1565,8 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::RuleGroupSourceStatefulRulesDetails.new
         data.action = map['Action']
-        data.header = (Parsers::RuleGroupSourceStatefulRulesHeaderDetails.parse(map['Header']) unless map['Header'].nil?)
-        data.rule_options = (Parsers::RuleGroupSourceStatefulRulesOptionsList.parse(map['RuleOptions']) unless map['RuleOptions'].nil?)
+        data.header = (RuleGroupSourceStatefulRulesHeaderDetails.parse(map['Header']) unless map['Header'].nil?)
+        data.rule_options = (RuleGroupSourceStatefulRulesOptionsList.parse(map['RuleOptions']) unless map['RuleOptions'].nil?)
         return data
       end
     end
@@ -1575,7 +1575,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RuleGroupSourceStatefulRulesOptionsDetails.parse(value) unless value.nil?
+          data << RuleGroupSourceStatefulRulesOptionsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -1585,7 +1585,7 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::RuleGroupSourceStatefulRulesOptionsDetails.new
         data.keyword = map['Keyword']
-        data.settings = (Parsers::RuleGroupSourceStatefulRulesRuleOptionsSettingsList.parse(map['Settings']) unless map['Settings'].nil?)
+        data.settings = (RuleGroupSourceStatefulRulesRuleOptionsSettingsList.parse(map['Settings']) unless map['Settings'].nil?)
         return data
       end
     end
@@ -1617,8 +1617,8 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::RuleGroupSourceListDetails.new
         data.generated_rules_type = map['GeneratedRulesType']
-        data.target_types = (Parsers::NonEmptyStringList.parse(map['TargetTypes']) unless map['TargetTypes'].nil?)
-        data.targets = (Parsers::NonEmptyStringList.parse(map['Targets']) unless map['Targets'].nil?)
+        data.target_types = (NonEmptyStringList.parse(map['TargetTypes']) unless map['TargetTypes'].nil?)
+        data.targets = (NonEmptyStringList.parse(map['Targets']) unless map['Targets'].nil?)
         return data
       end
     end
@@ -1626,8 +1626,8 @@ module AWS::SDK::SecurityHub
     class RuleGroupVariables
       def self.parse(map)
         data = Types::RuleGroupVariables.new
-        data.ip_sets = (Parsers::RuleGroupVariablesIpSetsDetails.parse(map['IpSets']) unless map['IpSets'].nil?)
-        data.port_sets = (Parsers::RuleGroupVariablesPortSetsDetails.parse(map['PortSets']) unless map['PortSets'].nil?)
+        data.ip_sets = (RuleGroupVariablesIpSetsDetails.parse(map['IpSets']) unless map['IpSets'].nil?)
+        data.port_sets = (RuleGroupVariablesPortSetsDetails.parse(map['PortSets']) unless map['PortSets'].nil?)
         return data
       end
     end
@@ -1635,7 +1635,7 @@ module AWS::SDK::SecurityHub
     class RuleGroupVariablesPortSetsDetails
       def self.parse(map)
         data = Types::RuleGroupVariablesPortSetsDetails.new
-        data.definition = (Parsers::NonEmptyStringList.parse(map['Definition']) unless map['Definition'].nil?)
+        data.definition = (NonEmptyStringList.parse(map['Definition']) unless map['Definition'].nil?)
         return data
       end
     end
@@ -1643,7 +1643,7 @@ module AWS::SDK::SecurityHub
     class RuleGroupVariablesIpSetsDetails
       def self.parse(map)
         data = Types::RuleGroupVariablesIpSetsDetails.new
-        data.definition = (Parsers::NonEmptyStringList.parse(map['Definition']) unless map['Definition'].nil?)
+        data.definition = (NonEmptyStringList.parse(map['Definition']) unless map['Definition'].nil?)
         return data
       end
     end
@@ -1659,7 +1659,7 @@ module AWS::SDK::SecurityHub
         data.firewall_policy_arn = map['FirewallPolicyArn']
         data.firewall_policy_change_protection = map['FirewallPolicyChangeProtection']
         data.subnet_change_protection = map['SubnetChangeProtection']
-        data.subnet_mappings = (Parsers::AwsNetworkFirewallFirewallSubnetMappingsList.parse(map['SubnetMappings']) unless map['SubnetMappings'].nil?)
+        data.subnet_mappings = (AwsNetworkFirewallFirewallSubnetMappingsList.parse(map['SubnetMappings']) unless map['SubnetMappings'].nil?)
         data.vpc_id = map['VpcId']
         return data
       end
@@ -1669,7 +1669,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsNetworkFirewallFirewallSubnetMappingsDetails.parse(value) unless value.nil?
+          data << AwsNetworkFirewallFirewallSubnetMappingsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -1686,7 +1686,7 @@ module AWS::SDK::SecurityHub
     class AwsNetworkFirewallFirewallPolicyDetails
       def self.parse(map)
         data = Types::AwsNetworkFirewallFirewallPolicyDetails.new
-        data.firewall_policy = (Parsers::FirewallPolicyDetails.parse(map['FirewallPolicy']) unless map['FirewallPolicy'].nil?)
+        data.firewall_policy = (FirewallPolicyDetails.parse(map['FirewallPolicy']) unless map['FirewallPolicy'].nil?)
         data.firewall_policy_arn = map['FirewallPolicyArn']
         data.firewall_policy_id = map['FirewallPolicyId']
         data.firewall_policy_name = map['FirewallPolicyName']
@@ -1698,11 +1698,11 @@ module AWS::SDK::SecurityHub
     class FirewallPolicyDetails
       def self.parse(map)
         data = Types::FirewallPolicyDetails.new
-        data.stateful_rule_group_references = (Parsers::FirewallPolicyStatefulRuleGroupReferencesList.parse(map['StatefulRuleGroupReferences']) unless map['StatefulRuleGroupReferences'].nil?)
-        data.stateless_custom_actions = (Parsers::FirewallPolicyStatelessCustomActionsList.parse(map['StatelessCustomActions']) unless map['StatelessCustomActions'].nil?)
-        data.stateless_default_actions = (Parsers::NonEmptyStringList.parse(map['StatelessDefaultActions']) unless map['StatelessDefaultActions'].nil?)
-        data.stateless_fragment_default_actions = (Parsers::NonEmptyStringList.parse(map['StatelessFragmentDefaultActions']) unless map['StatelessFragmentDefaultActions'].nil?)
-        data.stateless_rule_group_references = (Parsers::FirewallPolicyStatelessRuleGroupReferencesList.parse(map['StatelessRuleGroupReferences']) unless map['StatelessRuleGroupReferences'].nil?)
+        data.stateful_rule_group_references = (FirewallPolicyStatefulRuleGroupReferencesList.parse(map['StatefulRuleGroupReferences']) unless map['StatefulRuleGroupReferences'].nil?)
+        data.stateless_custom_actions = (FirewallPolicyStatelessCustomActionsList.parse(map['StatelessCustomActions']) unless map['StatelessCustomActions'].nil?)
+        data.stateless_default_actions = (NonEmptyStringList.parse(map['StatelessDefaultActions']) unless map['StatelessDefaultActions'].nil?)
+        data.stateless_fragment_default_actions = (NonEmptyStringList.parse(map['StatelessFragmentDefaultActions']) unless map['StatelessFragmentDefaultActions'].nil?)
+        data.stateless_rule_group_references = (FirewallPolicyStatelessRuleGroupReferencesList.parse(map['StatelessRuleGroupReferences']) unless map['StatelessRuleGroupReferences'].nil?)
         return data
       end
     end
@@ -1711,7 +1711,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FirewallPolicyStatelessRuleGroupReferencesDetails.parse(value) unless value.nil?
+          data << FirewallPolicyStatelessRuleGroupReferencesDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -1730,7 +1730,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FirewallPolicyStatelessCustomActionsDetails.parse(value) unless value.nil?
+          data << FirewallPolicyStatelessCustomActionsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -1739,7 +1739,7 @@ module AWS::SDK::SecurityHub
     class FirewallPolicyStatelessCustomActionsDetails
       def self.parse(map)
         data = Types::FirewallPolicyStatelessCustomActionsDetails.new
-        data.action_definition = (Parsers::StatelessCustomActionDefinition.parse(map['ActionDefinition']) unless map['ActionDefinition'].nil?)
+        data.action_definition = (StatelessCustomActionDefinition.parse(map['ActionDefinition']) unless map['ActionDefinition'].nil?)
         data.action_name = map['ActionName']
         return data
       end
@@ -1749,7 +1749,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FirewallPolicyStatefulRuleGroupReferencesDetails.parse(value) unless value.nil?
+          data << FirewallPolicyStatefulRuleGroupReferencesDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -1771,10 +1771,10 @@ module AWS::SDK::SecurityHub
         data.cluster_status = map['ClusterStatus']
         data.endpoint = map['Endpoint']
         data.name = map['Name']
-        data.resources_vpc_config = (Parsers::AwsEksClusterResourcesVpcConfigDetails.parse(map['ResourcesVpcConfig']) unless map['ResourcesVpcConfig'].nil?)
+        data.resources_vpc_config = (AwsEksClusterResourcesVpcConfigDetails.parse(map['ResourcesVpcConfig']) unless map['ResourcesVpcConfig'].nil?)
         data.role_arn = map['RoleArn']
         data.version = map['Version']
-        data.logging = (Parsers::AwsEksClusterLoggingDetails.parse(map['Logging']) unless map['Logging'].nil?)
+        data.logging = (AwsEksClusterLoggingDetails.parse(map['Logging']) unless map['Logging'].nil?)
         return data
       end
     end
@@ -1782,7 +1782,7 @@ module AWS::SDK::SecurityHub
     class AwsEksClusterLoggingDetails
       def self.parse(map)
         data = Types::AwsEksClusterLoggingDetails.new
-        data.cluster_logging = (Parsers::AwsEksClusterLoggingClusterLoggingList.parse(map['ClusterLogging']) unless map['ClusterLogging'].nil?)
+        data.cluster_logging = (AwsEksClusterLoggingClusterLoggingList.parse(map['ClusterLogging']) unless map['ClusterLogging'].nil?)
         return data
       end
     end
@@ -1791,7 +1791,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEksClusterLoggingClusterLoggingDetails.parse(value) unless value.nil?
+          data << AwsEksClusterLoggingClusterLoggingDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -1801,7 +1801,7 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsEksClusterLoggingClusterLoggingDetails.new
         data.enabled = map['Enabled']
-        data.types = (Parsers::NonEmptyStringList.parse(map['Types']) unless map['Types'].nil?)
+        data.types = (NonEmptyStringList.parse(map['Types']) unless map['Types'].nil?)
         return data
       end
     end
@@ -1809,8 +1809,8 @@ module AWS::SDK::SecurityHub
     class AwsEksClusterResourcesVpcConfigDetails
       def self.parse(map)
         data = Types::AwsEksClusterResourcesVpcConfigDetails.new
-        data.security_group_ids = (Parsers::NonEmptyStringList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
-        data.subnet_ids = (Parsers::NonEmptyStringList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.security_group_ids = (NonEmptyStringList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.subnet_ids = (NonEmptyStringList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
         return data
       end
     end
@@ -1819,9 +1819,9 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsEcrRepositoryDetails.new
         data.arn = map['Arn']
-        data.image_scanning_configuration = (Parsers::AwsEcrRepositoryImageScanningConfigurationDetails.parse(map['ImageScanningConfiguration']) unless map['ImageScanningConfiguration'].nil?)
+        data.image_scanning_configuration = (AwsEcrRepositoryImageScanningConfigurationDetails.parse(map['ImageScanningConfiguration']) unless map['ImageScanningConfiguration'].nil?)
         data.image_tag_mutability = map['ImageTagMutability']
-        data.lifecycle_policy = (Parsers::AwsEcrRepositoryLifecyclePolicyDetails.parse(map['LifecyclePolicy']) unless map['LifecyclePolicy'].nil?)
+        data.lifecycle_policy = (AwsEcrRepositoryLifecyclePolicyDetails.parse(map['LifecyclePolicy']) unless map['LifecyclePolicy'].nil?)
         data.repository_name = map['RepositoryName']
         data.repository_policy_text = map['RepositoryPolicyText']
         return data
@@ -1853,7 +1853,7 @@ module AWS::SDK::SecurityHub
         data.rate_key = map['RateKey']
         data.rate_limit = map['RateLimit']
         data.rule_id = map['RuleId']
-        data.match_predicates = (Parsers::AwsWafRegionalRateBasedRuleMatchPredicateList.parse(map['MatchPredicates']) unless map['MatchPredicates'].nil?)
+        data.match_predicates = (AwsWafRegionalRateBasedRuleMatchPredicateList.parse(map['MatchPredicates']) unless map['MatchPredicates'].nil?)
         return data
       end
     end
@@ -1862,7 +1862,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsWafRegionalRateBasedRuleMatchPredicate.parse(value) unless value.nil?
+          data << AwsWafRegionalRateBasedRuleMatchPredicate.parse(value) unless value.nil?
         end
         data
       end
@@ -1886,7 +1886,7 @@ module AWS::SDK::SecurityHub
         data.rate_key = map['RateKey']
         data.rate_limit = map['RateLimit']
         data.rule_id = map['RuleId']
-        data.match_predicates = (Parsers::AwsWafRateBasedRuleMatchPredicateList.parse(map['MatchPredicates']) unless map['MatchPredicates'].nil?)
+        data.match_predicates = (AwsWafRateBasedRuleMatchPredicateList.parse(map['MatchPredicates']) unless map['MatchPredicates'].nil?)
         return data
       end
     end
@@ -1895,7 +1895,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsWafRateBasedRuleMatchPredicate.parse(value) unless value.nil?
+          data << AwsWafRateBasedRuleMatchPredicate.parse(value) unless value.nil?
         end
         data
       end
@@ -1925,16 +1925,16 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsEc2VpcEndpointServiceDetails.new
         data.acceptance_required = map['AcceptanceRequired']
-        data.availability_zones = (Parsers::NonEmptyStringList.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
-        data.base_endpoint_dns_names = (Parsers::NonEmptyStringList.parse(map['BaseEndpointDnsNames']) unless map['BaseEndpointDnsNames'].nil?)
+        data.availability_zones = (NonEmptyStringList.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
+        data.base_endpoint_dns_names = (NonEmptyStringList.parse(map['BaseEndpointDnsNames']) unless map['BaseEndpointDnsNames'].nil?)
         data.manages_vpc_endpoints = map['ManagesVpcEndpoints']
-        data.gateway_load_balancer_arns = (Parsers::NonEmptyStringList.parse(map['GatewayLoadBalancerArns']) unless map['GatewayLoadBalancerArns'].nil?)
-        data.network_load_balancer_arns = (Parsers::NonEmptyStringList.parse(map['NetworkLoadBalancerArns']) unless map['NetworkLoadBalancerArns'].nil?)
+        data.gateway_load_balancer_arns = (NonEmptyStringList.parse(map['GatewayLoadBalancerArns']) unless map['GatewayLoadBalancerArns'].nil?)
+        data.network_load_balancer_arns = (NonEmptyStringList.parse(map['NetworkLoadBalancerArns']) unless map['NetworkLoadBalancerArns'].nil?)
         data.private_dns_name = map['PrivateDnsName']
         data.service_id = map['ServiceId']
         data.service_name = map['ServiceName']
         data.service_state = map['ServiceState']
-        data.service_type = (Parsers::AwsEc2VpcEndpointServiceServiceTypeList.parse(map['ServiceType']) unless map['ServiceType'].nil?)
+        data.service_type = (AwsEc2VpcEndpointServiceServiceTypeList.parse(map['ServiceType']) unless map['ServiceType'].nil?)
         return data
       end
     end
@@ -1943,7 +1943,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEc2VpcEndpointServiceServiceTypeDetails.parse(value) unless value.nil?
+          data << AwsEc2VpcEndpointServiceServiceTypeDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -1966,14 +1966,14 @@ module AWS::SDK::SecurityHub
         data.id = map['Id']
         data.domain_endpoint = map['DomainEndpoint']
         data.engine_version = map['EngineVersion']
-        data.encryption_at_rest_options = (Parsers::AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails.parse(map['EncryptionAtRestOptions']) unless map['EncryptionAtRestOptions'].nil?)
-        data.node_to_node_encryption_options = (Parsers::AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails.parse(map['NodeToNodeEncryptionOptions']) unless map['NodeToNodeEncryptionOptions'].nil?)
-        data.service_software_options = (Parsers::AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.parse(map['ServiceSoftwareOptions']) unless map['ServiceSoftwareOptions'].nil?)
-        data.cluster_config = (Parsers::AwsOpenSearchServiceDomainClusterConfigDetails.parse(map['ClusterConfig']) unless map['ClusterConfig'].nil?)
-        data.domain_endpoint_options = (Parsers::AwsOpenSearchServiceDomainDomainEndpointOptionsDetails.parse(map['DomainEndpointOptions']) unless map['DomainEndpointOptions'].nil?)
-        data.vpc_options = (Parsers::AwsOpenSearchServiceDomainVpcOptionsDetails.parse(map['VpcOptions']) unless map['VpcOptions'].nil?)
-        data.log_publishing_options = (Parsers::AwsOpenSearchServiceDomainLogPublishingOptionsDetails.parse(map['LogPublishingOptions']) unless map['LogPublishingOptions'].nil?)
-        data.domain_endpoints = (Parsers::FieldMap.parse(map['DomainEndpoints']) unless map['DomainEndpoints'].nil?)
+        data.encryption_at_rest_options = (AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails.parse(map['EncryptionAtRestOptions']) unless map['EncryptionAtRestOptions'].nil?)
+        data.node_to_node_encryption_options = (AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails.parse(map['NodeToNodeEncryptionOptions']) unless map['NodeToNodeEncryptionOptions'].nil?)
+        data.service_software_options = (AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.parse(map['ServiceSoftwareOptions']) unless map['ServiceSoftwareOptions'].nil?)
+        data.cluster_config = (AwsOpenSearchServiceDomainClusterConfigDetails.parse(map['ClusterConfig']) unless map['ClusterConfig'].nil?)
+        data.domain_endpoint_options = (AwsOpenSearchServiceDomainDomainEndpointOptionsDetails.parse(map['DomainEndpointOptions']) unless map['DomainEndpointOptions'].nil?)
+        data.vpc_options = (AwsOpenSearchServiceDomainVpcOptionsDetails.parse(map['VpcOptions']) unless map['VpcOptions'].nil?)
+        data.log_publishing_options = (AwsOpenSearchServiceDomainLogPublishingOptionsDetails.parse(map['LogPublishingOptions']) unless map['LogPublishingOptions'].nil?)
+        data.domain_endpoints = (FieldMap.parse(map['DomainEndpoints']) unless map['DomainEndpoints'].nil?)
         return data
       end
     end
@@ -1981,9 +1981,9 @@ module AWS::SDK::SecurityHub
     class AwsOpenSearchServiceDomainLogPublishingOptionsDetails
       def self.parse(map)
         data = Types::AwsOpenSearchServiceDomainLogPublishingOptionsDetails.new
-        data.index_slow_logs = (Parsers::AwsOpenSearchServiceDomainLogPublishingOption.parse(map['IndexSlowLogs']) unless map['IndexSlowLogs'].nil?)
-        data.search_slow_logs = (Parsers::AwsOpenSearchServiceDomainLogPublishingOption.parse(map['SearchSlowLogs']) unless map['SearchSlowLogs'].nil?)
-        data.audit_logs = (Parsers::AwsOpenSearchServiceDomainLogPublishingOption.parse(map['AuditLogs']) unless map['AuditLogs'].nil?)
+        data.index_slow_logs = (AwsOpenSearchServiceDomainLogPublishingOption.parse(map['IndexSlowLogs']) unless map['IndexSlowLogs'].nil?)
+        data.search_slow_logs = (AwsOpenSearchServiceDomainLogPublishingOption.parse(map['SearchSlowLogs']) unless map['SearchSlowLogs'].nil?)
+        data.audit_logs = (AwsOpenSearchServiceDomainLogPublishingOption.parse(map['AuditLogs']) unless map['AuditLogs'].nil?)
         return data
       end
     end
@@ -2000,8 +2000,8 @@ module AWS::SDK::SecurityHub
     class AwsOpenSearchServiceDomainVpcOptionsDetails
       def self.parse(map)
         data = Types::AwsOpenSearchServiceDomainVpcOptionsDetails.new
-        data.security_group_ids = (Parsers::NonEmptyStringList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
-        data.subnet_ids = (Parsers::NonEmptyStringList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.security_group_ids = (NonEmptyStringList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.subnet_ids = (NonEmptyStringList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
         return data
       end
     end
@@ -2025,7 +2025,7 @@ module AWS::SDK::SecurityHub
         data.warm_enabled = map['WarmEnabled']
         data.warm_count = map['WarmCount']
         data.dedicated_master_enabled = map['DedicatedMasterEnabled']
-        data.zone_awareness_config = (Parsers::AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails.parse(map['ZoneAwarenessConfig']) unless map['ZoneAwarenessConfig'].nil?)
+        data.zone_awareness_config = (AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails.parse(map['ZoneAwarenessConfig']) unless map['ZoneAwarenessConfig'].nil?)
         data.dedicated_master_count = map['DedicatedMasterCount']
         data.instance_type = map['InstanceType']
         data.warm_type = map['WarmType']
@@ -2082,7 +2082,7 @@ module AWS::SDK::SecurityHub
         data.repository_name = map['RepositoryName']
         data.architecture = map['Architecture']
         data.image_digest = map['ImageDigest']
-        data.image_tags = (Parsers::NonEmptyStringList.parse(map['ImageTags']) unless map['ImageTags'].nil?)
+        data.image_tags = (NonEmptyStringList.parse(map['ImageTags']) unless map['ImageTags'].nil?)
         data.image_published_at = map['ImagePublishedAt']
         return data
       end
@@ -2098,9 +2098,9 @@ module AWS::SDK::SecurityHub
         data.type = map['Type']
         data.vpn_gateway_id = map['VpnGatewayId']
         data.category = map['Category']
-        data.vgw_telemetry = (Parsers::AwsEc2VpnConnectionVgwTelemetryList.parse(map['VgwTelemetry']) unless map['VgwTelemetry'].nil?)
-        data.options = (Parsers::AwsEc2VpnConnectionOptionsDetails.parse(map['Options']) unless map['Options'].nil?)
-        data.routes = (Parsers::AwsEc2VpnConnectionRoutesList.parse(map['Routes']) unless map['Routes'].nil?)
+        data.vgw_telemetry = (AwsEc2VpnConnectionVgwTelemetryList.parse(map['VgwTelemetry']) unless map['VgwTelemetry'].nil?)
+        data.options = (AwsEc2VpnConnectionOptionsDetails.parse(map['Options']) unless map['Options'].nil?)
+        data.routes = (AwsEc2VpnConnectionRoutesList.parse(map['Routes']) unless map['Routes'].nil?)
         data.transit_gateway_id = map['TransitGatewayId']
         return data
       end
@@ -2110,7 +2110,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEc2VpnConnectionRoutesDetails.parse(value) unless value.nil?
+          data << AwsEc2VpnConnectionRoutesDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2129,7 +2129,7 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsEc2VpnConnectionOptionsDetails.new
         data.static_routes_only = map['StaticRoutesOnly']
-        data.tunnel_options = (Parsers::AwsEc2VpnConnectionOptionsTunnelOptionsList.parse(map['TunnelOptions']) unless map['TunnelOptions'].nil?)
+        data.tunnel_options = (AwsEc2VpnConnectionOptionsTunnelOptionsList.parse(map['TunnelOptions']) unless map['TunnelOptions'].nil?)
         return data
       end
     end
@@ -2138,7 +2138,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEc2VpnConnectionOptionsTunnelOptionsDetails.parse(value) unless value.nil?
+          data << AwsEc2VpnConnectionOptionsTunnelOptionsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2148,15 +2148,15 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsEc2VpnConnectionOptionsTunnelOptionsDetails.new
         data.dpd_timeout_seconds = map['DpdTimeoutSeconds']
-        data.ike_versions = (Parsers::NonEmptyStringList.parse(map['IkeVersions']) unless map['IkeVersions'].nil?)
+        data.ike_versions = (NonEmptyStringList.parse(map['IkeVersions']) unless map['IkeVersions'].nil?)
         data.outside_ip_address = map['OutsideIpAddress']
-        data.phase1_dh_group_numbers = (Parsers::IntegerList.parse(map['Phase1DhGroupNumbers']) unless map['Phase1DhGroupNumbers'].nil?)
-        data.phase1_encryption_algorithms = (Parsers::NonEmptyStringList.parse(map['Phase1EncryptionAlgorithms']) unless map['Phase1EncryptionAlgorithms'].nil?)
-        data.phase1_integrity_algorithms = (Parsers::NonEmptyStringList.parse(map['Phase1IntegrityAlgorithms']) unless map['Phase1IntegrityAlgorithms'].nil?)
+        data.phase1_dh_group_numbers = (IntegerList.parse(map['Phase1DhGroupNumbers']) unless map['Phase1DhGroupNumbers'].nil?)
+        data.phase1_encryption_algorithms = (NonEmptyStringList.parse(map['Phase1EncryptionAlgorithms']) unless map['Phase1EncryptionAlgorithms'].nil?)
+        data.phase1_integrity_algorithms = (NonEmptyStringList.parse(map['Phase1IntegrityAlgorithms']) unless map['Phase1IntegrityAlgorithms'].nil?)
         data.phase1_lifetime_seconds = map['Phase1LifetimeSeconds']
-        data.phase2_dh_group_numbers = (Parsers::IntegerList.parse(map['Phase2DhGroupNumbers']) unless map['Phase2DhGroupNumbers'].nil?)
-        data.phase2_encryption_algorithms = (Parsers::NonEmptyStringList.parse(map['Phase2EncryptionAlgorithms']) unless map['Phase2EncryptionAlgorithms'].nil?)
-        data.phase2_integrity_algorithms = (Parsers::NonEmptyStringList.parse(map['Phase2IntegrityAlgorithms']) unless map['Phase2IntegrityAlgorithms'].nil?)
+        data.phase2_dh_group_numbers = (IntegerList.parse(map['Phase2DhGroupNumbers']) unless map['Phase2DhGroupNumbers'].nil?)
+        data.phase2_encryption_algorithms = (NonEmptyStringList.parse(map['Phase2EncryptionAlgorithms']) unless map['Phase2EncryptionAlgorithms'].nil?)
+        data.phase2_integrity_algorithms = (NonEmptyStringList.parse(map['Phase2IntegrityAlgorithms']) unless map['Phase2IntegrityAlgorithms'].nil?)
         data.phase2_lifetime_seconds = map['Phase2LifetimeSeconds']
         data.pre_shared_key = map['PreSharedKey']
         data.rekey_fuzz_percentage = map['RekeyFuzzPercentage']
@@ -2181,7 +2181,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEc2VpnConnectionVgwTelemetryDetails.parse(value) unless value.nil?
+          data << AwsEc2VpnConnectionVgwTelemetryDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2204,24 +2204,24 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsAutoScalingLaunchConfigurationDetails.new
         data.associate_public_ip_address = map['AssociatePublicIpAddress']
-        data.block_device_mappings = (Parsers::AwsAutoScalingLaunchConfigurationBlockDeviceMappingsList.parse(map['BlockDeviceMappings']) unless map['BlockDeviceMappings'].nil?)
+        data.block_device_mappings = (AwsAutoScalingLaunchConfigurationBlockDeviceMappingsList.parse(map['BlockDeviceMappings']) unless map['BlockDeviceMappings'].nil?)
         data.classic_link_vpc_id = map['ClassicLinkVpcId']
-        data.classic_link_vpc_security_groups = (Parsers::NonEmptyStringList.parse(map['ClassicLinkVpcSecurityGroups']) unless map['ClassicLinkVpcSecurityGroups'].nil?)
+        data.classic_link_vpc_security_groups = (NonEmptyStringList.parse(map['ClassicLinkVpcSecurityGroups']) unless map['ClassicLinkVpcSecurityGroups'].nil?)
         data.created_time = map['CreatedTime']
         data.ebs_optimized = map['EbsOptimized']
         data.iam_instance_profile = map['IamInstanceProfile']
         data.image_id = map['ImageId']
-        data.instance_monitoring = (Parsers::AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails.parse(map['InstanceMonitoring']) unless map['InstanceMonitoring'].nil?)
+        data.instance_monitoring = (AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails.parse(map['InstanceMonitoring']) unless map['InstanceMonitoring'].nil?)
         data.instance_type = map['InstanceType']
         data.kernel_id = map['KernelId']
         data.key_name = map['KeyName']
         data.launch_configuration_name = map['LaunchConfigurationName']
         data.placement_tenancy = map['PlacementTenancy']
         data.ramdisk_id = map['RamdiskId']
-        data.security_groups = (Parsers::NonEmptyStringList.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
+        data.security_groups = (NonEmptyStringList.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
         data.spot_price = map['SpotPrice']
         data.user_data = map['UserData']
-        data.metadata_options = (Parsers::AwsAutoScalingLaunchConfigurationMetadataOptions.parse(map['MetadataOptions']) unless map['MetadataOptions'].nil?)
+        data.metadata_options = (AwsAutoScalingLaunchConfigurationMetadataOptions.parse(map['MetadataOptions']) unless map['MetadataOptions'].nil?)
         return data
       end
     end
@@ -2248,7 +2248,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails.parse(value) unless value.nil?
+          data << AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2258,7 +2258,7 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails.new
         data.device_name = map['DeviceName']
-        data.ebs = (Parsers::AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails.parse(map['Ebs']) unless map['Ebs'].nil?)
+        data.ebs = (AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails.parse(map['Ebs']) unless map['Ebs'].nil?)
         data.no_device = map['NoDevice']
         data.virtual_name = map['VirtualName']
         return data
@@ -2281,27 +2281,27 @@ module AWS::SDK::SecurityHub
     class AwsEcsServiceDetails
       def self.parse(map)
         data = Types::AwsEcsServiceDetails.new
-        data.capacity_provider_strategy = (Parsers::AwsEcsServiceCapacityProviderStrategyList.parse(map['CapacityProviderStrategy']) unless map['CapacityProviderStrategy'].nil?)
+        data.capacity_provider_strategy = (AwsEcsServiceCapacityProviderStrategyList.parse(map['CapacityProviderStrategy']) unless map['CapacityProviderStrategy'].nil?)
         data.cluster = map['Cluster']
-        data.deployment_configuration = (Parsers::AwsEcsServiceDeploymentConfigurationDetails.parse(map['DeploymentConfiguration']) unless map['DeploymentConfiguration'].nil?)
-        data.deployment_controller = (Parsers::AwsEcsServiceDeploymentControllerDetails.parse(map['DeploymentController']) unless map['DeploymentController'].nil?)
+        data.deployment_configuration = (AwsEcsServiceDeploymentConfigurationDetails.parse(map['DeploymentConfiguration']) unless map['DeploymentConfiguration'].nil?)
+        data.deployment_controller = (AwsEcsServiceDeploymentControllerDetails.parse(map['DeploymentController']) unless map['DeploymentController'].nil?)
         data.desired_count = map['DesiredCount']
         data.enable_ecs_managed_tags = map['EnableEcsManagedTags']
         data.enable_execute_command = map['EnableExecuteCommand']
         data.health_check_grace_period_seconds = map['HealthCheckGracePeriodSeconds']
         data.launch_type = map['LaunchType']
-        data.load_balancers = (Parsers::AwsEcsServiceLoadBalancersList.parse(map['LoadBalancers']) unless map['LoadBalancers'].nil?)
+        data.load_balancers = (AwsEcsServiceLoadBalancersList.parse(map['LoadBalancers']) unless map['LoadBalancers'].nil?)
         data.name = map['Name']
-        data.network_configuration = (Parsers::AwsEcsServiceNetworkConfigurationDetails.parse(map['NetworkConfiguration']) unless map['NetworkConfiguration'].nil?)
-        data.placement_constraints = (Parsers::AwsEcsServicePlacementConstraintsList.parse(map['PlacementConstraints']) unless map['PlacementConstraints'].nil?)
-        data.placement_strategies = (Parsers::AwsEcsServicePlacementStrategiesList.parse(map['PlacementStrategies']) unless map['PlacementStrategies'].nil?)
+        data.network_configuration = (AwsEcsServiceNetworkConfigurationDetails.parse(map['NetworkConfiguration']) unless map['NetworkConfiguration'].nil?)
+        data.placement_constraints = (AwsEcsServicePlacementConstraintsList.parse(map['PlacementConstraints']) unless map['PlacementConstraints'].nil?)
+        data.placement_strategies = (AwsEcsServicePlacementStrategiesList.parse(map['PlacementStrategies']) unless map['PlacementStrategies'].nil?)
         data.platform_version = map['PlatformVersion']
         data.propagate_tags = map['PropagateTags']
         data.role = map['Role']
         data.scheduling_strategy = map['SchedulingStrategy']
         data.service_arn = map['ServiceArn']
         data.service_name = map['ServiceName']
-        data.service_registries = (Parsers::AwsEcsServiceServiceRegistriesList.parse(map['ServiceRegistries']) unless map['ServiceRegistries'].nil?)
+        data.service_registries = (AwsEcsServiceServiceRegistriesList.parse(map['ServiceRegistries']) unless map['ServiceRegistries'].nil?)
         data.task_definition = map['TaskDefinition']
         return data
       end
@@ -2311,7 +2311,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsServiceServiceRegistriesDetails.parse(value) unless value.nil?
+          data << AwsEcsServiceServiceRegistriesDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2332,7 +2332,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsServicePlacementStrategiesDetails.parse(value) unless value.nil?
+          data << AwsEcsServicePlacementStrategiesDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2351,7 +2351,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsServicePlacementConstraintsDetails.parse(value) unless value.nil?
+          data << AwsEcsServicePlacementConstraintsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2369,7 +2369,7 @@ module AWS::SDK::SecurityHub
     class AwsEcsServiceNetworkConfigurationDetails
       def self.parse(map)
         data = Types::AwsEcsServiceNetworkConfigurationDetails.new
-        data.aws_vpc_configuration = (Parsers::AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails.parse(map['AwsVpcConfiguration']) unless map['AwsVpcConfiguration'].nil?)
+        data.aws_vpc_configuration = (AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails.parse(map['AwsVpcConfiguration']) unless map['AwsVpcConfiguration'].nil?)
         return data
       end
     end
@@ -2378,8 +2378,8 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails.new
         data.assign_public_ip = map['AssignPublicIp']
-        data.security_groups = (Parsers::NonEmptyStringList.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
-        data.subnets = (Parsers::NonEmptyStringList.parse(map['Subnets']) unless map['Subnets'].nil?)
+        data.security_groups = (NonEmptyStringList.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
+        data.subnets = (NonEmptyStringList.parse(map['Subnets']) unless map['Subnets'].nil?)
         return data
       end
     end
@@ -2388,7 +2388,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsServiceLoadBalancersDetails.parse(value) unless value.nil?
+          data << AwsEcsServiceLoadBalancersDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2416,7 +2416,7 @@ module AWS::SDK::SecurityHub
     class AwsEcsServiceDeploymentConfigurationDetails
       def self.parse(map)
         data = Types::AwsEcsServiceDeploymentConfigurationDetails.new
-        data.deployment_circuit_breaker = (Parsers::AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails.parse(map['DeploymentCircuitBreaker']) unless map['DeploymentCircuitBreaker'].nil?)
+        data.deployment_circuit_breaker = (AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails.parse(map['DeploymentCircuitBreaker']) unless map['DeploymentCircuitBreaker'].nil?)
         data.maximum_percent = map['MaximumPercent']
         data.minimum_healthy_percent = map['MinimumHealthyPercent']
         return data
@@ -2436,7 +2436,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsServiceCapacityProviderStrategyDetails.parse(value) unless value.nil?
+          data << AwsEcsServiceCapacityProviderStrategyDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2458,10 +2458,10 @@ module AWS::SDK::SecurityHub
         data.cust_subscription_id = map['CustSubscriptionId']
         data.customer_aws_id = map['CustomerAwsId']
         data.enabled = map['Enabled']
-        data.event_categories_list = (Parsers::NonEmptyStringList.parse(map['EventCategoriesList']) unless map['EventCategoriesList'].nil?)
+        data.event_categories_list = (NonEmptyStringList.parse(map['EventCategoriesList']) unless map['EventCategoriesList'].nil?)
         data.event_subscription_arn = map['EventSubscriptionArn']
         data.sns_topic_arn = map['SnsTopicArn']
-        data.source_ids_list = (Parsers::NonEmptyStringList.parse(map['SourceIdsList']) unless map['SourceIdsList'].nil?)
+        data.source_ids_list = (NonEmptyStringList.parse(map['SourceIdsList']) unless map['SourceIdsList'].nil?)
         data.source_type = map['SourceType']
         data.status = map['Status']
         data.subscription_creation_time = map['SubscriptionCreationTime']
@@ -2483,20 +2483,20 @@ module AWS::SDK::SecurityHub
     class AwsEcsTaskDefinitionDetails
       def self.parse(map)
         data = Types::AwsEcsTaskDefinitionDetails.new
-        data.container_definitions = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsList.parse(map['ContainerDefinitions']) unless map['ContainerDefinitions'].nil?)
+        data.container_definitions = (AwsEcsTaskDefinitionContainerDefinitionsList.parse(map['ContainerDefinitions']) unless map['ContainerDefinitions'].nil?)
         data.cpu = map['Cpu']
         data.execution_role_arn = map['ExecutionRoleArn']
         data.family = map['Family']
-        data.inference_accelerators = (Parsers::AwsEcsTaskDefinitionInferenceAcceleratorsList.parse(map['InferenceAccelerators']) unless map['InferenceAccelerators'].nil?)
+        data.inference_accelerators = (AwsEcsTaskDefinitionInferenceAcceleratorsList.parse(map['InferenceAccelerators']) unless map['InferenceAccelerators'].nil?)
         data.ipc_mode = map['IpcMode']
         data.memory = map['Memory']
         data.network_mode = map['NetworkMode']
         data.pid_mode = map['PidMode']
-        data.placement_constraints = (Parsers::AwsEcsTaskDefinitionPlacementConstraintsList.parse(map['PlacementConstraints']) unless map['PlacementConstraints'].nil?)
-        data.proxy_configuration = (Parsers::AwsEcsTaskDefinitionProxyConfigurationDetails.parse(map['ProxyConfiguration']) unless map['ProxyConfiguration'].nil?)
-        data.requires_compatibilities = (Parsers::NonEmptyStringList.parse(map['RequiresCompatibilities']) unless map['RequiresCompatibilities'].nil?)
+        data.placement_constraints = (AwsEcsTaskDefinitionPlacementConstraintsList.parse(map['PlacementConstraints']) unless map['PlacementConstraints'].nil?)
+        data.proxy_configuration = (AwsEcsTaskDefinitionProxyConfigurationDetails.parse(map['ProxyConfiguration']) unless map['ProxyConfiguration'].nil?)
+        data.requires_compatibilities = (NonEmptyStringList.parse(map['RequiresCompatibilities']) unless map['RequiresCompatibilities'].nil?)
         data.task_role_arn = map['TaskRoleArn']
-        data.volumes = (Parsers::AwsEcsTaskDefinitionVolumesList.parse(map['Volumes']) unless map['Volumes'].nil?)
+        data.volumes = (AwsEcsTaskDefinitionVolumesList.parse(map['Volumes']) unless map['Volumes'].nil?)
         return data
       end
     end
@@ -2505,7 +2505,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionVolumesDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionVolumesDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2514,9 +2514,9 @@ module AWS::SDK::SecurityHub
     class AwsEcsTaskDefinitionVolumesDetails
       def self.parse(map)
         data = Types::AwsEcsTaskDefinitionVolumesDetails.new
-        data.docker_volume_configuration = (Parsers::AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails.parse(map['DockerVolumeConfiguration']) unless map['DockerVolumeConfiguration'].nil?)
-        data.efs_volume_configuration = (Parsers::AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails.parse(map['EfsVolumeConfiguration']) unless map['EfsVolumeConfiguration'].nil?)
-        data.host = (Parsers::AwsEcsTaskDefinitionVolumesHostDetails.parse(map['Host']) unless map['Host'].nil?)
+        data.docker_volume_configuration = (AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails.parse(map['DockerVolumeConfiguration']) unless map['DockerVolumeConfiguration'].nil?)
+        data.efs_volume_configuration = (AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails.parse(map['EfsVolumeConfiguration']) unless map['EfsVolumeConfiguration'].nil?)
+        data.host = (AwsEcsTaskDefinitionVolumesHostDetails.parse(map['Host']) unless map['Host'].nil?)
         data.name = map['Name']
         return data
       end
@@ -2533,7 +2533,7 @@ module AWS::SDK::SecurityHub
     class AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails
       def self.parse(map)
         data = Types::AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails.new
-        data.authorization_config = (Parsers::AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails.parse(map['AuthorizationConfig']) unless map['AuthorizationConfig'].nil?)
+        data.authorization_config = (AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails.parse(map['AuthorizationConfig']) unless map['AuthorizationConfig'].nil?)
         data.filesystem_id = map['FilesystemId']
         data.root_directory = map['RootDirectory']
         data.transit_encryption = map['TransitEncryption']
@@ -2556,8 +2556,8 @@ module AWS::SDK::SecurityHub
         data = Types::AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails.new
         data.autoprovision = map['Autoprovision']
         data.driver = map['Driver']
-        data.driver_opts = (Parsers::FieldMap.parse(map['DriverOpts']) unless map['DriverOpts'].nil?)
-        data.labels = (Parsers::FieldMap.parse(map['Labels']) unless map['Labels'].nil?)
+        data.driver_opts = (FieldMap.parse(map['DriverOpts']) unless map['DriverOpts'].nil?)
+        data.labels = (FieldMap.parse(map['Labels']) unless map['Labels'].nil?)
         data.scope = map['Scope']
         return data
       end
@@ -2567,7 +2567,7 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsEcsTaskDefinitionProxyConfigurationDetails.new
         data.container_name = map['ContainerName']
-        data.proxy_configuration_properties = (Parsers::AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesList.parse(map['ProxyConfigurationProperties']) unless map['ProxyConfigurationProperties'].nil?)
+        data.proxy_configuration_properties = (AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesList.parse(map['ProxyConfigurationProperties']) unless map['ProxyConfigurationProperties'].nil?)
         data.type = map['Type']
         return data
       end
@@ -2577,7 +2577,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2596,7 +2596,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionPlacementConstraintsDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionPlacementConstraintsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2615,7 +2615,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionInferenceAcceleratorsDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionInferenceAcceleratorsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2634,7 +2634,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionContainerDefinitionsDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2643,44 +2643,44 @@ module AWS::SDK::SecurityHub
     class AwsEcsTaskDefinitionContainerDefinitionsDetails
       def self.parse(map)
         data = Types::AwsEcsTaskDefinitionContainerDefinitionsDetails.new
-        data.command = (Parsers::NonEmptyStringList.parse(map['Command']) unless map['Command'].nil?)
+        data.command = (NonEmptyStringList.parse(map['Command']) unless map['Command'].nil?)
         data.cpu = map['Cpu']
-        data.depends_on = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsDependsOnList.parse(map['DependsOn']) unless map['DependsOn'].nil?)
+        data.depends_on = (AwsEcsTaskDefinitionContainerDefinitionsDependsOnList.parse(map['DependsOn']) unless map['DependsOn'].nil?)
         data.disable_networking = map['DisableNetworking']
-        data.dns_search_domains = (Parsers::NonEmptyStringList.parse(map['DnsSearchDomains']) unless map['DnsSearchDomains'].nil?)
-        data.dns_servers = (Parsers::NonEmptyStringList.parse(map['DnsServers']) unless map['DnsServers'].nil?)
-        data.docker_labels = (Parsers::FieldMap.parse(map['DockerLabels']) unless map['DockerLabels'].nil?)
-        data.docker_security_options = (Parsers::NonEmptyStringList.parse(map['DockerSecurityOptions']) unless map['DockerSecurityOptions'].nil?)
-        data.entry_point = (Parsers::NonEmptyStringList.parse(map['EntryPoint']) unless map['EntryPoint'].nil?)
-        data.environment = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsEnvironmentList.parse(map['Environment']) unless map['Environment'].nil?)
-        data.environment_files = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesList.parse(map['EnvironmentFiles']) unless map['EnvironmentFiles'].nil?)
+        data.dns_search_domains = (NonEmptyStringList.parse(map['DnsSearchDomains']) unless map['DnsSearchDomains'].nil?)
+        data.dns_servers = (NonEmptyStringList.parse(map['DnsServers']) unless map['DnsServers'].nil?)
+        data.docker_labels = (FieldMap.parse(map['DockerLabels']) unless map['DockerLabels'].nil?)
+        data.docker_security_options = (NonEmptyStringList.parse(map['DockerSecurityOptions']) unless map['DockerSecurityOptions'].nil?)
+        data.entry_point = (NonEmptyStringList.parse(map['EntryPoint']) unless map['EntryPoint'].nil?)
+        data.environment = (AwsEcsTaskDefinitionContainerDefinitionsEnvironmentList.parse(map['Environment']) unless map['Environment'].nil?)
+        data.environment_files = (AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesList.parse(map['EnvironmentFiles']) unless map['EnvironmentFiles'].nil?)
         data.essential = map['Essential']
-        data.extra_hosts = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsExtraHostsList.parse(map['ExtraHosts']) unless map['ExtraHosts'].nil?)
-        data.firelens_configuration = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails.parse(map['FirelensConfiguration']) unless map['FirelensConfiguration'].nil?)
-        data.health_check = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails.parse(map['HealthCheck']) unless map['HealthCheck'].nil?)
+        data.extra_hosts = (AwsEcsTaskDefinitionContainerDefinitionsExtraHostsList.parse(map['ExtraHosts']) unless map['ExtraHosts'].nil?)
+        data.firelens_configuration = (AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails.parse(map['FirelensConfiguration']) unless map['FirelensConfiguration'].nil?)
+        data.health_check = (AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails.parse(map['HealthCheck']) unless map['HealthCheck'].nil?)
         data.hostname = map['Hostname']
         data.image = map['Image']
         data.interactive = map['Interactive']
-        data.links = (Parsers::NonEmptyStringList.parse(map['Links']) unless map['Links'].nil?)
-        data.linux_parameters = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.parse(map['LinuxParameters']) unless map['LinuxParameters'].nil?)
-        data.log_configuration = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails.parse(map['LogConfiguration']) unless map['LogConfiguration'].nil?)
+        data.links = (NonEmptyStringList.parse(map['Links']) unless map['Links'].nil?)
+        data.linux_parameters = (AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.parse(map['LinuxParameters']) unless map['LinuxParameters'].nil?)
+        data.log_configuration = (AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails.parse(map['LogConfiguration']) unless map['LogConfiguration'].nil?)
         data.memory = map['Memory']
         data.memory_reservation = map['MemoryReservation']
-        data.mount_points = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsMountPointsList.parse(map['MountPoints']) unless map['MountPoints'].nil?)
+        data.mount_points = (AwsEcsTaskDefinitionContainerDefinitionsMountPointsList.parse(map['MountPoints']) unless map['MountPoints'].nil?)
         data.name = map['Name']
-        data.port_mappings = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsPortMappingsList.parse(map['PortMappings']) unless map['PortMappings'].nil?)
+        data.port_mappings = (AwsEcsTaskDefinitionContainerDefinitionsPortMappingsList.parse(map['PortMappings']) unless map['PortMappings'].nil?)
         data.privileged = map['Privileged']
         data.pseudo_terminal = map['PseudoTerminal']
         data.readonly_root_filesystem = map['ReadonlyRootFilesystem']
-        data.repository_credentials = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails.parse(map['RepositoryCredentials']) unless map['RepositoryCredentials'].nil?)
-        data.resource_requirements = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsList.parse(map['ResourceRequirements']) unless map['ResourceRequirements'].nil?)
-        data.secrets = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsSecretsList.parse(map['Secrets']) unless map['Secrets'].nil?)
+        data.repository_credentials = (AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails.parse(map['RepositoryCredentials']) unless map['RepositoryCredentials'].nil?)
+        data.resource_requirements = (AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsList.parse(map['ResourceRequirements']) unless map['ResourceRequirements'].nil?)
+        data.secrets = (AwsEcsTaskDefinitionContainerDefinitionsSecretsList.parse(map['Secrets']) unless map['Secrets'].nil?)
         data.start_timeout = map['StartTimeout']
         data.stop_timeout = map['StopTimeout']
-        data.system_controls = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsSystemControlsList.parse(map['SystemControls']) unless map['SystemControls'].nil?)
-        data.ulimits = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsUlimitsList.parse(map['Ulimits']) unless map['Ulimits'].nil?)
+        data.system_controls = (AwsEcsTaskDefinitionContainerDefinitionsSystemControlsList.parse(map['SystemControls']) unless map['SystemControls'].nil?)
+        data.ulimits = (AwsEcsTaskDefinitionContainerDefinitionsUlimitsList.parse(map['Ulimits']) unless map['Ulimits'].nil?)
         data.user = map['User']
-        data.volumes_from = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsVolumesFromList.parse(map['VolumesFrom']) unless map['VolumesFrom'].nil?)
+        data.volumes_from = (AwsEcsTaskDefinitionContainerDefinitionsVolumesFromList.parse(map['VolumesFrom']) unless map['VolumesFrom'].nil?)
         data.working_directory = map['WorkingDirectory']
         return data
       end
@@ -2690,7 +2690,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2709,7 +2709,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2729,7 +2729,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2748,7 +2748,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2767,7 +2767,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2794,7 +2794,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2814,7 +2814,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2834,8 +2834,8 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails.new
         data.log_driver = map['LogDriver']
-        data.options = (Parsers::FieldMap.parse(map['Options']) unless map['Options'].nil?)
-        data.secret_options = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsList.parse(map['SecretOptions']) unless map['SecretOptions'].nil?)
+        data.options = (FieldMap.parse(map['Options']) unless map['Options'].nil?)
+        data.secret_options = (AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsList.parse(map['SecretOptions']) unless map['SecretOptions'].nil?)
         return data
       end
     end
@@ -2844,7 +2844,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2862,13 +2862,13 @@ module AWS::SDK::SecurityHub
     class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails
       def self.parse(map)
         data = Types::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.new
-        data.capabilities = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails.parse(map['Capabilities']) unless map['Capabilities'].nil?)
-        data.devices = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesList.parse(map['Devices']) unless map['Devices'].nil?)
+        data.capabilities = (AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails.parse(map['Capabilities']) unless map['Capabilities'].nil?)
+        data.devices = (AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesList.parse(map['Devices']) unless map['Devices'].nil?)
         data.init_process_enabled = map['InitProcessEnabled']
         data.max_swap = map['MaxSwap']
         data.shared_memory_size = map['SharedMemorySize']
         data.swappiness = map['Swappiness']
-        data.tmpfs = (Parsers::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsList.parse(map['Tmpfs']) unless map['Tmpfs'].nil?)
+        data.tmpfs = (AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsList.parse(map['Tmpfs']) unless map['Tmpfs'].nil?)
         return data
       end
     end
@@ -2877,7 +2877,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2887,7 +2887,7 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails.new
         data.container_path = map['ContainerPath']
-        data.mount_options = (Parsers::NonEmptyStringList.parse(map['MountOptions']) unless map['MountOptions'].nil?)
+        data.mount_options = (NonEmptyStringList.parse(map['MountOptions']) unless map['MountOptions'].nil?)
         data.size = map['Size']
         return data
       end
@@ -2897,7 +2897,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2908,7 +2908,7 @@ module AWS::SDK::SecurityHub
         data = Types::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails.new
         data.container_path = map['ContainerPath']
         data.host_path = map['HostPath']
-        data.permissions = (Parsers::NonEmptyStringList.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (NonEmptyStringList.parse(map['Permissions']) unless map['Permissions'].nil?)
         return data
       end
     end
@@ -2916,8 +2916,8 @@ module AWS::SDK::SecurityHub
     class AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails
       def self.parse(map)
         data = Types::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails.new
-        data.add = (Parsers::NonEmptyStringList.parse(map['Add']) unless map['Add'].nil?)
-        data.drop = (Parsers::NonEmptyStringList.parse(map['Drop']) unless map['Drop'].nil?)
+        data.add = (NonEmptyStringList.parse(map['Add']) unless map['Add'].nil?)
+        data.drop = (NonEmptyStringList.parse(map['Drop']) unless map['Drop'].nil?)
         return data
       end
     end
@@ -2925,7 +2925,7 @@ module AWS::SDK::SecurityHub
     class AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails
       def self.parse(map)
         data = Types::AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails.new
-        data.command = (Parsers::NonEmptyStringList.parse(map['Command']) unless map['Command'].nil?)
+        data.command = (NonEmptyStringList.parse(map['Command']) unless map['Command'].nil?)
         data.interval = map['Interval']
         data.retries = map['Retries']
         data.start_period = map['StartPeriod']
@@ -2937,7 +2937,7 @@ module AWS::SDK::SecurityHub
     class AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails
       def self.parse(map)
         data = Types::AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails.new
-        data.options = (Parsers::FieldMap.parse(map['Options']) unless map['Options'].nil?)
+        data.options = (FieldMap.parse(map['Options']) unless map['Options'].nil?)
         data.type = map['Type']
         return data
       end
@@ -2947,7 +2947,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2966,7 +2966,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -2985,7 +2985,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -3004,7 +3004,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails.parse(value) unless value.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -3022,10 +3022,10 @@ module AWS::SDK::SecurityHub
     class AwsEcsClusterDetails
       def self.parse(map)
         data = Types::AwsEcsClusterDetails.new
-        data.capacity_providers = (Parsers::NonEmptyStringList.parse(map['CapacityProviders']) unless map['CapacityProviders'].nil?)
-        data.cluster_settings = (Parsers::AwsEcsClusterClusterSettingsList.parse(map['ClusterSettings']) unless map['ClusterSettings'].nil?)
-        data.configuration = (Parsers::AwsEcsClusterConfigurationDetails.parse(map['Configuration']) unless map['Configuration'].nil?)
-        data.default_capacity_provider_strategy = (Parsers::AwsEcsClusterDefaultCapacityProviderStrategyList.parse(map['DefaultCapacityProviderStrategy']) unless map['DefaultCapacityProviderStrategy'].nil?)
+        data.capacity_providers = (NonEmptyStringList.parse(map['CapacityProviders']) unless map['CapacityProviders'].nil?)
+        data.cluster_settings = (AwsEcsClusterClusterSettingsList.parse(map['ClusterSettings']) unless map['ClusterSettings'].nil?)
+        data.configuration = (AwsEcsClusterConfigurationDetails.parse(map['Configuration']) unless map['Configuration'].nil?)
+        data.default_capacity_provider_strategy = (AwsEcsClusterDefaultCapacityProviderStrategyList.parse(map['DefaultCapacityProviderStrategy']) unless map['DefaultCapacityProviderStrategy'].nil?)
         return data
       end
     end
@@ -3034,7 +3034,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsClusterDefaultCapacityProviderStrategyDetails.parse(value) unless value.nil?
+          data << AwsEcsClusterDefaultCapacityProviderStrategyDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -3053,7 +3053,7 @@ module AWS::SDK::SecurityHub
     class AwsEcsClusterConfigurationDetails
       def self.parse(map)
         data = Types::AwsEcsClusterConfigurationDetails.new
-        data.execute_command_configuration = (Parsers::AwsEcsClusterConfigurationExecuteCommandConfigurationDetails.parse(map['ExecuteCommandConfiguration']) unless map['ExecuteCommandConfiguration'].nil?)
+        data.execute_command_configuration = (AwsEcsClusterConfigurationExecuteCommandConfigurationDetails.parse(map['ExecuteCommandConfiguration']) unless map['ExecuteCommandConfiguration'].nil?)
         return data
       end
     end
@@ -3062,7 +3062,7 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsEcsClusterConfigurationExecuteCommandConfigurationDetails.new
         data.kms_key_id = map['KmsKeyId']
-        data.log_configuration = (Parsers::AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails.parse(map['LogConfiguration']) unless map['LogConfiguration'].nil?)
+        data.log_configuration = (AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails.parse(map['LogConfiguration']) unless map['LogConfiguration'].nil?)
         data.logging = map['Logging']
         return data
       end
@@ -3084,7 +3084,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEcsClusterClusterSettingsDetails.parse(value) unless value.nil?
+          data << AwsEcsClusterClusterSettingsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -3103,13 +3103,13 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsRdsDbClusterDetails.new
         data.allocated_storage = map['AllocatedStorage']
-        data.availability_zones = (Parsers::StringList.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
+        data.availability_zones = (StringList.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
         data.backup_retention_period = map['BackupRetentionPeriod']
         data.database_name = map['DatabaseName']
         data.status = map['Status']
         data.endpoint = map['Endpoint']
         data.reader_endpoint = map['ReaderEndpoint']
-        data.custom_endpoints = (Parsers::StringList.parse(map['CustomEndpoints']) unless map['CustomEndpoints'].nil?)
+        data.custom_endpoints = (StringList.parse(map['CustomEndpoints']) unless map['CustomEndpoints'].nil?)
         data.multi_az = map['MultiAz']
         data.engine = map['Engine']
         data.engine_version = map['EngineVersion']
@@ -3117,27 +3117,27 @@ module AWS::SDK::SecurityHub
         data.master_username = map['MasterUsername']
         data.preferred_backup_window = map['PreferredBackupWindow']
         data.preferred_maintenance_window = map['PreferredMaintenanceWindow']
-        data.read_replica_identifiers = (Parsers::StringList.parse(map['ReadReplicaIdentifiers']) unless map['ReadReplicaIdentifiers'].nil?)
-        data.vpc_security_groups = (Parsers::AwsRdsDbInstanceVpcSecurityGroups.parse(map['VpcSecurityGroups']) unless map['VpcSecurityGroups'].nil?)
+        data.read_replica_identifiers = (StringList.parse(map['ReadReplicaIdentifiers']) unless map['ReadReplicaIdentifiers'].nil?)
+        data.vpc_security_groups = (AwsRdsDbInstanceVpcSecurityGroups.parse(map['VpcSecurityGroups']) unless map['VpcSecurityGroups'].nil?)
         data.hosted_zone_id = map['HostedZoneId']
         data.storage_encrypted = map['StorageEncrypted']
         data.kms_key_id = map['KmsKeyId']
         data.db_cluster_resource_id = map['DbClusterResourceId']
-        data.associated_roles = (Parsers::AwsRdsDbClusterAssociatedRoles.parse(map['AssociatedRoles']) unless map['AssociatedRoles'].nil?)
+        data.associated_roles = (AwsRdsDbClusterAssociatedRoles.parse(map['AssociatedRoles']) unless map['AssociatedRoles'].nil?)
         data.cluster_create_time = map['ClusterCreateTime']
-        data.enabled_cloud_watch_logs_exports = (Parsers::StringList.parse(map['EnabledCloudWatchLogsExports']) unless map['EnabledCloudWatchLogsExports'].nil?)
+        data.enabled_cloud_watch_logs_exports = (StringList.parse(map['EnabledCloudWatchLogsExports']) unless map['EnabledCloudWatchLogsExports'].nil?)
         data.engine_mode = map['EngineMode']
         data.deletion_protection = map['DeletionProtection']
         data.http_endpoint_enabled = map['HttpEndpointEnabled']
         data.activity_stream_status = map['ActivityStreamStatus']
         data.copy_tags_to_snapshot = map['CopyTagsToSnapshot']
         data.cross_account_clone = map['CrossAccountClone']
-        data.domain_memberships = (Parsers::AwsRdsDbDomainMemberships.parse(map['DomainMemberships']) unless map['DomainMemberships'].nil?)
+        data.domain_memberships = (AwsRdsDbDomainMemberships.parse(map['DomainMemberships']) unless map['DomainMemberships'].nil?)
         data.db_cluster_parameter_group = map['DbClusterParameterGroup']
         data.db_subnet_group = map['DbSubnetGroup']
-        data.db_cluster_option_group_memberships = (Parsers::AwsRdsDbClusterOptionGroupMemberships.parse(map['DbClusterOptionGroupMemberships']) unless map['DbClusterOptionGroupMemberships'].nil?)
+        data.db_cluster_option_group_memberships = (AwsRdsDbClusterOptionGroupMemberships.parse(map['DbClusterOptionGroupMemberships']) unless map['DbClusterOptionGroupMemberships'].nil?)
         data.db_cluster_identifier = map['DbClusterIdentifier']
-        data.db_cluster_members = (Parsers::AwsRdsDbClusterMembers.parse(map['DbClusterMembers']) unless map['DbClusterMembers'].nil?)
+        data.db_cluster_members = (AwsRdsDbClusterMembers.parse(map['DbClusterMembers']) unless map['DbClusterMembers'].nil?)
         data.iam_database_authentication_enabled = map['IamDatabaseAuthenticationEnabled']
         return data
       end
@@ -3147,7 +3147,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRdsDbClusterMember.parse(value) unless value.nil?
+          data << AwsRdsDbClusterMember.parse(value) unless value.nil?
         end
         data
       end
@@ -3168,7 +3168,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRdsDbClusterOptionGroupMembership.parse(value) unless value.nil?
+          data << AwsRdsDbClusterOptionGroupMembership.parse(value) unless value.nil?
         end
         data
       end
@@ -3187,7 +3187,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRdsDbDomainMembership.parse(value) unless value.nil?
+          data << AwsRdsDbDomainMembership.parse(value) unless value.nil?
         end
         data
       end
@@ -3208,7 +3208,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRdsDbClusterAssociatedRole.parse(value) unless value.nil?
+          data << AwsRdsDbClusterAssociatedRole.parse(value) unless value.nil?
         end
         data
       end
@@ -3227,7 +3227,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRdsDbInstanceVpcSecurityGroup.parse(value) unless value.nil?
+          data << AwsRdsDbInstanceVpcSecurityGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -3245,7 +3245,7 @@ module AWS::SDK::SecurityHub
     class AwsRdsDbClusterSnapshotDetails
       def self.parse(map)
         data = Types::AwsRdsDbClusterSnapshotDetails.new
-        data.availability_zones = (Parsers::StringList.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
+        data.availability_zones = (StringList.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
         data.snapshot_create_time = map['SnapshotCreateTime']
         data.engine = map['Engine']
         data.allocated_storage = map['AllocatedStorage']
@@ -3295,7 +3295,7 @@ module AWS::SDK::SecurityHub
         data.kms_key_id = map['KmsKeyId']
         data.timezone = map['Timezone']
         data.iam_database_authentication_enabled = map['IamDatabaseAuthenticationEnabled']
-        data.processor_features = (Parsers::AwsRdsDbProcessorFeatures.parse(map['ProcessorFeatures']) unless map['ProcessorFeatures'].nil?)
+        data.processor_features = (AwsRdsDbProcessorFeatures.parse(map['ProcessorFeatures']) unless map['ProcessorFeatures'].nil?)
         data.dbi_resource_id = map['DbiResourceId']
         return data
       end
@@ -3305,7 +3305,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRdsDbProcessorFeature.parse(value) unless value.nil?
+          data << AwsRdsDbProcessorFeature.parse(value) unless value.nil?
         end
         data
       end
@@ -3325,7 +3325,7 @@ module AWS::SDK::SecurityHub
         data = Types::AwsWafWebAclDetails.new
         data.name = map['Name']
         data.default_action = map['DefaultAction']
-        data.rules = (Parsers::AwsWafWebAclRuleList.parse(map['Rules']) unless map['Rules'].nil?)
+        data.rules = (AwsWafWebAclRuleList.parse(map['Rules']) unless map['Rules'].nil?)
         data.web_acl_id = map['WebAclId']
         return data
       end
@@ -3335,7 +3335,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsWafWebAclRule.parse(value) unless value.nil?
+          data << AwsWafWebAclRule.parse(value) unless value.nil?
         end
         data
       end
@@ -3344,9 +3344,9 @@ module AWS::SDK::SecurityHub
     class AwsWafWebAclRule
       def self.parse(map)
         data = Types::AwsWafWebAclRule.new
-        data.action = (Parsers::WafAction.parse(map['Action']) unless map['Action'].nil?)
-        data.excluded_rules = (Parsers::WafExcludedRuleList.parse(map['ExcludedRules']) unless map['ExcludedRules'].nil?)
-        data.override_action = (Parsers::WafOverrideAction.parse(map['OverrideAction']) unless map['OverrideAction'].nil?)
+        data.action = (WafAction.parse(map['Action']) unless map['Action'].nil?)
+        data.excluded_rules = (WafExcludedRuleList.parse(map['ExcludedRules']) unless map['ExcludedRules'].nil?)
+        data.override_action = (WafOverrideAction.parse(map['OverrideAction']) unless map['OverrideAction'].nil?)
         data.priority = map['Priority']
         data.rule_id = map['RuleId']
         data.type = map['Type']
@@ -3366,7 +3366,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WafExcludedRule.parse(value) unless value.nil?
+          data << WafExcludedRule.parse(value) unless value.nil?
         end
         data
       end
@@ -3403,7 +3403,7 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsSnsTopicDetails.new
         data.kms_master_key_id = map['KmsMasterKeyId']
-        data.subscription = (Parsers::AwsSnsTopicSubscriptionList.parse(map['Subscription']) unless map['Subscription'].nil?)
+        data.subscription = (AwsSnsTopicSubscriptionList.parse(map['Subscription']) unless map['Subscription'].nil?)
         data.topic_name = map['TopicName']
         data.owner = map['Owner']
         return data
@@ -3414,7 +3414,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsSnsTopicSubscription.parse(value) unless value.nil?
+          data << AwsSnsTopicSubscription.parse(value) unless value.nil?
         end
         data
       end
@@ -3432,7 +3432,7 @@ module AWS::SDK::SecurityHub
     class AwsRdsDbInstanceDetails
       def self.parse(map)
         data = Types::AwsRdsDbInstanceDetails.new
-        data.associated_roles = (Parsers::AwsRdsDbInstanceAssociatedRoles.parse(map['AssociatedRoles']) unless map['AssociatedRoles'].nil?)
+        data.associated_roles = (AwsRdsDbInstanceAssociatedRoles.parse(map['AssociatedRoles']) unless map['AssociatedRoles'].nil?)
         data.ca_certificate_identifier = map['CACertificateIdentifier']
         data.db_cluster_identifier = map['DBClusterIdentifier']
         data.db_instance_identifier = map['DBInstanceIdentifier']
@@ -3441,7 +3441,7 @@ module AWS::SDK::SecurityHub
         data.dbi_resource_id = map['DbiResourceId']
         data.db_name = map['DBName']
         data.deletion_protection = map['DeletionProtection']
-        data.endpoint = (Parsers::AwsRdsDbInstanceEndpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
+        data.endpoint = (AwsRdsDbInstanceEndpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
         data.engine = map['Engine']
         data.engine_version = map['EngineVersion']
         data.iam_database_authentication_enabled = map['IAMDatabaseAuthenticationEnabled']
@@ -3450,7 +3450,7 @@ module AWS::SDK::SecurityHub
         data.publicly_accessible = map['PubliclyAccessible']
         data.storage_encrypted = map['StorageEncrypted']
         data.tde_credential_arn = map['TdeCredentialArn']
-        data.vpc_security_groups = (Parsers::AwsRdsDbInstanceVpcSecurityGroups.parse(map['VpcSecurityGroups']) unless map['VpcSecurityGroups'].nil?)
+        data.vpc_security_groups = (AwsRdsDbInstanceVpcSecurityGroups.parse(map['VpcSecurityGroups']) unless map['VpcSecurityGroups'].nil?)
         data.multi_az = map['MultiAz']
         data.enhanced_monitoring_resource_arn = map['EnhancedMonitoringResourceArn']
         data.db_instance_status = map['DbInstanceStatus']
@@ -3458,25 +3458,25 @@ module AWS::SDK::SecurityHub
         data.allocated_storage = map['AllocatedStorage']
         data.preferred_backup_window = map['PreferredBackupWindow']
         data.backup_retention_period = map['BackupRetentionPeriod']
-        data.db_security_groups = (Parsers::StringList.parse(map['DbSecurityGroups']) unless map['DbSecurityGroups'].nil?)
-        data.db_parameter_groups = (Parsers::AwsRdsDbParameterGroups.parse(map['DbParameterGroups']) unless map['DbParameterGroups'].nil?)
+        data.db_security_groups = (StringList.parse(map['DbSecurityGroups']) unless map['DbSecurityGroups'].nil?)
+        data.db_parameter_groups = (AwsRdsDbParameterGroups.parse(map['DbParameterGroups']) unless map['DbParameterGroups'].nil?)
         data.availability_zone = map['AvailabilityZone']
-        data.db_subnet_group = (Parsers::AwsRdsDbSubnetGroup.parse(map['DbSubnetGroup']) unless map['DbSubnetGroup'].nil?)
+        data.db_subnet_group = (AwsRdsDbSubnetGroup.parse(map['DbSubnetGroup']) unless map['DbSubnetGroup'].nil?)
         data.preferred_maintenance_window = map['PreferredMaintenanceWindow']
-        data.pending_modified_values = (Parsers::AwsRdsDbPendingModifiedValues.parse(map['PendingModifiedValues']) unless map['PendingModifiedValues'].nil?)
+        data.pending_modified_values = (AwsRdsDbPendingModifiedValues.parse(map['PendingModifiedValues']) unless map['PendingModifiedValues'].nil?)
         data.latest_restorable_time = map['LatestRestorableTime']
         data.auto_minor_version_upgrade = map['AutoMinorVersionUpgrade']
         data.read_replica_source_db_instance_identifier = map['ReadReplicaSourceDBInstanceIdentifier']
-        data.read_replica_db_instance_identifiers = (Parsers::StringList.parse(map['ReadReplicaDBInstanceIdentifiers']) unless map['ReadReplicaDBInstanceIdentifiers'].nil?)
-        data.read_replica_db_cluster_identifiers = (Parsers::StringList.parse(map['ReadReplicaDBClusterIdentifiers']) unless map['ReadReplicaDBClusterIdentifiers'].nil?)
+        data.read_replica_db_instance_identifiers = (StringList.parse(map['ReadReplicaDBInstanceIdentifiers']) unless map['ReadReplicaDBInstanceIdentifiers'].nil?)
+        data.read_replica_db_cluster_identifiers = (StringList.parse(map['ReadReplicaDBClusterIdentifiers']) unless map['ReadReplicaDBClusterIdentifiers'].nil?)
         data.license_model = map['LicenseModel']
         data.iops = map['Iops']
-        data.option_group_memberships = (Parsers::AwsRdsDbOptionGroupMemberships.parse(map['OptionGroupMemberships']) unless map['OptionGroupMemberships'].nil?)
+        data.option_group_memberships = (AwsRdsDbOptionGroupMemberships.parse(map['OptionGroupMemberships']) unless map['OptionGroupMemberships'].nil?)
         data.character_set_name = map['CharacterSetName']
         data.secondary_availability_zone = map['SecondaryAvailabilityZone']
-        data.status_infos = (Parsers::AwsRdsDbStatusInfos.parse(map['StatusInfos']) unless map['StatusInfos'].nil?)
+        data.status_infos = (AwsRdsDbStatusInfos.parse(map['StatusInfos']) unless map['StatusInfos'].nil?)
         data.storage_type = map['StorageType']
-        data.domain_memberships = (Parsers::AwsRdsDbDomainMemberships.parse(map['DomainMemberships']) unless map['DomainMemberships'].nil?)
+        data.domain_memberships = (AwsRdsDbDomainMemberships.parse(map['DomainMemberships']) unless map['DomainMemberships'].nil?)
         data.copy_tags_to_snapshot = map['CopyTagsToSnapshot']
         data.monitoring_interval = map['MonitoringInterval']
         data.monitoring_role_arn = map['MonitoringRoleArn']
@@ -3485,9 +3485,9 @@ module AWS::SDK::SecurityHub
         data.performance_insights_enabled = map['PerformanceInsightsEnabled']
         data.performance_insights_kms_key_id = map['PerformanceInsightsKmsKeyId']
         data.performance_insights_retention_period = map['PerformanceInsightsRetentionPeriod']
-        data.enabled_cloud_watch_logs_exports = (Parsers::StringList.parse(map['EnabledCloudWatchLogsExports']) unless map['EnabledCloudWatchLogsExports'].nil?)
-        data.processor_features = (Parsers::AwsRdsDbProcessorFeatures.parse(map['ProcessorFeatures']) unless map['ProcessorFeatures'].nil?)
-        data.listener_endpoint = (Parsers::AwsRdsDbInstanceEndpoint.parse(map['ListenerEndpoint']) unless map['ListenerEndpoint'].nil?)
+        data.enabled_cloud_watch_logs_exports = (StringList.parse(map['EnabledCloudWatchLogsExports']) unless map['EnabledCloudWatchLogsExports'].nil?)
+        data.processor_features = (AwsRdsDbProcessorFeatures.parse(map['ProcessorFeatures']) unless map['ProcessorFeatures'].nil?)
+        data.listener_endpoint = (AwsRdsDbInstanceEndpoint.parse(map['ListenerEndpoint']) unless map['ListenerEndpoint'].nil?)
         data.max_allocated_storage = map['MaxAllocatedStorage']
         return data
       end
@@ -3507,7 +3507,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRdsDbStatusInfo.parse(value) unless value.nil?
+          data << AwsRdsDbStatusInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -3528,7 +3528,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRdsDbOptionGroupMembership.parse(value) unless value.nil?
+          data << AwsRdsDbOptionGroupMembership.parse(value) unless value.nil?
         end
         data
       end
@@ -3559,8 +3559,8 @@ module AWS::SDK::SecurityHub
         data.storage_type = map['StorageType']
         data.ca_certificate_identifier = map['CaCertificateIdentifier']
         data.db_subnet_group_name = map['DbSubnetGroupName']
-        data.pending_cloud_watch_logs_exports = (Parsers::AwsRdsPendingCloudWatchLogsExports.parse(map['PendingCloudWatchLogsExports']) unless map['PendingCloudWatchLogsExports'].nil?)
-        data.processor_features = (Parsers::AwsRdsDbProcessorFeatures.parse(map['ProcessorFeatures']) unless map['ProcessorFeatures'].nil?)
+        data.pending_cloud_watch_logs_exports = (AwsRdsPendingCloudWatchLogsExports.parse(map['PendingCloudWatchLogsExports']) unless map['PendingCloudWatchLogsExports'].nil?)
+        data.processor_features = (AwsRdsDbProcessorFeatures.parse(map['ProcessorFeatures']) unless map['ProcessorFeatures'].nil?)
         return data
       end
     end
@@ -3568,8 +3568,8 @@ module AWS::SDK::SecurityHub
     class AwsRdsPendingCloudWatchLogsExports
       def self.parse(map)
         data = Types::AwsRdsPendingCloudWatchLogsExports.new
-        data.log_types_to_enable = (Parsers::StringList.parse(map['LogTypesToEnable']) unless map['LogTypesToEnable'].nil?)
-        data.log_types_to_disable = (Parsers::StringList.parse(map['LogTypesToDisable']) unless map['LogTypesToDisable'].nil?)
+        data.log_types_to_enable = (StringList.parse(map['LogTypesToEnable']) unless map['LogTypesToEnable'].nil?)
+        data.log_types_to_disable = (StringList.parse(map['LogTypesToDisable']) unless map['LogTypesToDisable'].nil?)
         return data
       end
     end
@@ -3581,7 +3581,7 @@ module AWS::SDK::SecurityHub
         data.db_subnet_group_description = map['DbSubnetGroupDescription']
         data.vpc_id = map['VpcId']
         data.subnet_group_status = map['SubnetGroupStatus']
-        data.subnets = (Parsers::AwsRdsDbSubnetGroupSubnets.parse(map['Subnets']) unless map['Subnets'].nil?)
+        data.subnets = (AwsRdsDbSubnetGroupSubnets.parse(map['Subnets']) unless map['Subnets'].nil?)
         data.db_subnet_group_arn = map['DbSubnetGroupArn']
         return data
       end
@@ -3591,7 +3591,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRdsDbSubnetGroupSubnet.parse(value) unless value.nil?
+          data << AwsRdsDbSubnetGroupSubnet.parse(value) unless value.nil?
         end
         data
       end
@@ -3601,7 +3601,7 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsRdsDbSubnetGroupSubnet.new
         data.subnet_identifier = map['SubnetIdentifier']
-        data.subnet_availability_zone = (Parsers::AwsRdsDbSubnetGroupSubnetAvailabilityZone.parse(map['SubnetAvailabilityZone']) unless map['SubnetAvailabilityZone'].nil?)
+        data.subnet_availability_zone = (AwsRdsDbSubnetGroupSubnetAvailabilityZone.parse(map['SubnetAvailabilityZone']) unless map['SubnetAvailabilityZone'].nil?)
         data.subnet_status = map['SubnetStatus']
         return data
       end
@@ -3619,7 +3619,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRdsDbParameterGroup.parse(value) unless value.nil?
+          data << AwsRdsDbParameterGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -3638,7 +3638,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRdsDbInstanceAssociatedRole.parse(value) unless value.nil?
+          data << AwsRdsDbInstanceAssociatedRole.parse(value) unless value.nil?
         end
         data
       end
@@ -3658,7 +3658,7 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsLambdaLayerVersionDetails.new
         data.version = map['Version']
-        data.compatible_runtimes = (Parsers::NonEmptyStringList.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
+        data.compatible_runtimes = (NonEmptyStringList.parse(map['CompatibleRuntimes']) unless map['CompatibleRuntimes'].nil?)
         data.created_date = map['CreatedDate']
         return data
       end
@@ -3667,23 +3667,23 @@ module AWS::SDK::SecurityHub
     class AwsLambdaFunctionDetails
       def self.parse(map)
         data = Types::AwsLambdaFunctionDetails.new
-        data.code = (Parsers::AwsLambdaFunctionCode.parse(map['Code']) unless map['Code'].nil?)
+        data.code = (AwsLambdaFunctionCode.parse(map['Code']) unless map['Code'].nil?)
         data.code_sha256 = map['CodeSha256']
-        data.dead_letter_config = (Parsers::AwsLambdaFunctionDeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
-        data.environment = (Parsers::AwsLambdaFunctionEnvironment.parse(map['Environment']) unless map['Environment'].nil?)
+        data.dead_letter_config = (AwsLambdaFunctionDeadLetterConfig.parse(map['DeadLetterConfig']) unless map['DeadLetterConfig'].nil?)
+        data.environment = (AwsLambdaFunctionEnvironment.parse(map['Environment']) unless map['Environment'].nil?)
         data.function_name = map['FunctionName']
         data.handler = map['Handler']
         data.kms_key_arn = map['KmsKeyArn']
         data.last_modified = map['LastModified']
-        data.layers = (Parsers::AwsLambdaFunctionLayerList.parse(map['Layers']) unless map['Layers'].nil?)
+        data.layers = (AwsLambdaFunctionLayerList.parse(map['Layers']) unless map['Layers'].nil?)
         data.master_arn = map['MasterArn']
         data.memory_size = map['MemorySize']
         data.revision_id = map['RevisionId']
         data.role = map['Role']
         data.runtime = map['Runtime']
         data.timeout = map['Timeout']
-        data.tracing_config = (Parsers::AwsLambdaFunctionTracingConfig.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
-        data.vpc_config = (Parsers::AwsLambdaFunctionVpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.tracing_config = (AwsLambdaFunctionTracingConfig.parse(map['TracingConfig']) unless map['TracingConfig'].nil?)
+        data.vpc_config = (AwsLambdaFunctionVpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
         data.version = map['Version']
         return data
       end
@@ -3692,8 +3692,8 @@ module AWS::SDK::SecurityHub
     class AwsLambdaFunctionVpcConfig
       def self.parse(map)
         data = Types::AwsLambdaFunctionVpcConfig.new
-        data.security_group_ids = (Parsers::NonEmptyStringList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
-        data.subnet_ids = (Parsers::NonEmptyStringList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.security_group_ids = (NonEmptyStringList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.subnet_ids = (NonEmptyStringList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
         data.vpc_id = map['VpcId']
         return data
       end
@@ -3711,7 +3711,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsLambdaFunctionLayer.parse(value) unless value.nil?
+          data << AwsLambdaFunctionLayer.parse(value) unless value.nil?
         end
         data
       end
@@ -3729,8 +3729,8 @@ module AWS::SDK::SecurityHub
     class AwsLambdaFunctionEnvironment
       def self.parse(map)
         data = Types::AwsLambdaFunctionEnvironment.new
-        data.variables = (Parsers::FieldMap.parse(map['Variables']) unless map['Variables'].nil?)
-        data.error = (Parsers::AwsLambdaFunctionEnvironmentError.parse(map['Error']) unless map['Error'].nil?)
+        data.variables = (FieldMap.parse(map['Variables']) unless map['Variables'].nil?)
+        data.error = (AwsLambdaFunctionEnvironmentError.parse(map['Error']) unless map['Error'].nil?)
         return data
       end
     end
@@ -3782,13 +3782,13 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsIamRoleDetails.new
         data.assume_role_policy_document = map['AssumeRolePolicyDocument']
-        data.attached_managed_policies = (Parsers::AwsIamAttachedManagedPolicyList.parse(map['AttachedManagedPolicies']) unless map['AttachedManagedPolicies'].nil?)
+        data.attached_managed_policies = (AwsIamAttachedManagedPolicyList.parse(map['AttachedManagedPolicies']) unless map['AttachedManagedPolicies'].nil?)
         data.create_date = map['CreateDate']
-        data.instance_profile_list = (Parsers::AwsIamInstanceProfileList.parse(map['InstanceProfileList']) unless map['InstanceProfileList'].nil?)
-        data.permissions_boundary = (Parsers::AwsIamPermissionsBoundary.parse(map['PermissionsBoundary']) unless map['PermissionsBoundary'].nil?)
+        data.instance_profile_list = (AwsIamInstanceProfileList.parse(map['InstanceProfileList']) unless map['InstanceProfileList'].nil?)
+        data.permissions_boundary = (AwsIamPermissionsBoundary.parse(map['PermissionsBoundary']) unless map['PermissionsBoundary'].nil?)
         data.role_id = map['RoleId']
         data.role_name = map['RoleName']
-        data.role_policy_list = (Parsers::AwsIamRolePolicyList.parse(map['RolePolicyList']) unless map['RolePolicyList'].nil?)
+        data.role_policy_list = (AwsIamRolePolicyList.parse(map['RolePolicyList']) unless map['RolePolicyList'].nil?)
         data.max_session_duration = map['MaxSessionDuration']
         data.path = map['Path']
         return data
@@ -3799,7 +3799,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsIamRolePolicy.parse(value) unless value.nil?
+          data << AwsIamRolePolicy.parse(value) unless value.nil?
         end
         data
       end
@@ -3826,7 +3826,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsIamInstanceProfile.parse(value) unless value.nil?
+          data << AwsIamInstanceProfile.parse(value) unless value.nil?
         end
         data
       end
@@ -3840,7 +3840,7 @@ module AWS::SDK::SecurityHub
         data.instance_profile_id = map['InstanceProfileId']
         data.instance_profile_name = map['InstanceProfileName']
         data.path = map['Path']
-        data.roles = (Parsers::AwsIamInstanceProfileRoles.parse(map['Roles']) unless map['Roles'].nil?)
+        data.roles = (AwsIamInstanceProfileRoles.parse(map['Roles']) unless map['Roles'].nil?)
         return data
       end
     end
@@ -3849,7 +3849,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsIamInstanceProfileRole.parse(value) unless value.nil?
+          data << AwsIamInstanceProfileRole.parse(value) unless value.nil?
         end
         data
       end
@@ -3872,7 +3872,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsIamAttachedManagedPolicy.parse(value) unless value.nil?
+          data << AwsIamAttachedManagedPolicy.parse(value) unless value.nil?
         end
         data
       end
@@ -3890,11 +3890,11 @@ module AWS::SDK::SecurityHub
     class AwsIamGroupDetails
       def self.parse(map)
         data = Types::AwsIamGroupDetails.new
-        data.attached_managed_policies = (Parsers::AwsIamAttachedManagedPolicyList.parse(map['AttachedManagedPolicies']) unless map['AttachedManagedPolicies'].nil?)
+        data.attached_managed_policies = (AwsIamAttachedManagedPolicyList.parse(map['AttachedManagedPolicies']) unless map['AttachedManagedPolicies'].nil?)
         data.create_date = map['CreateDate']
         data.group_id = map['GroupId']
         data.group_name = map['GroupName']
-        data.group_policy_list = (Parsers::AwsIamGroupPolicyList.parse(map['GroupPolicyList']) unless map['GroupPolicyList'].nil?)
+        data.group_policy_list = (AwsIamGroupPolicyList.parse(map['GroupPolicyList']) unless map['GroupPolicyList'].nil?)
         data.path = map['Path']
         return data
       end
@@ -3904,7 +3904,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsIamGroupPolicy.parse(value) unless value.nil?
+          data << AwsIamGroupPolicy.parse(value) unless value.nil?
         end
         data
       end
@@ -3921,22 +3921,22 @@ module AWS::SDK::SecurityHub
     class AwsElbLoadBalancerDetails
       def self.parse(map)
         data = Types::AwsElbLoadBalancerDetails.new
-        data.availability_zones = (Parsers::StringList.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
-        data.backend_server_descriptions = (Parsers::AwsElbLoadBalancerBackendServerDescriptions.parse(map['BackendServerDescriptions']) unless map['BackendServerDescriptions'].nil?)
+        data.availability_zones = (StringList.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
+        data.backend_server_descriptions = (AwsElbLoadBalancerBackendServerDescriptions.parse(map['BackendServerDescriptions']) unless map['BackendServerDescriptions'].nil?)
         data.canonical_hosted_zone_name = map['CanonicalHostedZoneName']
         data.canonical_hosted_zone_name_id = map['CanonicalHostedZoneNameID']
         data.created_time = map['CreatedTime']
         data.dns_name = map['DnsName']
-        data.health_check = (Parsers::AwsElbLoadBalancerHealthCheck.parse(map['HealthCheck']) unless map['HealthCheck'].nil?)
-        data.instances = (Parsers::AwsElbLoadBalancerInstances.parse(map['Instances']) unless map['Instances'].nil?)
-        data.listener_descriptions = (Parsers::AwsElbLoadBalancerListenerDescriptions.parse(map['ListenerDescriptions']) unless map['ListenerDescriptions'].nil?)
-        data.load_balancer_attributes = (Parsers::AwsElbLoadBalancerAttributes.parse(map['LoadBalancerAttributes']) unless map['LoadBalancerAttributes'].nil?)
+        data.health_check = (AwsElbLoadBalancerHealthCheck.parse(map['HealthCheck']) unless map['HealthCheck'].nil?)
+        data.instances = (AwsElbLoadBalancerInstances.parse(map['Instances']) unless map['Instances'].nil?)
+        data.listener_descriptions = (AwsElbLoadBalancerListenerDescriptions.parse(map['ListenerDescriptions']) unless map['ListenerDescriptions'].nil?)
+        data.load_balancer_attributes = (AwsElbLoadBalancerAttributes.parse(map['LoadBalancerAttributes']) unless map['LoadBalancerAttributes'].nil?)
         data.load_balancer_name = map['LoadBalancerName']
-        data.policies = (Parsers::AwsElbLoadBalancerPolicies.parse(map['Policies']) unless map['Policies'].nil?)
+        data.policies = (AwsElbLoadBalancerPolicies.parse(map['Policies']) unless map['Policies'].nil?)
         data.scheme = map['Scheme']
-        data.security_groups = (Parsers::StringList.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
-        data.source_security_group = (Parsers::AwsElbLoadBalancerSourceSecurityGroup.parse(map['SourceSecurityGroup']) unless map['SourceSecurityGroup'].nil?)
-        data.subnets = (Parsers::StringList.parse(map['Subnets']) unless map['Subnets'].nil?)
+        data.security_groups = (StringList.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
+        data.source_security_group = (AwsElbLoadBalancerSourceSecurityGroup.parse(map['SourceSecurityGroup']) unless map['SourceSecurityGroup'].nil?)
+        data.subnets = (StringList.parse(map['Subnets']) unless map['Subnets'].nil?)
         data.vpc_id = map['VpcId']
         return data
       end
@@ -3954,9 +3954,9 @@ module AWS::SDK::SecurityHub
     class AwsElbLoadBalancerPolicies
       def self.parse(map)
         data = Types::AwsElbLoadBalancerPolicies.new
-        data.app_cookie_stickiness_policies = (Parsers::AwsElbAppCookieStickinessPolicies.parse(map['AppCookieStickinessPolicies']) unless map['AppCookieStickinessPolicies'].nil?)
-        data.lb_cookie_stickiness_policies = (Parsers::AwsElbLbCookieStickinessPolicies.parse(map['LbCookieStickinessPolicies']) unless map['LbCookieStickinessPolicies'].nil?)
-        data.other_policies = (Parsers::StringList.parse(map['OtherPolicies']) unless map['OtherPolicies'].nil?)
+        data.app_cookie_stickiness_policies = (AwsElbAppCookieStickinessPolicies.parse(map['AppCookieStickinessPolicies']) unless map['AppCookieStickinessPolicies'].nil?)
+        data.lb_cookie_stickiness_policies = (AwsElbLbCookieStickinessPolicies.parse(map['LbCookieStickinessPolicies']) unless map['LbCookieStickinessPolicies'].nil?)
+        data.other_policies = (StringList.parse(map['OtherPolicies']) unless map['OtherPolicies'].nil?)
         return data
       end
     end
@@ -3965,7 +3965,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsElbLbCookieStickinessPolicy.parse(value) unless value.nil?
+          data << AwsElbLbCookieStickinessPolicy.parse(value) unless value.nil?
         end
         data
       end
@@ -3984,7 +3984,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsElbAppCookieStickinessPolicy.parse(value) unless value.nil?
+          data << AwsElbAppCookieStickinessPolicy.parse(value) unless value.nil?
         end
         data
       end
@@ -4002,11 +4002,11 @@ module AWS::SDK::SecurityHub
     class AwsElbLoadBalancerAttributes
       def self.parse(map)
         data = Types::AwsElbLoadBalancerAttributes.new
-        data.access_log = (Parsers::AwsElbLoadBalancerAccessLog.parse(map['AccessLog']) unless map['AccessLog'].nil?)
-        data.connection_draining = (Parsers::AwsElbLoadBalancerConnectionDraining.parse(map['ConnectionDraining']) unless map['ConnectionDraining'].nil?)
-        data.connection_settings = (Parsers::AwsElbLoadBalancerConnectionSettings.parse(map['ConnectionSettings']) unless map['ConnectionSettings'].nil?)
-        data.cross_zone_load_balancing = (Parsers::AwsElbLoadBalancerCrossZoneLoadBalancing.parse(map['CrossZoneLoadBalancing']) unless map['CrossZoneLoadBalancing'].nil?)
-        data.additional_attributes = (Parsers::AwsElbLoadBalancerAdditionalAttributeList.parse(map['AdditionalAttributes']) unless map['AdditionalAttributes'].nil?)
+        data.access_log = (AwsElbLoadBalancerAccessLog.parse(map['AccessLog']) unless map['AccessLog'].nil?)
+        data.connection_draining = (AwsElbLoadBalancerConnectionDraining.parse(map['ConnectionDraining']) unless map['ConnectionDraining'].nil?)
+        data.connection_settings = (AwsElbLoadBalancerConnectionSettings.parse(map['ConnectionSettings']) unless map['ConnectionSettings'].nil?)
+        data.cross_zone_load_balancing = (AwsElbLoadBalancerCrossZoneLoadBalancing.parse(map['CrossZoneLoadBalancing']) unless map['CrossZoneLoadBalancing'].nil?)
+        data.additional_attributes = (AwsElbLoadBalancerAdditionalAttributeList.parse(map['AdditionalAttributes']) unless map['AdditionalAttributes'].nil?)
         return data
       end
     end
@@ -4015,7 +4015,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsElbLoadBalancerAdditionalAttribute.parse(value) unless value.nil?
+          data << AwsElbLoadBalancerAdditionalAttribute.parse(value) unless value.nil?
         end
         data
       end
@@ -4070,7 +4070,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsElbLoadBalancerListenerDescription.parse(value) unless value.nil?
+          data << AwsElbLoadBalancerListenerDescription.parse(value) unless value.nil?
         end
         data
       end
@@ -4079,8 +4079,8 @@ module AWS::SDK::SecurityHub
     class AwsElbLoadBalancerListenerDescription
       def self.parse(map)
         data = Types::AwsElbLoadBalancerListenerDescription.new
-        data.listener = (Parsers::AwsElbLoadBalancerListener.parse(map['Listener']) unless map['Listener'].nil?)
-        data.policy_names = (Parsers::StringList.parse(map['PolicyNames']) unless map['PolicyNames'].nil?)
+        data.listener = (AwsElbLoadBalancerListener.parse(map['Listener']) unless map['Listener'].nil?)
+        data.policy_names = (StringList.parse(map['PolicyNames']) unless map['PolicyNames'].nil?)
         return data
       end
     end
@@ -4101,7 +4101,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsElbLoadBalancerInstance.parse(value) unless value.nil?
+          data << AwsElbLoadBalancerInstance.parse(value) unless value.nil?
         end
         data
       end
@@ -4131,7 +4131,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsElbLoadBalancerBackendServerDescription.parse(value) unless value.nil?
+          data << AwsElbLoadBalancerBackendServerDescription.parse(value) unless value.nil?
         end
         data
       end
@@ -4141,7 +4141,7 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsElbLoadBalancerBackendServerDescription.new
         data.instance_port = map['InstancePort']
-        data.policy_names = (Parsers::StringList.parse(map['PolicyNames']) unless map['PolicyNames'].nil?)
+        data.policy_names = (StringList.parse(map['PolicyNames']) unless map['PolicyNames'].nil?)
         return data
       end
     end
@@ -4155,26 +4155,26 @@ module AWS::SDK::SecurityHub
         data.cluster_availability_status = map['ClusterAvailabilityStatus']
         data.cluster_create_time = map['ClusterCreateTime']
         data.cluster_identifier = map['ClusterIdentifier']
-        data.cluster_nodes = (Parsers::AwsRedshiftClusterClusterNodes.parse(map['ClusterNodes']) unless map['ClusterNodes'].nil?)
-        data.cluster_parameter_groups = (Parsers::AwsRedshiftClusterClusterParameterGroups.parse(map['ClusterParameterGroups']) unless map['ClusterParameterGroups'].nil?)
+        data.cluster_nodes = (AwsRedshiftClusterClusterNodes.parse(map['ClusterNodes']) unless map['ClusterNodes'].nil?)
+        data.cluster_parameter_groups = (AwsRedshiftClusterClusterParameterGroups.parse(map['ClusterParameterGroups']) unless map['ClusterParameterGroups'].nil?)
         data.cluster_public_key = map['ClusterPublicKey']
         data.cluster_revision_number = map['ClusterRevisionNumber']
-        data.cluster_security_groups = (Parsers::AwsRedshiftClusterClusterSecurityGroups.parse(map['ClusterSecurityGroups']) unless map['ClusterSecurityGroups'].nil?)
-        data.cluster_snapshot_copy_status = (Parsers::AwsRedshiftClusterClusterSnapshotCopyStatus.parse(map['ClusterSnapshotCopyStatus']) unless map['ClusterSnapshotCopyStatus'].nil?)
+        data.cluster_security_groups = (AwsRedshiftClusterClusterSecurityGroups.parse(map['ClusterSecurityGroups']) unless map['ClusterSecurityGroups'].nil?)
+        data.cluster_snapshot_copy_status = (AwsRedshiftClusterClusterSnapshotCopyStatus.parse(map['ClusterSnapshotCopyStatus']) unless map['ClusterSnapshotCopyStatus'].nil?)
         data.cluster_status = map['ClusterStatus']
         data.cluster_subnet_group_name = map['ClusterSubnetGroupName']
         data.cluster_version = map['ClusterVersion']
         data.db_name = map['DBName']
-        data.deferred_maintenance_windows = (Parsers::AwsRedshiftClusterDeferredMaintenanceWindows.parse(map['DeferredMaintenanceWindows']) unless map['DeferredMaintenanceWindows'].nil?)
-        data.elastic_ip_status = (Parsers::AwsRedshiftClusterElasticIpStatus.parse(map['ElasticIpStatus']) unless map['ElasticIpStatus'].nil?)
+        data.deferred_maintenance_windows = (AwsRedshiftClusterDeferredMaintenanceWindows.parse(map['DeferredMaintenanceWindows']) unless map['DeferredMaintenanceWindows'].nil?)
+        data.elastic_ip_status = (AwsRedshiftClusterElasticIpStatus.parse(map['ElasticIpStatus']) unless map['ElasticIpStatus'].nil?)
         data.elastic_resize_number_of_node_options = map['ElasticResizeNumberOfNodeOptions']
         data.encrypted = map['Encrypted']
-        data.endpoint = (Parsers::AwsRedshiftClusterEndpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
+        data.endpoint = (AwsRedshiftClusterEndpoint.parse(map['Endpoint']) unless map['Endpoint'].nil?)
         data.enhanced_vpc_routing = map['EnhancedVpcRouting']
         data.expected_next_snapshot_schedule_time = map['ExpectedNextSnapshotScheduleTime']
         data.expected_next_snapshot_schedule_time_status = map['ExpectedNextSnapshotScheduleTimeStatus']
-        data.hsm_status = (Parsers::AwsRedshiftClusterHsmStatus.parse(map['HsmStatus']) unless map['HsmStatus'].nil?)
-        data.iam_roles = (Parsers::AwsRedshiftClusterIamRoles.parse(map['IamRoles']) unless map['IamRoles'].nil?)
+        data.hsm_status = (AwsRedshiftClusterHsmStatus.parse(map['HsmStatus']) unless map['HsmStatus'].nil?)
+        data.iam_roles = (AwsRedshiftClusterIamRoles.parse(map['IamRoles']) unless map['IamRoles'].nil?)
         data.kms_key_id = map['KmsKeyId']
         data.maintenance_track_name = map['MaintenanceTrackName']
         data.manual_snapshot_retention_period = map['ManualSnapshotRetentionPeriod']
@@ -4182,17 +4182,17 @@ module AWS::SDK::SecurityHub
         data.next_maintenance_window_start_time = map['NextMaintenanceWindowStartTime']
         data.node_type = map['NodeType']
         data.number_of_nodes = map['NumberOfNodes']
-        data.pending_actions = (Parsers::StringList.parse(map['PendingActions']) unless map['PendingActions'].nil?)
-        data.pending_modified_values = (Parsers::AwsRedshiftClusterPendingModifiedValues.parse(map['PendingModifiedValues']) unless map['PendingModifiedValues'].nil?)
+        data.pending_actions = (StringList.parse(map['PendingActions']) unless map['PendingActions'].nil?)
+        data.pending_modified_values = (AwsRedshiftClusterPendingModifiedValues.parse(map['PendingModifiedValues']) unless map['PendingModifiedValues'].nil?)
         data.preferred_maintenance_window = map['PreferredMaintenanceWindow']
         data.publicly_accessible = map['PubliclyAccessible']
-        data.resize_info = (Parsers::AwsRedshiftClusterResizeInfo.parse(map['ResizeInfo']) unless map['ResizeInfo'].nil?)
-        data.restore_status = (Parsers::AwsRedshiftClusterRestoreStatus.parse(map['RestoreStatus']) unless map['RestoreStatus'].nil?)
+        data.resize_info = (AwsRedshiftClusterResizeInfo.parse(map['ResizeInfo']) unless map['ResizeInfo'].nil?)
+        data.restore_status = (AwsRedshiftClusterRestoreStatus.parse(map['RestoreStatus']) unless map['RestoreStatus'].nil?)
         data.snapshot_schedule_identifier = map['SnapshotScheduleIdentifier']
         data.snapshot_schedule_state = map['SnapshotScheduleState']
         data.vpc_id = map['VpcId']
-        data.vpc_security_groups = (Parsers::AwsRedshiftClusterVpcSecurityGroups.parse(map['VpcSecurityGroups']) unless map['VpcSecurityGroups'].nil?)
-        data.logging_status = (Parsers::AwsRedshiftClusterLoggingStatus.parse(map['LoggingStatus']) unless map['LoggingStatus'].nil?)
+        data.vpc_security_groups = (AwsRedshiftClusterVpcSecurityGroups.parse(map['VpcSecurityGroups']) unless map['VpcSecurityGroups'].nil?)
+        data.logging_status = (AwsRedshiftClusterLoggingStatus.parse(map['LoggingStatus']) unless map['LoggingStatus'].nil?)
         return data
       end
     end
@@ -4214,7 +4214,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRedshiftClusterVpcSecurityGroup.parse(value) unless value.nil?
+          data << AwsRedshiftClusterVpcSecurityGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -4273,7 +4273,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRedshiftClusterIamRole.parse(value) unless value.nil?
+          data << AwsRedshiftClusterIamRole.parse(value) unless value.nil?
         end
         data
       end
@@ -4320,7 +4320,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRedshiftClusterDeferredMaintenanceWindow.parse(value) unless value.nil?
+          data << AwsRedshiftClusterDeferredMaintenanceWindow.parse(value) unless value.nil?
         end
         data
       end
@@ -4351,7 +4351,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRedshiftClusterClusterSecurityGroup.parse(value) unless value.nil?
+          data << AwsRedshiftClusterClusterSecurityGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -4370,7 +4370,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRedshiftClusterClusterParameterGroup.parse(value) unless value.nil?
+          data << AwsRedshiftClusterClusterParameterGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -4379,7 +4379,7 @@ module AWS::SDK::SecurityHub
     class AwsRedshiftClusterClusterParameterGroup
       def self.parse(map)
         data = Types::AwsRedshiftClusterClusterParameterGroup.new
-        data.cluster_parameter_status_list = (Parsers::AwsRedshiftClusterClusterParameterStatusList.parse(map['ClusterParameterStatusList']) unless map['ClusterParameterStatusList'].nil?)
+        data.cluster_parameter_status_list = (AwsRedshiftClusterClusterParameterStatusList.parse(map['ClusterParameterStatusList']) unless map['ClusterParameterStatusList'].nil?)
         data.parameter_apply_status = map['ParameterApplyStatus']
         data.parameter_group_name = map['ParameterGroupName']
         return data
@@ -4390,7 +4390,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRedshiftClusterClusterParameterStatus.parse(value) unless value.nil?
+          data << AwsRedshiftClusterClusterParameterStatus.parse(value) unless value.nil?
         end
         data
       end
@@ -4410,7 +4410,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsRedshiftClusterClusterNode.parse(value) unless value.nil?
+          data << AwsRedshiftClusterClusterNode.parse(value) unless value.nil?
         end
         data
       end
@@ -4432,25 +4432,25 @@ module AWS::SDK::SecurityHub
         data.certificate_authority_arn = map['CertificateAuthorityArn']
         data.created_at = map['CreatedAt']
         data.domain_name = map['DomainName']
-        data.domain_validation_options = (Parsers::AwsCertificateManagerCertificateDomainValidationOptions.parse(map['DomainValidationOptions']) unless map['DomainValidationOptions'].nil?)
-        data.extended_key_usages = (Parsers::AwsCertificateManagerCertificateExtendedKeyUsages.parse(map['ExtendedKeyUsages']) unless map['ExtendedKeyUsages'].nil?)
+        data.domain_validation_options = (AwsCertificateManagerCertificateDomainValidationOptions.parse(map['DomainValidationOptions']) unless map['DomainValidationOptions'].nil?)
+        data.extended_key_usages = (AwsCertificateManagerCertificateExtendedKeyUsages.parse(map['ExtendedKeyUsages']) unless map['ExtendedKeyUsages'].nil?)
         data.failure_reason = map['FailureReason']
         data.imported_at = map['ImportedAt']
-        data.in_use_by = (Parsers::StringList.parse(map['InUseBy']) unless map['InUseBy'].nil?)
+        data.in_use_by = (StringList.parse(map['InUseBy']) unless map['InUseBy'].nil?)
         data.issued_at = map['IssuedAt']
         data.issuer = map['Issuer']
         data.key_algorithm = map['KeyAlgorithm']
-        data.key_usages = (Parsers::AwsCertificateManagerCertificateKeyUsages.parse(map['KeyUsages']) unless map['KeyUsages'].nil?)
+        data.key_usages = (AwsCertificateManagerCertificateKeyUsages.parse(map['KeyUsages']) unless map['KeyUsages'].nil?)
         data.not_after = map['NotAfter']
         data.not_before = map['NotBefore']
-        data.options = (Parsers::AwsCertificateManagerCertificateOptions.parse(map['Options']) unless map['Options'].nil?)
+        data.options = (AwsCertificateManagerCertificateOptions.parse(map['Options']) unless map['Options'].nil?)
         data.renewal_eligibility = map['RenewalEligibility']
-        data.renewal_summary = (Parsers::AwsCertificateManagerCertificateRenewalSummary.parse(map['RenewalSummary']) unless map['RenewalSummary'].nil?)
+        data.renewal_summary = (AwsCertificateManagerCertificateRenewalSummary.parse(map['RenewalSummary']) unless map['RenewalSummary'].nil?)
         data.serial = map['Serial']
         data.signature_algorithm = map['SignatureAlgorithm']
         data.status = map['Status']
         data.subject = map['Subject']
-        data.subject_alternative_names = (Parsers::StringList.parse(map['SubjectAlternativeNames']) unless map['SubjectAlternativeNames'].nil?)
+        data.subject_alternative_names = (StringList.parse(map['SubjectAlternativeNames']) unless map['SubjectAlternativeNames'].nil?)
         data.type = map['Type']
         return data
       end
@@ -4459,7 +4459,7 @@ module AWS::SDK::SecurityHub
     class AwsCertificateManagerCertificateRenewalSummary
       def self.parse(map)
         data = Types::AwsCertificateManagerCertificateRenewalSummary.new
-        data.domain_validation_options = (Parsers::AwsCertificateManagerCertificateDomainValidationOptions.parse(map['DomainValidationOptions']) unless map['DomainValidationOptions'].nil?)
+        data.domain_validation_options = (AwsCertificateManagerCertificateDomainValidationOptions.parse(map['DomainValidationOptions']) unless map['DomainValidationOptions'].nil?)
         data.renewal_status = map['RenewalStatus']
         data.renewal_status_reason = map['RenewalStatusReason']
         data.updated_at = map['UpdatedAt']
@@ -4471,7 +4471,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsCertificateManagerCertificateDomainValidationOption.parse(value) unless value.nil?
+          data << AwsCertificateManagerCertificateDomainValidationOption.parse(value) unless value.nil?
         end
         data
       end
@@ -4481,9 +4481,9 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsCertificateManagerCertificateDomainValidationOption.new
         data.domain_name = map['DomainName']
-        data.resource_record = (Parsers::AwsCertificateManagerCertificateResourceRecord.parse(map['ResourceRecord']) unless map['ResourceRecord'].nil?)
+        data.resource_record = (AwsCertificateManagerCertificateResourceRecord.parse(map['ResourceRecord']) unless map['ResourceRecord'].nil?)
         data.validation_domain = map['ValidationDomain']
-        data.validation_emails = (Parsers::StringList.parse(map['ValidationEmails']) unless map['ValidationEmails'].nil?)
+        data.validation_emails = (StringList.parse(map['ValidationEmails']) unless map['ValidationEmails'].nil?)
         data.validation_method = map['ValidationMethod']
         data.validation_status = map['ValidationStatus']
         return data
@@ -4512,7 +4512,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsCertificateManagerCertificateKeyUsage.parse(value) unless value.nil?
+          data << AwsCertificateManagerCertificateKeyUsage.parse(value) unless value.nil?
         end
         data
       end
@@ -4530,7 +4530,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsCertificateManagerCertificateExtendedKeyUsage.parse(value) unless value.nil?
+          data << AwsCertificateManagerCertificateExtendedKeyUsage.parse(value) unless value.nil?
         end
         data
       end
@@ -4548,7 +4548,7 @@ module AWS::SDK::SecurityHub
     class AwsSsmPatchComplianceDetails
       def self.parse(map)
         data = Types::AwsSsmPatchComplianceDetails.new
-        data.patch = (Parsers::AwsSsmPatch.parse(map['Patch']) unless map['Patch'].nil?)
+        data.patch = (AwsSsmPatch.parse(map['Patch']) unless map['Patch'].nil?)
         return data
       end
     end
@@ -4556,7 +4556,7 @@ module AWS::SDK::SecurityHub
     class AwsSsmPatch
       def self.parse(map)
         data = Types::AwsSsmPatch.new
-        data.compliance_summary = (Parsers::AwsSsmComplianceSummary.parse(map['ComplianceSummary']) unless map['ComplianceSummary'].nil?)
+        data.compliance_summary = (AwsSsmComplianceSummary.parse(map['ComplianceSummary']) unless map['ComplianceSummary'].nil?)
         return data
       end
     end
@@ -4616,10 +4616,10 @@ module AWS::SDK::SecurityHub
         data.description = map['Description']
         data.created_date = map['CreatedDate']
         data.version = map['Version']
-        data.binary_media_types = (Parsers::NonEmptyStringList.parse(map['BinaryMediaTypes']) unless map['BinaryMediaTypes'].nil?)
+        data.binary_media_types = (NonEmptyStringList.parse(map['BinaryMediaTypes']) unless map['BinaryMediaTypes'].nil?)
         data.minimum_compression_size = map['MinimumCompressionSize']
         data.api_key_source = map['ApiKeySource']
-        data.endpoint_configuration = (Parsers::AwsApiGatewayEndpointConfiguration.parse(map['EndpointConfiguration']) unless map['EndpointConfiguration'].nil?)
+        data.endpoint_configuration = (AwsApiGatewayEndpointConfiguration.parse(map['EndpointConfiguration']) unless map['EndpointConfiguration'].nil?)
         return data
       end
     end
@@ -4627,7 +4627,7 @@ module AWS::SDK::SecurityHub
     class AwsApiGatewayEndpointConfiguration
       def self.parse(map)
         data = Types::AwsApiGatewayEndpointConfiguration.new
-        data.types = (Parsers::NonEmptyStringList.parse(map['Types']) unless map['Types'].nil?)
+        data.types = (NonEmptyStringList.parse(map['Types']) unless map['Types'].nil?)
         return data
       end
     end
@@ -4642,11 +4642,11 @@ module AWS::SDK::SecurityHub
         data.cache_cluster_enabled = map['CacheClusterEnabled']
         data.cache_cluster_size = map['CacheClusterSize']
         data.cache_cluster_status = map['CacheClusterStatus']
-        data.method_settings = (Parsers::AwsApiGatewayMethodSettingsList.parse(map['MethodSettings']) unless map['MethodSettings'].nil?)
-        data.variables = (Parsers::FieldMap.parse(map['Variables']) unless map['Variables'].nil?)
+        data.method_settings = (AwsApiGatewayMethodSettingsList.parse(map['MethodSettings']) unless map['MethodSettings'].nil?)
+        data.variables = (FieldMap.parse(map['Variables']) unless map['Variables'].nil?)
         data.documentation_version = map['DocumentationVersion']
-        data.access_log_settings = (Parsers::AwsApiGatewayAccessLogSettings.parse(map['AccessLogSettings']) unless map['AccessLogSettings'].nil?)
-        data.canary_settings = (Parsers::AwsApiGatewayCanarySettings.parse(map['CanarySettings']) unless map['CanarySettings'].nil?)
+        data.access_log_settings = (AwsApiGatewayAccessLogSettings.parse(map['AccessLogSettings']) unless map['AccessLogSettings'].nil?)
+        data.canary_settings = (AwsApiGatewayCanarySettings.parse(map['CanarySettings']) unless map['CanarySettings'].nil?)
         data.tracing_enabled = map['TracingEnabled']
         data.created_date = map['CreatedDate']
         data.last_updated_date = map['LastUpdatedDate']
@@ -4660,7 +4660,7 @@ module AWS::SDK::SecurityHub
         data = Types::AwsApiGatewayCanarySettings.new
         data.percent_traffic = Hearth::NumberHelper.deserialize(map['PercentTraffic'])
         data.deployment_id = map['DeploymentId']
-        data.stage_variable_overrides = (Parsers::FieldMap.parse(map['StageVariableOverrides']) unless map['StageVariableOverrides'].nil?)
+        data.stage_variable_overrides = (FieldMap.parse(map['StageVariableOverrides']) unless map['StageVariableOverrides'].nil?)
         data.use_stage_cache = map['UseStageCache']
         return data
       end
@@ -4679,7 +4679,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsApiGatewayMethodSettings.parse(value) unless value.nil?
+          data << AwsApiGatewayMethodSettings.parse(value) unless value.nil?
         end
         data
       end
@@ -4707,21 +4707,21 @@ module AWS::SDK::SecurityHub
     class AwsDynamoDbTableDetails
       def self.parse(map)
         data = Types::AwsDynamoDbTableDetails.new
-        data.attribute_definitions = (Parsers::AwsDynamoDbTableAttributeDefinitionList.parse(map['AttributeDefinitions']) unless map['AttributeDefinitions'].nil?)
-        data.billing_mode_summary = (Parsers::AwsDynamoDbTableBillingModeSummary.parse(map['BillingModeSummary']) unless map['BillingModeSummary'].nil?)
+        data.attribute_definitions = (AwsDynamoDbTableAttributeDefinitionList.parse(map['AttributeDefinitions']) unless map['AttributeDefinitions'].nil?)
+        data.billing_mode_summary = (AwsDynamoDbTableBillingModeSummary.parse(map['BillingModeSummary']) unless map['BillingModeSummary'].nil?)
         data.creation_date_time = map['CreationDateTime']
-        data.global_secondary_indexes = (Parsers::AwsDynamoDbTableGlobalSecondaryIndexList.parse(map['GlobalSecondaryIndexes']) unless map['GlobalSecondaryIndexes'].nil?)
+        data.global_secondary_indexes = (AwsDynamoDbTableGlobalSecondaryIndexList.parse(map['GlobalSecondaryIndexes']) unless map['GlobalSecondaryIndexes'].nil?)
         data.global_table_version = map['GlobalTableVersion']
         data.item_count = map['ItemCount']
-        data.key_schema = (Parsers::AwsDynamoDbTableKeySchemaList.parse(map['KeySchema']) unless map['KeySchema'].nil?)
+        data.key_schema = (AwsDynamoDbTableKeySchemaList.parse(map['KeySchema']) unless map['KeySchema'].nil?)
         data.latest_stream_arn = map['LatestStreamArn']
         data.latest_stream_label = map['LatestStreamLabel']
-        data.local_secondary_indexes = (Parsers::AwsDynamoDbTableLocalSecondaryIndexList.parse(map['LocalSecondaryIndexes']) unless map['LocalSecondaryIndexes'].nil?)
-        data.provisioned_throughput = (Parsers::AwsDynamoDbTableProvisionedThroughput.parse(map['ProvisionedThroughput']) unless map['ProvisionedThroughput'].nil?)
-        data.replicas = (Parsers::AwsDynamoDbTableReplicaList.parse(map['Replicas']) unless map['Replicas'].nil?)
-        data.restore_summary = (Parsers::AwsDynamoDbTableRestoreSummary.parse(map['RestoreSummary']) unless map['RestoreSummary'].nil?)
-        data.sse_description = (Parsers::AwsDynamoDbTableSseDescription.parse(map['SseDescription']) unless map['SseDescription'].nil?)
-        data.stream_specification = (Parsers::AwsDynamoDbTableStreamSpecification.parse(map['StreamSpecification']) unless map['StreamSpecification'].nil?)
+        data.local_secondary_indexes = (AwsDynamoDbTableLocalSecondaryIndexList.parse(map['LocalSecondaryIndexes']) unless map['LocalSecondaryIndexes'].nil?)
+        data.provisioned_throughput = (AwsDynamoDbTableProvisionedThroughput.parse(map['ProvisionedThroughput']) unless map['ProvisionedThroughput'].nil?)
+        data.replicas = (AwsDynamoDbTableReplicaList.parse(map['Replicas']) unless map['Replicas'].nil?)
+        data.restore_summary = (AwsDynamoDbTableRestoreSummary.parse(map['RestoreSummary']) unless map['RestoreSummary'].nil?)
+        data.sse_description = (AwsDynamoDbTableSseDescription.parse(map['SseDescription']) unless map['SseDescription'].nil?)
+        data.stream_specification = (AwsDynamoDbTableStreamSpecification.parse(map['StreamSpecification']) unless map['StreamSpecification'].nil?)
         data.table_id = map['TableId']
         data.table_name = map['TableName']
         data.table_size_bytes = map['TableSizeBytes']
@@ -4765,7 +4765,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsDynamoDbTableReplica.parse(value) unless value.nil?
+          data << AwsDynamoDbTableReplica.parse(value) unless value.nil?
         end
         data
       end
@@ -4774,9 +4774,9 @@ module AWS::SDK::SecurityHub
     class AwsDynamoDbTableReplica
       def self.parse(map)
         data = Types::AwsDynamoDbTableReplica.new
-        data.global_secondary_indexes = (Parsers::AwsDynamoDbTableReplicaGlobalSecondaryIndexList.parse(map['GlobalSecondaryIndexes']) unless map['GlobalSecondaryIndexes'].nil?)
+        data.global_secondary_indexes = (AwsDynamoDbTableReplicaGlobalSecondaryIndexList.parse(map['GlobalSecondaryIndexes']) unless map['GlobalSecondaryIndexes'].nil?)
         data.kms_master_key_id = map['KmsMasterKeyId']
-        data.provisioned_throughput_override = (Parsers::AwsDynamoDbTableProvisionedThroughputOverride.parse(map['ProvisionedThroughputOverride']) unless map['ProvisionedThroughputOverride'].nil?)
+        data.provisioned_throughput_override = (AwsDynamoDbTableProvisionedThroughputOverride.parse(map['ProvisionedThroughputOverride']) unless map['ProvisionedThroughputOverride'].nil?)
         data.region_name = map['RegionName']
         data.replica_status = map['ReplicaStatus']
         data.replica_status_description = map['ReplicaStatusDescription']
@@ -4796,7 +4796,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsDynamoDbTableReplicaGlobalSecondaryIndex.parse(value) unless value.nil?
+          data << AwsDynamoDbTableReplicaGlobalSecondaryIndex.parse(value) unless value.nil?
         end
         data
       end
@@ -4806,7 +4806,7 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsDynamoDbTableReplicaGlobalSecondaryIndex.new
         data.index_name = map['IndexName']
-        data.provisioned_throughput_override = (Parsers::AwsDynamoDbTableProvisionedThroughputOverride.parse(map['ProvisionedThroughputOverride']) unless map['ProvisionedThroughputOverride'].nil?)
+        data.provisioned_throughput_override = (AwsDynamoDbTableProvisionedThroughputOverride.parse(map['ProvisionedThroughputOverride']) unless map['ProvisionedThroughputOverride'].nil?)
         return data
       end
     end
@@ -4827,7 +4827,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsDynamoDbTableLocalSecondaryIndex.parse(value) unless value.nil?
+          data << AwsDynamoDbTableLocalSecondaryIndex.parse(value) unless value.nil?
         end
         data
       end
@@ -4838,8 +4838,8 @@ module AWS::SDK::SecurityHub
         data = Types::AwsDynamoDbTableLocalSecondaryIndex.new
         data.index_arn = map['IndexArn']
         data.index_name = map['IndexName']
-        data.key_schema = (Parsers::AwsDynamoDbTableKeySchemaList.parse(map['KeySchema']) unless map['KeySchema'].nil?)
-        data.projection = (Parsers::AwsDynamoDbTableProjection.parse(map['Projection']) unless map['Projection'].nil?)
+        data.key_schema = (AwsDynamoDbTableKeySchemaList.parse(map['KeySchema']) unless map['KeySchema'].nil?)
+        data.projection = (AwsDynamoDbTableProjection.parse(map['Projection']) unless map['Projection'].nil?)
         return data
       end
     end
@@ -4847,7 +4847,7 @@ module AWS::SDK::SecurityHub
     class AwsDynamoDbTableProjection
       def self.parse(map)
         data = Types::AwsDynamoDbTableProjection.new
-        data.non_key_attributes = (Parsers::StringList.parse(map['NonKeyAttributes']) unless map['NonKeyAttributes'].nil?)
+        data.non_key_attributes = (StringList.parse(map['NonKeyAttributes']) unless map['NonKeyAttributes'].nil?)
         data.projection_type = map['ProjectionType']
         return data
       end
@@ -4857,7 +4857,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsDynamoDbTableKeySchema.parse(value) unless value.nil?
+          data << AwsDynamoDbTableKeySchema.parse(value) unless value.nil?
         end
         data
       end
@@ -4876,7 +4876,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsDynamoDbTableGlobalSecondaryIndex.parse(value) unless value.nil?
+          data << AwsDynamoDbTableGlobalSecondaryIndex.parse(value) unless value.nil?
         end
         data
       end
@@ -4891,9 +4891,9 @@ module AWS::SDK::SecurityHub
         data.index_size_bytes = map['IndexSizeBytes']
         data.index_status = map['IndexStatus']
         data.item_count = map['ItemCount']
-        data.key_schema = (Parsers::AwsDynamoDbTableKeySchemaList.parse(map['KeySchema']) unless map['KeySchema'].nil?)
-        data.projection = (Parsers::AwsDynamoDbTableProjection.parse(map['Projection']) unless map['Projection'].nil?)
-        data.provisioned_throughput = (Parsers::AwsDynamoDbTableProvisionedThroughput.parse(map['ProvisionedThroughput']) unless map['ProvisionedThroughput'].nil?)
+        data.key_schema = (AwsDynamoDbTableKeySchemaList.parse(map['KeySchema']) unless map['KeySchema'].nil?)
+        data.projection = (AwsDynamoDbTableProjection.parse(map['Projection']) unless map['Projection'].nil?)
+        data.provisioned_throughput = (AwsDynamoDbTableProvisionedThroughput.parse(map['ProvisionedThroughput']) unless map['ProvisionedThroughput'].nil?)
         return data
       end
     end
@@ -4911,7 +4911,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsDynamoDbTableAttributeDefinition.parse(value) unless value.nil?
+          data << AwsDynamoDbTableAttributeDefinition.parse(value) unless value.nil?
         end
         data
       end
@@ -4938,7 +4938,7 @@ module AWS::SDK::SecurityHub
         data.name = map['Name']
         data.protocol_type = map['ProtocolType']
         data.route_selection_expression = map['RouteSelectionExpression']
-        data.cors_configuration = (Parsers::AwsCorsConfiguration.parse(map['CorsConfiguration']) unless map['CorsConfiguration'].nil?)
+        data.cors_configuration = (AwsCorsConfiguration.parse(map['CorsConfiguration']) unless map['CorsConfiguration'].nil?)
         return data
       end
     end
@@ -4946,12 +4946,12 @@ module AWS::SDK::SecurityHub
     class AwsCorsConfiguration
       def self.parse(map)
         data = Types::AwsCorsConfiguration.new
-        data.allow_origins = (Parsers::NonEmptyStringList.parse(map['AllowOrigins']) unless map['AllowOrigins'].nil?)
+        data.allow_origins = (NonEmptyStringList.parse(map['AllowOrigins']) unless map['AllowOrigins'].nil?)
         data.allow_credentials = map['AllowCredentials']
-        data.expose_headers = (Parsers::NonEmptyStringList.parse(map['ExposeHeaders']) unless map['ExposeHeaders'].nil?)
+        data.expose_headers = (NonEmptyStringList.parse(map['ExposeHeaders']) unless map['ExposeHeaders'].nil?)
         data.max_age = map['MaxAge']
-        data.allow_methods = (Parsers::NonEmptyStringList.parse(map['AllowMethods']) unless map['AllowMethods'].nil?)
-        data.allow_headers = (Parsers::NonEmptyStringList.parse(map['AllowHeaders']) unless map['AllowHeaders'].nil?)
+        data.allow_methods = (NonEmptyStringList.parse(map['AllowMethods']) unless map['AllowMethods'].nil?)
+        data.allow_headers = (NonEmptyStringList.parse(map['AllowHeaders']) unless map['AllowHeaders'].nil?)
         return data
       end
     end
@@ -4962,13 +4962,13 @@ module AWS::SDK::SecurityHub
         data.client_certificate_id = map['ClientCertificateId']
         data.created_date = map['CreatedDate']
         data.description = map['Description']
-        data.default_route_settings = (Parsers::AwsApiGatewayV2RouteSettings.parse(map['DefaultRouteSettings']) unless map['DefaultRouteSettings'].nil?)
+        data.default_route_settings = (AwsApiGatewayV2RouteSettings.parse(map['DefaultRouteSettings']) unless map['DefaultRouteSettings'].nil?)
         data.deployment_id = map['DeploymentId']
         data.last_updated_date = map['LastUpdatedDate']
-        data.route_settings = (Parsers::AwsApiGatewayV2RouteSettings.parse(map['RouteSettings']) unless map['RouteSettings'].nil?)
+        data.route_settings = (AwsApiGatewayV2RouteSettings.parse(map['RouteSettings']) unless map['RouteSettings'].nil?)
         data.stage_name = map['StageName']
-        data.stage_variables = (Parsers::FieldMap.parse(map['StageVariables']) unless map['StageVariables'].nil?)
-        data.access_log_settings = (Parsers::AwsApiGatewayAccessLogSettings.parse(map['AccessLogSettings']) unless map['AccessLogSettings'].nil?)
+        data.stage_variables = (FieldMap.parse(map['StageVariables']) unless map['StageVariables'].nil?)
+        data.access_log_settings = (AwsApiGatewayAccessLogSettings.parse(map['AccessLogSettings']) unless map['AccessLogSettings'].nil?)
         data.auto_deploy = map['AutoDeploy']
         data.last_deployment_status_message = map['LastDeploymentStatusMessage']
         data.api_gateway_managed = map['ApiGatewayManaged']
@@ -5000,7 +5000,7 @@ module AWS::SDK::SecurityHub
         data.permissions_boundary_usage_count = map['PermissionsBoundaryUsageCount']
         data.policy_id = map['PolicyId']
         data.policy_name = map['PolicyName']
-        data.policy_version_list = (Parsers::AwsIamPolicyVersionList.parse(map['PolicyVersionList']) unless map['PolicyVersionList'].nil?)
+        data.policy_version_list = (AwsIamPolicyVersionList.parse(map['PolicyVersionList']) unless map['PolicyVersionList'].nil?)
         data.update_date = map['UpdateDate']
         return data
       end
@@ -5010,7 +5010,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsIamPolicyVersion.parse(value) unless value.nil?
+          data << AwsIamPolicyVersion.parse(value) unless value.nil?
         end
         data
       end
@@ -5029,14 +5029,14 @@ module AWS::SDK::SecurityHub
     class AwsIamUserDetails
       def self.parse(map)
         data = Types::AwsIamUserDetails.new
-        data.attached_managed_policies = (Parsers::AwsIamAttachedManagedPolicyList.parse(map['AttachedManagedPolicies']) unless map['AttachedManagedPolicies'].nil?)
+        data.attached_managed_policies = (AwsIamAttachedManagedPolicyList.parse(map['AttachedManagedPolicies']) unless map['AttachedManagedPolicies'].nil?)
         data.create_date = map['CreateDate']
-        data.group_list = (Parsers::StringList.parse(map['GroupList']) unless map['GroupList'].nil?)
+        data.group_list = (StringList.parse(map['GroupList']) unless map['GroupList'].nil?)
         data.path = map['Path']
-        data.permissions_boundary = (Parsers::AwsIamPermissionsBoundary.parse(map['PermissionsBoundary']) unless map['PermissionsBoundary'].nil?)
+        data.permissions_boundary = (AwsIamPermissionsBoundary.parse(map['PermissionsBoundary']) unless map['PermissionsBoundary'].nil?)
         data.user_id = map['UserId']
         data.user_name = map['UserName']
-        data.user_policy_list = (Parsers::AwsIamUserPolicyList.parse(map['UserPolicyList']) unless map['UserPolicyList'].nil?)
+        data.user_policy_list = (AwsIamUserPolicyList.parse(map['UserPolicyList']) unless map['UserPolicyList'].nil?)
         return data
       end
     end
@@ -5045,7 +5045,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsIamUserPolicy.parse(value) unless value.nil?
+          data << AwsIamUserPolicy.parse(value) unless value.nil?
         end
         data
       end
@@ -5070,7 +5070,7 @@ module AWS::SDK::SecurityHub
         data.principal_name = map['PrincipalName']
         data.account_id = map['AccountId']
         data.access_key_id = map['AccessKeyId']
-        data.session_context = (Parsers::AwsIamAccessKeySessionContext.parse(map['SessionContext']) unless map['SessionContext'].nil?)
+        data.session_context = (AwsIamAccessKeySessionContext.parse(map['SessionContext']) unless map['SessionContext'].nil?)
         return data
       end
     end
@@ -5078,8 +5078,8 @@ module AWS::SDK::SecurityHub
     class AwsIamAccessKeySessionContext
       def self.parse(map)
         data = Types::AwsIamAccessKeySessionContext.new
-        data.attributes = (Parsers::AwsIamAccessKeySessionContextAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
-        data.session_issuer = (Parsers::AwsIamAccessKeySessionContextSessionIssuer.parse(map['SessionIssuer']) unless map['SessionIssuer'].nil?)
+        data.attributes = (AwsIamAccessKeySessionContextAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.session_issuer = (AwsIamAccessKeySessionContextSessionIssuer.parse(map['SessionIssuer']) unless map['SessionIssuer'].nil?)
         return data
       end
     end
@@ -5108,7 +5108,7 @@ module AWS::SDK::SecurityHub
     class AwsSecretsManagerSecretDetails
       def self.parse(map)
         data = Types::AwsSecretsManagerSecretDetails.new
-        data.rotation_rules = (Parsers::AwsSecretsManagerSecretRotationRules.parse(map['RotationRules']) unless map['RotationRules'].nil?)
+        data.rotation_rules = (AwsSecretsManagerSecretRotationRules.parse(map['RotationRules']) unless map['RotationRules'].nil?)
         data.rotation_occurred_within_frequency = map['RotationOccurredWithinFrequency']
         data.kms_key_id = map['KmsKeyId']
         data.rotation_enabled = map['RotationEnabled']
@@ -5159,14 +5159,14 @@ module AWS::SDK::SecurityHub
         data.owner_name = map['OwnerName']
         data.owner_account_id = map['OwnerAccountId']
         data.created_at = map['CreatedAt']
-        data.server_side_encryption_configuration = (Parsers::AwsS3BucketServerSideEncryptionConfiguration.parse(map['ServerSideEncryptionConfiguration']) unless map['ServerSideEncryptionConfiguration'].nil?)
-        data.bucket_lifecycle_configuration = (Parsers::AwsS3BucketBucketLifecycleConfigurationDetails.parse(map['BucketLifecycleConfiguration']) unless map['BucketLifecycleConfiguration'].nil?)
-        data.public_access_block_configuration = (Parsers::AwsS3AccountPublicAccessBlockDetails.parse(map['PublicAccessBlockConfiguration']) unless map['PublicAccessBlockConfiguration'].nil?)
+        data.server_side_encryption_configuration = (AwsS3BucketServerSideEncryptionConfiguration.parse(map['ServerSideEncryptionConfiguration']) unless map['ServerSideEncryptionConfiguration'].nil?)
+        data.bucket_lifecycle_configuration = (AwsS3BucketBucketLifecycleConfigurationDetails.parse(map['BucketLifecycleConfiguration']) unless map['BucketLifecycleConfiguration'].nil?)
+        data.public_access_block_configuration = (AwsS3AccountPublicAccessBlockDetails.parse(map['PublicAccessBlockConfiguration']) unless map['PublicAccessBlockConfiguration'].nil?)
         data.access_control_list = map['AccessControlList']
-        data.bucket_logging_configuration = (Parsers::AwsS3BucketLoggingConfiguration.parse(map['BucketLoggingConfiguration']) unless map['BucketLoggingConfiguration'].nil?)
-        data.bucket_website_configuration = (Parsers::AwsS3BucketWebsiteConfiguration.parse(map['BucketWebsiteConfiguration']) unless map['BucketWebsiteConfiguration'].nil?)
-        data.bucket_notification_configuration = (Parsers::AwsS3BucketNotificationConfiguration.parse(map['BucketNotificationConfiguration']) unless map['BucketNotificationConfiguration'].nil?)
-        data.bucket_versioning_configuration = (Parsers::AwsS3BucketBucketVersioningConfiguration.parse(map['BucketVersioningConfiguration']) unless map['BucketVersioningConfiguration'].nil?)
+        data.bucket_logging_configuration = (AwsS3BucketLoggingConfiguration.parse(map['BucketLoggingConfiguration']) unless map['BucketLoggingConfiguration'].nil?)
+        data.bucket_website_configuration = (AwsS3BucketWebsiteConfiguration.parse(map['BucketWebsiteConfiguration']) unless map['BucketWebsiteConfiguration'].nil?)
+        data.bucket_notification_configuration = (AwsS3BucketNotificationConfiguration.parse(map['BucketNotificationConfiguration']) unless map['BucketNotificationConfiguration'].nil?)
+        data.bucket_versioning_configuration = (AwsS3BucketBucketVersioningConfiguration.parse(map['BucketVersioningConfiguration']) unless map['BucketVersioningConfiguration'].nil?)
         return data
       end
     end
@@ -5183,7 +5183,7 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketNotificationConfiguration
       def self.parse(map)
         data = Types::AwsS3BucketNotificationConfiguration.new
-        data.configurations = (Parsers::AwsS3BucketNotificationConfigurationDetails.parse(map['Configurations']) unless map['Configurations'].nil?)
+        data.configurations = (AwsS3BucketNotificationConfigurationDetails.parse(map['Configurations']) unless map['Configurations'].nil?)
         return data
       end
     end
@@ -5192,7 +5192,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsS3BucketNotificationConfigurationDetail.parse(value) unless value.nil?
+          data << AwsS3BucketNotificationConfigurationDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -5201,8 +5201,8 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketNotificationConfigurationDetail
       def self.parse(map)
         data = Types::AwsS3BucketNotificationConfigurationDetail.new
-        data.events = (Parsers::AwsS3BucketNotificationConfigurationEvents.parse(map['Events']) unless map['Events'].nil?)
-        data.filter = (Parsers::AwsS3BucketNotificationConfigurationFilter.parse(map['Filter']) unless map['Filter'].nil?)
+        data.events = (AwsS3BucketNotificationConfigurationEvents.parse(map['Events']) unless map['Events'].nil?)
+        data.filter = (AwsS3BucketNotificationConfigurationFilter.parse(map['Filter']) unless map['Filter'].nil?)
         data.destination = map['Destination']
         data.type = map['Type']
         return data
@@ -5212,7 +5212,7 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketNotificationConfigurationFilter
       def self.parse(map)
         data = Types::AwsS3BucketNotificationConfigurationFilter.new
-        data.s3_key_filter = (Parsers::AwsS3BucketNotificationConfigurationS3KeyFilter.parse(map['S3KeyFilter']) unless map['S3KeyFilter'].nil?)
+        data.s3_key_filter = (AwsS3BucketNotificationConfigurationS3KeyFilter.parse(map['S3KeyFilter']) unless map['S3KeyFilter'].nil?)
         return data
       end
     end
@@ -5220,7 +5220,7 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketNotificationConfigurationS3KeyFilter
       def self.parse(map)
         data = Types::AwsS3BucketNotificationConfigurationS3KeyFilter.new
-        data.filter_rules = (Parsers::AwsS3BucketNotificationConfigurationS3KeyFilterRules.parse(map['FilterRules']) unless map['FilterRules'].nil?)
+        data.filter_rules = (AwsS3BucketNotificationConfigurationS3KeyFilterRules.parse(map['FilterRules']) unless map['FilterRules'].nil?)
         return data
       end
     end
@@ -5229,7 +5229,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsS3BucketNotificationConfigurationS3KeyFilterRule.parse(value) unless value.nil?
+          data << AwsS3BucketNotificationConfigurationS3KeyFilterRule.parse(value) unless value.nil?
         end
         data
       end
@@ -5259,8 +5259,8 @@ module AWS::SDK::SecurityHub
         data = Types::AwsS3BucketWebsiteConfiguration.new
         data.error_document = map['ErrorDocument']
         data.index_document_suffix = map['IndexDocumentSuffix']
-        data.redirect_all_requests_to = (Parsers::AwsS3BucketWebsiteConfigurationRedirectTo.parse(map['RedirectAllRequestsTo']) unless map['RedirectAllRequestsTo'].nil?)
-        data.routing_rules = (Parsers::AwsS3BucketWebsiteConfigurationRoutingRules.parse(map['RoutingRules']) unless map['RoutingRules'].nil?)
+        data.redirect_all_requests_to = (AwsS3BucketWebsiteConfigurationRedirectTo.parse(map['RedirectAllRequestsTo']) unless map['RedirectAllRequestsTo'].nil?)
+        data.routing_rules = (AwsS3BucketWebsiteConfigurationRoutingRules.parse(map['RoutingRules']) unless map['RoutingRules'].nil?)
         return data
       end
     end
@@ -5269,7 +5269,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsS3BucketWebsiteConfigurationRoutingRule.parse(value) unless value.nil?
+          data << AwsS3BucketWebsiteConfigurationRoutingRule.parse(value) unless value.nil?
         end
         data
       end
@@ -5278,8 +5278,8 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketWebsiteConfigurationRoutingRule
       def self.parse(map)
         data = Types::AwsS3BucketWebsiteConfigurationRoutingRule.new
-        data.condition = (Parsers::AwsS3BucketWebsiteConfigurationRoutingRuleCondition.parse(map['Condition']) unless map['Condition'].nil?)
-        data.redirect = (Parsers::AwsS3BucketWebsiteConfigurationRoutingRuleRedirect.parse(map['Redirect']) unless map['Redirect'].nil?)
+        data.condition = (AwsS3BucketWebsiteConfigurationRoutingRuleCondition.parse(map['Condition']) unless map['Condition'].nil?)
+        data.redirect = (AwsS3BucketWebsiteConfigurationRoutingRuleRedirect.parse(map['Redirect']) unless map['Redirect'].nil?)
         return data
       end
     end
@@ -5326,7 +5326,7 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketBucketLifecycleConfigurationDetails
       def self.parse(map)
         data = Types::AwsS3BucketBucketLifecycleConfigurationDetails.new
-        data.rules = (Parsers::AwsS3BucketBucketLifecycleConfigurationRulesList.parse(map['Rules']) unless map['Rules'].nil?)
+        data.rules = (AwsS3BucketBucketLifecycleConfigurationRulesList.parse(map['Rules']) unless map['Rules'].nil?)
         return data
       end
     end
@@ -5335,7 +5335,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsS3BucketBucketLifecycleConfigurationRulesDetails.parse(value) unless value.nil?
+          data << AwsS3BucketBucketLifecycleConfigurationRulesDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -5344,17 +5344,17 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketBucketLifecycleConfigurationRulesDetails
       def self.parse(map)
         data = Types::AwsS3BucketBucketLifecycleConfigurationRulesDetails.new
-        data.abort_incomplete_multipart_upload = (Parsers::AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails.parse(map['AbortIncompleteMultipartUpload']) unless map['AbortIncompleteMultipartUpload'].nil?)
+        data.abort_incomplete_multipart_upload = (AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails.parse(map['AbortIncompleteMultipartUpload']) unless map['AbortIncompleteMultipartUpload'].nil?)
         data.expiration_date = map['ExpirationDate']
         data.expiration_in_days = map['ExpirationInDays']
         data.expired_object_delete_marker = map['ExpiredObjectDeleteMarker']
-        data.filter = (Parsers::AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails.parse(map['Filter']) unless map['Filter'].nil?)
+        data.filter = (AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails.parse(map['Filter']) unless map['Filter'].nil?)
         data.id = map['ID']
         data.noncurrent_version_expiration_in_days = map['NoncurrentVersionExpirationInDays']
-        data.noncurrent_version_transitions = (Parsers::AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsList.parse(map['NoncurrentVersionTransitions']) unless map['NoncurrentVersionTransitions'].nil?)
+        data.noncurrent_version_transitions = (AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsList.parse(map['NoncurrentVersionTransitions']) unless map['NoncurrentVersionTransitions'].nil?)
         data.prefix = map['Prefix']
         data.status = map['Status']
-        data.transitions = (Parsers::AwsS3BucketBucketLifecycleConfigurationRulesTransitionsList.parse(map['Transitions']) unless map['Transitions'].nil?)
+        data.transitions = (AwsS3BucketBucketLifecycleConfigurationRulesTransitionsList.parse(map['Transitions']) unless map['Transitions'].nil?)
         return data
       end
     end
@@ -5363,7 +5363,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails.parse(value) unless value.nil?
+          data << AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -5383,7 +5383,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails.parse(value) unless value.nil?
+          data << AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -5401,7 +5401,7 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails
       def self.parse(map)
         data = Types::AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails.new
-        data.predicate = (Parsers::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails.parse(map['Predicate']) unless map['Predicate'].nil?)
+        data.predicate = (AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails.parse(map['Predicate']) unless map['Predicate'].nil?)
         return data
       end
     end
@@ -5409,9 +5409,9 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails
       def self.parse(map)
         data = Types::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails.new
-        data.operands = (Parsers::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsList.parse(map['Operands']) unless map['Operands'].nil?)
+        data.operands = (AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsList.parse(map['Operands']) unless map['Operands'].nil?)
         data.prefix = map['Prefix']
-        data.tag = (Parsers::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails.parse(map['Tag']) unless map['Tag'].nil?)
+        data.tag = (AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails.parse(map['Tag']) unless map['Tag'].nil?)
         data.type = map['Type']
         return data
       end
@@ -5430,7 +5430,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails.parse(value) unless value.nil?
+          data << AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -5440,7 +5440,7 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails.new
         data.prefix = map['Prefix']
-        data.tag = (Parsers::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails.parse(map['Tag']) unless map['Tag'].nil?)
+        data.tag = (AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails.parse(map['Tag']) unless map['Tag'].nil?)
         data.type = map['Type']
         return data
       end
@@ -5466,7 +5466,7 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketServerSideEncryptionConfiguration
       def self.parse(map)
         data = Types::AwsS3BucketServerSideEncryptionConfiguration.new
-        data.rules = (Parsers::AwsS3BucketServerSideEncryptionRules.parse(map['Rules']) unless map['Rules'].nil?)
+        data.rules = (AwsS3BucketServerSideEncryptionRules.parse(map['Rules']) unless map['Rules'].nil?)
         return data
       end
     end
@@ -5475,7 +5475,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsS3BucketServerSideEncryptionRule.parse(value) unless value.nil?
+          data << AwsS3BucketServerSideEncryptionRule.parse(value) unless value.nil?
         end
         data
       end
@@ -5484,7 +5484,7 @@ module AWS::SDK::SecurityHub
     class AwsS3BucketServerSideEncryptionRule
       def self.parse(map)
         data = Types::AwsS3BucketServerSideEncryptionRule.new
-        data.apply_server_side_encryption_by_default = (Parsers::AwsS3BucketServerSideEncryptionByDefault.parse(map['ApplyServerSideEncryptionByDefault']) unless map['ApplyServerSideEncryptionByDefault'].nil?)
+        data.apply_server_side_encryption_by_default = (AwsS3BucketServerSideEncryptionByDefault.parse(map['ApplyServerSideEncryptionByDefault']) unless map['ApplyServerSideEncryptionByDefault'].nil?)
         return data
       end
     end
@@ -5502,18 +5502,18 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsElasticsearchDomainDetails.new
         data.access_policies = map['AccessPolicies']
-        data.domain_endpoint_options = (Parsers::AwsElasticsearchDomainDomainEndpointOptions.parse(map['DomainEndpointOptions']) unless map['DomainEndpointOptions'].nil?)
+        data.domain_endpoint_options = (AwsElasticsearchDomainDomainEndpointOptions.parse(map['DomainEndpointOptions']) unless map['DomainEndpointOptions'].nil?)
         data.domain_id = map['DomainId']
         data.domain_name = map['DomainName']
         data.endpoint = map['Endpoint']
-        data.endpoints = (Parsers::FieldMap.parse(map['Endpoints']) unless map['Endpoints'].nil?)
+        data.endpoints = (FieldMap.parse(map['Endpoints']) unless map['Endpoints'].nil?)
         data.elasticsearch_version = map['ElasticsearchVersion']
-        data.elasticsearch_cluster_config = (Parsers::AwsElasticsearchDomainElasticsearchClusterConfigDetails.parse(map['ElasticsearchClusterConfig']) unless map['ElasticsearchClusterConfig'].nil?)
-        data.encryption_at_rest_options = (Parsers::AwsElasticsearchDomainEncryptionAtRestOptions.parse(map['EncryptionAtRestOptions']) unless map['EncryptionAtRestOptions'].nil?)
-        data.log_publishing_options = (Parsers::AwsElasticsearchDomainLogPublishingOptions.parse(map['LogPublishingOptions']) unless map['LogPublishingOptions'].nil?)
-        data.node_to_node_encryption_options = (Parsers::AwsElasticsearchDomainNodeToNodeEncryptionOptions.parse(map['NodeToNodeEncryptionOptions']) unless map['NodeToNodeEncryptionOptions'].nil?)
-        data.service_software_options = (Parsers::AwsElasticsearchDomainServiceSoftwareOptions.parse(map['ServiceSoftwareOptions']) unless map['ServiceSoftwareOptions'].nil?)
-        data.vpc_options = (Parsers::AwsElasticsearchDomainVPCOptions.parse(map['VPCOptions']) unless map['VPCOptions'].nil?)
+        data.elasticsearch_cluster_config = (AwsElasticsearchDomainElasticsearchClusterConfigDetails.parse(map['ElasticsearchClusterConfig']) unless map['ElasticsearchClusterConfig'].nil?)
+        data.encryption_at_rest_options = (AwsElasticsearchDomainEncryptionAtRestOptions.parse(map['EncryptionAtRestOptions']) unless map['EncryptionAtRestOptions'].nil?)
+        data.log_publishing_options = (AwsElasticsearchDomainLogPublishingOptions.parse(map['LogPublishingOptions']) unless map['LogPublishingOptions'].nil?)
+        data.node_to_node_encryption_options = (AwsElasticsearchDomainNodeToNodeEncryptionOptions.parse(map['NodeToNodeEncryptionOptions']) unless map['NodeToNodeEncryptionOptions'].nil?)
+        data.service_software_options = (AwsElasticsearchDomainServiceSoftwareOptions.parse(map['ServiceSoftwareOptions']) unless map['ServiceSoftwareOptions'].nil?)
+        data.vpc_options = (AwsElasticsearchDomainVPCOptions.parse(map['VPCOptions']) unless map['VPCOptions'].nil?)
         return data
       end
     end
@@ -5521,9 +5521,9 @@ module AWS::SDK::SecurityHub
     class AwsElasticsearchDomainVPCOptions
       def self.parse(map)
         data = Types::AwsElasticsearchDomainVPCOptions.new
-        data.availability_zones = (Parsers::NonEmptyStringList.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
-        data.security_group_ids = (Parsers::NonEmptyStringList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
-        data.subnet_ids = (Parsers::NonEmptyStringList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
+        data.availability_zones = (NonEmptyStringList.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
+        data.security_group_ids = (NonEmptyStringList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.subnet_ids = (NonEmptyStringList.parse(map['SubnetIds']) unless map['SubnetIds'].nil?)
         data.vpc_id = map['VPCId']
         return data
       end
@@ -5554,9 +5554,9 @@ module AWS::SDK::SecurityHub
     class AwsElasticsearchDomainLogPublishingOptions
       def self.parse(map)
         data = Types::AwsElasticsearchDomainLogPublishingOptions.new
-        data.index_slow_logs = (Parsers::AwsElasticsearchDomainLogPublishingOptionsLogConfig.parse(map['IndexSlowLogs']) unless map['IndexSlowLogs'].nil?)
-        data.search_slow_logs = (Parsers::AwsElasticsearchDomainLogPublishingOptionsLogConfig.parse(map['SearchSlowLogs']) unless map['SearchSlowLogs'].nil?)
-        data.audit_logs = (Parsers::AwsElasticsearchDomainLogPublishingOptionsLogConfig.parse(map['AuditLogs']) unless map['AuditLogs'].nil?)
+        data.index_slow_logs = (AwsElasticsearchDomainLogPublishingOptionsLogConfig.parse(map['IndexSlowLogs']) unless map['IndexSlowLogs'].nil?)
+        data.search_slow_logs = (AwsElasticsearchDomainLogPublishingOptionsLogConfig.parse(map['SearchSlowLogs']) unless map['SearchSlowLogs'].nil?)
+        data.audit_logs = (AwsElasticsearchDomainLogPublishingOptionsLogConfig.parse(map['AuditLogs']) unless map['AuditLogs'].nil?)
         return data
       end
     end
@@ -5587,7 +5587,7 @@ module AWS::SDK::SecurityHub
         data.dedicated_master_type = map['DedicatedMasterType']
         data.instance_count = map['InstanceCount']
         data.instance_type = map['InstanceType']
-        data.zone_awareness_config = (Parsers::AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails.parse(map['ZoneAwarenessConfig']) unless map['ZoneAwarenessConfig'].nil?)
+        data.zone_awareness_config = (AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails.parse(map['ZoneAwarenessConfig']) unless map['ZoneAwarenessConfig'].nil?)
         data.zone_awareness_enabled = map['ZoneAwarenessEnabled']
         return data
       end
@@ -5621,13 +5621,13 @@ module AWS::SDK::SecurityHub
         data.endpoint_url = map['EndpointUrl']
         data.environment_arn = map['EnvironmentArn']
         data.environment_id = map['EnvironmentId']
-        data.environment_links = (Parsers::AwsElasticBeanstalkEnvironmentEnvironmentLinks.parse(map['EnvironmentLinks']) unless map['EnvironmentLinks'].nil?)
+        data.environment_links = (AwsElasticBeanstalkEnvironmentEnvironmentLinks.parse(map['EnvironmentLinks']) unless map['EnvironmentLinks'].nil?)
         data.environment_name = map['EnvironmentName']
-        data.option_settings = (Parsers::AwsElasticBeanstalkEnvironmentOptionSettings.parse(map['OptionSettings']) unless map['OptionSettings'].nil?)
+        data.option_settings = (AwsElasticBeanstalkEnvironmentOptionSettings.parse(map['OptionSettings']) unless map['OptionSettings'].nil?)
         data.platform_arn = map['PlatformArn']
         data.solution_stack_name = map['SolutionStackName']
         data.status = map['Status']
-        data.tier = (Parsers::AwsElasticBeanstalkEnvironmentTier.parse(map['Tier']) unless map['Tier'].nil?)
+        data.tier = (AwsElasticBeanstalkEnvironmentTier.parse(map['Tier']) unless map['Tier'].nil?)
         data.version_label = map['VersionLabel']
         return data
       end
@@ -5647,7 +5647,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsElasticBeanstalkEnvironmentOptionSetting.parse(value) unless value.nil?
+          data << AwsElasticBeanstalkEnvironmentOptionSetting.parse(value) unless value.nil?
         end
         data
       end
@@ -5668,7 +5668,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsElasticBeanstalkEnvironmentEnvironmentLink.parse(value) unless value.nil?
+          data << AwsElasticBeanstalkEnvironmentEnvironmentLink.parse(value) unless value.nil?
         end
         data
       end
@@ -5686,17 +5686,17 @@ module AWS::SDK::SecurityHub
     class AwsElbv2LoadBalancerDetails
       def self.parse(map)
         data = Types::AwsElbv2LoadBalancerDetails.new
-        data.availability_zones = (Parsers::AvailabilityZones.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
+        data.availability_zones = (AvailabilityZones.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
         data.canonical_hosted_zone_id = map['CanonicalHostedZoneId']
         data.created_time = map['CreatedTime']
         data.dns_name = map['DNSName']
         data.ip_address_type = map['IpAddressType']
         data.scheme = map['Scheme']
-        data.security_groups = (Parsers::SecurityGroups.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
-        data.state = (Parsers::LoadBalancerState.parse(map['State']) unless map['State'].nil?)
+        data.security_groups = (SecurityGroups.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
+        data.state = (LoadBalancerState.parse(map['State']) unless map['State'].nil?)
         data.type = map['Type']
         data.vpc_id = map['VpcId']
-        data.load_balancer_attributes = (Parsers::AwsElbv2LoadBalancerAttributes.parse(map['LoadBalancerAttributes']) unless map['LoadBalancerAttributes'].nil?)
+        data.load_balancer_attributes = (AwsElbv2LoadBalancerAttributes.parse(map['LoadBalancerAttributes']) unless map['LoadBalancerAttributes'].nil?)
         return data
       end
     end
@@ -5705,7 +5705,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsElbv2LoadBalancerAttribute.parse(value) unless value.nil?
+          data << AwsElbv2LoadBalancerAttribute.parse(value) unless value.nil?
         end
         data
       end
@@ -5743,7 +5743,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AvailabilityZone.parse(value) unless value.nil?
+          data << AvailabilityZone.parse(value) unless value.nil?
         end
         data
       end
@@ -5765,8 +5765,8 @@ module AWS::SDK::SecurityHub
         data.network_acl_id = map['NetworkAclId']
         data.owner_id = map['OwnerId']
         data.vpc_id = map['VpcId']
-        data.associations = (Parsers::AwsEc2NetworkAclAssociationList.parse(map['Associations']) unless map['Associations'].nil?)
-        data.entries = (Parsers::AwsEc2NetworkAclEntryList.parse(map['Entries']) unless map['Entries'].nil?)
+        data.associations = (AwsEc2NetworkAclAssociationList.parse(map['Associations']) unless map['Associations'].nil?)
+        data.entries = (AwsEc2NetworkAclEntryList.parse(map['Entries']) unless map['Entries'].nil?)
         return data
       end
     end
@@ -5775,7 +5775,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEc2NetworkAclEntry.parse(value) unless value.nil?
+          data << AwsEc2NetworkAclEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -5786,9 +5786,9 @@ module AWS::SDK::SecurityHub
         data = Types::AwsEc2NetworkAclEntry.new
         data.cidr_block = map['CidrBlock']
         data.egress = map['Egress']
-        data.icmp_type_code = (Parsers::IcmpTypeCode.parse(map['IcmpTypeCode']) unless map['IcmpTypeCode'].nil?)
+        data.icmp_type_code = (IcmpTypeCode.parse(map['IcmpTypeCode']) unless map['IcmpTypeCode'].nil?)
         data.ipv6_cidr_block = map['Ipv6CidrBlock']
-        data.port_range = (Parsers::PortRangeFromTo.parse(map['PortRange']) unless map['PortRange'].nil?)
+        data.port_range = (PortRangeFromTo.parse(map['PortRange']) unless map['PortRange'].nil?)
         data.protocol = map['Protocol']
         data.rule_action = map['RuleAction']
         data.rule_number = map['RuleNumber']
@@ -5818,7 +5818,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEc2NetworkAclAssociation.parse(value) unless value.nil?
+          data << AwsEc2NetworkAclAssociation.parse(value) unless value.nil?
         end
         data
       end
@@ -5849,7 +5849,7 @@ module AWS::SDK::SecurityHub
         data.subnet_arn = map['SubnetArn']
         data.subnet_id = map['SubnetId']
         data.vpc_id = map['VpcId']
-        data.ipv6_cidr_block_association_set = (Parsers::Ipv6CidrBlockAssociationList.parse(map['Ipv6CidrBlockAssociationSet']) unless map['Ipv6CidrBlockAssociationSet'].nil?)
+        data.ipv6_cidr_block_association_set = (Ipv6CidrBlockAssociationList.parse(map['Ipv6CidrBlockAssociationSet']) unless map['Ipv6CidrBlockAssociationSet'].nil?)
         return data
       end
     end
@@ -5858,7 +5858,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Ipv6CidrBlockAssociation.parse(value) unless value.nil?
+          data << Ipv6CidrBlockAssociation.parse(value) unless value.nil?
         end
         data
       end
@@ -5894,8 +5894,8 @@ module AWS::SDK::SecurityHub
     class AwsEc2VpcDetails
       def self.parse(map)
         data = Types::AwsEc2VpcDetails.new
-        data.cidr_block_association_set = (Parsers::CidrBlockAssociationList.parse(map['CidrBlockAssociationSet']) unless map['CidrBlockAssociationSet'].nil?)
-        data.ipv6_cidr_block_association_set = (Parsers::Ipv6CidrBlockAssociationList.parse(map['Ipv6CidrBlockAssociationSet']) unless map['Ipv6CidrBlockAssociationSet'].nil?)
+        data.cidr_block_association_set = (CidrBlockAssociationList.parse(map['CidrBlockAssociationSet']) unless map['CidrBlockAssociationSet'].nil?)
+        data.ipv6_cidr_block_association_set = (Ipv6CidrBlockAssociationList.parse(map['Ipv6CidrBlockAssociationSet']) unless map['Ipv6CidrBlockAssociationSet'].nil?)
         data.dhcp_options_id = map['DhcpOptionsId']
         data.state = map['State']
         return data
@@ -5906,7 +5906,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CidrBlockAssociation.parse(value) unless value.nil?
+          data << CidrBlockAssociation.parse(value) unless value.nil?
         end
         data
       end
@@ -5931,7 +5931,7 @@ module AWS::SDK::SecurityHub
         data.snapshot_id = map['SnapshotId']
         data.status = map['Status']
         data.kms_key_id = map['KmsKeyId']
-        data.attachments = (Parsers::AwsEc2VolumeAttachmentList.parse(map['Attachments']) unless map['Attachments'].nil?)
+        data.attachments = (AwsEc2VolumeAttachmentList.parse(map['Attachments']) unless map['Attachments'].nil?)
         return data
       end
     end
@@ -5940,7 +5940,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEc2VolumeAttachment.parse(value) unless value.nil?
+          data << AwsEc2VolumeAttachment.parse(value) unless value.nil?
         end
         data
       end
@@ -5964,8 +5964,8 @@ module AWS::SDK::SecurityHub
         data.group_id = map['GroupId']
         data.owner_id = map['OwnerId']
         data.vpc_id = map['VpcId']
-        data.ip_permissions = (Parsers::AwsEc2SecurityGroupIpPermissionList.parse(map['IpPermissions']) unless map['IpPermissions'].nil?)
-        data.ip_permissions_egress = (Parsers::AwsEc2SecurityGroupIpPermissionList.parse(map['IpPermissionsEgress']) unless map['IpPermissionsEgress'].nil?)
+        data.ip_permissions = (AwsEc2SecurityGroupIpPermissionList.parse(map['IpPermissions']) unless map['IpPermissions'].nil?)
+        data.ip_permissions_egress = (AwsEc2SecurityGroupIpPermissionList.parse(map['IpPermissionsEgress']) unless map['IpPermissionsEgress'].nil?)
         return data
       end
     end
@@ -5974,7 +5974,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEc2SecurityGroupIpPermission.parse(value) unless value.nil?
+          data << AwsEc2SecurityGroupIpPermission.parse(value) unless value.nil?
         end
         data
       end
@@ -5986,10 +5986,10 @@ module AWS::SDK::SecurityHub
         data.ip_protocol = map['IpProtocol']
         data.from_port = map['FromPort']
         data.to_port = map['ToPort']
-        data.user_id_group_pairs = (Parsers::AwsEc2SecurityGroupUserIdGroupPairList.parse(map['UserIdGroupPairs']) unless map['UserIdGroupPairs'].nil?)
-        data.ip_ranges = (Parsers::AwsEc2SecurityGroupIpRangeList.parse(map['IpRanges']) unless map['IpRanges'].nil?)
-        data.ipv6_ranges = (Parsers::AwsEc2SecurityGroupIpv6RangeList.parse(map['Ipv6Ranges']) unless map['Ipv6Ranges'].nil?)
-        data.prefix_list_ids = (Parsers::AwsEc2SecurityGroupPrefixListIdList.parse(map['PrefixListIds']) unless map['PrefixListIds'].nil?)
+        data.user_id_group_pairs = (AwsEc2SecurityGroupUserIdGroupPairList.parse(map['UserIdGroupPairs']) unless map['UserIdGroupPairs'].nil?)
+        data.ip_ranges = (AwsEc2SecurityGroupIpRangeList.parse(map['IpRanges']) unless map['IpRanges'].nil?)
+        data.ipv6_ranges = (AwsEc2SecurityGroupIpv6RangeList.parse(map['Ipv6Ranges']) unless map['Ipv6Ranges'].nil?)
+        data.prefix_list_ids = (AwsEc2SecurityGroupPrefixListIdList.parse(map['PrefixListIds']) unless map['PrefixListIds'].nil?)
         return data
       end
     end
@@ -5998,7 +5998,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEc2SecurityGroupPrefixListId.parse(value) unless value.nil?
+          data << AwsEc2SecurityGroupPrefixListId.parse(value) unless value.nil?
         end
         data
       end
@@ -6016,7 +6016,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEc2SecurityGroupIpv6Range.parse(value) unless value.nil?
+          data << AwsEc2SecurityGroupIpv6Range.parse(value) unless value.nil?
         end
         data
       end
@@ -6034,7 +6034,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEc2SecurityGroupIpRange.parse(value) unless value.nil?
+          data << AwsEc2SecurityGroupIpRange.parse(value) unless value.nil?
         end
         data
       end
@@ -6052,7 +6052,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEc2SecurityGroupUserIdGroupPair.parse(value) unless value.nil?
+          data << AwsEc2SecurityGroupUserIdGroupPair.parse(value) unless value.nil?
         end
         data
       end
@@ -6074,12 +6074,12 @@ module AWS::SDK::SecurityHub
     class AwsEc2NetworkInterfaceDetails
       def self.parse(map)
         data = Types::AwsEc2NetworkInterfaceDetails.new
-        data.attachment = (Parsers::AwsEc2NetworkInterfaceAttachment.parse(map['Attachment']) unless map['Attachment'].nil?)
+        data.attachment = (AwsEc2NetworkInterfaceAttachment.parse(map['Attachment']) unless map['Attachment'].nil?)
         data.network_interface_id = map['NetworkInterfaceId']
-        data.security_groups = (Parsers::AwsEc2NetworkInterfaceSecurityGroupList.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
+        data.security_groups = (AwsEc2NetworkInterfaceSecurityGroupList.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
         data.source_dest_check = map['SourceDestCheck']
-        data.ip_v6_addresses = (Parsers::AwsEc2NetworkInterfaceIpV6AddressList.parse(map['IpV6Addresses']) unless map['IpV6Addresses'].nil?)
-        data.private_ip_addresses = (Parsers::AwsEc2NetworkInterfacePrivateIpAddressList.parse(map['PrivateIpAddresses']) unless map['PrivateIpAddresses'].nil?)
+        data.ip_v6_addresses = (AwsEc2NetworkInterfaceIpV6AddressList.parse(map['IpV6Addresses']) unless map['IpV6Addresses'].nil?)
+        data.private_ip_addresses = (AwsEc2NetworkInterfacePrivateIpAddressList.parse(map['PrivateIpAddresses']) unless map['PrivateIpAddresses'].nil?)
         data.public_dns_name = map['PublicDnsName']
         data.public_ip = map['PublicIp']
         return data
@@ -6090,7 +6090,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEc2NetworkInterfacePrivateIpAddressDetail.parse(value) unless value.nil?
+          data << AwsEc2NetworkInterfacePrivateIpAddressDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -6109,7 +6109,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEc2NetworkInterfaceIpV6AddressDetail.parse(value) unless value.nil?
+          data << AwsEc2NetworkInterfaceIpV6AddressDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -6127,7 +6127,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEc2NetworkInterfaceSecurityGroup.parse(value) unless value.nil?
+          data << AwsEc2NetworkInterfaceSecurityGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -6161,14 +6161,14 @@ module AWS::SDK::SecurityHub
         data = Types::AwsEc2InstanceDetails.new
         data.type = map['Type']
         data.image_id = map['ImageId']
-        data.ip_v4_addresses = (Parsers::StringList.parse(map['IpV4Addresses']) unless map['IpV4Addresses'].nil?)
-        data.ip_v6_addresses = (Parsers::StringList.parse(map['IpV6Addresses']) unless map['IpV6Addresses'].nil?)
+        data.ip_v4_addresses = (StringList.parse(map['IpV4Addresses']) unless map['IpV4Addresses'].nil?)
+        data.ip_v6_addresses = (StringList.parse(map['IpV6Addresses']) unless map['IpV6Addresses'].nil?)
         data.key_name = map['KeyName']
         data.iam_instance_profile_arn = map['IamInstanceProfileArn']
         data.vpc_id = map['VpcId']
         data.subnet_id = map['SubnetId']
         data.launched_at = map['LaunchedAt']
-        data.network_interfaces = (Parsers::AwsEc2InstanceNetworkInterfacesList.parse(map['NetworkInterfaces']) unless map['NetworkInterfaces'].nil?)
+        data.network_interfaces = (AwsEc2InstanceNetworkInterfacesList.parse(map['NetworkInterfaces']) unless map['NetworkInterfaces'].nil?)
         return data
       end
     end
@@ -6177,7 +6177,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsEc2InstanceNetworkInterfacesDetails.parse(value) unless value.nil?
+          data << AwsEc2InstanceNetworkInterfacesDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -6194,16 +6194,16 @@ module AWS::SDK::SecurityHub
     class AwsCloudFrontDistributionDetails
       def self.parse(map)
         data = Types::AwsCloudFrontDistributionDetails.new
-        data.cache_behaviors = (Parsers::AwsCloudFrontDistributionCacheBehaviors.parse(map['CacheBehaviors']) unless map['CacheBehaviors'].nil?)
-        data.default_cache_behavior = (Parsers::AwsCloudFrontDistributionDefaultCacheBehavior.parse(map['DefaultCacheBehavior']) unless map['DefaultCacheBehavior'].nil?)
+        data.cache_behaviors = (AwsCloudFrontDistributionCacheBehaviors.parse(map['CacheBehaviors']) unless map['CacheBehaviors'].nil?)
+        data.default_cache_behavior = (AwsCloudFrontDistributionDefaultCacheBehavior.parse(map['DefaultCacheBehavior']) unless map['DefaultCacheBehavior'].nil?)
         data.default_root_object = map['DefaultRootObject']
         data.domain_name = map['DomainName']
         data.e_tag = map['ETag']
         data.last_modified_time = map['LastModifiedTime']
-        data.logging = (Parsers::AwsCloudFrontDistributionLogging.parse(map['Logging']) unless map['Logging'].nil?)
-        data.origins = (Parsers::AwsCloudFrontDistributionOrigins.parse(map['Origins']) unless map['Origins'].nil?)
-        data.origin_groups = (Parsers::AwsCloudFrontDistributionOriginGroups.parse(map['OriginGroups']) unless map['OriginGroups'].nil?)
-        data.viewer_certificate = (Parsers::AwsCloudFrontDistributionViewerCertificate.parse(map['ViewerCertificate']) unless map['ViewerCertificate'].nil?)
+        data.logging = (AwsCloudFrontDistributionLogging.parse(map['Logging']) unless map['Logging'].nil?)
+        data.origins = (AwsCloudFrontDistributionOrigins.parse(map['Origins']) unless map['Origins'].nil?)
+        data.origin_groups = (AwsCloudFrontDistributionOriginGroups.parse(map['OriginGroups']) unless map['OriginGroups'].nil?)
+        data.viewer_certificate = (AwsCloudFrontDistributionViewerCertificate.parse(map['ViewerCertificate']) unless map['ViewerCertificate'].nil?)
         data.status = map['Status']
         data.web_acl_id = map['WebAclId']
         return data
@@ -6227,7 +6227,7 @@ module AWS::SDK::SecurityHub
     class AwsCloudFrontDistributionOriginGroups
       def self.parse(map)
         data = Types::AwsCloudFrontDistributionOriginGroups.new
-        data.items = (Parsers::AwsCloudFrontDistributionOriginGroupsItemList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (AwsCloudFrontDistributionOriginGroupsItemList.parse(map['Items']) unless map['Items'].nil?)
         return data
       end
     end
@@ -6236,7 +6236,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsCloudFrontDistributionOriginGroup.parse(value) unless value.nil?
+          data << AwsCloudFrontDistributionOriginGroup.parse(value) unless value.nil?
         end
         data
       end
@@ -6245,7 +6245,7 @@ module AWS::SDK::SecurityHub
     class AwsCloudFrontDistributionOriginGroup
       def self.parse(map)
         data = Types::AwsCloudFrontDistributionOriginGroup.new
-        data.failover_criteria = (Parsers::AwsCloudFrontDistributionOriginGroupFailover.parse(map['FailoverCriteria']) unless map['FailoverCriteria'].nil?)
+        data.failover_criteria = (AwsCloudFrontDistributionOriginGroupFailover.parse(map['FailoverCriteria']) unless map['FailoverCriteria'].nil?)
         return data
       end
     end
@@ -6253,7 +6253,7 @@ module AWS::SDK::SecurityHub
     class AwsCloudFrontDistributionOriginGroupFailover
       def self.parse(map)
         data = Types::AwsCloudFrontDistributionOriginGroupFailover.new
-        data.status_codes = (Parsers::AwsCloudFrontDistributionOriginGroupFailoverStatusCodes.parse(map['StatusCodes']) unless map['StatusCodes'].nil?)
+        data.status_codes = (AwsCloudFrontDistributionOriginGroupFailoverStatusCodes.parse(map['StatusCodes']) unless map['StatusCodes'].nil?)
         return data
       end
     end
@@ -6261,7 +6261,7 @@ module AWS::SDK::SecurityHub
     class AwsCloudFrontDistributionOriginGroupFailoverStatusCodes
       def self.parse(map)
         data = Types::AwsCloudFrontDistributionOriginGroupFailoverStatusCodes.new
-        data.items = (Parsers::AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList.parse(map['Items']) unless map['Items'].nil?)
         data.quantity = map['Quantity']
         return data
       end
@@ -6280,7 +6280,7 @@ module AWS::SDK::SecurityHub
     class AwsCloudFrontDistributionOrigins
       def self.parse(map)
         data = Types::AwsCloudFrontDistributionOrigins.new
-        data.items = (Parsers::AwsCloudFrontDistributionOriginItemList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (AwsCloudFrontDistributionOriginItemList.parse(map['Items']) unless map['Items'].nil?)
         return data
       end
     end
@@ -6289,7 +6289,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsCloudFrontDistributionOriginItem.parse(value) unless value.nil?
+          data << AwsCloudFrontDistributionOriginItem.parse(value) unless value.nil?
         end
         data
       end
@@ -6301,7 +6301,7 @@ module AWS::SDK::SecurityHub
         data.domain_name = map['DomainName']
         data.id = map['Id']
         data.origin_path = map['OriginPath']
-        data.s3_origin_config = (Parsers::AwsCloudFrontDistributionOriginS3OriginConfig.parse(map['S3OriginConfig']) unless map['S3OriginConfig'].nil?)
+        data.s3_origin_config = (AwsCloudFrontDistributionOriginS3OriginConfig.parse(map['S3OriginConfig']) unless map['S3OriginConfig'].nil?)
         return data
       end
     end
@@ -6336,7 +6336,7 @@ module AWS::SDK::SecurityHub
     class AwsCloudFrontDistributionCacheBehaviors
       def self.parse(map)
         data = Types::AwsCloudFrontDistributionCacheBehaviors.new
-        data.items = (Parsers::AwsCloudFrontDistributionCacheBehaviorsItemList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (AwsCloudFrontDistributionCacheBehaviorsItemList.parse(map['Items']) unless map['Items'].nil?)
         return data
       end
     end
@@ -6345,7 +6345,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsCloudFrontDistributionCacheBehavior.parse(value) unless value.nil?
+          data << AwsCloudFrontDistributionCacheBehavior.parse(value) unless value.nil?
         end
         data
       end
@@ -6363,14 +6363,14 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsCodeBuildProjectDetails.new
         data.encryption_key = map['EncryptionKey']
-        data.artifacts = (Parsers::AwsCodeBuildProjectArtifactsList.parse(map['Artifacts']) unless map['Artifacts'].nil?)
-        data.environment = (Parsers::AwsCodeBuildProjectEnvironment.parse(map['Environment']) unless map['Environment'].nil?)
+        data.artifacts = (AwsCodeBuildProjectArtifactsList.parse(map['Artifacts']) unless map['Artifacts'].nil?)
+        data.environment = (AwsCodeBuildProjectEnvironment.parse(map['Environment']) unless map['Environment'].nil?)
         data.name = map['Name']
-        data.source = (Parsers::AwsCodeBuildProjectSource.parse(map['Source']) unless map['Source'].nil?)
+        data.source = (AwsCodeBuildProjectSource.parse(map['Source']) unless map['Source'].nil?)
         data.service_role = map['ServiceRole']
-        data.logs_config = (Parsers::AwsCodeBuildProjectLogsConfigDetails.parse(map['LogsConfig']) unless map['LogsConfig'].nil?)
-        data.vpc_config = (Parsers::AwsCodeBuildProjectVpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
-        data.secondary_artifacts = (Parsers::AwsCodeBuildProjectArtifactsList.parse(map['SecondaryArtifacts']) unless map['SecondaryArtifacts'].nil?)
+        data.logs_config = (AwsCodeBuildProjectLogsConfigDetails.parse(map['LogsConfig']) unless map['LogsConfig'].nil?)
+        data.vpc_config = (AwsCodeBuildProjectVpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.secondary_artifacts = (AwsCodeBuildProjectArtifactsList.parse(map['SecondaryArtifacts']) unless map['SecondaryArtifacts'].nil?)
         return data
       end
     end
@@ -6379,7 +6379,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsCodeBuildProjectArtifactsDetails.parse(value) unless value.nil?
+          data << AwsCodeBuildProjectArtifactsDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -6405,8 +6405,8 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsCodeBuildProjectVpcConfig.new
         data.vpc_id = map['VpcId']
-        data.subnets = (Parsers::NonEmptyStringList.parse(map['Subnets']) unless map['Subnets'].nil?)
-        data.security_group_ids = (Parsers::NonEmptyStringList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.subnets = (NonEmptyStringList.parse(map['Subnets']) unless map['Subnets'].nil?)
+        data.security_group_ids = (NonEmptyStringList.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
         return data
       end
     end
@@ -6414,8 +6414,8 @@ module AWS::SDK::SecurityHub
     class AwsCodeBuildProjectLogsConfigDetails
       def self.parse(map)
         data = Types::AwsCodeBuildProjectLogsConfigDetails.new
-        data.cloud_watch_logs = (Parsers::AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails.parse(map['CloudWatchLogs']) unless map['CloudWatchLogs'].nil?)
-        data.s3_logs = (Parsers::AwsCodeBuildProjectLogsConfigS3LogsDetails.parse(map['S3Logs']) unless map['S3Logs'].nil?)
+        data.cloud_watch_logs = (AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails.parse(map['CloudWatchLogs']) unless map['CloudWatchLogs'].nil?)
+        data.s3_logs = (AwsCodeBuildProjectLogsConfigS3LogsDetails.parse(map['S3Logs']) unless map['S3Logs'].nil?)
         return data
       end
     end
@@ -6455,10 +6455,10 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsCodeBuildProjectEnvironment.new
         data.certificate = map['Certificate']
-        data.environment_variables = (Parsers::AwsCodeBuildProjectEnvironmentEnvironmentVariablesList.parse(map['EnvironmentVariables']) unless map['EnvironmentVariables'].nil?)
+        data.environment_variables = (AwsCodeBuildProjectEnvironmentEnvironmentVariablesList.parse(map['EnvironmentVariables']) unless map['EnvironmentVariables'].nil?)
         data.privileged_mode = map['PrivilegedMode']
         data.image_pull_credentials_type = map['ImagePullCredentialsType']
-        data.registry_credential = (Parsers::AwsCodeBuildProjectEnvironmentRegistryCredential.parse(map['RegistryCredential']) unless map['RegistryCredential'].nil?)
+        data.registry_credential = (AwsCodeBuildProjectEnvironmentRegistryCredential.parse(map['RegistryCredential']) unless map['RegistryCredential'].nil?)
         data.type = map['Type']
         return data
       end
@@ -6477,7 +6477,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails.parse(value) unless value.nil?
+          data << AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -6497,13 +6497,13 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::AwsAutoScalingAutoScalingGroupDetails.new
         data.launch_configuration_name = map['LaunchConfigurationName']
-        data.load_balancer_names = (Parsers::StringList.parse(map['LoadBalancerNames']) unless map['LoadBalancerNames'].nil?)
+        data.load_balancer_names = (StringList.parse(map['LoadBalancerNames']) unless map['LoadBalancerNames'].nil?)
         data.health_check_type = map['HealthCheckType']
         data.health_check_grace_period = map['HealthCheckGracePeriod']
         data.created_time = map['CreatedTime']
-        data.mixed_instances_policy = (Parsers::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails.parse(map['MixedInstancesPolicy']) unless map['MixedInstancesPolicy'].nil?)
-        data.availability_zones = (Parsers::AwsAutoScalingAutoScalingGroupAvailabilityZonesList.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
-        data.launch_template = (Parsers::AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification.parse(map['LaunchTemplate']) unless map['LaunchTemplate'].nil?)
+        data.mixed_instances_policy = (AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails.parse(map['MixedInstancesPolicy']) unless map['MixedInstancesPolicy'].nil?)
+        data.availability_zones = (AwsAutoScalingAutoScalingGroupAvailabilityZonesList.parse(map['AvailabilityZones']) unless map['AvailabilityZones'].nil?)
+        data.launch_template = (AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification.parse(map['LaunchTemplate']) unless map['LaunchTemplate'].nil?)
         data.capacity_rebalance = map['CapacityRebalance']
         return data
       end
@@ -6523,7 +6523,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails.parse(value) unless value.nil?
+          data << AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -6540,8 +6540,8 @@ module AWS::SDK::SecurityHub
     class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails
       def self.parse(map)
         data = Types::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails.new
-        data.instances_distribution = (Parsers::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails.parse(map['InstancesDistribution']) unless map['InstancesDistribution'].nil?)
-        data.launch_template = (Parsers::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails.parse(map['LaunchTemplate']) unless map['LaunchTemplate'].nil?)
+        data.instances_distribution = (AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails.parse(map['InstancesDistribution']) unless map['InstancesDistribution'].nil?)
+        data.launch_template = (AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails.parse(map['LaunchTemplate']) unless map['LaunchTemplate'].nil?)
         return data
       end
     end
@@ -6549,8 +6549,8 @@ module AWS::SDK::SecurityHub
     class AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails
       def self.parse(map)
         data = Types::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails.new
-        data.launch_template_specification = (Parsers::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification.parse(map['LaunchTemplateSpecification']) unless map['LaunchTemplateSpecification'].nil?)
-        data.overrides = (Parsers::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList.parse(map['Overrides']) unless map['Overrides'].nil?)
+        data.launch_template_specification = (AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification.parse(map['LaunchTemplateSpecification']) unless map['LaunchTemplateSpecification'].nil?)
+        data.overrides = (AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList.parse(map['Overrides']) unless map['Overrides'].nil?)
         return data
       end
     end
@@ -6559,7 +6559,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails.parse(value) unless value.nil?
+          data << AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -6601,7 +6601,7 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::DataClassificationDetails.new
         data.detailed_results_location = map['DetailedResultsLocation']
-        data.result = (Parsers::ClassificationResult.parse(map['Result']) unless map['Result'].nil?)
+        data.result = (ClassificationResult.parse(map['Result']) unless map['Result'].nil?)
         return data
       end
     end
@@ -6612,9 +6612,9 @@ module AWS::SDK::SecurityHub
         data.mime_type = map['MimeType']
         data.size_classified = map['SizeClassified']
         data.additional_occurrences = map['AdditionalOccurrences']
-        data.status = (Parsers::ClassificationStatus.parse(map['Status']) unless map['Status'].nil?)
-        data.sensitive_data = (Parsers::SensitiveDataResultList.parse(map['SensitiveData']) unless map['SensitiveData'].nil?)
-        data.custom_data_identifiers = (Parsers::CustomDataIdentifiersResult.parse(map['CustomDataIdentifiers']) unless map['CustomDataIdentifiers'].nil?)
+        data.status = (ClassificationStatus.parse(map['Status']) unless map['Status'].nil?)
+        data.sensitive_data = (SensitiveDataResultList.parse(map['SensitiveData']) unless map['SensitiveData'].nil?)
+        data.custom_data_identifiers = (CustomDataIdentifiersResult.parse(map['CustomDataIdentifiers']) unless map['CustomDataIdentifiers'].nil?)
         return data
       end
     end
@@ -6622,7 +6622,7 @@ module AWS::SDK::SecurityHub
     class CustomDataIdentifiersResult
       def self.parse(map)
         data = Types::CustomDataIdentifiersResult.new
-        data.detections = (Parsers::CustomDataIdentifiersDetectionsList.parse(map['Detections']) unless map['Detections'].nil?)
+        data.detections = (CustomDataIdentifiersDetectionsList.parse(map['Detections']) unless map['Detections'].nil?)
         data.total_count = map['TotalCount']
         return data
       end
@@ -6632,7 +6632,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CustomDataIdentifiersDetections.parse(value) unless value.nil?
+          data << CustomDataIdentifiersDetections.parse(value) unless value.nil?
         end
         data
       end
@@ -6644,7 +6644,7 @@ module AWS::SDK::SecurityHub
         data.count = map['Count']
         data.arn = map['Arn']
         data.name = map['Name']
-        data.occurrences = (Parsers::Occurrences.parse(map['Occurrences']) unless map['Occurrences'].nil?)
+        data.occurrences = (Occurrences.parse(map['Occurrences']) unless map['Occurrences'].nil?)
         return data
       end
     end
@@ -6652,11 +6652,11 @@ module AWS::SDK::SecurityHub
     class Occurrences
       def self.parse(map)
         data = Types::Occurrences.new
-        data.line_ranges = (Parsers::Ranges.parse(map['LineRanges']) unless map['LineRanges'].nil?)
-        data.offset_ranges = (Parsers::Ranges.parse(map['OffsetRanges']) unless map['OffsetRanges'].nil?)
-        data.pages = (Parsers::Pages.parse(map['Pages']) unless map['Pages'].nil?)
-        data.records = (Parsers::Records.parse(map['Records']) unless map['Records'].nil?)
-        data.cells = (Parsers::Cells.parse(map['Cells']) unless map['Cells'].nil?)
+        data.line_ranges = (Ranges.parse(map['LineRanges']) unless map['LineRanges'].nil?)
+        data.offset_ranges = (Ranges.parse(map['OffsetRanges']) unless map['OffsetRanges'].nil?)
+        data.pages = (Pages.parse(map['Pages']) unless map['Pages'].nil?)
+        data.records = (Records.parse(map['Records']) unless map['Records'].nil?)
+        data.cells = (Cells.parse(map['Cells']) unless map['Cells'].nil?)
         return data
       end
     end
@@ -6665,7 +6665,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Cell.parse(value) unless value.nil?
+          data << Cell.parse(value) unless value.nil?
         end
         data
       end
@@ -6686,7 +6686,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Record.parse(value) unless value.nil?
+          data << Record.parse(value) unless value.nil?
         end
         data
       end
@@ -6705,7 +6705,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Page.parse(value) unless value.nil?
+          data << Page.parse(value) unless value.nil?
         end
         data
       end
@@ -6715,8 +6715,8 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::Page.new
         data.page_number = map['PageNumber']
-        data.line_range = (Parsers::Range.parse(map['LineRange']) unless map['LineRange'].nil?)
-        data.offset_range = (Parsers::Range.parse(map['OffsetRange']) unless map['OffsetRange'].nil?)
+        data.line_range = (Range.parse(map['LineRange']) unless map['LineRange'].nil?)
+        data.offset_range = (Range.parse(map['OffsetRange']) unless map['OffsetRange'].nil?)
         return data
       end
     end
@@ -6735,7 +6735,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Range.parse(value) unless value.nil?
+          data << Range.parse(value) unless value.nil?
         end
         data
       end
@@ -6745,7 +6745,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SensitiveDataResult.parse(value) unless value.nil?
+          data << SensitiveDataResult.parse(value) unless value.nil?
         end
         data
       end
@@ -6755,7 +6755,7 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::SensitiveDataResult.new
         data.category = map['Category']
-        data.detections = (Parsers::SensitiveDataDetectionsList.parse(map['Detections']) unless map['Detections'].nil?)
+        data.detections = (SensitiveDataDetectionsList.parse(map['Detections']) unless map['Detections'].nil?)
         data.total_count = map['TotalCount']
         return data
       end
@@ -6765,7 +6765,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SensitiveDataDetections.parse(value) unless value.nil?
+          data << SensitiveDataDetections.parse(value) unless value.nil?
         end
         data
       end
@@ -6776,7 +6776,7 @@ module AWS::SDK::SecurityHub
         data = Types::SensitiveDataDetections.new
         data.count = map['Count']
         data.type = map['Type']
-        data.occurrences = (Parsers::Occurrences.parse(map['Occurrences']) unless map['Occurrences'].nil?)
+        data.occurrences = (Occurrences.parse(map['Occurrences']) unless map['Occurrences'].nil?)
         return data
       end
     end
@@ -6794,7 +6794,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ThreatIntelIndicator.parse(value) unless value.nil?
+          data << ThreatIntelIndicator.parse(value) unless value.nil?
         end
         data
       end
@@ -6830,7 +6830,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NetworkPathComponent.parse(value) unless value.nil?
+          data << NetworkPathComponent.parse(value) unless value.nil?
         end
         data
       end
@@ -6841,8 +6841,8 @@ module AWS::SDK::SecurityHub
         data = Types::NetworkPathComponent.new
         data.component_id = map['ComponentId']
         data.component_type = map['ComponentType']
-        data.egress = (Parsers::NetworkHeader.parse(map['Egress']) unless map['Egress'].nil?)
-        data.ingress = (Parsers::NetworkHeader.parse(map['Ingress']) unless map['Ingress'].nil?)
+        data.egress = (NetworkHeader.parse(map['Egress']) unless map['Egress'].nil?)
+        data.ingress = (NetworkHeader.parse(map['Ingress']) unless map['Ingress'].nil?)
         return data
       end
     end
@@ -6851,8 +6851,8 @@ module AWS::SDK::SecurityHub
       def self.parse(map)
         data = Types::NetworkHeader.new
         data.protocol = map['Protocol']
-        data.destination = (Parsers::NetworkPathComponentDetails.parse(map['Destination']) unless map['Destination'].nil?)
-        data.source = (Parsers::NetworkPathComponentDetails.parse(map['Source']) unless map['Source'].nil?)
+        data.destination = (NetworkPathComponentDetails.parse(map['Destination']) unless map['Destination'].nil?)
+        data.source = (NetworkPathComponentDetails.parse(map['Source']) unless map['Source'].nil?)
         return data
       end
     end
@@ -6860,8 +6860,8 @@ module AWS::SDK::SecurityHub
     class NetworkPathComponentDetails
       def self.parse(map)
         data = Types::NetworkPathComponentDetails.new
-        data.address = (Parsers::StringList.parse(map['Address']) unless map['Address'].nil?)
-        data.port_ranges = (Parsers::PortRangeList.parse(map['PortRanges']) unless map['PortRanges'].nil?)
+        data.address = (StringList.parse(map['Address']) unless map['Address'].nil?)
+        data.port_ranges = (PortRangeList.parse(map['PortRanges']) unless map['PortRanges'].nil?)
         return data
       end
     end
@@ -6870,7 +6870,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PortRange.parse(value) unless value.nil?
+          data << PortRange.parse(value) unless value.nil?
         end
         data
       end
@@ -6890,7 +6890,7 @@ module AWS::SDK::SecurityHub
         data = Types::Network.new
         data.direction = map['Direction']
         data.protocol = map['Protocol']
-        data.open_port_range = (Parsers::PortRange.parse(map['OpenPortRange']) unless map['OpenPortRange'].nil?)
+        data.open_port_range = (PortRange.parse(map['OpenPortRange']) unless map['OpenPortRange'].nil?)
         data.source_ip_v4 = map['SourceIpV4']
         data.source_ip_v6 = map['SourceIpV6']
         data.source_port = map['SourcePort']
@@ -6908,7 +6908,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Malware.parse(value) unless value.nil?
+          data << Malware.parse(value) unless value.nil?
         end
         data
       end
@@ -6928,7 +6928,7 @@ module AWS::SDK::SecurityHub
     class Remediation
       def self.parse(map)
         data = Types::Remediation.new
-        data.recommendation = (Parsers::Recommendation.parse(map['Recommendation']) unless map['Recommendation'].nil?)
+        data.recommendation = (Recommendation.parse(map['Recommendation']) unless map['Recommendation'].nil?)
         return data
       end
     end
@@ -6958,7 +6958,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::GetInsightResultsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.insight_results = (Parsers::InsightResults.parse(map['InsightResults']) unless map['InsightResults'].nil?)
+        data.insight_results = (InsightResults.parse(map['InsightResults']) unless map['InsightResults'].nil?)
         data
       end
     end
@@ -6968,7 +6968,7 @@ module AWS::SDK::SecurityHub
         data = Types::InsightResults.new
         data.insight_arn = map['InsightArn']
         data.group_by_attribute = map['GroupByAttribute']
-        data.result_values = (Parsers::InsightResultValueList.parse(map['ResultValues']) unless map['ResultValues'].nil?)
+        data.result_values = (InsightResultValueList.parse(map['ResultValues']) unless map['ResultValues'].nil?)
         return data
       end
     end
@@ -6977,7 +6977,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InsightResultValue.parse(value) unless value.nil?
+          data << InsightResultValue.parse(value) unless value.nil?
         end
         data
       end
@@ -6997,7 +6997,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::GetInsightsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.insights = (Parsers::InsightList.parse(map['Insights']) unless map['Insights'].nil?)
+        data.insights = (InsightList.parse(map['Insights']) unless map['Insights'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7007,7 +7007,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Insight.parse(value) unless value.nil?
+          data << Insight.parse(value) unless value.nil?
         end
         data
       end
@@ -7018,7 +7018,7 @@ module AWS::SDK::SecurityHub
         data = Types::Insight.new
         data.insight_arn = map['InsightArn']
         data.name = map['Name']
-        data.filters = (Parsers::AwsSecurityFindingFilters.parse(map['Filters']) unless map['Filters'].nil?)
+        data.filters = (AwsSecurityFindingFilters.parse(map['Filters']) unless map['Filters'].nil?)
         data.group_by_attribute = map['GroupByAttribute']
         return data
       end
@@ -7027,101 +7027,101 @@ module AWS::SDK::SecurityHub
     class AwsSecurityFindingFilters
       def self.parse(map)
         data = Types::AwsSecurityFindingFilters.new
-        data.product_arn = (Parsers::StringFilterList.parse(map['ProductArn']) unless map['ProductArn'].nil?)
-        data.aws_account_id = (Parsers::StringFilterList.parse(map['AwsAccountId']) unless map['AwsAccountId'].nil?)
-        data.id = (Parsers::StringFilterList.parse(map['Id']) unless map['Id'].nil?)
-        data.generator_id = (Parsers::StringFilterList.parse(map['GeneratorId']) unless map['GeneratorId'].nil?)
-        data.region = (Parsers::StringFilterList.parse(map['Region']) unless map['Region'].nil?)
-        data.type = (Parsers::StringFilterList.parse(map['Type']) unless map['Type'].nil?)
-        data.first_observed_at = (Parsers::DateFilterList.parse(map['FirstObservedAt']) unless map['FirstObservedAt'].nil?)
-        data.last_observed_at = (Parsers::DateFilterList.parse(map['LastObservedAt']) unless map['LastObservedAt'].nil?)
-        data.created_at = (Parsers::DateFilterList.parse(map['CreatedAt']) unless map['CreatedAt'].nil?)
-        data.updated_at = (Parsers::DateFilterList.parse(map['UpdatedAt']) unless map['UpdatedAt'].nil?)
-        data.severity_product = (Parsers::NumberFilterList.parse(map['SeverityProduct']) unless map['SeverityProduct'].nil?)
-        data.severity_normalized = (Parsers::NumberFilterList.parse(map['SeverityNormalized']) unless map['SeverityNormalized'].nil?)
-        data.severity_label = (Parsers::StringFilterList.parse(map['SeverityLabel']) unless map['SeverityLabel'].nil?)
-        data.confidence = (Parsers::NumberFilterList.parse(map['Confidence']) unless map['Confidence'].nil?)
-        data.criticality = (Parsers::NumberFilterList.parse(map['Criticality']) unless map['Criticality'].nil?)
-        data.title = (Parsers::StringFilterList.parse(map['Title']) unless map['Title'].nil?)
-        data.description = (Parsers::StringFilterList.parse(map['Description']) unless map['Description'].nil?)
-        data.recommendation_text = (Parsers::StringFilterList.parse(map['RecommendationText']) unless map['RecommendationText'].nil?)
-        data.source_url = (Parsers::StringFilterList.parse(map['SourceUrl']) unless map['SourceUrl'].nil?)
-        data.product_fields = (Parsers::MapFilterList.parse(map['ProductFields']) unless map['ProductFields'].nil?)
-        data.product_name = (Parsers::StringFilterList.parse(map['ProductName']) unless map['ProductName'].nil?)
-        data.company_name = (Parsers::StringFilterList.parse(map['CompanyName']) unless map['CompanyName'].nil?)
-        data.user_defined_fields = (Parsers::MapFilterList.parse(map['UserDefinedFields']) unless map['UserDefinedFields'].nil?)
-        data.malware_name = (Parsers::StringFilterList.parse(map['MalwareName']) unless map['MalwareName'].nil?)
-        data.malware_type = (Parsers::StringFilterList.parse(map['MalwareType']) unless map['MalwareType'].nil?)
-        data.malware_path = (Parsers::StringFilterList.parse(map['MalwarePath']) unless map['MalwarePath'].nil?)
-        data.malware_state = (Parsers::StringFilterList.parse(map['MalwareState']) unless map['MalwareState'].nil?)
-        data.network_direction = (Parsers::StringFilterList.parse(map['NetworkDirection']) unless map['NetworkDirection'].nil?)
-        data.network_protocol = (Parsers::StringFilterList.parse(map['NetworkProtocol']) unless map['NetworkProtocol'].nil?)
-        data.network_source_ip_v4 = (Parsers::IpFilterList.parse(map['NetworkSourceIpV4']) unless map['NetworkSourceIpV4'].nil?)
-        data.network_source_ip_v6 = (Parsers::IpFilterList.parse(map['NetworkSourceIpV6']) unless map['NetworkSourceIpV6'].nil?)
-        data.network_source_port = (Parsers::NumberFilterList.parse(map['NetworkSourcePort']) unless map['NetworkSourcePort'].nil?)
-        data.network_source_domain = (Parsers::StringFilterList.parse(map['NetworkSourceDomain']) unless map['NetworkSourceDomain'].nil?)
-        data.network_source_mac = (Parsers::StringFilterList.parse(map['NetworkSourceMac']) unless map['NetworkSourceMac'].nil?)
-        data.network_destination_ip_v4 = (Parsers::IpFilterList.parse(map['NetworkDestinationIpV4']) unless map['NetworkDestinationIpV4'].nil?)
-        data.network_destination_ip_v6 = (Parsers::IpFilterList.parse(map['NetworkDestinationIpV6']) unless map['NetworkDestinationIpV6'].nil?)
-        data.network_destination_port = (Parsers::NumberFilterList.parse(map['NetworkDestinationPort']) unless map['NetworkDestinationPort'].nil?)
-        data.network_destination_domain = (Parsers::StringFilterList.parse(map['NetworkDestinationDomain']) unless map['NetworkDestinationDomain'].nil?)
-        data.process_name = (Parsers::StringFilterList.parse(map['ProcessName']) unless map['ProcessName'].nil?)
-        data.process_path = (Parsers::StringFilterList.parse(map['ProcessPath']) unless map['ProcessPath'].nil?)
-        data.process_pid = (Parsers::NumberFilterList.parse(map['ProcessPid']) unless map['ProcessPid'].nil?)
-        data.process_parent_pid = (Parsers::NumberFilterList.parse(map['ProcessParentPid']) unless map['ProcessParentPid'].nil?)
-        data.process_launched_at = (Parsers::DateFilterList.parse(map['ProcessLaunchedAt']) unless map['ProcessLaunchedAt'].nil?)
-        data.process_terminated_at = (Parsers::DateFilterList.parse(map['ProcessTerminatedAt']) unless map['ProcessTerminatedAt'].nil?)
-        data.threat_intel_indicator_type = (Parsers::StringFilterList.parse(map['ThreatIntelIndicatorType']) unless map['ThreatIntelIndicatorType'].nil?)
-        data.threat_intel_indicator_value = (Parsers::StringFilterList.parse(map['ThreatIntelIndicatorValue']) unless map['ThreatIntelIndicatorValue'].nil?)
-        data.threat_intel_indicator_category = (Parsers::StringFilterList.parse(map['ThreatIntelIndicatorCategory']) unless map['ThreatIntelIndicatorCategory'].nil?)
-        data.threat_intel_indicator_last_observed_at = (Parsers::DateFilterList.parse(map['ThreatIntelIndicatorLastObservedAt']) unless map['ThreatIntelIndicatorLastObservedAt'].nil?)
-        data.threat_intel_indicator_source = (Parsers::StringFilterList.parse(map['ThreatIntelIndicatorSource']) unless map['ThreatIntelIndicatorSource'].nil?)
-        data.threat_intel_indicator_source_url = (Parsers::StringFilterList.parse(map['ThreatIntelIndicatorSourceUrl']) unless map['ThreatIntelIndicatorSourceUrl'].nil?)
-        data.resource_type = (Parsers::StringFilterList.parse(map['ResourceType']) unless map['ResourceType'].nil?)
-        data.resource_id = (Parsers::StringFilterList.parse(map['ResourceId']) unless map['ResourceId'].nil?)
-        data.resource_partition = (Parsers::StringFilterList.parse(map['ResourcePartition']) unless map['ResourcePartition'].nil?)
-        data.resource_region = (Parsers::StringFilterList.parse(map['ResourceRegion']) unless map['ResourceRegion'].nil?)
-        data.resource_tags = (Parsers::MapFilterList.parse(map['ResourceTags']) unless map['ResourceTags'].nil?)
-        data.resource_aws_ec2_instance_type = (Parsers::StringFilterList.parse(map['ResourceAwsEc2InstanceType']) unless map['ResourceAwsEc2InstanceType'].nil?)
-        data.resource_aws_ec2_instance_image_id = (Parsers::StringFilterList.parse(map['ResourceAwsEc2InstanceImageId']) unless map['ResourceAwsEc2InstanceImageId'].nil?)
-        data.resource_aws_ec2_instance_ip_v4_addresses = (Parsers::IpFilterList.parse(map['ResourceAwsEc2InstanceIpV4Addresses']) unless map['ResourceAwsEc2InstanceIpV4Addresses'].nil?)
-        data.resource_aws_ec2_instance_ip_v6_addresses = (Parsers::IpFilterList.parse(map['ResourceAwsEc2InstanceIpV6Addresses']) unless map['ResourceAwsEc2InstanceIpV6Addresses'].nil?)
-        data.resource_aws_ec2_instance_key_name = (Parsers::StringFilterList.parse(map['ResourceAwsEc2InstanceKeyName']) unless map['ResourceAwsEc2InstanceKeyName'].nil?)
-        data.resource_aws_ec2_instance_iam_instance_profile_arn = (Parsers::StringFilterList.parse(map['ResourceAwsEc2InstanceIamInstanceProfileArn']) unless map['ResourceAwsEc2InstanceIamInstanceProfileArn'].nil?)
-        data.resource_aws_ec2_instance_vpc_id = (Parsers::StringFilterList.parse(map['ResourceAwsEc2InstanceVpcId']) unless map['ResourceAwsEc2InstanceVpcId'].nil?)
-        data.resource_aws_ec2_instance_subnet_id = (Parsers::StringFilterList.parse(map['ResourceAwsEc2InstanceSubnetId']) unless map['ResourceAwsEc2InstanceSubnetId'].nil?)
-        data.resource_aws_ec2_instance_launched_at = (Parsers::DateFilterList.parse(map['ResourceAwsEc2InstanceLaunchedAt']) unless map['ResourceAwsEc2InstanceLaunchedAt'].nil?)
-        data.resource_aws_s3_bucket_owner_id = (Parsers::StringFilterList.parse(map['ResourceAwsS3BucketOwnerId']) unless map['ResourceAwsS3BucketOwnerId'].nil?)
-        data.resource_aws_s3_bucket_owner_name = (Parsers::StringFilterList.parse(map['ResourceAwsS3BucketOwnerName']) unless map['ResourceAwsS3BucketOwnerName'].nil?)
-        data.resource_aws_iam_access_key_user_name = (Parsers::StringFilterList.parse(map['ResourceAwsIamAccessKeyUserName']) unless map['ResourceAwsIamAccessKeyUserName'].nil?)
-        data.resource_aws_iam_access_key_principal_name = (Parsers::StringFilterList.parse(map['ResourceAwsIamAccessKeyPrincipalName']) unless map['ResourceAwsIamAccessKeyPrincipalName'].nil?)
-        data.resource_aws_iam_access_key_status = (Parsers::StringFilterList.parse(map['ResourceAwsIamAccessKeyStatus']) unless map['ResourceAwsIamAccessKeyStatus'].nil?)
-        data.resource_aws_iam_access_key_created_at = (Parsers::DateFilterList.parse(map['ResourceAwsIamAccessKeyCreatedAt']) unless map['ResourceAwsIamAccessKeyCreatedAt'].nil?)
-        data.resource_aws_iam_user_user_name = (Parsers::StringFilterList.parse(map['ResourceAwsIamUserUserName']) unless map['ResourceAwsIamUserUserName'].nil?)
-        data.resource_container_name = (Parsers::StringFilterList.parse(map['ResourceContainerName']) unless map['ResourceContainerName'].nil?)
-        data.resource_container_image_id = (Parsers::StringFilterList.parse(map['ResourceContainerImageId']) unless map['ResourceContainerImageId'].nil?)
-        data.resource_container_image_name = (Parsers::StringFilterList.parse(map['ResourceContainerImageName']) unless map['ResourceContainerImageName'].nil?)
-        data.resource_container_launched_at = (Parsers::DateFilterList.parse(map['ResourceContainerLaunchedAt']) unless map['ResourceContainerLaunchedAt'].nil?)
-        data.resource_details_other = (Parsers::MapFilterList.parse(map['ResourceDetailsOther']) unless map['ResourceDetailsOther'].nil?)
-        data.compliance_status = (Parsers::StringFilterList.parse(map['ComplianceStatus']) unless map['ComplianceStatus'].nil?)
-        data.verification_state = (Parsers::StringFilterList.parse(map['VerificationState']) unless map['VerificationState'].nil?)
-        data.workflow_state = (Parsers::StringFilterList.parse(map['WorkflowState']) unless map['WorkflowState'].nil?)
-        data.workflow_status = (Parsers::StringFilterList.parse(map['WorkflowStatus']) unless map['WorkflowStatus'].nil?)
-        data.record_state = (Parsers::StringFilterList.parse(map['RecordState']) unless map['RecordState'].nil?)
-        data.related_findings_product_arn = (Parsers::StringFilterList.parse(map['RelatedFindingsProductArn']) unless map['RelatedFindingsProductArn'].nil?)
-        data.related_findings_id = (Parsers::StringFilterList.parse(map['RelatedFindingsId']) unless map['RelatedFindingsId'].nil?)
-        data.note_text = (Parsers::StringFilterList.parse(map['NoteText']) unless map['NoteText'].nil?)
-        data.note_updated_at = (Parsers::DateFilterList.parse(map['NoteUpdatedAt']) unless map['NoteUpdatedAt'].nil?)
-        data.note_updated_by = (Parsers::StringFilterList.parse(map['NoteUpdatedBy']) unless map['NoteUpdatedBy'].nil?)
-        data.keyword = (Parsers::KeywordFilterList.parse(map['Keyword']) unless map['Keyword'].nil?)
-        data.finding_provider_fields_confidence = (Parsers::NumberFilterList.parse(map['FindingProviderFieldsConfidence']) unless map['FindingProviderFieldsConfidence'].nil?)
-        data.finding_provider_fields_criticality = (Parsers::NumberFilterList.parse(map['FindingProviderFieldsCriticality']) unless map['FindingProviderFieldsCriticality'].nil?)
-        data.finding_provider_fields_related_findings_id = (Parsers::StringFilterList.parse(map['FindingProviderFieldsRelatedFindingsId']) unless map['FindingProviderFieldsRelatedFindingsId'].nil?)
-        data.finding_provider_fields_related_findings_product_arn = (Parsers::StringFilterList.parse(map['FindingProviderFieldsRelatedFindingsProductArn']) unless map['FindingProviderFieldsRelatedFindingsProductArn'].nil?)
-        data.finding_provider_fields_severity_label = (Parsers::StringFilterList.parse(map['FindingProviderFieldsSeverityLabel']) unless map['FindingProviderFieldsSeverityLabel'].nil?)
-        data.finding_provider_fields_severity_original = (Parsers::StringFilterList.parse(map['FindingProviderFieldsSeverityOriginal']) unless map['FindingProviderFieldsSeverityOriginal'].nil?)
-        data.finding_provider_fields_types = (Parsers::StringFilterList.parse(map['FindingProviderFieldsTypes']) unless map['FindingProviderFieldsTypes'].nil?)
-        data.sample = (Parsers::BooleanFilterList.parse(map['Sample']) unless map['Sample'].nil?)
+        data.product_arn = (StringFilterList.parse(map['ProductArn']) unless map['ProductArn'].nil?)
+        data.aws_account_id = (StringFilterList.parse(map['AwsAccountId']) unless map['AwsAccountId'].nil?)
+        data.id = (StringFilterList.parse(map['Id']) unless map['Id'].nil?)
+        data.generator_id = (StringFilterList.parse(map['GeneratorId']) unless map['GeneratorId'].nil?)
+        data.region = (StringFilterList.parse(map['Region']) unless map['Region'].nil?)
+        data.type = (StringFilterList.parse(map['Type']) unless map['Type'].nil?)
+        data.first_observed_at = (DateFilterList.parse(map['FirstObservedAt']) unless map['FirstObservedAt'].nil?)
+        data.last_observed_at = (DateFilterList.parse(map['LastObservedAt']) unless map['LastObservedAt'].nil?)
+        data.created_at = (DateFilterList.parse(map['CreatedAt']) unless map['CreatedAt'].nil?)
+        data.updated_at = (DateFilterList.parse(map['UpdatedAt']) unless map['UpdatedAt'].nil?)
+        data.severity_product = (NumberFilterList.parse(map['SeverityProduct']) unless map['SeverityProduct'].nil?)
+        data.severity_normalized = (NumberFilterList.parse(map['SeverityNormalized']) unless map['SeverityNormalized'].nil?)
+        data.severity_label = (StringFilterList.parse(map['SeverityLabel']) unless map['SeverityLabel'].nil?)
+        data.confidence = (NumberFilterList.parse(map['Confidence']) unless map['Confidence'].nil?)
+        data.criticality = (NumberFilterList.parse(map['Criticality']) unless map['Criticality'].nil?)
+        data.title = (StringFilterList.parse(map['Title']) unless map['Title'].nil?)
+        data.description = (StringFilterList.parse(map['Description']) unless map['Description'].nil?)
+        data.recommendation_text = (StringFilterList.parse(map['RecommendationText']) unless map['RecommendationText'].nil?)
+        data.source_url = (StringFilterList.parse(map['SourceUrl']) unless map['SourceUrl'].nil?)
+        data.product_fields = (MapFilterList.parse(map['ProductFields']) unless map['ProductFields'].nil?)
+        data.product_name = (StringFilterList.parse(map['ProductName']) unless map['ProductName'].nil?)
+        data.company_name = (StringFilterList.parse(map['CompanyName']) unless map['CompanyName'].nil?)
+        data.user_defined_fields = (MapFilterList.parse(map['UserDefinedFields']) unless map['UserDefinedFields'].nil?)
+        data.malware_name = (StringFilterList.parse(map['MalwareName']) unless map['MalwareName'].nil?)
+        data.malware_type = (StringFilterList.parse(map['MalwareType']) unless map['MalwareType'].nil?)
+        data.malware_path = (StringFilterList.parse(map['MalwarePath']) unless map['MalwarePath'].nil?)
+        data.malware_state = (StringFilterList.parse(map['MalwareState']) unless map['MalwareState'].nil?)
+        data.network_direction = (StringFilterList.parse(map['NetworkDirection']) unless map['NetworkDirection'].nil?)
+        data.network_protocol = (StringFilterList.parse(map['NetworkProtocol']) unless map['NetworkProtocol'].nil?)
+        data.network_source_ip_v4 = (IpFilterList.parse(map['NetworkSourceIpV4']) unless map['NetworkSourceIpV4'].nil?)
+        data.network_source_ip_v6 = (IpFilterList.parse(map['NetworkSourceIpV6']) unless map['NetworkSourceIpV6'].nil?)
+        data.network_source_port = (NumberFilterList.parse(map['NetworkSourcePort']) unless map['NetworkSourcePort'].nil?)
+        data.network_source_domain = (StringFilterList.parse(map['NetworkSourceDomain']) unless map['NetworkSourceDomain'].nil?)
+        data.network_source_mac = (StringFilterList.parse(map['NetworkSourceMac']) unless map['NetworkSourceMac'].nil?)
+        data.network_destination_ip_v4 = (IpFilterList.parse(map['NetworkDestinationIpV4']) unless map['NetworkDestinationIpV4'].nil?)
+        data.network_destination_ip_v6 = (IpFilterList.parse(map['NetworkDestinationIpV6']) unless map['NetworkDestinationIpV6'].nil?)
+        data.network_destination_port = (NumberFilterList.parse(map['NetworkDestinationPort']) unless map['NetworkDestinationPort'].nil?)
+        data.network_destination_domain = (StringFilterList.parse(map['NetworkDestinationDomain']) unless map['NetworkDestinationDomain'].nil?)
+        data.process_name = (StringFilterList.parse(map['ProcessName']) unless map['ProcessName'].nil?)
+        data.process_path = (StringFilterList.parse(map['ProcessPath']) unless map['ProcessPath'].nil?)
+        data.process_pid = (NumberFilterList.parse(map['ProcessPid']) unless map['ProcessPid'].nil?)
+        data.process_parent_pid = (NumberFilterList.parse(map['ProcessParentPid']) unless map['ProcessParentPid'].nil?)
+        data.process_launched_at = (DateFilterList.parse(map['ProcessLaunchedAt']) unless map['ProcessLaunchedAt'].nil?)
+        data.process_terminated_at = (DateFilterList.parse(map['ProcessTerminatedAt']) unless map['ProcessTerminatedAt'].nil?)
+        data.threat_intel_indicator_type = (StringFilterList.parse(map['ThreatIntelIndicatorType']) unless map['ThreatIntelIndicatorType'].nil?)
+        data.threat_intel_indicator_value = (StringFilterList.parse(map['ThreatIntelIndicatorValue']) unless map['ThreatIntelIndicatorValue'].nil?)
+        data.threat_intel_indicator_category = (StringFilterList.parse(map['ThreatIntelIndicatorCategory']) unless map['ThreatIntelIndicatorCategory'].nil?)
+        data.threat_intel_indicator_last_observed_at = (DateFilterList.parse(map['ThreatIntelIndicatorLastObservedAt']) unless map['ThreatIntelIndicatorLastObservedAt'].nil?)
+        data.threat_intel_indicator_source = (StringFilterList.parse(map['ThreatIntelIndicatorSource']) unless map['ThreatIntelIndicatorSource'].nil?)
+        data.threat_intel_indicator_source_url = (StringFilterList.parse(map['ThreatIntelIndicatorSourceUrl']) unless map['ThreatIntelIndicatorSourceUrl'].nil?)
+        data.resource_type = (StringFilterList.parse(map['ResourceType']) unless map['ResourceType'].nil?)
+        data.resource_id = (StringFilterList.parse(map['ResourceId']) unless map['ResourceId'].nil?)
+        data.resource_partition = (StringFilterList.parse(map['ResourcePartition']) unless map['ResourcePartition'].nil?)
+        data.resource_region = (StringFilterList.parse(map['ResourceRegion']) unless map['ResourceRegion'].nil?)
+        data.resource_tags = (MapFilterList.parse(map['ResourceTags']) unless map['ResourceTags'].nil?)
+        data.resource_aws_ec2_instance_type = (StringFilterList.parse(map['ResourceAwsEc2InstanceType']) unless map['ResourceAwsEc2InstanceType'].nil?)
+        data.resource_aws_ec2_instance_image_id = (StringFilterList.parse(map['ResourceAwsEc2InstanceImageId']) unless map['ResourceAwsEc2InstanceImageId'].nil?)
+        data.resource_aws_ec2_instance_ip_v4_addresses = (IpFilterList.parse(map['ResourceAwsEc2InstanceIpV4Addresses']) unless map['ResourceAwsEc2InstanceIpV4Addresses'].nil?)
+        data.resource_aws_ec2_instance_ip_v6_addresses = (IpFilterList.parse(map['ResourceAwsEc2InstanceIpV6Addresses']) unless map['ResourceAwsEc2InstanceIpV6Addresses'].nil?)
+        data.resource_aws_ec2_instance_key_name = (StringFilterList.parse(map['ResourceAwsEc2InstanceKeyName']) unless map['ResourceAwsEc2InstanceKeyName'].nil?)
+        data.resource_aws_ec2_instance_iam_instance_profile_arn = (StringFilterList.parse(map['ResourceAwsEc2InstanceIamInstanceProfileArn']) unless map['ResourceAwsEc2InstanceIamInstanceProfileArn'].nil?)
+        data.resource_aws_ec2_instance_vpc_id = (StringFilterList.parse(map['ResourceAwsEc2InstanceVpcId']) unless map['ResourceAwsEc2InstanceVpcId'].nil?)
+        data.resource_aws_ec2_instance_subnet_id = (StringFilterList.parse(map['ResourceAwsEc2InstanceSubnetId']) unless map['ResourceAwsEc2InstanceSubnetId'].nil?)
+        data.resource_aws_ec2_instance_launched_at = (DateFilterList.parse(map['ResourceAwsEc2InstanceLaunchedAt']) unless map['ResourceAwsEc2InstanceLaunchedAt'].nil?)
+        data.resource_aws_s3_bucket_owner_id = (StringFilterList.parse(map['ResourceAwsS3BucketOwnerId']) unless map['ResourceAwsS3BucketOwnerId'].nil?)
+        data.resource_aws_s3_bucket_owner_name = (StringFilterList.parse(map['ResourceAwsS3BucketOwnerName']) unless map['ResourceAwsS3BucketOwnerName'].nil?)
+        data.resource_aws_iam_access_key_user_name = (StringFilterList.parse(map['ResourceAwsIamAccessKeyUserName']) unless map['ResourceAwsIamAccessKeyUserName'].nil?)
+        data.resource_aws_iam_access_key_principal_name = (StringFilterList.parse(map['ResourceAwsIamAccessKeyPrincipalName']) unless map['ResourceAwsIamAccessKeyPrincipalName'].nil?)
+        data.resource_aws_iam_access_key_status = (StringFilterList.parse(map['ResourceAwsIamAccessKeyStatus']) unless map['ResourceAwsIamAccessKeyStatus'].nil?)
+        data.resource_aws_iam_access_key_created_at = (DateFilterList.parse(map['ResourceAwsIamAccessKeyCreatedAt']) unless map['ResourceAwsIamAccessKeyCreatedAt'].nil?)
+        data.resource_aws_iam_user_user_name = (StringFilterList.parse(map['ResourceAwsIamUserUserName']) unless map['ResourceAwsIamUserUserName'].nil?)
+        data.resource_container_name = (StringFilterList.parse(map['ResourceContainerName']) unless map['ResourceContainerName'].nil?)
+        data.resource_container_image_id = (StringFilterList.parse(map['ResourceContainerImageId']) unless map['ResourceContainerImageId'].nil?)
+        data.resource_container_image_name = (StringFilterList.parse(map['ResourceContainerImageName']) unless map['ResourceContainerImageName'].nil?)
+        data.resource_container_launched_at = (DateFilterList.parse(map['ResourceContainerLaunchedAt']) unless map['ResourceContainerLaunchedAt'].nil?)
+        data.resource_details_other = (MapFilterList.parse(map['ResourceDetailsOther']) unless map['ResourceDetailsOther'].nil?)
+        data.compliance_status = (StringFilterList.parse(map['ComplianceStatus']) unless map['ComplianceStatus'].nil?)
+        data.verification_state = (StringFilterList.parse(map['VerificationState']) unless map['VerificationState'].nil?)
+        data.workflow_state = (StringFilterList.parse(map['WorkflowState']) unless map['WorkflowState'].nil?)
+        data.workflow_status = (StringFilterList.parse(map['WorkflowStatus']) unless map['WorkflowStatus'].nil?)
+        data.record_state = (StringFilterList.parse(map['RecordState']) unless map['RecordState'].nil?)
+        data.related_findings_product_arn = (StringFilterList.parse(map['RelatedFindingsProductArn']) unless map['RelatedFindingsProductArn'].nil?)
+        data.related_findings_id = (StringFilterList.parse(map['RelatedFindingsId']) unless map['RelatedFindingsId'].nil?)
+        data.note_text = (StringFilterList.parse(map['NoteText']) unless map['NoteText'].nil?)
+        data.note_updated_at = (DateFilterList.parse(map['NoteUpdatedAt']) unless map['NoteUpdatedAt'].nil?)
+        data.note_updated_by = (StringFilterList.parse(map['NoteUpdatedBy']) unless map['NoteUpdatedBy'].nil?)
+        data.keyword = (KeywordFilterList.parse(map['Keyword']) unless map['Keyword'].nil?)
+        data.finding_provider_fields_confidence = (NumberFilterList.parse(map['FindingProviderFieldsConfidence']) unless map['FindingProviderFieldsConfidence'].nil?)
+        data.finding_provider_fields_criticality = (NumberFilterList.parse(map['FindingProviderFieldsCriticality']) unless map['FindingProviderFieldsCriticality'].nil?)
+        data.finding_provider_fields_related_findings_id = (StringFilterList.parse(map['FindingProviderFieldsRelatedFindingsId']) unless map['FindingProviderFieldsRelatedFindingsId'].nil?)
+        data.finding_provider_fields_related_findings_product_arn = (StringFilterList.parse(map['FindingProviderFieldsRelatedFindingsProductArn']) unless map['FindingProviderFieldsRelatedFindingsProductArn'].nil?)
+        data.finding_provider_fields_severity_label = (StringFilterList.parse(map['FindingProviderFieldsSeverityLabel']) unless map['FindingProviderFieldsSeverityLabel'].nil?)
+        data.finding_provider_fields_severity_original = (StringFilterList.parse(map['FindingProviderFieldsSeverityOriginal']) unless map['FindingProviderFieldsSeverityOriginal'].nil?)
+        data.finding_provider_fields_types = (StringFilterList.parse(map['FindingProviderFieldsTypes']) unless map['FindingProviderFieldsTypes'].nil?)
+        data.sample = (BooleanFilterList.parse(map['Sample']) unless map['Sample'].nil?)
         return data
       end
     end
@@ -7130,7 +7130,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BooleanFilter.parse(value) unless value.nil?
+          data << BooleanFilter.parse(value) unless value.nil?
         end
         data
       end
@@ -7148,7 +7148,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StringFilter.parse(value) unless value.nil?
+          data << StringFilter.parse(value) unless value.nil?
         end
         data
       end
@@ -7167,7 +7167,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NumberFilter.parse(value) unless value.nil?
+          data << NumberFilter.parse(value) unless value.nil?
         end
         data
       end
@@ -7187,7 +7187,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::KeywordFilter.parse(value) unless value.nil?
+          data << KeywordFilter.parse(value) unless value.nil?
         end
         data
       end
@@ -7205,7 +7205,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DateFilter.parse(value) unless value.nil?
+          data << DateFilter.parse(value) unless value.nil?
         end
         data
       end
@@ -7216,7 +7216,7 @@ module AWS::SDK::SecurityHub
         data = Types::DateFilter.new
         data.start = map['Start']
         data.end = map['End']
-        data.date_range = (Parsers::DateRange.parse(map['DateRange']) unless map['DateRange'].nil?)
+        data.date_range = (DateRange.parse(map['DateRange']) unless map['DateRange'].nil?)
         return data
       end
     end
@@ -7234,7 +7234,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MapFilter.parse(value) unless value.nil?
+          data << MapFilter.parse(value) unless value.nil?
         end
         data
       end
@@ -7254,7 +7254,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IpFilter.parse(value) unless value.nil?
+          data << IpFilter.parse(value) unless value.nil?
         end
         data
       end
@@ -7283,7 +7283,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::GetMasterAccountOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.master = (Parsers::Invitation.parse(map['Master']) unless map['Master'].nil?)
+        data.master = (Invitation.parse(map['Master']) unless map['Master'].nil?)
         data
       end
     end
@@ -7293,8 +7293,8 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::GetMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.members = (Parsers::MemberList.parse(map['Members']) unless map['Members'].nil?)
-        data.unprocessed_accounts = (Parsers::ResultList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
+        data.members = (MemberList.parse(map['Members']) unless map['Members'].nil?)
+        data.unprocessed_accounts = (ResultList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
         data
       end
     end
@@ -7303,7 +7303,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Member.parse(value) unless value.nil?
+          data << Member.parse(value) unless value.nil?
         end
         data
       end
@@ -7328,7 +7328,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::InviteMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_accounts = (Parsers::ResultList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
+        data.unprocessed_accounts = (ResultList.parse(map['UnprocessedAccounts']) unless map['UnprocessedAccounts'].nil?)
         data
       end
     end
@@ -7338,7 +7338,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::ListEnabledProductsForImportOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.product_subscriptions = (Parsers::ProductSubscriptionArnList.parse(map['ProductSubscriptions']) unless map['ProductSubscriptions'].nil?)
+        data.product_subscriptions = (ProductSubscriptionArnList.parse(map['ProductSubscriptions']) unless map['ProductSubscriptions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7359,7 +7359,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::ListFindingAggregatorsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.finding_aggregators = (Parsers::FindingAggregatorList.parse(map['FindingAggregators']) unless map['FindingAggregators'].nil?)
+        data.finding_aggregators = (FindingAggregatorList.parse(map['FindingAggregators']) unless map['FindingAggregators'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7369,7 +7369,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FindingAggregator.parse(value) unless value.nil?
+          data << FindingAggregator.parse(value) unless value.nil?
         end
         data
       end
@@ -7388,7 +7388,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::ListInvitationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.invitations = (Parsers::InvitationList.parse(map['Invitations']) unless map['Invitations'].nil?)
+        data.invitations = (InvitationList.parse(map['Invitations']) unless map['Invitations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7398,7 +7398,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Invitation.parse(value) unless value.nil?
+          data << Invitation.parse(value) unless value.nil?
         end
         data
       end
@@ -7409,7 +7409,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::ListMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.members = (Parsers::MemberList.parse(map['Members']) unless map['Members'].nil?)
+        data.members = (MemberList.parse(map['Members']) unless map['Members'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7420,7 +7420,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::ListOrganizationAdminAccountsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.admin_accounts = (Parsers::AdminAccounts.parse(map['AdminAccounts']) unless map['AdminAccounts'].nil?)
+        data.admin_accounts = (AdminAccounts.parse(map['AdminAccounts']) unless map['AdminAccounts'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -7430,7 +7430,7 @@ module AWS::SDK::SecurityHub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AdminAccount.parse(value) unless value.nil?
+          data << AdminAccount.parse(value) unless value.nil?
         end
         data
       end
@@ -7450,7 +7450,7 @@ module AWS::SDK::SecurityHub
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -7500,7 +7500,7 @@ module AWS::SDK::SecurityHub
         data.finding_aggregator_arn = map['FindingAggregatorArn']
         data.finding_aggregation_region = map['FindingAggregationRegion']
         data.region_linking_mode = map['RegionLinkingMode']
-        data.regions = (Parsers::StringList.parse(map['Regions']) unless map['Regions'].nil?)
+        data.regions = (StringList.parse(map['Regions']) unless map['Regions'].nil?)
         data
       end
     end

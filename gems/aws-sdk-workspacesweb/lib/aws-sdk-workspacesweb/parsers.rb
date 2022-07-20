@@ -40,7 +40,7 @@ module AWS::SDK::WorkSpacesWeb
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['message'] || map['Message']
         data.reason = map['reason']
-        data.field_list = (Parsers::ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
+        data.field_list = (ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
         data
       end
     end
@@ -49,7 +49,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          data << ValidationExceptionField.parse(value) unless value.nil?
         end
         data
       end
@@ -313,7 +313,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::GetBrowserSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.browser_settings = (Parsers::BrowserSettings.parse(map['browserSettings']) unless map['browserSettings'].nil?)
+        data.browser_settings = (BrowserSettings.parse(map['browserSettings']) unless map['browserSettings'].nil?)
         data
       end
     end
@@ -322,7 +322,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(map)
         data = Types::BrowserSettings.new
         data.browser_settings_arn = map['browserSettingsArn']
-        data.associated_portal_arns = (Parsers::ArnList.parse(map['associatedPortalArns']) unless map['associatedPortalArns'].nil?)
+        data.associated_portal_arns = (ArnList.parse(map['associatedPortalArns']) unless map['associatedPortalArns'].nil?)
         data.browser_policy = map['browserPolicy']
         return data
       end
@@ -343,7 +343,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::GetIdentityProviderOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.identity_provider = (Parsers::IdentityProvider.parse(map['identityProvider']) unless map['identityProvider'].nil?)
+        data.identity_provider = (IdentityProvider.parse(map['identityProvider']) unless map['identityProvider'].nil?)
         data
       end
     end
@@ -354,7 +354,7 @@ module AWS::SDK::WorkSpacesWeb
         data.identity_provider_arn = map['identityProviderArn']
         data.identity_provider_name = map['identityProviderName']
         data.identity_provider_type = map['identityProviderType']
-        data.identity_provider_details = (Parsers::IdentityProviderDetails.parse(map['identityProviderDetails']) unless map['identityProviderDetails'].nil?)
+        data.identity_provider_details = (IdentityProviderDetails.parse(map['identityProviderDetails']) unless map['identityProviderDetails'].nil?)
         return data
       end
     end
@@ -374,7 +374,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::GetNetworkSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.network_settings = (Parsers::NetworkSettings.parse(map['networkSettings']) unless map['networkSettings'].nil?)
+        data.network_settings = (NetworkSettings.parse(map['networkSettings']) unless map['networkSettings'].nil?)
         data
       end
     end
@@ -383,10 +383,10 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(map)
         data = Types::NetworkSettings.new
         data.network_settings_arn = map['networkSettingsArn']
-        data.associated_portal_arns = (Parsers::ArnList.parse(map['associatedPortalArns']) unless map['associatedPortalArns'].nil?)
+        data.associated_portal_arns = (ArnList.parse(map['associatedPortalArns']) unless map['associatedPortalArns'].nil?)
         data.vpc_id = map['vpcId']
-        data.subnet_ids = (Parsers::SubnetIdList.parse(map['subnetIds']) unless map['subnetIds'].nil?)
-        data.security_group_ids = (Parsers::SecurityGroupIdList.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
+        data.subnet_ids = (SubnetIdList.parse(map['subnetIds']) unless map['subnetIds'].nil?)
+        data.security_group_ids = (SecurityGroupIdList.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
         return data
       end
     end
@@ -416,7 +416,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::GetPortalOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.portal = (Parsers::Portal.parse(map['portal']) unless map['portal'].nil?)
+        data.portal = (Portal.parse(map['portal']) unless map['portal'].nil?)
         data
       end
     end
@@ -456,7 +456,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::GetTrustStoreOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.trust_store = (Parsers::TrustStore.parse(map['trustStore']) unless map['trustStore'].nil?)
+        data.trust_store = (TrustStore.parse(map['trustStore']) unless map['trustStore'].nil?)
         data
       end
     end
@@ -464,7 +464,7 @@ module AWS::SDK::WorkSpacesWeb
     class TrustStore
       def self.parse(map)
         data = Types::TrustStore.new
-        data.associated_portal_arns = (Parsers::ArnList.parse(map['associatedPortalArns']) unless map['associatedPortalArns'].nil?)
+        data.associated_portal_arns = (ArnList.parse(map['associatedPortalArns']) unless map['associatedPortalArns'].nil?)
         data.trust_store_arn = map['trustStoreArn']
         return data
       end
@@ -476,7 +476,7 @@ module AWS::SDK::WorkSpacesWeb
         data = Types::GetTrustStoreCertificateOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.trust_store_arn = map['trustStoreArn']
-        data.certificate = (Parsers::Certificate.parse(map['certificate']) unless map['certificate'].nil?)
+        data.certificate = (Certificate.parse(map['certificate']) unless map['certificate'].nil?)
         data
       end
     end
@@ -499,7 +499,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::GetUserSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.user_settings = (Parsers::UserSettings.parse(map['userSettings']) unless map['userSettings'].nil?)
+        data.user_settings = (UserSettings.parse(map['userSettings']) unless map['userSettings'].nil?)
         data
       end
     end
@@ -508,7 +508,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(map)
         data = Types::UserSettings.new
         data.user_settings_arn = map['userSettingsArn']
-        data.associated_portal_arns = (Parsers::ArnList.parse(map['associatedPortalArns']) unless map['associatedPortalArns'].nil?)
+        data.associated_portal_arns = (ArnList.parse(map['associatedPortalArns']) unless map['associatedPortalArns'].nil?)
         data.copy_allowed = map['copyAllowed']
         data.paste_allowed = map['pasteAllowed']
         data.download_allowed = map['downloadAllowed']
@@ -525,7 +525,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::ListBrowserSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.browser_settings = (Parsers::BrowserSettingsList.parse(map['browserSettings']) unless map['browserSettings'].nil?)
+        data.browser_settings = (BrowserSettingsList.parse(map['browserSettings']) unless map['browserSettings'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -535,7 +535,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BrowserSettingsSummary.parse(value) unless value.nil?
+          data << BrowserSettingsSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -555,7 +555,7 @@ module AWS::SDK::WorkSpacesWeb
         data = Types::ListIdentityProvidersOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.identity_providers = (Parsers::IdentityProviderList.parse(map['identityProviders']) unless map['identityProviders'].nil?)
+        data.identity_providers = (IdentityProviderList.parse(map['identityProviders']) unless map['identityProviders'].nil?)
         data
       end
     end
@@ -564,7 +564,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IdentityProviderSummary.parse(value) unless value.nil?
+          data << IdentityProviderSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -585,7 +585,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::ListNetworkSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.network_settings = (Parsers::NetworkSettingsList.parse(map['networkSettings']) unless map['networkSettings'].nil?)
+        data.network_settings = (NetworkSettingsList.parse(map['networkSettings']) unless map['networkSettings'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -595,7 +595,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NetworkSettingsSummary.parse(value) unless value.nil?
+          data << NetworkSettingsSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -615,7 +615,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::ListPortalsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.portals = (Parsers::PortalList.parse(map['portals']) unless map['portals'].nil?)
+        data.portals = (PortalList.parse(map['portals']) unless map['portals'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -625,7 +625,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PortalSummary.parse(value) unless value.nil?
+          data << PortalSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -654,7 +654,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -663,7 +663,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -683,7 +683,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::ListTrustStoreCertificatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.certificate_list = (Parsers::CertificateSummaryList.parse(map['certificateList']) unless map['certificateList'].nil?)
+        data.certificate_list = (CertificateSummaryList.parse(map['certificateList']) unless map['certificateList'].nil?)
         data.trust_store_arn = map['trustStoreArn']
         data.next_token = map['nextToken']
         data
@@ -694,7 +694,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CertificateSummary.parse(value) unless value.nil?
+          data << CertificateSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -717,7 +717,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::ListTrustStoresOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.trust_stores = (Parsers::TrustStoreSummaryList.parse(map['trustStores']) unless map['trustStores'].nil?)
+        data.trust_stores = (TrustStoreSummaryList.parse(map['trustStores']) unless map['trustStores'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -727,7 +727,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TrustStoreSummary.parse(value) unless value.nil?
+          data << TrustStoreSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -746,7 +746,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::ListUserSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.user_settings = (Parsers::UserSettingsList.parse(map['userSettings']) unless map['userSettings'].nil?)
+        data.user_settings = (UserSettingsList.parse(map['userSettings']) unless map['userSettings'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -756,7 +756,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UserSettingsSummary.parse(value) unless value.nil?
+          data << UserSettingsSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -811,7 +811,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::UpdateBrowserSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.browser_settings = (Parsers::BrowserSettings.parse(map['browserSettings']) unless map['browserSettings'].nil?)
+        data.browser_settings = (BrowserSettings.parse(map['browserSettings']) unless map['browserSettings'].nil?)
         data
       end
     end
@@ -821,7 +821,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::UpdateIdentityProviderOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.identity_provider = (Parsers::IdentityProvider.parse(map['identityProvider']) unless map['identityProvider'].nil?)
+        data.identity_provider = (IdentityProvider.parse(map['identityProvider']) unless map['identityProvider'].nil?)
         data
       end
     end
@@ -831,7 +831,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::UpdateNetworkSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.network_settings = (Parsers::NetworkSettings.parse(map['networkSettings']) unless map['networkSettings'].nil?)
+        data.network_settings = (NetworkSettings.parse(map['networkSettings']) unless map['networkSettings'].nil?)
         data
       end
     end
@@ -841,7 +841,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::UpdatePortalOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.portal = (Parsers::Portal.parse(map['portal']) unless map['portal'].nil?)
+        data.portal = (Portal.parse(map['portal']) unless map['portal'].nil?)
         data
       end
     end
@@ -861,7 +861,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.parse(http_resp)
         data = Types::UpdateUserSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.user_settings = (Parsers::UserSettings.parse(map['userSettings']) unless map['userSettings'].nil?)
+        data.user_settings = (UserSettings.parse(map['userSettings']) unless map['userSettings'].nil?)
         data
       end
     end

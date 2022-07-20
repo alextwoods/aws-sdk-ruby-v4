@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Macie
   module Builders
 
@@ -19,7 +21,7 @@ module AWS::SDK::Macie
         http_req.headers['X-Amz-Target'] = 'MacieService.AssociateMemberAccount'
         data = {}
         data['memberAccountId'] = input[:member_account_id] unless input[:member_account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -32,8 +34,8 @@ module AWS::SDK::Macie
         http_req.headers['X-Amz-Target'] = 'MacieService.AssociateS3Resources'
         data = {}
         data['memberAccountId'] = input[:member_account_id] unless input[:member_account_id].nil?
-        data['s3Resources'] = Builders::S3ResourcesClassification.build(input[:s3_resources]) unless input[:s3_resources].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['s3Resources'] = S3ResourcesClassification.build(input[:s3_resources]) unless input[:s3_resources].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -42,7 +44,7 @@ module AWS::SDK::Macie
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::S3ResourceClassification.build(element) unless element.nil?
+          data << S3ResourceClassification.build(element) unless element.nil?
         end
         data
       end
@@ -54,7 +56,7 @@ module AWS::SDK::Macie
         data = {}
         data['bucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
         data['prefix'] = input[:prefix] unless input[:prefix].nil?
-        data['classificationType'] = Builders::ClassificationType.build(input[:classification_type]) unless input[:classification_type].nil?
+        data['classificationType'] = ClassificationType.build(input[:classification_type]) unless input[:classification_type].nil?
         data
       end
     end
@@ -78,7 +80,7 @@ module AWS::SDK::Macie
         http_req.headers['X-Amz-Target'] = 'MacieService.DisassociateMemberAccount'
         data = {}
         data['memberAccountId'] = input[:member_account_id] unless input[:member_account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -91,8 +93,8 @@ module AWS::SDK::Macie
         http_req.headers['X-Amz-Target'] = 'MacieService.DisassociateS3Resources'
         data = {}
         data['memberAccountId'] = input[:member_account_id] unless input[:member_account_id].nil?
-        data['associatedS3Resources'] = Builders::S3Resources.build(input[:associated_s3_resources]) unless input[:associated_s3_resources].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['associatedS3Resources'] = S3Resources.build(input[:associated_s3_resources]) unless input[:associated_s3_resources].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -101,7 +103,7 @@ module AWS::SDK::Macie
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::S3Resource.build(element) unless element.nil?
+          data << S3Resource.build(element) unless element.nil?
         end
         data
       end
@@ -127,7 +129,7 @@ module AWS::SDK::Macie
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -142,7 +144,7 @@ module AWS::SDK::Macie
         data['memberAccountId'] = input[:member_account_id] unless input[:member_account_id].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -155,8 +157,8 @@ module AWS::SDK::Macie
         http_req.headers['X-Amz-Target'] = 'MacieService.UpdateS3Resources'
         data = {}
         data['memberAccountId'] = input[:member_account_id] unless input[:member_account_id].nil?
-        data['s3ResourcesUpdate'] = Builders::S3ResourcesClassificationUpdate.build(input[:s3_resources_update]) unless input[:s3_resources_update].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['s3ResourcesUpdate'] = S3ResourcesClassificationUpdate.build(input[:s3_resources_update]) unless input[:s3_resources_update].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -165,7 +167,7 @@ module AWS::SDK::Macie
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::S3ResourceClassificationUpdate.build(element) unless element.nil?
+          data << S3ResourceClassificationUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -177,7 +179,7 @@ module AWS::SDK::Macie
         data = {}
         data['bucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
         data['prefix'] = input[:prefix] unless input[:prefix].nil?
-        data['classificationTypeUpdate'] = Builders::ClassificationTypeUpdate.build(input[:classification_type_update]) unless input[:classification_type_update].nil?
+        data['classificationTypeUpdate'] = ClassificationTypeUpdate.build(input[:classification_type_update]) unless input[:classification_type_update].nil?
         data
       end
     end

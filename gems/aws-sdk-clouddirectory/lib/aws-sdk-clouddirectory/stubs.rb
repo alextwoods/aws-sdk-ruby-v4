@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::CloudDirectory
   module Stubs
 
@@ -38,7 +41,7 @@ module AWS::SDK::CloudDirectory
         http_resp.headers['Content-Type'] = 'application/json'
         data['AppliedSchemaArn'] = stub[:applied_schema_arn] unless stub[:applied_schema_arn].nil?
         data['DirectoryArn'] = stub[:directory_arn] unless stub[:directory_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -55,7 +58,7 @@ module AWS::SDK::CloudDirectory
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AttachedObjectIdentifier'] = stub[:attached_object_identifier] unless stub[:attached_object_identifier].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -85,7 +88,7 @@ module AWS::SDK::CloudDirectory
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AttachedObjectIdentifier'] = stub[:attached_object_identifier] unless stub[:attached_object_identifier].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -101,8 +104,8 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TypedLinkSpecifier'] = Stubs::TypedLinkSpecifier.stub(stub[:typed_link_specifier]) unless stub[:typed_link_specifier].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TypedLinkSpecifier'] = TypedLinkSpecifier.stub(stub[:typed_link_specifier]) unless stub[:typed_link_specifier].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -122,10 +125,10 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::TypedLinkSpecifier.new
         data = {}
-        data['TypedLinkFacet'] = Stubs::TypedLinkSchemaAndFacetName.stub(stub[:typed_link_facet]) unless stub[:typed_link_facet].nil?
-        data['SourceObjectReference'] = Stubs::ObjectReference.stub(stub[:source_object_reference]) unless stub[:source_object_reference].nil?
-        data['TargetObjectReference'] = Stubs::ObjectReference.stub(stub[:target_object_reference]) unless stub[:target_object_reference].nil?
-        data['IdentityAttributeValues'] = Stubs::AttributeNameAndValueList.stub(stub[:identity_attribute_values]) unless stub[:identity_attribute_values].nil?
+        data['TypedLinkFacet'] = TypedLinkSchemaAndFacetName.stub(stub[:typed_link_facet]) unless stub[:typed_link_facet].nil?
+        data['SourceObjectReference'] = ObjectReference.stub(stub[:source_object_reference]) unless stub[:source_object_reference].nil?
+        data['TargetObjectReference'] = ObjectReference.stub(stub[:target_object_reference]) unless stub[:target_object_reference].nil?
+        data['IdentityAttributeValues'] = AttributeNameAndValueList.stub(stub[:identity_attribute_values]) unless stub[:identity_attribute_values].nil?
         data
       end
     end
@@ -144,7 +147,7 @@ module AWS::SDK::CloudDirectory
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttributeNameAndValue.stub(element) unless element.nil?
+          data << AttributeNameAndValue.stub(element) unless element.nil?
         end
         data
       end
@@ -165,7 +168,7 @@ module AWS::SDK::CloudDirectory
         stub ||= Types::AttributeNameAndValue.new
         data = {}
         data['AttributeName'] = stub[:attribute_name] unless stub[:attribute_name].nil?
-        data['Value'] = Stubs::TypedAttributeValue.stub(stub[:value]) unless stub[:value].nil?
+        data['Value'] = TypedAttributeValue.stub(stub[:value]) unless stub[:value].nil?
         data
       end
     end
@@ -186,7 +189,7 @@ module AWS::SDK::CloudDirectory
         when Types::TypedAttributeValue::StringValue
           data['StringValue'] = stub.__getobj__
         when Types::TypedAttributeValue::BinaryValue
-          data['BinaryValue'] = Base64::encode64(stub.__getobj__)
+          data['BinaryValue'] = ::Base64::encode64(stub.__getobj__)
         when Types::TypedAttributeValue::BooleanValue
           data['BooleanValue'] = stub.__getobj__
         when Types::TypedAttributeValue::NumberValue
@@ -252,8 +255,8 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Responses'] = Stubs::BatchReadOperationResponseList.stub(stub[:responses]) unless stub[:responses].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Responses'] = BatchReadOperationResponseList.stub(stub[:responses]) unless stub[:responses].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -271,7 +274,7 @@ module AWS::SDK::CloudDirectory
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchReadOperationResponse.stub(element) unless element.nil?
+          data << BatchReadOperationResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -291,8 +294,8 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchReadOperationResponse.new
         data = {}
-        data['SuccessfulResponse'] = Stubs::BatchReadSuccessfulResponse.stub(stub[:successful_response]) unless stub[:successful_response].nil?
-        data['ExceptionResponse'] = Stubs::BatchReadException.stub(stub[:exception_response]) unless stub[:exception_response].nil?
+        data['SuccessfulResponse'] = BatchReadSuccessfulResponse.stub(stub[:successful_response]) unless stub[:successful_response].nil?
+        data['ExceptionResponse'] = BatchReadException.stub(stub[:exception_response]) unless stub[:exception_response].nil?
         data
       end
     end
@@ -343,20 +346,20 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchReadSuccessfulResponse.new
         data = {}
-        data['ListObjectAttributes'] = Stubs::BatchListObjectAttributesResponse.stub(stub[:list_object_attributes]) unless stub[:list_object_attributes].nil?
-        data['ListObjectChildren'] = Stubs::BatchListObjectChildrenResponse.stub(stub[:list_object_children]) unless stub[:list_object_children].nil?
-        data['GetObjectInformation'] = Stubs::BatchGetObjectInformationResponse.stub(stub[:get_object_information]) unless stub[:get_object_information].nil?
-        data['GetObjectAttributes'] = Stubs::BatchGetObjectAttributesResponse.stub(stub[:get_object_attributes]) unless stub[:get_object_attributes].nil?
-        data['ListAttachedIndices'] = Stubs::BatchListAttachedIndicesResponse.stub(stub[:list_attached_indices]) unless stub[:list_attached_indices].nil?
-        data['ListObjectParentPaths'] = Stubs::BatchListObjectParentPathsResponse.stub(stub[:list_object_parent_paths]) unless stub[:list_object_parent_paths].nil?
-        data['ListObjectPolicies'] = Stubs::BatchListObjectPoliciesResponse.stub(stub[:list_object_policies]) unless stub[:list_object_policies].nil?
-        data['ListPolicyAttachments'] = Stubs::BatchListPolicyAttachmentsResponse.stub(stub[:list_policy_attachments]) unless stub[:list_policy_attachments].nil?
-        data['LookupPolicy'] = Stubs::BatchLookupPolicyResponse.stub(stub[:lookup_policy]) unless stub[:lookup_policy].nil?
-        data['ListIndex'] = Stubs::BatchListIndexResponse.stub(stub[:list_index]) unless stub[:list_index].nil?
-        data['ListOutgoingTypedLinks'] = Stubs::BatchListOutgoingTypedLinksResponse.stub(stub[:list_outgoing_typed_links]) unless stub[:list_outgoing_typed_links].nil?
-        data['ListIncomingTypedLinks'] = Stubs::BatchListIncomingTypedLinksResponse.stub(stub[:list_incoming_typed_links]) unless stub[:list_incoming_typed_links].nil?
-        data['GetLinkAttributes'] = Stubs::BatchGetLinkAttributesResponse.stub(stub[:get_link_attributes]) unless stub[:get_link_attributes].nil?
-        data['ListObjectParents'] = Stubs::BatchListObjectParentsResponse.stub(stub[:list_object_parents]) unless stub[:list_object_parents].nil?
+        data['ListObjectAttributes'] = BatchListObjectAttributesResponse.stub(stub[:list_object_attributes]) unless stub[:list_object_attributes].nil?
+        data['ListObjectChildren'] = BatchListObjectChildrenResponse.stub(stub[:list_object_children]) unless stub[:list_object_children].nil?
+        data['GetObjectInformation'] = BatchGetObjectInformationResponse.stub(stub[:get_object_information]) unless stub[:get_object_information].nil?
+        data['GetObjectAttributes'] = BatchGetObjectAttributesResponse.stub(stub[:get_object_attributes]) unless stub[:get_object_attributes].nil?
+        data['ListAttachedIndices'] = BatchListAttachedIndicesResponse.stub(stub[:list_attached_indices]) unless stub[:list_attached_indices].nil?
+        data['ListObjectParentPaths'] = BatchListObjectParentPathsResponse.stub(stub[:list_object_parent_paths]) unless stub[:list_object_parent_paths].nil?
+        data['ListObjectPolicies'] = BatchListObjectPoliciesResponse.stub(stub[:list_object_policies]) unless stub[:list_object_policies].nil?
+        data['ListPolicyAttachments'] = BatchListPolicyAttachmentsResponse.stub(stub[:list_policy_attachments]) unless stub[:list_policy_attachments].nil?
+        data['LookupPolicy'] = BatchLookupPolicyResponse.stub(stub[:lookup_policy]) unless stub[:lookup_policy].nil?
+        data['ListIndex'] = BatchListIndexResponse.stub(stub[:list_index]) unless stub[:list_index].nil?
+        data['ListOutgoingTypedLinks'] = BatchListOutgoingTypedLinksResponse.stub(stub[:list_outgoing_typed_links]) unless stub[:list_outgoing_typed_links].nil?
+        data['ListIncomingTypedLinks'] = BatchListIncomingTypedLinksResponse.stub(stub[:list_incoming_typed_links]) unless stub[:list_incoming_typed_links].nil?
+        data['GetLinkAttributes'] = BatchGetLinkAttributesResponse.stub(stub[:get_link_attributes]) unless stub[:get_link_attributes].nil?
+        data['ListObjectParents'] = BatchListObjectParentsResponse.stub(stub[:list_object_parents]) unless stub[:list_object_parents].nil?
         data
       end
     end
@@ -375,7 +378,7 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchListObjectParentsResponse.new
         data = {}
-        data['ParentLinks'] = Stubs::ObjectIdentifierAndLinkNameList.stub(stub[:parent_links]) unless stub[:parent_links].nil?
+        data['ParentLinks'] = ObjectIdentifierAndLinkNameList.stub(stub[:parent_links]) unless stub[:parent_links].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -395,7 +398,7 @@ module AWS::SDK::CloudDirectory
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ObjectIdentifierAndLinkNameTuple.stub(element) unless element.nil?
+          data << ObjectIdentifierAndLinkNameTuple.stub(element) unless element.nil?
         end
         data
       end
@@ -434,7 +437,7 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchGetLinkAttributesResponse.new
         data = {}
-        data['Attributes'] = Stubs::AttributeKeyAndValueList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = AttributeKeyAndValueList.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -453,7 +456,7 @@ module AWS::SDK::CloudDirectory
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttributeKeyAndValue.stub(element) unless element.nil?
+          data << AttributeKeyAndValue.stub(element) unless element.nil?
         end
         data
       end
@@ -473,8 +476,8 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::AttributeKeyAndValue.new
         data = {}
-        data['Key'] = Stubs::AttributeKey.stub(stub[:key]) unless stub[:key].nil?
-        data['Value'] = Stubs::TypedAttributeValue.stub(stub[:value]) unless stub[:value].nil?
+        data['Key'] = AttributeKey.stub(stub[:key]) unless stub[:key].nil?
+        data['Value'] = TypedAttributeValue.stub(stub[:value]) unless stub[:value].nil?
         data
       end
     end
@@ -515,7 +518,7 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchListIncomingTypedLinksResponse.new
         data = {}
-        data['LinkSpecifiers'] = Stubs::TypedLinkSpecifierList.stub(stub[:link_specifiers]) unless stub[:link_specifiers].nil?
+        data['LinkSpecifiers'] = TypedLinkSpecifierList.stub(stub[:link_specifiers]) unless stub[:link_specifiers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -535,7 +538,7 @@ module AWS::SDK::CloudDirectory
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TypedLinkSpecifier.stub(element) unless element.nil?
+          data << TypedLinkSpecifier.stub(element) unless element.nil?
         end
         data
       end
@@ -555,7 +558,7 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchListOutgoingTypedLinksResponse.new
         data = {}
-        data['TypedLinkSpecifiers'] = Stubs::TypedLinkSpecifierList.stub(stub[:typed_link_specifiers]) unless stub[:typed_link_specifiers].nil?
+        data['TypedLinkSpecifiers'] = TypedLinkSpecifierList.stub(stub[:typed_link_specifiers]) unless stub[:typed_link_specifiers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -575,7 +578,7 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchListIndexResponse.new
         data = {}
-        data['IndexAttachments'] = Stubs::IndexAttachmentList.stub(stub[:index_attachments]) unless stub[:index_attachments].nil?
+        data['IndexAttachments'] = IndexAttachmentList.stub(stub[:index_attachments]) unless stub[:index_attachments].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -595,7 +598,7 @@ module AWS::SDK::CloudDirectory
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IndexAttachment.stub(element) unless element.nil?
+          data << IndexAttachment.stub(element) unless element.nil?
         end
         data
       end
@@ -615,7 +618,7 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::IndexAttachment.new
         data = {}
-        data['IndexedAttributes'] = Stubs::AttributeKeyAndValueList.stub(stub[:indexed_attributes]) unless stub[:indexed_attributes].nil?
+        data['IndexedAttributes'] = AttributeKeyAndValueList.stub(stub[:indexed_attributes]) unless stub[:indexed_attributes].nil?
         data['ObjectIdentifier'] = stub[:object_identifier] unless stub[:object_identifier].nil?
         data
       end
@@ -635,7 +638,7 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchLookupPolicyResponse.new
         data = {}
-        data['PolicyToPathList'] = Stubs::PolicyToPathList.stub(stub[:policy_to_path_list]) unless stub[:policy_to_path_list].nil?
+        data['PolicyToPathList'] = PolicyToPathList.stub(stub[:policy_to_path_list]) unless stub[:policy_to_path_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -655,7 +658,7 @@ module AWS::SDK::CloudDirectory
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PolicyToPath.stub(element) unless element.nil?
+          data << PolicyToPath.stub(element) unless element.nil?
         end
         data
       end
@@ -676,7 +679,7 @@ module AWS::SDK::CloudDirectory
         stub ||= Types::PolicyToPath.new
         data = {}
         data['Path'] = stub[:path] unless stub[:path].nil?
-        data['Policies'] = Stubs::PolicyAttachmentList.stub(stub[:policies]) unless stub[:policies].nil?
+        data['Policies'] = PolicyAttachmentList.stub(stub[:policies]) unless stub[:policies].nil?
         data
       end
     end
@@ -695,7 +698,7 @@ module AWS::SDK::CloudDirectory
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PolicyAttachment.stub(element) unless element.nil?
+          data << PolicyAttachment.stub(element) unless element.nil?
         end
         data
       end
@@ -737,7 +740,7 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchListPolicyAttachmentsResponse.new
         data = {}
-        data['ObjectIdentifiers'] = Stubs::ObjectIdentifierList.stub(stub[:object_identifiers]) unless stub[:object_identifiers].nil?
+        data['ObjectIdentifiers'] = ObjectIdentifierList.stub(stub[:object_identifiers]) unless stub[:object_identifiers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -777,7 +780,7 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchListObjectPoliciesResponse.new
         data = {}
-        data['AttachedPolicyIds'] = Stubs::ObjectIdentifierList.stub(stub[:attached_policy_ids]) unless stub[:attached_policy_ids].nil?
+        data['AttachedPolicyIds'] = ObjectIdentifierList.stub(stub[:attached_policy_ids]) unless stub[:attached_policy_ids].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -797,7 +800,7 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchListObjectParentPathsResponse.new
         data = {}
-        data['PathToObjectIdentifiersList'] = Stubs::PathToObjectIdentifiersList.stub(stub[:path_to_object_identifiers_list]) unless stub[:path_to_object_identifiers_list].nil?
+        data['PathToObjectIdentifiersList'] = PathToObjectIdentifiersList.stub(stub[:path_to_object_identifiers_list]) unless stub[:path_to_object_identifiers_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -817,7 +820,7 @@ module AWS::SDK::CloudDirectory
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PathToObjectIdentifiers.stub(element) unless element.nil?
+          data << PathToObjectIdentifiers.stub(element) unless element.nil?
         end
         data
       end
@@ -838,7 +841,7 @@ module AWS::SDK::CloudDirectory
         stub ||= Types::PathToObjectIdentifiers.new
         data = {}
         data['Path'] = stub[:path] unless stub[:path].nil?
-        data['ObjectIdentifiers'] = Stubs::ObjectIdentifierList.stub(stub[:object_identifiers]) unless stub[:object_identifiers].nil?
+        data['ObjectIdentifiers'] = ObjectIdentifierList.stub(stub[:object_identifiers]) unless stub[:object_identifiers].nil?
         data
       end
     end
@@ -857,7 +860,7 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchListAttachedIndicesResponse.new
         data = {}
-        data['IndexAttachments'] = Stubs::IndexAttachmentList.stub(stub[:index_attachments]) unless stub[:index_attachments].nil?
+        data['IndexAttachments'] = IndexAttachmentList.stub(stub[:index_attachments]) unless stub[:index_attachments].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -876,7 +879,7 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchGetObjectAttributesResponse.new
         data = {}
-        data['Attributes'] = Stubs::AttributeKeyAndValueList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = AttributeKeyAndValueList.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -895,7 +898,7 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchGetObjectInformationResponse.new
         data = {}
-        data['SchemaFacets'] = Stubs::SchemaFacetList.stub(stub[:schema_facets]) unless stub[:schema_facets].nil?
+        data['SchemaFacets'] = SchemaFacetList.stub(stub[:schema_facets]) unless stub[:schema_facets].nil?
         data['ObjectIdentifier'] = stub[:object_identifier] unless stub[:object_identifier].nil?
         data
       end
@@ -915,7 +918,7 @@ module AWS::SDK::CloudDirectory
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SchemaFacet.stub(element) unless element.nil?
+          data << SchemaFacet.stub(element) unless element.nil?
         end
         data
       end
@@ -955,7 +958,7 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchListObjectChildrenResponse.new
         data = {}
-        data['Children'] = Stubs::LinkNameToObjectIdentifierMap.stub(stub[:children]) unless stub[:children].nil?
+        data['Children'] = LinkNameToObjectIdentifierMap.stub(stub[:children]) unless stub[:children].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -995,7 +998,7 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchListObjectAttributesResponse.new
         data = {}
-        data['Attributes'] = Stubs::AttributeKeyAndValueList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = AttributeKeyAndValueList.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -1013,8 +1016,8 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Responses'] = Stubs::BatchWriteOperationResponseList.stub(stub[:responses]) unless stub[:responses].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Responses'] = BatchWriteOperationResponseList.stub(stub[:responses]) unless stub[:responses].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1032,7 +1035,7 @@ module AWS::SDK::CloudDirectory
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchWriteOperationResponse.stub(element) unless element.nil?
+          data << BatchWriteOperationResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -1065,21 +1068,21 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchWriteOperationResponse.new
         data = {}
-        data['CreateObject'] = Stubs::BatchCreateObjectResponse.stub(stub[:create_object]) unless stub[:create_object].nil?
-        data['AttachObject'] = Stubs::BatchAttachObjectResponse.stub(stub[:attach_object]) unless stub[:attach_object].nil?
-        data['DetachObject'] = Stubs::BatchDetachObjectResponse.stub(stub[:detach_object]) unless stub[:detach_object].nil?
-        data['UpdateObjectAttributes'] = Stubs::BatchUpdateObjectAttributesResponse.stub(stub[:update_object_attributes]) unless stub[:update_object_attributes].nil?
-        data['DeleteObject'] = Stubs::BatchDeleteObjectResponse.stub(stub[:delete_object]) unless stub[:delete_object].nil?
-        data['AddFacetToObject'] = Stubs::BatchAddFacetToObjectResponse.stub(stub[:add_facet_to_object]) unless stub[:add_facet_to_object].nil?
-        data['RemoveFacetFromObject'] = Stubs::BatchRemoveFacetFromObjectResponse.stub(stub[:remove_facet_from_object]) unless stub[:remove_facet_from_object].nil?
-        data['AttachPolicy'] = Stubs::BatchAttachPolicyResponse.stub(stub[:attach_policy]) unless stub[:attach_policy].nil?
-        data['DetachPolicy'] = Stubs::BatchDetachPolicyResponse.stub(stub[:detach_policy]) unless stub[:detach_policy].nil?
-        data['CreateIndex'] = Stubs::BatchCreateIndexResponse.stub(stub[:create_index]) unless stub[:create_index].nil?
-        data['AttachToIndex'] = Stubs::BatchAttachToIndexResponse.stub(stub[:attach_to_index]) unless stub[:attach_to_index].nil?
-        data['DetachFromIndex'] = Stubs::BatchDetachFromIndexResponse.stub(stub[:detach_from_index]) unless stub[:detach_from_index].nil?
-        data['AttachTypedLink'] = Stubs::BatchAttachTypedLinkResponse.stub(stub[:attach_typed_link]) unless stub[:attach_typed_link].nil?
-        data['DetachTypedLink'] = Stubs::BatchDetachTypedLinkResponse.stub(stub[:detach_typed_link]) unless stub[:detach_typed_link].nil?
-        data['UpdateLinkAttributes'] = Stubs::BatchUpdateLinkAttributesResponse.stub(stub[:update_link_attributes]) unless stub[:update_link_attributes].nil?
+        data['CreateObject'] = BatchCreateObjectResponse.stub(stub[:create_object]) unless stub[:create_object].nil?
+        data['AttachObject'] = BatchAttachObjectResponse.stub(stub[:attach_object]) unless stub[:attach_object].nil?
+        data['DetachObject'] = BatchDetachObjectResponse.stub(stub[:detach_object]) unless stub[:detach_object].nil?
+        data['UpdateObjectAttributes'] = BatchUpdateObjectAttributesResponse.stub(stub[:update_object_attributes]) unless stub[:update_object_attributes].nil?
+        data['DeleteObject'] = BatchDeleteObjectResponse.stub(stub[:delete_object]) unless stub[:delete_object].nil?
+        data['AddFacetToObject'] = BatchAddFacetToObjectResponse.stub(stub[:add_facet_to_object]) unless stub[:add_facet_to_object].nil?
+        data['RemoveFacetFromObject'] = BatchRemoveFacetFromObjectResponse.stub(stub[:remove_facet_from_object]) unless stub[:remove_facet_from_object].nil?
+        data['AttachPolicy'] = BatchAttachPolicyResponse.stub(stub[:attach_policy]) unless stub[:attach_policy].nil?
+        data['DetachPolicy'] = BatchDetachPolicyResponse.stub(stub[:detach_policy]) unless stub[:detach_policy].nil?
+        data['CreateIndex'] = BatchCreateIndexResponse.stub(stub[:create_index]) unless stub[:create_index].nil?
+        data['AttachToIndex'] = BatchAttachToIndexResponse.stub(stub[:attach_to_index]) unless stub[:attach_to_index].nil?
+        data['DetachFromIndex'] = BatchDetachFromIndexResponse.stub(stub[:detach_from_index]) unless stub[:detach_from_index].nil?
+        data['AttachTypedLink'] = BatchAttachTypedLinkResponse.stub(stub[:attach_typed_link]) unless stub[:attach_typed_link].nil?
+        data['DetachTypedLink'] = BatchDetachTypedLinkResponse.stub(stub[:detach_typed_link]) unless stub[:detach_typed_link].nil?
+        data['UpdateLinkAttributes'] = BatchUpdateLinkAttributesResponse.stub(stub[:update_link_attributes]) unless stub[:update_link_attributes].nil?
         data
       end
     end
@@ -1129,7 +1132,7 @@ module AWS::SDK::CloudDirectory
       def self.stub(stub)
         stub ||= Types::BatchAttachTypedLinkResponse.new
         data = {}
-        data['TypedLinkSpecifier'] = Stubs::TypedLinkSpecifier.stub(stub[:typed_link_specifier]) unless stub[:typed_link_specifier].nil?
+        data['TypedLinkSpecifier'] = TypedLinkSpecifier.stub(stub[:typed_link_specifier]) unless stub[:typed_link_specifier].nil?
         data
       end
     end
@@ -1359,7 +1362,7 @@ module AWS::SDK::CloudDirectory
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['ObjectIdentifier'] = stub[:object_identifier] unless stub[:object_identifier].nil?
         data['AppliedSchemaArn'] = stub[:applied_schema_arn] unless stub[:applied_schema_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1389,7 +1392,7 @@ module AWS::SDK::CloudDirectory
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ObjectIdentifier'] = stub[:object_identifier] unless stub[:object_identifier].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1406,7 +1409,7 @@ module AWS::SDK::CloudDirectory
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ObjectIdentifier'] = stub[:object_identifier] unless stub[:object_identifier].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1423,7 +1426,7 @@ module AWS::SDK::CloudDirectory
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['SchemaArn'] = stub[:schema_arn] unless stub[:schema_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1453,7 +1456,7 @@ module AWS::SDK::CloudDirectory
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['DirectoryArn'] = stub[:directory_arn] unless stub[:directory_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1496,7 +1499,7 @@ module AWS::SDK::CloudDirectory
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['SchemaArn'] = stub[:schema_arn] unless stub[:schema_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1526,7 +1529,7 @@ module AWS::SDK::CloudDirectory
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['DetachedObjectIdentifier'] = stub[:detached_object_identifier] unless stub[:detached_object_identifier].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1543,7 +1546,7 @@ module AWS::SDK::CloudDirectory
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['DetachedObjectIdentifier'] = stub[:detached_object_identifier] unless stub[:detached_object_identifier].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1586,7 +1589,7 @@ module AWS::SDK::CloudDirectory
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['DirectoryArn'] = stub[:directory_arn] unless stub[:directory_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1603,7 +1606,7 @@ module AWS::SDK::CloudDirectory
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['DirectoryArn'] = stub[:directory_arn] unless stub[:directory_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1620,7 +1623,7 @@ module AWS::SDK::CloudDirectory
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AppliedSchemaArn'] = stub[:applied_schema_arn] unless stub[:applied_schema_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1636,8 +1639,8 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Directory'] = Stubs::Directory.stub(stub[:directory]) unless stub[:directory].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Directory'] = Directory.stub(stub[:directory]) unless stub[:directory].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1677,8 +1680,8 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Facet'] = Stubs::Facet.stub(stub[:facet]) unless stub[:facet].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Facet'] = Facet.stub(stub[:facet]) unless stub[:facet].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1716,8 +1719,8 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Attributes'] = Stubs::AttributeKeyAndValueList.stub(stub[:attributes]) unless stub[:attributes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attributes'] = AttributeKeyAndValueList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1733,8 +1736,8 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Attributes'] = Stubs::AttributeKeyAndValueList.stub(stub[:attributes]) unless stub[:attributes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attributes'] = AttributeKeyAndValueList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1751,9 +1754,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SchemaFacets'] = Stubs::SchemaFacetList.stub(stub[:schema_facets]) unless stub[:schema_facets].nil?
+        data['SchemaFacets'] = SchemaFacetList.stub(stub[:schema_facets]) unless stub[:schema_facets].nil?
         data['ObjectIdentifier'] = stub[:object_identifier] unless stub[:object_identifier].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1772,7 +1775,7 @@ module AWS::SDK::CloudDirectory
         http_resp.headers['Content-Type'] = 'application/json'
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Document'] = stub[:document] unless stub[:document].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1788,8 +1791,8 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['IdentityAttributeOrder'] = Stubs::AttributeNameList.stub(stub[:identity_attribute_order]) unless stub[:identity_attribute_order].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['IdentityAttributeOrder'] = AttributeNameList.stub(stub[:identity_attribute_order]) unless stub[:identity_attribute_order].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1826,9 +1829,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SchemaArns'] = Stubs::Arns.stub(stub[:schema_arns]) unless stub[:schema_arns].nil?
+        data['SchemaArns'] = Arns.stub(stub[:schema_arns]) unless stub[:schema_arns].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1865,9 +1868,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['IndexAttachments'] = Stubs::IndexAttachmentList.stub(stub[:index_attachments]) unless stub[:index_attachments].nil?
+        data['IndexAttachments'] = IndexAttachmentList.stub(stub[:index_attachments]) unless stub[:index_attachments].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1884,9 +1887,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SchemaArns'] = Stubs::Arns.stub(stub[:schema_arns]) unless stub[:schema_arns].nil?
+        data['SchemaArns'] = Arns.stub(stub[:schema_arns]) unless stub[:schema_arns].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1903,9 +1906,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Directories'] = Stubs::DirectoryList.stub(stub[:directories]) unless stub[:directories].nil?
+        data['Directories'] = DirectoryList.stub(stub[:directories]) unless stub[:directories].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1923,7 +1926,7 @@ module AWS::SDK::CloudDirectory
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Directory.stub(element) unless element.nil?
+          data << Directory.stub(element) unless element.nil?
         end
         data
       end
@@ -1942,9 +1945,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Attributes'] = Stubs::FacetAttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = FacetAttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1962,7 +1965,7 @@ module AWS::SDK::CloudDirectory
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FacetAttribute.stub(element) unless element.nil?
+          data << FacetAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -1985,8 +1988,8 @@ module AWS::SDK::CloudDirectory
         stub ||= Types::FacetAttribute.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['AttributeDefinition'] = Stubs::FacetAttributeDefinition.stub(stub[:attribute_definition]) unless stub[:attribute_definition].nil?
-        data['AttributeReference'] = Stubs::FacetAttributeReference.stub(stub[:attribute_reference]) unless stub[:attribute_reference].nil?
+        data['AttributeDefinition'] = FacetAttributeDefinition.stub(stub[:attribute_definition]) unless stub[:attribute_definition].nil?
+        data['AttributeReference'] = FacetAttributeReference.stub(stub[:attribute_reference]) unless stub[:attribute_reference].nil?
         data['RequiredBehavior'] = stub[:required_behavior] unless stub[:required_behavior].nil?
         data
       end
@@ -2029,9 +2032,9 @@ module AWS::SDK::CloudDirectory
         stub ||= Types::FacetAttributeDefinition.new
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['DefaultValue'] = Stubs::TypedAttributeValue.stub(stub[:default_value]) unless stub[:default_value].nil?
+        data['DefaultValue'] = TypedAttributeValue.stub(stub[:default_value]) unless stub[:default_value].nil?
         data['IsImmutable'] = stub[:is_immutable] unless stub[:is_immutable].nil?
-        data['Rules'] = Stubs::RuleMap.stub(stub[:rules]) unless stub[:rules].nil?
+        data['Rules'] = RuleMap.stub(stub[:rules]) unless stub[:rules].nil?
         data
       end
     end
@@ -2050,7 +2053,7 @@ module AWS::SDK::CloudDirectory
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::Rule.stub(value) unless value.nil?
+          data[key] = Rule.stub(value) unless value.nil?
         end
         data
       end
@@ -2071,7 +2074,7 @@ module AWS::SDK::CloudDirectory
         stub ||= Types::Rule.new
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Parameters'] = Stubs::RuleParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['Parameters'] = RuleParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -2109,9 +2112,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['FacetNames'] = Stubs::FacetNameList.stub(stub[:facet_names]) unless stub[:facet_names].nil?
+        data['FacetNames'] = FacetNameList.stub(stub[:facet_names]) unless stub[:facet_names].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2148,9 +2151,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LinkSpecifiers'] = Stubs::TypedLinkSpecifierList.stub(stub[:link_specifiers]) unless stub[:link_specifiers].nil?
+        data['LinkSpecifiers'] = TypedLinkSpecifierList.stub(stub[:link_specifiers]) unless stub[:link_specifiers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2167,9 +2170,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['IndexAttachments'] = Stubs::IndexAttachmentList.stub(stub[:index_attachments]) unless stub[:index_attachments].nil?
+        data['IndexAttachments'] = IndexAttachmentList.stub(stub[:index_attachments]) unless stub[:index_attachments].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2186,9 +2189,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SchemaArns'] = Stubs::Arns.stub(stub[:schema_arns]) unless stub[:schema_arns].nil?
+        data['SchemaArns'] = Arns.stub(stub[:schema_arns]) unless stub[:schema_arns].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2205,9 +2208,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Attributes'] = Stubs::AttributeKeyAndValueList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = AttributeKeyAndValueList.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2224,9 +2227,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Children'] = Stubs::LinkNameToObjectIdentifierMap.stub(stub[:children]) unless stub[:children].nil?
+        data['Children'] = LinkNameToObjectIdentifierMap.stub(stub[:children]) unless stub[:children].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2243,9 +2246,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['PathToObjectIdentifiersList'] = Stubs::PathToObjectIdentifiersList.stub(stub[:path_to_object_identifiers_list]) unless stub[:path_to_object_identifiers_list].nil?
+        data['PathToObjectIdentifiersList'] = PathToObjectIdentifiersList.stub(stub[:path_to_object_identifiers_list]) unless stub[:path_to_object_identifiers_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2263,10 +2266,10 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Parents'] = Stubs::ObjectIdentifierToLinkNameMap.stub(stub[:parents]) unless stub[:parents].nil?
+        data['Parents'] = ObjectIdentifierToLinkNameMap.stub(stub[:parents]) unless stub[:parents].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ParentLinks'] = Stubs::ObjectIdentifierAndLinkNameList.stub(stub[:parent_links]) unless stub[:parent_links].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ParentLinks'] = ObjectIdentifierAndLinkNameList.stub(stub[:parent_links]) unless stub[:parent_links].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2303,9 +2306,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AttachedPolicyIds'] = Stubs::ObjectIdentifierList.stub(stub[:attached_policy_ids]) unless stub[:attached_policy_ids].nil?
+        data['AttachedPolicyIds'] = ObjectIdentifierList.stub(stub[:attached_policy_ids]) unless stub[:attached_policy_ids].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2322,9 +2325,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['TypedLinkSpecifiers'] = Stubs::TypedLinkSpecifierList.stub(stub[:typed_link_specifiers]) unless stub[:typed_link_specifiers].nil?
+        data['TypedLinkSpecifiers'] = TypedLinkSpecifierList.stub(stub[:typed_link_specifiers]) unless stub[:typed_link_specifiers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2341,9 +2344,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ObjectIdentifiers'] = Stubs::ObjectIdentifierList.stub(stub[:object_identifiers]) unless stub[:object_identifiers].nil?
+        data['ObjectIdentifiers'] = ObjectIdentifierList.stub(stub[:object_identifiers]) unless stub[:object_identifiers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2360,9 +2363,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SchemaArns'] = Stubs::Arns.stub(stub[:schema_arns]) unless stub[:schema_arns].nil?
+        data['SchemaArns'] = Arns.stub(stub[:schema_arns]) unless stub[:schema_arns].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2379,9 +2382,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2399,7 +2402,7 @@ module AWS::SDK::CloudDirectory
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -2438,9 +2441,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Attributes'] = Stubs::TypedLinkAttributeDefinitionList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = TypedLinkAttributeDefinitionList.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2458,7 +2461,7 @@ module AWS::SDK::CloudDirectory
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TypedLinkAttributeDefinition.stub(element) unless element.nil?
+          data << TypedLinkAttributeDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -2484,9 +2487,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['DefaultValue'] = Stubs::TypedAttributeValue.stub(stub[:default_value]) unless stub[:default_value].nil?
+        data['DefaultValue'] = TypedAttributeValue.stub(stub[:default_value]) unless stub[:default_value].nil?
         data['IsImmutable'] = stub[:is_immutable] unless stub[:is_immutable].nil?
-        data['Rules'] = Stubs::RuleMap.stub(stub[:rules]) unless stub[:rules].nil?
+        data['Rules'] = RuleMap.stub(stub[:rules]) unless stub[:rules].nil?
         data['RequiredBehavior'] = stub[:required_behavior] unless stub[:required_behavior].nil?
         data
       end
@@ -2505,9 +2508,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['FacetNames'] = Stubs::TypedLinkNameList.stub(stub[:facet_names]) unless stub[:facet_names].nil?
+        data['FacetNames'] = TypedLinkNameList.stub(stub[:facet_names]) unless stub[:facet_names].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2544,9 +2547,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['PolicyToPathList'] = Stubs::PolicyToPathList.stub(stub[:policy_to_path_list]) unless stub[:policy_to_path_list].nil?
+        data['PolicyToPathList'] = PolicyToPathList.stub(stub[:policy_to_path_list]) unless stub[:policy_to_path_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2563,7 +2566,7 @@ module AWS::SDK::CloudDirectory
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['PublishedSchemaArn'] = stub[:published_schema_arn] unless stub[:published_schema_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2580,7 +2583,7 @@ module AWS::SDK::CloudDirectory
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2662,7 +2665,7 @@ module AWS::SDK::CloudDirectory
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ObjectIdentifier'] = stub[:object_identifier] unless stub[:object_identifier].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2679,7 +2682,7 @@ module AWS::SDK::CloudDirectory
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['SchemaArn'] = stub[:schema_arn] unless stub[:schema_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2711,7 +2714,7 @@ module AWS::SDK::CloudDirectory
         http_resp.headers['Content-Type'] = 'application/json'
         data['UpgradedSchemaArn'] = stub[:upgraded_schema_arn] unless stub[:upgraded_schema_arn].nil?
         data['DirectoryArn'] = stub[:directory_arn] unless stub[:directory_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2728,7 +2731,7 @@ module AWS::SDK::CloudDirectory
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['UpgradedSchemaArn'] = stub[:upgraded_schema_arn] unless stub[:upgraded_schema_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

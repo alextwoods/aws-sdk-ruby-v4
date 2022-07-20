@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ElasticTranscoder
   module Builders
 
@@ -38,14 +40,14 @@ module AWS::SDK::ElasticTranscoder
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['PipelineId'] = input[:pipeline_id] unless input[:pipeline_id].nil?
-        data['Input'] = Builders::JobInput.build(input[:input]) unless input[:input].nil?
-        data['Inputs'] = Builders::JobInputs.build(input[:inputs]) unless input[:inputs].nil?
-        data['Output'] = Builders::CreateJobOutput.build(input[:output]) unless input[:output].nil?
-        data['Outputs'] = Builders::CreateJobOutputs.build(input[:outputs]) unless input[:outputs].nil?
+        data['Input'] = JobInput.build(input[:input]) unless input[:input].nil?
+        data['Inputs'] = JobInputs.build(input[:inputs]) unless input[:inputs].nil?
+        data['Output'] = CreateJobOutput.build(input[:output]) unless input[:output].nil?
+        data['Outputs'] = CreateJobOutputs.build(input[:outputs]) unless input[:outputs].nil?
         data['OutputKeyPrefix'] = input[:output_key_prefix] unless input[:output_key_prefix].nil?
-        data['Playlists'] = Builders::CreateJobPlaylists.build(input[:playlists]) unless input[:playlists].nil?
-        data['UserMetadata'] = Builders::UserMetadata.build(input[:user_metadata]) unless input[:user_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Playlists'] = CreateJobPlaylists.build(input[:playlists]) unless input[:playlists].nil?
+        data['UserMetadata'] = UserMetadata.build(input[:user_metadata]) unless input[:user_metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -65,7 +67,7 @@ module AWS::SDK::ElasticTranscoder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CreateJobPlaylist.build(element) unless element.nil?
+          data << CreateJobPlaylist.build(element) unless element.nil?
         end
         data
       end
@@ -77,9 +79,9 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Format'] = input[:format] unless input[:format].nil?
-        data['OutputKeys'] = Builders::OutputKeys.build(input[:output_keys]) unless input[:output_keys].nil?
-        data['HlsContentProtection'] = Builders::HlsContentProtection.build(input[:hls_content_protection]) unless input[:hls_content_protection].nil?
-        data['PlayReadyDrm'] = Builders::PlayReadyDrm.build(input[:play_ready_drm]) unless input[:play_ready_drm].nil?
+        data['OutputKeys'] = OutputKeys.build(input[:output_keys]) unless input[:output_keys].nil?
+        data['HlsContentProtection'] = HlsContentProtection.build(input[:hls_content_protection]) unless input[:hls_content_protection].nil?
+        data['PlayReadyDrm'] = PlayReadyDrm.build(input[:play_ready_drm]) unless input[:play_ready_drm].nil?
         data
       end
     end
@@ -128,7 +130,7 @@ module AWS::SDK::ElasticTranscoder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CreateJobOutput.build(element) unless element.nil?
+          data << CreateJobOutput.build(element) unless element.nil?
         end
         data
       end
@@ -140,15 +142,15 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         data['Key'] = input[:key] unless input[:key].nil?
         data['ThumbnailPattern'] = input[:thumbnail_pattern] unless input[:thumbnail_pattern].nil?
-        data['ThumbnailEncryption'] = Builders::Encryption.build(input[:thumbnail_encryption]) unless input[:thumbnail_encryption].nil?
+        data['ThumbnailEncryption'] = Encryption.build(input[:thumbnail_encryption]) unless input[:thumbnail_encryption].nil?
         data['Rotate'] = input[:rotate] unless input[:rotate].nil?
         data['PresetId'] = input[:preset_id] unless input[:preset_id].nil?
         data['SegmentDuration'] = input[:segment_duration] unless input[:segment_duration].nil?
-        data['Watermarks'] = Builders::JobWatermarks.build(input[:watermarks]) unless input[:watermarks].nil?
-        data['AlbumArt'] = Builders::JobAlbumArt.build(input[:album_art]) unless input[:album_art].nil?
-        data['Composition'] = Builders::Composition.build(input[:composition]) unless input[:composition].nil?
-        data['Captions'] = Builders::Captions.build(input[:captions]) unless input[:captions].nil?
-        data['Encryption'] = Builders::Encryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['Watermarks'] = JobWatermarks.build(input[:watermarks]) unless input[:watermarks].nil?
+        data['AlbumArt'] = JobAlbumArt.build(input[:album_art]) unless input[:album_art].nil?
+        data['Composition'] = Composition.build(input[:composition]) unless input[:composition].nil?
+        data['Captions'] = Captions.build(input[:captions]) unless input[:captions].nil?
+        data['Encryption'] = Encryption.build(input[:encryption]) unless input[:encryption].nil?
         data
       end
     end
@@ -170,8 +172,8 @@ module AWS::SDK::ElasticTranscoder
       def self.build(input)
         data = {}
         data['MergePolicy'] = input[:merge_policy] unless input[:merge_policy].nil?
-        data['CaptionSources'] = Builders::CaptionSources.build(input[:caption_sources]) unless input[:caption_sources].nil?
-        data['CaptionFormats'] = Builders::CaptionFormats.build(input[:caption_formats]) unless input[:caption_formats].nil?
+        data['CaptionSources'] = CaptionSources.build(input[:caption_sources]) unless input[:caption_sources].nil?
+        data['CaptionFormats'] = CaptionFormats.build(input[:caption_formats]) unless input[:caption_formats].nil?
         data
       end
     end
@@ -181,7 +183,7 @@ module AWS::SDK::ElasticTranscoder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CaptionFormat.build(element) unless element.nil?
+          data << CaptionFormat.build(element) unless element.nil?
         end
         data
       end
@@ -193,7 +195,7 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         data['Format'] = input[:format] unless input[:format].nil?
         data['Pattern'] = input[:pattern] unless input[:pattern].nil?
-        data['Encryption'] = Builders::Encryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['Encryption'] = Encryption.build(input[:encryption]) unless input[:encryption].nil?
         data
       end
     end
@@ -203,7 +205,7 @@ module AWS::SDK::ElasticTranscoder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CaptionSource.build(element) unless element.nil?
+          data << CaptionSource.build(element) unless element.nil?
         end
         data
       end
@@ -217,7 +219,7 @@ module AWS::SDK::ElasticTranscoder
         data['Language'] = input[:language] unless input[:language].nil?
         data['TimeOffset'] = input[:time_offset] unless input[:time_offset].nil?
         data['Label'] = input[:label] unless input[:label].nil?
-        data['Encryption'] = Builders::Encryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['Encryption'] = Encryption.build(input[:encryption]) unless input[:encryption].nil?
         data
       end
     end
@@ -227,7 +229,7 @@ module AWS::SDK::ElasticTranscoder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Clip.build(element) unless element.nil?
+          data << Clip.build(element) unless element.nil?
         end
         data
       end
@@ -237,7 +239,7 @@ module AWS::SDK::ElasticTranscoder
     class Clip
       def self.build(input)
         data = {}
-        data['TimeSpan'] = Builders::TimeSpan.build(input[:time_span]) unless input[:time_span].nil?
+        data['TimeSpan'] = TimeSpan.build(input[:time_span]) unless input[:time_span].nil?
         data
       end
     end
@@ -257,7 +259,7 @@ module AWS::SDK::ElasticTranscoder
       def self.build(input)
         data = {}
         data['MergePolicy'] = input[:merge_policy] unless input[:merge_policy].nil?
-        data['Artwork'] = Builders::Artworks.build(input[:artwork]) unless input[:artwork].nil?
+        data['Artwork'] = Artworks.build(input[:artwork]) unless input[:artwork].nil?
         data
       end
     end
@@ -267,7 +269,7 @@ module AWS::SDK::ElasticTranscoder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Artwork.build(element) unless element.nil?
+          data << Artwork.build(element) unless element.nil?
         end
         data
       end
@@ -283,7 +285,7 @@ module AWS::SDK::ElasticTranscoder
         data['SizingPolicy'] = input[:sizing_policy] unless input[:sizing_policy].nil?
         data['PaddingPolicy'] = input[:padding_policy] unless input[:padding_policy].nil?
         data['AlbumArtFormat'] = input[:album_art_format] unless input[:album_art_format].nil?
-        data['Encryption'] = Builders::Encryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['Encryption'] = Encryption.build(input[:encryption]) unless input[:encryption].nil?
         data
       end
     end
@@ -293,7 +295,7 @@ module AWS::SDK::ElasticTranscoder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::JobWatermark.build(element) unless element.nil?
+          data << JobWatermark.build(element) unless element.nil?
         end
         data
       end
@@ -305,7 +307,7 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         data['PresetWatermarkId'] = input[:preset_watermark_id] unless input[:preset_watermark_id].nil?
         data['InputKey'] = input[:input_key] unless input[:input_key].nil?
-        data['Encryption'] = Builders::Encryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['Encryption'] = Encryption.build(input[:encryption]) unless input[:encryption].nil?
         data
       end
     end
@@ -315,7 +317,7 @@ module AWS::SDK::ElasticTranscoder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::JobInput.build(element) unless element.nil?
+          data << JobInput.build(element) unless element.nil?
         end
         data
       end
@@ -331,10 +333,10 @@ module AWS::SDK::ElasticTranscoder
         data['AspectRatio'] = input[:aspect_ratio] unless input[:aspect_ratio].nil?
         data['Interlaced'] = input[:interlaced] unless input[:interlaced].nil?
         data['Container'] = input[:container] unless input[:container].nil?
-        data['Encryption'] = Builders::Encryption.build(input[:encryption]) unless input[:encryption].nil?
-        data['TimeSpan'] = Builders::TimeSpan.build(input[:time_span]) unless input[:time_span].nil?
-        data['InputCaptions'] = Builders::InputCaptions.build(input[:input_captions]) unless input[:input_captions].nil?
-        data['DetectedProperties'] = Builders::DetectedProperties.build(input[:detected_properties]) unless input[:detected_properties].nil?
+        data['Encryption'] = Encryption.build(input[:encryption]) unless input[:encryption].nil?
+        data['TimeSpan'] = TimeSpan.build(input[:time_span]) unless input[:time_span].nil?
+        data['InputCaptions'] = InputCaptions.build(input[:input_captions]) unless input[:input_captions].nil?
+        data['DetectedProperties'] = DetectedProperties.build(input[:detected_properties]) unless input[:detected_properties].nil?
         data
       end
     end
@@ -357,7 +359,7 @@ module AWS::SDK::ElasticTranscoder
       def self.build(input)
         data = {}
         data['MergePolicy'] = input[:merge_policy] unless input[:merge_policy].nil?
-        data['CaptionSources'] = Builders::CaptionSources.build(input[:caption_sources]) unless input[:caption_sources].nil?
+        data['CaptionSources'] = CaptionSources.build(input[:caption_sources]) unless input[:caption_sources].nil?
         data
       end
     end
@@ -377,10 +379,10 @@ module AWS::SDK::ElasticTranscoder
         data['OutputBucket'] = input[:output_bucket] unless input[:output_bucket].nil?
         data['Role'] = input[:role] unless input[:role].nil?
         data['AwsKmsKeyArn'] = input[:aws_kms_key_arn] unless input[:aws_kms_key_arn].nil?
-        data['Notifications'] = Builders::Notifications.build(input[:notifications]) unless input[:notifications].nil?
-        data['ContentConfig'] = Builders::PipelineOutputConfig.build(input[:content_config]) unless input[:content_config].nil?
-        data['ThumbnailConfig'] = Builders::PipelineOutputConfig.build(input[:thumbnail_config]) unless input[:thumbnail_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Notifications'] = Notifications.build(input[:notifications]) unless input[:notifications].nil?
+        data['ContentConfig'] = PipelineOutputConfig.build(input[:content_config]) unless input[:content_config].nil?
+        data['ThumbnailConfig'] = PipelineOutputConfig.build(input[:thumbnail_config]) unless input[:thumbnail_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -390,7 +392,7 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         data['Bucket'] = input[:bucket] unless input[:bucket].nil?
         data['StorageClass'] = input[:storage_class] unless input[:storage_class].nil?
-        data['Permissions'] = Builders::Permissions.build(input[:permissions]) unless input[:permissions].nil?
+        data['Permissions'] = Permissions.build(input[:permissions]) unless input[:permissions].nil?
         data
       end
     end
@@ -400,7 +402,7 @@ module AWS::SDK::ElasticTranscoder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Permission.build(element) unless element.nil?
+          data << Permission.build(element) unless element.nil?
         end
         data
       end
@@ -412,7 +414,7 @@ module AWS::SDK::ElasticTranscoder
         data = {}
         data['GranteeType'] = input[:grantee_type] unless input[:grantee_type].nil?
         data['Grantee'] = input[:grantee] unless input[:grantee].nil?
-        data['Access'] = Builders::AccessControls.build(input[:access]) unless input[:access].nil?
+        data['Access'] = AccessControls.build(input[:access]) unless input[:access].nil?
         data
       end
     end
@@ -453,10 +455,10 @@ module AWS::SDK::ElasticTranscoder
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Container'] = input[:container] unless input[:container].nil?
-        data['Video'] = Builders::VideoParameters.build(input[:video]) unless input[:video].nil?
-        data['Audio'] = Builders::AudioParameters.build(input[:audio]) unless input[:audio].nil?
-        data['Thumbnails'] = Builders::Thumbnails.build(input[:thumbnails]) unless input[:thumbnails].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Video'] = VideoParameters.build(input[:video]) unless input[:video].nil?
+        data['Audio'] = AudioParameters.build(input[:audio]) unless input[:audio].nil?
+        data['Thumbnails'] = Thumbnails.build(input[:thumbnails]) unless input[:thumbnails].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -485,7 +487,7 @@ module AWS::SDK::ElasticTranscoder
         data['BitRate'] = input[:bit_rate] unless input[:bit_rate].nil?
         data['Channels'] = input[:channels] unless input[:channels].nil?
         data['AudioPackingMode'] = input[:audio_packing_mode] unless input[:audio_packing_mode].nil?
-        data['CodecOptions'] = Builders::AudioCodecOptions.build(input[:codec_options]) unless input[:codec_options].nil?
+        data['CodecOptions'] = AudioCodecOptions.build(input[:codec_options]) unless input[:codec_options].nil?
         data
       end
     end
@@ -507,7 +509,7 @@ module AWS::SDK::ElasticTranscoder
       def self.build(input)
         data = {}
         data['Codec'] = input[:codec] unless input[:codec].nil?
-        data['CodecOptions'] = Builders::CodecOptions.build(input[:codec_options]) unless input[:codec_options].nil?
+        data['CodecOptions'] = CodecOptions.build(input[:codec_options]) unless input[:codec_options].nil?
         data['KeyframesMaxDist'] = input[:keyframes_max_dist] unless input[:keyframes_max_dist].nil?
         data['FixedGOP'] = input[:fixed_gop] unless input[:fixed_gop].nil?
         data['BitRate'] = input[:bit_rate] unless input[:bit_rate].nil?
@@ -520,7 +522,7 @@ module AWS::SDK::ElasticTranscoder
         data['DisplayAspectRatio'] = input[:display_aspect_ratio] unless input[:display_aspect_ratio].nil?
         data['SizingPolicy'] = input[:sizing_policy] unless input[:sizing_policy].nil?
         data['PaddingPolicy'] = input[:padding_policy] unless input[:padding_policy].nil?
-        data['Watermarks'] = Builders::PresetWatermarks.build(input[:watermarks]) unless input[:watermarks].nil?
+        data['Watermarks'] = PresetWatermarks.build(input[:watermarks]) unless input[:watermarks].nil?
         data
       end
     end
@@ -530,7 +532,7 @@ module AWS::SDK::ElasticTranscoder
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PresetWatermark.build(element) unless element.nil?
+          data << PresetWatermark.build(element) unless element.nil?
         end
         data
       end
@@ -725,8 +727,8 @@ module AWS::SDK::ElasticTranscoder
         data['Role'] = input[:role] unless input[:role].nil?
         data['InputBucket'] = input[:input_bucket] unless input[:input_bucket].nil?
         data['OutputBucket'] = input[:output_bucket] unless input[:output_bucket].nil?
-        data['Topics'] = Builders::SnsTopics.build(input[:topics]) unless input[:topics].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Topics'] = SnsTopics.build(input[:topics]) unless input[:topics].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -762,10 +764,10 @@ module AWS::SDK::ElasticTranscoder
         data['InputBucket'] = input[:input_bucket] unless input[:input_bucket].nil?
         data['Role'] = input[:role] unless input[:role].nil?
         data['AwsKmsKeyArn'] = input[:aws_kms_key_arn] unless input[:aws_kms_key_arn].nil?
-        data['Notifications'] = Builders::Notifications.build(input[:notifications]) unless input[:notifications].nil?
-        data['ContentConfig'] = Builders::PipelineOutputConfig.build(input[:content_config]) unless input[:content_config].nil?
-        data['ThumbnailConfig'] = Builders::PipelineOutputConfig.build(input[:thumbnail_config]) unless input[:thumbnail_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Notifications'] = Notifications.build(input[:notifications]) unless input[:notifications].nil?
+        data['ContentConfig'] = PipelineOutputConfig.build(input[:content_config]) unless input[:content_config].nil?
+        data['ThumbnailConfig'] = PipelineOutputConfig.build(input[:thumbnail_config]) unless input[:thumbnail_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -786,8 +788,8 @@ module AWS::SDK::ElasticTranscoder
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Notifications'] = Builders::Notifications.build(input[:notifications]) unless input[:notifications].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Notifications'] = Notifications.build(input[:notifications]) unless input[:notifications].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -809,7 +811,7 @@ module AWS::SDK::ElasticTranscoder
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

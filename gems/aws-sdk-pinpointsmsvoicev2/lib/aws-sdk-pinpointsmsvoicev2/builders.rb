@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::PinpointSMSVoiceV2
   module Builders
 
@@ -22,7 +24,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['OriginationIdentity'] = input[:origination_identity] unless input[:origination_identity].nil?
         data['IsoCountryCode'] = input[:iso_country_code] unless input[:iso_country_code].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -35,9 +37,9 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.CreateConfigurationSet'
         data = {}
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -46,7 +48,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -72,12 +74,12 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
         data['EventDestinationName'] = input[:event_destination_name] unless input[:event_destination_name].nil?
-        data['MatchingEventTypes'] = Builders::EventTypeList.build(input[:matching_event_types]) unless input[:matching_event_types].nil?
-        data['CloudWatchLogsDestination'] = Builders::CloudWatchLogsDestination.build(input[:cloud_watch_logs_destination]) unless input[:cloud_watch_logs_destination].nil?
-        data['KinesisFirehoseDestination'] = Builders::KinesisFirehoseDestination.build(input[:kinesis_firehose_destination]) unless input[:kinesis_firehose_destination].nil?
-        data['SnsDestination'] = Builders::SnsDestination.build(input[:sns_destination]) unless input[:sns_destination].nil?
+        data['MatchingEventTypes'] = EventTypeList.build(input[:matching_event_types]) unless input[:matching_event_types].nil?
+        data['CloudWatchLogsDestination'] = CloudWatchLogsDestination.build(input[:cloud_watch_logs_destination]) unless input[:cloud_watch_logs_destination].nil?
+        data['KinesisFirehoseDestination'] = KinesisFirehoseDestination.build(input[:kinesis_firehose_destination]) unless input[:kinesis_firehose_destination].nil?
+        data['SnsDestination'] = SnsDestination.build(input[:sns_destination]) unless input[:sns_destination].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -130,9 +132,9 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.CreateOptOutList'
         data = {}
         data['OptOutListName'] = input[:opt_out_list_name] unless input[:opt_out_list_name].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -148,9 +150,9 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['IsoCountryCode'] = input[:iso_country_code] unless input[:iso_country_code].nil?
         data['MessageType'] = input[:message_type] unless input[:message_type].nil?
         data['DeletionProtectionEnabled'] = input[:deletion_protection_enabled] unless input[:deletion_protection_enabled].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -163,7 +165,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.DeleteConfigurationSet'
         data = {}
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -176,7 +178,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.DeleteDefaultMessageType'
         data = {}
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -189,7 +191,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.DeleteDefaultSenderId'
         data = {}
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -203,7 +205,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
         data['EventDestinationName'] = input[:event_destination_name] unless input[:event_destination_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -217,7 +219,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['OriginationIdentity'] = input[:origination_identity] unless input[:origination_identity].nil?
         data['Keyword'] = input[:keyword] unless input[:keyword].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -230,7 +232,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.DeleteOptOutList'
         data = {}
         data['OptOutListName'] = input[:opt_out_list_name] unless input[:opt_out_list_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -244,7 +246,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['OptOutListName'] = input[:opt_out_list_name] unless input[:opt_out_list_name].nil?
         data['OptedOutNumber'] = input[:opted_out_number] unless input[:opted_out_number].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -257,7 +259,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.DeletePool'
         data = {}
         data['PoolId'] = input[:pool_id] unless input[:pool_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -269,7 +271,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.DeleteTextMessageSpendLimitOverride'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -281,7 +283,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.DeleteVoiceMessageSpendLimitOverride'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -295,7 +297,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -309,7 +311,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -321,11 +323,11 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.DescribeConfigurationSets'
         data = {}
-        data['ConfigurationSetNames'] = Builders::ConfigurationSetNameList.build(input[:configuration_set_names]) unless input[:configuration_set_names].nil?
-        data['Filters'] = Builders::ConfigurationSetFilterList.build(input[:filters]) unless input[:filters].nil?
+        data['ConfigurationSetNames'] = ConfigurationSetNameList.build(input[:configuration_set_names]) unless input[:configuration_set_names].nil?
+        data['Filters'] = ConfigurationSetFilterList.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -334,7 +336,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ConfigurationSetFilter.build(element) unless element.nil?
+          data << ConfigurationSetFilter.build(element) unless element.nil?
         end
         data
       end
@@ -345,7 +347,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::FilterValueList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValueList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -381,11 +383,11 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.DescribeKeywords'
         data = {}
         data['OriginationIdentity'] = input[:origination_identity] unless input[:origination_identity].nil?
-        data['Keywords'] = Builders::KeywordList.build(input[:keywords]) unless input[:keywords].nil?
-        data['Filters'] = Builders::KeywordFilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Keywords'] = KeywordList.build(input[:keywords]) unless input[:keywords].nil?
+        data['Filters'] = KeywordFilterList.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -394,7 +396,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::KeywordFilter.build(element) unless element.nil?
+          data << KeywordFilter.build(element) unless element.nil?
         end
         data
       end
@@ -405,7 +407,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::FilterValueList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValueList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -429,10 +431,10 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.DescribeOptOutLists'
         data = {}
-        data['OptOutListNames'] = Builders::OptOutListNameList.build(input[:opt_out_list_names]) unless input[:opt_out_list_names].nil?
+        data['OptOutListNames'] = OptOutListNameList.build(input[:opt_out_list_names]) unless input[:opt_out_list_names].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -456,11 +458,11 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.DescribeOptedOutNumbers'
         data = {}
         data['OptOutListName'] = input[:opt_out_list_name] unless input[:opt_out_list_name].nil?
-        data['OptedOutNumbers'] = Builders::OptedOutNumberList.build(input[:opted_out_numbers]) unless input[:opted_out_numbers].nil?
-        data['Filters'] = Builders::OptedOutFilterList.build(input[:filters]) unless input[:filters].nil?
+        data['OptedOutNumbers'] = OptedOutNumberList.build(input[:opted_out_numbers]) unless input[:opted_out_numbers].nil?
+        data['Filters'] = OptedOutFilterList.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -469,7 +471,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::OptedOutFilter.build(element) unless element.nil?
+          data << OptedOutFilter.build(element) unless element.nil?
         end
         data
       end
@@ -480,7 +482,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::FilterValueList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValueList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -504,11 +506,11 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.DescribePhoneNumbers'
         data = {}
-        data['PhoneNumberIds'] = Builders::PhoneNumberIdList.build(input[:phone_number_ids]) unless input[:phone_number_ids].nil?
-        data['Filters'] = Builders::PhoneNumberFilterList.build(input[:filters]) unless input[:filters].nil?
+        data['PhoneNumberIds'] = PhoneNumberIdList.build(input[:phone_number_ids]) unless input[:phone_number_ids].nil?
+        data['Filters'] = PhoneNumberFilterList.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -517,7 +519,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PhoneNumberFilter.build(element) unless element.nil?
+          data << PhoneNumberFilter.build(element) unless element.nil?
         end
         data
       end
@@ -528,7 +530,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::FilterValueList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValueList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -552,11 +554,11 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.DescribePools'
         data = {}
-        data['PoolIds'] = Builders::PoolIdList.build(input[:pool_ids]) unless input[:pool_ids].nil?
-        data['Filters'] = Builders::PoolFilterList.build(input[:filters]) unless input[:filters].nil?
+        data['PoolIds'] = PoolIdList.build(input[:pool_ids]) unless input[:pool_ids].nil?
+        data['Filters'] = PoolFilterList.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -565,7 +567,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PoolFilter.build(element) unless element.nil?
+          data << PoolFilter.build(element) unless element.nil?
         end
         data
       end
@@ -576,7 +578,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::FilterValueList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValueList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -600,11 +602,11 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.DescribeSenderIds'
         data = {}
-        data['SenderIds'] = Builders::SenderIdList.build(input[:sender_ids]) unless input[:sender_ids].nil?
-        data['Filters'] = Builders::SenderIdFilterList.build(input[:filters]) unless input[:filters].nil?
+        data['SenderIds'] = SenderIdList.build(input[:sender_ids]) unless input[:sender_ids].nil?
+        data['Filters'] = SenderIdFilterList.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -613,7 +615,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SenderIdFilter.build(element) unless element.nil?
+          data << SenderIdFilter.build(element) unless element.nil?
         end
         data
       end
@@ -624,7 +626,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::FilterValueList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValueList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -634,7 +636,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SenderIdAndCountry.build(element) unless element.nil?
+          data << SenderIdAndCountry.build(element) unless element.nil?
         end
         data
       end
@@ -660,7 +662,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -676,7 +678,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['OriginationIdentity'] = input[:origination_identity] unless input[:origination_identity].nil?
         data['IsoCountryCode'] = input[:iso_country_code] unless input[:iso_country_code].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -689,10 +691,10 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.ListPoolOriginationIdentities'
         data = {}
         data['PoolId'] = input[:pool_id] unless input[:pool_id].nil?
-        data['Filters'] = Builders::PoolOriginationIdentitiesFilterList.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = PoolOriginationIdentitiesFilterList.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -701,7 +703,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PoolOriginationIdentitiesFilter.build(element) unless element.nil?
+          data << PoolOriginationIdentitiesFilter.build(element) unless element.nil?
         end
         data
       end
@@ -712,7 +714,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::FilterValueList.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValueList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -726,7 +728,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -742,7 +744,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['Keyword'] = input[:keyword] unless input[:keyword].nil?
         data['KeywordMessage'] = input[:keyword_message] unless input[:keyword_message].nil?
         data['KeywordAction'] = input[:keyword_action] unless input[:keyword_action].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -756,7 +758,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['OptOutListName'] = input[:opt_out_list_name] unless input[:opt_out_list_name].nil?
         data['OptedOutNumber'] = input[:opted_out_number] unless input[:opted_out_number].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -769,7 +771,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.ReleasePhoneNumber'
         data = {}
         data['PhoneNumberId'] = input[:phone_number_id] unless input[:phone_number_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -783,15 +785,15 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['IsoCountryCode'] = input[:iso_country_code] unless input[:iso_country_code].nil?
         data['MessageType'] = input[:message_type] unless input[:message_type].nil?
-        data['NumberCapabilities'] = Builders::NumberCapabilityList.build(input[:number_capabilities]) unless input[:number_capabilities].nil?
+        data['NumberCapabilities'] = NumberCapabilityList.build(input[:number_capabilities]) unless input[:number_capabilities].nil?
         data['NumberType'] = input[:number_type] unless input[:number_type].nil?
         data['OptOutListName'] = input[:opt_out_list_name] unless input[:opt_out_list_name].nil?
         data['PoolId'] = input[:pool_id] unless input[:pool_id].nil?
         data['RegistrationId'] = input[:registration_id] unless input[:registration_id].nil?
         data['DeletionProtectionEnabled'] = input[:deletion_protection_enabled] unless input[:deletion_protection_enabled].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -822,10 +824,10 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
         data['MaxPrice'] = input[:max_price] unless input[:max_price].nil?
         data['TimeToLive'] = input[:time_to_live] unless input[:time_to_live].nil?
-        data['Context'] = Builders::ContextMap.build(input[:context]) unless input[:context].nil?
-        data['DestinationCountryParameters'] = Builders::DestinationCountryParameters.build(input[:destination_country_parameters]) unless input[:destination_country_parameters].nil?
+        data['Context'] = ContextMap.build(input[:context]) unless input[:context].nil?
+        data['DestinationCountryParameters'] = DestinationCountryParameters.build(input[:destination_country_parameters]) unless input[:destination_country_parameters].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -867,9 +869,9 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
         data['MaxPricePerMinute'] = input[:max_price_per_minute] unless input[:max_price_per_minute].nil?
         data['TimeToLive'] = input[:time_to_live] unless input[:time_to_live].nil?
-        data['Context'] = Builders::ContextMap.build(input[:context]) unless input[:context].nil?
+        data['Context'] = ContextMap.build(input[:context]) unless input[:context].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -883,7 +885,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
         data['MessageType'] = input[:message_type] unless input[:message_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -897,7 +899,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
         data['SenderId'] = input[:sender_id] unless input[:sender_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -910,7 +912,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.SetTextMessageSpendLimitOverride'
         data = {}
         data['MonthlyLimit'] = input[:monthly_limit] unless input[:monthly_limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -923,7 +925,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.SetVoiceMessageSpendLimitOverride'
         data = {}
         data['MonthlyLimit'] = input[:monthly_limit] unless input[:monthly_limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -936,8 +938,8 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::NonEmptyTagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = NonEmptyTagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -946,7 +948,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -961,8 +963,8 @@ module AWS::SDK::PinpointSMSVoiceV2
         http_req.headers['X-Amz-Target'] = 'PinpointSMSVoiceV2.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -988,11 +990,11 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['ConfigurationSetName'] = input[:configuration_set_name] unless input[:configuration_set_name].nil?
         data['EventDestinationName'] = input[:event_destination_name] unless input[:event_destination_name].nil?
         data['Enabled'] = input[:enabled] unless input[:enabled].nil?
-        data['MatchingEventTypes'] = Builders::EventTypeList.build(input[:matching_event_types]) unless input[:matching_event_types].nil?
-        data['CloudWatchLogsDestination'] = Builders::CloudWatchLogsDestination.build(input[:cloud_watch_logs_destination]) unless input[:cloud_watch_logs_destination].nil?
-        data['KinesisFirehoseDestination'] = Builders::KinesisFirehoseDestination.build(input[:kinesis_firehose_destination]) unless input[:kinesis_firehose_destination].nil?
-        data['SnsDestination'] = Builders::SnsDestination.build(input[:sns_destination]) unless input[:sns_destination].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MatchingEventTypes'] = EventTypeList.build(input[:matching_event_types]) unless input[:matching_event_types].nil?
+        data['CloudWatchLogsDestination'] = CloudWatchLogsDestination.build(input[:cloud_watch_logs_destination]) unless input[:cloud_watch_logs_destination].nil?
+        data['KinesisFirehoseDestination'] = KinesisFirehoseDestination.build(input[:kinesis_firehose_destination]) unless input[:kinesis_firehose_destination].nil?
+        data['SnsDestination'] = SnsDestination.build(input[:sns_destination]) unless input[:sns_destination].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1010,7 +1012,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['SelfManagedOptOutsEnabled'] = input[:self_managed_opt_outs_enabled] unless input[:self_managed_opt_outs_enabled].nil?
         data['OptOutListName'] = input[:opt_out_list_name] unless input[:opt_out_list_name].nil?
         data['DeletionProtectionEnabled'] = input[:deletion_protection_enabled] unless input[:deletion_protection_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1029,7 +1031,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['OptOutListName'] = input[:opt_out_list_name] unless input[:opt_out_list_name].nil?
         data['SharedRoutesEnabled'] = input[:shared_routes_enabled] unless input[:shared_routes_enabled].nil?
         data['DeletionProtectionEnabled'] = input[:deletion_protection_enabled] unless input[:deletion_protection_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

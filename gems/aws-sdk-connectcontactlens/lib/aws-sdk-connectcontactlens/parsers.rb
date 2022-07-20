@@ -15,7 +15,7 @@ module AWS::SDK::ConnectContactLens
       def self.parse(http_resp)
         data = Types::ListRealtimeContactAnalysisSegmentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.segments = (Parsers::RealtimeContactAnalysisSegments.parse(map['Segments']) unless map['Segments'].nil?)
+        data.segments = (RealtimeContactAnalysisSegments.parse(map['Segments']) unless map['Segments'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -25,7 +25,7 @@ module AWS::SDK::ConnectContactLens
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RealtimeContactAnalysisSegment.parse(value) unless value.nil?
+          data << RealtimeContactAnalysisSegment.parse(value) unless value.nil?
         end
         data
       end
@@ -34,8 +34,8 @@ module AWS::SDK::ConnectContactLens
     class RealtimeContactAnalysisSegment
       def self.parse(map)
         data = Types::RealtimeContactAnalysisSegment.new
-        data.transcript = (Parsers::Transcript.parse(map['Transcript']) unless map['Transcript'].nil?)
-        data.categories = (Parsers::Categories.parse(map['Categories']) unless map['Categories'].nil?)
+        data.transcript = (Transcript.parse(map['Transcript']) unless map['Transcript'].nil?)
+        data.categories = (Categories.parse(map['Categories']) unless map['Categories'].nil?)
         return data
       end
     end
@@ -43,8 +43,8 @@ module AWS::SDK::ConnectContactLens
     class Categories
       def self.parse(map)
         data = Types::Categories.new
-        data.matched_categories = (Parsers::MatchedCategories.parse(map['MatchedCategories']) unless map['MatchedCategories'].nil?)
-        data.matched_details = (Parsers::MatchedDetails.parse(map['MatchedDetails']) unless map['MatchedDetails'].nil?)
+        data.matched_categories = (MatchedCategories.parse(map['MatchedCategories']) unless map['MatchedCategories'].nil?)
+        data.matched_details = (MatchedDetails.parse(map['MatchedDetails']) unless map['MatchedDetails'].nil?)
         return data
       end
     end
@@ -53,7 +53,7 @@ module AWS::SDK::ConnectContactLens
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::CategoryDetails.parse(value) unless value.nil?
+          data[key] = CategoryDetails.parse(value) unless value.nil?
         end
         data
       end
@@ -62,7 +62,7 @@ module AWS::SDK::ConnectContactLens
     class CategoryDetails
       def self.parse(map)
         data = Types::CategoryDetails.new
-        data.points_of_interest = (Parsers::PointsOfInterest.parse(map['PointsOfInterest']) unless map['PointsOfInterest'].nil?)
+        data.points_of_interest = (PointsOfInterest.parse(map['PointsOfInterest']) unless map['PointsOfInterest'].nil?)
         return data
       end
     end
@@ -71,7 +71,7 @@ module AWS::SDK::ConnectContactLens
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PointOfInterest.parse(value) unless value.nil?
+          data << PointOfInterest.parse(value) unless value.nil?
         end
         data
       end
@@ -106,7 +106,7 @@ module AWS::SDK::ConnectContactLens
         data.begin_offset_millis = map['BeginOffsetMillis']
         data.end_offset_millis = map['EndOffsetMillis']
         data.sentiment = map['Sentiment']
-        data.issues_detected = (Parsers::IssuesDetected.parse(map['IssuesDetected']) unless map['IssuesDetected'].nil?)
+        data.issues_detected = (IssuesDetected.parse(map['IssuesDetected']) unless map['IssuesDetected'].nil?)
         return data
       end
     end
@@ -115,7 +115,7 @@ module AWS::SDK::ConnectContactLens
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IssueDetected.parse(value) unless value.nil?
+          data << IssueDetected.parse(value) unless value.nil?
         end
         data
       end
@@ -124,7 +124,7 @@ module AWS::SDK::ConnectContactLens
     class IssueDetected
       def self.parse(map)
         data = Types::IssueDetected.new
-        data.character_offsets = (Parsers::CharacterOffsets.parse(map['CharacterOffsets']) unless map['CharacterOffsets'].nil?)
+        data.character_offsets = (CharacterOffsets.parse(map['CharacterOffsets']) unless map['CharacterOffsets'].nil?)
         return data
       end
     end

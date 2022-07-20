@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Ivs
   module Builders
 
@@ -20,8 +22,8 @@ module AWS::SDK::Ivs
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['arns'] = Builders::ChannelArnList.build(input[:arns]) unless input[:arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['arns'] = ChannelArnList.build(input[:arns]) unless input[:arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -46,8 +48,8 @@ module AWS::SDK::Ivs
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['arns'] = Builders::StreamKeyArnList.build(input[:arns]) unless input[:arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['arns'] = StreamKeyArnList.build(input[:arns]) unless input[:arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -77,8 +79,8 @@ module AWS::SDK::Ivs
         data['type'] = input[:type] unless input[:type].nil?
         data['authorized'] = input[:authorized] unless input[:authorized].nil?
         data['recordingConfigurationArn'] = input[:recording_configuration_arn] unless input[:recording_configuration_arn].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -104,10 +106,10 @@ module AWS::SDK::Ivs
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['destinationConfiguration'] = Builders::DestinationConfiguration.build(input[:destination_configuration]) unless input[:destination_configuration].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        data['thumbnailConfiguration'] = Builders::ThumbnailConfiguration.build(input[:thumbnail_configuration]) unless input[:thumbnail_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['destinationConfiguration'] = DestinationConfiguration.build(input[:destination_configuration]) unless input[:destination_configuration].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        data['thumbnailConfiguration'] = ThumbnailConfiguration.build(input[:thumbnail_configuration]) unless input[:thumbnail_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -125,7 +127,7 @@ module AWS::SDK::Ivs
     class DestinationConfiguration
       def self.build(input)
         data = {}
-        data['s3'] = Builders::S3DestinationConfiguration.build(input[:s3]) unless input[:s3].nil?
+        data['s3'] = S3DestinationConfiguration.build(input[:s3]) unless input[:s3].nil?
         data
       end
     end
@@ -150,8 +152,8 @@ module AWS::SDK::Ivs
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['channelArn'] = input[:channel_arn] unless input[:channel_arn].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -166,7 +168,7 @@ module AWS::SDK::Ivs
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -181,7 +183,7 @@ module AWS::SDK::Ivs
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -196,7 +198,7 @@ module AWS::SDK::Ivs
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -211,7 +213,7 @@ module AWS::SDK::Ivs
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -226,7 +228,7 @@ module AWS::SDK::Ivs
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -241,7 +243,7 @@ module AWS::SDK::Ivs
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -256,7 +258,7 @@ module AWS::SDK::Ivs
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -271,7 +273,7 @@ module AWS::SDK::Ivs
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['channelArn'] = input[:channel_arn] unless input[:channel_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -286,7 +288,7 @@ module AWS::SDK::Ivs
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -302,7 +304,7 @@ module AWS::SDK::Ivs
         data = {}
         data['channelArn'] = input[:channel_arn] unless input[:channel_arn].nil?
         data['streamId'] = input[:stream_id] unless input[:stream_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -318,8 +320,8 @@ module AWS::SDK::Ivs
         data = {}
         data['publicKeyMaterial'] = input[:public_key_material] unless input[:public_key_material].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -337,7 +339,7 @@ module AWS::SDK::Ivs
         data['filterByRecordingConfigurationArn'] = input[:filter_by_recording_configuration_arn] unless input[:filter_by_recording_configuration_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -353,7 +355,7 @@ module AWS::SDK::Ivs
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -369,7 +371,7 @@ module AWS::SDK::Ivs
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -386,7 +388,7 @@ module AWS::SDK::Ivs
         data['channelArn'] = input[:channel_arn] unless input[:channel_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -403,7 +405,7 @@ module AWS::SDK::Ivs
         data['channelArn'] = input[:channel_arn] unless input[:channel_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -417,10 +419,10 @@ module AWS::SDK::Ivs
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['filterBy'] = Builders::StreamFilters.build(input[:filter_by]) unless input[:filter_by].nil?
+        data['filterBy'] = StreamFilters.build(input[:filter_by]) unless input[:filter_by].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -462,7 +464,7 @@ module AWS::SDK::Ivs
         data = {}
         data['channelArn'] = input[:channel_arn] unless input[:channel_arn].nil?
         data['metadata'] = input[:metadata] unless input[:metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -477,7 +479,7 @@ module AWS::SDK::Ivs
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['channelArn'] = input[:channel_arn] unless input[:channel_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -498,8 +500,8 @@ module AWS::SDK::Ivs
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -552,7 +554,7 @@ module AWS::SDK::Ivs
         data['type'] = input[:type] unless input[:type].nil?
         data['authorized'] = input[:authorized] unless input[:authorized].nil?
         data['recordingConfigurationArn'] = input[:recording_configuration_arn] unless input[:recording_configuration_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

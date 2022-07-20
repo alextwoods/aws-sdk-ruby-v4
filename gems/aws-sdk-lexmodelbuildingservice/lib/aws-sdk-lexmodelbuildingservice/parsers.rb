@@ -17,9 +17,9 @@ module AWS::SDK::LexModelBuildingService
         map = Hearth::JSON.load(http_resp.body)
         data.name = map['name']
         data.description = map['description']
-        data.intents = (Parsers::IntentList.parse(map['intents']) unless map['intents'].nil?)
-        data.clarification_prompt = (Parsers::Prompt.parse(map['clarificationPrompt']) unless map['clarificationPrompt'].nil?)
-        data.abort_statement = (Parsers::Statement.parse(map['abortStatement']) unless map['abortStatement'].nil?)
+        data.intents = (IntentList.parse(map['intents']) unless map['intents'].nil?)
+        data.clarification_prompt = (Prompt.parse(map['clarificationPrompt']) unless map['clarificationPrompt'].nil?)
+        data.abort_statement = (Statement.parse(map['abortStatement']) unless map['abortStatement'].nil?)
         data.status = map['status']
         data.failure_reason = map['failureReason']
         data.last_updated_date = Time.at(map['lastUpdatedDate'].to_i) if map['lastUpdatedDate']
@@ -39,7 +39,7 @@ module AWS::SDK::LexModelBuildingService
     class Statement
       def self.parse(map)
         data = Types::Statement.new
-        data.messages = (Parsers::MessageList.parse(map['messages']) unless map['messages'].nil?)
+        data.messages = (MessageList.parse(map['messages']) unless map['messages'].nil?)
         data.response_card = map['responseCard']
         return data
       end
@@ -49,7 +49,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Message.parse(value) unless value.nil?
+          data << Message.parse(value) unless value.nil?
         end
         data
       end
@@ -68,7 +68,7 @@ module AWS::SDK::LexModelBuildingService
     class Prompt
       def self.parse(map)
         data = Types::Prompt.new
-        data.messages = (Parsers::MessageList.parse(map['messages']) unless map['messages'].nil?)
+        data.messages = (MessageList.parse(map['messages']) unless map['messages'].nil?)
         data.max_attempts = map['maxAttempts']
         data.response_card = map['responseCard']
         return data
@@ -79,7 +79,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Intent.parse(value) unless value.nil?
+          data << Intent.parse(value) unless value.nil?
         end
         data
       end
@@ -162,22 +162,22 @@ module AWS::SDK::LexModelBuildingService
         map = Hearth::JSON.load(http_resp.body)
         data.name = map['name']
         data.description = map['description']
-        data.slots = (Parsers::SlotList.parse(map['slots']) unless map['slots'].nil?)
-        data.sample_utterances = (Parsers::IntentUtteranceList.parse(map['sampleUtterances']) unless map['sampleUtterances'].nil?)
-        data.confirmation_prompt = (Parsers::Prompt.parse(map['confirmationPrompt']) unless map['confirmationPrompt'].nil?)
-        data.rejection_statement = (Parsers::Statement.parse(map['rejectionStatement']) unless map['rejectionStatement'].nil?)
-        data.follow_up_prompt = (Parsers::FollowUpPrompt.parse(map['followUpPrompt']) unless map['followUpPrompt'].nil?)
-        data.conclusion_statement = (Parsers::Statement.parse(map['conclusionStatement']) unless map['conclusionStatement'].nil?)
-        data.dialog_code_hook = (Parsers::CodeHook.parse(map['dialogCodeHook']) unless map['dialogCodeHook'].nil?)
-        data.fulfillment_activity = (Parsers::FulfillmentActivity.parse(map['fulfillmentActivity']) unless map['fulfillmentActivity'].nil?)
+        data.slots = (SlotList.parse(map['slots']) unless map['slots'].nil?)
+        data.sample_utterances = (IntentUtteranceList.parse(map['sampleUtterances']) unless map['sampleUtterances'].nil?)
+        data.confirmation_prompt = (Prompt.parse(map['confirmationPrompt']) unless map['confirmationPrompt'].nil?)
+        data.rejection_statement = (Statement.parse(map['rejectionStatement']) unless map['rejectionStatement'].nil?)
+        data.follow_up_prompt = (FollowUpPrompt.parse(map['followUpPrompt']) unless map['followUpPrompt'].nil?)
+        data.conclusion_statement = (Statement.parse(map['conclusionStatement']) unless map['conclusionStatement'].nil?)
+        data.dialog_code_hook = (CodeHook.parse(map['dialogCodeHook']) unless map['dialogCodeHook'].nil?)
+        data.fulfillment_activity = (FulfillmentActivity.parse(map['fulfillmentActivity']) unless map['fulfillmentActivity'].nil?)
         data.parent_intent_signature = map['parentIntentSignature']
         data.last_updated_date = Time.at(map['lastUpdatedDate'].to_i) if map['lastUpdatedDate']
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data.version = map['version']
         data.checksum = map['checksum']
-        data.kendra_configuration = (Parsers::KendraConfiguration.parse(map['kendraConfiguration']) unless map['kendraConfiguration'].nil?)
-        data.input_contexts = (Parsers::InputContextList.parse(map['inputContexts']) unless map['inputContexts'].nil?)
-        data.output_contexts = (Parsers::OutputContextList.parse(map['outputContexts']) unless map['outputContexts'].nil?)
+        data.kendra_configuration = (KendraConfiguration.parse(map['kendraConfiguration']) unless map['kendraConfiguration'].nil?)
+        data.input_contexts = (InputContextList.parse(map['inputContexts']) unless map['inputContexts'].nil?)
+        data.output_contexts = (OutputContextList.parse(map['outputContexts']) unless map['outputContexts'].nil?)
         data
       end
     end
@@ -186,7 +186,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::OutputContext.parse(value) unless value.nil?
+          data << OutputContext.parse(value) unless value.nil?
         end
         data
       end
@@ -206,7 +206,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InputContext.parse(value) unless value.nil?
+          data << InputContext.parse(value) unless value.nil?
         end
         data
       end
@@ -234,7 +234,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(map)
         data = Types::FulfillmentActivity.new
         data.type = map['type']
-        data.code_hook = (Parsers::CodeHook.parse(map['codeHook']) unless map['codeHook'].nil?)
+        data.code_hook = (CodeHook.parse(map['codeHook']) unless map['codeHook'].nil?)
         return data
       end
     end
@@ -251,8 +251,8 @@ module AWS::SDK::LexModelBuildingService
     class FollowUpPrompt
       def self.parse(map)
         data = Types::FollowUpPrompt.new
-        data.prompt = (Parsers::Prompt.parse(map['prompt']) unless map['prompt'].nil?)
-        data.rejection_statement = (Parsers::Statement.parse(map['rejectionStatement']) unless map['rejectionStatement'].nil?)
+        data.prompt = (Prompt.parse(map['prompt']) unless map['prompt'].nil?)
+        data.rejection_statement = (Statement.parse(map['rejectionStatement']) unless map['rejectionStatement'].nil?)
         return data
       end
     end
@@ -271,7 +271,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Slot.parse(value) unless value.nil?
+          data << Slot.parse(value) unless value.nil?
         end
         data
       end
@@ -285,12 +285,12 @@ module AWS::SDK::LexModelBuildingService
         data.slot_constraint = map['slotConstraint']
         data.slot_type = map['slotType']
         data.slot_type_version = map['slotTypeVersion']
-        data.value_elicitation_prompt = (Parsers::Prompt.parse(map['valueElicitationPrompt']) unless map['valueElicitationPrompt'].nil?)
+        data.value_elicitation_prompt = (Prompt.parse(map['valueElicitationPrompt']) unless map['valueElicitationPrompt'].nil?)
         data.priority = map['priority']
-        data.sample_utterances = (Parsers::SlotUtteranceList.parse(map['sampleUtterances']) unless map['sampleUtterances'].nil?)
+        data.sample_utterances = (SlotUtteranceList.parse(map['sampleUtterances']) unless map['sampleUtterances'].nil?)
         data.response_card = map['responseCard']
         data.obfuscation_setting = map['obfuscationSetting']
-        data.default_value_spec = (Parsers::SlotDefaultValueSpec.parse(map['defaultValueSpec']) unless map['defaultValueSpec'].nil?)
+        data.default_value_spec = (SlotDefaultValueSpec.parse(map['defaultValueSpec']) unless map['defaultValueSpec'].nil?)
         return data
       end
     end
@@ -298,7 +298,7 @@ module AWS::SDK::LexModelBuildingService
     class SlotDefaultValueSpec
       def self.parse(map)
         data = Types::SlotDefaultValueSpec.new
-        data.default_value_list = (Parsers::SlotDefaultValueList.parse(map['defaultValueList']) unless map['defaultValueList'].nil?)
+        data.default_value_list = (SlotDefaultValueList.parse(map['defaultValueList']) unless map['defaultValueList'].nil?)
         return data
       end
     end
@@ -307,7 +307,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SlotDefaultValue.parse(value) unless value.nil?
+          data << SlotDefaultValue.parse(value) unless value.nil?
         end
         data
       end
@@ -338,14 +338,14 @@ module AWS::SDK::LexModelBuildingService
         map = Hearth::JSON.load(http_resp.body)
         data.name = map['name']
         data.description = map['description']
-        data.enumeration_values = (Parsers::EnumerationValues.parse(map['enumerationValues']) unless map['enumerationValues'].nil?)
+        data.enumeration_values = (EnumerationValues.parse(map['enumerationValues']) unless map['enumerationValues'].nil?)
         data.last_updated_date = Time.at(map['lastUpdatedDate'].to_i) if map['lastUpdatedDate']
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data.version = map['version']
         data.checksum = map['checksum']
         data.value_selection_strategy = map['valueSelectionStrategy']
         data.parent_slot_type_signature = map['parentSlotTypeSignature']
-        data.slot_type_configurations = (Parsers::SlotTypeConfigurations.parse(map['slotTypeConfigurations']) unless map['slotTypeConfigurations'].nil?)
+        data.slot_type_configurations = (SlotTypeConfigurations.parse(map['slotTypeConfigurations']) unless map['slotTypeConfigurations'].nil?)
         data
       end
     end
@@ -354,7 +354,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SlotTypeConfiguration.parse(value) unless value.nil?
+          data << SlotTypeConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -363,7 +363,7 @@ module AWS::SDK::LexModelBuildingService
     class SlotTypeConfiguration
       def self.parse(map)
         data = Types::SlotTypeConfiguration.new
-        data.regex_configuration = (Parsers::SlotTypeRegexConfiguration.parse(map['regexConfiguration']) unless map['regexConfiguration'].nil?)
+        data.regex_configuration = (SlotTypeRegexConfiguration.parse(map['regexConfiguration']) unless map['regexConfiguration'].nil?)
         return data
       end
     end
@@ -380,7 +380,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EnumerationValue.parse(value) unless value.nil?
+          data << EnumerationValue.parse(value) unless value.nil?
         end
         data
       end
@@ -390,7 +390,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(map)
         data = Types::EnumerationValue.new
         data.value = map['value']
-        data.synonyms = (Parsers::SynonymList.parse(map['synonyms']) unless map['synonyms'].nil?)
+        data.synonyms = (SynonymList.parse(map['synonyms']) unless map['synonyms'].nil?)
         return data
       end
     end
@@ -420,7 +420,7 @@ module AWS::SDK::LexModelBuildingService
         data = Types::ResourceInUseException.new
         map = Hearth::JSON.load(http_resp.body)
         data.reference_type = map['referenceType']
-        data.example_reference = (Parsers::ResourceReference.parse(map['exampleReference']) unless map['exampleReference'].nil?)
+        data.example_reference = (ResourceReference.parse(map['exampleReference']) unless map['exampleReference'].nil?)
         data
       end
     end
@@ -513,11 +513,11 @@ module AWS::SDK::LexModelBuildingService
         map = Hearth::JSON.load(http_resp.body)
         data.name = map['name']
         data.description = map['description']
-        data.intents = (Parsers::IntentList.parse(map['intents']) unless map['intents'].nil?)
+        data.intents = (IntentList.parse(map['intents']) unless map['intents'].nil?)
         data.enable_model_improvements = map['enableModelImprovements']
         data.nlu_intent_confidence_threshold = Hearth::NumberHelper.deserialize(map['nluIntentConfidenceThreshold'])
-        data.clarification_prompt = (Parsers::Prompt.parse(map['clarificationPrompt']) unless map['clarificationPrompt'].nil?)
-        data.abort_statement = (Parsers::Statement.parse(map['abortStatement']) unless map['abortStatement'].nil?)
+        data.clarification_prompt = (Prompt.parse(map['clarificationPrompt']) unless map['clarificationPrompt'].nil?)
+        data.abort_statement = (Statement.parse(map['abortStatement']) unless map['abortStatement'].nil?)
         data.status = map['status']
         data.failure_reason = map['failureReason']
         data.last_updated_date = Time.at(map['lastUpdatedDate'].to_i) if map['lastUpdatedDate']
@@ -545,7 +545,7 @@ module AWS::SDK::LexModelBuildingService
         data.last_updated_date = Time.at(map['lastUpdatedDate'].to_i) if map['lastUpdatedDate']
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data.checksum = map['checksum']
-        data.conversation_logs = (Parsers::ConversationLogsResponse.parse(map['conversationLogs']) unless map['conversationLogs'].nil?)
+        data.conversation_logs = (ConversationLogsResponse.parse(map['conversationLogs']) unless map['conversationLogs'].nil?)
         data
       end
     end
@@ -553,7 +553,7 @@ module AWS::SDK::LexModelBuildingService
     class ConversationLogsResponse
       def self.parse(map)
         data = Types::ConversationLogsResponse.new
-        data.log_settings = (Parsers::LogSettingsResponseList.parse(map['logSettings']) unless map['logSettings'].nil?)
+        data.log_settings = (LogSettingsResponseList.parse(map['logSettings']) unless map['logSettings'].nil?)
         data.iam_role_arn = map['iamRoleArn']
         return data
       end
@@ -563,7 +563,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LogSettingsResponse.parse(value) unless value.nil?
+          data << LogSettingsResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -586,7 +586,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(http_resp)
         data = Types::GetBotAliasesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.bot_aliases = (Parsers::BotAliasMetadataList.parse(map['BotAliases']) unless map['BotAliases'].nil?)
+        data.bot_aliases = (BotAliasMetadataList.parse(map['BotAliases']) unless map['BotAliases'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -596,7 +596,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BotAliasMetadata.parse(value) unless value.nil?
+          data << BotAliasMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -612,7 +612,7 @@ module AWS::SDK::LexModelBuildingService
         data.last_updated_date = Time.at(map['lastUpdatedDate'].to_i) if map['lastUpdatedDate']
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data.checksum = map['checksum']
-        data.conversation_logs = (Parsers::ConversationLogsResponse.parse(map['conversationLogs']) unless map['conversationLogs'].nil?)
+        data.conversation_logs = (ConversationLogsResponse.parse(map['conversationLogs']) unless map['conversationLogs'].nil?)
         return data
       end
     end
@@ -628,7 +628,7 @@ module AWS::SDK::LexModelBuildingService
         data.bot_name = map['botName']
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data.type = map['type']
-        data.bot_configuration = (Parsers::ChannelConfigurationMap.parse(map['botConfiguration']) unless map['botConfiguration'].nil?)
+        data.bot_configuration = (ChannelConfigurationMap.parse(map['botConfiguration']) unless map['botConfiguration'].nil?)
         data.status = map['status']
         data.failure_reason = map['failureReason']
         data
@@ -650,7 +650,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(http_resp)
         data = Types::GetBotChannelAssociationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.bot_channel_associations = (Parsers::BotChannelAssociationList.parse(map['botChannelAssociations']) unless map['botChannelAssociations'].nil?)
+        data.bot_channel_associations = (BotChannelAssociationList.parse(map['botChannelAssociations']) unless map['botChannelAssociations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -660,7 +660,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BotChannelAssociation.parse(value) unless value.nil?
+          data << BotChannelAssociation.parse(value) unless value.nil?
         end
         data
       end
@@ -675,7 +675,7 @@ module AWS::SDK::LexModelBuildingService
         data.bot_name = map['botName']
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data.type = map['type']
-        data.bot_configuration = (Parsers::ChannelConfigurationMap.parse(map['botConfiguration']) unless map['botConfiguration'].nil?)
+        data.bot_configuration = (ChannelConfigurationMap.parse(map['botConfiguration']) unless map['botConfiguration'].nil?)
         data.status = map['status']
         data.failure_reason = map['failureReason']
         return data
@@ -687,7 +687,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(http_resp)
         data = Types::GetBotVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.bots = (Parsers::BotMetadataList.parse(map['bots']) unless map['bots'].nil?)
+        data.bots = (BotMetadataList.parse(map['bots']) unless map['bots'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -697,7 +697,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BotMetadata.parse(value) unless value.nil?
+          data << BotMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -721,7 +721,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(http_resp)
         data = Types::GetBotsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.bots = (Parsers::BotMetadataList.parse(map['bots']) unless map['bots'].nil?)
+        data.bots = (BotMetadataList.parse(map['bots']) unless map['bots'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -733,8 +733,8 @@ module AWS::SDK::LexModelBuildingService
         data = Types::GetBuiltinIntentOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.signature = map['signature']
-        data.supported_locales = (Parsers::LocaleList.parse(map['supportedLocales']) unless map['supportedLocales'].nil?)
-        data.slots = (Parsers::BuiltinIntentSlotList.parse(map['slots']) unless map['slots'].nil?)
+        data.supported_locales = (LocaleList.parse(map['supportedLocales']) unless map['supportedLocales'].nil?)
+        data.slots = (BuiltinIntentSlotList.parse(map['slots']) unless map['slots'].nil?)
         data
       end
     end
@@ -743,7 +743,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BuiltinIntentSlot.parse(value) unless value.nil?
+          data << BuiltinIntentSlot.parse(value) unless value.nil?
         end
         data
       end
@@ -772,7 +772,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(http_resp)
         data = Types::GetBuiltinIntentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.intents = (Parsers::BuiltinIntentMetadataList.parse(map['intents']) unless map['intents'].nil?)
+        data.intents = (BuiltinIntentMetadataList.parse(map['intents']) unless map['intents'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -782,7 +782,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BuiltinIntentMetadata.parse(value) unless value.nil?
+          data << BuiltinIntentMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -792,7 +792,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(map)
         data = Types::BuiltinIntentMetadata.new
         data.signature = map['signature']
-        data.supported_locales = (Parsers::LocaleList.parse(map['supportedLocales']) unless map['supportedLocales'].nil?)
+        data.supported_locales = (LocaleList.parse(map['supportedLocales']) unless map['supportedLocales'].nil?)
         return data
       end
     end
@@ -802,7 +802,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(http_resp)
         data = Types::GetBuiltinSlotTypesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.slot_types = (Parsers::BuiltinSlotTypeMetadataList.parse(map['slotTypes']) unless map['slotTypes'].nil?)
+        data.slot_types = (BuiltinSlotTypeMetadataList.parse(map['slotTypes']) unless map['slotTypes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -812,7 +812,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BuiltinSlotTypeMetadata.parse(value) unless value.nil?
+          data << BuiltinSlotTypeMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -822,7 +822,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(map)
         data = Types::BuiltinSlotTypeMetadata.new
         data.signature = map['signature']
-        data.supported_locales = (Parsers::LocaleList.parse(map['supportedLocales']) unless map['supportedLocales'].nil?)
+        data.supported_locales = (LocaleList.parse(map['supportedLocales']) unless map['supportedLocales'].nil?)
         return data
       end
     end
@@ -853,7 +853,7 @@ module AWS::SDK::LexModelBuildingService
         data.merge_strategy = map['mergeStrategy']
         data.import_id = map['importId']
         data.import_status = map['importStatus']
-        data.failure_reason = (Parsers::StringList.parse(map['failureReason']) unless map['failureReason'].nil?)
+        data.failure_reason = (StringList.parse(map['failureReason']) unless map['failureReason'].nil?)
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data
       end
@@ -876,22 +876,22 @@ module AWS::SDK::LexModelBuildingService
         map = Hearth::JSON.load(http_resp.body)
         data.name = map['name']
         data.description = map['description']
-        data.slots = (Parsers::SlotList.parse(map['slots']) unless map['slots'].nil?)
-        data.sample_utterances = (Parsers::IntentUtteranceList.parse(map['sampleUtterances']) unless map['sampleUtterances'].nil?)
-        data.confirmation_prompt = (Parsers::Prompt.parse(map['confirmationPrompt']) unless map['confirmationPrompt'].nil?)
-        data.rejection_statement = (Parsers::Statement.parse(map['rejectionStatement']) unless map['rejectionStatement'].nil?)
-        data.follow_up_prompt = (Parsers::FollowUpPrompt.parse(map['followUpPrompt']) unless map['followUpPrompt'].nil?)
-        data.conclusion_statement = (Parsers::Statement.parse(map['conclusionStatement']) unless map['conclusionStatement'].nil?)
-        data.dialog_code_hook = (Parsers::CodeHook.parse(map['dialogCodeHook']) unless map['dialogCodeHook'].nil?)
-        data.fulfillment_activity = (Parsers::FulfillmentActivity.parse(map['fulfillmentActivity']) unless map['fulfillmentActivity'].nil?)
+        data.slots = (SlotList.parse(map['slots']) unless map['slots'].nil?)
+        data.sample_utterances = (IntentUtteranceList.parse(map['sampleUtterances']) unless map['sampleUtterances'].nil?)
+        data.confirmation_prompt = (Prompt.parse(map['confirmationPrompt']) unless map['confirmationPrompt'].nil?)
+        data.rejection_statement = (Statement.parse(map['rejectionStatement']) unless map['rejectionStatement'].nil?)
+        data.follow_up_prompt = (FollowUpPrompt.parse(map['followUpPrompt']) unless map['followUpPrompt'].nil?)
+        data.conclusion_statement = (Statement.parse(map['conclusionStatement']) unless map['conclusionStatement'].nil?)
+        data.dialog_code_hook = (CodeHook.parse(map['dialogCodeHook']) unless map['dialogCodeHook'].nil?)
+        data.fulfillment_activity = (FulfillmentActivity.parse(map['fulfillmentActivity']) unless map['fulfillmentActivity'].nil?)
         data.parent_intent_signature = map['parentIntentSignature']
         data.last_updated_date = Time.at(map['lastUpdatedDate'].to_i) if map['lastUpdatedDate']
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data.version = map['version']
         data.checksum = map['checksum']
-        data.kendra_configuration = (Parsers::KendraConfiguration.parse(map['kendraConfiguration']) unless map['kendraConfiguration'].nil?)
-        data.input_contexts = (Parsers::InputContextList.parse(map['inputContexts']) unless map['inputContexts'].nil?)
-        data.output_contexts = (Parsers::OutputContextList.parse(map['outputContexts']) unless map['outputContexts'].nil?)
+        data.kendra_configuration = (KendraConfiguration.parse(map['kendraConfiguration']) unless map['kendraConfiguration'].nil?)
+        data.input_contexts = (InputContextList.parse(map['inputContexts']) unless map['inputContexts'].nil?)
+        data.output_contexts = (OutputContextList.parse(map['outputContexts']) unless map['outputContexts'].nil?)
         data
       end
     end
@@ -901,7 +901,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(http_resp)
         data = Types::GetIntentVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.intents = (Parsers::IntentMetadataList.parse(map['intents']) unless map['intents'].nil?)
+        data.intents = (IntentMetadataList.parse(map['intents']) unless map['intents'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -911,7 +911,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IntentMetadata.parse(value) unless value.nil?
+          data << IntentMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -934,7 +934,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(http_resp)
         data = Types::GetIntentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.intents = (Parsers::IntentMetadataList.parse(map['intents']) unless map['intents'].nil?)
+        data.intents = (IntentMetadataList.parse(map['intents']) unless map['intents'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -954,7 +954,7 @@ module AWS::SDK::LexModelBuildingService
         data.migration_status = map['migrationStatus']
         data.migration_strategy = map['migrationStrategy']
         data.migration_timestamp = Time.at(map['migrationTimestamp'].to_i) if map['migrationTimestamp']
-        data.alerts = (Parsers::MigrationAlerts.parse(map['alerts']) unless map['alerts'].nil?)
+        data.alerts = (MigrationAlerts.parse(map['alerts']) unless map['alerts'].nil?)
         data
       end
     end
@@ -963,7 +963,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MigrationAlert.parse(value) unless value.nil?
+          data << MigrationAlert.parse(value) unless value.nil?
         end
         data
       end
@@ -974,8 +974,8 @@ module AWS::SDK::LexModelBuildingService
         data = Types::MigrationAlert.new
         data.type = map['type']
         data.message = map['message'] || map['Message']
-        data.details = (Parsers::MigrationAlertDetails.parse(map['details']) unless map['details'].nil?)
-        data.reference_ur_ls = (Parsers::MigrationAlertReferenceURLs.parse(map['referenceURLs']) unless map['referenceURLs'].nil?)
+        data.details = (MigrationAlertDetails.parse(map['details']) unless map['details'].nil?)
+        data.reference_ur_ls = (MigrationAlertReferenceURLs.parse(map['referenceURLs']) unless map['referenceURLs'].nil?)
         return data
       end
     end
@@ -1005,7 +1005,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(http_resp)
         data = Types::GetMigrationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.migration_summaries = (Parsers::MigrationSummaryList.parse(map['migrationSummaries']) unless map['migrationSummaries'].nil?)
+        data.migration_summaries = (MigrationSummaryList.parse(map['migrationSummaries']) unless map['migrationSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1015,7 +1015,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MigrationSummary.parse(value) unless value.nil?
+          data << MigrationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1044,14 +1044,14 @@ module AWS::SDK::LexModelBuildingService
         map = Hearth::JSON.load(http_resp.body)
         data.name = map['name']
         data.description = map['description']
-        data.enumeration_values = (Parsers::EnumerationValues.parse(map['enumerationValues']) unless map['enumerationValues'].nil?)
+        data.enumeration_values = (EnumerationValues.parse(map['enumerationValues']) unless map['enumerationValues'].nil?)
         data.last_updated_date = Time.at(map['lastUpdatedDate'].to_i) if map['lastUpdatedDate']
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data.version = map['version']
         data.checksum = map['checksum']
         data.value_selection_strategy = map['valueSelectionStrategy']
         data.parent_slot_type_signature = map['parentSlotTypeSignature']
-        data.slot_type_configurations = (Parsers::SlotTypeConfigurations.parse(map['slotTypeConfigurations']) unless map['slotTypeConfigurations'].nil?)
+        data.slot_type_configurations = (SlotTypeConfigurations.parse(map['slotTypeConfigurations']) unless map['slotTypeConfigurations'].nil?)
         data
       end
     end
@@ -1061,7 +1061,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(http_resp)
         data = Types::GetSlotTypeVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.slot_types = (Parsers::SlotTypeMetadataList.parse(map['slotTypes']) unless map['slotTypes'].nil?)
+        data.slot_types = (SlotTypeMetadataList.parse(map['slotTypes']) unless map['slotTypes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1071,7 +1071,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SlotTypeMetadata.parse(value) unless value.nil?
+          data << SlotTypeMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -1094,7 +1094,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(http_resp)
         data = Types::GetSlotTypesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.slot_types = (Parsers::SlotTypeMetadataList.parse(map['slotTypes']) unless map['slotTypes'].nil?)
+        data.slot_types = (SlotTypeMetadataList.parse(map['slotTypes']) unless map['slotTypes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1106,7 +1106,7 @@ module AWS::SDK::LexModelBuildingService
         data = Types::GetUtterancesViewOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.bot_name = map['botName']
-        data.utterances = (Parsers::ListsOfUtterances.parse(map['utterances']) unless map['utterances'].nil?)
+        data.utterances = (ListsOfUtterances.parse(map['utterances']) unless map['utterances'].nil?)
         data
       end
     end
@@ -1115,7 +1115,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UtteranceList.parse(value) unless value.nil?
+          data << UtteranceList.parse(value) unless value.nil?
         end
         data
       end
@@ -1125,7 +1125,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(map)
         data = Types::UtteranceList.new
         data.bot_version = map['botVersion']
-        data.utterances = (Parsers::ListOfUtterance.parse(map['utterances']) unless map['utterances'].nil?)
+        data.utterances = (ListOfUtterance.parse(map['utterances']) unless map['utterances'].nil?)
         return data
       end
     end
@@ -1134,7 +1134,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UtteranceData.parse(value) unless value.nil?
+          data << UtteranceData.parse(value) unless value.nil?
         end
         data
       end
@@ -1157,7 +1157,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1166,7 +1166,7 @@ module AWS::SDK::LexModelBuildingService
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -1188,11 +1188,11 @@ module AWS::SDK::LexModelBuildingService
         map = Hearth::JSON.load(http_resp.body)
         data.name = map['name']
         data.description = map['description']
-        data.intents = (Parsers::IntentList.parse(map['intents']) unless map['intents'].nil?)
+        data.intents = (IntentList.parse(map['intents']) unless map['intents'].nil?)
         data.enable_model_improvements = map['enableModelImprovements']
         data.nlu_intent_confidence_threshold = Hearth::NumberHelper.deserialize(map['nluIntentConfidenceThreshold'])
-        data.clarification_prompt = (Parsers::Prompt.parse(map['clarificationPrompt']) unless map['clarificationPrompt'].nil?)
-        data.abort_statement = (Parsers::Statement.parse(map['abortStatement']) unless map['abortStatement'].nil?)
+        data.clarification_prompt = (Prompt.parse(map['clarificationPrompt']) unless map['clarificationPrompt'].nil?)
+        data.abort_statement = (Statement.parse(map['abortStatement']) unless map['abortStatement'].nil?)
         data.status = map['status']
         data.failure_reason = map['failureReason']
         data.last_updated_date = Time.at(map['lastUpdatedDate'].to_i) if map['lastUpdatedDate']
@@ -1205,7 +1205,7 @@ module AWS::SDK::LexModelBuildingService
         data.child_directed = map['childDirected']
         data.create_version = map['createVersion']
         data.detect_sentiment = map['detectSentiment']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1222,8 +1222,8 @@ module AWS::SDK::LexModelBuildingService
         data.last_updated_date = Time.at(map['lastUpdatedDate'].to_i) if map['lastUpdatedDate']
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data.checksum = map['checksum']
-        data.conversation_logs = (Parsers::ConversationLogsResponse.parse(map['conversationLogs']) unless map['conversationLogs'].nil?)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.conversation_logs = (ConversationLogsResponse.parse(map['conversationLogs']) unless map['conversationLogs'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1235,23 +1235,23 @@ module AWS::SDK::LexModelBuildingService
         map = Hearth::JSON.load(http_resp.body)
         data.name = map['name']
         data.description = map['description']
-        data.slots = (Parsers::SlotList.parse(map['slots']) unless map['slots'].nil?)
-        data.sample_utterances = (Parsers::IntentUtteranceList.parse(map['sampleUtterances']) unless map['sampleUtterances'].nil?)
-        data.confirmation_prompt = (Parsers::Prompt.parse(map['confirmationPrompt']) unless map['confirmationPrompt'].nil?)
-        data.rejection_statement = (Parsers::Statement.parse(map['rejectionStatement']) unless map['rejectionStatement'].nil?)
-        data.follow_up_prompt = (Parsers::FollowUpPrompt.parse(map['followUpPrompt']) unless map['followUpPrompt'].nil?)
-        data.conclusion_statement = (Parsers::Statement.parse(map['conclusionStatement']) unless map['conclusionStatement'].nil?)
-        data.dialog_code_hook = (Parsers::CodeHook.parse(map['dialogCodeHook']) unless map['dialogCodeHook'].nil?)
-        data.fulfillment_activity = (Parsers::FulfillmentActivity.parse(map['fulfillmentActivity']) unless map['fulfillmentActivity'].nil?)
+        data.slots = (SlotList.parse(map['slots']) unless map['slots'].nil?)
+        data.sample_utterances = (IntentUtteranceList.parse(map['sampleUtterances']) unless map['sampleUtterances'].nil?)
+        data.confirmation_prompt = (Prompt.parse(map['confirmationPrompt']) unless map['confirmationPrompt'].nil?)
+        data.rejection_statement = (Statement.parse(map['rejectionStatement']) unless map['rejectionStatement'].nil?)
+        data.follow_up_prompt = (FollowUpPrompt.parse(map['followUpPrompt']) unless map['followUpPrompt'].nil?)
+        data.conclusion_statement = (Statement.parse(map['conclusionStatement']) unless map['conclusionStatement'].nil?)
+        data.dialog_code_hook = (CodeHook.parse(map['dialogCodeHook']) unless map['dialogCodeHook'].nil?)
+        data.fulfillment_activity = (FulfillmentActivity.parse(map['fulfillmentActivity']) unless map['fulfillmentActivity'].nil?)
         data.parent_intent_signature = map['parentIntentSignature']
         data.last_updated_date = Time.at(map['lastUpdatedDate'].to_i) if map['lastUpdatedDate']
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data.version = map['version']
         data.checksum = map['checksum']
         data.create_version = map['createVersion']
-        data.kendra_configuration = (Parsers::KendraConfiguration.parse(map['kendraConfiguration']) unless map['kendraConfiguration'].nil?)
-        data.input_contexts = (Parsers::InputContextList.parse(map['inputContexts']) unless map['inputContexts'].nil?)
-        data.output_contexts = (Parsers::OutputContextList.parse(map['outputContexts']) unless map['outputContexts'].nil?)
+        data.kendra_configuration = (KendraConfiguration.parse(map['kendraConfiguration']) unless map['kendraConfiguration'].nil?)
+        data.input_contexts = (InputContextList.parse(map['inputContexts']) unless map['inputContexts'].nil?)
+        data.output_contexts = (OutputContextList.parse(map['outputContexts']) unless map['outputContexts'].nil?)
         data
       end
     end
@@ -1263,7 +1263,7 @@ module AWS::SDK::LexModelBuildingService
         map = Hearth::JSON.load(http_resp.body)
         data.name = map['name']
         data.description = map['description']
-        data.enumeration_values = (Parsers::EnumerationValues.parse(map['enumerationValues']) unless map['enumerationValues'].nil?)
+        data.enumeration_values = (EnumerationValues.parse(map['enumerationValues']) unless map['enumerationValues'].nil?)
         data.last_updated_date = Time.at(map['lastUpdatedDate'].to_i) if map['lastUpdatedDate']
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data.version = map['version']
@@ -1271,7 +1271,7 @@ module AWS::SDK::LexModelBuildingService
         data.value_selection_strategy = map['valueSelectionStrategy']
         data.create_version = map['createVersion']
         data.parent_slot_type_signature = map['parentSlotTypeSignature']
-        data.slot_type_configurations = (Parsers::SlotTypeConfigurations.parse(map['slotTypeConfigurations']) unless map['slotTypeConfigurations'].nil?)
+        data.slot_type_configurations = (SlotTypeConfigurations.parse(map['slotTypeConfigurations']) unless map['slotTypeConfigurations'].nil?)
         data
       end
     end
@@ -1286,7 +1286,7 @@ module AWS::SDK::LexModelBuildingService
         data.merge_strategy = map['mergeStrategy']
         data.import_id = map['importId']
         data.import_status = map['importStatus']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.created_date = Time.at(map['createdDate'].to_i) if map['createdDate']
         data
       end

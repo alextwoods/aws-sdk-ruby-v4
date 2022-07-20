@@ -17,7 +17,7 @@ module AWS::SDK::CloudHSMV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.destination_backup = (Parsers::DestinationBackup.parse(map['DestinationBackup']) unless map['DestinationBackup'].nil?)
+        data.destination_backup = (DestinationBackup.parse(map['DestinationBackup']) unless map['DestinationBackup'].nil?)
         data
       end
     end
@@ -112,7 +112,7 @@ module AWS::SDK::CloudHSMV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
+        data.cluster = (Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
         data
       end
     end
@@ -121,20 +121,20 @@ module AWS::SDK::CloudHSMV2
       def self.parse(map)
         data = Types::Cluster.new
         data.backup_policy = map['BackupPolicy']
-        data.backup_retention_policy = (Parsers::BackupRetentionPolicy.parse(map['BackupRetentionPolicy']) unless map['BackupRetentionPolicy'].nil?)
+        data.backup_retention_policy = (BackupRetentionPolicy.parse(map['BackupRetentionPolicy']) unless map['BackupRetentionPolicy'].nil?)
         data.cluster_id = map['ClusterId']
         data.create_timestamp = Time.at(map['CreateTimestamp'].to_i) if map['CreateTimestamp']
-        data.hsms = (Parsers::Hsms.parse(map['Hsms']) unless map['Hsms'].nil?)
+        data.hsms = (Hsms.parse(map['Hsms']) unless map['Hsms'].nil?)
         data.hsm_type = map['HsmType']
         data.pre_co_password = map['PreCoPassword']
         data.security_group = map['SecurityGroup']
         data.source_backup_id = map['SourceBackupId']
         data.state = map['State']
         data.state_message = map['StateMessage']
-        data.subnet_mapping = (Parsers::ExternalSubnetMapping.parse(map['SubnetMapping']) unless map['SubnetMapping'].nil?)
+        data.subnet_mapping = (ExternalSubnetMapping.parse(map['SubnetMapping']) unless map['SubnetMapping'].nil?)
         data.vpc_id = map['VpcId']
-        data.certificates = (Parsers::Certificates.parse(map['Certificates']) unless map['Certificates'].nil?)
-        data.tag_list = (Parsers::TagList.parse(map['TagList']) unless map['TagList'].nil?)
+        data.certificates = (Certificates.parse(map['Certificates']) unless map['Certificates'].nil?)
+        data.tag_list = (TagList.parse(map['TagList']) unless map['TagList'].nil?)
         return data
       end
     end
@@ -142,7 +142,7 @@ module AWS::SDK::CloudHSMV2
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -181,7 +181,7 @@ module AWS::SDK::CloudHSMV2
     class Hsms
       def self.parse(list)
         list.map do |value|
-          Parsers::Hsm.parse(value) unless value.nil?
+          Hsm.parse(value) unless value.nil?
         end
       end
     end
@@ -217,7 +217,7 @@ module AWS::SDK::CloudHSMV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.hsm = (Parsers::Hsm.parse(map['Hsm']) unless map['Hsm'].nil?)
+        data.hsm = (Hsm.parse(map['Hsm']) unless map['Hsm'].nil?)
         data
       end
     end
@@ -229,7 +229,7 @@ module AWS::SDK::CloudHSMV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.backup = (Parsers::Backup.parse(map['Backup']) unless map['Backup'].nil?)
+        data.backup = (Backup.parse(map['Backup']) unless map['Backup'].nil?)
         data
       end
     end
@@ -247,7 +247,7 @@ module AWS::SDK::CloudHSMV2
         data.source_backup = map['SourceBackup']
         data.source_cluster = map['SourceCluster']
         data.delete_timestamp = Time.at(map['DeleteTimestamp'].to_i) if map['DeleteTimestamp']
-        data.tag_list = (Parsers::TagList.parse(map['TagList']) unless map['TagList'].nil?)
+        data.tag_list = (TagList.parse(map['TagList']) unless map['TagList'].nil?)
         return data
       end
     end
@@ -259,7 +259,7 @@ module AWS::SDK::CloudHSMV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
+        data.cluster = (Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
         data
       end
     end
@@ -283,7 +283,7 @@ module AWS::SDK::CloudHSMV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.backups = (Parsers::Backups.parse(map['Backups']) unless map['Backups'].nil?)
+        data.backups = (Backups.parse(map['Backups']) unless map['Backups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -292,7 +292,7 @@ module AWS::SDK::CloudHSMV2
     class Backups
       def self.parse(list)
         list.map do |value|
-          Parsers::Backup.parse(value) unless value.nil?
+          Backup.parse(value) unless value.nil?
         end
       end
     end
@@ -304,7 +304,7 @@ module AWS::SDK::CloudHSMV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.clusters = (Parsers::Clusters.parse(map['Clusters']) unless map['Clusters'].nil?)
+        data.clusters = (Clusters.parse(map['Clusters']) unless map['Clusters'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -313,7 +313,7 @@ module AWS::SDK::CloudHSMV2
     class Clusters
       def self.parse(list)
         list.map do |value|
-          Parsers::Cluster.parse(value) unless value.nil?
+          Cluster.parse(value) unless value.nil?
         end
       end
     end
@@ -338,7 +338,7 @@ module AWS::SDK::CloudHSMV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tag_list = (Parsers::TagList.parse(map['TagList']) unless map['TagList'].nil?)
+        data.tag_list = (TagList.parse(map['TagList']) unless map['TagList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -351,7 +351,7 @@ module AWS::SDK::CloudHSMV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.backup = (Parsers::Backup.parse(map['Backup']) unless map['Backup'].nil?)
+        data.backup = (Backup.parse(map['Backup']) unless map['Backup'].nil?)
         data
       end
     end
@@ -363,7 +363,7 @@ module AWS::SDK::CloudHSMV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cluster = (Parsers::Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
+        data.cluster = (Cluster.parse(map['Cluster']) unless map['Cluster'].nil?)
         data
       end
     end
@@ -375,7 +375,7 @@ module AWS::SDK::CloudHSMV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.backup = (Parsers::Backup.parse(map['Backup']) unless map['Backup'].nil?)
+        data.backup = (Backup.parse(map['Backup']) unless map['Backup'].nil?)
         data
       end
     end

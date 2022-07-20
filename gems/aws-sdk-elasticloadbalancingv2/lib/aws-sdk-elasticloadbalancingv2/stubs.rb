@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ElasticLoadBalancingV2
   module Stubs
 
@@ -23,9 +25,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('AddListenerCertificatesResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('AddListenerCertificatesResult')
-        xml << Hearth::XML::Node.new('Certificates', Stubs::CertificateList.stub('member', stub[:certificates])) unless stub[:certificates].nil?
+        xml << Hearth::XML::Node.new('Certificates', CertificateList.stub('member', stub[:certificates])) unless stub[:certificates].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -43,7 +45,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Certificate.stub(node_name, element) unless element.nil?
+          xml << Certificate.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -82,7 +84,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('AddTagsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -100,9 +102,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('CreateListenerResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('CreateListenerResult')
-        xml << Hearth::XML::Node.new('Listeners', Stubs::Listeners.stub('member', stub[:listeners])) unless stub[:listeners].nil?
+        xml << Hearth::XML::Node.new('Listeners', Listeners.stub('member', stub[:listeners])) unless stub[:listeners].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -120,7 +122,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Listener.stub(node_name, element) unless element.nil?
+          xml << Listener.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -150,10 +152,10 @@ module AWS::SDK::ElasticLoadBalancingV2
         xml << Hearth::XML::Node.new('LoadBalancerArn', stub[:load_balancer_arn].to_s) unless stub[:load_balancer_arn].nil?
         xml << Hearth::XML::Node.new('Port', stub[:port].to_s) unless stub[:port].nil?
         xml << Hearth::XML::Node.new('Protocol', stub[:protocol].to_s) unless stub[:protocol].nil?
-        xml << Hearth::XML::Node.new('Certificates', Stubs::CertificateList.stub('member', stub[:certificates])) unless stub[:certificates].nil?
+        xml << Hearth::XML::Node.new('Certificates', CertificateList.stub('member', stub[:certificates])) unless stub[:certificates].nil?
         xml << Hearth::XML::Node.new('SslPolicy', stub[:ssl_policy].to_s) unless stub[:ssl_policy].nil?
-        xml << Hearth::XML::Node.new('DefaultActions', Stubs::Actions.stub('member', stub[:default_actions])) unless stub[:default_actions].nil?
-        xml << Hearth::XML::Node.new('AlpnPolicy', Stubs::AlpnPolicyName.stub('member', stub[:alpn_policy])) unless stub[:alpn_policy].nil?
+        xml << Hearth::XML::Node.new('DefaultActions', Actions.stub('member', stub[:default_actions])) unless stub[:default_actions].nil?
+        xml << Hearth::XML::Node.new('AlpnPolicy', AlpnPolicyName.stub('member', stub[:alpn_policy])) unless stub[:alpn_policy].nil?
         xml
       end
     end
@@ -190,7 +192,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Action.stub(node_name, element) unless element.nil?
+          xml << Action.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -218,12 +220,12 @@ module AWS::SDK::ElasticLoadBalancingV2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Type', stub[:type].to_s) unless stub[:type].nil?
         xml << Hearth::XML::Node.new('TargetGroupArn', stub[:target_group_arn].to_s) unless stub[:target_group_arn].nil?
-        xml << Stubs::AuthenticateOidcActionConfig.stub('AuthenticateOidcConfig', stub[:authenticate_oidc_config]) unless stub[:authenticate_oidc_config].nil?
-        xml << Stubs::AuthenticateCognitoActionConfig.stub('AuthenticateCognitoConfig', stub[:authenticate_cognito_config]) unless stub[:authenticate_cognito_config].nil?
+        xml << AuthenticateOidcActionConfig.stub('AuthenticateOidcConfig', stub[:authenticate_oidc_config]) unless stub[:authenticate_oidc_config].nil?
+        xml << AuthenticateCognitoActionConfig.stub('AuthenticateCognitoConfig', stub[:authenticate_cognito_config]) unless stub[:authenticate_cognito_config].nil?
         xml << Hearth::XML::Node.new('Order', stub[:order].to_s) unless stub[:order].nil?
-        xml << Stubs::RedirectActionConfig.stub('RedirectConfig', stub[:redirect_config]) unless stub[:redirect_config].nil?
-        xml << Stubs::FixedResponseActionConfig.stub('FixedResponseConfig', stub[:fixed_response_config]) unless stub[:fixed_response_config].nil?
-        xml << Stubs::ForwardActionConfig.stub('ForwardConfig', stub[:forward_config]) unless stub[:forward_config].nil?
+        xml << RedirectActionConfig.stub('RedirectConfig', stub[:redirect_config]) unless stub[:redirect_config].nil?
+        xml << FixedResponseActionConfig.stub('FixedResponseConfig', stub[:fixed_response_config]) unless stub[:fixed_response_config].nil?
+        xml << ForwardActionConfig.stub('ForwardConfig', stub[:forward_config]) unless stub[:forward_config].nil?
         xml
       end
     end
@@ -242,8 +244,8 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         stub ||= Types::ForwardActionConfig.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('TargetGroups', Stubs::TargetGroupList.stub('member', stub[:target_groups])) unless stub[:target_groups].nil?
-        xml << Stubs::TargetGroupStickinessConfig.stub('TargetGroupStickinessConfig', stub[:target_group_stickiness_config]) unless stub[:target_group_stickiness_config].nil?
+        xml << Hearth::XML::Node.new('TargetGroups', TargetGroupList.stub('member', stub[:target_groups])) unless stub[:target_groups].nil?
+        xml << TargetGroupStickinessConfig.stub('TargetGroupStickinessConfig', stub[:target_group_stickiness_config]) unless stub[:target_group_stickiness_config].nil?
         xml
       end
     end
@@ -281,7 +283,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::TargetGroupTuple.stub(node_name, element) unless element.nil?
+          xml << TargetGroupTuple.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -383,7 +385,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         xml << Hearth::XML::Node.new('SessionCookieName', stub[:session_cookie_name].to_s) unless stub[:session_cookie_name].nil?
         xml << Hearth::XML::Node.new('Scope', stub[:scope].to_s) unless stub[:scope].nil?
         xml << Hearth::XML::Node.new('SessionTimeout', stub[:session_timeout].to_s) unless stub[:session_timeout].nil?
-        xml << Hearth::XML::Node.new('AuthenticationRequestExtraParams', Stubs::AuthenticateCognitoActionAuthenticationRequestExtraParams.stub('entry', stub[:authentication_request_extra_params])) unless stub[:authentication_request_extra_params].nil?
+        xml << Hearth::XML::Node.new('AuthenticationRequestExtraParams', AuthenticateCognitoActionAuthenticationRequestExtraParams.stub('entry', stub[:authentication_request_extra_params])) unless stub[:authentication_request_extra_params].nil?
         xml << Hearth::XML::Node.new('OnUnauthenticatedRequest', stub[:on_unauthenticated_request].to_s) unless stub[:on_unauthenticated_request].nil?
         xml
       end
@@ -444,7 +446,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         xml << Hearth::XML::Node.new('SessionCookieName', stub[:session_cookie_name].to_s) unless stub[:session_cookie_name].nil?
         xml << Hearth::XML::Node.new('Scope', stub[:scope].to_s) unless stub[:scope].nil?
         xml << Hearth::XML::Node.new('SessionTimeout', stub[:session_timeout].to_s) unless stub[:session_timeout].nil?
-        xml << Hearth::XML::Node.new('AuthenticationRequestExtraParams', Stubs::AuthenticateOidcActionAuthenticationRequestExtraParams.stub('entry', stub[:authentication_request_extra_params])) unless stub[:authentication_request_extra_params].nil?
+        xml << Hearth::XML::Node.new('AuthenticationRequestExtraParams', AuthenticateOidcActionAuthenticationRequestExtraParams.stub('entry', stub[:authentication_request_extra_params])) unless stub[:authentication_request_extra_params].nil?
         xml << Hearth::XML::Node.new('OnUnauthenticatedRequest', stub[:on_unauthenticated_request].to_s) unless stub[:on_unauthenticated_request].nil?
         xml << Hearth::XML::Node.new('UseExistingClientSecret', stub[:use_existing_client_secret].to_s) unless stub[:use_existing_client_secret].nil?
         xml
@@ -486,9 +488,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('CreateLoadBalancerResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('CreateLoadBalancerResult')
-        xml << Hearth::XML::Node.new('LoadBalancers', Stubs::LoadBalancers.stub('member', stub[:load_balancers])) unless stub[:load_balancers].nil?
+        xml << Hearth::XML::Node.new('LoadBalancers', LoadBalancers.stub('member', stub[:load_balancers])) unless stub[:load_balancers].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -506,7 +508,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::LoadBalancer.stub(node_name, element) unless element.nil?
+          xml << LoadBalancer.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -544,10 +546,10 @@ module AWS::SDK::ElasticLoadBalancingV2
         xml << Hearth::XML::Node.new('LoadBalancerName', stub[:load_balancer_name].to_s) unless stub[:load_balancer_name].nil?
         xml << Hearth::XML::Node.new('Scheme', stub[:scheme].to_s) unless stub[:scheme].nil?
         xml << Hearth::XML::Node.new('VpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
-        xml << Stubs::LoadBalancerState.stub('State', stub[:state]) unless stub[:state].nil?
+        xml << LoadBalancerState.stub('State', stub[:state]) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('Type', stub[:type].to_s) unless stub[:type].nil?
-        xml << Hearth::XML::Node.new('AvailabilityZones', Stubs::AvailabilityZones.stub('member', stub[:availability_zones])) unless stub[:availability_zones].nil?
-        xml << Hearth::XML::Node.new('SecurityGroups', Stubs::SecurityGroups.stub('member', stub[:security_groups])) unless stub[:security_groups].nil?
+        xml << Hearth::XML::Node.new('AvailabilityZones', AvailabilityZones.stub('member', stub[:availability_zones])) unless stub[:availability_zones].nil?
+        xml << Hearth::XML::Node.new('SecurityGroups', SecurityGroups.stub('member', stub[:security_groups])) unless stub[:security_groups].nil?
         xml << Hearth::XML::Node.new('IpAddressType', stub[:ip_address_type].to_s) unless stub[:ip_address_type].nil?
         xml << Hearth::XML::Node.new('CustomerOwnedIpv4Pool', stub[:customer_owned_ipv4_pool].to_s) unless stub[:customer_owned_ipv4_pool].nil?
         xml
@@ -586,7 +588,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AvailabilityZone.stub(node_name, element) unless element.nil?
+          xml << AvailabilityZone.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -611,7 +613,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         xml << Hearth::XML::Node.new('ZoneName', stub[:zone_name].to_s) unless stub[:zone_name].nil?
         xml << Hearth::XML::Node.new('SubnetId', stub[:subnet_id].to_s) unless stub[:subnet_id].nil?
         xml << Hearth::XML::Node.new('OutpostId', stub[:outpost_id].to_s) unless stub[:outpost_id].nil?
-        xml << Hearth::XML::Node.new('LoadBalancerAddresses', Stubs::LoadBalancerAddresses.stub('member', stub[:load_balancer_addresses])) unless stub[:load_balancer_addresses].nil?
+        xml << Hearth::XML::Node.new('LoadBalancerAddresses', LoadBalancerAddresses.stub('member', stub[:load_balancer_addresses])) unless stub[:load_balancer_addresses].nil?
         xml
       end
     end
@@ -629,7 +631,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::LoadBalancerAddress.stub(node_name, element) unless element.nil?
+          xml << LoadBalancerAddress.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -692,9 +694,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('CreateRuleResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('CreateRuleResult')
-        xml << Hearth::XML::Node.new('Rules', Stubs::Rules.stub('member', stub[:rules])) unless stub[:rules].nil?
+        xml << Hearth::XML::Node.new('Rules', Rules.stub('member', stub[:rules])) unless stub[:rules].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -712,7 +714,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Rule.stub(node_name, element) unless element.nil?
+          xml << Rule.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -737,8 +739,8 @@ module AWS::SDK::ElasticLoadBalancingV2
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('RuleArn', stub[:rule_arn].to_s) unless stub[:rule_arn].nil?
         xml << Hearth::XML::Node.new('Priority', stub[:priority].to_s) unless stub[:priority].nil?
-        xml << Hearth::XML::Node.new('Conditions', Stubs::RuleConditionList.stub('member', stub[:conditions])) unless stub[:conditions].nil?
-        xml << Hearth::XML::Node.new('Actions', Stubs::Actions.stub('member', stub[:actions])) unless stub[:actions].nil?
+        xml << Hearth::XML::Node.new('Conditions', RuleConditionList.stub('member', stub[:conditions])) unless stub[:conditions].nil?
+        xml << Hearth::XML::Node.new('Actions', Actions.stub('member', stub[:actions])) unless stub[:actions].nil?
         xml << Hearth::XML::Node.new('IsDefault', stub[:is_default].to_s) unless stub[:is_default].nil?
         xml
       end
@@ -757,7 +759,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::RuleCondition.stub(node_name, element) unless element.nil?
+          xml << RuleCondition.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -784,13 +786,13 @@ module AWS::SDK::ElasticLoadBalancingV2
         stub ||= Types::RuleCondition.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Field', stub[:field].to_s) unless stub[:field].nil?
-        xml << Hearth::XML::Node.new('Values', Stubs::ListOfString.stub('member', stub[:values])) unless stub[:values].nil?
-        xml << Stubs::HostHeaderConditionConfig.stub('HostHeaderConfig', stub[:host_header_config]) unless stub[:host_header_config].nil?
-        xml << Stubs::PathPatternConditionConfig.stub('PathPatternConfig', stub[:path_pattern_config]) unless stub[:path_pattern_config].nil?
-        xml << Stubs::HttpHeaderConditionConfig.stub('HttpHeaderConfig', stub[:http_header_config]) unless stub[:http_header_config].nil?
-        xml << Stubs::QueryStringConditionConfig.stub('QueryStringConfig', stub[:query_string_config]) unless stub[:query_string_config].nil?
-        xml << Stubs::HttpRequestMethodConditionConfig.stub('HttpRequestMethodConfig', stub[:http_request_method_config]) unless stub[:http_request_method_config].nil?
-        xml << Stubs::SourceIpConditionConfig.stub('SourceIpConfig', stub[:source_ip_config]) unless stub[:source_ip_config].nil?
+        xml << Hearth::XML::Node.new('Values', ListOfString.stub('member', stub[:values])) unless stub[:values].nil?
+        xml << HostHeaderConditionConfig.stub('HostHeaderConfig', stub[:host_header_config]) unless stub[:host_header_config].nil?
+        xml << PathPatternConditionConfig.stub('PathPatternConfig', stub[:path_pattern_config]) unless stub[:path_pattern_config].nil?
+        xml << HttpHeaderConditionConfig.stub('HttpHeaderConfig', stub[:http_header_config]) unless stub[:http_header_config].nil?
+        xml << QueryStringConditionConfig.stub('QueryStringConfig', stub[:query_string_config]) unless stub[:query_string_config].nil?
+        xml << HttpRequestMethodConditionConfig.stub('HttpRequestMethodConfig', stub[:http_request_method_config]) unless stub[:http_request_method_config].nil?
+        xml << SourceIpConditionConfig.stub('SourceIpConfig', stub[:source_ip_config]) unless stub[:source_ip_config].nil?
         xml
       end
     end
@@ -808,7 +810,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         stub ||= Types::SourceIpConditionConfig.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Values', Stubs::ListOfString.stub('member', stub[:values])) unless stub[:values].nil?
+        xml << Hearth::XML::Node.new('Values', ListOfString.stub('member', stub[:values])) unless stub[:values].nil?
         xml
       end
     end
@@ -845,7 +847,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         stub ||= Types::HttpRequestMethodConditionConfig.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Values', Stubs::ListOfString.stub('member', stub[:values])) unless stub[:values].nil?
+        xml << Hearth::XML::Node.new('Values', ListOfString.stub('member', stub[:values])) unless stub[:values].nil?
         xml
       end
     end
@@ -863,7 +865,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         stub ||= Types::QueryStringConditionConfig.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Values', Stubs::QueryStringKeyValuePairList.stub('member', stub[:values])) unless stub[:values].nil?
+        xml << Hearth::XML::Node.new('Values', QueryStringKeyValuePairList.stub('member', stub[:values])) unless stub[:values].nil?
         xml
       end
     end
@@ -881,7 +883,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::QueryStringKeyValuePair.stub(node_name, element) unless element.nil?
+          xml << QueryStringKeyValuePair.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -922,7 +924,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         stub ||= Types::HttpHeaderConditionConfig.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('HttpHeaderName', stub[:http_header_name].to_s) unless stub[:http_header_name].nil?
-        xml << Hearth::XML::Node.new('Values', Stubs::ListOfString.stub('member', stub[:values])) unless stub[:values].nil?
+        xml << Hearth::XML::Node.new('Values', ListOfString.stub('member', stub[:values])) unless stub[:values].nil?
         xml
       end
     end
@@ -940,7 +942,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         stub ||= Types::PathPatternConditionConfig.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Values', Stubs::ListOfString.stub('member', stub[:values])) unless stub[:values].nil?
+        xml << Hearth::XML::Node.new('Values', ListOfString.stub('member', stub[:values])) unless stub[:values].nil?
         xml
       end
     end
@@ -958,7 +960,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         stub ||= Types::HostHeaderConditionConfig.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Values', Stubs::ListOfString.stub('member', stub[:values])) unless stub[:values].nil?
+        xml << Hearth::XML::Node.new('Values', ListOfString.stub('member', stub[:values])) unless stub[:values].nil?
         xml
       end
     end
@@ -976,9 +978,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('CreateTargetGroupResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('CreateTargetGroupResult')
-        xml << Hearth::XML::Node.new('TargetGroups', Stubs::TargetGroups.stub('member', stub[:target_groups])) unless stub[:target_groups].nil?
+        xml << Hearth::XML::Node.new('TargetGroups', TargetGroups.stub('member', stub[:target_groups])) unless stub[:target_groups].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -996,7 +998,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::TargetGroup.stub(node_name, element) unless element.nil?
+          xml << TargetGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1045,8 +1047,8 @@ module AWS::SDK::ElasticLoadBalancingV2
         xml << Hearth::XML::Node.new('HealthyThresholdCount', stub[:healthy_threshold_count].to_s) unless stub[:healthy_threshold_count].nil?
         xml << Hearth::XML::Node.new('UnhealthyThresholdCount', stub[:unhealthy_threshold_count].to_s) unless stub[:unhealthy_threshold_count].nil?
         xml << Hearth::XML::Node.new('HealthCheckPath', stub[:health_check_path].to_s) unless stub[:health_check_path].nil?
-        xml << Stubs::Matcher.stub('Matcher', stub[:matcher]) unless stub[:matcher].nil?
-        xml << Hearth::XML::Node.new('LoadBalancerArns', Stubs::LoadBalancerArns.stub('member', stub[:load_balancer_arns])) unless stub[:load_balancer_arns].nil?
+        xml << Matcher.stub('Matcher', stub[:matcher]) unless stub[:matcher].nil?
+        xml << Hearth::XML::Node.new('LoadBalancerArns', LoadBalancerArns.stub('member', stub[:load_balancer_arns])) unless stub[:load_balancer_arns].nil?
         xml << Hearth::XML::Node.new('TargetType', stub[:target_type].to_s) unless stub[:target_type].nil?
         xml << Hearth::XML::Node.new('ProtocolVersion', stub[:protocol_version].to_s) unless stub[:protocol_version].nil?
         xml << Hearth::XML::Node.new('IpAddressType', stub[:ip_address_type].to_s) unless stub[:ip_address_type].nil?
@@ -1106,7 +1108,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('DeleteListenerResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1124,7 +1126,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('DeleteLoadBalancerResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1142,7 +1144,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('DeleteRuleResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1160,7 +1162,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('DeleteTargetGroupResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1178,7 +1180,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('DeregisterTargetsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1197,10 +1199,10 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('DescribeAccountLimitsResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('DescribeAccountLimitsResult')
-        xml << Hearth::XML::Node.new('Limits', Stubs::Limits.stub('member', stub[:limits])) unless stub[:limits].nil?
+        xml << Hearth::XML::Node.new('Limits', Limits.stub('member', stub[:limits])) unless stub[:limits].nil?
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1218,7 +1220,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Limit.stub(node_name, element) unless element.nil?
+          xml << Limit.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1258,10 +1260,10 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('DescribeListenerCertificatesResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('DescribeListenerCertificatesResult')
-        xml << Hearth::XML::Node.new('Certificates', Stubs::CertificateList.stub('member', stub[:certificates])) unless stub[:certificates].nil?
+        xml << Hearth::XML::Node.new('Certificates', CertificateList.stub('member', stub[:certificates])) unless stub[:certificates].nil?
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1280,10 +1282,10 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('DescribeListenersResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('DescribeListenersResult')
-        xml << Hearth::XML::Node.new('Listeners', Stubs::Listeners.stub('member', stub[:listeners])) unless stub[:listeners].nil?
+        xml << Hearth::XML::Node.new('Listeners', Listeners.stub('member', stub[:listeners])) unless stub[:listeners].nil?
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1301,9 +1303,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('DescribeLoadBalancerAttributesResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('DescribeLoadBalancerAttributesResult')
-        xml << Hearth::XML::Node.new('Attributes', Stubs::LoadBalancerAttributes.stub('member', stub[:attributes])) unless stub[:attributes].nil?
+        xml << Hearth::XML::Node.new('Attributes', LoadBalancerAttributes.stub('member', stub[:attributes])) unless stub[:attributes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1321,7 +1323,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::LoadBalancerAttribute.stub(node_name, element) unless element.nil?
+          xml << LoadBalancerAttribute.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1361,10 +1363,10 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('DescribeLoadBalancersResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('DescribeLoadBalancersResult')
-        xml << Hearth::XML::Node.new('LoadBalancers', Stubs::LoadBalancers.stub('member', stub[:load_balancers])) unless stub[:load_balancers].nil?
+        xml << Hearth::XML::Node.new('LoadBalancers', LoadBalancers.stub('member', stub[:load_balancers])) unless stub[:load_balancers].nil?
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1383,10 +1385,10 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('DescribeRulesResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('DescribeRulesResult')
-        xml << Hearth::XML::Node.new('Rules', Stubs::Rules.stub('member', stub[:rules])) unless stub[:rules].nil?
+        xml << Hearth::XML::Node.new('Rules', Rules.stub('member', stub[:rules])) unless stub[:rules].nil?
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1405,10 +1407,10 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('DescribeSSLPoliciesResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('DescribeSSLPoliciesResult')
-        xml << Hearth::XML::Node.new('SslPolicies', Stubs::SslPolicies.stub('member', stub[:ssl_policies])) unless stub[:ssl_policies].nil?
+        xml << Hearth::XML::Node.new('SslPolicies', SslPolicies.stub('member', stub[:ssl_policies])) unless stub[:ssl_policies].nil?
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1426,7 +1428,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SslPolicy.stub(node_name, element) unless element.nil?
+          xml << SslPolicy.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1448,10 +1450,10 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         stub ||= Types::SslPolicy.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('SslProtocols', Stubs::SslProtocols.stub('member', stub[:ssl_protocols])) unless stub[:ssl_protocols].nil?
-        xml << Hearth::XML::Node.new('Ciphers', Stubs::Ciphers.stub('member', stub[:ciphers])) unless stub[:ciphers].nil?
+        xml << Hearth::XML::Node.new('SslProtocols', SslProtocols.stub('member', stub[:ssl_protocols])) unless stub[:ssl_protocols].nil?
+        xml << Hearth::XML::Node.new('Ciphers', Ciphers.stub('member', stub[:ciphers])) unless stub[:ciphers].nil?
         xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
-        xml << Hearth::XML::Node.new('SupportedLoadBalancerTypes', Stubs::ListOfString.stub('member', stub[:supported_load_balancer_types])) unless stub[:supported_load_balancer_types].nil?
+        xml << Hearth::XML::Node.new('SupportedLoadBalancerTypes', ListOfString.stub('member', stub[:supported_load_balancer_types])) unless stub[:supported_load_balancer_types].nil?
         xml
       end
     end
@@ -1469,7 +1471,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Cipher.stub(node_name, element) unless element.nil?
+          xml << Cipher.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1527,9 +1529,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('DescribeTagsResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('DescribeTagsResult')
-        xml << Hearth::XML::Node.new('TagDescriptions', Stubs::TagDescriptions.stub('member', stub[:tag_descriptions])) unless stub[:tag_descriptions].nil?
+        xml << Hearth::XML::Node.new('TagDescriptions', TagDescriptions.stub('member', stub[:tag_descriptions])) unless stub[:tag_descriptions].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1547,7 +1549,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::TagDescription.stub(node_name, element) unless element.nil?
+          xml << TagDescription.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1568,7 +1570,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         stub ||= Types::TagDescription.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ResourceArn', stub[:resource_arn].to_s) unless stub[:resource_arn].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('member', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -1586,7 +1588,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Tag.stub(node_name, element) unless element.nil?
+          xml << Tag.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1625,9 +1627,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('DescribeTargetGroupAttributesResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('DescribeTargetGroupAttributesResult')
-        xml << Hearth::XML::Node.new('Attributes', Stubs::TargetGroupAttributes.stub('member', stub[:attributes])) unless stub[:attributes].nil?
+        xml << Hearth::XML::Node.new('Attributes', TargetGroupAttributes.stub('member', stub[:attributes])) unless stub[:attributes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1645,7 +1647,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::TargetGroupAttribute.stub(node_name, element) unless element.nil?
+          xml << TargetGroupAttribute.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1685,10 +1687,10 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('DescribeTargetGroupsResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('DescribeTargetGroupsResult')
-        xml << Hearth::XML::Node.new('TargetGroups', Stubs::TargetGroups.stub('member', stub[:target_groups])) unless stub[:target_groups].nil?
+        xml << Hearth::XML::Node.new('TargetGroups', TargetGroups.stub('member', stub[:target_groups])) unless stub[:target_groups].nil?
         xml << Hearth::XML::Node.new('NextMarker', stub[:next_marker].to_s) unless stub[:next_marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1706,9 +1708,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('DescribeTargetHealthResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('DescribeTargetHealthResult')
-        xml << Hearth::XML::Node.new('TargetHealthDescriptions', Stubs::TargetHealthDescriptions.stub('member', stub[:target_health_descriptions])) unless stub[:target_health_descriptions].nil?
+        xml << Hearth::XML::Node.new('TargetHealthDescriptions', TargetHealthDescriptions.stub('member', stub[:target_health_descriptions])) unless stub[:target_health_descriptions].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1726,7 +1728,7 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::TargetHealthDescription.stub(node_name, element) unless element.nil?
+          xml << TargetHealthDescription.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1747,9 +1749,9 @@ module AWS::SDK::ElasticLoadBalancingV2
       def self.stub(node_name, stub)
         stub ||= Types::TargetHealthDescription.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::TargetDescription.stub('Target', stub[:target]) unless stub[:target].nil?
+        xml << TargetDescription.stub('Target', stub[:target]) unless stub[:target].nil?
         xml << Hearth::XML::Node.new('HealthCheckPort', stub[:health_check_port].to_s) unless stub[:health_check_port].nil?
-        xml << Stubs::TargetHealth.stub('TargetHealth', stub[:target_health]) unless stub[:target_health].nil?
+        xml << TargetHealth.stub('TargetHealth', stub[:target_health]) unless stub[:target_health].nil?
         xml
       end
     end
@@ -1811,9 +1813,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('ModifyListenerResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('ModifyListenerResult')
-        xml << Hearth::XML::Node.new('Listeners', Stubs::Listeners.stub('member', stub[:listeners])) unless stub[:listeners].nil?
+        xml << Hearth::XML::Node.new('Listeners', Listeners.stub('member', stub[:listeners])) unless stub[:listeners].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1831,9 +1833,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('ModifyLoadBalancerAttributesResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('ModifyLoadBalancerAttributesResult')
-        xml << Hearth::XML::Node.new('Attributes', Stubs::LoadBalancerAttributes.stub('member', stub[:attributes])) unless stub[:attributes].nil?
+        xml << Hearth::XML::Node.new('Attributes', LoadBalancerAttributes.stub('member', stub[:attributes])) unless stub[:attributes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1851,9 +1853,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('ModifyRuleResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('ModifyRuleResult')
-        xml << Hearth::XML::Node.new('Rules', Stubs::Rules.stub('member', stub[:rules])) unless stub[:rules].nil?
+        xml << Hearth::XML::Node.new('Rules', Rules.stub('member', stub[:rules])) unless stub[:rules].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1871,9 +1873,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('ModifyTargetGroupResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('ModifyTargetGroupResult')
-        xml << Hearth::XML::Node.new('TargetGroups', Stubs::TargetGroups.stub('member', stub[:target_groups])) unless stub[:target_groups].nil?
+        xml << Hearth::XML::Node.new('TargetGroups', TargetGroups.stub('member', stub[:target_groups])) unless stub[:target_groups].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1891,9 +1893,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('ModifyTargetGroupAttributesResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('ModifyTargetGroupAttributesResult')
-        xml << Hearth::XML::Node.new('Attributes', Stubs::TargetGroupAttributes.stub('member', stub[:attributes])) unless stub[:attributes].nil?
+        xml << Hearth::XML::Node.new('Attributes', TargetGroupAttributes.stub('member', stub[:attributes])) unless stub[:attributes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1911,7 +1913,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('RegisterTargetsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1929,7 +1931,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('RemoveListenerCertificatesResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1947,7 +1949,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('RemoveTagsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1967,7 +1969,7 @@ module AWS::SDK::ElasticLoadBalancingV2
         xml = Hearth::XML::Node.new('SetIpAddressTypeResult')
         xml << Hearth::XML::Node.new('IpAddressType', stub[:ip_address_type].to_s) unless stub[:ip_address_type].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1985,9 +1987,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('SetRulePrioritiesResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('SetRulePrioritiesResult')
-        xml << Hearth::XML::Node.new('Rules', Stubs::Rules.stub('member', stub[:rules])) unless stub[:rules].nil?
+        xml << Hearth::XML::Node.new('Rules', Rules.stub('member', stub[:rules])) unless stub[:rules].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2005,9 +2007,9 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('SetSecurityGroupsResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('SetSecurityGroupsResult')
-        xml << Hearth::XML::Node.new('SecurityGroupIds', Stubs::SecurityGroups.stub('member', stub[:security_group_ids])) unless stub[:security_group_ids].nil?
+        xml << Hearth::XML::Node.new('SecurityGroupIds', SecurityGroups.stub('member', stub[:security_group_ids])) unless stub[:security_group_ids].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2026,10 +2028,10 @@ module AWS::SDK::ElasticLoadBalancingV2
         response = Hearth::XML::Node.new('SetSubnetsResponse')
         response.attributes['xmlns'] = 'http://elasticloadbalancing.amazonaws.com/doc/2015-12-01/'
         xml = Hearth::XML::Node.new('SetSubnetsResult')
-        xml << Hearth::XML::Node.new('AvailabilityZones', Stubs::AvailabilityZones.stub('member', stub[:availability_zones])) unless stub[:availability_zones].nil?
+        xml << Hearth::XML::Node.new('AvailabilityZones', AvailabilityZones.stub('member', stub[:availability_zones])) unless stub[:availability_zones].nil?
         xml << Hearth::XML::Node.new('IpAddressType', stub[:ip_address_type].to_s) unless stub[:ip_address_type].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end

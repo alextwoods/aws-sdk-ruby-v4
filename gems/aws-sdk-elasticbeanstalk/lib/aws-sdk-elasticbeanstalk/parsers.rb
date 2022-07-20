@@ -123,7 +123,7 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML.parse(body).at('ComposeEnvironmentsResult')
         xml.at('Environments') do |node|
           children = node.children('member')
-          data.environments = Parsers::EnvironmentDescriptionsList.parse(children)
+          data.environments = EnvironmentDescriptionsList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -136,7 +136,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EnvironmentDescription.parse(node)
+          data << EnvironmentDescription.parse(node)
         end
         data
       end
@@ -194,14 +194,14 @@ module AWS::SDK::ElasticBeanstalk
           data.health_status = (node.text || '')
         end
         xml.at('Resources') do |node|
-          data.resources = Parsers::EnvironmentResourcesDescription.parse(node)
+          data.resources = EnvironmentResourcesDescription.parse(node)
         end
         xml.at('Tier') do |node|
-          data.tier = Parsers::EnvironmentTier.parse(node)
+          data.tier = EnvironmentTier.parse(node)
         end
         xml.at('EnvironmentLinks') do |node|
           children = node.children('member')
-          data.environment_links = Parsers::EnvironmentLinks.parse(children)
+          data.environment_links = EnvironmentLinks.parse(children)
         end
         xml.at('EnvironmentArn') do |node|
           data.environment_arn = (node.text || '')
@@ -217,7 +217,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EnvironmentLink.parse(node)
+          data << EnvironmentLink.parse(node)
         end
         data
       end
@@ -256,7 +256,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = Types::EnvironmentResourcesDescription.new
         xml.at('LoadBalancer') do |node|
-          data.load_balancer = Parsers::LoadBalancerDescription.parse(node)
+          data.load_balancer = LoadBalancerDescription.parse(node)
         end
         return data
       end
@@ -273,7 +273,7 @@ module AWS::SDK::ElasticBeanstalk
         end
         xml.at('Listeners') do |node|
           children = node.children('member')
-          data.listeners = Parsers::LoadBalancerListenersDescription.parse(children)
+          data.listeners = LoadBalancerListenersDescription.parse(children)
         end
         return data
       end
@@ -283,7 +283,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Listener.parse(node)
+          data << Listener.parse(node)
         end
         data
       end
@@ -324,7 +324,7 @@ module AWS::SDK::ElasticBeanstalk
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateApplicationResult')
         xml.at('Application') do |node|
-          data.application = Parsers::ApplicationDescription.parse(node)
+          data.application = ApplicationDescription.parse(node)
         end
         data
       end
@@ -350,14 +350,14 @@ module AWS::SDK::ElasticBeanstalk
         end
         xml.at('Versions') do |node|
           children = node.children('member')
-          data.versions = Parsers::VersionLabelsList.parse(children)
+          data.versions = VersionLabelsList.parse(children)
         end
         xml.at('ConfigurationTemplates') do |node|
           children = node.children('member')
-          data.configuration_templates = Parsers::ConfigurationTemplateNamesList.parse(children)
+          data.configuration_templates = ConfigurationTemplateNamesList.parse(children)
         end
         xml.at('ResourceLifecycleConfig') do |node|
-          data.resource_lifecycle_config = Parsers::ApplicationResourceLifecycleConfig.parse(node)
+          data.resource_lifecycle_config = ApplicationResourceLifecycleConfig.parse(node)
         end
         return data
       end
@@ -370,7 +370,7 @@ module AWS::SDK::ElasticBeanstalk
           data.service_role = (node.text || '')
         end
         xml.at('VersionLifecycleConfig') do |node|
-          data.version_lifecycle_config = Parsers::ApplicationVersionLifecycleConfig.parse(node)
+          data.version_lifecycle_config = ApplicationVersionLifecycleConfig.parse(node)
         end
         return data
       end
@@ -380,10 +380,10 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = Types::ApplicationVersionLifecycleConfig.new
         xml.at('MaxCountRule') do |node|
-          data.max_count_rule = Parsers::MaxCountRule.parse(node)
+          data.max_count_rule = MaxCountRule.parse(node)
         end
         xml.at('MaxAgeRule') do |node|
-          data.max_age_rule = Parsers::MaxAgeRule.parse(node)
+          data.max_age_rule = MaxAgeRule.parse(node)
         end
         return data
       end
@@ -463,7 +463,7 @@ module AWS::SDK::ElasticBeanstalk
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreateApplicationVersionResult')
         xml.at('ApplicationVersion') do |node|
-          data.application_version = Parsers::ApplicationVersionDescription.parse(node)
+          data.application_version = ApplicationVersionDescription.parse(node)
         end
         data
       end
@@ -485,13 +485,13 @@ module AWS::SDK::ElasticBeanstalk
           data.version_label = (node.text || '')
         end
         xml.at('SourceBuildInformation') do |node|
-          data.source_build_information = Parsers::SourceBuildInformation.parse(node)
+          data.source_build_information = SourceBuildInformation.parse(node)
         end
         xml.at('BuildArn') do |node|
           data.build_arn = (node.text || '')
         end
         xml.at('SourceBundle') do |node|
-          data.source_bundle = Parsers::S3Location.parse(node)
+          data.source_bundle = S3Location.parse(node)
         end
         xml.at('DateCreated') do |node|
           data.date_created = Time.parse(node.text) if node.text
@@ -613,7 +613,7 @@ module AWS::SDK::ElasticBeanstalk
         end
         xml.at('OptionSettings') do |node|
           children = node.children('member')
-          data.option_settings = Parsers::ConfigurationOptionSettingsList.parse(children)
+          data.option_settings = ConfigurationOptionSettingsList.parse(children)
         end
         data
       end
@@ -623,7 +623,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ConfigurationOptionSetting.parse(node)
+          data << ConfigurationOptionSetting.parse(node)
         end
         data
       end
@@ -732,14 +732,14 @@ module AWS::SDK::ElasticBeanstalk
           data.health_status = (node.text || '')
         end
         xml.at('Resources') do |node|
-          data.resources = Parsers::EnvironmentResourcesDescription.parse(node)
+          data.resources = EnvironmentResourcesDescription.parse(node)
         end
         xml.at('Tier') do |node|
-          data.tier = Parsers::EnvironmentTier.parse(node)
+          data.tier = EnvironmentTier.parse(node)
         end
         xml.at('EnvironmentLinks') do |node|
           children = node.children('member')
-          data.environment_links = Parsers::EnvironmentLinks.parse(children)
+          data.environment_links = EnvironmentLinks.parse(children)
         end
         xml.at('EnvironmentArn') do |node|
           data.environment_arn = (node.text || '')
@@ -759,10 +759,10 @@ module AWS::SDK::ElasticBeanstalk
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('CreatePlatformVersionResult')
         xml.at('PlatformSummary') do |node|
-          data.platform_summary = Parsers::PlatformSummary.parse(node)
+          data.platform_summary = PlatformSummary.parse(node)
         end
         xml.at('Builder') do |node|
-          data.builder = Parsers::Builder.parse(node)
+          data.builder = Builder.parse(node)
         end
         data
       end
@@ -801,11 +801,11 @@ module AWS::SDK::ElasticBeanstalk
         end
         xml.at('SupportedTierList') do |node|
           children = node.children('member')
-          data.supported_tier_list = Parsers::SupportedTierList.parse(children)
+          data.supported_tier_list = SupportedTierList.parse(children)
         end
         xml.at('SupportedAddonList') do |node|
           children = node.children('member')
-          data.supported_addon_list = Parsers::SupportedAddonList.parse(children)
+          data.supported_addon_list = SupportedAddonList.parse(children)
         end
         xml.at('PlatformLifecycleState') do |node|
           data.platform_lifecycle_state = (node.text || '')
@@ -965,7 +965,7 @@ module AWS::SDK::ElasticBeanstalk
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DeletePlatformVersionResult')
         xml.at('PlatformSummary') do |node|
-          data.platform_summary = Parsers::PlatformSummary.parse(node)
+          data.platform_summary = PlatformSummary.parse(node)
         end
         data
       end
@@ -993,7 +993,7 @@ module AWS::SDK::ElasticBeanstalk
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeAccountAttributesResult')
         xml.at('ResourceQuotas') do |node|
-          data.resource_quotas = Parsers::ResourceQuotas.parse(node)
+          data.resource_quotas = ResourceQuotas.parse(node)
         end
         data
       end
@@ -1003,19 +1003,19 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = Types::ResourceQuotas.new
         xml.at('ApplicationQuota') do |node|
-          data.application_quota = Parsers::ResourceQuota.parse(node)
+          data.application_quota = ResourceQuota.parse(node)
         end
         xml.at('ApplicationVersionQuota') do |node|
-          data.application_version_quota = Parsers::ResourceQuota.parse(node)
+          data.application_version_quota = ResourceQuota.parse(node)
         end
         xml.at('EnvironmentQuota') do |node|
-          data.environment_quota = Parsers::ResourceQuota.parse(node)
+          data.environment_quota = ResourceQuota.parse(node)
         end
         xml.at('ConfigurationTemplateQuota') do |node|
-          data.configuration_template_quota = Parsers::ResourceQuota.parse(node)
+          data.configuration_template_quota = ResourceQuota.parse(node)
         end
         xml.at('CustomPlatformQuota') do |node|
-          data.custom_platform_quota = Parsers::ResourceQuota.parse(node)
+          data.custom_platform_quota = ResourceQuota.parse(node)
         end
         return data
       end
@@ -1040,7 +1040,7 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML.parse(body).at('DescribeApplicationVersionsResult')
         xml.at('ApplicationVersions') do |node|
           children = node.children('member')
-          data.application_versions = Parsers::ApplicationVersionDescriptionList.parse(children)
+          data.application_versions = ApplicationVersionDescriptionList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1053,7 +1053,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ApplicationVersionDescription.parse(node)
+          data << ApplicationVersionDescription.parse(node)
         end
         data
       end
@@ -1068,7 +1068,7 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML.parse(body).at('DescribeApplicationsResult')
         xml.at('Applications') do |node|
           children = node.children('member')
-          data.applications = Parsers::ApplicationDescriptionList.parse(children)
+          data.applications = ApplicationDescriptionList.parse(children)
         end
         data
       end
@@ -1078,7 +1078,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ApplicationDescription.parse(node)
+          data << ApplicationDescription.parse(node)
         end
         data
       end
@@ -1099,7 +1099,7 @@ module AWS::SDK::ElasticBeanstalk
         end
         xml.at('Options') do |node|
           children = node.children('member')
-          data.options = Parsers::ConfigurationOptionDescriptionsList.parse(children)
+          data.options = ConfigurationOptionDescriptionsList.parse(children)
         end
         data
       end
@@ -1109,7 +1109,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ConfigurationOptionDescription.parse(node)
+          data << ConfigurationOptionDescription.parse(node)
         end
         data
       end
@@ -1138,7 +1138,7 @@ module AWS::SDK::ElasticBeanstalk
         end
         xml.at('ValueOptions') do |node|
           children = node.children('member')
-          data.value_options = Parsers::ConfigurationOptionPossibleValues.parse(children)
+          data.value_options = ConfigurationOptionPossibleValues.parse(children)
         end
         xml.at('MinValue') do |node|
           data.min_value = node.text&.to_i
@@ -1150,7 +1150,7 @@ module AWS::SDK::ElasticBeanstalk
           data.max_length = node.text&.to_i
         end
         xml.at('Regex') do |node|
-          data.regex = Parsers::OptionRestrictionRegex.parse(node)
+          data.regex = OptionRestrictionRegex.parse(node)
         end
         return data
       end
@@ -1188,7 +1188,7 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML.parse(body).at('DescribeConfigurationSettingsResult')
         xml.at('ConfigurationSettings') do |node|
           children = node.children('member')
-          data.configuration_settings = Parsers::ConfigurationSettingsDescriptionList.parse(children)
+          data.configuration_settings = ConfigurationSettingsDescriptionList.parse(children)
         end
         data
       end
@@ -1198,7 +1198,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ConfigurationSettingsDescription.parse(node)
+          data << ConfigurationSettingsDescription.parse(node)
         end
         data
       end
@@ -1236,7 +1236,7 @@ module AWS::SDK::ElasticBeanstalk
         end
         xml.at('OptionSettings') do |node|
           children = node.children('member')
-          data.option_settings = Parsers::ConfigurationOptionSettingsList.parse(children)
+          data.option_settings = ConfigurationOptionSettingsList.parse(children)
         end
         return data
       end
@@ -1263,13 +1263,13 @@ module AWS::SDK::ElasticBeanstalk
         end
         xml.at('Causes') do |node|
           children = node.children('member')
-          data.causes = Parsers::Causes.parse(children)
+          data.causes = Causes.parse(children)
         end
         xml.at('ApplicationMetrics') do |node|
-          data.application_metrics = Parsers::ApplicationMetrics.parse(node)
+          data.application_metrics = ApplicationMetrics.parse(node)
         end
         xml.at('InstancesHealth') do |node|
-          data.instances_health = Parsers::InstanceHealthSummary.parse(node)
+          data.instances_health = InstanceHealthSummary.parse(node)
         end
         xml.at('RefreshedAt') do |node|
           data.refreshed_at = Time.parse(node.text) if node.text
@@ -1319,10 +1319,10 @@ module AWS::SDK::ElasticBeanstalk
           data.request_count = node.text&.to_i
         end
         xml.at('StatusCodes') do |node|
-          data.status_codes = Parsers::StatusCodes.parse(node)
+          data.status_codes = StatusCodes.parse(node)
         end
         xml.at('Latency') do |node|
-          data.latency = Parsers::Latency.parse(node)
+          data.latency = Latency.parse(node)
         end
         return data
       end
@@ -1411,7 +1411,7 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML.parse(body).at('DescribeEnvironmentManagedActionHistoryResult')
         xml.at('ManagedActionHistoryItems') do |node|
           children = node.children('member')
-          data.managed_action_history_items = Parsers::ManagedActionHistoryItems.parse(children)
+          data.managed_action_history_items = ManagedActionHistoryItems.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1424,7 +1424,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ManagedActionHistoryItem.parse(node)
+          data << ManagedActionHistoryItem.parse(node)
         end
         data
       end
@@ -1470,7 +1470,7 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML.parse(body).at('DescribeEnvironmentManagedActionsResult')
         xml.at('ManagedActions') do |node|
           children = node.children('member')
-          data.managed_actions = Parsers::ManagedActions.parse(children)
+          data.managed_actions = ManagedActions.parse(children)
         end
         data
       end
@@ -1480,7 +1480,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ManagedAction.parse(node)
+          data << ManagedAction.parse(node)
         end
         data
       end
@@ -1516,7 +1516,7 @@ module AWS::SDK::ElasticBeanstalk
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribeEnvironmentResourcesResult')
         xml.at('EnvironmentResources') do |node|
-          data.environment_resources = Parsers::EnvironmentResourceDescription.parse(node)
+          data.environment_resources = EnvironmentResourceDescription.parse(node)
         end
         data
       end
@@ -1530,31 +1530,31 @@ module AWS::SDK::ElasticBeanstalk
         end
         xml.at('AutoScalingGroups') do |node|
           children = node.children('member')
-          data.auto_scaling_groups = Parsers::AutoScalingGroupList.parse(children)
+          data.auto_scaling_groups = AutoScalingGroupList.parse(children)
         end
         xml.at('Instances') do |node|
           children = node.children('member')
-          data.instances = Parsers::InstanceList.parse(children)
+          data.instances = InstanceList.parse(children)
         end
         xml.at('LaunchConfigurations') do |node|
           children = node.children('member')
-          data.launch_configurations = Parsers::LaunchConfigurationList.parse(children)
+          data.launch_configurations = LaunchConfigurationList.parse(children)
         end
         xml.at('LaunchTemplates') do |node|
           children = node.children('member')
-          data.launch_templates = Parsers::LaunchTemplateList.parse(children)
+          data.launch_templates = LaunchTemplateList.parse(children)
         end
         xml.at('LoadBalancers') do |node|
           children = node.children('member')
-          data.load_balancers = Parsers::LoadBalancerList.parse(children)
+          data.load_balancers = LoadBalancerList.parse(children)
         end
         xml.at('Triggers') do |node|
           children = node.children('member')
-          data.triggers = Parsers::TriggerList.parse(children)
+          data.triggers = TriggerList.parse(children)
         end
         xml.at('Queues') do |node|
           children = node.children('member')
-          data.queues = Parsers::QueueList.parse(children)
+          data.queues = QueueList.parse(children)
         end
         return data
       end
@@ -1564,7 +1564,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Queue.parse(node)
+          data << Queue.parse(node)
         end
         data
       end
@@ -1587,7 +1587,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Trigger.parse(node)
+          data << Trigger.parse(node)
         end
         data
       end
@@ -1607,7 +1607,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LoadBalancer.parse(node)
+          data << LoadBalancer.parse(node)
         end
         data
       end
@@ -1627,7 +1627,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LaunchTemplate.parse(node)
+          data << LaunchTemplate.parse(node)
         end
         data
       end
@@ -1647,7 +1647,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LaunchConfiguration.parse(node)
+          data << LaunchConfiguration.parse(node)
         end
         data
       end
@@ -1667,7 +1667,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Instance.parse(node)
+          data << Instance.parse(node)
         end
         data
       end
@@ -1687,7 +1687,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AutoScalingGroup.parse(node)
+          data << AutoScalingGroup.parse(node)
         end
         data
       end
@@ -1712,7 +1712,7 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML.parse(body).at('DescribeEnvironmentsResult')
         xml.at('Environments') do |node|
           children = node.children('member')
-          data.environments = Parsers::EnvironmentDescriptionsList.parse(children)
+          data.environments = EnvironmentDescriptionsList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1730,7 +1730,7 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML.parse(body).at('DescribeEventsResult')
         xml.at('Events') do |node|
           children = node.children('member')
-          data.events = Parsers::EventDescriptionList.parse(children)
+          data.events = EventDescriptionList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -1743,7 +1743,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EventDescription.parse(node)
+          data << EventDescription.parse(node)
         end
         data
       end
@@ -1792,7 +1792,7 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML.parse(body).at('DescribeInstancesHealthResult')
         xml.at('InstanceHealthList') do |node|
           children = node.children('member')
-          data.instance_health_list = Parsers::InstanceHealthList.parse(children)
+          data.instance_health_list = InstanceHealthList.parse(children)
         end
         xml.at('RefreshedAt') do |node|
           data.refreshed_at = Time.parse(node.text) if node.text
@@ -1808,7 +1808,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SingleInstanceHealth.parse(node)
+          data << SingleInstanceHealth.parse(node)
         end
         data
       end
@@ -1828,19 +1828,19 @@ module AWS::SDK::ElasticBeanstalk
         end
         xml.at('Causes') do |node|
           children = node.children('member')
-          data.causes = Parsers::Causes.parse(children)
+          data.causes = Causes.parse(children)
         end
         xml.at('LaunchedAt') do |node|
           data.launched_at = Time.parse(node.text) if node.text
         end
         xml.at('ApplicationMetrics') do |node|
-          data.application_metrics = Parsers::ApplicationMetrics.parse(node)
+          data.application_metrics = ApplicationMetrics.parse(node)
         end
         xml.at('System') do |node|
-          data.system = Parsers::SystemStatus.parse(node)
+          data.system = SystemStatus.parse(node)
         end
         xml.at('Deployment') do |node|
-          data.deployment = Parsers::Deployment.parse(node)
+          data.deployment = Deployment.parse(node)
         end
         xml.at('AvailabilityZone') do |node|
           data.availability_zone = (node.text || '')
@@ -1875,11 +1875,11 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = Types::SystemStatus.new
         xml.at('CPUUtilization') do |node|
-          data.cpu_utilization = Parsers::CPUUtilization.parse(node)
+          data.cpu_utilization = CPUUtilization.parse(node)
         end
         xml.at('LoadAverage') do |node|
           children = node.children('member')
-          data.load_average = Parsers::LoadAverage.parse(children)
+          data.load_average = LoadAverage.parse(children)
         end
         return data
       end
@@ -1934,7 +1934,7 @@ module AWS::SDK::ElasticBeanstalk
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('DescribePlatformVersionResult')
         xml.at('PlatformDescription') do |node|
-          data.platform_description = Parsers::PlatformDescription.parse(node)
+          data.platform_description = PlatformDescription.parse(node)
         end
         data
       end
@@ -1984,23 +1984,23 @@ module AWS::SDK::ElasticBeanstalk
         end
         xml.at('ProgrammingLanguages') do |node|
           children = node.children('member')
-          data.programming_languages = Parsers::PlatformProgrammingLanguages.parse(children)
+          data.programming_languages = PlatformProgrammingLanguages.parse(children)
         end
         xml.at('Frameworks') do |node|
           children = node.children('member')
-          data.frameworks = Parsers::PlatformFrameworks.parse(children)
+          data.frameworks = PlatformFrameworks.parse(children)
         end
         xml.at('CustomAmiList') do |node|
           children = node.children('member')
-          data.custom_ami_list = Parsers::CustomAmiList.parse(children)
+          data.custom_ami_list = CustomAmiList.parse(children)
         end
         xml.at('SupportedTierList') do |node|
           children = node.children('member')
-          data.supported_tier_list = Parsers::SupportedTierList.parse(children)
+          data.supported_tier_list = SupportedTierList.parse(children)
         end
         xml.at('SupportedAddonList') do |node|
           children = node.children('member')
-          data.supported_addon_list = Parsers::SupportedAddonList.parse(children)
+          data.supported_addon_list = SupportedAddonList.parse(children)
         end
         xml.at('PlatformLifecycleState') do |node|
           data.platform_lifecycle_state = (node.text || '')
@@ -2019,7 +2019,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CustomAmi.parse(node)
+          data << CustomAmi.parse(node)
         end
         data
       end
@@ -2042,7 +2042,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PlatformFramework.parse(node)
+          data << PlatformFramework.parse(node)
         end
         data
       end
@@ -2065,7 +2065,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PlatformProgrammingLanguage.parse(node)
+          data << PlatformProgrammingLanguage.parse(node)
         end
         data
       end
@@ -2104,11 +2104,11 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML.parse(body).at('ListAvailableSolutionStacksResult')
         xml.at('SolutionStacks') do |node|
           children = node.children('member')
-          data.solution_stacks = Parsers::AvailableSolutionStackNamesList.parse(children)
+          data.solution_stacks = AvailableSolutionStackNamesList.parse(children)
         end
         xml.at('SolutionStackDetails') do |node|
           children = node.children('member')
-          data.solution_stack_details = Parsers::AvailableSolutionStackDetailsList.parse(children)
+          data.solution_stack_details = AvailableSolutionStackDetailsList.parse(children)
         end
         data
       end
@@ -2118,7 +2118,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::SolutionStackDescription.parse(node)
+          data << SolutionStackDescription.parse(node)
         end
         data
       end
@@ -2132,7 +2132,7 @@ module AWS::SDK::ElasticBeanstalk
         end
         xml.at('PermittedFileTypes') do |node|
           children = node.children('member')
-          data.permitted_file_types = Parsers::SolutionStackFileTypeList.parse(children)
+          data.permitted_file_types = SolutionStackFileTypeList.parse(children)
         end
         return data
       end
@@ -2167,7 +2167,7 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML.parse(body).at('ListPlatformBranchesResult')
         xml.at('PlatformBranchSummaryList') do |node|
           children = node.children('member')
-          data.platform_branch_summary_list = Parsers::PlatformBranchSummaryList.parse(children)
+          data.platform_branch_summary_list = PlatformBranchSummaryList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2180,7 +2180,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PlatformBranchSummary.parse(node)
+          data << PlatformBranchSummary.parse(node)
         end
         data
       end
@@ -2203,7 +2203,7 @@ module AWS::SDK::ElasticBeanstalk
         end
         xml.at('SupportedTierList') do |node|
           children = node.children('member')
-          data.supported_tier_list = Parsers::SupportedTierList.parse(children)
+          data.supported_tier_list = SupportedTierList.parse(children)
         end
         return data
       end
@@ -2218,7 +2218,7 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML.parse(body).at('ListPlatformVersionsResult')
         xml.at('PlatformSummaryList') do |node|
           children = node.children('member')
-          data.platform_summary_list = Parsers::PlatformSummaryList.parse(children)
+          data.platform_summary_list = PlatformSummaryList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2231,7 +2231,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PlatformSummary.parse(node)
+          data << PlatformSummary.parse(node)
         end
         data
       end
@@ -2249,7 +2249,7 @@ module AWS::SDK::ElasticBeanstalk
         end
         xml.at('ResourceTags') do |node|
           children = node.children('member')
-          data.resource_tags = Parsers::TagList.parse(children)
+          data.resource_tags = TagList.parse(children)
         end
         data
       end
@@ -2259,7 +2259,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Tag.parse(node)
+          data << Tag.parse(node)
         end
         data
       end
@@ -2348,7 +2348,7 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML.parse(body).at('RetrieveEnvironmentInfoResult')
         xml.at('EnvironmentInfo') do |node|
           children = node.children('member')
-          data.environment_info = Parsers::EnvironmentInfoDescriptionList.parse(children)
+          data.environment_info = EnvironmentInfoDescriptionList.parse(children)
         end
         data
       end
@@ -2358,7 +2358,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EnvironmentInfoDescription.parse(node)
+          data << EnvironmentInfoDescription.parse(node)
         end
         data
       end
@@ -2450,14 +2450,14 @@ module AWS::SDK::ElasticBeanstalk
           data.health_status = (node.text || '')
         end
         xml.at('Resources') do |node|
-          data.resources = Parsers::EnvironmentResourcesDescription.parse(node)
+          data.resources = EnvironmentResourcesDescription.parse(node)
         end
         xml.at('Tier') do |node|
-          data.tier = Parsers::EnvironmentTier.parse(node)
+          data.tier = EnvironmentTier.parse(node)
         end
         xml.at('EnvironmentLinks') do |node|
           children = node.children('member')
-          data.environment_links = Parsers::EnvironmentLinks.parse(children)
+          data.environment_links = EnvironmentLinks.parse(children)
         end
         xml.at('EnvironmentArn') do |node|
           data.environment_arn = (node.text || '')
@@ -2477,7 +2477,7 @@ module AWS::SDK::ElasticBeanstalk
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('UpdateApplicationResult')
         xml.at('Application') do |node|
-          data.application = Parsers::ApplicationDescription.parse(node)
+          data.application = ApplicationDescription.parse(node)
         end
         data
       end
@@ -2494,7 +2494,7 @@ module AWS::SDK::ElasticBeanstalk
           data.application_name = (node.text || '')
         end
         xml.at('ResourceLifecycleConfig') do |node|
-          data.resource_lifecycle_config = Parsers::ApplicationResourceLifecycleConfig.parse(node)
+          data.resource_lifecycle_config = ApplicationResourceLifecycleConfig.parse(node)
         end
         data
       end
@@ -2508,7 +2508,7 @@ module AWS::SDK::ElasticBeanstalk
         return data if body.empty?
         xml = Hearth::XML.parse(body).at('UpdateApplicationVersionResult')
         xml.at('ApplicationVersion') do |node|
-          data.application_version = Parsers::ApplicationVersionDescription.parse(node)
+          data.application_version = ApplicationVersionDescription.parse(node)
         end
         data
       end
@@ -2550,7 +2550,7 @@ module AWS::SDK::ElasticBeanstalk
         end
         xml.at('OptionSettings') do |node|
           children = node.children('member')
-          data.option_settings = Parsers::ConfigurationOptionSettingsList.parse(children)
+          data.option_settings = ConfigurationOptionSettingsList.parse(children)
         end
         data
       end
@@ -2612,14 +2612,14 @@ module AWS::SDK::ElasticBeanstalk
           data.health_status = (node.text || '')
         end
         xml.at('Resources') do |node|
-          data.resources = Parsers::EnvironmentResourcesDescription.parse(node)
+          data.resources = EnvironmentResourcesDescription.parse(node)
         end
         xml.at('Tier') do |node|
-          data.tier = Parsers::EnvironmentTier.parse(node)
+          data.tier = EnvironmentTier.parse(node)
         end
         xml.at('EnvironmentLinks') do |node|
           children = node.children('member')
-          data.environment_links = Parsers::EnvironmentLinks.parse(children)
+          data.environment_links = EnvironmentLinks.parse(children)
         end
         xml.at('EnvironmentArn') do |node|
           data.environment_arn = (node.text || '')
@@ -2665,7 +2665,7 @@ module AWS::SDK::ElasticBeanstalk
         xml = Hearth::XML.parse(body).at('ValidateConfigurationSettingsResult')
         xml.at('Messages') do |node|
           children = node.children('member')
-          data.messages = Parsers::ValidationMessagesList.parse(children)
+          data.messages = ValidationMessagesList.parse(children)
         end
         data
       end
@@ -2675,7 +2675,7 @@ module AWS::SDK::ElasticBeanstalk
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ValidationMessage.parse(node)
+          data << ValidationMessage.parse(node)
         end
         data
       end

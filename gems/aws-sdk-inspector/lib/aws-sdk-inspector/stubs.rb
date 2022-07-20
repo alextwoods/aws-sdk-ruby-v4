@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Inspector
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['failedItems'] = Stubs::FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['failedItems'] = FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -40,7 +42,7 @@ module AWS::SDK::Inspector
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::FailedItemDetails.stub(value) unless value.nil?
+          data[key] = FailedItemDetails.stub(value) unless value.nil?
         end
         data
       end
@@ -77,7 +79,7 @@ module AWS::SDK::Inspector
       def self.stub(http_resp, stub:)
         data = {}
         data['assessmentTargetArn'] = stub[:assessment_target_arn] unless stub[:assessment_target_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -93,7 +95,7 @@ module AWS::SDK::Inspector
       def self.stub(http_resp, stub:)
         data = {}
         data['assessmentTemplateArn'] = stub[:assessment_template_arn] unless stub[:assessment_template_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -109,7 +111,7 @@ module AWS::SDK::Inspector
       def self.stub(http_resp, stub:)
         data = {}
         data['previewToken'] = stub[:preview_token] unless stub[:preview_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -125,7 +127,7 @@ module AWS::SDK::Inspector
       def self.stub(http_resp, stub:)
         data = {}
         data['resourceGroupArn'] = stub[:resource_group_arn] unless stub[:resource_group_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -139,7 +141,7 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -153,7 +155,7 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -167,7 +169,7 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -183,9 +185,9 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['assessmentRuns'] = Stubs::AssessmentRunList.stub(stub[:assessment_runs]) unless stub[:assessment_runs].nil?
-        data['failedItems'] = Stubs::FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assessmentRuns'] = AssessmentRunList.stub(stub[:assessment_runs]) unless stub[:assessment_runs].nil?
+        data['failedItems'] = FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -204,7 +206,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssessmentRun.stub(element) unless element.nil?
+          data << AssessmentRun.stub(element) unless element.nil?
         end
         data
       end
@@ -242,16 +244,16 @@ module AWS::SDK::Inspector
         data['assessmentTemplateArn'] = stub[:assessment_template_arn] unless stub[:assessment_template_arn].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data['durationInSeconds'] = stub[:duration_in_seconds] unless stub[:duration_in_seconds].nil?
-        data['rulesPackageArns'] = Stubs::AssessmentRulesPackageArnList.stub(stub[:rules_package_arns]) unless stub[:rules_package_arns].nil?
-        data['userAttributesForFindings'] = Stubs::UserAttributeList.stub(stub[:user_attributes_for_findings]) unless stub[:user_attributes_for_findings].nil?
+        data['rulesPackageArns'] = AssessmentRulesPackageArnList.stub(stub[:rules_package_arns]) unless stub[:rules_package_arns].nil?
+        data['userAttributesForFindings'] = UserAttributeList.stub(stub[:user_attributes_for_findings]) unless stub[:user_attributes_for_findings].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['startedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started_at]).to_i unless stub[:started_at].nil?
         data['completedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:completed_at]).to_i unless stub[:completed_at].nil?
         data['stateChangedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:state_changed_at]).to_i unless stub[:state_changed_at].nil?
         data['dataCollected'] = stub[:data_collected] unless stub[:data_collected].nil?
-        data['stateChanges'] = Stubs::AssessmentRunStateChangeList.stub(stub[:state_changes]) unless stub[:state_changes].nil?
-        data['notifications'] = Stubs::AssessmentRunNotificationList.stub(stub[:notifications]) unless stub[:notifications].nil?
-        data['findingCounts'] = Stubs::AssessmentRunFindingCounts.stub(stub[:finding_counts]) unless stub[:finding_counts].nil?
+        data['stateChanges'] = AssessmentRunStateChangeList.stub(stub[:state_changes]) unless stub[:state_changes].nil?
+        data['notifications'] = AssessmentRunNotificationList.stub(stub[:notifications]) unless stub[:notifications].nil?
+        data['findingCounts'] = AssessmentRunFindingCounts.stub(stub[:finding_counts]) unless stub[:finding_counts].nil?
         data
       end
     end
@@ -290,7 +292,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssessmentRunNotification.stub(element) unless element.nil?
+          data << AssessmentRunNotification.stub(element) unless element.nil?
         end
         data
       end
@@ -338,7 +340,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssessmentRunStateChange.stub(element) unless element.nil?
+          data << AssessmentRunStateChange.stub(element) unless element.nil?
         end
         data
       end
@@ -378,7 +380,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Attribute.stub(element) unless element.nil?
+          data << Attribute.stub(element) unless element.nil?
         end
         data
       end
@@ -435,9 +437,9 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['assessmentTargets'] = Stubs::AssessmentTargetList.stub(stub[:assessment_targets]) unless stub[:assessment_targets].nil?
-        data['failedItems'] = Stubs::FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assessmentTargets'] = AssessmentTargetList.stub(stub[:assessment_targets]) unless stub[:assessment_targets].nil?
+        data['failedItems'] = FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -456,7 +458,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssessmentTarget.stub(element) unless element.nil?
+          data << AssessmentTarget.stub(element) unless element.nil?
         end
         data
       end
@@ -499,9 +501,9 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['assessmentTemplates'] = Stubs::AssessmentTemplateList.stub(stub[:assessment_templates]) unless stub[:assessment_templates].nil?
-        data['failedItems'] = Stubs::FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['assessmentTemplates'] = AssessmentTemplateList.stub(stub[:assessment_templates]) unless stub[:assessment_templates].nil?
+        data['failedItems'] = FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -520,7 +522,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssessmentTemplate.stub(element) unless element.nil?
+          data << AssessmentTemplate.stub(element) unless element.nil?
         end
         data
       end
@@ -551,8 +553,8 @@ module AWS::SDK::Inspector
         data['name'] = stub[:name] unless stub[:name].nil?
         data['assessmentTargetArn'] = stub[:assessment_target_arn] unless stub[:assessment_target_arn].nil?
         data['durationInSeconds'] = stub[:duration_in_seconds] unless stub[:duration_in_seconds].nil?
-        data['rulesPackageArns'] = Stubs::AssessmentTemplateRulesPackageArnList.stub(stub[:rules_package_arns]) unless stub[:rules_package_arns].nil?
-        data['userAttributesForFindings'] = Stubs::UserAttributeList.stub(stub[:user_attributes_for_findings]) unless stub[:user_attributes_for_findings].nil?
+        data['rulesPackageArns'] = AssessmentTemplateRulesPackageArnList.stub(stub[:rules_package_arns]) unless stub[:rules_package_arns].nil?
+        data['userAttributesForFindings'] = UserAttributeList.stub(stub[:user_attributes_for_findings]) unless stub[:user_attributes_for_findings].nil?
         data['lastAssessmentRunArn'] = stub[:last_assessment_run_arn] unless stub[:last_assessment_run_arn].nil?
         data['assessmentRunCount'] = stub[:assessment_run_count] unless stub[:assessment_run_count].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
@@ -595,7 +597,7 @@ module AWS::SDK::Inspector
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['valid'] = stub[:valid] unless stub[:valid].nil?
         data['registeredAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:registered_at]).to_i unless stub[:registered_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -611,9 +613,9 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['exclusions'] = Stubs::ExclusionMap.stub(stub[:exclusions]) unless stub[:exclusions].nil?
-        data['failedItems'] = Stubs::FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['exclusions'] = ExclusionMap.stub(stub[:exclusions]) unless stub[:exclusions].nil?
+        data['failedItems'] = FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -632,7 +634,7 @@ module AWS::SDK::Inspector
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::Exclusion.stub(value) unless value.nil?
+          data[key] = Exclusion.stub(value) unless value.nil?
         end
         data
       end
@@ -660,8 +662,8 @@ module AWS::SDK::Inspector
         data['title'] = stub[:title] unless stub[:title].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['recommendation'] = stub[:recommendation] unless stub[:recommendation].nil?
-        data['scopes'] = Stubs::ScopeList.stub(stub[:scopes]) unless stub[:scopes].nil?
-        data['attributes'] = Stubs::AttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['scopes'] = ScopeList.stub(stub[:scopes]) unless stub[:scopes].nil?
+        data['attributes'] = AttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -680,7 +682,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Attribute.stub(element) unless element.nil?
+          data << Attribute.stub(element) unless element.nil?
         end
         data
       end
@@ -700,7 +702,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Scope.stub(element) unless element.nil?
+          data << Scope.stub(element) unless element.nil?
         end
         data
       end
@@ -737,9 +739,9 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['findings'] = Stubs::FindingList.stub(stub[:findings]) unless stub[:findings].nil?
-        data['failedItems'] = Stubs::FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['findings'] = FindingList.stub(stub[:findings]) unless stub[:findings].nil?
+        data['failedItems'] = FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -758,7 +760,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Finding.stub(element) unless element.nil?
+          data << Finding.stub(element) unless element.nil?
         end
         data
       end
@@ -797,9 +799,9 @@ module AWS::SDK::Inspector
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['schemaVersion'] = stub[:schema_version] unless stub[:schema_version].nil?
         data['service'] = stub[:service] unless stub[:service].nil?
-        data['serviceAttributes'] = Stubs::InspectorServiceAttributes.stub(stub[:service_attributes]) unless stub[:service_attributes].nil?
+        data['serviceAttributes'] = InspectorServiceAttributes.stub(stub[:service_attributes]) unless stub[:service_attributes].nil?
         data['assetType'] = stub[:asset_type] unless stub[:asset_type].nil?
-        data['assetAttributes'] = Stubs::AssetAttributes.stub(stub[:asset_attributes]) unless stub[:asset_attributes].nil?
+        data['assetAttributes'] = AssetAttributes.stub(stub[:asset_attributes]) unless stub[:asset_attributes].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['title'] = stub[:title] unless stub[:title].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
@@ -808,8 +810,8 @@ module AWS::SDK::Inspector
         data['numericSeverity'] = Hearth::NumberHelper.serialize(stub[:numeric_severity])
         data['confidence'] = stub[:confidence] unless stub[:confidence].nil?
         data['indicatorOfCompromise'] = stub[:indicator_of_compromise] unless stub[:indicator_of_compromise].nil?
-        data['attributes'] = Stubs::AttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['userAttributes'] = Stubs::UserAttributeList.stub(stub[:user_attributes]) unless stub[:user_attributes].nil?
+        data['attributes'] = AttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['userAttributes'] = UserAttributeList.stub(stub[:user_attributes]) unless stub[:user_attributes].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
         data
@@ -841,9 +843,9 @@ module AWS::SDK::Inspector
         data['autoScalingGroup'] = stub[:auto_scaling_group] unless stub[:auto_scaling_group].nil?
         data['amiId'] = stub[:ami_id] unless stub[:ami_id].nil?
         data['hostname'] = stub[:hostname] unless stub[:hostname].nil?
-        data['ipv4Addresses'] = Stubs::Ipv4AddressList.stub(stub[:ipv4_addresses]) unless stub[:ipv4_addresses].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['networkInterfaces'] = Stubs::NetworkInterfaces.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
+        data['ipv4Addresses'] = Ipv4AddressList.stub(stub[:ipv4_addresses]) unless stub[:ipv4_addresses].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['networkInterfaces'] = NetworkInterfaces.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
         data
       end
     end
@@ -862,7 +864,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkInterface.stub(element) unless element.nil?
+          data << NetworkInterface.stub(element) unless element.nil?
         end
         data
       end
@@ -895,11 +897,11 @@ module AWS::SDK::Inspector
         data['vpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['privateDnsName'] = stub[:private_dns_name] unless stub[:private_dns_name].nil?
         data['privateIpAddress'] = stub[:private_ip_address] unless stub[:private_ip_address].nil?
-        data['privateIpAddresses'] = Stubs::PrivateIpAddresses.stub(stub[:private_ip_addresses]) unless stub[:private_ip_addresses].nil?
+        data['privateIpAddresses'] = PrivateIpAddresses.stub(stub[:private_ip_addresses]) unless stub[:private_ip_addresses].nil?
         data['publicDnsName'] = stub[:public_dns_name] unless stub[:public_dns_name].nil?
         data['publicIp'] = stub[:public_ip] unless stub[:public_ip].nil?
-        data['ipv6Addresses'] = Stubs::Ipv6Addresses.stub(stub[:ipv6_addresses]) unless stub[:ipv6_addresses].nil?
-        data['securityGroups'] = Stubs::SecurityGroups.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['ipv6Addresses'] = Ipv6Addresses.stub(stub[:ipv6_addresses]) unless stub[:ipv6_addresses].nil?
+        data['securityGroups'] = SecurityGroups.stub(stub[:security_groups]) unless stub[:security_groups].nil?
         data
       end
     end
@@ -918,7 +920,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SecurityGroup.stub(element) unless element.nil?
+          data << SecurityGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -978,7 +980,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PrivateIp.stub(element) unless element.nil?
+          data << PrivateIp.stub(element) unless element.nil?
         end
         data
       end
@@ -1018,7 +1020,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1097,9 +1099,9 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['resourceGroups'] = Stubs::ResourceGroupList.stub(stub[:resource_groups]) unless stub[:resource_groups].nil?
-        data['failedItems'] = Stubs::FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resourceGroups'] = ResourceGroupList.stub(stub[:resource_groups]) unless stub[:resource_groups].nil?
+        data['failedItems'] = FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1118,7 +1120,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceGroup.stub(element) unless element.nil?
+          data << ResourceGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -1140,7 +1142,7 @@ module AWS::SDK::Inspector
         stub ||= Types::ResourceGroup.new
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        data['tags'] = Stubs::ResourceGroupTags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = ResourceGroupTags.stub(stub[:tags]) unless stub[:tags].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data
       end
@@ -1160,7 +1162,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceGroupTag.stub(element) unless element.nil?
+          data << ResourceGroupTag.stub(element) unless element.nil?
         end
         data
       end
@@ -1197,9 +1199,9 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['rulesPackages'] = Stubs::RulesPackageList.stub(stub[:rules_packages]) unless stub[:rules_packages].nil?
-        data['failedItems'] = Stubs::FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['rulesPackages'] = RulesPackageList.stub(stub[:rules_packages]) unless stub[:rules_packages].nil?
+        data['failedItems'] = FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1218,7 +1220,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RulesPackage.stub(element) unless element.nil?
+          data << RulesPackage.stub(element) unless element.nil?
         end
         data
       end
@@ -1263,7 +1265,7 @@ module AWS::SDK::Inspector
         data = {}
         data['status'] = stub[:status] unless stub[:status].nil?
         data['url'] = stub[:url] unless stub[:url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1281,9 +1283,9 @@ module AWS::SDK::Inspector
       def self.stub(http_resp, stub:)
         data = {}
         data['previewStatus'] = stub[:preview_status] unless stub[:preview_status].nil?
-        data['exclusionPreviews'] = Stubs::ExclusionPreviewList.stub(stub[:exclusion_previews]) unless stub[:exclusion_previews].nil?
+        data['exclusionPreviews'] = ExclusionPreviewList.stub(stub[:exclusion_previews]) unless stub[:exclusion_previews].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1302,7 +1304,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExclusionPreview.stub(element) unless element.nil?
+          data << ExclusionPreview.stub(element) unless element.nil?
         end
         data
       end
@@ -1328,8 +1330,8 @@ module AWS::SDK::Inspector
         data['title'] = stub[:title] unless stub[:title].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['recommendation'] = stub[:recommendation] unless stub[:recommendation].nil?
-        data['scopes'] = Stubs::ScopeList.stub(stub[:scopes]) unless stub[:scopes].nil?
-        data['attributes'] = Stubs::AttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['scopes'] = ScopeList.stub(stub[:scopes]) unless stub[:scopes].nil?
+        data['attributes'] = AttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -1344,8 +1346,8 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['telemetryMetadata'] = Stubs::TelemetryMetadataList.stub(stub[:telemetry_metadata]) unless stub[:telemetry_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['telemetryMetadata'] = TelemetryMetadataList.stub(stub[:telemetry_metadata]) unless stub[:telemetry_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1364,7 +1366,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TelemetryMetadata.stub(element) unless element.nil?
+          data << TelemetryMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1403,9 +1405,9 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['assessmentRunAgents'] = Stubs::AssessmentRunAgentList.stub(stub[:assessment_run_agents]) unless stub[:assessment_run_agents].nil?
+        data['assessmentRunAgents'] = AssessmentRunAgentList.stub(stub[:assessment_run_agents]) unless stub[:assessment_run_agents].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1424,7 +1426,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssessmentRunAgent.stub(element) unless element.nil?
+          data << AssessmentRunAgent.stub(element) unless element.nil?
         end
         data
       end
@@ -1455,7 +1457,7 @@ module AWS::SDK::Inspector
         data['agentHealthCode'] = stub[:agent_health_code] unless stub[:agent_health_code].nil?
         data['agentHealthDetails'] = stub[:agent_health_details] unless stub[:agent_health_details].nil?
         data['autoScalingGroup'] = stub[:auto_scaling_group] unless stub[:auto_scaling_group].nil?
-        data['telemetryMetadata'] = Stubs::TelemetryMetadataList.stub(stub[:telemetry_metadata]) unless stub[:telemetry_metadata].nil?
+        data['telemetryMetadata'] = TelemetryMetadataList.stub(stub[:telemetry_metadata]) unless stub[:telemetry_metadata].nil?
         data
       end
     end
@@ -1471,9 +1473,9 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['assessmentRunArns'] = Stubs::ListReturnedArnList.stub(stub[:assessment_run_arns]) unless stub[:assessment_run_arns].nil?
+        data['assessmentRunArns'] = ListReturnedArnList.stub(stub[:assessment_run_arns]) unless stub[:assessment_run_arns].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1509,9 +1511,9 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['assessmentTargetArns'] = Stubs::ListReturnedArnList.stub(stub[:assessment_target_arns]) unless stub[:assessment_target_arns].nil?
+        data['assessmentTargetArns'] = ListReturnedArnList.stub(stub[:assessment_target_arns]) unless stub[:assessment_target_arns].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1527,9 +1529,9 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['assessmentTemplateArns'] = Stubs::ListReturnedArnList.stub(stub[:assessment_template_arns]) unless stub[:assessment_template_arns].nil?
+        data['assessmentTemplateArns'] = ListReturnedArnList.stub(stub[:assessment_template_arns]) unless stub[:assessment_template_arns].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1545,9 +1547,9 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['subscriptions'] = Stubs::SubscriptionList.stub(stub[:subscriptions]) unless stub[:subscriptions].nil?
+        data['subscriptions'] = SubscriptionList.stub(stub[:subscriptions]) unless stub[:subscriptions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1566,7 +1568,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Subscription.stub(element) unless element.nil?
+          data << Subscription.stub(element) unless element.nil?
         end
         data
       end
@@ -1589,7 +1591,7 @@ module AWS::SDK::Inspector
         data = {}
         data['resourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['topicArn'] = stub[:topic_arn] unless stub[:topic_arn].nil?
-        data['eventSubscriptions'] = Stubs::EventSubscriptionList.stub(stub[:event_subscriptions]) unless stub[:event_subscriptions].nil?
+        data['eventSubscriptions'] = EventSubscriptionList.stub(stub[:event_subscriptions]) unless stub[:event_subscriptions].nil?
         data
       end
     end
@@ -1608,7 +1610,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventSubscription.stub(element) unless element.nil?
+          data << EventSubscription.stub(element) unless element.nil?
         end
         data
       end
@@ -1645,9 +1647,9 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['exclusionArns'] = Stubs::ListReturnedArnList.stub(stub[:exclusion_arns]) unless stub[:exclusion_arns].nil?
+        data['exclusionArns'] = ListReturnedArnList.stub(stub[:exclusion_arns]) unless stub[:exclusion_arns].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1663,9 +1665,9 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['findingArns'] = Stubs::ListReturnedArnList.stub(stub[:finding_arns]) unless stub[:finding_arns].nil?
+        data['findingArns'] = ListReturnedArnList.stub(stub[:finding_arns]) unless stub[:finding_arns].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1681,9 +1683,9 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['rulesPackageArns'] = Stubs::ListReturnedArnList.stub(stub[:rules_package_arns]) unless stub[:rules_package_arns].nil?
+        data['rulesPackageArns'] = ListReturnedArnList.stub(stub[:rules_package_arns]) unless stub[:rules_package_arns].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1698,8 +1700,8 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1718,7 +1720,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1735,9 +1737,9 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['agentPreviews'] = Stubs::AgentPreviewList.stub(stub[:agent_previews]) unless stub[:agent_previews].nil?
+        data['agentPreviews'] = AgentPreviewList.stub(stub[:agent_previews]) unless stub[:agent_previews].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1756,7 +1758,7 @@ module AWS::SDK::Inspector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AgentPreview.stub(element) unless element.nil?
+          data << AgentPreview.stub(element) unless element.nil?
         end
         data
       end
@@ -1803,7 +1805,7 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1818,8 +1820,8 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['failedItems'] = Stubs::FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['failedItems'] = FailedItems.stub(stub[:failed_items]) unless stub[:failed_items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1833,7 +1835,7 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1849,7 +1851,7 @@ module AWS::SDK::Inspector
       def self.stub(http_resp, stub:)
         data = {}
         data['assessmentRunArn'] = stub[:assessment_run_arn] unless stub[:assessment_run_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1863,7 +1865,7 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1877,7 +1879,7 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1891,7 +1893,7 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1905,7 +1907,7 @@ module AWS::SDK::Inspector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IoT1ClickProjects
   module Builders
 
@@ -36,7 +38,7 @@ module AWS::SDK::IoT1ClickProjects
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['deviceId'] = input[:device_id] unless input[:device_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -58,8 +60,8 @@ module AWS::SDK::IoT1ClickProjects
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['placementName'] = input[:placement_name] unless input[:placement_name].nil?
-        data['attributes'] = Builders::PlacementAttributeMap.build(input[:attributes]) unless input[:attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['attributes'] = PlacementAttributeMap.build(input[:attributes]) unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -86,9 +88,9 @@ module AWS::SDK::IoT1ClickProjects
         data = {}
         data['projectName'] = input[:project_name] unless input[:project_name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['placementTemplate'] = Builders::PlacementTemplate.build(input[:placement_template]) unless input[:placement_template].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['placementTemplate'] = PlacementTemplate.build(input[:placement_template]) unless input[:placement_template].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -107,8 +109,8 @@ module AWS::SDK::IoT1ClickProjects
     class PlacementTemplate
       def self.build(input)
         data = {}
-        data['defaultAttributes'] = Builders::DefaultPlacementAttributeMap.build(input[:default_attributes]) unless input[:default_attributes].nil?
-        data['deviceTemplates'] = Builders::DeviceTemplateMap.build(input[:device_templates]) unless input[:device_templates].nil?
+        data['defaultAttributes'] = DefaultPlacementAttributeMap.build(input[:default_attributes]) unless input[:default_attributes].nil?
+        data['deviceTemplates'] = DeviceTemplateMap.build(input[:device_templates]) unless input[:device_templates].nil?
         data
       end
     end
@@ -118,7 +120,7 @@ module AWS::SDK::IoT1ClickProjects
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::DeviceTemplate.build(value) unless value.nil?
+          data[key] = DeviceTemplate.build(value) unless value.nil?
         end
         data
       end
@@ -129,7 +131,7 @@ module AWS::SDK::IoT1ClickProjects
       def self.build(input)
         data = {}
         data['deviceType'] = input[:device_type] unless input[:device_type].nil?
-        data['callbackOverrides'] = Builders::DeviceCallbackOverrideMap.build(input[:callback_overrides]) unless input[:callback_overrides].nil?
+        data['callbackOverrides'] = DeviceCallbackOverrideMap.build(input[:callback_overrides]) unless input[:callback_overrides].nil?
         data
       end
     end
@@ -343,8 +345,8 @@ module AWS::SDK::IoT1ClickProjects
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -402,8 +404,8 @@ module AWS::SDK::IoT1ClickProjects
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['attributes'] = Builders::PlacementAttributeMap.build(input[:attributes]) unless input[:attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['attributes'] = PlacementAttributeMap.build(input[:attributes]) unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -425,8 +427,8 @@ module AWS::SDK::IoT1ClickProjects
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['placementTemplate'] = Builders::PlacementTemplate.build(input[:placement_template]) unless input[:placement_template].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['placementTemplate'] = PlacementTemplate.build(input[:placement_template]) unless input[:placement_template].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

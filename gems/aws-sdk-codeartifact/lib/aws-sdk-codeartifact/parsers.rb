@@ -15,7 +15,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::AssociateExternalConnectionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.repository = (Parsers::RepositoryDescription.parse(map['repository']) unless map['repository'].nil?)
+        data.repository = (RepositoryDescription.parse(map['repository']) unless map['repository'].nil?)
         data
       end
     end
@@ -29,8 +29,8 @@ module AWS::SDK::Codeartifact
         data.domain_owner = map['domainOwner']
         data.arn = map['arn']
         data.description = map['description']
-        data.upstreams = (Parsers::UpstreamRepositoryInfoList.parse(map['upstreams']) unless map['upstreams'].nil?)
-        data.external_connections = (Parsers::RepositoryExternalConnectionInfoList.parse(map['externalConnections']) unless map['externalConnections'].nil?)
+        data.upstreams = (UpstreamRepositoryInfoList.parse(map['upstreams']) unless map['upstreams'].nil?)
+        data.external_connections = (RepositoryExternalConnectionInfoList.parse(map['externalConnections']) unless map['externalConnections'].nil?)
         return data
       end
     end
@@ -39,7 +39,7 @@ module AWS::SDK::Codeartifact
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RepositoryExternalConnectionInfo.parse(value) unless value.nil?
+          data << RepositoryExternalConnectionInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -59,7 +59,7 @@ module AWS::SDK::Codeartifact
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UpstreamRepositoryInfo.parse(value) unless value.nil?
+          data << UpstreamRepositoryInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -156,8 +156,8 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::CopyPackageVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.successful_versions = (Parsers::SuccessfulPackageVersionInfoMap.parse(map['successfulVersions']) unless map['successfulVersions'].nil?)
-        data.failed_versions = (Parsers::PackageVersionErrorMap.parse(map['failedVersions']) unless map['failedVersions'].nil?)
+        data.successful_versions = (SuccessfulPackageVersionInfoMap.parse(map['successfulVersions']) unless map['successfulVersions'].nil?)
+        data.failed_versions = (PackageVersionErrorMap.parse(map['failedVersions']) unless map['failedVersions'].nil?)
         data
       end
     end
@@ -166,7 +166,7 @@ module AWS::SDK::Codeartifact
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::PackageVersionError.parse(value) unless value.nil?
+          data[key] = PackageVersionError.parse(value) unless value.nil?
         end
         data
       end
@@ -185,7 +185,7 @@ module AWS::SDK::Codeartifact
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::SuccessfulPackageVersionInfo.parse(value) unless value.nil?
+          data[key] = SuccessfulPackageVersionInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -205,7 +205,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::CreateDomainOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain = (Parsers::DomainDescription.parse(map['domain']) unless map['domain'].nil?)
+        data.domain = (DomainDescription.parse(map['domain']) unless map['domain'].nil?)
         data
       end
     end
@@ -231,7 +231,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::CreateRepositoryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.repository = (Parsers::RepositoryDescription.parse(map['repository']) unless map['repository'].nil?)
+        data.repository = (RepositoryDescription.parse(map['repository']) unless map['repository'].nil?)
         data
       end
     end
@@ -241,7 +241,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::DeleteDomainOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain = (Parsers::DomainDescription.parse(map['domain']) unless map['domain'].nil?)
+        data.domain = (DomainDescription.parse(map['domain']) unless map['domain'].nil?)
         data
       end
     end
@@ -251,7 +251,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::DeleteDomainPermissionsPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policy = (Parsers::ResourcePolicy.parse(map['policy']) unless map['policy'].nil?)
+        data.policy = (ResourcePolicy.parse(map['policy']) unless map['policy'].nil?)
         data
       end
     end
@@ -271,8 +271,8 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::DeletePackageVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.successful_versions = (Parsers::SuccessfulPackageVersionInfoMap.parse(map['successfulVersions']) unless map['successfulVersions'].nil?)
-        data.failed_versions = (Parsers::PackageVersionErrorMap.parse(map['failedVersions']) unless map['failedVersions'].nil?)
+        data.successful_versions = (SuccessfulPackageVersionInfoMap.parse(map['successfulVersions']) unless map['successfulVersions'].nil?)
+        data.failed_versions = (PackageVersionErrorMap.parse(map['failedVersions']) unless map['failedVersions'].nil?)
         data
       end
     end
@@ -282,7 +282,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::DeleteRepositoryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.repository = (Parsers::RepositoryDescription.parse(map['repository']) unless map['repository'].nil?)
+        data.repository = (RepositoryDescription.parse(map['repository']) unless map['repository'].nil?)
         data
       end
     end
@@ -292,7 +292,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::DeleteRepositoryPermissionsPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policy = (Parsers::ResourcePolicy.parse(map['policy']) unless map['policy'].nil?)
+        data.policy = (ResourcePolicy.parse(map['policy']) unless map['policy'].nil?)
         data
       end
     end
@@ -302,7 +302,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::DescribeDomainOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain = (Parsers::DomainDescription.parse(map['domain']) unless map['domain'].nil?)
+        data.domain = (DomainDescription.parse(map['domain']) unless map['domain'].nil?)
         data
       end
     end
@@ -312,7 +312,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::DescribePackageVersionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.package_version = (Parsers::PackageVersionDescription.parse(map['packageVersion']) unless map['packageVersion'].nil?)
+        data.package_version = (PackageVersionDescription.parse(map['packageVersion']) unless map['packageVersion'].nil?)
         data
       end
     end
@@ -329,7 +329,7 @@ module AWS::SDK::Codeartifact
         data.home_page = map['homePage']
         data.source_code_repository = map['sourceCodeRepository']
         data.published_time = Time.at(map['publishedTime'].to_i) if map['publishedTime']
-        data.licenses = (Parsers::LicenseInfoList.parse(map['licenses']) unless map['licenses'].nil?)
+        data.licenses = (LicenseInfoList.parse(map['licenses']) unless map['licenses'].nil?)
         data.revision = map['revision']
         data.status = map['status']
         return data
@@ -340,7 +340,7 @@ module AWS::SDK::Codeartifact
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LicenseInfo.parse(value) unless value.nil?
+          data << LicenseInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -360,7 +360,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::DescribeRepositoryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.repository = (Parsers::RepositoryDescription.parse(map['repository']) unless map['repository'].nil?)
+        data.repository = (RepositoryDescription.parse(map['repository']) unless map['repository'].nil?)
         data
       end
     end
@@ -370,7 +370,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::DisassociateExternalConnectionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.repository = (Parsers::RepositoryDescription.parse(map['repository']) unless map['repository'].nil?)
+        data.repository = (RepositoryDescription.parse(map['repository']) unless map['repository'].nil?)
         data
       end
     end
@@ -380,8 +380,8 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::DisposePackageVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.successful_versions = (Parsers::SuccessfulPackageVersionInfoMap.parse(map['successfulVersions']) unless map['successfulVersions'].nil?)
-        data.failed_versions = (Parsers::PackageVersionErrorMap.parse(map['failedVersions']) unless map['failedVersions'].nil?)
+        data.successful_versions = (SuccessfulPackageVersionInfoMap.parse(map['successfulVersions']) unless map['successfulVersions'].nil?)
+        data.failed_versions = (PackageVersionErrorMap.parse(map['failedVersions']) unless map['failedVersions'].nil?)
         data
       end
     end
@@ -402,7 +402,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::GetDomainPermissionsPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policy = (Parsers::ResourcePolicy.parse(map['policy']) unless map['policy'].nil?)
+        data.policy = (ResourcePolicy.parse(map['policy']) unless map['policy'].nil?)
         data
       end
     end
@@ -449,7 +449,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::GetRepositoryPermissionsPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policy = (Parsers::ResourcePolicy.parse(map['policy']) unless map['policy'].nil?)
+        data.policy = (ResourcePolicy.parse(map['policy']) unless map['policy'].nil?)
         data
       end
     end
@@ -459,7 +459,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::ListDomainsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domains = (Parsers::DomainSummaryList.parse(map['domains']) unless map['domains'].nil?)
+        data.domains = (DomainSummaryList.parse(map['domains']) unless map['domains'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -469,7 +469,7 @@ module AWS::SDK::Codeartifact
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DomainSummary.parse(value) unless value.nil?
+          data << DomainSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -499,7 +499,7 @@ module AWS::SDK::Codeartifact
         data.version = map['version']
         data.version_revision = map['versionRevision']
         data.next_token = map['nextToken']
-        data.assets = (Parsers::AssetSummaryList.parse(map['assets']) unless map['assets'].nil?)
+        data.assets = (AssetSummaryList.parse(map['assets']) unless map['assets'].nil?)
         data
       end
     end
@@ -508,7 +508,7 @@ module AWS::SDK::Codeartifact
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssetSummary.parse(value) unless value.nil?
+          data << AssetSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -519,7 +519,7 @@ module AWS::SDK::Codeartifact
         data = Types::AssetSummary.new
         data.name = map['name']
         data.size = map['size']
-        data.hashes = (Parsers::AssetHashes.parse(map['hashes']) unless map['hashes'].nil?)
+        data.hashes = (AssetHashes.parse(map['hashes']) unless map['hashes'].nil?)
         return data
       end
     end
@@ -545,7 +545,7 @@ module AWS::SDK::Codeartifact
         data.version = map['version']
         data.version_revision = map['versionRevision']
         data.next_token = map['nextToken']
-        data.dependencies = (Parsers::PackageDependencyList.parse(map['dependencies']) unless map['dependencies'].nil?)
+        data.dependencies = (PackageDependencyList.parse(map['dependencies']) unless map['dependencies'].nil?)
         data
       end
     end
@@ -554,7 +554,7 @@ module AWS::SDK::Codeartifact
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PackageDependency.parse(value) unless value.nil?
+          data << PackageDependency.parse(value) unless value.nil?
         end
         data
       end
@@ -580,7 +580,7 @@ module AWS::SDK::Codeartifact
         data.format = map['format']
         data.namespace = map['namespace']
         data.package = map['package']
-        data.versions = (Parsers::PackageVersionSummaryList.parse(map['versions']) unless map['versions'].nil?)
+        data.versions = (PackageVersionSummaryList.parse(map['versions']) unless map['versions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -590,7 +590,7 @@ module AWS::SDK::Codeartifact
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PackageVersionSummary.parse(value) unless value.nil?
+          data << PackageVersionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -611,7 +611,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::ListPackagesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.packages = (Parsers::PackageSummaryList.parse(map['packages']) unless map['packages'].nil?)
+        data.packages = (PackageSummaryList.parse(map['packages']) unless map['packages'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -621,7 +621,7 @@ module AWS::SDK::Codeartifact
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PackageSummary.parse(value) unless value.nil?
+          data << PackageSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -642,7 +642,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::ListRepositoriesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.repositories = (Parsers::RepositorySummaryList.parse(map['repositories']) unless map['repositories'].nil?)
+        data.repositories = (RepositorySummaryList.parse(map['repositories']) unless map['repositories'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -652,7 +652,7 @@ module AWS::SDK::Codeartifact
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RepositorySummary.parse(value) unless value.nil?
+          data << RepositorySummary.parse(value) unless value.nil?
         end
         data
       end
@@ -676,7 +676,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::ListRepositoriesInDomainOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.repositories = (Parsers::RepositorySummaryList.parse(map['repositories']) unless map['repositories'].nil?)
+        data.repositories = (RepositorySummaryList.parse(map['repositories']) unless map['repositories'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -687,7 +687,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -696,7 +696,7 @@ module AWS::SDK::Codeartifact
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -716,7 +716,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::PutDomainPermissionsPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policy = (Parsers::ResourcePolicy.parse(map['policy']) unless map['policy'].nil?)
+        data.policy = (ResourcePolicy.parse(map['policy']) unless map['policy'].nil?)
         data
       end
     end
@@ -726,7 +726,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::PutRepositoryPermissionsPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policy = (Parsers::ResourcePolicy.parse(map['policy']) unless map['policy'].nil?)
+        data.policy = (ResourcePolicy.parse(map['policy']) unless map['policy'].nil?)
         data
       end
     end
@@ -754,8 +754,8 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::UpdatePackageVersionsStatusOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.successful_versions = (Parsers::SuccessfulPackageVersionInfoMap.parse(map['successfulVersions']) unless map['successfulVersions'].nil?)
-        data.failed_versions = (Parsers::PackageVersionErrorMap.parse(map['failedVersions']) unless map['failedVersions'].nil?)
+        data.successful_versions = (SuccessfulPackageVersionInfoMap.parse(map['successfulVersions']) unless map['successfulVersions'].nil?)
+        data.failed_versions = (PackageVersionErrorMap.parse(map['failedVersions']) unless map['failedVersions'].nil?)
         data
       end
     end
@@ -765,7 +765,7 @@ module AWS::SDK::Codeartifact
       def self.parse(http_resp)
         data = Types::UpdateRepositoryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.repository = (Parsers::RepositoryDescription.parse(map['repository']) unless map['repository'].nil?)
+        data.repository = (RepositoryDescription.parse(map['repository']) unless map['repository'].nil?)
         data
       end
     end

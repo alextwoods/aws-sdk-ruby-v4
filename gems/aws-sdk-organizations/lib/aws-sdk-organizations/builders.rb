@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Organizations
   module Builders
 
@@ -19,7 +21,7 @@ module AWS::SDK::Organizations
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.AcceptHandshake'
         data = {}
         data['HandshakeId'] = input[:handshake_id] unless input[:handshake_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,7 +35,7 @@ module AWS::SDK::Organizations
         data = {}
         data['PolicyId'] = input[:policy_id] unless input[:policy_id].nil?
         data['TargetId'] = input[:target_id] unless input[:target_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -46,7 +48,7 @@ module AWS::SDK::Organizations
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.CancelHandshake'
         data = {}
         data['HandshakeId'] = input[:handshake_id] unless input[:handshake_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -59,7 +61,7 @@ module AWS::SDK::Organizations
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.CloseAccount'
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -75,8 +77,8 @@ module AWS::SDK::Organizations
         data['AccountName'] = input[:account_name] unless input[:account_name].nil?
         data['RoleName'] = input[:role_name] unless input[:role_name].nil?
         data['IamUserAccessToBilling'] = input[:iam_user_access_to_billing] unless input[:iam_user_access_to_billing].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -85,7 +87,7 @@ module AWS::SDK::Organizations
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -113,8 +115,8 @@ module AWS::SDK::Organizations
         data['AccountName'] = input[:account_name] unless input[:account_name].nil?
         data['RoleName'] = input[:role_name] unless input[:role_name].nil?
         data['IamUserAccessToBilling'] = input[:iam_user_access_to_billing] unless input[:iam_user_access_to_billing].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -127,7 +129,7 @@ module AWS::SDK::Organizations
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.CreateOrganization'
         data = {}
         data['FeatureSet'] = input[:feature_set] unless input[:feature_set].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -141,8 +143,8 @@ module AWS::SDK::Organizations
         data = {}
         data['ParentId'] = input[:parent_id] unless input[:parent_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -158,8 +160,8 @@ module AWS::SDK::Organizations
         data['Description'] = input[:description] unless input[:description].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -172,7 +174,7 @@ module AWS::SDK::Organizations
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.DeclineHandshake'
         data = {}
         data['HandshakeId'] = input[:handshake_id] unless input[:handshake_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -184,7 +186,7 @@ module AWS::SDK::Organizations
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.DeleteOrganization'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -197,7 +199,7 @@ module AWS::SDK::Organizations
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.DeleteOrganizationalUnit'
         data = {}
         data['OrganizationalUnitId'] = input[:organizational_unit_id] unless input[:organizational_unit_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -210,7 +212,7 @@ module AWS::SDK::Organizations
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.DeletePolicy'
         data = {}
         data['PolicyId'] = input[:policy_id] unless input[:policy_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -224,7 +226,7 @@ module AWS::SDK::Organizations
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['ServicePrincipal'] = input[:service_principal] unless input[:service_principal].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -237,7 +239,7 @@ module AWS::SDK::Organizations
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.DescribeAccount'
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -250,7 +252,7 @@ module AWS::SDK::Organizations
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.DescribeCreateAccountStatus'
         data = {}
         data['CreateAccountRequestId'] = input[:create_account_request_id] unless input[:create_account_request_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -264,7 +266,7 @@ module AWS::SDK::Organizations
         data = {}
         data['PolicyType'] = input[:policy_type] unless input[:policy_type].nil?
         data['TargetId'] = input[:target_id] unless input[:target_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -277,7 +279,7 @@ module AWS::SDK::Organizations
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.DescribeHandshake'
         data = {}
         data['HandshakeId'] = input[:handshake_id] unless input[:handshake_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -289,7 +291,7 @@ module AWS::SDK::Organizations
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.DescribeOrganization'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -302,7 +304,7 @@ module AWS::SDK::Organizations
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.DescribeOrganizationalUnit'
         data = {}
         data['OrganizationalUnitId'] = input[:organizational_unit_id] unless input[:organizational_unit_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -315,7 +317,7 @@ module AWS::SDK::Organizations
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.DescribePolicy'
         data = {}
         data['PolicyId'] = input[:policy_id] unless input[:policy_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -329,7 +331,7 @@ module AWS::SDK::Organizations
         data = {}
         data['PolicyId'] = input[:policy_id] unless input[:policy_id].nil?
         data['TargetId'] = input[:target_id] unless input[:target_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -342,7 +344,7 @@ module AWS::SDK::Organizations
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.DisableAWSServiceAccess'
         data = {}
         data['ServicePrincipal'] = input[:service_principal] unless input[:service_principal].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -356,7 +358,7 @@ module AWS::SDK::Organizations
         data = {}
         data['RootId'] = input[:root_id] unless input[:root_id].nil?
         data['PolicyType'] = input[:policy_type] unless input[:policy_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -369,7 +371,7 @@ module AWS::SDK::Organizations
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.EnableAWSServiceAccess'
         data = {}
         data['ServicePrincipal'] = input[:service_principal] unless input[:service_principal].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -381,7 +383,7 @@ module AWS::SDK::Organizations
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.EnableAllFeatures'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -395,7 +397,7 @@ module AWS::SDK::Organizations
         data = {}
         data['RootId'] = input[:root_id] unless input[:root_id].nil?
         data['PolicyType'] = input[:policy_type] unless input[:policy_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -407,10 +409,10 @@ module AWS::SDK::Organizations
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.InviteAccountToOrganization'
         data = {}
-        data['Target'] = Builders::HandshakeParty.build(input[:target]) unless input[:target].nil?
+        data['Target'] = HandshakeParty.build(input[:target]) unless input[:target].nil?
         data['Notes'] = input[:notes] unless input[:notes].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -432,7 +434,7 @@ module AWS::SDK::Organizations
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.LeaveOrganization'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -446,7 +448,7 @@ module AWS::SDK::Organizations
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -460,7 +462,7 @@ module AWS::SDK::Organizations
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -475,7 +477,7 @@ module AWS::SDK::Organizations
         data['ParentId'] = input[:parent_id] unless input[:parent_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -491,7 +493,7 @@ module AWS::SDK::Organizations
         data['ChildType'] = input[:child_type] unless input[:child_type].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -503,10 +505,10 @@ module AWS::SDK::Organizations
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.ListCreateAccountStatus'
         data = {}
-        data['States'] = Builders::CreateAccountStates.build(input[:states]) unless input[:states].nil?
+        data['States'] = CreateAccountStates.build(input[:states]) unless input[:states].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -532,7 +534,7 @@ module AWS::SDK::Organizations
         data['ServicePrincipal'] = input[:service_principal] unless input[:service_principal].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -547,7 +549,7 @@ module AWS::SDK::Organizations
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -559,10 +561,10 @@ module AWS::SDK::Organizations
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.ListHandshakesForAccount'
         data = {}
-        data['Filter'] = Builders::HandshakeFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = HandshakeFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -584,10 +586,10 @@ module AWS::SDK::Organizations
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.ListHandshakesForOrganization'
         data = {}
-        data['Filter'] = Builders::HandshakeFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = HandshakeFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -602,7 +604,7 @@ module AWS::SDK::Organizations
         data['ParentId'] = input[:parent_id] unless input[:parent_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -617,7 +619,7 @@ module AWS::SDK::Organizations
         data['ChildId'] = input[:child_id] unless input[:child_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -632,7 +634,7 @@ module AWS::SDK::Organizations
         data['Filter'] = input[:filter] unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -648,7 +650,7 @@ module AWS::SDK::Organizations
         data['Filter'] = input[:filter] unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -662,7 +664,7 @@ module AWS::SDK::Organizations
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -676,7 +678,7 @@ module AWS::SDK::Organizations
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -691,7 +693,7 @@ module AWS::SDK::Organizations
         data['PolicyId'] = input[:policy_id] unless input[:policy_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -706,7 +708,7 @@ module AWS::SDK::Organizations
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['SourceParentId'] = input[:source_parent_id] unless input[:source_parent_id].nil?
         data['DestinationParentId'] = input[:destination_parent_id] unless input[:destination_parent_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -720,7 +722,7 @@ module AWS::SDK::Organizations
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
         data['ServicePrincipal'] = input[:service_principal] unless input[:service_principal].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -733,7 +735,7 @@ module AWS::SDK::Organizations
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.RemoveAccountFromOrganization'
         data = {}
         data['AccountId'] = input[:account_id] unless input[:account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -746,8 +748,8 @@ module AWS::SDK::Organizations
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.TagResource'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -760,8 +762,8 @@ module AWS::SDK::Organizations
         http_req.headers['X-Amz-Target'] = 'AWSOrganizationsV20161128.UntagResource'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['TagKeys'] = Builders::TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -786,7 +788,7 @@ module AWS::SDK::Organizations
         data = {}
         data['OrganizationalUnitId'] = input[:organizational_unit_id] unless input[:organizational_unit_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -802,7 +804,7 @@ module AWS::SDK::Organizations
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Content'] = input[:content] unless input[:content].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

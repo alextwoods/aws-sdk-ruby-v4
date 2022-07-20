@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Amplify
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['app'] = Stubs::App.stub(stub[:app]) unless stub[:app].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['app'] = App.stub(stub[:app]) unless stub[:app].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -66,26 +68,26 @@ module AWS::SDK::Amplify
         data['appId'] = stub[:app_id] unless stub[:app_id].nil?
         data['appArn'] = stub[:app_arn] unless stub[:app_arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['repository'] = stub[:repository] unless stub[:repository].nil?
         data['platform'] = stub[:platform] unless stub[:platform].nil?
         data['createTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_time]).to_i unless stub[:create_time].nil?
         data['updateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:update_time]).to_i unless stub[:update_time].nil?
         data['iamServiceRoleArn'] = stub[:iam_service_role_arn] unless stub[:iam_service_role_arn].nil?
-        data['environmentVariables'] = Stubs::EnvironmentVariables.stub(stub[:environment_variables]) unless stub[:environment_variables].nil?
+        data['environmentVariables'] = EnvironmentVariables.stub(stub[:environment_variables]) unless stub[:environment_variables].nil?
         data['defaultDomain'] = stub[:default_domain] unless stub[:default_domain].nil?
         data['enableBranchAutoBuild'] = stub[:enable_branch_auto_build] unless stub[:enable_branch_auto_build].nil?
         data['enableBranchAutoDeletion'] = stub[:enable_branch_auto_deletion] unless stub[:enable_branch_auto_deletion].nil?
         data['enableBasicAuth'] = stub[:enable_basic_auth] unless stub[:enable_basic_auth].nil?
         data['basicAuthCredentials'] = stub[:basic_auth_credentials] unless stub[:basic_auth_credentials].nil?
-        data['customRules'] = Stubs::CustomRules.stub(stub[:custom_rules]) unless stub[:custom_rules].nil?
-        data['productionBranch'] = Stubs::ProductionBranch.stub(stub[:production_branch]) unless stub[:production_branch].nil?
+        data['customRules'] = CustomRules.stub(stub[:custom_rules]) unless stub[:custom_rules].nil?
+        data['productionBranch'] = ProductionBranch.stub(stub[:production_branch]) unless stub[:production_branch].nil?
         data['buildSpec'] = stub[:build_spec] unless stub[:build_spec].nil?
         data['customHeaders'] = stub[:custom_headers] unless stub[:custom_headers].nil?
         data['enableAutoBranchCreation'] = stub[:enable_auto_branch_creation] unless stub[:enable_auto_branch_creation].nil?
-        data['autoBranchCreationPatterns'] = Stubs::AutoBranchCreationPatterns.stub(stub[:auto_branch_creation_patterns]) unless stub[:auto_branch_creation_patterns].nil?
-        data['autoBranchCreationConfig'] = Stubs::AutoBranchCreationConfig.stub(stub[:auto_branch_creation_config]) unless stub[:auto_branch_creation_config].nil?
+        data['autoBranchCreationPatterns'] = AutoBranchCreationPatterns.stub(stub[:auto_branch_creation_patterns]) unless stub[:auto_branch_creation_patterns].nil?
+        data['autoBranchCreationConfig'] = AutoBranchCreationConfig.stub(stub[:auto_branch_creation_config]) unless stub[:auto_branch_creation_config].nil?
         data['repositoryCloneMethod'] = stub[:repository_clone_method] unless stub[:repository_clone_method].nil?
         data
       end
@@ -116,7 +118,7 @@ module AWS::SDK::Amplify
         data['stage'] = stub[:stage] unless stub[:stage].nil?
         data['framework'] = stub[:framework] unless stub[:framework].nil?
         data['enableAutoBuild'] = stub[:enable_auto_build] unless stub[:enable_auto_build].nil?
-        data['environmentVariables'] = Stubs::EnvironmentVariables.stub(stub[:environment_variables]) unless stub[:environment_variables].nil?
+        data['environmentVariables'] = EnvironmentVariables.stub(stub[:environment_variables]) unless stub[:environment_variables].nil?
         data['basicAuthCredentials'] = stub[:basic_auth_credentials] unless stub[:basic_auth_credentials].nil?
         data['enableBasicAuth'] = stub[:enable_basic_auth] unless stub[:enable_basic_auth].nil?
         data['enablePerformanceMode'] = stub[:enable_performance_mode] unless stub[:enable_performance_mode].nil?
@@ -205,7 +207,7 @@ module AWS::SDK::Amplify
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomRule.stub(element) unless element.nil?
+          data << CustomRule.stub(element) unless element.nil?
         end
         data
       end
@@ -267,8 +269,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['backendEnvironment'] = Stubs::BackendEnvironment.stub(stub[:backend_environment]) unless stub[:backend_environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['backendEnvironment'] = BackendEnvironment.stub(stub[:backend_environment]) unless stub[:backend_environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -312,8 +314,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['branch'] = Stubs::Branch.stub(stub[:branch]) unless stub[:branch].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['branch'] = Branch.stub(stub[:branch]) unless stub[:branch].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -359,15 +361,15 @@ module AWS::SDK::Amplify
         data['branchArn'] = stub[:branch_arn] unless stub[:branch_arn].nil?
         data['branchName'] = stub[:branch_name] unless stub[:branch_name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['stage'] = stub[:stage] unless stub[:stage].nil?
         data['displayName'] = stub[:display_name] unless stub[:display_name].nil?
         data['enableNotification'] = stub[:enable_notification] unless stub[:enable_notification].nil?
         data['createTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_time]).to_i unless stub[:create_time].nil?
         data['updateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:update_time]).to_i unless stub[:update_time].nil?
-        data['environmentVariables'] = Stubs::EnvironmentVariables.stub(stub[:environment_variables]) unless stub[:environment_variables].nil?
+        data['environmentVariables'] = EnvironmentVariables.stub(stub[:environment_variables]) unless stub[:environment_variables].nil?
         data['enableAutoBuild'] = stub[:enable_auto_build] unless stub[:enable_auto_build].nil?
-        data['customDomains'] = Stubs::CustomDomains.stub(stub[:custom_domains]) unless stub[:custom_domains].nil?
+        data['customDomains'] = CustomDomains.stub(stub[:custom_domains]) unless stub[:custom_domains].nil?
         data['framework'] = stub[:framework] unless stub[:framework].nil?
         data['activeJobId'] = stub[:active_job_id] unless stub[:active_job_id].nil?
         data['totalNumberOfJobs'] = stub[:total_number_of_jobs] unless stub[:total_number_of_jobs].nil?
@@ -377,7 +379,7 @@ module AWS::SDK::Amplify
         data['basicAuthCredentials'] = stub[:basic_auth_credentials] unless stub[:basic_auth_credentials].nil?
         data['buildSpec'] = stub[:build_spec] unless stub[:build_spec].nil?
         data['ttl'] = stub[:ttl] unless stub[:ttl].nil?
-        data['associatedResources'] = Stubs::AssociatedResources.stub(stub[:associated_resources]) unless stub[:associated_resources].nil?
+        data['associatedResources'] = AssociatedResources.stub(stub[:associated_resources]) unless stub[:associated_resources].nil?
         data['enablePullRequestPreview'] = stub[:enable_pull_request_preview] unless stub[:enable_pull_request_preview].nil?
         data['pullRequestEnvironmentName'] = stub[:pull_request_environment_name] unless stub[:pull_request_environment_name].nil?
         data['destinationBranch'] = stub[:destination_branch] unless stub[:destination_branch].nil?
@@ -442,9 +444,9 @@ module AWS::SDK::Amplify
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
-        data['fileUploadUrls'] = Stubs::FileUploadUrls.stub(stub[:file_upload_urls]) unless stub[:file_upload_urls].nil?
+        data['fileUploadUrls'] = FileUploadUrls.stub(stub[:file_upload_urls]) unless stub[:file_upload_urls].nil?
         data['zipUploadUrl'] = stub[:zip_upload_url] unless stub[:zip_upload_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -480,8 +482,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['domainAssociation'] = Stubs::DomainAssociation.stub(stub[:domain_association]) unless stub[:domain_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['domainAssociation'] = DomainAssociation.stub(stub[:domain_association]) unless stub[:domain_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -509,12 +511,12 @@ module AWS::SDK::Amplify
         data['domainAssociationArn'] = stub[:domain_association_arn] unless stub[:domain_association_arn].nil?
         data['domainName'] = stub[:domain_name] unless stub[:domain_name].nil?
         data['enableAutoSubDomain'] = stub[:enable_auto_sub_domain] unless stub[:enable_auto_sub_domain].nil?
-        data['autoSubDomainCreationPatterns'] = Stubs::AutoSubDomainCreationPatterns.stub(stub[:auto_sub_domain_creation_patterns]) unless stub[:auto_sub_domain_creation_patterns].nil?
+        data['autoSubDomainCreationPatterns'] = AutoSubDomainCreationPatterns.stub(stub[:auto_sub_domain_creation_patterns]) unless stub[:auto_sub_domain_creation_patterns].nil?
         data['autoSubDomainIAMRole'] = stub[:auto_sub_domain_iam_role] unless stub[:auto_sub_domain_iam_role].nil?
         data['domainStatus'] = stub[:domain_status] unless stub[:domain_status].nil?
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
         data['certificateVerificationDNSRecord'] = stub[:certificate_verification_dns_record] unless stub[:certificate_verification_dns_record].nil?
-        data['subDomains'] = Stubs::SubDomains.stub(stub[:sub_domains]) unless stub[:sub_domains].nil?
+        data['subDomains'] = SubDomains.stub(stub[:sub_domains]) unless stub[:sub_domains].nil?
         data
       end
     end
@@ -533,7 +535,7 @@ module AWS::SDK::Amplify
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SubDomain.stub(element) unless element.nil?
+          data << SubDomain.stub(element) unless element.nil?
         end
         data
       end
@@ -554,7 +556,7 @@ module AWS::SDK::Amplify
       def self.stub(stub)
         stub ||= Types::SubDomain.new
         data = {}
-        data['subDomainSetting'] = Stubs::SubDomainSetting.stub(stub[:sub_domain_setting]) unless stub[:sub_domain_setting].nil?
+        data['subDomainSetting'] = SubDomainSetting.stub(stub[:sub_domain_setting]) unless stub[:sub_domain_setting].nil?
         data['verified'] = stub[:verified] unless stub[:verified].nil?
         data['dnsRecord'] = stub[:dns_record] unless stub[:dns_record].nil?
         data
@@ -613,8 +615,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['webhook'] = Stubs::Webhook.stub(stub[:webhook]) unless stub[:webhook].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['webhook'] = Webhook.stub(stub[:webhook]) unless stub[:webhook].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -660,8 +662,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['app'] = Stubs::App.stub(stub[:app]) unless stub[:app].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['app'] = App.stub(stub[:app]) unless stub[:app].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -677,8 +679,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['backendEnvironment'] = Stubs::BackendEnvironment.stub(stub[:backend_environment]) unless stub[:backend_environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['backendEnvironment'] = BackendEnvironment.stub(stub[:backend_environment]) unless stub[:backend_environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -694,8 +696,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['branch'] = Stubs::Branch.stub(stub[:branch]) unless stub[:branch].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['branch'] = Branch.stub(stub[:branch]) unless stub[:branch].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -711,8 +713,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['domainAssociation'] = Stubs::DomainAssociation.stub(stub[:domain_association]) unless stub[:domain_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['domainAssociation'] = DomainAssociation.stub(stub[:domain_association]) unless stub[:domain_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -728,8 +730,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobSummary'] = Stubs::JobSummary.stub(stub[:job_summary]) unless stub[:job_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['jobSummary'] = JobSummary.stub(stub[:job_summary]) unless stub[:job_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -779,8 +781,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['webhook'] = Stubs::Webhook.stub(stub[:webhook]) unless stub[:webhook].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['webhook'] = Webhook.stub(stub[:webhook]) unless stub[:webhook].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -797,7 +799,7 @@ module AWS::SDK::Amplify
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['logUrl'] = stub[:log_url] unless stub[:log_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -813,8 +815,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['app'] = Stubs::App.stub(stub[:app]) unless stub[:app].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['app'] = App.stub(stub[:app]) unless stub[:app].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -833,7 +835,7 @@ module AWS::SDK::Amplify
         http_resp.headers['Content-Type'] = 'application/json'
         data['artifactId'] = stub[:artifact_id] unless stub[:artifact_id].nil?
         data['artifactUrl'] = stub[:artifact_url] unless stub[:artifact_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -849,8 +851,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['backendEnvironment'] = Stubs::BackendEnvironment.stub(stub[:backend_environment]) unless stub[:backend_environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['backendEnvironment'] = BackendEnvironment.stub(stub[:backend_environment]) unless stub[:backend_environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -866,8 +868,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['branch'] = Stubs::Branch.stub(stub[:branch]) unless stub[:branch].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['branch'] = Branch.stub(stub[:branch]) unless stub[:branch].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -883,8 +885,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['domainAssociation'] = Stubs::DomainAssociation.stub(stub[:domain_association]) unless stub[:domain_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['domainAssociation'] = DomainAssociation.stub(stub[:domain_association]) unless stub[:domain_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -900,8 +902,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['job'] = Stubs::Job.stub(stub[:job]) unless stub[:job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['job'] = Job.stub(stub[:job]) unless stub[:job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -919,8 +921,8 @@ module AWS::SDK::Amplify
       def self.stub(stub)
         stub ||= Types::Job.new
         data = {}
-        data['summary'] = Stubs::JobSummary.stub(stub[:summary]) unless stub[:summary].nil?
-        data['steps'] = Stubs::Steps.stub(stub[:steps]) unless stub[:steps].nil?
+        data['summary'] = JobSummary.stub(stub[:summary]) unless stub[:summary].nil?
+        data['steps'] = Steps.stub(stub[:steps]) unless stub[:steps].nil?
         data
       end
     end
@@ -939,7 +941,7 @@ module AWS::SDK::Amplify
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Step.stub(element) unless element.nil?
+          data << Step.stub(element) unless element.nil?
         end
         data
       end
@@ -976,7 +978,7 @@ module AWS::SDK::Amplify
         data['artifactsUrl'] = stub[:artifacts_url] unless stub[:artifacts_url].nil?
         data['testArtifactsUrl'] = stub[:test_artifacts_url] unless stub[:test_artifacts_url].nil?
         data['testConfigUrl'] = stub[:test_config_url] unless stub[:test_config_url].nil?
-        data['screenshots'] = Stubs::Screenshots.stub(stub[:screenshots]) unless stub[:screenshots].nil?
+        data['screenshots'] = Screenshots.stub(stub[:screenshots]) unless stub[:screenshots].nil?
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
         data['context'] = stub[:context] unless stub[:context].nil?
         data
@@ -1015,8 +1017,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['webhook'] = Stubs::Webhook.stub(stub[:webhook]) unless stub[:webhook].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['webhook'] = Webhook.stub(stub[:webhook]) unless stub[:webhook].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1033,9 +1035,9 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['apps'] = Stubs::Apps.stub(stub[:apps]) unless stub[:apps].nil?
+        data['apps'] = Apps.stub(stub[:apps]) unless stub[:apps].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1053,7 +1055,7 @@ module AWS::SDK::Amplify
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::App.stub(element) unless element.nil?
+          data << App.stub(element) unless element.nil?
         end
         data
       end
@@ -1072,9 +1074,9 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['artifacts'] = Stubs::Artifacts.stub(stub[:artifacts]) unless stub[:artifacts].nil?
+        data['artifacts'] = Artifacts.stub(stub[:artifacts]) unless stub[:artifacts].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1092,7 +1094,7 @@ module AWS::SDK::Amplify
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Artifact.stub(element) unless element.nil?
+          data << Artifact.stub(element) unless element.nil?
         end
         data
       end
@@ -1131,9 +1133,9 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['backendEnvironments'] = Stubs::BackendEnvironments.stub(stub[:backend_environments]) unless stub[:backend_environments].nil?
+        data['backendEnvironments'] = BackendEnvironments.stub(stub[:backend_environments]) unless stub[:backend_environments].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1151,7 +1153,7 @@ module AWS::SDK::Amplify
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BackendEnvironment.stub(element) unless element.nil?
+          data << BackendEnvironment.stub(element) unless element.nil?
         end
         data
       end
@@ -1170,9 +1172,9 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['branches'] = Stubs::Branches.stub(stub[:branches]) unless stub[:branches].nil?
+        data['branches'] = Branches.stub(stub[:branches]) unless stub[:branches].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1190,7 +1192,7 @@ module AWS::SDK::Amplify
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Branch.stub(element) unless element.nil?
+          data << Branch.stub(element) unless element.nil?
         end
         data
       end
@@ -1209,9 +1211,9 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['domainAssociations'] = Stubs::DomainAssociations.stub(stub[:domain_associations]) unless stub[:domain_associations].nil?
+        data['domainAssociations'] = DomainAssociations.stub(stub[:domain_associations]) unless stub[:domain_associations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1229,7 +1231,7 @@ module AWS::SDK::Amplify
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainAssociation.stub(element) unless element.nil?
+          data << DomainAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -1248,9 +1250,9 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobSummaries'] = Stubs::JobSummaries.stub(stub[:job_summaries]) unless stub[:job_summaries].nil?
+        data['jobSummaries'] = JobSummaries.stub(stub[:job_summaries]) unless stub[:job_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1268,7 +1270,7 @@ module AWS::SDK::Amplify
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobSummary.stub(element) unless element.nil?
+          data << JobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1286,8 +1288,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1304,9 +1306,9 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['webhooks'] = Stubs::Webhooks.stub(stub[:webhooks]) unless stub[:webhooks].nil?
+        data['webhooks'] = Webhooks.stub(stub[:webhooks]) unless stub[:webhooks].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1324,7 +1326,7 @@ module AWS::SDK::Amplify
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Webhook.stub(element) unless element.nil?
+          data << Webhook.stub(element) unless element.nil?
         end
         data
       end
@@ -1342,8 +1344,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobSummary'] = Stubs::JobSummary.stub(stub[:job_summary]) unless stub[:job_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['jobSummary'] = JobSummary.stub(stub[:job_summary]) unless stub[:job_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1359,8 +1361,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobSummary'] = Stubs::JobSummary.stub(stub[:job_summary]) unless stub[:job_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['jobSummary'] = JobSummary.stub(stub[:job_summary]) unless stub[:job_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1376,8 +1378,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobSummary'] = Stubs::JobSummary.stub(stub[:job_summary]) unless stub[:job_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['jobSummary'] = JobSummary.stub(stub[:job_summary]) unless stub[:job_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1419,8 +1421,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['app'] = Stubs::App.stub(stub[:app]) unless stub[:app].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['app'] = App.stub(stub[:app]) unless stub[:app].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1436,8 +1438,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['branch'] = Stubs::Branch.stub(stub[:branch]) unless stub[:branch].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['branch'] = Branch.stub(stub[:branch]) unless stub[:branch].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1453,8 +1455,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['domainAssociation'] = Stubs::DomainAssociation.stub(stub[:domain_association]) unless stub[:domain_association].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['domainAssociation'] = DomainAssociation.stub(stub[:domain_association]) unless stub[:domain_association].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1470,8 +1472,8 @@ module AWS::SDK::Amplify
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['webhook'] = Stubs::Webhook.stub(stub[:webhook]) unless stub[:webhook].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['webhook'] = Webhook.stub(stub[:webhook]) unless stub[:webhook].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

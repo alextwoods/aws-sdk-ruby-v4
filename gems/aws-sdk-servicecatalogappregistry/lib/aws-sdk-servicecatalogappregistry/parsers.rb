@@ -87,7 +87,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.parse(http_resp)
         data = Types::CreateApplicationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.application = (Parsers::Application.parse(map['application']) unless map['application'].nil?)
+        data.application = (Application.parse(map['application']) unless map['application'].nil?)
         data
       end
     end
@@ -101,7 +101,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data.description = map['description']
         data.creation_time = Time.parse(map['creationTime']) if map['creationTime']
         data.last_update_time = Time.parse(map['lastUpdateTime']) if map['lastUpdateTime']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -121,7 +121,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.parse(http_resp)
         data = Types::CreateAttributeGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attribute_group = (Parsers::AttributeGroup.parse(map['attributeGroup']) unless map['attributeGroup'].nil?)
+        data.attribute_group = (AttributeGroup.parse(map['attributeGroup']) unless map['attributeGroup'].nil?)
         data
       end
     end
@@ -135,7 +135,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data.description = map['description']
         data.creation_time = Time.parse(map['creationTime']) if map['creationTime']
         data.last_update_time = Time.parse(map['lastUpdateTime']) if map['lastUpdateTime']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -145,7 +145,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.parse(http_resp)
         data = Types::DeleteApplicationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.application = (Parsers::ApplicationSummary.parse(map['application']) unless map['application'].nil?)
+        data.application = (ApplicationSummary.parse(map['application']) unless map['application'].nil?)
         data
       end
     end
@@ -168,7 +168,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.parse(http_resp)
         data = Types::DeleteAttributeGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attribute_group = (Parsers::AttributeGroupSummary.parse(map['attributeGroup']) unless map['attributeGroup'].nil?)
+        data.attribute_group = (AttributeGroupSummary.parse(map['attributeGroup']) unless map['attributeGroup'].nil?)
         data
       end
     end
@@ -220,8 +220,8 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data.creation_time = Time.parse(map['creationTime']) if map['creationTime']
         data.last_update_time = Time.parse(map['lastUpdateTime']) if map['lastUpdateTime']
         data.associated_resource_count = map['associatedResourceCount']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
-        data.integrations = (Parsers::Integrations.parse(map['integrations']) unless map['integrations'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.integrations = (Integrations.parse(map['integrations']) unless map['integrations'].nil?)
         data
       end
     end
@@ -229,7 +229,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class Integrations
       def self.parse(map)
         data = Types::Integrations.new
-        data.resource_group = (Parsers::ResourceGroup.parse(map['resourceGroup']) unless map['resourceGroup'].nil?)
+        data.resource_group = (ResourceGroup.parse(map['resourceGroup']) unless map['resourceGroup'].nil?)
         return data
       end
     end
@@ -249,7 +249,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.parse(http_resp)
         data = Types::GetAssociatedResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource = (Parsers::Resource.parse(map['resource']) unless map['resource'].nil?)
+        data.resource = (Resource.parse(map['resource']) unless map['resource'].nil?)
         data
       end
     end
@@ -260,7 +260,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data.name = map['name']
         data.arn = map['arn']
         data.association_time = Time.parse(map['associationTime']) if map['associationTime']
-        data.integrations = (Parsers::ResourceIntegrations.parse(map['integrations']) unless map['integrations'].nil?)
+        data.integrations = (ResourceIntegrations.parse(map['integrations']) unless map['integrations'].nil?)
         return data
       end
     end
@@ -268,7 +268,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
     class ResourceIntegrations
       def self.parse(map)
         data = Types::ResourceIntegrations.new
-        data.resource_group = (Parsers::ResourceGroup.parse(map['resourceGroup']) unless map['resourceGroup'].nil?)
+        data.resource_group = (ResourceGroup.parse(map['resourceGroup']) unless map['resourceGroup'].nil?)
         return data
       end
     end
@@ -285,7 +285,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data.attributes = map['attributes']
         data.creation_time = Time.parse(map['creationTime']) if map['creationTime']
         data.last_update_time = Time.parse(map['lastUpdateTime']) if map['lastUpdateTime']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -295,7 +295,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.parse(http_resp)
         data = Types::ListApplicationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.applications = (Parsers::ApplicationSummaries.parse(map['applications']) unless map['applications'].nil?)
+        data.applications = (ApplicationSummaries.parse(map['applications']) unless map['applications'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -305,7 +305,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ApplicationSummary.parse(value) unless value.nil?
+          data << ApplicationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -316,7 +316,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.parse(http_resp)
         data = Types::ListAssociatedAttributeGroupsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attribute_groups = (Parsers::AttributeGroupIds.parse(map['attributeGroups']) unless map['attributeGroups'].nil?)
+        data.attribute_groups = (AttributeGroupIds.parse(map['attributeGroups']) unless map['attributeGroups'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -337,7 +337,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.parse(http_resp)
         data = Types::ListAssociatedResourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resources = (Parsers::Resources.parse(map['resources']) unless map['resources'].nil?)
+        data.resources = (Resources.parse(map['resources']) unless map['resources'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -347,7 +347,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourceInfo.parse(value) unless value.nil?
+          data << ResourceInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -367,7 +367,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.parse(http_resp)
         data = Types::ListAttributeGroupsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attribute_groups = (Parsers::AttributeGroupSummaries.parse(map['attributeGroups']) unless map['attributeGroups'].nil?)
+        data.attribute_groups = (AttributeGroupSummaries.parse(map['attributeGroups']) unless map['attributeGroups'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -377,7 +377,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AttributeGroupSummary.parse(value) unless value.nil?
+          data << AttributeGroupSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -388,7 +388,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -428,7 +428,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.parse(http_resp)
         data = Types::UpdateApplicationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.application = (Parsers::Application.parse(map['application']) unless map['application'].nil?)
+        data.application = (Application.parse(map['application']) unless map['application'].nil?)
         data
       end
     end
@@ -438,7 +438,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.parse(http_resp)
         data = Types::UpdateAttributeGroupOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.attribute_group = (Parsers::AttributeGroup.parse(map['attributeGroup']) unless map['attributeGroup'].nil?)
+        data.attribute_group = (AttributeGroup.parse(map['attributeGroup']) unless map['attributeGroup'].nil?)
         data
       end
     end

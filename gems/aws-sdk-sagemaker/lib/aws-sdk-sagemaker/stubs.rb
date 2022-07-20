@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SageMaker
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['SourceArn'] = stub[:source_arn] unless stub[:source_arn].nil?
         data['DestinationArn'] = stub[:destination_arn] unless stub[:destination_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -38,8 +40,8 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -58,7 +60,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -97,7 +99,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['TrialComponentArn'] = stub[:trial_component_arn] unless stub[:trial_component_arn].nil?
         data['TrialArn'] = stub[:trial_arn] unless stub[:trial_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -113,9 +115,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ModelPackageSummaries'] = Stubs::ModelPackageSummaries.stub(stub[:model_package_summaries]) unless stub[:model_package_summaries].nil?
-        data['BatchDescribeModelPackageErrorMap'] = Stubs::BatchDescribeModelPackageErrorMap.stub(stub[:batch_describe_model_package_error_map]) unless stub[:batch_describe_model_package_error_map].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ModelPackageSummaries'] = ModelPackageSummaries.stub(stub[:model_package_summaries]) unless stub[:model_package_summaries].nil?
+        data['BatchDescribeModelPackageErrorMap'] = BatchDescribeModelPackageErrorMap.stub(stub[:batch_describe_model_package_error_map]) unless stub[:batch_describe_model_package_error_map].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -134,7 +136,7 @@ module AWS::SDK::SageMaker
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::BatchDescribeModelPackageError.stub(value) unless value.nil?
+          data[key] = BatchDescribeModelPackageError.stub(value) unless value.nil?
         end
         data
       end
@@ -174,7 +176,7 @@ module AWS::SDK::SageMaker
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::BatchDescribeModelPackageSummary.stub(value) unless value.nil?
+          data[key] = BatchDescribeModelPackageSummary.stub(value) unless value.nil?
         end
         data
       end
@@ -205,7 +207,7 @@ module AWS::SDK::SageMaker
         data['ModelPackageArn'] = stub[:model_package_arn] unless stub[:model_package_arn].nil?
         data['ModelPackageDescription'] = stub[:model_package_description] unless stub[:model_package_description].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['InferenceSpecification'] = Stubs::InferenceSpecification.stub(stub[:inference_specification]) unless stub[:inference_specification].nil?
+        data['InferenceSpecification'] = InferenceSpecification.stub(stub[:inference_specification]) unless stub[:inference_specification].nil?
         data['ModelPackageStatus'] = stub[:model_package_status] unless stub[:model_package_status].nil?
         data['ModelApprovalStatus'] = stub[:model_approval_status] unless stub[:model_approval_status].nil?
         data
@@ -229,11 +231,11 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::InferenceSpecification.new
         data = {}
-        data['Containers'] = Stubs::ModelPackageContainerDefinitionList.stub(stub[:containers]) unless stub[:containers].nil?
-        data['SupportedTransformInstanceTypes'] = Stubs::TransformInstanceTypes.stub(stub[:supported_transform_instance_types]) unless stub[:supported_transform_instance_types].nil?
-        data['SupportedRealtimeInferenceInstanceTypes'] = Stubs::RealtimeInferenceInstanceTypes.stub(stub[:supported_realtime_inference_instance_types]) unless stub[:supported_realtime_inference_instance_types].nil?
-        data['SupportedContentTypes'] = Stubs::ContentTypes.stub(stub[:supported_content_types]) unless stub[:supported_content_types].nil?
-        data['SupportedResponseMIMETypes'] = Stubs::ResponseMIMETypes.stub(stub[:supported_response_mime_types]) unless stub[:supported_response_mime_types].nil?
+        data['Containers'] = ModelPackageContainerDefinitionList.stub(stub[:containers]) unless stub[:containers].nil?
+        data['SupportedTransformInstanceTypes'] = TransformInstanceTypes.stub(stub[:supported_transform_instance_types]) unless stub[:supported_transform_instance_types].nil?
+        data['SupportedRealtimeInferenceInstanceTypes'] = RealtimeInferenceInstanceTypes.stub(stub[:supported_realtime_inference_instance_types]) unless stub[:supported_realtime_inference_instance_types].nil?
+        data['SupportedContentTypes'] = ContentTypes.stub(stub[:supported_content_types]) unless stub[:supported_content_types].nil?
+        data['SupportedResponseMIMETypes'] = ResponseMIMETypes.stub(stub[:supported_response_mime_types]) unless stub[:supported_response_mime_types].nil?
         data
       end
     end
@@ -332,7 +334,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ModelPackageContainerDefinition.stub(element) unless element.nil?
+          data << ModelPackageContainerDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -365,8 +367,8 @@ module AWS::SDK::SageMaker
         data['ImageDigest'] = stub[:image_digest] unless stub[:image_digest].nil?
         data['ModelDataUrl'] = stub[:model_data_url] unless stub[:model_data_url].nil?
         data['ProductId'] = stub[:product_id] unless stub[:product_id].nil?
-        data['Environment'] = Stubs::EnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
-        data['ModelInput'] = Stubs::ModelInput.stub(stub[:model_input]) unless stub[:model_input].nil?
+        data['Environment'] = EnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
+        data['ModelInput'] = ModelInput.stub(stub[:model_input]) unless stub[:model_input].nil?
         data['Framework'] = stub[:framework] unless stub[:framework].nil?
         data['FrameworkVersion'] = stub[:framework_version] unless stub[:framework_version].nil?
         data['NearestModelName'] = stub[:nearest_model_name] unless stub[:nearest_model_name].nil?
@@ -423,7 +425,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ActionArn'] = stub[:action_arn] unless stub[:action_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -439,7 +441,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['AlgorithmArn'] = stub[:algorithm_arn] unless stub[:algorithm_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -455,7 +457,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['AppArn'] = stub[:app_arn] unless stub[:app_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -471,7 +473,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['AppImageConfigArn'] = stub[:app_image_config_arn] unless stub[:app_image_config_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -487,7 +489,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ArtifactArn'] = stub[:artifact_arn] unless stub[:artifact_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -503,7 +505,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['AutoMLJobArn'] = stub[:auto_ml_job_arn] unless stub[:auto_ml_job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -519,7 +521,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['CodeRepositoryArn'] = stub[:code_repository_arn] unless stub[:code_repository_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -535,7 +537,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['CompilationJobArn'] = stub[:compilation_job_arn] unless stub[:compilation_job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -551,7 +553,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ContextArn'] = stub[:context_arn] unless stub[:context_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -567,7 +569,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['JobDefinitionArn'] = stub[:job_definition_arn] unless stub[:job_definition_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -581,7 +583,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -599,7 +601,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['DomainArn'] = stub[:domain_arn] unless stub[:domain_arn].nil?
         data['Url'] = stub[:url] unless stub[:url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -613,7 +615,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -629,7 +631,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['EndpointArn'] = stub[:endpoint_arn] unless stub[:endpoint_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -645,7 +647,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['EndpointConfigArn'] = stub[:endpoint_config_arn] unless stub[:endpoint_config_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -661,7 +663,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ExperimentArn'] = stub[:experiment_arn] unless stub[:experiment_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -677,7 +679,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['FeatureGroupArn'] = stub[:feature_group_arn] unless stub[:feature_group_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -693,7 +695,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['FlowDefinitionArn'] = stub[:flow_definition_arn] unless stub[:flow_definition_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -709,7 +711,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['HumanTaskUiArn'] = stub[:human_task_ui_arn] unless stub[:human_task_ui_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -725,7 +727,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['HyperParameterTuningJobArn'] = stub[:hyper_parameter_tuning_job_arn] unless stub[:hyper_parameter_tuning_job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -741,7 +743,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ImageArn'] = stub[:image_arn] unless stub[:image_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -757,7 +759,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ImageVersionArn'] = stub[:image_version_arn] unless stub[:image_version_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -773,7 +775,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['JobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -789,7 +791,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['LabelingJobArn'] = stub[:labeling_job_arn] unless stub[:labeling_job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -805,7 +807,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ModelArn'] = stub[:model_arn] unless stub[:model_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -821,7 +823,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['JobDefinitionArn'] = stub[:job_definition_arn] unless stub[:job_definition_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -837,7 +839,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['JobDefinitionArn'] = stub[:job_definition_arn] unless stub[:job_definition_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -853,7 +855,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ModelPackageArn'] = stub[:model_package_arn] unless stub[:model_package_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -869,7 +871,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ModelPackageGroupArn'] = stub[:model_package_group_arn] unless stub[:model_package_group_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -885,7 +887,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['JobDefinitionArn'] = stub[:job_definition_arn] unless stub[:job_definition_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -901,7 +903,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['MonitoringScheduleArn'] = stub[:monitoring_schedule_arn] unless stub[:monitoring_schedule_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -917,7 +919,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['NotebookInstanceArn'] = stub[:notebook_instance_arn] unless stub[:notebook_instance_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -933,7 +935,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['NotebookInstanceLifecycleConfigArn'] = stub[:notebook_instance_lifecycle_config_arn] unless stub[:notebook_instance_lifecycle_config_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -949,7 +951,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['PipelineArn'] = stub[:pipeline_arn] unless stub[:pipeline_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -965,7 +967,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['AuthorizedUrl'] = stub[:authorized_url] unless stub[:authorized_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -981,7 +983,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['AuthorizedUrl'] = stub[:authorized_url] unless stub[:authorized_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -997,7 +999,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ProcessingJobArn'] = stub[:processing_job_arn] unless stub[:processing_job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1015,7 +1017,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['ProjectArn'] = stub[:project_arn] unless stub[:project_arn].nil?
         data['ProjectId'] = stub[:project_id] unless stub[:project_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1031,7 +1033,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['StudioLifecycleConfigArn'] = stub[:studio_lifecycle_config_arn] unless stub[:studio_lifecycle_config_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1047,7 +1049,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['TrainingJobArn'] = stub[:training_job_arn] unless stub[:training_job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1063,7 +1065,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['TransformJobArn'] = stub[:transform_job_arn] unless stub[:transform_job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1079,7 +1081,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['TrialArn'] = stub[:trial_arn] unless stub[:trial_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1095,7 +1097,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['TrialComponentArn'] = stub[:trial_component_arn] unless stub[:trial_component_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1111,7 +1113,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['UserProfileArn'] = stub[:user_profile_arn] unless stub[:user_profile_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1127,7 +1129,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['WorkforceArn'] = stub[:workforce_arn] unless stub[:workforce_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1143,7 +1145,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['WorkteamArn'] = stub[:workteam_arn] unless stub[:workteam_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1159,7 +1161,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ActionArn'] = stub[:action_arn] unless stub[:action_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1173,7 +1175,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1187,7 +1189,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1201,7 +1203,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1217,7 +1219,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ArtifactArn'] = stub[:artifact_arn] unless stub[:artifact_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1235,7 +1237,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['SourceArn'] = stub[:source_arn] unless stub[:source_arn].nil?
         data['DestinationArn'] = stub[:destination_arn] unless stub[:destination_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1249,7 +1251,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1265,7 +1267,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ContextArn'] = stub[:context_arn] unless stub[:context_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1279,7 +1281,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1293,7 +1295,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1307,7 +1309,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1321,7 +1323,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1335,7 +1337,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1351,7 +1353,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ExperimentArn'] = stub[:experiment_arn] unless stub[:experiment_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1365,7 +1367,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1379,7 +1381,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1393,7 +1395,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1407,7 +1409,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1421,7 +1423,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1435,7 +1437,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1449,7 +1451,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1463,7 +1465,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1477,7 +1479,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1491,7 +1493,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1505,7 +1507,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1519,7 +1521,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1533,7 +1535,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1547,7 +1549,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1561,7 +1563,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1577,7 +1579,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['PipelineArn'] = stub[:pipeline_arn] unless stub[:pipeline_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1591,7 +1593,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1605,7 +1607,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1619,7 +1621,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1635,7 +1637,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['TrialArn'] = stub[:trial_arn] unless stub[:trial_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1651,7 +1653,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['TrialComponentArn'] = stub[:trial_component_arn] unless stub[:trial_component_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1665,7 +1667,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1679,7 +1681,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1695,7 +1697,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['Success'] = stub[:success] unless stub[:success].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1709,7 +1711,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1738,18 +1740,18 @@ module AWS::SDK::SageMaker
         data = {}
         data['ActionName'] = stub[:action_name] unless stub[:action_name].nil?
         data['ActionArn'] = stub[:action_arn] unless stub[:action_arn].nil?
-        data['Source'] = Stubs::ActionSource.stub(stub[:source]) unless stub[:source].nil?
+        data['Source'] = ActionSource.stub(stub[:source]) unless stub[:source].nil?
         data['ActionType'] = stub[:action_type] unless stub[:action_type].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Properties'] = Stubs::LineageEntityParameters.stub(stub[:properties]) unless stub[:properties].nil?
+        data['Properties'] = LineageEntityParameters.stub(stub[:properties]) unless stub[:properties].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
-        data['MetadataProperties'] = Stubs::MetadataProperties.stub(stub[:metadata_properties]) unless stub[:metadata_properties].nil?
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        data['MetadataProperties'] = MetadataProperties.stub(stub[:metadata_properties]) unless stub[:metadata_properties].nil?
         data['LineageGroupArn'] = stub[:lineage_group_arn] unless stub[:lineage_group_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1866,14 +1868,14 @@ module AWS::SDK::SageMaker
         data['AlgorithmArn'] = stub[:algorithm_arn] unless stub[:algorithm_arn].nil?
         data['AlgorithmDescription'] = stub[:algorithm_description] unless stub[:algorithm_description].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['TrainingSpecification'] = Stubs::TrainingSpecification.stub(stub[:training_specification]) unless stub[:training_specification].nil?
-        data['InferenceSpecification'] = Stubs::InferenceSpecification.stub(stub[:inference_specification]) unless stub[:inference_specification].nil?
-        data['ValidationSpecification'] = Stubs::AlgorithmValidationSpecification.stub(stub[:validation_specification]) unless stub[:validation_specification].nil?
+        data['TrainingSpecification'] = TrainingSpecification.stub(stub[:training_specification]) unless stub[:training_specification].nil?
+        data['InferenceSpecification'] = InferenceSpecification.stub(stub[:inference_specification]) unless stub[:inference_specification].nil?
+        data['ValidationSpecification'] = AlgorithmValidationSpecification.stub(stub[:validation_specification]) unless stub[:validation_specification].nil?
         data['AlgorithmStatus'] = stub[:algorithm_status] unless stub[:algorithm_status].nil?
-        data['AlgorithmStatusDetails'] = Stubs::AlgorithmStatusDetails.stub(stub[:algorithm_status_details]) unless stub[:algorithm_status_details].nil?
+        data['AlgorithmStatusDetails'] = AlgorithmStatusDetails.stub(stub[:algorithm_status_details]) unless stub[:algorithm_status_details].nil?
         data['ProductId'] = stub[:product_id] unless stub[:product_id].nil?
         data['CertifyForMarketplace'] = stub[:certify_for_marketplace] unless stub[:certify_for_marketplace].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1892,8 +1894,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::AlgorithmStatusDetails.new
         data = {}
-        data['ValidationStatuses'] = Stubs::AlgorithmStatusItemList.stub(stub[:validation_statuses]) unless stub[:validation_statuses].nil?
-        data['ImageScanStatuses'] = Stubs::AlgorithmStatusItemList.stub(stub[:image_scan_statuses]) unless stub[:image_scan_statuses].nil?
+        data['ValidationStatuses'] = AlgorithmStatusItemList.stub(stub[:validation_statuses]) unless stub[:validation_statuses].nil?
+        data['ImageScanStatuses'] = AlgorithmStatusItemList.stub(stub[:image_scan_statuses]) unless stub[:image_scan_statuses].nil?
         data
       end
     end
@@ -1912,7 +1914,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AlgorithmStatusItem.stub(element) unless element.nil?
+          data << AlgorithmStatusItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1955,7 +1957,7 @@ module AWS::SDK::SageMaker
         stub ||= Types::AlgorithmValidationSpecification.new
         data = {}
         data['ValidationRole'] = stub[:validation_role] unless stub[:validation_role].nil?
-        data['ValidationProfiles'] = Stubs::AlgorithmValidationProfiles.stub(stub[:validation_profiles]) unless stub[:validation_profiles].nil?
+        data['ValidationProfiles'] = AlgorithmValidationProfiles.stub(stub[:validation_profiles]) unless stub[:validation_profiles].nil?
         data
       end
     end
@@ -1974,7 +1976,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AlgorithmValidationProfile.stub(element) unless element.nil?
+          data << AlgorithmValidationProfile.stub(element) unless element.nil?
         end
         data
       end
@@ -1996,8 +1998,8 @@ module AWS::SDK::SageMaker
         stub ||= Types::AlgorithmValidationProfile.new
         data = {}
         data['ProfileName'] = stub[:profile_name] unless stub[:profile_name].nil?
-        data['TrainingJobDefinition'] = Stubs::TrainingJobDefinition.stub(stub[:training_job_definition]) unless stub[:training_job_definition].nil?
-        data['TransformJobDefinition'] = Stubs::TransformJobDefinition.stub(stub[:transform_job_definition]) unless stub[:transform_job_definition].nil?
+        data['TrainingJobDefinition'] = TrainingJobDefinition.stub(stub[:training_job_definition]) unless stub[:training_job_definition].nil?
+        data['TransformJobDefinition'] = TransformJobDefinition.stub(stub[:transform_job_definition]) unless stub[:transform_job_definition].nil?
         data
       end
     end
@@ -2024,10 +2026,10 @@ module AWS::SDK::SageMaker
         data['MaxConcurrentTransforms'] = stub[:max_concurrent_transforms] unless stub[:max_concurrent_transforms].nil?
         data['MaxPayloadInMB'] = stub[:max_payload_in_mb] unless stub[:max_payload_in_mb].nil?
         data['BatchStrategy'] = stub[:batch_strategy] unless stub[:batch_strategy].nil?
-        data['Environment'] = Stubs::TransformEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
-        data['TransformInput'] = Stubs::TransformInput.stub(stub[:transform_input]) unless stub[:transform_input].nil?
-        data['TransformOutput'] = Stubs::TransformOutput.stub(stub[:transform_output]) unless stub[:transform_output].nil?
-        data['TransformResources'] = Stubs::TransformResources.stub(stub[:transform_resources]) unless stub[:transform_resources].nil?
+        data['Environment'] = TransformEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
+        data['TransformInput'] = TransformInput.stub(stub[:transform_input]) unless stub[:transform_input].nil?
+        data['TransformOutput'] = TransformOutput.stub(stub[:transform_output]) unless stub[:transform_output].nil?
+        data['TransformResources'] = TransformResources.stub(stub[:transform_resources]) unless stub[:transform_resources].nil?
         data
       end
     end
@@ -2094,7 +2096,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::TransformInput.new
         data = {}
-        data['DataSource'] = Stubs::TransformDataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
+        data['DataSource'] = TransformDataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
         data['ContentType'] = stub[:content_type] unless stub[:content_type].nil?
         data['CompressionType'] = stub[:compression_type] unless stub[:compression_type].nil?
         data['SplitType'] = stub[:split_type] unless stub[:split_type].nil?
@@ -2115,7 +2117,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::TransformDataSource.new
         data = {}
-        data['S3DataSource'] = Stubs::TransformS3DataSource.stub(stub[:s3_data_source]) unless stub[:s3_data_source].nil?
+        data['S3DataSource'] = TransformS3DataSource.stub(stub[:s3_data_source]) unless stub[:s3_data_source].nil?
         data
       end
     end
@@ -2179,11 +2181,11 @@ module AWS::SDK::SageMaker
         stub ||= Types::TrainingJobDefinition.new
         data = {}
         data['TrainingInputMode'] = stub[:training_input_mode] unless stub[:training_input_mode].nil?
-        data['HyperParameters'] = Stubs::HyperParameters.stub(stub[:hyper_parameters]) unless stub[:hyper_parameters].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
-        data['ResourceConfig'] = Stubs::ResourceConfig.stub(stub[:resource_config]) unless stub[:resource_config].nil?
-        data['StoppingCondition'] = Stubs::StoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
+        data['HyperParameters'] = HyperParameters.stub(stub[:hyper_parameters]) unless stub[:hyper_parameters].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['ResourceConfig'] = ResourceConfig.stub(stub[:resource_config]) unless stub[:resource_config].nil?
+        data['StoppingCondition'] = StoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
         data
       end
     end
@@ -2266,7 +2268,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Channel.stub(element) unless element.nil?
+          data << Channel.stub(element) unless element.nil?
         end
         data
       end
@@ -2292,12 +2294,12 @@ module AWS::SDK::SageMaker
         stub ||= Types::Channel.new
         data = {}
         data['ChannelName'] = stub[:channel_name] unless stub[:channel_name].nil?
-        data['DataSource'] = Stubs::DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
+        data['DataSource'] = DataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
         data['ContentType'] = stub[:content_type] unless stub[:content_type].nil?
         data['CompressionType'] = stub[:compression_type] unless stub[:compression_type].nil?
         data['RecordWrapperType'] = stub[:record_wrapper_type] unless stub[:record_wrapper_type].nil?
         data['InputMode'] = stub[:input_mode] unless stub[:input_mode].nil?
-        data['ShuffleConfig'] = Stubs::ShuffleConfig.stub(stub[:shuffle_config]) unless stub[:shuffle_config].nil?
+        data['ShuffleConfig'] = ShuffleConfig.stub(stub[:shuffle_config]) unless stub[:shuffle_config].nil?
         data
       end
     end
@@ -2334,8 +2336,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::DataSource.new
         data = {}
-        data['S3DataSource'] = Stubs::S3DataSource.stub(stub[:s3_data_source]) unless stub[:s3_data_source].nil?
-        data['FileSystemDataSource'] = Stubs::FileSystemDataSource.stub(stub[:file_system_data_source]) unless stub[:file_system_data_source].nil?
+        data['S3DataSource'] = S3DataSource.stub(stub[:s3_data_source]) unless stub[:s3_data_source].nil?
+        data['FileSystemDataSource'] = FileSystemDataSource.stub(stub[:file_system_data_source]) unless stub[:file_system_data_source].nil?
         data
       end
     end
@@ -2383,7 +2385,7 @@ module AWS::SDK::SageMaker
         data['S3DataType'] = stub[:s3_data_type] unless stub[:s3_data_type].nil?
         data['S3Uri'] = stub[:s3_uri] unless stub[:s3_uri].nil?
         data['S3DataDistributionType'] = stub[:s3_data_distribution_type] unless stub[:s3_data_distribution_type].nil?
-        data['AttributeNames'] = Stubs::AttributeNames.stub(stub[:attribute_names]) unless stub[:attribute_names].nil?
+        data['AttributeNames'] = AttributeNames.stub(stub[:attribute_names]) unless stub[:attribute_names].nil?
         data
       end
     end
@@ -2450,12 +2452,12 @@ module AWS::SDK::SageMaker
         data = {}
         data['TrainingImage'] = stub[:training_image] unless stub[:training_image].nil?
         data['TrainingImageDigest'] = stub[:training_image_digest] unless stub[:training_image_digest].nil?
-        data['SupportedHyperParameters'] = Stubs::HyperParameterSpecifications.stub(stub[:supported_hyper_parameters]) unless stub[:supported_hyper_parameters].nil?
-        data['SupportedTrainingInstanceTypes'] = Stubs::TrainingInstanceTypes.stub(stub[:supported_training_instance_types]) unless stub[:supported_training_instance_types].nil?
+        data['SupportedHyperParameters'] = HyperParameterSpecifications.stub(stub[:supported_hyper_parameters]) unless stub[:supported_hyper_parameters].nil?
+        data['SupportedTrainingInstanceTypes'] = TrainingInstanceTypes.stub(stub[:supported_training_instance_types]) unless stub[:supported_training_instance_types].nil?
         data['SupportsDistributedTraining'] = stub[:supports_distributed_training] unless stub[:supports_distributed_training].nil?
-        data['MetricDefinitions'] = Stubs::MetricDefinitionList.stub(stub[:metric_definitions]) unless stub[:metric_definitions].nil?
-        data['TrainingChannels'] = Stubs::ChannelSpecifications.stub(stub[:training_channels]) unless stub[:training_channels].nil?
-        data['SupportedTuningJobObjectiveMetrics'] = Stubs::HyperParameterTuningJobObjectives.stub(stub[:supported_tuning_job_objective_metrics]) unless stub[:supported_tuning_job_objective_metrics].nil?
+        data['MetricDefinitions'] = MetricDefinitionList.stub(stub[:metric_definitions]) unless stub[:metric_definitions].nil?
+        data['TrainingChannels'] = ChannelSpecifications.stub(stub[:training_channels]) unless stub[:training_channels].nil?
+        data['SupportedTuningJobObjectiveMetrics'] = HyperParameterTuningJobObjectives.stub(stub[:supported_tuning_job_objective_metrics]) unless stub[:supported_tuning_job_objective_metrics].nil?
         data
       end
     end
@@ -2474,7 +2476,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HyperParameterTuningJobObjective.stub(element) unless element.nil?
+          data << HyperParameterTuningJobObjective.stub(element) unless element.nil?
         end
         data
       end
@@ -2514,7 +2516,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChannelSpecification.stub(element) unless element.nil?
+          data << ChannelSpecification.stub(element) unless element.nil?
         end
         data
       end
@@ -2541,9 +2543,9 @@ module AWS::SDK::SageMaker
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['IsRequired'] = stub[:is_required] unless stub[:is_required].nil?
-        data['SupportedContentTypes'] = Stubs::ContentTypes.stub(stub[:supported_content_types]) unless stub[:supported_content_types].nil?
-        data['SupportedCompressionTypes'] = Stubs::CompressionTypes.stub(stub[:supported_compression_types]) unless stub[:supported_compression_types].nil?
-        data['SupportedInputModes'] = Stubs::InputModes.stub(stub[:supported_input_modes]) unless stub[:supported_input_modes].nil?
+        data['SupportedContentTypes'] = ContentTypes.stub(stub[:supported_content_types]) unless stub[:supported_content_types].nil?
+        data['SupportedCompressionTypes'] = CompressionTypes.stub(stub[:supported_compression_types]) unless stub[:supported_compression_types].nil?
+        data['SupportedInputModes'] = InputModes.stub(stub[:supported_input_modes]) unless stub[:supported_input_modes].nil?
         data
       end
     end
@@ -2602,7 +2604,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricDefinition.stub(element) unless element.nil?
+          data << MetricDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -2662,7 +2664,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HyperParameterSpecification.stub(element) unless element.nil?
+          data << HyperParameterSpecification.stub(element) unless element.nil?
         end
         data
       end
@@ -2690,7 +2692,7 @@ module AWS::SDK::SageMaker
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Range'] = Stubs::ParameterRange.stub(stub[:range]) unless stub[:range].nil?
+        data['Range'] = ParameterRange.stub(stub[:range]) unless stub[:range].nil?
         data['IsTunable'] = stub[:is_tunable] unless stub[:is_tunable].nil?
         data['IsRequired'] = stub[:is_required] unless stub[:is_required].nil?
         data['DefaultValue'] = stub[:default_value] unless stub[:default_value].nil?
@@ -2713,9 +2715,9 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::ParameterRange.new
         data = {}
-        data['IntegerParameterRangeSpecification'] = Stubs::IntegerParameterRangeSpecification.stub(stub[:integer_parameter_range_specification]) unless stub[:integer_parameter_range_specification].nil?
-        data['ContinuousParameterRangeSpecification'] = Stubs::ContinuousParameterRangeSpecification.stub(stub[:continuous_parameter_range_specification]) unless stub[:continuous_parameter_range_specification].nil?
-        data['CategoricalParameterRangeSpecification'] = Stubs::CategoricalParameterRangeSpecification.stub(stub[:categorical_parameter_range_specification]) unless stub[:categorical_parameter_range_specification].nil?
+        data['IntegerParameterRangeSpecification'] = IntegerParameterRangeSpecification.stub(stub[:integer_parameter_range_specification]) unless stub[:integer_parameter_range_specification].nil?
+        data['ContinuousParameterRangeSpecification'] = ContinuousParameterRangeSpecification.stub(stub[:continuous_parameter_range_specification]) unless stub[:continuous_parameter_range_specification].nil?
+        data['CategoricalParameterRangeSpecification'] = CategoricalParameterRangeSpecification.stub(stub[:categorical_parameter_range_specification]) unless stub[:categorical_parameter_range_specification].nil?
         data
       end
     end
@@ -2733,7 +2735,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::CategoricalParameterRangeSpecification.new
         data = {}
-        data['Values'] = Stubs::ParameterValues.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = ParameterValues.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -2828,8 +2830,8 @@ module AWS::SDK::SageMaker
         data['LastUserActivityTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_user_activity_timestamp]).to_i unless stub[:last_user_activity_timestamp].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['ResourceSpec'] = Stubs::ResourceSpec.stub(stub[:resource_spec]) unless stub[:resource_spec].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceSpec'] = ResourceSpec.stub(stub[:resource_spec]) unless stub[:resource_spec].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2876,8 +2878,8 @@ module AWS::SDK::SageMaker
         data['AppImageConfigName'] = stub[:app_image_config_name] unless stub[:app_image_config_name].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['KernelGatewayImageConfig'] = Stubs::KernelGatewayImageConfig.stub(stub[:kernel_gateway_image_config]) unless stub[:kernel_gateway_image_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['KernelGatewayImageConfig'] = KernelGatewayImageConfig.stub(stub[:kernel_gateway_image_config]) unless stub[:kernel_gateway_image_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2896,8 +2898,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::KernelGatewayImageConfig.new
         data = {}
-        data['KernelSpecs'] = Stubs::KernelSpecs.stub(stub[:kernel_specs]) unless stub[:kernel_specs].nil?
-        data['FileSystemConfig'] = Stubs::FileSystemConfig.stub(stub[:file_system_config]) unless stub[:file_system_config].nil?
+        data['KernelSpecs'] = KernelSpecs.stub(stub[:kernel_specs]) unless stub[:kernel_specs].nil?
+        data['FileSystemConfig'] = FileSystemConfig.stub(stub[:file_system_config]) unless stub[:file_system_config].nil?
         data
       end
     end
@@ -2938,7 +2940,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KernelSpec.stub(element) unless element.nil?
+          data << KernelSpec.stub(element) unless element.nil?
         end
         data
       end
@@ -2986,16 +2988,16 @@ module AWS::SDK::SageMaker
         data = {}
         data['ArtifactName'] = stub[:artifact_name] unless stub[:artifact_name].nil?
         data['ArtifactArn'] = stub[:artifact_arn] unless stub[:artifact_arn].nil?
-        data['Source'] = Stubs::ArtifactSource.stub(stub[:source]) unless stub[:source].nil?
+        data['Source'] = ArtifactSource.stub(stub[:source]) unless stub[:source].nil?
         data['ArtifactType'] = stub[:artifact_type] unless stub[:artifact_type].nil?
-        data['Properties'] = Stubs::LineageEntityParameters.stub(stub[:properties]) unless stub[:properties].nil?
+        data['Properties'] = LineageEntityParameters.stub(stub[:properties]) unless stub[:properties].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
-        data['MetadataProperties'] = Stubs::MetadataProperties.stub(stub[:metadata_properties]) unless stub[:metadata_properties].nil?
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        data['MetadataProperties'] = MetadataProperties.stub(stub[:metadata_properties]) unless stub[:metadata_properties].nil?
         data['LineageGroupArn'] = stub[:lineage_group_arn] unless stub[:lineage_group_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3015,7 +3017,7 @@ module AWS::SDK::SageMaker
         stub ||= Types::ArtifactSource.new
         data = {}
         data['SourceUri'] = stub[:source_uri] unless stub[:source_uri].nil?
-        data['SourceTypes'] = Stubs::ArtifactSourceTypes.stub(stub[:source_types]) unless stub[:source_types].nil?
+        data['SourceTypes'] = ArtifactSourceTypes.stub(stub[:source_types]) unless stub[:source_types].nil?
         data
       end
     end
@@ -3034,7 +3036,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ArtifactSourceType.stub(element) unless element.nil?
+          data << ArtifactSourceType.stub(element) unless element.nil?
         end
         data
       end
@@ -3092,26 +3094,26 @@ module AWS::SDK::SageMaker
         data = {}
         data['AutoMLJobName'] = stub[:auto_ml_job_name] unless stub[:auto_ml_job_name].nil?
         data['AutoMLJobArn'] = stub[:auto_ml_job_arn] unless stub[:auto_ml_job_arn].nil?
-        data['InputDataConfig'] = Stubs::AutoMLInputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::AutoMLOutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['InputDataConfig'] = AutoMLInputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = AutoMLOutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['AutoMLJobObjective'] = Stubs::AutoMLJobObjective.stub(stub[:auto_ml_job_objective]) unless stub[:auto_ml_job_objective].nil?
+        data['AutoMLJobObjective'] = AutoMLJobObjective.stub(stub[:auto_ml_job_objective]) unless stub[:auto_ml_job_objective].nil?
         data['ProblemType'] = stub[:problem_type] unless stub[:problem_type].nil?
-        data['AutoMLJobConfig'] = Stubs::AutoMLJobConfig.stub(stub[:auto_ml_job_config]) unless stub[:auto_ml_job_config].nil?
+        data['AutoMLJobConfig'] = AutoMLJobConfig.stub(stub[:auto_ml_job_config]) unless stub[:auto_ml_job_config].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['PartialFailureReasons'] = Stubs::AutoMLPartialFailureReasons.stub(stub[:partial_failure_reasons]) unless stub[:partial_failure_reasons].nil?
-        data['BestCandidate'] = Stubs::AutoMLCandidate.stub(stub[:best_candidate]) unless stub[:best_candidate].nil?
+        data['PartialFailureReasons'] = AutoMLPartialFailureReasons.stub(stub[:partial_failure_reasons]) unless stub[:partial_failure_reasons].nil?
+        data['BestCandidate'] = AutoMLCandidate.stub(stub[:best_candidate]) unless stub[:best_candidate].nil?
         data['AutoMLJobStatus'] = stub[:auto_ml_job_status] unless stub[:auto_ml_job_status].nil?
         data['AutoMLJobSecondaryStatus'] = stub[:auto_ml_job_secondary_status] unless stub[:auto_ml_job_secondary_status].nil?
         data['GenerateCandidateDefinitionsOnly'] = stub[:generate_candidate_definitions_only] unless stub[:generate_candidate_definitions_only].nil?
-        data['AutoMLJobArtifacts'] = Stubs::AutoMLJobArtifacts.stub(stub[:auto_ml_job_artifacts]) unless stub[:auto_ml_job_artifacts].nil?
-        data['ResolvedAttributes'] = Stubs::ResolvedAttributes.stub(stub[:resolved_attributes]) unless stub[:resolved_attributes].nil?
-        data['ModelDeployConfig'] = Stubs::ModelDeployConfig.stub(stub[:model_deploy_config]) unless stub[:model_deploy_config].nil?
-        data['ModelDeployResult'] = Stubs::ModelDeployResult.stub(stub[:model_deploy_result]) unless stub[:model_deploy_result].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AutoMLJobArtifacts'] = AutoMLJobArtifacts.stub(stub[:auto_ml_job_artifacts]) unless stub[:auto_ml_job_artifacts].nil?
+        data['ResolvedAttributes'] = ResolvedAttributes.stub(stub[:resolved_attributes]) unless stub[:resolved_attributes].nil?
+        data['ModelDeployConfig'] = ModelDeployConfig.stub(stub[:model_deploy_config]) unless stub[:model_deploy_config].nil?
+        data['ModelDeployResult'] = ModelDeployResult.stub(stub[:model_deploy_result]) unless stub[:model_deploy_result].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3169,9 +3171,9 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::ResolvedAttributes.new
         data = {}
-        data['AutoMLJobObjective'] = Stubs::AutoMLJobObjective.stub(stub[:auto_ml_job_objective]) unless stub[:auto_ml_job_objective].nil?
+        data['AutoMLJobObjective'] = AutoMLJobObjective.stub(stub[:auto_ml_job_objective]) unless stub[:auto_ml_job_objective].nil?
         data['ProblemType'] = stub[:problem_type] unless stub[:problem_type].nil?
-        data['CompletionCriteria'] = Stubs::AutoMLJobCompletionCriteria.stub(stub[:completion_criteria]) unless stub[:completion_criteria].nil?
+        data['CompletionCriteria'] = AutoMLJobCompletionCriteria.stub(stub[:completion_criteria]) unless stub[:completion_criteria].nil?
         data
       end
     end
@@ -3260,16 +3262,16 @@ module AWS::SDK::SageMaker
         stub ||= Types::AutoMLCandidate.new
         data = {}
         data['CandidateName'] = stub[:candidate_name] unless stub[:candidate_name].nil?
-        data['FinalAutoMLJobObjectiveMetric'] = Stubs::FinalAutoMLJobObjectiveMetric.stub(stub[:final_auto_ml_job_objective_metric]) unless stub[:final_auto_ml_job_objective_metric].nil?
+        data['FinalAutoMLJobObjectiveMetric'] = FinalAutoMLJobObjectiveMetric.stub(stub[:final_auto_ml_job_objective_metric]) unless stub[:final_auto_ml_job_objective_metric].nil?
         data['ObjectiveStatus'] = stub[:objective_status] unless stub[:objective_status].nil?
-        data['CandidateSteps'] = Stubs::CandidateSteps.stub(stub[:candidate_steps]) unless stub[:candidate_steps].nil?
+        data['CandidateSteps'] = CandidateSteps.stub(stub[:candidate_steps]) unless stub[:candidate_steps].nil?
         data['CandidateStatus'] = stub[:candidate_status] unless stub[:candidate_status].nil?
-        data['InferenceContainers'] = Stubs::AutoMLContainerDefinitions.stub(stub[:inference_containers]) unless stub[:inference_containers].nil?
+        data['InferenceContainers'] = AutoMLContainerDefinitions.stub(stub[:inference_containers]) unless stub[:inference_containers].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['CandidateProperties'] = Stubs::CandidateProperties.stub(stub[:candidate_properties]) unless stub[:candidate_properties].nil?
+        data['CandidateProperties'] = CandidateProperties.stub(stub[:candidate_properties]) unless stub[:candidate_properties].nil?
         data
       end
     end
@@ -3288,8 +3290,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::CandidateProperties.new
         data = {}
-        data['CandidateArtifactLocations'] = Stubs::CandidateArtifactLocations.stub(stub[:candidate_artifact_locations]) unless stub[:candidate_artifact_locations].nil?
-        data['CandidateMetrics'] = Stubs::MetricDataList.stub(stub[:candidate_metrics]) unless stub[:candidate_metrics].nil?
+        data['CandidateArtifactLocations'] = CandidateArtifactLocations.stub(stub[:candidate_artifact_locations]) unless stub[:candidate_artifact_locations].nil?
+        data['CandidateMetrics'] = MetricDataList.stub(stub[:candidate_metrics]) unless stub[:candidate_metrics].nil?
         data
       end
     end
@@ -3308,7 +3310,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricDatum.stub(element) unless element.nil?
+          data << MetricDatum.stub(element) unless element.nil?
         end
         data
       end
@@ -3372,7 +3374,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutoMLContainerDefinition.stub(element) unless element.nil?
+          data << AutoMLContainerDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -3395,7 +3397,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['Image'] = stub[:image] unless stub[:image].nil?
         data['ModelDataUrl'] = stub[:model_data_url] unless stub[:model_data_url].nil?
-        data['Environment'] = Stubs::EnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
+        data['Environment'] = EnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
         data
       end
     end
@@ -3414,7 +3416,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutoMLCandidateStep.stub(element) unless element.nil?
+          data << AutoMLCandidateStep.stub(element) unless element.nil?
         end
         data
       end
@@ -3478,7 +3480,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutoMLPartialFailureReason.stub(element) unless element.nil?
+          data << AutoMLPartialFailureReason.stub(element) unless element.nil?
         end
         data
       end
@@ -3518,10 +3520,10 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::AutoMLJobConfig.new
         data = {}
-        data['CompletionCriteria'] = Stubs::AutoMLJobCompletionCriteria.stub(stub[:completion_criteria]) unless stub[:completion_criteria].nil?
-        data['SecurityConfig'] = Stubs::AutoMLSecurityConfig.stub(stub[:security_config]) unless stub[:security_config].nil?
-        data['DataSplitConfig'] = Stubs::AutoMLDataSplitConfig.stub(stub[:data_split_config]) unless stub[:data_split_config].nil?
-        data['CandidateGenerationConfig'] = Stubs::AutoMLCandidateGenerationConfig.stub(stub[:candidate_generation_config]) unless stub[:candidate_generation_config].nil?
+        data['CompletionCriteria'] = AutoMLJobCompletionCriteria.stub(stub[:completion_criteria]) unless stub[:completion_criteria].nil?
+        data['SecurityConfig'] = AutoMLSecurityConfig.stub(stub[:security_config]) unless stub[:security_config].nil?
+        data['DataSplitConfig'] = AutoMLDataSplitConfig.stub(stub[:data_split_config]) unless stub[:data_split_config].nil?
+        data['CandidateGenerationConfig'] = AutoMLCandidateGenerationConfig.stub(stub[:candidate_generation_config]) unless stub[:candidate_generation_config].nil?
         data
       end
     end
@@ -3579,7 +3581,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['VolumeKmsKeyId'] = stub[:volume_kms_key_id] unless stub[:volume_kms_key_id].nil?
         data['EnableInterContainerTrafficEncryption'] = stub[:enable_inter_container_traffic_encryption] unless stub[:enable_inter_container_traffic_encryption].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data
       end
     end
@@ -3598,8 +3600,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::VpcConfig.new
         data = {}
-        data['SecurityGroupIds'] = Stubs::VpcSecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
-        data['Subnets'] = Stubs::Subnets.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['SecurityGroupIds'] = VpcSecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['Subnets'] = Subnets.stub(stub[:subnets]) unless stub[:subnets].nil?
         data
       end
     end
@@ -3678,7 +3680,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutoMLChannel.stub(element) unless element.nil?
+          data << AutoMLChannel.stub(element) unless element.nil?
         end
         data
       end
@@ -3701,7 +3703,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::AutoMLChannel.new
         data = {}
-        data['DataSource'] = Stubs::AutoMLDataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
+        data['DataSource'] = AutoMLDataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
         data['CompressionType'] = stub[:compression_type] unless stub[:compression_type].nil?
         data['TargetAttributeName'] = stub[:target_attribute_name] unless stub[:target_attribute_name].nil?
         data['ContentType'] = stub[:content_type] unless stub[:content_type].nil?
@@ -3723,7 +3725,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::AutoMLDataSource.new
         data = {}
-        data['S3DataSource'] = Stubs::AutoMLS3DataSource.stub(stub[:s3_data_source]) unless stub[:s3_data_source].nil?
+        data['S3DataSource'] = AutoMLS3DataSource.stub(stub[:s3_data_source]) unless stub[:s3_data_source].nil?
         data
       end
     end
@@ -3766,8 +3768,8 @@ module AWS::SDK::SageMaker
         data['CodeRepositoryArn'] = stub[:code_repository_arn] unless stub[:code_repository_arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['GitConfig'] = Stubs::GitConfig.stub(stub[:git_config]) unless stub[:git_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GitConfig'] = GitConfig.stub(stub[:git_config]) unless stub[:git_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3825,19 +3827,19 @@ module AWS::SDK::SageMaker
         data['CompilationJobStatus'] = stub[:compilation_job_status] unless stub[:compilation_job_status].nil?
         data['CompilationStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:compilation_start_time]).to_i unless stub[:compilation_start_time].nil?
         data['CompilationEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:compilation_end_time]).to_i unless stub[:compilation_end_time].nil?
-        data['StoppingCondition'] = Stubs::StoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
+        data['StoppingCondition'] = StoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
         data['InferenceImage'] = stub[:inference_image] unless stub[:inference_image].nil?
         data['ModelPackageVersionArn'] = stub[:model_package_version_arn] unless stub[:model_package_version_arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['ModelArtifacts'] = Stubs::ModelArtifacts.stub(stub[:model_artifacts]) unless stub[:model_artifacts].nil?
-        data['ModelDigests'] = Stubs::ModelDigests.stub(stub[:model_digests]) unless stub[:model_digests].nil?
+        data['ModelArtifacts'] = ModelArtifacts.stub(stub[:model_artifacts]) unless stub[:model_artifacts].nil?
+        data['ModelDigests'] = ModelDigests.stub(stub[:model_digests]) unless stub[:model_digests].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['InputConfig'] = Stubs::InputConfig.stub(stub[:input_config]) unless stub[:input_config].nil?
-        data['OutputConfig'] = Stubs::OutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
-        data['VpcConfig'] = Stubs::NeoVpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InputConfig'] = InputConfig.stub(stub[:input_config]) unless stub[:input_config].nil?
+        data['OutputConfig'] = OutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
+        data['VpcConfig'] = NeoVpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3856,8 +3858,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::NeoVpcConfig.new
         data = {}
-        data['SecurityGroupIds'] = Stubs::NeoVpcSecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
-        data['Subnets'] = Stubs::NeoVpcSubnets.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['SecurityGroupIds'] = NeoVpcSecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['Subnets'] = NeoVpcSubnets.stub(stub[:subnets]) unless stub[:subnets].nil?
         data
       end
     end
@@ -3921,7 +3923,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['S3OutputLocation'] = stub[:s3_output_location] unless stub[:s3_output_location].nil?
         data['TargetDevice'] = stub[:target_device] unless stub[:target_device].nil?
-        data['TargetPlatform'] = Stubs::TargetPlatform.stub(stub[:target_platform]) unless stub[:target_platform].nil?
+        data['TargetPlatform'] = TargetPlatform.stub(stub[:target_platform]) unless stub[:target_platform].nil?
         data['CompilerOptions'] = stub[:compiler_options] unless stub[:compiler_options].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data
@@ -4032,16 +4034,16 @@ module AWS::SDK::SageMaker
         data = {}
         data['ContextName'] = stub[:context_name] unless stub[:context_name].nil?
         data['ContextArn'] = stub[:context_arn] unless stub[:context_arn].nil?
-        data['Source'] = Stubs::ContextSource.stub(stub[:source]) unless stub[:source].nil?
+        data['Source'] = ContextSource.stub(stub[:source]) unless stub[:source].nil?
         data['ContextType'] = stub[:context_type] unless stub[:context_type].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Properties'] = Stubs::LineageEntityParameters.stub(stub[:properties]) unless stub[:properties].nil?
+        data['Properties'] = LineageEntityParameters.stub(stub[:properties]) unless stub[:properties].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
         data['LineageGroupArn'] = stub[:lineage_group_arn] unless stub[:lineage_group_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4091,15 +4093,15 @@ module AWS::SDK::SageMaker
         data['JobDefinitionArn'] = stub[:job_definition_arn] unless stub[:job_definition_arn].nil?
         data['JobDefinitionName'] = stub[:job_definition_name] unless stub[:job_definition_name].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['DataQualityBaselineConfig'] = Stubs::DataQualityBaselineConfig.stub(stub[:data_quality_baseline_config]) unless stub[:data_quality_baseline_config].nil?
-        data['DataQualityAppSpecification'] = Stubs::DataQualityAppSpecification.stub(stub[:data_quality_app_specification]) unless stub[:data_quality_app_specification].nil?
-        data['DataQualityJobInput'] = Stubs::DataQualityJobInput.stub(stub[:data_quality_job_input]) unless stub[:data_quality_job_input].nil?
-        data['DataQualityJobOutputConfig'] = Stubs::MonitoringOutputConfig.stub(stub[:data_quality_job_output_config]) unless stub[:data_quality_job_output_config].nil?
-        data['JobResources'] = Stubs::MonitoringResources.stub(stub[:job_resources]) unless stub[:job_resources].nil?
-        data['NetworkConfig'] = Stubs::MonitoringNetworkConfig.stub(stub[:network_config]) unless stub[:network_config].nil?
+        data['DataQualityBaselineConfig'] = DataQualityBaselineConfig.stub(stub[:data_quality_baseline_config]) unless stub[:data_quality_baseline_config].nil?
+        data['DataQualityAppSpecification'] = DataQualityAppSpecification.stub(stub[:data_quality_app_specification]) unless stub[:data_quality_app_specification].nil?
+        data['DataQualityJobInput'] = DataQualityJobInput.stub(stub[:data_quality_job_input]) unless stub[:data_quality_job_input].nil?
+        data['DataQualityJobOutputConfig'] = MonitoringOutputConfig.stub(stub[:data_quality_job_output_config]) unless stub[:data_quality_job_output_config].nil?
+        data['JobResources'] = MonitoringResources.stub(stub[:job_resources]) unless stub[:job_resources].nil?
+        data['NetworkConfig'] = MonitoringNetworkConfig.stub(stub[:network_config]) unless stub[:network_config].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['StoppingCondition'] = Stubs::MonitoringStoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StoppingCondition'] = MonitoringStoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4139,7 +4141,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['EnableInterContainerTrafficEncryption'] = stub[:enable_inter_container_traffic_encryption] unless stub[:enable_inter_container_traffic_encryption].nil?
         data['EnableNetworkIsolation'] = stub[:enable_network_isolation] unless stub[:enable_network_isolation].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data
       end
     end
@@ -4157,7 +4159,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::MonitoringResources.new
         data = {}
-        data['ClusterConfig'] = Stubs::MonitoringClusterConfig.stub(stub[:cluster_config]) unless stub[:cluster_config].nil?
+        data['ClusterConfig'] = MonitoringClusterConfig.stub(stub[:cluster_config]) unless stub[:cluster_config].nil?
         data
       end
     end
@@ -4200,7 +4202,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::MonitoringOutputConfig.new
         data = {}
-        data['MonitoringOutputs'] = Stubs::MonitoringOutputs.stub(stub[:monitoring_outputs]) unless stub[:monitoring_outputs].nil?
+        data['MonitoringOutputs'] = MonitoringOutputs.stub(stub[:monitoring_outputs]) unless stub[:monitoring_outputs].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data
       end
@@ -4220,7 +4222,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MonitoringOutput.stub(element) unless element.nil?
+          data << MonitoringOutput.stub(element) unless element.nil?
         end
         data
       end
@@ -4239,7 +4241,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::MonitoringOutput.new
         data = {}
-        data['S3Output'] = Stubs::MonitoringS3Output.stub(stub[:s3_output]) unless stub[:s3_output].nil?
+        data['S3Output'] = MonitoringS3Output.stub(stub[:s3_output]) unless stub[:s3_output].nil?
         data
       end
     end
@@ -4279,7 +4281,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::DataQualityJobInput.new
         data = {}
-        data['EndpointInput'] = Stubs::EndpointInput.stub(stub[:endpoint_input]) unless stub[:endpoint_input].nil?
+        data['EndpointInput'] = EndpointInput.stub(stub[:endpoint_input]) unless stub[:endpoint_input].nil?
         data
       end
     end
@@ -4339,11 +4341,11 @@ module AWS::SDK::SageMaker
         stub ||= Types::DataQualityAppSpecification.new
         data = {}
         data['ImageUri'] = stub[:image_uri] unless stub[:image_uri].nil?
-        data['ContainerEntrypoint'] = Stubs::ContainerEntrypoint.stub(stub[:container_entrypoint]) unless stub[:container_entrypoint].nil?
-        data['ContainerArguments'] = Stubs::MonitoringContainerArguments.stub(stub[:container_arguments]) unless stub[:container_arguments].nil?
+        data['ContainerEntrypoint'] = ContainerEntrypoint.stub(stub[:container_entrypoint]) unless stub[:container_entrypoint].nil?
+        data['ContainerArguments'] = MonitoringContainerArguments.stub(stub[:container_arguments]) unless stub[:container_arguments].nil?
         data['RecordPreprocessorSourceUri'] = stub[:record_preprocessor_source_uri] unless stub[:record_preprocessor_source_uri].nil?
         data['PostAnalyticsProcessorSourceUri'] = stub[:post_analytics_processor_source_uri] unless stub[:post_analytics_processor_source_uri].nil?
-        data['Environment'] = Stubs::MonitoringEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
+        data['Environment'] = MonitoringEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
         data
       end
     end
@@ -4424,8 +4426,8 @@ module AWS::SDK::SageMaker
         stub ||= Types::DataQualityBaselineConfig.new
         data = {}
         data['BaseliningJobName'] = stub[:baselining_job_name] unless stub[:baselining_job_name].nil?
-        data['ConstraintsResource'] = Stubs::MonitoringConstraintsResource.stub(stub[:constraints_resource]) unless stub[:constraints_resource].nil?
-        data['StatisticsResource'] = Stubs::MonitoringStatisticsResource.stub(stub[:statistics_resource]) unless stub[:statistics_resource].nil?
+        data['ConstraintsResource'] = MonitoringConstraintsResource.stub(stub[:constraints_resource]) unless stub[:constraints_resource].nil?
+        data['StatisticsResource'] = MonitoringStatisticsResource.stub(stub[:statistics_resource]) unless stub[:statistics_resource].nil?
         data
       end
     end
@@ -4493,11 +4495,11 @@ module AWS::SDK::SageMaker
         data['IotThingName'] = stub[:iot_thing_name] unless stub[:iot_thing_name].nil?
         data['RegistrationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:registration_time]).to_i unless stub[:registration_time].nil?
         data['LatestHeartbeat'] = Hearth::TimeHelper.to_epoch_seconds(stub[:latest_heartbeat]).to_i unless stub[:latest_heartbeat].nil?
-        data['Models'] = Stubs::EdgeModels.stub(stub[:models]) unless stub[:models].nil?
+        data['Models'] = EdgeModels.stub(stub[:models]) unless stub[:models].nil?
         data['MaxModels'] = stub[:max_models] unless stub[:max_models].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['AgentVersion'] = stub[:agent_version] unless stub[:agent_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4516,7 +4518,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EdgeModel.stub(element) unless element.nil?
+          data << EdgeModel.stub(element) unless element.nil?
         end
         data
       end
@@ -4565,13 +4567,13 @@ module AWS::SDK::SageMaker
         data = {}
         data['DeviceFleetName'] = stub[:device_fleet_name] unless stub[:device_fleet_name].nil?
         data['DeviceFleetArn'] = stub[:device_fleet_arn] unless stub[:device_fleet_arn].nil?
-        data['OutputConfig'] = Stubs::EdgeOutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
+        data['OutputConfig'] = EdgeOutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['IotRoleAlias'] = stub[:iot_role_alias] unless stub[:iot_role_alias].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4639,17 +4641,17 @@ module AWS::SDK::SageMaker
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['AuthMode'] = stub[:auth_mode] unless stub[:auth_mode].nil?
-        data['DefaultUserSettings'] = Stubs::UserSettings.stub(stub[:default_user_settings]) unless stub[:default_user_settings].nil?
+        data['DefaultUserSettings'] = UserSettings.stub(stub[:default_user_settings]) unless stub[:default_user_settings].nil?
         data['AppNetworkAccessType'] = stub[:app_network_access_type] unless stub[:app_network_access_type].nil?
         data['HomeEfsFileSystemKmsKeyId'] = stub[:home_efs_file_system_kms_key_id] unless stub[:home_efs_file_system_kms_key_id].nil?
-        data['SubnetIds'] = Stubs::Subnets.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SubnetIds'] = Subnets.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
         data['Url'] = stub[:url] unless stub[:url].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
-        data['DomainSettings'] = Stubs::DomainSettings.stub(stub[:domain_settings]) unless stub[:domain_settings].nil?
+        data['DomainSettings'] = DomainSettings.stub(stub[:domain_settings]) unless stub[:domain_settings].nil?
         data['AppSecurityGroupManagement'] = stub[:app_security_group_management] unless stub[:app_security_group_management].nil?
         data['SecurityGroupIdForDomainBoundary'] = stub[:security_group_id_for_domain_boundary] unless stub[:security_group_id_for_domain_boundary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4668,8 +4670,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::DomainSettings.new
         data = {}
-        data['SecurityGroupIds'] = Stubs::DomainSecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
-        data['RStudioServerProDomainSettings'] = Stubs::RStudioServerProDomainSettings.stub(stub[:r_studio_server_pro_domain_settings]) unless stub[:r_studio_server_pro_domain_settings].nil?
+        data['SecurityGroupIds'] = DomainSecurityGroupIds.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['RStudioServerProDomainSettings'] = RStudioServerProDomainSettings.stub(stub[:r_studio_server_pro_domain_settings]) unless stub[:r_studio_server_pro_domain_settings].nil?
         data
       end
     end
@@ -4693,7 +4695,7 @@ module AWS::SDK::SageMaker
         data['DomainExecutionRoleArn'] = stub[:domain_execution_role_arn] unless stub[:domain_execution_role_arn].nil?
         data['RStudioConnectUrl'] = stub[:r_studio_connect_url] unless stub[:r_studio_connect_url].nil?
         data['RStudioPackageManagerUrl'] = stub[:r_studio_package_manager_url] unless stub[:r_studio_package_manager_url].nil?
-        data['DefaultResourceSpec'] = Stubs::ResourceSpec.stub(stub[:default_resource_spec]) unless stub[:default_resource_spec].nil?
+        data['DefaultResourceSpec'] = ResourceSpec.stub(stub[:default_resource_spec]) unless stub[:default_resource_spec].nil?
         data
       end
     end
@@ -4739,13 +4741,13 @@ module AWS::SDK::SageMaker
         stub ||= Types::UserSettings.new
         data = {}
         data['ExecutionRole'] = stub[:execution_role] unless stub[:execution_role].nil?
-        data['SecurityGroups'] = Stubs::SecurityGroupIds.stub(stub[:security_groups]) unless stub[:security_groups].nil?
-        data['SharingSettings'] = Stubs::SharingSettings.stub(stub[:sharing_settings]) unless stub[:sharing_settings].nil?
-        data['JupyterServerAppSettings'] = Stubs::JupyterServerAppSettings.stub(stub[:jupyter_server_app_settings]) unless stub[:jupyter_server_app_settings].nil?
-        data['KernelGatewayAppSettings'] = Stubs::KernelGatewayAppSettings.stub(stub[:kernel_gateway_app_settings]) unless stub[:kernel_gateway_app_settings].nil?
-        data['TensorBoardAppSettings'] = Stubs::TensorBoardAppSettings.stub(stub[:tensor_board_app_settings]) unless stub[:tensor_board_app_settings].nil?
-        data['RStudioServerProAppSettings'] = Stubs::RStudioServerProAppSettings.stub(stub[:r_studio_server_pro_app_settings]) unless stub[:r_studio_server_pro_app_settings].nil?
-        data['RSessionAppSettings'] = Stubs::RSessionAppSettings.stub(stub[:r_session_app_settings]) unless stub[:r_session_app_settings].nil?
+        data['SecurityGroups'] = SecurityGroupIds.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['SharingSettings'] = SharingSettings.stub(stub[:sharing_settings]) unless stub[:sharing_settings].nil?
+        data['JupyterServerAppSettings'] = JupyterServerAppSettings.stub(stub[:jupyter_server_app_settings]) unless stub[:jupyter_server_app_settings].nil?
+        data['KernelGatewayAppSettings'] = KernelGatewayAppSettings.stub(stub[:kernel_gateway_app_settings]) unless stub[:kernel_gateway_app_settings].nil?
+        data['TensorBoardAppSettings'] = TensorBoardAppSettings.stub(stub[:tensor_board_app_settings]) unless stub[:tensor_board_app_settings].nil?
+        data['RStudioServerProAppSettings'] = RStudioServerProAppSettings.stub(stub[:r_studio_server_pro_app_settings]) unless stub[:r_studio_server_pro_app_settings].nil?
+        data['RSessionAppSettings'] = RSessionAppSettings.stub(stub[:r_session_app_settings]) unless stub[:r_session_app_settings].nil?
         data
       end
     end
@@ -4764,8 +4766,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::RSessionAppSettings.new
         data = {}
-        data['DefaultResourceSpec'] = Stubs::ResourceSpec.stub(stub[:default_resource_spec]) unless stub[:default_resource_spec].nil?
-        data['CustomImages'] = Stubs::CustomImages.stub(stub[:custom_images]) unless stub[:custom_images].nil?
+        data['DefaultResourceSpec'] = ResourceSpec.stub(stub[:default_resource_spec]) unless stub[:default_resource_spec].nil?
+        data['CustomImages'] = CustomImages.stub(stub[:custom_images]) unless stub[:custom_images].nil?
         data
       end
     end
@@ -4784,7 +4786,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomImage.stub(element) unless element.nil?
+          data << CustomImage.stub(element) unless element.nil?
         end
         data
       end
@@ -4845,7 +4847,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::TensorBoardAppSettings.new
         data = {}
-        data['DefaultResourceSpec'] = Stubs::ResourceSpec.stub(stub[:default_resource_spec]) unless stub[:default_resource_spec].nil?
+        data['DefaultResourceSpec'] = ResourceSpec.stub(stub[:default_resource_spec]) unless stub[:default_resource_spec].nil?
         data
       end
     end
@@ -4865,9 +4867,9 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::KernelGatewayAppSettings.new
         data = {}
-        data['DefaultResourceSpec'] = Stubs::ResourceSpec.stub(stub[:default_resource_spec]) unless stub[:default_resource_spec].nil?
-        data['CustomImages'] = Stubs::CustomImages.stub(stub[:custom_images]) unless stub[:custom_images].nil?
-        data['LifecycleConfigArns'] = Stubs::LifecycleConfigArns.stub(stub[:lifecycle_config_arns]) unless stub[:lifecycle_config_arns].nil?
+        data['DefaultResourceSpec'] = ResourceSpec.stub(stub[:default_resource_spec]) unless stub[:default_resource_spec].nil?
+        data['CustomImages'] = CustomImages.stub(stub[:custom_images]) unless stub[:custom_images].nil?
+        data['LifecycleConfigArns'] = LifecycleConfigArns.stub(stub[:lifecycle_config_arns]) unless stub[:lifecycle_config_arns].nil?
         data
       end
     end
@@ -4906,8 +4908,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::JupyterServerAppSettings.new
         data = {}
-        data['DefaultResourceSpec'] = Stubs::ResourceSpec.stub(stub[:default_resource_spec]) unless stub[:default_resource_spec].nil?
-        data['LifecycleConfigArns'] = Stubs::LifecycleConfigArns.stub(stub[:lifecycle_config_arns]) unless stub[:lifecycle_config_arns].nil?
+        data['DefaultResourceSpec'] = ResourceSpec.stub(stub[:default_resource_spec]) unless stub[:default_resource_spec].nil?
+        data['LifecycleConfigArns'] = LifecycleConfigArns.stub(stub[:lifecycle_config_arns]) unless stub[:lifecycle_config_arns].nil?
         data
       end
     end
@@ -4984,7 +4986,7 @@ module AWS::SDK::SageMaker
         data['ModelName'] = stub[:model_name] unless stub[:model_name].nil?
         data['ModelVersion'] = stub[:model_version] unless stub[:model_version].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['OutputConfig'] = Stubs::EdgeOutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
+        data['OutputConfig'] = EdgeOutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
         data['ResourceKey'] = stub[:resource_key] unless stub[:resource_key].nil?
         data['EdgePackagingJobStatus'] = stub[:edge_packaging_job_status] unless stub[:edge_packaging_job_status].nil?
         data['EdgePackagingJobStatusMessage'] = stub[:edge_packaging_job_status_message] unless stub[:edge_packaging_job_status_message].nil?
@@ -4992,8 +4994,8 @@ module AWS::SDK::SageMaker
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['ModelArtifact'] = stub[:model_artifact] unless stub[:model_artifact].nil?
         data['ModelSignature'] = stub[:model_signature] unless stub[:model_signature].nil?
-        data['PresetDeploymentOutput'] = Stubs::EdgePresetDeploymentOutput.stub(stub[:preset_deployment_output]) unless stub[:preset_deployment_output].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PresetDeploymentOutput'] = EdgePresetDeploymentOutput.stub(stub[:preset_deployment_output]) unless stub[:preset_deployment_output].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5046,16 +5048,16 @@ module AWS::SDK::SageMaker
         data['EndpointName'] = stub[:endpoint_name] unless stub[:endpoint_name].nil?
         data['EndpointArn'] = stub[:endpoint_arn] unless stub[:endpoint_arn].nil?
         data['EndpointConfigName'] = stub[:endpoint_config_name] unless stub[:endpoint_config_name].nil?
-        data['ProductionVariants'] = Stubs::ProductionVariantSummaryList.stub(stub[:production_variants]) unless stub[:production_variants].nil?
-        data['DataCaptureConfig'] = Stubs::DataCaptureConfigSummary.stub(stub[:data_capture_config]) unless stub[:data_capture_config].nil?
+        data['ProductionVariants'] = ProductionVariantSummaryList.stub(stub[:production_variants]) unless stub[:production_variants].nil?
+        data['DataCaptureConfig'] = DataCaptureConfigSummary.stub(stub[:data_capture_config]) unless stub[:data_capture_config].nil?
         data['EndpointStatus'] = stub[:endpoint_status] unless stub[:endpoint_status].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['LastDeploymentConfig'] = Stubs::DeploymentConfig.stub(stub[:last_deployment_config]) unless stub[:last_deployment_config].nil?
-        data['AsyncInferenceConfig'] = Stubs::AsyncInferenceConfig.stub(stub[:async_inference_config]) unless stub[:async_inference_config].nil?
-        data['PendingDeploymentSummary'] = Stubs::PendingDeploymentSummary.stub(stub[:pending_deployment_summary]) unless stub[:pending_deployment_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LastDeploymentConfig'] = DeploymentConfig.stub(stub[:last_deployment_config]) unless stub[:last_deployment_config].nil?
+        data['AsyncInferenceConfig'] = AsyncInferenceConfig.stub(stub[:async_inference_config]) unless stub[:async_inference_config].nil?
+        data['PendingDeploymentSummary'] = PendingDeploymentSummary.stub(stub[:pending_deployment_summary]) unless stub[:pending_deployment_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5076,7 +5078,7 @@ module AWS::SDK::SageMaker
         stub ||= Types::PendingDeploymentSummary.new
         data = {}
         data['EndpointConfigName'] = stub[:endpoint_config_name] unless stub[:endpoint_config_name].nil?
-        data['ProductionVariants'] = Stubs::PendingProductionVariantSummaryList.stub(stub[:production_variants]) unless stub[:production_variants].nil?
+        data['ProductionVariants'] = PendingProductionVariantSummaryList.stub(stub[:production_variants]) unless stub[:production_variants].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data
       end
@@ -5096,7 +5098,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PendingProductionVariantSummary.stub(element) unless element.nil?
+          data << PendingProductionVariantSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -5126,16 +5128,16 @@ module AWS::SDK::SageMaker
         stub ||= Types::PendingProductionVariantSummary.new
         data = {}
         data['VariantName'] = stub[:variant_name] unless stub[:variant_name].nil?
-        data['DeployedImages'] = Stubs::DeployedImages.stub(stub[:deployed_images]) unless stub[:deployed_images].nil?
+        data['DeployedImages'] = DeployedImages.stub(stub[:deployed_images]) unless stub[:deployed_images].nil?
         data['CurrentWeight'] = Hearth::NumberHelper.serialize(stub[:current_weight])
         data['DesiredWeight'] = Hearth::NumberHelper.serialize(stub[:desired_weight])
         data['CurrentInstanceCount'] = stub[:current_instance_count] unless stub[:current_instance_count].nil?
         data['DesiredInstanceCount'] = stub[:desired_instance_count] unless stub[:desired_instance_count].nil?
         data['InstanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
         data['AcceleratorType'] = stub[:accelerator_type] unless stub[:accelerator_type].nil?
-        data['VariantStatus'] = Stubs::ProductionVariantStatusList.stub(stub[:variant_status]) unless stub[:variant_status].nil?
-        data['CurrentServerlessConfig'] = Stubs::ProductionVariantServerlessConfig.stub(stub[:current_serverless_config]) unless stub[:current_serverless_config].nil?
-        data['DesiredServerlessConfig'] = Stubs::ProductionVariantServerlessConfig.stub(stub[:desired_serverless_config]) unless stub[:desired_serverless_config].nil?
+        data['VariantStatus'] = ProductionVariantStatusList.stub(stub[:variant_status]) unless stub[:variant_status].nil?
+        data['CurrentServerlessConfig'] = ProductionVariantServerlessConfig.stub(stub[:current_serverless_config]) unless stub[:current_serverless_config].nil?
+        data['DesiredServerlessConfig'] = ProductionVariantServerlessConfig.stub(stub[:desired_serverless_config]) unless stub[:desired_serverless_config].nil?
         data
       end
     end
@@ -5174,7 +5176,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProductionVariantStatus.stub(element) unless element.nil?
+          data << ProductionVariantStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -5216,7 +5218,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeployedImage.stub(element) unless element.nil?
+          data << DeployedImage.stub(element) unless element.nil?
         end
         data
       end
@@ -5258,8 +5260,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::AsyncInferenceConfig.new
         data = {}
-        data['ClientConfig'] = Stubs::AsyncInferenceClientConfig.stub(stub[:client_config]) unless stub[:client_config].nil?
-        data['OutputConfig'] = Stubs::AsyncInferenceOutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
+        data['ClientConfig'] = AsyncInferenceClientConfig.stub(stub[:client_config]) unless stub[:client_config].nil?
+        data['OutputConfig'] = AsyncInferenceOutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
         data
       end
     end
@@ -5281,7 +5283,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['S3OutputPath'] = stub[:s3_output_path] unless stub[:s3_output_path].nil?
-        data['NotificationConfig'] = Stubs::AsyncInferenceNotificationConfig.stub(stub[:notification_config]) unless stub[:notification_config].nil?
+        data['NotificationConfig'] = AsyncInferenceNotificationConfig.stub(stub[:notification_config]) unless stub[:notification_config].nil?
         data
       end
     end
@@ -5338,8 +5340,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::DeploymentConfig.new
         data = {}
-        data['BlueGreenUpdatePolicy'] = Stubs::BlueGreenUpdatePolicy.stub(stub[:blue_green_update_policy]) unless stub[:blue_green_update_policy].nil?
-        data['AutoRollbackConfiguration'] = Stubs::AutoRollbackConfig.stub(stub[:auto_rollback_configuration]) unless stub[:auto_rollback_configuration].nil?
+        data['BlueGreenUpdatePolicy'] = BlueGreenUpdatePolicy.stub(stub[:blue_green_update_policy]) unless stub[:blue_green_update_policy].nil?
+        data['AutoRollbackConfiguration'] = AutoRollbackConfig.stub(stub[:auto_rollback_configuration]) unless stub[:auto_rollback_configuration].nil?
         data
       end
     end
@@ -5357,7 +5359,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::AutoRollbackConfig.new
         data = {}
-        data['Alarms'] = Stubs::AlarmList.stub(stub[:alarms]) unless stub[:alarms].nil?
+        data['Alarms'] = AlarmList.stub(stub[:alarms]) unless stub[:alarms].nil?
         data
       end
     end
@@ -5376,7 +5378,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Alarm.stub(element) unless element.nil?
+          data << Alarm.stub(element) unless element.nil?
         end
         data
       end
@@ -5415,7 +5417,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::BlueGreenUpdatePolicy.new
         data = {}
-        data['TrafficRoutingConfiguration'] = Stubs::TrafficRoutingConfig.stub(stub[:traffic_routing_configuration]) unless stub[:traffic_routing_configuration].nil?
+        data['TrafficRoutingConfiguration'] = TrafficRoutingConfig.stub(stub[:traffic_routing_configuration]) unless stub[:traffic_routing_configuration].nil?
         data['TerminationWaitInSeconds'] = stub[:termination_wait_in_seconds] unless stub[:termination_wait_in_seconds].nil?
         data['MaximumExecutionTimeoutInSeconds'] = stub[:maximum_execution_timeout_in_seconds] unless stub[:maximum_execution_timeout_in_seconds].nil?
         data
@@ -5440,8 +5442,8 @@ module AWS::SDK::SageMaker
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['WaitIntervalInSeconds'] = stub[:wait_interval_in_seconds] unless stub[:wait_interval_in_seconds].nil?
-        data['CanarySize'] = Stubs::CapacitySize.stub(stub[:canary_size]) unless stub[:canary_size].nil?
-        data['LinearStepSize'] = Stubs::CapacitySize.stub(stub[:linear_step_size]) unless stub[:linear_step_size].nil?
+        data['CanarySize'] = CapacitySize.stub(stub[:canary_size]) unless stub[:canary_size].nil?
+        data['LinearStepSize'] = CapacitySize.stub(stub[:linear_step_size]) unless stub[:linear_step_size].nil?
         data
       end
     end
@@ -5506,7 +5508,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProductionVariantSummary.stub(element) unless element.nil?
+          data << ProductionVariantSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -5534,14 +5536,14 @@ module AWS::SDK::SageMaker
         stub ||= Types::ProductionVariantSummary.new
         data = {}
         data['VariantName'] = stub[:variant_name] unless stub[:variant_name].nil?
-        data['DeployedImages'] = Stubs::DeployedImages.stub(stub[:deployed_images]) unless stub[:deployed_images].nil?
+        data['DeployedImages'] = DeployedImages.stub(stub[:deployed_images]) unless stub[:deployed_images].nil?
         data['CurrentWeight'] = Hearth::NumberHelper.serialize(stub[:current_weight])
         data['DesiredWeight'] = Hearth::NumberHelper.serialize(stub[:desired_weight])
         data['CurrentInstanceCount'] = stub[:current_instance_count] unless stub[:current_instance_count].nil?
         data['DesiredInstanceCount'] = stub[:desired_instance_count] unless stub[:desired_instance_count].nil?
-        data['VariantStatus'] = Stubs::ProductionVariantStatusList.stub(stub[:variant_status]) unless stub[:variant_status].nil?
-        data['CurrentServerlessConfig'] = Stubs::ProductionVariantServerlessConfig.stub(stub[:current_serverless_config]) unless stub[:current_serverless_config].nil?
-        data['DesiredServerlessConfig'] = Stubs::ProductionVariantServerlessConfig.stub(stub[:desired_serverless_config]) unless stub[:desired_serverless_config].nil?
+        data['VariantStatus'] = ProductionVariantStatusList.stub(stub[:variant_status]) unless stub[:variant_status].nil?
+        data['CurrentServerlessConfig'] = ProductionVariantServerlessConfig.stub(stub[:current_serverless_config]) unless stub[:current_serverless_config].nil?
+        data['DesiredServerlessConfig'] = ProductionVariantServerlessConfig.stub(stub[:desired_serverless_config]) unless stub[:desired_serverless_config].nil?
         data
       end
     end
@@ -5564,12 +5566,12 @@ module AWS::SDK::SageMaker
         data = {}
         data['EndpointConfigName'] = stub[:endpoint_config_name] unless stub[:endpoint_config_name].nil?
         data['EndpointConfigArn'] = stub[:endpoint_config_arn] unless stub[:endpoint_config_arn].nil?
-        data['ProductionVariants'] = Stubs::ProductionVariantList.stub(stub[:production_variants]) unless stub[:production_variants].nil?
-        data['DataCaptureConfig'] = Stubs::DataCaptureConfig.stub(stub[:data_capture_config]) unless stub[:data_capture_config].nil?
+        data['ProductionVariants'] = ProductionVariantList.stub(stub[:production_variants]) unless stub[:production_variants].nil?
+        data['DataCaptureConfig'] = DataCaptureConfig.stub(stub[:data_capture_config]) unless stub[:data_capture_config].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['AsyncInferenceConfig'] = Stubs::AsyncInferenceConfig.stub(stub[:async_inference_config]) unless stub[:async_inference_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AsyncInferenceConfig'] = AsyncInferenceConfig.stub(stub[:async_inference_config]) unless stub[:async_inference_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5596,8 +5598,8 @@ module AWS::SDK::SageMaker
         data['InitialSamplingPercentage'] = stub[:initial_sampling_percentage] unless stub[:initial_sampling_percentage].nil?
         data['DestinationS3Uri'] = stub[:destination_s3_uri] unless stub[:destination_s3_uri].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
-        data['CaptureOptions'] = Stubs::CaptureOptionList.stub(stub[:capture_options]) unless stub[:capture_options].nil?
-        data['CaptureContentTypeHeader'] = Stubs::CaptureContentTypeHeader.stub(stub[:capture_content_type_header]) unless stub[:capture_content_type_header].nil?
+        data['CaptureOptions'] = CaptureOptionList.stub(stub[:capture_options]) unless stub[:capture_options].nil?
+        data['CaptureContentTypeHeader'] = CaptureContentTypeHeader.stub(stub[:capture_content_type_header]) unless stub[:capture_content_type_header].nil?
         data
       end
     end
@@ -5616,8 +5618,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::CaptureContentTypeHeader.new
         data = {}
-        data['CsvContentTypes'] = Stubs::CsvContentTypes.stub(stub[:csv_content_types]) unless stub[:csv_content_types].nil?
-        data['JsonContentTypes'] = Stubs::JsonContentTypes.stub(stub[:json_content_types]) unless stub[:json_content_types].nil?
+        data['CsvContentTypes'] = CsvContentTypes.stub(stub[:csv_content_types]) unless stub[:csv_content_types].nil?
+        data['JsonContentTypes'] = JsonContentTypes.stub(stub[:json_content_types]) unless stub[:json_content_types].nil?
         data
       end
     end
@@ -5676,7 +5678,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CaptureOption.stub(element) unless element.nil?
+          data << CaptureOption.stub(element) unless element.nil?
         end
         data
       end
@@ -5714,7 +5716,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProductionVariant.stub(element) unless element.nil?
+          data << ProductionVariant.stub(element) unless element.nil?
         end
         data
       end
@@ -5746,8 +5748,8 @@ module AWS::SDK::SageMaker
         data['InstanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
         data['InitialVariantWeight'] = Hearth::NumberHelper.serialize(stub[:initial_variant_weight])
         data['AcceleratorType'] = stub[:accelerator_type] unless stub[:accelerator_type].nil?
-        data['CoreDumpConfig'] = Stubs::ProductionVariantCoreDumpConfig.stub(stub[:core_dump_config]) unless stub[:core_dump_config].nil?
-        data['ServerlessConfig'] = Stubs::ProductionVariantServerlessConfig.stub(stub[:serverless_config]) unless stub[:serverless_config].nil?
+        data['CoreDumpConfig'] = ProductionVariantCoreDumpConfig.stub(stub[:core_dump_config]) unless stub[:core_dump_config].nil?
+        data['ServerlessConfig'] = ProductionVariantServerlessConfig.stub(stub[:serverless_config]) unless stub[:serverless_config].nil?
         data
       end
     end
@@ -5793,13 +5795,13 @@ module AWS::SDK::SageMaker
         data['ExperimentName'] = stub[:experiment_name] unless stub[:experiment_name].nil?
         data['ExperimentArn'] = stub[:experiment_arn] unless stub[:experiment_arn].nil?
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
-        data['Source'] = Stubs::ExperimentSource.stub(stub[:source]) unless stub[:source].nil?
+        data['Source'] = ExperimentSource.stub(stub[:source]) unless stub[:source].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5851,17 +5853,17 @@ module AWS::SDK::SageMaker
         data['FeatureGroupName'] = stub[:feature_group_name] unless stub[:feature_group_name].nil?
         data['RecordIdentifierFeatureName'] = stub[:record_identifier_feature_name] unless stub[:record_identifier_feature_name].nil?
         data['EventTimeFeatureName'] = stub[:event_time_feature_name] unless stub[:event_time_feature_name].nil?
-        data['FeatureDefinitions'] = Stubs::FeatureDefinitions.stub(stub[:feature_definitions]) unless stub[:feature_definitions].nil?
+        data['FeatureDefinitions'] = FeatureDefinitions.stub(stub[:feature_definitions]) unless stub[:feature_definitions].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['OnlineStoreConfig'] = Stubs::OnlineStoreConfig.stub(stub[:online_store_config]) unless stub[:online_store_config].nil?
-        data['OfflineStoreConfig'] = Stubs::OfflineStoreConfig.stub(stub[:offline_store_config]) unless stub[:offline_store_config].nil?
+        data['OnlineStoreConfig'] = OnlineStoreConfig.stub(stub[:online_store_config]) unless stub[:online_store_config].nil?
+        data['OfflineStoreConfig'] = OfflineStoreConfig.stub(stub[:offline_store_config]) unless stub[:offline_store_config].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['FeatureGroupStatus'] = stub[:feature_group_status] unless stub[:feature_group_status].nil?
-        data['OfflineStoreStatus'] = Stubs::OfflineStoreStatus.stub(stub[:offline_store_status]) unless stub[:offline_store_status].nil?
+        data['OfflineStoreStatus'] = OfflineStoreStatus.stub(stub[:offline_store_status]) unless stub[:offline_store_status].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5901,9 +5903,9 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::OfflineStoreConfig.new
         data = {}
-        data['S3StorageConfig'] = Stubs::S3StorageConfig.stub(stub[:s3_storage_config]) unless stub[:s3_storage_config].nil?
+        data['S3StorageConfig'] = S3StorageConfig.stub(stub[:s3_storage_config]) unless stub[:s3_storage_config].nil?
         data['DisableGlueTableCreation'] = stub[:disable_glue_table_creation] unless stub[:disable_glue_table_creation].nil?
-        data['DataCatalogConfig'] = Stubs::DataCatalogConfig.stub(stub[:data_catalog_config]) unless stub[:data_catalog_config].nil?
+        data['DataCatalogConfig'] = DataCatalogConfig.stub(stub[:data_catalog_config]) unless stub[:data_catalog_config].nil?
         data
       end
     end
@@ -5966,7 +5968,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::OnlineStoreConfig.new
         data = {}
-        data['SecurityConfig'] = Stubs::OnlineStoreSecurityConfig.stub(stub[:security_config]) unless stub[:security_config].nil?
+        data['SecurityConfig'] = OnlineStoreSecurityConfig.stub(stub[:security_config]) unless stub[:security_config].nil?
         data['EnableOnlineStore'] = stub[:enable_online_store] unless stub[:enable_online_store].nil?
         data
       end
@@ -6004,7 +6006,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FeatureDefinition.stub(element) unless element.nil?
+          data << FeatureDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -6053,13 +6055,13 @@ module AWS::SDK::SageMaker
         data['FlowDefinitionName'] = stub[:flow_definition_name] unless stub[:flow_definition_name].nil?
         data['FlowDefinitionStatus'] = stub[:flow_definition_status] unless stub[:flow_definition_status].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['HumanLoopRequestSource'] = Stubs::HumanLoopRequestSource.stub(stub[:human_loop_request_source]) unless stub[:human_loop_request_source].nil?
-        data['HumanLoopActivationConfig'] = Stubs::HumanLoopActivationConfig.stub(stub[:human_loop_activation_config]) unless stub[:human_loop_activation_config].nil?
-        data['HumanLoopConfig'] = Stubs::HumanLoopConfig.stub(stub[:human_loop_config]) unless stub[:human_loop_config].nil?
-        data['OutputConfig'] = Stubs::FlowDefinitionOutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
+        data['HumanLoopRequestSource'] = HumanLoopRequestSource.stub(stub[:human_loop_request_source]) unless stub[:human_loop_request_source].nil?
+        data['HumanLoopActivationConfig'] = HumanLoopActivationConfig.stub(stub[:human_loop_activation_config]) unless stub[:human_loop_activation_config].nil?
+        data['HumanLoopConfig'] = HumanLoopConfig.stub(stub[:human_loop_config]) unless stub[:human_loop_config].nil?
+        data['OutputConfig'] = FlowDefinitionOutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6112,8 +6114,8 @@ module AWS::SDK::SageMaker
         data['TaskCount'] = stub[:task_count] unless stub[:task_count].nil?
         data['TaskAvailabilityLifetimeInSeconds'] = stub[:task_availability_lifetime_in_seconds] unless stub[:task_availability_lifetime_in_seconds].nil?
         data['TaskTimeLimitInSeconds'] = stub[:task_time_limit_in_seconds] unless stub[:task_time_limit_in_seconds].nil?
-        data['TaskKeywords'] = Stubs::FlowDefinitionTaskKeywords.stub(stub[:task_keywords]) unless stub[:task_keywords].nil?
-        data['PublicWorkforceTaskPrice'] = Stubs::PublicWorkforceTaskPrice.stub(stub[:public_workforce_task_price]) unless stub[:public_workforce_task_price].nil?
+        data['TaskKeywords'] = FlowDefinitionTaskKeywords.stub(stub[:task_keywords]) unless stub[:task_keywords].nil?
+        data['PublicWorkforceTaskPrice'] = PublicWorkforceTaskPrice.stub(stub[:public_workforce_task_price]) unless stub[:public_workforce_task_price].nil?
         data
       end
     end
@@ -6131,7 +6133,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::PublicWorkforceTaskPrice.new
         data = {}
-        data['AmountInUsd'] = Stubs::USD.stub(stub[:amount_in_usd]) unless stub[:amount_in_usd].nil?
+        data['AmountInUsd'] = USD.stub(stub[:amount_in_usd]) unless stub[:amount_in_usd].nil?
         data
       end
     end
@@ -6191,7 +6193,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::HumanLoopActivationConfig.new
         data = {}
-        data['HumanLoopActivationConditionsConfig'] = Stubs::HumanLoopActivationConditionsConfig.stub(stub[:human_loop_activation_conditions_config]) unless stub[:human_loop_activation_conditions_config].nil?
+        data['HumanLoopActivationConditionsConfig'] = HumanLoopActivationConditionsConfig.stub(stub[:human_loop_activation_conditions_config]) unless stub[:human_loop_activation_conditions_config].nil?
         data
       end
     end
@@ -6250,8 +6252,8 @@ module AWS::SDK::SageMaker
         data['HumanTaskUiName'] = stub[:human_task_ui_name] unless stub[:human_task_ui_name].nil?
         data['HumanTaskUiStatus'] = stub[:human_task_ui_status] unless stub[:human_task_ui_status].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['UiTemplate'] = Stubs::UiTemplateInfo.stub(stub[:ui_template]) unless stub[:ui_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UiTemplate'] = UiTemplateInfo.stub(stub[:ui_template]) unless stub[:ui_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6302,20 +6304,20 @@ module AWS::SDK::SageMaker
         data = {}
         data['HyperParameterTuningJobName'] = stub[:hyper_parameter_tuning_job_name] unless stub[:hyper_parameter_tuning_job_name].nil?
         data['HyperParameterTuningJobArn'] = stub[:hyper_parameter_tuning_job_arn] unless stub[:hyper_parameter_tuning_job_arn].nil?
-        data['HyperParameterTuningJobConfig'] = Stubs::HyperParameterTuningJobConfig.stub(stub[:hyper_parameter_tuning_job_config]) unless stub[:hyper_parameter_tuning_job_config].nil?
-        data['TrainingJobDefinition'] = Stubs::HyperParameterTrainingJobDefinition.stub(stub[:training_job_definition]) unless stub[:training_job_definition].nil?
-        data['TrainingJobDefinitions'] = Stubs::HyperParameterTrainingJobDefinitions.stub(stub[:training_job_definitions]) unless stub[:training_job_definitions].nil?
+        data['HyperParameterTuningJobConfig'] = HyperParameterTuningJobConfig.stub(stub[:hyper_parameter_tuning_job_config]) unless stub[:hyper_parameter_tuning_job_config].nil?
+        data['TrainingJobDefinition'] = HyperParameterTrainingJobDefinition.stub(stub[:training_job_definition]) unless stub[:training_job_definition].nil?
+        data['TrainingJobDefinitions'] = HyperParameterTrainingJobDefinitions.stub(stub[:training_job_definitions]) unless stub[:training_job_definitions].nil?
         data['HyperParameterTuningJobStatus'] = stub[:hyper_parameter_tuning_job_status] unless stub[:hyper_parameter_tuning_job_status].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['HyperParameterTuningEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:hyper_parameter_tuning_end_time]).to_i unless stub[:hyper_parameter_tuning_end_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['TrainingJobStatusCounters'] = Stubs::TrainingJobStatusCounters.stub(stub[:training_job_status_counters]) unless stub[:training_job_status_counters].nil?
-        data['ObjectiveStatusCounters'] = Stubs::ObjectiveStatusCounters.stub(stub[:objective_status_counters]) unless stub[:objective_status_counters].nil?
-        data['BestTrainingJob'] = Stubs::HyperParameterTrainingJobSummary.stub(stub[:best_training_job]) unless stub[:best_training_job].nil?
-        data['OverallBestTrainingJob'] = Stubs::HyperParameterTrainingJobSummary.stub(stub[:overall_best_training_job]) unless stub[:overall_best_training_job].nil?
-        data['WarmStartConfig'] = Stubs::HyperParameterTuningJobWarmStartConfig.stub(stub[:warm_start_config]) unless stub[:warm_start_config].nil?
+        data['TrainingJobStatusCounters'] = TrainingJobStatusCounters.stub(stub[:training_job_status_counters]) unless stub[:training_job_status_counters].nil?
+        data['ObjectiveStatusCounters'] = ObjectiveStatusCounters.stub(stub[:objective_status_counters]) unless stub[:objective_status_counters].nil?
+        data['BestTrainingJob'] = HyperParameterTrainingJobSummary.stub(stub[:best_training_job]) unless stub[:best_training_job].nil?
+        data['OverallBestTrainingJob'] = HyperParameterTrainingJobSummary.stub(stub[:overall_best_training_job]) unless stub[:overall_best_training_job].nil?
+        data['WarmStartConfig'] = HyperParameterTuningJobWarmStartConfig.stub(stub[:warm_start_config]) unless stub[:warm_start_config].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6334,7 +6336,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::HyperParameterTuningJobWarmStartConfig.new
         data = {}
-        data['ParentHyperParameterTuningJobs'] = Stubs::ParentHyperParameterTuningJobs.stub(stub[:parent_hyper_parameter_tuning_jobs]) unless stub[:parent_hyper_parameter_tuning_jobs].nil?
+        data['ParentHyperParameterTuningJobs'] = ParentHyperParameterTuningJobs.stub(stub[:parent_hyper_parameter_tuning_jobs]) unless stub[:parent_hyper_parameter_tuning_jobs].nil?
         data['WarmStartType'] = stub[:warm_start_type] unless stub[:warm_start_type].nil?
         data
       end
@@ -6354,7 +6356,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ParentHyperParameterTuningJob.stub(element) unless element.nil?
+          data << ParentHyperParameterTuningJob.stub(element) unless element.nil?
         end
         data
       end
@@ -6410,9 +6412,9 @@ module AWS::SDK::SageMaker
         data['TrainingStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:training_start_time]).to_i unless stub[:training_start_time].nil?
         data['TrainingEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:training_end_time]).to_i unless stub[:training_end_time].nil?
         data['TrainingJobStatus'] = stub[:training_job_status] unless stub[:training_job_status].nil?
-        data['TunedHyperParameters'] = Stubs::HyperParameters.stub(stub[:tuned_hyper_parameters]) unless stub[:tuned_hyper_parameters].nil?
+        data['TunedHyperParameters'] = HyperParameters.stub(stub[:tuned_hyper_parameters]) unless stub[:tuned_hyper_parameters].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['FinalHyperParameterTuningJobObjectiveMetric'] = Stubs::FinalHyperParameterTuningJobObjectiveMetric.stub(stub[:final_hyper_parameter_tuning_job_objective_metric]) unless stub[:final_hyper_parameter_tuning_job_objective_metric].nil?
+        data['FinalHyperParameterTuningJobObjectiveMetric'] = FinalHyperParameterTuningJobObjectiveMetric.stub(stub[:final_hyper_parameter_tuning_job_objective_metric]) unless stub[:final_hyper_parameter_tuning_job_objective_metric].nil?
         data['ObjectiveStatus'] = stub[:objective_status] unless stub[:objective_status].nil?
         data
       end
@@ -6502,7 +6504,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HyperParameterTrainingJobDefinition.stub(element) unless element.nil?
+          data << HyperParameterTrainingJobDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -6537,21 +6539,21 @@ module AWS::SDK::SageMaker
         stub ||= Types::HyperParameterTrainingJobDefinition.new
         data = {}
         data['DefinitionName'] = stub[:definition_name] unless stub[:definition_name].nil?
-        data['TuningObjective'] = Stubs::HyperParameterTuningJobObjective.stub(stub[:tuning_objective]) unless stub[:tuning_objective].nil?
-        data['HyperParameterRanges'] = Stubs::ParameterRanges.stub(stub[:hyper_parameter_ranges]) unless stub[:hyper_parameter_ranges].nil?
-        data['StaticHyperParameters'] = Stubs::HyperParameters.stub(stub[:static_hyper_parameters]) unless stub[:static_hyper_parameters].nil?
-        data['AlgorithmSpecification'] = Stubs::HyperParameterAlgorithmSpecification.stub(stub[:algorithm_specification]) unless stub[:algorithm_specification].nil?
+        data['TuningObjective'] = HyperParameterTuningJobObjective.stub(stub[:tuning_objective]) unless stub[:tuning_objective].nil?
+        data['HyperParameterRanges'] = ParameterRanges.stub(stub[:hyper_parameter_ranges]) unless stub[:hyper_parameter_ranges].nil?
+        data['StaticHyperParameters'] = HyperParameters.stub(stub[:static_hyper_parameters]) unless stub[:static_hyper_parameters].nil?
+        data['AlgorithmSpecification'] = HyperParameterAlgorithmSpecification.stub(stub[:algorithm_specification]) unless stub[:algorithm_specification].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        data['OutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
-        data['ResourceConfig'] = Stubs::ResourceConfig.stub(stub[:resource_config]) unless stub[:resource_config].nil?
-        data['StoppingCondition'] = Stubs::StoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['ResourceConfig'] = ResourceConfig.stub(stub[:resource_config]) unless stub[:resource_config].nil?
+        data['StoppingCondition'] = StoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
         data['EnableNetworkIsolation'] = stub[:enable_network_isolation] unless stub[:enable_network_isolation].nil?
         data['EnableInterContainerTrafficEncryption'] = stub[:enable_inter_container_traffic_encryption] unless stub[:enable_inter_container_traffic_encryption].nil?
         data['EnableManagedSpotTraining'] = stub[:enable_managed_spot_training] unless stub[:enable_managed_spot_training].nil?
-        data['CheckpointConfig'] = Stubs::CheckpointConfig.stub(stub[:checkpoint_config]) unless stub[:checkpoint_config].nil?
-        data['RetryStrategy'] = Stubs::RetryStrategy.stub(stub[:retry_strategy]) unless stub[:retry_strategy].nil?
+        data['CheckpointConfig'] = CheckpointConfig.stub(stub[:checkpoint_config]) unless stub[:checkpoint_config].nil?
+        data['RetryStrategy'] = RetryStrategy.stub(stub[:retry_strategy]) unless stub[:retry_strategy].nil?
         data
       end
     end
@@ -6613,7 +6615,7 @@ module AWS::SDK::SageMaker
         data['TrainingImage'] = stub[:training_image] unless stub[:training_image].nil?
         data['TrainingInputMode'] = stub[:training_input_mode] unless stub[:training_input_mode].nil?
         data['AlgorithmName'] = stub[:algorithm_name] unless stub[:algorithm_name].nil?
-        data['MetricDefinitions'] = Stubs::MetricDefinitionList.stub(stub[:metric_definitions]) unless stub[:metric_definitions].nil?
+        data['MetricDefinitions'] = MetricDefinitionList.stub(stub[:metric_definitions]) unless stub[:metric_definitions].nil?
         data
       end
     end
@@ -6633,9 +6635,9 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::ParameterRanges.new
         data = {}
-        data['IntegerParameterRanges'] = Stubs::IntegerParameterRanges.stub(stub[:integer_parameter_ranges]) unless stub[:integer_parameter_ranges].nil?
-        data['ContinuousParameterRanges'] = Stubs::ContinuousParameterRanges.stub(stub[:continuous_parameter_ranges]) unless stub[:continuous_parameter_ranges].nil?
-        data['CategoricalParameterRanges'] = Stubs::CategoricalParameterRanges.stub(stub[:categorical_parameter_ranges]) unless stub[:categorical_parameter_ranges].nil?
+        data['IntegerParameterRanges'] = IntegerParameterRanges.stub(stub[:integer_parameter_ranges]) unless stub[:integer_parameter_ranges].nil?
+        data['ContinuousParameterRanges'] = ContinuousParameterRanges.stub(stub[:continuous_parameter_ranges]) unless stub[:continuous_parameter_ranges].nil?
+        data['CategoricalParameterRanges'] = CategoricalParameterRanges.stub(stub[:categorical_parameter_ranges]) unless stub[:categorical_parameter_ranges].nil?
         data
       end
     end
@@ -6654,7 +6656,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CategoricalParameterRange.stub(element) unless element.nil?
+          data << CategoricalParameterRange.stub(element) unless element.nil?
         end
         data
       end
@@ -6675,7 +6677,7 @@ module AWS::SDK::SageMaker
         stub ||= Types::CategoricalParameterRange.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Values'] = Stubs::ParameterValues.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = ParameterValues.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -6694,7 +6696,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContinuousParameterRange.stub(element) unless element.nil?
+          data << ContinuousParameterRange.stub(element) unless element.nil?
         end
         data
       end
@@ -6738,7 +6740,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IntegerParameterRange.stub(element) unless element.nil?
+          data << IntegerParameterRange.stub(element) unless element.nil?
         end
         data
       end
@@ -6787,11 +6789,11 @@ module AWS::SDK::SageMaker
         stub ||= Types::HyperParameterTuningJobConfig.new
         data = {}
         data['Strategy'] = stub[:strategy] unless stub[:strategy].nil?
-        data['HyperParameterTuningJobObjective'] = Stubs::HyperParameterTuningJobObjective.stub(stub[:hyper_parameter_tuning_job_objective]) unless stub[:hyper_parameter_tuning_job_objective].nil?
-        data['ResourceLimits'] = Stubs::ResourceLimits.stub(stub[:resource_limits]) unless stub[:resource_limits].nil?
-        data['ParameterRanges'] = Stubs::ParameterRanges.stub(stub[:parameter_ranges]) unless stub[:parameter_ranges].nil?
+        data['HyperParameterTuningJobObjective'] = HyperParameterTuningJobObjective.stub(stub[:hyper_parameter_tuning_job_objective]) unless stub[:hyper_parameter_tuning_job_objective].nil?
+        data['ResourceLimits'] = ResourceLimits.stub(stub[:resource_limits]) unless stub[:resource_limits].nil?
+        data['ParameterRanges'] = ParameterRanges.stub(stub[:parameter_ranges]) unless stub[:parameter_ranges].nil?
         data['TrainingJobEarlyStoppingType'] = stub[:training_job_early_stopping_type] unless stub[:training_job_early_stopping_type].nil?
-        data['TuningJobCompletionCriteria'] = Stubs::TuningJobCompletionCriteria.stub(stub[:tuning_job_completion_criteria]) unless stub[:tuning_job_completion_criteria].nil?
+        data['TuningJobCompletionCriteria'] = TuningJobCompletionCriteria.stub(stub[:tuning_job_completion_criteria]) unless stub[:tuning_job_completion_criteria].nil?
         data
       end
     end
@@ -6861,7 +6863,7 @@ module AWS::SDK::SageMaker
         data['ImageStatus'] = stub[:image_status] unless stub[:image_status].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6893,7 +6895,7 @@ module AWS::SDK::SageMaker
         data['ImageVersionStatus'] = stub[:image_version_status] unless stub[:image_version_status].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6930,10 +6932,10 @@ module AWS::SDK::SageMaker
         data['CompletionTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:completion_time]).to_i unless stub[:completion_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['InputConfig'] = Stubs::RecommendationJobInputConfig.stub(stub[:input_config]) unless stub[:input_config].nil?
-        data['StoppingConditions'] = Stubs::RecommendationJobStoppingConditions.stub(stub[:stopping_conditions]) unless stub[:stopping_conditions].nil?
-        data['InferenceRecommendations'] = Stubs::InferenceRecommendations.stub(stub[:inference_recommendations]) unless stub[:inference_recommendations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InputConfig'] = RecommendationJobInputConfig.stub(stub[:input_config]) unless stub[:input_config].nil?
+        data['StoppingConditions'] = RecommendationJobStoppingConditions.stub(stub[:stopping_conditions]) unless stub[:stopping_conditions].nil?
+        data['InferenceRecommendations'] = InferenceRecommendations.stub(stub[:inference_recommendations]) unless stub[:inference_recommendations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6952,7 +6954,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InferenceRecommendation.stub(element) unless element.nil?
+          data << InferenceRecommendation.stub(element) unless element.nil?
         end
         data
       end
@@ -6973,9 +6975,9 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::InferenceRecommendation.new
         data = {}
-        data['Metrics'] = Stubs::RecommendationMetrics.stub(stub[:metrics]) unless stub[:metrics].nil?
-        data['EndpointConfiguration'] = Stubs::EndpointOutputConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
-        data['ModelConfiguration'] = Stubs::ModelConfiguration.stub(stub[:model_configuration]) unless stub[:model_configuration].nil?
+        data['Metrics'] = RecommendationMetrics.stub(stub[:metrics]) unless stub[:metrics].nil?
+        data['EndpointConfiguration'] = EndpointOutputConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
+        data['ModelConfiguration'] = ModelConfiguration.stub(stub[:model_configuration]) unless stub[:model_configuration].nil?
         data
       end
     end
@@ -6995,7 +6997,7 @@ module AWS::SDK::SageMaker
         stub ||= Types::ModelConfiguration.new
         data = {}
         data['InferenceSpecificationName'] = stub[:inference_specification_name] unless stub[:inference_specification_name].nil?
-        data['EnvironmentParameters'] = Stubs::EnvironmentParameters.stub(stub[:environment_parameters]) unless stub[:environment_parameters].nil?
+        data['EnvironmentParameters'] = EnvironmentParameters.stub(stub[:environment_parameters]) unless stub[:environment_parameters].nil?
         data
       end
     end
@@ -7014,7 +7016,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnvironmentParameter.stub(element) unless element.nil?
+          data << EnvironmentParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -7105,7 +7107,7 @@ module AWS::SDK::SageMaker
         stub ||= Types::RecommendationJobStoppingConditions.new
         data = {}
         data['MaxInvocations'] = stub[:max_invocations] unless stub[:max_invocations].nil?
-        data['ModelLatencyThresholds'] = Stubs::ModelLatencyThresholds.stub(stub[:model_latency_thresholds]) unless stub[:model_latency_thresholds].nil?
+        data['ModelLatencyThresholds'] = ModelLatencyThresholds.stub(stub[:model_latency_thresholds]) unless stub[:model_latency_thresholds].nil?
         data
       end
     end
@@ -7124,7 +7126,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ModelLatencyThreshold.stub(element) unless element.nil?
+          data << ModelLatencyThreshold.stub(element) unless element.nil?
         end
         data
       end
@@ -7170,9 +7172,9 @@ module AWS::SDK::SageMaker
         data = {}
         data['ModelPackageVersionArn'] = stub[:model_package_version_arn] unless stub[:model_package_version_arn].nil?
         data['JobDurationInSeconds'] = stub[:job_duration_in_seconds] unless stub[:job_duration_in_seconds].nil?
-        data['TrafficPattern'] = Stubs::TrafficPattern.stub(stub[:traffic_pattern]) unless stub[:traffic_pattern].nil?
-        data['ResourceLimit'] = Stubs::RecommendationJobResourceLimit.stub(stub[:resource_limit]) unless stub[:resource_limit].nil?
-        data['EndpointConfigurations'] = Stubs::EndpointInputConfigurations.stub(stub[:endpoint_configurations]) unless stub[:endpoint_configurations].nil?
+        data['TrafficPattern'] = TrafficPattern.stub(stub[:traffic_pattern]) unless stub[:traffic_pattern].nil?
+        data['ResourceLimit'] = RecommendationJobResourceLimit.stub(stub[:resource_limit]) unless stub[:resource_limit].nil?
+        data['EndpointConfigurations'] = EndpointInputConfigurations.stub(stub[:endpoint_configurations]) unless stub[:endpoint_configurations].nil?
         data['VolumeKmsKeyId'] = stub[:volume_kms_key_id] unless stub[:volume_kms_key_id].nil?
         data
       end
@@ -7192,7 +7194,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EndpointInputConfiguration.stub(element) unless element.nil?
+          data << EndpointInputConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -7215,7 +7217,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['InstanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
         data['InferenceSpecificationName'] = stub[:inference_specification_name] unless stub[:inference_specification_name].nil?
-        data['EnvironmentParameterRanges'] = Stubs::EnvironmentParameterRanges.stub(stub[:environment_parameter_ranges]) unless stub[:environment_parameter_ranges].nil?
+        data['EnvironmentParameterRanges'] = EnvironmentParameterRanges.stub(stub[:environment_parameter_ranges]) unless stub[:environment_parameter_ranges].nil?
         data
       end
     end
@@ -7233,7 +7235,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::EnvironmentParameterRanges.new
         data = {}
-        data['CategoricalParameterRanges'] = Stubs::CategoricalParameters.stub(stub[:categorical_parameter_ranges]) unless stub[:categorical_parameter_ranges].nil?
+        data['CategoricalParameterRanges'] = CategoricalParameters.stub(stub[:categorical_parameter_ranges]) unless stub[:categorical_parameter_ranges].nil?
         data
       end
     end
@@ -7252,7 +7254,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CategoricalParameter.stub(element) unless element.nil?
+          data << CategoricalParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -7273,7 +7275,7 @@ module AWS::SDK::SageMaker
         stub ||= Types::CategoricalParameter.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Value'] = Stubs::CategoricalParameterRangeValues.stub(stub[:value]) unless stub[:value].nil?
+        data['Value'] = CategoricalParameterRangeValues.stub(stub[:value]) unless stub[:value].nil?
         data
       end
     end
@@ -7333,7 +7335,7 @@ module AWS::SDK::SageMaker
         stub ||= Types::TrafficPattern.new
         data = {}
         data['TrafficType'] = stub[:traffic_type] unless stub[:traffic_type].nil?
-        data['Phases'] = Stubs::Phases.stub(stub[:phases]) unless stub[:phases].nil?
+        data['Phases'] = Phases.stub(stub[:phases]) unless stub[:phases].nil?
         data
       end
     end
@@ -7352,7 +7354,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Phase.stub(element) unless element.nil?
+          data << Phase.stub(element) unless element.nil?
         end
         data
       end
@@ -7408,7 +7410,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['LabelingJobStatus'] = stub[:labeling_job_status] unless stub[:labeling_job_status].nil?
-        data['LabelCounters'] = Stubs::LabelCounters.stub(stub[:label_counters]) unless stub[:label_counters].nil?
+        data['LabelCounters'] = LabelCounters.stub(stub[:label_counters]) unless stub[:label_counters].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
@@ -7416,16 +7418,16 @@ module AWS::SDK::SageMaker
         data['LabelingJobName'] = stub[:labeling_job_name] unless stub[:labeling_job_name].nil?
         data['LabelingJobArn'] = stub[:labeling_job_arn] unless stub[:labeling_job_arn].nil?
         data['LabelAttributeName'] = stub[:label_attribute_name] unless stub[:label_attribute_name].nil?
-        data['InputConfig'] = Stubs::LabelingJobInputConfig.stub(stub[:input_config]) unless stub[:input_config].nil?
-        data['OutputConfig'] = Stubs::LabelingJobOutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
+        data['InputConfig'] = LabelingJobInputConfig.stub(stub[:input_config]) unless stub[:input_config].nil?
+        data['OutputConfig'] = LabelingJobOutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['LabelCategoryConfigS3Uri'] = stub[:label_category_config_s3_uri] unless stub[:label_category_config_s3_uri].nil?
-        data['StoppingConditions'] = Stubs::LabelingJobStoppingConditions.stub(stub[:stopping_conditions]) unless stub[:stopping_conditions].nil?
-        data['LabelingJobAlgorithmsConfig'] = Stubs::LabelingJobAlgorithmsConfig.stub(stub[:labeling_job_algorithms_config]) unless stub[:labeling_job_algorithms_config].nil?
-        data['HumanTaskConfig'] = Stubs::HumanTaskConfig.stub(stub[:human_task_config]) unless stub[:human_task_config].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['LabelingJobOutput'] = Stubs::LabelingJobOutput.stub(stub[:labeling_job_output]) unless stub[:labeling_job_output].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StoppingConditions'] = LabelingJobStoppingConditions.stub(stub[:stopping_conditions]) unless stub[:stopping_conditions].nil?
+        data['LabelingJobAlgorithmsConfig'] = LabelingJobAlgorithmsConfig.stub(stub[:labeling_job_algorithms_config]) unless stub[:labeling_job_algorithms_config].nil?
+        data['HumanTaskConfig'] = HumanTaskConfig.stub(stub[:human_task_config]) unless stub[:human_task_config].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['LabelingJobOutput'] = LabelingJobOutput.stub(stub[:labeling_job_output]) unless stub[:labeling_job_output].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7475,17 +7477,17 @@ module AWS::SDK::SageMaker
         stub ||= Types::HumanTaskConfig.new
         data = {}
         data['WorkteamArn'] = stub[:workteam_arn] unless stub[:workteam_arn].nil?
-        data['UiConfig'] = Stubs::UiConfig.stub(stub[:ui_config]) unless stub[:ui_config].nil?
+        data['UiConfig'] = UiConfig.stub(stub[:ui_config]) unless stub[:ui_config].nil?
         data['PreHumanTaskLambdaArn'] = stub[:pre_human_task_lambda_arn] unless stub[:pre_human_task_lambda_arn].nil?
-        data['TaskKeywords'] = Stubs::TaskKeywords.stub(stub[:task_keywords]) unless stub[:task_keywords].nil?
+        data['TaskKeywords'] = TaskKeywords.stub(stub[:task_keywords]) unless stub[:task_keywords].nil?
         data['TaskTitle'] = stub[:task_title] unless stub[:task_title].nil?
         data['TaskDescription'] = stub[:task_description] unless stub[:task_description].nil?
         data['NumberOfHumanWorkersPerDataObject'] = stub[:number_of_human_workers_per_data_object] unless stub[:number_of_human_workers_per_data_object].nil?
         data['TaskTimeLimitInSeconds'] = stub[:task_time_limit_in_seconds] unless stub[:task_time_limit_in_seconds].nil?
         data['TaskAvailabilityLifetimeInSeconds'] = stub[:task_availability_lifetime_in_seconds] unless stub[:task_availability_lifetime_in_seconds].nil?
         data['MaxConcurrentTaskCount'] = stub[:max_concurrent_task_count] unless stub[:max_concurrent_task_count].nil?
-        data['AnnotationConsolidationConfig'] = Stubs::AnnotationConsolidationConfig.stub(stub[:annotation_consolidation_config]) unless stub[:annotation_consolidation_config].nil?
-        data['PublicWorkforceTaskPrice'] = Stubs::PublicWorkforceTaskPrice.stub(stub[:public_workforce_task_price]) unless stub[:public_workforce_task_price].nil?
+        data['AnnotationConsolidationConfig'] = AnnotationConsolidationConfig.stub(stub[:annotation_consolidation_config]) unless stub[:annotation_consolidation_config].nil?
+        data['PublicWorkforceTaskPrice'] = PublicWorkforceTaskPrice.stub(stub[:public_workforce_task_price]) unless stub[:public_workforce_task_price].nil?
         data
       end
     end
@@ -7565,7 +7567,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['LabelingJobAlgorithmSpecificationArn'] = stub[:labeling_job_algorithm_specification_arn] unless stub[:labeling_job_algorithm_specification_arn].nil?
         data['InitialActiveLearningModelArn'] = stub[:initial_active_learning_model_arn] unless stub[:initial_active_learning_model_arn].nil?
-        data['LabelingJobResourceConfig'] = Stubs::LabelingJobResourceConfig.stub(stub[:labeling_job_resource_config]) unless stub[:labeling_job_resource_config].nil?
+        data['LabelingJobResourceConfig'] = LabelingJobResourceConfig.stub(stub[:labeling_job_resource_config]) unless stub[:labeling_job_resource_config].nil?
         data
       end
     end
@@ -7644,8 +7646,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::LabelingJobInputConfig.new
         data = {}
-        data['DataSource'] = Stubs::LabelingJobDataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
-        data['DataAttributes'] = Stubs::LabelingJobDataAttributes.stub(stub[:data_attributes]) unless stub[:data_attributes].nil?
+        data['DataSource'] = LabelingJobDataSource.stub(stub[:data_source]) unless stub[:data_source].nil?
+        data['DataAttributes'] = LabelingJobDataAttributes.stub(stub[:data_attributes]) unless stub[:data_attributes].nil?
         data
       end
     end
@@ -7663,7 +7665,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::LabelingJobDataAttributes.new
         data = {}
-        data['ContentClassifiers'] = Stubs::ContentClassifiers.stub(stub[:content_classifiers]) unless stub[:content_classifiers].nil?
+        data['ContentClassifiers'] = ContentClassifiers.stub(stub[:content_classifiers]) unless stub[:content_classifiers].nil?
         data
       end
     end
@@ -7702,8 +7704,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::LabelingJobDataSource.new
         data = {}
-        data['S3DataSource'] = Stubs::LabelingJobS3DataSource.stub(stub[:s3_data_source]) unless stub[:s3_data_source].nil?
-        data['SnsDataSource'] = Stubs::LabelingJobSnsDataSource.stub(stub[:sns_data_source]) unless stub[:sns_data_source].nil?
+        data['S3DataSource'] = LabelingJobS3DataSource.stub(stub[:s3_data_source]) unless stub[:s3_data_source].nil?
+        data['SnsDataSource'] = LabelingJobSnsDataSource.stub(stub[:sns_data_source]) unless stub[:sns_data_source].nil?
         data
       end
     end
@@ -7792,10 +7794,10 @@ module AWS::SDK::SageMaker
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7819,15 +7821,15 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ModelName'] = stub[:model_name] unless stub[:model_name].nil?
-        data['PrimaryContainer'] = Stubs::ContainerDefinition.stub(stub[:primary_container]) unless stub[:primary_container].nil?
-        data['Containers'] = Stubs::ContainerDefinitionList.stub(stub[:containers]) unless stub[:containers].nil?
-        data['InferenceExecutionConfig'] = Stubs::InferenceExecutionConfig.stub(stub[:inference_execution_config]) unless stub[:inference_execution_config].nil?
+        data['PrimaryContainer'] = ContainerDefinition.stub(stub[:primary_container]) unless stub[:primary_container].nil?
+        data['Containers'] = ContainerDefinitionList.stub(stub[:containers]) unless stub[:containers].nil?
+        data['InferenceExecutionConfig'] = InferenceExecutionConfig.stub(stub[:inference_execution_config]) unless stub[:inference_execution_config].nil?
         data['ExecutionRoleArn'] = stub[:execution_role_arn] unless stub[:execution_role_arn].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['ModelArn'] = stub[:model_arn] unless stub[:model_arn].nil?
         data['EnableNetworkIsolation'] = stub[:enable_network_isolation] unless stub[:enable_network_isolation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -7864,7 +7866,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContainerDefinition.stub(element) unless element.nil?
+          data << ContainerDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -7893,13 +7895,13 @@ module AWS::SDK::SageMaker
         data = {}
         data['ContainerHostname'] = stub[:container_hostname] unless stub[:container_hostname].nil?
         data['Image'] = stub[:image] unless stub[:image].nil?
-        data['ImageConfig'] = Stubs::ImageConfig.stub(stub[:image_config]) unless stub[:image_config].nil?
+        data['ImageConfig'] = ImageConfig.stub(stub[:image_config]) unless stub[:image_config].nil?
         data['Mode'] = stub[:mode] unless stub[:mode].nil?
         data['ModelDataUrl'] = stub[:model_data_url] unless stub[:model_data_url].nil?
-        data['Environment'] = Stubs::EnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
+        data['Environment'] = EnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
         data['ModelPackageName'] = stub[:model_package_name] unless stub[:model_package_name].nil?
         data['InferenceSpecificationName'] = stub[:inference_specification_name] unless stub[:inference_specification_name].nil?
-        data['MultiModelConfig'] = Stubs::MultiModelConfig.stub(stub[:multi_model_config]) unless stub[:multi_model_config].nil?
+        data['MultiModelConfig'] = MultiModelConfig.stub(stub[:multi_model_config]) unless stub[:multi_model_config].nil?
         data
       end
     end
@@ -7937,7 +7939,7 @@ module AWS::SDK::SageMaker
         stub ||= Types::ImageConfig.new
         data = {}
         data['RepositoryAccessMode'] = stub[:repository_access_mode] unless stub[:repository_access_mode].nil?
-        data['RepositoryAuthConfig'] = Stubs::RepositoryAuthConfig.stub(stub[:repository_auth_config]) unless stub[:repository_auth_config].nil?
+        data['RepositoryAuthConfig'] = RepositoryAuthConfig.stub(stub[:repository_auth_config]) unless stub[:repository_auth_config].nil?
         data
       end
     end
@@ -7983,15 +7985,15 @@ module AWS::SDK::SageMaker
         data['JobDefinitionArn'] = stub[:job_definition_arn] unless stub[:job_definition_arn].nil?
         data['JobDefinitionName'] = stub[:job_definition_name] unless stub[:job_definition_name].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['ModelBiasBaselineConfig'] = Stubs::ModelBiasBaselineConfig.stub(stub[:model_bias_baseline_config]) unless stub[:model_bias_baseline_config].nil?
-        data['ModelBiasAppSpecification'] = Stubs::ModelBiasAppSpecification.stub(stub[:model_bias_app_specification]) unless stub[:model_bias_app_specification].nil?
-        data['ModelBiasJobInput'] = Stubs::ModelBiasJobInput.stub(stub[:model_bias_job_input]) unless stub[:model_bias_job_input].nil?
-        data['ModelBiasJobOutputConfig'] = Stubs::MonitoringOutputConfig.stub(stub[:model_bias_job_output_config]) unless stub[:model_bias_job_output_config].nil?
-        data['JobResources'] = Stubs::MonitoringResources.stub(stub[:job_resources]) unless stub[:job_resources].nil?
-        data['NetworkConfig'] = Stubs::MonitoringNetworkConfig.stub(stub[:network_config]) unless stub[:network_config].nil?
+        data['ModelBiasBaselineConfig'] = ModelBiasBaselineConfig.stub(stub[:model_bias_baseline_config]) unless stub[:model_bias_baseline_config].nil?
+        data['ModelBiasAppSpecification'] = ModelBiasAppSpecification.stub(stub[:model_bias_app_specification]) unless stub[:model_bias_app_specification].nil?
+        data['ModelBiasJobInput'] = ModelBiasJobInput.stub(stub[:model_bias_job_input]) unless stub[:model_bias_job_input].nil?
+        data['ModelBiasJobOutputConfig'] = MonitoringOutputConfig.stub(stub[:model_bias_job_output_config]) unless stub[:model_bias_job_output_config].nil?
+        data['JobResources'] = MonitoringResources.stub(stub[:job_resources]) unless stub[:job_resources].nil?
+        data['NetworkConfig'] = MonitoringNetworkConfig.stub(stub[:network_config]) unless stub[:network_config].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['StoppingCondition'] = Stubs::MonitoringStoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StoppingCondition'] = MonitoringStoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8010,8 +8012,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::ModelBiasJobInput.new
         data = {}
-        data['EndpointInput'] = Stubs::EndpointInput.stub(stub[:endpoint_input]) unless stub[:endpoint_input].nil?
-        data['GroundTruthS3Input'] = Stubs::MonitoringGroundTruthS3Input.stub(stub[:ground_truth_s3_input]) unless stub[:ground_truth_s3_input].nil?
+        data['EndpointInput'] = EndpointInput.stub(stub[:endpoint_input]) unless stub[:endpoint_input].nil?
+        data['GroundTruthS3Input'] = MonitoringGroundTruthS3Input.stub(stub[:ground_truth_s3_input]) unless stub[:ground_truth_s3_input].nil?
         data
       end
     end
@@ -8051,7 +8053,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['ImageUri'] = stub[:image_uri] unless stub[:image_uri].nil?
         data['ConfigUri'] = stub[:config_uri] unless stub[:config_uri].nil?
-        data['Environment'] = Stubs::MonitoringEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
+        data['Environment'] = MonitoringEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
         data
       end
     end
@@ -8071,7 +8073,7 @@ module AWS::SDK::SageMaker
         stub ||= Types::ModelBiasBaselineConfig.new
         data = {}
         data['BaseliningJobName'] = stub[:baselining_job_name] unless stub[:baselining_job_name].nil?
-        data['ConstraintsResource'] = Stubs::MonitoringConstraintsResource.stub(stub[:constraints_resource]) unless stub[:constraints_resource].nil?
+        data['ConstraintsResource'] = MonitoringConstraintsResource.stub(stub[:constraints_resource]) unless stub[:constraints_resource].nil?
         data
       end
     end
@@ -8099,15 +8101,15 @@ module AWS::SDK::SageMaker
         data['JobDefinitionArn'] = stub[:job_definition_arn] unless stub[:job_definition_arn].nil?
         data['JobDefinitionName'] = stub[:job_definition_name] unless stub[:job_definition_name].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['ModelExplainabilityBaselineConfig'] = Stubs::ModelExplainabilityBaselineConfig.stub(stub[:model_explainability_baseline_config]) unless stub[:model_explainability_baseline_config].nil?
-        data['ModelExplainabilityAppSpecification'] = Stubs::ModelExplainabilityAppSpecification.stub(stub[:model_explainability_app_specification]) unless stub[:model_explainability_app_specification].nil?
-        data['ModelExplainabilityJobInput'] = Stubs::ModelExplainabilityJobInput.stub(stub[:model_explainability_job_input]) unless stub[:model_explainability_job_input].nil?
-        data['ModelExplainabilityJobOutputConfig'] = Stubs::MonitoringOutputConfig.stub(stub[:model_explainability_job_output_config]) unless stub[:model_explainability_job_output_config].nil?
-        data['JobResources'] = Stubs::MonitoringResources.stub(stub[:job_resources]) unless stub[:job_resources].nil?
-        data['NetworkConfig'] = Stubs::MonitoringNetworkConfig.stub(stub[:network_config]) unless stub[:network_config].nil?
+        data['ModelExplainabilityBaselineConfig'] = ModelExplainabilityBaselineConfig.stub(stub[:model_explainability_baseline_config]) unless stub[:model_explainability_baseline_config].nil?
+        data['ModelExplainabilityAppSpecification'] = ModelExplainabilityAppSpecification.stub(stub[:model_explainability_app_specification]) unless stub[:model_explainability_app_specification].nil?
+        data['ModelExplainabilityJobInput'] = ModelExplainabilityJobInput.stub(stub[:model_explainability_job_input]) unless stub[:model_explainability_job_input].nil?
+        data['ModelExplainabilityJobOutputConfig'] = MonitoringOutputConfig.stub(stub[:model_explainability_job_output_config]) unless stub[:model_explainability_job_output_config].nil?
+        data['JobResources'] = MonitoringResources.stub(stub[:job_resources]) unless stub[:job_resources].nil?
+        data['NetworkConfig'] = MonitoringNetworkConfig.stub(stub[:network_config]) unless stub[:network_config].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['StoppingCondition'] = Stubs::MonitoringStoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StoppingCondition'] = MonitoringStoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8125,7 +8127,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::ModelExplainabilityJobInput.new
         data = {}
-        data['EndpointInput'] = Stubs::EndpointInput.stub(stub[:endpoint_input]) unless stub[:endpoint_input].nil?
+        data['EndpointInput'] = EndpointInput.stub(stub[:endpoint_input]) unless stub[:endpoint_input].nil?
         data
       end
     end
@@ -8147,7 +8149,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['ImageUri'] = stub[:image_uri] unless stub[:image_uri].nil?
         data['ConfigUri'] = stub[:config_uri] unless stub[:config_uri].nil?
-        data['Environment'] = Stubs::MonitoringEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
+        data['Environment'] = MonitoringEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
         data
       end
     end
@@ -8167,7 +8169,7 @@ module AWS::SDK::SageMaker
         stub ||= Types::ModelExplainabilityBaselineConfig.new
         data = {}
         data['BaseliningJobName'] = stub[:baselining_job_name] unless stub[:baselining_job_name].nil?
-        data['ConstraintsResource'] = Stubs::MonitoringConstraintsResource.stub(stub[:constraints_resource]) unless stub[:constraints_resource].nil?
+        data['ConstraintsResource'] = MonitoringConstraintsResource.stub(stub[:constraints_resource]) unless stub[:constraints_resource].nil?
         data
       end
     end
@@ -8212,26 +8214,26 @@ module AWS::SDK::SageMaker
         data['ModelPackageArn'] = stub[:model_package_arn] unless stub[:model_package_arn].nil?
         data['ModelPackageDescription'] = stub[:model_package_description] unless stub[:model_package_description].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['InferenceSpecification'] = Stubs::InferenceSpecification.stub(stub[:inference_specification]) unless stub[:inference_specification].nil?
-        data['SourceAlgorithmSpecification'] = Stubs::SourceAlgorithmSpecification.stub(stub[:source_algorithm_specification]) unless stub[:source_algorithm_specification].nil?
-        data['ValidationSpecification'] = Stubs::ModelPackageValidationSpecification.stub(stub[:validation_specification]) unless stub[:validation_specification].nil?
+        data['InferenceSpecification'] = InferenceSpecification.stub(stub[:inference_specification]) unless stub[:inference_specification].nil?
+        data['SourceAlgorithmSpecification'] = SourceAlgorithmSpecification.stub(stub[:source_algorithm_specification]) unless stub[:source_algorithm_specification].nil?
+        data['ValidationSpecification'] = ModelPackageValidationSpecification.stub(stub[:validation_specification]) unless stub[:validation_specification].nil?
         data['ModelPackageStatus'] = stub[:model_package_status] unless stub[:model_package_status].nil?
-        data['ModelPackageStatusDetails'] = Stubs::ModelPackageStatusDetails.stub(stub[:model_package_status_details]) unless stub[:model_package_status_details].nil?
+        data['ModelPackageStatusDetails'] = ModelPackageStatusDetails.stub(stub[:model_package_status_details]) unless stub[:model_package_status_details].nil?
         data['CertifyForMarketplace'] = stub[:certify_for_marketplace] unless stub[:certify_for_marketplace].nil?
         data['ModelApprovalStatus'] = stub[:model_approval_status] unless stub[:model_approval_status].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
-        data['MetadataProperties'] = Stubs::MetadataProperties.stub(stub[:metadata_properties]) unless stub[:metadata_properties].nil?
-        data['ModelMetrics'] = Stubs::ModelMetrics.stub(stub[:model_metrics]) unless stub[:model_metrics].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['MetadataProperties'] = MetadataProperties.stub(stub[:metadata_properties]) unless stub[:metadata_properties].nil?
+        data['ModelMetrics'] = ModelMetrics.stub(stub[:model_metrics]) unless stub[:model_metrics].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
         data['ApprovalDescription'] = stub[:approval_description] unless stub[:approval_description].nil?
-        data['CustomerMetadataProperties'] = Stubs::CustomerMetadataMap.stub(stub[:customer_metadata_properties]) unless stub[:customer_metadata_properties].nil?
-        data['DriftCheckBaselines'] = Stubs::DriftCheckBaselines.stub(stub[:drift_check_baselines]) unless stub[:drift_check_baselines].nil?
+        data['CustomerMetadataProperties'] = CustomerMetadataMap.stub(stub[:customer_metadata_properties]) unless stub[:customer_metadata_properties].nil?
+        data['DriftCheckBaselines'] = DriftCheckBaselines.stub(stub[:drift_check_baselines]) unless stub[:drift_check_baselines].nil?
         data['Domain'] = stub[:domain] unless stub[:domain].nil?
         data['Task'] = stub[:task] unless stub[:task].nil?
         data['SamplePayloadUrl'] = stub[:sample_payload_url] unless stub[:sample_payload_url].nil?
-        data['AdditionalInferenceSpecifications'] = Stubs::AdditionalInferenceSpecifications.stub(stub[:additional_inference_specifications]) unless stub[:additional_inference_specifications].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AdditionalInferenceSpecifications'] = AdditionalInferenceSpecifications.stub(stub[:additional_inference_specifications]) unless stub[:additional_inference_specifications].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8250,7 +8252,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AdditionalInferenceSpecificationDefinition.stub(element) unless element.nil?
+          data << AdditionalInferenceSpecificationDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -8277,11 +8279,11 @@ module AWS::SDK::SageMaker
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Containers'] = Stubs::ModelPackageContainerDefinitionList.stub(stub[:containers]) unless stub[:containers].nil?
-        data['SupportedTransformInstanceTypes'] = Stubs::TransformInstanceTypes.stub(stub[:supported_transform_instance_types]) unless stub[:supported_transform_instance_types].nil?
-        data['SupportedRealtimeInferenceInstanceTypes'] = Stubs::RealtimeInferenceInstanceTypes.stub(stub[:supported_realtime_inference_instance_types]) unless stub[:supported_realtime_inference_instance_types].nil?
-        data['SupportedContentTypes'] = Stubs::ContentTypes.stub(stub[:supported_content_types]) unless stub[:supported_content_types].nil?
-        data['SupportedResponseMIMETypes'] = Stubs::ResponseMIMETypes.stub(stub[:supported_response_mime_types]) unless stub[:supported_response_mime_types].nil?
+        data['Containers'] = ModelPackageContainerDefinitionList.stub(stub[:containers]) unless stub[:containers].nil?
+        data['SupportedTransformInstanceTypes'] = TransformInstanceTypes.stub(stub[:supported_transform_instance_types]) unless stub[:supported_transform_instance_types].nil?
+        data['SupportedRealtimeInferenceInstanceTypes'] = RealtimeInferenceInstanceTypes.stub(stub[:supported_realtime_inference_instance_types]) unless stub[:supported_realtime_inference_instance_types].nil?
+        data['SupportedContentTypes'] = ContentTypes.stub(stub[:supported_content_types]) unless stub[:supported_content_types].nil?
+        data['SupportedResponseMIMETypes'] = ResponseMIMETypes.stub(stub[:supported_response_mime_types]) unless stub[:supported_response_mime_types].nil?
         data
       end
     end
@@ -8302,10 +8304,10 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::DriftCheckBaselines.new
         data = {}
-        data['Bias'] = Stubs::DriftCheckBias.stub(stub[:bias]) unless stub[:bias].nil?
-        data['Explainability'] = Stubs::DriftCheckExplainability.stub(stub[:explainability]) unless stub[:explainability].nil?
-        data['ModelQuality'] = Stubs::DriftCheckModelQuality.stub(stub[:model_quality]) unless stub[:model_quality].nil?
-        data['ModelDataQuality'] = Stubs::DriftCheckModelDataQuality.stub(stub[:model_data_quality]) unless stub[:model_data_quality].nil?
+        data['Bias'] = DriftCheckBias.stub(stub[:bias]) unless stub[:bias].nil?
+        data['Explainability'] = DriftCheckExplainability.stub(stub[:explainability]) unless stub[:explainability].nil?
+        data['ModelQuality'] = DriftCheckModelQuality.stub(stub[:model_quality]) unless stub[:model_quality].nil?
+        data['ModelDataQuality'] = DriftCheckModelDataQuality.stub(stub[:model_data_quality]) unless stub[:model_data_quality].nil?
         data
       end
     end
@@ -8324,8 +8326,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::DriftCheckModelDataQuality.new
         data = {}
-        data['Statistics'] = Stubs::MetricsSource.stub(stub[:statistics]) unless stub[:statistics].nil?
-        data['Constraints'] = Stubs::MetricsSource.stub(stub[:constraints]) unless stub[:constraints].nil?
+        data['Statistics'] = MetricsSource.stub(stub[:statistics]) unless stub[:statistics].nil?
+        data['Constraints'] = MetricsSource.stub(stub[:constraints]) unless stub[:constraints].nil?
         data
       end
     end
@@ -8366,8 +8368,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::DriftCheckModelQuality.new
         data = {}
-        data['Statistics'] = Stubs::MetricsSource.stub(stub[:statistics]) unless stub[:statistics].nil?
-        data['Constraints'] = Stubs::MetricsSource.stub(stub[:constraints]) unless stub[:constraints].nil?
+        data['Statistics'] = MetricsSource.stub(stub[:statistics]) unless stub[:statistics].nil?
+        data['Constraints'] = MetricsSource.stub(stub[:constraints]) unless stub[:constraints].nil?
         data
       end
     end
@@ -8386,8 +8388,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::DriftCheckExplainability.new
         data = {}
-        data['Constraints'] = Stubs::MetricsSource.stub(stub[:constraints]) unless stub[:constraints].nil?
-        data['ConfigFile'] = Stubs::FileSource.stub(stub[:config_file]) unless stub[:config_file].nil?
+        data['Constraints'] = MetricsSource.stub(stub[:constraints]) unless stub[:constraints].nil?
+        data['ConfigFile'] = FileSource.stub(stub[:config_file]) unless stub[:config_file].nil?
         data
       end
     end
@@ -8429,9 +8431,9 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::DriftCheckBias.new
         data = {}
-        data['ConfigFile'] = Stubs::FileSource.stub(stub[:config_file]) unless stub[:config_file].nil?
-        data['PreTrainingConstraints'] = Stubs::MetricsSource.stub(stub[:pre_training_constraints]) unless stub[:pre_training_constraints].nil?
-        data['PostTrainingConstraints'] = Stubs::MetricsSource.stub(stub[:post_training_constraints]) unless stub[:post_training_constraints].nil?
+        data['ConfigFile'] = FileSource.stub(stub[:config_file]) unless stub[:config_file].nil?
+        data['PreTrainingConstraints'] = MetricsSource.stub(stub[:pre_training_constraints]) unless stub[:pre_training_constraints].nil?
+        data['PostTrainingConstraints'] = MetricsSource.stub(stub[:post_training_constraints]) unless stub[:post_training_constraints].nil?
         data
       end
     end
@@ -8472,10 +8474,10 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::ModelMetrics.new
         data = {}
-        data['ModelQuality'] = Stubs::ModelQuality.stub(stub[:model_quality]) unless stub[:model_quality].nil?
-        data['ModelDataQuality'] = Stubs::ModelDataQuality.stub(stub[:model_data_quality]) unless stub[:model_data_quality].nil?
-        data['Bias'] = Stubs::Bias.stub(stub[:bias]) unless stub[:bias].nil?
-        data['Explainability'] = Stubs::Explainability.stub(stub[:explainability]) unless stub[:explainability].nil?
+        data['ModelQuality'] = ModelQuality.stub(stub[:model_quality]) unless stub[:model_quality].nil?
+        data['ModelDataQuality'] = ModelDataQuality.stub(stub[:model_data_quality]) unless stub[:model_data_quality].nil?
+        data['Bias'] = Bias.stub(stub[:bias]) unless stub[:bias].nil?
+        data['Explainability'] = Explainability.stub(stub[:explainability]) unless stub[:explainability].nil?
         data
       end
     end
@@ -8493,7 +8495,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::Explainability.new
         data = {}
-        data['Report'] = Stubs::MetricsSource.stub(stub[:report]) unless stub[:report].nil?
+        data['Report'] = MetricsSource.stub(stub[:report]) unless stub[:report].nil?
         data
       end
     end
@@ -8513,9 +8515,9 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::Bias.new
         data = {}
-        data['Report'] = Stubs::MetricsSource.stub(stub[:report]) unless stub[:report].nil?
-        data['PreTrainingReport'] = Stubs::MetricsSource.stub(stub[:pre_training_report]) unless stub[:pre_training_report].nil?
-        data['PostTrainingReport'] = Stubs::MetricsSource.stub(stub[:post_training_report]) unless stub[:post_training_report].nil?
+        data['Report'] = MetricsSource.stub(stub[:report]) unless stub[:report].nil?
+        data['PreTrainingReport'] = MetricsSource.stub(stub[:pre_training_report]) unless stub[:pre_training_report].nil?
+        data['PostTrainingReport'] = MetricsSource.stub(stub[:post_training_report]) unless stub[:post_training_report].nil?
         data
       end
     end
@@ -8534,8 +8536,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::ModelDataQuality.new
         data = {}
-        data['Statistics'] = Stubs::MetricsSource.stub(stub[:statistics]) unless stub[:statistics].nil?
-        data['Constraints'] = Stubs::MetricsSource.stub(stub[:constraints]) unless stub[:constraints].nil?
+        data['Statistics'] = MetricsSource.stub(stub[:statistics]) unless stub[:statistics].nil?
+        data['Constraints'] = MetricsSource.stub(stub[:constraints]) unless stub[:constraints].nil?
         data
       end
     end
@@ -8554,8 +8556,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::ModelQuality.new
         data = {}
-        data['Statistics'] = Stubs::MetricsSource.stub(stub[:statistics]) unless stub[:statistics].nil?
-        data['Constraints'] = Stubs::MetricsSource.stub(stub[:constraints]) unless stub[:constraints].nil?
+        data['Statistics'] = MetricsSource.stub(stub[:statistics]) unless stub[:statistics].nil?
+        data['Constraints'] = MetricsSource.stub(stub[:constraints]) unless stub[:constraints].nil?
         data
       end
     end
@@ -8574,8 +8576,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::ModelPackageStatusDetails.new
         data = {}
-        data['ValidationStatuses'] = Stubs::ModelPackageStatusItemList.stub(stub[:validation_statuses]) unless stub[:validation_statuses].nil?
-        data['ImageScanStatuses'] = Stubs::ModelPackageStatusItemList.stub(stub[:image_scan_statuses]) unless stub[:image_scan_statuses].nil?
+        data['ValidationStatuses'] = ModelPackageStatusItemList.stub(stub[:validation_statuses]) unless stub[:validation_statuses].nil?
+        data['ImageScanStatuses'] = ModelPackageStatusItemList.stub(stub[:image_scan_statuses]) unless stub[:image_scan_statuses].nil?
         data
       end
     end
@@ -8594,7 +8596,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ModelPackageStatusItem.stub(element) unless element.nil?
+          data << ModelPackageStatusItem.stub(element) unless element.nil?
         end
         data
       end
@@ -8637,7 +8639,7 @@ module AWS::SDK::SageMaker
         stub ||= Types::ModelPackageValidationSpecification.new
         data = {}
         data['ValidationRole'] = stub[:validation_role] unless stub[:validation_role].nil?
-        data['ValidationProfiles'] = Stubs::ModelPackageValidationProfiles.stub(stub[:validation_profiles]) unless stub[:validation_profiles].nil?
+        data['ValidationProfiles'] = ModelPackageValidationProfiles.stub(stub[:validation_profiles]) unless stub[:validation_profiles].nil?
         data
       end
     end
@@ -8656,7 +8658,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ModelPackageValidationProfile.stub(element) unless element.nil?
+          data << ModelPackageValidationProfile.stub(element) unless element.nil?
         end
         data
       end
@@ -8677,7 +8679,7 @@ module AWS::SDK::SageMaker
         stub ||= Types::ModelPackageValidationProfile.new
         data = {}
         data['ProfileName'] = stub[:profile_name] unless stub[:profile_name].nil?
-        data['TransformJobDefinition'] = Stubs::TransformJobDefinition.stub(stub[:transform_job_definition]) unless stub[:transform_job_definition].nil?
+        data['TransformJobDefinition'] = TransformJobDefinition.stub(stub[:transform_job_definition]) unless stub[:transform_job_definition].nil?
         data
       end
     end
@@ -8695,7 +8697,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::SourceAlgorithmSpecification.new
         data = {}
-        data['SourceAlgorithms'] = Stubs::SourceAlgorithmList.stub(stub[:source_algorithms]) unless stub[:source_algorithms].nil?
+        data['SourceAlgorithms'] = SourceAlgorithmList.stub(stub[:source_algorithms]) unless stub[:source_algorithms].nil?
         data
       end
     end
@@ -8714,7 +8716,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SourceAlgorithm.stub(element) unless element.nil?
+          data << SourceAlgorithm.stub(element) unless element.nil?
         end
         data
       end
@@ -8759,9 +8761,9 @@ module AWS::SDK::SageMaker
         data['ModelPackageGroupArn'] = stub[:model_package_group_arn] unless stub[:model_package_group_arn].nil?
         data['ModelPackageGroupDescription'] = stub[:model_package_group_description] unless stub[:model_package_group_description].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['ModelPackageGroupStatus'] = stub[:model_package_group_status] unless stub[:model_package_group_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8789,15 +8791,15 @@ module AWS::SDK::SageMaker
         data['JobDefinitionArn'] = stub[:job_definition_arn] unless stub[:job_definition_arn].nil?
         data['JobDefinitionName'] = stub[:job_definition_name] unless stub[:job_definition_name].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['ModelQualityBaselineConfig'] = Stubs::ModelQualityBaselineConfig.stub(stub[:model_quality_baseline_config]) unless stub[:model_quality_baseline_config].nil?
-        data['ModelQualityAppSpecification'] = Stubs::ModelQualityAppSpecification.stub(stub[:model_quality_app_specification]) unless stub[:model_quality_app_specification].nil?
-        data['ModelQualityJobInput'] = Stubs::ModelQualityJobInput.stub(stub[:model_quality_job_input]) unless stub[:model_quality_job_input].nil?
-        data['ModelQualityJobOutputConfig'] = Stubs::MonitoringOutputConfig.stub(stub[:model_quality_job_output_config]) unless stub[:model_quality_job_output_config].nil?
-        data['JobResources'] = Stubs::MonitoringResources.stub(stub[:job_resources]) unless stub[:job_resources].nil?
-        data['NetworkConfig'] = Stubs::MonitoringNetworkConfig.stub(stub[:network_config]) unless stub[:network_config].nil?
+        data['ModelQualityBaselineConfig'] = ModelQualityBaselineConfig.stub(stub[:model_quality_baseline_config]) unless stub[:model_quality_baseline_config].nil?
+        data['ModelQualityAppSpecification'] = ModelQualityAppSpecification.stub(stub[:model_quality_app_specification]) unless stub[:model_quality_app_specification].nil?
+        data['ModelQualityJobInput'] = ModelQualityJobInput.stub(stub[:model_quality_job_input]) unless stub[:model_quality_job_input].nil?
+        data['ModelQualityJobOutputConfig'] = MonitoringOutputConfig.stub(stub[:model_quality_job_output_config]) unless stub[:model_quality_job_output_config].nil?
+        data['JobResources'] = MonitoringResources.stub(stub[:job_resources]) unless stub[:job_resources].nil?
+        data['NetworkConfig'] = MonitoringNetworkConfig.stub(stub[:network_config]) unless stub[:network_config].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['StoppingCondition'] = Stubs::MonitoringStoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StoppingCondition'] = MonitoringStoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8816,8 +8818,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::ModelQualityJobInput.new
         data = {}
-        data['EndpointInput'] = Stubs::EndpointInput.stub(stub[:endpoint_input]) unless stub[:endpoint_input].nil?
-        data['GroundTruthS3Input'] = Stubs::MonitoringGroundTruthS3Input.stub(stub[:ground_truth_s3_input]) unless stub[:ground_truth_s3_input].nil?
+        data['EndpointInput'] = EndpointInput.stub(stub[:endpoint_input]) unless stub[:endpoint_input].nil?
+        data['GroundTruthS3Input'] = MonitoringGroundTruthS3Input.stub(stub[:ground_truth_s3_input]) unless stub[:ground_truth_s3_input].nil?
         data
       end
     end
@@ -8842,12 +8844,12 @@ module AWS::SDK::SageMaker
         stub ||= Types::ModelQualityAppSpecification.new
         data = {}
         data['ImageUri'] = stub[:image_uri] unless stub[:image_uri].nil?
-        data['ContainerEntrypoint'] = Stubs::ContainerEntrypoint.stub(stub[:container_entrypoint]) unless stub[:container_entrypoint].nil?
-        data['ContainerArguments'] = Stubs::MonitoringContainerArguments.stub(stub[:container_arguments]) unless stub[:container_arguments].nil?
+        data['ContainerEntrypoint'] = ContainerEntrypoint.stub(stub[:container_entrypoint]) unless stub[:container_entrypoint].nil?
+        data['ContainerArguments'] = MonitoringContainerArguments.stub(stub[:container_arguments]) unless stub[:container_arguments].nil?
         data['RecordPreprocessorSourceUri'] = stub[:record_preprocessor_source_uri] unless stub[:record_preprocessor_source_uri].nil?
         data['PostAnalyticsProcessorSourceUri'] = stub[:post_analytics_processor_source_uri] unless stub[:post_analytics_processor_source_uri].nil?
         data['ProblemType'] = stub[:problem_type] unless stub[:problem_type].nil?
-        data['Environment'] = Stubs::MonitoringEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
+        data['Environment'] = MonitoringEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
         data
       end
     end
@@ -8867,7 +8869,7 @@ module AWS::SDK::SageMaker
         stub ||= Types::ModelQualityBaselineConfig.new
         data = {}
         data['BaseliningJobName'] = stub[:baselining_job_name] unless stub[:baselining_job_name].nil?
-        data['ConstraintsResource'] = Stubs::MonitoringConstraintsResource.stub(stub[:constraints_resource]) unless stub[:constraints_resource].nil?
+        data['ConstraintsResource'] = MonitoringConstraintsResource.stub(stub[:constraints_resource]) unless stub[:constraints_resource].nil?
         data
       end
     end
@@ -8898,10 +8900,10 @@ module AWS::SDK::SageMaker
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['MonitoringScheduleConfig'] = Stubs::MonitoringScheduleConfig.stub(stub[:monitoring_schedule_config]) unless stub[:monitoring_schedule_config].nil?
+        data['MonitoringScheduleConfig'] = MonitoringScheduleConfig.stub(stub[:monitoring_schedule_config]) unless stub[:monitoring_schedule_config].nil?
         data['EndpointName'] = stub[:endpoint_name] unless stub[:endpoint_name].nil?
-        data['LastMonitoringExecutionSummary'] = Stubs::MonitoringExecutionSummary.stub(stub[:last_monitoring_execution_summary]) unless stub[:last_monitoring_execution_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LastMonitoringExecutionSummary'] = MonitoringExecutionSummary.stub(stub[:last_monitoring_execution_summary]) unless stub[:last_monitoring_execution_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -8958,8 +8960,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::MonitoringScheduleConfig.new
         data = {}
-        data['ScheduleConfig'] = Stubs::ScheduleConfig.stub(stub[:schedule_config]) unless stub[:schedule_config].nil?
-        data['MonitoringJobDefinition'] = Stubs::MonitoringJobDefinition.stub(stub[:monitoring_job_definition]) unless stub[:monitoring_job_definition].nil?
+        data['ScheduleConfig'] = ScheduleConfig.stub(stub[:schedule_config]) unless stub[:schedule_config].nil?
+        data['MonitoringJobDefinition'] = MonitoringJobDefinition.stub(stub[:monitoring_job_definition]) unless stub[:monitoring_job_definition].nil?
         data['MonitoringJobDefinitionName'] = stub[:monitoring_job_definition_name] unless stub[:monitoring_job_definition_name].nil?
         data['MonitoringType'] = stub[:monitoring_type] unless stub[:monitoring_type].nil?
         data
@@ -8987,14 +8989,14 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::MonitoringJobDefinition.new
         data = {}
-        data['BaselineConfig'] = Stubs::MonitoringBaselineConfig.stub(stub[:baseline_config]) unless stub[:baseline_config].nil?
-        data['MonitoringInputs'] = Stubs::MonitoringInputs.stub(stub[:monitoring_inputs]) unless stub[:monitoring_inputs].nil?
-        data['MonitoringOutputConfig'] = Stubs::MonitoringOutputConfig.stub(stub[:monitoring_output_config]) unless stub[:monitoring_output_config].nil?
-        data['MonitoringResources'] = Stubs::MonitoringResources.stub(stub[:monitoring_resources]) unless stub[:monitoring_resources].nil?
-        data['MonitoringAppSpecification'] = Stubs::MonitoringAppSpecification.stub(stub[:monitoring_app_specification]) unless stub[:monitoring_app_specification].nil?
-        data['StoppingCondition'] = Stubs::MonitoringStoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
-        data['Environment'] = Stubs::MonitoringEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
-        data['NetworkConfig'] = Stubs::NetworkConfig.stub(stub[:network_config]) unless stub[:network_config].nil?
+        data['BaselineConfig'] = MonitoringBaselineConfig.stub(stub[:baseline_config]) unless stub[:baseline_config].nil?
+        data['MonitoringInputs'] = MonitoringInputs.stub(stub[:monitoring_inputs]) unless stub[:monitoring_inputs].nil?
+        data['MonitoringOutputConfig'] = MonitoringOutputConfig.stub(stub[:monitoring_output_config]) unless stub[:monitoring_output_config].nil?
+        data['MonitoringResources'] = MonitoringResources.stub(stub[:monitoring_resources]) unless stub[:monitoring_resources].nil?
+        data['MonitoringAppSpecification'] = MonitoringAppSpecification.stub(stub[:monitoring_app_specification]) unless stub[:monitoring_app_specification].nil?
+        data['StoppingCondition'] = MonitoringStoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
+        data['Environment'] = MonitoringEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
+        data['NetworkConfig'] = NetworkConfig.stub(stub[:network_config]) unless stub[:network_config].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data
       end
@@ -9017,7 +9019,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['EnableInterContainerTrafficEncryption'] = stub[:enable_inter_container_traffic_encryption] unless stub[:enable_inter_container_traffic_encryption].nil?
         data['EnableNetworkIsolation'] = stub[:enable_network_isolation] unless stub[:enable_network_isolation].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data
       end
     end
@@ -9040,8 +9042,8 @@ module AWS::SDK::SageMaker
         stub ||= Types::MonitoringAppSpecification.new
         data = {}
         data['ImageUri'] = stub[:image_uri] unless stub[:image_uri].nil?
-        data['ContainerEntrypoint'] = Stubs::ContainerEntrypoint.stub(stub[:container_entrypoint]) unless stub[:container_entrypoint].nil?
-        data['ContainerArguments'] = Stubs::MonitoringContainerArguments.stub(stub[:container_arguments]) unless stub[:container_arguments].nil?
+        data['ContainerEntrypoint'] = ContainerEntrypoint.stub(stub[:container_entrypoint]) unless stub[:container_entrypoint].nil?
+        data['ContainerArguments'] = MonitoringContainerArguments.stub(stub[:container_arguments]) unless stub[:container_arguments].nil?
         data['RecordPreprocessorSourceUri'] = stub[:record_preprocessor_source_uri] unless stub[:record_preprocessor_source_uri].nil?
         data['PostAnalyticsProcessorSourceUri'] = stub[:post_analytics_processor_source_uri] unless stub[:post_analytics_processor_source_uri].nil?
         data
@@ -9062,7 +9064,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MonitoringInput.stub(element) unless element.nil?
+          data << MonitoringInput.stub(element) unless element.nil?
         end
         data
       end
@@ -9081,7 +9083,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::MonitoringInput.new
         data = {}
-        data['EndpointInput'] = Stubs::EndpointInput.stub(stub[:endpoint_input]) unless stub[:endpoint_input].nil?
+        data['EndpointInput'] = EndpointInput.stub(stub[:endpoint_input]) unless stub[:endpoint_input].nil?
         data
       end
     end
@@ -9102,8 +9104,8 @@ module AWS::SDK::SageMaker
         stub ||= Types::MonitoringBaselineConfig.new
         data = {}
         data['BaseliningJobName'] = stub[:baselining_job_name] unless stub[:baselining_job_name].nil?
-        data['ConstraintsResource'] = Stubs::MonitoringConstraintsResource.stub(stub[:constraints_resource]) unless stub[:constraints_resource].nil?
-        data['StatisticsResource'] = Stubs::MonitoringStatisticsResource.stub(stub[:statistics_resource]) unless stub[:statistics_resource].nil?
+        data['ConstraintsResource'] = MonitoringConstraintsResource.stub(stub[:constraints_resource]) unless stub[:constraints_resource].nil?
+        data['StatisticsResource'] = MonitoringStatisticsResource.stub(stub[:statistics_resource]) unless stub[:statistics_resource].nil?
         data
       end
     end
@@ -9164,7 +9166,7 @@ module AWS::SDK::SageMaker
         data['Url'] = stub[:url] unless stub[:url].nil?
         data['InstanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
         data['SubnetId'] = stub[:subnet_id] unless stub[:subnet_id].nil?
-        data['SecurityGroups'] = Stubs::SecurityGroupIds.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['SecurityGroups'] = SecurityGroupIds.stub(stub[:security_groups]) unless stub[:security_groups].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['NetworkInterfaceId'] = stub[:network_interface_id] unless stub[:network_interface_id].nil?
@@ -9173,13 +9175,13 @@ module AWS::SDK::SageMaker
         data['NotebookInstanceLifecycleConfigName'] = stub[:notebook_instance_lifecycle_config_name] unless stub[:notebook_instance_lifecycle_config_name].nil?
         data['DirectInternetAccess'] = stub[:direct_internet_access] unless stub[:direct_internet_access].nil?
         data['VolumeSizeInGB'] = stub[:volume_size_in_gb] unless stub[:volume_size_in_gb].nil?
-        data['AcceleratorTypes'] = Stubs::NotebookInstanceAcceleratorTypes.stub(stub[:accelerator_types]) unless stub[:accelerator_types].nil?
+        data['AcceleratorTypes'] = NotebookInstanceAcceleratorTypes.stub(stub[:accelerator_types]) unless stub[:accelerator_types].nil?
         data['DefaultCodeRepository'] = stub[:default_code_repository] unless stub[:default_code_repository].nil?
-        data['AdditionalCodeRepositories'] = Stubs::AdditionalCodeRepositoryNamesOrUrls.stub(stub[:additional_code_repositories]) unless stub[:additional_code_repositories].nil?
+        data['AdditionalCodeRepositories'] = AdditionalCodeRepositoryNamesOrUrls.stub(stub[:additional_code_repositories]) unless stub[:additional_code_repositories].nil?
         data['RootAccess'] = stub[:root_access] unless stub[:root_access].nil?
         data['PlatformIdentifier'] = stub[:platform_identifier] unless stub[:platform_identifier].nil?
-        data['InstanceMetadataServiceConfiguration'] = Stubs::InstanceMetadataServiceConfiguration.stub(stub[:instance_metadata_service_configuration]) unless stub[:instance_metadata_service_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InstanceMetadataServiceConfiguration'] = InstanceMetadataServiceConfiguration.stub(stub[:instance_metadata_service_configuration]) unless stub[:instance_metadata_service_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9259,11 +9261,11 @@ module AWS::SDK::SageMaker
         data = {}
         data['NotebookInstanceLifecycleConfigArn'] = stub[:notebook_instance_lifecycle_config_arn] unless stub[:notebook_instance_lifecycle_config_arn].nil?
         data['NotebookInstanceLifecycleConfigName'] = stub[:notebook_instance_lifecycle_config_name] unless stub[:notebook_instance_lifecycle_config_name].nil?
-        data['OnCreate'] = Stubs::NotebookInstanceLifecycleConfigList.stub(stub[:on_create]) unless stub[:on_create].nil?
-        data['OnStart'] = Stubs::NotebookInstanceLifecycleConfigList.stub(stub[:on_start]) unless stub[:on_start].nil?
+        data['OnCreate'] = NotebookInstanceLifecycleConfigList.stub(stub[:on_create]) unless stub[:on_create].nil?
+        data['OnStart'] = NotebookInstanceLifecycleConfigList.stub(stub[:on_start]) unless stub[:on_start].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9282,7 +9284,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NotebookInstanceLifecycleHook.stub(element) unless element.nil?
+          data << NotebookInstanceLifecycleHook.stub(element) unless element.nil?
         end
         data
       end
@@ -9338,10 +9340,10 @@ module AWS::SDK::SageMaker
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['LastRunTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_run_time]).to_i unless stub[:last_run_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
-        data['ParallelismConfiguration'] = Stubs::ParallelismConfiguration.stub(stub[:parallelism_configuration]) unless stub[:parallelism_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        data['ParallelismConfiguration'] = ParallelismConfiguration.stub(stub[:parallelism_configuration]) unless stub[:parallelism_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9377,7 +9379,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['PipelineDefinition'] = stub[:pipeline_definition] unless stub[:pipeline_definition].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9408,14 +9410,14 @@ module AWS::SDK::SageMaker
         data['PipelineExecutionDisplayName'] = stub[:pipeline_execution_display_name] unless stub[:pipeline_execution_display_name].nil?
         data['PipelineExecutionStatus'] = stub[:pipeline_execution_status] unless stub[:pipeline_execution_status].nil?
         data['PipelineExecutionDescription'] = stub[:pipeline_execution_description] unless stub[:pipeline_execution_description].nil?
-        data['PipelineExperimentConfig'] = Stubs::PipelineExperimentConfig.stub(stub[:pipeline_experiment_config]) unless stub[:pipeline_experiment_config].nil?
+        data['PipelineExperimentConfig'] = PipelineExperimentConfig.stub(stub[:pipeline_experiment_config]) unless stub[:pipeline_experiment_config].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
-        data['ParallelismConfiguration'] = Stubs::ParallelismConfiguration.stub(stub[:parallelism_configuration]) unless stub[:parallelism_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        data['ParallelismConfiguration'] = ParallelismConfiguration.stub(stub[:parallelism_configuration]) unless stub[:parallelism_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9470,16 +9472,16 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProcessingInputs'] = Stubs::ProcessingInputs.stub(stub[:processing_inputs]) unless stub[:processing_inputs].nil?
-        data['ProcessingOutputConfig'] = Stubs::ProcessingOutputConfig.stub(stub[:processing_output_config]) unless stub[:processing_output_config].nil?
+        data['ProcessingInputs'] = ProcessingInputs.stub(stub[:processing_inputs]) unless stub[:processing_inputs].nil?
+        data['ProcessingOutputConfig'] = ProcessingOutputConfig.stub(stub[:processing_output_config]) unless stub[:processing_output_config].nil?
         data['ProcessingJobName'] = stub[:processing_job_name] unless stub[:processing_job_name].nil?
-        data['ProcessingResources'] = Stubs::ProcessingResources.stub(stub[:processing_resources]) unless stub[:processing_resources].nil?
-        data['StoppingCondition'] = Stubs::ProcessingStoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
-        data['AppSpecification'] = Stubs::AppSpecification.stub(stub[:app_specification]) unless stub[:app_specification].nil?
-        data['Environment'] = Stubs::ProcessingEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
-        data['NetworkConfig'] = Stubs::NetworkConfig.stub(stub[:network_config]) unless stub[:network_config].nil?
+        data['ProcessingResources'] = ProcessingResources.stub(stub[:processing_resources]) unless stub[:processing_resources].nil?
+        data['StoppingCondition'] = ProcessingStoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
+        data['AppSpecification'] = AppSpecification.stub(stub[:app_specification]) unless stub[:app_specification].nil?
+        data['Environment'] = ProcessingEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
+        data['NetworkConfig'] = NetworkConfig.stub(stub[:network_config]) unless stub[:network_config].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['ExperimentConfig'] = Stubs::ExperimentConfig.stub(stub[:experiment_config]) unless stub[:experiment_config].nil?
+        data['ExperimentConfig'] = ExperimentConfig.stub(stub[:experiment_config]) unless stub[:experiment_config].nil?
         data['ProcessingJobArn'] = stub[:processing_job_arn] unless stub[:processing_job_arn].nil?
         data['ProcessingJobStatus'] = stub[:processing_job_status] unless stub[:processing_job_status].nil?
         data['ExitMessage'] = stub[:exit_message] unless stub[:exit_message].nil?
@@ -9491,7 +9493,7 @@ module AWS::SDK::SageMaker
         data['MonitoringScheduleArn'] = stub[:monitoring_schedule_arn] unless stub[:monitoring_schedule_arn].nil?
         data['AutoMLJobArn'] = stub[:auto_ml_job_arn] unless stub[:auto_ml_job_arn].nil?
         data['TrainingJobArn'] = stub[:training_job_arn] unless stub[:training_job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9554,8 +9556,8 @@ module AWS::SDK::SageMaker
         stub ||= Types::AppSpecification.new
         data = {}
         data['ImageUri'] = stub[:image_uri] unless stub[:image_uri].nil?
-        data['ContainerEntrypoint'] = Stubs::ContainerEntrypoint.stub(stub[:container_entrypoint]) unless stub[:container_entrypoint].nil?
-        data['ContainerArguments'] = Stubs::ContainerArguments.stub(stub[:container_arguments]) unless stub[:container_arguments].nil?
+        data['ContainerEntrypoint'] = ContainerEntrypoint.stub(stub[:container_entrypoint]) unless stub[:container_entrypoint].nil?
+        data['ContainerArguments'] = ContainerArguments.stub(stub[:container_arguments]) unless stub[:container_arguments].nil?
         data
       end
     end
@@ -9611,7 +9613,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::ProcessingResources.new
         data = {}
-        data['ClusterConfig'] = Stubs::ProcessingClusterConfig.stub(stub[:cluster_config]) unless stub[:cluster_config].nil?
+        data['ClusterConfig'] = ProcessingClusterConfig.stub(stub[:cluster_config]) unless stub[:cluster_config].nil?
         data
       end
     end
@@ -9654,7 +9656,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::ProcessingOutputConfig.new
         data = {}
-        data['Outputs'] = Stubs::ProcessingOutputs.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['Outputs'] = ProcessingOutputs.stub(stub[:outputs]) unless stub[:outputs].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data
       end
@@ -9674,7 +9676,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProcessingOutput.stub(element) unless element.nil?
+          data << ProcessingOutput.stub(element) unless element.nil?
         end
         data
       end
@@ -9697,8 +9699,8 @@ module AWS::SDK::SageMaker
         stub ||= Types::ProcessingOutput.new
         data = {}
         data['OutputName'] = stub[:output_name] unless stub[:output_name].nil?
-        data['S3Output'] = Stubs::ProcessingS3Output.stub(stub[:s3_output]) unless stub[:s3_output].nil?
-        data['FeatureStoreOutput'] = Stubs::ProcessingFeatureStoreOutput.stub(stub[:feature_store_output]) unless stub[:feature_store_output].nil?
+        data['S3Output'] = ProcessingS3Output.stub(stub[:s3_output]) unless stub[:s3_output].nil?
+        data['FeatureStoreOutput'] = ProcessingFeatureStoreOutput.stub(stub[:feature_store_output]) unless stub[:feature_store_output].nil?
         data['AppManaged'] = stub[:app_managed] unless stub[:app_managed].nil?
         data
       end
@@ -9758,7 +9760,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProcessingInput.stub(element) unless element.nil?
+          data << ProcessingInput.stub(element) unless element.nil?
         end
         data
       end
@@ -9782,8 +9784,8 @@ module AWS::SDK::SageMaker
         data = {}
         data['InputName'] = stub[:input_name] unless stub[:input_name].nil?
         data['AppManaged'] = stub[:app_managed] unless stub[:app_managed].nil?
-        data['S3Input'] = Stubs::ProcessingS3Input.stub(stub[:s3_input]) unless stub[:s3_input].nil?
-        data['DatasetDefinition'] = Stubs::DatasetDefinition.stub(stub[:dataset_definition]) unless stub[:dataset_definition].nil?
+        data['S3Input'] = ProcessingS3Input.stub(stub[:s3_input]) unless stub[:s3_input].nil?
+        data['DatasetDefinition'] = DatasetDefinition.stub(stub[:dataset_definition]) unless stub[:dataset_definition].nil?
         data
       end
     end
@@ -9805,8 +9807,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::DatasetDefinition.new
         data = {}
-        data['AthenaDatasetDefinition'] = Stubs::AthenaDatasetDefinition.stub(stub[:athena_dataset_definition]) unless stub[:athena_dataset_definition].nil?
-        data['RedshiftDatasetDefinition'] = Stubs::RedshiftDatasetDefinition.stub(stub[:redshift_dataset_definition]) unless stub[:redshift_dataset_definition].nil?
+        data['AthenaDatasetDefinition'] = AthenaDatasetDefinition.stub(stub[:athena_dataset_definition]) unless stub[:athena_dataset_definition].nil?
+        data['RedshiftDatasetDefinition'] = RedshiftDatasetDefinition.stub(stub[:redshift_dataset_definition]) unless stub[:redshift_dataset_definition].nil?
         data['LocalPath'] = stub[:local_path] unless stub[:local_path].nil?
         data['DataDistributionType'] = stub[:data_distribution_type] unless stub[:data_distribution_type].nil?
         data['InputMode'] = stub[:input_mode] unless stub[:input_mode].nil?
@@ -9932,14 +9934,14 @@ module AWS::SDK::SageMaker
         data['ProjectName'] = stub[:project_name] unless stub[:project_name].nil?
         data['ProjectId'] = stub[:project_id] unless stub[:project_id].nil?
         data['ProjectDescription'] = stub[:project_description] unless stub[:project_description].nil?
-        data['ServiceCatalogProvisioningDetails'] = Stubs::ServiceCatalogProvisioningDetails.stub(stub[:service_catalog_provisioning_details]) unless stub[:service_catalog_provisioning_details].nil?
-        data['ServiceCatalogProvisionedProductDetails'] = Stubs::ServiceCatalogProvisionedProductDetails.stub(stub[:service_catalog_provisioned_product_details]) unless stub[:service_catalog_provisioned_product_details].nil?
+        data['ServiceCatalogProvisioningDetails'] = ServiceCatalogProvisioningDetails.stub(stub[:service_catalog_provisioning_details]) unless stub[:service_catalog_provisioning_details].nil?
+        data['ServiceCatalogProvisionedProductDetails'] = ServiceCatalogProvisionedProductDetails.stub(stub[:service_catalog_provisioned_product_details]) unless stub[:service_catalog_provisioned_product_details].nil?
         data['ProjectStatus'] = stub[:project_status] unless stub[:project_status].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -9983,7 +9985,7 @@ module AWS::SDK::SageMaker
         data['ProductId'] = stub[:product_id] unless stub[:product_id].nil?
         data['ProvisioningArtifactId'] = stub[:provisioning_artifact_id] unless stub[:provisioning_artifact_id].nil?
         data['PathId'] = stub[:path_id] unless stub[:path_id].nil?
-        data['ProvisioningParameters'] = Stubs::ProvisioningParameters.stub(stub[:provisioning_parameters]) unless stub[:provisioning_parameters].nil?
+        data['ProvisioningParameters'] = ProvisioningParameters.stub(stub[:provisioning_parameters]) unless stub[:provisioning_parameters].nil?
         data
       end
     end
@@ -10002,7 +10004,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProvisioningParameter.stub(element) unless element.nil?
+          data << ProvisioningParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -10049,7 +10051,7 @@ module AWS::SDK::SageMaker
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['StudioLifecycleConfigContent'] = stub[:studio_lifecycle_config_content] unless stub[:studio_lifecycle_config_content].nil?
         data['StudioLifecycleConfigAppType'] = stub[:studio_lifecycle_config_app_type] unless stub[:studio_lifecycle_config_app_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10064,8 +10066,8 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SubscribedWorkteam'] = Stubs::SubscribedWorkteam.stub(stub[:subscribed_workteam]) unless stub[:subscribed_workteam].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubscribedWorkteam'] = SubscribedWorkteam.stub(stub[:subscribed_workteam]) unless stub[:subscribed_workteam].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10150,42 +10152,42 @@ module AWS::SDK::SageMaker
         data['TuningJobArn'] = stub[:tuning_job_arn] unless stub[:tuning_job_arn].nil?
         data['LabelingJobArn'] = stub[:labeling_job_arn] unless stub[:labeling_job_arn].nil?
         data['AutoMLJobArn'] = stub[:auto_ml_job_arn] unless stub[:auto_ml_job_arn].nil?
-        data['ModelArtifacts'] = Stubs::ModelArtifacts.stub(stub[:model_artifacts]) unless stub[:model_artifacts].nil?
+        data['ModelArtifacts'] = ModelArtifacts.stub(stub[:model_artifacts]) unless stub[:model_artifacts].nil?
         data['TrainingJobStatus'] = stub[:training_job_status] unless stub[:training_job_status].nil?
         data['SecondaryStatus'] = stub[:secondary_status] unless stub[:secondary_status].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['HyperParameters'] = Stubs::HyperParameters.stub(stub[:hyper_parameters]) unless stub[:hyper_parameters].nil?
-        data['AlgorithmSpecification'] = Stubs::AlgorithmSpecification.stub(stub[:algorithm_specification]) unless stub[:algorithm_specification].nil?
+        data['HyperParameters'] = HyperParameters.stub(stub[:hyper_parameters]) unless stub[:hyper_parameters].nil?
+        data['AlgorithmSpecification'] = AlgorithmSpecification.stub(stub[:algorithm_specification]) unless stub[:algorithm_specification].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
-        data['ResourceConfig'] = Stubs::ResourceConfig.stub(stub[:resource_config]) unless stub[:resource_config].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        data['StoppingCondition'] = Stubs::StoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['ResourceConfig'] = ResourceConfig.stub(stub[:resource_config]) unless stub[:resource_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['StoppingCondition'] = StoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['TrainingStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:training_start_time]).to_i unless stub[:training_start_time].nil?
         data['TrainingEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:training_end_time]).to_i unless stub[:training_end_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['SecondaryStatusTransitions'] = Stubs::SecondaryStatusTransitions.stub(stub[:secondary_status_transitions]) unless stub[:secondary_status_transitions].nil?
-        data['FinalMetricDataList'] = Stubs::FinalMetricDataList.stub(stub[:final_metric_data_list]) unless stub[:final_metric_data_list].nil?
+        data['SecondaryStatusTransitions'] = SecondaryStatusTransitions.stub(stub[:secondary_status_transitions]) unless stub[:secondary_status_transitions].nil?
+        data['FinalMetricDataList'] = FinalMetricDataList.stub(stub[:final_metric_data_list]) unless stub[:final_metric_data_list].nil?
         data['EnableNetworkIsolation'] = stub[:enable_network_isolation] unless stub[:enable_network_isolation].nil?
         data['EnableInterContainerTrafficEncryption'] = stub[:enable_inter_container_traffic_encryption] unless stub[:enable_inter_container_traffic_encryption].nil?
         data['EnableManagedSpotTraining'] = stub[:enable_managed_spot_training] unless stub[:enable_managed_spot_training].nil?
-        data['CheckpointConfig'] = Stubs::CheckpointConfig.stub(stub[:checkpoint_config]) unless stub[:checkpoint_config].nil?
+        data['CheckpointConfig'] = CheckpointConfig.stub(stub[:checkpoint_config]) unless stub[:checkpoint_config].nil?
         data['TrainingTimeInSeconds'] = stub[:training_time_in_seconds] unless stub[:training_time_in_seconds].nil?
         data['BillableTimeInSeconds'] = stub[:billable_time_in_seconds] unless stub[:billable_time_in_seconds].nil?
-        data['DebugHookConfig'] = Stubs::DebugHookConfig.stub(stub[:debug_hook_config]) unless stub[:debug_hook_config].nil?
-        data['ExperimentConfig'] = Stubs::ExperimentConfig.stub(stub[:experiment_config]) unless stub[:experiment_config].nil?
-        data['DebugRuleConfigurations'] = Stubs::DebugRuleConfigurations.stub(stub[:debug_rule_configurations]) unless stub[:debug_rule_configurations].nil?
-        data['TensorBoardOutputConfig'] = Stubs::TensorBoardOutputConfig.stub(stub[:tensor_board_output_config]) unless stub[:tensor_board_output_config].nil?
-        data['DebugRuleEvaluationStatuses'] = Stubs::DebugRuleEvaluationStatuses.stub(stub[:debug_rule_evaluation_statuses]) unless stub[:debug_rule_evaluation_statuses].nil?
-        data['ProfilerConfig'] = Stubs::ProfilerConfig.stub(stub[:profiler_config]) unless stub[:profiler_config].nil?
-        data['ProfilerRuleConfigurations'] = Stubs::ProfilerRuleConfigurations.stub(stub[:profiler_rule_configurations]) unless stub[:profiler_rule_configurations].nil?
-        data['ProfilerRuleEvaluationStatuses'] = Stubs::ProfilerRuleEvaluationStatuses.stub(stub[:profiler_rule_evaluation_statuses]) unless stub[:profiler_rule_evaluation_statuses].nil?
+        data['DebugHookConfig'] = DebugHookConfig.stub(stub[:debug_hook_config]) unless stub[:debug_hook_config].nil?
+        data['ExperimentConfig'] = ExperimentConfig.stub(stub[:experiment_config]) unless stub[:experiment_config].nil?
+        data['DebugRuleConfigurations'] = DebugRuleConfigurations.stub(stub[:debug_rule_configurations]) unless stub[:debug_rule_configurations].nil?
+        data['TensorBoardOutputConfig'] = TensorBoardOutputConfig.stub(stub[:tensor_board_output_config]) unless stub[:tensor_board_output_config].nil?
+        data['DebugRuleEvaluationStatuses'] = DebugRuleEvaluationStatuses.stub(stub[:debug_rule_evaluation_statuses]) unless stub[:debug_rule_evaluation_statuses].nil?
+        data['ProfilerConfig'] = ProfilerConfig.stub(stub[:profiler_config]) unless stub[:profiler_config].nil?
+        data['ProfilerRuleConfigurations'] = ProfilerRuleConfigurations.stub(stub[:profiler_rule_configurations]) unless stub[:profiler_rule_configurations].nil?
+        data['ProfilerRuleEvaluationStatuses'] = ProfilerRuleEvaluationStatuses.stub(stub[:profiler_rule_evaluation_statuses]) unless stub[:profiler_rule_evaluation_statuses].nil?
         data['ProfilingStatus'] = stub[:profiling_status] unless stub[:profiling_status].nil?
-        data['RetryStrategy'] = Stubs::RetryStrategy.stub(stub[:retry_strategy]) unless stub[:retry_strategy].nil?
-        data['Environment'] = Stubs::TrainingEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RetryStrategy'] = RetryStrategy.stub(stub[:retry_strategy]) unless stub[:retry_strategy].nil?
+        data['Environment'] = TrainingEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10224,7 +10226,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProfilerRuleEvaluationStatus.stub(element) unless element.nil?
+          data << ProfilerRuleEvaluationStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -10270,7 +10272,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProfilerRuleConfiguration.stub(element) unless element.nil?
+          data << ProfilerRuleConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -10301,7 +10303,7 @@ module AWS::SDK::SageMaker
         data['RuleEvaluatorImage'] = stub[:rule_evaluator_image] unless stub[:rule_evaluator_image].nil?
         data['InstanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
         data['VolumeSizeInGB'] = stub[:volume_size_in_gb] unless stub[:volume_size_in_gb].nil?
-        data['RuleParameters'] = Stubs::RuleParameters.stub(stub[:rule_parameters]) unless stub[:rule_parameters].nil?
+        data['RuleParameters'] = RuleParameters.stub(stub[:rule_parameters]) unless stub[:rule_parameters].nil?
         data
       end
     end
@@ -10343,7 +10345,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['S3OutputPath'] = stub[:s3_output_path] unless stub[:s3_output_path].nil?
         data['ProfilingIntervalInMilliseconds'] = stub[:profiling_interval_in_milliseconds] unless stub[:profiling_interval_in_milliseconds].nil?
-        data['ProfilingParameters'] = Stubs::ProfilingParameters.stub(stub[:profiling_parameters]) unless stub[:profiling_parameters].nil?
+        data['ProfilingParameters'] = ProfilingParameters.stub(stub[:profiling_parameters]) unless stub[:profiling_parameters].nil?
         data
       end
     end
@@ -10382,7 +10384,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DebugRuleEvaluationStatus.stub(element) unless element.nil?
+          data << DebugRuleEvaluationStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -10448,7 +10450,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DebugRuleConfiguration.stub(element) unless element.nil?
+          data << DebugRuleConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -10479,7 +10481,7 @@ module AWS::SDK::SageMaker
         data['RuleEvaluatorImage'] = stub[:rule_evaluator_image] unless stub[:rule_evaluator_image].nil?
         data['InstanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
         data['VolumeSizeInGB'] = stub[:volume_size_in_gb] unless stub[:volume_size_in_gb].nil?
-        data['RuleParameters'] = Stubs::RuleParameters.stub(stub[:rule_parameters]) unless stub[:rule_parameters].nil?
+        data['RuleParameters'] = RuleParameters.stub(stub[:rule_parameters]) unless stub[:rule_parameters].nil?
         data
       end
     end
@@ -10502,8 +10504,8 @@ module AWS::SDK::SageMaker
         data = {}
         data['LocalPath'] = stub[:local_path] unless stub[:local_path].nil?
         data['S3OutputPath'] = stub[:s3_output_path] unless stub[:s3_output_path].nil?
-        data['HookParameters'] = Stubs::HookParameters.stub(stub[:hook_parameters]) unless stub[:hook_parameters].nil?
-        data['CollectionConfigurations'] = Stubs::CollectionConfigurations.stub(stub[:collection_configurations]) unless stub[:collection_configurations].nil?
+        data['HookParameters'] = HookParameters.stub(stub[:hook_parameters]) unless stub[:hook_parameters].nil?
+        data['CollectionConfigurations'] = CollectionConfigurations.stub(stub[:collection_configurations]) unless stub[:collection_configurations].nil?
         data
       end
     end
@@ -10522,7 +10524,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CollectionConfiguration.stub(element) unless element.nil?
+          data << CollectionConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -10543,7 +10545,7 @@ module AWS::SDK::SageMaker
         stub ||= Types::CollectionConfiguration.new
         data = {}
         data['CollectionName'] = stub[:collection_name] unless stub[:collection_name].nil?
-        data['CollectionParameters'] = Stubs::CollectionParameters.stub(stub[:collection_parameters]) unless stub[:collection_parameters].nil?
+        data['CollectionParameters'] = CollectionParameters.stub(stub[:collection_parameters]) unless stub[:collection_parameters].nil?
         data
       end
     end
@@ -10602,7 +10604,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricData.stub(element) unless element.nil?
+          data << MetricData.stub(element) unless element.nil?
         end
         data
       end
@@ -10644,7 +10646,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SecondaryStatusTransition.stub(element) unless element.nil?
+          data << SecondaryStatusTransition.stub(element) unless element.nil?
         end
         data
       end
@@ -10694,7 +10696,7 @@ module AWS::SDK::SageMaker
         data['TrainingImage'] = stub[:training_image] unless stub[:training_image].nil?
         data['AlgorithmName'] = stub[:algorithm_name] unless stub[:algorithm_name].nil?
         data['TrainingInputMode'] = stub[:training_input_mode] unless stub[:training_input_mode].nil?
-        data['MetricDefinitions'] = Stubs::MetricDefinitionList.stub(stub[:metric_definitions]) unless stub[:metric_definitions].nil?
+        data['MetricDefinitions'] = MetricDefinitionList.stub(stub[:metric_definitions]) unless stub[:metric_definitions].nil?
         data['EnableSageMakerMetricsTimeSeries'] = stub[:enable_sage_maker_metrics_time_series] unless stub[:enable_sage_maker_metrics_time_series].nil?
         data
       end
@@ -10735,21 +10737,21 @@ module AWS::SDK::SageMaker
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['ModelName'] = stub[:model_name] unless stub[:model_name].nil?
         data['MaxConcurrentTransforms'] = stub[:max_concurrent_transforms] unless stub[:max_concurrent_transforms].nil?
-        data['ModelClientConfig'] = Stubs::ModelClientConfig.stub(stub[:model_client_config]) unless stub[:model_client_config].nil?
+        data['ModelClientConfig'] = ModelClientConfig.stub(stub[:model_client_config]) unless stub[:model_client_config].nil?
         data['MaxPayloadInMB'] = stub[:max_payload_in_mb] unless stub[:max_payload_in_mb].nil?
         data['BatchStrategy'] = stub[:batch_strategy] unless stub[:batch_strategy].nil?
-        data['Environment'] = Stubs::TransformEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
-        data['TransformInput'] = Stubs::TransformInput.stub(stub[:transform_input]) unless stub[:transform_input].nil?
-        data['TransformOutput'] = Stubs::TransformOutput.stub(stub[:transform_output]) unless stub[:transform_output].nil?
-        data['TransformResources'] = Stubs::TransformResources.stub(stub[:transform_resources]) unless stub[:transform_resources].nil?
+        data['Environment'] = TransformEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
+        data['TransformInput'] = TransformInput.stub(stub[:transform_input]) unless stub[:transform_input].nil?
+        data['TransformOutput'] = TransformOutput.stub(stub[:transform_output]) unless stub[:transform_output].nil?
+        data['TransformResources'] = TransformResources.stub(stub[:transform_resources]) unless stub[:transform_resources].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['TransformStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:transform_start_time]).to_i unless stub[:transform_start_time].nil?
         data['TransformEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:transform_end_time]).to_i unless stub[:transform_end_time].nil?
         data['LabelingJobArn'] = stub[:labeling_job_arn] unless stub[:labeling_job_arn].nil?
         data['AutoMLJobArn'] = stub[:auto_ml_job_arn] unless stub[:auto_ml_job_arn].nil?
-        data['DataProcessing'] = Stubs::DataProcessing.stub(stub[:data_processing]) unless stub[:data_processing].nil?
-        data['ExperimentConfig'] = Stubs::ExperimentConfig.stub(stub[:experiment_config]) unless stub[:experiment_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DataProcessing'] = DataProcessing.stub(stub[:data_processing]) unless stub[:data_processing].nil?
+        data['ExperimentConfig'] = ExperimentConfig.stub(stub[:experiment_config]) unless stub[:experiment_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10819,13 +10821,13 @@ module AWS::SDK::SageMaker
         data['TrialArn'] = stub[:trial_arn] unless stub[:trial_arn].nil?
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
         data['ExperimentName'] = stub[:experiment_name] unless stub[:experiment_name].nil?
-        data['Source'] = Stubs::TrialSource.stub(stub[:source]) unless stub[:source].nil?
+        data['Source'] = TrialSource.stub(stub[:source]) unless stub[:source].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
-        data['MetadataProperties'] = Stubs::MetadataProperties.stub(stub[:metadata_properties]) unless stub[:metadata_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        data['MetadataProperties'] = MetadataProperties.stub(stub[:metadata_properties]) unless stub[:metadata_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10879,21 +10881,21 @@ module AWS::SDK::SageMaker
         data['TrialComponentName'] = stub[:trial_component_name] unless stub[:trial_component_name].nil?
         data['TrialComponentArn'] = stub[:trial_component_arn] unless stub[:trial_component_arn].nil?
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
-        data['Source'] = Stubs::TrialComponentSource.stub(stub[:source]) unless stub[:source].nil?
-        data['Status'] = Stubs::TrialComponentStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Source'] = TrialComponentSource.stub(stub[:source]) unless stub[:source].nil?
+        data['Status'] = TrialComponentStatus.stub(stub[:status]) unless stub[:status].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
-        data['Parameters'] = Stubs::TrialComponentParameters.stub(stub[:parameters]) unless stub[:parameters].nil?
-        data['InputArtifacts'] = Stubs::TrialComponentArtifacts.stub(stub[:input_artifacts]) unless stub[:input_artifacts].nil?
-        data['OutputArtifacts'] = Stubs::TrialComponentArtifacts.stub(stub[:output_artifacts]) unless stub[:output_artifacts].nil?
-        data['MetadataProperties'] = Stubs::MetadataProperties.stub(stub[:metadata_properties]) unless stub[:metadata_properties].nil?
-        data['Metrics'] = Stubs::TrialComponentMetricSummaries.stub(stub[:metrics]) unless stub[:metrics].nil?
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        data['Parameters'] = TrialComponentParameters.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['InputArtifacts'] = TrialComponentArtifacts.stub(stub[:input_artifacts]) unless stub[:input_artifacts].nil?
+        data['OutputArtifacts'] = TrialComponentArtifacts.stub(stub[:output_artifacts]) unless stub[:output_artifacts].nil?
+        data['MetadataProperties'] = MetadataProperties.stub(stub[:metadata_properties]) unless stub[:metadata_properties].nil?
+        data['Metrics'] = TrialComponentMetricSummaries.stub(stub[:metrics]) unless stub[:metrics].nil?
         data['LineageGroupArn'] = stub[:lineage_group_arn] unless stub[:lineage_group_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -10912,7 +10914,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TrialComponentMetricSummary.stub(element) unless element.nil?
+          data << TrialComponentMetricSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -10966,7 +10968,7 @@ module AWS::SDK::SageMaker
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::TrialComponentArtifact.stub(value) unless value.nil?
+          data[key] = TrialComponentArtifact.stub(value) unless value.nil?
         end
         data
       end
@@ -11006,7 +11008,7 @@ module AWS::SDK::SageMaker
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::TrialComponentParameterValue.stub(value) unless value.nil?
+          data[key] = TrialComponentParameterValue.stub(value) unless value.nil?
         end
         data
       end
@@ -11108,8 +11110,8 @@ module AWS::SDK::SageMaker
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['SingleSignOnUserIdentifier'] = stub[:single_sign_on_user_identifier] unless stub[:single_sign_on_user_identifier].nil?
         data['SingleSignOnUserValue'] = stub[:single_sign_on_user_value] unless stub[:single_sign_on_user_value].nil?
-        data['UserSettings'] = Stubs::UserSettings.stub(stub[:user_settings]) unless stub[:user_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserSettings'] = UserSettings.stub(stub[:user_settings]) unless stub[:user_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11124,8 +11126,8 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Workforce'] = Stubs::Workforce.stub(stub[:workforce]) unless stub[:workforce].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Workforce'] = Workforce.stub(stub[:workforce]) unless stub[:workforce].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11153,10 +11155,10 @@ module AWS::SDK::SageMaker
         data['WorkforceName'] = stub[:workforce_name] unless stub[:workforce_name].nil?
         data['WorkforceArn'] = stub[:workforce_arn] unless stub[:workforce_arn].nil?
         data['LastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
-        data['SourceIpConfig'] = Stubs::SourceIpConfig.stub(stub[:source_ip_config]) unless stub[:source_ip_config].nil?
+        data['SourceIpConfig'] = SourceIpConfig.stub(stub[:source_ip_config]) unless stub[:source_ip_config].nil?
         data['SubDomain'] = stub[:sub_domain] unless stub[:sub_domain].nil?
-        data['CognitoConfig'] = Stubs::CognitoConfig.stub(stub[:cognito_config]) unless stub[:cognito_config].nil?
-        data['OidcConfig'] = Stubs::OidcConfigForResponse.stub(stub[:oidc_config]) unless stub[:oidc_config].nil?
+        data['CognitoConfig'] = CognitoConfig.stub(stub[:cognito_config]) unless stub[:cognito_config].nil?
+        data['OidcConfig'] = OidcConfigForResponse.stub(stub[:oidc_config]) unless stub[:oidc_config].nil?
         data['CreateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_date]).to_i unless stub[:create_date].nil?
         data
       end
@@ -11225,7 +11227,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::SourceIpConfig.new
         data = {}
-        data['Cidrs'] = Stubs::Cidrs.stub(stub[:cidrs]) unless stub[:cidrs].nil?
+        data['Cidrs'] = Cidrs.stub(stub[:cidrs]) unless stub[:cidrs].nil?
         data
       end
     end
@@ -11260,8 +11262,8 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Workteam'] = Stubs::Workteam.stub(stub[:workteam]) unless stub[:workteam].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Workteam'] = Workteam.stub(stub[:workteam]) unless stub[:workteam].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11289,15 +11291,15 @@ module AWS::SDK::SageMaker
         stub ||= Types::Workteam.new
         data = {}
         data['WorkteamName'] = stub[:workteam_name] unless stub[:workteam_name].nil?
-        data['MemberDefinitions'] = Stubs::MemberDefinitions.stub(stub[:member_definitions]) unless stub[:member_definitions].nil?
+        data['MemberDefinitions'] = MemberDefinitions.stub(stub[:member_definitions]) unless stub[:member_definitions].nil?
         data['WorkteamArn'] = stub[:workteam_arn] unless stub[:workteam_arn].nil?
         data['WorkforceArn'] = stub[:workforce_arn] unless stub[:workforce_arn].nil?
-        data['ProductListingIds'] = Stubs::ProductListings.stub(stub[:product_listing_ids]) unless stub[:product_listing_ids].nil?
+        data['ProductListingIds'] = ProductListings.stub(stub[:product_listing_ids]) unless stub[:product_listing_ids].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['SubDomain'] = stub[:sub_domain] unless stub[:sub_domain].nil?
         data['CreateDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_date]).to_i unless stub[:create_date].nil?
         data['LastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
-        data['NotificationConfiguration'] = Stubs::NotificationConfiguration.stub(stub[:notification_configuration]) unless stub[:notification_configuration].nil?
+        data['NotificationConfiguration'] = NotificationConfiguration.stub(stub[:notification_configuration]) unless stub[:notification_configuration].nil?
         data
       end
     end
@@ -11354,7 +11356,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MemberDefinition.stub(element) unless element.nil?
+          data << MemberDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -11374,8 +11376,8 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::MemberDefinition.new
         data = {}
-        data['CognitoMemberDefinition'] = Stubs::CognitoMemberDefinition.stub(stub[:cognito_member_definition]) unless stub[:cognito_member_definition].nil?
-        data['OidcMemberDefinition'] = Stubs::OidcMemberDefinition.stub(stub[:oidc_member_definition]) unless stub[:oidc_member_definition].nil?
+        data['CognitoMemberDefinition'] = CognitoMemberDefinition.stub(stub[:cognito_member_definition]) unless stub[:cognito_member_definition].nil?
+        data['OidcMemberDefinition'] = OidcMemberDefinition.stub(stub[:oidc_member_definition]) unless stub[:oidc_member_definition].nil?
         data
       end
     end
@@ -11393,7 +11395,7 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::OidcMemberDefinition.new
         data = {}
-        data['Groups'] = Stubs::Groups.stub(stub[:groups]) unless stub[:groups].nil?
+        data['Groups'] = Groups.stub(stub[:groups]) unless stub[:groups].nil?
         data
       end
     end
@@ -11449,7 +11451,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11467,7 +11469,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['TrialComponentArn'] = stub[:trial_component_arn] unless stub[:trial_component_arn].nil?
         data['TrialArn'] = stub[:trial_arn] unless stub[:trial_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11481,7 +11483,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11505,13 +11507,13 @@ module AWS::SDK::SageMaker
         data = {}
         data['DeviceFleetArn'] = stub[:device_fleet_arn] unless stub[:device_fleet_arn].nil?
         data['DeviceFleetName'] = stub[:device_fleet_name] unless stub[:device_fleet_name].nil?
-        data['OutputConfig'] = Stubs::EdgeOutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
+        data['OutputConfig'] = EdgeOutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['ReportGenerated'] = Hearth::TimeHelper.to_epoch_seconds(stub[:report_generated]).to_i unless stub[:report_generated].nil?
-        data['DeviceStats'] = Stubs::DeviceStats.stub(stub[:device_stats]) unless stub[:device_stats].nil?
-        data['AgentVersions'] = Stubs::AgentVersions.stub(stub[:agent_versions]) unless stub[:agent_versions].nil?
-        data['ModelStats'] = Stubs::EdgeModelStats.stub(stub[:model_stats]) unless stub[:model_stats].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DeviceStats'] = DeviceStats.stub(stub[:device_stats]) unless stub[:device_stats].nil?
+        data['AgentVersions'] = AgentVersions.stub(stub[:agent_versions]) unless stub[:agent_versions].nil?
+        data['ModelStats'] = EdgeModelStats.stub(stub[:model_stats]) unless stub[:model_stats].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11530,7 +11532,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EdgeModelStat.stub(element) unless element.nil?
+          data << EdgeModelStat.stub(element) unless element.nil?
         end
         data
       end
@@ -11578,7 +11580,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AgentVersion.stub(element) unless element.nil?
+          data << AgentVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -11637,7 +11639,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['LineageGroupArn'] = stub[:lineage_group_arn] unless stub[:lineage_group_arn].nil?
         data['ResourcePolicy'] = stub[:resource_policy] unless stub[:resource_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11653,7 +11655,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ResourcePolicy'] = stub[:resource_policy] unless stub[:resource_policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11669,7 +11671,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11684,8 +11686,8 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PropertyNameSuggestions'] = Stubs::PropertyNameSuggestionList.stub(stub[:property_name_suggestions]) unless stub[:property_name_suggestions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PropertyNameSuggestions'] = PropertyNameSuggestionList.stub(stub[:property_name_suggestions]) unless stub[:property_name_suggestions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11704,7 +11706,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PropertyNameSuggestion.stub(element) unless element.nil?
+          data << PropertyNameSuggestion.stub(element) unless element.nil?
         end
         data
       end
@@ -11739,9 +11741,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ActionSummaries'] = Stubs::ActionSummaries.stub(stub[:action_summaries]) unless stub[:action_summaries].nil?
+        data['ActionSummaries'] = ActionSummaries.stub(stub[:action_summaries]) unless stub[:action_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11760,7 +11762,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActionSummary.stub(element) unless element.nil?
+          data << ActionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -11787,7 +11789,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['ActionArn'] = stub[:action_arn] unless stub[:action_arn].nil?
         data['ActionName'] = stub[:action_name] unless stub[:action_name].nil?
-        data['Source'] = Stubs::ActionSource.stub(stub[:source]) unless stub[:source].nil?
+        data['Source'] = ActionSource.stub(stub[:source]) unless stub[:source].nil?
         data['ActionType'] = stub[:action_type] unless stub[:action_type].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
@@ -11807,9 +11809,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AlgorithmSummaryList'] = Stubs::AlgorithmSummaryList.stub(stub[:algorithm_summary_list]) unless stub[:algorithm_summary_list].nil?
+        data['AlgorithmSummaryList'] = AlgorithmSummaryList.stub(stub[:algorithm_summary_list]) unless stub[:algorithm_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11828,7 +11830,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AlgorithmSummary.stub(element) unless element.nil?
+          data << AlgorithmSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -11872,8 +11874,8 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['AppImageConfigs'] = Stubs::AppImageConfigList.stub(stub[:app_image_configs]) unless stub[:app_image_configs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AppImageConfigs'] = AppImageConfigList.stub(stub[:app_image_configs]) unless stub[:app_image_configs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11892,7 +11894,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AppImageConfigDetails.stub(element) unless element.nil?
+          data << AppImageConfigDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -11919,7 +11921,7 @@ module AWS::SDK::SageMaker
         data['AppImageConfigName'] = stub[:app_image_config_name] unless stub[:app_image_config_name].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['KernelGatewayImageConfig'] = Stubs::KernelGatewayImageConfig.stub(stub[:kernel_gateway_image_config]) unless stub[:kernel_gateway_image_config].nil?
+        data['KernelGatewayImageConfig'] = KernelGatewayImageConfig.stub(stub[:kernel_gateway_image_config]) unless stub[:kernel_gateway_image_config].nil?
         data
       end
     end
@@ -11935,9 +11937,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Apps'] = Stubs::AppList.stub(stub[:apps]) unless stub[:apps].nil?
+        data['Apps'] = AppList.stub(stub[:apps]) unless stub[:apps].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -11956,7 +11958,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AppDetails.stub(element) unless element.nil?
+          data << AppDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -12001,9 +12003,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ArtifactSummaries'] = Stubs::ArtifactSummaries.stub(stub[:artifact_summaries]) unless stub[:artifact_summaries].nil?
+        data['ArtifactSummaries'] = ArtifactSummaries.stub(stub[:artifact_summaries]) unless stub[:artifact_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -12022,7 +12024,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ArtifactSummary.stub(element) unless element.nil?
+          data << ArtifactSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -12048,7 +12050,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['ArtifactArn'] = stub[:artifact_arn] unless stub[:artifact_arn].nil?
         data['ArtifactName'] = stub[:artifact_name] unless stub[:artifact_name].nil?
-        data['Source'] = Stubs::ArtifactSource.stub(stub[:source]) unless stub[:source].nil?
+        data['Source'] = ArtifactSource.stub(stub[:source]) unless stub[:source].nil?
         data['ArtifactType'] = stub[:artifact_type] unless stub[:artifact_type].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
@@ -12067,9 +12069,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AssociationSummaries'] = Stubs::AssociationSummaries.stub(stub[:association_summaries]) unless stub[:association_summaries].nil?
+        data['AssociationSummaries'] = AssociationSummaries.stub(stub[:association_summaries]) unless stub[:association_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -12088,7 +12090,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssociationSummary.stub(element) unless element.nil?
+          data << AssociationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -12123,7 +12125,7 @@ module AWS::SDK::SageMaker
         data['SourceName'] = stub[:source_name] unless stub[:source_name].nil?
         data['DestinationName'] = stub[:destination_name] unless stub[:destination_name].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
         data
       end
     end
@@ -12139,9 +12141,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AutoMLJobSummaries'] = Stubs::AutoMLJobSummaries.stub(stub[:auto_ml_job_summaries]) unless stub[:auto_ml_job_summaries].nil?
+        data['AutoMLJobSummaries'] = AutoMLJobSummaries.stub(stub[:auto_ml_job_summaries]) unless stub[:auto_ml_job_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -12160,7 +12162,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutoMLJobSummary.stub(element) unless element.nil?
+          data << AutoMLJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -12195,7 +12197,7 @@ module AWS::SDK::SageMaker
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['PartialFailureReasons'] = Stubs::AutoMLPartialFailureReasons.stub(stub[:partial_failure_reasons]) unless stub[:partial_failure_reasons].nil?
+        data['PartialFailureReasons'] = AutoMLPartialFailureReasons.stub(stub[:partial_failure_reasons]) unless stub[:partial_failure_reasons].nil?
         data
       end
     end
@@ -12211,9 +12213,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Candidates'] = Stubs::AutoMLCandidates.stub(stub[:candidates]) unless stub[:candidates].nil?
+        data['Candidates'] = AutoMLCandidates.stub(stub[:candidates]) unless stub[:candidates].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -12232,7 +12234,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutoMLCandidate.stub(element) unless element.nil?
+          data << AutoMLCandidate.stub(element) unless element.nil?
         end
         data
       end
@@ -12249,9 +12251,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CodeRepositorySummaryList'] = Stubs::CodeRepositorySummaryList.stub(stub[:code_repository_summary_list]) unless stub[:code_repository_summary_list].nil?
+        data['CodeRepositorySummaryList'] = CodeRepositorySummaryList.stub(stub[:code_repository_summary_list]) unless stub[:code_repository_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -12270,7 +12272,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CodeRepositorySummary.stub(element) unless element.nil?
+          data << CodeRepositorySummary.stub(element) unless element.nil?
         end
         data
       end
@@ -12297,7 +12299,7 @@ module AWS::SDK::SageMaker
         data['CodeRepositoryArn'] = stub[:code_repository_arn] unless stub[:code_repository_arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['GitConfig'] = Stubs::GitConfig.stub(stub[:git_config]) unless stub[:git_config].nil?
+        data['GitConfig'] = GitConfig.stub(stub[:git_config]) unless stub[:git_config].nil?
         data
       end
     end
@@ -12313,9 +12315,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CompilationJobSummaries'] = Stubs::CompilationJobSummaries.stub(stub[:compilation_job_summaries]) unless stub[:compilation_job_summaries].nil?
+        data['CompilationJobSummaries'] = CompilationJobSummaries.stub(stub[:compilation_job_summaries]) unless stub[:compilation_job_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -12334,7 +12336,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CompilationJobSummary.stub(element) unless element.nil?
+          data << CompilationJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -12389,9 +12391,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ContextSummaries'] = Stubs::ContextSummaries.stub(stub[:context_summaries]) unless stub[:context_summaries].nil?
+        data['ContextSummaries'] = ContextSummaries.stub(stub[:context_summaries]) unless stub[:context_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -12410,7 +12412,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContextSummary.stub(element) unless element.nil?
+          data << ContextSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -12436,7 +12438,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['ContextArn'] = stub[:context_arn] unless stub[:context_arn].nil?
         data['ContextName'] = stub[:context_name] unless stub[:context_name].nil?
-        data['Source'] = Stubs::ContextSource.stub(stub[:source]) unless stub[:source].nil?
+        data['Source'] = ContextSource.stub(stub[:source]) unless stub[:source].nil?
         data['ContextType'] = stub[:context_type] unless stub[:context_type].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
@@ -12455,9 +12457,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['JobDefinitionSummaries'] = Stubs::MonitoringJobDefinitionSummaryList.stub(stub[:job_definition_summaries]) unless stub[:job_definition_summaries].nil?
+        data['JobDefinitionSummaries'] = MonitoringJobDefinitionSummaryList.stub(stub[:job_definition_summaries]) unless stub[:job_definition_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -12476,7 +12478,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MonitoringJobDefinitionSummary.stub(element) unless element.nil?
+          data << MonitoringJobDefinitionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -12517,9 +12519,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DeviceFleetSummaries'] = Stubs::DeviceFleetSummaries.stub(stub[:device_fleet_summaries]) unless stub[:device_fleet_summaries].nil?
+        data['DeviceFleetSummaries'] = DeviceFleetSummaries.stub(stub[:device_fleet_summaries]) unless stub[:device_fleet_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -12538,7 +12540,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeviceFleetSummary.stub(element) unless element.nil?
+          data << DeviceFleetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -12579,9 +12581,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DeviceSummaries'] = Stubs::DeviceSummaries.stub(stub[:device_summaries]) unless stub[:device_summaries].nil?
+        data['DeviceSummaries'] = DeviceSummaries.stub(stub[:device_summaries]) unless stub[:device_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -12600,7 +12602,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DeviceSummary.stub(element) unless element.nil?
+          data << DeviceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -12634,7 +12636,7 @@ module AWS::SDK::SageMaker
         data['IotThingName'] = stub[:iot_thing_name] unless stub[:iot_thing_name].nil?
         data['RegistrationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:registration_time]).to_i unless stub[:registration_time].nil?
         data['LatestHeartbeat'] = Hearth::TimeHelper.to_epoch_seconds(stub[:latest_heartbeat]).to_i unless stub[:latest_heartbeat].nil?
-        data['Models'] = Stubs::EdgeModelSummaries.stub(stub[:models]) unless stub[:models].nil?
+        data['Models'] = EdgeModelSummaries.stub(stub[:models]) unless stub[:models].nil?
         data['AgentVersion'] = stub[:agent_version] unless stub[:agent_version].nil?
         data
       end
@@ -12654,7 +12656,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EdgeModelSummary.stub(element) unless element.nil?
+          data << EdgeModelSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -12691,9 +12693,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Domains'] = Stubs::DomainList.stub(stub[:domains]) unless stub[:domains].nil?
+        data['Domains'] = DomainList.stub(stub[:domains]) unless stub[:domains].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -12712,7 +12714,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainDetails.stub(element) unless element.nil?
+          data << DomainDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -12759,9 +12761,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EdgePackagingJobSummaries'] = Stubs::EdgePackagingJobSummaries.stub(stub[:edge_packaging_job_summaries]) unless stub[:edge_packaging_job_summaries].nil?
+        data['EdgePackagingJobSummaries'] = EdgePackagingJobSummaries.stub(stub[:edge_packaging_job_summaries]) unless stub[:edge_packaging_job_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -12780,7 +12782,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EdgePackagingJobSummary.stub(element) unless element.nil?
+          data << EdgePackagingJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -12829,9 +12831,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['EndpointConfigs'] = Stubs::EndpointConfigSummaryList.stub(stub[:endpoint_configs]) unless stub[:endpoint_configs].nil?
+        data['EndpointConfigs'] = EndpointConfigSummaryList.stub(stub[:endpoint_configs]) unless stub[:endpoint_configs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -12850,7 +12852,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EndpointConfigSummary.stub(element) unless element.nil?
+          data << EndpointConfigSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -12889,9 +12891,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Endpoints'] = Stubs::EndpointSummaryList.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        data['Endpoints'] = EndpointSummaryList.stub(stub[:endpoints]) unless stub[:endpoints].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -12910,7 +12912,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EndpointSummary.stub(element) unless element.nil?
+          data << EndpointSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -12953,9 +12955,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ExperimentSummaries'] = Stubs::ExperimentSummaries.stub(stub[:experiment_summaries]) unless stub[:experiment_summaries].nil?
+        data['ExperimentSummaries'] = ExperimentSummaries.stub(stub[:experiment_summaries]) unless stub[:experiment_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -12974,7 +12976,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExperimentSummary.stub(element) unless element.nil?
+          data << ExperimentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -13001,7 +13003,7 @@ module AWS::SDK::SageMaker
         data['ExperimentArn'] = stub[:experiment_arn] unless stub[:experiment_arn].nil?
         data['ExperimentName'] = stub[:experiment_name] unless stub[:experiment_name].nil?
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
-        data['ExperimentSource'] = Stubs::ExperimentSource.stub(stub[:experiment_source]) unless stub[:experiment_source].nil?
+        data['ExperimentSource'] = ExperimentSource.stub(stub[:experiment_source]) unless stub[:experiment_source].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data
@@ -13019,9 +13021,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FeatureGroupSummaries'] = Stubs::FeatureGroupSummaries.stub(stub[:feature_group_summaries]) unless stub[:feature_group_summaries].nil?
+        data['FeatureGroupSummaries'] = FeatureGroupSummaries.stub(stub[:feature_group_summaries]) unless stub[:feature_group_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -13040,7 +13042,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FeatureGroupSummary.stub(element) unless element.nil?
+          data << FeatureGroupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -13067,7 +13069,7 @@ module AWS::SDK::SageMaker
         data['FeatureGroupArn'] = stub[:feature_group_arn] unless stub[:feature_group_arn].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['FeatureGroupStatus'] = stub[:feature_group_status] unless stub[:feature_group_status].nil?
-        data['OfflineStoreStatus'] = Stubs::OfflineStoreStatus.stub(stub[:offline_store_status]) unless stub[:offline_store_status].nil?
+        data['OfflineStoreStatus'] = OfflineStoreStatus.stub(stub[:offline_store_status]) unless stub[:offline_store_status].nil?
         data
       end
     end
@@ -13083,9 +13085,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FlowDefinitionSummaries'] = Stubs::FlowDefinitionSummaries.stub(stub[:flow_definition_summaries]) unless stub[:flow_definition_summaries].nil?
+        data['FlowDefinitionSummaries'] = FlowDefinitionSummaries.stub(stub[:flow_definition_summaries]) unless stub[:flow_definition_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -13104,7 +13106,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FlowDefinitionSummary.stub(element) unless element.nil?
+          data << FlowDefinitionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -13147,9 +13149,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['HumanTaskUiSummaries'] = Stubs::HumanTaskUiSummaries.stub(stub[:human_task_ui_summaries]) unless stub[:human_task_ui_summaries].nil?
+        data['HumanTaskUiSummaries'] = HumanTaskUiSummaries.stub(stub[:human_task_ui_summaries]) unless stub[:human_task_ui_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -13168,7 +13170,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HumanTaskUiSummary.stub(element) unless element.nil?
+          data << HumanTaskUiSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -13207,9 +13209,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['HyperParameterTuningJobSummaries'] = Stubs::HyperParameterTuningJobSummaries.stub(stub[:hyper_parameter_tuning_job_summaries]) unless stub[:hyper_parameter_tuning_job_summaries].nil?
+        data['HyperParameterTuningJobSummaries'] = HyperParameterTuningJobSummaries.stub(stub[:hyper_parameter_tuning_job_summaries]) unless stub[:hyper_parameter_tuning_job_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -13228,7 +13230,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HyperParameterTuningJobSummary.stub(element) unless element.nil?
+          data << HyperParameterTuningJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -13263,9 +13265,9 @@ module AWS::SDK::SageMaker
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['HyperParameterTuningEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:hyper_parameter_tuning_end_time]).to_i unless stub[:hyper_parameter_tuning_end_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['TrainingJobStatusCounters'] = Stubs::TrainingJobStatusCounters.stub(stub[:training_job_status_counters]) unless stub[:training_job_status_counters].nil?
-        data['ObjectiveStatusCounters'] = Stubs::ObjectiveStatusCounters.stub(stub[:objective_status_counters]) unless stub[:objective_status_counters].nil?
-        data['ResourceLimits'] = Stubs::ResourceLimits.stub(stub[:resource_limits]) unless stub[:resource_limits].nil?
+        data['TrainingJobStatusCounters'] = TrainingJobStatusCounters.stub(stub[:training_job_status_counters]) unless stub[:training_job_status_counters].nil?
+        data['ObjectiveStatusCounters'] = ObjectiveStatusCounters.stub(stub[:objective_status_counters]) unless stub[:objective_status_counters].nil?
+        data['ResourceLimits'] = ResourceLimits.stub(stub[:resource_limits]) unless stub[:resource_limits].nil?
         data
       end
     end
@@ -13281,9 +13283,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ImageVersions'] = Stubs::ImageVersions.stub(stub[:image_versions]) unless stub[:image_versions].nil?
+        data['ImageVersions'] = ImageVersions.stub(stub[:image_versions]) unless stub[:image_versions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -13302,7 +13304,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImageVersion.stub(element) unless element.nil?
+          data << ImageVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -13349,9 +13351,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Images'] = Stubs::Images.stub(stub[:images]) unless stub[:images].nil?
+        data['Images'] = Images.stub(stub[:images]) unless stub[:images].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -13370,7 +13372,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Image.stub(element) unless element.nil?
+          data << Image.stub(element) unless element.nil?
         end
         data
       end
@@ -13419,9 +13421,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['InferenceRecommendationsJobs'] = Stubs::InferenceRecommendationsJobs.stub(stub[:inference_recommendations_jobs]) unless stub[:inference_recommendations_jobs].nil?
+        data['InferenceRecommendationsJobs'] = InferenceRecommendationsJobs.stub(stub[:inference_recommendations_jobs]) unless stub[:inference_recommendations_jobs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -13440,7 +13442,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InferenceRecommendationsJob.stub(element) unless element.nil?
+          data << InferenceRecommendationsJob.stub(element) unless element.nil?
         end
         data
       end
@@ -13493,9 +13495,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LabelingJobSummaryList'] = Stubs::LabelingJobSummaryList.stub(stub[:labeling_job_summary_list]) unless stub[:labeling_job_summary_list].nil?
+        data['LabelingJobSummaryList'] = LabelingJobSummaryList.stub(stub[:labeling_job_summary_list]) unless stub[:labeling_job_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -13514,7 +13516,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LabelingJobSummary.stub(element) unless element.nil?
+          data << LabelingJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -13549,13 +13551,13 @@ module AWS::SDK::SageMaker
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['LabelingJobStatus'] = stub[:labeling_job_status] unless stub[:labeling_job_status].nil?
-        data['LabelCounters'] = Stubs::LabelCounters.stub(stub[:label_counters]) unless stub[:label_counters].nil?
+        data['LabelCounters'] = LabelCounters.stub(stub[:label_counters]) unless stub[:label_counters].nil?
         data['WorkteamArn'] = stub[:workteam_arn] unless stub[:workteam_arn].nil?
         data['PreHumanTaskLambdaArn'] = stub[:pre_human_task_lambda_arn] unless stub[:pre_human_task_lambda_arn].nil?
         data['AnnotationConsolidationLambdaArn'] = stub[:annotation_consolidation_lambda_arn] unless stub[:annotation_consolidation_lambda_arn].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['LabelingJobOutput'] = Stubs::LabelingJobOutput.stub(stub[:labeling_job_output]) unless stub[:labeling_job_output].nil?
-        data['InputConfig'] = Stubs::LabelingJobInputConfig.stub(stub[:input_config]) unless stub[:input_config].nil?
+        data['LabelingJobOutput'] = LabelingJobOutput.stub(stub[:labeling_job_output]) unless stub[:labeling_job_output].nil?
+        data['InputConfig'] = LabelingJobInputConfig.stub(stub[:input_config]) unless stub[:input_config].nil?
         data
       end
     end
@@ -13571,9 +13573,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LabelingJobSummaryList'] = Stubs::LabelingJobForWorkteamSummaryList.stub(stub[:labeling_job_summary_list]) unless stub[:labeling_job_summary_list].nil?
+        data['LabelingJobSummaryList'] = LabelingJobForWorkteamSummaryList.stub(stub[:labeling_job_summary_list]) unless stub[:labeling_job_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -13592,7 +13594,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LabelingJobForWorkteamSummary.stub(element) unless element.nil?
+          data << LabelingJobForWorkteamSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -13620,7 +13622,7 @@ module AWS::SDK::SageMaker
         data['JobReferenceCode'] = stub[:job_reference_code] unless stub[:job_reference_code].nil?
         data['WorkRequesterAccountId'] = stub[:work_requester_account_id] unless stub[:work_requester_account_id].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['LabelCounters'] = Stubs::LabelCountersForWorkteam.stub(stub[:label_counters]) unless stub[:label_counters].nil?
+        data['LabelCounters'] = LabelCountersForWorkteam.stub(stub[:label_counters]) unless stub[:label_counters].nil?
         data['NumberOfHumanWorkersPerDataObject'] = stub[:number_of_human_workers_per_data_object] unless stub[:number_of_human_workers_per_data_object].nil?
         data
       end
@@ -13659,9 +13661,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['LineageGroupSummaries'] = Stubs::LineageGroupSummaries.stub(stub[:lineage_group_summaries]) unless stub[:lineage_group_summaries].nil?
+        data['LineageGroupSummaries'] = LineageGroupSummaries.stub(stub[:lineage_group_summaries]) unless stub[:lineage_group_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -13680,7 +13682,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LineageGroupSummary.stub(element) unless element.nil?
+          data << LineageGroupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -13723,9 +13725,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['JobDefinitionSummaries'] = Stubs::MonitoringJobDefinitionSummaryList.stub(stub[:job_definition_summaries]) unless stub[:job_definition_summaries].nil?
+        data['JobDefinitionSummaries'] = MonitoringJobDefinitionSummaryList.stub(stub[:job_definition_summaries]) unless stub[:job_definition_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -13741,9 +13743,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['JobDefinitionSummaries'] = Stubs::MonitoringJobDefinitionSummaryList.stub(stub[:job_definition_summaries]) unless stub[:job_definition_summaries].nil?
+        data['JobDefinitionSummaries'] = MonitoringJobDefinitionSummaryList.stub(stub[:job_definition_summaries]) unless stub[:job_definition_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -13759,9 +13761,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ModelMetadataSummaries'] = Stubs::ModelMetadataSummaries.stub(stub[:model_metadata_summaries]) unless stub[:model_metadata_summaries].nil?
+        data['ModelMetadataSummaries'] = ModelMetadataSummaries.stub(stub[:model_metadata_summaries]) unless stub[:model_metadata_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -13780,7 +13782,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ModelMetadataSummary.stub(element) unless element.nil?
+          data << ModelMetadataSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -13823,9 +13825,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ModelPackageGroupSummaryList'] = Stubs::ModelPackageGroupSummaryList.stub(stub[:model_package_group_summary_list]) unless stub[:model_package_group_summary_list].nil?
+        data['ModelPackageGroupSummaryList'] = ModelPackageGroupSummaryList.stub(stub[:model_package_group_summary_list]) unless stub[:model_package_group_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -13844,7 +13846,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ModelPackageGroupSummary.stub(element) unless element.nil?
+          data << ModelPackageGroupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -13887,9 +13889,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ModelPackageSummaryList'] = Stubs::ModelPackageSummaryList.stub(stub[:model_package_summary_list]) unless stub[:model_package_summary_list].nil?
+        data['ModelPackageSummaryList'] = ModelPackageSummaryList.stub(stub[:model_package_summary_list]) unless stub[:model_package_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -13908,7 +13910,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ModelPackageSummary.stub(element) unless element.nil?
+          data << ModelPackageSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -13957,9 +13959,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['JobDefinitionSummaries'] = Stubs::MonitoringJobDefinitionSummaryList.stub(stub[:job_definition_summaries]) unless stub[:job_definition_summaries].nil?
+        data['JobDefinitionSummaries'] = MonitoringJobDefinitionSummaryList.stub(stub[:job_definition_summaries]) unless stub[:job_definition_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -13975,9 +13977,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Models'] = Stubs::ModelSummaryList.stub(stub[:models]) unless stub[:models].nil?
+        data['Models'] = ModelSummaryList.stub(stub[:models]) unless stub[:models].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -13996,7 +13998,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ModelSummary.stub(element) unless element.nil?
+          data << ModelSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -14035,9 +14037,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['MonitoringExecutionSummaries'] = Stubs::MonitoringExecutionSummaryList.stub(stub[:monitoring_execution_summaries]) unless stub[:monitoring_execution_summaries].nil?
+        data['MonitoringExecutionSummaries'] = MonitoringExecutionSummaryList.stub(stub[:monitoring_execution_summaries]) unless stub[:monitoring_execution_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -14056,7 +14058,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MonitoringExecutionSummary.stub(element) unless element.nil?
+          data << MonitoringExecutionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -14073,9 +14075,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['MonitoringScheduleSummaries'] = Stubs::MonitoringScheduleSummaryList.stub(stub[:monitoring_schedule_summaries]) unless stub[:monitoring_schedule_summaries].nil?
+        data['MonitoringScheduleSummaries'] = MonitoringScheduleSummaryList.stub(stub[:monitoring_schedule_summaries]) unless stub[:monitoring_schedule_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -14094,7 +14096,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MonitoringScheduleSummary.stub(element) unless element.nil?
+          data << MonitoringScheduleSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -14144,8 +14146,8 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['NotebookInstanceLifecycleConfigs'] = Stubs::NotebookInstanceLifecycleConfigSummaryList.stub(stub[:notebook_instance_lifecycle_configs]) unless stub[:notebook_instance_lifecycle_configs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NotebookInstanceLifecycleConfigs'] = NotebookInstanceLifecycleConfigSummaryList.stub(stub[:notebook_instance_lifecycle_configs]) unless stub[:notebook_instance_lifecycle_configs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -14164,7 +14166,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NotebookInstanceLifecycleConfigSummary.stub(element) unless element.nil?
+          data << NotebookInstanceLifecycleConfigSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -14206,8 +14208,8 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['NotebookInstances'] = Stubs::NotebookInstanceSummaryList.stub(stub[:notebook_instances]) unless stub[:notebook_instances].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NotebookInstances'] = NotebookInstanceSummaryList.stub(stub[:notebook_instances]) unless stub[:notebook_instances].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -14226,7 +14228,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NotebookInstanceSummary.stub(element) unless element.nil?
+          data << NotebookInstanceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -14263,7 +14265,7 @@ module AWS::SDK::SageMaker
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['NotebookInstanceLifecycleConfigName'] = stub[:notebook_instance_lifecycle_config_name] unless stub[:notebook_instance_lifecycle_config_name].nil?
         data['DefaultCodeRepository'] = stub[:default_code_repository] unless stub[:default_code_repository].nil?
-        data['AdditionalCodeRepositories'] = Stubs::AdditionalCodeRepositoryNamesOrUrls.stub(stub[:additional_code_repositories]) unless stub[:additional_code_repositories].nil?
+        data['AdditionalCodeRepositories'] = AdditionalCodeRepositoryNamesOrUrls.stub(stub[:additional_code_repositories]) unless stub[:additional_code_repositories].nil?
         data
       end
     end
@@ -14279,9 +14281,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PipelineExecutionSteps'] = Stubs::PipelineExecutionStepList.stub(stub[:pipeline_execution_steps]) unless stub[:pipeline_execution_steps].nil?
+        data['PipelineExecutionSteps'] = PipelineExecutionStepList.stub(stub[:pipeline_execution_steps]) unless stub[:pipeline_execution_steps].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -14300,7 +14302,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PipelineExecutionStep.stub(element) unless element.nil?
+          data << PipelineExecutionStep.stub(element) unless element.nil?
         end
         data
       end
@@ -14334,10 +14336,10 @@ module AWS::SDK::SageMaker
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['StepStatus'] = stub[:step_status] unless stub[:step_status].nil?
-        data['CacheHitResult'] = Stubs::CacheHitResult.stub(stub[:cache_hit_result]) unless stub[:cache_hit_result].nil?
+        data['CacheHitResult'] = CacheHitResult.stub(stub[:cache_hit_result]) unless stub[:cache_hit_result].nil?
         data['AttemptCount'] = stub[:attempt_count] unless stub[:attempt_count].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['Metadata'] = Stubs::PipelineExecutionStepMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
+        data['Metadata'] = PipelineExecutionStepMetadata.stub(stub[:metadata]) unless stub[:metadata].nil?
         data
       end
     end
@@ -14367,19 +14369,19 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::PipelineExecutionStepMetadata.new
         data = {}
-        data['TrainingJob'] = Stubs::TrainingJobStepMetadata.stub(stub[:training_job]) unless stub[:training_job].nil?
-        data['ProcessingJob'] = Stubs::ProcessingJobStepMetadata.stub(stub[:processing_job]) unless stub[:processing_job].nil?
-        data['TransformJob'] = Stubs::TransformJobStepMetadata.stub(stub[:transform_job]) unless stub[:transform_job].nil?
-        data['TuningJob'] = Stubs::TuningJobStepMetaData.stub(stub[:tuning_job]) unless stub[:tuning_job].nil?
-        data['Model'] = Stubs::ModelStepMetadata.stub(stub[:model]) unless stub[:model].nil?
-        data['RegisterModel'] = Stubs::RegisterModelStepMetadata.stub(stub[:register_model]) unless stub[:register_model].nil?
-        data['Condition'] = Stubs::ConditionStepMetadata.stub(stub[:condition]) unless stub[:condition].nil?
-        data['Callback'] = Stubs::CallbackStepMetadata.stub(stub[:callback]) unless stub[:callback].nil?
-        data['Lambda'] = Stubs::LambdaStepMetadata.stub(stub[:lambda]) unless stub[:lambda].nil?
-        data['QualityCheck'] = Stubs::QualityCheckStepMetadata.stub(stub[:quality_check]) unless stub[:quality_check].nil?
-        data['ClarifyCheck'] = Stubs::ClarifyCheckStepMetadata.stub(stub[:clarify_check]) unless stub[:clarify_check].nil?
-        data['EMR'] = Stubs::EMRStepMetadata.stub(stub[:emr]) unless stub[:emr].nil?
-        data['Fail'] = Stubs::FailStepMetadata.stub(stub[:fail]) unless stub[:fail].nil?
+        data['TrainingJob'] = TrainingJobStepMetadata.stub(stub[:training_job]) unless stub[:training_job].nil?
+        data['ProcessingJob'] = ProcessingJobStepMetadata.stub(stub[:processing_job]) unless stub[:processing_job].nil?
+        data['TransformJob'] = TransformJobStepMetadata.stub(stub[:transform_job]) unless stub[:transform_job].nil?
+        data['TuningJob'] = TuningJobStepMetaData.stub(stub[:tuning_job]) unless stub[:tuning_job].nil?
+        data['Model'] = ModelStepMetadata.stub(stub[:model]) unless stub[:model].nil?
+        data['RegisterModel'] = RegisterModelStepMetadata.stub(stub[:register_model]) unless stub[:register_model].nil?
+        data['Condition'] = ConditionStepMetadata.stub(stub[:condition]) unless stub[:condition].nil?
+        data['Callback'] = CallbackStepMetadata.stub(stub[:callback]) unless stub[:callback].nil?
+        data['Lambda'] = LambdaStepMetadata.stub(stub[:lambda]) unless stub[:lambda].nil?
+        data['QualityCheck'] = QualityCheckStepMetadata.stub(stub[:quality_check]) unless stub[:quality_check].nil?
+        data['ClarifyCheck'] = ClarifyCheckStepMetadata.stub(stub[:clarify_check]) unless stub[:clarify_check].nil?
+        data['EMR'] = EMRStepMetadata.stub(stub[:emr]) unless stub[:emr].nil?
+        data['Fail'] = FailStepMetadata.stub(stub[:fail]) unless stub[:fail].nil?
         data
       end
     end
@@ -14509,7 +14511,7 @@ module AWS::SDK::SageMaker
         stub ||= Types::LambdaStepMetadata.new
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['OutputParameters'] = Stubs::OutputParameterList.stub(stub[:output_parameters]) unless stub[:output_parameters].nil?
+        data['OutputParameters'] = OutputParameterList.stub(stub[:output_parameters]) unless stub[:output_parameters].nil?
         data
       end
     end
@@ -14528,7 +14530,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OutputParameter.stub(element) unless element.nil?
+          data << OutputParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -14571,7 +14573,7 @@ module AWS::SDK::SageMaker
         data = {}
         data['CallbackToken'] = stub[:callback_token] unless stub[:callback_token].nil?
         data['SqsQueueUrl'] = stub[:sqs_queue_url] unless stub[:sqs_queue_url].nil?
-        data['OutputParameters'] = Stubs::OutputParameterList.stub(stub[:output_parameters]) unless stub[:output_parameters].nil?
+        data['OutputParameters'] = OutputParameterList.stub(stub[:output_parameters]) unless stub[:output_parameters].nil?
         data
       end
     end
@@ -14731,9 +14733,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PipelineExecutionSummaries'] = Stubs::PipelineExecutionSummaryList.stub(stub[:pipeline_execution_summaries]) unless stub[:pipeline_execution_summaries].nil?
+        data['PipelineExecutionSummaries'] = PipelineExecutionSummaryList.stub(stub[:pipeline_execution_summaries]) unless stub[:pipeline_execution_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -14752,7 +14754,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PipelineExecutionSummary.stub(element) unless element.nil?
+          data << PipelineExecutionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -14797,9 +14799,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PipelineParameters'] = Stubs::ParameterList.stub(stub[:pipeline_parameters]) unless stub[:pipeline_parameters].nil?
+        data['PipelineParameters'] = ParameterList.stub(stub[:pipeline_parameters]) unless stub[:pipeline_parameters].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -14818,7 +14820,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Parameter.stub(element) unless element.nil?
+          data << Parameter.stub(element) unless element.nil?
         end
         data
       end
@@ -14855,9 +14857,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PipelineSummaries'] = Stubs::PipelineSummaryList.stub(stub[:pipeline_summaries]) unless stub[:pipeline_summaries].nil?
+        data['PipelineSummaries'] = PipelineSummaryList.stub(stub[:pipeline_summaries]) unless stub[:pipeline_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -14876,7 +14878,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PipelineSummary.stub(element) unless element.nil?
+          data << PipelineSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -14925,9 +14927,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProcessingJobSummaries'] = Stubs::ProcessingJobSummaries.stub(stub[:processing_job_summaries]) unless stub[:processing_job_summaries].nil?
+        data['ProcessingJobSummaries'] = ProcessingJobSummaries.stub(stub[:processing_job_summaries]) unless stub[:processing_job_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -14946,7 +14948,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProcessingJobSummary.stub(element) unless element.nil?
+          data << ProcessingJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -14995,9 +14997,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProjectSummaryList'] = Stubs::ProjectSummaryList.stub(stub[:project_summary_list]) unless stub[:project_summary_list].nil?
+        data['ProjectSummaryList'] = ProjectSummaryList.stub(stub[:project_summary_list]) unless stub[:project_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15016,7 +15018,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProjectSummary.stub(element) unless element.nil?
+          data << ProjectSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -15062,8 +15064,8 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['StudioLifecycleConfigs'] = Stubs::StudioLifecycleConfigsList.stub(stub[:studio_lifecycle_configs]) unless stub[:studio_lifecycle_configs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StudioLifecycleConfigs'] = StudioLifecycleConfigsList.stub(stub[:studio_lifecycle_configs]) unless stub[:studio_lifecycle_configs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15082,7 +15084,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StudioLifecycleConfigDetails.stub(element) unless element.nil?
+          data << StudioLifecycleConfigDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -15125,9 +15127,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SubscribedWorkteams'] = Stubs::SubscribedWorkteams.stub(stub[:subscribed_workteams]) unless stub[:subscribed_workteams].nil?
+        data['SubscribedWorkteams'] = SubscribedWorkteams.stub(stub[:subscribed_workteams]) unless stub[:subscribed_workteams].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15146,7 +15148,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SubscribedWorkteam.stub(element) unless element.nil?
+          data << SubscribedWorkteam.stub(element) unless element.nil?
         end
         data
       end
@@ -15163,9 +15165,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15181,9 +15183,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TrainingJobSummaries'] = Stubs::TrainingJobSummaries.stub(stub[:training_job_summaries]) unless stub[:training_job_summaries].nil?
+        data['TrainingJobSummaries'] = TrainingJobSummaries.stub(stub[:training_job_summaries]) unless stub[:training_job_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15202,7 +15204,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TrainingJobSummary.stub(element) unless element.nil?
+          data << TrainingJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -15247,9 +15249,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TrainingJobSummaries'] = Stubs::HyperParameterTrainingJobSummaries.stub(stub[:training_job_summaries]) unless stub[:training_job_summaries].nil?
+        data['TrainingJobSummaries'] = HyperParameterTrainingJobSummaries.stub(stub[:training_job_summaries]) unless stub[:training_job_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15268,7 +15270,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HyperParameterTrainingJobSummary.stub(element) unless element.nil?
+          data << HyperParameterTrainingJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -15285,9 +15287,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TransformJobSummaries'] = Stubs::TransformJobSummaries.stub(stub[:transform_job_summaries]) unless stub[:transform_job_summaries].nil?
+        data['TransformJobSummaries'] = TransformJobSummaries.stub(stub[:transform_job_summaries]) unless stub[:transform_job_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15306,7 +15308,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TransformJobSummary.stub(element) unless element.nil?
+          data << TransformJobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -15353,9 +15355,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TrialComponentSummaries'] = Stubs::TrialComponentSummaries.stub(stub[:trial_component_summaries]) unless stub[:trial_component_summaries].nil?
+        data['TrialComponentSummaries'] = TrialComponentSummaries.stub(stub[:trial_component_summaries]) unless stub[:trial_component_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15374,7 +15376,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TrialComponentSummary.stub(element) unless element.nil?
+          data << TrialComponentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -15406,14 +15408,14 @@ module AWS::SDK::SageMaker
         data['TrialComponentName'] = stub[:trial_component_name] unless stub[:trial_component_name].nil?
         data['TrialComponentArn'] = stub[:trial_component_arn] unless stub[:trial_component_arn].nil?
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
-        data['TrialComponentSource'] = Stubs::TrialComponentSource.stub(stub[:trial_component_source]) unless stub[:trial_component_source].nil?
-        data['Status'] = Stubs::TrialComponentStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['TrialComponentSource'] = TrialComponentSource.stub(stub[:trial_component_source]) unless stub[:trial_component_source].nil?
+        data['Status'] = TrialComponentStatus.stub(stub[:status]) unless stub[:status].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
         data
       end
     end
@@ -15429,9 +15431,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TrialSummaries'] = Stubs::TrialSummaries.stub(stub[:trial_summaries]) unless stub[:trial_summaries].nil?
+        data['TrialSummaries'] = TrialSummaries.stub(stub[:trial_summaries]) unless stub[:trial_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15450,7 +15452,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TrialSummary.stub(element) unless element.nil?
+          data << TrialSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -15477,7 +15479,7 @@ module AWS::SDK::SageMaker
         data['TrialArn'] = stub[:trial_arn] unless stub[:trial_arn].nil?
         data['TrialName'] = stub[:trial_name] unless stub[:trial_name].nil?
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
-        data['TrialSource'] = Stubs::TrialSource.stub(stub[:trial_source]) unless stub[:trial_source].nil?
+        data['TrialSource'] = TrialSource.stub(stub[:trial_source]) unless stub[:trial_source].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data
@@ -15495,9 +15497,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['UserProfiles'] = Stubs::UserProfileList.stub(stub[:user_profiles]) unless stub[:user_profiles].nil?
+        data['UserProfiles'] = UserProfileList.stub(stub[:user_profiles]) unless stub[:user_profiles].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15516,7 +15518,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UserProfileDetails.stub(element) unless element.nil?
+          data << UserProfileDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -15559,9 +15561,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Workforces'] = Stubs::Workforces.stub(stub[:workforces]) unless stub[:workforces].nil?
+        data['Workforces'] = Workforces.stub(stub[:workforces]) unless stub[:workforces].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15580,7 +15582,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Workforce.stub(element) unless element.nil?
+          data << Workforce.stub(element) unless element.nil?
         end
         data
       end
@@ -15597,9 +15599,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Workteams'] = Stubs::Workteams.stub(stub[:workteams]) unless stub[:workteams].nil?
+        data['Workteams'] = Workteams.stub(stub[:workteams]) unless stub[:workteams].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15618,7 +15620,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Workteam.stub(element) unless element.nil?
+          data << Workteam.stub(element) unless element.nil?
         end
         data
       end
@@ -15635,7 +15637,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ModelPackageGroupArn'] = stub[:model_package_group_arn] unless stub[:model_package_group_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15652,10 +15654,10 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Vertices'] = Stubs::Vertices.stub(stub[:vertices]) unless stub[:vertices].nil?
-        data['Edges'] = Stubs::Edges.stub(stub[:edges]) unless stub[:edges].nil?
+        data['Vertices'] = Vertices.stub(stub[:vertices]) unless stub[:vertices].nil?
+        data['Edges'] = Edges.stub(stub[:edges]) unless stub[:edges].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15674,7 +15676,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Edge.stub(element) unless element.nil?
+          data << Edge.stub(element) unless element.nil?
         end
         data
       end
@@ -15716,7 +15718,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Vertex.stub(element) unless element.nil?
+          data << Vertex.stub(element) unless element.nil?
         end
         data
       end
@@ -15753,7 +15755,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15770,8 +15772,8 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['RenderedContent'] = stub[:rendered_content] unless stub[:rendered_content].nil?
-        data['Errors'] = Stubs::RenderingErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Errors'] = RenderingErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15790,7 +15792,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RenderingError.stub(element) unless element.nil?
+          data << RenderingError.stub(element) unless element.nil?
         end
         data
       end
@@ -15827,7 +15829,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['PipelineExecutionArn'] = stub[:pipeline_execution_arn] unless stub[:pipeline_execution_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15843,9 +15845,9 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Results'] = Stubs::SearchResultsList.stub(stub[:results]) unless stub[:results].nil?
+        data['Results'] = SearchResultsList.stub(stub[:results]) unless stub[:results].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -15864,7 +15866,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SearchRecord.stub(element) unless element.nil?
+          data << SearchRecord.stub(element) unless element.nil?
         end
         data
       end
@@ -15893,17 +15895,17 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::SearchRecord.new
         data = {}
-        data['TrainingJob'] = Stubs::TrainingJob.stub(stub[:training_job]) unless stub[:training_job].nil?
-        data['Experiment'] = Stubs::Experiment.stub(stub[:experiment]) unless stub[:experiment].nil?
-        data['Trial'] = Stubs::Trial.stub(stub[:trial]) unless stub[:trial].nil?
-        data['TrialComponent'] = Stubs::TrialComponent.stub(stub[:trial_component]) unless stub[:trial_component].nil?
-        data['Endpoint'] = Stubs::Endpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
-        data['ModelPackage'] = Stubs::ModelPackage.stub(stub[:model_package]) unless stub[:model_package].nil?
-        data['ModelPackageGroup'] = Stubs::ModelPackageGroup.stub(stub[:model_package_group]) unless stub[:model_package_group].nil?
-        data['Pipeline'] = Stubs::Pipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
-        data['PipelineExecution'] = Stubs::PipelineExecution.stub(stub[:pipeline_execution]) unless stub[:pipeline_execution].nil?
-        data['FeatureGroup'] = Stubs::FeatureGroup.stub(stub[:feature_group]) unless stub[:feature_group].nil?
-        data['Project'] = Stubs::Project.stub(stub[:project]) unless stub[:project].nil?
+        data['TrainingJob'] = TrainingJob.stub(stub[:training_job]) unless stub[:training_job].nil?
+        data['Experiment'] = Experiment.stub(stub[:experiment]) unless stub[:experiment].nil?
+        data['Trial'] = Trial.stub(stub[:trial]) unless stub[:trial].nil?
+        data['TrialComponent'] = TrialComponent.stub(stub[:trial_component]) unless stub[:trial_component].nil?
+        data['Endpoint'] = Endpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
+        data['ModelPackage'] = ModelPackage.stub(stub[:model_package]) unless stub[:model_package].nil?
+        data['ModelPackageGroup'] = ModelPackageGroup.stub(stub[:model_package_group]) unless stub[:model_package_group].nil?
+        data['Pipeline'] = Pipeline.stub(stub[:pipeline]) unless stub[:pipeline].nil?
+        data['PipelineExecution'] = PipelineExecution.stub(stub[:pipeline_execution]) unless stub[:pipeline_execution].nil?
+        data['FeatureGroup'] = FeatureGroup.stub(stub[:feature_group]) unless stub[:feature_group].nil?
+        data['Project'] = Project.stub(stub[:project]) unless stub[:project].nil?
         data
       end
     end
@@ -15936,14 +15938,14 @@ module AWS::SDK::SageMaker
         data['ProjectName'] = stub[:project_name] unless stub[:project_name].nil?
         data['ProjectId'] = stub[:project_id] unless stub[:project_id].nil?
         data['ProjectDescription'] = stub[:project_description] unless stub[:project_description].nil?
-        data['ServiceCatalogProvisioningDetails'] = Stubs::ServiceCatalogProvisioningDetails.stub(stub[:service_catalog_provisioning_details]) unless stub[:service_catalog_provisioning_details].nil?
-        data['ServiceCatalogProvisionedProductDetails'] = Stubs::ServiceCatalogProvisionedProductDetails.stub(stub[:service_catalog_provisioned_product_details]) unless stub[:service_catalog_provisioned_product_details].nil?
+        data['ServiceCatalogProvisioningDetails'] = ServiceCatalogProvisioningDetails.stub(stub[:service_catalog_provisioning_details]) unless stub[:service_catalog_provisioning_details].nil?
+        data['ServiceCatalogProvisionedProductDetails'] = ServiceCatalogProvisionedProductDetails.stub(stub[:service_catalog_provisioned_product_details]) unless stub[:service_catalog_provisioned_product_details].nil?
         data['ProjectStatus'] = stub[:project_status] unless stub[:project_status].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
         data
       end
     end
@@ -15978,16 +15980,16 @@ module AWS::SDK::SageMaker
         data['FeatureGroupName'] = stub[:feature_group_name] unless stub[:feature_group_name].nil?
         data['RecordIdentifierFeatureName'] = stub[:record_identifier_feature_name] unless stub[:record_identifier_feature_name].nil?
         data['EventTimeFeatureName'] = stub[:event_time_feature_name] unless stub[:event_time_feature_name].nil?
-        data['FeatureDefinitions'] = Stubs::FeatureDefinitions.stub(stub[:feature_definitions]) unless stub[:feature_definitions].nil?
+        data['FeatureDefinitions'] = FeatureDefinitions.stub(stub[:feature_definitions]) unless stub[:feature_definitions].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['OnlineStoreConfig'] = Stubs::OnlineStoreConfig.stub(stub[:online_store_config]) unless stub[:online_store_config].nil?
-        data['OfflineStoreConfig'] = Stubs::OfflineStoreConfig.stub(stub[:offline_store_config]) unless stub[:offline_store_config].nil?
+        data['OnlineStoreConfig'] = OnlineStoreConfig.stub(stub[:online_store_config]) unless stub[:online_store_config].nil?
+        data['OfflineStoreConfig'] = OfflineStoreConfig.stub(stub[:offline_store_config]) unless stub[:offline_store_config].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['FeatureGroupStatus'] = stub[:feature_group_status] unless stub[:feature_group_status].nil?
-        data['OfflineStoreStatus'] = Stubs::OfflineStoreStatus.stub(stub[:offline_store_status]) unless stub[:offline_store_status].nil?
+        data['OfflineStoreStatus'] = OfflineStoreStatus.stub(stub[:offline_store_status]) unless stub[:offline_store_status].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -16022,14 +16024,14 @@ module AWS::SDK::SageMaker
         data['PipelineExecutionDisplayName'] = stub[:pipeline_execution_display_name] unless stub[:pipeline_execution_display_name].nil?
         data['PipelineExecutionStatus'] = stub[:pipeline_execution_status] unless stub[:pipeline_execution_status].nil?
         data['PipelineExecutionDescription'] = stub[:pipeline_execution_description] unless stub[:pipeline_execution_description].nil?
-        data['PipelineExperimentConfig'] = Stubs::PipelineExperimentConfig.stub(stub[:pipeline_experiment_config]) unless stub[:pipeline_experiment_config].nil?
+        data['PipelineExperimentConfig'] = PipelineExperimentConfig.stub(stub[:pipeline_experiment_config]) unless stub[:pipeline_experiment_config].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
-        data['ParallelismConfiguration'] = Stubs::ParallelismConfiguration.stub(stub[:parallelism_configuration]) unless stub[:parallelism_configuration].nil?
-        data['PipelineParameters'] = Stubs::ParameterList.stub(stub[:pipeline_parameters]) unless stub[:pipeline_parameters].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        data['ParallelismConfiguration'] = ParallelismConfiguration.stub(stub[:parallelism_configuration]) unless stub[:parallelism_configuration].nil?
+        data['PipelineParameters'] = ParameterList.stub(stub[:pipeline_parameters]) unless stub[:pipeline_parameters].nil?
         data
       end
     end
@@ -16068,10 +16070,10 @@ module AWS::SDK::SageMaker
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
         data['LastRunTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_run_time]).to_i unless stub[:last_run_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
-        data['ParallelismConfiguration'] = Stubs::ParallelismConfiguration.stub(stub[:parallelism_configuration]) unless stub[:parallelism_configuration].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        data['ParallelismConfiguration'] = ParallelismConfiguration.stub(stub[:parallelism_configuration]) unless stub[:parallelism_configuration].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -16099,9 +16101,9 @@ module AWS::SDK::SageMaker
         data['ModelPackageGroupArn'] = stub[:model_package_group_arn] unless stub[:model_package_group_arn].nil?
         data['ModelPackageGroupDescription'] = stub[:model_package_group_description] unless stub[:model_package_group_description].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['ModelPackageGroupStatus'] = stub[:model_package_group_status] unless stub[:model_package_group_status].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -16150,26 +16152,26 @@ module AWS::SDK::SageMaker
         data['ModelPackageArn'] = stub[:model_package_arn] unless stub[:model_package_arn].nil?
         data['ModelPackageDescription'] = stub[:model_package_description] unless stub[:model_package_description].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['InferenceSpecification'] = Stubs::InferenceSpecification.stub(stub[:inference_specification]) unless stub[:inference_specification].nil?
-        data['SourceAlgorithmSpecification'] = Stubs::SourceAlgorithmSpecification.stub(stub[:source_algorithm_specification]) unless stub[:source_algorithm_specification].nil?
-        data['ValidationSpecification'] = Stubs::ModelPackageValidationSpecification.stub(stub[:validation_specification]) unless stub[:validation_specification].nil?
+        data['InferenceSpecification'] = InferenceSpecification.stub(stub[:inference_specification]) unless stub[:inference_specification].nil?
+        data['SourceAlgorithmSpecification'] = SourceAlgorithmSpecification.stub(stub[:source_algorithm_specification]) unless stub[:source_algorithm_specification].nil?
+        data['ValidationSpecification'] = ModelPackageValidationSpecification.stub(stub[:validation_specification]) unless stub[:validation_specification].nil?
         data['ModelPackageStatus'] = stub[:model_package_status] unless stub[:model_package_status].nil?
-        data['ModelPackageStatusDetails'] = Stubs::ModelPackageStatusDetails.stub(stub[:model_package_status_details]) unless stub[:model_package_status_details].nil?
+        data['ModelPackageStatusDetails'] = ModelPackageStatusDetails.stub(stub[:model_package_status_details]) unless stub[:model_package_status_details].nil?
         data['CertifyForMarketplace'] = stub[:certify_for_marketplace] unless stub[:certify_for_marketplace].nil?
         data['ModelApprovalStatus'] = stub[:model_approval_status] unless stub[:model_approval_status].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
-        data['MetadataProperties'] = Stubs::MetadataProperties.stub(stub[:metadata_properties]) unless stub[:metadata_properties].nil?
-        data['ModelMetrics'] = Stubs::ModelMetrics.stub(stub[:model_metrics]) unless stub[:model_metrics].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['MetadataProperties'] = MetadataProperties.stub(stub[:metadata_properties]) unless stub[:metadata_properties].nil?
+        data['ModelMetrics'] = ModelMetrics.stub(stub[:model_metrics]) unless stub[:model_metrics].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
         data['ApprovalDescription'] = stub[:approval_description] unless stub[:approval_description].nil?
         data['Domain'] = stub[:domain] unless stub[:domain].nil?
         data['Task'] = stub[:task] unless stub[:task].nil?
         data['SamplePayloadUrl'] = stub[:sample_payload_url] unless stub[:sample_payload_url].nil?
-        data['AdditionalInferenceSpecifications'] = Stubs::AdditionalInferenceSpecifications.stub(stub[:additional_inference_specifications]) unless stub[:additional_inference_specifications].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['CustomerMetadataProperties'] = Stubs::CustomerMetadataMap.stub(stub[:customer_metadata_properties]) unless stub[:customer_metadata_properties].nil?
-        data['DriftCheckBaselines'] = Stubs::DriftCheckBaselines.stub(stub[:drift_check_baselines]) unless stub[:drift_check_baselines].nil?
+        data['AdditionalInferenceSpecifications'] = AdditionalInferenceSpecifications.stub(stub[:additional_inference_specifications]) unless stub[:additional_inference_specifications].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['CustomerMetadataProperties'] = CustomerMetadataMap.stub(stub[:customer_metadata_properties]) unless stub[:customer_metadata_properties].nil?
+        data['DriftCheckBaselines'] = DriftCheckBaselines.stub(stub[:drift_check_baselines]) unless stub[:drift_check_baselines].nil?
         data
       end
     end
@@ -16200,14 +16202,14 @@ module AWS::SDK::SageMaker
         data['EndpointName'] = stub[:endpoint_name] unless stub[:endpoint_name].nil?
         data['EndpointArn'] = stub[:endpoint_arn] unless stub[:endpoint_arn].nil?
         data['EndpointConfigName'] = stub[:endpoint_config_name] unless stub[:endpoint_config_name].nil?
-        data['ProductionVariants'] = Stubs::ProductionVariantSummaryList.stub(stub[:production_variants]) unless stub[:production_variants].nil?
-        data['DataCaptureConfig'] = Stubs::DataCaptureConfigSummary.stub(stub[:data_capture_config]) unless stub[:data_capture_config].nil?
+        data['ProductionVariants'] = ProductionVariantSummaryList.stub(stub[:production_variants]) unless stub[:production_variants].nil?
+        data['DataCaptureConfig'] = DataCaptureConfigSummary.stub(stub[:data_capture_config]) unless stub[:data_capture_config].nil?
         data['EndpointStatus'] = stub[:endpoint_status] unless stub[:endpoint_status].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['MonitoringSchedules'] = Stubs::MonitoringScheduleList.stub(stub[:monitoring_schedules]) unless stub[:monitoring_schedules].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['MonitoringSchedules'] = MonitoringScheduleList.stub(stub[:monitoring_schedules]) unless stub[:monitoring_schedules].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -16226,7 +16228,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MonitoringSchedule.stub(element) unless element.nil?
+          data << MonitoringSchedule.stub(element) unless element.nil?
         end
         data
       end
@@ -16262,10 +16264,10 @@ module AWS::SDK::SageMaker
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['MonitoringScheduleConfig'] = Stubs::MonitoringScheduleConfig.stub(stub[:monitoring_schedule_config]) unless stub[:monitoring_schedule_config].nil?
+        data['MonitoringScheduleConfig'] = MonitoringScheduleConfig.stub(stub[:monitoring_schedule_config]) unless stub[:monitoring_schedule_config].nil?
         data['EndpointName'] = stub[:endpoint_name] unless stub[:endpoint_name].nil?
-        data['LastMonitoringExecutionSummary'] = Stubs::MonitoringExecutionSummary.stub(stub[:last_monitoring_execution_summary]) unless stub[:last_monitoring_execution_summary].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['LastMonitoringExecutionSummary'] = MonitoringExecutionSummary.stub(stub[:last_monitoring_execution_summary]) unless stub[:last_monitoring_execution_summary].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -16305,23 +16307,23 @@ module AWS::SDK::SageMaker
         data['TrialComponentName'] = stub[:trial_component_name] unless stub[:trial_component_name].nil?
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
         data['TrialComponentArn'] = stub[:trial_component_arn] unless stub[:trial_component_arn].nil?
-        data['Source'] = Stubs::TrialComponentSource.stub(stub[:source]) unless stub[:source].nil?
-        data['Status'] = Stubs::TrialComponentStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['Source'] = TrialComponentSource.stub(stub[:source]) unless stub[:source].nil?
+        data['Status'] = TrialComponentStatus.stub(stub[:status]) unless stub[:status].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
-        data['Parameters'] = Stubs::TrialComponentParameters.stub(stub[:parameters]) unless stub[:parameters].nil?
-        data['InputArtifacts'] = Stubs::TrialComponentArtifacts.stub(stub[:input_artifacts]) unless stub[:input_artifacts].nil?
-        data['OutputArtifacts'] = Stubs::TrialComponentArtifacts.stub(stub[:output_artifacts]) unless stub[:output_artifacts].nil?
-        data['Metrics'] = Stubs::TrialComponentMetricSummaries.stub(stub[:metrics]) unless stub[:metrics].nil?
-        data['MetadataProperties'] = Stubs::MetadataProperties.stub(stub[:metadata_properties]) unless stub[:metadata_properties].nil?
-        data['SourceDetail'] = Stubs::TrialComponentSourceDetail.stub(stub[:source_detail]) unless stub[:source_detail].nil?
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        data['Parameters'] = TrialComponentParameters.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['InputArtifacts'] = TrialComponentArtifacts.stub(stub[:input_artifacts]) unless stub[:input_artifacts].nil?
+        data['OutputArtifacts'] = TrialComponentArtifacts.stub(stub[:output_artifacts]) unless stub[:output_artifacts].nil?
+        data['Metrics'] = TrialComponentMetricSummaries.stub(stub[:metrics]) unless stub[:metrics].nil?
+        data['MetadataProperties'] = MetadataProperties.stub(stub[:metadata_properties]) unless stub[:metadata_properties].nil?
+        data['SourceDetail'] = TrialComponentSourceDetail.stub(stub[:source_detail]) unless stub[:source_detail].nil?
         data['LineageGroupArn'] = stub[:lineage_group_arn] unless stub[:lineage_group_arn].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['Parents'] = Stubs::Parents.stub(stub[:parents]) unless stub[:parents].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Parents'] = Parents.stub(stub[:parents]) unless stub[:parents].nil?
         data
       end
     end
@@ -16340,7 +16342,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Parent.stub(element) unless element.nil?
+          data << Parent.stub(element) unless element.nil?
         end
         data
       end
@@ -16383,9 +16385,9 @@ module AWS::SDK::SageMaker
         stub ||= Types::TrialComponentSourceDetail.new
         data = {}
         data['SourceArn'] = stub[:source_arn] unless stub[:source_arn].nil?
-        data['TrainingJob'] = Stubs::TrainingJob.stub(stub[:training_job]) unless stub[:training_job].nil?
-        data['ProcessingJob'] = Stubs::ProcessingJob.stub(stub[:processing_job]) unless stub[:processing_job].nil?
-        data['TransformJob'] = Stubs::TransformJob.stub(stub[:transform_job]) unless stub[:transform_job].nil?
+        data['TrainingJob'] = TrainingJob.stub(stub[:training_job]) unless stub[:training_job].nil?
+        data['ProcessingJob'] = ProcessingJob.stub(stub[:processing_job]) unless stub[:processing_job].nil?
+        data['TransformJob'] = TransformJob.stub(stub[:transform_job]) unless stub[:transform_job].nil?
         data
       end
     end
@@ -16429,21 +16431,21 @@ module AWS::SDK::SageMaker
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['ModelName'] = stub[:model_name] unless stub[:model_name].nil?
         data['MaxConcurrentTransforms'] = stub[:max_concurrent_transforms] unless stub[:max_concurrent_transforms].nil?
-        data['ModelClientConfig'] = Stubs::ModelClientConfig.stub(stub[:model_client_config]) unless stub[:model_client_config].nil?
+        data['ModelClientConfig'] = ModelClientConfig.stub(stub[:model_client_config]) unless stub[:model_client_config].nil?
         data['MaxPayloadInMB'] = stub[:max_payload_in_mb] unless stub[:max_payload_in_mb].nil?
         data['BatchStrategy'] = stub[:batch_strategy] unless stub[:batch_strategy].nil?
-        data['Environment'] = Stubs::TransformEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
-        data['TransformInput'] = Stubs::TransformInput.stub(stub[:transform_input]) unless stub[:transform_input].nil?
-        data['TransformOutput'] = Stubs::TransformOutput.stub(stub[:transform_output]) unless stub[:transform_output].nil?
-        data['TransformResources'] = Stubs::TransformResources.stub(stub[:transform_resources]) unless stub[:transform_resources].nil?
+        data['Environment'] = TransformEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
+        data['TransformInput'] = TransformInput.stub(stub[:transform_input]) unless stub[:transform_input].nil?
+        data['TransformOutput'] = TransformOutput.stub(stub[:transform_output]) unless stub[:transform_output].nil?
+        data['TransformResources'] = TransformResources.stub(stub[:transform_resources]) unless stub[:transform_resources].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['TransformStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:transform_start_time]).to_i unless stub[:transform_start_time].nil?
         data['TransformEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:transform_end_time]).to_i unless stub[:transform_end_time].nil?
         data['LabelingJobArn'] = stub[:labeling_job_arn] unless stub[:labeling_job_arn].nil?
         data['AutoMLJobArn'] = stub[:auto_ml_job_arn] unless stub[:auto_ml_job_arn].nil?
-        data['DataProcessing'] = Stubs::DataProcessing.stub(stub[:data_processing]) unless stub[:data_processing].nil?
-        data['ExperimentConfig'] = Stubs::ExperimentConfig.stub(stub[:experiment_config]) unless stub[:experiment_config].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['DataProcessing'] = DataProcessing.stub(stub[:data_processing]) unless stub[:data_processing].nil?
+        data['ExperimentConfig'] = ExperimentConfig.stub(stub[:experiment_config]) unless stub[:experiment_config].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -16482,16 +16484,16 @@ module AWS::SDK::SageMaker
       def self.stub(stub)
         stub ||= Types::ProcessingJob.new
         data = {}
-        data['ProcessingInputs'] = Stubs::ProcessingInputs.stub(stub[:processing_inputs]) unless stub[:processing_inputs].nil?
-        data['ProcessingOutputConfig'] = Stubs::ProcessingOutputConfig.stub(stub[:processing_output_config]) unless stub[:processing_output_config].nil?
+        data['ProcessingInputs'] = ProcessingInputs.stub(stub[:processing_inputs]) unless stub[:processing_inputs].nil?
+        data['ProcessingOutputConfig'] = ProcessingOutputConfig.stub(stub[:processing_output_config]) unless stub[:processing_output_config].nil?
         data['ProcessingJobName'] = stub[:processing_job_name] unless stub[:processing_job_name].nil?
-        data['ProcessingResources'] = Stubs::ProcessingResources.stub(stub[:processing_resources]) unless stub[:processing_resources].nil?
-        data['StoppingCondition'] = Stubs::ProcessingStoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
-        data['AppSpecification'] = Stubs::AppSpecification.stub(stub[:app_specification]) unless stub[:app_specification].nil?
-        data['Environment'] = Stubs::ProcessingEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
-        data['NetworkConfig'] = Stubs::NetworkConfig.stub(stub[:network_config]) unless stub[:network_config].nil?
+        data['ProcessingResources'] = ProcessingResources.stub(stub[:processing_resources]) unless stub[:processing_resources].nil?
+        data['StoppingCondition'] = ProcessingStoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
+        data['AppSpecification'] = AppSpecification.stub(stub[:app_specification]) unless stub[:app_specification].nil?
+        data['Environment'] = ProcessingEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
+        data['NetworkConfig'] = NetworkConfig.stub(stub[:network_config]) unless stub[:network_config].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['ExperimentConfig'] = Stubs::ExperimentConfig.stub(stub[:experiment_config]) unless stub[:experiment_config].nil?
+        data['ExperimentConfig'] = ExperimentConfig.stub(stub[:experiment_config]) unless stub[:experiment_config].nil?
         data['ProcessingJobArn'] = stub[:processing_job_arn] unless stub[:processing_job_arn].nil?
         data['ProcessingJobStatus'] = stub[:processing_job_status] unless stub[:processing_job_status].nil?
         data['ExitMessage'] = stub[:exit_message] unless stub[:exit_message].nil?
@@ -16503,7 +16505,7 @@ module AWS::SDK::SageMaker
         data['MonitoringScheduleArn'] = stub[:monitoring_schedule_arn] unless stub[:monitoring_schedule_arn].nil?
         data['AutoMLJobArn'] = stub[:auto_ml_job_arn] unless stub[:auto_ml_job_arn].nil?
         data['TrainingJobArn'] = stub[:training_job_arn] unless stub[:training_job_arn].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -16562,38 +16564,38 @@ module AWS::SDK::SageMaker
         data['TuningJobArn'] = stub[:tuning_job_arn] unless stub[:tuning_job_arn].nil?
         data['LabelingJobArn'] = stub[:labeling_job_arn] unless stub[:labeling_job_arn].nil?
         data['AutoMLJobArn'] = stub[:auto_ml_job_arn] unless stub[:auto_ml_job_arn].nil?
-        data['ModelArtifacts'] = Stubs::ModelArtifacts.stub(stub[:model_artifacts]) unless stub[:model_artifacts].nil?
+        data['ModelArtifacts'] = ModelArtifacts.stub(stub[:model_artifacts]) unless stub[:model_artifacts].nil?
         data['TrainingJobStatus'] = stub[:training_job_status] unless stub[:training_job_status].nil?
         data['SecondaryStatus'] = stub[:secondary_status] unless stub[:secondary_status].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['HyperParameters'] = Stubs::HyperParameters.stub(stub[:hyper_parameters]) unless stub[:hyper_parameters].nil?
-        data['AlgorithmSpecification'] = Stubs::AlgorithmSpecification.stub(stub[:algorithm_specification]) unless stub[:algorithm_specification].nil?
+        data['HyperParameters'] = HyperParameters.stub(stub[:hyper_parameters]) unless stub[:hyper_parameters].nil?
+        data['AlgorithmSpecification'] = AlgorithmSpecification.stub(stub[:algorithm_specification]) unless stub[:algorithm_specification].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['InputDataConfig'] = Stubs::InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
-        data['OutputDataConfig'] = Stubs::OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
-        data['ResourceConfig'] = Stubs::ResourceConfig.stub(stub[:resource_config]) unless stub[:resource_config].nil?
-        data['VpcConfig'] = Stubs::VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        data['StoppingCondition'] = Stubs::StoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
+        data['InputDataConfig'] = InputDataConfig.stub(stub[:input_data_config]) unless stub[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.stub(stub[:output_data_config]) unless stub[:output_data_config].nil?
+        data['ResourceConfig'] = ResourceConfig.stub(stub[:resource_config]) unless stub[:resource_config].nil?
+        data['VpcConfig'] = VpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['StoppingCondition'] = StoppingCondition.stub(stub[:stopping_condition]) unless stub[:stopping_condition].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['TrainingStartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:training_start_time]).to_i unless stub[:training_start_time].nil?
         data['TrainingEndTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:training_end_time]).to_i unless stub[:training_end_time].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['SecondaryStatusTransitions'] = Stubs::SecondaryStatusTransitions.stub(stub[:secondary_status_transitions]) unless stub[:secondary_status_transitions].nil?
-        data['FinalMetricDataList'] = Stubs::FinalMetricDataList.stub(stub[:final_metric_data_list]) unless stub[:final_metric_data_list].nil?
+        data['SecondaryStatusTransitions'] = SecondaryStatusTransitions.stub(stub[:secondary_status_transitions]) unless stub[:secondary_status_transitions].nil?
+        data['FinalMetricDataList'] = FinalMetricDataList.stub(stub[:final_metric_data_list]) unless stub[:final_metric_data_list].nil?
         data['EnableNetworkIsolation'] = stub[:enable_network_isolation] unless stub[:enable_network_isolation].nil?
         data['EnableInterContainerTrafficEncryption'] = stub[:enable_inter_container_traffic_encryption] unless stub[:enable_inter_container_traffic_encryption].nil?
         data['EnableManagedSpotTraining'] = stub[:enable_managed_spot_training] unless stub[:enable_managed_spot_training].nil?
-        data['CheckpointConfig'] = Stubs::CheckpointConfig.stub(stub[:checkpoint_config]) unless stub[:checkpoint_config].nil?
+        data['CheckpointConfig'] = CheckpointConfig.stub(stub[:checkpoint_config]) unless stub[:checkpoint_config].nil?
         data['TrainingTimeInSeconds'] = stub[:training_time_in_seconds] unless stub[:training_time_in_seconds].nil?
         data['BillableTimeInSeconds'] = stub[:billable_time_in_seconds] unless stub[:billable_time_in_seconds].nil?
-        data['DebugHookConfig'] = Stubs::DebugHookConfig.stub(stub[:debug_hook_config]) unless stub[:debug_hook_config].nil?
-        data['ExperimentConfig'] = Stubs::ExperimentConfig.stub(stub[:experiment_config]) unless stub[:experiment_config].nil?
-        data['DebugRuleConfigurations'] = Stubs::DebugRuleConfigurations.stub(stub[:debug_rule_configurations]) unless stub[:debug_rule_configurations].nil?
-        data['TensorBoardOutputConfig'] = Stubs::TensorBoardOutputConfig.stub(stub[:tensor_board_output_config]) unless stub[:tensor_board_output_config].nil?
-        data['DebugRuleEvaluationStatuses'] = Stubs::DebugRuleEvaluationStatuses.stub(stub[:debug_rule_evaluation_statuses]) unless stub[:debug_rule_evaluation_statuses].nil?
-        data['Environment'] = Stubs::TrainingEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
-        data['RetryStrategy'] = Stubs::RetryStrategy.stub(stub[:retry_strategy]) unless stub[:retry_strategy].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['DebugHookConfig'] = DebugHookConfig.stub(stub[:debug_hook_config]) unless stub[:debug_hook_config].nil?
+        data['ExperimentConfig'] = ExperimentConfig.stub(stub[:experiment_config]) unless stub[:experiment_config].nil?
+        data['DebugRuleConfigurations'] = DebugRuleConfigurations.stub(stub[:debug_rule_configurations]) unless stub[:debug_rule_configurations].nil?
+        data['TensorBoardOutputConfig'] = TensorBoardOutputConfig.stub(stub[:tensor_board_output_config]) unless stub[:tensor_board_output_config].nil?
+        data['DebugRuleEvaluationStatuses'] = DebugRuleEvaluationStatuses.stub(stub[:debug_rule_evaluation_statuses]) unless stub[:debug_rule_evaluation_statuses].nil?
+        data['Environment'] = TrainingEnvironmentMap.stub(stub[:environment]) unless stub[:environment].nil?
+        data['RetryStrategy'] = RetryStrategy.stub(stub[:retry_strategy]) unless stub[:retry_strategy].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -16626,14 +16628,14 @@ module AWS::SDK::SageMaker
         data['TrialArn'] = stub[:trial_arn] unless stub[:trial_arn].nil?
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
         data['ExperimentName'] = stub[:experiment_name] unless stub[:experiment_name].nil?
-        data['Source'] = Stubs::TrialSource.stub(stub[:source]) unless stub[:source].nil?
+        data['Source'] = TrialSource.stub(stub[:source]) unless stub[:source].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
-        data['MetadataProperties'] = Stubs::MetadataProperties.stub(stub[:metadata_properties]) unless stub[:metadata_properties].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['TrialComponentSummaries'] = Stubs::TrialComponentSimpleSummaries.stub(stub[:trial_component_summaries]) unless stub[:trial_component_summaries].nil?
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        data['MetadataProperties'] = MetadataProperties.stub(stub[:metadata_properties]) unless stub[:metadata_properties].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['TrialComponentSummaries'] = TrialComponentSimpleSummaries.stub(stub[:trial_component_summaries]) unless stub[:trial_component_summaries].nil?
         data
       end
     end
@@ -16652,7 +16654,7 @@ module AWS::SDK::SageMaker
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TrialComponentSimpleSummary.stub(element) unless element.nil?
+          data << TrialComponentSimpleSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -16677,9 +16679,9 @@ module AWS::SDK::SageMaker
         data = {}
         data['TrialComponentName'] = stub[:trial_component_name] unless stub[:trial_component_name].nil?
         data['TrialComponentArn'] = stub[:trial_component_arn] unless stub[:trial_component_arn].nil?
-        data['TrialComponentSource'] = Stubs::TrialComponentSource.stub(stub[:trial_component_source]) unless stub[:trial_component_source].nil?
+        data['TrialComponentSource'] = TrialComponentSource.stub(stub[:trial_component_source]) unless stub[:trial_component_source].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
         data
       end
     end
@@ -16709,13 +16711,13 @@ module AWS::SDK::SageMaker
         data['ExperimentName'] = stub[:experiment_name] unless stub[:experiment_name].nil?
         data['ExperimentArn'] = stub[:experiment_arn] unless stub[:experiment_arn].nil?
         data['DisplayName'] = stub[:display_name] unless stub[:display_name].nil?
-        data['Source'] = Stubs::ExperimentSource.stub(stub[:source]) unless stub[:source].nil?
+        data['Source'] = ExperimentSource.stub(stub[:source]) unless stub[:source].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['CreatedBy'] = Stubs::UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
+        data['CreatedBy'] = UserContext.stub(stub[:created_by]) unless stub[:created_by].nil?
         data['LastModifiedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modified_time]).to_i unless stub[:last_modified_time].nil?
-        data['LastModifiedBy'] = Stubs::UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['LastModifiedBy'] = UserContext.stub(stub[:last_modified_by]) unless stub[:last_modified_by].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -16731,7 +16733,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['PipelineExecutionArn'] = stub[:pipeline_execution_arn] unless stub[:pipeline_execution_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16747,7 +16749,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['PipelineExecutionArn'] = stub[:pipeline_execution_arn] unless stub[:pipeline_execution_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16761,7 +16763,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16775,7 +16777,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16791,7 +16793,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['PipelineExecutionArn'] = stub[:pipeline_execution_arn] unless stub[:pipeline_execution_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16805,7 +16807,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16819,7 +16821,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16833,7 +16835,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16847,7 +16849,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16861,7 +16863,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16875,7 +16877,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16889,7 +16891,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16903,7 +16905,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16919,7 +16921,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['PipelineExecutionArn'] = stub[:pipeline_execution_arn] unless stub[:pipeline_execution_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16933,7 +16935,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16947,7 +16949,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16961,7 +16963,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16977,7 +16979,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ActionArn'] = stub[:action_arn] unless stub[:action_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -16993,7 +16995,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['AppImageConfigArn'] = stub[:app_image_config_arn] unless stub[:app_image_config_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17009,7 +17011,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ArtifactArn'] = stub[:artifact_arn] unless stub[:artifact_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17025,7 +17027,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['CodeRepositoryArn'] = stub[:code_repository_arn] unless stub[:code_repository_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17041,7 +17043,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ContextArn'] = stub[:context_arn] unless stub[:context_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17055,7 +17057,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17069,7 +17071,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17085,7 +17087,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['DomainArn'] = stub[:domain_arn] unless stub[:domain_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17101,7 +17103,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['EndpointArn'] = stub[:endpoint_arn] unless stub[:endpoint_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17117,7 +17119,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['EndpointArn'] = stub[:endpoint_arn] unless stub[:endpoint_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17133,7 +17135,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ExperimentArn'] = stub[:experiment_arn] unless stub[:experiment_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17149,7 +17151,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ImageArn'] = stub[:image_arn] unless stub[:image_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17165,7 +17167,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ModelPackageArn'] = stub[:model_package_arn] unless stub[:model_package_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17181,7 +17183,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['MonitoringScheduleArn'] = stub[:monitoring_schedule_arn] unless stub[:monitoring_schedule_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17195,7 +17197,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17209,7 +17211,7 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17225,7 +17227,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['PipelineArn'] = stub[:pipeline_arn] unless stub[:pipeline_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17241,7 +17243,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['PipelineExecutionArn'] = stub[:pipeline_execution_arn] unless stub[:pipeline_execution_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17257,7 +17259,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['ProjectArn'] = stub[:project_arn] unless stub[:project_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17273,7 +17275,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['TrainingJobArn'] = stub[:training_job_arn] unless stub[:training_job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17289,7 +17291,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['TrialArn'] = stub[:trial_arn] unless stub[:trial_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17305,7 +17307,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['TrialComponentArn'] = stub[:trial_component_arn] unless stub[:trial_component_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17321,7 +17323,7 @@ module AWS::SDK::SageMaker
       def self.stub(http_resp, stub:)
         data = {}
         data['UserProfileArn'] = stub[:user_profile_arn] unless stub[:user_profile_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17336,8 +17338,8 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Workforce'] = Stubs::Workforce.stub(stub[:workforce]) unless stub[:workforce].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Workforce'] = Workforce.stub(stub[:workforce]) unless stub[:workforce].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -17352,8 +17354,8 @@ module AWS::SDK::SageMaker
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Workteam'] = Stubs::Workteam.stub(stub[:workteam]) unless stub[:workteam].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Workteam'] = Workteam.stub(stub[:workteam]) unless stub[:workteam].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

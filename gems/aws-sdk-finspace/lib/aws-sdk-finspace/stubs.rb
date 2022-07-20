@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Finspace
   module Stubs
 
@@ -27,7 +29,7 @@ module AWS::SDK::Finspace
         data['environmentId'] = stub[:environment_id] unless stub[:environment_id].nil?
         data['environmentArn'] = stub[:environment_arn] unless stub[:environment_arn].nil?
         data['environmentUrl'] = stub[:environment_url] unless stub[:environment_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -56,8 +58,8 @@ module AWS::SDK::Finspace
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['environment'] = Stubs::Environment.stub(stub[:environment]) unless stub[:environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environment'] = Environment.stub(stub[:environment]) unless stub[:environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -96,7 +98,7 @@ module AWS::SDK::Finspace
         data['kmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['dedicatedServiceAccountId'] = stub[:dedicated_service_account_id] unless stub[:dedicated_service_account_id].nil?
         data['federationMode'] = stub[:federation_mode] unless stub[:federation_mode].nil?
-        data['federationParameters'] = Stubs::FederationParameters.stub(stub[:federation_parameters]) unless stub[:federation_parameters].nil?
+        data['federationParameters'] = FederationParameters.stub(stub[:federation_parameters]) unless stub[:federation_parameters].nil?
         data
       end
     end
@@ -124,7 +126,7 @@ module AWS::SDK::Finspace
         data['applicationCallBackURL'] = stub[:application_call_back_url] unless stub[:application_call_back_url].nil?
         data['federationURN'] = stub[:federation_urn] unless stub[:federation_urn].nil?
         data['federationProviderName'] = stub[:federation_provider_name] unless stub[:federation_provider_name].nil?
-        data['attributeMap'] = Stubs::AttributeMap.stub(stub[:attribute_map]) unless stub[:attribute_map].nil?
+        data['attributeMap'] = AttributeMap.stub(stub[:attribute_map]) unless stub[:attribute_map].nil?
         data
       end
     end
@@ -162,9 +164,9 @@ module AWS::SDK::Finspace
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['environments'] = Stubs::EnvironmentList.stub(stub[:environments]) unless stub[:environments].nil?
+        data['environments'] = EnvironmentList.stub(stub[:environments]) unless stub[:environments].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -182,7 +184,7 @@ module AWS::SDK::Finspace
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Environment.stub(element) unless element.nil?
+          data << Environment.stub(element) unless element.nil?
         end
         data
       end
@@ -200,8 +202,8 @@ module AWS::SDK::Finspace
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -263,8 +265,8 @@ module AWS::SDK::Finspace
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['environment'] = Stubs::Environment.stub(stub[:environment]) unless stub[:environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environment'] = Environment.stub(stub[:environment]) unless stub[:environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

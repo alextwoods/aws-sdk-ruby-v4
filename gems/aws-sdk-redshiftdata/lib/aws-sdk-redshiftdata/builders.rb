@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::RedshiftData
   module Builders
 
@@ -18,14 +20,14 @@ module AWS::SDK::RedshiftData
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RedshiftData.BatchExecuteStatement'
         data = {}
-        data['Sqls'] = Builders::SqlList.build(input[:sqls]) unless input[:sqls].nil?
+        data['Sqls'] = SqlList.build(input[:sqls]) unless input[:sqls].nil?
         data['ClusterIdentifier'] = input[:cluster_identifier] unless input[:cluster_identifier].nil?
         data['SecretArn'] = input[:secret_arn] unless input[:secret_arn].nil?
         data['DbUser'] = input[:db_user] unless input[:db_user].nil?
         data['Database'] = input[:database] unless input[:database].nil?
         data['WithEvent'] = input[:with_event] unless input[:with_event].nil?
         data['StatementName'] = input[:statement_name] unless input[:statement_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -49,7 +51,7 @@ module AWS::SDK::RedshiftData
         http_req.headers['X-Amz-Target'] = 'RedshiftData.CancelStatement'
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -62,7 +64,7 @@ module AWS::SDK::RedshiftData
         http_req.headers['X-Amz-Target'] = 'RedshiftData.DescribeStatement'
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -83,7 +85,7 @@ module AWS::SDK::RedshiftData
         data['Table'] = input[:table] unless input[:table].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -102,8 +104,8 @@ module AWS::SDK::RedshiftData
         data['Database'] = input[:database] unless input[:database].nil?
         data['WithEvent'] = input[:with_event] unless input[:with_event].nil?
         data['StatementName'] = input[:statement_name] unless input[:statement_name].nil?
-        data['Parameters'] = Builders::SqlParametersList.build(input[:parameters]) unless input[:parameters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Parameters'] = SqlParametersList.build(input[:parameters]) unless input[:parameters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -112,7 +114,7 @@ module AWS::SDK::RedshiftData
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SqlParameter.build(element) unless element.nil?
+          data << SqlParameter.build(element) unless element.nil?
         end
         data
       end
@@ -138,7 +140,7 @@ module AWS::SDK::RedshiftData
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -156,7 +158,7 @@ module AWS::SDK::RedshiftData
         data['DbUser'] = input[:db_user] unless input[:db_user].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -176,7 +178,7 @@ module AWS::SDK::RedshiftData
         data['SchemaPattern'] = input[:schema_pattern] unless input[:schema_pattern].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -193,7 +195,7 @@ module AWS::SDK::RedshiftData
         data['StatementName'] = input[:statement_name] unless input[:statement_name].nil?
         data['Status'] = input[:status] unless input[:status].nil?
         data['RoleLevel'] = input[:role_level] unless input[:role_level].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -214,7 +216,7 @@ module AWS::SDK::RedshiftData
         data['TablePattern'] = input[:table_pattern] unless input[:table_pattern].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

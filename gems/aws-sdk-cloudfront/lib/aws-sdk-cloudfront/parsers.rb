@@ -105,7 +105,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.cache_policy = Parsers::CachePolicy.parse(xml)
+        data.cache_policy = CachePolicy.parse(xml)
         data
       end
     end
@@ -120,7 +120,7 @@ module AWS::SDK::CloudFront
           data.last_modified_time = Time.parse(node.text) if node.text
         end
         xml.at('CachePolicyConfig') do |node|
-          data.cache_policy_config = Parsers::CachePolicyConfig.parse(node)
+          data.cache_policy_config = CachePolicyConfig.parse(node)
         end
         return data
       end
@@ -145,7 +145,7 @@ module AWS::SDK::CloudFront
           data.min_ttl = node.text&.to_i
         end
         xml.at('ParametersInCacheKeyAndForwardedToOrigin') do |node|
-          data.parameters_in_cache_key_and_forwarded_to_origin = Parsers::ParametersInCacheKeyAndForwardedToOrigin.parse(node)
+          data.parameters_in_cache_key_and_forwarded_to_origin = ParametersInCacheKeyAndForwardedToOrigin.parse(node)
         end
         return data
       end
@@ -161,13 +161,13 @@ module AWS::SDK::CloudFront
           data.enable_accept_encoding_brotli = (node.text == 'true')
         end
         xml.at('HeadersConfig') do |node|
-          data.headers_config = Parsers::CachePolicyHeadersConfig.parse(node)
+          data.headers_config = CachePolicyHeadersConfig.parse(node)
         end
         xml.at('CookiesConfig') do |node|
-          data.cookies_config = Parsers::CachePolicyCookiesConfig.parse(node)
+          data.cookies_config = CachePolicyCookiesConfig.parse(node)
         end
         xml.at('QueryStringsConfig') do |node|
-          data.query_strings_config = Parsers::CachePolicyQueryStringsConfig.parse(node)
+          data.query_strings_config = CachePolicyQueryStringsConfig.parse(node)
         end
         return data
       end
@@ -180,7 +180,7 @@ module AWS::SDK::CloudFront
           data.query_string_behavior = (node.text || '')
         end
         xml.at('QueryStrings') do |node|
-          data.query_strings = Parsers::QueryStringNames.parse(node)
+          data.query_strings = QueryStringNames.parse(node)
         end
         return data
       end
@@ -194,7 +194,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('Name')
-          data.items = Parsers::QueryStringNamesList.parse(children)
+          data.items = QueryStringNamesList.parse(children)
         end
         return data
       end
@@ -217,7 +217,7 @@ module AWS::SDK::CloudFront
           data.cookie_behavior = (node.text || '')
         end
         xml.at('Cookies') do |node|
-          data.cookies = Parsers::CookieNames.parse(node)
+          data.cookies = CookieNames.parse(node)
         end
         return data
       end
@@ -231,7 +231,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('Name')
-          data.items = Parsers::CookieNameList.parse(children)
+          data.items = CookieNameList.parse(children)
         end
         return data
       end
@@ -254,7 +254,7 @@ module AWS::SDK::CloudFront
           data.header_behavior = (node.text || '')
         end
         xml.at('Headers') do |node|
-          data.headers = Parsers::Headers.parse(node)
+          data.headers = Headers.parse(node)
         end
         return data
       end
@@ -268,7 +268,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('Name')
-          data.items = Parsers::HeaderList.parse(children)
+          data.items = HeaderList.parse(children)
         end
         return data
       end
@@ -383,7 +383,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.cloud_front_origin_access_identity = Parsers::CloudFrontOriginAccessIdentity.parse(xml)
+        data.cloud_front_origin_access_identity = CloudFrontOriginAccessIdentity.parse(xml)
         data
       end
     end
@@ -398,7 +398,7 @@ module AWS::SDK::CloudFront
           data.s3_canonical_user_id = (node.text || '')
         end
         xml.at('CloudFrontOriginAccessIdentityConfig') do |node|
-          data.cloud_front_origin_access_identity_config = Parsers::CloudFrontOriginAccessIdentityConfig.parse(node)
+          data.cloud_front_origin_access_identity_config = CloudFrontOriginAccessIdentityConfig.parse(node)
         end
         return data
       end
@@ -471,7 +471,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.distribution = Parsers::Distribution.parse(xml)
+        data.distribution = Distribution.parse(xml)
         data
       end
     end
@@ -498,17 +498,17 @@ module AWS::SDK::CloudFront
           data.domain_name = (node.text || '')
         end
         xml.at('ActiveTrustedSigners') do |node|
-          data.active_trusted_signers = Parsers::ActiveTrustedSigners.parse(node)
+          data.active_trusted_signers = ActiveTrustedSigners.parse(node)
         end
         xml.at('ActiveTrustedKeyGroups') do |node|
-          data.active_trusted_key_groups = Parsers::ActiveTrustedKeyGroups.parse(node)
+          data.active_trusted_key_groups = ActiveTrustedKeyGroups.parse(node)
         end
         xml.at('DistributionConfig') do |node|
-          data.distribution_config = Parsers::DistributionConfig.parse(node)
+          data.distribution_config = DistributionConfig.parse(node)
         end
         xml.at('AliasICPRecordals') do |node|
           children = node.children('AliasICPRecordal')
-          data.alias_icp_recordals = Parsers::AliasICPRecordals.parse(children)
+          data.alias_icp_recordals = AliasICPRecordals.parse(children)
         end
         return data
       end
@@ -518,7 +518,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AliasICPRecordal.parse(node)
+          data << AliasICPRecordal.parse(node)
         end
         data
       end
@@ -544,31 +544,31 @@ module AWS::SDK::CloudFront
           data.caller_reference = (node.text || '')
         end
         xml.at('Aliases') do |node|
-          data.aliases = Parsers::Aliases.parse(node)
+          data.aliases = Aliases.parse(node)
         end
         xml.at('DefaultRootObject') do |node|
           data.default_root_object = (node.text || '')
         end
         xml.at('Origins') do |node|
-          data.origins = Parsers::Origins.parse(node)
+          data.origins = Origins.parse(node)
         end
         xml.at('OriginGroups') do |node|
-          data.origin_groups = Parsers::OriginGroups.parse(node)
+          data.origin_groups = OriginGroups.parse(node)
         end
         xml.at('DefaultCacheBehavior') do |node|
-          data.default_cache_behavior = Parsers::DefaultCacheBehavior.parse(node)
+          data.default_cache_behavior = DefaultCacheBehavior.parse(node)
         end
         xml.at('CacheBehaviors') do |node|
-          data.cache_behaviors = Parsers::CacheBehaviors.parse(node)
+          data.cache_behaviors = CacheBehaviors.parse(node)
         end
         xml.at('CustomErrorResponses') do |node|
-          data.custom_error_responses = Parsers::CustomErrorResponses.parse(node)
+          data.custom_error_responses = CustomErrorResponses.parse(node)
         end
         xml.at('Comment') do |node|
           data.comment = (node.text || '')
         end
         xml.at('Logging') do |node|
-          data.logging = Parsers::LoggingConfig.parse(node)
+          data.logging = LoggingConfig.parse(node)
         end
         xml.at('PriceClass') do |node|
           data.price_class = (node.text || '')
@@ -577,10 +577,10 @@ module AWS::SDK::CloudFront
           data.enabled = (node.text == 'true')
         end
         xml.at('ViewerCertificate') do |node|
-          data.viewer_certificate = Parsers::ViewerCertificate.parse(node)
+          data.viewer_certificate = ViewerCertificate.parse(node)
         end
         xml.at('Restrictions') do |node|
-          data.restrictions = Parsers::Restrictions.parse(node)
+          data.restrictions = Restrictions.parse(node)
         end
         xml.at('WebACLId') do |node|
           data.web_acl_id = (node.text || '')
@@ -599,7 +599,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = Types::Restrictions.new
         xml.at('GeoRestriction') do |node|
-          data.geo_restriction = Parsers::GeoRestriction.parse(node)
+          data.geo_restriction = GeoRestriction.parse(node)
         end
         return data
       end
@@ -616,7 +616,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('Location')
-          data.items = Parsers::LocationList.parse(children)
+          data.items = LocationList.parse(children)
         end
         return data
       end
@@ -687,7 +687,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('CustomErrorResponse')
-          data.items = Parsers::CustomErrorResponseList.parse(children)
+          data.items = CustomErrorResponseList.parse(children)
         end
         return data
       end
@@ -697,7 +697,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CustomErrorResponse.parse(node)
+          data << CustomErrorResponse.parse(node)
         end
         data
       end
@@ -730,7 +730,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('CacheBehavior')
-          data.items = Parsers::CacheBehaviorList.parse(children)
+          data.items = CacheBehaviorList.parse(children)
         end
         return data
       end
@@ -740,7 +740,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CacheBehavior.parse(node)
+          data << CacheBehavior.parse(node)
         end
         data
       end
@@ -756,16 +756,16 @@ module AWS::SDK::CloudFront
           data.target_origin_id = (node.text || '')
         end
         xml.at('TrustedSigners') do |node|
-          data.trusted_signers = Parsers::TrustedSigners.parse(node)
+          data.trusted_signers = TrustedSigners.parse(node)
         end
         xml.at('TrustedKeyGroups') do |node|
-          data.trusted_key_groups = Parsers::TrustedKeyGroups.parse(node)
+          data.trusted_key_groups = TrustedKeyGroups.parse(node)
         end
         xml.at('ViewerProtocolPolicy') do |node|
           data.viewer_protocol_policy = (node.text || '')
         end
         xml.at('AllowedMethods') do |node|
-          data.allowed_methods = Parsers::AllowedMethods.parse(node)
+          data.allowed_methods = AllowedMethods.parse(node)
         end
         xml.at('SmoothStreaming') do |node|
           data.smooth_streaming = (node.text == 'true')
@@ -774,10 +774,10 @@ module AWS::SDK::CloudFront
           data.compress = (node.text == 'true')
         end
         xml.at('LambdaFunctionAssociations') do |node|
-          data.lambda_function_associations = Parsers::LambdaFunctionAssociations.parse(node)
+          data.lambda_function_associations = LambdaFunctionAssociations.parse(node)
         end
         xml.at('FunctionAssociations') do |node|
-          data.function_associations = Parsers::FunctionAssociations.parse(node)
+          data.function_associations = FunctionAssociations.parse(node)
         end
         xml.at('FieldLevelEncryptionId') do |node|
           data.field_level_encryption_id = (node.text || '')
@@ -795,7 +795,7 @@ module AWS::SDK::CloudFront
           data.response_headers_policy_id = (node.text || '')
         end
         xml.at('ForwardedValues') do |node|
-          data.forwarded_values = Parsers::ForwardedValues.parse(node)
+          data.forwarded_values = ForwardedValues.parse(node)
         end
         xml.at('MinTTL') do |node|
           data.min_ttl = node.text&.to_i
@@ -817,13 +817,13 @@ module AWS::SDK::CloudFront
           data.query_string = (node.text == 'true')
         end
         xml.at('Cookies') do |node|
-          data.cookies = Parsers::CookiePreference.parse(node)
+          data.cookies = CookiePreference.parse(node)
         end
         xml.at('Headers') do |node|
-          data.headers = Parsers::Headers.parse(node)
+          data.headers = Headers.parse(node)
         end
         xml.at('QueryStringCacheKeys') do |node|
-          data.query_string_cache_keys = Parsers::QueryStringCacheKeys.parse(node)
+          data.query_string_cache_keys = QueryStringCacheKeys.parse(node)
         end
         return data
       end
@@ -837,7 +837,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('Name')
-          data.items = Parsers::QueryStringCacheKeysList.parse(children)
+          data.items = QueryStringCacheKeysList.parse(children)
         end
         return data
       end
@@ -860,7 +860,7 @@ module AWS::SDK::CloudFront
           data.forward = (node.text || '')
         end
         xml.at('WhitelistedNames') do |node|
-          data.whitelisted_names = Parsers::CookieNames.parse(node)
+          data.whitelisted_names = CookieNames.parse(node)
         end
         return data
       end
@@ -874,7 +874,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('FunctionAssociation')
-          data.items = Parsers::FunctionAssociationList.parse(children)
+          data.items = FunctionAssociationList.parse(children)
         end
         return data
       end
@@ -884,7 +884,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::FunctionAssociation.parse(node)
+          data << FunctionAssociation.parse(node)
         end
         data
       end
@@ -911,7 +911,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('LambdaFunctionAssociation')
-          data.items = Parsers::LambdaFunctionAssociationList.parse(children)
+          data.items = LambdaFunctionAssociationList.parse(children)
         end
         return data
       end
@@ -921,7 +921,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LambdaFunctionAssociation.parse(node)
+          data << LambdaFunctionAssociation.parse(node)
         end
         data
       end
@@ -951,10 +951,10 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('Method')
-          data.items = Parsers::MethodsList.parse(children)
+          data.items = MethodsList.parse(children)
         end
         xml.at('CachedMethods') do |node|
-          data.cached_methods = Parsers::CachedMethods.parse(node)
+          data.cached_methods = CachedMethods.parse(node)
         end
         return data
       end
@@ -968,7 +968,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('Method')
-          data.items = Parsers::MethodsList.parse(children)
+          data.items = MethodsList.parse(children)
         end
         return data
       end
@@ -995,7 +995,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('KeyGroup')
-          data.items = Parsers::TrustedKeyGroupIdList.parse(children)
+          data.items = TrustedKeyGroupIdList.parse(children)
         end
         return data
       end
@@ -1022,7 +1022,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('AwsAccountNumber')
-          data.items = Parsers::AwsAccountNumberList.parse(children)
+          data.items = AwsAccountNumberList.parse(children)
         end
         return data
       end
@@ -1045,16 +1045,16 @@ module AWS::SDK::CloudFront
           data.target_origin_id = (node.text || '')
         end
         xml.at('TrustedSigners') do |node|
-          data.trusted_signers = Parsers::TrustedSigners.parse(node)
+          data.trusted_signers = TrustedSigners.parse(node)
         end
         xml.at('TrustedKeyGroups') do |node|
-          data.trusted_key_groups = Parsers::TrustedKeyGroups.parse(node)
+          data.trusted_key_groups = TrustedKeyGroups.parse(node)
         end
         xml.at('ViewerProtocolPolicy') do |node|
           data.viewer_protocol_policy = (node.text || '')
         end
         xml.at('AllowedMethods') do |node|
-          data.allowed_methods = Parsers::AllowedMethods.parse(node)
+          data.allowed_methods = AllowedMethods.parse(node)
         end
         xml.at('SmoothStreaming') do |node|
           data.smooth_streaming = (node.text == 'true')
@@ -1063,10 +1063,10 @@ module AWS::SDK::CloudFront
           data.compress = (node.text == 'true')
         end
         xml.at('LambdaFunctionAssociations') do |node|
-          data.lambda_function_associations = Parsers::LambdaFunctionAssociations.parse(node)
+          data.lambda_function_associations = LambdaFunctionAssociations.parse(node)
         end
         xml.at('FunctionAssociations') do |node|
-          data.function_associations = Parsers::FunctionAssociations.parse(node)
+          data.function_associations = FunctionAssociations.parse(node)
         end
         xml.at('FieldLevelEncryptionId') do |node|
           data.field_level_encryption_id = (node.text || '')
@@ -1084,7 +1084,7 @@ module AWS::SDK::CloudFront
           data.response_headers_policy_id = (node.text || '')
         end
         xml.at('ForwardedValues') do |node|
-          data.forwarded_values = Parsers::ForwardedValues.parse(node)
+          data.forwarded_values = ForwardedValues.parse(node)
         end
         xml.at('MinTTL') do |node|
           data.min_ttl = node.text&.to_i
@@ -1107,7 +1107,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('OriginGroup')
-          data.items = Parsers::OriginGroupList.parse(children)
+          data.items = OriginGroupList.parse(children)
         end
         return data
       end
@@ -1117,7 +1117,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::OriginGroup.parse(node)
+          data << OriginGroup.parse(node)
         end
         data
       end
@@ -1130,10 +1130,10 @@ module AWS::SDK::CloudFront
           data.id = (node.text || '')
         end
         xml.at('FailoverCriteria') do |node|
-          data.failover_criteria = Parsers::OriginGroupFailoverCriteria.parse(node)
+          data.failover_criteria = OriginGroupFailoverCriteria.parse(node)
         end
         xml.at('Members') do |node|
-          data.members = Parsers::OriginGroupMembers.parse(node)
+          data.members = OriginGroupMembers.parse(node)
         end
         return data
       end
@@ -1147,7 +1147,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('OriginGroupMember')
-          data.items = Parsers::OriginGroupMemberList.parse(children)
+          data.items = OriginGroupMemberList.parse(children)
         end
         return data
       end
@@ -1157,7 +1157,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::OriginGroupMember.parse(node)
+          data << OriginGroupMember.parse(node)
         end
         data
       end
@@ -1177,7 +1177,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = Types::OriginGroupFailoverCriteria.new
         xml.at('StatusCodes') do |node|
-          data.status_codes = Parsers::StatusCodes.parse(node)
+          data.status_codes = StatusCodes.parse(node)
         end
         return data
       end
@@ -1191,7 +1191,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('StatusCode')
-          data.items = Parsers::StatusCodeList.parse(children)
+          data.items = StatusCodeList.parse(children)
         end
         return data
       end
@@ -1215,7 +1215,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('Origin')
-          data.items = Parsers::OriginList.parse(children)
+          data.items = OriginList.parse(children)
         end
         return data
       end
@@ -1225,7 +1225,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Origin.parse(node)
+          data << Origin.parse(node)
         end
         data
       end
@@ -1244,13 +1244,13 @@ module AWS::SDK::CloudFront
           data.origin_path = (node.text || '')
         end
         xml.at('CustomHeaders') do |node|
-          data.custom_headers = Parsers::CustomHeaders.parse(node)
+          data.custom_headers = CustomHeaders.parse(node)
         end
         xml.at('S3OriginConfig') do |node|
-          data.s3_origin_config = Parsers::S3OriginConfig.parse(node)
+          data.s3_origin_config = S3OriginConfig.parse(node)
         end
         xml.at('CustomOriginConfig') do |node|
-          data.custom_origin_config = Parsers::CustomOriginConfig.parse(node)
+          data.custom_origin_config = CustomOriginConfig.parse(node)
         end
         xml.at('ConnectionAttempts') do |node|
           data.connection_attempts = node.text&.to_i
@@ -1259,7 +1259,7 @@ module AWS::SDK::CloudFront
           data.connection_timeout = node.text&.to_i
         end
         xml.at('OriginShield') do |node|
-          data.origin_shield = Parsers::OriginShield.parse(node)
+          data.origin_shield = OriginShield.parse(node)
         end
         return data
       end
@@ -1291,7 +1291,7 @@ module AWS::SDK::CloudFront
           data.origin_protocol_policy = (node.text || '')
         end
         xml.at('OriginSslProtocols') do |node|
-          data.origin_ssl_protocols = Parsers::OriginSslProtocols.parse(node)
+          data.origin_ssl_protocols = OriginSslProtocols.parse(node)
         end
         xml.at('OriginReadTimeout') do |node|
           data.origin_read_timeout = node.text&.to_i
@@ -1311,7 +1311,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('SslProtocol')
-          data.items = Parsers::SslProtocolsList.parse(children)
+          data.items = SslProtocolsList.parse(children)
         end
         return data
       end
@@ -1345,7 +1345,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('OriginCustomHeader')
-          data.items = Parsers::OriginCustomHeadersList.parse(children)
+          data.items = OriginCustomHeadersList.parse(children)
         end
         return data
       end
@@ -1355,7 +1355,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::OriginCustomHeader.parse(node)
+          data << OriginCustomHeader.parse(node)
         end
         data
       end
@@ -1382,7 +1382,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('CNAME')
-          data.items = Parsers::AliasList.parse(children)
+          data.items = AliasList.parse(children)
         end
         return data
       end
@@ -1409,7 +1409,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('KeyGroup')
-          data.items = Parsers::KGKeyPairIdsList.parse(children)
+          data.items = KGKeyPairIdsList.parse(children)
         end
         return data
       end
@@ -1419,7 +1419,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::KGKeyPairIds.parse(node)
+          data << KGKeyPairIds.parse(node)
         end
         data
       end
@@ -1432,7 +1432,7 @@ module AWS::SDK::CloudFront
           data.key_group_id = (node.text || '')
         end
         xml.at('KeyPairIds') do |node|
-          data.key_pair_ids = Parsers::KeyPairIds.parse(node)
+          data.key_pair_ids = KeyPairIds.parse(node)
         end
         return data
       end
@@ -1446,7 +1446,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('KeyPairId')
-          data.items = Parsers::KeyPairIdList.parse(children)
+          data.items = KeyPairIdList.parse(children)
         end
         return data
       end
@@ -1473,7 +1473,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('Signer')
-          data.items = Parsers::SignerList.parse(children)
+          data.items = SignerList.parse(children)
         end
         return data
       end
@@ -1483,7 +1483,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Signer.parse(node)
+          data << Signer.parse(node)
         end
         data
       end
@@ -1496,7 +1496,7 @@ module AWS::SDK::CloudFront
           data.aws_account_number = (node.text || '')
         end
         xml.at('KeyPairIds') do |node|
-          data.key_pair_ids = Parsers::KeyPairIds.parse(node)
+          data.key_pair_ids = KeyPairIds.parse(node)
         end
         return data
       end
@@ -2321,7 +2321,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.distribution = Parsers::Distribution.parse(xml)
+        data.distribution = Distribution.parse(xml)
         data
       end
     end
@@ -2350,7 +2350,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.field_level_encryption = Parsers::FieldLevelEncryption.parse(xml)
+        data.field_level_encryption = FieldLevelEncryption.parse(xml)
         data
       end
     end
@@ -2365,7 +2365,7 @@ module AWS::SDK::CloudFront
           data.last_modified_time = Time.parse(node.text) if node.text
         end
         xml.at('FieldLevelEncryptionConfig') do |node|
-          data.field_level_encryption_config = Parsers::FieldLevelEncryptionConfig.parse(node)
+          data.field_level_encryption_config = FieldLevelEncryptionConfig.parse(node)
         end
         return data
       end
@@ -2381,10 +2381,10 @@ module AWS::SDK::CloudFront
           data.comment = (node.text || '')
         end
         xml.at('QueryArgProfileConfig') do |node|
-          data.query_arg_profile_config = Parsers::QueryArgProfileConfig.parse(node)
+          data.query_arg_profile_config = QueryArgProfileConfig.parse(node)
         end
         xml.at('ContentTypeProfileConfig') do |node|
-          data.content_type_profile_config = Parsers::ContentTypeProfileConfig.parse(node)
+          data.content_type_profile_config = ContentTypeProfileConfig.parse(node)
         end
         return data
       end
@@ -2397,7 +2397,7 @@ module AWS::SDK::CloudFront
           data.forward_when_content_type_is_unknown = (node.text == 'true')
         end
         xml.at('ContentTypeProfiles') do |node|
-          data.content_type_profiles = Parsers::ContentTypeProfiles.parse(node)
+          data.content_type_profiles = ContentTypeProfiles.parse(node)
         end
         return data
       end
@@ -2411,7 +2411,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('ContentTypeProfile')
-          data.items = Parsers::ContentTypeProfileList.parse(children)
+          data.items = ContentTypeProfileList.parse(children)
         end
         return data
       end
@@ -2421,7 +2421,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ContentTypeProfile.parse(node)
+          data << ContentTypeProfile.parse(node)
         end
         data
       end
@@ -2450,7 +2450,7 @@ module AWS::SDK::CloudFront
           data.forward_when_query_arg_profile_is_unknown = (node.text == 'true')
         end
         xml.at('QueryArgProfiles') do |node|
-          data.query_arg_profiles = Parsers::QueryArgProfiles.parse(node)
+          data.query_arg_profiles = QueryArgProfiles.parse(node)
         end
         return data
       end
@@ -2464,7 +2464,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('QueryArgProfile')
-          data.items = Parsers::QueryArgProfileList.parse(children)
+          data.items = QueryArgProfileList.parse(children)
         end
         return data
       end
@@ -2474,7 +2474,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::QueryArgProfile.parse(node)
+          data << QueryArgProfile.parse(node)
         end
         data
       end
@@ -2592,7 +2592,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.field_level_encryption_profile = Parsers::FieldLevelEncryptionProfile.parse(xml)
+        data.field_level_encryption_profile = FieldLevelEncryptionProfile.parse(xml)
         data
       end
     end
@@ -2607,7 +2607,7 @@ module AWS::SDK::CloudFront
           data.last_modified_time = Time.parse(node.text) if node.text
         end
         xml.at('FieldLevelEncryptionProfileConfig') do |node|
-          data.field_level_encryption_profile_config = Parsers::FieldLevelEncryptionProfileConfig.parse(node)
+          data.field_level_encryption_profile_config = FieldLevelEncryptionProfileConfig.parse(node)
         end
         return data
       end
@@ -2626,7 +2626,7 @@ module AWS::SDK::CloudFront
           data.comment = (node.text || '')
         end
         xml.at('EncryptionEntities') do |node|
-          data.encryption_entities = Parsers::EncryptionEntities.parse(node)
+          data.encryption_entities = EncryptionEntities.parse(node)
         end
         return data
       end
@@ -2640,7 +2640,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('EncryptionEntity')
-          data.items = Parsers::EncryptionEntityList.parse(children)
+          data.items = EncryptionEntityList.parse(children)
         end
         return data
       end
@@ -2650,7 +2650,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EncryptionEntity.parse(node)
+          data << EncryptionEntity.parse(node)
         end
         data
       end
@@ -2666,7 +2666,7 @@ module AWS::SDK::CloudFront
           data.provider_id = (node.text || '')
         end
         xml.at('FieldPatterns') do |node|
-          data.field_patterns = Parsers::FieldPatterns.parse(node)
+          data.field_patterns = FieldPatterns.parse(node)
         end
         return data
       end
@@ -2680,7 +2680,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('FieldPattern')
-          data.items = Parsers::FieldPatternList.parse(children)
+          data.items = FieldPatternList.parse(children)
         end
         return data
       end
@@ -2795,7 +2795,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.function_summary = Parsers::FunctionSummary.parse(xml)
+        data.function_summary = FunctionSummary.parse(xml)
         data
       end
     end
@@ -2810,10 +2810,10 @@ module AWS::SDK::CloudFront
           data.status = (node.text || '')
         end
         xml.at('FunctionConfig') do |node|
-          data.function_config = Parsers::FunctionConfig.parse(node)
+          data.function_config = FunctionConfig.parse(node)
         end
         xml.at('FunctionMetadata') do |node|
-          data.function_metadata = Parsers::FunctionMetadata.parse(node)
+          data.function_metadata = FunctionMetadata.parse(node)
         end
         return data
       end
@@ -2919,7 +2919,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.invalidation = Parsers::Invalidation.parse(xml)
+        data.invalidation = Invalidation.parse(xml)
         data
       end
     end
@@ -2937,7 +2937,7 @@ module AWS::SDK::CloudFront
           data.create_time = Time.parse(node.text) if node.text
         end
         xml.at('InvalidationBatch') do |node|
-          data.invalidation_batch = Parsers::InvalidationBatch.parse(node)
+          data.invalidation_batch = InvalidationBatch.parse(node)
         end
         return data
       end
@@ -2947,7 +2947,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = Types::InvalidationBatch.new
         xml.at('Paths') do |node|
-          data.paths = Parsers::Paths.parse(node)
+          data.paths = Paths.parse(node)
         end
         xml.at('CallerReference') do |node|
           data.caller_reference = (node.text || '')
@@ -2964,7 +2964,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('Path')
-          data.items = Parsers::PathList.parse(children)
+          data.items = PathList.parse(children)
         end
         return data
       end
@@ -3019,7 +3019,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.key_group = Parsers::KeyGroup.parse(xml)
+        data.key_group = KeyGroup.parse(xml)
         data
       end
     end
@@ -3034,7 +3034,7 @@ module AWS::SDK::CloudFront
           data.last_modified_time = Time.parse(node.text) if node.text
         end
         xml.at('KeyGroupConfig') do |node|
-          data.key_group_config = Parsers::KeyGroupConfig.parse(node)
+          data.key_group_config = KeyGroupConfig.parse(node)
         end
         return data
       end
@@ -3048,7 +3048,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('PublicKey')
-          data.items = Parsers::PublicKeyIdList.parse(children)
+          data.items = PublicKeyIdList.parse(children)
         end
         xml.at('Comment') do |node|
           data.comment = (node.text || '')
@@ -3119,7 +3119,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.monitoring_subscription = Parsers::MonitoringSubscription.parse(xml)
+        data.monitoring_subscription = MonitoringSubscription.parse(xml)
         data
       end
     end
@@ -3128,7 +3128,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = Types::MonitoringSubscription.new
         xml.at('RealtimeMetricsSubscriptionConfig') do |node|
-          data.realtime_metrics_subscription_config = Parsers::RealtimeMetricsSubscriptionConfig.parse(node)
+          data.realtime_metrics_subscription_config = RealtimeMetricsSubscriptionConfig.parse(node)
         end
         return data
       end
@@ -3153,7 +3153,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.origin_request_policy = Parsers::OriginRequestPolicy.parse(xml)
+        data.origin_request_policy = OriginRequestPolicy.parse(xml)
         data
       end
     end
@@ -3168,7 +3168,7 @@ module AWS::SDK::CloudFront
           data.last_modified_time = Time.parse(node.text) if node.text
         end
         xml.at('OriginRequestPolicyConfig') do |node|
-          data.origin_request_policy_config = Parsers::OriginRequestPolicyConfig.parse(node)
+          data.origin_request_policy_config = OriginRequestPolicyConfig.parse(node)
         end
         return data
       end
@@ -3184,13 +3184,13 @@ module AWS::SDK::CloudFront
           data.name = (node.text || '')
         end
         xml.at('HeadersConfig') do |node|
-          data.headers_config = Parsers::OriginRequestPolicyHeadersConfig.parse(node)
+          data.headers_config = OriginRequestPolicyHeadersConfig.parse(node)
         end
         xml.at('CookiesConfig') do |node|
-          data.cookies_config = Parsers::OriginRequestPolicyCookiesConfig.parse(node)
+          data.cookies_config = OriginRequestPolicyCookiesConfig.parse(node)
         end
         xml.at('QueryStringsConfig') do |node|
-          data.query_strings_config = Parsers::OriginRequestPolicyQueryStringsConfig.parse(node)
+          data.query_strings_config = OriginRequestPolicyQueryStringsConfig.parse(node)
         end
         return data
       end
@@ -3203,7 +3203,7 @@ module AWS::SDK::CloudFront
           data.query_string_behavior = (node.text || '')
         end
         xml.at('QueryStrings') do |node|
-          data.query_strings = Parsers::QueryStringNames.parse(node)
+          data.query_strings = QueryStringNames.parse(node)
         end
         return data
       end
@@ -3216,7 +3216,7 @@ module AWS::SDK::CloudFront
           data.cookie_behavior = (node.text || '')
         end
         xml.at('Cookies') do |node|
-          data.cookies = Parsers::CookieNames.parse(node)
+          data.cookies = CookieNames.parse(node)
         end
         return data
       end
@@ -3229,7 +3229,7 @@ module AWS::SDK::CloudFront
           data.header_behavior = (node.text || '')
         end
         xml.at('Headers') do |node|
-          data.headers = Parsers::Headers.parse(node)
+          data.headers = Headers.parse(node)
         end
         return data
       end
@@ -3319,7 +3319,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.public_key = Parsers::PublicKey.parse(xml)
+        data.public_key = PublicKey.parse(xml)
         data
       end
     end
@@ -3334,7 +3334,7 @@ module AWS::SDK::CloudFront
           data.created_time = Time.parse(node.text) if node.text
         end
         xml.at('PublicKeyConfig') do |node|
-          data.public_key_config = Parsers::PublicKeyConfig.parse(node)
+          data.public_key_config = PublicKeyConfig.parse(node)
         end
         return data
       end
@@ -3397,7 +3397,7 @@ module AWS::SDK::CloudFront
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('RealtimeLogConfig') do |node|
-          data.realtime_log_config = Parsers::RealtimeLogConfig.parse(node)
+          data.realtime_log_config = RealtimeLogConfig.parse(node)
         end
         data
       end
@@ -3417,11 +3417,11 @@ module AWS::SDK::CloudFront
         end
         xml.at('EndPoints') do |node|
           children = node.children('member')
-          data.end_points = Parsers::EndPointList.parse(children)
+          data.end_points = EndPointList.parse(children)
         end
         xml.at('Fields') do |node|
           children = node.children('Field')
-          data.fields = Parsers::FieldList.parse(children)
+          data.fields = FieldList.parse(children)
         end
         return data
       end
@@ -3441,7 +3441,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::EndPoint.parse(node)
+          data << EndPoint.parse(node)
         end
         data
       end
@@ -3454,7 +3454,7 @@ module AWS::SDK::CloudFront
           data.stream_type = (node.text || '')
         end
         xml.at('KinesisStreamConfig') do |node|
-          data.kinesis_stream_config = Parsers::KinesisStreamConfig.parse(node)
+          data.kinesis_stream_config = KinesisStreamConfig.parse(node)
         end
         return data
       end
@@ -3512,7 +3512,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.response_headers_policy = Parsers::ResponseHeadersPolicy.parse(xml)
+        data.response_headers_policy = ResponseHeadersPolicy.parse(xml)
         data
       end
     end
@@ -3527,7 +3527,7 @@ module AWS::SDK::CloudFront
           data.last_modified_time = Time.parse(node.text) if node.text
         end
         xml.at('ResponseHeadersPolicyConfig') do |node|
-          data.response_headers_policy_config = Parsers::ResponseHeadersPolicyConfig.parse(node)
+          data.response_headers_policy_config = ResponseHeadersPolicyConfig.parse(node)
         end
         return data
       end
@@ -3543,16 +3543,16 @@ module AWS::SDK::CloudFront
           data.name = (node.text || '')
         end
         xml.at('CorsConfig') do |node|
-          data.cors_config = Parsers::ResponseHeadersPolicyCorsConfig.parse(node)
+          data.cors_config = ResponseHeadersPolicyCorsConfig.parse(node)
         end
         xml.at('SecurityHeadersConfig') do |node|
-          data.security_headers_config = Parsers::ResponseHeadersPolicySecurityHeadersConfig.parse(node)
+          data.security_headers_config = ResponseHeadersPolicySecurityHeadersConfig.parse(node)
         end
         xml.at('CustomHeadersConfig') do |node|
-          data.custom_headers_config = Parsers::ResponseHeadersPolicyCustomHeadersConfig.parse(node)
+          data.custom_headers_config = ResponseHeadersPolicyCustomHeadersConfig.parse(node)
         end
         xml.at('ServerTimingHeadersConfig') do |node|
-          data.server_timing_headers_config = Parsers::ResponseHeadersPolicyServerTimingHeadersConfig.parse(node)
+          data.server_timing_headers_config = ResponseHeadersPolicyServerTimingHeadersConfig.parse(node)
         end
         return data
       end
@@ -3579,7 +3579,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('ResponseHeadersPolicyCustomHeader')
-          data.items = Parsers::ResponseHeadersPolicyCustomHeaderList.parse(children)
+          data.items = ResponseHeadersPolicyCustomHeaderList.parse(children)
         end
         return data
       end
@@ -3589,7 +3589,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ResponseHeadersPolicyCustomHeader.parse(node)
+          data << ResponseHeadersPolicyCustomHeader.parse(node)
         end
         data
       end
@@ -3615,22 +3615,22 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = Types::ResponseHeadersPolicySecurityHeadersConfig.new
         xml.at('XSSProtection') do |node|
-          data.xss_protection = Parsers::ResponseHeadersPolicyXSSProtection.parse(node)
+          data.xss_protection = ResponseHeadersPolicyXSSProtection.parse(node)
         end
         xml.at('FrameOptions') do |node|
-          data.frame_options = Parsers::ResponseHeadersPolicyFrameOptions.parse(node)
+          data.frame_options = ResponseHeadersPolicyFrameOptions.parse(node)
         end
         xml.at('ReferrerPolicy') do |node|
-          data.referrer_policy = Parsers::ResponseHeadersPolicyReferrerPolicy.parse(node)
+          data.referrer_policy = ResponseHeadersPolicyReferrerPolicy.parse(node)
         end
         xml.at('ContentSecurityPolicy') do |node|
-          data.content_security_policy = Parsers::ResponseHeadersPolicyContentSecurityPolicy.parse(node)
+          data.content_security_policy = ResponseHeadersPolicyContentSecurityPolicy.parse(node)
         end
         xml.at('ContentTypeOptions') do |node|
-          data.content_type_options = Parsers::ResponseHeadersPolicyContentTypeOptions.parse(node)
+          data.content_type_options = ResponseHeadersPolicyContentTypeOptions.parse(node)
         end
         xml.at('StrictTransportSecurity') do |node|
-          data.strict_transport_security = Parsers::ResponseHeadersPolicyStrictTransportSecurity.parse(node)
+          data.strict_transport_security = ResponseHeadersPolicyStrictTransportSecurity.parse(node)
         end
         return data
       end
@@ -3727,19 +3727,19 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = Types::ResponseHeadersPolicyCorsConfig.new
         xml.at('AccessControlAllowOrigins') do |node|
-          data.access_control_allow_origins = Parsers::ResponseHeadersPolicyAccessControlAllowOrigins.parse(node)
+          data.access_control_allow_origins = ResponseHeadersPolicyAccessControlAllowOrigins.parse(node)
         end
         xml.at('AccessControlAllowHeaders') do |node|
-          data.access_control_allow_headers = Parsers::ResponseHeadersPolicyAccessControlAllowHeaders.parse(node)
+          data.access_control_allow_headers = ResponseHeadersPolicyAccessControlAllowHeaders.parse(node)
         end
         xml.at('AccessControlAllowMethods') do |node|
-          data.access_control_allow_methods = Parsers::ResponseHeadersPolicyAccessControlAllowMethods.parse(node)
+          data.access_control_allow_methods = ResponseHeadersPolicyAccessControlAllowMethods.parse(node)
         end
         xml.at('AccessControlAllowCredentials') do |node|
           data.access_control_allow_credentials = (node.text == 'true')
         end
         xml.at('AccessControlExposeHeaders') do |node|
-          data.access_control_expose_headers = Parsers::ResponseHeadersPolicyAccessControlExposeHeaders.parse(node)
+          data.access_control_expose_headers = ResponseHeadersPolicyAccessControlExposeHeaders.parse(node)
         end
         xml.at('AccessControlMaxAgeSec') do |node|
           data.access_control_max_age_sec = node.text&.to_i
@@ -3759,7 +3759,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('Header')
-          data.items = Parsers::AccessControlExposeHeadersList.parse(children)
+          data.items = AccessControlExposeHeadersList.parse(children)
         end
         return data
       end
@@ -3783,7 +3783,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('Method')
-          data.items = Parsers::AccessControlAllowMethodsList.parse(children)
+          data.items = AccessControlAllowMethodsList.parse(children)
         end
         return data
       end
@@ -3807,7 +3807,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('Header')
-          data.items = Parsers::AccessControlAllowHeadersList.parse(children)
+          data.items = AccessControlAllowHeadersList.parse(children)
         end
         return data
       end
@@ -3831,7 +3831,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('Origin')
-          data.items = Parsers::AccessControlAllowOriginsList.parse(children)
+          data.items = AccessControlAllowOriginsList.parse(children)
         end
         return data
       end
@@ -3916,7 +3916,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.streaming_distribution = Parsers::StreamingDistribution.parse(xml)
+        data.streaming_distribution = StreamingDistribution.parse(xml)
         data
       end
     end
@@ -3940,10 +3940,10 @@ module AWS::SDK::CloudFront
           data.domain_name = (node.text || '')
         end
         xml.at('ActiveTrustedSigners') do |node|
-          data.active_trusted_signers = Parsers::ActiveTrustedSigners.parse(node)
+          data.active_trusted_signers = ActiveTrustedSigners.parse(node)
         end
         xml.at('StreamingDistributionConfig') do |node|
-          data.streaming_distribution_config = Parsers::StreamingDistributionConfig.parse(node)
+          data.streaming_distribution_config = StreamingDistributionConfig.parse(node)
         end
         return data
       end
@@ -3956,19 +3956,19 @@ module AWS::SDK::CloudFront
           data.caller_reference = (node.text || '')
         end
         xml.at('S3Origin') do |node|
-          data.s3_origin = Parsers::S3Origin.parse(node)
+          data.s3_origin = S3Origin.parse(node)
         end
         xml.at('Aliases') do |node|
-          data.aliases = Parsers::Aliases.parse(node)
+          data.aliases = Aliases.parse(node)
         end
         xml.at('Comment') do |node|
           data.comment = (node.text || '')
         end
         xml.at('Logging') do |node|
-          data.logging = Parsers::StreamingLoggingConfig.parse(node)
+          data.logging = StreamingLoggingConfig.parse(node)
         end
         xml.at('TrustedSigners') do |node|
-          data.trusted_signers = Parsers::TrustedSigners.parse(node)
+          data.trusted_signers = TrustedSigners.parse(node)
         end
         xml.at('PriceClass') do |node|
           data.price_class = (node.text || '')
@@ -4063,7 +4063,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.streaming_distribution = Parsers::StreamingDistribution.parse(xml)
+        data.streaming_distribution = StreamingDistribution.parse(xml)
         data
       end
     end
@@ -4504,7 +4504,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.function_summary = Parsers::FunctionSummary.parse(xml)
+        data.function_summary = FunctionSummary.parse(xml)
         data
       end
     end
@@ -4517,7 +4517,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.cache_policy = Parsers::CachePolicy.parse(xml)
+        data.cache_policy = CachePolicy.parse(xml)
         data
       end
     end
@@ -4530,7 +4530,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.cache_policy_config = Parsers::CachePolicyConfig.parse(xml)
+        data.cache_policy_config = CachePolicyConfig.parse(xml)
         data
       end
     end
@@ -4543,7 +4543,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.cloud_front_origin_access_identity = Parsers::CloudFrontOriginAccessIdentity.parse(xml)
+        data.cloud_front_origin_access_identity = CloudFrontOriginAccessIdentity.parse(xml)
         data
       end
     end
@@ -4556,7 +4556,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.cloud_front_origin_access_identity_config = Parsers::CloudFrontOriginAccessIdentityConfig.parse(xml)
+        data.cloud_front_origin_access_identity_config = CloudFrontOriginAccessIdentityConfig.parse(xml)
         data
       end
     end
@@ -4569,7 +4569,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.distribution = Parsers::Distribution.parse(xml)
+        data.distribution = Distribution.parse(xml)
         data
       end
     end
@@ -4582,7 +4582,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.distribution_config = Parsers::DistributionConfig.parse(xml)
+        data.distribution_config = DistributionConfig.parse(xml)
         data
       end
     end
@@ -4595,7 +4595,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.field_level_encryption = Parsers::FieldLevelEncryption.parse(xml)
+        data.field_level_encryption = FieldLevelEncryption.parse(xml)
         data
       end
     end
@@ -4608,7 +4608,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.field_level_encryption_config = Parsers::FieldLevelEncryptionConfig.parse(xml)
+        data.field_level_encryption_config = FieldLevelEncryptionConfig.parse(xml)
         data
       end
     end
@@ -4621,7 +4621,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.field_level_encryption_profile = Parsers::FieldLevelEncryptionProfile.parse(xml)
+        data.field_level_encryption_profile = FieldLevelEncryptionProfile.parse(xml)
         data
       end
     end
@@ -4634,7 +4634,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.field_level_encryption_profile_config = Parsers::FieldLevelEncryptionProfileConfig.parse(xml)
+        data.field_level_encryption_profile_config = FieldLevelEncryptionProfileConfig.parse(xml)
         data
       end
     end
@@ -4658,7 +4658,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.invalidation = Parsers::Invalidation.parse(xml)
+        data.invalidation = Invalidation.parse(xml)
         data
       end
     end
@@ -4686,7 +4686,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.key_group = Parsers::KeyGroup.parse(xml)
+        data.key_group = KeyGroup.parse(xml)
         data
       end
     end
@@ -4699,7 +4699,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.key_group_config = Parsers::KeyGroupConfig.parse(xml)
+        data.key_group_config = KeyGroupConfig.parse(xml)
         data
       end
     end
@@ -4711,7 +4711,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.monitoring_subscription = Parsers::MonitoringSubscription.parse(xml)
+        data.monitoring_subscription = MonitoringSubscription.parse(xml)
         data
       end
     end
@@ -4724,7 +4724,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.origin_request_policy = Parsers::OriginRequestPolicy.parse(xml)
+        data.origin_request_policy = OriginRequestPolicy.parse(xml)
         data
       end
     end
@@ -4737,7 +4737,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.origin_request_policy_config = Parsers::OriginRequestPolicyConfig.parse(xml)
+        data.origin_request_policy_config = OriginRequestPolicyConfig.parse(xml)
         data
       end
     end
@@ -4750,7 +4750,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.public_key = Parsers::PublicKey.parse(xml)
+        data.public_key = PublicKey.parse(xml)
         data
       end
     end
@@ -4763,7 +4763,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.public_key_config = Parsers::PublicKeyConfig.parse(xml)
+        data.public_key_config = PublicKeyConfig.parse(xml)
         data
       end
     end
@@ -4776,7 +4776,7 @@ module AWS::SDK::CloudFront
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('RealtimeLogConfig') do |node|
-          data.realtime_log_config = Parsers::RealtimeLogConfig.parse(node)
+          data.realtime_log_config = RealtimeLogConfig.parse(node)
         end
         data
       end
@@ -4790,7 +4790,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.response_headers_policy = Parsers::ResponseHeadersPolicy.parse(xml)
+        data.response_headers_policy = ResponseHeadersPolicy.parse(xml)
         data
       end
     end
@@ -4803,7 +4803,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.response_headers_policy_config = Parsers::ResponseHeadersPolicyConfig.parse(xml)
+        data.response_headers_policy_config = ResponseHeadersPolicyConfig.parse(xml)
         data
       end
     end
@@ -4816,7 +4816,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.streaming_distribution = Parsers::StreamingDistribution.parse(xml)
+        data.streaming_distribution = StreamingDistribution.parse(xml)
         data
       end
     end
@@ -4829,7 +4829,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.streaming_distribution_config = Parsers::StreamingDistributionConfig.parse(xml)
+        data.streaming_distribution_config = StreamingDistributionConfig.parse(xml)
         data
       end
     end
@@ -4841,7 +4841,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.cache_policy_list = Parsers::CachePolicyList.parse(xml)
+        data.cache_policy_list = CachePolicyList.parse(xml)
         data
       end
     end
@@ -4860,7 +4860,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('CachePolicySummary')
-          data.items = Parsers::CachePolicySummaryList.parse(children)
+          data.items = CachePolicySummaryList.parse(children)
         end
         return data
       end
@@ -4870,7 +4870,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CachePolicySummary.parse(node)
+          data << CachePolicySummary.parse(node)
         end
         data
       end
@@ -4883,7 +4883,7 @@ module AWS::SDK::CloudFront
           data.type = (node.text || '')
         end
         xml.at('CachePolicy') do |node|
-          data.cache_policy = Parsers::CachePolicy.parse(node)
+          data.cache_policy = CachePolicy.parse(node)
         end
         return data
       end
@@ -4896,7 +4896,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.cloud_front_origin_access_identity_list = Parsers::CloudFrontOriginAccessIdentityList.parse(xml)
+        data.cloud_front_origin_access_identity_list = CloudFrontOriginAccessIdentityList.parse(xml)
         data
       end
     end
@@ -4921,7 +4921,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('CloudFrontOriginAccessIdentitySummary')
-          data.items = Parsers::CloudFrontOriginAccessIdentitySummaryList.parse(children)
+          data.items = CloudFrontOriginAccessIdentitySummaryList.parse(children)
         end
         return data
       end
@@ -4931,7 +4931,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::CloudFrontOriginAccessIdentitySummary.parse(node)
+          data << CloudFrontOriginAccessIdentitySummary.parse(node)
         end
         data
       end
@@ -4960,7 +4960,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.conflicting_aliases_list = Parsers::ConflictingAliasesList.parse(xml)
+        data.conflicting_aliases_list = ConflictingAliasesList.parse(xml)
         data
       end
     end
@@ -4979,7 +4979,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('ConflictingAlias')
-          data.items = Parsers::ConflictingAliases.parse(children)
+          data.items = ConflictingAliases.parse(children)
         end
         return data
       end
@@ -4989,7 +4989,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ConflictingAlias.parse(node)
+          data << ConflictingAlias.parse(node)
         end
         data
       end
@@ -5018,7 +5018,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.distribution_list = Parsers::DistributionList.parse(xml)
+        data.distribution_list = DistributionList.parse(xml)
         data
       end
     end
@@ -5043,7 +5043,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('DistributionSummary')
-          data.items = Parsers::DistributionSummaryList.parse(children)
+          data.items = DistributionSummaryList.parse(children)
         end
         return data
       end
@@ -5053,7 +5053,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::DistributionSummary.parse(node)
+          data << DistributionSummary.parse(node)
         end
         data
       end
@@ -5078,22 +5078,22 @@ module AWS::SDK::CloudFront
           data.domain_name = (node.text || '')
         end
         xml.at('Aliases') do |node|
-          data.aliases = Parsers::Aliases.parse(node)
+          data.aliases = Aliases.parse(node)
         end
         xml.at('Origins') do |node|
-          data.origins = Parsers::Origins.parse(node)
+          data.origins = Origins.parse(node)
         end
         xml.at('OriginGroups') do |node|
-          data.origin_groups = Parsers::OriginGroups.parse(node)
+          data.origin_groups = OriginGroups.parse(node)
         end
         xml.at('DefaultCacheBehavior') do |node|
-          data.default_cache_behavior = Parsers::DefaultCacheBehavior.parse(node)
+          data.default_cache_behavior = DefaultCacheBehavior.parse(node)
         end
         xml.at('CacheBehaviors') do |node|
-          data.cache_behaviors = Parsers::CacheBehaviors.parse(node)
+          data.cache_behaviors = CacheBehaviors.parse(node)
         end
         xml.at('CustomErrorResponses') do |node|
-          data.custom_error_responses = Parsers::CustomErrorResponses.parse(node)
+          data.custom_error_responses = CustomErrorResponses.parse(node)
         end
         xml.at('Comment') do |node|
           data.comment = (node.text || '')
@@ -5105,10 +5105,10 @@ module AWS::SDK::CloudFront
           data.enabled = (node.text == 'true')
         end
         xml.at('ViewerCertificate') do |node|
-          data.viewer_certificate = Parsers::ViewerCertificate.parse(node)
+          data.viewer_certificate = ViewerCertificate.parse(node)
         end
         xml.at('Restrictions') do |node|
-          data.restrictions = Parsers::Restrictions.parse(node)
+          data.restrictions = Restrictions.parse(node)
         end
         xml.at('WebACLId') do |node|
           data.web_acl_id = (node.text || '')
@@ -5121,7 +5121,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('AliasICPRecordals') do |node|
           children = node.children('AliasICPRecordal')
-          data.alias_icp_recordals = Parsers::AliasICPRecordals.parse(children)
+          data.alias_icp_recordals = AliasICPRecordals.parse(children)
         end
         return data
       end
@@ -5134,7 +5134,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.distribution_id_list = Parsers::DistributionIdList.parse(xml)
+        data.distribution_id_list = DistributionIdList.parse(xml)
         data
       end
     end
@@ -5159,7 +5159,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('DistributionId')
-          data.items = Parsers::DistributionIdListSummary.parse(children)
+          data.items = DistributionIdListSummary.parse(children)
         end
         return data
       end
@@ -5182,7 +5182,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.distribution_id_list = Parsers::DistributionIdList.parse(xml)
+        data.distribution_id_list = DistributionIdList.parse(xml)
         data
       end
     end
@@ -5194,7 +5194,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.distribution_id_list = Parsers::DistributionIdList.parse(xml)
+        data.distribution_id_list = DistributionIdList.parse(xml)
         data
       end
     end
@@ -5206,7 +5206,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.distribution_list = Parsers::DistributionList.parse(xml)
+        data.distribution_list = DistributionList.parse(xml)
         data
       end
     end
@@ -5218,7 +5218,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.distribution_id_list = Parsers::DistributionIdList.parse(xml)
+        data.distribution_id_list = DistributionIdList.parse(xml)
         data
       end
     end
@@ -5230,7 +5230,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.distribution_list = Parsers::DistributionList.parse(xml)
+        data.distribution_list = DistributionList.parse(xml)
         data
       end
     end
@@ -5242,7 +5242,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.field_level_encryption_list = Parsers::FieldLevelEncryptionList.parse(xml)
+        data.field_level_encryption_list = FieldLevelEncryptionList.parse(xml)
         data
       end
     end
@@ -5261,7 +5261,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('FieldLevelEncryptionSummary')
-          data.items = Parsers::FieldLevelEncryptionSummaryList.parse(children)
+          data.items = FieldLevelEncryptionSummaryList.parse(children)
         end
         return data
       end
@@ -5271,7 +5271,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::FieldLevelEncryptionSummary.parse(node)
+          data << FieldLevelEncryptionSummary.parse(node)
         end
         data
       end
@@ -5290,10 +5290,10 @@ module AWS::SDK::CloudFront
           data.comment = (node.text || '')
         end
         xml.at('QueryArgProfileConfig') do |node|
-          data.query_arg_profile_config = Parsers::QueryArgProfileConfig.parse(node)
+          data.query_arg_profile_config = QueryArgProfileConfig.parse(node)
         end
         xml.at('ContentTypeProfileConfig') do |node|
-          data.content_type_profile_config = Parsers::ContentTypeProfileConfig.parse(node)
+          data.content_type_profile_config = ContentTypeProfileConfig.parse(node)
         end
         return data
       end
@@ -5306,7 +5306,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.field_level_encryption_profile_list = Parsers::FieldLevelEncryptionProfileList.parse(xml)
+        data.field_level_encryption_profile_list = FieldLevelEncryptionProfileList.parse(xml)
         data
       end
     end
@@ -5325,7 +5325,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('FieldLevelEncryptionProfileSummary')
-          data.items = Parsers::FieldLevelEncryptionProfileSummaryList.parse(children)
+          data.items = FieldLevelEncryptionProfileSummaryList.parse(children)
         end
         return data
       end
@@ -5335,7 +5335,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::FieldLevelEncryptionProfileSummary.parse(node)
+          data << FieldLevelEncryptionProfileSummary.parse(node)
         end
         data
       end
@@ -5354,7 +5354,7 @@ module AWS::SDK::CloudFront
           data.name = (node.text || '')
         end
         xml.at('EncryptionEntities') do |node|
-          data.encryption_entities = Parsers::EncryptionEntities.parse(node)
+          data.encryption_entities = EncryptionEntities.parse(node)
         end
         xml.at('Comment') do |node|
           data.comment = (node.text || '')
@@ -5370,7 +5370,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.function_list = Parsers::FunctionList.parse(xml)
+        data.function_list = FunctionList.parse(xml)
         data
       end
     end
@@ -5389,7 +5389,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('FunctionSummary')
-          data.items = Parsers::FunctionSummaryList.parse(children)
+          data.items = FunctionSummaryList.parse(children)
         end
         return data
       end
@@ -5399,7 +5399,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::FunctionSummary.parse(node)
+          data << FunctionSummary.parse(node)
         end
         data
       end
@@ -5412,7 +5412,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.invalidation_list = Parsers::InvalidationList.parse(xml)
+        data.invalidation_list = InvalidationList.parse(xml)
         data
       end
     end
@@ -5437,7 +5437,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('InvalidationSummary')
-          data.items = Parsers::InvalidationSummaryList.parse(children)
+          data.items = InvalidationSummaryList.parse(children)
         end
         return data
       end
@@ -5447,7 +5447,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::InvalidationSummary.parse(node)
+          data << InvalidationSummary.parse(node)
         end
         data
       end
@@ -5476,7 +5476,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.key_group_list = Parsers::KeyGroupList.parse(xml)
+        data.key_group_list = KeyGroupList.parse(xml)
         data
       end
     end
@@ -5495,7 +5495,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('KeyGroupSummary')
-          data.items = Parsers::KeyGroupSummaryList.parse(children)
+          data.items = KeyGroupSummaryList.parse(children)
         end
         return data
       end
@@ -5505,7 +5505,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::KeyGroupSummary.parse(node)
+          data << KeyGroupSummary.parse(node)
         end
         data
       end
@@ -5515,7 +5515,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = Types::KeyGroupSummary.new
         xml.at('KeyGroup') do |node|
-          data.key_group = Parsers::KeyGroup.parse(node)
+          data.key_group = KeyGroup.parse(node)
         end
         return data
       end
@@ -5528,7 +5528,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.origin_request_policy_list = Parsers::OriginRequestPolicyList.parse(xml)
+        data.origin_request_policy_list = OriginRequestPolicyList.parse(xml)
         data
       end
     end
@@ -5547,7 +5547,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('OriginRequestPolicySummary')
-          data.items = Parsers::OriginRequestPolicySummaryList.parse(children)
+          data.items = OriginRequestPolicySummaryList.parse(children)
         end
         return data
       end
@@ -5557,7 +5557,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::OriginRequestPolicySummary.parse(node)
+          data << OriginRequestPolicySummary.parse(node)
         end
         data
       end
@@ -5570,7 +5570,7 @@ module AWS::SDK::CloudFront
           data.type = (node.text || '')
         end
         xml.at('OriginRequestPolicy') do |node|
-          data.origin_request_policy = Parsers::OriginRequestPolicy.parse(node)
+          data.origin_request_policy = OriginRequestPolicy.parse(node)
         end
         return data
       end
@@ -5583,7 +5583,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.public_key_list = Parsers::PublicKeyList.parse(xml)
+        data.public_key_list = PublicKeyList.parse(xml)
         data
       end
     end
@@ -5602,7 +5602,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('PublicKeySummary')
-          data.items = Parsers::PublicKeySummaryList.parse(children)
+          data.items = PublicKeySummaryList.parse(children)
         end
         return data
       end
@@ -5612,7 +5612,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::PublicKeySummary.parse(node)
+          data << PublicKeySummary.parse(node)
         end
         data
       end
@@ -5647,7 +5647,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.realtime_log_configs = Parsers::RealtimeLogConfigs.parse(xml)
+        data.realtime_log_configs = RealtimeLogConfigs.parse(xml)
         data
       end
     end
@@ -5660,7 +5660,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('member')
-          data.items = Parsers::RealtimeLogConfigList.parse(children)
+          data.items = RealtimeLogConfigList.parse(children)
         end
         xml.at('IsTruncated') do |node|
           data.is_truncated = (node.text == 'true')
@@ -5679,7 +5679,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::RealtimeLogConfig.parse(node)
+          data << RealtimeLogConfig.parse(node)
         end
         data
       end
@@ -5692,7 +5692,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.response_headers_policy_list = Parsers::ResponseHeadersPolicyList.parse(xml)
+        data.response_headers_policy_list = ResponseHeadersPolicyList.parse(xml)
         data
       end
     end
@@ -5711,7 +5711,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('ResponseHeadersPolicySummary')
-          data.items = Parsers::ResponseHeadersPolicySummaryList.parse(children)
+          data.items = ResponseHeadersPolicySummaryList.parse(children)
         end
         return data
       end
@@ -5721,7 +5721,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ResponseHeadersPolicySummary.parse(node)
+          data << ResponseHeadersPolicySummary.parse(node)
         end
         data
       end
@@ -5734,7 +5734,7 @@ module AWS::SDK::CloudFront
           data.type = (node.text || '')
         end
         xml.at('ResponseHeadersPolicy') do |node|
-          data.response_headers_policy = Parsers::ResponseHeadersPolicy.parse(node)
+          data.response_headers_policy = ResponseHeadersPolicy.parse(node)
         end
         return data
       end
@@ -5747,7 +5747,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.streaming_distribution_list = Parsers::StreamingDistributionList.parse(xml)
+        data.streaming_distribution_list = StreamingDistributionList.parse(xml)
         data
       end
     end
@@ -5772,7 +5772,7 @@ module AWS::SDK::CloudFront
         end
         xml.at('Items') do |node|
           children = node.children('StreamingDistributionSummary')
-          data.items = Parsers::StreamingDistributionSummaryList.parse(children)
+          data.items = StreamingDistributionSummaryList.parse(children)
         end
         return data
       end
@@ -5782,7 +5782,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::StreamingDistributionSummary.parse(node)
+          data << StreamingDistributionSummary.parse(node)
         end
         data
       end
@@ -5807,13 +5807,13 @@ module AWS::SDK::CloudFront
           data.domain_name = (node.text || '')
         end
         xml.at('S3Origin') do |node|
-          data.s3_origin = Parsers::S3Origin.parse(node)
+          data.s3_origin = S3Origin.parse(node)
         end
         xml.at('Aliases') do |node|
-          data.aliases = Parsers::Aliases.parse(node)
+          data.aliases = Aliases.parse(node)
         end
         xml.at('TrustedSigners') do |node|
-          data.trusted_signers = Parsers::TrustedSigners.parse(node)
+          data.trusted_signers = TrustedSigners.parse(node)
         end
         xml.at('Comment') do |node|
           data.comment = (node.text || '')
@@ -5835,7 +5835,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.tags = Parsers::Tags.parse(xml)
+        data.tags = Tags.parse(xml)
         data
       end
     end
@@ -5845,7 +5845,7 @@ module AWS::SDK::CloudFront
         data = Types::Tags.new
         xml.at('Items') do |node|
           children = node.children('Tag')
-          data.items = Parsers::TagList.parse(children)
+          data.items = TagList.parse(children)
         end
         return data
       end
@@ -5855,7 +5855,7 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Tag.parse(node)
+          data << Tag.parse(node)
         end
         data
       end
@@ -5881,7 +5881,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.function_summary = Parsers::FunctionSummary.parse(xml)
+        data.function_summary = FunctionSummary.parse(xml)
         data
       end
     end
@@ -5904,7 +5904,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.test_result = Parsers::TestResult.parse(xml)
+        data.test_result = TestResult.parse(xml)
         data
       end
     end
@@ -5913,14 +5913,14 @@ module AWS::SDK::CloudFront
       def self.parse(xml)
         data = Types::TestResult.new
         xml.at('FunctionSummary') do |node|
-          data.function_summary = Parsers::FunctionSummary.parse(node)
+          data.function_summary = FunctionSummary.parse(node)
         end
         xml.at('ComputeUtilization') do |node|
           data.compute_utilization = (node.text || '')
         end
         xml.at('FunctionExecutionLogs') do |node|
           children = node.children('member')
-          data.function_execution_logs = Parsers::FunctionExecutionLogList.parse(children)
+          data.function_execution_logs = FunctionExecutionLogList.parse(children)
         end
         xml.at('FunctionErrorMessage') do |node|
           data.function_error_message = (node.text || '')
@@ -5976,7 +5976,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.cache_policy = Parsers::CachePolicy.parse(xml)
+        data.cache_policy = CachePolicy.parse(xml)
         data
       end
     end
@@ -5989,7 +5989,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.cloud_front_origin_access_identity = Parsers::CloudFrontOriginAccessIdentity.parse(xml)
+        data.cloud_front_origin_access_identity = CloudFrontOriginAccessIdentity.parse(xml)
         data
       end
     end
@@ -6002,7 +6002,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.distribution = Parsers::Distribution.parse(xml)
+        data.distribution = Distribution.parse(xml)
         data
       end
     end
@@ -6015,7 +6015,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.field_level_encryption = Parsers::FieldLevelEncryption.parse(xml)
+        data.field_level_encryption = FieldLevelEncryption.parse(xml)
         data
       end
     end
@@ -6028,7 +6028,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.field_level_encryption_profile = Parsers::FieldLevelEncryptionProfile.parse(xml)
+        data.field_level_encryption_profile = FieldLevelEncryptionProfile.parse(xml)
         data
       end
     end
@@ -6041,7 +6041,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.function_summary = Parsers::FunctionSummary.parse(xml)
+        data.function_summary = FunctionSummary.parse(xml)
         data
       end
     end
@@ -6054,7 +6054,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.key_group = Parsers::KeyGroup.parse(xml)
+        data.key_group = KeyGroup.parse(xml)
         data
       end
     end
@@ -6067,7 +6067,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.origin_request_policy = Parsers::OriginRequestPolicy.parse(xml)
+        data.origin_request_policy = OriginRequestPolicy.parse(xml)
         data
       end
     end
@@ -6080,7 +6080,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.public_key = Parsers::PublicKey.parse(xml)
+        data.public_key = PublicKey.parse(xml)
         data
       end
     end
@@ -6108,7 +6108,7 @@ module AWS::SDK::CloudFront
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('RealtimeLogConfig') do |node|
-          data.realtime_log_config = Parsers::RealtimeLogConfig.parse(node)
+          data.realtime_log_config = RealtimeLogConfig.parse(node)
         end
         data
       end
@@ -6122,7 +6122,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.response_headers_policy = Parsers::ResponseHeadersPolicy.parse(xml)
+        data.response_headers_policy = ResponseHeadersPolicy.parse(xml)
         data
       end
     end
@@ -6135,7 +6135,7 @@ module AWS::SDK::CloudFront
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.streaming_distribution = Parsers::StreamingDistribution.parse(xml)
+        data.streaming_distribution = StreamingDistribution.parse(xml)
         data
       end
     end

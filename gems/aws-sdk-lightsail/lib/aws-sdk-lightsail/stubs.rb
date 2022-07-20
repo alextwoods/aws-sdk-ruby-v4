@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Lightsail
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -40,7 +42,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Operation.stub(element) unless element.nil?
+          data << Operation.stub(element) unless element.nil?
         end
         data
       end
@@ -74,7 +76,7 @@ module AWS::SDK::Lightsail
         data['resourceName'] = stub[:resource_name] unless stub[:resource_name].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['isTerminal'] = stub[:is_terminal] unless stub[:is_terminal].nil?
         data['operationDetails'] = stub[:operation_details] unless stub[:operation_details].nil?
         data['operationType'] = stub[:operation_type] unless stub[:operation_type].nil?
@@ -116,8 +118,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -132,8 +134,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -148,8 +150,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -164,8 +166,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -180,8 +182,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -196,8 +198,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -212,8 +214,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -229,9 +231,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['bucket'] = Stubs::Bucket.stub(stub[:bucket]) unless stub[:bucket].nil?
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['bucket'] = Bucket.stub(stub[:bucket]) unless stub[:bucket].nil?
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -265,21 +267,21 @@ module AWS::SDK::Lightsail
         stub ||= Types::Bucket.new
         data = {}
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['accessRules'] = Stubs::AccessRules.stub(stub[:access_rules]) unless stub[:access_rules].nil?
+        data['accessRules'] = AccessRules.stub(stub[:access_rules]) unless stub[:access_rules].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['bundleId'] = stub[:bundle_id] unless stub[:bundle_id].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['url'] = stub[:url] unless stub[:url].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['supportCode'] = stub[:support_code] unless stub[:support_code].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['objectVersioning'] = stub[:object_versioning] unless stub[:object_versioning].nil?
         data['ableToUpdateBundle'] = stub[:able_to_update_bundle] unless stub[:able_to_update_bundle].nil?
-        data['readonlyAccessAccounts'] = Stubs::PartnerIdList.stub(stub[:readonly_access_accounts]) unless stub[:readonly_access_accounts].nil?
-        data['resourcesReceivingAccess'] = Stubs::AccessReceiverList.stub(stub[:resources_receiving_access]) unless stub[:resources_receiving_access].nil?
-        data['state'] = Stubs::BucketState.stub(stub[:state]) unless stub[:state].nil?
-        data['accessLogConfig'] = Stubs::BucketAccessLogConfig.stub(stub[:access_log_config]) unless stub[:access_log_config].nil?
+        data['readonlyAccessAccounts'] = PartnerIdList.stub(stub[:readonly_access_accounts]) unless stub[:readonly_access_accounts].nil?
+        data['resourcesReceivingAccess'] = AccessReceiverList.stub(stub[:resources_receiving_access]) unless stub[:resources_receiving_access].nil?
+        data['state'] = BucketState.stub(stub[:state]) unless stub[:state].nil?
+        data['accessLogConfig'] = BucketAccessLogConfig.stub(stub[:access_log_config]) unless stub[:access_log_config].nil?
         data
       end
     end
@@ -340,7 +342,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceReceivingAccess.stub(element) unless element.nil?
+          data << ResourceReceivingAccess.stub(element) unless element.nil?
         end
         data
       end
@@ -400,7 +402,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -457,9 +459,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['accessKey'] = Stubs::AccessKey.stub(stub[:access_key]) unless stub[:access_key].nil?
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accessKey'] = AccessKey.stub(stub[:access_key]) unless stub[:access_key].nil?
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -485,7 +487,7 @@ module AWS::SDK::Lightsail
         data['secretAccessKey'] = stub[:secret_access_key] unless stub[:secret_access_key].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['lastUsed'] = Stubs::AccessKeyLastUsed.stub(stub[:last_used]) unless stub[:last_used].nil?
+        data['lastUsed'] = AccessKeyLastUsed.stub(stub[:last_used]) unless stub[:last_used].nil?
         data
       end
     end
@@ -523,9 +525,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['certificate'] = Stubs::CertificateSummary.stub(stub[:certificate]) unless stub[:certificate].nil?
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['certificate'] = CertificateSummary.stub(stub[:certificate]) unless stub[:certificate].nil?
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -550,8 +552,8 @@ module AWS::SDK::Lightsail
         data['certificateArn'] = stub[:certificate_arn] unless stub[:certificate_arn].nil?
         data['certificateName'] = stub[:certificate_name] unless stub[:certificate_name].nil?
         data['domainName'] = stub[:domain_name] unless stub[:domain_name].nil?
-        data['certificateDetail'] = Stubs::Certificate.stub(stub[:certificate_detail]) unless stub[:certificate_detail].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['certificateDetail'] = Certificate.stub(stub[:certificate_detail]) unless stub[:certificate_detail].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -594,8 +596,8 @@ module AWS::SDK::Lightsail
         data['domainName'] = stub[:domain_name] unless stub[:domain_name].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['serialNumber'] = stub[:serial_number] unless stub[:serial_number].nil?
-        data['subjectAlternativeNames'] = Stubs::SubjectAlternativeNameList.stub(stub[:subject_alternative_names]) unless stub[:subject_alternative_names].nil?
-        data['domainValidationRecords'] = Stubs::DomainValidationRecordList.stub(stub[:domain_validation_records]) unless stub[:domain_validation_records].nil?
+        data['subjectAlternativeNames'] = SubjectAlternativeNameList.stub(stub[:subject_alternative_names]) unless stub[:subject_alternative_names].nil?
+        data['domainValidationRecords'] = DomainValidationRecordList.stub(stub[:domain_validation_records]) unless stub[:domain_validation_records].nil?
         data['requestFailureReason'] = stub[:request_failure_reason] unless stub[:request_failure_reason].nil?
         data['inUseResourceCount'] = stub[:in_use_resource_count] unless stub[:in_use_resource_count].nil?
         data['keyAlgorithm'] = stub[:key_algorithm] unless stub[:key_algorithm].nil?
@@ -605,10 +607,10 @@ module AWS::SDK::Lightsail
         data['notBefore'] = Hearth::TimeHelper.to_epoch_seconds(stub[:not_before]).to_i unless stub[:not_before].nil?
         data['notAfter'] = Hearth::TimeHelper.to_epoch_seconds(stub[:not_after]).to_i unless stub[:not_after].nil?
         data['eligibleToRenew'] = stub[:eligible_to_renew] unless stub[:eligible_to_renew].nil?
-        data['renewalSummary'] = Stubs::RenewalSummary.stub(stub[:renewal_summary]) unless stub[:renewal_summary].nil?
+        data['renewalSummary'] = RenewalSummary.stub(stub[:renewal_summary]) unless stub[:renewal_summary].nil?
         data['revokedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:revoked_at]).to_i unless stub[:revoked_at].nil?
         data['revocationReason'] = stub[:revocation_reason] unless stub[:revocation_reason].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['supportCode'] = stub[:support_code] unless stub[:support_code].nil?
         data
       end
@@ -630,7 +632,7 @@ module AWS::SDK::Lightsail
       def self.stub(stub)
         stub ||= Types::RenewalSummary.new
         data = {}
-        data['domainValidationRecords'] = Stubs::DomainValidationRecordList.stub(stub[:domain_validation_records]) unless stub[:domain_validation_records].nil?
+        data['domainValidationRecords'] = DomainValidationRecordList.stub(stub[:domain_validation_records]) unless stub[:domain_validation_records].nil?
         data['renewalStatus'] = stub[:renewal_status] unless stub[:renewal_status].nil?
         data['renewalStatusReason'] = stub[:renewal_status_reason] unless stub[:renewal_status_reason].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
@@ -652,7 +654,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainValidationRecord.stub(element) unless element.nil?
+          data << DomainValidationRecord.stub(element) unless element.nil?
         end
         data
       end
@@ -673,7 +675,7 @@ module AWS::SDK::Lightsail
         stub ||= Types::DomainValidationRecord.new
         data = {}
         data['domainName'] = stub[:domain_name] unless stub[:domain_name].nil?
-        data['resourceRecord'] = Stubs::ResourceRecord.stub(stub[:resource_record]) unless stub[:resource_record].nil?
+        data['resourceRecord'] = ResourceRecord.stub(stub[:resource_record]) unless stub[:resource_record].nil?
         data
       end
     end
@@ -730,8 +732,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -746,8 +748,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -762,8 +764,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['containerService'] = Stubs::ContainerService.stub(stub[:container_service]) unless stub[:container_service].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['containerService'] = ContainerService.stub(stub[:container_service]) unless stub[:container_service].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -802,22 +804,22 @@ module AWS::SDK::Lightsail
         data['containerServiceName'] = stub[:container_service_name] unless stub[:container_service_name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['power'] = stub[:power] unless stub[:power].nil?
         data['powerId'] = stub[:power_id] unless stub[:power_id].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['stateDetail'] = Stubs::ContainerServiceStateDetail.stub(stub[:state_detail]) unless stub[:state_detail].nil?
+        data['stateDetail'] = ContainerServiceStateDetail.stub(stub[:state_detail]) unless stub[:state_detail].nil?
         data['scale'] = stub[:scale] unless stub[:scale].nil?
-        data['currentDeployment'] = Stubs::ContainerServiceDeployment.stub(stub[:current_deployment]) unless stub[:current_deployment].nil?
-        data['nextDeployment'] = Stubs::ContainerServiceDeployment.stub(stub[:next_deployment]) unless stub[:next_deployment].nil?
+        data['currentDeployment'] = ContainerServiceDeployment.stub(stub[:current_deployment]) unless stub[:current_deployment].nil?
+        data['nextDeployment'] = ContainerServiceDeployment.stub(stub[:next_deployment]) unless stub[:next_deployment].nil?
         data['isDisabled'] = stub[:is_disabled] unless stub[:is_disabled].nil?
         data['principalArn'] = stub[:principal_arn] unless stub[:principal_arn].nil?
         data['privateDomainName'] = stub[:private_domain_name] unless stub[:private_domain_name].nil?
-        data['publicDomainNames'] = Stubs::ContainerServicePublicDomains.stub(stub[:public_domain_names]) unless stub[:public_domain_names].nil?
+        data['publicDomainNames'] = ContainerServicePublicDomains.stub(stub[:public_domain_names]) unless stub[:public_domain_names].nil?
         data['url'] = stub[:url] unless stub[:url].nil?
-        data['privateRegistryAccess'] = Stubs::PrivateRegistryAccess.stub(stub[:private_registry_access]) unless stub[:private_registry_access].nil?
+        data['privateRegistryAccess'] = PrivateRegistryAccess.stub(stub[:private_registry_access]) unless stub[:private_registry_access].nil?
         data
       end
     end
@@ -835,7 +837,7 @@ module AWS::SDK::Lightsail
       def self.stub(stub)
         stub ||= Types::PrivateRegistryAccess.new
         data = {}
-        data['ecrImagePullerRole'] = Stubs::ContainerServiceECRImagePullerRole.stub(stub[:ecr_image_puller_role]) unless stub[:ecr_image_puller_role].nil?
+        data['ecrImagePullerRole'] = ContainerServiceECRImagePullerRole.stub(stub[:ecr_image_puller_role]) unless stub[:ecr_image_puller_role].nil?
         data
       end
     end
@@ -874,7 +876,7 @@ module AWS::SDK::Lightsail
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ContainerServicePublicDomainsList.stub(value) unless value.nil?
+          data[key] = ContainerServicePublicDomainsList.stub(value) unless value.nil?
         end
         data
       end
@@ -919,8 +921,8 @@ module AWS::SDK::Lightsail
         data = {}
         data['version'] = stub[:version] unless stub[:version].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['containers'] = Stubs::ContainerMap.stub(stub[:containers]) unless stub[:containers].nil?
-        data['publicEndpoint'] = Stubs::ContainerServiceEndpoint.stub(stub[:public_endpoint]) unless stub[:public_endpoint].nil?
+        data['containers'] = ContainerMap.stub(stub[:containers]) unless stub[:containers].nil?
+        data['publicEndpoint'] = ContainerServiceEndpoint.stub(stub[:public_endpoint]) unless stub[:public_endpoint].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data
       end
@@ -943,7 +945,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['containerName'] = stub[:container_name] unless stub[:container_name].nil?
         data['containerPort'] = stub[:container_port] unless stub[:container_port].nil?
-        data['healthCheck'] = Stubs::ContainerServiceHealthCheckConfig.stub(stub[:health_check]) unless stub[:health_check].nil?
+        data['healthCheck'] = ContainerServiceHealthCheckConfig.stub(stub[:health_check]) unless stub[:health_check].nil?
         data
       end
     end
@@ -990,7 +992,7 @@ module AWS::SDK::Lightsail
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::Container.stub(value) unless value.nil?
+          data[key] = Container.stub(value) unless value.nil?
         end
         data
       end
@@ -1013,9 +1015,9 @@ module AWS::SDK::Lightsail
         stub ||= Types::Container.new
         data = {}
         data['image'] = stub[:image] unless stub[:image].nil?
-        data['command'] = Stubs::StringList.stub(stub[:command]) unless stub[:command].nil?
-        data['environment'] = Stubs::Environment.stub(stub[:environment]) unless stub[:environment].nil?
-        data['ports'] = Stubs::PortMap.stub(stub[:ports]) unless stub[:ports].nil?
+        data['command'] = StringList.stub(stub[:command]) unless stub[:command].nil?
+        data['environment'] = Environment.stub(stub[:environment]) unless stub[:environment].nil?
+        data['ports'] = PortMap.stub(stub[:ports]) unless stub[:ports].nil?
         data
       end
     end
@@ -1110,8 +1112,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['containerService'] = Stubs::ContainerService.stub(stub[:container_service]) unless stub[:container_service].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['containerService'] = ContainerService.stub(stub[:container_service]) unless stub[:container_service].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1126,8 +1128,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['registryLogin'] = Stubs::ContainerServiceRegistryLogin.stub(stub[:registry_login]) unless stub[:registry_login].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['registryLogin'] = ContainerServiceRegistryLogin.stub(stub[:registry_login]) unless stub[:registry_login].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1166,8 +1168,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1182,8 +1184,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1198,8 +1200,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1215,9 +1217,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['distribution'] = Stubs::LightsailDistribution.stub(stub[:distribution]) unless stub[:distribution].nil?
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['distribution'] = LightsailDistribution.stub(stub[:distribution]) unless stub[:distribution].nil?
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1258,22 +1260,22 @@ module AWS::SDK::Lightsail
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['supportCode'] = stub[:support_code] unless stub[:support_code].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['alternativeDomainNames'] = Stubs::StringList.stub(stub[:alternative_domain_names]) unless stub[:alternative_domain_names].nil?
+        data['alternativeDomainNames'] = StringList.stub(stub[:alternative_domain_names]) unless stub[:alternative_domain_names].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['isEnabled'] = stub[:is_enabled] unless stub[:is_enabled].nil?
         data['domainName'] = stub[:domain_name] unless stub[:domain_name].nil?
         data['bundleId'] = stub[:bundle_id] unless stub[:bundle_id].nil?
         data['certificateName'] = stub[:certificate_name] unless stub[:certificate_name].nil?
-        data['origin'] = Stubs::Origin.stub(stub[:origin]) unless stub[:origin].nil?
+        data['origin'] = Origin.stub(stub[:origin]) unless stub[:origin].nil?
         data['originPublicDNS'] = stub[:origin_public_dns] unless stub[:origin_public_dns].nil?
-        data['defaultCacheBehavior'] = Stubs::CacheBehavior.stub(stub[:default_cache_behavior]) unless stub[:default_cache_behavior].nil?
-        data['cacheBehaviorSettings'] = Stubs::CacheSettings.stub(stub[:cache_behavior_settings]) unless stub[:cache_behavior_settings].nil?
-        data['cacheBehaviors'] = Stubs::CacheBehaviorList.stub(stub[:cache_behaviors]) unless stub[:cache_behaviors].nil?
+        data['defaultCacheBehavior'] = CacheBehavior.stub(stub[:default_cache_behavior]) unless stub[:default_cache_behavior].nil?
+        data['cacheBehaviorSettings'] = CacheSettings.stub(stub[:cache_behavior_settings]) unless stub[:cache_behavior_settings].nil?
+        data['cacheBehaviors'] = CacheBehaviorList.stub(stub[:cache_behaviors]) unless stub[:cache_behaviors].nil?
         data['ableToUpdateBundle'] = stub[:able_to_update_bundle] unless stub[:able_to_update_bundle].nil?
         data['ipAddressType'] = stub[:ip_address_type] unless stub[:ip_address_type].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1292,7 +1294,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CacheBehaviorPerPath.stub(element) unless element.nil?
+          data << CacheBehaviorPerPath.stub(element) unless element.nil?
         end
         data
       end
@@ -1343,9 +1345,9 @@ module AWS::SDK::Lightsail
         data['maximumTTL'] = stub[:maximum_ttl] unless stub[:maximum_ttl].nil?
         data['allowedHTTPMethods'] = stub[:allowed_http_methods] unless stub[:allowed_http_methods].nil?
         data['cachedHTTPMethods'] = stub[:cached_http_methods] unless stub[:cached_http_methods].nil?
-        data['forwardedCookies'] = Stubs::CookieObject.stub(stub[:forwarded_cookies]) unless stub[:forwarded_cookies].nil?
-        data['forwardedHeaders'] = Stubs::HeaderObject.stub(stub[:forwarded_headers]) unless stub[:forwarded_headers].nil?
-        data['forwardedQueryStrings'] = Stubs::QueryStringObject.stub(stub[:forwarded_query_strings]) unless stub[:forwarded_query_strings].nil?
+        data['forwardedCookies'] = CookieObject.stub(stub[:forwarded_cookies]) unless stub[:forwarded_cookies].nil?
+        data['forwardedHeaders'] = HeaderObject.stub(stub[:forwarded_headers]) unless stub[:forwarded_headers].nil?
+        data['forwardedQueryStrings'] = QueryStringObject.stub(stub[:forwarded_query_strings]) unless stub[:forwarded_query_strings].nil?
         data
       end
     end
@@ -1365,7 +1367,7 @@ module AWS::SDK::Lightsail
         stub ||= Types::QueryStringObject.new
         data = {}
         data['option'] = stub[:option] unless stub[:option].nil?
-        data['queryStringsAllowList'] = Stubs::StringList.stub(stub[:query_strings_allow_list]) unless stub[:query_strings_allow_list].nil?
+        data['queryStringsAllowList'] = StringList.stub(stub[:query_strings_allow_list]) unless stub[:query_strings_allow_list].nil?
         data
       end
     end
@@ -1385,7 +1387,7 @@ module AWS::SDK::Lightsail
         stub ||= Types::HeaderObject.new
         data = {}
         data['option'] = stub[:option] unless stub[:option].nil?
-        data['headersAllowList'] = Stubs::HeaderForwardList.stub(stub[:headers_allow_list]) unless stub[:headers_allow_list].nil?
+        data['headersAllowList'] = HeaderForwardList.stub(stub[:headers_allow_list]) unless stub[:headers_allow_list].nil?
         data
       end
     end
@@ -1425,7 +1427,7 @@ module AWS::SDK::Lightsail
         stub ||= Types::CookieObject.new
         data = {}
         data['option'] = stub[:option] unless stub[:option].nil?
-        data['cookiesAllowList'] = Stubs::StringList.stub(stub[:cookies_allow_list]) unless stub[:cookies_allow_list].nil?
+        data['cookiesAllowList'] = StringList.stub(stub[:cookies_allow_list]) unless stub[:cookies_allow_list].nil?
         data
       end
     end
@@ -1482,8 +1484,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1498,8 +1500,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1514,8 +1516,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1530,8 +1532,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1546,8 +1548,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1565,11 +1567,11 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['keyPair'] = Stubs::KeyPair.stub(stub[:key_pair]) unless stub[:key_pair].nil?
+        data['keyPair'] = KeyPair.stub(stub[:key_pair]) unless stub[:key_pair].nil?
         data['publicKeyBase64'] = stub[:public_key_base64] unless stub[:public_key_base64].nil?
         data['privateKeyBase64'] = stub[:private_key_base64] unless stub[:private_key_base64].nil?
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1598,9 +1600,9 @@ module AWS::SDK::Lightsail
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['supportCode'] = stub[:support_code] unless stub[:support_code].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['fingerprint'] = stub[:fingerprint] unless stub[:fingerprint].nil?
         data
       end
@@ -1616,8 +1618,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1632,8 +1634,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1648,8 +1650,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1664,8 +1666,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1680,8 +1682,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1696,8 +1698,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1712,8 +1714,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1728,8 +1730,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1744,8 +1746,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1760,8 +1762,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1776,8 +1778,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1791,7 +1793,7 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1805,7 +1807,7 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1820,8 +1822,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1836,8 +1838,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1852,8 +1854,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1868,8 +1870,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1884,8 +1886,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1900,8 +1902,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1916,8 +1918,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1932,8 +1934,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1948,8 +1950,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1964,8 +1966,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1980,8 +1982,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1996,8 +1998,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2012,8 +2014,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2028,8 +2030,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2044,8 +2046,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2060,8 +2062,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2076,8 +2078,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2092,8 +2094,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2113,7 +2115,7 @@ module AWS::SDK::Lightsail
         data['publicKeyBase64'] = stub[:public_key_base64] unless stub[:public_key_base64].nil?
         data['privateKeyBase64'] = stub[:private_key_base64] unless stub[:private_key_base64].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2128,8 +2130,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2144,8 +2146,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2161,9 +2163,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['activeNames'] = Stubs::StringList.stub(stub[:active_names]) unless stub[:active_names].nil?
+        data['activeNames'] = StringList.stub(stub[:active_names]) unless stub[:active_names].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2179,9 +2181,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['alarms'] = Stubs::AlarmsList.stub(stub[:alarms]) unless stub[:alarms].nil?
+        data['alarms'] = AlarmsList.stub(stub[:alarms]) unless stub[:alarms].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2200,7 +2202,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Alarm.stub(element) unless element.nil?
+          data << Alarm.stub(element) unless element.nil?
         end
         data
       end
@@ -2241,10 +2243,10 @@ module AWS::SDK::Lightsail
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['supportCode'] = stub[:support_code] unless stub[:support_code].nil?
-        data['monitoredResourceInfo'] = Stubs::MonitoredResourceInfo.stub(stub[:monitored_resource_info]) unless stub[:monitored_resource_info].nil?
+        data['monitoredResourceInfo'] = MonitoredResourceInfo.stub(stub[:monitored_resource_info]) unless stub[:monitored_resource_info].nil?
         data['comparisonOperator'] = stub[:comparison_operator] unless stub[:comparison_operator].nil?
         data['evaluationPeriods'] = stub[:evaluation_periods] unless stub[:evaluation_periods].nil?
         data['period'] = stub[:period] unless stub[:period].nil?
@@ -2255,8 +2257,8 @@ module AWS::SDK::Lightsail
         data['metricName'] = stub[:metric_name] unless stub[:metric_name].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data['unit'] = stub[:unit] unless stub[:unit].nil?
-        data['contactProtocols'] = Stubs::ContactProtocolsList.stub(stub[:contact_protocols]) unless stub[:contact_protocols].nil?
-        data['notificationTriggers'] = Stubs::NotificationTriggerList.stub(stub[:notification_triggers]) unless stub[:notification_triggers].nil?
+        data['contactProtocols'] = ContactProtocolsList.stub(stub[:contact_protocols]) unless stub[:contact_protocols].nil?
+        data['notificationTriggers'] = NotificationTriggerList.stub(stub[:notification_triggers]) unless stub[:notification_triggers].nil?
         data['notificationEnabled'] = stub[:notification_enabled] unless stub[:notification_enabled].nil?
         data
       end
@@ -2338,8 +2340,8 @@ module AWS::SDK::Lightsail
         data = {}
         data['resourceName'] = stub[:resource_name] unless stub[:resource_name].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['autoSnapshots'] = Stubs::AutoSnapshotDetailsList.stub(stub[:auto_snapshots]) unless stub[:auto_snapshots].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['autoSnapshots'] = AutoSnapshotDetailsList.stub(stub[:auto_snapshots]) unless stub[:auto_snapshots].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2358,7 +2360,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutoSnapshotDetails.stub(element) unless element.nil?
+          data << AutoSnapshotDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -2383,7 +2385,7 @@ module AWS::SDK::Lightsail
         data['date'] = stub[:date] unless stub[:date].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['fromAttachedDisks'] = Stubs::AttachedDiskList.stub(stub[:from_attached_disks]) unless stub[:from_attached_disks].nil?
+        data['fromAttachedDisks'] = AttachedDiskList.stub(stub[:from_attached_disks]) unless stub[:from_attached_disks].nil?
         data
       end
     end
@@ -2402,7 +2404,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttachedDisk.stub(element) unless element.nil?
+          data << AttachedDisk.stub(element) unless element.nil?
         end
         data
       end
@@ -2439,9 +2441,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['blueprints'] = Stubs::BlueprintList.stub(stub[:blueprints]) unless stub[:blueprints].nil?
+        data['blueprints'] = BlueprintList.stub(stub[:blueprints]) unless stub[:blueprints].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2460,7 +2462,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Blueprint.stub(element) unless element.nil?
+          data << Blueprint.stub(element) unless element.nil?
         end
         data
       end
@@ -2516,8 +2518,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['accessKeys'] = Stubs::AccessKeyList.stub(stub[:access_keys]) unless stub[:access_keys].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accessKeys'] = AccessKeyList.stub(stub[:access_keys]) unless stub[:access_keys].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2536,7 +2538,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccessKey.stub(element) unless element.nil?
+          data << AccessKey.stub(element) unless element.nil?
         end
         data
       end
@@ -2552,8 +2554,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['bundles'] = Stubs::BucketBundleList.stub(stub[:bundles]) unless stub[:bundles].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['bundles'] = BucketBundleList.stub(stub[:bundles]) unless stub[:bundles].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2572,7 +2574,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BucketBundle.stub(element) unless element.nil?
+          data << BucketBundle.stub(element) unless element.nil?
         end
         data
       end
@@ -2618,8 +2620,8 @@ module AWS::SDK::Lightsail
       def self.stub(http_resp, stub:)
         data = {}
         data['metricName'] = stub[:metric_name] unless stub[:metric_name].nil?
-        data['metricData'] = Stubs::MetricDatapointList.stub(stub[:metric_data]) unless stub[:metric_data].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['metricData'] = MetricDatapointList.stub(stub[:metric_data]) unless stub[:metric_data].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2638,7 +2640,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricDatapoint.stub(element) unless element.nil?
+          data << MetricDatapoint.stub(element) unless element.nil?
         end
         data
       end
@@ -2686,10 +2688,10 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['buckets'] = Stubs::BucketList.stub(stub[:buckets]) unless stub[:buckets].nil?
+        data['buckets'] = BucketList.stub(stub[:buckets]) unless stub[:buckets].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        data['accountLevelBpaSync'] = Stubs::AccountLevelBpaSync.stub(stub[:account_level_bpa_sync]) unless stub[:account_level_bpa_sync].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accountLevelBpaSync'] = AccountLevelBpaSync.stub(stub[:account_level_bpa_sync]) unless stub[:account_level_bpa_sync].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2732,7 +2734,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Bucket.stub(element) unless element.nil?
+          data << Bucket.stub(element) unless element.nil?
         end
         data
       end
@@ -2749,9 +2751,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['bundles'] = Stubs::BundleList.stub(stub[:bundles]) unless stub[:bundles].nil?
+        data['bundles'] = BundleList.stub(stub[:bundles]) unless stub[:bundles].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2770,7 +2772,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Bundle.stub(element) unless element.nil?
+          data << Bundle.stub(element) unless element.nil?
         end
         data
       end
@@ -2809,7 +2811,7 @@ module AWS::SDK::Lightsail
         data['power'] = stub[:power] unless stub[:power].nil?
         data['ramSizeInGb'] = Hearth::NumberHelper.serialize(stub[:ram_size_in_gb])
         data['transferPerMonthInGb'] = stub[:transfer_per_month_in_gb] unless stub[:transfer_per_month_in_gb].nil?
-        data['supportedPlatforms'] = Stubs::InstancePlatformList.stub(stub[:supported_platforms]) unless stub[:supported_platforms].nil?
+        data['supportedPlatforms'] = InstancePlatformList.stub(stub[:supported_platforms]) unless stub[:supported_platforms].nil?
         data
       end
     end
@@ -2844,8 +2846,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['certificates'] = Stubs::CertificateSummaryList.stub(stub[:certificates]) unless stub[:certificates].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['certificates'] = CertificateSummaryList.stub(stub[:certificates]) unless stub[:certificates].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2864,7 +2866,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CertificateSummary.stub(element) unless element.nil?
+          data << CertificateSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2881,9 +2883,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['cloudFormationStackRecords'] = Stubs::CloudFormationStackRecordList.stub(stub[:cloud_formation_stack_records]) unless stub[:cloud_formation_stack_records].nil?
+        data['cloudFormationStackRecords'] = CloudFormationStackRecordList.stub(stub[:cloud_formation_stack_records]) unless stub[:cloud_formation_stack_records].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2902,7 +2904,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CloudFormationStackRecord.stub(element) unless element.nil?
+          data << CloudFormationStackRecord.stub(element) unless element.nil?
         end
         data
       end
@@ -2931,11 +2933,11 @@ module AWS::SDK::Lightsail
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['sourceInfo'] = Stubs::CloudFormationStackRecordSourceInfoList.stub(stub[:source_info]) unless stub[:source_info].nil?
-        data['destinationInfo'] = Stubs::DestinationInfo.stub(stub[:destination_info]) unless stub[:destination_info].nil?
+        data['sourceInfo'] = CloudFormationStackRecordSourceInfoList.stub(stub[:source_info]) unless stub[:source_info].nil?
+        data['destinationInfo'] = DestinationInfo.stub(stub[:destination_info]) unless stub[:destination_info].nil?
         data
       end
     end
@@ -2974,7 +2976,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CloudFormationStackRecordSourceInfo.stub(element) unless element.nil?
+          data << CloudFormationStackRecordSourceInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -3012,8 +3014,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['contactMethods'] = Stubs::ContactMethodsList.stub(stub[:contact_methods]) unless stub[:contact_methods].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['contactMethods'] = ContactMethodsList.stub(stub[:contact_methods]) unless stub[:contact_methods].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3032,7 +3034,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContactMethod.stub(element) unless element.nil?
+          data << ContactMethod.stub(element) unless element.nil?
         end
         data
       end
@@ -3065,7 +3067,7 @@ module AWS::SDK::Lightsail
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['supportCode'] = stub[:support_code] unless stub[:support_code].nil?
         data
@@ -3082,8 +3084,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['metadata'] = Stubs::ContainerServiceMetadataEntryList.stub(stub[:metadata]) unless stub[:metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['metadata'] = ContainerServiceMetadataEntryList.stub(stub[:metadata]) unless stub[:metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3102,7 +3104,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContainerServiceMetadataEntry.stub(element) unless element.nil?
+          data << ContainerServiceMetadataEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -3138,8 +3140,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['containerImages'] = Stubs::ContainerImageList.stub(stub[:container_images]) unless stub[:container_images].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['containerImages'] = ContainerImageList.stub(stub[:container_images]) unless stub[:container_images].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3158,7 +3160,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContainerImage.stub(element) unless element.nil?
+          data << ContainerImage.stub(element) unless element.nil?
         end
         data
       end
@@ -3197,9 +3199,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['logEvents'] = Stubs::ContainerServiceLogEventList.stub(stub[:log_events]) unless stub[:log_events].nil?
+        data['logEvents'] = ContainerServiceLogEventList.stub(stub[:log_events]) unless stub[:log_events].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3218,7 +3220,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContainerServiceLogEvent.stub(element) unless element.nil?
+          data << ContainerServiceLogEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -3254,8 +3256,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['deployments'] = Stubs::ContainerServiceDeploymentList.stub(stub[:deployments]) unless stub[:deployments].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deployments'] = ContainerServiceDeploymentList.stub(stub[:deployments]) unless stub[:deployments].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3274,7 +3276,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContainerServiceDeployment.stub(element) unless element.nil?
+          data << ContainerServiceDeployment.stub(element) unless element.nil?
         end
         data
       end
@@ -3292,8 +3294,8 @@ module AWS::SDK::Lightsail
       def self.stub(http_resp, stub:)
         data = {}
         data['metricName'] = stub[:metric_name] unless stub[:metric_name].nil?
-        data['metricData'] = Stubs::MetricDatapointList.stub(stub[:metric_data]) unless stub[:metric_data].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['metricData'] = MetricDatapointList.stub(stub[:metric_data]) unless stub[:metric_data].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3308,8 +3310,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['powers'] = Stubs::ContainerServicePowerList.stub(stub[:powers]) unless stub[:powers].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['powers'] = ContainerServicePowerList.stub(stub[:powers]) unless stub[:powers].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3328,7 +3330,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContainerServicePower.stub(element) unless element.nil?
+          data << ContainerServicePower.stub(element) unless element.nil?
         end
         data
       end
@@ -3372,8 +3374,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['containerServices'] = Stubs::ContainerServiceList.stub(stub[:container_services]) unless stub[:container_services].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['containerServices'] = ContainerServiceList.stub(stub[:container_services]) unless stub[:container_services].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3392,7 +3394,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContainerService.stub(element) unless element.nil?
+          data << ContainerService.stub(element) unless element.nil?
         end
         data
       end
@@ -3408,8 +3410,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['disk'] = Stubs::Disk.stub(stub[:disk]) unless stub[:disk].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['disk'] = Disk.stub(stub[:disk]) unless stub[:disk].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3447,10 +3449,10 @@ module AWS::SDK::Lightsail
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['supportCode'] = stub[:support_code] unless stub[:support_code].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['addOns'] = Stubs::AddOnList.stub(stub[:add_ons]) unless stub[:add_ons].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['addOns'] = AddOnList.stub(stub[:add_ons]) unless stub[:add_ons].nil?
         data['sizeInGb'] = stub[:size_in_gb] unless stub[:size_in_gb].nil?
         data['isSystemDisk'] = stub[:is_system_disk] unless stub[:is_system_disk].nil?
         data['iops'] = stub[:iops] unless stub[:iops].nil?
@@ -3478,7 +3480,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AddOn.stub(element) unless element.nil?
+          data << AddOn.stub(element) unless element.nil?
         end
         data
       end
@@ -3518,8 +3520,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['diskSnapshot'] = Stubs::DiskSnapshot.stub(stub[:disk_snapshot]) unless stub[:disk_snapshot].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['diskSnapshot'] = DiskSnapshot.stub(stub[:disk_snapshot]) unless stub[:disk_snapshot].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3555,9 +3557,9 @@ module AWS::SDK::Lightsail
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['supportCode'] = stub[:support_code] unless stub[:support_code].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['sizeInGb'] = stub[:size_in_gb] unless stub[:size_in_gb].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data['progress'] = stub[:progress] unless stub[:progress].nil?
@@ -3581,9 +3583,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['diskSnapshots'] = Stubs::DiskSnapshotList.stub(stub[:disk_snapshots]) unless stub[:disk_snapshots].nil?
+        data['diskSnapshots'] = DiskSnapshotList.stub(stub[:disk_snapshots]) unless stub[:disk_snapshots].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3602,7 +3604,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DiskSnapshot.stub(element) unless element.nil?
+          data << DiskSnapshot.stub(element) unless element.nil?
         end
         data
       end
@@ -3619,9 +3621,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['disks'] = Stubs::DiskList.stub(stub[:disks]) unless stub[:disks].nil?
+        data['disks'] = DiskList.stub(stub[:disks]) unless stub[:disks].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3640,7 +3642,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Disk.stub(element) unless element.nil?
+          data << Disk.stub(element) unless element.nil?
         end
         data
       end
@@ -3656,8 +3658,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['bundles'] = Stubs::DistributionBundleList.stub(stub[:bundles]) unless stub[:bundles].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['bundles'] = DistributionBundleList.stub(stub[:bundles]) unless stub[:bundles].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3676,7 +3678,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DistributionBundle.stub(element) unless element.nil?
+          data << DistributionBundle.stub(element) unless element.nil?
         end
         data
       end
@@ -3721,7 +3723,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['status'] = stub[:status] unless stub[:status].nil?
         data['createTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_time]).to_i unless stub[:create_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3738,8 +3740,8 @@ module AWS::SDK::Lightsail
       def self.stub(http_resp, stub:)
         data = {}
         data['metricName'] = stub[:metric_name] unless stub[:metric_name].nil?
-        data['metricData'] = Stubs::MetricDatapointList.stub(stub[:metric_data]) unless stub[:metric_data].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['metricData'] = MetricDatapointList.stub(stub[:metric_data]) unless stub[:metric_data].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3755,9 +3757,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['distributions'] = Stubs::DistributionList.stub(stub[:distributions]) unless stub[:distributions].nil?
+        data['distributions'] = DistributionList.stub(stub[:distributions]) unless stub[:distributions].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3776,7 +3778,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LightsailDistribution.stub(element) unless element.nil?
+          data << LightsailDistribution.stub(element) unless element.nil?
         end
         data
       end
@@ -3792,8 +3794,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['domain'] = Stubs::Domain.stub(stub[:domain]) unless stub[:domain].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['domain'] = Domain.stub(stub[:domain]) unless stub[:domain].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3822,10 +3824,10 @@ module AWS::SDK::Lightsail
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['supportCode'] = stub[:support_code] unless stub[:support_code].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        data['domainEntries'] = Stubs::DomainEntryList.stub(stub[:domain_entries]) unless stub[:domain_entries].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['domainEntries'] = DomainEntryList.stub(stub[:domain_entries]) unless stub[:domain_entries].nil?
         data
       end
     end
@@ -3844,7 +3846,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainEntry.stub(element) unless element.nil?
+          data << DomainEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -3873,7 +3875,7 @@ module AWS::SDK::Lightsail
         data['target'] = stub[:target] unless stub[:target].nil?
         data['isAlias'] = stub[:is_alias] unless stub[:is_alias].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['options'] = Stubs::DomainEntryOptions.stub(stub[:options]) unless stub[:options].nil?
+        data['options'] = DomainEntryOptions.stub(stub[:options]) unless stub[:options].nil?
         data
       end
     end
@@ -3909,9 +3911,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['domains'] = Stubs::DomainList.stub(stub[:domains]) unless stub[:domains].nil?
+        data['domains'] = DomainList.stub(stub[:domains]) unless stub[:domains].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3930,7 +3932,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Domain.stub(element) unless element.nil?
+          data << Domain.stub(element) unless element.nil?
         end
         data
       end
@@ -3947,9 +3949,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['exportSnapshotRecords'] = Stubs::ExportSnapshotRecordList.stub(stub[:export_snapshot_records]) unless stub[:export_snapshot_records].nil?
+        data['exportSnapshotRecords'] = ExportSnapshotRecordList.stub(stub[:export_snapshot_records]) unless stub[:export_snapshot_records].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3968,7 +3970,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExportSnapshotRecord.stub(element) unless element.nil?
+          data << ExportSnapshotRecord.stub(element) unless element.nil?
         end
         data
       end
@@ -3997,11 +3999,11 @@ module AWS::SDK::Lightsail
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['sourceInfo'] = Stubs::ExportSnapshotRecordSourceInfo.stub(stub[:source_info]) unless stub[:source_info].nil?
-        data['destinationInfo'] = Stubs::DestinationInfo.stub(stub[:destination_info]) unless stub[:destination_info].nil?
+        data['sourceInfo'] = ExportSnapshotRecordSourceInfo.stub(stub[:source_info]) unless stub[:source_info].nil?
+        data['destinationInfo'] = DestinationInfo.stub(stub[:destination_info]) unless stub[:destination_info].nil?
         data
       end
     end
@@ -4032,8 +4034,8 @@ module AWS::SDK::Lightsail
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['fromResourceName'] = stub[:from_resource_name] unless stub[:from_resource_name].nil?
         data['fromResourceArn'] = stub[:from_resource_arn] unless stub[:from_resource_arn].nil?
-        data['instanceSnapshotInfo'] = Stubs::InstanceSnapshotInfo.stub(stub[:instance_snapshot_info]) unless stub[:instance_snapshot_info].nil?
-        data['diskSnapshotInfo'] = Stubs::DiskSnapshotInfo.stub(stub[:disk_snapshot_info]) unless stub[:disk_snapshot_info].nil?
+        data['instanceSnapshotInfo'] = InstanceSnapshotInfo.stub(stub[:instance_snapshot_info]) unless stub[:instance_snapshot_info].nil?
+        data['diskSnapshotInfo'] = DiskSnapshotInfo.stub(stub[:disk_snapshot_info]) unless stub[:disk_snapshot_info].nil?
         data
       end
     end
@@ -4073,7 +4075,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['fromBundleId'] = stub[:from_bundle_id] unless stub[:from_bundle_id].nil?
         data['fromBlueprintId'] = stub[:from_blueprint_id] unless stub[:from_blueprint_id].nil?
-        data['fromDiskInfo'] = Stubs::DiskInfoList.stub(stub[:from_disk_info]) unless stub[:from_disk_info].nil?
+        data['fromDiskInfo'] = DiskInfoList.stub(stub[:from_disk_info]) unless stub[:from_disk_info].nil?
         data
       end
     end
@@ -4092,7 +4094,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DiskInfo.stub(element) unless element.nil?
+          data << DiskInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -4132,8 +4134,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['instance'] = Stubs::Instance.stub(stub[:instance]) unless stub[:instance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['instance'] = Instance.stub(stub[:instance]) unless stub[:instance].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4175,21 +4177,21 @@ module AWS::SDK::Lightsail
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['supportCode'] = stub[:support_code] unless stub[:support_code].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['blueprintId'] = stub[:blueprint_id] unless stub[:blueprint_id].nil?
         data['blueprintName'] = stub[:blueprint_name] unless stub[:blueprint_name].nil?
         data['bundleId'] = stub[:bundle_id] unless stub[:bundle_id].nil?
-        data['addOns'] = Stubs::AddOnList.stub(stub[:add_ons]) unless stub[:add_ons].nil?
+        data['addOns'] = AddOnList.stub(stub[:add_ons]) unless stub[:add_ons].nil?
         data['isStaticIp'] = stub[:is_static_ip] unless stub[:is_static_ip].nil?
         data['privateIpAddress'] = stub[:private_ip_address] unless stub[:private_ip_address].nil?
         data['publicIpAddress'] = stub[:public_ip_address] unless stub[:public_ip_address].nil?
-        data['ipv6Addresses'] = Stubs::Ipv6AddressList.stub(stub[:ipv6_addresses]) unless stub[:ipv6_addresses].nil?
+        data['ipv6Addresses'] = Ipv6AddressList.stub(stub[:ipv6_addresses]) unless stub[:ipv6_addresses].nil?
         data['ipAddressType'] = stub[:ip_address_type] unless stub[:ip_address_type].nil?
-        data['hardware'] = Stubs::InstanceHardware.stub(stub[:hardware]) unless stub[:hardware].nil?
-        data['networking'] = Stubs::InstanceNetworking.stub(stub[:networking]) unless stub[:networking].nil?
-        data['state'] = Stubs::InstanceState.stub(stub[:state]) unless stub[:state].nil?
+        data['hardware'] = InstanceHardware.stub(stub[:hardware]) unless stub[:hardware].nil?
+        data['networking'] = InstanceNetworking.stub(stub[:networking]) unless stub[:networking].nil?
+        data['state'] = InstanceState.stub(stub[:state]) unless stub[:state].nil?
         data['username'] = stub[:username] unless stub[:username].nil?
         data['sshKeyName'] = stub[:ssh_key_name] unless stub[:ssh_key_name].nil?
         data
@@ -4230,8 +4232,8 @@ module AWS::SDK::Lightsail
       def self.stub(stub)
         stub ||= Types::InstanceNetworking.new
         data = {}
-        data['monthlyTransfer'] = Stubs::MonthlyTransfer.stub(stub[:monthly_transfer]) unless stub[:monthly_transfer].nil?
-        data['ports'] = Stubs::InstancePortInfoList.stub(stub[:ports]) unless stub[:ports].nil?
+        data['monthlyTransfer'] = MonthlyTransfer.stub(stub[:monthly_transfer]) unless stub[:monthly_transfer].nil?
+        data['ports'] = InstancePortInfoList.stub(stub[:ports]) unless stub[:ports].nil?
         data
       end
     end
@@ -4250,7 +4252,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstancePortInfo.stub(element) unless element.nil?
+          data << InstancePortInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -4285,9 +4287,9 @@ module AWS::SDK::Lightsail
         data['accessType'] = stub[:access_type] unless stub[:access_type].nil?
         data['commonName'] = stub[:common_name] unless stub[:common_name].nil?
         data['accessDirection'] = stub[:access_direction] unless stub[:access_direction].nil?
-        data['cidrs'] = Stubs::StringList.stub(stub[:cidrs]) unless stub[:cidrs].nil?
-        data['ipv6Cidrs'] = Stubs::StringList.stub(stub[:ipv6_cidrs]) unless stub[:ipv6_cidrs].nil?
-        data['cidrListAliases'] = Stubs::StringList.stub(stub[:cidr_list_aliases]) unless stub[:cidr_list_aliases].nil?
+        data['cidrs'] = StringList.stub(stub[:cidrs]) unless stub[:cidrs].nil?
+        data['ipv6Cidrs'] = StringList.stub(stub[:ipv6_cidrs]) unless stub[:ipv6_cidrs].nil?
+        data['cidrListAliases'] = StringList.stub(stub[:cidr_list_aliases]) unless stub[:cidr_list_aliases].nil?
         data
       end
     end
@@ -4326,7 +4328,7 @@ module AWS::SDK::Lightsail
         stub ||= Types::InstanceHardware.new
         data = {}
         data['cpuCount'] = stub[:cpu_count] unless stub[:cpu_count].nil?
-        data['disks'] = Stubs::DiskList.stub(stub[:disks]) unless stub[:disks].nil?
+        data['disks'] = DiskList.stub(stub[:disks]) unless stub[:disks].nil?
         data['ramSizeInGb'] = Hearth::NumberHelper.serialize(stub[:ram_size_in_gb])
         data
       end
@@ -4362,8 +4364,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['accessDetails'] = Stubs::InstanceAccessDetails.stub(stub[:access_details]) unless stub[:access_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accessDetails'] = InstanceAccessDetails.stub(stub[:access_details]) unless stub[:access_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4394,12 +4396,12 @@ module AWS::SDK::Lightsail
         data['expiresAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expires_at]).to_i unless stub[:expires_at].nil?
         data['ipAddress'] = stub[:ip_address] unless stub[:ip_address].nil?
         data['password'] = stub[:password] unless stub[:password].nil?
-        data['passwordData'] = Stubs::PasswordData.stub(stub[:password_data]) unless stub[:password_data].nil?
+        data['passwordData'] = PasswordData.stub(stub[:password_data]) unless stub[:password_data].nil?
         data['privateKey'] = stub[:private_key] unless stub[:private_key].nil?
         data['protocol'] = stub[:protocol] unless stub[:protocol].nil?
         data['instanceName'] = stub[:instance_name] unless stub[:instance_name].nil?
         data['username'] = stub[:username] unless stub[:username].nil?
-        data['hostKeys'] = Stubs::HostKeysList.stub(stub[:host_keys]) unless stub[:host_keys].nil?
+        data['hostKeys'] = HostKeysList.stub(stub[:host_keys]) unless stub[:host_keys].nil?
         data
       end
     end
@@ -4418,7 +4420,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HostKeyAttributes.stub(element) unless element.nil?
+          data << HostKeyAttributes.stub(element) unless element.nil?
         end
         data
       end
@@ -4486,8 +4488,8 @@ module AWS::SDK::Lightsail
       def self.stub(http_resp, stub:)
         data = {}
         data['metricName'] = stub[:metric_name] unless stub[:metric_name].nil?
-        data['metricData'] = Stubs::MetricDatapointList.stub(stub[:metric_data]) unless stub[:metric_data].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['metricData'] = MetricDatapointList.stub(stub[:metric_data]) unless stub[:metric_data].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4502,8 +4504,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['portStates'] = Stubs::InstancePortStateList.stub(stub[:port_states]) unless stub[:port_states].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['portStates'] = InstancePortStateList.stub(stub[:port_states]) unless stub[:port_states].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4522,7 +4524,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstancePortState.stub(element) unless element.nil?
+          data << InstancePortState.stub(element) unless element.nil?
         end
         data
       end
@@ -4551,9 +4553,9 @@ module AWS::SDK::Lightsail
         data['toPort'] = stub[:to_port] unless stub[:to_port].nil?
         data['protocol'] = stub[:protocol] unless stub[:protocol].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['cidrs'] = Stubs::StringList.stub(stub[:cidrs]) unless stub[:cidrs].nil?
-        data['ipv6Cidrs'] = Stubs::StringList.stub(stub[:ipv6_cidrs]) unless stub[:ipv6_cidrs].nil?
-        data['cidrListAliases'] = Stubs::StringList.stub(stub[:cidr_list_aliases]) unless stub[:cidr_list_aliases].nil?
+        data['cidrs'] = StringList.stub(stub[:cidrs]) unless stub[:cidrs].nil?
+        data['ipv6Cidrs'] = StringList.stub(stub[:ipv6_cidrs]) unless stub[:ipv6_cidrs].nil?
+        data['cidrListAliases'] = StringList.stub(stub[:cidr_list_aliases]) unless stub[:cidr_list_aliases].nil?
         data
       end
     end
@@ -4568,8 +4570,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['instanceSnapshot'] = Stubs::InstanceSnapshot.stub(stub[:instance_snapshot]) unless stub[:instance_snapshot].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['instanceSnapshot'] = InstanceSnapshot.stub(stub[:instance_snapshot]) unless stub[:instance_snapshot].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4606,12 +4608,12 @@ module AWS::SDK::Lightsail
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['supportCode'] = stub[:support_code] unless stub[:support_code].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data['progress'] = stub[:progress] unless stub[:progress].nil?
-        data['fromAttachedDisks'] = Stubs::DiskList.stub(stub[:from_attached_disks]) unless stub[:from_attached_disks].nil?
+        data['fromAttachedDisks'] = DiskList.stub(stub[:from_attached_disks]) unless stub[:from_attached_disks].nil?
         data['fromInstanceName'] = stub[:from_instance_name] unless stub[:from_instance_name].nil?
         data['fromInstanceArn'] = stub[:from_instance_arn] unless stub[:from_instance_arn].nil?
         data['fromBlueprintId'] = stub[:from_blueprint_id] unless stub[:from_blueprint_id].nil?
@@ -4633,9 +4635,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['instanceSnapshots'] = Stubs::InstanceSnapshotList.stub(stub[:instance_snapshots]) unless stub[:instance_snapshots].nil?
+        data['instanceSnapshots'] = InstanceSnapshotList.stub(stub[:instance_snapshots]) unless stub[:instance_snapshots].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4654,7 +4656,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceSnapshot.stub(element) unless element.nil?
+          data << InstanceSnapshot.stub(element) unless element.nil?
         end
         data
       end
@@ -4670,8 +4672,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['state'] = Stubs::InstanceState.stub(stub[:state]) unless stub[:state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['state'] = InstanceState.stub(stub[:state]) unless stub[:state].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4687,9 +4689,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['instances'] = Stubs::InstanceList.stub(stub[:instances]) unless stub[:instances].nil?
+        data['instances'] = InstanceList.stub(stub[:instances]) unless stub[:instances].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4708,7 +4710,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Instance.stub(element) unless element.nil?
+          data << Instance.stub(element) unless element.nil?
         end
         data
       end
@@ -4724,8 +4726,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['keyPair'] = Stubs::KeyPair.stub(stub[:key_pair]) unless stub[:key_pair].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['keyPair'] = KeyPair.stub(stub[:key_pair]) unless stub[:key_pair].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4741,9 +4743,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['keyPairs'] = Stubs::KeyPairList.stub(stub[:key_pairs]) unless stub[:key_pairs].nil?
+        data['keyPairs'] = KeyPairList.stub(stub[:key_pairs]) unless stub[:key_pairs].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4762,7 +4764,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeyPair.stub(element) unless element.nil?
+          data << KeyPair.stub(element) unless element.nil?
         end
         data
       end
@@ -4778,8 +4780,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['loadBalancer'] = Stubs::LoadBalancer.stub(stub[:load_balancer]) unless stub[:load_balancer].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['loadBalancer'] = LoadBalancer.stub(stub[:load_balancer]) unless stub[:load_balancer].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4819,18 +4821,18 @@ module AWS::SDK::Lightsail
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['supportCode'] = stub[:support_code] unless stub[:support_code].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['dnsName'] = stub[:dns_name] unless stub[:dns_name].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data['protocol'] = stub[:protocol] unless stub[:protocol].nil?
-        data['publicPorts'] = Stubs::PortList.stub(stub[:public_ports]) unless stub[:public_ports].nil?
+        data['publicPorts'] = PortList.stub(stub[:public_ports]) unless stub[:public_ports].nil?
         data['healthCheckPath'] = stub[:health_check_path] unless stub[:health_check_path].nil?
         data['instancePort'] = stub[:instance_port] unless stub[:instance_port].nil?
-        data['instanceHealthSummary'] = Stubs::InstanceHealthSummaryList.stub(stub[:instance_health_summary]) unless stub[:instance_health_summary].nil?
-        data['tlsCertificateSummaries'] = Stubs::LoadBalancerTlsCertificateSummaryList.stub(stub[:tls_certificate_summaries]) unless stub[:tls_certificate_summaries].nil?
-        data['configurationOptions'] = Stubs::LoadBalancerConfigurationOptions.stub(stub[:configuration_options]) unless stub[:configuration_options].nil?
+        data['instanceHealthSummary'] = InstanceHealthSummaryList.stub(stub[:instance_health_summary]) unless stub[:instance_health_summary].nil?
+        data['tlsCertificateSummaries'] = LoadBalancerTlsCertificateSummaryList.stub(stub[:tls_certificate_summaries]) unless stub[:tls_certificate_summaries].nil?
+        data['configurationOptions'] = LoadBalancerConfigurationOptions.stub(stub[:configuration_options]) unless stub[:configuration_options].nil?
         data['ipAddressType'] = stub[:ip_address_type] unless stub[:ip_address_type].nil?
         data['httpsRedirectionEnabled'] = stub[:https_redirection_enabled] unless stub[:https_redirection_enabled].nil?
         data['tlsPolicyName'] = stub[:tls_policy_name] unless stub[:tls_policy_name].nil?
@@ -4872,7 +4874,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LoadBalancerTlsCertificateSummary.stub(element) unless element.nil?
+          data << LoadBalancerTlsCertificateSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4912,7 +4914,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceHealthSummary.stub(element) unless element.nil?
+          data << InstanceHealthSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -4972,8 +4974,8 @@ module AWS::SDK::Lightsail
       def self.stub(http_resp, stub:)
         data = {}
         data['metricName'] = stub[:metric_name] unless stub[:metric_name].nil?
-        data['metricData'] = Stubs::MetricDatapointList.stub(stub[:metric_data]) unless stub[:metric_data].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['metricData'] = MetricDatapointList.stub(stub[:metric_data]) unless stub[:metric_data].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4988,8 +4990,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tlsCertificates'] = Stubs::LoadBalancerTlsCertificateList.stub(stub[:tls_certificates]) unless stub[:tls_certificates].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tlsCertificates'] = LoadBalancerTlsCertificateList.stub(stub[:tls_certificates]) unless stub[:tls_certificates].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5008,7 +5010,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LoadBalancerTlsCertificate.stub(element) unless element.nil?
+          data << LoadBalancerTlsCertificate.stub(element) unless element.nil?
         end
         data
       end
@@ -5055,27 +5057,27 @@ module AWS::SDK::Lightsail
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['supportCode'] = stub[:support_code] unless stub[:support_code].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['loadBalancerName'] = stub[:load_balancer_name] unless stub[:load_balancer_name].nil?
         data['isAttached'] = stub[:is_attached] unless stub[:is_attached].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['domainName'] = stub[:domain_name] unless stub[:domain_name].nil?
-        data['domainValidationRecords'] = Stubs::LoadBalancerTlsCertificateDomainValidationRecordList.stub(stub[:domain_validation_records]) unless stub[:domain_validation_records].nil?
+        data['domainValidationRecords'] = LoadBalancerTlsCertificateDomainValidationRecordList.stub(stub[:domain_validation_records]) unless stub[:domain_validation_records].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['issuedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:issued_at]).to_i unless stub[:issued_at].nil?
         data['issuer'] = stub[:issuer] unless stub[:issuer].nil?
         data['keyAlgorithm'] = stub[:key_algorithm] unless stub[:key_algorithm].nil?
         data['notAfter'] = Hearth::TimeHelper.to_epoch_seconds(stub[:not_after]).to_i unless stub[:not_after].nil?
         data['notBefore'] = Hearth::TimeHelper.to_epoch_seconds(stub[:not_before]).to_i unless stub[:not_before].nil?
-        data['renewalSummary'] = Stubs::LoadBalancerTlsCertificateRenewalSummary.stub(stub[:renewal_summary]) unless stub[:renewal_summary].nil?
+        data['renewalSummary'] = LoadBalancerTlsCertificateRenewalSummary.stub(stub[:renewal_summary]) unless stub[:renewal_summary].nil?
         data['revocationReason'] = stub[:revocation_reason] unless stub[:revocation_reason].nil?
         data['revokedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:revoked_at]).to_i unless stub[:revoked_at].nil?
         data['serial'] = stub[:serial] unless stub[:serial].nil?
         data['signatureAlgorithm'] = stub[:signature_algorithm] unless stub[:signature_algorithm].nil?
         data['subject'] = stub[:subject] unless stub[:subject].nil?
-        data['subjectAlternativeNames'] = Stubs::StringList.stub(stub[:subject_alternative_names]) unless stub[:subject_alternative_names].nil?
+        data['subjectAlternativeNames'] = StringList.stub(stub[:subject_alternative_names]) unless stub[:subject_alternative_names].nil?
         data
       end
     end
@@ -5095,7 +5097,7 @@ module AWS::SDK::Lightsail
         stub ||= Types::LoadBalancerTlsCertificateRenewalSummary.new
         data = {}
         data['renewalStatus'] = stub[:renewal_status] unless stub[:renewal_status].nil?
-        data['domainValidationOptions'] = Stubs::LoadBalancerTlsCertificateDomainValidationOptionList.stub(stub[:domain_validation_options]) unless stub[:domain_validation_options].nil?
+        data['domainValidationOptions'] = LoadBalancerTlsCertificateDomainValidationOptionList.stub(stub[:domain_validation_options]) unless stub[:domain_validation_options].nil?
         data
       end
     end
@@ -5114,7 +5116,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LoadBalancerTlsCertificateDomainValidationOption.stub(element) unless element.nil?
+          data << LoadBalancerTlsCertificateDomainValidationOption.stub(element) unless element.nil?
         end
         data
       end
@@ -5154,7 +5156,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LoadBalancerTlsCertificateDomainValidationRecord.stub(element) unless element.nil?
+          data << LoadBalancerTlsCertificateDomainValidationRecord.stub(element) unless element.nil?
         end
         data
       end
@@ -5197,9 +5199,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tlsPolicies'] = Stubs::LoadBalancerTlsPolicyList.stub(stub[:tls_policies]) unless stub[:tls_policies].nil?
+        data['tlsPolicies'] = LoadBalancerTlsPolicyList.stub(stub[:tls_policies]) unless stub[:tls_policies].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5218,7 +5220,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LoadBalancerTlsPolicy.stub(element) unless element.nil?
+          data << LoadBalancerTlsPolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -5244,8 +5246,8 @@ module AWS::SDK::Lightsail
         data['name'] = stub[:name] unless stub[:name].nil?
         data['isDefault'] = stub[:is_default] unless stub[:is_default].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['protocols'] = Stubs::StringList.stub(stub[:protocols]) unless stub[:protocols].nil?
-        data['ciphers'] = Stubs::StringList.stub(stub[:ciphers]) unless stub[:ciphers].nil?
+        data['protocols'] = StringList.stub(stub[:protocols]) unless stub[:protocols].nil?
+        data['ciphers'] = StringList.stub(stub[:ciphers]) unless stub[:ciphers].nil?
         data
       end
     end
@@ -5261,9 +5263,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['loadBalancers'] = Stubs::LoadBalancerList.stub(stub[:load_balancers]) unless stub[:load_balancers].nil?
+        data['loadBalancers'] = LoadBalancerList.stub(stub[:load_balancers]) unless stub[:load_balancers].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5282,7 +5284,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LoadBalancer.stub(element) unless element.nil?
+          data << LoadBalancer.stub(element) unless element.nil?
         end
         data
       end
@@ -5298,8 +5300,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5315,9 +5317,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5334,10 +5336,10 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
         data['nextPageCount'] = stub[:next_page_count] unless stub[:next_page_count].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5352,8 +5354,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['regions'] = Stubs::RegionList.stub(stub[:regions]) unless stub[:regions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['regions'] = RegionList.stub(stub[:regions]) unless stub[:regions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5372,7 +5374,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Region.stub(element) unless element.nil?
+          data << Region.stub(element) unless element.nil?
         end
         data
       end
@@ -5400,8 +5402,8 @@ module AWS::SDK::Lightsail
         data['description'] = stub[:description] unless stub[:description].nil?
         data['displayName'] = stub[:display_name] unless stub[:display_name].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['availabilityZones'] = Stubs::AvailabilityZoneList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
-        data['relationalDatabaseAvailabilityZones'] = Stubs::AvailabilityZoneList.stub(stub[:relational_database_availability_zones]) unless stub[:relational_database_availability_zones].nil?
+        data['availabilityZones'] = AvailabilityZoneList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['relationalDatabaseAvailabilityZones'] = AvailabilityZoneList.stub(stub[:relational_database_availability_zones]) unless stub[:relational_database_availability_zones].nil?
         data
       end
     end
@@ -5420,7 +5422,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AvailabilityZone.stub(element) unless element.nil?
+          data << AvailabilityZone.stub(element) unless element.nil?
         end
         data
       end
@@ -5456,8 +5458,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['relationalDatabase'] = Stubs::RelationalDatabase.stub(stub[:relational_database]) unless stub[:relational_database].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['relationalDatabase'] = RelationalDatabase.stub(stub[:relational_database]) unless stub[:relational_database].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5504,17 +5506,17 @@ module AWS::SDK::Lightsail
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['supportCode'] = stub[:support_code] unless stub[:support_code].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['relationalDatabaseBlueprintId'] = stub[:relational_database_blueprint_id] unless stub[:relational_database_blueprint_id].nil?
         data['relationalDatabaseBundleId'] = stub[:relational_database_bundle_id] unless stub[:relational_database_bundle_id].nil?
         data['masterDatabaseName'] = stub[:master_database_name] unless stub[:master_database_name].nil?
-        data['hardware'] = Stubs::RelationalDatabaseHardware.stub(stub[:hardware]) unless stub[:hardware].nil?
+        data['hardware'] = RelationalDatabaseHardware.stub(stub[:hardware]) unless stub[:hardware].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
         data['secondaryAvailabilityZone'] = stub[:secondary_availability_zone] unless stub[:secondary_availability_zone].nil?
         data['backupRetentionEnabled'] = stub[:backup_retention_enabled] unless stub[:backup_retention_enabled].nil?
-        data['pendingModifiedValues'] = Stubs::PendingModifiedRelationalDatabaseValues.stub(stub[:pending_modified_values]) unless stub[:pending_modified_values].nil?
+        data['pendingModifiedValues'] = PendingModifiedRelationalDatabaseValues.stub(stub[:pending_modified_values]) unless stub[:pending_modified_values].nil?
         data['engine'] = stub[:engine] unless stub[:engine].nil?
         data['engineVersion'] = stub[:engine_version] unless stub[:engine_version].nil?
         data['latestRestorableTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:latest_restorable_time]).to_i unless stub[:latest_restorable_time].nil?
@@ -5523,8 +5525,8 @@ module AWS::SDK::Lightsail
         data['preferredBackupWindow'] = stub[:preferred_backup_window] unless stub[:preferred_backup_window].nil?
         data['preferredMaintenanceWindow'] = stub[:preferred_maintenance_window] unless stub[:preferred_maintenance_window].nil?
         data['publiclyAccessible'] = stub[:publicly_accessible] unless stub[:publicly_accessible].nil?
-        data['masterEndpoint'] = Stubs::RelationalDatabaseEndpoint.stub(stub[:master_endpoint]) unless stub[:master_endpoint].nil?
-        data['pendingMaintenanceActions'] = Stubs::PendingMaintenanceActionList.stub(stub[:pending_maintenance_actions]) unless stub[:pending_maintenance_actions].nil?
+        data['masterEndpoint'] = RelationalDatabaseEndpoint.stub(stub[:master_endpoint]) unless stub[:master_endpoint].nil?
+        data['pendingMaintenanceActions'] = PendingMaintenanceActionList.stub(stub[:pending_maintenance_actions]) unless stub[:pending_maintenance_actions].nil?
         data['caCertificateIdentifier'] = stub[:ca_certificate_identifier] unless stub[:ca_certificate_identifier].nil?
         data
       end
@@ -5544,7 +5546,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PendingMaintenanceAction.stub(element) unless element.nil?
+          data << PendingMaintenanceAction.stub(element) unless element.nil?
         end
         data
       end
@@ -5647,9 +5649,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['blueprints'] = Stubs::RelationalDatabaseBlueprintList.stub(stub[:blueprints]) unless stub[:blueprints].nil?
+        data['blueprints'] = RelationalDatabaseBlueprintList.stub(stub[:blueprints]) unless stub[:blueprints].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5668,7 +5670,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RelationalDatabaseBlueprint.stub(element) unless element.nil?
+          data << RelationalDatabaseBlueprint.stub(element) unless element.nil?
         end
         data
       end
@@ -5713,9 +5715,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['bundles'] = Stubs::RelationalDatabaseBundleList.stub(stub[:bundles]) unless stub[:bundles].nil?
+        data['bundles'] = RelationalDatabaseBundleList.stub(stub[:bundles]) unless stub[:bundles].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5734,7 +5736,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RelationalDatabaseBundle.stub(element) unless element.nil?
+          data << RelationalDatabaseBundle.stub(element) unless element.nil?
         end
         data
       end
@@ -5785,9 +5787,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['relationalDatabaseEvents'] = Stubs::RelationalDatabaseEventList.stub(stub[:relational_database_events]) unless stub[:relational_database_events].nil?
+        data['relationalDatabaseEvents'] = RelationalDatabaseEventList.stub(stub[:relational_database_events]) unless stub[:relational_database_events].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5806,7 +5808,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RelationalDatabaseEvent.stub(element) unless element.nil?
+          data << RelationalDatabaseEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -5831,7 +5833,7 @@ module AWS::SDK::Lightsail
         data['resource'] = stub[:resource] unless stub[:resource].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
-        data['eventCategories'] = Stubs::StringList.stub(stub[:event_categories]) unless stub[:event_categories].nil?
+        data['eventCategories'] = StringList.stub(stub[:event_categories]) unless stub[:event_categories].nil?
         data
       end
     end
@@ -5848,10 +5850,10 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['resourceLogEvents'] = Stubs::LogEventList.stub(stub[:resource_log_events]) unless stub[:resource_log_events].nil?
+        data['resourceLogEvents'] = LogEventList.stub(stub[:resource_log_events]) unless stub[:resource_log_events].nil?
         data['nextBackwardToken'] = stub[:next_backward_token] unless stub[:next_backward_token].nil?
         data['nextForwardToken'] = stub[:next_forward_token] unless stub[:next_forward_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5870,7 +5872,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LogEvent.stub(element) unless element.nil?
+          data << LogEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -5906,8 +5908,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['logStreams'] = Stubs::StringList.stub(stub[:log_streams]) unless stub[:log_streams].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['logStreams'] = StringList.stub(stub[:log_streams]) unless stub[:log_streams].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5925,7 +5927,7 @@ module AWS::SDK::Lightsail
         data = {}
         data['masterUserPassword'] = stub[:master_user_password] unless stub[:master_user_password].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5942,8 +5944,8 @@ module AWS::SDK::Lightsail
       def self.stub(http_resp, stub:)
         data = {}
         data['metricName'] = stub[:metric_name] unless stub[:metric_name].nil?
-        data['metricData'] = Stubs::MetricDatapointList.stub(stub[:metric_data]) unless stub[:metric_data].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['metricData'] = MetricDatapointList.stub(stub[:metric_data]) unless stub[:metric_data].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5959,9 +5961,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['parameters'] = Stubs::RelationalDatabaseParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['parameters'] = RelationalDatabaseParameterList.stub(stub[:parameters]) unless stub[:parameters].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -5980,7 +5982,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RelationalDatabaseParameter.stub(element) unless element.nil?
+          data << RelationalDatabaseParameter.stub(element) unless element.nil?
         end
         data
       end
@@ -6028,8 +6030,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['relationalDatabaseSnapshot'] = Stubs::RelationalDatabaseSnapshot.stub(stub[:relational_database_snapshot]) unless stub[:relational_database_snapshot].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['relationalDatabaseSnapshot'] = RelationalDatabaseSnapshot.stub(stub[:relational_database_snapshot]) unless stub[:relational_database_snapshot].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6065,9 +6067,9 @@ module AWS::SDK::Lightsail
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['supportCode'] = stub[:support_code] unless stub[:support_code].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['engine'] = stub[:engine] unless stub[:engine].nil?
         data['engineVersion'] = stub[:engine_version] unless stub[:engine_version].nil?
         data['sizeInGb'] = stub[:size_in_gb] unless stub[:size_in_gb].nil?
@@ -6091,9 +6093,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['relationalDatabaseSnapshots'] = Stubs::RelationalDatabaseSnapshotList.stub(stub[:relational_database_snapshots]) unless stub[:relational_database_snapshots].nil?
+        data['relationalDatabaseSnapshots'] = RelationalDatabaseSnapshotList.stub(stub[:relational_database_snapshots]) unless stub[:relational_database_snapshots].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6112,7 +6114,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RelationalDatabaseSnapshot.stub(element) unless element.nil?
+          data << RelationalDatabaseSnapshot.stub(element) unless element.nil?
         end
         data
       end
@@ -6129,9 +6131,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['relationalDatabases'] = Stubs::RelationalDatabaseList.stub(stub[:relational_databases]) unless stub[:relational_databases].nil?
+        data['relationalDatabases'] = RelationalDatabaseList.stub(stub[:relational_databases]) unless stub[:relational_databases].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6150,7 +6152,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RelationalDatabase.stub(element) unless element.nil?
+          data << RelationalDatabase.stub(element) unless element.nil?
         end
         data
       end
@@ -6166,8 +6168,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['staticIp'] = Stubs::StaticIp.stub(stub[:static_ip]) unless stub[:static_ip].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['staticIp'] = StaticIp.stub(stub[:static_ip]) unless stub[:static_ip].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6197,7 +6199,7 @@ module AWS::SDK::Lightsail
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['supportCode'] = stub[:support_code] unless stub[:support_code].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['location'] = Stubs::ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = ResourceLocation.stub(stub[:location]) unless stub[:location].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['ipAddress'] = stub[:ip_address] unless stub[:ip_address].nil?
         data['attachedTo'] = stub[:attached_to] unless stub[:attached_to].nil?
@@ -6217,9 +6219,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['staticIps'] = Stubs::StaticIpList.stub(stub[:static_ips]) unless stub[:static_ips].nil?
+        data['staticIps'] = StaticIpList.stub(stub[:static_ips]) unless stub[:static_ips].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6238,7 +6240,7 @@ module AWS::SDK::Lightsail
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StaticIp.stub(element) unless element.nil?
+          data << StaticIp.stub(element) unless element.nil?
         end
         data
       end
@@ -6254,8 +6256,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6271,7 +6273,7 @@ module AWS::SDK::Lightsail
       def self.stub(http_resp, stub:)
         data = {}
         data['isPeered'] = stub[:is_peered] unless stub[:is_peered].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6286,8 +6288,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6302,8 +6304,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6318,8 +6320,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6334,8 +6336,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6350,8 +6352,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6366,8 +6368,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6382,8 +6384,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['containerImage'] = Stubs::ContainerImage.stub(stub[:container_image]) unless stub[:container_image].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['containerImage'] = ContainerImage.stub(stub[:container_image]) unless stub[:container_image].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6398,8 +6400,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6418,8 +6420,8 @@ module AWS::SDK::Lightsail
         data = {}
         data['status'] = stub[:status] unless stub[:status].nil?
         data['createTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_time]).to_i unless stub[:create_time].nil?
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6434,8 +6436,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6450,8 +6452,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6466,8 +6468,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6482,8 +6484,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6498,8 +6500,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6514,8 +6516,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6530,8 +6532,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6546,8 +6548,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6562,8 +6564,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6578,8 +6580,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6594,8 +6596,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6611,9 +6613,9 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['bucket'] = Stubs::Bucket.stub(stub[:bucket]) unless stub[:bucket].nil?
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['bucket'] = Bucket.stub(stub[:bucket]) unless stub[:bucket].nil?
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6628,8 +6630,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6644,8 +6646,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['containerService'] = Stubs::ContainerService.stub(stub[:container_service]) unless stub[:container_service].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['containerService'] = ContainerService.stub(stub[:container_service]) unless stub[:container_service].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6660,8 +6662,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6676,8 +6678,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operation'] = Stubs::Operation.stub(stub[:operation]) unless stub[:operation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operation'] = Operation.stub(stub[:operation]) unless stub[:operation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6692,8 +6694,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6708,8 +6710,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6724,8 +6726,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -6740,8 +6742,8 @@ module AWS::SDK::Lightsail
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['operations'] = Stubs::OperationList.stub(stub[:operations]) unless stub[:operations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['operations'] = OperationList.stub(stub[:operations]) unless stub[:operations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

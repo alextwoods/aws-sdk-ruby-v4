@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IAM
   module Builders
 
@@ -22,7 +24,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'OpenIDConnectProviderArn'] = input[:open_id_connect_provider_arn].to_s unless input[:open_id_connect_provider_arn].nil?
         params[context + 'ClientID'] = input[:client_id].to_s unless input[:client_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -38,7 +40,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'InstanceProfileName'] = input[:instance_profile_name].to_s unless input[:instance_profile_name].nil?
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -54,7 +56,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -70,7 +72,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
         params[context + 'PolicyArn'] = input[:policy_arn].to_s unless input[:policy_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -86,7 +88,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
         params[context + 'PolicyArn'] = input[:policy_arn].to_s unless input[:policy_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -102,7 +104,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'PolicyArn'] = input[:policy_arn].to_s unless input[:policy_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -118,7 +120,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'OldPassword'] = input[:old_password].to_s unless input[:old_password].nil?
         params[context + 'NewPassword'] = input[:new_password].to_s unless input[:new_password].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -133,7 +135,7 @@ module AWS::SDK::IAM
         params['Action'] = 'CreateAccessKey'
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -148,7 +150,7 @@ module AWS::SDK::IAM
         params['Action'] = 'CreateAccountAlias'
         params['Version'] = '2010-05-08'
         params[context + 'AccountAlias'] = input[:account_alias].to_s unless input[:account_alias].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -164,7 +166,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'Path'] = input[:path].to_s unless input[:path].nil?
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -180,8 +182,8 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'InstanceProfileName'] = input[:instance_profile_name].to_s unless input[:instance_profile_name].nil?
         params[context + 'Path'] = input[:path].to_s unless input[:path].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -189,7 +191,7 @@ module AWS::SDK::IAM
     class TagListType
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          Tag.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -215,7 +217,7 @@ module AWS::SDK::IAM
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'Password'] = input[:password].to_s unless input[:password].nil?
         params[context + 'PasswordResetRequired'] = input[:password_reset_required].to_s unless input[:password_reset_required].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -230,10 +232,10 @@ module AWS::SDK::IAM
         params['Action'] = 'CreateOpenIDConnectProvider'
         params['Version'] = '2010-05-08'
         params[context + 'Url'] = input[:url].to_s unless input[:url].nil?
-        Builders::ClientIDListType.build(input[:client_id_list], params, context: context + 'ClientIDList' + '.member') unless input[:client_id_list].nil?
-        Builders::ThumbprintListType.build(input[:thumbprint_list], params, context: context + 'ThumbprintList' + '.member') unless input[:thumbprint_list].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ClientIDListType.build(input[:client_id_list], params, context: context + 'ClientIDList' + '.member') unless input[:client_id_list].nil?
+        ThumbprintListType.build(input[:thumbprint_list], params, context: context + 'ThumbprintList' + '.member') unless input[:thumbprint_list].nil?
+        TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -269,8 +271,8 @@ module AWS::SDK::IAM
         params[context + 'Path'] = input[:path].to_s unless input[:path].nil?
         params[context + 'PolicyDocument'] = input[:policy_document].to_s unless input[:policy_document].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -287,7 +289,7 @@ module AWS::SDK::IAM
         params[context + 'PolicyArn'] = input[:policy_arn].to_s unless input[:policy_arn].nil?
         params[context + 'PolicyDocument'] = input[:policy_document].to_s unless input[:policy_document].nil?
         params[context + 'SetAsDefault'] = input[:set_as_default].to_s unless input[:set_as_default].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -307,8 +309,8 @@ module AWS::SDK::IAM
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'MaxSessionDuration'] = input[:max_session_duration].to_s unless input[:max_session_duration].nil?
         params[context + 'PermissionsBoundary'] = input[:permissions_boundary].to_s unless input[:permissions_boundary].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -324,8 +326,8 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'SAMLMetadataDocument'] = input[:saml_metadata_document].to_s unless input[:saml_metadata_document].nil?
         params[context + 'Name'] = input[:name].to_s unless input[:name].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -342,7 +344,7 @@ module AWS::SDK::IAM
         params[context + 'AWSServiceName'] = input[:aws_service_name].to_s unless input[:aws_service_name].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'CustomSuffix'] = input[:custom_suffix].to_s unless input[:custom_suffix].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -358,7 +360,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'ServiceName'] = input[:service_name].to_s unless input[:service_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -375,8 +377,8 @@ module AWS::SDK::IAM
         params[context + 'Path'] = input[:path].to_s unless input[:path].nil?
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'PermissionsBoundary'] = input[:permissions_boundary].to_s unless input[:permissions_boundary].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -392,8 +394,8 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'Path'] = input[:path].to_s unless input[:path].nil?
         params[context + 'VirtualMFADeviceName'] = input[:virtual_mfa_device_name].to_s unless input[:virtual_mfa_device_name].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -409,7 +411,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'SerialNumber'] = input[:serial_number].to_s unless input[:serial_number].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -425,7 +427,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'AccessKeyId'] = input[:access_key_id].to_s unless input[:access_key_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -440,7 +442,7 @@ module AWS::SDK::IAM
         params['Action'] = 'DeleteAccountAlias'
         params['Version'] = '2010-05-08'
         params[context + 'AccountAlias'] = input[:account_alias].to_s unless input[:account_alias].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -454,7 +456,7 @@ module AWS::SDK::IAM
         params = Hearth::Query::ParamList.new
         params['Action'] = 'DeleteAccountPasswordPolicy'
         params['Version'] = '2010-05-08'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -469,7 +471,7 @@ module AWS::SDK::IAM
         params['Action'] = 'DeleteGroup'
         params['Version'] = '2010-05-08'
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -485,7 +487,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
         params[context + 'PolicyName'] = input[:policy_name].to_s unless input[:policy_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -500,7 +502,7 @@ module AWS::SDK::IAM
         params['Action'] = 'DeleteInstanceProfile'
         params['Version'] = '2010-05-08'
         params[context + 'InstanceProfileName'] = input[:instance_profile_name].to_s unless input[:instance_profile_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -515,7 +517,7 @@ module AWS::SDK::IAM
         params['Action'] = 'DeleteLoginProfile'
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -530,7 +532,7 @@ module AWS::SDK::IAM
         params['Action'] = 'DeleteOpenIDConnectProvider'
         params['Version'] = '2010-05-08'
         params[context + 'OpenIDConnectProviderArn'] = input[:open_id_connect_provider_arn].to_s unless input[:open_id_connect_provider_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -545,7 +547,7 @@ module AWS::SDK::IAM
         params['Action'] = 'DeletePolicy'
         params['Version'] = '2010-05-08'
         params[context + 'PolicyArn'] = input[:policy_arn].to_s unless input[:policy_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -561,7 +563,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'PolicyArn'] = input[:policy_arn].to_s unless input[:policy_arn].nil?
         params[context + 'VersionId'] = input[:version_id].to_s unless input[:version_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -576,7 +578,7 @@ module AWS::SDK::IAM
         params['Action'] = 'DeleteRole'
         params['Version'] = '2010-05-08'
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -591,7 +593,7 @@ module AWS::SDK::IAM
         params['Action'] = 'DeleteRolePermissionsBoundary'
         params['Version'] = '2010-05-08'
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -607,7 +609,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
         params[context + 'PolicyName'] = input[:policy_name].to_s unless input[:policy_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -622,7 +624,7 @@ module AWS::SDK::IAM
         params['Action'] = 'DeleteSAMLProvider'
         params['Version'] = '2010-05-08'
         params[context + 'SAMLProviderArn'] = input[:saml_provider_arn].to_s unless input[:saml_provider_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -638,7 +640,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'SSHPublicKeyId'] = input[:ssh_public_key_id].to_s unless input[:ssh_public_key_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -653,7 +655,7 @@ module AWS::SDK::IAM
         params['Action'] = 'DeleteServerCertificate'
         params['Version'] = '2010-05-08'
         params[context + 'ServerCertificateName'] = input[:server_certificate_name].to_s unless input[:server_certificate_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -668,7 +670,7 @@ module AWS::SDK::IAM
         params['Action'] = 'DeleteServiceLinkedRole'
         params['Version'] = '2010-05-08'
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -684,7 +686,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'ServiceSpecificCredentialId'] = input[:service_specific_credential_id].to_s unless input[:service_specific_credential_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -700,7 +702,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'CertificateId'] = input[:certificate_id].to_s unless input[:certificate_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -715,7 +717,7 @@ module AWS::SDK::IAM
         params['Action'] = 'DeleteUser'
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -730,7 +732,7 @@ module AWS::SDK::IAM
         params['Action'] = 'DeleteUserPermissionsBoundary'
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -746,7 +748,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'PolicyName'] = input[:policy_name].to_s unless input[:policy_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -761,7 +763,7 @@ module AWS::SDK::IAM
         params['Action'] = 'DeleteVirtualMFADevice'
         params['Version'] = '2010-05-08'
         params[context + 'SerialNumber'] = input[:serial_number].to_s unless input[:serial_number].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -777,7 +779,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
         params[context + 'PolicyArn'] = input[:policy_arn].to_s unless input[:policy_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -793,7 +795,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
         params[context + 'PolicyArn'] = input[:policy_arn].to_s unless input[:policy_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -809,7 +811,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'PolicyArn'] = input[:policy_arn].to_s unless input[:policy_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -827,7 +829,7 @@ module AWS::SDK::IAM
         params[context + 'SerialNumber'] = input[:serial_number].to_s unless input[:serial_number].nil?
         params[context + 'AuthenticationCode1'] = input[:authentication_code1].to_s unless input[:authentication_code1].nil?
         params[context + 'AuthenticationCode2'] = input[:authentication_code2].to_s unless input[:authentication_code2].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -841,7 +843,7 @@ module AWS::SDK::IAM
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GenerateCredentialReport'
         params['Version'] = '2010-05-08'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -857,7 +859,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'EntityPath'] = input[:entity_path].to_s unless input[:entity_path].nil?
         params[context + 'OrganizationsPolicyId'] = input[:organizations_policy_id].to_s unless input[:organizations_policy_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -873,7 +875,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'Arn'] = input[:arn].to_s unless input[:arn].nil?
         params[context + 'Granularity'] = input[:granularity].to_s unless input[:granularity].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -888,7 +890,7 @@ module AWS::SDK::IAM
         params['Action'] = 'GetAccessKeyLastUsed'
         params['Version'] = '2010-05-08'
         params[context + 'AccessKeyId'] = input[:access_key_id].to_s unless input[:access_key_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -902,10 +904,10 @@ module AWS::SDK::IAM
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetAccountAuthorizationDetails'
         params['Version'] = '2010-05-08'
-        Builders::EntityListType.build(input[:filter], params, context: context + 'Filter' + '.member') unless input[:filter].nil?
+        EntityListType.build(input[:filter], params, context: context + 'Filter' + '.member') unless input[:filter].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -928,7 +930,7 @@ module AWS::SDK::IAM
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetAccountPasswordPolicy'
         params['Version'] = '2010-05-08'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -942,7 +944,7 @@ module AWS::SDK::IAM
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetAccountSummary'
         params['Version'] = '2010-05-08'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -956,8 +958,8 @@ module AWS::SDK::IAM
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetContextKeysForCustomPolicy'
         params['Version'] = '2010-05-08'
-        Builders::SimulationPolicyListType.build(input[:policy_input_list], params, context: context + 'PolicyInputList' + '.member') unless input[:policy_input_list].nil?
-        http_req.body = StringIO.new(params.to_s)
+        SimulationPolicyListType.build(input[:policy_input_list], params, context: context + 'PolicyInputList' + '.member') unless input[:policy_input_list].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -981,8 +983,8 @@ module AWS::SDK::IAM
         params['Action'] = 'GetContextKeysForPrincipalPolicy'
         params['Version'] = '2010-05-08'
         params[context + 'PolicySourceArn'] = input[:policy_source_arn].to_s unless input[:policy_source_arn].nil?
-        Builders::SimulationPolicyListType.build(input[:policy_input_list], params, context: context + 'PolicyInputList' + '.member') unless input[:policy_input_list].nil?
-        http_req.body = StringIO.new(params.to_s)
+        SimulationPolicyListType.build(input[:policy_input_list], params, context: context + 'PolicyInputList' + '.member') unless input[:policy_input_list].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -996,7 +998,7 @@ module AWS::SDK::IAM
         params = Hearth::Query::ParamList.new
         params['Action'] = 'GetCredentialReport'
         params['Version'] = '2010-05-08'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1013,7 +1015,7 @@ module AWS::SDK::IAM
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1029,7 +1031,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
         params[context + 'PolicyName'] = input[:policy_name].to_s unless input[:policy_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1044,7 +1046,7 @@ module AWS::SDK::IAM
         params['Action'] = 'GetInstanceProfile'
         params['Version'] = '2010-05-08'
         params[context + 'InstanceProfileName'] = input[:instance_profile_name].to_s unless input[:instance_profile_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1059,7 +1061,7 @@ module AWS::SDK::IAM
         params['Action'] = 'GetLoginProfile'
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1074,7 +1076,7 @@ module AWS::SDK::IAM
         params['Action'] = 'GetOpenIDConnectProvider'
         params['Version'] = '2010-05-08'
         params[context + 'OpenIDConnectProviderArn'] = input[:open_id_connect_provider_arn].to_s unless input[:open_id_connect_provider_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1092,7 +1094,7 @@ module AWS::SDK::IAM
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'SortKey'] = input[:sort_key].to_s unless input[:sort_key].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1107,7 +1109,7 @@ module AWS::SDK::IAM
         params['Action'] = 'GetPolicy'
         params['Version'] = '2010-05-08'
         params[context + 'PolicyArn'] = input[:policy_arn].to_s unless input[:policy_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1123,7 +1125,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'PolicyArn'] = input[:policy_arn].to_s unless input[:policy_arn].nil?
         params[context + 'VersionId'] = input[:version_id].to_s unless input[:version_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1138,7 +1140,7 @@ module AWS::SDK::IAM
         params['Action'] = 'GetRole'
         params['Version'] = '2010-05-08'
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1154,7 +1156,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
         params[context + 'PolicyName'] = input[:policy_name].to_s unless input[:policy_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1169,7 +1171,7 @@ module AWS::SDK::IAM
         params['Action'] = 'GetSAMLProvider'
         params['Version'] = '2010-05-08'
         params[context + 'SAMLProviderArn'] = input[:saml_provider_arn].to_s unless input[:saml_provider_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1186,7 +1188,7 @@ module AWS::SDK::IAM
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'SSHPublicKeyId'] = input[:ssh_public_key_id].to_s unless input[:ssh_public_key_id].nil?
         params[context + 'Encoding'] = input[:encoding].to_s unless input[:encoding].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1201,7 +1203,7 @@ module AWS::SDK::IAM
         params['Action'] = 'GetServerCertificate'
         params['Version'] = '2010-05-08'
         params[context + 'ServerCertificateName'] = input[:server_certificate_name].to_s unless input[:server_certificate_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1218,7 +1220,7 @@ module AWS::SDK::IAM
         params[context + 'JobId'] = input[:job_id].to_s unless input[:job_id].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1236,7 +1238,7 @@ module AWS::SDK::IAM
         params[context + 'ServiceNamespace'] = input[:service_namespace].to_s unless input[:service_namespace].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1251,7 +1253,7 @@ module AWS::SDK::IAM
         params['Action'] = 'GetServiceLinkedRoleDeletionStatus'
         params['Version'] = '2010-05-08'
         params[context + 'DeletionTaskId'] = input[:deletion_task_id].to_s unless input[:deletion_task_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1266,7 +1268,7 @@ module AWS::SDK::IAM
         params['Action'] = 'GetUser'
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1282,7 +1284,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'PolicyName'] = input[:policy_name].to_s unless input[:policy_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1299,7 +1301,7 @@ module AWS::SDK::IAM
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1315,7 +1317,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1333,7 +1335,7 @@ module AWS::SDK::IAM
         params[context + 'PathPrefix'] = input[:path_prefix].to_s unless input[:path_prefix].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1351,7 +1353,7 @@ module AWS::SDK::IAM
         params[context + 'PathPrefix'] = input[:path_prefix].to_s unless input[:path_prefix].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1369,7 +1371,7 @@ module AWS::SDK::IAM
         params[context + 'PathPrefix'] = input[:path_prefix].to_s unless input[:path_prefix].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1389,7 +1391,7 @@ module AWS::SDK::IAM
         params[context + 'PolicyUsageFilter'] = input[:policy_usage_filter].to_s unless input[:policy_usage_filter].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1406,7 +1408,7 @@ module AWS::SDK::IAM
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1423,7 +1425,7 @@ module AWS::SDK::IAM
         params[context + 'PathPrefix'] = input[:path_prefix].to_s unless input[:path_prefix].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1440,7 +1442,7 @@ module AWS::SDK::IAM
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1457,7 +1459,7 @@ module AWS::SDK::IAM
         params[context + 'InstanceProfileName'] = input[:instance_profile_name].to_s unless input[:instance_profile_name].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1474,7 +1476,7 @@ module AWS::SDK::IAM
         params[context + 'PathPrefix'] = input[:path_prefix].to_s unless input[:path_prefix].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1491,7 +1493,7 @@ module AWS::SDK::IAM
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1508,7 +1510,7 @@ module AWS::SDK::IAM
         params[context + 'SerialNumber'] = input[:serial_number].to_s unless input[:serial_number].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1525,7 +1527,7 @@ module AWS::SDK::IAM
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1542,7 +1544,7 @@ module AWS::SDK::IAM
         params[context + 'OpenIDConnectProviderArn'] = input[:open_id_connect_provider_arn].to_s unless input[:open_id_connect_provider_arn].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1556,7 +1558,7 @@ module AWS::SDK::IAM
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ListOpenIDConnectProviders'
         params['Version'] = '2010-05-08'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1576,7 +1578,7 @@ module AWS::SDK::IAM
         params[context + 'PolicyUsageFilter'] = input[:policy_usage_filter].to_s unless input[:policy_usage_filter].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1592,8 +1594,8 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'Arn'] = input[:arn].to_s unless input[:arn].nil?
-        Builders::ServiceNamespaceListType.build(input[:service_namespaces], params, context: context + 'ServiceNamespaces' + '.member') unless input[:service_namespaces].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ServiceNamespaceListType.build(input[:service_namespaces], params, context: context + 'ServiceNamespaces' + '.member') unless input[:service_namespaces].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1619,7 +1621,7 @@ module AWS::SDK::IAM
         params[context + 'PolicyArn'] = input[:policy_arn].to_s unless input[:policy_arn].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1636,7 +1638,7 @@ module AWS::SDK::IAM
         params[context + 'PolicyArn'] = input[:policy_arn].to_s unless input[:policy_arn].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1653,7 +1655,7 @@ module AWS::SDK::IAM
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1670,7 +1672,7 @@ module AWS::SDK::IAM
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1687,7 +1689,7 @@ module AWS::SDK::IAM
         params[context + 'PathPrefix'] = input[:path_prefix].to_s unless input[:path_prefix].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1704,7 +1706,7 @@ module AWS::SDK::IAM
         params[context + 'SAMLProviderArn'] = input[:saml_provider_arn].to_s unless input[:saml_provider_arn].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1718,7 +1720,7 @@ module AWS::SDK::IAM
         params = Hearth::Query::ParamList.new
         params['Action'] = 'ListSAMLProviders'
         params['Version'] = '2010-05-08'
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1735,7 +1737,7 @@ module AWS::SDK::IAM
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1752,7 +1754,7 @@ module AWS::SDK::IAM
         params[context + 'ServerCertificateName'] = input[:server_certificate_name].to_s unless input[:server_certificate_name].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1769,7 +1771,7 @@ module AWS::SDK::IAM
         params[context + 'PathPrefix'] = input[:path_prefix].to_s unless input[:path_prefix].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1785,7 +1787,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'ServiceName'] = input[:service_name].to_s unless input[:service_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1802,7 +1804,7 @@ module AWS::SDK::IAM
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1819,7 +1821,7 @@ module AWS::SDK::IAM
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1836,7 +1838,7 @@ module AWS::SDK::IAM
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1853,7 +1855,7 @@ module AWS::SDK::IAM
         params[context + 'PathPrefix'] = input[:path_prefix].to_s unless input[:path_prefix].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1870,7 +1872,7 @@ module AWS::SDK::IAM
         params[context + 'AssignmentStatus'] = input[:assignment_status].to_s unless input[:assignment_status].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1887,7 +1889,7 @@ module AWS::SDK::IAM
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
         params[context + 'PolicyName'] = input[:policy_name].to_s unless input[:policy_name].nil?
         params[context + 'PolicyDocument'] = input[:policy_document].to_s unless input[:policy_document].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1903,7 +1905,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
         params[context + 'PermissionsBoundary'] = input[:permissions_boundary].to_s unless input[:permissions_boundary].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1920,7 +1922,7 @@ module AWS::SDK::IAM
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
         params[context + 'PolicyName'] = input[:policy_name].to_s unless input[:policy_name].nil?
         params[context + 'PolicyDocument'] = input[:policy_document].to_s unless input[:policy_document].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1936,7 +1938,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'PermissionsBoundary'] = input[:permissions_boundary].to_s unless input[:permissions_boundary].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1953,7 +1955,7 @@ module AWS::SDK::IAM
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'PolicyName'] = input[:policy_name].to_s unless input[:policy_name].nil?
         params[context + 'PolicyDocument'] = input[:policy_document].to_s unless input[:policy_document].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1969,7 +1971,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'OpenIDConnectProviderArn'] = input[:open_id_connect_provider_arn].to_s unless input[:open_id_connect_provider_arn].nil?
         params[context + 'ClientID'] = input[:client_id].to_s unless input[:client_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -1985,7 +1987,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'InstanceProfileName'] = input[:instance_profile_name].to_s unless input[:instance_profile_name].nil?
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2001,7 +2003,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2017,7 +2019,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'ServiceSpecificCredentialId'] = input[:service_specific_credential_id].to_s unless input[:service_specific_credential_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2035,7 +2037,7 @@ module AWS::SDK::IAM
         params[context + 'SerialNumber'] = input[:serial_number].to_s unless input[:serial_number].nil?
         params[context + 'AuthenticationCode1'] = input[:authentication_code1].to_s unless input[:authentication_code1].nil?
         params[context + 'AuthenticationCode2'] = input[:authentication_code2].to_s unless input[:authentication_code2].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2051,7 +2053,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'PolicyArn'] = input[:policy_arn].to_s unless input[:policy_arn].nil?
         params[context + 'VersionId'] = input[:version_id].to_s unless input[:version_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2066,7 +2068,7 @@ module AWS::SDK::IAM
         params['Action'] = 'SetSecurityTokenServicePreferences'
         params['Version'] = '2010-05-08'
         params[context + 'GlobalEndpointTokenVersion'] = input[:global_endpoint_token_version].to_s unless input[:global_endpoint_token_version].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2080,18 +2082,18 @@ module AWS::SDK::IAM
         params = Hearth::Query::ParamList.new
         params['Action'] = 'SimulateCustomPolicy'
         params['Version'] = '2010-05-08'
-        Builders::SimulationPolicyListType.build(input[:policy_input_list], params, context: context + 'PolicyInputList' + '.member') unless input[:policy_input_list].nil?
-        Builders::SimulationPolicyListType.build(input[:permissions_boundary_policy_input_list], params, context: context + 'PermissionsBoundaryPolicyInputList' + '.member') unless input[:permissions_boundary_policy_input_list].nil?
-        Builders::ActionNameListType.build(input[:action_names], params, context: context + 'ActionNames' + '.member') unless input[:action_names].nil?
-        Builders::ResourceNameListType.build(input[:resource_arns], params, context: context + 'ResourceArns' + '.member') unless input[:resource_arns].nil?
+        SimulationPolicyListType.build(input[:policy_input_list], params, context: context + 'PolicyInputList' + '.member') unless input[:policy_input_list].nil?
+        SimulationPolicyListType.build(input[:permissions_boundary_policy_input_list], params, context: context + 'PermissionsBoundaryPolicyInputList' + '.member') unless input[:permissions_boundary_policy_input_list].nil?
+        ActionNameListType.build(input[:action_names], params, context: context + 'ActionNames' + '.member') unless input[:action_names].nil?
+        ResourceNameListType.build(input[:resource_arns], params, context: context + 'ResourceArns' + '.member') unless input[:resource_arns].nil?
         params[context + 'ResourcePolicy'] = input[:resource_policy].to_s unless input[:resource_policy].nil?
         params[context + 'ResourceOwner'] = input[:resource_owner].to_s unless input[:resource_owner].nil?
         params[context + 'CallerArn'] = input[:caller_arn].to_s unless input[:caller_arn].nil?
-        Builders::ContextEntryListType.build(input[:context_entries], params, context: context + 'ContextEntries' + '.member') unless input[:context_entries].nil?
+        ContextEntryListType.build(input[:context_entries], params, context: context + 'ContextEntries' + '.member') unless input[:context_entries].nil?
         params[context + 'ResourceHandlingOption'] = input[:resource_handling_option].to_s unless input[:resource_handling_option].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2099,7 +2101,7 @@ module AWS::SDK::IAM
     class ContextEntryListType
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ContextEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ContextEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -2108,7 +2110,7 @@ module AWS::SDK::IAM
     class ContextEntry
       def self.build(input, params, context: nil)
         params[context + 'ContextKeyName'] = input[:context_key_name].to_s unless input[:context_key_name].nil?
-        Builders::ContextKeyValueListType.build(input[:context_key_values], params, context: context + 'ContextKeyValues' + '.member') unless input[:context_key_values].nil?
+        ContextKeyValueListType.build(input[:context_key_values], params, context: context + 'ContextKeyValues' + '.member') unless input[:context_key_values].nil?
         params[context + 'ContextKeyType'] = input[:context_key_type].to_s unless input[:context_key_type].nil?
       end
     end
@@ -2151,18 +2153,18 @@ module AWS::SDK::IAM
         params['Action'] = 'SimulatePrincipalPolicy'
         params['Version'] = '2010-05-08'
         params[context + 'PolicySourceArn'] = input[:policy_source_arn].to_s unless input[:policy_source_arn].nil?
-        Builders::SimulationPolicyListType.build(input[:policy_input_list], params, context: context + 'PolicyInputList' + '.member') unless input[:policy_input_list].nil?
-        Builders::SimulationPolicyListType.build(input[:permissions_boundary_policy_input_list], params, context: context + 'PermissionsBoundaryPolicyInputList' + '.member') unless input[:permissions_boundary_policy_input_list].nil?
-        Builders::ActionNameListType.build(input[:action_names], params, context: context + 'ActionNames' + '.member') unless input[:action_names].nil?
-        Builders::ResourceNameListType.build(input[:resource_arns], params, context: context + 'ResourceArns' + '.member') unless input[:resource_arns].nil?
+        SimulationPolicyListType.build(input[:policy_input_list], params, context: context + 'PolicyInputList' + '.member') unless input[:policy_input_list].nil?
+        SimulationPolicyListType.build(input[:permissions_boundary_policy_input_list], params, context: context + 'PermissionsBoundaryPolicyInputList' + '.member') unless input[:permissions_boundary_policy_input_list].nil?
+        ActionNameListType.build(input[:action_names], params, context: context + 'ActionNames' + '.member') unless input[:action_names].nil?
+        ResourceNameListType.build(input[:resource_arns], params, context: context + 'ResourceArns' + '.member') unless input[:resource_arns].nil?
         params[context + 'ResourcePolicy'] = input[:resource_policy].to_s unless input[:resource_policy].nil?
         params[context + 'ResourceOwner'] = input[:resource_owner].to_s unless input[:resource_owner].nil?
         params[context + 'CallerArn'] = input[:caller_arn].to_s unless input[:caller_arn].nil?
-        Builders::ContextEntryListType.build(input[:context_entries], params, context: context + 'ContextEntries' + '.member') unless input[:context_entries].nil?
+        ContextEntryListType.build(input[:context_entries], params, context: context + 'ContextEntries' + '.member') unless input[:context_entries].nil?
         params[context + 'ResourceHandlingOption'] = input[:resource_handling_option].to_s unless input[:resource_handling_option].nil?
         params[context + 'MaxItems'] = input[:max_items].to_s unless input[:max_items].nil?
         params[context + 'Marker'] = input[:marker].to_s unless input[:marker].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2177,8 +2179,8 @@ module AWS::SDK::IAM
         params['Action'] = 'TagInstanceProfile'
         params['Version'] = '2010-05-08'
         params[context + 'InstanceProfileName'] = input[:instance_profile_name].to_s unless input[:instance_profile_name].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2193,8 +2195,8 @@ module AWS::SDK::IAM
         params['Action'] = 'TagMFADevice'
         params['Version'] = '2010-05-08'
         params[context + 'SerialNumber'] = input[:serial_number].to_s unless input[:serial_number].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2209,8 +2211,8 @@ module AWS::SDK::IAM
         params['Action'] = 'TagOpenIDConnectProvider'
         params['Version'] = '2010-05-08'
         params[context + 'OpenIDConnectProviderArn'] = input[:open_id_connect_provider_arn].to_s unless input[:open_id_connect_provider_arn].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2225,8 +2227,8 @@ module AWS::SDK::IAM
         params['Action'] = 'TagPolicy'
         params['Version'] = '2010-05-08'
         params[context + 'PolicyArn'] = input[:policy_arn].to_s unless input[:policy_arn].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2241,8 +2243,8 @@ module AWS::SDK::IAM
         params['Action'] = 'TagRole'
         params['Version'] = '2010-05-08'
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2257,8 +2259,8 @@ module AWS::SDK::IAM
         params['Action'] = 'TagSAMLProvider'
         params['Version'] = '2010-05-08'
         params[context + 'SAMLProviderArn'] = input[:saml_provider_arn].to_s unless input[:saml_provider_arn].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2273,8 +2275,8 @@ module AWS::SDK::IAM
         params['Action'] = 'TagServerCertificate'
         params['Version'] = '2010-05-08'
         params[context + 'ServerCertificateName'] = input[:server_certificate_name].to_s unless input[:server_certificate_name].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2289,8 +2291,8 @@ module AWS::SDK::IAM
         params['Action'] = 'TagUser'
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2305,8 +2307,8 @@ module AWS::SDK::IAM
         params['Action'] = 'UntagInstanceProfile'
         params['Version'] = '2010-05-08'
         params[context + 'InstanceProfileName'] = input[:instance_profile_name].to_s unless input[:instance_profile_name].nil?
-        Builders::TagKeyListType.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyListType.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2330,8 +2332,8 @@ module AWS::SDK::IAM
         params['Action'] = 'UntagMFADevice'
         params['Version'] = '2010-05-08'
         params[context + 'SerialNumber'] = input[:serial_number].to_s unless input[:serial_number].nil?
-        Builders::TagKeyListType.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyListType.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2346,8 +2348,8 @@ module AWS::SDK::IAM
         params['Action'] = 'UntagOpenIDConnectProvider'
         params['Version'] = '2010-05-08'
         params[context + 'OpenIDConnectProviderArn'] = input[:open_id_connect_provider_arn].to_s unless input[:open_id_connect_provider_arn].nil?
-        Builders::TagKeyListType.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyListType.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2362,8 +2364,8 @@ module AWS::SDK::IAM
         params['Action'] = 'UntagPolicy'
         params['Version'] = '2010-05-08'
         params[context + 'PolicyArn'] = input[:policy_arn].to_s unless input[:policy_arn].nil?
-        Builders::TagKeyListType.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyListType.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2378,8 +2380,8 @@ module AWS::SDK::IAM
         params['Action'] = 'UntagRole'
         params['Version'] = '2010-05-08'
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
-        Builders::TagKeyListType.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyListType.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2394,8 +2396,8 @@ module AWS::SDK::IAM
         params['Action'] = 'UntagSAMLProvider'
         params['Version'] = '2010-05-08'
         params[context + 'SAMLProviderArn'] = input[:saml_provider_arn].to_s unless input[:saml_provider_arn].nil?
-        Builders::TagKeyListType.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyListType.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2410,8 +2412,8 @@ module AWS::SDK::IAM
         params['Action'] = 'UntagServerCertificate'
         params['Version'] = '2010-05-08'
         params[context + 'ServerCertificateName'] = input[:server_certificate_name].to_s unless input[:server_certificate_name].nil?
-        Builders::TagKeyListType.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyListType.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2426,8 +2428,8 @@ module AWS::SDK::IAM
         params['Action'] = 'UntagUser'
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
-        Builders::TagKeyListType.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyListType.build(input[:tag_keys], params, context: context + 'TagKeys' + '.member') unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2444,7 +2446,7 @@ module AWS::SDK::IAM
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'AccessKeyId'] = input[:access_key_id].to_s unless input[:access_key_id].nil?
         params[context + 'Status'] = input[:status].to_s unless input[:status].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2467,7 +2469,7 @@ module AWS::SDK::IAM
         params[context + 'MaxPasswordAge'] = input[:max_password_age].to_s unless input[:max_password_age].nil?
         params[context + 'PasswordReusePrevention'] = input[:password_reuse_prevention].to_s unless input[:password_reuse_prevention].nil?
         params[context + 'HardExpiry'] = input[:hard_expiry].to_s unless input[:hard_expiry].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2483,7 +2485,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
         params[context + 'PolicyDocument'] = input[:policy_document].to_s unless input[:policy_document].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2500,7 +2502,7 @@ module AWS::SDK::IAM
         params[context + 'GroupName'] = input[:group_name].to_s unless input[:group_name].nil?
         params[context + 'NewPath'] = input[:new_path].to_s unless input[:new_path].nil?
         params[context + 'NewGroupName'] = input[:new_group_name].to_s unless input[:new_group_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2517,7 +2519,7 @@ module AWS::SDK::IAM
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'Password'] = input[:password].to_s unless input[:password].nil?
         params[context + 'PasswordResetRequired'] = input[:password_reset_required].to_s unless input[:password_reset_required].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2532,8 +2534,8 @@ module AWS::SDK::IAM
         params['Action'] = 'UpdateOpenIDConnectProviderThumbprint'
         params['Version'] = '2010-05-08'
         params[context + 'OpenIDConnectProviderArn'] = input[:open_id_connect_provider_arn].to_s unless input[:open_id_connect_provider_arn].nil?
-        Builders::ThumbprintListType.build(input[:thumbprint_list], params, context: context + 'ThumbprintList' + '.member') unless input[:thumbprint_list].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ThumbprintListType.build(input[:thumbprint_list], params, context: context + 'ThumbprintList' + '.member') unless input[:thumbprint_list].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2550,7 +2552,7 @@ module AWS::SDK::IAM
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
         params[context + 'MaxSessionDuration'] = input[:max_session_duration].to_s unless input[:max_session_duration].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2566,7 +2568,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'RoleName'] = input[:role_name].to_s unless input[:role_name].nil?
         params[context + 'Description'] = input[:description].to_s unless input[:description].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2582,7 +2584,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'SAMLMetadataDocument'] = input[:saml_metadata_document].to_s unless input[:saml_metadata_document].nil?
         params[context + 'SAMLProviderArn'] = input[:saml_provider_arn].to_s unless input[:saml_provider_arn].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2599,7 +2601,7 @@ module AWS::SDK::IAM
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'SSHPublicKeyId'] = input[:ssh_public_key_id].to_s unless input[:ssh_public_key_id].nil?
         params[context + 'Status'] = input[:status].to_s unless input[:status].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2616,7 +2618,7 @@ module AWS::SDK::IAM
         params[context + 'ServerCertificateName'] = input[:server_certificate_name].to_s unless input[:server_certificate_name].nil?
         params[context + 'NewPath'] = input[:new_path].to_s unless input[:new_path].nil?
         params[context + 'NewServerCertificateName'] = input[:new_server_certificate_name].to_s unless input[:new_server_certificate_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2633,7 +2635,7 @@ module AWS::SDK::IAM
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'ServiceSpecificCredentialId'] = input[:service_specific_credential_id].to_s unless input[:service_specific_credential_id].nil?
         params[context + 'Status'] = input[:status].to_s unless input[:status].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2650,7 +2652,7 @@ module AWS::SDK::IAM
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'CertificateId'] = input[:certificate_id].to_s unless input[:certificate_id].nil?
         params[context + 'Status'] = input[:status].to_s unless input[:status].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2667,7 +2669,7 @@ module AWS::SDK::IAM
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'NewPath'] = input[:new_path].to_s unless input[:new_path].nil?
         params[context + 'NewUserName'] = input[:new_user_name].to_s unless input[:new_user_name].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2683,7 +2685,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'SSHPublicKeyBody'] = input[:ssh_public_key_body].to_s unless input[:ssh_public_key_body].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2702,8 +2704,8 @@ module AWS::SDK::IAM
         params[context + 'CertificateBody'] = input[:certificate_body].to_s unless input[:certificate_body].nil?
         params[context + 'PrivateKey'] = input[:private_key].to_s unless input[:private_key].nil?
         params[context + 'CertificateChain'] = input[:certificate_chain].to_s unless input[:certificate_chain].nil?
-        Builders::TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagListType.build(input[:tags], params, context: context + 'Tags' + '.member') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -2719,7 +2721,7 @@ module AWS::SDK::IAM
         params['Version'] = '2010-05-08'
         params[context + 'UserName'] = input[:user_name].to_s unless input[:user_name].nil?
         params[context + 'CertificateBody'] = input[:certificate_body].to_s unless input[:certificate_body].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
   end

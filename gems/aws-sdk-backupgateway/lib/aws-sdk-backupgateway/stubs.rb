@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::BackupGateway
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::BackupGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayArn'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -37,7 +39,7 @@ module AWS::SDK::BackupGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayArn'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -53,7 +55,7 @@ module AWS::SDK::BackupGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayArn'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -69,7 +71,7 @@ module AWS::SDK::BackupGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['HypervisorArn'] = stub[:hypervisor_arn] unless stub[:hypervisor_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -85,7 +87,7 @@ module AWS::SDK::BackupGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayArn'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -100,8 +102,8 @@ module AWS::SDK::BackupGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Gateway'] = Stubs::GatewayDetails.stub(stub[:gateway]) unless stub[:gateway].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Gateway'] = GatewayDetails.stub(stub[:gateway]) unless stub[:gateway].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -147,7 +149,7 @@ module AWS::SDK::BackupGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['HypervisorArn'] = stub[:hypervisor_arn] unless stub[:hypervisor_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -163,9 +165,9 @@ module AWS::SDK::BackupGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Gateways'] = Stubs::Gateways.stub(stub[:gateways]) unless stub[:gateways].nil?
+        data['Gateways'] = Gateways.stub(stub[:gateways]) unless stub[:gateways].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -184,7 +186,7 @@ module AWS::SDK::BackupGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Gateway.stub(element) unless element.nil?
+          data << Gateway.stub(element) unless element.nil?
         end
         data
       end
@@ -227,9 +229,9 @@ module AWS::SDK::BackupGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Hypervisors'] = Stubs::Hypervisors.stub(stub[:hypervisors]) unless stub[:hypervisors].nil?
+        data['Hypervisors'] = Hypervisors.stub(stub[:hypervisors]) unless stub[:hypervisors].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -248,7 +250,7 @@ module AWS::SDK::BackupGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Hypervisor.stub(element) unless element.nil?
+          data << Hypervisor.stub(element) unless element.nil?
         end
         data
       end
@@ -292,8 +294,8 @@ module AWS::SDK::BackupGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -312,7 +314,7 @@ module AWS::SDK::BackupGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -349,9 +351,9 @@ module AWS::SDK::BackupGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['VirtualMachines'] = Stubs::VirtualMachines.stub(stub[:virtual_machines]) unless stub[:virtual_machines].nil?
+        data['VirtualMachines'] = VirtualMachines.stub(stub[:virtual_machines]) unless stub[:virtual_machines].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -370,7 +372,7 @@ module AWS::SDK::BackupGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VirtualMachine.stub(element) unless element.nil?
+          data << VirtualMachine.stub(element) unless element.nil?
         end
         data
       end
@@ -415,7 +417,7 @@ module AWS::SDK::BackupGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayArn'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -431,7 +433,7 @@ module AWS::SDK::BackupGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['ResourceARN'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -445,7 +447,7 @@ module AWS::SDK::BackupGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -461,7 +463,7 @@ module AWS::SDK::BackupGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['ResourceARN'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -477,7 +479,7 @@ module AWS::SDK::BackupGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayArn'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -493,7 +495,7 @@ module AWS::SDK::BackupGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayArn'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -509,7 +511,7 @@ module AWS::SDK::BackupGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['HypervisorArn'] = stub[:hypervisor_arn] unless stub[:hypervisor_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

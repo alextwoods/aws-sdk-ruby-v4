@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MWAA
   module Stubs
 
@@ -25,7 +27,7 @@ module AWS::SDK::MWAA
         http_resp.headers['Content-Type'] = 'application/json'
         data['CliToken'] = stub[:cli_token] unless stub[:cli_token].nil?
         data['WebServerHostname'] = stub[:web_server_hostname] unless stub[:web_server_hostname].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -42,7 +44,7 @@ module AWS::SDK::MWAA
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -61,7 +63,7 @@ module AWS::SDK::MWAA
         http_resp.headers['Content-Type'] = 'application/json'
         data['WebToken'] = stub[:web_token] unless stub[:web_token].nil?
         data['WebServerHostname'] = stub[:web_server_hostname] unless stub[:web_server_hostname].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -90,8 +92,8 @@ module AWS::SDK::MWAA
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Environment'] = Stubs::Environment.stub(stub[:environment]) unless stub[:environment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Environment'] = Environment.stub(stub[:environment]) unless stub[:environment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -148,14 +150,14 @@ module AWS::SDK::MWAA
         data['PluginsS3ObjectVersion'] = stub[:plugins_s3_object_version] unless stub[:plugins_s3_object_version].nil?
         data['RequirementsS3Path'] = stub[:requirements_s3_path] unless stub[:requirements_s3_path].nil?
         data['RequirementsS3ObjectVersion'] = stub[:requirements_s3_object_version] unless stub[:requirements_s3_object_version].nil?
-        data['AirflowConfigurationOptions'] = Stubs::AirflowConfigurationOptions.stub(stub[:airflow_configuration_options]) unless stub[:airflow_configuration_options].nil?
+        data['AirflowConfigurationOptions'] = AirflowConfigurationOptions.stub(stub[:airflow_configuration_options]) unless stub[:airflow_configuration_options].nil?
         data['EnvironmentClass'] = stub[:environment_class] unless stub[:environment_class].nil?
         data['MaxWorkers'] = stub[:max_workers] unless stub[:max_workers].nil?
-        data['NetworkConfiguration'] = Stubs::NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
-        data['LoggingConfiguration'] = Stubs::LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
-        data['LastUpdate'] = Stubs::LastUpdate.stub(stub[:last_update]) unless stub[:last_update].nil?
+        data['NetworkConfiguration'] = NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
+        data['LoggingConfiguration'] = LoggingConfiguration.stub(stub[:logging_configuration]) unless stub[:logging_configuration].nil?
+        data['LastUpdate'] = LastUpdate.stub(stub[:last_update]) unless stub[:last_update].nil?
         data['WeeklyMaintenanceWindowStart'] = stub[:weekly_maintenance_window_start] unless stub[:weekly_maintenance_window_start].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['WebserverAccessMode'] = stub[:webserver_access_mode] unless stub[:webserver_access_mode].nil?
         data['MinWorkers'] = stub[:min_workers] unless stub[:min_workers].nil?
         data['Schedulers'] = stub[:schedulers] unless stub[:schedulers].nil?
@@ -201,7 +203,7 @@ module AWS::SDK::MWAA
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['Error'] = Stubs::UpdateError.stub(stub[:error]) unless stub[:error].nil?
+        data['Error'] = UpdateError.stub(stub[:error]) unless stub[:error].nil?
         data['Source'] = stub[:source] unless stub[:source].nil?
         data
       end
@@ -244,11 +246,11 @@ module AWS::SDK::MWAA
       def self.stub(stub)
         stub ||= Types::LoggingConfiguration.new
         data = {}
-        data['DagProcessingLogs'] = Stubs::ModuleLoggingConfiguration.stub(stub[:dag_processing_logs]) unless stub[:dag_processing_logs].nil?
-        data['SchedulerLogs'] = Stubs::ModuleLoggingConfiguration.stub(stub[:scheduler_logs]) unless stub[:scheduler_logs].nil?
-        data['WebserverLogs'] = Stubs::ModuleLoggingConfiguration.stub(stub[:webserver_logs]) unless stub[:webserver_logs].nil?
-        data['WorkerLogs'] = Stubs::ModuleLoggingConfiguration.stub(stub[:worker_logs]) unless stub[:worker_logs].nil?
-        data['TaskLogs'] = Stubs::ModuleLoggingConfiguration.stub(stub[:task_logs]) unless stub[:task_logs].nil?
+        data['DagProcessingLogs'] = ModuleLoggingConfiguration.stub(stub[:dag_processing_logs]) unless stub[:dag_processing_logs].nil?
+        data['SchedulerLogs'] = ModuleLoggingConfiguration.stub(stub[:scheduler_logs]) unless stub[:scheduler_logs].nil?
+        data['WebserverLogs'] = ModuleLoggingConfiguration.stub(stub[:webserver_logs]) unless stub[:webserver_logs].nil?
+        data['WorkerLogs'] = ModuleLoggingConfiguration.stub(stub[:worker_logs]) unless stub[:worker_logs].nil?
+        data['TaskLogs'] = ModuleLoggingConfiguration.stub(stub[:task_logs]) unless stub[:task_logs].nil?
         data
       end
     end
@@ -289,8 +291,8 @@ module AWS::SDK::MWAA
       def self.stub(stub)
         stub ||= Types::NetworkConfiguration.new
         data = {}
-        data['SubnetIds'] = Stubs::SubnetList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['SecurityGroupIds'] = Stubs::SecurityGroupList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SubnetIds'] = SubnetList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data
       end
     end
@@ -368,9 +370,9 @@ module AWS::SDK::MWAA
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Environments'] = Stubs::EnvironmentList.stub(stub[:environments]) unless stub[:environments].nil?
+        data['Environments'] = EnvironmentList.stub(stub[:environments]) unless stub[:environments].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -406,8 +408,8 @@ module AWS::SDK::MWAA
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -463,7 +465,7 @@ module AWS::SDK::MWAA
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

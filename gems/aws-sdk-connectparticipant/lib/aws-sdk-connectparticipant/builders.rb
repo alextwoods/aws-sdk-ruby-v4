@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ConnectParticipant
   module Builders
 
@@ -20,9 +22,9 @@ module AWS::SDK::ConnectParticipant
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AttachmentIds'] = Builders::AttachmentIdList.build(input[:attachment_ids]) unless input[:attachment_ids].nil?
+        data['AttachmentIds'] = AttachmentIdList.build(input[:attachment_ids]) unless input[:attachment_ids].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Bearer'] = input[:connection_token] unless input[:connection_token].nil? || input[:connection_token].empty?
       end
     end
@@ -48,9 +50,9 @@ module AWS::SDK::ConnectParticipant
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Type'] = Builders::ConnectionTypeList.build(input[:type]) unless input[:type].nil?
+        data['Type'] = ConnectionTypeList.build(input[:type]) unless input[:type].nil?
         data['ConnectParticipant'] = input[:connect_participant] unless input[:connect_participant].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Bearer'] = input[:participant_token] unless input[:participant_token].nil? || input[:participant_token].empty?
       end
     end
@@ -77,7 +79,7 @@ module AWS::SDK::ConnectParticipant
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Bearer'] = input[:connection_token] unless input[:connection_token].nil? || input[:connection_token].empty?
       end
     end
@@ -93,7 +95,7 @@ module AWS::SDK::ConnectParticipant
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AttachmentId'] = input[:attachment_id] unless input[:attachment_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Bearer'] = input[:connection_token] unless input[:connection_token].nil? || input[:connection_token].empty?
       end
     end
@@ -113,8 +115,8 @@ module AWS::SDK::ConnectParticipant
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['ScanDirection'] = input[:scan_direction] unless input[:scan_direction].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        data['StartPosition'] = Builders::StartPosition.build(input[:start_position]) unless input[:start_position].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StartPosition'] = StartPosition.build(input[:start_position]) unless input[:start_position].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Bearer'] = input[:connection_token] unless input[:connection_token].nil? || input[:connection_token].empty?
       end
     end
@@ -143,7 +145,7 @@ module AWS::SDK::ConnectParticipant
         data['ContentType'] = input[:content_type] unless input[:content_type].nil?
         data['Content'] = input[:content] unless input[:content].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Bearer'] = input[:connection_token] unless input[:connection_token].nil? || input[:connection_token].empty?
       end
     end
@@ -161,7 +163,7 @@ module AWS::SDK::ConnectParticipant
         data['ContentType'] = input[:content_type] unless input[:content_type].nil?
         data['Content'] = input[:content] unless input[:content].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Bearer'] = input[:connection_token] unless input[:connection_token].nil? || input[:connection_token].empty?
       end
     end
@@ -180,7 +182,7 @@ module AWS::SDK::ConnectParticipant
         data['AttachmentSizeInBytes'] = input[:attachment_size_in_bytes] unless input[:attachment_size_in_bytes].nil?
         data['AttachmentName'] = input[:attachment_name] unless input[:attachment_name].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Bearer'] = input[:connection_token] unless input[:connection_token].nil? || input[:connection_token].empty?
       end
     end

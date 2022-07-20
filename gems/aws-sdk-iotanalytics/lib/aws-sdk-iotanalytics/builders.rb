@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::IoTAnalytics
   module Builders
 
@@ -21,8 +24,8 @@ module AWS::SDK::IoTAnalytics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['channelName'] = input[:channel_name] unless input[:channel_name].nil?
-        data['messages'] = Builders::Messages.build(input[:messages]) unless input[:messages].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['messages'] = Messages.build(input[:messages]) unless input[:messages].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -31,7 +34,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Message.build(element) unless element.nil?
+          data << Message.build(element) unless element.nil?
         end
         data
       end
@@ -42,7 +45,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = {}
         data['messageId'] = input[:message_id] unless input[:message_id].nil?
-        data['payload'] = Base64::encode64(input[:payload]).strip unless input[:payload].nil?
+        data['payload'] = ::Base64::encode64(input[:payload]).strip unless input[:payload].nil?
         data
       end
     end
@@ -79,10 +82,10 @@ module AWS::SDK::IoTAnalytics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['channelName'] = input[:channel_name] unless input[:channel_name].nil?
-        data['channelStorage'] = Builders::ChannelStorage.build(input[:channel_storage]) unless input[:channel_storage].nil?
-        data['retentionPeriod'] = Builders::RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['channelStorage'] = ChannelStorage.build(input[:channel_storage]) unless input[:channel_storage].nil?
+        data['retentionPeriod'] = RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -91,7 +94,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -121,8 +124,8 @@ module AWS::SDK::IoTAnalytics
     class ChannelStorage
       def self.build(input)
         data = {}
-        data['serviceManagedS3'] = Builders::ServiceManagedChannelS3Storage.build(input[:service_managed_s3]) unless input[:service_managed_s3].nil?
-        data['customerManagedS3'] = Builders::CustomerManagedChannelS3Storage.build(input[:customer_managed_s3]) unless input[:customer_managed_s3].nil?
+        data['serviceManagedS3'] = ServiceManagedChannelS3Storage.build(input[:service_managed_s3]) unless input[:service_managed_s3].nil?
+        data['customerManagedS3'] = CustomerManagedChannelS3Storage.build(input[:customer_managed_s3]) unless input[:customer_managed_s3].nil?
         data
       end
     end
@@ -157,14 +160,14 @@ module AWS::SDK::IoTAnalytics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['datasetName'] = input[:dataset_name] unless input[:dataset_name].nil?
-        data['actions'] = Builders::DatasetActions.build(input[:actions]) unless input[:actions].nil?
-        data['triggers'] = Builders::DatasetTriggers.build(input[:triggers]) unless input[:triggers].nil?
-        data['contentDeliveryRules'] = Builders::DatasetContentDeliveryRules.build(input[:content_delivery_rules]) unless input[:content_delivery_rules].nil?
-        data['retentionPeriod'] = Builders::RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
-        data['versioningConfiguration'] = Builders::VersioningConfiguration.build(input[:versioning_configuration]) unless input[:versioning_configuration].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['lateDataRules'] = Builders::LateDataRules.build(input[:late_data_rules]) unless input[:late_data_rules].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['actions'] = DatasetActions.build(input[:actions]) unless input[:actions].nil?
+        data['triggers'] = DatasetTriggers.build(input[:triggers]) unless input[:triggers].nil?
+        data['contentDeliveryRules'] = DatasetContentDeliveryRules.build(input[:content_delivery_rules]) unless input[:content_delivery_rules].nil?
+        data['retentionPeriod'] = RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
+        data['versioningConfiguration'] = VersioningConfiguration.build(input[:versioning_configuration]) unless input[:versioning_configuration].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['lateDataRules'] = LateDataRules.build(input[:late_data_rules]) unless input[:late_data_rules].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -173,7 +176,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LateDataRule.build(element) unless element.nil?
+          data << LateDataRule.build(element) unless element.nil?
         end
         data
       end
@@ -184,7 +187,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = {}
         data['ruleName'] = input[:rule_name] unless input[:rule_name].nil?
-        data['ruleConfiguration'] = Builders::LateDataRuleConfiguration.build(input[:rule_configuration]) unless input[:rule_configuration].nil?
+        data['ruleConfiguration'] = LateDataRuleConfiguration.build(input[:rule_configuration]) unless input[:rule_configuration].nil?
         data
       end
     end
@@ -193,7 +196,7 @@ module AWS::SDK::IoTAnalytics
     class LateDataRuleConfiguration
       def self.build(input)
         data = {}
-        data['deltaTimeSessionWindowConfiguration'] = Builders::DeltaTimeSessionWindowConfiguration.build(input[:delta_time_session_window_configuration]) unless input[:delta_time_session_window_configuration].nil?
+        data['deltaTimeSessionWindowConfiguration'] = DeltaTimeSessionWindowConfiguration.build(input[:delta_time_session_window_configuration]) unless input[:delta_time_session_window_configuration].nil?
         data
       end
     end
@@ -222,7 +225,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DatasetContentDeliveryRule.build(element) unless element.nil?
+          data << DatasetContentDeliveryRule.build(element) unless element.nil?
         end
         data
       end
@@ -233,7 +236,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = {}
         data['entryName'] = input[:entry_name] unless input[:entry_name].nil?
-        data['destination'] = Builders::DatasetContentDeliveryDestination.build(input[:destination]) unless input[:destination].nil?
+        data['destination'] = DatasetContentDeliveryDestination.build(input[:destination]) unless input[:destination].nil?
         data
       end
     end
@@ -242,8 +245,8 @@ module AWS::SDK::IoTAnalytics
     class DatasetContentDeliveryDestination
       def self.build(input)
         data = {}
-        data['iotEventsDestinationConfiguration'] = Builders::IotEventsDestinationConfiguration.build(input[:iot_events_destination_configuration]) unless input[:iot_events_destination_configuration].nil?
-        data['s3DestinationConfiguration'] = Builders::S3DestinationConfiguration.build(input[:s3_destination_configuration]) unless input[:s3_destination_configuration].nil?
+        data['iotEventsDestinationConfiguration'] = IotEventsDestinationConfiguration.build(input[:iot_events_destination_configuration]) unless input[:iot_events_destination_configuration].nil?
+        data['s3DestinationConfiguration'] = S3DestinationConfiguration.build(input[:s3_destination_configuration]) unless input[:s3_destination_configuration].nil?
         data
       end
     end
@@ -254,7 +257,7 @@ module AWS::SDK::IoTAnalytics
         data = {}
         data['bucket'] = input[:bucket] unless input[:bucket].nil?
         data['key'] = input[:key] unless input[:key].nil?
-        data['glueConfiguration'] = Builders::GlueConfiguration.build(input[:glue_configuration]) unless input[:glue_configuration].nil?
+        data['glueConfiguration'] = GlueConfiguration.build(input[:glue_configuration]) unless input[:glue_configuration].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data
       end
@@ -285,7 +288,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DatasetTrigger.build(element) unless element.nil?
+          data << DatasetTrigger.build(element) unless element.nil?
         end
         data
       end
@@ -295,8 +298,8 @@ module AWS::SDK::IoTAnalytics
     class DatasetTrigger
       def self.build(input)
         data = {}
-        data['schedule'] = Builders::Schedule.build(input[:schedule]) unless input[:schedule].nil?
-        data['dataset'] = Builders::TriggeringDataset.build(input[:dataset]) unless input[:dataset].nil?
+        data['schedule'] = Schedule.build(input[:schedule]) unless input[:schedule].nil?
+        data['dataset'] = TriggeringDataset.build(input[:dataset]) unless input[:dataset].nil?
         data
       end
     end
@@ -324,7 +327,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DatasetAction.build(element) unless element.nil?
+          data << DatasetAction.build(element) unless element.nil?
         end
         data
       end
@@ -335,8 +338,8 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = {}
         data['actionName'] = input[:action_name] unless input[:action_name].nil?
-        data['queryAction'] = Builders::SqlQueryDatasetAction.build(input[:query_action]) unless input[:query_action].nil?
-        data['containerAction'] = Builders::ContainerDatasetAction.build(input[:container_action]) unless input[:container_action].nil?
+        data['queryAction'] = SqlQueryDatasetAction.build(input[:query_action]) unless input[:query_action].nil?
+        data['containerAction'] = ContainerDatasetAction.build(input[:container_action]) unless input[:container_action].nil?
         data
       end
     end
@@ -347,8 +350,8 @@ module AWS::SDK::IoTAnalytics
         data = {}
         data['image'] = input[:image] unless input[:image].nil?
         data['executionRoleArn'] = input[:execution_role_arn] unless input[:execution_role_arn].nil?
-        data['resourceConfiguration'] = Builders::ResourceConfiguration.build(input[:resource_configuration]) unless input[:resource_configuration].nil?
-        data['variables'] = Builders::Variables.build(input[:variables]) unless input[:variables].nil?
+        data['resourceConfiguration'] = ResourceConfiguration.build(input[:resource_configuration]) unless input[:resource_configuration].nil?
+        data['variables'] = Variables.build(input[:variables]) unless input[:variables].nil?
         data
       end
     end
@@ -358,7 +361,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Variable.build(element) unless element.nil?
+          data << Variable.build(element) unless element.nil?
         end
         data
       end
@@ -371,8 +374,8 @@ module AWS::SDK::IoTAnalytics
         data['name'] = input[:name] unless input[:name].nil?
         data['stringValue'] = input[:string_value] unless input[:string_value].nil?
         data['doubleValue'] = Hearth::NumberHelper.serialize(input[:double_value]) unless input[:double_value].nil?
-        data['datasetContentVersionValue'] = Builders::DatasetContentVersionValue.build(input[:dataset_content_version_value]) unless input[:dataset_content_version_value].nil?
-        data['outputFileUriValue'] = Builders::OutputFileUriValue.build(input[:output_file_uri_value]) unless input[:output_file_uri_value].nil?
+        data['datasetContentVersionValue'] = DatasetContentVersionValue.build(input[:dataset_content_version_value]) unless input[:dataset_content_version_value].nil?
+        data['outputFileUriValue'] = OutputFileUriValue.build(input[:output_file_uri_value]) unless input[:output_file_uri_value].nil?
         data
       end
     end
@@ -410,7 +413,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = {}
         data['sqlQuery'] = input[:sql_query] unless input[:sql_query].nil?
-        data['filters'] = Builders::QueryFilters.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = QueryFilters.build(input[:filters]) unless input[:filters].nil?
         data
       end
     end
@@ -420,7 +423,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::QueryFilter.build(element) unless element.nil?
+          data << QueryFilter.build(element) unless element.nil?
         end
         data
       end
@@ -430,7 +433,7 @@ module AWS::SDK::IoTAnalytics
     class QueryFilter
       def self.build(input)
         data = {}
-        data['deltaTime'] = Builders::DeltaTime.build(input[:delta_time]) unless input[:delta_time].nil?
+        data['deltaTime'] = DeltaTime.build(input[:delta_time]) unless input[:delta_time].nil?
         data
       end
     end
@@ -463,7 +466,7 @@ module AWS::SDK::IoTAnalytics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['versionId'] = input[:version_id] unless input[:version_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -478,12 +481,12 @@ module AWS::SDK::IoTAnalytics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['datastoreName'] = input[:datastore_name] unless input[:datastore_name].nil?
-        data['datastoreStorage'] = Builders::DatastoreStorage.build(input[:datastore_storage]) unless input[:datastore_storage].nil?
-        data['retentionPeriod'] = Builders::RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        data['fileFormatConfiguration'] = Builders::FileFormatConfiguration.build(input[:file_format_configuration]) unless input[:file_format_configuration].nil?
-        data['datastorePartitions'] = Builders::DatastorePartitions.build(input[:datastore_partitions]) unless input[:datastore_partitions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['datastoreStorage'] = DatastoreStorage.build(input[:datastore_storage]) unless input[:datastore_storage].nil?
+        data['retentionPeriod'] = RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        data['fileFormatConfiguration'] = FileFormatConfiguration.build(input[:file_format_configuration]) unless input[:file_format_configuration].nil?
+        data['datastorePartitions'] = DatastorePartitions.build(input[:datastore_partitions]) unless input[:datastore_partitions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -491,7 +494,7 @@ module AWS::SDK::IoTAnalytics
     class DatastorePartitions
       def self.build(input)
         data = {}
-        data['partitions'] = Builders::Partitions.build(input[:partitions]) unless input[:partitions].nil?
+        data['partitions'] = Partitions.build(input[:partitions]) unless input[:partitions].nil?
         data
       end
     end
@@ -501,7 +504,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DatastorePartition.build(element) unless element.nil?
+          data << DatastorePartition.build(element) unless element.nil?
         end
         data
       end
@@ -511,8 +514,8 @@ module AWS::SDK::IoTAnalytics
     class DatastorePartition
       def self.build(input)
         data = {}
-        data['attributePartition'] = Builders::Partition.build(input[:attribute_partition]) unless input[:attribute_partition].nil?
-        data['timestampPartition'] = Builders::TimestampPartition.build(input[:timestamp_partition]) unless input[:timestamp_partition].nil?
+        data['attributePartition'] = Partition.build(input[:attribute_partition]) unless input[:attribute_partition].nil?
+        data['timestampPartition'] = TimestampPartition.build(input[:timestamp_partition]) unless input[:timestamp_partition].nil?
         data
       end
     end
@@ -540,8 +543,8 @@ module AWS::SDK::IoTAnalytics
     class FileFormatConfiguration
       def self.build(input)
         data = {}
-        data['jsonConfiguration'] = Builders::JsonConfiguration.build(input[:json_configuration]) unless input[:json_configuration].nil?
-        data['parquetConfiguration'] = Builders::ParquetConfiguration.build(input[:parquet_configuration]) unless input[:parquet_configuration].nil?
+        data['jsonConfiguration'] = JsonConfiguration.build(input[:json_configuration]) unless input[:json_configuration].nil?
+        data['parquetConfiguration'] = ParquetConfiguration.build(input[:parquet_configuration]) unless input[:parquet_configuration].nil?
         data
       end
     end
@@ -550,7 +553,7 @@ module AWS::SDK::IoTAnalytics
     class ParquetConfiguration
       def self.build(input)
         data = {}
-        data['schemaDefinition'] = Builders::SchemaDefinition.build(input[:schema_definition]) unless input[:schema_definition].nil?
+        data['schemaDefinition'] = SchemaDefinition.build(input[:schema_definition]) unless input[:schema_definition].nil?
         data
       end
     end
@@ -559,7 +562,7 @@ module AWS::SDK::IoTAnalytics
     class SchemaDefinition
       def self.build(input)
         data = {}
-        data['columns'] = Builders::Columns.build(input[:columns]) unless input[:columns].nil?
+        data['columns'] = Columns.build(input[:columns]) unless input[:columns].nil?
         data
       end
     end
@@ -569,7 +572,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Column.build(element) unless element.nil?
+          data << Column.build(element) unless element.nil?
         end
         data
       end
@@ -599,11 +602,11 @@ module AWS::SDK::IoTAnalytics
         data = {}
         case input
         when Types::DatastoreStorage::ServiceManagedS3
-          data['serviceManagedS3'] = (Builders::ServiceManagedDatastoreS3Storage.build(input) unless input.nil?)
+          data['serviceManagedS3'] = (ServiceManagedDatastoreS3Storage.build(input) unless input.nil?)
         when Types::DatastoreStorage::CustomerManagedS3
-          data['customerManagedS3'] = (Builders::CustomerManagedDatastoreS3Storage.build(input) unless input.nil?)
+          data['customerManagedS3'] = (CustomerManagedDatastoreS3Storage.build(input) unless input.nil?)
         when Types::DatastoreStorage::IotSiteWiseMultiLayerStorage
-          data['iotSiteWiseMultiLayerStorage'] = (Builders::DatastoreIotSiteWiseMultiLayerStorage.build(input) unless input.nil?)
+          data['iotSiteWiseMultiLayerStorage'] = (DatastoreIotSiteWiseMultiLayerStorage.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::DatastoreStorage"
@@ -617,7 +620,7 @@ module AWS::SDK::IoTAnalytics
     class DatastoreIotSiteWiseMultiLayerStorage
       def self.build(input)
         data = {}
-        data['customerManagedS3Storage'] = Builders::IotSiteWiseCustomerManagedDatastoreS3Storage.build(input[:customer_managed_s3_storage]) unless input[:customer_managed_s3_storage].nil?
+        data['customerManagedS3Storage'] = IotSiteWiseCustomerManagedDatastoreS3Storage.build(input[:customer_managed_s3_storage]) unless input[:customer_managed_s3_storage].nil?
         data
       end
     end
@@ -662,9 +665,9 @@ module AWS::SDK::IoTAnalytics
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['pipelineName'] = input[:pipeline_name] unless input[:pipeline_name].nil?
-        data['pipelineActivities'] = Builders::PipelineActivities.build(input[:pipeline_activities]) unless input[:pipeline_activities].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pipelineActivities'] = PipelineActivities.build(input[:pipeline_activities]) unless input[:pipeline_activities].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -673,7 +676,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PipelineActivity.build(element) unless element.nil?
+          data << PipelineActivity.build(element) unless element.nil?
         end
         data
       end
@@ -683,16 +686,16 @@ module AWS::SDK::IoTAnalytics
     class PipelineActivity
       def self.build(input)
         data = {}
-        data['channel'] = Builders::ChannelActivity.build(input[:channel]) unless input[:channel].nil?
-        data['lambda'] = Builders::LambdaActivity.build(input[:lambda]) unless input[:lambda].nil?
-        data['datastore'] = Builders::DatastoreActivity.build(input[:datastore]) unless input[:datastore].nil?
-        data['addAttributes'] = Builders::AddAttributesActivity.build(input[:add_attributes]) unless input[:add_attributes].nil?
-        data['removeAttributes'] = Builders::RemoveAttributesActivity.build(input[:remove_attributes]) unless input[:remove_attributes].nil?
-        data['selectAttributes'] = Builders::SelectAttributesActivity.build(input[:select_attributes]) unless input[:select_attributes].nil?
-        data['filter'] = Builders::FilterActivity.build(input[:filter]) unless input[:filter].nil?
-        data['math'] = Builders::MathActivity.build(input[:math]) unless input[:math].nil?
-        data['deviceRegistryEnrich'] = Builders::DeviceRegistryEnrichActivity.build(input[:device_registry_enrich]) unless input[:device_registry_enrich].nil?
-        data['deviceShadowEnrich'] = Builders::DeviceShadowEnrichActivity.build(input[:device_shadow_enrich]) unless input[:device_shadow_enrich].nil?
+        data['channel'] = ChannelActivity.build(input[:channel]) unless input[:channel].nil?
+        data['lambda'] = LambdaActivity.build(input[:lambda]) unless input[:lambda].nil?
+        data['datastore'] = DatastoreActivity.build(input[:datastore]) unless input[:datastore].nil?
+        data['addAttributes'] = AddAttributesActivity.build(input[:add_attributes]) unless input[:add_attributes].nil?
+        data['removeAttributes'] = RemoveAttributesActivity.build(input[:remove_attributes]) unless input[:remove_attributes].nil?
+        data['selectAttributes'] = SelectAttributesActivity.build(input[:select_attributes]) unless input[:select_attributes].nil?
+        data['filter'] = FilterActivity.build(input[:filter]) unless input[:filter].nil?
+        data['math'] = MathActivity.build(input[:math]) unless input[:math].nil?
+        data['deviceRegistryEnrich'] = DeviceRegistryEnrichActivity.build(input[:device_registry_enrich]) unless input[:device_registry_enrich].nil?
+        data['deviceShadowEnrich'] = DeviceShadowEnrichActivity.build(input[:device_shadow_enrich]) unless input[:device_shadow_enrich].nil?
         data
       end
     end
@@ -751,7 +754,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['attributes'] = Builders::AttributeNames.build(input[:attributes]) unless input[:attributes].nil?
+        data['attributes'] = AttributeNames.build(input[:attributes]) unless input[:attributes].nil?
         data['next'] = input[:next] unless input[:next].nil?
         data
       end
@@ -773,7 +776,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['attributes'] = Builders::AttributeNames.build(input[:attributes]) unless input[:attributes].nil?
+        data['attributes'] = AttributeNames.build(input[:attributes]) unless input[:attributes].nil?
         data['next'] = input[:next] unless input[:next].nil?
         data
       end
@@ -784,7 +787,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['attributes'] = Builders::AttributeNameMapping.build(input[:attributes]) unless input[:attributes].nil?
+        data['attributes'] = AttributeNameMapping.build(input[:attributes]) unless input[:attributes].nil?
         data['next'] = input[:next] unless input[:next].nil?
         data
       end
@@ -1108,8 +1111,8 @@ module AWS::SDK::IoTAnalytics
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['loggingOptions'] = Builders::LoggingOptions.build(input[:logging_options]) unless input[:logging_options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['loggingOptions'] = LoggingOptions.build(input[:logging_options]) unless input[:logging_options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1134,9 +1137,9 @@ module AWS::SDK::IoTAnalytics
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['pipelineActivity'] = Builders::PipelineActivity.build(input[:pipeline_activity]) unless input[:pipeline_activity].nil?
-        data['payloads'] = Builders::MessagePayloads.build(input[:payloads]) unless input[:payloads].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pipelineActivity'] = PipelineActivity.build(input[:pipeline_activity]) unless input[:pipeline_activity].nil?
+        data['payloads'] = MessagePayloads.build(input[:payloads]) unless input[:payloads].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1145,7 +1148,7 @@ module AWS::SDK::IoTAnalytics
       def self.build(input)
         data = []
         input.each do |element|
-          data << Base64::encode64(element).strip unless element.nil?
+          data << ::Base64::encode64(element).strip unless element.nil?
         end
         data
       end
@@ -1190,8 +1193,8 @@ module AWS::SDK::IoTAnalytics
         data = {}
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
-        data['channelMessages'] = Builders::ChannelMessages.build(input[:channel_messages]) unless input[:channel_messages].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['channelMessages'] = ChannelMessages.build(input[:channel_messages]) unless input[:channel_messages].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1199,7 +1202,7 @@ module AWS::SDK::IoTAnalytics
     class ChannelMessages
       def self.build(input)
         data = {}
-        data['s3Paths'] = Builders::S3PathChannelMessages.build(input[:s3_paths]) unless input[:s3_paths].nil?
+        data['s3Paths'] = S3PathChannelMessages.build(input[:s3_paths]) unless input[:s3_paths].nil?
         data
       end
     end
@@ -1226,8 +1229,8 @@ module AWS::SDK::IoTAnalytics
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1275,9 +1278,9 @@ module AWS::SDK::IoTAnalytics
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['channelStorage'] = Builders::ChannelStorage.build(input[:channel_storage]) unless input[:channel_storage].nil?
-        data['retentionPeriod'] = Builders::RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['channelStorage'] = ChannelStorage.build(input[:channel_storage]) unless input[:channel_storage].nil?
+        data['retentionPeriod'] = RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1298,13 +1301,13 @@ module AWS::SDK::IoTAnalytics
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['actions'] = Builders::DatasetActions.build(input[:actions]) unless input[:actions].nil?
-        data['triggers'] = Builders::DatasetTriggers.build(input[:triggers]) unless input[:triggers].nil?
-        data['contentDeliveryRules'] = Builders::DatasetContentDeliveryRules.build(input[:content_delivery_rules]) unless input[:content_delivery_rules].nil?
-        data['retentionPeriod'] = Builders::RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
-        data['versioningConfiguration'] = Builders::VersioningConfiguration.build(input[:versioning_configuration]) unless input[:versioning_configuration].nil?
-        data['lateDataRules'] = Builders::LateDataRules.build(input[:late_data_rules]) unless input[:late_data_rules].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['actions'] = DatasetActions.build(input[:actions]) unless input[:actions].nil?
+        data['triggers'] = DatasetTriggers.build(input[:triggers]) unless input[:triggers].nil?
+        data['contentDeliveryRules'] = DatasetContentDeliveryRules.build(input[:content_delivery_rules]) unless input[:content_delivery_rules].nil?
+        data['retentionPeriod'] = RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
+        data['versioningConfiguration'] = VersioningConfiguration.build(input[:versioning_configuration]) unless input[:versioning_configuration].nil?
+        data['lateDataRules'] = LateDataRules.build(input[:late_data_rules]) unless input[:late_data_rules].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1325,10 +1328,10 @@ module AWS::SDK::IoTAnalytics
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['retentionPeriod'] = Builders::RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
-        data['datastoreStorage'] = Builders::DatastoreStorage.build(input[:datastore_storage]) unless input[:datastore_storage].nil?
-        data['fileFormatConfiguration'] = Builders::FileFormatConfiguration.build(input[:file_format_configuration]) unless input[:file_format_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['retentionPeriod'] = RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
+        data['datastoreStorage'] = DatastoreStorage.build(input[:datastore_storage]) unless input[:datastore_storage].nil?
+        data['fileFormatConfiguration'] = FileFormatConfiguration.build(input[:file_format_configuration]) unless input[:file_format_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1349,8 +1352,8 @@ module AWS::SDK::IoTAnalytics
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['pipelineActivities'] = Builders::PipelineActivities.build(input[:pipeline_activities]) unless input[:pipeline_activities].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pipelineActivities'] = PipelineActivities.build(input[:pipeline_activities]) unless input[:pipeline_activities].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

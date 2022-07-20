@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DirectoryService
   module Builders
 
@@ -19,7 +21,7 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.AcceptSharedDirectory'
         data = {}
         data['SharedDirectoryId'] = input[:shared_directory_id] unless input[:shared_directory_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -32,9 +34,9 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.AddIpRoutes'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        data['IpRoutes'] = Builders::IpRoutes.build(input[:ip_routes]) unless input[:ip_routes].nil?
+        data['IpRoutes'] = IpRoutes.build(input[:ip_routes]) unless input[:ip_routes].nil?
         data['UpdateSecurityGroupForDirectoryControllers'] = input[:update_security_group_for_directory_controllers] unless input[:update_security_group_for_directory_controllers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -43,7 +45,7 @@ module AWS::SDK::DirectoryService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::IpRoute.build(element) unless element.nil?
+          data << IpRoute.build(element) unless element.nil?
         end
         data
       end
@@ -69,8 +71,8 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['RegionName'] = input[:region_name] unless input[:region_name].nil?
-        data['VPCSettings'] = Builders::DirectoryVpcSettings.build(input[:vpc_settings]) unless input[:vpc_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VPCSettings'] = DirectoryVpcSettings.build(input[:vpc_settings]) unless input[:vpc_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -79,7 +81,7 @@ module AWS::SDK::DirectoryService
       def self.build(input)
         data = {}
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
-        data['SubnetIds'] = Builders::SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['SubnetIds'] = SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
         data
       end
     end
@@ -104,8 +106,8 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.AddTagsToResource'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -114,7 +116,7 @@ module AWS::SDK::DirectoryService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -140,7 +142,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['SchemaExtensionId'] = input[:schema_extension_id] unless input[:schema_extension_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -157,9 +159,9 @@ module AWS::SDK::DirectoryService
         data['Password'] = input[:password] unless input[:password].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Size'] = input[:size] unless input[:size].nil?
-        data['ConnectSettings'] = Builders::DirectoryConnectSettings.build(input[:connect_settings]) unless input[:connect_settings].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConnectSettings'] = DirectoryConnectSettings.build(input[:connect_settings]) unless input[:connect_settings].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -168,8 +170,8 @@ module AWS::SDK::DirectoryService
       def self.build(input)
         data = {}
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
-        data['SubnetIds'] = Builders::SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['CustomerDnsIps'] = Builders::DnsIpAddrs.build(input[:customer_dns_ips]) unless input[:customer_dns_ips].nil?
+        data['SubnetIds'] = SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['CustomerDnsIps'] = DnsIpAddrs.build(input[:customer_dns_ips]) unless input[:customer_dns_ips].nil?
         data['CustomerUserName'] = input[:customer_user_name] unless input[:customer_user_name].nil?
         data
       end
@@ -196,7 +198,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['Alias'] = input[:alias] unless input[:alias].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -212,8 +214,8 @@ module AWS::SDK::DirectoryService
         data['ComputerName'] = input[:computer_name] unless input[:computer_name].nil?
         data['Password'] = input[:password] unless input[:password].nil?
         data['OrganizationalUnitDistinguishedName'] = input[:organizational_unit_distinguished_name] unless input[:organizational_unit_distinguished_name].nil?
-        data['ComputerAttributes'] = Builders::Attributes.build(input[:computer_attributes]) unless input[:computer_attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ComputerAttributes'] = Attributes.build(input[:computer_attributes]) unless input[:computer_attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -222,7 +224,7 @@ module AWS::SDK::DirectoryService
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Attribute.build(element) unless element.nil?
+          data << Attribute.build(element) unless element.nil?
         end
         data
       end
@@ -248,8 +250,8 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['RemoteDomainName'] = input[:remote_domain_name] unless input[:remote_domain_name].nil?
-        data['DnsIpAddrs'] = Builders::DnsIpAddrs.build(input[:dns_ip_addrs]) unless input[:dns_ip_addrs].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DnsIpAddrs'] = DnsIpAddrs.build(input[:dns_ip_addrs]) unless input[:dns_ip_addrs].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -266,9 +268,9 @@ module AWS::SDK::DirectoryService
         data['Password'] = input[:password] unless input[:password].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Size'] = input[:size] unless input[:size].nil?
-        data['VpcSettings'] = Builders::DirectoryVpcSettings.build(input[:vpc_settings]) unless input[:vpc_settings].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VpcSettings'] = DirectoryVpcSettings.build(input[:vpc_settings]) unless input[:vpc_settings].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -282,7 +284,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['LogGroupName'] = input[:log_group_name] unless input[:log_group_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -298,10 +300,10 @@ module AWS::SDK::DirectoryService
         data['ShortName'] = input[:short_name] unless input[:short_name].nil?
         data['Password'] = input[:password] unless input[:password].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['VpcSettings'] = Builders::DirectoryVpcSettings.build(input[:vpc_settings]) unless input[:vpc_settings].nil?
+        data['VpcSettings'] = DirectoryVpcSettings.build(input[:vpc_settings]) unless input[:vpc_settings].nil?
         data['Edition'] = input[:edition] unless input[:edition].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -315,7 +317,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -332,9 +334,9 @@ module AWS::SDK::DirectoryService
         data['TrustPassword'] = input[:trust_password] unless input[:trust_password].nil?
         data['TrustDirection'] = input[:trust_direction] unless input[:trust_direction].nil?
         data['TrustType'] = input[:trust_type] unless input[:trust_type].nil?
-        data['ConditionalForwarderIpAddrs'] = Builders::DnsIpAddrs.build(input[:conditional_forwarder_ip_addrs]) unless input[:conditional_forwarder_ip_addrs].nil?
+        data['ConditionalForwarderIpAddrs'] = DnsIpAddrs.build(input[:conditional_forwarder_ip_addrs]) unless input[:conditional_forwarder_ip_addrs].nil?
         data['SelectiveAuth'] = input[:selective_auth] unless input[:selective_auth].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -348,7 +350,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['RemoteDomainName'] = input[:remote_domain_name] unless input[:remote_domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -361,7 +363,7 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.DeleteDirectory'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -374,7 +376,7 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.DeleteLogSubscription'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -387,7 +389,7 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.DeleteSnapshot'
         data = {}
         data['SnapshotId'] = input[:snapshot_id] unless input[:snapshot_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -401,7 +403,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['TrustId'] = input[:trust_id] unless input[:trust_id].nil?
         data['DeleteAssociatedConditionalForwarder'] = input[:delete_associated_conditional_forwarder] unless input[:delete_associated_conditional_forwarder].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -415,7 +417,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['CertificateId'] = input[:certificate_id] unless input[:certificate_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -429,7 +431,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['TopicName'] = input[:topic_name] unless input[:topic_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -443,7 +445,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['CertificateId'] = input[:certificate_id] unless input[:certificate_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -459,7 +461,7 @@ module AWS::SDK::DirectoryService
         data['Type'] = input[:type] unless input[:type].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -472,8 +474,8 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.DescribeConditionalForwarders'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        data['RemoteDomainNames'] = Builders::RemoteDomainNames.build(input[:remote_domain_names]) unless input[:remote_domain_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RemoteDomainNames'] = RemoteDomainNames.build(input[:remote_domain_names]) unless input[:remote_domain_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -496,10 +498,10 @@ module AWS::SDK::DirectoryService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.DescribeDirectories'
         data = {}
-        data['DirectoryIds'] = Builders::DirectoryIds.build(input[:directory_ids]) unless input[:directory_ids].nil?
+        data['DirectoryIds'] = DirectoryIds.build(input[:directory_ids]) unless input[:directory_ids].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -523,10 +525,10 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.DescribeDomainControllers'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        data['DomainControllerIds'] = Builders::DomainControllerIds.build(input[:domain_controller_ids]) unless input[:domain_controller_ids].nil?
+        data['DomainControllerIds'] = DomainControllerIds.build(input[:domain_controller_ids]) unless input[:domain_controller_ids].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -550,8 +552,8 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.DescribeEventTopics'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        data['TopicNames'] = Builders::TopicNames.build(input[:topic_names]) unless input[:topic_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TopicNames'] = TopicNames.build(input[:topic_names]) unless input[:topic_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -578,7 +580,7 @@ module AWS::SDK::DirectoryService
         data['Type'] = input[:type] unless input[:type].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -593,7 +595,7 @@ module AWS::SDK::DirectoryService
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['RegionName'] = input[:region_name] unless input[:region_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -606,10 +608,10 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.DescribeSharedDirectories'
         data = {}
         data['OwnerDirectoryId'] = input[:owner_directory_id] unless input[:owner_directory_id].nil?
-        data['SharedDirectoryIds'] = Builders::DirectoryIds.build(input[:shared_directory_ids]) unless input[:shared_directory_ids].nil?
+        data['SharedDirectoryIds'] = DirectoryIds.build(input[:shared_directory_ids]) unless input[:shared_directory_ids].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -622,10 +624,10 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.DescribeSnapshots'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        data['SnapshotIds'] = Builders::SnapshotIds.build(input[:snapshot_ids]) unless input[:snapshot_ids].nil?
+        data['SnapshotIds'] = SnapshotIds.build(input[:snapshot_ids]) unless input[:snapshot_ids].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -649,10 +651,10 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.DescribeTrusts'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        data['TrustIds'] = Builders::TrustIds.build(input[:trust_ids]) unless input[:trust_ids].nil?
+        data['TrustIds'] = TrustIds.build(input[:trust_ids]) unless input[:trust_ids].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -677,7 +679,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -691,7 +693,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -704,7 +706,7 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.DisableRadius'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -719,7 +721,7 @@ module AWS::SDK::DirectoryService
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['UserName'] = input[:user_name] unless input[:user_name].nil?
         data['Password'] = input[:password] unless input[:password].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -733,7 +735,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -747,7 +749,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -760,8 +762,8 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.EnableRadius'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        data['RadiusSettings'] = Builders::RadiusSettings.build(input[:radius_settings]) unless input[:radius_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RadiusSettings'] = RadiusSettings.build(input[:radius_settings]) unless input[:radius_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -769,7 +771,7 @@ module AWS::SDK::DirectoryService
     class RadiusSettings
       def self.build(input)
         data = {}
-        data['RadiusServers'] = Builders::Servers.build(input[:radius_servers]) unless input[:radius_servers].nil?
+        data['RadiusServers'] = Servers.build(input[:radius_servers]) unless input[:radius_servers].nil?
         data['RadiusPort'] = input[:radius_port] unless input[:radius_port].nil?
         data['RadiusTimeout'] = input[:radius_timeout] unless input[:radius_timeout].nil?
         data['RadiusRetries'] = input[:radius_retries] unless input[:radius_retries].nil?
@@ -803,7 +805,7 @@ module AWS::SDK::DirectoryService
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['UserName'] = input[:user_name] unless input[:user_name].nil?
         data['Password'] = input[:password] unless input[:password].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -815,7 +817,7 @@ module AWS::SDK::DirectoryService
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.GetDirectoryLimits'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -828,7 +830,7 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.GetSnapshotLimits'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -843,7 +845,7 @@ module AWS::SDK::DirectoryService
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -858,7 +860,7 @@ module AWS::SDK::DirectoryService
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -873,7 +875,7 @@ module AWS::SDK::DirectoryService
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -888,7 +890,7 @@ module AWS::SDK::DirectoryService
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -903,7 +905,7 @@ module AWS::SDK::DirectoryService
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -918,8 +920,8 @@ module AWS::SDK::DirectoryService
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['CertificateData'] = input[:certificate_data] unless input[:certificate_data].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        data['ClientCertAuthSettings'] = Builders::ClientCertAuthSettings.build(input[:client_cert_auth_settings]) unless input[:client_cert_auth_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ClientCertAuthSettings'] = ClientCertAuthSettings.build(input[:client_cert_auth_settings]) unless input[:client_cert_auth_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -942,7 +944,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['TopicName'] = input[:topic_name] unless input[:topic_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -955,7 +957,7 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.RejectSharedDirectory'
         data = {}
         data['SharedDirectoryId'] = input[:shared_directory_id] unless input[:shared_directory_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -968,8 +970,8 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.RemoveIpRoutes'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        data['CidrIps'] = Builders::CidrIps.build(input[:cidr_ips]) unless input[:cidr_ips].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CidrIps'] = CidrIps.build(input[:cidr_ips]) unless input[:cidr_ips].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -993,7 +995,7 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.RemoveRegion'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1006,8 +1008,8 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.RemoveTagsFromResource'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['TagKeys'] = Builders::TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1033,7 +1035,7 @@ module AWS::SDK::DirectoryService
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['UserName'] = input[:user_name] unless input[:user_name].nil?
         data['NewPassword'] = input[:new_password] unless input[:new_password].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1046,7 +1048,7 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.RestoreFromSnapshot'
         data = {}
         data['SnapshotId'] = input[:snapshot_id] unless input[:snapshot_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1060,9 +1062,9 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['ShareNotes'] = input[:share_notes] unless input[:share_notes].nil?
-        data['ShareTarget'] = Builders::ShareTarget.build(input[:share_target]) unless input[:share_target].nil?
+        data['ShareTarget'] = ShareTarget.build(input[:share_target]) unless input[:share_target].nil?
         data['ShareMethod'] = input[:share_method] unless input[:share_method].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1088,7 +1090,7 @@ module AWS::SDK::DirectoryService
         data['CreateSnapshotBeforeSchemaExtension'] = input[:create_snapshot_before_schema_extension] unless input[:create_snapshot_before_schema_extension].nil?
         data['LdifContent'] = input[:ldif_content] unless input[:ldif_content].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1101,8 +1103,8 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.UnshareDirectory'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        data['UnshareTarget'] = Builders::UnshareTarget.build(input[:unshare_target]) unless input[:unshare_target].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UnshareTarget'] = UnshareTarget.build(input[:unshare_target]) unless input[:unshare_target].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1126,8 +1128,8 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['RemoteDomainName'] = input[:remote_domain_name] unless input[:remote_domain_name].nil?
-        data['DnsIpAddrs'] = Builders::DnsIpAddrs.build(input[:dns_ip_addrs]) unless input[:dns_ip_addrs].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DnsIpAddrs'] = DnsIpAddrs.build(input[:dns_ip_addrs]) unless input[:dns_ip_addrs].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1141,7 +1143,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['DesiredNumber'] = input[:desired_number] unless input[:desired_number].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1154,8 +1156,8 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.UpdateRadius'
         data = {}
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
-        data['RadiusSettings'] = Builders::RadiusSettings.build(input[:radius_settings]) unless input[:radius_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RadiusSettings'] = RadiusSettings.build(input[:radius_settings]) unless input[:radius_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1169,7 +1171,7 @@ module AWS::SDK::DirectoryService
         data = {}
         data['TrustId'] = input[:trust_id] unless input[:trust_id].nil?
         data['SelectiveAuth'] = input[:selective_auth] unless input[:selective_auth].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1182,7 +1184,7 @@ module AWS::SDK::DirectoryService
         http_req.headers['X-Amz-Target'] = 'DirectoryService_20150416.VerifyTrust'
         data = {}
         data['TrustId'] = input[:trust_id] unless input[:trust_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

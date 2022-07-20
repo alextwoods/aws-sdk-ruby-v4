@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ApplicationCostProfiler
   module Builders
 
@@ -54,8 +56,8 @@ module AWS::SDK::ApplicationCostProfiler
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['sourceS3Location'] = Builders::SourceS3Location.build(input[:source_s3_location]) unless input[:source_s3_location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sourceS3Location'] = SourceS3Location.build(input[:source_s3_location]) unless input[:source_s3_location].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -96,8 +98,8 @@ module AWS::SDK::ApplicationCostProfiler
         data['reportDescription'] = input[:report_description] unless input[:report_description].nil?
         data['reportFrequency'] = input[:report_frequency] unless input[:report_frequency].nil?
         data['format'] = input[:format] unless input[:format].nil?
-        data['destinationS3Location'] = Builders::S3Location.build(input[:destination_s3_location]) unless input[:destination_s3_location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['destinationS3Location'] = S3Location.build(input[:destination_s3_location]) unless input[:destination_s3_location].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -131,8 +133,8 @@ module AWS::SDK::ApplicationCostProfiler
         data['reportDescription'] = input[:report_description] unless input[:report_description].nil?
         data['reportFrequency'] = input[:report_frequency] unless input[:report_frequency].nil?
         data['format'] = input[:format] unless input[:format].nil?
-        data['destinationS3Location'] = Builders::S3Location.build(input[:destination_s3_location]) unless input[:destination_s3_location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['destinationS3Location'] = S3Location.build(input[:destination_s3_location]) unless input[:destination_s3_location].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

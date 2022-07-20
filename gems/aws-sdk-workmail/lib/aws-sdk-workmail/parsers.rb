@@ -583,7 +583,7 @@ module AWS::SDK::WorkMail
         data.email = map['Email']
         data.name = map['Name']
         data.type = map['Type']
-        data.booking_options = (Parsers::BookingOptions.parse(map['BookingOptions']) unless map['BookingOptions'].nil?)
+        data.booking_options = (BookingOptions.parse(map['BookingOptions']) unless map['BookingOptions'].nil?)
         data.state = map['State']
         data.enabled_date = Time.at(map['EnabledDate'].to_i) if map['EnabledDate']
         data.disabled_date = Time.at(map['DisabledDate'].to_i) if map['DisabledDate']
@@ -650,7 +650,7 @@ module AWS::SDK::WorkMail
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.effect = map['Effect']
-        data.matched_rules = (Parsers::AccessControlRuleNameList.parse(map['MatchedRules']) unless map['MatchedRules'].nil?)
+        data.matched_rules = (AccessControlRuleNameList.parse(map['MatchedRules']) unless map['MatchedRules'].nil?)
         data
       end
     end
@@ -673,7 +673,7 @@ module AWS::SDK::WorkMail
         data.id = map['Id']
         data.name = map['Name']
         data.description = map['Description']
-        data.folder_configurations = (Parsers::FolderConfigurations.parse(map['FolderConfigurations']) unless map['FolderConfigurations'].nil?)
+        data.folder_configurations = (FolderConfigurations.parse(map['FolderConfigurations']) unless map['FolderConfigurations'].nil?)
         data
       end
     end
@@ -681,7 +681,7 @@ module AWS::SDK::WorkMail
     class FolderConfigurations
       def self.parse(list)
         list.map do |value|
-          Parsers::FolderConfiguration.parse(value) unless value.nil?
+          FolderConfiguration.parse(value) unless value.nil?
         end
       end
     end
@@ -703,7 +703,7 @@ module AWS::SDK::WorkMail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.records = (Parsers::DnsRecords.parse(map['Records']) unless map['Records'].nil?)
+        data.records = (DnsRecords.parse(map['Records']) unless map['Records'].nil?)
         data.is_test_domain = map['IsTestDomain']
         data.is_default = map['IsDefault']
         data.ownership_verification_status = map['OwnershipVerificationStatus']
@@ -715,7 +715,7 @@ module AWS::SDK::WorkMail
     class DnsRecords
       def self.parse(list)
         list.map do |value|
-          Parsers::DnsRecord.parse(value) unless value.nil?
+          DnsRecord.parse(value) unless value.nil?
         end
       end
     end
@@ -751,7 +751,7 @@ module AWS::SDK::WorkMail
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.effect = map['Effect']
-        data.matched_rules = (Parsers::MobileDeviceAccessMatchedRuleList.parse(map['MatchedRules']) unless map['MatchedRules'].nil?)
+        data.matched_rules = (MobileDeviceAccessMatchedRuleList.parse(map['MatchedRules']) unless map['MatchedRules'].nil?)
         data
       end
     end
@@ -759,7 +759,7 @@ module AWS::SDK::WorkMail
     class MobileDeviceAccessMatchedRuleList
       def self.parse(list)
         list.map do |value|
-          Parsers::MobileDeviceAccessMatchedRule.parse(value) unless value.nil?
+          MobileDeviceAccessMatchedRule.parse(value) unless value.nil?
         end
       end
     end
@@ -797,7 +797,7 @@ module AWS::SDK::WorkMail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rules = (Parsers::AccessControlRulesList.parse(map['Rules']) unless map['Rules'].nil?)
+        data.rules = (AccessControlRulesList.parse(map['Rules']) unless map['Rules'].nil?)
         data
       end
     end
@@ -805,7 +805,7 @@ module AWS::SDK::WorkMail
     class AccessControlRulesList
       def self.parse(list)
         list.map do |value|
-          Parsers::AccessControlRule.parse(value) unless value.nil?
+          AccessControlRule.parse(value) unless value.nil?
         end
       end
     end
@@ -816,12 +816,12 @@ module AWS::SDK::WorkMail
         data.name = map['Name']
         data.effect = map['Effect']
         data.description = map['Description']
-        data.ip_ranges = (Parsers::IpRangeList.parse(map['IpRanges']) unless map['IpRanges'].nil?)
-        data.not_ip_ranges = (Parsers::IpRangeList.parse(map['NotIpRanges']) unless map['NotIpRanges'].nil?)
-        data.actions = (Parsers::ActionsList.parse(map['Actions']) unless map['Actions'].nil?)
-        data.not_actions = (Parsers::ActionsList.parse(map['NotActions']) unless map['NotActions'].nil?)
-        data.user_ids = (Parsers::UserIdList.parse(map['UserIds']) unless map['UserIds'].nil?)
-        data.not_user_ids = (Parsers::UserIdList.parse(map['NotUserIds']) unless map['NotUserIds'].nil?)
+        data.ip_ranges = (IpRangeList.parse(map['IpRanges']) unless map['IpRanges'].nil?)
+        data.not_ip_ranges = (IpRangeList.parse(map['NotIpRanges']) unless map['NotIpRanges'].nil?)
+        data.actions = (ActionsList.parse(map['Actions']) unless map['Actions'].nil?)
+        data.not_actions = (ActionsList.parse(map['NotActions']) unless map['NotActions'].nil?)
+        data.user_ids = (UserIdList.parse(map['UserIds']) unless map['UserIds'].nil?)
+        data.not_user_ids = (UserIdList.parse(map['NotUserIds']) unless map['NotUserIds'].nil?)
         data.date_created = Time.at(map['DateCreated'].to_i) if map['DateCreated']
         data.date_modified = Time.at(map['DateModified'].to_i) if map['DateModified']
         return data
@@ -859,7 +859,7 @@ module AWS::SDK::WorkMail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.aliases = (Parsers::Aliases.parse(map['Aliases']) unless map['Aliases'].nil?)
+        data.aliases = (Aliases.parse(map['Aliases']) unless map['Aliases'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -880,7 +880,7 @@ module AWS::SDK::WorkMail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.members = (Parsers::Members.parse(map['Members']) unless map['Members'].nil?)
+        data.members = (Members.parse(map['Members']) unless map['Members'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -889,7 +889,7 @@ module AWS::SDK::WorkMail
     class Members
       def self.parse(list)
         list.map do |value|
-          Parsers::Member.parse(value) unless value.nil?
+          Member.parse(value) unless value.nil?
         end
       end
     end
@@ -914,7 +914,7 @@ module AWS::SDK::WorkMail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.groups = (Parsers::Groups.parse(map['Groups']) unless map['Groups'].nil?)
+        data.groups = (Groups.parse(map['Groups']) unless map['Groups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -923,7 +923,7 @@ module AWS::SDK::WorkMail
     class Groups
       def self.parse(list)
         list.map do |value|
-          Parsers::Group.parse(value) unless value.nil?
+          Group.parse(value) unless value.nil?
         end
       end
     end
@@ -948,7 +948,7 @@ module AWS::SDK::WorkMail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.mail_domains = (Parsers::MailDomains.parse(map['MailDomains']) unless map['MailDomains'].nil?)
+        data.mail_domains = (MailDomains.parse(map['MailDomains']) unless map['MailDomains'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -957,7 +957,7 @@ module AWS::SDK::WorkMail
     class MailDomains
       def self.parse(list)
         list.map do |value|
-          Parsers::MailDomainSummary.parse(value) unless value.nil?
+          MailDomainSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -978,7 +978,7 @@ module AWS::SDK::WorkMail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.jobs = (Parsers::Jobs.parse(map['Jobs']) unless map['Jobs'].nil?)
+        data.jobs = (Jobs.parse(map['Jobs']) unless map['Jobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -987,7 +987,7 @@ module AWS::SDK::WorkMail
     class Jobs
       def self.parse(list)
         list.map do |value|
-          Parsers::MailboxExportJob.parse(value) unless value.nil?
+          MailboxExportJob.parse(value) unless value.nil?
         end
       end
     end
@@ -1015,7 +1015,7 @@ module AWS::SDK::WorkMail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.permissions = (Parsers::Permissions.parse(map['Permissions']) unless map['Permissions'].nil?)
+        data.permissions = (Permissions.parse(map['Permissions']) unless map['Permissions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1024,7 +1024,7 @@ module AWS::SDK::WorkMail
     class Permissions
       def self.parse(list)
         list.map do |value|
-          Parsers::Permission.parse(value) unless value.nil?
+          Permission.parse(value) unless value.nil?
         end
       end
     end
@@ -1034,7 +1034,7 @@ module AWS::SDK::WorkMail
         data = Types::Permission.new
         data.grantee_id = map['GranteeId']
         data.grantee_type = map['GranteeType']
-        data.permission_values = (Parsers::PermissionValues.parse(map['PermissionValues']) unless map['PermissionValues'].nil?)
+        data.permission_values = (PermissionValues.parse(map['PermissionValues']) unless map['PermissionValues'].nil?)
         return data
       end
     end
@@ -1054,7 +1054,7 @@ module AWS::SDK::WorkMail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.overrides = (Parsers::MobileDeviceAccessOverridesList.parse(map['Overrides']) unless map['Overrides'].nil?)
+        data.overrides = (MobileDeviceAccessOverridesList.parse(map['Overrides']) unless map['Overrides'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1063,7 +1063,7 @@ module AWS::SDK::WorkMail
     class MobileDeviceAccessOverridesList
       def self.parse(list)
         list.map do |value|
-          Parsers::MobileDeviceAccessOverride.parse(value) unless value.nil?
+          MobileDeviceAccessOverride.parse(value) unless value.nil?
         end
       end
     end
@@ -1088,7 +1088,7 @@ module AWS::SDK::WorkMail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.rules = (Parsers::MobileDeviceAccessRulesList.parse(map['Rules']) unless map['Rules'].nil?)
+        data.rules = (MobileDeviceAccessRulesList.parse(map['Rules']) unless map['Rules'].nil?)
         data
       end
     end
@@ -1096,7 +1096,7 @@ module AWS::SDK::WorkMail
     class MobileDeviceAccessRulesList
       def self.parse(list)
         list.map do |value|
-          Parsers::MobileDeviceAccessRule.parse(value) unless value.nil?
+          MobileDeviceAccessRule.parse(value) unless value.nil?
         end
       end
     end
@@ -1108,14 +1108,14 @@ module AWS::SDK::WorkMail
         data.name = map['Name']
         data.description = map['Description']
         data.effect = map['Effect']
-        data.device_types = (Parsers::DeviceTypeList.parse(map['DeviceTypes']) unless map['DeviceTypes'].nil?)
-        data.not_device_types = (Parsers::DeviceTypeList.parse(map['NotDeviceTypes']) unless map['NotDeviceTypes'].nil?)
-        data.device_models = (Parsers::DeviceModelList.parse(map['DeviceModels']) unless map['DeviceModels'].nil?)
-        data.not_device_models = (Parsers::DeviceModelList.parse(map['NotDeviceModels']) unless map['NotDeviceModels'].nil?)
-        data.device_operating_systems = (Parsers::DeviceOperatingSystemList.parse(map['DeviceOperatingSystems']) unless map['DeviceOperatingSystems'].nil?)
-        data.not_device_operating_systems = (Parsers::DeviceOperatingSystemList.parse(map['NotDeviceOperatingSystems']) unless map['NotDeviceOperatingSystems'].nil?)
-        data.device_user_agents = (Parsers::DeviceUserAgentList.parse(map['DeviceUserAgents']) unless map['DeviceUserAgents'].nil?)
-        data.not_device_user_agents = (Parsers::DeviceUserAgentList.parse(map['NotDeviceUserAgents']) unless map['NotDeviceUserAgents'].nil?)
+        data.device_types = (DeviceTypeList.parse(map['DeviceTypes']) unless map['DeviceTypes'].nil?)
+        data.not_device_types = (DeviceTypeList.parse(map['NotDeviceTypes']) unless map['NotDeviceTypes'].nil?)
+        data.device_models = (DeviceModelList.parse(map['DeviceModels']) unless map['DeviceModels'].nil?)
+        data.not_device_models = (DeviceModelList.parse(map['NotDeviceModels']) unless map['NotDeviceModels'].nil?)
+        data.device_operating_systems = (DeviceOperatingSystemList.parse(map['DeviceOperatingSystems']) unless map['DeviceOperatingSystems'].nil?)
+        data.not_device_operating_systems = (DeviceOperatingSystemList.parse(map['NotDeviceOperatingSystems']) unless map['NotDeviceOperatingSystems'].nil?)
+        data.device_user_agents = (DeviceUserAgentList.parse(map['DeviceUserAgents']) unless map['DeviceUserAgents'].nil?)
+        data.not_device_user_agents = (DeviceUserAgentList.parse(map['NotDeviceUserAgents']) unless map['NotDeviceUserAgents'].nil?)
         data.date_created = Time.at(map['DateCreated'].to_i) if map['DateCreated']
         data.date_modified = Time.at(map['DateModified'].to_i) if map['DateModified']
         return data
@@ -1161,7 +1161,7 @@ module AWS::SDK::WorkMail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.organization_summaries = (Parsers::OrganizationSummaries.parse(map['OrganizationSummaries']) unless map['OrganizationSummaries'].nil?)
+        data.organization_summaries = (OrganizationSummaries.parse(map['OrganizationSummaries']) unless map['OrganizationSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1170,7 +1170,7 @@ module AWS::SDK::WorkMail
     class OrganizationSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::OrganizationSummary.parse(value) unless value.nil?
+          OrganizationSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1194,7 +1194,7 @@ module AWS::SDK::WorkMail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.delegates = (Parsers::ResourceDelegates.parse(map['Delegates']) unless map['Delegates'].nil?)
+        data.delegates = (ResourceDelegates.parse(map['Delegates']) unless map['Delegates'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1203,7 +1203,7 @@ module AWS::SDK::WorkMail
     class ResourceDelegates
       def self.parse(list)
         list.map do |value|
-          Parsers::Delegate.parse(value) unless value.nil?
+          Delegate.parse(value) unless value.nil?
         end
       end
     end
@@ -1224,7 +1224,7 @@ module AWS::SDK::WorkMail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resources = (Parsers::Resources.parse(map['Resources']) unless map['Resources'].nil?)
+        data.resources = (Resources.parse(map['Resources']) unless map['Resources'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1233,7 +1233,7 @@ module AWS::SDK::WorkMail
     class Resources
       def self.parse(list)
         list.map do |value|
-          Parsers::Resource.parse(value) unless value.nil?
+          Resource.parse(value) unless value.nil?
         end
       end
     end
@@ -1259,7 +1259,7 @@ module AWS::SDK::WorkMail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -1267,7 +1267,7 @@ module AWS::SDK::WorkMail
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -1288,7 +1288,7 @@ module AWS::SDK::WorkMail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.users = (Parsers::Users.parse(map['Users']) unless map['Users'].nil?)
+        data.users = (Users.parse(map['Users']) unless map['Users'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1297,7 +1297,7 @@ module AWS::SDK::WorkMail
     class Users
       def self.parse(list)
         list.map do |value|
-          Parsers::User.parse(value) unless value.nil?
+          User.parse(value) unless value.nil?
         end
       end
     end

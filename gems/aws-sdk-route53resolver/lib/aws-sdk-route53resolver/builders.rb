@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Route53Resolver
   module Builders
 
@@ -24,8 +26,8 @@ module AWS::SDK::Route53Resolver
         data['Priority'] = input[:priority] unless input[:priority].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['MutationProtection'] = input[:mutation_protection] unless input[:mutation_protection].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -34,7 +36,7 @@ module AWS::SDK::Route53Resolver
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -59,8 +61,8 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.AssociateResolverEndpointIpAddress'
         data = {}
         data['ResolverEndpointId'] = input[:resolver_endpoint_id] unless input[:resolver_endpoint_id].nil?
-        data['IpAddress'] = Builders::IpAddressUpdate.build(input[:ip_address]) unless input[:ip_address].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['IpAddress'] = IpAddressUpdate.build(input[:ip_address]) unless input[:ip_address].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -85,7 +87,7 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['ResolverQueryLogConfigId'] = input[:resolver_query_log_config_id] unless input[:resolver_query_log_config_id].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -100,7 +102,7 @@ module AWS::SDK::Route53Resolver
         data['ResolverRuleId'] = input[:resolver_rule_id] unless input[:resolver_rule_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['VPCId'] = input[:vpc_id] unless input[:vpc_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -114,8 +116,8 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['CreatorRequestId'] = input[:creator_request_id] unless input[:creator_request_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -137,7 +139,7 @@ module AWS::SDK::Route53Resolver
         data['BlockOverrideDnsType'] = input[:block_override_dns_type] unless input[:block_override_dns_type].nil?
         data['BlockOverrideTtl'] = input[:block_override_ttl] unless input[:block_override_ttl].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -151,8 +153,8 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['CreatorRequestId'] = input[:creator_request_id] unless input[:creator_request_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -166,11 +168,11 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['CreatorRequestId'] = input[:creator_request_id] unless input[:creator_request_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['SecurityGroupIds'] = Builders::SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data['Direction'] = input[:direction] unless input[:direction].nil?
-        data['IpAddresses'] = Builders::IpAddressesRequest.build(input[:ip_addresses]) unless input[:ip_addresses].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['IpAddresses'] = IpAddressesRequest.build(input[:ip_addresses]) unless input[:ip_addresses].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -179,7 +181,7 @@ module AWS::SDK::Route53Resolver
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::IpAddressRequest.build(element) unless element.nil?
+          data << IpAddressRequest.build(element) unless element.nil?
         end
         data
       end
@@ -217,8 +219,8 @@ module AWS::SDK::Route53Resolver
         data['Name'] = input[:name] unless input[:name].nil?
         data['DestinationArn'] = input[:destination_arn] unless input[:destination_arn].nil?
         data['CreatorRequestId'] = input[:creator_request_id] unless input[:creator_request_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -234,10 +236,10 @@ module AWS::SDK::Route53Resolver
         data['Name'] = input[:name] unless input[:name].nil?
         data['RuleType'] = input[:rule_type] unless input[:rule_type].nil?
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        data['TargetIps'] = Builders::TargetList.build(input[:target_ips]) unless input[:target_ips].nil?
+        data['TargetIps'] = TargetList.build(input[:target_ips]) unless input[:target_ips].nil?
         data['ResolverEndpointId'] = input[:resolver_endpoint_id] unless input[:resolver_endpoint_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -246,7 +248,7 @@ module AWS::SDK::Route53Resolver
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TargetAddress.build(element) unless element.nil?
+          data << TargetAddress.build(element) unless element.nil?
         end
         data
       end
@@ -271,7 +273,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.DeleteFirewallDomainList'
         data = {}
         data['FirewallDomainListId'] = input[:firewall_domain_list_id] unless input[:firewall_domain_list_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -285,7 +287,7 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['FirewallRuleGroupId'] = input[:firewall_rule_group_id] unless input[:firewall_rule_group_id].nil?
         data['FirewallDomainListId'] = input[:firewall_domain_list_id] unless input[:firewall_domain_list_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -298,7 +300,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.DeleteFirewallRuleGroup'
         data = {}
         data['FirewallRuleGroupId'] = input[:firewall_rule_group_id] unless input[:firewall_rule_group_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -311,7 +313,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.DeleteResolverEndpoint'
         data = {}
         data['ResolverEndpointId'] = input[:resolver_endpoint_id] unless input[:resolver_endpoint_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -324,7 +326,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.DeleteResolverQueryLogConfig'
         data = {}
         data['ResolverQueryLogConfigId'] = input[:resolver_query_log_config_id] unless input[:resolver_query_log_config_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -337,7 +339,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.DeleteResolverRule'
         data = {}
         data['ResolverRuleId'] = input[:resolver_rule_id] unless input[:resolver_rule_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -350,7 +352,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.DisassociateFirewallRuleGroup'
         data = {}
         data['FirewallRuleGroupAssociationId'] = input[:firewall_rule_group_association_id] unless input[:firewall_rule_group_association_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -363,8 +365,8 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.DisassociateResolverEndpointIpAddress'
         data = {}
         data['ResolverEndpointId'] = input[:resolver_endpoint_id] unless input[:resolver_endpoint_id].nil?
-        data['IpAddress'] = Builders::IpAddressUpdate.build(input[:ip_address]) unless input[:ip_address].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['IpAddress'] = IpAddressUpdate.build(input[:ip_address]) unless input[:ip_address].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -378,7 +380,7 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['ResolverQueryLogConfigId'] = input[:resolver_query_log_config_id] unless input[:resolver_query_log_config_id].nil?
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -392,7 +394,7 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['VPCId'] = input[:vpc_id] unless input[:vpc_id].nil?
         data['ResolverRuleId'] = input[:resolver_rule_id] unless input[:resolver_rule_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -405,7 +407,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.GetFirewallConfig'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -418,7 +420,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.GetFirewallDomainList'
         data = {}
         data['FirewallDomainListId'] = input[:firewall_domain_list_id] unless input[:firewall_domain_list_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -431,7 +433,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.GetFirewallRuleGroup'
         data = {}
         data['FirewallRuleGroupId'] = input[:firewall_rule_group_id] unless input[:firewall_rule_group_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -444,7 +446,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.GetFirewallRuleGroupAssociation'
         data = {}
         data['FirewallRuleGroupAssociationId'] = input[:firewall_rule_group_association_id] unless input[:firewall_rule_group_association_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -457,7 +459,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.GetFirewallRuleGroupPolicy'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -470,7 +472,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.GetResolverConfig'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -483,7 +485,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.GetResolverDnssecConfig'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -496,7 +498,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.GetResolverEndpoint'
         data = {}
         data['ResolverEndpointId'] = input[:resolver_endpoint_id] unless input[:resolver_endpoint_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -509,7 +511,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.GetResolverQueryLogConfig'
         data = {}
         data['ResolverQueryLogConfigId'] = input[:resolver_query_log_config_id] unless input[:resolver_query_log_config_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -522,7 +524,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.GetResolverQueryLogConfigAssociation'
         data = {}
         data['ResolverQueryLogConfigAssociationId'] = input[:resolver_query_log_config_association_id] unless input[:resolver_query_log_config_association_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -535,7 +537,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.GetResolverQueryLogConfigPolicy'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -548,7 +550,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.GetResolverRule'
         data = {}
         data['ResolverRuleId'] = input[:resolver_rule_id] unless input[:resolver_rule_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -561,7 +563,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.GetResolverRuleAssociation'
         data = {}
         data['ResolverRuleAssociationId'] = input[:resolver_rule_association_id] unless input[:resolver_rule_association_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -574,7 +576,7 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.GetResolverRulePolicy'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -589,7 +591,7 @@ module AWS::SDK::Route53Resolver
         data['FirewallDomainListId'] = input[:firewall_domain_list_id] unless input[:firewall_domain_list_id].nil?
         data['Operation'] = input[:operation] unless input[:operation].nil?
         data['DomainFileUrl'] = input[:domain_file_url] unless input[:domain_file_url].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -603,7 +605,7 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -617,7 +619,7 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -632,7 +634,7 @@ module AWS::SDK::Route53Resolver
         data['FirewallDomainListId'] = input[:firewall_domain_list_id] unless input[:firewall_domain_list_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -650,7 +652,7 @@ module AWS::SDK::Route53Resolver
         data['Status'] = input[:status] unless input[:status].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -664,7 +666,7 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -681,7 +683,7 @@ module AWS::SDK::Route53Resolver
         data['Action'] = input[:action] unless input[:action].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -695,7 +697,7 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -709,8 +711,8 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -719,7 +721,7 @@ module AWS::SDK::Route53Resolver
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -730,7 +732,7 @@ module AWS::SDK::Route53Resolver
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -757,7 +759,7 @@ module AWS::SDK::Route53Resolver
         data['ResolverEndpointId'] = input[:resolver_endpoint_id] unless input[:resolver_endpoint_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -771,8 +773,8 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -786,10 +788,10 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -803,10 +805,10 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['SortOrder'] = input[:sort_order] unless input[:sort_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -820,8 +822,8 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -835,8 +837,8 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -851,7 +853,7 @@ module AWS::SDK::Route53Resolver
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -865,7 +867,7 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
         data['FirewallRuleGroupPolicy'] = input[:firewall_rule_group_policy] unless input[:firewall_rule_group_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -879,7 +881,7 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
         data['ResolverQueryLogConfigPolicy'] = input[:resolver_query_log_config_policy] unless input[:resolver_query_log_config_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -893,7 +895,7 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
         data['ResolverRulePolicy'] = input[:resolver_rule_policy] unless input[:resolver_rule_policy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -906,8 +908,8 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -920,8 +922,8 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -946,7 +948,7 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['FirewallFailOpen'] = input[:firewall_fail_open] unless input[:firewall_fail_open].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -960,8 +962,8 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['FirewallDomainListId'] = input[:firewall_domain_list_id] unless input[:firewall_domain_list_id].nil?
         data['Operation'] = input[:operation] unless input[:operation].nil?
-        data['Domains'] = Builders::FirewallDomains.build(input[:domains]) unless input[:domains].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Domains'] = FirewallDomains.build(input[:domains]) unless input[:domains].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -993,7 +995,7 @@ module AWS::SDK::Route53Resolver
         data['BlockOverrideDnsType'] = input[:block_override_dns_type] unless input[:block_override_dns_type].nil?
         data['BlockOverrideTtl'] = input[:block_override_ttl] unless input[:block_override_ttl].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1009,7 +1011,7 @@ module AWS::SDK::Route53Resolver
         data['Priority'] = input[:priority] unless input[:priority].nil?
         data['MutationProtection'] = input[:mutation_protection] unless input[:mutation_protection].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1023,7 +1025,7 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['AutodefinedReverseFlag'] = input[:autodefined_reverse_flag] unless input[:autodefined_reverse_flag].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1037,7 +1039,7 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['Validation'] = input[:validation] unless input[:validation].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1051,7 +1053,7 @@ module AWS::SDK::Route53Resolver
         data = {}
         data['ResolverEndpointId'] = input[:resolver_endpoint_id] unless input[:resolver_endpoint_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1064,8 +1066,8 @@ module AWS::SDK::Route53Resolver
         http_req.headers['X-Amz-Target'] = 'Route53Resolver.UpdateResolverRule'
         data = {}
         data['ResolverRuleId'] = input[:resolver_rule_id] unless input[:resolver_rule_id].nil?
-        data['Config'] = Builders::ResolverRuleConfig.build(input[:config]) unless input[:config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Config'] = ResolverRuleConfig.build(input[:config]) unless input[:config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1074,7 +1076,7 @@ module AWS::SDK::Route53Resolver
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['TargetIps'] = Builders::TargetList.build(input[:target_ips]) unless input[:target_ips].nil?
+        data['TargetIps'] = TargetList.build(input[:target_ips]) unless input[:target_ips].nil?
         data['ResolverEndpointId'] = input[:resolver_endpoint_id] unless input[:resolver_endpoint_id].nil?
         data
       end

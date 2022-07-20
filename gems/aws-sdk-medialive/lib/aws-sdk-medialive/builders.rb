@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MediaLive
   module Builders
 
@@ -37,11 +39,11 @@ module AWS::SDK::MediaLive
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['channelIds'] = Builders::List____listOf__string.build(input[:channel_ids]) unless input[:channel_ids].nil?
-        data['inputIds'] = Builders::List____listOf__string.build(input[:input_ids]) unless input[:input_ids].nil?
-        data['inputSecurityGroupIds'] = Builders::List____listOf__string.build(input[:input_security_group_ids]) unless input[:input_security_group_ids].nil?
-        data['multiplexIds'] = Builders::List____listOf__string.build(input[:multiplex_ids]) unless input[:multiplex_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['channelIds'] = List____listOf__string.build(input[:channel_ids]) unless input[:channel_ids].nil?
+        data['inputIds'] = List____listOf__string.build(input[:input_ids]) unless input[:input_ids].nil?
+        data['inputSecurityGroupIds'] = List____listOf__string.build(input[:input_security_group_ids]) unless input[:input_security_group_ids].nil?
+        data['multiplexIds'] = List____listOf__string.build(input[:multiplex_ids]) unless input[:multiplex_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -66,9 +68,9 @@ module AWS::SDK::MediaLive
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['channelIds'] = Builders::List____listOf__string.build(input[:channel_ids]) unless input[:channel_ids].nil?
-        data['multiplexIds'] = Builders::List____listOf__string.build(input[:multiplex_ids]) unless input[:multiplex_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['channelIds'] = List____listOf__string.build(input[:channel_ids]) unless input[:channel_ids].nil?
+        data['multiplexIds'] = List____listOf__string.build(input[:multiplex_ids]) unless input[:multiplex_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -82,9 +84,9 @@ module AWS::SDK::MediaLive
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['channelIds'] = Builders::List____listOf__string.build(input[:channel_ids]) unless input[:channel_ids].nil?
-        data['multiplexIds'] = Builders::List____listOf__string.build(input[:multiplex_ids]) unless input[:multiplex_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['channelIds'] = List____listOf__string.build(input[:channel_ids]) unless input[:channel_ids].nil?
+        data['multiplexIds'] = List____listOf__string.build(input[:multiplex_ids]) unless input[:multiplex_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -105,9 +107,9 @@ module AWS::SDK::MediaLive
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['creates'] = Builders::BatchScheduleActionCreateRequest.build(input[:creates]) unless input[:creates].nil?
-        data['deletes'] = Builders::BatchScheduleActionDeleteRequest.build(input[:deletes]) unless input[:deletes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['creates'] = BatchScheduleActionCreateRequest.build(input[:creates]) unless input[:creates].nil?
+        data['deletes'] = BatchScheduleActionDeleteRequest.build(input[:deletes]) unless input[:deletes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -115,7 +117,7 @@ module AWS::SDK::MediaLive
     class BatchScheduleActionDeleteRequest
       def self.build(input)
         data = {}
-        data['actionNames'] = Builders::List____listOf__string.build(input[:action_names]) unless input[:action_names].nil?
+        data['actionNames'] = List____listOf__string.build(input[:action_names]) unless input[:action_names].nil?
         data
       end
     end
@@ -124,7 +126,7 @@ module AWS::SDK::MediaLive
     class BatchScheduleActionCreateRequest
       def self.build(input)
         data = {}
-        data['scheduleActions'] = Builders::List____listOfScheduleAction.build(input[:schedule_actions]) unless input[:schedule_actions].nil?
+        data['scheduleActions'] = List____listOfScheduleAction.build(input[:schedule_actions]) unless input[:schedule_actions].nil?
         data
       end
     end
@@ -134,7 +136,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ScheduleAction.build(element) unless element.nil?
+          data << ScheduleAction.build(element) unless element.nil?
         end
         data
       end
@@ -145,8 +147,8 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = {}
         data['actionName'] = input[:action_name] unless input[:action_name].nil?
-        data['scheduleActionSettings'] = Builders::ScheduleActionSettings.build(input[:schedule_action_settings]) unless input[:schedule_action_settings].nil?
-        data['scheduleActionStartSettings'] = Builders::ScheduleActionStartSettings.build(input[:schedule_action_start_settings]) unless input[:schedule_action_start_settings].nil?
+        data['scheduleActionSettings'] = ScheduleActionSettings.build(input[:schedule_action_settings]) unless input[:schedule_action_settings].nil?
+        data['scheduleActionStartSettings'] = ScheduleActionStartSettings.build(input[:schedule_action_start_settings]) unless input[:schedule_action_start_settings].nil?
         data
       end
     end
@@ -155,9 +157,9 @@ module AWS::SDK::MediaLive
     class ScheduleActionStartSettings
       def self.build(input)
         data = {}
-        data['fixedModeScheduleActionStartSettings'] = Builders::FixedModeScheduleActionStartSettings.build(input[:fixed_mode_schedule_action_start_settings]) unless input[:fixed_mode_schedule_action_start_settings].nil?
-        data['followModeScheduleActionStartSettings'] = Builders::FollowModeScheduleActionStartSettings.build(input[:follow_mode_schedule_action_start_settings]) unless input[:follow_mode_schedule_action_start_settings].nil?
-        data['immediateModeScheduleActionStartSettings'] = Builders::ImmediateModeScheduleActionStartSettings.build(input[:immediate_mode_schedule_action_start_settings]) unless input[:immediate_mode_schedule_action_start_settings].nil?
+        data['fixedModeScheduleActionStartSettings'] = FixedModeScheduleActionStartSettings.build(input[:fixed_mode_schedule_action_start_settings]) unless input[:fixed_mode_schedule_action_start_settings].nil?
+        data['followModeScheduleActionStartSettings'] = FollowModeScheduleActionStartSettings.build(input[:follow_mode_schedule_action_start_settings]) unless input[:follow_mode_schedule_action_start_settings].nil?
+        data['immediateModeScheduleActionStartSettings'] = ImmediateModeScheduleActionStartSettings.build(input[:immediate_mode_schedule_action_start_settings]) unless input[:immediate_mode_schedule_action_start_settings].nil?
         data
       end
     end
@@ -193,18 +195,18 @@ module AWS::SDK::MediaLive
     class ScheduleActionSettings
       def self.build(input)
         data = {}
-        data['hlsId3SegmentTaggingSettings'] = Builders::HlsId3SegmentTaggingScheduleActionSettings.build(input[:hls_id3_segment_tagging_settings]) unless input[:hls_id3_segment_tagging_settings].nil?
-        data['hlsTimedMetadataSettings'] = Builders::HlsTimedMetadataScheduleActionSettings.build(input[:hls_timed_metadata_settings]) unless input[:hls_timed_metadata_settings].nil?
-        data['inputPrepareSettings'] = Builders::InputPrepareScheduleActionSettings.build(input[:input_prepare_settings]) unless input[:input_prepare_settings].nil?
-        data['inputSwitchSettings'] = Builders::InputSwitchScheduleActionSettings.build(input[:input_switch_settings]) unless input[:input_switch_settings].nil?
-        data['motionGraphicsImageActivateSettings'] = Builders::MotionGraphicsActivateScheduleActionSettings.build(input[:motion_graphics_image_activate_settings]) unless input[:motion_graphics_image_activate_settings].nil?
-        data['motionGraphicsImageDeactivateSettings'] = Builders::MotionGraphicsDeactivateScheduleActionSettings.build(input[:motion_graphics_image_deactivate_settings]) unless input[:motion_graphics_image_deactivate_settings].nil?
-        data['pauseStateSettings'] = Builders::PauseStateScheduleActionSettings.build(input[:pause_state_settings]) unless input[:pause_state_settings].nil?
-        data['scte35ReturnToNetworkSettings'] = Builders::Scte35ReturnToNetworkScheduleActionSettings.build(input[:scte35_return_to_network_settings]) unless input[:scte35_return_to_network_settings].nil?
-        data['scte35SpliceInsertSettings'] = Builders::Scte35SpliceInsertScheduleActionSettings.build(input[:scte35_splice_insert_settings]) unless input[:scte35_splice_insert_settings].nil?
-        data['scte35TimeSignalSettings'] = Builders::Scte35TimeSignalScheduleActionSettings.build(input[:scte35_time_signal_settings]) unless input[:scte35_time_signal_settings].nil?
-        data['staticImageActivateSettings'] = Builders::StaticImageActivateScheduleActionSettings.build(input[:static_image_activate_settings]) unless input[:static_image_activate_settings].nil?
-        data['staticImageDeactivateSettings'] = Builders::StaticImageDeactivateScheduleActionSettings.build(input[:static_image_deactivate_settings]) unless input[:static_image_deactivate_settings].nil?
+        data['hlsId3SegmentTaggingSettings'] = HlsId3SegmentTaggingScheduleActionSettings.build(input[:hls_id3_segment_tagging_settings]) unless input[:hls_id3_segment_tagging_settings].nil?
+        data['hlsTimedMetadataSettings'] = HlsTimedMetadataScheduleActionSettings.build(input[:hls_timed_metadata_settings]) unless input[:hls_timed_metadata_settings].nil?
+        data['inputPrepareSettings'] = InputPrepareScheduleActionSettings.build(input[:input_prepare_settings]) unless input[:input_prepare_settings].nil?
+        data['inputSwitchSettings'] = InputSwitchScheduleActionSettings.build(input[:input_switch_settings]) unless input[:input_switch_settings].nil?
+        data['motionGraphicsImageActivateSettings'] = MotionGraphicsActivateScheduleActionSettings.build(input[:motion_graphics_image_activate_settings]) unless input[:motion_graphics_image_activate_settings].nil?
+        data['motionGraphicsImageDeactivateSettings'] = MotionGraphicsDeactivateScheduleActionSettings.build(input[:motion_graphics_image_deactivate_settings]) unless input[:motion_graphics_image_deactivate_settings].nil?
+        data['pauseStateSettings'] = PauseStateScheduleActionSettings.build(input[:pause_state_settings]) unless input[:pause_state_settings].nil?
+        data['scte35ReturnToNetworkSettings'] = Scte35ReturnToNetworkScheduleActionSettings.build(input[:scte35_return_to_network_settings]) unless input[:scte35_return_to_network_settings].nil?
+        data['scte35SpliceInsertSettings'] = Scte35SpliceInsertScheduleActionSettings.build(input[:scte35_splice_insert_settings]) unless input[:scte35_splice_insert_settings].nil?
+        data['scte35TimeSignalSettings'] = Scte35TimeSignalScheduleActionSettings.build(input[:scte35_time_signal_settings]) unless input[:scte35_time_signal_settings].nil?
+        data['staticImageActivateSettings'] = StaticImageActivateScheduleActionSettings.build(input[:static_image_activate_settings]) unless input[:static_image_activate_settings].nil?
+        data['staticImageDeactivateSettings'] = StaticImageDeactivateScheduleActionSettings.build(input[:static_image_deactivate_settings]) unless input[:static_image_deactivate_settings].nil?
         data
       end
     end
@@ -227,7 +229,7 @@ module AWS::SDK::MediaLive
         data['fadeIn'] = input[:fade_in] unless input[:fade_in].nil?
         data['fadeOut'] = input[:fade_out] unless input[:fade_out].nil?
         data['height'] = input[:height] unless input[:height].nil?
-        data['image'] = Builders::InputLocation.build(input[:image]) unless input[:image].nil?
+        data['image'] = InputLocation.build(input[:image]) unless input[:image].nil?
         data['imageX'] = input[:image_x] unless input[:image_x].nil?
         data['imageY'] = input[:image_y] unless input[:image_y].nil?
         data['layer'] = input[:layer] unless input[:layer].nil?
@@ -252,7 +254,7 @@ module AWS::SDK::MediaLive
     class Scte35TimeSignalScheduleActionSettings
       def self.build(input)
         data = {}
-        data['scte35Descriptors'] = Builders::List____listOfScte35Descriptor.build(input[:scte35_descriptors]) unless input[:scte35_descriptors].nil?
+        data['scte35Descriptors'] = List____listOfScte35Descriptor.build(input[:scte35_descriptors]) unless input[:scte35_descriptors].nil?
         data
       end
     end
@@ -262,7 +264,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Scte35Descriptor.build(element) unless element.nil?
+          data << Scte35Descriptor.build(element) unless element.nil?
         end
         data
       end
@@ -272,7 +274,7 @@ module AWS::SDK::MediaLive
     class Scte35Descriptor
       def self.build(input)
         data = {}
-        data['scte35DescriptorSettings'] = Builders::Scte35DescriptorSettings.build(input[:scte35_descriptor_settings]) unless input[:scte35_descriptor_settings].nil?
+        data['scte35DescriptorSettings'] = Scte35DescriptorSettings.build(input[:scte35_descriptor_settings]) unless input[:scte35_descriptor_settings].nil?
         data
       end
     end
@@ -281,7 +283,7 @@ module AWS::SDK::MediaLive
     class Scte35DescriptorSettings
       def self.build(input)
         data = {}
-        data['segmentationDescriptorScte35DescriptorSettings'] = Builders::Scte35SegmentationDescriptor.build(input[:segmentation_descriptor_scte35_descriptor_settings]) unless input[:segmentation_descriptor_scte35_descriptor_settings].nil?
+        data['segmentationDescriptorScte35DescriptorSettings'] = Scte35SegmentationDescriptor.build(input[:segmentation_descriptor_scte35_descriptor_settings]) unless input[:segmentation_descriptor_scte35_descriptor_settings].nil?
         data
       end
     end
@@ -290,7 +292,7 @@ module AWS::SDK::MediaLive
     class Scte35SegmentationDescriptor
       def self.build(input)
         data = {}
-        data['deliveryRestrictions'] = Builders::Scte35DeliveryRestrictions.build(input[:delivery_restrictions]) unless input[:delivery_restrictions].nil?
+        data['deliveryRestrictions'] = Scte35DeliveryRestrictions.build(input[:delivery_restrictions]) unless input[:delivery_restrictions].nil?
         data['segmentNum'] = input[:segment_num] unless input[:segment_num].nil?
         data['segmentationCancelIndicator'] = input[:segmentation_cancel_indicator] unless input[:segmentation_cancel_indicator].nil?
         data['segmentationDuration'] = input[:segmentation_duration] unless input[:segmentation_duration].nil?
@@ -340,7 +342,7 @@ module AWS::SDK::MediaLive
     class PauseStateScheduleActionSettings
       def self.build(input)
         data = {}
-        data['pipelines'] = Builders::List____listOfPipelinePauseStateSettings.build(input[:pipelines]) unless input[:pipelines].nil?
+        data['pipelines'] = List____listOfPipelinePauseStateSettings.build(input[:pipelines]) unless input[:pipelines].nil?
         data
       end
     end
@@ -350,7 +352,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PipelinePauseStateSettings.build(element) unless element.nil?
+          data << PipelinePauseStateSettings.build(element) unless element.nil?
         end
         data
       end
@@ -390,8 +392,8 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = {}
         data['inputAttachmentNameReference'] = input[:input_attachment_name_reference] unless input[:input_attachment_name_reference].nil?
-        data['inputClippingSettings'] = Builders::InputClippingSettings.build(input[:input_clipping_settings]) unless input[:input_clipping_settings].nil?
-        data['urlPath'] = Builders::List____listOf__string.build(input[:url_path]) unless input[:url_path].nil?
+        data['inputClippingSettings'] = InputClippingSettings.build(input[:input_clipping_settings]) unless input[:input_clipping_settings].nil?
+        data['urlPath'] = List____listOf__string.build(input[:url_path]) unless input[:url_path].nil?
         data
       end
     end
@@ -401,8 +403,8 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = {}
         data['inputTimecodeSource'] = input[:input_timecode_source] unless input[:input_timecode_source].nil?
-        data['startTimecode'] = Builders::StartTimecode.build(input[:start_timecode]) unless input[:start_timecode].nil?
-        data['stopTimecode'] = Builders::StopTimecode.build(input[:stop_timecode]) unless input[:stop_timecode].nil?
+        data['startTimecode'] = StartTimecode.build(input[:start_timecode]) unless input[:start_timecode].nil?
+        data['stopTimecode'] = StopTimecode.build(input[:stop_timecode]) unless input[:stop_timecode].nil?
         data
       end
     end
@@ -431,8 +433,8 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = {}
         data['inputAttachmentNameReference'] = input[:input_attachment_name_reference] unless input[:input_attachment_name_reference].nil?
-        data['inputClippingSettings'] = Builders::InputClippingSettings.build(input[:input_clipping_settings]) unless input[:input_clipping_settings].nil?
-        data['urlPath'] = Builders::List____listOf__string.build(input[:url_path]) unless input[:url_path].nil?
+        data['inputClippingSettings'] = InputClippingSettings.build(input[:input_clipping_settings]) unless input[:input_clipping_settings].nil?
+        data['urlPath'] = List____listOf__string.build(input[:url_path]) unless input[:url_path].nil?
         data
       end
     end
@@ -483,7 +485,7 @@ module AWS::SDK::MediaLive
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -497,21 +499,21 @@ module AWS::SDK::MediaLive
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['cdiInputSpecification'] = Builders::CdiInputSpecification.build(input[:cdi_input_specification]) unless input[:cdi_input_specification].nil?
+        data['cdiInputSpecification'] = CdiInputSpecification.build(input[:cdi_input_specification]) unless input[:cdi_input_specification].nil?
         data['channelClass'] = input[:channel_class] unless input[:channel_class].nil?
-        data['destinations'] = Builders::List____listOfOutputDestination.build(input[:destinations]) unless input[:destinations].nil?
-        data['encoderSettings'] = Builders::EncoderSettings.build(input[:encoder_settings]) unless input[:encoder_settings].nil?
-        data['inputAttachments'] = Builders::List____listOfInputAttachment.build(input[:input_attachments]) unless input[:input_attachments].nil?
-        data['inputSpecification'] = Builders::InputSpecification.build(input[:input_specification]) unless input[:input_specification].nil?
+        data['destinations'] = List____listOfOutputDestination.build(input[:destinations]) unless input[:destinations].nil?
+        data['encoderSettings'] = EncoderSettings.build(input[:encoder_settings]) unless input[:encoder_settings].nil?
+        data['inputAttachments'] = List____listOfInputAttachment.build(input[:input_attachments]) unless input[:input_attachments].nil?
+        data['inputSpecification'] = InputSpecification.build(input[:input_specification]) unless input[:input_specification].nil?
         data['logLevel'] = input[:log_level] unless input[:log_level].nil?
-        data['maintenance'] = Builders::MaintenanceCreateSettings.build(input[:maintenance]) unless input[:maintenance].nil?
+        data['maintenance'] = MaintenanceCreateSettings.build(input[:maintenance]) unless input[:maintenance].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['requestId'] = input[:request_id] unless input[:request_id].nil?
         data['reserved'] = input[:reserved] unless input[:reserved].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        data['vpc'] = Builders::VpcOutputSettings.build(input[:vpc]) unless input[:vpc].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        data['vpc'] = VpcOutputSettings.build(input[:vpc]) unless input[:vpc].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -519,9 +521,9 @@ module AWS::SDK::MediaLive
     class VpcOutputSettings
       def self.build(input)
         data = {}
-        data['publicAddressAllocationIds'] = Builders::List____listOf__string.build(input[:public_address_allocation_ids]) unless input[:public_address_allocation_ids].nil?
-        data['securityGroupIds'] = Builders::List____listOf__string.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
-        data['subnetIds'] = Builders::List____listOf__string.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['publicAddressAllocationIds'] = List____listOf__string.build(input[:public_address_allocation_ids]) unless input[:public_address_allocation_ids].nil?
+        data['securityGroupIds'] = List____listOf__string.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['subnetIds'] = List____listOf__string.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
         data
       end
     end
@@ -563,7 +565,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InputAttachment.build(element) unless element.nil?
+          data << InputAttachment.build(element) unless element.nil?
         end
         data
       end
@@ -573,10 +575,10 @@ module AWS::SDK::MediaLive
     class InputAttachment
       def self.build(input)
         data = {}
-        data['automaticInputFailoverSettings'] = Builders::AutomaticInputFailoverSettings.build(input[:automatic_input_failover_settings]) unless input[:automatic_input_failover_settings].nil?
+        data['automaticInputFailoverSettings'] = AutomaticInputFailoverSettings.build(input[:automatic_input_failover_settings]) unless input[:automatic_input_failover_settings].nil?
         data['inputAttachmentName'] = input[:input_attachment_name] unless input[:input_attachment_name].nil?
         data['inputId'] = input[:input_id] unless input[:input_id].nil?
-        data['inputSettings'] = Builders::InputSettings.build(input[:input_settings]) unless input[:input_settings].nil?
+        data['inputSettings'] = InputSettings.build(input[:input_settings]) unless input[:input_settings].nil?
         data
       end
     end
@@ -585,17 +587,17 @@ module AWS::SDK::MediaLive
     class InputSettings
       def self.build(input)
         data = {}
-        data['audioSelectors'] = Builders::List____listOfAudioSelector.build(input[:audio_selectors]) unless input[:audio_selectors].nil?
-        data['captionSelectors'] = Builders::List____listOfCaptionSelector.build(input[:caption_selectors]) unless input[:caption_selectors].nil?
+        data['audioSelectors'] = List____listOfAudioSelector.build(input[:audio_selectors]) unless input[:audio_selectors].nil?
+        data['captionSelectors'] = List____listOfCaptionSelector.build(input[:caption_selectors]) unless input[:caption_selectors].nil?
         data['deblockFilter'] = input[:deblock_filter] unless input[:deblock_filter].nil?
         data['denoiseFilter'] = input[:denoise_filter] unless input[:denoise_filter].nil?
         data['filterStrength'] = input[:filter_strength] unless input[:filter_strength].nil?
         data['inputFilter'] = input[:input_filter] unless input[:input_filter].nil?
-        data['networkInputSettings'] = Builders::NetworkInputSettings.build(input[:network_input_settings]) unless input[:network_input_settings].nil?
+        data['networkInputSettings'] = NetworkInputSettings.build(input[:network_input_settings]) unless input[:network_input_settings].nil?
         data['scte35Pid'] = input[:scte35_pid] unless input[:scte35_pid].nil?
         data['smpte2038DataPreference'] = input[:smpte2038_data_preference] unless input[:smpte2038_data_preference].nil?
         data['sourceEndBehavior'] = input[:source_end_behavior] unless input[:source_end_behavior].nil?
-        data['videoSelector'] = Builders::VideoSelector.build(input[:video_selector]) unless input[:video_selector].nil?
+        data['videoSelector'] = VideoSelector.build(input[:video_selector]) unless input[:video_selector].nil?
         data
       end
     end
@@ -605,9 +607,9 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = {}
         data['colorSpace'] = input[:color_space] unless input[:color_space].nil?
-        data['colorSpaceSettings'] = Builders::VideoSelectorColorSpaceSettings.build(input[:color_space_settings]) unless input[:color_space_settings].nil?
+        data['colorSpaceSettings'] = VideoSelectorColorSpaceSettings.build(input[:color_space_settings]) unless input[:color_space_settings].nil?
         data['colorSpaceUsage'] = input[:color_space_usage] unless input[:color_space_usage].nil?
-        data['selectorSettings'] = Builders::VideoSelectorSettings.build(input[:selector_settings]) unless input[:selector_settings].nil?
+        data['selectorSettings'] = VideoSelectorSettings.build(input[:selector_settings]) unless input[:selector_settings].nil?
         data
       end
     end
@@ -616,8 +618,8 @@ module AWS::SDK::MediaLive
     class VideoSelectorSettings
       def self.build(input)
         data = {}
-        data['videoSelectorPid'] = Builders::VideoSelectorPid.build(input[:video_selector_pid]) unless input[:video_selector_pid].nil?
-        data['videoSelectorProgramId'] = Builders::VideoSelectorProgramId.build(input[:video_selector_program_id]) unless input[:video_selector_program_id].nil?
+        data['videoSelectorPid'] = VideoSelectorPid.build(input[:video_selector_pid]) unless input[:video_selector_pid].nil?
+        data['videoSelectorProgramId'] = VideoSelectorProgramId.build(input[:video_selector_program_id]) unless input[:video_selector_program_id].nil?
         data
       end
     end
@@ -644,7 +646,7 @@ module AWS::SDK::MediaLive
     class VideoSelectorColorSpaceSettings
       def self.build(input)
         data = {}
-        data['hdr10Settings'] = Builders::Hdr10Settings.build(input[:hdr10_settings]) unless input[:hdr10_settings].nil?
+        data['hdr10Settings'] = Hdr10Settings.build(input[:hdr10_settings]) unless input[:hdr10_settings].nil?
         data
       end
     end
@@ -663,7 +665,7 @@ module AWS::SDK::MediaLive
     class NetworkInputSettings
       def self.build(input)
         data = {}
-        data['hlsInputSettings'] = Builders::HlsInputSettings.build(input[:hls_input_settings]) unless input[:hls_input_settings].nil?
+        data['hlsInputSettings'] = HlsInputSettings.build(input[:hls_input_settings]) unless input[:hls_input_settings].nil?
         data['serverValidation'] = input[:server_validation] unless input[:server_validation].nil?
         data
       end
@@ -687,7 +689,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CaptionSelector.build(element) unless element.nil?
+          data << CaptionSelector.build(element) unless element.nil?
         end
         data
       end
@@ -699,7 +701,7 @@ module AWS::SDK::MediaLive
         data = {}
         data['languageCode'] = input[:language_code] unless input[:language_code].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['selectorSettings'] = Builders::CaptionSelectorSettings.build(input[:selector_settings]) unless input[:selector_settings].nil?
+        data['selectorSettings'] = CaptionSelectorSettings.build(input[:selector_settings]) unless input[:selector_settings].nil?
         data
       end
     end
@@ -708,13 +710,13 @@ module AWS::SDK::MediaLive
     class CaptionSelectorSettings
       def self.build(input)
         data = {}
-        data['ancillarySourceSettings'] = Builders::AncillarySourceSettings.build(input[:ancillary_source_settings]) unless input[:ancillary_source_settings].nil?
-        data['aribSourceSettings'] = Builders::AribSourceSettings.build(input[:arib_source_settings]) unless input[:arib_source_settings].nil?
-        data['dvbSubSourceSettings'] = Builders::DvbSubSourceSettings.build(input[:dvb_sub_source_settings]) unless input[:dvb_sub_source_settings].nil?
-        data['embeddedSourceSettings'] = Builders::EmbeddedSourceSettings.build(input[:embedded_source_settings]) unless input[:embedded_source_settings].nil?
-        data['scte20SourceSettings'] = Builders::Scte20SourceSettings.build(input[:scte20_source_settings]) unless input[:scte20_source_settings].nil?
-        data['scte27SourceSettings'] = Builders::Scte27SourceSettings.build(input[:scte27_source_settings]) unless input[:scte27_source_settings].nil?
-        data['teletextSourceSettings'] = Builders::TeletextSourceSettings.build(input[:teletext_source_settings]) unless input[:teletext_source_settings].nil?
+        data['ancillarySourceSettings'] = AncillarySourceSettings.build(input[:ancillary_source_settings]) unless input[:ancillary_source_settings].nil?
+        data['aribSourceSettings'] = AribSourceSettings.build(input[:arib_source_settings]) unless input[:arib_source_settings].nil?
+        data['dvbSubSourceSettings'] = DvbSubSourceSettings.build(input[:dvb_sub_source_settings]) unless input[:dvb_sub_source_settings].nil?
+        data['embeddedSourceSettings'] = EmbeddedSourceSettings.build(input[:embedded_source_settings]) unless input[:embedded_source_settings].nil?
+        data['scte20SourceSettings'] = Scte20SourceSettings.build(input[:scte20_source_settings]) unless input[:scte20_source_settings].nil?
+        data['scte27SourceSettings'] = Scte27SourceSettings.build(input[:scte27_source_settings]) unless input[:scte27_source_settings].nil?
+        data['teletextSourceSettings'] = TeletextSourceSettings.build(input[:teletext_source_settings]) unless input[:teletext_source_settings].nil?
         data
       end
     end
@@ -723,7 +725,7 @@ module AWS::SDK::MediaLive
     class TeletextSourceSettings
       def self.build(input)
         data = {}
-        data['outputRectangle'] = Builders::CaptionRectangle.build(input[:output_rectangle]) unless input[:output_rectangle].nil?
+        data['outputRectangle'] = CaptionRectangle.build(input[:output_rectangle]) unless input[:output_rectangle].nil?
         data['pageNumber'] = input[:page_number] unless input[:page_number].nil?
         data
       end
@@ -805,7 +807,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AudioSelector.build(element) unless element.nil?
+          data << AudioSelector.build(element) unless element.nil?
         end
         data
       end
@@ -816,7 +818,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['selectorSettings'] = Builders::AudioSelectorSettings.build(input[:selector_settings]) unless input[:selector_settings].nil?
+        data['selectorSettings'] = AudioSelectorSettings.build(input[:selector_settings]) unless input[:selector_settings].nil?
         data
       end
     end
@@ -825,10 +827,10 @@ module AWS::SDK::MediaLive
     class AudioSelectorSettings
       def self.build(input)
         data = {}
-        data['audioHlsRenditionSelection'] = Builders::AudioHlsRenditionSelection.build(input[:audio_hls_rendition_selection]) unless input[:audio_hls_rendition_selection].nil?
-        data['audioLanguageSelection'] = Builders::AudioLanguageSelection.build(input[:audio_language_selection]) unless input[:audio_language_selection].nil?
-        data['audioPidSelection'] = Builders::AudioPidSelection.build(input[:audio_pid_selection]) unless input[:audio_pid_selection].nil?
-        data['audioTrackSelection'] = Builders::AudioTrackSelection.build(input[:audio_track_selection]) unless input[:audio_track_selection].nil?
+        data['audioHlsRenditionSelection'] = AudioHlsRenditionSelection.build(input[:audio_hls_rendition_selection]) unless input[:audio_hls_rendition_selection].nil?
+        data['audioLanguageSelection'] = AudioLanguageSelection.build(input[:audio_language_selection]) unless input[:audio_language_selection].nil?
+        data['audioPidSelection'] = AudioPidSelection.build(input[:audio_pid_selection]) unless input[:audio_pid_selection].nil?
+        data['audioTrackSelection'] = AudioTrackSelection.build(input[:audio_track_selection]) unless input[:audio_track_selection].nil?
         data
       end
     end
@@ -837,7 +839,7 @@ module AWS::SDK::MediaLive
     class AudioTrackSelection
       def self.build(input)
         data = {}
-        data['tracks'] = Builders::List____listOfAudioTrack.build(input[:tracks]) unless input[:tracks].nil?
+        data['tracks'] = List____listOfAudioTrack.build(input[:tracks]) unless input[:tracks].nil?
         data
       end
     end
@@ -847,7 +849,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AudioTrack.build(element) unless element.nil?
+          data << AudioTrack.build(element) unless element.nil?
         end
         data
       end
@@ -896,7 +898,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = {}
         data['errorClearTimeMsec'] = input[:error_clear_time_msec] unless input[:error_clear_time_msec].nil?
-        data['failoverConditions'] = Builders::List____listOfFailoverCondition.build(input[:failover_conditions]) unless input[:failover_conditions].nil?
+        data['failoverConditions'] = List____listOfFailoverCondition.build(input[:failover_conditions]) unless input[:failover_conditions].nil?
         data['inputPreference'] = input[:input_preference] unless input[:input_preference].nil?
         data['secondaryInputId'] = input[:secondary_input_id] unless input[:secondary_input_id].nil?
         data
@@ -908,7 +910,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FailoverCondition.build(element) unless element.nil?
+          data << FailoverCondition.build(element) unless element.nil?
         end
         data
       end
@@ -918,7 +920,7 @@ module AWS::SDK::MediaLive
     class FailoverCondition
       def self.build(input)
         data = {}
-        data['failoverConditionSettings'] = Builders::FailoverConditionSettings.build(input[:failover_condition_settings]) unless input[:failover_condition_settings].nil?
+        data['failoverConditionSettings'] = FailoverConditionSettings.build(input[:failover_condition_settings]) unless input[:failover_condition_settings].nil?
         data
       end
     end
@@ -927,9 +929,9 @@ module AWS::SDK::MediaLive
     class FailoverConditionSettings
       def self.build(input)
         data = {}
-        data['audioSilenceSettings'] = Builders::AudioSilenceFailoverSettings.build(input[:audio_silence_settings]) unless input[:audio_silence_settings].nil?
-        data['inputLossSettings'] = Builders::InputLossFailoverSettings.build(input[:input_loss_settings]) unless input[:input_loss_settings].nil?
-        data['videoBlackSettings'] = Builders::VideoBlackFailoverSettings.build(input[:video_black_settings]) unless input[:video_black_settings].nil?
+        data['audioSilenceSettings'] = AudioSilenceFailoverSettings.build(input[:audio_silence_settings]) unless input[:audio_silence_settings].nil?
+        data['inputLossSettings'] = InputLossFailoverSettings.build(input[:input_loss_settings]) unless input[:input_loss_settings].nil?
+        data['videoBlackSettings'] = VideoBlackFailoverSettings.build(input[:video_black_settings]) unless input[:video_black_settings].nil?
         data
       end
     end
@@ -967,18 +969,18 @@ module AWS::SDK::MediaLive
     class EncoderSettings
       def self.build(input)
         data = {}
-        data['audioDescriptions'] = Builders::List____listOfAudioDescription.build(input[:audio_descriptions]) unless input[:audio_descriptions].nil?
-        data['availBlanking'] = Builders::AvailBlanking.build(input[:avail_blanking]) unless input[:avail_blanking].nil?
-        data['availConfiguration'] = Builders::AvailConfiguration.build(input[:avail_configuration]) unless input[:avail_configuration].nil?
-        data['blackoutSlate'] = Builders::BlackoutSlate.build(input[:blackout_slate]) unless input[:blackout_slate].nil?
-        data['captionDescriptions'] = Builders::List____listOfCaptionDescription.build(input[:caption_descriptions]) unless input[:caption_descriptions].nil?
-        data['featureActivations'] = Builders::FeatureActivations.build(input[:feature_activations]) unless input[:feature_activations].nil?
-        data['globalConfiguration'] = Builders::GlobalConfiguration.build(input[:global_configuration]) unless input[:global_configuration].nil?
-        data['motionGraphicsConfiguration'] = Builders::MotionGraphicsConfiguration.build(input[:motion_graphics_configuration]) unless input[:motion_graphics_configuration].nil?
-        data['nielsenConfiguration'] = Builders::NielsenConfiguration.build(input[:nielsen_configuration]) unless input[:nielsen_configuration].nil?
-        data['outputGroups'] = Builders::List____listOfOutputGroup.build(input[:output_groups]) unless input[:output_groups].nil?
-        data['timecodeConfig'] = Builders::TimecodeConfig.build(input[:timecode_config]) unless input[:timecode_config].nil?
-        data['videoDescriptions'] = Builders::List____listOfVideoDescription.build(input[:video_descriptions]) unless input[:video_descriptions].nil?
+        data['audioDescriptions'] = List____listOfAudioDescription.build(input[:audio_descriptions]) unless input[:audio_descriptions].nil?
+        data['availBlanking'] = AvailBlanking.build(input[:avail_blanking]) unless input[:avail_blanking].nil?
+        data['availConfiguration'] = AvailConfiguration.build(input[:avail_configuration]) unless input[:avail_configuration].nil?
+        data['blackoutSlate'] = BlackoutSlate.build(input[:blackout_slate]) unless input[:blackout_slate].nil?
+        data['captionDescriptions'] = List____listOfCaptionDescription.build(input[:caption_descriptions]) unless input[:caption_descriptions].nil?
+        data['featureActivations'] = FeatureActivations.build(input[:feature_activations]) unless input[:feature_activations].nil?
+        data['globalConfiguration'] = GlobalConfiguration.build(input[:global_configuration]) unless input[:global_configuration].nil?
+        data['motionGraphicsConfiguration'] = MotionGraphicsConfiguration.build(input[:motion_graphics_configuration]) unless input[:motion_graphics_configuration].nil?
+        data['nielsenConfiguration'] = NielsenConfiguration.build(input[:nielsen_configuration]) unless input[:nielsen_configuration].nil?
+        data['outputGroups'] = List____listOfOutputGroup.build(input[:output_groups]) unless input[:output_groups].nil?
+        data['timecodeConfig'] = TimecodeConfig.build(input[:timecode_config]) unless input[:timecode_config].nil?
+        data['videoDescriptions'] = List____listOfVideoDescription.build(input[:video_descriptions]) unless input[:video_descriptions].nil?
         data
       end
     end
@@ -988,7 +990,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::VideoDescription.build(element) unless element.nil?
+          data << VideoDescription.build(element) unless element.nil?
         end
         data
       end
@@ -998,7 +1000,7 @@ module AWS::SDK::MediaLive
     class VideoDescription
       def self.build(input)
         data = {}
-        data['codecSettings'] = Builders::VideoCodecSettings.build(input[:codec_settings]) unless input[:codec_settings].nil?
+        data['codecSettings'] = VideoCodecSettings.build(input[:codec_settings]) unless input[:codec_settings].nil?
         data['height'] = input[:height] unless input[:height].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['respondToAfd'] = input[:respond_to_afd] unless input[:respond_to_afd].nil?
@@ -1013,10 +1015,10 @@ module AWS::SDK::MediaLive
     class VideoCodecSettings
       def self.build(input)
         data = {}
-        data['frameCaptureSettings'] = Builders::FrameCaptureSettings.build(input[:frame_capture_settings]) unless input[:frame_capture_settings].nil?
-        data['h264Settings'] = Builders::H264Settings.build(input[:h264_settings]) unless input[:h264_settings].nil?
-        data['h265Settings'] = Builders::H265Settings.build(input[:h265_settings]) unless input[:h265_settings].nil?
-        data['mpeg2Settings'] = Builders::Mpeg2Settings.build(input[:mpeg2_settings]) unless input[:mpeg2_settings].nil?
+        data['frameCaptureSettings'] = FrameCaptureSettings.build(input[:frame_capture_settings]) unless input[:frame_capture_settings].nil?
+        data['h264Settings'] = H264Settings.build(input[:h264_settings]) unless input[:h264_settings].nil?
+        data['h265Settings'] = H265Settings.build(input[:h265_settings]) unless input[:h265_settings].nil?
+        data['mpeg2Settings'] = Mpeg2Settings.build(input[:mpeg2_settings]) unless input[:mpeg2_settings].nil?
         data
       end
     end
@@ -1030,7 +1032,7 @@ module AWS::SDK::MediaLive
         data['colorMetadata'] = input[:color_metadata] unless input[:color_metadata].nil?
         data['colorSpace'] = input[:color_space] unless input[:color_space].nil?
         data['displayAspectRatio'] = input[:display_aspect_ratio] unless input[:display_aspect_ratio].nil?
-        data['filterSettings'] = Builders::Mpeg2FilterSettings.build(input[:filter_settings]) unless input[:filter_settings].nil?
+        data['filterSettings'] = Mpeg2FilterSettings.build(input[:filter_settings]) unless input[:filter_settings].nil?
         data['fixedAfd'] = input[:fixed_afd] unless input[:fixed_afd].nil?
         data['framerateDenominator'] = input[:framerate_denominator] unless input[:framerate_denominator].nil?
         data['framerateNumerator'] = input[:framerate_numerator] unless input[:framerate_numerator].nil?
@@ -1049,7 +1051,7 @@ module AWS::SDK::MediaLive
     class Mpeg2FilterSettings
       def self.build(input)
         data = {}
-        data['temporalFilterSettings'] = Builders::TemporalFilterSettings.build(input[:temporal_filter_settings]) unless input[:temporal_filter_settings].nil?
+        data['temporalFilterSettings'] = TemporalFilterSettings.build(input[:temporal_filter_settings]) unless input[:temporal_filter_settings].nil?
         data
       end
     end
@@ -1074,8 +1076,8 @@ module AWS::SDK::MediaLive
         data['bitrate'] = input[:bitrate] unless input[:bitrate].nil?
         data['bufSize'] = input[:buf_size] unless input[:buf_size].nil?
         data['colorMetadata'] = input[:color_metadata] unless input[:color_metadata].nil?
-        data['colorSpaceSettings'] = Builders::H265ColorSpaceSettings.build(input[:color_space_settings]) unless input[:color_space_settings].nil?
-        data['filterSettings'] = Builders::H265FilterSettings.build(input[:filter_settings]) unless input[:filter_settings].nil?
+        data['colorSpaceSettings'] = H265ColorSpaceSettings.build(input[:color_space_settings]) unless input[:color_space_settings].nil?
+        data['filterSettings'] = H265FilterSettings.build(input[:filter_settings]) unless input[:filter_settings].nil?
         data['fixedAfd'] = input[:fixed_afd] unless input[:fixed_afd].nil?
         data['flickerAq'] = input[:flicker_aq] unless input[:flicker_aq].nil?
         data['framerateDenominator'] = input[:framerate_denominator] unless input[:framerate_denominator].nil?
@@ -1105,7 +1107,7 @@ module AWS::SDK::MediaLive
     class H265FilterSettings
       def self.build(input)
         data = {}
-        data['temporalFilterSettings'] = Builders::TemporalFilterSettings.build(input[:temporal_filter_settings]) unless input[:temporal_filter_settings].nil?
+        data['temporalFilterSettings'] = TemporalFilterSettings.build(input[:temporal_filter_settings]) unless input[:temporal_filter_settings].nil?
         data
       end
     end
@@ -1114,10 +1116,10 @@ module AWS::SDK::MediaLive
     class H265ColorSpaceSettings
       def self.build(input)
         data = {}
-        data['colorSpacePassthroughSettings'] = Builders::ColorSpacePassthroughSettings.build(input[:color_space_passthrough_settings]) unless input[:color_space_passthrough_settings].nil?
-        data['hdr10Settings'] = Builders::Hdr10Settings.build(input[:hdr10_settings]) unless input[:hdr10_settings].nil?
-        data['rec601Settings'] = Builders::Rec601Settings.build(input[:rec601_settings]) unless input[:rec601_settings].nil?
-        data['rec709Settings'] = Builders::Rec709Settings.build(input[:rec709_settings]) unless input[:rec709_settings].nil?
+        data['colorSpacePassthroughSettings'] = ColorSpacePassthroughSettings.build(input[:color_space_passthrough_settings]) unless input[:color_space_passthrough_settings].nil?
+        data['hdr10Settings'] = Hdr10Settings.build(input[:hdr10_settings]) unless input[:hdr10_settings].nil?
+        data['rec601Settings'] = Rec601Settings.build(input[:rec601_settings]) unless input[:rec601_settings].nil?
+        data['rec709Settings'] = Rec709Settings.build(input[:rec709_settings]) unless input[:rec709_settings].nil?
         data
       end
     end
@@ -1156,9 +1158,9 @@ module AWS::SDK::MediaLive
         data['bufFillPct'] = input[:buf_fill_pct] unless input[:buf_fill_pct].nil?
         data['bufSize'] = input[:buf_size] unless input[:buf_size].nil?
         data['colorMetadata'] = input[:color_metadata] unless input[:color_metadata].nil?
-        data['colorSpaceSettings'] = Builders::H264ColorSpaceSettings.build(input[:color_space_settings]) unless input[:color_space_settings].nil?
+        data['colorSpaceSettings'] = H264ColorSpaceSettings.build(input[:color_space_settings]) unless input[:color_space_settings].nil?
         data['entropyEncoding'] = input[:entropy_encoding] unless input[:entropy_encoding].nil?
-        data['filterSettings'] = Builders::H264FilterSettings.build(input[:filter_settings]) unless input[:filter_settings].nil?
+        data['filterSettings'] = H264FilterSettings.build(input[:filter_settings]) unless input[:filter_settings].nil?
         data['fixedAfd'] = input[:fixed_afd] unless input[:fixed_afd].nil?
         data['flickerAq'] = input[:flicker_aq] unless input[:flicker_aq].nil?
         data['forceFieldPictures'] = input[:force_field_pictures] unless input[:force_field_pictures].nil?
@@ -1199,7 +1201,7 @@ module AWS::SDK::MediaLive
     class H264FilterSettings
       def self.build(input)
         data = {}
-        data['temporalFilterSettings'] = Builders::TemporalFilterSettings.build(input[:temporal_filter_settings]) unless input[:temporal_filter_settings].nil?
+        data['temporalFilterSettings'] = TemporalFilterSettings.build(input[:temporal_filter_settings]) unless input[:temporal_filter_settings].nil?
         data
       end
     end
@@ -1208,9 +1210,9 @@ module AWS::SDK::MediaLive
     class H264ColorSpaceSettings
       def self.build(input)
         data = {}
-        data['colorSpacePassthroughSettings'] = Builders::ColorSpacePassthroughSettings.build(input[:color_space_passthrough_settings]) unless input[:color_space_passthrough_settings].nil?
-        data['rec601Settings'] = Builders::Rec601Settings.build(input[:rec601_settings]) unless input[:rec601_settings].nil?
-        data['rec709Settings'] = Builders::Rec709Settings.build(input[:rec709_settings]) unless input[:rec709_settings].nil?
+        data['colorSpacePassthroughSettings'] = ColorSpacePassthroughSettings.build(input[:color_space_passthrough_settings]) unless input[:color_space_passthrough_settings].nil?
+        data['rec601Settings'] = Rec601Settings.build(input[:rec601_settings]) unless input[:rec601_settings].nil?
+        data['rec709Settings'] = Rec709Settings.build(input[:rec709_settings]) unless input[:rec709_settings].nil?
         data
       end
     end
@@ -1240,7 +1242,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::OutputGroup.build(element) unless element.nil?
+          data << OutputGroup.build(element) unless element.nil?
         end
         data
       end
@@ -1251,8 +1253,8 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['outputGroupSettings'] = Builders::OutputGroupSettings.build(input[:output_group_settings]) unless input[:output_group_settings].nil?
-        data['outputs'] = Builders::List____listOfOutput.build(input[:outputs]) unless input[:outputs].nil?
+        data['outputGroupSettings'] = OutputGroupSettings.build(input[:output_group_settings]) unless input[:output_group_settings].nil?
+        data['outputs'] = List____listOfOutput.build(input[:outputs]) unless input[:outputs].nil?
         data
       end
     end
@@ -1262,7 +1264,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Output.build(element) unless element.nil?
+          data << Output.build(element) unless element.nil?
         end
         data
       end
@@ -1272,10 +1274,10 @@ module AWS::SDK::MediaLive
     class Output
       def self.build(input)
         data = {}
-        data['audioDescriptionNames'] = Builders::List____listOf__string.build(input[:audio_description_names]) unless input[:audio_description_names].nil?
-        data['captionDescriptionNames'] = Builders::List____listOf__string.build(input[:caption_description_names]) unless input[:caption_description_names].nil?
+        data['audioDescriptionNames'] = List____listOf__string.build(input[:audio_description_names]) unless input[:audio_description_names].nil?
+        data['captionDescriptionNames'] = List____listOf__string.build(input[:caption_description_names]) unless input[:caption_description_names].nil?
         data['outputName'] = input[:output_name] unless input[:output_name].nil?
-        data['outputSettings'] = Builders::OutputSettings.build(input[:output_settings]) unless input[:output_settings].nil?
+        data['outputSettings'] = OutputSettings.build(input[:output_settings]) unless input[:output_settings].nil?
         data['videoDescriptionName'] = input[:video_description_name] unless input[:video_description_name].nil?
         data
       end
@@ -1285,14 +1287,14 @@ module AWS::SDK::MediaLive
     class OutputSettings
       def self.build(input)
         data = {}
-        data['archiveOutputSettings'] = Builders::ArchiveOutputSettings.build(input[:archive_output_settings]) unless input[:archive_output_settings].nil?
-        data['frameCaptureOutputSettings'] = Builders::FrameCaptureOutputSettings.build(input[:frame_capture_output_settings]) unless input[:frame_capture_output_settings].nil?
-        data['hlsOutputSettings'] = Builders::HlsOutputSettings.build(input[:hls_output_settings]) unless input[:hls_output_settings].nil?
-        data['mediaPackageOutputSettings'] = Builders::MediaPackageOutputSettings.build(input[:media_package_output_settings]) unless input[:media_package_output_settings].nil?
-        data['msSmoothOutputSettings'] = Builders::MsSmoothOutputSettings.build(input[:ms_smooth_output_settings]) unless input[:ms_smooth_output_settings].nil?
-        data['multiplexOutputSettings'] = Builders::MultiplexOutputSettings.build(input[:multiplex_output_settings]) unless input[:multiplex_output_settings].nil?
-        data['rtmpOutputSettings'] = Builders::RtmpOutputSettings.build(input[:rtmp_output_settings]) unless input[:rtmp_output_settings].nil?
-        data['udpOutputSettings'] = Builders::UdpOutputSettings.build(input[:udp_output_settings]) unless input[:udp_output_settings].nil?
+        data['archiveOutputSettings'] = ArchiveOutputSettings.build(input[:archive_output_settings]) unless input[:archive_output_settings].nil?
+        data['frameCaptureOutputSettings'] = FrameCaptureOutputSettings.build(input[:frame_capture_output_settings]) unless input[:frame_capture_output_settings].nil?
+        data['hlsOutputSettings'] = HlsOutputSettings.build(input[:hls_output_settings]) unless input[:hls_output_settings].nil?
+        data['mediaPackageOutputSettings'] = MediaPackageOutputSettings.build(input[:media_package_output_settings]) unless input[:media_package_output_settings].nil?
+        data['msSmoothOutputSettings'] = MsSmoothOutputSettings.build(input[:ms_smooth_output_settings]) unless input[:ms_smooth_output_settings].nil?
+        data['multiplexOutputSettings'] = MultiplexOutputSettings.build(input[:multiplex_output_settings]) unless input[:multiplex_output_settings].nil?
+        data['rtmpOutputSettings'] = RtmpOutputSettings.build(input[:rtmp_output_settings]) unless input[:rtmp_output_settings].nil?
+        data['udpOutputSettings'] = UdpOutputSettings.build(input[:udp_output_settings]) unless input[:udp_output_settings].nil?
         data
       end
     end
@@ -1302,9 +1304,9 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = {}
         data['bufferMsec'] = input[:buffer_msec] unless input[:buffer_msec].nil?
-        data['containerSettings'] = Builders::UdpContainerSettings.build(input[:container_settings]) unless input[:container_settings].nil?
-        data['destination'] = Builders::OutputLocationRef.build(input[:destination]) unless input[:destination].nil?
-        data['fecOutputSettings'] = Builders::FecOutputSettings.build(input[:fec_output_settings]) unless input[:fec_output_settings].nil?
+        data['containerSettings'] = UdpContainerSettings.build(input[:container_settings]) unless input[:container_settings].nil?
+        data['destination'] = OutputLocationRef.build(input[:destination]) unless input[:destination].nil?
+        data['fecOutputSettings'] = FecOutputSettings.build(input[:fec_output_settings]) unless input[:fec_output_settings].nil?
         data
       end
     end
@@ -1333,7 +1335,7 @@ module AWS::SDK::MediaLive
     class UdpContainerSettings
       def self.build(input)
         data = {}
-        data['m2tsSettings'] = Builders::M2tsSettings.build(input[:m2ts_settings]) unless input[:m2ts_settings].nil?
+        data['m2tsSettings'] = M2tsSettings.build(input[:m2ts_settings]) unless input[:m2ts_settings].nil?
         data
       end
     end
@@ -1353,10 +1355,10 @@ module AWS::SDK::MediaLive
         data['bitrate'] = input[:bitrate] unless input[:bitrate].nil?
         data['bufferModel'] = input[:buffer_model] unless input[:buffer_model].nil?
         data['ccDescriptor'] = input[:cc_descriptor] unless input[:cc_descriptor].nil?
-        data['dvbNitSettings'] = Builders::DvbNitSettings.build(input[:dvb_nit_settings]) unless input[:dvb_nit_settings].nil?
-        data['dvbSdtSettings'] = Builders::DvbSdtSettings.build(input[:dvb_sdt_settings]) unless input[:dvb_sdt_settings].nil?
+        data['dvbNitSettings'] = DvbNitSettings.build(input[:dvb_nit_settings]) unless input[:dvb_nit_settings].nil?
+        data['dvbSdtSettings'] = DvbSdtSettings.build(input[:dvb_sdt_settings]) unless input[:dvb_sdt_settings].nil?
         data['dvbSubPids'] = input[:dvb_sub_pids] unless input[:dvb_sub_pids].nil?
-        data['dvbTdtSettings'] = Builders::DvbTdtSettings.build(input[:dvb_tdt_settings]) unless input[:dvb_tdt_settings].nil?
+        data['dvbTdtSettings'] = DvbTdtSettings.build(input[:dvb_tdt_settings]) unless input[:dvb_tdt_settings].nil?
         data['dvbTeletextPid'] = input[:dvb_teletext_pid] unless input[:dvb_teletext_pid].nil?
         data['ebif'] = input[:ebif] unless input[:ebif].nil?
         data['ebpAudioInterval'] = input[:ebp_audio_interval] unless input[:ebp_audio_interval].nil?
@@ -1431,7 +1433,7 @@ module AWS::SDK::MediaLive
         data = {}
         data['certificateMode'] = input[:certificate_mode] unless input[:certificate_mode].nil?
         data['connectionRetryInterval'] = input[:connection_retry_interval] unless input[:connection_retry_interval].nil?
-        data['destination'] = Builders::OutputLocationRef.build(input[:destination]) unless input[:destination].nil?
+        data['destination'] = OutputLocationRef.build(input[:destination]) unless input[:destination].nil?
         data['numRetries'] = input[:num_retries] unless input[:num_retries].nil?
         data
       end
@@ -1441,7 +1443,7 @@ module AWS::SDK::MediaLive
     class MultiplexOutputSettings
       def self.build(input)
         data = {}
-        data['destination'] = Builders::OutputLocationRef.build(input[:destination]) unless input[:destination].nil?
+        data['destination'] = OutputLocationRef.build(input[:destination]) unless input[:destination].nil?
         data
       end
     end
@@ -1469,7 +1471,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = {}
         data['h265PackagingType'] = input[:h265_packaging_type] unless input[:h265_packaging_type].nil?
-        data['hlsSettings'] = Builders::HlsSettings.build(input[:hls_settings]) unless input[:hls_settings].nil?
+        data['hlsSettings'] = HlsSettings.build(input[:hls_settings]) unless input[:hls_settings].nil?
         data['nameModifier'] = input[:name_modifier] unless input[:name_modifier].nil?
         data['segmentModifier'] = input[:segment_modifier] unless input[:segment_modifier].nil?
         data
@@ -1480,10 +1482,10 @@ module AWS::SDK::MediaLive
     class HlsSettings
       def self.build(input)
         data = {}
-        data['audioOnlyHlsSettings'] = Builders::AudioOnlyHlsSettings.build(input[:audio_only_hls_settings]) unless input[:audio_only_hls_settings].nil?
-        data['fmp4HlsSettings'] = Builders::Fmp4HlsSettings.build(input[:fmp4_hls_settings]) unless input[:fmp4_hls_settings].nil?
-        data['frameCaptureHlsSettings'] = Builders::FrameCaptureHlsSettings.build(input[:frame_capture_hls_settings]) unless input[:frame_capture_hls_settings].nil?
-        data['standardHlsSettings'] = Builders::StandardHlsSettings.build(input[:standard_hls_settings]) unless input[:standard_hls_settings].nil?
+        data['audioOnlyHlsSettings'] = AudioOnlyHlsSettings.build(input[:audio_only_hls_settings]) unless input[:audio_only_hls_settings].nil?
+        data['fmp4HlsSettings'] = Fmp4HlsSettings.build(input[:fmp4_hls_settings]) unless input[:fmp4_hls_settings].nil?
+        data['frameCaptureHlsSettings'] = FrameCaptureHlsSettings.build(input[:frame_capture_hls_settings]) unless input[:frame_capture_hls_settings].nil?
+        data['standardHlsSettings'] = StandardHlsSettings.build(input[:standard_hls_settings]) unless input[:standard_hls_settings].nil?
         data
       end
     end
@@ -1493,7 +1495,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = {}
         data['audioRenditionSets'] = input[:audio_rendition_sets] unless input[:audio_rendition_sets].nil?
-        data['m3u8Settings'] = Builders::M3u8Settings.build(input[:m3u8_settings]) unless input[:m3u8_settings].nil?
+        data['m3u8Settings'] = M3u8Settings.build(input[:m3u8_settings]) unless input[:m3u8_settings].nil?
         data
       end
     end
@@ -1547,7 +1549,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = {}
         data['audioGroupId'] = input[:audio_group_id] unless input[:audio_group_id].nil?
-        data['audioOnlyImage'] = Builders::InputLocation.build(input[:audio_only_image]) unless input[:audio_only_image].nil?
+        data['audioOnlyImage'] = InputLocation.build(input[:audio_only_image]) unless input[:audio_only_image].nil?
         data['audioTrackType'] = input[:audio_track_type] unless input[:audio_track_type].nil?
         data['segmentType'] = input[:segment_type] unless input[:segment_type].nil?
         data
@@ -1567,7 +1569,7 @@ module AWS::SDK::MediaLive
     class ArchiveOutputSettings
       def self.build(input)
         data = {}
-        data['containerSettings'] = Builders::ArchiveContainerSettings.build(input[:container_settings]) unless input[:container_settings].nil?
+        data['containerSettings'] = ArchiveContainerSettings.build(input[:container_settings]) unless input[:container_settings].nil?
         data['extension'] = input[:extension] unless input[:extension].nil?
         data['nameModifier'] = input[:name_modifier] unless input[:name_modifier].nil?
         data
@@ -1578,8 +1580,8 @@ module AWS::SDK::MediaLive
     class ArchiveContainerSettings
       def self.build(input)
         data = {}
-        data['m2tsSettings'] = Builders::M2tsSettings.build(input[:m2ts_settings]) unless input[:m2ts_settings].nil?
-        data['rawSettings'] = Builders::RawSettings.build(input[:raw_settings]) unless input[:raw_settings].nil?
+        data['m2tsSettings'] = M2tsSettings.build(input[:m2ts_settings]) unless input[:m2ts_settings].nil?
+        data['rawSettings'] = RawSettings.build(input[:raw_settings]) unless input[:raw_settings].nil?
         data
       end
     end
@@ -1596,14 +1598,14 @@ module AWS::SDK::MediaLive
     class OutputGroupSettings
       def self.build(input)
         data = {}
-        data['archiveGroupSettings'] = Builders::ArchiveGroupSettings.build(input[:archive_group_settings]) unless input[:archive_group_settings].nil?
-        data['frameCaptureGroupSettings'] = Builders::FrameCaptureGroupSettings.build(input[:frame_capture_group_settings]) unless input[:frame_capture_group_settings].nil?
-        data['hlsGroupSettings'] = Builders::HlsGroupSettings.build(input[:hls_group_settings]) unless input[:hls_group_settings].nil?
-        data['mediaPackageGroupSettings'] = Builders::MediaPackageGroupSettings.build(input[:media_package_group_settings]) unless input[:media_package_group_settings].nil?
-        data['msSmoothGroupSettings'] = Builders::MsSmoothGroupSettings.build(input[:ms_smooth_group_settings]) unless input[:ms_smooth_group_settings].nil?
-        data['multiplexGroupSettings'] = Builders::MultiplexGroupSettings.build(input[:multiplex_group_settings]) unless input[:multiplex_group_settings].nil?
-        data['rtmpGroupSettings'] = Builders::RtmpGroupSettings.build(input[:rtmp_group_settings]) unless input[:rtmp_group_settings].nil?
-        data['udpGroupSettings'] = Builders::UdpGroupSettings.build(input[:udp_group_settings]) unless input[:udp_group_settings].nil?
+        data['archiveGroupSettings'] = ArchiveGroupSettings.build(input[:archive_group_settings]) unless input[:archive_group_settings].nil?
+        data['frameCaptureGroupSettings'] = FrameCaptureGroupSettings.build(input[:frame_capture_group_settings]) unless input[:frame_capture_group_settings].nil?
+        data['hlsGroupSettings'] = HlsGroupSettings.build(input[:hls_group_settings]) unless input[:hls_group_settings].nil?
+        data['mediaPackageGroupSettings'] = MediaPackageGroupSettings.build(input[:media_package_group_settings]) unless input[:media_package_group_settings].nil?
+        data['msSmoothGroupSettings'] = MsSmoothGroupSettings.build(input[:ms_smooth_group_settings]) unless input[:ms_smooth_group_settings].nil?
+        data['multiplexGroupSettings'] = MultiplexGroupSettings.build(input[:multiplex_group_settings]) unless input[:multiplex_group_settings].nil?
+        data['rtmpGroupSettings'] = RtmpGroupSettings.build(input[:rtmp_group_settings]) unless input[:rtmp_group_settings].nil?
+        data['udpGroupSettings'] = UdpGroupSettings.build(input[:udp_group_settings]) unless input[:udp_group_settings].nil?
         data
       end
     end
@@ -1623,7 +1625,7 @@ module AWS::SDK::MediaLive
     class RtmpGroupSettings
       def self.build(input)
         data = {}
-        data['adMarkers'] = Builders::List____listOfRtmpAdMarkers.build(input[:ad_markers]) unless input[:ad_markers].nil?
+        data['adMarkers'] = List____listOfRtmpAdMarkers.build(input[:ad_markers]) unless input[:ad_markers].nil?
         data['authenticationScheme'] = input[:authentication_scheme] unless input[:authentication_scheme].nil?
         data['cacheFullBehavior'] = input[:cache_full_behavior] unless input[:cache_full_behavior].nil?
         data['cacheLength'] = input[:cache_length] unless input[:cache_length].nil?
@@ -1661,7 +1663,7 @@ module AWS::SDK::MediaLive
         data['audioOnlyTimecodeControl'] = input[:audio_only_timecode_control] unless input[:audio_only_timecode_control].nil?
         data['certificateMode'] = input[:certificate_mode] unless input[:certificate_mode].nil?
         data['connectionRetryInterval'] = input[:connection_retry_interval] unless input[:connection_retry_interval].nil?
-        data['destination'] = Builders::OutputLocationRef.build(input[:destination]) unless input[:destination].nil?
+        data['destination'] = OutputLocationRef.build(input[:destination]) unless input[:destination].nil?
         data['eventId'] = input[:event_id] unless input[:event_id].nil?
         data['eventIdMode'] = input[:event_id_mode] unless input[:event_id_mode].nil?
         data['eventStopBehavior'] = input[:event_stop_behavior] unless input[:event_stop_behavior].nil?
@@ -1684,7 +1686,7 @@ module AWS::SDK::MediaLive
     class MediaPackageGroupSettings
       def self.build(input)
         data = {}
-        data['destination'] = Builders::OutputLocationRef.build(input[:destination]) unless input[:destination].nil?
+        data['destination'] = OutputLocationRef.build(input[:destination]) unless input[:destination].nil?
         data
       end
     end
@@ -1693,21 +1695,21 @@ module AWS::SDK::MediaLive
     class HlsGroupSettings
       def self.build(input)
         data = {}
-        data['adMarkers'] = Builders::List____listOfHlsAdMarkers.build(input[:ad_markers]) unless input[:ad_markers].nil?
+        data['adMarkers'] = List____listOfHlsAdMarkers.build(input[:ad_markers]) unless input[:ad_markers].nil?
         data['baseUrlContent'] = input[:base_url_content] unless input[:base_url_content].nil?
         data['baseUrlContent1'] = input[:base_url_content1] unless input[:base_url_content1].nil?
         data['baseUrlManifest'] = input[:base_url_manifest] unless input[:base_url_manifest].nil?
         data['baseUrlManifest1'] = input[:base_url_manifest1] unless input[:base_url_manifest1].nil?
-        data['captionLanguageMappings'] = Builders::List____listOfCaptionLanguageMapping.build(input[:caption_language_mappings]) unless input[:caption_language_mappings].nil?
+        data['captionLanguageMappings'] = List____listOfCaptionLanguageMapping.build(input[:caption_language_mappings]) unless input[:caption_language_mappings].nil?
         data['captionLanguageSetting'] = input[:caption_language_setting] unless input[:caption_language_setting].nil?
         data['clientCache'] = input[:client_cache] unless input[:client_cache].nil?
         data['codecSpecification'] = input[:codec_specification] unless input[:codec_specification].nil?
         data['constantIv'] = input[:constant_iv] unless input[:constant_iv].nil?
-        data['destination'] = Builders::OutputLocationRef.build(input[:destination]) unless input[:destination].nil?
+        data['destination'] = OutputLocationRef.build(input[:destination]) unless input[:destination].nil?
         data['directoryStructure'] = input[:directory_structure] unless input[:directory_structure].nil?
         data['discontinuityTags'] = input[:discontinuity_tags] unless input[:discontinuity_tags].nil?
         data['encryptionType'] = input[:encryption_type] unless input[:encryption_type].nil?
-        data['hlsCdnSettings'] = Builders::HlsCdnSettings.build(input[:hls_cdn_settings]) unless input[:hls_cdn_settings].nil?
+        data['hlsCdnSettings'] = HlsCdnSettings.build(input[:hls_cdn_settings]) unless input[:hls_cdn_settings].nil?
         data['hlsId3SegmentTagging'] = input[:hls_id3_segment_tagging] unless input[:hls_id3_segment_tagging].nil?
         data['iFrameOnlyPlaylists'] = input[:i_frame_only_playlists] unless input[:i_frame_only_playlists].nil?
         data['incompleteSegmentBehavior'] = input[:incomplete_segment_behavior] unless input[:incomplete_segment_behavior].nil?
@@ -1718,7 +1720,7 @@ module AWS::SDK::MediaLive
         data['keepSegments'] = input[:keep_segments] unless input[:keep_segments].nil?
         data['keyFormat'] = input[:key_format] unless input[:key_format].nil?
         data['keyFormatVersions'] = input[:key_format_versions] unless input[:key_format_versions].nil?
-        data['keyProviderSettings'] = Builders::KeyProviderSettings.build(input[:key_provider_settings]) unless input[:key_provider_settings].nil?
+        data['keyProviderSettings'] = KeyProviderSettings.build(input[:key_provider_settings]) unless input[:key_provider_settings].nil?
         data['manifestCompression'] = input[:manifest_compression] unless input[:manifest_compression].nil?
         data['manifestDurationFormat'] = input[:manifest_duration_format] unless input[:manifest_duration_format].nil?
         data['minSegmentLength'] = input[:min_segment_length] unless input[:min_segment_length].nil?
@@ -1744,7 +1746,7 @@ module AWS::SDK::MediaLive
     class KeyProviderSettings
       def self.build(input)
         data = {}
-        data['staticKeySettings'] = Builders::StaticKeySettings.build(input[:static_key_settings]) unless input[:static_key_settings].nil?
+        data['staticKeySettings'] = StaticKeySettings.build(input[:static_key_settings]) unless input[:static_key_settings].nil?
         data
       end
     end
@@ -1753,7 +1755,7 @@ module AWS::SDK::MediaLive
     class StaticKeySettings
       def self.build(input)
         data = {}
-        data['keyProviderServer'] = Builders::InputLocation.build(input[:key_provider_server]) unless input[:key_provider_server].nil?
+        data['keyProviderServer'] = InputLocation.build(input[:key_provider_server]) unless input[:key_provider_server].nil?
         data['staticKeyValue'] = input[:static_key_value] unless input[:static_key_value].nil?
         data
       end
@@ -1763,11 +1765,11 @@ module AWS::SDK::MediaLive
     class HlsCdnSettings
       def self.build(input)
         data = {}
-        data['hlsAkamaiSettings'] = Builders::HlsAkamaiSettings.build(input[:hls_akamai_settings]) unless input[:hls_akamai_settings].nil?
-        data['hlsBasicPutSettings'] = Builders::HlsBasicPutSettings.build(input[:hls_basic_put_settings]) unless input[:hls_basic_put_settings].nil?
-        data['hlsMediaStoreSettings'] = Builders::HlsMediaStoreSettings.build(input[:hls_media_store_settings]) unless input[:hls_media_store_settings].nil?
-        data['hlsS3Settings'] = Builders::HlsS3Settings.build(input[:hls_s3_settings]) unless input[:hls_s3_settings].nil?
-        data['hlsWebdavSettings'] = Builders::HlsWebdavSettings.build(input[:hls_webdav_settings]) unless input[:hls_webdav_settings].nil?
+        data['hlsAkamaiSettings'] = HlsAkamaiSettings.build(input[:hls_akamai_settings]) unless input[:hls_akamai_settings].nil?
+        data['hlsBasicPutSettings'] = HlsBasicPutSettings.build(input[:hls_basic_put_settings]) unless input[:hls_basic_put_settings].nil?
+        data['hlsMediaStoreSettings'] = HlsMediaStoreSettings.build(input[:hls_media_store_settings]) unless input[:hls_media_store_settings].nil?
+        data['hlsS3Settings'] = HlsS3Settings.build(input[:hls_s3_settings]) unless input[:hls_s3_settings].nil?
+        data['hlsWebdavSettings'] = HlsWebdavSettings.build(input[:hls_webdav_settings]) unless input[:hls_webdav_settings].nil?
         data
       end
     end
@@ -1839,7 +1841,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CaptionLanguageMapping.build(element) unless element.nil?
+          data << CaptionLanguageMapping.build(element) unless element.nil?
         end
         data
       end
@@ -1871,8 +1873,8 @@ module AWS::SDK::MediaLive
     class FrameCaptureGroupSettings
       def self.build(input)
         data = {}
-        data['destination'] = Builders::OutputLocationRef.build(input[:destination]) unless input[:destination].nil?
-        data['frameCaptureCdnSettings'] = Builders::FrameCaptureCdnSettings.build(input[:frame_capture_cdn_settings]) unless input[:frame_capture_cdn_settings].nil?
+        data['destination'] = OutputLocationRef.build(input[:destination]) unless input[:destination].nil?
+        data['frameCaptureCdnSettings'] = FrameCaptureCdnSettings.build(input[:frame_capture_cdn_settings]) unless input[:frame_capture_cdn_settings].nil?
         data
       end
     end
@@ -1881,7 +1883,7 @@ module AWS::SDK::MediaLive
     class FrameCaptureCdnSettings
       def self.build(input)
         data = {}
-        data['frameCaptureS3Settings'] = Builders::FrameCaptureS3Settings.build(input[:frame_capture_s3_settings]) unless input[:frame_capture_s3_settings].nil?
+        data['frameCaptureS3Settings'] = FrameCaptureS3Settings.build(input[:frame_capture_s3_settings]) unless input[:frame_capture_s3_settings].nil?
         data
       end
     end
@@ -1899,8 +1901,8 @@ module AWS::SDK::MediaLive
     class ArchiveGroupSettings
       def self.build(input)
         data = {}
-        data['archiveCdnSettings'] = Builders::ArchiveCdnSettings.build(input[:archive_cdn_settings]) unless input[:archive_cdn_settings].nil?
-        data['destination'] = Builders::OutputLocationRef.build(input[:destination]) unless input[:destination].nil?
+        data['archiveCdnSettings'] = ArchiveCdnSettings.build(input[:archive_cdn_settings]) unless input[:archive_cdn_settings].nil?
+        data['destination'] = OutputLocationRef.build(input[:destination]) unless input[:destination].nil?
         data['rolloverInterval'] = input[:rollover_interval] unless input[:rollover_interval].nil?
         data
       end
@@ -1910,7 +1912,7 @@ module AWS::SDK::MediaLive
     class ArchiveCdnSettings
       def self.build(input)
         data = {}
-        data['archiveS3Settings'] = Builders::ArchiveS3Settings.build(input[:archive_s3_settings]) unless input[:archive_s3_settings].nil?
+        data['archiveS3Settings'] = ArchiveS3Settings.build(input[:archive_s3_settings]) unless input[:archive_s3_settings].nil?
         data
       end
     end
@@ -1939,7 +1941,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = {}
         data['motionGraphicsInsertion'] = input[:motion_graphics_insertion] unless input[:motion_graphics_insertion].nil?
-        data['motionGraphicsSettings'] = Builders::MotionGraphicsSettings.build(input[:motion_graphics_settings]) unless input[:motion_graphics_settings].nil?
+        data['motionGraphicsSettings'] = MotionGraphicsSettings.build(input[:motion_graphics_settings]) unless input[:motion_graphics_settings].nil?
         data
       end
     end
@@ -1948,7 +1950,7 @@ module AWS::SDK::MediaLive
     class MotionGraphicsSettings
       def self.build(input)
         data = {}
-        data['htmlMotionGraphicsSettings'] = Builders::HtmlMotionGraphicsSettings.build(input[:html_motion_graphics_settings]) unless input[:html_motion_graphics_settings].nil?
+        data['htmlMotionGraphicsSettings'] = HtmlMotionGraphicsSettings.build(input[:html_motion_graphics_settings]) unless input[:html_motion_graphics_settings].nil?
         data
       end
     end
@@ -1967,7 +1969,7 @@ module AWS::SDK::MediaLive
         data = {}
         data['initialAudioGain'] = input[:initial_audio_gain] unless input[:initial_audio_gain].nil?
         data['inputEndAction'] = input[:input_end_action] unless input[:input_end_action].nil?
-        data['inputLossBehavior'] = Builders::InputLossBehavior.build(input[:input_loss_behavior]) unless input[:input_loss_behavior].nil?
+        data['inputLossBehavior'] = InputLossBehavior.build(input[:input_loss_behavior]) unless input[:input_loss_behavior].nil?
         data['outputLockingMode'] = input[:output_locking_mode] unless input[:output_locking_mode].nil?
         data['outputTimingSource'] = input[:output_timing_source] unless input[:output_timing_source].nil?
         data['supportLowFramerateInputs'] = input[:support_low_framerate_inputs] unless input[:support_low_framerate_inputs].nil?
@@ -1981,7 +1983,7 @@ module AWS::SDK::MediaLive
         data = {}
         data['blackFrameMsec'] = input[:black_frame_msec] unless input[:black_frame_msec].nil?
         data['inputLossImageColor'] = input[:input_loss_image_color] unless input[:input_loss_image_color].nil?
-        data['inputLossImageSlate'] = Builders::InputLocation.build(input[:input_loss_image_slate]) unless input[:input_loss_image_slate].nil?
+        data['inputLossImageSlate'] = InputLocation.build(input[:input_loss_image_slate]) unless input[:input_loss_image_slate].nil?
         data['inputLossImageType'] = input[:input_loss_image_type] unless input[:input_loss_image_type].nil?
         data['repeatFrameMsec'] = input[:repeat_frame_msec] unless input[:repeat_frame_msec].nil?
         data
@@ -2002,7 +2004,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CaptionDescription.build(element) unless element.nil?
+          data << CaptionDescription.build(element) unless element.nil?
         end
         data
       end
@@ -2013,7 +2015,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = {}
         data['captionSelectorName'] = input[:caption_selector_name] unless input[:caption_selector_name].nil?
-        data['destinationSettings'] = Builders::CaptionDestinationSettings.build(input[:destination_settings]) unless input[:destination_settings].nil?
+        data['destinationSettings'] = CaptionDestinationSettings.build(input[:destination_settings]) unless input[:destination_settings].nil?
         data['languageCode'] = input[:language_code] unless input[:language_code].nil?
         data['languageDescription'] = input[:language_description] unless input[:language_description].nil?
         data['name'] = input[:name] unless input[:name].nil?
@@ -2025,19 +2027,19 @@ module AWS::SDK::MediaLive
     class CaptionDestinationSettings
       def self.build(input)
         data = {}
-        data['aribDestinationSettings'] = Builders::AribDestinationSettings.build(input[:arib_destination_settings]) unless input[:arib_destination_settings].nil?
-        data['burnInDestinationSettings'] = Builders::BurnInDestinationSettings.build(input[:burn_in_destination_settings]) unless input[:burn_in_destination_settings].nil?
-        data['dvbSubDestinationSettings'] = Builders::DvbSubDestinationSettings.build(input[:dvb_sub_destination_settings]) unless input[:dvb_sub_destination_settings].nil?
-        data['ebuTtDDestinationSettings'] = Builders::EbuTtDDestinationSettings.build(input[:ebu_tt_d_destination_settings]) unless input[:ebu_tt_d_destination_settings].nil?
-        data['embeddedDestinationSettings'] = Builders::EmbeddedDestinationSettings.build(input[:embedded_destination_settings]) unless input[:embedded_destination_settings].nil?
-        data['embeddedPlusScte20DestinationSettings'] = Builders::EmbeddedPlusScte20DestinationSettings.build(input[:embedded_plus_scte20_destination_settings]) unless input[:embedded_plus_scte20_destination_settings].nil?
-        data['rtmpCaptionInfoDestinationSettings'] = Builders::RtmpCaptionInfoDestinationSettings.build(input[:rtmp_caption_info_destination_settings]) unless input[:rtmp_caption_info_destination_settings].nil?
-        data['scte20PlusEmbeddedDestinationSettings'] = Builders::Scte20PlusEmbeddedDestinationSettings.build(input[:scte20_plus_embedded_destination_settings]) unless input[:scte20_plus_embedded_destination_settings].nil?
-        data['scte27DestinationSettings'] = Builders::Scte27DestinationSettings.build(input[:scte27_destination_settings]) unless input[:scte27_destination_settings].nil?
-        data['smpteTtDestinationSettings'] = Builders::SmpteTtDestinationSettings.build(input[:smpte_tt_destination_settings]) unless input[:smpte_tt_destination_settings].nil?
-        data['teletextDestinationSettings'] = Builders::TeletextDestinationSettings.build(input[:teletext_destination_settings]) unless input[:teletext_destination_settings].nil?
-        data['ttmlDestinationSettings'] = Builders::TtmlDestinationSettings.build(input[:ttml_destination_settings]) unless input[:ttml_destination_settings].nil?
-        data['webvttDestinationSettings'] = Builders::WebvttDestinationSettings.build(input[:webvtt_destination_settings]) unless input[:webvtt_destination_settings].nil?
+        data['aribDestinationSettings'] = AribDestinationSettings.build(input[:arib_destination_settings]) unless input[:arib_destination_settings].nil?
+        data['burnInDestinationSettings'] = BurnInDestinationSettings.build(input[:burn_in_destination_settings]) unless input[:burn_in_destination_settings].nil?
+        data['dvbSubDestinationSettings'] = DvbSubDestinationSettings.build(input[:dvb_sub_destination_settings]) unless input[:dvb_sub_destination_settings].nil?
+        data['ebuTtDDestinationSettings'] = EbuTtDDestinationSettings.build(input[:ebu_tt_d_destination_settings]) unless input[:ebu_tt_d_destination_settings].nil?
+        data['embeddedDestinationSettings'] = EmbeddedDestinationSettings.build(input[:embedded_destination_settings]) unless input[:embedded_destination_settings].nil?
+        data['embeddedPlusScte20DestinationSettings'] = EmbeddedPlusScte20DestinationSettings.build(input[:embedded_plus_scte20_destination_settings]) unless input[:embedded_plus_scte20_destination_settings].nil?
+        data['rtmpCaptionInfoDestinationSettings'] = RtmpCaptionInfoDestinationSettings.build(input[:rtmp_caption_info_destination_settings]) unless input[:rtmp_caption_info_destination_settings].nil?
+        data['scte20PlusEmbeddedDestinationSettings'] = Scte20PlusEmbeddedDestinationSettings.build(input[:scte20_plus_embedded_destination_settings]) unless input[:scte20_plus_embedded_destination_settings].nil?
+        data['scte27DestinationSettings'] = Scte27DestinationSettings.build(input[:scte27_destination_settings]) unless input[:scte27_destination_settings].nil?
+        data['smpteTtDestinationSettings'] = SmpteTtDestinationSettings.build(input[:smpte_tt_destination_settings]) unless input[:smpte_tt_destination_settings].nil?
+        data['teletextDestinationSettings'] = TeletextDestinationSettings.build(input[:teletext_destination_settings]) unless input[:teletext_destination_settings].nil?
+        data['ttmlDestinationSettings'] = TtmlDestinationSettings.build(input[:ttml_destination_settings]) unless input[:ttml_destination_settings].nil?
+        data['webvttDestinationSettings'] = WebvttDestinationSettings.build(input[:webvtt_destination_settings]) unless input[:webvtt_destination_settings].nil?
         data
       end
     end
@@ -2135,7 +2137,7 @@ module AWS::SDK::MediaLive
         data['alignment'] = input[:alignment] unless input[:alignment].nil?
         data['backgroundColor'] = input[:background_color] unless input[:background_color].nil?
         data['backgroundOpacity'] = input[:background_opacity] unless input[:background_opacity].nil?
-        data['font'] = Builders::InputLocation.build(input[:font]) unless input[:font].nil?
+        data['font'] = InputLocation.build(input[:font]) unless input[:font].nil?
         data['fontColor'] = input[:font_color] unless input[:font_color].nil?
         data['fontOpacity'] = input[:font_opacity] unless input[:font_opacity].nil?
         data['fontResolution'] = input[:font_resolution] unless input[:font_resolution].nil?
@@ -2160,7 +2162,7 @@ module AWS::SDK::MediaLive
         data['alignment'] = input[:alignment] unless input[:alignment].nil?
         data['backgroundColor'] = input[:background_color] unless input[:background_color].nil?
         data['backgroundOpacity'] = input[:background_opacity] unless input[:background_opacity].nil?
-        data['font'] = Builders::InputLocation.build(input[:font]) unless input[:font].nil?
+        data['font'] = InputLocation.build(input[:font]) unless input[:font].nil?
         data['fontColor'] = input[:font_color] unless input[:font_color].nil?
         data['fontOpacity'] = input[:font_opacity] unless input[:font_opacity].nil?
         data['fontResolution'] = input[:font_resolution] unless input[:font_resolution].nil?
@@ -2190,9 +2192,9 @@ module AWS::SDK::MediaLive
     class BlackoutSlate
       def self.build(input)
         data = {}
-        data['blackoutSlateImage'] = Builders::InputLocation.build(input[:blackout_slate_image]) unless input[:blackout_slate_image].nil?
+        data['blackoutSlateImage'] = InputLocation.build(input[:blackout_slate_image]) unless input[:blackout_slate_image].nil?
         data['networkEndBlackout'] = input[:network_end_blackout] unless input[:network_end_blackout].nil?
-        data['networkEndBlackoutImage'] = Builders::InputLocation.build(input[:network_end_blackout_image]) unless input[:network_end_blackout_image].nil?
+        data['networkEndBlackoutImage'] = InputLocation.build(input[:network_end_blackout_image]) unless input[:network_end_blackout_image].nil?
         data['networkId'] = input[:network_id] unless input[:network_id].nil?
         data['state'] = input[:state] unless input[:state].nil?
         data
@@ -2203,7 +2205,7 @@ module AWS::SDK::MediaLive
     class AvailConfiguration
       def self.build(input)
         data = {}
-        data['availSettings'] = Builders::AvailSettings.build(input[:avail_settings]) unless input[:avail_settings].nil?
+        data['availSettings'] = AvailSettings.build(input[:avail_settings]) unless input[:avail_settings].nil?
         data
       end
     end
@@ -2212,8 +2214,8 @@ module AWS::SDK::MediaLive
     class AvailSettings
       def self.build(input)
         data = {}
-        data['scte35SpliceInsert'] = Builders::Scte35SpliceInsert.build(input[:scte35_splice_insert]) unless input[:scte35_splice_insert].nil?
-        data['scte35TimeSignalApos'] = Builders::Scte35TimeSignalApos.build(input[:scte35_time_signal_apos]) unless input[:scte35_time_signal_apos].nil?
+        data['scte35SpliceInsert'] = Scte35SpliceInsert.build(input[:scte35_splice_insert]) unless input[:scte35_splice_insert].nil?
+        data['scte35TimeSignalApos'] = Scte35TimeSignalApos.build(input[:scte35_time_signal_apos]) unless input[:scte35_time_signal_apos].nil?
         data
       end
     end
@@ -2244,7 +2246,7 @@ module AWS::SDK::MediaLive
     class AvailBlanking
       def self.build(input)
         data = {}
-        data['availBlankingImage'] = Builders::InputLocation.build(input[:avail_blanking_image]) unless input[:avail_blanking_image].nil?
+        data['availBlankingImage'] = InputLocation.build(input[:avail_blanking_image]) unless input[:avail_blanking_image].nil?
         data['state'] = input[:state] unless input[:state].nil?
         data
       end
@@ -2255,7 +2257,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AudioDescription.build(element) unless element.nil?
+          data << AudioDescription.build(element) unless element.nil?
         end
         data
       end
@@ -2265,16 +2267,16 @@ module AWS::SDK::MediaLive
     class AudioDescription
       def self.build(input)
         data = {}
-        data['audioNormalizationSettings'] = Builders::AudioNormalizationSettings.build(input[:audio_normalization_settings]) unless input[:audio_normalization_settings].nil?
+        data['audioNormalizationSettings'] = AudioNormalizationSettings.build(input[:audio_normalization_settings]) unless input[:audio_normalization_settings].nil?
         data['audioSelectorName'] = input[:audio_selector_name] unless input[:audio_selector_name].nil?
         data['audioType'] = input[:audio_type] unless input[:audio_type].nil?
         data['audioTypeControl'] = input[:audio_type_control] unless input[:audio_type_control].nil?
-        data['audioWatermarkingSettings'] = Builders::AudioWatermarkSettings.build(input[:audio_watermarking_settings]) unless input[:audio_watermarking_settings].nil?
-        data['codecSettings'] = Builders::AudioCodecSettings.build(input[:codec_settings]) unless input[:codec_settings].nil?
+        data['audioWatermarkingSettings'] = AudioWatermarkSettings.build(input[:audio_watermarking_settings]) unless input[:audio_watermarking_settings].nil?
+        data['codecSettings'] = AudioCodecSettings.build(input[:codec_settings]) unless input[:codec_settings].nil?
         data['languageCode'] = input[:language_code] unless input[:language_code].nil?
         data['languageCodeControl'] = input[:language_code_control] unless input[:language_code_control].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['remixSettings'] = Builders::RemixSettings.build(input[:remix_settings]) unless input[:remix_settings].nil?
+        data['remixSettings'] = RemixSettings.build(input[:remix_settings]) unless input[:remix_settings].nil?
         data['streamName'] = input[:stream_name] unless input[:stream_name].nil?
         data
       end
@@ -2284,7 +2286,7 @@ module AWS::SDK::MediaLive
     class RemixSettings
       def self.build(input)
         data = {}
-        data['channelMappings'] = Builders::List____listOfAudioChannelMapping.build(input[:channel_mappings]) unless input[:channel_mappings].nil?
+        data['channelMappings'] = List____listOfAudioChannelMapping.build(input[:channel_mappings]) unless input[:channel_mappings].nil?
         data['channelsIn'] = input[:channels_in] unless input[:channels_in].nil?
         data['channelsOut'] = input[:channels_out] unless input[:channels_out].nil?
         data
@@ -2296,7 +2298,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AudioChannelMapping.build(element) unless element.nil?
+          data << AudioChannelMapping.build(element) unless element.nil?
         end
         data
       end
@@ -2306,7 +2308,7 @@ module AWS::SDK::MediaLive
     class AudioChannelMapping
       def self.build(input)
         data = {}
-        data['inputChannelLevels'] = Builders::List____listOfInputChannelLevel.build(input[:input_channel_levels]) unless input[:input_channel_levels].nil?
+        data['inputChannelLevels'] = List____listOfInputChannelLevel.build(input[:input_channel_levels]) unless input[:input_channel_levels].nil?
         data['outputChannel'] = input[:output_channel] unless input[:output_channel].nil?
         data
       end
@@ -2317,7 +2319,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InputChannelLevel.build(element) unless element.nil?
+          data << InputChannelLevel.build(element) unless element.nil?
         end
         data
       end
@@ -2337,12 +2339,12 @@ module AWS::SDK::MediaLive
     class AudioCodecSettings
       def self.build(input)
         data = {}
-        data['aacSettings'] = Builders::AacSettings.build(input[:aac_settings]) unless input[:aac_settings].nil?
-        data['ac3Settings'] = Builders::Ac3Settings.build(input[:ac3_settings]) unless input[:ac3_settings].nil?
-        data['eac3Settings'] = Builders::Eac3Settings.build(input[:eac3_settings]) unless input[:eac3_settings].nil?
-        data['mp2Settings'] = Builders::Mp2Settings.build(input[:mp2_settings]) unless input[:mp2_settings].nil?
-        data['passThroughSettings'] = Builders::PassThroughSettings.build(input[:pass_through_settings]) unless input[:pass_through_settings].nil?
-        data['wavSettings'] = Builders::WavSettings.build(input[:wav_settings]) unless input[:wav_settings].nil?
+        data['aacSettings'] = AacSettings.build(input[:aac_settings]) unless input[:aac_settings].nil?
+        data['ac3Settings'] = Ac3Settings.build(input[:ac3_settings]) unless input[:ac3_settings].nil?
+        data['eac3Settings'] = Eac3Settings.build(input[:eac3_settings]) unless input[:eac3_settings].nil?
+        data['mp2Settings'] = Mp2Settings.build(input[:mp2_settings]) unless input[:mp2_settings].nil?
+        data['passThroughSettings'] = PassThroughSettings.build(input[:pass_through_settings]) unless input[:pass_through_settings].nil?
+        data['wavSettings'] = WavSettings.build(input[:wav_settings]) unless input[:wav_settings].nil?
         data
       end
     end
@@ -2441,7 +2443,7 @@ module AWS::SDK::MediaLive
     class AudioWatermarkSettings
       def self.build(input)
         data = {}
-        data['nielsenWatermarksSettings'] = Builders::NielsenWatermarksSettings.build(input[:nielsen_watermarks_settings]) unless input[:nielsen_watermarks_settings].nil?
+        data['nielsenWatermarksSettings'] = NielsenWatermarksSettings.build(input[:nielsen_watermarks_settings]) unless input[:nielsen_watermarks_settings].nil?
         data
       end
     end
@@ -2450,9 +2452,9 @@ module AWS::SDK::MediaLive
     class NielsenWatermarksSettings
       def self.build(input)
         data = {}
-        data['nielsenCbetSettings'] = Builders::NielsenCBET.build(input[:nielsen_cbet_settings]) unless input[:nielsen_cbet_settings].nil?
+        data['nielsenCbetSettings'] = NielsenCBET.build(input[:nielsen_cbet_settings]) unless input[:nielsen_cbet_settings].nil?
         data['nielsenDistributionType'] = input[:nielsen_distribution_type] unless input[:nielsen_distribution_type].nil?
-        data['nielsenNaesIiNwSettings'] = Builders::NielsenNaesIiNw.build(input[:nielsen_naes_ii_nw_settings]) unless input[:nielsen_naes_ii_nw_settings].nil?
+        data['nielsenNaesIiNwSettings'] = NielsenNaesIiNw.build(input[:nielsen_naes_ii_nw_settings]) unless input[:nielsen_naes_ii_nw_settings].nil?
         data
       end
     end
@@ -2494,7 +2496,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::OutputDestination.build(element) unless element.nil?
+          data << OutputDestination.build(element) unless element.nil?
         end
         data
       end
@@ -2505,9 +2507,9 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = {}
         data['id'] = input[:id] unless input[:id].nil?
-        data['mediaPackageSettings'] = Builders::List____listOfMediaPackageOutputDestinationSettings.build(input[:media_package_settings]) unless input[:media_package_settings].nil?
-        data['multiplexSettings'] = Builders::MultiplexProgramChannelDestinationSettings.build(input[:multiplex_settings]) unless input[:multiplex_settings].nil?
-        data['settings'] = Builders::List____listOfOutputDestinationSettings.build(input[:settings]) unless input[:settings].nil?
+        data['mediaPackageSettings'] = List____listOfMediaPackageOutputDestinationSettings.build(input[:media_package_settings]) unless input[:media_package_settings].nil?
+        data['multiplexSettings'] = MultiplexProgramChannelDestinationSettings.build(input[:multiplex_settings]) unless input[:multiplex_settings].nil?
+        data['settings'] = List____listOfOutputDestinationSettings.build(input[:settings]) unless input[:settings].nil?
         data
       end
     end
@@ -2517,7 +2519,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::OutputDestinationSettings.build(element) unless element.nil?
+          data << OutputDestinationSettings.build(element) unless element.nil?
         end
         data
       end
@@ -2550,7 +2552,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MediaPackageOutputDestinationSettings.build(element) unless element.nil?
+          data << MediaPackageOutputDestinationSettings.build(element) unless element.nil?
         end
         data
       end
@@ -2584,18 +2586,18 @@ module AWS::SDK::MediaLive
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['destinations'] = Builders::List____listOfInputDestinationRequest.build(input[:destinations]) unless input[:destinations].nil?
-        data['inputDevices'] = Builders::List____listOfInputDeviceSettings.build(input[:input_devices]) unless input[:input_devices].nil?
-        data['inputSecurityGroups'] = Builders::List____listOf__string.build(input[:input_security_groups]) unless input[:input_security_groups].nil?
-        data['mediaConnectFlows'] = Builders::List____listOfMediaConnectFlowRequest.build(input[:media_connect_flows]) unless input[:media_connect_flows].nil?
+        data['destinations'] = List____listOfInputDestinationRequest.build(input[:destinations]) unless input[:destinations].nil?
+        data['inputDevices'] = List____listOfInputDeviceSettings.build(input[:input_devices]) unless input[:input_devices].nil?
+        data['inputSecurityGroups'] = List____listOf__string.build(input[:input_security_groups]) unless input[:input_security_groups].nil?
+        data['mediaConnectFlows'] = List____listOfMediaConnectFlowRequest.build(input[:media_connect_flows]) unless input[:media_connect_flows].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['requestId'] = input[:request_id] unless input[:request_id].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['sources'] = Builders::List____listOfInputSourceRequest.build(input[:sources]) unless input[:sources].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['sources'] = List____listOfInputSourceRequest.build(input[:sources]) unless input[:sources].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['type'] = input[:type] unless input[:type].nil?
-        data['vpc'] = Builders::InputVpcRequest.build(input[:vpc]) unless input[:vpc].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['vpc'] = InputVpcRequest.build(input[:vpc]) unless input[:vpc].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2603,8 +2605,8 @@ module AWS::SDK::MediaLive
     class InputVpcRequest
       def self.build(input)
         data = {}
-        data['securityGroupIds'] = Builders::List____listOf__string.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
-        data['subnetIds'] = Builders::List____listOf__string.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['securityGroupIds'] = List____listOf__string.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['subnetIds'] = List____listOf__string.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
         data
       end
     end
@@ -2614,7 +2616,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InputSourceRequest.build(element) unless element.nil?
+          data << InputSourceRequest.build(element) unless element.nil?
         end
         data
       end
@@ -2636,7 +2638,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MediaConnectFlowRequest.build(element) unless element.nil?
+          data << MediaConnectFlowRequest.build(element) unless element.nil?
         end
         data
       end
@@ -2656,7 +2658,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InputDeviceSettings.build(element) unless element.nil?
+          data << InputDeviceSettings.build(element) unless element.nil?
         end
         data
       end
@@ -2676,7 +2678,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InputDestinationRequest.build(element) unless element.nil?
+          data << InputDestinationRequest.build(element) unless element.nil?
         end
         data
       end
@@ -2701,9 +2703,9 @@ module AWS::SDK::MediaLive
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        data['whitelistRules'] = Builders::List____listOfInputWhitelistRuleCidr.build(input[:whitelist_rules]) unless input[:whitelist_rules].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        data['whitelistRules'] = List____listOfInputWhitelistRuleCidr.build(input[:whitelist_rules]) unless input[:whitelist_rules].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2712,7 +2714,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InputWhitelistRuleCidr.build(element) unless element.nil?
+          data << InputWhitelistRuleCidr.build(element) unless element.nil?
         end
         data
       end
@@ -2737,12 +2739,12 @@ module AWS::SDK::MediaLive
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['availabilityZones'] = Builders::List____listOf__string.build(input[:availability_zones]) unless input[:availability_zones].nil?
-        data['multiplexSettings'] = Builders::MultiplexSettings.build(input[:multiplex_settings]) unless input[:multiplex_settings].nil?
+        data['availabilityZones'] = List____listOf__string.build(input[:availability_zones]) unless input[:availability_zones].nil?
+        data['multiplexSettings'] = MultiplexSettings.build(input[:multiplex_settings]) unless input[:multiplex_settings].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['requestId'] = input[:request_id] unless input[:request_id].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2775,10 +2777,10 @@ module AWS::SDK::MediaLive
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['multiplexProgramSettings'] = Builders::MultiplexProgramSettings.build(input[:multiplex_program_settings]) unless input[:multiplex_program_settings].nil?
+        data['multiplexProgramSettings'] = MultiplexProgramSettings.build(input[:multiplex_program_settings]) unless input[:multiplex_program_settings].nil?
         data['programName'] = input[:program_name] unless input[:program_name].nil?
         data['requestId'] = input[:request_id] unless input[:request_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2788,8 +2790,8 @@ module AWS::SDK::MediaLive
         data = {}
         data['preferredChannelPipeline'] = input[:preferred_channel_pipeline] unless input[:preferred_channel_pipeline].nil?
         data['programNumber'] = input[:program_number] unless input[:program_number].nil?
-        data['serviceDescriptor'] = Builders::MultiplexProgramServiceDescriptor.build(input[:service_descriptor]) unless input[:service_descriptor].nil?
-        data['videoSettings'] = Builders::MultiplexVideoSettings.build(input[:video_settings]) unless input[:video_settings].nil?
+        data['serviceDescriptor'] = MultiplexProgramServiceDescriptor.build(input[:service_descriptor]) unless input[:service_descriptor].nil?
+        data['videoSettings'] = MultiplexVideoSettings.build(input[:video_settings]) unless input[:video_settings].nil?
         data
       end
     end
@@ -2799,7 +2801,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = {}
         data['constantBitrate'] = input[:constant_bitrate] unless input[:constant_bitrate].nil?
-        data['statmuxSettings'] = Builders::MultiplexStatmuxVideoSettings.build(input[:statmux_settings]) unless input[:statmux_settings].nil?
+        data['statmuxSettings'] = MultiplexStatmuxVideoSettings.build(input[:statmux_settings]) unless input[:statmux_settings].nil?
         data
       end
     end
@@ -2843,8 +2845,8 @@ module AWS::SDK::MediaLive
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['requestId'] = input[:request_id] unless input[:request_id].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2865,8 +2867,8 @@ module AWS::SDK::MediaLive
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3364,8 +3366,8 @@ module AWS::SDK::MediaLive
         data['name'] = input[:name] unless input[:name].nil?
         data['requestId'] = input[:request_id] unless input[:request_id].nil?
         data['start'] = input[:start] unless input[:start].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3474,7 +3476,7 @@ module AWS::SDK::MediaLive
         data['targetCustomerId'] = input[:target_customer_id] unless input[:target_customer_id].nil?
         data['targetRegion'] = input[:target_region] unless input[:target_region].nil?
         data['transferMessage'] = input[:transfer_message] unless input[:transfer_message].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3495,16 +3497,16 @@ module AWS::SDK::MediaLive
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['cdiInputSpecification'] = Builders::CdiInputSpecification.build(input[:cdi_input_specification]) unless input[:cdi_input_specification].nil?
-        data['destinations'] = Builders::List____listOfOutputDestination.build(input[:destinations]) unless input[:destinations].nil?
-        data['encoderSettings'] = Builders::EncoderSettings.build(input[:encoder_settings]) unless input[:encoder_settings].nil?
-        data['inputAttachments'] = Builders::List____listOfInputAttachment.build(input[:input_attachments]) unless input[:input_attachments].nil?
-        data['inputSpecification'] = Builders::InputSpecification.build(input[:input_specification]) unless input[:input_specification].nil?
+        data['cdiInputSpecification'] = CdiInputSpecification.build(input[:cdi_input_specification]) unless input[:cdi_input_specification].nil?
+        data['destinations'] = List____listOfOutputDestination.build(input[:destinations]) unless input[:destinations].nil?
+        data['encoderSettings'] = EncoderSettings.build(input[:encoder_settings]) unless input[:encoder_settings].nil?
+        data['inputAttachments'] = List____listOfInputAttachment.build(input[:input_attachments]) unless input[:input_attachments].nil?
+        data['inputSpecification'] = InputSpecification.build(input[:input_specification]) unless input[:input_specification].nil?
         data['logLevel'] = input[:log_level] unless input[:log_level].nil?
-        data['maintenance'] = Builders::MaintenanceUpdateSettings.build(input[:maintenance]) unless input[:maintenance].nil?
+        data['maintenance'] = MaintenanceUpdateSettings.build(input[:maintenance]) unless input[:maintenance].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3537,8 +3539,8 @@ module AWS::SDK::MediaLive
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['channelClass'] = input[:channel_class] unless input[:channel_class].nil?
-        data['destinations'] = Builders::List____listOfOutputDestination.build(input[:destinations]) unless input[:destinations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['destinations'] = List____listOfOutputDestination.build(input[:destinations]) unless input[:destinations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3559,14 +3561,14 @@ module AWS::SDK::MediaLive
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['destinations'] = Builders::List____listOfInputDestinationRequest.build(input[:destinations]) unless input[:destinations].nil?
-        data['inputDevices'] = Builders::List____listOfInputDeviceRequest.build(input[:input_devices]) unless input[:input_devices].nil?
-        data['inputSecurityGroups'] = Builders::List____listOf__string.build(input[:input_security_groups]) unless input[:input_security_groups].nil?
-        data['mediaConnectFlows'] = Builders::List____listOfMediaConnectFlowRequest.build(input[:media_connect_flows]) unless input[:media_connect_flows].nil?
+        data['destinations'] = List____listOfInputDestinationRequest.build(input[:destinations]) unless input[:destinations].nil?
+        data['inputDevices'] = List____listOfInputDeviceRequest.build(input[:input_devices]) unless input[:input_devices].nil?
+        data['inputSecurityGroups'] = List____listOf__string.build(input[:input_security_groups]) unless input[:input_security_groups].nil?
+        data['mediaConnectFlows'] = List____listOfMediaConnectFlowRequest.build(input[:media_connect_flows]) unless input[:media_connect_flows].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['sources'] = Builders::List____listOfInputSourceRequest.build(input[:sources]) unless input[:sources].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sources'] = List____listOfInputSourceRequest.build(input[:sources]) unless input[:sources].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3575,7 +3577,7 @@ module AWS::SDK::MediaLive
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InputDeviceRequest.build(element) unless element.nil?
+          data << InputDeviceRequest.build(element) unless element.nil?
         end
         data
       end
@@ -3607,10 +3609,10 @@ module AWS::SDK::MediaLive
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['hdDeviceSettings'] = Builders::InputDeviceConfigurableSettings.build(input[:hd_device_settings]) unless input[:hd_device_settings].nil?
+        data['hdDeviceSettings'] = InputDeviceConfigurableSettings.build(input[:hd_device_settings]) unless input[:hd_device_settings].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['uhdDeviceSettings'] = Builders::InputDeviceConfigurableSettings.build(input[:uhd_device_settings]) unless input[:uhd_device_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['uhdDeviceSettings'] = InputDeviceConfigurableSettings.build(input[:uhd_device_settings]) unless input[:uhd_device_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3641,9 +3643,9 @@ module AWS::SDK::MediaLive
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        data['whitelistRules'] = Builders::List____listOfInputWhitelistRuleCidr.build(input[:whitelist_rules]) unless input[:whitelist_rules].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        data['whitelistRules'] = List____listOfInputWhitelistRuleCidr.build(input[:whitelist_rules]) unless input[:whitelist_rules].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3664,9 +3666,9 @@ module AWS::SDK::MediaLive
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['multiplexSettings'] = Builders::MultiplexSettings.build(input[:multiplex_settings]) unless input[:multiplex_settings].nil?
+        data['multiplexSettings'] = MultiplexSettings.build(input[:multiplex_settings]) unless input[:multiplex_settings].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3691,8 +3693,8 @@ module AWS::SDK::MediaLive
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['multiplexProgramSettings'] = Builders::MultiplexProgramSettings.build(input[:multiplex_program_settings]) unless input[:multiplex_program_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['multiplexProgramSettings'] = MultiplexProgramSettings.build(input[:multiplex_program_settings]) unless input[:multiplex_program_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3714,7 +3716,7 @@ module AWS::SDK::MediaLive
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

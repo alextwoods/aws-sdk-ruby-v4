@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Textract
   module Stubs
 
@@ -23,11 +25,11 @@ module AWS::SDK::Textract
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DocumentMetadata'] = Stubs::DocumentMetadata.stub(stub[:document_metadata]) unless stub[:document_metadata].nil?
-        data['Blocks'] = Stubs::BlockList.stub(stub[:blocks]) unless stub[:blocks].nil?
-        data['HumanLoopActivationOutput'] = Stubs::HumanLoopActivationOutput.stub(stub[:human_loop_activation_output]) unless stub[:human_loop_activation_output].nil?
+        data['DocumentMetadata'] = DocumentMetadata.stub(stub[:document_metadata]) unless stub[:document_metadata].nil?
+        data['Blocks'] = BlockList.stub(stub[:blocks]) unless stub[:blocks].nil?
+        data['HumanLoopActivationOutput'] = HumanLoopActivationOutput.stub(stub[:human_loop_activation_output]) unless stub[:human_loop_activation_output].nil?
         data['AnalyzeDocumentModelVersion'] = stub[:analyze_document_model_version] unless stub[:analyze_document_model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -48,7 +50,7 @@ module AWS::SDK::Textract
         stub ||= Types::HumanLoopActivationOutput.new
         data = {}
         data['HumanLoopArn'] = stub[:human_loop_arn] unless stub[:human_loop_arn].nil?
-        data['HumanLoopActivationReasons'] = Stubs::HumanLoopActivationReasons.stub(stub[:human_loop_activation_reasons]) unless stub[:human_loop_activation_reasons].nil?
+        data['HumanLoopActivationReasons'] = HumanLoopActivationReasons.stub(stub[:human_loop_activation_reasons]) unless stub[:human_loop_activation_reasons].nil?
         data['HumanLoopActivationConditionsEvaluationResults'] = stub[:human_loop_activation_conditions_evaluation_results] unless stub[:human_loop_activation_conditions_evaluation_results].nil?
         data
       end
@@ -88,7 +90,7 @@ module AWS::SDK::Textract
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Block.stub(element) unless element.nil?
+          data << Block.stub(element) unless element.nil?
         end
         data
       end
@@ -129,13 +131,13 @@ module AWS::SDK::Textract
         data['ColumnIndex'] = stub[:column_index] unless stub[:column_index].nil?
         data['RowSpan'] = stub[:row_span] unless stub[:row_span].nil?
         data['ColumnSpan'] = stub[:column_span] unless stub[:column_span].nil?
-        data['Geometry'] = Stubs::Geometry.stub(stub[:geometry]) unless stub[:geometry].nil?
+        data['Geometry'] = Geometry.stub(stub[:geometry]) unless stub[:geometry].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['Relationships'] = Stubs::RelationshipList.stub(stub[:relationships]) unless stub[:relationships].nil?
-        data['EntityTypes'] = Stubs::EntityTypes.stub(stub[:entity_types]) unless stub[:entity_types].nil?
+        data['Relationships'] = RelationshipList.stub(stub[:relationships]) unless stub[:relationships].nil?
+        data['EntityTypes'] = EntityTypes.stub(stub[:entity_types]) unless stub[:entity_types].nil?
         data['SelectionStatus'] = stub[:selection_status] unless stub[:selection_status].nil?
         data['Page'] = stub[:page] unless stub[:page].nil?
-        data['Query'] = Stubs::Query.stub(stub[:query]) unless stub[:query].nil?
+        data['Query'] = Query.stub(stub[:query]) unless stub[:query].nil?
         data
       end
     end
@@ -157,7 +159,7 @@ module AWS::SDK::Textract
         data = {}
         data['Text'] = stub[:text] unless stub[:text].nil?
         data['Alias'] = stub[:alias] unless stub[:alias].nil?
-        data['Pages'] = Stubs::QueryPages.stub(stub[:pages]) unless stub[:pages].nil?
+        data['Pages'] = QueryPages.stub(stub[:pages]) unless stub[:pages].nil?
         data
       end
     end
@@ -216,7 +218,7 @@ module AWS::SDK::Textract
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Relationship.stub(element) unless element.nil?
+          data << Relationship.stub(element) unless element.nil?
         end
         data
       end
@@ -237,7 +239,7 @@ module AWS::SDK::Textract
         stub ||= Types::Relationship.new
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Ids'] = Stubs::IdList.stub(stub[:ids]) unless stub[:ids].nil?
+        data['Ids'] = IdList.stub(stub[:ids]) unless stub[:ids].nil?
         data
       end
     end
@@ -276,8 +278,8 @@ module AWS::SDK::Textract
       def self.stub(stub)
         stub ||= Types::Geometry.new
         data = {}
-        data['BoundingBox'] = Stubs::BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
-        data['Polygon'] = Stubs::Polygon.stub(stub[:polygon]) unless stub[:polygon].nil?
+        data['BoundingBox'] = BoundingBox.stub(stub[:bounding_box]) unless stub[:bounding_box].nil?
+        data['Polygon'] = Polygon.stub(stub[:polygon]) unless stub[:polygon].nil?
         data
       end
     end
@@ -296,7 +298,7 @@ module AWS::SDK::Textract
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Point.stub(element) unless element.nil?
+          data << Point.stub(element) unless element.nil?
         end
         data
       end
@@ -375,9 +377,9 @@ module AWS::SDK::Textract
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DocumentMetadata'] = Stubs::DocumentMetadata.stub(stub[:document_metadata]) unless stub[:document_metadata].nil?
-        data['ExpenseDocuments'] = Stubs::ExpenseDocumentList.stub(stub[:expense_documents]) unless stub[:expense_documents].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DocumentMetadata'] = DocumentMetadata.stub(stub[:document_metadata]) unless stub[:document_metadata].nil?
+        data['ExpenseDocuments'] = ExpenseDocumentList.stub(stub[:expense_documents]) unless stub[:expense_documents].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -396,7 +398,7 @@ module AWS::SDK::Textract
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExpenseDocument.stub(element) unless element.nil?
+          data << ExpenseDocument.stub(element) unless element.nil?
         end
         data
       end
@@ -418,8 +420,8 @@ module AWS::SDK::Textract
         stub ||= Types::ExpenseDocument.new
         data = {}
         data['ExpenseIndex'] = stub[:expense_index] unless stub[:expense_index].nil?
-        data['SummaryFields'] = Stubs::ExpenseFieldList.stub(stub[:summary_fields]) unless stub[:summary_fields].nil?
-        data['LineItemGroups'] = Stubs::LineItemGroupList.stub(stub[:line_item_groups]) unless stub[:line_item_groups].nil?
+        data['SummaryFields'] = ExpenseFieldList.stub(stub[:summary_fields]) unless stub[:summary_fields].nil?
+        data['LineItemGroups'] = LineItemGroupList.stub(stub[:line_item_groups]) unless stub[:line_item_groups].nil?
         data
       end
     end
@@ -438,7 +440,7 @@ module AWS::SDK::Textract
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LineItemGroup.stub(element) unless element.nil?
+          data << LineItemGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -459,7 +461,7 @@ module AWS::SDK::Textract
         stub ||= Types::LineItemGroup.new
         data = {}
         data['LineItemGroupIndex'] = stub[:line_item_group_index] unless stub[:line_item_group_index].nil?
-        data['LineItems'] = Stubs::LineItemList.stub(stub[:line_items]) unless stub[:line_items].nil?
+        data['LineItems'] = LineItemList.stub(stub[:line_items]) unless stub[:line_items].nil?
         data
       end
     end
@@ -478,7 +480,7 @@ module AWS::SDK::Textract
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LineItemFields.stub(element) unless element.nil?
+          data << LineItemFields.stub(element) unless element.nil?
         end
         data
       end
@@ -497,7 +499,7 @@ module AWS::SDK::Textract
       def self.stub(stub)
         stub ||= Types::LineItemFields.new
         data = {}
-        data['LineItemExpenseFields'] = Stubs::ExpenseFieldList.stub(stub[:line_item_expense_fields]) unless stub[:line_item_expense_fields].nil?
+        data['LineItemExpenseFields'] = ExpenseFieldList.stub(stub[:line_item_expense_fields]) unless stub[:line_item_expense_fields].nil?
         data
       end
     end
@@ -516,7 +518,7 @@ module AWS::SDK::Textract
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExpenseField.stub(element) unless element.nil?
+          data << ExpenseField.stub(element) unless element.nil?
         end
         data
       end
@@ -538,9 +540,9 @@ module AWS::SDK::Textract
       def self.stub(stub)
         stub ||= Types::ExpenseField.new
         data = {}
-        data['Type'] = Stubs::ExpenseType.stub(stub[:type]) unless stub[:type].nil?
-        data['LabelDetection'] = Stubs::ExpenseDetection.stub(stub[:label_detection]) unless stub[:label_detection].nil?
-        data['ValueDetection'] = Stubs::ExpenseDetection.stub(stub[:value_detection]) unless stub[:value_detection].nil?
+        data['Type'] = ExpenseType.stub(stub[:type]) unless stub[:type].nil?
+        data['LabelDetection'] = ExpenseDetection.stub(stub[:label_detection]) unless stub[:label_detection].nil?
+        data['ValueDetection'] = ExpenseDetection.stub(stub[:value_detection]) unless stub[:value_detection].nil?
         data['PageNumber'] = stub[:page_number] unless stub[:page_number].nil?
         data
       end
@@ -562,7 +564,7 @@ module AWS::SDK::Textract
         stub ||= Types::ExpenseDetection.new
         data = {}
         data['Text'] = stub[:text] unless stub[:text].nil?
-        data['Geometry'] = Stubs::Geometry.stub(stub[:geometry]) unless stub[:geometry].nil?
+        data['Geometry'] = Geometry.stub(stub[:geometry]) unless stub[:geometry].nil?
         data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
         data
       end
@@ -600,10 +602,10 @@ module AWS::SDK::Textract
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['IdentityDocuments'] = Stubs::IdentityDocumentList.stub(stub[:identity_documents]) unless stub[:identity_documents].nil?
-        data['DocumentMetadata'] = Stubs::DocumentMetadata.stub(stub[:document_metadata]) unless stub[:document_metadata].nil?
+        data['IdentityDocuments'] = IdentityDocumentList.stub(stub[:identity_documents]) unless stub[:identity_documents].nil?
+        data['DocumentMetadata'] = DocumentMetadata.stub(stub[:document_metadata]) unless stub[:document_metadata].nil?
         data['AnalyzeIDModelVersion'] = stub[:analyze_id_model_version] unless stub[:analyze_id_model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -622,7 +624,7 @@ module AWS::SDK::Textract
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IdentityDocument.stub(element) unless element.nil?
+          data << IdentityDocument.stub(element) unless element.nil?
         end
         data
       end
@@ -643,7 +645,7 @@ module AWS::SDK::Textract
         stub ||= Types::IdentityDocument.new
         data = {}
         data['DocumentIndex'] = stub[:document_index] unless stub[:document_index].nil?
-        data['IdentityDocumentFields'] = Stubs::IdentityDocumentFieldList.stub(stub[:identity_document_fields]) unless stub[:identity_document_fields].nil?
+        data['IdentityDocumentFields'] = IdentityDocumentFieldList.stub(stub[:identity_document_fields]) unless stub[:identity_document_fields].nil?
         data
       end
     end
@@ -662,7 +664,7 @@ module AWS::SDK::Textract
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IdentityDocumentField.stub(element) unless element.nil?
+          data << IdentityDocumentField.stub(element) unless element.nil?
         end
         data
       end
@@ -682,8 +684,8 @@ module AWS::SDK::Textract
       def self.stub(stub)
         stub ||= Types::IdentityDocumentField.new
         data = {}
-        data['Type'] = Stubs::AnalyzeIDDetections.stub(stub[:type]) unless stub[:type].nil?
-        data['ValueDetection'] = Stubs::AnalyzeIDDetections.stub(stub[:value_detection]) unless stub[:value_detection].nil?
+        data['Type'] = AnalyzeIDDetections.stub(stub[:type]) unless stub[:type].nil?
+        data['ValueDetection'] = AnalyzeIDDetections.stub(stub[:value_detection]) unless stub[:value_detection].nil?
         data
       end
     end
@@ -704,7 +706,7 @@ module AWS::SDK::Textract
         stub ||= Types::AnalyzeIDDetections.new
         data = {}
         data['Text'] = stub[:text] unless stub[:text].nil?
-        data['NormalizedValue'] = Stubs::NormalizedValue.stub(stub[:normalized_value]) unless stub[:normalized_value].nil?
+        data['NormalizedValue'] = NormalizedValue.stub(stub[:normalized_value]) unless stub[:normalized_value].nil?
         data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
         data
       end
@@ -742,10 +744,10 @@ module AWS::SDK::Textract
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DocumentMetadata'] = Stubs::DocumentMetadata.stub(stub[:document_metadata]) unless stub[:document_metadata].nil?
-        data['Blocks'] = Stubs::BlockList.stub(stub[:blocks]) unless stub[:blocks].nil?
+        data['DocumentMetadata'] = DocumentMetadata.stub(stub[:document_metadata]) unless stub[:document_metadata].nil?
+        data['Blocks'] = BlockList.stub(stub[:blocks]) unless stub[:blocks].nil?
         data['DetectDocumentTextModelVersion'] = stub[:detect_document_text_model_version] unless stub[:detect_document_text_model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -766,14 +768,14 @@ module AWS::SDK::Textract
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DocumentMetadata'] = Stubs::DocumentMetadata.stub(stub[:document_metadata]) unless stub[:document_metadata].nil?
+        data['DocumentMetadata'] = DocumentMetadata.stub(stub[:document_metadata]) unless stub[:document_metadata].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Blocks'] = Stubs::BlockList.stub(stub[:blocks]) unless stub[:blocks].nil?
-        data['Warnings'] = Stubs::Warnings.stub(stub[:warnings]) unless stub[:warnings].nil?
+        data['Blocks'] = BlockList.stub(stub[:blocks]) unless stub[:blocks].nil?
+        data['Warnings'] = Warnings.stub(stub[:warnings]) unless stub[:warnings].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['AnalyzeDocumentModelVersion'] = stub[:analyze_document_model_version] unless stub[:analyze_document_model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -792,7 +794,7 @@ module AWS::SDK::Textract
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Warning.stub(element) unless element.nil?
+          data << Warning.stub(element) unless element.nil?
         end
         data
       end
@@ -813,7 +815,7 @@ module AWS::SDK::Textract
         stub ||= Types::Warning.new
         data = {}
         data['ErrorCode'] = stub[:error_code] unless stub[:error_code].nil?
-        data['Pages'] = Stubs::Pages.stub(stub[:pages]) unless stub[:pages].nil?
+        data['Pages'] = Pages.stub(stub[:pages]) unless stub[:pages].nil?
         data
       end
     end
@@ -854,14 +856,14 @@ module AWS::SDK::Textract
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DocumentMetadata'] = Stubs::DocumentMetadata.stub(stub[:document_metadata]) unless stub[:document_metadata].nil?
+        data['DocumentMetadata'] = DocumentMetadata.stub(stub[:document_metadata]) unless stub[:document_metadata].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Blocks'] = Stubs::BlockList.stub(stub[:blocks]) unless stub[:blocks].nil?
-        data['Warnings'] = Stubs::Warnings.stub(stub[:warnings]) unless stub[:warnings].nil?
+        data['Blocks'] = BlockList.stub(stub[:blocks]) unless stub[:blocks].nil?
+        data['Warnings'] = Warnings.stub(stub[:warnings]) unless stub[:warnings].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['DetectDocumentTextModelVersion'] = stub[:detect_document_text_model_version] unless stub[:detect_document_text_model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -882,14 +884,14 @@ module AWS::SDK::Textract
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DocumentMetadata'] = Stubs::DocumentMetadata.stub(stub[:document_metadata]) unless stub[:document_metadata].nil?
+        data['DocumentMetadata'] = DocumentMetadata.stub(stub[:document_metadata]) unless stub[:document_metadata].nil?
         data['JobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ExpenseDocuments'] = Stubs::ExpenseDocumentList.stub(stub[:expense_documents]) unless stub[:expense_documents].nil?
-        data['Warnings'] = Stubs::Warnings.stub(stub[:warnings]) unless stub[:warnings].nil?
+        data['ExpenseDocuments'] = ExpenseDocumentList.stub(stub[:expense_documents]) unless stub[:expense_documents].nil?
+        data['Warnings'] = Warnings.stub(stub[:warnings]) unless stub[:warnings].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['AnalyzeExpenseModelVersion'] = stub[:analyze_expense_model_version] unless stub[:analyze_expense_model_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -905,7 +907,7 @@ module AWS::SDK::Textract
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -921,7 +923,7 @@ module AWS::SDK::Textract
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -937,7 +939,7 @@ module AWS::SDK::Textract
       def self.stub(http_resp, stub:)
         data = {}
         data['JobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

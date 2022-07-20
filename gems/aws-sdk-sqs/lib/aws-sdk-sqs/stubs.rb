@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::SQS
   module Stubs
 
@@ -23,7 +26,7 @@ module AWS::SDK::SQS
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('AddPermissionResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -41,7 +44,7 @@ module AWS::SDK::SQS
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('ChangeMessageVisibilityResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -60,10 +63,10 @@ module AWS::SDK::SQS
         response = Hearth::XML::Node.new('ChangeMessageVisibilityBatchResponse')
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('ChangeMessageVisibilityBatchResult')
-        xml << Stubs::ChangeMessageVisibilityBatchResultEntryList.stub('ChangeMessageVisibilityBatchResultEntry', stub[:successful]) unless stub[:successful].nil?
-        xml << Stubs::BatchResultErrorEntryList.stub('BatchResultErrorEntry', stub[:failed]) unless stub[:failed].nil?
+        xml << ChangeMessageVisibilityBatchResultEntryList.stub('ChangeMessageVisibilityBatchResultEntry', stub[:successful]) unless stub[:successful].nil?
+        xml << BatchResultErrorEntryList.stub('BatchResultErrorEntry', stub[:failed]) unless stub[:failed].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -81,7 +84,7 @@ module AWS::SDK::SQS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::BatchResultErrorEntry.stub(node_name, element) unless element.nil?
+          xml << BatchResultErrorEntry.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -124,7 +127,7 @@ module AWS::SDK::SQS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ChangeMessageVisibilityBatchResultEntry.stub(node_name, element) unless element.nil?
+          xml << ChangeMessageVisibilityBatchResultEntry.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -163,7 +166,7 @@ module AWS::SDK::SQS
         xml = Hearth::XML::Node.new('CreateQueueResult')
         xml << Hearth::XML::Node.new('QueueUrl', stub[:queue_url].to_s) unless stub[:queue_url].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -181,7 +184,7 @@ module AWS::SDK::SQS
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('DeleteMessageResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -200,10 +203,10 @@ module AWS::SDK::SQS
         response = Hearth::XML::Node.new('DeleteMessageBatchResponse')
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('DeleteMessageBatchResult')
-        xml << Stubs::DeleteMessageBatchResultEntryList.stub('DeleteMessageBatchResultEntry', stub[:successful]) unless stub[:successful].nil?
-        xml << Stubs::BatchResultErrorEntryList.stub('BatchResultErrorEntry', stub[:failed]) unless stub[:failed].nil?
+        xml << DeleteMessageBatchResultEntryList.stub('DeleteMessageBatchResultEntry', stub[:successful]) unless stub[:successful].nil?
+        xml << BatchResultErrorEntryList.stub('BatchResultErrorEntry', stub[:failed]) unless stub[:failed].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -221,7 +224,7 @@ module AWS::SDK::SQS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DeleteMessageBatchResultEntry.stub(node_name, element) unless element.nil?
+          xml << DeleteMessageBatchResultEntry.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -258,7 +261,7 @@ module AWS::SDK::SQS
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('DeleteQueueResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -276,9 +279,9 @@ module AWS::SDK::SQS
         response = Hearth::XML::Node.new('GetQueueAttributesResponse')
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('GetQueueAttributesResult')
-        xml << Stubs::QueueAttributeMap.stub('Attribute', stub[:attributes]) unless stub[:attributes].nil?
+        xml << QueueAttributeMap.stub('Attribute', stub[:attributes]) unless stub[:attributes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -320,7 +323,7 @@ module AWS::SDK::SQS
         xml = Hearth::XML::Node.new('GetQueueUrlResult')
         xml << Hearth::XML::Node.new('QueueUrl', stub[:queue_url].to_s) unless stub[:queue_url].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -339,10 +342,10 @@ module AWS::SDK::SQS
         response = Hearth::XML::Node.new('ListDeadLetterSourceQueuesResponse')
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('ListDeadLetterSourceQueuesResult')
-        xml << Stubs::QueueUrlList.stub('QueueUrl', stub[:queue_urls]) unless stub[:queue_urls].nil?
+        xml << QueueUrlList.stub('QueueUrl', stub[:queue_urls]) unless stub[:queue_urls].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -379,9 +382,9 @@ module AWS::SDK::SQS
         response = Hearth::XML::Node.new('ListQueueTagsResponse')
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('ListQueueTagsResult')
-        xml << Stubs::TagMap.stub('Tag', stub[:tags]) unless stub[:tags].nil?
+        xml << TagMap.stub('Tag', stub[:tags]) unless stub[:tags].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -423,9 +426,9 @@ module AWS::SDK::SQS
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('ListQueuesResult')
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Stubs::QueueUrlList.stub('QueueUrl', stub[:queue_urls]) unless stub[:queue_urls].nil?
+        xml << QueueUrlList.stub('QueueUrl', stub[:queue_urls]) unless stub[:queue_urls].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -443,7 +446,7 @@ module AWS::SDK::SQS
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('PurgeQueueResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -461,9 +464,9 @@ module AWS::SDK::SQS
         response = Hearth::XML::Node.new('ReceiveMessageResponse')
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('ReceiveMessageResult')
-        xml << Stubs::MessageList.stub('Message', stub[:messages]) unless stub[:messages].nil?
+        xml << MessageList.stub('Message', stub[:messages]) unless stub[:messages].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -481,7 +484,7 @@ module AWS::SDK::SQS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Message.stub(node_name, element) unless element.nil?
+          xml << Message.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -510,9 +513,9 @@ module AWS::SDK::SQS
         xml << Hearth::XML::Node.new('ReceiptHandle', stub[:receipt_handle].to_s) unless stub[:receipt_handle].nil?
         xml << Hearth::XML::Node.new('MD5OfBody', stub[:md5_of_body].to_s) unless stub[:md5_of_body].nil?
         xml << Hearth::XML::Node.new('Body', stub[:body].to_s) unless stub[:body].nil?
-        xml << Stubs::MessageSystemAttributeMap.stub('Attribute', stub[:attributes]) unless stub[:attributes].nil?
+        xml << MessageSystemAttributeMap.stub('Attribute', stub[:attributes]) unless stub[:attributes].nil?
         xml << Hearth::XML::Node.new('MD5OfMessageAttributes', stub[:md5_of_message_attributes].to_s) unless stub[:md5_of_message_attributes].nil?
-        xml << Stubs::MessageBodyAttributeMap.stub('MessageAttribute', stub[:message_attributes]) unless stub[:message_attributes].nil?
+        xml << MessageBodyAttributeMap.stub('MessageAttribute', stub[:message_attributes]) unless stub[:message_attributes].nil?
         xml
       end
     end
@@ -532,7 +535,7 @@ module AWS::SDK::SQS
         stub.each do |key, value|
           xml = Hearth::XML::Node.new(node_name)
           xml << Hearth::XML::Node.new('Name', key.to_s) unless key.nil?
-          xml << Stubs::MessageAttributeValue.stub('Value', value) unless value.nil?
+          xml << MessageAttributeValue.stub('Value', value) unless value.nil?
           nodes << xml
         end
         nodes
@@ -557,9 +560,9 @@ module AWS::SDK::SQS
         stub ||= Types::MessageAttributeValue.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('StringValue', stub[:string_value].to_s) unless stub[:string_value].nil?
-        xml << Hearth::XML::Node.new('BinaryValue', Base64::encode64(stub[:binary_value]).strip) unless stub[:binary_value].nil?
-        xml << Stubs::StringList.stub('StringListValue', stub[:string_list_values]) unless stub[:string_list_values].nil?
-        xml << Stubs::BinaryList.stub('BinaryListValue', stub[:binary_list_values]) unless stub[:binary_list_values].nil?
+        xml << Hearth::XML::Node.new('BinaryValue', ::Base64::encode64(stub[:binary_value]).strip) unless stub[:binary_value].nil?
+        xml << StringList.stub('StringListValue', stub[:string_list_values]) unless stub[:string_list_values].nil?
+        xml << BinaryList.stub('BinaryListValue', stub[:binary_list_values]) unless stub[:binary_list_values].nil?
         xml << Hearth::XML::Node.new('DataType', stub[:data_type].to_s) unless stub[:data_type].nil?
         xml
       end
@@ -578,7 +581,7 @@ module AWS::SDK::SQS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Hearth::XML::Node.new(node_name, Base64::encode64(element).strip) unless element.nil?
+          xml << Hearth::XML::Node.new(node_name, ::Base64::encode64(element).strip) unless element.nil?
         end
         xml
       end
@@ -638,7 +641,7 @@ module AWS::SDK::SQS
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('RemovePermissionResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -666,7 +669,7 @@ module AWS::SDK::SQS
         xml << Hearth::XML::Node.new('MessageId', stub[:message_id].to_s) unless stub[:message_id].nil?
         xml << Hearth::XML::Node.new('SequenceNumber', stub[:sequence_number].to_s) unless stub[:sequence_number].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -685,10 +688,10 @@ module AWS::SDK::SQS
         response = Hearth::XML::Node.new('SendMessageBatchResponse')
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('SendMessageBatchResult')
-        xml << Stubs::SendMessageBatchResultEntryList.stub('SendMessageBatchResultEntry', stub[:successful]) unless stub[:successful].nil?
-        xml << Stubs::BatchResultErrorEntryList.stub('BatchResultErrorEntry', stub[:failed]) unless stub[:failed].nil?
+        xml << SendMessageBatchResultEntryList.stub('SendMessageBatchResultEntry', stub[:successful]) unless stub[:successful].nil?
+        xml << BatchResultErrorEntryList.stub('BatchResultErrorEntry', stub[:failed]) unless stub[:failed].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -706,7 +709,7 @@ module AWS::SDK::SQS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SendMessageBatchResultEntry.stub(node_name, element) unless element.nil?
+          xml << SendMessageBatchResultEntry.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -753,7 +756,7 @@ module AWS::SDK::SQS
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('SetQueueAttributesResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -771,7 +774,7 @@ module AWS::SDK::SQS
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('TagQueueResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -789,7 +792,7 @@ module AWS::SDK::SQS
         response.attributes['xmlns'] = 'http://queue.amazonaws.com/doc/2012-11-05/'
         xml = Hearth::XML::Node.new('UntagQueueResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end

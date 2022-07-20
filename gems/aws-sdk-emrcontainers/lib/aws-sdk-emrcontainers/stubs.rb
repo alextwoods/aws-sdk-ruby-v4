@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::EMRContainers
   module Stubs
 
@@ -25,7 +27,7 @@ module AWS::SDK::EMRContainers
         http_resp.headers['Content-Type'] = 'application/json'
         data['id'] = stub[:id] unless stub[:id].nil?
         data['virtualClusterId'] = stub[:virtual_cluster_id] unless stub[:virtual_cluster_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -48,7 +50,7 @@ module AWS::SDK::EMRContainers
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['virtualClusterId'] = stub[:virtual_cluster_id] unless stub[:virtual_cluster_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -69,7 +71,7 @@ module AWS::SDK::EMRContainers
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -88,7 +90,7 @@ module AWS::SDK::EMRContainers
         http_resp.headers['Content-Type'] = 'application/json'
         data['id'] = stub[:id] unless stub[:id].nil?
         data['virtualClusterId'] = stub[:virtual_cluster_id] unless stub[:virtual_cluster_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -105,7 +107,7 @@ module AWS::SDK::EMRContainers
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -121,8 +123,8 @@ module AWS::SDK::EMRContainers
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobRun'] = Stubs::JobRun.stub(stub[:job_run]) unless stub[:job_run].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['jobRun'] = JobRun.stub(stub[:job_run]) unless stub[:job_run].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -162,14 +164,14 @@ module AWS::SDK::EMRContainers
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['executionRoleArn'] = stub[:execution_role_arn] unless stub[:execution_role_arn].nil?
         data['releaseLabel'] = stub[:release_label] unless stub[:release_label].nil?
-        data['configurationOverrides'] = Stubs::ConfigurationOverrides.stub(stub[:configuration_overrides]) unless stub[:configuration_overrides].nil?
-        data['jobDriver'] = Stubs::JobDriver.stub(stub[:job_driver]) unless stub[:job_driver].nil?
+        data['configurationOverrides'] = ConfigurationOverrides.stub(stub[:configuration_overrides]) unless stub[:configuration_overrides].nil?
+        data['jobDriver'] = JobDriver.stub(stub[:job_driver]) unless stub[:job_driver].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['createdBy'] = stub[:created_by] unless stub[:created_by].nil?
         data['finishedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:finished_at]).to_i unless stub[:finished_at].nil?
         data['stateDetails'] = stub[:state_details] unless stub[:state_details].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -207,7 +209,7 @@ module AWS::SDK::EMRContainers
       def self.stub(stub)
         stub ||= Types::JobDriver.new
         data = {}
-        data['sparkSubmitJobDriver'] = Stubs::SparkSubmitJobDriver.stub(stub[:spark_submit_job_driver]) unless stub[:spark_submit_job_driver].nil?
+        data['sparkSubmitJobDriver'] = SparkSubmitJobDriver.stub(stub[:spark_submit_job_driver]) unless stub[:spark_submit_job_driver].nil?
         data
       end
     end
@@ -228,7 +230,7 @@ module AWS::SDK::EMRContainers
         stub ||= Types::SparkSubmitJobDriver.new
         data = {}
         data['entryPoint'] = stub[:entry_point] unless stub[:entry_point].nil?
-        data['entryPointArguments'] = Stubs::EntryPointArguments.stub(stub[:entry_point_arguments]) unless stub[:entry_point_arguments].nil?
+        data['entryPointArguments'] = EntryPointArguments.stub(stub[:entry_point_arguments]) unless stub[:entry_point_arguments].nil?
         data['sparkSubmitParameters'] = stub[:spark_submit_parameters] unless stub[:spark_submit_parameters].nil?
         data
       end
@@ -268,8 +270,8 @@ module AWS::SDK::EMRContainers
       def self.stub(stub)
         stub ||= Types::ConfigurationOverrides.new
         data = {}
-        data['applicationConfiguration'] = Stubs::ConfigurationList.stub(stub[:application_configuration]) unless stub[:application_configuration].nil?
-        data['monitoringConfiguration'] = Stubs::MonitoringConfiguration.stub(stub[:monitoring_configuration]) unless stub[:monitoring_configuration].nil?
+        data['applicationConfiguration'] = ConfigurationList.stub(stub[:application_configuration]) unless stub[:application_configuration].nil?
+        data['monitoringConfiguration'] = MonitoringConfiguration.stub(stub[:monitoring_configuration]) unless stub[:monitoring_configuration].nil?
         data
       end
     end
@@ -290,8 +292,8 @@ module AWS::SDK::EMRContainers
         stub ||= Types::MonitoringConfiguration.new
         data = {}
         data['persistentAppUI'] = stub[:persistent_app_ui] unless stub[:persistent_app_ui].nil?
-        data['cloudWatchMonitoringConfiguration'] = Stubs::CloudWatchMonitoringConfiguration.stub(stub[:cloud_watch_monitoring_configuration]) unless stub[:cloud_watch_monitoring_configuration].nil?
-        data['s3MonitoringConfiguration'] = Stubs::S3MonitoringConfiguration.stub(stub[:s3_monitoring_configuration]) unless stub[:s3_monitoring_configuration].nil?
+        data['cloudWatchMonitoringConfiguration'] = CloudWatchMonitoringConfiguration.stub(stub[:cloud_watch_monitoring_configuration]) unless stub[:cloud_watch_monitoring_configuration].nil?
+        data['s3MonitoringConfiguration'] = S3MonitoringConfiguration.stub(stub[:s3_monitoring_configuration]) unless stub[:s3_monitoring_configuration].nil?
         data
       end
     end
@@ -348,7 +350,7 @@ module AWS::SDK::EMRContainers
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Configuration.stub(element) unless element.nil?
+          data << Configuration.stub(element) unless element.nil?
         end
         data
       end
@@ -370,8 +372,8 @@ module AWS::SDK::EMRContainers
         stub ||= Types::Configuration.new
         data = {}
         data['classification'] = stub[:classification] unless stub[:classification].nil?
-        data['properties'] = Stubs::SensitivePropertiesMap.stub(stub[:properties]) unless stub[:properties].nil?
-        data['configurations'] = Stubs::ConfigurationList.stub(stub[:configurations]) unless stub[:configurations].nil?
+        data['properties'] = SensitivePropertiesMap.stub(stub[:properties]) unless stub[:properties].nil?
+        data['configurations'] = ConfigurationList.stub(stub[:configurations]) unless stub[:configurations].nil?
         data
       end
     end
@@ -408,8 +410,8 @@ module AWS::SDK::EMRContainers
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['endpoint'] = Stubs::Endpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['endpoint'] = Endpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -452,15 +454,15 @@ module AWS::SDK::EMRContainers
         data['releaseLabel'] = stub[:release_label] unless stub[:release_label].nil?
         data['executionRoleArn'] = stub[:execution_role_arn] unless stub[:execution_role_arn].nil?
         data['certificateArn'] = stub[:certificate_arn] unless stub[:certificate_arn].nil?
-        data['certificateAuthority'] = Stubs::Certificate.stub(stub[:certificate_authority]) unless stub[:certificate_authority].nil?
-        data['configurationOverrides'] = Stubs::ConfigurationOverrides.stub(stub[:configuration_overrides]) unless stub[:configuration_overrides].nil?
+        data['certificateAuthority'] = Certificate.stub(stub[:certificate_authority]) unless stub[:certificate_authority].nil?
+        data['configurationOverrides'] = ConfigurationOverrides.stub(stub[:configuration_overrides]) unless stub[:configuration_overrides].nil?
         data['serverUrl'] = stub[:server_url] unless stub[:server_url].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['securityGroup'] = stub[:security_group] unless stub[:security_group].nil?
-        data['subnetIds'] = Stubs::SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['subnetIds'] = SubnetIds.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
         data['stateDetails'] = stub[:state_details] unless stub[:state_details].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -517,8 +519,8 @@ module AWS::SDK::EMRContainers
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['virtualCluster'] = Stubs::VirtualCluster.stub(stub[:virtual_cluster]) unless stub[:virtual_cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['virtualCluster'] = VirtualCluster.stub(stub[:virtual_cluster]) unless stub[:virtual_cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -545,9 +547,9 @@ module AWS::SDK::EMRContainers
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['state'] = stub[:state] unless stub[:state].nil?
-        data['containerProvider'] = Stubs::ContainerProvider.stub(stub[:container_provider]) unless stub[:container_provider].nil?
+        data['containerProvider'] = ContainerProvider.stub(stub[:container_provider]) unless stub[:container_provider].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -569,7 +571,7 @@ module AWS::SDK::EMRContainers
         data = {}
         data['type'] = stub[:type] unless stub[:type].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['info'] = Stubs::ContainerInfo.stub(stub[:info]) unless stub[:info].nil?
+        data['info'] = ContainerInfo.stub(stub[:info]) unless stub[:info].nil?
         data
       end
     end
@@ -588,7 +590,7 @@ module AWS::SDK::EMRContainers
         data = {}
         case stub
         when Types::ContainerInfo::EksInfo
-          data['eksInfo'] = (Stubs::EksInfo.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['eksInfo'] = (EksInfo.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::ContainerInfo"
@@ -629,9 +631,9 @@ module AWS::SDK::EMRContainers
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobRuns'] = Stubs::JobRuns.stub(stub[:job_runs]) unless stub[:job_runs].nil?
+        data['jobRuns'] = JobRuns.stub(stub[:job_runs]) unless stub[:job_runs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -649,7 +651,7 @@ module AWS::SDK::EMRContainers
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobRun.stub(element) unless element.nil?
+          data << JobRun.stub(element) unless element.nil?
         end
         data
       end
@@ -668,9 +670,9 @@ module AWS::SDK::EMRContainers
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['endpoints'] = Stubs::Endpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        data['endpoints'] = Endpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -688,7 +690,7 @@ module AWS::SDK::EMRContainers
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Endpoint.stub(element) unless element.nil?
+          data << Endpoint.stub(element) unless element.nil?
         end
         data
       end
@@ -706,8 +708,8 @@ module AWS::SDK::EMRContainers
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -724,9 +726,9 @@ module AWS::SDK::EMRContainers
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['virtualClusters'] = Stubs::VirtualClusters.stub(stub[:virtual_clusters]) unless stub[:virtual_clusters].nil?
+        data['virtualClusters'] = VirtualClusters.stub(stub[:virtual_clusters]) unless stub[:virtual_clusters].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -744,7 +746,7 @@ module AWS::SDK::EMRContainers
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VirtualCluster.stub(element) unless element.nil?
+          data << VirtualCluster.stub(element) unless element.nil?
         end
         data
       end
@@ -769,7 +771,7 @@ module AWS::SDK::EMRContainers
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['virtualClusterId'] = stub[:virtual_cluster_id] unless stub[:virtual_cluster_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

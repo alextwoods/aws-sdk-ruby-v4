@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::DynamoDB
   module Stubs
 
@@ -21,9 +24,9 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Responses'] = Stubs::PartiQLBatchResponse.stub(stub[:responses]) unless stub[:responses].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Responses'] = PartiQLBatchResponse.stub(stub[:responses]) unless stub[:responses].nil?
+        data['ConsumedCapacity'] = ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -42,7 +45,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConsumedCapacity.stub(element) unless element.nil?
+          data << ConsumedCapacity.stub(element) unless element.nil?
         end
         data
       end
@@ -71,9 +74,9 @@ module AWS::SDK::DynamoDB
         data['CapacityUnits'] = Hearth::NumberHelper.serialize(stub[:capacity_units])
         data['ReadCapacityUnits'] = Hearth::NumberHelper.serialize(stub[:read_capacity_units])
         data['WriteCapacityUnits'] = Hearth::NumberHelper.serialize(stub[:write_capacity_units])
-        data['Table'] = Stubs::Capacity.stub(stub[:table]) unless stub[:table].nil?
-        data['LocalSecondaryIndexes'] = Stubs::SecondaryIndexesCapacityMap.stub(stub[:local_secondary_indexes]) unless stub[:local_secondary_indexes].nil?
-        data['GlobalSecondaryIndexes'] = Stubs::SecondaryIndexesCapacityMap.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
+        data['Table'] = Capacity.stub(stub[:table]) unless stub[:table].nil?
+        data['LocalSecondaryIndexes'] = SecondaryIndexesCapacityMap.stub(stub[:local_secondary_indexes]) unless stub[:local_secondary_indexes].nil?
+        data['GlobalSecondaryIndexes'] = SecondaryIndexesCapacityMap.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
         data
       end
     end
@@ -92,7 +95,7 @@ module AWS::SDK::DynamoDB
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::Capacity.stub(value) unless value.nil?
+          data[key] = Capacity.stub(value) unless value.nil?
         end
         data
       end
@@ -134,7 +137,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchStatementResponse.stub(element) unless element.nil?
+          data << BatchStatementResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -155,9 +158,9 @@ module AWS::SDK::DynamoDB
       def self.stub(stub)
         stub ||= Types::BatchStatementResponse.new
         data = {}
-        data['Error'] = Stubs::BatchStatementError.stub(stub[:error]) unless stub[:error].nil?
+        data['Error'] = BatchStatementError.stub(stub[:error]) unless stub[:error].nil?
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['Item'] = Stubs::AttributeMap.stub(stub[:item]) unless stub[:item].nil?
+        data['Item'] = AttributeMap.stub(stub[:item]) unless stub[:item].nil?
         data
       end
     end
@@ -176,7 +179,7 @@ module AWS::SDK::DynamoDB
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::AttributeValue.stub(value) unless value.nil?
+          data[key] = AttributeValue.stub(value) unless value.nil?
         end
         data
       end
@@ -200,17 +203,17 @@ module AWS::SDK::DynamoDB
         when Types::AttributeValue::N
           data['N'] = stub.__getobj__
         when Types::AttributeValue::B
-          data['B'] = Base64::encode64(stub.__getobj__)
+          data['B'] = ::Base64::encode64(stub.__getobj__)
         when Types::AttributeValue::Ss
-          data['SS'] = (Stubs::StringSetAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['SS'] = (StringSetAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AttributeValue::Ns
-          data['NS'] = (Stubs::NumberSetAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['NS'] = (NumberSetAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AttributeValue::Bs
-          data['BS'] = (Stubs::BinarySetAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['BS'] = (BinarySetAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AttributeValue::M
-          data['M'] = (Stubs::MapAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['M'] = (MapAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AttributeValue::L
-          data['L'] = (Stubs::ListAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['L'] = (ListAttributeValue.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::AttributeValue::Null
           data['NULL'] = stub.__getobj__
         when Types::AttributeValue::Bool
@@ -238,7 +241,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttributeValue.stub(element) unless element.nil?
+          data << AttributeValue.stub(element) unless element.nil?
         end
         data
       end
@@ -258,7 +261,7 @@ module AWS::SDK::DynamoDB
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::AttributeValue.stub(value) unless value.nil?
+          data[key] = AttributeValue.stub(value) unless value.nil?
         end
         data
       end
@@ -278,7 +281,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Base64::encode64(element) unless element.nil?
+          data << ::Base64::encode64(element) unless element.nil?
         end
         data
       end
@@ -356,10 +359,10 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Responses'] = Stubs::BatchGetResponseMap.stub(stub[:responses]) unless stub[:responses].nil?
-        data['UnprocessedKeys'] = Stubs::BatchGetRequestMap.stub(stub[:unprocessed_keys]) unless stub[:unprocessed_keys].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Responses'] = BatchGetResponseMap.stub(stub[:responses]) unless stub[:responses].nil?
+        data['UnprocessedKeys'] = BatchGetRequestMap.stub(stub[:unprocessed_keys]) unless stub[:unprocessed_keys].nil?
+        data['ConsumedCapacity'] = ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -378,7 +381,7 @@ module AWS::SDK::DynamoDB
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::KeysAndAttributes.stub(value) unless value.nil?
+          data[key] = KeysAndAttributes.stub(value) unless value.nil?
         end
         data
       end
@@ -401,11 +404,11 @@ module AWS::SDK::DynamoDB
       def self.stub(stub)
         stub ||= Types::KeysAndAttributes.new
         data = {}
-        data['Keys'] = Stubs::KeyList.stub(stub[:keys]) unless stub[:keys].nil?
-        data['AttributesToGet'] = Stubs::AttributeNameList.stub(stub[:attributes_to_get]) unless stub[:attributes_to_get].nil?
+        data['Keys'] = KeyList.stub(stub[:keys]) unless stub[:keys].nil?
+        data['AttributesToGet'] = AttributeNameList.stub(stub[:attributes_to_get]) unless stub[:attributes_to_get].nil?
         data['ConsistentRead'] = stub[:consistent_read] unless stub[:consistent_read].nil?
         data['ProjectionExpression'] = stub[:projection_expression] unless stub[:projection_expression].nil?
-        data['ExpressionAttributeNames'] = Stubs::ExpressionAttributeNameMap.stub(stub[:expression_attribute_names]) unless stub[:expression_attribute_names].nil?
+        data['ExpressionAttributeNames'] = ExpressionAttributeNameMap.stub(stub[:expression_attribute_names]) unless stub[:expression_attribute_names].nil?
         data
       end
     end
@@ -464,7 +467,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Key.stub(element) unless element.nil?
+          data << Key.stub(element) unless element.nil?
         end
         data
       end
@@ -484,7 +487,7 @@ module AWS::SDK::DynamoDB
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::AttributeValue.stub(value) unless value.nil?
+          data[key] = AttributeValue.stub(value) unless value.nil?
         end
         data
       end
@@ -504,7 +507,7 @@ module AWS::SDK::DynamoDB
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ItemList.stub(value) unless value.nil?
+          data[key] = ItemList.stub(value) unless value.nil?
         end
         data
       end
@@ -524,7 +527,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttributeMap.stub(element) unless element.nil?
+          data << AttributeMap.stub(element) unless element.nil?
         end
         data
       end
@@ -542,10 +545,10 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['UnprocessedItems'] = Stubs::BatchWriteItemRequestMap.stub(stub[:unprocessed_items]) unless stub[:unprocessed_items].nil?
-        data['ItemCollectionMetrics'] = Stubs::ItemCollectionMetricsPerTable.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UnprocessedItems'] = BatchWriteItemRequestMap.stub(stub[:unprocessed_items]) unless stub[:unprocessed_items].nil?
+        data['ItemCollectionMetrics'] = ItemCollectionMetricsPerTable.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
+        data['ConsumedCapacity'] = ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -564,7 +567,7 @@ module AWS::SDK::DynamoDB
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ItemCollectionMetricsMultiple.stub(value) unless value.nil?
+          data[key] = ItemCollectionMetricsMultiple.stub(value) unless value.nil?
         end
         data
       end
@@ -584,7 +587,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ItemCollectionMetrics.stub(element) unless element.nil?
+          data << ItemCollectionMetrics.stub(element) unless element.nil?
         end
         data
       end
@@ -604,8 +607,8 @@ module AWS::SDK::DynamoDB
       def self.stub(stub)
         stub ||= Types::ItemCollectionMetrics.new
         data = {}
-        data['ItemCollectionKey'] = Stubs::ItemCollectionKeyAttributeMap.stub(stub[:item_collection_key]) unless stub[:item_collection_key].nil?
-        data['SizeEstimateRangeGB'] = Stubs::ItemCollectionSizeEstimateRange.stub(stub[:size_estimate_range_gb]) unless stub[:size_estimate_range_gb].nil?
+        data['ItemCollectionKey'] = ItemCollectionKeyAttributeMap.stub(stub[:item_collection_key]) unless stub[:item_collection_key].nil?
+        data['SizeEstimateRangeGB'] = ItemCollectionSizeEstimateRange.stub(stub[:size_estimate_range_gb]) unless stub[:size_estimate_range_gb].nil?
         data
       end
     end
@@ -644,7 +647,7 @@ module AWS::SDK::DynamoDB
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::AttributeValue.stub(value) unless value.nil?
+          data[key] = AttributeValue.stub(value) unless value.nil?
         end
         data
       end
@@ -664,7 +667,7 @@ module AWS::SDK::DynamoDB
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::WriteRequests.stub(value) unless value.nil?
+          data[key] = WriteRequests.stub(value) unless value.nil?
         end
         data
       end
@@ -684,7 +687,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WriteRequest.stub(element) unless element.nil?
+          data << WriteRequest.stub(element) unless element.nil?
         end
         data
       end
@@ -704,8 +707,8 @@ module AWS::SDK::DynamoDB
       def self.stub(stub)
         stub ||= Types::WriteRequest.new
         data = {}
-        data['PutRequest'] = Stubs::PutRequest.stub(stub[:put_request]) unless stub[:put_request].nil?
-        data['DeleteRequest'] = Stubs::DeleteRequest.stub(stub[:delete_request]) unless stub[:delete_request].nil?
+        data['PutRequest'] = PutRequest.stub(stub[:put_request]) unless stub[:put_request].nil?
+        data['DeleteRequest'] = DeleteRequest.stub(stub[:delete_request]) unless stub[:delete_request].nil?
         data
       end
     end
@@ -723,7 +726,7 @@ module AWS::SDK::DynamoDB
       def self.stub(stub)
         stub ||= Types::DeleteRequest.new
         data = {}
-        data['Key'] = Stubs::Key.stub(stub[:key]) unless stub[:key].nil?
+        data['Key'] = Key.stub(stub[:key]) unless stub[:key].nil?
         data
       end
     end
@@ -741,7 +744,7 @@ module AWS::SDK::DynamoDB
       def self.stub(stub)
         stub ||= Types::PutRequest.new
         data = {}
-        data['Item'] = Stubs::PutItemInputAttributeMap.stub(stub[:item]) unless stub[:item].nil?
+        data['Item'] = PutItemInputAttributeMap.stub(stub[:item]) unless stub[:item].nil?
         data
       end
     end
@@ -760,7 +763,7 @@ module AWS::SDK::DynamoDB
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::AttributeValue.stub(value) unless value.nil?
+          data[key] = AttributeValue.stub(value) unless value.nil?
         end
         data
       end
@@ -776,8 +779,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['BackupDetails'] = Stubs::BackupDetails.stub(stub[:backup_details]) unless stub[:backup_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BackupDetails'] = BackupDetails.stub(stub[:backup_details]) unless stub[:backup_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -822,8 +825,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GlobalTableDescription'] = Stubs::GlobalTableDescription.stub(stub[:global_table_description]) unless stub[:global_table_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GlobalTableDescription'] = GlobalTableDescription.stub(stub[:global_table_description]) unless stub[:global_table_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -845,7 +848,7 @@ module AWS::SDK::DynamoDB
       def self.stub(stub)
         stub ||= Types::GlobalTableDescription.new
         data = {}
-        data['ReplicationGroup'] = Stubs::ReplicaDescriptionList.stub(stub[:replication_group]) unless stub[:replication_group].nil?
+        data['ReplicationGroup'] = ReplicaDescriptionList.stub(stub[:replication_group]) unless stub[:replication_group].nil?
         data['GlobalTableArn'] = stub[:global_table_arn] unless stub[:global_table_arn].nil?
         data['CreationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
         data['GlobalTableStatus'] = stub[:global_table_status] unless stub[:global_table_status].nil?
@@ -868,7 +871,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicaDescription.stub(element) unless element.nil?
+          data << ReplicaDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -900,10 +903,10 @@ module AWS::SDK::DynamoDB
         data['ReplicaStatusDescription'] = stub[:replica_status_description] unless stub[:replica_status_description].nil?
         data['ReplicaStatusPercentProgress'] = stub[:replica_status_percent_progress] unless stub[:replica_status_percent_progress].nil?
         data['KMSMasterKeyId'] = stub[:kms_master_key_id] unless stub[:kms_master_key_id].nil?
-        data['ProvisionedThroughputOverride'] = Stubs::ProvisionedThroughputOverride.stub(stub[:provisioned_throughput_override]) unless stub[:provisioned_throughput_override].nil?
-        data['GlobalSecondaryIndexes'] = Stubs::ReplicaGlobalSecondaryIndexDescriptionList.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
+        data['ProvisionedThroughputOverride'] = ProvisionedThroughputOverride.stub(stub[:provisioned_throughput_override]) unless stub[:provisioned_throughput_override].nil?
+        data['GlobalSecondaryIndexes'] = ReplicaGlobalSecondaryIndexDescriptionList.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
         data['ReplicaInaccessibleDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:replica_inaccessible_date_time]).to_i unless stub[:replica_inaccessible_date_time].nil?
-        data['ReplicaTableClassSummary'] = Stubs::TableClassSummary.stub(stub[:replica_table_class_summary]) unless stub[:replica_table_class_summary].nil?
+        data['ReplicaTableClassSummary'] = TableClassSummary.stub(stub[:replica_table_class_summary]) unless stub[:replica_table_class_summary].nil?
         data
       end
     end
@@ -942,7 +945,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicaGlobalSecondaryIndexDescription.stub(element) unless element.nil?
+          data << ReplicaGlobalSecondaryIndexDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -963,7 +966,7 @@ module AWS::SDK::DynamoDB
         stub ||= Types::ReplicaGlobalSecondaryIndexDescription.new
         data = {}
         data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['ProvisionedThroughputOverride'] = Stubs::ProvisionedThroughputOverride.stub(stub[:provisioned_throughput_override]) unless stub[:provisioned_throughput_override].nil?
+        data['ProvisionedThroughputOverride'] = ProvisionedThroughputOverride.stub(stub[:provisioned_throughput_override]) unless stub[:provisioned_throughput_override].nil?
         data
       end
     end
@@ -996,8 +999,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TableDescription'] = Stubs::TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TableDescription'] = TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1036,28 +1039,28 @@ module AWS::SDK::DynamoDB
       def self.stub(stub)
         stub ||= Types::TableDescription.new
         data = {}
-        data['AttributeDefinitions'] = Stubs::AttributeDefinitions.stub(stub[:attribute_definitions]) unless stub[:attribute_definitions].nil?
+        data['AttributeDefinitions'] = AttributeDefinitions.stub(stub[:attribute_definitions]) unless stub[:attribute_definitions].nil?
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['KeySchema'] = Stubs::KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
+        data['KeySchema'] = KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
         data['TableStatus'] = stub[:table_status] unless stub[:table_status].nil?
         data['CreationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date_time]).to_i unless stub[:creation_date_time].nil?
-        data['ProvisionedThroughput'] = Stubs::ProvisionedThroughputDescription.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
+        data['ProvisionedThroughput'] = ProvisionedThroughputDescription.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
         data['TableSizeBytes'] = stub[:table_size_bytes] unless stub[:table_size_bytes].nil?
         data['ItemCount'] = stub[:item_count] unless stub[:item_count].nil?
         data['TableArn'] = stub[:table_arn] unless stub[:table_arn].nil?
         data['TableId'] = stub[:table_id] unless stub[:table_id].nil?
-        data['BillingModeSummary'] = Stubs::BillingModeSummary.stub(stub[:billing_mode_summary]) unless stub[:billing_mode_summary].nil?
-        data['LocalSecondaryIndexes'] = Stubs::LocalSecondaryIndexDescriptionList.stub(stub[:local_secondary_indexes]) unless stub[:local_secondary_indexes].nil?
-        data['GlobalSecondaryIndexes'] = Stubs::GlobalSecondaryIndexDescriptionList.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
-        data['StreamSpecification'] = Stubs::StreamSpecification.stub(stub[:stream_specification]) unless stub[:stream_specification].nil?
+        data['BillingModeSummary'] = BillingModeSummary.stub(stub[:billing_mode_summary]) unless stub[:billing_mode_summary].nil?
+        data['LocalSecondaryIndexes'] = LocalSecondaryIndexDescriptionList.stub(stub[:local_secondary_indexes]) unless stub[:local_secondary_indexes].nil?
+        data['GlobalSecondaryIndexes'] = GlobalSecondaryIndexDescriptionList.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
+        data['StreamSpecification'] = StreamSpecification.stub(stub[:stream_specification]) unless stub[:stream_specification].nil?
         data['LatestStreamLabel'] = stub[:latest_stream_label] unless stub[:latest_stream_label].nil?
         data['LatestStreamArn'] = stub[:latest_stream_arn] unless stub[:latest_stream_arn].nil?
         data['GlobalTableVersion'] = stub[:global_table_version] unless stub[:global_table_version].nil?
-        data['Replicas'] = Stubs::ReplicaDescriptionList.stub(stub[:replicas]) unless stub[:replicas].nil?
-        data['RestoreSummary'] = Stubs::RestoreSummary.stub(stub[:restore_summary]) unless stub[:restore_summary].nil?
-        data['SSEDescription'] = Stubs::SSEDescription.stub(stub[:sse_description]) unless stub[:sse_description].nil?
-        data['ArchivalSummary'] = Stubs::ArchivalSummary.stub(stub[:archival_summary]) unless stub[:archival_summary].nil?
-        data['TableClassSummary'] = Stubs::TableClassSummary.stub(stub[:table_class_summary]) unless stub[:table_class_summary].nil?
+        data['Replicas'] = ReplicaDescriptionList.stub(stub[:replicas]) unless stub[:replicas].nil?
+        data['RestoreSummary'] = RestoreSummary.stub(stub[:restore_summary]) unless stub[:restore_summary].nil?
+        data['SSEDescription'] = SSEDescription.stub(stub[:sse_description]) unless stub[:sse_description].nil?
+        data['ArchivalSummary'] = ArchivalSummary.stub(stub[:archival_summary]) unless stub[:archival_summary].nil?
+        data['TableClassSummary'] = TableClassSummary.stub(stub[:table_class_summary]) unless stub[:table_class_summary].nil?
         data
       end
     end
@@ -1166,7 +1169,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GlobalSecondaryIndexDescription.stub(element) unless element.nil?
+          data << GlobalSecondaryIndexDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -1194,11 +1197,11 @@ module AWS::SDK::DynamoDB
         stub ||= Types::GlobalSecondaryIndexDescription.new
         data = {}
         data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['KeySchema'] = Stubs::KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
-        data['Projection'] = Stubs::Projection.stub(stub[:projection]) unless stub[:projection].nil?
+        data['KeySchema'] = KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
+        data['Projection'] = Projection.stub(stub[:projection]) unless stub[:projection].nil?
         data['IndexStatus'] = stub[:index_status] unless stub[:index_status].nil?
         data['Backfilling'] = stub[:backfilling] unless stub[:backfilling].nil?
-        data['ProvisionedThroughput'] = Stubs::ProvisionedThroughputDescription.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
+        data['ProvisionedThroughput'] = ProvisionedThroughputDescription.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
         data['IndexSizeBytes'] = stub[:index_size_bytes] unless stub[:index_size_bytes].nil?
         data['ItemCount'] = stub[:item_count] unless stub[:item_count].nil?
         data['IndexArn'] = stub[:index_arn] unless stub[:index_arn].nil?
@@ -1247,7 +1250,7 @@ module AWS::SDK::DynamoDB
         stub ||= Types::Projection.new
         data = {}
         data['ProjectionType'] = stub[:projection_type] unless stub[:projection_type].nil?
-        data['NonKeyAttributes'] = Stubs::NonKeyAttributeNameList.stub(stub[:non_key_attributes]) unless stub[:non_key_attributes].nil?
+        data['NonKeyAttributes'] = NonKeyAttributeNameList.stub(stub[:non_key_attributes]) unless stub[:non_key_attributes].nil?
         data
       end
     end
@@ -1286,7 +1289,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeySchemaElement.stub(element) unless element.nil?
+          data << KeySchemaElement.stub(element) unless element.nil?
         end
         data
       end
@@ -1326,7 +1329,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LocalSecondaryIndexDescription.stub(element) unless element.nil?
+          data << LocalSecondaryIndexDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -1351,8 +1354,8 @@ module AWS::SDK::DynamoDB
         stub ||= Types::LocalSecondaryIndexDescription.new
         data = {}
         data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['KeySchema'] = Stubs::KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
-        data['Projection'] = Stubs::Projection.stub(stub[:projection]) unless stub[:projection].nil?
+        data['KeySchema'] = KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
+        data['Projection'] = Projection.stub(stub[:projection]) unless stub[:projection].nil?
         data['IndexSizeBytes'] = stub[:index_size_bytes] unless stub[:index_size_bytes].nil?
         data['ItemCount'] = stub[:item_count] unless stub[:item_count].nil?
         data['IndexArn'] = stub[:index_arn] unless stub[:index_arn].nil?
@@ -1394,7 +1397,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttributeDefinition.stub(element) unless element.nil?
+          data << AttributeDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -1430,8 +1433,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['BackupDescription'] = Stubs::BackupDescription.stub(stub[:backup_description]) unless stub[:backup_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BackupDescription'] = BackupDescription.stub(stub[:backup_description]) unless stub[:backup_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1451,9 +1454,9 @@ module AWS::SDK::DynamoDB
       def self.stub(stub)
         stub ||= Types::BackupDescription.new
         data = {}
-        data['BackupDetails'] = Stubs::BackupDetails.stub(stub[:backup_details]) unless stub[:backup_details].nil?
-        data['SourceTableDetails'] = Stubs::SourceTableDetails.stub(stub[:source_table_details]) unless stub[:source_table_details].nil?
-        data['SourceTableFeatureDetails'] = Stubs::SourceTableFeatureDetails.stub(stub[:source_table_feature_details]) unless stub[:source_table_feature_details].nil?
+        data['BackupDetails'] = BackupDetails.stub(stub[:backup_details]) unless stub[:backup_details].nil?
+        data['SourceTableDetails'] = SourceTableDetails.stub(stub[:source_table_details]) unless stub[:source_table_details].nil?
+        data['SourceTableFeatureDetails'] = SourceTableFeatureDetails.stub(stub[:source_table_feature_details]) unless stub[:source_table_feature_details].nil?
         data
       end
     end
@@ -1475,11 +1478,11 @@ module AWS::SDK::DynamoDB
       def self.stub(stub)
         stub ||= Types::SourceTableFeatureDetails.new
         data = {}
-        data['LocalSecondaryIndexes'] = Stubs::LocalSecondaryIndexes.stub(stub[:local_secondary_indexes]) unless stub[:local_secondary_indexes].nil?
-        data['GlobalSecondaryIndexes'] = Stubs::GlobalSecondaryIndexes.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
-        data['StreamDescription'] = Stubs::StreamSpecification.stub(stub[:stream_description]) unless stub[:stream_description].nil?
-        data['TimeToLiveDescription'] = Stubs::TimeToLiveDescription.stub(stub[:time_to_live_description]) unless stub[:time_to_live_description].nil?
-        data['SSEDescription'] = Stubs::SSEDescription.stub(stub[:sse_description]) unless stub[:sse_description].nil?
+        data['LocalSecondaryIndexes'] = LocalSecondaryIndexes.stub(stub[:local_secondary_indexes]) unless stub[:local_secondary_indexes].nil?
+        data['GlobalSecondaryIndexes'] = GlobalSecondaryIndexes.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
+        data['StreamDescription'] = StreamSpecification.stub(stub[:stream_description]) unless stub[:stream_description].nil?
+        data['TimeToLiveDescription'] = TimeToLiveDescription.stub(stub[:time_to_live_description]) unless stub[:time_to_live_description].nil?
+        data['SSEDescription'] = SSEDescription.stub(stub[:sse_description]) unless stub[:sse_description].nil?
         data
       end
     end
@@ -1518,7 +1521,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GlobalSecondaryIndexInfo.stub(element) unless element.nil?
+          data << GlobalSecondaryIndexInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1541,9 +1544,9 @@ module AWS::SDK::DynamoDB
         stub ||= Types::GlobalSecondaryIndexInfo.new
         data = {}
         data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['KeySchema'] = Stubs::KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
-        data['Projection'] = Stubs::Projection.stub(stub[:projection]) unless stub[:projection].nil?
-        data['ProvisionedThroughput'] = Stubs::ProvisionedThroughput.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
+        data['KeySchema'] = KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
+        data['Projection'] = Projection.stub(stub[:projection]) unless stub[:projection].nil?
+        data['ProvisionedThroughput'] = ProvisionedThroughput.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
         data
       end
     end
@@ -1582,7 +1585,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LocalSecondaryIndexInfo.stub(element) unless element.nil?
+          data << LocalSecondaryIndexInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1604,8 +1607,8 @@ module AWS::SDK::DynamoDB
         stub ||= Types::LocalSecondaryIndexInfo.new
         data = {}
         data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['KeySchema'] = Stubs::KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
-        data['Projection'] = Stubs::Projection.stub(stub[:projection]) unless stub[:projection].nil?
+        data['KeySchema'] = KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
+        data['Projection'] = Projection.stub(stub[:projection]) unless stub[:projection].nil?
         data
       end
     end
@@ -1635,9 +1638,9 @@ module AWS::SDK::DynamoDB
         data['TableId'] = stub[:table_id] unless stub[:table_id].nil?
         data['TableArn'] = stub[:table_arn] unless stub[:table_arn].nil?
         data['TableSizeBytes'] = stub[:table_size_bytes] unless stub[:table_size_bytes].nil?
-        data['KeySchema'] = Stubs::KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
+        data['KeySchema'] = KeySchema.stub(stub[:key_schema]) unless stub[:key_schema].nil?
         data['TableCreationDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:table_creation_date_time]).to_i unless stub[:table_creation_date_time].nil?
-        data['ProvisionedThroughput'] = Stubs::ProvisionedThroughput.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
+        data['ProvisionedThroughput'] = ProvisionedThroughput.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
         data['ItemCount'] = stub[:item_count] unless stub[:item_count].nil?
         data['BillingMode'] = stub[:billing_mode] unless stub[:billing_mode].nil?
         data
@@ -1656,10 +1659,10 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Attributes'] = Stubs::AttributeMap.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        data['ItemCollectionMetrics'] = Stubs::ItemCollectionMetrics.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attributes'] = AttributeMap.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['ConsumedCapacity'] = ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
+        data['ItemCollectionMetrics'] = ItemCollectionMetrics.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1674,8 +1677,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TableDescription'] = Stubs::TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TableDescription'] = TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1690,8 +1693,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['BackupDescription'] = Stubs::BackupDescription.stub(stub[:backup_description]) unless stub[:backup_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BackupDescription'] = BackupDescription.stub(stub[:backup_description]) unless stub[:backup_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1706,8 +1709,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ContinuousBackupsDescription'] = Stubs::ContinuousBackupsDescription.stub(stub[:continuous_backups_description]) unless stub[:continuous_backups_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ContinuousBackupsDescription'] = ContinuousBackupsDescription.stub(stub[:continuous_backups_description]) unless stub[:continuous_backups_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1727,7 +1730,7 @@ module AWS::SDK::DynamoDB
         stub ||= Types::ContinuousBackupsDescription.new
         data = {}
         data['ContinuousBackupsStatus'] = stub[:continuous_backups_status] unless stub[:continuous_backups_status].nil?
-        data['PointInTimeRecoveryDescription'] = Stubs::PointInTimeRecoveryDescription.stub(stub[:point_in_time_recovery_description]) unless stub[:point_in_time_recovery_description].nil?
+        data['PointInTimeRecoveryDescription'] = PointInTimeRecoveryDescription.stub(stub[:point_in_time_recovery_description]) unless stub[:point_in_time_recovery_description].nil?
         data
       end
     end
@@ -1771,11 +1774,11 @@ module AWS::SDK::DynamoDB
         data = {}
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['ContributorInsightsRuleList'] = Stubs::ContributorInsightsRuleList.stub(stub[:contributor_insights_rule_list]) unless stub[:contributor_insights_rule_list].nil?
+        data['ContributorInsightsRuleList'] = ContributorInsightsRuleList.stub(stub[:contributor_insights_rule_list]) unless stub[:contributor_insights_rule_list].nil?
         data['ContributorInsightsStatus'] = stub[:contributor_insights_status] unless stub[:contributor_insights_status].nil?
         data['LastUpdateDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_date_time]).to_i unless stub[:last_update_date_time].nil?
-        data['FailureException'] = Stubs::FailureException.stub(stub[:failure_exception]) unless stub[:failure_exception].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailureException'] = FailureException.stub(stub[:failure_exception]) unless stub[:failure_exception].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1830,8 +1833,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Endpoints'] = Stubs::Endpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Endpoints'] = Endpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1850,7 +1853,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Endpoint.stub(element) unless element.nil?
+          data << Endpoint.stub(element) unless element.nil?
         end
         data
       end
@@ -1886,8 +1889,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ExportDescription'] = Stubs::ExportDescription.stub(stub[:export_description]) unless stub[:export_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ExportDescription'] = ExportDescription.stub(stub[:export_description]) unless stub[:export_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1956,8 +1959,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GlobalTableDescription'] = Stubs::GlobalTableDescription.stub(stub[:global_table_description]) unless stub[:global_table_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GlobalTableDescription'] = GlobalTableDescription.stub(stub[:global_table_description]) unless stub[:global_table_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1974,8 +1977,8 @@ module AWS::SDK::DynamoDB
       def self.stub(http_resp, stub:)
         data = {}
         data['GlobalTableName'] = stub[:global_table_name] unless stub[:global_table_name].nil?
-        data['ReplicaSettings'] = Stubs::ReplicaSettingsDescriptionList.stub(stub[:replica_settings]) unless stub[:replica_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicaSettings'] = ReplicaSettingsDescriptionList.stub(stub[:replica_settings]) unless stub[:replica_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1994,7 +1997,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicaSettingsDescription.stub(element) unless element.nil?
+          data << ReplicaSettingsDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -2023,13 +2026,13 @@ module AWS::SDK::DynamoDB
         data = {}
         data['RegionName'] = stub[:region_name] unless stub[:region_name].nil?
         data['ReplicaStatus'] = stub[:replica_status] unless stub[:replica_status].nil?
-        data['ReplicaBillingModeSummary'] = Stubs::BillingModeSummary.stub(stub[:replica_billing_mode_summary]) unless stub[:replica_billing_mode_summary].nil?
+        data['ReplicaBillingModeSummary'] = BillingModeSummary.stub(stub[:replica_billing_mode_summary]) unless stub[:replica_billing_mode_summary].nil?
         data['ReplicaProvisionedReadCapacityUnits'] = stub[:replica_provisioned_read_capacity_units] unless stub[:replica_provisioned_read_capacity_units].nil?
-        data['ReplicaProvisionedReadCapacityAutoScalingSettings'] = Stubs::AutoScalingSettingsDescription.stub(stub[:replica_provisioned_read_capacity_auto_scaling_settings]) unless stub[:replica_provisioned_read_capacity_auto_scaling_settings].nil?
+        data['ReplicaProvisionedReadCapacityAutoScalingSettings'] = AutoScalingSettingsDescription.stub(stub[:replica_provisioned_read_capacity_auto_scaling_settings]) unless stub[:replica_provisioned_read_capacity_auto_scaling_settings].nil?
         data['ReplicaProvisionedWriteCapacityUnits'] = stub[:replica_provisioned_write_capacity_units] unless stub[:replica_provisioned_write_capacity_units].nil?
-        data['ReplicaProvisionedWriteCapacityAutoScalingSettings'] = Stubs::AutoScalingSettingsDescription.stub(stub[:replica_provisioned_write_capacity_auto_scaling_settings]) unless stub[:replica_provisioned_write_capacity_auto_scaling_settings].nil?
-        data['ReplicaGlobalSecondaryIndexSettings'] = Stubs::ReplicaGlobalSecondaryIndexSettingsDescriptionList.stub(stub[:replica_global_secondary_index_settings]) unless stub[:replica_global_secondary_index_settings].nil?
-        data['ReplicaTableClassSummary'] = Stubs::TableClassSummary.stub(stub[:replica_table_class_summary]) unless stub[:replica_table_class_summary].nil?
+        data['ReplicaProvisionedWriteCapacityAutoScalingSettings'] = AutoScalingSettingsDescription.stub(stub[:replica_provisioned_write_capacity_auto_scaling_settings]) unless stub[:replica_provisioned_write_capacity_auto_scaling_settings].nil?
+        data['ReplicaGlobalSecondaryIndexSettings'] = ReplicaGlobalSecondaryIndexSettingsDescriptionList.stub(stub[:replica_global_secondary_index_settings]) unless stub[:replica_global_secondary_index_settings].nil?
+        data['ReplicaTableClassSummary'] = TableClassSummary.stub(stub[:replica_table_class_summary]) unless stub[:replica_table_class_summary].nil?
         data
       end
     end
@@ -2048,7 +2051,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicaGlobalSecondaryIndexSettingsDescription.stub(element) unless element.nil?
+          data << ReplicaGlobalSecondaryIndexSettingsDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -2075,9 +2078,9 @@ module AWS::SDK::DynamoDB
         data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
         data['IndexStatus'] = stub[:index_status] unless stub[:index_status].nil?
         data['ProvisionedReadCapacityUnits'] = stub[:provisioned_read_capacity_units] unless stub[:provisioned_read_capacity_units].nil?
-        data['ProvisionedReadCapacityAutoScalingSettings'] = Stubs::AutoScalingSettingsDescription.stub(stub[:provisioned_read_capacity_auto_scaling_settings]) unless stub[:provisioned_read_capacity_auto_scaling_settings].nil?
+        data['ProvisionedReadCapacityAutoScalingSettings'] = AutoScalingSettingsDescription.stub(stub[:provisioned_read_capacity_auto_scaling_settings]) unless stub[:provisioned_read_capacity_auto_scaling_settings].nil?
         data['ProvisionedWriteCapacityUnits'] = stub[:provisioned_write_capacity_units] unless stub[:provisioned_write_capacity_units].nil?
-        data['ProvisionedWriteCapacityAutoScalingSettings'] = Stubs::AutoScalingSettingsDescription.stub(stub[:provisioned_write_capacity_auto_scaling_settings]) unless stub[:provisioned_write_capacity_auto_scaling_settings].nil?
+        data['ProvisionedWriteCapacityAutoScalingSettings'] = AutoScalingSettingsDescription.stub(stub[:provisioned_write_capacity_auto_scaling_settings]) unless stub[:provisioned_write_capacity_auto_scaling_settings].nil?
         data
       end
     end
@@ -2103,7 +2106,7 @@ module AWS::SDK::DynamoDB
         data['MaximumUnits'] = stub[:maximum_units] unless stub[:maximum_units].nil?
         data['AutoScalingDisabled'] = stub[:auto_scaling_disabled] unless stub[:auto_scaling_disabled].nil?
         data['AutoScalingRoleArn'] = stub[:auto_scaling_role_arn] unless stub[:auto_scaling_role_arn].nil?
-        data['ScalingPolicies'] = Stubs::AutoScalingPolicyDescriptionList.stub(stub[:scaling_policies]) unless stub[:scaling_policies].nil?
+        data['ScalingPolicies'] = AutoScalingPolicyDescriptionList.stub(stub[:scaling_policies]) unless stub[:scaling_policies].nil?
         data
       end
     end
@@ -2122,7 +2125,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutoScalingPolicyDescription.stub(element) unless element.nil?
+          data << AutoScalingPolicyDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -2143,7 +2146,7 @@ module AWS::SDK::DynamoDB
         stub ||= Types::AutoScalingPolicyDescription.new
         data = {}
         data['PolicyName'] = stub[:policy_name] unless stub[:policy_name].nil?
-        data['TargetTrackingScalingPolicyConfiguration'] = Stubs::AutoScalingTargetTrackingScalingPolicyConfigurationDescription.stub(stub[:target_tracking_scaling_policy_configuration]) unless stub[:target_tracking_scaling_policy_configuration].nil?
+        data['TargetTrackingScalingPolicyConfiguration'] = AutoScalingTargetTrackingScalingPolicyConfigurationDescription.stub(stub[:target_tracking_scaling_policy_configuration]) unless stub[:target_tracking_scaling_policy_configuration].nil?
         data
       end
     end
@@ -2184,8 +2187,8 @@ module AWS::SDK::DynamoDB
       def self.stub(http_resp, stub:)
         data = {}
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['KinesisDataStreamDestinations'] = Stubs::KinesisDataStreamDestinations.stub(stub[:kinesis_data_stream_destinations]) unless stub[:kinesis_data_stream_destinations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['KinesisDataStreamDestinations'] = KinesisDataStreamDestinations.stub(stub[:kinesis_data_stream_destinations]) unless stub[:kinesis_data_stream_destinations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2204,7 +2207,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KinesisDataStreamDestination.stub(element) unless element.nil?
+          data << KinesisDataStreamDestination.stub(element) unless element.nil?
         end
         data
       end
@@ -2249,7 +2252,7 @@ module AWS::SDK::DynamoDB
         data['AccountMaxWriteCapacityUnits'] = stub[:account_max_write_capacity_units] unless stub[:account_max_write_capacity_units].nil?
         data['TableMaxReadCapacityUnits'] = stub[:table_max_read_capacity_units] unless stub[:table_max_read_capacity_units].nil?
         data['TableMaxWriteCapacityUnits'] = stub[:table_max_write_capacity_units] unless stub[:table_max_write_capacity_units].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2264,8 +2267,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Table'] = Stubs::TableDescription.stub(stub[:table]) unless stub[:table].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Table'] = TableDescription.stub(stub[:table]) unless stub[:table].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2280,8 +2283,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TableAutoScalingDescription'] = Stubs::TableAutoScalingDescription.stub(stub[:table_auto_scaling_description]) unless stub[:table_auto_scaling_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TableAutoScalingDescription'] = TableAutoScalingDescription.stub(stub[:table_auto_scaling_description]) unless stub[:table_auto_scaling_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2303,7 +2306,7 @@ module AWS::SDK::DynamoDB
         data = {}
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['TableStatus'] = stub[:table_status] unless stub[:table_status].nil?
-        data['Replicas'] = Stubs::ReplicaAutoScalingDescriptionList.stub(stub[:replicas]) unless stub[:replicas].nil?
+        data['Replicas'] = ReplicaAutoScalingDescriptionList.stub(stub[:replicas]) unless stub[:replicas].nil?
         data
       end
     end
@@ -2322,7 +2325,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicaAutoScalingDescription.stub(element) unless element.nil?
+          data << ReplicaAutoScalingDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -2346,9 +2349,9 @@ module AWS::SDK::DynamoDB
         stub ||= Types::ReplicaAutoScalingDescription.new
         data = {}
         data['RegionName'] = stub[:region_name] unless stub[:region_name].nil?
-        data['GlobalSecondaryIndexes'] = Stubs::ReplicaGlobalSecondaryIndexAutoScalingDescriptionList.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
-        data['ReplicaProvisionedReadCapacityAutoScalingSettings'] = Stubs::AutoScalingSettingsDescription.stub(stub[:replica_provisioned_read_capacity_auto_scaling_settings]) unless stub[:replica_provisioned_read_capacity_auto_scaling_settings].nil?
-        data['ReplicaProvisionedWriteCapacityAutoScalingSettings'] = Stubs::AutoScalingSettingsDescription.stub(stub[:replica_provisioned_write_capacity_auto_scaling_settings]) unless stub[:replica_provisioned_write_capacity_auto_scaling_settings].nil?
+        data['GlobalSecondaryIndexes'] = ReplicaGlobalSecondaryIndexAutoScalingDescriptionList.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
+        data['ReplicaProvisionedReadCapacityAutoScalingSettings'] = AutoScalingSettingsDescription.stub(stub[:replica_provisioned_read_capacity_auto_scaling_settings]) unless stub[:replica_provisioned_read_capacity_auto_scaling_settings].nil?
+        data['ReplicaProvisionedWriteCapacityAutoScalingSettings'] = AutoScalingSettingsDescription.stub(stub[:replica_provisioned_write_capacity_auto_scaling_settings]) unless stub[:replica_provisioned_write_capacity_auto_scaling_settings].nil?
         data['ReplicaStatus'] = stub[:replica_status] unless stub[:replica_status].nil?
         data
       end
@@ -2368,7 +2371,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReplicaGlobalSecondaryIndexAutoScalingDescription.stub(element) unless element.nil?
+          data << ReplicaGlobalSecondaryIndexAutoScalingDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -2392,8 +2395,8 @@ module AWS::SDK::DynamoDB
         data = {}
         data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
         data['IndexStatus'] = stub[:index_status] unless stub[:index_status].nil?
-        data['ProvisionedReadCapacityAutoScalingSettings'] = Stubs::AutoScalingSettingsDescription.stub(stub[:provisioned_read_capacity_auto_scaling_settings]) unless stub[:provisioned_read_capacity_auto_scaling_settings].nil?
-        data['ProvisionedWriteCapacityAutoScalingSettings'] = Stubs::AutoScalingSettingsDescription.stub(stub[:provisioned_write_capacity_auto_scaling_settings]) unless stub[:provisioned_write_capacity_auto_scaling_settings].nil?
+        data['ProvisionedReadCapacityAutoScalingSettings'] = AutoScalingSettingsDescription.stub(stub[:provisioned_read_capacity_auto_scaling_settings]) unless stub[:provisioned_read_capacity_auto_scaling_settings].nil?
+        data['ProvisionedWriteCapacityAutoScalingSettings'] = AutoScalingSettingsDescription.stub(stub[:provisioned_write_capacity_auto_scaling_settings]) unless stub[:provisioned_write_capacity_auto_scaling_settings].nil?
         data
       end
     end
@@ -2408,8 +2411,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TimeToLiveDescription'] = Stubs::TimeToLiveDescription.stub(stub[:time_to_live_description]) unless stub[:time_to_live_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TimeToLiveDescription'] = TimeToLiveDescription.stub(stub[:time_to_live_description]) unless stub[:time_to_live_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2429,7 +2432,7 @@ module AWS::SDK::DynamoDB
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['StreamArn'] = stub[:stream_arn] unless stub[:stream_arn].nil?
         data['DestinationStatus'] = stub[:destination_status] unless stub[:destination_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2449,7 +2452,7 @@ module AWS::SDK::DynamoDB
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['StreamArn'] = stub[:stream_arn] unless stub[:stream_arn].nil?
         data['DestinationStatus'] = stub[:destination_status] unless stub[:destination_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2467,11 +2470,11 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Items'] = Stubs::ItemList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = ItemList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        data['LastEvaluatedKey'] = Stubs::Key.stub(stub[:last_evaluated_key]) unless stub[:last_evaluated_key].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConsumedCapacity'] = ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
+        data['LastEvaluatedKey'] = Key.stub(stub[:last_evaluated_key]) unless stub[:last_evaluated_key].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2487,9 +2490,9 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Responses'] = Stubs::ItemResponseList.stub(stub[:responses]) unless stub[:responses].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Responses'] = ItemResponseList.stub(stub[:responses]) unless stub[:responses].nil?
+        data['ConsumedCapacity'] = ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2508,7 +2511,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ItemResponse.stub(element) unless element.nil?
+          data << ItemResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -2527,7 +2530,7 @@ module AWS::SDK::DynamoDB
       def self.stub(stub)
         stub ||= Types::ItemResponse.new
         data = {}
-        data['Item'] = Stubs::AttributeMap.stub(stub[:item]) unless stub[:item].nil?
+        data['Item'] = AttributeMap.stub(stub[:item]) unless stub[:item].nil?
         data
       end
     end
@@ -2542,8 +2545,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ExportDescription'] = Stubs::ExportDescription.stub(stub[:export_description]) unless stub[:export_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ExportDescription'] = ExportDescription.stub(stub[:export_description]) unless stub[:export_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2559,9 +2562,9 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Item'] = Stubs::AttributeMap.stub(stub[:item]) unless stub[:item].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Item'] = AttributeMap.stub(stub[:item]) unless stub[:item].nil?
+        data['ConsumedCapacity'] = ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2577,9 +2580,9 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['BackupSummaries'] = Stubs::BackupSummaries.stub(stub[:backup_summaries]) unless stub[:backup_summaries].nil?
+        data['BackupSummaries'] = BackupSummaries.stub(stub[:backup_summaries]) unless stub[:backup_summaries].nil?
         data['LastEvaluatedBackupArn'] = stub[:last_evaluated_backup_arn] unless stub[:last_evaluated_backup_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2598,7 +2601,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BackupSummary.stub(element) unless element.nil?
+          data << BackupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2651,9 +2654,9 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ContributorInsightsSummaries'] = Stubs::ContributorInsightsSummaries.stub(stub[:contributor_insights_summaries]) unless stub[:contributor_insights_summaries].nil?
+        data['ContributorInsightsSummaries'] = ContributorInsightsSummaries.stub(stub[:contributor_insights_summaries]) unless stub[:contributor_insights_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2672,7 +2675,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContributorInsightsSummary.stub(element) unless element.nil?
+          data << ContributorInsightsSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2711,9 +2714,9 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ExportSummaries'] = Stubs::ExportSummaries.stub(stub[:export_summaries]) unless stub[:export_summaries].nil?
+        data['ExportSummaries'] = ExportSummaries.stub(stub[:export_summaries]) unless stub[:export_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2732,7 +2735,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExportSummary.stub(element) unless element.nil?
+          data << ExportSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2769,9 +2772,9 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GlobalTables'] = Stubs::GlobalTableList.stub(stub[:global_tables]) unless stub[:global_tables].nil?
+        data['GlobalTables'] = GlobalTableList.stub(stub[:global_tables]) unless stub[:global_tables].nil?
         data['LastEvaluatedGlobalTableName'] = stub[:last_evaluated_global_table_name] unless stub[:last_evaluated_global_table_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2790,7 +2793,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GlobalTable.stub(element) unless element.nil?
+          data << GlobalTable.stub(element) unless element.nil?
         end
         data
       end
@@ -2811,7 +2814,7 @@ module AWS::SDK::DynamoDB
         stub ||= Types::GlobalTable.new
         data = {}
         data['GlobalTableName'] = stub[:global_table_name] unless stub[:global_table_name].nil?
-        data['ReplicationGroup'] = Stubs::ReplicaList.stub(stub[:replication_group]) unless stub[:replication_group].nil?
+        data['ReplicationGroup'] = ReplicaList.stub(stub[:replication_group]) unless stub[:replication_group].nil?
         data
       end
     end
@@ -2830,7 +2833,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Replica.stub(element) unless element.nil?
+          data << Replica.stub(element) unless element.nil?
         end
         data
       end
@@ -2865,9 +2868,9 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TableNames'] = Stubs::TableNameList.stub(stub[:table_names]) unless stub[:table_names].nil?
+        data['TableNames'] = TableNameList.stub(stub[:table_names]) unless stub[:table_names].nil?
         data['LastEvaluatedTableName'] = stub[:last_evaluated_table_name] unless stub[:last_evaluated_table_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2903,9 +2906,9 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2924,7 +2927,7 @@ module AWS::SDK::DynamoDB
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -2962,10 +2965,10 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Attributes'] = Stubs::AttributeMap.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        data['ItemCollectionMetrics'] = Stubs::ItemCollectionMetrics.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attributes'] = AttributeMap.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['ConsumedCapacity'] = ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
+        data['ItemCollectionMetrics'] = ItemCollectionMetrics.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2984,12 +2987,12 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Items'] = Stubs::ItemList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = ItemList.stub(stub[:items]) unless stub[:items].nil?
         data['Count'] = stub[:count] unless stub[:count].nil?
         data['ScannedCount'] = stub[:scanned_count] unless stub[:scanned_count].nil?
-        data['LastEvaluatedKey'] = Stubs::Key.stub(stub[:last_evaluated_key]) unless stub[:last_evaluated_key].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LastEvaluatedKey'] = Key.stub(stub[:last_evaluated_key]) unless stub[:last_evaluated_key].nil?
+        data['ConsumedCapacity'] = ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3004,8 +3007,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TableDescription'] = Stubs::TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TableDescription'] = TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3020,8 +3023,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TableDescription'] = Stubs::TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TableDescription'] = TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3040,12 +3043,12 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Items'] = Stubs::ItemList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = ItemList.stub(stub[:items]) unless stub[:items].nil?
         data['Count'] = stub[:count] unless stub[:count].nil?
         data['ScannedCount'] = stub[:scanned_count] unless stub[:scanned_count].nil?
-        data['LastEvaluatedKey'] = Stubs::Key.stub(stub[:last_evaluated_key]) unless stub[:last_evaluated_key].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LastEvaluatedKey'] = Key.stub(stub[:last_evaluated_key]) unless stub[:last_evaluated_key].nil?
+        data['ConsumedCapacity'] = ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3059,7 +3062,7 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3075,9 +3078,9 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        data['Responses'] = Stubs::ItemResponseList.stub(stub[:responses]) unless stub[:responses].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConsumedCapacity'] = ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
+        data['Responses'] = ItemResponseList.stub(stub[:responses]) unless stub[:responses].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3093,9 +3096,9 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        data['ItemCollectionMetrics'] = Stubs::ItemCollectionMetricsPerTable.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConsumedCapacity'] = ConsumedCapacityMultiple.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
+        data['ItemCollectionMetrics'] = ItemCollectionMetricsPerTable.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3109,7 +3112,7 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3124,8 +3127,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ContinuousBackupsDescription'] = Stubs::ContinuousBackupsDescription.stub(stub[:continuous_backups_description]) unless stub[:continuous_backups_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ContinuousBackupsDescription'] = ContinuousBackupsDescription.stub(stub[:continuous_backups_description]) unless stub[:continuous_backups_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3145,7 +3148,7 @@ module AWS::SDK::DynamoDB
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
         data['ContributorInsightsStatus'] = stub[:contributor_insights_status] unless stub[:contributor_insights_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3160,8 +3163,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['GlobalTableDescription'] = Stubs::GlobalTableDescription.stub(stub[:global_table_description]) unless stub[:global_table_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GlobalTableDescription'] = GlobalTableDescription.stub(stub[:global_table_description]) unless stub[:global_table_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3178,8 +3181,8 @@ module AWS::SDK::DynamoDB
       def self.stub(http_resp, stub:)
         data = {}
         data['GlobalTableName'] = stub[:global_table_name] unless stub[:global_table_name].nil?
-        data['ReplicaSettings'] = Stubs::ReplicaSettingsDescriptionList.stub(stub[:replica_settings]) unless stub[:replica_settings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicaSettings'] = ReplicaSettingsDescriptionList.stub(stub[:replica_settings]) unless stub[:replica_settings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3196,10 +3199,10 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Attributes'] = Stubs::AttributeMap.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['ConsumedCapacity'] = Stubs::ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
-        data['ItemCollectionMetrics'] = Stubs::ItemCollectionMetrics.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attributes'] = AttributeMap.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['ConsumedCapacity'] = ConsumedCapacity.stub(stub[:consumed_capacity]) unless stub[:consumed_capacity].nil?
+        data['ItemCollectionMetrics'] = ItemCollectionMetrics.stub(stub[:item_collection_metrics]) unless stub[:item_collection_metrics].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3214,8 +3217,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TableDescription'] = Stubs::TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TableDescription'] = TableDescription.stub(stub[:table_description]) unless stub[:table_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3230,8 +3233,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TableAutoScalingDescription'] = Stubs::TableAutoScalingDescription.stub(stub[:table_auto_scaling_description]) unless stub[:table_auto_scaling_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TableAutoScalingDescription'] = TableAutoScalingDescription.stub(stub[:table_auto_scaling_description]) unless stub[:table_auto_scaling_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3246,8 +3249,8 @@ module AWS::SDK::DynamoDB
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TimeToLiveSpecification'] = Stubs::TimeToLiveSpecification.stub(stub[:time_to_live_specification]) unless stub[:time_to_live_specification].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TimeToLiveSpecification'] = TimeToLiveSpecification.stub(stub[:time_to_live_specification]) unless stub[:time_to_live_specification].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Identitystore
   module Builders
 
@@ -20,7 +22,7 @@ module AWS::SDK::Identitystore
         data = {}
         data['IdentityStoreId'] = input[:identity_store_id] unless input[:identity_store_id].nil?
         data['GroupId'] = input[:group_id] unless input[:group_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -34,7 +36,7 @@ module AWS::SDK::Identitystore
         data = {}
         data['IdentityStoreId'] = input[:identity_store_id] unless input[:identity_store_id].nil?
         data['UserId'] = input[:user_id] unless input[:user_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -49,8 +51,8 @@ module AWS::SDK::Identitystore
         data['IdentityStoreId'] = input[:identity_store_id] unless input[:identity_store_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -59,7 +61,7 @@ module AWS::SDK::Identitystore
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -86,8 +88,8 @@ module AWS::SDK::Identitystore
         data['IdentityStoreId'] = input[:identity_store_id] unless input[:identity_store_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

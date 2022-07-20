@@ -15,7 +15,7 @@ module AWS::SDK::Amp
       def self.parse(http_resp)
         data = Types::CreateAlertManagerDefinitionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.status = (Parsers::AlertManagerDefinitionStatus.parse(map['status']) unless map['status'].nil?)
+        data.status = (AlertManagerDefinitionStatus.parse(map['status']) unless map['status'].nil?)
         data
       end
     end
@@ -71,7 +71,7 @@ module AWS::SDK::Amp
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['message'] || map['Message']
         data.reason = map['reason']
-        data.field_list = (Parsers::ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
+        data.field_list = (ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
         data
       end
     end
@@ -80,7 +80,7 @@ module AWS::SDK::Amp
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          data << ValidationExceptionField.parse(value) unless value.nil?
         end
         data
       end
@@ -139,8 +139,8 @@ module AWS::SDK::Amp
         map = Hearth::JSON.load(http_resp.body)
         data.name = map['name']
         data.arn = map['arn']
-        data.status = (Parsers::RuleGroupsNamespaceStatus.parse(map['status']) unless map['status'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.status = (RuleGroupsNamespaceStatus.parse(map['status']) unless map['status'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -171,8 +171,8 @@ module AWS::SDK::Amp
         map = Hearth::JSON.load(http_resp.body)
         data.workspace_id = map['workspaceId']
         data.arn = map['arn']
-        data.status = (Parsers::WorkspaceStatus.parse(map['status']) unless map['status'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.status = (WorkspaceStatus.parse(map['status']) unless map['status'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -217,7 +217,7 @@ module AWS::SDK::Amp
       def self.parse(http_resp)
         data = Types::DescribeAlertManagerDefinitionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.alert_manager_definition = (Parsers::AlertManagerDefinitionDescription.parse(map['alertManagerDefinition']) unless map['alertManagerDefinition'].nil?)
+        data.alert_manager_definition = (AlertManagerDefinitionDescription.parse(map['alertManagerDefinition']) unless map['alertManagerDefinition'].nil?)
         data
       end
     end
@@ -225,7 +225,7 @@ module AWS::SDK::Amp
     class AlertManagerDefinitionDescription
       def self.parse(map)
         data = Types::AlertManagerDefinitionDescription.new
-        data.status = (Parsers::AlertManagerDefinitionStatus.parse(map['status']) unless map['status'].nil?)
+        data.status = (AlertManagerDefinitionStatus.parse(map['status']) unless map['status'].nil?)
         data.data = Base64::decode64(map['data']) unless map['data'].nil?
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.modified_at = Time.at(map['modifiedAt'].to_i) if map['modifiedAt']
@@ -238,7 +238,7 @@ module AWS::SDK::Amp
       def self.parse(http_resp)
         data = Types::DescribeRuleGroupsNamespaceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.rule_groups_namespace = (Parsers::RuleGroupsNamespaceDescription.parse(map['ruleGroupsNamespace']) unless map['ruleGroupsNamespace'].nil?)
+        data.rule_groups_namespace = (RuleGroupsNamespaceDescription.parse(map['ruleGroupsNamespace']) unless map['ruleGroupsNamespace'].nil?)
         data
       end
     end
@@ -248,11 +248,11 @@ module AWS::SDK::Amp
         data = Types::RuleGroupsNamespaceDescription.new
         data.arn = map['arn']
         data.name = map['name']
-        data.status = (Parsers::RuleGroupsNamespaceStatus.parse(map['status']) unless map['status'].nil?)
+        data.status = (RuleGroupsNamespaceStatus.parse(map['status']) unless map['status'].nil?)
         data.data = Base64::decode64(map['data']) unless map['data'].nil?
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.modified_at = Time.at(map['modifiedAt'].to_i) if map['modifiedAt']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -262,7 +262,7 @@ module AWS::SDK::Amp
       def self.parse(http_resp)
         data = Types::DescribeWorkspaceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.workspace = (Parsers::WorkspaceDescription.parse(map['workspace']) unless map['workspace'].nil?)
+        data.workspace = (WorkspaceDescription.parse(map['workspace']) unless map['workspace'].nil?)
         data
       end
     end
@@ -273,10 +273,10 @@ module AWS::SDK::Amp
         data.workspace_id = map['workspaceId']
         data.alias = map['alias']
         data.arn = map['arn']
-        data.status = (Parsers::WorkspaceStatus.parse(map['status']) unless map['status'].nil?)
+        data.status = (WorkspaceStatus.parse(map['status']) unless map['status'].nil?)
         data.prometheus_endpoint = map['prometheusEndpoint']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -286,7 +286,7 @@ module AWS::SDK::Amp
       def self.parse(http_resp)
         data = Types::ListRuleGroupsNamespacesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.rule_groups_namespaces = (Parsers::RuleGroupsNamespaceSummaryList.parse(map['ruleGroupsNamespaces']) unless map['ruleGroupsNamespaces'].nil?)
+        data.rule_groups_namespaces = (RuleGroupsNamespaceSummaryList.parse(map['ruleGroupsNamespaces']) unless map['ruleGroupsNamespaces'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -296,7 +296,7 @@ module AWS::SDK::Amp
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RuleGroupsNamespaceSummary.parse(value) unless value.nil?
+          data << RuleGroupsNamespaceSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -307,10 +307,10 @@ module AWS::SDK::Amp
         data = Types::RuleGroupsNamespaceSummary.new
         data.arn = map['arn']
         data.name = map['name']
-        data.status = (Parsers::RuleGroupsNamespaceStatus.parse(map['status']) unless map['status'].nil?)
+        data.status = (RuleGroupsNamespaceStatus.parse(map['status']) unless map['status'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.modified_at = Time.at(map['modifiedAt'].to_i) if map['modifiedAt']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -320,7 +320,7 @@ module AWS::SDK::Amp
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -330,7 +330,7 @@ module AWS::SDK::Amp
       def self.parse(http_resp)
         data = Types::ListWorkspacesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.workspaces = (Parsers::WorkspaceSummaryList.parse(map['workspaces']) unless map['workspaces'].nil?)
+        data.workspaces = (WorkspaceSummaryList.parse(map['workspaces']) unless map['workspaces'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -340,7 +340,7 @@ module AWS::SDK::Amp
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WorkspaceSummary.parse(value) unless value.nil?
+          data << WorkspaceSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -352,9 +352,9 @@ module AWS::SDK::Amp
         data.workspace_id = map['workspaceId']
         data.alias = map['alias']
         data.arn = map['arn']
-        data.status = (Parsers::WorkspaceStatus.parse(map['status']) unless map['status'].nil?)
+        data.status = (WorkspaceStatus.parse(map['status']) unless map['status'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -364,7 +364,7 @@ module AWS::SDK::Amp
       def self.parse(http_resp)
         data = Types::PutAlertManagerDefinitionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.status = (Parsers::AlertManagerDefinitionStatus.parse(map['status']) unless map['status'].nil?)
+        data.status = (AlertManagerDefinitionStatus.parse(map['status']) unless map['status'].nil?)
         data
       end
     end
@@ -376,8 +376,8 @@ module AWS::SDK::Amp
         map = Hearth::JSON.load(http_resp.body)
         data.name = map['name']
         data.arn = map['arn']
-        data.status = (Parsers::RuleGroupsNamespaceStatus.parse(map['status']) unless map['status'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.status = (RuleGroupsNamespaceStatus.parse(map['status']) unless map['status'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end

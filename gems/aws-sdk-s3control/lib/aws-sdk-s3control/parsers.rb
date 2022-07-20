@@ -337,7 +337,7 @@ module AWS::SDK::S3Control
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('Job') do |node|
-          data.job = Parsers::JobDescriptor.parse(node)
+          data.job = JobDescriptor.parse(node)
         end
         data
       end
@@ -362,26 +362,26 @@ module AWS::SDK::S3Control
           data.status = (node.text || '')
         end
         xml.at('Manifest') do |node|
-          data.manifest = Parsers::JobManifest.parse(node)
+          data.manifest = JobManifest.parse(node)
         end
         xml.at('Operation') do |node|
-          data.operation = Parsers::JobOperation.parse(node)
+          data.operation = JobOperation.parse(node)
         end
         xml.at('Priority') do |node|
           data.priority = node.text&.to_i
         end
         xml.at('ProgressSummary') do |node|
-          data.progress_summary = Parsers::JobProgressSummary.parse(node)
+          data.progress_summary = JobProgressSummary.parse(node)
         end
         xml.at('StatusUpdateReason') do |node|
           data.status_update_reason = (node.text || '')
         end
         xml.at('FailureReasons') do |node|
           children = node.children('member')
-          data.failure_reasons = Parsers::JobFailureList.parse(children)
+          data.failure_reasons = JobFailureList.parse(children)
         end
         xml.at('Report') do |node|
-          data.report = Parsers::JobReport.parse(node)
+          data.report = JobReport.parse(node)
         end
         xml.at('CreationTime') do |node|
           data.creation_time = Time.parse(node.text) if node.text
@@ -399,10 +399,10 @@ module AWS::SDK::S3Control
           data.suspended_cause = (node.text || '')
         end
         xml.at('ManifestGenerator') do |node|
-          data.manifest_generator = Parsers::JobManifestGenerator.parse(node)
+          data.manifest_generator = JobManifestGenerator.parse(node)
         end
         xml.at('GeneratedManifestDescriptor') do |node|
-          data.generated_manifest_descriptor = Parsers::S3GeneratedManifestDescriptor.parse(node)
+          data.generated_manifest_descriptor = S3GeneratedManifestDescriptor.parse(node)
         end
         return data
       end
@@ -415,7 +415,7 @@ module AWS::SDK::S3Control
           data.format = (node.text || '')
         end
         xml.at('Location') do |node|
-          data.location = Parsers::JobManifestLocation.parse(node)
+          data.location = JobManifestLocation.parse(node)
         end
         return data
       end
@@ -444,7 +444,7 @@ module AWS::SDK::S3Control
         case key
         when 'S3JobManifestGenerator'
           node = value
-          value = Parsers::S3JobManifestGenerator.parse(node)
+          value = S3JobManifestGenerator.parse(node)
           Types::JobManifestGenerator::S3JobManifestGenerator.new(value) if value
         else
           Types::JobManifestGenerator::Unknown.new({name: key, value: value})
@@ -462,10 +462,10 @@ module AWS::SDK::S3Control
           data.source_bucket = (node.text || '')
         end
         xml.at('ManifestOutputLocation') do |node|
-          data.manifest_output_location = Parsers::S3ManifestOutputLocation.parse(node)
+          data.manifest_output_location = S3ManifestOutputLocation.parse(node)
         end
         xml.at('Filter') do |node|
-          data.filter = Parsers::JobManifestGeneratorFilter.parse(node)
+          data.filter = JobManifestGeneratorFilter.parse(node)
         end
         xml.at('EnableManifestOutput') do |node|
           data.enable_manifest_output = (node.text == 'true')
@@ -488,7 +488,7 @@ module AWS::SDK::S3Control
         end
         xml.at('ObjectReplicationStatuses') do |node|
           children = node.children('member')
-          data.object_replication_statuses = Parsers::ReplicationStatusFilterList.parse(children)
+          data.object_replication_statuses = ReplicationStatusFilterList.parse(children)
         end
         return data
       end
@@ -517,7 +517,7 @@ module AWS::SDK::S3Control
           data.manifest_prefix = (node.text || '')
         end
         xml.at('ManifestEncryption') do |node|
-          data.manifest_encryption = Parsers::GeneratedManifestEncryption.parse(node)
+          data.manifest_encryption = GeneratedManifestEncryption.parse(node)
         end
         xml.at('ManifestFormat') do |node|
           data.manifest_format = (node.text || '')
@@ -530,10 +530,10 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = Types::GeneratedManifestEncryption.new
         xml.at('SSE-S3') do |node|
-          data.sses3 = Parsers::SSES3Encryption.parse(node)
+          data.sses3 = SSES3Encryption.parse(node)
         end
         xml.at('SSE-KMS') do |node|
-          data.ssekms = Parsers::SSEKMSEncryption.parse(node)
+          data.ssekms = SSEKMSEncryption.parse(node)
         end
         return data
       end
@@ -582,7 +582,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::JobFailure.parse(node)
+          data << JobFailure.parse(node)
         end
         data
       end
@@ -614,7 +614,7 @@ module AWS::SDK::S3Control
           data.number_of_tasks_failed = node.text&.to_i
         end
         xml.at('Timers') do |node|
-          data.timers = Parsers::JobTimers.parse(node)
+          data.timers = JobTimers.parse(node)
         end
         return data
       end
@@ -634,31 +634,31 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = Types::JobOperation.new
         xml.at('LambdaInvoke') do |node|
-          data.lambda_invoke = Parsers::LambdaInvokeOperation.parse(node)
+          data.lambda_invoke = LambdaInvokeOperation.parse(node)
         end
         xml.at('S3PutObjectCopy') do |node|
-          data.s3_put_object_copy = Parsers::S3CopyObjectOperation.parse(node)
+          data.s3_put_object_copy = S3CopyObjectOperation.parse(node)
         end
         xml.at('S3PutObjectAcl') do |node|
-          data.s3_put_object_acl = Parsers::S3SetObjectAclOperation.parse(node)
+          data.s3_put_object_acl = S3SetObjectAclOperation.parse(node)
         end
         xml.at('S3PutObjectTagging') do |node|
-          data.s3_put_object_tagging = Parsers::S3SetObjectTaggingOperation.parse(node)
+          data.s3_put_object_tagging = S3SetObjectTaggingOperation.parse(node)
         end
         xml.at('S3DeleteObjectTagging') do |node|
-          data.s3_delete_object_tagging = Parsers::S3DeleteObjectTaggingOperation.parse(node)
+          data.s3_delete_object_tagging = S3DeleteObjectTaggingOperation.parse(node)
         end
         xml.at('S3InitiateRestoreObject') do |node|
-          data.s3_initiate_restore_object = Parsers::S3InitiateRestoreObjectOperation.parse(node)
+          data.s3_initiate_restore_object = S3InitiateRestoreObjectOperation.parse(node)
         end
         xml.at('S3PutObjectLegalHold') do |node|
-          data.s3_put_object_legal_hold = Parsers::S3SetObjectLegalHoldOperation.parse(node)
+          data.s3_put_object_legal_hold = S3SetObjectLegalHoldOperation.parse(node)
         end
         xml.at('S3PutObjectRetention') do |node|
-          data.s3_put_object_retention = Parsers::S3SetObjectRetentionOperation.parse(node)
+          data.s3_put_object_retention = S3SetObjectRetentionOperation.parse(node)
         end
         xml.at('S3ReplicateObject') do |node|
-          data.s3_replicate_object = Parsers::S3ReplicateObjectOperation.parse(node)
+          data.s3_replicate_object = S3ReplicateObjectOperation.parse(node)
         end
         return data
       end
@@ -678,7 +678,7 @@ module AWS::SDK::S3Control
           data.bypass_governance_retention = (node.text == 'true')
         end
         xml.at('Retention') do |node|
-          data.retention = Parsers::S3Retention.parse(node)
+          data.retention = S3Retention.parse(node)
         end
         return data
       end
@@ -701,7 +701,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = Types::S3SetObjectLegalHoldOperation.new
         xml.at('LegalHold') do |node|
-          data.legal_hold = Parsers::S3ObjectLockLegalHold.parse(node)
+          data.legal_hold = S3ObjectLockLegalHold.parse(node)
         end
         return data
       end
@@ -742,7 +742,7 @@ module AWS::SDK::S3Control
         data = Types::S3SetObjectTaggingOperation.new
         xml.at('TagSet') do |node|
           children = node.children('member')
-          data.tag_set = Parsers::S3TagSet.parse(children)
+          data.tag_set = S3TagSet.parse(children)
         end
         return data
       end
@@ -752,7 +752,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::S3Tag.parse(node)
+          data << S3Tag.parse(node)
         end
         data
       end
@@ -775,7 +775,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = Types::S3SetObjectAclOperation.new
         xml.at('AccessControlPolicy') do |node|
-          data.access_control_policy = Parsers::S3AccessControlPolicy.parse(node)
+          data.access_control_policy = S3AccessControlPolicy.parse(node)
         end
         return data
       end
@@ -785,7 +785,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = Types::S3AccessControlPolicy.new
         xml.at('AccessControlList') do |node|
-          data.access_control_list = Parsers::S3AccessControlList.parse(node)
+          data.access_control_list = S3AccessControlList.parse(node)
         end
         xml.at('CannedAccessControlList') do |node|
           data.canned_access_control_list = (node.text || '')
@@ -798,11 +798,11 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = Types::S3AccessControlList.new
         xml.at('Owner') do |node|
-          data.owner = Parsers::S3ObjectOwner.parse(node)
+          data.owner = S3ObjectOwner.parse(node)
         end
         xml.at('Grants') do |node|
           children = node.children('member')
-          data.grants = Parsers::S3GrantList.parse(children)
+          data.grants = S3GrantList.parse(children)
         end
         return data
       end
@@ -812,7 +812,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::S3Grant.parse(node)
+          data << S3Grant.parse(node)
         end
         data
       end
@@ -822,7 +822,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = Types::S3Grant.new
         xml.at('Grantee') do |node|
-          data.grantee = Parsers::S3Grantee.parse(node)
+          data.grantee = S3Grantee.parse(node)
         end
         xml.at('Permission') do |node|
           data.permission = (node.text || '')
@@ -871,7 +871,7 @@ module AWS::SDK::S3Control
         end
         xml.at('AccessControlGrants') do |node|
           children = node.children('member')
-          data.access_control_grants = Parsers::S3GrantList.parse(children)
+          data.access_control_grants = S3GrantList.parse(children)
         end
         xml.at('MetadataDirective') do |node|
           data.metadata_directive = (node.text || '')
@@ -880,11 +880,11 @@ module AWS::SDK::S3Control
           data.modified_since_constraint = Time.parse(node.text) if node.text
         end
         xml.at('NewObjectMetadata') do |node|
-          data.new_object_metadata = Parsers::S3ObjectMetadata.parse(node)
+          data.new_object_metadata = S3ObjectMetadata.parse(node)
         end
         xml.at('NewObjectTagging') do |node|
           children = node.children('member')
-          data.new_object_tagging = Parsers::S3TagSet.parse(children)
+          data.new_object_tagging = S3TagSet.parse(children)
         end
         xml.at('RedirectLocation') do |node|
           data.redirect_location = (node.text || '')
@@ -940,7 +940,7 @@ module AWS::SDK::S3Control
         end
         xml.at('UserMetadata') do |node|
           children = node.children('entry')
-          data.user_metadata = Parsers::S3UserMetadata.parse(children)
+          data.user_metadata = S3UserMetadata.parse(children)
         end
         xml.at('ContentLength') do |node|
           data.content_length = node.text&.to_i
@@ -990,10 +990,10 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = Types::JobManifest.new
         xml.at('Spec') do |node|
-          data.spec = Parsers::JobManifestSpec.parse(node)
+          data.spec = JobManifestSpec.parse(node)
         end
         xml.at('Location') do |node|
-          data.location = Parsers::JobManifestLocation.parse(node)
+          data.location = JobManifestLocation.parse(node)
         end
         return data
       end
@@ -1007,7 +1007,7 @@ module AWS::SDK::S3Control
         end
         xml.at('Fields') do |node|
           children = node.children('member')
-          data.fields = Parsers::JobManifestFieldList.parse(children)
+          data.fields = JobManifestFieldList.parse(children)
         end
         return data
       end
@@ -1031,7 +1031,7 @@ module AWS::SDK::S3Control
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('AsyncOperation') do |node|
-          data.async_operation = Parsers::AsyncOperation.parse(node)
+          data.async_operation = AsyncOperation.parse(node)
         end
         data
       end
@@ -1050,13 +1050,13 @@ module AWS::SDK::S3Control
           data.request_token_arn = (node.text || '')
         end
         xml.at('RequestParameters') do |node|
-          data.request_parameters = Parsers::AsyncRequestParameters.parse(node)
+          data.request_parameters = AsyncRequestParameters.parse(node)
         end
         xml.at('RequestStatus') do |node|
           data.request_status = (node.text || '')
         end
         xml.at('ResponseDetails') do |node|
-          data.response_details = Parsers::AsyncResponseDetails.parse(node)
+          data.response_details = AsyncResponseDetails.parse(node)
         end
         return data
       end
@@ -1066,10 +1066,10 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = Types::AsyncResponseDetails.new
         xml.at('MultiRegionAccessPointDetails') do |node|
-          data.multi_region_access_point_details = Parsers::MultiRegionAccessPointsAsyncResponse.parse(node)
+          data.multi_region_access_point_details = MultiRegionAccessPointsAsyncResponse.parse(node)
         end
         xml.at('ErrorDetails') do |node|
-          data.error_details = Parsers::AsyncErrorDetails.parse(node)
+          data.error_details = AsyncErrorDetails.parse(node)
         end
         return data
       end
@@ -1099,7 +1099,7 @@ module AWS::SDK::S3Control
         data = Types::MultiRegionAccessPointsAsyncResponse.new
         xml.at('Regions') do |node|
           children = node.children('Region')
-          data.regions = Parsers::MultiRegionAccessPointRegionalResponseList.parse(children)
+          data.regions = MultiRegionAccessPointRegionalResponseList.parse(children)
         end
         return data
       end
@@ -1109,7 +1109,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MultiRegionAccessPointRegionalResponse.parse(node)
+          data << MultiRegionAccessPointRegionalResponse.parse(node)
         end
         data
       end
@@ -1132,13 +1132,13 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = Types::AsyncRequestParameters.new
         xml.at('CreateMultiRegionAccessPointRequest') do |node|
-          data.create_multi_region_access_point_request = Parsers::CreateMultiRegionAccessPointInput.parse(node)
+          data.create_multi_region_access_point_request = CreateMultiRegionAccessPointInput.parse(node)
         end
         xml.at('DeleteMultiRegionAccessPointRequest') do |node|
-          data.delete_multi_region_access_point_request = Parsers::DeleteMultiRegionAccessPointInput.parse(node)
+          data.delete_multi_region_access_point_request = DeleteMultiRegionAccessPointInput.parse(node)
         end
         xml.at('PutMultiRegionAccessPointPolicyRequest') do |node|
-          data.put_multi_region_access_point_policy_request = Parsers::PutMultiRegionAccessPointPolicyInput.parse(node)
+          data.put_multi_region_access_point_policy_request = PutMultiRegionAccessPointPolicyInput.parse(node)
         end
         return data
       end
@@ -1174,11 +1174,11 @@ module AWS::SDK::S3Control
           data.name = (node.text || '')
         end
         xml.at('PublicAccessBlock') do |node|
-          data.public_access_block = Parsers::PublicAccessBlockConfiguration.parse(node)
+          data.public_access_block = PublicAccessBlockConfiguration.parse(node)
         end
         xml.at('Regions') do |node|
           children = node.children('Region')
-          data.regions = Parsers::RegionCreationList.parse(children)
+          data.regions = RegionCreationList.parse(children)
         end
         return data
       end
@@ -1188,7 +1188,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Region.parse(node)
+          data << Region.parse(node)
         end
         data
       end
@@ -1240,10 +1240,10 @@ module AWS::SDK::S3Control
           data.network_origin = (node.text || '')
         end
         xml.at('VpcConfiguration') do |node|
-          data.vpc_configuration = Parsers::VpcConfiguration.parse(node)
+          data.vpc_configuration = VpcConfiguration.parse(node)
         end
         xml.at('PublicAccessBlockConfiguration') do |node|
-          data.public_access_block_configuration = Parsers::PublicAccessBlockConfiguration.parse(node)
+          data.public_access_block_configuration = PublicAccessBlockConfiguration.parse(node)
         end
         xml.at('CreationDate') do |node|
           data.creation_date = Time.parse(node.text) if node.text
@@ -1256,7 +1256,7 @@ module AWS::SDK::S3Control
         end
         xml.at('Endpoints') do |node|
           children = node.children('entry')
-          data.endpoints = Parsers::Endpoints.parse(children)
+          data.endpoints = Endpoints.parse(children)
         end
         data
       end
@@ -1292,7 +1292,7 @@ module AWS::SDK::S3Control
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('Configuration') do |node|
-          data.configuration = Parsers::ObjectLambdaConfiguration.parse(node)
+          data.configuration = ObjectLambdaConfiguration.parse(node)
         end
         data
       end
@@ -1309,11 +1309,11 @@ module AWS::SDK::S3Control
         end
         xml.at('AllowedFeatures') do |node|
           children = node.children('AllowedFeature')
-          data.allowed_features = Parsers::ObjectLambdaAllowedFeaturesList.parse(children)
+          data.allowed_features = ObjectLambdaAllowedFeaturesList.parse(children)
         end
         xml.at('TransformationConfigurations') do |node|
           children = node.children('TransformationConfiguration')
-          data.transformation_configurations = Parsers::ObjectLambdaTransformationConfigurationsList.parse(children)
+          data.transformation_configurations = ObjectLambdaTransformationConfigurationsList.parse(children)
         end
         return data
       end
@@ -1323,7 +1323,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ObjectLambdaTransformationConfiguration.parse(node)
+          data << ObjectLambdaTransformationConfiguration.parse(node)
         end
         data
       end
@@ -1334,10 +1334,10 @@ module AWS::SDK::S3Control
         data = Types::ObjectLambdaTransformationConfiguration.new
         xml.at('Actions') do |node|
           children = node.children('Action')
-          data.actions = Parsers::ObjectLambdaTransformationConfigurationActionsList.parse(children)
+          data.actions = ObjectLambdaTransformationConfigurationActionsList.parse(children)
         end
         xml.at('ContentTransformation') do |node|
-          data.content_transformation = Parsers::ObjectLambdaContentTransformation.parse(node)
+          data.content_transformation = ObjectLambdaContentTransformation.parse(node)
         end
         return data
       end
@@ -1350,7 +1350,7 @@ module AWS::SDK::S3Control
         case key
         when 'AwsLambda'
           node = value
-          value = Parsers::AwsLambdaTransformation.parse(node)
+          value = AwsLambdaTransformation.parse(node)
           Types::ObjectLambdaContentTransformation::AwsLambda.new(value) if value
         else
           Types::ObjectLambdaContentTransformation::Unknown.new({name: key, value: value})
@@ -1402,7 +1402,7 @@ module AWS::SDK::S3Control
           data.name = (node.text || '')
         end
         xml.at('PublicAccessBlockConfiguration') do |node|
-          data.public_access_block_configuration = Parsers::PublicAccessBlockConfiguration.parse(node)
+          data.public_access_block_configuration = PublicAccessBlockConfiguration.parse(node)
         end
         xml.at('CreationDate') do |node|
           data.creation_date = Time.parse(node.text) if node.text
@@ -1447,7 +1447,7 @@ module AWS::SDK::S3Control
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('PolicyStatus') do |node|
-          data.policy_status = Parsers::PolicyStatus.parse(node)
+          data.policy_status = PolicyStatus.parse(node)
         end
         data
       end
@@ -1471,7 +1471,7 @@ module AWS::SDK::S3Control
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('PolicyStatus') do |node|
-          data.policy_status = Parsers::PolicyStatus.parse(node)
+          data.policy_status = PolicyStatus.parse(node)
         end
         data
       end
@@ -1506,7 +1506,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML.parse(body)
         xml.at('Rules') do |node|
           children = node.children('Rule')
-          data.rules = Parsers::LifecycleRules.parse(children)
+          data.rules = LifecycleRules.parse(children)
         end
         data
       end
@@ -1516,7 +1516,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::LifecycleRule.parse(node)
+          data << LifecycleRule.parse(node)
         end
         data
       end
@@ -1526,30 +1526,30 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = Types::LifecycleRule.new
         xml.at('Expiration') do |node|
-          data.expiration = Parsers::LifecycleExpiration.parse(node)
+          data.expiration = LifecycleExpiration.parse(node)
         end
         xml.at('ID') do |node|
           data.id = (node.text || '')
         end
         xml.at('Filter') do |node|
-          data.filter = Parsers::LifecycleRuleFilter.parse(node)
+          data.filter = LifecycleRuleFilter.parse(node)
         end
         xml.at('Status') do |node|
           data.status = (node.text || '')
         end
         xml.at('Transitions') do |node|
           children = node.children('Transition')
-          data.transitions = Parsers::TransitionList.parse(children)
+          data.transitions = TransitionList.parse(children)
         end
         xml.at('NoncurrentVersionTransitions') do |node|
           children = node.children('NoncurrentVersionTransition')
-          data.noncurrent_version_transitions = Parsers::NoncurrentVersionTransitionList.parse(children)
+          data.noncurrent_version_transitions = NoncurrentVersionTransitionList.parse(children)
         end
         xml.at('NoncurrentVersionExpiration') do |node|
-          data.noncurrent_version_expiration = Parsers::NoncurrentVersionExpiration.parse(node)
+          data.noncurrent_version_expiration = NoncurrentVersionExpiration.parse(node)
         end
         xml.at('AbortIncompleteMultipartUpload') do |node|
-          data.abort_incomplete_multipart_upload = Parsers::AbortIncompleteMultipartUpload.parse(node)
+          data.abort_incomplete_multipart_upload = AbortIncompleteMultipartUpload.parse(node)
         end
         return data
       end
@@ -1579,7 +1579,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::NoncurrentVersionTransition.parse(node)
+          data << NoncurrentVersionTransition.parse(node)
         end
         data
       end
@@ -1602,7 +1602,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::Transition.parse(node)
+          data << Transition.parse(node)
         end
         data
       end
@@ -1631,10 +1631,10 @@ module AWS::SDK::S3Control
           data.prefix = (node.text || '')
         end
         xml.at('Tag') do |node|
-          data.tag = Parsers::S3Tag.parse(node)
+          data.tag = S3Tag.parse(node)
         end
         xml.at('And') do |node|
-          data.and = Parsers::LifecycleRuleAndOperator.parse(node)
+          data.and = LifecycleRuleAndOperator.parse(node)
         end
         return data
       end
@@ -1648,7 +1648,7 @@ module AWS::SDK::S3Control
         end
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::S3TagSet.parse(children)
+          data.tags = S3TagSet.parse(children)
         end
         return data
       end
@@ -1693,7 +1693,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML.parse(body)
         xml.at('TagSet') do |node|
           children = node.children('member')
-          data.tag_set = Parsers::S3TagSet.parse(children)
+          data.tag_set = S3TagSet.parse(children)
         end
         data
       end
@@ -1708,7 +1708,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML.parse(body)
         xml.at('Tags') do |node|
           children = node.children('member')
-          data.tags = Parsers::S3TagSet.parse(children)
+          data.tags = S3TagSet.parse(children)
         end
         data
       end
@@ -1722,7 +1722,7 @@ module AWS::SDK::S3Control
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('AccessPoint') do |node|
-          data.access_point = Parsers::MultiRegionAccessPointReport.parse(node)
+          data.access_point = MultiRegionAccessPointReport.parse(node)
         end
         data
       end
@@ -1741,14 +1741,14 @@ module AWS::SDK::S3Control
           data.created_at = Time.parse(node.text) if node.text
         end
         xml.at('PublicAccessBlock') do |node|
-          data.public_access_block = Parsers::PublicAccessBlockConfiguration.parse(node)
+          data.public_access_block = PublicAccessBlockConfiguration.parse(node)
         end
         xml.at('Status') do |node|
           data.status = (node.text || '')
         end
         xml.at('Regions') do |node|
           children = node.children('Region')
-          data.regions = Parsers::RegionReportList.parse(children)
+          data.regions = RegionReportList.parse(children)
         end
         return data
       end
@@ -1758,7 +1758,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::RegionReport.parse(node)
+          data << RegionReport.parse(node)
         end
         data
       end
@@ -1785,7 +1785,7 @@ module AWS::SDK::S3Control
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('Policy') do |node|
-          data.policy = Parsers::MultiRegionAccessPointPolicyDocument.parse(node)
+          data.policy = MultiRegionAccessPointPolicyDocument.parse(node)
         end
         data
       end
@@ -1795,10 +1795,10 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = Types::MultiRegionAccessPointPolicyDocument.new
         xml.at('Established') do |node|
-          data.established = Parsers::EstablishedMultiRegionAccessPointPolicy.parse(node)
+          data.established = EstablishedMultiRegionAccessPointPolicy.parse(node)
         end
         xml.at('Proposed') do |node|
-          data.proposed = Parsers::ProposedMultiRegionAccessPointPolicy.parse(node)
+          data.proposed = ProposedMultiRegionAccessPointPolicy.parse(node)
         end
         return data
       end
@@ -1832,7 +1832,7 @@ module AWS::SDK::S3Control
         return data if body.empty?
         xml = Hearth::XML.parse(body)
         xml.at('Established') do |node|
-          data.established = Parsers::PolicyStatus.parse(node)
+          data.established = PolicyStatus.parse(node)
         end
         data
       end
@@ -1845,7 +1845,7 @@ module AWS::SDK::S3Control
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.public_access_block_configuration = Parsers::PublicAccessBlockConfiguration.parse(xml)
+        data.public_access_block_configuration = PublicAccessBlockConfiguration.parse(xml)
         data
       end
     end
@@ -1872,7 +1872,7 @@ module AWS::SDK::S3Control
         body = http_resp.body.read
         return data if body.empty?
         xml = Hearth::XML.parse(body)
-        data.storage_lens_configuration = Parsers::StorageLensConfiguration.parse(xml)
+        data.storage_lens_configuration = StorageLensConfiguration.parse(xml)
         data
       end
     end
@@ -1884,22 +1884,22 @@ module AWS::SDK::S3Control
           data.id = (node.text || '')
         end
         xml.at('AccountLevel') do |node|
-          data.account_level = Parsers::AccountLevel.parse(node)
+          data.account_level = AccountLevel.parse(node)
         end
         xml.at('Include') do |node|
-          data.include = Parsers::Include.parse(node)
+          data.include = Include.parse(node)
         end
         xml.at('Exclude') do |node|
-          data.exclude = Parsers::Exclude.parse(node)
+          data.exclude = Exclude.parse(node)
         end
         xml.at('DataExport') do |node|
-          data.data_export = Parsers::StorageLensDataExport.parse(node)
+          data.data_export = StorageLensDataExport.parse(node)
         end
         xml.at('IsEnabled') do |node|
           data.is_enabled = (node.text == 'true')
         end
         xml.at('AwsOrg') do |node|
-          data.aws_org = Parsers::StorageLensAwsOrg.parse(node)
+          data.aws_org = StorageLensAwsOrg.parse(node)
         end
         xml.at('StorageLensArn') do |node|
           data.storage_lens_arn = (node.text || '')
@@ -1922,10 +1922,10 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = Types::StorageLensDataExport.new
         xml.at('S3BucketDestination') do |node|
-          data.s3_bucket_destination = Parsers::S3BucketDestination.parse(node)
+          data.s3_bucket_destination = S3BucketDestination.parse(node)
         end
         xml.at('CloudWatchMetrics') do |node|
-          data.cloud_watch_metrics = Parsers::CloudWatchMetrics.parse(node)
+          data.cloud_watch_metrics = CloudWatchMetrics.parse(node)
         end
         return data
       end
@@ -1960,7 +1960,7 @@ module AWS::SDK::S3Control
           data.prefix = (node.text || '')
         end
         xml.at('Encryption') do |node|
-          data.encryption = Parsers::StorageLensDataExportEncryption.parse(node)
+          data.encryption = StorageLensDataExportEncryption.parse(node)
         end
         return data
       end
@@ -1970,10 +1970,10 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = Types::StorageLensDataExportEncryption.new
         xml.at('SSE-S3') do |node|
-          data.sses3 = Parsers::SSES3.parse(node)
+          data.sses3 = SSES3.parse(node)
         end
         xml.at('SSE-KMS') do |node|
-          data.ssekms = Parsers::SSEKMS.parse(node)
+          data.ssekms = SSEKMS.parse(node)
         end
         return data
       end
@@ -2001,11 +2001,11 @@ module AWS::SDK::S3Control
         data = Types::Exclude.new
         xml.at('Buckets') do |node|
           children = node.children('Arn')
-          data.buckets = Parsers::Buckets.parse(children)
+          data.buckets = Buckets.parse(children)
         end
         xml.at('Regions') do |node|
           children = node.children('Region')
-          data.regions = Parsers::Regions.parse(children)
+          data.regions = Regions.parse(children)
         end
         return data
       end
@@ -2036,11 +2036,11 @@ module AWS::SDK::S3Control
         data = Types::Include.new
         xml.at('Buckets') do |node|
           children = node.children('Arn')
-          data.buckets = Parsers::Buckets.parse(children)
+          data.buckets = Buckets.parse(children)
         end
         xml.at('Regions') do |node|
           children = node.children('Region')
-          data.regions = Parsers::Regions.parse(children)
+          data.regions = Regions.parse(children)
         end
         return data
       end
@@ -2050,10 +2050,10 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = Types::AccountLevel.new
         xml.at('ActivityMetrics') do |node|
-          data.activity_metrics = Parsers::ActivityMetrics.parse(node)
+          data.activity_metrics = ActivityMetrics.parse(node)
         end
         xml.at('BucketLevel') do |node|
-          data.bucket_level = Parsers::BucketLevel.parse(node)
+          data.bucket_level = BucketLevel.parse(node)
         end
         return data
       end
@@ -2063,10 +2063,10 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = Types::BucketLevel.new
         xml.at('ActivityMetrics') do |node|
-          data.activity_metrics = Parsers::ActivityMetrics.parse(node)
+          data.activity_metrics = ActivityMetrics.parse(node)
         end
         xml.at('PrefixLevel') do |node|
-          data.prefix_level = Parsers::PrefixLevel.parse(node)
+          data.prefix_level = PrefixLevel.parse(node)
         end
         return data
       end
@@ -2076,7 +2076,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = Types::PrefixLevel.new
         xml.at('StorageMetrics') do |node|
-          data.storage_metrics = Parsers::PrefixLevelStorageMetrics.parse(node)
+          data.storage_metrics = PrefixLevelStorageMetrics.parse(node)
         end
         return data
       end
@@ -2089,7 +2089,7 @@ module AWS::SDK::S3Control
           data.is_enabled = (node.text == 'true')
         end
         xml.at('SelectionCriteria') do |node|
-          data.selection_criteria = Parsers::SelectionCriteria.parse(node)
+          data.selection_criteria = SelectionCriteria.parse(node)
         end
         return data
       end
@@ -2130,7 +2130,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML.parse(body)
         xml.at('Tags') do |node|
           children = node.children('Tag')
-          data.tags = Parsers::StorageLensTags.parse(children)
+          data.tags = StorageLensTags.parse(children)
         end
         data
       end
@@ -2140,7 +2140,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::StorageLensTag.parse(node)
+          data << StorageLensTag.parse(node)
         end
         data
       end
@@ -2168,7 +2168,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML.parse(body)
         xml.at('AccessPointList') do |node|
           children = node.children('AccessPoint')
-          data.access_point_list = Parsers::AccessPointList.parse(children)
+          data.access_point_list = AccessPointList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2181,7 +2181,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::AccessPoint.parse(node)
+          data << AccessPoint.parse(node)
         end
         data
       end
@@ -2197,7 +2197,7 @@ module AWS::SDK::S3Control
           data.network_origin = (node.text || '')
         end
         xml.at('VpcConfiguration') do |node|
-          data.vpc_configuration = Parsers::VpcConfiguration.parse(node)
+          data.vpc_configuration = VpcConfiguration.parse(node)
         end
         xml.at('Bucket') do |node|
           data.bucket = (node.text || '')
@@ -2221,7 +2221,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML.parse(body)
         xml.at('ObjectLambdaAccessPointList') do |node|
           children = node.children('ObjectLambdaAccessPoint')
-          data.object_lambda_access_point_list = Parsers::ObjectLambdaAccessPointList.parse(children)
+          data.object_lambda_access_point_list = ObjectLambdaAccessPointList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2234,7 +2234,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ObjectLambdaAccessPoint.parse(node)
+          data << ObjectLambdaAccessPoint.parse(node)
         end
         data
       end
@@ -2265,7 +2265,7 @@ module AWS::SDK::S3Control
         end
         xml.at('Jobs') do |node|
           children = node.children('member')
-          data.jobs = Parsers::JobListDescriptorList.parse(children)
+          data.jobs = JobListDescriptorList.parse(children)
         end
         data
       end
@@ -2275,7 +2275,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::JobListDescriptor.parse(node)
+          data << JobListDescriptor.parse(node)
         end
         data
       end
@@ -2306,7 +2306,7 @@ module AWS::SDK::S3Control
           data.termination_date = Time.parse(node.text) if node.text
         end
         xml.at('ProgressSummary') do |node|
-          data.progress_summary = Parsers::JobProgressSummary.parse(node)
+          data.progress_summary = JobProgressSummary.parse(node)
         end
         return data
       end
@@ -2351,7 +2351,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML.parse(body)
         xml.at('AccessPoints') do |node|
           children = node.children('AccessPoint')
-          data.access_points = Parsers::MultiRegionAccessPointReportList.parse(children)
+          data.access_points = MultiRegionAccessPointReportList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2364,7 +2364,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::MultiRegionAccessPointReport.parse(node)
+          data << MultiRegionAccessPointReport.parse(node)
         end
         data
       end
@@ -2379,7 +2379,7 @@ module AWS::SDK::S3Control
         xml = Hearth::XML.parse(body)
         xml.at('RegionalBucketList') do |node|
           children = node.children('RegionalBucket')
-          data.regional_bucket_list = Parsers::RegionalBucketList.parse(children)
+          data.regional_bucket_list = RegionalBucketList.parse(children)
         end
         xml.at('NextToken') do |node|
           data.next_token = (node.text || '')
@@ -2392,7 +2392,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::RegionalBucket.parse(node)
+          data << RegionalBucket.parse(node)
         end
         data
       end
@@ -2431,7 +2431,7 @@ module AWS::SDK::S3Control
           data.next_token = (node.text || '')
         end
         xml.children('StorageLensConfigurationList') do |children|
-          data.storage_lens_configuration_list = Parsers::StorageLensConfigurationList.parse(children)
+          data.storage_lens_configuration_list = StorageLensConfigurationList.parse(children)
         end
         data
       end
@@ -2441,7 +2441,7 @@ module AWS::SDK::S3Control
       def self.parse(xml)
         data = []
         xml.each do |node|
-          data << Parsers::ListStorageLensConfigurationEntry.parse(node)
+          data << ListStorageLensConfigurationEntry.parse(node)
         end
         data
       end

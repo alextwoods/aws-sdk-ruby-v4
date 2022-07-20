@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::GreengrassV2
   module Stubs
 
@@ -23,7 +26,7 @@ module AWS::SDK::GreengrassV2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AssociatedAt'] = stub[:associated_at] unless stub[:associated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -39,8 +42,8 @@ module AWS::SDK::GreengrassV2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['errorEntries'] = Stubs::AssociateClientDeviceWithCoreDeviceErrorList.stub(stub[:error_entries]) unless stub[:error_entries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errorEntries'] = AssociateClientDeviceWithCoreDeviceErrorList.stub(stub[:error_entries]) unless stub[:error_entries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -58,7 +61,7 @@ module AWS::SDK::GreengrassV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssociateClientDeviceWithCoreDeviceErrorEntry.stub(element) unless element.nil?
+          data << AssociateClientDeviceWithCoreDeviceErrorEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -98,8 +101,8 @@ module AWS::SDK::GreengrassV2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['errorEntries'] = Stubs::DisassociateClientDeviceFromCoreDeviceErrorList.stub(stub[:error_entries]) unless stub[:error_entries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errorEntries'] = DisassociateClientDeviceFromCoreDeviceErrorList.stub(stub[:error_entries]) unless stub[:error_entries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -117,7 +120,7 @@ module AWS::SDK::GreengrassV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DisassociateClientDeviceFromCoreDeviceErrorEntry.stub(element) unless element.nil?
+          data << DisassociateClientDeviceFromCoreDeviceErrorEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -158,7 +161,7 @@ module AWS::SDK::GreengrassV2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['message'] = stub[:message] unless stub[:message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -182,8 +185,8 @@ module AWS::SDK::GreengrassV2
         data['componentName'] = stub[:component_name] unless stub[:component_name].nil?
         data['componentVersion'] = stub[:component_version] unless stub[:component_version].nil?
         data['creationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_timestamp]).to_i unless stub[:creation_timestamp].nil?
-        data['status'] = Stubs::CloudComponentStatus.stub(stub[:status]) unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['status'] = CloudComponentStatus.stub(stub[:status]) unless stub[:status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -206,7 +209,7 @@ module AWS::SDK::GreengrassV2
         data = {}
         data['componentState'] = stub[:component_state] unless stub[:component_state].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
-        data['errors'] = Stubs::StringMap.stub(stub[:errors]) unless stub[:errors].nil?
+        data['errors'] = StringMap.stub(stub[:errors]) unless stub[:errors].nil?
         data['vendorGuidance'] = stub[:vendor_guidance] unless stub[:vendor_guidance].nil?
         data['vendorGuidanceMessage'] = stub[:vendor_guidance_message] unless stub[:vendor_guidance_message].nil?
         data
@@ -250,7 +253,7 @@ module AWS::SDK::GreengrassV2
         data['deploymentId'] = stub[:deployment_id] unless stub[:deployment_id].nil?
         data['iotJobId'] = stub[:iot_job_id] unless stub[:iot_job_id].nil?
         data['iotJobArn'] = stub[:iot_job_arn] unless stub[:iot_job_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -319,10 +322,10 @@ module AWS::SDK::GreengrassV2
         data['creationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_timestamp]).to_i unless stub[:creation_timestamp].nil?
         data['publisher'] = stub[:publisher] unless stub[:publisher].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['status'] = Stubs::CloudComponentStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['platforms'] = Stubs::ComponentPlatformList.stub(stub[:platforms]) unless stub[:platforms].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['status'] = CloudComponentStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['platforms'] = ComponentPlatformList.stub(stub[:platforms]) unless stub[:platforms].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -360,7 +363,7 @@ module AWS::SDK::GreengrassV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComponentPlatform.stub(element) unless element.nil?
+          data << ComponentPlatform.stub(element) unless element.nil?
         end
         data
       end
@@ -381,7 +384,7 @@ module AWS::SDK::GreengrassV2
         stub ||= Types::ComponentPlatform.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['attributes'] = Stubs::PlatformAttributesMap.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['attributes'] = PlatformAttributesMap.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -419,7 +422,7 @@ module AWS::SDK::GreengrassV2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['DisassociatedAt'] = stub[:disassociated_at] unless stub[:disassociated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -438,9 +441,9 @@ module AWS::SDK::GreengrassV2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['recipeOutputFormat'] = stub[:recipe_output_format] unless stub[:recipe_output_format].nil?
-        data['recipe'] = Base64::encode64(stub[:recipe]) unless stub[:recipe].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['recipe'] = ::Base64::encode64(stub[:recipe]) unless stub[:recipe].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -457,7 +460,7 @@ module AWS::SDK::GreengrassV2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['preSignedUrl'] = stub[:pre_signed_url] unless stub[:pre_signed_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -474,9 +477,9 @@ module AWS::SDK::GreengrassV2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ConnectivityInfo'] = Stubs::ConnectivityInfoList.stub(stub[:connectivity_info]) unless stub[:connectivity_info].nil?
+        data['ConnectivityInfo'] = ConnectivityInfoList.stub(stub[:connectivity_info]) unless stub[:connectivity_info].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -494,7 +497,7 @@ module AWS::SDK::GreengrassV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectivityInfo.stub(element) unless element.nil?
+          data << ConnectivityInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -548,8 +551,8 @@ module AWS::SDK::GreengrassV2
         data['architecture'] = stub[:architecture] unless stub[:architecture].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['lastStatusUpdateTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_status_update_timestamp]).to_i unless stub[:last_status_update_timestamp].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -584,13 +587,13 @@ module AWS::SDK::GreengrassV2
         data['deploymentStatus'] = stub[:deployment_status] unless stub[:deployment_status].nil?
         data['iotJobId'] = stub[:iot_job_id] unless stub[:iot_job_id].nil?
         data['iotJobArn'] = stub[:iot_job_arn] unless stub[:iot_job_arn].nil?
-        data['components'] = Stubs::ComponentDeploymentSpecifications.stub(stub[:components]) unless stub[:components].nil?
-        data['deploymentPolicies'] = Stubs::DeploymentPolicies.stub(stub[:deployment_policies]) unless stub[:deployment_policies].nil?
-        data['iotJobConfiguration'] = Stubs::DeploymentIoTJobConfiguration.stub(stub[:iot_job_configuration]) unless stub[:iot_job_configuration].nil?
+        data['components'] = ComponentDeploymentSpecifications.stub(stub[:components]) unless stub[:components].nil?
+        data['deploymentPolicies'] = DeploymentPolicies.stub(stub[:deployment_policies]) unless stub[:deployment_policies].nil?
+        data['iotJobConfiguration'] = DeploymentIoTJobConfiguration.stub(stub[:iot_job_configuration]) unless stub[:iot_job_configuration].nil?
         data['creationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_timestamp]).to_i unless stub[:creation_timestamp].nil?
         data['isLatestForTarget'] = stub[:is_latest_for_target] unless stub[:is_latest_for_target].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -609,9 +612,9 @@ module AWS::SDK::GreengrassV2
       def self.stub(stub)
         stub ||= Types::DeploymentIoTJobConfiguration.new
         data = {}
-        data['jobExecutionsRolloutConfig'] = Stubs::IoTJobExecutionsRolloutConfig.stub(stub[:job_executions_rollout_config]) unless stub[:job_executions_rollout_config].nil?
-        data['abortConfig'] = Stubs::IoTJobAbortConfig.stub(stub[:abort_config]) unless stub[:abort_config].nil?
-        data['timeoutConfig'] = Stubs::IoTJobTimeoutConfig.stub(stub[:timeout_config]) unless stub[:timeout_config].nil?
+        data['jobExecutionsRolloutConfig'] = IoTJobExecutionsRolloutConfig.stub(stub[:job_executions_rollout_config]) unless stub[:job_executions_rollout_config].nil?
+        data['abortConfig'] = IoTJobAbortConfig.stub(stub[:abort_config]) unless stub[:abort_config].nil?
+        data['timeoutConfig'] = IoTJobTimeoutConfig.stub(stub[:timeout_config]) unless stub[:timeout_config].nil?
         data
       end
     end
@@ -647,7 +650,7 @@ module AWS::SDK::GreengrassV2
       def self.stub(stub)
         stub ||= Types::IoTJobAbortConfig.new
         data = {}
-        data['criteriaList'] = Stubs::IoTJobAbortCriteriaList.stub(stub[:criteria_list]) unless stub[:criteria_list].nil?
+        data['criteriaList'] = IoTJobAbortCriteriaList.stub(stub[:criteria_list]) unless stub[:criteria_list].nil?
         data
       end
     end
@@ -666,7 +669,7 @@ module AWS::SDK::GreengrassV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IoTJobAbortCriteria.stub(element) unless element.nil?
+          data << IoTJobAbortCriteria.stub(element) unless element.nil?
         end
         data
       end
@@ -710,7 +713,7 @@ module AWS::SDK::GreengrassV2
       def self.stub(stub)
         stub ||= Types::IoTJobExecutionsRolloutConfig.new
         data = {}
-        data['exponentialRate'] = Stubs::IoTJobExponentialRolloutRate.stub(stub[:exponential_rate]) unless stub[:exponential_rate].nil?
+        data['exponentialRate'] = IoTJobExponentialRolloutRate.stub(stub[:exponential_rate]) unless stub[:exponential_rate].nil?
         data['maximumPerMinute'] = stub[:maximum_per_minute] unless stub[:maximum_per_minute].nil?
         data
       end
@@ -733,7 +736,7 @@ module AWS::SDK::GreengrassV2
         data = {}
         data['baseRatePerMinute'] = stub[:base_rate_per_minute] unless stub[:base_rate_per_minute].nil?
         data['incrementFactor'] = Hearth::NumberHelper.serialize(stub[:increment_factor])
-        data['rateIncreaseCriteria'] = Stubs::IoTJobRateIncreaseCriteria.stub(stub[:rate_increase_criteria]) unless stub[:rate_increase_criteria].nil?
+        data['rateIncreaseCriteria'] = IoTJobRateIncreaseCriteria.stub(stub[:rate_increase_criteria]) unless stub[:rate_increase_criteria].nil?
         data
       end
     end
@@ -774,8 +777,8 @@ module AWS::SDK::GreengrassV2
         stub ||= Types::DeploymentPolicies.new
         data = {}
         data['failureHandlingPolicy'] = stub[:failure_handling_policy] unless stub[:failure_handling_policy].nil?
-        data['componentUpdatePolicy'] = Stubs::DeploymentComponentUpdatePolicy.stub(stub[:component_update_policy]) unless stub[:component_update_policy].nil?
-        data['configurationValidationPolicy'] = Stubs::DeploymentConfigurationValidationPolicy.stub(stub[:configuration_validation_policy]) unless stub[:configuration_validation_policy].nil?
+        data['componentUpdatePolicy'] = DeploymentComponentUpdatePolicy.stub(stub[:component_update_policy]) unless stub[:component_update_policy].nil?
+        data['configurationValidationPolicy'] = DeploymentConfigurationValidationPolicy.stub(stub[:configuration_validation_policy]) unless stub[:configuration_validation_policy].nil?
         data
       end
     end
@@ -832,7 +835,7 @@ module AWS::SDK::GreengrassV2
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ComponentDeploymentSpecification.stub(value) unless value.nil?
+          data[key] = ComponentDeploymentSpecification.stub(value) unless value.nil?
         end
         data
       end
@@ -854,8 +857,8 @@ module AWS::SDK::GreengrassV2
         stub ||= Types::ComponentDeploymentSpecification.new
         data = {}
         data['componentVersion'] = stub[:component_version] unless stub[:component_version].nil?
-        data['configurationUpdate'] = Stubs::ComponentConfigurationUpdate.stub(stub[:configuration_update]) unless stub[:configuration_update].nil?
-        data['runWith'] = Stubs::ComponentRunWith.stub(stub[:run_with]) unless stub[:run_with].nil?
+        data['configurationUpdate'] = ComponentConfigurationUpdate.stub(stub[:configuration_update]) unless stub[:configuration_update].nil?
+        data['runWith'] = ComponentRunWith.stub(stub[:run_with]) unless stub[:run_with].nil?
         data
       end
     end
@@ -876,7 +879,7 @@ module AWS::SDK::GreengrassV2
         stub ||= Types::ComponentRunWith.new
         data = {}
         data['posixUser'] = stub[:posix_user] unless stub[:posix_user].nil?
-        data['systemResourceLimits'] = Stubs::SystemResourceLimits.stub(stub[:system_resource_limits]) unless stub[:system_resource_limits].nil?
+        data['systemResourceLimits'] = SystemResourceLimits.stub(stub[:system_resource_limits]) unless stub[:system_resource_limits].nil?
         data['windowsUser'] = stub[:windows_user] unless stub[:windows_user].nil?
         data
       end
@@ -917,7 +920,7 @@ module AWS::SDK::GreengrassV2
         stub ||= Types::ComponentConfigurationUpdate.new
         data = {}
         data['merge'] = stub[:merge] unless stub[:merge].nil?
-        data['reset'] = Stubs::ComponentConfigurationPathList.stub(stub[:reset]) unless stub[:reset].nil?
+        data['reset'] = ComponentConfigurationPathList.stub(stub[:reset]) unless stub[:reset].nil?
         data
       end
     end
@@ -957,7 +960,7 @@ module AWS::SDK::GreengrassV2
         http_resp.headers['Content-Type'] = 'application/json'
         data['AssociatedAt'] = stub[:associated_at] unless stub[:associated_at].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -974,9 +977,9 @@ module AWS::SDK::GreengrassV2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['associatedClientDevices'] = Stubs::AssociatedClientDeviceList.stub(stub[:associated_client_devices]) unless stub[:associated_client_devices].nil?
+        data['associatedClientDevices'] = AssociatedClientDeviceList.stub(stub[:associated_client_devices]) unless stub[:associated_client_devices].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -994,7 +997,7 @@ module AWS::SDK::GreengrassV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssociatedClientDevice.stub(element) unless element.nil?
+          data << AssociatedClientDevice.stub(element) unless element.nil?
         end
         data
       end
@@ -1033,9 +1036,9 @@ module AWS::SDK::GreengrassV2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['componentVersions'] = Stubs::ComponentVersionList.stub(stub[:component_versions]) unless stub[:component_versions].nil?
+        data['componentVersions'] = ComponentVersionList.stub(stub[:component_versions]) unless stub[:component_versions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1053,7 +1056,7 @@ module AWS::SDK::GreengrassV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ComponentVersionListItem.stub(element) unless element.nil?
+          data << ComponentVersionListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -1094,9 +1097,9 @@ module AWS::SDK::GreengrassV2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['components'] = Stubs::ComponentList.stub(stub[:components]) unless stub[:components].nil?
+        data['components'] = ComponentList.stub(stub[:components]) unless stub[:components].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1114,7 +1117,7 @@ module AWS::SDK::GreengrassV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Component.stub(element) unless element.nil?
+          data << Component.stub(element) unless element.nil?
         end
         data
       end
@@ -1137,7 +1140,7 @@ module AWS::SDK::GreengrassV2
         data = {}
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['componentName'] = stub[:component_name] unless stub[:component_name].nil?
-        data['latestVersion'] = Stubs::ComponentLatestVersion.stub(stub[:latest_version]) unless stub[:latest_version].nil?
+        data['latestVersion'] = ComponentLatestVersion.stub(stub[:latest_version]) unless stub[:latest_version].nil?
         data
       end
     end
@@ -1165,7 +1168,7 @@ module AWS::SDK::GreengrassV2
         data['creationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_timestamp]).to_i unless stub[:creation_timestamp].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['publisher'] = stub[:publisher] unless stub[:publisher].nil?
-        data['platforms'] = Stubs::ComponentPlatformList.stub(stub[:platforms]) unless stub[:platforms].nil?
+        data['platforms'] = ComponentPlatformList.stub(stub[:platforms]) unless stub[:platforms].nil?
         data
       end
     end
@@ -1183,9 +1186,9 @@ module AWS::SDK::GreengrassV2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['coreDevices'] = Stubs::CoreDevicesList.stub(stub[:core_devices]) unless stub[:core_devices].nil?
+        data['coreDevices'] = CoreDevicesList.stub(stub[:core_devices]) unless stub[:core_devices].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1203,7 +1206,7 @@ module AWS::SDK::GreengrassV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CoreDevice.stub(element) unless element.nil?
+          data << CoreDevice.stub(element) unless element.nil?
         end
         data
       end
@@ -1244,9 +1247,9 @@ module AWS::SDK::GreengrassV2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['deployments'] = Stubs::DeploymentList.stub(stub[:deployments]) unless stub[:deployments].nil?
+        data['deployments'] = DeploymentList.stub(stub[:deployments]) unless stub[:deployments].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1264,7 +1267,7 @@ module AWS::SDK::GreengrassV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Deployment.stub(element) unless element.nil?
+          data << Deployment.stub(element) unless element.nil?
         end
         data
       end
@@ -1313,9 +1316,9 @@ module AWS::SDK::GreengrassV2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['effectiveDeployments'] = Stubs::EffectiveDeploymentsList.stub(stub[:effective_deployments]) unless stub[:effective_deployments].nil?
+        data['effectiveDeployments'] = EffectiveDeploymentsList.stub(stub[:effective_deployments]) unless stub[:effective_deployments].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1333,7 +1336,7 @@ module AWS::SDK::GreengrassV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EffectiveDeployment.stub(element) unless element.nil?
+          data << EffectiveDeployment.stub(element) unless element.nil?
         end
         data
       end
@@ -1388,9 +1391,9 @@ module AWS::SDK::GreengrassV2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['installedComponents'] = Stubs::InstalledComponentList.stub(stub[:installed_components]) unless stub[:installed_components].nil?
+        data['installedComponents'] = InstalledComponentList.stub(stub[:installed_components]) unless stub[:installed_components].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1408,7 +1411,7 @@ module AWS::SDK::GreengrassV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstalledComponent.stub(element) unless element.nil?
+          data << InstalledComponent.stub(element) unless element.nil?
         end
         data
       end
@@ -1452,8 +1455,8 @@ module AWS::SDK::GreengrassV2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1469,8 +1472,8 @@ module AWS::SDK::GreengrassV2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resolvedComponentVersions'] = Stubs::ResolvedComponentVersionsList.stub(stub[:resolved_component_versions]) unless stub[:resolved_component_versions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resolvedComponentVersions'] = ResolvedComponentVersionsList.stub(stub[:resolved_component_versions]) unless stub[:resolved_component_versions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1488,7 +1491,7 @@ module AWS::SDK::GreengrassV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResolvedComponentVersion.stub(element) unless element.nil?
+          data << ResolvedComponentVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -1515,7 +1518,7 @@ module AWS::SDK::GreengrassV2
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['componentName'] = stub[:component_name] unless stub[:component_name].nil?
         data['componentVersion'] = stub[:component_version] unless stub[:component_version].nil?
-        data['recipe'] = Base64::encode64(stub[:recipe]) unless stub[:recipe].nil?
+        data['recipe'] = ::Base64::encode64(stub[:recipe]) unless stub[:recipe].nil?
         data['vendorGuidance'] = stub[:vendor_guidance] unless stub[:vendor_guidance].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
         data
@@ -1563,7 +1566,7 @@ module AWS::SDK::GreengrassV2
         http_resp.headers['Content-Type'] = 'application/json'
         data['Version'] = stub[:version] unless stub[:version].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

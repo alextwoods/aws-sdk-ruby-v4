@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::DataPipeline
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::DataPipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -33,7 +35,7 @@ module AWS::SDK::DataPipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -49,7 +51,7 @@ module AWS::SDK::DataPipeline
       def self.stub(http_resp, stub:)
         data = {}
         data['pipelineId'] = stub[:pipeline_id] unless stub[:pipeline_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -63,7 +65,7 @@ module AWS::SDK::DataPipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -77,7 +79,7 @@ module AWS::SDK::DataPipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -94,10 +96,10 @@ module AWS::SDK::DataPipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pipelineObjects'] = Stubs::PipelineObjectList.stub(stub[:pipeline_objects]) unless stub[:pipeline_objects].nil?
+        data['pipelineObjects'] = PipelineObjectList.stub(stub[:pipeline_objects]) unless stub[:pipeline_objects].nil?
         data['marker'] = stub[:marker] unless stub[:marker].nil?
         data['hasMoreResults'] = stub[:has_more_results] unless stub[:has_more_results].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -116,7 +118,7 @@ module AWS::SDK::DataPipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PipelineObject.stub(element) unless element.nil?
+          data << PipelineObject.stub(element) unless element.nil?
         end
         data
       end
@@ -139,7 +141,7 @@ module AWS::SDK::DataPipeline
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['fields'] = Stubs::FieldList.stub(stub[:fields]) unless stub[:fields].nil?
+        data['fields'] = FieldList.stub(stub[:fields]) unless stub[:fields].nil?
         data
       end
     end
@@ -158,7 +160,7 @@ module AWS::SDK::DataPipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Field.stub(element) unless element.nil?
+          data << Field.stub(element) unless element.nil?
         end
         data
       end
@@ -196,8 +198,8 @@ module AWS::SDK::DataPipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pipelineDescriptionList'] = Stubs::PipelineDescriptionList.stub(stub[:pipeline_description_list]) unless stub[:pipeline_description_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pipelineDescriptionList'] = PipelineDescriptionList.stub(stub[:pipeline_description_list]) unless stub[:pipeline_description_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -216,7 +218,7 @@ module AWS::SDK::DataPipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PipelineDescription.stub(element) unless element.nil?
+          data << PipelineDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -241,9 +243,9 @@ module AWS::SDK::DataPipeline
         data = {}
         data['pipelineId'] = stub[:pipeline_id] unless stub[:pipeline_id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['fields'] = Stubs::FieldList.stub(stub[:fields]) unless stub[:fields].nil?
+        data['fields'] = FieldList.stub(stub[:fields]) unless stub[:fields].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -262,7 +264,7 @@ module AWS::SDK::DataPipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -299,7 +301,7 @@ module AWS::SDK::DataPipeline
       def self.stub(http_resp, stub:)
         data = {}
         data['evaluatedExpression'] = stub[:evaluated_expression] unless stub[:evaluated_expression].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -316,10 +318,10 @@ module AWS::SDK::DataPipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pipelineObjects'] = Stubs::PipelineObjectList.stub(stub[:pipeline_objects]) unless stub[:pipeline_objects].nil?
-        data['parameterObjects'] = Stubs::ParameterObjectList.stub(stub[:parameter_objects]) unless stub[:parameter_objects].nil?
-        data['parameterValues'] = Stubs::ParameterValueList.stub(stub[:parameter_values]) unless stub[:parameter_values].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['pipelineObjects'] = PipelineObjectList.stub(stub[:pipeline_objects]) unless stub[:pipeline_objects].nil?
+        data['parameterObjects'] = ParameterObjectList.stub(stub[:parameter_objects]) unless stub[:parameter_objects].nil?
+        data['parameterValues'] = ParameterValueList.stub(stub[:parameter_values]) unless stub[:parameter_values].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -338,7 +340,7 @@ module AWS::SDK::DataPipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ParameterValue.stub(element) unless element.nil?
+          data << ParameterValue.stub(element) unless element.nil?
         end
         data
       end
@@ -378,7 +380,7 @@ module AWS::SDK::DataPipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ParameterObject.stub(element) unless element.nil?
+          data << ParameterObject.stub(element) unless element.nil?
         end
         data
       end
@@ -399,7 +401,7 @@ module AWS::SDK::DataPipeline
         stub ||= Types::ParameterObject.new
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['attributes'] = Stubs::ParameterAttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['attributes'] = ParameterAttributeList.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -418,7 +420,7 @@ module AWS::SDK::DataPipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ParameterAttribute.stub(element) unless element.nil?
+          data << ParameterAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -456,10 +458,10 @@ module AWS::SDK::DataPipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['pipelineIdList'] = Stubs::PipelineList.stub(stub[:pipeline_id_list]) unless stub[:pipeline_id_list].nil?
+        data['pipelineIdList'] = PipelineList.stub(stub[:pipeline_id_list]) unless stub[:pipeline_id_list].nil?
         data['marker'] = stub[:marker] unless stub[:marker].nil?
         data['hasMoreResults'] = stub[:has_more_results] unless stub[:has_more_results].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -478,7 +480,7 @@ module AWS::SDK::DataPipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PipelineIdName.stub(element) unless element.nil?
+          data << PipelineIdName.stub(element) unless element.nil?
         end
         data
       end
@@ -514,8 +516,8 @@ module AWS::SDK::DataPipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['taskObject'] = Stubs::TaskObject.stub(stub[:task_object]) unless stub[:task_object].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['taskObject'] = TaskObject.stub(stub[:task_object]) unless stub[:task_object].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -539,7 +541,7 @@ module AWS::SDK::DataPipeline
         data['taskId'] = stub[:task_id] unless stub[:task_id].nil?
         data['pipelineId'] = stub[:pipeline_id] unless stub[:pipeline_id].nil?
         data['attemptId'] = stub[:attempt_id] unless stub[:attempt_id].nil?
-        data['objects'] = Stubs::PipelineObjectMap.stub(stub[:objects]) unless stub[:objects].nil?
+        data['objects'] = PipelineObjectMap.stub(stub[:objects]) unless stub[:objects].nil?
         data
       end
     end
@@ -558,7 +560,7 @@ module AWS::SDK::DataPipeline
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::PipelineObject.stub(value) unless value.nil?
+          data[key] = PipelineObject.stub(value) unless value.nil?
         end
         data
       end
@@ -576,10 +578,10 @@ module AWS::SDK::DataPipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['validationErrors'] = Stubs::ValidationErrors.stub(stub[:validation_errors]) unless stub[:validation_errors].nil?
-        data['validationWarnings'] = Stubs::ValidationWarnings.stub(stub[:validation_warnings]) unless stub[:validation_warnings].nil?
+        data['validationErrors'] = ValidationErrors.stub(stub[:validation_errors]) unless stub[:validation_errors].nil?
+        data['validationWarnings'] = ValidationWarnings.stub(stub[:validation_warnings]) unless stub[:validation_warnings].nil?
         data['errored'] = stub[:errored] unless stub[:errored].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -598,7 +600,7 @@ module AWS::SDK::DataPipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ValidationWarning.stub(element) unless element.nil?
+          data << ValidationWarning.stub(element) unless element.nil?
         end
         data
       end
@@ -619,7 +621,7 @@ module AWS::SDK::DataPipeline
         stub ||= Types::ValidationWarning.new
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['warnings'] = Stubs::ValidationMessages.stub(stub[:warnings]) unless stub[:warnings].nil?
+        data['warnings'] = ValidationMessages.stub(stub[:warnings]) unless stub[:warnings].nil?
         data
       end
     end
@@ -658,7 +660,7 @@ module AWS::SDK::DataPipeline
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ValidationError.stub(element) unless element.nil?
+          data << ValidationError.stub(element) unless element.nil?
         end
         data
       end
@@ -679,7 +681,7 @@ module AWS::SDK::DataPipeline
         stub ||= Types::ValidationError.new
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['errors'] = Stubs::ValidationMessages.stub(stub[:errors]) unless stub[:errors].nil?
+        data['errors'] = ValidationMessages.stub(stub[:errors]) unless stub[:errors].nil?
         data
       end
     end
@@ -696,10 +698,10 @@ module AWS::SDK::DataPipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ids'] = Stubs::IdList.stub(stub[:ids]) unless stub[:ids].nil?
+        data['ids'] = IdList.stub(stub[:ids]) unless stub[:ids].nil?
         data['marker'] = stub[:marker] unless stub[:marker].nil?
         data['hasMoreResults'] = stub[:has_more_results] unless stub[:has_more_results].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -733,7 +735,7 @@ module AWS::SDK::DataPipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -749,7 +751,7 @@ module AWS::SDK::DataPipeline
       def self.stub(http_resp, stub:)
         data = {}
         data['canceled'] = stub[:canceled] unless stub[:canceled].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -765,7 +767,7 @@ module AWS::SDK::DataPipeline
       def self.stub(http_resp, stub:)
         data = {}
         data['terminate'] = stub[:terminate] unless stub[:terminate].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -779,7 +781,7 @@ module AWS::SDK::DataPipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -793,7 +795,7 @@ module AWS::SDK::DataPipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -810,10 +812,10 @@ module AWS::SDK::DataPipeline
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['validationErrors'] = Stubs::ValidationErrors.stub(stub[:validation_errors]) unless stub[:validation_errors].nil?
-        data['validationWarnings'] = Stubs::ValidationWarnings.stub(stub[:validation_warnings]) unless stub[:validation_warnings].nil?
+        data['validationErrors'] = ValidationErrors.stub(stub[:validation_errors]) unless stub[:validation_errors].nil?
+        data['validationWarnings'] = ValidationWarnings.stub(stub[:validation_warnings]) unless stub[:validation_warnings].nil?
         data['errored'] = stub[:errored] unless stub[:errored].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

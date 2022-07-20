@@ -17,7 +17,7 @@ module AWS::SDK::ApplicationInsights
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.application_info = (Parsers::ApplicationInfo.parse(map['ApplicationInfo']) unless map['ApplicationInfo'].nil?)
+        data.application_info = (ApplicationInfo.parse(map['ApplicationInfo']) unless map['ApplicationInfo'].nil?)
         data
       end
     end
@@ -127,7 +127,7 @@ module AWS::SDK::ApplicationInsights
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.log_pattern = (Parsers::LogPattern.parse(map['LogPattern']) unless map['LogPattern'].nil?)
+        data.log_pattern = (LogPattern.parse(map['LogPattern']) unless map['LogPattern'].nil?)
         data.resource_group_name = map['ResourceGroupName']
         data
       end
@@ -196,7 +196,7 @@ module AWS::SDK::ApplicationInsights
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.application_info = (Parsers::ApplicationInfo.parse(map['ApplicationInfo']) unless map['ApplicationInfo'].nil?)
+        data.application_info = (ApplicationInfo.parse(map['ApplicationInfo']) unless map['ApplicationInfo'].nil?)
         data
       end
     end
@@ -208,8 +208,8 @@ module AWS::SDK::ApplicationInsights
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.application_component = (Parsers::ApplicationComponent.parse(map['ApplicationComponent']) unless map['ApplicationComponent'].nil?)
-        data.resource_list = (Parsers::ResourceList.parse(map['ResourceList']) unless map['ResourceList'].nil?)
+        data.application_component = (ApplicationComponent.parse(map['ApplicationComponent']) unless map['ApplicationComponent'].nil?)
+        data.resource_list = (ResourceList.parse(map['ResourceList']) unless map['ResourceList'].nil?)
         data
       end
     end
@@ -231,7 +231,7 @@ module AWS::SDK::ApplicationInsights
         data.os_type = map['OsType']
         data.tier = map['Tier']
         data.monitor = map['Monitor']
-        data.detected_workload = (Parsers::DetectedWorkload.parse(map['DetectedWorkload']) unless map['DetectedWorkload'].nil?)
+        data.detected_workload = (DetectedWorkload.parse(map['DetectedWorkload']) unless map['DetectedWorkload'].nil?)
         return data
       end
     end
@@ -240,7 +240,7 @@ module AWS::SDK::ApplicationInsights
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::WorkloadMetaData.parse(value) unless value.nil?
+          data[key] = WorkloadMetaData.parse(value) unless value.nil?
         end
         data
       end
@@ -290,7 +290,7 @@ module AWS::SDK::ApplicationInsights
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.resource_group_name = map['ResourceGroupName']
-        data.log_pattern = (Parsers::LogPattern.parse(map['LogPattern']) unless map['LogPattern'].nil?)
+        data.log_pattern = (LogPattern.parse(map['LogPattern']) unless map['LogPattern'].nil?)
         data
       end
     end
@@ -302,7 +302,7 @@ module AWS::SDK::ApplicationInsights
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.observation = (Parsers::Observation.parse(map['Observation']) unless map['Observation'].nil?)
+        data.observation = (Observation.parse(map['Observation']) unless map['Observation'].nil?)
         data
       end
     end
@@ -366,7 +366,7 @@ module AWS::SDK::ApplicationInsights
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.problem = (Parsers::Problem.parse(map['Problem']) unless map['Problem'].nil?)
+        data.problem = (Problem.parse(map['Problem']) unless map['Problem'].nil?)
         data
       end
     end
@@ -383,7 +383,7 @@ module AWS::SDK::ApplicationInsights
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.severity_level = map['SeverityLevel']
         data.resource_group_name = map['ResourceGroupName']
-        data.feedback = (Parsers::Feedback.parse(map['Feedback']) unless map['Feedback'].nil?)
+        data.feedback = (Feedback.parse(map['Feedback']) unless map['Feedback'].nil?)
         data.recurring_count = map['RecurringCount']
         data.last_recurrence_time = Time.at(map['LastRecurrenceTime'].to_i) if map['LastRecurrenceTime']
         return data
@@ -407,7 +407,7 @@ module AWS::SDK::ApplicationInsights
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.related_observations = (Parsers::RelatedObservations.parse(map['RelatedObservations']) unless map['RelatedObservations'].nil?)
+        data.related_observations = (RelatedObservations.parse(map['RelatedObservations']) unless map['RelatedObservations'].nil?)
         data
       end
     end
@@ -415,7 +415,7 @@ module AWS::SDK::ApplicationInsights
     class RelatedObservations
       def self.parse(map)
         data = Types::RelatedObservations.new
-        data.observation_list = (Parsers::ObservationList.parse(map['ObservationList']) unless map['ObservationList'].nil?)
+        data.observation_list = (ObservationList.parse(map['ObservationList']) unless map['ObservationList'].nil?)
         return data
       end
     end
@@ -423,7 +423,7 @@ module AWS::SDK::ApplicationInsights
     class ObservationList
       def self.parse(list)
         list.map do |value|
-          Parsers::Observation.parse(value) unless value.nil?
+          Observation.parse(value) unless value.nil?
         end
       end
     end
@@ -435,7 +435,7 @@ module AWS::SDK::ApplicationInsights
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.application_info_list = (Parsers::ApplicationInfoList.parse(map['ApplicationInfoList']) unless map['ApplicationInfoList'].nil?)
+        data.application_info_list = (ApplicationInfoList.parse(map['ApplicationInfoList']) unless map['ApplicationInfoList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -444,7 +444,7 @@ module AWS::SDK::ApplicationInsights
     class ApplicationInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::ApplicationInfo.parse(value) unless value.nil?
+          ApplicationInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -456,7 +456,7 @@ module AWS::SDK::ApplicationInsights
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.application_component_list = (Parsers::ApplicationComponentList.parse(map['ApplicationComponentList']) unless map['ApplicationComponentList'].nil?)
+        data.application_component_list = (ApplicationComponentList.parse(map['ApplicationComponentList']) unless map['ApplicationComponentList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -465,7 +465,7 @@ module AWS::SDK::ApplicationInsights
     class ApplicationComponentList
       def self.parse(list)
         list.map do |value|
-          Parsers::ApplicationComponent.parse(value) unless value.nil?
+          ApplicationComponent.parse(value) unless value.nil?
         end
       end
     end
@@ -477,7 +477,7 @@ module AWS::SDK::ApplicationInsights
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.event_list = (Parsers::ConfigurationEventList.parse(map['EventList']) unless map['EventList'].nil?)
+        data.event_list = (ConfigurationEventList.parse(map['EventList']) unless map['EventList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -486,7 +486,7 @@ module AWS::SDK::ApplicationInsights
     class ConfigurationEventList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConfigurationEvent.parse(value) unless value.nil?
+          ConfigurationEvent.parse(value) unless value.nil?
         end
       end
     end
@@ -512,7 +512,7 @@ module AWS::SDK::ApplicationInsights
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.resource_group_name = map['ResourceGroupName']
-        data.log_pattern_sets = (Parsers::LogPatternSetList.parse(map['LogPatternSets']) unless map['LogPatternSets'].nil?)
+        data.log_pattern_sets = (LogPatternSetList.parse(map['LogPatternSets']) unless map['LogPatternSets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -534,7 +534,7 @@ module AWS::SDK::ApplicationInsights
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.resource_group_name = map['ResourceGroupName']
-        data.log_patterns = (Parsers::LogPatternList.parse(map['LogPatterns']) unless map['LogPatterns'].nil?)
+        data.log_patterns = (LogPatternList.parse(map['LogPatterns']) unless map['LogPatterns'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -543,7 +543,7 @@ module AWS::SDK::ApplicationInsights
     class LogPatternList
       def self.parse(list)
         list.map do |value|
-          Parsers::LogPattern.parse(value) unless value.nil?
+          LogPattern.parse(value) unless value.nil?
         end
       end
     end
@@ -555,7 +555,7 @@ module AWS::SDK::ApplicationInsights
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.problem_list = (Parsers::ProblemList.parse(map['ProblemList']) unless map['ProblemList'].nil?)
+        data.problem_list = (ProblemList.parse(map['ProblemList']) unless map['ProblemList'].nil?)
         data.next_token = map['NextToken']
         data.resource_group_name = map['ResourceGroupName']
         data
@@ -565,7 +565,7 @@ module AWS::SDK::ApplicationInsights
     class ProblemList
       def self.parse(list)
         list.map do |value|
-          Parsers::Problem.parse(value) unless value.nil?
+          Problem.parse(value) unless value.nil?
         end
       end
     end
@@ -577,7 +577,7 @@ module AWS::SDK::ApplicationInsights
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -585,7 +585,7 @@ module AWS::SDK::ApplicationInsights
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -641,7 +641,7 @@ module AWS::SDK::ApplicationInsights
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.application_info = (Parsers::ApplicationInfo.parse(map['ApplicationInfo']) unless map['ApplicationInfo'].nil?)
+        data.application_info = (ApplicationInfo.parse(map['ApplicationInfo']) unless map['ApplicationInfo'].nil?)
         data
       end
     end
@@ -676,7 +676,7 @@ module AWS::SDK::ApplicationInsights
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.resource_group_name = map['ResourceGroupName']
-        data.log_pattern = (Parsers::LogPattern.parse(map['LogPattern']) unless map['LogPattern'].nil?)
+        data.log_pattern = (LogPattern.parse(map['LogPattern']) unless map['LogPattern'].nil?)
         data
       end
     end

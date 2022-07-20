@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::KinesisVideoSignaling
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::KinesisVideoSignaling
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['IceServerList'] = Stubs::IceServerList.stub(stub[:ice_server_list]) unless stub[:ice_server_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['IceServerList'] = IceServerList.stub(stub[:ice_server_list]) unless stub[:ice_server_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -41,7 +43,7 @@ module AWS::SDK::KinesisVideoSignaling
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IceServer.stub(element) unless element.nil?
+          data << IceServer.stub(element) unless element.nil?
         end
         data
       end
@@ -63,7 +65,7 @@ module AWS::SDK::KinesisVideoSignaling
       def self.stub(stub)
         stub ||= Types::IceServer.new
         data = {}
-        data['Uris'] = Stubs::Uris.stub(stub[:uris]) unless stub[:uris].nil?
+        data['Uris'] = Uris.stub(stub[:uris]) unless stub[:uris].nil?
         data['Username'] = stub[:username] unless stub[:username].nil?
         data['Password'] = stub[:password] unless stub[:password].nil?
         data['Ttl'] = stub[:ttl] unless stub[:ttl].nil?
@@ -104,7 +106,7 @@ module AWS::SDK::KinesisVideoSignaling
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Answer'] = stub[:answer] unless stub[:answer].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

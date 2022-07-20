@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::KinesisVideo
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::KinesisVideo
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ChannelARN'] = stub[:channel_arn] unless stub[:channel_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -40,7 +42,7 @@ module AWS::SDK::KinesisVideo
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['StreamARN'] = stub[:stream_arn] unless stub[:stream_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -82,8 +84,8 @@ module AWS::SDK::KinesisVideo
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ImageGenerationConfiguration'] = Stubs::ImageGenerationConfiguration.stub(stub[:image_generation_configuration]) unless stub[:image_generation_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ImageGenerationConfiguration'] = ImageGenerationConfiguration.stub(stub[:image_generation_configuration]) unless stub[:image_generation_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -109,10 +111,10 @@ module AWS::SDK::KinesisVideo
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['ImageSelectorType'] = stub[:image_selector_type] unless stub[:image_selector_type].nil?
-        data['DestinationConfig'] = Stubs::ImageGenerationDestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
+        data['DestinationConfig'] = ImageGenerationDestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
         data['SamplingInterval'] = stub[:sampling_interval] unless stub[:sampling_interval].nil?
         data['Format'] = stub[:format] unless stub[:format].nil?
-        data['FormatConfig'] = Stubs::FormatConfig.stub(stub[:format_config]) unless stub[:format_config].nil?
+        data['FormatConfig'] = FormatConfig.stub(stub[:format_config]) unless stub[:format_config].nil?
         data['WidthPixels'] = stub[:width_pixels] unless stub[:width_pixels].nil?
         data['HeightPixels'] = stub[:height_pixels] unless stub[:height_pixels].nil?
         data
@@ -171,8 +173,8 @@ module AWS::SDK::KinesisVideo
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['NotificationConfiguration'] = Stubs::NotificationConfiguration.stub(stub[:notification_configuration]) unless stub[:notification_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NotificationConfiguration'] = NotificationConfiguration.stub(stub[:notification_configuration]) unless stub[:notification_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -191,7 +193,7 @@ module AWS::SDK::KinesisVideo
         stub ||= Types::NotificationConfiguration.new
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['DestinationConfig'] = Stubs::NotificationDestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
+        data['DestinationConfig'] = NotificationDestinationConfig.stub(stub[:destination_config]) unless stub[:destination_config].nil?
         data
       end
     end
@@ -226,8 +228,8 @@ module AWS::SDK::KinesisVideo
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ChannelInfo'] = Stubs::ChannelInfo.stub(stub[:channel_info]) unless stub[:channel_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChannelInfo'] = ChannelInfo.stub(stub[:channel_info]) unless stub[:channel_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -255,7 +257,7 @@ module AWS::SDK::KinesisVideo
         data['ChannelType'] = stub[:channel_type] unless stub[:channel_type].nil?
         data['ChannelStatus'] = stub[:channel_status] unless stub[:channel_status].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['SingleMasterConfiguration'] = Stubs::SingleMasterConfiguration.stub(stub[:single_master_configuration]) unless stub[:single_master_configuration].nil?
+        data['SingleMasterConfiguration'] = SingleMasterConfiguration.stub(stub[:single_master_configuration]) unless stub[:single_master_configuration].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
         data
       end
@@ -291,8 +293,8 @@ module AWS::SDK::KinesisVideo
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['StreamInfo'] = Stubs::StreamInfo.stub(stub[:stream_info]) unless stub[:stream_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StreamInfo'] = StreamInfo.stub(stub[:stream_info]) unless stub[:stream_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -343,7 +345,7 @@ module AWS::SDK::KinesisVideo
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['DataEndpoint'] = stub[:data_endpoint] unless stub[:data_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -359,8 +361,8 @@ module AWS::SDK::KinesisVideo
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ResourceEndpointList'] = Stubs::ResourceEndpointList.stub(stub[:resource_endpoint_list]) unless stub[:resource_endpoint_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceEndpointList'] = ResourceEndpointList.stub(stub[:resource_endpoint_list]) unless stub[:resource_endpoint_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -378,7 +380,7 @@ module AWS::SDK::KinesisVideo
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceEndpointListItem.stub(element) unless element.nil?
+          data << ResourceEndpointListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -417,9 +419,9 @@ module AWS::SDK::KinesisVideo
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ChannelInfoList'] = Stubs::ChannelInfoList.stub(stub[:channel_info_list]) unless stub[:channel_info_list].nil?
+        data['ChannelInfoList'] = ChannelInfoList.stub(stub[:channel_info_list]) unless stub[:channel_info_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -437,7 +439,7 @@ module AWS::SDK::KinesisVideo
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChannelInfo.stub(element) unless element.nil?
+          data << ChannelInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -456,9 +458,9 @@ module AWS::SDK::KinesisVideo
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['StreamInfoList'] = Stubs::StreamInfoList.stub(stub[:stream_info_list]) unless stub[:stream_info_list].nil?
+        data['StreamInfoList'] = StreamInfoList.stub(stub[:stream_info_list]) unless stub[:stream_info_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -476,7 +478,7 @@ module AWS::SDK::KinesisVideo
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StreamInfo.stub(element) unless element.nil?
+          data << StreamInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -496,8 +498,8 @@ module AWS::SDK::KinesisVideo
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Tags'] = Stubs::ResourceTags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = ResourceTags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -535,8 +537,8 @@ module AWS::SDK::KinesisVideo
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Tags'] = Stubs::ResourceTags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = ResourceTags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

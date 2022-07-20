@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IoT1ClickDevicesService
   module Builders
 
@@ -61,8 +63,8 @@ module AWS::SDK::IoT1ClickDevicesService
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -128,9 +130,9 @@ module AWS::SDK::IoT1ClickDevicesService
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['deviceMethod'] = Builders::DeviceMethod.build(input[:device_method]) unless input[:device_method].nil?
+        data['deviceMethod'] = DeviceMethod.build(input[:device_method]) unless input[:device_method].nil?
         data['deviceMethodParameters'] = input[:device_method_parameters] unless input[:device_method_parameters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -212,8 +214,8 @@ module AWS::SDK::IoT1ClickDevicesService
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -285,7 +287,7 @@ module AWS::SDK::IoT1ClickDevicesService
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['enabled'] = input[:enabled] unless input[:enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

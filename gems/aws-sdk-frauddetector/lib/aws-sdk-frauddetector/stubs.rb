@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::FraudDetector
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['errors'] = Stubs::BatchCreateVariableErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errors'] = BatchCreateVariableErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -40,7 +42,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchCreateVariableError.stub(element) unless element.nil?
+          data << BatchCreateVariableError.stub(element) unless element.nil?
         end
         data
       end
@@ -79,9 +81,9 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['variables'] = Stubs::VariableList.stub(stub[:variables]) unless stub[:variables].nil?
-        data['errors'] = Stubs::BatchGetVariableErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['variables'] = VariableList.stub(stub[:variables]) unless stub[:variables].nil?
+        data['errors'] = BatchGetVariableErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -100,7 +102,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchGetVariableError.stub(element) unless element.nil?
+          data << BatchGetVariableError.stub(element) unless element.nil?
         end
         data
       end
@@ -142,7 +144,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Variable.stub(element) unless element.nil?
+          data << Variable.stub(element) unless element.nil?
         end
         data
       end
@@ -191,7 +193,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -205,7 +207,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -219,7 +221,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -233,7 +235,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -253,7 +255,7 @@ module AWS::SDK::FraudDetector
         data['detectorId'] = stub[:detector_id] unless stub[:detector_id].nil?
         data['detectorVersionId'] = stub[:detector_version_id] unless stub[:detector_version_id].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -267,7 +269,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -289,7 +291,7 @@ module AWS::SDK::FraudDetector
         data['modelType'] = stub[:model_type] unless stub[:model_type].nil?
         data['modelVersionNumber'] = stub[:model_version_number] unless stub[:model_version_number].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -304,8 +306,8 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['rule'] = Stubs::Rule.stub(stub[:rule]) unless stub[:rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['rule'] = Rule.stub(stub[:rule]) unless stub[:rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -341,7 +343,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -355,7 +357,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -369,7 +371,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -383,7 +385,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -397,7 +399,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -411,7 +413,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -425,7 +427,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -439,7 +441,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -457,7 +459,7 @@ module AWS::SDK::FraudDetector
         data = {}
         data['eventTypeName'] = stub[:event_type_name] unless stub[:event_type_name].nil?
         data['eventsDeletionStatus'] = stub[:events_deletion_status] unless stub[:events_deletion_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -471,7 +473,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -485,7 +487,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -499,7 +501,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -513,7 +515,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -527,7 +529,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -541,7 +543,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -555,7 +557,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -574,10 +576,10 @@ module AWS::SDK::FraudDetector
       def self.stub(http_resp, stub:)
         data = {}
         data['detectorId'] = stub[:detector_id] unless stub[:detector_id].nil?
-        data['detectorVersionSummaries'] = Stubs::DetectorVersionSummaryList.stub(stub[:detector_version_summaries]) unless stub[:detector_version_summaries].nil?
+        data['detectorVersionSummaries'] = DetectorVersionSummaryList.stub(stub[:detector_version_summaries]) unless stub[:detector_version_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -596,7 +598,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DetectorVersionSummary.stub(element) unless element.nil?
+          data << DetectorVersionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -637,9 +639,9 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['modelVersionDetails'] = Stubs::ModelVersionDetailList.stub(stub[:model_version_details]) unless stub[:model_version_details].nil?
+        data['modelVersionDetails'] = ModelVersionDetailList.stub(stub[:model_version_details]) unless stub[:model_version_details].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -658,7 +660,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ModelVersionDetail.stub(element) unless element.nil?
+          data << ModelVersionDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -693,10 +695,10 @@ module AWS::SDK::FraudDetector
         data['modelVersionNumber'] = stub[:model_version_number] unless stub[:model_version_number].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['trainingDataSource'] = stub[:training_data_source] unless stub[:training_data_source].nil?
-        data['trainingDataSchema'] = Stubs::TrainingDataSchema.stub(stub[:training_data_schema]) unless stub[:training_data_schema].nil?
-        data['externalEventsDetail'] = Stubs::ExternalEventsDetail.stub(stub[:external_events_detail]) unless stub[:external_events_detail].nil?
-        data['ingestedEventsDetail'] = Stubs::IngestedEventsDetail.stub(stub[:ingested_events_detail]) unless stub[:ingested_events_detail].nil?
-        data['trainingResult'] = Stubs::TrainingResult.stub(stub[:training_result]) unless stub[:training_result].nil?
+        data['trainingDataSchema'] = TrainingDataSchema.stub(stub[:training_data_schema]) unless stub[:training_data_schema].nil?
+        data['externalEventsDetail'] = ExternalEventsDetail.stub(stub[:external_events_detail]) unless stub[:external_events_detail].nil?
+        data['ingestedEventsDetail'] = IngestedEventsDetail.stub(stub[:ingested_events_detail]) unless stub[:ingested_events_detail].nil?
+        data['trainingResult'] = TrainingResult.stub(stub[:training_result]) unless stub[:training_result].nil?
         data['lastUpdatedTime'] = stub[:last_updated_time] unless stub[:last_updated_time].nil?
         data['createdTime'] = stub[:created_time] unless stub[:created_time].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
@@ -719,9 +721,9 @@ module AWS::SDK::FraudDetector
       def self.stub(stub)
         stub ||= Types::TrainingResult.new
         data = {}
-        data['dataValidationMetrics'] = Stubs::DataValidationMetrics.stub(stub[:data_validation_metrics]) unless stub[:data_validation_metrics].nil?
-        data['trainingMetrics'] = Stubs::TrainingMetrics.stub(stub[:training_metrics]) unless stub[:training_metrics].nil?
-        data['variableImportanceMetrics'] = Stubs::VariableImportanceMetrics.stub(stub[:variable_importance_metrics]) unless stub[:variable_importance_metrics].nil?
+        data['dataValidationMetrics'] = DataValidationMetrics.stub(stub[:data_validation_metrics]) unless stub[:data_validation_metrics].nil?
+        data['trainingMetrics'] = TrainingMetrics.stub(stub[:training_metrics]) unless stub[:training_metrics].nil?
+        data['variableImportanceMetrics'] = VariableImportanceMetrics.stub(stub[:variable_importance_metrics]) unless stub[:variable_importance_metrics].nil?
         data
       end
     end
@@ -739,7 +741,7 @@ module AWS::SDK::FraudDetector
       def self.stub(stub)
         stub ||= Types::VariableImportanceMetrics.new
         data = {}
-        data['logOddsMetrics'] = Stubs::ListOfLogOddsMetrics.stub(stub[:log_odds_metrics]) unless stub[:log_odds_metrics].nil?
+        data['logOddsMetrics'] = ListOfLogOddsMetrics.stub(stub[:log_odds_metrics]) unless stub[:log_odds_metrics].nil?
         data
       end
     end
@@ -758,7 +760,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LogOddsMetric.stub(element) unless element.nil?
+          data << LogOddsMetric.stub(element) unless element.nil?
         end
         data
       end
@@ -801,7 +803,7 @@ module AWS::SDK::FraudDetector
         stub ||= Types::TrainingMetrics.new
         data = {}
         data['auc'] = Hearth::NumberHelper.serialize(stub[:auc])
-        data['metricDataPoints'] = Stubs::MetricDataPointsList.stub(stub[:metric_data_points]) unless stub[:metric_data_points].nil?
+        data['metricDataPoints'] = MetricDataPointsList.stub(stub[:metric_data_points]) unless stub[:metric_data_points].nil?
         data
       end
     end
@@ -820,7 +822,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricDataPoint.stub(element) unless element.nil?
+          data << MetricDataPoint.stub(element) unless element.nil?
         end
         data
       end
@@ -864,8 +866,8 @@ module AWS::SDK::FraudDetector
       def self.stub(stub)
         stub ||= Types::DataValidationMetrics.new
         data = {}
-        data['fileLevelMessages'] = Stubs::FileValidationMessageList.stub(stub[:file_level_messages]) unless stub[:file_level_messages].nil?
-        data['fieldLevelMessages'] = Stubs::FieldValidationMessageList.stub(stub[:field_level_messages]) unless stub[:field_level_messages].nil?
+        data['fileLevelMessages'] = FileValidationMessageList.stub(stub[:file_level_messages]) unless stub[:file_level_messages].nil?
+        data['fieldLevelMessages'] = FieldValidationMessageList.stub(stub[:field_level_messages]) unless stub[:field_level_messages].nil?
         data
       end
     end
@@ -884,7 +886,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FieldValidationMessage.stub(element) unless element.nil?
+          data << FieldValidationMessage.stub(element) unless element.nil?
         end
         data
       end
@@ -930,7 +932,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FileValidationMessage.stub(element) unless element.nil?
+          data << FileValidationMessage.stub(element) unless element.nil?
         end
         data
       end
@@ -971,7 +973,7 @@ module AWS::SDK::FraudDetector
       def self.stub(stub)
         stub ||= Types::IngestedEventsDetail.new
         data = {}
-        data['ingestedEventsTimeWindow'] = Stubs::IngestedEventsTimeWindow.stub(stub[:ingested_events_time_window]) unless stub[:ingested_events_time_window].nil?
+        data['ingestedEventsTimeWindow'] = IngestedEventsTimeWindow.stub(stub[:ingested_events_time_window]) unless stub[:ingested_events_time_window].nil?
         data
       end
     end
@@ -1030,8 +1032,8 @@ module AWS::SDK::FraudDetector
       def self.stub(stub)
         stub ||= Types::TrainingDataSchema.new
         data = {}
-        data['modelVariables'] = Stubs::ListOfStrings.stub(stub[:model_variables]) unless stub[:model_variables].nil?
-        data['labelSchema'] = Stubs::LabelSchema.stub(stub[:label_schema]) unless stub[:label_schema].nil?
+        data['modelVariables'] = ListOfStrings.stub(stub[:model_variables]) unless stub[:model_variables].nil?
+        data['labelSchema'] = LabelSchema.stub(stub[:label_schema]) unless stub[:label_schema].nil?
         data
       end
     end
@@ -1050,7 +1052,7 @@ module AWS::SDK::FraudDetector
       def self.stub(stub)
         stub ||= Types::LabelSchema.new
         data = {}
-        data['labelMapper'] = Stubs::LabelMapper.stub(stub[:label_mapper]) unless stub[:label_mapper].nil?
+        data['labelMapper'] = LabelMapper.stub(stub[:label_mapper]) unless stub[:label_mapper].nil?
         data['unlabeledEventsTreatment'] = stub[:unlabeled_events_treatment] unless stub[:unlabeled_events_treatment].nil?
         data
       end
@@ -1070,7 +1072,7 @@ module AWS::SDK::FraudDetector
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::NonEmptyListOfStrings.stub(value) unless value.nil?
+          data[key] = NonEmptyListOfStrings.stub(value) unless value.nil?
         end
         data
       end
@@ -1127,9 +1129,9 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['batchImports'] = Stubs::BatchImportList.stub(stub[:batch_imports]) unless stub[:batch_imports].nil?
+        data['batchImports'] = BatchImportList.stub(stub[:batch_imports]) unless stub[:batch_imports].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1148,7 +1150,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchImport.stub(element) unless element.nil?
+          data << BatchImport.stub(element) unless element.nil?
         end
         data
       end
@@ -1207,9 +1209,9 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['batchPredictions'] = Stubs::BatchPredictionList.stub(stub[:batch_predictions]) unless stub[:batch_predictions].nil?
+        data['batchPredictions'] = BatchPredictionList.stub(stub[:batch_predictions]) unless stub[:batch_predictions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1228,7 +1230,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchPrediction.stub(element) unless element.nil?
+          data << BatchPrediction.stub(element) unless element.nil?
         end
         data
       end
@@ -1293,7 +1295,7 @@ module AWS::SDK::FraudDetector
         data = {}
         data['eventTypeName'] = stub[:event_type_name] unless stub[:event_type_name].nil?
         data['eventsDeletionStatus'] = stub[:events_deletion_status] unless stub[:events_deletion_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1321,15 +1323,15 @@ module AWS::SDK::FraudDetector
         data['detectorId'] = stub[:detector_id] unless stub[:detector_id].nil?
         data['detectorVersionId'] = stub[:detector_version_id] unless stub[:detector_version_id].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['externalModelEndpoints'] = Stubs::ListOfStrings.stub(stub[:external_model_endpoints]) unless stub[:external_model_endpoints].nil?
-        data['modelVersions'] = Stubs::ListOfModelVersions.stub(stub[:model_versions]) unless stub[:model_versions].nil?
-        data['rules'] = Stubs::RuleList.stub(stub[:rules]) unless stub[:rules].nil?
+        data['externalModelEndpoints'] = ListOfStrings.stub(stub[:external_model_endpoints]) unless stub[:external_model_endpoints].nil?
+        data['modelVersions'] = ListOfModelVersions.stub(stub[:model_versions]) unless stub[:model_versions].nil?
+        data['rules'] = RuleList.stub(stub[:rules]) unless stub[:rules].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['lastUpdatedTime'] = stub[:last_updated_time] unless stub[:last_updated_time].nil?
         data['createdTime'] = stub[:created_time] unless stub[:created_time].nil?
         data['ruleExecutionMode'] = stub[:rule_execution_mode] unless stub[:rule_execution_mode].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1348,7 +1350,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Rule.stub(element) unless element.nil?
+          data << Rule.stub(element) unless element.nil?
         end
         data
       end
@@ -1368,7 +1370,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ModelVersion.stub(element) unless element.nil?
+          data << ModelVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -1409,9 +1411,9 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['detectors'] = Stubs::DetectorList.stub(stub[:detectors]) unless stub[:detectors].nil?
+        data['detectors'] = DetectorList.stub(stub[:detectors]) unless stub[:detectors].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1430,7 +1432,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Detector.stub(element) unless element.nil?
+          data << Detector.stub(element) unless element.nil?
         end
         data
       end
@@ -1475,9 +1477,9 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['entityTypes'] = Stubs::EntityTypeList.stub(stub[:entity_types]) unless stub[:entity_types].nil?
+        data['entityTypes'] = EntityTypeList.stub(stub[:entity_types]) unless stub[:entity_types].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1496,7 +1498,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EntityType.stub(element) unless element.nil?
+          data << EntityType.stub(element) unless element.nil?
         end
         data
       end
@@ -1538,8 +1540,8 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['event'] = Stubs::Event.stub(stub[:event]) unless stub[:event].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['event'] = Event.stub(stub[:event]) unless stub[:event].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1566,10 +1568,10 @@ module AWS::SDK::FraudDetector
         data['eventId'] = stub[:event_id] unless stub[:event_id].nil?
         data['eventTypeName'] = stub[:event_type_name] unless stub[:event_type_name].nil?
         data['eventTimestamp'] = stub[:event_timestamp] unless stub[:event_timestamp].nil?
-        data['eventVariables'] = Stubs::EventAttributeMap.stub(stub[:event_variables]) unless stub[:event_variables].nil?
+        data['eventVariables'] = EventAttributeMap.stub(stub[:event_variables]) unless stub[:event_variables].nil?
         data['currentLabel'] = stub[:current_label] unless stub[:current_label].nil?
         data['labelTimestamp'] = stub[:label_timestamp] unless stub[:label_timestamp].nil?
-        data['entities'] = Stubs::ListOfEntities.stub(stub[:entities]) unless stub[:entities].nil?
+        data['entities'] = ListOfEntities.stub(stub[:entities]) unless stub[:entities].nil?
         data
       end
     end
@@ -1588,7 +1590,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Entity.stub(element) unless element.nil?
+          data << Entity.stub(element) unless element.nil?
         end
         data
       end
@@ -1646,10 +1648,10 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['modelScores'] = Stubs::ListOfModelScores.stub(stub[:model_scores]) unless stub[:model_scores].nil?
-        data['ruleResults'] = Stubs::ListOfRuleResults.stub(stub[:rule_results]) unless stub[:rule_results].nil?
-        data['externalModelOutputs'] = Stubs::ListOfExternalModelOutputs.stub(stub[:external_model_outputs]) unless stub[:external_model_outputs].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['modelScores'] = ListOfModelScores.stub(stub[:model_scores]) unless stub[:model_scores].nil?
+        data['ruleResults'] = ListOfRuleResults.stub(stub[:rule_results]) unless stub[:rule_results].nil?
+        data['externalModelOutputs'] = ListOfExternalModelOutputs.stub(stub[:external_model_outputs]) unless stub[:external_model_outputs].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1668,7 +1670,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExternalModelOutputs.stub(element) unless element.nil?
+          data << ExternalModelOutputs.stub(element) unless element.nil?
         end
         data
       end
@@ -1688,8 +1690,8 @@ module AWS::SDK::FraudDetector
       def self.stub(stub)
         stub ||= Types::ExternalModelOutputs.new
         data = {}
-        data['externalModel'] = Stubs::ExternalModelSummary.stub(stub[:external_model]) unless stub[:external_model].nil?
-        data['outputs'] = Stubs::ExternalModelPredictionMap.stub(stub[:outputs]) unless stub[:outputs].nil?
+        data['externalModel'] = ExternalModelSummary.stub(stub[:external_model]) unless stub[:external_model].nil?
+        data['outputs'] = ExternalModelPredictionMap.stub(stub[:outputs]) unless stub[:outputs].nil?
         data
       end
     end
@@ -1748,7 +1750,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleResult.stub(element) unless element.nil?
+          data << RuleResult.stub(element) unless element.nil?
         end
         data
       end
@@ -1769,7 +1771,7 @@ module AWS::SDK::FraudDetector
         stub ||= Types::RuleResult.new
         data = {}
         data['ruleId'] = stub[:rule_id] unless stub[:rule_id].nil?
-        data['outcomes'] = Stubs::ListOfStrings.stub(stub[:outcomes]) unless stub[:outcomes].nil?
+        data['outcomes'] = ListOfStrings.stub(stub[:outcomes]) unless stub[:outcomes].nil?
         data
       end
     end
@@ -1788,7 +1790,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ModelScores.stub(element) unless element.nil?
+          data << ModelScores.stub(element) unless element.nil?
         end
         data
       end
@@ -1808,8 +1810,8 @@ module AWS::SDK::FraudDetector
       def self.stub(stub)
         stub ||= Types::ModelScores.new
         data = {}
-        data['modelVersion'] = Stubs::ModelVersion.stub(stub[:model_version]) unless stub[:model_version].nil?
-        data['scores'] = Stubs::ModelPredictionMap.stub(stub[:scores]) unless stub[:scores].nil?
+        data['modelVersion'] = ModelVersion.stub(stub[:model_version]) unless stub[:model_version].nil?
+        data['scores'] = ModelPredictionMap.stub(stub[:scores]) unless stub[:scores].nil?
         data
       end
     end
@@ -1866,14 +1868,14 @@ module AWS::SDK::FraudDetector
         data['detectorId'] = stub[:detector_id] unless stub[:detector_id].nil?
         data['detectorVersionId'] = stub[:detector_version_id] unless stub[:detector_version_id].nil?
         data['detectorVersionStatus'] = stub[:detector_version_status] unless stub[:detector_version_status].nil?
-        data['eventVariables'] = Stubs::ListOfEventVariableSummaries.stub(stub[:event_variables]) unless stub[:event_variables].nil?
-        data['rules'] = Stubs::EvaluatedRuleList.stub(stub[:rules]) unless stub[:rules].nil?
+        data['eventVariables'] = ListOfEventVariableSummaries.stub(stub[:event_variables]) unless stub[:event_variables].nil?
+        data['rules'] = EvaluatedRuleList.stub(stub[:rules]) unless stub[:rules].nil?
         data['ruleExecutionMode'] = stub[:rule_execution_mode] unless stub[:rule_execution_mode].nil?
-        data['outcomes'] = Stubs::ListOfStrings.stub(stub[:outcomes]) unless stub[:outcomes].nil?
-        data['evaluatedModelVersions'] = Stubs::ListOfEvaluatedModelVersions.stub(stub[:evaluated_model_versions]) unless stub[:evaluated_model_versions].nil?
-        data['evaluatedExternalModels'] = Stubs::ListOfEvaluatedExternalModels.stub(stub[:evaluated_external_models]) unless stub[:evaluated_external_models].nil?
+        data['outcomes'] = ListOfStrings.stub(stub[:outcomes]) unless stub[:outcomes].nil?
+        data['evaluatedModelVersions'] = ListOfEvaluatedModelVersions.stub(stub[:evaluated_model_versions]) unless stub[:evaluated_model_versions].nil?
+        data['evaluatedExternalModels'] = ListOfEvaluatedExternalModels.stub(stub[:evaluated_external_models]) unless stub[:evaluated_external_models].nil?
         data['predictionTimestamp'] = stub[:prediction_timestamp] unless stub[:prediction_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1892,7 +1894,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EvaluatedExternalModel.stub(element) unless element.nil?
+          data << EvaluatedExternalModel.stub(element) unless element.nil?
         end
         data
       end
@@ -1916,8 +1918,8 @@ module AWS::SDK::FraudDetector
         data = {}
         data['modelEndpoint'] = stub[:model_endpoint] unless stub[:model_endpoint].nil?
         data['useEventVariables'] = stub[:use_event_variables] unless stub[:use_event_variables].nil?
-        data['inputVariables'] = Stubs::MapOfStrings.stub(stub[:input_variables]) unless stub[:input_variables].nil?
-        data['outputVariables'] = Stubs::MapOfStrings.stub(stub[:output_variables]) unless stub[:output_variables].nil?
+        data['inputVariables'] = MapOfStrings.stub(stub[:input_variables]) unless stub[:input_variables].nil?
+        data['outputVariables'] = MapOfStrings.stub(stub[:output_variables]) unless stub[:output_variables].nil?
         data
       end
     end
@@ -1956,7 +1958,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EvaluatedModelVersion.stub(element) unless element.nil?
+          data << EvaluatedModelVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -1981,7 +1983,7 @@ module AWS::SDK::FraudDetector
         data['modelId'] = stub[:model_id] unless stub[:model_id].nil?
         data['modelVersion'] = stub[:model_version] unless stub[:model_version].nil?
         data['modelType'] = stub[:model_type] unless stub[:model_type].nil?
-        data['evaluations'] = Stubs::ListOfModelVersionEvaluations.stub(stub[:evaluations]) unless stub[:evaluations].nil?
+        data['evaluations'] = ListOfModelVersionEvaluations.stub(stub[:evaluations]) unless stub[:evaluations].nil?
         data
       end
     end
@@ -2000,7 +2002,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ModelVersionEvaluation.stub(element) unless element.nil?
+          data << ModelVersionEvaluation.stub(element) unless element.nil?
         end
         data
       end
@@ -2023,7 +2025,7 @@ module AWS::SDK::FraudDetector
         data = {}
         data['outputVariableName'] = stub[:output_variable_name] unless stub[:output_variable_name].nil?
         data['evaluationScore'] = stub[:evaluation_score] unless stub[:evaluation_score].nil?
-        data['predictionExplanations'] = Stubs::PredictionExplanations.stub(stub[:prediction_explanations]) unless stub[:prediction_explanations].nil?
+        data['predictionExplanations'] = PredictionExplanations.stub(stub[:prediction_explanations]) unless stub[:prediction_explanations].nil?
         data
       end
     end
@@ -2041,7 +2043,7 @@ module AWS::SDK::FraudDetector
       def self.stub(stub)
         stub ||= Types::PredictionExplanations.new
         data = {}
-        data['variableImpactExplanations'] = Stubs::ListOfVariableImpactExplanations.stub(stub[:variable_impact_explanations]) unless stub[:variable_impact_explanations].nil?
+        data['variableImpactExplanations'] = ListOfVariableImpactExplanations.stub(stub[:variable_impact_explanations]) unless stub[:variable_impact_explanations].nil?
         data
       end
     end
@@ -2060,7 +2062,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VariableImpactExplanation.stub(element) unless element.nil?
+          data << VariableImpactExplanation.stub(element) unless element.nil?
         end
         data
       end
@@ -2102,7 +2104,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EvaluatedRule.stub(element) unless element.nil?
+          data << EvaluatedRule.stub(element) unless element.nil?
         end
         data
       end
@@ -2131,7 +2133,7 @@ module AWS::SDK::FraudDetector
         data['ruleVersion'] = stub[:rule_version] unless stub[:rule_version].nil?
         data['expression'] = stub[:expression] unless stub[:expression].nil?
         data['expressionWithValues'] = stub[:expression_with_values] unless stub[:expression_with_values].nil?
-        data['outcomes'] = Stubs::ListOfStrings.stub(stub[:outcomes]) unless stub[:outcomes].nil?
+        data['outcomes'] = ListOfStrings.stub(stub[:outcomes]) unless stub[:outcomes].nil?
         data['evaluated'] = stub[:evaluated] unless stub[:evaluated].nil?
         data['matched'] = stub[:matched] unless stub[:matched].nil?
         data
@@ -2152,7 +2154,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventVariableSummary.stub(element) unless element.nil?
+          data << EventVariableSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2191,9 +2193,9 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['eventTypes'] = Stubs::EventTypeList.stub(stub[:event_types]) unless stub[:event_types].nil?
+        data['eventTypes'] = EventTypeList.stub(stub[:event_types]) unless stub[:event_types].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2212,7 +2214,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventType.stub(element) unless element.nil?
+          data << EventType.stub(element) unless element.nil?
         end
         data
       end
@@ -2242,11 +2244,11 @@ module AWS::SDK::FraudDetector
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['eventVariables'] = Stubs::ListOfStrings.stub(stub[:event_variables]) unless stub[:event_variables].nil?
-        data['labels'] = Stubs::ListOfStrings.stub(stub[:labels]) unless stub[:labels].nil?
-        data['entityTypes'] = Stubs::NonEmptyListOfStrings.stub(stub[:entity_types]) unless stub[:entity_types].nil?
+        data['eventVariables'] = ListOfStrings.stub(stub[:event_variables]) unless stub[:event_variables].nil?
+        data['labels'] = ListOfStrings.stub(stub[:labels]) unless stub[:labels].nil?
+        data['entityTypes'] = NonEmptyListOfStrings.stub(stub[:entity_types]) unless stub[:entity_types].nil?
         data['eventIngestion'] = stub[:event_ingestion] unless stub[:event_ingestion].nil?
-        data['ingestedEventStatistics'] = Stubs::IngestedEventStatistics.stub(stub[:ingested_event_statistics]) unless stub[:ingested_event_statistics].nil?
+        data['ingestedEventStatistics'] = IngestedEventStatistics.stub(stub[:ingested_event_statistics]) unless stub[:ingested_event_statistics].nil?
         data['lastUpdatedTime'] = stub[:last_updated_time] unless stub[:last_updated_time].nil?
         data['createdTime'] = stub[:created_time] unless stub[:created_time].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
@@ -2291,9 +2293,9 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['externalModels'] = Stubs::ExternalModelList.stub(stub[:external_models]) unless stub[:external_models].nil?
+        data['externalModels'] = ExternalModelList.stub(stub[:external_models]) unless stub[:external_models].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2312,7 +2314,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExternalModel.stub(element) unless element.nil?
+          data << ExternalModel.stub(element) unless element.nil?
         end
         data
       end
@@ -2342,8 +2344,8 @@ module AWS::SDK::FraudDetector
         data['modelEndpoint'] = stub[:model_endpoint] unless stub[:model_endpoint].nil?
         data['modelSource'] = stub[:model_source] unless stub[:model_source].nil?
         data['invokeModelEndpointRoleArn'] = stub[:invoke_model_endpoint_role_arn] unless stub[:invoke_model_endpoint_role_arn].nil?
-        data['inputConfiguration'] = Stubs::ModelInputConfiguration.stub(stub[:input_configuration]) unless stub[:input_configuration].nil?
-        data['outputConfiguration'] = Stubs::ModelOutputConfiguration.stub(stub[:output_configuration]) unless stub[:output_configuration].nil?
+        data['inputConfiguration'] = ModelInputConfiguration.stub(stub[:input_configuration]) unless stub[:input_configuration].nil?
+        data['outputConfiguration'] = ModelOutputConfiguration.stub(stub[:output_configuration]) unless stub[:output_configuration].nil?
         data['modelEndpointStatus'] = stub[:model_endpoint_status] unless stub[:model_endpoint_status].nil?
         data['lastUpdatedTime'] = stub[:last_updated_time] unless stub[:last_updated_time].nil?
         data['createdTime'] = stub[:created_time] unless stub[:created_time].nil?
@@ -2368,8 +2370,8 @@ module AWS::SDK::FraudDetector
         stub ||= Types::ModelOutputConfiguration.new
         data = {}
         data['format'] = stub[:format] unless stub[:format].nil?
-        data['jsonKeyToVariableMap'] = Stubs::JsonKeyToVariableMap.stub(stub[:json_key_to_variable_map]) unless stub[:json_key_to_variable_map].nil?
-        data['csvIndexToVariableMap'] = Stubs::CsvIndexToVariableMap.stub(stub[:csv_index_to_variable_map]) unless stub[:csv_index_to_variable_map].nil?
+        data['jsonKeyToVariableMap'] = JsonKeyToVariableMap.stub(stub[:json_key_to_variable_map]) unless stub[:json_key_to_variable_map].nil?
+        data['csvIndexToVariableMap'] = CsvIndexToVariableMap.stub(stub[:csv_index_to_variable_map]) unless stub[:csv_index_to_variable_map].nil?
         data
       end
     end
@@ -2450,8 +2452,8 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['kmsKey'] = Stubs::KMSKey.stub(stub[:kms_key]) unless stub[:kms_key].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['kmsKey'] = KMSKey.stub(stub[:kms_key]) unless stub[:kms_key].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2485,9 +2487,9 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['labels'] = Stubs::LabelList.stub(stub[:labels]) unless stub[:labels].nil?
+        data['labels'] = LabelList.stub(stub[:labels]) unless stub[:labels].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2506,7 +2508,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Label.stub(element) unless element.nil?
+          data << Label.stub(element) unless element.nil?
         end
         data
       end
@@ -2560,12 +2562,12 @@ module AWS::SDK::FraudDetector
         data['modelType'] = stub[:model_type] unless stub[:model_type].nil?
         data['modelVersionNumber'] = stub[:model_version_number] unless stub[:model_version_number].nil?
         data['trainingDataSource'] = stub[:training_data_source] unless stub[:training_data_source].nil?
-        data['trainingDataSchema'] = Stubs::TrainingDataSchema.stub(stub[:training_data_schema]) unless stub[:training_data_schema].nil?
-        data['externalEventsDetail'] = Stubs::ExternalEventsDetail.stub(stub[:external_events_detail]) unless stub[:external_events_detail].nil?
-        data['ingestedEventsDetail'] = Stubs::IngestedEventsDetail.stub(stub[:ingested_events_detail]) unless stub[:ingested_events_detail].nil?
+        data['trainingDataSchema'] = TrainingDataSchema.stub(stub[:training_data_schema]) unless stub[:training_data_schema].nil?
+        data['externalEventsDetail'] = ExternalEventsDetail.stub(stub[:external_events_detail]) unless stub[:external_events_detail].nil?
+        data['ingestedEventsDetail'] = IngestedEventsDetail.stub(stub[:ingested_events_detail]) unless stub[:ingested_events_detail].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2582,8 +2584,8 @@ module AWS::SDK::FraudDetector
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['models'] = Stubs::ModelList.stub(stub[:models]) unless stub[:models].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['models'] = ModelList.stub(stub[:models]) unless stub[:models].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2602,7 +2604,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Model.stub(element) unless element.nil?
+          data << Model.stub(element) unless element.nil?
         end
         data
       end
@@ -2649,9 +2651,9 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['outcomes'] = Stubs::OutcomeList.stub(stub[:outcomes]) unless stub[:outcomes].nil?
+        data['outcomes'] = OutcomeList.stub(stub[:outcomes]) unless stub[:outcomes].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2670,7 +2672,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Outcome.stub(element) unless element.nil?
+          data << Outcome.stub(element) unless element.nil?
         end
         data
       end
@@ -2713,9 +2715,9 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ruleDetails'] = Stubs::RuleDetailList.stub(stub[:rule_details]) unless stub[:rule_details].nil?
+        data['ruleDetails'] = RuleDetailList.stub(stub[:rule_details]) unless stub[:rule_details].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2734,7 +2736,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleDetail.stub(element) unless element.nil?
+          data << RuleDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -2768,7 +2770,7 @@ module AWS::SDK::FraudDetector
         data['ruleVersion'] = stub[:rule_version] unless stub[:rule_version].nil?
         data['expression'] = stub[:expression] unless stub[:expression].nil?
         data['language'] = stub[:language] unless stub[:language].nil?
-        data['outcomes'] = Stubs::NonEmptyListOfStrings.stub(stub[:outcomes]) unless stub[:outcomes].nil?
+        data['outcomes'] = NonEmptyListOfStrings.stub(stub[:outcomes]) unless stub[:outcomes].nil?
         data['lastUpdatedTime'] = stub[:last_updated_time] unless stub[:last_updated_time].nil?
         data['createdTime'] = stub[:created_time] unless stub[:created_time].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
@@ -2787,9 +2789,9 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['variables'] = Stubs::VariableList.stub(stub[:variables]) unless stub[:variables].nil?
+        data['variables'] = VariableList.stub(stub[:variables]) unless stub[:variables].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2805,9 +2807,9 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['eventPredictionSummaries'] = Stubs::ListOfEventPredictionSummaries.stub(stub[:event_prediction_summaries]) unless stub[:event_prediction_summaries].nil?
+        data['eventPredictionSummaries'] = ListOfEventPredictionSummaries.stub(stub[:event_prediction_summaries]) unless stub[:event_prediction_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2826,7 +2828,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventPredictionSummary.stub(element) unless element.nil?
+          data << EventPredictionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2871,9 +2873,9 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2892,7 +2894,7 @@ module AWS::SDK::FraudDetector
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -2927,7 +2929,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2941,7 +2943,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2955,7 +2957,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2969,7 +2971,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2983,7 +2985,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2997,7 +2999,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3011,7 +3013,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3025,7 +3027,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3039,7 +3041,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3053,7 +3055,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3067,7 +3069,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3081,7 +3083,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3095,7 +3097,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3109,7 +3111,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3123,7 +3125,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3145,7 +3147,7 @@ module AWS::SDK::FraudDetector
         data['modelType'] = stub[:model_type] unless stub[:model_type].nil?
         data['modelVersionNumber'] = stub[:model_version_number] unless stub[:model_version_number].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3159,7 +3161,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3173,7 +3175,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3188,8 +3190,8 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['rule'] = Stubs::Rule.stub(stub[:rule]) unless stub[:rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['rule'] = Rule.stub(stub[:rule]) unless stub[:rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3203,7 +3205,7 @@ module AWS::SDK::FraudDetector
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

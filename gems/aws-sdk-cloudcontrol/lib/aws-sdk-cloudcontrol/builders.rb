@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CloudControl
   module Builders
 
@@ -19,7 +21,7 @@ module AWS::SDK::CloudControl
         http_req.headers['X-Amz-Target'] = 'CloudApiService.CancelResourceRequest'
         data = {}
         data['RequestToken'] = input[:request_token] unless input[:request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -36,7 +38,7 @@ module AWS::SDK::CloudControl
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['DesiredState'] = input[:desired_state] unless input[:desired_state].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -53,7 +55,7 @@ module AWS::SDK::CloudControl
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['Identifier'] = input[:identifier] unless input[:identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -69,7 +71,7 @@ module AWS::SDK::CloudControl
         data['TypeVersionId'] = input[:type_version_id] unless input[:type_version_id].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['Identifier'] = input[:identifier] unless input[:identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -82,7 +84,7 @@ module AWS::SDK::CloudControl
         http_req.headers['X-Amz-Target'] = 'CloudApiService.GetResourceRequestStatus'
         data = {}
         data['RequestToken'] = input[:request_token] unless input[:request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -96,8 +98,8 @@ module AWS::SDK::CloudControl
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['ResourceRequestStatusFilter'] = Builders::ResourceRequestStatusFilter.build(input[:resource_request_status_filter]) unless input[:resource_request_status_filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceRequestStatusFilter'] = ResourceRequestStatusFilter.build(input[:resource_request_status_filter]) unless input[:resource_request_status_filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -105,8 +107,8 @@ module AWS::SDK::CloudControl
     class ResourceRequestStatusFilter
       def self.build(input)
         data = {}
-        data['Operations'] = Builders::Operations.build(input[:operations]) unless input[:operations].nil?
-        data['OperationStatuses'] = Builders::OperationStatuses.build(input[:operation_statuses]) unless input[:operation_statuses].nil?
+        data['Operations'] = Operations.build(input[:operations]) unless input[:operations].nil?
+        data['OperationStatuses'] = OperationStatuses.build(input[:operation_statuses]) unless input[:operation_statuses].nil?
         data
       end
     end
@@ -147,7 +149,7 @@ module AWS::SDK::CloudControl
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['ResourceModel'] = input[:resource_model] unless input[:resource_model].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -165,7 +167,7 @@ module AWS::SDK::CloudControl
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['Identifier'] = input[:identifier] unless input[:identifier].nil?
         data['PatchDocument'] = input[:patch_document] unless input[:patch_document].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

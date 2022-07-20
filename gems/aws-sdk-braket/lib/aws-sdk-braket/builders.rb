@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Braket
   module Builders
 
@@ -45,7 +47,7 @@ module AWS::SDK::Braket
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -60,18 +62,18 @@ module AWS::SDK::Braket
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['algorithmSpecification'] = Builders::AlgorithmSpecification.build(input[:algorithm_specification]) unless input[:algorithm_specification].nil?
-        data['inputDataConfig'] = Builders::InputConfigList.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['outputDataConfig'] = Builders::JobOutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
-        data['checkpointConfig'] = Builders::JobCheckpointConfig.build(input[:checkpoint_config]) unless input[:checkpoint_config].nil?
+        data['algorithmSpecification'] = AlgorithmSpecification.build(input[:algorithm_specification]) unless input[:algorithm_specification].nil?
+        data['inputDataConfig'] = InputConfigList.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['outputDataConfig'] = JobOutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['checkpointConfig'] = JobCheckpointConfig.build(input[:checkpoint_config]) unless input[:checkpoint_config].nil?
         data['jobName'] = input[:job_name] unless input[:job_name].nil?
         data['roleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['stoppingCondition'] = Builders::JobStoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
-        data['instanceConfig'] = Builders::InstanceConfig.build(input[:instance_config]) unless input[:instance_config].nil?
-        data['hyperParameters'] = Builders::HyperParameters.build(input[:hyper_parameters]) unless input[:hyper_parameters].nil?
-        data['deviceConfig'] = Builders::DeviceConfig.build(input[:device_config]) unless input[:device_config].nil?
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stoppingCondition'] = JobStoppingCondition.build(input[:stopping_condition]) unless input[:stopping_condition].nil?
+        data['instanceConfig'] = InstanceConfig.build(input[:instance_config]) unless input[:instance_config].nil?
+        data['hyperParameters'] = HyperParameters.build(input[:hyper_parameters]) unless input[:hyper_parameters].nil?
+        data['deviceConfig'] = DeviceConfig.build(input[:device_config]) unless input[:device_config].nil?
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -151,7 +153,7 @@ module AWS::SDK::Braket
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InputFileConfig.build(element) unless element.nil?
+          data << InputFileConfig.build(element) unless element.nil?
         end
         data
       end
@@ -163,7 +165,7 @@ module AWS::SDK::Braket
         data = {}
         data['channelName'] = input[:channel_name] unless input[:channel_name].nil?
         data['contentType'] = input[:content_type] unless input[:content_type].nil?
-        data['dataSource'] = Builders::DataSource.build(input[:data_source]) unless input[:data_source].nil?
+        data['dataSource'] = DataSource.build(input[:data_source]) unless input[:data_source].nil?
         data
       end
     end
@@ -172,7 +174,7 @@ module AWS::SDK::Braket
     class DataSource
       def self.build(input)
         data = {}
-        data['s3DataSource'] = Builders::S3DataSource.build(input[:s3_data_source]) unless input[:s3_data_source].nil?
+        data['s3DataSource'] = S3DataSource.build(input[:s3_data_source]) unless input[:s3_data_source].nil?
         data
       end
     end
@@ -190,8 +192,8 @@ module AWS::SDK::Braket
     class AlgorithmSpecification
       def self.build(input)
         data = {}
-        data['scriptModeConfig'] = Builders::ScriptModeConfig.build(input[:script_mode_config]) unless input[:script_mode_config].nil?
-        data['containerImage'] = Builders::ContainerImage.build(input[:container_image]) unless input[:container_image].nil?
+        data['scriptModeConfig'] = ScriptModeConfig.build(input[:script_mode_config]) unless input[:script_mode_config].nil?
+        data['containerImage'] = ContainerImage.build(input[:container_image]) unless input[:container_image].nil?
         data
       end
     end
@@ -233,9 +235,9 @@ module AWS::SDK::Braket
         data['outputS3Bucket'] = input[:output_s3_bucket] unless input[:output_s3_bucket].nil?
         data['outputS3KeyPrefix'] = input[:output_s3_key_prefix] unless input[:output_s3_key_prefix].nil?
         data['action'] = input[:action] unless input[:action].nil?
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
         data['jobToken'] = input[:job_token] unless input[:job_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -319,8 +321,8 @@ module AWS::SDK::Braket
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filters'] = Builders::SearchDevicesFilterList.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filters'] = SearchDevicesFilterList.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -329,7 +331,7 @@ module AWS::SDK::Braket
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SearchDevicesFilter.build(element) unless element.nil?
+          data << SearchDevicesFilter.build(element) unless element.nil?
         end
         data
       end
@@ -340,7 +342,7 @@ module AWS::SDK::Braket
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::String256List.build(input[:values]) unless input[:values].nil?
+        data['values'] = String256List.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -368,8 +370,8 @@ module AWS::SDK::Braket
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filters'] = Builders::SearchJobsFilterList.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filters'] = SearchJobsFilterList.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -378,7 +380,7 @@ module AWS::SDK::Braket
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SearchJobsFilter.build(element) unless element.nil?
+          data << SearchJobsFilter.build(element) unless element.nil?
         end
         data
       end
@@ -389,7 +391,7 @@ module AWS::SDK::Braket
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::String256List.build(input[:values]) unless input[:values].nil?
+        data['values'] = String256List.build(input[:values]) unless input[:values].nil?
         data['operator'] = input[:operator] unless input[:operator].nil?
         data
       end
@@ -407,8 +409,8 @@ module AWS::SDK::Braket
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filters'] = Builders::SearchQuantumTasksFilterList.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filters'] = SearchQuantumTasksFilterList.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -417,7 +419,7 @@ module AWS::SDK::Braket
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SearchQuantumTasksFilter.build(element) unless element.nil?
+          data << SearchQuantumTasksFilter.build(element) unless element.nil?
         end
         data
       end
@@ -428,7 +430,7 @@ module AWS::SDK::Braket
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::String256List.build(input[:values]) unless input[:values].nil?
+        data['values'] = String256List.build(input[:values]) unless input[:values].nil?
         data['operator'] = input[:operator] unless input[:operator].nil?
         data
       end
@@ -451,8 +453,8 @@ module AWS::SDK::Braket
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

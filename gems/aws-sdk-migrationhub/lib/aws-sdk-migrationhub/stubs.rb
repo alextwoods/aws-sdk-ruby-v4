@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MigrationHub
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::MigrationHub
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -33,7 +35,7 @@ module AWS::SDK::MigrationHub
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -47,7 +49,7 @@ module AWS::SDK::MigrationHub
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -61,7 +63,7 @@ module AWS::SDK::MigrationHub
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -79,7 +81,7 @@ module AWS::SDK::MigrationHub
         data = {}
         data['ApplicationStatus'] = stub[:application_status] unless stub[:application_status].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -94,8 +96,8 @@ module AWS::SDK::MigrationHub
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['MigrationTask'] = Stubs::MigrationTask.stub(stub[:migration_task]) unless stub[:migration_task].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MigrationTask'] = MigrationTask.stub(stub[:migration_task]) unless stub[:migration_task].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -119,9 +121,9 @@ module AWS::SDK::MigrationHub
         data = {}
         data['ProgressUpdateStream'] = stub[:progress_update_stream] unless stub[:progress_update_stream].nil?
         data['MigrationTaskName'] = stub[:migration_task_name] unless stub[:migration_task_name].nil?
-        data['Task'] = Stubs::Task.stub(stub[:task]) unless stub[:task].nil?
+        data['Task'] = Task.stub(stub[:task]) unless stub[:task].nil?
         data['UpdateDateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:update_date_time]).to_i unless stub[:update_date_time].nil?
-        data['ResourceAttributeList'] = Stubs::LatestResourceAttributeList.stub(stub[:resource_attribute_list]) unless stub[:resource_attribute_list].nil?
+        data['ResourceAttributeList'] = LatestResourceAttributeList.stub(stub[:resource_attribute_list]) unless stub[:resource_attribute_list].nil?
         data
       end
     end
@@ -140,7 +142,7 @@ module AWS::SDK::MigrationHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceAttribute.stub(element) unless element.nil?
+          data << ResourceAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -197,7 +199,7 @@ module AWS::SDK::MigrationHub
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -211,7 +213,7 @@ module AWS::SDK::MigrationHub
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -225,7 +227,7 @@ module AWS::SDK::MigrationHub
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -241,9 +243,9 @@ module AWS::SDK::MigrationHub
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ApplicationStateList'] = Stubs::ApplicationStateList.stub(stub[:application_state_list]) unless stub[:application_state_list].nil?
+        data['ApplicationStateList'] = ApplicationStateList.stub(stub[:application_state_list]) unless stub[:application_state_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -262,7 +264,7 @@ module AWS::SDK::MigrationHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApplicationState.stub(element) unless element.nil?
+          data << ApplicationState.stub(element) unless element.nil?
         end
         data
       end
@@ -302,8 +304,8 @@ module AWS::SDK::MigrationHub
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['CreatedArtifactList'] = Stubs::CreatedArtifactList.stub(stub[:created_artifact_list]) unless stub[:created_artifact_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CreatedArtifactList'] = CreatedArtifactList.stub(stub[:created_artifact_list]) unless stub[:created_artifact_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -322,7 +324,7 @@ module AWS::SDK::MigrationHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CreatedArtifact.stub(element) unless element.nil?
+          data << CreatedArtifact.stub(element) unless element.nil?
         end
         data
       end
@@ -360,8 +362,8 @@ module AWS::SDK::MigrationHub
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['DiscoveredResourceList'] = Stubs::DiscoveredResourceList.stub(stub[:discovered_resource_list]) unless stub[:discovered_resource_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DiscoveredResourceList'] = DiscoveredResourceList.stub(stub[:discovered_resource_list]) unless stub[:discovered_resource_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -380,7 +382,7 @@ module AWS::SDK::MigrationHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DiscoveredResource.stub(element) unless element.nil?
+          data << DiscoveredResource.stub(element) unless element.nil?
         end
         data
       end
@@ -418,8 +420,8 @@ module AWS::SDK::MigrationHub
       def self.stub(http_resp, stub:)
         data = {}
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['MigrationTaskSummaryList'] = Stubs::MigrationTaskSummaryList.stub(stub[:migration_task_summary_list]) unless stub[:migration_task_summary_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MigrationTaskSummaryList'] = MigrationTaskSummaryList.stub(stub[:migration_task_summary_list]) unless stub[:migration_task_summary_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -438,7 +440,7 @@ module AWS::SDK::MigrationHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MigrationTaskSummary.stub(element) unless element.nil?
+          data << MigrationTaskSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -483,9 +485,9 @@ module AWS::SDK::MigrationHub
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ProgressUpdateStreamSummaryList'] = Stubs::ProgressUpdateStreamSummaryList.stub(stub[:progress_update_stream_summary_list]) unless stub[:progress_update_stream_summary_list].nil?
+        data['ProgressUpdateStreamSummaryList'] = ProgressUpdateStreamSummaryList.stub(stub[:progress_update_stream_summary_list]) unless stub[:progress_update_stream_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -504,7 +506,7 @@ module AWS::SDK::MigrationHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProgressUpdateStreamSummary.stub(element) unless element.nil?
+          data << ProgressUpdateStreamSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -537,7 +539,7 @@ module AWS::SDK::MigrationHub
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -551,7 +553,7 @@ module AWS::SDK::MigrationHub
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -565,7 +567,7 @@ module AWS::SDK::MigrationHub
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

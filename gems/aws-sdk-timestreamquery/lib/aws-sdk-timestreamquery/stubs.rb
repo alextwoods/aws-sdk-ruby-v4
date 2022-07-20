@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::TimestreamQuery
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::TimestreamQuery
       def self.stub(http_resp, stub:)
         data = {}
         data['CancellationMessage'] = stub[:cancellation_message] unless stub[:cancellation_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -37,7 +39,7 @@ module AWS::SDK::TimestreamQuery
       def self.stub(http_resp, stub:)
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -51,7 +53,7 @@ module AWS::SDK::TimestreamQuery
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -66,8 +68,8 @@ module AWS::SDK::TimestreamQuery
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Endpoints'] = Stubs::Endpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Endpoints'] = Endpoints.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -86,7 +88,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Endpoint.stub(element) unless element.nil?
+          data << Endpoint.stub(element) unless element.nil?
         end
         data
       end
@@ -122,8 +124,8 @@ module AWS::SDK::TimestreamQuery
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ScheduledQuery'] = Stubs::ScheduledQueryDescription.stub(stub[:scheduled_query]) unless stub[:scheduled_query].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ScheduledQuery'] = ScheduledQueryDescription.stub(stub[:scheduled_query]) unless stub[:scheduled_query].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -162,14 +164,14 @@ module AWS::SDK::TimestreamQuery
         data['State'] = stub[:state] unless stub[:state].nil?
         data['PreviousInvocationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:previous_invocation_time]).to_i unless stub[:previous_invocation_time].nil?
         data['NextInvocationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:next_invocation_time]).to_i unless stub[:next_invocation_time].nil?
-        data['ScheduleConfiguration'] = Stubs::ScheduleConfiguration.stub(stub[:schedule_configuration]) unless stub[:schedule_configuration].nil?
-        data['NotificationConfiguration'] = Stubs::NotificationConfiguration.stub(stub[:notification_configuration]) unless stub[:notification_configuration].nil?
-        data['TargetConfiguration'] = Stubs::TargetConfiguration.stub(stub[:target_configuration]) unless stub[:target_configuration].nil?
+        data['ScheduleConfiguration'] = ScheduleConfiguration.stub(stub[:schedule_configuration]) unless stub[:schedule_configuration].nil?
+        data['NotificationConfiguration'] = NotificationConfiguration.stub(stub[:notification_configuration]) unless stub[:notification_configuration].nil?
+        data['TargetConfiguration'] = TargetConfiguration.stub(stub[:target_configuration]) unless stub[:target_configuration].nil?
         data['ScheduledQueryExecutionRoleArn'] = stub[:scheduled_query_execution_role_arn] unless stub[:scheduled_query_execution_role_arn].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
-        data['ErrorReportConfiguration'] = Stubs::ErrorReportConfiguration.stub(stub[:error_report_configuration]) unless stub[:error_report_configuration].nil?
-        data['LastRunSummary'] = Stubs::ScheduledQueryRunSummary.stub(stub[:last_run_summary]) unless stub[:last_run_summary].nil?
-        data['RecentlyFailedRuns'] = Stubs::ScheduledQueryRunSummaryList.stub(stub[:recently_failed_runs]) unless stub[:recently_failed_runs].nil?
+        data['ErrorReportConfiguration'] = ErrorReportConfiguration.stub(stub[:error_report_configuration]) unless stub[:error_report_configuration].nil?
+        data['LastRunSummary'] = ScheduledQueryRunSummary.stub(stub[:last_run_summary]) unless stub[:last_run_summary].nil?
+        data['RecentlyFailedRuns'] = ScheduledQueryRunSummaryList.stub(stub[:recently_failed_runs]) unless stub[:recently_failed_runs].nil?
         data
       end
     end
@@ -188,7 +190,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScheduledQueryRunSummary.stub(element) unless element.nil?
+          data << ScheduledQueryRunSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -215,8 +217,8 @@ module AWS::SDK::TimestreamQuery
         data['InvocationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:invocation_time]).to_i unless stub[:invocation_time].nil?
         data['TriggerTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:trigger_time]).to_i unless stub[:trigger_time].nil?
         data['RunStatus'] = stub[:run_status] unless stub[:run_status].nil?
-        data['ExecutionStats'] = Stubs::ExecutionStats.stub(stub[:execution_stats]) unless stub[:execution_stats].nil?
-        data['ErrorReportLocation'] = Stubs::ErrorReportLocation.stub(stub[:error_report_location]) unless stub[:error_report_location].nil?
+        data['ExecutionStats'] = ExecutionStats.stub(stub[:execution_stats]) unless stub[:execution_stats].nil?
+        data['ErrorReportLocation'] = ErrorReportLocation.stub(stub[:error_report_location]) unless stub[:error_report_location].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data
       end
@@ -235,7 +237,7 @@ module AWS::SDK::TimestreamQuery
       def self.stub(stub)
         stub ||= Types::ErrorReportLocation.new
         data = {}
-        data['S3ReportLocation'] = Stubs::S3ReportLocation.stub(stub[:s3_report_location]) unless stub[:s3_report_location].nil?
+        data['S3ReportLocation'] = S3ReportLocation.stub(stub[:s3_report_location]) unless stub[:s3_report_location].nil?
         data
       end
     end
@@ -299,7 +301,7 @@ module AWS::SDK::TimestreamQuery
       def self.stub(stub)
         stub ||= Types::ErrorReportConfiguration.new
         data = {}
-        data['S3Configuration'] = Stubs::S3Configuration.stub(stub[:s3_configuration]) unless stub[:s3_configuration].nil?
+        data['S3Configuration'] = S3Configuration.stub(stub[:s3_configuration]) unless stub[:s3_configuration].nil?
         data
       end
     end
@@ -339,7 +341,7 @@ module AWS::SDK::TimestreamQuery
       def self.stub(stub)
         stub ||= Types::TargetConfiguration.new
         data = {}
-        data['TimestreamConfiguration'] = Stubs::TimestreamConfiguration.stub(stub[:timestream_configuration]) unless stub[:timestream_configuration].nil?
+        data['TimestreamConfiguration'] = TimestreamConfiguration.stub(stub[:timestream_configuration]) unless stub[:timestream_configuration].nil?
         data
       end
     end
@@ -366,9 +368,9 @@ module AWS::SDK::TimestreamQuery
         data['DatabaseName'] = stub[:database_name] unless stub[:database_name].nil?
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['TimeColumn'] = stub[:time_column] unless stub[:time_column].nil?
-        data['DimensionMappings'] = Stubs::DimensionMappingList.stub(stub[:dimension_mappings]) unless stub[:dimension_mappings].nil?
-        data['MultiMeasureMappings'] = Stubs::MultiMeasureMappings.stub(stub[:multi_measure_mappings]) unless stub[:multi_measure_mappings].nil?
-        data['MixedMeasureMappings'] = Stubs::MixedMeasureMappingList.stub(stub[:mixed_measure_mappings]) unless stub[:mixed_measure_mappings].nil?
+        data['DimensionMappings'] = DimensionMappingList.stub(stub[:dimension_mappings]) unless stub[:dimension_mappings].nil?
+        data['MultiMeasureMappings'] = MultiMeasureMappings.stub(stub[:multi_measure_mappings]) unless stub[:multi_measure_mappings].nil?
+        data['MixedMeasureMappings'] = MixedMeasureMappingList.stub(stub[:mixed_measure_mappings]) unless stub[:mixed_measure_mappings].nil?
         data['MeasureNameColumn'] = stub[:measure_name_column] unless stub[:measure_name_column].nil?
         data
       end
@@ -388,7 +390,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MixedMeasureMapping.stub(element) unless element.nil?
+          data << MixedMeasureMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -415,7 +417,7 @@ module AWS::SDK::TimestreamQuery
         data['SourceColumn'] = stub[:source_column] unless stub[:source_column].nil?
         data['TargetMeasureName'] = stub[:target_measure_name] unless stub[:target_measure_name].nil?
         data['MeasureValueType'] = stub[:measure_value_type] unless stub[:measure_value_type].nil?
-        data['MultiMeasureAttributeMappings'] = Stubs::MultiMeasureAttributeMappingList.stub(stub[:multi_measure_attribute_mappings]) unless stub[:multi_measure_attribute_mappings].nil?
+        data['MultiMeasureAttributeMappings'] = MultiMeasureAttributeMappingList.stub(stub[:multi_measure_attribute_mappings]) unless stub[:multi_measure_attribute_mappings].nil?
         data
       end
     end
@@ -434,7 +436,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MultiMeasureAttributeMapping.stub(element) unless element.nil?
+          data << MultiMeasureAttributeMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -477,7 +479,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= Types::MultiMeasureMappings.new
         data = {}
         data['TargetMultiMeasureName'] = stub[:target_multi_measure_name] unless stub[:target_multi_measure_name].nil?
-        data['MultiMeasureAttributeMappings'] = Stubs::MultiMeasureAttributeMappingList.stub(stub[:multi_measure_attribute_mappings]) unless stub[:multi_measure_attribute_mappings].nil?
+        data['MultiMeasureAttributeMappings'] = MultiMeasureAttributeMappingList.stub(stub[:multi_measure_attribute_mappings]) unless stub[:multi_measure_attribute_mappings].nil?
         data
       end
     end
@@ -496,7 +498,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DimensionMapping.stub(element) unless element.nil?
+          data << DimensionMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -535,7 +537,7 @@ module AWS::SDK::TimestreamQuery
       def self.stub(stub)
         stub ||= Types::NotificationConfiguration.new
         data = {}
-        data['SnsConfiguration'] = Stubs::SnsConfiguration.stub(stub[:sns_configuration]) unless stub[:sns_configuration].nil?
+        data['SnsConfiguration'] = SnsConfiguration.stub(stub[:sns_configuration]) unless stub[:sns_configuration].nil?
         data
       end
     end
@@ -585,7 +587,7 @@ module AWS::SDK::TimestreamQuery
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -601,9 +603,9 @@ module AWS::SDK::TimestreamQuery
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ScheduledQueries'] = Stubs::ScheduledQueryList.stub(stub[:scheduled_queries]) unless stub[:scheduled_queries].nil?
+        data['ScheduledQueries'] = ScheduledQueryList.stub(stub[:scheduled_queries]) unless stub[:scheduled_queries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -622,7 +624,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ScheduledQuery.stub(element) unless element.nil?
+          data << ScheduledQuery.stub(element) unless element.nil?
         end
         data
       end
@@ -655,8 +657,8 @@ module AWS::SDK::TimestreamQuery
         data['State'] = stub[:state] unless stub[:state].nil?
         data['PreviousInvocationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:previous_invocation_time]).to_i unless stub[:previous_invocation_time].nil?
         data['NextInvocationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:next_invocation_time]).to_i unless stub[:next_invocation_time].nil?
-        data['ErrorReportConfiguration'] = Stubs::ErrorReportConfiguration.stub(stub[:error_report_configuration]) unless stub[:error_report_configuration].nil?
-        data['TargetDestination'] = Stubs::TargetDestination.stub(stub[:target_destination]) unless stub[:target_destination].nil?
+        data['ErrorReportConfiguration'] = ErrorReportConfiguration.stub(stub[:error_report_configuration]) unless stub[:error_report_configuration].nil?
+        data['TargetDestination'] = TargetDestination.stub(stub[:target_destination]) unless stub[:target_destination].nil?
         data['LastRunStatus'] = stub[:last_run_status] unless stub[:last_run_status].nil?
         data
       end
@@ -675,7 +677,7 @@ module AWS::SDK::TimestreamQuery
       def self.stub(stub)
         stub ||= Types::TargetDestination.new
         data = {}
-        data['TimestreamDestination'] = Stubs::TimestreamDestination.stub(stub[:timestream_destination]) unless stub[:timestream_destination].nil?
+        data['TimestreamDestination'] = TimestreamDestination.stub(stub[:timestream_destination]) unless stub[:timestream_destination].nil?
         data
       end
     end
@@ -711,9 +713,9 @@ module AWS::SDK::TimestreamQuery
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -732,7 +734,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -771,9 +773,9 @@ module AWS::SDK::TimestreamQuery
       def self.stub(http_resp, stub:)
         data = {}
         data['QueryString'] = stub[:query_string] unless stub[:query_string].nil?
-        data['Columns'] = Stubs::SelectColumnList.stub(stub[:columns]) unless stub[:columns].nil?
-        data['Parameters'] = Stubs::ParameterMappingList.stub(stub[:parameters]) unless stub[:parameters].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Columns'] = SelectColumnList.stub(stub[:columns]) unless stub[:columns].nil?
+        data['Parameters'] = ParameterMappingList.stub(stub[:parameters]) unless stub[:parameters].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -792,7 +794,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ParameterMapping.stub(element) unless element.nil?
+          data << ParameterMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -813,7 +815,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= Types::ParameterMapping.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Type'] = Stubs::Type.stub(stub[:type]) unless stub[:type].nil?
+        data['Type'] = Type.stub(stub[:type]) unless stub[:type].nil?
         data
       end
     end
@@ -835,9 +837,9 @@ module AWS::SDK::TimestreamQuery
         stub ||= Types::Type.new
         data = {}
         data['ScalarType'] = stub[:scalar_type] unless stub[:scalar_type].nil?
-        data['ArrayColumnInfo'] = Stubs::ColumnInfo.stub(stub[:array_column_info]) unless stub[:array_column_info].nil?
-        data['TimeSeriesMeasureValueColumnInfo'] = Stubs::ColumnInfo.stub(stub[:time_series_measure_value_column_info]) unless stub[:time_series_measure_value_column_info].nil?
-        data['RowColumnInfo'] = Stubs::ColumnInfoList.stub(stub[:row_column_info]) unless stub[:row_column_info].nil?
+        data['ArrayColumnInfo'] = ColumnInfo.stub(stub[:array_column_info]) unless stub[:array_column_info].nil?
+        data['TimeSeriesMeasureValueColumnInfo'] = ColumnInfo.stub(stub[:time_series_measure_value_column_info]) unless stub[:time_series_measure_value_column_info].nil?
+        data['RowColumnInfo'] = ColumnInfoList.stub(stub[:row_column_info]) unless stub[:row_column_info].nil?
         data
       end
     end
@@ -856,7 +858,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ColumnInfo.stub(element) unless element.nil?
+          data << ColumnInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -877,7 +879,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= Types::ColumnInfo.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Type'] = Stubs::Type.stub(stub[:type]) unless stub[:type].nil?
+        data['Type'] = Type.stub(stub[:type]) unless stub[:type].nil?
         data
       end
     end
@@ -896,7 +898,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SelectColumn.stub(element) unless element.nil?
+          data << SelectColumn.stub(element) unless element.nil?
         end
         data
       end
@@ -920,7 +922,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= Types::SelectColumn.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Type'] = Stubs::Type.stub(stub[:type]) unless stub[:type].nil?
+        data['Type'] = Type.stub(stub[:type]) unless stub[:type].nil?
         data['DatabaseName'] = stub[:database_name] unless stub[:database_name].nil?
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['Aliased'] = stub[:aliased] unless stub[:aliased].nil?
@@ -944,10 +946,10 @@ module AWS::SDK::TimestreamQuery
         data = {}
         data['QueryId'] = stub[:query_id] unless stub[:query_id].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['Rows'] = Stubs::RowList.stub(stub[:rows]) unless stub[:rows].nil?
-        data['ColumnInfo'] = Stubs::ColumnInfoList.stub(stub[:column_info]) unless stub[:column_info].nil?
-        data['QueryStatus'] = Stubs::QueryStatus.stub(stub[:query_status]) unless stub[:query_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Rows'] = RowList.stub(stub[:rows]) unless stub[:rows].nil?
+        data['ColumnInfo'] = ColumnInfoList.stub(stub[:column_info]) unless stub[:column_info].nil?
+        data['QueryStatus'] = QueryStatus.stub(stub[:query_status]) unless stub[:query_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -988,7 +990,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Row.stub(element) unless element.nil?
+          data << Row.stub(element) unless element.nil?
         end
         data
       end
@@ -1007,7 +1009,7 @@ module AWS::SDK::TimestreamQuery
       def self.stub(stub)
         stub ||= Types::Row.new
         data = {}
-        data['Data'] = Stubs::DatumList.stub(stub[:data]) unless stub[:data].nil?
+        data['Data'] = DatumList.stub(stub[:data]) unless stub[:data].nil?
         data
       end
     end
@@ -1026,7 +1028,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Datum.stub(element) unless element.nil?
+          data << Datum.stub(element) unless element.nil?
         end
         data
       end
@@ -1050,9 +1052,9 @@ module AWS::SDK::TimestreamQuery
         stub ||= Types::Datum.new
         data = {}
         data['ScalarValue'] = stub[:scalar_value] unless stub[:scalar_value].nil?
-        data['TimeSeriesValue'] = Stubs::TimeSeriesDataPointList.stub(stub[:time_series_value]) unless stub[:time_series_value].nil?
-        data['ArrayValue'] = Stubs::DatumList.stub(stub[:array_value]) unless stub[:array_value].nil?
-        data['RowValue'] = Stubs::Row.stub(stub[:row_value]) unless stub[:row_value].nil?
+        data['TimeSeriesValue'] = TimeSeriesDataPointList.stub(stub[:time_series_value]) unless stub[:time_series_value].nil?
+        data['ArrayValue'] = DatumList.stub(stub[:array_value]) unless stub[:array_value].nil?
+        data['RowValue'] = Row.stub(stub[:row_value]) unless stub[:row_value].nil?
         data['NullValue'] = stub[:null_value] unless stub[:null_value].nil?
         data
       end
@@ -1072,7 +1074,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TimeSeriesDataPoint.stub(element) unless element.nil?
+          data << TimeSeriesDataPoint.stub(element) unless element.nil?
         end
         data
       end
@@ -1093,7 +1095,7 @@ module AWS::SDK::TimestreamQuery
         stub ||= Types::TimeSeriesDataPoint.new
         data = {}
         data['Time'] = stub[:time] unless stub[:time].nil?
-        data['Value'] = Stubs::Datum.stub(stub[:value]) unless stub[:value].nil?
+        data['Value'] = Datum.stub(stub[:value]) unless stub[:value].nil?
         data
       end
     end
@@ -1107,7 +1109,7 @@ module AWS::SDK::TimestreamQuery
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1121,7 +1123,7 @@ module AWS::SDK::TimestreamQuery
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1135,7 +1137,7 @@ module AWS::SDK::TimestreamQuery
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

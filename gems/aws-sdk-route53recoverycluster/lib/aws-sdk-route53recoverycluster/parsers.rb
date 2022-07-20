@@ -33,7 +33,7 @@ module AWS::SDK::Route53RecoveryCluster
         map = Hearth::JSON.load(body)
         data.message = map['message']
         data.reason = map['reason']
-        data.fields = (Parsers::ValidationExceptionFieldList.parse(map['fields']) unless map['fields'].nil?)
+        data.fields = (ValidationExceptionFieldList.parse(map['fields']) unless map['fields'].nil?)
         data
       end
     end
@@ -41,7 +41,7 @@ module AWS::SDK::Route53RecoveryCluster
     class ValidationExceptionFieldList
       def self.parse(list)
         list.map do |value|
-          Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          ValidationExceptionField.parse(value) unless value.nil?
         end
       end
     end
@@ -126,7 +126,7 @@ module AWS::SDK::Route53RecoveryCluster
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.routing_controls = (Parsers::RoutingControls.parse(map['RoutingControls']) unless map['RoutingControls'].nil?)
+        data.routing_controls = (RoutingControls.parse(map['RoutingControls']) unless map['RoutingControls'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -135,7 +135,7 @@ module AWS::SDK::Route53RecoveryCluster
     class RoutingControls
       def self.parse(list)
         list.map do |value|
-          Parsers::RoutingControl.parse(value) unless value.nil?
+          RoutingControl.parse(value) unless value.nil?
         end
       end
     end

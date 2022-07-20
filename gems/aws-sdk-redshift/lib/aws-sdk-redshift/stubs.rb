@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Redshift
   module Stubs
 
@@ -23,9 +25,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('AcceptReservedNodeExchangeResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('AcceptReservedNodeExchangeResult')
-        xml << Stubs::ReservedNode.stub('ExchangedReservedNode', stub[:exchanged_reserved_node]) unless stub[:exchanged_reserved_node].nil?
+        xml << ReservedNode.stub('ExchangedReservedNode', stub[:exchanged_reserved_node]) unless stub[:exchanged_reserved_node].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -66,7 +68,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('NodeCount', stub[:node_count].to_s) unless stub[:node_count].nil?
         xml << Hearth::XML::Node.new('State', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('OfferingType', stub[:offering_type].to_s) unless stub[:offering_type].nil?
-        xml << Hearth::XML::Node.new('RecurringCharges', Stubs::RecurringChargeList.stub('RecurringCharge', stub[:recurring_charges])) unless stub[:recurring_charges].nil?
+        xml << Hearth::XML::Node.new('RecurringCharges', RecurringChargeList.stub('RecurringCharge', stub[:recurring_charges])) unless stub[:recurring_charges].nil?
         xml << Hearth::XML::Node.new('ReservedNodeOfferingType', stub[:reserved_node_offering_type].to_s) unless stub[:reserved_node_offering_type].nil?
         xml
       end
@@ -85,7 +87,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::RecurringCharge.stub(node_name, element) unless element.nil?
+          xml << RecurringCharge.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -128,7 +130,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('DatabaseName', stub[:database_name].to_s) unless stub[:database_name].nil?
         xml << Hearth::XML::Node.new('PartnerName', stub[:partner_name].to_s) unless stub[:partner_name].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -153,10 +155,10 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('DataShareArn', stub[:data_share_arn].to_s) unless stub[:data_share_arn].nil?
         xml << Hearth::XML::Node.new('ProducerArn', stub[:producer_arn].to_s) unless stub[:producer_arn].nil?
         xml << Hearth::XML::Node.new('AllowPubliclyAccessibleConsumers', stub[:allow_publicly_accessible_consumers].to_s) unless stub[:allow_publicly_accessible_consumers].nil?
-        xml << Hearth::XML::Node.new('DataShareAssociations', Stubs::DataShareAssociationList.stub('member', stub[:data_share_associations])) unless stub[:data_share_associations].nil?
+        xml << Hearth::XML::Node.new('DataShareAssociations', DataShareAssociationList.stub('member', stub[:data_share_associations])) unless stub[:data_share_associations].nil?
         xml << Hearth::XML::Node.new('ManagedBy', stub[:managed_by].to_s) unless stub[:managed_by].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -174,7 +176,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DataShareAssociation.stub(node_name, element) unless element.nil?
+          xml << DataShareAssociation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -219,9 +221,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('AuthorizeClusterSecurityGroupIngressResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('AuthorizeClusterSecurityGroupIngressResult')
-        xml << Stubs::ClusterSecurityGroup.stub('ClusterSecurityGroup', stub[:cluster_security_group]) unless stub[:cluster_security_group].nil?
+        xml << ClusterSecurityGroup.stub('ClusterSecurityGroup', stub[:cluster_security_group]) unless stub[:cluster_security_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -245,9 +247,9 @@ module AWS::SDK::Redshift
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ClusterSecurityGroupName', stub[:cluster_security_group_name].to_s) unless stub[:cluster_security_group_name].nil?
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('EC2SecurityGroups', Stubs::EC2SecurityGroupList.stub('EC2SecurityGroup', stub[:ec2_security_groups])) unless stub[:ec2_security_groups].nil?
-        xml << Hearth::XML::Node.new('IPRanges', Stubs::IPRangeList.stub('IPRange', stub[:ip_ranges])) unless stub[:ip_ranges].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('EC2SecurityGroups', EC2SecurityGroupList.stub('EC2SecurityGroup', stub[:ec2_security_groups])) unless stub[:ec2_security_groups].nil?
+        xml << Hearth::XML::Node.new('IPRanges', IPRangeList.stub('IPRange', stub[:ip_ranges])) unless stub[:ip_ranges].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -265,7 +267,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Tag.stub(node_name, element) unless element.nil?
+          xml << Tag.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -304,7 +306,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::IPRange.stub(node_name, element) unless element.nil?
+          xml << IPRange.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -327,7 +329,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('CIDRIP', stub[:cidrip].to_s) unless stub[:cidrip].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -345,7 +347,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::EC2SecurityGroup.stub(node_name, element) unless element.nil?
+          xml << EC2SecurityGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -370,7 +372,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('EC2SecurityGroupName', stub[:ec2_security_group_name].to_s) unless stub[:ec2_security_group_name].nil?
         xml << Hearth::XML::Node.new('EC2SecurityGroupOwnerId', stub[:ec2_security_group_owner_id].to_s) unless stub[:ec2_security_group_owner_id].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -395,10 +397,10 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('DataShareArn', stub[:data_share_arn].to_s) unless stub[:data_share_arn].nil?
         xml << Hearth::XML::Node.new('ProducerArn', stub[:producer_arn].to_s) unless stub[:producer_arn].nil?
         xml << Hearth::XML::Node.new('AllowPubliclyAccessibleConsumers', stub[:allow_publicly_accessible_consumers].to_s) unless stub[:allow_publicly_accessible_consumers].nil?
-        xml << Hearth::XML::Node.new('DataShareAssociations', Stubs::DataShareAssociationList.stub('member', stub[:data_share_associations])) unless stub[:data_share_associations].nil?
+        xml << Hearth::XML::Node.new('DataShareAssociations', DataShareAssociationList.stub('member', stub[:data_share_associations])) unless stub[:data_share_associations].nil?
         xml << Hearth::XML::Node.new('ManagedBy', stub[:managed_by].to_s) unless stub[:managed_by].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -431,10 +433,10 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('ClusterStatus', stub[:cluster_status].to_s) unless stub[:cluster_status].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('AllowedAllVPCs', stub[:allowed_all_vp_cs].to_s) unless stub[:allowed_all_vp_cs].nil?
-        xml << Hearth::XML::Node.new('AllowedVPCs', Stubs::VpcIdentifierList.stub('VpcIdentifier', stub[:allowed_vp_cs])) unless stub[:allowed_vp_cs].nil?
+        xml << Hearth::XML::Node.new('AllowedVPCs', VpcIdentifierList.stub('VpcIdentifier', stub[:allowed_vp_cs])) unless stub[:allowed_vp_cs].nil?
         xml << Hearth::XML::Node.new('EndpointCount', stub[:endpoint_count].to_s) unless stub[:endpoint_count].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -471,9 +473,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('AuthorizeSnapshotAccessResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('AuthorizeSnapshotAccessResult')
-        xml << Stubs::Snapshot.stub('Snapshot', stub[:snapshot]) unless stub[:snapshot].nil?
+        xml << Snapshot.stub('Snapshot', stub[:snapshot]) unless stub[:snapshot].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -542,7 +544,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('Encrypted', stub[:encrypted].to_s) unless stub[:encrypted].nil?
         xml << Hearth::XML::Node.new('KmsKeyId', stub[:kms_key_id].to_s) unless stub[:kms_key_id].nil?
         xml << Hearth::XML::Node.new('EncryptedWithHSM', stub[:encrypted_with_hsm].to_s) unless stub[:encrypted_with_hsm].nil?
-        xml << Hearth::XML::Node.new('AccountsWithRestoreAccess', Stubs::AccountsWithRestoreAccessList.stub('AccountWithRestoreAccess', stub[:accounts_with_restore_access])) unless stub[:accounts_with_restore_access].nil?
+        xml << Hearth::XML::Node.new('AccountsWithRestoreAccess', AccountsWithRestoreAccessList.stub('AccountWithRestoreAccess', stub[:accounts_with_restore_access])) unless stub[:accounts_with_restore_access].nil?
         xml << Hearth::XML::Node.new('OwnerAccount', stub[:owner_account].to_s) unless stub[:owner_account].nil?
         xml << Hearth::XML::Node.new('TotalBackupSizeInMegaBytes', Hearth::NumberHelper.serialize(stub[:total_backup_size_in_mega_bytes]).to_s) unless stub[:total_backup_size_in_mega_bytes].nil?
         xml << Hearth::XML::Node.new('ActualIncrementalBackupSizeInMegaBytes', Hearth::NumberHelper.serialize(stub[:actual_incremental_backup_size_in_mega_bytes]).to_s) unless stub[:actual_incremental_backup_size_in_mega_bytes].nil?
@@ -551,8 +553,8 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('EstimatedSecondsToCompletion', stub[:estimated_seconds_to_completion].to_s) unless stub[:estimated_seconds_to_completion].nil?
         xml << Hearth::XML::Node.new('ElapsedTimeInSeconds', stub[:elapsed_time_in_seconds].to_s) unless stub[:elapsed_time_in_seconds].nil?
         xml << Hearth::XML::Node.new('SourceRegion', stub[:source_region].to_s) unless stub[:source_region].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
-        xml << Hearth::XML::Node.new('RestorableNodeTypes', Stubs::RestorableNodeTypeList.stub('NodeType', stub[:restorable_node_types])) unless stub[:restorable_node_types].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('RestorableNodeTypes', RestorableNodeTypeList.stub('NodeType', stub[:restorable_node_types])) unless stub[:restorable_node_types].nil?
         xml << Hearth::XML::Node.new('EnhancedVpcRouting', stub[:enhanced_vpc_routing].to_s) unless stub[:enhanced_vpc_routing].nil?
         xml << Hearth::XML::Node.new('MaintenanceTrackName', stub[:maintenance_track_name].to_s) unless stub[:maintenance_track_name].nil?
         xml << Hearth::XML::Node.new('ManualSnapshotRetentionPeriod', stub[:manual_snapshot_retention_period].to_s) unless stub[:manual_snapshot_retention_period].nil?
@@ -594,7 +596,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AccountWithRestoreAccess.stub(node_name, element) unless element.nil?
+          xml << AccountWithRestoreAccess.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -634,10 +636,10 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('BatchDeleteClusterSnapshotsResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('BatchDeleteClusterSnapshotsResult')
-        xml << Hearth::XML::Node.new('Resources', Stubs::SnapshotIdentifierList.stub('String', stub[:resources])) unless stub[:resources].nil?
-        xml << Hearth::XML::Node.new('Errors', Stubs::BatchSnapshotOperationErrorList.stub('SnapshotErrorMessage', stub[:errors])) unless stub[:errors].nil?
+        xml << Hearth::XML::Node.new('Resources', SnapshotIdentifierList.stub('String', stub[:resources])) unless stub[:resources].nil?
+        xml << Hearth::XML::Node.new('Errors', BatchSnapshotOperationErrorList.stub('SnapshotErrorMessage', stub[:errors])) unless stub[:errors].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -655,7 +657,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SnapshotErrorMessage.stub(node_name, element) unless element.nil?
+          xml << SnapshotErrorMessage.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -718,10 +720,10 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('BatchModifyClusterSnapshotsResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('BatchModifyClusterSnapshotsResult')
-        xml << Hearth::XML::Node.new('Resources', Stubs::SnapshotIdentifierList.stub('String', stub[:resources])) unless stub[:resources].nil?
-        xml << Hearth::XML::Node.new('Errors', Stubs::BatchSnapshotOperationErrors.stub('SnapshotErrorMessage', stub[:errors])) unless stub[:errors].nil?
+        xml << Hearth::XML::Node.new('Resources', SnapshotIdentifierList.stub('String', stub[:resources])) unless stub[:resources].nil?
+        xml << Hearth::XML::Node.new('Errors', BatchSnapshotOperationErrors.stub('SnapshotErrorMessage', stub[:errors])) unless stub[:errors].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -739,7 +741,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SnapshotErrorMessage.stub(node_name, element) unless element.nil?
+          xml << SnapshotErrorMessage.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -777,9 +779,9 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('TargetNumberOfNodes', stub[:target_number_of_nodes].to_s) unless stub[:target_number_of_nodes].nil?
         xml << Hearth::XML::Node.new('TargetClusterType', stub[:target_cluster_type].to_s) unless stub[:target_cluster_type].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml << Hearth::XML::Node.new('ImportTablesCompleted', Stubs::ImportTablesCompleted.stub('member', stub[:import_tables_completed])) unless stub[:import_tables_completed].nil?
-        xml << Hearth::XML::Node.new('ImportTablesInProgress', Stubs::ImportTablesInProgress.stub('member', stub[:import_tables_in_progress])) unless stub[:import_tables_in_progress].nil?
-        xml << Hearth::XML::Node.new('ImportTablesNotStarted', Stubs::ImportTablesNotStarted.stub('member', stub[:import_tables_not_started])) unless stub[:import_tables_not_started].nil?
+        xml << Hearth::XML::Node.new('ImportTablesCompleted', ImportTablesCompleted.stub('member', stub[:import_tables_completed])) unless stub[:import_tables_completed].nil?
+        xml << Hearth::XML::Node.new('ImportTablesInProgress', ImportTablesInProgress.stub('member', stub[:import_tables_in_progress])) unless stub[:import_tables_in_progress].nil?
+        xml << Hearth::XML::Node.new('ImportTablesNotStarted', ImportTablesNotStarted.stub('member', stub[:import_tables_not_started])) unless stub[:import_tables_not_started].nil?
         xml << Hearth::XML::Node.new('AvgResizeRateInMegaBytesPerSecond', Hearth::NumberHelper.serialize(stub[:avg_resize_rate_in_mega_bytes_per_second]).to_s) unless stub[:avg_resize_rate_in_mega_bytes_per_second].nil?
         xml << Hearth::XML::Node.new('TotalResizeDataInMegaBytes', stub[:total_resize_data_in_mega_bytes].to_s) unless stub[:total_resize_data_in_mega_bytes].nil?
         xml << Hearth::XML::Node.new('ProgressInMegaBytes', stub[:progress_in_mega_bytes].to_s) unless stub[:progress_in_mega_bytes].nil?
@@ -790,7 +792,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('TargetEncryptionType', stub[:target_encryption_type].to_s) unless stub[:target_encryption_type].nil?
         xml << Hearth::XML::Node.new('DataTransferProgressPercent', Hearth::NumberHelper.serialize(stub[:data_transfer_progress_percent]).to_s) unless stub[:data_transfer_progress_percent].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -865,9 +867,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('CopyClusterSnapshotResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('CopyClusterSnapshotResult')
-        xml << Stubs::Snapshot.stub('Snapshot', stub[:snapshot]) unless stub[:snapshot].nil?
+        xml << Snapshot.stub('Snapshot', stub[:snapshot]) unless stub[:snapshot].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -889,7 +891,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('AuthenticationProfileName', stub[:authentication_profile_name].to_s) unless stub[:authentication_profile_name].nil?
         xml << Hearth::XML::Node.new('AuthenticationProfileContent', stub[:authentication_profile_content].to_s) unless stub[:authentication_profile_content].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -907,9 +909,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('CreateClusterResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('CreateClusterResult')
-        xml << Stubs::Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
+        xml << Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -985,51 +987,51 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('ModifyStatus', stub[:modify_status].to_s) unless stub[:modify_status].nil?
         xml << Hearth::XML::Node.new('MasterUsername', stub[:master_username].to_s) unless stub[:master_username].nil?
         xml << Hearth::XML::Node.new('DBName', stub[:db_name].to_s) unless stub[:db_name].nil?
-        xml << Stubs::Endpoint.stub('Endpoint', stub[:endpoint]) unless stub[:endpoint].nil?
+        xml << Endpoint.stub('Endpoint', stub[:endpoint]) unless stub[:endpoint].nil?
         xml << Hearth::XML::Node.new('ClusterCreateTime', Hearth::TimeHelper.to_date_time(stub[:cluster_create_time])) unless stub[:cluster_create_time].nil?
         xml << Hearth::XML::Node.new('AutomatedSnapshotRetentionPeriod', stub[:automated_snapshot_retention_period].to_s) unless stub[:automated_snapshot_retention_period].nil?
         xml << Hearth::XML::Node.new('ManualSnapshotRetentionPeriod', stub[:manual_snapshot_retention_period].to_s) unless stub[:manual_snapshot_retention_period].nil?
-        xml << Hearth::XML::Node.new('ClusterSecurityGroups', Stubs::ClusterSecurityGroupMembershipList.stub('ClusterSecurityGroup', stub[:cluster_security_groups])) unless stub[:cluster_security_groups].nil?
-        xml << Hearth::XML::Node.new('VpcSecurityGroups', Stubs::VpcSecurityGroupMembershipList.stub('VpcSecurityGroup', stub[:vpc_security_groups])) unless stub[:vpc_security_groups].nil?
-        xml << Hearth::XML::Node.new('ClusterParameterGroups', Stubs::ClusterParameterGroupStatusList.stub('ClusterParameterGroup', stub[:cluster_parameter_groups])) unless stub[:cluster_parameter_groups].nil?
+        xml << Hearth::XML::Node.new('ClusterSecurityGroups', ClusterSecurityGroupMembershipList.stub('ClusterSecurityGroup', stub[:cluster_security_groups])) unless stub[:cluster_security_groups].nil?
+        xml << Hearth::XML::Node.new('VpcSecurityGroups', VpcSecurityGroupMembershipList.stub('VpcSecurityGroup', stub[:vpc_security_groups])) unless stub[:vpc_security_groups].nil?
+        xml << Hearth::XML::Node.new('ClusterParameterGroups', ClusterParameterGroupStatusList.stub('ClusterParameterGroup', stub[:cluster_parameter_groups])) unless stub[:cluster_parameter_groups].nil?
         xml << Hearth::XML::Node.new('ClusterSubnetGroupName', stub[:cluster_subnet_group_name].to_s) unless stub[:cluster_subnet_group_name].nil?
         xml << Hearth::XML::Node.new('VpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml << Hearth::XML::Node.new('AvailabilityZone', stub[:availability_zone].to_s) unless stub[:availability_zone].nil?
         xml << Hearth::XML::Node.new('PreferredMaintenanceWindow', stub[:preferred_maintenance_window].to_s) unless stub[:preferred_maintenance_window].nil?
-        xml << Stubs::PendingModifiedValues.stub('PendingModifiedValues', stub[:pending_modified_values]) unless stub[:pending_modified_values].nil?
+        xml << PendingModifiedValues.stub('PendingModifiedValues', stub[:pending_modified_values]) unless stub[:pending_modified_values].nil?
         xml << Hearth::XML::Node.new('ClusterVersion', stub[:cluster_version].to_s) unless stub[:cluster_version].nil?
         xml << Hearth::XML::Node.new('AllowVersionUpgrade', stub[:allow_version_upgrade].to_s) unless stub[:allow_version_upgrade].nil?
         xml << Hearth::XML::Node.new('NumberOfNodes', stub[:number_of_nodes].to_s) unless stub[:number_of_nodes].nil?
         xml << Hearth::XML::Node.new('PubliclyAccessible', stub[:publicly_accessible].to_s) unless stub[:publicly_accessible].nil?
         xml << Hearth::XML::Node.new('Encrypted', stub[:encrypted].to_s) unless stub[:encrypted].nil?
-        xml << Stubs::RestoreStatus.stub('RestoreStatus', stub[:restore_status]) unless stub[:restore_status].nil?
-        xml << Stubs::DataTransferProgress.stub('DataTransferProgress', stub[:data_transfer_progress]) unless stub[:data_transfer_progress].nil?
-        xml << Stubs::HsmStatus.stub('HsmStatus', stub[:hsm_status]) unless stub[:hsm_status].nil?
-        xml << Stubs::ClusterSnapshotCopyStatus.stub('ClusterSnapshotCopyStatus', stub[:cluster_snapshot_copy_status]) unless stub[:cluster_snapshot_copy_status].nil?
+        xml << RestoreStatus.stub('RestoreStatus', stub[:restore_status]) unless stub[:restore_status].nil?
+        xml << DataTransferProgress.stub('DataTransferProgress', stub[:data_transfer_progress]) unless stub[:data_transfer_progress].nil?
+        xml << HsmStatus.stub('HsmStatus', stub[:hsm_status]) unless stub[:hsm_status].nil?
+        xml << ClusterSnapshotCopyStatus.stub('ClusterSnapshotCopyStatus', stub[:cluster_snapshot_copy_status]) unless stub[:cluster_snapshot_copy_status].nil?
         xml << Hearth::XML::Node.new('ClusterPublicKey', stub[:cluster_public_key].to_s) unless stub[:cluster_public_key].nil?
-        xml << Hearth::XML::Node.new('ClusterNodes', Stubs::ClusterNodesList.stub('member', stub[:cluster_nodes])) unless stub[:cluster_nodes].nil?
-        xml << Stubs::ElasticIpStatus.stub('ElasticIpStatus', stub[:elastic_ip_status]) unless stub[:elastic_ip_status].nil?
+        xml << Hearth::XML::Node.new('ClusterNodes', ClusterNodesList.stub('member', stub[:cluster_nodes])) unless stub[:cluster_nodes].nil?
+        xml << ElasticIpStatus.stub('ElasticIpStatus', stub[:elastic_ip_status]) unless stub[:elastic_ip_status].nil?
         xml << Hearth::XML::Node.new('ClusterRevisionNumber', stub[:cluster_revision_number].to_s) unless stub[:cluster_revision_number].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
         xml << Hearth::XML::Node.new('KmsKeyId', stub[:kms_key_id].to_s) unless stub[:kms_key_id].nil?
         xml << Hearth::XML::Node.new('EnhancedVpcRouting', stub[:enhanced_vpc_routing].to_s) unless stub[:enhanced_vpc_routing].nil?
-        xml << Hearth::XML::Node.new('IamRoles', Stubs::ClusterIamRoleList.stub('ClusterIamRole', stub[:iam_roles])) unless stub[:iam_roles].nil?
-        xml << Hearth::XML::Node.new('PendingActions', Stubs::PendingActionsList.stub('member', stub[:pending_actions])) unless stub[:pending_actions].nil?
+        xml << Hearth::XML::Node.new('IamRoles', ClusterIamRoleList.stub('ClusterIamRole', stub[:iam_roles])) unless stub[:iam_roles].nil?
+        xml << Hearth::XML::Node.new('PendingActions', PendingActionsList.stub('member', stub[:pending_actions])) unless stub[:pending_actions].nil?
         xml << Hearth::XML::Node.new('MaintenanceTrackName', stub[:maintenance_track_name].to_s) unless stub[:maintenance_track_name].nil?
         xml << Hearth::XML::Node.new('ElasticResizeNumberOfNodeOptions', stub[:elastic_resize_number_of_node_options].to_s) unless stub[:elastic_resize_number_of_node_options].nil?
-        xml << Hearth::XML::Node.new('DeferredMaintenanceWindows', Stubs::DeferredMaintenanceWindowsList.stub('DeferredMaintenanceWindow', stub[:deferred_maintenance_windows])) unless stub[:deferred_maintenance_windows].nil?
+        xml << Hearth::XML::Node.new('DeferredMaintenanceWindows', DeferredMaintenanceWindowsList.stub('DeferredMaintenanceWindow', stub[:deferred_maintenance_windows])) unless stub[:deferred_maintenance_windows].nil?
         xml << Hearth::XML::Node.new('SnapshotScheduleIdentifier', stub[:snapshot_schedule_identifier].to_s) unless stub[:snapshot_schedule_identifier].nil?
         xml << Hearth::XML::Node.new('SnapshotScheduleState', stub[:snapshot_schedule_state].to_s) unless stub[:snapshot_schedule_state].nil?
         xml << Hearth::XML::Node.new('ExpectedNextSnapshotScheduleTime', Hearth::TimeHelper.to_date_time(stub[:expected_next_snapshot_schedule_time])) unless stub[:expected_next_snapshot_schedule_time].nil?
         xml << Hearth::XML::Node.new('ExpectedNextSnapshotScheduleTimeStatus', stub[:expected_next_snapshot_schedule_time_status].to_s) unless stub[:expected_next_snapshot_schedule_time_status].nil?
         xml << Hearth::XML::Node.new('NextMaintenanceWindowStartTime', Hearth::TimeHelper.to_date_time(stub[:next_maintenance_window_start_time])) unless stub[:next_maintenance_window_start_time].nil?
-        xml << Stubs::ResizeInfo.stub('ResizeInfo', stub[:resize_info]) unless stub[:resize_info].nil?
+        xml << ResizeInfo.stub('ResizeInfo', stub[:resize_info]) unless stub[:resize_info].nil?
         xml << Hearth::XML::Node.new('AvailabilityZoneRelocationStatus', stub[:availability_zone_relocation_status].to_s) unless stub[:availability_zone_relocation_status].nil?
         xml << Hearth::XML::Node.new('ClusterNamespaceArn', stub[:cluster_namespace_arn].to_s) unless stub[:cluster_namespace_arn].nil?
         xml << Hearth::XML::Node.new('TotalStorageCapacityInMegaBytes', stub[:total_storage_capacity_in_mega_bytes].to_s) unless stub[:total_storage_capacity_in_mega_bytes].nil?
-        xml << Stubs::AquaConfiguration.stub('AquaConfiguration', stub[:aqua_configuration]) unless stub[:aqua_configuration].nil?
+        xml << AquaConfiguration.stub('AquaConfiguration', stub[:aqua_configuration]) unless stub[:aqua_configuration].nil?
         xml << Hearth::XML::Node.new('DefaultIamRoleArn', stub[:default_iam_role_arn].to_s) unless stub[:default_iam_role_arn].nil?
-        xml << Stubs::ReservedNodeExchangeStatus.stub('ReservedNodeExchangeStatus', stub[:reserved_node_exchange_status]) unless stub[:reserved_node_exchange_status].nil?
+        xml << ReservedNodeExchangeStatus.stub('ReservedNodeExchangeStatus', stub[:reserved_node_exchange_status]) unless stub[:reserved_node_exchange_status].nil?
         xml
       end
     end
@@ -1121,7 +1123,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DeferredMaintenanceWindow.stub(node_name, element) unless element.nil?
+          xml << DeferredMaintenanceWindow.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1181,7 +1183,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ClusterIamRole.stub(node_name, element) unless element.nil?
+          xml << ClusterIamRole.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1240,7 +1242,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ClusterNode.stub(node_name, element) unless element.nil?
+          xml << ClusterNode.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1421,7 +1423,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ClusterParameterGroupStatus.stub(node_name, element) unless element.nil?
+          xml << ClusterParameterGroupStatus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1444,7 +1446,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ParameterGroupName', stub[:parameter_group_name].to_s) unless stub[:parameter_group_name].nil?
         xml << Hearth::XML::Node.new('ParameterApplyStatus', stub[:parameter_apply_status].to_s) unless stub[:parameter_apply_status].nil?
-        xml << Hearth::XML::Node.new('ClusterParameterStatusList', Stubs::ClusterParameterStatusList.stub('member', stub[:cluster_parameter_status_list])) unless stub[:cluster_parameter_status_list].nil?
+        xml << Hearth::XML::Node.new('ClusterParameterStatusList', ClusterParameterStatusList.stub('member', stub[:cluster_parameter_status_list])) unless stub[:cluster_parameter_status_list].nil?
         xml
       end
     end
@@ -1462,7 +1464,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ClusterParameterStatus.stub(node_name, element) unless element.nil?
+          xml << ClusterParameterStatus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1503,7 +1505,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::VpcSecurityGroupMembership.stub(node_name, element) unless element.nil?
+          xml << VpcSecurityGroupMembership.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1542,7 +1544,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ClusterSecurityGroupMembership.stub(node_name, element) unless element.nil?
+          xml << ClusterSecurityGroupMembership.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1585,7 +1587,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Address', stub[:address].to_s) unless stub[:address].nil?
         xml << Hearth::XML::Node.new('Port', stub[:port].to_s) unless stub[:port].nil?
-        xml << Hearth::XML::Node.new('VpcEndpoints', Stubs::VpcEndpointsList.stub('VpcEndpoint', stub[:vpc_endpoints])) unless stub[:vpc_endpoints].nil?
+        xml << Hearth::XML::Node.new('VpcEndpoints', VpcEndpointsList.stub('VpcEndpoint', stub[:vpc_endpoints])) unless stub[:vpc_endpoints].nil?
         xml
       end
     end
@@ -1603,7 +1605,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::VpcEndpoint.stub(node_name, element) unless element.nil?
+          xml << VpcEndpoint.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1626,7 +1628,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('VpcEndpointId', stub[:vpc_endpoint_id].to_s) unless stub[:vpc_endpoint_id].nil?
         xml << Hearth::XML::Node.new('VpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
-        xml << Hearth::XML::Node.new('NetworkInterfaces', Stubs::NetworkInterfaceList.stub('NetworkInterface', stub[:network_interfaces])) unless stub[:network_interfaces].nil?
+        xml << Hearth::XML::Node.new('NetworkInterfaces', NetworkInterfaceList.stub('NetworkInterface', stub[:network_interfaces])) unless stub[:network_interfaces].nil?
         xml
       end
     end
@@ -1644,7 +1646,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::NetworkInterface.stub(node_name, element) unless element.nil?
+          xml << NetworkInterface.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1687,9 +1689,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('CreateClusterParameterGroupResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('CreateClusterParameterGroupResult')
-        xml << Stubs::ClusterParameterGroup.stub('ClusterParameterGroup', stub[:cluster_parameter_group]) unless stub[:cluster_parameter_group].nil?
+        xml << ClusterParameterGroup.stub('ClusterParameterGroup', stub[:cluster_parameter_group]) unless stub[:cluster_parameter_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1713,7 +1715,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('ParameterGroupName', stub[:parameter_group_name].to_s) unless stub[:parameter_group_name].nil?
         xml << Hearth::XML::Node.new('ParameterGroupFamily', stub[:parameter_group_family].to_s) unless stub[:parameter_group_family].nil?
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -1731,9 +1733,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('CreateClusterSecurityGroupResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('CreateClusterSecurityGroupResult')
-        xml << Stubs::ClusterSecurityGroup.stub('ClusterSecurityGroup', stub[:cluster_security_group]) unless stub[:cluster_security_group].nil?
+        xml << ClusterSecurityGroup.stub('ClusterSecurityGroup', stub[:cluster_security_group]) unless stub[:cluster_security_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1751,9 +1753,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('CreateClusterSnapshotResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('CreateClusterSnapshotResult')
-        xml << Stubs::Snapshot.stub('Snapshot', stub[:snapshot]) unless stub[:snapshot].nil?
+        xml << Snapshot.stub('Snapshot', stub[:snapshot]) unless stub[:snapshot].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1771,9 +1773,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('CreateClusterSubnetGroupResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('CreateClusterSubnetGroupResult')
-        xml << Stubs::ClusterSubnetGroup.stub('ClusterSubnetGroup', stub[:cluster_subnet_group]) unless stub[:cluster_subnet_group].nil?
+        xml << ClusterSubnetGroup.stub('ClusterSubnetGroup', stub[:cluster_subnet_group]) unless stub[:cluster_subnet_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1800,8 +1802,8 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('VpcId', stub[:vpc_id].to_s) unless stub[:vpc_id].nil?
         xml << Hearth::XML::Node.new('SubnetGroupStatus', stub[:subnet_group_status].to_s) unless stub[:subnet_group_status].nil?
-        xml << Hearth::XML::Node.new('Subnets', Stubs::SubnetList.stub('Subnet', stub[:subnets])) unless stub[:subnets].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Subnets', SubnetList.stub('Subnet', stub[:subnets])) unless stub[:subnets].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -1819,7 +1821,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Subnet.stub(node_name, element) unless element.nil?
+          xml << Subnet.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1841,7 +1843,7 @@ module AWS::SDK::Redshift
         stub ||= Types::Subnet.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('SubnetIdentifier', stub[:subnet_identifier].to_s) unless stub[:subnet_identifier].nil?
-        xml << Stubs::AvailabilityZone.stub('SubnetAvailabilityZone', stub[:subnet_availability_zone]) unless stub[:subnet_availability_zone].nil?
+        xml << AvailabilityZone.stub('SubnetAvailabilityZone', stub[:subnet_availability_zone]) unless stub[:subnet_availability_zone].nil?
         xml << Hearth::XML::Node.new('SubnetStatus', stub[:subnet_status].to_s) unless stub[:subnet_status].nil?
         xml
       end
@@ -1862,7 +1864,7 @@ module AWS::SDK::Redshift
         stub ||= Types::AvailabilityZone.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
-        xml << Hearth::XML::Node.new('SupportedPlatforms', Stubs::SupportedPlatformsList.stub('SupportedPlatform', stub[:supported_platforms])) unless stub[:supported_platforms].nil?
+        xml << Hearth::XML::Node.new('SupportedPlatforms', SupportedPlatformsList.stub('SupportedPlatform', stub[:supported_platforms])) unless stub[:supported_platforms].nil?
         xml
       end
     end
@@ -1880,7 +1882,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SupportedPlatform.stub(node_name, element) unless element.nil?
+          xml << SupportedPlatform.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1934,10 +1936,10 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('EndpointCreateTime', Hearth::TimeHelper.to_date_time(stub[:endpoint_create_time])) unless stub[:endpoint_create_time].nil?
         xml << Hearth::XML::Node.new('Port', stub[:port].to_s) unless stub[:port].nil?
         xml << Hearth::XML::Node.new('Address', stub[:address].to_s) unless stub[:address].nil?
-        xml << Hearth::XML::Node.new('VpcSecurityGroups', Stubs::VpcSecurityGroupMembershipList.stub('VpcSecurityGroup', stub[:vpc_security_groups])) unless stub[:vpc_security_groups].nil?
-        xml << Stubs::VpcEndpoint.stub('VpcEndpoint', stub[:vpc_endpoint]) unless stub[:vpc_endpoint].nil?
+        xml << Hearth::XML::Node.new('VpcSecurityGroups', VpcSecurityGroupMembershipList.stub('VpcSecurityGroup', stub[:vpc_security_groups])) unless stub[:vpc_security_groups].nil?
+        xml << VpcEndpoint.stub('VpcEndpoint', stub[:vpc_endpoint]) unless stub[:vpc_endpoint].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1955,9 +1957,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('CreateEventSubscriptionResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('CreateEventSubscriptionResult')
-        xml << Stubs::EventSubscription.stub('EventSubscription', stub[:event_subscription]) unless stub[:event_subscription].nil?
+        xml << EventSubscription.stub('EventSubscription', stub[:event_subscription]) unless stub[:event_subscription].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1991,11 +1993,11 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('SubscriptionCreationTime', Hearth::TimeHelper.to_date_time(stub[:subscription_creation_time])) unless stub[:subscription_creation_time].nil?
         xml << Hearth::XML::Node.new('SourceType', stub[:source_type].to_s) unless stub[:source_type].nil?
-        xml << Hearth::XML::Node.new('SourceIdsList', Stubs::SourceIdsList.stub('SourceId', stub[:source_ids_list])) unless stub[:source_ids_list].nil?
-        xml << Hearth::XML::Node.new('EventCategoriesList', Stubs::EventCategoriesList.stub('EventCategory', stub[:event_categories_list])) unless stub[:event_categories_list].nil?
+        xml << Hearth::XML::Node.new('SourceIdsList', SourceIdsList.stub('SourceId', stub[:source_ids_list])) unless stub[:source_ids_list].nil?
+        xml << Hearth::XML::Node.new('EventCategoriesList', EventCategoriesList.stub('EventCategory', stub[:event_categories_list])) unless stub[:event_categories_list].nil?
         xml << Hearth::XML::Node.new('Severity', stub[:severity].to_s) unless stub[:severity].nil?
         xml << Hearth::XML::Node.new('Enabled', stub[:enabled].to_s) unless stub[:enabled].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -2051,9 +2053,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('CreateHsmClientCertificateResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('CreateHsmClientCertificateResult')
-        xml << Stubs::HsmClientCertificate.stub('HsmClientCertificate', stub[:hsm_client_certificate]) unless stub[:hsm_client_certificate].nil?
+        xml << HsmClientCertificate.stub('HsmClientCertificate', stub[:hsm_client_certificate]) unless stub[:hsm_client_certificate].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2075,7 +2077,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('HsmClientCertificateIdentifier', stub[:hsm_client_certificate_identifier].to_s) unless stub[:hsm_client_certificate_identifier].nil?
         xml << Hearth::XML::Node.new('HsmClientCertificatePublicKey', stub[:hsm_client_certificate_public_key].to_s) unless stub[:hsm_client_certificate_public_key].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -2093,9 +2095,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('CreateHsmConfigurationResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('CreateHsmConfigurationResult')
-        xml << Stubs::HsmConfiguration.stub('HsmConfiguration', stub[:hsm_configuration]) unless stub[:hsm_configuration].nil?
+        xml << HsmConfiguration.stub('HsmConfiguration', stub[:hsm_configuration]) unless stub[:hsm_configuration].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2121,7 +2123,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('Description', stub[:description].to_s) unless stub[:description].nil?
         xml << Hearth::XML::Node.new('HsmIpAddress', stub[:hsm_ip_address].to_s) unless stub[:hsm_ip_address].nil?
         xml << Hearth::XML::Node.new('HsmPartitionName', stub[:hsm_partition_name].to_s) unless stub[:hsm_partition_name].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -2148,16 +2150,16 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('CreateScheduledActionResult')
         xml << Hearth::XML::Node.new('ScheduledActionName', stub[:scheduled_action_name].to_s) unless stub[:scheduled_action_name].nil?
-        xml << Stubs::ScheduledActionType.stub('TargetAction', stub[:target_action]) unless stub[:target_action].nil?
+        xml << ScheduledActionType.stub('TargetAction', stub[:target_action]) unless stub[:target_action].nil?
         xml << Hearth::XML::Node.new('Schedule', stub[:schedule].to_s) unless stub[:schedule].nil?
         xml << Hearth::XML::Node.new('IamRole', stub[:iam_role].to_s) unless stub[:iam_role].nil?
         xml << Hearth::XML::Node.new('ScheduledActionDescription', stub[:scheduled_action_description].to_s) unless stub[:scheduled_action_description].nil?
         xml << Hearth::XML::Node.new('State', stub[:state].to_s) unless stub[:state].nil?
-        xml << Hearth::XML::Node.new('NextInvocations', Stubs::ScheduledActionTimeList.stub('ScheduledActionTime', stub[:next_invocations])) unless stub[:next_invocations].nil?
+        xml << Hearth::XML::Node.new('NextInvocations', ScheduledActionTimeList.stub('ScheduledActionTime', stub[:next_invocations])) unless stub[:next_invocations].nil?
         xml << Hearth::XML::Node.new('StartTime', Hearth::TimeHelper.to_date_time(stub[:start_time])) unless stub[:start_time].nil?
         xml << Hearth::XML::Node.new('EndTime', Hearth::TimeHelper.to_date_time(stub[:end_time])) unless stub[:end_time].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2196,9 +2198,9 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         stub ||= Types::ScheduledActionType.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::ResizeClusterMessage.stub('ResizeCluster', stub[:resize_cluster]) unless stub[:resize_cluster].nil?
-        xml << Stubs::PauseClusterMessage.stub('PauseCluster', stub[:pause_cluster]) unless stub[:pause_cluster].nil?
-        xml << Stubs::ResumeClusterMessage.stub('ResumeCluster', stub[:resume_cluster]) unless stub[:resume_cluster].nil?
+        xml << ResizeClusterMessage.stub('ResizeCluster', stub[:resize_cluster]) unless stub[:resize_cluster].nil?
+        xml << PauseClusterMessage.stub('PauseCluster', stub[:pause_cluster]) unless stub[:pause_cluster].nil?
+        xml << ResumeClusterMessage.stub('ResumeCluster', stub[:resume_cluster]) unless stub[:resume_cluster].nil?
         xml
       end
     end
@@ -2282,9 +2284,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('CreateSnapshotCopyGrantResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('CreateSnapshotCopyGrantResult')
-        xml << Stubs::SnapshotCopyGrant.stub('SnapshotCopyGrant', stub[:snapshot_copy_grant]) unless stub[:snapshot_copy_grant].nil?
+        xml << SnapshotCopyGrant.stub('SnapshotCopyGrant', stub[:snapshot_copy_grant]) unless stub[:snapshot_copy_grant].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2306,7 +2308,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('SnapshotCopyGrantName', stub[:snapshot_copy_grant_name].to_s) unless stub[:snapshot_copy_grant_name].nil?
         xml << Hearth::XML::Node.new('KmsKeyId', stub[:kms_key_id].to_s) unless stub[:kms_key_id].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -2330,15 +2332,15 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('CreateSnapshotScheduleResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('CreateSnapshotScheduleResult')
-        xml << Hearth::XML::Node.new('ScheduleDefinitions', Stubs::ScheduleDefinitionList.stub('ScheduleDefinition', stub[:schedule_definitions])) unless stub[:schedule_definitions].nil?
+        xml << Hearth::XML::Node.new('ScheduleDefinitions', ScheduleDefinitionList.stub('ScheduleDefinition', stub[:schedule_definitions])) unless stub[:schedule_definitions].nil?
         xml << Hearth::XML::Node.new('ScheduleIdentifier', stub[:schedule_identifier].to_s) unless stub[:schedule_identifier].nil?
         xml << Hearth::XML::Node.new('ScheduleDescription', stub[:schedule_description].to_s) unless stub[:schedule_description].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
-        xml << Hearth::XML::Node.new('NextInvocations', Stubs::ScheduledSnapshotTimeList.stub('SnapshotTime', stub[:next_invocations])) unless stub[:next_invocations].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('NextInvocations', ScheduledSnapshotTimeList.stub('SnapshotTime', stub[:next_invocations])) unless stub[:next_invocations].nil?
         xml << Hearth::XML::Node.new('AssociatedClusterCount', stub[:associated_cluster_count].to_s) unless stub[:associated_cluster_count].nil?
-        xml << Hearth::XML::Node.new('AssociatedClusters', Stubs::AssociatedClusterList.stub('ClusterAssociatedToSchedule', stub[:associated_clusters])) unless stub[:associated_clusters].nil?
+        xml << Hearth::XML::Node.new('AssociatedClusters', AssociatedClusterList.stub('ClusterAssociatedToSchedule', stub[:associated_clusters])) unless stub[:associated_clusters].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2356,7 +2358,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ClusterAssociatedToSchedule.stub(node_name, element) unless element.nil?
+          xml << ClusterAssociatedToSchedule.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2433,7 +2435,7 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('CreateTagsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2465,9 +2467,9 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('Amount', stub[:amount].to_s) unless stub[:amount].nil?
         xml << Hearth::XML::Node.new('Period', stub[:period].to_s) unless stub[:period].nil?
         xml << Hearth::XML::Node.new('BreachAction', stub[:breach_action].to_s) unless stub[:breach_action].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2492,10 +2494,10 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('DataShareArn', stub[:data_share_arn].to_s) unless stub[:data_share_arn].nil?
         xml << Hearth::XML::Node.new('ProducerArn', stub[:producer_arn].to_s) unless stub[:producer_arn].nil?
         xml << Hearth::XML::Node.new('AllowPubliclyAccessibleConsumers', stub[:allow_publicly_accessible_consumers].to_s) unless stub[:allow_publicly_accessible_consumers].nil?
-        xml << Hearth::XML::Node.new('DataShareAssociations', Stubs::DataShareAssociationList.stub('member', stub[:data_share_associations])) unless stub[:data_share_associations].nil?
+        xml << Hearth::XML::Node.new('DataShareAssociations', DataShareAssociationList.stub('member', stub[:data_share_associations])) unless stub[:data_share_associations].nil?
         xml << Hearth::XML::Node.new('ManagedBy', stub[:managed_by].to_s) unless stub[:managed_by].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2515,7 +2517,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML::Node.new('DeleteAuthenticationProfileResult')
         xml << Hearth::XML::Node.new('AuthenticationProfileName', stub[:authentication_profile_name].to_s) unless stub[:authentication_profile_name].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2533,9 +2535,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DeleteClusterResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DeleteClusterResult')
-        xml << Stubs::Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
+        xml << Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2553,7 +2555,7 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DeleteClusterParameterGroupResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2571,7 +2573,7 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DeleteClusterSecurityGroupResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2589,9 +2591,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DeleteClusterSnapshotResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DeleteClusterSnapshotResult')
-        xml << Stubs::Snapshot.stub('Snapshot', stub[:snapshot]) unless stub[:snapshot].nil?
+        xml << Snapshot.stub('Snapshot', stub[:snapshot]) unless stub[:snapshot].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2609,7 +2611,7 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DeleteClusterSubnetGroupResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2644,10 +2646,10 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('EndpointCreateTime', Hearth::TimeHelper.to_date_time(stub[:endpoint_create_time])) unless stub[:endpoint_create_time].nil?
         xml << Hearth::XML::Node.new('Port', stub[:port].to_s) unless stub[:port].nil?
         xml << Hearth::XML::Node.new('Address', stub[:address].to_s) unless stub[:address].nil?
-        xml << Hearth::XML::Node.new('VpcSecurityGroups', Stubs::VpcSecurityGroupMembershipList.stub('VpcSecurityGroup', stub[:vpc_security_groups])) unless stub[:vpc_security_groups].nil?
-        xml << Stubs::VpcEndpoint.stub('VpcEndpoint', stub[:vpc_endpoint]) unless stub[:vpc_endpoint].nil?
+        xml << Hearth::XML::Node.new('VpcSecurityGroups', VpcSecurityGroupMembershipList.stub('VpcSecurityGroup', stub[:vpc_security_groups])) unless stub[:vpc_security_groups].nil?
+        xml << VpcEndpoint.stub('VpcEndpoint', stub[:vpc_endpoint]) unless stub[:vpc_endpoint].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2665,7 +2667,7 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DeleteEventSubscriptionResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2683,7 +2685,7 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DeleteHsmClientCertificateResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2701,7 +2703,7 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DeleteHsmConfigurationResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2723,7 +2725,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('DatabaseName', stub[:database_name].to_s) unless stub[:database_name].nil?
         xml << Hearth::XML::Node.new('PartnerName', stub[:partner_name].to_s) unless stub[:partner_name].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2741,7 +2743,7 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DeleteScheduledActionResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2759,7 +2761,7 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DeleteSnapshotCopyGrantResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2777,7 +2779,7 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DeleteSnapshotScheduleResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2795,7 +2797,7 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DeleteTagsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2813,7 +2815,7 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DeleteUsageLimitResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2831,9 +2833,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeAccountAttributesResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeAccountAttributesResult')
-        xml << Hearth::XML::Node.new('AccountAttributes', Stubs::AttributeList.stub('AccountAttribute', stub[:account_attributes])) unless stub[:account_attributes].nil?
+        xml << Hearth::XML::Node.new('AccountAttributes', AttributeList.stub('AccountAttribute', stub[:account_attributes])) unless stub[:account_attributes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2851,7 +2853,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AccountAttribute.stub(node_name, element) unless element.nil?
+          xml << AccountAttribute.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2872,7 +2874,7 @@ module AWS::SDK::Redshift
         stub ||= Types::AccountAttribute.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('AttributeName', stub[:attribute_name].to_s) unless stub[:attribute_name].nil?
-        xml << Hearth::XML::Node.new('AttributeValues', Stubs::AttributeValueList.stub('AttributeValueTarget', stub[:attribute_values])) unless stub[:attribute_values].nil?
+        xml << Hearth::XML::Node.new('AttributeValues', AttributeValueList.stub('AttributeValueTarget', stub[:attribute_values])) unless stub[:attribute_values].nil?
         xml
       end
     end
@@ -2890,7 +2892,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AttributeValueTarget.stub(node_name, element) unless element.nil?
+          xml << AttributeValueTarget.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2927,9 +2929,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeAuthenticationProfilesResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeAuthenticationProfilesResult')
-        xml << Hearth::XML::Node.new('AuthenticationProfiles', Stubs::AuthenticationProfileList.stub('member', stub[:authentication_profiles])) unless stub[:authentication_profiles].nil?
+        xml << Hearth::XML::Node.new('AuthenticationProfiles', AuthenticationProfileList.stub('member', stub[:authentication_profiles])) unless stub[:authentication_profiles].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2947,7 +2949,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AuthenticationProfile.stub(node_name, element) unless element.nil?
+          xml << AuthenticationProfile.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -2988,9 +2990,9 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeClusterDbRevisionsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('ClusterDbRevisions', Stubs::ClusterDbRevisionsList.stub('ClusterDbRevision', stub[:cluster_db_revisions])) unless stub[:cluster_db_revisions].nil?
+        xml << Hearth::XML::Node.new('ClusterDbRevisions', ClusterDbRevisionsList.stub('ClusterDbRevision', stub[:cluster_db_revisions])) unless stub[:cluster_db_revisions].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3008,7 +3010,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ClusterDbRevision.stub(node_name, element) unless element.nil?
+          xml << ClusterDbRevision.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3033,7 +3035,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('ClusterIdentifier', stub[:cluster_identifier].to_s) unless stub[:cluster_identifier].nil?
         xml << Hearth::XML::Node.new('CurrentDatabaseRevision', stub[:current_database_revision].to_s) unless stub[:current_database_revision].nil?
         xml << Hearth::XML::Node.new('DatabaseRevisionReleaseDate', Hearth::TimeHelper.to_date_time(stub[:database_revision_release_date])) unless stub[:database_revision_release_date].nil?
-        xml << Hearth::XML::Node.new('RevisionTargets', Stubs::RevisionTargetsList.stub('RevisionTarget', stub[:revision_targets])) unless stub[:revision_targets].nil?
+        xml << Hearth::XML::Node.new('RevisionTargets', RevisionTargetsList.stub('RevisionTarget', stub[:revision_targets])) unless stub[:revision_targets].nil?
         xml
       end
     end
@@ -3051,7 +3053,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::RevisionTarget.stub(node_name, element) unless element.nil?
+          xml << RevisionTarget.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3094,9 +3096,9 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeClusterParameterGroupsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('ParameterGroups', Stubs::ParameterGroupList.stub('ClusterParameterGroup', stub[:parameter_groups])) unless stub[:parameter_groups].nil?
+        xml << Hearth::XML::Node.new('ParameterGroups', ParameterGroupList.stub('ClusterParameterGroup', stub[:parameter_groups])) unless stub[:parameter_groups].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3114,7 +3116,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ClusterParameterGroup.stub(node_name, element) unless element.nil?
+          xml << ClusterParameterGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3134,10 +3136,10 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeClusterParametersResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeClusterParametersResult')
-        xml << Hearth::XML::Node.new('Parameters', Stubs::ParametersList.stub('Parameter', stub[:parameters])) unless stub[:parameters].nil?
+        xml << Hearth::XML::Node.new('Parameters', ParametersList.stub('Parameter', stub[:parameters])) unless stub[:parameters].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3155,7 +3157,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Parameter.stub(node_name, element) unless element.nil?
+          xml << Parameter.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3210,9 +3212,9 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeClusterSecurityGroupsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('ClusterSecurityGroups', Stubs::ClusterSecurityGroups.stub('ClusterSecurityGroup', stub[:cluster_security_groups])) unless stub[:cluster_security_groups].nil?
+        xml << Hearth::XML::Node.new('ClusterSecurityGroups', ClusterSecurityGroups.stub('ClusterSecurityGroup', stub[:cluster_security_groups])) unless stub[:cluster_security_groups].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3230,7 +3232,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ClusterSecurityGroup.stub(node_name, element) unless element.nil?
+          xml << ClusterSecurityGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3251,9 +3253,9 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeClusterSnapshotsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('Snapshots', Stubs::SnapshotList.stub('Snapshot', stub[:snapshots])) unless stub[:snapshots].nil?
+        xml << Hearth::XML::Node.new('Snapshots', SnapshotList.stub('Snapshot', stub[:snapshots])) unless stub[:snapshots].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3271,7 +3273,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Snapshot.stub(node_name, element) unless element.nil?
+          xml << Snapshot.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3292,9 +3294,9 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeClusterSubnetGroupsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('ClusterSubnetGroups', Stubs::ClusterSubnetGroups.stub('ClusterSubnetGroup', stub[:cluster_subnet_groups])) unless stub[:cluster_subnet_groups].nil?
+        xml << Hearth::XML::Node.new('ClusterSubnetGroups', ClusterSubnetGroups.stub('ClusterSubnetGroup', stub[:cluster_subnet_groups])) unless stub[:cluster_subnet_groups].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3312,7 +3314,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ClusterSubnetGroup.stub(node_name, element) unless element.nil?
+          xml << ClusterSubnetGroup.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3332,10 +3334,10 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeClusterTracksResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeClusterTracksResult')
-        xml << Hearth::XML::Node.new('MaintenanceTracks', Stubs::TrackList.stub('MaintenanceTrack', stub[:maintenance_tracks])) unless stub[:maintenance_tracks].nil?
+        xml << Hearth::XML::Node.new('MaintenanceTracks', TrackList.stub('MaintenanceTrack', stub[:maintenance_tracks])) unless stub[:maintenance_tracks].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3353,7 +3355,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::MaintenanceTrack.stub(node_name, element) unless element.nil?
+          xml << MaintenanceTrack.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3376,7 +3378,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('MaintenanceTrackName', stub[:maintenance_track_name].to_s) unless stub[:maintenance_track_name].nil?
         xml << Hearth::XML::Node.new('DatabaseVersion', stub[:database_version].to_s) unless stub[:database_version].nil?
-        xml << Hearth::XML::Node.new('UpdateTargets', Stubs::EligibleTracksToUpdateList.stub('UpdateTarget', stub[:update_targets])) unless stub[:update_targets].nil?
+        xml << Hearth::XML::Node.new('UpdateTargets', EligibleTracksToUpdateList.stub('UpdateTarget', stub[:update_targets])) unless stub[:update_targets].nil?
         xml
       end
     end
@@ -3394,7 +3396,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::UpdateTarget.stub(node_name, element) unless element.nil?
+          xml << UpdateTarget.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3417,7 +3419,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('MaintenanceTrackName', stub[:maintenance_track_name].to_s) unless stub[:maintenance_track_name].nil?
         xml << Hearth::XML::Node.new('DatabaseVersion', stub[:database_version].to_s) unless stub[:database_version].nil?
-        xml << Hearth::XML::Node.new('SupportedOperations', Stubs::SupportedOperationList.stub('SupportedOperation', stub[:supported_operations])) unless stub[:supported_operations].nil?
+        xml << Hearth::XML::Node.new('SupportedOperations', SupportedOperationList.stub('SupportedOperation', stub[:supported_operations])) unless stub[:supported_operations].nil?
         xml
       end
     end
@@ -3435,7 +3437,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SupportedOperation.stub(node_name, element) unless element.nil?
+          xml << SupportedOperation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3474,9 +3476,9 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeClusterVersionsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('ClusterVersions', Stubs::ClusterVersionList.stub('ClusterVersion', stub[:cluster_versions])) unless stub[:cluster_versions].nil?
+        xml << Hearth::XML::Node.new('ClusterVersions', ClusterVersionList.stub('ClusterVersion', stub[:cluster_versions])) unless stub[:cluster_versions].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3494,7 +3496,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ClusterVersion.stub(node_name, element) unless element.nil?
+          xml << ClusterVersion.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3537,9 +3539,9 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeClustersResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('Clusters', Stubs::ClusterList.stub('Cluster', stub[:clusters])) unless stub[:clusters].nil?
+        xml << Hearth::XML::Node.new('Clusters', ClusterList.stub('Cluster', stub[:clusters])) unless stub[:clusters].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3557,7 +3559,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Cluster.stub(node_name, element) unless element.nil?
+          xml << Cluster.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3577,10 +3579,10 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeDataSharesResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeDataSharesResult')
-        xml << Hearth::XML::Node.new('DataShares', Stubs::DataShareList.stub('member', stub[:data_shares])) unless stub[:data_shares].nil?
+        xml << Hearth::XML::Node.new('DataShares', DataShareList.stub('member', stub[:data_shares])) unless stub[:data_shares].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3598,7 +3600,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DataShare.stub(node_name, element) unless element.nil?
+          xml << DataShare.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3624,7 +3626,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('DataShareArn', stub[:data_share_arn].to_s) unless stub[:data_share_arn].nil?
         xml << Hearth::XML::Node.new('ProducerArn', stub[:producer_arn].to_s) unless stub[:producer_arn].nil?
         xml << Hearth::XML::Node.new('AllowPubliclyAccessibleConsumers', stub[:allow_publicly_accessible_consumers].to_s) unless stub[:allow_publicly_accessible_consumers].nil?
-        xml << Hearth::XML::Node.new('DataShareAssociations', Stubs::DataShareAssociationList.stub('member', stub[:data_share_associations])) unless stub[:data_share_associations].nil?
+        xml << Hearth::XML::Node.new('DataShareAssociations', DataShareAssociationList.stub('member', stub[:data_share_associations])) unless stub[:data_share_associations].nil?
         xml << Hearth::XML::Node.new('ManagedBy', stub[:managed_by].to_s) unless stub[:managed_by].nil?
         xml
       end
@@ -3644,10 +3646,10 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeDataSharesForConsumerResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeDataSharesForConsumerResult')
-        xml << Hearth::XML::Node.new('DataShares', Stubs::DataShareList.stub('member', stub[:data_shares])) unless stub[:data_shares].nil?
+        xml << Hearth::XML::Node.new('DataShares', DataShareList.stub('member', stub[:data_shares])) unless stub[:data_shares].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3666,10 +3668,10 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeDataSharesForProducerResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeDataSharesForProducerResult')
-        xml << Hearth::XML::Node.new('DataShares', Stubs::DataShareList.stub('member', stub[:data_shares])) unless stub[:data_shares].nil?
+        xml << Hearth::XML::Node.new('DataShares', DataShareList.stub('member', stub[:data_shares])) unless stub[:data_shares].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3687,9 +3689,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeDefaultClusterParametersResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeDefaultClusterParametersResult')
-        xml << Stubs::DefaultClusterParameters.stub('DefaultClusterParameters', stub[:default_cluster_parameters]) unless stub[:default_cluster_parameters].nil?
+        xml << DefaultClusterParameters.stub('DefaultClusterParameters', stub[:default_cluster_parameters]) unless stub[:default_cluster_parameters].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3711,7 +3713,7 @@ module AWS::SDK::Redshift
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ParameterGroupFamily', stub[:parameter_group_family].to_s) unless stub[:parameter_group_family].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('Parameters', Stubs::ParametersList.stub('Parameter', stub[:parameters])) unless stub[:parameters].nil?
+        xml << Hearth::XML::Node.new('Parameters', ParametersList.stub('Parameter', stub[:parameters])) unless stub[:parameters].nil?
         xml
       end
     end
@@ -3730,10 +3732,10 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeEndpointAccessResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeEndpointAccessResult')
-        xml << Hearth::XML::Node.new('EndpointAccessList', Stubs::EndpointAccesses.stub('member', stub[:endpoint_access_list])) unless stub[:endpoint_access_list].nil?
+        xml << Hearth::XML::Node.new('EndpointAccessList', EndpointAccesses.stub('member', stub[:endpoint_access_list])) unless stub[:endpoint_access_list].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3751,7 +3753,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::EndpointAccess.stub(node_name, element) unless element.nil?
+          xml << EndpointAccess.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3787,8 +3789,8 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('EndpointCreateTime', Hearth::TimeHelper.to_date_time(stub[:endpoint_create_time])) unless stub[:endpoint_create_time].nil?
         xml << Hearth::XML::Node.new('Port', stub[:port].to_s) unless stub[:port].nil?
         xml << Hearth::XML::Node.new('Address', stub[:address].to_s) unless stub[:address].nil?
-        xml << Hearth::XML::Node.new('VpcSecurityGroups', Stubs::VpcSecurityGroupMembershipList.stub('VpcSecurityGroup', stub[:vpc_security_groups])) unless stub[:vpc_security_groups].nil?
-        xml << Stubs::VpcEndpoint.stub('VpcEndpoint', stub[:vpc_endpoint]) unless stub[:vpc_endpoint].nil?
+        xml << Hearth::XML::Node.new('VpcSecurityGroups', VpcSecurityGroupMembershipList.stub('VpcSecurityGroup', stub[:vpc_security_groups])) unless stub[:vpc_security_groups].nil?
+        xml << VpcEndpoint.stub('VpcEndpoint', stub[:vpc_endpoint]) unless stub[:vpc_endpoint].nil?
         xml
       end
     end
@@ -3807,10 +3809,10 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeEndpointAuthorizationResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeEndpointAuthorizationResult')
-        xml << Hearth::XML::Node.new('EndpointAuthorizationList', Stubs::EndpointAuthorizations.stub('member', stub[:endpoint_authorization_list])) unless stub[:endpoint_authorization_list].nil?
+        xml << Hearth::XML::Node.new('EndpointAuthorizationList', EndpointAuthorizations.stub('member', stub[:endpoint_authorization_list])) unless stub[:endpoint_authorization_list].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3828,7 +3830,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::EndpointAuthorization.stub(node_name, element) unless element.nil?
+          xml << EndpointAuthorization.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3862,7 +3864,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('ClusterStatus', stub[:cluster_status].to_s) unless stub[:cluster_status].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('AllowedAllVPCs', stub[:allowed_all_vp_cs].to_s) unless stub[:allowed_all_vp_cs].nil?
-        xml << Hearth::XML::Node.new('AllowedVPCs', Stubs::VpcIdentifierList.stub('VpcIdentifier', stub[:allowed_vp_cs])) unless stub[:allowed_vp_cs].nil?
+        xml << Hearth::XML::Node.new('AllowedVPCs', VpcIdentifierList.stub('VpcIdentifier', stub[:allowed_vp_cs])) unless stub[:allowed_vp_cs].nil?
         xml << Hearth::XML::Node.new('EndpointCount', stub[:endpoint_count].to_s) unless stub[:endpoint_count].nil?
         xml
       end
@@ -3881,9 +3883,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeEventCategoriesResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeEventCategoriesResult')
-        xml << Hearth::XML::Node.new('EventCategoriesMapList', Stubs::EventCategoriesMapList.stub('EventCategoriesMap', stub[:event_categories_map_list])) unless stub[:event_categories_map_list].nil?
+        xml << Hearth::XML::Node.new('EventCategoriesMapList', EventCategoriesMapList.stub('EventCategoriesMap', stub[:event_categories_map_list])) unless stub[:event_categories_map_list].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -3901,7 +3903,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::EventCategoriesMap.stub(node_name, element) unless element.nil?
+          xml << EventCategoriesMap.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3922,7 +3924,7 @@ module AWS::SDK::Redshift
         stub ||= Types::EventCategoriesMap.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('SourceType', stub[:source_type].to_s) unless stub[:source_type].nil?
-        xml << Hearth::XML::Node.new('Events', Stubs::EventInfoMapList.stub('EventInfoMap', stub[:events])) unless stub[:events].nil?
+        xml << Hearth::XML::Node.new('Events', EventInfoMapList.stub('EventInfoMap', stub[:events])) unless stub[:events].nil?
         xml
       end
     end
@@ -3940,7 +3942,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::EventInfoMap.stub(node_name, element) unless element.nil?
+          xml << EventInfoMap.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -3963,7 +3965,7 @@ module AWS::SDK::Redshift
         stub ||= Types::EventInfoMap.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('EventId', stub[:event_id].to_s) unless stub[:event_id].nil?
-        xml << Hearth::XML::Node.new('EventCategories', Stubs::EventCategoriesList.stub('EventCategory', stub[:event_categories])) unless stub[:event_categories].nil?
+        xml << Hearth::XML::Node.new('EventCategories', EventCategoriesList.stub('EventCategory', stub[:event_categories])) unless stub[:event_categories].nil?
         xml << Hearth::XML::Node.new('EventDescription', stub[:event_description].to_s) unless stub[:event_description].nil?
         xml << Hearth::XML::Node.new('Severity', stub[:severity].to_s) unless stub[:severity].nil?
         xml
@@ -3985,9 +3987,9 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeEventSubscriptionsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('EventSubscriptionsList', Stubs::EventSubscriptionsList.stub('EventSubscription', stub[:event_subscriptions_list])) unless stub[:event_subscriptions_list].nil?
+        xml << Hearth::XML::Node.new('EventSubscriptionsList', EventSubscriptionsList.stub('EventSubscription', stub[:event_subscriptions_list])) unless stub[:event_subscriptions_list].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4005,7 +4007,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::EventSubscription.stub(node_name, element) unless element.nil?
+          xml << EventSubscription.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4026,9 +4028,9 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeEventsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('Events', Stubs::EventList.stub('Event', stub[:events])) unless stub[:events].nil?
+        xml << Hearth::XML::Node.new('Events', EventList.stub('Event', stub[:events])) unless stub[:events].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4046,7 +4048,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Event.stub(node_name, element) unless element.nil?
+          xml << Event.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4074,7 +4076,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('SourceIdentifier', stub[:source_identifier].to_s) unless stub[:source_identifier].nil?
         xml << Hearth::XML::Node.new('SourceType', stub[:source_type].to_s) unless stub[:source_type].nil?
         xml << Hearth::XML::Node.new('Message', stub[:message].to_s) unless stub[:message].nil?
-        xml << Hearth::XML::Node.new('EventCategories', Stubs::EventCategoriesList.stub('EventCategory', stub[:event_categories])) unless stub[:event_categories].nil?
+        xml << Hearth::XML::Node.new('EventCategories', EventCategoriesList.stub('EventCategory', stub[:event_categories])) unless stub[:event_categories].nil?
         xml << Hearth::XML::Node.new('Severity', stub[:severity].to_s) unless stub[:severity].nil?
         xml << Hearth::XML::Node.new('Date', Hearth::TimeHelper.to_date_time(stub[:date])) unless stub[:date].nil?
         xml << Hearth::XML::Node.new('EventId', stub[:event_id].to_s) unless stub[:event_id].nil?
@@ -4097,9 +4099,9 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeHsmClientCertificatesResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('HsmClientCertificates', Stubs::HsmClientCertificateList.stub('HsmClientCertificate', stub[:hsm_client_certificates])) unless stub[:hsm_client_certificates].nil?
+        xml << Hearth::XML::Node.new('HsmClientCertificates', HsmClientCertificateList.stub('HsmClientCertificate', stub[:hsm_client_certificates])) unless stub[:hsm_client_certificates].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4117,7 +4119,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::HsmClientCertificate.stub(node_name, element) unless element.nil?
+          xml << HsmClientCertificate.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4138,9 +4140,9 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeHsmConfigurationsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('HsmConfigurations', Stubs::HsmConfigurationList.stub('HsmConfiguration', stub[:hsm_configurations])) unless stub[:hsm_configurations].nil?
+        xml << Hearth::XML::Node.new('HsmConfigurations', HsmConfigurationList.stub('HsmConfiguration', stub[:hsm_configurations])) unless stub[:hsm_configurations].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4158,7 +4160,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::HsmConfiguration.stub(node_name, element) unless element.nil?
+          xml << HsmConfiguration.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4191,9 +4193,9 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('LastFailureTime', Hearth::TimeHelper.to_date_time(stub[:last_failure_time])) unless stub[:last_failure_time].nil?
         xml << Hearth::XML::Node.new('LastFailureMessage', stub[:last_failure_message].to_s) unless stub[:last_failure_message].nil?
         xml << Hearth::XML::Node.new('LogDestinationType', stub[:log_destination_type].to_s) unless stub[:log_destination_type].nil?
-        xml << Hearth::XML::Node.new('LogExports', Stubs::LogTypeList.stub('member', stub[:log_exports])) unless stub[:log_exports].nil?
+        xml << Hearth::XML::Node.new('LogExports', LogTypeList.stub('member', stub[:log_exports])) unless stub[:log_exports].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4231,10 +4233,10 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeNodeConfigurationOptionsResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeNodeConfigurationOptionsResult')
-        xml << Hearth::XML::Node.new('NodeConfigurationOptionList', Stubs::NodeConfigurationOptionList.stub('NodeConfigurationOption', stub[:node_configuration_option_list])) unless stub[:node_configuration_option_list].nil?
+        xml << Hearth::XML::Node.new('NodeConfigurationOptionList', NodeConfigurationOptionList.stub('NodeConfigurationOption', stub[:node_configuration_option_list])) unless stub[:node_configuration_option_list].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4252,7 +4254,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::NodeConfigurationOption.stub(node_name, element) unless element.nil?
+          xml << NodeConfigurationOption.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4296,10 +4298,10 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeOrderableClusterOptionsResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeOrderableClusterOptionsResult')
-        xml << Hearth::XML::Node.new('OrderableClusterOptions', Stubs::OrderableClusterOptionsList.stub('OrderableClusterOption', stub[:orderable_cluster_options])) unless stub[:orderable_cluster_options].nil?
+        xml << Hearth::XML::Node.new('OrderableClusterOptions', OrderableClusterOptionsList.stub('OrderableClusterOption', stub[:orderable_cluster_options])) unless stub[:orderable_cluster_options].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4317,7 +4319,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::OrderableClusterOption.stub(node_name, element) unless element.nil?
+          xml << OrderableClusterOption.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4342,7 +4344,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('ClusterVersion', stub[:cluster_version].to_s) unless stub[:cluster_version].nil?
         xml << Hearth::XML::Node.new('ClusterType', stub[:cluster_type].to_s) unless stub[:cluster_type].nil?
         xml << Hearth::XML::Node.new('NodeType', stub[:node_type].to_s) unless stub[:node_type].nil?
-        xml << Hearth::XML::Node.new('AvailabilityZones', Stubs::AvailabilityZoneList.stub('AvailabilityZone', stub[:availability_zones])) unless stub[:availability_zones].nil?
+        xml << Hearth::XML::Node.new('AvailabilityZones', AvailabilityZoneList.stub('AvailabilityZone', stub[:availability_zones])) unless stub[:availability_zones].nil?
         xml
       end
     end
@@ -4360,7 +4362,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AvailabilityZone.stub(node_name, element) unless element.nil?
+          xml << AvailabilityZone.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4379,9 +4381,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribePartnersResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribePartnersResult')
-        xml << Hearth::XML::Node.new('PartnerIntegrationInfoList', Stubs::PartnerIntegrationInfoList.stub('PartnerIntegrationInfo', stub[:partner_integration_info_list])) unless stub[:partner_integration_info_list].nil?
+        xml << Hearth::XML::Node.new('PartnerIntegrationInfoList', PartnerIntegrationInfoList.stub('PartnerIntegrationInfo', stub[:partner_integration_info_list])) unless stub[:partner_integration_info_list].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4399,7 +4401,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PartnerIntegrationInfo.stub(node_name, element) unless element.nil?
+          xml << PartnerIntegrationInfo.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4447,10 +4449,10 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeReservedNodeExchangeStatusResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeReservedNodeExchangeStatusResult')
-        xml << Hearth::XML::Node.new('ReservedNodeExchangeStatusDetails', Stubs::ReservedNodeExchangeStatusList.stub('ReservedNodeExchangeStatus', stub[:reserved_node_exchange_status_details])) unless stub[:reserved_node_exchange_status_details].nil?
+        xml << Hearth::XML::Node.new('ReservedNodeExchangeStatusDetails', ReservedNodeExchangeStatusList.stub('ReservedNodeExchangeStatus', stub[:reserved_node_exchange_status_details])) unless stub[:reserved_node_exchange_status_details].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4468,7 +4470,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ReservedNodeExchangeStatus.stub(node_name, element) unless element.nil?
+          xml << ReservedNodeExchangeStatus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4489,9 +4491,9 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeReservedNodeOfferingsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('ReservedNodeOfferings', Stubs::ReservedNodeOfferingList.stub('ReservedNodeOffering', stub[:reserved_node_offerings])) unless stub[:reserved_node_offerings].nil?
+        xml << Hearth::XML::Node.new('ReservedNodeOfferings', ReservedNodeOfferingList.stub('ReservedNodeOffering', stub[:reserved_node_offerings])) unless stub[:reserved_node_offerings].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4509,7 +4511,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ReservedNodeOffering.stub(node_name, element) unless element.nil?
+          xml << ReservedNodeOffering.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4543,7 +4545,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('UsagePrice', Hearth::NumberHelper.serialize(stub[:usage_price]).to_s) unless stub[:usage_price].nil?
         xml << Hearth::XML::Node.new('CurrencyCode', stub[:currency_code].to_s) unless stub[:currency_code].nil?
         xml << Hearth::XML::Node.new('OfferingType', stub[:offering_type].to_s) unless stub[:offering_type].nil?
-        xml << Hearth::XML::Node.new('RecurringCharges', Stubs::RecurringChargeList.stub('RecurringCharge', stub[:recurring_charges])) unless stub[:recurring_charges].nil?
+        xml << Hearth::XML::Node.new('RecurringCharges', RecurringChargeList.stub('RecurringCharge', stub[:recurring_charges])) unless stub[:recurring_charges].nil?
         xml << Hearth::XML::Node.new('ReservedNodeOfferingType', stub[:reserved_node_offering_type].to_s) unless stub[:reserved_node_offering_type].nil?
         xml
       end
@@ -4564,9 +4566,9 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeReservedNodesResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('ReservedNodes', Stubs::ReservedNodeList.stub('ReservedNode', stub[:reserved_nodes])) unless stub[:reserved_nodes].nil?
+        xml << Hearth::XML::Node.new('ReservedNodes', ReservedNodeList.stub('ReservedNode', stub[:reserved_nodes])) unless stub[:reserved_nodes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4584,7 +4586,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ReservedNode.stub(node_name, element) unless element.nil?
+          xml << ReservedNode.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4622,9 +4624,9 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('TargetNumberOfNodes', stub[:target_number_of_nodes].to_s) unless stub[:target_number_of_nodes].nil?
         xml << Hearth::XML::Node.new('TargetClusterType', stub[:target_cluster_type].to_s) unless stub[:target_cluster_type].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
-        xml << Hearth::XML::Node.new('ImportTablesCompleted', Stubs::ImportTablesCompleted.stub('member', stub[:import_tables_completed])) unless stub[:import_tables_completed].nil?
-        xml << Hearth::XML::Node.new('ImportTablesInProgress', Stubs::ImportTablesInProgress.stub('member', stub[:import_tables_in_progress])) unless stub[:import_tables_in_progress].nil?
-        xml << Hearth::XML::Node.new('ImportTablesNotStarted', Stubs::ImportTablesNotStarted.stub('member', stub[:import_tables_not_started])) unless stub[:import_tables_not_started].nil?
+        xml << Hearth::XML::Node.new('ImportTablesCompleted', ImportTablesCompleted.stub('member', stub[:import_tables_completed])) unless stub[:import_tables_completed].nil?
+        xml << Hearth::XML::Node.new('ImportTablesInProgress', ImportTablesInProgress.stub('member', stub[:import_tables_in_progress])) unless stub[:import_tables_in_progress].nil?
+        xml << Hearth::XML::Node.new('ImportTablesNotStarted', ImportTablesNotStarted.stub('member', stub[:import_tables_not_started])) unless stub[:import_tables_not_started].nil?
         xml << Hearth::XML::Node.new('AvgResizeRateInMegaBytesPerSecond', Hearth::NumberHelper.serialize(stub[:avg_resize_rate_in_mega_bytes_per_second]).to_s) unless stub[:avg_resize_rate_in_mega_bytes_per_second].nil?
         xml << Hearth::XML::Node.new('TotalResizeDataInMegaBytes', stub[:total_resize_data_in_mega_bytes].to_s) unless stub[:total_resize_data_in_mega_bytes].nil?
         xml << Hearth::XML::Node.new('ProgressInMegaBytes', stub[:progress_in_mega_bytes].to_s) unless stub[:progress_in_mega_bytes].nil?
@@ -4635,7 +4637,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('TargetEncryptionType', stub[:target_encryption_type].to_s) unless stub[:target_encryption_type].nil?
         xml << Hearth::XML::Node.new('DataTransferProgressPercent', Hearth::NumberHelper.serialize(stub[:data_transfer_progress_percent]).to_s) unless stub[:data_transfer_progress_percent].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4655,9 +4657,9 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeScheduledActionsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('ScheduledActions', Stubs::ScheduledActionList.stub('ScheduledAction', stub[:scheduled_actions])) unless stub[:scheduled_actions].nil?
+        xml << Hearth::XML::Node.new('ScheduledActions', ScheduledActionList.stub('ScheduledAction', stub[:scheduled_actions])) unless stub[:scheduled_actions].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4675,7 +4677,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ScheduledAction.stub(node_name, element) unless element.nil?
+          xml << ScheduledAction.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4703,12 +4705,12 @@ module AWS::SDK::Redshift
         stub ||= Types::ScheduledAction.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ScheduledActionName', stub[:scheduled_action_name].to_s) unless stub[:scheduled_action_name].nil?
-        xml << Stubs::ScheduledActionType.stub('TargetAction', stub[:target_action]) unless stub[:target_action].nil?
+        xml << ScheduledActionType.stub('TargetAction', stub[:target_action]) unless stub[:target_action].nil?
         xml << Hearth::XML::Node.new('Schedule', stub[:schedule].to_s) unless stub[:schedule].nil?
         xml << Hearth::XML::Node.new('IamRole', stub[:iam_role].to_s) unless stub[:iam_role].nil?
         xml << Hearth::XML::Node.new('ScheduledActionDescription', stub[:scheduled_action_description].to_s) unless stub[:scheduled_action_description].nil?
         xml << Hearth::XML::Node.new('State', stub[:state].to_s) unless stub[:state].nil?
-        xml << Hearth::XML::Node.new('NextInvocations', Stubs::ScheduledActionTimeList.stub('ScheduledActionTime', stub[:next_invocations])) unless stub[:next_invocations].nil?
+        xml << Hearth::XML::Node.new('NextInvocations', ScheduledActionTimeList.stub('ScheduledActionTime', stub[:next_invocations])) unless stub[:next_invocations].nil?
         xml << Hearth::XML::Node.new('StartTime', Hearth::TimeHelper.to_date_time(stub[:start_time])) unless stub[:start_time].nil?
         xml << Hearth::XML::Node.new('EndTime', Hearth::TimeHelper.to_date_time(stub[:end_time])) unless stub[:end_time].nil?
         xml
@@ -4730,9 +4732,9 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeSnapshotCopyGrantsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('SnapshotCopyGrants', Stubs::SnapshotCopyGrantList.stub('SnapshotCopyGrant', stub[:snapshot_copy_grants])) unless stub[:snapshot_copy_grants].nil?
+        xml << Hearth::XML::Node.new('SnapshotCopyGrants', SnapshotCopyGrantList.stub('SnapshotCopyGrant', stub[:snapshot_copy_grants])) unless stub[:snapshot_copy_grants].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4750,7 +4752,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SnapshotCopyGrant.stub(node_name, element) unless element.nil?
+          xml << SnapshotCopyGrant.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4770,10 +4772,10 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeSnapshotSchedulesResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeSnapshotSchedulesResult')
-        xml << Hearth::XML::Node.new('SnapshotSchedules', Stubs::SnapshotScheduleList.stub('SnapshotSchedule', stub[:snapshot_schedules])) unless stub[:snapshot_schedules].nil?
+        xml << Hearth::XML::Node.new('SnapshotSchedules', SnapshotScheduleList.stub('SnapshotSchedule', stub[:snapshot_schedules])) unless stub[:snapshot_schedules].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4791,7 +4793,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SnapshotSchedule.stub(node_name, element) unless element.nil?
+          xml << SnapshotSchedule.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4816,13 +4818,13 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         stub ||= Types::SnapshotSchedule.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('ScheduleDefinitions', Stubs::ScheduleDefinitionList.stub('ScheduleDefinition', stub[:schedule_definitions])) unless stub[:schedule_definitions].nil?
+        xml << Hearth::XML::Node.new('ScheduleDefinitions', ScheduleDefinitionList.stub('ScheduleDefinition', stub[:schedule_definitions])) unless stub[:schedule_definitions].nil?
         xml << Hearth::XML::Node.new('ScheduleIdentifier', stub[:schedule_identifier].to_s) unless stub[:schedule_identifier].nil?
         xml << Hearth::XML::Node.new('ScheduleDescription', stub[:schedule_description].to_s) unless stub[:schedule_description].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
-        xml << Hearth::XML::Node.new('NextInvocations', Stubs::ScheduledSnapshotTimeList.stub('SnapshotTime', stub[:next_invocations])) unless stub[:next_invocations].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('NextInvocations', ScheduledSnapshotTimeList.stub('SnapshotTime', stub[:next_invocations])) unless stub[:next_invocations].nil?
         xml << Hearth::XML::Node.new('AssociatedClusterCount', stub[:associated_cluster_count].to_s) unless stub[:associated_cluster_count].nil?
-        xml << Hearth::XML::Node.new('AssociatedClusters', Stubs::AssociatedClusterList.stub('ClusterAssociatedToSchedule', stub[:associated_clusters])) unless stub[:associated_clusters].nil?
+        xml << Hearth::XML::Node.new('AssociatedClusters', AssociatedClusterList.stub('ClusterAssociatedToSchedule', stub[:associated_clusters])) unless stub[:associated_clusters].nil?
         xml
       end
     end
@@ -4844,7 +4846,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('TotalBackupSizeInMegaBytes', Hearth::NumberHelper.serialize(stub[:total_backup_size_in_mega_bytes]).to_s) unless stub[:total_backup_size_in_mega_bytes].nil?
         xml << Hearth::XML::Node.new('TotalProvisionedStorageInMegaBytes', Hearth::NumberHelper.serialize(stub[:total_provisioned_storage_in_mega_bytes]).to_s) unless stub[:total_provisioned_storage_in_mega_bytes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4863,10 +4865,10 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeTableRestoreStatusResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeTableRestoreStatusResult')
-        xml << Hearth::XML::Node.new('TableRestoreStatusDetails', Stubs::TableRestoreStatusList.stub('TableRestoreStatus', stub[:table_restore_status_details])) unless stub[:table_restore_status_details].nil?
+        xml << Hearth::XML::Node.new('TableRestoreStatusDetails', TableRestoreStatusList.stub('TableRestoreStatus', stub[:table_restore_status_details])) unless stub[:table_restore_status_details].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4884,7 +4886,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::TableRestoreStatus.stub(node_name, element) unless element.nil?
+          xml << TableRestoreStatus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4948,10 +4950,10 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeTagsResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeTagsResult')
-        xml << Hearth::XML::Node.new('TaggedResources', Stubs::TaggedResourceList.stub('TaggedResource', stub[:tagged_resources])) unless stub[:tagged_resources].nil?
+        xml << Hearth::XML::Node.new('TaggedResources', TaggedResourceList.stub('TaggedResource', stub[:tagged_resources])) unless stub[:tagged_resources].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -4969,7 +4971,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::TaggedResource.stub(node_name, element) unless element.nil?
+          xml << TaggedResource.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -4990,7 +4992,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         stub ||= Types::TaggedResource.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::Tag.stub('Tag', stub[:tag]) unless stub[:tag].nil?
+        xml << Tag.stub('Tag', stub[:tag]) unless stub[:tag].nil?
         xml << Hearth::XML::Node.new('ResourceName', stub[:resource_name].to_s) unless stub[:resource_name].nil?
         xml << Hearth::XML::Node.new('ResourceType', stub[:resource_type].to_s) unless stub[:resource_type].nil?
         xml
@@ -5011,10 +5013,10 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DescribeUsageLimitsResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DescribeUsageLimitsResult')
-        xml << Hearth::XML::Node.new('UsageLimits', Stubs::UsageLimits.stub('member', stub[:usage_limits])) unless stub[:usage_limits].nil?
+        xml << Hearth::XML::Node.new('UsageLimits', UsageLimits.stub('member', stub[:usage_limits])) unless stub[:usage_limits].nil?
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5032,7 +5034,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::UsageLimit.stub(node_name, element) unless element.nil?
+          xml << UsageLimit.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5065,7 +5067,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('Amount', stub[:amount].to_s) unless stub[:amount].nil?
         xml << Hearth::XML::Node.new('Period', stub[:period].to_s) unless stub[:period].nil?
         xml << Hearth::XML::Node.new('BreachAction', stub[:breach_action].to_s) unless stub[:breach_action].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
         xml
       end
     end
@@ -5097,9 +5099,9 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('LastFailureTime', Hearth::TimeHelper.to_date_time(stub[:last_failure_time])) unless stub[:last_failure_time].nil?
         xml << Hearth::XML::Node.new('LastFailureMessage', stub[:last_failure_message].to_s) unless stub[:last_failure_message].nil?
         xml << Hearth::XML::Node.new('LogDestinationType', stub[:log_destination_type].to_s) unless stub[:log_destination_type].nil?
-        xml << Hearth::XML::Node.new('LogExports', Stubs::LogTypeList.stub('member', stub[:log_exports])) unless stub[:log_exports].nil?
+        xml << Hearth::XML::Node.new('LogExports', LogTypeList.stub('member', stub[:log_exports])) unless stub[:log_exports].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5117,9 +5119,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('DisableSnapshotCopyResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('DisableSnapshotCopyResult')
-        xml << Stubs::Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
+        xml << Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5144,10 +5146,10 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('DataShareArn', stub[:data_share_arn].to_s) unless stub[:data_share_arn].nil?
         xml << Hearth::XML::Node.new('ProducerArn', stub[:producer_arn].to_s) unless stub[:producer_arn].nil?
         xml << Hearth::XML::Node.new('AllowPubliclyAccessibleConsumers', stub[:allow_publicly_accessible_consumers].to_s) unless stub[:allow_publicly_accessible_consumers].nil?
-        xml << Hearth::XML::Node.new('DataShareAssociations', Stubs::DataShareAssociationList.stub('member', stub[:data_share_associations])) unless stub[:data_share_associations].nil?
+        xml << Hearth::XML::Node.new('DataShareAssociations', DataShareAssociationList.stub('member', stub[:data_share_associations])) unless stub[:data_share_associations].nil?
         xml << Hearth::XML::Node.new('ManagedBy', stub[:managed_by].to_s) unless stub[:managed_by].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5179,9 +5181,9 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('LastFailureTime', Hearth::TimeHelper.to_date_time(stub[:last_failure_time])) unless stub[:last_failure_time].nil?
         xml << Hearth::XML::Node.new('LastFailureMessage', stub[:last_failure_message].to_s) unless stub[:last_failure_message].nil?
         xml << Hearth::XML::Node.new('LogDestinationType', stub[:log_destination_type].to_s) unless stub[:log_destination_type].nil?
-        xml << Hearth::XML::Node.new('LogExports', Stubs::LogTypeList.stub('member', stub[:log_exports])) unless stub[:log_exports].nil?
+        xml << Hearth::XML::Node.new('LogExports', LogTypeList.stub('member', stub[:log_exports])) unless stub[:log_exports].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5199,9 +5201,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('EnableSnapshotCopyResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('EnableSnapshotCopyResult')
-        xml << Stubs::Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
+        xml << Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5225,7 +5227,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('DbPassword', stub[:db_password].to_s) unless stub[:db_password].nil?
         xml << Hearth::XML::Node.new('Expiration', Hearth::TimeHelper.to_date_time(stub[:expiration])) unless stub[:expiration].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5251,7 +5253,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('Expiration', Hearth::TimeHelper.to_date_time(stub[:expiration])) unless stub[:expiration].nil?
         xml << Hearth::XML::Node.new('NextRefreshTime', Hearth::TimeHelper.to_date_time(stub[:next_refresh_time])) unless stub[:next_refresh_time].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5271,9 +5273,9 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('GetReservedNodeExchangeConfigurationOptionsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('ReservedNodeConfigurationOptionList', Stubs::ReservedNodeConfigurationOptionList.stub('ReservedNodeConfigurationOption', stub[:reserved_node_configuration_option_list])) unless stub[:reserved_node_configuration_option_list].nil?
+        xml << Hearth::XML::Node.new('ReservedNodeConfigurationOptionList', ReservedNodeConfigurationOptionList.stub('ReservedNodeConfigurationOption', stub[:reserved_node_configuration_option_list])) unless stub[:reserved_node_configuration_option_list].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5291,7 +5293,7 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ReservedNodeConfigurationOption.stub(node_name, element) unless element.nil?
+          xml << ReservedNodeConfigurationOption.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -5312,9 +5314,9 @@ module AWS::SDK::Redshift
       def self.stub(node_name, stub)
         stub ||= Types::ReservedNodeConfigurationOption.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::ReservedNode.stub('SourceReservedNode', stub[:source_reserved_node]) unless stub[:source_reserved_node].nil?
+        xml << ReservedNode.stub('SourceReservedNode', stub[:source_reserved_node]) unless stub[:source_reserved_node].nil?
         xml << Hearth::XML::Node.new('TargetReservedNodeCount', stub[:target_reserved_node_count].to_s) unless stub[:target_reserved_node_count].nil?
-        xml << Stubs::ReservedNodeOffering.stub('TargetReservedNodeOffering', stub[:target_reserved_node_offering]) unless stub[:target_reserved_node_offering].nil?
+        xml << ReservedNodeOffering.stub('TargetReservedNodeOffering', stub[:target_reserved_node_offering]) unless stub[:target_reserved_node_offering].nil?
         xml
       end
     end
@@ -5334,9 +5336,9 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('GetReservedNodeExchangeOfferingsResult')
         xml << Hearth::XML::Node.new('Marker', stub[:marker].to_s) unless stub[:marker].nil?
-        xml << Hearth::XML::Node.new('ReservedNodeOfferings', Stubs::ReservedNodeOfferingList.stub('ReservedNodeOffering', stub[:reserved_node_offerings])) unless stub[:reserved_node_offerings].nil?
+        xml << Hearth::XML::Node.new('ReservedNodeOfferings', ReservedNodeOfferingList.stub('ReservedNodeOffering', stub[:reserved_node_offerings])) unless stub[:reserved_node_offerings].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5354,9 +5356,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('ModifyAquaConfigurationResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('ModifyAquaConfigurationResult')
-        xml << Stubs::AquaConfiguration.stub('AquaConfiguration', stub[:aqua_configuration]) unless stub[:aqua_configuration].nil?
+        xml << AquaConfiguration.stub('AquaConfiguration', stub[:aqua_configuration]) unless stub[:aqua_configuration].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5378,7 +5380,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('AuthenticationProfileName', stub[:authentication_profile_name].to_s) unless stub[:authentication_profile_name].nil?
         xml << Hearth::XML::Node.new('AuthenticationProfileContent', stub[:authentication_profile_content].to_s) unless stub[:authentication_profile_content].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5396,9 +5398,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('ModifyClusterResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('ModifyClusterResult')
-        xml << Stubs::Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
+        xml << Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5416,9 +5418,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('ModifyClusterDbRevisionResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('ModifyClusterDbRevisionResult')
-        xml << Stubs::Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
+        xml << Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5436,9 +5438,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('ModifyClusterIamRolesResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('ModifyClusterIamRolesResult')
-        xml << Stubs::Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
+        xml << Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5456,9 +5458,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('ModifyClusterMaintenanceResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('ModifyClusterMaintenanceResult')
-        xml << Stubs::Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
+        xml << Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5480,7 +5482,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('ParameterGroupName', stub[:parameter_group_name].to_s) unless stub[:parameter_group_name].nil?
         xml << Hearth::XML::Node.new('ParameterGroupStatus', stub[:parameter_group_status].to_s) unless stub[:parameter_group_status].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5498,9 +5500,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('ModifyClusterSnapshotResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('ModifyClusterSnapshotResult')
-        xml << Stubs::Snapshot.stub('Snapshot', stub[:snapshot]) unless stub[:snapshot].nil?
+        xml << Snapshot.stub('Snapshot', stub[:snapshot]) unless stub[:snapshot].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5518,7 +5520,7 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('ModifyClusterSnapshotScheduleResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5536,9 +5538,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('ModifyClusterSubnetGroupResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('ModifyClusterSubnetGroupResult')
-        xml << Stubs::ClusterSubnetGroup.stub('ClusterSubnetGroup', stub[:cluster_subnet_group]) unless stub[:cluster_subnet_group].nil?
+        xml << ClusterSubnetGroup.stub('ClusterSubnetGroup', stub[:cluster_subnet_group]) unless stub[:cluster_subnet_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5573,10 +5575,10 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('EndpointCreateTime', Hearth::TimeHelper.to_date_time(stub[:endpoint_create_time])) unless stub[:endpoint_create_time].nil?
         xml << Hearth::XML::Node.new('Port', stub[:port].to_s) unless stub[:port].nil?
         xml << Hearth::XML::Node.new('Address', stub[:address].to_s) unless stub[:address].nil?
-        xml << Hearth::XML::Node.new('VpcSecurityGroups', Stubs::VpcSecurityGroupMembershipList.stub('VpcSecurityGroup', stub[:vpc_security_groups])) unless stub[:vpc_security_groups].nil?
-        xml << Stubs::VpcEndpoint.stub('VpcEndpoint', stub[:vpc_endpoint]) unless stub[:vpc_endpoint].nil?
+        xml << Hearth::XML::Node.new('VpcSecurityGroups', VpcSecurityGroupMembershipList.stub('VpcSecurityGroup', stub[:vpc_security_groups])) unless stub[:vpc_security_groups].nil?
+        xml << VpcEndpoint.stub('VpcEndpoint', stub[:vpc_endpoint]) unless stub[:vpc_endpoint].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5594,9 +5596,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('ModifyEventSubscriptionResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('ModifyEventSubscriptionResult')
-        xml << Stubs::EventSubscription.stub('EventSubscription', stub[:event_subscription]) unless stub[:event_subscription].nil?
+        xml << EventSubscription.stub('EventSubscription', stub[:event_subscription]) unless stub[:event_subscription].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5623,16 +5625,16 @@ module AWS::SDK::Redshift
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('ModifyScheduledActionResult')
         xml << Hearth::XML::Node.new('ScheduledActionName', stub[:scheduled_action_name].to_s) unless stub[:scheduled_action_name].nil?
-        xml << Stubs::ScheduledActionType.stub('TargetAction', stub[:target_action]) unless stub[:target_action].nil?
+        xml << ScheduledActionType.stub('TargetAction', stub[:target_action]) unless stub[:target_action].nil?
         xml << Hearth::XML::Node.new('Schedule', stub[:schedule].to_s) unless stub[:schedule].nil?
         xml << Hearth::XML::Node.new('IamRole', stub[:iam_role].to_s) unless stub[:iam_role].nil?
         xml << Hearth::XML::Node.new('ScheduledActionDescription', stub[:scheduled_action_description].to_s) unless stub[:scheduled_action_description].nil?
         xml << Hearth::XML::Node.new('State', stub[:state].to_s) unless stub[:state].nil?
-        xml << Hearth::XML::Node.new('NextInvocations', Stubs::ScheduledActionTimeList.stub('ScheduledActionTime', stub[:next_invocations])) unless stub[:next_invocations].nil?
+        xml << Hearth::XML::Node.new('NextInvocations', ScheduledActionTimeList.stub('ScheduledActionTime', stub[:next_invocations])) unless stub[:next_invocations].nil?
         xml << Hearth::XML::Node.new('StartTime', Hearth::TimeHelper.to_date_time(stub[:start_time])) unless stub[:start_time].nil?
         xml << Hearth::XML::Node.new('EndTime', Hearth::TimeHelper.to_date_time(stub[:end_time])) unless stub[:end_time].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5650,9 +5652,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('ModifySnapshotCopyRetentionPeriodResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('ModifySnapshotCopyRetentionPeriodResult')
-        xml << Stubs::Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
+        xml << Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5676,15 +5678,15 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('ModifySnapshotScheduleResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('ModifySnapshotScheduleResult')
-        xml << Hearth::XML::Node.new('ScheduleDefinitions', Stubs::ScheduleDefinitionList.stub('ScheduleDefinition', stub[:schedule_definitions])) unless stub[:schedule_definitions].nil?
+        xml << Hearth::XML::Node.new('ScheduleDefinitions', ScheduleDefinitionList.stub('ScheduleDefinition', stub[:schedule_definitions])) unless stub[:schedule_definitions].nil?
         xml << Hearth::XML::Node.new('ScheduleIdentifier', stub[:schedule_identifier].to_s) unless stub[:schedule_identifier].nil?
         xml << Hearth::XML::Node.new('ScheduleDescription', stub[:schedule_description].to_s) unless stub[:schedule_description].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
-        xml << Hearth::XML::Node.new('NextInvocations', Stubs::ScheduledSnapshotTimeList.stub('SnapshotTime', stub[:next_invocations])) unless stub[:next_invocations].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('NextInvocations', ScheduledSnapshotTimeList.stub('SnapshotTime', stub[:next_invocations])) unless stub[:next_invocations].nil?
         xml << Hearth::XML::Node.new('AssociatedClusterCount', stub[:associated_cluster_count].to_s) unless stub[:associated_cluster_count].nil?
-        xml << Hearth::XML::Node.new('AssociatedClusters', Stubs::AssociatedClusterList.stub('ClusterAssociatedToSchedule', stub[:associated_clusters])) unless stub[:associated_clusters].nil?
+        xml << Hearth::XML::Node.new('AssociatedClusters', AssociatedClusterList.stub('ClusterAssociatedToSchedule', stub[:associated_clusters])) unless stub[:associated_clusters].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5716,9 +5718,9 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('Amount', stub[:amount].to_s) unless stub[:amount].nil?
         xml << Hearth::XML::Node.new('Period', stub[:period].to_s) unless stub[:period].nil?
         xml << Hearth::XML::Node.new('BreachAction', stub[:breach_action].to_s) unless stub[:breach_action].nil?
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('Tag', stub[:tags])) unless stub[:tags].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5736,9 +5738,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('PauseClusterResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('PauseClusterResult')
-        xml << Stubs::Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
+        xml << Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5756,9 +5758,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('PurchaseReservedNodeOfferingResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('PurchaseReservedNodeOfferingResult')
-        xml << Stubs::ReservedNode.stub('ReservedNode', stub[:reserved_node]) unless stub[:reserved_node].nil?
+        xml << ReservedNode.stub('ReservedNode', stub[:reserved_node]) unless stub[:reserved_node].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5776,9 +5778,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('RebootClusterResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('RebootClusterResult')
-        xml << Stubs::Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
+        xml << Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5803,10 +5805,10 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('DataShareArn', stub[:data_share_arn].to_s) unless stub[:data_share_arn].nil?
         xml << Hearth::XML::Node.new('ProducerArn', stub[:producer_arn].to_s) unless stub[:producer_arn].nil?
         xml << Hearth::XML::Node.new('AllowPubliclyAccessibleConsumers', stub[:allow_publicly_accessible_consumers].to_s) unless stub[:allow_publicly_accessible_consumers].nil?
-        xml << Hearth::XML::Node.new('DataShareAssociations', Stubs::DataShareAssociationList.stub('member', stub[:data_share_associations])) unless stub[:data_share_associations].nil?
+        xml << Hearth::XML::Node.new('DataShareAssociations', DataShareAssociationList.stub('member', stub[:data_share_associations])) unless stub[:data_share_associations].nil?
         xml << Hearth::XML::Node.new('ManagedBy', stub[:managed_by].to_s) unless stub[:managed_by].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5828,7 +5830,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('ParameterGroupName', stub[:parameter_group_name].to_s) unless stub[:parameter_group_name].nil?
         xml << Hearth::XML::Node.new('ParameterGroupStatus', stub[:parameter_group_status].to_s) unless stub[:parameter_group_status].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5846,9 +5848,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('ResizeClusterResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('ResizeClusterResult')
-        xml << Stubs::Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
+        xml << Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5866,9 +5868,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('RestoreFromClusterSnapshotResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('RestoreFromClusterSnapshotResult')
-        xml << Stubs::Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
+        xml << Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5886,9 +5888,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('RestoreTableFromClusterSnapshotResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('RestoreTableFromClusterSnapshotResult')
-        xml << Stubs::TableRestoreStatus.stub('TableRestoreStatus', stub[:table_restore_status]) unless stub[:table_restore_status].nil?
+        xml << TableRestoreStatus.stub('TableRestoreStatus', stub[:table_restore_status]) unless stub[:table_restore_status].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5906,9 +5908,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('ResumeClusterResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('ResumeClusterResult')
-        xml << Stubs::Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
+        xml << Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5926,9 +5928,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('RevokeClusterSecurityGroupIngressResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('RevokeClusterSecurityGroupIngressResult')
-        xml << Stubs::ClusterSecurityGroup.stub('ClusterSecurityGroup', stub[:cluster_security_group]) unless stub[:cluster_security_group].nil?
+        xml << ClusterSecurityGroup.stub('ClusterSecurityGroup', stub[:cluster_security_group]) unless stub[:cluster_security_group].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5961,10 +5963,10 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('ClusterStatus', stub[:cluster_status].to_s) unless stub[:cluster_status].nil?
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('AllowedAllVPCs', stub[:allowed_all_vp_cs].to_s) unless stub[:allowed_all_vp_cs].nil?
-        xml << Hearth::XML::Node.new('AllowedVPCs', Stubs::VpcIdentifierList.stub('VpcIdentifier', stub[:allowed_vp_cs])) unless stub[:allowed_vp_cs].nil?
+        xml << Hearth::XML::Node.new('AllowedVPCs', VpcIdentifierList.stub('VpcIdentifier', stub[:allowed_vp_cs])) unless stub[:allowed_vp_cs].nil?
         xml << Hearth::XML::Node.new('EndpointCount', stub[:endpoint_count].to_s) unless stub[:endpoint_count].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -5982,9 +5984,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('RevokeSnapshotAccessResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('RevokeSnapshotAccessResult')
-        xml << Stubs::Snapshot.stub('Snapshot', stub[:snapshot]) unless stub[:snapshot].nil?
+        xml << Snapshot.stub('Snapshot', stub[:snapshot]) unless stub[:snapshot].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6002,9 +6004,9 @@ module AWS::SDK::Redshift
         response = Hearth::XML::Node.new('RotateEncryptionKeyResponse')
         response.attributes['xmlns'] = 'http://redshift.amazonaws.com/doc/2012-12-01/'
         xml = Hearth::XML::Node.new('RotateEncryptionKeyResult')
-        xml << Stubs::Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
+        xml << Cluster.stub('Cluster', stub[:cluster]) unless stub[:cluster].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -6026,7 +6028,7 @@ module AWS::SDK::Redshift
         xml << Hearth::XML::Node.new('DatabaseName', stub[:database_name].to_s) unless stub[:database_name].nil?
         xml << Hearth::XML::Node.new('PartnerName', stub[:partner_name].to_s) unless stub[:partner_name].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end

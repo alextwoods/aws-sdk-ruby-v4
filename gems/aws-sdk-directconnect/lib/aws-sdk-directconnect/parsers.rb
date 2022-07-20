@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::DirectConnect
   module Parsers
 
@@ -17,7 +19,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.direct_connect_gateway_association = (Parsers::DirectConnectGatewayAssociation.parse(map['directConnectGatewayAssociation']) unless map['directConnectGatewayAssociation'].nil?)
+        data.direct_connect_gateway_association = (DirectConnectGatewayAssociation.parse(map['directConnectGatewayAssociation']) unless map['directConnectGatewayAssociation'].nil?)
         data
       end
     end
@@ -29,9 +31,9 @@ module AWS::SDK::DirectConnect
         data.direct_connect_gateway_owner_account = map['directConnectGatewayOwnerAccount']
         data.association_state = map['associationState']
         data.state_change_error = map['stateChangeError']
-        data.associated_gateway = (Parsers::AssociatedGateway.parse(map['associatedGateway']) unless map['associatedGateway'].nil?)
+        data.associated_gateway = (AssociatedGateway.parse(map['associatedGateway']) unless map['associatedGateway'].nil?)
         data.association_id = map['associationId']
-        data.allowed_prefixes_to_direct_connect_gateway = (Parsers::RouteFilterPrefixList.parse(map['allowedPrefixesToDirectConnectGateway']) unless map['allowedPrefixesToDirectConnectGateway'].nil?)
+        data.allowed_prefixes_to_direct_connect_gateway = (RouteFilterPrefixList.parse(map['allowedPrefixesToDirectConnectGateway']) unless map['allowedPrefixesToDirectConnectGateway'].nil?)
         data.virtual_gateway_id = map['virtualGatewayId']
         data.virtual_gateway_region = map['virtualGatewayRegion']
         data.virtual_gateway_owner_account = map['virtualGatewayOwnerAccount']
@@ -42,7 +44,7 @@ module AWS::SDK::DirectConnect
     class RouteFilterPrefixList
       def self.parse(list)
         list.map do |value|
-          Parsers::RouteFilterPrefix.parse(value) unless value.nil?
+          RouteFilterPrefix.parse(value) unless value.nil?
         end
       end
     end
@@ -113,12 +115,12 @@ module AWS::SDK::DirectConnect
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
         data.has_logical_redundancy = map['hasLogicalRedundancy']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.provider_name = map['providerName']
         data.mac_sec_capable = map['macSecCapable']
         data.port_encryption_status = map['portEncryptionStatus']
         data.encryption_mode = map['encryptionMode']
-        data.mac_sec_keys = (Parsers::MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
+        data.mac_sec_keys = (MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
         data
       end
     end
@@ -126,7 +128,7 @@ module AWS::SDK::DirectConnect
     class MacSecKeyList
       def self.parse(list)
         list.map do |value|
-          Parsers::MacSecKey.parse(value) unless value.nil?
+          MacSecKey.parse(value) unless value.nil?
         end
       end
     end
@@ -145,7 +147,7 @@ module AWS::SDK::DirectConnect
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -182,12 +184,12 @@ module AWS::SDK::DirectConnect
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
         data.has_logical_redundancy = map['hasLogicalRedundancy']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.provider_name = map['providerName']
         data.mac_sec_capable = map['macSecCapable']
         data.port_encryption_status = map['portEncryptionStatus']
         data.encryption_mode = map['encryptionMode']
-        data.mac_sec_keys = (Parsers::MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
+        data.mac_sec_keys = (MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
         data
       end
     end
@@ -242,12 +244,12 @@ module AWS::SDK::DirectConnect
         data.jumbo_frame_capable = map['jumboFrameCapable']
         data.virtual_gateway_id = map['virtualGatewayId']
         data.direct_connect_gateway_id = map['directConnectGatewayId']
-        data.route_filter_prefixes = (Parsers::RouteFilterPrefixList.parse(map['routeFilterPrefixes']) unless map['routeFilterPrefixes'].nil?)
-        data.bgp_peers = (Parsers::BGPPeerList.parse(map['bgpPeers']) unless map['bgpPeers'].nil?)
+        data.route_filter_prefixes = (RouteFilterPrefixList.parse(map['routeFilterPrefixes']) unless map['routeFilterPrefixes'].nil?)
+        data.bgp_peers = (BGPPeerList.parse(map['bgpPeers']) unless map['bgpPeers'].nil?)
         data.region = map['region']
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.site_link_enabled = map['siteLinkEnabled']
         data
       end
@@ -256,7 +258,7 @@ module AWS::SDK::DirectConnect
     class BGPPeerList
       def self.parse(list)
         list.map do |value|
-          Parsers::BGPPeer.parse(value) unless value.nil?
+          BGPPeer.parse(value) unless value.nil?
         end
       end
     end
@@ -304,12 +306,12 @@ module AWS::SDK::DirectConnect
         data.jumbo_frame_capable = map['jumboFrameCapable']
         data.virtual_gateway_id = map['virtualGatewayId']
         data.direct_connect_gateway_id = map['directConnectGatewayId']
-        data.route_filter_prefixes = (Parsers::RouteFilterPrefixList.parse(map['routeFilterPrefixes']) unless map['routeFilterPrefixes'].nil?)
-        data.bgp_peers = (Parsers::BGPPeerList.parse(map['bgpPeers']) unless map['bgpPeers'].nil?)
+        data.route_filter_prefixes = (RouteFilterPrefixList.parse(map['routeFilterPrefixes']) unless map['routeFilterPrefixes'].nil?)
+        data.bgp_peers = (BGPPeerList.parse(map['bgpPeers']) unless map['bgpPeers'].nil?)
         data.region = map['region']
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.site_link_enabled = map['siteLinkEnabled']
         data
       end
@@ -322,7 +324,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.virtual_interface = (Parsers::VirtualInterface.parse(map['virtualInterface']) unless map['virtualInterface'].nil?)
+        data.virtual_interface = (VirtualInterface.parse(map['virtualInterface']) unless map['virtualInterface'].nil?)
         data
       end
     end
@@ -349,12 +351,12 @@ module AWS::SDK::DirectConnect
         data.jumbo_frame_capable = map['jumboFrameCapable']
         data.virtual_gateway_id = map['virtualGatewayId']
         data.direct_connect_gateway_id = map['directConnectGatewayId']
-        data.route_filter_prefixes = (Parsers::RouteFilterPrefixList.parse(map['routeFilterPrefixes']) unless map['routeFilterPrefixes'].nil?)
-        data.bgp_peers = (Parsers::BGPPeerList.parse(map['bgpPeers']) unless map['bgpPeers'].nil?)
+        data.route_filter_prefixes = (RouteFilterPrefixList.parse(map['routeFilterPrefixes']) unless map['routeFilterPrefixes'].nil?)
+        data.bgp_peers = (BGPPeerList.parse(map['bgpPeers']) unless map['bgpPeers'].nil?)
         data.region = map['region']
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.site_link_enabled = map['siteLinkEnabled']
         return data
       end
@@ -383,12 +385,12 @@ module AWS::SDK::DirectConnect
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
         data.has_logical_redundancy = map['hasLogicalRedundancy']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.provider_name = map['providerName']
         data.mac_sec_capable = map['macSecCapable']
         data.port_encryption_status = map['portEncryptionStatus']
         data.encryption_mode = map['encryptionMode']
-        data.mac_sec_keys = (Parsers::MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
+        data.mac_sec_keys = (MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
         data
       end
     end
@@ -416,12 +418,12 @@ module AWS::SDK::DirectConnect
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
         data.has_logical_redundancy = map['hasLogicalRedundancy']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.provider_name = map['providerName']
         data.mac_sec_capable = map['macSecCapable']
         data.port_encryption_status = map['portEncryptionStatus']
         data.encryption_mode = map['encryptionMode']
-        data.mac_sec_keys = (Parsers::MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
+        data.mac_sec_keys = (MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
         data
       end
     end
@@ -434,7 +436,7 @@ module AWS::SDK::DirectConnect
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.connection_id = map['connectionId']
-        data.mac_sec_keys = (Parsers::MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
+        data.mac_sec_keys = (MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
         data
       end
     end
@@ -465,12 +467,12 @@ module AWS::SDK::DirectConnect
         data.jumbo_frame_capable = map['jumboFrameCapable']
         data.virtual_gateway_id = map['virtualGatewayId']
         data.direct_connect_gateway_id = map['directConnectGatewayId']
-        data.route_filter_prefixes = (Parsers::RouteFilterPrefixList.parse(map['routeFilterPrefixes']) unless map['routeFilterPrefixes'].nil?)
-        data.bgp_peers = (Parsers::BGPPeerList.parse(map['bgpPeers']) unless map['bgpPeers'].nil?)
+        data.route_filter_prefixes = (RouteFilterPrefixList.parse(map['routeFilterPrefixes']) unless map['routeFilterPrefixes'].nil?)
+        data.bgp_peers = (BGPPeerList.parse(map['bgpPeers']) unless map['bgpPeers'].nil?)
         data.region = map['region']
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.site_link_enabled = map['siteLinkEnabled']
         data
       end
@@ -543,7 +545,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.virtual_interface = (Parsers::VirtualInterface.parse(map['virtualInterface']) unless map['virtualInterface'].nil?)
+        data.virtual_interface = (VirtualInterface.parse(map['virtualInterface']) unless map['virtualInterface'].nil?)
         data
       end
     end
@@ -571,12 +573,12 @@ module AWS::SDK::DirectConnect
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
         data.has_logical_redundancy = map['hasLogicalRedundancy']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.provider_name = map['providerName']
         data.mac_sec_capable = map['macSecCapable']
         data.port_encryption_status = map['portEncryptionStatus']
         data.encryption_mode = map['encryptionMode']
-        data.mac_sec_keys = (Parsers::MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
+        data.mac_sec_keys = (MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
         data
       end
     end
@@ -588,7 +590,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.direct_connect_gateway = (Parsers::DirectConnectGateway.parse(map['directConnectGateway']) unless map['directConnectGateway'].nil?)
+        data.direct_connect_gateway = (DirectConnectGateway.parse(map['directConnectGateway']) unless map['directConnectGateway'].nil?)
         data
       end
     end
@@ -613,7 +615,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.direct_connect_gateway_association = (Parsers::DirectConnectGatewayAssociation.parse(map['directConnectGatewayAssociation']) unless map['directConnectGatewayAssociation'].nil?)
+        data.direct_connect_gateway_association = (DirectConnectGatewayAssociation.parse(map['directConnectGatewayAssociation']) unless map['directConnectGatewayAssociation'].nil?)
         data
       end
     end
@@ -625,7 +627,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.direct_connect_gateway_association_proposal = (Parsers::DirectConnectGatewayAssociationProposal.parse(map['directConnectGatewayAssociationProposal']) unless map['directConnectGatewayAssociationProposal'].nil?)
+        data.direct_connect_gateway_association_proposal = (DirectConnectGatewayAssociationProposal.parse(map['directConnectGatewayAssociationProposal']) unless map['directConnectGatewayAssociationProposal'].nil?)
         data
       end
     end
@@ -637,9 +639,9 @@ module AWS::SDK::DirectConnect
         data.direct_connect_gateway_id = map['directConnectGatewayId']
         data.direct_connect_gateway_owner_account = map['directConnectGatewayOwnerAccount']
         data.proposal_state = map['proposalState']
-        data.associated_gateway = (Parsers::AssociatedGateway.parse(map['associatedGateway']) unless map['associatedGateway'].nil?)
-        data.existing_allowed_prefixes_to_direct_connect_gateway = (Parsers::RouteFilterPrefixList.parse(map['existingAllowedPrefixesToDirectConnectGateway']) unless map['existingAllowedPrefixesToDirectConnectGateway'].nil?)
-        data.requested_allowed_prefixes_to_direct_connect_gateway = (Parsers::RouteFilterPrefixList.parse(map['requestedAllowedPrefixesToDirectConnectGateway']) unless map['requestedAllowedPrefixesToDirectConnectGateway'].nil?)
+        data.associated_gateway = (AssociatedGateway.parse(map['associatedGateway']) unless map['associatedGateway'].nil?)
+        data.existing_allowed_prefixes_to_direct_connect_gateway = (RouteFilterPrefixList.parse(map['existingAllowedPrefixesToDirectConnectGateway']) unless map['existingAllowedPrefixesToDirectConnectGateway'].nil?)
+        data.requested_allowed_prefixes_to_direct_connect_gateway = (RouteFilterPrefixList.parse(map['requestedAllowedPrefixesToDirectConnectGateway']) unless map['requestedAllowedPrefixesToDirectConnectGateway'].nil?)
         return data
       end
     end
@@ -664,7 +666,7 @@ module AWS::SDK::DirectConnect
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
         data.has_logical_redundancy = map['hasLogicalRedundancy']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.provider_name = map['providerName']
         data
       end
@@ -689,15 +691,15 @@ module AWS::SDK::DirectConnect
         data.aws_device = map['awsDevice']
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
-        data.connections = (Parsers::ConnectionList.parse(map['connections']) unless map['connections'].nil?)
+        data.connections = (ConnectionList.parse(map['connections']) unless map['connections'].nil?)
         data.allows_hosted_connections = map['allowsHostedConnections']
         data.jumbo_frame_capable = map['jumboFrameCapable']
         data.has_logical_redundancy = map['hasLogicalRedundancy']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.provider_name = map['providerName']
         data.mac_sec_capable = map['macSecCapable']
         data.encryption_mode = map['encryptionMode']
-        data.mac_sec_keys = (Parsers::MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
+        data.mac_sec_keys = (MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
         data
       end
     end
@@ -705,7 +707,7 @@ module AWS::SDK::DirectConnect
     class ConnectionList
       def self.parse(list)
         list.map do |value|
-          Parsers::Connection.parse(value) unless value.nil?
+          Connection.parse(value) unless value.nil?
         end
       end
     end
@@ -729,12 +731,12 @@ module AWS::SDK::DirectConnect
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
         data.has_logical_redundancy = map['hasLogicalRedundancy']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.provider_name = map['providerName']
         data.mac_sec_capable = map['macSecCapable']
         data.port_encryption_status = map['portEncryptionStatus']
         data.encryption_mode = map['encryptionMode']
-        data.mac_sec_keys = (Parsers::MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
+        data.mac_sec_keys = (MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
         return data
       end
     end
@@ -765,12 +767,12 @@ module AWS::SDK::DirectConnect
         data.jumbo_frame_capable = map['jumboFrameCapable']
         data.virtual_gateway_id = map['virtualGatewayId']
         data.direct_connect_gateway_id = map['directConnectGatewayId']
-        data.route_filter_prefixes = (Parsers::RouteFilterPrefixList.parse(map['routeFilterPrefixes']) unless map['routeFilterPrefixes'].nil?)
-        data.bgp_peers = (Parsers::BGPPeerList.parse(map['bgpPeers']) unless map['bgpPeers'].nil?)
+        data.route_filter_prefixes = (RouteFilterPrefixList.parse(map['routeFilterPrefixes']) unless map['routeFilterPrefixes'].nil?)
+        data.bgp_peers = (BGPPeerList.parse(map['bgpPeers']) unless map['bgpPeers'].nil?)
         data.region = map['region']
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.site_link_enabled = map['siteLinkEnabled']
         data
       end
@@ -802,12 +804,12 @@ module AWS::SDK::DirectConnect
         data.jumbo_frame_capable = map['jumboFrameCapable']
         data.virtual_gateway_id = map['virtualGatewayId']
         data.direct_connect_gateway_id = map['directConnectGatewayId']
-        data.route_filter_prefixes = (Parsers::RouteFilterPrefixList.parse(map['routeFilterPrefixes']) unless map['routeFilterPrefixes'].nil?)
-        data.bgp_peers = (Parsers::BGPPeerList.parse(map['bgpPeers']) unless map['bgpPeers'].nil?)
+        data.route_filter_prefixes = (RouteFilterPrefixList.parse(map['routeFilterPrefixes']) unless map['routeFilterPrefixes'].nil?)
+        data.bgp_peers = (BGPPeerList.parse(map['bgpPeers']) unless map['bgpPeers'].nil?)
         data.region = map['region']
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.site_link_enabled = map['siteLinkEnabled']
         data
       end
@@ -820,7 +822,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.virtual_interface = (Parsers::VirtualInterface.parse(map['virtualInterface']) unless map['virtualInterface'].nil?)
+        data.virtual_interface = (VirtualInterface.parse(map['virtualInterface']) unless map['virtualInterface'].nil?)
         data
       end
     end
@@ -832,7 +834,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.virtual_interface = (Parsers::VirtualInterface.parse(map['virtualInterface']) unless map['virtualInterface'].nil?)
+        data.virtual_interface = (VirtualInterface.parse(map['virtualInterface']) unless map['virtualInterface'].nil?)
         data
       end
     end
@@ -860,12 +862,12 @@ module AWS::SDK::DirectConnect
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
         data.has_logical_redundancy = map['hasLogicalRedundancy']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.provider_name = map['providerName']
         data.mac_sec_capable = map['macSecCapable']
         data.port_encryption_status = map['portEncryptionStatus']
         data.encryption_mode = map['encryptionMode']
-        data.mac_sec_keys = (Parsers::MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
+        data.mac_sec_keys = (MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
         data
       end
     end
@@ -877,7 +879,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.direct_connect_gateway = (Parsers::DirectConnectGateway.parse(map['directConnectGateway']) unless map['directConnectGateway'].nil?)
+        data.direct_connect_gateway = (DirectConnectGateway.parse(map['directConnectGateway']) unless map['directConnectGateway'].nil?)
         data
       end
     end
@@ -889,7 +891,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.direct_connect_gateway_association = (Parsers::DirectConnectGatewayAssociation.parse(map['directConnectGatewayAssociation']) unless map['directConnectGatewayAssociation'].nil?)
+        data.direct_connect_gateway_association = (DirectConnectGatewayAssociation.parse(map['directConnectGatewayAssociation']) unless map['directConnectGatewayAssociation'].nil?)
         data
       end
     end
@@ -901,7 +903,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.direct_connect_gateway_association_proposal = (Parsers::DirectConnectGatewayAssociationProposal.parse(map['directConnectGatewayAssociationProposal']) unless map['directConnectGatewayAssociationProposal'].nil?)
+        data.direct_connect_gateway_association_proposal = (DirectConnectGatewayAssociationProposal.parse(map['directConnectGatewayAssociationProposal']) unless map['directConnectGatewayAssociationProposal'].nil?)
         data
       end
     end
@@ -937,15 +939,15 @@ module AWS::SDK::DirectConnect
         data.aws_device = map['awsDevice']
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
-        data.connections = (Parsers::ConnectionList.parse(map['connections']) unless map['connections'].nil?)
+        data.connections = (ConnectionList.parse(map['connections']) unless map['connections'].nil?)
         data.allows_hosted_connections = map['allowsHostedConnections']
         data.jumbo_frame_capable = map['jumboFrameCapable']
         data.has_logical_redundancy = map['hasLogicalRedundancy']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.provider_name = map['providerName']
         data.mac_sec_capable = map['macSecCapable']
         data.encryption_mode = map['encryptionMode']
-        data.mac_sec_keys = (Parsers::MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
+        data.mac_sec_keys = (MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
         data
       end
     end
@@ -969,7 +971,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.loa = (Parsers::Loa.parse(map['loa']) unless map['loa'].nil?)
+        data.loa = (Loa.parse(map['loa']) unless map['loa'].nil?)
         data
       end
     end
@@ -977,7 +979,7 @@ module AWS::SDK::DirectConnect
     class Loa
       def self.parse(map)
         data = Types::Loa.new
-        data.loa_content = Base64::decode64(map['loaContent']) unless map['loaContent'].nil?
+        data.loa_content = ::Base64::decode64(map['loaContent']) unless map['loaContent'].nil?
         data.loa_content_type = map['loaContentType']
         return data
       end
@@ -990,7 +992,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.connections = (Parsers::ConnectionList.parse(map['connections']) unless map['connections'].nil?)
+        data.connections = (ConnectionList.parse(map['connections']) unless map['connections'].nil?)
         data
       end
     end
@@ -1002,7 +1004,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.connections = (Parsers::ConnectionList.parse(map['connections']) unless map['connections'].nil?)
+        data.connections = (ConnectionList.parse(map['connections']) unless map['connections'].nil?)
         data
       end
     end
@@ -1014,7 +1016,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.agreements = (Parsers::AgreementList.parse(map['agreements']) unless map['agreements'].nil?)
+        data.agreements = (AgreementList.parse(map['agreements']) unless map['agreements'].nil?)
         data.nni_partner_type = map['nniPartnerType']
         data
       end
@@ -1023,7 +1025,7 @@ module AWS::SDK::DirectConnect
     class AgreementList
       def self.parse(list)
         list.map do |value|
-          Parsers::CustomerAgreement.parse(value) unless value.nil?
+          CustomerAgreement.parse(value) unless value.nil?
         end
       end
     end
@@ -1044,7 +1046,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.direct_connect_gateway_association_proposals = (Parsers::DirectConnectGatewayAssociationProposalList.parse(map['directConnectGatewayAssociationProposals']) unless map['directConnectGatewayAssociationProposals'].nil?)
+        data.direct_connect_gateway_association_proposals = (DirectConnectGatewayAssociationProposalList.parse(map['directConnectGatewayAssociationProposals']) unless map['directConnectGatewayAssociationProposals'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1053,7 +1055,7 @@ module AWS::SDK::DirectConnect
     class DirectConnectGatewayAssociationProposalList
       def self.parse(list)
         list.map do |value|
-          Parsers::DirectConnectGatewayAssociationProposal.parse(value) unless value.nil?
+          DirectConnectGatewayAssociationProposal.parse(value) unless value.nil?
         end
       end
     end
@@ -1065,7 +1067,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.direct_connect_gateway_associations = (Parsers::DirectConnectGatewayAssociationList.parse(map['directConnectGatewayAssociations']) unless map['directConnectGatewayAssociations'].nil?)
+        data.direct_connect_gateway_associations = (DirectConnectGatewayAssociationList.parse(map['directConnectGatewayAssociations']) unless map['directConnectGatewayAssociations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1074,7 +1076,7 @@ module AWS::SDK::DirectConnect
     class DirectConnectGatewayAssociationList
       def self.parse(list)
         list.map do |value|
-          Parsers::DirectConnectGatewayAssociation.parse(value) unless value.nil?
+          DirectConnectGatewayAssociation.parse(value) unless value.nil?
         end
       end
     end
@@ -1086,7 +1088,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.direct_connect_gateway_attachments = (Parsers::DirectConnectGatewayAttachmentList.parse(map['directConnectGatewayAttachments']) unless map['directConnectGatewayAttachments'].nil?)
+        data.direct_connect_gateway_attachments = (DirectConnectGatewayAttachmentList.parse(map['directConnectGatewayAttachments']) unless map['directConnectGatewayAttachments'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1095,7 +1097,7 @@ module AWS::SDK::DirectConnect
     class DirectConnectGatewayAttachmentList
       def self.parse(list)
         list.map do |value|
-          Parsers::DirectConnectGatewayAttachment.parse(value) unless value.nil?
+          DirectConnectGatewayAttachment.parse(value) unless value.nil?
         end
       end
     end
@@ -1121,7 +1123,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.direct_connect_gateways = (Parsers::DirectConnectGatewayList.parse(map['directConnectGateways']) unless map['directConnectGateways'].nil?)
+        data.direct_connect_gateways = (DirectConnectGatewayList.parse(map['directConnectGateways']) unless map['directConnectGateways'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1130,7 +1132,7 @@ module AWS::SDK::DirectConnect
     class DirectConnectGatewayList
       def self.parse(list)
         list.map do |value|
-          Parsers::DirectConnectGateway.parse(value) unless value.nil?
+          DirectConnectGateway.parse(value) unless value.nil?
         end
       end
     end
@@ -1142,7 +1144,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.connections = (Parsers::ConnectionList.parse(map['connections']) unless map['connections'].nil?)
+        data.connections = (ConnectionList.parse(map['connections']) unless map['connections'].nil?)
         data
       end
     end
@@ -1154,7 +1156,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.loa = (Parsers::Loa.parse(map['loa']) unless map['loa'].nil?)
+        data.loa = (Loa.parse(map['loa']) unless map['loa'].nil?)
         data
       end
     end
@@ -1166,7 +1168,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.interconnects = (Parsers::InterconnectList.parse(map['interconnects']) unless map['interconnects'].nil?)
+        data.interconnects = (InterconnectList.parse(map['interconnects']) unless map['interconnects'].nil?)
         data
       end
     end
@@ -1174,7 +1176,7 @@ module AWS::SDK::DirectConnect
     class InterconnectList
       def self.parse(list)
         list.map do |value|
-          Parsers::Interconnect.parse(value) unless value.nil?
+          Interconnect.parse(value) unless value.nil?
         end
       end
     end
@@ -1195,7 +1197,7 @@ module AWS::SDK::DirectConnect
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
         data.has_logical_redundancy = map['hasLogicalRedundancy']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.provider_name = map['providerName']
         return data
       end
@@ -1208,7 +1210,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.lags = (Parsers::LagList.parse(map['lags']) unless map['lags'].nil?)
+        data.lags = (LagList.parse(map['lags']) unless map['lags'].nil?)
         data
       end
     end
@@ -1216,7 +1218,7 @@ module AWS::SDK::DirectConnect
     class LagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Lag.parse(value) unless value.nil?
+          Lag.parse(value) unless value.nil?
         end
       end
     end
@@ -1236,15 +1238,15 @@ module AWS::SDK::DirectConnect
         data.aws_device = map['awsDevice']
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
-        data.connections = (Parsers::ConnectionList.parse(map['connections']) unless map['connections'].nil?)
+        data.connections = (ConnectionList.parse(map['connections']) unless map['connections'].nil?)
         data.allows_hosted_connections = map['allowsHostedConnections']
         data.jumbo_frame_capable = map['jumboFrameCapable']
         data.has_logical_redundancy = map['hasLogicalRedundancy']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.provider_name = map['providerName']
         data.mac_sec_capable = map['macSecCapable']
         data.encryption_mode = map['encryptionMode']
-        data.mac_sec_keys = (Parsers::MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
+        data.mac_sec_keys = (MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
         return data
       end
     end
@@ -1256,7 +1258,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.loa_content = Base64::decode64(map['loaContent']) unless map['loaContent'].nil?
+        data.loa_content = ::Base64::decode64(map['loaContent']) unless map['loaContent'].nil?
         data.loa_content_type = map['loaContentType']
         data
       end
@@ -1269,7 +1271,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.locations = (Parsers::LocationList.parse(map['locations']) unless map['locations'].nil?)
+        data.locations = (LocationList.parse(map['locations']) unless map['locations'].nil?)
         data
       end
     end
@@ -1277,7 +1279,7 @@ module AWS::SDK::DirectConnect
     class LocationList
       def self.parse(list)
         list.map do |value|
-          Parsers::Location.parse(value) unless value.nil?
+          Location.parse(value) unless value.nil?
         end
       end
     end
@@ -1288,9 +1290,9 @@ module AWS::SDK::DirectConnect
         data.location_code = map['locationCode']
         data.location_name = map['locationName']
         data.region = map['region']
-        data.available_port_speeds = (Parsers::AvailablePortSpeeds.parse(map['availablePortSpeeds']) unless map['availablePortSpeeds'].nil?)
-        data.available_providers = (Parsers::ProviderList.parse(map['availableProviders']) unless map['availableProviders'].nil?)
-        data.available_mac_sec_port_speeds = (Parsers::AvailableMacSecPortSpeeds.parse(map['availableMacSecPortSpeeds']) unless map['availableMacSecPortSpeeds'].nil?)
+        data.available_port_speeds = (AvailablePortSpeeds.parse(map['availablePortSpeeds']) unless map['availablePortSpeeds'].nil?)
+        data.available_providers = (ProviderList.parse(map['availableProviders']) unless map['availableProviders'].nil?)
+        data.available_mac_sec_port_speeds = (AvailableMacSecPortSpeeds.parse(map['availableMacSecPortSpeeds']) unless map['availableMacSecPortSpeeds'].nil?)
         return data
       end
     end
@@ -1327,7 +1329,7 @@ module AWS::SDK::DirectConnect
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.customer_router_config = map['customerRouterConfig']
-        data.router = (Parsers::RouterType.parse(map['router']) unless map['router'].nil?)
+        data.router = (RouterType.parse(map['router']) unless map['router'].nil?)
         data.virtual_interface_id = map['virtualInterfaceId']
         data.virtual_interface_name = map['virtualInterfaceName']
         data
@@ -1354,7 +1356,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_tags = (Parsers::ResourceTagList.parse(map['resourceTags']) unless map['resourceTags'].nil?)
+        data.resource_tags = (ResourceTagList.parse(map['resourceTags']) unless map['resourceTags'].nil?)
         data
       end
     end
@@ -1362,7 +1364,7 @@ module AWS::SDK::DirectConnect
     class ResourceTagList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceTag.parse(value) unless value.nil?
+          ResourceTag.parse(value) unless value.nil?
         end
       end
     end
@@ -1371,7 +1373,7 @@ module AWS::SDK::DirectConnect
       def self.parse(map)
         data = Types::ResourceTag.new
         data.resource_arn = map['resourceArn']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -1383,7 +1385,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.virtual_gateways = (Parsers::VirtualGatewayList.parse(map['virtualGateways']) unless map['virtualGateways'].nil?)
+        data.virtual_gateways = (VirtualGatewayList.parse(map['virtualGateways']) unless map['virtualGateways'].nil?)
         data
       end
     end
@@ -1391,7 +1393,7 @@ module AWS::SDK::DirectConnect
     class VirtualGatewayList
       def self.parse(list)
         list.map do |value|
-          Parsers::VirtualGateway.parse(value) unless value.nil?
+          VirtualGateway.parse(value) unless value.nil?
         end
       end
     end
@@ -1412,7 +1414,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.virtual_interfaces = (Parsers::VirtualInterfaceList.parse(map['virtualInterfaces']) unless map['virtualInterfaces'].nil?)
+        data.virtual_interfaces = (VirtualInterfaceList.parse(map['virtualInterfaces']) unless map['virtualInterfaces'].nil?)
         data
       end
     end
@@ -1420,7 +1422,7 @@ module AWS::SDK::DirectConnect
     class VirtualInterfaceList
       def self.parse(list)
         list.map do |value|
-          Parsers::VirtualInterface.parse(value) unless value.nil?
+          VirtualInterface.parse(value) unless value.nil?
         end
       end
     end
@@ -1448,12 +1450,12 @@ module AWS::SDK::DirectConnect
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
         data.has_logical_redundancy = map['hasLogicalRedundancy']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.provider_name = map['providerName']
         data.mac_sec_capable = map['macSecCapable']
         data.port_encryption_status = map['portEncryptionStatus']
         data.encryption_mode = map['encryptionMode']
-        data.mac_sec_keys = (Parsers::MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
+        data.mac_sec_keys = (MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
         data
       end
     end
@@ -1466,7 +1468,7 @@ module AWS::SDK::DirectConnect
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.connection_id = map['connectionId']
-        data.mac_sec_keys = (Parsers::MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
+        data.mac_sec_keys = (MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
         data
       end
     end
@@ -1478,7 +1480,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.virtual_interface_test_history = (Parsers::VirtualInterfaceTestHistoryList.parse(map['virtualInterfaceTestHistory']) unless map['virtualInterfaceTestHistory'].nil?)
+        data.virtual_interface_test_history = (VirtualInterfaceTestHistoryList.parse(map['virtualInterfaceTestHistory']) unless map['virtualInterfaceTestHistory'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1487,7 +1489,7 @@ module AWS::SDK::DirectConnect
     class VirtualInterfaceTestHistoryList
       def self.parse(list)
         list.map do |value|
-          Parsers::VirtualInterfaceTestHistory.parse(value) unless value.nil?
+          VirtualInterfaceTestHistory.parse(value) unless value.nil?
         end
       end
     end
@@ -1497,7 +1499,7 @@ module AWS::SDK::DirectConnect
         data = Types::VirtualInterfaceTestHistory.new
         data.test_id = map['testId']
         data.virtual_interface_id = map['virtualInterfaceId']
-        data.bgp_peers = (Parsers::BGPPeerIdList.parse(map['bgpPeers']) unless map['bgpPeers'].nil?)
+        data.bgp_peers = (BGPPeerIdList.parse(map['bgpPeers']) unless map['bgpPeers'].nil?)
         data.status = map['status']
         data.owner_account = map['ownerAccount']
         data.test_duration_in_minutes = map['testDurationInMinutes']
@@ -1522,7 +1524,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.virtual_interface_test = (Parsers::VirtualInterfaceTestHistory.parse(map['virtualInterfaceTest']) unless map['virtualInterfaceTest'].nil?)
+        data.virtual_interface_test = (VirtualInterfaceTestHistory.parse(map['virtualInterfaceTest']) unless map['virtualInterfaceTest'].nil?)
         data
       end
     end
@@ -1534,7 +1536,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.virtual_interface_test = (Parsers::VirtualInterfaceTestHistory.parse(map['virtualInterfaceTest']) unless map['virtualInterfaceTest'].nil?)
+        data.virtual_interface_test = (VirtualInterfaceTestHistory.parse(map['virtualInterfaceTest']) unless map['virtualInterfaceTest'].nil?)
         data
       end
     end
@@ -1584,12 +1586,12 @@ module AWS::SDK::DirectConnect
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
         data.has_logical_redundancy = map['hasLogicalRedundancy']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.provider_name = map['providerName']
         data.mac_sec_capable = map['macSecCapable']
         data.port_encryption_status = map['portEncryptionStatus']
         data.encryption_mode = map['encryptionMode']
-        data.mac_sec_keys = (Parsers::MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
+        data.mac_sec_keys = (MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
         data
       end
     end
@@ -1601,7 +1603,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.direct_connect_gateway = (Parsers::DirectConnectGateway.parse(map['directConnectGateway']) unless map['directConnectGateway'].nil?)
+        data.direct_connect_gateway = (DirectConnectGateway.parse(map['directConnectGateway']) unless map['directConnectGateway'].nil?)
         data
       end
     end
@@ -1613,7 +1615,7 @@ module AWS::SDK::DirectConnect
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.direct_connect_gateway_association = (Parsers::DirectConnectGatewayAssociation.parse(map['directConnectGatewayAssociation']) unless map['directConnectGatewayAssociation'].nil?)
+        data.direct_connect_gateway_association = (DirectConnectGatewayAssociation.parse(map['directConnectGatewayAssociation']) unless map['directConnectGatewayAssociation'].nil?)
         data
       end
     end
@@ -1637,15 +1639,15 @@ module AWS::SDK::DirectConnect
         data.aws_device = map['awsDevice']
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
-        data.connections = (Parsers::ConnectionList.parse(map['connections']) unless map['connections'].nil?)
+        data.connections = (ConnectionList.parse(map['connections']) unless map['connections'].nil?)
         data.allows_hosted_connections = map['allowsHostedConnections']
         data.jumbo_frame_capable = map['jumboFrameCapable']
         data.has_logical_redundancy = map['hasLogicalRedundancy']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.provider_name = map['providerName']
         data.mac_sec_capable = map['macSecCapable']
         data.encryption_mode = map['encryptionMode']
-        data.mac_sec_keys = (Parsers::MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
+        data.mac_sec_keys = (MacSecKeyList.parse(map['macSecKeys']) unless map['macSecKeys'].nil?)
         data
       end
     end
@@ -1676,12 +1678,12 @@ module AWS::SDK::DirectConnect
         data.jumbo_frame_capable = map['jumboFrameCapable']
         data.virtual_gateway_id = map['virtualGatewayId']
         data.direct_connect_gateway_id = map['directConnectGatewayId']
-        data.route_filter_prefixes = (Parsers::RouteFilterPrefixList.parse(map['routeFilterPrefixes']) unless map['routeFilterPrefixes'].nil?)
-        data.bgp_peers = (Parsers::BGPPeerList.parse(map['bgpPeers']) unless map['bgpPeers'].nil?)
+        data.route_filter_prefixes = (RouteFilterPrefixList.parse(map['routeFilterPrefixes']) unless map['routeFilterPrefixes'].nil?)
+        data.bgp_peers = (BGPPeerList.parse(map['bgpPeers']) unless map['bgpPeers'].nil?)
         data.region = map['region']
         data.aws_device_v2 = map['awsDeviceV2']
         data.aws_logical_device_id = map['awsLogicalDeviceId']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.site_link_enabled = map['siteLinkEnabled']
         data
       end

@@ -15,7 +15,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(http_resp)
         data = Types::BatchPutMessageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.batch_put_message_error_entries = (Parsers::BatchPutMessageErrorEntries.parse(map['batchPutMessageErrorEntries']) unless map['batchPutMessageErrorEntries'].nil?)
+        data.batch_put_message_error_entries = (BatchPutMessageErrorEntries.parse(map['batchPutMessageErrorEntries']) unless map['batchPutMessageErrorEntries'].nil?)
         data
       end
     end
@@ -24,7 +24,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchPutMessageErrorEntry.parse(value) unless value.nil?
+          data << BatchPutMessageErrorEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -106,7 +106,7 @@ module AWS::SDK::IoTAnalytics
         map = Hearth::JSON.load(http_resp.body)
         data.channel_name = map['channelName']
         data.channel_arn = map['channelArn']
-        data.retention_period = (Parsers::RetentionPeriod.parse(map['retentionPeriod']) unless map['retentionPeriod'].nil?)
+        data.retention_period = (RetentionPeriod.parse(map['retentionPeriod']) unless map['retentionPeriod'].nil?)
         data
       end
     end
@@ -149,7 +149,7 @@ module AWS::SDK::IoTAnalytics
         map = Hearth::JSON.load(http_resp.body)
         data.dataset_name = map['datasetName']
         data.dataset_arn = map['datasetArn']
-        data.retention_period = (Parsers::RetentionPeriod.parse(map['retentionPeriod']) unless map['retentionPeriod'].nil?)
+        data.retention_period = (RetentionPeriod.parse(map['retentionPeriod']) unless map['retentionPeriod'].nil?)
         data
       end
     end
@@ -171,7 +171,7 @@ module AWS::SDK::IoTAnalytics
         map = Hearth::JSON.load(http_resp.body)
         data.datastore_name = map['datastoreName']
         data.datastore_arn = map['datastoreArn']
-        data.retention_period = (Parsers::RetentionPeriod.parse(map['retentionPeriod']) unless map['retentionPeriod'].nil?)
+        data.retention_period = (RetentionPeriod.parse(map['retentionPeriod']) unless map['retentionPeriod'].nil?)
         data
       end
     end
@@ -237,8 +237,8 @@ module AWS::SDK::IoTAnalytics
       def self.parse(http_resp)
         data = Types::DescribeChannelOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channel = (Parsers::Channel.parse(map['channel']) unless map['channel'].nil?)
-        data.statistics = (Parsers::ChannelStatistics.parse(map['statistics']) unless map['statistics'].nil?)
+        data.channel = (Channel.parse(map['channel']) unless map['channel'].nil?)
+        data.statistics = (ChannelStatistics.parse(map['statistics']) unless map['statistics'].nil?)
         data
       end
     end
@@ -246,7 +246,7 @@ module AWS::SDK::IoTAnalytics
     class ChannelStatistics
       def self.parse(map)
         data = Types::ChannelStatistics.new
-        data.size = (Parsers::EstimatedResourceSize.parse(map['size']) unless map['size'].nil?)
+        data.size = (EstimatedResourceSize.parse(map['size']) unless map['size'].nil?)
         return data
       end
     end
@@ -264,10 +264,10 @@ module AWS::SDK::IoTAnalytics
       def self.parse(map)
         data = Types::Channel.new
         data.name = map['name']
-        data.storage = (Parsers::ChannelStorage.parse(map['storage']) unless map['storage'].nil?)
+        data.storage = (ChannelStorage.parse(map['storage']) unless map['storage'].nil?)
         data.arn = map['arn']
         data.status = map['status']
-        data.retention_period = (Parsers::RetentionPeriod.parse(map['retentionPeriod']) unless map['retentionPeriod'].nil?)
+        data.retention_period = (RetentionPeriod.parse(map['retentionPeriod']) unless map['retentionPeriod'].nil?)
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_update_time = Time.at(map['lastUpdateTime'].to_i) if map['lastUpdateTime']
         data.last_message_arrival_time = Time.at(map['lastMessageArrivalTime'].to_i) if map['lastMessageArrivalTime']
@@ -278,8 +278,8 @@ module AWS::SDK::IoTAnalytics
     class ChannelStorage
       def self.parse(map)
         data = Types::ChannelStorage.new
-        data.service_managed_s3 = (Parsers::ServiceManagedChannelS3Storage.parse(map['serviceManagedS3']) unless map['serviceManagedS3'].nil?)
-        data.customer_managed_s3 = (Parsers::CustomerManagedChannelS3Storage.parse(map['customerManagedS3']) unless map['customerManagedS3'].nil?)
+        data.service_managed_s3 = (ServiceManagedChannelS3Storage.parse(map['serviceManagedS3']) unless map['serviceManagedS3'].nil?)
+        data.customer_managed_s3 = (CustomerManagedChannelS3Storage.parse(map['customerManagedS3']) unless map['customerManagedS3'].nil?)
         return data
       end
     end
@@ -306,7 +306,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(http_resp)
         data = Types::DescribeDatasetOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.dataset = (Parsers::Dataset.parse(map['dataset']) unless map['dataset'].nil?)
+        data.dataset = (Dataset.parse(map['dataset']) unless map['dataset'].nil?)
         data
       end
     end
@@ -316,15 +316,15 @@ module AWS::SDK::IoTAnalytics
         data = Types::Dataset.new
         data.name = map['name']
         data.arn = map['arn']
-        data.actions = (Parsers::DatasetActions.parse(map['actions']) unless map['actions'].nil?)
-        data.triggers = (Parsers::DatasetTriggers.parse(map['triggers']) unless map['triggers'].nil?)
-        data.content_delivery_rules = (Parsers::DatasetContentDeliveryRules.parse(map['contentDeliveryRules']) unless map['contentDeliveryRules'].nil?)
+        data.actions = (DatasetActions.parse(map['actions']) unless map['actions'].nil?)
+        data.triggers = (DatasetTriggers.parse(map['triggers']) unless map['triggers'].nil?)
+        data.content_delivery_rules = (DatasetContentDeliveryRules.parse(map['contentDeliveryRules']) unless map['contentDeliveryRules'].nil?)
         data.status = map['status']
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_update_time = Time.at(map['lastUpdateTime'].to_i) if map['lastUpdateTime']
-        data.retention_period = (Parsers::RetentionPeriod.parse(map['retentionPeriod']) unless map['retentionPeriod'].nil?)
-        data.versioning_configuration = (Parsers::VersioningConfiguration.parse(map['versioningConfiguration']) unless map['versioningConfiguration'].nil?)
-        data.late_data_rules = (Parsers::LateDataRules.parse(map['lateDataRules']) unless map['lateDataRules'].nil?)
+        data.retention_period = (RetentionPeriod.parse(map['retentionPeriod']) unless map['retentionPeriod'].nil?)
+        data.versioning_configuration = (VersioningConfiguration.parse(map['versioningConfiguration']) unless map['versioningConfiguration'].nil?)
+        data.late_data_rules = (LateDataRules.parse(map['lateDataRules']) unless map['lateDataRules'].nil?)
         return data
       end
     end
@@ -333,7 +333,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LateDataRule.parse(value) unless value.nil?
+          data << LateDataRule.parse(value) unless value.nil?
         end
         data
       end
@@ -343,7 +343,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(map)
         data = Types::LateDataRule.new
         data.rule_name = map['ruleName']
-        data.rule_configuration = (Parsers::LateDataRuleConfiguration.parse(map['ruleConfiguration']) unless map['ruleConfiguration'].nil?)
+        data.rule_configuration = (LateDataRuleConfiguration.parse(map['ruleConfiguration']) unless map['ruleConfiguration'].nil?)
         return data
       end
     end
@@ -351,7 +351,7 @@ module AWS::SDK::IoTAnalytics
     class LateDataRuleConfiguration
       def self.parse(map)
         data = Types::LateDataRuleConfiguration.new
-        data.delta_time_session_window_configuration = (Parsers::DeltaTimeSessionWindowConfiguration.parse(map['deltaTimeSessionWindowConfiguration']) unless map['deltaTimeSessionWindowConfiguration'].nil?)
+        data.delta_time_session_window_configuration = (DeltaTimeSessionWindowConfiguration.parse(map['deltaTimeSessionWindowConfiguration']) unless map['deltaTimeSessionWindowConfiguration'].nil?)
         return data
       end
     end
@@ -377,7 +377,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DatasetContentDeliveryRule.parse(value) unless value.nil?
+          data << DatasetContentDeliveryRule.parse(value) unless value.nil?
         end
         data
       end
@@ -387,7 +387,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(map)
         data = Types::DatasetContentDeliveryRule.new
         data.entry_name = map['entryName']
-        data.destination = (Parsers::DatasetContentDeliveryDestination.parse(map['destination']) unless map['destination'].nil?)
+        data.destination = (DatasetContentDeliveryDestination.parse(map['destination']) unless map['destination'].nil?)
         return data
       end
     end
@@ -395,8 +395,8 @@ module AWS::SDK::IoTAnalytics
     class DatasetContentDeliveryDestination
       def self.parse(map)
         data = Types::DatasetContentDeliveryDestination.new
-        data.iot_events_destination_configuration = (Parsers::IotEventsDestinationConfiguration.parse(map['iotEventsDestinationConfiguration']) unless map['iotEventsDestinationConfiguration'].nil?)
-        data.s3_destination_configuration = (Parsers::S3DestinationConfiguration.parse(map['s3DestinationConfiguration']) unless map['s3DestinationConfiguration'].nil?)
+        data.iot_events_destination_configuration = (IotEventsDestinationConfiguration.parse(map['iotEventsDestinationConfiguration']) unless map['iotEventsDestinationConfiguration'].nil?)
+        data.s3_destination_configuration = (S3DestinationConfiguration.parse(map['s3DestinationConfiguration']) unless map['s3DestinationConfiguration'].nil?)
         return data
       end
     end
@@ -406,7 +406,7 @@ module AWS::SDK::IoTAnalytics
         data = Types::S3DestinationConfiguration.new
         data.bucket = map['bucket']
         data.key = map['key']
-        data.glue_configuration = (Parsers::GlueConfiguration.parse(map['glueConfiguration']) unless map['glueConfiguration'].nil?)
+        data.glue_configuration = (GlueConfiguration.parse(map['glueConfiguration']) unless map['glueConfiguration'].nil?)
         data.role_arn = map['roleArn']
         return data
       end
@@ -434,7 +434,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DatasetTrigger.parse(value) unless value.nil?
+          data << DatasetTrigger.parse(value) unless value.nil?
         end
         data
       end
@@ -443,8 +443,8 @@ module AWS::SDK::IoTAnalytics
     class DatasetTrigger
       def self.parse(map)
         data = Types::DatasetTrigger.new
-        data.schedule = (Parsers::Schedule.parse(map['schedule']) unless map['schedule'].nil?)
-        data.dataset = (Parsers::TriggeringDataset.parse(map['dataset']) unless map['dataset'].nil?)
+        data.schedule = (Schedule.parse(map['schedule']) unless map['schedule'].nil?)
+        data.dataset = (TriggeringDataset.parse(map['dataset']) unless map['dataset'].nil?)
         return data
       end
     end
@@ -469,7 +469,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DatasetAction.parse(value) unless value.nil?
+          data << DatasetAction.parse(value) unless value.nil?
         end
         data
       end
@@ -479,8 +479,8 @@ module AWS::SDK::IoTAnalytics
       def self.parse(map)
         data = Types::DatasetAction.new
         data.action_name = map['actionName']
-        data.query_action = (Parsers::SqlQueryDatasetAction.parse(map['queryAction']) unless map['queryAction'].nil?)
-        data.container_action = (Parsers::ContainerDatasetAction.parse(map['containerAction']) unless map['containerAction'].nil?)
+        data.query_action = (SqlQueryDatasetAction.parse(map['queryAction']) unless map['queryAction'].nil?)
+        data.container_action = (ContainerDatasetAction.parse(map['containerAction']) unless map['containerAction'].nil?)
         return data
       end
     end
@@ -490,8 +490,8 @@ module AWS::SDK::IoTAnalytics
         data = Types::ContainerDatasetAction.new
         data.image = map['image']
         data.execution_role_arn = map['executionRoleArn']
-        data.resource_configuration = (Parsers::ResourceConfiguration.parse(map['resourceConfiguration']) unless map['resourceConfiguration'].nil?)
-        data.variables = (Parsers::Variables.parse(map['variables']) unless map['variables'].nil?)
+        data.resource_configuration = (ResourceConfiguration.parse(map['resourceConfiguration']) unless map['resourceConfiguration'].nil?)
+        data.variables = (Variables.parse(map['variables']) unless map['variables'].nil?)
         return data
       end
     end
@@ -500,7 +500,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Variable.parse(value) unless value.nil?
+          data << Variable.parse(value) unless value.nil?
         end
         data
       end
@@ -512,8 +512,8 @@ module AWS::SDK::IoTAnalytics
         data.name = map['name']
         data.string_value = map['stringValue']
         data.double_value = Hearth::NumberHelper.deserialize(map['doubleValue'])
-        data.dataset_content_version_value = (Parsers::DatasetContentVersionValue.parse(map['datasetContentVersionValue']) unless map['datasetContentVersionValue'].nil?)
-        data.output_file_uri_value = (Parsers::OutputFileUriValue.parse(map['outputFileUriValue']) unless map['outputFileUriValue'].nil?)
+        data.dataset_content_version_value = (DatasetContentVersionValue.parse(map['datasetContentVersionValue']) unless map['datasetContentVersionValue'].nil?)
+        data.output_file_uri_value = (OutputFileUriValue.parse(map['outputFileUriValue']) unless map['outputFileUriValue'].nil?)
         return data
       end
     end
@@ -547,7 +547,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(map)
         data = Types::SqlQueryDatasetAction.new
         data.sql_query = map['sqlQuery']
-        data.filters = (Parsers::QueryFilters.parse(map['filters']) unless map['filters'].nil?)
+        data.filters = (QueryFilters.parse(map['filters']) unless map['filters'].nil?)
         return data
       end
     end
@@ -556,7 +556,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::QueryFilter.parse(value) unless value.nil?
+          data << QueryFilter.parse(value) unless value.nil?
         end
         data
       end
@@ -565,7 +565,7 @@ module AWS::SDK::IoTAnalytics
     class QueryFilter
       def self.parse(map)
         data = Types::QueryFilter.new
-        data.delta_time = (Parsers::DeltaTime.parse(map['deltaTime']) unless map['deltaTime'].nil?)
+        data.delta_time = (DeltaTime.parse(map['deltaTime']) unless map['deltaTime'].nil?)
         return data
       end
     end
@@ -584,8 +584,8 @@ module AWS::SDK::IoTAnalytics
       def self.parse(http_resp)
         data = Types::DescribeDatastoreOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.datastore = (Parsers::Datastore.parse(map['datastore']) unless map['datastore'].nil?)
-        data.statistics = (Parsers::DatastoreStatistics.parse(map['statistics']) unless map['statistics'].nil?)
+        data.datastore = (Datastore.parse(map['datastore']) unless map['datastore'].nil?)
+        data.statistics = (DatastoreStatistics.parse(map['statistics']) unless map['statistics'].nil?)
         data
       end
     end
@@ -593,7 +593,7 @@ module AWS::SDK::IoTAnalytics
     class DatastoreStatistics
       def self.parse(map)
         data = Types::DatastoreStatistics.new
-        data.size = (Parsers::EstimatedResourceSize.parse(map['size']) unless map['size'].nil?)
+        data.size = (EstimatedResourceSize.parse(map['size']) unless map['size'].nil?)
         return data
       end
     end
@@ -602,15 +602,15 @@ module AWS::SDK::IoTAnalytics
       def self.parse(map)
         data = Types::Datastore.new
         data.name = map['name']
-        data.storage = (Parsers::DatastoreStorage.parse(map['storage']) unless map['storage'].nil?)
+        data.storage = (DatastoreStorage.parse(map['storage']) unless map['storage'].nil?)
         data.arn = map['arn']
         data.status = map['status']
-        data.retention_period = (Parsers::RetentionPeriod.parse(map['retentionPeriod']) unless map['retentionPeriod'].nil?)
+        data.retention_period = (RetentionPeriod.parse(map['retentionPeriod']) unless map['retentionPeriod'].nil?)
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_update_time = Time.at(map['lastUpdateTime'].to_i) if map['lastUpdateTime']
         data.last_message_arrival_time = Time.at(map['lastMessageArrivalTime'].to_i) if map['lastMessageArrivalTime']
-        data.file_format_configuration = (Parsers::FileFormatConfiguration.parse(map['fileFormatConfiguration']) unless map['fileFormatConfiguration'].nil?)
-        data.datastore_partitions = (Parsers::DatastorePartitions.parse(map['datastorePartitions']) unless map['datastorePartitions'].nil?)
+        data.file_format_configuration = (FileFormatConfiguration.parse(map['fileFormatConfiguration']) unless map['fileFormatConfiguration'].nil?)
+        data.datastore_partitions = (DatastorePartitions.parse(map['datastorePartitions']) unless map['datastorePartitions'].nil?)
         return data
       end
     end
@@ -618,7 +618,7 @@ module AWS::SDK::IoTAnalytics
     class DatastorePartitions
       def self.parse(map)
         data = Types::DatastorePartitions.new
-        data.partitions = (Parsers::Partitions.parse(map['partitions']) unless map['partitions'].nil?)
+        data.partitions = (Partitions.parse(map['partitions']) unless map['partitions'].nil?)
         return data
       end
     end
@@ -627,7 +627,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DatastorePartition.parse(value) unless value.nil?
+          data << DatastorePartition.parse(value) unless value.nil?
         end
         data
       end
@@ -636,8 +636,8 @@ module AWS::SDK::IoTAnalytics
     class DatastorePartition
       def self.parse(map)
         data = Types::DatastorePartition.new
-        data.attribute_partition = (Parsers::Partition.parse(map['attributePartition']) unless map['attributePartition'].nil?)
-        data.timestamp_partition = (Parsers::TimestampPartition.parse(map['timestampPartition']) unless map['timestampPartition'].nil?)
+        data.attribute_partition = (Partition.parse(map['attributePartition']) unless map['attributePartition'].nil?)
+        data.timestamp_partition = (TimestampPartition.parse(map['timestampPartition']) unless map['timestampPartition'].nil?)
         return data
       end
     end
@@ -662,8 +662,8 @@ module AWS::SDK::IoTAnalytics
     class FileFormatConfiguration
       def self.parse(map)
         data = Types::FileFormatConfiguration.new
-        data.json_configuration = (Parsers::JsonConfiguration.parse(map['jsonConfiguration']) unless map['jsonConfiguration'].nil?)
-        data.parquet_configuration = (Parsers::ParquetConfiguration.parse(map['parquetConfiguration']) unless map['parquetConfiguration'].nil?)
+        data.json_configuration = (JsonConfiguration.parse(map['jsonConfiguration']) unless map['jsonConfiguration'].nil?)
+        data.parquet_configuration = (ParquetConfiguration.parse(map['parquetConfiguration']) unless map['parquetConfiguration'].nil?)
         return data
       end
     end
@@ -671,7 +671,7 @@ module AWS::SDK::IoTAnalytics
     class ParquetConfiguration
       def self.parse(map)
         data = Types::ParquetConfiguration.new
-        data.schema_definition = (Parsers::SchemaDefinition.parse(map['schemaDefinition']) unless map['schemaDefinition'].nil?)
+        data.schema_definition = (SchemaDefinition.parse(map['schemaDefinition']) unless map['schemaDefinition'].nil?)
         return data
       end
     end
@@ -679,7 +679,7 @@ module AWS::SDK::IoTAnalytics
     class SchemaDefinition
       def self.parse(map)
         data = Types::SchemaDefinition.new
-        data.columns = (Parsers::Columns.parse(map['columns']) unless map['columns'].nil?)
+        data.columns = (Columns.parse(map['columns']) unless map['columns'].nil?)
         return data
       end
     end
@@ -688,7 +688,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Column.parse(value) unless value.nil?
+          data << Column.parse(value) unless value.nil?
         end
         data
       end
@@ -715,13 +715,13 @@ module AWS::SDK::IoTAnalytics
         key, value = map.flatten
         case key
         when 'serviceManagedS3'
-          value = (Parsers::ServiceManagedDatastoreS3Storage.parse(value) unless value.nil?)
+          value = (ServiceManagedDatastoreS3Storage.parse(value) unless value.nil?)
           Types::DatastoreStorage::ServiceManagedS3.new(value) if value
         when 'customerManagedS3'
-          value = (Parsers::CustomerManagedDatastoreS3Storage.parse(value) unless value.nil?)
+          value = (CustomerManagedDatastoreS3Storage.parse(value) unless value.nil?)
           Types::DatastoreStorage::CustomerManagedS3.new(value) if value
         when 'iotSiteWiseMultiLayerStorage'
-          value = (Parsers::DatastoreIotSiteWiseMultiLayerStorage.parse(value) unless value.nil?)
+          value = (DatastoreIotSiteWiseMultiLayerStorage.parse(value) unless value.nil?)
           Types::DatastoreStorage::IotSiteWiseMultiLayerStorage.new(value) if value
         else
           Types::DatastoreStorage::Unknown.new({name: key, value: value})
@@ -732,7 +732,7 @@ module AWS::SDK::IoTAnalytics
     class DatastoreIotSiteWiseMultiLayerStorage
       def self.parse(map)
         data = Types::DatastoreIotSiteWiseMultiLayerStorage.new
-        data.customer_managed_s3_storage = (Parsers::IotSiteWiseCustomerManagedDatastoreS3Storage.parse(map['customerManagedS3Storage']) unless map['customerManagedS3Storage'].nil?)
+        data.customer_managed_s3_storage = (IotSiteWiseCustomerManagedDatastoreS3Storage.parse(map['customerManagedS3Storage']) unless map['customerManagedS3Storage'].nil?)
         return data
       end
     end
@@ -768,7 +768,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(http_resp)
         data = Types::DescribeLoggingOptionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.logging_options = (Parsers::LoggingOptions.parse(map['loggingOptions']) unless map['loggingOptions'].nil?)
+        data.logging_options = (LoggingOptions.parse(map['loggingOptions']) unless map['loggingOptions'].nil?)
         data
       end
     end
@@ -788,7 +788,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(http_resp)
         data = Types::DescribePipelineOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.pipeline = (Parsers::Pipeline.parse(map['pipeline']) unless map['pipeline'].nil?)
+        data.pipeline = (Pipeline.parse(map['pipeline']) unless map['pipeline'].nil?)
         data
       end
     end
@@ -798,8 +798,8 @@ module AWS::SDK::IoTAnalytics
         data = Types::Pipeline.new
         data.name = map['name']
         data.arn = map['arn']
-        data.activities = (Parsers::PipelineActivities.parse(map['activities']) unless map['activities'].nil?)
-        data.reprocessing_summaries = (Parsers::ReprocessingSummaries.parse(map['reprocessingSummaries']) unless map['reprocessingSummaries'].nil?)
+        data.activities = (PipelineActivities.parse(map['activities']) unless map['activities'].nil?)
+        data.reprocessing_summaries = (ReprocessingSummaries.parse(map['reprocessingSummaries']) unless map['reprocessingSummaries'].nil?)
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_update_time = Time.at(map['lastUpdateTime'].to_i) if map['lastUpdateTime']
         return data
@@ -810,7 +810,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReprocessingSummary.parse(value) unless value.nil?
+          data << ReprocessingSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -830,7 +830,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PipelineActivity.parse(value) unless value.nil?
+          data << PipelineActivity.parse(value) unless value.nil?
         end
         data
       end
@@ -839,16 +839,16 @@ module AWS::SDK::IoTAnalytics
     class PipelineActivity
       def self.parse(map)
         data = Types::PipelineActivity.new
-        data.channel = (Parsers::ChannelActivity.parse(map['channel']) unless map['channel'].nil?)
-        data.lambda = (Parsers::LambdaActivity.parse(map['lambda']) unless map['lambda'].nil?)
-        data.datastore = (Parsers::DatastoreActivity.parse(map['datastore']) unless map['datastore'].nil?)
-        data.add_attributes = (Parsers::AddAttributesActivity.parse(map['addAttributes']) unless map['addAttributes'].nil?)
-        data.remove_attributes = (Parsers::RemoveAttributesActivity.parse(map['removeAttributes']) unless map['removeAttributes'].nil?)
-        data.select_attributes = (Parsers::SelectAttributesActivity.parse(map['selectAttributes']) unless map['selectAttributes'].nil?)
-        data.filter = (Parsers::FilterActivity.parse(map['filter']) unless map['filter'].nil?)
-        data.math = (Parsers::MathActivity.parse(map['math']) unless map['math'].nil?)
-        data.device_registry_enrich = (Parsers::DeviceRegistryEnrichActivity.parse(map['deviceRegistryEnrich']) unless map['deviceRegistryEnrich'].nil?)
-        data.device_shadow_enrich = (Parsers::DeviceShadowEnrichActivity.parse(map['deviceShadowEnrich']) unless map['deviceShadowEnrich'].nil?)
+        data.channel = (ChannelActivity.parse(map['channel']) unless map['channel'].nil?)
+        data.lambda = (LambdaActivity.parse(map['lambda']) unless map['lambda'].nil?)
+        data.datastore = (DatastoreActivity.parse(map['datastore']) unless map['datastore'].nil?)
+        data.add_attributes = (AddAttributesActivity.parse(map['addAttributes']) unless map['addAttributes'].nil?)
+        data.remove_attributes = (RemoveAttributesActivity.parse(map['removeAttributes']) unless map['removeAttributes'].nil?)
+        data.select_attributes = (SelectAttributesActivity.parse(map['selectAttributes']) unless map['selectAttributes'].nil?)
+        data.filter = (FilterActivity.parse(map['filter']) unless map['filter'].nil?)
+        data.math = (MathActivity.parse(map['math']) unless map['math'].nil?)
+        data.device_registry_enrich = (DeviceRegistryEnrichActivity.parse(map['deviceRegistryEnrich']) unless map['deviceRegistryEnrich'].nil?)
+        data.device_shadow_enrich = (DeviceShadowEnrichActivity.parse(map['deviceShadowEnrich']) unless map['deviceShadowEnrich'].nil?)
         return data
       end
     end
@@ -902,7 +902,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(map)
         data = Types::SelectAttributesActivity.new
         data.name = map['name']
-        data.attributes = (Parsers::AttributeNames.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (AttributeNames.parse(map['attributes']) unless map['attributes'].nil?)
         data.next = map['next']
         return data
       end
@@ -922,7 +922,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(map)
         data = Types::RemoveAttributesActivity.new
         data.name = map['name']
-        data.attributes = (Parsers::AttributeNames.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (AttributeNames.parse(map['attributes']) unless map['attributes'].nil?)
         data.next = map['next']
         return data
       end
@@ -932,7 +932,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(map)
         data = Types::AddAttributesActivity.new
         data.name = map['name']
-        data.attributes = (Parsers::AttributeNameMapping.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (AttributeNameMapping.parse(map['attributes']) unless map['attributes'].nil?)
         data.next = map['next']
         return data
       end
@@ -983,9 +983,9 @@ module AWS::SDK::IoTAnalytics
       def self.parse(http_resp)
         data = Types::GetDatasetContentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.entries = (Parsers::DatasetEntries.parse(map['entries']) unless map['entries'].nil?)
+        data.entries = (DatasetEntries.parse(map['entries']) unless map['entries'].nil?)
         data.timestamp = Time.at(map['timestamp'].to_i) if map['timestamp']
-        data.status = (Parsers::DatasetContentStatus.parse(map['status']) unless map['status'].nil?)
+        data.status = (DatasetContentStatus.parse(map['status']) unless map['status'].nil?)
         data
       end
     end
@@ -1003,7 +1003,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DatasetEntry.parse(value) unless value.nil?
+          data << DatasetEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -1023,7 +1023,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(http_resp)
         data = Types::ListChannelsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.channel_summaries = (Parsers::ChannelSummaries.parse(map['channelSummaries']) unless map['channelSummaries'].nil?)
+        data.channel_summaries = (ChannelSummaries.parse(map['channelSummaries']) unless map['channelSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1033,7 +1033,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChannelSummary.parse(value) unless value.nil?
+          data << ChannelSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1043,7 +1043,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(map)
         data = Types::ChannelSummary.new
         data.channel_name = map['channelName']
-        data.channel_storage = (Parsers::ChannelStorageSummary.parse(map['channelStorage']) unless map['channelStorage'].nil?)
+        data.channel_storage = (ChannelStorageSummary.parse(map['channelStorage']) unless map['channelStorage'].nil?)
         data.status = map['status']
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_update_time = Time.at(map['lastUpdateTime'].to_i) if map['lastUpdateTime']
@@ -1055,8 +1055,8 @@ module AWS::SDK::IoTAnalytics
     class ChannelStorageSummary
       def self.parse(map)
         data = Types::ChannelStorageSummary.new
-        data.service_managed_s3 = (Parsers::ServiceManagedChannelS3StorageSummary.parse(map['serviceManagedS3']) unless map['serviceManagedS3'].nil?)
-        data.customer_managed_s3 = (Parsers::CustomerManagedChannelS3StorageSummary.parse(map['customerManagedS3']) unless map['customerManagedS3'].nil?)
+        data.service_managed_s3 = (ServiceManagedChannelS3StorageSummary.parse(map['serviceManagedS3']) unless map['serviceManagedS3'].nil?)
+        data.customer_managed_s3 = (CustomerManagedChannelS3StorageSummary.parse(map['customerManagedS3']) unless map['customerManagedS3'].nil?)
         return data
       end
     end
@@ -1083,7 +1083,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(http_resp)
         data = Types::ListDatasetContentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.dataset_content_summaries = (Parsers::DatasetContentSummaries.parse(map['datasetContentSummaries']) unless map['datasetContentSummaries'].nil?)
+        data.dataset_content_summaries = (DatasetContentSummaries.parse(map['datasetContentSummaries']) unless map['datasetContentSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1093,7 +1093,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DatasetContentSummary.parse(value) unless value.nil?
+          data << DatasetContentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1103,7 +1103,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(map)
         data = Types::DatasetContentSummary.new
         data.version = map['version']
-        data.status = (Parsers::DatasetContentStatus.parse(map['status']) unless map['status'].nil?)
+        data.status = (DatasetContentStatus.parse(map['status']) unless map['status'].nil?)
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.schedule_time = Time.at(map['scheduleTime'].to_i) if map['scheduleTime']
         data.completion_time = Time.at(map['completionTime'].to_i) if map['completionTime']
@@ -1116,7 +1116,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(http_resp)
         data = Types::ListDatasetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.dataset_summaries = (Parsers::DatasetSummaries.parse(map['datasetSummaries']) unless map['datasetSummaries'].nil?)
+        data.dataset_summaries = (DatasetSummaries.parse(map['datasetSummaries']) unless map['datasetSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1126,7 +1126,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DatasetSummary.parse(value) unless value.nil?
+          data << DatasetSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1139,8 +1139,8 @@ module AWS::SDK::IoTAnalytics
         data.status = map['status']
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_update_time = Time.at(map['lastUpdateTime'].to_i) if map['lastUpdateTime']
-        data.triggers = (Parsers::DatasetTriggers.parse(map['triggers']) unless map['triggers'].nil?)
-        data.actions = (Parsers::DatasetActionSummaries.parse(map['actions']) unless map['actions'].nil?)
+        data.triggers = (DatasetTriggers.parse(map['triggers']) unless map['triggers'].nil?)
+        data.actions = (DatasetActionSummaries.parse(map['actions']) unless map['actions'].nil?)
         return data
       end
     end
@@ -1149,7 +1149,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DatasetActionSummary.parse(value) unless value.nil?
+          data << DatasetActionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1169,7 +1169,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(http_resp)
         data = Types::ListDatastoresOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.datastore_summaries = (Parsers::DatastoreSummaries.parse(map['datastoreSummaries']) unless map['datastoreSummaries'].nil?)
+        data.datastore_summaries = (DatastoreSummaries.parse(map['datastoreSummaries']) unless map['datastoreSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1179,7 +1179,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DatastoreSummary.parse(value) unless value.nil?
+          data << DatastoreSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1189,13 +1189,13 @@ module AWS::SDK::IoTAnalytics
       def self.parse(map)
         data = Types::DatastoreSummary.new
         data.datastore_name = map['datastoreName']
-        data.datastore_storage = (Parsers::DatastoreStorageSummary.parse(map['datastoreStorage']) unless map['datastoreStorage'].nil?)
+        data.datastore_storage = (DatastoreStorageSummary.parse(map['datastoreStorage']) unless map['datastoreStorage'].nil?)
         data.status = map['status']
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_update_time = Time.at(map['lastUpdateTime'].to_i) if map['lastUpdateTime']
         data.last_message_arrival_time = Time.at(map['lastMessageArrivalTime'].to_i) if map['lastMessageArrivalTime']
         data.file_format_type = map['fileFormatType']
-        data.datastore_partitions = (Parsers::DatastorePartitions.parse(map['datastorePartitions']) unless map['datastorePartitions'].nil?)
+        data.datastore_partitions = (DatastorePartitions.parse(map['datastorePartitions']) unless map['datastorePartitions'].nil?)
         return data
       end
     end
@@ -1203,9 +1203,9 @@ module AWS::SDK::IoTAnalytics
     class DatastoreStorageSummary
       def self.parse(map)
         data = Types::DatastoreStorageSummary.new
-        data.service_managed_s3 = (Parsers::ServiceManagedDatastoreS3StorageSummary.parse(map['serviceManagedS3']) unless map['serviceManagedS3'].nil?)
-        data.customer_managed_s3 = (Parsers::CustomerManagedDatastoreS3StorageSummary.parse(map['customerManagedS3']) unless map['customerManagedS3'].nil?)
-        data.iot_site_wise_multi_layer_storage = (Parsers::DatastoreIotSiteWiseMultiLayerStorageSummary.parse(map['iotSiteWiseMultiLayerStorage']) unless map['iotSiteWiseMultiLayerStorage'].nil?)
+        data.service_managed_s3 = (ServiceManagedDatastoreS3StorageSummary.parse(map['serviceManagedS3']) unless map['serviceManagedS3'].nil?)
+        data.customer_managed_s3 = (CustomerManagedDatastoreS3StorageSummary.parse(map['customerManagedS3']) unless map['customerManagedS3'].nil?)
+        data.iot_site_wise_multi_layer_storage = (DatastoreIotSiteWiseMultiLayerStorageSummary.parse(map['iotSiteWiseMultiLayerStorage']) unless map['iotSiteWiseMultiLayerStorage'].nil?)
         return data
       end
     end
@@ -1213,7 +1213,7 @@ module AWS::SDK::IoTAnalytics
     class DatastoreIotSiteWiseMultiLayerStorageSummary
       def self.parse(map)
         data = Types::DatastoreIotSiteWiseMultiLayerStorageSummary.new
-        data.customer_managed_s3_storage = (Parsers::IotSiteWiseCustomerManagedDatastoreS3StorageSummary.parse(map['customerManagedS3Storage']) unless map['customerManagedS3Storage'].nil?)
+        data.customer_managed_s3_storage = (IotSiteWiseCustomerManagedDatastoreS3StorageSummary.parse(map['customerManagedS3Storage']) unless map['customerManagedS3Storage'].nil?)
         return data
       end
     end
@@ -1249,7 +1249,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(http_resp)
         data = Types::ListPipelinesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.pipeline_summaries = (Parsers::PipelineSummaries.parse(map['pipelineSummaries']) unless map['pipelineSummaries'].nil?)
+        data.pipeline_summaries = (PipelineSummaries.parse(map['pipelineSummaries']) unless map['pipelineSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1259,7 +1259,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PipelineSummary.parse(value) unless value.nil?
+          data << PipelineSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1269,7 +1269,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(map)
         data = Types::PipelineSummary.new
         data.pipeline_name = map['pipelineName']
-        data.reprocessing_summaries = (Parsers::ReprocessingSummaries.parse(map['reprocessingSummaries']) unless map['reprocessingSummaries'].nil?)
+        data.reprocessing_summaries = (ReprocessingSummaries.parse(map['reprocessingSummaries']) unless map['reprocessingSummaries'].nil?)
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_update_time = Time.at(map['lastUpdateTime'].to_i) if map['lastUpdateTime']
         return data
@@ -1281,7 +1281,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1290,7 +1290,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -1319,7 +1319,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(http_resp)
         data = Types::RunPipelineActivityOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.payloads = (Parsers::MessagePayloads.parse(map['payloads']) unless map['payloads'].nil?)
+        data.payloads = (MessagePayloads.parse(map['payloads']) unless map['payloads'].nil?)
         data.log_result = map['logResult']
         data
       end
@@ -1340,7 +1340,7 @@ module AWS::SDK::IoTAnalytics
       def self.parse(http_resp)
         data = Types::SampleChannelDataOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.payloads = (Parsers::MessagePayloads.parse(map['payloads']) unless map['payloads'].nil?)
+        data.payloads = (MessagePayloads.parse(map['payloads']) unless map['payloads'].nil?)
         data
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Connect
   module Builders
 
@@ -28,7 +30,7 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Origin'] = input[:origin] unless input[:origin].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -49,9 +51,9 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['LexBot'] = Builders::LexBot.build(input[:lex_bot]) unless input[:lex_bot].nil?
-        data['LexV2Bot'] = Builders::LexV2Bot.build(input[:lex_v2_bot]) unless input[:lex_v2_bot].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LexBot'] = LexBot.build(input[:lex_bot]) unless input[:lex_bot].nil?
+        data['LexV2Bot'] = LexV2Bot.build(input[:lex_v2_bot]) unless input[:lex_v2_bot].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -96,7 +98,7 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['VocabularyId'] = input[:vocabulary_id] unless input[:vocabulary_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -118,8 +120,8 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['StorageConfig'] = Builders::InstanceStorageConfig.build(input[:storage_config]) unless input[:storage_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StorageConfig'] = InstanceStorageConfig.build(input[:storage_config]) unless input[:storage_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -129,10 +131,10 @@ module AWS::SDK::Connect
         data = {}
         data['AssociationId'] = input[:association_id] unless input[:association_id].nil?
         data['StorageType'] = input[:storage_type] unless input[:storage_type].nil?
-        data['S3Config'] = Builders::S3Config.build(input[:s3_config]) unless input[:s3_config].nil?
-        data['KinesisVideoStreamConfig'] = Builders::KinesisVideoStreamConfig.build(input[:kinesis_video_stream_config]) unless input[:kinesis_video_stream_config].nil?
-        data['KinesisStreamConfig'] = Builders::KinesisStreamConfig.build(input[:kinesis_stream_config]) unless input[:kinesis_stream_config].nil?
-        data['KinesisFirehoseConfig'] = Builders::KinesisFirehoseConfig.build(input[:kinesis_firehose_config]) unless input[:kinesis_firehose_config].nil?
+        data['S3Config'] = S3Config.build(input[:s3_config]) unless input[:s3_config].nil?
+        data['KinesisVideoStreamConfig'] = KinesisVideoStreamConfig.build(input[:kinesis_video_stream_config]) unless input[:kinesis_video_stream_config].nil?
+        data['KinesisStreamConfig'] = KinesisStreamConfig.build(input[:kinesis_stream_config]) unless input[:kinesis_stream_config].nil?
+        data['KinesisFirehoseConfig'] = KinesisFirehoseConfig.build(input[:kinesis_firehose_config]) unless input[:kinesis_firehose_config].nil?
         data
       end
     end
@@ -161,7 +163,7 @@ module AWS::SDK::Connect
         data = {}
         data['Prefix'] = input[:prefix] unless input[:prefix].nil?
         data['RetentionPeriodHours'] = input[:retention_period_hours] unless input[:retention_period_hours].nil?
-        data['EncryptionConfig'] = Builders::EncryptionConfig.build(input[:encryption_config]) unless input[:encryption_config].nil?
+        data['EncryptionConfig'] = EncryptionConfig.build(input[:encryption_config]) unless input[:encryption_config].nil?
         data
       end
     end
@@ -182,7 +184,7 @@ module AWS::SDK::Connect
         data = {}
         data['BucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
         data['BucketPrefix'] = input[:bucket_prefix] unless input[:bucket_prefix].nil?
-        data['EncryptionConfig'] = Builders::EncryptionConfig.build(input[:encryption_config]) unless input[:encryption_config].nil?
+        data['EncryptionConfig'] = EncryptionConfig.build(input[:encryption_config]) unless input[:encryption_config].nil?
         data
       end
     end
@@ -205,7 +207,7 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['FunctionArn'] = input[:function_arn] unless input[:function_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -226,8 +228,8 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['LexBot'] = Builders::LexBot.build(input[:lex_bot]) unless input[:lex_bot].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LexBot'] = LexBot.build(input[:lex_bot]) unless input[:lex_bot].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -250,7 +252,7 @@ module AWS::SDK::Connect
         data = {}
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
         data['ContactFlowId'] = input[:contact_flow_id] unless input[:contact_flow_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -275,8 +277,8 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['QuickConnectIds'] = Builders::QuickConnectsList.build(input[:quick_connect_ids]) unless input[:quick_connect_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QuickConnectIds'] = QuickConnectsList.build(input[:quick_connect_ids]) unless input[:quick_connect_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -312,8 +314,8 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['QueueConfigs'] = Builders::RoutingProfileQueueConfigList.build(input[:queue_configs]) unless input[:queue_configs].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QueueConfigs'] = RoutingProfileQueueConfigList.build(input[:queue_configs]) unless input[:queue_configs].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -322,7 +324,7 @@ module AWS::SDK::Connect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RoutingProfileQueueConfig.build(element) unless element.nil?
+          data << RoutingProfileQueueConfig.build(element) unless element.nil?
         end
         data
       end
@@ -332,7 +334,7 @@ module AWS::SDK::Connect
     class RoutingProfileQueueConfig
       def self.build(input)
         data = {}
-        data['QueueReference'] = Builders::RoutingProfileQueueReference.build(input[:queue_reference]) unless input[:queue_reference].nil?
+        data['QueueReference'] = RoutingProfileQueueReference.build(input[:queue_reference]) unless input[:queue_reference].nil?
         data['Priority'] = input[:priority] unless input[:priority].nil?
         data['Delay'] = input[:delay] unless input[:delay].nil?
         data
@@ -367,7 +369,7 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Key'] = input[:key] unless input[:key].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -384,9 +386,9 @@ module AWS::SDK::Connect
         data['TargetArn'] = input[:target_arn] unless input[:target_arn].nil?
         data['PhoneNumber'] = input[:phone_number] unless input[:phone_number].nil?
         data['PhoneNumberDescription'] = input[:phone_number_description] unless input[:phone_number_description].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -422,8 +424,8 @@ module AWS::SDK::Connect
         data['Description'] = input[:description] unless input[:description].nil?
         data['State'] = input[:state] unless input[:state].nil?
         data['DisplayOrder'] = input[:display_order] unless input[:display_order].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -448,8 +450,8 @@ module AWS::SDK::Connect
         data['Type'] = input[:type] unless input[:type].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Content'] = input[:content] unless input[:content].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -473,9 +475,9 @@ module AWS::SDK::Connect
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Content'] = input[:content] unless input[:content].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -499,9 +501,9 @@ module AWS::SDK::Connect
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['TimeZone'] = input[:time_zone] unless input[:time_zone].nil?
-        data['Config'] = Builders::HoursOfOperationConfigList.build(input[:config]) unless input[:config].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Config'] = HoursOfOperationConfigList.build(input[:config]) unless input[:config].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -510,7 +512,7 @@ module AWS::SDK::Connect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::HoursOfOperationConfig.build(element) unless element.nil?
+          data << HoursOfOperationConfig.build(element) unless element.nil?
         end
         data
       end
@@ -521,8 +523,8 @@ module AWS::SDK::Connect
       def self.build(input)
         data = {}
         data['Day'] = input[:day] unless input[:day].nil?
-        data['StartTime'] = Builders::HoursOfOperationTimeSlice.build(input[:start_time]) unless input[:start_time].nil?
-        data['EndTime'] = Builders::HoursOfOperationTimeSlice.build(input[:end_time]) unless input[:end_time].nil?
+        data['StartTime'] = HoursOfOperationTimeSlice.build(input[:start_time]) unless input[:start_time].nil?
+        data['EndTime'] = HoursOfOperationTimeSlice.build(input[:end_time]) unless input[:end_time].nil?
         data
       end
     end
@@ -553,7 +555,7 @@ module AWS::SDK::Connect
         data['DirectoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['InboundCallsEnabled'] = input[:inbound_calls_enabled] unless input[:inbound_calls_enabled].nil?
         data['OutboundCallsEnabled'] = input[:outbound_calls_enabled] unless input[:outbound_calls_enabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -579,8 +581,8 @@ module AWS::SDK::Connect
         data['SourceApplicationUrl'] = input[:source_application_url] unless input[:source_application_url].nil?
         data['SourceApplicationName'] = input[:source_application_name] unless input[:source_application_name].nil?
         data['SourceType'] = input[:source_type] unless input[:source_type].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -603,12 +605,12 @@ module AWS::SDK::Connect
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['OutboundCallerConfig'] = Builders::OutboundCallerConfig.build(input[:outbound_caller_config]) unless input[:outbound_caller_config].nil?
+        data['OutboundCallerConfig'] = OutboundCallerConfig.build(input[:outbound_caller_config]) unless input[:outbound_caller_config].nil?
         data['HoursOfOperationId'] = input[:hours_of_operation_id] unless input[:hours_of_operation_id].nil?
         data['MaxContacts'] = input[:max_contacts] unless input[:max_contacts].nil?
-        data['QuickConnectIds'] = Builders::QuickConnectsList.build(input[:quick_connect_ids]) unless input[:quick_connect_ids].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QuickConnectIds'] = QuickConnectsList.build(input[:quick_connect_ids]) unless input[:quick_connect_ids].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -642,9 +644,9 @@ module AWS::SDK::Connect
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['QuickConnectConfig'] = Builders::QuickConnectConfig.build(input[:quick_connect_config]) unless input[:quick_connect_config].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QuickConnectConfig'] = QuickConnectConfig.build(input[:quick_connect_config]) unless input[:quick_connect_config].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -653,9 +655,9 @@ module AWS::SDK::Connect
       def self.build(input)
         data = {}
         data['QuickConnectType'] = input[:quick_connect_type] unless input[:quick_connect_type].nil?
-        data['UserConfig'] = Builders::UserQuickConnectConfig.build(input[:user_config]) unless input[:user_config].nil?
-        data['QueueConfig'] = Builders::QueueQuickConnectConfig.build(input[:queue_config]) unless input[:queue_config].nil?
-        data['PhoneConfig'] = Builders::PhoneNumberQuickConnectConfig.build(input[:phone_config]) unless input[:phone_config].nil?
+        data['UserConfig'] = UserQuickConnectConfig.build(input[:user_config]) unless input[:user_config].nil?
+        data['QueueConfig'] = QueueQuickConnectConfig.build(input[:queue_config]) unless input[:queue_config].nil?
+        data['PhoneConfig'] = PhoneNumberQuickConnectConfig.build(input[:phone_config]) unless input[:phone_config].nil?
         data
       end
     end
@@ -709,10 +711,10 @@ module AWS::SDK::Connect
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['DefaultOutboundQueueId'] = input[:default_outbound_queue_id] unless input[:default_outbound_queue_id].nil?
-        data['QueueConfigs'] = Builders::RoutingProfileQueueConfigList.build(input[:queue_configs]) unless input[:queue_configs].nil?
-        data['MediaConcurrencies'] = Builders::MediaConcurrencies.build(input[:media_concurrencies]) unless input[:media_concurrencies].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QueueConfigs'] = RoutingProfileQueueConfigList.build(input[:queue_configs]) unless input[:queue_configs].nil?
+        data['MediaConcurrencies'] = MediaConcurrencies.build(input[:media_concurrencies]) unless input[:media_concurrencies].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -721,7 +723,7 @@ module AWS::SDK::Connect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MediaConcurrency.build(element) unless element.nil?
+          data << MediaConcurrency.build(element) unless element.nil?
         end
         data
       end
@@ -756,9 +758,9 @@ module AWS::SDK::Connect
         data = {}
         data['SecurityProfileName'] = input[:security_profile_name] unless input[:security_profile_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Permissions'] = Builders::PermissionsList.build(input[:permissions]) unless input[:permissions].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Permissions'] = PermissionsList.build(input[:permissions]) unless input[:permissions].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -793,12 +795,12 @@ module AWS::SDK::Connect
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['ContactFlowId'] = input[:contact_flow_id] unless input[:contact_flow_id].nil?
-        data['Constraints'] = Builders::TaskTemplateConstraints.build(input[:constraints]) unless input[:constraints].nil?
-        data['Defaults'] = Builders::TaskTemplateDefaults.build(input[:defaults]) unless input[:defaults].nil?
+        data['Constraints'] = TaskTemplateConstraints.build(input[:constraints]) unless input[:constraints].nil?
+        data['Defaults'] = TaskTemplateDefaults.build(input[:defaults]) unless input[:defaults].nil?
         data['Status'] = input[:status] unless input[:status].nil?
-        data['Fields'] = Builders::TaskTemplateFields.build(input[:fields]) unless input[:fields].nil?
+        data['Fields'] = TaskTemplateFields.build(input[:fields]) unless input[:fields].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -807,7 +809,7 @@ module AWS::SDK::Connect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TaskTemplateField.build(element) unless element.nil?
+          data << TaskTemplateField.build(element) unless element.nil?
         end
         data
       end
@@ -817,10 +819,10 @@ module AWS::SDK::Connect
     class TaskTemplateField
       def self.build(input)
         data = {}
-        data['Id'] = Builders::TaskTemplateFieldIdentifier.build(input[:id]) unless input[:id].nil?
+        data['Id'] = TaskTemplateFieldIdentifier.build(input[:id]) unless input[:id].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        data['SingleSelectOptions'] = Builders::SingleSelectOptions.build(input[:single_select_options]) unless input[:single_select_options].nil?
+        data['SingleSelectOptions'] = SingleSelectOptions.build(input[:single_select_options]) unless input[:single_select_options].nil?
         data
       end
     end
@@ -849,7 +851,7 @@ module AWS::SDK::Connect
     class TaskTemplateDefaults
       def self.build(input)
         data = {}
-        data['DefaultFieldValues'] = Builders::TaskTemplateDefaultFieldValueList.build(input[:default_field_values]) unless input[:default_field_values].nil?
+        data['DefaultFieldValues'] = TaskTemplateDefaultFieldValueList.build(input[:default_field_values]) unless input[:default_field_values].nil?
         data
       end
     end
@@ -859,7 +861,7 @@ module AWS::SDK::Connect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TaskTemplateDefaultFieldValue.build(element) unless element.nil?
+          data << TaskTemplateDefaultFieldValue.build(element) unless element.nil?
         end
         data
       end
@@ -869,7 +871,7 @@ module AWS::SDK::Connect
     class TaskTemplateDefaultFieldValue
       def self.build(input)
         data = {}
-        data['Id'] = Builders::TaskTemplateFieldIdentifier.build(input[:id]) unless input[:id].nil?
+        data['Id'] = TaskTemplateFieldIdentifier.build(input[:id]) unless input[:id].nil?
         data['DefaultValue'] = input[:default_value] unless input[:default_value].nil?
         data
       end
@@ -879,9 +881,9 @@ module AWS::SDK::Connect
     class TaskTemplateConstraints
       def self.build(input)
         data = {}
-        data['RequiredFields'] = Builders::RequiredTaskTemplateFields.build(input[:required_fields]) unless input[:required_fields].nil?
-        data['ReadOnlyFields'] = Builders::ReadOnlyTaskTemplateFields.build(input[:read_only_fields]) unless input[:read_only_fields].nil?
-        data['InvisibleFields'] = Builders::InvisibleTaskTemplateFields.build(input[:invisible_fields]) unless input[:invisible_fields].nil?
+        data['RequiredFields'] = RequiredTaskTemplateFields.build(input[:required_fields]) unless input[:required_fields].nil?
+        data['ReadOnlyFields'] = ReadOnlyTaskTemplateFields.build(input[:read_only_fields]) unless input[:read_only_fields].nil?
+        data['InvisibleFields'] = InvisibleTaskTemplateFields.build(input[:invisible_fields]) unless input[:invisible_fields].nil?
         data
       end
     end
@@ -891,7 +893,7 @@ module AWS::SDK::Connect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InvisibleFieldInfo.build(element) unless element.nil?
+          data << InvisibleFieldInfo.build(element) unless element.nil?
         end
         data
       end
@@ -901,7 +903,7 @@ module AWS::SDK::Connect
     class InvisibleFieldInfo
       def self.build(input)
         data = {}
-        data['Id'] = Builders::TaskTemplateFieldIdentifier.build(input[:id]) unless input[:id].nil?
+        data['Id'] = TaskTemplateFieldIdentifier.build(input[:id]) unless input[:id].nil?
         data
       end
     end
@@ -911,7 +913,7 @@ module AWS::SDK::Connect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ReadOnlyFieldInfo.build(element) unless element.nil?
+          data << ReadOnlyFieldInfo.build(element) unless element.nil?
         end
         data
       end
@@ -921,7 +923,7 @@ module AWS::SDK::Connect
     class ReadOnlyFieldInfo
       def self.build(input)
         data = {}
-        data['Id'] = Builders::TaskTemplateFieldIdentifier.build(input[:id]) unless input[:id].nil?
+        data['Id'] = TaskTemplateFieldIdentifier.build(input[:id]) unless input[:id].nil?
         data
       end
     end
@@ -931,7 +933,7 @@ module AWS::SDK::Connect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RequiredFieldInfo.build(element) unless element.nil?
+          data << RequiredFieldInfo.build(element) unless element.nil?
         end
         data
       end
@@ -941,7 +943,7 @@ module AWS::SDK::Connect
     class RequiredFieldInfo
       def self.build(input)
         data = {}
-        data['Id'] = Builders::TaskTemplateFieldIdentifier.build(input[:id]) unless input[:id].nil?
+        data['Id'] = TaskTemplateFieldIdentifier.build(input[:id]) unless input[:id].nil?
         data
       end
     end
@@ -968,8 +970,8 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['UseCaseType'] = input[:use_case_type] unless input[:use_case_type].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -992,14 +994,14 @@ module AWS::SDK::Connect
         data = {}
         data['Username'] = input[:username] unless input[:username].nil?
         data['Password'] = input[:password] unless input[:password].nil?
-        data['IdentityInfo'] = Builders::UserIdentityInfo.build(input[:identity_info]) unless input[:identity_info].nil?
-        data['PhoneConfig'] = Builders::UserPhoneConfig.build(input[:phone_config]) unless input[:phone_config].nil?
+        data['IdentityInfo'] = UserIdentityInfo.build(input[:identity_info]) unless input[:identity_info].nil?
+        data['PhoneConfig'] = UserPhoneConfig.build(input[:phone_config]) unless input[:phone_config].nil?
         data['DirectoryUserId'] = input[:directory_user_id] unless input[:directory_user_id].nil?
-        data['SecurityProfileIds'] = Builders::SecurityProfileIds.build(input[:security_profile_ids]) unless input[:security_profile_ids].nil?
+        data['SecurityProfileIds'] = SecurityProfileIds.build(input[:security_profile_ids]) unless input[:security_profile_ids].nil?
         data['RoutingProfileId'] = input[:routing_profile_id] unless input[:routing_profile_id].nil?
         data['HierarchyGroupId'] = input[:hierarchy_group_id] unless input[:hierarchy_group_id].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1056,8 +1058,8 @@ module AWS::SDK::Connect
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['ParentGroupId'] = input[:parent_group_id] unless input[:parent_group_id].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1082,8 +1084,8 @@ module AWS::SDK::Connect
         data['VocabularyName'] = input[:vocabulary_name] unless input[:vocabulary_name].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
         data['Content'] = input[:content] unless input[:content].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1720,9 +1722,9 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['LexBot'] = Builders::LexBot.build(input[:lex_bot]) unless input[:lex_bot].nil?
-        data['LexV2Bot'] = Builders::LexV2Bot.build(input[:lex_v2_bot]) unless input[:lex_v2_bot].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LexBot'] = LexBot.build(input[:lex_bot]) unless input[:lex_bot].nil?
+        data['LexV2Bot'] = LexV2Bot.build(input[:lex_v2_bot]) unless input[:lex_v2_bot].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1824,8 +1826,8 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['QuickConnectIds'] = Builders::QuickConnectsList.build(input[:quick_connect_ids]) unless input[:quick_connect_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QuickConnectIds'] = QuickConnectsList.build(input[:quick_connect_ids]) unless input[:quick_connect_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1850,8 +1852,8 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['QueueReferences'] = Builders::RoutingProfileQueueReferenceList.build(input[:queue_references]) unless input[:queue_references].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QueueReferences'] = RoutingProfileQueueReferenceList.build(input[:queue_references]) unless input[:queue_references].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1860,7 +1862,7 @@ module AWS::SDK::Connect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RoutingProfileQueueReference.build(element) unless element.nil?
+          data << RoutingProfileQueueReference.build(element) unless element.nil?
         end
         data
       end
@@ -1925,12 +1927,12 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        data['Groupings'] = Builders::Groupings.build(input[:groupings]) unless input[:groupings].nil?
-        data['CurrentMetrics'] = Builders::CurrentMetrics.build(input[:current_metrics]) unless input[:current_metrics].nil?
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        data['Groupings'] = Groupings.build(input[:groupings]) unless input[:groupings].nil?
+        data['CurrentMetrics'] = CurrentMetrics.build(input[:current_metrics]) unless input[:current_metrics].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1939,7 +1941,7 @@ module AWS::SDK::Connect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CurrentMetric.build(element) unless element.nil?
+          data << CurrentMetric.build(element) unless element.nil?
         end
         data
       end
@@ -1970,8 +1972,8 @@ module AWS::SDK::Connect
     class Filters
       def self.build(input)
         data = {}
-        data['Queues'] = Builders::Queues.build(input[:queues]) unless input[:queues].nil?
-        data['Channels'] = Builders::Channels.build(input[:channels]) unless input[:channels].nil?
+        data['Queues'] = Queues.build(input[:queues]) unless input[:queues].nil?
+        data['Channels'] = Channels.build(input[:channels]) unless input[:channels].nil?
         data
       end
     end
@@ -2015,10 +2017,10 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Filters'] = Builders::UserDataFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = UserDataFilters.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2026,8 +2028,8 @@ module AWS::SDK::Connect
     class UserDataFilters
       def self.build(input)
         data = {}
-        data['Queues'] = Builders::Queues.build(input[:queues]) unless input[:queues].nil?
-        data['ContactFilter'] = Builders::ContactFilter.build(input[:contact_filter]) unless input[:contact_filter].nil?
+        data['Queues'] = Queues.build(input[:queues]) unless input[:queues].nil?
+        data['ContactFilter'] = ContactFilter.build(input[:contact_filter]) unless input[:contact_filter].nil?
         data
       end
     end
@@ -2036,7 +2038,7 @@ module AWS::SDK::Connect
     class ContactFilter
       def self.build(input)
         data = {}
-        data['ContactStates'] = Builders::ContactStates.build(input[:contact_states]) unless input[:contact_states].nil?
+        data['ContactStates'] = ContactStates.build(input[:contact_states]) unless input[:contact_states].nil?
         data
       end
     end
@@ -2088,12 +2090,12 @@ module AWS::SDK::Connect
         data = {}
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        data['Groupings'] = Builders::Groupings.build(input[:groupings]) unless input[:groupings].nil?
-        data['HistoricalMetrics'] = Builders::HistoricalMetrics.build(input[:historical_metrics]) unless input[:historical_metrics].nil?
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        data['Groupings'] = Groupings.build(input[:groupings]) unless input[:groupings].nil?
+        data['HistoricalMetrics'] = HistoricalMetrics.build(input[:historical_metrics]) unless input[:historical_metrics].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2102,7 +2104,7 @@ module AWS::SDK::Connect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::HistoricalMetric.build(element) unless element.nil?
+          data << HistoricalMetric.build(element) unless element.nil?
         end
         data
       end
@@ -2113,7 +2115,7 @@ module AWS::SDK::Connect
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Threshold'] = Builders::Threshold.build(input[:threshold]) unless input[:threshold].nil?
+        data['Threshold'] = Threshold.build(input[:threshold]) unless input[:threshold].nil?
         data['Statistic'] = input[:statistic] unless input[:statistic].nil?
         data['Unit'] = input[:unit] unless input[:unit].nil?
         data
@@ -2339,7 +2341,7 @@ module AWS::SDK::Connect
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2535,10 +2537,10 @@ module AWS::SDK::Connect
         data['TargetArn'] = input[:target_arn] unless input[:target_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['PhoneNumberCountryCodes'] = Builders::PhoneNumberCountryCodes.build(input[:phone_number_country_codes]) unless input[:phone_number_country_codes].nil?
-        data['PhoneNumberTypes'] = Builders::PhoneNumberTypes.build(input[:phone_number_types]) unless input[:phone_number_types].nil?
+        data['PhoneNumberCountryCodes'] = PhoneNumberCountryCodes.build(input[:phone_number_country_codes]) unless input[:phone_number_country_codes].nil?
+        data['PhoneNumberTypes'] = PhoneNumberTypes.build(input[:phone_number_types]) unless input[:phone_number_types].nil?
         data['PhoneNumberPrefix'] = input[:phone_number_prefix] unless input[:phone_number_prefix].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2878,7 +2880,7 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AgentStatusId'] = input[:agent_status_id] unless input[:agent_status_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2913,7 +2915,7 @@ module AWS::SDK::Connect
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
         data['ContactId'] = input[:contact_id] unless input[:contact_id].nil?
         data['InitialContactId'] = input[:initial_contact_id] unless input[:initial_contact_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2933,7 +2935,7 @@ module AWS::SDK::Connect
         data['PhoneNumberPrefix'] = input[:phone_number_prefix] unless input[:phone_number_prefix].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2950,9 +2952,9 @@ module AWS::SDK::Connect
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['SearchFilter'] = Builders::UserSearchFilter.build(input[:search_filter]) unless input[:search_filter].nil?
-        data['SearchCriteria'] = Builders::UserSearchCriteria.build(input[:search_criteria]) unless input[:search_criteria].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SearchFilter'] = UserSearchFilter.build(input[:search_filter]) unless input[:search_filter].nil?
+        data['SearchCriteria'] = UserSearchCriteria.build(input[:search_criteria]) unless input[:search_criteria].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2960,10 +2962,10 @@ module AWS::SDK::Connect
     class UserSearchCriteria
       def self.build(input)
         data = {}
-        data['OrConditions'] = Builders::UserSearchConditionList.build(input[:or_conditions]) unless input[:or_conditions].nil?
-        data['AndConditions'] = Builders::UserSearchConditionList.build(input[:and_conditions]) unless input[:and_conditions].nil?
-        data['StringCondition'] = Builders::StringCondition.build(input[:string_condition]) unless input[:string_condition].nil?
-        data['HierarchyGroupCondition'] = Builders::HierarchyGroupCondition.build(input[:hierarchy_group_condition]) unless input[:hierarchy_group_condition].nil?
+        data['OrConditions'] = UserSearchConditionList.build(input[:or_conditions]) unless input[:or_conditions].nil?
+        data['AndConditions'] = UserSearchConditionList.build(input[:and_conditions]) unless input[:and_conditions].nil?
+        data['StringCondition'] = StringCondition.build(input[:string_condition]) unless input[:string_condition].nil?
+        data['HierarchyGroupCondition'] = HierarchyGroupCondition.build(input[:hierarchy_group_condition]) unless input[:hierarchy_group_condition].nil?
         data
       end
     end
@@ -2994,7 +2996,7 @@ module AWS::SDK::Connect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UserSearchCriteria.build(element) unless element.nil?
+          data << UserSearchCriteria.build(element) unless element.nil?
         end
         data
       end
@@ -3004,7 +3006,7 @@ module AWS::SDK::Connect
     class UserSearchFilter
       def self.build(input)
         data = {}
-        data['TagFilter'] = Builders::ControlPlaneTagFilter.build(input[:tag_filter]) unless input[:tag_filter].nil?
+        data['TagFilter'] = ControlPlaneTagFilter.build(input[:tag_filter]) unless input[:tag_filter].nil?
         data
       end
     end
@@ -3013,9 +3015,9 @@ module AWS::SDK::Connect
     class ControlPlaneTagFilter
       def self.build(input)
         data = {}
-        data['OrConditions'] = Builders::TagOrConditionList.build(input[:or_conditions]) unless input[:or_conditions].nil?
-        data['AndConditions'] = Builders::TagAndConditionList.build(input[:and_conditions]) unless input[:and_conditions].nil?
-        data['TagCondition'] = Builders::TagCondition.build(input[:tag_condition]) unless input[:tag_condition].nil?
+        data['OrConditions'] = TagOrConditionList.build(input[:or_conditions]) unless input[:or_conditions].nil?
+        data['AndConditions'] = TagAndConditionList.build(input[:and_conditions]) unless input[:and_conditions].nil?
+        data['TagCondition'] = TagCondition.build(input[:tag_condition]) unless input[:tag_condition].nil?
         data
       end
     end
@@ -3035,7 +3037,7 @@ module AWS::SDK::Connect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TagCondition.build(element) unless element.nil?
+          data << TagCondition.build(element) unless element.nil?
         end
         data
       end
@@ -3046,7 +3048,7 @@ module AWS::SDK::Connect
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TagAndConditionList.build(element) unless element.nil?
+          data << TagAndConditionList.build(element) unless element.nil?
         end
         data
       end
@@ -3074,7 +3076,7 @@ module AWS::SDK::Connect
         data['State'] = input[:state] unless input[:state].nil?
         data['NameStartsWith'] = input[:name_starts_with] unless input[:name_starts_with].nil?
         data['LanguageCode'] = input[:language_code] unless input[:language_code].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3090,13 +3092,13 @@ module AWS::SDK::Connect
         data = {}
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
         data['ContactFlowId'] = input[:contact_flow_id] unless input[:contact_flow_id].nil?
-        data['Attributes'] = Builders::Attributes.build(input[:attributes]) unless input[:attributes].nil?
-        data['ParticipantDetails'] = Builders::ParticipantDetails.build(input[:participant_details]) unless input[:participant_details].nil?
-        data['InitialMessage'] = Builders::ChatMessage.build(input[:initial_message]) unless input[:initial_message].nil?
+        data['Attributes'] = Attributes.build(input[:attributes]) unless input[:attributes].nil?
+        data['ParticipantDetails'] = ParticipantDetails.build(input[:participant_details]) unless input[:participant_details].nil?
+        data['InitialMessage'] = ChatMessage.build(input[:initial_message]) unless input[:initial_message].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['ChatDurationInMinutes'] = input[:chat_duration_in_minutes] unless input[:chat_duration_in_minutes].nil?
-        data['SupportedMessagingContentTypes'] = Builders::SupportedMessagingContentTypes.build(input[:supported_messaging_content_types]) unless input[:supported_messaging_content_types].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SupportedMessagingContentTypes'] = SupportedMessagingContentTypes.build(input[:supported_messaging_content_types]) unless input[:supported_messaging_content_types].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3154,8 +3156,8 @@ module AWS::SDK::Connect
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
         data['ContactId'] = input[:contact_id] unless input[:contact_id].nil?
         data['InitialContactId'] = input[:initial_contact_id] unless input[:initial_contact_id].nil?
-        data['VoiceRecordingConfiguration'] = Builders::VoiceRecordingConfiguration.build(input[:voice_recording_configuration]) unless input[:voice_recording_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VoiceRecordingConfiguration'] = VoiceRecordingConfiguration.build(input[:voice_recording_configuration]) unless input[:voice_recording_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3180,9 +3182,9 @@ module AWS::SDK::Connect
         data = {}
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
         data['ContactId'] = input[:contact_id] unless input[:contact_id].nil?
-        data['ChatStreamingConfiguration'] = Builders::ChatStreamingConfiguration.build(input[:chat_streaming_configuration]) unless input[:chat_streaming_configuration].nil?
+        data['ChatStreamingConfiguration'] = ChatStreamingConfiguration.build(input[:chat_streaming_configuration]) unless input[:chat_streaming_configuration].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3211,11 +3213,11 @@ module AWS::SDK::Connect
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['SourcePhoneNumber'] = input[:source_phone_number] unless input[:source_phone_number].nil?
         data['QueueId'] = input[:queue_id] unless input[:queue_id].nil?
-        data['Attributes'] = Builders::Attributes.build(input[:attributes]) unless input[:attributes].nil?
-        data['AnswerMachineDetectionConfig'] = Builders::AnswerMachineDetectionConfig.build(input[:answer_machine_detection_config]) unless input[:answer_machine_detection_config].nil?
+        data['Attributes'] = Attributes.build(input[:attributes]) unless input[:attributes].nil?
+        data['AnswerMachineDetectionConfig'] = AnswerMachineDetectionConfig.build(input[:answer_machine_detection_config]) unless input[:answer_machine_detection_config].nil?
         data['CampaignId'] = input[:campaign_id] unless input[:campaign_id].nil?
         data['TrafficType'] = input[:traffic_type] unless input[:traffic_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3242,15 +3244,15 @@ module AWS::SDK::Connect
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
         data['PreviousContactId'] = input[:previous_contact_id] unless input[:previous_contact_id].nil?
         data['ContactFlowId'] = input[:contact_flow_id] unless input[:contact_flow_id].nil?
-        data['Attributes'] = Builders::Attributes.build(input[:attributes]) unless input[:attributes].nil?
+        data['Attributes'] = Attributes.build(input[:attributes]) unless input[:attributes].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['References'] = Builders::ContactReferences.build(input[:references]) unless input[:references].nil?
+        data['References'] = ContactReferences.build(input[:references]) unless input[:references].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['ScheduledTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:scheduled_time]).to_i unless input[:scheduled_time].nil?
         data['TaskTemplateId'] = input[:task_template_id] unless input[:task_template_id].nil?
         data['QuickConnectId'] = input[:quick_connect_id] unless input[:quick_connect_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3259,7 +3261,7 @@ module AWS::SDK::Connect
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::Reference.build(value) unless value.nil?
+          data[key] = Reference.build(value) unless value.nil?
         end
         data
       end
@@ -3287,7 +3289,7 @@ module AWS::SDK::Connect
         data = {}
         data['ContactId'] = input[:contact_id] unless input[:contact_id].nil?
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3304,7 +3306,7 @@ module AWS::SDK::Connect
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
         data['ContactId'] = input[:contact_id] unless input[:contact_id].nil?
         data['InitialContactId'] = input[:initial_contact_id] unless input[:initial_contact_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3321,7 +3323,7 @@ module AWS::SDK::Connect
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
         data['ContactId'] = input[:contact_id] unless input[:contact_id].nil?
         data['StreamingId'] = input[:streaming_id] unless input[:streaming_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3338,7 +3340,7 @@ module AWS::SDK::Connect
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
         data['ContactId'] = input[:contact_id] unless input[:contact_id].nil?
         data['InitialContactId'] = input[:initial_contact_id] unless input[:initial_contact_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3359,8 +3361,8 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3380,7 +3382,7 @@ module AWS::SDK::Connect
         data['UserId'] = input[:user_id] unless input[:user_id].nil?
         data['ContactFlowId'] = input[:contact_flow_id] unless input[:contact_flow_id].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3443,7 +3445,7 @@ module AWS::SDK::Connect
         data['State'] = input[:state] unless input[:state].nil?
         data['DisplayOrder'] = input[:display_order] unless input[:display_order].nil?
         data['ResetOrderNumber'] = input[:reset_order_number] unless input[:reset_order_number].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3470,8 +3472,8 @@ module AWS::SDK::Connect
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['References'] = Builders::ContactReferences.build(input[:references]) unless input[:references].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['References'] = ContactReferences.build(input[:references]) unless input[:references].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3487,8 +3489,8 @@ module AWS::SDK::Connect
         data = {}
         data['InitialContactId'] = input[:initial_contact_id] unless input[:initial_contact_id].nil?
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
-        data['Attributes'] = Builders::Attributes.build(input[:attributes]) unless input[:attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attributes'] = Attributes.build(input[:attributes]) unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3514,7 +3516,7 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Content'] = input[:content] unless input[:content].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3542,7 +3544,7 @@ module AWS::SDK::Connect
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['ContactFlowState'] = input[:contact_flow_state] unless input[:contact_flow_state].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3568,7 +3570,7 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Content'] = input[:content] unless input[:content].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3596,7 +3598,7 @@ module AWS::SDK::Connect
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['State'] = input[:state] unless input[:state].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3623,7 +3625,7 @@ module AWS::SDK::Connect
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3640,7 +3642,7 @@ module AWS::SDK::Connect
         data['InstanceId'] = input[:instance_id] unless input[:instance_id].nil?
         data['ContactId'] = input[:contact_id] unless input[:contact_id].nil?
         data['ScheduledTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:scheduled_time]).to_i unless input[:scheduled_time].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3668,8 +3670,8 @@ module AWS::SDK::Connect
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['TimeZone'] = input[:time_zone] unless input[:time_zone].nil?
-        data['Config'] = Builders::HoursOfOperationConfigList.build(input[:config]) unless input[:config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Config'] = HoursOfOperationConfigList.build(input[:config]) unless input[:config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3695,7 +3697,7 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Value'] = input[:value] unless input[:value].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3721,8 +3723,8 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['StorageConfig'] = Builders::InstanceStorageConfig.build(input[:storage_config]) unless input[:storage_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StorageConfig'] = InstanceStorageConfig.build(input[:storage_config]) unless input[:storage_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3745,7 +3747,7 @@ module AWS::SDK::Connect
         data = {}
         data['TargetArn'] = input[:target_arn] unless input[:target_arn].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3771,7 +3773,7 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['HoursOfOperationId'] = input[:hours_of_operation_id] unless input[:hours_of_operation_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3797,7 +3799,7 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['MaxContacts'] = input[:max_contacts] unless input[:max_contacts].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3824,7 +3826,7 @@ module AWS::SDK::Connect
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3849,8 +3851,8 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['OutboundCallerConfig'] = Builders::OutboundCallerConfig.build(input[:outbound_caller_config]) unless input[:outbound_caller_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OutboundCallerConfig'] = OutboundCallerConfig.build(input[:outbound_caller_config]) unless input[:outbound_caller_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3876,7 +3878,7 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3901,8 +3903,8 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['QuickConnectConfig'] = Builders::QuickConnectConfig.build(input[:quick_connect_config]) unless input[:quick_connect_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QuickConnectConfig'] = QuickConnectConfig.build(input[:quick_connect_config]) unless input[:quick_connect_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3929,7 +3931,7 @@ module AWS::SDK::Connect
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3954,8 +3956,8 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['MediaConcurrencies'] = Builders::MediaConcurrencies.build(input[:media_concurrencies]) unless input[:media_concurrencies].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MediaConcurrencies'] = MediaConcurrencies.build(input[:media_concurrencies]) unless input[:media_concurrencies].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3981,7 +3983,7 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['DefaultOutboundQueueId'] = input[:default_outbound_queue_id] unless input[:default_outbound_queue_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4008,7 +4010,7 @@ module AWS::SDK::Connect
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4033,8 +4035,8 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['QueueConfigs'] = Builders::RoutingProfileQueueConfigList.build(input[:queue_configs]) unless input[:queue_configs].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['QueueConfigs'] = RoutingProfileQueueConfigList.build(input[:queue_configs]) unless input[:queue_configs].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4060,8 +4062,8 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Permissions'] = Builders::PermissionsList.build(input[:permissions]) unless input[:permissions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Permissions'] = PermissionsList.build(input[:permissions]) unless input[:permissions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4089,11 +4091,11 @@ module AWS::SDK::Connect
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['ContactFlowId'] = input[:contact_flow_id] unless input[:contact_flow_id].nil?
-        data['Constraints'] = Builders::TaskTemplateConstraints.build(input[:constraints]) unless input[:constraints].nil?
-        data['Defaults'] = Builders::TaskTemplateDefaults.build(input[:defaults]) unless input[:defaults].nil?
+        data['Constraints'] = TaskTemplateConstraints.build(input[:constraints]) unless input[:constraints].nil?
+        data['Defaults'] = TaskTemplateDefaults.build(input[:defaults]) unless input[:defaults].nil?
         data['Status'] = input[:status] unless input[:status].nil?
-        data['Fields'] = Builders::TaskTemplateFields.build(input[:fields]) unless input[:fields].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Fields'] = TaskTemplateFields.build(input[:fields]) unless input[:fields].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4119,7 +4121,7 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['HierarchyGroupId'] = input[:hierarchy_group_id] unless input[:hierarchy_group_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4145,7 +4147,7 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4166,8 +4168,8 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['HierarchyStructure'] = Builders::HierarchyStructureUpdate.build(input[:hierarchy_structure]) unless input[:hierarchy_structure].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HierarchyStructure'] = HierarchyStructureUpdate.build(input[:hierarchy_structure]) unless input[:hierarchy_structure].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4175,11 +4177,11 @@ module AWS::SDK::Connect
     class HierarchyStructureUpdate
       def self.build(input)
         data = {}
-        data['LevelOne'] = Builders::HierarchyLevelUpdate.build(input[:level_one]) unless input[:level_one].nil?
-        data['LevelTwo'] = Builders::HierarchyLevelUpdate.build(input[:level_two]) unless input[:level_two].nil?
-        data['LevelThree'] = Builders::HierarchyLevelUpdate.build(input[:level_three]) unless input[:level_three].nil?
-        data['LevelFour'] = Builders::HierarchyLevelUpdate.build(input[:level_four]) unless input[:level_four].nil?
-        data['LevelFive'] = Builders::HierarchyLevelUpdate.build(input[:level_five]) unless input[:level_five].nil?
+        data['LevelOne'] = HierarchyLevelUpdate.build(input[:level_one]) unless input[:level_one].nil?
+        data['LevelTwo'] = HierarchyLevelUpdate.build(input[:level_two]) unless input[:level_two].nil?
+        data['LevelThree'] = HierarchyLevelUpdate.build(input[:level_three]) unless input[:level_three].nil?
+        data['LevelFour'] = HierarchyLevelUpdate.build(input[:level_four]) unless input[:level_four].nil?
+        data['LevelFive'] = HierarchyLevelUpdate.build(input[:level_five]) unless input[:level_five].nil?
         data
       end
     end
@@ -4214,8 +4216,8 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['IdentityInfo'] = Builders::UserIdentityInfo.build(input[:identity_info]) unless input[:identity_info].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['IdentityInfo'] = UserIdentityInfo.build(input[:identity_info]) unless input[:identity_info].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4240,8 +4242,8 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['PhoneConfig'] = Builders::UserPhoneConfig.build(input[:phone_config]) unless input[:phone_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PhoneConfig'] = UserPhoneConfig.build(input[:phone_config]) unless input[:phone_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4267,7 +4269,7 @@ module AWS::SDK::Connect
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['RoutingProfileId'] = input[:routing_profile_id] unless input[:routing_profile_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4292,8 +4294,8 @@ module AWS::SDK::Connect
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['SecurityProfileIds'] = Builders::SecurityProfileIds.build(input[:security_profile_ids]) unless input[:security_profile_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SecurityProfileIds'] = SecurityProfileIds.build(input[:security_profile_ids]) unless input[:security_profile_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

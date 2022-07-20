@@ -150,7 +150,7 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cost_category = (Parsers::CostCategory.parse(map['CostCategory']) unless map['CostCategory'].nil?)
+        data.cost_category = (CostCategory.parse(map['CostCategory']) unless map['CostCategory'].nil?)
         data
       end
     end
@@ -163,9 +163,9 @@ module AWS::SDK::CostExplorer
         data.effective_end = map['EffectiveEnd']
         data.name = map['Name']
         data.rule_version = map['RuleVersion']
-        data.rules = (Parsers::CostCategoryRulesList.parse(map['Rules']) unless map['Rules'].nil?)
-        data.split_charge_rules = (Parsers::CostCategorySplitChargeRulesList.parse(map['SplitChargeRules']) unless map['SplitChargeRules'].nil?)
-        data.processing_status = (Parsers::CostCategoryProcessingStatusList.parse(map['ProcessingStatus']) unless map['ProcessingStatus'].nil?)
+        data.rules = (CostCategoryRulesList.parse(map['Rules']) unless map['Rules'].nil?)
+        data.split_charge_rules = (CostCategorySplitChargeRulesList.parse(map['SplitChargeRules']) unless map['SplitChargeRules'].nil?)
+        data.processing_status = (CostCategoryProcessingStatusList.parse(map['ProcessingStatus']) unless map['ProcessingStatus'].nil?)
         data.default_value = map['DefaultValue']
         return data
       end
@@ -174,7 +174,7 @@ module AWS::SDK::CostExplorer
     class CostCategoryProcessingStatusList
       def self.parse(list)
         list.map do |value|
-          Parsers::CostCategoryProcessingStatus.parse(value) unless value.nil?
+          CostCategoryProcessingStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -191,7 +191,7 @@ module AWS::SDK::CostExplorer
     class CostCategorySplitChargeRulesList
       def self.parse(list)
         list.map do |value|
-          Parsers::CostCategorySplitChargeRule.parse(value) unless value.nil?
+          CostCategorySplitChargeRule.parse(value) unless value.nil?
         end
       end
     end
@@ -200,9 +200,9 @@ module AWS::SDK::CostExplorer
       def self.parse(map)
         data = Types::CostCategorySplitChargeRule.new
         data.source = map['Source']
-        data.targets = (Parsers::CostCategorySplitChargeRuleTargetsList.parse(map['Targets']) unless map['Targets'].nil?)
+        data.targets = (CostCategorySplitChargeRuleTargetsList.parse(map['Targets']) unless map['Targets'].nil?)
         data.member_method = map['Method']
-        data.parameters = (Parsers::CostCategorySplitChargeRuleParametersList.parse(map['Parameters']) unless map['Parameters'].nil?)
+        data.parameters = (CostCategorySplitChargeRuleParametersList.parse(map['Parameters']) unless map['Parameters'].nil?)
         return data
       end
     end
@@ -210,7 +210,7 @@ module AWS::SDK::CostExplorer
     class CostCategorySplitChargeRuleParametersList
       def self.parse(list)
         list.map do |value|
-          Parsers::CostCategorySplitChargeRuleParameter.parse(value) unless value.nil?
+          CostCategorySplitChargeRuleParameter.parse(value) unless value.nil?
         end
       end
     end
@@ -219,7 +219,7 @@ module AWS::SDK::CostExplorer
       def self.parse(map)
         data = Types::CostCategorySplitChargeRuleParameter.new
         data.type = map['Type']
-        data.values = (Parsers::CostCategorySplitChargeRuleParameterValuesList.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (CostCategorySplitChargeRuleParameterValuesList.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -243,7 +243,7 @@ module AWS::SDK::CostExplorer
     class CostCategoryRulesList
       def self.parse(list)
         list.map do |value|
-          Parsers::CostCategoryRule.parse(value) unless value.nil?
+          CostCategoryRule.parse(value) unless value.nil?
         end
       end
     end
@@ -252,8 +252,8 @@ module AWS::SDK::CostExplorer
       def self.parse(map)
         data = Types::CostCategoryRule.new
         data.value = map['Value']
-        data.rule = (Parsers::Expression.parse(map['Rule']) unless map['Rule'].nil?)
-        data.inherited_value = (Parsers::CostCategoryInheritedValueDimension.parse(map['InheritedValue']) unless map['InheritedValue'].nil?)
+        data.rule = (Expression.parse(map['Rule']) unless map['Rule'].nil?)
+        data.inherited_value = (CostCategoryInheritedValueDimension.parse(map['InheritedValue']) unless map['InheritedValue'].nil?)
         data.type = map['Type']
         return data
       end
@@ -271,12 +271,12 @@ module AWS::SDK::CostExplorer
     class Expression
       def self.parse(map)
         data = Types::Expression.new
-        data.or = (Parsers::Expressions.parse(map['Or']) unless map['Or'].nil?)
-        data.and = (Parsers::Expressions.parse(map['And']) unless map['And'].nil?)
-        data.not = (Parsers::Expression.parse(map['Not']) unless map['Not'].nil?)
-        data.dimensions = (Parsers::DimensionValues.parse(map['Dimensions']) unless map['Dimensions'].nil?)
-        data.tags = (Parsers::TagValues.parse(map['Tags']) unless map['Tags'].nil?)
-        data.cost_categories = (Parsers::CostCategoryValues.parse(map['CostCategories']) unless map['CostCategories'].nil?)
+        data.or = (Expressions.parse(map['Or']) unless map['Or'].nil?)
+        data.and = (Expressions.parse(map['And']) unless map['And'].nil?)
+        data.not = (Expression.parse(map['Not']) unless map['Not'].nil?)
+        data.dimensions = (DimensionValues.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.tags = (TagValues.parse(map['Tags']) unless map['Tags'].nil?)
+        data.cost_categories = (CostCategoryValues.parse(map['CostCategories']) unless map['CostCategories'].nil?)
         return data
       end
     end
@@ -285,8 +285,8 @@ module AWS::SDK::CostExplorer
       def self.parse(map)
         data = Types::CostCategoryValues.new
         data.key = map['Key']
-        data.values = (Parsers::Values.parse(map['Values']) unless map['Values'].nil?)
-        data.match_options = (Parsers::MatchOptions.parse(map['MatchOptions']) unless map['MatchOptions'].nil?)
+        data.values = (Values.parse(map['Values']) unless map['Values'].nil?)
+        data.match_options = (MatchOptions.parse(map['MatchOptions']) unless map['MatchOptions'].nil?)
         return data
       end
     end
@@ -311,8 +311,8 @@ module AWS::SDK::CostExplorer
       def self.parse(map)
         data = Types::TagValues.new
         data.key = map['Key']
-        data.values = (Parsers::Values.parse(map['Values']) unless map['Values'].nil?)
-        data.match_options = (Parsers::MatchOptions.parse(map['MatchOptions']) unless map['MatchOptions'].nil?)
+        data.values = (Values.parse(map['Values']) unless map['Values'].nil?)
+        data.match_options = (MatchOptions.parse(map['MatchOptions']) unless map['MatchOptions'].nil?)
         return data
       end
     end
@@ -321,8 +321,8 @@ module AWS::SDK::CostExplorer
       def self.parse(map)
         data = Types::DimensionValues.new
         data.key = map['Key']
-        data.values = (Parsers::Values.parse(map['Values']) unless map['Values'].nil?)
-        data.match_options = (Parsers::MatchOptions.parse(map['MatchOptions']) unless map['MatchOptions'].nil?)
+        data.values = (Values.parse(map['Values']) unless map['Values'].nil?)
+        data.match_options = (MatchOptions.parse(map['MatchOptions']) unless map['MatchOptions'].nil?)
         return data
       end
     end
@@ -330,7 +330,7 @@ module AWS::SDK::CostExplorer
     class Expressions
       def self.parse(list)
         list.map do |value|
-          Parsers::Expression.parse(value) unless value.nil?
+          Expression.parse(value) unless value.nil?
         end
       end
     end
@@ -342,7 +342,7 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.anomalies = (Parsers::Anomalies.parse(map['Anomalies']) unless map['Anomalies'].nil?)
+        data.anomalies = (Anomalies.parse(map['Anomalies']) unless map['Anomalies'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -351,7 +351,7 @@ module AWS::SDK::CostExplorer
     class Anomalies
       def self.parse(list)
         list.map do |value|
-          Parsers::Anomaly.parse(value) unless value.nil?
+          Anomaly.parse(value) unless value.nil?
         end
       end
     end
@@ -363,9 +363,9 @@ module AWS::SDK::CostExplorer
         data.anomaly_start_date = map['AnomalyStartDate']
         data.anomaly_end_date = map['AnomalyEndDate']
         data.dimension_value = map['DimensionValue']
-        data.root_causes = (Parsers::RootCauses.parse(map['RootCauses']) unless map['RootCauses'].nil?)
-        data.anomaly_score = (Parsers::AnomalyScore.parse(map['AnomalyScore']) unless map['AnomalyScore'].nil?)
-        data.impact = (Parsers::Impact.parse(map['Impact']) unless map['Impact'].nil?)
+        data.root_causes = (RootCauses.parse(map['RootCauses']) unless map['RootCauses'].nil?)
+        data.anomaly_score = (AnomalyScore.parse(map['AnomalyScore']) unless map['AnomalyScore'].nil?)
+        data.impact = (Impact.parse(map['Impact']) unless map['Impact'].nil?)
         data.monitor_arn = map['MonitorArn']
         data.feedback = map['Feedback']
         return data
@@ -393,7 +393,7 @@ module AWS::SDK::CostExplorer
     class RootCauses
       def self.parse(list)
         list.map do |value|
-          Parsers::RootCause.parse(value) unless value.nil?
+          RootCause.parse(value) unless value.nil?
         end
       end
     end
@@ -428,7 +428,7 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.anomaly_monitors = (Parsers::AnomalyMonitors.parse(map['AnomalyMonitors']) unless map['AnomalyMonitors'].nil?)
+        data.anomaly_monitors = (AnomalyMonitors.parse(map['AnomalyMonitors']) unless map['AnomalyMonitors'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -437,7 +437,7 @@ module AWS::SDK::CostExplorer
     class AnomalyMonitors
       def self.parse(list)
         list.map do |value|
-          Parsers::AnomalyMonitor.parse(value) unless value.nil?
+          AnomalyMonitor.parse(value) unless value.nil?
         end
       end
     end
@@ -452,7 +452,7 @@ module AWS::SDK::CostExplorer
         data.last_evaluated_date = map['LastEvaluatedDate']
         data.monitor_type = map['MonitorType']
         data.monitor_dimension = map['MonitorDimension']
-        data.monitor_specification = (Parsers::Expression.parse(map['MonitorSpecification']) unless map['MonitorSpecification'].nil?)
+        data.monitor_specification = (Expression.parse(map['MonitorSpecification']) unless map['MonitorSpecification'].nil?)
         data.dimensional_value_count = map['DimensionalValueCount']
         return data
       end
@@ -465,7 +465,7 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.anomaly_subscriptions = (Parsers::AnomalySubscriptions.parse(map['AnomalySubscriptions']) unless map['AnomalySubscriptions'].nil?)
+        data.anomaly_subscriptions = (AnomalySubscriptions.parse(map['AnomalySubscriptions']) unless map['AnomalySubscriptions'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -474,7 +474,7 @@ module AWS::SDK::CostExplorer
     class AnomalySubscriptions
       def self.parse(list)
         list.map do |value|
-          Parsers::AnomalySubscription.parse(value) unless value.nil?
+          AnomalySubscription.parse(value) unless value.nil?
         end
       end
     end
@@ -484,8 +484,8 @@ module AWS::SDK::CostExplorer
         data = Types::AnomalySubscription.new
         data.subscription_arn = map['SubscriptionArn']
         data.account_id = map['AccountId']
-        data.monitor_arn_list = (Parsers::MonitorArnList.parse(map['MonitorArnList']) unless map['MonitorArnList'].nil?)
-        data.subscribers = (Parsers::Subscribers.parse(map['Subscribers']) unless map['Subscribers'].nil?)
+        data.monitor_arn_list = (MonitorArnList.parse(map['MonitorArnList']) unless map['MonitorArnList'].nil?)
+        data.subscribers = (Subscribers.parse(map['Subscribers']) unless map['Subscribers'].nil?)
         data.threshold = Hearth::NumberHelper.deserialize(map['Threshold'])
         data.frequency = map['Frequency']
         data.subscription_name = map['SubscriptionName']
@@ -496,7 +496,7 @@ module AWS::SDK::CostExplorer
     class Subscribers
       def self.parse(list)
         list.map do |value|
-          Parsers::Subscriber.parse(value) unless value.nil?
+          Subscriber.parse(value) unless value.nil?
         end
       end
     end
@@ -527,9 +527,9 @@ module AWS::SDK::CostExplorer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_page_token = map['NextPageToken']
-        data.group_definitions = (Parsers::GroupDefinitions.parse(map['GroupDefinitions']) unless map['GroupDefinitions'].nil?)
-        data.results_by_time = (Parsers::ResultsByTime.parse(map['ResultsByTime']) unless map['ResultsByTime'].nil?)
-        data.dimension_value_attributes = (Parsers::DimensionValuesWithAttributesList.parse(map['DimensionValueAttributes']) unless map['DimensionValueAttributes'].nil?)
+        data.group_definitions = (GroupDefinitions.parse(map['GroupDefinitions']) unless map['GroupDefinitions'].nil?)
+        data.results_by_time = (ResultsByTime.parse(map['ResultsByTime']) unless map['ResultsByTime'].nil?)
+        data.dimension_value_attributes = (DimensionValuesWithAttributesList.parse(map['DimensionValueAttributes']) unless map['DimensionValueAttributes'].nil?)
         data
       end
     end
@@ -537,7 +537,7 @@ module AWS::SDK::CostExplorer
     class DimensionValuesWithAttributesList
       def self.parse(list)
         list.map do |value|
-          Parsers::DimensionValuesWithAttributes.parse(value) unless value.nil?
+          DimensionValuesWithAttributes.parse(value) unless value.nil?
         end
       end
     end
@@ -546,7 +546,7 @@ module AWS::SDK::CostExplorer
       def self.parse(map)
         data = Types::DimensionValuesWithAttributes.new
         data.value = map['Value']
-        data.attributes = (Parsers::Attributes.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (Attributes.parse(map['Attributes']) unless map['Attributes'].nil?)
         return data
       end
     end
@@ -564,7 +564,7 @@ module AWS::SDK::CostExplorer
     class ResultsByTime
       def self.parse(list)
         list.map do |value|
-          Parsers::ResultByTime.parse(value) unless value.nil?
+          ResultByTime.parse(value) unless value.nil?
         end
       end
     end
@@ -572,9 +572,9 @@ module AWS::SDK::CostExplorer
     class ResultByTime
       def self.parse(map)
         data = Types::ResultByTime.new
-        data.time_period = (Parsers::DateInterval.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
-        data.total = (Parsers::Metrics.parse(map['Total']) unless map['Total'].nil?)
-        data.groups = (Parsers::Groups.parse(map['Groups']) unless map['Groups'].nil?)
+        data.time_period = (DateInterval.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
+        data.total = (Metrics.parse(map['Total']) unless map['Total'].nil?)
+        data.groups = (Groups.parse(map['Groups']) unless map['Groups'].nil?)
         data.estimated = map['Estimated']
         return data
       end
@@ -583,7 +583,7 @@ module AWS::SDK::CostExplorer
     class Groups
       def self.parse(list)
         list.map do |value|
-          Parsers::Group.parse(value) unless value.nil?
+          Group.parse(value) unless value.nil?
         end
       end
     end
@@ -591,8 +591,8 @@ module AWS::SDK::CostExplorer
     class Group
       def self.parse(map)
         data = Types::Group.new
-        data.keys = (Parsers::Keys.parse(map['Keys']) unless map['Keys'].nil?)
-        data.metrics = (Parsers::Metrics.parse(map['Metrics']) unless map['Metrics'].nil?)
+        data.keys = (Keys.parse(map['Keys']) unless map['Keys'].nil?)
+        data.metrics = (Metrics.parse(map['Metrics']) unless map['Metrics'].nil?)
         return data
       end
     end
@@ -601,7 +601,7 @@ module AWS::SDK::CostExplorer
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::MetricValue.parse(value) unless value.nil?
+          data[key] = MetricValue.parse(value) unless value.nil?
         end
         data
       end
@@ -636,7 +636,7 @@ module AWS::SDK::CostExplorer
     class GroupDefinitions
       def self.parse(list)
         list.map do |value|
-          Parsers::GroupDefinition.parse(value) unless value.nil?
+          GroupDefinition.parse(value) unless value.nil?
         end
       end
     end
@@ -694,9 +694,9 @@ module AWS::SDK::CostExplorer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_page_token = map['NextPageToken']
-        data.group_definitions = (Parsers::GroupDefinitions.parse(map['GroupDefinitions']) unless map['GroupDefinitions'].nil?)
-        data.results_by_time = (Parsers::ResultsByTime.parse(map['ResultsByTime']) unless map['ResultsByTime'].nil?)
-        data.dimension_value_attributes = (Parsers::DimensionValuesWithAttributesList.parse(map['DimensionValueAttributes']) unless map['DimensionValueAttributes'].nil?)
+        data.group_definitions = (GroupDefinitions.parse(map['GroupDefinitions']) unless map['GroupDefinitions'].nil?)
+        data.results_by_time = (ResultsByTime.parse(map['ResultsByTime']) unless map['ResultsByTime'].nil?)
+        data.dimension_value_attributes = (DimensionValuesWithAttributesList.parse(map['DimensionValueAttributes']) unless map['DimensionValueAttributes'].nil?)
         data
       end
     end
@@ -709,8 +709,8 @@ module AWS::SDK::CostExplorer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_page_token = map['NextPageToken']
-        data.cost_category_names = (Parsers::CostCategoryNamesList.parse(map['CostCategoryNames']) unless map['CostCategoryNames'].nil?)
-        data.cost_category_values = (Parsers::CostCategoryValuesList.parse(map['CostCategoryValues']) unless map['CostCategoryValues'].nil?)
+        data.cost_category_names = (CostCategoryNamesList.parse(map['CostCategoryNames']) unless map['CostCategoryNames'].nil?)
+        data.cost_category_values = (CostCategoryValuesList.parse(map['CostCategoryValues']) unless map['CostCategoryValues'].nil?)
         data.return_size = map['ReturnSize']
         data.total_size = map['TotalSize']
         data
@@ -740,8 +740,8 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.total = (Parsers::MetricValue.parse(map['Total']) unless map['Total'].nil?)
-        data.forecast_results_by_time = (Parsers::ForecastResultsByTime.parse(map['ForecastResultsByTime']) unless map['ForecastResultsByTime'].nil?)
+        data.total = (MetricValue.parse(map['Total']) unless map['Total'].nil?)
+        data.forecast_results_by_time = (ForecastResultsByTime.parse(map['ForecastResultsByTime']) unless map['ForecastResultsByTime'].nil?)
         data
       end
     end
@@ -749,7 +749,7 @@ module AWS::SDK::CostExplorer
     class ForecastResultsByTime
       def self.parse(list)
         list.map do |value|
-          Parsers::ForecastResult.parse(value) unless value.nil?
+          ForecastResult.parse(value) unless value.nil?
         end
       end
     end
@@ -757,7 +757,7 @@ module AWS::SDK::CostExplorer
     class ForecastResult
       def self.parse(map)
         data = Types::ForecastResult.new
-        data.time_period = (Parsers::DateInterval.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
+        data.time_period = (DateInterval.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
         data.mean_value = map['MeanValue']
         data.prediction_interval_lower_bound = map['PredictionIntervalLowerBound']
         data.prediction_interval_upper_bound = map['PredictionIntervalUpperBound']
@@ -772,7 +772,7 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dimension_values = (Parsers::DimensionValuesWithAttributesList.parse(map['DimensionValues']) unless map['DimensionValues'].nil?)
+        data.dimension_values = (DimensionValuesWithAttributesList.parse(map['DimensionValues']) unless map['DimensionValues'].nil?)
         data.return_size = map['ReturnSize']
         data.total_size = map['TotalSize']
         data.next_page_token = map['NextPageToken']
@@ -787,8 +787,8 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.coverages_by_time = (Parsers::CoveragesByTime.parse(map['CoveragesByTime']) unless map['CoveragesByTime'].nil?)
-        data.total = (Parsers::Coverage.parse(map['Total']) unless map['Total'].nil?)
+        data.coverages_by_time = (CoveragesByTime.parse(map['CoveragesByTime']) unless map['CoveragesByTime'].nil?)
+        data.total = (Coverage.parse(map['Total']) unless map['Total'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -797,9 +797,9 @@ module AWS::SDK::CostExplorer
     class Coverage
       def self.parse(map)
         data = Types::Coverage.new
-        data.coverage_hours = (Parsers::CoverageHours.parse(map['CoverageHours']) unless map['CoverageHours'].nil?)
-        data.coverage_normalized_units = (Parsers::CoverageNormalizedUnits.parse(map['CoverageNormalizedUnits']) unless map['CoverageNormalizedUnits'].nil?)
-        data.coverage_cost = (Parsers::CoverageCost.parse(map['CoverageCost']) unless map['CoverageCost'].nil?)
+        data.coverage_hours = (CoverageHours.parse(map['CoverageHours']) unless map['CoverageHours'].nil?)
+        data.coverage_normalized_units = (CoverageNormalizedUnits.parse(map['CoverageNormalizedUnits']) unless map['CoverageNormalizedUnits'].nil?)
+        data.coverage_cost = (CoverageCost.parse(map['CoverageCost']) unless map['CoverageCost'].nil?)
         return data
       end
     end
@@ -837,7 +837,7 @@ module AWS::SDK::CostExplorer
     class CoveragesByTime
       def self.parse(list)
         list.map do |value|
-          Parsers::CoverageByTime.parse(value) unless value.nil?
+          CoverageByTime.parse(value) unless value.nil?
         end
       end
     end
@@ -845,9 +845,9 @@ module AWS::SDK::CostExplorer
     class CoverageByTime
       def self.parse(map)
         data = Types::CoverageByTime.new
-        data.time_period = (Parsers::DateInterval.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
-        data.groups = (Parsers::ReservationCoverageGroups.parse(map['Groups']) unless map['Groups'].nil?)
-        data.total = (Parsers::Coverage.parse(map['Total']) unless map['Total'].nil?)
+        data.time_period = (DateInterval.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
+        data.groups = (ReservationCoverageGroups.parse(map['Groups']) unless map['Groups'].nil?)
+        data.total = (Coverage.parse(map['Total']) unless map['Total'].nil?)
         return data
       end
     end
@@ -855,7 +855,7 @@ module AWS::SDK::CostExplorer
     class ReservationCoverageGroups
       def self.parse(list)
         list.map do |value|
-          Parsers::ReservationCoverageGroup.parse(value) unless value.nil?
+          ReservationCoverageGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -863,8 +863,8 @@ module AWS::SDK::CostExplorer
     class ReservationCoverageGroup
       def self.parse(map)
         data = Types::ReservationCoverageGroup.new
-        data.attributes = (Parsers::Attributes.parse(map['Attributes']) unless map['Attributes'].nil?)
-        data.coverage = (Parsers::Coverage.parse(map['Coverage']) unless map['Coverage'].nil?)
+        data.attributes = (Attributes.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.coverage = (Coverage.parse(map['Coverage']) unless map['Coverage'].nil?)
         return data
       end
     end
@@ -876,8 +876,8 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.metadata = (Parsers::ReservationPurchaseRecommendationMetadata.parse(map['Metadata']) unless map['Metadata'].nil?)
-        data.recommendations = (Parsers::ReservationPurchaseRecommendations.parse(map['Recommendations']) unless map['Recommendations'].nil?)
+        data.metadata = (ReservationPurchaseRecommendationMetadata.parse(map['Metadata']) unless map['Metadata'].nil?)
+        data.recommendations = (ReservationPurchaseRecommendations.parse(map['Recommendations']) unless map['Recommendations'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -886,7 +886,7 @@ module AWS::SDK::CostExplorer
     class ReservationPurchaseRecommendations
       def self.parse(list)
         list.map do |value|
-          Parsers::ReservationPurchaseRecommendation.parse(value) unless value.nil?
+          ReservationPurchaseRecommendation.parse(value) unless value.nil?
         end
       end
     end
@@ -898,9 +898,9 @@ module AWS::SDK::CostExplorer
         data.lookback_period_in_days = map['LookbackPeriodInDays']
         data.term_in_years = map['TermInYears']
         data.payment_option = map['PaymentOption']
-        data.service_specification = (Parsers::ServiceSpecification.parse(map['ServiceSpecification']) unless map['ServiceSpecification'].nil?)
-        data.recommendation_details = (Parsers::ReservationPurchaseRecommendationDetails.parse(map['RecommendationDetails']) unless map['RecommendationDetails'].nil?)
-        data.recommendation_summary = (Parsers::ReservationPurchaseRecommendationSummary.parse(map['RecommendationSummary']) unless map['RecommendationSummary'].nil?)
+        data.service_specification = (ServiceSpecification.parse(map['ServiceSpecification']) unless map['ServiceSpecification'].nil?)
+        data.recommendation_details = (ReservationPurchaseRecommendationDetails.parse(map['RecommendationDetails']) unless map['RecommendationDetails'].nil?)
+        data.recommendation_summary = (ReservationPurchaseRecommendationSummary.parse(map['RecommendationSummary']) unless map['RecommendationSummary'].nil?)
         return data
       end
     end
@@ -918,7 +918,7 @@ module AWS::SDK::CostExplorer
     class ReservationPurchaseRecommendationDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::ReservationPurchaseRecommendationDetail.parse(value) unless value.nil?
+          ReservationPurchaseRecommendationDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -927,7 +927,7 @@ module AWS::SDK::CostExplorer
       def self.parse(map)
         data = Types::ReservationPurchaseRecommendationDetail.new
         data.account_id = map['AccountId']
-        data.instance_details = (Parsers::InstanceDetails.parse(map['InstanceDetails']) unless map['InstanceDetails'].nil?)
+        data.instance_details = (InstanceDetails.parse(map['InstanceDetails']) unless map['InstanceDetails'].nil?)
         data.recommended_number_of_instances_to_purchase = map['RecommendedNumberOfInstancesToPurchase']
         data.recommended_normalized_units_to_purchase = map['RecommendedNormalizedUnitsToPurchase']
         data.minimum_number_of_instances_used_per_hour = map['MinimumNumberOfInstancesUsedPerHour']
@@ -952,11 +952,11 @@ module AWS::SDK::CostExplorer
     class InstanceDetails
       def self.parse(map)
         data = Types::InstanceDetails.new
-        data.ec2_instance_details = (Parsers::EC2InstanceDetails.parse(map['EC2InstanceDetails']) unless map['EC2InstanceDetails'].nil?)
-        data.rds_instance_details = (Parsers::RDSInstanceDetails.parse(map['RDSInstanceDetails']) unless map['RDSInstanceDetails'].nil?)
-        data.redshift_instance_details = (Parsers::RedshiftInstanceDetails.parse(map['RedshiftInstanceDetails']) unless map['RedshiftInstanceDetails'].nil?)
-        data.elasti_cache_instance_details = (Parsers::ElastiCacheInstanceDetails.parse(map['ElastiCacheInstanceDetails']) unless map['ElastiCacheInstanceDetails'].nil?)
-        data.es_instance_details = (Parsers::ESInstanceDetails.parse(map['ESInstanceDetails']) unless map['ESInstanceDetails'].nil?)
+        data.ec2_instance_details = (EC2InstanceDetails.parse(map['EC2InstanceDetails']) unless map['EC2InstanceDetails'].nil?)
+        data.rds_instance_details = (RDSInstanceDetails.parse(map['RDSInstanceDetails']) unless map['RDSInstanceDetails'].nil?)
+        data.redshift_instance_details = (RedshiftInstanceDetails.parse(map['RedshiftInstanceDetails']) unless map['RedshiftInstanceDetails'].nil?)
+        data.elasti_cache_instance_details = (ElastiCacheInstanceDetails.parse(map['ElastiCacheInstanceDetails']) unless map['ElastiCacheInstanceDetails'].nil?)
+        data.es_instance_details = (ESInstanceDetails.parse(map['ESInstanceDetails']) unless map['ESInstanceDetails'].nil?)
         return data
       end
     end
@@ -1032,7 +1032,7 @@ module AWS::SDK::CostExplorer
     class ServiceSpecification
       def self.parse(map)
         data = Types::ServiceSpecification.new
-        data.ec2_specification = (Parsers::EC2Specification.parse(map['EC2Specification']) unless map['EC2Specification'].nil?)
+        data.ec2_specification = (EC2Specification.parse(map['EC2Specification']) unless map['EC2Specification'].nil?)
         return data
       end
     end
@@ -1061,8 +1061,8 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.utilizations_by_time = (Parsers::UtilizationsByTime.parse(map['UtilizationsByTime']) unless map['UtilizationsByTime'].nil?)
-        data.total = (Parsers::ReservationAggregates.parse(map['Total']) unless map['Total'].nil?)
+        data.utilizations_by_time = (UtilizationsByTime.parse(map['UtilizationsByTime']) unless map['UtilizationsByTime'].nil?)
+        data.total = (ReservationAggregates.parse(map['Total']) unless map['Total'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1095,7 +1095,7 @@ module AWS::SDK::CostExplorer
     class UtilizationsByTime
       def self.parse(list)
         list.map do |value|
-          Parsers::UtilizationByTime.parse(value) unless value.nil?
+          UtilizationByTime.parse(value) unless value.nil?
         end
       end
     end
@@ -1103,9 +1103,9 @@ module AWS::SDK::CostExplorer
     class UtilizationByTime
       def self.parse(map)
         data = Types::UtilizationByTime.new
-        data.time_period = (Parsers::DateInterval.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
-        data.groups = (Parsers::ReservationUtilizationGroups.parse(map['Groups']) unless map['Groups'].nil?)
-        data.total = (Parsers::ReservationAggregates.parse(map['Total']) unless map['Total'].nil?)
+        data.time_period = (DateInterval.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
+        data.groups = (ReservationUtilizationGroups.parse(map['Groups']) unless map['Groups'].nil?)
+        data.total = (ReservationAggregates.parse(map['Total']) unless map['Total'].nil?)
         return data
       end
     end
@@ -1113,7 +1113,7 @@ module AWS::SDK::CostExplorer
     class ReservationUtilizationGroups
       def self.parse(list)
         list.map do |value|
-          Parsers::ReservationUtilizationGroup.parse(value) unless value.nil?
+          ReservationUtilizationGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -1123,8 +1123,8 @@ module AWS::SDK::CostExplorer
         data = Types::ReservationUtilizationGroup.new
         data.key = map['Key']
         data.value = map['Value']
-        data.attributes = (Parsers::Attributes.parse(map['Attributes']) unless map['Attributes'].nil?)
-        data.utilization = (Parsers::ReservationAggregates.parse(map['Utilization']) unless map['Utilization'].nil?)
+        data.attributes = (Attributes.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.utilization = (ReservationAggregates.parse(map['Utilization']) unless map['Utilization'].nil?)
         return data
       end
     end
@@ -1136,11 +1136,11 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.metadata = (Parsers::RightsizingRecommendationMetadata.parse(map['Metadata']) unless map['Metadata'].nil?)
-        data.summary = (Parsers::RightsizingRecommendationSummary.parse(map['Summary']) unless map['Summary'].nil?)
-        data.rightsizing_recommendations = (Parsers::RightsizingRecommendationList.parse(map['RightsizingRecommendations']) unless map['RightsizingRecommendations'].nil?)
+        data.metadata = (RightsizingRecommendationMetadata.parse(map['Metadata']) unless map['Metadata'].nil?)
+        data.summary = (RightsizingRecommendationSummary.parse(map['Summary']) unless map['Summary'].nil?)
+        data.rightsizing_recommendations = (RightsizingRecommendationList.parse(map['RightsizingRecommendations']) unless map['RightsizingRecommendations'].nil?)
         data.next_page_token = map['NextPageToken']
-        data.configuration = (Parsers::RightsizingRecommendationConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
+        data.configuration = (RightsizingRecommendationConfiguration.parse(map['Configuration']) unless map['Configuration'].nil?)
         data
       end
     end
@@ -1157,7 +1157,7 @@ module AWS::SDK::CostExplorer
     class RightsizingRecommendationList
       def self.parse(list)
         list.map do |value|
-          Parsers::RightsizingRecommendation.parse(value) unless value.nil?
+          RightsizingRecommendation.parse(value) unless value.nil?
         end
       end
     end
@@ -1166,11 +1166,11 @@ module AWS::SDK::CostExplorer
       def self.parse(map)
         data = Types::RightsizingRecommendation.new
         data.account_id = map['AccountId']
-        data.current_instance = (Parsers::CurrentInstance.parse(map['CurrentInstance']) unless map['CurrentInstance'].nil?)
+        data.current_instance = (CurrentInstance.parse(map['CurrentInstance']) unless map['CurrentInstance'].nil?)
         data.rightsizing_type = map['RightsizingType']
-        data.modify_recommendation_detail = (Parsers::ModifyRecommendationDetail.parse(map['ModifyRecommendationDetail']) unless map['ModifyRecommendationDetail'].nil?)
-        data.terminate_recommendation_detail = (Parsers::TerminateRecommendationDetail.parse(map['TerminateRecommendationDetail']) unless map['TerminateRecommendationDetail'].nil?)
-        data.finding_reason_codes = (Parsers::FindingReasonCodes.parse(map['FindingReasonCodes']) unless map['FindingReasonCodes'].nil?)
+        data.modify_recommendation_detail = (ModifyRecommendationDetail.parse(map['ModifyRecommendationDetail']) unless map['ModifyRecommendationDetail'].nil?)
+        data.terminate_recommendation_detail = (TerminateRecommendationDetail.parse(map['TerminateRecommendationDetail']) unless map['TerminateRecommendationDetail'].nil?)
+        data.finding_reason_codes = (FindingReasonCodes.parse(map['FindingReasonCodes']) unless map['FindingReasonCodes'].nil?)
         return data
       end
     end
@@ -1195,7 +1195,7 @@ module AWS::SDK::CostExplorer
     class ModifyRecommendationDetail
       def self.parse(map)
         data = Types::ModifyRecommendationDetail.new
-        data.target_instances = (Parsers::TargetInstancesList.parse(map['TargetInstances']) unless map['TargetInstances'].nil?)
+        data.target_instances = (TargetInstancesList.parse(map['TargetInstances']) unless map['TargetInstances'].nil?)
         return data
       end
     end
@@ -1203,7 +1203,7 @@ module AWS::SDK::CostExplorer
     class TargetInstancesList
       def self.parse(list)
         list.map do |value|
-          Parsers::TargetInstance.parse(value) unless value.nil?
+          TargetInstance.parse(value) unless value.nil?
         end
       end
     end
@@ -1215,9 +1215,9 @@ module AWS::SDK::CostExplorer
         data.estimated_monthly_savings = map['EstimatedMonthlySavings']
         data.currency_code = map['CurrencyCode']
         data.default_target_instance = map['DefaultTargetInstance']
-        data.resource_details = (Parsers::ResourceDetails.parse(map['ResourceDetails']) unless map['ResourceDetails'].nil?)
-        data.expected_resource_utilization = (Parsers::ResourceUtilization.parse(map['ExpectedResourceUtilization']) unless map['ExpectedResourceUtilization'].nil?)
-        data.platform_differences = (Parsers::PlatformDifferences.parse(map['PlatformDifferences']) unless map['PlatformDifferences'].nil?)
+        data.resource_details = (ResourceDetails.parse(map['ResourceDetails']) unless map['ResourceDetails'].nil?)
+        data.expected_resource_utilization = (ResourceUtilization.parse(map['ExpectedResourceUtilization']) unless map['ExpectedResourceUtilization'].nil?)
+        data.platform_differences = (PlatformDifferences.parse(map['PlatformDifferences']) unless map['PlatformDifferences'].nil?)
         return data
       end
     end
@@ -1233,7 +1233,7 @@ module AWS::SDK::CostExplorer
     class ResourceUtilization
       def self.parse(map)
         data = Types::ResourceUtilization.new
-        data.ec2_resource_utilization = (Parsers::EC2ResourceUtilization.parse(map['EC2ResourceUtilization']) unless map['EC2ResourceUtilization'].nil?)
+        data.ec2_resource_utilization = (EC2ResourceUtilization.parse(map['EC2ResourceUtilization']) unless map['EC2ResourceUtilization'].nil?)
         return data
       end
     end
@@ -1244,9 +1244,9 @@ module AWS::SDK::CostExplorer
         data.max_cpu_utilization_percentage = map['MaxCpuUtilizationPercentage']
         data.max_memory_utilization_percentage = map['MaxMemoryUtilizationPercentage']
         data.max_storage_utilization_percentage = map['MaxStorageUtilizationPercentage']
-        data.ebs_resource_utilization = (Parsers::EBSResourceUtilization.parse(map['EBSResourceUtilization']) unless map['EBSResourceUtilization'].nil?)
-        data.disk_resource_utilization = (Parsers::DiskResourceUtilization.parse(map['DiskResourceUtilization']) unless map['DiskResourceUtilization'].nil?)
-        data.network_resource_utilization = (Parsers::NetworkResourceUtilization.parse(map['NetworkResourceUtilization']) unless map['NetworkResourceUtilization'].nil?)
+        data.ebs_resource_utilization = (EBSResourceUtilization.parse(map['EBSResourceUtilization']) unless map['EBSResourceUtilization'].nil?)
+        data.disk_resource_utilization = (DiskResourceUtilization.parse(map['DiskResourceUtilization']) unless map['DiskResourceUtilization'].nil?)
+        data.network_resource_utilization = (NetworkResourceUtilization.parse(map['NetworkResourceUtilization']) unless map['NetworkResourceUtilization'].nil?)
         return data
       end
     end
@@ -1287,7 +1287,7 @@ module AWS::SDK::CostExplorer
     class ResourceDetails
       def self.parse(map)
         data = Types::ResourceDetails.new
-        data.ec2_resource_details = (Parsers::EC2ResourceDetails.parse(map['EC2ResourceDetails']) unless map['EC2ResourceDetails'].nil?)
+        data.ec2_resource_details = (EC2ResourceDetails.parse(map['EC2ResourceDetails']) unless map['EC2ResourceDetails'].nil?)
         return data
       end
     end
@@ -1313,9 +1313,9 @@ module AWS::SDK::CostExplorer
         data = Types::CurrentInstance.new
         data.resource_id = map['ResourceId']
         data.instance_name = map['InstanceName']
-        data.tags = (Parsers::TagValuesList.parse(map['Tags']) unless map['Tags'].nil?)
-        data.resource_details = (Parsers::ResourceDetails.parse(map['ResourceDetails']) unless map['ResourceDetails'].nil?)
-        data.resource_utilization = (Parsers::ResourceUtilization.parse(map['ResourceUtilization']) unless map['ResourceUtilization'].nil?)
+        data.tags = (TagValuesList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.resource_details = (ResourceDetails.parse(map['ResourceDetails']) unless map['ResourceDetails'].nil?)
+        data.resource_utilization = (ResourceUtilization.parse(map['ResourceUtilization']) unless map['ResourceUtilization'].nil?)
         data.reservation_covered_hours_in_lookback_period = map['ReservationCoveredHoursInLookbackPeriod']
         data.savings_plans_covered_hours_in_lookback_period = map['SavingsPlansCoveredHoursInLookbackPeriod']
         data.on_demand_hours_in_lookback_period = map['OnDemandHoursInLookbackPeriod']
@@ -1329,7 +1329,7 @@ module AWS::SDK::CostExplorer
     class TagValuesList
       def self.parse(list)
         list.map do |value|
-          Parsers::TagValues.parse(value) unless value.nil?
+          TagValues.parse(value) unless value.nil?
         end
       end
     end
@@ -1363,7 +1363,7 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.savings_plans_coverages = (Parsers::SavingsPlansCoverages.parse(map['SavingsPlansCoverages']) unless map['SavingsPlansCoverages'].nil?)
+        data.savings_plans_coverages = (SavingsPlansCoverages.parse(map['SavingsPlansCoverages']) unless map['SavingsPlansCoverages'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1372,7 +1372,7 @@ module AWS::SDK::CostExplorer
     class SavingsPlansCoverages
       def self.parse(list)
         list.map do |value|
-          Parsers::SavingsPlansCoverage.parse(value) unless value.nil?
+          SavingsPlansCoverage.parse(value) unless value.nil?
         end
       end
     end
@@ -1380,9 +1380,9 @@ module AWS::SDK::CostExplorer
     class SavingsPlansCoverage
       def self.parse(map)
         data = Types::SavingsPlansCoverage.new
-        data.attributes = (Parsers::Attributes.parse(map['Attributes']) unless map['Attributes'].nil?)
-        data.coverage = (Parsers::SavingsPlansCoverageData.parse(map['Coverage']) unless map['Coverage'].nil?)
-        data.time_period = (Parsers::DateInterval.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
+        data.attributes = (Attributes.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.coverage = (SavingsPlansCoverageData.parse(map['Coverage']) unless map['Coverage'].nil?)
+        data.time_period = (DateInterval.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
         return data
       end
     end
@@ -1405,8 +1405,8 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.metadata = (Parsers::SavingsPlansPurchaseRecommendationMetadata.parse(map['Metadata']) unless map['Metadata'].nil?)
-        data.savings_plans_purchase_recommendation = (Parsers::SavingsPlansPurchaseRecommendation.parse(map['SavingsPlansPurchaseRecommendation']) unless map['SavingsPlansPurchaseRecommendation'].nil?)
+        data.metadata = (SavingsPlansPurchaseRecommendationMetadata.parse(map['Metadata']) unless map['Metadata'].nil?)
+        data.savings_plans_purchase_recommendation = (SavingsPlansPurchaseRecommendation.parse(map['SavingsPlansPurchaseRecommendation']) unless map['SavingsPlansPurchaseRecommendation'].nil?)
         data.next_page_token = map['NextPageToken']
         data
       end
@@ -1420,8 +1420,8 @@ module AWS::SDK::CostExplorer
         data.term_in_years = map['TermInYears']
         data.payment_option = map['PaymentOption']
         data.lookback_period_in_days = map['LookbackPeriodInDays']
-        data.savings_plans_purchase_recommendation_details = (Parsers::SavingsPlansPurchaseRecommendationDetailList.parse(map['SavingsPlansPurchaseRecommendationDetails']) unless map['SavingsPlansPurchaseRecommendationDetails'].nil?)
-        data.savings_plans_purchase_recommendation_summary = (Parsers::SavingsPlansPurchaseRecommendationSummary.parse(map['SavingsPlansPurchaseRecommendationSummary']) unless map['SavingsPlansPurchaseRecommendationSummary'].nil?)
+        data.savings_plans_purchase_recommendation_details = (SavingsPlansPurchaseRecommendationDetailList.parse(map['SavingsPlansPurchaseRecommendationDetails']) unless map['SavingsPlansPurchaseRecommendationDetails'].nil?)
+        data.savings_plans_purchase_recommendation_summary = (SavingsPlansPurchaseRecommendationSummary.parse(map['SavingsPlansPurchaseRecommendationSummary']) unless map['SavingsPlansPurchaseRecommendationSummary'].nil?)
         return data
       end
     end
@@ -1447,7 +1447,7 @@ module AWS::SDK::CostExplorer
     class SavingsPlansPurchaseRecommendationDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::SavingsPlansPurchaseRecommendationDetail.parse(value) unless value.nil?
+          SavingsPlansPurchaseRecommendationDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -1455,7 +1455,7 @@ module AWS::SDK::CostExplorer
     class SavingsPlansPurchaseRecommendationDetail
       def self.parse(map)
         data = Types::SavingsPlansPurchaseRecommendationDetail.new
-        data.savings_plans_details = (Parsers::SavingsPlansDetails.parse(map['SavingsPlansDetails']) unless map['SavingsPlansDetails'].nil?)
+        data.savings_plans_details = (SavingsPlansDetails.parse(map['SavingsPlansDetails']) unless map['SavingsPlansDetails'].nil?)
         data.account_id = map['AccountId']
         data.upfront_cost = map['UpfrontCost']
         data.estimated_roi = map['EstimatedROI']
@@ -1502,8 +1502,8 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.savings_plans_utilizations_by_time = (Parsers::SavingsPlansUtilizationsByTime.parse(map['SavingsPlansUtilizationsByTime']) unless map['SavingsPlansUtilizationsByTime'].nil?)
-        data.total = (Parsers::SavingsPlansUtilizationAggregates.parse(map['Total']) unless map['Total'].nil?)
+        data.savings_plans_utilizations_by_time = (SavingsPlansUtilizationsByTime.parse(map['SavingsPlansUtilizationsByTime']) unless map['SavingsPlansUtilizationsByTime'].nil?)
+        data.total = (SavingsPlansUtilizationAggregates.parse(map['Total']) unless map['Total'].nil?)
         data
       end
     end
@@ -1511,9 +1511,9 @@ module AWS::SDK::CostExplorer
     class SavingsPlansUtilizationAggregates
       def self.parse(map)
         data = Types::SavingsPlansUtilizationAggregates.new
-        data.utilization = (Parsers::SavingsPlansUtilization.parse(map['Utilization']) unless map['Utilization'].nil?)
-        data.savings = (Parsers::SavingsPlansSavings.parse(map['Savings']) unless map['Savings'].nil?)
-        data.amortized_commitment = (Parsers::SavingsPlansAmortizedCommitment.parse(map['AmortizedCommitment']) unless map['AmortizedCommitment'].nil?)
+        data.utilization = (SavingsPlansUtilization.parse(map['Utilization']) unless map['Utilization'].nil?)
+        data.savings = (SavingsPlansSavings.parse(map['Savings']) unless map['Savings'].nil?)
+        data.amortized_commitment = (SavingsPlansAmortizedCommitment.parse(map['AmortizedCommitment']) unless map['AmortizedCommitment'].nil?)
         return data
       end
     end
@@ -1551,7 +1551,7 @@ module AWS::SDK::CostExplorer
     class SavingsPlansUtilizationsByTime
       def self.parse(list)
         list.map do |value|
-          Parsers::SavingsPlansUtilizationByTime.parse(value) unless value.nil?
+          SavingsPlansUtilizationByTime.parse(value) unless value.nil?
         end
       end
     end
@@ -1559,10 +1559,10 @@ module AWS::SDK::CostExplorer
     class SavingsPlansUtilizationByTime
       def self.parse(map)
         data = Types::SavingsPlansUtilizationByTime.new
-        data.time_period = (Parsers::DateInterval.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
-        data.utilization = (Parsers::SavingsPlansUtilization.parse(map['Utilization']) unless map['Utilization'].nil?)
-        data.savings = (Parsers::SavingsPlansSavings.parse(map['Savings']) unless map['Savings'].nil?)
-        data.amortized_commitment = (Parsers::SavingsPlansAmortizedCommitment.parse(map['AmortizedCommitment']) unless map['AmortizedCommitment'].nil?)
+        data.time_period = (DateInterval.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
+        data.utilization = (SavingsPlansUtilization.parse(map['Utilization']) unless map['Utilization'].nil?)
+        data.savings = (SavingsPlansSavings.parse(map['Savings']) unless map['Savings'].nil?)
+        data.amortized_commitment = (SavingsPlansAmortizedCommitment.parse(map['AmortizedCommitment']) unless map['AmortizedCommitment'].nil?)
         return data
       end
     end
@@ -1574,9 +1574,9 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.savings_plans_utilization_details = (Parsers::SavingsPlansUtilizationDetails.parse(map['SavingsPlansUtilizationDetails']) unless map['SavingsPlansUtilizationDetails'].nil?)
-        data.total = (Parsers::SavingsPlansUtilizationAggregates.parse(map['Total']) unless map['Total'].nil?)
-        data.time_period = (Parsers::DateInterval.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
+        data.savings_plans_utilization_details = (SavingsPlansUtilizationDetails.parse(map['SavingsPlansUtilizationDetails']) unless map['SavingsPlansUtilizationDetails'].nil?)
+        data.total = (SavingsPlansUtilizationAggregates.parse(map['Total']) unless map['Total'].nil?)
+        data.time_period = (DateInterval.parse(map['TimePeriod']) unless map['TimePeriod'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1585,7 +1585,7 @@ module AWS::SDK::CostExplorer
     class SavingsPlansUtilizationDetails
       def self.parse(list)
         list.map do |value|
-          Parsers::SavingsPlansUtilizationDetail.parse(value) unless value.nil?
+          SavingsPlansUtilizationDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -1594,10 +1594,10 @@ module AWS::SDK::CostExplorer
       def self.parse(map)
         data = Types::SavingsPlansUtilizationDetail.new
         data.savings_plan_arn = map['SavingsPlanArn']
-        data.attributes = (Parsers::Attributes.parse(map['Attributes']) unless map['Attributes'].nil?)
-        data.utilization = (Parsers::SavingsPlansUtilization.parse(map['Utilization']) unless map['Utilization'].nil?)
-        data.savings = (Parsers::SavingsPlansSavings.parse(map['Savings']) unless map['Savings'].nil?)
-        data.amortized_commitment = (Parsers::SavingsPlansAmortizedCommitment.parse(map['AmortizedCommitment']) unless map['AmortizedCommitment'].nil?)
+        data.attributes = (Attributes.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.utilization = (SavingsPlansUtilization.parse(map['Utilization']) unless map['Utilization'].nil?)
+        data.savings = (SavingsPlansSavings.parse(map['Savings']) unless map['Savings'].nil?)
+        data.amortized_commitment = (SavingsPlansAmortizedCommitment.parse(map['AmortizedCommitment']) unless map['AmortizedCommitment'].nil?)
         return data
       end
     end
@@ -1610,7 +1610,7 @@ module AWS::SDK::CostExplorer
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_page_token = map['NextPageToken']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.return_size = map['ReturnSize']
         data.total_size = map['TotalSize']
         data
@@ -1632,8 +1632,8 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.total = (Parsers::MetricValue.parse(map['Total']) unless map['Total'].nil?)
-        data.forecast_results_by_time = (Parsers::ForecastResultsByTime.parse(map['ForecastResultsByTime']) unless map['ForecastResultsByTime'].nil?)
+        data.total = (MetricValue.parse(map['Total']) unless map['Total'].nil?)
+        data.forecast_results_by_time = (ForecastResultsByTime.parse(map['ForecastResultsByTime']) unless map['ForecastResultsByTime'].nil?)
         data
       end
     end
@@ -1657,7 +1657,7 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cost_allocation_tags = (Parsers::CostAllocationTagList.parse(map['CostAllocationTags']) unless map['CostAllocationTags'].nil?)
+        data.cost_allocation_tags = (CostAllocationTagList.parse(map['CostAllocationTags']) unless map['CostAllocationTags'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1666,7 +1666,7 @@ module AWS::SDK::CostExplorer
     class CostAllocationTagList
       def self.parse(list)
         list.map do |value|
-          Parsers::CostAllocationTag.parse(value) unless value.nil?
+          CostAllocationTag.parse(value) unless value.nil?
         end
       end
     end
@@ -1688,7 +1688,7 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.cost_category_references = (Parsers::CostCategoryReferencesList.parse(map['CostCategoryReferences']) unless map['CostCategoryReferences'].nil?)
+        data.cost_category_references = (CostCategoryReferencesList.parse(map['CostCategoryReferences']) unless map['CostCategoryReferences'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1697,7 +1697,7 @@ module AWS::SDK::CostExplorer
     class CostCategoryReferencesList
       def self.parse(list)
         list.map do |value|
-          Parsers::CostCategoryReference.parse(value) unless value.nil?
+          CostCategoryReference.parse(value) unless value.nil?
         end
       end
     end
@@ -1710,8 +1710,8 @@ module AWS::SDK::CostExplorer
         data.effective_start = map['EffectiveStart']
         data.effective_end = map['EffectiveEnd']
         data.number_of_rules = map['NumberOfRules']
-        data.processing_status = (Parsers::CostCategoryProcessingStatusList.parse(map['ProcessingStatus']) unless map['ProcessingStatus'].nil?)
-        data.values = (Parsers::CostCategoryValuesList.parse(map['Values']) unless map['Values'].nil?)
+        data.processing_status = (CostCategoryProcessingStatusList.parse(map['ProcessingStatus']) unless map['ProcessingStatus'].nil?)
+        data.values = (CostCategoryValuesList.parse(map['Values']) unless map['Values'].nil?)
         data.default_value = map['DefaultValue']
         return data
       end
@@ -1724,7 +1724,7 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_tags = (Parsers::ResourceTagList.parse(map['ResourceTags']) unless map['ResourceTags'].nil?)
+        data.resource_tags = (ResourceTagList.parse(map['ResourceTags']) unless map['ResourceTags'].nil?)
         data
       end
     end
@@ -1732,7 +1732,7 @@ module AWS::SDK::CostExplorer
     class ResourceTagList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceTag.parse(value) unless value.nil?
+          ResourceTag.parse(value) unless value.nil?
         end
       end
     end
@@ -1824,7 +1824,7 @@ module AWS::SDK::CostExplorer
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.errors = (Parsers::UpdateCostAllocationTagsStatusErrors.parse(map['Errors']) unless map['Errors'].nil?)
+        data.errors = (UpdateCostAllocationTagsStatusErrors.parse(map['Errors']) unless map['Errors'].nil?)
         data
       end
     end
@@ -1832,7 +1832,7 @@ module AWS::SDK::CostExplorer
     class UpdateCostAllocationTagsStatusErrors
       def self.parse(list)
         list.map do |value|
-          Parsers::UpdateCostAllocationTagsStatusError.parse(value) unless value.nil?
+          UpdateCostAllocationTagsStatusError.parse(value) unless value.nil?
         end
       end
     end

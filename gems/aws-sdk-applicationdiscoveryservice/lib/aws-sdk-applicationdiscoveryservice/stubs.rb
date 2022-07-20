@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ApplicationDiscoveryService
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -34,8 +36,8 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['errors'] = Stubs::BatchDeleteImportDataErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errors'] = BatchDeleteImportDataErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -54,7 +56,7 @@ module AWS::SDK::ApplicationDiscoveryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchDeleteImportDataError.stub(element) unless element.nil?
+          data << BatchDeleteImportDataError.stub(element) unless element.nil?
         end
         data
       end
@@ -93,7 +95,7 @@ module AWS::SDK::ApplicationDiscoveryService
       def self.stub(http_resp, stub:)
         data = {}
         data['configurationId'] = stub[:configuration_id] unless stub[:configuration_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -107,7 +109,7 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -121,7 +123,7 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -135,7 +137,7 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -151,9 +153,9 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['agentsInfo'] = Stubs::AgentsInfo.stub(stub[:agents_info]) unless stub[:agents_info].nil?
+        data['agentsInfo'] = AgentsInfo.stub(stub[:agents_info]) unless stub[:agents_info].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -172,7 +174,7 @@ module AWS::SDK::ApplicationDiscoveryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AgentInfo.stub(element) unless element.nil?
+          data << AgentInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -202,7 +204,7 @@ module AWS::SDK::ApplicationDiscoveryService
         data = {}
         data['agentId'] = stub[:agent_id] unless stub[:agent_id].nil?
         data['hostName'] = stub[:host_name] unless stub[:host_name].nil?
-        data['agentNetworkInfoList'] = Stubs::AgentNetworkInfoList.stub(stub[:agent_network_info_list]) unless stub[:agent_network_info_list].nil?
+        data['agentNetworkInfoList'] = AgentNetworkInfoList.stub(stub[:agent_network_info_list]) unless stub[:agent_network_info_list].nil?
         data['connectorId'] = stub[:connector_id] unless stub[:connector_id].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
         data['health'] = stub[:health] unless stub[:health].nil?
@@ -228,7 +230,7 @@ module AWS::SDK::ApplicationDiscoveryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AgentNetworkInfo.stub(element) unless element.nil?
+          data << AgentNetworkInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -264,8 +266,8 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['configurations'] = Stubs::DescribeConfigurationsAttributes.stub(stub[:configurations]) unless stub[:configurations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['configurations'] = DescribeConfigurationsAttributes.stub(stub[:configurations]) unless stub[:configurations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -284,7 +286,7 @@ module AWS::SDK::ApplicationDiscoveryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DescribeConfigurationsAttribute.stub(element) unless element.nil?
+          data << DescribeConfigurationsAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -321,9 +323,9 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['descriptions'] = Stubs::ContinuousExportDescriptions.stub(stub[:descriptions]) unless stub[:descriptions].nil?
+        data['descriptions'] = ContinuousExportDescriptions.stub(stub[:descriptions]) unless stub[:descriptions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -342,7 +344,7 @@ module AWS::SDK::ApplicationDiscoveryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContinuousExportDescription.stub(element) unless element.nil?
+          data << ContinuousExportDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -375,7 +377,7 @@ module AWS::SDK::ApplicationDiscoveryService
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['stopTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:stop_time]).to_i unless stub[:stop_time].nil?
         data['dataSource'] = stub[:data_source] unless stub[:data_source].nil?
-        data['schemaStorageConfig'] = Stubs::SchemaStorageConfig.stub(stub[:schema_storage_config]) unless stub[:schema_storage_config].nil?
+        data['schemaStorageConfig'] = SchemaStorageConfig.stub(stub[:schema_storage_config]) unless stub[:schema_storage_config].nil?
         data
       end
     end
@@ -411,9 +413,9 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['exportsInfo'] = Stubs::ExportsInfo.stub(stub[:exports_info]) unless stub[:exports_info].nil?
+        data['exportsInfo'] = ExportsInfo.stub(stub[:exports_info]) unless stub[:exports_info].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -432,7 +434,7 @@ module AWS::SDK::ApplicationDiscoveryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExportInfo.stub(element) unless element.nil?
+          data << ExportInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -481,9 +483,9 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['exportsInfo'] = Stubs::ExportsInfo.stub(stub[:exports_info]) unless stub[:exports_info].nil?
+        data['exportsInfo'] = ExportsInfo.stub(stub[:exports_info]) unless stub[:exports_info].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -500,8 +502,8 @@ module AWS::SDK::ApplicationDiscoveryService
       def self.stub(http_resp, stub:)
         data = {}
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['tasks'] = Stubs::ImportTaskList.stub(stub[:tasks]) unless stub[:tasks].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tasks'] = ImportTaskList.stub(stub[:tasks]) unless stub[:tasks].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -520,7 +522,7 @@ module AWS::SDK::ApplicationDiscoveryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImportTask.stub(element) unless element.nil?
+          data << ImportTask.stub(element) unless element.nil?
         end
         data
       end
@@ -579,9 +581,9 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tags'] = Stubs::ConfigurationTagSet.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = ConfigurationTagSet.stub(stub[:tags]) unless stub[:tags].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -600,7 +602,7 @@ module AWS::SDK::ApplicationDiscoveryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfigurationTag.stub(element) unless element.nil?
+          data << ConfigurationTag.stub(element) unless element.nil?
         end
         data
       end
@@ -641,7 +643,7 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -657,7 +659,7 @@ module AWS::SDK::ApplicationDiscoveryService
       def self.stub(http_resp, stub:)
         data = {}
         data['exportId'] = stub[:export_id] unless stub[:export_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -682,10 +684,10 @@ module AWS::SDK::ApplicationDiscoveryService
         data['applications'] = stub[:applications] unless stub[:applications].nil?
         data['serversMappedToApplications'] = stub[:servers_mapped_to_applications] unless stub[:servers_mapped_to_applications].nil?
         data['serversMappedtoTags'] = stub[:servers_mappedto_tags] unless stub[:servers_mappedto_tags].nil?
-        data['agentSummary'] = Stubs::CustomerAgentInfo.stub(stub[:agent_summary]) unless stub[:agent_summary].nil?
-        data['connectorSummary'] = Stubs::CustomerConnectorInfo.stub(stub[:connector_summary]) unless stub[:connector_summary].nil?
-        data['meCollectorSummary'] = Stubs::CustomerMeCollectorInfo.stub(stub[:me_collector_summary]) unless stub[:me_collector_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['agentSummary'] = CustomerAgentInfo.stub(stub[:agent_summary]) unless stub[:agent_summary].nil?
+        data['connectorSummary'] = CustomerConnectorInfo.stub(stub[:connector_summary]) unless stub[:connector_summary].nil?
+        data['meCollectorSummary'] = CustomerMeCollectorInfo.stub(stub[:me_collector_summary]) unless stub[:me_collector_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -791,9 +793,9 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['configurations'] = Stubs::Configurations.stub(stub[:configurations]) unless stub[:configurations].nil?
+        data['configurations'] = Configurations.stub(stub[:configurations]) unless stub[:configurations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -812,7 +814,7 @@ module AWS::SDK::ApplicationDiscoveryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Configuration.stub(element) unless element.nil?
+          data << Configuration.stub(element) unless element.nil?
         end
         data
       end
@@ -850,10 +852,10 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['neighbors'] = Stubs::NeighborDetailsList.stub(stub[:neighbors]) unless stub[:neighbors].nil?
+        data['neighbors'] = NeighborDetailsList.stub(stub[:neighbors]) unless stub[:neighbors].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['knownDependencyCount'] = stub[:known_dependency_count] unless stub[:known_dependency_count].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -872,7 +874,7 @@ module AWS::SDK::ApplicationDiscoveryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NeighborConnectionDetail.stub(element) unless element.nil?
+          data << NeighborConnectionDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -922,8 +924,8 @@ module AWS::SDK::ApplicationDiscoveryService
         data['s3Bucket'] = stub[:s3_bucket] unless stub[:s3_bucket].nil?
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['dataSource'] = stub[:data_source] unless stub[:data_source].nil?
-        data['schemaStorageConfig'] = Stubs::SchemaStorageConfig.stub(stub[:schema_storage_config]) unless stub[:schema_storage_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['schemaStorageConfig'] = SchemaStorageConfig.stub(stub[:schema_storage_config]) unless stub[:schema_storage_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -938,8 +940,8 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['agentsConfigurationStatus'] = Stubs::AgentConfigurationStatusList.stub(stub[:agents_configuration_status]) unless stub[:agents_configuration_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['agentsConfigurationStatus'] = AgentConfigurationStatusList.stub(stub[:agents_configuration_status]) unless stub[:agents_configuration_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -958,7 +960,7 @@ module AWS::SDK::ApplicationDiscoveryService
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AgentConfigurationStatus.stub(element) unless element.nil?
+          data << AgentConfigurationStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -997,7 +999,7 @@ module AWS::SDK::ApplicationDiscoveryService
       def self.stub(http_resp, stub:)
         data = {}
         data['exportId'] = stub[:export_id] unless stub[:export_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1012,8 +1014,8 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['task'] = Stubs::ImportTask.stub(stub[:task]) unless stub[:task].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['task'] = ImportTask.stub(stub[:task]) unless stub[:task].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1031,7 +1033,7 @@ module AWS::SDK::ApplicationDiscoveryService
         data = {}
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['stopTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:stop_time]).to_i unless stub[:stop_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1046,8 +1048,8 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['agentsConfigurationStatus'] = Stubs::AgentConfigurationStatusList.stub(stub[:agents_configuration_status]) unless stub[:agents_configuration_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['agentsConfigurationStatus'] = AgentConfigurationStatusList.stub(stub[:agents_configuration_status]) unless stub[:agents_configuration_status].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1061,7 +1063,7 @@ module AWS::SDK::ApplicationDiscoveryService
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

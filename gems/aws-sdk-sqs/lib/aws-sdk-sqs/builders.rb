@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::SQS
   module Builders
 
@@ -22,9 +25,9 @@ module AWS::SDK::SQS
         params['Version'] = '2012-11-05'
         params[context + 'QueueUrl'] = input[:queue_url].to_s unless input[:queue_url].nil?
         params[context + 'Label'] = input[:label].to_s unless input[:label].nil?
-        Builders::AWSAccountIdList.build(input[:aws_account_ids], params, context: context + 'AWSAccountId') unless input[:aws_account_ids].nil?
-        Builders::ActionNameList.build(input[:actions], params, context: context + 'ActionName') unless input[:actions].nil?
-        http_req.body = StringIO.new(params.to_s)
+        AWSAccountIdList.build(input[:aws_account_ids], params, context: context + 'AWSAccountId') unless input[:aws_account_ids].nil?
+        ActionNameList.build(input[:actions], params, context: context + 'ActionName') unless input[:actions].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -59,7 +62,7 @@ module AWS::SDK::SQS
         params[context + 'QueueUrl'] = input[:queue_url].to_s unless input[:queue_url].nil?
         params[context + 'ReceiptHandle'] = input[:receipt_handle].to_s unless input[:receipt_handle].nil?
         params[context + 'VisibilityTimeout'] = input[:visibility_timeout].to_s unless input[:visibility_timeout].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -74,8 +77,8 @@ module AWS::SDK::SQS
         params['Action'] = 'ChangeMessageVisibilityBatch'
         params['Version'] = '2012-11-05'
         params[context + 'QueueUrl'] = input[:queue_url].to_s unless input[:queue_url].nil?
-        Builders::ChangeMessageVisibilityBatchRequestEntryList.build(input[:entries], params, context: context + 'ChangeMessageVisibilityBatchRequestEntry') unless input[:entries].nil?
-        http_req.body = StringIO.new(params.to_s)
+        ChangeMessageVisibilityBatchRequestEntryList.build(input[:entries], params, context: context + 'ChangeMessageVisibilityBatchRequestEntry') unless input[:entries].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -83,7 +86,7 @@ module AWS::SDK::SQS
     class ChangeMessageVisibilityBatchRequestEntryList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::ChangeMessageVisibilityBatchRequestEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          ChangeMessageVisibilityBatchRequestEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -108,9 +111,9 @@ module AWS::SDK::SQS
         params['Action'] = 'CreateQueue'
         params['Version'] = '2012-11-05'
         params[context + 'QueueName'] = input[:queue_name].to_s unless input[:queue_name].nil?
-        Builders::TagMap.build(input[:tags], params, context: context + 'Tag') unless input[:tags].nil?
-        Builders::QueueAttributeMap.build(input[:attributes], params, context: context + 'Attribute') unless input[:attributes].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagMap.build(input[:tags], params, context: context + 'Tag') unless input[:tags].nil?
+        QueueAttributeMap.build(input[:attributes], params, context: context + 'Attribute') unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -146,7 +149,7 @@ module AWS::SDK::SQS
         params['Version'] = '2012-11-05'
         params[context + 'QueueUrl'] = input[:queue_url].to_s unless input[:queue_url].nil?
         params[context + 'ReceiptHandle'] = input[:receipt_handle].to_s unless input[:receipt_handle].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -161,8 +164,8 @@ module AWS::SDK::SQS
         params['Action'] = 'DeleteMessageBatch'
         params['Version'] = '2012-11-05'
         params[context + 'QueueUrl'] = input[:queue_url].to_s unless input[:queue_url].nil?
-        Builders::DeleteMessageBatchRequestEntryList.build(input[:entries], params, context: context + 'DeleteMessageBatchRequestEntry') unless input[:entries].nil?
-        http_req.body = StringIO.new(params.to_s)
+        DeleteMessageBatchRequestEntryList.build(input[:entries], params, context: context + 'DeleteMessageBatchRequestEntry') unless input[:entries].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -170,7 +173,7 @@ module AWS::SDK::SQS
     class DeleteMessageBatchRequestEntryList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::DeleteMessageBatchRequestEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          DeleteMessageBatchRequestEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -194,7 +197,7 @@ module AWS::SDK::SQS
         params['Action'] = 'DeleteQueue'
         params['Version'] = '2012-11-05'
         params[context + 'QueueUrl'] = input[:queue_url].to_s unless input[:queue_url].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -209,8 +212,8 @@ module AWS::SDK::SQS
         params['Action'] = 'GetQueueAttributes'
         params['Version'] = '2012-11-05'
         params[context + 'QueueUrl'] = input[:queue_url].to_s unless input[:queue_url].nil?
-        Builders::AttributeNameList.build(input[:attribute_names], params, context: context + 'AttributeName') unless input[:attribute_names].nil?
-        http_req.body = StringIO.new(params.to_s)
+        AttributeNameList.build(input[:attribute_names], params, context: context + 'AttributeName') unless input[:attribute_names].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -235,7 +238,7 @@ module AWS::SDK::SQS
         params['Version'] = '2012-11-05'
         params[context + 'QueueName'] = input[:queue_name].to_s unless input[:queue_name].nil?
         params[context + 'QueueOwnerAWSAccountId'] = input[:queue_owner_aws_account_id].to_s unless input[:queue_owner_aws_account_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -252,7 +255,7 @@ module AWS::SDK::SQS
         params[context + 'QueueUrl'] = input[:queue_url].to_s unless input[:queue_url].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -267,7 +270,7 @@ module AWS::SDK::SQS
         params['Action'] = 'ListQueueTags'
         params['Version'] = '2012-11-05'
         params[context + 'QueueUrl'] = input[:queue_url].to_s unless input[:queue_url].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -284,7 +287,7 @@ module AWS::SDK::SQS
         params[context + 'QueueNamePrefix'] = input[:queue_name_prefix].to_s unless input[:queue_name_prefix].nil?
         params[context + 'NextToken'] = input[:next_token].to_s unless input[:next_token].nil?
         params[context + 'MaxResults'] = input[:max_results].to_s unless input[:max_results].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -299,7 +302,7 @@ module AWS::SDK::SQS
         params['Action'] = 'PurgeQueue'
         params['Version'] = '2012-11-05'
         params[context + 'QueueUrl'] = input[:queue_url].to_s unless input[:queue_url].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -314,13 +317,13 @@ module AWS::SDK::SQS
         params['Action'] = 'ReceiveMessage'
         params['Version'] = '2012-11-05'
         params[context + 'QueueUrl'] = input[:queue_url].to_s unless input[:queue_url].nil?
-        Builders::AttributeNameList.build(input[:attribute_names], params, context: context + 'AttributeName') unless input[:attribute_names].nil?
-        Builders::MessageAttributeNameList.build(input[:message_attribute_names], params, context: context + 'MessageAttributeName') unless input[:message_attribute_names].nil?
+        AttributeNameList.build(input[:attribute_names], params, context: context + 'AttributeName') unless input[:attribute_names].nil?
+        MessageAttributeNameList.build(input[:message_attribute_names], params, context: context + 'MessageAttributeName') unless input[:message_attribute_names].nil?
         params[context + 'MaxNumberOfMessages'] = input[:max_number_of_messages].to_s unless input[:max_number_of_messages].nil?
         params[context + 'VisibilityTimeout'] = input[:visibility_timeout].to_s unless input[:visibility_timeout].nil?
         params[context + 'WaitTimeSeconds'] = input[:wait_time_seconds].to_s unless input[:wait_time_seconds].nil?
         params[context + 'ReceiveRequestAttemptId'] = input[:receive_request_attempt_id].to_s unless input[:receive_request_attempt_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -345,7 +348,7 @@ module AWS::SDK::SQS
         params['Version'] = '2012-11-05'
         params[context + 'QueueUrl'] = input[:queue_url].to_s unless input[:queue_url].nil?
         params[context + 'Label'] = input[:label].to_s unless input[:label].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -362,11 +365,11 @@ module AWS::SDK::SQS
         params[context + 'QueueUrl'] = input[:queue_url].to_s unless input[:queue_url].nil?
         params[context + 'MessageBody'] = input[:message_body].to_s unless input[:message_body].nil?
         params[context + 'DelaySeconds'] = input[:delay_seconds].to_s unless input[:delay_seconds].nil?
-        Builders::MessageBodyAttributeMap.build(input[:message_attributes], params, context: context + 'MessageAttribute') unless input[:message_attributes].nil?
-        Builders::MessageBodySystemAttributeMap.build(input[:message_system_attributes], params, context: context + 'MessageSystemAttribute') unless input[:message_system_attributes].nil?
+        MessageBodyAttributeMap.build(input[:message_attributes], params, context: context + 'MessageAttribute') unless input[:message_attributes].nil?
+        MessageBodySystemAttributeMap.build(input[:message_system_attributes], params, context: context + 'MessageSystemAttribute') unless input[:message_system_attributes].nil?
         params[context + 'MessageDeduplicationId'] = input[:message_deduplication_id].to_s unless input[:message_deduplication_id].nil?
         params[context + 'MessageGroupId'] = input[:message_group_id].to_s unless input[:message_group_id].nil?
-        http_req.body = StringIO.new(params.to_s)
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -375,7 +378,7 @@ module AWS::SDK::SQS
       def self.build(input, params, context: '')
         input.each_with_index do |(key, value), index|
           params[context + ".#{index+1}.Name"] = key
-          Builders::MessageSystemAttributeValue.build(value, params, context: context + ".#{index+1}.Value" + '.') unless value.nil?
+          MessageSystemAttributeValue.build(value, params, context: context + ".#{index+1}.Value" + '.') unless value.nil?
         end
       end
     end
@@ -384,9 +387,9 @@ module AWS::SDK::SQS
     class MessageSystemAttributeValue
       def self.build(input, params, context: nil)
         params[context + 'StringValue'] = input[:string_value].to_s unless input[:string_value].nil?
-        params[context + 'BinaryValue'] = Base64::encode64(input[:binary_value]).strip unless input[:binary_value].nil?
-        Builders::StringList.build(input[:string_list_values], params, context: context + 'StringListValue') unless input[:string_list_values].nil?
-        Builders::BinaryList.build(input[:binary_list_values], params, context: context + 'BinaryListValue') unless input[:binary_list_values].nil?
+        params[context + 'BinaryValue'] = ::Base64::encode64(input[:binary_value]).strip unless input[:binary_value].nil?
+        StringList.build(input[:string_list_values], params, context: context + 'StringListValue') unless input[:string_list_values].nil?
+        BinaryList.build(input[:binary_list_values], params, context: context + 'BinaryListValue') unless input[:binary_list_values].nil?
         params[context + 'DataType'] = input[:data_type].to_s unless input[:data_type].nil?
       end
     end
@@ -395,7 +398,7 @@ module AWS::SDK::SQS
     class BinaryList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          params[context + ".#{index+1}"] = Base64::encode64(element).strip unless element.nil?
+          params[context + ".#{index+1}"] = ::Base64::encode64(element).strip unless element.nil?
         end
       end
     end
@@ -414,7 +417,7 @@ module AWS::SDK::SQS
       def self.build(input, params, context: '')
         input.each_with_index do |(key, value), index|
           params[context + ".#{index+1}.Name"] = key
-          Builders::MessageAttributeValue.build(value, params, context: context + ".#{index+1}.Value" + '.') unless value.nil?
+          MessageAttributeValue.build(value, params, context: context + ".#{index+1}.Value" + '.') unless value.nil?
         end
       end
     end
@@ -423,9 +426,9 @@ module AWS::SDK::SQS
     class MessageAttributeValue
       def self.build(input, params, context: nil)
         params[context + 'StringValue'] = input[:string_value].to_s unless input[:string_value].nil?
-        params[context + 'BinaryValue'] = Base64::encode64(input[:binary_value]).strip unless input[:binary_value].nil?
-        Builders::StringList.build(input[:string_list_values], params, context: context + 'StringListValue') unless input[:string_list_values].nil?
-        Builders::BinaryList.build(input[:binary_list_values], params, context: context + 'BinaryListValue') unless input[:binary_list_values].nil?
+        params[context + 'BinaryValue'] = ::Base64::encode64(input[:binary_value]).strip unless input[:binary_value].nil?
+        StringList.build(input[:string_list_values], params, context: context + 'StringListValue') unless input[:string_list_values].nil?
+        BinaryList.build(input[:binary_list_values], params, context: context + 'BinaryListValue') unless input[:binary_list_values].nil?
         params[context + 'DataType'] = input[:data_type].to_s unless input[:data_type].nil?
       end
     end
@@ -441,8 +444,8 @@ module AWS::SDK::SQS
         params['Action'] = 'SendMessageBatch'
         params['Version'] = '2012-11-05'
         params[context + 'QueueUrl'] = input[:queue_url].to_s unless input[:queue_url].nil?
-        Builders::SendMessageBatchRequestEntryList.build(input[:entries], params, context: context + 'SendMessageBatchRequestEntry') unless input[:entries].nil?
-        http_req.body = StringIO.new(params.to_s)
+        SendMessageBatchRequestEntryList.build(input[:entries], params, context: context + 'SendMessageBatchRequestEntry') unless input[:entries].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -450,7 +453,7 @@ module AWS::SDK::SQS
     class SendMessageBatchRequestEntryList
       def self.build(input, params, context: '')
         input.each_with_index do |element, index|
-          Builders::SendMessageBatchRequestEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
+          SendMessageBatchRequestEntry.build(element, params, context: context + ".#{index+1}" + '.') unless element.nil?
         end
       end
     end
@@ -461,8 +464,8 @@ module AWS::SDK::SQS
         params[context + 'Id'] = input[:id].to_s unless input[:id].nil?
         params[context + 'MessageBody'] = input[:message_body].to_s unless input[:message_body].nil?
         params[context + 'DelaySeconds'] = input[:delay_seconds].to_s unless input[:delay_seconds].nil?
-        Builders::MessageBodyAttributeMap.build(input[:message_attributes], params, context: context + 'MessageAttribute') unless input[:message_attributes].nil?
-        Builders::MessageBodySystemAttributeMap.build(input[:message_system_attributes], params, context: context + 'MessageSystemAttribute') unless input[:message_system_attributes].nil?
+        MessageBodyAttributeMap.build(input[:message_attributes], params, context: context + 'MessageAttribute') unless input[:message_attributes].nil?
+        MessageBodySystemAttributeMap.build(input[:message_system_attributes], params, context: context + 'MessageSystemAttribute') unless input[:message_system_attributes].nil?
         params[context + 'MessageDeduplicationId'] = input[:message_deduplication_id].to_s unless input[:message_deduplication_id].nil?
         params[context + 'MessageGroupId'] = input[:message_group_id].to_s unless input[:message_group_id].nil?
       end
@@ -479,8 +482,8 @@ module AWS::SDK::SQS
         params['Action'] = 'SetQueueAttributes'
         params['Version'] = '2012-11-05'
         params[context + 'QueueUrl'] = input[:queue_url].to_s unless input[:queue_url].nil?
-        Builders::QueueAttributeMap.build(input[:attributes], params, context: context + 'Attribute') unless input[:attributes].nil?
-        http_req.body = StringIO.new(params.to_s)
+        QueueAttributeMap.build(input[:attributes], params, context: context + 'Attribute') unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -495,8 +498,8 @@ module AWS::SDK::SQS
         params['Action'] = 'TagQueue'
         params['Version'] = '2012-11-05'
         params[context + 'QueueUrl'] = input[:queue_url].to_s unless input[:queue_url].nil?
-        Builders::TagMap.build(input[:tags], params, context: context + 'Tag') unless input[:tags].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagMap.build(input[:tags], params, context: context + 'Tag') unless input[:tags].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 
@@ -511,8 +514,8 @@ module AWS::SDK::SQS
         params['Action'] = 'UntagQueue'
         params['Version'] = '2012-11-05'
         params[context + 'QueueUrl'] = input[:queue_url].to_s unless input[:queue_url].nil?
-        Builders::TagKeyList.build(input[:tag_keys], params, context: context + 'TagKey') unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(params.to_s)
+        TagKeyList.build(input[:tag_keys], params, context: context + 'TagKey') unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(params.to_s)
       end
     end
 

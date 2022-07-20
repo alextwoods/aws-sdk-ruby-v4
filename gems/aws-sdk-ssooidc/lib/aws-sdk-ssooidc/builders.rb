@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SSOOIDC
   module Builders
 
@@ -26,9 +28,9 @@ module AWS::SDK::SSOOIDC
         data['deviceCode'] = input[:device_code] unless input[:device_code].nil?
         data['code'] = input[:code] unless input[:code].nil?
         data['refreshToken'] = input[:refresh_token] unless input[:refresh_token].nil?
-        data['scope'] = Builders::Scopes.build(input[:scope]) unless input[:scope].nil?
+        data['scope'] = Scopes.build(input[:scope]) unless input[:scope].nil?
         data['redirectUri'] = input[:redirect_uri] unless input[:redirect_uri].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -55,8 +57,8 @@ module AWS::SDK::SSOOIDC
         data = {}
         data['clientName'] = input[:client_name] unless input[:client_name].nil?
         data['clientType'] = input[:client_type] unless input[:client_type].nil?
-        data['scopes'] = Builders::Scopes.build(input[:scopes]) unless input[:scopes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['scopes'] = Scopes.build(input[:scopes]) unless input[:scopes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -73,7 +75,7 @@ module AWS::SDK::SSOOIDC
         data['clientId'] = input[:client_id] unless input[:client_id].nil?
         data['clientSecret'] = input[:client_secret] unless input[:client_secret].nil?
         data['startUrl'] = input[:start_url] unless input[:start_url].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

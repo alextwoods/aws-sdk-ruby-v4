@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Outposts
   module Stubs
 
@@ -35,8 +37,8 @@ module AWS::SDK::Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Order'] = Stubs::Order.stub(stub[:order]) unless stub[:order].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Order'] = Order.stub(stub[:order]) unless stub[:order].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -62,7 +64,7 @@ module AWS::SDK::Outposts
         data['OutpostId'] = stub[:outpost_id] unless stub[:outpost_id].nil?
         data['OrderId'] = stub[:order_id] unless stub[:order_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['LineItems'] = Stubs::LineItemListDefinition.stub(stub[:line_items]) unless stub[:line_items].nil?
+        data['LineItems'] = LineItemListDefinition.stub(stub[:line_items]) unless stub[:line_items].nil?
         data['PaymentOption'] = stub[:payment_option] unless stub[:payment_option].nil?
         data['OrderSubmissionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:order_submission_date]).to_i unless stub[:order_submission_date].nil?
         data['OrderFulfilledDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:order_fulfilled_date]).to_i unless stub[:order_fulfilled_date].nil?
@@ -84,7 +86,7 @@ module AWS::SDK::Outposts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LineItem.stub(element) unless element.nil?
+          data << LineItem.stub(element) unless element.nil?
         end
         data
       end
@@ -126,8 +128,8 @@ module AWS::SDK::Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Outpost'] = Stubs::Outpost.stub(stub[:outpost]) unless stub[:outpost].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Outpost'] = Outpost.stub(stub[:outpost]) unless stub[:outpost].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -164,7 +166,7 @@ module AWS::SDK::Outposts
         data['LifeCycleStatus'] = stub[:life_cycle_status] unless stub[:life_cycle_status].nil?
         data['AvailabilityZone'] = stub[:availability_zone] unless stub[:availability_zone].nil?
         data['AvailabilityZoneId'] = stub[:availability_zone_id] unless stub[:availability_zone_id].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['SiteArn'] = stub[:site_arn] unless stub[:site_arn].nil?
         data['SupportedHardwareType'] = stub[:supported_hardware_type] unless stub[:supported_hardware_type].nil?
         data
@@ -203,8 +205,8 @@ module AWS::SDK::Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Site'] = Stubs::Site.stub(stub[:site]) unless stub[:site].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Site'] = Site.stub(stub[:site]) unless stub[:site].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -235,13 +237,13 @@ module AWS::SDK::Outposts
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['SiteArn'] = stub[:site_arn] unless stub[:site_arn].nil?
         data['Notes'] = stub[:notes] unless stub[:notes].nil?
         data['OperatingAddressCountryCode'] = stub[:operating_address_country_code] unless stub[:operating_address_country_code].nil?
         data['OperatingAddressStateOrRegion'] = stub[:operating_address_state_or_region] unless stub[:operating_address_state_or_region].nil?
         data['OperatingAddressCity'] = stub[:operating_address_city] unless stub[:operating_address_city].nil?
-        data['RackPhysicalProperties'] = Stubs::RackPhysicalProperties.stub(stub[:rack_physical_properties]) unless stub[:rack_physical_properties].nil?
+        data['RackPhysicalProperties'] = RackPhysicalProperties.stub(stub[:rack_physical_properties]) unless stub[:rack_physical_properties].nil?
         data
       end
     end
@@ -318,8 +320,8 @@ module AWS::SDK::Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CatalogItem'] = Stubs::CatalogItem.stub(stub[:catalog_item]) unless stub[:catalog_item].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CatalogItem'] = CatalogItem.stub(stub[:catalog_item]) unless stub[:catalog_item].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -344,11 +346,11 @@ module AWS::SDK::Outposts
         data = {}
         data['CatalogItemId'] = stub[:catalog_item_id] unless stub[:catalog_item_id].nil?
         data['ItemStatus'] = stub[:item_status] unless stub[:item_status].nil?
-        data['EC2Capacities'] = Stubs::EC2CapacityListDefinition.stub(stub[:ec2_capacities]) unless stub[:ec2_capacities].nil?
+        data['EC2Capacities'] = EC2CapacityListDefinition.stub(stub[:ec2_capacities]) unless stub[:ec2_capacities].nil?
         data['PowerKva'] = Hearth::NumberHelper.serialize(stub[:power_kva])
         data['WeightLbs'] = stub[:weight_lbs] unless stub[:weight_lbs].nil?
-        data['SupportedUplinkGbps'] = Stubs::SupportedUplinkGbpsListDefinition.stub(stub[:supported_uplink_gbps]) unless stub[:supported_uplink_gbps].nil?
-        data['SupportedStorage'] = Stubs::SupportedStorageList.stub(stub[:supported_storage]) unless stub[:supported_storage].nil?
+        data['SupportedUplinkGbps'] = SupportedUplinkGbpsListDefinition.stub(stub[:supported_uplink_gbps]) unless stub[:supported_uplink_gbps].nil?
+        data['SupportedStorage'] = SupportedStorageList.stub(stub[:supported_storage]) unless stub[:supported_storage].nil?
         data
       end
     end
@@ -407,7 +409,7 @@ module AWS::SDK::Outposts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EC2Capacity.stub(element) unless element.nil?
+          data << EC2Capacity.stub(element) unless element.nil?
         end
         data
       end
@@ -449,8 +451,8 @@ module AWS::SDK::Outposts
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ConnectionId'] = stub[:connection_id] unless stub[:connection_id].nil?
-        data['ConnectionDetails'] = Stubs::ConnectionDetails.stub(stub[:connection_details]) unless stub[:connection_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ConnectionDetails'] = ConnectionDetails.stub(stub[:connection_details]) unless stub[:connection_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -477,7 +479,7 @@ module AWS::SDK::Outposts
         data['ServerEndpoint'] = stub[:server_endpoint] unless stub[:server_endpoint].nil?
         data['ClientTunnelAddress'] = stub[:client_tunnel_address] unless stub[:client_tunnel_address].nil?
         data['ServerTunnelAddress'] = stub[:server_tunnel_address] unless stub[:server_tunnel_address].nil?
-        data['AllowedIps'] = Stubs::CIDRList.stub(stub[:allowed_ips]) unless stub[:allowed_ips].nil?
+        data['AllowedIps'] = CIDRList.stub(stub[:allowed_ips]) unless stub[:allowed_ips].nil?
         data
       end
     end
@@ -514,8 +516,8 @@ module AWS::SDK::Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Order'] = Stubs::Order.stub(stub[:order]) unless stub[:order].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Order'] = Order.stub(stub[:order]) unless stub[:order].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -531,8 +533,8 @@ module AWS::SDK::Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Outpost'] = Stubs::Outpost.stub(stub[:outpost]) unless stub[:outpost].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Outpost'] = Outpost.stub(stub[:outpost]) unless stub[:outpost].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -551,11 +553,11 @@ module AWS::SDK::Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['InstanceTypes'] = Stubs::InstanceTypeListDefinition.stub(stub[:instance_types]) unless stub[:instance_types].nil?
+        data['InstanceTypes'] = InstanceTypeListDefinition.stub(stub[:instance_types]) unless stub[:instance_types].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data['OutpostId'] = stub[:outpost_id] unless stub[:outpost_id].nil?
         data['OutpostArn'] = stub[:outpost_arn] unless stub[:outpost_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -573,7 +575,7 @@ module AWS::SDK::Outposts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceTypeItem.stub(element) unless element.nil?
+          data << InstanceTypeItem.stub(element) unless element.nil?
         end
         data
       end
@@ -609,8 +611,8 @@ module AWS::SDK::Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Site'] = Stubs::Site.stub(stub[:site]) unless stub[:site].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Site'] = Site.stub(stub[:site]) unless stub[:site].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -630,8 +632,8 @@ module AWS::SDK::Outposts
         http_resp.headers['Content-Type'] = 'application/json'
         data['SiteId'] = stub[:site_id] unless stub[:site_id].nil?
         data['AddressType'] = stub[:address_type] unless stub[:address_type].nil?
-        data['Address'] = Stubs::Address.stub(stub[:address]) unless stub[:address].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Address'] = Address.stub(stub[:address]) unless stub[:address].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -686,9 +688,9 @@ module AWS::SDK::Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Assets'] = Stubs::AssetListDefinition.stub(stub[:assets]) unless stub[:assets].nil?
+        data['Assets'] = AssetListDefinition.stub(stub[:assets]) unless stub[:assets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -706,7 +708,7 @@ module AWS::SDK::Outposts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AssetInfo.stub(element) unless element.nil?
+          data << AssetInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -731,7 +733,7 @@ module AWS::SDK::Outposts
         data['AssetId'] = stub[:asset_id] unless stub[:asset_id].nil?
         data['RackId'] = stub[:rack_id] unless stub[:rack_id].nil?
         data['AssetType'] = stub[:asset_type] unless stub[:asset_type].nil?
-        data['ComputeAttributes'] = Stubs::ComputeAttributes.stub(stub[:compute_attributes]) unless stub[:compute_attributes].nil?
+        data['ComputeAttributes'] = ComputeAttributes.stub(stub[:compute_attributes]) unless stub[:compute_attributes].nil?
         data
       end
     end
@@ -767,9 +769,9 @@ module AWS::SDK::Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['CatalogItems'] = Stubs::CatalogItemListDefinition.stub(stub[:catalog_items]) unless stub[:catalog_items].nil?
+        data['CatalogItems'] = CatalogItemListDefinition.stub(stub[:catalog_items]) unless stub[:catalog_items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -787,7 +789,7 @@ module AWS::SDK::Outposts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CatalogItem.stub(element) unless element.nil?
+          data << CatalogItem.stub(element) unless element.nil?
         end
         data
       end
@@ -806,9 +808,9 @@ module AWS::SDK::Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Orders'] = Stubs::OrderSummaryListDefinition.stub(stub[:orders]) unless stub[:orders].nil?
+        data['Orders'] = OrderSummaryListDefinition.stub(stub[:orders]) unless stub[:orders].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -826,7 +828,7 @@ module AWS::SDK::Outposts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OrderSummary.stub(element) unless element.nil?
+          data << OrderSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -855,7 +857,7 @@ module AWS::SDK::Outposts
         data['OrderId'] = stub[:order_id] unless stub[:order_id].nil?
         data['OrderType'] = stub[:order_type] unless stub[:order_type].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['LineItemCountsByStatus'] = Stubs::LineItemStatusCounts.stub(stub[:line_item_counts_by_status]) unless stub[:line_item_counts_by_status].nil?
+        data['LineItemCountsByStatus'] = LineItemStatusCounts.stub(stub[:line_item_counts_by_status]) unless stub[:line_item_counts_by_status].nil?
         data['OrderSubmissionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:order_submission_date]).to_i unless stub[:order_submission_date].nil?
         data['OrderFulfilledDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:order_fulfilled_date]).to_i unless stub[:order_fulfilled_date].nil?
         data
@@ -895,9 +897,9 @@ module AWS::SDK::Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Outposts'] = Stubs::OutpostListDefinition.stub(stub[:outposts]) unless stub[:outposts].nil?
+        data['Outposts'] = OutpostListDefinition.stub(stub[:outposts]) unless stub[:outposts].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -915,7 +917,7 @@ module AWS::SDK::Outposts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Outpost.stub(element) unless element.nil?
+          data << Outpost.stub(element) unless element.nil?
         end
         data
       end
@@ -934,9 +936,9 @@ module AWS::SDK::Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Sites'] = Stubs::SiteListDefinition.stub(stub[:sites]) unless stub[:sites].nil?
+        data['Sites'] = SiteListDefinition.stub(stub[:sites]) unless stub[:sites].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -954,7 +956,7 @@ module AWS::SDK::Outposts
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Site.stub(element) unless element.nil?
+          data << Site.stub(element) unless element.nil?
         end
         data
       end
@@ -972,8 +974,8 @@ module AWS::SDK::Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -992,7 +994,7 @@ module AWS::SDK::Outposts
         http_resp.headers['Content-Type'] = 'application/json'
         data['ConnectionId'] = stub[:connection_id] unless stub[:connection_id].nil?
         data['UnderlayIpAddress'] = stub[:underlay_ip_address] unless stub[:underlay_ip_address].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1034,8 +1036,8 @@ module AWS::SDK::Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Outpost'] = Stubs::Outpost.stub(stub[:outpost]) unless stub[:outpost].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Outpost'] = Outpost.stub(stub[:outpost]) unless stub[:outpost].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1051,8 +1053,8 @@ module AWS::SDK::Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Site'] = Stubs::Site.stub(stub[:site]) unless stub[:site].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Site'] = Site.stub(stub[:site]) unless stub[:site].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1070,8 +1072,8 @@ module AWS::SDK::Outposts
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AddressType'] = stub[:address_type] unless stub[:address_type].nil?
-        data['Address'] = Stubs::Address.stub(stub[:address]) unless stub[:address].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Address'] = Address.stub(stub[:address]) unless stub[:address].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1087,8 +1089,8 @@ module AWS::SDK::Outposts
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Site'] = Stubs::Site.stub(stub[:site]) unless stub[:site].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Site'] = Site.stub(stub[:site]) unless stub[:site].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

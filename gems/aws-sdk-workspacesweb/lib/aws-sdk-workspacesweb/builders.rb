@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::WorkSpacesWeb
   module Builders
 
@@ -92,12 +95,12 @@ module AWS::SDK::WorkSpacesWeb
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['customerManagedKey'] = input[:customer_managed_key] unless input[:customer_managed_key].nil?
-        data['additionalEncryptionContext'] = Builders::EncryptionContextMap.build(input[:additional_encryption_context]) unless input[:additional_encryption_context].nil?
+        data['additionalEncryptionContext'] = EncryptionContextMap.build(input[:additional_encryption_context]) unless input[:additional_encryption_context].nil?
         data['browserPolicy'] = input[:browser_policy] unless input[:browser_policy].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -117,7 +120,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -146,9 +149,9 @@ module AWS::SDK::WorkSpacesWeb
         data['portalArn'] = input[:portal_arn] unless input[:portal_arn].nil?
         data['identityProviderName'] = input[:identity_provider_name] unless input[:identity_provider_name].nil?
         data['identityProviderType'] = input[:identity_provider_type] unless input[:identity_provider_type].nil?
-        data['identityProviderDetails'] = Builders::IdentityProviderDetails.build(input[:identity_provider_details]) unless input[:identity_provider_details].nil?
+        data['identityProviderDetails'] = IdentityProviderDetails.build(input[:identity_provider_details]) unless input[:identity_provider_details].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -174,11 +177,11 @@ module AWS::SDK::WorkSpacesWeb
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['vpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
-        data['subnetIds'] = Builders::SubnetIdList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['securityGroupIds'] = Builders::SecurityGroupIdList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['subnetIds'] = SubnetIdList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['securityGroupIds'] = SecurityGroupIdList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -215,11 +218,11 @@ module AWS::SDK::WorkSpacesWeb
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['displayName'] = input[:display_name] unless input[:display_name].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['customerManagedKey'] = input[:customer_managed_key] unless input[:customer_managed_key].nil?
-        data['additionalEncryptionContext'] = Builders::EncryptionContextMap.build(input[:additional_encryption_context]) unless input[:additional_encryption_context].nil?
+        data['additionalEncryptionContext'] = EncryptionContextMap.build(input[:additional_encryption_context]) unless input[:additional_encryption_context].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -233,10 +236,10 @@ module AWS::SDK::WorkSpacesWeb
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['certificateList'] = Builders::CertificateList.build(input[:certificate_list]) unless input[:certificate_list].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['certificateList'] = CertificateList.build(input[:certificate_list]) unless input[:certificate_list].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -245,7 +248,7 @@ module AWS::SDK::WorkSpacesWeb
       def self.build(input)
         data = []
         input.each do |element|
-          data << Base64::encode64(element).strip unless element.nil?
+          data << ::Base64::encode64(element).strip unless element.nil?
         end
         data
       end
@@ -266,11 +269,11 @@ module AWS::SDK::WorkSpacesWeb
         data['downloadAllowed'] = input[:download_allowed] unless input[:download_allowed].nil?
         data['uploadAllowed'] = input[:upload_allowed] unless input[:upload_allowed].nil?
         data['printAllowed'] = input[:print_allowed] unless input[:print_allowed].nil?
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['disconnectTimeoutInMinutes'] = input[:disconnect_timeout_in_minutes] unless input[:disconnect_timeout_in_minutes].nil?
         data['idleDisconnectTimeoutInMinutes'] = input[:idle_disconnect_timeout_in_minutes] unless input[:idle_disconnect_timeout_in_minutes].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -713,9 +716,9 @@ module AWS::SDK::WorkSpacesWeb
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -771,7 +774,7 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         data['browserPolicy'] = input[:browser_policy] unless input[:browser_policy].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -794,9 +797,9 @@ module AWS::SDK::WorkSpacesWeb
         data = {}
         data['identityProviderName'] = input[:identity_provider_name] unless input[:identity_provider_name].nil?
         data['identityProviderType'] = input[:identity_provider_type] unless input[:identity_provider_type].nil?
-        data['identityProviderDetails'] = Builders::IdentityProviderDetails.build(input[:identity_provider_details]) unless input[:identity_provider_details].nil?
+        data['identityProviderDetails'] = IdentityProviderDetails.build(input[:identity_provider_details]) unless input[:identity_provider_details].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -818,10 +821,10 @@ module AWS::SDK::WorkSpacesWeb
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['vpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
-        data['subnetIds'] = Builders::SubnetIdList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['securityGroupIds'] = Builders::SecurityGroupIdList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['subnetIds'] = SubnetIdList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['securityGroupIds'] = SecurityGroupIdList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -843,7 +846,7 @@ module AWS::SDK::WorkSpacesWeb
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['displayName'] = input[:display_name] unless input[:display_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -864,10 +867,10 @@ module AWS::SDK::WorkSpacesWeb
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['certificatesToAdd'] = Builders::CertificateList.build(input[:certificates_to_add]) unless input[:certificates_to_add].nil?
-        data['certificatesToDelete'] = Builders::CertificateThumbprintList.build(input[:certificates_to_delete]) unless input[:certificates_to_delete].nil?
+        data['certificatesToAdd'] = CertificateList.build(input[:certificates_to_add]) unless input[:certificates_to_add].nil?
+        data['certificatesToDelete'] = CertificateThumbprintList.build(input[:certificates_to_delete]) unless input[:certificates_to_delete].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -907,7 +910,7 @@ module AWS::SDK::WorkSpacesWeb
         data['disconnectTimeoutInMinutes'] = input[:disconnect_timeout_in_minutes] unless input[:disconnect_timeout_in_minutes].nil?
         data['idleDisconnectTimeoutInMinutes'] = input[:idle_disconnect_timeout_in_minutes] unless input[:idle_disconnect_timeout_in_minutes].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

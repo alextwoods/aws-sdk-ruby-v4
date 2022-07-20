@@ -16,11 +16,11 @@ module AWS::SDK::Rbin
         data = Types::CreateRuleOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.identifier = map['Identifier']
-        data.retention_period = (Parsers::RetentionPeriod.parse(map['RetentionPeriod']) unless map['RetentionPeriod'].nil?)
+        data.retention_period = (RetentionPeriod.parse(map['RetentionPeriod']) unless map['RetentionPeriod'].nil?)
         data.description = map['Description']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.resource_type = map['ResourceType']
-        data.resource_tags = (Parsers::ResourceTags.parse(map['ResourceTags']) unless map['ResourceTags'].nil?)
+        data.resource_tags = (ResourceTags.parse(map['ResourceTags']) unless map['ResourceTags'].nil?)
         data.status = map['Status']
         data
       end
@@ -30,7 +30,7 @@ module AWS::SDK::Rbin
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourceTag.parse(value) unless value.nil?
+          data << ResourceTag.parse(value) unless value.nil?
         end
         data
       end
@@ -49,7 +49,7 @@ module AWS::SDK::Rbin
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -133,8 +133,8 @@ module AWS::SDK::Rbin
         data.identifier = map['Identifier']
         data.description = map['Description']
         data.resource_type = map['ResourceType']
-        data.retention_period = (Parsers::RetentionPeriod.parse(map['RetentionPeriod']) unless map['RetentionPeriod'].nil?)
-        data.resource_tags = (Parsers::ResourceTags.parse(map['ResourceTags']) unless map['ResourceTags'].nil?)
+        data.retention_period = (RetentionPeriod.parse(map['RetentionPeriod']) unless map['RetentionPeriod'].nil?)
+        data.resource_tags = (ResourceTags.parse(map['ResourceTags']) unless map['ResourceTags'].nil?)
         data.status = map['Status']
         data
       end
@@ -145,7 +145,7 @@ module AWS::SDK::Rbin
       def self.parse(http_resp)
         data = Types::ListRulesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.rules = (Parsers::RuleSummaryList.parse(map['Rules']) unless map['Rules'].nil?)
+        data.rules = (RuleSummaryList.parse(map['Rules']) unless map['Rules'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -155,7 +155,7 @@ module AWS::SDK::Rbin
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RuleSummary.parse(value) unless value.nil?
+          data << RuleSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -166,7 +166,7 @@ module AWS::SDK::Rbin
         data = Types::RuleSummary.new
         data.identifier = map['Identifier']
         data.description = map['Description']
-        data.retention_period = (Parsers::RetentionPeriod.parse(map['RetentionPeriod']) unless map['RetentionPeriod'].nil?)
+        data.retention_period = (RetentionPeriod.parse(map['RetentionPeriod']) unless map['RetentionPeriod'].nil?)
         return data
       end
     end
@@ -176,7 +176,7 @@ module AWS::SDK::Rbin
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -205,10 +205,10 @@ module AWS::SDK::Rbin
         data = Types::UpdateRuleOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.identifier = map['Identifier']
-        data.retention_period = (Parsers::RetentionPeriod.parse(map['RetentionPeriod']) unless map['RetentionPeriod'].nil?)
+        data.retention_period = (RetentionPeriod.parse(map['RetentionPeriod']) unless map['RetentionPeriod'].nil?)
         data.description = map['Description']
         data.resource_type = map['ResourceType']
-        data.resource_tags = (Parsers::ResourceTags.parse(map['ResourceTags']) unless map['ResourceTags'].nil?)
+        data.resource_tags = (ResourceTags.parse(map['ResourceTags']) unless map['ResourceTags'].nil?)
         data.status = map['Status']
         data
       end

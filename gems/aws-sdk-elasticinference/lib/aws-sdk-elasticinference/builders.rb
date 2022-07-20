@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ElasticInference
   module Builders
 
@@ -21,8 +23,8 @@ module AWS::SDK::ElasticInference
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['locationType'] = input[:location_type] unless input[:location_type].nil?
-        data['acceleratorTypes'] = Builders::AcceleratorTypeNameList.build(input[:accelerator_types]) unless input[:accelerator_types].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['acceleratorTypes'] = AcceleratorTypeNameList.build(input[:accelerator_types]) unless input[:accelerator_types].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -57,11 +59,11 @@ module AWS::SDK::ElasticInference
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['acceleratorIds'] = Builders::AcceleratorIdList.build(input[:accelerator_ids]) unless input[:accelerator_ids].nil?
-        data['filters'] = Builders::FilterList.build(input[:filters]) unless input[:filters].nil?
+        data['acceleratorIds'] = AcceleratorIdList.build(input[:accelerator_ids]) unless input[:accelerator_ids].nil?
+        data['filters'] = FilterList.build(input[:filters]) unless input[:filters].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -70,7 +72,7 @@ module AWS::SDK::ElasticInference
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -81,7 +83,7 @@ module AWS::SDK::ElasticInference
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::ValueStringList.build(input[:values]) unless input[:values].nil?
+        data['values'] = ValueStringList.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -142,8 +144,8 @@ module AWS::SDK::ElasticInference
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

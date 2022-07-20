@@ -15,7 +15,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
       def self.parse(http_resp)
         data = Types::CreateMediaCapturePipelineOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.media_capture_pipeline = (Parsers::MediaCapturePipeline.parse(map['MediaCapturePipeline']) unless map['MediaCapturePipeline'].nil?)
+        data.media_capture_pipeline = (MediaCapturePipeline.parse(map['MediaCapturePipeline']) unless map['MediaCapturePipeline'].nil?)
         data
       end
     end
@@ -32,7 +32,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
         data.sink_arn = map['SinkArn']
         data.created_timestamp = Time.parse(map['CreatedTimestamp']) if map['CreatedTimestamp']
         data.updated_timestamp = Time.parse(map['UpdatedTimestamp']) if map['UpdatedTimestamp']
-        data.chime_sdk_meeting_configuration = (Parsers::ChimeSdkMeetingConfiguration.parse(map['ChimeSdkMeetingConfiguration']) unless map['ChimeSdkMeetingConfiguration'].nil?)
+        data.chime_sdk_meeting_configuration = (ChimeSdkMeetingConfiguration.parse(map['ChimeSdkMeetingConfiguration']) unless map['ChimeSdkMeetingConfiguration'].nil?)
         return data
       end
     end
@@ -40,8 +40,8 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class ChimeSdkMeetingConfiguration
       def self.parse(map)
         data = Types::ChimeSdkMeetingConfiguration.new
-        data.source_configuration = (Parsers::SourceConfiguration.parse(map['SourceConfiguration']) unless map['SourceConfiguration'].nil?)
-        data.artifacts_configuration = (Parsers::ArtifactsConfiguration.parse(map['ArtifactsConfiguration']) unless map['ArtifactsConfiguration'].nil?)
+        data.source_configuration = (SourceConfiguration.parse(map['SourceConfiguration']) unless map['SourceConfiguration'].nil?)
+        data.artifacts_configuration = (ArtifactsConfiguration.parse(map['ArtifactsConfiguration']) unless map['ArtifactsConfiguration'].nil?)
         return data
       end
     end
@@ -49,9 +49,9 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class ArtifactsConfiguration
       def self.parse(map)
         data = Types::ArtifactsConfiguration.new
-        data.audio = (Parsers::AudioArtifactsConfiguration.parse(map['Audio']) unless map['Audio'].nil?)
-        data.video = (Parsers::VideoArtifactsConfiguration.parse(map['Video']) unless map['Video'].nil?)
-        data.content = (Parsers::ContentArtifactsConfiguration.parse(map['Content']) unless map['Content'].nil?)
+        data.audio = (AudioArtifactsConfiguration.parse(map['Audio']) unless map['Audio'].nil?)
+        data.video = (VideoArtifactsConfiguration.parse(map['Video']) unless map['Video'].nil?)
+        data.content = (ContentArtifactsConfiguration.parse(map['Content']) unless map['Content'].nil?)
         return data
       end
     end
@@ -85,7 +85,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class SourceConfiguration
       def self.parse(map)
         data = Types::SourceConfiguration.new
-        data.selected_video_streams = (Parsers::SelectedVideoStreams.parse(map['SelectedVideoStreams']) unless map['SelectedVideoStreams'].nil?)
+        data.selected_video_streams = (SelectedVideoStreams.parse(map['SelectedVideoStreams']) unless map['SelectedVideoStreams'].nil?)
         return data
       end
     end
@@ -93,8 +93,8 @@ module AWS::SDK::ChimeSDKMediaPipelines
     class SelectedVideoStreams
       def self.parse(map)
         data = Types::SelectedVideoStreams.new
-        data.attendee_ids = (Parsers::AttendeeIdList.parse(map['AttendeeIds']) unless map['AttendeeIds'].nil?)
-        data.external_user_ids = (Parsers::ExternalUserIdList.parse(map['ExternalUserIds']) unless map['ExternalUserIds'].nil?)
+        data.attendee_ids = (AttendeeIdList.parse(map['AttendeeIds']) unless map['AttendeeIds'].nil?)
+        data.external_user_ids = (ExternalUserIdList.parse(map['ExternalUserIds']) unless map['ExternalUserIds'].nil?)
         return data
       end
     end
@@ -229,7 +229,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
       def self.parse(http_resp)
         data = Types::GetMediaCapturePipelineOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.media_capture_pipeline = (Parsers::MediaCapturePipeline.parse(map['MediaCapturePipeline']) unless map['MediaCapturePipeline'].nil?)
+        data.media_capture_pipeline = (MediaCapturePipeline.parse(map['MediaCapturePipeline']) unless map['MediaCapturePipeline'].nil?)
         data
       end
     end
@@ -239,7 +239,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
       def self.parse(http_resp)
         data = Types::ListMediaCapturePipelinesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.media_capture_pipelines = (Parsers::MediaCapturePipelineSummaryList.parse(map['MediaCapturePipelines']) unless map['MediaCapturePipelines'].nil?)
+        data.media_capture_pipelines = (MediaCapturePipelineSummaryList.parse(map['MediaCapturePipelines']) unless map['MediaCapturePipelines'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -249,7 +249,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MediaCapturePipelineSummary.parse(value) unless value.nil?
+          data << MediaCapturePipelineSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -269,7 +269,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -278,7 +278,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end

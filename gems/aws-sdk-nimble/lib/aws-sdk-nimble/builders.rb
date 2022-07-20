@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Nimble
   module Builders
 
@@ -27,8 +29,8 @@ module AWS::SDK::Nimble
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['eulaIds'] = Builders::EulaIdList.build(input[:eula_ids]) unless input[:eula_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['eulaIds'] = EulaIdList.build(input[:eula_ids]) unless input[:eula_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -62,13 +64,13 @@ module AWS::SDK::Nimble
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['ec2SubnetIds'] = Builders::EC2SubnetIdList.build(input[:ec2_subnet_ids]) unless input[:ec2_subnet_ids].nil?
-        data['launchProfileProtocolVersions'] = Builders::LaunchProfileProtocolVersionList.build(input[:launch_profile_protocol_versions]) unless input[:launch_profile_protocol_versions].nil?
+        data['ec2SubnetIds'] = EC2SubnetIdList.build(input[:ec2_subnet_ids]) unless input[:ec2_subnet_ids].nil?
+        data['launchProfileProtocolVersions'] = LaunchProfileProtocolVersionList.build(input[:launch_profile_protocol_versions]) unless input[:launch_profile_protocol_versions].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['streamConfiguration'] = Builders::StreamConfigurationCreate.build(input[:stream_configuration]) unless input[:stream_configuration].nil?
-        data['studioComponentIds'] = Builders::LaunchProfileStudioComponentIdList.build(input[:studio_component_ids]) unless input[:studio_component_ids].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['streamConfiguration'] = StreamConfigurationCreate.build(input[:stream_configuration]) unless input[:stream_configuration].nil?
+        data['studioComponentIds'] = LaunchProfileStudioComponentIdList.build(input[:studio_component_ids]) unless input[:studio_component_ids].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -100,11 +102,11 @@ module AWS::SDK::Nimble
       def self.build(input)
         data = {}
         data['clipboardMode'] = input[:clipboard_mode] unless input[:clipboard_mode].nil?
-        data['ec2InstanceTypes'] = Builders::StreamingInstanceTypeList.build(input[:ec2_instance_types]) unless input[:ec2_instance_types].nil?
+        data['ec2InstanceTypes'] = StreamingInstanceTypeList.build(input[:ec2_instance_types]) unless input[:ec2_instance_types].nil?
         data['maxSessionLengthInMinutes'] = input[:max_session_length_in_minutes] unless input[:max_session_length_in_minutes].nil?
-        data['streamingImageIds'] = Builders::StreamingImageIdList.build(input[:streaming_image_ids]) unless input[:streaming_image_ids].nil?
+        data['streamingImageIds'] = StreamingImageIdList.build(input[:streaming_image_ids]) unless input[:streaming_image_ids].nil?
         data['maxStoppedSessionLengthInMinutes'] = input[:max_stopped_session_length_in_minutes] unless input[:max_stopped_session_length_in_minutes].nil?
-        data['sessionStorage'] = Builders::StreamConfigurationSessionStorage.build(input[:session_storage]) unless input[:session_storage].nil?
+        data['sessionStorage'] = StreamConfigurationSessionStorage.build(input[:session_storage]) unless input[:session_storage].nil?
         data
       end
     end
@@ -113,8 +115,8 @@ module AWS::SDK::Nimble
     class StreamConfigurationSessionStorage
       def self.build(input)
         data = {}
-        data['root'] = Builders::StreamingSessionStorageRoot.build(input[:root]) unless input[:root].nil?
-        data['mode'] = Builders::StreamingSessionStorageModeList.build(input[:mode]) unless input[:mode].nil?
+        data['root'] = StreamingSessionStorageRoot.build(input[:root]) unless input[:root].nil?
+        data['mode'] = StreamingSessionStorageModeList.build(input[:mode]) unless input[:mode].nil?
         data
       end
     end
@@ -204,8 +206,8 @@ module AWS::SDK::Nimble
         data['description'] = input[:description] unless input[:description].nil?
         data['ec2ImageId'] = input[:ec2_image_id] unless input[:ec2_image_id].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -231,8 +233,8 @@ module AWS::SDK::Nimble
         data['launchProfileId'] = input[:launch_profile_id] unless input[:launch_profile_id].nil?
         data['ownedBy'] = input[:owned_by] unless input[:owned_by].nil?
         data['streamingImageId'] = input[:streaming_image_id] unless input[:streaming_image_id].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -259,7 +261,7 @@ module AWS::SDK::Nimble
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['expirationInSeconds'] = input[:expiration_in_seconds] unless input[:expiration_in_seconds].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -276,11 +278,11 @@ module AWS::SDK::Nimble
         data = {}
         data['adminRoleArn'] = input[:admin_role_arn] unless input[:admin_role_arn].nil?
         data['displayName'] = input[:display_name] unless input[:display_name].nil?
-        data['studioEncryptionConfiguration'] = Builders::StudioEncryptionConfiguration.build(input[:studio_encryption_configuration]) unless input[:studio_encryption_configuration].nil?
+        data['studioEncryptionConfiguration'] = StudioEncryptionConfiguration.build(input[:studio_encryption_configuration]) unless input[:studio_encryption_configuration].nil?
         data['studioName'] = input[:studio_name] unless input[:studio_name].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['userRoleArn'] = input[:user_role_arn] unless input[:user_role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -312,18 +314,18 @@ module AWS::SDK::Nimble
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['configuration'] = Builders::StudioComponentConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        data['configuration'] = StudioComponentConfiguration.build(input[:configuration]) unless input[:configuration].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['ec2SecurityGroupIds'] = Builders::StudioComponentSecurityGroupIdList.build(input[:ec2_security_group_ids]) unless input[:ec2_security_group_ids].nil?
-        data['initializationScripts'] = Builders::StudioComponentInitializationScriptList.build(input[:initialization_scripts]) unless input[:initialization_scripts].nil?
+        data['ec2SecurityGroupIds'] = StudioComponentSecurityGroupIdList.build(input[:ec2_security_group_ids]) unless input[:ec2_security_group_ids].nil?
+        data['initializationScripts'] = StudioComponentInitializationScriptList.build(input[:initialization_scripts]) unless input[:initialization_scripts].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['scriptParameters'] = Builders::StudioComponentScriptParameterKeyValueList.build(input[:script_parameters]) unless input[:script_parameters].nil?
+        data['scriptParameters'] = StudioComponentScriptParameterKeyValueList.build(input[:script_parameters]) unless input[:script_parameters].nil?
         data['subtype'] = input[:subtype] unless input[:subtype].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['type'] = input[:type] unless input[:type].nil?
         data['secureInitializationRoleArn'] = input[:secure_initialization_role_arn] unless input[:secure_initialization_role_arn].nil?
         data['runtimeRoleArn'] = input[:runtime_role_arn] unless input[:runtime_role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -333,7 +335,7 @@ module AWS::SDK::Nimble
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ScriptParameterKeyValue.build(element) unless element.nil?
+          data << ScriptParameterKeyValue.build(element) unless element.nil?
         end
         data
       end
@@ -354,7 +356,7 @@ module AWS::SDK::Nimble
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StudioComponentInitializationScript.build(element) unless element.nil?
+          data << StudioComponentInitializationScript.build(element) unless element.nil?
         end
         data
       end
@@ -389,13 +391,13 @@ module AWS::SDK::Nimble
         data = {}
         case input
         when Types::StudioComponentConfiguration::ActiveDirectoryConfiguration
-          data['activeDirectoryConfiguration'] = (Builders::ActiveDirectoryConfiguration.build(input) unless input.nil?)
+          data['activeDirectoryConfiguration'] = (ActiveDirectoryConfiguration.build(input) unless input.nil?)
         when Types::StudioComponentConfiguration::ComputeFarmConfiguration
-          data['computeFarmConfiguration'] = (Builders::ComputeFarmConfiguration.build(input) unless input.nil?)
+          data['computeFarmConfiguration'] = (ComputeFarmConfiguration.build(input) unless input.nil?)
         when Types::StudioComponentConfiguration::LicenseServiceConfiguration
-          data['licenseServiceConfiguration'] = (Builders::LicenseServiceConfiguration.build(input) unless input.nil?)
+          data['licenseServiceConfiguration'] = (LicenseServiceConfiguration.build(input) unless input.nil?)
         when Types::StudioComponentConfiguration::SharedFileSystemConfiguration
-          data['sharedFileSystemConfiguration'] = (Builders::SharedFileSystemConfiguration.build(input) unless input.nil?)
+          data['sharedFileSystemConfiguration'] = (SharedFileSystemConfiguration.build(input) unless input.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::StudioComponentConfiguration"
@@ -441,7 +443,7 @@ module AWS::SDK::Nimble
     class ActiveDirectoryConfiguration
       def self.build(input)
         data = {}
-        data['computerAttributes'] = Builders::ActiveDirectoryComputerAttributeList.build(input[:computer_attributes]) unless input[:computer_attributes].nil?
+        data['computerAttributes'] = ActiveDirectoryComputerAttributeList.build(input[:computer_attributes]) unless input[:computer_attributes].nil?
         data['directoryId'] = input[:directory_id] unless input[:directory_id].nil?
         data['organizationalUnitDistinguishedName'] = input[:organizational_unit_distinguished_name] unless input[:organizational_unit_distinguished_name].nil?
         data
@@ -453,7 +455,7 @@ module AWS::SDK::Nimble
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ActiveDirectoryComputerAttribute.build(element) unless element.nil?
+          data << ActiveDirectoryComputerAttribute.build(element) unless element.nil?
         end
         data
       end
@@ -1130,8 +1132,8 @@ module AWS::SDK::Nimble
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['identityStoreId'] = input[:identity_store_id] unless input[:identity_store_id].nil?
-        data['members'] = Builders::NewLaunchProfileMemberList.build(input[:members]) unless input[:members].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['members'] = NewLaunchProfileMemberList.build(input[:members]) unless input[:members].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -1141,7 +1143,7 @@ module AWS::SDK::Nimble
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::NewLaunchProfileMember.build(element) unless element.nil?
+          data << NewLaunchProfileMember.build(element) unless element.nil?
         end
         data
       end
@@ -1175,8 +1177,8 @@ module AWS::SDK::Nimble
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['identityStoreId'] = input[:identity_store_id] unless input[:identity_store_id].nil?
-        data['members'] = Builders::NewStudioMemberList.build(input[:members]) unless input[:members].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['members'] = NewStudioMemberList.build(input[:members]) unless input[:members].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -1186,7 +1188,7 @@ module AWS::SDK::Nimble
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::NewStudioMember.build(element) unless element.nil?
+          data << NewStudioMember.build(element) unless element.nil?
         end
         data
       end
@@ -1281,8 +1283,8 @@ module AWS::SDK::Nimble
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1330,11 +1332,11 @@ module AWS::SDK::Nimble
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['launchProfileProtocolVersions'] = Builders::LaunchProfileProtocolVersionList.build(input[:launch_profile_protocol_versions]) unless input[:launch_profile_protocol_versions].nil?
+        data['launchProfileProtocolVersions'] = LaunchProfileProtocolVersionList.build(input[:launch_profile_protocol_versions]) unless input[:launch_profile_protocol_versions].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['streamConfiguration'] = Builders::StreamConfigurationCreate.build(input[:stream_configuration]) unless input[:stream_configuration].nil?
-        data['studioComponentIds'] = Builders::LaunchProfileStudioComponentIdList.build(input[:studio_component_ids]) unless input[:studio_component_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['streamConfiguration'] = StreamConfigurationCreate.build(input[:stream_configuration]) unless input[:stream_configuration].nil?
+        data['studioComponentIds'] = LaunchProfileStudioComponentIdList.build(input[:studio_component_ids]) unless input[:studio_component_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -1365,7 +1367,7 @@ module AWS::SDK::Nimble
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['persona'] = input[:persona] unless input[:persona].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -1393,7 +1395,7 @@ module AWS::SDK::Nimble
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -1418,7 +1420,7 @@ module AWS::SDK::Nimble
         data['adminRoleArn'] = input[:admin_role_arn] unless input[:admin_role_arn].nil?
         data['displayName'] = input[:display_name] unless input[:display_name].nil?
         data['userRoleArn'] = input[:user_role_arn] unless input[:user_role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end
@@ -1444,17 +1446,17 @@ module AWS::SDK::Nimble
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['configuration'] = Builders::StudioComponentConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        data['configuration'] = StudioComponentConfiguration.build(input[:configuration]) unless input[:configuration].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['ec2SecurityGroupIds'] = Builders::StudioComponentSecurityGroupIdList.build(input[:ec2_security_group_ids]) unless input[:ec2_security_group_ids].nil?
-        data['initializationScripts'] = Builders::StudioComponentInitializationScriptList.build(input[:initialization_scripts]) unless input[:initialization_scripts].nil?
+        data['ec2SecurityGroupIds'] = StudioComponentSecurityGroupIdList.build(input[:ec2_security_group_ids]) unless input[:ec2_security_group_ids].nil?
+        data['initializationScripts'] = StudioComponentInitializationScriptList.build(input[:initialization_scripts]) unless input[:initialization_scripts].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['scriptParameters'] = Builders::StudioComponentScriptParameterKeyValueList.build(input[:script_parameters]) unless input[:script_parameters].nil?
+        data['scriptParameters'] = StudioComponentScriptParameterKeyValueList.build(input[:script_parameters]) unless input[:script_parameters].nil?
         data['subtype'] = input[:subtype] unless input[:subtype].nil?
         data['type'] = input[:type] unless input[:type].nil?
         data['secureInitializationRoleArn'] = input[:secure_initialization_role_arn] unless input[:secure_initialization_role_arn].nil?
         data['runtimeRoleArn'] = input[:runtime_role_arn] unless input[:runtime_role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['X-Amz-Client-Token'] = input[:client_token] unless input[:client_token].nil? || input[:client_token].empty?
       end
     end

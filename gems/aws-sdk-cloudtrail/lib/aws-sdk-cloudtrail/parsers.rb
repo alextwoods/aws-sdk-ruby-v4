@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+
 module AWS::SDK::CloudTrail
   module Parsers
 
@@ -236,12 +238,12 @@ module AWS::SDK::CloudTrail
         data.event_data_store_arn = map['EventDataStoreArn']
         data.name = map['Name']
         data.status = map['Status']
-        data.advanced_event_selectors = (Parsers::AdvancedEventSelectors.parse(map['AdvancedEventSelectors']) unless map['AdvancedEventSelectors'].nil?)
+        data.advanced_event_selectors = (AdvancedEventSelectors.parse(map['AdvancedEventSelectors']) unless map['AdvancedEventSelectors'].nil?)
         data.multi_region_enabled = map['MultiRegionEnabled']
         data.organization_enabled = map['OrganizationEnabled']
         data.retention_period = map['RetentionPeriod']
         data.termination_protection_enabled = map['TerminationProtectionEnabled']
-        data.tags_list = (Parsers::TagsList.parse(map['TagsList']) unless map['TagsList'].nil?)
+        data.tags_list = (TagsList.parse(map['TagsList']) unless map['TagsList'].nil?)
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
         data.updated_timestamp = Time.at(map['UpdatedTimestamp'].to_i) if map['UpdatedTimestamp']
         data
@@ -251,7 +253,7 @@ module AWS::SDK::CloudTrail
     class TagsList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -268,7 +270,7 @@ module AWS::SDK::CloudTrail
     class AdvancedEventSelectors
       def self.parse(list)
         list.map do |value|
-          Parsers::AdvancedEventSelector.parse(value) unless value.nil?
+          AdvancedEventSelector.parse(value) unless value.nil?
         end
       end
     end
@@ -277,7 +279,7 @@ module AWS::SDK::CloudTrail
       def self.parse(map)
         data = Types::AdvancedEventSelector.new
         data.name = map['Name']
-        data.field_selectors = (Parsers::AdvancedFieldSelectors.parse(map['FieldSelectors']) unless map['FieldSelectors'].nil?)
+        data.field_selectors = (AdvancedFieldSelectors.parse(map['FieldSelectors']) unless map['FieldSelectors'].nil?)
         return data
       end
     end
@@ -285,7 +287,7 @@ module AWS::SDK::CloudTrail
     class AdvancedFieldSelectors
       def self.parse(list)
         list.map do |value|
-          Parsers::AdvancedFieldSelector.parse(value) unless value.nil?
+          AdvancedFieldSelector.parse(value) unless value.nil?
         end
       end
     end
@@ -294,12 +296,12 @@ module AWS::SDK::CloudTrail
       def self.parse(map)
         data = Types::AdvancedFieldSelector.new
         data.field = map['Field']
-        data.equals = (Parsers::Operator.parse(map['Equals']) unless map['Equals'].nil?)
-        data.starts_with = (Parsers::Operator.parse(map['StartsWith']) unless map['StartsWith'].nil?)
-        data.ends_with = (Parsers::Operator.parse(map['EndsWith']) unless map['EndsWith'].nil?)
-        data.not_equals = (Parsers::Operator.parse(map['NotEquals']) unless map['NotEquals'].nil?)
-        data.not_starts_with = (Parsers::Operator.parse(map['NotStartsWith']) unless map['NotStartsWith'].nil?)
-        data.not_ends_with = (Parsers::Operator.parse(map['NotEndsWith']) unless map['NotEndsWith'].nil?)
+        data.equals = (Operator.parse(map['Equals']) unless map['Equals'].nil?)
+        data.starts_with = (Operator.parse(map['StartsWith']) unless map['StartsWith'].nil?)
+        data.ends_with = (Operator.parse(map['EndsWith']) unless map['EndsWith'].nil?)
+        data.not_equals = (Operator.parse(map['NotEquals']) unless map['NotEquals'].nil?)
+        data.not_starts_with = (Operator.parse(map['NotStartsWith']) unless map['NotStartsWith'].nil?)
+        data.not_ends_with = (Operator.parse(map['NotEndsWith']) unless map['NotEndsWith'].nil?)
         return data
       end
     end
@@ -704,7 +706,7 @@ module AWS::SDK::CloudTrail
         data.query_id = map['QueryId']
         data.query_string = map['QueryString']
         data.query_status = map['QueryStatus']
-        data.query_statistics = (Parsers::QueryStatisticsForDescribeQuery.parse(map['QueryStatistics']) unless map['QueryStatistics'].nil?)
+        data.query_statistics = (QueryStatisticsForDescribeQuery.parse(map['QueryStatistics']) unless map['QueryStatistics'].nil?)
         data.error_message = map['ErrorMessage']
         data
       end
@@ -729,7 +731,7 @@ module AWS::SDK::CloudTrail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.trail_list = (Parsers::TrailList.parse(map['trailList']) unless map['trailList'].nil?)
+        data.trail_list = (TrailList.parse(map['trailList']) unless map['trailList'].nil?)
         data
       end
     end
@@ -737,7 +739,7 @@ module AWS::SDK::CloudTrail
     class TrailList
       def self.parse(list)
         list.map do |value|
-          Parsers::Trail.parse(value) unless value.nil?
+          Trail.parse(value) unless value.nil?
         end
       end
     end
@@ -775,7 +777,7 @@ module AWS::SDK::CloudTrail
         data.event_data_store_arn = map['EventDataStoreArn']
         data.name = map['Name']
         data.status = map['Status']
-        data.advanced_event_selectors = (Parsers::AdvancedEventSelectors.parse(map['AdvancedEventSelectors']) unless map['AdvancedEventSelectors'].nil?)
+        data.advanced_event_selectors = (AdvancedEventSelectors.parse(map['AdvancedEventSelectors']) unless map['AdvancedEventSelectors'].nil?)
         data.multi_region_enabled = map['MultiRegionEnabled']
         data.organization_enabled = map['OrganizationEnabled']
         data.retention_period = map['RetentionPeriod']
@@ -794,8 +796,8 @@ module AWS::SDK::CloudTrail
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.trail_arn = map['TrailARN']
-        data.event_selectors = (Parsers::EventSelectors.parse(map['EventSelectors']) unless map['EventSelectors'].nil?)
-        data.advanced_event_selectors = (Parsers::AdvancedEventSelectors.parse(map['AdvancedEventSelectors']) unless map['AdvancedEventSelectors'].nil?)
+        data.event_selectors = (EventSelectors.parse(map['EventSelectors']) unless map['EventSelectors'].nil?)
+        data.advanced_event_selectors = (AdvancedEventSelectors.parse(map['AdvancedEventSelectors']) unless map['AdvancedEventSelectors'].nil?)
         data
       end
     end
@@ -803,7 +805,7 @@ module AWS::SDK::CloudTrail
     class EventSelectors
       def self.parse(list)
         list.map do |value|
-          Parsers::EventSelector.parse(value) unless value.nil?
+          EventSelector.parse(value) unless value.nil?
         end
       end
     end
@@ -813,8 +815,8 @@ module AWS::SDK::CloudTrail
         data = Types::EventSelector.new
         data.read_write_type = map['ReadWriteType']
         data.include_management_events = map['IncludeManagementEvents']
-        data.data_resources = (Parsers::DataResources.parse(map['DataResources']) unless map['DataResources'].nil?)
-        data.exclude_management_event_sources = (Parsers::ExcludeManagementEventSources.parse(map['ExcludeManagementEventSources']) unless map['ExcludeManagementEventSources'].nil?)
+        data.data_resources = (DataResources.parse(map['DataResources']) unless map['DataResources'].nil?)
+        data.exclude_management_event_sources = (ExcludeManagementEventSources.parse(map['ExcludeManagementEventSources']) unless map['ExcludeManagementEventSources'].nil?)
         return data
       end
     end
@@ -830,7 +832,7 @@ module AWS::SDK::CloudTrail
     class DataResources
       def self.parse(list)
         list.map do |value|
-          Parsers::DataResource.parse(value) unless value.nil?
+          DataResource.parse(value) unless value.nil?
         end
       end
     end
@@ -839,7 +841,7 @@ module AWS::SDK::CloudTrail
       def self.parse(map)
         data = Types::DataResource.new
         data.type = map['Type']
-        data.values = (Parsers::DataResourceValues.parse(map['Values']) unless map['Values'].nil?)
+        data.values = (DataResourceValues.parse(map['Values']) unless map['Values'].nil?)
         return data
       end
     end
@@ -860,7 +862,7 @@ module AWS::SDK::CloudTrail
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.trail_arn = map['TrailARN']
-        data.insight_selectors = (Parsers::InsightSelectors.parse(map['InsightSelectors']) unless map['InsightSelectors'].nil?)
+        data.insight_selectors = (InsightSelectors.parse(map['InsightSelectors']) unless map['InsightSelectors'].nil?)
         data
       end
     end
@@ -868,7 +870,7 @@ module AWS::SDK::CloudTrail
     class InsightSelectors
       def self.parse(list)
         list.map do |value|
-          Parsers::InsightSelector.parse(value) unless value.nil?
+          InsightSelector.parse(value) unless value.nil?
         end
       end
     end
@@ -901,8 +903,8 @@ module AWS::SDK::CloudTrail
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.query_status = map['QueryStatus']
-        data.query_statistics = (Parsers::QueryStatistics.parse(map['QueryStatistics']) unless map['QueryStatistics'].nil?)
-        data.query_result_rows = (Parsers::QueryResultRows.parse(map['QueryResultRows']) unless map['QueryResultRows'].nil?)
+        data.query_statistics = (QueryStatistics.parse(map['QueryStatistics']) unless map['QueryStatistics'].nil?)
+        data.query_result_rows = (QueryResultRows.parse(map['QueryResultRows']) unless map['QueryResultRows'].nil?)
         data.next_token = map['NextToken']
         data.error_message = map['ErrorMessage']
         data
@@ -912,7 +914,7 @@ module AWS::SDK::CloudTrail
     class QueryResultRows
       def self.parse(list)
         list.map do |value|
-          Parsers::QueryResultRow.parse(value) unless value.nil?
+          QueryResultRow.parse(value) unless value.nil?
         end
       end
     end
@@ -920,7 +922,7 @@ module AWS::SDK::CloudTrail
     class QueryResultRow
       def self.parse(list)
         list.map do |value|
-          Parsers::QueryResultColumn.parse(value) unless value.nil?
+          QueryResultColumn.parse(value) unless value.nil?
         end
       end
     end
@@ -976,7 +978,7 @@ module AWS::SDK::CloudTrail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.trail = (Parsers::Trail.parse(map['Trail']) unless map['Trail'].nil?)
+        data.trail = (Trail.parse(map['Trail']) unless map['Trail'].nil?)
         data
       end
     end
@@ -1016,7 +1018,7 @@ module AWS::SDK::CloudTrail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.event_data_stores = (Parsers::EventDataStores.parse(map['EventDataStores']) unless map['EventDataStores'].nil?)
+        data.event_data_stores = (EventDataStores.parse(map['EventDataStores']) unless map['EventDataStores'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1025,7 +1027,7 @@ module AWS::SDK::CloudTrail
     class EventDataStores
       def self.parse(list)
         list.map do |value|
-          Parsers::EventDataStore.parse(value) unless value.nil?
+          EventDataStore.parse(value) unless value.nil?
         end
       end
     end
@@ -1037,7 +1039,7 @@ module AWS::SDK::CloudTrail
         data.name = map['Name']
         data.termination_protection_enabled = map['TerminationProtectionEnabled']
         data.status = map['Status']
-        data.advanced_event_selectors = (Parsers::AdvancedEventSelectors.parse(map['AdvancedEventSelectors']) unless map['AdvancedEventSelectors'].nil?)
+        data.advanced_event_selectors = (AdvancedEventSelectors.parse(map['AdvancedEventSelectors']) unless map['AdvancedEventSelectors'].nil?)
         data.multi_region_enabled = map['MultiRegionEnabled']
         data.organization_enabled = map['OrganizationEnabled']
         data.retention_period = map['RetentionPeriod']
@@ -1054,7 +1056,7 @@ module AWS::SDK::CloudTrail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.public_key_list = (Parsers::PublicKeyList.parse(map['PublicKeyList']) unless map['PublicKeyList'].nil?)
+        data.public_key_list = (PublicKeyList.parse(map['PublicKeyList']) unless map['PublicKeyList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1063,7 +1065,7 @@ module AWS::SDK::CloudTrail
     class PublicKeyList
       def self.parse(list)
         list.map do |value|
-          Parsers::PublicKey.parse(value) unless value.nil?
+          PublicKey.parse(value) unless value.nil?
         end
       end
     end
@@ -1071,7 +1073,7 @@ module AWS::SDK::CloudTrail
     class PublicKey
       def self.parse(map)
         data = Types::PublicKey.new
-        data.value = Base64::decode64(map['Value']) unless map['Value'].nil?
+        data.value = ::Base64::decode64(map['Value']) unless map['Value'].nil?
         data.validity_start_time = Time.at(map['ValidityStartTime'].to_i) if map['ValidityStartTime']
         data.validity_end_time = Time.at(map['ValidityEndTime'].to_i) if map['ValidityEndTime']
         data.fingerprint = map['Fingerprint']
@@ -1110,7 +1112,7 @@ module AWS::SDK::CloudTrail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.queries = (Parsers::Queries.parse(map['Queries']) unless map['Queries'].nil?)
+        data.queries = (Queries.parse(map['Queries']) unless map['Queries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1119,7 +1121,7 @@ module AWS::SDK::CloudTrail
     class Queries
       def self.parse(list)
         list.map do |value|
-          Parsers::Query.parse(value) unless value.nil?
+          Query.parse(value) unless value.nil?
         end
       end
     end
@@ -1165,7 +1167,7 @@ module AWS::SDK::CloudTrail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resource_tag_list = (Parsers::ResourceTagList.parse(map['ResourceTagList']) unless map['ResourceTagList'].nil?)
+        data.resource_tag_list = (ResourceTagList.parse(map['ResourceTagList']) unless map['ResourceTagList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1174,7 +1176,7 @@ module AWS::SDK::CloudTrail
     class ResourceTagList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceTag.parse(value) unless value.nil?
+          ResourceTag.parse(value) unless value.nil?
         end
       end
     end
@@ -1183,7 +1185,7 @@ module AWS::SDK::CloudTrail
       def self.parse(map)
         data = Types::ResourceTag.new
         data.resource_id = map['ResourceId']
-        data.tags_list = (Parsers::TagsList.parse(map['TagsList']) unless map['TagsList'].nil?)
+        data.tags_list = (TagsList.parse(map['TagsList']) unless map['TagsList'].nil?)
         return data
       end
     end
@@ -1195,7 +1197,7 @@ module AWS::SDK::CloudTrail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.trails = (Parsers::Trails.parse(map['Trails']) unless map['Trails'].nil?)
+        data.trails = (Trails.parse(map['Trails']) unless map['Trails'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1204,7 +1206,7 @@ module AWS::SDK::CloudTrail
     class Trails
       def self.parse(list)
         list.map do |value|
-          Parsers::TrailInfo.parse(value) unless value.nil?
+          TrailInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1226,7 +1228,7 @@ module AWS::SDK::CloudTrail
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.events = (Parsers::EventsList.parse(map['Events']) unless map['Events'].nil?)
+        data.events = (EventsList.parse(map['Events']) unless map['Events'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1235,7 +1237,7 @@ module AWS::SDK::CloudTrail
     class EventsList
       def self.parse(list)
         list.map do |value|
-          Parsers::Event.parse(value) unless value.nil?
+          Event.parse(value) unless value.nil?
         end
       end
     end
@@ -1250,7 +1252,7 @@ module AWS::SDK::CloudTrail
         data.event_time = Time.at(map['EventTime'].to_i) if map['EventTime']
         data.event_source = map['EventSource']
         data.username = map['Username']
-        data.resources = (Parsers::ResourceList.parse(map['Resources']) unless map['Resources'].nil?)
+        data.resources = (ResourceList.parse(map['Resources']) unless map['Resources'].nil?)
         data.cloud_trail_event = map['CloudTrailEvent']
         return data
       end
@@ -1259,7 +1261,7 @@ module AWS::SDK::CloudTrail
     class ResourceList
       def self.parse(list)
         list.map do |value|
-          Parsers::Resource.parse(value) unless value.nil?
+          Resource.parse(value) unless value.nil?
         end
       end
     end
@@ -1305,8 +1307,8 @@ module AWS::SDK::CloudTrail
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.trail_arn = map['TrailARN']
-        data.event_selectors = (Parsers::EventSelectors.parse(map['EventSelectors']) unless map['EventSelectors'].nil?)
-        data.advanced_event_selectors = (Parsers::AdvancedEventSelectors.parse(map['AdvancedEventSelectors']) unless map['AdvancedEventSelectors'].nil?)
+        data.event_selectors = (EventSelectors.parse(map['EventSelectors']) unless map['EventSelectors'].nil?)
+        data.advanced_event_selectors = (AdvancedEventSelectors.parse(map['AdvancedEventSelectors']) unless map['AdvancedEventSelectors'].nil?)
         data
       end
     end
@@ -1331,7 +1333,7 @@ module AWS::SDK::CloudTrail
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.trail_arn = map['TrailARN']
-        data.insight_selectors = (Parsers::InsightSelectors.parse(map['InsightSelectors']) unless map['InsightSelectors'].nil?)
+        data.insight_selectors = (InsightSelectors.parse(map['InsightSelectors']) unless map['InsightSelectors'].nil?)
         data
       end
     end
@@ -1369,7 +1371,7 @@ module AWS::SDK::CloudTrail
         data.event_data_store_arn = map['EventDataStoreArn']
         data.name = map['Name']
         data.status = map['Status']
-        data.advanced_event_selectors = (Parsers::AdvancedEventSelectors.parse(map['AdvancedEventSelectors']) unless map['AdvancedEventSelectors'].nil?)
+        data.advanced_event_selectors = (AdvancedEventSelectors.parse(map['AdvancedEventSelectors']) unless map['AdvancedEventSelectors'].nil?)
         data.multi_region_enabled = map['MultiRegionEnabled']
         data.organization_enabled = map['OrganizationEnabled']
         data.retention_period = map['RetentionPeriod']
@@ -1460,7 +1462,7 @@ module AWS::SDK::CloudTrail
         data.event_data_store_arn = map['EventDataStoreArn']
         data.name = map['Name']
         data.status = map['Status']
-        data.advanced_event_selectors = (Parsers::AdvancedEventSelectors.parse(map['AdvancedEventSelectors']) unless map['AdvancedEventSelectors'].nil?)
+        data.advanced_event_selectors = (AdvancedEventSelectors.parse(map['AdvancedEventSelectors']) unless map['AdvancedEventSelectors'].nil?)
         data.multi_region_enabled = map['MultiRegionEnabled']
         data.organization_enabled = map['OrganizationEnabled']
         data.retention_period = map['RetentionPeriod']

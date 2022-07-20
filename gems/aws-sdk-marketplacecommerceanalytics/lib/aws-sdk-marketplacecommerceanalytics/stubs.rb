@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MarketplaceCommerceAnalytics
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::MarketplaceCommerceAnalytics
       def self.stub(http_resp, stub:)
         data = {}
         data['dataSetRequestId'] = stub[:data_set_request_id] unless stub[:data_set_request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -37,7 +39,7 @@ module AWS::SDK::MarketplaceCommerceAnalytics
       def self.stub(http_resp, stub:)
         data = {}
         data['dataSetRequestId'] = stub[:data_set_request_id] unless stub[:data_set_request_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

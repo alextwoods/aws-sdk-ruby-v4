@@ -111,7 +111,7 @@ module AWS::SDK::PinpointSMSVoice
       def self.parse(http_resp)
         data = Types::GetConfigurationSetEventDestinationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.event_destinations = (Parsers::EventDestinations.parse(map['EventDestinations']) unless map['EventDestinations'].nil?)
+        data.event_destinations = (EventDestinations.parse(map['EventDestinations']) unless map['EventDestinations'].nil?)
         data
       end
     end
@@ -120,7 +120,7 @@ module AWS::SDK::PinpointSMSVoice
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EventDestination.parse(value) unless value.nil?
+          data << EventDestination.parse(value) unless value.nil?
         end
         data
       end
@@ -129,12 +129,12 @@ module AWS::SDK::PinpointSMSVoice
     class EventDestination
       def self.parse(map)
         data = Types::EventDestination.new
-        data.cloud_watch_logs_destination = (Parsers::CloudWatchLogsDestination.parse(map['CloudWatchLogsDestination']) unless map['CloudWatchLogsDestination'].nil?)
+        data.cloud_watch_logs_destination = (CloudWatchLogsDestination.parse(map['CloudWatchLogsDestination']) unless map['CloudWatchLogsDestination'].nil?)
         data.enabled = map['Enabled']
-        data.kinesis_firehose_destination = (Parsers::KinesisFirehoseDestination.parse(map['KinesisFirehoseDestination']) unless map['KinesisFirehoseDestination'].nil?)
-        data.matching_event_types = (Parsers::EventTypes.parse(map['MatchingEventTypes']) unless map['MatchingEventTypes'].nil?)
+        data.kinesis_firehose_destination = (KinesisFirehoseDestination.parse(map['KinesisFirehoseDestination']) unless map['KinesisFirehoseDestination'].nil?)
+        data.matching_event_types = (EventTypes.parse(map['MatchingEventTypes']) unless map['MatchingEventTypes'].nil?)
         data.name = map['Name']
-        data.sns_destination = (Parsers::SnsDestination.parse(map['SnsDestination']) unless map['SnsDestination'].nil?)
+        data.sns_destination = (SnsDestination.parse(map['SnsDestination']) unless map['SnsDestination'].nil?)
         return data
       end
     end
@@ -180,7 +180,7 @@ module AWS::SDK::PinpointSMSVoice
       def self.parse(http_resp)
         data = Types::ListConfigurationSetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.configuration_sets = (Parsers::ConfigurationSets.parse(map['ConfigurationSets']) unless map['ConfigurationSets'].nil?)
+        data.configuration_sets = (ConfigurationSets.parse(map['ConfigurationSets']) unless map['ConfigurationSets'].nil?)
         data.next_token = map['NextToken']
         data
       end

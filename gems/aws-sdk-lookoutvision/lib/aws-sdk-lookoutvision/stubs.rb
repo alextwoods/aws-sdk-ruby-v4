@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::LookoutVision
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::LookoutVision
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DatasetMetadata'] = Stubs::DatasetMetadata.stub(stub[:dataset_metadata]) unless stub[:dataset_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DatasetMetadata'] = DatasetMetadata.stub(stub[:dataset_metadata]) unless stub[:dataset_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -63,8 +65,8 @@ module AWS::SDK::LookoutVision
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ModelMetadata'] = Stubs::ModelMetadata.stub(stub[:model_metadata]) unless stub[:model_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ModelMetadata'] = ModelMetadata.stub(stub[:model_metadata]) unless stub[:model_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -93,7 +95,7 @@ module AWS::SDK::LookoutVision
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['Performance'] = Stubs::ModelPerformance.stub(stub[:performance]) unless stub[:performance].nil?
+        data['Performance'] = ModelPerformance.stub(stub[:performance]) unless stub[:performance].nil?
         data
       end
     end
@@ -132,8 +134,8 @@ module AWS::SDK::LookoutVision
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ProjectMetadata'] = Stubs::ProjectMetadata.stub(stub[:project_metadata]) unless stub[:project_metadata].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProjectMetadata'] = ProjectMetadata.stub(stub[:project_metadata]) unless stub[:project_metadata].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -185,7 +187,7 @@ module AWS::SDK::LookoutVision
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
         data['ModelArn'] = stub[:model_arn] unless stub[:model_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -202,7 +204,7 @@ module AWS::SDK::LookoutVision
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ProjectArn'] = stub[:project_arn] unless stub[:project_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -218,8 +220,8 @@ module AWS::SDK::LookoutVision
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DatasetDescription'] = Stubs::DatasetDescription.stub(stub[:dataset_description]) unless stub[:dataset_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DatasetDescription'] = DatasetDescription.stub(stub[:dataset_description]) unless stub[:dataset_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -248,7 +250,7 @@ module AWS::SDK::LookoutVision
         data['LastUpdatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_timestamp]).to_i unless stub[:last_updated_timestamp].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['ImageStats'] = Stubs::DatasetImageStats.stub(stub[:image_stats]) unless stub[:image_stats].nil?
+        data['ImageStats'] = DatasetImageStats.stub(stub[:image_stats]) unless stub[:image_stats].nil?
         data
       end
     end
@@ -289,8 +291,8 @@ module AWS::SDK::LookoutVision
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ModelDescription'] = Stubs::ModelDescription.stub(stub[:model_description]) unless stub[:model_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ModelDescription'] = ModelDescription.stub(stub[:model_description]) unless stub[:model_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -324,10 +326,10 @@ module AWS::SDK::LookoutVision
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['Performance'] = Stubs::ModelPerformance.stub(stub[:performance]) unless stub[:performance].nil?
-        data['OutputConfig'] = Stubs::OutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
-        data['EvaluationManifest'] = Stubs::OutputS3Object.stub(stub[:evaluation_manifest]) unless stub[:evaluation_manifest].nil?
-        data['EvaluationResult'] = Stubs::OutputS3Object.stub(stub[:evaluation_result]) unless stub[:evaluation_result].nil?
+        data['Performance'] = ModelPerformance.stub(stub[:performance]) unless stub[:performance].nil?
+        data['OutputConfig'] = OutputConfig.stub(stub[:output_config]) unless stub[:output_config].nil?
+        data['EvaluationManifest'] = OutputS3Object.stub(stub[:evaluation_manifest]) unless stub[:evaluation_manifest].nil?
+        data['EvaluationResult'] = OutputS3Object.stub(stub[:evaluation_result]) unless stub[:evaluation_result].nil?
         data['EvaluationEndTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:evaluation_end_timestamp]).to_i unless stub[:evaluation_end_timestamp].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data
@@ -367,7 +369,7 @@ module AWS::SDK::LookoutVision
       def self.stub(stub)
         stub ||= Types::OutputConfig.new
         data = {}
-        data['S3Location'] = Stubs::S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
+        data['S3Location'] = S3Location.stub(stub[:s3_location]) unless stub[:s3_location].nil?
         data
       end
     end
@@ -404,8 +406,8 @@ module AWS::SDK::LookoutVision
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ModelPackagingDescription'] = Stubs::ModelPackagingDescription.stub(stub[:model_packaging_description]) unless stub[:model_packaging_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ModelPackagingDescription'] = ModelPackagingDescription.stub(stub[:model_packaging_description]) unless stub[:model_packaging_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -435,10 +437,10 @@ module AWS::SDK::LookoutVision
         data['JobName'] = stub[:job_name] unless stub[:job_name].nil?
         data['ProjectName'] = stub[:project_name] unless stub[:project_name].nil?
         data['ModelVersion'] = stub[:model_version] unless stub[:model_version].nil?
-        data['ModelPackagingConfiguration'] = Stubs::ModelPackagingConfiguration.stub(stub[:model_packaging_configuration]) unless stub[:model_packaging_configuration].nil?
+        data['ModelPackagingConfiguration'] = ModelPackagingConfiguration.stub(stub[:model_packaging_configuration]) unless stub[:model_packaging_configuration].nil?
         data['ModelPackagingJobDescription'] = stub[:model_packaging_job_description] unless stub[:model_packaging_job_description].nil?
         data['ModelPackagingMethod'] = stub[:model_packaging_method] unless stub[:model_packaging_method].nil?
-        data['ModelPackagingOutputDetails'] = Stubs::ModelPackagingOutputDetails.stub(stub[:model_packaging_output_details]) unless stub[:model_packaging_output_details].nil?
+        data['ModelPackagingOutputDetails'] = ModelPackagingOutputDetails.stub(stub[:model_packaging_output_details]) unless stub[:model_packaging_output_details].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StatusMessage'] = stub[:status_message] unless stub[:status_message].nil?
         data['CreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_timestamp]).to_i unless stub[:creation_timestamp].nil?
@@ -460,7 +462,7 @@ module AWS::SDK::LookoutVision
       def self.stub(stub)
         stub ||= Types::ModelPackagingOutputDetails.new
         data = {}
-        data['Greengrass'] = Stubs::GreengrassOutputDetails.stub(stub[:greengrass]) unless stub[:greengrass].nil?
+        data['Greengrass'] = GreengrassOutputDetails.stub(stub[:greengrass]) unless stub[:greengrass].nil?
         data
       end
     end
@@ -500,7 +502,7 @@ module AWS::SDK::LookoutVision
       def self.stub(stub)
         stub ||= Types::ModelPackagingConfiguration.new
         data = {}
-        data['Greengrass'] = Stubs::GreengrassConfiguration.stub(stub[:greengrass]) unless stub[:greengrass].nil?
+        data['Greengrass'] = GreengrassConfiguration.stub(stub[:greengrass]) unless stub[:greengrass].nil?
         data
       end
     end
@@ -527,12 +529,12 @@ module AWS::SDK::LookoutVision
         data = {}
         data['CompilerOptions'] = stub[:compiler_options] unless stub[:compiler_options].nil?
         data['TargetDevice'] = stub[:target_device] unless stub[:target_device].nil?
-        data['TargetPlatform'] = Stubs::TargetPlatform.stub(stub[:target_platform]) unless stub[:target_platform].nil?
-        data['S3OutputLocation'] = Stubs::S3Location.stub(stub[:s3_output_location]) unless stub[:s3_output_location].nil?
+        data['TargetPlatform'] = TargetPlatform.stub(stub[:target_platform]) unless stub[:target_platform].nil?
+        data['S3OutputLocation'] = S3Location.stub(stub[:s3_output_location]) unless stub[:s3_output_location].nil?
         data['ComponentName'] = stub[:component_name] unless stub[:component_name].nil?
         data['ComponentVersion'] = stub[:component_version] unless stub[:component_version].nil?
         data['ComponentDescription'] = stub[:component_description] unless stub[:component_description].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -551,7 +553,7 @@ module AWS::SDK::LookoutVision
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -611,8 +613,8 @@ module AWS::SDK::LookoutVision
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ProjectDescription'] = Stubs::ProjectDescription.stub(stub[:project_description]) unless stub[:project_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProjectDescription'] = ProjectDescription.stub(stub[:project_description]) unless stub[:project_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -635,7 +637,7 @@ module AWS::SDK::LookoutVision
         data['ProjectArn'] = stub[:project_arn] unless stub[:project_arn].nil?
         data['ProjectName'] = stub[:project_name] unless stub[:project_name].nil?
         data['CreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_timestamp]).to_i unless stub[:creation_timestamp].nil?
-        data['Datasets'] = Stubs::DatasetMetadataList.stub(stub[:datasets]) unless stub[:datasets].nil?
+        data['Datasets'] = DatasetMetadataList.stub(stub[:datasets]) unless stub[:datasets].nil?
         data
       end
     end
@@ -654,7 +656,7 @@ module AWS::SDK::LookoutVision
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DatasetMetadata.stub(element) unless element.nil?
+          data << DatasetMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -672,8 +674,8 @@ module AWS::SDK::LookoutVision
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DetectAnomalyResult'] = Stubs::DetectAnomalyResult.stub(stub[:detect_anomaly_result]) unless stub[:detect_anomaly_result].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DetectAnomalyResult'] = DetectAnomalyResult.stub(stub[:detect_anomaly_result]) unless stub[:detect_anomaly_result].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -692,7 +694,7 @@ module AWS::SDK::LookoutVision
       def self.stub(stub)
         stub ||= Types::DetectAnomalyResult.new
         data = {}
-        data['Source'] = Stubs::ImageSource.stub(stub[:source]) unless stub[:source].nil?
+        data['Source'] = ImageSource.stub(stub[:source]) unless stub[:source].nil?
         data['IsAnomalous'] = stub[:is_anomalous] unless stub[:is_anomalous].nil?
         data['Confidence'] = Hearth::NumberHelper.serialize(stub[:confidence])
         data
@@ -730,9 +732,9 @@ module AWS::SDK::LookoutVision
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DatasetEntries'] = Stubs::DatasetEntryList.stub(stub[:dataset_entries]) unless stub[:dataset_entries].nil?
+        data['DatasetEntries'] = DatasetEntryList.stub(stub[:dataset_entries]) unless stub[:dataset_entries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -769,9 +771,9 @@ module AWS::SDK::LookoutVision
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ModelPackagingJobs'] = Stubs::ModelPackagingJobsList.stub(stub[:model_packaging_jobs]) unless stub[:model_packaging_jobs].nil?
+        data['ModelPackagingJobs'] = ModelPackagingJobsList.stub(stub[:model_packaging_jobs]) unless stub[:model_packaging_jobs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -789,7 +791,7 @@ module AWS::SDK::LookoutVision
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ModelPackagingJobMetadata.stub(element) unless element.nil?
+          data << ModelPackagingJobMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -842,9 +844,9 @@ module AWS::SDK::LookoutVision
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Models'] = Stubs::ModelMetadataList.stub(stub[:models]) unless stub[:models].nil?
+        data['Models'] = ModelMetadataList.stub(stub[:models]) unless stub[:models].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -862,7 +864,7 @@ module AWS::SDK::LookoutVision
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ModelMetadata.stub(element) unless element.nil?
+          data << ModelMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -881,9 +883,9 @@ module AWS::SDK::LookoutVision
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Projects'] = Stubs::ProjectMetadataList.stub(stub[:projects]) unless stub[:projects].nil?
+        data['Projects'] = ProjectMetadataList.stub(stub[:projects]) unless stub[:projects].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -901,7 +903,7 @@ module AWS::SDK::LookoutVision
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProjectMetadata.stub(element) unless element.nil?
+          data << ProjectMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -919,8 +921,8 @@ module AWS::SDK::LookoutVision
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -937,7 +939,7 @@ module AWS::SDK::LookoutVision
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -954,7 +956,7 @@ module AWS::SDK::LookoutVision
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['JobName'] = stub[:job_name] unless stub[:job_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -971,7 +973,7 @@ module AWS::SDK::LookoutVision
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1014,7 +1016,7 @@ module AWS::SDK::LookoutVision
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

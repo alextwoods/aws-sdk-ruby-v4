@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AppConfigData
   module Stubs
 
@@ -28,7 +30,7 @@ module AWS::SDK::AppConfigData
         http_resp.headers['Next-Poll-Interval-In-Seconds'] = stub[:next_poll_interval_in_seconds].to_s unless stub[:next_poll_interval_in_seconds].nil?
         http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:configuration] || '')
+        http_resp.body = ::StringIO.new(stub[:configuration] || '')
       end
     end
 
@@ -45,7 +47,7 @@ module AWS::SDK::AppConfigData
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['InitialConfigurationToken'] = stub[:initial_configuration_token] unless stub[:initial_configuration_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

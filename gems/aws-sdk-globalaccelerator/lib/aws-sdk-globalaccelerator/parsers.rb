@@ -17,7 +17,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoint_descriptions = (Parsers::CustomRoutingEndpointDescriptions.parse(map['EndpointDescriptions']) unless map['EndpointDescriptions'].nil?)
+        data.endpoint_descriptions = (CustomRoutingEndpointDescriptions.parse(map['EndpointDescriptions']) unless map['EndpointDescriptions'].nil?)
         data.endpoint_group_arn = map['EndpointGroupArn']
         data
       end
@@ -26,7 +26,7 @@ module AWS::SDK::GlobalAccelerator
     class CustomRoutingEndpointDescriptions
       def self.parse(list)
         list.map do |value|
-          Parsers::CustomRoutingEndpointDescription.parse(value) unless value.nil?
+          CustomRoutingEndpointDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -130,7 +130,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.byoip_cidr = (Parsers::ByoipCidr.parse(map['ByoipCidr']) unless map['ByoipCidr'].nil?)
+        data.byoip_cidr = (ByoipCidr.parse(map['ByoipCidr']) unless map['ByoipCidr'].nil?)
         data
       end
     end
@@ -140,7 +140,7 @@ module AWS::SDK::GlobalAccelerator
         data = Types::ByoipCidr.new
         data.cidr = map['Cidr']
         data.state = map['State']
-        data.events = (Parsers::ByoipCidrEvents.parse(map['Events']) unless map['Events'].nil?)
+        data.events = (ByoipCidrEvents.parse(map['Events']) unless map['Events'].nil?)
         return data
       end
     end
@@ -148,7 +148,7 @@ module AWS::SDK::GlobalAccelerator
     class ByoipCidrEvents
       def self.parse(list)
         list.map do |value|
-          Parsers::ByoipCidrEvent.parse(value) unless value.nil?
+          ByoipCidrEvent.parse(value) unless value.nil?
         end
       end
     end
@@ -204,7 +204,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.accelerator = (Parsers::Accelerator.parse(map['Accelerator']) unless map['Accelerator'].nil?)
+        data.accelerator = (Accelerator.parse(map['Accelerator']) unless map['Accelerator'].nil?)
         data
       end
     end
@@ -216,7 +216,7 @@ module AWS::SDK::GlobalAccelerator
         data.name = map['Name']
         data.ip_address_type = map['IpAddressType']
         data.enabled = map['Enabled']
-        data.ip_sets = (Parsers::IpSets.parse(map['IpSets']) unless map['IpSets'].nil?)
+        data.ip_sets = (IpSets.parse(map['IpSets']) unless map['IpSets'].nil?)
         data.dns_name = map['DnsName']
         data.status = map['Status']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
@@ -228,7 +228,7 @@ module AWS::SDK::GlobalAccelerator
     class IpSets
       def self.parse(list)
         list.map do |value|
-          Parsers::IpSet.parse(value) unless value.nil?
+          IpSet.parse(value) unless value.nil?
         end
       end
     end
@@ -237,7 +237,7 @@ module AWS::SDK::GlobalAccelerator
       def self.parse(map)
         data = Types::IpSet.new
         data.ip_family = map['IpFamily']
-        data.ip_addresses = (Parsers::IpAddresses.parse(map['IpAddresses']) unless map['IpAddresses'].nil?)
+        data.ip_addresses = (IpAddresses.parse(map['IpAddresses']) unless map['IpAddresses'].nil?)
         return data
       end
     end
@@ -257,7 +257,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.accelerator = (Parsers::CustomRoutingAccelerator.parse(map['Accelerator']) unless map['Accelerator'].nil?)
+        data.accelerator = (CustomRoutingAccelerator.parse(map['Accelerator']) unless map['Accelerator'].nil?)
         data
       end
     end
@@ -269,7 +269,7 @@ module AWS::SDK::GlobalAccelerator
         data.name = map['Name']
         data.ip_address_type = map['IpAddressType']
         data.enabled = map['Enabled']
-        data.ip_sets = (Parsers::IpSets.parse(map['IpSets']) unless map['IpSets'].nil?)
+        data.ip_sets = (IpSets.parse(map['IpSets']) unless map['IpSets'].nil?)
         data.dns_name = map['DnsName']
         data.status = map['Status']
         data.created_time = Time.at(map['CreatedTime'].to_i) if map['CreatedTime']
@@ -285,7 +285,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoint_group = (Parsers::CustomRoutingEndpointGroup.parse(map['EndpointGroup']) unless map['EndpointGroup'].nil?)
+        data.endpoint_group = (CustomRoutingEndpointGroup.parse(map['EndpointGroup']) unless map['EndpointGroup'].nil?)
         data
       end
     end
@@ -295,8 +295,8 @@ module AWS::SDK::GlobalAccelerator
         data = Types::CustomRoutingEndpointGroup.new
         data.endpoint_group_arn = map['EndpointGroupArn']
         data.endpoint_group_region = map['EndpointGroupRegion']
-        data.destination_descriptions = (Parsers::CustomRoutingDestinationDescriptions.parse(map['DestinationDescriptions']) unless map['DestinationDescriptions'].nil?)
-        data.endpoint_descriptions = (Parsers::CustomRoutingEndpointDescriptions.parse(map['EndpointDescriptions']) unless map['EndpointDescriptions'].nil?)
+        data.destination_descriptions = (CustomRoutingDestinationDescriptions.parse(map['DestinationDescriptions']) unless map['DestinationDescriptions'].nil?)
+        data.endpoint_descriptions = (CustomRoutingEndpointDescriptions.parse(map['EndpointDescriptions']) unless map['EndpointDescriptions'].nil?)
         return data
       end
     end
@@ -304,7 +304,7 @@ module AWS::SDK::GlobalAccelerator
     class CustomRoutingDestinationDescriptions
       def self.parse(list)
         list.map do |value|
-          Parsers::CustomRoutingDestinationDescription.parse(value) unless value.nil?
+          CustomRoutingDestinationDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -314,7 +314,7 @@ module AWS::SDK::GlobalAccelerator
         data = Types::CustomRoutingDestinationDescription.new
         data.from_port = map['FromPort']
         data.to_port = map['ToPort']
-        data.protocols = (Parsers::Protocols.parse(map['Protocols']) unless map['Protocols'].nil?)
+        data.protocols = (Protocols.parse(map['Protocols']) unless map['Protocols'].nil?)
         return data
       end
     end
@@ -382,7 +382,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.listener = (Parsers::CustomRoutingListener.parse(map['Listener']) unless map['Listener'].nil?)
+        data.listener = (CustomRoutingListener.parse(map['Listener']) unless map['Listener'].nil?)
         data
       end
     end
@@ -391,7 +391,7 @@ module AWS::SDK::GlobalAccelerator
       def self.parse(map)
         data = Types::CustomRoutingListener.new
         data.listener_arn = map['ListenerArn']
-        data.port_ranges = (Parsers::PortRanges.parse(map['PortRanges']) unless map['PortRanges'].nil?)
+        data.port_ranges = (PortRanges.parse(map['PortRanges']) unless map['PortRanges'].nil?)
         return data
       end
     end
@@ -399,7 +399,7 @@ module AWS::SDK::GlobalAccelerator
     class PortRanges
       def self.parse(list)
         list.map do |value|
-          Parsers::PortRange.parse(value) unless value.nil?
+          PortRange.parse(value) unless value.nil?
         end
       end
     end
@@ -420,7 +420,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoint_group = (Parsers::EndpointGroup.parse(map['EndpointGroup']) unless map['EndpointGroup'].nil?)
+        data.endpoint_group = (EndpointGroup.parse(map['EndpointGroup']) unless map['EndpointGroup'].nil?)
         data
       end
     end
@@ -430,14 +430,14 @@ module AWS::SDK::GlobalAccelerator
         data = Types::EndpointGroup.new
         data.endpoint_group_arn = map['EndpointGroupArn']
         data.endpoint_group_region = map['EndpointGroupRegion']
-        data.endpoint_descriptions = (Parsers::EndpointDescriptions.parse(map['EndpointDescriptions']) unless map['EndpointDescriptions'].nil?)
+        data.endpoint_descriptions = (EndpointDescriptions.parse(map['EndpointDescriptions']) unless map['EndpointDescriptions'].nil?)
         data.traffic_dial_percentage = Hearth::NumberHelper.deserialize(map['TrafficDialPercentage'])
         data.health_check_port = map['HealthCheckPort']
         data.health_check_protocol = map['HealthCheckProtocol']
         data.health_check_path = map['HealthCheckPath']
         data.health_check_interval_seconds = map['HealthCheckIntervalSeconds']
         data.threshold_count = map['ThresholdCount']
-        data.port_overrides = (Parsers::PortOverrides.parse(map['PortOverrides']) unless map['PortOverrides'].nil?)
+        data.port_overrides = (PortOverrides.parse(map['PortOverrides']) unless map['PortOverrides'].nil?)
         return data
       end
     end
@@ -445,7 +445,7 @@ module AWS::SDK::GlobalAccelerator
     class PortOverrides
       def self.parse(list)
         list.map do |value|
-          Parsers::PortOverride.parse(value) unless value.nil?
+          PortOverride.parse(value) unless value.nil?
         end
       end
     end
@@ -462,7 +462,7 @@ module AWS::SDK::GlobalAccelerator
     class EndpointDescriptions
       def self.parse(list)
         list.map do |value|
-          Parsers::EndpointDescription.parse(value) unless value.nil?
+          EndpointDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -486,7 +486,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.listener = (Parsers::Listener.parse(map['Listener']) unless map['Listener'].nil?)
+        data.listener = (Listener.parse(map['Listener']) unless map['Listener'].nil?)
         data
       end
     end
@@ -495,7 +495,7 @@ module AWS::SDK::GlobalAccelerator
       def self.parse(map)
         data = Types::Listener.new
         data.listener_arn = map['ListenerArn']
-        data.port_ranges = (Parsers::PortRanges.parse(map['PortRanges']) unless map['PortRanges'].nil?)
+        data.port_ranges = (PortRanges.parse(map['PortRanges']) unless map['PortRanges'].nil?)
         data.protocol = map['Protocol']
         data.client_affinity = map['ClientAffinity']
         return data
@@ -622,7 +622,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.byoip_cidr = (Parsers::ByoipCidr.parse(map['ByoipCidr']) unless map['ByoipCidr'].nil?)
+        data.byoip_cidr = (ByoipCidr.parse(map['ByoipCidr']) unless map['ByoipCidr'].nil?)
         data
       end
     end
@@ -634,7 +634,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.accelerator = (Parsers::Accelerator.parse(map['Accelerator']) unless map['Accelerator'].nil?)
+        data.accelerator = (Accelerator.parse(map['Accelerator']) unless map['Accelerator'].nil?)
         data
       end
     end
@@ -646,7 +646,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.accelerator_attributes = (Parsers::AcceleratorAttributes.parse(map['AcceleratorAttributes']) unless map['AcceleratorAttributes'].nil?)
+        data.accelerator_attributes = (AcceleratorAttributes.parse(map['AcceleratorAttributes']) unless map['AcceleratorAttributes'].nil?)
         data
       end
     end
@@ -668,7 +668,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.accelerator = (Parsers::CustomRoutingAccelerator.parse(map['Accelerator']) unless map['Accelerator'].nil?)
+        data.accelerator = (CustomRoutingAccelerator.parse(map['Accelerator']) unless map['Accelerator'].nil?)
         data
       end
     end
@@ -680,7 +680,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.accelerator_attributes = (Parsers::CustomRoutingAcceleratorAttributes.parse(map['AcceleratorAttributes']) unless map['AcceleratorAttributes'].nil?)
+        data.accelerator_attributes = (CustomRoutingAcceleratorAttributes.parse(map['AcceleratorAttributes']) unless map['AcceleratorAttributes'].nil?)
         data
       end
     end
@@ -702,7 +702,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoint_group = (Parsers::CustomRoutingEndpointGroup.parse(map['EndpointGroup']) unless map['EndpointGroup'].nil?)
+        data.endpoint_group = (CustomRoutingEndpointGroup.parse(map['EndpointGroup']) unless map['EndpointGroup'].nil?)
         data
       end
     end
@@ -714,7 +714,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.listener = (Parsers::CustomRoutingListener.parse(map['Listener']) unless map['Listener'].nil?)
+        data.listener = (CustomRoutingListener.parse(map['Listener']) unless map['Listener'].nil?)
         data
       end
     end
@@ -726,7 +726,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoint_group = (Parsers::EndpointGroup.parse(map['EndpointGroup']) unless map['EndpointGroup'].nil?)
+        data.endpoint_group = (EndpointGroup.parse(map['EndpointGroup']) unless map['EndpointGroup'].nil?)
         data
       end
     end
@@ -738,7 +738,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.listener = (Parsers::Listener.parse(map['Listener']) unless map['Listener'].nil?)
+        data.listener = (Listener.parse(map['Listener']) unless map['Listener'].nil?)
         data
       end
     end
@@ -750,7 +750,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.accelerators = (Parsers::Accelerators.parse(map['Accelerators']) unless map['Accelerators'].nil?)
+        data.accelerators = (Accelerators.parse(map['Accelerators']) unless map['Accelerators'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -759,7 +759,7 @@ module AWS::SDK::GlobalAccelerator
     class Accelerators
       def self.parse(list)
         list.map do |value|
-          Parsers::Accelerator.parse(value) unless value.nil?
+          Accelerator.parse(value) unless value.nil?
         end
       end
     end
@@ -783,7 +783,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.byoip_cidrs = (Parsers::ByoipCidrs.parse(map['ByoipCidrs']) unless map['ByoipCidrs'].nil?)
+        data.byoip_cidrs = (ByoipCidrs.parse(map['ByoipCidrs']) unless map['ByoipCidrs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -792,7 +792,7 @@ module AWS::SDK::GlobalAccelerator
     class ByoipCidrs
       def self.parse(list)
         list.map do |value|
-          Parsers::ByoipCidr.parse(value) unless value.nil?
+          ByoipCidr.parse(value) unless value.nil?
         end
       end
     end
@@ -804,7 +804,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.accelerators = (Parsers::CustomRoutingAccelerators.parse(map['Accelerators']) unless map['Accelerators'].nil?)
+        data.accelerators = (CustomRoutingAccelerators.parse(map['Accelerators']) unless map['Accelerators'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -813,7 +813,7 @@ module AWS::SDK::GlobalAccelerator
     class CustomRoutingAccelerators
       def self.parse(list)
         list.map do |value|
-          Parsers::CustomRoutingAccelerator.parse(value) unless value.nil?
+          CustomRoutingAccelerator.parse(value) unless value.nil?
         end
       end
     end
@@ -825,7 +825,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoint_groups = (Parsers::CustomRoutingEndpointGroups.parse(map['EndpointGroups']) unless map['EndpointGroups'].nil?)
+        data.endpoint_groups = (CustomRoutingEndpointGroups.parse(map['EndpointGroups']) unless map['EndpointGroups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -834,7 +834,7 @@ module AWS::SDK::GlobalAccelerator
     class CustomRoutingEndpointGroups
       def self.parse(list)
         list.map do |value|
-          Parsers::CustomRoutingEndpointGroup.parse(value) unless value.nil?
+          CustomRoutingEndpointGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -846,7 +846,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.listeners = (Parsers::CustomRoutingListeners.parse(map['Listeners']) unless map['Listeners'].nil?)
+        data.listeners = (CustomRoutingListeners.parse(map['Listeners']) unless map['Listeners'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -855,7 +855,7 @@ module AWS::SDK::GlobalAccelerator
     class CustomRoutingListeners
       def self.parse(list)
         list.map do |value|
-          Parsers::CustomRoutingListener.parse(value) unless value.nil?
+          CustomRoutingListener.parse(value) unless value.nil?
         end
       end
     end
@@ -867,7 +867,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.port_mappings = (Parsers::PortMappings.parse(map['PortMappings']) unless map['PortMappings'].nil?)
+        data.port_mappings = (PortMappings.parse(map['PortMappings']) unless map['PortMappings'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -876,7 +876,7 @@ module AWS::SDK::GlobalAccelerator
     class PortMappings
       def self.parse(list)
         list.map do |value|
-          Parsers::PortMapping.parse(value) unless value.nil?
+          PortMapping.parse(value) unless value.nil?
         end
       end
     end
@@ -887,8 +887,8 @@ module AWS::SDK::GlobalAccelerator
         data.accelerator_port = map['AcceleratorPort']
         data.endpoint_group_arn = map['EndpointGroupArn']
         data.endpoint_id = map['EndpointId']
-        data.destination_socket_address = (Parsers::SocketAddress.parse(map['DestinationSocketAddress']) unless map['DestinationSocketAddress'].nil?)
-        data.protocols = (Parsers::CustomRoutingProtocols.parse(map['Protocols']) unless map['Protocols'].nil?)
+        data.destination_socket_address = (SocketAddress.parse(map['DestinationSocketAddress']) unless map['DestinationSocketAddress'].nil?)
+        data.protocols = (CustomRoutingProtocols.parse(map['Protocols']) unless map['Protocols'].nil?)
         data.destination_traffic_state = map['DestinationTrafficState']
         return data
       end
@@ -918,7 +918,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.destination_port_mappings = (Parsers::DestinationPortMappings.parse(map['DestinationPortMappings']) unless map['DestinationPortMappings'].nil?)
+        data.destination_port_mappings = (DestinationPortMappings.parse(map['DestinationPortMappings']) unless map['DestinationPortMappings'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -927,7 +927,7 @@ module AWS::SDK::GlobalAccelerator
     class DestinationPortMappings
       def self.parse(list)
         list.map do |value|
-          Parsers::DestinationPortMapping.parse(value) unless value.nil?
+          DestinationPortMapping.parse(value) unless value.nil?
         end
       end
     end
@@ -936,11 +936,11 @@ module AWS::SDK::GlobalAccelerator
       def self.parse(map)
         data = Types::DestinationPortMapping.new
         data.accelerator_arn = map['AcceleratorArn']
-        data.accelerator_socket_addresses = (Parsers::SocketAddresses.parse(map['AcceleratorSocketAddresses']) unless map['AcceleratorSocketAddresses'].nil?)
+        data.accelerator_socket_addresses = (SocketAddresses.parse(map['AcceleratorSocketAddresses']) unless map['AcceleratorSocketAddresses'].nil?)
         data.endpoint_group_arn = map['EndpointGroupArn']
         data.endpoint_id = map['EndpointId']
         data.endpoint_group_region = map['EndpointGroupRegion']
-        data.destination_socket_address = (Parsers::SocketAddress.parse(map['DestinationSocketAddress']) unless map['DestinationSocketAddress'].nil?)
+        data.destination_socket_address = (SocketAddress.parse(map['DestinationSocketAddress']) unless map['DestinationSocketAddress'].nil?)
         data.ip_address_type = map['IpAddressType']
         data.destination_traffic_state = map['DestinationTrafficState']
         return data
@@ -950,7 +950,7 @@ module AWS::SDK::GlobalAccelerator
     class SocketAddresses
       def self.parse(list)
         list.map do |value|
-          Parsers::SocketAddress.parse(value) unless value.nil?
+          SocketAddress.parse(value) unless value.nil?
         end
       end
     end
@@ -974,7 +974,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoint_groups = (Parsers::EndpointGroups.parse(map['EndpointGroups']) unless map['EndpointGroups'].nil?)
+        data.endpoint_groups = (EndpointGroups.parse(map['EndpointGroups']) unless map['EndpointGroups'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -983,7 +983,7 @@ module AWS::SDK::GlobalAccelerator
     class EndpointGroups
       def self.parse(list)
         list.map do |value|
-          Parsers::EndpointGroup.parse(value) unless value.nil?
+          EndpointGroup.parse(value) unless value.nil?
         end
       end
     end
@@ -995,7 +995,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.listeners = (Parsers::Listeners.parse(map['Listeners']) unless map['Listeners'].nil?)
+        data.listeners = (Listeners.parse(map['Listeners']) unless map['Listeners'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1004,7 +1004,7 @@ module AWS::SDK::GlobalAccelerator
     class Listeners
       def self.parse(list)
         list.map do |value|
-          Parsers::Listener.parse(value) unless value.nil?
+          Listener.parse(value) unless value.nil?
         end
       end
     end
@@ -1016,7 +1016,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::Tags.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (Tags.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -1024,7 +1024,7 @@ module AWS::SDK::GlobalAccelerator
     class Tags
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -1045,7 +1045,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.byoip_cidr = (Parsers::ByoipCidr.parse(map['ByoipCidr']) unless map['ByoipCidr'].nil?)
+        data.byoip_cidr = (ByoipCidr.parse(map['ByoipCidr']) unless map['ByoipCidr'].nil?)
         data
       end
     end
@@ -1090,7 +1090,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.accelerator = (Parsers::Accelerator.parse(map['Accelerator']) unless map['Accelerator'].nil?)
+        data.accelerator = (Accelerator.parse(map['Accelerator']) unless map['Accelerator'].nil?)
         data
       end
     end
@@ -1102,7 +1102,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.accelerator_attributes = (Parsers::AcceleratorAttributes.parse(map['AcceleratorAttributes']) unless map['AcceleratorAttributes'].nil?)
+        data.accelerator_attributes = (AcceleratorAttributes.parse(map['AcceleratorAttributes']) unless map['AcceleratorAttributes'].nil?)
         data
       end
     end
@@ -1114,7 +1114,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.accelerator = (Parsers::CustomRoutingAccelerator.parse(map['Accelerator']) unless map['Accelerator'].nil?)
+        data.accelerator = (CustomRoutingAccelerator.parse(map['Accelerator']) unless map['Accelerator'].nil?)
         data
       end
     end
@@ -1126,7 +1126,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.accelerator_attributes = (Parsers::CustomRoutingAcceleratorAttributes.parse(map['AcceleratorAttributes']) unless map['AcceleratorAttributes'].nil?)
+        data.accelerator_attributes = (CustomRoutingAcceleratorAttributes.parse(map['AcceleratorAttributes']) unless map['AcceleratorAttributes'].nil?)
         data
       end
     end
@@ -1138,7 +1138,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.listener = (Parsers::CustomRoutingListener.parse(map['Listener']) unless map['Listener'].nil?)
+        data.listener = (CustomRoutingListener.parse(map['Listener']) unless map['Listener'].nil?)
         data
       end
     end
@@ -1150,7 +1150,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoint_group = (Parsers::EndpointGroup.parse(map['EndpointGroup']) unless map['EndpointGroup'].nil?)
+        data.endpoint_group = (EndpointGroup.parse(map['EndpointGroup']) unless map['EndpointGroup'].nil?)
         data
       end
     end
@@ -1162,7 +1162,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.listener = (Parsers::Listener.parse(map['Listener']) unless map['Listener'].nil?)
+        data.listener = (Listener.parse(map['Listener']) unless map['Listener'].nil?)
         data
       end
     end
@@ -1174,7 +1174,7 @@ module AWS::SDK::GlobalAccelerator
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.byoip_cidr = (Parsers::ByoipCidr.parse(map['ByoipCidr']) unless map['ByoipCidr'].nil?)
+        data.byoip_cidr = (ByoipCidr.parse(map['ByoipCidr']) unless map['ByoipCidr'].nil?)
         data
       end
     end

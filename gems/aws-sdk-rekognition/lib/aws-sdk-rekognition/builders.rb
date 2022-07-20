@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::Rekognition
   module Builders
 
@@ -18,11 +21,11 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.CompareFaces'
         data = {}
-        data['SourceImage'] = Builders::Image.build(input[:source_image]) unless input[:source_image].nil?
-        data['TargetImage'] = Builders::Image.build(input[:target_image]) unless input[:target_image].nil?
+        data['SourceImage'] = Image.build(input[:source_image]) unless input[:source_image].nil?
+        data['TargetImage'] = Image.build(input[:target_image]) unless input[:target_image].nil?
         data['SimilarityThreshold'] = Hearth::NumberHelper.serialize(input[:similarity_threshold]) unless input[:similarity_threshold].nil?
         data['QualityFilter'] = input[:quality_filter] unless input[:quality_filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -30,8 +33,8 @@ module AWS::SDK::Rekognition
     class Image
       def self.build(input)
         data = {}
-        data['Bytes'] = Base64::encode64(input[:bytes]).strip unless input[:bytes].nil?
-        data['S3Object'] = Builders::S3Object.build(input[:s3_object]) unless input[:s3_object].nil?
+        data['Bytes'] = ::Base64::encode64(input[:bytes]).strip unless input[:bytes].nil?
+        data['S3Object'] = S3Object.build(input[:s3_object]) unless input[:s3_object].nil?
         data
       end
     end
@@ -56,8 +59,8 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.CreateCollection'
         data = {}
         data['CollectionId'] = input[:collection_id] unless input[:collection_id].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -80,10 +83,10 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.CreateDataset'
         data = {}
-        data['DatasetSource'] = Builders::DatasetSource.build(input[:dataset_source]) unless input[:dataset_source].nil?
+        data['DatasetSource'] = DatasetSource.build(input[:dataset_source]) unless input[:dataset_source].nil?
         data['DatasetType'] = input[:dataset_type] unless input[:dataset_type].nil?
         data['ProjectArn'] = input[:project_arn] unless input[:project_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -91,7 +94,7 @@ module AWS::SDK::Rekognition
     class DatasetSource
       def self.build(input)
         data = {}
-        data['GroundTruthManifest'] = Builders::GroundTruthManifest.build(input[:ground_truth_manifest]) unless input[:ground_truth_manifest].nil?
+        data['GroundTruthManifest'] = GroundTruthManifest.build(input[:ground_truth_manifest]) unless input[:ground_truth_manifest].nil?
         data['DatasetArn'] = input[:dataset_arn] unless input[:dataset_arn].nil?
         data
       end
@@ -101,7 +104,7 @@ module AWS::SDK::Rekognition
     class GroundTruthManifest
       def self.build(input)
         data = {}
-        data['S3Object'] = Builders::S3Object.build(input[:s3_object]) unless input[:s3_object].nil?
+        data['S3Object'] = S3Object.build(input[:s3_object]) unless input[:s3_object].nil?
         data
       end
     end
@@ -115,7 +118,7 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.CreateProject'
         data = {}
         data['ProjectName'] = input[:project_name] unless input[:project_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -129,12 +132,12 @@ module AWS::SDK::Rekognition
         data = {}
         data['ProjectArn'] = input[:project_arn] unless input[:project_arn].nil?
         data['VersionName'] = input[:version_name] unless input[:version_name].nil?
-        data['OutputConfig'] = Builders::OutputConfig.build(input[:output_config]) unless input[:output_config].nil?
-        data['TrainingData'] = Builders::TrainingData.build(input[:training_data]) unless input[:training_data].nil?
-        data['TestingData'] = Builders::TestingData.build(input[:testing_data]) unless input[:testing_data].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['OutputConfig'] = OutputConfig.build(input[:output_config]) unless input[:output_config].nil?
+        data['TrainingData'] = TrainingData.build(input[:training_data]) unless input[:training_data].nil?
+        data['TestingData'] = TestingData.build(input[:testing_data]) unless input[:testing_data].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -142,7 +145,7 @@ module AWS::SDK::Rekognition
     class TestingData
       def self.build(input)
         data = {}
-        data['Assets'] = Builders::Assets.build(input[:assets]) unless input[:assets].nil?
+        data['Assets'] = Assets.build(input[:assets]) unless input[:assets].nil?
         data['AutoCreate'] = input[:auto_create] unless input[:auto_create].nil?
         data
       end
@@ -153,7 +156,7 @@ module AWS::SDK::Rekognition
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Asset.build(element) unless element.nil?
+          data << Asset.build(element) unless element.nil?
         end
         data
       end
@@ -163,7 +166,7 @@ module AWS::SDK::Rekognition
     class Asset
       def self.build(input)
         data = {}
-        data['GroundTruthManifest'] = Builders::GroundTruthManifest.build(input[:ground_truth_manifest]) unless input[:ground_truth_manifest].nil?
+        data['GroundTruthManifest'] = GroundTruthManifest.build(input[:ground_truth_manifest]) unless input[:ground_truth_manifest].nil?
         data
       end
     end
@@ -172,7 +175,7 @@ module AWS::SDK::Rekognition
     class TrainingData
       def self.build(input)
         data = {}
-        data['Assets'] = Builders::Assets.build(input[:assets]) unless input[:assets].nil?
+        data['Assets'] = Assets.build(input[:assets]) unless input[:assets].nil?
         data
       end
     end
@@ -195,17 +198,17 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.CreateStreamProcessor'
         data = {}
-        data['Input'] = Builders::StreamProcessorInput.build(input[:input]) unless input[:input].nil?
-        data['Output'] = Builders::StreamProcessorOutput.build(input[:output]) unless input[:output].nil?
+        data['Input'] = StreamProcessorInput.build(input[:input]) unless input[:input].nil?
+        data['Output'] = StreamProcessorOutput.build(input[:output]) unless input[:output].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Settings'] = Builders::StreamProcessorSettings.build(input[:settings]) unless input[:settings].nil?
+        data['Settings'] = StreamProcessorSettings.build(input[:settings]) unless input[:settings].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        data['NotificationChannel'] = Builders::StreamProcessorNotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['NotificationChannel'] = StreamProcessorNotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['RegionsOfInterest'] = Builders::RegionsOfInterest.build(input[:regions_of_interest]) unless input[:regions_of_interest].nil?
-        data['DataSharingPreference'] = Builders::StreamProcessorDataSharingPreference.build(input[:data_sharing_preference]) unless input[:data_sharing_preference].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RegionsOfInterest'] = RegionsOfInterest.build(input[:regions_of_interest]) unless input[:regions_of_interest].nil?
+        data['DataSharingPreference'] = StreamProcessorDataSharingPreference.build(input[:data_sharing_preference]) unless input[:data_sharing_preference].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -223,7 +226,7 @@ module AWS::SDK::Rekognition
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RegionOfInterest.build(element) unless element.nil?
+          data << RegionOfInterest.build(element) unless element.nil?
         end
         data
       end
@@ -233,8 +236,8 @@ module AWS::SDK::Rekognition
     class RegionOfInterest
       def self.build(input)
         data = {}
-        data['BoundingBox'] = Builders::BoundingBox.build(input[:bounding_box]) unless input[:bounding_box].nil?
-        data['Polygon'] = Builders::Polygon.build(input[:polygon]) unless input[:polygon].nil?
+        data['BoundingBox'] = BoundingBox.build(input[:bounding_box]) unless input[:bounding_box].nil?
+        data['Polygon'] = Polygon.build(input[:polygon]) unless input[:polygon].nil?
         data
       end
     end
@@ -244,7 +247,7 @@ module AWS::SDK::Rekognition
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Point.build(element) unless element.nil?
+          data << Point.build(element) unless element.nil?
         end
         data
       end
@@ -285,8 +288,8 @@ module AWS::SDK::Rekognition
     class StreamProcessorSettings
       def self.build(input)
         data = {}
-        data['FaceSearch'] = Builders::FaceSearchSettings.build(input[:face_search]) unless input[:face_search].nil?
-        data['ConnectedHome'] = Builders::ConnectedHomeSettings.build(input[:connected_home]) unless input[:connected_home].nil?
+        data['FaceSearch'] = FaceSearchSettings.build(input[:face_search]) unless input[:face_search].nil?
+        data['ConnectedHome'] = ConnectedHomeSettings.build(input[:connected_home]) unless input[:connected_home].nil?
         data
       end
     end
@@ -295,7 +298,7 @@ module AWS::SDK::Rekognition
     class ConnectedHomeSettings
       def self.build(input)
         data = {}
-        data['Labels'] = Builders::ConnectedHomeLabels.build(input[:labels]) unless input[:labels].nil?
+        data['Labels'] = ConnectedHomeLabels.build(input[:labels]) unless input[:labels].nil?
         data['MinConfidence'] = Hearth::NumberHelper.serialize(input[:min_confidence]) unless input[:min_confidence].nil?
         data
       end
@@ -326,8 +329,8 @@ module AWS::SDK::Rekognition
     class StreamProcessorOutput
       def self.build(input)
         data = {}
-        data['KinesisDataStream'] = Builders::KinesisDataStream.build(input[:kinesis_data_stream]) unless input[:kinesis_data_stream].nil?
-        data['S3Destination'] = Builders::S3Destination.build(input[:s3_destination]) unless input[:s3_destination].nil?
+        data['KinesisDataStream'] = KinesisDataStream.build(input[:kinesis_data_stream]) unless input[:kinesis_data_stream].nil?
+        data['S3Destination'] = S3Destination.build(input[:s3_destination]) unless input[:s3_destination].nil?
         data
       end
     end
@@ -355,7 +358,7 @@ module AWS::SDK::Rekognition
     class StreamProcessorInput
       def self.build(input)
         data = {}
-        data['KinesisVideoStream'] = Builders::KinesisVideoStream.build(input[:kinesis_video_stream]) unless input[:kinesis_video_stream].nil?
+        data['KinesisVideoStream'] = KinesisVideoStream.build(input[:kinesis_video_stream]) unless input[:kinesis_video_stream].nil?
         data
       end
     end
@@ -378,7 +381,7 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.DeleteCollection'
         data = {}
         data['CollectionId'] = input[:collection_id] unless input[:collection_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -391,7 +394,7 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.DeleteDataset'
         data = {}
         data['DatasetArn'] = input[:dataset_arn] unless input[:dataset_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -404,8 +407,8 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.DeleteFaces'
         data = {}
         data['CollectionId'] = input[:collection_id] unless input[:collection_id].nil?
-        data['FaceIds'] = Builders::FaceIdList.build(input[:face_ids]) unless input[:face_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FaceIds'] = FaceIdList.build(input[:face_ids]) unless input[:face_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -429,7 +432,7 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.DeleteProject'
         data = {}
         data['ProjectArn'] = input[:project_arn] unless input[:project_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -442,7 +445,7 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.DeleteProjectVersion'
         data = {}
         data['ProjectVersionArn'] = input[:project_version_arn] unless input[:project_version_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -455,7 +458,7 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.DeleteStreamProcessor'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -468,7 +471,7 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.DescribeCollection'
         data = {}
         data['CollectionId'] = input[:collection_id] unless input[:collection_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -481,7 +484,7 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.DescribeDataset'
         data = {}
         data['DatasetArn'] = input[:dataset_arn] unless input[:dataset_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -494,10 +497,10 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.DescribeProjectVersions'
         data = {}
         data['ProjectArn'] = input[:project_arn] unless input[:project_arn].nil?
-        data['VersionNames'] = Builders::VersionNames.build(input[:version_names]) unless input[:version_names].nil?
+        data['VersionNames'] = VersionNames.build(input[:version_names]) unless input[:version_names].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -522,8 +525,8 @@ module AWS::SDK::Rekognition
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['ProjectNames'] = Builders::ProjectNames.build(input[:project_names]) unless input[:project_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProjectNames'] = ProjectNames.build(input[:project_names]) unless input[:project_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -547,7 +550,7 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.DescribeStreamProcessor'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -560,10 +563,10 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.DetectCustomLabels'
         data = {}
         data['ProjectVersionArn'] = input[:project_version_arn] unless input[:project_version_arn].nil?
-        data['Image'] = Builders::Image.build(input[:image]) unless input[:image].nil?
+        data['Image'] = Image.build(input[:image]) unless input[:image].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['MinConfidence'] = Hearth::NumberHelper.serialize(input[:min_confidence]) unless input[:min_confidence].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -575,9 +578,9 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.DetectFaces'
         data = {}
-        data['Image'] = Builders::Image.build(input[:image]) unless input[:image].nil?
-        data['Attributes'] = Builders::Attributes.build(input[:attributes]) unless input[:attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Image'] = Image.build(input[:image]) unless input[:image].nil?
+        data['Attributes'] = Attributes.build(input[:attributes]) unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -600,10 +603,10 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.DetectLabels'
         data = {}
-        data['Image'] = Builders::Image.build(input[:image]) unless input[:image].nil?
+        data['Image'] = Image.build(input[:image]) unless input[:image].nil?
         data['MaxLabels'] = input[:max_labels] unless input[:max_labels].nil?
         data['MinConfidence'] = Hearth::NumberHelper.serialize(input[:min_confidence]) unless input[:min_confidence].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -615,10 +618,10 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.DetectModerationLabels'
         data = {}
-        data['Image'] = Builders::Image.build(input[:image]) unless input[:image].nil?
+        data['Image'] = Image.build(input[:image]) unless input[:image].nil?
         data['MinConfidence'] = Hearth::NumberHelper.serialize(input[:min_confidence]) unless input[:min_confidence].nil?
-        data['HumanLoopConfig'] = Builders::HumanLoopConfig.build(input[:human_loop_config]) unless input[:human_loop_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HumanLoopConfig'] = HumanLoopConfig.build(input[:human_loop_config]) unless input[:human_loop_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -628,7 +631,7 @@ module AWS::SDK::Rekognition
         data = {}
         data['HumanLoopName'] = input[:human_loop_name] unless input[:human_loop_name].nil?
         data['FlowDefinitionArn'] = input[:flow_definition_arn] unless input[:flow_definition_arn].nil?
-        data['DataAttributes'] = Builders::HumanLoopDataAttributes.build(input[:data_attributes]) unless input[:data_attributes].nil?
+        data['DataAttributes'] = HumanLoopDataAttributes.build(input[:data_attributes]) unless input[:data_attributes].nil?
         data
       end
     end
@@ -637,7 +640,7 @@ module AWS::SDK::Rekognition
     class HumanLoopDataAttributes
       def self.build(input)
         data = {}
-        data['ContentClassifiers'] = Builders::ContentClassifiers.build(input[:content_classifiers]) unless input[:content_classifiers].nil?
+        data['ContentClassifiers'] = ContentClassifiers.build(input[:content_classifiers]) unless input[:content_classifiers].nil?
         data
       end
     end
@@ -661,9 +664,9 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.DetectProtectiveEquipment'
         data = {}
-        data['Image'] = Builders::Image.build(input[:image]) unless input[:image].nil?
-        data['SummarizationAttributes'] = Builders::ProtectiveEquipmentSummarizationAttributes.build(input[:summarization_attributes]) unless input[:summarization_attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Image'] = Image.build(input[:image]) unless input[:image].nil?
+        data['SummarizationAttributes'] = ProtectiveEquipmentSummarizationAttributes.build(input[:summarization_attributes]) unless input[:summarization_attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -672,7 +675,7 @@ module AWS::SDK::Rekognition
       def self.build(input)
         data = {}
         data['MinConfidence'] = Hearth::NumberHelper.serialize(input[:min_confidence]) unless input[:min_confidence].nil?
-        data['RequiredEquipmentTypes'] = Builders::ProtectiveEquipmentTypes.build(input[:required_equipment_types]) unless input[:required_equipment_types].nil?
+        data['RequiredEquipmentTypes'] = ProtectiveEquipmentTypes.build(input[:required_equipment_types]) unless input[:required_equipment_types].nil?
         data
       end
     end
@@ -696,9 +699,9 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.DetectText'
         data = {}
-        data['Image'] = Builders::Image.build(input[:image]) unless input[:image].nil?
-        data['Filters'] = Builders::DetectTextFilters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Image'] = Image.build(input[:image]) unless input[:image].nil?
+        data['Filters'] = DetectTextFilters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -706,8 +709,8 @@ module AWS::SDK::Rekognition
     class DetectTextFilters
       def self.build(input)
         data = {}
-        data['WordFilter'] = Builders::DetectionFilter.build(input[:word_filter]) unless input[:word_filter].nil?
-        data['RegionsOfInterest'] = Builders::RegionsOfInterest.build(input[:regions_of_interest]) unless input[:regions_of_interest].nil?
+        data['WordFilter'] = DetectionFilter.build(input[:word_filter]) unless input[:word_filter].nil?
+        data['RegionsOfInterest'] = RegionsOfInterest.build(input[:regions_of_interest]) unless input[:regions_of_interest].nil?
         data
       end
     end
@@ -731,8 +734,8 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.DistributeDatasetEntries'
         data = {}
-        data['Datasets'] = Builders::DistributeDatasetMetadataList.build(input[:datasets]) unless input[:datasets].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Datasets'] = DistributeDatasetMetadataList.build(input[:datasets]) unless input[:datasets].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -741,7 +744,7 @@ module AWS::SDK::Rekognition
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DistributeDataset.build(element) unless element.nil?
+          data << DistributeDataset.build(element) unless element.nil?
         end
         data
       end
@@ -765,7 +768,7 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.GetCelebrityInfo'
         data = {}
         data['Id'] = input[:id] unless input[:id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -781,7 +784,7 @@ module AWS::SDK::Rekognition
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -797,7 +800,7 @@ module AWS::SDK::Rekognition
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -812,7 +815,7 @@ module AWS::SDK::Rekognition
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -828,7 +831,7 @@ module AWS::SDK::Rekognition
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -844,7 +847,7 @@ module AWS::SDK::Rekognition
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -860,7 +863,7 @@ module AWS::SDK::Rekognition
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['SortBy'] = input[:sort_by] unless input[:sort_by].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -875,7 +878,7 @@ module AWS::SDK::Rekognition
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -890,7 +893,7 @@ module AWS::SDK::Rekognition
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -903,12 +906,12 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.IndexFaces'
         data = {}
         data['CollectionId'] = input[:collection_id] unless input[:collection_id].nil?
-        data['Image'] = Builders::Image.build(input[:image]) unless input[:image].nil?
+        data['Image'] = Image.build(input[:image]) unless input[:image].nil?
         data['ExternalImageId'] = input[:external_image_id] unless input[:external_image_id].nil?
-        data['DetectionAttributes'] = Builders::Attributes.build(input[:detection_attributes]) unless input[:detection_attributes].nil?
+        data['DetectionAttributes'] = Attributes.build(input[:detection_attributes]) unless input[:detection_attributes].nil?
         data['MaxFaces'] = input[:max_faces] unless input[:max_faces].nil?
         data['QualityFilter'] = input[:quality_filter] unless input[:quality_filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -922,7 +925,7 @@ module AWS::SDK::Rekognition
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -935,13 +938,13 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.ListDatasetEntries'
         data = {}
         data['DatasetArn'] = input[:dataset_arn] unless input[:dataset_arn].nil?
-        data['ContainsLabels'] = Builders::DatasetLabels.build(input[:contains_labels]) unless input[:contains_labels].nil?
+        data['ContainsLabels'] = DatasetLabels.build(input[:contains_labels]) unless input[:contains_labels].nil?
         data['Labeled'] = input[:labeled] unless input[:labeled].nil?
         data['SourceRefContains'] = input[:source_ref_contains] unless input[:source_ref_contains].nil?
         data['HasErrors'] = input[:has_errors] unless input[:has_errors].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -967,7 +970,7 @@ module AWS::SDK::Rekognition
         data['DatasetArn'] = input[:dataset_arn] unless input[:dataset_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -982,7 +985,7 @@ module AWS::SDK::Rekognition
         data['CollectionId'] = input[:collection_id] unless input[:collection_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -996,7 +999,7 @@ module AWS::SDK::Rekognition
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1009,7 +1012,7 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1021,8 +1024,8 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.RecognizeCelebrities'
         data = {}
-        data['Image'] = Builders::Image.build(input[:image]) unless input[:image].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Image'] = Image.build(input[:image]) unless input[:image].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1038,7 +1041,7 @@ module AWS::SDK::Rekognition
         data['FaceId'] = input[:face_id] unless input[:face_id].nil?
         data['MaxFaces'] = input[:max_faces] unless input[:max_faces].nil?
         data['FaceMatchThreshold'] = Hearth::NumberHelper.serialize(input[:face_match_threshold]) unless input[:face_match_threshold].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1051,11 +1054,11 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.SearchFacesByImage'
         data = {}
         data['CollectionId'] = input[:collection_id] unless input[:collection_id].nil?
-        data['Image'] = Builders::Image.build(input[:image]) unless input[:image].nil?
+        data['Image'] = Image.build(input[:image]) unless input[:image].nil?
         data['MaxFaces'] = input[:max_faces] unless input[:max_faces].nil?
         data['FaceMatchThreshold'] = Hearth::NumberHelper.serialize(input[:face_match_threshold]) unless input[:face_match_threshold].nil?
         data['QualityFilter'] = input[:quality_filter] unless input[:quality_filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1067,11 +1070,11 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.StartCelebrityRecognition'
         data = {}
-        data['Video'] = Builders::Video.build(input[:video]) unless input[:video].nil?
+        data['Video'] = Video.build(input[:video]) unless input[:video].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['NotificationChannel'] = Builders::NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
+        data['NotificationChannel'] = NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
         data['JobTag'] = input[:job_tag] unless input[:job_tag].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1089,7 +1092,7 @@ module AWS::SDK::Rekognition
     class Video
       def self.build(input)
         data = {}
-        data['S3Object'] = Builders::S3Object.build(input[:s3_object]) unless input[:s3_object].nil?
+        data['S3Object'] = S3Object.build(input[:s3_object]) unless input[:s3_object].nil?
         data
       end
     end
@@ -1102,12 +1105,12 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.StartContentModeration'
         data = {}
-        data['Video'] = Builders::Video.build(input[:video]) unless input[:video].nil?
+        data['Video'] = Video.build(input[:video]) unless input[:video].nil?
         data['MinConfidence'] = Hearth::NumberHelper.serialize(input[:min_confidence]) unless input[:min_confidence].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['NotificationChannel'] = Builders::NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
+        data['NotificationChannel'] = NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
         data['JobTag'] = input[:job_tag] unless input[:job_tag].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1119,12 +1122,12 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.StartFaceDetection'
         data = {}
-        data['Video'] = Builders::Video.build(input[:video]) unless input[:video].nil?
+        data['Video'] = Video.build(input[:video]) unless input[:video].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['NotificationChannel'] = Builders::NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
+        data['NotificationChannel'] = NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
         data['FaceAttributes'] = input[:face_attributes] unless input[:face_attributes].nil?
         data['JobTag'] = input[:job_tag] unless input[:job_tag].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1136,13 +1139,13 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.StartFaceSearch'
         data = {}
-        data['Video'] = Builders::Video.build(input[:video]) unless input[:video].nil?
+        data['Video'] = Video.build(input[:video]) unless input[:video].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['FaceMatchThreshold'] = Hearth::NumberHelper.serialize(input[:face_match_threshold]) unless input[:face_match_threshold].nil?
         data['CollectionId'] = input[:collection_id] unless input[:collection_id].nil?
-        data['NotificationChannel'] = Builders::NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
+        data['NotificationChannel'] = NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
         data['JobTag'] = input[:job_tag] unless input[:job_tag].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1154,12 +1157,12 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.StartLabelDetection'
         data = {}
-        data['Video'] = Builders::Video.build(input[:video]) unless input[:video].nil?
+        data['Video'] = Video.build(input[:video]) unless input[:video].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['MinConfidence'] = Hearth::NumberHelper.serialize(input[:min_confidence]) unless input[:min_confidence].nil?
-        data['NotificationChannel'] = Builders::NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
+        data['NotificationChannel'] = NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
         data['JobTag'] = input[:job_tag] unless input[:job_tag].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1171,11 +1174,11 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.StartPersonTracking'
         data = {}
-        data['Video'] = Builders::Video.build(input[:video]) unless input[:video].nil?
+        data['Video'] = Video.build(input[:video]) unless input[:video].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['NotificationChannel'] = Builders::NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
+        data['NotificationChannel'] = NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
         data['JobTag'] = input[:job_tag] unless input[:job_tag].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1189,7 +1192,7 @@ module AWS::SDK::Rekognition
         data = {}
         data['ProjectVersionArn'] = input[:project_version_arn] unless input[:project_version_arn].nil?
         data['MinInferenceUnits'] = input[:min_inference_units] unless input[:min_inference_units].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1201,13 +1204,13 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.StartSegmentDetection'
         data = {}
-        data['Video'] = Builders::Video.build(input[:video]) unless input[:video].nil?
+        data['Video'] = Video.build(input[:video]) unless input[:video].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['NotificationChannel'] = Builders::NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
+        data['NotificationChannel'] = NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
         data['JobTag'] = input[:job_tag] unless input[:job_tag].nil?
-        data['Filters'] = Builders::StartSegmentDetectionFilters.build(input[:filters]) unless input[:filters].nil?
-        data['SegmentTypes'] = Builders::SegmentTypes.build(input[:segment_types]) unless input[:segment_types].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = StartSegmentDetectionFilters.build(input[:filters]) unless input[:filters].nil?
+        data['SegmentTypes'] = SegmentTypes.build(input[:segment_types]) unless input[:segment_types].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1226,8 +1229,8 @@ module AWS::SDK::Rekognition
     class StartSegmentDetectionFilters
       def self.build(input)
         data = {}
-        data['TechnicalCueFilter'] = Builders::StartTechnicalCueDetectionFilter.build(input[:technical_cue_filter]) unless input[:technical_cue_filter].nil?
-        data['ShotFilter'] = Builders::StartShotDetectionFilter.build(input[:shot_filter]) unless input[:shot_filter].nil?
+        data['TechnicalCueFilter'] = StartTechnicalCueDetectionFilter.build(input[:technical_cue_filter]) unless input[:technical_cue_filter].nil?
+        data['ShotFilter'] = StartShotDetectionFilter.build(input[:shot_filter]) unless input[:shot_filter].nil?
         data
       end
     end
@@ -1246,7 +1249,7 @@ module AWS::SDK::Rekognition
       def self.build(input)
         data = {}
         data['MinSegmentConfidence'] = Hearth::NumberHelper.serialize(input[:min_segment_confidence]) unless input[:min_segment_confidence].nil?
-        data['BlackFrame'] = Builders::BlackFrame.build(input[:black_frame]) unless input[:black_frame].nil?
+        data['BlackFrame'] = BlackFrame.build(input[:black_frame]) unless input[:black_frame].nil?
         data
       end
     end
@@ -1270,9 +1273,9 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.StartStreamProcessor'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['StartSelector'] = Builders::StreamProcessingStartSelector.build(input[:start_selector]) unless input[:start_selector].nil?
-        data['StopSelector'] = Builders::StreamProcessingStopSelector.build(input[:stop_selector]) unless input[:stop_selector].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StartSelector'] = StreamProcessingStartSelector.build(input[:start_selector]) unless input[:start_selector].nil?
+        data['StopSelector'] = StreamProcessingStopSelector.build(input[:stop_selector]) unless input[:stop_selector].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1289,7 +1292,7 @@ module AWS::SDK::Rekognition
     class StreamProcessingStartSelector
       def self.build(input)
         data = {}
-        data['KVSStreamStartSelector'] = Builders::KinesisVideoStreamStartSelector.build(input[:kvs_stream_start_selector]) unless input[:kvs_stream_start_selector].nil?
+        data['KVSStreamStartSelector'] = KinesisVideoStreamStartSelector.build(input[:kvs_stream_start_selector]) unless input[:kvs_stream_start_selector].nil?
         data
       end
     end
@@ -1312,12 +1315,12 @@ module AWS::SDK::Rekognition
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'RekognitionService.StartTextDetection'
         data = {}
-        data['Video'] = Builders::Video.build(input[:video]) unless input[:video].nil?
+        data['Video'] = Video.build(input[:video]) unless input[:video].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['NotificationChannel'] = Builders::NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
+        data['NotificationChannel'] = NotificationChannel.build(input[:notification_channel]) unless input[:notification_channel].nil?
         data['JobTag'] = input[:job_tag] unless input[:job_tag].nil?
-        data['Filters'] = Builders::StartTextDetectionFilters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = StartTextDetectionFilters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1325,8 +1328,8 @@ module AWS::SDK::Rekognition
     class StartTextDetectionFilters
       def self.build(input)
         data = {}
-        data['WordFilter'] = Builders::DetectionFilter.build(input[:word_filter]) unless input[:word_filter].nil?
-        data['RegionsOfInterest'] = Builders::RegionsOfInterest.build(input[:regions_of_interest]) unless input[:regions_of_interest].nil?
+        data['WordFilter'] = DetectionFilter.build(input[:word_filter]) unless input[:word_filter].nil?
+        data['RegionsOfInterest'] = RegionsOfInterest.build(input[:regions_of_interest]) unless input[:regions_of_interest].nil?
         data
       end
     end
@@ -1340,7 +1343,7 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.StopProjectVersion'
         data = {}
         data['ProjectVersionArn'] = input[:project_version_arn] unless input[:project_version_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1353,7 +1356,7 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.StopStreamProcessor'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1366,8 +1369,8 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1380,8 +1383,8 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1405,8 +1408,8 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.UpdateDatasetEntries'
         data = {}
         data['DatasetArn'] = input[:dataset_arn] unless input[:dataset_arn].nil?
-        data['Changes'] = Builders::DatasetChanges.build(input[:changes]) unless input[:changes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Changes'] = DatasetChanges.build(input[:changes]) unless input[:changes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1414,7 +1417,7 @@ module AWS::SDK::Rekognition
     class DatasetChanges
       def self.build(input)
         data = {}
-        data['GroundTruth'] = Base64::encode64(input[:ground_truth]).strip unless input[:ground_truth].nil?
+        data['GroundTruth'] = ::Base64::encode64(input[:ground_truth]).strip unless input[:ground_truth].nil?
         data
       end
     end
@@ -1428,11 +1431,11 @@ module AWS::SDK::Rekognition
         http_req.headers['X-Amz-Target'] = 'RekognitionService.UpdateStreamProcessor'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['SettingsForUpdate'] = Builders::StreamProcessorSettingsForUpdate.build(input[:settings_for_update]) unless input[:settings_for_update].nil?
-        data['RegionsOfInterestForUpdate'] = Builders::RegionsOfInterest.build(input[:regions_of_interest_for_update]) unless input[:regions_of_interest_for_update].nil?
-        data['DataSharingPreferenceForUpdate'] = Builders::StreamProcessorDataSharingPreference.build(input[:data_sharing_preference_for_update]) unless input[:data_sharing_preference_for_update].nil?
-        data['ParametersToDelete'] = Builders::StreamProcessorParametersToDelete.build(input[:parameters_to_delete]) unless input[:parameters_to_delete].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SettingsForUpdate'] = StreamProcessorSettingsForUpdate.build(input[:settings_for_update]) unless input[:settings_for_update].nil?
+        data['RegionsOfInterestForUpdate'] = RegionsOfInterest.build(input[:regions_of_interest_for_update]) unless input[:regions_of_interest_for_update].nil?
+        data['DataSharingPreferenceForUpdate'] = StreamProcessorDataSharingPreference.build(input[:data_sharing_preference_for_update]) unless input[:data_sharing_preference_for_update].nil?
+        data['ParametersToDelete'] = StreamProcessorParametersToDelete.build(input[:parameters_to_delete]) unless input[:parameters_to_delete].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1451,7 +1454,7 @@ module AWS::SDK::Rekognition
     class StreamProcessorSettingsForUpdate
       def self.build(input)
         data = {}
-        data['ConnectedHomeForUpdate'] = Builders::ConnectedHomeSettingsForUpdate.build(input[:connected_home_for_update]) unless input[:connected_home_for_update].nil?
+        data['ConnectedHomeForUpdate'] = ConnectedHomeSettingsForUpdate.build(input[:connected_home_for_update]) unless input[:connected_home_for_update].nil?
         data
       end
     end
@@ -1460,7 +1463,7 @@ module AWS::SDK::Rekognition
     class ConnectedHomeSettingsForUpdate
       def self.build(input)
         data = {}
-        data['Labels'] = Builders::ConnectedHomeLabels.build(input[:labels]) unless input[:labels].nil?
+        data['Labels'] = ConnectedHomeLabels.build(input[:labels]) unless input[:labels].nil?
         data['MinConfidence'] = Hearth::NumberHelper.serialize(input[:min_confidence]) unless input[:min_confidence].nil?
         data
       end

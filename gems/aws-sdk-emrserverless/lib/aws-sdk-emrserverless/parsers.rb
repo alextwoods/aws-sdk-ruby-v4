@@ -87,7 +87,7 @@ module AWS::SDK::EMRServerless
       def self.parse(http_resp)
         data = Types::GetApplicationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.application = (Parsers::Application.parse(map['application']) unless map['application'].nil?)
+        data.application = (Application.parse(map['application']) unless map['application'].nil?)
         data
       end
     end
@@ -102,14 +102,14 @@ module AWS::SDK::EMRServerless
         data.type = map['type']
         data.state = map['state']
         data.state_details = map['stateDetails']
-        data.initial_capacity = (Parsers::InitialCapacityConfigMap.parse(map['initialCapacity']) unless map['initialCapacity'].nil?)
-        data.maximum_capacity = (Parsers::MaximumAllowedResources.parse(map['maximumCapacity']) unless map['maximumCapacity'].nil?)
+        data.initial_capacity = (InitialCapacityConfigMap.parse(map['initialCapacity']) unless map['initialCapacity'].nil?)
+        data.maximum_capacity = (MaximumAllowedResources.parse(map['maximumCapacity']) unless map['maximumCapacity'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.updated_at = Time.at(map['updatedAt'].to_i) if map['updatedAt']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.auto_start_configuration = (Parsers::AutoStartConfig.parse(map['autoStartConfiguration']) unless map['autoStartConfiguration'].nil?)
-        data.auto_stop_configuration = (Parsers::AutoStopConfig.parse(map['autoStopConfiguration']) unless map['autoStopConfiguration'].nil?)
-        data.network_configuration = (Parsers::NetworkConfiguration.parse(map['networkConfiguration']) unless map['networkConfiguration'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.auto_start_configuration = (AutoStartConfig.parse(map['autoStartConfiguration']) unless map['autoStartConfiguration'].nil?)
+        data.auto_stop_configuration = (AutoStopConfig.parse(map['autoStopConfiguration']) unless map['autoStopConfiguration'].nil?)
+        data.network_configuration = (NetworkConfiguration.parse(map['networkConfiguration']) unless map['networkConfiguration'].nil?)
         return data
       end
     end
@@ -117,8 +117,8 @@ module AWS::SDK::EMRServerless
     class NetworkConfiguration
       def self.parse(map)
         data = Types::NetworkConfiguration.new
-        data.subnet_ids = (Parsers::SubnetIds.parse(map['subnetIds']) unless map['subnetIds'].nil?)
-        data.security_group_ids = (Parsers::SecurityGroupIds.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
+        data.subnet_ids = (SubnetIds.parse(map['subnetIds']) unless map['subnetIds'].nil?)
+        data.security_group_ids = (SecurityGroupIds.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
         return data
       end
     end
@@ -184,7 +184,7 @@ module AWS::SDK::EMRServerless
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::InitialCapacityConfig.parse(value) unless value.nil?
+          data[key] = InitialCapacityConfig.parse(value) unless value.nil?
         end
         data
       end
@@ -194,7 +194,7 @@ module AWS::SDK::EMRServerless
       def self.parse(map)
         data = Types::InitialCapacityConfig.new
         data.worker_count = map['workerCount']
-        data.worker_configuration = (Parsers::WorkerResourceConfig.parse(map['workerConfiguration']) unless map['workerConfiguration'].nil?)
+        data.worker_configuration = (WorkerResourceConfig.parse(map['workerConfiguration']) unless map['workerConfiguration'].nil?)
         return data
       end
     end
@@ -214,7 +214,7 @@ module AWS::SDK::EMRServerless
       def self.parse(http_resp)
         data = Types::GetJobRunOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_run = (Parsers::JobRun.parse(map['jobRun']) unless map['jobRun'].nil?)
+        data.job_run = (JobRun.parse(map['jobRun']) unless map['jobRun'].nil?)
         data
       end
     end
@@ -233,11 +233,11 @@ module AWS::SDK::EMRServerless
         data.state = map['state']
         data.state_details = map['stateDetails']
         data.release_label = map['releaseLabel']
-        data.configuration_overrides = (Parsers::ConfigurationOverrides.parse(map['configurationOverrides']) unless map['configurationOverrides'].nil?)
-        data.job_driver = (Parsers::JobDriver.parse(map['jobDriver']) unless map['jobDriver'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.total_resource_utilization = (Parsers::TotalResourceUtilization.parse(map['totalResourceUtilization']) unless map['totalResourceUtilization'].nil?)
-        data.network_configuration = (Parsers::NetworkConfiguration.parse(map['networkConfiguration']) unless map['networkConfiguration'].nil?)
+        data.configuration_overrides = (ConfigurationOverrides.parse(map['configurationOverrides']) unless map['configurationOverrides'].nil?)
+        data.job_driver = (JobDriver.parse(map['jobDriver']) unless map['jobDriver'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.total_resource_utilization = (TotalResourceUtilization.parse(map['totalResourceUtilization']) unless map['totalResourceUtilization'].nil?)
+        data.network_configuration = (NetworkConfiguration.parse(map['networkConfiguration']) unless map['networkConfiguration'].nil?)
         data.total_execution_duration_seconds = map['totalExecutionDurationSeconds']
         return data
       end
@@ -258,10 +258,10 @@ module AWS::SDK::EMRServerless
         key, value = map.flatten
         case key
         when 'sparkSubmit'
-          value = (Parsers::SparkSubmit.parse(value) unless value.nil?)
+          value = (SparkSubmit.parse(value) unless value.nil?)
           Types::JobDriver::SparkSubmit.new(value) if value
         when 'hive'
-          value = (Parsers::Hive.parse(value) unless value.nil?)
+          value = (Hive.parse(value) unless value.nil?)
           Types::JobDriver::Hive.new(value) if value
         else
           Types::JobDriver::Unknown.new({name: key, value: value})
@@ -283,7 +283,7 @@ module AWS::SDK::EMRServerless
       def self.parse(map)
         data = Types::SparkSubmit.new
         data.entry_point = map['entryPoint']
-        data.entry_point_arguments = (Parsers::EntryPointArguments.parse(map['entryPointArguments']) unless map['entryPointArguments'].nil?)
+        data.entry_point_arguments = (EntryPointArguments.parse(map['entryPointArguments']) unless map['entryPointArguments'].nil?)
         data.spark_submit_parameters = map['sparkSubmitParameters']
         return data
       end
@@ -302,8 +302,8 @@ module AWS::SDK::EMRServerless
     class ConfigurationOverrides
       def self.parse(map)
         data = Types::ConfigurationOverrides.new
-        data.application_configuration = (Parsers::ConfigurationList.parse(map['applicationConfiguration']) unless map['applicationConfiguration'].nil?)
-        data.monitoring_configuration = (Parsers::MonitoringConfiguration.parse(map['monitoringConfiguration']) unless map['monitoringConfiguration'].nil?)
+        data.application_configuration = (ConfigurationList.parse(map['applicationConfiguration']) unless map['applicationConfiguration'].nil?)
+        data.monitoring_configuration = (MonitoringConfiguration.parse(map['monitoringConfiguration']) unless map['monitoringConfiguration'].nil?)
         return data
       end
     end
@@ -311,8 +311,8 @@ module AWS::SDK::EMRServerless
     class MonitoringConfiguration
       def self.parse(map)
         data = Types::MonitoringConfiguration.new
-        data.s3_monitoring_configuration = (Parsers::S3MonitoringConfiguration.parse(map['s3MonitoringConfiguration']) unless map['s3MonitoringConfiguration'].nil?)
-        data.managed_persistence_monitoring_configuration = (Parsers::ManagedPersistenceMonitoringConfiguration.parse(map['managedPersistenceMonitoringConfiguration']) unless map['managedPersistenceMonitoringConfiguration'].nil?)
+        data.s3_monitoring_configuration = (S3MonitoringConfiguration.parse(map['s3MonitoringConfiguration']) unless map['s3MonitoringConfiguration'].nil?)
+        data.managed_persistence_monitoring_configuration = (ManagedPersistenceMonitoringConfiguration.parse(map['managedPersistenceMonitoringConfiguration']) unless map['managedPersistenceMonitoringConfiguration'].nil?)
         return data
       end
     end
@@ -339,7 +339,7 @@ module AWS::SDK::EMRServerless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Configuration.parse(value) unless value.nil?
+          data << Configuration.parse(value) unless value.nil?
         end
         data
       end
@@ -349,8 +349,8 @@ module AWS::SDK::EMRServerless
       def self.parse(map)
         data = Types::Configuration.new
         data.classification = map['classification']
-        data.properties = (Parsers::SensitivePropertiesMap.parse(map['properties']) unless map['properties'].nil?)
-        data.configurations = (Parsers::ConfigurationList.parse(map['configurations']) unless map['configurations'].nil?)
+        data.properties = (SensitivePropertiesMap.parse(map['properties']) unless map['properties'].nil?)
+        data.configurations = (ConfigurationList.parse(map['configurations']) unless map['configurations'].nil?)
         return data
       end
     end
@@ -370,7 +370,7 @@ module AWS::SDK::EMRServerless
       def self.parse(http_resp)
         data = Types::ListApplicationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.applications = (Parsers::ApplicationList.parse(map['applications']) unless map['applications'].nil?)
+        data.applications = (ApplicationList.parse(map['applications']) unless map['applications'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -380,7 +380,7 @@ module AWS::SDK::EMRServerless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ApplicationSummary.parse(value) unless value.nil?
+          data << ApplicationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -407,7 +407,7 @@ module AWS::SDK::EMRServerless
       def self.parse(http_resp)
         data = Types::ListJobRunsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job_runs = (Parsers::JobRuns.parse(map['jobRuns']) unless map['jobRuns'].nil?)
+        data.job_runs = (JobRuns.parse(map['jobRuns']) unless map['jobRuns'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -417,7 +417,7 @@ module AWS::SDK::EMRServerless
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobRunSummary.parse(value) unless value.nil?
+          data << JobRunSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -447,7 +447,7 @@ module AWS::SDK::EMRServerless
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -515,7 +515,7 @@ module AWS::SDK::EMRServerless
       def self.parse(http_resp)
         data = Types::UpdateApplicationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.application = (Parsers::Application.parse(map['application']) unless map['application'].nil?)
+        data.application = (Application.parse(map['application']) unless map['application'].nil?)
         data
       end
     end

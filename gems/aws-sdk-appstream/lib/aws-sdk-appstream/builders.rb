@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AppStream
   module Builders
 
@@ -20,7 +22,7 @@ module AWS::SDK::AppStream
         data = {}
         data['FleetName'] = input[:fleet_name] unless input[:fleet_name].nil?
         data['ApplicationArn'] = input[:application_arn] unless input[:application_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -35,7 +37,7 @@ module AWS::SDK::AppStream
         data['StackName'] = input[:stack_name] unless input[:stack_name].nil?
         data['EntitlementName'] = input[:entitlement_name] unless input[:entitlement_name].nil?
         data['ApplicationIdentifier'] = input[:application_identifier] unless input[:application_identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -49,7 +51,7 @@ module AWS::SDK::AppStream
         data = {}
         data['FleetName'] = input[:fleet_name] unless input[:fleet_name].nil?
         data['StackName'] = input[:stack_name] unless input[:stack_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -61,8 +63,8 @@ module AWS::SDK::AppStream
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.BatchAssociateUserStack'
         data = {}
-        data['UserStackAssociations'] = Builders::UserStackAssociationList.build(input[:user_stack_associations]) unless input[:user_stack_associations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserStackAssociations'] = UserStackAssociationList.build(input[:user_stack_associations]) unless input[:user_stack_associations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -71,7 +73,7 @@ module AWS::SDK::AppStream
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UserStackAssociation.build(element) unless element.nil?
+          data << UserStackAssociation.build(element) unless element.nil?
         end
         data
       end
@@ -97,8 +99,8 @@ module AWS::SDK::AppStream
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.BatchDisassociateUserStack'
         data = {}
-        data['UserStackAssociations'] = Builders::UserStackAssociationList.build(input[:user_stack_associations]) unless input[:user_stack_associations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserStackAssociations'] = UserStackAssociationList.build(input[:user_stack_associations]) unless input[:user_stack_associations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -114,7 +116,7 @@ module AWS::SDK::AppStream
         data['DestinationImageName'] = input[:destination_image_name] unless input[:destination_image_name].nil?
         data['DestinationRegion'] = input[:destination_region] unless input[:destination_region].nil?
         data['DestinationImageDescription'] = input[:destination_image_description] unless input[:destination_image_description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -129,10 +131,10 @@ module AWS::SDK::AppStream
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
-        data['SourceS3Location'] = Builders::S3Location.build(input[:source_s3_location]) unless input[:source_s3_location].nil?
-        data['SetupScriptDetails'] = Builders::ScriptDetails.build(input[:setup_script_details]) unless input[:setup_script_details].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SourceS3Location'] = S3Location.build(input[:source_s3_location]) unless input[:source_s3_location].nil?
+        data['SetupScriptDetails'] = ScriptDetails.build(input[:setup_script_details]) unless input[:setup_script_details].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -151,7 +153,7 @@ module AWS::SDK::AppStream
     class ScriptDetails
       def self.build(input)
         data = {}
-        data['ScriptS3Location'] = Builders::S3Location.build(input[:script_s3_location]) unless input[:script_s3_location].nil?
+        data['ScriptS3Location'] = S3Location.build(input[:script_s3_location]) unless input[:script_s3_location].nil?
         data['ExecutablePath'] = input[:executable_path] unless input[:executable_path].nil?
         data['ExecutableParameters'] = input[:executable_parameters] unless input[:executable_parameters].nil?
         data['TimeoutInSeconds'] = input[:timeout_in_seconds] unless input[:timeout_in_seconds].nil?
@@ -180,15 +182,15 @@ module AWS::SDK::AppStream
         data['Name'] = input[:name] unless input[:name].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['IconS3Location'] = Builders::S3Location.build(input[:icon_s3_location]) unless input[:icon_s3_location].nil?
+        data['IconS3Location'] = S3Location.build(input[:icon_s3_location]) unless input[:icon_s3_location].nil?
         data['LaunchPath'] = input[:launch_path] unless input[:launch_path].nil?
         data['WorkingDirectory'] = input[:working_directory] unless input[:working_directory].nil?
         data['LaunchParameters'] = input[:launch_parameters] unless input[:launch_parameters].nil?
-        data['Platforms'] = Builders::Platforms.build(input[:platforms]) unless input[:platforms].nil?
-        data['InstanceFamilies'] = Builders::StringList.build(input[:instance_families]) unless input[:instance_families].nil?
+        data['Platforms'] = Platforms.build(input[:platforms]) unless input[:platforms].nil?
+        data['InstanceFamilies'] = StringList.build(input[:instance_families]) unless input[:instance_families].nil?
         data['AppBlockArn'] = input[:app_block_arn] unless input[:app_block_arn].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -223,9 +225,9 @@ module AWS::SDK::AppStream
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.CreateDirectoryConfig'
         data = {}
         data['DirectoryName'] = input[:directory_name] unless input[:directory_name].nil?
-        data['OrganizationalUnitDistinguishedNames'] = Builders::OrganizationalUnitDistinguishedNamesList.build(input[:organizational_unit_distinguished_names]) unless input[:organizational_unit_distinguished_names].nil?
-        data['ServiceAccountCredentials'] = Builders::ServiceAccountCredentials.build(input[:service_account_credentials]) unless input[:service_account_credentials].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OrganizationalUnitDistinguishedNames'] = OrganizationalUnitDistinguishedNamesList.build(input[:organizational_unit_distinguished_names]) unless input[:organizational_unit_distinguished_names].nil?
+        data['ServiceAccountCredentials'] = ServiceAccountCredentials.build(input[:service_account_credentials]) unless input[:service_account_credentials].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -262,8 +264,8 @@ module AWS::SDK::AppStream
         data['StackName'] = input[:stack_name] unless input[:stack_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['AppVisibility'] = input[:app_visibility] unless input[:app_visibility].nil?
-        data['Attributes'] = Builders::EntitlementAttributeList.build(input[:attributes]) unless input[:attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attributes'] = EntitlementAttributeList.build(input[:attributes]) unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -272,7 +274,7 @@ module AWS::SDK::AppStream
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EntitlementAttribute.build(element) unless element.nil?
+          data << EntitlementAttribute.build(element) unless element.nil?
         end
         data
       end
@@ -301,23 +303,23 @@ module AWS::SDK::AppStream
         data['ImageArn'] = input[:image_arn] unless input[:image_arn].nil?
         data['InstanceType'] = input[:instance_type] unless input[:instance_type].nil?
         data['FleetType'] = input[:fleet_type] unless input[:fleet_type].nil?
-        data['ComputeCapacity'] = Builders::ComputeCapacity.build(input[:compute_capacity]) unless input[:compute_capacity].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['ComputeCapacity'] = ComputeCapacity.build(input[:compute_capacity]) unless input[:compute_capacity].nil?
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
         data['MaxUserDurationInSeconds'] = input[:max_user_duration_in_seconds] unless input[:max_user_duration_in_seconds].nil?
         data['DisconnectTimeoutInSeconds'] = input[:disconnect_timeout_in_seconds] unless input[:disconnect_timeout_in_seconds].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['EnableDefaultInternetAccess'] = input[:enable_default_internet_access] unless input[:enable_default_internet_access].nil?
-        data['DomainJoinInfo'] = Builders::DomainJoinInfo.build(input[:domain_join_info]) unless input[:domain_join_info].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['DomainJoinInfo'] = DomainJoinInfo.build(input[:domain_join_info]) unless input[:domain_join_info].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['IdleDisconnectTimeoutInSeconds'] = input[:idle_disconnect_timeout_in_seconds] unless input[:idle_disconnect_timeout_in_seconds].nil?
         data['IamRoleArn'] = input[:iam_role_arn] unless input[:iam_role_arn].nil?
         data['StreamView'] = input[:stream_view] unless input[:stream_view].nil?
         data['Platform'] = input[:platform] unless input[:platform].nil?
         data['MaxConcurrentSessions'] = input[:max_concurrent_sessions] unless input[:max_concurrent_sessions].nil?
-        data['UsbDeviceFilterStrings'] = Builders::UsbDeviceFilterStrings.build(input[:usb_device_filter_strings]) unless input[:usb_device_filter_strings].nil?
-        data['SessionScriptS3Location'] = Builders::S3Location.build(input[:session_script_s3_location]) unless input[:session_script_s3_location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UsbDeviceFilterStrings'] = UsbDeviceFilterStrings.build(input[:usb_device_filter_strings]) unless input[:usb_device_filter_strings].nil?
+        data['SessionScriptS3Location'] = S3Location.build(input[:session_script_s3_location]) unless input[:session_script_s3_location].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -346,8 +348,8 @@ module AWS::SDK::AppStream
     class VpcConfig
       def self.build(input)
         data = {}
-        data['SubnetIds'] = Builders::SubnetIdList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['SecurityGroupIds'] = Builders::SecurityGroupIdList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SubnetIds'] = SubnetIdList.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIdList.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data
       end
     end
@@ -397,14 +399,14 @@ module AWS::SDK::AppStream
         data['InstanceType'] = input[:instance_type] unless input[:instance_type].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
         data['IamRoleArn'] = input[:iam_role_arn] unless input[:iam_role_arn].nil?
         data['EnableDefaultInternetAccess'] = input[:enable_default_internet_access] unless input[:enable_default_internet_access].nil?
-        data['DomainJoinInfo'] = Builders::DomainJoinInfo.build(input[:domain_join_info]) unless input[:domain_join_info].nil?
+        data['DomainJoinInfo'] = DomainJoinInfo.build(input[:domain_join_info]) unless input[:domain_join_info].nil?
         data['AppstreamAgentVersion'] = input[:appstream_agent_version] unless input[:appstream_agent_version].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        data['AccessEndpoints'] = Builders::AccessEndpointList.build(input[:access_endpoints]) unless input[:access_endpoints].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        data['AccessEndpoints'] = AccessEndpointList.build(input[:access_endpoints]) unless input[:access_endpoints].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -413,7 +415,7 @@ module AWS::SDK::AppStream
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AccessEndpoint.build(element) unless element.nil?
+          data << AccessEndpoint.build(element) unless element.nil?
         end
         data
       end
@@ -439,7 +441,7 @@ module AWS::SDK::AppStream
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Validity'] = input[:validity] unless input[:validity].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -454,15 +456,15 @@ module AWS::SDK::AppStream
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
-        data['StorageConnectors'] = Builders::StorageConnectorList.build(input[:storage_connectors]) unless input[:storage_connectors].nil?
+        data['StorageConnectors'] = StorageConnectorList.build(input[:storage_connectors]) unless input[:storage_connectors].nil?
         data['RedirectURL'] = input[:redirect_url] unless input[:redirect_url].nil?
         data['FeedbackURL'] = input[:feedback_url] unless input[:feedback_url].nil?
-        data['UserSettings'] = Builders::UserSettingList.build(input[:user_settings]) unless input[:user_settings].nil?
-        data['ApplicationSettings'] = Builders::ApplicationSettings.build(input[:application_settings]) unless input[:application_settings].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        data['AccessEndpoints'] = Builders::AccessEndpointList.build(input[:access_endpoints]) unless input[:access_endpoints].nil?
-        data['EmbedHostDomains'] = Builders::EmbedHostDomains.build(input[:embed_host_domains]) unless input[:embed_host_domains].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserSettings'] = UserSettingList.build(input[:user_settings]) unless input[:user_settings].nil?
+        data['ApplicationSettings'] = ApplicationSettings.build(input[:application_settings]) unless input[:application_settings].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        data['AccessEndpoints'] = AccessEndpointList.build(input[:access_endpoints]) unless input[:access_endpoints].nil?
+        data['EmbedHostDomains'] = EmbedHostDomains.build(input[:embed_host_domains]) unless input[:embed_host_domains].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -492,7 +494,7 @@ module AWS::SDK::AppStream
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UserSetting.build(element) unless element.nil?
+          data << UserSetting.build(element) unless element.nil?
         end
         data
       end
@@ -513,7 +515,7 @@ module AWS::SDK::AppStream
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StorageConnector.build(element) unless element.nil?
+          data << StorageConnector.build(element) unless element.nil?
         end
         data
       end
@@ -525,7 +527,7 @@ module AWS::SDK::AppStream
         data = {}
         data['ConnectorType'] = input[:connector_type] unless input[:connector_type].nil?
         data['ResourceIdentifier'] = input[:resource_identifier] unless input[:resource_identifier].nil?
-        data['Domains'] = Builders::DomainList.build(input[:domains]) unless input[:domains].nil?
+        data['Domains'] = DomainList.build(input[:domains]) unless input[:domains].nil?
         data
       end
     end
@@ -555,7 +557,7 @@ module AWS::SDK::AppStream
         data['ApplicationId'] = input[:application_id] unless input[:application_id].nil?
         data['Validity'] = input[:validity] unless input[:validity].nil?
         data['SessionContext'] = input[:session_context] unless input[:session_context].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -571,9 +573,9 @@ module AWS::SDK::AppStream
         data['newImageName'] = input[:new_image_name] unless input[:new_image_name].nil?
         data['newImageDescription'] = input[:new_image_description] unless input[:new_image_description].nil?
         data['newImageDisplayName'] = input[:new_image_display_name] unless input[:new_image_display_name].nil?
-        data['newImageTags'] = Builders::Tags.build(input[:new_image_tags]) unless input[:new_image_tags].nil?
+        data['newImageTags'] = Tags.build(input[:new_image_tags]) unless input[:new_image_tags].nil?
         data['dryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -585,7 +587,7 @@ module AWS::SDK::AppStream
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.CreateUsageReportSubscription'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -602,7 +604,7 @@ module AWS::SDK::AppStream
         data['FirstName'] = input[:first_name] unless input[:first_name].nil?
         data['LastName'] = input[:last_name] unless input[:last_name].nil?
         data['AuthenticationType'] = input[:authentication_type] unless input[:authentication_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -615,7 +617,7 @@ module AWS::SDK::AppStream
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.DeleteAppBlock'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -628,7 +630,7 @@ module AWS::SDK::AppStream
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.DeleteApplication'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -641,7 +643,7 @@ module AWS::SDK::AppStream
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.DeleteDirectoryConfig'
         data = {}
         data['DirectoryName'] = input[:directory_name] unless input[:directory_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -655,7 +657,7 @@ module AWS::SDK::AppStream
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['StackName'] = input[:stack_name] unless input[:stack_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -668,7 +670,7 @@ module AWS::SDK::AppStream
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.DeleteFleet'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -681,7 +683,7 @@ module AWS::SDK::AppStream
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.DeleteImage'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -694,7 +696,7 @@ module AWS::SDK::AppStream
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.DeleteImageBuilder'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -708,7 +710,7 @@ module AWS::SDK::AppStream
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['SharedAccountId'] = input[:shared_account_id] unless input[:shared_account_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -721,7 +723,7 @@ module AWS::SDK::AppStream
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.DeleteStack'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -733,7 +735,7 @@ module AWS::SDK::AppStream
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.DeleteUsageReportSubscription'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -747,7 +749,7 @@ module AWS::SDK::AppStream
         data = {}
         data['UserName'] = input[:user_name] unless input[:user_name].nil?
         data['AuthenticationType'] = input[:authentication_type] unless input[:authentication_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -759,10 +761,10 @@ module AWS::SDK::AppStream
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.DescribeAppBlocks'
         data = {}
-        data['Arns'] = Builders::ArnList.build(input[:arns]) unless input[:arns].nil?
+        data['Arns'] = ArnList.build(input[:arns]) unless input[:arns].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -789,7 +791,7 @@ module AWS::SDK::AppStream
         data['ApplicationArn'] = input[:application_arn] unless input[:application_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -801,10 +803,10 @@ module AWS::SDK::AppStream
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.DescribeApplications'
         data = {}
-        data['Arns'] = Builders::ArnList.build(input[:arns]) unless input[:arns].nil?
+        data['Arns'] = ArnList.build(input[:arns]) unless input[:arns].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -816,10 +818,10 @@ module AWS::SDK::AppStream
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.DescribeDirectoryConfigs'
         data = {}
-        data['DirectoryNames'] = Builders::DirectoryNameList.build(input[:directory_names]) unless input[:directory_names].nil?
+        data['DirectoryNames'] = DirectoryNameList.build(input[:directory_names]) unless input[:directory_names].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -846,7 +848,7 @@ module AWS::SDK::AppStream
         data['StackName'] = input[:stack_name] unless input[:stack_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -858,9 +860,9 @@ module AWS::SDK::AppStream
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.DescribeFleets'
         data = {}
-        data['Names'] = Builders::StringList.build(input[:names]) unless input[:names].nil?
+        data['Names'] = StringList.build(input[:names]) unless input[:names].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -872,10 +874,10 @@ module AWS::SDK::AppStream
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.DescribeImageBuilders'
         data = {}
-        data['Names'] = Builders::StringList.build(input[:names]) unless input[:names].nil?
+        data['Names'] = StringList.build(input[:names]) unless input[:names].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -889,9 +891,9 @@ module AWS::SDK::AppStream
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['SharedAwsAccountIds'] = Builders::AwsAccountIdList.build(input[:shared_aws_account_ids]) unless input[:shared_aws_account_ids].nil?
+        data['SharedAwsAccountIds'] = AwsAccountIdList.build(input[:shared_aws_account_ids]) unless input[:shared_aws_account_ids].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -914,12 +916,12 @@ module AWS::SDK::AppStream
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.DescribeImages'
         data = {}
-        data['Names'] = Builders::StringList.build(input[:names]) unless input[:names].nil?
-        data['Arns'] = Builders::ArnList.build(input[:arns]) unless input[:arns].nil?
+        data['Names'] = StringList.build(input[:names]) unless input[:names].nil?
+        data['Arns'] = ArnList.build(input[:arns]) unless input[:arns].nil?
         data['Type'] = input[:type] unless input[:type].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -937,7 +939,7 @@ module AWS::SDK::AppStream
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['AuthenticationType'] = input[:authentication_type] unless input[:authentication_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -949,9 +951,9 @@ module AWS::SDK::AppStream
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.DescribeStacks'
         data = {}
-        data['Names'] = Builders::StringList.build(input[:names]) unless input[:names].nil?
+        data['Names'] = StringList.build(input[:names]) unless input[:names].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -965,7 +967,7 @@ module AWS::SDK::AppStream
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -982,7 +984,7 @@ module AWS::SDK::AppStream
         data['AuthenticationType'] = input[:authentication_type] unless input[:authentication_type].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -997,7 +999,7 @@ module AWS::SDK::AppStream
         data['AuthenticationType'] = input[:authentication_type] unless input[:authentication_type].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1011,7 +1013,7 @@ module AWS::SDK::AppStream
         data = {}
         data['UserName'] = input[:user_name] unless input[:user_name].nil?
         data['AuthenticationType'] = input[:authentication_type] unless input[:authentication_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1025,7 +1027,7 @@ module AWS::SDK::AppStream
         data = {}
         data['FleetName'] = input[:fleet_name] unless input[:fleet_name].nil?
         data['ApplicationArn'] = input[:application_arn] unless input[:application_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1040,7 +1042,7 @@ module AWS::SDK::AppStream
         data['StackName'] = input[:stack_name] unless input[:stack_name].nil?
         data['EntitlementName'] = input[:entitlement_name] unless input[:entitlement_name].nil?
         data['ApplicationIdentifier'] = input[:application_identifier] unless input[:application_identifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1054,7 +1056,7 @@ module AWS::SDK::AppStream
         data = {}
         data['FleetName'] = input[:fleet_name] unless input[:fleet_name].nil?
         data['StackName'] = input[:stack_name] unless input[:stack_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1068,7 +1070,7 @@ module AWS::SDK::AppStream
         data = {}
         data['UserName'] = input[:user_name] unless input[:user_name].nil?
         data['AuthenticationType'] = input[:authentication_type] unless input[:authentication_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1081,7 +1083,7 @@ module AWS::SDK::AppStream
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.ExpireSession'
         data = {}
         data['SessionId'] = input[:session_id] unless input[:session_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1095,7 +1097,7 @@ module AWS::SDK::AppStream
         data = {}
         data['StackName'] = input[:stack_name] unless input[:stack_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1109,7 +1111,7 @@ module AWS::SDK::AppStream
         data = {}
         data['FleetName'] = input[:fleet_name] unless input[:fleet_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1125,7 +1127,7 @@ module AWS::SDK::AppStream
         data['EntitlementName'] = input[:entitlement_name] unless input[:entitlement_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1138,7 +1140,7 @@ module AWS::SDK::AppStream
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1151,7 +1153,7 @@ module AWS::SDK::AppStream
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.StartFleet'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1165,7 +1167,7 @@ module AWS::SDK::AppStream
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['AppstreamAgentVersion'] = input[:appstream_agent_version] unless input[:appstream_agent_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1178,7 +1180,7 @@ module AWS::SDK::AppStream
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.StopFleet'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1191,7 +1193,7 @@ module AWS::SDK::AppStream
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.StopImageBuilder'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1204,8 +1206,8 @@ module AWS::SDK::AppStream
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1218,8 +1220,8 @@ module AWS::SDK::AppStream
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1245,13 +1247,13 @@ module AWS::SDK::AppStream
         data['Name'] = input[:name] unless input[:name].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['IconS3Location'] = Builders::S3Location.build(input[:icon_s3_location]) unless input[:icon_s3_location].nil?
+        data['IconS3Location'] = S3Location.build(input[:icon_s3_location]) unless input[:icon_s3_location].nil?
         data['LaunchPath'] = input[:launch_path] unless input[:launch_path].nil?
         data['WorkingDirectory'] = input[:working_directory] unless input[:working_directory].nil?
         data['LaunchParameters'] = input[:launch_parameters] unless input[:launch_parameters].nil?
         data['AppBlockArn'] = input[:app_block_arn] unless input[:app_block_arn].nil?
-        data['AttributesToDelete'] = Builders::ApplicationAttributes.build(input[:attributes_to_delete]) unless input[:attributes_to_delete].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AttributesToDelete'] = ApplicationAttributes.build(input[:attributes_to_delete]) unless input[:attributes_to_delete].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1275,9 +1277,9 @@ module AWS::SDK::AppStream
         http_req.headers['X-Amz-Target'] = 'PhotonAdminProxyService.UpdateDirectoryConfig'
         data = {}
         data['DirectoryName'] = input[:directory_name] unless input[:directory_name].nil?
-        data['OrganizationalUnitDistinguishedNames'] = Builders::OrganizationalUnitDistinguishedNamesList.build(input[:organizational_unit_distinguished_names]) unless input[:organizational_unit_distinguished_names].nil?
-        data['ServiceAccountCredentials'] = Builders::ServiceAccountCredentials.build(input[:service_account_credentials]) unless input[:service_account_credentials].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OrganizationalUnitDistinguishedNames'] = OrganizationalUnitDistinguishedNamesList.build(input[:organizational_unit_distinguished_names]) unless input[:organizational_unit_distinguished_names].nil?
+        data['ServiceAccountCredentials'] = ServiceAccountCredentials.build(input[:service_account_credentials]) unless input[:service_account_credentials].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1293,8 +1295,8 @@ module AWS::SDK::AppStream
         data['StackName'] = input[:stack_name] unless input[:stack_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['AppVisibility'] = input[:app_visibility] unless input[:app_visibility].nil?
-        data['Attributes'] = Builders::EntitlementAttributeList.build(input[:attributes]) unless input[:attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attributes'] = EntitlementAttributeList.build(input[:attributes]) unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1310,24 +1312,24 @@ module AWS::SDK::AppStream
         data['ImageArn'] = input[:image_arn] unless input[:image_arn].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['InstanceType'] = input[:instance_type] unless input[:instance_type].nil?
-        data['ComputeCapacity'] = Builders::ComputeCapacity.build(input[:compute_capacity]) unless input[:compute_capacity].nil?
-        data['VpcConfig'] = Builders::VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['ComputeCapacity'] = ComputeCapacity.build(input[:compute_capacity]) unless input[:compute_capacity].nil?
+        data['VpcConfig'] = VpcConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
         data['MaxUserDurationInSeconds'] = input[:max_user_duration_in_seconds] unless input[:max_user_duration_in_seconds].nil?
         data['DisconnectTimeoutInSeconds'] = input[:disconnect_timeout_in_seconds] unless input[:disconnect_timeout_in_seconds].nil?
         data['DeleteVpcConfig'] = input[:delete_vpc_config] unless input[:delete_vpc_config].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['EnableDefaultInternetAccess'] = input[:enable_default_internet_access] unless input[:enable_default_internet_access].nil?
-        data['DomainJoinInfo'] = Builders::DomainJoinInfo.build(input[:domain_join_info]) unless input[:domain_join_info].nil?
+        data['DomainJoinInfo'] = DomainJoinInfo.build(input[:domain_join_info]) unless input[:domain_join_info].nil?
         data['IdleDisconnectTimeoutInSeconds'] = input[:idle_disconnect_timeout_in_seconds] unless input[:idle_disconnect_timeout_in_seconds].nil?
-        data['AttributesToDelete'] = Builders::FleetAttributes.build(input[:attributes_to_delete]) unless input[:attributes_to_delete].nil?
+        data['AttributesToDelete'] = FleetAttributes.build(input[:attributes_to_delete]) unless input[:attributes_to_delete].nil?
         data['IamRoleArn'] = input[:iam_role_arn] unless input[:iam_role_arn].nil?
         data['StreamView'] = input[:stream_view] unless input[:stream_view].nil?
         data['Platform'] = input[:platform] unless input[:platform].nil?
         data['MaxConcurrentSessions'] = input[:max_concurrent_sessions] unless input[:max_concurrent_sessions].nil?
-        data['UsbDeviceFilterStrings'] = Builders::UsbDeviceFilterStrings.build(input[:usb_device_filter_strings]) unless input[:usb_device_filter_strings].nil?
-        data['SessionScriptS3Location'] = Builders::S3Location.build(input[:session_script_s3_location]) unless input[:session_script_s3_location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UsbDeviceFilterStrings'] = UsbDeviceFilterStrings.build(input[:usb_device_filter_strings]) unless input[:usb_device_filter_strings].nil?
+        data['SessionScriptS3Location'] = S3Location.build(input[:session_script_s3_location]) unless input[:session_script_s3_location].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1352,8 +1354,8 @@ module AWS::SDK::AppStream
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['SharedAccountId'] = input[:shared_account_id] unless input[:shared_account_id].nil?
-        data['ImagePermissions'] = Builders::ImagePermissions.build(input[:image_permissions]) unless input[:image_permissions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ImagePermissions'] = ImagePermissions.build(input[:image_permissions]) unless input[:image_permissions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1378,16 +1380,16 @@ module AWS::SDK::AppStream
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['StorageConnectors'] = Builders::StorageConnectorList.build(input[:storage_connectors]) unless input[:storage_connectors].nil?
+        data['StorageConnectors'] = StorageConnectorList.build(input[:storage_connectors]) unless input[:storage_connectors].nil?
         data['DeleteStorageConnectors'] = input[:delete_storage_connectors] unless input[:delete_storage_connectors].nil?
         data['RedirectURL'] = input[:redirect_url] unless input[:redirect_url].nil?
         data['FeedbackURL'] = input[:feedback_url] unless input[:feedback_url].nil?
-        data['AttributesToDelete'] = Builders::StackAttributes.build(input[:attributes_to_delete]) unless input[:attributes_to_delete].nil?
-        data['UserSettings'] = Builders::UserSettingList.build(input[:user_settings]) unless input[:user_settings].nil?
-        data['ApplicationSettings'] = Builders::ApplicationSettings.build(input[:application_settings]) unless input[:application_settings].nil?
-        data['AccessEndpoints'] = Builders::AccessEndpointList.build(input[:access_endpoints]) unless input[:access_endpoints].nil?
-        data['EmbedHostDomains'] = Builders::EmbedHostDomains.build(input[:embed_host_domains]) unless input[:embed_host_domains].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AttributesToDelete'] = StackAttributes.build(input[:attributes_to_delete]) unless input[:attributes_to_delete].nil?
+        data['UserSettings'] = UserSettingList.build(input[:user_settings]) unless input[:user_settings].nil?
+        data['ApplicationSettings'] = ApplicationSettings.build(input[:application_settings]) unless input[:application_settings].nil?
+        data['AccessEndpoints'] = AccessEndpointList.build(input[:access_endpoints]) unless input[:access_endpoints].nil?
+        data['EmbedHostDomains'] = EmbedHostDomains.build(input[:embed_host_domains]) unless input[:embed_host_domains].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AppConfig
   module Builders
 
@@ -22,8 +24,8 @@ module AWS::SDK::AppConfig
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -59,10 +61,10 @@ module AWS::SDK::AppConfig
         data['Description'] = input[:description] unless input[:description].nil?
         data['LocationUri'] = input[:location_uri] unless input[:location_uri].nil?
         data['RetrievalRoleArn'] = input[:retrieval_role_arn] unless input[:retrieval_role_arn].nil?
-        data['Validators'] = Builders::ValidatorList.build(input[:validators]) unless input[:validators].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['Validators'] = ValidatorList.build(input[:validators]) unless input[:validators].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -71,7 +73,7 @@ module AWS::SDK::AppConfig
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Validator.build(element) unless element.nil?
+          data << Validator.build(element) unless element.nil?
         end
         data
       end
@@ -104,8 +106,8 @@ module AWS::SDK::AppConfig
         data['GrowthFactor'] = Hearth::NumberHelper.serialize(input[:growth_factor]) unless input[:growth_factor].nil?
         data['GrowthType'] = input[:growth_type] unless input[:growth_type].nil?
         data['ReplicateTo'] = input[:replicate_to] unless input[:replicate_to].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -128,9 +130,9 @@ module AWS::SDK::AppConfig
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Monitors'] = Builders::MonitorList.build(input[:monitors]) unless input[:monitors].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Monitors'] = MonitorList.build(input[:monitors]) unless input[:monitors].nil?
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -139,7 +141,7 @@ module AWS::SDK::AppConfig
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Monitor.build(element) unless element.nil?
+          data << Monitor.build(element) unless element.nil?
         end
         data
       end
@@ -174,7 +176,7 @@ module AWS::SDK::AppConfig
         params = Hearth::Query::ParamList.new
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/octet-stream'
-        http_req.body = StringIO.new(input[:content] || '')
+        http_req.body = ::StringIO.new(input[:content] || '')
         http_req.headers['Description'] = input[:description] unless input[:description].nil? || input[:description].empty?
         http_req.headers['Content-Type'] = input[:content_type] unless input[:content_type].nil? || input[:content_type].empty?
         http_req.headers['Latest-Version-Number'] = input[:latest_version_number].to_s unless input[:latest_version_number].nil?
@@ -586,8 +588,8 @@ module AWS::SDK::AppConfig
         data['ConfigurationProfileId'] = input[:configuration_profile_id] unless input[:configuration_profile_id].nil?
         data['ConfigurationVersion'] = input[:configuration_version] unless input[:configuration_version].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -633,8 +635,8 @@ module AWS::SDK::AppConfig
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -690,7 +692,7 @@ module AWS::SDK::AppConfig
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -718,8 +720,8 @@ module AWS::SDK::AppConfig
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['RetrievalRoleArn'] = input[:retrieval_role_arn] unless input[:retrieval_role_arn].nil?
-        data['Validators'] = Builders::ValidatorList.build(input[:validators]) unless input[:validators].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Validators'] = ValidatorList.build(input[:validators]) unless input[:validators].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -745,7 +747,7 @@ module AWS::SDK::AppConfig
         data['FinalBakeTimeInMinutes'] = input[:final_bake_time_in_minutes] unless input[:final_bake_time_in_minutes].nil?
         data['GrowthFactor'] = Hearth::NumberHelper.serialize(input[:growth_factor]) unless input[:growth_factor].nil?
         data['GrowthType'] = input[:growth_type] unless input[:growth_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -772,8 +774,8 @@ module AWS::SDK::AppConfig
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Monitors'] = Builders::MonitorList.build(input[:monitors]) unless input[:monitors].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Monitors'] = MonitorList.build(input[:monitors]) unless input[:monitors].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

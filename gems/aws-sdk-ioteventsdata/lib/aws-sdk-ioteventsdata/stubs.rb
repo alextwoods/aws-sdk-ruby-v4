@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IoTEventsData
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::IoTEventsData
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['errorEntries'] = Stubs::BatchAlarmActionErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errorEntries'] = BatchAlarmActionErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -41,7 +43,7 @@ module AWS::SDK::IoTEventsData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchAlarmActionErrorEntry.stub(element) unless element.nil?
+          data << BatchAlarmActionErrorEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -81,8 +83,8 @@ module AWS::SDK::IoTEventsData
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['batchDeleteDetectorErrorEntries'] = Stubs::BatchDeleteDetectorErrorEntries.stub(stub[:batch_delete_detector_error_entries]) unless stub[:batch_delete_detector_error_entries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['batchDeleteDetectorErrorEntries'] = BatchDeleteDetectorErrorEntries.stub(stub[:batch_delete_detector_error_entries]) unless stub[:batch_delete_detector_error_entries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -100,7 +102,7 @@ module AWS::SDK::IoTEventsData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchDeleteDetectorErrorEntry.stub(element) unless element.nil?
+          data << BatchDeleteDetectorErrorEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -140,8 +142,8 @@ module AWS::SDK::IoTEventsData
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['errorEntries'] = Stubs::BatchAlarmActionErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errorEntries'] = BatchAlarmActionErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -157,8 +159,8 @@ module AWS::SDK::IoTEventsData
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['errorEntries'] = Stubs::BatchAlarmActionErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errorEntries'] = BatchAlarmActionErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -174,8 +176,8 @@ module AWS::SDK::IoTEventsData
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['BatchPutMessageErrorEntries'] = Stubs::BatchPutMessageErrorEntries.stub(stub[:batch_put_message_error_entries]) unless stub[:batch_put_message_error_entries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BatchPutMessageErrorEntries'] = BatchPutMessageErrorEntries.stub(stub[:batch_put_message_error_entries]) unless stub[:batch_put_message_error_entries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -193,7 +195,7 @@ module AWS::SDK::IoTEventsData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchPutMessageErrorEntry.stub(element) unless element.nil?
+          data << BatchPutMessageErrorEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -233,8 +235,8 @@ module AWS::SDK::IoTEventsData
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['errorEntries'] = Stubs::BatchAlarmActionErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errorEntries'] = BatchAlarmActionErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -250,8 +252,8 @@ module AWS::SDK::IoTEventsData
         data = {}
         http_resp.status = 202
         http_resp.headers['Content-Type'] = 'application/json'
-        data['errorEntries'] = Stubs::BatchAlarmActionErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['errorEntries'] = BatchAlarmActionErrorEntries.stub(stub[:error_entries]) unless stub[:error_entries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -267,8 +269,8 @@ module AWS::SDK::IoTEventsData
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['batchUpdateDetectorErrorEntries'] = Stubs::BatchUpdateDetectorErrorEntries.stub(stub[:batch_update_detector_error_entries]) unless stub[:batch_update_detector_error_entries].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['batchUpdateDetectorErrorEntries'] = BatchUpdateDetectorErrorEntries.stub(stub[:batch_update_detector_error_entries]) unless stub[:batch_update_detector_error_entries].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -286,7 +288,7 @@ module AWS::SDK::IoTEventsData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchUpdateDetectorErrorEntry.stub(element) unless element.nil?
+          data << BatchUpdateDetectorErrorEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -326,8 +328,8 @@ module AWS::SDK::IoTEventsData
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['alarm'] = Stubs::Alarm.stub(stub[:alarm]) unless stub[:alarm].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['alarm'] = Alarm.stub(stub[:alarm]) unless stub[:alarm].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -353,7 +355,7 @@ module AWS::SDK::IoTEventsData
         data['alarmModelName'] = stub[:alarm_model_name] unless stub[:alarm_model_name].nil?
         data['alarmModelVersion'] = stub[:alarm_model_version] unless stub[:alarm_model_version].nil?
         data['keyValue'] = stub[:key_value] unless stub[:key_value].nil?
-        data['alarmState'] = Stubs::AlarmState.stub(stub[:alarm_state]) unless stub[:alarm_state].nil?
+        data['alarmState'] = AlarmState.stub(stub[:alarm_state]) unless stub[:alarm_state].nil?
         data['severity'] = stub[:severity] unless stub[:severity].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['lastUpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_time]).to_i unless stub[:last_update_time].nil?
@@ -378,9 +380,9 @@ module AWS::SDK::IoTEventsData
         stub ||= Types::AlarmState.new
         data = {}
         data['stateName'] = stub[:state_name] unless stub[:state_name].nil?
-        data['ruleEvaluation'] = Stubs::RuleEvaluation.stub(stub[:rule_evaluation]) unless stub[:rule_evaluation].nil?
-        data['customerAction'] = Stubs::CustomerAction.stub(stub[:customer_action]) unless stub[:customer_action].nil?
-        data['systemEvent'] = Stubs::SystemEvent.stub(stub[:system_event]) unless stub[:system_event].nil?
+        data['ruleEvaluation'] = RuleEvaluation.stub(stub[:rule_evaluation]) unless stub[:rule_evaluation].nil?
+        data['customerAction'] = CustomerAction.stub(stub[:customer_action]) unless stub[:customer_action].nil?
+        data['systemEvent'] = SystemEvent.stub(stub[:system_event]) unless stub[:system_event].nil?
         data
       end
     end
@@ -400,7 +402,7 @@ module AWS::SDK::IoTEventsData
         stub ||= Types::SystemEvent.new
         data = {}
         data['eventType'] = stub[:event_type] unless stub[:event_type].nil?
-        data['stateChangeConfiguration'] = Stubs::StateChangeConfiguration.stub(stub[:state_change_configuration]) unless stub[:state_change_configuration].nil?
+        data['stateChangeConfiguration'] = StateChangeConfiguration.stub(stub[:state_change_configuration]) unless stub[:state_change_configuration].nil?
         data
       end
     end
@@ -442,11 +444,11 @@ module AWS::SDK::IoTEventsData
         stub ||= Types::CustomerAction.new
         data = {}
         data['actionName'] = stub[:action_name] unless stub[:action_name].nil?
-        data['snoozeActionConfiguration'] = Stubs::SnoozeActionConfiguration.stub(stub[:snooze_action_configuration]) unless stub[:snooze_action_configuration].nil?
-        data['enableActionConfiguration'] = Stubs::EnableActionConfiguration.stub(stub[:enable_action_configuration]) unless stub[:enable_action_configuration].nil?
-        data['disableActionConfiguration'] = Stubs::DisableActionConfiguration.stub(stub[:disable_action_configuration]) unless stub[:disable_action_configuration].nil?
-        data['acknowledgeActionConfiguration'] = Stubs::AcknowledgeActionConfiguration.stub(stub[:acknowledge_action_configuration]) unless stub[:acknowledge_action_configuration].nil?
-        data['resetActionConfiguration'] = Stubs::ResetActionConfiguration.stub(stub[:reset_action_configuration]) unless stub[:reset_action_configuration].nil?
+        data['snoozeActionConfiguration'] = SnoozeActionConfiguration.stub(stub[:snooze_action_configuration]) unless stub[:snooze_action_configuration].nil?
+        data['enableActionConfiguration'] = EnableActionConfiguration.stub(stub[:enable_action_configuration]) unless stub[:enable_action_configuration].nil?
+        data['disableActionConfiguration'] = DisableActionConfiguration.stub(stub[:disable_action_configuration]) unless stub[:disable_action_configuration].nil?
+        data['acknowledgeActionConfiguration'] = AcknowledgeActionConfiguration.stub(stub[:acknowledge_action_configuration]) unless stub[:acknowledge_action_configuration].nil?
+        data['resetActionConfiguration'] = ResetActionConfiguration.stub(stub[:reset_action_configuration]) unless stub[:reset_action_configuration].nil?
         data
       end
     end
@@ -556,7 +558,7 @@ module AWS::SDK::IoTEventsData
       def self.stub(stub)
         stub ||= Types::RuleEvaluation.new
         data = {}
-        data['simpleRuleEvaluation'] = Stubs::SimpleRuleEvaluation.stub(stub[:simple_rule_evaluation]) unless stub[:simple_rule_evaluation].nil?
+        data['simpleRuleEvaluation'] = SimpleRuleEvaluation.stub(stub[:simple_rule_evaluation]) unless stub[:simple_rule_evaluation].nil?
         data
       end
     end
@@ -595,8 +597,8 @@ module AWS::SDK::IoTEventsData
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['detector'] = Stubs::Detector.stub(stub[:detector]) unless stub[:detector].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['detector'] = Detector.stub(stub[:detector]) unless stub[:detector].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -621,7 +623,7 @@ module AWS::SDK::IoTEventsData
         data['detectorModelName'] = stub[:detector_model_name] unless stub[:detector_model_name].nil?
         data['keyValue'] = stub[:key_value] unless stub[:key_value].nil?
         data['detectorModelVersion'] = stub[:detector_model_version] unless stub[:detector_model_version].nil?
-        data['state'] = Stubs::DetectorState.stub(stub[:state]) unless stub[:state].nil?
+        data['state'] = DetectorState.stub(stub[:state]) unless stub[:state].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['lastUpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_time]).to_i unless stub[:last_update_time].nil?
         data
@@ -644,8 +646,8 @@ module AWS::SDK::IoTEventsData
         stub ||= Types::DetectorState.new
         data = {}
         data['stateName'] = stub[:state_name] unless stub[:state_name].nil?
-        data['variables'] = Stubs::Variables.stub(stub[:variables]) unless stub[:variables].nil?
-        data['timers'] = Stubs::Timers.stub(stub[:timers]) unless stub[:timers].nil?
+        data['variables'] = Variables.stub(stub[:variables]) unless stub[:variables].nil?
+        data['timers'] = Timers.stub(stub[:timers]) unless stub[:timers].nil?
         data
       end
     end
@@ -664,7 +666,7 @@ module AWS::SDK::IoTEventsData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Timer.stub(element) unless element.nil?
+          data << Timer.stub(element) unless element.nil?
         end
         data
       end
@@ -704,7 +706,7 @@ module AWS::SDK::IoTEventsData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Variable.stub(element) unless element.nil?
+          data << Variable.stub(element) unless element.nil?
         end
         data
       end
@@ -743,9 +745,9 @@ module AWS::SDK::IoTEventsData
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['alarmSummaries'] = Stubs::AlarmSummaries.stub(stub[:alarm_summaries]) unless stub[:alarm_summaries].nil?
+        data['alarmSummaries'] = AlarmSummaries.stub(stub[:alarm_summaries]) unless stub[:alarm_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -763,7 +765,7 @@ module AWS::SDK::IoTEventsData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AlarmSummary.stub(element) unless element.nil?
+          data << AlarmSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -810,9 +812,9 @@ module AWS::SDK::IoTEventsData
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['detectorSummaries'] = Stubs::DetectorSummaries.stub(stub[:detector_summaries]) unless stub[:detector_summaries].nil?
+        data['detectorSummaries'] = DetectorSummaries.stub(stub[:detector_summaries]) unless stub[:detector_summaries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -830,7 +832,7 @@ module AWS::SDK::IoTEventsData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DetectorSummary.stub(element) unless element.nil?
+          data << DetectorSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -857,7 +859,7 @@ module AWS::SDK::IoTEventsData
         data['detectorModelName'] = stub[:detector_model_name] unless stub[:detector_model_name].nil?
         data['keyValue'] = stub[:key_value] unless stub[:key_value].nil?
         data['detectorModelVersion'] = stub[:detector_model_version] unless stub[:detector_model_version].nil?
-        data['state'] = Stubs::DetectorStateSummary.stub(stub[:state]) unless stub[:state].nil?
+        data['state'] = DetectorStateSummary.stub(stub[:state]) unless stub[:state].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['lastUpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_time]).to_i unless stub[:last_update_time].nil?
         data

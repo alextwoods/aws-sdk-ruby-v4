@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SNS
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('AddPermissionResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -43,7 +45,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML::Node.new('CheckIfPhoneNumberIsOptedOutResult')
         xml << Hearth::XML::Node.new('isOptedOut', stub[:is_opted_out].to_s) unless stub[:is_opted_out].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -63,7 +65,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML::Node.new('ConfirmSubscriptionResult')
         xml << Hearth::XML::Node.new('SubscriptionArn', stub[:subscription_arn].to_s) unless stub[:subscription_arn].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -83,7 +85,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML::Node.new('CreatePlatformApplicationResult')
         xml << Hearth::XML::Node.new('PlatformApplicationArn', stub[:platform_application_arn].to_s) unless stub[:platform_application_arn].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -103,7 +105,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML::Node.new('CreatePlatformEndpointResult')
         xml << Hearth::XML::Node.new('EndpointArn', stub[:endpoint_arn].to_s) unless stub[:endpoint_arn].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -121,7 +123,7 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('CreateSMSSandboxPhoneNumberResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -141,7 +143,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML::Node.new('CreateTopicResult')
         xml << Hearth::XML::Node.new('TopicArn', stub[:topic_arn].to_s) unless stub[:topic_arn].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -159,7 +161,7 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('DeleteEndpointResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -177,7 +179,7 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('DeletePlatformApplicationResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -195,7 +197,7 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('DeleteSMSSandboxPhoneNumberResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -213,7 +215,7 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('DeleteTopicResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -231,9 +233,9 @@ module AWS::SDK::SNS
         response = Hearth::XML::Node.new('GetEndpointAttributesResponse')
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('GetEndpointAttributesResult')
-        xml << Hearth::XML::Node.new('Attributes', Stubs::MapStringToString.stub('entry', stub[:attributes])) unless stub[:attributes].nil?
+        xml << Hearth::XML::Node.new('Attributes', MapStringToString.stub('entry', stub[:attributes])) unless stub[:attributes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -273,9 +275,9 @@ module AWS::SDK::SNS
         response = Hearth::XML::Node.new('GetPlatformApplicationAttributesResponse')
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('GetPlatformApplicationAttributesResult')
-        xml << Hearth::XML::Node.new('Attributes', Stubs::MapStringToString.stub('entry', stub[:attributes])) unless stub[:attributes].nil?
+        xml << Hearth::XML::Node.new('Attributes', MapStringToString.stub('entry', stub[:attributes])) unless stub[:attributes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -293,9 +295,9 @@ module AWS::SDK::SNS
         response = Hearth::XML::Node.new('GetSMSAttributesResponse')
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('GetSMSAttributesResult')
-        xml << Hearth::XML::Node.new('attributes', Stubs::MapStringToString.stub('entry', stub[:attributes])) unless stub[:attributes].nil?
+        xml << Hearth::XML::Node.new('attributes', MapStringToString.stub('entry', stub[:attributes])) unless stub[:attributes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -315,7 +317,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML::Node.new('GetSMSSandboxAccountStatusResult')
         xml << Hearth::XML::Node.new('IsInSandbox', stub[:is_in_sandbox].to_s) unless stub[:is_in_sandbox].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -333,9 +335,9 @@ module AWS::SDK::SNS
         response = Hearth::XML::Node.new('GetSubscriptionAttributesResponse')
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('GetSubscriptionAttributesResult')
-        xml << Hearth::XML::Node.new('Attributes', Stubs::SubscriptionAttributesMap.stub('entry', stub[:attributes])) unless stub[:attributes].nil?
+        xml << Hearth::XML::Node.new('Attributes', SubscriptionAttributesMap.stub('entry', stub[:attributes])) unless stub[:attributes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -375,9 +377,9 @@ module AWS::SDK::SNS
         response = Hearth::XML::Node.new('GetTopicAttributesResponse')
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('GetTopicAttributesResult')
-        xml << Hearth::XML::Node.new('Attributes', Stubs::TopicAttributesMap.stub('entry', stub[:attributes])) unless stub[:attributes].nil?
+        xml << Hearth::XML::Node.new('Attributes', TopicAttributesMap.stub('entry', stub[:attributes])) unless stub[:attributes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -418,10 +420,10 @@ module AWS::SDK::SNS
         response = Hearth::XML::Node.new('ListEndpointsByPlatformApplicationResponse')
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('ListEndpointsByPlatformApplicationResult')
-        xml << Hearth::XML::Node.new('Endpoints', Stubs::ListOfEndpoints.stub('member', stub[:endpoints])) unless stub[:endpoints].nil?
+        xml << Hearth::XML::Node.new('Endpoints', ListOfEndpoints.stub('member', stub[:endpoints])) unless stub[:endpoints].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -439,7 +441,7 @@ module AWS::SDK::SNS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Endpoint.stub(node_name, element) unless element.nil?
+          xml << Endpoint.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -460,7 +462,7 @@ module AWS::SDK::SNS
         stub ||= Types::Endpoint.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('EndpointArn', stub[:endpoint_arn].to_s) unless stub[:endpoint_arn].nil?
-        xml << Hearth::XML::Node.new('Attributes', Stubs::MapStringToString.stub('entry', stub[:attributes])) unless stub[:attributes].nil?
+        xml << Hearth::XML::Node.new('Attributes', MapStringToString.stub('entry', stub[:attributes])) unless stub[:attributes].nil?
         xml
       end
     end
@@ -480,9 +482,9 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('ListOriginationNumbersResult')
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('PhoneNumbers', Stubs::PhoneNumberInformationList.stub('member', stub[:phone_numbers])) unless stub[:phone_numbers].nil?
+        xml << Hearth::XML::Node.new('PhoneNumbers', PhoneNumberInformationList.stub('member', stub[:phone_numbers])) unless stub[:phone_numbers].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -500,7 +502,7 @@ module AWS::SDK::SNS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PhoneNumberInformation.stub(node_name, element) unless element.nil?
+          xml << PhoneNumberInformation.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -529,7 +531,7 @@ module AWS::SDK::SNS
         xml << Hearth::XML::Node.new('Status', stub[:status].to_s) unless stub[:status].nil?
         xml << Hearth::XML::Node.new('Iso2CountryCode', stub[:iso2_country_code].to_s) unless stub[:iso2_country_code].nil?
         xml << Hearth::XML::Node.new('RouteType', stub[:route_type].to_s) unless stub[:route_type].nil?
-        xml << Hearth::XML::Node.new('NumberCapabilities', Stubs::NumberCapabilityList.stub('member', stub[:number_capabilities])) unless stub[:number_capabilities].nil?
+        xml << Hearth::XML::Node.new('NumberCapabilities', NumberCapabilityList.stub('member', stub[:number_capabilities])) unless stub[:number_capabilities].nil?
         xml
       end
     end
@@ -567,10 +569,10 @@ module AWS::SDK::SNS
         response = Hearth::XML::Node.new('ListPhoneNumbersOptedOutResponse')
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('ListPhoneNumbersOptedOutResult')
-        xml << Hearth::XML::Node.new('phoneNumbers', Stubs::PhoneNumberList.stub('member', stub[:phone_numbers])) unless stub[:phone_numbers].nil?
+        xml << Hearth::XML::Node.new('phoneNumbers', PhoneNumberList.stub('member', stub[:phone_numbers])) unless stub[:phone_numbers].nil?
         xml << Hearth::XML::Node.new('nextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -608,10 +610,10 @@ module AWS::SDK::SNS
         response = Hearth::XML::Node.new('ListPlatformApplicationsResponse')
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('ListPlatformApplicationsResult')
-        xml << Hearth::XML::Node.new('PlatformApplications', Stubs::ListOfPlatformApplications.stub('member', stub[:platform_applications])) unless stub[:platform_applications].nil?
+        xml << Hearth::XML::Node.new('PlatformApplications', ListOfPlatformApplications.stub('member', stub[:platform_applications])) unless stub[:platform_applications].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -629,7 +631,7 @@ module AWS::SDK::SNS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PlatformApplication.stub(node_name, element) unless element.nil?
+          xml << PlatformApplication.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -650,7 +652,7 @@ module AWS::SDK::SNS
         stub ||= Types::PlatformApplication.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('PlatformApplicationArn', stub[:platform_application_arn].to_s) unless stub[:platform_application_arn].nil?
-        xml << Hearth::XML::Node.new('Attributes', Stubs::MapStringToString.stub('entry', stub[:attributes])) unless stub[:attributes].nil?
+        xml << Hearth::XML::Node.new('Attributes', MapStringToString.stub('entry', stub[:attributes])) unless stub[:attributes].nil?
         xml
       end
     end
@@ -669,10 +671,10 @@ module AWS::SDK::SNS
         response = Hearth::XML::Node.new('ListSMSSandboxPhoneNumbersResponse')
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('ListSMSSandboxPhoneNumbersResult')
-        xml << Hearth::XML::Node.new('PhoneNumbers', Stubs::SMSSandboxPhoneNumberList.stub('member', stub[:phone_numbers])) unless stub[:phone_numbers].nil?
+        xml << Hearth::XML::Node.new('PhoneNumbers', SMSSandboxPhoneNumberList.stub('member', stub[:phone_numbers])) unless stub[:phone_numbers].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -690,7 +692,7 @@ module AWS::SDK::SNS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SMSSandboxPhoneNumber.stub(node_name, element) unless element.nil?
+          xml << SMSSandboxPhoneNumber.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -730,10 +732,10 @@ module AWS::SDK::SNS
         response = Hearth::XML::Node.new('ListSubscriptionsResponse')
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('ListSubscriptionsResult')
-        xml << Hearth::XML::Node.new('Subscriptions', Stubs::SubscriptionsList.stub('member', stub[:subscriptions])) unless stub[:subscriptions].nil?
+        xml << Hearth::XML::Node.new('Subscriptions', SubscriptionsList.stub('member', stub[:subscriptions])) unless stub[:subscriptions].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -751,7 +753,7 @@ module AWS::SDK::SNS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Subscription.stub(node_name, element) unless element.nil?
+          xml << Subscription.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -797,10 +799,10 @@ module AWS::SDK::SNS
         response = Hearth::XML::Node.new('ListSubscriptionsByTopicResponse')
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('ListSubscriptionsByTopicResult')
-        xml << Hearth::XML::Node.new('Subscriptions', Stubs::SubscriptionsList.stub('member', stub[:subscriptions])) unless stub[:subscriptions].nil?
+        xml << Hearth::XML::Node.new('Subscriptions', SubscriptionsList.stub('member', stub[:subscriptions])) unless stub[:subscriptions].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -818,9 +820,9 @@ module AWS::SDK::SNS
         response = Hearth::XML::Node.new('ListTagsForResourceResponse')
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('ListTagsForResourceResult')
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('member', stub[:tags])) unless stub[:tags].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -838,7 +840,7 @@ module AWS::SDK::SNS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Tag.stub(node_name, element) unless element.nil?
+          xml << Tag.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -878,10 +880,10 @@ module AWS::SDK::SNS
         response = Hearth::XML::Node.new('ListTopicsResponse')
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('ListTopicsResult')
-        xml << Hearth::XML::Node.new('Topics', Stubs::TopicsList.stub('member', stub[:topics])) unless stub[:topics].nil?
+        xml << Hearth::XML::Node.new('Topics', TopicsList.stub('member', stub[:topics])) unless stub[:topics].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -899,7 +901,7 @@ module AWS::SDK::SNS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Topic.stub(node_name, element) unless element.nil?
+          xml << Topic.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -936,7 +938,7 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('OptInPhoneNumberResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -958,7 +960,7 @@ module AWS::SDK::SNS
         xml << Hearth::XML::Node.new('MessageId', stub[:message_id].to_s) unless stub[:message_id].nil?
         xml << Hearth::XML::Node.new('SequenceNumber', stub[:sequence_number].to_s) unless stub[:sequence_number].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -977,10 +979,10 @@ module AWS::SDK::SNS
         response = Hearth::XML::Node.new('PublishBatchResponse')
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('PublishBatchResult')
-        xml << Hearth::XML::Node.new('Successful', Stubs::PublishBatchResultEntryList.stub('member', stub[:successful])) unless stub[:successful].nil?
-        xml << Hearth::XML::Node.new('Failed', Stubs::BatchResultErrorEntryList.stub('member', stub[:failed])) unless stub[:failed].nil?
+        xml << Hearth::XML::Node.new('Successful', PublishBatchResultEntryList.stub('member', stub[:successful])) unless stub[:successful].nil?
+        xml << Hearth::XML::Node.new('Failed', BatchResultErrorEntryList.stub('member', stub[:failed])) unless stub[:failed].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -998,7 +1000,7 @@ module AWS::SDK::SNS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::BatchResultErrorEntry.stub(node_name, element) unless element.nil?
+          xml << BatchResultErrorEntry.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1041,7 +1043,7 @@ module AWS::SDK::SNS
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PublishBatchResultEntry.stub(node_name, element) unless element.nil?
+          xml << PublishBatchResultEntry.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1082,7 +1084,7 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('RemovePermissionResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1100,7 +1102,7 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('SetEndpointAttributesResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1118,7 +1120,7 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('SetPlatformApplicationAttributesResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1136,7 +1138,7 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('SetSMSAttributesResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1154,7 +1156,7 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('SetSubscriptionAttributesResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1172,7 +1174,7 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('SetTopicAttributesResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1192,7 +1194,7 @@ module AWS::SDK::SNS
         xml = Hearth::XML::Node.new('SubscribeResult')
         xml << Hearth::XML::Node.new('SubscriptionArn', stub[:subscription_arn].to_s) unless stub[:subscription_arn].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1210,7 +1212,7 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('TagResourceResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1228,7 +1230,7 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('UnsubscribeResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1246,7 +1248,7 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('UntagResourceResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1264,7 +1266,7 @@ module AWS::SDK::SNS
         response.attributes['xmlns'] = 'http://sns.amazonaws.com/doc/2010-03-31/'
         xml = Hearth::XML::Node.new('VerifySMSSandboxPhoneNumberResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end

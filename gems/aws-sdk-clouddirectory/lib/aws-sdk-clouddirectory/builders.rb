@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::CloudDirectory
   module Builders
 
@@ -20,10 +23,10 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['SchemaFacet'] = Builders::SchemaFacet.build(input[:schema_facet]) unless input[:schema_facet].nil?
-        data['ObjectAttributeList'] = Builders::AttributeKeyAndValueList.build(input[:object_attribute_list]) unless input[:object_attribute_list].nil?
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SchemaFacet'] = SchemaFacet.build(input[:schema_facet]) unless input[:schema_facet].nil?
+        data['ObjectAttributeList'] = AttributeKeyAndValueList.build(input[:object_attribute_list]) unless input[:object_attribute_list].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -42,7 +45,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AttributeKeyAndValue.build(element) unless element.nil?
+          data << AttributeKeyAndValue.build(element) unless element.nil?
         end
         data
       end
@@ -52,8 +55,8 @@ module AWS::SDK::CloudDirectory
     class AttributeKeyAndValue
       def self.build(input)
         data = {}
-        data['Key'] = Builders::AttributeKey.build(input[:key]) unless input[:key].nil?
-        data['Value'] = Builders::TypedAttributeValue.build(input[:value]) unless input[:value].nil?
+        data['Key'] = AttributeKey.build(input[:key]) unless input[:key].nil?
+        data['Value'] = TypedAttributeValue.build(input[:value]) unless input[:value].nil?
         data
       end
     end
@@ -66,7 +69,7 @@ module AWS::SDK::CloudDirectory
         when Types::TypedAttributeValue::StringValue
           data['StringValue'] = input
         when Types::TypedAttributeValue::BinaryValue
-          data['BinaryValue'] = Base64::encode64(input).strip
+          data['BinaryValue'] = ::Base64::encode64(input).strip
         when Types::TypedAttributeValue::BooleanValue
           data['BooleanValue'] = input
         when Types::TypedAttributeValue::NumberValue
@@ -114,7 +117,7 @@ module AWS::SDK::CloudDirectory
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['PublishedSchemaArn'] = input[:published_schema_arn] unless input[:published_schema_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -129,10 +132,10 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ParentReference'] = Builders::ObjectReference.build(input[:parent_reference]) unless input[:parent_reference].nil?
-        data['ChildReference'] = Builders::ObjectReference.build(input[:child_reference]) unless input[:child_reference].nil?
+        data['ParentReference'] = ObjectReference.build(input[:parent_reference]) unless input[:parent_reference].nil?
+        data['ChildReference'] = ObjectReference.build(input[:child_reference]) unless input[:child_reference].nil?
         data['LinkName'] = input[:link_name] unless input[:link_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -147,9 +150,9 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['PolicyReference'] = Builders::ObjectReference.build(input[:policy_reference]) unless input[:policy_reference].nil?
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PolicyReference'] = ObjectReference.build(input[:policy_reference]) unless input[:policy_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -164,9 +167,9 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['IndexReference'] = Builders::ObjectReference.build(input[:index_reference]) unless input[:index_reference].nil?
-        data['TargetReference'] = Builders::ObjectReference.build(input[:target_reference]) unless input[:target_reference].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['IndexReference'] = ObjectReference.build(input[:index_reference]) unless input[:index_reference].nil?
+        data['TargetReference'] = ObjectReference.build(input[:target_reference]) unless input[:target_reference].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -181,11 +184,11 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['SourceObjectReference'] = Builders::ObjectReference.build(input[:source_object_reference]) unless input[:source_object_reference].nil?
-        data['TargetObjectReference'] = Builders::ObjectReference.build(input[:target_object_reference]) unless input[:target_object_reference].nil?
-        data['TypedLinkFacet'] = Builders::TypedLinkSchemaAndFacetName.build(input[:typed_link_facet]) unless input[:typed_link_facet].nil?
-        data['Attributes'] = Builders::AttributeNameAndValueList.build(input[:attributes]) unless input[:attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SourceObjectReference'] = ObjectReference.build(input[:source_object_reference]) unless input[:source_object_reference].nil?
+        data['TargetObjectReference'] = ObjectReference.build(input[:target_object_reference]) unless input[:target_object_reference].nil?
+        data['TypedLinkFacet'] = TypedLinkSchemaAndFacetName.build(input[:typed_link_facet]) unless input[:typed_link_facet].nil?
+        data['Attributes'] = AttributeNameAndValueList.build(input[:attributes]) unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -195,7 +198,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AttributeNameAndValue.build(element) unless element.nil?
+          data << AttributeNameAndValue.build(element) unless element.nil?
         end
         data
       end
@@ -206,7 +209,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = {}
         data['AttributeName'] = input[:attribute_name] unless input[:attribute_name].nil?
-        data['Value'] = Builders::TypedAttributeValue.build(input[:value]) unless input[:value].nil?
+        data['Value'] = TypedAttributeValue.build(input[:value]) unless input[:value].nil?
         data
       end
     end
@@ -231,8 +234,8 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Operations'] = Builders::BatchReadOperationList.build(input[:operations]) unless input[:operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Operations'] = BatchReadOperationList.build(input[:operations]) unless input[:operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
         http_req.headers['x-amz-consistency-level'] = input[:consistency_level] unless input[:consistency_level].nil? || input[:consistency_level].empty?
       end
@@ -243,7 +246,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BatchReadOperation.build(element) unless element.nil?
+          data << BatchReadOperation.build(element) unless element.nil?
         end
         data
       end
@@ -253,20 +256,20 @@ module AWS::SDK::CloudDirectory
     class BatchReadOperation
       def self.build(input)
         data = {}
-        data['ListObjectAttributes'] = Builders::BatchListObjectAttributes.build(input[:list_object_attributes]) unless input[:list_object_attributes].nil?
-        data['ListObjectChildren'] = Builders::BatchListObjectChildren.build(input[:list_object_children]) unless input[:list_object_children].nil?
-        data['ListAttachedIndices'] = Builders::BatchListAttachedIndices.build(input[:list_attached_indices]) unless input[:list_attached_indices].nil?
-        data['ListObjectParentPaths'] = Builders::BatchListObjectParentPaths.build(input[:list_object_parent_paths]) unless input[:list_object_parent_paths].nil?
-        data['GetObjectInformation'] = Builders::BatchGetObjectInformation.build(input[:get_object_information]) unless input[:get_object_information].nil?
-        data['GetObjectAttributes'] = Builders::BatchGetObjectAttributes.build(input[:get_object_attributes]) unless input[:get_object_attributes].nil?
-        data['ListObjectParents'] = Builders::BatchListObjectParents.build(input[:list_object_parents]) unless input[:list_object_parents].nil?
-        data['ListObjectPolicies'] = Builders::BatchListObjectPolicies.build(input[:list_object_policies]) unless input[:list_object_policies].nil?
-        data['ListPolicyAttachments'] = Builders::BatchListPolicyAttachments.build(input[:list_policy_attachments]) unless input[:list_policy_attachments].nil?
-        data['LookupPolicy'] = Builders::BatchLookupPolicy.build(input[:lookup_policy]) unless input[:lookup_policy].nil?
-        data['ListIndex'] = Builders::BatchListIndex.build(input[:list_index]) unless input[:list_index].nil?
-        data['ListOutgoingTypedLinks'] = Builders::BatchListOutgoingTypedLinks.build(input[:list_outgoing_typed_links]) unless input[:list_outgoing_typed_links].nil?
-        data['ListIncomingTypedLinks'] = Builders::BatchListIncomingTypedLinks.build(input[:list_incoming_typed_links]) unless input[:list_incoming_typed_links].nil?
-        data['GetLinkAttributes'] = Builders::BatchGetLinkAttributes.build(input[:get_link_attributes]) unless input[:get_link_attributes].nil?
+        data['ListObjectAttributes'] = BatchListObjectAttributes.build(input[:list_object_attributes]) unless input[:list_object_attributes].nil?
+        data['ListObjectChildren'] = BatchListObjectChildren.build(input[:list_object_children]) unless input[:list_object_children].nil?
+        data['ListAttachedIndices'] = BatchListAttachedIndices.build(input[:list_attached_indices]) unless input[:list_attached_indices].nil?
+        data['ListObjectParentPaths'] = BatchListObjectParentPaths.build(input[:list_object_parent_paths]) unless input[:list_object_parent_paths].nil?
+        data['GetObjectInformation'] = BatchGetObjectInformation.build(input[:get_object_information]) unless input[:get_object_information].nil?
+        data['GetObjectAttributes'] = BatchGetObjectAttributes.build(input[:get_object_attributes]) unless input[:get_object_attributes].nil?
+        data['ListObjectParents'] = BatchListObjectParents.build(input[:list_object_parents]) unless input[:list_object_parents].nil?
+        data['ListObjectPolicies'] = BatchListObjectPolicies.build(input[:list_object_policies]) unless input[:list_object_policies].nil?
+        data['ListPolicyAttachments'] = BatchListPolicyAttachments.build(input[:list_policy_attachments]) unless input[:list_policy_attachments].nil?
+        data['LookupPolicy'] = BatchLookupPolicy.build(input[:lookup_policy]) unless input[:lookup_policy].nil?
+        data['ListIndex'] = BatchListIndex.build(input[:list_index]) unless input[:list_index].nil?
+        data['ListOutgoingTypedLinks'] = BatchListOutgoingTypedLinks.build(input[:list_outgoing_typed_links]) unless input[:list_outgoing_typed_links].nil?
+        data['ListIncomingTypedLinks'] = BatchListIncomingTypedLinks.build(input[:list_incoming_typed_links]) unless input[:list_incoming_typed_links].nil?
+        data['GetLinkAttributes'] = BatchGetLinkAttributes.build(input[:get_link_attributes]) unless input[:get_link_attributes].nil?
         data
       end
     end
@@ -275,8 +278,8 @@ module AWS::SDK::CloudDirectory
     class BatchGetLinkAttributes
       def self.build(input)
         data = {}
-        data['TypedLinkSpecifier'] = Builders::TypedLinkSpecifier.build(input[:typed_link_specifier]) unless input[:typed_link_specifier].nil?
-        data['AttributeNames'] = Builders::AttributeNameList.build(input[:attribute_names]) unless input[:attribute_names].nil?
+        data['TypedLinkSpecifier'] = TypedLinkSpecifier.build(input[:typed_link_specifier]) unless input[:typed_link_specifier].nil?
+        data['AttributeNames'] = AttributeNameList.build(input[:attribute_names]) unless input[:attribute_names].nil?
         data
       end
     end
@@ -296,10 +299,10 @@ module AWS::SDK::CloudDirectory
     class TypedLinkSpecifier
       def self.build(input)
         data = {}
-        data['TypedLinkFacet'] = Builders::TypedLinkSchemaAndFacetName.build(input[:typed_link_facet]) unless input[:typed_link_facet].nil?
-        data['SourceObjectReference'] = Builders::ObjectReference.build(input[:source_object_reference]) unless input[:source_object_reference].nil?
-        data['TargetObjectReference'] = Builders::ObjectReference.build(input[:target_object_reference]) unless input[:target_object_reference].nil?
-        data['IdentityAttributeValues'] = Builders::AttributeNameAndValueList.build(input[:identity_attribute_values]) unless input[:identity_attribute_values].nil?
+        data['TypedLinkFacet'] = TypedLinkSchemaAndFacetName.build(input[:typed_link_facet]) unless input[:typed_link_facet].nil?
+        data['SourceObjectReference'] = ObjectReference.build(input[:source_object_reference]) unless input[:source_object_reference].nil?
+        data['TargetObjectReference'] = ObjectReference.build(input[:target_object_reference]) unless input[:target_object_reference].nil?
+        data['IdentityAttributeValues'] = AttributeNameAndValueList.build(input[:identity_attribute_values]) unless input[:identity_attribute_values].nil?
         data
       end
     end
@@ -308,9 +311,9 @@ module AWS::SDK::CloudDirectory
     class BatchListIncomingTypedLinks
       def self.build(input)
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
-        data['FilterAttributeRanges'] = Builders::TypedLinkAttributeRangeList.build(input[:filter_attribute_ranges]) unless input[:filter_attribute_ranges].nil?
-        data['FilterTypedLink'] = Builders::TypedLinkSchemaAndFacetName.build(input[:filter_typed_link]) unless input[:filter_typed_link].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['FilterAttributeRanges'] = TypedLinkAttributeRangeList.build(input[:filter_attribute_ranges]) unless input[:filter_attribute_ranges].nil?
+        data['FilterTypedLink'] = TypedLinkSchemaAndFacetName.build(input[:filter_typed_link]) unless input[:filter_typed_link].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data
@@ -322,7 +325,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TypedLinkAttributeRange.build(element) unless element.nil?
+          data << TypedLinkAttributeRange.build(element) unless element.nil?
         end
         data
       end
@@ -333,7 +336,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = {}
         data['AttributeName'] = input[:attribute_name] unless input[:attribute_name].nil?
-        data['Range'] = Builders::TypedAttributeValueRange.build(input[:range]) unless input[:range].nil?
+        data['Range'] = TypedAttributeValueRange.build(input[:range]) unless input[:range].nil?
         data
       end
     end
@@ -343,9 +346,9 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = {}
         data['StartMode'] = input[:start_mode] unless input[:start_mode].nil?
-        data['StartValue'] = Builders::TypedAttributeValue.build(input[:start_value]) unless input[:start_value].nil?
+        data['StartValue'] = TypedAttributeValue.build(input[:start_value]) unless input[:start_value].nil?
         data['EndMode'] = input[:end_mode] unless input[:end_mode].nil?
-        data['EndValue'] = Builders::TypedAttributeValue.build(input[:end_value]) unless input[:end_value].nil?
+        data['EndValue'] = TypedAttributeValue.build(input[:end_value]) unless input[:end_value].nil?
         data
       end
     end
@@ -354,9 +357,9 @@ module AWS::SDK::CloudDirectory
     class BatchListOutgoingTypedLinks
       def self.build(input)
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
-        data['FilterAttributeRanges'] = Builders::TypedLinkAttributeRangeList.build(input[:filter_attribute_ranges]) unless input[:filter_attribute_ranges].nil?
-        data['FilterTypedLink'] = Builders::TypedLinkSchemaAndFacetName.build(input[:filter_typed_link]) unless input[:filter_typed_link].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['FilterAttributeRanges'] = TypedLinkAttributeRangeList.build(input[:filter_attribute_ranges]) unless input[:filter_attribute_ranges].nil?
+        data['FilterTypedLink'] = TypedLinkSchemaAndFacetName.build(input[:filter_typed_link]) unless input[:filter_typed_link].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data
@@ -367,8 +370,8 @@ module AWS::SDK::CloudDirectory
     class BatchListIndex
       def self.build(input)
         data = {}
-        data['RangesOnIndexedValues'] = Builders::ObjectAttributeRangeList.build(input[:ranges_on_indexed_values]) unless input[:ranges_on_indexed_values].nil?
-        data['IndexReference'] = Builders::ObjectReference.build(input[:index_reference]) unless input[:index_reference].nil?
+        data['RangesOnIndexedValues'] = ObjectAttributeRangeList.build(input[:ranges_on_indexed_values]) unless input[:ranges_on_indexed_values].nil?
+        data['IndexReference'] = ObjectReference.build(input[:index_reference]) unless input[:index_reference].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data
@@ -380,7 +383,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ObjectAttributeRange.build(element) unless element.nil?
+          data << ObjectAttributeRange.build(element) unless element.nil?
         end
         data
       end
@@ -390,8 +393,8 @@ module AWS::SDK::CloudDirectory
     class ObjectAttributeRange
       def self.build(input)
         data = {}
-        data['AttributeKey'] = Builders::AttributeKey.build(input[:attribute_key]) unless input[:attribute_key].nil?
-        data['Range'] = Builders::TypedAttributeValueRange.build(input[:range]) unless input[:range].nil?
+        data['AttributeKey'] = AttributeKey.build(input[:attribute_key]) unless input[:attribute_key].nil?
+        data['Range'] = TypedAttributeValueRange.build(input[:range]) unless input[:range].nil?
         data
       end
     end
@@ -400,7 +403,7 @@ module AWS::SDK::CloudDirectory
     class BatchLookupPolicy
       def self.build(input)
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data
@@ -411,7 +414,7 @@ module AWS::SDK::CloudDirectory
     class BatchListPolicyAttachments
       def self.build(input)
         data = {}
-        data['PolicyReference'] = Builders::ObjectReference.build(input[:policy_reference]) unless input[:policy_reference].nil?
+        data['PolicyReference'] = ObjectReference.build(input[:policy_reference]) unless input[:policy_reference].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data
@@ -422,7 +425,7 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectPolicies
       def self.build(input)
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data
@@ -433,7 +436,7 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectParents
       def self.build(input)
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data
@@ -444,9 +447,9 @@ module AWS::SDK::CloudDirectory
     class BatchGetObjectAttributes
       def self.build(input)
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
-        data['SchemaFacet'] = Builders::SchemaFacet.build(input[:schema_facet]) unless input[:schema_facet].nil?
-        data['AttributeNames'] = Builders::AttributeNameList.build(input[:attribute_names]) unless input[:attribute_names].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['SchemaFacet'] = SchemaFacet.build(input[:schema_facet]) unless input[:schema_facet].nil?
+        data['AttributeNames'] = AttributeNameList.build(input[:attribute_names]) unless input[:attribute_names].nil?
         data
       end
     end
@@ -455,7 +458,7 @@ module AWS::SDK::CloudDirectory
     class BatchGetObjectInformation
       def self.build(input)
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data
       end
     end
@@ -464,7 +467,7 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectParentPaths
       def self.build(input)
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data
@@ -475,7 +478,7 @@ module AWS::SDK::CloudDirectory
     class BatchListAttachedIndices
       def self.build(input)
         data = {}
-        data['TargetReference'] = Builders::ObjectReference.build(input[:target_reference]) unless input[:target_reference].nil?
+        data['TargetReference'] = ObjectReference.build(input[:target_reference]) unless input[:target_reference].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data
@@ -486,7 +489,7 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectChildren
       def self.build(input)
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data
@@ -497,10 +500,10 @@ module AWS::SDK::CloudDirectory
     class BatchListObjectAttributes
       def self.build(input)
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['FacetFilter'] = Builders::SchemaFacet.build(input[:facet_filter]) unless input[:facet_filter].nil?
+        data['FacetFilter'] = SchemaFacet.build(input[:facet_filter]) unless input[:facet_filter].nil?
         data
       end
     end
@@ -515,8 +518,8 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Operations'] = Builders::BatchWriteOperationList.build(input[:operations]) unless input[:operations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Operations'] = BatchWriteOperationList.build(input[:operations]) unless input[:operations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -526,7 +529,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BatchWriteOperation.build(element) unless element.nil?
+          data << BatchWriteOperation.build(element) unless element.nil?
         end
         data
       end
@@ -536,21 +539,21 @@ module AWS::SDK::CloudDirectory
     class BatchWriteOperation
       def self.build(input)
         data = {}
-        data['CreateObject'] = Builders::BatchCreateObject.build(input[:create_object]) unless input[:create_object].nil?
-        data['AttachObject'] = Builders::BatchAttachObject.build(input[:attach_object]) unless input[:attach_object].nil?
-        data['DetachObject'] = Builders::BatchDetachObject.build(input[:detach_object]) unless input[:detach_object].nil?
-        data['UpdateObjectAttributes'] = Builders::BatchUpdateObjectAttributes.build(input[:update_object_attributes]) unless input[:update_object_attributes].nil?
-        data['DeleteObject'] = Builders::BatchDeleteObject.build(input[:delete_object]) unless input[:delete_object].nil?
-        data['AddFacetToObject'] = Builders::BatchAddFacetToObject.build(input[:add_facet_to_object]) unless input[:add_facet_to_object].nil?
-        data['RemoveFacetFromObject'] = Builders::BatchRemoveFacetFromObject.build(input[:remove_facet_from_object]) unless input[:remove_facet_from_object].nil?
-        data['AttachPolicy'] = Builders::BatchAttachPolicy.build(input[:attach_policy]) unless input[:attach_policy].nil?
-        data['DetachPolicy'] = Builders::BatchDetachPolicy.build(input[:detach_policy]) unless input[:detach_policy].nil?
-        data['CreateIndex'] = Builders::BatchCreateIndex.build(input[:create_index]) unless input[:create_index].nil?
-        data['AttachToIndex'] = Builders::BatchAttachToIndex.build(input[:attach_to_index]) unless input[:attach_to_index].nil?
-        data['DetachFromIndex'] = Builders::BatchDetachFromIndex.build(input[:detach_from_index]) unless input[:detach_from_index].nil?
-        data['AttachTypedLink'] = Builders::BatchAttachTypedLink.build(input[:attach_typed_link]) unless input[:attach_typed_link].nil?
-        data['DetachTypedLink'] = Builders::BatchDetachTypedLink.build(input[:detach_typed_link]) unless input[:detach_typed_link].nil?
-        data['UpdateLinkAttributes'] = Builders::BatchUpdateLinkAttributes.build(input[:update_link_attributes]) unless input[:update_link_attributes].nil?
+        data['CreateObject'] = BatchCreateObject.build(input[:create_object]) unless input[:create_object].nil?
+        data['AttachObject'] = BatchAttachObject.build(input[:attach_object]) unless input[:attach_object].nil?
+        data['DetachObject'] = BatchDetachObject.build(input[:detach_object]) unless input[:detach_object].nil?
+        data['UpdateObjectAttributes'] = BatchUpdateObjectAttributes.build(input[:update_object_attributes]) unless input[:update_object_attributes].nil?
+        data['DeleteObject'] = BatchDeleteObject.build(input[:delete_object]) unless input[:delete_object].nil?
+        data['AddFacetToObject'] = BatchAddFacetToObject.build(input[:add_facet_to_object]) unless input[:add_facet_to_object].nil?
+        data['RemoveFacetFromObject'] = BatchRemoveFacetFromObject.build(input[:remove_facet_from_object]) unless input[:remove_facet_from_object].nil?
+        data['AttachPolicy'] = BatchAttachPolicy.build(input[:attach_policy]) unless input[:attach_policy].nil?
+        data['DetachPolicy'] = BatchDetachPolicy.build(input[:detach_policy]) unless input[:detach_policy].nil?
+        data['CreateIndex'] = BatchCreateIndex.build(input[:create_index]) unless input[:create_index].nil?
+        data['AttachToIndex'] = BatchAttachToIndex.build(input[:attach_to_index]) unless input[:attach_to_index].nil?
+        data['DetachFromIndex'] = BatchDetachFromIndex.build(input[:detach_from_index]) unless input[:detach_from_index].nil?
+        data['AttachTypedLink'] = BatchAttachTypedLink.build(input[:attach_typed_link]) unless input[:attach_typed_link].nil?
+        data['DetachTypedLink'] = BatchDetachTypedLink.build(input[:detach_typed_link]) unless input[:detach_typed_link].nil?
+        data['UpdateLinkAttributes'] = BatchUpdateLinkAttributes.build(input[:update_link_attributes]) unless input[:update_link_attributes].nil?
         data
       end
     end
@@ -559,8 +562,8 @@ module AWS::SDK::CloudDirectory
     class BatchUpdateLinkAttributes
       def self.build(input)
         data = {}
-        data['TypedLinkSpecifier'] = Builders::TypedLinkSpecifier.build(input[:typed_link_specifier]) unless input[:typed_link_specifier].nil?
-        data['AttributeUpdates'] = Builders::LinkAttributeUpdateList.build(input[:attribute_updates]) unless input[:attribute_updates].nil?
+        data['TypedLinkSpecifier'] = TypedLinkSpecifier.build(input[:typed_link_specifier]) unless input[:typed_link_specifier].nil?
+        data['AttributeUpdates'] = LinkAttributeUpdateList.build(input[:attribute_updates]) unless input[:attribute_updates].nil?
         data
       end
     end
@@ -570,7 +573,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LinkAttributeUpdate.build(element) unless element.nil?
+          data << LinkAttributeUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -580,8 +583,8 @@ module AWS::SDK::CloudDirectory
     class LinkAttributeUpdate
       def self.build(input)
         data = {}
-        data['AttributeKey'] = Builders::AttributeKey.build(input[:attribute_key]) unless input[:attribute_key].nil?
-        data['AttributeAction'] = Builders::LinkAttributeAction.build(input[:attribute_action]) unless input[:attribute_action].nil?
+        data['AttributeKey'] = AttributeKey.build(input[:attribute_key]) unless input[:attribute_key].nil?
+        data['AttributeAction'] = LinkAttributeAction.build(input[:attribute_action]) unless input[:attribute_action].nil?
         data
       end
     end
@@ -591,7 +594,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = {}
         data['AttributeActionType'] = input[:attribute_action_type] unless input[:attribute_action_type].nil?
-        data['AttributeUpdateValue'] = Builders::TypedAttributeValue.build(input[:attribute_update_value]) unless input[:attribute_update_value].nil?
+        data['AttributeUpdateValue'] = TypedAttributeValue.build(input[:attribute_update_value]) unless input[:attribute_update_value].nil?
         data
       end
     end
@@ -600,7 +603,7 @@ module AWS::SDK::CloudDirectory
     class BatchDetachTypedLink
       def self.build(input)
         data = {}
-        data['TypedLinkSpecifier'] = Builders::TypedLinkSpecifier.build(input[:typed_link_specifier]) unless input[:typed_link_specifier].nil?
+        data['TypedLinkSpecifier'] = TypedLinkSpecifier.build(input[:typed_link_specifier]) unless input[:typed_link_specifier].nil?
         data
       end
     end
@@ -609,10 +612,10 @@ module AWS::SDK::CloudDirectory
     class BatchAttachTypedLink
       def self.build(input)
         data = {}
-        data['SourceObjectReference'] = Builders::ObjectReference.build(input[:source_object_reference]) unless input[:source_object_reference].nil?
-        data['TargetObjectReference'] = Builders::ObjectReference.build(input[:target_object_reference]) unless input[:target_object_reference].nil?
-        data['TypedLinkFacet'] = Builders::TypedLinkSchemaAndFacetName.build(input[:typed_link_facet]) unless input[:typed_link_facet].nil?
-        data['Attributes'] = Builders::AttributeNameAndValueList.build(input[:attributes]) unless input[:attributes].nil?
+        data['SourceObjectReference'] = ObjectReference.build(input[:source_object_reference]) unless input[:source_object_reference].nil?
+        data['TargetObjectReference'] = ObjectReference.build(input[:target_object_reference]) unless input[:target_object_reference].nil?
+        data['TypedLinkFacet'] = TypedLinkSchemaAndFacetName.build(input[:typed_link_facet]) unless input[:typed_link_facet].nil?
+        data['Attributes'] = AttributeNameAndValueList.build(input[:attributes]) unless input[:attributes].nil?
         data
       end
     end
@@ -621,8 +624,8 @@ module AWS::SDK::CloudDirectory
     class BatchDetachFromIndex
       def self.build(input)
         data = {}
-        data['IndexReference'] = Builders::ObjectReference.build(input[:index_reference]) unless input[:index_reference].nil?
-        data['TargetReference'] = Builders::ObjectReference.build(input[:target_reference]) unless input[:target_reference].nil?
+        data['IndexReference'] = ObjectReference.build(input[:index_reference]) unless input[:index_reference].nil?
+        data['TargetReference'] = ObjectReference.build(input[:target_reference]) unless input[:target_reference].nil?
         data
       end
     end
@@ -631,8 +634,8 @@ module AWS::SDK::CloudDirectory
     class BatchAttachToIndex
       def self.build(input)
         data = {}
-        data['IndexReference'] = Builders::ObjectReference.build(input[:index_reference]) unless input[:index_reference].nil?
-        data['TargetReference'] = Builders::ObjectReference.build(input[:target_reference]) unless input[:target_reference].nil?
+        data['IndexReference'] = ObjectReference.build(input[:index_reference]) unless input[:index_reference].nil?
+        data['TargetReference'] = ObjectReference.build(input[:target_reference]) unless input[:target_reference].nil?
         data
       end
     end
@@ -641,9 +644,9 @@ module AWS::SDK::CloudDirectory
     class BatchCreateIndex
       def self.build(input)
         data = {}
-        data['OrderedIndexedAttributeList'] = Builders::AttributeKeyList.build(input[:ordered_indexed_attribute_list]) unless input[:ordered_indexed_attribute_list].nil?
+        data['OrderedIndexedAttributeList'] = AttributeKeyList.build(input[:ordered_indexed_attribute_list]) unless input[:ordered_indexed_attribute_list].nil?
         data['IsUnique'] = input[:is_unique] unless input[:is_unique].nil?
-        data['ParentReference'] = Builders::ObjectReference.build(input[:parent_reference]) unless input[:parent_reference].nil?
+        data['ParentReference'] = ObjectReference.build(input[:parent_reference]) unless input[:parent_reference].nil?
         data['LinkName'] = input[:link_name] unless input[:link_name].nil?
         data['BatchReferenceName'] = input[:batch_reference_name] unless input[:batch_reference_name].nil?
         data
@@ -655,7 +658,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AttributeKey.build(element) unless element.nil?
+          data << AttributeKey.build(element) unless element.nil?
         end
         data
       end
@@ -665,8 +668,8 @@ module AWS::SDK::CloudDirectory
     class BatchDetachPolicy
       def self.build(input)
         data = {}
-        data['PolicyReference'] = Builders::ObjectReference.build(input[:policy_reference]) unless input[:policy_reference].nil?
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['PolicyReference'] = ObjectReference.build(input[:policy_reference]) unless input[:policy_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data
       end
     end
@@ -675,8 +678,8 @@ module AWS::SDK::CloudDirectory
     class BatchAttachPolicy
       def self.build(input)
         data = {}
-        data['PolicyReference'] = Builders::ObjectReference.build(input[:policy_reference]) unless input[:policy_reference].nil?
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['PolicyReference'] = ObjectReference.build(input[:policy_reference]) unless input[:policy_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data
       end
     end
@@ -685,8 +688,8 @@ module AWS::SDK::CloudDirectory
     class BatchRemoveFacetFromObject
       def self.build(input)
         data = {}
-        data['SchemaFacet'] = Builders::SchemaFacet.build(input[:schema_facet]) unless input[:schema_facet].nil?
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['SchemaFacet'] = SchemaFacet.build(input[:schema_facet]) unless input[:schema_facet].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data
       end
     end
@@ -695,9 +698,9 @@ module AWS::SDK::CloudDirectory
     class BatchAddFacetToObject
       def self.build(input)
         data = {}
-        data['SchemaFacet'] = Builders::SchemaFacet.build(input[:schema_facet]) unless input[:schema_facet].nil?
-        data['ObjectAttributeList'] = Builders::AttributeKeyAndValueList.build(input[:object_attribute_list]) unless input[:object_attribute_list].nil?
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['SchemaFacet'] = SchemaFacet.build(input[:schema_facet]) unless input[:schema_facet].nil?
+        data['ObjectAttributeList'] = AttributeKeyAndValueList.build(input[:object_attribute_list]) unless input[:object_attribute_list].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data
       end
     end
@@ -706,7 +709,7 @@ module AWS::SDK::CloudDirectory
     class BatchDeleteObject
       def self.build(input)
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data
       end
     end
@@ -715,8 +718,8 @@ module AWS::SDK::CloudDirectory
     class BatchUpdateObjectAttributes
       def self.build(input)
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
-        data['AttributeUpdates'] = Builders::ObjectAttributeUpdateList.build(input[:attribute_updates]) unless input[:attribute_updates].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['AttributeUpdates'] = ObjectAttributeUpdateList.build(input[:attribute_updates]) unless input[:attribute_updates].nil?
         data
       end
     end
@@ -726,7 +729,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ObjectAttributeUpdate.build(element) unless element.nil?
+          data << ObjectAttributeUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -736,8 +739,8 @@ module AWS::SDK::CloudDirectory
     class ObjectAttributeUpdate
       def self.build(input)
         data = {}
-        data['ObjectAttributeKey'] = Builders::AttributeKey.build(input[:object_attribute_key]) unless input[:object_attribute_key].nil?
-        data['ObjectAttributeAction'] = Builders::ObjectAttributeAction.build(input[:object_attribute_action]) unless input[:object_attribute_action].nil?
+        data['ObjectAttributeKey'] = AttributeKey.build(input[:object_attribute_key]) unless input[:object_attribute_key].nil?
+        data['ObjectAttributeAction'] = ObjectAttributeAction.build(input[:object_attribute_action]) unless input[:object_attribute_action].nil?
         data
       end
     end
@@ -747,7 +750,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = {}
         data['ObjectAttributeActionType'] = input[:object_attribute_action_type] unless input[:object_attribute_action_type].nil?
-        data['ObjectAttributeUpdateValue'] = Builders::TypedAttributeValue.build(input[:object_attribute_update_value]) unless input[:object_attribute_update_value].nil?
+        data['ObjectAttributeUpdateValue'] = TypedAttributeValue.build(input[:object_attribute_update_value]) unless input[:object_attribute_update_value].nil?
         data
       end
     end
@@ -756,7 +759,7 @@ module AWS::SDK::CloudDirectory
     class BatchDetachObject
       def self.build(input)
         data = {}
-        data['ParentReference'] = Builders::ObjectReference.build(input[:parent_reference]) unless input[:parent_reference].nil?
+        data['ParentReference'] = ObjectReference.build(input[:parent_reference]) unless input[:parent_reference].nil?
         data['LinkName'] = input[:link_name] unless input[:link_name].nil?
         data['BatchReferenceName'] = input[:batch_reference_name] unless input[:batch_reference_name].nil?
         data
@@ -767,8 +770,8 @@ module AWS::SDK::CloudDirectory
     class BatchAttachObject
       def self.build(input)
         data = {}
-        data['ParentReference'] = Builders::ObjectReference.build(input[:parent_reference]) unless input[:parent_reference].nil?
-        data['ChildReference'] = Builders::ObjectReference.build(input[:child_reference]) unless input[:child_reference].nil?
+        data['ParentReference'] = ObjectReference.build(input[:parent_reference]) unless input[:parent_reference].nil?
+        data['ChildReference'] = ObjectReference.build(input[:child_reference]) unless input[:child_reference].nil?
         data['LinkName'] = input[:link_name] unless input[:link_name].nil?
         data
       end
@@ -778,9 +781,9 @@ module AWS::SDK::CloudDirectory
     class BatchCreateObject
       def self.build(input)
         data = {}
-        data['SchemaFacet'] = Builders::SchemaFacetList.build(input[:schema_facet]) unless input[:schema_facet].nil?
-        data['ObjectAttributeList'] = Builders::AttributeKeyAndValueList.build(input[:object_attribute_list]) unless input[:object_attribute_list].nil?
-        data['ParentReference'] = Builders::ObjectReference.build(input[:parent_reference]) unless input[:parent_reference].nil?
+        data['SchemaFacet'] = SchemaFacetList.build(input[:schema_facet]) unless input[:schema_facet].nil?
+        data['ObjectAttributeList'] = AttributeKeyAndValueList.build(input[:object_attribute_list]) unless input[:object_attribute_list].nil?
+        data['ParentReference'] = ObjectReference.build(input[:parent_reference]) unless input[:parent_reference].nil?
         data['LinkName'] = input[:link_name] unless input[:link_name].nil?
         data['BatchReferenceName'] = input[:batch_reference_name] unless input[:batch_reference_name].nil?
         data
@@ -792,7 +795,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SchemaFacet.build(element) unless element.nil?
+          data << SchemaFacet.build(element) unless element.nil?
         end
         data
       end
@@ -809,7 +812,7 @@ module AWS::SDK::CloudDirectory
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:schema_arn] unless input[:schema_arn].nil? || input[:schema_arn].empty?
       end
     end
@@ -825,10 +828,10 @@ module AWS::SDK::CloudDirectory
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Attributes'] = Builders::FacetAttributeList.build(input[:attributes]) unless input[:attributes].nil?
+        data['Attributes'] = FacetAttributeList.build(input[:attributes]) unless input[:attributes].nil?
         data['ObjectType'] = input[:object_type] unless input[:object_type].nil?
         data['FacetStyle'] = input[:facet_style] unless input[:facet_style].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:schema_arn] unless input[:schema_arn].nil? || input[:schema_arn].empty?
       end
     end
@@ -838,7 +841,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FacetAttribute.build(element) unless element.nil?
+          data << FacetAttribute.build(element) unless element.nil?
         end
         data
       end
@@ -849,8 +852,8 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['AttributeDefinition'] = Builders::FacetAttributeDefinition.build(input[:attribute_definition]) unless input[:attribute_definition].nil?
-        data['AttributeReference'] = Builders::FacetAttributeReference.build(input[:attribute_reference]) unless input[:attribute_reference].nil?
+        data['AttributeDefinition'] = FacetAttributeDefinition.build(input[:attribute_definition]) unless input[:attribute_definition].nil?
+        data['AttributeReference'] = FacetAttributeReference.build(input[:attribute_reference]) unless input[:attribute_reference].nil?
         data['RequiredBehavior'] = input[:required_behavior] unless input[:required_behavior].nil?
         data
       end
@@ -871,9 +874,9 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
-        data['DefaultValue'] = Builders::TypedAttributeValue.build(input[:default_value]) unless input[:default_value].nil?
+        data['DefaultValue'] = TypedAttributeValue.build(input[:default_value]) unless input[:default_value].nil?
         data['IsImmutable'] = input[:is_immutable] unless input[:is_immutable].nil?
-        data['Rules'] = Builders::RuleMap.build(input[:rules]) unless input[:rules].nil?
+        data['Rules'] = RuleMap.build(input[:rules]) unless input[:rules].nil?
         data
       end
     end
@@ -883,7 +886,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::Rule.build(value) unless value.nil?
+          data[key] = Rule.build(value) unless value.nil?
         end
         data
       end
@@ -894,7 +897,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
-        data['Parameters'] = Builders::RuleParameterMap.build(input[:parameters]) unless input[:parameters].nil?
+        data['Parameters'] = RuleParameterMap.build(input[:parameters]) unless input[:parameters].nil?
         data
       end
     end
@@ -920,11 +923,11 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['OrderedIndexedAttributeList'] = Builders::AttributeKeyList.build(input[:ordered_indexed_attribute_list]) unless input[:ordered_indexed_attribute_list].nil?
+        data['OrderedIndexedAttributeList'] = AttributeKeyList.build(input[:ordered_indexed_attribute_list]) unless input[:ordered_indexed_attribute_list].nil?
         data['IsUnique'] = input[:is_unique] unless input[:is_unique].nil?
-        data['ParentReference'] = Builders::ObjectReference.build(input[:parent_reference]) unless input[:parent_reference].nil?
+        data['ParentReference'] = ObjectReference.build(input[:parent_reference]) unless input[:parent_reference].nil?
         data['LinkName'] = input[:link_name] unless input[:link_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -939,11 +942,11 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['SchemaFacets'] = Builders::SchemaFacetList.build(input[:schema_facets]) unless input[:schema_facets].nil?
-        data['ObjectAttributeList'] = Builders::AttributeKeyAndValueList.build(input[:object_attribute_list]) unless input[:object_attribute_list].nil?
-        data['ParentReference'] = Builders::ObjectReference.build(input[:parent_reference]) unless input[:parent_reference].nil?
+        data['SchemaFacets'] = SchemaFacetList.build(input[:schema_facets]) unless input[:schema_facets].nil?
+        data['ObjectAttributeList'] = AttributeKeyAndValueList.build(input[:object_attribute_list]) unless input[:object_attribute_list].nil?
+        data['ParentReference'] = ObjectReference.build(input[:parent_reference]) unless input[:parent_reference].nil?
         data['LinkName'] = input[:link_name] unless input[:link_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -959,7 +962,7 @@ module AWS::SDK::CloudDirectory
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -973,8 +976,8 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Facet'] = Builders::TypedLinkFacet.build(input[:facet]) unless input[:facet].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Facet'] = TypedLinkFacet.build(input[:facet]) unless input[:facet].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:schema_arn] unless input[:schema_arn].nil? || input[:schema_arn].empty?
       end
     end
@@ -984,8 +987,8 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Attributes'] = Builders::TypedLinkAttributeDefinitionList.build(input[:attributes]) unless input[:attributes].nil?
-        data['IdentityAttributeOrder'] = Builders::AttributeNameList.build(input[:identity_attribute_order]) unless input[:identity_attribute_order].nil?
+        data['Attributes'] = TypedLinkAttributeDefinitionList.build(input[:attributes]) unless input[:attributes].nil?
+        data['IdentityAttributeOrder'] = AttributeNameList.build(input[:identity_attribute_order]) unless input[:identity_attribute_order].nil?
         data
       end
     end
@@ -995,7 +998,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TypedLinkAttributeDefinition.build(element) unless element.nil?
+          data << TypedLinkAttributeDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -1007,9 +1010,9 @@ module AWS::SDK::CloudDirectory
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        data['DefaultValue'] = Builders::TypedAttributeValue.build(input[:default_value]) unless input[:default_value].nil?
+        data['DefaultValue'] = TypedAttributeValue.build(input[:default_value]) unless input[:default_value].nil?
         data['IsImmutable'] = input[:is_immutable] unless input[:is_immutable].nil?
-        data['Rules'] = Builders::RuleMap.build(input[:rules]) unless input[:rules].nil?
+        data['Rules'] = RuleMap.build(input[:rules]) unless input[:rules].nil?
         data['RequiredBehavior'] = input[:required_behavior] unless input[:required_behavior].nil?
         data
       end
@@ -1037,7 +1040,7 @@ module AWS::SDK::CloudDirectory
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:schema_arn] unless input[:schema_arn].nil? || input[:schema_arn].empty?
       end
     end
@@ -1052,8 +1055,8 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -1080,7 +1083,7 @@ module AWS::SDK::CloudDirectory
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:schema_arn] unless input[:schema_arn].nil? || input[:schema_arn].empty?
       end
     end
@@ -1095,9 +1098,9 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['IndexReference'] = Builders::ObjectReference.build(input[:index_reference]) unless input[:index_reference].nil?
-        data['TargetReference'] = Builders::ObjectReference.build(input[:target_reference]) unless input[:target_reference].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['IndexReference'] = ObjectReference.build(input[:index_reference]) unless input[:index_reference].nil?
+        data['TargetReference'] = ObjectReference.build(input[:target_reference]) unless input[:target_reference].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -1112,9 +1115,9 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ParentReference'] = Builders::ObjectReference.build(input[:parent_reference]) unless input[:parent_reference].nil?
+        data['ParentReference'] = ObjectReference.build(input[:parent_reference]) unless input[:parent_reference].nil?
         data['LinkName'] = input[:link_name] unless input[:link_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -1129,9 +1132,9 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['PolicyReference'] = Builders::ObjectReference.build(input[:policy_reference]) unless input[:policy_reference].nil?
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PolicyReference'] = ObjectReference.build(input[:policy_reference]) unless input[:policy_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -1146,8 +1149,8 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TypedLinkSpecifier'] = Builders::TypedLinkSpecifier.build(input[:typed_link_specifier]) unless input[:typed_link_specifier].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TypedLinkSpecifier'] = TypedLinkSpecifier.build(input[:typed_link_specifier]) unless input[:typed_link_specifier].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -1185,7 +1188,7 @@ module AWS::SDK::CloudDirectory
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['SchemaArn'] = input[:schema_arn] unless input[:schema_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1211,7 +1214,7 @@ module AWS::SDK::CloudDirectory
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:schema_arn] unless input[:schema_arn].nil? || input[:schema_arn].empty?
       end
     end
@@ -1226,10 +1229,10 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TypedLinkSpecifier'] = Builders::TypedLinkSpecifier.build(input[:typed_link_specifier]) unless input[:typed_link_specifier].nil?
-        data['AttributeNames'] = Builders::AttributeNameList.build(input[:attribute_names]) unless input[:attribute_names].nil?
+        data['TypedLinkSpecifier'] = TypedLinkSpecifier.build(input[:typed_link_specifier]) unless input[:typed_link_specifier].nil?
+        data['AttributeNames'] = AttributeNameList.build(input[:attribute_names]) unless input[:attribute_names].nil?
         data['ConsistencyLevel'] = input[:consistency_level] unless input[:consistency_level].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -1244,10 +1247,10 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
-        data['SchemaFacet'] = Builders::SchemaFacet.build(input[:schema_facet]) unless input[:schema_facet].nil?
-        data['AttributeNames'] = Builders::AttributeNameList.build(input[:attribute_names]) unless input[:attribute_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['SchemaFacet'] = SchemaFacet.build(input[:schema_facet]) unless input[:schema_facet].nil?
+        data['AttributeNames'] = AttributeNameList.build(input[:attribute_names]) unless input[:attribute_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
         http_req.headers['x-amz-consistency-level'] = input[:consistency_level] unless input[:consistency_level].nil? || input[:consistency_level].empty?
       end
@@ -1263,8 +1266,8 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
         http_req.headers['x-amz-consistency-level'] = input[:consistency_level] unless input[:consistency_level].nil? || input[:consistency_level].empty?
       end
@@ -1292,7 +1295,7 @@ module AWS::SDK::CloudDirectory
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:schema_arn] unless input[:schema_arn].nil? || input[:schema_arn].empty?
       end
     end
@@ -1311,7 +1314,7 @@ module AWS::SDK::CloudDirectory
         data['SchemaArn'] = input[:schema_arn] unless input[:schema_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1325,10 +1328,10 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TargetReference'] = Builders::ObjectReference.build(input[:target_reference]) unless input[:target_reference].nil?
+        data['TargetReference'] = ObjectReference.build(input[:target_reference]) unless input[:target_reference].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
         http_req.headers['x-amz-consistency-level'] = input[:consistency_level] unless input[:consistency_level].nil? || input[:consistency_level].empty?
       end
@@ -1346,7 +1349,7 @@ module AWS::SDK::CloudDirectory
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1363,7 +1366,7 @@ module AWS::SDK::CloudDirectory
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['state'] = input[:state] unless input[:state].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1380,7 +1383,7 @@ module AWS::SDK::CloudDirectory
         data['Name'] = input[:name] unless input[:name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:schema_arn] unless input[:schema_arn].nil? || input[:schema_arn].empty?
       end
     end
@@ -1397,7 +1400,7 @@ module AWS::SDK::CloudDirectory
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:schema_arn] unless input[:schema_arn].nil? || input[:schema_arn].empty?
       end
     end
@@ -1412,13 +1415,13 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
-        data['FilterAttributeRanges'] = Builders::TypedLinkAttributeRangeList.build(input[:filter_attribute_ranges]) unless input[:filter_attribute_ranges].nil?
-        data['FilterTypedLink'] = Builders::TypedLinkSchemaAndFacetName.build(input[:filter_typed_link]) unless input[:filter_typed_link].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['FilterAttributeRanges'] = TypedLinkAttributeRangeList.build(input[:filter_attribute_ranges]) unless input[:filter_attribute_ranges].nil?
+        data['FilterTypedLink'] = TypedLinkSchemaAndFacetName.build(input[:filter_typed_link]) unless input[:filter_typed_link].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['ConsistencyLevel'] = input[:consistency_level] unless input[:consistency_level].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -1433,11 +1436,11 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['RangesOnIndexedValues'] = Builders::ObjectAttributeRangeList.build(input[:ranges_on_indexed_values]) unless input[:ranges_on_indexed_values].nil?
-        data['IndexReference'] = Builders::ObjectReference.build(input[:index_reference]) unless input[:index_reference].nil?
+        data['RangesOnIndexedValues'] = ObjectAttributeRangeList.build(input[:ranges_on_indexed_values]) unless input[:ranges_on_indexed_values].nil?
+        data['IndexReference'] = ObjectReference.build(input[:index_reference]) unless input[:index_reference].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
         http_req.headers['x-amz-consistency-level'] = input[:consistency_level] unless input[:consistency_level].nil? || input[:consistency_level].empty?
       end
@@ -1456,7 +1459,7 @@ module AWS::SDK::CloudDirectory
         data['SchemaArn'] = input[:schema_arn] unless input[:schema_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1470,11 +1473,11 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['FacetFilter'] = Builders::SchemaFacet.build(input[:facet_filter]) unless input[:facet_filter].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FacetFilter'] = SchemaFacet.build(input[:facet_filter]) unless input[:facet_filter].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
         http_req.headers['x-amz-consistency-level'] = input[:consistency_level] unless input[:consistency_level].nil? || input[:consistency_level].empty?
       end
@@ -1490,10 +1493,10 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
         http_req.headers['x-amz-consistency-level'] = input[:consistency_level] unless input[:consistency_level].nil? || input[:consistency_level].empty?
       end
@@ -1509,10 +1512,10 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -1527,11 +1530,11 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['IncludeAllLinksToEachParent'] = input[:include_all_links_to_each_parent] unless input[:include_all_links_to_each_parent].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
         http_req.headers['x-amz-consistency-level'] = input[:consistency_level] unless input[:consistency_level].nil? || input[:consistency_level].empty?
       end
@@ -1547,10 +1550,10 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
         http_req.headers['x-amz-consistency-level'] = input[:consistency_level] unless input[:consistency_level].nil? || input[:consistency_level].empty?
       end
@@ -1566,13 +1569,13 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
-        data['FilterAttributeRanges'] = Builders::TypedLinkAttributeRangeList.build(input[:filter_attribute_ranges]) unless input[:filter_attribute_ranges].nil?
-        data['FilterTypedLink'] = Builders::TypedLinkSchemaAndFacetName.build(input[:filter_typed_link]) unless input[:filter_typed_link].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['FilterAttributeRanges'] = TypedLinkAttributeRangeList.build(input[:filter_attribute_ranges]) unless input[:filter_attribute_ranges].nil?
+        data['FilterTypedLink'] = TypedLinkSchemaAndFacetName.build(input[:filter_typed_link]) unless input[:filter_typed_link].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['ConsistencyLevel'] = input[:consistency_level] unless input[:consistency_level].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -1587,10 +1590,10 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['PolicyReference'] = Builders::ObjectReference.build(input[:policy_reference]) unless input[:policy_reference].nil?
+        data['PolicyReference'] = ObjectReference.build(input[:policy_reference]) unless input[:policy_reference].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
         http_req.headers['x-amz-consistency-level'] = input[:consistency_level] unless input[:consistency_level].nil? || input[:consistency_level].empty?
       end
@@ -1609,7 +1612,7 @@ module AWS::SDK::CloudDirectory
         data['SchemaArn'] = input[:schema_arn] unless input[:schema_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1626,7 +1629,7 @@ module AWS::SDK::CloudDirectory
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1643,7 +1646,7 @@ module AWS::SDK::CloudDirectory
         data['Name'] = input[:name] unless input[:name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:schema_arn] unless input[:schema_arn].nil? || input[:schema_arn].empty?
       end
     end
@@ -1660,7 +1663,7 @@ module AWS::SDK::CloudDirectory
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:schema_arn] unless input[:schema_arn].nil? || input[:schema_arn].empty?
       end
     end
@@ -1675,10 +1678,10 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -1696,7 +1699,7 @@ module AWS::SDK::CloudDirectory
         data['Version'] = input[:version] unless input[:version].nil?
         data['MinorVersion'] = input[:minor_version] unless input[:minor_version].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:development_schema_arn] unless input[:development_schema_arn].nil? || input[:development_schema_arn].empty?
       end
     end
@@ -1712,7 +1715,7 @@ module AWS::SDK::CloudDirectory
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Document'] = input[:document] unless input[:document].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:schema_arn] unless input[:schema_arn].nil? || input[:schema_arn].empty?
       end
     end
@@ -1727,9 +1730,9 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['SchemaFacet'] = Builders::SchemaFacet.build(input[:schema_facet]) unless input[:schema_facet].nil?
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SchemaFacet'] = SchemaFacet.build(input[:schema_facet]) unless input[:schema_facet].nil?
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -1745,8 +1748,8 @@ module AWS::SDK::CloudDirectory
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1755,7 +1758,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -1782,8 +1785,8 @@ module AWS::SDK::CloudDirectory
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1809,9 +1812,9 @@ module AWS::SDK::CloudDirectory
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['AttributeUpdates'] = Builders::FacetAttributeUpdateList.build(input[:attribute_updates]) unless input[:attribute_updates].nil?
+        data['AttributeUpdates'] = FacetAttributeUpdateList.build(input[:attribute_updates]) unless input[:attribute_updates].nil?
         data['ObjectType'] = input[:object_type] unless input[:object_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:schema_arn] unless input[:schema_arn].nil? || input[:schema_arn].empty?
       end
     end
@@ -1821,7 +1824,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FacetAttributeUpdate.build(element) unless element.nil?
+          data << FacetAttributeUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1831,7 +1834,7 @@ module AWS::SDK::CloudDirectory
     class FacetAttributeUpdate
       def self.build(input)
         data = {}
-        data['Attribute'] = Builders::FacetAttribute.build(input[:attribute]) unless input[:attribute].nil?
+        data['Attribute'] = FacetAttribute.build(input[:attribute]) unless input[:attribute].nil?
         data['Action'] = input[:action] unless input[:action].nil?
         data
       end
@@ -1847,9 +1850,9 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TypedLinkSpecifier'] = Builders::TypedLinkSpecifier.build(input[:typed_link_specifier]) unless input[:typed_link_specifier].nil?
-        data['AttributeUpdates'] = Builders::LinkAttributeUpdateList.build(input[:attribute_updates]) unless input[:attribute_updates].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TypedLinkSpecifier'] = TypedLinkSpecifier.build(input[:typed_link_specifier]) unless input[:typed_link_specifier].nil?
+        data['AttributeUpdates'] = LinkAttributeUpdateList.build(input[:attribute_updates]) unless input[:attribute_updates].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -1864,9 +1867,9 @@ module AWS::SDK::CloudDirectory
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ObjectReference'] = Builders::ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
-        data['AttributeUpdates'] = Builders::ObjectAttributeUpdateList.build(input[:attribute_updates]) unless input[:attribute_updates].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ObjectReference'] = ObjectReference.build(input[:object_reference]) unless input[:object_reference].nil?
+        data['AttributeUpdates'] = ObjectAttributeUpdateList.build(input[:attribute_updates]) unless input[:attribute_updates].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:directory_arn] unless input[:directory_arn].nil? || input[:directory_arn].empty?
       end
     end
@@ -1882,7 +1885,7 @@ module AWS::SDK::CloudDirectory
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:schema_arn] unless input[:schema_arn].nil? || input[:schema_arn].empty?
       end
     end
@@ -1898,9 +1901,9 @@ module AWS::SDK::CloudDirectory
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['AttributeUpdates'] = Builders::TypedLinkFacetAttributeUpdateList.build(input[:attribute_updates]) unless input[:attribute_updates].nil?
-        data['IdentityAttributeOrder'] = Builders::AttributeNameList.build(input[:identity_attribute_order]) unless input[:identity_attribute_order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AttributeUpdates'] = TypedLinkFacetAttributeUpdateList.build(input[:attribute_updates]) unless input[:attribute_updates].nil?
+        data['IdentityAttributeOrder'] = AttributeNameList.build(input[:identity_attribute_order]) unless input[:identity_attribute_order].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-data-partition'] = input[:schema_arn] unless input[:schema_arn].nil? || input[:schema_arn].empty?
       end
     end
@@ -1910,7 +1913,7 @@ module AWS::SDK::CloudDirectory
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TypedLinkFacetAttributeUpdate.build(element) unless element.nil?
+          data << TypedLinkFacetAttributeUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1920,7 +1923,7 @@ module AWS::SDK::CloudDirectory
     class TypedLinkFacetAttributeUpdate
       def self.build(input)
         data = {}
-        data['Attribute'] = Builders::TypedLinkAttributeDefinition.build(input[:attribute]) unless input[:attribute].nil?
+        data['Attribute'] = TypedLinkAttributeDefinition.build(input[:attribute]) unless input[:attribute].nil?
         data['Action'] = input[:action] unless input[:action].nil?
         data
       end
@@ -1939,7 +1942,7 @@ module AWS::SDK::CloudDirectory
         data['PublishedSchemaArn'] = input[:published_schema_arn] unless input[:published_schema_arn].nil?
         data['DirectoryArn'] = input[:directory_arn] unless input[:directory_arn].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1957,7 +1960,7 @@ module AWS::SDK::CloudDirectory
         data['PublishedSchemaArn'] = input[:published_schema_arn] unless input[:published_schema_arn].nil?
         data['MinorVersion'] = input[:minor_version] unless input[:minor_version].nil?
         data['DryRun'] = input[:dry_run] unless input[:dry_run].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

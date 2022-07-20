@@ -98,15 +98,15 @@ module AWS::SDK::SnowDeviceManagement
         map = Hearth::JSON.load(http_resp.body)
         data.last_reached_out_at = Time.at(map['lastReachedOutAt'].to_i) if map['lastReachedOutAt']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data.managed_device_id = map['managedDeviceId']
         data.managed_device_arn = map['managedDeviceArn']
         data.device_type = map['deviceType']
         data.associated_with_job = map['associatedWithJob']
         data.device_state = map['deviceState']
-        data.physical_network_interfaces = (Parsers::PhysicalNetworkInterfaceList.parse(map['physicalNetworkInterfaces']) unless map['physicalNetworkInterfaces'].nil?)
-        data.device_capacities = (Parsers::CapacityList.parse(map['deviceCapacities']) unless map['deviceCapacities'].nil?)
-        data.software = (Parsers::SoftwareInformation.parse(map['software']) unless map['software'].nil?)
+        data.physical_network_interfaces = (PhysicalNetworkInterfaceList.parse(map['physicalNetworkInterfaces']) unless map['physicalNetworkInterfaces'].nil?)
+        data.device_capacities = (CapacityList.parse(map['deviceCapacities']) unless map['deviceCapacities'].nil?)
+        data.software = (SoftwareInformation.parse(map['software']) unless map['software'].nil?)
         data
       end
     end
@@ -125,7 +125,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Capacity.parse(value) unless value.nil?
+          data << Capacity.parse(value) unless value.nil?
         end
         data
       end
@@ -147,7 +147,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PhysicalNetworkInterface.parse(value) unless value.nil?
+          data << PhysicalNetworkInterface.parse(value) unless value.nil?
         end
         data
       end
@@ -182,7 +182,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.parse(http_resp)
         data = Types::DescribeDeviceEc2InstancesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.instances = (Parsers::InstanceSummaryList.parse(map['instances']) unless map['instances'].nil?)
+        data.instances = (InstanceSummaryList.parse(map['instances']) unless map['instances'].nil?)
         data
       end
     end
@@ -191,7 +191,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InstanceSummary.parse(value) unless value.nil?
+          data << InstanceSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -200,7 +200,7 @@ module AWS::SDK::SnowDeviceManagement
     class InstanceSummary
       def self.parse(map)
         data = Types::InstanceSummary.new
-        data.instance = (Parsers::Instance.parse(map['instance']) unless map['instance'].nil?)
+        data.instance = (Instance.parse(map['instance']) unless map['instance'].nil?)
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         return data
       end
@@ -212,15 +212,15 @@ module AWS::SDK::SnowDeviceManagement
         data.image_id = map['imageId']
         data.ami_launch_index = map['amiLaunchIndex']
         data.instance_id = map['instanceId']
-        data.state = (Parsers::InstanceState.parse(map['state']) unless map['state'].nil?)
+        data.state = (InstanceState.parse(map['state']) unless map['state'].nil?)
         data.instance_type = map['instanceType']
         data.private_ip_address = map['privateIpAddress']
         data.public_ip_address = map['publicIpAddress']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.updated_at = Time.at(map['updatedAt'].to_i) if map['updatedAt']
-        data.block_device_mappings = (Parsers::InstanceBlockDeviceMappingList.parse(map['blockDeviceMappings']) unless map['blockDeviceMappings'].nil?)
-        data.security_groups = (Parsers::SecurityGroupIdentifierList.parse(map['securityGroups']) unless map['securityGroups'].nil?)
-        data.cpu_options = (Parsers::CpuOptions.parse(map['cpuOptions']) unless map['cpuOptions'].nil?)
+        data.block_device_mappings = (InstanceBlockDeviceMappingList.parse(map['blockDeviceMappings']) unless map['blockDeviceMappings'].nil?)
+        data.security_groups = (SecurityGroupIdentifierList.parse(map['securityGroups']) unless map['securityGroups'].nil?)
+        data.cpu_options = (CpuOptions.parse(map['cpuOptions']) unless map['cpuOptions'].nil?)
         data.root_device_name = map['rootDeviceName']
         return data
       end
@@ -239,7 +239,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SecurityGroupIdentifier.parse(value) unless value.nil?
+          data << SecurityGroupIdentifier.parse(value) unless value.nil?
         end
         data
       end
@@ -258,7 +258,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InstanceBlockDeviceMapping.parse(value) unless value.nil?
+          data << InstanceBlockDeviceMapping.parse(value) unless value.nil?
         end
         data
       end
@@ -268,7 +268,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.parse(map)
         data = Types::InstanceBlockDeviceMapping.new
         data.device_name = map['deviceName']
-        data.ebs = (Parsers::EbsInstanceBlockDevice.parse(map['ebs']) unless map['ebs'].nil?)
+        data.ebs = (EbsInstanceBlockDevice.parse(map['ebs']) unless map['ebs'].nil?)
         return data
       end
     end
@@ -315,13 +315,13 @@ module AWS::SDK::SnowDeviceManagement
         map = Hearth::JSON.load(http_resp.body)
         data.task_id = map['taskId']
         data.task_arn = map['taskArn']
-        data.targets = (Parsers::TargetList.parse(map['targets']) unless map['targets'].nil?)
+        data.targets = (TargetList.parse(map['targets']) unless map['targets'].nil?)
         data.state = map['state']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         data.completed_at = Time.at(map['completedAt'].to_i) if map['completedAt']
         data.description = map['description']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -341,7 +341,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.parse(http_resp)
         data = Types::ListDeviceResourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resources = (Parsers::ResourceSummaryList.parse(map['resources']) unless map['resources'].nil?)
+        data.resources = (ResourceSummaryList.parse(map['resources']) unless map['resources'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -351,7 +351,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourceSummary.parse(value) unless value.nil?
+          data << ResourceSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -372,7 +372,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.parse(http_resp)
         data = Types::ListDevicesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.devices = (Parsers::DeviceSummaryList.parse(map['devices']) unless map['devices'].nil?)
+        data.devices = (DeviceSummaryList.parse(map['devices']) unless map['devices'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -382,7 +382,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DeviceSummary.parse(value) unless value.nil?
+          data << DeviceSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -394,7 +394,7 @@ module AWS::SDK::SnowDeviceManagement
         data.managed_device_id = map['managedDeviceId']
         data.managed_device_arn = map['managedDeviceArn']
         data.associated_with_job = map['associatedWithJob']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -404,7 +404,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.parse(http_resp)
         data = Types::ListExecutionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.executions = (Parsers::ExecutionSummaryList.parse(map['executions']) unless map['executions'].nil?)
+        data.executions = (ExecutionSummaryList.parse(map['executions']) unless map['executions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -414,7 +414,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ExecutionSummary.parse(value) unless value.nil?
+          data << ExecutionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -436,7 +436,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -446,7 +446,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.parse(http_resp)
         data = Types::ListTasksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tasks = (Parsers::TaskSummaryList.parse(map['tasks']) unless map['tasks'].nil?)
+        data.tasks = (TaskSummaryList.parse(map['tasks']) unless map['tasks'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -456,7 +456,7 @@ module AWS::SDK::SnowDeviceManagement
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TaskSummary.parse(value) unless value.nil?
+          data << TaskSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -468,7 +468,7 @@ module AWS::SDK::SnowDeviceManagement
         data.task_id = map['taskId']
         data.task_arn = map['taskArn']
         data.state = map['state']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end

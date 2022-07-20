@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Forecastquery
   module Builders
 
@@ -21,9 +23,9 @@ module AWS::SDK::Forecastquery
         data['ForecastArn'] = input[:forecast_arn] unless input[:forecast_arn].nil?
         data['StartDate'] = input[:start_date] unless input[:start_date].nil?
         data['EndDate'] = input[:end_date] unless input[:end_date].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

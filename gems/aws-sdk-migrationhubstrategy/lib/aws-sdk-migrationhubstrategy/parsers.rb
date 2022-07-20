@@ -15,10 +15,10 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(http_resp)
         data = Types::GetApplicationComponentDetailsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.application_component_detail = (Parsers::ApplicationComponentDetail.parse(map['applicationComponentDetail']) unless map['applicationComponentDetail'].nil?)
-        data.associated_applications = (Parsers::AssociatedApplications.parse(map['associatedApplications']) unless map['associatedApplications'].nil?)
+        data.application_component_detail = (ApplicationComponentDetail.parse(map['applicationComponentDetail']) unless map['applicationComponentDetail'].nil?)
+        data.associated_applications = (AssociatedApplications.parse(map['associatedApplications']) unless map['associatedApplications'].nil?)
         data.more_application_resource = map['moreApplicationResource']
-        data.associated_server_ids = (Parsers::AssociatedServerIDs.parse(map['associatedServerIds']) unless map['associatedServerIds'].nil?)
+        data.associated_server_ids = (AssociatedServerIDs.parse(map['associatedServerIds']) unless map['associatedServerIds'].nil?)
         data
       end
     end
@@ -37,7 +37,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssociatedApplication.parse(value) unless value.nil?
+          data << AssociatedApplication.parse(value) unless value.nil?
         end
         data
       end
@@ -57,16 +57,16 @@ module AWS::SDK::MigrationHubStrategy
         data = Types::ApplicationComponentDetail.new
         data.id = map['id']
         data.name = map['name']
-        data.recommendation_set = (Parsers::RecommendationSet.parse(map['recommendationSet']) unless map['recommendationSet'].nil?)
+        data.recommendation_set = (RecommendationSet.parse(map['recommendationSet']) unless map['recommendationSet'].nil?)
         data.analysis_status = map['analysisStatus']
         data.status_message = map['statusMessage']
-        data.list_antipattern_severity_summary = (Parsers::ListAntipatternSeveritySummary.parse(map['listAntipatternSeveritySummary']) unless map['listAntipatternSeveritySummary'].nil?)
-        data.database_config_detail = (Parsers::DatabaseConfigDetail.parse(map['databaseConfigDetail']) unless map['databaseConfigDetail'].nil?)
-        data.source_code_repositories = (Parsers::SourceCodeRepositories.parse(map['sourceCodeRepositories']) unless map['sourceCodeRepositories'].nil?)
+        data.list_antipattern_severity_summary = (ListAntipatternSeveritySummary.parse(map['listAntipatternSeveritySummary']) unless map['listAntipatternSeveritySummary'].nil?)
+        data.database_config_detail = (DatabaseConfigDetail.parse(map['databaseConfigDetail']) unless map['databaseConfigDetail'].nil?)
+        data.source_code_repositories = (SourceCodeRepositories.parse(map['sourceCodeRepositories']) unless map['sourceCodeRepositories'].nil?)
         data.app_type = map['appType']
         data.resource_sub_type = map['resourceSubType']
         data.inclusion_status = map['inclusionStatus']
-        data.antipattern_report_s3_object = (Parsers::S3Object.parse(map['antipatternReportS3Object']) unless map['antipatternReportS3Object'].nil?)
+        data.antipattern_report_s3_object = (S3Object.parse(map['antipatternReportS3Object']) unless map['antipatternReportS3Object'].nil?)
         data.antipattern_report_status = map['antipatternReportStatus']
         data.antipattern_report_status_message = map['antipatternReportStatusMessage']
         data.os_version = map['osVersion']
@@ -91,7 +91,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SourceCodeRepository.parse(value) unless value.nil?
+          data << SourceCodeRepository.parse(value) unless value.nil?
         end
         data
       end
@@ -119,7 +119,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AntipatternSeveritySummary.parse(value) unless value.nil?
+          data << AntipatternSeveritySummary.parse(value) unless value.nil?
         end
         data
       end
@@ -137,7 +137,7 @@ module AWS::SDK::MigrationHubStrategy
     class RecommendationSet
       def self.parse(map)
         data = Types::RecommendationSet.new
-        data.transformation_tool = (Parsers::TransformationTool.parse(map['transformationTool']) unless map['transformationTool'].nil?)
+        data.transformation_tool = (TransformationTool.parse(map['transformationTool']) unless map['transformationTool'].nil?)
         data.target_destination = map['targetDestination']
         data.strategy = map['strategy']
         return data
@@ -189,7 +189,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(http_resp)
         data = Types::GetApplicationComponentStrategiesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.application_component_strategies = (Parsers::ApplicationComponentStrategies.parse(map['applicationComponentStrategies']) unless map['applicationComponentStrategies'].nil?)
+        data.application_component_strategies = (ApplicationComponentStrategies.parse(map['applicationComponentStrategies']) unless map['applicationComponentStrategies'].nil?)
         data
       end
     end
@@ -198,7 +198,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ApplicationComponentStrategy.parse(value) unless value.nil?
+          data << ApplicationComponentStrategy.parse(value) unless value.nil?
         end
         data
       end
@@ -207,7 +207,7 @@ module AWS::SDK::MigrationHubStrategy
     class ApplicationComponentStrategy
       def self.parse(map)
         data = Types::ApplicationComponentStrategy.new
-        data.recommendation = (Parsers::RecommendationSet.parse(map['recommendation']) unless map['recommendation'].nil?)
+        data.recommendation = (RecommendationSet.parse(map['recommendation']) unless map['recommendation'].nil?)
         data.status = map['status']
         data.is_preferred = map['isPreferred']
         return data
@@ -220,7 +220,7 @@ module AWS::SDK::MigrationHubStrategy
         data = Types::GetAssessmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.id = map['id']
-        data.data_collection_details = (Parsers::DataCollectionDetails.parse(map['dataCollectionDetails']) unless map['dataCollectionDetails'].nil?)
+        data.data_collection_details = (DataCollectionDetails.parse(map['dataCollectionDetails']) unless map['dataCollectionDetails'].nil?)
         data
       end
     end
@@ -284,9 +284,9 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(http_resp)
         data = Types::GetPortfolioPreferencesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.prioritize_business_goals = (Parsers::PrioritizeBusinessGoals.parse(map['prioritizeBusinessGoals']) unless map['prioritizeBusinessGoals'].nil?)
-        data.application_preferences = (Parsers::ApplicationPreferences.parse(map['applicationPreferences']) unless map['applicationPreferences'].nil?)
-        data.database_preferences = (Parsers::DatabasePreferences.parse(map['databasePreferences']) unless map['databasePreferences'].nil?)
+        data.prioritize_business_goals = (PrioritizeBusinessGoals.parse(map['prioritizeBusinessGoals']) unless map['prioritizeBusinessGoals'].nil?)
+        data.application_preferences = (ApplicationPreferences.parse(map['applicationPreferences']) unless map['applicationPreferences'].nil?)
+        data.database_preferences = (DatabasePreferences.parse(map['databasePreferences']) unless map['databasePreferences'].nil?)
         data
       end
     end
@@ -295,7 +295,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(map)
         data = Types::DatabasePreferences.new
         data.database_management_preference = map['databaseManagementPreference']
-        data.database_migration_preference = (Parsers::DatabaseMigrationPreference.parse(map['databaseMigrationPreference']) unless map['databaseMigrationPreference'].nil?)
+        data.database_migration_preference = (DatabaseMigrationPreference.parse(map['databaseMigrationPreference']) unless map['databaseMigrationPreference'].nil?)
         return data
       end
     end
@@ -305,13 +305,13 @@ module AWS::SDK::MigrationHubStrategy
         key, value = map.flatten
         case key
         when 'heterogeneous'
-          value = (Parsers::Heterogeneous.parse(value) unless value.nil?)
+          value = (Heterogeneous.parse(value) unless value.nil?)
           Types::DatabaseMigrationPreference::Heterogeneous.new(value) if value
         when 'homogeneous'
-          value = (Parsers::Homogeneous.parse(value) unless value.nil?)
+          value = (Homogeneous.parse(value) unless value.nil?)
           Types::DatabaseMigrationPreference::Homogeneous.new(value) if value
         when 'noPreference'
-          value = (Parsers::NoDatabaseMigrationPreference.parse(value) unless value.nil?)
+          value = (NoDatabaseMigrationPreference.parse(value) unless value.nil?)
           Types::DatabaseMigrationPreference::NoPreference.new(value) if value
         else
           Types::DatabaseMigrationPreference::Unknown.new({name: key, value: value})
@@ -322,7 +322,7 @@ module AWS::SDK::MigrationHubStrategy
     class NoDatabaseMigrationPreference
       def self.parse(map)
         data = Types::NoDatabaseMigrationPreference.new
-        data.target_database_engine = (Parsers::TargetDatabaseEngines.parse(map['targetDatabaseEngine']) unless map['targetDatabaseEngine'].nil?)
+        data.target_database_engine = (TargetDatabaseEngines.parse(map['targetDatabaseEngine']) unless map['targetDatabaseEngine'].nil?)
         return data
       end
     end
@@ -340,7 +340,7 @@ module AWS::SDK::MigrationHubStrategy
     class Homogeneous
       def self.parse(map)
         data = Types::Homogeneous.new
-        data.target_database_engine = (Parsers::HomogeneousTargetDatabaseEngines.parse(map['targetDatabaseEngine']) unless map['targetDatabaseEngine'].nil?)
+        data.target_database_engine = (HomogeneousTargetDatabaseEngines.parse(map['targetDatabaseEngine']) unless map['targetDatabaseEngine'].nil?)
         return data
       end
     end
@@ -358,7 +358,7 @@ module AWS::SDK::MigrationHubStrategy
     class Heterogeneous
       def self.parse(map)
         data = Types::Heterogeneous.new
-        data.target_database_engine = (Parsers::HeterogeneousTargetDatabaseEngines.parse(map['targetDatabaseEngine']) unless map['targetDatabaseEngine'].nil?)
+        data.target_database_engine = (HeterogeneousTargetDatabaseEngines.parse(map['targetDatabaseEngine']) unless map['targetDatabaseEngine'].nil?)
         return data
       end
     end
@@ -376,7 +376,7 @@ module AWS::SDK::MigrationHubStrategy
     class ApplicationPreferences
       def self.parse(map)
         data = Types::ApplicationPreferences.new
-        data.management_preference = (Parsers::ManagementPreference.parse(map['managementPreference']) unless map['managementPreference'].nil?)
+        data.management_preference = (ManagementPreference.parse(map['managementPreference']) unless map['managementPreference'].nil?)
         return data
       end
     end
@@ -386,13 +386,13 @@ module AWS::SDK::MigrationHubStrategy
         key, value = map.flatten
         case key
         when 'awsManagedResources'
-          value = (Parsers::AwsManagedResources.parse(value) unless value.nil?)
+          value = (AwsManagedResources.parse(value) unless value.nil?)
           Types::ManagementPreference::AwsManagedResources.new(value) if value
         when 'selfManageResources'
-          value = (Parsers::SelfManageResources.parse(value) unless value.nil?)
+          value = (SelfManageResources.parse(value) unless value.nil?)
           Types::ManagementPreference::SelfManageResources.new(value) if value
         when 'noPreference'
-          value = (Parsers::NoManagementPreference.parse(value) unless value.nil?)
+          value = (NoManagementPreference.parse(value) unless value.nil?)
           Types::ManagementPreference::NoPreference.new(value) if value
         else
           Types::ManagementPreference::Unknown.new({name: key, value: value})
@@ -403,7 +403,7 @@ module AWS::SDK::MigrationHubStrategy
     class NoManagementPreference
       def self.parse(map)
         data = Types::NoManagementPreference.new
-        data.target_destination = (Parsers::NoPreferenceTargetDestinations.parse(map['targetDestination']) unless map['targetDestination'].nil?)
+        data.target_destination = (NoPreferenceTargetDestinations.parse(map['targetDestination']) unless map['targetDestination'].nil?)
         return data
       end
     end
@@ -421,7 +421,7 @@ module AWS::SDK::MigrationHubStrategy
     class SelfManageResources
       def self.parse(map)
         data = Types::SelfManageResources.new
-        data.target_destination = (Parsers::SelfManageTargetDestinations.parse(map['targetDestination']) unless map['targetDestination'].nil?)
+        data.target_destination = (SelfManageTargetDestinations.parse(map['targetDestination']) unless map['targetDestination'].nil?)
         return data
       end
     end
@@ -439,7 +439,7 @@ module AWS::SDK::MigrationHubStrategy
     class AwsManagedResources
       def self.parse(map)
         data = Types::AwsManagedResources.new
-        data.target_destination = (Parsers::AwsManagedTargetDestinations.parse(map['targetDestination']) unless map['targetDestination'].nil?)
+        data.target_destination = (AwsManagedTargetDestinations.parse(map['targetDestination']) unless map['targetDestination'].nil?)
         return data
       end
     end
@@ -457,7 +457,7 @@ module AWS::SDK::MigrationHubStrategy
     class PrioritizeBusinessGoals
       def self.parse(map)
         data = Types::PrioritizeBusinessGoals.new
-        data.business_goals = (Parsers::BusinessGoals.parse(map['businessGoals']) unless map['businessGoals'].nil?)
+        data.business_goals = (BusinessGoals.parse(map['businessGoals']) unless map['businessGoals'].nil?)
         return data
       end
     end
@@ -478,7 +478,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(http_resp)
         data = Types::GetPortfolioSummaryOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assessment_summary = (Parsers::AssessmentSummary.parse(map['assessmentSummary']) unless map['assessmentSummary'].nil?)
+        data.assessment_summary = (AssessmentSummary.parse(map['assessmentSummary']) unless map['assessmentSummary'].nil?)
         data
       end
     end
@@ -486,12 +486,12 @@ module AWS::SDK::MigrationHubStrategy
     class AssessmentSummary
       def self.parse(map)
         data = Types::AssessmentSummary.new
-        data.list_server_strategy_summary = (Parsers::ListStrategySummary.parse(map['listServerStrategySummary']) unless map['listServerStrategySummary'].nil?)
-        data.list_application_component_strategy_summary = (Parsers::ListStrategySummary.parse(map['listApplicationComponentStrategySummary']) unless map['listApplicationComponentStrategySummary'].nil?)
-        data.list_antipattern_severity_summary = (Parsers::ListAntipatternSeveritySummary.parse(map['listAntipatternSeveritySummary']) unless map['listAntipatternSeveritySummary'].nil?)
-        data.list_application_component_summary = (Parsers::ListApplicationComponentSummary.parse(map['listApplicationComponentSummary']) unless map['listApplicationComponentSummary'].nil?)
-        data.list_server_summary = (Parsers::ListServerSummary.parse(map['listServerSummary']) unless map['listServerSummary'].nil?)
-        data.antipattern_report_s3_object = (Parsers::S3Object.parse(map['antipatternReportS3Object']) unless map['antipatternReportS3Object'].nil?)
+        data.list_server_strategy_summary = (ListStrategySummary.parse(map['listServerStrategySummary']) unless map['listServerStrategySummary'].nil?)
+        data.list_application_component_strategy_summary = (ListStrategySummary.parse(map['listApplicationComponentStrategySummary']) unless map['listApplicationComponentStrategySummary'].nil?)
+        data.list_antipattern_severity_summary = (ListAntipatternSeveritySummary.parse(map['listAntipatternSeveritySummary']) unless map['listAntipatternSeveritySummary'].nil?)
+        data.list_application_component_summary = (ListApplicationComponentSummary.parse(map['listApplicationComponentSummary']) unless map['listApplicationComponentSummary'].nil?)
+        data.list_server_summary = (ListServerSummary.parse(map['listServerSummary']) unless map['listServerSummary'].nil?)
+        data.antipattern_report_s3_object = (S3Object.parse(map['antipatternReportS3Object']) unless map['antipatternReportS3Object'].nil?)
         data.antipattern_report_status = map['antipatternReportStatus']
         data.antipattern_report_status_message = map['antipatternReportStatusMessage']
         data.last_analyzed_timestamp = Time.at(map['lastAnalyzedTimestamp'].to_i) if map['lastAnalyzedTimestamp']
@@ -503,7 +503,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ServerSummary.parse(value) unless value.nil?
+          data << ServerSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -522,7 +522,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ApplicationComponentSummary.parse(value) unless value.nil?
+          data << ApplicationComponentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -541,7 +541,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StrategySummary.parse(value) unless value.nil?
+          data << StrategySummary.parse(value) unless value.nil?
         end
         data
       end
@@ -562,7 +562,7 @@ module AWS::SDK::MigrationHubStrategy
         data = Types::GetRecommendationReportDetailsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.id = map['id']
-        data.recommendation_report_details = (Parsers::RecommendationReportDetails.parse(map['recommendationReportDetails']) unless map['recommendationReportDetails'].nil?)
+        data.recommendation_report_details = (RecommendationReportDetails.parse(map['recommendationReportDetails']) unless map['recommendationReportDetails'].nil?)
         data
       end
     end
@@ -575,7 +575,7 @@ module AWS::SDK::MigrationHubStrategy
         data.start_time = Time.at(map['startTime'].to_i) if map['startTime']
         data.completion_time = Time.at(map['completionTime'].to_i) if map['completionTime']
         data.s3_bucket = map['s3Bucket']
-        data.s3_keys = (Parsers::S3Keys.parse(map['s3Keys']) unless map['s3Keys'].nil?)
+        data.s3_keys = (S3Keys.parse(map['s3Keys']) unless map['s3Keys'].nil?)
         return data
       end
     end
@@ -596,8 +596,8 @@ module AWS::SDK::MigrationHubStrategy
         data = Types::GetServerDetailsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.server_detail = (Parsers::ServerDetail.parse(map['serverDetail']) unless map['serverDetail'].nil?)
-        data.associated_applications = (Parsers::AssociatedApplications.parse(map['associatedApplications']) unless map['associatedApplications'].nil?)
+        data.server_detail = (ServerDetail.parse(map['serverDetail']) unless map['serverDetail'].nil?)
+        data.associated_applications = (AssociatedApplications.parse(map['associatedApplications']) unless map['associatedApplications'].nil?)
         data
       end
     end
@@ -607,13 +607,13 @@ module AWS::SDK::MigrationHubStrategy
         data = Types::ServerDetail.new
         data.id = map['id']
         data.name = map['name']
-        data.recommendation_set = (Parsers::RecommendationSet.parse(map['recommendationSet']) unless map['recommendationSet'].nil?)
+        data.recommendation_set = (RecommendationSet.parse(map['recommendationSet']) unless map['recommendationSet'].nil?)
         data.data_collection_status = map['dataCollectionStatus']
         data.status_message = map['statusMessage']
-        data.list_antipattern_severity_summary = (Parsers::ListAntipatternSeveritySummary.parse(map['listAntipatternSeveritySummary']) unless map['listAntipatternSeveritySummary'].nil?)
-        data.system_info = (Parsers::SystemInfo.parse(map['systemInfo']) unless map['systemInfo'].nil?)
-        data.application_component_strategy_summary = (Parsers::ListStrategySummary.parse(map['applicationComponentStrategySummary']) unless map['applicationComponentStrategySummary'].nil?)
-        data.antipattern_report_s3_object = (Parsers::S3Object.parse(map['antipatternReportS3Object']) unless map['antipatternReportS3Object'].nil?)
+        data.list_antipattern_severity_summary = (ListAntipatternSeveritySummary.parse(map['listAntipatternSeveritySummary']) unless map['listAntipatternSeveritySummary'].nil?)
+        data.system_info = (SystemInfo.parse(map['systemInfo']) unless map['systemInfo'].nil?)
+        data.application_component_strategy_summary = (ListStrategySummary.parse(map['applicationComponentStrategySummary']) unless map['applicationComponentStrategySummary'].nil?)
+        data.antipattern_report_s3_object = (S3Object.parse(map['antipatternReportS3Object']) unless map['antipatternReportS3Object'].nil?)
         data.antipattern_report_status = map['antipatternReportStatus']
         data.antipattern_report_status_message = map['antipatternReportStatusMessage']
         data.server_type = map['serverType']
@@ -625,9 +625,9 @@ module AWS::SDK::MigrationHubStrategy
     class SystemInfo
       def self.parse(map)
         data = Types::SystemInfo.new
-        data.os_info = (Parsers::OSInfo.parse(map['osInfo']) unless map['osInfo'].nil?)
+        data.os_info = (OSInfo.parse(map['osInfo']) unless map['osInfo'].nil?)
         data.file_system_type = map['fileSystemType']
-        data.network_info_list = (Parsers::NetworkInfoList.parse(map['networkInfoList']) unless map['networkInfoList'].nil?)
+        data.network_info_list = (NetworkInfoList.parse(map['networkInfoList']) unless map['networkInfoList'].nil?)
         data.cpu_architecture = map['cpuArchitecture']
         return data
       end
@@ -637,7 +637,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NetworkInfo.parse(value) unless value.nil?
+          data << NetworkInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -668,7 +668,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(http_resp)
         data = Types::GetServerStrategiesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.server_strategies = (Parsers::ServerStrategies.parse(map['serverStrategies']) unless map['serverStrategies'].nil?)
+        data.server_strategies = (ServerStrategies.parse(map['serverStrategies']) unless map['serverStrategies'].nil?)
         data
       end
     end
@@ -677,7 +677,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ServerStrategy.parse(value) unless value.nil?
+          data << ServerStrategy.parse(value) unless value.nil?
         end
         data
       end
@@ -686,7 +686,7 @@ module AWS::SDK::MigrationHubStrategy
     class ServerStrategy
       def self.parse(map)
         data = Types::ServerStrategy.new
-        data.recommendation = (Parsers::RecommendationSet.parse(map['recommendation']) unless map['recommendation'].nil?)
+        data.recommendation = (RecommendationSet.parse(map['recommendation']) unless map['recommendation'].nil?)
         data.status = map['status']
         data.number_of_application_components = map['numberOfApplicationComponents']
         data.is_preferred = map['isPreferred']
@@ -699,7 +699,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(http_resp)
         data = Types::ListApplicationComponentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.application_component_infos = (Parsers::ApplicationComponentDetails.parse(map['applicationComponentInfos']) unless map['applicationComponentInfos'].nil?)
+        data.application_component_infos = (ApplicationComponentDetails.parse(map['applicationComponentInfos']) unless map['applicationComponentInfos'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -709,7 +709,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ApplicationComponentDetail.parse(value) unless value.nil?
+          data << ApplicationComponentDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -730,7 +730,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(http_resp)
         data = Types::ListCollectorsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.collectors = (Parsers::Collectors.parse(map['Collectors']) unless map['Collectors'].nil?)
+        data.collectors = (Collectors.parse(map['Collectors']) unless map['Collectors'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -740,7 +740,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Collector.parse(value) unless value.nil?
+          data << Collector.parse(value) unless value.nil?
         end
         data
       end
@@ -765,7 +765,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(http_resp)
         data = Types::ListImportFileTaskOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.task_infos = (Parsers::ListImportFileTaskInformation.parse(map['taskInfos']) unless map['taskInfos'].nil?)
+        data.task_infos = (ListImportFileTaskInformation.parse(map['taskInfos']) unless map['taskInfos'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -775,7 +775,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ImportFileTaskInformation.parse(value) unless value.nil?
+          data << ImportFileTaskInformation.parse(value) unless value.nil?
         end
         data
       end
@@ -804,7 +804,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(http_resp)
         data = Types::ListServersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.server_infos = (Parsers::ServerDetails.parse(map['serverInfos']) unless map['serverInfos'].nil?)
+        data.server_infos = (ServerDetails.parse(map['serverInfos']) unless map['serverInfos'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -814,7 +814,7 @@ module AWS::SDK::MigrationHubStrategy
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ServerDetail.parse(value) unless value.nil?
+          data << ServerDetail.parse(value) unless value.nil?
         end
         data
       end

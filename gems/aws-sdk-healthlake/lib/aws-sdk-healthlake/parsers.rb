@@ -119,7 +119,7 @@ module AWS::SDK::HealthLake
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.datastore_properties = (Parsers::DatastoreProperties.parse(map['DatastoreProperties']) unless map['DatastoreProperties'].nil?)
+        data.datastore_properties = (DatastoreProperties.parse(map['DatastoreProperties']) unless map['DatastoreProperties'].nil?)
         data
       end
     end
@@ -134,8 +134,8 @@ module AWS::SDK::HealthLake
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.datastore_type_version = map['DatastoreTypeVersion']
         data.datastore_endpoint = map['DatastoreEndpoint']
-        data.sse_configuration = (Parsers::SseConfiguration.parse(map['SseConfiguration']) unless map['SseConfiguration'].nil?)
-        data.preload_data_config = (Parsers::PreloadDataConfig.parse(map['PreloadDataConfig']) unless map['PreloadDataConfig'].nil?)
+        data.sse_configuration = (SseConfiguration.parse(map['SseConfiguration']) unless map['SseConfiguration'].nil?)
+        data.preload_data_config = (PreloadDataConfig.parse(map['PreloadDataConfig']) unless map['PreloadDataConfig'].nil?)
         return data
       end
     end
@@ -151,7 +151,7 @@ module AWS::SDK::HealthLake
     class SseConfiguration
       def self.parse(map)
         data = Types::SseConfiguration.new
-        data.kms_encryption_config = (Parsers::KmsEncryptionConfig.parse(map['KmsEncryptionConfig']) unless map['KmsEncryptionConfig'].nil?)
+        data.kms_encryption_config = (KmsEncryptionConfig.parse(map['KmsEncryptionConfig']) unless map['KmsEncryptionConfig'].nil?)
         return data
       end
     end
@@ -172,7 +172,7 @@ module AWS::SDK::HealthLake
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.export_job_properties = (Parsers::ExportJobProperties.parse(map['ExportJobProperties']) unless map['ExportJobProperties'].nil?)
+        data.export_job_properties = (ExportJobProperties.parse(map['ExportJobProperties']) unless map['ExportJobProperties'].nil?)
         data
       end
     end
@@ -186,7 +186,7 @@ module AWS::SDK::HealthLake
         data.submit_time = Time.at(map['SubmitTime'].to_i) if map['SubmitTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.datastore_id = map['DatastoreId']
-        data.output_data_config = (Parsers::OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.output_data_config = (OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
         data.data_access_role_arn = map['DataAccessRoleArn']
         data.message = map['Message']
         return data
@@ -198,7 +198,7 @@ module AWS::SDK::HealthLake
         key, value = map.flatten
         case key
         when 'S3Configuration'
-          value = (Parsers::S3Configuration.parse(value) unless value.nil?)
+          value = (S3Configuration.parse(value) unless value.nil?)
           Types::OutputDataConfig::S3Configuration.new(value) if value
         else
           Types::OutputDataConfig::Unknown.new({name: key, value: value})
@@ -222,7 +222,7 @@ module AWS::SDK::HealthLake
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.import_job_properties = (Parsers::ImportJobProperties.parse(map['ImportJobProperties']) unless map['ImportJobProperties'].nil?)
+        data.import_job_properties = (ImportJobProperties.parse(map['ImportJobProperties']) unless map['ImportJobProperties'].nil?)
         data
       end
     end
@@ -236,8 +236,8 @@ module AWS::SDK::HealthLake
         data.submit_time = Time.at(map['SubmitTime'].to_i) if map['SubmitTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.datastore_id = map['DatastoreId']
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.job_output_data_config = (Parsers::OutputDataConfig.parse(map['JobOutputDataConfig']) unless map['JobOutputDataConfig'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.job_output_data_config = (OutputDataConfig.parse(map['JobOutputDataConfig']) unless map['JobOutputDataConfig'].nil?)
         data.data_access_role_arn = map['DataAccessRoleArn']
         data.message = map['Message']
         return data
@@ -264,7 +264,7 @@ module AWS::SDK::HealthLake
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.datastore_properties_list = (Parsers::DatastorePropertiesList.parse(map['DatastorePropertiesList']) unless map['DatastorePropertiesList'].nil?)
+        data.datastore_properties_list = (DatastorePropertiesList.parse(map['DatastorePropertiesList']) unless map['DatastorePropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -273,7 +273,7 @@ module AWS::SDK::HealthLake
     class DatastorePropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::DatastoreProperties.parse(value) unless value.nil?
+          DatastoreProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -285,7 +285,7 @@ module AWS::SDK::HealthLake
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.export_job_properties_list = (Parsers::ExportJobPropertiesList.parse(map['ExportJobPropertiesList']) unless map['ExportJobPropertiesList'].nil?)
+        data.export_job_properties_list = (ExportJobPropertiesList.parse(map['ExportJobPropertiesList']) unless map['ExportJobPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -294,7 +294,7 @@ module AWS::SDK::HealthLake
     class ExportJobPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::ExportJobProperties.parse(value) unless value.nil?
+          ExportJobProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -306,7 +306,7 @@ module AWS::SDK::HealthLake
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.import_job_properties_list = (Parsers::ImportJobPropertiesList.parse(map['ImportJobPropertiesList']) unless map['ImportJobPropertiesList'].nil?)
+        data.import_job_properties_list = (ImportJobPropertiesList.parse(map['ImportJobPropertiesList']) unless map['ImportJobPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -315,7 +315,7 @@ module AWS::SDK::HealthLake
     class ImportJobPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::ImportJobProperties.parse(value) unless value.nil?
+          ImportJobProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -327,7 +327,7 @@ module AWS::SDK::HealthLake
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -335,7 +335,7 @@ module AWS::SDK::HealthLake
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Polly
   module Stubs
 
@@ -36,9 +38,9 @@ module AWS::SDK::Polly
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Voices'] = Stubs::VoiceList.stub(stub[:voices]) unless stub[:voices].nil?
+        data['Voices'] = VoiceList.stub(stub[:voices]) unless stub[:voices].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -56,7 +58,7 @@ module AWS::SDK::Polly
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Voice.stub(element) unless element.nil?
+          data << Voice.stub(element) unless element.nil?
         end
         data
       end
@@ -86,8 +88,8 @@ module AWS::SDK::Polly
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
         data['LanguageName'] = stub[:language_name] unless stub[:language_name].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['AdditionalLanguageCodes'] = Stubs::LanguageCodeList.stub(stub[:additional_language_codes]) unless stub[:additional_language_codes].nil?
-        data['SupportedEngines'] = Stubs::EngineList.stub(stub[:supported_engines]) unless stub[:supported_engines].nil?
+        data['AdditionalLanguageCodes'] = LanguageCodeList.stub(stub[:additional_language_codes]) unless stub[:additional_language_codes].nil?
+        data['SupportedEngines'] = EngineList.stub(stub[:supported_engines]) unless stub[:supported_engines].nil?
         data
       end
     end
@@ -145,9 +147,9 @@ module AWS::SDK::Polly
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Lexicon'] = Stubs::Lexicon.stub(stub[:lexicon]) unless stub[:lexicon].nil?
-        data['LexiconAttributes'] = Stubs::LexiconAttributes.stub(stub[:lexicon_attributes]) unless stub[:lexicon_attributes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Lexicon'] = Lexicon.stub(stub[:lexicon]) unless stub[:lexicon].nil?
+        data['LexiconAttributes'] = LexiconAttributes.stub(stub[:lexicon_attributes]) unless stub[:lexicon_attributes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -211,8 +213,8 @@ module AWS::SDK::Polly
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SynthesisTask'] = Stubs::SynthesisTask.stub(stub[:synthesis_task]) unless stub[:synthesis_task].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SynthesisTask'] = SynthesisTask.stub(stub[:synthesis_task]) unless stub[:synthesis_task].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -251,10 +253,10 @@ module AWS::SDK::Polly
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['RequestCharacters'] = stub[:request_characters] unless stub[:request_characters].nil?
         data['SnsTopicArn'] = stub[:sns_topic_arn] unless stub[:sns_topic_arn].nil?
-        data['LexiconNames'] = Stubs::LexiconNameList.stub(stub[:lexicon_names]) unless stub[:lexicon_names].nil?
+        data['LexiconNames'] = LexiconNameList.stub(stub[:lexicon_names]) unless stub[:lexicon_names].nil?
         data['OutputFormat'] = stub[:output_format] unless stub[:output_format].nil?
         data['SampleRate'] = stub[:sample_rate] unless stub[:sample_rate].nil?
-        data['SpeechMarkTypes'] = Stubs::SpeechMarkTypeList.stub(stub[:speech_mark_types]) unless stub[:speech_mark_types].nil?
+        data['SpeechMarkTypes'] = SpeechMarkTypeList.stub(stub[:speech_mark_types]) unless stub[:speech_mark_types].nil?
         data['TextType'] = stub[:text_type] unless stub[:text_type].nil?
         data['VoiceId'] = stub[:voice_id] unless stub[:voice_id].nil?
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
@@ -315,9 +317,9 @@ module AWS::SDK::Polly
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Lexicons'] = Stubs::LexiconDescriptionList.stub(stub[:lexicons]) unless stub[:lexicons].nil?
+        data['Lexicons'] = LexiconDescriptionList.stub(stub[:lexicons]) unless stub[:lexicons].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -335,7 +337,7 @@ module AWS::SDK::Polly
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LexiconDescription.stub(element) unless element.nil?
+          data << LexiconDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -356,7 +358,7 @@ module AWS::SDK::Polly
         stub ||= Types::LexiconDescription.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Attributes'] = Stubs::LexiconAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['Attributes'] = LexiconAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data
       end
     end
@@ -375,8 +377,8 @@ module AWS::SDK::Polly
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['SynthesisTasks'] = Stubs::SynthesisTasks.stub(stub[:synthesis_tasks]) unless stub[:synthesis_tasks].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SynthesisTasks'] = SynthesisTasks.stub(stub[:synthesis_tasks]) unless stub[:synthesis_tasks].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -394,7 +396,7 @@ module AWS::SDK::Polly
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SynthesisTask.stub(element) unless element.nil?
+          data << SynthesisTask.stub(element) unless element.nil?
         end
         data
       end
@@ -425,8 +427,8 @@ module AWS::SDK::Polly
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['SynthesisTask'] = Stubs::SynthesisTask.stub(stub[:synthesis_task]) unless stub[:synthesis_task].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SynthesisTask'] = SynthesisTask.stub(stub[:synthesis_task]) unless stub[:synthesis_task].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

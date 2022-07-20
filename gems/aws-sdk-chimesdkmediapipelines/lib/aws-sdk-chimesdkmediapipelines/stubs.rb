@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ChimeSDKMediaPipelines
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::ChimeSDKMediaPipelines
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['MediaCapturePipeline'] = Stubs::MediaCapturePipeline.stub(stub[:media_capture_pipeline]) unless stub[:media_capture_pipeline].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MediaCapturePipeline'] = MediaCapturePipeline.stub(stub[:media_capture_pipeline]) unless stub[:media_capture_pipeline].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -58,7 +60,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
         data['SinkArn'] = stub[:sink_arn] unless stub[:sink_arn].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_date_time(stub[:created_timestamp]) unless stub[:created_timestamp].nil?
         data['UpdatedTimestamp'] = Hearth::TimeHelper.to_date_time(stub[:updated_timestamp]) unless stub[:updated_timestamp].nil?
-        data['ChimeSdkMeetingConfiguration'] = Stubs::ChimeSdkMeetingConfiguration.stub(stub[:chime_sdk_meeting_configuration]) unless stub[:chime_sdk_meeting_configuration].nil?
+        data['ChimeSdkMeetingConfiguration'] = ChimeSdkMeetingConfiguration.stub(stub[:chime_sdk_meeting_configuration]) unless stub[:chime_sdk_meeting_configuration].nil?
         data
       end
     end
@@ -77,8 +79,8 @@ module AWS::SDK::ChimeSDKMediaPipelines
       def self.stub(stub)
         stub ||= Types::ChimeSdkMeetingConfiguration.new
         data = {}
-        data['SourceConfiguration'] = Stubs::SourceConfiguration.stub(stub[:source_configuration]) unless stub[:source_configuration].nil?
-        data['ArtifactsConfiguration'] = Stubs::ArtifactsConfiguration.stub(stub[:artifacts_configuration]) unless stub[:artifacts_configuration].nil?
+        data['SourceConfiguration'] = SourceConfiguration.stub(stub[:source_configuration]) unless stub[:source_configuration].nil?
+        data['ArtifactsConfiguration'] = ArtifactsConfiguration.stub(stub[:artifacts_configuration]) unless stub[:artifacts_configuration].nil?
         data
       end
     end
@@ -98,9 +100,9 @@ module AWS::SDK::ChimeSDKMediaPipelines
       def self.stub(stub)
         stub ||= Types::ArtifactsConfiguration.new
         data = {}
-        data['Audio'] = Stubs::AudioArtifactsConfiguration.stub(stub[:audio]) unless stub[:audio].nil?
-        data['Video'] = Stubs::VideoArtifactsConfiguration.stub(stub[:video]) unless stub[:video].nil?
-        data['Content'] = Stubs::ContentArtifactsConfiguration.stub(stub[:content]) unless stub[:content].nil?
+        data['Audio'] = AudioArtifactsConfiguration.stub(stub[:audio]) unless stub[:audio].nil?
+        data['Video'] = VideoArtifactsConfiguration.stub(stub[:video]) unless stub[:video].nil?
+        data['Content'] = ContentArtifactsConfiguration.stub(stub[:content]) unless stub[:content].nil?
         data
       end
     end
@@ -176,7 +178,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
       def self.stub(stub)
         stub ||= Types::SourceConfiguration.new
         data = {}
-        data['SelectedVideoStreams'] = Stubs::SelectedVideoStreams.stub(stub[:selected_video_streams]) unless stub[:selected_video_streams].nil?
+        data['SelectedVideoStreams'] = SelectedVideoStreams.stub(stub[:selected_video_streams]) unless stub[:selected_video_streams].nil?
         data
       end
     end
@@ -195,8 +197,8 @@ module AWS::SDK::ChimeSDKMediaPipelines
       def self.stub(stub)
         stub ||= Types::SelectedVideoStreams.new
         data = {}
-        data['AttendeeIds'] = Stubs::AttendeeIdList.stub(stub[:attendee_ids]) unless stub[:attendee_ids].nil?
-        data['ExternalUserIds'] = Stubs::ExternalUserIdList.stub(stub[:external_user_ids]) unless stub[:external_user_ids].nil?
+        data['AttendeeIds'] = AttendeeIdList.stub(stub[:attendee_ids]) unless stub[:attendee_ids].nil?
+        data['ExternalUserIds'] = ExternalUserIdList.stub(stub[:external_user_ids]) unless stub[:external_user_ids].nil?
         data
       end
     end
@@ -266,8 +268,8 @@ module AWS::SDK::ChimeSDKMediaPipelines
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['MediaCapturePipeline'] = Stubs::MediaCapturePipeline.stub(stub[:media_capture_pipeline]) unless stub[:media_capture_pipeline].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MediaCapturePipeline'] = MediaCapturePipeline.stub(stub[:media_capture_pipeline]) unless stub[:media_capture_pipeline].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -284,9 +286,9 @@ module AWS::SDK::ChimeSDKMediaPipelines
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['MediaCapturePipelines'] = Stubs::MediaCapturePipelineSummaryList.stub(stub[:media_capture_pipelines]) unless stub[:media_capture_pipelines].nil?
+        data['MediaCapturePipelines'] = MediaCapturePipelineSummaryList.stub(stub[:media_capture_pipelines]) unless stub[:media_capture_pipelines].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -304,7 +306,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MediaCapturePipelineSummary.stub(element) unless element.nil?
+          data << MediaCapturePipelineSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -342,8 +344,8 @@ module AWS::SDK::ChimeSDKMediaPipelines
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -361,7 +363,7 @@ module AWS::SDK::ChimeSDKMediaPipelines
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end

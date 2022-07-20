@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::FSx
   module Builders
 
@@ -20,8 +22,8 @@ module AWS::SDK::FSx
         data = {}
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['FileSystemId'] = input[:file_system_id] unless input[:file_system_id].nil?
-        data['Aliases'] = Builders::AlternateDNSNames.build(input[:aliases]) unless input[:aliases].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Aliases'] = AlternateDNSNames.build(input[:aliases]) unless input[:aliases].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -45,7 +47,7 @@ module AWS::SDK::FSx
         http_req.headers['X-Amz-Target'] = 'AWSSimbaAPIService_v20180301.CancelDataRepositoryTask'
         data = {}
         data['TaskId'] = input[:task_id] unless input[:task_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -62,8 +64,8 @@ module AWS::SDK::FSx
         data['SourceRegion'] = input[:source_region] unless input[:source_region].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data['CopyTags'] = input[:copy_tags] unless input[:copy_tags].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -72,7 +74,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -98,9 +100,9 @@ module AWS::SDK::FSx
         data = {}
         data['FileSystemId'] = input[:file_system_id] unless input[:file_system_id].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['VolumeId'] = input[:volume_id] unless input[:volume_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -117,10 +119,10 @@ module AWS::SDK::FSx
         data['DataRepositoryPath'] = input[:data_repository_path] unless input[:data_repository_path].nil?
         data['BatchImportMetaDataOnCreate'] = input[:batch_import_meta_data_on_create] unless input[:batch_import_meta_data_on_create].nil?
         data['ImportedFileChunkSize'] = input[:imported_file_chunk_size] unless input[:imported_file_chunk_size].nil?
-        data['S3'] = Builders::S3DataRepositoryConfiguration.build(input[:s3]) unless input[:s3].nil?
+        data['S3'] = S3DataRepositoryConfiguration.build(input[:s3]) unless input[:s3].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -128,8 +130,8 @@ module AWS::SDK::FSx
     class S3DataRepositoryConfiguration
       def self.build(input)
         data = {}
-        data['AutoImportPolicy'] = Builders::AutoImportPolicy.build(input[:auto_import_policy]) unless input[:auto_import_policy].nil?
-        data['AutoExportPolicy'] = Builders::AutoExportPolicy.build(input[:auto_export_policy]) unless input[:auto_export_policy].nil?
+        data['AutoImportPolicy'] = AutoImportPolicy.build(input[:auto_import_policy]) unless input[:auto_import_policy].nil?
+        data['AutoExportPolicy'] = AutoExportPolicy.build(input[:auto_export_policy]) unless input[:auto_export_policy].nil?
         data
       end
     end
@@ -138,7 +140,7 @@ module AWS::SDK::FSx
     class AutoExportPolicy
       def self.build(input)
         data = {}
-        data['Events'] = Builders::EventTypes.build(input[:events]) unless input[:events].nil?
+        data['Events'] = EventTypes.build(input[:events]) unless input[:events].nil?
         data
       end
     end
@@ -158,7 +160,7 @@ module AWS::SDK::FSx
     class AutoImportPolicy
       def self.build(input)
         data = {}
-        data['Events'] = Builders::EventTypes.build(input[:events]) unless input[:events].nil?
+        data['Events'] = EventTypes.build(input[:events]) unless input[:events].nil?
         data
       end
     end
@@ -172,12 +174,12 @@ module AWS::SDK::FSx
         http_req.headers['X-Amz-Target'] = 'AWSSimbaAPIService_v20180301.CreateDataRepositoryTask'
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
-        data['Paths'] = Builders::DataRepositoryTaskPaths.build(input[:paths]) unless input[:paths].nil?
+        data['Paths'] = DataRepositoryTaskPaths.build(input[:paths]) unless input[:paths].nil?
         data['FileSystemId'] = input[:file_system_id] unless input[:file_system_id].nil?
-        data['Report'] = Builders::CompletionReport.build(input[:report]) unless input[:report].nil?
+        data['Report'] = CompletionReport.build(input[:report]) unless input[:report].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -216,16 +218,16 @@ module AWS::SDK::FSx
         data['FileSystemType'] = input[:file_system_type] unless input[:file_system_type].nil?
         data['StorageCapacity'] = input[:storage_capacity] unless input[:storage_capacity].nil?
         data['StorageType'] = input[:storage_type] unless input[:storage_type].nil?
-        data['SubnetIds'] = Builders::SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['SecurityGroupIds'] = Builders::SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['SubnetIds'] = SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['WindowsConfiguration'] = Builders::CreateFileSystemWindowsConfiguration.build(input[:windows_configuration]) unless input[:windows_configuration].nil?
-        data['LustreConfiguration'] = Builders::CreateFileSystemLustreConfiguration.build(input[:lustre_configuration]) unless input[:lustre_configuration].nil?
-        data['OntapConfiguration'] = Builders::CreateFileSystemOntapConfiguration.build(input[:ontap_configuration]) unless input[:ontap_configuration].nil?
+        data['WindowsConfiguration'] = CreateFileSystemWindowsConfiguration.build(input[:windows_configuration]) unless input[:windows_configuration].nil?
+        data['LustreConfiguration'] = CreateFileSystemLustreConfiguration.build(input[:lustre_configuration]) unless input[:lustre_configuration].nil?
+        data['OntapConfiguration'] = CreateFileSystemOntapConfiguration.build(input[:ontap_configuration]) unless input[:ontap_configuration].nil?
         data['FileSystemTypeVersion'] = input[:file_system_type_version] unless input[:file_system_type_version].nil?
-        data['OpenZFSConfiguration'] = Builders::CreateFileSystemOpenZFSConfiguration.build(input[:open_zfs_configuration]) unless input[:open_zfs_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OpenZFSConfiguration'] = CreateFileSystemOpenZFSConfiguration.build(input[:open_zfs_configuration]) unless input[:open_zfs_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -240,8 +242,8 @@ module AWS::SDK::FSx
         data['DeploymentType'] = input[:deployment_type] unless input[:deployment_type].nil?
         data['ThroughputCapacity'] = input[:throughput_capacity] unless input[:throughput_capacity].nil?
         data['WeeklyMaintenanceStartTime'] = input[:weekly_maintenance_start_time] unless input[:weekly_maintenance_start_time].nil?
-        data['DiskIopsConfiguration'] = Builders::DiskIopsConfiguration.build(input[:disk_iops_configuration]) unless input[:disk_iops_configuration].nil?
-        data['RootVolumeConfiguration'] = Builders::OpenZFSCreateRootVolumeConfiguration.build(input[:root_volume_configuration]) unless input[:root_volume_configuration].nil?
+        data['DiskIopsConfiguration'] = DiskIopsConfiguration.build(input[:disk_iops_configuration]) unless input[:disk_iops_configuration].nil?
+        data['RootVolumeConfiguration'] = OpenZFSCreateRootVolumeConfiguration.build(input[:root_volume_configuration]) unless input[:root_volume_configuration].nil?
         data
       end
     end
@@ -252,8 +254,8 @@ module AWS::SDK::FSx
         data = {}
         data['RecordSizeKiB'] = input[:record_size_ki_b] unless input[:record_size_ki_b].nil?
         data['DataCompressionType'] = input[:data_compression_type] unless input[:data_compression_type].nil?
-        data['NfsExports'] = Builders::OpenZFSNfsExports.build(input[:nfs_exports]) unless input[:nfs_exports].nil?
-        data['UserAndGroupQuotas'] = Builders::OpenZFSUserAndGroupQuotas.build(input[:user_and_group_quotas]) unless input[:user_and_group_quotas].nil?
+        data['NfsExports'] = OpenZFSNfsExports.build(input[:nfs_exports]) unless input[:nfs_exports].nil?
+        data['UserAndGroupQuotas'] = OpenZFSUserAndGroupQuotas.build(input[:user_and_group_quotas]) unless input[:user_and_group_quotas].nil?
         data['CopyTagsToSnapshots'] = input[:copy_tags_to_snapshots] unless input[:copy_tags_to_snapshots].nil?
         data['ReadOnly'] = input[:read_only] unless input[:read_only].nil?
         data
@@ -265,7 +267,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::OpenZFSUserOrGroupQuota.build(element) unless element.nil?
+          data << OpenZFSUserOrGroupQuota.build(element) unless element.nil?
         end
         data
       end
@@ -287,7 +289,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::OpenZFSNfsExport.build(element) unless element.nil?
+          data << OpenZFSNfsExport.build(element) unless element.nil?
         end
         data
       end
@@ -297,7 +299,7 @@ module AWS::SDK::FSx
     class OpenZFSNfsExport
       def self.build(input)
         data = {}
-        data['ClientConfigurations'] = Builders::OpenZFSClientConfigurations.build(input[:client_configurations]) unless input[:client_configurations].nil?
+        data['ClientConfigurations'] = OpenZFSClientConfigurations.build(input[:client_configurations]) unless input[:client_configurations].nil?
         data
       end
     end
@@ -307,7 +309,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::OpenZFSClientConfiguration.build(element) unless element.nil?
+          data << OpenZFSClientConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -318,7 +320,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = {}
         data['Clients'] = input[:clients] unless input[:clients].nil?
-        data['Options'] = Builders::OpenZFSNfsExportOptions.build(input[:options]) unless input[:options].nil?
+        data['Options'] = OpenZFSNfsExportOptions.build(input[:options]) unless input[:options].nil?
         data
       end
     end
@@ -353,9 +355,9 @@ module AWS::SDK::FSx
         data['DeploymentType'] = input[:deployment_type] unless input[:deployment_type].nil?
         data['EndpointIpAddressRange'] = input[:endpoint_ip_address_range] unless input[:endpoint_ip_address_range].nil?
         data['FsxAdminPassword'] = input[:fsx_admin_password] unless input[:fsx_admin_password].nil?
-        data['DiskIopsConfiguration'] = Builders::DiskIopsConfiguration.build(input[:disk_iops_configuration]) unless input[:disk_iops_configuration].nil?
+        data['DiskIopsConfiguration'] = DiskIopsConfiguration.build(input[:disk_iops_configuration]) unless input[:disk_iops_configuration].nil?
         data['PreferredSubnetId'] = input[:preferred_subnet_id] unless input[:preferred_subnet_id].nil?
-        data['RouteTableIds'] = Builders::RouteTableIds.build(input[:route_table_ids]) unless input[:route_table_ids].nil?
+        data['RouteTableIds'] = RouteTableIds.build(input[:route_table_ids]) unless input[:route_table_ids].nil?
         data['ThroughputCapacity'] = input[:throughput_capacity] unless input[:throughput_capacity].nil?
         data['WeeklyMaintenanceStartTime'] = input[:weekly_maintenance_start_time] unless input[:weekly_maintenance_start_time].nil?
         data
@@ -389,8 +391,8 @@ module AWS::SDK::FSx
         data['CopyTagsToBackups'] = input[:copy_tags_to_backups] unless input[:copy_tags_to_backups].nil?
         data['DriveCacheType'] = input[:drive_cache_type] unless input[:drive_cache_type].nil?
         data['DataCompressionType'] = input[:data_compression_type] unless input[:data_compression_type].nil?
-        data['LogConfiguration'] = Builders::LustreLogCreateConfiguration.build(input[:log_configuration]) unless input[:log_configuration].nil?
-        data['RootSquashConfiguration'] = Builders::LustreRootSquashConfiguration.build(input[:root_squash_configuration]) unless input[:root_squash_configuration].nil?
+        data['LogConfiguration'] = LustreLogCreateConfiguration.build(input[:log_configuration]) unless input[:log_configuration].nil?
+        data['RootSquashConfiguration'] = LustreRootSquashConfiguration.build(input[:root_squash_configuration]) unless input[:root_squash_configuration].nil?
         data
       end
     end
@@ -400,7 +402,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = {}
         data['RootSquash'] = input[:root_squash] unless input[:root_squash].nil?
-        data['NoSquashNids'] = Builders::LustreNoSquashNids.build(input[:no_squash_nids]) unless input[:no_squash_nids].nil?
+        data['NoSquashNids'] = LustreNoSquashNids.build(input[:no_squash_nids]) unless input[:no_squash_nids].nil?
         data
       end
     end
@@ -431,7 +433,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = {}
         data['ActiveDirectoryId'] = input[:active_directory_id] unless input[:active_directory_id].nil?
-        data['SelfManagedActiveDirectoryConfiguration'] = Builders::SelfManagedActiveDirectoryConfiguration.build(input[:self_managed_active_directory_configuration]) unless input[:self_managed_active_directory_configuration].nil?
+        data['SelfManagedActiveDirectoryConfiguration'] = SelfManagedActiveDirectoryConfiguration.build(input[:self_managed_active_directory_configuration]) unless input[:self_managed_active_directory_configuration].nil?
         data['DeploymentType'] = input[:deployment_type] unless input[:deployment_type].nil?
         data['PreferredSubnetId'] = input[:preferred_subnet_id] unless input[:preferred_subnet_id].nil?
         data['ThroughputCapacity'] = input[:throughput_capacity] unless input[:throughput_capacity].nil?
@@ -439,8 +441,8 @@ module AWS::SDK::FSx
         data['DailyAutomaticBackupStartTime'] = input[:daily_automatic_backup_start_time] unless input[:daily_automatic_backup_start_time].nil?
         data['AutomaticBackupRetentionDays'] = input[:automatic_backup_retention_days] unless input[:automatic_backup_retention_days].nil?
         data['CopyTagsToBackups'] = input[:copy_tags_to_backups] unless input[:copy_tags_to_backups].nil?
-        data['Aliases'] = Builders::AlternateDNSNames.build(input[:aliases]) unless input[:aliases].nil?
-        data['AuditLogConfiguration'] = Builders::WindowsAuditLogCreateConfiguration.build(input[:audit_log_configuration]) unless input[:audit_log_configuration].nil?
+        data['Aliases'] = AlternateDNSNames.build(input[:aliases]) unless input[:aliases].nil?
+        data['AuditLogConfiguration'] = WindowsAuditLogCreateConfiguration.build(input[:audit_log_configuration]) unless input[:audit_log_configuration].nil?
         data
       end
     end
@@ -465,7 +467,7 @@ module AWS::SDK::FSx
         data['FileSystemAdministratorsGroup'] = input[:file_system_administrators_group] unless input[:file_system_administrators_group].nil?
         data['UserName'] = input[:user_name] unless input[:user_name].nil?
         data['Password'] = input[:password] unless input[:password].nil?
-        data['DnsIps'] = Builders::DnsIps.build(input[:dns_ips]) unless input[:dns_ips].nil?
+        data['DnsIps'] = DnsIps.build(input[:dns_ips]) unless input[:dns_ips].nil?
         data
       end
     end
@@ -513,16 +515,16 @@ module AWS::SDK::FSx
         data = {}
         data['BackupId'] = input[:backup_id] unless input[:backup_id].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['SubnetIds'] = Builders::SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['SecurityGroupIds'] = Builders::SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        data['WindowsConfiguration'] = Builders::CreateFileSystemWindowsConfiguration.build(input[:windows_configuration]) unless input[:windows_configuration].nil?
-        data['LustreConfiguration'] = Builders::CreateFileSystemLustreConfiguration.build(input[:lustre_configuration]) unless input[:lustre_configuration].nil?
+        data['SubnetIds'] = SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        data['WindowsConfiguration'] = CreateFileSystemWindowsConfiguration.build(input[:windows_configuration]) unless input[:windows_configuration].nil?
+        data['LustreConfiguration'] = CreateFileSystemLustreConfiguration.build(input[:lustre_configuration]) unless input[:lustre_configuration].nil?
         data['StorageType'] = input[:storage_type] unless input[:storage_type].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data['FileSystemTypeVersion'] = input[:file_system_type_version] unless input[:file_system_type_version].nil?
-        data['OpenZFSConfiguration'] = Builders::CreateFileSystemOpenZFSConfiguration.build(input[:open_zfs_configuration]) unless input[:open_zfs_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OpenZFSConfiguration'] = CreateFileSystemOpenZFSConfiguration.build(input[:open_zfs_configuration]) unless input[:open_zfs_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -537,8 +539,8 @@ module AWS::SDK::FSx
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['VolumeId'] = input[:volume_id] unless input[:volume_id].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -550,14 +552,14 @@ module AWS::SDK::FSx
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSSimbaAPIService_v20180301.CreateStorageVirtualMachine'
         data = {}
-        data['ActiveDirectoryConfiguration'] = Builders::CreateSvmActiveDirectoryConfiguration.build(input[:active_directory_configuration]) unless input[:active_directory_configuration].nil?
+        data['ActiveDirectoryConfiguration'] = CreateSvmActiveDirectoryConfiguration.build(input[:active_directory_configuration]) unless input[:active_directory_configuration].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['FileSystemId'] = input[:file_system_id] unless input[:file_system_id].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['SvmAdminPassword'] = input[:svm_admin_password] unless input[:svm_admin_password].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['RootVolumeSecurityStyle'] = input[:root_volume_security_style] unless input[:root_volume_security_style].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -566,7 +568,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = {}
         data['NetBiosName'] = input[:net_bios_name] unless input[:net_bios_name].nil?
-        data['SelfManagedActiveDirectoryConfiguration'] = Builders::SelfManagedActiveDirectoryConfiguration.build(input[:self_managed_active_directory_configuration]) unless input[:self_managed_active_directory_configuration].nil?
+        data['SelfManagedActiveDirectoryConfiguration'] = SelfManagedActiveDirectoryConfiguration.build(input[:self_managed_active_directory_configuration]) unless input[:self_managed_active_directory_configuration].nil?
         data
       end
     end
@@ -582,10 +584,10 @@ module AWS::SDK::FSx
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['VolumeType'] = input[:volume_type] unless input[:volume_type].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['OntapConfiguration'] = Builders::CreateOntapVolumeConfiguration.build(input[:ontap_configuration]) unless input[:ontap_configuration].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        data['OpenZFSConfiguration'] = Builders::CreateOpenZFSVolumeConfiguration.build(input[:open_zfs_configuration]) unless input[:open_zfs_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OntapConfiguration'] = CreateOntapVolumeConfiguration.build(input[:ontap_configuration]) unless input[:ontap_configuration].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        data['OpenZFSConfiguration'] = CreateOpenZFSVolumeConfiguration.build(input[:open_zfs_configuration]) unless input[:open_zfs_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -599,10 +601,10 @@ module AWS::SDK::FSx
         data['RecordSizeKiB'] = input[:record_size_ki_b] unless input[:record_size_ki_b].nil?
         data['DataCompressionType'] = input[:data_compression_type] unless input[:data_compression_type].nil?
         data['CopyTagsToSnapshots'] = input[:copy_tags_to_snapshots] unless input[:copy_tags_to_snapshots].nil?
-        data['OriginSnapshot'] = Builders::CreateOpenZFSOriginSnapshotConfiguration.build(input[:origin_snapshot]) unless input[:origin_snapshot].nil?
+        data['OriginSnapshot'] = CreateOpenZFSOriginSnapshotConfiguration.build(input[:origin_snapshot]) unless input[:origin_snapshot].nil?
         data['ReadOnly'] = input[:read_only] unless input[:read_only].nil?
-        data['NfsExports'] = Builders::OpenZFSNfsExports.build(input[:nfs_exports]) unless input[:nfs_exports].nil?
-        data['UserAndGroupQuotas'] = Builders::OpenZFSUserAndGroupQuotas.build(input[:user_and_group_quotas]) unless input[:user_and_group_quotas].nil?
+        data['NfsExports'] = OpenZFSNfsExports.build(input[:nfs_exports]) unless input[:nfs_exports].nil?
+        data['UserAndGroupQuotas'] = OpenZFSUserAndGroupQuotas.build(input[:user_and_group_quotas]) unless input[:user_and_group_quotas].nil?
         data
       end
     end
@@ -626,7 +628,7 @@ module AWS::SDK::FSx
         data['SizeInMegabytes'] = input[:size_in_megabytes] unless input[:size_in_megabytes].nil?
         data['StorageEfficiencyEnabled'] = input[:storage_efficiency_enabled] unless input[:storage_efficiency_enabled].nil?
         data['StorageVirtualMachineId'] = input[:storage_virtual_machine_id] unless input[:storage_virtual_machine_id].nil?
-        data['TieringPolicy'] = Builders::TieringPolicy.build(input[:tiering_policy]) unless input[:tiering_policy].nil?
+        data['TieringPolicy'] = TieringPolicy.build(input[:tiering_policy]) unless input[:tiering_policy].nil?
         data
       end
     end
@@ -652,9 +654,9 @@ module AWS::SDK::FSx
         data['BackupId'] = input[:backup_id] unless input[:backup_id].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['OntapConfiguration'] = Builders::CreateOntapVolumeConfiguration.build(input[:ontap_configuration]) unless input[:ontap_configuration].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OntapConfiguration'] = CreateOntapVolumeConfiguration.build(input[:ontap_configuration]) unless input[:ontap_configuration].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -668,7 +670,7 @@ module AWS::SDK::FSx
         data = {}
         data['BackupId'] = input[:backup_id] unless input[:backup_id].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -683,7 +685,7 @@ module AWS::SDK::FSx
         data['AssociationId'] = input[:association_id] unless input[:association_id].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['DeleteDataInFileSystem'] = input[:delete_data_in_file_system] unless input[:delete_data_in_file_system].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -697,10 +699,10 @@ module AWS::SDK::FSx
         data = {}
         data['FileSystemId'] = input[:file_system_id] unless input[:file_system_id].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['WindowsConfiguration'] = Builders::DeleteFileSystemWindowsConfiguration.build(input[:windows_configuration]) unless input[:windows_configuration].nil?
-        data['LustreConfiguration'] = Builders::DeleteFileSystemLustreConfiguration.build(input[:lustre_configuration]) unless input[:lustre_configuration].nil?
-        data['OpenZFSConfiguration'] = Builders::DeleteFileSystemOpenZFSConfiguration.build(input[:open_zfs_configuration]) unless input[:open_zfs_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WindowsConfiguration'] = DeleteFileSystemWindowsConfiguration.build(input[:windows_configuration]) unless input[:windows_configuration].nil?
+        data['LustreConfiguration'] = DeleteFileSystemLustreConfiguration.build(input[:lustre_configuration]) unless input[:lustre_configuration].nil?
+        data['OpenZFSConfiguration'] = DeleteFileSystemOpenZFSConfiguration.build(input[:open_zfs_configuration]) unless input[:open_zfs_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -709,8 +711,8 @@ module AWS::SDK::FSx
       def self.build(input)
         data = {}
         data['SkipFinalBackup'] = input[:skip_final_backup] unless input[:skip_final_backup].nil?
-        data['FinalBackupTags'] = Builders::Tags.build(input[:final_backup_tags]) unless input[:final_backup_tags].nil?
-        data['Options'] = Builders::DeleteFileSystemOpenZFSOptions.build(input[:options]) unless input[:options].nil?
+        data['FinalBackupTags'] = Tags.build(input[:final_backup_tags]) unless input[:final_backup_tags].nil?
+        data['Options'] = DeleteFileSystemOpenZFSOptions.build(input[:options]) unless input[:options].nil?
         data
       end
     end
@@ -731,7 +733,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = {}
         data['SkipFinalBackup'] = input[:skip_final_backup] unless input[:skip_final_backup].nil?
-        data['FinalBackupTags'] = Builders::Tags.build(input[:final_backup_tags]) unless input[:final_backup_tags].nil?
+        data['FinalBackupTags'] = Tags.build(input[:final_backup_tags]) unless input[:final_backup_tags].nil?
         data
       end
     end
@@ -741,7 +743,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = {}
         data['SkipFinalBackup'] = input[:skip_final_backup] unless input[:skip_final_backup].nil?
-        data['FinalBackupTags'] = Builders::Tags.build(input[:final_backup_tags]) unless input[:final_backup_tags].nil?
+        data['FinalBackupTags'] = Tags.build(input[:final_backup_tags]) unless input[:final_backup_tags].nil?
         data
       end
     end
@@ -756,7 +758,7 @@ module AWS::SDK::FSx
         data = {}
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['SnapshotId'] = input[:snapshot_id] unless input[:snapshot_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -770,7 +772,7 @@ module AWS::SDK::FSx
         data = {}
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['StorageVirtualMachineId'] = input[:storage_virtual_machine_id] unless input[:storage_virtual_machine_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -784,9 +786,9 @@ module AWS::SDK::FSx
         data = {}
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['VolumeId'] = input[:volume_id] unless input[:volume_id].nil?
-        data['OntapConfiguration'] = Builders::DeleteVolumeOntapConfiguration.build(input[:ontap_configuration]) unless input[:ontap_configuration].nil?
-        data['OpenZFSConfiguration'] = Builders::DeleteVolumeOpenZFSConfiguration.build(input[:open_zfs_configuration]) unless input[:open_zfs_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OntapConfiguration'] = DeleteVolumeOntapConfiguration.build(input[:ontap_configuration]) unless input[:ontap_configuration].nil?
+        data['OpenZFSConfiguration'] = DeleteVolumeOpenZFSConfiguration.build(input[:open_zfs_configuration]) unless input[:open_zfs_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -794,7 +796,7 @@ module AWS::SDK::FSx
     class DeleteVolumeOpenZFSConfiguration
       def self.build(input)
         data = {}
-        data['Options'] = Builders::DeleteOpenZFSVolumeOptions.build(input[:options]) unless input[:options].nil?
+        data['Options'] = DeleteOpenZFSVolumeOptions.build(input[:options]) unless input[:options].nil?
         data
       end
     end
@@ -815,7 +817,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = {}
         data['SkipFinalBackup'] = input[:skip_final_backup] unless input[:skip_final_backup].nil?
-        data['FinalBackupTags'] = Builders::Tags.build(input[:final_backup_tags]) unless input[:final_backup_tags].nil?
+        data['FinalBackupTags'] = Tags.build(input[:final_backup_tags]) unless input[:final_backup_tags].nil?
         data
       end
     end
@@ -828,11 +830,11 @@ module AWS::SDK::FSx
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSSimbaAPIService_v20180301.DescribeBackups'
         data = {}
-        data['BackupIds'] = Builders::BackupIds.build(input[:backup_ids]) unless input[:backup_ids].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
+        data['BackupIds'] = BackupIds.build(input[:backup_ids]) unless input[:backup_ids].nil?
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -841,7 +843,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -852,7 +854,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -887,11 +889,11 @@ module AWS::SDK::FSx
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSSimbaAPIService_v20180301.DescribeDataRepositoryAssociations'
         data = {}
-        data['AssociationIds'] = Builders::DataRepositoryAssociationIds.build(input[:association_ids]) unless input[:association_ids].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
+        data['AssociationIds'] = DataRepositoryAssociationIds.build(input[:association_ids]) unless input[:association_ids].nil?
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -914,11 +916,11 @@ module AWS::SDK::FSx
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSSimbaAPIService_v20180301.DescribeDataRepositoryTasks'
         data = {}
-        data['TaskIds'] = Builders::TaskIds.build(input[:task_ids]) unless input[:task_ids].nil?
-        data['Filters'] = Builders::DataRepositoryTaskFilters.build(input[:filters]) unless input[:filters].nil?
+        data['TaskIds'] = TaskIds.build(input[:task_ids]) unless input[:task_ids].nil?
+        data['Filters'] = DataRepositoryTaskFilters.build(input[:filters]) unless input[:filters].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -927,7 +929,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DataRepositoryTaskFilter.build(element) unless element.nil?
+          data << DataRepositoryTaskFilter.build(element) unless element.nil?
         end
         data
       end
@@ -938,7 +940,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::DataRepositoryTaskFilterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = DataRepositoryTaskFilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -977,7 +979,7 @@ module AWS::SDK::FSx
         data['FileSystemId'] = input[:file_system_id] unless input[:file_system_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -989,10 +991,10 @@ module AWS::SDK::FSx
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSSimbaAPIService_v20180301.DescribeFileSystems'
         data = {}
-        data['FileSystemIds'] = Builders::FileSystemIds.build(input[:file_system_ids]) unless input[:file_system_ids].nil?
+        data['FileSystemIds'] = FileSystemIds.build(input[:file_system_ids]) unless input[:file_system_ids].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1015,11 +1017,11 @@ module AWS::SDK::FSx
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSSimbaAPIService_v20180301.DescribeSnapshots'
         data = {}
-        data['SnapshotIds'] = Builders::SnapshotIds.build(input[:snapshot_ids]) unless input[:snapshot_ids].nil?
-        data['Filters'] = Builders::SnapshotFilters.build(input[:filters]) unless input[:filters].nil?
+        data['SnapshotIds'] = SnapshotIds.build(input[:snapshot_ids]) unless input[:snapshot_ids].nil?
+        data['Filters'] = SnapshotFilters.build(input[:filters]) unless input[:filters].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1028,7 +1030,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SnapshotFilter.build(element) unless element.nil?
+          data << SnapshotFilter.build(element) unless element.nil?
         end
         data
       end
@@ -1039,7 +1041,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::SnapshotFilterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = SnapshotFilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -1074,11 +1076,11 @@ module AWS::SDK::FSx
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSSimbaAPIService_v20180301.DescribeStorageVirtualMachines'
         data = {}
-        data['StorageVirtualMachineIds'] = Builders::StorageVirtualMachineIds.build(input[:storage_virtual_machine_ids]) unless input[:storage_virtual_machine_ids].nil?
-        data['Filters'] = Builders::StorageVirtualMachineFilters.build(input[:filters]) unless input[:filters].nil?
+        data['StorageVirtualMachineIds'] = StorageVirtualMachineIds.build(input[:storage_virtual_machine_ids]) unless input[:storage_virtual_machine_ids].nil?
+        data['Filters'] = StorageVirtualMachineFilters.build(input[:filters]) unless input[:filters].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1087,7 +1089,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StorageVirtualMachineFilter.build(element) unless element.nil?
+          data << StorageVirtualMachineFilter.build(element) unless element.nil?
         end
         data
       end
@@ -1098,7 +1100,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::StorageVirtualMachineFilterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = StorageVirtualMachineFilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -1133,11 +1135,11 @@ module AWS::SDK::FSx
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSSimbaAPIService_v20180301.DescribeVolumes'
         data = {}
-        data['VolumeIds'] = Builders::VolumeIds.build(input[:volume_ids]) unless input[:volume_ids].nil?
-        data['Filters'] = Builders::VolumeFilters.build(input[:filters]) unless input[:filters].nil?
+        data['VolumeIds'] = VolumeIds.build(input[:volume_ids]) unless input[:volume_ids].nil?
+        data['Filters'] = VolumeFilters.build(input[:filters]) unless input[:filters].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1146,7 +1148,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::VolumeFilter.build(element) unless element.nil?
+          data << VolumeFilter.build(element) unless element.nil?
         end
         data
       end
@@ -1157,7 +1159,7 @@ module AWS::SDK::FSx
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::VolumeFilterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = VolumeFilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -1194,8 +1196,8 @@ module AWS::SDK::FSx
         data = {}
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['FileSystemId'] = input[:file_system_id] unless input[:file_system_id].nil?
-        data['Aliases'] = Builders::AlternateDNSNames.build(input[:aliases]) unless input[:aliases].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Aliases'] = AlternateDNSNames.build(input[:aliases]) unless input[:aliases].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1210,7 +1212,7 @@ module AWS::SDK::FSx
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1224,7 +1226,7 @@ module AWS::SDK::FSx
         data = {}
         data['FileSystemId'] = input[:file_system_id] unless input[:file_system_id].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1239,8 +1241,8 @@ module AWS::SDK::FSx
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['VolumeId'] = input[:volume_id] unless input[:volume_id].nil?
         data['SnapshotId'] = input[:snapshot_id] unless input[:snapshot_id].nil?
-        data['Options'] = Builders::RestoreOpenZFSVolumeOptions.build(input[:options]) unless input[:options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Options'] = RestoreOpenZFSVolumeOptions.build(input[:options]) unless input[:options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1264,8 +1266,8 @@ module AWS::SDK::FSx
         http_req.headers['X-Amz-Target'] = 'AWSSimbaAPIService_v20180301.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1278,8 +1280,8 @@ module AWS::SDK::FSx
         http_req.headers['X-Amz-Target'] = 'AWSSimbaAPIService_v20180301.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1305,8 +1307,8 @@ module AWS::SDK::FSx
         data['AssociationId'] = input[:association_id] unless input[:association_id].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['ImportedFileChunkSize'] = input[:imported_file_chunk_size] unless input[:imported_file_chunk_size].nil?
-        data['S3'] = Builders::S3DataRepositoryConfiguration.build(input[:s3]) unless input[:s3].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['S3'] = S3DataRepositoryConfiguration.build(input[:s3]) unless input[:s3].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1321,11 +1323,11 @@ module AWS::SDK::FSx
         data['FileSystemId'] = input[:file_system_id] unless input[:file_system_id].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['StorageCapacity'] = input[:storage_capacity] unless input[:storage_capacity].nil?
-        data['WindowsConfiguration'] = Builders::UpdateFileSystemWindowsConfiguration.build(input[:windows_configuration]) unless input[:windows_configuration].nil?
-        data['LustreConfiguration'] = Builders::UpdateFileSystemLustreConfiguration.build(input[:lustre_configuration]) unless input[:lustre_configuration].nil?
-        data['OntapConfiguration'] = Builders::UpdateFileSystemOntapConfiguration.build(input[:ontap_configuration]) unless input[:ontap_configuration].nil?
-        data['OpenZFSConfiguration'] = Builders::UpdateFileSystemOpenZFSConfiguration.build(input[:open_zfs_configuration]) unless input[:open_zfs_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WindowsConfiguration'] = UpdateFileSystemWindowsConfiguration.build(input[:windows_configuration]) unless input[:windows_configuration].nil?
+        data['LustreConfiguration'] = UpdateFileSystemLustreConfiguration.build(input[:lustre_configuration]) unless input[:lustre_configuration].nil?
+        data['OntapConfiguration'] = UpdateFileSystemOntapConfiguration.build(input[:ontap_configuration]) unless input[:ontap_configuration].nil?
+        data['OpenZFSConfiguration'] = UpdateFileSystemOpenZFSConfiguration.build(input[:open_zfs_configuration]) unless input[:open_zfs_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1339,7 +1341,7 @@ module AWS::SDK::FSx
         data['DailyAutomaticBackupStartTime'] = input[:daily_automatic_backup_start_time] unless input[:daily_automatic_backup_start_time].nil?
         data['ThroughputCapacity'] = input[:throughput_capacity] unless input[:throughput_capacity].nil?
         data['WeeklyMaintenanceStartTime'] = input[:weekly_maintenance_start_time] unless input[:weekly_maintenance_start_time].nil?
-        data['DiskIopsConfiguration'] = Builders::DiskIopsConfiguration.build(input[:disk_iops_configuration]) unless input[:disk_iops_configuration].nil?
+        data['DiskIopsConfiguration'] = DiskIopsConfiguration.build(input[:disk_iops_configuration]) unless input[:disk_iops_configuration].nil?
         data
       end
     end
@@ -1352,7 +1354,7 @@ module AWS::SDK::FSx
         data['DailyAutomaticBackupStartTime'] = input[:daily_automatic_backup_start_time] unless input[:daily_automatic_backup_start_time].nil?
         data['FsxAdminPassword'] = input[:fsx_admin_password] unless input[:fsx_admin_password].nil?
         data['WeeklyMaintenanceStartTime'] = input[:weekly_maintenance_start_time] unless input[:weekly_maintenance_start_time].nil?
-        data['DiskIopsConfiguration'] = Builders::DiskIopsConfiguration.build(input[:disk_iops_configuration]) unless input[:disk_iops_configuration].nil?
+        data['DiskIopsConfiguration'] = DiskIopsConfiguration.build(input[:disk_iops_configuration]) unless input[:disk_iops_configuration].nil?
         data['ThroughputCapacity'] = input[:throughput_capacity] unless input[:throughput_capacity].nil?
         data
       end
@@ -1367,8 +1369,8 @@ module AWS::SDK::FSx
         data['AutomaticBackupRetentionDays'] = input[:automatic_backup_retention_days] unless input[:automatic_backup_retention_days].nil?
         data['AutoImportPolicy'] = input[:auto_import_policy] unless input[:auto_import_policy].nil?
         data['DataCompressionType'] = input[:data_compression_type] unless input[:data_compression_type].nil?
-        data['LogConfiguration'] = Builders::LustreLogCreateConfiguration.build(input[:log_configuration]) unless input[:log_configuration].nil?
-        data['RootSquashConfiguration'] = Builders::LustreRootSquashConfiguration.build(input[:root_squash_configuration]) unless input[:root_squash_configuration].nil?
+        data['LogConfiguration'] = LustreLogCreateConfiguration.build(input[:log_configuration]) unless input[:log_configuration].nil?
+        data['RootSquashConfiguration'] = LustreRootSquashConfiguration.build(input[:root_squash_configuration]) unless input[:root_squash_configuration].nil?
         data
       end
     end
@@ -1381,8 +1383,8 @@ module AWS::SDK::FSx
         data['DailyAutomaticBackupStartTime'] = input[:daily_automatic_backup_start_time] unless input[:daily_automatic_backup_start_time].nil?
         data['AutomaticBackupRetentionDays'] = input[:automatic_backup_retention_days] unless input[:automatic_backup_retention_days].nil?
         data['ThroughputCapacity'] = input[:throughput_capacity] unless input[:throughput_capacity].nil?
-        data['SelfManagedActiveDirectoryConfiguration'] = Builders::SelfManagedActiveDirectoryConfigurationUpdates.build(input[:self_managed_active_directory_configuration]) unless input[:self_managed_active_directory_configuration].nil?
-        data['AuditLogConfiguration'] = Builders::WindowsAuditLogCreateConfiguration.build(input[:audit_log_configuration]) unless input[:audit_log_configuration].nil?
+        data['SelfManagedActiveDirectoryConfiguration'] = SelfManagedActiveDirectoryConfigurationUpdates.build(input[:self_managed_active_directory_configuration]) unless input[:self_managed_active_directory_configuration].nil?
+        data['AuditLogConfiguration'] = WindowsAuditLogCreateConfiguration.build(input[:audit_log_configuration]) unless input[:audit_log_configuration].nil?
         data
       end
     end
@@ -1393,7 +1395,7 @@ module AWS::SDK::FSx
         data = {}
         data['UserName'] = input[:user_name] unless input[:user_name].nil?
         data['Password'] = input[:password] unless input[:password].nil?
-        data['DnsIps'] = Builders::DnsIps.build(input[:dns_ips]) unless input[:dns_ips].nil?
+        data['DnsIps'] = DnsIps.build(input[:dns_ips]) unless input[:dns_ips].nil?
         data
       end
     end
@@ -1409,7 +1411,7 @@ module AWS::SDK::FSx
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['SnapshotId'] = input[:snapshot_id] unless input[:snapshot_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1421,11 +1423,11 @@ module AWS::SDK::FSx
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSSimbaAPIService_v20180301.UpdateStorageVirtualMachine'
         data = {}
-        data['ActiveDirectoryConfiguration'] = Builders::UpdateSvmActiveDirectoryConfiguration.build(input[:active_directory_configuration]) unless input[:active_directory_configuration].nil?
+        data['ActiveDirectoryConfiguration'] = UpdateSvmActiveDirectoryConfiguration.build(input[:active_directory_configuration]) unless input[:active_directory_configuration].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['StorageVirtualMachineId'] = input[:storage_virtual_machine_id] unless input[:storage_virtual_machine_id].nil?
         data['SvmAdminPassword'] = input[:svm_admin_password] unless input[:svm_admin_password].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1433,7 +1435,7 @@ module AWS::SDK::FSx
     class UpdateSvmActiveDirectoryConfiguration
       def self.build(input)
         data = {}
-        data['SelfManagedActiveDirectoryConfiguration'] = Builders::SelfManagedActiveDirectoryConfigurationUpdates.build(input[:self_managed_active_directory_configuration]) unless input[:self_managed_active_directory_configuration].nil?
+        data['SelfManagedActiveDirectoryConfiguration'] = SelfManagedActiveDirectoryConfigurationUpdates.build(input[:self_managed_active_directory_configuration]) unless input[:self_managed_active_directory_configuration].nil?
         data
       end
     end
@@ -1448,10 +1450,10 @@ module AWS::SDK::FSx
         data = {}
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['VolumeId'] = input[:volume_id] unless input[:volume_id].nil?
-        data['OntapConfiguration'] = Builders::UpdateOntapVolumeConfiguration.build(input[:ontap_configuration]) unless input[:ontap_configuration].nil?
+        data['OntapConfiguration'] = UpdateOntapVolumeConfiguration.build(input[:ontap_configuration]) unless input[:ontap_configuration].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['OpenZFSConfiguration'] = Builders::UpdateOpenZFSVolumeConfiguration.build(input[:open_zfs_configuration]) unless input[:open_zfs_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OpenZFSConfiguration'] = UpdateOpenZFSVolumeConfiguration.build(input[:open_zfs_configuration]) unless input[:open_zfs_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1463,8 +1465,8 @@ module AWS::SDK::FSx
         data['StorageCapacityQuotaGiB'] = input[:storage_capacity_quota_gi_b] unless input[:storage_capacity_quota_gi_b].nil?
         data['RecordSizeKiB'] = input[:record_size_ki_b] unless input[:record_size_ki_b].nil?
         data['DataCompressionType'] = input[:data_compression_type] unless input[:data_compression_type].nil?
-        data['NfsExports'] = Builders::OpenZFSNfsExports.build(input[:nfs_exports]) unless input[:nfs_exports].nil?
-        data['UserAndGroupQuotas'] = Builders::OpenZFSUserAndGroupQuotas.build(input[:user_and_group_quotas]) unless input[:user_and_group_quotas].nil?
+        data['NfsExports'] = OpenZFSNfsExports.build(input[:nfs_exports]) unless input[:nfs_exports].nil?
+        data['UserAndGroupQuotas'] = OpenZFSUserAndGroupQuotas.build(input[:user_and_group_quotas]) unless input[:user_and_group_quotas].nil?
         data['ReadOnly'] = input[:read_only] unless input[:read_only].nil?
         data
       end
@@ -1478,7 +1480,7 @@ module AWS::SDK::FSx
         data['SecurityStyle'] = input[:security_style] unless input[:security_style].nil?
         data['SizeInMegabytes'] = input[:size_in_megabytes] unless input[:size_in_megabytes].nil?
         data['StorageEfficiencyEnabled'] = input[:storage_efficiency_enabled] unless input[:storage_efficiency_enabled].nil?
-        data['TieringPolicy'] = Builders::TieringPolicy.build(input[:tiering_policy]) unless input[:tiering_policy].nil?
+        data['TieringPolicy'] = TieringPolicy.build(input[:tiering_policy]) unless input[:tiering_policy].nil?
         data
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SecurityHub
   module Stubs
 
@@ -48,8 +50,8 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['StandardsSubscriptions'] = Stubs::StandardsSubscriptions.stub(stub[:standards_subscriptions]) unless stub[:standards_subscriptions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StandardsSubscriptions'] = StandardsSubscriptions.stub(stub[:standards_subscriptions]) unless stub[:standards_subscriptions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -67,7 +69,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StandardsSubscription.stub(element) unless element.nil?
+          data << StandardsSubscription.stub(element) unless element.nil?
         end
         data
       end
@@ -92,9 +94,9 @@ module AWS::SDK::SecurityHub
         data = {}
         data['StandardsSubscriptionArn'] = stub[:standards_subscription_arn] unless stub[:standards_subscription_arn].nil?
         data['StandardsArn'] = stub[:standards_arn] unless stub[:standards_arn].nil?
-        data['StandardsInput'] = Stubs::StandardsInputParameterMap.stub(stub[:standards_input]) unless stub[:standards_input].nil?
+        data['StandardsInput'] = StandardsInputParameterMap.stub(stub[:standards_input]) unless stub[:standards_input].nil?
         data['StandardsStatus'] = stub[:standards_status] unless stub[:standards_status].nil?
-        data['StandardsStatusReason'] = Stubs::StandardsStatusReason.stub(stub[:standards_status_reason]) unless stub[:standards_status_reason].nil?
+        data['StandardsStatusReason'] = StandardsStatusReason.stub(stub[:standards_status_reason]) unless stub[:standards_status_reason].nil?
         data
       end
     end
@@ -149,8 +151,8 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['StandardsSubscriptions'] = Stubs::StandardsSubscriptions.stub(stub[:standards_subscriptions]) unless stub[:standards_subscriptions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StandardsSubscriptions'] = StandardsSubscriptions.stub(stub[:standards_subscriptions]) unless stub[:standards_subscriptions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -170,8 +172,8 @@ module AWS::SDK::SecurityHub
         http_resp.headers['Content-Type'] = 'application/json'
         data['FailedCount'] = stub[:failed_count] unless stub[:failed_count].nil?
         data['SuccessCount'] = stub[:success_count] unless stub[:success_count].nil?
-        data['FailedFindings'] = Stubs::ImportFindingsErrorList.stub(stub[:failed_findings]) unless stub[:failed_findings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FailedFindings'] = ImportFindingsErrorList.stub(stub[:failed_findings]) unless stub[:failed_findings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -189,7 +191,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImportFindingsError.stub(element) unless element.nil?
+          data << ImportFindingsError.stub(element) unless element.nil?
         end
         data
       end
@@ -230,9 +232,9 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ProcessedFindings'] = Stubs::AwsSecurityFindingIdentifierList.stub(stub[:processed_findings]) unless stub[:processed_findings].nil?
-        data['UnprocessedFindings'] = Stubs::BatchUpdateFindingsUnprocessedFindingsList.stub(stub[:unprocessed_findings]) unless stub[:unprocessed_findings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProcessedFindings'] = AwsSecurityFindingIdentifierList.stub(stub[:processed_findings]) unless stub[:processed_findings].nil?
+        data['UnprocessedFindings'] = BatchUpdateFindingsUnprocessedFindingsList.stub(stub[:unprocessed_findings]) unless stub[:unprocessed_findings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -250,7 +252,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchUpdateFindingsUnprocessedFinding.stub(element) unless element.nil?
+          data << BatchUpdateFindingsUnprocessedFinding.stub(element) unless element.nil?
         end
         data
       end
@@ -271,7 +273,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::BatchUpdateFindingsUnprocessedFinding.new
         data = {}
-        data['FindingIdentifier'] = Stubs::AwsSecurityFindingIdentifier.stub(stub[:finding_identifier]) unless stub[:finding_identifier].nil?
+        data['FindingIdentifier'] = AwsSecurityFindingIdentifier.stub(stub[:finding_identifier]) unless stub[:finding_identifier].nil?
         data['ErrorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['ErrorMessage'] = stub[:error_message] unless stub[:error_message].nil?
         data
@@ -312,7 +314,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsSecurityFindingIdentifier.stub(element) unless element.nil?
+          data << AwsSecurityFindingIdentifier.stub(element) unless element.nil?
         end
         data
       end
@@ -331,7 +333,7 @@ module AWS::SDK::SecurityHub
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ActionTargetArn'] = stub[:action_target_arn] unless stub[:action_target_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -353,8 +355,8 @@ module AWS::SDK::SecurityHub
         data['FindingAggregatorArn'] = stub[:finding_aggregator_arn] unless stub[:finding_aggregator_arn].nil?
         data['FindingAggregationRegion'] = stub[:finding_aggregation_region] unless stub[:finding_aggregation_region].nil?
         data['RegionLinkingMode'] = stub[:region_linking_mode] unless stub[:region_linking_mode].nil?
-        data['Regions'] = Stubs::StringList.stub(stub[:regions]) unless stub[:regions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Regions'] = StringList.stub(stub[:regions]) unless stub[:regions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -391,7 +393,7 @@ module AWS::SDK::SecurityHub
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['InsightArn'] = stub[:insight_arn] unless stub[:insight_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -407,8 +409,8 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['UnprocessedAccounts'] = Stubs::ResultList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UnprocessedAccounts'] = ResultList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -426,7 +428,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Result.stub(element) unless element.nil?
+          data << Result.stub(element) unless element.nil?
         end
         data
       end
@@ -464,8 +466,8 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['UnprocessedAccounts'] = Stubs::ResultList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UnprocessedAccounts'] = ResultList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -482,7 +484,7 @@ module AWS::SDK::SecurityHub
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ActionTargetArn'] = stub[:action_target_arn] unless stub[:action_target_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -512,7 +514,7 @@ module AWS::SDK::SecurityHub
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['InsightArn'] = stub[:insight_arn] unless stub[:insight_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -528,8 +530,8 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['UnprocessedAccounts'] = Stubs::ResultList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UnprocessedAccounts'] = ResultList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -545,8 +547,8 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['UnprocessedAccounts'] = Stubs::ResultList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UnprocessedAccounts'] = ResultList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -563,9 +565,9 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ActionTargets'] = Stubs::ActionTargetList.stub(stub[:action_targets]) unless stub[:action_targets].nil?
+        data['ActionTargets'] = ActionTargetList.stub(stub[:action_targets]) unless stub[:action_targets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -583,7 +585,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActionTarget.stub(element) unless element.nil?
+          data << ActionTarget.stub(element) unless element.nil?
         end
         data
       end
@@ -628,7 +630,7 @@ module AWS::SDK::SecurityHub
         data['HubArn'] = stub[:hub_arn] unless stub[:hub_arn].nil?
         data['SubscribedAt'] = stub[:subscribed_at] unless stub[:subscribed_at].nil?
         data['AutoEnableControls'] = stub[:auto_enable_controls] unless stub[:auto_enable_controls].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -649,7 +651,7 @@ module AWS::SDK::SecurityHub
         data['AutoEnable'] = stub[:auto_enable] unless stub[:auto_enable].nil?
         data['MemberAccountLimitReached'] = stub[:member_account_limit_reached] unless stub[:member_account_limit_reached].nil?
         data['AutoEnableStandards'] = stub[:auto_enable_standards] unless stub[:auto_enable_standards].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -666,9 +668,9 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Products'] = Stubs::ProductsList.stub(stub[:products]) unless stub[:products].nil?
+        data['Products'] = ProductsList.stub(stub[:products]) unless stub[:products].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -686,7 +688,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Product.stub(element) unless element.nil?
+          data << Product.stub(element) unless element.nil?
         end
         data
       end
@@ -717,8 +719,8 @@ module AWS::SDK::SecurityHub
         data['ProductName'] = stub[:product_name] unless stub[:product_name].nil?
         data['CompanyName'] = stub[:company_name] unless stub[:company_name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Categories'] = Stubs::CategoryList.stub(stub[:categories]) unless stub[:categories].nil?
-        data['IntegrationTypes'] = Stubs::IntegrationTypeList.stub(stub[:integration_types]) unless stub[:integration_types].nil?
+        data['Categories'] = CategoryList.stub(stub[:categories]) unless stub[:categories].nil?
+        data['IntegrationTypes'] = IntegrationTypeList.stub(stub[:integration_types]) unless stub[:integration_types].nil?
         data['MarketplaceUrl'] = stub[:marketplace_url] unless stub[:marketplace_url].nil?
         data['ActivationUrl'] = stub[:activation_url] unless stub[:activation_url].nil?
         data['ProductSubscriptionResourcePolicy'] = stub[:product_subscription_resource_policy] unless stub[:product_subscription_resource_policy].nil?
@@ -779,9 +781,9 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Standards'] = Stubs::Standards.stub(stub[:standards]) unless stub[:standards].nil?
+        data['Standards'] = Standards.stub(stub[:standards]) unless stub[:standards].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -799,7 +801,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Standard.stub(element) unless element.nil?
+          data << Standard.stub(element) unless element.nil?
         end
         data
       end
@@ -842,9 +844,9 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Controls'] = Stubs::StandardsControls.stub(stub[:controls]) unless stub[:controls].nil?
+        data['Controls'] = StandardsControls.stub(stub[:controls]) unless stub[:controls].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -862,7 +864,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StandardsControl.stub(element) unless element.nil?
+          data << StandardsControl.stub(element) unless element.nil?
         end
         data
       end
@@ -899,7 +901,7 @@ module AWS::SDK::SecurityHub
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['RemediationUrl'] = stub[:remediation_url] unless stub[:remediation_url].nil?
         data['SeverityRating'] = stub[:severity_rating] unless stub[:severity_rating].nil?
-        data['RelatedRequirements'] = Stubs::RelatedRequirementsList.stub(stub[:related_requirements]) unless stub[:related_requirements].nil?
+        data['RelatedRequirements'] = RelatedRequirementsList.stub(stub[:related_requirements]) unless stub[:related_requirements].nil?
         data
       end
     end
@@ -1015,7 +1017,7 @@ module AWS::SDK::SecurityHub
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ProductSubscriptionArn'] = stub[:product_subscription_arn] unless stub[:product_subscription_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1057,8 +1059,8 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Administrator'] = Stubs::Invitation.stub(stub[:administrator]) unless stub[:administrator].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Administrator'] = Invitation.stub(stub[:administrator]) unless stub[:administrator].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1099,9 +1101,9 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['StandardsSubscriptions'] = Stubs::StandardsSubscriptions.stub(stub[:standards_subscriptions]) unless stub[:standards_subscriptions].nil?
+        data['StandardsSubscriptions'] = StandardsSubscriptions.stub(stub[:standards_subscriptions]) unless stub[:standards_subscriptions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1123,8 +1125,8 @@ module AWS::SDK::SecurityHub
         data['FindingAggregatorArn'] = stub[:finding_aggregator_arn] unless stub[:finding_aggregator_arn].nil?
         data['FindingAggregationRegion'] = stub[:finding_aggregation_region] unless stub[:finding_aggregation_region].nil?
         data['RegionLinkingMode'] = stub[:region_linking_mode] unless stub[:region_linking_mode].nil?
-        data['Regions'] = Stubs::StringList.stub(stub[:regions]) unless stub[:regions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Regions'] = StringList.stub(stub[:regions]) unless stub[:regions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1141,9 +1143,9 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Findings'] = Stubs::AwsSecurityFindingList.stub(stub[:findings]) unless stub[:findings].nil?
+        data['Findings'] = AwsSecurityFindingList.stub(stub[:findings]) unless stub[:findings].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1161,7 +1163,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsSecurityFinding.stub(element) unless element.nil?
+          data << AwsSecurityFinding.stub(element) unless element.nil?
         end
         data
       end
@@ -1227,37 +1229,37 @@ module AWS::SDK::SecurityHub
         data['Region'] = stub[:region] unless stub[:region].nil?
         data['GeneratorId'] = stub[:generator_id] unless stub[:generator_id].nil?
         data['AwsAccountId'] = stub[:aws_account_id] unless stub[:aws_account_id].nil?
-        data['Types'] = Stubs::TypeList.stub(stub[:types]) unless stub[:types].nil?
+        data['Types'] = TypeList.stub(stub[:types]) unless stub[:types].nil?
         data['FirstObservedAt'] = stub[:first_observed_at] unless stub[:first_observed_at].nil?
         data['LastObservedAt'] = stub[:last_observed_at] unless stub[:last_observed_at].nil?
         data['CreatedAt'] = stub[:created_at] unless stub[:created_at].nil?
         data['UpdatedAt'] = stub[:updated_at] unless stub[:updated_at].nil?
-        data['Severity'] = Stubs::Severity.stub(stub[:severity]) unless stub[:severity].nil?
+        data['Severity'] = Severity.stub(stub[:severity]) unless stub[:severity].nil?
         data['Confidence'] = stub[:confidence] unless stub[:confidence].nil?
         data['Criticality'] = stub[:criticality] unless stub[:criticality].nil?
         data['Title'] = stub[:title] unless stub[:title].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Remediation'] = Stubs::Remediation.stub(stub[:remediation]) unless stub[:remediation].nil?
+        data['Remediation'] = Remediation.stub(stub[:remediation]) unless stub[:remediation].nil?
         data['SourceUrl'] = stub[:source_url] unless stub[:source_url].nil?
-        data['ProductFields'] = Stubs::FieldMap.stub(stub[:product_fields]) unless stub[:product_fields].nil?
-        data['UserDefinedFields'] = Stubs::FieldMap.stub(stub[:user_defined_fields]) unless stub[:user_defined_fields].nil?
-        data['Malware'] = Stubs::MalwareList.stub(stub[:malware]) unless stub[:malware].nil?
-        data['Network'] = Stubs::Network.stub(stub[:network]) unless stub[:network].nil?
-        data['NetworkPath'] = Stubs::NetworkPathList.stub(stub[:network_path]) unless stub[:network_path].nil?
-        data['Process'] = Stubs::ProcessDetails.stub(stub[:process]) unless stub[:process].nil?
-        data['ThreatIntelIndicators'] = Stubs::ThreatIntelIndicatorList.stub(stub[:threat_intel_indicators]) unless stub[:threat_intel_indicators].nil?
-        data['Resources'] = Stubs::ResourceList.stub(stub[:resources]) unless stub[:resources].nil?
-        data['Compliance'] = Stubs::Compliance.stub(stub[:compliance]) unless stub[:compliance].nil?
+        data['ProductFields'] = FieldMap.stub(stub[:product_fields]) unless stub[:product_fields].nil?
+        data['UserDefinedFields'] = FieldMap.stub(stub[:user_defined_fields]) unless stub[:user_defined_fields].nil?
+        data['Malware'] = MalwareList.stub(stub[:malware]) unless stub[:malware].nil?
+        data['Network'] = Network.stub(stub[:network]) unless stub[:network].nil?
+        data['NetworkPath'] = NetworkPathList.stub(stub[:network_path]) unless stub[:network_path].nil?
+        data['Process'] = ProcessDetails.stub(stub[:process]) unless stub[:process].nil?
+        data['ThreatIntelIndicators'] = ThreatIntelIndicatorList.stub(stub[:threat_intel_indicators]) unless stub[:threat_intel_indicators].nil?
+        data['Resources'] = ResourceList.stub(stub[:resources]) unless stub[:resources].nil?
+        data['Compliance'] = Compliance.stub(stub[:compliance]) unless stub[:compliance].nil?
         data['VerificationState'] = stub[:verification_state] unless stub[:verification_state].nil?
         data['WorkflowState'] = stub[:workflow_state] unless stub[:workflow_state].nil?
-        data['Workflow'] = Stubs::Workflow.stub(stub[:workflow]) unless stub[:workflow].nil?
+        data['Workflow'] = Workflow.stub(stub[:workflow]) unless stub[:workflow].nil?
         data['RecordState'] = stub[:record_state] unless stub[:record_state].nil?
-        data['RelatedFindings'] = Stubs::RelatedFindingList.stub(stub[:related_findings]) unless stub[:related_findings].nil?
-        data['Note'] = Stubs::Note.stub(stub[:note]) unless stub[:note].nil?
-        data['Vulnerabilities'] = Stubs::VulnerabilityList.stub(stub[:vulnerabilities]) unless stub[:vulnerabilities].nil?
-        data['PatchSummary'] = Stubs::PatchSummary.stub(stub[:patch_summary]) unless stub[:patch_summary].nil?
-        data['Action'] = Stubs::Action.stub(stub[:action]) unless stub[:action].nil?
-        data['FindingProviderFields'] = Stubs::FindingProviderFields.stub(stub[:finding_provider_fields]) unless stub[:finding_provider_fields].nil?
+        data['RelatedFindings'] = RelatedFindingList.stub(stub[:related_findings]) unless stub[:related_findings].nil?
+        data['Note'] = Note.stub(stub[:note]) unless stub[:note].nil?
+        data['Vulnerabilities'] = VulnerabilityList.stub(stub[:vulnerabilities]) unless stub[:vulnerabilities].nil?
+        data['PatchSummary'] = PatchSummary.stub(stub[:patch_summary]) unless stub[:patch_summary].nil?
+        data['Action'] = Action.stub(stub[:action]) unless stub[:action].nil?
+        data['FindingProviderFields'] = FindingProviderFields.stub(stub[:finding_provider_fields]) unless stub[:finding_provider_fields].nil?
         data['Sample'] = stub[:sample] unless stub[:sample].nil?
         data
       end
@@ -1282,9 +1284,9 @@ module AWS::SDK::SecurityHub
         data = {}
         data['Confidence'] = stub[:confidence] unless stub[:confidence].nil?
         data['Criticality'] = stub[:criticality] unless stub[:criticality].nil?
-        data['RelatedFindings'] = Stubs::RelatedFindingList.stub(stub[:related_findings]) unless stub[:related_findings].nil?
-        data['Severity'] = Stubs::FindingProviderSeverity.stub(stub[:severity]) unless stub[:severity].nil?
-        data['Types'] = Stubs::TypeList.stub(stub[:types]) unless stub[:types].nil?
+        data['RelatedFindings'] = RelatedFindingList.stub(stub[:related_findings]) unless stub[:related_findings].nil?
+        data['Severity'] = FindingProviderSeverity.stub(stub[:severity]) unless stub[:severity].nil?
+        data['Types'] = TypeList.stub(stub[:types]) unless stub[:types].nil?
         data
       end
     end
@@ -1343,7 +1345,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RelatedFinding.stub(element) unless element.nil?
+          data << RelatedFinding.stub(element) unless element.nil?
         end
         data
       end
@@ -1387,10 +1389,10 @@ module AWS::SDK::SecurityHub
         stub ||= Types::Action.new
         data = {}
         data['ActionType'] = stub[:action_type] unless stub[:action_type].nil?
-        data['NetworkConnectionAction'] = Stubs::NetworkConnectionAction.stub(stub[:network_connection_action]) unless stub[:network_connection_action].nil?
-        data['AwsApiCallAction'] = Stubs::AwsApiCallAction.stub(stub[:aws_api_call_action]) unless stub[:aws_api_call_action].nil?
-        data['DnsRequestAction'] = Stubs::DnsRequestAction.stub(stub[:dns_request_action]) unless stub[:dns_request_action].nil?
-        data['PortProbeAction'] = Stubs::PortProbeAction.stub(stub[:port_probe_action]) unless stub[:port_probe_action].nil?
+        data['NetworkConnectionAction'] = NetworkConnectionAction.stub(stub[:network_connection_action]) unless stub[:network_connection_action].nil?
+        data['AwsApiCallAction'] = AwsApiCallAction.stub(stub[:aws_api_call_action]) unless stub[:aws_api_call_action].nil?
+        data['DnsRequestAction'] = DnsRequestAction.stub(stub[:dns_request_action]) unless stub[:dns_request_action].nil?
+        data['PortProbeAction'] = PortProbeAction.stub(stub[:port_probe_action]) unless stub[:port_probe_action].nil?
         data
       end
     end
@@ -1409,7 +1411,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::PortProbeAction.new
         data = {}
-        data['PortProbeDetails'] = Stubs::PortProbeDetailList.stub(stub[:port_probe_details]) unless stub[:port_probe_details].nil?
+        data['PortProbeDetails'] = PortProbeDetailList.stub(stub[:port_probe_details]) unless stub[:port_probe_details].nil?
         data['Blocked'] = stub[:blocked] unless stub[:blocked].nil?
         data
       end
@@ -1429,7 +1431,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PortProbeDetail.stub(element) unless element.nil?
+          data << PortProbeDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -1450,9 +1452,9 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::PortProbeDetail.new
         data = {}
-        data['LocalPortDetails'] = Stubs::ActionLocalPortDetails.stub(stub[:local_port_details]) unless stub[:local_port_details].nil?
-        data['LocalIpDetails'] = Stubs::ActionLocalIpDetails.stub(stub[:local_ip_details]) unless stub[:local_ip_details].nil?
-        data['RemoteIpDetails'] = Stubs::ActionRemoteIpDetails.stub(stub[:remote_ip_details]) unless stub[:remote_ip_details].nil?
+        data['LocalPortDetails'] = ActionLocalPortDetails.stub(stub[:local_port_details]) unless stub[:local_port_details].nil?
+        data['LocalIpDetails'] = ActionLocalIpDetails.stub(stub[:local_ip_details]) unless stub[:local_ip_details].nil?
+        data['RemoteIpDetails'] = ActionRemoteIpDetails.stub(stub[:remote_ip_details]) unless stub[:remote_ip_details].nil?
         data
       end
     end
@@ -1475,10 +1477,10 @@ module AWS::SDK::SecurityHub
         stub ||= Types::ActionRemoteIpDetails.new
         data = {}
         data['IpAddressV4'] = stub[:ip_address_v4] unless stub[:ip_address_v4].nil?
-        data['Organization'] = Stubs::IpOrganizationDetails.stub(stub[:organization]) unless stub[:organization].nil?
-        data['Country'] = Stubs::Country.stub(stub[:country]) unless stub[:country].nil?
-        data['City'] = Stubs::City.stub(stub[:city]) unless stub[:city].nil?
-        data['GeoLocation'] = Stubs::GeoLocation.stub(stub[:geo_location]) unless stub[:geo_location].nil?
+        data['Organization'] = IpOrganizationDetails.stub(stub[:organization]) unless stub[:organization].nil?
+        data['Country'] = Country.stub(stub[:country]) unless stub[:country].nil?
+        data['City'] = City.stub(stub[:city]) unless stub[:city].nil?
+        data['GeoLocation'] = GeoLocation.stub(stub[:geo_location]) unless stub[:geo_location].nil?
         data
       end
     end
@@ -1648,9 +1650,9 @@ module AWS::SDK::SecurityHub
         data['Api'] = stub[:api] unless stub[:api].nil?
         data['ServiceName'] = stub[:service_name] unless stub[:service_name].nil?
         data['CallerType'] = stub[:caller_type] unless stub[:caller_type].nil?
-        data['RemoteIpDetails'] = Stubs::ActionRemoteIpDetails.stub(stub[:remote_ip_details]) unless stub[:remote_ip_details].nil?
-        data['DomainDetails'] = Stubs::AwsApiCallActionDomainDetails.stub(stub[:domain_details]) unless stub[:domain_details].nil?
-        data['AffectedResources'] = Stubs::FieldMap.stub(stub[:affected_resources]) unless stub[:affected_resources].nil?
+        data['RemoteIpDetails'] = ActionRemoteIpDetails.stub(stub[:remote_ip_details]) unless stub[:remote_ip_details].nil?
+        data['DomainDetails'] = AwsApiCallActionDomainDetails.stub(stub[:domain_details]) unless stub[:domain_details].nil?
+        data['AffectedResources'] = FieldMap.stub(stub[:affected_resources]) unless stub[:affected_resources].nil?
         data['FirstSeen'] = stub[:first_seen] unless stub[:first_seen].nil?
         data['LastSeen'] = stub[:last_seen] unless stub[:last_seen].nil?
         data
@@ -1714,9 +1716,9 @@ module AWS::SDK::SecurityHub
         stub ||= Types::NetworkConnectionAction.new
         data = {}
         data['ConnectionDirection'] = stub[:connection_direction] unless stub[:connection_direction].nil?
-        data['RemoteIpDetails'] = Stubs::ActionRemoteIpDetails.stub(stub[:remote_ip_details]) unless stub[:remote_ip_details].nil?
-        data['RemotePortDetails'] = Stubs::ActionRemotePortDetails.stub(stub[:remote_port_details]) unless stub[:remote_port_details].nil?
-        data['LocalPortDetails'] = Stubs::ActionLocalPortDetails.stub(stub[:local_port_details]) unless stub[:local_port_details].nil?
+        data['RemoteIpDetails'] = ActionRemoteIpDetails.stub(stub[:remote_ip_details]) unless stub[:remote_ip_details].nil?
+        data['RemotePortDetails'] = ActionRemotePortDetails.stub(stub[:remote_port_details]) unless stub[:remote_port_details].nil?
+        data['LocalPortDetails'] = ActionLocalPortDetails.stub(stub[:local_port_details]) unless stub[:local_port_details].nil?
         data['Protocol'] = stub[:protocol] unless stub[:protocol].nil?
         data['Blocked'] = stub[:blocked] unless stub[:blocked].nil?
         data
@@ -1795,7 +1797,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Vulnerability.stub(element) unless element.nil?
+          data << Vulnerability.stub(element) unless element.nil?
         end
         data
       end
@@ -1820,11 +1822,11 @@ module AWS::SDK::SecurityHub
         stub ||= Types::Vulnerability.new
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
-        data['VulnerablePackages'] = Stubs::SoftwarePackageList.stub(stub[:vulnerable_packages]) unless stub[:vulnerable_packages].nil?
-        data['Cvss'] = Stubs::CvssList.stub(stub[:cvss]) unless stub[:cvss].nil?
-        data['RelatedVulnerabilities'] = Stubs::StringList.stub(stub[:related_vulnerabilities]) unless stub[:related_vulnerabilities].nil?
-        data['Vendor'] = Stubs::VulnerabilityVendor.stub(stub[:vendor]) unless stub[:vendor].nil?
-        data['ReferenceUrls'] = Stubs::StringList.stub(stub[:reference_urls]) unless stub[:reference_urls].nil?
+        data['VulnerablePackages'] = SoftwarePackageList.stub(stub[:vulnerable_packages]) unless stub[:vulnerable_packages].nil?
+        data['Cvss'] = CvssList.stub(stub[:cvss]) unless stub[:cvss].nil?
+        data['RelatedVulnerabilities'] = StringList.stub(stub[:related_vulnerabilities]) unless stub[:related_vulnerabilities].nil?
+        data['Vendor'] = VulnerabilityVendor.stub(stub[:vendor]) unless stub[:vendor].nil?
+        data['ReferenceUrls'] = StringList.stub(stub[:reference_urls]) unless stub[:reference_urls].nil?
         data
       end
     end
@@ -1869,7 +1871,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Cvss.stub(element) unless element.nil?
+          data << Cvss.stub(element) unless element.nil?
         end
         data
       end
@@ -1896,7 +1898,7 @@ module AWS::SDK::SecurityHub
         data['BaseScore'] = Hearth::NumberHelper.serialize(stub[:base_score])
         data['BaseVector'] = stub[:base_vector] unless stub[:base_vector].nil?
         data['Source'] = stub[:source] unless stub[:source].nil?
-        data['Adjustments'] = Stubs::AdjustmentList.stub(stub[:adjustments]) unless stub[:adjustments].nil?
+        data['Adjustments'] = AdjustmentList.stub(stub[:adjustments]) unless stub[:adjustments].nil?
         data
       end
     end
@@ -1915,7 +1917,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Adjustment.stub(element) unless element.nil?
+          data << Adjustment.stub(element) unless element.nil?
         end
         data
       end
@@ -1955,7 +1957,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SoftwarePackage.stub(element) unless element.nil?
+          data << SoftwarePackage.stub(element) unless element.nil?
         end
         data
       end
@@ -2047,8 +2049,8 @@ module AWS::SDK::SecurityHub
         stub ||= Types::Compliance.new
         data = {}
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['RelatedRequirements'] = Stubs::RelatedRequirementsList.stub(stub[:related_requirements]) unless stub[:related_requirements].nil?
-        data['StatusReasons'] = Stubs::StatusReasonsList.stub(stub[:status_reasons]) unless stub[:status_reasons].nil?
+        data['RelatedRequirements'] = RelatedRequirementsList.stub(stub[:related_requirements]) unless stub[:related_requirements].nil?
+        data['StatusReasons'] = StatusReasonsList.stub(stub[:status_reasons]) unless stub[:status_reasons].nil?
         data
       end
     end
@@ -2067,7 +2069,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StatusReason.stub(element) unless element.nil?
+          data << StatusReason.stub(element) unless element.nil?
         end
         data
       end
@@ -2107,7 +2109,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Resource.stub(element) unless element.nil?
+          data << Resource.stub(element) unless element.nil?
         end
         data
       end
@@ -2138,9 +2140,9 @@ module AWS::SDK::SecurityHub
         data['Partition'] = stub[:partition] unless stub[:partition].nil?
         data['Region'] = stub[:region] unless stub[:region].nil?
         data['ResourceRole'] = stub[:resource_role] unless stub[:resource_role].nil?
-        data['Tags'] = Stubs::FieldMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['DataClassification'] = Stubs::DataClassificationDetails.stub(stub[:data_classification]) unless stub[:data_classification].nil?
-        data['Details'] = Stubs::ResourceDetails.stub(stub[:details]) unless stub[:details].nil?
+        data['Tags'] = FieldMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['DataClassification'] = DataClassificationDetails.stub(stub[:data_classification]) unless stub[:data_classification].nil?
+        data['Details'] = ResourceDetails.stub(stub[:details]) unless stub[:details].nil?
         data
       end
     end
@@ -2220,69 +2222,69 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::ResourceDetails.new
         data = {}
-        data['AwsAutoScalingAutoScalingGroup'] = Stubs::AwsAutoScalingAutoScalingGroupDetails.stub(stub[:aws_auto_scaling_auto_scaling_group]) unless stub[:aws_auto_scaling_auto_scaling_group].nil?
-        data['AwsCodeBuildProject'] = Stubs::AwsCodeBuildProjectDetails.stub(stub[:aws_code_build_project]) unless stub[:aws_code_build_project].nil?
-        data['AwsCloudFrontDistribution'] = Stubs::AwsCloudFrontDistributionDetails.stub(stub[:aws_cloud_front_distribution]) unless stub[:aws_cloud_front_distribution].nil?
-        data['AwsEc2Instance'] = Stubs::AwsEc2InstanceDetails.stub(stub[:aws_ec2_instance]) unless stub[:aws_ec2_instance].nil?
-        data['AwsEc2NetworkInterface'] = Stubs::AwsEc2NetworkInterfaceDetails.stub(stub[:aws_ec2_network_interface]) unless stub[:aws_ec2_network_interface].nil?
-        data['AwsEc2SecurityGroup'] = Stubs::AwsEc2SecurityGroupDetails.stub(stub[:aws_ec2_security_group]) unless stub[:aws_ec2_security_group].nil?
-        data['AwsEc2Volume'] = Stubs::AwsEc2VolumeDetails.stub(stub[:aws_ec2_volume]) unless stub[:aws_ec2_volume].nil?
-        data['AwsEc2Vpc'] = Stubs::AwsEc2VpcDetails.stub(stub[:aws_ec2_vpc]) unless stub[:aws_ec2_vpc].nil?
-        data['AwsEc2Eip'] = Stubs::AwsEc2EipDetails.stub(stub[:aws_ec2_eip]) unless stub[:aws_ec2_eip].nil?
-        data['AwsEc2Subnet'] = Stubs::AwsEc2SubnetDetails.stub(stub[:aws_ec2_subnet]) unless stub[:aws_ec2_subnet].nil?
-        data['AwsEc2NetworkAcl'] = Stubs::AwsEc2NetworkAclDetails.stub(stub[:aws_ec2_network_acl]) unless stub[:aws_ec2_network_acl].nil?
-        data['AwsElbv2LoadBalancer'] = Stubs::AwsElbv2LoadBalancerDetails.stub(stub[:aws_elbv2_load_balancer]) unless stub[:aws_elbv2_load_balancer].nil?
-        data['AwsElasticBeanstalkEnvironment'] = Stubs::AwsElasticBeanstalkEnvironmentDetails.stub(stub[:aws_elastic_beanstalk_environment]) unless stub[:aws_elastic_beanstalk_environment].nil?
-        data['AwsElasticsearchDomain'] = Stubs::AwsElasticsearchDomainDetails.stub(stub[:aws_elasticsearch_domain]) unless stub[:aws_elasticsearch_domain].nil?
-        data['AwsS3Bucket'] = Stubs::AwsS3BucketDetails.stub(stub[:aws_s3_bucket]) unless stub[:aws_s3_bucket].nil?
-        data['AwsS3AccountPublicAccessBlock'] = Stubs::AwsS3AccountPublicAccessBlockDetails.stub(stub[:aws_s3_account_public_access_block]) unless stub[:aws_s3_account_public_access_block].nil?
-        data['AwsS3Object'] = Stubs::AwsS3ObjectDetails.stub(stub[:aws_s3_object]) unless stub[:aws_s3_object].nil?
-        data['AwsSecretsManagerSecret'] = Stubs::AwsSecretsManagerSecretDetails.stub(stub[:aws_secrets_manager_secret]) unless stub[:aws_secrets_manager_secret].nil?
-        data['AwsIamAccessKey'] = Stubs::AwsIamAccessKeyDetails.stub(stub[:aws_iam_access_key]) unless stub[:aws_iam_access_key].nil?
-        data['AwsIamUser'] = Stubs::AwsIamUserDetails.stub(stub[:aws_iam_user]) unless stub[:aws_iam_user].nil?
-        data['AwsIamPolicy'] = Stubs::AwsIamPolicyDetails.stub(stub[:aws_iam_policy]) unless stub[:aws_iam_policy].nil?
-        data['AwsApiGatewayV2Stage'] = Stubs::AwsApiGatewayV2StageDetails.stub(stub[:aws_api_gateway_v2_stage]) unless stub[:aws_api_gateway_v2_stage].nil?
-        data['AwsApiGatewayV2Api'] = Stubs::AwsApiGatewayV2ApiDetails.stub(stub[:aws_api_gateway_v2_api]) unless stub[:aws_api_gateway_v2_api].nil?
-        data['AwsDynamoDbTable'] = Stubs::AwsDynamoDbTableDetails.stub(stub[:aws_dynamo_db_table]) unless stub[:aws_dynamo_db_table].nil?
-        data['AwsApiGatewayStage'] = Stubs::AwsApiGatewayStageDetails.stub(stub[:aws_api_gateway_stage]) unless stub[:aws_api_gateway_stage].nil?
-        data['AwsApiGatewayRestApi'] = Stubs::AwsApiGatewayRestApiDetails.stub(stub[:aws_api_gateway_rest_api]) unless stub[:aws_api_gateway_rest_api].nil?
-        data['AwsCloudTrailTrail'] = Stubs::AwsCloudTrailTrailDetails.stub(stub[:aws_cloud_trail_trail]) unless stub[:aws_cloud_trail_trail].nil?
-        data['AwsSsmPatchCompliance'] = Stubs::AwsSsmPatchComplianceDetails.stub(stub[:aws_ssm_patch_compliance]) unless stub[:aws_ssm_patch_compliance].nil?
-        data['AwsCertificateManagerCertificate'] = Stubs::AwsCertificateManagerCertificateDetails.stub(stub[:aws_certificate_manager_certificate]) unless stub[:aws_certificate_manager_certificate].nil?
-        data['AwsRedshiftCluster'] = Stubs::AwsRedshiftClusterDetails.stub(stub[:aws_redshift_cluster]) unless stub[:aws_redshift_cluster].nil?
-        data['AwsElbLoadBalancer'] = Stubs::AwsElbLoadBalancerDetails.stub(stub[:aws_elb_load_balancer]) unless stub[:aws_elb_load_balancer].nil?
-        data['AwsIamGroup'] = Stubs::AwsIamGroupDetails.stub(stub[:aws_iam_group]) unless stub[:aws_iam_group].nil?
-        data['AwsIamRole'] = Stubs::AwsIamRoleDetails.stub(stub[:aws_iam_role]) unless stub[:aws_iam_role].nil?
-        data['AwsKmsKey'] = Stubs::AwsKmsKeyDetails.stub(stub[:aws_kms_key]) unless stub[:aws_kms_key].nil?
-        data['AwsLambdaFunction'] = Stubs::AwsLambdaFunctionDetails.stub(stub[:aws_lambda_function]) unless stub[:aws_lambda_function].nil?
-        data['AwsLambdaLayerVersion'] = Stubs::AwsLambdaLayerVersionDetails.stub(stub[:aws_lambda_layer_version]) unless stub[:aws_lambda_layer_version].nil?
-        data['AwsRdsDbInstance'] = Stubs::AwsRdsDbInstanceDetails.stub(stub[:aws_rds_db_instance]) unless stub[:aws_rds_db_instance].nil?
-        data['AwsSnsTopic'] = Stubs::AwsSnsTopicDetails.stub(stub[:aws_sns_topic]) unless stub[:aws_sns_topic].nil?
-        data['AwsSqsQueue'] = Stubs::AwsSqsQueueDetails.stub(stub[:aws_sqs_queue]) unless stub[:aws_sqs_queue].nil?
-        data['AwsWafWebAcl'] = Stubs::AwsWafWebAclDetails.stub(stub[:aws_waf_web_acl]) unless stub[:aws_waf_web_acl].nil?
-        data['AwsRdsDbSnapshot'] = Stubs::AwsRdsDbSnapshotDetails.stub(stub[:aws_rds_db_snapshot]) unless stub[:aws_rds_db_snapshot].nil?
-        data['AwsRdsDbClusterSnapshot'] = Stubs::AwsRdsDbClusterSnapshotDetails.stub(stub[:aws_rds_db_cluster_snapshot]) unless stub[:aws_rds_db_cluster_snapshot].nil?
-        data['AwsRdsDbCluster'] = Stubs::AwsRdsDbClusterDetails.stub(stub[:aws_rds_db_cluster]) unless stub[:aws_rds_db_cluster].nil?
-        data['AwsEcsCluster'] = Stubs::AwsEcsClusterDetails.stub(stub[:aws_ecs_cluster]) unless stub[:aws_ecs_cluster].nil?
-        data['AwsEcsTaskDefinition'] = Stubs::AwsEcsTaskDefinitionDetails.stub(stub[:aws_ecs_task_definition]) unless stub[:aws_ecs_task_definition].nil?
-        data['Container'] = Stubs::ContainerDetails.stub(stub[:container]) unless stub[:container].nil?
-        data['Other'] = Stubs::FieldMap.stub(stub[:other]) unless stub[:other].nil?
-        data['AwsRdsEventSubscription'] = Stubs::AwsRdsEventSubscriptionDetails.stub(stub[:aws_rds_event_subscription]) unless stub[:aws_rds_event_subscription].nil?
-        data['AwsEcsService'] = Stubs::AwsEcsServiceDetails.stub(stub[:aws_ecs_service]) unless stub[:aws_ecs_service].nil?
-        data['AwsAutoScalingLaunchConfiguration'] = Stubs::AwsAutoScalingLaunchConfigurationDetails.stub(stub[:aws_auto_scaling_launch_configuration]) unless stub[:aws_auto_scaling_launch_configuration].nil?
-        data['AwsEc2VpnConnection'] = Stubs::AwsEc2VpnConnectionDetails.stub(stub[:aws_ec2_vpn_connection]) unless stub[:aws_ec2_vpn_connection].nil?
-        data['AwsEcrContainerImage'] = Stubs::AwsEcrContainerImageDetails.stub(stub[:aws_ecr_container_image]) unless stub[:aws_ecr_container_image].nil?
-        data['AwsOpenSearchServiceDomain'] = Stubs::AwsOpenSearchServiceDomainDetails.stub(stub[:aws_open_search_service_domain]) unless stub[:aws_open_search_service_domain].nil?
-        data['AwsEc2VpcEndpointService'] = Stubs::AwsEc2VpcEndpointServiceDetails.stub(stub[:aws_ec2_vpc_endpoint_service]) unless stub[:aws_ec2_vpc_endpoint_service].nil?
-        data['AwsXrayEncryptionConfig'] = Stubs::AwsXrayEncryptionConfigDetails.stub(stub[:aws_xray_encryption_config]) unless stub[:aws_xray_encryption_config].nil?
-        data['AwsWafRateBasedRule'] = Stubs::AwsWafRateBasedRuleDetails.stub(stub[:aws_waf_rate_based_rule]) unless stub[:aws_waf_rate_based_rule].nil?
-        data['AwsWafRegionalRateBasedRule'] = Stubs::AwsWafRegionalRateBasedRuleDetails.stub(stub[:aws_waf_regional_rate_based_rule]) unless stub[:aws_waf_regional_rate_based_rule].nil?
-        data['AwsEcrRepository'] = Stubs::AwsEcrRepositoryDetails.stub(stub[:aws_ecr_repository]) unless stub[:aws_ecr_repository].nil?
-        data['AwsEksCluster'] = Stubs::AwsEksClusterDetails.stub(stub[:aws_eks_cluster]) unless stub[:aws_eks_cluster].nil?
-        data['AwsNetworkFirewallFirewallPolicy'] = Stubs::AwsNetworkFirewallFirewallPolicyDetails.stub(stub[:aws_network_firewall_firewall_policy]) unless stub[:aws_network_firewall_firewall_policy].nil?
-        data['AwsNetworkFirewallFirewall'] = Stubs::AwsNetworkFirewallFirewallDetails.stub(stub[:aws_network_firewall_firewall]) unless stub[:aws_network_firewall_firewall].nil?
-        data['AwsNetworkFirewallRuleGroup'] = Stubs::AwsNetworkFirewallRuleGroupDetails.stub(stub[:aws_network_firewall_rule_group]) unless stub[:aws_network_firewall_rule_group].nil?
-        data['AwsRdsDbSecurityGroup'] = Stubs::AwsRdsDbSecurityGroupDetails.stub(stub[:aws_rds_db_security_group]) unless stub[:aws_rds_db_security_group].nil?
+        data['AwsAutoScalingAutoScalingGroup'] = AwsAutoScalingAutoScalingGroupDetails.stub(stub[:aws_auto_scaling_auto_scaling_group]) unless stub[:aws_auto_scaling_auto_scaling_group].nil?
+        data['AwsCodeBuildProject'] = AwsCodeBuildProjectDetails.stub(stub[:aws_code_build_project]) unless stub[:aws_code_build_project].nil?
+        data['AwsCloudFrontDistribution'] = AwsCloudFrontDistributionDetails.stub(stub[:aws_cloud_front_distribution]) unless stub[:aws_cloud_front_distribution].nil?
+        data['AwsEc2Instance'] = AwsEc2InstanceDetails.stub(stub[:aws_ec2_instance]) unless stub[:aws_ec2_instance].nil?
+        data['AwsEc2NetworkInterface'] = AwsEc2NetworkInterfaceDetails.stub(stub[:aws_ec2_network_interface]) unless stub[:aws_ec2_network_interface].nil?
+        data['AwsEc2SecurityGroup'] = AwsEc2SecurityGroupDetails.stub(stub[:aws_ec2_security_group]) unless stub[:aws_ec2_security_group].nil?
+        data['AwsEc2Volume'] = AwsEc2VolumeDetails.stub(stub[:aws_ec2_volume]) unless stub[:aws_ec2_volume].nil?
+        data['AwsEc2Vpc'] = AwsEc2VpcDetails.stub(stub[:aws_ec2_vpc]) unless stub[:aws_ec2_vpc].nil?
+        data['AwsEc2Eip'] = AwsEc2EipDetails.stub(stub[:aws_ec2_eip]) unless stub[:aws_ec2_eip].nil?
+        data['AwsEc2Subnet'] = AwsEc2SubnetDetails.stub(stub[:aws_ec2_subnet]) unless stub[:aws_ec2_subnet].nil?
+        data['AwsEc2NetworkAcl'] = AwsEc2NetworkAclDetails.stub(stub[:aws_ec2_network_acl]) unless stub[:aws_ec2_network_acl].nil?
+        data['AwsElbv2LoadBalancer'] = AwsElbv2LoadBalancerDetails.stub(stub[:aws_elbv2_load_balancer]) unless stub[:aws_elbv2_load_balancer].nil?
+        data['AwsElasticBeanstalkEnvironment'] = AwsElasticBeanstalkEnvironmentDetails.stub(stub[:aws_elastic_beanstalk_environment]) unless stub[:aws_elastic_beanstalk_environment].nil?
+        data['AwsElasticsearchDomain'] = AwsElasticsearchDomainDetails.stub(stub[:aws_elasticsearch_domain]) unless stub[:aws_elasticsearch_domain].nil?
+        data['AwsS3Bucket'] = AwsS3BucketDetails.stub(stub[:aws_s3_bucket]) unless stub[:aws_s3_bucket].nil?
+        data['AwsS3AccountPublicAccessBlock'] = AwsS3AccountPublicAccessBlockDetails.stub(stub[:aws_s3_account_public_access_block]) unless stub[:aws_s3_account_public_access_block].nil?
+        data['AwsS3Object'] = AwsS3ObjectDetails.stub(stub[:aws_s3_object]) unless stub[:aws_s3_object].nil?
+        data['AwsSecretsManagerSecret'] = AwsSecretsManagerSecretDetails.stub(stub[:aws_secrets_manager_secret]) unless stub[:aws_secrets_manager_secret].nil?
+        data['AwsIamAccessKey'] = AwsIamAccessKeyDetails.stub(stub[:aws_iam_access_key]) unless stub[:aws_iam_access_key].nil?
+        data['AwsIamUser'] = AwsIamUserDetails.stub(stub[:aws_iam_user]) unless stub[:aws_iam_user].nil?
+        data['AwsIamPolicy'] = AwsIamPolicyDetails.stub(stub[:aws_iam_policy]) unless stub[:aws_iam_policy].nil?
+        data['AwsApiGatewayV2Stage'] = AwsApiGatewayV2StageDetails.stub(stub[:aws_api_gateway_v2_stage]) unless stub[:aws_api_gateway_v2_stage].nil?
+        data['AwsApiGatewayV2Api'] = AwsApiGatewayV2ApiDetails.stub(stub[:aws_api_gateway_v2_api]) unless stub[:aws_api_gateway_v2_api].nil?
+        data['AwsDynamoDbTable'] = AwsDynamoDbTableDetails.stub(stub[:aws_dynamo_db_table]) unless stub[:aws_dynamo_db_table].nil?
+        data['AwsApiGatewayStage'] = AwsApiGatewayStageDetails.stub(stub[:aws_api_gateway_stage]) unless stub[:aws_api_gateway_stage].nil?
+        data['AwsApiGatewayRestApi'] = AwsApiGatewayRestApiDetails.stub(stub[:aws_api_gateway_rest_api]) unless stub[:aws_api_gateway_rest_api].nil?
+        data['AwsCloudTrailTrail'] = AwsCloudTrailTrailDetails.stub(stub[:aws_cloud_trail_trail]) unless stub[:aws_cloud_trail_trail].nil?
+        data['AwsSsmPatchCompliance'] = AwsSsmPatchComplianceDetails.stub(stub[:aws_ssm_patch_compliance]) unless stub[:aws_ssm_patch_compliance].nil?
+        data['AwsCertificateManagerCertificate'] = AwsCertificateManagerCertificateDetails.stub(stub[:aws_certificate_manager_certificate]) unless stub[:aws_certificate_manager_certificate].nil?
+        data['AwsRedshiftCluster'] = AwsRedshiftClusterDetails.stub(stub[:aws_redshift_cluster]) unless stub[:aws_redshift_cluster].nil?
+        data['AwsElbLoadBalancer'] = AwsElbLoadBalancerDetails.stub(stub[:aws_elb_load_balancer]) unless stub[:aws_elb_load_balancer].nil?
+        data['AwsIamGroup'] = AwsIamGroupDetails.stub(stub[:aws_iam_group]) unless stub[:aws_iam_group].nil?
+        data['AwsIamRole'] = AwsIamRoleDetails.stub(stub[:aws_iam_role]) unless stub[:aws_iam_role].nil?
+        data['AwsKmsKey'] = AwsKmsKeyDetails.stub(stub[:aws_kms_key]) unless stub[:aws_kms_key].nil?
+        data['AwsLambdaFunction'] = AwsLambdaFunctionDetails.stub(stub[:aws_lambda_function]) unless stub[:aws_lambda_function].nil?
+        data['AwsLambdaLayerVersion'] = AwsLambdaLayerVersionDetails.stub(stub[:aws_lambda_layer_version]) unless stub[:aws_lambda_layer_version].nil?
+        data['AwsRdsDbInstance'] = AwsRdsDbInstanceDetails.stub(stub[:aws_rds_db_instance]) unless stub[:aws_rds_db_instance].nil?
+        data['AwsSnsTopic'] = AwsSnsTopicDetails.stub(stub[:aws_sns_topic]) unless stub[:aws_sns_topic].nil?
+        data['AwsSqsQueue'] = AwsSqsQueueDetails.stub(stub[:aws_sqs_queue]) unless stub[:aws_sqs_queue].nil?
+        data['AwsWafWebAcl'] = AwsWafWebAclDetails.stub(stub[:aws_waf_web_acl]) unless stub[:aws_waf_web_acl].nil?
+        data['AwsRdsDbSnapshot'] = AwsRdsDbSnapshotDetails.stub(stub[:aws_rds_db_snapshot]) unless stub[:aws_rds_db_snapshot].nil?
+        data['AwsRdsDbClusterSnapshot'] = AwsRdsDbClusterSnapshotDetails.stub(stub[:aws_rds_db_cluster_snapshot]) unless stub[:aws_rds_db_cluster_snapshot].nil?
+        data['AwsRdsDbCluster'] = AwsRdsDbClusterDetails.stub(stub[:aws_rds_db_cluster]) unless stub[:aws_rds_db_cluster].nil?
+        data['AwsEcsCluster'] = AwsEcsClusterDetails.stub(stub[:aws_ecs_cluster]) unless stub[:aws_ecs_cluster].nil?
+        data['AwsEcsTaskDefinition'] = AwsEcsTaskDefinitionDetails.stub(stub[:aws_ecs_task_definition]) unless stub[:aws_ecs_task_definition].nil?
+        data['Container'] = ContainerDetails.stub(stub[:container]) unless stub[:container].nil?
+        data['Other'] = FieldMap.stub(stub[:other]) unless stub[:other].nil?
+        data['AwsRdsEventSubscription'] = AwsRdsEventSubscriptionDetails.stub(stub[:aws_rds_event_subscription]) unless stub[:aws_rds_event_subscription].nil?
+        data['AwsEcsService'] = AwsEcsServiceDetails.stub(stub[:aws_ecs_service]) unless stub[:aws_ecs_service].nil?
+        data['AwsAutoScalingLaunchConfiguration'] = AwsAutoScalingLaunchConfigurationDetails.stub(stub[:aws_auto_scaling_launch_configuration]) unless stub[:aws_auto_scaling_launch_configuration].nil?
+        data['AwsEc2VpnConnection'] = AwsEc2VpnConnectionDetails.stub(stub[:aws_ec2_vpn_connection]) unless stub[:aws_ec2_vpn_connection].nil?
+        data['AwsEcrContainerImage'] = AwsEcrContainerImageDetails.stub(stub[:aws_ecr_container_image]) unless stub[:aws_ecr_container_image].nil?
+        data['AwsOpenSearchServiceDomain'] = AwsOpenSearchServiceDomainDetails.stub(stub[:aws_open_search_service_domain]) unless stub[:aws_open_search_service_domain].nil?
+        data['AwsEc2VpcEndpointService'] = AwsEc2VpcEndpointServiceDetails.stub(stub[:aws_ec2_vpc_endpoint_service]) unless stub[:aws_ec2_vpc_endpoint_service].nil?
+        data['AwsXrayEncryptionConfig'] = AwsXrayEncryptionConfigDetails.stub(stub[:aws_xray_encryption_config]) unless stub[:aws_xray_encryption_config].nil?
+        data['AwsWafRateBasedRule'] = AwsWafRateBasedRuleDetails.stub(stub[:aws_waf_rate_based_rule]) unless stub[:aws_waf_rate_based_rule].nil?
+        data['AwsWafRegionalRateBasedRule'] = AwsWafRegionalRateBasedRuleDetails.stub(stub[:aws_waf_regional_rate_based_rule]) unless stub[:aws_waf_regional_rate_based_rule].nil?
+        data['AwsEcrRepository'] = AwsEcrRepositoryDetails.stub(stub[:aws_ecr_repository]) unless stub[:aws_ecr_repository].nil?
+        data['AwsEksCluster'] = AwsEksClusterDetails.stub(stub[:aws_eks_cluster]) unless stub[:aws_eks_cluster].nil?
+        data['AwsNetworkFirewallFirewallPolicy'] = AwsNetworkFirewallFirewallPolicyDetails.stub(stub[:aws_network_firewall_firewall_policy]) unless stub[:aws_network_firewall_firewall_policy].nil?
+        data['AwsNetworkFirewallFirewall'] = AwsNetworkFirewallFirewallDetails.stub(stub[:aws_network_firewall_firewall]) unless stub[:aws_network_firewall_firewall].nil?
+        data['AwsNetworkFirewallRuleGroup'] = AwsNetworkFirewallRuleGroupDetails.stub(stub[:aws_network_firewall_rule_group]) unless stub[:aws_network_firewall_rule_group].nil?
+        data['AwsRdsDbSecurityGroup'] = AwsRdsDbSecurityGroupDetails.stub(stub[:aws_rds_db_security_group]) unless stub[:aws_rds_db_security_group].nil?
         data
       end
     end
@@ -2309,8 +2311,8 @@ module AWS::SDK::SecurityHub
         data['DbSecurityGroupArn'] = stub[:db_security_group_arn] unless stub[:db_security_group_arn].nil?
         data['DbSecurityGroupDescription'] = stub[:db_security_group_description] unless stub[:db_security_group_description].nil?
         data['DbSecurityGroupName'] = stub[:db_security_group_name] unless stub[:db_security_group_name].nil?
-        data['Ec2SecurityGroups'] = Stubs::AwsRdsDbSecurityGroupEc2SecurityGroups.stub(stub[:ec2_security_groups]) unless stub[:ec2_security_groups].nil?
-        data['IpRanges'] = Stubs::AwsRdsDbSecurityGroupIpRanges.stub(stub[:ip_ranges]) unless stub[:ip_ranges].nil?
+        data['Ec2SecurityGroups'] = AwsRdsDbSecurityGroupEc2SecurityGroups.stub(stub[:ec2_security_groups]) unless stub[:ec2_security_groups].nil?
+        data['IpRanges'] = AwsRdsDbSecurityGroupIpRanges.stub(stub[:ip_ranges]) unless stub[:ip_ranges].nil?
         data['OwnerId'] = stub[:owner_id] unless stub[:owner_id].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data
@@ -2331,7 +2333,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRdsDbSecurityGroupIpRange.stub(element) unless element.nil?
+          data << AwsRdsDbSecurityGroupIpRange.stub(element) unless element.nil?
         end
         data
       end
@@ -2371,7 +2373,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRdsDbSecurityGroupEc2SecurityGroup.stub(element) unless element.nil?
+          data << AwsRdsDbSecurityGroupEc2SecurityGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -2422,7 +2424,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['Capacity'] = stub[:capacity] unless stub[:capacity].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['RuleGroup'] = Stubs::RuleGroupDetails.stub(stub[:rule_group]) unless stub[:rule_group].nil?
+        data['RuleGroup'] = RuleGroupDetails.stub(stub[:rule_group]) unless stub[:rule_group].nil?
         data['RuleGroupArn'] = stub[:rule_group_arn] unless stub[:rule_group_arn].nil?
         data['RuleGroupId'] = stub[:rule_group_id] unless stub[:rule_group_id].nil?
         data['RuleGroupName'] = stub[:rule_group_name] unless stub[:rule_group_name].nil?
@@ -2445,8 +2447,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::RuleGroupDetails.new
         data = {}
-        data['RuleVariables'] = Stubs::RuleGroupVariables.stub(stub[:rule_variables]) unless stub[:rule_variables].nil?
-        data['RulesSource'] = Stubs::RuleGroupSource.stub(stub[:rules_source]) unless stub[:rules_source].nil?
+        data['RuleVariables'] = RuleGroupVariables.stub(stub[:rule_variables]) unless stub[:rule_variables].nil?
+        data['RulesSource'] = RuleGroupSource.stub(stub[:rules_source]) unless stub[:rules_source].nil?
         data
       end
     end
@@ -2467,10 +2469,10 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::RuleGroupSource.new
         data = {}
-        data['RulesSourceList'] = Stubs::RuleGroupSourceListDetails.stub(stub[:rules_source_list]) unless stub[:rules_source_list].nil?
+        data['RulesSourceList'] = RuleGroupSourceListDetails.stub(stub[:rules_source_list]) unless stub[:rules_source_list].nil?
         data['RulesString'] = stub[:rules_string] unless stub[:rules_string].nil?
-        data['StatefulRules'] = Stubs::RuleGroupSourceStatefulRulesList.stub(stub[:stateful_rules]) unless stub[:stateful_rules].nil?
-        data['StatelessRulesAndCustomActions'] = Stubs::RuleGroupSourceStatelessRulesAndCustomActionsDetails.stub(stub[:stateless_rules_and_custom_actions]) unless stub[:stateless_rules_and_custom_actions].nil?
+        data['StatefulRules'] = RuleGroupSourceStatefulRulesList.stub(stub[:stateful_rules]) unless stub[:stateful_rules].nil?
+        data['StatelessRulesAndCustomActions'] = RuleGroupSourceStatelessRulesAndCustomActionsDetails.stub(stub[:stateless_rules_and_custom_actions]) unless stub[:stateless_rules_and_custom_actions].nil?
         data
       end
     end
@@ -2489,8 +2491,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::RuleGroupSourceStatelessRulesAndCustomActionsDetails.new
         data = {}
-        data['CustomActions'] = Stubs::RuleGroupSourceCustomActionsList.stub(stub[:custom_actions]) unless stub[:custom_actions].nil?
-        data['StatelessRules'] = Stubs::RuleGroupSourceStatelessRulesList.stub(stub[:stateless_rules]) unless stub[:stateless_rules].nil?
+        data['CustomActions'] = RuleGroupSourceCustomActionsList.stub(stub[:custom_actions]) unless stub[:custom_actions].nil?
+        data['StatelessRules'] = RuleGroupSourceStatelessRulesList.stub(stub[:stateless_rules]) unless stub[:stateless_rules].nil?
         data
       end
     end
@@ -2509,7 +2511,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleGroupSourceStatelessRulesDetails.stub(element) unless element.nil?
+          data << RuleGroupSourceStatelessRulesDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -2530,7 +2532,7 @@ module AWS::SDK::SecurityHub
         stub ||= Types::RuleGroupSourceStatelessRulesDetails.new
         data = {}
         data['Priority'] = stub[:priority] unless stub[:priority].nil?
-        data['RuleDefinition'] = Stubs::RuleGroupSourceStatelessRuleDefinition.stub(stub[:rule_definition]) unless stub[:rule_definition].nil?
+        data['RuleDefinition'] = RuleGroupSourceStatelessRuleDefinition.stub(stub[:rule_definition]) unless stub[:rule_definition].nil?
         data
       end
     end
@@ -2549,8 +2551,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::RuleGroupSourceStatelessRuleDefinition.new
         data = {}
-        data['Actions'] = Stubs::NonEmptyStringList.stub(stub[:actions]) unless stub[:actions].nil?
-        data['MatchAttributes'] = Stubs::RuleGroupSourceStatelessRuleMatchAttributes.stub(stub[:match_attributes]) unless stub[:match_attributes].nil?
+        data['Actions'] = NonEmptyStringList.stub(stub[:actions]) unless stub[:actions].nil?
+        data['MatchAttributes'] = RuleGroupSourceStatelessRuleMatchAttributes.stub(stub[:match_attributes]) unless stub[:match_attributes].nil?
         data
       end
     end
@@ -2573,12 +2575,12 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::RuleGroupSourceStatelessRuleMatchAttributes.new
         data = {}
-        data['DestinationPorts'] = Stubs::RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList.stub(stub[:destination_ports]) unless stub[:destination_ports].nil?
-        data['Destinations'] = Stubs::RuleGroupSourceStatelessRuleMatchAttributesDestinationsList.stub(stub[:destinations]) unless stub[:destinations].nil?
-        data['Protocols'] = Stubs::RuleGroupSourceStatelessRuleMatchAttributesProtocolsList.stub(stub[:protocols]) unless stub[:protocols].nil?
-        data['SourcePorts'] = Stubs::RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList.stub(stub[:source_ports]) unless stub[:source_ports].nil?
-        data['Sources'] = Stubs::RuleGroupSourceStatelessRuleMatchAttributesSourcesList.stub(stub[:sources]) unless stub[:sources].nil?
-        data['TcpFlags'] = Stubs::RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList.stub(stub[:tcp_flags]) unless stub[:tcp_flags].nil?
+        data['DestinationPorts'] = RuleGroupSourceStatelessRuleMatchAttributesDestinationPortsList.stub(stub[:destination_ports]) unless stub[:destination_ports].nil?
+        data['Destinations'] = RuleGroupSourceStatelessRuleMatchAttributesDestinationsList.stub(stub[:destinations]) unless stub[:destinations].nil?
+        data['Protocols'] = RuleGroupSourceStatelessRuleMatchAttributesProtocolsList.stub(stub[:protocols]) unless stub[:protocols].nil?
+        data['SourcePorts'] = RuleGroupSourceStatelessRuleMatchAttributesSourcePortsList.stub(stub[:source_ports]) unless stub[:source_ports].nil?
+        data['Sources'] = RuleGroupSourceStatelessRuleMatchAttributesSourcesList.stub(stub[:sources]) unless stub[:sources].nil?
+        data['TcpFlags'] = RuleGroupSourceStatelessRuleMatchAttributesTcpFlagsList.stub(stub[:tcp_flags]) unless stub[:tcp_flags].nil?
         data
       end
     end
@@ -2597,7 +2599,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleGroupSourceStatelessRuleMatchAttributesTcpFlags.stub(element) unless element.nil?
+          data << RuleGroupSourceStatelessRuleMatchAttributesTcpFlags.stub(element) unless element.nil?
         end
         data
       end
@@ -2617,8 +2619,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::RuleGroupSourceStatelessRuleMatchAttributesTcpFlags.new
         data = {}
-        data['Flags'] = Stubs::NonEmptyStringList.stub(stub[:flags]) unless stub[:flags].nil?
-        data['Masks'] = Stubs::NonEmptyStringList.stub(stub[:masks]) unless stub[:masks].nil?
+        data['Flags'] = NonEmptyStringList.stub(stub[:flags]) unless stub[:flags].nil?
+        data['Masks'] = NonEmptyStringList.stub(stub[:masks]) unless stub[:masks].nil?
         data
       end
     end
@@ -2657,7 +2659,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleGroupSourceStatelessRuleMatchAttributesSources.stub(element) unless element.nil?
+          data << RuleGroupSourceStatelessRuleMatchAttributesSources.stub(element) unless element.nil?
         end
         data
       end
@@ -2695,7 +2697,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleGroupSourceStatelessRuleMatchAttributesSourcePorts.stub(element) unless element.nil?
+          data << RuleGroupSourceStatelessRuleMatchAttributesSourcePorts.stub(element) unless element.nil?
         end
         data
       end
@@ -2755,7 +2757,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleGroupSourceStatelessRuleMatchAttributesDestinations.stub(element) unless element.nil?
+          data << RuleGroupSourceStatelessRuleMatchAttributesDestinations.stub(element) unless element.nil?
         end
         data
       end
@@ -2793,7 +2795,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts.stub(element) unless element.nil?
+          data << RuleGroupSourceStatelessRuleMatchAttributesDestinationPorts.stub(element) unless element.nil?
         end
         data
       end
@@ -2833,7 +2835,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleGroupSourceCustomActionsDetails.stub(element) unless element.nil?
+          data << RuleGroupSourceCustomActionsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -2853,7 +2855,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::RuleGroupSourceCustomActionsDetails.new
         data = {}
-        data['ActionDefinition'] = Stubs::StatelessCustomActionDefinition.stub(stub[:action_definition]) unless stub[:action_definition].nil?
+        data['ActionDefinition'] = StatelessCustomActionDefinition.stub(stub[:action_definition]) unless stub[:action_definition].nil?
         data['ActionName'] = stub[:action_name] unless stub[:action_name].nil?
         data
       end
@@ -2872,7 +2874,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::StatelessCustomActionDefinition.new
         data = {}
-        data['PublishMetricAction'] = Stubs::StatelessCustomPublishMetricAction.stub(stub[:publish_metric_action]) unless stub[:publish_metric_action].nil?
+        data['PublishMetricAction'] = StatelessCustomPublishMetricAction.stub(stub[:publish_metric_action]) unless stub[:publish_metric_action].nil?
         data
       end
     end
@@ -2890,7 +2892,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::StatelessCustomPublishMetricAction.new
         data = {}
-        data['Dimensions'] = Stubs::StatelessCustomPublishMetricActionDimensionsList.stub(stub[:dimensions]) unless stub[:dimensions].nil?
+        data['Dimensions'] = StatelessCustomPublishMetricActionDimensionsList.stub(stub[:dimensions]) unless stub[:dimensions].nil?
         data
       end
     end
@@ -2909,7 +2911,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StatelessCustomPublishMetricActionDimension.stub(element) unless element.nil?
+          data << StatelessCustomPublishMetricActionDimension.stub(element) unless element.nil?
         end
         data
       end
@@ -2947,7 +2949,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleGroupSourceStatefulRulesDetails.stub(element) unless element.nil?
+          data << RuleGroupSourceStatefulRulesDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -2969,8 +2971,8 @@ module AWS::SDK::SecurityHub
         stub ||= Types::RuleGroupSourceStatefulRulesDetails.new
         data = {}
         data['Action'] = stub[:action] unless stub[:action].nil?
-        data['Header'] = Stubs::RuleGroupSourceStatefulRulesHeaderDetails.stub(stub[:header]) unless stub[:header].nil?
-        data['RuleOptions'] = Stubs::RuleGroupSourceStatefulRulesOptionsList.stub(stub[:rule_options]) unless stub[:rule_options].nil?
+        data['Header'] = RuleGroupSourceStatefulRulesHeaderDetails.stub(stub[:header]) unless stub[:header].nil?
+        data['RuleOptions'] = RuleGroupSourceStatefulRulesOptionsList.stub(stub[:rule_options]) unless stub[:rule_options].nil?
         data
       end
     end
@@ -2989,7 +2991,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleGroupSourceStatefulRulesOptionsDetails.stub(element) unless element.nil?
+          data << RuleGroupSourceStatefulRulesOptionsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -3010,7 +3012,7 @@ module AWS::SDK::SecurityHub
         stub ||= Types::RuleGroupSourceStatefulRulesOptionsDetails.new
         data = {}
         data['Keyword'] = stub[:keyword] unless stub[:keyword].nil?
-        data['Settings'] = Stubs::RuleGroupSourceStatefulRulesRuleOptionsSettingsList.stub(stub[:settings]) unless stub[:settings].nil?
+        data['Settings'] = RuleGroupSourceStatefulRulesRuleOptionsSettingsList.stub(stub[:settings]) unless stub[:settings].nil?
         data
       end
     end
@@ -3079,8 +3081,8 @@ module AWS::SDK::SecurityHub
         stub ||= Types::RuleGroupSourceListDetails.new
         data = {}
         data['GeneratedRulesType'] = stub[:generated_rules_type] unless stub[:generated_rules_type].nil?
-        data['TargetTypes'] = Stubs::NonEmptyStringList.stub(stub[:target_types]) unless stub[:target_types].nil?
-        data['Targets'] = Stubs::NonEmptyStringList.stub(stub[:targets]) unless stub[:targets].nil?
+        data['TargetTypes'] = NonEmptyStringList.stub(stub[:target_types]) unless stub[:target_types].nil?
+        data['Targets'] = NonEmptyStringList.stub(stub[:targets]) unless stub[:targets].nil?
         data
       end
     end
@@ -3099,8 +3101,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::RuleGroupVariables.new
         data = {}
-        data['IpSets'] = Stubs::RuleGroupVariablesIpSetsDetails.stub(stub[:ip_sets]) unless stub[:ip_sets].nil?
-        data['PortSets'] = Stubs::RuleGroupVariablesPortSetsDetails.stub(stub[:port_sets]) unless stub[:port_sets].nil?
+        data['IpSets'] = RuleGroupVariablesIpSetsDetails.stub(stub[:ip_sets]) unless stub[:ip_sets].nil?
+        data['PortSets'] = RuleGroupVariablesPortSetsDetails.stub(stub[:port_sets]) unless stub[:port_sets].nil?
         data
       end
     end
@@ -3118,7 +3120,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::RuleGroupVariablesPortSetsDetails.new
         data = {}
-        data['Definition'] = Stubs::NonEmptyStringList.stub(stub[:definition]) unless stub[:definition].nil?
+        data['Definition'] = NonEmptyStringList.stub(stub[:definition]) unless stub[:definition].nil?
         data
       end
     end
@@ -3136,7 +3138,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::RuleGroupVariablesIpSetsDetails.new
         data = {}
-        data['Definition'] = Stubs::NonEmptyStringList.stub(stub[:definition]) unless stub[:definition].nil?
+        data['Definition'] = NonEmptyStringList.stub(stub[:definition]) unless stub[:definition].nil?
         data
       end
     end
@@ -3171,7 +3173,7 @@ module AWS::SDK::SecurityHub
         data['FirewallPolicyArn'] = stub[:firewall_policy_arn] unless stub[:firewall_policy_arn].nil?
         data['FirewallPolicyChangeProtection'] = stub[:firewall_policy_change_protection] unless stub[:firewall_policy_change_protection].nil?
         data['SubnetChangeProtection'] = stub[:subnet_change_protection] unless stub[:subnet_change_protection].nil?
-        data['SubnetMappings'] = Stubs::AwsNetworkFirewallFirewallSubnetMappingsList.stub(stub[:subnet_mappings]) unless stub[:subnet_mappings].nil?
+        data['SubnetMappings'] = AwsNetworkFirewallFirewallSubnetMappingsList.stub(stub[:subnet_mappings]) unless stub[:subnet_mappings].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data
       end
@@ -3191,7 +3193,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsNetworkFirewallFirewallSubnetMappingsDetails.stub(element) unless element.nil?
+          data << AwsNetworkFirewallFirewallSubnetMappingsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -3232,7 +3234,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsNetworkFirewallFirewallPolicyDetails.new
         data = {}
-        data['FirewallPolicy'] = Stubs::FirewallPolicyDetails.stub(stub[:firewall_policy]) unless stub[:firewall_policy].nil?
+        data['FirewallPolicy'] = FirewallPolicyDetails.stub(stub[:firewall_policy]) unless stub[:firewall_policy].nil?
         data['FirewallPolicyArn'] = stub[:firewall_policy_arn] unless stub[:firewall_policy_arn].nil?
         data['FirewallPolicyId'] = stub[:firewall_policy_id] unless stub[:firewall_policy_id].nil?
         data['FirewallPolicyName'] = stub[:firewall_policy_name] unless stub[:firewall_policy_name].nil?
@@ -3258,11 +3260,11 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::FirewallPolicyDetails.new
         data = {}
-        data['StatefulRuleGroupReferences'] = Stubs::FirewallPolicyStatefulRuleGroupReferencesList.stub(stub[:stateful_rule_group_references]) unless stub[:stateful_rule_group_references].nil?
-        data['StatelessCustomActions'] = Stubs::FirewallPolicyStatelessCustomActionsList.stub(stub[:stateless_custom_actions]) unless stub[:stateless_custom_actions].nil?
-        data['StatelessDefaultActions'] = Stubs::NonEmptyStringList.stub(stub[:stateless_default_actions]) unless stub[:stateless_default_actions].nil?
-        data['StatelessFragmentDefaultActions'] = Stubs::NonEmptyStringList.stub(stub[:stateless_fragment_default_actions]) unless stub[:stateless_fragment_default_actions].nil?
-        data['StatelessRuleGroupReferences'] = Stubs::FirewallPolicyStatelessRuleGroupReferencesList.stub(stub[:stateless_rule_group_references]) unless stub[:stateless_rule_group_references].nil?
+        data['StatefulRuleGroupReferences'] = FirewallPolicyStatefulRuleGroupReferencesList.stub(stub[:stateful_rule_group_references]) unless stub[:stateful_rule_group_references].nil?
+        data['StatelessCustomActions'] = FirewallPolicyStatelessCustomActionsList.stub(stub[:stateless_custom_actions]) unless stub[:stateless_custom_actions].nil?
+        data['StatelessDefaultActions'] = NonEmptyStringList.stub(stub[:stateless_default_actions]) unless stub[:stateless_default_actions].nil?
+        data['StatelessFragmentDefaultActions'] = NonEmptyStringList.stub(stub[:stateless_fragment_default_actions]) unless stub[:stateless_fragment_default_actions].nil?
+        data['StatelessRuleGroupReferences'] = FirewallPolicyStatelessRuleGroupReferencesList.stub(stub[:stateless_rule_group_references]) unless stub[:stateless_rule_group_references].nil?
         data
       end
     end
@@ -3281,7 +3283,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FirewallPolicyStatelessRuleGroupReferencesDetails.stub(element) unless element.nil?
+          data << FirewallPolicyStatelessRuleGroupReferencesDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -3321,7 +3323,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FirewallPolicyStatelessCustomActionsDetails.stub(element) unless element.nil?
+          data << FirewallPolicyStatelessCustomActionsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -3341,7 +3343,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::FirewallPolicyStatelessCustomActionsDetails.new
         data = {}
-        data['ActionDefinition'] = Stubs::StatelessCustomActionDefinition.stub(stub[:action_definition]) unless stub[:action_definition].nil?
+        data['ActionDefinition'] = StatelessCustomActionDefinition.stub(stub[:action_definition]) unless stub[:action_definition].nil?
         data['ActionName'] = stub[:action_name] unless stub[:action_name].nil?
         data
       end
@@ -3361,7 +3363,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FirewallPolicyStatefulRuleGroupReferencesDetails.stub(element) unless element.nil?
+          data << FirewallPolicyStatefulRuleGroupReferencesDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -3411,10 +3413,10 @@ module AWS::SDK::SecurityHub
         data['ClusterStatus'] = stub[:cluster_status] unless stub[:cluster_status].nil?
         data['Endpoint'] = stub[:endpoint] unless stub[:endpoint].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['ResourcesVpcConfig'] = Stubs::AwsEksClusterResourcesVpcConfigDetails.stub(stub[:resources_vpc_config]) unless stub[:resources_vpc_config].nil?
+        data['ResourcesVpcConfig'] = AwsEksClusterResourcesVpcConfigDetails.stub(stub[:resources_vpc_config]) unless stub[:resources_vpc_config].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['Logging'] = Stubs::AwsEksClusterLoggingDetails.stub(stub[:logging]) unless stub[:logging].nil?
+        data['Logging'] = AwsEksClusterLoggingDetails.stub(stub[:logging]) unless stub[:logging].nil?
         data
       end
     end
@@ -3432,7 +3434,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsEksClusterLoggingDetails.new
         data = {}
-        data['ClusterLogging'] = Stubs::AwsEksClusterLoggingClusterLoggingList.stub(stub[:cluster_logging]) unless stub[:cluster_logging].nil?
+        data['ClusterLogging'] = AwsEksClusterLoggingClusterLoggingList.stub(stub[:cluster_logging]) unless stub[:cluster_logging].nil?
         data
       end
     end
@@ -3451,7 +3453,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEksClusterLoggingClusterLoggingDetails.stub(element) unless element.nil?
+          data << AwsEksClusterLoggingClusterLoggingDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -3472,7 +3474,7 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsEksClusterLoggingClusterLoggingDetails.new
         data = {}
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
-        data['Types'] = Stubs::NonEmptyStringList.stub(stub[:types]) unless stub[:types].nil?
+        data['Types'] = NonEmptyStringList.stub(stub[:types]) unless stub[:types].nil?
         data
       end
     end
@@ -3491,8 +3493,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsEksClusterResourcesVpcConfigDetails.new
         data = {}
-        data['SecurityGroupIds'] = Stubs::NonEmptyStringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
-        data['SubnetIds'] = Stubs::NonEmptyStringList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SecurityGroupIds'] = NonEmptyStringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SubnetIds'] = NonEmptyStringList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
         data
       end
     end
@@ -3516,9 +3518,9 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsEcrRepositoryDetails.new
         data = {}
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
-        data['ImageScanningConfiguration'] = Stubs::AwsEcrRepositoryImageScanningConfigurationDetails.stub(stub[:image_scanning_configuration]) unless stub[:image_scanning_configuration].nil?
+        data['ImageScanningConfiguration'] = AwsEcrRepositoryImageScanningConfigurationDetails.stub(stub[:image_scanning_configuration]) unless stub[:image_scanning_configuration].nil?
         data['ImageTagMutability'] = stub[:image_tag_mutability] unless stub[:image_tag_mutability].nil?
-        data['LifecyclePolicy'] = Stubs::AwsEcrRepositoryLifecyclePolicyDetails.stub(stub[:lifecycle_policy]) unless stub[:lifecycle_policy].nil?
+        data['LifecyclePolicy'] = AwsEcrRepositoryLifecyclePolicyDetails.stub(stub[:lifecycle_policy]) unless stub[:lifecycle_policy].nil?
         data['RepositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['RepositoryPolicyText'] = stub[:repository_policy_text] unless stub[:repository_policy_text].nil?
         data
@@ -3586,7 +3588,7 @@ module AWS::SDK::SecurityHub
         data['RateKey'] = stub[:rate_key] unless stub[:rate_key].nil?
         data['RateLimit'] = stub[:rate_limit] unless stub[:rate_limit].nil?
         data['RuleId'] = stub[:rule_id] unless stub[:rule_id].nil?
-        data['MatchPredicates'] = Stubs::AwsWafRegionalRateBasedRuleMatchPredicateList.stub(stub[:match_predicates]) unless stub[:match_predicates].nil?
+        data['MatchPredicates'] = AwsWafRegionalRateBasedRuleMatchPredicateList.stub(stub[:match_predicates]) unless stub[:match_predicates].nil?
         data
       end
     end
@@ -3605,7 +3607,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsWafRegionalRateBasedRuleMatchPredicate.stub(element) unless element.nil?
+          data << AwsWafRegionalRateBasedRuleMatchPredicate.stub(element) unless element.nil?
         end
         data
       end
@@ -3656,7 +3658,7 @@ module AWS::SDK::SecurityHub
         data['RateKey'] = stub[:rate_key] unless stub[:rate_key].nil?
         data['RateLimit'] = stub[:rate_limit] unless stub[:rate_limit].nil?
         data['RuleId'] = stub[:rule_id] unless stub[:rule_id].nil?
-        data['MatchPredicates'] = Stubs::AwsWafRateBasedRuleMatchPredicateList.stub(stub[:match_predicates]) unless stub[:match_predicates].nil?
+        data['MatchPredicates'] = AwsWafRateBasedRuleMatchPredicateList.stub(stub[:match_predicates]) unless stub[:match_predicates].nil?
         data
       end
     end
@@ -3675,7 +3677,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsWafRateBasedRuleMatchPredicate.stub(element) unless element.nil?
+          data << AwsWafRateBasedRuleMatchPredicate.stub(element) unless element.nil?
         end
         data
       end
@@ -3749,16 +3751,16 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsEc2VpcEndpointServiceDetails.new
         data = {}
         data['AcceptanceRequired'] = stub[:acceptance_required] unless stub[:acceptance_required].nil?
-        data['AvailabilityZones'] = Stubs::NonEmptyStringList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
-        data['BaseEndpointDnsNames'] = Stubs::NonEmptyStringList.stub(stub[:base_endpoint_dns_names]) unless stub[:base_endpoint_dns_names].nil?
+        data['AvailabilityZones'] = NonEmptyStringList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['BaseEndpointDnsNames'] = NonEmptyStringList.stub(stub[:base_endpoint_dns_names]) unless stub[:base_endpoint_dns_names].nil?
         data['ManagesVpcEndpoints'] = stub[:manages_vpc_endpoints] unless stub[:manages_vpc_endpoints].nil?
-        data['GatewayLoadBalancerArns'] = Stubs::NonEmptyStringList.stub(stub[:gateway_load_balancer_arns]) unless stub[:gateway_load_balancer_arns].nil?
-        data['NetworkLoadBalancerArns'] = Stubs::NonEmptyStringList.stub(stub[:network_load_balancer_arns]) unless stub[:network_load_balancer_arns].nil?
+        data['GatewayLoadBalancerArns'] = NonEmptyStringList.stub(stub[:gateway_load_balancer_arns]) unless stub[:gateway_load_balancer_arns].nil?
+        data['NetworkLoadBalancerArns'] = NonEmptyStringList.stub(stub[:network_load_balancer_arns]) unless stub[:network_load_balancer_arns].nil?
         data['PrivateDnsName'] = stub[:private_dns_name] unless stub[:private_dns_name].nil?
         data['ServiceId'] = stub[:service_id] unless stub[:service_id].nil?
         data['ServiceName'] = stub[:service_name] unless stub[:service_name].nil?
         data['ServiceState'] = stub[:service_state] unless stub[:service_state].nil?
-        data['ServiceType'] = Stubs::AwsEc2VpcEndpointServiceServiceTypeList.stub(stub[:service_type]) unless stub[:service_type].nil?
+        data['ServiceType'] = AwsEc2VpcEndpointServiceServiceTypeList.stub(stub[:service_type]) unless stub[:service_type].nil?
         data
       end
     end
@@ -3777,7 +3779,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEc2VpcEndpointServiceServiceTypeDetails.stub(element) unless element.nil?
+          data << AwsEc2VpcEndpointServiceServiceTypeDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -3833,14 +3835,14 @@ module AWS::SDK::SecurityHub
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['DomainEndpoint'] = stub[:domain_endpoint] unless stub[:domain_endpoint].nil?
         data['EngineVersion'] = stub[:engine_version] unless stub[:engine_version].nil?
-        data['EncryptionAtRestOptions'] = Stubs::AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails.stub(stub[:encryption_at_rest_options]) unless stub[:encryption_at_rest_options].nil?
-        data['NodeToNodeEncryptionOptions'] = Stubs::AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails.stub(stub[:node_to_node_encryption_options]) unless stub[:node_to_node_encryption_options].nil?
-        data['ServiceSoftwareOptions'] = Stubs::AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.stub(stub[:service_software_options]) unless stub[:service_software_options].nil?
-        data['ClusterConfig'] = Stubs::AwsOpenSearchServiceDomainClusterConfigDetails.stub(stub[:cluster_config]) unless stub[:cluster_config].nil?
-        data['DomainEndpointOptions'] = Stubs::AwsOpenSearchServiceDomainDomainEndpointOptionsDetails.stub(stub[:domain_endpoint_options]) unless stub[:domain_endpoint_options].nil?
-        data['VpcOptions'] = Stubs::AwsOpenSearchServiceDomainVpcOptionsDetails.stub(stub[:vpc_options]) unless stub[:vpc_options].nil?
-        data['LogPublishingOptions'] = Stubs::AwsOpenSearchServiceDomainLogPublishingOptionsDetails.stub(stub[:log_publishing_options]) unless stub[:log_publishing_options].nil?
-        data['DomainEndpoints'] = Stubs::FieldMap.stub(stub[:domain_endpoints]) unless stub[:domain_endpoints].nil?
+        data['EncryptionAtRestOptions'] = AwsOpenSearchServiceDomainEncryptionAtRestOptionsDetails.stub(stub[:encryption_at_rest_options]) unless stub[:encryption_at_rest_options].nil?
+        data['NodeToNodeEncryptionOptions'] = AwsOpenSearchServiceDomainNodeToNodeEncryptionOptionsDetails.stub(stub[:node_to_node_encryption_options]) unless stub[:node_to_node_encryption_options].nil?
+        data['ServiceSoftwareOptions'] = AwsOpenSearchServiceDomainServiceSoftwareOptionsDetails.stub(stub[:service_software_options]) unless stub[:service_software_options].nil?
+        data['ClusterConfig'] = AwsOpenSearchServiceDomainClusterConfigDetails.stub(stub[:cluster_config]) unless stub[:cluster_config].nil?
+        data['DomainEndpointOptions'] = AwsOpenSearchServiceDomainDomainEndpointOptionsDetails.stub(stub[:domain_endpoint_options]) unless stub[:domain_endpoint_options].nil?
+        data['VpcOptions'] = AwsOpenSearchServiceDomainVpcOptionsDetails.stub(stub[:vpc_options]) unless stub[:vpc_options].nil?
+        data['LogPublishingOptions'] = AwsOpenSearchServiceDomainLogPublishingOptionsDetails.stub(stub[:log_publishing_options]) unless stub[:log_publishing_options].nil?
+        data['DomainEndpoints'] = FieldMap.stub(stub[:domain_endpoints]) unless stub[:domain_endpoints].nil?
         data
       end
     end
@@ -3860,9 +3862,9 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsOpenSearchServiceDomainLogPublishingOptionsDetails.new
         data = {}
-        data['IndexSlowLogs'] = Stubs::AwsOpenSearchServiceDomainLogPublishingOption.stub(stub[:index_slow_logs]) unless stub[:index_slow_logs].nil?
-        data['SearchSlowLogs'] = Stubs::AwsOpenSearchServiceDomainLogPublishingOption.stub(stub[:search_slow_logs]) unless stub[:search_slow_logs].nil?
-        data['AuditLogs'] = Stubs::AwsOpenSearchServiceDomainLogPublishingOption.stub(stub[:audit_logs]) unless stub[:audit_logs].nil?
+        data['IndexSlowLogs'] = AwsOpenSearchServiceDomainLogPublishingOption.stub(stub[:index_slow_logs]) unless stub[:index_slow_logs].nil?
+        data['SearchSlowLogs'] = AwsOpenSearchServiceDomainLogPublishingOption.stub(stub[:search_slow_logs]) unless stub[:search_slow_logs].nil?
+        data['AuditLogs'] = AwsOpenSearchServiceDomainLogPublishingOption.stub(stub[:audit_logs]) unless stub[:audit_logs].nil?
         data
       end
     end
@@ -3901,8 +3903,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsOpenSearchServiceDomainVpcOptionsDetails.new
         data = {}
-        data['SecurityGroupIds'] = Stubs::NonEmptyStringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
-        data['SubnetIds'] = Stubs::NonEmptyStringList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SecurityGroupIds'] = NonEmptyStringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SubnetIds'] = NonEmptyStringList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
         data
       end
     end
@@ -3959,7 +3961,7 @@ module AWS::SDK::SecurityHub
         data['WarmEnabled'] = stub[:warm_enabled] unless stub[:warm_enabled].nil?
         data['WarmCount'] = stub[:warm_count] unless stub[:warm_count].nil?
         data['DedicatedMasterEnabled'] = stub[:dedicated_master_enabled] unless stub[:dedicated_master_enabled].nil?
-        data['ZoneAwarenessConfig'] = Stubs::AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails.stub(stub[:zone_awareness_config]) unless stub[:zone_awareness_config].nil?
+        data['ZoneAwarenessConfig'] = AwsOpenSearchServiceDomainClusterConfigZoneAwarenessConfigDetails.stub(stub[:zone_awareness_config]) unless stub[:zone_awareness_config].nil?
         data['DedicatedMasterCount'] = stub[:dedicated_master_count] unless stub[:dedicated_master_count].nil?
         data['InstanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
         data['WarmType'] = stub[:warm_type] unless stub[:warm_type].nil?
@@ -4079,7 +4081,7 @@ module AWS::SDK::SecurityHub
         data['RepositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['Architecture'] = stub[:architecture] unless stub[:architecture].nil?
         data['ImageDigest'] = stub[:image_digest] unless stub[:image_digest].nil?
-        data['ImageTags'] = Stubs::NonEmptyStringList.stub(stub[:image_tags]) unless stub[:image_tags].nil?
+        data['ImageTags'] = NonEmptyStringList.stub(stub[:image_tags]) unless stub[:image_tags].nil?
         data['ImagePublishedAt'] = stub[:image_published_at] unless stub[:image_published_at].nil?
         data
       end
@@ -4115,9 +4117,9 @@ module AWS::SDK::SecurityHub
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['VpnGatewayId'] = stub[:vpn_gateway_id] unless stub[:vpn_gateway_id].nil?
         data['Category'] = stub[:category] unless stub[:category].nil?
-        data['VgwTelemetry'] = Stubs::AwsEc2VpnConnectionVgwTelemetryList.stub(stub[:vgw_telemetry]) unless stub[:vgw_telemetry].nil?
-        data['Options'] = Stubs::AwsEc2VpnConnectionOptionsDetails.stub(stub[:options]) unless stub[:options].nil?
-        data['Routes'] = Stubs::AwsEc2VpnConnectionRoutesList.stub(stub[:routes]) unless stub[:routes].nil?
+        data['VgwTelemetry'] = AwsEc2VpnConnectionVgwTelemetryList.stub(stub[:vgw_telemetry]) unless stub[:vgw_telemetry].nil?
+        data['Options'] = AwsEc2VpnConnectionOptionsDetails.stub(stub[:options]) unless stub[:options].nil?
+        data['Routes'] = AwsEc2VpnConnectionRoutesList.stub(stub[:routes]) unless stub[:routes].nil?
         data['TransitGatewayId'] = stub[:transit_gateway_id] unless stub[:transit_gateway_id].nil?
         data
       end
@@ -4137,7 +4139,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEc2VpnConnectionRoutesDetails.stub(element) unless element.nil?
+          data << AwsEc2VpnConnectionRoutesDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -4178,7 +4180,7 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsEc2VpnConnectionOptionsDetails.new
         data = {}
         data['StaticRoutesOnly'] = stub[:static_routes_only] unless stub[:static_routes_only].nil?
-        data['TunnelOptions'] = Stubs::AwsEc2VpnConnectionOptionsTunnelOptionsList.stub(stub[:tunnel_options]) unless stub[:tunnel_options].nil?
+        data['TunnelOptions'] = AwsEc2VpnConnectionOptionsTunnelOptionsList.stub(stub[:tunnel_options]) unless stub[:tunnel_options].nil?
         data
       end
     end
@@ -4197,7 +4199,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEc2VpnConnectionOptionsTunnelOptionsDetails.stub(element) unless element.nil?
+          data << AwsEc2VpnConnectionOptionsTunnelOptionsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -4232,15 +4234,15 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsEc2VpnConnectionOptionsTunnelOptionsDetails.new
         data = {}
         data['DpdTimeoutSeconds'] = stub[:dpd_timeout_seconds] unless stub[:dpd_timeout_seconds].nil?
-        data['IkeVersions'] = Stubs::NonEmptyStringList.stub(stub[:ike_versions]) unless stub[:ike_versions].nil?
+        data['IkeVersions'] = NonEmptyStringList.stub(stub[:ike_versions]) unless stub[:ike_versions].nil?
         data['OutsideIpAddress'] = stub[:outside_ip_address] unless stub[:outside_ip_address].nil?
-        data['Phase1DhGroupNumbers'] = Stubs::IntegerList.stub(stub[:phase1_dh_group_numbers]) unless stub[:phase1_dh_group_numbers].nil?
-        data['Phase1EncryptionAlgorithms'] = Stubs::NonEmptyStringList.stub(stub[:phase1_encryption_algorithms]) unless stub[:phase1_encryption_algorithms].nil?
-        data['Phase1IntegrityAlgorithms'] = Stubs::NonEmptyStringList.stub(stub[:phase1_integrity_algorithms]) unless stub[:phase1_integrity_algorithms].nil?
+        data['Phase1DhGroupNumbers'] = IntegerList.stub(stub[:phase1_dh_group_numbers]) unless stub[:phase1_dh_group_numbers].nil?
+        data['Phase1EncryptionAlgorithms'] = NonEmptyStringList.stub(stub[:phase1_encryption_algorithms]) unless stub[:phase1_encryption_algorithms].nil?
+        data['Phase1IntegrityAlgorithms'] = NonEmptyStringList.stub(stub[:phase1_integrity_algorithms]) unless stub[:phase1_integrity_algorithms].nil?
         data['Phase1LifetimeSeconds'] = stub[:phase1_lifetime_seconds] unless stub[:phase1_lifetime_seconds].nil?
-        data['Phase2DhGroupNumbers'] = Stubs::IntegerList.stub(stub[:phase2_dh_group_numbers]) unless stub[:phase2_dh_group_numbers].nil?
-        data['Phase2EncryptionAlgorithms'] = Stubs::NonEmptyStringList.stub(stub[:phase2_encryption_algorithms]) unless stub[:phase2_encryption_algorithms].nil?
-        data['Phase2IntegrityAlgorithms'] = Stubs::NonEmptyStringList.stub(stub[:phase2_integrity_algorithms]) unless stub[:phase2_integrity_algorithms].nil?
+        data['Phase2DhGroupNumbers'] = IntegerList.stub(stub[:phase2_dh_group_numbers]) unless stub[:phase2_dh_group_numbers].nil?
+        data['Phase2EncryptionAlgorithms'] = NonEmptyStringList.stub(stub[:phase2_encryption_algorithms]) unless stub[:phase2_encryption_algorithms].nil?
+        data['Phase2IntegrityAlgorithms'] = NonEmptyStringList.stub(stub[:phase2_integrity_algorithms]) unless stub[:phase2_integrity_algorithms].nil?
         data['Phase2LifetimeSeconds'] = stub[:phase2_lifetime_seconds] unless stub[:phase2_lifetime_seconds].nil?
         data['PreSharedKey'] = stub[:pre_shared_key] unless stub[:pre_shared_key].nil?
         data['RekeyFuzzPercentage'] = stub[:rekey_fuzz_percentage] unless stub[:rekey_fuzz_percentage].nil?
@@ -4285,7 +4287,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEc2VpnConnectionVgwTelemetryDetails.stub(element) unless element.nil?
+          data << AwsEc2VpnConnectionVgwTelemetryDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -4351,24 +4353,24 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsAutoScalingLaunchConfigurationDetails.new
         data = {}
         data['AssociatePublicIpAddress'] = stub[:associate_public_ip_address] unless stub[:associate_public_ip_address].nil?
-        data['BlockDeviceMappings'] = Stubs::AwsAutoScalingLaunchConfigurationBlockDeviceMappingsList.stub(stub[:block_device_mappings]) unless stub[:block_device_mappings].nil?
+        data['BlockDeviceMappings'] = AwsAutoScalingLaunchConfigurationBlockDeviceMappingsList.stub(stub[:block_device_mappings]) unless stub[:block_device_mappings].nil?
         data['ClassicLinkVpcId'] = stub[:classic_link_vpc_id] unless stub[:classic_link_vpc_id].nil?
-        data['ClassicLinkVpcSecurityGroups'] = Stubs::NonEmptyStringList.stub(stub[:classic_link_vpc_security_groups]) unless stub[:classic_link_vpc_security_groups].nil?
+        data['ClassicLinkVpcSecurityGroups'] = NonEmptyStringList.stub(stub[:classic_link_vpc_security_groups]) unless stub[:classic_link_vpc_security_groups].nil?
         data['CreatedTime'] = stub[:created_time] unless stub[:created_time].nil?
         data['EbsOptimized'] = stub[:ebs_optimized] unless stub[:ebs_optimized].nil?
         data['IamInstanceProfile'] = stub[:iam_instance_profile] unless stub[:iam_instance_profile].nil?
         data['ImageId'] = stub[:image_id] unless stub[:image_id].nil?
-        data['InstanceMonitoring'] = Stubs::AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails.stub(stub[:instance_monitoring]) unless stub[:instance_monitoring].nil?
+        data['InstanceMonitoring'] = AwsAutoScalingLaunchConfigurationInstanceMonitoringDetails.stub(stub[:instance_monitoring]) unless stub[:instance_monitoring].nil?
         data['InstanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
         data['KernelId'] = stub[:kernel_id] unless stub[:kernel_id].nil?
         data['KeyName'] = stub[:key_name] unless stub[:key_name].nil?
         data['LaunchConfigurationName'] = stub[:launch_configuration_name] unless stub[:launch_configuration_name].nil?
         data['PlacementTenancy'] = stub[:placement_tenancy] unless stub[:placement_tenancy].nil?
         data['RamdiskId'] = stub[:ramdisk_id] unless stub[:ramdisk_id].nil?
-        data['SecurityGroups'] = Stubs::NonEmptyStringList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['SecurityGroups'] = NonEmptyStringList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
         data['SpotPrice'] = stub[:spot_price] unless stub[:spot_price].nil?
         data['UserData'] = stub[:user_data] unless stub[:user_data].nil?
-        data['MetadataOptions'] = Stubs::AwsAutoScalingLaunchConfigurationMetadataOptions.stub(stub[:metadata_options]) unless stub[:metadata_options].nil?
+        data['MetadataOptions'] = AwsAutoScalingLaunchConfigurationMetadataOptions.stub(stub[:metadata_options]) unless stub[:metadata_options].nil?
         data
       end
     end
@@ -4427,7 +4429,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails.stub(element) unless element.nil?
+          data << AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -4450,7 +4452,7 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsAutoScalingLaunchConfigurationBlockDeviceMappingsDetails.new
         data = {}
         data['DeviceName'] = stub[:device_name] unless stub[:device_name].nil?
-        data['Ebs'] = Stubs::AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails.stub(stub[:ebs]) unless stub[:ebs].nil?
+        data['Ebs'] = AwsAutoScalingLaunchConfigurationBlockDeviceMappingsEbsDetails.stub(stub[:ebs]) unless stub[:ebs].nil?
         data['NoDevice'] = stub[:no_device] unless stub[:no_device].nil?
         data['VirtualName'] = stub[:virtual_name] unless stub[:virtual_name].nil?
         data
@@ -4519,27 +4521,27 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsEcsServiceDetails.new
         data = {}
-        data['CapacityProviderStrategy'] = Stubs::AwsEcsServiceCapacityProviderStrategyList.stub(stub[:capacity_provider_strategy]) unless stub[:capacity_provider_strategy].nil?
+        data['CapacityProviderStrategy'] = AwsEcsServiceCapacityProviderStrategyList.stub(stub[:capacity_provider_strategy]) unless stub[:capacity_provider_strategy].nil?
         data['Cluster'] = stub[:cluster] unless stub[:cluster].nil?
-        data['DeploymentConfiguration'] = Stubs::AwsEcsServiceDeploymentConfigurationDetails.stub(stub[:deployment_configuration]) unless stub[:deployment_configuration].nil?
-        data['DeploymentController'] = Stubs::AwsEcsServiceDeploymentControllerDetails.stub(stub[:deployment_controller]) unless stub[:deployment_controller].nil?
+        data['DeploymentConfiguration'] = AwsEcsServiceDeploymentConfigurationDetails.stub(stub[:deployment_configuration]) unless stub[:deployment_configuration].nil?
+        data['DeploymentController'] = AwsEcsServiceDeploymentControllerDetails.stub(stub[:deployment_controller]) unless stub[:deployment_controller].nil?
         data['DesiredCount'] = stub[:desired_count] unless stub[:desired_count].nil?
         data['EnableEcsManagedTags'] = stub[:enable_ecs_managed_tags] unless stub[:enable_ecs_managed_tags].nil?
         data['EnableExecuteCommand'] = stub[:enable_execute_command] unless stub[:enable_execute_command].nil?
         data['HealthCheckGracePeriodSeconds'] = stub[:health_check_grace_period_seconds] unless stub[:health_check_grace_period_seconds].nil?
         data['LaunchType'] = stub[:launch_type] unless stub[:launch_type].nil?
-        data['LoadBalancers'] = Stubs::AwsEcsServiceLoadBalancersList.stub(stub[:load_balancers]) unless stub[:load_balancers].nil?
+        data['LoadBalancers'] = AwsEcsServiceLoadBalancersList.stub(stub[:load_balancers]) unless stub[:load_balancers].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['NetworkConfiguration'] = Stubs::AwsEcsServiceNetworkConfigurationDetails.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
-        data['PlacementConstraints'] = Stubs::AwsEcsServicePlacementConstraintsList.stub(stub[:placement_constraints]) unless stub[:placement_constraints].nil?
-        data['PlacementStrategies'] = Stubs::AwsEcsServicePlacementStrategiesList.stub(stub[:placement_strategies]) unless stub[:placement_strategies].nil?
+        data['NetworkConfiguration'] = AwsEcsServiceNetworkConfigurationDetails.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
+        data['PlacementConstraints'] = AwsEcsServicePlacementConstraintsList.stub(stub[:placement_constraints]) unless stub[:placement_constraints].nil?
+        data['PlacementStrategies'] = AwsEcsServicePlacementStrategiesList.stub(stub[:placement_strategies]) unless stub[:placement_strategies].nil?
         data['PlatformVersion'] = stub[:platform_version] unless stub[:platform_version].nil?
         data['PropagateTags'] = stub[:propagate_tags] unless stub[:propagate_tags].nil?
         data['Role'] = stub[:role] unless stub[:role].nil?
         data['SchedulingStrategy'] = stub[:scheduling_strategy] unless stub[:scheduling_strategy].nil?
         data['ServiceArn'] = stub[:service_arn] unless stub[:service_arn].nil?
         data['ServiceName'] = stub[:service_name] unless stub[:service_name].nil?
-        data['ServiceRegistries'] = Stubs::AwsEcsServiceServiceRegistriesList.stub(stub[:service_registries]) unless stub[:service_registries].nil?
+        data['ServiceRegistries'] = AwsEcsServiceServiceRegistriesList.stub(stub[:service_registries]) unless stub[:service_registries].nil?
         data['TaskDefinition'] = stub[:task_definition] unless stub[:task_definition].nil?
         data
       end
@@ -4559,7 +4561,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsServiceServiceRegistriesDetails.stub(element) unless element.nil?
+          data << AwsEcsServiceServiceRegistriesDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -4603,7 +4605,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsServicePlacementStrategiesDetails.stub(element) unless element.nil?
+          data << AwsEcsServicePlacementStrategiesDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -4643,7 +4645,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsServicePlacementConstraintsDetails.stub(element) unless element.nil?
+          data << AwsEcsServicePlacementConstraintsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -4682,7 +4684,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsEcsServiceNetworkConfigurationDetails.new
         data = {}
-        data['AwsVpcConfiguration'] = Stubs::AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails.stub(stub[:aws_vpc_configuration]) unless stub[:aws_vpc_configuration].nil?
+        data['AwsVpcConfiguration'] = AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails.stub(stub[:aws_vpc_configuration]) unless stub[:aws_vpc_configuration].nil?
         data
       end
     end
@@ -4703,8 +4705,8 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsEcsServiceNetworkConfigurationAwsVpcConfigurationDetails.new
         data = {}
         data['AssignPublicIp'] = stub[:assign_public_ip] unless stub[:assign_public_ip].nil?
-        data['SecurityGroups'] = Stubs::NonEmptyStringList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
-        data['Subnets'] = Stubs::NonEmptyStringList.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['SecurityGroups'] = NonEmptyStringList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['Subnets'] = NonEmptyStringList.stub(stub[:subnets]) unless stub[:subnets].nil?
         data
       end
     end
@@ -4723,7 +4725,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsServiceLoadBalancersDetails.stub(element) unless element.nil?
+          data << AwsEcsServiceLoadBalancersDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -4786,7 +4788,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsEcsServiceDeploymentConfigurationDetails.new
         data = {}
-        data['DeploymentCircuitBreaker'] = Stubs::AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails.stub(stub[:deployment_circuit_breaker]) unless stub[:deployment_circuit_breaker].nil?
+        data['DeploymentCircuitBreaker'] = AwsEcsServiceDeploymentConfigurationDeploymentCircuitBreakerDetails.stub(stub[:deployment_circuit_breaker]) unless stub[:deployment_circuit_breaker].nil?
         data['MaximumPercent'] = stub[:maximum_percent] unless stub[:maximum_percent].nil?
         data['MinimumHealthyPercent'] = stub[:minimum_healthy_percent] unless stub[:minimum_healthy_percent].nil?
         data
@@ -4827,7 +4829,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsServiceCapacityProviderStrategyDetails.stub(element) unless element.nil?
+          data << AwsEcsServiceCapacityProviderStrategyDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -4880,10 +4882,10 @@ module AWS::SDK::SecurityHub
         data['CustSubscriptionId'] = stub[:cust_subscription_id] unless stub[:cust_subscription_id].nil?
         data['CustomerAwsId'] = stub[:customer_aws_id] unless stub[:customer_aws_id].nil?
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
-        data['EventCategoriesList'] = Stubs::NonEmptyStringList.stub(stub[:event_categories_list]) unless stub[:event_categories_list].nil?
+        data['EventCategoriesList'] = NonEmptyStringList.stub(stub[:event_categories_list]) unless stub[:event_categories_list].nil?
         data['EventSubscriptionArn'] = stub[:event_subscription_arn] unless stub[:event_subscription_arn].nil?
         data['SnsTopicArn'] = stub[:sns_topic_arn] unless stub[:sns_topic_arn].nil?
-        data['SourceIdsList'] = Stubs::NonEmptyStringList.stub(stub[:source_ids_list]) unless stub[:source_ids_list].nil?
+        data['SourceIdsList'] = NonEmptyStringList.stub(stub[:source_ids_list]) unless stub[:source_ids_list].nil?
         data['SourceType'] = stub[:source_type] unless stub[:source_type].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['SubscriptionCreationTime'] = stub[:subscription_creation_time] unless stub[:subscription_creation_time].nil?
@@ -4941,20 +4943,20 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsEcsTaskDefinitionDetails.new
         data = {}
-        data['ContainerDefinitions'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsList.stub(stub[:container_definitions]) unless stub[:container_definitions].nil?
+        data['ContainerDefinitions'] = AwsEcsTaskDefinitionContainerDefinitionsList.stub(stub[:container_definitions]) unless stub[:container_definitions].nil?
         data['Cpu'] = stub[:cpu] unless stub[:cpu].nil?
         data['ExecutionRoleArn'] = stub[:execution_role_arn] unless stub[:execution_role_arn].nil?
         data['Family'] = stub[:family] unless stub[:family].nil?
-        data['InferenceAccelerators'] = Stubs::AwsEcsTaskDefinitionInferenceAcceleratorsList.stub(stub[:inference_accelerators]) unless stub[:inference_accelerators].nil?
+        data['InferenceAccelerators'] = AwsEcsTaskDefinitionInferenceAcceleratorsList.stub(stub[:inference_accelerators]) unless stub[:inference_accelerators].nil?
         data['IpcMode'] = stub[:ipc_mode] unless stub[:ipc_mode].nil?
         data['Memory'] = stub[:memory] unless stub[:memory].nil?
         data['NetworkMode'] = stub[:network_mode] unless stub[:network_mode].nil?
         data['PidMode'] = stub[:pid_mode] unless stub[:pid_mode].nil?
-        data['PlacementConstraints'] = Stubs::AwsEcsTaskDefinitionPlacementConstraintsList.stub(stub[:placement_constraints]) unless stub[:placement_constraints].nil?
-        data['ProxyConfiguration'] = Stubs::AwsEcsTaskDefinitionProxyConfigurationDetails.stub(stub[:proxy_configuration]) unless stub[:proxy_configuration].nil?
-        data['RequiresCompatibilities'] = Stubs::NonEmptyStringList.stub(stub[:requires_compatibilities]) unless stub[:requires_compatibilities].nil?
+        data['PlacementConstraints'] = AwsEcsTaskDefinitionPlacementConstraintsList.stub(stub[:placement_constraints]) unless stub[:placement_constraints].nil?
+        data['ProxyConfiguration'] = AwsEcsTaskDefinitionProxyConfigurationDetails.stub(stub[:proxy_configuration]) unless stub[:proxy_configuration].nil?
+        data['RequiresCompatibilities'] = NonEmptyStringList.stub(stub[:requires_compatibilities]) unless stub[:requires_compatibilities].nil?
         data['TaskRoleArn'] = stub[:task_role_arn] unless stub[:task_role_arn].nil?
-        data['Volumes'] = Stubs::AwsEcsTaskDefinitionVolumesList.stub(stub[:volumes]) unless stub[:volumes].nil?
+        data['Volumes'] = AwsEcsTaskDefinitionVolumesList.stub(stub[:volumes]) unless stub[:volumes].nil?
         data
       end
     end
@@ -4973,7 +4975,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionVolumesDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionVolumesDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -4995,9 +4997,9 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsEcsTaskDefinitionVolumesDetails.new
         data = {}
-        data['DockerVolumeConfiguration'] = Stubs::AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails.stub(stub[:docker_volume_configuration]) unless stub[:docker_volume_configuration].nil?
-        data['EfsVolumeConfiguration'] = Stubs::AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails.stub(stub[:efs_volume_configuration]) unless stub[:efs_volume_configuration].nil?
-        data['Host'] = Stubs::AwsEcsTaskDefinitionVolumesHostDetails.stub(stub[:host]) unless stub[:host].nil?
+        data['DockerVolumeConfiguration'] = AwsEcsTaskDefinitionVolumesDockerVolumeConfigurationDetails.stub(stub[:docker_volume_configuration]) unless stub[:docker_volume_configuration].nil?
+        data['EfsVolumeConfiguration'] = AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails.stub(stub[:efs_volume_configuration]) unless stub[:efs_volume_configuration].nil?
+        data['Host'] = AwsEcsTaskDefinitionVolumesHostDetails.stub(stub[:host]) unless stub[:host].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data
       end
@@ -5038,7 +5040,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationDetails.new
         data = {}
-        data['AuthorizationConfig'] = Stubs::AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails.stub(stub[:authorization_config]) unless stub[:authorization_config].nil?
+        data['AuthorizationConfig'] = AwsEcsTaskDefinitionVolumesEfsVolumeConfigurationAuthorizationConfigDetails.stub(stub[:authorization_config]) unless stub[:authorization_config].nil?
         data['FilesystemId'] = stub[:filesystem_id] unless stub[:filesystem_id].nil?
         data['RootDirectory'] = stub[:root_directory] unless stub[:root_directory].nil?
         data['TransitEncryption'] = stub[:transit_encryption] unless stub[:transit_encryption].nil?
@@ -5086,8 +5088,8 @@ module AWS::SDK::SecurityHub
         data = {}
         data['Autoprovision'] = stub[:autoprovision] unless stub[:autoprovision].nil?
         data['Driver'] = stub[:driver] unless stub[:driver].nil?
-        data['DriverOpts'] = Stubs::FieldMap.stub(stub[:driver_opts]) unless stub[:driver_opts].nil?
-        data['Labels'] = Stubs::FieldMap.stub(stub[:labels]) unless stub[:labels].nil?
+        data['DriverOpts'] = FieldMap.stub(stub[:driver_opts]) unless stub[:driver_opts].nil?
+        data['Labels'] = FieldMap.stub(stub[:labels]) unless stub[:labels].nil?
         data['Scope'] = stub[:scope] unless stub[:scope].nil?
         data
       end
@@ -5109,7 +5111,7 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsEcsTaskDefinitionProxyConfigurationDetails.new
         data = {}
         data['ContainerName'] = stub[:container_name] unless stub[:container_name].nil?
-        data['ProxyConfigurationProperties'] = Stubs::AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesList.stub(stub[:proxy_configuration_properties]) unless stub[:proxy_configuration_properties].nil?
+        data['ProxyConfigurationProperties'] = AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesList.stub(stub[:proxy_configuration_properties]) unless stub[:proxy_configuration_properties].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -5129,7 +5131,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionProxyConfigurationProxyConfigurationPropertiesDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -5169,7 +5171,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionPlacementConstraintsDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionPlacementConstraintsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -5209,7 +5211,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionInferenceAcceleratorsDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionInferenceAcceleratorsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -5249,7 +5251,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionContainerDefinitionsDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -5306,44 +5308,44 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsEcsTaskDefinitionContainerDefinitionsDetails.new
         data = {}
-        data['Command'] = Stubs::NonEmptyStringList.stub(stub[:command]) unless stub[:command].nil?
+        data['Command'] = NonEmptyStringList.stub(stub[:command]) unless stub[:command].nil?
         data['Cpu'] = stub[:cpu] unless stub[:cpu].nil?
-        data['DependsOn'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsDependsOnList.stub(stub[:depends_on]) unless stub[:depends_on].nil?
+        data['DependsOn'] = AwsEcsTaskDefinitionContainerDefinitionsDependsOnList.stub(stub[:depends_on]) unless stub[:depends_on].nil?
         data['DisableNetworking'] = stub[:disable_networking] unless stub[:disable_networking].nil?
-        data['DnsSearchDomains'] = Stubs::NonEmptyStringList.stub(stub[:dns_search_domains]) unless stub[:dns_search_domains].nil?
-        data['DnsServers'] = Stubs::NonEmptyStringList.stub(stub[:dns_servers]) unless stub[:dns_servers].nil?
-        data['DockerLabels'] = Stubs::FieldMap.stub(stub[:docker_labels]) unless stub[:docker_labels].nil?
-        data['DockerSecurityOptions'] = Stubs::NonEmptyStringList.stub(stub[:docker_security_options]) unless stub[:docker_security_options].nil?
-        data['EntryPoint'] = Stubs::NonEmptyStringList.stub(stub[:entry_point]) unless stub[:entry_point].nil?
-        data['Environment'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsEnvironmentList.stub(stub[:environment]) unless stub[:environment].nil?
-        data['EnvironmentFiles'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesList.stub(stub[:environment_files]) unless stub[:environment_files].nil?
+        data['DnsSearchDomains'] = NonEmptyStringList.stub(stub[:dns_search_domains]) unless stub[:dns_search_domains].nil?
+        data['DnsServers'] = NonEmptyStringList.stub(stub[:dns_servers]) unless stub[:dns_servers].nil?
+        data['DockerLabels'] = FieldMap.stub(stub[:docker_labels]) unless stub[:docker_labels].nil?
+        data['DockerSecurityOptions'] = NonEmptyStringList.stub(stub[:docker_security_options]) unless stub[:docker_security_options].nil?
+        data['EntryPoint'] = NonEmptyStringList.stub(stub[:entry_point]) unless stub[:entry_point].nil?
+        data['Environment'] = AwsEcsTaskDefinitionContainerDefinitionsEnvironmentList.stub(stub[:environment]) unless stub[:environment].nil?
+        data['EnvironmentFiles'] = AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesList.stub(stub[:environment_files]) unless stub[:environment_files].nil?
         data['Essential'] = stub[:essential] unless stub[:essential].nil?
-        data['ExtraHosts'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsExtraHostsList.stub(stub[:extra_hosts]) unless stub[:extra_hosts].nil?
-        data['FirelensConfiguration'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails.stub(stub[:firelens_configuration]) unless stub[:firelens_configuration].nil?
-        data['HealthCheck'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails.stub(stub[:health_check]) unless stub[:health_check].nil?
+        data['ExtraHosts'] = AwsEcsTaskDefinitionContainerDefinitionsExtraHostsList.stub(stub[:extra_hosts]) unless stub[:extra_hosts].nil?
+        data['FirelensConfiguration'] = AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails.stub(stub[:firelens_configuration]) unless stub[:firelens_configuration].nil?
+        data['HealthCheck'] = AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails.stub(stub[:health_check]) unless stub[:health_check].nil?
         data['Hostname'] = stub[:hostname] unless stub[:hostname].nil?
         data['Image'] = stub[:image] unless stub[:image].nil?
         data['Interactive'] = stub[:interactive] unless stub[:interactive].nil?
-        data['Links'] = Stubs::NonEmptyStringList.stub(stub[:links]) unless stub[:links].nil?
-        data['LinuxParameters'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.stub(stub[:linux_parameters]) unless stub[:linux_parameters].nil?
-        data['LogConfiguration'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
+        data['Links'] = NonEmptyStringList.stub(stub[:links]) unless stub[:links].nil?
+        data['LinuxParameters'] = AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.stub(stub[:linux_parameters]) unless stub[:linux_parameters].nil?
+        data['LogConfiguration'] = AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
         data['Memory'] = stub[:memory] unless stub[:memory].nil?
         data['MemoryReservation'] = stub[:memory_reservation] unless stub[:memory_reservation].nil?
-        data['MountPoints'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsMountPointsList.stub(stub[:mount_points]) unless stub[:mount_points].nil?
+        data['MountPoints'] = AwsEcsTaskDefinitionContainerDefinitionsMountPointsList.stub(stub[:mount_points]) unless stub[:mount_points].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['PortMappings'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsPortMappingsList.stub(stub[:port_mappings]) unless stub[:port_mappings].nil?
+        data['PortMappings'] = AwsEcsTaskDefinitionContainerDefinitionsPortMappingsList.stub(stub[:port_mappings]) unless stub[:port_mappings].nil?
         data['Privileged'] = stub[:privileged] unless stub[:privileged].nil?
         data['PseudoTerminal'] = stub[:pseudo_terminal] unless stub[:pseudo_terminal].nil?
         data['ReadonlyRootFilesystem'] = stub[:readonly_root_filesystem] unless stub[:readonly_root_filesystem].nil?
-        data['RepositoryCredentials'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails.stub(stub[:repository_credentials]) unless stub[:repository_credentials].nil?
-        data['ResourceRequirements'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsList.stub(stub[:resource_requirements]) unless stub[:resource_requirements].nil?
-        data['Secrets'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsSecretsList.stub(stub[:secrets]) unless stub[:secrets].nil?
+        data['RepositoryCredentials'] = AwsEcsTaskDefinitionContainerDefinitionsRepositoryCredentialsDetails.stub(stub[:repository_credentials]) unless stub[:repository_credentials].nil?
+        data['ResourceRequirements'] = AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsList.stub(stub[:resource_requirements]) unless stub[:resource_requirements].nil?
+        data['Secrets'] = AwsEcsTaskDefinitionContainerDefinitionsSecretsList.stub(stub[:secrets]) unless stub[:secrets].nil?
         data['StartTimeout'] = stub[:start_timeout] unless stub[:start_timeout].nil?
         data['StopTimeout'] = stub[:stop_timeout] unless stub[:stop_timeout].nil?
-        data['SystemControls'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsSystemControlsList.stub(stub[:system_controls]) unless stub[:system_controls].nil?
-        data['Ulimits'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsUlimitsList.stub(stub[:ulimits]) unless stub[:ulimits].nil?
+        data['SystemControls'] = AwsEcsTaskDefinitionContainerDefinitionsSystemControlsList.stub(stub[:system_controls]) unless stub[:system_controls].nil?
+        data['Ulimits'] = AwsEcsTaskDefinitionContainerDefinitionsUlimitsList.stub(stub[:ulimits]) unless stub[:ulimits].nil?
         data['User'] = stub[:user] unless stub[:user].nil?
-        data['VolumesFrom'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsVolumesFromList.stub(stub[:volumes_from]) unless stub[:volumes_from].nil?
+        data['VolumesFrom'] = AwsEcsTaskDefinitionContainerDefinitionsVolumesFromList.stub(stub[:volumes_from]) unless stub[:volumes_from].nil?
         data['WorkingDirectory'] = stub[:working_directory] unless stub[:working_directory].nil?
         data
       end
@@ -5363,7 +5365,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsVolumesFromDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -5403,7 +5405,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsUlimitsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -5445,7 +5447,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsSystemControlsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -5485,7 +5487,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsSecretsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -5525,7 +5527,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsResourceRequirementsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -5583,7 +5585,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsPortMappingsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -5625,7 +5627,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsMountPointsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -5669,8 +5671,8 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationDetails.new
         data = {}
         data['LogDriver'] = stub[:log_driver] unless stub[:log_driver].nil?
-        data['Options'] = Stubs::FieldMap.stub(stub[:options]) unless stub[:options].nil?
-        data['SecretOptions'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsList.stub(stub[:secret_options]) unless stub[:secret_options].nil?
+        data['Options'] = FieldMap.stub(stub[:options]) unless stub[:options].nil?
+        data['SecretOptions'] = AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsList.stub(stub[:secret_options]) unless stub[:secret_options].nil?
         data
       end
     end
@@ -5689,7 +5691,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsLogConfigurationSecretOptionsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -5734,13 +5736,13 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDetails.new
         data = {}
-        data['Capabilities'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails.stub(stub[:capabilities]) unless stub[:capabilities].nil?
-        data['Devices'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesList.stub(stub[:devices]) unless stub[:devices].nil?
+        data['Capabilities'] = AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails.stub(stub[:capabilities]) unless stub[:capabilities].nil?
+        data['Devices'] = AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesList.stub(stub[:devices]) unless stub[:devices].nil?
         data['InitProcessEnabled'] = stub[:init_process_enabled] unless stub[:init_process_enabled].nil?
         data['MaxSwap'] = stub[:max_swap] unless stub[:max_swap].nil?
         data['SharedMemorySize'] = stub[:shared_memory_size] unless stub[:shared_memory_size].nil?
         data['Swappiness'] = stub[:swappiness] unless stub[:swappiness].nil?
-        data['Tmpfs'] = Stubs::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsList.stub(stub[:tmpfs]) unless stub[:tmpfs].nil?
+        data['Tmpfs'] = AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsList.stub(stub[:tmpfs]) unless stub[:tmpfs].nil?
         data
       end
     end
@@ -5759,7 +5761,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -5781,7 +5783,7 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersTmpfsDetails.new
         data = {}
         data['ContainerPath'] = stub[:container_path] unless stub[:container_path].nil?
-        data['MountOptions'] = Stubs::NonEmptyStringList.stub(stub[:mount_options]) unless stub[:mount_options].nil?
+        data['MountOptions'] = NonEmptyStringList.stub(stub[:mount_options]) unless stub[:mount_options].nil?
         data['Size'] = stub[:size] unless stub[:size].nil?
         data
       end
@@ -5801,7 +5803,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersDevicesDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -5824,7 +5826,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['ContainerPath'] = stub[:container_path] unless stub[:container_path].nil?
         data['HostPath'] = stub[:host_path] unless stub[:host_path].nil?
-        data['Permissions'] = Stubs::NonEmptyStringList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = NonEmptyStringList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data
       end
     end
@@ -5843,8 +5845,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsEcsTaskDefinitionContainerDefinitionsLinuxParametersCapabilitiesDetails.new
         data = {}
-        data['Add'] = Stubs::NonEmptyStringList.stub(stub[:add]) unless stub[:add].nil?
-        data['Drop'] = Stubs::NonEmptyStringList.stub(stub[:drop]) unless stub[:drop].nil?
+        data['Add'] = NonEmptyStringList.stub(stub[:add]) unless stub[:add].nil?
+        data['Drop'] = NonEmptyStringList.stub(stub[:drop]) unless stub[:drop].nil?
         data
       end
     end
@@ -5866,7 +5868,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsEcsTaskDefinitionContainerDefinitionsHealthCheckDetails.new
         data = {}
-        data['Command'] = Stubs::NonEmptyStringList.stub(stub[:command]) unless stub[:command].nil?
+        data['Command'] = NonEmptyStringList.stub(stub[:command]) unless stub[:command].nil?
         data['Interval'] = stub[:interval] unless stub[:interval].nil?
         data['Retries'] = stub[:retries] unless stub[:retries].nil?
         data['StartPeriod'] = stub[:start_period] unless stub[:start_period].nil?
@@ -5889,7 +5891,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsEcsTaskDefinitionContainerDefinitionsFirelensConfigurationDetails.new
         data = {}
-        data['Options'] = Stubs::FieldMap.stub(stub[:options]) unless stub[:options].nil?
+        data['Options'] = FieldMap.stub(stub[:options]) unless stub[:options].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -5909,7 +5911,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsExtraHostsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -5949,7 +5951,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsEnvironmentFilesDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -5989,7 +5991,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsEnvironmentDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -6029,7 +6031,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails.stub(element) unless element.nil?
+          data << AwsEcsTaskDefinitionContainerDefinitionsDependsOnDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -6071,10 +6073,10 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsEcsClusterDetails.new
         data = {}
-        data['CapacityProviders'] = Stubs::NonEmptyStringList.stub(stub[:capacity_providers]) unless stub[:capacity_providers].nil?
-        data['ClusterSettings'] = Stubs::AwsEcsClusterClusterSettingsList.stub(stub[:cluster_settings]) unless stub[:cluster_settings].nil?
-        data['Configuration'] = Stubs::AwsEcsClusterConfigurationDetails.stub(stub[:configuration]) unless stub[:configuration].nil?
-        data['DefaultCapacityProviderStrategy'] = Stubs::AwsEcsClusterDefaultCapacityProviderStrategyList.stub(stub[:default_capacity_provider_strategy]) unless stub[:default_capacity_provider_strategy].nil?
+        data['CapacityProviders'] = NonEmptyStringList.stub(stub[:capacity_providers]) unless stub[:capacity_providers].nil?
+        data['ClusterSettings'] = AwsEcsClusterClusterSettingsList.stub(stub[:cluster_settings]) unless stub[:cluster_settings].nil?
+        data['Configuration'] = AwsEcsClusterConfigurationDetails.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['DefaultCapacityProviderStrategy'] = AwsEcsClusterDefaultCapacityProviderStrategyList.stub(stub[:default_capacity_provider_strategy]) unless stub[:default_capacity_provider_strategy].nil?
         data
       end
     end
@@ -6093,7 +6095,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsClusterDefaultCapacityProviderStrategyDetails.stub(element) unless element.nil?
+          data << AwsEcsClusterDefaultCapacityProviderStrategyDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -6134,7 +6136,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsEcsClusterConfigurationDetails.new
         data = {}
-        data['ExecuteCommandConfiguration'] = Stubs::AwsEcsClusterConfigurationExecuteCommandConfigurationDetails.stub(stub[:execute_command_configuration]) unless stub[:execute_command_configuration].nil?
+        data['ExecuteCommandConfiguration'] = AwsEcsClusterConfigurationExecuteCommandConfigurationDetails.stub(stub[:execute_command_configuration]) unless stub[:execute_command_configuration].nil?
         data
       end
     end
@@ -6155,7 +6157,7 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsEcsClusterConfigurationExecuteCommandConfigurationDetails.new
         data = {}
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
-        data['LogConfiguration'] = Stubs::AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
+        data['LogConfiguration'] = AwsEcsClusterConfigurationExecuteCommandConfigurationLogConfigurationDetails.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
         data['Logging'] = stub[:logging] unless stub[:logging].nil?
         data
       end
@@ -6201,7 +6203,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEcsClusterClusterSettingsDetails.stub(element) unless element.nil?
+          data << AwsEcsClusterClusterSettingsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -6277,13 +6279,13 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsRdsDbClusterDetails.new
         data = {}
         data['AllocatedStorage'] = stub[:allocated_storage] unless stub[:allocated_storage].nil?
-        data['AvailabilityZones'] = Stubs::StringList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['AvailabilityZones'] = StringList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
         data['BackupRetentionPeriod'] = stub[:backup_retention_period] unless stub[:backup_retention_period].nil?
         data['DatabaseName'] = stub[:database_name] unless stub[:database_name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Endpoint'] = stub[:endpoint] unless stub[:endpoint].nil?
         data['ReaderEndpoint'] = stub[:reader_endpoint] unless stub[:reader_endpoint].nil?
-        data['CustomEndpoints'] = Stubs::StringList.stub(stub[:custom_endpoints]) unless stub[:custom_endpoints].nil?
+        data['CustomEndpoints'] = StringList.stub(stub[:custom_endpoints]) unless stub[:custom_endpoints].nil?
         data['MultiAz'] = stub[:multi_az] unless stub[:multi_az].nil?
         data['Engine'] = stub[:engine] unless stub[:engine].nil?
         data['EngineVersion'] = stub[:engine_version] unless stub[:engine_version].nil?
@@ -6291,27 +6293,27 @@ module AWS::SDK::SecurityHub
         data['MasterUsername'] = stub[:master_username] unless stub[:master_username].nil?
         data['PreferredBackupWindow'] = stub[:preferred_backup_window] unless stub[:preferred_backup_window].nil?
         data['PreferredMaintenanceWindow'] = stub[:preferred_maintenance_window] unless stub[:preferred_maintenance_window].nil?
-        data['ReadReplicaIdentifiers'] = Stubs::StringList.stub(stub[:read_replica_identifiers]) unless stub[:read_replica_identifiers].nil?
-        data['VpcSecurityGroups'] = Stubs::AwsRdsDbInstanceVpcSecurityGroups.stub(stub[:vpc_security_groups]) unless stub[:vpc_security_groups].nil?
+        data['ReadReplicaIdentifiers'] = StringList.stub(stub[:read_replica_identifiers]) unless stub[:read_replica_identifiers].nil?
+        data['VpcSecurityGroups'] = AwsRdsDbInstanceVpcSecurityGroups.stub(stub[:vpc_security_groups]) unless stub[:vpc_security_groups].nil?
         data['HostedZoneId'] = stub[:hosted_zone_id] unless stub[:hosted_zone_id].nil?
         data['StorageEncrypted'] = stub[:storage_encrypted] unless stub[:storage_encrypted].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['DbClusterResourceId'] = stub[:db_cluster_resource_id] unless stub[:db_cluster_resource_id].nil?
-        data['AssociatedRoles'] = Stubs::AwsRdsDbClusterAssociatedRoles.stub(stub[:associated_roles]) unless stub[:associated_roles].nil?
+        data['AssociatedRoles'] = AwsRdsDbClusterAssociatedRoles.stub(stub[:associated_roles]) unless stub[:associated_roles].nil?
         data['ClusterCreateTime'] = stub[:cluster_create_time] unless stub[:cluster_create_time].nil?
-        data['EnabledCloudWatchLogsExports'] = Stubs::StringList.stub(stub[:enabled_cloud_watch_logs_exports]) unless stub[:enabled_cloud_watch_logs_exports].nil?
+        data['EnabledCloudWatchLogsExports'] = StringList.stub(stub[:enabled_cloud_watch_logs_exports]) unless stub[:enabled_cloud_watch_logs_exports].nil?
         data['EngineMode'] = stub[:engine_mode] unless stub[:engine_mode].nil?
         data['DeletionProtection'] = stub[:deletion_protection] unless stub[:deletion_protection].nil?
         data['HttpEndpointEnabled'] = stub[:http_endpoint_enabled] unless stub[:http_endpoint_enabled].nil?
         data['ActivityStreamStatus'] = stub[:activity_stream_status] unless stub[:activity_stream_status].nil?
         data['CopyTagsToSnapshot'] = stub[:copy_tags_to_snapshot] unless stub[:copy_tags_to_snapshot].nil?
         data['CrossAccountClone'] = stub[:cross_account_clone] unless stub[:cross_account_clone].nil?
-        data['DomainMemberships'] = Stubs::AwsRdsDbDomainMemberships.stub(stub[:domain_memberships]) unless stub[:domain_memberships].nil?
+        data['DomainMemberships'] = AwsRdsDbDomainMemberships.stub(stub[:domain_memberships]) unless stub[:domain_memberships].nil?
         data['DbClusterParameterGroup'] = stub[:db_cluster_parameter_group] unless stub[:db_cluster_parameter_group].nil?
         data['DbSubnetGroup'] = stub[:db_subnet_group] unless stub[:db_subnet_group].nil?
-        data['DbClusterOptionGroupMemberships'] = Stubs::AwsRdsDbClusterOptionGroupMemberships.stub(stub[:db_cluster_option_group_memberships]) unless stub[:db_cluster_option_group_memberships].nil?
+        data['DbClusterOptionGroupMemberships'] = AwsRdsDbClusterOptionGroupMemberships.stub(stub[:db_cluster_option_group_memberships]) unless stub[:db_cluster_option_group_memberships].nil?
         data['DbClusterIdentifier'] = stub[:db_cluster_identifier] unless stub[:db_cluster_identifier].nil?
-        data['DbClusterMembers'] = Stubs::AwsRdsDbClusterMembers.stub(stub[:db_cluster_members]) unless stub[:db_cluster_members].nil?
+        data['DbClusterMembers'] = AwsRdsDbClusterMembers.stub(stub[:db_cluster_members]) unless stub[:db_cluster_members].nil?
         data['IamDatabaseAuthenticationEnabled'] = stub[:iam_database_authentication_enabled] unless stub[:iam_database_authentication_enabled].nil?
         data
       end
@@ -6331,7 +6333,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRdsDbClusterMember.stub(element) unless element.nil?
+          data << AwsRdsDbClusterMember.stub(element) unless element.nil?
         end
         data
       end
@@ -6375,7 +6377,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRdsDbClusterOptionGroupMembership.stub(element) unless element.nil?
+          data << AwsRdsDbClusterOptionGroupMembership.stub(element) unless element.nil?
         end
         data
       end
@@ -6415,7 +6417,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRdsDbDomainMembership.stub(element) unless element.nil?
+          data << AwsRdsDbDomainMembership.stub(element) unless element.nil?
         end
         data
       end
@@ -6459,7 +6461,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRdsDbClusterAssociatedRole.stub(element) unless element.nil?
+          data << AwsRdsDbClusterAssociatedRole.stub(element) unless element.nil?
         end
         data
       end
@@ -6499,7 +6501,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRdsDbInstanceVpcSecurityGroup.stub(element) unless element.nil?
+          data << AwsRdsDbInstanceVpcSecurityGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -6555,7 +6557,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsRdsDbClusterSnapshotDetails.new
         data = {}
-        data['AvailabilityZones'] = Stubs::StringList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['AvailabilityZones'] = StringList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
         data['SnapshotCreateTime'] = stub[:snapshot_create_time] unless stub[:snapshot_create_time].nil?
         data['Engine'] = stub[:engine] unless stub[:engine].nil?
         data['AllocatedStorage'] = stub[:allocated_storage] unless stub[:allocated_storage].nil?
@@ -6641,7 +6643,7 @@ module AWS::SDK::SecurityHub
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['Timezone'] = stub[:timezone] unless stub[:timezone].nil?
         data['IamDatabaseAuthenticationEnabled'] = stub[:iam_database_authentication_enabled] unless stub[:iam_database_authentication_enabled].nil?
-        data['ProcessorFeatures'] = Stubs::AwsRdsDbProcessorFeatures.stub(stub[:processor_features]) unless stub[:processor_features].nil?
+        data['ProcessorFeatures'] = AwsRdsDbProcessorFeatures.stub(stub[:processor_features]) unless stub[:processor_features].nil?
         data['DbiResourceId'] = stub[:dbi_resource_id] unless stub[:dbi_resource_id].nil?
         data
       end
@@ -6661,7 +6663,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRdsDbProcessorFeature.stub(element) unless element.nil?
+          data << AwsRdsDbProcessorFeature.stub(element) unless element.nil?
         end
         data
       end
@@ -6705,7 +6707,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['DefaultAction'] = stub[:default_action] unless stub[:default_action].nil?
-        data['Rules'] = Stubs::AwsWafWebAclRuleList.stub(stub[:rules]) unless stub[:rules].nil?
+        data['Rules'] = AwsWafWebAclRuleList.stub(stub[:rules]) unless stub[:rules].nil?
         data['WebAclId'] = stub[:web_acl_id] unless stub[:web_acl_id].nil?
         data
       end
@@ -6725,7 +6727,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsWafWebAclRule.stub(element) unless element.nil?
+          data << AwsWafWebAclRule.stub(element) unless element.nil?
         end
         data
       end
@@ -6749,9 +6751,9 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsWafWebAclRule.new
         data = {}
-        data['Action'] = Stubs::WafAction.stub(stub[:action]) unless stub[:action].nil?
-        data['ExcludedRules'] = Stubs::WafExcludedRuleList.stub(stub[:excluded_rules]) unless stub[:excluded_rules].nil?
-        data['OverrideAction'] = Stubs::WafOverrideAction.stub(stub[:override_action]) unless stub[:override_action].nil?
+        data['Action'] = WafAction.stub(stub[:action]) unless stub[:action].nil?
+        data['ExcludedRules'] = WafExcludedRuleList.stub(stub[:excluded_rules]) unless stub[:excluded_rules].nil?
+        data['OverrideAction'] = WafOverrideAction.stub(stub[:override_action]) unless stub[:override_action].nil?
         data['Priority'] = stub[:priority] unless stub[:priority].nil?
         data['RuleId'] = stub[:rule_id] unless stub[:rule_id].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
@@ -6791,7 +6793,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WafExcludedRule.stub(element) unless element.nil?
+          data << WafExcludedRule.stub(element) unless element.nil?
         end
         data
       end
@@ -6874,7 +6876,7 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsSnsTopicDetails.new
         data = {}
         data['KmsMasterKeyId'] = stub[:kms_master_key_id] unless stub[:kms_master_key_id].nil?
-        data['Subscription'] = Stubs::AwsSnsTopicSubscriptionList.stub(stub[:subscription]) unless stub[:subscription].nil?
+        data['Subscription'] = AwsSnsTopicSubscriptionList.stub(stub[:subscription]) unless stub[:subscription].nil?
         data['TopicName'] = stub[:topic_name] unless stub[:topic_name].nil?
         data['Owner'] = stub[:owner] unless stub[:owner].nil?
         data
@@ -6895,7 +6897,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsSnsTopicSubscription.stub(element) unless element.nil?
+          data << AwsSnsTopicSubscription.stub(element) unless element.nil?
         end
         data
       end
@@ -6990,7 +6992,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsRdsDbInstanceDetails.new
         data = {}
-        data['AssociatedRoles'] = Stubs::AwsRdsDbInstanceAssociatedRoles.stub(stub[:associated_roles]) unless stub[:associated_roles].nil?
+        data['AssociatedRoles'] = AwsRdsDbInstanceAssociatedRoles.stub(stub[:associated_roles]) unless stub[:associated_roles].nil?
         data['CACertificateIdentifier'] = stub[:ca_certificate_identifier] unless stub[:ca_certificate_identifier].nil?
         data['DBClusterIdentifier'] = stub[:db_cluster_identifier] unless stub[:db_cluster_identifier].nil?
         data['DBInstanceIdentifier'] = stub[:db_instance_identifier] unless stub[:db_instance_identifier].nil?
@@ -6999,7 +7001,7 @@ module AWS::SDK::SecurityHub
         data['DbiResourceId'] = stub[:dbi_resource_id] unless stub[:dbi_resource_id].nil?
         data['DBName'] = stub[:db_name] unless stub[:db_name].nil?
         data['DeletionProtection'] = stub[:deletion_protection] unless stub[:deletion_protection].nil?
-        data['Endpoint'] = Stubs::AwsRdsDbInstanceEndpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
+        data['Endpoint'] = AwsRdsDbInstanceEndpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
         data['Engine'] = stub[:engine] unless stub[:engine].nil?
         data['EngineVersion'] = stub[:engine_version] unless stub[:engine_version].nil?
         data['IAMDatabaseAuthenticationEnabled'] = stub[:iam_database_authentication_enabled] unless stub[:iam_database_authentication_enabled].nil?
@@ -7008,7 +7010,7 @@ module AWS::SDK::SecurityHub
         data['PubliclyAccessible'] = stub[:publicly_accessible] unless stub[:publicly_accessible].nil?
         data['StorageEncrypted'] = stub[:storage_encrypted] unless stub[:storage_encrypted].nil?
         data['TdeCredentialArn'] = stub[:tde_credential_arn] unless stub[:tde_credential_arn].nil?
-        data['VpcSecurityGroups'] = Stubs::AwsRdsDbInstanceVpcSecurityGroups.stub(stub[:vpc_security_groups]) unless stub[:vpc_security_groups].nil?
+        data['VpcSecurityGroups'] = AwsRdsDbInstanceVpcSecurityGroups.stub(stub[:vpc_security_groups]) unless stub[:vpc_security_groups].nil?
         data['MultiAz'] = stub[:multi_az] unless stub[:multi_az].nil?
         data['EnhancedMonitoringResourceArn'] = stub[:enhanced_monitoring_resource_arn] unless stub[:enhanced_monitoring_resource_arn].nil?
         data['DbInstanceStatus'] = stub[:db_instance_status] unless stub[:db_instance_status].nil?
@@ -7016,25 +7018,25 @@ module AWS::SDK::SecurityHub
         data['AllocatedStorage'] = stub[:allocated_storage] unless stub[:allocated_storage].nil?
         data['PreferredBackupWindow'] = stub[:preferred_backup_window] unless stub[:preferred_backup_window].nil?
         data['BackupRetentionPeriod'] = stub[:backup_retention_period] unless stub[:backup_retention_period].nil?
-        data['DbSecurityGroups'] = Stubs::StringList.stub(stub[:db_security_groups]) unless stub[:db_security_groups].nil?
-        data['DbParameterGroups'] = Stubs::AwsRdsDbParameterGroups.stub(stub[:db_parameter_groups]) unless stub[:db_parameter_groups].nil?
+        data['DbSecurityGroups'] = StringList.stub(stub[:db_security_groups]) unless stub[:db_security_groups].nil?
+        data['DbParameterGroups'] = AwsRdsDbParameterGroups.stub(stub[:db_parameter_groups]) unless stub[:db_parameter_groups].nil?
         data['AvailabilityZone'] = stub[:availability_zone] unless stub[:availability_zone].nil?
-        data['DbSubnetGroup'] = Stubs::AwsRdsDbSubnetGroup.stub(stub[:db_subnet_group]) unless stub[:db_subnet_group].nil?
+        data['DbSubnetGroup'] = AwsRdsDbSubnetGroup.stub(stub[:db_subnet_group]) unless stub[:db_subnet_group].nil?
         data['PreferredMaintenanceWindow'] = stub[:preferred_maintenance_window] unless stub[:preferred_maintenance_window].nil?
-        data['PendingModifiedValues'] = Stubs::AwsRdsDbPendingModifiedValues.stub(stub[:pending_modified_values]) unless stub[:pending_modified_values].nil?
+        data['PendingModifiedValues'] = AwsRdsDbPendingModifiedValues.stub(stub[:pending_modified_values]) unless stub[:pending_modified_values].nil?
         data['LatestRestorableTime'] = stub[:latest_restorable_time] unless stub[:latest_restorable_time].nil?
         data['AutoMinorVersionUpgrade'] = stub[:auto_minor_version_upgrade] unless stub[:auto_minor_version_upgrade].nil?
         data['ReadReplicaSourceDBInstanceIdentifier'] = stub[:read_replica_source_db_instance_identifier] unless stub[:read_replica_source_db_instance_identifier].nil?
-        data['ReadReplicaDBInstanceIdentifiers'] = Stubs::StringList.stub(stub[:read_replica_db_instance_identifiers]) unless stub[:read_replica_db_instance_identifiers].nil?
-        data['ReadReplicaDBClusterIdentifiers'] = Stubs::StringList.stub(stub[:read_replica_db_cluster_identifiers]) unless stub[:read_replica_db_cluster_identifiers].nil?
+        data['ReadReplicaDBInstanceIdentifiers'] = StringList.stub(stub[:read_replica_db_instance_identifiers]) unless stub[:read_replica_db_instance_identifiers].nil?
+        data['ReadReplicaDBClusterIdentifiers'] = StringList.stub(stub[:read_replica_db_cluster_identifiers]) unless stub[:read_replica_db_cluster_identifiers].nil?
         data['LicenseModel'] = stub[:license_model] unless stub[:license_model].nil?
         data['Iops'] = stub[:iops] unless stub[:iops].nil?
-        data['OptionGroupMemberships'] = Stubs::AwsRdsDbOptionGroupMemberships.stub(stub[:option_group_memberships]) unless stub[:option_group_memberships].nil?
+        data['OptionGroupMemberships'] = AwsRdsDbOptionGroupMemberships.stub(stub[:option_group_memberships]) unless stub[:option_group_memberships].nil?
         data['CharacterSetName'] = stub[:character_set_name] unless stub[:character_set_name].nil?
         data['SecondaryAvailabilityZone'] = stub[:secondary_availability_zone] unless stub[:secondary_availability_zone].nil?
-        data['StatusInfos'] = Stubs::AwsRdsDbStatusInfos.stub(stub[:status_infos]) unless stub[:status_infos].nil?
+        data['StatusInfos'] = AwsRdsDbStatusInfos.stub(stub[:status_infos]) unless stub[:status_infos].nil?
         data['StorageType'] = stub[:storage_type] unless stub[:storage_type].nil?
-        data['DomainMemberships'] = Stubs::AwsRdsDbDomainMemberships.stub(stub[:domain_memberships]) unless stub[:domain_memberships].nil?
+        data['DomainMemberships'] = AwsRdsDbDomainMemberships.stub(stub[:domain_memberships]) unless stub[:domain_memberships].nil?
         data['CopyTagsToSnapshot'] = stub[:copy_tags_to_snapshot] unless stub[:copy_tags_to_snapshot].nil?
         data['MonitoringInterval'] = stub[:monitoring_interval] unless stub[:monitoring_interval].nil?
         data['MonitoringRoleArn'] = stub[:monitoring_role_arn] unless stub[:monitoring_role_arn].nil?
@@ -7043,9 +7045,9 @@ module AWS::SDK::SecurityHub
         data['PerformanceInsightsEnabled'] = stub[:performance_insights_enabled] unless stub[:performance_insights_enabled].nil?
         data['PerformanceInsightsKmsKeyId'] = stub[:performance_insights_kms_key_id] unless stub[:performance_insights_kms_key_id].nil?
         data['PerformanceInsightsRetentionPeriod'] = stub[:performance_insights_retention_period] unless stub[:performance_insights_retention_period].nil?
-        data['EnabledCloudWatchLogsExports'] = Stubs::StringList.stub(stub[:enabled_cloud_watch_logs_exports]) unless stub[:enabled_cloud_watch_logs_exports].nil?
-        data['ProcessorFeatures'] = Stubs::AwsRdsDbProcessorFeatures.stub(stub[:processor_features]) unless stub[:processor_features].nil?
-        data['ListenerEndpoint'] = Stubs::AwsRdsDbInstanceEndpoint.stub(stub[:listener_endpoint]) unless stub[:listener_endpoint].nil?
+        data['EnabledCloudWatchLogsExports'] = StringList.stub(stub[:enabled_cloud_watch_logs_exports]) unless stub[:enabled_cloud_watch_logs_exports].nil?
+        data['ProcessorFeatures'] = AwsRdsDbProcessorFeatures.stub(stub[:processor_features]) unless stub[:processor_features].nil?
+        data['ListenerEndpoint'] = AwsRdsDbInstanceEndpoint.stub(stub[:listener_endpoint]) unless stub[:listener_endpoint].nil?
         data['MaxAllocatedStorage'] = stub[:max_allocated_storage] unless stub[:max_allocated_storage].nil?
         data
       end
@@ -7087,7 +7089,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRdsDbStatusInfo.stub(element) unless element.nil?
+          data << AwsRdsDbStatusInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -7131,7 +7133,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRdsDbOptionGroupMembership.stub(element) unless element.nil?
+          data << AwsRdsDbOptionGroupMembership.stub(element) unless element.nil?
         end
         data
       end
@@ -7197,8 +7199,8 @@ module AWS::SDK::SecurityHub
         data['StorageType'] = stub[:storage_type] unless stub[:storage_type].nil?
         data['CaCertificateIdentifier'] = stub[:ca_certificate_identifier] unless stub[:ca_certificate_identifier].nil?
         data['DbSubnetGroupName'] = stub[:db_subnet_group_name] unless stub[:db_subnet_group_name].nil?
-        data['PendingCloudWatchLogsExports'] = Stubs::AwsRdsPendingCloudWatchLogsExports.stub(stub[:pending_cloud_watch_logs_exports]) unless stub[:pending_cloud_watch_logs_exports].nil?
-        data['ProcessorFeatures'] = Stubs::AwsRdsDbProcessorFeatures.stub(stub[:processor_features]) unless stub[:processor_features].nil?
+        data['PendingCloudWatchLogsExports'] = AwsRdsPendingCloudWatchLogsExports.stub(stub[:pending_cloud_watch_logs_exports]) unless stub[:pending_cloud_watch_logs_exports].nil?
+        data['ProcessorFeatures'] = AwsRdsDbProcessorFeatures.stub(stub[:processor_features]) unless stub[:processor_features].nil?
         data
       end
     end
@@ -7217,8 +7219,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsRdsPendingCloudWatchLogsExports.new
         data = {}
-        data['LogTypesToEnable'] = Stubs::StringList.stub(stub[:log_types_to_enable]) unless stub[:log_types_to_enable].nil?
-        data['LogTypesToDisable'] = Stubs::StringList.stub(stub[:log_types_to_disable]) unless stub[:log_types_to_disable].nil?
+        data['LogTypesToEnable'] = StringList.stub(stub[:log_types_to_enable]) unless stub[:log_types_to_enable].nil?
+        data['LogTypesToDisable'] = StringList.stub(stub[:log_types_to_disable]) unless stub[:log_types_to_disable].nil?
         data
       end
     end
@@ -7245,7 +7247,7 @@ module AWS::SDK::SecurityHub
         data['DbSubnetGroupDescription'] = stub[:db_subnet_group_description] unless stub[:db_subnet_group_description].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['SubnetGroupStatus'] = stub[:subnet_group_status] unless stub[:subnet_group_status].nil?
-        data['Subnets'] = Stubs::AwsRdsDbSubnetGroupSubnets.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['Subnets'] = AwsRdsDbSubnetGroupSubnets.stub(stub[:subnets]) unless stub[:subnets].nil?
         data['DbSubnetGroupArn'] = stub[:db_subnet_group_arn] unless stub[:db_subnet_group_arn].nil?
         data
       end
@@ -7265,7 +7267,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRdsDbSubnetGroupSubnet.stub(element) unless element.nil?
+          data << AwsRdsDbSubnetGroupSubnet.stub(element) unless element.nil?
         end
         data
       end
@@ -7287,7 +7289,7 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsRdsDbSubnetGroupSubnet.new
         data = {}
         data['SubnetIdentifier'] = stub[:subnet_identifier] unless stub[:subnet_identifier].nil?
-        data['SubnetAvailabilityZone'] = Stubs::AwsRdsDbSubnetGroupSubnetAvailabilityZone.stub(stub[:subnet_availability_zone]) unless stub[:subnet_availability_zone].nil?
+        data['SubnetAvailabilityZone'] = AwsRdsDbSubnetGroupSubnetAvailabilityZone.stub(stub[:subnet_availability_zone]) unless stub[:subnet_availability_zone].nil?
         data['SubnetStatus'] = stub[:subnet_status] unless stub[:subnet_status].nil?
         data
       end
@@ -7325,7 +7327,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRdsDbParameterGroup.stub(element) unless element.nil?
+          data << AwsRdsDbParameterGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -7365,7 +7367,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRdsDbInstanceAssociatedRole.stub(element) unless element.nil?
+          data << AwsRdsDbInstanceAssociatedRole.stub(element) unless element.nil?
         end
         data
       end
@@ -7409,7 +7411,7 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsLambdaLayerVersionDetails.new
         data = {}
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['CompatibleRuntimes'] = Stubs::NonEmptyStringList.stub(stub[:compatible_runtimes]) unless stub[:compatible_runtimes].nil?
+        data['CompatibleRuntimes'] = NonEmptyStringList.stub(stub[:compatible_runtimes]) unless stub[:compatible_runtimes].nil?
         data['CreatedDate'] = stub[:created_date] unless stub[:created_date].nil?
         data
       end
@@ -7445,23 +7447,23 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsLambdaFunctionDetails.new
         data = {}
-        data['Code'] = Stubs::AwsLambdaFunctionCode.stub(stub[:code]) unless stub[:code].nil?
+        data['Code'] = AwsLambdaFunctionCode.stub(stub[:code]) unless stub[:code].nil?
         data['CodeSha256'] = stub[:code_sha256] unless stub[:code_sha256].nil?
-        data['DeadLetterConfig'] = Stubs::AwsLambdaFunctionDeadLetterConfig.stub(stub[:dead_letter_config]) unless stub[:dead_letter_config].nil?
-        data['Environment'] = Stubs::AwsLambdaFunctionEnvironment.stub(stub[:environment]) unless stub[:environment].nil?
+        data['DeadLetterConfig'] = AwsLambdaFunctionDeadLetterConfig.stub(stub[:dead_letter_config]) unless stub[:dead_letter_config].nil?
+        data['Environment'] = AwsLambdaFunctionEnvironment.stub(stub[:environment]) unless stub[:environment].nil?
         data['FunctionName'] = stub[:function_name] unless stub[:function_name].nil?
         data['Handler'] = stub[:handler] unless stub[:handler].nil?
         data['KmsKeyArn'] = stub[:kms_key_arn] unless stub[:kms_key_arn].nil?
         data['LastModified'] = stub[:last_modified] unless stub[:last_modified].nil?
-        data['Layers'] = Stubs::AwsLambdaFunctionLayerList.stub(stub[:layers]) unless stub[:layers].nil?
+        data['Layers'] = AwsLambdaFunctionLayerList.stub(stub[:layers]) unless stub[:layers].nil?
         data['MasterArn'] = stub[:master_arn] unless stub[:master_arn].nil?
         data['MemorySize'] = stub[:memory_size] unless stub[:memory_size].nil?
         data['RevisionId'] = stub[:revision_id] unless stub[:revision_id].nil?
         data['Role'] = stub[:role] unless stub[:role].nil?
         data['Runtime'] = stub[:runtime] unless stub[:runtime].nil?
         data['Timeout'] = stub[:timeout] unless stub[:timeout].nil?
-        data['TracingConfig'] = Stubs::AwsLambdaFunctionTracingConfig.stub(stub[:tracing_config]) unless stub[:tracing_config].nil?
-        data['VpcConfig'] = Stubs::AwsLambdaFunctionVpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['TracingConfig'] = AwsLambdaFunctionTracingConfig.stub(stub[:tracing_config]) unless stub[:tracing_config].nil?
+        data['VpcConfig'] = AwsLambdaFunctionVpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
         data
       end
@@ -7482,8 +7484,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsLambdaFunctionVpcConfig.new
         data = {}
-        data['SecurityGroupIds'] = Stubs::NonEmptyStringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
-        data['SubnetIds'] = Stubs::NonEmptyStringList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['SecurityGroupIds'] = NonEmptyStringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SubnetIds'] = NonEmptyStringList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data
       end
@@ -7521,7 +7523,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsLambdaFunctionLayer.stub(element) unless element.nil?
+          data << AwsLambdaFunctionLayer.stub(element) unless element.nil?
         end
         data
       end
@@ -7561,8 +7563,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsLambdaFunctionEnvironment.new
         data = {}
-        data['Variables'] = Stubs::FieldMap.stub(stub[:variables]) unless stub[:variables].nil?
-        data['Error'] = Stubs::AwsLambdaFunctionEnvironmentError.stub(stub[:error]) unless stub[:error].nil?
+        data['Variables'] = FieldMap.stub(stub[:variables]) unless stub[:variables].nil?
+        data['Error'] = AwsLambdaFunctionEnvironmentError.stub(stub[:error]) unless stub[:error].nil?
         data
       end
     end
@@ -7684,13 +7686,13 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsIamRoleDetails.new
         data = {}
         data['AssumeRolePolicyDocument'] = stub[:assume_role_policy_document] unless stub[:assume_role_policy_document].nil?
-        data['AttachedManagedPolicies'] = Stubs::AwsIamAttachedManagedPolicyList.stub(stub[:attached_managed_policies]) unless stub[:attached_managed_policies].nil?
+        data['AttachedManagedPolicies'] = AwsIamAttachedManagedPolicyList.stub(stub[:attached_managed_policies]) unless stub[:attached_managed_policies].nil?
         data['CreateDate'] = stub[:create_date] unless stub[:create_date].nil?
-        data['InstanceProfileList'] = Stubs::AwsIamInstanceProfileList.stub(stub[:instance_profile_list]) unless stub[:instance_profile_list].nil?
-        data['PermissionsBoundary'] = Stubs::AwsIamPermissionsBoundary.stub(stub[:permissions_boundary]) unless stub[:permissions_boundary].nil?
+        data['InstanceProfileList'] = AwsIamInstanceProfileList.stub(stub[:instance_profile_list]) unless stub[:instance_profile_list].nil?
+        data['PermissionsBoundary'] = AwsIamPermissionsBoundary.stub(stub[:permissions_boundary]) unless stub[:permissions_boundary].nil?
         data['RoleId'] = stub[:role_id] unless stub[:role_id].nil?
         data['RoleName'] = stub[:role_name] unless stub[:role_name].nil?
-        data['RolePolicyList'] = Stubs::AwsIamRolePolicyList.stub(stub[:role_policy_list]) unless stub[:role_policy_list].nil?
+        data['RolePolicyList'] = AwsIamRolePolicyList.stub(stub[:role_policy_list]) unless stub[:role_policy_list].nil?
         data['MaxSessionDuration'] = stub[:max_session_duration] unless stub[:max_session_duration].nil?
         data['Path'] = stub[:path] unless stub[:path].nil?
         data
@@ -7711,7 +7713,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsIamRolePolicy.stub(element) unless element.nil?
+          data << AwsIamRolePolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -7769,7 +7771,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsIamInstanceProfile.stub(element) unless element.nil?
+          data << AwsIamInstanceProfile.stub(element) unless element.nil?
         end
         data
       end
@@ -7798,7 +7800,7 @@ module AWS::SDK::SecurityHub
         data['InstanceProfileId'] = stub[:instance_profile_id] unless stub[:instance_profile_id].nil?
         data['InstanceProfileName'] = stub[:instance_profile_name] unless stub[:instance_profile_name].nil?
         data['Path'] = stub[:path] unless stub[:path].nil?
-        data['Roles'] = Stubs::AwsIamInstanceProfileRoles.stub(stub[:roles]) unless stub[:roles].nil?
+        data['Roles'] = AwsIamInstanceProfileRoles.stub(stub[:roles]) unless stub[:roles].nil?
         data
       end
     end
@@ -7817,7 +7819,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsIamInstanceProfileRole.stub(element) unless element.nil?
+          data << AwsIamInstanceProfileRole.stub(element) unless element.nil?
         end
         data
       end
@@ -7865,7 +7867,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsIamAttachedManagedPolicy.stub(element) unless element.nil?
+          data << AwsIamAttachedManagedPolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -7909,11 +7911,11 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsIamGroupDetails.new
         data = {}
-        data['AttachedManagedPolicies'] = Stubs::AwsIamAttachedManagedPolicyList.stub(stub[:attached_managed_policies]) unless stub[:attached_managed_policies].nil?
+        data['AttachedManagedPolicies'] = AwsIamAttachedManagedPolicyList.stub(stub[:attached_managed_policies]) unless stub[:attached_managed_policies].nil?
         data['CreateDate'] = stub[:create_date] unless stub[:create_date].nil?
         data['GroupId'] = stub[:group_id] unless stub[:group_id].nil?
         data['GroupName'] = stub[:group_name] unless stub[:group_name].nil?
-        data['GroupPolicyList'] = Stubs::AwsIamGroupPolicyList.stub(stub[:group_policy_list]) unless stub[:group_policy_list].nil?
+        data['GroupPolicyList'] = AwsIamGroupPolicyList.stub(stub[:group_policy_list]) unless stub[:group_policy_list].nil?
         data['Path'] = stub[:path] unless stub[:path].nil?
         data
       end
@@ -7933,7 +7935,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsIamGroupPolicy.stub(element) unless element.nil?
+          data << AwsIamGroupPolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -7986,22 +7988,22 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsElbLoadBalancerDetails.new
         data = {}
-        data['AvailabilityZones'] = Stubs::StringList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
-        data['BackendServerDescriptions'] = Stubs::AwsElbLoadBalancerBackendServerDescriptions.stub(stub[:backend_server_descriptions]) unless stub[:backend_server_descriptions].nil?
+        data['AvailabilityZones'] = StringList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['BackendServerDescriptions'] = AwsElbLoadBalancerBackendServerDescriptions.stub(stub[:backend_server_descriptions]) unless stub[:backend_server_descriptions].nil?
         data['CanonicalHostedZoneName'] = stub[:canonical_hosted_zone_name] unless stub[:canonical_hosted_zone_name].nil?
         data['CanonicalHostedZoneNameID'] = stub[:canonical_hosted_zone_name_id] unless stub[:canonical_hosted_zone_name_id].nil?
         data['CreatedTime'] = stub[:created_time] unless stub[:created_time].nil?
         data['DnsName'] = stub[:dns_name] unless stub[:dns_name].nil?
-        data['HealthCheck'] = Stubs::AwsElbLoadBalancerHealthCheck.stub(stub[:health_check]) unless stub[:health_check].nil?
-        data['Instances'] = Stubs::AwsElbLoadBalancerInstances.stub(stub[:instances]) unless stub[:instances].nil?
-        data['ListenerDescriptions'] = Stubs::AwsElbLoadBalancerListenerDescriptions.stub(stub[:listener_descriptions]) unless stub[:listener_descriptions].nil?
-        data['LoadBalancerAttributes'] = Stubs::AwsElbLoadBalancerAttributes.stub(stub[:load_balancer_attributes]) unless stub[:load_balancer_attributes].nil?
+        data['HealthCheck'] = AwsElbLoadBalancerHealthCheck.stub(stub[:health_check]) unless stub[:health_check].nil?
+        data['Instances'] = AwsElbLoadBalancerInstances.stub(stub[:instances]) unless stub[:instances].nil?
+        data['ListenerDescriptions'] = AwsElbLoadBalancerListenerDescriptions.stub(stub[:listener_descriptions]) unless stub[:listener_descriptions].nil?
+        data['LoadBalancerAttributes'] = AwsElbLoadBalancerAttributes.stub(stub[:load_balancer_attributes]) unless stub[:load_balancer_attributes].nil?
         data['LoadBalancerName'] = stub[:load_balancer_name] unless stub[:load_balancer_name].nil?
-        data['Policies'] = Stubs::AwsElbLoadBalancerPolicies.stub(stub[:policies]) unless stub[:policies].nil?
+        data['Policies'] = AwsElbLoadBalancerPolicies.stub(stub[:policies]) unless stub[:policies].nil?
         data['Scheme'] = stub[:scheme] unless stub[:scheme].nil?
-        data['SecurityGroups'] = Stubs::StringList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
-        data['SourceSecurityGroup'] = Stubs::AwsElbLoadBalancerSourceSecurityGroup.stub(stub[:source_security_group]) unless stub[:source_security_group].nil?
-        data['Subnets'] = Stubs::StringList.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['SecurityGroups'] = StringList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['SourceSecurityGroup'] = AwsElbLoadBalancerSourceSecurityGroup.stub(stub[:source_security_group]) unless stub[:source_security_group].nil?
+        data['Subnets'] = StringList.stub(stub[:subnets]) unless stub[:subnets].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data
       end
@@ -8042,9 +8044,9 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsElbLoadBalancerPolicies.new
         data = {}
-        data['AppCookieStickinessPolicies'] = Stubs::AwsElbAppCookieStickinessPolicies.stub(stub[:app_cookie_stickiness_policies]) unless stub[:app_cookie_stickiness_policies].nil?
-        data['LbCookieStickinessPolicies'] = Stubs::AwsElbLbCookieStickinessPolicies.stub(stub[:lb_cookie_stickiness_policies]) unless stub[:lb_cookie_stickiness_policies].nil?
-        data['OtherPolicies'] = Stubs::StringList.stub(stub[:other_policies]) unless stub[:other_policies].nil?
+        data['AppCookieStickinessPolicies'] = AwsElbAppCookieStickinessPolicies.stub(stub[:app_cookie_stickiness_policies]) unless stub[:app_cookie_stickiness_policies].nil?
+        data['LbCookieStickinessPolicies'] = AwsElbLbCookieStickinessPolicies.stub(stub[:lb_cookie_stickiness_policies]) unless stub[:lb_cookie_stickiness_policies].nil?
+        data['OtherPolicies'] = StringList.stub(stub[:other_policies]) unless stub[:other_policies].nil?
         data
       end
     end
@@ -8063,7 +8065,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsElbLbCookieStickinessPolicy.stub(element) unless element.nil?
+          data << AwsElbLbCookieStickinessPolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -8103,7 +8105,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsElbAppCookieStickinessPolicy.stub(element) unless element.nil?
+          data << AwsElbAppCookieStickinessPolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -8146,11 +8148,11 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsElbLoadBalancerAttributes.new
         data = {}
-        data['AccessLog'] = Stubs::AwsElbLoadBalancerAccessLog.stub(stub[:access_log]) unless stub[:access_log].nil?
-        data['ConnectionDraining'] = Stubs::AwsElbLoadBalancerConnectionDraining.stub(stub[:connection_draining]) unless stub[:connection_draining].nil?
-        data['ConnectionSettings'] = Stubs::AwsElbLoadBalancerConnectionSettings.stub(stub[:connection_settings]) unless stub[:connection_settings].nil?
-        data['CrossZoneLoadBalancing'] = Stubs::AwsElbLoadBalancerCrossZoneLoadBalancing.stub(stub[:cross_zone_load_balancing]) unless stub[:cross_zone_load_balancing].nil?
-        data['AdditionalAttributes'] = Stubs::AwsElbLoadBalancerAdditionalAttributeList.stub(stub[:additional_attributes]) unless stub[:additional_attributes].nil?
+        data['AccessLog'] = AwsElbLoadBalancerAccessLog.stub(stub[:access_log]) unless stub[:access_log].nil?
+        data['ConnectionDraining'] = AwsElbLoadBalancerConnectionDraining.stub(stub[:connection_draining]) unless stub[:connection_draining].nil?
+        data['ConnectionSettings'] = AwsElbLoadBalancerConnectionSettings.stub(stub[:connection_settings]) unless stub[:connection_settings].nil?
+        data['CrossZoneLoadBalancing'] = AwsElbLoadBalancerCrossZoneLoadBalancing.stub(stub[:cross_zone_load_balancing]) unless stub[:cross_zone_load_balancing].nil?
+        data['AdditionalAttributes'] = AwsElbLoadBalancerAdditionalAttributeList.stub(stub[:additional_attributes]) unless stub[:additional_attributes].nil?
         data
       end
     end
@@ -8169,7 +8171,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsElbLoadBalancerAdditionalAttribute.stub(element) unless element.nil?
+          data << AwsElbLoadBalancerAdditionalAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -8289,7 +8291,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsElbLoadBalancerListenerDescription.stub(element) unless element.nil?
+          data << AwsElbLoadBalancerListenerDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -8309,8 +8311,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsElbLoadBalancerListenerDescription.new
         data = {}
-        data['Listener'] = Stubs::AwsElbLoadBalancerListener.stub(stub[:listener]) unless stub[:listener].nil?
-        data['PolicyNames'] = Stubs::StringList.stub(stub[:policy_names]) unless stub[:policy_names].nil?
+        data['Listener'] = AwsElbLoadBalancerListener.stub(stub[:listener]) unless stub[:listener].nil?
+        data['PolicyNames'] = StringList.stub(stub[:policy_names]) unless stub[:policy_names].nil?
         data
       end
     end
@@ -8355,7 +8357,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsElbLoadBalancerInstance.stub(element) unless element.nil?
+          data << AwsElbLoadBalancerInstance.stub(element) unless element.nil?
         end
         data
       end
@@ -8419,7 +8421,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsElbLoadBalancerBackendServerDescription.stub(element) unless element.nil?
+          data << AwsElbLoadBalancerBackendServerDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -8440,7 +8442,7 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsElbLoadBalancerBackendServerDescription.new
         data = {}
         data['InstancePort'] = stub[:instance_port] unless stub[:instance_port].nil?
-        data['PolicyNames'] = Stubs::StringList.stub(stub[:policy_names]) unless stub[:policy_names].nil?
+        data['PolicyNames'] = StringList.stub(stub[:policy_names]) unless stub[:policy_names].nil?
         data
       end
     end
@@ -8507,26 +8509,26 @@ module AWS::SDK::SecurityHub
         data['ClusterAvailabilityStatus'] = stub[:cluster_availability_status] unless stub[:cluster_availability_status].nil?
         data['ClusterCreateTime'] = stub[:cluster_create_time] unless stub[:cluster_create_time].nil?
         data['ClusterIdentifier'] = stub[:cluster_identifier] unless stub[:cluster_identifier].nil?
-        data['ClusterNodes'] = Stubs::AwsRedshiftClusterClusterNodes.stub(stub[:cluster_nodes]) unless stub[:cluster_nodes].nil?
-        data['ClusterParameterGroups'] = Stubs::AwsRedshiftClusterClusterParameterGroups.stub(stub[:cluster_parameter_groups]) unless stub[:cluster_parameter_groups].nil?
+        data['ClusterNodes'] = AwsRedshiftClusterClusterNodes.stub(stub[:cluster_nodes]) unless stub[:cluster_nodes].nil?
+        data['ClusterParameterGroups'] = AwsRedshiftClusterClusterParameterGroups.stub(stub[:cluster_parameter_groups]) unless stub[:cluster_parameter_groups].nil?
         data['ClusterPublicKey'] = stub[:cluster_public_key] unless stub[:cluster_public_key].nil?
         data['ClusterRevisionNumber'] = stub[:cluster_revision_number] unless stub[:cluster_revision_number].nil?
-        data['ClusterSecurityGroups'] = Stubs::AwsRedshiftClusterClusterSecurityGroups.stub(stub[:cluster_security_groups]) unless stub[:cluster_security_groups].nil?
-        data['ClusterSnapshotCopyStatus'] = Stubs::AwsRedshiftClusterClusterSnapshotCopyStatus.stub(stub[:cluster_snapshot_copy_status]) unless stub[:cluster_snapshot_copy_status].nil?
+        data['ClusterSecurityGroups'] = AwsRedshiftClusterClusterSecurityGroups.stub(stub[:cluster_security_groups]) unless stub[:cluster_security_groups].nil?
+        data['ClusterSnapshotCopyStatus'] = AwsRedshiftClusterClusterSnapshotCopyStatus.stub(stub[:cluster_snapshot_copy_status]) unless stub[:cluster_snapshot_copy_status].nil?
         data['ClusterStatus'] = stub[:cluster_status] unless stub[:cluster_status].nil?
         data['ClusterSubnetGroupName'] = stub[:cluster_subnet_group_name] unless stub[:cluster_subnet_group_name].nil?
         data['ClusterVersion'] = stub[:cluster_version] unless stub[:cluster_version].nil?
         data['DBName'] = stub[:db_name] unless stub[:db_name].nil?
-        data['DeferredMaintenanceWindows'] = Stubs::AwsRedshiftClusterDeferredMaintenanceWindows.stub(stub[:deferred_maintenance_windows]) unless stub[:deferred_maintenance_windows].nil?
-        data['ElasticIpStatus'] = Stubs::AwsRedshiftClusterElasticIpStatus.stub(stub[:elastic_ip_status]) unless stub[:elastic_ip_status].nil?
+        data['DeferredMaintenanceWindows'] = AwsRedshiftClusterDeferredMaintenanceWindows.stub(stub[:deferred_maintenance_windows]) unless stub[:deferred_maintenance_windows].nil?
+        data['ElasticIpStatus'] = AwsRedshiftClusterElasticIpStatus.stub(stub[:elastic_ip_status]) unless stub[:elastic_ip_status].nil?
         data['ElasticResizeNumberOfNodeOptions'] = stub[:elastic_resize_number_of_node_options] unless stub[:elastic_resize_number_of_node_options].nil?
         data['Encrypted'] = stub[:encrypted] unless stub[:encrypted].nil?
-        data['Endpoint'] = Stubs::AwsRedshiftClusterEndpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
+        data['Endpoint'] = AwsRedshiftClusterEndpoint.stub(stub[:endpoint]) unless stub[:endpoint].nil?
         data['EnhancedVpcRouting'] = stub[:enhanced_vpc_routing] unless stub[:enhanced_vpc_routing].nil?
         data['ExpectedNextSnapshotScheduleTime'] = stub[:expected_next_snapshot_schedule_time] unless stub[:expected_next_snapshot_schedule_time].nil?
         data['ExpectedNextSnapshotScheduleTimeStatus'] = stub[:expected_next_snapshot_schedule_time_status] unless stub[:expected_next_snapshot_schedule_time_status].nil?
-        data['HsmStatus'] = Stubs::AwsRedshiftClusterHsmStatus.stub(stub[:hsm_status]) unless stub[:hsm_status].nil?
-        data['IamRoles'] = Stubs::AwsRedshiftClusterIamRoles.stub(stub[:iam_roles]) unless stub[:iam_roles].nil?
+        data['HsmStatus'] = AwsRedshiftClusterHsmStatus.stub(stub[:hsm_status]) unless stub[:hsm_status].nil?
+        data['IamRoles'] = AwsRedshiftClusterIamRoles.stub(stub[:iam_roles]) unless stub[:iam_roles].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['MaintenanceTrackName'] = stub[:maintenance_track_name] unless stub[:maintenance_track_name].nil?
         data['ManualSnapshotRetentionPeriod'] = stub[:manual_snapshot_retention_period] unless stub[:manual_snapshot_retention_period].nil?
@@ -8534,17 +8536,17 @@ module AWS::SDK::SecurityHub
         data['NextMaintenanceWindowStartTime'] = stub[:next_maintenance_window_start_time] unless stub[:next_maintenance_window_start_time].nil?
         data['NodeType'] = stub[:node_type] unless stub[:node_type].nil?
         data['NumberOfNodes'] = stub[:number_of_nodes] unless stub[:number_of_nodes].nil?
-        data['PendingActions'] = Stubs::StringList.stub(stub[:pending_actions]) unless stub[:pending_actions].nil?
-        data['PendingModifiedValues'] = Stubs::AwsRedshiftClusterPendingModifiedValues.stub(stub[:pending_modified_values]) unless stub[:pending_modified_values].nil?
+        data['PendingActions'] = StringList.stub(stub[:pending_actions]) unless stub[:pending_actions].nil?
+        data['PendingModifiedValues'] = AwsRedshiftClusterPendingModifiedValues.stub(stub[:pending_modified_values]) unless stub[:pending_modified_values].nil?
         data['PreferredMaintenanceWindow'] = stub[:preferred_maintenance_window] unless stub[:preferred_maintenance_window].nil?
         data['PubliclyAccessible'] = stub[:publicly_accessible] unless stub[:publicly_accessible].nil?
-        data['ResizeInfo'] = Stubs::AwsRedshiftClusterResizeInfo.stub(stub[:resize_info]) unless stub[:resize_info].nil?
-        data['RestoreStatus'] = Stubs::AwsRedshiftClusterRestoreStatus.stub(stub[:restore_status]) unless stub[:restore_status].nil?
+        data['ResizeInfo'] = AwsRedshiftClusterResizeInfo.stub(stub[:resize_info]) unless stub[:resize_info].nil?
+        data['RestoreStatus'] = AwsRedshiftClusterRestoreStatus.stub(stub[:restore_status]) unless stub[:restore_status].nil?
         data['SnapshotScheduleIdentifier'] = stub[:snapshot_schedule_identifier] unless stub[:snapshot_schedule_identifier].nil?
         data['SnapshotScheduleState'] = stub[:snapshot_schedule_state] unless stub[:snapshot_schedule_state].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['VpcSecurityGroups'] = Stubs::AwsRedshiftClusterVpcSecurityGroups.stub(stub[:vpc_security_groups]) unless stub[:vpc_security_groups].nil?
-        data['LoggingStatus'] = Stubs::AwsRedshiftClusterLoggingStatus.stub(stub[:logging_status]) unless stub[:logging_status].nil?
+        data['VpcSecurityGroups'] = AwsRedshiftClusterVpcSecurityGroups.stub(stub[:vpc_security_groups]) unless stub[:vpc_security_groups].nil?
+        data['LoggingStatus'] = AwsRedshiftClusterLoggingStatus.stub(stub[:logging_status]) unless stub[:logging_status].nil?
         data
       end
     end
@@ -8591,7 +8593,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRedshiftClusterVpcSecurityGroup.stub(element) unless element.nil?
+          data << AwsRedshiftClusterVpcSecurityGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -8717,7 +8719,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRedshiftClusterIamRole.stub(element) unless element.nil?
+          data << AwsRedshiftClusterIamRole.stub(element) unless element.nil?
         end
         data
       end
@@ -8819,7 +8821,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRedshiftClusterDeferredMaintenanceWindow.stub(element) unless element.nil?
+          data << AwsRedshiftClusterDeferredMaintenanceWindow.stub(element) unless element.nil?
         end
         data
       end
@@ -8885,7 +8887,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRedshiftClusterClusterSecurityGroup.stub(element) unless element.nil?
+          data << AwsRedshiftClusterClusterSecurityGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -8925,7 +8927,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRedshiftClusterClusterParameterGroup.stub(element) unless element.nil?
+          data << AwsRedshiftClusterClusterParameterGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -8946,7 +8948,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsRedshiftClusterClusterParameterGroup.new
         data = {}
-        data['ClusterParameterStatusList'] = Stubs::AwsRedshiftClusterClusterParameterStatusList.stub(stub[:cluster_parameter_status_list]) unless stub[:cluster_parameter_status_list].nil?
+        data['ClusterParameterStatusList'] = AwsRedshiftClusterClusterParameterStatusList.stub(stub[:cluster_parameter_status_list]) unless stub[:cluster_parameter_status_list].nil?
         data['ParameterApplyStatus'] = stub[:parameter_apply_status] unless stub[:parameter_apply_status].nil?
         data['ParameterGroupName'] = stub[:parameter_group_name] unless stub[:parameter_group_name].nil?
         data
@@ -8967,7 +8969,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRedshiftClusterClusterParameterStatus.stub(element) unless element.nil?
+          data << AwsRedshiftClusterClusterParameterStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -9009,7 +9011,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsRedshiftClusterClusterNode.stub(element) unless element.nil?
+          data << AwsRedshiftClusterClusterNode.stub(element) unless element.nil?
         end
         data
       end
@@ -9075,25 +9077,25 @@ module AWS::SDK::SecurityHub
         data['CertificateAuthorityArn'] = stub[:certificate_authority_arn] unless stub[:certificate_authority_arn].nil?
         data['CreatedAt'] = stub[:created_at] unless stub[:created_at].nil?
         data['DomainName'] = stub[:domain_name] unless stub[:domain_name].nil?
-        data['DomainValidationOptions'] = Stubs::AwsCertificateManagerCertificateDomainValidationOptions.stub(stub[:domain_validation_options]) unless stub[:domain_validation_options].nil?
-        data['ExtendedKeyUsages'] = Stubs::AwsCertificateManagerCertificateExtendedKeyUsages.stub(stub[:extended_key_usages]) unless stub[:extended_key_usages].nil?
+        data['DomainValidationOptions'] = AwsCertificateManagerCertificateDomainValidationOptions.stub(stub[:domain_validation_options]) unless stub[:domain_validation_options].nil?
+        data['ExtendedKeyUsages'] = AwsCertificateManagerCertificateExtendedKeyUsages.stub(stub[:extended_key_usages]) unless stub[:extended_key_usages].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['ImportedAt'] = stub[:imported_at] unless stub[:imported_at].nil?
-        data['InUseBy'] = Stubs::StringList.stub(stub[:in_use_by]) unless stub[:in_use_by].nil?
+        data['InUseBy'] = StringList.stub(stub[:in_use_by]) unless stub[:in_use_by].nil?
         data['IssuedAt'] = stub[:issued_at] unless stub[:issued_at].nil?
         data['Issuer'] = stub[:issuer] unless stub[:issuer].nil?
         data['KeyAlgorithm'] = stub[:key_algorithm] unless stub[:key_algorithm].nil?
-        data['KeyUsages'] = Stubs::AwsCertificateManagerCertificateKeyUsages.stub(stub[:key_usages]) unless stub[:key_usages].nil?
+        data['KeyUsages'] = AwsCertificateManagerCertificateKeyUsages.stub(stub[:key_usages]) unless stub[:key_usages].nil?
         data['NotAfter'] = stub[:not_after] unless stub[:not_after].nil?
         data['NotBefore'] = stub[:not_before] unless stub[:not_before].nil?
-        data['Options'] = Stubs::AwsCertificateManagerCertificateOptions.stub(stub[:options]) unless stub[:options].nil?
+        data['Options'] = AwsCertificateManagerCertificateOptions.stub(stub[:options]) unless stub[:options].nil?
         data['RenewalEligibility'] = stub[:renewal_eligibility] unless stub[:renewal_eligibility].nil?
-        data['RenewalSummary'] = Stubs::AwsCertificateManagerCertificateRenewalSummary.stub(stub[:renewal_summary]) unless stub[:renewal_summary].nil?
+        data['RenewalSummary'] = AwsCertificateManagerCertificateRenewalSummary.stub(stub[:renewal_summary]) unless stub[:renewal_summary].nil?
         data['Serial'] = stub[:serial] unless stub[:serial].nil?
         data['SignatureAlgorithm'] = stub[:signature_algorithm] unless stub[:signature_algorithm].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Subject'] = stub[:subject] unless stub[:subject].nil?
-        data['SubjectAlternativeNames'] = Stubs::StringList.stub(stub[:subject_alternative_names]) unless stub[:subject_alternative_names].nil?
+        data['SubjectAlternativeNames'] = StringList.stub(stub[:subject_alternative_names]) unless stub[:subject_alternative_names].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -9115,7 +9117,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsCertificateManagerCertificateRenewalSummary.new
         data = {}
-        data['DomainValidationOptions'] = Stubs::AwsCertificateManagerCertificateDomainValidationOptions.stub(stub[:domain_validation_options]) unless stub[:domain_validation_options].nil?
+        data['DomainValidationOptions'] = AwsCertificateManagerCertificateDomainValidationOptions.stub(stub[:domain_validation_options]) unless stub[:domain_validation_options].nil?
         data['RenewalStatus'] = stub[:renewal_status] unless stub[:renewal_status].nil?
         data['RenewalStatusReason'] = stub[:renewal_status_reason] unless stub[:renewal_status_reason].nil?
         data['UpdatedAt'] = stub[:updated_at] unless stub[:updated_at].nil?
@@ -9137,7 +9139,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsCertificateManagerCertificateDomainValidationOption.stub(element) unless element.nil?
+          data << AwsCertificateManagerCertificateDomainValidationOption.stub(element) unless element.nil?
         end
         data
       end
@@ -9162,9 +9164,9 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsCertificateManagerCertificateDomainValidationOption.new
         data = {}
         data['DomainName'] = stub[:domain_name] unless stub[:domain_name].nil?
-        data['ResourceRecord'] = Stubs::AwsCertificateManagerCertificateResourceRecord.stub(stub[:resource_record]) unless stub[:resource_record].nil?
+        data['ResourceRecord'] = AwsCertificateManagerCertificateResourceRecord.stub(stub[:resource_record]) unless stub[:resource_record].nil?
         data['ValidationDomain'] = stub[:validation_domain] unless stub[:validation_domain].nil?
-        data['ValidationEmails'] = Stubs::StringList.stub(stub[:validation_emails]) unless stub[:validation_emails].nil?
+        data['ValidationEmails'] = StringList.stub(stub[:validation_emails]) unless stub[:validation_emails].nil?
         data['ValidationMethod'] = stub[:validation_method] unless stub[:validation_method].nil?
         data['ValidationStatus'] = stub[:validation_status] unless stub[:validation_status].nil?
         data
@@ -9225,7 +9227,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsCertificateManagerCertificateKeyUsage.stub(element) unless element.nil?
+          data << AwsCertificateManagerCertificateKeyUsage.stub(element) unless element.nil?
         end
         data
       end
@@ -9263,7 +9265,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsCertificateManagerCertificateExtendedKeyUsage.stub(element) unless element.nil?
+          data << AwsCertificateManagerCertificateExtendedKeyUsage.stub(element) unless element.nil?
         end
         data
       end
@@ -9302,7 +9304,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsSsmPatchComplianceDetails.new
         data = {}
-        data['Patch'] = Stubs::AwsSsmPatch.stub(stub[:patch]) unless stub[:patch].nil?
+        data['Patch'] = AwsSsmPatch.stub(stub[:patch]) unless stub[:patch].nil?
         data
       end
     end
@@ -9320,7 +9322,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsSsmPatch.new
         data = {}
-        data['ComplianceSummary'] = Stubs::AwsSsmComplianceSummary.stub(stub[:compliance_summary]) unless stub[:compliance_summary].nil?
+        data['ComplianceSummary'] = AwsSsmComplianceSummary.stub(stub[:compliance_summary]) unless stub[:compliance_summary].nil?
         data
       end
     end
@@ -9449,10 +9451,10 @@ module AWS::SDK::SecurityHub
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['CreatedDate'] = stub[:created_date] unless stub[:created_date].nil?
         data['Version'] = stub[:version] unless stub[:version].nil?
-        data['BinaryMediaTypes'] = Stubs::NonEmptyStringList.stub(stub[:binary_media_types]) unless stub[:binary_media_types].nil?
+        data['BinaryMediaTypes'] = NonEmptyStringList.stub(stub[:binary_media_types]) unless stub[:binary_media_types].nil?
         data['MinimumCompressionSize'] = stub[:minimum_compression_size] unless stub[:minimum_compression_size].nil?
         data['ApiKeySource'] = stub[:api_key_source] unless stub[:api_key_source].nil?
-        data['EndpointConfiguration'] = Stubs::AwsApiGatewayEndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
+        data['EndpointConfiguration'] = AwsApiGatewayEndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
         data
       end
     end
@@ -9470,7 +9472,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsApiGatewayEndpointConfiguration.new
         data = {}
-        data['Types'] = Stubs::NonEmptyStringList.stub(stub[:types]) unless stub[:types].nil?
+        data['Types'] = NonEmptyStringList.stub(stub[:types]) unless stub[:types].nil?
         data
       end
     end
@@ -9510,11 +9512,11 @@ module AWS::SDK::SecurityHub
         data['CacheClusterEnabled'] = stub[:cache_cluster_enabled] unless stub[:cache_cluster_enabled].nil?
         data['CacheClusterSize'] = stub[:cache_cluster_size] unless stub[:cache_cluster_size].nil?
         data['CacheClusterStatus'] = stub[:cache_cluster_status] unless stub[:cache_cluster_status].nil?
-        data['MethodSettings'] = Stubs::AwsApiGatewayMethodSettingsList.stub(stub[:method_settings]) unless stub[:method_settings].nil?
-        data['Variables'] = Stubs::FieldMap.stub(stub[:variables]) unless stub[:variables].nil?
+        data['MethodSettings'] = AwsApiGatewayMethodSettingsList.stub(stub[:method_settings]) unless stub[:method_settings].nil?
+        data['Variables'] = FieldMap.stub(stub[:variables]) unless stub[:variables].nil?
         data['DocumentationVersion'] = stub[:documentation_version] unless stub[:documentation_version].nil?
-        data['AccessLogSettings'] = Stubs::AwsApiGatewayAccessLogSettings.stub(stub[:access_log_settings]) unless stub[:access_log_settings].nil?
-        data['CanarySettings'] = Stubs::AwsApiGatewayCanarySettings.stub(stub[:canary_settings]) unless stub[:canary_settings].nil?
+        data['AccessLogSettings'] = AwsApiGatewayAccessLogSettings.stub(stub[:access_log_settings]) unless stub[:access_log_settings].nil?
+        data['CanarySettings'] = AwsApiGatewayCanarySettings.stub(stub[:canary_settings]) unless stub[:canary_settings].nil?
         data['TracingEnabled'] = stub[:tracing_enabled] unless stub[:tracing_enabled].nil?
         data['CreatedDate'] = stub[:created_date] unless stub[:created_date].nil?
         data['LastUpdatedDate'] = stub[:last_updated_date] unless stub[:last_updated_date].nil?
@@ -9541,7 +9543,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['PercentTraffic'] = Hearth::NumberHelper.serialize(stub[:percent_traffic])
         data['DeploymentId'] = stub[:deployment_id] unless stub[:deployment_id].nil?
-        data['StageVariableOverrides'] = Stubs::FieldMap.stub(stub[:stage_variable_overrides]) unless stub[:stage_variable_overrides].nil?
+        data['StageVariableOverrides'] = FieldMap.stub(stub[:stage_variable_overrides]) unless stub[:stage_variable_overrides].nil?
         data['UseStageCache'] = stub[:use_stage_cache] unless stub[:use_stage_cache].nil?
         data
       end
@@ -9581,7 +9583,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsApiGatewayMethodSettings.stub(element) unless element.nil?
+          data << AwsApiGatewayMethodSettings.stub(element) unless element.nil?
         end
         data
       end
@@ -9658,21 +9660,21 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsDynamoDbTableDetails.new
         data = {}
-        data['AttributeDefinitions'] = Stubs::AwsDynamoDbTableAttributeDefinitionList.stub(stub[:attribute_definitions]) unless stub[:attribute_definitions].nil?
-        data['BillingModeSummary'] = Stubs::AwsDynamoDbTableBillingModeSummary.stub(stub[:billing_mode_summary]) unless stub[:billing_mode_summary].nil?
+        data['AttributeDefinitions'] = AwsDynamoDbTableAttributeDefinitionList.stub(stub[:attribute_definitions]) unless stub[:attribute_definitions].nil?
+        data['BillingModeSummary'] = AwsDynamoDbTableBillingModeSummary.stub(stub[:billing_mode_summary]) unless stub[:billing_mode_summary].nil?
         data['CreationDateTime'] = stub[:creation_date_time] unless stub[:creation_date_time].nil?
-        data['GlobalSecondaryIndexes'] = Stubs::AwsDynamoDbTableGlobalSecondaryIndexList.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
+        data['GlobalSecondaryIndexes'] = AwsDynamoDbTableGlobalSecondaryIndexList.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
         data['GlobalTableVersion'] = stub[:global_table_version] unless stub[:global_table_version].nil?
         data['ItemCount'] = stub[:item_count] unless stub[:item_count].nil?
-        data['KeySchema'] = Stubs::AwsDynamoDbTableKeySchemaList.stub(stub[:key_schema]) unless stub[:key_schema].nil?
+        data['KeySchema'] = AwsDynamoDbTableKeySchemaList.stub(stub[:key_schema]) unless stub[:key_schema].nil?
         data['LatestStreamArn'] = stub[:latest_stream_arn] unless stub[:latest_stream_arn].nil?
         data['LatestStreamLabel'] = stub[:latest_stream_label] unless stub[:latest_stream_label].nil?
-        data['LocalSecondaryIndexes'] = Stubs::AwsDynamoDbTableLocalSecondaryIndexList.stub(stub[:local_secondary_indexes]) unless stub[:local_secondary_indexes].nil?
-        data['ProvisionedThroughput'] = Stubs::AwsDynamoDbTableProvisionedThroughput.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
-        data['Replicas'] = Stubs::AwsDynamoDbTableReplicaList.stub(stub[:replicas]) unless stub[:replicas].nil?
-        data['RestoreSummary'] = Stubs::AwsDynamoDbTableRestoreSummary.stub(stub[:restore_summary]) unless stub[:restore_summary].nil?
-        data['SseDescription'] = Stubs::AwsDynamoDbTableSseDescription.stub(stub[:sse_description]) unless stub[:sse_description].nil?
-        data['StreamSpecification'] = Stubs::AwsDynamoDbTableStreamSpecification.stub(stub[:stream_specification]) unless stub[:stream_specification].nil?
+        data['LocalSecondaryIndexes'] = AwsDynamoDbTableLocalSecondaryIndexList.stub(stub[:local_secondary_indexes]) unless stub[:local_secondary_indexes].nil?
+        data['ProvisionedThroughput'] = AwsDynamoDbTableProvisionedThroughput.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
+        data['Replicas'] = AwsDynamoDbTableReplicaList.stub(stub[:replicas]) unless stub[:replicas].nil?
+        data['RestoreSummary'] = AwsDynamoDbTableRestoreSummary.stub(stub[:restore_summary]) unless stub[:restore_summary].nil?
+        data['SseDescription'] = AwsDynamoDbTableSseDescription.stub(stub[:sse_description]) unless stub[:sse_description].nil?
+        data['StreamSpecification'] = AwsDynamoDbTableStreamSpecification.stub(stub[:stream_specification]) unless stub[:stream_specification].nil?
         data['TableId'] = stub[:table_id] unless stub[:table_id].nil?
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['TableSizeBytes'] = stub[:table_size_bytes] unless stub[:table_size_bytes].nil?
@@ -9763,7 +9765,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsDynamoDbTableReplica.stub(element) unless element.nil?
+          data << AwsDynamoDbTableReplica.stub(element) unless element.nil?
         end
         data
       end
@@ -9787,9 +9789,9 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsDynamoDbTableReplica.new
         data = {}
-        data['GlobalSecondaryIndexes'] = Stubs::AwsDynamoDbTableReplicaGlobalSecondaryIndexList.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
+        data['GlobalSecondaryIndexes'] = AwsDynamoDbTableReplicaGlobalSecondaryIndexList.stub(stub[:global_secondary_indexes]) unless stub[:global_secondary_indexes].nil?
         data['KmsMasterKeyId'] = stub[:kms_master_key_id] unless stub[:kms_master_key_id].nil?
-        data['ProvisionedThroughputOverride'] = Stubs::AwsDynamoDbTableProvisionedThroughputOverride.stub(stub[:provisioned_throughput_override]) unless stub[:provisioned_throughput_override].nil?
+        data['ProvisionedThroughputOverride'] = AwsDynamoDbTableProvisionedThroughputOverride.stub(stub[:provisioned_throughput_override]) unless stub[:provisioned_throughput_override].nil?
         data['RegionName'] = stub[:region_name] unless stub[:region_name].nil?
         data['ReplicaStatus'] = stub[:replica_status] unless stub[:replica_status].nil?
         data['ReplicaStatusDescription'] = stub[:replica_status_description] unless stub[:replica_status_description].nil?
@@ -9829,7 +9831,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsDynamoDbTableReplicaGlobalSecondaryIndex.stub(element) unless element.nil?
+          data << AwsDynamoDbTableReplicaGlobalSecondaryIndex.stub(element) unless element.nil?
         end
         data
       end
@@ -9850,7 +9852,7 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsDynamoDbTableReplicaGlobalSecondaryIndex.new
         data = {}
         data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['ProvisionedThroughputOverride'] = Stubs::AwsDynamoDbTableProvisionedThroughputOverride.stub(stub[:provisioned_throughput_override]) unless stub[:provisioned_throughput_override].nil?
+        data['ProvisionedThroughputOverride'] = AwsDynamoDbTableProvisionedThroughputOverride.stub(stub[:provisioned_throughput_override]) unless stub[:provisioned_throughput_override].nil?
         data
       end
     end
@@ -9895,7 +9897,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsDynamoDbTableLocalSecondaryIndex.stub(element) unless element.nil?
+          data << AwsDynamoDbTableLocalSecondaryIndex.stub(element) unless element.nil?
         end
         data
       end
@@ -9919,8 +9921,8 @@ module AWS::SDK::SecurityHub
         data = {}
         data['IndexArn'] = stub[:index_arn] unless stub[:index_arn].nil?
         data['IndexName'] = stub[:index_name] unless stub[:index_name].nil?
-        data['KeySchema'] = Stubs::AwsDynamoDbTableKeySchemaList.stub(stub[:key_schema]) unless stub[:key_schema].nil?
-        data['Projection'] = Stubs::AwsDynamoDbTableProjection.stub(stub[:projection]) unless stub[:projection].nil?
+        data['KeySchema'] = AwsDynamoDbTableKeySchemaList.stub(stub[:key_schema]) unless stub[:key_schema].nil?
+        data['Projection'] = AwsDynamoDbTableProjection.stub(stub[:projection]) unless stub[:projection].nil?
         data
       end
     end
@@ -9939,7 +9941,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsDynamoDbTableProjection.new
         data = {}
-        data['NonKeyAttributes'] = Stubs::StringList.stub(stub[:non_key_attributes]) unless stub[:non_key_attributes].nil?
+        data['NonKeyAttributes'] = StringList.stub(stub[:non_key_attributes]) unless stub[:non_key_attributes].nil?
         data['ProjectionType'] = stub[:projection_type] unless stub[:projection_type].nil?
         data
       end
@@ -9959,7 +9961,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsDynamoDbTableKeySchema.stub(element) unless element.nil?
+          data << AwsDynamoDbTableKeySchema.stub(element) unless element.nil?
         end
         data
       end
@@ -9999,7 +10001,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsDynamoDbTableGlobalSecondaryIndex.stub(element) unless element.nil?
+          data << AwsDynamoDbTableGlobalSecondaryIndex.stub(element) unless element.nil?
         end
         data
       end
@@ -10032,9 +10034,9 @@ module AWS::SDK::SecurityHub
         data['IndexSizeBytes'] = stub[:index_size_bytes] unless stub[:index_size_bytes].nil?
         data['IndexStatus'] = stub[:index_status] unless stub[:index_status].nil?
         data['ItemCount'] = stub[:item_count] unless stub[:item_count].nil?
-        data['KeySchema'] = Stubs::AwsDynamoDbTableKeySchemaList.stub(stub[:key_schema]) unless stub[:key_schema].nil?
-        data['Projection'] = Stubs::AwsDynamoDbTableProjection.stub(stub[:projection]) unless stub[:projection].nil?
-        data['ProvisionedThroughput'] = Stubs::AwsDynamoDbTableProvisionedThroughput.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
+        data['KeySchema'] = AwsDynamoDbTableKeySchemaList.stub(stub[:key_schema]) unless stub[:key_schema].nil?
+        data['Projection'] = AwsDynamoDbTableProjection.stub(stub[:projection]) unless stub[:projection].nil?
+        data['ProvisionedThroughput'] = AwsDynamoDbTableProvisionedThroughput.stub(stub[:provisioned_throughput]) unless stub[:provisioned_throughput].nil?
         data
       end
     end
@@ -10073,7 +10075,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsDynamoDbTableAttributeDefinition.stub(element) unless element.nil?
+          data << AwsDynamoDbTableAttributeDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -10130,7 +10132,7 @@ module AWS::SDK::SecurityHub
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['ProtocolType'] = stub[:protocol_type] unless stub[:protocol_type].nil?
         data['RouteSelectionExpression'] = stub[:route_selection_expression] unless stub[:route_selection_expression].nil?
-        data['CorsConfiguration'] = Stubs::AwsCorsConfiguration.stub(stub[:cors_configuration]) unless stub[:cors_configuration].nil?
+        data['CorsConfiguration'] = AwsCorsConfiguration.stub(stub[:cors_configuration]) unless stub[:cors_configuration].nil?
         data
       end
     end
@@ -10153,12 +10155,12 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsCorsConfiguration.new
         data = {}
-        data['AllowOrigins'] = Stubs::NonEmptyStringList.stub(stub[:allow_origins]) unless stub[:allow_origins].nil?
+        data['AllowOrigins'] = NonEmptyStringList.stub(stub[:allow_origins]) unless stub[:allow_origins].nil?
         data['AllowCredentials'] = stub[:allow_credentials] unless stub[:allow_credentials].nil?
-        data['ExposeHeaders'] = Stubs::NonEmptyStringList.stub(stub[:expose_headers]) unless stub[:expose_headers].nil?
+        data['ExposeHeaders'] = NonEmptyStringList.stub(stub[:expose_headers]) unless stub[:expose_headers].nil?
         data['MaxAge'] = stub[:max_age] unless stub[:max_age].nil?
-        data['AllowMethods'] = Stubs::NonEmptyStringList.stub(stub[:allow_methods]) unless stub[:allow_methods].nil?
-        data['AllowHeaders'] = Stubs::NonEmptyStringList.stub(stub[:allow_headers]) unless stub[:allow_headers].nil?
+        data['AllowMethods'] = NonEmptyStringList.stub(stub[:allow_methods]) unless stub[:allow_methods].nil?
+        data['AllowHeaders'] = NonEmptyStringList.stub(stub[:allow_headers]) unless stub[:allow_headers].nil?
         data
       end
     end
@@ -10191,13 +10193,13 @@ module AWS::SDK::SecurityHub
         data['ClientCertificateId'] = stub[:client_certificate_id] unless stub[:client_certificate_id].nil?
         data['CreatedDate'] = stub[:created_date] unless stub[:created_date].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['DefaultRouteSettings'] = Stubs::AwsApiGatewayV2RouteSettings.stub(stub[:default_route_settings]) unless stub[:default_route_settings].nil?
+        data['DefaultRouteSettings'] = AwsApiGatewayV2RouteSettings.stub(stub[:default_route_settings]) unless stub[:default_route_settings].nil?
         data['DeploymentId'] = stub[:deployment_id] unless stub[:deployment_id].nil?
         data['LastUpdatedDate'] = stub[:last_updated_date] unless stub[:last_updated_date].nil?
-        data['RouteSettings'] = Stubs::AwsApiGatewayV2RouteSettings.stub(stub[:route_settings]) unless stub[:route_settings].nil?
+        data['RouteSettings'] = AwsApiGatewayV2RouteSettings.stub(stub[:route_settings]) unless stub[:route_settings].nil?
         data['StageName'] = stub[:stage_name] unless stub[:stage_name].nil?
-        data['StageVariables'] = Stubs::FieldMap.stub(stub[:stage_variables]) unless stub[:stage_variables].nil?
-        data['AccessLogSettings'] = Stubs::AwsApiGatewayAccessLogSettings.stub(stub[:access_log_settings]) unless stub[:access_log_settings].nil?
+        data['StageVariables'] = FieldMap.stub(stub[:stage_variables]) unless stub[:stage_variables].nil?
+        data['AccessLogSettings'] = AwsApiGatewayAccessLogSettings.stub(stub[:access_log_settings]) unless stub[:access_log_settings].nil?
         data['AutoDeploy'] = stub[:auto_deploy] unless stub[:auto_deploy].nil?
         data['LastDeploymentStatusMessage'] = stub[:last_deployment_status_message] unless stub[:last_deployment_status_message].nil?
         data['ApiGatewayManaged'] = stub[:api_gateway_managed] unless stub[:api_gateway_managed].nil?
@@ -10263,7 +10265,7 @@ module AWS::SDK::SecurityHub
         data['PermissionsBoundaryUsageCount'] = stub[:permissions_boundary_usage_count] unless stub[:permissions_boundary_usage_count].nil?
         data['PolicyId'] = stub[:policy_id] unless stub[:policy_id].nil?
         data['PolicyName'] = stub[:policy_name] unless stub[:policy_name].nil?
-        data['PolicyVersionList'] = Stubs::AwsIamPolicyVersionList.stub(stub[:policy_version_list]) unless stub[:policy_version_list].nil?
+        data['PolicyVersionList'] = AwsIamPolicyVersionList.stub(stub[:policy_version_list]) unless stub[:policy_version_list].nil?
         data['UpdateDate'] = stub[:update_date] unless stub[:update_date].nil?
         data
       end
@@ -10283,7 +10285,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsIamPolicyVersion.stub(element) unless element.nil?
+          data << AwsIamPolicyVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -10331,14 +10333,14 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsIamUserDetails.new
         data = {}
-        data['AttachedManagedPolicies'] = Stubs::AwsIamAttachedManagedPolicyList.stub(stub[:attached_managed_policies]) unless stub[:attached_managed_policies].nil?
+        data['AttachedManagedPolicies'] = AwsIamAttachedManagedPolicyList.stub(stub[:attached_managed_policies]) unless stub[:attached_managed_policies].nil?
         data['CreateDate'] = stub[:create_date] unless stub[:create_date].nil?
-        data['GroupList'] = Stubs::StringList.stub(stub[:group_list]) unless stub[:group_list].nil?
+        data['GroupList'] = StringList.stub(stub[:group_list]) unless stub[:group_list].nil?
         data['Path'] = stub[:path] unless stub[:path].nil?
-        data['PermissionsBoundary'] = Stubs::AwsIamPermissionsBoundary.stub(stub[:permissions_boundary]) unless stub[:permissions_boundary].nil?
+        data['PermissionsBoundary'] = AwsIamPermissionsBoundary.stub(stub[:permissions_boundary]) unless stub[:permissions_boundary].nil?
         data['UserId'] = stub[:user_id] unless stub[:user_id].nil?
         data['UserName'] = stub[:user_name] unless stub[:user_name].nil?
-        data['UserPolicyList'] = Stubs::AwsIamUserPolicyList.stub(stub[:user_policy_list]) unless stub[:user_policy_list].nil?
+        data['UserPolicyList'] = AwsIamUserPolicyList.stub(stub[:user_policy_list]) unless stub[:user_policy_list].nil?
         data
       end
     end
@@ -10357,7 +10359,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsIamUserPolicy.stub(element) unless element.nil?
+          data << AwsIamUserPolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -10410,7 +10412,7 @@ module AWS::SDK::SecurityHub
         data['PrincipalName'] = stub[:principal_name] unless stub[:principal_name].nil?
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['AccessKeyId'] = stub[:access_key_id] unless stub[:access_key_id].nil?
-        data['SessionContext'] = Stubs::AwsIamAccessKeySessionContext.stub(stub[:session_context]) unless stub[:session_context].nil?
+        data['SessionContext'] = AwsIamAccessKeySessionContext.stub(stub[:session_context]) unless stub[:session_context].nil?
         data
       end
     end
@@ -10429,8 +10431,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsIamAccessKeySessionContext.new
         data = {}
-        data['Attributes'] = Stubs::AwsIamAccessKeySessionContextAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['SessionIssuer'] = Stubs::AwsIamAccessKeySessionContextSessionIssuer.stub(stub[:session_issuer]) unless stub[:session_issuer].nil?
+        data['Attributes'] = AwsIamAccessKeySessionContextAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['SessionIssuer'] = AwsIamAccessKeySessionContextSessionIssuer.stub(stub[:session_issuer]) unless stub[:session_issuer].nil?
         data
       end
     end
@@ -10501,7 +10503,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsSecretsManagerSecretDetails.new
         data = {}
-        data['RotationRules'] = Stubs::AwsSecretsManagerSecretRotationRules.stub(stub[:rotation_rules]) unless stub[:rotation_rules].nil?
+        data['RotationRules'] = AwsSecretsManagerSecretRotationRules.stub(stub[:rotation_rules]) unless stub[:rotation_rules].nil?
         data['RotationOccurredWithinFrequency'] = stub[:rotation_occurred_within_frequency] unless stub[:rotation_occurred_within_frequency].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['RotationEnabled'] = stub[:rotation_enabled] unless stub[:rotation_enabled].nil?
@@ -10611,14 +10613,14 @@ module AWS::SDK::SecurityHub
         data['OwnerName'] = stub[:owner_name] unless stub[:owner_name].nil?
         data['OwnerAccountId'] = stub[:owner_account_id] unless stub[:owner_account_id].nil?
         data['CreatedAt'] = stub[:created_at] unless stub[:created_at].nil?
-        data['ServerSideEncryptionConfiguration'] = Stubs::AwsS3BucketServerSideEncryptionConfiguration.stub(stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
-        data['BucketLifecycleConfiguration'] = Stubs::AwsS3BucketBucketLifecycleConfigurationDetails.stub(stub[:bucket_lifecycle_configuration]) unless stub[:bucket_lifecycle_configuration].nil?
-        data['PublicAccessBlockConfiguration'] = Stubs::AwsS3AccountPublicAccessBlockDetails.stub(stub[:public_access_block_configuration]) unless stub[:public_access_block_configuration].nil?
+        data['ServerSideEncryptionConfiguration'] = AwsS3BucketServerSideEncryptionConfiguration.stub(stub[:server_side_encryption_configuration]) unless stub[:server_side_encryption_configuration].nil?
+        data['BucketLifecycleConfiguration'] = AwsS3BucketBucketLifecycleConfigurationDetails.stub(stub[:bucket_lifecycle_configuration]) unless stub[:bucket_lifecycle_configuration].nil?
+        data['PublicAccessBlockConfiguration'] = AwsS3AccountPublicAccessBlockDetails.stub(stub[:public_access_block_configuration]) unless stub[:public_access_block_configuration].nil?
         data['AccessControlList'] = stub[:access_control_list] unless stub[:access_control_list].nil?
-        data['BucketLoggingConfiguration'] = Stubs::AwsS3BucketLoggingConfiguration.stub(stub[:bucket_logging_configuration]) unless stub[:bucket_logging_configuration].nil?
-        data['BucketWebsiteConfiguration'] = Stubs::AwsS3BucketWebsiteConfiguration.stub(stub[:bucket_website_configuration]) unless stub[:bucket_website_configuration].nil?
-        data['BucketNotificationConfiguration'] = Stubs::AwsS3BucketNotificationConfiguration.stub(stub[:bucket_notification_configuration]) unless stub[:bucket_notification_configuration].nil?
-        data['BucketVersioningConfiguration'] = Stubs::AwsS3BucketBucketVersioningConfiguration.stub(stub[:bucket_versioning_configuration]) unless stub[:bucket_versioning_configuration].nil?
+        data['BucketLoggingConfiguration'] = AwsS3BucketLoggingConfiguration.stub(stub[:bucket_logging_configuration]) unless stub[:bucket_logging_configuration].nil?
+        data['BucketWebsiteConfiguration'] = AwsS3BucketWebsiteConfiguration.stub(stub[:bucket_website_configuration]) unless stub[:bucket_website_configuration].nil?
+        data['BucketNotificationConfiguration'] = AwsS3BucketNotificationConfiguration.stub(stub[:bucket_notification_configuration]) unless stub[:bucket_notification_configuration].nil?
+        data['BucketVersioningConfiguration'] = AwsS3BucketBucketVersioningConfiguration.stub(stub[:bucket_versioning_configuration]) unless stub[:bucket_versioning_configuration].nil?
         data
       end
     end
@@ -10656,7 +10658,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsS3BucketNotificationConfiguration.new
         data = {}
-        data['Configurations'] = Stubs::AwsS3BucketNotificationConfigurationDetails.stub(stub[:configurations]) unless stub[:configurations].nil?
+        data['Configurations'] = AwsS3BucketNotificationConfigurationDetails.stub(stub[:configurations]) unless stub[:configurations].nil?
         data
       end
     end
@@ -10675,7 +10677,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsS3BucketNotificationConfigurationDetail.stub(element) unless element.nil?
+          data << AwsS3BucketNotificationConfigurationDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -10697,8 +10699,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsS3BucketNotificationConfigurationDetail.new
         data = {}
-        data['Events'] = Stubs::AwsS3BucketNotificationConfigurationEvents.stub(stub[:events]) unless stub[:events].nil?
-        data['Filter'] = Stubs::AwsS3BucketNotificationConfigurationFilter.stub(stub[:filter]) unless stub[:filter].nil?
+        data['Events'] = AwsS3BucketNotificationConfigurationEvents.stub(stub[:events]) unless stub[:events].nil?
+        data['Filter'] = AwsS3BucketNotificationConfigurationFilter.stub(stub[:filter]) unless stub[:filter].nil?
         data['Destination'] = stub[:destination] unless stub[:destination].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data
@@ -10718,7 +10720,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsS3BucketNotificationConfigurationFilter.new
         data = {}
-        data['S3KeyFilter'] = Stubs::AwsS3BucketNotificationConfigurationS3KeyFilter.stub(stub[:s3_key_filter]) unless stub[:s3_key_filter].nil?
+        data['S3KeyFilter'] = AwsS3BucketNotificationConfigurationS3KeyFilter.stub(stub[:s3_key_filter]) unless stub[:s3_key_filter].nil?
         data
       end
     end
@@ -10736,7 +10738,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsS3BucketNotificationConfigurationS3KeyFilter.new
         data = {}
-        data['FilterRules'] = Stubs::AwsS3BucketNotificationConfigurationS3KeyFilterRules.stub(stub[:filter_rules]) unless stub[:filter_rules].nil?
+        data['FilterRules'] = AwsS3BucketNotificationConfigurationS3KeyFilterRules.stub(stub[:filter_rules]) unless stub[:filter_rules].nil?
         data
       end
     end
@@ -10755,7 +10757,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsS3BucketNotificationConfigurationS3KeyFilterRule.stub(element) unless element.nil?
+          data << AwsS3BucketNotificationConfigurationS3KeyFilterRule.stub(element) unless element.nil?
         end
         data
       end
@@ -10819,8 +10821,8 @@ module AWS::SDK::SecurityHub
         data = {}
         data['ErrorDocument'] = stub[:error_document] unless stub[:error_document].nil?
         data['IndexDocumentSuffix'] = stub[:index_document_suffix] unless stub[:index_document_suffix].nil?
-        data['RedirectAllRequestsTo'] = Stubs::AwsS3BucketWebsiteConfigurationRedirectTo.stub(stub[:redirect_all_requests_to]) unless stub[:redirect_all_requests_to].nil?
-        data['RoutingRules'] = Stubs::AwsS3BucketWebsiteConfigurationRoutingRules.stub(stub[:routing_rules]) unless stub[:routing_rules].nil?
+        data['RedirectAllRequestsTo'] = AwsS3BucketWebsiteConfigurationRedirectTo.stub(stub[:redirect_all_requests_to]) unless stub[:redirect_all_requests_to].nil?
+        data['RoutingRules'] = AwsS3BucketWebsiteConfigurationRoutingRules.stub(stub[:routing_rules]) unless stub[:routing_rules].nil?
         data
       end
     end
@@ -10839,7 +10841,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsS3BucketWebsiteConfigurationRoutingRule.stub(element) unless element.nil?
+          data << AwsS3BucketWebsiteConfigurationRoutingRule.stub(element) unless element.nil?
         end
         data
       end
@@ -10859,8 +10861,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsS3BucketWebsiteConfigurationRoutingRule.new
         data = {}
-        data['Condition'] = Stubs::AwsS3BucketWebsiteConfigurationRoutingRuleCondition.stub(stub[:condition]) unless stub[:condition].nil?
-        data['Redirect'] = Stubs::AwsS3BucketWebsiteConfigurationRoutingRuleRedirect.stub(stub[:redirect]) unless stub[:redirect].nil?
+        data['Condition'] = AwsS3BucketWebsiteConfigurationRoutingRuleCondition.stub(stub[:condition]) unless stub[:condition].nil?
+        data['Redirect'] = AwsS3BucketWebsiteConfigurationRoutingRuleRedirect.stub(stub[:redirect]) unless stub[:redirect].nil?
         data
       end
     end
@@ -10964,7 +10966,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsS3BucketBucketLifecycleConfigurationDetails.new
         data = {}
-        data['Rules'] = Stubs::AwsS3BucketBucketLifecycleConfigurationRulesList.stub(stub[:rules]) unless stub[:rules].nil?
+        data['Rules'] = AwsS3BucketBucketLifecycleConfigurationRulesList.stub(stub[:rules]) unless stub[:rules].nil?
         data
       end
     end
@@ -10983,7 +10985,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsS3BucketBucketLifecycleConfigurationRulesDetails.stub(element) unless element.nil?
+          data << AwsS3BucketBucketLifecycleConfigurationRulesDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -11012,17 +11014,17 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsS3BucketBucketLifecycleConfigurationRulesDetails.new
         data = {}
-        data['AbortIncompleteMultipartUpload'] = Stubs::AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails.stub(stub[:abort_incomplete_multipart_upload]) unless stub[:abort_incomplete_multipart_upload].nil?
+        data['AbortIncompleteMultipartUpload'] = AwsS3BucketBucketLifecycleConfigurationRulesAbortIncompleteMultipartUploadDetails.stub(stub[:abort_incomplete_multipart_upload]) unless stub[:abort_incomplete_multipart_upload].nil?
         data['ExpirationDate'] = stub[:expiration_date] unless stub[:expiration_date].nil?
         data['ExpirationInDays'] = stub[:expiration_in_days] unless stub[:expiration_in_days].nil?
         data['ExpiredObjectDeleteMarker'] = stub[:expired_object_delete_marker] unless stub[:expired_object_delete_marker].nil?
-        data['Filter'] = Stubs::AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails.stub(stub[:filter]) unless stub[:filter].nil?
+        data['Filter'] = AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails.stub(stub[:filter]) unless stub[:filter].nil?
         data['ID'] = stub[:id] unless stub[:id].nil?
         data['NoncurrentVersionExpirationInDays'] = stub[:noncurrent_version_expiration_in_days] unless stub[:noncurrent_version_expiration_in_days].nil?
-        data['NoncurrentVersionTransitions'] = Stubs::AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsList.stub(stub[:noncurrent_version_transitions]) unless stub[:noncurrent_version_transitions].nil?
+        data['NoncurrentVersionTransitions'] = AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsList.stub(stub[:noncurrent_version_transitions]) unless stub[:noncurrent_version_transitions].nil?
         data['Prefix'] = stub[:prefix] unless stub[:prefix].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Transitions'] = Stubs::AwsS3BucketBucketLifecycleConfigurationRulesTransitionsList.stub(stub[:transitions]) unless stub[:transitions].nil?
+        data['Transitions'] = AwsS3BucketBucketLifecycleConfigurationRulesTransitionsList.stub(stub[:transitions]) unless stub[:transitions].nil?
         data
       end
     end
@@ -11041,7 +11043,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails.stub(element) unless element.nil?
+          data << AwsS3BucketBucketLifecycleConfigurationRulesTransitionsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -11083,7 +11085,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails.stub(element) unless element.nil?
+          data << AwsS3BucketBucketLifecycleConfigurationRulesNoncurrentVersionTransitionsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -11122,7 +11124,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsS3BucketBucketLifecycleConfigurationRulesFilterDetails.new
         data = {}
-        data['Predicate'] = Stubs::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails.stub(stub[:predicate]) unless stub[:predicate].nil?
+        data['Predicate'] = AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails.stub(stub[:predicate]) unless stub[:predicate].nil?
         data
       end
     end
@@ -11143,9 +11145,9 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateDetails.new
         data = {}
-        data['Operands'] = Stubs::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsList.stub(stub[:operands]) unless stub[:operands].nil?
+        data['Operands'] = AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsList.stub(stub[:operands]) unless stub[:operands].nil?
         data['Prefix'] = stub[:prefix] unless stub[:prefix].nil?
-        data['Tag'] = Stubs::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails.stub(stub[:tag]) unless stub[:tag].nil?
+        data['Tag'] = AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateTagDetails.stub(stub[:tag]) unless stub[:tag].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -11185,7 +11187,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails.stub(element) unless element.nil?
+          data << AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -11207,7 +11209,7 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsDetails.new
         data = {}
         data['Prefix'] = stub[:prefix] unless stub[:prefix].nil?
-        data['Tag'] = Stubs::AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails.stub(stub[:tag]) unless stub[:tag].nil?
+        data['Tag'] = AwsS3BucketBucketLifecycleConfigurationRulesFilterPredicateOperandsTagDetails.stub(stub[:tag]) unless stub[:tag].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -11264,7 +11266,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsS3BucketServerSideEncryptionConfiguration.new
         data = {}
-        data['Rules'] = Stubs::AwsS3BucketServerSideEncryptionRules.stub(stub[:rules]) unless stub[:rules].nil?
+        data['Rules'] = AwsS3BucketServerSideEncryptionRules.stub(stub[:rules]) unless stub[:rules].nil?
         data
       end
     end
@@ -11283,7 +11285,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsS3BucketServerSideEncryptionRule.stub(element) unless element.nil?
+          data << AwsS3BucketServerSideEncryptionRule.stub(element) unless element.nil?
         end
         data
       end
@@ -11302,7 +11304,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsS3BucketServerSideEncryptionRule.new
         data = {}
-        data['ApplyServerSideEncryptionByDefault'] = Stubs::AwsS3BucketServerSideEncryptionByDefault.stub(stub[:apply_server_side_encryption_by_default]) unless stub[:apply_server_side_encryption_by_default].nil?
+        data['ApplyServerSideEncryptionByDefault'] = AwsS3BucketServerSideEncryptionByDefault.stub(stub[:apply_server_side_encryption_by_default]) unless stub[:apply_server_side_encryption_by_default].nil?
         data
       end
     end
@@ -11353,18 +11355,18 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsElasticsearchDomainDetails.new
         data = {}
         data['AccessPolicies'] = stub[:access_policies] unless stub[:access_policies].nil?
-        data['DomainEndpointOptions'] = Stubs::AwsElasticsearchDomainDomainEndpointOptions.stub(stub[:domain_endpoint_options]) unless stub[:domain_endpoint_options].nil?
+        data['DomainEndpointOptions'] = AwsElasticsearchDomainDomainEndpointOptions.stub(stub[:domain_endpoint_options]) unless stub[:domain_endpoint_options].nil?
         data['DomainId'] = stub[:domain_id] unless stub[:domain_id].nil?
         data['DomainName'] = stub[:domain_name] unless stub[:domain_name].nil?
         data['Endpoint'] = stub[:endpoint] unless stub[:endpoint].nil?
-        data['Endpoints'] = Stubs::FieldMap.stub(stub[:endpoints]) unless stub[:endpoints].nil?
+        data['Endpoints'] = FieldMap.stub(stub[:endpoints]) unless stub[:endpoints].nil?
         data['ElasticsearchVersion'] = stub[:elasticsearch_version] unless stub[:elasticsearch_version].nil?
-        data['ElasticsearchClusterConfig'] = Stubs::AwsElasticsearchDomainElasticsearchClusterConfigDetails.stub(stub[:elasticsearch_cluster_config]) unless stub[:elasticsearch_cluster_config].nil?
-        data['EncryptionAtRestOptions'] = Stubs::AwsElasticsearchDomainEncryptionAtRestOptions.stub(stub[:encryption_at_rest_options]) unless stub[:encryption_at_rest_options].nil?
-        data['LogPublishingOptions'] = Stubs::AwsElasticsearchDomainLogPublishingOptions.stub(stub[:log_publishing_options]) unless stub[:log_publishing_options].nil?
-        data['NodeToNodeEncryptionOptions'] = Stubs::AwsElasticsearchDomainNodeToNodeEncryptionOptions.stub(stub[:node_to_node_encryption_options]) unless stub[:node_to_node_encryption_options].nil?
-        data['ServiceSoftwareOptions'] = Stubs::AwsElasticsearchDomainServiceSoftwareOptions.stub(stub[:service_software_options]) unless stub[:service_software_options].nil?
-        data['VPCOptions'] = Stubs::AwsElasticsearchDomainVPCOptions.stub(stub[:vpc_options]) unless stub[:vpc_options].nil?
+        data['ElasticsearchClusterConfig'] = AwsElasticsearchDomainElasticsearchClusterConfigDetails.stub(stub[:elasticsearch_cluster_config]) unless stub[:elasticsearch_cluster_config].nil?
+        data['EncryptionAtRestOptions'] = AwsElasticsearchDomainEncryptionAtRestOptions.stub(stub[:encryption_at_rest_options]) unless stub[:encryption_at_rest_options].nil?
+        data['LogPublishingOptions'] = AwsElasticsearchDomainLogPublishingOptions.stub(stub[:log_publishing_options]) unless stub[:log_publishing_options].nil?
+        data['NodeToNodeEncryptionOptions'] = AwsElasticsearchDomainNodeToNodeEncryptionOptions.stub(stub[:node_to_node_encryption_options]) unless stub[:node_to_node_encryption_options].nil?
+        data['ServiceSoftwareOptions'] = AwsElasticsearchDomainServiceSoftwareOptions.stub(stub[:service_software_options]) unless stub[:service_software_options].nil?
+        data['VPCOptions'] = AwsElasticsearchDomainVPCOptions.stub(stub[:vpc_options]) unless stub[:vpc_options].nil?
         data
       end
     end
@@ -11385,9 +11387,9 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsElasticsearchDomainVPCOptions.new
         data = {}
-        data['AvailabilityZones'] = Stubs::NonEmptyStringList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
-        data['SecurityGroupIds'] = Stubs::NonEmptyStringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
-        data['SubnetIds'] = Stubs::NonEmptyStringList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['AvailabilityZones'] = NonEmptyStringList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['SecurityGroupIds'] = NonEmptyStringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['SubnetIds'] = NonEmptyStringList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
         data['VPCId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data
       end
@@ -11456,9 +11458,9 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsElasticsearchDomainLogPublishingOptions.new
         data = {}
-        data['IndexSlowLogs'] = Stubs::AwsElasticsearchDomainLogPublishingOptionsLogConfig.stub(stub[:index_slow_logs]) unless stub[:index_slow_logs].nil?
-        data['SearchSlowLogs'] = Stubs::AwsElasticsearchDomainLogPublishingOptionsLogConfig.stub(stub[:search_slow_logs]) unless stub[:search_slow_logs].nil?
-        data['AuditLogs'] = Stubs::AwsElasticsearchDomainLogPublishingOptionsLogConfig.stub(stub[:audit_logs]) unless stub[:audit_logs].nil?
+        data['IndexSlowLogs'] = AwsElasticsearchDomainLogPublishingOptionsLogConfig.stub(stub[:index_slow_logs]) unless stub[:index_slow_logs].nil?
+        data['SearchSlowLogs'] = AwsElasticsearchDomainLogPublishingOptionsLogConfig.stub(stub[:search_slow_logs]) unless stub[:search_slow_logs].nil?
+        data['AuditLogs'] = AwsElasticsearchDomainLogPublishingOptionsLogConfig.stub(stub[:audit_logs]) unless stub[:audit_logs].nil?
         data
       end
     end
@@ -11527,7 +11529,7 @@ module AWS::SDK::SecurityHub
         data['DedicatedMasterType'] = stub[:dedicated_master_type] unless stub[:dedicated_master_type].nil?
         data['InstanceCount'] = stub[:instance_count] unless stub[:instance_count].nil?
         data['InstanceType'] = stub[:instance_type] unless stub[:instance_type].nil?
-        data['ZoneAwarenessConfig'] = Stubs::AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails.stub(stub[:zone_awareness_config]) unless stub[:zone_awareness_config].nil?
+        data['ZoneAwarenessConfig'] = AwsElasticsearchDomainElasticsearchClusterConfigZoneAwarenessConfigDetails.stub(stub[:zone_awareness_config]) unless stub[:zone_awareness_config].nil?
         data['ZoneAwarenessEnabled'] = stub[:zone_awareness_enabled] unless stub[:zone_awareness_enabled].nil?
         data
       end
@@ -11607,13 +11609,13 @@ module AWS::SDK::SecurityHub
         data['EndpointUrl'] = stub[:endpoint_url] unless stub[:endpoint_url].nil?
         data['EnvironmentArn'] = stub[:environment_arn] unless stub[:environment_arn].nil?
         data['EnvironmentId'] = stub[:environment_id] unless stub[:environment_id].nil?
-        data['EnvironmentLinks'] = Stubs::AwsElasticBeanstalkEnvironmentEnvironmentLinks.stub(stub[:environment_links]) unless stub[:environment_links].nil?
+        data['EnvironmentLinks'] = AwsElasticBeanstalkEnvironmentEnvironmentLinks.stub(stub[:environment_links]) unless stub[:environment_links].nil?
         data['EnvironmentName'] = stub[:environment_name] unless stub[:environment_name].nil?
-        data['OptionSettings'] = Stubs::AwsElasticBeanstalkEnvironmentOptionSettings.stub(stub[:option_settings]) unless stub[:option_settings].nil?
+        data['OptionSettings'] = AwsElasticBeanstalkEnvironmentOptionSettings.stub(stub[:option_settings]) unless stub[:option_settings].nil?
         data['PlatformArn'] = stub[:platform_arn] unless stub[:platform_arn].nil?
         data['SolutionStackName'] = stub[:solution_stack_name] unless stub[:solution_stack_name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Tier'] = Stubs::AwsElasticBeanstalkEnvironmentTier.stub(stub[:tier]) unless stub[:tier].nil?
+        data['Tier'] = AwsElasticBeanstalkEnvironmentTier.stub(stub[:tier]) unless stub[:tier].nil?
         data['VersionLabel'] = stub[:version_label] unless stub[:version_label].nil?
         data
       end
@@ -11655,7 +11657,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsElasticBeanstalkEnvironmentOptionSetting.stub(element) unless element.nil?
+          data << AwsElasticBeanstalkEnvironmentOptionSetting.stub(element) unless element.nil?
         end
         data
       end
@@ -11699,7 +11701,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsElasticBeanstalkEnvironmentEnvironmentLink.stub(element) unless element.nil?
+          data << AwsElasticBeanstalkEnvironmentEnvironmentLink.stub(element) unless element.nil?
         end
         data
       end
@@ -11748,17 +11750,17 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsElbv2LoadBalancerDetails.new
         data = {}
-        data['AvailabilityZones'] = Stubs::AvailabilityZones.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['AvailabilityZones'] = AvailabilityZones.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
         data['CanonicalHostedZoneId'] = stub[:canonical_hosted_zone_id] unless stub[:canonical_hosted_zone_id].nil?
         data['CreatedTime'] = stub[:created_time] unless stub[:created_time].nil?
         data['DNSName'] = stub[:dns_name] unless stub[:dns_name].nil?
         data['IpAddressType'] = stub[:ip_address_type] unless stub[:ip_address_type].nil?
         data['Scheme'] = stub[:scheme] unless stub[:scheme].nil?
-        data['SecurityGroups'] = Stubs::SecurityGroups.stub(stub[:security_groups]) unless stub[:security_groups].nil?
-        data['State'] = Stubs::LoadBalancerState.stub(stub[:state]) unless stub[:state].nil?
+        data['SecurityGroups'] = SecurityGroups.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['State'] = LoadBalancerState.stub(stub[:state]) unless stub[:state].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['LoadBalancerAttributes'] = Stubs::AwsElbv2LoadBalancerAttributes.stub(stub[:load_balancer_attributes]) unless stub[:load_balancer_attributes].nil?
+        data['LoadBalancerAttributes'] = AwsElbv2LoadBalancerAttributes.stub(stub[:load_balancer_attributes]) unless stub[:load_balancer_attributes].nil?
         data
       end
     end
@@ -11777,7 +11779,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsElbv2LoadBalancerAttribute.stub(element) unless element.nil?
+          data << AwsElbv2LoadBalancerAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -11857,7 +11859,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AvailabilityZone.stub(element) unless element.nil?
+          data << AvailabilityZone.stub(element) unless element.nil?
         end
         data
       end
@@ -11905,8 +11907,8 @@ module AWS::SDK::SecurityHub
         data['NetworkAclId'] = stub[:network_acl_id] unless stub[:network_acl_id].nil?
         data['OwnerId'] = stub[:owner_id] unless stub[:owner_id].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['Associations'] = Stubs::AwsEc2NetworkAclAssociationList.stub(stub[:associations]) unless stub[:associations].nil?
-        data['Entries'] = Stubs::AwsEc2NetworkAclEntryList.stub(stub[:entries]) unless stub[:entries].nil?
+        data['Associations'] = AwsEc2NetworkAclAssociationList.stub(stub[:associations]) unless stub[:associations].nil?
+        data['Entries'] = AwsEc2NetworkAclEntryList.stub(stub[:entries]) unless stub[:entries].nil?
         data
       end
     end
@@ -11925,7 +11927,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEc2NetworkAclEntry.stub(element) unless element.nil?
+          data << AwsEc2NetworkAclEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -11953,9 +11955,9 @@ module AWS::SDK::SecurityHub
         data = {}
         data['CidrBlock'] = stub[:cidr_block] unless stub[:cidr_block].nil?
         data['Egress'] = stub[:egress] unless stub[:egress].nil?
-        data['IcmpTypeCode'] = Stubs::IcmpTypeCode.stub(stub[:icmp_type_code]) unless stub[:icmp_type_code].nil?
+        data['IcmpTypeCode'] = IcmpTypeCode.stub(stub[:icmp_type_code]) unless stub[:icmp_type_code].nil?
         data['Ipv6CidrBlock'] = stub[:ipv6_cidr_block] unless stub[:ipv6_cidr_block].nil?
-        data['PortRange'] = Stubs::PortRangeFromTo.stub(stub[:port_range]) unless stub[:port_range].nil?
+        data['PortRange'] = PortRangeFromTo.stub(stub[:port_range]) unless stub[:port_range].nil?
         data['Protocol'] = stub[:protocol] unless stub[:protocol].nil?
         data['RuleAction'] = stub[:rule_action] unless stub[:rule_action].nil?
         data['RuleNumber'] = stub[:rule_number] unless stub[:rule_number].nil?
@@ -12017,7 +12019,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEc2NetworkAclAssociation.stub(element) unless element.nil?
+          data << AwsEc2NetworkAclAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -12082,7 +12084,7 @@ module AWS::SDK::SecurityHub
         data['SubnetArn'] = stub[:subnet_arn] unless stub[:subnet_arn].nil?
         data['SubnetId'] = stub[:subnet_id] unless stub[:subnet_id].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['Ipv6CidrBlockAssociationSet'] = Stubs::Ipv6CidrBlockAssociationList.stub(stub[:ipv6_cidr_block_association_set]) unless stub[:ipv6_cidr_block_association_set].nil?
+        data['Ipv6CidrBlockAssociationSet'] = Ipv6CidrBlockAssociationList.stub(stub[:ipv6_cidr_block_association_set]) unless stub[:ipv6_cidr_block_association_set].nil?
         data
       end
     end
@@ -12101,7 +12103,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Ipv6CidrBlockAssociation.stub(element) unless element.nil?
+          data << Ipv6CidrBlockAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -12181,8 +12183,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsEc2VpcDetails.new
         data = {}
-        data['CidrBlockAssociationSet'] = Stubs::CidrBlockAssociationList.stub(stub[:cidr_block_association_set]) unless stub[:cidr_block_association_set].nil?
-        data['Ipv6CidrBlockAssociationSet'] = Stubs::Ipv6CidrBlockAssociationList.stub(stub[:ipv6_cidr_block_association_set]) unless stub[:ipv6_cidr_block_association_set].nil?
+        data['CidrBlockAssociationSet'] = CidrBlockAssociationList.stub(stub[:cidr_block_association_set]) unless stub[:cidr_block_association_set].nil?
+        data['Ipv6CidrBlockAssociationSet'] = Ipv6CidrBlockAssociationList.stub(stub[:ipv6_cidr_block_association_set]) unless stub[:ipv6_cidr_block_association_set].nil?
         data['DhcpOptionsId'] = stub[:dhcp_options_id] unless stub[:dhcp_options_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data
@@ -12203,7 +12205,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CidrBlockAssociation.stub(element) unless element.nil?
+          data << CidrBlockAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -12256,7 +12258,7 @@ module AWS::SDK::SecurityHub
         data['SnapshotId'] = stub[:snapshot_id] unless stub[:snapshot_id].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['KmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
-        data['Attachments'] = Stubs::AwsEc2VolumeAttachmentList.stub(stub[:attachments]) unless stub[:attachments].nil?
+        data['Attachments'] = AwsEc2VolumeAttachmentList.stub(stub[:attachments]) unless stub[:attachments].nil?
         data
       end
     end
@@ -12275,7 +12277,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEc2VolumeAttachment.stub(element) unless element.nil?
+          data << AwsEc2VolumeAttachment.stub(element) unless element.nil?
         end
         data
       end
@@ -12327,8 +12329,8 @@ module AWS::SDK::SecurityHub
         data['GroupId'] = stub[:group_id] unless stub[:group_id].nil?
         data['OwnerId'] = stub[:owner_id] unless stub[:owner_id].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['IpPermissions'] = Stubs::AwsEc2SecurityGroupIpPermissionList.stub(stub[:ip_permissions]) unless stub[:ip_permissions].nil?
-        data['IpPermissionsEgress'] = Stubs::AwsEc2SecurityGroupIpPermissionList.stub(stub[:ip_permissions_egress]) unless stub[:ip_permissions_egress].nil?
+        data['IpPermissions'] = AwsEc2SecurityGroupIpPermissionList.stub(stub[:ip_permissions]) unless stub[:ip_permissions].nil?
+        data['IpPermissionsEgress'] = AwsEc2SecurityGroupIpPermissionList.stub(stub[:ip_permissions_egress]) unless stub[:ip_permissions_egress].nil?
         data
       end
     end
@@ -12347,7 +12349,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEc2SecurityGroupIpPermission.stub(element) unless element.nil?
+          data << AwsEc2SecurityGroupIpPermission.stub(element) unless element.nil?
         end
         data
       end
@@ -12375,10 +12377,10 @@ module AWS::SDK::SecurityHub
         data['IpProtocol'] = stub[:ip_protocol] unless stub[:ip_protocol].nil?
         data['FromPort'] = stub[:from_port] unless stub[:from_port].nil?
         data['ToPort'] = stub[:to_port] unless stub[:to_port].nil?
-        data['UserIdGroupPairs'] = Stubs::AwsEc2SecurityGroupUserIdGroupPairList.stub(stub[:user_id_group_pairs]) unless stub[:user_id_group_pairs].nil?
-        data['IpRanges'] = Stubs::AwsEc2SecurityGroupIpRangeList.stub(stub[:ip_ranges]) unless stub[:ip_ranges].nil?
-        data['Ipv6Ranges'] = Stubs::AwsEc2SecurityGroupIpv6RangeList.stub(stub[:ipv6_ranges]) unless stub[:ipv6_ranges].nil?
-        data['PrefixListIds'] = Stubs::AwsEc2SecurityGroupPrefixListIdList.stub(stub[:prefix_list_ids]) unless stub[:prefix_list_ids].nil?
+        data['UserIdGroupPairs'] = AwsEc2SecurityGroupUserIdGroupPairList.stub(stub[:user_id_group_pairs]) unless stub[:user_id_group_pairs].nil?
+        data['IpRanges'] = AwsEc2SecurityGroupIpRangeList.stub(stub[:ip_ranges]) unless stub[:ip_ranges].nil?
+        data['Ipv6Ranges'] = AwsEc2SecurityGroupIpv6RangeList.stub(stub[:ipv6_ranges]) unless stub[:ipv6_ranges].nil?
+        data['PrefixListIds'] = AwsEc2SecurityGroupPrefixListIdList.stub(stub[:prefix_list_ids]) unless stub[:prefix_list_ids].nil?
         data
       end
     end
@@ -12397,7 +12399,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEc2SecurityGroupPrefixListId.stub(element) unless element.nil?
+          data << AwsEc2SecurityGroupPrefixListId.stub(element) unless element.nil?
         end
         data
       end
@@ -12435,7 +12437,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEc2SecurityGroupIpv6Range.stub(element) unless element.nil?
+          data << AwsEc2SecurityGroupIpv6Range.stub(element) unless element.nil?
         end
         data
       end
@@ -12473,7 +12475,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEc2SecurityGroupIpRange.stub(element) unless element.nil?
+          data << AwsEc2SecurityGroupIpRange.stub(element) unless element.nil?
         end
         data
       end
@@ -12511,7 +12513,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEc2SecurityGroupUserIdGroupPair.stub(element) unless element.nil?
+          data << AwsEc2SecurityGroupUserIdGroupPair.stub(element) unless element.nil?
         end
         data
       end
@@ -12565,12 +12567,12 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsEc2NetworkInterfaceDetails.new
         data = {}
-        data['Attachment'] = Stubs::AwsEc2NetworkInterfaceAttachment.stub(stub[:attachment]) unless stub[:attachment].nil?
+        data['Attachment'] = AwsEc2NetworkInterfaceAttachment.stub(stub[:attachment]) unless stub[:attachment].nil?
         data['NetworkInterfaceId'] = stub[:network_interface_id] unless stub[:network_interface_id].nil?
-        data['SecurityGroups'] = Stubs::AwsEc2NetworkInterfaceSecurityGroupList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['SecurityGroups'] = AwsEc2NetworkInterfaceSecurityGroupList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
         data['SourceDestCheck'] = stub[:source_dest_check] unless stub[:source_dest_check].nil?
-        data['IpV6Addresses'] = Stubs::AwsEc2NetworkInterfaceIpV6AddressList.stub(stub[:ip_v6_addresses]) unless stub[:ip_v6_addresses].nil?
-        data['PrivateIpAddresses'] = Stubs::AwsEc2NetworkInterfacePrivateIpAddressList.stub(stub[:private_ip_addresses]) unless stub[:private_ip_addresses].nil?
+        data['IpV6Addresses'] = AwsEc2NetworkInterfaceIpV6AddressList.stub(stub[:ip_v6_addresses]) unless stub[:ip_v6_addresses].nil?
+        data['PrivateIpAddresses'] = AwsEc2NetworkInterfacePrivateIpAddressList.stub(stub[:private_ip_addresses]) unless stub[:private_ip_addresses].nil?
         data['PublicDnsName'] = stub[:public_dns_name] unless stub[:public_dns_name].nil?
         data['PublicIp'] = stub[:public_ip] unless stub[:public_ip].nil?
         data
@@ -12591,7 +12593,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEc2NetworkInterfacePrivateIpAddressDetail.stub(element) unless element.nil?
+          data << AwsEc2NetworkInterfacePrivateIpAddressDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -12631,7 +12633,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEc2NetworkInterfaceIpV6AddressDetail.stub(element) unless element.nil?
+          data << AwsEc2NetworkInterfaceIpV6AddressDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -12669,7 +12671,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEc2NetworkInterfaceSecurityGroup.stub(element) unless element.nil?
+          data << AwsEc2NetworkInterfaceSecurityGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -12749,14 +12751,14 @@ module AWS::SDK::SecurityHub
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['ImageId'] = stub[:image_id] unless stub[:image_id].nil?
-        data['IpV4Addresses'] = Stubs::StringList.stub(stub[:ip_v4_addresses]) unless stub[:ip_v4_addresses].nil?
-        data['IpV6Addresses'] = Stubs::StringList.stub(stub[:ip_v6_addresses]) unless stub[:ip_v6_addresses].nil?
+        data['IpV4Addresses'] = StringList.stub(stub[:ip_v4_addresses]) unless stub[:ip_v4_addresses].nil?
+        data['IpV6Addresses'] = StringList.stub(stub[:ip_v6_addresses]) unless stub[:ip_v6_addresses].nil?
         data['KeyName'] = stub[:key_name] unless stub[:key_name].nil?
         data['IamInstanceProfileArn'] = stub[:iam_instance_profile_arn] unless stub[:iam_instance_profile_arn].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['SubnetId'] = stub[:subnet_id] unless stub[:subnet_id].nil?
         data['LaunchedAt'] = stub[:launched_at] unless stub[:launched_at].nil?
-        data['NetworkInterfaces'] = Stubs::AwsEc2InstanceNetworkInterfacesList.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
+        data['NetworkInterfaces'] = AwsEc2InstanceNetworkInterfacesList.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
         data
       end
     end
@@ -12775,7 +12777,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsEc2InstanceNetworkInterfacesDetails.stub(element) unless element.nil?
+          data << AwsEc2InstanceNetworkInterfacesDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -12823,16 +12825,16 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsCloudFrontDistributionDetails.new
         data = {}
-        data['CacheBehaviors'] = Stubs::AwsCloudFrontDistributionCacheBehaviors.stub(stub[:cache_behaviors]) unless stub[:cache_behaviors].nil?
-        data['DefaultCacheBehavior'] = Stubs::AwsCloudFrontDistributionDefaultCacheBehavior.stub(stub[:default_cache_behavior]) unless stub[:default_cache_behavior].nil?
+        data['CacheBehaviors'] = AwsCloudFrontDistributionCacheBehaviors.stub(stub[:cache_behaviors]) unless stub[:cache_behaviors].nil?
+        data['DefaultCacheBehavior'] = AwsCloudFrontDistributionDefaultCacheBehavior.stub(stub[:default_cache_behavior]) unless stub[:default_cache_behavior].nil?
         data['DefaultRootObject'] = stub[:default_root_object] unless stub[:default_root_object].nil?
         data['DomainName'] = stub[:domain_name] unless stub[:domain_name].nil?
         data['ETag'] = stub[:e_tag] unless stub[:e_tag].nil?
         data['LastModifiedTime'] = stub[:last_modified_time] unless stub[:last_modified_time].nil?
-        data['Logging'] = Stubs::AwsCloudFrontDistributionLogging.stub(stub[:logging]) unless stub[:logging].nil?
-        data['Origins'] = Stubs::AwsCloudFrontDistributionOrigins.stub(stub[:origins]) unless stub[:origins].nil?
-        data['OriginGroups'] = Stubs::AwsCloudFrontDistributionOriginGroups.stub(stub[:origin_groups]) unless stub[:origin_groups].nil?
-        data['ViewerCertificate'] = Stubs::AwsCloudFrontDistributionViewerCertificate.stub(stub[:viewer_certificate]) unless stub[:viewer_certificate].nil?
+        data['Logging'] = AwsCloudFrontDistributionLogging.stub(stub[:logging]) unless stub[:logging].nil?
+        data['Origins'] = AwsCloudFrontDistributionOrigins.stub(stub[:origins]) unless stub[:origins].nil?
+        data['OriginGroups'] = AwsCloudFrontDistributionOriginGroups.stub(stub[:origin_groups]) unless stub[:origin_groups].nil?
+        data['ViewerCertificate'] = AwsCloudFrontDistributionViewerCertificate.stub(stub[:viewer_certificate]) unless stub[:viewer_certificate].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['WebAclId'] = stub[:web_acl_id] unless stub[:web_acl_id].nil?
         data
@@ -12882,7 +12884,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsCloudFrontDistributionOriginGroups.new
         data = {}
-        data['Items'] = Stubs::AwsCloudFrontDistributionOriginGroupsItemList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = AwsCloudFrontDistributionOriginGroupsItemList.stub(stub[:items]) unless stub[:items].nil?
         data
       end
     end
@@ -12901,7 +12903,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsCloudFrontDistributionOriginGroup.stub(element) unless element.nil?
+          data << AwsCloudFrontDistributionOriginGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -12920,7 +12922,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsCloudFrontDistributionOriginGroup.new
         data = {}
-        data['FailoverCriteria'] = Stubs::AwsCloudFrontDistributionOriginGroupFailover.stub(stub[:failover_criteria]) unless stub[:failover_criteria].nil?
+        data['FailoverCriteria'] = AwsCloudFrontDistributionOriginGroupFailover.stub(stub[:failover_criteria]) unless stub[:failover_criteria].nil?
         data
       end
     end
@@ -12938,7 +12940,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsCloudFrontDistributionOriginGroupFailover.new
         data = {}
-        data['StatusCodes'] = Stubs::AwsCloudFrontDistributionOriginGroupFailoverStatusCodes.stub(stub[:status_codes]) unless stub[:status_codes].nil?
+        data['StatusCodes'] = AwsCloudFrontDistributionOriginGroupFailoverStatusCodes.stub(stub[:status_codes]) unless stub[:status_codes].nil?
         data
       end
     end
@@ -12957,7 +12959,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsCloudFrontDistributionOriginGroupFailoverStatusCodes.new
         data = {}
-        data['Items'] = Stubs::AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = AwsCloudFrontDistributionOriginGroupFailoverStatusCodesItemList.stub(stub[:items]) unless stub[:items].nil?
         data['Quantity'] = stub[:quantity] unless stub[:quantity].nil?
         data
       end
@@ -12996,7 +12998,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsCloudFrontDistributionOrigins.new
         data = {}
-        data['Items'] = Stubs::AwsCloudFrontDistributionOriginItemList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = AwsCloudFrontDistributionOriginItemList.stub(stub[:items]) unless stub[:items].nil?
         data
       end
     end
@@ -13015,7 +13017,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsCloudFrontDistributionOriginItem.stub(element) unless element.nil?
+          data << AwsCloudFrontDistributionOriginItem.stub(element) unless element.nil?
         end
         data
       end
@@ -13040,7 +13042,7 @@ module AWS::SDK::SecurityHub
         data['DomainName'] = stub[:domain_name] unless stub[:domain_name].nil?
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['OriginPath'] = stub[:origin_path] unless stub[:origin_path].nil?
-        data['S3OriginConfig'] = Stubs::AwsCloudFrontDistributionOriginS3OriginConfig.stub(stub[:s3_origin_config]) unless stub[:s3_origin_config].nil?
+        data['S3OriginConfig'] = AwsCloudFrontDistributionOriginS3OriginConfig.stub(stub[:s3_origin_config]) unless stub[:s3_origin_config].nil?
         data
       end
     end
@@ -13118,7 +13120,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsCloudFrontDistributionCacheBehaviors.new
         data = {}
-        data['Items'] = Stubs::AwsCloudFrontDistributionCacheBehaviorsItemList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = AwsCloudFrontDistributionCacheBehaviorsItemList.stub(stub[:items]) unless stub[:items].nil?
         data
       end
     end
@@ -13137,7 +13139,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsCloudFrontDistributionCacheBehavior.stub(element) unless element.nil?
+          data << AwsCloudFrontDistributionCacheBehavior.stub(element) unless element.nil?
         end
         data
       end
@@ -13183,14 +13185,14 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsCodeBuildProjectDetails.new
         data = {}
         data['EncryptionKey'] = stub[:encryption_key] unless stub[:encryption_key].nil?
-        data['Artifacts'] = Stubs::AwsCodeBuildProjectArtifactsList.stub(stub[:artifacts]) unless stub[:artifacts].nil?
-        data['Environment'] = Stubs::AwsCodeBuildProjectEnvironment.stub(stub[:environment]) unless stub[:environment].nil?
+        data['Artifacts'] = AwsCodeBuildProjectArtifactsList.stub(stub[:artifacts]) unless stub[:artifacts].nil?
+        data['Environment'] = AwsCodeBuildProjectEnvironment.stub(stub[:environment]) unless stub[:environment].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Source'] = Stubs::AwsCodeBuildProjectSource.stub(stub[:source]) unless stub[:source].nil?
+        data['Source'] = AwsCodeBuildProjectSource.stub(stub[:source]) unless stub[:source].nil?
         data['ServiceRole'] = stub[:service_role] unless stub[:service_role].nil?
-        data['LogsConfig'] = Stubs::AwsCodeBuildProjectLogsConfigDetails.stub(stub[:logs_config]) unless stub[:logs_config].nil?
-        data['VpcConfig'] = Stubs::AwsCodeBuildProjectVpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
-        data['SecondaryArtifacts'] = Stubs::AwsCodeBuildProjectArtifactsList.stub(stub[:secondary_artifacts]) unless stub[:secondary_artifacts].nil?
+        data['LogsConfig'] = AwsCodeBuildProjectLogsConfigDetails.stub(stub[:logs_config]) unless stub[:logs_config].nil?
+        data['VpcConfig'] = AwsCodeBuildProjectVpcConfig.stub(stub[:vpc_config]) unless stub[:vpc_config].nil?
+        data['SecondaryArtifacts'] = AwsCodeBuildProjectArtifactsList.stub(stub[:secondary_artifacts]) unless stub[:secondary_artifacts].nil?
         data
       end
     end
@@ -13209,7 +13211,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsCodeBuildProjectArtifactsDetails.stub(element) unless element.nil?
+          data << AwsCodeBuildProjectArtifactsDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -13265,8 +13267,8 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsCodeBuildProjectVpcConfig.new
         data = {}
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['Subnets'] = Stubs::NonEmptyStringList.stub(stub[:subnets]) unless stub[:subnets].nil?
-        data['SecurityGroupIds'] = Stubs::NonEmptyStringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['Subnets'] = NonEmptyStringList.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['SecurityGroupIds'] = NonEmptyStringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data
       end
     end
@@ -13285,8 +13287,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsCodeBuildProjectLogsConfigDetails.new
         data = {}
-        data['CloudWatchLogs'] = Stubs::AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails.stub(stub[:cloud_watch_logs]) unless stub[:cloud_watch_logs].nil?
-        data['S3Logs'] = Stubs::AwsCodeBuildProjectLogsConfigS3LogsDetails.stub(stub[:s3_logs]) unless stub[:s3_logs].nil?
+        data['CloudWatchLogs'] = AwsCodeBuildProjectLogsConfigCloudWatchLogsDetails.stub(stub[:cloud_watch_logs]) unless stub[:cloud_watch_logs].nil?
+        data['S3Logs'] = AwsCodeBuildProjectLogsConfigS3LogsDetails.stub(stub[:s3_logs]) unless stub[:s3_logs].nil?
         data
       end
     end
@@ -13378,10 +13380,10 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsCodeBuildProjectEnvironment.new
         data = {}
         data['Certificate'] = stub[:certificate] unless stub[:certificate].nil?
-        data['EnvironmentVariables'] = Stubs::AwsCodeBuildProjectEnvironmentEnvironmentVariablesList.stub(stub[:environment_variables]) unless stub[:environment_variables].nil?
+        data['EnvironmentVariables'] = AwsCodeBuildProjectEnvironmentEnvironmentVariablesList.stub(stub[:environment_variables]) unless stub[:environment_variables].nil?
         data['PrivilegedMode'] = stub[:privileged_mode] unless stub[:privileged_mode].nil?
         data['ImagePullCredentialsType'] = stub[:image_pull_credentials_type] unless stub[:image_pull_credentials_type].nil?
-        data['RegistryCredential'] = Stubs::AwsCodeBuildProjectEnvironmentRegistryCredential.stub(stub[:registry_credential]) unless stub[:registry_credential].nil?
+        data['RegistryCredential'] = AwsCodeBuildProjectEnvironmentRegistryCredential.stub(stub[:registry_credential]) unless stub[:registry_credential].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -13421,7 +13423,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails.stub(element) unless element.nil?
+          data << AwsCodeBuildProjectEnvironmentEnvironmentVariablesDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -13471,13 +13473,13 @@ module AWS::SDK::SecurityHub
         stub ||= Types::AwsAutoScalingAutoScalingGroupDetails.new
         data = {}
         data['LaunchConfigurationName'] = stub[:launch_configuration_name] unless stub[:launch_configuration_name].nil?
-        data['LoadBalancerNames'] = Stubs::StringList.stub(stub[:load_balancer_names]) unless stub[:load_balancer_names].nil?
+        data['LoadBalancerNames'] = StringList.stub(stub[:load_balancer_names]) unless stub[:load_balancer_names].nil?
         data['HealthCheckType'] = stub[:health_check_type] unless stub[:health_check_type].nil?
         data['HealthCheckGracePeriod'] = stub[:health_check_grace_period] unless stub[:health_check_grace_period].nil?
         data['CreatedTime'] = stub[:created_time] unless stub[:created_time].nil?
-        data['MixedInstancesPolicy'] = Stubs::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails.stub(stub[:mixed_instances_policy]) unless stub[:mixed_instances_policy].nil?
-        data['AvailabilityZones'] = Stubs::AwsAutoScalingAutoScalingGroupAvailabilityZonesList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
-        data['LaunchTemplate'] = Stubs::AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification.stub(stub[:launch_template]) unless stub[:launch_template].nil?
+        data['MixedInstancesPolicy'] = AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails.stub(stub[:mixed_instances_policy]) unless stub[:mixed_instances_policy].nil?
+        data['AvailabilityZones'] = AwsAutoScalingAutoScalingGroupAvailabilityZonesList.stub(stub[:availability_zones]) unless stub[:availability_zones].nil?
+        data['LaunchTemplate'] = AwsAutoScalingAutoScalingGroupLaunchTemplateLaunchTemplateSpecification.stub(stub[:launch_template]) unless stub[:launch_template].nil?
         data['CapacityRebalance'] = stub[:capacity_rebalance] unless stub[:capacity_rebalance].nil?
         data
       end
@@ -13519,7 +13521,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails.stub(element) unless element.nil?
+          data << AwsAutoScalingAutoScalingGroupAvailabilityZonesListDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -13557,8 +13559,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyDetails.new
         data = {}
-        data['InstancesDistribution'] = Stubs::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails.stub(stub[:instances_distribution]) unless stub[:instances_distribution].nil?
-        data['LaunchTemplate'] = Stubs::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails.stub(stub[:launch_template]) unless stub[:launch_template].nil?
+        data['InstancesDistribution'] = AwsAutoScalingAutoScalingGroupMixedInstancesPolicyInstancesDistributionDetails.stub(stub[:instances_distribution]) unless stub[:instances_distribution].nil?
+        data['LaunchTemplate'] = AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails.stub(stub[:launch_template]) unless stub[:launch_template].nil?
         data
       end
     end
@@ -13577,8 +13579,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateDetails.new
         data = {}
-        data['LaunchTemplateSpecification'] = Stubs::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification.stub(stub[:launch_template_specification]) unless stub[:launch_template_specification].nil?
-        data['Overrides'] = Stubs::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList.stub(stub[:overrides]) unless stub[:overrides].nil?
+        data['LaunchTemplateSpecification'] = AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateLaunchTemplateSpecification.stub(stub[:launch_template_specification]) unless stub[:launch_template_specification].nil?
+        data['Overrides'] = AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesList.stub(stub[:overrides]) unless stub[:overrides].nil?
         data
       end
     end
@@ -13597,7 +13599,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails.stub(element) unless element.nil?
+          data << AwsAutoScalingAutoScalingGroupMixedInstancesPolicyLaunchTemplateOverridesListDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -13688,7 +13690,7 @@ module AWS::SDK::SecurityHub
         stub ||= Types::DataClassificationDetails.new
         data = {}
         data['DetailedResultsLocation'] = stub[:detailed_results_location] unless stub[:detailed_results_location].nil?
-        data['Result'] = Stubs::ClassificationResult.stub(stub[:result]) unless stub[:result].nil?
+        data['Result'] = ClassificationResult.stub(stub[:result]) unless stub[:result].nil?
         data
       end
     end
@@ -13714,9 +13716,9 @@ module AWS::SDK::SecurityHub
         data['MimeType'] = stub[:mime_type] unless stub[:mime_type].nil?
         data['SizeClassified'] = stub[:size_classified] unless stub[:size_classified].nil?
         data['AdditionalOccurrences'] = stub[:additional_occurrences] unless stub[:additional_occurrences].nil?
-        data['Status'] = Stubs::ClassificationStatus.stub(stub[:status]) unless stub[:status].nil?
-        data['SensitiveData'] = Stubs::SensitiveDataResultList.stub(stub[:sensitive_data]) unless stub[:sensitive_data].nil?
-        data['CustomDataIdentifiers'] = Stubs::CustomDataIdentifiersResult.stub(stub[:custom_data_identifiers]) unless stub[:custom_data_identifiers].nil?
+        data['Status'] = ClassificationStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['SensitiveData'] = SensitiveDataResultList.stub(stub[:sensitive_data]) unless stub[:sensitive_data].nil?
+        data['CustomDataIdentifiers'] = CustomDataIdentifiersResult.stub(stub[:custom_data_identifiers]) unless stub[:custom_data_identifiers].nil?
         data
       end
     end
@@ -13735,7 +13737,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::CustomDataIdentifiersResult.new
         data = {}
-        data['Detections'] = Stubs::CustomDataIdentifiersDetectionsList.stub(stub[:detections]) unless stub[:detections].nil?
+        data['Detections'] = CustomDataIdentifiersDetectionsList.stub(stub[:detections]) unless stub[:detections].nil?
         data['TotalCount'] = stub[:total_count] unless stub[:total_count].nil?
         data
       end
@@ -13755,7 +13757,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomDataIdentifiersDetections.stub(element) unless element.nil?
+          data << CustomDataIdentifiersDetections.stub(element) unless element.nil?
         end
         data
       end
@@ -13780,7 +13782,7 @@ module AWS::SDK::SecurityHub
         data['Count'] = stub[:count] unless stub[:count].nil?
         data['Arn'] = stub[:arn] unless stub[:arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Occurrences'] = Stubs::Occurrences.stub(stub[:occurrences]) unless stub[:occurrences].nil?
+        data['Occurrences'] = Occurrences.stub(stub[:occurrences]) unless stub[:occurrences].nil?
         data
       end
     end
@@ -13802,11 +13804,11 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::Occurrences.new
         data = {}
-        data['LineRanges'] = Stubs::Ranges.stub(stub[:line_ranges]) unless stub[:line_ranges].nil?
-        data['OffsetRanges'] = Stubs::Ranges.stub(stub[:offset_ranges]) unless stub[:offset_ranges].nil?
-        data['Pages'] = Stubs::Pages.stub(stub[:pages]) unless stub[:pages].nil?
-        data['Records'] = Stubs::Records.stub(stub[:records]) unless stub[:records].nil?
-        data['Cells'] = Stubs::Cells.stub(stub[:cells]) unless stub[:cells].nil?
+        data['LineRanges'] = Ranges.stub(stub[:line_ranges]) unless stub[:line_ranges].nil?
+        data['OffsetRanges'] = Ranges.stub(stub[:offset_ranges]) unless stub[:offset_ranges].nil?
+        data['Pages'] = Pages.stub(stub[:pages]) unless stub[:pages].nil?
+        data['Records'] = Records.stub(stub[:records]) unless stub[:records].nil?
+        data['Cells'] = Cells.stub(stub[:cells]) unless stub[:cells].nil?
         data
       end
     end
@@ -13825,7 +13827,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Cell.stub(element) unless element.nil?
+          data << Cell.stub(element) unless element.nil?
         end
         data
       end
@@ -13869,7 +13871,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Record.stub(element) unless element.nil?
+          data << Record.stub(element) unless element.nil?
         end
         data
       end
@@ -13909,7 +13911,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Page.stub(element) unless element.nil?
+          data << Page.stub(element) unless element.nil?
         end
         data
       end
@@ -13931,8 +13933,8 @@ module AWS::SDK::SecurityHub
         stub ||= Types::Page.new
         data = {}
         data['PageNumber'] = stub[:page_number] unless stub[:page_number].nil?
-        data['LineRange'] = Stubs::Range.stub(stub[:line_range]) unless stub[:line_range].nil?
-        data['OffsetRange'] = Stubs::Range.stub(stub[:offset_range]) unless stub[:offset_range].nil?
+        data['LineRange'] = Range.stub(stub[:line_range]) unless stub[:line_range].nil?
+        data['OffsetRange'] = Range.stub(stub[:offset_range]) unless stub[:offset_range].nil?
         data
       end
     end
@@ -13973,7 +13975,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Range.stub(element) unless element.nil?
+          data << Range.stub(element) unless element.nil?
         end
         data
       end
@@ -13993,7 +13995,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SensitiveDataResult.stub(element) unless element.nil?
+          data << SensitiveDataResult.stub(element) unless element.nil?
         end
         data
       end
@@ -14015,7 +14017,7 @@ module AWS::SDK::SecurityHub
         stub ||= Types::SensitiveDataResult.new
         data = {}
         data['Category'] = stub[:category] unless stub[:category].nil?
-        data['Detections'] = Stubs::SensitiveDataDetectionsList.stub(stub[:detections]) unless stub[:detections].nil?
+        data['Detections'] = SensitiveDataDetectionsList.stub(stub[:detections]) unless stub[:detections].nil?
         data['TotalCount'] = stub[:total_count] unless stub[:total_count].nil?
         data
       end
@@ -14035,7 +14037,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SensitiveDataDetections.stub(element) unless element.nil?
+          data << SensitiveDataDetections.stub(element) unless element.nil?
         end
         data
       end
@@ -14058,7 +14060,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['Count'] = stub[:count] unless stub[:count].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['Occurrences'] = Stubs::Occurrences.stub(stub[:occurrences]) unless stub[:occurrences].nil?
+        data['Occurrences'] = Occurrences.stub(stub[:occurrences]) unless stub[:occurrences].nil?
         data
       end
     end
@@ -14097,7 +14099,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ThreatIntelIndicator.stub(element) unless element.nil?
+          data << ThreatIntelIndicator.stub(element) unless element.nil?
         end
         data
       end
@@ -14173,7 +14175,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkPathComponent.stub(element) unless element.nil?
+          data << NetworkPathComponent.stub(element) unless element.nil?
         end
         data
       end
@@ -14197,8 +14199,8 @@ module AWS::SDK::SecurityHub
         data = {}
         data['ComponentId'] = stub[:component_id] unless stub[:component_id].nil?
         data['ComponentType'] = stub[:component_type] unless stub[:component_type].nil?
-        data['Egress'] = Stubs::NetworkHeader.stub(stub[:egress]) unless stub[:egress].nil?
-        data['Ingress'] = Stubs::NetworkHeader.stub(stub[:ingress]) unless stub[:ingress].nil?
+        data['Egress'] = NetworkHeader.stub(stub[:egress]) unless stub[:egress].nil?
+        data['Ingress'] = NetworkHeader.stub(stub[:ingress]) unless stub[:ingress].nil?
         data
       end
     end
@@ -14219,8 +14221,8 @@ module AWS::SDK::SecurityHub
         stub ||= Types::NetworkHeader.new
         data = {}
         data['Protocol'] = stub[:protocol] unless stub[:protocol].nil?
-        data['Destination'] = Stubs::NetworkPathComponentDetails.stub(stub[:destination]) unless stub[:destination].nil?
-        data['Source'] = Stubs::NetworkPathComponentDetails.stub(stub[:source]) unless stub[:source].nil?
+        data['Destination'] = NetworkPathComponentDetails.stub(stub[:destination]) unless stub[:destination].nil?
+        data['Source'] = NetworkPathComponentDetails.stub(stub[:source]) unless stub[:source].nil?
         data
       end
     end
@@ -14239,8 +14241,8 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::NetworkPathComponentDetails.new
         data = {}
-        data['Address'] = Stubs::StringList.stub(stub[:address]) unless stub[:address].nil?
-        data['PortRanges'] = Stubs::PortRangeList.stub(stub[:port_ranges]) unless stub[:port_ranges].nil?
+        data['Address'] = StringList.stub(stub[:address]) unless stub[:address].nil?
+        data['PortRanges'] = PortRangeList.stub(stub[:port_ranges]) unless stub[:port_ranges].nil?
         data
       end
     end
@@ -14259,7 +14261,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PortRange.stub(element) unless element.nil?
+          data << PortRange.stub(element) unless element.nil?
         end
         data
       end
@@ -14311,7 +14313,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['Direction'] = stub[:direction] unless stub[:direction].nil?
         data['Protocol'] = stub[:protocol] unless stub[:protocol].nil?
-        data['OpenPortRange'] = Stubs::PortRange.stub(stub[:open_port_range]) unless stub[:open_port_range].nil?
+        data['OpenPortRange'] = PortRange.stub(stub[:open_port_range]) unless stub[:open_port_range].nil?
         data['SourceIpV4'] = stub[:source_ip_v4] unless stub[:source_ip_v4].nil?
         data['SourceIpV6'] = stub[:source_ip_v6] unless stub[:source_ip_v6].nil?
         data['SourcePort'] = stub[:source_port] unless stub[:source_port].nil?
@@ -14339,7 +14341,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Malware.stub(element) unless element.nil?
+          data << Malware.stub(element) unless element.nil?
         end
         data
       end
@@ -14382,7 +14384,7 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::Remediation.new
         data = {}
-        data['Recommendation'] = Stubs::Recommendation.stub(stub[:recommendation]) unless stub[:recommendation].nil?
+        data['Recommendation'] = Recommendation.stub(stub[:recommendation]) unless stub[:recommendation].nil?
         data
       end
     end
@@ -14443,8 +14445,8 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['InsightResults'] = Stubs::InsightResults.stub(stub[:insight_results]) unless stub[:insight_results].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InsightResults'] = InsightResults.stub(stub[:insight_results]) unless stub[:insight_results].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -14465,7 +14467,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['InsightArn'] = stub[:insight_arn] unless stub[:insight_arn].nil?
         data['GroupByAttribute'] = stub[:group_by_attribute] unless stub[:group_by_attribute].nil?
-        data['ResultValues'] = Stubs::InsightResultValueList.stub(stub[:result_values]) unless stub[:result_values].nil?
+        data['ResultValues'] = InsightResultValueList.stub(stub[:result_values]) unless stub[:result_values].nil?
         data
       end
     end
@@ -14484,7 +14486,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InsightResultValue.stub(element) unless element.nil?
+          data << InsightResultValue.stub(element) unless element.nil?
         end
         data
       end
@@ -14523,9 +14525,9 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Insights'] = Stubs::InsightList.stub(stub[:insights]) unless stub[:insights].nil?
+        data['Insights'] = InsightList.stub(stub[:insights]) unless stub[:insights].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -14543,7 +14545,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Insight.stub(element) unless element.nil?
+          data << Insight.stub(element) unless element.nil?
         end
         data
       end
@@ -14567,7 +14569,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['InsightArn'] = stub[:insight_arn] unless stub[:insight_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['Filters'] = Stubs::AwsSecurityFindingFilters.stub(stub[:filters]) unless stub[:filters].nil?
+        data['Filters'] = AwsSecurityFindingFilters.stub(stub[:filters]) unless stub[:filters].nil?
         data['GroupByAttribute'] = stub[:group_by_attribute] unless stub[:group_by_attribute].nil?
         data
       end
@@ -14680,101 +14682,101 @@ module AWS::SDK::SecurityHub
       def self.stub(stub)
         stub ||= Types::AwsSecurityFindingFilters.new
         data = {}
-        data['ProductArn'] = Stubs::StringFilterList.stub(stub[:product_arn]) unless stub[:product_arn].nil?
-        data['AwsAccountId'] = Stubs::StringFilterList.stub(stub[:aws_account_id]) unless stub[:aws_account_id].nil?
-        data['Id'] = Stubs::StringFilterList.stub(stub[:id]) unless stub[:id].nil?
-        data['GeneratorId'] = Stubs::StringFilterList.stub(stub[:generator_id]) unless stub[:generator_id].nil?
-        data['Region'] = Stubs::StringFilterList.stub(stub[:region]) unless stub[:region].nil?
-        data['Type'] = Stubs::StringFilterList.stub(stub[:type]) unless stub[:type].nil?
-        data['FirstObservedAt'] = Stubs::DateFilterList.stub(stub[:first_observed_at]) unless stub[:first_observed_at].nil?
-        data['LastObservedAt'] = Stubs::DateFilterList.stub(stub[:last_observed_at]) unless stub[:last_observed_at].nil?
-        data['CreatedAt'] = Stubs::DateFilterList.stub(stub[:created_at]) unless stub[:created_at].nil?
-        data['UpdatedAt'] = Stubs::DateFilterList.stub(stub[:updated_at]) unless stub[:updated_at].nil?
-        data['SeverityProduct'] = Stubs::NumberFilterList.stub(stub[:severity_product]) unless stub[:severity_product].nil?
-        data['SeverityNormalized'] = Stubs::NumberFilterList.stub(stub[:severity_normalized]) unless stub[:severity_normalized].nil?
-        data['SeverityLabel'] = Stubs::StringFilterList.stub(stub[:severity_label]) unless stub[:severity_label].nil?
-        data['Confidence'] = Stubs::NumberFilterList.stub(stub[:confidence]) unless stub[:confidence].nil?
-        data['Criticality'] = Stubs::NumberFilterList.stub(stub[:criticality]) unless stub[:criticality].nil?
-        data['Title'] = Stubs::StringFilterList.stub(stub[:title]) unless stub[:title].nil?
-        data['Description'] = Stubs::StringFilterList.stub(stub[:description]) unless stub[:description].nil?
-        data['RecommendationText'] = Stubs::StringFilterList.stub(stub[:recommendation_text]) unless stub[:recommendation_text].nil?
-        data['SourceUrl'] = Stubs::StringFilterList.stub(stub[:source_url]) unless stub[:source_url].nil?
-        data['ProductFields'] = Stubs::MapFilterList.stub(stub[:product_fields]) unless stub[:product_fields].nil?
-        data['ProductName'] = Stubs::StringFilterList.stub(stub[:product_name]) unless stub[:product_name].nil?
-        data['CompanyName'] = Stubs::StringFilterList.stub(stub[:company_name]) unless stub[:company_name].nil?
-        data['UserDefinedFields'] = Stubs::MapFilterList.stub(stub[:user_defined_fields]) unless stub[:user_defined_fields].nil?
-        data['MalwareName'] = Stubs::StringFilterList.stub(stub[:malware_name]) unless stub[:malware_name].nil?
-        data['MalwareType'] = Stubs::StringFilterList.stub(stub[:malware_type]) unless stub[:malware_type].nil?
-        data['MalwarePath'] = Stubs::StringFilterList.stub(stub[:malware_path]) unless stub[:malware_path].nil?
-        data['MalwareState'] = Stubs::StringFilterList.stub(stub[:malware_state]) unless stub[:malware_state].nil?
-        data['NetworkDirection'] = Stubs::StringFilterList.stub(stub[:network_direction]) unless stub[:network_direction].nil?
-        data['NetworkProtocol'] = Stubs::StringFilterList.stub(stub[:network_protocol]) unless stub[:network_protocol].nil?
-        data['NetworkSourceIpV4'] = Stubs::IpFilterList.stub(stub[:network_source_ip_v4]) unless stub[:network_source_ip_v4].nil?
-        data['NetworkSourceIpV6'] = Stubs::IpFilterList.stub(stub[:network_source_ip_v6]) unless stub[:network_source_ip_v6].nil?
-        data['NetworkSourcePort'] = Stubs::NumberFilterList.stub(stub[:network_source_port]) unless stub[:network_source_port].nil?
-        data['NetworkSourceDomain'] = Stubs::StringFilterList.stub(stub[:network_source_domain]) unless stub[:network_source_domain].nil?
-        data['NetworkSourceMac'] = Stubs::StringFilterList.stub(stub[:network_source_mac]) unless stub[:network_source_mac].nil?
-        data['NetworkDestinationIpV4'] = Stubs::IpFilterList.stub(stub[:network_destination_ip_v4]) unless stub[:network_destination_ip_v4].nil?
-        data['NetworkDestinationIpV6'] = Stubs::IpFilterList.stub(stub[:network_destination_ip_v6]) unless stub[:network_destination_ip_v6].nil?
-        data['NetworkDestinationPort'] = Stubs::NumberFilterList.stub(stub[:network_destination_port]) unless stub[:network_destination_port].nil?
-        data['NetworkDestinationDomain'] = Stubs::StringFilterList.stub(stub[:network_destination_domain]) unless stub[:network_destination_domain].nil?
-        data['ProcessName'] = Stubs::StringFilterList.stub(stub[:process_name]) unless stub[:process_name].nil?
-        data['ProcessPath'] = Stubs::StringFilterList.stub(stub[:process_path]) unless stub[:process_path].nil?
-        data['ProcessPid'] = Stubs::NumberFilterList.stub(stub[:process_pid]) unless stub[:process_pid].nil?
-        data['ProcessParentPid'] = Stubs::NumberFilterList.stub(stub[:process_parent_pid]) unless stub[:process_parent_pid].nil?
-        data['ProcessLaunchedAt'] = Stubs::DateFilterList.stub(stub[:process_launched_at]) unless stub[:process_launched_at].nil?
-        data['ProcessTerminatedAt'] = Stubs::DateFilterList.stub(stub[:process_terminated_at]) unless stub[:process_terminated_at].nil?
-        data['ThreatIntelIndicatorType'] = Stubs::StringFilterList.stub(stub[:threat_intel_indicator_type]) unless stub[:threat_intel_indicator_type].nil?
-        data['ThreatIntelIndicatorValue'] = Stubs::StringFilterList.stub(stub[:threat_intel_indicator_value]) unless stub[:threat_intel_indicator_value].nil?
-        data['ThreatIntelIndicatorCategory'] = Stubs::StringFilterList.stub(stub[:threat_intel_indicator_category]) unless stub[:threat_intel_indicator_category].nil?
-        data['ThreatIntelIndicatorLastObservedAt'] = Stubs::DateFilterList.stub(stub[:threat_intel_indicator_last_observed_at]) unless stub[:threat_intel_indicator_last_observed_at].nil?
-        data['ThreatIntelIndicatorSource'] = Stubs::StringFilterList.stub(stub[:threat_intel_indicator_source]) unless stub[:threat_intel_indicator_source].nil?
-        data['ThreatIntelIndicatorSourceUrl'] = Stubs::StringFilterList.stub(stub[:threat_intel_indicator_source_url]) unless stub[:threat_intel_indicator_source_url].nil?
-        data['ResourceType'] = Stubs::StringFilterList.stub(stub[:resource_type]) unless stub[:resource_type].nil?
-        data['ResourceId'] = Stubs::StringFilterList.stub(stub[:resource_id]) unless stub[:resource_id].nil?
-        data['ResourcePartition'] = Stubs::StringFilterList.stub(stub[:resource_partition]) unless stub[:resource_partition].nil?
-        data['ResourceRegion'] = Stubs::StringFilterList.stub(stub[:resource_region]) unless stub[:resource_region].nil?
-        data['ResourceTags'] = Stubs::MapFilterList.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
-        data['ResourceAwsEc2InstanceType'] = Stubs::StringFilterList.stub(stub[:resource_aws_ec2_instance_type]) unless stub[:resource_aws_ec2_instance_type].nil?
-        data['ResourceAwsEc2InstanceImageId'] = Stubs::StringFilterList.stub(stub[:resource_aws_ec2_instance_image_id]) unless stub[:resource_aws_ec2_instance_image_id].nil?
-        data['ResourceAwsEc2InstanceIpV4Addresses'] = Stubs::IpFilterList.stub(stub[:resource_aws_ec2_instance_ip_v4_addresses]) unless stub[:resource_aws_ec2_instance_ip_v4_addresses].nil?
-        data['ResourceAwsEc2InstanceIpV6Addresses'] = Stubs::IpFilterList.stub(stub[:resource_aws_ec2_instance_ip_v6_addresses]) unless stub[:resource_aws_ec2_instance_ip_v6_addresses].nil?
-        data['ResourceAwsEc2InstanceKeyName'] = Stubs::StringFilterList.stub(stub[:resource_aws_ec2_instance_key_name]) unless stub[:resource_aws_ec2_instance_key_name].nil?
-        data['ResourceAwsEc2InstanceIamInstanceProfileArn'] = Stubs::StringFilterList.stub(stub[:resource_aws_ec2_instance_iam_instance_profile_arn]) unless stub[:resource_aws_ec2_instance_iam_instance_profile_arn].nil?
-        data['ResourceAwsEc2InstanceVpcId'] = Stubs::StringFilterList.stub(stub[:resource_aws_ec2_instance_vpc_id]) unless stub[:resource_aws_ec2_instance_vpc_id].nil?
-        data['ResourceAwsEc2InstanceSubnetId'] = Stubs::StringFilterList.stub(stub[:resource_aws_ec2_instance_subnet_id]) unless stub[:resource_aws_ec2_instance_subnet_id].nil?
-        data['ResourceAwsEc2InstanceLaunchedAt'] = Stubs::DateFilterList.stub(stub[:resource_aws_ec2_instance_launched_at]) unless stub[:resource_aws_ec2_instance_launched_at].nil?
-        data['ResourceAwsS3BucketOwnerId'] = Stubs::StringFilterList.stub(stub[:resource_aws_s3_bucket_owner_id]) unless stub[:resource_aws_s3_bucket_owner_id].nil?
-        data['ResourceAwsS3BucketOwnerName'] = Stubs::StringFilterList.stub(stub[:resource_aws_s3_bucket_owner_name]) unless stub[:resource_aws_s3_bucket_owner_name].nil?
-        data['ResourceAwsIamAccessKeyUserName'] = Stubs::StringFilterList.stub(stub[:resource_aws_iam_access_key_user_name]) unless stub[:resource_aws_iam_access_key_user_name].nil?
-        data['ResourceAwsIamAccessKeyPrincipalName'] = Stubs::StringFilterList.stub(stub[:resource_aws_iam_access_key_principal_name]) unless stub[:resource_aws_iam_access_key_principal_name].nil?
-        data['ResourceAwsIamAccessKeyStatus'] = Stubs::StringFilterList.stub(stub[:resource_aws_iam_access_key_status]) unless stub[:resource_aws_iam_access_key_status].nil?
-        data['ResourceAwsIamAccessKeyCreatedAt'] = Stubs::DateFilterList.stub(stub[:resource_aws_iam_access_key_created_at]) unless stub[:resource_aws_iam_access_key_created_at].nil?
-        data['ResourceAwsIamUserUserName'] = Stubs::StringFilterList.stub(stub[:resource_aws_iam_user_user_name]) unless stub[:resource_aws_iam_user_user_name].nil?
-        data['ResourceContainerName'] = Stubs::StringFilterList.stub(stub[:resource_container_name]) unless stub[:resource_container_name].nil?
-        data['ResourceContainerImageId'] = Stubs::StringFilterList.stub(stub[:resource_container_image_id]) unless stub[:resource_container_image_id].nil?
-        data['ResourceContainerImageName'] = Stubs::StringFilterList.stub(stub[:resource_container_image_name]) unless stub[:resource_container_image_name].nil?
-        data['ResourceContainerLaunchedAt'] = Stubs::DateFilterList.stub(stub[:resource_container_launched_at]) unless stub[:resource_container_launched_at].nil?
-        data['ResourceDetailsOther'] = Stubs::MapFilterList.stub(stub[:resource_details_other]) unless stub[:resource_details_other].nil?
-        data['ComplianceStatus'] = Stubs::StringFilterList.stub(stub[:compliance_status]) unless stub[:compliance_status].nil?
-        data['VerificationState'] = Stubs::StringFilterList.stub(stub[:verification_state]) unless stub[:verification_state].nil?
-        data['WorkflowState'] = Stubs::StringFilterList.stub(stub[:workflow_state]) unless stub[:workflow_state].nil?
-        data['WorkflowStatus'] = Stubs::StringFilterList.stub(stub[:workflow_status]) unless stub[:workflow_status].nil?
-        data['RecordState'] = Stubs::StringFilterList.stub(stub[:record_state]) unless stub[:record_state].nil?
-        data['RelatedFindingsProductArn'] = Stubs::StringFilterList.stub(stub[:related_findings_product_arn]) unless stub[:related_findings_product_arn].nil?
-        data['RelatedFindingsId'] = Stubs::StringFilterList.stub(stub[:related_findings_id]) unless stub[:related_findings_id].nil?
-        data['NoteText'] = Stubs::StringFilterList.stub(stub[:note_text]) unless stub[:note_text].nil?
-        data['NoteUpdatedAt'] = Stubs::DateFilterList.stub(stub[:note_updated_at]) unless stub[:note_updated_at].nil?
-        data['NoteUpdatedBy'] = Stubs::StringFilterList.stub(stub[:note_updated_by]) unless stub[:note_updated_by].nil?
-        data['Keyword'] = Stubs::KeywordFilterList.stub(stub[:keyword]) unless stub[:keyword].nil?
-        data['FindingProviderFieldsConfidence'] = Stubs::NumberFilterList.stub(stub[:finding_provider_fields_confidence]) unless stub[:finding_provider_fields_confidence].nil?
-        data['FindingProviderFieldsCriticality'] = Stubs::NumberFilterList.stub(stub[:finding_provider_fields_criticality]) unless stub[:finding_provider_fields_criticality].nil?
-        data['FindingProviderFieldsRelatedFindingsId'] = Stubs::StringFilterList.stub(stub[:finding_provider_fields_related_findings_id]) unless stub[:finding_provider_fields_related_findings_id].nil?
-        data['FindingProviderFieldsRelatedFindingsProductArn'] = Stubs::StringFilterList.stub(stub[:finding_provider_fields_related_findings_product_arn]) unless stub[:finding_provider_fields_related_findings_product_arn].nil?
-        data['FindingProviderFieldsSeverityLabel'] = Stubs::StringFilterList.stub(stub[:finding_provider_fields_severity_label]) unless stub[:finding_provider_fields_severity_label].nil?
-        data['FindingProviderFieldsSeverityOriginal'] = Stubs::StringFilterList.stub(stub[:finding_provider_fields_severity_original]) unless stub[:finding_provider_fields_severity_original].nil?
-        data['FindingProviderFieldsTypes'] = Stubs::StringFilterList.stub(stub[:finding_provider_fields_types]) unless stub[:finding_provider_fields_types].nil?
-        data['Sample'] = Stubs::BooleanFilterList.stub(stub[:sample]) unless stub[:sample].nil?
+        data['ProductArn'] = StringFilterList.stub(stub[:product_arn]) unless stub[:product_arn].nil?
+        data['AwsAccountId'] = StringFilterList.stub(stub[:aws_account_id]) unless stub[:aws_account_id].nil?
+        data['Id'] = StringFilterList.stub(stub[:id]) unless stub[:id].nil?
+        data['GeneratorId'] = StringFilterList.stub(stub[:generator_id]) unless stub[:generator_id].nil?
+        data['Region'] = StringFilterList.stub(stub[:region]) unless stub[:region].nil?
+        data['Type'] = StringFilterList.stub(stub[:type]) unless stub[:type].nil?
+        data['FirstObservedAt'] = DateFilterList.stub(stub[:first_observed_at]) unless stub[:first_observed_at].nil?
+        data['LastObservedAt'] = DateFilterList.stub(stub[:last_observed_at]) unless stub[:last_observed_at].nil?
+        data['CreatedAt'] = DateFilterList.stub(stub[:created_at]) unless stub[:created_at].nil?
+        data['UpdatedAt'] = DateFilterList.stub(stub[:updated_at]) unless stub[:updated_at].nil?
+        data['SeverityProduct'] = NumberFilterList.stub(stub[:severity_product]) unless stub[:severity_product].nil?
+        data['SeverityNormalized'] = NumberFilterList.stub(stub[:severity_normalized]) unless stub[:severity_normalized].nil?
+        data['SeverityLabel'] = StringFilterList.stub(stub[:severity_label]) unless stub[:severity_label].nil?
+        data['Confidence'] = NumberFilterList.stub(stub[:confidence]) unless stub[:confidence].nil?
+        data['Criticality'] = NumberFilterList.stub(stub[:criticality]) unless stub[:criticality].nil?
+        data['Title'] = StringFilterList.stub(stub[:title]) unless stub[:title].nil?
+        data['Description'] = StringFilterList.stub(stub[:description]) unless stub[:description].nil?
+        data['RecommendationText'] = StringFilterList.stub(stub[:recommendation_text]) unless stub[:recommendation_text].nil?
+        data['SourceUrl'] = StringFilterList.stub(stub[:source_url]) unless stub[:source_url].nil?
+        data['ProductFields'] = MapFilterList.stub(stub[:product_fields]) unless stub[:product_fields].nil?
+        data['ProductName'] = StringFilterList.stub(stub[:product_name]) unless stub[:product_name].nil?
+        data['CompanyName'] = StringFilterList.stub(stub[:company_name]) unless stub[:company_name].nil?
+        data['UserDefinedFields'] = MapFilterList.stub(stub[:user_defined_fields]) unless stub[:user_defined_fields].nil?
+        data['MalwareName'] = StringFilterList.stub(stub[:malware_name]) unless stub[:malware_name].nil?
+        data['MalwareType'] = StringFilterList.stub(stub[:malware_type]) unless stub[:malware_type].nil?
+        data['MalwarePath'] = StringFilterList.stub(stub[:malware_path]) unless stub[:malware_path].nil?
+        data['MalwareState'] = StringFilterList.stub(stub[:malware_state]) unless stub[:malware_state].nil?
+        data['NetworkDirection'] = StringFilterList.stub(stub[:network_direction]) unless stub[:network_direction].nil?
+        data['NetworkProtocol'] = StringFilterList.stub(stub[:network_protocol]) unless stub[:network_protocol].nil?
+        data['NetworkSourceIpV4'] = IpFilterList.stub(stub[:network_source_ip_v4]) unless stub[:network_source_ip_v4].nil?
+        data['NetworkSourceIpV6'] = IpFilterList.stub(stub[:network_source_ip_v6]) unless stub[:network_source_ip_v6].nil?
+        data['NetworkSourcePort'] = NumberFilterList.stub(stub[:network_source_port]) unless stub[:network_source_port].nil?
+        data['NetworkSourceDomain'] = StringFilterList.stub(stub[:network_source_domain]) unless stub[:network_source_domain].nil?
+        data['NetworkSourceMac'] = StringFilterList.stub(stub[:network_source_mac]) unless stub[:network_source_mac].nil?
+        data['NetworkDestinationIpV4'] = IpFilterList.stub(stub[:network_destination_ip_v4]) unless stub[:network_destination_ip_v4].nil?
+        data['NetworkDestinationIpV6'] = IpFilterList.stub(stub[:network_destination_ip_v6]) unless stub[:network_destination_ip_v6].nil?
+        data['NetworkDestinationPort'] = NumberFilterList.stub(stub[:network_destination_port]) unless stub[:network_destination_port].nil?
+        data['NetworkDestinationDomain'] = StringFilterList.stub(stub[:network_destination_domain]) unless stub[:network_destination_domain].nil?
+        data['ProcessName'] = StringFilterList.stub(stub[:process_name]) unless stub[:process_name].nil?
+        data['ProcessPath'] = StringFilterList.stub(stub[:process_path]) unless stub[:process_path].nil?
+        data['ProcessPid'] = NumberFilterList.stub(stub[:process_pid]) unless stub[:process_pid].nil?
+        data['ProcessParentPid'] = NumberFilterList.stub(stub[:process_parent_pid]) unless stub[:process_parent_pid].nil?
+        data['ProcessLaunchedAt'] = DateFilterList.stub(stub[:process_launched_at]) unless stub[:process_launched_at].nil?
+        data['ProcessTerminatedAt'] = DateFilterList.stub(stub[:process_terminated_at]) unless stub[:process_terminated_at].nil?
+        data['ThreatIntelIndicatorType'] = StringFilterList.stub(stub[:threat_intel_indicator_type]) unless stub[:threat_intel_indicator_type].nil?
+        data['ThreatIntelIndicatorValue'] = StringFilterList.stub(stub[:threat_intel_indicator_value]) unless stub[:threat_intel_indicator_value].nil?
+        data['ThreatIntelIndicatorCategory'] = StringFilterList.stub(stub[:threat_intel_indicator_category]) unless stub[:threat_intel_indicator_category].nil?
+        data['ThreatIntelIndicatorLastObservedAt'] = DateFilterList.stub(stub[:threat_intel_indicator_last_observed_at]) unless stub[:threat_intel_indicator_last_observed_at].nil?
+        data['ThreatIntelIndicatorSource'] = StringFilterList.stub(stub[:threat_intel_indicator_source]) unless stub[:threat_intel_indicator_source].nil?
+        data['ThreatIntelIndicatorSourceUrl'] = StringFilterList.stub(stub[:threat_intel_indicator_source_url]) unless stub[:threat_intel_indicator_source_url].nil?
+        data['ResourceType'] = StringFilterList.stub(stub[:resource_type]) unless stub[:resource_type].nil?
+        data['ResourceId'] = StringFilterList.stub(stub[:resource_id]) unless stub[:resource_id].nil?
+        data['ResourcePartition'] = StringFilterList.stub(stub[:resource_partition]) unless stub[:resource_partition].nil?
+        data['ResourceRegion'] = StringFilterList.stub(stub[:resource_region]) unless stub[:resource_region].nil?
+        data['ResourceTags'] = MapFilterList.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
+        data['ResourceAwsEc2InstanceType'] = StringFilterList.stub(stub[:resource_aws_ec2_instance_type]) unless stub[:resource_aws_ec2_instance_type].nil?
+        data['ResourceAwsEc2InstanceImageId'] = StringFilterList.stub(stub[:resource_aws_ec2_instance_image_id]) unless stub[:resource_aws_ec2_instance_image_id].nil?
+        data['ResourceAwsEc2InstanceIpV4Addresses'] = IpFilterList.stub(stub[:resource_aws_ec2_instance_ip_v4_addresses]) unless stub[:resource_aws_ec2_instance_ip_v4_addresses].nil?
+        data['ResourceAwsEc2InstanceIpV6Addresses'] = IpFilterList.stub(stub[:resource_aws_ec2_instance_ip_v6_addresses]) unless stub[:resource_aws_ec2_instance_ip_v6_addresses].nil?
+        data['ResourceAwsEc2InstanceKeyName'] = StringFilterList.stub(stub[:resource_aws_ec2_instance_key_name]) unless stub[:resource_aws_ec2_instance_key_name].nil?
+        data['ResourceAwsEc2InstanceIamInstanceProfileArn'] = StringFilterList.stub(stub[:resource_aws_ec2_instance_iam_instance_profile_arn]) unless stub[:resource_aws_ec2_instance_iam_instance_profile_arn].nil?
+        data['ResourceAwsEc2InstanceVpcId'] = StringFilterList.stub(stub[:resource_aws_ec2_instance_vpc_id]) unless stub[:resource_aws_ec2_instance_vpc_id].nil?
+        data['ResourceAwsEc2InstanceSubnetId'] = StringFilterList.stub(stub[:resource_aws_ec2_instance_subnet_id]) unless stub[:resource_aws_ec2_instance_subnet_id].nil?
+        data['ResourceAwsEc2InstanceLaunchedAt'] = DateFilterList.stub(stub[:resource_aws_ec2_instance_launched_at]) unless stub[:resource_aws_ec2_instance_launched_at].nil?
+        data['ResourceAwsS3BucketOwnerId'] = StringFilterList.stub(stub[:resource_aws_s3_bucket_owner_id]) unless stub[:resource_aws_s3_bucket_owner_id].nil?
+        data['ResourceAwsS3BucketOwnerName'] = StringFilterList.stub(stub[:resource_aws_s3_bucket_owner_name]) unless stub[:resource_aws_s3_bucket_owner_name].nil?
+        data['ResourceAwsIamAccessKeyUserName'] = StringFilterList.stub(stub[:resource_aws_iam_access_key_user_name]) unless stub[:resource_aws_iam_access_key_user_name].nil?
+        data['ResourceAwsIamAccessKeyPrincipalName'] = StringFilterList.stub(stub[:resource_aws_iam_access_key_principal_name]) unless stub[:resource_aws_iam_access_key_principal_name].nil?
+        data['ResourceAwsIamAccessKeyStatus'] = StringFilterList.stub(stub[:resource_aws_iam_access_key_status]) unless stub[:resource_aws_iam_access_key_status].nil?
+        data['ResourceAwsIamAccessKeyCreatedAt'] = DateFilterList.stub(stub[:resource_aws_iam_access_key_created_at]) unless stub[:resource_aws_iam_access_key_created_at].nil?
+        data['ResourceAwsIamUserUserName'] = StringFilterList.stub(stub[:resource_aws_iam_user_user_name]) unless stub[:resource_aws_iam_user_user_name].nil?
+        data['ResourceContainerName'] = StringFilterList.stub(stub[:resource_container_name]) unless stub[:resource_container_name].nil?
+        data['ResourceContainerImageId'] = StringFilterList.stub(stub[:resource_container_image_id]) unless stub[:resource_container_image_id].nil?
+        data['ResourceContainerImageName'] = StringFilterList.stub(stub[:resource_container_image_name]) unless stub[:resource_container_image_name].nil?
+        data['ResourceContainerLaunchedAt'] = DateFilterList.stub(stub[:resource_container_launched_at]) unless stub[:resource_container_launched_at].nil?
+        data['ResourceDetailsOther'] = MapFilterList.stub(stub[:resource_details_other]) unless stub[:resource_details_other].nil?
+        data['ComplianceStatus'] = StringFilterList.stub(stub[:compliance_status]) unless stub[:compliance_status].nil?
+        data['VerificationState'] = StringFilterList.stub(stub[:verification_state]) unless stub[:verification_state].nil?
+        data['WorkflowState'] = StringFilterList.stub(stub[:workflow_state]) unless stub[:workflow_state].nil?
+        data['WorkflowStatus'] = StringFilterList.stub(stub[:workflow_status]) unless stub[:workflow_status].nil?
+        data['RecordState'] = StringFilterList.stub(stub[:record_state]) unless stub[:record_state].nil?
+        data['RelatedFindingsProductArn'] = StringFilterList.stub(stub[:related_findings_product_arn]) unless stub[:related_findings_product_arn].nil?
+        data['RelatedFindingsId'] = StringFilterList.stub(stub[:related_findings_id]) unless stub[:related_findings_id].nil?
+        data['NoteText'] = StringFilterList.stub(stub[:note_text]) unless stub[:note_text].nil?
+        data['NoteUpdatedAt'] = DateFilterList.stub(stub[:note_updated_at]) unless stub[:note_updated_at].nil?
+        data['NoteUpdatedBy'] = StringFilterList.stub(stub[:note_updated_by]) unless stub[:note_updated_by].nil?
+        data['Keyword'] = KeywordFilterList.stub(stub[:keyword]) unless stub[:keyword].nil?
+        data['FindingProviderFieldsConfidence'] = NumberFilterList.stub(stub[:finding_provider_fields_confidence]) unless stub[:finding_provider_fields_confidence].nil?
+        data['FindingProviderFieldsCriticality'] = NumberFilterList.stub(stub[:finding_provider_fields_criticality]) unless stub[:finding_provider_fields_criticality].nil?
+        data['FindingProviderFieldsRelatedFindingsId'] = StringFilterList.stub(stub[:finding_provider_fields_related_findings_id]) unless stub[:finding_provider_fields_related_findings_id].nil?
+        data['FindingProviderFieldsRelatedFindingsProductArn'] = StringFilterList.stub(stub[:finding_provider_fields_related_findings_product_arn]) unless stub[:finding_provider_fields_related_findings_product_arn].nil?
+        data['FindingProviderFieldsSeverityLabel'] = StringFilterList.stub(stub[:finding_provider_fields_severity_label]) unless stub[:finding_provider_fields_severity_label].nil?
+        data['FindingProviderFieldsSeverityOriginal'] = StringFilterList.stub(stub[:finding_provider_fields_severity_original]) unless stub[:finding_provider_fields_severity_original].nil?
+        data['FindingProviderFieldsTypes'] = StringFilterList.stub(stub[:finding_provider_fields_types]) unless stub[:finding_provider_fields_types].nil?
+        data['Sample'] = BooleanFilterList.stub(stub[:sample]) unless stub[:sample].nil?
         data
       end
     end
@@ -14793,7 +14795,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BooleanFilter.stub(element) unless element.nil?
+          data << BooleanFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -14831,7 +14833,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StringFilter.stub(element) unless element.nil?
+          data << StringFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -14871,7 +14873,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NumberFilter.stub(element) unless element.nil?
+          data << NumberFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -14913,7 +14915,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeywordFilter.stub(element) unless element.nil?
+          data << KeywordFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -14951,7 +14953,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DateFilter.stub(element) unless element.nil?
+          data << DateFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -14974,7 +14976,7 @@ module AWS::SDK::SecurityHub
         data = {}
         data['Start'] = stub[:start] unless stub[:start].nil?
         data['End'] = stub[:end] unless stub[:end].nil?
-        data['DateRange'] = Stubs::DateRange.stub(stub[:date_range]) unless stub[:date_range].nil?
+        data['DateRange'] = DateRange.stub(stub[:date_range]) unless stub[:date_range].nil?
         data
       end
     end
@@ -15013,7 +15015,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MapFilter.stub(element) unless element.nil?
+          data << MapFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -15055,7 +15057,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IpFilter.stub(element) unless element.nil?
+          data << IpFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -15092,7 +15094,7 @@ module AWS::SDK::SecurityHub
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['InvitationsCount'] = stub[:invitations_count] unless stub[:invitations_count].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -15108,8 +15110,8 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Master'] = Stubs::Invitation.stub(stub[:master]) unless stub[:master].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Master'] = Invitation.stub(stub[:master]) unless stub[:master].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -15126,9 +15128,9 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Members'] = Stubs::MemberList.stub(stub[:members]) unless stub[:members].nil?
-        data['UnprocessedAccounts'] = Stubs::ResultList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Members'] = MemberList.stub(stub[:members]) unless stub[:members].nil?
+        data['UnprocessedAccounts'] = ResultList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -15146,7 +15148,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Member.stub(element) unless element.nil?
+          data << Member.stub(element) unless element.nil?
         end
         data
       end
@@ -15194,8 +15196,8 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['UnprocessedAccounts'] = Stubs::ResultList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UnprocessedAccounts'] = ResultList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -15212,9 +15214,9 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ProductSubscriptions'] = Stubs::ProductSubscriptionArnList.stub(stub[:product_subscriptions]) unless stub[:product_subscriptions].nil?
+        data['ProductSubscriptions'] = ProductSubscriptionArnList.stub(stub[:product_subscriptions]) unless stub[:product_subscriptions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -15251,9 +15253,9 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['FindingAggregators'] = Stubs::FindingAggregatorList.stub(stub[:finding_aggregators]) unless stub[:finding_aggregators].nil?
+        data['FindingAggregators'] = FindingAggregatorList.stub(stub[:finding_aggregators]) unless stub[:finding_aggregators].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -15271,7 +15273,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FindingAggregator.stub(element) unless element.nil?
+          data << FindingAggregator.stub(element) unless element.nil?
         end
         data
       end
@@ -15308,9 +15310,9 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Invitations'] = Stubs::InvitationList.stub(stub[:invitations]) unless stub[:invitations].nil?
+        data['Invitations'] = InvitationList.stub(stub[:invitations]) unless stub[:invitations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -15328,7 +15330,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Invitation.stub(element) unless element.nil?
+          data << Invitation.stub(element) unless element.nil?
         end
         data
       end
@@ -15347,9 +15349,9 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Members'] = Stubs::MemberList.stub(stub[:members]) unless stub[:members].nil?
+        data['Members'] = MemberList.stub(stub[:members]) unless stub[:members].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -15366,9 +15368,9 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AdminAccounts'] = Stubs::AdminAccounts.stub(stub[:admin_accounts]) unless stub[:admin_accounts].nil?
+        data['AdminAccounts'] = AdminAccounts.stub(stub[:admin_accounts]) unless stub[:admin_accounts].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -15386,7 +15388,7 @@ module AWS::SDK::SecurityHub
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AdminAccount.stub(element) unless element.nil?
+          data << AdminAccount.stub(element) unless element.nil?
         end
         data
       end
@@ -15424,8 +15426,8 @@ module AWS::SDK::SecurityHub
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -15506,8 +15508,8 @@ module AWS::SDK::SecurityHub
         data['FindingAggregatorArn'] = stub[:finding_aggregator_arn] unless stub[:finding_aggregator_arn].nil?
         data['FindingAggregationRegion'] = stub[:finding_aggregation_region] unless stub[:finding_aggregation_region].nil?
         data['RegionLinkingMode'] = stub[:region_linking_mode] unless stub[:region_linking_mode].nil?
-        data['Regions'] = Stubs::StringList.stub(stub[:regions]) unless stub[:regions].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Regions'] = StringList.stub(stub[:regions]) unless stub[:regions].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

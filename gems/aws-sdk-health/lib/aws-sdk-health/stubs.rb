@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Health
   module Stubs
 
@@ -22,10 +24,10 @@ module AWS::SDK::Health
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['affectedAccounts'] = Stubs::AffectedAccountsList.stub(stub[:affected_accounts]) unless stub[:affected_accounts].nil?
+        data['affectedAccounts'] = AffectedAccountsList.stub(stub[:affected_accounts]) unless stub[:affected_accounts].nil?
         data['eventScopeCode'] = stub[:event_scope_code] unless stub[:event_scope_code].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -61,9 +63,9 @@ module AWS::SDK::Health
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['entities'] = Stubs::EntityList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['entities'] = EntityList.stub(stub[:entities]) unless stub[:entities].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -82,7 +84,7 @@ module AWS::SDK::Health
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AffectedEntity.stub(element) unless element.nil?
+          data << AffectedEntity.stub(element) unless element.nil?
         end
         data
       end
@@ -115,7 +117,7 @@ module AWS::SDK::Health
         data['awsAccountId'] = stub[:aws_account_id] unless stub[:aws_account_id].nil?
         data['lastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
-        data['tags'] = Stubs::TagSet.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagSet.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -152,10 +154,10 @@ module AWS::SDK::Health
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['entities'] = Stubs::EntityList.stub(stub[:entities]) unless stub[:entities].nil?
-        data['failedSet'] = Stubs::DescribeAffectedEntitiesForOrganizationFailedSet.stub(stub[:failed_set]) unless stub[:failed_set].nil?
+        data['entities'] = EntityList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['failedSet'] = DescribeAffectedEntitiesForOrganizationFailedSet.stub(stub[:failed_set]) unless stub[:failed_set].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -174,7 +176,7 @@ module AWS::SDK::Health
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OrganizationAffectedEntitiesErrorItem.stub(element) unless element.nil?
+          data << OrganizationAffectedEntitiesErrorItem.stub(element) unless element.nil?
         end
         data
       end
@@ -214,8 +216,8 @@ module AWS::SDK::Health
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['entityAggregates'] = Stubs::EntityAggregateList.stub(stub[:entity_aggregates]) unless stub[:entity_aggregates].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['entityAggregates'] = EntityAggregateList.stub(stub[:entity_aggregates]) unless stub[:entity_aggregates].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -234,7 +236,7 @@ module AWS::SDK::Health
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EntityAggregate.stub(element) unless element.nil?
+          data << EntityAggregate.stub(element) unless element.nil?
         end
         data
       end
@@ -271,9 +273,9 @@ module AWS::SDK::Health
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['eventAggregates'] = Stubs::EventAggregateList.stub(stub[:event_aggregates]) unless stub[:event_aggregates].nil?
+        data['eventAggregates'] = EventAggregateList.stub(stub[:event_aggregates]) unless stub[:event_aggregates].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -292,7 +294,7 @@ module AWS::SDK::Health
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventAggregate.stub(element) unless element.nil?
+          data << EventAggregate.stub(element) unless element.nil?
         end
         data
       end
@@ -329,9 +331,9 @@ module AWS::SDK::Health
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['successfulSet'] = Stubs::DescribeEventDetailsSuccessfulSet.stub(stub[:successful_set]) unless stub[:successful_set].nil?
-        data['failedSet'] = Stubs::DescribeEventDetailsFailedSet.stub(stub[:failed_set]) unless stub[:failed_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['successfulSet'] = DescribeEventDetailsSuccessfulSet.stub(stub[:successful_set]) unless stub[:successful_set].nil?
+        data['failedSet'] = DescribeEventDetailsFailedSet.stub(stub[:failed_set]) unless stub[:failed_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -350,7 +352,7 @@ module AWS::SDK::Health
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventDetailsErrorItem.stub(element) unless element.nil?
+          data << EventDetailsErrorItem.stub(element) unless element.nil?
         end
         data
       end
@@ -392,7 +394,7 @@ module AWS::SDK::Health
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventDetails.stub(element) unless element.nil?
+          data << EventDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -413,9 +415,9 @@ module AWS::SDK::Health
       def self.stub(stub)
         stub ||= Types::EventDetails.new
         data = {}
-        data['event'] = Stubs::Event.stub(stub[:event]) unless stub[:event].nil?
-        data['eventDescription'] = Stubs::EventDescription.stub(stub[:event_description]) unless stub[:event_description].nil?
-        data['eventMetadata'] = Stubs::EventMetadata.stub(stub[:event_metadata]) unless stub[:event_metadata].nil?
+        data['event'] = Event.stub(stub[:event]) unless stub[:event].nil?
+        data['eventDescription'] = EventDescription.stub(stub[:event_description]) unless stub[:event_description].nil?
+        data['eventMetadata'] = EventMetadata.stub(stub[:event_metadata]) unless stub[:event_metadata].nil?
         data
       end
     end
@@ -507,9 +509,9 @@ module AWS::SDK::Health
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['successfulSet'] = Stubs::DescribeEventDetailsForOrganizationSuccessfulSet.stub(stub[:successful_set]) unless stub[:successful_set].nil?
-        data['failedSet'] = Stubs::DescribeEventDetailsForOrganizationFailedSet.stub(stub[:failed_set]) unless stub[:failed_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['successfulSet'] = DescribeEventDetailsForOrganizationSuccessfulSet.stub(stub[:successful_set]) unless stub[:successful_set].nil?
+        data['failedSet'] = DescribeEventDetailsForOrganizationFailedSet.stub(stub[:failed_set]) unless stub[:failed_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -528,7 +530,7 @@ module AWS::SDK::Health
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OrganizationEventDetailsErrorItem.stub(element) unless element.nil?
+          data << OrganizationEventDetailsErrorItem.stub(element) unless element.nil?
         end
         data
       end
@@ -572,7 +574,7 @@ module AWS::SDK::Health
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OrganizationEventDetails.stub(element) unless element.nil?
+          data << OrganizationEventDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -595,9 +597,9 @@ module AWS::SDK::Health
         stub ||= Types::OrganizationEventDetails.new
         data = {}
         data['awsAccountId'] = stub[:aws_account_id] unless stub[:aws_account_id].nil?
-        data['event'] = Stubs::Event.stub(stub[:event]) unless stub[:event].nil?
-        data['eventDescription'] = Stubs::EventDescription.stub(stub[:event_description]) unless stub[:event_description].nil?
-        data['eventMetadata'] = Stubs::EventMetadata.stub(stub[:event_metadata]) unless stub[:event_metadata].nil?
+        data['event'] = Event.stub(stub[:event]) unless stub[:event].nil?
+        data['eventDescription'] = EventDescription.stub(stub[:event_description]) unless stub[:event_description].nil?
+        data['eventMetadata'] = EventMetadata.stub(stub[:event_metadata]) unless stub[:event_metadata].nil?
         data
       end
     end
@@ -613,9 +615,9 @@ module AWS::SDK::Health
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['eventTypes'] = Stubs::EventTypeList.stub(stub[:event_types]) unless stub[:event_types].nil?
+        data['eventTypes'] = EventTypeList.stub(stub[:event_types]) unless stub[:event_types].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -634,7 +636,7 @@ module AWS::SDK::Health
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventType.stub(element) unless element.nil?
+          data << EventType.stub(element) unless element.nil?
         end
         data
       end
@@ -673,9 +675,9 @@ module AWS::SDK::Health
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['events'] = Stubs::EventList.stub(stub[:events]) unless stub[:events].nil?
+        data['events'] = EventList.stub(stub[:events]) unless stub[:events].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -694,7 +696,7 @@ module AWS::SDK::Health
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Event.stub(element) unless element.nil?
+          data << Event.stub(element) unless element.nil?
         end
         data
       end
@@ -711,9 +713,9 @@ module AWS::SDK::Health
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['events'] = Stubs::OrganizationEventList.stub(stub[:events]) unless stub[:events].nil?
+        data['events'] = OrganizationEventList.stub(stub[:events]) unless stub[:events].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -732,7 +734,7 @@ module AWS::SDK::Health
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OrganizationEvent.stub(element) unless element.nil?
+          data << OrganizationEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -785,7 +787,7 @@ module AWS::SDK::Health
       def self.stub(http_resp, stub:)
         data = {}
         data['healthServiceAccessStatusForOrganization'] = stub[:health_service_access_status_for_organization] unless stub[:health_service_access_status_for_organization].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -799,7 +801,7 @@ module AWS::SDK::Health
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -813,7 +815,7 @@ module AWS::SDK::Health
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

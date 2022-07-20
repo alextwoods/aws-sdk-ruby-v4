@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MigrationHubRefactorSpaces
   module Stubs
 
@@ -42,12 +44,12 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['EnvironmentId'] = stub[:environment_id] unless stub[:environment_id].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['ProxyType'] = stub[:proxy_type] unless stub[:proxy_type].nil?
-        data['ApiGatewayProxy'] = Stubs::ApiGatewayProxyInput.stub(stub[:api_gateway_proxy]) unless stub[:api_gateway_proxy].nil?
+        data['ApiGatewayProxy'] = ApiGatewayProxyInput.stub(stub[:api_gateway_proxy]) unless stub[:api_gateway_proxy].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -119,10 +121,10 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['NetworkFabricType'] = stub[:network_fabric_type] unless stub[:network_fabric_type].nil?
         data['OwnerAccountId'] = stub[:owner_account_id] unless stub[:owner_account_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -156,12 +158,12 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['RouteType'] = stub[:route_type] unless stub[:route_type].nil?
         data['ServiceId'] = stub[:service_id] unless stub[:service_id].nil?
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
-        data['UriPathRoute'] = Stubs::UriPathRouteInput.stub(stub[:uri_path_route]) unless stub[:uri_path_route].nil?
+        data['UriPathRoute'] = UriPathRouteInput.stub(stub[:uri_path_route]) unless stub[:uri_path_route].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -183,7 +185,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data = {}
         data['SourcePath'] = stub[:source_path] unless stub[:source_path].nil?
         data['ActivationState'] = stub[:activation_state] unless stub[:activation_state].nil?
-        data['Methods'] = Stubs::HttpMethods.stub(stub[:member_methods]) unless stub[:member_methods].nil?
+        data['Methods'] = HttpMethods.stub(stub[:member_methods]) unless stub[:member_methods].nil?
         data['IncludeChildPaths'] = stub[:include_child_paths] unless stub[:include_child_paths].nil?
         data
       end
@@ -246,13 +248,13 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['EndpointType'] = stub[:endpoint_type] unless stub[:endpoint_type].nil?
-        data['UrlEndpoint'] = Stubs::UrlEndpointInput.stub(stub[:url_endpoint]) unless stub[:url_endpoint].nil?
-        data['LambdaEndpoint'] = Stubs::LambdaEndpointInput.stub(stub[:lambda_endpoint]) unless stub[:lambda_endpoint].nil?
+        data['UrlEndpoint'] = UrlEndpointInput.stub(stub[:url_endpoint]) unless stub[:url_endpoint].nil?
+        data['LambdaEndpoint'] = LambdaEndpointInput.stub(stub[:lambda_endpoint]) unless stub[:lambda_endpoint].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -317,7 +319,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['EnvironmentId'] = stub[:environment_id] unless stub[:environment_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -342,7 +344,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['EnvironmentId'] = stub[:environment_id] unless stub[:environment_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -382,7 +384,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -411,7 +413,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -448,13 +450,13 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['EnvironmentId'] = stub[:environment_id] unless stub[:environment_id].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['ProxyType'] = stub[:proxy_type] unless stub[:proxy_type].nil?
-        data['ApiGatewayProxy'] = Stubs::ApiGatewayProxyConfig.stub(stub[:api_gateway_proxy]) unless stub[:api_gateway_proxy].nil?
+        data['ApiGatewayProxy'] = ApiGatewayProxyConfig.stub(stub[:api_gateway_proxy]) unless stub[:api_gateway_proxy].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['Error'] = Stubs::ErrorResponse.stub(stub[:error]) unless stub[:error].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Error'] = ErrorResponse.stub(stub[:error]) unless stub[:error].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -481,7 +483,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['ResourceIdentifier'] = stub[:resource_identifier] unless stub[:resource_identifier].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['AdditionalDetails'] = Stubs::AdditionalDetails.stub(stub[:additional_details]) unless stub[:additional_details].nil?
+        data['AdditionalDetails'] = AdditionalDetails.stub(stub[:additional_details]) unless stub[:additional_details].nil?
         data
       end
     end
@@ -567,11 +569,11 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['OwnerAccountId'] = stub[:owner_account_id] unless stub[:owner_account_id].nil?
         data['TransitGatewayId'] = stub[:transit_gateway_id] unless stub[:transit_gateway_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['Error'] = Stubs::ErrorResponse.stub(stub[:error]) unless stub[:error].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Error'] = ErrorResponse.stub(stub[:error]) unless stub[:error].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -588,7 +590,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -629,15 +631,15 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['EnvironmentId'] = stub[:environment_id] unless stub[:environment_id].nil?
         data['SourcePath'] = stub[:source_path] unless stub[:source_path].nil?
-        data['Methods'] = Stubs::HttpMethods.stub(stub[:member_methods]) unless stub[:member_methods].nil?
+        data['Methods'] = HttpMethods.stub(stub[:member_methods]) unless stub[:member_methods].nil?
         data['IncludeChildPaths'] = stub[:include_child_paths] unless stub[:include_child_paths].nil?
-        data['PathResourceToId'] = Stubs::PathResourceToId.stub(stub[:path_resource_to_id]) unless stub[:path_resource_to_id].nil?
+        data['PathResourceToId'] = PathResourceToId.stub(stub[:path_resource_to_id]) unless stub[:path_resource_to_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['Error'] = Stubs::ErrorResponse.stub(stub[:error]) unless stub[:error].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Error'] = ErrorResponse.stub(stub[:error]) unless stub[:error].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -699,14 +701,14 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['EndpointType'] = stub[:endpoint_type] unless stub[:endpoint_type].nil?
-        data['UrlEndpoint'] = Stubs::UrlEndpointConfig.stub(stub[:url_endpoint]) unless stub[:url_endpoint].nil?
-        data['LambdaEndpoint'] = Stubs::LambdaEndpointConfig.stub(stub[:lambda_endpoint]) unless stub[:lambda_endpoint].nil?
+        data['UrlEndpoint'] = UrlEndpointConfig.stub(stub[:url_endpoint]) unless stub[:url_endpoint].nil?
+        data['LambdaEndpoint'] = LambdaEndpointConfig.stub(stub[:lambda_endpoint]) unless stub[:lambda_endpoint].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['Error'] = Stubs::ErrorResponse.stub(stub[:error]) unless stub[:error].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Error'] = ErrorResponse.stub(stub[:error]) unless stub[:error].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -761,9 +763,9 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ApplicationSummaryList'] = Stubs::ApplicationSummaries.stub(stub[:application_summary_list]) unless stub[:application_summary_list].nil?
+        data['ApplicationSummaryList'] = ApplicationSummaries.stub(stub[:application_summary_list]) unless stub[:application_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -781,7 +783,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApplicationSummary.stub(element) unless element.nil?
+          data << ApplicationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -821,10 +823,10 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['EnvironmentId'] = stub[:environment_id] unless stub[:environment_id].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['ProxyType'] = stub[:proxy_type] unless stub[:proxy_type].nil?
-        data['ApiGatewayProxy'] = Stubs::ApiGatewayProxySummary.stub(stub[:api_gateway_proxy]) unless stub[:api_gateway_proxy].nil?
+        data['ApiGatewayProxy'] = ApiGatewayProxySummary.stub(stub[:api_gateway_proxy]) unless stub[:api_gateway_proxy].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['Error'] = Stubs::ErrorResponse.stub(stub[:error]) unless stub[:error].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Error'] = ErrorResponse.stub(stub[:error]) unless stub[:error].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data
@@ -874,9 +876,9 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['EnvironmentVpcList'] = Stubs::EnvironmentVpcs.stub(stub[:environment_vpc_list]) unless stub[:environment_vpc_list].nil?
+        data['EnvironmentVpcList'] = EnvironmentVpcs.stub(stub[:environment_vpc_list]) unless stub[:environment_vpc_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -894,7 +896,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnvironmentVpc.stub(element) unless element.nil?
+          data << EnvironmentVpc.stub(element) unless element.nil?
         end
         data
       end
@@ -922,7 +924,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['EnvironmentId'] = stub[:environment_id] unless stub[:environment_id].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['AccountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['CidrBlocks'] = Stubs::CidrBlocks.stub(stub[:cidr_blocks]) unless stub[:cidr_blocks].nil?
+        data['CidrBlocks'] = CidrBlocks.stub(stub[:cidr_blocks]) unless stub[:cidr_blocks].nil?
         data['VpcName'] = stub[:vpc_name] unless stub[:vpc_name].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
@@ -963,9 +965,9 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['EnvironmentSummaryList'] = Stubs::EnvironmentSummaries.stub(stub[:environment_summary_list]) unless stub[:environment_summary_list].nil?
+        data['EnvironmentSummaryList'] = EnvironmentSummaries.stub(stub[:environment_summary_list]) unless stub[:environment_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -983,7 +985,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnvironmentSummary.stub(element) unless element.nil?
+          data << EnvironmentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1021,8 +1023,8 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['OwnerAccountId'] = stub[:owner_account_id] unless stub[:owner_account_id].nil?
         data['TransitGatewayId'] = stub[:transit_gateway_id] unless stub[:transit_gateway_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['Error'] = Stubs::ErrorResponse.stub(stub[:error]) unless stub[:error].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Error'] = ErrorResponse.stub(stub[:error]) unless stub[:error].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data
@@ -1042,9 +1044,9 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RouteSummaryList'] = Stubs::RouteSummaries.stub(stub[:route_summary_list]) unless stub[:route_summary_list].nil?
+        data['RouteSummaryList'] = RouteSummaries.stub(stub[:route_summary_list]) unless stub[:route_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1062,7 +1064,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RouteSummary.stub(element) unless element.nil?
+          data << RouteSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1106,12 +1108,12 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['EnvironmentId'] = stub[:environment_id] unless stub[:environment_id].nil?
         data['SourcePath'] = stub[:source_path] unless stub[:source_path].nil?
-        data['Methods'] = Stubs::HttpMethods.stub(stub[:member_methods]) unless stub[:member_methods].nil?
+        data['Methods'] = HttpMethods.stub(stub[:member_methods]) unless stub[:member_methods].nil?
         data['IncludeChildPaths'] = stub[:include_child_paths] unless stub[:include_child_paths].nil?
-        data['PathResourceToId'] = Stubs::PathResourceToId.stub(stub[:path_resource_to_id]) unless stub[:path_resource_to_id].nil?
+        data['PathResourceToId'] = PathResourceToId.stub(stub[:path_resource_to_id]) unless stub[:path_resource_to_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['Error'] = Stubs::ErrorResponse.stub(stub[:error]) unless stub[:error].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Error'] = ErrorResponse.stub(stub[:error]) unless stub[:error].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data
@@ -1131,9 +1133,9 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ServiceSummaryList'] = Stubs::ServiceSummaries.stub(stub[:service_summary_list]) unless stub[:service_summary_list].nil?
+        data['ServiceSummaryList'] = ServiceSummaries.stub(stub[:service_summary_list]) unless stub[:service_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1151,7 +1153,7 @@ module AWS::SDK::MigrationHubRefactorSpaces
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceSummary.stub(element) unless element.nil?
+          data << ServiceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1196,11 +1198,11 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data['ApplicationId'] = stub[:application_id] unless stub[:application_id].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['EndpointType'] = stub[:endpoint_type] unless stub[:endpoint_type].nil?
-        data['UrlEndpoint'] = Stubs::UrlEndpointSummary.stub(stub[:url_endpoint]) unless stub[:url_endpoint].nil?
-        data['LambdaEndpoint'] = Stubs::LambdaEndpointSummary.stub(stub[:lambda_endpoint]) unless stub[:lambda_endpoint].nil?
+        data['UrlEndpoint'] = UrlEndpointSummary.stub(stub[:url_endpoint]) unless stub[:url_endpoint].nil?
+        data['LambdaEndpoint'] = LambdaEndpointSummary.stub(stub[:lambda_endpoint]) unless stub[:lambda_endpoint].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['Error'] = Stubs::ErrorResponse.stub(stub[:error]) unless stub[:error].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Error'] = ErrorResponse.stub(stub[:error]) unless stub[:error].nil?
         data['LastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['CreatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_time]).to_i unless stub[:created_time].nil?
         data
@@ -1257,8 +1259,8 @@ module AWS::SDK::MigrationHubRefactorSpaces
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

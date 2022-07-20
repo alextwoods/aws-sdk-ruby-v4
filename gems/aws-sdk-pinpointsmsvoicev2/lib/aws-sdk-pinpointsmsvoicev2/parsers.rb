@@ -102,7 +102,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         map = Hearth::JSON.load(body)
         data.message = map['Message']
         data.reason = map['Reason']
-        data.fields = (Parsers::ValidationExceptionFieldList.parse(map['Fields']) unless map['Fields'].nil?)
+        data.fields = (ValidationExceptionFieldList.parse(map['Fields']) unless map['Fields'].nil?)
         data
       end
     end
@@ -110,7 +110,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class ValidationExceptionFieldList
       def self.parse(list)
         list.map do |value|
-          Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          ValidationExceptionField.parse(value) unless value.nil?
         end
       end
     end
@@ -146,7 +146,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         map = Hearth::JSON.load(body)
         data.configuration_set_arn = map['ConfigurationSetArn']
         data.configuration_set_name = map['ConfigurationSetName']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
         data
       end
@@ -155,7 +155,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -178,7 +178,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         map = Hearth::JSON.load(body)
         data.configuration_set_arn = map['ConfigurationSetArn']
         data.configuration_set_name = map['ConfigurationSetName']
-        data.event_destination = (Parsers::EventDestination.parse(map['EventDestination']) unless map['EventDestination'].nil?)
+        data.event_destination = (EventDestination.parse(map['EventDestination']) unless map['EventDestination'].nil?)
         data
       end
     end
@@ -188,10 +188,10 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = Types::EventDestination.new
         data.event_destination_name = map['EventDestinationName']
         data.enabled = map['Enabled']
-        data.matching_event_types = (Parsers::EventTypeList.parse(map['MatchingEventTypes']) unless map['MatchingEventTypes'].nil?)
-        data.cloud_watch_logs_destination = (Parsers::CloudWatchLogsDestination.parse(map['CloudWatchLogsDestination']) unless map['CloudWatchLogsDestination'].nil?)
-        data.kinesis_firehose_destination = (Parsers::KinesisFirehoseDestination.parse(map['KinesisFirehoseDestination']) unless map['KinesisFirehoseDestination'].nil?)
-        data.sns_destination = (Parsers::SnsDestination.parse(map['SnsDestination']) unless map['SnsDestination'].nil?)
+        data.matching_event_types = (EventTypeList.parse(map['MatchingEventTypes']) unless map['MatchingEventTypes'].nil?)
+        data.cloud_watch_logs_destination = (CloudWatchLogsDestination.parse(map['CloudWatchLogsDestination']) unless map['CloudWatchLogsDestination'].nil?)
+        data.kinesis_firehose_destination = (KinesisFirehoseDestination.parse(map['KinesisFirehoseDestination']) unless map['KinesisFirehoseDestination'].nil?)
+        data.sns_destination = (SnsDestination.parse(map['SnsDestination']) unless map['SnsDestination'].nil?)
         return data
       end
     end
@@ -239,7 +239,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         map = Hearth::JSON.load(body)
         data.opt_out_list_arn = map['OptOutListArn']
         data.opt_out_list_name = map['OptOutListName']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
         data
       end
@@ -262,7 +262,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data.opt_out_list_name = map['OptOutListName']
         data.shared_routes_enabled = map['SharedRoutesEnabled']
         data.deletion_protection_enabled = map['DeletionProtectionEnabled']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
         data
       end
@@ -277,7 +277,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         map = Hearth::JSON.load(body)
         data.configuration_set_arn = map['ConfigurationSetArn']
         data.configuration_set_name = map['ConfigurationSetName']
-        data.event_destinations = (Parsers::EventDestinationList.parse(map['EventDestinations']) unless map['EventDestinations'].nil?)
+        data.event_destinations = (EventDestinationList.parse(map['EventDestinations']) unless map['EventDestinations'].nil?)
         data.default_message_type = map['DefaultMessageType']
         data.default_sender_id = map['DefaultSenderId']
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
@@ -288,7 +288,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class EventDestinationList
       def self.parse(list)
         list.map do |value|
-          Parsers::EventDestination.parse(value) unless value.nil?
+          EventDestination.parse(value) unless value.nil?
         end
       end
     end
@@ -330,7 +330,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         map = Hearth::JSON.load(body)
         data.configuration_set_arn = map['ConfigurationSetArn']
         data.configuration_set_name = map['ConfigurationSetName']
-        data.event_destination = (Parsers::EventDestination.parse(map['EventDestination']) unless map['EventDestination'].nil?)
+        data.event_destination = (EventDestination.parse(map['EventDestination']) unless map['EventDestination'].nil?)
         data
       end
     end
@@ -433,7 +433,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_attributes = (Parsers::AccountAttributeList.parse(map['AccountAttributes']) unless map['AccountAttributes'].nil?)
+        data.account_attributes = (AccountAttributeList.parse(map['AccountAttributes']) unless map['AccountAttributes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -442,7 +442,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class AccountAttributeList
       def self.parse(list)
         list.map do |value|
-          Parsers::AccountAttribute.parse(value) unless value.nil?
+          AccountAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -463,7 +463,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.account_limits = (Parsers::AccountLimitList.parse(map['AccountLimits']) unless map['AccountLimits'].nil?)
+        data.account_limits = (AccountLimitList.parse(map['AccountLimits']) unless map['AccountLimits'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -472,7 +472,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class AccountLimitList
       def self.parse(list)
         list.map do |value|
-          Parsers::AccountLimit.parse(value) unless value.nil?
+          AccountLimit.parse(value) unless value.nil?
         end
       end
     end
@@ -494,7 +494,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.configuration_sets = (Parsers::ConfigurationSetInformationList.parse(map['ConfigurationSets']) unless map['ConfigurationSets'].nil?)
+        data.configuration_sets = (ConfigurationSetInformationList.parse(map['ConfigurationSets']) unless map['ConfigurationSets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -503,7 +503,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class ConfigurationSetInformationList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConfigurationSetInformation.parse(value) unless value.nil?
+          ConfigurationSetInformation.parse(value) unless value.nil?
         end
       end
     end
@@ -513,7 +513,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = Types::ConfigurationSetInformation.new
         data.configuration_set_arn = map['ConfigurationSetArn']
         data.configuration_set_name = map['ConfigurationSetName']
-        data.event_destinations = (Parsers::EventDestinationList.parse(map['EventDestinations']) unless map['EventDestinations'].nil?)
+        data.event_destinations = (EventDestinationList.parse(map['EventDestinations']) unless map['EventDestinations'].nil?)
         data.default_message_type = map['DefaultMessageType']
         data.default_sender_id = map['DefaultSenderId']
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
@@ -530,7 +530,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         map = Hearth::JSON.load(body)
         data.origination_identity_arn = map['OriginationIdentityArn']
         data.origination_identity = map['OriginationIdentity']
-        data.keywords = (Parsers::KeywordInformationList.parse(map['Keywords']) unless map['Keywords'].nil?)
+        data.keywords = (KeywordInformationList.parse(map['Keywords']) unless map['Keywords'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -539,7 +539,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class KeywordInformationList
       def self.parse(list)
         list.map do |value|
-          Parsers::KeywordInformation.parse(value) unless value.nil?
+          KeywordInformation.parse(value) unless value.nil?
         end
       end
     end
@@ -561,7 +561,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.opt_out_lists = (Parsers::OptOutListInformationList.parse(map['OptOutLists']) unless map['OptOutLists'].nil?)
+        data.opt_out_lists = (OptOutListInformationList.parse(map['OptOutLists']) unless map['OptOutLists'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -570,7 +570,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class OptOutListInformationList
       def self.parse(list)
         list.map do |value|
-          Parsers::OptOutListInformation.parse(value) unless value.nil?
+          OptOutListInformation.parse(value) unless value.nil?
         end
       end
     end
@@ -594,7 +594,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         map = Hearth::JSON.load(body)
         data.opt_out_list_arn = map['OptOutListArn']
         data.opt_out_list_name = map['OptOutListName']
-        data.opted_out_numbers = (Parsers::OptedOutNumberInformationList.parse(map['OptedOutNumbers']) unless map['OptedOutNumbers'].nil?)
+        data.opted_out_numbers = (OptedOutNumberInformationList.parse(map['OptedOutNumbers']) unless map['OptedOutNumbers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -603,7 +603,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class OptedOutNumberInformationList
       def self.parse(list)
         list.map do |value|
-          Parsers::OptedOutNumberInformation.parse(value) unless value.nil?
+          OptedOutNumberInformation.parse(value) unless value.nil?
         end
       end
     end
@@ -625,7 +625,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.phone_numbers = (Parsers::PhoneNumberInformationList.parse(map['PhoneNumbers']) unless map['PhoneNumbers'].nil?)
+        data.phone_numbers = (PhoneNumberInformationList.parse(map['PhoneNumbers']) unless map['PhoneNumbers'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -634,7 +634,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class PhoneNumberInformationList
       def self.parse(list)
         list.map do |value|
-          Parsers::PhoneNumberInformation.parse(value) unless value.nil?
+          PhoneNumberInformation.parse(value) unless value.nil?
         end
       end
     end
@@ -648,7 +648,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data.status = map['Status']
         data.iso_country_code = map['IsoCountryCode']
         data.message_type = map['MessageType']
-        data.number_capabilities = (Parsers::NumberCapabilityList.parse(map['NumberCapabilities']) unless map['NumberCapabilities'].nil?)
+        data.number_capabilities = (NumberCapabilityList.parse(map['NumberCapabilities']) unless map['NumberCapabilities'].nil?)
         data.number_type = map['NumberType']
         data.monthly_leasing_price = map['MonthlyLeasingPrice']
         data.two_way_enabled = map['TwoWayEnabled']
@@ -677,7 +677,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pools = (Parsers::PoolInformationList.parse(map['Pools']) unless map['Pools'].nil?)
+        data.pools = (PoolInformationList.parse(map['Pools']) unless map['Pools'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -686,7 +686,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class PoolInformationList
       def self.parse(list)
         list.map do |value|
-          Parsers::PoolInformation.parse(value) unless value.nil?
+          PoolInformation.parse(value) unless value.nil?
         end
       end
     end
@@ -716,7 +716,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.sender_ids = (Parsers::SenderIdInformationList.parse(map['SenderIds']) unless map['SenderIds'].nil?)
+        data.sender_ids = (SenderIdInformationList.parse(map['SenderIds']) unless map['SenderIds'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -725,7 +725,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class SenderIdInformationList
       def self.parse(list)
         list.map do |value|
-          Parsers::SenderIdInformation.parse(value) unless value.nil?
+          SenderIdInformation.parse(value) unless value.nil?
         end
       end
     end
@@ -736,7 +736,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data.sender_id_arn = map['SenderIdArn']
         data.sender_id = map['SenderId']
         data.iso_country_code = map['IsoCountryCode']
-        data.message_types = (Parsers::MessageTypeList.parse(map['MessageTypes']) unless map['MessageTypes'].nil?)
+        data.message_types = (MessageTypeList.parse(map['MessageTypes']) unless map['MessageTypes'].nil?)
         data.monthly_leasing_price = map['MonthlyLeasingPrice']
         return data
       end
@@ -757,7 +757,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.spend_limits = (Parsers::SpendLimitList.parse(map['SpendLimits']) unless map['SpendLimits'].nil?)
+        data.spend_limits = (SpendLimitList.parse(map['SpendLimits']) unless map['SpendLimits'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -766,7 +766,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class SpendLimitList
       def self.parse(list)
         list.map do |value|
-          Parsers::SpendLimit.parse(value) unless value.nil?
+          SpendLimit.parse(value) unless value.nil?
         end
       end
     end
@@ -807,7 +807,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         map = Hearth::JSON.load(body)
         data.pool_arn = map['PoolArn']
         data.pool_id = map['PoolId']
-        data.origination_identities = (Parsers::OriginationIdentityMetadataList.parse(map['OriginationIdentities']) unless map['OriginationIdentities'].nil?)
+        data.origination_identities = (OriginationIdentityMetadataList.parse(map['OriginationIdentities']) unless map['OriginationIdentities'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -816,7 +816,7 @@ module AWS::SDK::PinpointSMSVoiceV2
     class OriginationIdentityMetadataList
       def self.parse(list)
         list.map do |value|
-          Parsers::OriginationIdentityMetadata.parse(value) unless value.nil?
+          OriginationIdentityMetadata.parse(value) unless value.nil?
         end
       end
     end
@@ -827,7 +827,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data.origination_identity_arn = map['OriginationIdentityArn']
         data.origination_identity = map['OriginationIdentity']
         data.iso_country_code = map['IsoCountryCode']
-        data.number_capabilities = (Parsers::NumberCapabilityList.parse(map['NumberCapabilities']) unless map['NumberCapabilities'].nil?)
+        data.number_capabilities = (NumberCapabilityList.parse(map['NumberCapabilities']) unless map['NumberCapabilities'].nil?)
         return data
       end
     end
@@ -840,7 +840,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.resource_arn = map['ResourceArn']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -890,7 +890,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data.status = map['Status']
         data.iso_country_code = map['IsoCountryCode']
         data.message_type = map['MessageType']
-        data.number_capabilities = (Parsers::NumberCapabilityList.parse(map['NumberCapabilities']) unless map['NumberCapabilities'].nil?)
+        data.number_capabilities = (NumberCapabilityList.parse(map['NumberCapabilities']) unless map['NumberCapabilities'].nil?)
         data.number_type = map['NumberType']
         data.monthly_leasing_price = map['MonthlyLeasingPrice']
         data.two_way_enabled = map['TwoWayEnabled']
@@ -915,7 +915,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data.status = map['Status']
         data.iso_country_code = map['IsoCountryCode']
         data.message_type = map['MessageType']
-        data.number_capabilities = (Parsers::NumberCapabilityList.parse(map['NumberCapabilities']) unless map['NumberCapabilities'].nil?)
+        data.number_capabilities = (NumberCapabilityList.parse(map['NumberCapabilities']) unless map['NumberCapabilities'].nil?)
         data.number_type = map['NumberType']
         data.monthly_leasing_price = map['MonthlyLeasingPrice']
         data.two_way_enabled = map['TwoWayEnabled']
@@ -924,7 +924,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data.opt_out_list_name = map['OptOutListName']
         data.deletion_protection_enabled = map['DeletionProtectionEnabled']
         data.pool_id = map['PoolId']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
         data
       end
@@ -1037,7 +1037,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         map = Hearth::JSON.load(body)
         data.configuration_set_arn = map['ConfigurationSetArn']
         data.configuration_set_name = map['ConfigurationSetName']
-        data.event_destination = (Parsers::EventDestination.parse(map['EventDestination']) unless map['EventDestination'].nil?)
+        data.event_destination = (EventDestination.parse(map['EventDestination']) unless map['EventDestination'].nil?)
         data
       end
     end
@@ -1055,7 +1055,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data.status = map['Status']
         data.iso_country_code = map['IsoCountryCode']
         data.message_type = map['MessageType']
-        data.number_capabilities = (Parsers::NumberCapabilityList.parse(map['NumberCapabilities']) unless map['NumberCapabilities'].nil?)
+        data.number_capabilities = (NumberCapabilityList.parse(map['NumberCapabilities']) unless map['NumberCapabilities'].nil?)
         data.number_type = map['NumberType']
         data.monthly_leasing_price = map['MonthlyLeasingPrice']
         data.two_way_enabled = map['TwoWayEnabled']

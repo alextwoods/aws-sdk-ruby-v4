@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MachineLearning
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::MachineLearning
         data = {}
         data['ResourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -39,7 +41,7 @@ module AWS::SDK::MachineLearning
       def self.stub(http_resp, stub:)
         data = {}
         data['BatchPredictionId'] = stub[:batch_prediction_id] unless stub[:batch_prediction_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -55,7 +57,7 @@ module AWS::SDK::MachineLearning
       def self.stub(http_resp, stub:)
         data = {}
         data['DataSourceId'] = stub[:data_source_id] unless stub[:data_source_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -71,7 +73,7 @@ module AWS::SDK::MachineLearning
       def self.stub(http_resp, stub:)
         data = {}
         data['DataSourceId'] = stub[:data_source_id] unless stub[:data_source_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -87,7 +89,7 @@ module AWS::SDK::MachineLearning
       def self.stub(http_resp, stub:)
         data = {}
         data['DataSourceId'] = stub[:data_source_id] unless stub[:data_source_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -103,7 +105,7 @@ module AWS::SDK::MachineLearning
       def self.stub(http_resp, stub:)
         data = {}
         data['EvaluationId'] = stub[:evaluation_id] unless stub[:evaluation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -119,7 +121,7 @@ module AWS::SDK::MachineLearning
       def self.stub(http_resp, stub:)
         data = {}
         data['MLModelId'] = stub[:ml_model_id] unless stub[:ml_model_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -136,8 +138,8 @@ module AWS::SDK::MachineLearning
       def self.stub(http_resp, stub:)
         data = {}
         data['MLModelId'] = stub[:ml_model_id] unless stub[:ml_model_id].nil?
-        data['RealtimeEndpointInfo'] = Stubs::RealtimeEndpointInfo.stub(stub[:realtime_endpoint_info]) unless stub[:realtime_endpoint_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RealtimeEndpointInfo'] = RealtimeEndpointInfo.stub(stub[:realtime_endpoint_info]) unless stub[:realtime_endpoint_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -177,7 +179,7 @@ module AWS::SDK::MachineLearning
       def self.stub(http_resp, stub:)
         data = {}
         data['BatchPredictionId'] = stub[:batch_prediction_id] unless stub[:batch_prediction_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -193,7 +195,7 @@ module AWS::SDK::MachineLearning
       def self.stub(http_resp, stub:)
         data = {}
         data['DataSourceId'] = stub[:data_source_id] unless stub[:data_source_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -209,7 +211,7 @@ module AWS::SDK::MachineLearning
       def self.stub(http_resp, stub:)
         data = {}
         data['EvaluationId'] = stub[:evaluation_id] unless stub[:evaluation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -225,7 +227,7 @@ module AWS::SDK::MachineLearning
       def self.stub(http_resp, stub:)
         data = {}
         data['MLModelId'] = stub[:ml_model_id] unless stub[:ml_model_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -242,8 +244,8 @@ module AWS::SDK::MachineLearning
       def self.stub(http_resp, stub:)
         data = {}
         data['MLModelId'] = stub[:ml_model_id] unless stub[:ml_model_id].nil?
-        data['RealtimeEndpointInfo'] = Stubs::RealtimeEndpointInfo.stub(stub[:realtime_endpoint_info]) unless stub[:realtime_endpoint_info].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RealtimeEndpointInfo'] = RealtimeEndpointInfo.stub(stub[:realtime_endpoint_info]) unless stub[:realtime_endpoint_info].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -261,7 +263,7 @@ module AWS::SDK::MachineLearning
         data = {}
         data['ResourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -277,9 +279,9 @@ module AWS::SDK::MachineLearning
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Results'] = Stubs::BatchPredictions.stub(stub[:results]) unless stub[:results].nil?
+        data['Results'] = BatchPredictions.stub(stub[:results]) unless stub[:results].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -298,7 +300,7 @@ module AWS::SDK::MachineLearning
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchPrediction.stub(element) unless element.nil?
+          data << BatchPrediction.stub(element) unless element.nil?
         end
         data
       end
@@ -363,9 +365,9 @@ module AWS::SDK::MachineLearning
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Results'] = Stubs::DataSources.stub(stub[:results]) unless stub[:results].nil?
+        data['Results'] = DataSources.stub(stub[:results]) unless stub[:results].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -384,7 +386,7 @@ module AWS::SDK::MachineLearning
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataSource.stub(element) unless element.nil?
+          data << DataSource.stub(element) unless element.nil?
         end
         data
       end
@@ -431,8 +433,8 @@ module AWS::SDK::MachineLearning
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
-        data['RedshiftMetadata'] = Stubs::RedshiftMetadata.stub(stub[:redshift_metadata]) unless stub[:redshift_metadata].nil?
-        data['RDSMetadata'] = Stubs::RDSMetadata.stub(stub[:rds_metadata]) unless stub[:rds_metadata].nil?
+        data['RedshiftMetadata'] = RedshiftMetadata.stub(stub[:redshift_metadata]) unless stub[:redshift_metadata].nil?
+        data['RDSMetadata'] = RDSMetadata.stub(stub[:rds_metadata]) unless stub[:rds_metadata].nil?
         data['RoleARN'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['ComputeStatistics'] = stub[:compute_statistics] unless stub[:compute_statistics].nil?
         data['ComputeTime'] = stub[:compute_time] unless stub[:compute_time].nil?
@@ -460,7 +462,7 @@ module AWS::SDK::MachineLearning
       def self.stub(stub)
         stub ||= Types::RDSMetadata.new
         data = {}
-        data['Database'] = Stubs::RDSDatabase.stub(stub[:database]) unless stub[:database].nil?
+        data['Database'] = RDSDatabase.stub(stub[:database]) unless stub[:database].nil?
         data['DatabaseUserName'] = stub[:database_user_name] unless stub[:database_user_name].nil?
         data['SelectSqlQuery'] = stub[:select_sql_query] unless stub[:select_sql_query].nil?
         data['ResourceRole'] = stub[:resource_role] unless stub[:resource_role].nil?
@@ -505,7 +507,7 @@ module AWS::SDK::MachineLearning
       def self.stub(stub)
         stub ||= Types::RedshiftMetadata.new
         data = {}
-        data['RedshiftDatabase'] = Stubs::RedshiftDatabase.stub(stub[:redshift_database]) unless stub[:redshift_database].nil?
+        data['RedshiftDatabase'] = RedshiftDatabase.stub(stub[:redshift_database]) unless stub[:redshift_database].nil?
         data['DatabaseUserName'] = stub[:database_user_name] unless stub[:database_user_name].nil?
         data['SelectSqlQuery'] = stub[:select_sql_query] unless stub[:select_sql_query].nil?
         data
@@ -543,9 +545,9 @@ module AWS::SDK::MachineLearning
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Results'] = Stubs::Evaluations.stub(stub[:results]) unless stub[:results].nil?
+        data['Results'] = Evaluations.stub(stub[:results]) unless stub[:results].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -564,7 +566,7 @@ module AWS::SDK::MachineLearning
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Evaluation.stub(element) unless element.nil?
+          data << Evaluation.stub(element) unless element.nil?
         end
         data
       end
@@ -605,7 +607,7 @@ module AWS::SDK::MachineLearning
         data['LastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['PerformanceMetrics'] = Stubs::PerformanceMetrics.stub(stub[:performance_metrics]) unless stub[:performance_metrics].nil?
+        data['PerformanceMetrics'] = PerformanceMetrics.stub(stub[:performance_metrics]) unless stub[:performance_metrics].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['ComputeTime'] = stub[:compute_time] unless stub[:compute_time].nil?
         data['FinishedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:finished_at]).to_i unless stub[:finished_at].nil?
@@ -627,7 +629,7 @@ module AWS::SDK::MachineLearning
       def self.stub(stub)
         stub ||= Types::PerformanceMetrics.new
         data = {}
-        data['Properties'] = Stubs::PerformanceMetricsProperties.stub(stub[:properties]) unless stub[:properties].nil?
+        data['Properties'] = PerformanceMetricsProperties.stub(stub[:properties]) unless stub[:properties].nil?
         data
       end
     end
@@ -663,9 +665,9 @@ module AWS::SDK::MachineLearning
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Results'] = Stubs::MLModels.stub(stub[:results]) unless stub[:results].nil?
+        data['Results'] = MLModels.stub(stub[:results]) unless stub[:results].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -684,7 +686,7 @@ module AWS::SDK::MachineLearning
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MLModel.stub(element) unless element.nil?
+          data << MLModel.stub(element) unless element.nil?
         end
         data
       end
@@ -729,8 +731,8 @@ module AWS::SDK::MachineLearning
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['SizeInBytes'] = stub[:size_in_bytes] unless stub[:size_in_bytes].nil?
-        data['EndpointInfo'] = Stubs::RealtimeEndpointInfo.stub(stub[:endpoint_info]) unless stub[:endpoint_info].nil?
-        data['TrainingParameters'] = Stubs::TrainingParameters.stub(stub[:training_parameters]) unless stub[:training_parameters].nil?
+        data['EndpointInfo'] = RealtimeEndpointInfo.stub(stub[:endpoint_info]) unless stub[:endpoint_info].nil?
+        data['TrainingParameters'] = TrainingParameters.stub(stub[:training_parameters]) unless stub[:training_parameters].nil?
         data['InputDataLocationS3'] = stub[:input_data_location_s3] unless stub[:input_data_location_s3].nil?
         data['Algorithm'] = stub[:algorithm] unless stub[:algorithm].nil?
         data['MLModelType'] = stub[:ml_model_type] unless stub[:ml_model_type].nil?
@@ -778,8 +780,8 @@ module AWS::SDK::MachineLearning
         data = {}
         data['ResourceId'] = stub[:resource_id] unless stub[:resource_id].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -798,7 +800,7 @@ module AWS::SDK::MachineLearning
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -867,7 +869,7 @@ module AWS::SDK::MachineLearning
         data['StartedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started_at]).to_i unless stub[:started_at].nil?
         data['TotalRecordCount'] = stub[:total_record_count] unless stub[:total_record_count].nil?
         data['InvalidRecordCount'] = stub[:invalid_record_count] unless stub[:invalid_record_count].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -913,15 +915,15 @@ module AWS::SDK::MachineLearning
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['LogUri'] = stub[:log_uri] unless stub[:log_uri].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
-        data['RedshiftMetadata'] = Stubs::RedshiftMetadata.stub(stub[:redshift_metadata]) unless stub[:redshift_metadata].nil?
-        data['RDSMetadata'] = Stubs::RDSMetadata.stub(stub[:rds_metadata]) unless stub[:rds_metadata].nil?
+        data['RedshiftMetadata'] = RedshiftMetadata.stub(stub[:redshift_metadata]) unless stub[:redshift_metadata].nil?
+        data['RDSMetadata'] = RDSMetadata.stub(stub[:rds_metadata]) unless stub[:rds_metadata].nil?
         data['RoleARN'] = stub[:role_arn] unless stub[:role_arn].nil?
         data['ComputeStatistics'] = stub[:compute_statistics] unless stub[:compute_statistics].nil?
         data['ComputeTime'] = stub[:compute_time] unless stub[:compute_time].nil?
         data['FinishedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:finished_at]).to_i unless stub[:finished_at].nil?
         data['StartedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started_at]).to_i unless stub[:started_at].nil?
         data['DataSourceSchema'] = stub[:data_source_schema] unless stub[:data_source_schema].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -959,13 +961,13 @@ module AWS::SDK::MachineLearning
         data['LastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['PerformanceMetrics'] = Stubs::PerformanceMetrics.stub(stub[:performance_metrics]) unless stub[:performance_metrics].nil?
+        data['PerformanceMetrics'] = PerformanceMetrics.stub(stub[:performance_metrics]) unless stub[:performance_metrics].nil?
         data['LogUri'] = stub[:log_uri] unless stub[:log_uri].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data['ComputeTime'] = stub[:compute_time] unless stub[:compute_time].nil?
         data['FinishedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:finished_at]).to_i unless stub[:finished_at].nil?
         data['StartedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started_at]).to_i unless stub[:started_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1008,8 +1010,8 @@ module AWS::SDK::MachineLearning
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['SizeInBytes'] = stub[:size_in_bytes] unless stub[:size_in_bytes].nil?
-        data['EndpointInfo'] = Stubs::RealtimeEndpointInfo.stub(stub[:endpoint_info]) unless stub[:endpoint_info].nil?
-        data['TrainingParameters'] = Stubs::TrainingParameters.stub(stub[:training_parameters]) unless stub[:training_parameters].nil?
+        data['EndpointInfo'] = RealtimeEndpointInfo.stub(stub[:endpoint_info]) unless stub[:endpoint_info].nil?
+        data['TrainingParameters'] = TrainingParameters.stub(stub[:training_parameters]) unless stub[:training_parameters].nil?
         data['InputDataLocationS3'] = stub[:input_data_location_s3] unless stub[:input_data_location_s3].nil?
         data['MLModelType'] = stub[:ml_model_type] unless stub[:ml_model_type].nil?
         data['ScoreThreshold'] = Hearth::NumberHelper.serialize(stub[:score_threshold])
@@ -1021,7 +1023,7 @@ module AWS::SDK::MachineLearning
         data['StartedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:started_at]).to_i unless stub[:started_at].nil?
         data['Recipe'] = stub[:recipe] unless stub[:recipe].nil?
         data['Schema'] = stub[:schema] unless stub[:schema].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1036,8 +1038,8 @@ module AWS::SDK::MachineLearning
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Prediction'] = Stubs::Prediction.stub(stub[:prediction]) unless stub[:prediction].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Prediction'] = Prediction.stub(stub[:prediction]) unless stub[:prediction].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1060,8 +1062,8 @@ module AWS::SDK::MachineLearning
         data = {}
         data['predictedLabel'] = stub[:predicted_label] unless stub[:predicted_label].nil?
         data['predictedValue'] = Hearth::NumberHelper.serialize(stub[:predicted_value])
-        data['predictedScores'] = Stubs::ScoreValuePerLabelMap.stub(stub[:predicted_scores]) unless stub[:predicted_scores].nil?
-        data['details'] = Stubs::DetailsMap.stub(stub[:details]) unless stub[:details].nil?
+        data['predictedScores'] = ScoreValuePerLabelMap.stub(stub[:predicted_scores]) unless stub[:predicted_scores].nil?
+        data['details'] = DetailsMap.stub(stub[:details]) unless stub[:details].nil?
         data
       end
     end
@@ -1117,7 +1119,7 @@ module AWS::SDK::MachineLearning
       def self.stub(http_resp, stub:)
         data = {}
         data['BatchPredictionId'] = stub[:batch_prediction_id] unless stub[:batch_prediction_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1133,7 +1135,7 @@ module AWS::SDK::MachineLearning
       def self.stub(http_resp, stub:)
         data = {}
         data['DataSourceId'] = stub[:data_source_id] unless stub[:data_source_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1149,7 +1151,7 @@ module AWS::SDK::MachineLearning
       def self.stub(http_resp, stub:)
         data = {}
         data['EvaluationId'] = stub[:evaluation_id] unless stub[:evaluation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1165,7 +1167,7 @@ module AWS::SDK::MachineLearning
       def self.stub(http_resp, stub:)
         data = {}
         data['MLModelId'] = stub[:ml_model_id] unless stub[:ml_model_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

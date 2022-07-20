@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Mq
   module Builders
 
@@ -23,23 +25,23 @@ module AWS::SDK::Mq
         data['authenticationStrategy'] = input[:authentication_strategy] unless input[:authentication_strategy].nil?
         data['autoMinorVersionUpgrade'] = input[:auto_minor_version_upgrade] unless input[:auto_minor_version_upgrade].nil?
         data['brokerName'] = input[:broker_name] unless input[:broker_name].nil?
-        data['configuration'] = Builders::ConfigurationId.build(input[:configuration]) unless input[:configuration].nil?
+        data['configuration'] = ConfigurationId.build(input[:configuration]) unless input[:configuration].nil?
         data['creatorRequestId'] = input[:creator_request_id] unless input[:creator_request_id].nil?
         data['deploymentMode'] = input[:deployment_mode] unless input[:deployment_mode].nil?
-        data['encryptionOptions'] = Builders::EncryptionOptions.build(input[:encryption_options]) unless input[:encryption_options].nil?
+        data['encryptionOptions'] = EncryptionOptions.build(input[:encryption_options]) unless input[:encryption_options].nil?
         data['engineType'] = input[:engine_type] unless input[:engine_type].nil?
         data['engineVersion'] = input[:engine_version] unless input[:engine_version].nil?
         data['hostInstanceType'] = input[:host_instance_type] unless input[:host_instance_type].nil?
-        data['ldapServerMetadata'] = Builders::LdapServerMetadataInput.build(input[:ldap_server_metadata]) unless input[:ldap_server_metadata].nil?
-        data['logs'] = Builders::Logs.build(input[:logs]) unless input[:logs].nil?
-        data['maintenanceWindowStartTime'] = Builders::WeeklyStartTime.build(input[:maintenance_window_start_time]) unless input[:maintenance_window_start_time].nil?
+        data['ldapServerMetadata'] = LdapServerMetadataInput.build(input[:ldap_server_metadata]) unless input[:ldap_server_metadata].nil?
+        data['logs'] = Logs.build(input[:logs]) unless input[:logs].nil?
+        data['maintenanceWindowStartTime'] = WeeklyStartTime.build(input[:maintenance_window_start_time]) unless input[:maintenance_window_start_time].nil?
         data['publiclyAccessible'] = input[:publicly_accessible] unless input[:publicly_accessible].nil?
-        data['securityGroups'] = Builders::List____listOf__string.build(input[:security_groups]) unless input[:security_groups].nil?
+        data['securityGroups'] = List____listOf__string.build(input[:security_groups]) unless input[:security_groups].nil?
         data['storageType'] = input[:storage_type] unless input[:storage_type].nil?
-        data['subnetIds'] = Builders::List____listOf__string.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['tags'] = Builders::Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
-        data['users'] = Builders::List____listOfUser.build(input[:users]) unless input[:users].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['subnetIds'] = List____listOf__string.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['tags'] = Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
+        data['users'] = List____listOfUser.build(input[:users]) unless input[:users].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -48,7 +50,7 @@ module AWS::SDK::Mq
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::User.build(element) unless element.nil?
+          data << User.build(element) unless element.nil?
         end
         data
       end
@@ -59,7 +61,7 @@ module AWS::SDK::Mq
       def self.build(input)
         data = {}
         data['consoleAccess'] = input[:console_access] unless input[:console_access].nil?
-        data['groups'] = Builders::List____listOf__string.build(input[:groups]) unless input[:groups].nil?
+        data['groups'] = List____listOf__string.build(input[:groups]) unless input[:groups].nil?
         data['password'] = input[:password] unless input[:password].nil?
         data['username'] = input[:username] unless input[:username].nil?
         data
@@ -113,7 +115,7 @@ module AWS::SDK::Mq
     class LdapServerMetadataInput
       def self.build(input)
         data = {}
-        data['hosts'] = Builders::List____listOf__string.build(input[:hosts]) unless input[:hosts].nil?
+        data['hosts'] = List____listOf__string.build(input[:hosts]) unless input[:hosts].nil?
         data['roleBase'] = input[:role_base] unless input[:role_base].nil?
         data['roleName'] = input[:role_name] unless input[:role_name].nil?
         data['roleSearchMatching'] = input[:role_search_matching] unless input[:role_search_matching].nil?
@@ -162,8 +164,8 @@ module AWS::SDK::Mq
         data['engineType'] = input[:engine_type] unless input[:engine_type].nil?
         data['engineVersion'] = input[:engine_version] unless input[:engine_version].nil?
         data['name'] = input[:name] unless input[:name].nil?
-        data['tags'] = Builders::Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -184,8 +186,8 @@ module AWS::SDK::Mq
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Map____mapOf__string.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -211,9 +213,9 @@ module AWS::SDK::Mq
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['consoleAccess'] = input[:console_access] unless input[:console_access].nil?
-        data['groups'] = Builders::List____listOf__string.build(input[:groups]) unless input[:groups].nil?
+        data['groups'] = List____listOf__string.build(input[:groups]) unless input[:groups].nil?
         data['password'] = input[:password] unless input[:password].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -496,14 +498,14 @@ module AWS::SDK::Mq
         data = {}
         data['authenticationStrategy'] = input[:authentication_strategy] unless input[:authentication_strategy].nil?
         data['autoMinorVersionUpgrade'] = input[:auto_minor_version_upgrade] unless input[:auto_minor_version_upgrade].nil?
-        data['configuration'] = Builders::ConfigurationId.build(input[:configuration]) unless input[:configuration].nil?
+        data['configuration'] = ConfigurationId.build(input[:configuration]) unless input[:configuration].nil?
         data['engineVersion'] = input[:engine_version] unless input[:engine_version].nil?
         data['hostInstanceType'] = input[:host_instance_type] unless input[:host_instance_type].nil?
-        data['ldapServerMetadata'] = Builders::LdapServerMetadataInput.build(input[:ldap_server_metadata]) unless input[:ldap_server_metadata].nil?
-        data['logs'] = Builders::Logs.build(input[:logs]) unless input[:logs].nil?
-        data['maintenanceWindowStartTime'] = Builders::WeeklyStartTime.build(input[:maintenance_window_start_time]) unless input[:maintenance_window_start_time].nil?
-        data['securityGroups'] = Builders::List____listOf__string.build(input[:security_groups]) unless input[:security_groups].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ldapServerMetadata'] = LdapServerMetadataInput.build(input[:ldap_server_metadata]) unless input[:ldap_server_metadata].nil?
+        data['logs'] = Logs.build(input[:logs]) unless input[:logs].nil?
+        data['maintenanceWindowStartTime'] = WeeklyStartTime.build(input[:maintenance_window_start_time]) unless input[:maintenance_window_start_time].nil?
+        data['securityGroups'] = List____listOf__string.build(input[:security_groups]) unless input[:security_groups].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -526,7 +528,7 @@ module AWS::SDK::Mq
         data = {}
         data['data'] = input[:data] unless input[:data].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -552,9 +554,9 @@ module AWS::SDK::Mq
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['consoleAccess'] = input[:console_access] unless input[:console_access].nil?
-        data['groups'] = Builders::List____listOf__string.build(input[:groups]) unless input[:groups].nil?
+        data['groups'] = List____listOf__string.build(input[:groups]) unless input[:groups].nil?
         data['password'] = input[:password] unless input[:password].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

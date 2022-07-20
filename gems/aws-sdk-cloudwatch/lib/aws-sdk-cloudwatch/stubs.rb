@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::CloudWatch
   module Stubs
 
@@ -23,7 +26,7 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('DeleteAlarmsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -41,7 +44,7 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('DeleteAnomalyDetectorResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -59,7 +62,7 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('DeleteDashboardsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -77,9 +80,9 @@ module AWS::SDK::CloudWatch
         response = Hearth::XML::Node.new('DeleteInsightRulesResponse')
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('DeleteInsightRulesResult')
-        xml << Hearth::XML::Node.new('Failures', Stubs::BatchFailures.stub('member', stub[:failures])) unless stub[:failures].nil?
+        xml << Hearth::XML::Node.new('Failures', BatchFailures.stub('member', stub[:failures])) unless stub[:failures].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -97,7 +100,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::PartialFailure.stub(node_name, element) unless element.nil?
+          xml << PartialFailure.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -140,7 +143,7 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('DeleteMetricStreamResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -159,10 +162,10 @@ module AWS::SDK::CloudWatch
         response = Hearth::XML::Node.new('DescribeAlarmHistoryResponse')
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('DescribeAlarmHistoryResult')
-        xml << Hearth::XML::Node.new('AlarmHistoryItems', Stubs::AlarmHistoryItems.stub('member', stub[:alarm_history_items])) unless stub[:alarm_history_items].nil?
+        xml << Hearth::XML::Node.new('AlarmHistoryItems', AlarmHistoryItems.stub('member', stub[:alarm_history_items])) unless stub[:alarm_history_items].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -180,7 +183,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AlarmHistoryItem.stub(node_name, element) unless element.nil?
+          xml << AlarmHistoryItem.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -229,11 +232,11 @@ module AWS::SDK::CloudWatch
         response = Hearth::XML::Node.new('DescribeAlarmsResponse')
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('DescribeAlarmsResult')
-        xml << Hearth::XML::Node.new('CompositeAlarms', Stubs::CompositeAlarms.stub('member', stub[:composite_alarms])) unless stub[:composite_alarms].nil?
-        xml << Hearth::XML::Node.new('MetricAlarms', Stubs::MetricAlarms.stub('member', stub[:metric_alarms])) unless stub[:metric_alarms].nil?
+        xml << Hearth::XML::Node.new('CompositeAlarms', CompositeAlarms.stub('member', stub[:composite_alarms])) unless stub[:composite_alarms].nil?
+        xml << Hearth::XML::Node.new('MetricAlarms', MetricAlarms.stub('member', stub[:metric_alarms])) unless stub[:metric_alarms].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -251,7 +254,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::MetricAlarm.stub(node_name, element) unless element.nil?
+          xml << MetricAlarm.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -301,9 +304,9 @@ module AWS::SDK::CloudWatch
         xml << Hearth::XML::Node.new('AlarmDescription', stub[:alarm_description].to_s) unless stub[:alarm_description].nil?
         xml << Hearth::XML::Node.new('AlarmConfigurationUpdatedTimestamp', Hearth::TimeHelper.to_date_time(stub[:alarm_configuration_updated_timestamp])) unless stub[:alarm_configuration_updated_timestamp].nil?
         xml << Hearth::XML::Node.new('ActionsEnabled', stub[:actions_enabled].to_s) unless stub[:actions_enabled].nil?
-        xml << Hearth::XML::Node.new('OKActions', Stubs::ResourceList.stub('member', stub[:ok_actions])) unless stub[:ok_actions].nil?
-        xml << Hearth::XML::Node.new('AlarmActions', Stubs::ResourceList.stub('member', stub[:alarm_actions])) unless stub[:alarm_actions].nil?
-        xml << Hearth::XML::Node.new('InsufficientDataActions', Stubs::ResourceList.stub('member', stub[:insufficient_data_actions])) unless stub[:insufficient_data_actions].nil?
+        xml << Hearth::XML::Node.new('OKActions', ResourceList.stub('member', stub[:ok_actions])) unless stub[:ok_actions].nil?
+        xml << Hearth::XML::Node.new('AlarmActions', ResourceList.stub('member', stub[:alarm_actions])) unless stub[:alarm_actions].nil?
+        xml << Hearth::XML::Node.new('InsufficientDataActions', ResourceList.stub('member', stub[:insufficient_data_actions])) unless stub[:insufficient_data_actions].nil?
         xml << Hearth::XML::Node.new('StateValue', stub[:state_value].to_s) unless stub[:state_value].nil?
         xml << Hearth::XML::Node.new('StateReason', stub[:state_reason].to_s) unless stub[:state_reason].nil?
         xml << Hearth::XML::Node.new('StateReasonData', stub[:state_reason_data].to_s) unless stub[:state_reason_data].nil?
@@ -312,7 +315,7 @@ module AWS::SDK::CloudWatch
         xml << Hearth::XML::Node.new('Namespace', stub[:namespace].to_s) unless stub[:namespace].nil?
         xml << Hearth::XML::Node.new('Statistic', stub[:statistic].to_s) unless stub[:statistic].nil?
         xml << Hearth::XML::Node.new('ExtendedStatistic', stub[:extended_statistic].to_s) unless stub[:extended_statistic].nil?
-        xml << Hearth::XML::Node.new('Dimensions', Stubs::Dimensions.stub('member', stub[:dimensions])) unless stub[:dimensions].nil?
+        xml << Hearth::XML::Node.new('Dimensions', Dimensions.stub('member', stub[:dimensions])) unless stub[:dimensions].nil?
         xml << Hearth::XML::Node.new('Period', stub[:period].to_s) unless stub[:period].nil?
         xml << Hearth::XML::Node.new('Unit', stub[:unit].to_s) unless stub[:unit].nil?
         xml << Hearth::XML::Node.new('EvaluationPeriods', stub[:evaluation_periods].to_s) unless stub[:evaluation_periods].nil?
@@ -321,7 +324,7 @@ module AWS::SDK::CloudWatch
         xml << Hearth::XML::Node.new('ComparisonOperator', stub[:comparison_operator].to_s) unless stub[:comparison_operator].nil?
         xml << Hearth::XML::Node.new('TreatMissingData', stub[:treat_missing_data].to_s) unless stub[:treat_missing_data].nil?
         xml << Hearth::XML::Node.new('EvaluateLowSampleCountPercentile', stub[:evaluate_low_sample_count_percentile].to_s) unless stub[:evaluate_low_sample_count_percentile].nil?
-        xml << Hearth::XML::Node.new('Metrics', Stubs::MetricDataQueries.stub('member', stub[:metrics])) unless stub[:metrics].nil?
+        xml << Hearth::XML::Node.new('Metrics', MetricDataQueries.stub('member', stub[:metrics])) unless stub[:metrics].nil?
         xml << Hearth::XML::Node.new('ThresholdMetricId', stub[:threshold_metric_id].to_s) unless stub[:threshold_metric_id].nil?
         xml
       end
@@ -340,7 +343,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::MetricDataQuery.stub(node_name, element) unless element.nil?
+          xml << MetricDataQuery.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -366,7 +369,7 @@ module AWS::SDK::CloudWatch
         stub ||= Types::MetricDataQuery.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
-        xml << Stubs::MetricStat.stub('MetricStat', stub[:metric_stat]) unless stub[:metric_stat].nil?
+        xml << MetricStat.stub('MetricStat', stub[:metric_stat]) unless stub[:metric_stat].nil?
         xml << Hearth::XML::Node.new('Expression', stub[:expression].to_s) unless stub[:expression].nil?
         xml << Hearth::XML::Node.new('Label', stub[:label].to_s) unless stub[:label].nil?
         xml << Hearth::XML::Node.new('ReturnData', stub[:return_data].to_s) unless stub[:return_data].nil?
@@ -392,7 +395,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         stub ||= Types::MetricStat.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::Metric.stub('Metric', stub[:metric]) unless stub[:metric].nil?
+        xml << Metric.stub('Metric', stub[:metric]) unless stub[:metric].nil?
         xml << Hearth::XML::Node.new('Period', stub[:period].to_s) unless stub[:period].nil?
         xml << Hearth::XML::Node.new('Stat', stub[:stat].to_s) unless stub[:stat].nil?
         xml << Hearth::XML::Node.new('Unit', stub[:unit].to_s) unless stub[:unit].nil?
@@ -417,7 +420,7 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Namespace', stub[:namespace].to_s) unless stub[:namespace].nil?
         xml << Hearth::XML::Node.new('MetricName', stub[:metric_name].to_s) unless stub[:metric_name].nil?
-        xml << Hearth::XML::Node.new('Dimensions', Stubs::Dimensions.stub('member', stub[:dimensions])) unless stub[:dimensions].nil?
+        xml << Hearth::XML::Node.new('Dimensions', Dimensions.stub('member', stub[:dimensions])) unless stub[:dimensions].nil?
         xml
       end
     end
@@ -435,7 +438,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Dimension.stub(node_name, element) unless element.nil?
+          xml << Dimension.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -493,7 +496,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::CompositeAlarm.stub(node_name, element) unless element.nil?
+          xml << CompositeAlarm.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -525,14 +528,14 @@ module AWS::SDK::CloudWatch
         stub ||= Types::CompositeAlarm.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ActionsEnabled', stub[:actions_enabled].to_s) unless stub[:actions_enabled].nil?
-        xml << Hearth::XML::Node.new('AlarmActions', Stubs::ResourceList.stub('member', stub[:alarm_actions])) unless stub[:alarm_actions].nil?
+        xml << Hearth::XML::Node.new('AlarmActions', ResourceList.stub('member', stub[:alarm_actions])) unless stub[:alarm_actions].nil?
         xml << Hearth::XML::Node.new('AlarmArn', stub[:alarm_arn].to_s) unless stub[:alarm_arn].nil?
         xml << Hearth::XML::Node.new('AlarmConfigurationUpdatedTimestamp', Hearth::TimeHelper.to_date_time(stub[:alarm_configuration_updated_timestamp])) unless stub[:alarm_configuration_updated_timestamp].nil?
         xml << Hearth::XML::Node.new('AlarmDescription', stub[:alarm_description].to_s) unless stub[:alarm_description].nil?
         xml << Hearth::XML::Node.new('AlarmName', stub[:alarm_name].to_s) unless stub[:alarm_name].nil?
         xml << Hearth::XML::Node.new('AlarmRule', stub[:alarm_rule].to_s) unless stub[:alarm_rule].nil?
-        xml << Hearth::XML::Node.new('InsufficientDataActions', Stubs::ResourceList.stub('member', stub[:insufficient_data_actions])) unless stub[:insufficient_data_actions].nil?
-        xml << Hearth::XML::Node.new('OKActions', Stubs::ResourceList.stub('member', stub[:ok_actions])) unless stub[:ok_actions].nil?
+        xml << Hearth::XML::Node.new('InsufficientDataActions', ResourceList.stub('member', stub[:insufficient_data_actions])) unless stub[:insufficient_data_actions].nil?
+        xml << Hearth::XML::Node.new('OKActions', ResourceList.stub('member', stub[:ok_actions])) unless stub[:ok_actions].nil?
         xml << Hearth::XML::Node.new('StateReason', stub[:state_reason].to_s) unless stub[:state_reason].nil?
         xml << Hearth::XML::Node.new('StateReasonData', stub[:state_reason_data].to_s) unless stub[:state_reason_data].nil?
         xml << Hearth::XML::Node.new('StateUpdatedTimestamp', Hearth::TimeHelper.to_date_time(stub[:state_updated_timestamp])) unless stub[:state_updated_timestamp].nil?
@@ -554,9 +557,9 @@ module AWS::SDK::CloudWatch
         response = Hearth::XML::Node.new('DescribeAlarmsForMetricResponse')
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('DescribeAlarmsForMetricResult')
-        xml << Hearth::XML::Node.new('MetricAlarms', Stubs::MetricAlarms.stub('member', stub[:metric_alarms])) unless stub[:metric_alarms].nil?
+        xml << Hearth::XML::Node.new('MetricAlarms', MetricAlarms.stub('member', stub[:metric_alarms])) unless stub[:metric_alarms].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -575,10 +578,10 @@ module AWS::SDK::CloudWatch
         response = Hearth::XML::Node.new('DescribeAnomalyDetectorsResponse')
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('DescribeAnomalyDetectorsResult')
-        xml << Hearth::XML::Node.new('AnomalyDetectors', Stubs::AnomalyDetectors.stub('member', stub[:anomaly_detectors])) unless stub[:anomaly_detectors].nil?
+        xml << Hearth::XML::Node.new('AnomalyDetectors', AnomalyDetectors.stub('member', stub[:anomaly_detectors])) unless stub[:anomaly_detectors].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -596,7 +599,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AnomalyDetector.stub(node_name, element) unless element.nil?
+          xml << AnomalyDetector.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -624,12 +627,12 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Namespace', stub[:namespace].to_s) unless stub[:namespace].nil?
         xml << Hearth::XML::Node.new('MetricName', stub[:metric_name].to_s) unless stub[:metric_name].nil?
-        xml << Hearth::XML::Node.new('Dimensions', Stubs::Dimensions.stub('member', stub[:dimensions])) unless stub[:dimensions].nil?
+        xml << Hearth::XML::Node.new('Dimensions', Dimensions.stub('member', stub[:dimensions])) unless stub[:dimensions].nil?
         xml << Hearth::XML::Node.new('Stat', stub[:stat].to_s) unless stub[:stat].nil?
-        xml << Stubs::AnomalyDetectorConfiguration.stub('Configuration', stub[:configuration]) unless stub[:configuration].nil?
+        xml << AnomalyDetectorConfiguration.stub('Configuration', stub[:configuration]) unless stub[:configuration].nil?
         xml << Hearth::XML::Node.new('StateValue', stub[:state_value].to_s) unless stub[:state_value].nil?
-        xml << Stubs::SingleMetricAnomalyDetector.stub('SingleMetricAnomalyDetector', stub[:single_metric_anomaly_detector]) unless stub[:single_metric_anomaly_detector].nil?
-        xml << Stubs::MetricMathAnomalyDetector.stub('MetricMathAnomalyDetector', stub[:metric_math_anomaly_detector]) unless stub[:metric_math_anomaly_detector].nil?
+        xml << SingleMetricAnomalyDetector.stub('SingleMetricAnomalyDetector', stub[:single_metric_anomaly_detector]) unless stub[:single_metric_anomaly_detector].nil?
+        xml << MetricMathAnomalyDetector.stub('MetricMathAnomalyDetector', stub[:metric_math_anomaly_detector]) unless stub[:metric_math_anomaly_detector].nil?
         xml
       end
     end
@@ -647,7 +650,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         stub ||= Types::MetricMathAnomalyDetector.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('MetricDataQueries', Stubs::MetricDataQueries.stub('member', stub[:metric_data_queries])) unless stub[:metric_data_queries].nil?
+        xml << Hearth::XML::Node.new('MetricDataQueries', MetricDataQueries.stub('member', stub[:metric_data_queries])) unless stub[:metric_data_queries].nil?
         xml
       end
     end
@@ -670,7 +673,7 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Namespace', stub[:namespace].to_s) unless stub[:namespace].nil?
         xml << Hearth::XML::Node.new('MetricName', stub[:metric_name].to_s) unless stub[:metric_name].nil?
-        xml << Hearth::XML::Node.new('Dimensions', Stubs::Dimensions.stub('member', stub[:dimensions])) unless stub[:dimensions].nil?
+        xml << Hearth::XML::Node.new('Dimensions', Dimensions.stub('member', stub[:dimensions])) unless stub[:dimensions].nil?
         xml << Hearth::XML::Node.new('Stat', stub[:stat].to_s) unless stub[:stat].nil?
         xml
       end
@@ -690,7 +693,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         stub ||= Types::AnomalyDetectorConfiguration.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('ExcludedTimeRanges', Stubs::AnomalyDetectorExcludedTimeRanges.stub('member', stub[:excluded_time_ranges])) unless stub[:excluded_time_ranges].nil?
+        xml << Hearth::XML::Node.new('ExcludedTimeRanges', AnomalyDetectorExcludedTimeRanges.stub('member', stub[:excluded_time_ranges])) unless stub[:excluded_time_ranges].nil?
         xml << Hearth::XML::Node.new('MetricTimezone', stub[:metric_timezone].to_s) unless stub[:metric_timezone].nil?
         xml
       end
@@ -709,7 +712,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Range.stub(node_name, element) unless element.nil?
+          xml << Range.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -750,9 +753,9 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('DescribeInsightRulesResult')
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('InsightRules', Stubs::InsightRules.stub('member', stub[:insight_rules])) unless stub[:insight_rules].nil?
+        xml << Hearth::XML::Node.new('InsightRules', InsightRules.stub('member', stub[:insight_rules])) unless stub[:insight_rules].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -770,7 +773,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::InsightRule.stub(node_name, element) unless element.nil?
+          xml << InsightRule.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -813,7 +816,7 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('DisableAlarmActionsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -831,9 +834,9 @@ module AWS::SDK::CloudWatch
         response = Hearth::XML::Node.new('DisableInsightRulesResponse')
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('DisableInsightRulesResult')
-        xml << Hearth::XML::Node.new('Failures', Stubs::BatchFailures.stub('member', stub[:failures])) unless stub[:failures].nil?
+        xml << Hearth::XML::Node.new('Failures', BatchFailures.stub('member', stub[:failures])) unless stub[:failures].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -851,7 +854,7 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('EnableAlarmActionsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -869,9 +872,9 @@ module AWS::SDK::CloudWatch
         response = Hearth::XML::Node.new('EnableInsightRulesResponse')
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('EnableInsightRulesResult')
-        xml << Hearth::XML::Node.new('Failures', Stubs::BatchFailures.stub('member', stub[:failures])) unless stub[:failures].nil?
+        xml << Hearth::XML::Node.new('Failures', BatchFailures.stub('member', stub[:failures])) unless stub[:failures].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -895,7 +898,7 @@ module AWS::SDK::CloudWatch
         xml << Hearth::XML::Node.new('DashboardBody', stub[:dashboard_body].to_s) unless stub[:dashboard_body].nil?
         xml << Hearth::XML::Node.new('DashboardName', stub[:dashboard_name].to_s) unless stub[:dashboard_name].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -918,14 +921,14 @@ module AWS::SDK::CloudWatch
         response = Hearth::XML::Node.new('GetInsightRuleReportResponse')
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('GetInsightRuleReportResult')
-        xml << Hearth::XML::Node.new('KeyLabels', Stubs::InsightRuleContributorKeyLabels.stub('member', stub[:key_labels])) unless stub[:key_labels].nil?
+        xml << Hearth::XML::Node.new('KeyLabels', InsightRuleContributorKeyLabels.stub('member', stub[:key_labels])) unless stub[:key_labels].nil?
         xml << Hearth::XML::Node.new('AggregationStatistic', stub[:aggregation_statistic].to_s) unless stub[:aggregation_statistic].nil?
         xml << Hearth::XML::Node.new('AggregateValue', Hearth::NumberHelper.serialize(stub[:aggregate_value]).to_s) unless stub[:aggregate_value].nil?
         xml << Hearth::XML::Node.new('ApproximateUniqueCount', stub[:approximate_unique_count].to_s) unless stub[:approximate_unique_count].nil?
-        xml << Hearth::XML::Node.new('Contributors', Stubs::InsightRuleContributors.stub('member', stub[:contributors])) unless stub[:contributors].nil?
-        xml << Hearth::XML::Node.new('MetricDatapoints', Stubs::InsightRuleMetricDatapoints.stub('member', stub[:metric_datapoints])) unless stub[:metric_datapoints].nil?
+        xml << Hearth::XML::Node.new('Contributors', InsightRuleContributors.stub('member', stub[:contributors])) unless stub[:contributors].nil?
+        xml << Hearth::XML::Node.new('MetricDatapoints', InsightRuleMetricDatapoints.stub('member', stub[:metric_datapoints])) unless stub[:metric_datapoints].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -943,7 +946,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::InsightRuleMetricDatapoint.stub(node_name, element) unless element.nil?
+          xml << InsightRuleMetricDatapoint.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -994,7 +997,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::InsightRuleContributor.stub(node_name, element) unless element.nil?
+          xml << InsightRuleContributor.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1015,9 +1018,9 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         stub ||= Types::InsightRuleContributor.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Keys', Stubs::InsightRuleContributorKeys.stub('member', stub[:keys])) unless stub[:keys].nil?
+        xml << Hearth::XML::Node.new('Keys', InsightRuleContributorKeys.stub('member', stub[:keys])) unless stub[:keys].nil?
         xml << Hearth::XML::Node.new('ApproximateAggregateValue', Hearth::NumberHelper.serialize(stub[:approximate_aggregate_value]).to_s) unless stub[:approximate_aggregate_value].nil?
-        xml << Hearth::XML::Node.new('Datapoints', Stubs::InsightRuleContributorDatapoints.stub('member', stub[:datapoints])) unless stub[:datapoints].nil?
+        xml << Hearth::XML::Node.new('Datapoints', InsightRuleContributorDatapoints.stub('member', stub[:datapoints])) unless stub[:datapoints].nil?
         xml
       end
     end
@@ -1035,7 +1038,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::InsightRuleContributorDatapoint.stub(node_name, element) unless element.nil?
+          xml << InsightRuleContributorDatapoint.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1114,11 +1117,11 @@ module AWS::SDK::CloudWatch
         response = Hearth::XML::Node.new('GetMetricDataResponse')
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('GetMetricDataResult')
-        xml << Hearth::XML::Node.new('MetricDataResults', Stubs::MetricDataResults.stub('member', stub[:metric_data_results])) unless stub[:metric_data_results].nil?
+        xml << Hearth::XML::Node.new('MetricDataResults', MetricDataResults.stub('member', stub[:metric_data_results])) unless stub[:metric_data_results].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('Messages', Stubs::MetricDataResultMessages.stub('member', stub[:messages])) unless stub[:messages].nil?
+        xml << Hearth::XML::Node.new('Messages', MetricDataResultMessages.stub('member', stub[:messages])) unless stub[:messages].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1136,7 +1139,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::MessageData.stub(node_name, element) unless element.nil?
+          xml << MessageData.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1175,7 +1178,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::MetricDataResult.stub(node_name, element) unless element.nil?
+          xml << MetricDataResult.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1201,10 +1204,10 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', stub[:id].to_s) unless stub[:id].nil?
         xml << Hearth::XML::Node.new('Label', stub[:label].to_s) unless stub[:label].nil?
-        xml << Hearth::XML::Node.new('Timestamps', Stubs::Timestamps.stub('member', stub[:timestamps])) unless stub[:timestamps].nil?
-        xml << Hearth::XML::Node.new('Values', Stubs::DatapointValues.stub('member', stub[:values])) unless stub[:values].nil?
+        xml << Hearth::XML::Node.new('Timestamps', Timestamps.stub('member', stub[:timestamps])) unless stub[:timestamps].nil?
+        xml << Hearth::XML::Node.new('Values', DatapointValues.stub('member', stub[:values])) unless stub[:values].nil?
         xml << Hearth::XML::Node.new('StatusCode', stub[:status_code].to_s) unless stub[:status_code].nil?
-        xml << Hearth::XML::Node.new('Messages', Stubs::MetricDataResultMessages.stub('member', stub[:messages])) unless stub[:messages].nil?
+        xml << Hearth::XML::Node.new('Messages', MetricDataResultMessages.stub('member', stub[:messages])) unless stub[:messages].nil?
         xml
       end
     end
@@ -1262,9 +1265,9 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('GetMetricStatisticsResult')
         xml << Hearth::XML::Node.new('Label', stub[:label].to_s) unless stub[:label].nil?
-        xml << Hearth::XML::Node.new('Datapoints', Stubs::Datapoints.stub('member', stub[:datapoints])) unless stub[:datapoints].nil?
+        xml << Hearth::XML::Node.new('Datapoints', Datapoints.stub('member', stub[:datapoints])) unless stub[:datapoints].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1282,7 +1285,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Datapoint.stub(node_name, element) unless element.nil?
+          xml << Datapoint.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1315,7 +1318,7 @@ module AWS::SDK::CloudWatch
         xml << Hearth::XML::Node.new('Minimum', Hearth::NumberHelper.serialize(stub[:minimum]).to_s) unless stub[:minimum].nil?
         xml << Hearth::XML::Node.new('Maximum', Hearth::NumberHelper.serialize(stub[:maximum]).to_s) unless stub[:maximum].nil?
         xml << Hearth::XML::Node.new('Unit', stub[:unit].to_s) unless stub[:unit].nil?
-        xml << Hearth::XML::Node.new('ExtendedStatistics', Stubs::DatapointValueMap.stub('entry', stub[:extended_statistics])) unless stub[:extended_statistics].nil?
+        xml << Hearth::XML::Node.new('ExtendedStatistics', DatapointValueMap.stub('entry', stub[:extended_statistics])) unless stub[:extended_statistics].nil?
         xml
       end
     end
@@ -1367,17 +1370,17 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML::Node.new('GetMetricStreamResult')
         xml << Hearth::XML::Node.new('Arn', stub[:arn].to_s) unless stub[:arn].nil?
         xml << Hearth::XML::Node.new('Name', stub[:name].to_s) unless stub[:name].nil?
-        xml << Hearth::XML::Node.new('IncludeFilters', Stubs::MetricStreamFilters.stub('member', stub[:include_filters])) unless stub[:include_filters].nil?
-        xml << Hearth::XML::Node.new('ExcludeFilters', Stubs::MetricStreamFilters.stub('member', stub[:exclude_filters])) unless stub[:exclude_filters].nil?
+        xml << Hearth::XML::Node.new('IncludeFilters', MetricStreamFilters.stub('member', stub[:include_filters])) unless stub[:include_filters].nil?
+        xml << Hearth::XML::Node.new('ExcludeFilters', MetricStreamFilters.stub('member', stub[:exclude_filters])) unless stub[:exclude_filters].nil?
         xml << Hearth::XML::Node.new('FirehoseArn', stub[:firehose_arn].to_s) unless stub[:firehose_arn].nil?
         xml << Hearth::XML::Node.new('RoleArn', stub[:role_arn].to_s) unless stub[:role_arn].nil?
         xml << Hearth::XML::Node.new('State', stub[:state].to_s) unless stub[:state].nil?
         xml << Hearth::XML::Node.new('CreationDate', Hearth::TimeHelper.to_date_time(stub[:creation_date])) unless stub[:creation_date].nil?
         xml << Hearth::XML::Node.new('LastUpdateDate', Hearth::TimeHelper.to_date_time(stub[:last_update_date])) unless stub[:last_update_date].nil?
         xml << Hearth::XML::Node.new('OutputFormat', stub[:output_format].to_s) unless stub[:output_format].nil?
-        xml << Hearth::XML::Node.new('StatisticsConfigurations', Stubs::MetricStreamStatisticsConfigurations.stub('member', stub[:statistics_configurations])) unless stub[:statistics_configurations].nil?
+        xml << Hearth::XML::Node.new('StatisticsConfigurations', MetricStreamStatisticsConfigurations.stub('member', stub[:statistics_configurations])) unless stub[:statistics_configurations].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1395,7 +1398,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::MetricStreamStatisticsConfiguration.stub(node_name, element) unless element.nil?
+          xml << MetricStreamStatisticsConfiguration.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1415,8 +1418,8 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         stub ||= Types::MetricStreamStatisticsConfiguration.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('IncludeMetrics', Stubs::MetricStreamStatisticsIncludeMetrics.stub('member', stub[:include_metrics])) unless stub[:include_metrics].nil?
-        xml << Hearth::XML::Node.new('AdditionalStatistics', Stubs::MetricStreamStatisticsAdditionalStatistics.stub('member', stub[:additional_statistics])) unless stub[:additional_statistics].nil?
+        xml << Hearth::XML::Node.new('IncludeMetrics', MetricStreamStatisticsIncludeMetrics.stub('member', stub[:include_metrics])) unless stub[:include_metrics].nil?
+        xml << Hearth::XML::Node.new('AdditionalStatistics', MetricStreamStatisticsAdditionalStatistics.stub('member', stub[:additional_statistics])) unless stub[:additional_statistics].nil?
         xml
       end
     end
@@ -1453,7 +1456,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::MetricStreamStatisticsMetric.stub(node_name, element) unless element.nil?
+          xml << MetricStreamStatisticsMetric.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1492,7 +1495,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::MetricStreamFilter.stub(node_name, element) unless element.nil?
+          xml << MetricStreamFilter.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1529,9 +1532,9 @@ module AWS::SDK::CloudWatch
         response = Hearth::XML::Node.new('GetMetricWidgetImageResponse')
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('GetMetricWidgetImageResult')
-        xml << Hearth::XML::Node.new('MetricWidgetImage', Base64::encode64(stub[:metric_widget_image]).strip) unless stub[:metric_widget_image].nil?
+        xml << Hearth::XML::Node.new('MetricWidgetImage', ::Base64::encode64(stub[:metric_widget_image]).strip) unless stub[:metric_widget_image].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1550,10 +1553,10 @@ module AWS::SDK::CloudWatch
         response = Hearth::XML::Node.new('ListDashboardsResponse')
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('ListDashboardsResult')
-        xml << Hearth::XML::Node.new('DashboardEntries', Stubs::DashboardEntries.stub('member', stub[:dashboard_entries])) unless stub[:dashboard_entries].nil?
+        xml << Hearth::XML::Node.new('DashboardEntries', DashboardEntries.stub('member', stub[:dashboard_entries])) unless stub[:dashboard_entries].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1571,7 +1574,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DashboardEntry.stub(node_name, element) unless element.nil?
+          xml << DashboardEntry.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1616,9 +1619,9 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('ListMetricStreamsResult')
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
-        xml << Hearth::XML::Node.new('Entries', Stubs::MetricStreamEntries.stub('member', stub[:entries])) unless stub[:entries].nil?
+        xml << Hearth::XML::Node.new('Entries', MetricStreamEntries.stub('member', stub[:entries])) unless stub[:entries].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1636,7 +1639,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::MetricStreamEntry.stub(node_name, element) unless element.nil?
+          xml << MetricStreamEntry.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1686,10 +1689,10 @@ module AWS::SDK::CloudWatch
         response = Hearth::XML::Node.new('ListMetricsResponse')
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('ListMetricsResult')
-        xml << Hearth::XML::Node.new('Metrics', Stubs::Metrics.stub('member', stub[:metrics])) unless stub[:metrics].nil?
+        xml << Hearth::XML::Node.new('Metrics', Metrics.stub('member', stub[:metrics])) unless stub[:metrics].nil?
         xml << Hearth::XML::Node.new('NextToken', stub[:next_token].to_s) unless stub[:next_token].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1707,7 +1710,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Metric.stub(node_name, element) unless element.nil?
+          xml << Metric.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1726,9 +1729,9 @@ module AWS::SDK::CloudWatch
         response = Hearth::XML::Node.new('ListTagsForResourceResponse')
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('ListTagsForResourceResult')
-        xml << Hearth::XML::Node.new('Tags', Stubs::TagList.stub('member', stub[:tags])) unless stub[:tags].nil?
+        xml << Hearth::XML::Node.new('Tags', TagList.stub('member', stub[:tags])) unless stub[:tags].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1746,7 +1749,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::Tag.stub(node_name, element) unless element.nil?
+          xml << Tag.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1785,7 +1788,7 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('PutAnomalyDetectorResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1803,7 +1806,7 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('PutCompositeAlarmResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1821,9 +1824,9 @@ module AWS::SDK::CloudWatch
         response = Hearth::XML::Node.new('PutDashboardResponse')
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('PutDashboardResult')
-        xml << Hearth::XML::Node.new('DashboardValidationMessages', Stubs::DashboardValidationMessages.stub('member', stub[:dashboard_validation_messages])) unless stub[:dashboard_validation_messages].nil?
+        xml << Hearth::XML::Node.new('DashboardValidationMessages', DashboardValidationMessages.stub('member', stub[:dashboard_validation_messages])) unless stub[:dashboard_validation_messages].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1841,7 +1844,7 @@ module AWS::SDK::CloudWatch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DashboardValidationMessage.stub(node_name, element) unless element.nil?
+          xml << DashboardValidationMessage.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1880,7 +1883,7 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('PutInsightRuleResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1898,7 +1901,7 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('PutMetricAlarmResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1916,7 +1919,7 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('PutMetricDataResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1936,7 +1939,7 @@ module AWS::SDK::CloudWatch
         xml = Hearth::XML::Node.new('PutMetricStreamResult')
         xml << Hearth::XML::Node.new('Arn', stub[:arn].to_s) unless stub[:arn].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1954,7 +1957,7 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('SetAlarmStateResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1972,7 +1975,7 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('StartMetricStreamsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1990,7 +1993,7 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('StopMetricStreamsResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2008,7 +2011,7 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('TagResourceResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -2026,7 +2029,7 @@ module AWS::SDK::CloudWatch
         response.attributes['xmlns'] = 'http://monitoring.amazonaws.com/doc/2010-08-01/'
         xml = Hearth::XML::Node.new('UntagResourceResult')
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end

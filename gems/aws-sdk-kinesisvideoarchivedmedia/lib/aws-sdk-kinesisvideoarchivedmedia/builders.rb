@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::KinesisVideoArchivedMedia
   module Builders
 
@@ -22,8 +24,8 @@ module AWS::SDK::KinesisVideoArchivedMedia
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
-        data['ClipFragmentSelector'] = Builders::ClipFragmentSelector.build(input[:clip_fragment_selector]) unless input[:clip_fragment_selector].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ClipFragmentSelector'] = ClipFragmentSelector.build(input[:clip_fragment_selector]) unless input[:clip_fragment_selector].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -32,7 +34,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
       def self.build(input)
         data = {}
         data['FragmentSelectorType'] = input[:fragment_selector_type] unless input[:fragment_selector_type].nil?
-        data['TimestampRange'] = Builders::ClipTimestampRange.build(input[:timestamp_range]) unless input[:timestamp_range].nil?
+        data['TimestampRange'] = ClipTimestampRange.build(input[:timestamp_range]) unless input[:timestamp_range].nil?
         data
       end
     end
@@ -62,10 +64,10 @@ module AWS::SDK::KinesisVideoArchivedMedia
         data['PlaybackMode'] = input[:playback_mode] unless input[:playback_mode].nil?
         data['DisplayFragmentTimestamp'] = input[:display_fragment_timestamp] unless input[:display_fragment_timestamp].nil?
         data['DisplayFragmentNumber'] = input[:display_fragment_number] unless input[:display_fragment_number].nil?
-        data['DASHFragmentSelector'] = Builders::DASHFragmentSelector.build(input[:dash_fragment_selector]) unless input[:dash_fragment_selector].nil?
+        data['DASHFragmentSelector'] = DASHFragmentSelector.build(input[:dash_fragment_selector]) unless input[:dash_fragment_selector].nil?
         data['Expires'] = input[:expires] unless input[:expires].nil?
         data['MaxManifestFragmentResults'] = input[:max_manifest_fragment_results] unless input[:max_manifest_fragment_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -74,7 +76,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
       def self.build(input)
         data = {}
         data['FragmentSelectorType'] = input[:fragment_selector_type] unless input[:fragment_selector_type].nil?
-        data['TimestampRange'] = Builders::DASHTimestampRange.build(input[:timestamp_range]) unless input[:timestamp_range].nil?
+        data['TimestampRange'] = DASHTimestampRange.build(input[:timestamp_range]) unless input[:timestamp_range].nil?
         data
       end
     end
@@ -102,13 +104,13 @@ module AWS::SDK::KinesisVideoArchivedMedia
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
         data['PlaybackMode'] = input[:playback_mode] unless input[:playback_mode].nil?
-        data['HLSFragmentSelector'] = Builders::HLSFragmentSelector.build(input[:hls_fragment_selector]) unless input[:hls_fragment_selector].nil?
+        data['HLSFragmentSelector'] = HLSFragmentSelector.build(input[:hls_fragment_selector]) unless input[:hls_fragment_selector].nil?
         data['ContainerFormat'] = input[:container_format] unless input[:container_format].nil?
         data['DiscontinuityMode'] = input[:discontinuity_mode] unless input[:discontinuity_mode].nil?
         data['DisplayFragmentTimestamp'] = input[:display_fragment_timestamp] unless input[:display_fragment_timestamp].nil?
         data['Expires'] = input[:expires] unless input[:expires].nil?
         data['MaxMediaPlaylistFragmentResults'] = input[:max_media_playlist_fragment_results] unless input[:max_media_playlist_fragment_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -117,7 +119,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
       def self.build(input)
         data = {}
         data['FragmentSelectorType'] = input[:fragment_selector_type] unless input[:fragment_selector_type].nil?
-        data['TimestampRange'] = Builders::HLSTimestampRange.build(input[:timestamp_range]) unless input[:timestamp_range].nil?
+        data['TimestampRange'] = HLSTimestampRange.build(input[:timestamp_range]) unless input[:timestamp_range].nil?
         data
       end
     end
@@ -149,12 +151,12 @@ module AWS::SDK::KinesisVideoArchivedMedia
         data['EndTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_timestamp]).to_i unless input[:end_timestamp].nil?
         data['SamplingInterval'] = input[:sampling_interval] unless input[:sampling_interval].nil?
         data['Format'] = input[:format] unless input[:format].nil?
-        data['FormatConfig'] = Builders::FormatConfig.build(input[:format_config]) unless input[:format_config].nil?
+        data['FormatConfig'] = FormatConfig.build(input[:format_config]) unless input[:format_config].nil?
         data['WidthPixels'] = input[:width_pixels] unless input[:width_pixels].nil?
         data['HeightPixels'] = input[:height_pixels] unless input[:height_pixels].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -181,8 +183,8 @@ module AWS::SDK::KinesisVideoArchivedMedia
         data = {}
         data['StreamName'] = input[:stream_name] unless input[:stream_name].nil?
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
-        data['Fragments'] = Builders::FragmentNumberList.build(input[:fragments]) unless input[:fragments].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Fragments'] = FragmentNumberList.build(input[:fragments]) unless input[:fragments].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -211,8 +213,8 @@ module AWS::SDK::KinesisVideoArchivedMedia
         data['StreamARN'] = input[:stream_arn] unless input[:stream_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['FragmentSelector'] = Builders::FragmentSelector.build(input[:fragment_selector]) unless input[:fragment_selector].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FragmentSelector'] = FragmentSelector.build(input[:fragment_selector]) unless input[:fragment_selector].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -221,7 +223,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
       def self.build(input)
         data = {}
         data['FragmentSelectorType'] = input[:fragment_selector_type] unless input[:fragment_selector_type].nil?
-        data['TimestampRange'] = Builders::TimestampRange.build(input[:timestamp_range]) unless input[:timestamp_range].nil?
+        data['TimestampRange'] = TimestampRange.build(input[:timestamp_range]) unless input[:timestamp_range].nil?
         data
       end
     end

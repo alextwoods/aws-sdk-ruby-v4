@@ -19,8 +19,8 @@ module AWS::SDK::PI
         map = Hearth::JSON.load(body)
         data.aligned_start_time = Time.at(map['AlignedStartTime'].to_i) if map['AlignedStartTime']
         data.aligned_end_time = Time.at(map['AlignedEndTime'].to_i) if map['AlignedEndTime']
-        data.partition_keys = (Parsers::ResponsePartitionKeyList.parse(map['PartitionKeys']) unless map['PartitionKeys'].nil?)
-        data.keys = (Parsers::DimensionKeyDescriptionList.parse(map['Keys']) unless map['Keys'].nil?)
+        data.partition_keys = (ResponsePartitionKeyList.parse(map['PartitionKeys']) unless map['PartitionKeys'].nil?)
+        data.keys = (DimensionKeyDescriptionList.parse(map['Keys']) unless map['Keys'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -29,7 +29,7 @@ module AWS::SDK::PI
     class DimensionKeyDescriptionList
       def self.parse(list)
         list.map do |value|
-          Parsers::DimensionKeyDescription.parse(value) unless value.nil?
+          DimensionKeyDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -37,10 +37,10 @@ module AWS::SDK::PI
     class DimensionKeyDescription
       def self.parse(map)
         data = Types::DimensionKeyDescription.new
-        data.dimensions = (Parsers::DimensionMap.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.dimensions = (DimensionMap.parse(map['Dimensions']) unless map['Dimensions'].nil?)
         data.total = Hearth::NumberHelper.deserialize(map['Total'])
-        data.additional_metrics = (Parsers::AdditionalMetricsMap.parse(map['AdditionalMetrics']) unless map['AdditionalMetrics'].nil?)
-        data.partitions = (Parsers::MetricValuesList.parse(map['Partitions']) unless map['Partitions'].nil?)
+        data.additional_metrics = (AdditionalMetricsMap.parse(map['AdditionalMetrics']) unless map['AdditionalMetrics'].nil?)
+        data.partitions = (MetricValuesList.parse(map['Partitions']) unless map['Partitions'].nil?)
         return data
       end
     end
@@ -76,7 +76,7 @@ module AWS::SDK::PI
     class ResponsePartitionKeyList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResponsePartitionKey.parse(value) unless value.nil?
+          ResponsePartitionKey.parse(value) unless value.nil?
         end
       end
     end
@@ -84,7 +84,7 @@ module AWS::SDK::PI
     class ResponsePartitionKey
       def self.parse(map)
         data = Types::ResponsePartitionKey.new
-        data.dimensions = (Parsers::DimensionMap.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.dimensions = (DimensionMap.parse(map['Dimensions']) unless map['Dimensions'].nil?)
         return data
       end
     end
@@ -132,7 +132,7 @@ module AWS::SDK::PI
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dimensions = (Parsers::DimensionKeyDetailList.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.dimensions = (DimensionKeyDetailList.parse(map['Dimensions']) unless map['Dimensions'].nil?)
         data
       end
     end
@@ -140,7 +140,7 @@ module AWS::SDK::PI
     class DimensionKeyDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::DimensionKeyDetail.parse(value) unless value.nil?
+          DimensionKeyDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -163,7 +163,7 @@ module AWS::SDK::PI
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.identifier = map['Identifier']
-        data.features = (Parsers::FeatureMetadataMap.parse(map['Features']) unless map['Features'].nil?)
+        data.features = (FeatureMetadataMap.parse(map['Features']) unless map['Features'].nil?)
         data
       end
     end
@@ -172,7 +172,7 @@ module AWS::SDK::PI
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::FeatureMetadata.parse(value) unless value.nil?
+          data[key] = FeatureMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -196,7 +196,7 @@ module AWS::SDK::PI
         data.aligned_start_time = Time.at(map['AlignedStartTime'].to_i) if map['AlignedStartTime']
         data.aligned_end_time = Time.at(map['AlignedEndTime'].to_i) if map['AlignedEndTime']
         data.identifier = map['Identifier']
-        data.metric_list = (Parsers::MetricKeyDataPointsList.parse(map['MetricList']) unless map['MetricList'].nil?)
+        data.metric_list = (MetricKeyDataPointsList.parse(map['MetricList']) unless map['MetricList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -205,7 +205,7 @@ module AWS::SDK::PI
     class MetricKeyDataPointsList
       def self.parse(list)
         list.map do |value|
-          Parsers::MetricKeyDataPoints.parse(value) unless value.nil?
+          MetricKeyDataPoints.parse(value) unless value.nil?
         end
       end
     end
@@ -213,8 +213,8 @@ module AWS::SDK::PI
     class MetricKeyDataPoints
       def self.parse(map)
         data = Types::MetricKeyDataPoints.new
-        data.key = (Parsers::ResponseResourceMetricKey.parse(map['Key']) unless map['Key'].nil?)
-        data.data_points = (Parsers::DataPointsList.parse(map['DataPoints']) unless map['DataPoints'].nil?)
+        data.key = (ResponseResourceMetricKey.parse(map['Key']) unless map['Key'].nil?)
+        data.data_points = (DataPointsList.parse(map['DataPoints']) unless map['DataPoints'].nil?)
         return data
       end
     end
@@ -222,7 +222,7 @@ module AWS::SDK::PI
     class DataPointsList
       def self.parse(list)
         list.map do |value|
-          Parsers::DataPoint.parse(value) unless value.nil?
+          DataPoint.parse(value) unless value.nil?
         end
       end
     end
@@ -240,7 +240,7 @@ module AWS::SDK::PI
       def self.parse(map)
         data = Types::ResponseResourceMetricKey.new
         data.metric = map['Metric']
-        data.dimensions = (Parsers::DimensionMap.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.dimensions = (DimensionMap.parse(map['Dimensions']) unless map['Dimensions'].nil?)
         return data
       end
     end
@@ -252,7 +252,7 @@ module AWS::SDK::PI
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.metric_dimensions = (Parsers::MetricDimensionsList.parse(map['MetricDimensions']) unless map['MetricDimensions'].nil?)
+        data.metric_dimensions = (MetricDimensionsList.parse(map['MetricDimensions']) unless map['MetricDimensions'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -261,7 +261,7 @@ module AWS::SDK::PI
     class MetricDimensionsList
       def self.parse(list)
         list.map do |value|
-          Parsers::MetricDimensionGroups.parse(value) unless value.nil?
+          MetricDimensionGroups.parse(value) unless value.nil?
         end
       end
     end
@@ -270,7 +270,7 @@ module AWS::SDK::PI
       def self.parse(map)
         data = Types::MetricDimensionGroups.new
         data.metric = map['Metric']
-        data.groups = (Parsers::DimensionGroupDetailList.parse(map['Groups']) unless map['Groups'].nil?)
+        data.groups = (DimensionGroupDetailList.parse(map['Groups']) unless map['Groups'].nil?)
         return data
       end
     end
@@ -278,7 +278,7 @@ module AWS::SDK::PI
     class DimensionGroupDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::DimensionGroupDetail.parse(value) unless value.nil?
+          DimensionGroupDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -287,7 +287,7 @@ module AWS::SDK::PI
       def self.parse(map)
         data = Types::DimensionGroupDetail.new
         data.group = map['Group']
-        data.dimensions = (Parsers::DimensionDetailList.parse(map['Dimensions']) unless map['Dimensions'].nil?)
+        data.dimensions = (DimensionDetailList.parse(map['Dimensions']) unless map['Dimensions'].nil?)
         return data
       end
     end
@@ -295,7 +295,7 @@ module AWS::SDK::PI
     class DimensionDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::DimensionDetail.parse(value) unless value.nil?
+          DimensionDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -315,7 +315,7 @@ module AWS::SDK::PI
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.metrics = (Parsers::ResponseResourceMetricList.parse(map['Metrics']) unless map['Metrics'].nil?)
+        data.metrics = (ResponseResourceMetricList.parse(map['Metrics']) unless map['Metrics'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -324,7 +324,7 @@ module AWS::SDK::PI
     class ResponseResourceMetricList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResponseResourceMetric.parse(value) unless value.nil?
+          ResponseResourceMetric.parse(value) unless value.nil?
         end
       end
     end

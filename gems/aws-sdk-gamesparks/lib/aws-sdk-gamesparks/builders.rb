@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::GameSparks
   module Builders
 
@@ -23,8 +26,8 @@ module AWS::SDK::GameSparks
         data['GameName'] = input[:game_name] unless input[:game_name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -57,7 +60,7 @@ module AWS::SDK::GameSparks
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -82,8 +85,8 @@ module AWS::SDK::GameSparks
         data['Role'] = input[:role] unless input[:role].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -403,8 +406,8 @@ module AWS::SDK::GameSparks
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ImportSource'] = Builders::ImportGameConfigurationSource.build(input[:import_source]) unless input[:import_source].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ImportSource'] = ImportGameConfigurationSource.build(input[:import_source]) unless input[:import_source].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -412,7 +415,7 @@ module AWS::SDK::GameSparks
     class ImportGameConfigurationSource
       def self.build(input)
         data = {}
-        data['File'] = Base64::encode64(input[:file]).strip unless input[:file].nil?
+        data['File'] = ::Base64::encode64(input[:file]).strip unless input[:file].nil?
         data
       end
     end
@@ -586,8 +589,8 @@ module AWS::SDK::GameSparks
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Generator'] = Builders::Generator.build(input[:generator]) unless input[:generator].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Generator'] = Generator.build(input[:generator]) unless input[:generator].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -625,7 +628,7 @@ module AWS::SDK::GameSparks
         data = {}
         data['SnapshotId'] = input[:snapshot_id] unless input[:snapshot_id].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -646,8 +649,8 @@ module AWS::SDK::GameSparks
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -702,7 +705,7 @@ module AWS::SDK::GameSparks
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -723,8 +726,8 @@ module AWS::SDK::GameSparks
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Modifications'] = Builders::SectionModificationList.build(input[:modifications]) unless input[:modifications].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Modifications'] = SectionModificationList.build(input[:modifications]) unless input[:modifications].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -733,7 +736,7 @@ module AWS::SDK::GameSparks
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SectionModification.build(element) unless element.nil?
+          data << SectionModification.build(element) unless element.nil?
         end
         data
       end
@@ -773,7 +776,7 @@ module AWS::SDK::GameSparks
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -800,7 +803,7 @@ module AWS::SDK::GameSparks
         data = {}
         data['Role'] = input[:role] unless input[:role].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

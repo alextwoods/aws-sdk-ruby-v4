@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::StorageGateway
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -37,7 +39,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -53,7 +55,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['ResourceARN'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -69,7 +71,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -85,7 +87,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -101,7 +103,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['TapeARN'] = stub[:tape_arn] unless stub[:tape_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -117,7 +119,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['FileSystemAssociationARN'] = stub[:file_system_association_arn] unless stub[:file_system_association_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -135,7 +137,7 @@ module AWS::SDK::StorageGateway
         data = {}
         data['VolumeARN'] = stub[:volume_arn] unless stub[:volume_arn].nil?
         data['TargetARN'] = stub[:target_arn] unless stub[:target_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -151,7 +153,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['TapeARN'] = stub[:tape_arn] unless stub[:tape_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -167,7 +169,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['TapeARN'] = stub[:tape_arn] unless stub[:tape_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -185,7 +187,7 @@ module AWS::SDK::StorageGateway
         data = {}
         data['VolumeARN'] = stub[:volume_arn] unless stub[:volume_arn].nil?
         data['TargetARN'] = stub[:target_arn] unless stub[:target_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -201,7 +203,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['FileShareARN'] = stub[:file_share_arn] unless stub[:file_share_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -217,7 +219,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['FileShareARN'] = stub[:file_share_arn] unless stub[:file_share_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -235,7 +237,7 @@ module AWS::SDK::StorageGateway
         data = {}
         data['VolumeARN'] = stub[:volume_arn] unless stub[:volume_arn].nil?
         data['SnapshotId'] = stub[:snapshot_id] unless stub[:snapshot_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -255,7 +257,7 @@ module AWS::SDK::StorageGateway
         data['SnapshotId'] = stub[:snapshot_id] unless stub[:snapshot_id].nil?
         data['VolumeARN'] = stub[:volume_arn] unless stub[:volume_arn].nil?
         data['VolumeRecoveryPointTime'] = stub[:volume_recovery_point_time] unless stub[:volume_recovery_point_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -275,7 +277,7 @@ module AWS::SDK::StorageGateway
         data['VolumeARN'] = stub[:volume_arn] unless stub[:volume_arn].nil?
         data['VolumeSizeInBytes'] = stub[:volume_size_in_bytes] unless stub[:volume_size_in_bytes].nil?
         data['TargetARN'] = stub[:target_arn] unless stub[:target_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -291,7 +293,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['PoolARN'] = stub[:pool_arn] unless stub[:pool_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -307,7 +309,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['TapeARN'] = stub[:tape_arn] unless stub[:tape_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -322,8 +324,8 @@ module AWS::SDK::StorageGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TapeARNs'] = Stubs::TapeARNs.stub(stub[:tape_ar_ns]) unless stub[:tape_ar_ns].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TapeARNs'] = TapeARNs.stub(stub[:tape_ar_ns]) unless stub[:tape_ar_ns].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -359,7 +361,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -375,7 +377,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -393,7 +395,7 @@ module AWS::SDK::StorageGateway
         data = {}
         data['TargetARN'] = stub[:target_arn] unless stub[:target_arn].nil?
         data['InitiatorName'] = stub[:initiator_name] unless stub[:initiator_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -409,7 +411,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['FileShareARN'] = stub[:file_share_arn] unless stub[:file_share_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -425,7 +427,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -441,7 +443,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['VolumeARN'] = stub[:volume_arn] unless stub[:volume_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -457,7 +459,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['TapeARN'] = stub[:tape_arn] unless stub[:tape_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -473,7 +475,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['TapeARN'] = stub[:tape_arn] unless stub[:tape_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -489,7 +491,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['PoolARN'] = stub[:pool_arn] unless stub[:pool_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -505,7 +507,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['VolumeARN'] = stub[:volume_arn] unless stub[:volume_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -525,7 +527,7 @@ module AWS::SDK::StorageGateway
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -545,7 +547,7 @@ module AWS::SDK::StorageGateway
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
         data['AverageUploadRateLimitInBitsPerSec'] = stub[:average_upload_rate_limit_in_bits_per_sec] unless stub[:average_upload_rate_limit_in_bits_per_sec].nil?
         data['AverageDownloadRateLimitInBitsPerSec'] = stub[:average_download_rate_limit_in_bits_per_sec] unless stub[:average_download_rate_limit_in_bits_per_sec].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -562,8 +564,8 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        data['BandwidthRateLimitIntervals'] = Stubs::BandwidthRateLimitIntervals.stub(stub[:bandwidth_rate_limit_intervals]) unless stub[:bandwidth_rate_limit_intervals].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BandwidthRateLimitIntervals'] = BandwidthRateLimitIntervals.stub(stub[:bandwidth_rate_limit_intervals]) unless stub[:bandwidth_rate_limit_intervals].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -582,7 +584,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BandwidthRateLimitInterval.stub(element) unless element.nil?
+          data << BandwidthRateLimitInterval.stub(element) unless element.nil?
         end
         data
       end
@@ -611,7 +613,7 @@ module AWS::SDK::StorageGateway
         data['StartMinuteOfHour'] = stub[:start_minute_of_hour] unless stub[:start_minute_of_hour].nil?
         data['EndHourOfDay'] = stub[:end_hour_of_day] unless stub[:end_hour_of_day].nil?
         data['EndMinuteOfHour'] = stub[:end_minute_of_hour] unless stub[:end_minute_of_hour].nil?
-        data['DaysOfWeek'] = Stubs::DaysOfWeek.stub(stub[:days_of_week]) unless stub[:days_of_week].nil?
+        data['DaysOfWeek'] = DaysOfWeek.stub(stub[:days_of_week]) unless stub[:days_of_week].nil?
         data['AverageUploadRateLimitInBitsPerSec'] = stub[:average_upload_rate_limit_in_bits_per_sec] unless stub[:average_upload_rate_limit_in_bits_per_sec].nil?
         data['AverageDownloadRateLimitInBitsPerSec'] = stub[:average_download_rate_limit_in_bits_per_sec] unless stub[:average_download_rate_limit_in_bits_per_sec].nil?
         data
@@ -655,13 +657,13 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        data['DiskIds'] = Stubs::DiskIds.stub(stub[:disk_ids]) unless stub[:disk_ids].nil?
+        data['DiskIds'] = DiskIds.stub(stub[:disk_ids]) unless stub[:disk_ids].nil?
         data['CacheAllocatedInBytes'] = stub[:cache_allocated_in_bytes] unless stub[:cache_allocated_in_bytes].nil?
         data['CacheUsedPercentage'] = Hearth::NumberHelper.serialize(stub[:cache_used_percentage])
         data['CacheDirtyPercentage'] = Hearth::NumberHelper.serialize(stub[:cache_dirty_percentage])
         data['CacheHitPercentage'] = Hearth::NumberHelper.serialize(stub[:cache_hit_percentage])
         data['CacheMissPercentage'] = Hearth::NumberHelper.serialize(stub[:cache_miss_percentage])
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -696,8 +698,8 @@ module AWS::SDK::StorageGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CachediSCSIVolumes'] = Stubs::CachediSCSIVolumes.stub(stub[:cachedi_scsi_volumes]) unless stub[:cachedi_scsi_volumes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CachediSCSIVolumes'] = CachediSCSIVolumes.stub(stub[:cachedi_scsi_volumes]) unless stub[:cachedi_scsi_volumes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -716,7 +718,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CachediSCSIVolume.stub(element) unless element.nil?
+          data << CachediSCSIVolume.stub(element) unless element.nil?
         end
         data
       end
@@ -755,7 +757,7 @@ module AWS::SDK::StorageGateway
         data['VolumeSizeInBytes'] = stub[:volume_size_in_bytes] unless stub[:volume_size_in_bytes].nil?
         data['VolumeProgress'] = Hearth::NumberHelper.serialize(stub[:volume_progress])
         data['SourceSnapshotId'] = stub[:source_snapshot_id] unless stub[:source_snapshot_id].nil?
-        data['VolumeiSCSIAttributes'] = Stubs::VolumeiSCSIAttributes.stub(stub[:volumei_scsi_attributes]) unless stub[:volumei_scsi_attributes].nil?
+        data['VolumeiSCSIAttributes'] = VolumeiSCSIAttributes.stub(stub[:volumei_scsi_attributes]) unless stub[:volumei_scsi_attributes].nil?
         data['CreatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['VolumeUsedInBytes'] = stub[:volume_used_in_bytes] unless stub[:volume_used_in_bytes].nil?
         data['KMSKey'] = stub[:kms_key] unless stub[:kms_key].nil?
@@ -800,8 +802,8 @@ module AWS::SDK::StorageGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ChapCredentials'] = Stubs::ChapCredentials.stub(stub[:chap_credentials]) unless stub[:chap_credentials].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChapCredentials'] = ChapCredentials.stub(stub[:chap_credentials]) unless stub[:chap_credentials].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -820,7 +822,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChapInfo.stub(element) unless element.nil?
+          data << ChapInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -860,8 +862,8 @@ module AWS::SDK::StorageGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['FileSystemAssociationInfoList'] = Stubs::FileSystemAssociationInfoList.stub(stub[:file_system_association_info_list]) unless stub[:file_system_association_info_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FileSystemAssociationInfoList'] = FileSystemAssociationInfoList.stub(stub[:file_system_association_info_list]) unless stub[:file_system_association_info_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -880,7 +882,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FileSystemAssociationInfo.stub(element) unless element.nil?
+          data << FileSystemAssociationInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -912,10 +914,10 @@ module AWS::SDK::StorageGateway
         data['FileSystemAssociationStatus'] = stub[:file_system_association_status] unless stub[:file_system_association_status].nil?
         data['AuditDestinationARN'] = stub[:audit_destination_arn] unless stub[:audit_destination_arn].nil?
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['CacheAttributes'] = Stubs::CacheAttributes.stub(stub[:cache_attributes]) unless stub[:cache_attributes].nil?
-        data['EndpointNetworkConfiguration'] = Stubs::EndpointNetworkConfiguration.stub(stub[:endpoint_network_configuration]) unless stub[:endpoint_network_configuration].nil?
-        data['FileSystemAssociationStatusDetails'] = Stubs::FileSystemAssociationStatusDetails.stub(stub[:file_system_association_status_details]) unless stub[:file_system_association_status_details].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['CacheAttributes'] = CacheAttributes.stub(stub[:cache_attributes]) unless stub[:cache_attributes].nil?
+        data['EndpointNetworkConfiguration'] = EndpointNetworkConfiguration.stub(stub[:endpoint_network_configuration]) unless stub[:endpoint_network_configuration].nil?
+        data['FileSystemAssociationStatusDetails'] = FileSystemAssociationStatusDetails.stub(stub[:file_system_association_status_details]) unless stub[:file_system_association_status_details].nil?
         data
       end
     end
@@ -934,7 +936,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FileSystemAssociationStatusDetail.stub(element) unless element.nil?
+          data << FileSystemAssociationStatusDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -971,7 +973,7 @@ module AWS::SDK::StorageGateway
       def self.stub(stub)
         stub ||= Types::EndpointNetworkConfiguration.new
         data = {}
-        data['IpAddresses'] = Stubs::IpAddressList.stub(stub[:ip_addresses]) unless stub[:ip_addresses].nil?
+        data['IpAddresses'] = IpAddressList.stub(stub[:ip_addresses]) unless stub[:ip_addresses].nil?
         data
       end
     end
@@ -1028,7 +1030,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1089,13 +1091,13 @@ module AWS::SDK::StorageGateway
         data['GatewayName'] = stub[:gateway_name] unless stub[:gateway_name].nil?
         data['GatewayTimezone'] = stub[:gateway_timezone] unless stub[:gateway_timezone].nil?
         data['GatewayState'] = stub[:gateway_state] unless stub[:gateway_state].nil?
-        data['GatewayNetworkInterfaces'] = Stubs::GatewayNetworkInterfaces.stub(stub[:gateway_network_interfaces]) unless stub[:gateway_network_interfaces].nil?
+        data['GatewayNetworkInterfaces'] = GatewayNetworkInterfaces.stub(stub[:gateway_network_interfaces]) unless stub[:gateway_network_interfaces].nil?
         data['GatewayType'] = stub[:gateway_type] unless stub[:gateway_type].nil?
         data['NextUpdateAvailabilityDate'] = stub[:next_update_availability_date] unless stub[:next_update_availability_date].nil?
         data['LastSoftwareUpdate'] = stub[:last_software_update] unless stub[:last_software_update].nil?
         data['Ec2InstanceId'] = stub[:ec2_instance_id] unless stub[:ec2_instance_id].nil?
         data['Ec2InstanceRegion'] = stub[:ec2_instance_region] unless stub[:ec2_instance_region].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['VPCEndpoint'] = stub[:vpc_endpoint] unless stub[:vpc_endpoint].nil?
         data['CloudWatchLogGroupARN'] = stub[:cloud_watch_log_group_arn] unless stub[:cloud_watch_log_group_arn].nil?
         data['HostEnvironment'] = stub[:host_environment] unless stub[:host_environment].nil?
@@ -1103,9 +1105,9 @@ module AWS::SDK::StorageGateway
         data['SoftwareUpdatesEndDate'] = stub[:software_updates_end_date] unless stub[:software_updates_end_date].nil?
         data['DeprecationDate'] = stub[:deprecation_date] unless stub[:deprecation_date].nil?
         data['GatewayCapacity'] = stub[:gateway_capacity] unless stub[:gateway_capacity].nil?
-        data['SupportedGatewayCapacities'] = Stubs::SupportedGatewayCapacities.stub(stub[:supported_gateway_capacities]) unless stub[:supported_gateway_capacities].nil?
+        data['SupportedGatewayCapacities'] = SupportedGatewayCapacities.stub(stub[:supported_gateway_capacities]) unless stub[:supported_gateway_capacities].nil?
         data['HostEnvironmentId'] = stub[:host_environment_id] unless stub[:host_environment_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1144,7 +1146,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkInterface.stub(element) unless element.nil?
+          data << NetworkInterface.stub(element) unless element.nil?
         end
         data
       end
@@ -1193,7 +1195,7 @@ module AWS::SDK::StorageGateway
         data['DayOfWeek'] = stub[:day_of_week] unless stub[:day_of_week].nil?
         data['DayOfMonth'] = stub[:day_of_month] unless stub[:day_of_month].nil?
         data['Timezone'] = stub[:timezone] unless stub[:timezone].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1208,8 +1210,8 @@ module AWS::SDK::StorageGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['NFSFileShareInfoList'] = Stubs::NFSFileShareInfoList.stub(stub[:nfs_file_share_info_list]) unless stub[:nfs_file_share_info_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['NFSFileShareInfoList'] = NFSFileShareInfoList.stub(stub[:nfs_file_share_info_list]) unless stub[:nfs_file_share_info_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1228,7 +1230,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NFSFileShareInfo.stub(element) unless element.nil?
+          data << NFSFileShareInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1270,7 +1272,7 @@ module AWS::SDK::StorageGateway
       def self.stub(stub)
         stub ||= Types::NFSFileShareInfo.new
         data = {}
-        data['NFSFileShareDefaults'] = Stubs::NFSFileShareDefaults.stub(stub[:nfs_file_share_defaults]) unless stub[:nfs_file_share_defaults].nil?
+        data['NFSFileShareDefaults'] = NFSFileShareDefaults.stub(stub[:nfs_file_share_defaults]) unless stub[:nfs_file_share_defaults].nil?
         data['FileShareARN'] = stub[:file_share_arn] unless stub[:file_share_arn].nil?
         data['FileShareId'] = stub[:file_share_id] unless stub[:file_share_id].nil?
         data['FileShareStatus'] = stub[:file_share_status] unless stub[:file_share_status].nil?
@@ -1282,14 +1284,14 @@ module AWS::SDK::StorageGateway
         data['LocationARN'] = stub[:location_arn] unless stub[:location_arn].nil?
         data['DefaultStorageClass'] = stub[:default_storage_class] unless stub[:default_storage_class].nil?
         data['ObjectACL'] = stub[:object_acl] unless stub[:object_acl].nil?
-        data['ClientList'] = Stubs::FileShareClientList.stub(stub[:client_list]) unless stub[:client_list].nil?
+        data['ClientList'] = FileShareClientList.stub(stub[:client_list]) unless stub[:client_list].nil?
         data['Squash'] = stub[:squash] unless stub[:squash].nil?
         data['ReadOnly'] = stub[:read_only] unless stub[:read_only].nil?
         data['GuessMIMETypeEnabled'] = stub[:guess_mime_type_enabled] unless stub[:guess_mime_type_enabled].nil?
         data['RequesterPays'] = stub[:requester_pays] unless stub[:requester_pays].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['FileShareName'] = stub[:file_share_name] unless stub[:file_share_name].nil?
-        data['CacheAttributes'] = Stubs::CacheAttributes.stub(stub[:cache_attributes]) unless stub[:cache_attributes].nil?
+        data['CacheAttributes'] = CacheAttributes.stub(stub[:cache_attributes]) unless stub[:cache_attributes].nil?
         data['NotificationPolicy'] = stub[:notification_policy] unless stub[:notification_policy].nil?
         data['VPCEndpointDNSName'] = stub[:vpc_endpoint_dns_name] unless stub[:vpc_endpoint_dns_name].nil?
         data['BucketRegion'] = stub[:bucket_region] unless stub[:bucket_region].nil?
@@ -1352,8 +1354,8 @@ module AWS::SDK::StorageGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SMBFileShareInfoList'] = Stubs::SMBFileShareInfoList.stub(stub[:smb_file_share_info_list]) unless stub[:smb_file_share_info_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SMBFileShareInfoList'] = SMBFileShareInfoList.stub(stub[:smb_file_share_info_list]) unless stub[:smb_file_share_info_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1372,7 +1374,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SMBFileShareInfo.stub(element) unless element.nil?
+          data << SMBFileShareInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1435,15 +1437,15 @@ module AWS::SDK::StorageGateway
         data['RequesterPays'] = stub[:requester_pays] unless stub[:requester_pays].nil?
         data['SMBACLEnabled'] = stub[:smbacl_enabled] unless stub[:smbacl_enabled].nil?
         data['AccessBasedEnumeration'] = stub[:access_based_enumeration] unless stub[:access_based_enumeration].nil?
-        data['AdminUserList'] = Stubs::UserList.stub(stub[:admin_user_list]) unless stub[:admin_user_list].nil?
-        data['ValidUserList'] = Stubs::UserList.stub(stub[:valid_user_list]) unless stub[:valid_user_list].nil?
-        data['InvalidUserList'] = Stubs::UserList.stub(stub[:invalid_user_list]) unless stub[:invalid_user_list].nil?
+        data['AdminUserList'] = UserList.stub(stub[:admin_user_list]) unless stub[:admin_user_list].nil?
+        data['ValidUserList'] = UserList.stub(stub[:valid_user_list]) unless stub[:valid_user_list].nil?
+        data['InvalidUserList'] = UserList.stub(stub[:invalid_user_list]) unless stub[:invalid_user_list].nil?
         data['AuditDestinationARN'] = stub[:audit_destination_arn] unless stub[:audit_destination_arn].nil?
         data['Authentication'] = stub[:authentication] unless stub[:authentication].nil?
         data['CaseSensitivity'] = stub[:case_sensitivity] unless stub[:case_sensitivity].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['FileShareName'] = stub[:file_share_name] unless stub[:file_share_name].nil?
-        data['CacheAttributes'] = Stubs::CacheAttributes.stub(stub[:cache_attributes]) unless stub[:cache_attributes].nil?
+        data['CacheAttributes'] = CacheAttributes.stub(stub[:cache_attributes]) unless stub[:cache_attributes].nil?
         data['NotificationPolicy'] = stub[:notification_policy] unless stub[:notification_policy].nil?
         data['VPCEndpointDNSName'] = stub[:vpc_endpoint_dns_name] unless stub[:vpc_endpoint_dns_name].nil?
         data['BucketRegion'] = stub[:bucket_region] unless stub[:bucket_region].nil?
@@ -1494,8 +1496,8 @@ module AWS::SDK::StorageGateway
         data['SMBGuestPasswordSet'] = stub[:smb_guest_password_set] unless stub[:smb_guest_password_set].nil?
         data['SMBSecurityStrategy'] = stub[:smb_security_strategy] unless stub[:smb_security_strategy].nil?
         data['FileSharesVisible'] = stub[:file_shares_visible] unless stub[:file_shares_visible].nil?
-        data['SMBLocalGroups'] = Stubs::SMBLocalGroups.stub(stub[:smb_local_groups]) unless stub[:smb_local_groups].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SMBLocalGroups'] = SMBLocalGroups.stub(stub[:smb_local_groups]) unless stub[:smb_local_groups].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1513,7 +1515,7 @@ module AWS::SDK::StorageGateway
       def self.stub(stub)
         stub ||= Types::SMBLocalGroups.new
         data = {}
-        data['GatewayAdmins'] = Stubs::UserList.stub(stub[:gateway_admins]) unless stub[:gateway_admins].nil?
+        data['GatewayAdmins'] = UserList.stub(stub[:gateway_admins]) unless stub[:gateway_admins].nil?
         data
       end
     end
@@ -1538,8 +1540,8 @@ module AWS::SDK::StorageGateway
         data['RecurrenceInHours'] = stub[:recurrence_in_hours] unless stub[:recurrence_in_hours].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Timezone'] = stub[:timezone] unless stub[:timezone].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1554,8 +1556,8 @@ module AWS::SDK::StorageGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['StorediSCSIVolumes'] = Stubs::StorediSCSIVolumes.stub(stub[:storedi_scsi_volumes]) unless stub[:storedi_scsi_volumes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StorediSCSIVolumes'] = StorediSCSIVolumes.stub(stub[:storedi_scsi_volumes]) unless stub[:storedi_scsi_volumes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1574,7 +1576,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StorediSCSIVolume.stub(element) unless element.nil?
+          data << StorediSCSIVolume.stub(element) unless element.nil?
         end
         data
       end
@@ -1617,7 +1619,7 @@ module AWS::SDK::StorageGateway
         data['VolumeDiskId'] = stub[:volume_disk_id] unless stub[:volume_disk_id].nil?
         data['SourceSnapshotId'] = stub[:source_snapshot_id] unless stub[:source_snapshot_id].nil?
         data['PreservedExistingData'] = stub[:preserved_existing_data] unless stub[:preserved_existing_data].nil?
-        data['VolumeiSCSIAttributes'] = Stubs::VolumeiSCSIAttributes.stub(stub[:volumei_scsi_attributes]) unless stub[:volumei_scsi_attributes].nil?
+        data['VolumeiSCSIAttributes'] = VolumeiSCSIAttributes.stub(stub[:volumei_scsi_attributes]) unless stub[:volumei_scsi_attributes].nil?
         data['CreatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['VolumeUsedInBytes'] = stub[:volume_used_in_bytes] unless stub[:volume_used_in_bytes].nil?
         data['KMSKey'] = stub[:kms_key] unless stub[:kms_key].nil?
@@ -1637,9 +1639,9 @@ module AWS::SDK::StorageGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TapeArchives'] = Stubs::TapeArchives.stub(stub[:tape_archives]) unless stub[:tape_archives].nil?
+        data['TapeArchives'] = TapeArchives.stub(stub[:tape_archives]) unless stub[:tape_archives].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1658,7 +1660,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TapeArchive.stub(element) unless element.nil?
+          data << TapeArchive.stub(element) unless element.nil?
         end
         data
       end
@@ -1719,9 +1721,9 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        data['TapeRecoveryPointInfos'] = Stubs::TapeRecoveryPointInfos.stub(stub[:tape_recovery_point_infos]) unless stub[:tape_recovery_point_infos].nil?
+        data['TapeRecoveryPointInfos'] = TapeRecoveryPointInfos.stub(stub[:tape_recovery_point_infos]) unless stub[:tape_recovery_point_infos].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1740,7 +1742,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TapeRecoveryPointInfo.stub(element) unless element.nil?
+          data << TapeRecoveryPointInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1781,9 +1783,9 @@ module AWS::SDK::StorageGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tapes'] = Stubs::Tapes.stub(stub[:tapes]) unless stub[:tapes].nil?
+        data['Tapes'] = Tapes.stub(stub[:tapes]) unless stub[:tapes].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1802,7 +1804,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tape.stub(element) unless element.nil?
+          data << Tape.stub(element) unless element.nil?
         end
         data
       end
@@ -1864,10 +1866,10 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        data['DiskIds'] = Stubs::DiskIds.stub(stub[:disk_ids]) unless stub[:disk_ids].nil?
+        data['DiskIds'] = DiskIds.stub(stub[:disk_ids]) unless stub[:disk_ids].nil?
         data['UploadBufferUsedInBytes'] = stub[:upload_buffer_used_in_bytes] unless stub[:upload_buffer_used_in_bytes].nil?
         data['UploadBufferAllocatedInBytes'] = stub[:upload_buffer_allocated_in_bytes] unless stub[:upload_buffer_allocated_in_bytes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1885,9 +1887,9 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        data['VTLDevices'] = Stubs::VTLDevices.stub(stub[:vtl_devices]) unless stub[:vtl_devices].nil?
+        data['VTLDevices'] = VTLDevices.stub(stub[:vtl_devices]) unless stub[:vtl_devices].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1906,7 +1908,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VTLDevice.stub(element) unless element.nil?
+          data << VTLDevice.stub(element) unless element.nil?
         end
         data
       end
@@ -1933,7 +1935,7 @@ module AWS::SDK::StorageGateway
         data['VTLDeviceType'] = stub[:vtl_device_type] unless stub[:vtl_device_type].nil?
         data['VTLDeviceVendor'] = stub[:vtl_device_vendor] unless stub[:vtl_device_vendor].nil?
         data['VTLDeviceProductIdentifier'] = stub[:vtl_device_product_identifier] unless stub[:vtl_device_product_identifier].nil?
-        data['DeviceiSCSIAttributes'] = Stubs::DeviceiSCSIAttributes.stub(stub[:devicei_scsi_attributes]) unless stub[:devicei_scsi_attributes].nil?
+        data['DeviceiSCSIAttributes'] = DeviceiSCSIAttributes.stub(stub[:devicei_scsi_attributes]) unless stub[:devicei_scsi_attributes].nil?
         data
       end
     end
@@ -1976,10 +1978,10 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        data['DiskIds'] = Stubs::DiskIds.stub(stub[:disk_ids]) unless stub[:disk_ids].nil?
+        data['DiskIds'] = DiskIds.stub(stub[:disk_ids]) unless stub[:disk_ids].nil?
         data['WorkingStorageUsedInBytes'] = stub[:working_storage_used_in_bytes] unless stub[:working_storage_used_in_bytes].nil?
         data['WorkingStorageAllocatedInBytes'] = stub[:working_storage_allocated_in_bytes] unless stub[:working_storage_allocated_in_bytes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1995,7 +1997,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['VolumeARN'] = stub[:volume_arn] unless stub[:volume_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2011,7 +2013,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2027,7 +2029,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['FileSystemAssociationARN'] = stub[:file_system_association_arn] unless stub[:file_system_association_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2045,7 +2047,7 @@ module AWS::SDK::StorageGateway
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
         data['ActiveDirectoryStatus'] = stub[:active_directory_status] unless stub[:active_directory_status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2060,8 +2062,8 @@ module AWS::SDK::StorageGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AutomaticTapeCreationPolicyInfos'] = Stubs::AutomaticTapeCreationPolicyInfos.stub(stub[:automatic_tape_creation_policy_infos]) unless stub[:automatic_tape_creation_policy_infos].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AutomaticTapeCreationPolicyInfos'] = AutomaticTapeCreationPolicyInfos.stub(stub[:automatic_tape_creation_policy_infos]) unless stub[:automatic_tape_creation_policy_infos].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2080,7 +2082,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutomaticTapeCreationPolicyInfo.stub(element) unless element.nil?
+          data << AutomaticTapeCreationPolicyInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -2100,7 +2102,7 @@ module AWS::SDK::StorageGateway
       def self.stub(stub)
         stub ||= Types::AutomaticTapeCreationPolicyInfo.new
         data = {}
-        data['AutomaticTapeCreationRules'] = Stubs::AutomaticTapeCreationRules.stub(stub[:automatic_tape_creation_rules]) unless stub[:automatic_tape_creation_rules].nil?
+        data['AutomaticTapeCreationRules'] = AutomaticTapeCreationRules.stub(stub[:automatic_tape_creation_rules]) unless stub[:automatic_tape_creation_rules].nil?
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
         data
       end
@@ -2120,7 +2122,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutomaticTapeCreationRule.stub(element) unless element.nil?
+          data << AutomaticTapeCreationRule.stub(element) unless element.nil?
         end
         data
       end
@@ -2166,8 +2168,8 @@ module AWS::SDK::StorageGateway
         data = {}
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['FileShareInfoList'] = Stubs::FileShareInfoList.stub(stub[:file_share_info_list]) unless stub[:file_share_info_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FileShareInfoList'] = FileShareInfoList.stub(stub[:file_share_info_list]) unless stub[:file_share_info_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2186,7 +2188,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FileShareInfo.stub(element) unless element.nil?
+          data << FileShareInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -2232,8 +2234,8 @@ module AWS::SDK::StorageGateway
         data = {}
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
         data['NextMarker'] = stub[:next_marker] unless stub[:next_marker].nil?
-        data['FileSystemAssociationSummaryList'] = Stubs::FileSystemAssociationSummaryList.stub(stub[:file_system_association_summary_list]) unless stub[:file_system_association_summary_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['FileSystemAssociationSummaryList'] = FileSystemAssociationSummaryList.stub(stub[:file_system_association_summary_list]) unless stub[:file_system_association_summary_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2252,7 +2254,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FileSystemAssociationSummary.stub(element) unless element.nil?
+          data << FileSystemAssociationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2293,9 +2295,9 @@ module AWS::SDK::StorageGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Gateways'] = Stubs::Gateways.stub(stub[:gateways]) unless stub[:gateways].nil?
+        data['Gateways'] = Gateways.stub(stub[:gateways]) unless stub[:gateways].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2314,7 +2316,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GatewayInfo.stub(element) unless element.nil?
+          data << GatewayInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -2366,8 +2368,8 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        data['Disks'] = Stubs::Disks.stub(stub[:disks]) unless stub[:disks].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Disks'] = Disks.stub(stub[:disks]) unless stub[:disks].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2386,7 +2388,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Disk.stub(element) unless element.nil?
+          data << Disk.stub(element) unless element.nil?
         end
         data
       end
@@ -2419,7 +2421,7 @@ module AWS::SDK::StorageGateway
         data['DiskSizeInBytes'] = stub[:disk_size_in_bytes] unless stub[:disk_size_in_bytes].nil?
         data['DiskAllocationType'] = stub[:disk_allocation_type] unless stub[:disk_allocation_type].nil?
         data['DiskAllocationResource'] = stub[:disk_allocation_resource] unless stub[:disk_allocation_resource].nil?
-        data['DiskAttributeList'] = Stubs::DiskAttributeList.stub(stub[:disk_attribute_list]) unless stub[:disk_attribute_list].nil?
+        data['DiskAttributeList'] = DiskAttributeList.stub(stub[:disk_attribute_list]) unless stub[:disk_attribute_list].nil?
         data
       end
     end
@@ -2458,8 +2460,8 @@ module AWS::SDK::StorageGateway
         data = {}
         data['ResourceARN'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2475,9 +2477,9 @@ module AWS::SDK::StorageGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PoolInfos'] = Stubs::PoolInfos.stub(stub[:pool_infos]) unless stub[:pool_infos].nil?
+        data['PoolInfos'] = PoolInfos.stub(stub[:pool_infos]) unless stub[:pool_infos].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2496,7 +2498,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PoolInfo.stub(element) unless element.nil?
+          data << PoolInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -2541,9 +2543,9 @@ module AWS::SDK::StorageGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TapeInfos'] = Stubs::TapeInfos.stub(stub[:tape_infos]) unless stub[:tape_infos].nil?
+        data['TapeInfos'] = TapeInfos.stub(stub[:tape_infos]) unless stub[:tape_infos].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2562,7 +2564,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TapeInfo.stub(element) unless element.nil?
+          data << TapeInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -2610,8 +2612,8 @@ module AWS::SDK::StorageGateway
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Initiators'] = Stubs::Initiators.stub(stub[:initiators]) unless stub[:initiators].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Initiators'] = Initiators.stub(stub[:initiators]) unless stub[:initiators].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2648,8 +2650,8 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        data['VolumeRecoveryPointInfos'] = Stubs::VolumeRecoveryPointInfos.stub(stub[:volume_recovery_point_infos]) unless stub[:volume_recovery_point_infos].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VolumeRecoveryPointInfos'] = VolumeRecoveryPointInfos.stub(stub[:volume_recovery_point_infos]) unless stub[:volume_recovery_point_infos].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2668,7 +2670,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VolumeRecoveryPointInfo.stub(element) unless element.nil?
+          data << VolumeRecoveryPointInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -2712,8 +2714,8 @@ module AWS::SDK::StorageGateway
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        data['VolumeInfos'] = Stubs::VolumeInfos.stub(stub[:volume_infos]) unless stub[:volume_infos].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VolumeInfos'] = VolumeInfos.stub(stub[:volume_infos]) unless stub[:volume_infos].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2732,7 +2734,7 @@ module AWS::SDK::StorageGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VolumeInfo.stub(element) unless element.nil?
+          data << VolumeInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -2781,7 +2783,7 @@ module AWS::SDK::StorageGateway
         data = {}
         data['FileShareARN'] = stub[:file_share_arn] unless stub[:file_share_arn].nil?
         data['NotificationId'] = stub[:notification_id] unless stub[:notification_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2799,7 +2801,7 @@ module AWS::SDK::StorageGateway
         data = {}
         data['FileShareARN'] = stub[:file_share_arn] unless stub[:file_share_arn].nil?
         data['NotificationId'] = stub[:notification_id] unless stub[:notification_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2815,7 +2817,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['ResourceARN'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2831,7 +2833,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2847,7 +2849,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['TapeARN'] = stub[:tape_arn] unless stub[:tape_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2863,7 +2865,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['TapeARN'] = stub[:tape_arn] unless stub[:tape_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2879,7 +2881,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2895,7 +2897,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2911,7 +2913,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2927,7 +2929,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2943,7 +2945,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2959,7 +2961,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2975,7 +2977,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2991,7 +2993,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3009,7 +3011,7 @@ module AWS::SDK::StorageGateway
         data = {}
         data['TargetARN'] = stub[:target_arn] unless stub[:target_arn].nil?
         data['InitiatorName'] = stub[:initiator_name] unless stub[:initiator_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3025,7 +3027,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['FileSystemAssociationARN'] = stub[:file_system_association_arn] unless stub[:file_system_association_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3043,7 +3045,7 @@ module AWS::SDK::StorageGateway
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
         data['GatewayName'] = stub[:gateway_name] unless stub[:gateway_name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3059,7 +3061,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3075,7 +3077,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3091,7 +3093,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['FileShareARN'] = stub[:file_share_arn] unless stub[:file_share_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3107,7 +3109,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['FileShareARN'] = stub[:file_share_arn] unless stub[:file_share_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3123,7 +3125,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3139,7 +3141,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3155,7 +3157,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['GatewayARN'] = stub[:gateway_arn] unless stub[:gateway_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3171,7 +3173,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['VolumeARN'] = stub[:volume_arn] unless stub[:volume_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3187,7 +3189,7 @@ module AWS::SDK::StorageGateway
       def self.stub(http_resp, stub:)
         data = {}
         data['VTLDeviceARN'] = stub[:vtl_device_arn] unless stub[:vtl_device_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

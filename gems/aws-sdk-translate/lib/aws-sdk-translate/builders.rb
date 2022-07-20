@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::Translate
   module Builders
 
@@ -20,10 +23,10 @@ module AWS::SDK::Translate
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['ParallelDataConfig'] = Builders::ParallelDataConfig.build(input[:parallel_data_config]) unless input[:parallel_data_config].nil?
-        data['EncryptionKey'] = Builders::EncryptionKey.build(input[:encryption_key]) unless input[:encryption_key].nil?
+        data['ParallelDataConfig'] = ParallelDataConfig.build(input[:parallel_data_config]) unless input[:parallel_data_config].nil?
+        data['EncryptionKey'] = EncryptionKey.build(input[:encryption_key]) unless input[:encryption_key].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -56,7 +59,7 @@ module AWS::SDK::Translate
         http_req.headers['X-Amz-Target'] = 'AWSShineFrontendService_20170701.DeleteParallelData'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -69,7 +72,7 @@ module AWS::SDK::Translate
         http_req.headers['X-Amz-Target'] = 'AWSShineFrontendService_20170701.DeleteTerminology'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -82,7 +85,7 @@ module AWS::SDK::Translate
         http_req.headers['X-Amz-Target'] = 'AWSShineFrontendService_20170701.DescribeTextTranslationJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -95,7 +98,7 @@ module AWS::SDK::Translate
         http_req.headers['X-Amz-Target'] = 'AWSShineFrontendService_20170701.GetParallelData'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -109,7 +112,7 @@ module AWS::SDK::Translate
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['TerminologyDataFormat'] = input[:terminology_data_format] unless input[:terminology_data_format].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -124,9 +127,9 @@ module AWS::SDK::Translate
         data['Name'] = input[:name] unless input[:name].nil?
         data['MergeStrategy'] = input[:merge_strategy] unless input[:merge_strategy].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['TerminologyData'] = Builders::TerminologyData.build(input[:terminology_data]) unless input[:terminology_data].nil?
-        data['EncryptionKey'] = Builders::EncryptionKey.build(input[:encryption_key]) unless input[:encryption_key].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TerminologyData'] = TerminologyData.build(input[:terminology_data]) unless input[:terminology_data].nil?
+        data['EncryptionKey'] = EncryptionKey.build(input[:encryption_key]) unless input[:encryption_key].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -134,7 +137,7 @@ module AWS::SDK::Translate
     class TerminologyData
       def self.build(input)
         data = {}
-        data['File'] = Base64::encode64(input[:file]).strip unless input[:file].nil?
+        data['File'] = ::Base64::encode64(input[:file]).strip unless input[:file].nil?
         data['Format'] = input[:format] unless input[:format].nil?
         data['Directionality'] = input[:directionality] unless input[:directionality].nil?
         data
@@ -151,7 +154,7 @@ module AWS::SDK::Translate
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -165,7 +168,7 @@ module AWS::SDK::Translate
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -177,10 +180,10 @@ module AWS::SDK::Translate
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AWSShineFrontendService_20170701.ListTextTranslationJobs'
         data = {}
-        data['Filter'] = Builders::TextTranslationJobFilter.build(input[:filter]) unless input[:filter].nil?
+        data['Filter'] = TextTranslationJobFilter.build(input[:filter]) unless input[:filter].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -205,16 +208,16 @@ module AWS::SDK::Translate
         http_req.headers['X-Amz-Target'] = 'AWSShineFrontendService_20170701.StartTextTranslationJob'
         data = {}
         data['JobName'] = input[:job_name] unless input[:job_name].nil?
-        data['InputDataConfig'] = Builders::InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
-        data['OutputDataConfig'] = Builders::OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
+        data['InputDataConfig'] = InputDataConfig.build(input[:input_data_config]) unless input[:input_data_config].nil?
+        data['OutputDataConfig'] = OutputDataConfig.build(input[:output_data_config]) unless input[:output_data_config].nil?
         data['DataAccessRoleArn'] = input[:data_access_role_arn] unless input[:data_access_role_arn].nil?
         data['SourceLanguageCode'] = input[:source_language_code] unless input[:source_language_code].nil?
-        data['TargetLanguageCodes'] = Builders::TargetLanguageCodeStringList.build(input[:target_language_codes]) unless input[:target_language_codes].nil?
-        data['TerminologyNames'] = Builders::ResourceNameList.build(input[:terminology_names]) unless input[:terminology_names].nil?
-        data['ParallelDataNames'] = Builders::ResourceNameList.build(input[:parallel_data_names]) unless input[:parallel_data_names].nil?
+        data['TargetLanguageCodes'] = TargetLanguageCodeStringList.build(input[:target_language_codes]) unless input[:target_language_codes].nil?
+        data['TerminologyNames'] = ResourceNameList.build(input[:terminology_names]) unless input[:terminology_names].nil?
+        data['ParallelDataNames'] = ResourceNameList.build(input[:parallel_data_names]) unless input[:parallel_data_names].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['Settings'] = Builders::TranslationSettings.build(input[:settings]) unless input[:settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Settings'] = TranslationSettings.build(input[:settings]) unless input[:settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -255,7 +258,7 @@ module AWS::SDK::Translate
       def self.build(input)
         data = {}
         data['S3Uri'] = input[:s3_uri] unless input[:s3_uri].nil?
-        data['EncryptionKey'] = Builders::EncryptionKey.build(input[:encryption_key]) unless input[:encryption_key].nil?
+        data['EncryptionKey'] = EncryptionKey.build(input[:encryption_key]) unless input[:encryption_key].nil?
         data
       end
     end
@@ -279,7 +282,7 @@ module AWS::SDK::Translate
         http_req.headers['X-Amz-Target'] = 'AWSShineFrontendService_20170701.StopTextTranslationJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -292,11 +295,11 @@ module AWS::SDK::Translate
         http_req.headers['X-Amz-Target'] = 'AWSShineFrontendService_20170701.TranslateText'
         data = {}
         data['Text'] = input[:text] unless input[:text].nil?
-        data['TerminologyNames'] = Builders::ResourceNameList.build(input[:terminology_names]) unless input[:terminology_names].nil?
+        data['TerminologyNames'] = ResourceNameList.build(input[:terminology_names]) unless input[:terminology_names].nil?
         data['SourceLanguageCode'] = input[:source_language_code] unless input[:source_language_code].nil?
         data['TargetLanguageCode'] = input[:target_language_code] unless input[:target_language_code].nil?
-        data['Settings'] = Builders::TranslationSettings.build(input[:settings]) unless input[:settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Settings'] = TranslationSettings.build(input[:settings]) unless input[:settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -310,9 +313,9 @@ module AWS::SDK::Translate
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['ParallelDataConfig'] = Builders::ParallelDataConfig.build(input[:parallel_data_config]) unless input[:parallel_data_config].nil?
+        data['ParallelDataConfig'] = ParallelDataConfig.build(input[:parallel_data_config]) unless input[:parallel_data_config].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

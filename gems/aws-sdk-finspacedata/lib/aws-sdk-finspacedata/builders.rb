@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::FinspaceData
   module Builders
 
@@ -29,9 +31,9 @@ module AWS::SDK::FinspaceData
         data = {}
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
         data['changeType'] = input[:change_type] unless input[:change_type].nil?
-        data['sourceParams'] = Builders::SourceParams.build(input[:source_params]) unless input[:source_params].nil?
-        data['formatParams'] = Builders::FormatParams.build(input[:format_params]) unless input[:format_params].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sourceParams'] = SourceParams.build(input[:source_params]) unless input[:source_params].nil?
+        data['formatParams'] = FormatParams.build(input[:format_params]) unless input[:format_params].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -76,11 +78,11 @@ module AWS::SDK::FinspaceData
         data = {}
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
         data['autoUpdate'] = input[:auto_update] unless input[:auto_update].nil?
-        data['sortColumns'] = Builders::SortColumnList.build(input[:sort_columns]) unless input[:sort_columns].nil?
-        data['partitionColumns'] = Builders::PartitionColumnList.build(input[:partition_columns]) unless input[:partition_columns].nil?
+        data['sortColumns'] = SortColumnList.build(input[:sort_columns]) unless input[:sort_columns].nil?
+        data['partitionColumns'] = PartitionColumnList.build(input[:partition_columns]) unless input[:partition_columns].nil?
         data['asOfTimestamp'] = input[:as_of_timestamp] unless input[:as_of_timestamp].nil?
-        data['destinationTypeParams'] = Builders::DataViewDestinationTypeParams.build(input[:destination_type_params]) unless input[:destination_type_params].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['destinationTypeParams'] = DataViewDestinationTypeParams.build(input[:destination_type_params]) unless input[:destination_type_params].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -90,7 +92,7 @@ module AWS::SDK::FinspaceData
         data = {}
         data['destinationType'] = input[:destination_type] unless input[:destination_type].nil?
         data['s3DestinationExportFileFormat'] = input[:s3_destination_export_file_format] unless input[:s3_destination_export_file_format].nil?
-        data['s3DestinationExportFileFormatOptions'] = Builders::S3DestinationFormatOptions.build(input[:s3_destination_export_file_format_options]) unless input[:s3_destination_export_file_format_options].nil?
+        data['s3DestinationExportFileFormatOptions'] = S3DestinationFormatOptions.build(input[:s3_destination_export_file_format_options]) unless input[:s3_destination_export_file_format_options].nil?
         data
       end
     end
@@ -142,11 +144,11 @@ module AWS::SDK::FinspaceData
         data['datasetTitle'] = input[:dataset_title] unless input[:dataset_title].nil?
         data['kind'] = input[:kind] unless input[:kind].nil?
         data['datasetDescription'] = input[:dataset_description] unless input[:dataset_description].nil?
-        data['ownerInfo'] = Builders::DatasetOwnerInfo.build(input[:owner_info]) unless input[:owner_info].nil?
-        data['permissionGroupParams'] = Builders::PermissionGroupParams.build(input[:permission_group_params]) unless input[:permission_group_params].nil?
+        data['ownerInfo'] = DatasetOwnerInfo.build(input[:owner_info]) unless input[:owner_info].nil?
+        data['permissionGroupParams'] = PermissionGroupParams.build(input[:permission_group_params]) unless input[:permission_group_params].nil?
         data['alias'] = input[:alias] unless input[:alias].nil?
-        data['schemaDefinition'] = Builders::SchemaUnion.build(input[:schema_definition]) unless input[:schema_definition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['schemaDefinition'] = SchemaUnion.build(input[:schema_definition]) unless input[:schema_definition].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -154,7 +156,7 @@ module AWS::SDK::FinspaceData
     class SchemaUnion
       def self.build(input)
         data = {}
-        data['tabularSchemaConfig'] = Builders::SchemaDefinition.build(input[:tabular_schema_config]) unless input[:tabular_schema_config].nil?
+        data['tabularSchemaConfig'] = SchemaDefinition.build(input[:tabular_schema_config]) unless input[:tabular_schema_config].nil?
         data
       end
     end
@@ -163,8 +165,8 @@ module AWS::SDK::FinspaceData
     class SchemaDefinition
       def self.build(input)
         data = {}
-        data['columns'] = Builders::ColumnList.build(input[:columns]) unless input[:columns].nil?
-        data['primaryKeyColumns'] = Builders::ColumnNameList.build(input[:primary_key_columns]) unless input[:primary_key_columns].nil?
+        data['columns'] = ColumnList.build(input[:columns]) unless input[:columns].nil?
+        data['primaryKeyColumns'] = ColumnNameList.build(input[:primary_key_columns]) unless input[:primary_key_columns].nil?
         data
       end
     end
@@ -185,7 +187,7 @@ module AWS::SDK::FinspaceData
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ColumnDefinition.build(element) unless element.nil?
+          data << ColumnDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -207,7 +209,7 @@ module AWS::SDK::FinspaceData
       def self.build(input)
         data = {}
         data['permissionGroupId'] = input[:permission_group_id] unless input[:permission_group_id].nil?
-        data['datasetPermissions'] = Builders::ResourcePermissionsList.build(input[:dataset_permissions]) unless input[:dataset_permissions].nil?
+        data['datasetPermissions'] = ResourcePermissionsList.build(input[:dataset_permissions]) unless input[:dataset_permissions].nil?
         data
       end
     end
@@ -217,7 +219,7 @@ module AWS::SDK::FinspaceData
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ResourcePermission.build(element) unless element.nil?
+          data << ResourcePermission.build(element) unless element.nil?
         end
         data
       end
@@ -255,9 +257,9 @@ module AWS::SDK::FinspaceData
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['applicationPermissions'] = Builders::ApplicationPermissionList.build(input[:application_permissions]) unless input[:application_permissions].nil?
+        data['applicationPermissions'] = ApplicationPermissionList.build(input[:application_permissions]) unless input[:application_permissions].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -289,7 +291,7 @@ module AWS::SDK::FinspaceData
         data['ApiAccess'] = input[:api_access] unless input[:api_access].nil?
         data['apiAccessPrincipalArn'] = input[:api_access_principal_arn] unless input[:api_access_principal_arn].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -347,7 +349,7 @@ module AWS::SDK::FinspaceData
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -369,7 +371,7 @@ module AWS::SDK::FinspaceData
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -472,7 +474,7 @@ module AWS::SDK::FinspaceData
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['locationType'] = input[:location_type] unless input[:location_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -568,7 +570,7 @@ module AWS::SDK::FinspaceData
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -594,9 +596,9 @@ module AWS::SDK::FinspaceData
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['sourceParams'] = Builders::SourceParams.build(input[:source_params]) unless input[:source_params].nil?
-        data['formatParams'] = Builders::FormatParams.build(input[:format_params]) unless input[:format_params].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sourceParams'] = SourceParams.build(input[:source_params]) unless input[:source_params].nil?
+        data['formatParams'] = FormatParams.build(input[:format_params]) unless input[:format_params].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -622,8 +624,8 @@ module AWS::SDK::FinspaceData
         data['kind'] = input[:kind] unless input[:kind].nil?
         data['datasetDescription'] = input[:dataset_description] unless input[:dataset_description].nil?
         data['alias'] = input[:alias] unless input[:alias].nil?
-        data['schemaDefinition'] = Builders::SchemaUnion.build(input[:schema_definition]) unless input[:schema_definition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['schemaDefinition'] = SchemaUnion.build(input[:schema_definition]) unless input[:schema_definition].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -646,9 +648,9 @@ module AWS::SDK::FinspaceData
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['applicationPermissions'] = Builders::ApplicationPermissionList.build(input[:application_permissions]) unless input[:application_permissions].nil?
+        data['applicationPermissions'] = ApplicationPermissionList.build(input[:application_permissions]) unless input[:application_permissions].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -675,7 +677,7 @@ module AWS::SDK::FinspaceData
         data['apiAccess'] = input[:api_access] unless input[:api_access].nil?
         data['apiAccessPrincipalArn'] = input[:api_access_principal_arn] unless input[:api_access_principal_arn].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

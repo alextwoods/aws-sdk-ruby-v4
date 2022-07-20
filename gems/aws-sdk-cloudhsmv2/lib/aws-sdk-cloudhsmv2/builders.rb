@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CloudHSMV2
   module Builders
 
@@ -20,8 +22,8 @@ module AWS::SDK::CloudHSMV2
         data = {}
         data['DestinationRegion'] = input[:destination_region] unless input[:destination_region].nil?
         data['BackupId'] = input[:backup_id] unless input[:backup_id].nil?
-        data['TagList'] = Builders::TagList.build(input[:tag_list]) unless input[:tag_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagList'] = TagList.build(input[:tag_list]) unless input[:tag_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -30,7 +32,7 @@ module AWS::SDK::CloudHSMV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -54,12 +56,12 @@ module AWS::SDK::CloudHSMV2
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'BaldrApiService.CreateCluster'
         data = {}
-        data['BackupRetentionPolicy'] = Builders::BackupRetentionPolicy.build(input[:backup_retention_policy]) unless input[:backup_retention_policy].nil?
+        data['BackupRetentionPolicy'] = BackupRetentionPolicy.build(input[:backup_retention_policy]) unless input[:backup_retention_policy].nil?
         data['HsmType'] = input[:hsm_type] unless input[:hsm_type].nil?
         data['SourceBackupId'] = input[:source_backup_id] unless input[:source_backup_id].nil?
-        data['SubnetIds'] = Builders::SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['TagList'] = Builders::TagList.build(input[:tag_list]) unless input[:tag_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubnetIds'] = SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['TagList'] = TagList.build(input[:tag_list]) unless input[:tag_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -95,7 +97,7 @@ module AWS::SDK::CloudHSMV2
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
         data['AvailabilityZone'] = input[:availability_zone] unless input[:availability_zone].nil?
         data['IpAddress'] = input[:ip_address] unless input[:ip_address].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -108,7 +110,7 @@ module AWS::SDK::CloudHSMV2
         http_req.headers['X-Amz-Target'] = 'BaldrApiService.DeleteBackup'
         data = {}
         data['BackupId'] = input[:backup_id] unless input[:backup_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -121,7 +123,7 @@ module AWS::SDK::CloudHSMV2
         http_req.headers['X-Amz-Target'] = 'BaldrApiService.DeleteCluster'
         data = {}
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -137,7 +139,7 @@ module AWS::SDK::CloudHSMV2
         data['HsmId'] = input[:hsm_id] unless input[:hsm_id].nil?
         data['EniId'] = input[:eni_id] unless input[:eni_id].nil?
         data['EniIp'] = input[:eni_ip] unless input[:eni_ip].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -151,9 +153,9 @@ module AWS::SDK::CloudHSMV2
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
         data['SortAscending'] = input[:sort_ascending] unless input[:sort_ascending].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -162,7 +164,7 @@ module AWS::SDK::CloudHSMV2
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::Strings.build(value) unless value.nil?
+          data[key] = Strings.build(value) unless value.nil?
         end
         data
       end
@@ -187,10 +189,10 @@ module AWS::SDK::CloudHSMV2
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'BaldrApiService.DescribeClusters'
         data = {}
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -205,7 +207,7 @@ module AWS::SDK::CloudHSMV2
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
         data['SignedCert'] = input[:signed_cert] unless input[:signed_cert].nil?
         data['TrustAnchor'] = input[:trust_anchor] unless input[:trust_anchor].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -220,7 +222,7 @@ module AWS::SDK::CloudHSMV2
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -234,7 +236,7 @@ module AWS::SDK::CloudHSMV2
         data = {}
         data['BackupId'] = input[:backup_id] unless input[:backup_id].nil?
         data['NeverExpires'] = input[:never_expires] unless input[:never_expires].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -246,9 +248,9 @@ module AWS::SDK::CloudHSMV2
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'BaldrApiService.ModifyCluster'
         data = {}
-        data['BackupRetentionPolicy'] = Builders::BackupRetentionPolicy.build(input[:backup_retention_policy]) unless input[:backup_retention_policy].nil?
+        data['BackupRetentionPolicy'] = BackupRetentionPolicy.build(input[:backup_retention_policy]) unless input[:backup_retention_policy].nil?
         data['ClusterId'] = input[:cluster_id] unless input[:cluster_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -261,7 +263,7 @@ module AWS::SDK::CloudHSMV2
         http_req.headers['X-Amz-Target'] = 'BaldrApiService.RestoreBackup'
         data = {}
         data['BackupId'] = input[:backup_id] unless input[:backup_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -274,8 +276,8 @@ module AWS::SDK::CloudHSMV2
         http_req.headers['X-Amz-Target'] = 'BaldrApiService.TagResource'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['TagList'] = Builders::TagList.build(input[:tag_list]) unless input[:tag_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagList'] = TagList.build(input[:tag_list]) unless input[:tag_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -288,8 +290,8 @@ module AWS::SDK::CloudHSMV2
         http_req.headers['X-Amz-Target'] = 'BaldrApiService.UntagResource'
         data = {}
         data['ResourceId'] = input[:resource_id] unless input[:resource_id].nil?
-        data['TagKeyList'] = Builders::TagKeyList.build(input[:tag_key_list]) unless input[:tag_key_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeyList'] = TagKeyList.build(input[:tag_key_list]) unless input[:tag_key_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

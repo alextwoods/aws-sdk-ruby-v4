@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::LookoutMetrics
   module Stubs
 
@@ -49,7 +51,7 @@ module AWS::SDK::LookoutMetrics
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AlertArn'] = stub[:alert_arn] unless stub[:alert_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -66,7 +68,7 @@ module AWS::SDK::LookoutMetrics
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AnomalyDetectorArn'] = stub[:anomaly_detector_arn] unless stub[:anomaly_detector_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -83,7 +85,7 @@ module AWS::SDK::LookoutMetrics
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['MetricSetArn'] = stub[:metric_set_arn] unless stub[:metric_set_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -138,8 +140,8 @@ module AWS::SDK::LookoutMetrics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Alert'] = Stubs::Alert.stub(stub[:alert]) unless stub[:alert].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Alert'] = Alert.stub(stub[:alert]) unless stub[:alert].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -165,7 +167,7 @@ module AWS::SDK::LookoutMetrics
       def self.stub(stub)
         stub ||= Types::Alert.new
         data = {}
-        data['Action'] = Stubs::Action.stub(stub[:action]) unless stub[:action].nil?
+        data['Action'] = Action.stub(stub[:action]) unless stub[:action].nil?
         data['AlertDescription'] = stub[:alert_description] unless stub[:alert_description].nil?
         data['AlertArn'] = stub[:alert_arn] unless stub[:alert_arn].nil?
         data['AnomalyDetectorArn'] = stub[:anomaly_detector_arn] unless stub[:anomaly_detector_arn].nil?
@@ -193,8 +195,8 @@ module AWS::SDK::LookoutMetrics
       def self.stub(stub)
         stub ||= Types::Action.new
         data = {}
-        data['SNSConfiguration'] = Stubs::SNSConfiguration.stub(stub[:sns_configuration]) unless stub[:sns_configuration].nil?
-        data['LambdaConfiguration'] = Stubs::LambdaConfiguration.stub(stub[:lambda_configuration]) unless stub[:lambda_configuration].nil?
+        data['SNSConfiguration'] = SNSConfiguration.stub(stub[:sns_configuration]) unless stub[:sns_configuration].nil?
+        data['LambdaConfiguration'] = LambdaConfiguration.stub(stub[:lambda_configuration]) unless stub[:lambda_configuration].nil?
         data
       end
     end
@@ -254,9 +256,9 @@ module AWS::SDK::LookoutMetrics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ExecutionList'] = Stubs::ExecutionList.stub(stub[:execution_list]) unless stub[:execution_list].nil?
+        data['ExecutionList'] = ExecutionList.stub(stub[:execution_list]) unless stub[:execution_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -274,7 +276,7 @@ module AWS::SDK::LookoutMetrics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExecutionStatus.stub(element) unless element.nil?
+          data << ExecutionStatus.stub(element) unless element.nil?
         end
         data
       end
@@ -326,14 +328,14 @@ module AWS::SDK::LookoutMetrics
         data['AnomalyDetectorArn'] = stub[:anomaly_detector_arn] unless stub[:anomaly_detector_arn].nil?
         data['AnomalyDetectorName'] = stub[:anomaly_detector_name] unless stub[:anomaly_detector_name].nil?
         data['AnomalyDetectorDescription'] = stub[:anomaly_detector_description] unless stub[:anomaly_detector_description].nil?
-        data['AnomalyDetectorConfig'] = Stubs::AnomalyDetectorConfigSummary.stub(stub[:anomaly_detector_config]) unless stub[:anomaly_detector_config].nil?
+        data['AnomalyDetectorConfig'] = AnomalyDetectorConfigSummary.stub(stub[:anomaly_detector_config]) unless stub[:anomaly_detector_config].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModificationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modification_time]).to_i unless stub[:last_modification_time].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data['KmsKeyArn'] = stub[:kms_key_arn] unless stub[:kms_key_arn].nil?
         data['FailureType'] = stub[:failure_type] unless stub[:failure_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -386,13 +388,13 @@ module AWS::SDK::LookoutMetrics
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModificationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modification_time]).to_i unless stub[:last_modification_time].nil?
         data['Offset'] = stub[:offset] unless stub[:offset].nil?
-        data['MetricList'] = Stubs::MetricList.stub(stub[:metric_list]) unless stub[:metric_list].nil?
-        data['TimestampColumn'] = Stubs::TimestampColumn.stub(stub[:timestamp_column]) unless stub[:timestamp_column].nil?
-        data['DimensionList'] = Stubs::DimensionList.stub(stub[:dimension_list]) unless stub[:dimension_list].nil?
+        data['MetricList'] = MetricList.stub(stub[:metric_list]) unless stub[:metric_list].nil?
+        data['TimestampColumn'] = TimestampColumn.stub(stub[:timestamp_column]) unless stub[:timestamp_column].nil?
+        data['DimensionList'] = DimensionList.stub(stub[:dimension_list]) unless stub[:dimension_list].nil?
         data['MetricSetFrequency'] = stub[:metric_set_frequency] unless stub[:metric_set_frequency].nil?
         data['Timezone'] = stub[:timezone] unless stub[:timezone].nil?
-        data['MetricSource'] = Stubs::MetricSource.stub(stub[:metric_source]) unless stub[:metric_source].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MetricSource'] = MetricSource.stub(stub[:metric_source]) unless stub[:metric_source].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -414,12 +416,12 @@ module AWS::SDK::LookoutMetrics
       def self.stub(stub)
         stub ||= Types::MetricSource.new
         data = {}
-        data['S3SourceConfig'] = Stubs::S3SourceConfig.stub(stub[:s3_source_config]) unless stub[:s3_source_config].nil?
-        data['AppFlowConfig'] = Stubs::AppFlowConfig.stub(stub[:app_flow_config]) unless stub[:app_flow_config].nil?
-        data['CloudWatchConfig'] = Stubs::CloudWatchConfig.stub(stub[:cloud_watch_config]) unless stub[:cloud_watch_config].nil?
-        data['RDSSourceConfig'] = Stubs::RDSSourceConfig.stub(stub[:rds_source_config]) unless stub[:rds_source_config].nil?
-        data['RedshiftSourceConfig'] = Stubs::RedshiftSourceConfig.stub(stub[:redshift_source_config]) unless stub[:redshift_source_config].nil?
-        data['AthenaSourceConfig'] = Stubs::AthenaSourceConfig.stub(stub[:athena_source_config]) unless stub[:athena_source_config].nil?
+        data['S3SourceConfig'] = S3SourceConfig.stub(stub[:s3_source_config]) unless stub[:s3_source_config].nil?
+        data['AppFlowConfig'] = AppFlowConfig.stub(stub[:app_flow_config]) unless stub[:app_flow_config].nil?
+        data['CloudWatchConfig'] = CloudWatchConfig.stub(stub[:cloud_watch_config]) unless stub[:cloud_watch_config].nil?
+        data['RDSSourceConfig'] = RDSSourceConfig.stub(stub[:rds_source_config]) unless stub[:rds_source_config].nil?
+        data['RedshiftSourceConfig'] = RedshiftSourceConfig.stub(stub[:redshift_source_config]) unless stub[:redshift_source_config].nil?
+        data['AthenaSourceConfig'] = AthenaSourceConfig.stub(stub[:athena_source_config]) unless stub[:athena_source_config].nil?
         data
       end
     end
@@ -449,7 +451,7 @@ module AWS::SDK::LookoutMetrics
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['WorkGroupName'] = stub[:work_group_name] unless stub[:work_group_name].nil?
         data['S3ResultsPath'] = stub[:s3_results_path] unless stub[:s3_results_path].nil?
-        data['BackTestConfiguration'] = Stubs::BackTestConfiguration.stub(stub[:back_test_configuration]) unless stub[:back_test_configuration].nil?
+        data['BackTestConfiguration'] = BackTestConfiguration.stub(stub[:back_test_configuration]) unless stub[:back_test_configuration].nil?
         data
       end
     end
@@ -499,7 +501,7 @@ module AWS::SDK::LookoutMetrics
         data['DatabaseName'] = stub[:database_name] unless stub[:database_name].nil?
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['VpcConfiguration'] = Stubs::VpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
+        data['VpcConfiguration'] = VpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
         data
       end
     end
@@ -518,8 +520,8 @@ module AWS::SDK::LookoutMetrics
       def self.stub(stub)
         stub ||= Types::VpcConfiguration.new
         data = {}
-        data['SubnetIdList'] = Stubs::SubnetIdList.stub(stub[:subnet_id_list]) unless stub[:subnet_id_list].nil?
-        data['SecurityGroupIdList'] = Stubs::SecurityGroupIdList.stub(stub[:security_group_id_list]) unless stub[:security_group_id_list].nil?
+        data['SubnetIdList'] = SubnetIdList.stub(stub[:subnet_id_list]) unless stub[:subnet_id_list].nil?
+        data['SecurityGroupIdList'] = SecurityGroupIdList.stub(stub[:security_group_id_list]) unless stub[:security_group_id_list].nil?
         data
       end
     end
@@ -591,7 +593,7 @@ module AWS::SDK::LookoutMetrics
         data['DatabaseName'] = stub[:database_name] unless stub[:database_name].nil?
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['VpcConfiguration'] = Stubs::VpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
+        data['VpcConfiguration'] = VpcConfiguration.stub(stub[:vpc_configuration]) unless stub[:vpc_configuration].nil?
         data
       end
     end
@@ -611,7 +613,7 @@ module AWS::SDK::LookoutMetrics
         stub ||= Types::CloudWatchConfig.new
         data = {}
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['BackTestConfiguration'] = Stubs::BackTestConfiguration.stub(stub[:back_test_configuration]) unless stub[:back_test_configuration].nil?
+        data['BackTestConfiguration'] = BackTestConfiguration.stub(stub[:back_test_configuration]) unless stub[:back_test_configuration].nil?
         data
       end
     end
@@ -653,9 +655,9 @@ module AWS::SDK::LookoutMetrics
         stub ||= Types::S3SourceConfig.new
         data = {}
         data['RoleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['TemplatedPathList'] = Stubs::TemplatedPathList.stub(stub[:templated_path_list]) unless stub[:templated_path_list].nil?
-        data['HistoricalDataPathList'] = Stubs::HistoricalDataPathList.stub(stub[:historical_data_path_list]) unless stub[:historical_data_path_list].nil?
-        data['FileFormatDescriptor'] = Stubs::FileFormatDescriptor.stub(stub[:file_format_descriptor]) unless stub[:file_format_descriptor].nil?
+        data['TemplatedPathList'] = TemplatedPathList.stub(stub[:templated_path_list]) unless stub[:templated_path_list].nil?
+        data['HistoricalDataPathList'] = HistoricalDataPathList.stub(stub[:historical_data_path_list]) unless stub[:historical_data_path_list].nil?
+        data['FileFormatDescriptor'] = FileFormatDescriptor.stub(stub[:file_format_descriptor]) unless stub[:file_format_descriptor].nil?
         data
       end
     end
@@ -674,8 +676,8 @@ module AWS::SDK::LookoutMetrics
       def self.stub(stub)
         stub ||= Types::FileFormatDescriptor.new
         data = {}
-        data['CsvFormatDescriptor'] = Stubs::CsvFormatDescriptor.stub(stub[:csv_format_descriptor]) unless stub[:csv_format_descriptor].nil?
-        data['JsonFormatDescriptor'] = Stubs::JsonFormatDescriptor.stub(stub[:json_format_descriptor]) unless stub[:json_format_descriptor].nil?
+        data['CsvFormatDescriptor'] = CsvFormatDescriptor.stub(stub[:csv_format_descriptor]) unless stub[:csv_format_descriptor].nil?
+        data['JsonFormatDescriptor'] = JsonFormatDescriptor.stub(stub[:json_format_descriptor]) unless stub[:json_format_descriptor].nil?
         data
       end
     end
@@ -722,7 +724,7 @@ module AWS::SDK::LookoutMetrics
         data['Charset'] = stub[:charset] unless stub[:charset].nil?
         data['ContainsHeader'] = stub[:contains_header] unless stub[:contains_header].nil?
         data['Delimiter'] = stub[:delimiter] unless stub[:delimiter].nil?
-        data['HeaderList'] = Stubs::HeaderList.stub(stub[:header_list]) unless stub[:header_list].nil?
+        data['HeaderList'] = HeaderList.stub(stub[:header_list]) unless stub[:header_list].nil?
         data['QuoteSymbol'] = stub[:quote_symbol] unless stub[:quote_symbol].nil?
         data
       end
@@ -842,7 +844,7 @@ module AWS::SDK::LookoutMetrics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Metric.stub(element) unless element.nil?
+          data << Metric.stub(element) unless element.nil?
         end
         data
       end
@@ -882,8 +884,8 @@ module AWS::SDK::LookoutMetrics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DetectedMetricSetConfig'] = Stubs::DetectedMetricSetConfig.stub(stub[:detected_metric_set_config]) unless stub[:detected_metric_set_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DetectedMetricSetConfig'] = DetectedMetricSetConfig.stub(stub[:detected_metric_set_config]) unless stub[:detected_metric_set_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -902,9 +904,9 @@ module AWS::SDK::LookoutMetrics
       def self.stub(stub)
         stub ||= Types::DetectedMetricSetConfig.new
         data = {}
-        data['Offset'] = Stubs::DetectedField.stub(stub[:offset]) unless stub[:offset].nil?
-        data['MetricSetFrequency'] = Stubs::DetectedField.stub(stub[:metric_set_frequency]) unless stub[:metric_set_frequency].nil?
-        data['MetricSource'] = Stubs::DetectedMetricSource.stub(stub[:metric_source]) unless stub[:metric_source].nil?
+        data['Offset'] = DetectedField.stub(stub[:offset]) unless stub[:offset].nil?
+        data['MetricSetFrequency'] = DetectedField.stub(stub[:metric_set_frequency]) unless stub[:metric_set_frequency].nil?
+        data['MetricSource'] = DetectedMetricSource.stub(stub[:metric_source]) unless stub[:metric_source].nil?
         data
       end
     end
@@ -922,7 +924,7 @@ module AWS::SDK::LookoutMetrics
       def self.stub(stub)
         stub ||= Types::DetectedMetricSource.new
         data = {}
-        data['S3SourceConfig'] = Stubs::DetectedS3SourceConfig.stub(stub[:s3_source_config]) unless stub[:s3_source_config].nil?
+        data['S3SourceConfig'] = DetectedS3SourceConfig.stub(stub[:s3_source_config]) unless stub[:s3_source_config].nil?
         data
       end
     end
@@ -940,7 +942,7 @@ module AWS::SDK::LookoutMetrics
       def self.stub(stub)
         stub ||= Types::DetectedS3SourceConfig.new
         data = {}
-        data['FileFormatDescriptor'] = Stubs::DetectedFileFormatDescriptor.stub(stub[:file_format_descriptor]) unless stub[:file_format_descriptor].nil?
+        data['FileFormatDescriptor'] = DetectedFileFormatDescriptor.stub(stub[:file_format_descriptor]) unless stub[:file_format_descriptor].nil?
         data
       end
     end
@@ -959,8 +961,8 @@ module AWS::SDK::LookoutMetrics
       def self.stub(stub)
         stub ||= Types::DetectedFileFormatDescriptor.new
         data = {}
-        data['CsvFormatDescriptor'] = Stubs::DetectedCsvFormatDescriptor.stub(stub[:csv_format_descriptor]) unless stub[:csv_format_descriptor].nil?
-        data['JsonFormatDescriptor'] = Stubs::DetectedJsonFormatDescriptor.stub(stub[:json_format_descriptor]) unless stub[:json_format_descriptor].nil?
+        data['CsvFormatDescriptor'] = DetectedCsvFormatDescriptor.stub(stub[:csv_format_descriptor]) unless stub[:csv_format_descriptor].nil?
+        data['JsonFormatDescriptor'] = DetectedJsonFormatDescriptor.stub(stub[:json_format_descriptor]) unless stub[:json_format_descriptor].nil?
         data
       end
     end
@@ -979,8 +981,8 @@ module AWS::SDK::LookoutMetrics
       def self.stub(stub)
         stub ||= Types::DetectedJsonFormatDescriptor.new
         data = {}
-        data['FileCompression'] = Stubs::DetectedField.stub(stub[:file_compression]) unless stub[:file_compression].nil?
-        data['Charset'] = Stubs::DetectedField.stub(stub[:charset]) unless stub[:charset].nil?
+        data['FileCompression'] = DetectedField.stub(stub[:file_compression]) unless stub[:file_compression].nil?
+        data['Charset'] = DetectedField.stub(stub[:charset]) unless stub[:charset].nil?
         data
       end
     end
@@ -1000,7 +1002,7 @@ module AWS::SDK::LookoutMetrics
       def self.stub(stub)
         stub ||= Types::DetectedField.new
         data = {}
-        data['Value'] = Stubs::AttributeValue.stub(stub[:value]) unless stub[:value].nil?
+        data['Value'] = AttributeValue.stub(stub[:value]) unless stub[:value].nil?
         data['Confidence'] = stub[:confidence] unless stub[:confidence].nil?
         data['Message'] = stub[:message] unless stub[:message].nil?
         data
@@ -1028,9 +1030,9 @@ module AWS::SDK::LookoutMetrics
         data['S'] = stub[:s] unless stub[:s].nil?
         data['N'] = stub[:n] unless stub[:n].nil?
         data['B'] = stub[:b] unless stub[:b].nil?
-        data['SS'] = Stubs::StringListAttributeValue.stub(stub[:ss]) unless stub[:ss].nil?
-        data['NS'] = Stubs::NumberListAttributeValue.stub(stub[:ns]) unless stub[:ns].nil?
-        data['BS'] = Stubs::BinaryListAttributeValue.stub(stub[:bs]) unless stub[:bs].nil?
+        data['SS'] = StringListAttributeValue.stub(stub[:ss]) unless stub[:ss].nil?
+        data['NS'] = NumberListAttributeValue.stub(stub[:ns]) unless stub[:ns].nil?
+        data['BS'] = BinaryListAttributeValue.stub(stub[:bs]) unless stub[:bs].nil?
         data
       end
     end
@@ -1113,12 +1115,12 @@ module AWS::SDK::LookoutMetrics
       def self.stub(stub)
         stub ||= Types::DetectedCsvFormatDescriptor.new
         data = {}
-        data['FileCompression'] = Stubs::DetectedField.stub(stub[:file_compression]) unless stub[:file_compression].nil?
-        data['Charset'] = Stubs::DetectedField.stub(stub[:charset]) unless stub[:charset].nil?
-        data['ContainsHeader'] = Stubs::DetectedField.stub(stub[:contains_header]) unless stub[:contains_header].nil?
-        data['Delimiter'] = Stubs::DetectedField.stub(stub[:delimiter]) unless stub[:delimiter].nil?
-        data['HeaderList'] = Stubs::DetectedField.stub(stub[:header_list]) unless stub[:header_list].nil?
-        data['QuoteSymbol'] = Stubs::DetectedField.stub(stub[:quote_symbol]) unless stub[:quote_symbol].nil?
+        data['FileCompression'] = DetectedField.stub(stub[:file_compression]) unless stub[:file_compression].nil?
+        data['Charset'] = DetectedField.stub(stub[:charset]) unless stub[:charset].nil?
+        data['ContainsHeader'] = DetectedField.stub(stub[:contains_header]) unless stub[:contains_header].nil?
+        data['Delimiter'] = DetectedField.stub(stub[:delimiter]) unless stub[:delimiter].nil?
+        data['HeaderList'] = DetectedField.stub(stub[:header_list]) unless stub[:header_list].nil?
+        data['QuoteSymbol'] = DetectedField.stub(stub[:quote_symbol]) unless stub[:quote_symbol].nil?
         data
       end
     end
@@ -1135,8 +1137,8 @@ module AWS::SDK::LookoutMetrics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AnomalyGroup'] = Stubs::AnomalyGroup.stub(stub[:anomaly_group]) unless stub[:anomaly_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AnomalyGroup'] = AnomalyGroup.stub(stub[:anomaly_group]) unless stub[:anomaly_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1163,7 +1165,7 @@ module AWS::SDK::LookoutMetrics
         data['AnomalyGroupId'] = stub[:anomaly_group_id] unless stub[:anomaly_group_id].nil?
         data['AnomalyGroupScore'] = Hearth::NumberHelper.serialize(stub[:anomaly_group_score])
         data['PrimaryMetricName'] = stub[:primary_metric_name] unless stub[:primary_metric_name].nil?
-        data['MetricLevelImpactList'] = Stubs::MetricLevelImpactList.stub(stub[:metric_level_impact_list]) unless stub[:metric_level_impact_list].nil?
+        data['MetricLevelImpactList'] = MetricLevelImpactList.stub(stub[:metric_level_impact_list]) unless stub[:metric_level_impact_list].nil?
         data
       end
     end
@@ -1182,7 +1184,7 @@ module AWS::SDK::LookoutMetrics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricLevelImpact.stub(element) unless element.nil?
+          data << MetricLevelImpact.stub(element) unless element.nil?
         end
         data
       end
@@ -1205,7 +1207,7 @@ module AWS::SDK::LookoutMetrics
         data = {}
         data['MetricName'] = stub[:metric_name] unless stub[:metric_name].nil?
         data['NumTimeSeries'] = stub[:num_time_series] unless stub[:num_time_series].nil?
-        data['ContributionMatrix'] = Stubs::ContributionMatrix.stub(stub[:contribution_matrix]) unless stub[:contribution_matrix].nil?
+        data['ContributionMatrix'] = ContributionMatrix.stub(stub[:contribution_matrix]) unless stub[:contribution_matrix].nil?
         data
       end
     end
@@ -1223,7 +1225,7 @@ module AWS::SDK::LookoutMetrics
       def self.stub(stub)
         stub ||= Types::ContributionMatrix.new
         data = {}
-        data['DimensionContributionList'] = Stubs::DimensionContributionList.stub(stub[:dimension_contribution_list]) unless stub[:dimension_contribution_list].nil?
+        data['DimensionContributionList'] = DimensionContributionList.stub(stub[:dimension_contribution_list]) unless stub[:dimension_contribution_list].nil?
         data
       end
     end
@@ -1242,7 +1244,7 @@ module AWS::SDK::LookoutMetrics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DimensionContribution.stub(element) unless element.nil?
+          data << DimensionContribution.stub(element) unless element.nil?
         end
         data
       end
@@ -1263,7 +1265,7 @@ module AWS::SDK::LookoutMetrics
         stub ||= Types::DimensionContribution.new
         data = {}
         data['DimensionName'] = stub[:dimension_name] unless stub[:dimension_name].nil?
-        data['DimensionValueContributionList'] = Stubs::DimensionValueContributionList.stub(stub[:dimension_value_contribution_list]) unless stub[:dimension_value_contribution_list].nil?
+        data['DimensionValueContributionList'] = DimensionValueContributionList.stub(stub[:dimension_value_contribution_list]) unless stub[:dimension_value_contribution_list].nil?
         data
       end
     end
@@ -1282,7 +1284,7 @@ module AWS::SDK::LookoutMetrics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DimensionValueContribution.stub(element) unless element.nil?
+          data << DimensionValueContribution.stub(element) unless element.nil?
         end
         data
       end
@@ -1321,9 +1323,9 @@ module AWS::SDK::LookoutMetrics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AnomalyGroupTimeSeriesFeedback'] = Stubs::TimeSeriesFeedbackList.stub(stub[:anomaly_group_time_series_feedback]) unless stub[:anomaly_group_time_series_feedback].nil?
+        data['AnomalyGroupTimeSeriesFeedback'] = TimeSeriesFeedbackList.stub(stub[:anomaly_group_time_series_feedback]) unless stub[:anomaly_group_time_series_feedback].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1341,7 +1343,7 @@ module AWS::SDK::LookoutMetrics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TimeSeriesFeedback.stub(element) unless element.nil?
+          data << TimeSeriesFeedback.stub(element) unless element.nil?
         end
         data
       end
@@ -1380,9 +1382,9 @@ module AWS::SDK::LookoutMetrics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['HeaderValues'] = Stubs::HeaderValueList.stub(stub[:header_values]) unless stub[:header_values].nil?
-        data['SampleRows'] = Stubs::SampleRows.stub(stub[:sample_rows]) unless stub[:sample_rows].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HeaderValues'] = HeaderValueList.stub(stub[:header_values]) unless stub[:header_values].nil?
+        data['SampleRows'] = SampleRows.stub(stub[:sample_rows]) unless stub[:sample_rows].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1400,7 +1402,7 @@ module AWS::SDK::LookoutMetrics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SampleRow.stub(element) unless element.nil?
+          data << SampleRow.stub(element) unless element.nil?
         end
         data
       end
@@ -1459,9 +1461,9 @@ module AWS::SDK::LookoutMetrics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AlertSummaryList'] = Stubs::AlertSummaryList.stub(stub[:alert_summary_list]) unless stub[:alert_summary_list].nil?
+        data['AlertSummaryList'] = AlertSummaryList.stub(stub[:alert_summary_list]) unless stub[:alert_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1479,7 +1481,7 @@ module AWS::SDK::LookoutMetrics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AlertSummary.stub(element) unless element.nil?
+          data << AlertSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1514,7 +1516,7 @@ module AWS::SDK::LookoutMetrics
         data['AlertStatus'] = stub[:alert_status] unless stub[:alert_status].nil?
         data['LastModificationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modification_time]).to_i unless stub[:last_modification_time].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1552,9 +1554,9 @@ module AWS::SDK::LookoutMetrics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AnomalyDetectorSummaryList'] = Stubs::AnomalyDetectorSummaryList.stub(stub[:anomaly_detector_summary_list]) unless stub[:anomaly_detector_summary_list].nil?
+        data['AnomalyDetectorSummaryList'] = AnomalyDetectorSummaryList.stub(stub[:anomaly_detector_summary_list]) unless stub[:anomaly_detector_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1572,7 +1574,7 @@ module AWS::SDK::LookoutMetrics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AnomalyDetectorSummary.stub(element) unless element.nil?
+          data << AnomalyDetectorSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1603,7 +1605,7 @@ module AWS::SDK::LookoutMetrics
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModificationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modification_time]).to_i unless stub[:last_modification_time].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1621,9 +1623,9 @@ module AWS::SDK::LookoutMetrics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['InterMetricImpactList'] = Stubs::InterMetricImpactList.stub(stub[:inter_metric_impact_list]) unless stub[:inter_metric_impact_list].nil?
+        data['InterMetricImpactList'] = InterMetricImpactList.stub(stub[:inter_metric_impact_list]) unless stub[:inter_metric_impact_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1641,7 +1643,7 @@ module AWS::SDK::LookoutMetrics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InterMetricImpactDetails.stub(element) unless element.nil?
+          data << InterMetricImpactDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -1685,10 +1687,10 @@ module AWS::SDK::LookoutMetrics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AnomalyGroupSummaryList'] = Stubs::AnomalyGroupSummaryList.stub(stub[:anomaly_group_summary_list]) unless stub[:anomaly_group_summary_list].nil?
-        data['AnomalyGroupStatistics'] = Stubs::AnomalyGroupStatistics.stub(stub[:anomaly_group_statistics]) unless stub[:anomaly_group_statistics].nil?
+        data['AnomalyGroupSummaryList'] = AnomalyGroupSummaryList.stub(stub[:anomaly_group_summary_list]) unless stub[:anomaly_group_summary_list].nil?
+        data['AnomalyGroupStatistics'] = AnomalyGroupStatistics.stub(stub[:anomaly_group_statistics]) unless stub[:anomaly_group_statistics].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1709,7 +1711,7 @@ module AWS::SDK::LookoutMetrics
         data = {}
         data['EvaluationStartDate'] = stub[:evaluation_start_date] unless stub[:evaluation_start_date].nil?
         data['TotalCount'] = stub[:total_count] unless stub[:total_count].nil?
-        data['ItemizedMetricStatsList'] = Stubs::ItemizedMetricStatsList.stub(stub[:itemized_metric_stats_list]) unless stub[:itemized_metric_stats_list].nil?
+        data['ItemizedMetricStatsList'] = ItemizedMetricStatsList.stub(stub[:itemized_metric_stats_list]) unless stub[:itemized_metric_stats_list].nil?
         data
       end
     end
@@ -1728,7 +1730,7 @@ module AWS::SDK::LookoutMetrics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ItemizedMetricStats.stub(element) unless element.nil?
+          data << ItemizedMetricStats.stub(element) unless element.nil?
         end
         data
       end
@@ -1768,7 +1770,7 @@ module AWS::SDK::LookoutMetrics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AnomalyGroupSummary.stub(element) unless element.nil?
+          data << AnomalyGroupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1818,10 +1820,10 @@ module AWS::SDK::LookoutMetrics
         http_resp.headers['Content-Type'] = 'application/json'
         data['AnomalyGroupId'] = stub[:anomaly_group_id] unless stub[:anomaly_group_id].nil?
         data['MetricName'] = stub[:metric_name] unless stub[:metric_name].nil?
-        data['TimestampList'] = Stubs::TimestampList.stub(stub[:timestamp_list]) unless stub[:timestamp_list].nil?
+        data['TimestampList'] = TimestampList.stub(stub[:timestamp_list]) unless stub[:timestamp_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['TimeSeriesList'] = Stubs::TimeSeriesList.stub(stub[:time_series_list]) unless stub[:time_series_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TimeSeriesList'] = TimeSeriesList.stub(stub[:time_series_list]) unless stub[:time_series_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1839,7 +1841,7 @@ module AWS::SDK::LookoutMetrics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TimeSeries.stub(element) unless element.nil?
+          data << TimeSeries.stub(element) unless element.nil?
         end
         data
       end
@@ -1861,8 +1863,8 @@ module AWS::SDK::LookoutMetrics
         stub ||= Types::TimeSeries.new
         data = {}
         data['TimeSeriesId'] = stub[:time_series_id] unless stub[:time_series_id].nil?
-        data['DimensionList'] = Stubs::DimensionNameValueList.stub(stub[:dimension_list]) unless stub[:dimension_list].nil?
-        data['MetricValueList'] = Stubs::MetricValueList.stub(stub[:metric_value_list]) unless stub[:metric_value_list].nil?
+        data['DimensionList'] = DimensionNameValueList.stub(stub[:dimension_list]) unless stub[:dimension_list].nil?
+        data['MetricValueList'] = MetricValueList.stub(stub[:metric_value_list]) unless stub[:metric_value_list].nil?
         data
       end
     end
@@ -1901,7 +1903,7 @@ module AWS::SDK::LookoutMetrics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DimensionNameValue.stub(element) unless element.nil?
+          data << DimensionNameValue.stub(element) unless element.nil?
         end
         data
       end
@@ -1960,9 +1962,9 @@ module AWS::SDK::LookoutMetrics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['MetricSetSummaryList'] = Stubs::MetricSetSummaryList.stub(stub[:metric_set_summary_list]) unless stub[:metric_set_summary_list].nil?
+        data['MetricSetSummaryList'] = MetricSetSummaryList.stub(stub[:metric_set_summary_list]) unless stub[:metric_set_summary_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1980,7 +1982,7 @@ module AWS::SDK::LookoutMetrics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MetricSetSummary.stub(element) unless element.nil?
+          data << MetricSetSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -2011,7 +2013,7 @@ module AWS::SDK::LookoutMetrics
         data['MetricSetName'] = stub[:metric_set_name] unless stub[:metric_set_name].nil?
         data['CreationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['LastModificationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_modification_time]).to_i unless stub[:last_modification_time].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -2028,8 +2030,8 @@ module AWS::SDK::LookoutMetrics
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2085,7 +2087,7 @@ module AWS::SDK::LookoutMetrics
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AnomalyDetectorArn'] = stub[:anomaly_detector_arn] unless stub[:anomaly_detector_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2102,7 +2104,7 @@ module AWS::SDK::LookoutMetrics
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['MetricSetArn'] = stub[:metric_set_arn] unless stub[:metric_set_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

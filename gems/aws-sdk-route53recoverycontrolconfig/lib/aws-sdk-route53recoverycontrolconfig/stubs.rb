@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Route53RecoveryControlConfig
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -44,7 +46,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         stub ||= Types::Cluster.new
         data = {}
         data['ClusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
-        data['ClusterEndpoints'] = Stubs::List____listOfClusterEndpoint.stub(stub[:cluster_endpoints]) unless stub[:cluster_endpoints].nil?
+        data['ClusterEndpoints'] = List____listOfClusterEndpoint.stub(stub[:cluster_endpoints]) unless stub[:cluster_endpoints].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data
@@ -65,7 +67,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ClusterEndpoint.stub(element) unless element.nil?
+          data << ClusterEndpoint.stub(element) unless element.nil?
         end
         data
       end
@@ -103,8 +105,8 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ControlPanel'] = Stubs::ControlPanel.stub(stub[:control_panel]) unless stub[:control_panel].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ControlPanel'] = ControlPanel.stub(stub[:control_panel]) unless stub[:control_panel].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -148,8 +150,8 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RoutingControl'] = Stubs::RoutingControl.stub(stub[:routing_control]) unless stub[:routing_control].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RoutingControl'] = RoutingControl.stub(stub[:routing_control]) unless stub[:routing_control].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -190,9 +192,9 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AssertionRule'] = Stubs::AssertionRule.stub(stub[:assertion_rule]) unless stub[:assertion_rule].nil?
-        data['GatingRule'] = Stubs::GatingRule.stub(stub[:gating_rule]) unless stub[:gating_rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AssertionRule'] = AssertionRule.stub(stub[:assertion_rule]) unless stub[:assertion_rule].nil?
+        data['GatingRule'] = GatingRule.stub(stub[:gating_rule]) unless stub[:gating_rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -217,12 +219,12 @@ module AWS::SDK::Route53RecoveryControlConfig
         stub ||= Types::GatingRule.new
         data = {}
         data['ControlPanelArn'] = stub[:control_panel_arn] unless stub[:control_panel_arn].nil?
-        data['GatingControls'] = Stubs::List____listOf__stringMin1Max256PatternAZaZ09.stub(stub[:gating_controls]) unless stub[:gating_controls].nil?
+        data['GatingControls'] = List____listOf__stringMin1Max256PatternAZaZ09.stub(stub[:gating_controls]) unless stub[:gating_controls].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['RuleConfig'] = Stubs::RuleConfig.stub(stub[:rule_config]) unless stub[:rule_config].nil?
+        data['RuleConfig'] = RuleConfig.stub(stub[:rule_config]) unless stub[:rule_config].nil?
         data['SafetyRuleArn'] = stub[:safety_rule_arn] unless stub[:safety_rule_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        data['TargetControls'] = Stubs::List____listOf__stringMin1Max256PatternAZaZ09.stub(stub[:target_controls]) unless stub[:target_controls].nil?
+        data['TargetControls'] = List____listOf__stringMin1Max256PatternAZaZ09.stub(stub[:target_controls]) unless stub[:target_controls].nil?
         data['WaitPeriodMs'] = stub[:wait_period_ms] unless stub[:wait_period_ms].nil?
         data
       end
@@ -289,10 +291,10 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.stub(stub)
         stub ||= Types::AssertionRule.new
         data = {}
-        data['AssertedControls'] = Stubs::List____listOf__stringMin1Max256PatternAZaZ09.stub(stub[:asserted_controls]) unless stub[:asserted_controls].nil?
+        data['AssertedControls'] = List____listOf__stringMin1Max256PatternAZaZ09.stub(stub[:asserted_controls]) unless stub[:asserted_controls].nil?
         data['ControlPanelArn'] = stub[:control_panel_arn] unless stub[:control_panel_arn].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['RuleConfig'] = Stubs::RuleConfig.stub(stub[:rule_config]) unless stub[:rule_config].nil?
+        data['RuleConfig'] = RuleConfig.stub(stub[:rule_config]) unless stub[:rule_config].nil?
         data['SafetyRuleArn'] = stub[:safety_rule_arn] unless stub[:safety_rule_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['WaitPeriodMs'] = stub[:wait_period_ms] unless stub[:wait_period_ms].nil?
@@ -364,8 +366,8 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -381,8 +383,8 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ControlPanel'] = Stubs::ControlPanel.stub(stub[:control_panel]) unless stub[:control_panel].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ControlPanel'] = ControlPanel.stub(stub[:control_panel]) unless stub[:control_panel].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -398,8 +400,8 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RoutingControl'] = Stubs::RoutingControl.stub(stub[:routing_control]) unless stub[:routing_control].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RoutingControl'] = RoutingControl.stub(stub[:routing_control]) unless stub[:routing_control].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -416,9 +418,9 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AssertionRule'] = Stubs::AssertionRule.stub(stub[:assertion_rule]) unless stub[:assertion_rule].nil?
-        data['GatingRule'] = Stubs::GatingRule.stub(stub[:gating_rule]) unless stub[:gating_rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AssertionRule'] = AssertionRule.stub(stub[:assertion_rule]) unless stub[:assertion_rule].nil?
+        data['GatingRule'] = GatingRule.stub(stub[:gating_rule]) unless stub[:gating_rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -435,9 +437,9 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['HealthCheckIds'] = Stubs::List____listOf__stringMax36PatternS.stub(stub[:health_check_ids]) unless stub[:health_check_ids].nil?
+        data['HealthCheckIds'] = List____listOf__stringMax36PatternS.stub(stub[:health_check_ids]) unless stub[:health_check_ids].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -474,9 +476,9 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Clusters'] = Stubs::List____listOfCluster.stub(stub[:clusters]) unless stub[:clusters].nil?
+        data['Clusters'] = List____listOfCluster.stub(stub[:clusters]) unless stub[:clusters].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -494,7 +496,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Cluster.stub(element) unless element.nil?
+          data << Cluster.stub(element) unless element.nil?
         end
         data
       end
@@ -513,9 +515,9 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ControlPanels'] = Stubs::List____listOfControlPanel.stub(stub[:control_panels]) unless stub[:control_panels].nil?
+        data['ControlPanels'] = List____listOfControlPanel.stub(stub[:control_panels]) unless stub[:control_panels].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -533,7 +535,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ControlPanel.stub(element) unless element.nil?
+          data << ControlPanel.stub(element) unless element.nil?
         end
         data
       end
@@ -553,8 +555,8 @@ module AWS::SDK::Route53RecoveryControlConfig
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['RoutingControls'] = Stubs::List____listOfRoutingControl.stub(stub[:routing_controls]) unless stub[:routing_controls].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RoutingControls'] = List____listOfRoutingControl.stub(stub[:routing_controls]) unless stub[:routing_controls].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -572,7 +574,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RoutingControl.stub(element) unless element.nil?
+          data << RoutingControl.stub(element) unless element.nil?
         end
         data
       end
@@ -592,8 +594,8 @@ module AWS::SDK::Route53RecoveryControlConfig
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['SafetyRules'] = Stubs::List____listOfRule.stub(stub[:safety_rules]) unless stub[:safety_rules].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SafetyRules'] = List____listOfRule.stub(stub[:safety_rules]) unless stub[:safety_rules].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -611,7 +613,7 @@ module AWS::SDK::Route53RecoveryControlConfig
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Rule.stub(element) unless element.nil?
+          data << Rule.stub(element) unless element.nil?
         end
         data
       end
@@ -631,8 +633,8 @@ module AWS::SDK::Route53RecoveryControlConfig
       def self.stub(stub)
         stub ||= Types::Rule.new
         data = {}
-        data['ASSERTION'] = Stubs::AssertionRule.stub(stub[:assertion]) unless stub[:assertion].nil?
-        data['GATING'] = Stubs::GatingRule.stub(stub[:gating]) unless stub[:gating].nil?
+        data['ASSERTION'] = AssertionRule.stub(stub[:assertion]) unless stub[:assertion].nil?
+        data['GATING'] = GatingRule.stub(stub[:gating]) unless stub[:gating].nil?
         data
       end
     end
@@ -649,8 +651,8 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::Map____mapOf__stringMin0Max256PatternS.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Map____mapOf__stringMin0Max256PatternS.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -712,8 +714,8 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ControlPanel'] = Stubs::ControlPanel.stub(stub[:control_panel]) unless stub[:control_panel].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ControlPanel'] = ControlPanel.stub(stub[:control_panel]) unless stub[:control_panel].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -729,8 +731,8 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['RoutingControl'] = Stubs::RoutingControl.stub(stub[:routing_control]) unless stub[:routing_control].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RoutingControl'] = RoutingControl.stub(stub[:routing_control]) unless stub[:routing_control].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -747,9 +749,9 @@ module AWS::SDK::Route53RecoveryControlConfig
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AssertionRule'] = Stubs::AssertionRule.stub(stub[:assertion_rule]) unless stub[:assertion_rule].nil?
-        data['GatingRule'] = Stubs::GatingRule.stub(stub[:gating_rule]) unless stub[:gating_rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AssertionRule'] = AssertionRule.stub(stub[:assertion_rule]) unless stub[:assertion_rule].nil?
+        data['GatingRule'] = GatingRule.stub(stub[:gating_rule]) unless stub[:gating_rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

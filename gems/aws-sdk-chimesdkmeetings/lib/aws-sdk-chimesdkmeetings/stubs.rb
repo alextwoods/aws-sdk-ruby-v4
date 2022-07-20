@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ChimeSDKMeetings
   module Stubs
 
@@ -23,9 +25,9 @@ module AWS::SDK::ChimeSDKMeetings
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Attendees'] = Stubs::AttendeeList.stub(stub[:attendees]) unless stub[:attendees].nil?
-        data['Errors'] = Stubs::BatchCreateAttendeeErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attendees'] = AttendeeList.stub(stub[:attendees]) unless stub[:attendees].nil?
+        data['Errors'] = BatchCreateAttendeeErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -43,7 +45,7 @@ module AWS::SDK::ChimeSDKMeetings
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CreateAttendeeError.stub(element) unless element.nil?
+          data << CreateAttendeeError.stub(element) unless element.nil?
         end
         data
       end
@@ -85,7 +87,7 @@ module AWS::SDK::ChimeSDKMeetings
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Attendee.stub(element) unless element.nil?
+          data << Attendee.stub(element) unless element.nil?
         end
         data
       end
@@ -110,7 +112,7 @@ module AWS::SDK::ChimeSDKMeetings
         data['ExternalUserId'] = stub[:external_user_id] unless stub[:external_user_id].nil?
         data['AttendeeId'] = stub[:attendee_id] unless stub[:attendee_id].nil?
         data['JoinToken'] = stub[:join_token] unless stub[:join_token].nil?
-        data['Capabilities'] = Stubs::AttendeeCapabilities.stub(stub[:capabilities]) unless stub[:capabilities].nil?
+        data['Capabilities'] = AttendeeCapabilities.stub(stub[:capabilities]) unless stub[:capabilities].nil?
         data
       end
     end
@@ -162,8 +164,8 @@ module AWS::SDK::ChimeSDKMeetings
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Attendee'] = Stubs::Attendee.stub(stub[:attendee]) unless stub[:attendee].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attendee'] = Attendee.stub(stub[:attendee]) unless stub[:attendee].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -179,8 +181,8 @@ module AWS::SDK::ChimeSDKMeetings
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Meeting'] = Stubs::Meeting.stub(stub[:meeting]) unless stub[:meeting].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Meeting'] = Meeting.stub(stub[:meeting]) unless stub[:meeting].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -207,8 +209,8 @@ module AWS::SDK::ChimeSDKMeetings
         data['MeetingHostId'] = stub[:meeting_host_id] unless stub[:meeting_host_id].nil?
         data['ExternalMeetingId'] = stub[:external_meeting_id] unless stub[:external_meeting_id].nil?
         data['MediaRegion'] = stub[:media_region] unless stub[:media_region].nil?
-        data['MediaPlacement'] = Stubs::MediaPlacement.stub(stub[:media_placement]) unless stub[:media_placement].nil?
-        data['MeetingFeatures'] = Stubs::MeetingFeaturesConfiguration.stub(stub[:meeting_features]) unless stub[:meeting_features].nil?
+        data['MediaPlacement'] = MediaPlacement.stub(stub[:media_placement]) unless stub[:media_placement].nil?
+        data['MeetingFeatures'] = MeetingFeaturesConfiguration.stub(stub[:meeting_features]) unless stub[:meeting_features].nil?
         data['PrimaryMeetingId'] = stub[:primary_meeting_id] unless stub[:primary_meeting_id].nil?
         data
       end
@@ -227,7 +229,7 @@ module AWS::SDK::ChimeSDKMeetings
       def self.stub(stub)
         stub ||= Types::MeetingFeaturesConfiguration.new
         data = {}
-        data['Audio'] = Stubs::AudioFeatures.stub(stub[:audio]) unless stub[:audio].nil?
+        data['Audio'] = AudioFeatures.stub(stub[:audio]) unless stub[:audio].nil?
         data
       end
     end
@@ -296,10 +298,10 @@ module AWS::SDK::ChimeSDKMeetings
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Meeting'] = Stubs::Meeting.stub(stub[:meeting]) unless stub[:meeting].nil?
-        data['Attendees'] = Stubs::AttendeeList.stub(stub[:attendees]) unless stub[:attendees].nil?
-        data['Errors'] = Stubs::BatchCreateAttendeeErrorList.stub(stub[:errors]) unless stub[:errors].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Meeting'] = Meeting.stub(stub[:meeting]) unless stub[:meeting].nil?
+        data['Attendees'] = AttendeeList.stub(stub[:attendees]) unless stub[:attendees].nil?
+        data['Errors'] = BatchCreateAttendeeErrorList.stub(stub[:errors]) unless stub[:errors].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -341,8 +343,8 @@ module AWS::SDK::ChimeSDKMeetings
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Attendee'] = Stubs::Attendee.stub(stub[:attendee]) unless stub[:attendee].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attendee'] = Attendee.stub(stub[:attendee]) unless stub[:attendee].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -358,8 +360,8 @@ module AWS::SDK::ChimeSDKMeetings
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Meeting'] = Stubs::Meeting.stub(stub[:meeting]) unless stub[:meeting].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Meeting'] = Meeting.stub(stub[:meeting]) unless stub[:meeting].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -376,9 +378,9 @@ module AWS::SDK::ChimeSDKMeetings
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Attendees'] = Stubs::AttendeeList.stub(stub[:attendees]) unless stub[:attendees].nil?
+        data['Attendees'] = AttendeeList.stub(stub[:attendees]) unless stub[:attendees].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -420,8 +422,8 @@ module AWS::SDK::ChimeSDKMeetings
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Attendee'] = Stubs::Attendee.stub(stub[:attendee]) unless stub[:attendee].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attendee'] = Attendee.stub(stub[:attendee]) unless stub[:attendee].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

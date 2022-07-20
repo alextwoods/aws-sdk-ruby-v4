@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::KinesisAnalyticsV2
   module Builders
 
@@ -20,9 +23,9 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['CurrentApplicationVersionId'] = input[:current_application_version_id] unless input[:current_application_version_id].nil?
-        data['CloudWatchLoggingOption'] = Builders::CloudWatchLoggingOption.build(input[:cloud_watch_logging_option]) unless input[:cloud_watch_logging_option].nil?
+        data['CloudWatchLoggingOption'] = CloudWatchLoggingOption.build(input[:cloud_watch_logging_option]) unless input[:cloud_watch_logging_option].nil?
         data['ConditionalToken'] = input[:conditional_token] unless input[:conditional_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -45,8 +48,8 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['CurrentApplicationVersionId'] = input[:current_application_version_id] unless input[:current_application_version_id].nil?
-        data['Input'] = Builders::Input.build(input[:input]) unless input[:input].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Input'] = Input.build(input[:input]) unless input[:input].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -55,11 +58,11 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = {}
         data['NamePrefix'] = input[:name_prefix] unless input[:name_prefix].nil?
-        data['InputProcessingConfiguration'] = Builders::InputProcessingConfiguration.build(input[:input_processing_configuration]) unless input[:input_processing_configuration].nil?
-        data['KinesisStreamsInput'] = Builders::KinesisStreamsInput.build(input[:kinesis_streams_input]) unless input[:kinesis_streams_input].nil?
-        data['KinesisFirehoseInput'] = Builders::KinesisFirehoseInput.build(input[:kinesis_firehose_input]) unless input[:kinesis_firehose_input].nil?
-        data['InputParallelism'] = Builders::InputParallelism.build(input[:input_parallelism]) unless input[:input_parallelism].nil?
-        data['InputSchema'] = Builders::SourceSchema.build(input[:input_schema]) unless input[:input_schema].nil?
+        data['InputProcessingConfiguration'] = InputProcessingConfiguration.build(input[:input_processing_configuration]) unless input[:input_processing_configuration].nil?
+        data['KinesisStreamsInput'] = KinesisStreamsInput.build(input[:kinesis_streams_input]) unless input[:kinesis_streams_input].nil?
+        data['KinesisFirehoseInput'] = KinesisFirehoseInput.build(input[:kinesis_firehose_input]) unless input[:kinesis_firehose_input].nil?
+        data['InputParallelism'] = InputParallelism.build(input[:input_parallelism]) unless input[:input_parallelism].nil?
+        data['InputSchema'] = SourceSchema.build(input[:input_schema]) unless input[:input_schema].nil?
         data
       end
     end
@@ -68,9 +71,9 @@ module AWS::SDK::KinesisAnalyticsV2
     class SourceSchema
       def self.build(input)
         data = {}
-        data['RecordFormat'] = Builders::RecordFormat.build(input[:record_format]) unless input[:record_format].nil?
+        data['RecordFormat'] = RecordFormat.build(input[:record_format]) unless input[:record_format].nil?
         data['RecordEncoding'] = input[:record_encoding] unless input[:record_encoding].nil?
-        data['RecordColumns'] = Builders::RecordColumns.build(input[:record_columns]) unless input[:record_columns].nil?
+        data['RecordColumns'] = RecordColumns.build(input[:record_columns]) unless input[:record_columns].nil?
         data
       end
     end
@@ -80,7 +83,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RecordColumn.build(element) unless element.nil?
+          data << RecordColumn.build(element) unless element.nil?
         end
         data
       end
@@ -102,7 +105,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = {}
         data['RecordFormatType'] = input[:record_format_type] unless input[:record_format_type].nil?
-        data['MappingParameters'] = Builders::MappingParameters.build(input[:mapping_parameters]) unless input[:mapping_parameters].nil?
+        data['MappingParameters'] = MappingParameters.build(input[:mapping_parameters]) unless input[:mapping_parameters].nil?
         data
       end
     end
@@ -111,8 +114,8 @@ module AWS::SDK::KinesisAnalyticsV2
     class MappingParameters
       def self.build(input)
         data = {}
-        data['JSONMappingParameters'] = Builders::JSONMappingParameters.build(input[:json_mapping_parameters]) unless input[:json_mapping_parameters].nil?
-        data['CSVMappingParameters'] = Builders::CSVMappingParameters.build(input[:csv_mapping_parameters]) unless input[:csv_mapping_parameters].nil?
+        data['JSONMappingParameters'] = JSONMappingParameters.build(input[:json_mapping_parameters]) unless input[:json_mapping_parameters].nil?
+        data['CSVMappingParameters'] = CSVMappingParameters.build(input[:csv_mapping_parameters]) unless input[:csv_mapping_parameters].nil?
         data
       end
     end
@@ -167,7 +170,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class InputProcessingConfiguration
       def self.build(input)
         data = {}
-        data['InputLambdaProcessor'] = Builders::InputLambdaProcessor.build(input[:input_lambda_processor]) unless input[:input_lambda_processor].nil?
+        data['InputLambdaProcessor'] = InputLambdaProcessor.build(input[:input_lambda_processor]) unless input[:input_lambda_processor].nil?
         data
       end
     end
@@ -192,8 +195,8 @@ module AWS::SDK::KinesisAnalyticsV2
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['CurrentApplicationVersionId'] = input[:current_application_version_id] unless input[:current_application_version_id].nil?
         data['InputId'] = input[:input_id] unless input[:input_id].nil?
-        data['InputProcessingConfiguration'] = Builders::InputProcessingConfiguration.build(input[:input_processing_configuration]) unless input[:input_processing_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InputProcessingConfiguration'] = InputProcessingConfiguration.build(input[:input_processing_configuration]) unless input[:input_processing_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -207,8 +210,8 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['CurrentApplicationVersionId'] = input[:current_application_version_id] unless input[:current_application_version_id].nil?
-        data['Output'] = Builders::Output.build(input[:output]) unless input[:output].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Output'] = Output.build(input[:output]) unless input[:output].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -217,10 +220,10 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['KinesisStreamsOutput'] = Builders::KinesisStreamsOutput.build(input[:kinesis_streams_output]) unless input[:kinesis_streams_output].nil?
-        data['KinesisFirehoseOutput'] = Builders::KinesisFirehoseOutput.build(input[:kinesis_firehose_output]) unless input[:kinesis_firehose_output].nil?
-        data['LambdaOutput'] = Builders::LambdaOutput.build(input[:lambda_output]) unless input[:lambda_output].nil?
-        data['DestinationSchema'] = Builders::DestinationSchema.build(input[:destination_schema]) unless input[:destination_schema].nil?
+        data['KinesisStreamsOutput'] = KinesisStreamsOutput.build(input[:kinesis_streams_output]) unless input[:kinesis_streams_output].nil?
+        data['KinesisFirehoseOutput'] = KinesisFirehoseOutput.build(input[:kinesis_firehose_output]) unless input[:kinesis_firehose_output].nil?
+        data['LambdaOutput'] = LambdaOutput.build(input[:lambda_output]) unless input[:lambda_output].nil?
+        data['DestinationSchema'] = DestinationSchema.build(input[:destination_schema]) unless input[:destination_schema].nil?
         data
       end
     end
@@ -271,8 +274,8 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['CurrentApplicationVersionId'] = input[:current_application_version_id] unless input[:current_application_version_id].nil?
-        data['ReferenceDataSource'] = Builders::ReferenceDataSource.build(input[:reference_data_source]) unless input[:reference_data_source].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReferenceDataSource'] = ReferenceDataSource.build(input[:reference_data_source]) unless input[:reference_data_source].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -281,8 +284,8 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['S3ReferenceDataSource'] = Builders::S3ReferenceDataSource.build(input[:s3_reference_data_source]) unless input[:s3_reference_data_source].nil?
-        data['ReferenceSchema'] = Builders::SourceSchema.build(input[:reference_schema]) unless input[:reference_schema].nil?
+        data['S3ReferenceDataSource'] = S3ReferenceDataSource.build(input[:s3_reference_data_source]) unless input[:s3_reference_data_source].nil?
+        data['ReferenceSchema'] = SourceSchema.build(input[:reference_schema]) unless input[:reference_schema].nil?
         data
       end
     end
@@ -307,9 +310,9 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['CurrentApplicationVersionId'] = input[:current_application_version_id] unless input[:current_application_version_id].nil?
-        data['VpcConfiguration'] = Builders::VpcConfiguration.build(input[:vpc_configuration]) unless input[:vpc_configuration].nil?
+        data['VpcConfiguration'] = VpcConfiguration.build(input[:vpc_configuration]) unless input[:vpc_configuration].nil?
         data['ConditionalToken'] = input[:conditional_token] unless input[:conditional_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -317,8 +320,8 @@ module AWS::SDK::KinesisAnalyticsV2
     class VpcConfiguration
       def self.build(input)
         data = {}
-        data['SubnetIds'] = Builders::SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['SecurityGroupIds'] = Builders::SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        data['SubnetIds'] = SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
         data
       end
     end
@@ -357,11 +360,11 @@ module AWS::SDK::KinesisAnalyticsV2
         data['ApplicationDescription'] = input[:application_description] unless input[:application_description].nil?
         data['RuntimeEnvironment'] = input[:runtime_environment] unless input[:runtime_environment].nil?
         data['ServiceExecutionRole'] = input[:service_execution_role] unless input[:service_execution_role].nil?
-        data['ApplicationConfiguration'] = Builders::ApplicationConfiguration.build(input[:application_configuration]) unless input[:application_configuration].nil?
-        data['CloudWatchLoggingOptions'] = Builders::CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['ApplicationConfiguration'] = ApplicationConfiguration.build(input[:application_configuration]) unless input[:application_configuration].nil?
+        data['CloudWatchLoggingOptions'] = CloudWatchLoggingOptions.build(input[:cloud_watch_logging_options]) unless input[:cloud_watch_logging_options].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['ApplicationMode'] = input[:application_mode] unless input[:application_mode].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -370,7 +373,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -391,7 +394,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CloudWatchLoggingOption.build(element) unless element.nil?
+          data << CloudWatchLoggingOption.build(element) unless element.nil?
         end
         data
       end
@@ -401,13 +404,13 @@ module AWS::SDK::KinesisAnalyticsV2
     class ApplicationConfiguration
       def self.build(input)
         data = {}
-        data['SqlApplicationConfiguration'] = Builders::SqlApplicationConfiguration.build(input[:sql_application_configuration]) unless input[:sql_application_configuration].nil?
-        data['FlinkApplicationConfiguration'] = Builders::FlinkApplicationConfiguration.build(input[:flink_application_configuration]) unless input[:flink_application_configuration].nil?
-        data['EnvironmentProperties'] = Builders::EnvironmentProperties.build(input[:environment_properties]) unless input[:environment_properties].nil?
-        data['ApplicationCodeConfiguration'] = Builders::ApplicationCodeConfiguration.build(input[:application_code_configuration]) unless input[:application_code_configuration].nil?
-        data['ApplicationSnapshotConfiguration'] = Builders::ApplicationSnapshotConfiguration.build(input[:application_snapshot_configuration]) unless input[:application_snapshot_configuration].nil?
-        data['VpcConfigurations'] = Builders::VpcConfigurations.build(input[:vpc_configurations]) unless input[:vpc_configurations].nil?
-        data['ZeppelinApplicationConfiguration'] = Builders::ZeppelinApplicationConfiguration.build(input[:zeppelin_application_configuration]) unless input[:zeppelin_application_configuration].nil?
+        data['SqlApplicationConfiguration'] = SqlApplicationConfiguration.build(input[:sql_application_configuration]) unless input[:sql_application_configuration].nil?
+        data['FlinkApplicationConfiguration'] = FlinkApplicationConfiguration.build(input[:flink_application_configuration]) unless input[:flink_application_configuration].nil?
+        data['EnvironmentProperties'] = EnvironmentProperties.build(input[:environment_properties]) unless input[:environment_properties].nil?
+        data['ApplicationCodeConfiguration'] = ApplicationCodeConfiguration.build(input[:application_code_configuration]) unless input[:application_code_configuration].nil?
+        data['ApplicationSnapshotConfiguration'] = ApplicationSnapshotConfiguration.build(input[:application_snapshot_configuration]) unless input[:application_snapshot_configuration].nil?
+        data['VpcConfigurations'] = VpcConfigurations.build(input[:vpc_configurations]) unless input[:vpc_configurations].nil?
+        data['ZeppelinApplicationConfiguration'] = ZeppelinApplicationConfiguration.build(input[:zeppelin_application_configuration]) unless input[:zeppelin_application_configuration].nil?
         data
       end
     end
@@ -416,10 +419,10 @@ module AWS::SDK::KinesisAnalyticsV2
     class ZeppelinApplicationConfiguration
       def self.build(input)
         data = {}
-        data['MonitoringConfiguration'] = Builders::ZeppelinMonitoringConfiguration.build(input[:monitoring_configuration]) unless input[:monitoring_configuration].nil?
-        data['CatalogConfiguration'] = Builders::CatalogConfiguration.build(input[:catalog_configuration]) unless input[:catalog_configuration].nil?
-        data['DeployAsApplicationConfiguration'] = Builders::DeployAsApplicationConfiguration.build(input[:deploy_as_application_configuration]) unless input[:deploy_as_application_configuration].nil?
-        data['CustomArtifactsConfiguration'] = Builders::CustomArtifactsConfigurationList.build(input[:custom_artifacts_configuration]) unless input[:custom_artifacts_configuration].nil?
+        data['MonitoringConfiguration'] = ZeppelinMonitoringConfiguration.build(input[:monitoring_configuration]) unless input[:monitoring_configuration].nil?
+        data['CatalogConfiguration'] = CatalogConfiguration.build(input[:catalog_configuration]) unless input[:catalog_configuration].nil?
+        data['DeployAsApplicationConfiguration'] = DeployAsApplicationConfiguration.build(input[:deploy_as_application_configuration]) unless input[:deploy_as_application_configuration].nil?
+        data['CustomArtifactsConfiguration'] = CustomArtifactsConfigurationList.build(input[:custom_artifacts_configuration]) unless input[:custom_artifacts_configuration].nil?
         data
       end
     end
@@ -429,7 +432,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CustomArtifactConfiguration.build(element) unless element.nil?
+          data << CustomArtifactConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -440,8 +443,8 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = {}
         data['ArtifactType'] = input[:artifact_type] unless input[:artifact_type].nil?
-        data['S3ContentLocation'] = Builders::S3ContentLocation.build(input[:s3_content_location]) unless input[:s3_content_location].nil?
-        data['MavenReference'] = Builders::MavenReference.build(input[:maven_reference]) unless input[:maven_reference].nil?
+        data['S3ContentLocation'] = S3ContentLocation.build(input[:s3_content_location]) unless input[:s3_content_location].nil?
+        data['MavenReference'] = MavenReference.build(input[:maven_reference]) unless input[:maven_reference].nil?
         data
       end
     end
@@ -472,7 +475,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class DeployAsApplicationConfiguration
       def self.build(input)
         data = {}
-        data['S3ContentLocation'] = Builders::S3ContentBaseLocation.build(input[:s3_content_location]) unless input[:s3_content_location].nil?
+        data['S3ContentLocation'] = S3ContentBaseLocation.build(input[:s3_content_location]) unless input[:s3_content_location].nil?
         data
       end
     end
@@ -491,7 +494,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class CatalogConfiguration
       def self.build(input)
         data = {}
-        data['GlueDataCatalogConfiguration'] = Builders::GlueDataCatalogConfiguration.build(input[:glue_data_catalog_configuration]) unless input[:glue_data_catalog_configuration].nil?
+        data['GlueDataCatalogConfiguration'] = GlueDataCatalogConfiguration.build(input[:glue_data_catalog_configuration]) unless input[:glue_data_catalog_configuration].nil?
         data
       end
     end
@@ -519,7 +522,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::VpcConfiguration.build(element) unless element.nil?
+          data << VpcConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -538,7 +541,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class ApplicationCodeConfiguration
       def self.build(input)
         data = {}
-        data['CodeContent'] = Builders::CodeContent.build(input[:code_content]) unless input[:code_content].nil?
+        data['CodeContent'] = CodeContent.build(input[:code_content]) unless input[:code_content].nil?
         data['CodeContentType'] = input[:code_content_type] unless input[:code_content_type].nil?
         data
       end
@@ -549,8 +552,8 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = {}
         data['TextContent'] = input[:text_content] unless input[:text_content].nil?
-        data['ZipFileContent'] = Base64::encode64(input[:zip_file_content]).strip unless input[:zip_file_content].nil?
-        data['S3ContentLocation'] = Builders::S3ContentLocation.build(input[:s3_content_location]) unless input[:s3_content_location].nil?
+        data['ZipFileContent'] = ::Base64::encode64(input[:zip_file_content]).strip unless input[:zip_file_content].nil?
+        data['S3ContentLocation'] = S3ContentLocation.build(input[:s3_content_location]) unless input[:s3_content_location].nil?
         data
       end
     end
@@ -559,7 +562,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class EnvironmentProperties
       def self.build(input)
         data = {}
-        data['PropertyGroups'] = Builders::PropertyGroups.build(input[:property_groups]) unless input[:property_groups].nil?
+        data['PropertyGroups'] = PropertyGroups.build(input[:property_groups]) unless input[:property_groups].nil?
         data
       end
     end
@@ -569,7 +572,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PropertyGroup.build(element) unless element.nil?
+          data << PropertyGroup.build(element) unless element.nil?
         end
         data
       end
@@ -580,7 +583,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = {}
         data['PropertyGroupId'] = input[:property_group_id] unless input[:property_group_id].nil?
-        data['PropertyMap'] = Builders::PropertyMap.build(input[:property_map]) unless input[:property_map].nil?
+        data['PropertyMap'] = PropertyMap.build(input[:property_map]) unless input[:property_map].nil?
         data
       end
     end
@@ -600,9 +603,9 @@ module AWS::SDK::KinesisAnalyticsV2
     class FlinkApplicationConfiguration
       def self.build(input)
         data = {}
-        data['CheckpointConfiguration'] = Builders::CheckpointConfiguration.build(input[:checkpoint_configuration]) unless input[:checkpoint_configuration].nil?
-        data['MonitoringConfiguration'] = Builders::MonitoringConfiguration.build(input[:monitoring_configuration]) unless input[:monitoring_configuration].nil?
-        data['ParallelismConfiguration'] = Builders::ParallelismConfiguration.build(input[:parallelism_configuration]) unless input[:parallelism_configuration].nil?
+        data['CheckpointConfiguration'] = CheckpointConfiguration.build(input[:checkpoint_configuration]) unless input[:checkpoint_configuration].nil?
+        data['MonitoringConfiguration'] = MonitoringConfiguration.build(input[:monitoring_configuration]) unless input[:monitoring_configuration].nil?
+        data['ParallelismConfiguration'] = ParallelismConfiguration.build(input[:parallelism_configuration]) unless input[:parallelism_configuration].nil?
         data
       end
     end
@@ -646,9 +649,9 @@ module AWS::SDK::KinesisAnalyticsV2
     class SqlApplicationConfiguration
       def self.build(input)
         data = {}
-        data['Inputs'] = Builders::Inputs.build(input[:inputs]) unless input[:inputs].nil?
-        data['Outputs'] = Builders::Outputs.build(input[:outputs]) unless input[:outputs].nil?
-        data['ReferenceDataSources'] = Builders::ReferenceDataSources.build(input[:reference_data_sources]) unless input[:reference_data_sources].nil?
+        data['Inputs'] = Inputs.build(input[:inputs]) unless input[:inputs].nil?
+        data['Outputs'] = Outputs.build(input[:outputs]) unless input[:outputs].nil?
+        data['ReferenceDataSources'] = ReferenceDataSources.build(input[:reference_data_sources]) unless input[:reference_data_sources].nil?
         data
       end
     end
@@ -658,7 +661,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ReferenceDataSource.build(element) unless element.nil?
+          data << ReferenceDataSource.build(element) unless element.nil?
         end
         data
       end
@@ -669,7 +672,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Output.build(element) unless element.nil?
+          data << Output.build(element) unless element.nil?
         end
         data
       end
@@ -680,7 +683,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Input.build(element) unless element.nil?
+          data << Input.build(element) unless element.nil?
         end
         data
       end
@@ -697,7 +700,7 @@ module AWS::SDK::KinesisAnalyticsV2
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['UrlType'] = input[:url_type] unless input[:url_type].nil?
         data['SessionExpirationDurationInSeconds'] = input[:session_expiration_duration_in_seconds] unless input[:session_expiration_duration_in_seconds].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -711,7 +714,7 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['SnapshotName'] = input[:snapshot_name] unless input[:snapshot_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -725,7 +728,7 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['CreateTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(input[:create_timestamp]).to_i unless input[:create_timestamp].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -741,7 +744,7 @@ module AWS::SDK::KinesisAnalyticsV2
         data['CurrentApplicationVersionId'] = input[:current_application_version_id] unless input[:current_application_version_id].nil?
         data['CloudWatchLoggingOptionId'] = input[:cloud_watch_logging_option_id] unless input[:cloud_watch_logging_option_id].nil?
         data['ConditionalToken'] = input[:conditional_token] unless input[:conditional_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -756,7 +759,7 @@ module AWS::SDK::KinesisAnalyticsV2
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['CurrentApplicationVersionId'] = input[:current_application_version_id] unless input[:current_application_version_id].nil?
         data['InputId'] = input[:input_id] unless input[:input_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -771,7 +774,7 @@ module AWS::SDK::KinesisAnalyticsV2
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['CurrentApplicationVersionId'] = input[:current_application_version_id] unless input[:current_application_version_id].nil?
         data['OutputId'] = input[:output_id] unless input[:output_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -786,7 +789,7 @@ module AWS::SDK::KinesisAnalyticsV2
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['CurrentApplicationVersionId'] = input[:current_application_version_id] unless input[:current_application_version_id].nil?
         data['ReferenceId'] = input[:reference_id] unless input[:reference_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -801,7 +804,7 @@ module AWS::SDK::KinesisAnalyticsV2
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['SnapshotName'] = input[:snapshot_name] unless input[:snapshot_name].nil?
         data['SnapshotCreationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(input[:snapshot_creation_timestamp]).to_i unless input[:snapshot_creation_timestamp].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -817,7 +820,7 @@ module AWS::SDK::KinesisAnalyticsV2
         data['CurrentApplicationVersionId'] = input[:current_application_version_id] unless input[:current_application_version_id].nil?
         data['VpcConfigurationId'] = input[:vpc_configuration_id] unless input[:vpc_configuration_id].nil?
         data['ConditionalToken'] = input[:conditional_token] unless input[:conditional_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -831,7 +834,7 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['IncludeAdditionalDetails'] = input[:include_additional_details] unless input[:include_additional_details].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -845,7 +848,7 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['SnapshotName'] = input[:snapshot_name] unless input[:snapshot_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -859,7 +862,7 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['ApplicationVersionId'] = input[:application_version_id] unless input[:application_version_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -873,10 +876,10 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['ServiceExecutionRole'] = input[:service_execution_role] unless input[:service_execution_role].nil?
-        data['InputStartingPositionConfiguration'] = Builders::InputStartingPositionConfiguration.build(input[:input_starting_position_configuration]) unless input[:input_starting_position_configuration].nil?
-        data['S3Configuration'] = Builders::S3Configuration.build(input[:s3_configuration]) unless input[:s3_configuration].nil?
-        data['InputProcessingConfiguration'] = Builders::InputProcessingConfiguration.build(input[:input_processing_configuration]) unless input[:input_processing_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InputStartingPositionConfiguration'] = InputStartingPositionConfiguration.build(input[:input_starting_position_configuration]) unless input[:input_starting_position_configuration].nil?
+        data['S3Configuration'] = S3Configuration.build(input[:s3_configuration]) unless input[:s3_configuration].nil?
+        data['InputProcessingConfiguration'] = InputProcessingConfiguration.build(input[:input_processing_configuration]) unless input[:input_processing_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -910,7 +913,7 @@ module AWS::SDK::KinesisAnalyticsV2
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -925,7 +928,7 @@ module AWS::SDK::KinesisAnalyticsV2
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -939,7 +942,7 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -952,7 +955,7 @@ module AWS::SDK::KinesisAnalyticsV2
         http_req.headers['X-Amz-Target'] = 'KinesisAnalytics_20180523.ListTagsForResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -966,7 +969,7 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['CurrentApplicationVersionId'] = input[:current_application_version_id] unless input[:current_application_version_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -979,8 +982,8 @@ module AWS::SDK::KinesisAnalyticsV2
         http_req.headers['X-Amz-Target'] = 'KinesisAnalytics_20180523.StartApplication'
         data = {}
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
-        data['RunConfiguration'] = Builders::RunConfiguration.build(input[:run_configuration]) unless input[:run_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RunConfiguration'] = RunConfiguration.build(input[:run_configuration]) unless input[:run_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -988,9 +991,9 @@ module AWS::SDK::KinesisAnalyticsV2
     class RunConfiguration
       def self.build(input)
         data = {}
-        data['FlinkRunConfiguration'] = Builders::FlinkRunConfiguration.build(input[:flink_run_configuration]) unless input[:flink_run_configuration].nil?
-        data['SqlRunConfigurations'] = Builders::SqlRunConfigurations.build(input[:sql_run_configurations]) unless input[:sql_run_configurations].nil?
-        data['ApplicationRestoreConfiguration'] = Builders::ApplicationRestoreConfiguration.build(input[:application_restore_configuration]) unless input[:application_restore_configuration].nil?
+        data['FlinkRunConfiguration'] = FlinkRunConfiguration.build(input[:flink_run_configuration]) unless input[:flink_run_configuration].nil?
+        data['SqlRunConfigurations'] = SqlRunConfigurations.build(input[:sql_run_configurations]) unless input[:sql_run_configurations].nil?
+        data['ApplicationRestoreConfiguration'] = ApplicationRestoreConfiguration.build(input[:application_restore_configuration]) unless input[:application_restore_configuration].nil?
         data
       end
     end
@@ -1010,7 +1013,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SqlRunConfiguration.build(element) unless element.nil?
+          data << SqlRunConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -1021,7 +1024,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = {}
         data['InputId'] = input[:input_id] unless input[:input_id].nil?
-        data['InputStartingPositionConfiguration'] = Builders::InputStartingPositionConfiguration.build(input[:input_starting_position_configuration]) unless input[:input_starting_position_configuration].nil?
+        data['InputStartingPositionConfiguration'] = InputStartingPositionConfiguration.build(input[:input_starting_position_configuration]) unless input[:input_starting_position_configuration].nil?
         data
       end
     end
@@ -1045,7 +1048,7 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['Force'] = input[:force] unless input[:force].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1058,8 +1061,8 @@ module AWS::SDK::KinesisAnalyticsV2
         http_req.headers['X-Amz-Target'] = 'KinesisAnalytics_20180523.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1072,8 +1075,8 @@ module AWS::SDK::KinesisAnalyticsV2
         http_req.headers['X-Amz-Target'] = 'KinesisAnalytics_20180523.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1098,12 +1101,12 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
         data['CurrentApplicationVersionId'] = input[:current_application_version_id] unless input[:current_application_version_id].nil?
-        data['ApplicationConfigurationUpdate'] = Builders::ApplicationConfigurationUpdate.build(input[:application_configuration_update]) unless input[:application_configuration_update].nil?
+        data['ApplicationConfigurationUpdate'] = ApplicationConfigurationUpdate.build(input[:application_configuration_update]) unless input[:application_configuration_update].nil?
         data['ServiceExecutionRoleUpdate'] = input[:service_execution_role_update] unless input[:service_execution_role_update].nil?
-        data['RunConfigurationUpdate'] = Builders::RunConfigurationUpdate.build(input[:run_configuration_update]) unless input[:run_configuration_update].nil?
-        data['CloudWatchLoggingOptionUpdates'] = Builders::CloudWatchLoggingOptionUpdates.build(input[:cloud_watch_logging_option_updates]) unless input[:cloud_watch_logging_option_updates].nil?
+        data['RunConfigurationUpdate'] = RunConfigurationUpdate.build(input[:run_configuration_update]) unless input[:run_configuration_update].nil?
+        data['CloudWatchLoggingOptionUpdates'] = CloudWatchLoggingOptionUpdates.build(input[:cloud_watch_logging_option_updates]) unless input[:cloud_watch_logging_option_updates].nil?
         data['ConditionalToken'] = input[:conditional_token] unless input[:conditional_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1112,7 +1115,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CloudWatchLoggingOptionUpdate.build(element) unless element.nil?
+          data << CloudWatchLoggingOptionUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1132,8 +1135,8 @@ module AWS::SDK::KinesisAnalyticsV2
     class RunConfigurationUpdate
       def self.build(input)
         data = {}
-        data['FlinkRunConfiguration'] = Builders::FlinkRunConfiguration.build(input[:flink_run_configuration]) unless input[:flink_run_configuration].nil?
-        data['ApplicationRestoreConfiguration'] = Builders::ApplicationRestoreConfiguration.build(input[:application_restore_configuration]) unless input[:application_restore_configuration].nil?
+        data['FlinkRunConfiguration'] = FlinkRunConfiguration.build(input[:flink_run_configuration]) unless input[:flink_run_configuration].nil?
+        data['ApplicationRestoreConfiguration'] = ApplicationRestoreConfiguration.build(input[:application_restore_configuration]) unless input[:application_restore_configuration].nil?
         data
       end
     end
@@ -1142,13 +1145,13 @@ module AWS::SDK::KinesisAnalyticsV2
     class ApplicationConfigurationUpdate
       def self.build(input)
         data = {}
-        data['SqlApplicationConfigurationUpdate'] = Builders::SqlApplicationConfigurationUpdate.build(input[:sql_application_configuration_update]) unless input[:sql_application_configuration_update].nil?
-        data['ApplicationCodeConfigurationUpdate'] = Builders::ApplicationCodeConfigurationUpdate.build(input[:application_code_configuration_update]) unless input[:application_code_configuration_update].nil?
-        data['FlinkApplicationConfigurationUpdate'] = Builders::FlinkApplicationConfigurationUpdate.build(input[:flink_application_configuration_update]) unless input[:flink_application_configuration_update].nil?
-        data['EnvironmentPropertyUpdates'] = Builders::EnvironmentPropertyUpdates.build(input[:environment_property_updates]) unless input[:environment_property_updates].nil?
-        data['ApplicationSnapshotConfigurationUpdate'] = Builders::ApplicationSnapshotConfigurationUpdate.build(input[:application_snapshot_configuration_update]) unless input[:application_snapshot_configuration_update].nil?
-        data['VpcConfigurationUpdates'] = Builders::VpcConfigurationUpdates.build(input[:vpc_configuration_updates]) unless input[:vpc_configuration_updates].nil?
-        data['ZeppelinApplicationConfigurationUpdate'] = Builders::ZeppelinApplicationConfigurationUpdate.build(input[:zeppelin_application_configuration_update]) unless input[:zeppelin_application_configuration_update].nil?
+        data['SqlApplicationConfigurationUpdate'] = SqlApplicationConfigurationUpdate.build(input[:sql_application_configuration_update]) unless input[:sql_application_configuration_update].nil?
+        data['ApplicationCodeConfigurationUpdate'] = ApplicationCodeConfigurationUpdate.build(input[:application_code_configuration_update]) unless input[:application_code_configuration_update].nil?
+        data['FlinkApplicationConfigurationUpdate'] = FlinkApplicationConfigurationUpdate.build(input[:flink_application_configuration_update]) unless input[:flink_application_configuration_update].nil?
+        data['EnvironmentPropertyUpdates'] = EnvironmentPropertyUpdates.build(input[:environment_property_updates]) unless input[:environment_property_updates].nil?
+        data['ApplicationSnapshotConfigurationUpdate'] = ApplicationSnapshotConfigurationUpdate.build(input[:application_snapshot_configuration_update]) unless input[:application_snapshot_configuration_update].nil?
+        data['VpcConfigurationUpdates'] = VpcConfigurationUpdates.build(input[:vpc_configuration_updates]) unless input[:vpc_configuration_updates].nil?
+        data['ZeppelinApplicationConfigurationUpdate'] = ZeppelinApplicationConfigurationUpdate.build(input[:zeppelin_application_configuration_update]) unless input[:zeppelin_application_configuration_update].nil?
         data
       end
     end
@@ -1157,10 +1160,10 @@ module AWS::SDK::KinesisAnalyticsV2
     class ZeppelinApplicationConfigurationUpdate
       def self.build(input)
         data = {}
-        data['MonitoringConfigurationUpdate'] = Builders::ZeppelinMonitoringConfigurationUpdate.build(input[:monitoring_configuration_update]) unless input[:monitoring_configuration_update].nil?
-        data['CatalogConfigurationUpdate'] = Builders::CatalogConfigurationUpdate.build(input[:catalog_configuration_update]) unless input[:catalog_configuration_update].nil?
-        data['DeployAsApplicationConfigurationUpdate'] = Builders::DeployAsApplicationConfigurationUpdate.build(input[:deploy_as_application_configuration_update]) unless input[:deploy_as_application_configuration_update].nil?
-        data['CustomArtifactsConfigurationUpdate'] = Builders::CustomArtifactsConfigurationList.build(input[:custom_artifacts_configuration_update]) unless input[:custom_artifacts_configuration_update].nil?
+        data['MonitoringConfigurationUpdate'] = ZeppelinMonitoringConfigurationUpdate.build(input[:monitoring_configuration_update]) unless input[:monitoring_configuration_update].nil?
+        data['CatalogConfigurationUpdate'] = CatalogConfigurationUpdate.build(input[:catalog_configuration_update]) unless input[:catalog_configuration_update].nil?
+        data['DeployAsApplicationConfigurationUpdate'] = DeployAsApplicationConfigurationUpdate.build(input[:deploy_as_application_configuration_update]) unless input[:deploy_as_application_configuration_update].nil?
+        data['CustomArtifactsConfigurationUpdate'] = CustomArtifactsConfigurationList.build(input[:custom_artifacts_configuration_update]) unless input[:custom_artifacts_configuration_update].nil?
         data
       end
     end
@@ -1169,7 +1172,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class DeployAsApplicationConfigurationUpdate
       def self.build(input)
         data = {}
-        data['S3ContentLocationUpdate'] = Builders::S3ContentBaseLocationUpdate.build(input[:s3_content_location_update]) unless input[:s3_content_location_update].nil?
+        data['S3ContentLocationUpdate'] = S3ContentBaseLocationUpdate.build(input[:s3_content_location_update]) unless input[:s3_content_location_update].nil?
         data
       end
     end
@@ -1188,7 +1191,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class CatalogConfigurationUpdate
       def self.build(input)
         data = {}
-        data['GlueDataCatalogConfigurationUpdate'] = Builders::GlueDataCatalogConfigurationUpdate.build(input[:glue_data_catalog_configuration_update]) unless input[:glue_data_catalog_configuration_update].nil?
+        data['GlueDataCatalogConfigurationUpdate'] = GlueDataCatalogConfigurationUpdate.build(input[:glue_data_catalog_configuration_update]) unless input[:glue_data_catalog_configuration_update].nil?
         data
       end
     end
@@ -1216,7 +1219,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::VpcConfigurationUpdate.build(element) unless element.nil?
+          data << VpcConfigurationUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1227,8 +1230,8 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = {}
         data['VpcConfigurationId'] = input[:vpc_configuration_id] unless input[:vpc_configuration_id].nil?
-        data['SubnetIdUpdates'] = Builders::SubnetIds.build(input[:subnet_id_updates]) unless input[:subnet_id_updates].nil?
-        data['SecurityGroupIdUpdates'] = Builders::SecurityGroupIds.build(input[:security_group_id_updates]) unless input[:security_group_id_updates].nil?
+        data['SubnetIdUpdates'] = SubnetIds.build(input[:subnet_id_updates]) unless input[:subnet_id_updates].nil?
+        data['SecurityGroupIdUpdates'] = SecurityGroupIds.build(input[:security_group_id_updates]) unless input[:security_group_id_updates].nil?
         data
       end
     end
@@ -1246,7 +1249,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class EnvironmentPropertyUpdates
       def self.build(input)
         data = {}
-        data['PropertyGroups'] = Builders::PropertyGroups.build(input[:property_groups]) unless input[:property_groups].nil?
+        data['PropertyGroups'] = PropertyGroups.build(input[:property_groups]) unless input[:property_groups].nil?
         data
       end
     end
@@ -1255,9 +1258,9 @@ module AWS::SDK::KinesisAnalyticsV2
     class FlinkApplicationConfigurationUpdate
       def self.build(input)
         data = {}
-        data['CheckpointConfigurationUpdate'] = Builders::CheckpointConfigurationUpdate.build(input[:checkpoint_configuration_update]) unless input[:checkpoint_configuration_update].nil?
-        data['MonitoringConfigurationUpdate'] = Builders::MonitoringConfigurationUpdate.build(input[:monitoring_configuration_update]) unless input[:monitoring_configuration_update].nil?
-        data['ParallelismConfigurationUpdate'] = Builders::ParallelismConfigurationUpdate.build(input[:parallelism_configuration_update]) unless input[:parallelism_configuration_update].nil?
+        data['CheckpointConfigurationUpdate'] = CheckpointConfigurationUpdate.build(input[:checkpoint_configuration_update]) unless input[:checkpoint_configuration_update].nil?
+        data['MonitoringConfigurationUpdate'] = MonitoringConfigurationUpdate.build(input[:monitoring_configuration_update]) unless input[:monitoring_configuration_update].nil?
+        data['ParallelismConfigurationUpdate'] = ParallelismConfigurationUpdate.build(input[:parallelism_configuration_update]) unless input[:parallelism_configuration_update].nil?
         data
       end
     end
@@ -1302,7 +1305,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = {}
         data['CodeContentTypeUpdate'] = input[:code_content_type_update] unless input[:code_content_type_update].nil?
-        data['CodeContentUpdate'] = Builders::CodeContentUpdate.build(input[:code_content_update]) unless input[:code_content_update].nil?
+        data['CodeContentUpdate'] = CodeContentUpdate.build(input[:code_content_update]) unless input[:code_content_update].nil?
         data
       end
     end
@@ -1312,8 +1315,8 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = {}
         data['TextContentUpdate'] = input[:text_content_update] unless input[:text_content_update].nil?
-        data['ZipFileContentUpdate'] = Base64::encode64(input[:zip_file_content_update]).strip unless input[:zip_file_content_update].nil?
-        data['S3ContentLocationUpdate'] = Builders::S3ContentLocationUpdate.build(input[:s3_content_location_update]) unless input[:s3_content_location_update].nil?
+        data['ZipFileContentUpdate'] = ::Base64::encode64(input[:zip_file_content_update]).strip unless input[:zip_file_content_update].nil?
+        data['S3ContentLocationUpdate'] = S3ContentLocationUpdate.build(input[:s3_content_location_update]) unless input[:s3_content_location_update].nil?
         data
       end
     end
@@ -1333,9 +1336,9 @@ module AWS::SDK::KinesisAnalyticsV2
     class SqlApplicationConfigurationUpdate
       def self.build(input)
         data = {}
-        data['InputUpdates'] = Builders::InputUpdates.build(input[:input_updates]) unless input[:input_updates].nil?
-        data['OutputUpdates'] = Builders::OutputUpdates.build(input[:output_updates]) unless input[:output_updates].nil?
-        data['ReferenceDataSourceUpdates'] = Builders::ReferenceDataSourceUpdates.build(input[:reference_data_source_updates]) unless input[:reference_data_source_updates].nil?
+        data['InputUpdates'] = InputUpdates.build(input[:input_updates]) unless input[:input_updates].nil?
+        data['OutputUpdates'] = OutputUpdates.build(input[:output_updates]) unless input[:output_updates].nil?
+        data['ReferenceDataSourceUpdates'] = ReferenceDataSourceUpdates.build(input[:reference_data_source_updates]) unless input[:reference_data_source_updates].nil?
         data
       end
     end
@@ -1345,7 +1348,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ReferenceDataSourceUpdate.build(element) unless element.nil?
+          data << ReferenceDataSourceUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1357,8 +1360,8 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['ReferenceId'] = input[:reference_id] unless input[:reference_id].nil?
         data['TableNameUpdate'] = input[:table_name_update] unless input[:table_name_update].nil?
-        data['S3ReferenceDataSourceUpdate'] = Builders::S3ReferenceDataSourceUpdate.build(input[:s3_reference_data_source_update]) unless input[:s3_reference_data_source_update].nil?
-        data['ReferenceSchemaUpdate'] = Builders::SourceSchema.build(input[:reference_schema_update]) unless input[:reference_schema_update].nil?
+        data['S3ReferenceDataSourceUpdate'] = S3ReferenceDataSourceUpdate.build(input[:s3_reference_data_source_update]) unless input[:s3_reference_data_source_update].nil?
+        data['ReferenceSchemaUpdate'] = SourceSchema.build(input[:reference_schema_update]) unless input[:reference_schema_update].nil?
         data
       end
     end
@@ -1378,7 +1381,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::OutputUpdate.build(element) unless element.nil?
+          data << OutputUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1390,10 +1393,10 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['OutputId'] = input[:output_id] unless input[:output_id].nil?
         data['NameUpdate'] = input[:name_update] unless input[:name_update].nil?
-        data['KinesisStreamsOutputUpdate'] = Builders::KinesisStreamsOutputUpdate.build(input[:kinesis_streams_output_update]) unless input[:kinesis_streams_output_update].nil?
-        data['KinesisFirehoseOutputUpdate'] = Builders::KinesisFirehoseOutputUpdate.build(input[:kinesis_firehose_output_update]) unless input[:kinesis_firehose_output_update].nil?
-        data['LambdaOutputUpdate'] = Builders::LambdaOutputUpdate.build(input[:lambda_output_update]) unless input[:lambda_output_update].nil?
-        data['DestinationSchemaUpdate'] = Builders::DestinationSchema.build(input[:destination_schema_update]) unless input[:destination_schema_update].nil?
+        data['KinesisStreamsOutputUpdate'] = KinesisStreamsOutputUpdate.build(input[:kinesis_streams_output_update]) unless input[:kinesis_streams_output_update].nil?
+        data['KinesisFirehoseOutputUpdate'] = KinesisFirehoseOutputUpdate.build(input[:kinesis_firehose_output_update]) unless input[:kinesis_firehose_output_update].nil?
+        data['LambdaOutputUpdate'] = LambdaOutputUpdate.build(input[:lambda_output_update]) unless input[:lambda_output_update].nil?
+        data['DestinationSchemaUpdate'] = DestinationSchema.build(input[:destination_schema_update]) unless input[:destination_schema_update].nil?
         data
       end
     end
@@ -1430,7 +1433,7 @@ module AWS::SDK::KinesisAnalyticsV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InputUpdate.build(element) unless element.nil?
+          data << InputUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1442,11 +1445,11 @@ module AWS::SDK::KinesisAnalyticsV2
         data = {}
         data['InputId'] = input[:input_id] unless input[:input_id].nil?
         data['NamePrefixUpdate'] = input[:name_prefix_update] unless input[:name_prefix_update].nil?
-        data['InputProcessingConfigurationUpdate'] = Builders::InputProcessingConfigurationUpdate.build(input[:input_processing_configuration_update]) unless input[:input_processing_configuration_update].nil?
-        data['KinesisStreamsInputUpdate'] = Builders::KinesisStreamsInputUpdate.build(input[:kinesis_streams_input_update]) unless input[:kinesis_streams_input_update].nil?
-        data['KinesisFirehoseInputUpdate'] = Builders::KinesisFirehoseInputUpdate.build(input[:kinesis_firehose_input_update]) unless input[:kinesis_firehose_input_update].nil?
-        data['InputSchemaUpdate'] = Builders::InputSchemaUpdate.build(input[:input_schema_update]) unless input[:input_schema_update].nil?
-        data['InputParallelismUpdate'] = Builders::InputParallelismUpdate.build(input[:input_parallelism_update]) unless input[:input_parallelism_update].nil?
+        data['InputProcessingConfigurationUpdate'] = InputProcessingConfigurationUpdate.build(input[:input_processing_configuration_update]) unless input[:input_processing_configuration_update].nil?
+        data['KinesisStreamsInputUpdate'] = KinesisStreamsInputUpdate.build(input[:kinesis_streams_input_update]) unless input[:kinesis_streams_input_update].nil?
+        data['KinesisFirehoseInputUpdate'] = KinesisFirehoseInputUpdate.build(input[:kinesis_firehose_input_update]) unless input[:kinesis_firehose_input_update].nil?
+        data['InputSchemaUpdate'] = InputSchemaUpdate.build(input[:input_schema_update]) unless input[:input_schema_update].nil?
+        data['InputParallelismUpdate'] = InputParallelismUpdate.build(input[:input_parallelism_update]) unless input[:input_parallelism_update].nil?
         data
       end
     end
@@ -1464,9 +1467,9 @@ module AWS::SDK::KinesisAnalyticsV2
     class InputSchemaUpdate
       def self.build(input)
         data = {}
-        data['RecordFormatUpdate'] = Builders::RecordFormat.build(input[:record_format_update]) unless input[:record_format_update].nil?
+        data['RecordFormatUpdate'] = RecordFormat.build(input[:record_format_update]) unless input[:record_format_update].nil?
         data['RecordEncodingUpdate'] = input[:record_encoding_update] unless input[:record_encoding_update].nil?
-        data['RecordColumnUpdates'] = Builders::RecordColumns.build(input[:record_column_updates]) unless input[:record_column_updates].nil?
+        data['RecordColumnUpdates'] = RecordColumns.build(input[:record_column_updates]) unless input[:record_column_updates].nil?
         data
       end
     end
@@ -1493,7 +1496,7 @@ module AWS::SDK::KinesisAnalyticsV2
     class InputProcessingConfigurationUpdate
       def self.build(input)
         data = {}
-        data['InputLambdaProcessorUpdate'] = Builders::InputLambdaProcessorUpdate.build(input[:input_lambda_processor_update]) unless input[:input_lambda_processor_update].nil?
+        data['InputLambdaProcessorUpdate'] = InputLambdaProcessorUpdate.build(input[:input_lambda_processor_update]) unless input[:input_lambda_processor_update].nil?
         data
       end
     end
@@ -1516,8 +1519,8 @@ module AWS::SDK::KinesisAnalyticsV2
         http_req.headers['X-Amz-Target'] = 'KinesisAnalytics_20180523.UpdateApplicationMaintenanceConfiguration'
         data = {}
         data['ApplicationName'] = input[:application_name] unless input[:application_name].nil?
-        data['ApplicationMaintenanceConfigurationUpdate'] = Builders::ApplicationMaintenanceConfigurationUpdate.build(input[:application_maintenance_configuration_update]) unless input[:application_maintenance_configuration_update].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ApplicationMaintenanceConfigurationUpdate'] = ApplicationMaintenanceConfigurationUpdate.build(input[:application_maintenance_configuration_update]) unless input[:application_maintenance_configuration_update].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

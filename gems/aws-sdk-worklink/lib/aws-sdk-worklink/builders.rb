@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::WorkLink
   module Builders
 
@@ -24,7 +26,7 @@ module AWS::SDK::WorkLink
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['AcmCertificateArn'] = input[:acm_certificate_arn] unless input[:acm_certificate_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -41,7 +43,7 @@ module AWS::SDK::WorkLink
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['AuthorizationProviderType'] = input[:authorization_provider_type] unless input[:authorization_provider_type].nil?
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -58,7 +60,7 @@ module AWS::SDK::WorkLink
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['Certificate'] = input[:certificate] unless input[:certificate].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -75,8 +77,8 @@ module AWS::SDK::WorkLink
         data['FleetName'] = input[:fleet_name] unless input[:fleet_name].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['OptimizeForEndUserLocation'] = input[:optimize_for_end_user_location] unless input[:optimize_for_end_user_location].nil?
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -102,7 +104,7 @@ module AWS::SDK::WorkLink
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -117,7 +119,7 @@ module AWS::SDK::WorkLink
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -132,7 +134,7 @@ module AWS::SDK::WorkLink
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -148,7 +150,7 @@ module AWS::SDK::WorkLink
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['DeviceId'] = input[:device_id] unless input[:device_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -163,7 +165,7 @@ module AWS::SDK::WorkLink
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -179,7 +181,7 @@ module AWS::SDK::WorkLink
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -194,7 +196,7 @@ module AWS::SDK::WorkLink
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -209,7 +211,7 @@ module AWS::SDK::WorkLink
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -225,7 +227,7 @@ module AWS::SDK::WorkLink
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['WebsiteCaId'] = input[:website_ca_id] unless input[:website_ca_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -241,7 +243,7 @@ module AWS::SDK::WorkLink
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -257,7 +259,7 @@ module AWS::SDK::WorkLink
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['AuthorizationProviderId'] = input[:authorization_provider_id] unless input[:authorization_provider_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -273,7 +275,7 @@ module AWS::SDK::WorkLink
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['WebsiteCaId'] = input[:website_ca_id] unless input[:website_ca_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -290,7 +292,7 @@ module AWS::SDK::WorkLink
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -307,7 +309,7 @@ module AWS::SDK::WorkLink
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -323,7 +325,7 @@ module AWS::SDK::WorkLink
         data = {}
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -357,7 +359,7 @@ module AWS::SDK::WorkLink
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -374,7 +376,7 @@ module AWS::SDK::WorkLink
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -390,7 +392,7 @@ module AWS::SDK::WorkLink
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -406,7 +408,7 @@ module AWS::SDK::WorkLink
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -422,7 +424,7 @@ module AWS::SDK::WorkLink
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['Username'] = input[:username] unless input[:username].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -443,8 +445,8 @@ module AWS::SDK::WorkLink
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -493,7 +495,7 @@ module AWS::SDK::WorkLink
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['AuditStreamArn'] = input[:audit_stream_arn] unless input[:audit_stream_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -509,9 +511,9 @@ module AWS::SDK::WorkLink
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['VpcId'] = input[:vpc_id] unless input[:vpc_id].nil?
-        data['SubnetIds'] = Builders::SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
-        data['SecurityGroupIds'] = Builders::SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubnetIds'] = SubnetIds.build(input[:subnet_ids]) unless input[:subnet_ids].nil?
+        data['SecurityGroupIds'] = SecurityGroupIds.build(input[:security_group_ids]) unless input[:security_group_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -549,7 +551,7 @@ module AWS::SDK::WorkLink
         data = {}
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['DeviceCaCertificate'] = input[:device_ca_certificate] unless input[:device_ca_certificate].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -566,7 +568,7 @@ module AWS::SDK::WorkLink
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['DomainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -583,7 +585,7 @@ module AWS::SDK::WorkLink
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['OptimizeForEndUserLocation'] = input[:optimize_for_end_user_location] unless input[:optimize_for_end_user_location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -600,7 +602,7 @@ module AWS::SDK::WorkLink
         data['FleetArn'] = input[:fleet_arn] unless input[:fleet_arn].nil?
         data['IdentityProviderType'] = input[:identity_provider_type] unless input[:identity_provider_type].nil?
         data['IdentityProviderSamlMetadata'] = input[:identity_provider_saml_metadata] unless input[:identity_provider_saml_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

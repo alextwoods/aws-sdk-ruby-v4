@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::RAM
   module Stubs
 
@@ -23,9 +25,9 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resourceShareInvitation'] = Stubs::ResourceShareInvitation.stub(stub[:resource_share_invitation]) unless stub[:resource_share_invitation].nil?
+        data['resourceShareInvitation'] = ResourceShareInvitation.stub(stub[:resource_share_invitation]) unless stub[:resource_share_invitation].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -57,7 +59,7 @@ module AWS::SDK::RAM
         data['receiverAccountId'] = stub[:receiver_account_id] unless stub[:receiver_account_id].nil?
         data['invitationTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:invitation_timestamp]).to_i unless stub[:invitation_timestamp].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['resourceShareAssociations'] = Stubs::ResourceShareAssociationList.stub(stub[:resource_share_associations]) unless stub[:resource_share_associations].nil?
+        data['resourceShareAssociations'] = ResourceShareAssociationList.stub(stub[:resource_share_associations]) unless stub[:resource_share_associations].nil?
         data['receiverArn'] = stub[:receiver_arn] unless stub[:receiver_arn].nil?
         data
       end
@@ -77,7 +79,7 @@ module AWS::SDK::RAM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceShareAssociation.stub(element) unless element.nil?
+          data << ResourceShareAssociation.stub(element) unless element.nil?
         end
         data
       end
@@ -130,9 +132,9 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resourceShareAssociations'] = Stubs::ResourceShareAssociationList.stub(stub[:resource_share_associations]) unless stub[:resource_share_associations].nil?
+        data['resourceShareAssociations'] = ResourceShareAssociationList.stub(stub[:resource_share_associations]) unless stub[:resource_share_associations].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -151,7 +153,7 @@ module AWS::SDK::RAM
         http_resp.headers['Content-Type'] = 'application/json'
         data['returnValue'] = stub[:return_value] unless stub[:return_value].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -168,9 +170,9 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resourceShare'] = Stubs::ResourceShare.stub(stub[:resource_share]) unless stub[:resource_share].nil?
+        data['resourceShare'] = ResourceShare.stub(stub[:resource_share]) unless stub[:resource_share].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -202,7 +204,7 @@ module AWS::SDK::RAM
         data['allowExternalPrincipals'] = stub[:allow_external_principals] unless stub[:allow_external_principals].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['statusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['lastUpdatedTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_time]).to_i unless stub[:last_updated_time].nil?
         data['featureSet'] = stub[:feature_set] unless stub[:feature_set].nil?
@@ -224,7 +226,7 @@ module AWS::SDK::RAM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -265,7 +267,7 @@ module AWS::SDK::RAM
         http_resp.headers['Content-Type'] = 'application/json'
         data['returnValue'] = stub[:return_value] unless stub[:return_value].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -282,9 +284,9 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resourceShareAssociations'] = Stubs::ResourceShareAssociationList.stub(stub[:resource_share_associations]) unless stub[:resource_share_associations].nil?
+        data['resourceShareAssociations'] = ResourceShareAssociationList.stub(stub[:resource_share_associations]) unless stub[:resource_share_associations].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -303,7 +305,7 @@ module AWS::SDK::RAM
         http_resp.headers['Content-Type'] = 'application/json'
         data['returnValue'] = stub[:return_value] unless stub[:return_value].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -320,7 +322,7 @@ module AWS::SDK::RAM
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['returnValue'] = stub[:return_value] unless stub[:return_value].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -336,8 +338,8 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['permission'] = Stubs::ResourceSharePermissionDetail.stub(stub[:permission]) unless stub[:permission].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['permission'] = ResourceSharePermissionDetail.stub(stub[:permission]) unless stub[:permission].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -388,9 +390,9 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['policies'] = Stubs::PolicyList.stub(stub[:policies]) unless stub[:policies].nil?
+        data['policies'] = PolicyList.stub(stub[:policies]) unless stub[:policies].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -427,9 +429,9 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resourceShareAssociations'] = Stubs::ResourceShareAssociationList.stub(stub[:resource_share_associations]) unless stub[:resource_share_associations].nil?
+        data['resourceShareAssociations'] = ResourceShareAssociationList.stub(stub[:resource_share_associations]) unless stub[:resource_share_associations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -446,9 +448,9 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resourceShareInvitations'] = Stubs::ResourceShareInvitationList.stub(stub[:resource_share_invitations]) unless stub[:resource_share_invitations].nil?
+        data['resourceShareInvitations'] = ResourceShareInvitationList.stub(stub[:resource_share_invitations]) unless stub[:resource_share_invitations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -466,7 +468,7 @@ module AWS::SDK::RAM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceShareInvitation.stub(element) unless element.nil?
+          data << ResourceShareInvitation.stub(element) unless element.nil?
         end
         data
       end
@@ -485,9 +487,9 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resourceShares'] = Stubs::ResourceShareList.stub(stub[:resource_shares]) unless stub[:resource_shares].nil?
+        data['resourceShares'] = ResourceShareList.stub(stub[:resource_shares]) unless stub[:resource_shares].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -505,7 +507,7 @@ module AWS::SDK::RAM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceShare.stub(element) unless element.nil?
+          data << ResourceShare.stub(element) unless element.nil?
         end
         data
       end
@@ -524,9 +526,9 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resources'] = Stubs::ResourceList.stub(stub[:resources]) unless stub[:resources].nil?
+        data['resources'] = ResourceList.stub(stub[:resources]) unless stub[:resources].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -544,7 +546,7 @@ module AWS::SDK::RAM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Resource.stub(element) unless element.nil?
+          data << Resource.stub(element) unless element.nil?
         end
         data
       end
@@ -597,9 +599,9 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['permissions'] = Stubs::ResourceSharePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['permissions'] = ResourceSharePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -617,7 +619,7 @@ module AWS::SDK::RAM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceSharePermissionSummary.stub(element) unless element.nil?
+          data << ResourceSharePermissionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -670,9 +672,9 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['permissions'] = Stubs::ResourceSharePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['permissions'] = ResourceSharePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -689,9 +691,9 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['principals'] = Stubs::PrincipalList.stub(stub[:principals]) unless stub[:principals].nil?
+        data['principals'] = PrincipalList.stub(stub[:principals]) unless stub[:principals].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -709,7 +711,7 @@ module AWS::SDK::RAM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Principal.stub(element) unless element.nil?
+          data << Principal.stub(element) unless element.nil?
         end
         data
       end
@@ -754,9 +756,9 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['permissions'] = Stubs::ResourceSharePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['permissions'] = ResourceSharePermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -773,9 +775,9 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resourceTypes'] = Stubs::ServiceNameAndResourceTypeList.stub(stub[:resource_types]) unless stub[:resource_types].nil?
+        data['resourceTypes'] = ServiceNameAndResourceTypeList.stub(stub[:resource_types]) unless stub[:resource_types].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -793,7 +795,7 @@ module AWS::SDK::RAM
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceNameAndResourceType.stub(element) unless element.nil?
+          data << ServiceNameAndResourceType.stub(element) unless element.nil?
         end
         data
       end
@@ -834,9 +836,9 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resources'] = Stubs::ResourceList.stub(stub[:resources]) unless stub[:resources].nil?
+        data['resources'] = ResourceList.stub(stub[:resources]) unless stub[:resources].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -853,7 +855,7 @@ module AWS::SDK::RAM
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['returnValue'] = stub[:return_value] unless stub[:return_value].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -870,9 +872,9 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resourceShareInvitation'] = Stubs::ResourceShareInvitation.stub(stub[:resource_share_invitation]) unless stub[:resource_share_invitation].nil?
+        data['resourceShareInvitation'] = ResourceShareInvitation.stub(stub[:resource_share_invitation]) unless stub[:resource_share_invitation].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -915,9 +917,9 @@ module AWS::SDK::RAM
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resourceShare'] = Stubs::ResourceShare.stub(stub[:resource_share]) unless stub[:resource_share].nil?
+        data['resourceShare'] = ResourceShare.stub(stub[:resource_share]) unless stub[:resource_share].nil?
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

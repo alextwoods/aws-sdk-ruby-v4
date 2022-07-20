@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::GameSparks
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Game'] = Stubs::GameDetails.stub(stub[:game]) unless stub[:game].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Game'] = GameDetails.stub(stub[:game]) unless stub[:game].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -54,7 +56,7 @@ module AWS::SDK::GameSparks
         data['LastUpdated'] = Hearth::TimeHelper.to_date_time(stub[:last_updated]) unless stub[:last_updated].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['EnableTerminationProtection'] = stub[:enable_termination_protection] unless stub[:enable_termination_protection].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -91,8 +93,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Snapshot'] = Stubs::SnapshotDetails.stub(stub[:snapshot]) unless stub[:snapshot].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Snapshot'] = SnapshotDetails.stub(stub[:snapshot]) unless stub[:snapshot].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -115,7 +117,7 @@ module AWS::SDK::GameSparks
         data = {}
         data['Id'] = stub[:id] unless stub[:id].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Sections'] = Stubs::Sections.stub(stub[:sections]) unless stub[:sections].nil?
+        data['Sections'] = Sections.stub(stub[:sections]) unless stub[:sections].nil?
         data['Created'] = Hearth::TimeHelper.to_date_time(stub[:created]) unless stub[:created].nil?
         data['LastUpdated'] = Hearth::TimeHelper.to_date_time(stub[:last_updated]) unless stub[:last_updated].nil?
         data
@@ -136,7 +138,7 @@ module AWS::SDK::GameSparks
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::Section.stub(value) unless value.nil?
+          data[key] = Section.stub(value) unless value.nil?
         end
         data
       end
@@ -189,8 +191,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Stage'] = Stubs::StageDetails.stub(stub[:stage]) unless stub[:stage].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Stage'] = StageDetails.stub(stub[:stage]) unless stub[:stage].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -224,7 +226,7 @@ module AWS::SDK::GameSparks
         data['Created'] = Hearth::TimeHelper.to_date_time(stub[:created]) unless stub[:created].nil?
         data['LastUpdated'] = Hearth::TimeHelper.to_date_time(stub[:last_updated]) unless stub[:last_updated].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['LogGroup'] = stub[:log_group] unless stub[:log_group].nil?
         data
       end
@@ -269,9 +271,9 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['DisconnectSuccesses'] = Stubs::ConnectionIdList.stub(stub[:disconnect_successes]) unless stub[:disconnect_successes].nil?
-        data['DisconnectFailures'] = Stubs::ConnectionIdList.stub(stub[:disconnect_failures]) unless stub[:disconnect_failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DisconnectSuccesses'] = ConnectionIdList.stub(stub[:disconnect_successes]) unless stub[:disconnect_successes].nil?
+        data['DisconnectFailures'] = ConnectionIdList.stub(stub[:disconnect_failures]) unless stub[:disconnect_failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -308,7 +310,7 @@ module AWS::SDK::GameSparks
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['S3Url'] = stub[:s3_url] unless stub[:s3_url].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -324,8 +326,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Extension'] = Stubs::ExtensionDetails.stub(stub[:extension]) unless stub[:extension].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Extension'] = ExtensionDetails.stub(stub[:extension]) unless stub[:extension].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -363,8 +365,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ExtensionVersion'] = Stubs::ExtensionVersionDetails.stub(stub[:extension_version]) unless stub[:extension_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ExtensionVersion'] = ExtensionVersionDetails.stub(stub[:extension_version]) unless stub[:extension_version].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -404,8 +406,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Game'] = Stubs::GameDetails.stub(stub[:game]) unless stub[:game].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Game'] = GameDetails.stub(stub[:game]) unless stub[:game].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -421,8 +423,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GameConfiguration'] = Stubs::GameConfigurationDetails.stub(stub[:game_configuration]) unless stub[:game_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameConfiguration'] = GameConfigurationDetails.stub(stub[:game_configuration]) unless stub[:game_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -441,7 +443,7 @@ module AWS::SDK::GameSparks
       def self.stub(stub)
         stub ||= Types::GameConfigurationDetails.new
         data = {}
-        data['Sections'] = Stubs::Sections.stub(stub[:sections]) unless stub[:sections].nil?
+        data['Sections'] = Sections.stub(stub[:sections]) unless stub[:sections].nil?
         data['Created'] = Hearth::TimeHelper.to_date_time(stub[:created]) unless stub[:created].nil?
         data['LastUpdated'] = Hearth::TimeHelper.to_date_time(stub[:last_updated]) unless stub[:last_updated].nil?
         data
@@ -460,8 +462,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GeneratedCodeJob'] = Stubs::GeneratedCodeJobDetails.stub(stub[:generated_code_job]) unless stub[:generated_code_job].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GeneratedCodeJob'] = GeneratedCodeJobDetails.stub(stub[:generated_code_job]) unless stub[:generated_code_job].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -503,8 +505,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Connections'] = Stubs::ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Connections'] = ConnectionList.stub(stub[:connections]) unless stub[:connections].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -522,7 +524,7 @@ module AWS::SDK::GameSparks
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Connection.stub(element) unless element.nil?
+          data << Connection.stub(element) unless element.nil?
         end
         data
       end
@@ -560,8 +562,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Snapshot'] = Stubs::SnapshotDetails.stub(stub[:snapshot]) unless stub[:snapshot].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Snapshot'] = SnapshotDetails.stub(stub[:snapshot]) unless stub[:snapshot].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -577,8 +579,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Stage'] = Stubs::StageDetails.stub(stub[:stage]) unless stub[:stage].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Stage'] = StageDetails.stub(stub[:stage]) unless stub[:stage].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -594,8 +596,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['StageDeployment'] = Stubs::StageDeploymentDetails.stub(stub[:stage_deployment]) unless stub[:stage_deployment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StageDeployment'] = StageDeploymentDetails.stub(stub[:stage_deployment]) unless stub[:stage_deployment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -624,7 +626,7 @@ module AWS::SDK::GameSparks
         data['DeploymentState'] = stub[:deployment_state] unless stub[:deployment_state].nil?
         data['Created'] = Hearth::TimeHelper.to_date_time(stub[:created]) unless stub[:created].nil?
         data['LastUpdated'] = Hearth::TimeHelper.to_date_time(stub[:last_updated]) unless stub[:last_updated].nil?
-        data['DeploymentResult'] = Stubs::DeploymentResult.stub(stub[:deployment_result]) unless stub[:deployment_result].nil?
+        data['DeploymentResult'] = DeploymentResult.stub(stub[:deployment_result]) unless stub[:deployment_result].nil?
         data
       end
     end
@@ -661,8 +663,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GameConfiguration'] = Stubs::GameConfigurationDetails.stub(stub[:game_configuration]) unless stub[:game_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameConfiguration'] = GameConfigurationDetails.stub(stub[:game_configuration]) unless stub[:game_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -679,9 +681,9 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ExtensionVersions'] = Stubs::ExtensionVersionDetailsList.stub(stub[:extension_versions]) unless stub[:extension_versions].nil?
+        data['ExtensionVersions'] = ExtensionVersionDetailsList.stub(stub[:extension_versions]) unless stub[:extension_versions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -699,7 +701,7 @@ module AWS::SDK::GameSparks
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExtensionVersionDetails.stub(element) unless element.nil?
+          data << ExtensionVersionDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -718,9 +720,9 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Extensions'] = Stubs::ExtensionDetailsList.stub(stub[:extensions]) unless stub[:extensions].nil?
+        data['Extensions'] = ExtensionDetailsList.stub(stub[:extensions]) unless stub[:extensions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -738,7 +740,7 @@ module AWS::SDK::GameSparks
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExtensionDetails.stub(element) unless element.nil?
+          data << ExtensionDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -757,9 +759,9 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Games'] = Stubs::GameSummaryList.stub(stub[:games]) unless stub[:games].nil?
+        data['Games'] = GameSummaryList.stub(stub[:games]) unless stub[:games].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -777,7 +779,7 @@ module AWS::SDK::GameSparks
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GameSummary.stub(element) unless element.nil?
+          data << GameSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -802,7 +804,7 @@ module AWS::SDK::GameSparks
         data['Name'] = stub[:name] unless stub[:name].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -820,9 +822,9 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GeneratedCodeJobs'] = Stubs::GeneratedCodeJobDetailsList.stub(stub[:generated_code_jobs]) unless stub[:generated_code_jobs].nil?
+        data['GeneratedCodeJobs'] = GeneratedCodeJobDetailsList.stub(stub[:generated_code_jobs]) unless stub[:generated_code_jobs].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -840,7 +842,7 @@ module AWS::SDK::GameSparks
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GeneratedCodeJobDetails.stub(element) unless element.nil?
+          data << GeneratedCodeJobDetails.stub(element) unless element.nil?
         end
         data
       end
@@ -859,9 +861,9 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Snapshots'] = Stubs::SnapshotSummaryList.stub(stub[:snapshots]) unless stub[:snapshots].nil?
+        data['Snapshots'] = SnapshotSummaryList.stub(stub[:snapshots]) unless stub[:snapshots].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -879,7 +881,7 @@ module AWS::SDK::GameSparks
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SnapshotSummary.stub(element) unless element.nil?
+          data << SnapshotSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -922,9 +924,9 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['StageDeployments'] = Stubs::StageDeploymentList.stub(stub[:stage_deployments]) unless stub[:stage_deployments].nil?
+        data['StageDeployments'] = StageDeploymentList.stub(stub[:stage_deployments]) unless stub[:stage_deployments].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -942,7 +944,7 @@ module AWS::SDK::GameSparks
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StageDeploymentSummary.stub(element) unless element.nil?
+          data << StageDeploymentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -971,7 +973,7 @@ module AWS::SDK::GameSparks
         data['DeploymentAction'] = stub[:deployment_action] unless stub[:deployment_action].nil?
         data['DeploymentState'] = stub[:deployment_state] unless stub[:deployment_state].nil?
         data['LastUpdated'] = Hearth::TimeHelper.to_date_time(stub[:last_updated]) unless stub[:last_updated].nil?
-        data['DeploymentResult'] = Stubs::DeploymentResult.stub(stub[:deployment_result]) unless stub[:deployment_result].nil?
+        data['DeploymentResult'] = DeploymentResult.stub(stub[:deployment_result]) unless stub[:deployment_result].nil?
         data
       end
     end
@@ -989,9 +991,9 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Stages'] = Stubs::StageSummaryList.stub(stub[:stages]) unless stub[:stages].nil?
+        data['Stages'] = StageSummaryList.stub(stub[:stages]) unless stub[:stages].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1009,7 +1011,7 @@ module AWS::SDK::GameSparks
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::StageSummary.stub(element) unless element.nil?
+          data << StageSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1036,7 +1038,7 @@ module AWS::SDK::GameSparks
         data['GameKey'] = stub[:game_key] unless stub[:game_key].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1053,8 +1055,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1071,7 +1073,7 @@ module AWS::SDK::GameSparks
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['GeneratedCodeJobId'] = stub[:generated_code_job_id] unless stub[:generated_code_job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1087,8 +1089,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['StageDeployment'] = Stubs::StageDeploymentDetails.stub(stub[:stage_deployment]) unless stub[:stage_deployment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StageDeployment'] = StageDeploymentDetails.stub(stub[:stage_deployment]) unless stub[:stage_deployment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1130,8 +1132,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Game'] = Stubs::GameDetails.stub(stub[:game]) unless stub[:game].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Game'] = GameDetails.stub(stub[:game]) unless stub[:game].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1147,8 +1149,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GameConfiguration'] = Stubs::GameConfigurationDetails.stub(stub[:game_configuration]) unless stub[:game_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GameConfiguration'] = GameConfigurationDetails.stub(stub[:game_configuration]) unless stub[:game_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1164,8 +1166,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Snapshot'] = Stubs::SnapshotDetails.stub(stub[:snapshot]) unless stub[:snapshot].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Snapshot'] = SnapshotDetails.stub(stub[:snapshot]) unless stub[:snapshot].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1181,8 +1183,8 @@ module AWS::SDK::GameSparks
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Stage'] = Stubs::StageDetails.stub(stub[:stage]) unless stub[:stage].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Stage'] = StageDetails.stub(stub[:stage]) unless stub[:stage].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

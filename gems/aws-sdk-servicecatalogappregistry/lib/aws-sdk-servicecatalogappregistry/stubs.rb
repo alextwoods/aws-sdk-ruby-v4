@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ServiceCatalogAppRegistry
   module Stubs
 
@@ -25,7 +27,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         http_resp.headers['Content-Type'] = 'application/json'
         data['applicationArn'] = stub[:application_arn] unless stub[:application_arn].nil?
         data['attributeGroupArn'] = stub[:attribute_group_arn] unless stub[:attribute_group_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -44,7 +46,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         http_resp.headers['Content-Type'] = 'application/json'
         data['applicationArn'] = stub[:application_arn] unless stub[:application_arn].nil?
         data['resourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -60,8 +62,8 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['application'] = Stubs::Application.stub(stub[:application]) unless stub[:application].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['application'] = Application.stub(stub[:application]) unless stub[:application].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -90,7 +92,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data['description'] = stub[:description] unless stub[:description].nil?
         data['creationTime'] = Hearth::TimeHelper.to_date_time(stub[:creation_time]) unless stub[:creation_time].nil?
         data['lastUpdateTime'] = Hearth::TimeHelper.to_date_time(stub[:last_update_time]) unless stub[:last_update_time].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -127,8 +129,8 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['attributeGroup'] = Stubs::AttributeGroup.stub(stub[:attribute_group]) unless stub[:attribute_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['attributeGroup'] = AttributeGroup.stub(stub[:attribute_group]) unless stub[:attribute_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -157,7 +159,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data['description'] = stub[:description] unless stub[:description].nil?
         data['creationTime'] = Hearth::TimeHelper.to_date_time(stub[:creation_time]) unless stub[:creation_time].nil?
         data['lastUpdateTime'] = Hearth::TimeHelper.to_date_time(stub[:last_update_time]) unless stub[:last_update_time].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -174,8 +176,8 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['application'] = Stubs::ApplicationSummary.stub(stub[:application]) unless stub[:application].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['application'] = ApplicationSummary.stub(stub[:application]) unless stub[:application].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -219,8 +221,8 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['attributeGroup'] = Stubs::AttributeGroupSummary.stub(stub[:attribute_group]) unless stub[:attribute_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['attributeGroup'] = AttributeGroupSummary.stub(stub[:attribute_group]) unless stub[:attribute_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -267,7 +269,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         http_resp.headers['Content-Type'] = 'application/json'
         data['applicationArn'] = stub[:application_arn] unless stub[:application_arn].nil?
         data['attributeGroupArn'] = stub[:attribute_group_arn] unless stub[:attribute_group_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -286,7 +288,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         http_resp.headers['Content-Type'] = 'application/json'
         data['applicationArn'] = stub[:application_arn] unless stub[:application_arn].nil?
         data['resourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -317,9 +319,9 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data['creationTime'] = Hearth::TimeHelper.to_date_time(stub[:creation_time]) unless stub[:creation_time].nil?
         data['lastUpdateTime'] = Hearth::TimeHelper.to_date_time(stub[:last_update_time]) unless stub[:last_update_time].nil?
         data['associatedResourceCount'] = stub[:associated_resource_count] unless stub[:associated_resource_count].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['integrations'] = Stubs::Integrations.stub(stub[:integrations]) unless stub[:integrations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['integrations'] = Integrations.stub(stub[:integrations]) unless stub[:integrations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -336,7 +338,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.stub(stub)
         stub ||= Types::Integrations.new
         data = {}
-        data['resourceGroup'] = Stubs::ResourceGroup.stub(stub[:resource_group]) unless stub[:resource_group].nil?
+        data['resourceGroup'] = ResourceGroup.stub(stub[:resource_group]) unless stub[:resource_group].nil?
         data
       end
     end
@@ -375,8 +377,8 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resource'] = Stubs::Resource.stub(stub[:resource]) unless stub[:resource].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resource'] = Resource.stub(stub[:resource]) unless stub[:resource].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -399,7 +401,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data['name'] = stub[:name] unless stub[:name].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['associationTime'] = Hearth::TimeHelper.to_date_time(stub[:association_time]) unless stub[:association_time].nil?
-        data['integrations'] = Stubs::ResourceIntegrations.stub(stub[:integrations]) unless stub[:integrations].nil?
+        data['integrations'] = ResourceIntegrations.stub(stub[:integrations]) unless stub[:integrations].nil?
         data
       end
     end
@@ -417,7 +419,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
       def self.stub(stub)
         stub ||= Types::ResourceIntegrations.new
         data = {}
-        data['resourceGroup'] = Stubs::ResourceGroup.stub(stub[:resource_group]) unless stub[:resource_group].nil?
+        data['resourceGroup'] = ResourceGroup.stub(stub[:resource_group]) unless stub[:resource_group].nil?
         data
       end
     end
@@ -448,8 +450,8 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data['attributes'] = stub[:attributes] unless stub[:attributes].nil?
         data['creationTime'] = Hearth::TimeHelper.to_date_time(stub[:creation_time]) unless stub[:creation_time].nil?
         data['lastUpdateTime'] = Hearth::TimeHelper.to_date_time(stub[:last_update_time]) unless stub[:last_update_time].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -466,9 +468,9 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['applications'] = Stubs::ApplicationSummaries.stub(stub[:applications]) unless stub[:applications].nil?
+        data['applications'] = ApplicationSummaries.stub(stub[:applications]) unless stub[:applications].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -486,7 +488,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApplicationSummary.stub(element) unless element.nil?
+          data << ApplicationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -505,9 +507,9 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['attributeGroups'] = Stubs::AttributeGroupIds.stub(stub[:attribute_groups]) unless stub[:attribute_groups].nil?
+        data['attributeGroups'] = AttributeGroupIds.stub(stub[:attribute_groups]) unless stub[:attribute_groups].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -544,9 +546,9 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resources'] = Stubs::Resources.stub(stub[:resources]) unless stub[:resources].nil?
+        data['resources'] = Resources.stub(stub[:resources]) unless stub[:resources].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -564,7 +566,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceInfo.stub(element) unless element.nil?
+          data << ResourceInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -603,9 +605,9 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['attributeGroups'] = Stubs::AttributeGroupSummaries.stub(stub[:attribute_groups]) unless stub[:attribute_groups].nil?
+        data['attributeGroups'] = AttributeGroupSummaries.stub(stub[:attribute_groups]) unless stub[:attribute_groups].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -623,7 +625,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttributeGroupSummary.stub(element) unless element.nil?
+          data << AttributeGroupSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -641,8 +643,8 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -663,7 +665,7 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data['applicationArn'] = stub[:application_arn] unless stub[:application_arn].nil?
         data['resourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
         data['actionTaken'] = stub[:action_taken] unless stub[:action_taken].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -705,8 +707,8 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['application'] = Stubs::Application.stub(stub[:application]) unless stub[:application].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['application'] = Application.stub(stub[:application]) unless stub[:application].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -722,8 +724,8 @@ module AWS::SDK::ServiceCatalogAppRegistry
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['attributeGroup'] = Stubs::AttributeGroup.stub(stub[:attribute_group]) unless stub[:attribute_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['attributeGroup'] = AttributeGroup.stub(stub[:attribute_group]) unless stub[:attribute_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SageMakerA2IRuntime
   module Stubs
 
@@ -49,8 +51,8 @@ module AWS::SDK::SageMakerA2IRuntime
         data['HumanLoopName'] = stub[:human_loop_name] unless stub[:human_loop_name].nil?
         data['HumanLoopArn'] = stub[:human_loop_arn] unless stub[:human_loop_arn].nil?
         data['FlowDefinitionArn'] = stub[:flow_definition_arn] unless stub[:flow_definition_arn].nil?
-        data['HumanLoopOutput'] = Stubs::HumanLoopOutput.stub(stub[:human_loop_output]) unless stub[:human_loop_output].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['HumanLoopOutput'] = HumanLoopOutput.stub(stub[:human_loop_output]) unless stub[:human_loop_output].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -85,9 +87,9 @@ module AWS::SDK::SageMakerA2IRuntime
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['HumanLoopSummaries'] = Stubs::HumanLoopSummaries.stub(stub[:human_loop_summaries]) unless stub[:human_loop_summaries].nil?
+        data['HumanLoopSummaries'] = HumanLoopSummaries.stub(stub[:human_loop_summaries]) unless stub[:human_loop_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -105,7 +107,7 @@ module AWS::SDK::SageMakerA2IRuntime
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HumanLoopSummary.stub(element) unless element.nil?
+          data << HumanLoopSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -150,7 +152,7 @@ module AWS::SDK::SageMakerA2IRuntime
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['HumanLoopArn'] = stub[:human_loop_arn] unless stub[:human_loop_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

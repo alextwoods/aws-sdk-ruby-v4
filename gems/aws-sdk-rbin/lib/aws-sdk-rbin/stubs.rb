@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Rbin
   module Stubs
 
@@ -29,13 +31,13 @@ module AWS::SDK::Rbin
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['Identifier'] = stub[:identifier] unless stub[:identifier].nil?
-        data['RetentionPeriod'] = Stubs::RetentionPeriod.stub(stub[:retention_period]) unless stub[:retention_period].nil?
+        data['RetentionPeriod'] = RetentionPeriod.stub(stub[:retention_period]) unless stub[:retention_period].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['ResourceTags'] = Stubs::ResourceTags.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
+        data['ResourceTags'] = ResourceTags.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -53,7 +55,7 @@ module AWS::SDK::Rbin
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceTag.stub(element) unless element.nil?
+          data << ResourceTag.stub(element) unless element.nil?
         end
         data
       end
@@ -93,7 +95,7 @@ module AWS::SDK::Rbin
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -172,10 +174,10 @@ module AWS::SDK::Rbin
         data['Identifier'] = stub[:identifier] unless stub[:identifier].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['RetentionPeriod'] = Stubs::RetentionPeriod.stub(stub[:retention_period]) unless stub[:retention_period].nil?
-        data['ResourceTags'] = Stubs::ResourceTags.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
+        data['RetentionPeriod'] = RetentionPeriod.stub(stub[:retention_period]) unless stub[:retention_period].nil?
+        data['ResourceTags'] = ResourceTags.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -192,9 +194,9 @@ module AWS::SDK::Rbin
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Rules'] = Stubs::RuleSummaryList.stub(stub[:rules]) unless stub[:rules].nil?
+        data['Rules'] = RuleSummaryList.stub(stub[:rules]) unless stub[:rules].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -212,7 +214,7 @@ module AWS::SDK::Rbin
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RuleSummary.stub(element) unless element.nil?
+          data << RuleSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -235,7 +237,7 @@ module AWS::SDK::Rbin
         data = {}
         data['Identifier'] = stub[:identifier] unless stub[:identifier].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['RetentionPeriod'] = Stubs::RetentionPeriod.stub(stub[:retention_period]) unless stub[:retention_period].nil?
+        data['RetentionPeriod'] = RetentionPeriod.stub(stub[:retention_period]) unless stub[:retention_period].nil?
         data
       end
     end
@@ -252,8 +254,8 @@ module AWS::SDK::Rbin
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -301,12 +303,12 @@ module AWS::SDK::Rbin
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['Identifier'] = stub[:identifier] unless stub[:identifier].nil?
-        data['RetentionPeriod'] = Stubs::RetentionPeriod.stub(stub[:retention_period]) unless stub[:retention_period].nil?
+        data['RetentionPeriod'] = RetentionPeriod.stub(stub[:retention_period]) unless stub[:retention_period].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['ResourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['ResourceTags'] = Stubs::ResourceTags.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
+        data['ResourceTags'] = ResourceTags.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

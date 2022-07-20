@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::AppSync
   module Builders
 
@@ -28,7 +31,7 @@ module AWS::SDK::AppSync
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['apiId'] = input[:api_id] unless input[:api_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -54,7 +57,7 @@ module AWS::SDK::AppSync
         data['atRestEncryptionEnabled'] = input[:at_rest_encryption_enabled] unless input[:at_rest_encryption_enabled].nil?
         data['apiCachingBehavior'] = input[:api_caching_behavior] unless input[:api_caching_behavior].nil?
         data['type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -77,7 +80,7 @@ module AWS::SDK::AppSync
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
         data['expires'] = input[:expires] unless input[:expires].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -102,13 +105,13 @@ module AWS::SDK::AppSync
         data['description'] = input[:description] unless input[:description].nil?
         data['type'] = input[:type] unless input[:type].nil?
         data['serviceRoleArn'] = input[:service_role_arn] unless input[:service_role_arn].nil?
-        data['dynamodbConfig'] = Builders::DynamodbDataSourceConfig.build(input[:dynamodb_config]) unless input[:dynamodb_config].nil?
-        data['lambdaConfig'] = Builders::LambdaDataSourceConfig.build(input[:lambda_config]) unless input[:lambda_config].nil?
-        data['elasticsearchConfig'] = Builders::ElasticsearchDataSourceConfig.build(input[:elasticsearch_config]) unless input[:elasticsearch_config].nil?
-        data['openSearchServiceConfig'] = Builders::OpenSearchServiceDataSourceConfig.build(input[:open_search_service_config]) unless input[:open_search_service_config].nil?
-        data['httpConfig'] = Builders::HttpDataSourceConfig.build(input[:http_config]) unless input[:http_config].nil?
-        data['relationalDatabaseConfig'] = Builders::RelationalDatabaseDataSourceConfig.build(input[:relational_database_config]) unless input[:relational_database_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dynamodbConfig'] = DynamodbDataSourceConfig.build(input[:dynamodb_config]) unless input[:dynamodb_config].nil?
+        data['lambdaConfig'] = LambdaDataSourceConfig.build(input[:lambda_config]) unless input[:lambda_config].nil?
+        data['elasticsearchConfig'] = ElasticsearchDataSourceConfig.build(input[:elasticsearch_config]) unless input[:elasticsearch_config].nil?
+        data['openSearchServiceConfig'] = OpenSearchServiceDataSourceConfig.build(input[:open_search_service_config]) unless input[:open_search_service_config].nil?
+        data['httpConfig'] = HttpDataSourceConfig.build(input[:http_config]) unless input[:http_config].nil?
+        data['relationalDatabaseConfig'] = RelationalDatabaseDataSourceConfig.build(input[:relational_database_config]) unless input[:relational_database_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -117,7 +120,7 @@ module AWS::SDK::AppSync
       def self.build(input)
         data = {}
         data['relationalDatabaseSourceType'] = input[:relational_database_source_type] unless input[:relational_database_source_type].nil?
-        data['rdsHttpEndpointConfig'] = Builders::RdsHttpEndpointConfig.build(input[:rds_http_endpoint_config]) unless input[:rds_http_endpoint_config].nil?
+        data['rdsHttpEndpointConfig'] = RdsHttpEndpointConfig.build(input[:rds_http_endpoint_config]) unless input[:rds_http_endpoint_config].nil?
         data
       end
     end
@@ -140,7 +143,7 @@ module AWS::SDK::AppSync
       def self.build(input)
         data = {}
         data['endpoint'] = input[:endpoint] unless input[:endpoint].nil?
-        data['authorizationConfig'] = Builders::AuthorizationConfig.build(input[:authorization_config]) unless input[:authorization_config].nil?
+        data['authorizationConfig'] = AuthorizationConfig.build(input[:authorization_config]) unless input[:authorization_config].nil?
         data
       end
     end
@@ -150,7 +153,7 @@ module AWS::SDK::AppSync
       def self.build(input)
         data = {}
         data['authorizationType'] = input[:authorization_type] unless input[:authorization_type].nil?
-        data['awsIamConfig'] = Builders::AwsIamConfig.build(input[:aws_iam_config]) unless input[:aws_iam_config].nil?
+        data['awsIamConfig'] = AwsIamConfig.build(input[:aws_iam_config]) unless input[:aws_iam_config].nil?
         data
       end
     end
@@ -201,7 +204,7 @@ module AWS::SDK::AppSync
         data['tableName'] = input[:table_name] unless input[:table_name].nil?
         data['awsRegion'] = input[:aws_region] unless input[:aws_region].nil?
         data['useCallerCredentials'] = input[:use_caller_credentials] unless input[:use_caller_credentials].nil?
-        data['deltaSyncConfig'] = Builders::DeltaSyncConfig.build(input[:delta_sync_config]) unless input[:delta_sync_config].nil?
+        data['deltaSyncConfig'] = DeltaSyncConfig.build(input[:delta_sync_config]) unless input[:delta_sync_config].nil?
         data['versioned'] = input[:versioned] unless input[:versioned].nil?
         data
       end
@@ -231,7 +234,7 @@ module AWS::SDK::AppSync
         data['domainName'] = input[:domain_name] unless input[:domain_name].nil?
         data['certificateArn'] = input[:certificate_arn] unless input[:certificate_arn].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -258,9 +261,9 @@ module AWS::SDK::AppSync
         data['requestMappingTemplate'] = input[:request_mapping_template] unless input[:request_mapping_template].nil?
         data['responseMappingTemplate'] = input[:response_mapping_template] unless input[:response_mapping_template].nil?
         data['functionVersion'] = input[:function_version] unless input[:function_version].nil?
-        data['syncConfig'] = Builders::SyncConfig.build(input[:sync_config]) unless input[:sync_config].nil?
+        data['syncConfig'] = SyncConfig.build(input[:sync_config]) unless input[:sync_config].nil?
         data['maxBatchSize'] = input[:max_batch_size] unless input[:max_batch_size].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -270,7 +273,7 @@ module AWS::SDK::AppSync
         data = {}
         data['conflictHandler'] = input[:conflict_handler] unless input[:conflict_handler].nil?
         data['conflictDetection'] = input[:conflict_detection] unless input[:conflict_detection].nil?
-        data['lambdaConflictHandlerConfig'] = Builders::LambdaConflictHandlerConfig.build(input[:lambda_conflict_handler_config]) unless input[:lambda_conflict_handler_config].nil?
+        data['lambdaConflictHandlerConfig'] = LambdaConflictHandlerConfig.build(input[:lambda_conflict_handler_config]) unless input[:lambda_conflict_handler_config].nil?
         data
       end
     end
@@ -295,15 +298,15 @@ module AWS::SDK::AppSync
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['logConfig'] = Builders::LogConfig.build(input[:log_config]) unless input[:log_config].nil?
+        data['logConfig'] = LogConfig.build(input[:log_config]) unless input[:log_config].nil?
         data['authenticationType'] = input[:authentication_type] unless input[:authentication_type].nil?
-        data['userPoolConfig'] = Builders::UserPoolConfig.build(input[:user_pool_config]) unless input[:user_pool_config].nil?
-        data['openIDConnectConfig'] = Builders::OpenIDConnectConfig.build(input[:open_id_connect_config]) unless input[:open_id_connect_config].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        data['additionalAuthenticationProviders'] = Builders::AdditionalAuthenticationProviders.build(input[:additional_authentication_providers]) unless input[:additional_authentication_providers].nil?
+        data['userPoolConfig'] = UserPoolConfig.build(input[:user_pool_config]) unless input[:user_pool_config].nil?
+        data['openIDConnectConfig'] = OpenIDConnectConfig.build(input[:open_id_connect_config]) unless input[:open_id_connect_config].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['additionalAuthenticationProviders'] = AdditionalAuthenticationProviders.build(input[:additional_authentication_providers]) unless input[:additional_authentication_providers].nil?
         data['xrayEnabled'] = input[:xray_enabled] unless input[:xray_enabled].nil?
-        data['lambdaAuthorizerConfig'] = Builders::LambdaAuthorizerConfig.build(input[:lambda_authorizer_config]) unless input[:lambda_authorizer_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['lambdaAuthorizerConfig'] = LambdaAuthorizerConfig.build(input[:lambda_authorizer_config]) unless input[:lambda_authorizer_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -323,7 +326,7 @@ module AWS::SDK::AppSync
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AdditionalAuthenticationProvider.build(element) unless element.nil?
+          data << AdditionalAuthenticationProvider.build(element) unless element.nil?
         end
         data
       end
@@ -334,9 +337,9 @@ module AWS::SDK::AppSync
       def self.build(input)
         data = {}
         data['authenticationType'] = input[:authentication_type] unless input[:authentication_type].nil?
-        data['openIDConnectConfig'] = Builders::OpenIDConnectConfig.build(input[:open_id_connect_config]) unless input[:open_id_connect_config].nil?
-        data['userPoolConfig'] = Builders::CognitoUserPoolConfig.build(input[:user_pool_config]) unless input[:user_pool_config].nil?
-        data['lambdaAuthorizerConfig'] = Builders::LambdaAuthorizerConfig.build(input[:lambda_authorizer_config]) unless input[:lambda_authorizer_config].nil?
+        data['openIDConnectConfig'] = OpenIDConnectConfig.build(input[:open_id_connect_config]) unless input[:open_id_connect_config].nil?
+        data['userPoolConfig'] = CognitoUserPoolConfig.build(input[:user_pool_config]) unless input[:user_pool_config].nil?
+        data['lambdaAuthorizerConfig'] = LambdaAuthorizerConfig.build(input[:lambda_authorizer_config]) unless input[:lambda_authorizer_config].nil?
         data
       end
     end
@@ -424,11 +427,11 @@ module AWS::SDK::AppSync
         data['requestMappingTemplate'] = input[:request_mapping_template] unless input[:request_mapping_template].nil?
         data['responseMappingTemplate'] = input[:response_mapping_template] unless input[:response_mapping_template].nil?
         data['kind'] = input[:kind] unless input[:kind].nil?
-        data['pipelineConfig'] = Builders::PipelineConfig.build(input[:pipeline_config]) unless input[:pipeline_config].nil?
-        data['syncConfig'] = Builders::SyncConfig.build(input[:sync_config]) unless input[:sync_config].nil?
-        data['cachingConfig'] = Builders::CachingConfig.build(input[:caching_config]) unless input[:caching_config].nil?
+        data['pipelineConfig'] = PipelineConfig.build(input[:pipeline_config]) unless input[:pipeline_config].nil?
+        data['syncConfig'] = SyncConfig.build(input[:sync_config]) unless input[:sync_config].nil?
+        data['cachingConfig'] = CachingConfig.build(input[:caching_config]) unless input[:caching_config].nil?
         data['maxBatchSize'] = input[:max_batch_size] unless input[:max_batch_size].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -437,7 +440,7 @@ module AWS::SDK::AppSync
       def self.build(input)
         data = {}
         data['ttl'] = input[:ttl] unless input[:ttl].nil?
-        data['cachingKeys'] = Builders::CachingKeys.build(input[:caching_keys]) unless input[:caching_keys].nil?
+        data['cachingKeys'] = CachingKeys.build(input[:caching_keys]) unless input[:caching_keys].nil?
         data
       end
     end
@@ -457,7 +460,7 @@ module AWS::SDK::AppSync
     class PipelineConfig
       def self.build(input)
         data = {}
-        data['functions'] = Builders::FunctionsIds.build(input[:functions]) unless input[:functions].nil?
+        data['functions'] = FunctionsIds.build(input[:functions]) unless input[:functions].nil?
         data
       end
     end
@@ -492,7 +495,7 @@ module AWS::SDK::AppSync
         data = {}
         data['definition'] = input[:definition] unless input[:definition].nil?
         data['format'] = input[:format] unless input[:format].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1064,8 +1067,8 @@ module AWS::SDK::AppSync
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['definition'] = Base64::encode64(input[:definition]).strip unless input[:definition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['definition'] = ::Base64::encode64(input[:definition]).strip unless input[:definition].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1086,8 +1089,8 @@ module AWS::SDK::AppSync
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1144,7 +1147,7 @@ module AWS::SDK::AppSync
         data['ttl'] = input[:ttl] unless input[:ttl].nil?
         data['apiCachingBehavior'] = input[:api_caching_behavior] unless input[:api_caching_behavior].nil?
         data['type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1171,7 +1174,7 @@ module AWS::SDK::AppSync
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
         data['expires'] = input[:expires] unless input[:expires].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1199,13 +1202,13 @@ module AWS::SDK::AppSync
         data['description'] = input[:description] unless input[:description].nil?
         data['type'] = input[:type] unless input[:type].nil?
         data['serviceRoleArn'] = input[:service_role_arn] unless input[:service_role_arn].nil?
-        data['dynamodbConfig'] = Builders::DynamodbDataSourceConfig.build(input[:dynamodb_config]) unless input[:dynamodb_config].nil?
-        data['lambdaConfig'] = Builders::LambdaDataSourceConfig.build(input[:lambda_config]) unless input[:lambda_config].nil?
-        data['elasticsearchConfig'] = Builders::ElasticsearchDataSourceConfig.build(input[:elasticsearch_config]) unless input[:elasticsearch_config].nil?
-        data['openSearchServiceConfig'] = Builders::OpenSearchServiceDataSourceConfig.build(input[:open_search_service_config]) unless input[:open_search_service_config].nil?
-        data['httpConfig'] = Builders::HttpDataSourceConfig.build(input[:http_config]) unless input[:http_config].nil?
-        data['relationalDatabaseConfig'] = Builders::RelationalDatabaseDataSourceConfig.build(input[:relational_database_config]) unless input[:relational_database_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dynamodbConfig'] = DynamodbDataSourceConfig.build(input[:dynamodb_config]) unless input[:dynamodb_config].nil?
+        data['lambdaConfig'] = LambdaDataSourceConfig.build(input[:lambda_config]) unless input[:lambda_config].nil?
+        data['elasticsearchConfig'] = ElasticsearchDataSourceConfig.build(input[:elasticsearch_config]) unless input[:elasticsearch_config].nil?
+        data['openSearchServiceConfig'] = OpenSearchServiceDataSourceConfig.build(input[:open_search_service_config]) unless input[:open_search_service_config].nil?
+        data['httpConfig'] = HttpDataSourceConfig.build(input[:http_config]) unless input[:http_config].nil?
+        data['relationalDatabaseConfig'] = RelationalDatabaseDataSourceConfig.build(input[:relational_database_config]) unless input[:relational_database_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1227,7 +1230,7 @@ module AWS::SDK::AppSync
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1258,9 +1261,9 @@ module AWS::SDK::AppSync
         data['requestMappingTemplate'] = input[:request_mapping_template] unless input[:request_mapping_template].nil?
         data['responseMappingTemplate'] = input[:response_mapping_template] unless input[:response_mapping_template].nil?
         data['functionVersion'] = input[:function_version] unless input[:function_version].nil?
-        data['syncConfig'] = Builders::SyncConfig.build(input[:sync_config]) unless input[:sync_config].nil?
+        data['syncConfig'] = SyncConfig.build(input[:sync_config]) unless input[:sync_config].nil?
         data['maxBatchSize'] = input[:max_batch_size] unless input[:max_batch_size].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1282,14 +1285,14 @@ module AWS::SDK::AppSync
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['logConfig'] = Builders::LogConfig.build(input[:log_config]) unless input[:log_config].nil?
+        data['logConfig'] = LogConfig.build(input[:log_config]) unless input[:log_config].nil?
         data['authenticationType'] = input[:authentication_type] unless input[:authentication_type].nil?
-        data['userPoolConfig'] = Builders::UserPoolConfig.build(input[:user_pool_config]) unless input[:user_pool_config].nil?
-        data['openIDConnectConfig'] = Builders::OpenIDConnectConfig.build(input[:open_id_connect_config]) unless input[:open_id_connect_config].nil?
-        data['additionalAuthenticationProviders'] = Builders::AdditionalAuthenticationProviders.build(input[:additional_authentication_providers]) unless input[:additional_authentication_providers].nil?
+        data['userPoolConfig'] = UserPoolConfig.build(input[:user_pool_config]) unless input[:user_pool_config].nil?
+        data['openIDConnectConfig'] = OpenIDConnectConfig.build(input[:open_id_connect_config]) unless input[:open_id_connect_config].nil?
+        data['additionalAuthenticationProviders'] = AdditionalAuthenticationProviders.build(input[:additional_authentication_providers]) unless input[:additional_authentication_providers].nil?
         data['xrayEnabled'] = input[:xray_enabled] unless input[:xray_enabled].nil?
-        data['lambdaAuthorizerConfig'] = Builders::LambdaAuthorizerConfig.build(input[:lambda_authorizer_config]) unless input[:lambda_authorizer_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['lambdaAuthorizerConfig'] = LambdaAuthorizerConfig.build(input[:lambda_authorizer_config]) unless input[:lambda_authorizer_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1322,11 +1325,11 @@ module AWS::SDK::AppSync
         data['requestMappingTemplate'] = input[:request_mapping_template] unless input[:request_mapping_template].nil?
         data['responseMappingTemplate'] = input[:response_mapping_template] unless input[:response_mapping_template].nil?
         data['kind'] = input[:kind] unless input[:kind].nil?
-        data['pipelineConfig'] = Builders::PipelineConfig.build(input[:pipeline_config]) unless input[:pipeline_config].nil?
-        data['syncConfig'] = Builders::SyncConfig.build(input[:sync_config]) unless input[:sync_config].nil?
-        data['cachingConfig'] = Builders::CachingConfig.build(input[:caching_config]) unless input[:caching_config].nil?
+        data['pipelineConfig'] = PipelineConfig.build(input[:pipeline_config]) unless input[:pipeline_config].nil?
+        data['syncConfig'] = SyncConfig.build(input[:sync_config]) unless input[:sync_config].nil?
+        data['cachingConfig'] = CachingConfig.build(input[:caching_config]) unless input[:caching_config].nil?
         data['maxBatchSize'] = input[:max_batch_size] unless input[:max_batch_size].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1353,7 +1356,7 @@ module AWS::SDK::AppSync
         data = {}
         data['definition'] = input[:definition] unless input[:definition].nil?
         data['format'] = input[:format] unless input[:format].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

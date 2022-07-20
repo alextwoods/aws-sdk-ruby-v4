@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::WellArchitected
   module Stubs
 
@@ -36,7 +38,7 @@ module AWS::SDK::WellArchitected
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['ShareId'] = stub[:share_id] unless stub[:share_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -55,7 +57,7 @@ module AWS::SDK::WellArchitected
         http_resp.headers['Content-Type'] = 'application/json'
         data['LensArn'] = stub[:lens_arn] unless stub[:lens_arn].nil?
         data['LensVersion'] = stub[:lens_version] unless stub[:lens_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -74,7 +76,7 @@ module AWS::SDK::WellArchitected
         http_resp.headers['Content-Type'] = 'application/json'
         data['WorkloadId'] = stub[:workload_id] unless stub[:workload_id].nil?
         data['MilestoneNumber'] = stub[:milestone_number] unless stub[:milestone_number].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -93,7 +95,7 @@ module AWS::SDK::WellArchitected
         http_resp.headers['Content-Type'] = 'application/json'
         data['WorkloadId'] = stub[:workload_id] unless stub[:workload_id].nil?
         data['WorkloadArn'] = stub[:workload_arn] unless stub[:workload_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -112,7 +114,7 @@ module AWS::SDK::WellArchitected
         http_resp.headers['Content-Type'] = 'application/json'
         data['WorkloadId'] = stub[:workload_id] unless stub[:workload_id].nil?
         data['ShareId'] = stub[:share_id] unless stub[:share_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -194,7 +196,7 @@ module AWS::SDK::WellArchitected
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['LensJSON'] = stub[:lens_json] unless stub[:lens_json].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -218,8 +220,8 @@ module AWS::SDK::WellArchitected
         data['MilestoneNumber'] = stub[:milestone_number] unless stub[:milestone_number].nil?
         data['LensAlias'] = stub[:lens_alias] unless stub[:lens_alias].nil?
         data['LensArn'] = stub[:lens_arn] unless stub[:lens_arn].nil?
-        data['Answer'] = Stubs::Answer.stub(stub[:answer]) unless stub[:answer].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Answer'] = Answer.stub(stub[:answer]) unless stub[:answer].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -256,9 +258,9 @@ module AWS::SDK::WellArchitected
         data['ImprovementPlanUrl'] = stub[:improvement_plan_url] unless stub[:improvement_plan_url].nil?
         data['HelpfulResourceUrl'] = stub[:helpful_resource_url] unless stub[:helpful_resource_url].nil?
         data['HelpfulResourceDisplayText'] = stub[:helpful_resource_display_text] unless stub[:helpful_resource_display_text].nil?
-        data['Choices'] = Stubs::Choices.stub(stub[:choices]) unless stub[:choices].nil?
-        data['SelectedChoices'] = Stubs::SelectedChoices.stub(stub[:selected_choices]) unless stub[:selected_choices].nil?
-        data['ChoiceAnswers'] = Stubs::ChoiceAnswers.stub(stub[:choice_answers]) unless stub[:choice_answers].nil?
+        data['Choices'] = Choices.stub(stub[:choices]) unless stub[:choices].nil?
+        data['SelectedChoices'] = SelectedChoices.stub(stub[:selected_choices]) unless stub[:selected_choices].nil?
+        data['ChoiceAnswers'] = ChoiceAnswers.stub(stub[:choice_answers]) unless stub[:choice_answers].nil?
         data['IsApplicable'] = stub[:is_applicable] unless stub[:is_applicable].nil?
         data['Risk'] = stub[:risk] unless stub[:risk].nil?
         data['Notes'] = stub[:notes] unless stub[:notes].nil?
@@ -281,7 +283,7 @@ module AWS::SDK::WellArchitected
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChoiceAnswer.stub(element) unless element.nil?
+          data << ChoiceAnswer.stub(element) unless element.nil?
         end
         data
       end
@@ -345,7 +347,7 @@ module AWS::SDK::WellArchitected
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Choice.stub(element) unless element.nil?
+          data << Choice.stub(element) unless element.nil?
         end
         data
       end
@@ -371,8 +373,8 @@ module AWS::SDK::WellArchitected
         data['ChoiceId'] = stub[:choice_id] unless stub[:choice_id].nil?
         data['Title'] = stub[:title] unless stub[:title].nil?
         data['Description'] = stub[:description] unless stub[:description].nil?
-        data['HelpfulResource'] = Stubs::ChoiceContent.stub(stub[:helpful_resource]) unless stub[:helpful_resource].nil?
-        data['ImprovementPlan'] = Stubs::ChoiceContent.stub(stub[:improvement_plan]) unless stub[:improvement_plan].nil?
+        data['HelpfulResource'] = ChoiceContent.stub(stub[:helpful_resource]) unless stub[:helpful_resource].nil?
+        data['ImprovementPlan'] = ChoiceContent.stub(stub[:improvement_plan]) unless stub[:improvement_plan].nil?
         data
       end
     end
@@ -409,8 +411,8 @@ module AWS::SDK::WellArchitected
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Lens'] = Stubs::Lens.stub(stub[:lens]) unless stub[:lens].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Lens'] = Lens.stub(stub[:lens]) unless stub[:lens].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -458,8 +460,8 @@ module AWS::SDK::WellArchitected
         http_resp.headers['Content-Type'] = 'application/json'
         data['WorkloadId'] = stub[:workload_id] unless stub[:workload_id].nil?
         data['MilestoneNumber'] = stub[:milestone_number] unless stub[:milestone_number].nil?
-        data['LensReview'] = Stubs::LensReview.stub(stub[:lens_review]) unless stub[:lens_review].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LensReview'] = LensReview.stub(stub[:lens_review]) unless stub[:lens_review].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -490,10 +492,10 @@ module AWS::SDK::WellArchitected
         data['LensVersion'] = stub[:lens_version] unless stub[:lens_version].nil?
         data['LensName'] = stub[:lens_name] unless stub[:lens_name].nil?
         data['LensStatus'] = stub[:lens_status] unless stub[:lens_status].nil?
-        data['PillarReviewSummaries'] = Stubs::PillarReviewSummaries.stub(stub[:pillar_review_summaries]) unless stub[:pillar_review_summaries].nil?
+        data['PillarReviewSummaries'] = PillarReviewSummaries.stub(stub[:pillar_review_summaries]) unless stub[:pillar_review_summaries].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
         data['Notes'] = stub[:notes] unless stub[:notes].nil?
-        data['RiskCounts'] = Stubs::RiskCounts.stub(stub[:risk_counts]) unless stub[:risk_counts].nil?
+        data['RiskCounts'] = RiskCounts.stub(stub[:risk_counts]) unless stub[:risk_counts].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
         data
       end
@@ -533,7 +535,7 @@ module AWS::SDK::WellArchitected
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PillarReviewSummary.stub(element) unless element.nil?
+          data << PillarReviewSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -558,7 +560,7 @@ module AWS::SDK::WellArchitected
         data['PillarId'] = stub[:pillar_id] unless stub[:pillar_id].nil?
         data['PillarName'] = stub[:pillar_name] unless stub[:pillar_name].nil?
         data['Notes'] = stub[:notes] unless stub[:notes].nil?
-        data['RiskCounts'] = Stubs::RiskCounts.stub(stub[:risk_counts]) unless stub[:risk_counts].nil?
+        data['RiskCounts'] = RiskCounts.stub(stub[:risk_counts]) unless stub[:risk_counts].nil?
         data
       end
     end
@@ -579,8 +581,8 @@ module AWS::SDK::WellArchitected
         http_resp.headers['Content-Type'] = 'application/json'
         data['WorkloadId'] = stub[:workload_id] unless stub[:workload_id].nil?
         data['MilestoneNumber'] = stub[:milestone_number] unless stub[:milestone_number].nil?
-        data['LensReviewReport'] = Stubs::LensReviewReport.stub(stub[:lens_review_report]) unless stub[:lens_review_report].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LensReviewReport'] = LensReviewReport.stub(stub[:lens_review_report]) unless stub[:lens_review_report].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -628,8 +630,8 @@ module AWS::SDK::WellArchitected
         data['BaseLensVersion'] = stub[:base_lens_version] unless stub[:base_lens_version].nil?
         data['TargetLensVersion'] = stub[:target_lens_version] unless stub[:target_lens_version].nil?
         data['LatestLensVersion'] = stub[:latest_lens_version] unless stub[:latest_lens_version].nil?
-        data['VersionDifferences'] = Stubs::VersionDifferences.stub(stub[:version_differences]) unless stub[:version_differences].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VersionDifferences'] = VersionDifferences.stub(stub[:version_differences]) unless stub[:version_differences].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -646,7 +648,7 @@ module AWS::SDK::WellArchitected
       def self.stub(stub)
         stub ||= Types::VersionDifferences.new
         data = {}
-        data['PillarDifferences'] = Stubs::PillarDifferences.stub(stub[:pillar_differences]) unless stub[:pillar_differences].nil?
+        data['PillarDifferences'] = PillarDifferences.stub(stub[:pillar_differences]) unless stub[:pillar_differences].nil?
         data
       end
     end
@@ -665,7 +667,7 @@ module AWS::SDK::WellArchitected
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PillarDifference.stub(element) unless element.nil?
+          data << PillarDifference.stub(element) unless element.nil?
         end
         data
       end
@@ -690,7 +692,7 @@ module AWS::SDK::WellArchitected
         data['PillarId'] = stub[:pillar_id] unless stub[:pillar_id].nil?
         data['PillarName'] = stub[:pillar_name] unless stub[:pillar_name].nil?
         data['DifferenceStatus'] = stub[:difference_status] unless stub[:difference_status].nil?
-        data['QuestionDifferences'] = Stubs::QuestionDifferences.stub(stub[:question_differences]) unless stub[:question_differences].nil?
+        data['QuestionDifferences'] = QuestionDifferences.stub(stub[:question_differences]) unless stub[:question_differences].nil?
         data
       end
     end
@@ -709,7 +711,7 @@ module AWS::SDK::WellArchitected
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::QuestionDifference.stub(element) unless element.nil?
+          data << QuestionDifference.stub(element) unless element.nil?
         end
         data
       end
@@ -751,8 +753,8 @@ module AWS::SDK::WellArchitected
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['WorkloadId'] = stub[:workload_id] unless stub[:workload_id].nil?
-        data['Milestone'] = Stubs::Milestone.stub(stub[:milestone]) unless stub[:milestone].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Milestone'] = Milestone.stub(stub[:milestone]) unless stub[:milestone].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -775,7 +777,7 @@ module AWS::SDK::WellArchitected
         data['MilestoneNumber'] = stub[:milestone_number] unless stub[:milestone_number].nil?
         data['MilestoneName'] = stub[:milestone_name] unless stub[:milestone_name].nil?
         data['RecordedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:recorded_at]).to_i unless stub[:recorded_at].nil?
-        data['Workload'] = Stubs::Workload.stub(stub[:workload]) unless stub[:workload].nil?
+        data['Workload'] = Workload.stub(stub[:workload]) unless stub[:workload].nil?
         data
       end
     end
@@ -821,9 +823,9 @@ module AWS::SDK::WellArchitected
         data['Description'] = stub[:description] unless stub[:description].nil?
         data['Environment'] = stub[:environment] unless stub[:environment].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
-        data['AccountIds'] = Stubs::WorkloadAccountIds.stub(stub[:account_ids]) unless stub[:account_ids].nil?
-        data['AwsRegions'] = Stubs::WorkloadAwsRegions.stub(stub[:aws_regions]) unless stub[:aws_regions].nil?
-        data['NonAwsRegions'] = Stubs::WorkloadNonAwsRegions.stub(stub[:non_aws_regions]) unless stub[:non_aws_regions].nil?
+        data['AccountIds'] = WorkloadAccountIds.stub(stub[:account_ids]) unless stub[:account_ids].nil?
+        data['AwsRegions'] = WorkloadAwsRegions.stub(stub[:aws_regions]) unless stub[:aws_regions].nil?
+        data['NonAwsRegions'] = WorkloadNonAwsRegions.stub(stub[:non_aws_regions]) unless stub[:non_aws_regions].nil?
         data['ArchitecturalDesign'] = stub[:architectural_design] unless stub[:architectural_design].nil?
         data['ReviewOwner'] = stub[:review_owner] unless stub[:review_owner].nil?
         data['ReviewRestrictionDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:review_restriction_date]).to_i unless stub[:review_restriction_date].nil?
@@ -832,12 +834,12 @@ module AWS::SDK::WellArchitected
         data['Industry'] = stub[:industry] unless stub[:industry].nil?
         data['Notes'] = stub[:notes] unless stub[:notes].nil?
         data['ImprovementStatus'] = stub[:improvement_status] unless stub[:improvement_status].nil?
-        data['RiskCounts'] = Stubs::RiskCounts.stub(stub[:risk_counts]) unless stub[:risk_counts].nil?
-        data['PillarPriorities'] = Stubs::WorkloadPillarPriorities.stub(stub[:pillar_priorities]) unless stub[:pillar_priorities].nil?
-        data['Lenses'] = Stubs::WorkloadLenses.stub(stub[:lenses]) unless stub[:lenses].nil?
+        data['RiskCounts'] = RiskCounts.stub(stub[:risk_counts]) unless stub[:risk_counts].nil?
+        data['PillarPriorities'] = WorkloadPillarPriorities.stub(stub[:pillar_priorities]) unless stub[:pillar_priorities].nil?
+        data['Lenses'] = WorkloadLenses.stub(stub[:lenses]) unless stub[:lenses].nil?
         data['Owner'] = stub[:owner] unless stub[:owner].nil?
         data['ShareInvitationId'] = stub[:share_invitation_id] unless stub[:share_invitation_id].nil?
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -974,8 +976,8 @@ module AWS::SDK::WellArchitected
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Workload'] = Stubs::Workload.stub(stub[:workload]) unless stub[:workload].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Workload'] = Workload.stub(stub[:workload]) unless stub[:workload].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -994,7 +996,7 @@ module AWS::SDK::WellArchitected
         http_resp.headers['Content-Type'] = 'application/json'
         data['LensArn'] = stub[:lens_arn] unless stub[:lens_arn].nil?
         data['Status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1019,9 +1021,9 @@ module AWS::SDK::WellArchitected
         data['MilestoneNumber'] = stub[:milestone_number] unless stub[:milestone_number].nil?
         data['LensAlias'] = stub[:lens_alias] unless stub[:lens_alias].nil?
         data['LensArn'] = stub[:lens_arn] unless stub[:lens_arn].nil?
-        data['AnswerSummaries'] = Stubs::AnswerSummaries.stub(stub[:answer_summaries]) unless stub[:answer_summaries].nil?
+        data['AnswerSummaries'] = AnswerSummaries.stub(stub[:answer_summaries]) unless stub[:answer_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1039,7 +1041,7 @@ module AWS::SDK::WellArchitected
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AnswerSummary.stub(element) unless element.nil?
+          data << AnswerSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1069,9 +1071,9 @@ module AWS::SDK::WellArchitected
         data['QuestionId'] = stub[:question_id] unless stub[:question_id].nil?
         data['PillarId'] = stub[:pillar_id] unless stub[:pillar_id].nil?
         data['QuestionTitle'] = stub[:question_title] unless stub[:question_title].nil?
-        data['Choices'] = Stubs::Choices.stub(stub[:choices]) unless stub[:choices].nil?
-        data['SelectedChoices'] = Stubs::SelectedChoices.stub(stub[:selected_choices]) unless stub[:selected_choices].nil?
-        data['ChoiceAnswerSummaries'] = Stubs::ChoiceAnswerSummaries.stub(stub[:choice_answer_summaries]) unless stub[:choice_answer_summaries].nil?
+        data['Choices'] = Choices.stub(stub[:choices]) unless stub[:choices].nil?
+        data['SelectedChoices'] = SelectedChoices.stub(stub[:selected_choices]) unless stub[:selected_choices].nil?
+        data['ChoiceAnswerSummaries'] = ChoiceAnswerSummaries.stub(stub[:choice_answer_summaries]) unless stub[:choice_answer_summaries].nil?
         data['IsApplicable'] = stub[:is_applicable] unless stub[:is_applicable].nil?
         data['Risk'] = stub[:risk] unless stub[:risk].nil?
         data['Reason'] = stub[:reason] unless stub[:reason].nil?
@@ -1093,7 +1095,7 @@ module AWS::SDK::WellArchitected
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChoiceAnswerSummary.stub(element) unless element.nil?
+          data << ChoiceAnswerSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1142,9 +1144,9 @@ module AWS::SDK::WellArchitected
         data['MilestoneNumber'] = stub[:milestone_number] unless stub[:milestone_number].nil?
         data['LensAlias'] = stub[:lens_alias] unless stub[:lens_alias].nil?
         data['LensArn'] = stub[:lens_arn] unless stub[:lens_arn].nil?
-        data['ImprovementSummaries'] = Stubs::ImprovementSummaries.stub(stub[:improvement_summaries]) unless stub[:improvement_summaries].nil?
+        data['ImprovementSummaries'] = ImprovementSummaries.stub(stub[:improvement_summaries]) unless stub[:improvement_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1162,7 +1164,7 @@ module AWS::SDK::WellArchitected
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImprovementSummary.stub(element) unless element.nil?
+          data << ImprovementSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1191,7 +1193,7 @@ module AWS::SDK::WellArchitected
         data['QuestionTitle'] = stub[:question_title] unless stub[:question_title].nil?
         data['Risk'] = stub[:risk] unless stub[:risk].nil?
         data['ImprovementPlanUrl'] = stub[:improvement_plan_url] unless stub[:improvement_plan_url].nil?
-        data['ImprovementPlans'] = Stubs::ChoiceImprovementPlans.stub(stub[:improvement_plans]) unless stub[:improvement_plans].nil?
+        data['ImprovementPlans'] = ChoiceImprovementPlans.stub(stub[:improvement_plans]) unless stub[:improvement_plans].nil?
         data
       end
     end
@@ -1210,7 +1212,7 @@ module AWS::SDK::WellArchitected
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ChoiceImprovementPlan.stub(element) unless element.nil?
+          data << ChoiceImprovementPlan.stub(element) unless element.nil?
         end
         data
       end
@@ -1255,9 +1257,9 @@ module AWS::SDK::WellArchitected
         http_resp.headers['Content-Type'] = 'application/json'
         data['WorkloadId'] = stub[:workload_id] unless stub[:workload_id].nil?
         data['MilestoneNumber'] = stub[:milestone_number] unless stub[:milestone_number].nil?
-        data['LensReviewSummaries'] = Stubs::LensReviewSummaries.stub(stub[:lens_review_summaries]) unless stub[:lens_review_summaries].nil?
+        data['LensReviewSummaries'] = LensReviewSummaries.stub(stub[:lens_review_summaries]) unless stub[:lens_review_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1275,7 +1277,7 @@ module AWS::SDK::WellArchitected
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LensReviewSummary.stub(element) unless element.nil?
+          data << LensReviewSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1306,7 +1308,7 @@ module AWS::SDK::WellArchitected
         data['LensName'] = stub[:lens_name] unless stub[:lens_name].nil?
         data['LensStatus'] = stub[:lens_status] unless stub[:lens_status].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
-        data['RiskCounts'] = Stubs::RiskCounts.stub(stub[:risk_counts]) unless stub[:risk_counts].nil?
+        data['RiskCounts'] = RiskCounts.stub(stub[:risk_counts]) unless stub[:risk_counts].nil?
         data
       end
     end
@@ -1324,9 +1326,9 @@ module AWS::SDK::WellArchitected
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LensShareSummaries'] = Stubs::LensShareSummaries.stub(stub[:lens_share_summaries]) unless stub[:lens_share_summaries].nil?
+        data['LensShareSummaries'] = LensShareSummaries.stub(stub[:lens_share_summaries]) unless stub[:lens_share_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1344,7 +1346,7 @@ module AWS::SDK::WellArchitected
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LensShareSummary.stub(element) unless element.nil?
+          data << LensShareSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1385,9 +1387,9 @@ module AWS::SDK::WellArchitected
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['LensSummaries'] = Stubs::LensSummaries.stub(stub[:lens_summaries]) unless stub[:lens_summaries].nil?
+        data['LensSummaries'] = LensSummaries.stub(stub[:lens_summaries]) unless stub[:lens_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1405,7 +1407,7 @@ module AWS::SDK::WellArchitected
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LensSummary.stub(element) unless element.nil?
+          data << LensSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1462,9 +1464,9 @@ module AWS::SDK::WellArchitected
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['WorkloadId'] = stub[:workload_id] unless stub[:workload_id].nil?
-        data['MilestoneSummaries'] = Stubs::MilestoneSummaries.stub(stub[:milestone_summaries]) unless stub[:milestone_summaries].nil?
+        data['MilestoneSummaries'] = MilestoneSummaries.stub(stub[:milestone_summaries]) unless stub[:milestone_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1482,7 +1484,7 @@ module AWS::SDK::WellArchitected
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MilestoneSummary.stub(element) unless element.nil?
+          data << MilestoneSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1507,7 +1509,7 @@ module AWS::SDK::WellArchitected
         data['MilestoneNumber'] = stub[:milestone_number] unless stub[:milestone_number].nil?
         data['MilestoneName'] = stub[:milestone_name] unless stub[:milestone_name].nil?
         data['RecordedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:recorded_at]).to_i unless stub[:recorded_at].nil?
-        data['WorkloadSummary'] = Stubs::WorkloadSummary.stub(stub[:workload_summary]) unless stub[:workload_summary].nil?
+        data['WorkloadSummary'] = WorkloadSummary.stub(stub[:workload_summary]) unless stub[:workload_summary].nil?
         data
       end
     end
@@ -1537,8 +1539,8 @@ module AWS::SDK::WellArchitected
         data['WorkloadName'] = stub[:workload_name] unless stub[:workload_name].nil?
         data['Owner'] = stub[:owner] unless stub[:owner].nil?
         data['UpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
-        data['Lenses'] = Stubs::WorkloadLenses.stub(stub[:lenses]) unless stub[:lenses].nil?
-        data['RiskCounts'] = Stubs::RiskCounts.stub(stub[:risk_counts]) unless stub[:risk_counts].nil?
+        data['Lenses'] = WorkloadLenses.stub(stub[:lenses]) unless stub[:lenses].nil?
+        data['RiskCounts'] = RiskCounts.stub(stub[:risk_counts]) unless stub[:risk_counts].nil?
         data['ImprovementStatus'] = stub[:improvement_status] unless stub[:improvement_status].nil?
         data
       end
@@ -1557,9 +1559,9 @@ module AWS::SDK::WellArchitected
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['NotificationSummaries'] = Stubs::NotificationSummaries.stub(stub[:notification_summaries]) unless stub[:notification_summaries].nil?
+        data['NotificationSummaries'] = NotificationSummaries.stub(stub[:notification_summaries]) unless stub[:notification_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1577,7 +1579,7 @@ module AWS::SDK::WellArchitected
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NotificationSummary.stub(element) unless element.nil?
+          data << NotificationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1598,7 +1600,7 @@ module AWS::SDK::WellArchitected
         stub ||= Types::NotificationSummary.new
         data = {}
         data['Type'] = stub[:type] unless stub[:type].nil?
-        data['LensUpgradeSummary'] = Stubs::LensUpgradeSummary.stub(stub[:lens_upgrade_summary]) unless stub[:lens_upgrade_summary].nil?
+        data['LensUpgradeSummary'] = LensUpgradeSummary.stub(stub[:lens_upgrade_summary]) unless stub[:lens_upgrade_summary].nil?
         data
       end
     end
@@ -1644,9 +1646,9 @@ module AWS::SDK::WellArchitected
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ShareInvitationSummaries'] = Stubs::ShareInvitationSummaries.stub(stub[:share_invitation_summaries]) unless stub[:share_invitation_summaries].nil?
+        data['ShareInvitationSummaries'] = ShareInvitationSummaries.stub(stub[:share_invitation_summaries]) unless stub[:share_invitation_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1664,7 +1666,7 @@ module AWS::SDK::WellArchitected
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ShareInvitationSummary.stub(element) unless element.nil?
+          data << ShareInvitationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1716,8 +1718,8 @@ module AWS::SDK::WellArchitected
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1736,9 +1738,9 @@ module AWS::SDK::WellArchitected
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['WorkloadId'] = stub[:workload_id] unless stub[:workload_id].nil?
-        data['WorkloadShareSummaries'] = Stubs::WorkloadShareSummaries.stub(stub[:workload_share_summaries]) unless stub[:workload_share_summaries].nil?
+        data['WorkloadShareSummaries'] = WorkloadShareSummaries.stub(stub[:workload_share_summaries]) unless stub[:workload_share_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1756,7 +1758,7 @@ module AWS::SDK::WellArchitected
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkloadShareSummary.stub(element) unless element.nil?
+          data << WorkloadShareSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1799,9 +1801,9 @@ module AWS::SDK::WellArchitected
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['WorkloadSummaries'] = Stubs::WorkloadSummaries.stub(stub[:workload_summaries]) unless stub[:workload_summaries].nil?
+        data['WorkloadSummaries'] = WorkloadSummaries.stub(stub[:workload_summaries]) unless stub[:workload_summaries].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1819,7 +1821,7 @@ module AWS::SDK::WellArchitected
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkloadSummary.stub(element) unless element.nil?
+          data << WorkloadSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1869,8 +1871,8 @@ module AWS::SDK::WellArchitected
         data['WorkloadId'] = stub[:workload_id] unless stub[:workload_id].nil?
         data['LensAlias'] = stub[:lens_alias] unless stub[:lens_alias].nil?
         data['LensArn'] = stub[:lens_arn] unless stub[:lens_arn].nil?
-        data['Answer'] = Stubs::Answer.stub(stub[:answer]) unless stub[:answer].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Answer'] = Answer.stub(stub[:answer]) unless stub[:answer].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1888,8 +1890,8 @@ module AWS::SDK::WellArchitected
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['WorkloadId'] = stub[:workload_id] unless stub[:workload_id].nil?
-        data['LensReview'] = Stubs::LensReview.stub(stub[:lens_review]) unless stub[:lens_review].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LensReview'] = LensReview.stub(stub[:lens_review]) unless stub[:lens_review].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1905,8 +1907,8 @@ module AWS::SDK::WellArchitected
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ShareInvitation'] = Stubs::ShareInvitation.stub(stub[:share_invitation]) unless stub[:share_invitation].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ShareInvitation'] = ShareInvitation.stub(stub[:share_invitation]) unless stub[:share_invitation].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1948,8 +1950,8 @@ module AWS::SDK::WellArchitected
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Workload'] = Stubs::Workload.stub(stub[:workload]) unless stub[:workload].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Workload'] = Workload.stub(stub[:workload]) unless stub[:workload].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1967,8 +1969,8 @@ module AWS::SDK::WellArchitected
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['WorkloadId'] = stub[:workload_id] unless stub[:workload_id].nil?
-        data['WorkloadShare'] = Stubs::WorkloadShare.stub(stub[:workload_share]) unless stub[:workload_share].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['WorkloadShare'] = WorkloadShare.stub(stub[:workload_share]) unless stub[:workload_share].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

@@ -195,7 +195,7 @@ module AWS::SDK::MigrationHub
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.migration_task = (Parsers::MigrationTask.parse(map['MigrationTask']) unless map['MigrationTask'].nil?)
+        data.migration_task = (MigrationTask.parse(map['MigrationTask']) unless map['MigrationTask'].nil?)
         data
       end
     end
@@ -205,9 +205,9 @@ module AWS::SDK::MigrationHub
         data = Types::MigrationTask.new
         data.progress_update_stream = map['ProgressUpdateStream']
         data.migration_task_name = map['MigrationTaskName']
-        data.task = (Parsers::Task.parse(map['Task']) unless map['Task'].nil?)
+        data.task = (Task.parse(map['Task']) unless map['Task'].nil?)
         data.update_date_time = Time.at(map['UpdateDateTime'].to_i) if map['UpdateDateTime']
-        data.resource_attribute_list = (Parsers::LatestResourceAttributeList.parse(map['ResourceAttributeList']) unless map['ResourceAttributeList'].nil?)
+        data.resource_attribute_list = (LatestResourceAttributeList.parse(map['ResourceAttributeList']) unless map['ResourceAttributeList'].nil?)
         return data
       end
     end
@@ -215,7 +215,7 @@ module AWS::SDK::MigrationHub
     class LatestResourceAttributeList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceAttribute.parse(value) unless value.nil?
+          ResourceAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -279,7 +279,7 @@ module AWS::SDK::MigrationHub
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.application_state_list = (Parsers::ApplicationStateList.parse(map['ApplicationStateList']) unless map['ApplicationStateList'].nil?)
+        data.application_state_list = (ApplicationStateList.parse(map['ApplicationStateList']) unless map['ApplicationStateList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -288,7 +288,7 @@ module AWS::SDK::MigrationHub
     class ApplicationStateList
       def self.parse(list)
         list.map do |value|
-          Parsers::ApplicationState.parse(value) unless value.nil?
+          ApplicationState.parse(value) unless value.nil?
         end
       end
     end
@@ -311,7 +311,7 @@ module AWS::SDK::MigrationHub
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.created_artifact_list = (Parsers::CreatedArtifactList.parse(map['CreatedArtifactList']) unless map['CreatedArtifactList'].nil?)
+        data.created_artifact_list = (CreatedArtifactList.parse(map['CreatedArtifactList']) unless map['CreatedArtifactList'].nil?)
         data
       end
     end
@@ -319,7 +319,7 @@ module AWS::SDK::MigrationHub
     class CreatedArtifactList
       def self.parse(list)
         list.map do |value|
-          Parsers::CreatedArtifact.parse(value) unless value.nil?
+          CreatedArtifact.parse(value) unless value.nil?
         end
       end
     end
@@ -341,7 +341,7 @@ module AWS::SDK::MigrationHub
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.discovered_resource_list = (Parsers::DiscoveredResourceList.parse(map['DiscoveredResourceList']) unless map['DiscoveredResourceList'].nil?)
+        data.discovered_resource_list = (DiscoveredResourceList.parse(map['DiscoveredResourceList']) unless map['DiscoveredResourceList'].nil?)
         data
       end
     end
@@ -349,7 +349,7 @@ module AWS::SDK::MigrationHub
     class DiscoveredResourceList
       def self.parse(list)
         list.map do |value|
-          Parsers::DiscoveredResource.parse(value) unless value.nil?
+          DiscoveredResource.parse(value) unless value.nil?
         end
       end
     end
@@ -371,7 +371,7 @@ module AWS::SDK::MigrationHub
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.migration_task_summary_list = (Parsers::MigrationTaskSummaryList.parse(map['MigrationTaskSummaryList']) unless map['MigrationTaskSummaryList'].nil?)
+        data.migration_task_summary_list = (MigrationTaskSummaryList.parse(map['MigrationTaskSummaryList']) unless map['MigrationTaskSummaryList'].nil?)
         data
       end
     end
@@ -379,7 +379,7 @@ module AWS::SDK::MigrationHub
     class MigrationTaskSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::MigrationTaskSummary.parse(value) unless value.nil?
+          MigrationTaskSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -404,7 +404,7 @@ module AWS::SDK::MigrationHub
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.progress_update_stream_summary_list = (Parsers::ProgressUpdateStreamSummaryList.parse(map['ProgressUpdateStreamSummaryList']) unless map['ProgressUpdateStreamSummaryList'].nil?)
+        data.progress_update_stream_summary_list = (ProgressUpdateStreamSummaryList.parse(map['ProgressUpdateStreamSummaryList']) unless map['ProgressUpdateStreamSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -413,7 +413,7 @@ module AWS::SDK::MigrationHub
     class ProgressUpdateStreamSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ProgressUpdateStreamSummary.parse(value) unless value.nil?
+          ProgressUpdateStreamSummary.parse(value) unless value.nil?
         end
       end
     end

@@ -15,7 +15,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::AcceptEulasOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.eula_acceptances = (Parsers::EulaAcceptanceList.parse(map['eulaAcceptances']) unless map['eulaAcceptances'].nil?)
+        data.eula_acceptances = (EulaAcceptanceList.parse(map['eulaAcceptances']) unless map['eulaAcceptances'].nil?)
         data
       end
     end
@@ -24,7 +24,7 @@ module AWS::SDK::Nimble
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EulaAcceptance.parse(value) unless value.nil?
+          data << EulaAcceptance.parse(value) unless value.nil?
         end
         data
       end
@@ -48,7 +48,7 @@ module AWS::SDK::Nimble
         data = Types::ServiceQuotaExceededException.new
         map = Hearth::JSON.load(http_resp.body)
         data.code = map['code']
-        data.context = (Parsers::ExceptionContext.parse(map['context']) unless map['context'].nil?)
+        data.context = (ExceptionContext.parse(map['context']) unless map['context'].nil?)
         data.message = map['message'] || map['Message']
         data
       end
@@ -70,7 +70,7 @@ module AWS::SDK::Nimble
         data = Types::InternalServerErrorException.new
         map = Hearth::JSON.load(http_resp.body)
         data.code = map['code']
-        data.context = (Parsers::ExceptionContext.parse(map['context']) unless map['context'].nil?)
+        data.context = (ExceptionContext.parse(map['context']) unless map['context'].nil?)
         data.message = map['message'] || map['Message']
         data
       end
@@ -82,7 +82,7 @@ module AWS::SDK::Nimble
         data = Types::AccessDeniedException.new
         map = Hearth::JSON.load(http_resp.body)
         data.code = map['code']
-        data.context = (Parsers::ExceptionContext.parse(map['context']) unless map['context'].nil?)
+        data.context = (ExceptionContext.parse(map['context']) unless map['context'].nil?)
         data.message = map['message'] || map['Message']
         data
       end
@@ -94,7 +94,7 @@ module AWS::SDK::Nimble
         data = Types::ConflictException.new
         map = Hearth::JSON.load(http_resp.body)
         data.code = map['code']
-        data.context = (Parsers::ExceptionContext.parse(map['context']) unless map['context'].nil?)
+        data.context = (ExceptionContext.parse(map['context']) unless map['context'].nil?)
         data.message = map['message'] || map['Message']
         data
       end
@@ -106,7 +106,7 @@ module AWS::SDK::Nimble
         data = Types::ValidationException.new
         map = Hearth::JSON.load(http_resp.body)
         data.code = map['code']
-        data.context = (Parsers::ExceptionContext.parse(map['context']) unless map['context'].nil?)
+        data.context = (ExceptionContext.parse(map['context']) unless map['context'].nil?)
         data.message = map['message'] || map['Message']
         data
       end
@@ -118,7 +118,7 @@ module AWS::SDK::Nimble
         data = Types::ResourceNotFoundException.new
         map = Hearth::JSON.load(http_resp.body)
         data.code = map['code']
-        data.context = (Parsers::ExceptionContext.parse(map['context']) unless map['context'].nil?)
+        data.context = (ExceptionContext.parse(map['context']) unless map['context'].nil?)
         data.message = map['message'] || map['Message']
         data
       end
@@ -130,7 +130,7 @@ module AWS::SDK::Nimble
         data = Types::ThrottlingException.new
         map = Hearth::JSON.load(http_resp.body)
         data.code = map['code']
-        data.context = (Parsers::ExceptionContext.parse(map['context']) unless map['context'].nil?)
+        data.context = (ExceptionContext.parse(map['context']) unless map['context'].nil?)
         data.message = map['message'] || map['Message']
         data
       end
@@ -141,7 +141,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::CreateLaunchProfileOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.launch_profile = (Parsers::LaunchProfile.parse(map['launchProfile']) unless map['launchProfile'].nil?)
+        data.launch_profile = (LaunchProfile.parse(map['launchProfile']) unless map['launchProfile'].nil?)
         data
       end
     end
@@ -153,19 +153,19 @@ module AWS::SDK::Nimble
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
         data.created_by = map['createdBy']
         data.description = map['description']
-        data.ec2_subnet_ids = (Parsers::EC2SubnetIdList.parse(map['ec2SubnetIds']) unless map['ec2SubnetIds'].nil?)
+        data.ec2_subnet_ids = (EC2SubnetIdList.parse(map['ec2SubnetIds']) unless map['ec2SubnetIds'].nil?)
         data.launch_profile_id = map['launchProfileId']
-        data.launch_profile_protocol_versions = (Parsers::LaunchProfileProtocolVersionList.parse(map['launchProfileProtocolVersions']) unless map['launchProfileProtocolVersions'].nil?)
+        data.launch_profile_protocol_versions = (LaunchProfileProtocolVersionList.parse(map['launchProfileProtocolVersions']) unless map['launchProfileProtocolVersions'].nil?)
         data.name = map['name']
         data.state = map['state']
         data.status_code = map['statusCode']
         data.status_message = map['statusMessage']
-        data.stream_configuration = (Parsers::StreamConfiguration.parse(map['streamConfiguration']) unless map['streamConfiguration'].nil?)
-        data.studio_component_ids = (Parsers::LaunchProfileStudioComponentIdList.parse(map['studioComponentIds']) unless map['studioComponentIds'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.stream_configuration = (StreamConfiguration.parse(map['streamConfiguration']) unless map['streamConfiguration'].nil?)
+        data.studio_component_ids = (LaunchProfileStudioComponentIdList.parse(map['studioComponentIds']) unless map['studioComponentIds'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.updated_at = Time.parse(map['updatedAt']) if map['updatedAt']
         data.updated_by = map['updatedBy']
-        data.validation_results = (Parsers::ValidationResults.parse(map['validationResults']) unless map['validationResults'].nil?)
+        data.validation_results = (ValidationResults.parse(map['validationResults']) unless map['validationResults'].nil?)
         return data
       end
     end
@@ -174,7 +174,7 @@ module AWS::SDK::Nimble
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationResult.parse(value) unless value.nil?
+          data << ValidationResult.parse(value) unless value.nil?
         end
         data
       end
@@ -215,11 +215,11 @@ module AWS::SDK::Nimble
       def self.parse(map)
         data = Types::StreamConfiguration.new
         data.clipboard_mode = map['clipboardMode']
-        data.ec2_instance_types = (Parsers::StreamingInstanceTypeList.parse(map['ec2InstanceTypes']) unless map['ec2InstanceTypes'].nil?)
+        data.ec2_instance_types = (StreamingInstanceTypeList.parse(map['ec2InstanceTypes']) unless map['ec2InstanceTypes'].nil?)
         data.max_session_length_in_minutes = map['maxSessionLengthInMinutes']
-        data.streaming_image_ids = (Parsers::StreamingImageIdList.parse(map['streamingImageIds']) unless map['streamingImageIds'].nil?)
+        data.streaming_image_ids = (StreamingImageIdList.parse(map['streamingImageIds']) unless map['streamingImageIds'].nil?)
         data.max_stopped_session_length_in_minutes = map['maxStoppedSessionLengthInMinutes']
-        data.session_storage = (Parsers::StreamConfigurationSessionStorage.parse(map['sessionStorage']) unless map['sessionStorage'].nil?)
+        data.session_storage = (StreamConfigurationSessionStorage.parse(map['sessionStorage']) unless map['sessionStorage'].nil?)
         return data
       end
     end
@@ -227,8 +227,8 @@ module AWS::SDK::Nimble
     class StreamConfigurationSessionStorage
       def self.parse(map)
         data = Types::StreamConfigurationSessionStorage.new
-        data.root = (Parsers::StreamingSessionStorageRoot.parse(map['root']) unless map['root'].nil?)
-        data.mode = (Parsers::StreamingSessionStorageModeList.parse(map['mode']) unless map['mode'].nil?)
+        data.root = (StreamingSessionStorageRoot.parse(map['root']) unless map['root'].nil?)
+        data.mode = (StreamingSessionStorageModeList.parse(map['mode']) unless map['mode'].nil?)
         return data
       end
     end
@@ -297,7 +297,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::CreateStreamingImageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.streaming_image = (Parsers::StreamingImage.parse(map['streamingImage']) unless map['streamingImage'].nil?)
+        data.streaming_image = (StreamingImage.parse(map['streamingImage']) unless map['streamingImage'].nil?)
         data
       end
     end
@@ -308,8 +308,8 @@ module AWS::SDK::Nimble
         data.arn = map['arn']
         data.description = map['description']
         data.ec2_image_id = map['ec2ImageId']
-        data.encryption_configuration = (Parsers::StreamingImageEncryptionConfiguration.parse(map['encryptionConfiguration']) unless map['encryptionConfiguration'].nil?)
-        data.eula_ids = (Parsers::EulaIdList.parse(map['eulaIds']) unless map['eulaIds'].nil?)
+        data.encryption_configuration = (StreamingImageEncryptionConfiguration.parse(map['encryptionConfiguration']) unless map['encryptionConfiguration'].nil?)
+        data.eula_ids = (EulaIdList.parse(map['eulaIds']) unless map['eulaIds'].nil?)
         data.name = map['name']
         data.owner = map['owner']
         data.platform = map['platform']
@@ -317,7 +317,7 @@ module AWS::SDK::Nimble
         data.status_code = map['statusCode']
         data.status_message = map['statusMessage']
         data.streaming_image_id = map['streamingImageId']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -346,7 +346,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::CreateStreamingSessionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.session = (Parsers::StreamingSession.parse(map['session']) unless map['session'].nil?)
+        data.session = (StreamingSession.parse(map['session']) unless map['session'].nil?)
         data
       end
     end
@@ -365,7 +365,7 @@ module AWS::SDK::Nimble
         data.status_code = map['statusCode']
         data.status_message = map['statusMessage']
         data.streaming_image_id = map['streamingImageId']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.terminate_at = Time.parse(map['terminateAt']) if map['terminateAt']
         data.updated_at = Time.parse(map['updatedAt']) if map['updatedAt']
         data.updated_by = map['updatedBy']
@@ -383,7 +383,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::CreateStreamingSessionStreamOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stream = (Parsers::StreamingSessionStream.parse(map['stream']) unless map['stream'].nil?)
+        data.stream = (StreamingSessionStream.parse(map['stream']) unless map['stream'].nil?)
         data
       end
     end
@@ -408,7 +408,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::CreateStudioOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.studio = (Parsers::Studio.parse(map['studio']) unless map['studio'].nil?)
+        data.studio = (Studio.parse(map['studio']) unless map['studio'].nil?)
         data
       end
     end
@@ -425,11 +425,11 @@ module AWS::SDK::Nimble
         data.state = map['state']
         data.status_code = map['statusCode']
         data.status_message = map['statusMessage']
-        data.studio_encryption_configuration = (Parsers::StudioEncryptionConfiguration.parse(map['studioEncryptionConfiguration']) unless map['studioEncryptionConfiguration'].nil?)
+        data.studio_encryption_configuration = (StudioEncryptionConfiguration.parse(map['studioEncryptionConfiguration']) unless map['studioEncryptionConfiguration'].nil?)
         data.studio_id = map['studioId']
         data.studio_name = map['studioName']
         data.studio_url = map['studioUrl']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.updated_at = Time.parse(map['updatedAt']) if map['updatedAt']
         data.user_role_arn = map['userRoleArn']
         return data
@@ -450,7 +450,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::CreateStudioComponentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.studio_component = (Parsers::StudioComponent.parse(map['studioComponent']) unless map['studioComponent'].nil?)
+        data.studio_component = (StudioComponent.parse(map['studioComponent']) unless map['studioComponent'].nil?)
         data
       end
     end
@@ -459,20 +459,20 @@ module AWS::SDK::Nimble
       def self.parse(map)
         data = Types::StudioComponent.new
         data.arn = map['arn']
-        data.configuration = (Parsers::StudioComponentConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
+        data.configuration = (StudioComponentConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
         data.created_by = map['createdBy']
         data.description = map['description']
-        data.ec2_security_group_ids = (Parsers::StudioComponentSecurityGroupIdList.parse(map['ec2SecurityGroupIds']) unless map['ec2SecurityGroupIds'].nil?)
-        data.initialization_scripts = (Parsers::StudioComponentInitializationScriptList.parse(map['initializationScripts']) unless map['initializationScripts'].nil?)
+        data.ec2_security_group_ids = (StudioComponentSecurityGroupIdList.parse(map['ec2SecurityGroupIds']) unless map['ec2SecurityGroupIds'].nil?)
+        data.initialization_scripts = (StudioComponentInitializationScriptList.parse(map['initializationScripts']) unless map['initializationScripts'].nil?)
         data.name = map['name']
-        data.script_parameters = (Parsers::StudioComponentScriptParameterKeyValueList.parse(map['scriptParameters']) unless map['scriptParameters'].nil?)
+        data.script_parameters = (StudioComponentScriptParameterKeyValueList.parse(map['scriptParameters']) unless map['scriptParameters'].nil?)
         data.state = map['state']
         data.status_code = map['statusCode']
         data.status_message = map['statusMessage']
         data.studio_component_id = map['studioComponentId']
         data.subtype = map['subtype']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.type = map['type']
         data.updated_at = Time.parse(map['updatedAt']) if map['updatedAt']
         data.updated_by = map['updatedBy']
@@ -486,7 +486,7 @@ module AWS::SDK::Nimble
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ScriptParameterKeyValue.parse(value) unless value.nil?
+          data << ScriptParameterKeyValue.parse(value) unless value.nil?
         end
         data
       end
@@ -505,7 +505,7 @@ module AWS::SDK::Nimble
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StudioComponentInitializationScript.parse(value) unless value.nil?
+          data << StudioComponentInitializationScript.parse(value) unless value.nil?
         end
         data
       end
@@ -537,16 +537,16 @@ module AWS::SDK::Nimble
         key, value = map.flatten
         case key
         when 'activeDirectoryConfiguration'
-          value = (Parsers::ActiveDirectoryConfiguration.parse(value) unless value.nil?)
+          value = (ActiveDirectoryConfiguration.parse(value) unless value.nil?)
           Types::StudioComponentConfiguration::ActiveDirectoryConfiguration.new(value) if value
         when 'computeFarmConfiguration'
-          value = (Parsers::ComputeFarmConfiguration.parse(value) unless value.nil?)
+          value = (ComputeFarmConfiguration.parse(value) unless value.nil?)
           Types::StudioComponentConfiguration::ComputeFarmConfiguration.new(value) if value
         when 'licenseServiceConfiguration'
-          value = (Parsers::LicenseServiceConfiguration.parse(value) unless value.nil?)
+          value = (LicenseServiceConfiguration.parse(value) unless value.nil?)
           Types::StudioComponentConfiguration::LicenseServiceConfiguration.new(value) if value
         when 'sharedFileSystemConfiguration'
-          value = (Parsers::SharedFileSystemConfiguration.parse(value) unless value.nil?)
+          value = (SharedFileSystemConfiguration.parse(value) unless value.nil?)
           Types::StudioComponentConfiguration::SharedFileSystemConfiguration.new(value) if value
         else
           Types::StudioComponentConfiguration::Unknown.new({name: key, value: value})
@@ -586,7 +586,7 @@ module AWS::SDK::Nimble
     class ActiveDirectoryConfiguration
       def self.parse(map)
         data = Types::ActiveDirectoryConfiguration.new
-        data.computer_attributes = (Parsers::ActiveDirectoryComputerAttributeList.parse(map['computerAttributes']) unless map['computerAttributes'].nil?)
+        data.computer_attributes = (ActiveDirectoryComputerAttributeList.parse(map['computerAttributes']) unless map['computerAttributes'].nil?)
         data.directory_id = map['directoryId']
         data.organizational_unit_distinguished_name = map['organizationalUnitDistinguishedName']
         return data
@@ -597,7 +597,7 @@ module AWS::SDK::Nimble
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ActiveDirectoryComputerAttribute.parse(value) unless value.nil?
+          data << ActiveDirectoryComputerAttribute.parse(value) unless value.nil?
         end
         data
       end
@@ -617,7 +617,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::DeleteLaunchProfileOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.launch_profile = (Parsers::LaunchProfile.parse(map['launchProfile']) unless map['launchProfile'].nil?)
+        data.launch_profile = (LaunchProfile.parse(map['launchProfile']) unless map['launchProfile'].nil?)
         data
       end
     end
@@ -636,7 +636,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::DeleteStreamingImageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.streaming_image = (Parsers::StreamingImage.parse(map['streamingImage']) unless map['streamingImage'].nil?)
+        data.streaming_image = (StreamingImage.parse(map['streamingImage']) unless map['streamingImage'].nil?)
         data
       end
     end
@@ -646,7 +646,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::DeleteStreamingSessionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.session = (Parsers::StreamingSession.parse(map['session']) unless map['session'].nil?)
+        data.session = (StreamingSession.parse(map['session']) unless map['session'].nil?)
         data
       end
     end
@@ -656,7 +656,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::DeleteStudioOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.studio = (Parsers::Studio.parse(map['studio']) unless map['studio'].nil?)
+        data.studio = (Studio.parse(map['studio']) unless map['studio'].nil?)
         data
       end
     end
@@ -666,7 +666,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::DeleteStudioComponentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.studio_component = (Parsers::StudioComponent.parse(map['studioComponent']) unless map['studioComponent'].nil?)
+        data.studio_component = (StudioComponent.parse(map['studioComponent']) unless map['studioComponent'].nil?)
         data
       end
     end
@@ -685,7 +685,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::GetEulaOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.eula = (Parsers::Eula.parse(map['eula']) unless map['eula'].nil?)
+        data.eula = (Eula.parse(map['eula']) unless map['eula'].nil?)
         data
       end
     end
@@ -707,7 +707,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::GetLaunchProfileOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.launch_profile = (Parsers::LaunchProfile.parse(map['launchProfile']) unless map['launchProfile'].nil?)
+        data.launch_profile = (LaunchProfile.parse(map['launchProfile']) unless map['launchProfile'].nil?)
         data
       end
     end
@@ -717,9 +717,9 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::GetLaunchProfileDetailsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.launch_profile = (Parsers::LaunchProfile.parse(map['launchProfile']) unless map['launchProfile'].nil?)
-        data.streaming_images = (Parsers::StreamingImageList.parse(map['streamingImages']) unless map['streamingImages'].nil?)
-        data.studio_component_summaries = (Parsers::StudioComponentSummaryList.parse(map['studioComponentSummaries']) unless map['studioComponentSummaries'].nil?)
+        data.launch_profile = (LaunchProfile.parse(map['launchProfile']) unless map['launchProfile'].nil?)
+        data.streaming_images = (StreamingImageList.parse(map['streamingImages']) unless map['streamingImages'].nil?)
+        data.studio_component_summaries = (StudioComponentSummaryList.parse(map['studioComponentSummaries']) unless map['studioComponentSummaries'].nil?)
         data
       end
     end
@@ -728,7 +728,7 @@ module AWS::SDK::Nimble
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StudioComponentSummary.parse(value) unless value.nil?
+          data << StudioComponentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -754,7 +754,7 @@ module AWS::SDK::Nimble
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StreamingImage.parse(value) unless value.nil?
+          data << StreamingImage.parse(value) unless value.nil?
         end
         data
       end
@@ -765,7 +765,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::GetLaunchProfileInitializationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.launch_profile_initialization = (Parsers::LaunchProfileInitialization.parse(map['launchProfileInitialization']) unless map['launchProfileInitialization'].nil?)
+        data.launch_profile_initialization = (LaunchProfileInitialization.parse(map['launchProfileInitialization']) unless map['launchProfileInitialization'].nil?)
         data
       end
     end
@@ -773,15 +773,15 @@ module AWS::SDK::Nimble
     class LaunchProfileInitialization
       def self.parse(map)
         data = Types::LaunchProfileInitialization.new
-        data.active_directory = (Parsers::LaunchProfileInitializationActiveDirectory.parse(map['activeDirectory']) unless map['activeDirectory'].nil?)
-        data.ec2_security_group_ids = (Parsers::LaunchProfileSecurityGroupIdList.parse(map['ec2SecurityGroupIds']) unless map['ec2SecurityGroupIds'].nil?)
+        data.active_directory = (LaunchProfileInitializationActiveDirectory.parse(map['activeDirectory']) unless map['activeDirectory'].nil?)
+        data.ec2_security_group_ids = (LaunchProfileSecurityGroupIdList.parse(map['ec2SecurityGroupIds']) unless map['ec2SecurityGroupIds'].nil?)
         data.launch_profile_id = map['launchProfileId']
         data.launch_profile_protocol_version = map['launchProfileProtocolVersion']
         data.launch_purpose = map['launchPurpose']
         data.name = map['name']
         data.platform = map['platform']
-        data.system_initialization_scripts = (Parsers::LaunchProfileInitializationScriptList.parse(map['systemInitializationScripts']) unless map['systemInitializationScripts'].nil?)
-        data.user_initialization_scripts = (Parsers::LaunchProfileInitializationScriptList.parse(map['userInitializationScripts']) unless map['userInitializationScripts'].nil?)
+        data.system_initialization_scripts = (LaunchProfileInitializationScriptList.parse(map['systemInitializationScripts']) unless map['systemInitializationScripts'].nil?)
+        data.user_initialization_scripts = (LaunchProfileInitializationScriptList.parse(map['userInitializationScripts']) unless map['userInitializationScripts'].nil?)
         return data
       end
     end
@@ -790,7 +790,7 @@ module AWS::SDK::Nimble
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LaunchProfileInitializationScript.parse(value) unless value.nil?
+          data << LaunchProfileInitializationScript.parse(value) unless value.nil?
         end
         data
       end
@@ -821,10 +821,10 @@ module AWS::SDK::Nimble
     class LaunchProfileInitializationActiveDirectory
       def self.parse(map)
         data = Types::LaunchProfileInitializationActiveDirectory.new
-        data.computer_attributes = (Parsers::ActiveDirectoryComputerAttributeList.parse(map['computerAttributes']) unless map['computerAttributes'].nil?)
+        data.computer_attributes = (ActiveDirectoryComputerAttributeList.parse(map['computerAttributes']) unless map['computerAttributes'].nil?)
         data.directory_id = map['directoryId']
         data.directory_name = map['directoryName']
-        data.dns_ip_addresses = (Parsers::ActiveDirectoryDnsIpAddressList.parse(map['dnsIpAddresses']) unless map['dnsIpAddresses'].nil?)
+        data.dns_ip_addresses = (ActiveDirectoryDnsIpAddressList.parse(map['dnsIpAddresses']) unless map['dnsIpAddresses'].nil?)
         data.organizational_unit_distinguished_name = map['organizationalUnitDistinguishedName']
         data.studio_component_id = map['studioComponentId']
         data.studio_component_name = map['studioComponentName']
@@ -847,7 +847,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::GetLaunchProfileMemberOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.member = (Parsers::LaunchProfileMembership.parse(map['member']) unless map['member'].nil?)
+        data.member = (LaunchProfileMembership.parse(map['member']) unless map['member'].nil?)
         data
       end
     end
@@ -868,7 +868,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::GetStreamingImageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.streaming_image = (Parsers::StreamingImage.parse(map['streamingImage']) unless map['streamingImage'].nil?)
+        data.streaming_image = (StreamingImage.parse(map['streamingImage']) unless map['streamingImage'].nil?)
         data
       end
     end
@@ -878,7 +878,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::GetStreamingSessionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.session = (Parsers::StreamingSession.parse(map['session']) unless map['session'].nil?)
+        data.session = (StreamingSession.parse(map['session']) unless map['session'].nil?)
         data
       end
     end
@@ -888,7 +888,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::GetStreamingSessionStreamOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.stream = (Parsers::StreamingSessionStream.parse(map['stream']) unless map['stream'].nil?)
+        data.stream = (StreamingSessionStream.parse(map['stream']) unless map['stream'].nil?)
         data
       end
     end
@@ -898,7 +898,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::GetStudioOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.studio = (Parsers::Studio.parse(map['studio']) unless map['studio'].nil?)
+        data.studio = (Studio.parse(map['studio']) unless map['studio'].nil?)
         data
       end
     end
@@ -908,7 +908,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::GetStudioComponentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.studio_component = (Parsers::StudioComponent.parse(map['studioComponent']) unless map['studioComponent'].nil?)
+        data.studio_component = (StudioComponent.parse(map['studioComponent']) unless map['studioComponent'].nil?)
         data
       end
     end
@@ -918,7 +918,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::GetStudioMemberOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.member = (Parsers::StudioMembership.parse(map['member']) unless map['member'].nil?)
+        data.member = (StudioMembership.parse(map['member']) unless map['member'].nil?)
         data
       end
     end
@@ -939,7 +939,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::ListEulaAcceptancesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.eula_acceptances = (Parsers::EulaAcceptanceList.parse(map['eulaAcceptances']) unless map['eulaAcceptances'].nil?)
+        data.eula_acceptances = (EulaAcceptanceList.parse(map['eulaAcceptances']) unless map['eulaAcceptances'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -950,7 +950,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::ListEulasOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.eulas = (Parsers::EulaList.parse(map['eulas']) unless map['eulas'].nil?)
+        data.eulas = (EulaList.parse(map['eulas']) unless map['eulas'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -960,7 +960,7 @@ module AWS::SDK::Nimble
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Eula.parse(value) unless value.nil?
+          data << Eula.parse(value) unless value.nil?
         end
         data
       end
@@ -971,7 +971,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::ListLaunchProfileMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.members = (Parsers::LaunchProfileMembershipList.parse(map['members']) unless map['members'].nil?)
+        data.members = (LaunchProfileMembershipList.parse(map['members']) unless map['members'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -981,7 +981,7 @@ module AWS::SDK::Nimble
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LaunchProfileMembership.parse(value) unless value.nil?
+          data << LaunchProfileMembership.parse(value) unless value.nil?
         end
         data
       end
@@ -992,7 +992,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::ListLaunchProfilesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.launch_profiles = (Parsers::LaunchProfileList.parse(map['launchProfiles']) unless map['launchProfiles'].nil?)
+        data.launch_profiles = (LaunchProfileList.parse(map['launchProfiles']) unless map['launchProfiles'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1002,7 +1002,7 @@ module AWS::SDK::Nimble
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::LaunchProfile.parse(value) unless value.nil?
+          data << LaunchProfile.parse(value) unless value.nil?
         end
         data
       end
@@ -1014,7 +1014,7 @@ module AWS::SDK::Nimble
         data = Types::ListStreamingImagesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.streaming_images = (Parsers::StreamingImageList.parse(map['streamingImages']) unless map['streamingImages'].nil?)
+        data.streaming_images = (StreamingImageList.parse(map['streamingImages']) unless map['streamingImages'].nil?)
         data
       end
     end
@@ -1025,7 +1025,7 @@ module AWS::SDK::Nimble
         data = Types::ListStreamingSessionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.sessions = (Parsers::StreamingSessionList.parse(map['sessions']) unless map['sessions'].nil?)
+        data.sessions = (StreamingSessionList.parse(map['sessions']) unless map['sessions'].nil?)
         data
       end
     end
@@ -1034,7 +1034,7 @@ module AWS::SDK::Nimble
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StreamingSession.parse(value) unless value.nil?
+          data << StreamingSession.parse(value) unless value.nil?
         end
         data
       end
@@ -1046,7 +1046,7 @@ module AWS::SDK::Nimble
         data = Types::ListStudioComponentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.studio_components = (Parsers::StudioComponentList.parse(map['studioComponents']) unless map['studioComponents'].nil?)
+        data.studio_components = (StudioComponentList.parse(map['studioComponents']) unless map['studioComponents'].nil?)
         data
       end
     end
@@ -1055,7 +1055,7 @@ module AWS::SDK::Nimble
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StudioComponent.parse(value) unless value.nil?
+          data << StudioComponent.parse(value) unless value.nil?
         end
         data
       end
@@ -1066,7 +1066,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::ListStudioMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.members = (Parsers::StudioMembershipList.parse(map['members']) unless map['members'].nil?)
+        data.members = (StudioMembershipList.parse(map['members']) unless map['members'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1076,7 +1076,7 @@ module AWS::SDK::Nimble
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::StudioMembership.parse(value) unless value.nil?
+          data << StudioMembership.parse(value) unless value.nil?
         end
         data
       end
@@ -1088,7 +1088,7 @@ module AWS::SDK::Nimble
         data = Types::ListStudiosOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.studios = (Parsers::StudioList.parse(map['studios']) unless map['studios'].nil?)
+        data.studios = (StudioList.parse(map['studios']) unless map['studios'].nil?)
         data
       end
     end
@@ -1097,7 +1097,7 @@ module AWS::SDK::Nimble
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Studio.parse(value) unless value.nil?
+          data << Studio.parse(value) unless value.nil?
         end
         data
       end
@@ -1108,7 +1108,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1136,7 +1136,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::StartStreamingSessionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.session = (Parsers::StreamingSession.parse(map['session']) unless map['session'].nil?)
+        data.session = (StreamingSession.parse(map['session']) unless map['session'].nil?)
         data
       end
     end
@@ -1146,7 +1146,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::StartStudioSSOConfigurationRepairOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.studio = (Parsers::Studio.parse(map['studio']) unless map['studio'].nil?)
+        data.studio = (Studio.parse(map['studio']) unless map['studio'].nil?)
         data
       end
     end
@@ -1156,7 +1156,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::StopStreamingSessionOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.session = (Parsers::StreamingSession.parse(map['session']) unless map['session'].nil?)
+        data.session = (StreamingSession.parse(map['session']) unless map['session'].nil?)
         data
       end
     end
@@ -1184,7 +1184,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::UpdateLaunchProfileOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.launch_profile = (Parsers::LaunchProfile.parse(map['launchProfile']) unless map['launchProfile'].nil?)
+        data.launch_profile = (LaunchProfile.parse(map['launchProfile']) unless map['launchProfile'].nil?)
         data
       end
     end
@@ -1194,7 +1194,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::UpdateLaunchProfileMemberOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.member = (Parsers::LaunchProfileMembership.parse(map['member']) unless map['member'].nil?)
+        data.member = (LaunchProfileMembership.parse(map['member']) unless map['member'].nil?)
         data
       end
     end
@@ -1204,7 +1204,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::UpdateStreamingImageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.streaming_image = (Parsers::StreamingImage.parse(map['streamingImage']) unless map['streamingImage'].nil?)
+        data.streaming_image = (StreamingImage.parse(map['streamingImage']) unless map['streamingImage'].nil?)
         data
       end
     end
@@ -1214,7 +1214,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::UpdateStudioOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.studio = (Parsers::Studio.parse(map['studio']) unless map['studio'].nil?)
+        data.studio = (Studio.parse(map['studio']) unless map['studio'].nil?)
         data
       end
     end
@@ -1224,7 +1224,7 @@ module AWS::SDK::Nimble
       def self.parse(http_resp)
         data = Types::UpdateStudioComponentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.studio_component = (Parsers::StudioComponent.parse(map['studioComponent']) unless map['studioComponent'].nil?)
+        data.studio_component = (StudioComponent.parse(map['studioComponent']) unless map['studioComponent'].nil?)
         data
       end
     end

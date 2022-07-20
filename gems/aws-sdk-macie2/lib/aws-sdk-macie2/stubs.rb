@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Macie2
   module Stubs
 
@@ -36,9 +38,9 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['customDataIdentifiers'] = Stubs::List____listOfBatchGetCustomDataIdentifierSummary.stub(stub[:custom_data_identifiers]) unless stub[:custom_data_identifiers].nil?
-        data['notFoundIdentifierIds'] = Stubs::List____listOf__string.stub(stub[:not_found_identifier_ids]) unless stub[:not_found_identifier_ids].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['customDataIdentifiers'] = List____listOfBatchGetCustomDataIdentifierSummary.stub(stub[:custom_data_identifiers]) unless stub[:custom_data_identifiers].nil?
+        data['notFoundIdentifierIds'] = List____listOf__string.stub(stub[:not_found_identifier_ids]) unless stub[:not_found_identifier_ids].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -76,7 +78,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BatchGetCustomDataIdentifierSummary.stub(element) unless element.nil?
+          data << BatchGetCustomDataIdentifierSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -125,7 +127,7 @@ module AWS::SDK::Macie2
         http_resp.headers['Content-Type'] = 'application/json'
         data['jobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -142,7 +144,7 @@ module AWS::SDK::Macie2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['customDataIdentifierId'] = stub[:custom_data_identifier_id] unless stub[:custom_data_identifier_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -161,7 +163,7 @@ module AWS::SDK::Macie2
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -177,8 +179,8 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['unprocessedAccounts'] = Stubs::List____listOfUnprocessedAccount.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['unprocessedAccounts'] = List____listOfUnprocessedAccount.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -196,7 +198,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UnprocessedAccount.stub(element) unless element.nil?
+          data << UnprocessedAccount.stub(element) unless element.nil?
         end
         data
       end
@@ -237,7 +239,7 @@ module AWS::SDK::Macie2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -266,8 +268,8 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['unprocessedAccounts'] = Stubs::List____listOfUnprocessedAccount.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['unprocessedAccounts'] = List____listOfUnprocessedAccount.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -309,8 +311,8 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['unprocessedAccounts'] = Stubs::List____listOfUnprocessedAccount.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['unprocessedAccounts'] = List____listOfUnprocessedAccount.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -340,9 +342,9 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['buckets'] = Stubs::List____listOfBucketMetadata.stub(stub[:buckets]) unless stub[:buckets].nil?
+        data['buckets'] = List____listOfBucketMetadata.stub(stub[:buckets]) unless stub[:buckets].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -360,7 +362,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BucketMetadata.stub(element) unless element.nil?
+          data << BucketMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -411,20 +413,20 @@ module AWS::SDK::Macie2
         data['classifiableSizeInBytes'] = stub[:classifiable_size_in_bytes] unless stub[:classifiable_size_in_bytes].nil?
         data['errorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        data['jobDetails'] = Stubs::JobDetails.stub(stub[:job_details]) unless stub[:job_details].nil?
+        data['jobDetails'] = JobDetails.stub(stub[:job_details]) unless stub[:job_details].nil?
         data['lastUpdated'] = Hearth::TimeHelper.to_date_time(stub[:last_updated]) unless stub[:last_updated].nil?
         data['objectCount'] = stub[:object_count] unless stub[:object_count].nil?
-        data['objectCountByEncryptionType'] = Stubs::ObjectCountByEncryptionType.stub(stub[:object_count_by_encryption_type]) unless stub[:object_count_by_encryption_type].nil?
-        data['publicAccess'] = Stubs::BucketPublicAccess.stub(stub[:public_access]) unless stub[:public_access].nil?
+        data['objectCountByEncryptionType'] = ObjectCountByEncryptionType.stub(stub[:object_count_by_encryption_type]) unless stub[:object_count_by_encryption_type].nil?
+        data['publicAccess'] = BucketPublicAccess.stub(stub[:public_access]) unless stub[:public_access].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
-        data['replicationDetails'] = Stubs::ReplicationDetails.stub(stub[:replication_details]) unless stub[:replication_details].nil?
-        data['serverSideEncryption'] = Stubs::BucketServerSideEncryption.stub(stub[:server_side_encryption]) unless stub[:server_side_encryption].nil?
+        data['replicationDetails'] = ReplicationDetails.stub(stub[:replication_details]) unless stub[:replication_details].nil?
+        data['serverSideEncryption'] = BucketServerSideEncryption.stub(stub[:server_side_encryption]) unless stub[:server_side_encryption].nil?
         data['sharedAccess'] = stub[:shared_access] unless stub[:shared_access].nil?
         data['sizeInBytes'] = stub[:size_in_bytes] unless stub[:size_in_bytes].nil?
         data['sizeInBytesCompressed'] = stub[:size_in_bytes_compressed] unless stub[:size_in_bytes_compressed].nil?
-        data['tags'] = Stubs::List____listOfKeyValuePair.stub(stub[:tags]) unless stub[:tags].nil?
-        data['unclassifiableObjectCount'] = Stubs::ObjectLevelStatistics.stub(stub[:unclassifiable_object_count]) unless stub[:unclassifiable_object_count].nil?
-        data['unclassifiableObjectSizeInBytes'] = Stubs::ObjectLevelStatistics.stub(stub[:unclassifiable_object_size_in_bytes]) unless stub[:unclassifiable_object_size_in_bytes].nil?
+        data['tags'] = List____listOfKeyValuePair.stub(stub[:tags]) unless stub[:tags].nil?
+        data['unclassifiableObjectCount'] = ObjectLevelStatistics.stub(stub[:unclassifiable_object_count]) unless stub[:unclassifiable_object_count].nil?
+        data['unclassifiableObjectSizeInBytes'] = ObjectLevelStatistics.stub(stub[:unclassifiable_object_size_in_bytes]) unless stub[:unclassifiable_object_size_in_bytes].nil?
         data['versioning'] = stub[:versioning] unless stub[:versioning].nil?
         data
       end
@@ -466,7 +468,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeyValuePair.stub(element) unless element.nil?
+          data << KeyValuePair.stub(element) unless element.nil?
         end
         data
       end
@@ -529,7 +531,7 @@ module AWS::SDK::Macie2
         data = {}
         data['replicated'] = stub[:replicated] unless stub[:replicated].nil?
         data['replicatedExternally'] = stub[:replicated_externally] unless stub[:replicated_externally].nil?
-        data['replicationAccounts'] = Stubs::List____listOf__string.stub(stub[:replication_accounts]) unless stub[:replication_accounts].nil?
+        data['replicationAccounts'] = List____listOf__string.stub(stub[:replication_accounts]) unless stub[:replication_accounts].nil?
         data
       end
     end
@@ -549,7 +551,7 @@ module AWS::SDK::Macie2
         stub ||= Types::BucketPublicAccess.new
         data = {}
         data['effectivePermission'] = stub[:effective_permission] unless stub[:effective_permission].nil?
-        data['permissionConfiguration'] = Stubs::BucketPermissionConfiguration.stub(stub[:permission_configuration]) unless stub[:permission_configuration].nil?
+        data['permissionConfiguration'] = BucketPermissionConfiguration.stub(stub[:permission_configuration]) unless stub[:permission_configuration].nil?
         data
       end
     end
@@ -568,8 +570,8 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::BucketPermissionConfiguration.new
         data = {}
-        data['accountLevelPermissions'] = Stubs::AccountLevelPermissions.stub(stub[:account_level_permissions]) unless stub[:account_level_permissions].nil?
-        data['bucketLevelPermissions'] = Stubs::BucketLevelPermissions.stub(stub[:bucket_level_permissions]) unless stub[:bucket_level_permissions].nil?
+        data['accountLevelPermissions'] = AccountLevelPermissions.stub(stub[:account_level_permissions]) unless stub[:account_level_permissions].nil?
+        data['bucketLevelPermissions'] = BucketLevelPermissions.stub(stub[:bucket_level_permissions]) unless stub[:bucket_level_permissions].nil?
         data
       end
     end
@@ -589,9 +591,9 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::BucketLevelPermissions.new
         data = {}
-        data['accessControlList'] = Stubs::AccessControlList.stub(stub[:access_control_list]) unless stub[:access_control_list].nil?
-        data['blockPublicAccess'] = Stubs::BlockPublicAccess.stub(stub[:block_public_access]) unless stub[:block_public_access].nil?
-        data['bucketPolicy'] = Stubs::BucketPolicy.stub(stub[:bucket_policy]) unless stub[:bucket_policy].nil?
+        data['accessControlList'] = AccessControlList.stub(stub[:access_control_list]) unless stub[:access_control_list].nil?
+        data['blockPublicAccess'] = BlockPublicAccess.stub(stub[:block_public_access]) unless stub[:block_public_access].nil?
+        data['bucketPolicy'] = BucketPolicy.stub(stub[:bucket_policy]) unless stub[:bucket_policy].nil?
         data
       end
     end
@@ -673,7 +675,7 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::AccountLevelPermissions.new
         data = {}
-        data['blockPublicAccess'] = Stubs::BlockPublicAccess.stub(stub[:block_public_access]) unless stub[:block_public_access].nil?
+        data['blockPublicAccess'] = BlockPublicAccess.stub(stub[:block_public_access]) unless stub[:block_public_access].nil?
         data
       end
     end
@@ -761,25 +763,25 @@ module AWS::SDK::Macie2
         http_resp.headers['Content-Type'] = 'application/json'
         data['clientToken'] = stub[:client_token] unless stub[:client_token].nil?
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
-        data['customDataIdentifierIds'] = Stubs::List____listOf__string.stub(stub[:custom_data_identifier_ids]) unless stub[:custom_data_identifier_ids].nil?
+        data['customDataIdentifierIds'] = List____listOf__string.stub(stub[:custom_data_identifier_ids]) unless stub[:custom_data_identifier_ids].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['initialRun'] = stub[:initial_run] unless stub[:initial_run].nil?
         data['jobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['jobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['jobType'] = stub[:job_type] unless stub[:job_type].nil?
-        data['lastRunErrorStatus'] = Stubs::LastRunErrorStatus.stub(stub[:last_run_error_status]) unless stub[:last_run_error_status].nil?
+        data['lastRunErrorStatus'] = LastRunErrorStatus.stub(stub[:last_run_error_status]) unless stub[:last_run_error_status].nil?
         data['lastRunTime'] = Hearth::TimeHelper.to_date_time(stub[:last_run_time]) unless stub[:last_run_time].nil?
-        data['managedDataIdentifierIds'] = Stubs::List____listOf__string.stub(stub[:managed_data_identifier_ids]) unless stub[:managed_data_identifier_ids].nil?
+        data['managedDataIdentifierIds'] = List____listOf__string.stub(stub[:managed_data_identifier_ids]) unless stub[:managed_data_identifier_ids].nil?
         data['managedDataIdentifierSelector'] = stub[:managed_data_identifier_selector] unless stub[:managed_data_identifier_selector].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['s3JobDefinition'] = Stubs::S3JobDefinition.stub(stub[:s3_job_definition]) unless stub[:s3_job_definition].nil?
+        data['s3JobDefinition'] = S3JobDefinition.stub(stub[:s3_job_definition]) unless stub[:s3_job_definition].nil?
         data['samplingPercentage'] = stub[:sampling_percentage] unless stub[:sampling_percentage].nil?
-        data['scheduleFrequency'] = Stubs::JobScheduleFrequency.stub(stub[:schedule_frequency]) unless stub[:schedule_frequency].nil?
-        data['statistics'] = Stubs::Statistics.stub(stub[:statistics]) unless stub[:statistics].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['userPausedDetails'] = Stubs::UserPausedDetails.stub(stub[:user_paused_details]) unless stub[:user_paused_details].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['scheduleFrequency'] = JobScheduleFrequency.stub(stub[:schedule_frequency]) unless stub[:schedule_frequency].nil?
+        data['statistics'] = Statistics.stub(stub[:statistics]) unless stub[:statistics].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['userPausedDetails'] = UserPausedDetails.stub(stub[:user_paused_details]) unless stub[:user_paused_details].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -860,9 +862,9 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::JobScheduleFrequency.new
         data = {}
-        data['dailySchedule'] = Stubs::DailySchedule.stub(stub[:daily_schedule]) unless stub[:daily_schedule].nil?
-        data['monthlySchedule'] = Stubs::MonthlySchedule.stub(stub[:monthly_schedule]) unless stub[:monthly_schedule].nil?
-        data['weeklySchedule'] = Stubs::WeeklySchedule.stub(stub[:weekly_schedule]) unless stub[:weekly_schedule].nil?
+        data['dailySchedule'] = DailySchedule.stub(stub[:daily_schedule]) unless stub[:daily_schedule].nil?
+        data['monthlySchedule'] = MonthlySchedule.stub(stub[:monthly_schedule]) unless stub[:monthly_schedule].nil?
+        data['weeklySchedule'] = WeeklySchedule.stub(stub[:weekly_schedule]) unless stub[:weekly_schedule].nil?
         data
       end
     end
@@ -934,9 +936,9 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::S3JobDefinition.new
         data = {}
-        data['bucketDefinitions'] = Stubs::List____listOfS3BucketDefinitionForJob.stub(stub[:bucket_definitions]) unless stub[:bucket_definitions].nil?
-        data['scoping'] = Stubs::Scoping.stub(stub[:scoping]) unless stub[:scoping].nil?
-        data['bucketCriteria'] = Stubs::S3BucketCriteriaForJob.stub(stub[:bucket_criteria]) unless stub[:bucket_criteria].nil?
+        data['bucketDefinitions'] = List____listOfS3BucketDefinitionForJob.stub(stub[:bucket_definitions]) unless stub[:bucket_definitions].nil?
+        data['scoping'] = Scoping.stub(stub[:scoping]) unless stub[:scoping].nil?
+        data['bucketCriteria'] = S3BucketCriteriaForJob.stub(stub[:bucket_criteria]) unless stub[:bucket_criteria].nil?
         data
       end
     end
@@ -955,8 +957,8 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::S3BucketCriteriaForJob.new
         data = {}
-        data['excludes'] = Stubs::CriteriaBlockForJob.stub(stub[:excludes]) unless stub[:excludes].nil?
-        data['includes'] = Stubs::CriteriaBlockForJob.stub(stub[:includes]) unless stub[:includes].nil?
+        data['excludes'] = CriteriaBlockForJob.stub(stub[:excludes]) unless stub[:excludes].nil?
+        data['includes'] = CriteriaBlockForJob.stub(stub[:includes]) unless stub[:includes].nil?
         data
       end
     end
@@ -974,7 +976,7 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::CriteriaBlockForJob.new
         data = {}
-        data['and'] = Stubs::List____listOfCriteriaForJob.stub(stub[:and]) unless stub[:and].nil?
+        data['and'] = List____listOfCriteriaForJob.stub(stub[:and]) unless stub[:and].nil?
         data
       end
     end
@@ -993,7 +995,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CriteriaForJob.stub(element) unless element.nil?
+          data << CriteriaForJob.stub(element) unless element.nil?
         end
         data
       end
@@ -1013,8 +1015,8 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::CriteriaForJob.new
         data = {}
-        data['simpleCriterion'] = Stubs::SimpleCriterionForJob.stub(stub[:simple_criterion]) unless stub[:simple_criterion].nil?
-        data['tagCriterion'] = Stubs::TagCriterionForJob.stub(stub[:tag_criterion]) unless stub[:tag_criterion].nil?
+        data['simpleCriterion'] = SimpleCriterionForJob.stub(stub[:simple_criterion]) unless stub[:simple_criterion].nil?
+        data['tagCriterion'] = TagCriterionForJob.stub(stub[:tag_criterion]) unless stub[:tag_criterion].nil?
         data
       end
     end
@@ -1034,7 +1036,7 @@ module AWS::SDK::Macie2
         stub ||= Types::TagCriterionForJob.new
         data = {}
         data['comparator'] = stub[:comparator] unless stub[:comparator].nil?
-        data['tagValues'] = Stubs::List____listOfTagCriterionPairForJob.stub(stub[:tag_values]) unless stub[:tag_values].nil?
+        data['tagValues'] = List____listOfTagCriterionPairForJob.stub(stub[:tag_values]) unless stub[:tag_values].nil?
         data
       end
     end
@@ -1053,7 +1055,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TagCriterionPairForJob.stub(element) unless element.nil?
+          data << TagCriterionPairForJob.stub(element) unless element.nil?
         end
         data
       end
@@ -1096,7 +1098,7 @@ module AWS::SDK::Macie2
         data = {}
         data['comparator'] = stub[:comparator] unless stub[:comparator].nil?
         data['key'] = stub[:key] unless stub[:key].nil?
-        data['values'] = Stubs::List____listOf__string.stub(stub[:values]) unless stub[:values].nil?
+        data['values'] = List____listOf__string.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -1115,8 +1117,8 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::Scoping.new
         data = {}
-        data['excludes'] = Stubs::JobScopingBlock.stub(stub[:excludes]) unless stub[:excludes].nil?
-        data['includes'] = Stubs::JobScopingBlock.stub(stub[:includes]) unless stub[:includes].nil?
+        data['excludes'] = JobScopingBlock.stub(stub[:excludes]) unless stub[:excludes].nil?
+        data['includes'] = JobScopingBlock.stub(stub[:includes]) unless stub[:includes].nil?
         data
       end
     end
@@ -1134,7 +1136,7 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::JobScopingBlock.new
         data = {}
-        data['and'] = Stubs::List____listOfJobScopeTerm.stub(stub[:and]) unless stub[:and].nil?
+        data['and'] = List____listOfJobScopeTerm.stub(stub[:and]) unless stub[:and].nil?
         data
       end
     end
@@ -1153,7 +1155,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobScopeTerm.stub(element) unless element.nil?
+          data << JobScopeTerm.stub(element) unless element.nil?
         end
         data
       end
@@ -1173,8 +1175,8 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::JobScopeTerm.new
         data = {}
-        data['simpleScopeTerm'] = Stubs::SimpleScopeTerm.stub(stub[:simple_scope_term]) unless stub[:simple_scope_term].nil?
-        data['tagScopeTerm'] = Stubs::TagScopeTerm.stub(stub[:tag_scope_term]) unless stub[:tag_scope_term].nil?
+        data['simpleScopeTerm'] = SimpleScopeTerm.stub(stub[:simple_scope_term]) unless stub[:simple_scope_term].nil?
+        data['tagScopeTerm'] = TagScopeTerm.stub(stub[:tag_scope_term]) unless stub[:tag_scope_term].nil?
         data
       end
     end
@@ -1197,7 +1199,7 @@ module AWS::SDK::Macie2
         data = {}
         data['comparator'] = stub[:comparator] unless stub[:comparator].nil?
         data['key'] = stub[:key] unless stub[:key].nil?
-        data['tagValues'] = Stubs::List____listOfTagValuePair.stub(stub[:tag_values]) unless stub[:tag_values].nil?
+        data['tagValues'] = List____listOfTagValuePair.stub(stub[:tag_values]) unless stub[:tag_values].nil?
         data['target'] = stub[:target] unless stub[:target].nil?
         data
       end
@@ -1217,7 +1219,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TagValuePair.stub(element) unless element.nil?
+          data << TagValuePair.stub(element) unless element.nil?
         end
         data
       end
@@ -1260,7 +1262,7 @@ module AWS::SDK::Macie2
         data = {}
         data['comparator'] = stub[:comparator] unless stub[:comparator].nil?
         data['key'] = stub[:key] unless stub[:key].nil?
-        data['values'] = Stubs::List____listOf__string.stub(stub[:values]) unless stub[:values].nil?
+        data['values'] = List____listOf__string.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -1279,7 +1281,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::S3BucketDefinitionForJob.stub(element) unless element.nil?
+          data << S3BucketDefinitionForJob.stub(element) unless element.nil?
         end
         data
       end
@@ -1300,7 +1302,7 @@ module AWS::SDK::Macie2
         stub ||= Types::S3BucketDefinitionForJob.new
         data = {}
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
-        data['buckets'] = Stubs::List____listOf__string.stub(stub[:buckets]) unless stub[:buckets].nil?
+        data['buckets'] = List____listOf__string.stub(stub[:buckets]) unless stub[:buckets].nil?
         data
       end
     end
@@ -1338,7 +1340,7 @@ module AWS::SDK::Macie2
         http_resp.headers['Content-Type'] = 'application/json'
         data['autoEnable'] = stub[:auto_enable] unless stub[:auto_enable].nil?
         data['maxAccountLimitReached'] = stub[:max_account_limit_reached] unless stub[:max_account_limit_reached].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1445,8 +1447,8 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['administrator'] = Stubs::Invitation.stub(stub[:administrator]) unless stub[:administrator].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['administrator'] = Invitation.stub(stub[:administrator]) unless stub[:administrator].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1499,19 +1501,19 @@ module AWS::SDK::Macie2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['bucketCount'] = stub[:bucket_count] unless stub[:bucket_count].nil?
-        data['bucketCountByEffectivePermission'] = Stubs::BucketCountByEffectivePermission.stub(stub[:bucket_count_by_effective_permission]) unless stub[:bucket_count_by_effective_permission].nil?
-        data['bucketCountByEncryptionType'] = Stubs::BucketCountByEncryptionType.stub(stub[:bucket_count_by_encryption_type]) unless stub[:bucket_count_by_encryption_type].nil?
-        data['bucketCountByObjectEncryptionRequirement'] = Stubs::BucketCountPolicyAllowsUnencryptedObjectUploads.stub(stub[:bucket_count_by_object_encryption_requirement]) unless stub[:bucket_count_by_object_encryption_requirement].nil?
-        data['bucketCountBySharedAccessType'] = Stubs::BucketCountBySharedAccessType.stub(stub[:bucket_count_by_shared_access_type]) unless stub[:bucket_count_by_shared_access_type].nil?
+        data['bucketCountByEffectivePermission'] = BucketCountByEffectivePermission.stub(stub[:bucket_count_by_effective_permission]) unless stub[:bucket_count_by_effective_permission].nil?
+        data['bucketCountByEncryptionType'] = BucketCountByEncryptionType.stub(stub[:bucket_count_by_encryption_type]) unless stub[:bucket_count_by_encryption_type].nil?
+        data['bucketCountByObjectEncryptionRequirement'] = BucketCountPolicyAllowsUnencryptedObjectUploads.stub(stub[:bucket_count_by_object_encryption_requirement]) unless stub[:bucket_count_by_object_encryption_requirement].nil?
+        data['bucketCountBySharedAccessType'] = BucketCountBySharedAccessType.stub(stub[:bucket_count_by_shared_access_type]) unless stub[:bucket_count_by_shared_access_type].nil?
         data['classifiableObjectCount'] = stub[:classifiable_object_count] unless stub[:classifiable_object_count].nil?
         data['classifiableSizeInBytes'] = stub[:classifiable_size_in_bytes] unless stub[:classifiable_size_in_bytes].nil?
         data['lastUpdated'] = Hearth::TimeHelper.to_date_time(stub[:last_updated]) unless stub[:last_updated].nil?
         data['objectCount'] = stub[:object_count] unless stub[:object_count].nil?
         data['sizeInBytes'] = stub[:size_in_bytes] unless stub[:size_in_bytes].nil?
         data['sizeInBytesCompressed'] = stub[:size_in_bytes_compressed] unless stub[:size_in_bytes_compressed].nil?
-        data['unclassifiableObjectCount'] = Stubs::ObjectLevelStatistics.stub(stub[:unclassifiable_object_count]) unless stub[:unclassifiable_object_count].nil?
-        data['unclassifiableObjectSizeInBytes'] = Stubs::ObjectLevelStatistics.stub(stub[:unclassifiable_object_size_in_bytes]) unless stub[:unclassifiable_object_size_in_bytes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['unclassifiableObjectCount'] = ObjectLevelStatistics.stub(stub[:unclassifiable_object_count]) unless stub[:unclassifiable_object_count].nil?
+        data['unclassifiableObjectSizeInBytes'] = ObjectLevelStatistics.stub(stub[:unclassifiable_object_size_in_bytes]) unless stub[:unclassifiable_object_size_in_bytes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1621,8 +1623,8 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['configuration'] = Stubs::ClassificationExportConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['configuration'] = ClassificationExportConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1639,7 +1641,7 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::ClassificationExportConfiguration.new
         data = {}
-        data['s3Destination'] = Stubs::S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
+        data['s3Destination'] = S3Destination.stub(stub[:s3_destination]) unless stub[:s3_destination].nil?
         data
       end
     end
@@ -1694,14 +1696,14 @@ module AWS::SDK::Macie2
         data['deleted'] = stub[:deleted] unless stub[:deleted].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['ignoreWords'] = Stubs::List____listOf__string.stub(stub[:ignore_words]) unless stub[:ignore_words].nil?
-        data['keywords'] = Stubs::List____listOf__string.stub(stub[:keywords]) unless stub[:keywords].nil?
+        data['ignoreWords'] = List____listOf__string.stub(stub[:ignore_words]) unless stub[:ignore_words].nil?
+        data['keywords'] = List____listOf__string.stub(stub[:keywords]) unless stub[:keywords].nil?
         data['maximumMatchDistance'] = stub[:maximum_match_distance] unless stub[:maximum_match_distance].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['regex'] = stub[:regex] unless stub[:regex].nil?
-        data['severityLevels'] = Stubs::SeverityLevelList.stub(stub[:severity_levels]) unless stub[:severity_levels].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['severityLevels'] = SeverityLevelList.stub(stub[:severity_levels]) unless stub[:severity_levels].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1719,7 +1721,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SeverityLevel.stub(element) unless element.nil?
+          data << SeverityLevel.stub(element) unless element.nil?
         end
         data
       end
@@ -1757,8 +1759,8 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['countsByGroup'] = Stubs::List____listOfGroupCount.stub(stub[:counts_by_group]) unless stub[:counts_by_group].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['countsByGroup'] = List____listOfGroupCount.stub(stub[:counts_by_group]) unless stub[:counts_by_group].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1776,7 +1778,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GroupCount.stub(element) unless element.nil?
+          data << GroupCount.stub(element) unless element.nil?
         end
         data
       end
@@ -1814,8 +1816,8 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['findings'] = Stubs::List____listOfFinding.stub(stub[:findings]) unless stub[:findings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['findings'] = List____listOfFinding.stub(stub[:findings]) unless stub[:findings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1833,7 +1835,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Finding.stub(element) unless element.nil?
+          data << Finding.stub(element) unless element.nil?
         end
         data
       end
@@ -1872,18 +1874,18 @@ module AWS::SDK::Macie2
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['archived'] = stub[:archived] unless stub[:archived].nil?
         data['category'] = stub[:category] unless stub[:category].nil?
-        data['classificationDetails'] = Stubs::ClassificationDetails.stub(stub[:classification_details]) unless stub[:classification_details].nil?
+        data['classificationDetails'] = ClassificationDetails.stub(stub[:classification_details]) unless stub[:classification_details].nil?
         data['count'] = stub[:count] unless stub[:count].nil?
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['partition'] = stub[:partition] unless stub[:partition].nil?
-        data['policyDetails'] = Stubs::PolicyDetails.stub(stub[:policy_details]) unless stub[:policy_details].nil?
+        data['policyDetails'] = PolicyDetails.stub(stub[:policy_details]) unless stub[:policy_details].nil?
         data['region'] = stub[:region] unless stub[:region].nil?
-        data['resourcesAffected'] = Stubs::ResourcesAffected.stub(stub[:resources_affected]) unless stub[:resources_affected].nil?
+        data['resourcesAffected'] = ResourcesAffected.stub(stub[:resources_affected]) unless stub[:resources_affected].nil?
         data['sample'] = stub[:sample] unless stub[:sample].nil?
         data['schemaVersion'] = stub[:schema_version] unless stub[:schema_version].nil?
-        data['severity'] = Stubs::Severity.stub(stub[:severity]) unless stub[:severity].nil?
+        data['severity'] = Severity.stub(stub[:severity]) unless stub[:severity].nil?
         data['title'] = stub[:title] unless stub[:title].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
@@ -1925,8 +1927,8 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::ResourcesAffected.new
         data = {}
-        data['s3Bucket'] = Stubs::S3Bucket.stub(stub[:s3_bucket]) unless stub[:s3_bucket].nil?
-        data['s3Object'] = Stubs::S3Object.stub(stub[:s3_object]) unless stub[:s3_object].nil?
+        data['s3Bucket'] = S3Bucket.stub(stub[:s3_bucket]) unless stub[:s3_bucket].nil?
+        data['s3Object'] = S3Object.stub(stub[:s3_object]) unless stub[:s3_object].nil?
         data
       end
     end
@@ -1962,10 +1964,10 @@ module AWS::SDK::Macie2
         data['lastModified'] = Hearth::TimeHelper.to_date_time(stub[:last_modified]) unless stub[:last_modified].nil?
         data['path'] = stub[:path] unless stub[:path].nil?
         data['publicAccess'] = stub[:public_access] unless stub[:public_access].nil?
-        data['serverSideEncryption'] = Stubs::ServerSideEncryption.stub(stub[:server_side_encryption]) unless stub[:server_side_encryption].nil?
+        data['serverSideEncryption'] = ServerSideEncryption.stub(stub[:server_side_encryption]) unless stub[:server_side_encryption].nil?
         data['size'] = stub[:size] unless stub[:size].nil?
         data['storageClass'] = stub[:storage_class] unless stub[:storage_class].nil?
-        data['tags'] = Stubs::KeyValuePairList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = KeyValuePairList.stub(stub[:tags]) unless stub[:tags].nil?
         data['versionId'] = stub[:version_id] unless stub[:version_id].nil?
         data
       end
@@ -1985,7 +1987,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeyValuePair.stub(element) unless element.nil?
+          data << KeyValuePair.stub(element) unless element.nil?
         end
         data
       end
@@ -2034,11 +2036,11 @@ module AWS::SDK::Macie2
         data['allowsUnencryptedObjectUploads'] = stub[:allows_unencrypted_object_uploads] unless stub[:allows_unencrypted_object_uploads].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
-        data['defaultServerSideEncryption'] = Stubs::ServerSideEncryption.stub(stub[:default_server_side_encryption]) unless stub[:default_server_side_encryption].nil?
+        data['defaultServerSideEncryption'] = ServerSideEncryption.stub(stub[:default_server_side_encryption]) unless stub[:default_server_side_encryption].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['owner'] = Stubs::S3BucketOwner.stub(stub[:owner]) unless stub[:owner].nil?
-        data['publicAccess'] = Stubs::BucketPublicAccess.stub(stub[:public_access]) unless stub[:public_access].nil?
-        data['tags'] = Stubs::KeyValuePairList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['owner'] = S3BucketOwner.stub(stub[:owner]) unless stub[:owner].nil?
+        data['publicAccess'] = BucketPublicAccess.stub(stub[:public_access]) unless stub[:public_access].nil?
+        data['tags'] = KeyValuePairList.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -2077,8 +2079,8 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::PolicyDetails.new
         data = {}
-        data['action'] = Stubs::FindingAction.stub(stub[:action]) unless stub[:action].nil?
-        data['actor'] = Stubs::FindingActor.stub(stub[:actor]) unless stub[:actor].nil?
+        data['action'] = FindingAction.stub(stub[:action]) unless stub[:action].nil?
+        data['actor'] = FindingActor.stub(stub[:actor]) unless stub[:actor].nil?
         data
       end
     end
@@ -2098,9 +2100,9 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::FindingActor.new
         data = {}
-        data['domainDetails'] = Stubs::DomainDetails.stub(stub[:domain_details]) unless stub[:domain_details].nil?
-        data['ipAddressDetails'] = Stubs::IpAddressDetails.stub(stub[:ip_address_details]) unless stub[:ip_address_details].nil?
-        data['userIdentity'] = Stubs::UserIdentity.stub(stub[:user_identity]) unless stub[:user_identity].nil?
+        data['domainDetails'] = DomainDetails.stub(stub[:domain_details]) unless stub[:domain_details].nil?
+        data['ipAddressDetails'] = IpAddressDetails.stub(stub[:ip_address_details]) unless stub[:ip_address_details].nil?
+        data['userIdentity'] = UserIdentity.stub(stub[:user_identity]) unless stub[:user_identity].nil?
         data
       end
     end
@@ -2124,12 +2126,12 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::UserIdentity.new
         data = {}
-        data['assumedRole'] = Stubs::AssumedRole.stub(stub[:assumed_role]) unless stub[:assumed_role].nil?
-        data['awsAccount'] = Stubs::AwsAccount.stub(stub[:aws_account]) unless stub[:aws_account].nil?
-        data['awsService'] = Stubs::AwsService.stub(stub[:aws_service]) unless stub[:aws_service].nil?
-        data['federatedUser'] = Stubs::FederatedUser.stub(stub[:federated_user]) unless stub[:federated_user].nil?
-        data['iamUser'] = Stubs::IamUser.stub(stub[:iam_user]) unless stub[:iam_user].nil?
-        data['root'] = Stubs::UserIdentityRoot.stub(stub[:root]) unless stub[:root].nil?
+        data['assumedRole'] = AssumedRole.stub(stub[:assumed_role]) unless stub[:assumed_role].nil?
+        data['awsAccount'] = AwsAccount.stub(stub[:aws_account]) unless stub[:aws_account].nil?
+        data['awsService'] = AwsService.stub(stub[:aws_service]) unless stub[:aws_service].nil?
+        data['federatedUser'] = FederatedUser.stub(stub[:federated_user]) unless stub[:federated_user].nil?
+        data['iamUser'] = IamUser.stub(stub[:iam_user]) unless stub[:iam_user].nil?
+        data['root'] = UserIdentityRoot.stub(stub[:root]) unless stub[:root].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -2202,7 +2204,7 @@ module AWS::SDK::Macie2
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['principalId'] = stub[:principal_id] unless stub[:principal_id].nil?
-        data['sessionContext'] = Stubs::SessionContext.stub(stub[:session_context]) unless stub[:session_context].nil?
+        data['sessionContext'] = SessionContext.stub(stub[:session_context]) unless stub[:session_context].nil?
         data
       end
     end
@@ -2221,8 +2223,8 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::SessionContext.new
         data = {}
-        data['attributes'] = Stubs::SessionContextAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
-        data['sessionIssuer'] = Stubs::SessionIssuer.stub(stub[:session_issuer]) unless stub[:session_issuer].nil?
+        data['attributes'] = SessionContextAttributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['sessionIssuer'] = SessionIssuer.stub(stub[:session_issuer]) unless stub[:session_issuer].nil?
         data
       end
     end
@@ -2332,7 +2334,7 @@ module AWS::SDK::Macie2
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['principalId'] = stub[:principal_id] unless stub[:principal_id].nil?
-        data['sessionContext'] = Stubs::SessionContext.stub(stub[:session_context]) unless stub[:session_context].nil?
+        data['sessionContext'] = SessionContext.stub(stub[:session_context]) unless stub[:session_context].nil?
         data
       end
     end
@@ -2355,10 +2357,10 @@ module AWS::SDK::Macie2
         stub ||= Types::IpAddressDetails.new
         data = {}
         data['ipAddressV4'] = stub[:ip_address_v4] unless stub[:ip_address_v4].nil?
-        data['ipCity'] = Stubs::IpCity.stub(stub[:ip_city]) unless stub[:ip_city].nil?
-        data['ipCountry'] = Stubs::IpCountry.stub(stub[:ip_country]) unless stub[:ip_country].nil?
-        data['ipGeoLocation'] = Stubs::IpGeoLocation.stub(stub[:ip_geo_location]) unless stub[:ip_geo_location].nil?
-        data['ipOwner'] = Stubs::IpOwner.stub(stub[:ip_owner]) unless stub[:ip_owner].nil?
+        data['ipCity'] = IpCity.stub(stub[:ip_city]) unless stub[:ip_city].nil?
+        data['ipCountry'] = IpCountry.stub(stub[:ip_country]) unless stub[:ip_country].nil?
+        data['ipGeoLocation'] = IpGeoLocation.stub(stub[:ip_geo_location]) unless stub[:ip_geo_location].nil?
+        data['ipOwner'] = IpOwner.stub(stub[:ip_owner]) unless stub[:ip_owner].nil?
         data
       end
     end
@@ -2478,7 +2480,7 @@ module AWS::SDK::Macie2
         stub ||= Types::FindingAction.new
         data = {}
         data['actionType'] = stub[:action_type] unless stub[:action_type].nil?
-        data['apiCallDetails'] = Stubs::ApiCallDetails.stub(stub[:api_call_details]) unless stub[:api_call_details].nil?
+        data['apiCallDetails'] = ApiCallDetails.stub(stub[:api_call_details]) unless stub[:api_call_details].nil?
         data
       end
     end
@@ -2528,7 +2530,7 @@ module AWS::SDK::Macie2
         data['jobArn'] = stub[:job_arn] unless stub[:job_arn].nil?
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['originType'] = stub[:origin_type] unless stub[:origin_type].nil?
-        data['result'] = Stubs::ClassificationResult.stub(stub[:result]) unless stub[:result].nil?
+        data['result'] = ClassificationResult.stub(stub[:result]) unless stub[:result].nil?
         data
       end
     end
@@ -2552,11 +2554,11 @@ module AWS::SDK::Macie2
         stub ||= Types::ClassificationResult.new
         data = {}
         data['additionalOccurrences'] = stub[:additional_occurrences] unless stub[:additional_occurrences].nil?
-        data['customDataIdentifiers'] = Stubs::CustomDataIdentifiers.stub(stub[:custom_data_identifiers]) unless stub[:custom_data_identifiers].nil?
+        data['customDataIdentifiers'] = CustomDataIdentifiers.stub(stub[:custom_data_identifiers]) unless stub[:custom_data_identifiers].nil?
         data['mimeType'] = stub[:mime_type] unless stub[:mime_type].nil?
-        data['sensitiveData'] = Stubs::SensitiveData.stub(stub[:sensitive_data]) unless stub[:sensitive_data].nil?
+        data['sensitiveData'] = SensitiveData.stub(stub[:sensitive_data]) unless stub[:sensitive_data].nil?
         data['sizeClassified'] = stub[:size_classified] unless stub[:size_classified].nil?
-        data['status'] = Stubs::ClassificationResultStatus.stub(stub[:status]) unless stub[:status].nil?
+        data['status'] = ClassificationResultStatus.stub(stub[:status]) unless stub[:status].nil?
         data
       end
     end
@@ -2595,7 +2597,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SensitiveDataItem.stub(element) unless element.nil?
+          data << SensitiveDataItem.stub(element) unless element.nil?
         end
         data
       end
@@ -2617,7 +2619,7 @@ module AWS::SDK::Macie2
         stub ||= Types::SensitiveDataItem.new
         data = {}
         data['category'] = stub[:category] unless stub[:category].nil?
-        data['detections'] = Stubs::DefaultDetections.stub(stub[:detections]) unless stub[:detections].nil?
+        data['detections'] = DefaultDetections.stub(stub[:detections]) unless stub[:detections].nil?
         data['totalCount'] = stub[:total_count] unless stub[:total_count].nil?
         data
       end
@@ -2637,7 +2639,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DefaultDetection.stub(element) unless element.nil?
+          data << DefaultDetection.stub(element) unless element.nil?
         end
         data
       end
@@ -2659,7 +2661,7 @@ module AWS::SDK::Macie2
         stub ||= Types::DefaultDetection.new
         data = {}
         data['count'] = stub[:count] unless stub[:count].nil?
-        data['occurrences'] = Stubs::Occurrences.stub(stub[:occurrences]) unless stub[:occurrences].nil?
+        data['occurrences'] = Occurrences.stub(stub[:occurrences]) unless stub[:occurrences].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -2682,11 +2684,11 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::Occurrences.new
         data = {}
-        data['cells'] = Stubs::Cells.stub(stub[:cells]) unless stub[:cells].nil?
-        data['lineRanges'] = Stubs::Ranges.stub(stub[:line_ranges]) unless stub[:line_ranges].nil?
-        data['offsetRanges'] = Stubs::Ranges.stub(stub[:offset_ranges]) unless stub[:offset_ranges].nil?
-        data['pages'] = Stubs::Pages.stub(stub[:pages]) unless stub[:pages].nil?
-        data['records'] = Stubs::Records.stub(stub[:records]) unless stub[:records].nil?
+        data['cells'] = Cells.stub(stub[:cells]) unless stub[:cells].nil?
+        data['lineRanges'] = Ranges.stub(stub[:line_ranges]) unless stub[:line_ranges].nil?
+        data['offsetRanges'] = Ranges.stub(stub[:offset_ranges]) unless stub[:offset_ranges].nil?
+        data['pages'] = Pages.stub(stub[:pages]) unless stub[:pages].nil?
+        data['records'] = Records.stub(stub[:records]) unless stub[:records].nil?
         data
       end
     end
@@ -2705,7 +2707,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Record.stub(element) unless element.nil?
+          data << Record.stub(element) unless element.nil?
         end
         data
       end
@@ -2745,7 +2747,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Page.stub(element) unless element.nil?
+          data << Page.stub(element) unless element.nil?
         end
         data
       end
@@ -2766,8 +2768,8 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::Page.new
         data = {}
-        data['lineRange'] = Stubs::Range.stub(stub[:line_range]) unless stub[:line_range].nil?
-        data['offsetRange'] = Stubs::Range.stub(stub[:offset_range]) unless stub[:offset_range].nil?
+        data['lineRange'] = Range.stub(stub[:line_range]) unless stub[:line_range].nil?
+        data['offsetRange'] = Range.stub(stub[:offset_range]) unless stub[:offset_range].nil?
         data['pageNumber'] = stub[:page_number] unless stub[:page_number].nil?
         data
       end
@@ -2809,7 +2811,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Range.stub(element) unless element.nil?
+          data << Range.stub(element) unless element.nil?
         end
         data
       end
@@ -2829,7 +2831,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Cell.stub(element) unless element.nil?
+          data << Cell.stub(element) unless element.nil?
         end
         data
       end
@@ -2873,7 +2875,7 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::CustomDataIdentifiers.new
         data = {}
-        data['detections'] = Stubs::CustomDetections.stub(stub[:detections]) unless stub[:detections].nil?
+        data['detections'] = CustomDetections.stub(stub[:detections]) unless stub[:detections].nil?
         data['totalCount'] = stub[:total_count] unless stub[:total_count].nil?
         data
       end
@@ -2893,7 +2895,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomDetection.stub(element) unless element.nil?
+          data << CustomDetection.stub(element) unless element.nil?
         end
         data
       end
@@ -2918,7 +2920,7 @@ module AWS::SDK::Macie2
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['count'] = stub[:count] unless stub[:count].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['occurrences'] = Stubs::Occurrences.stub(stub[:occurrences]) unless stub[:occurrences].nil?
+        data['occurrences'] = Occurrences.stub(stub[:occurrences]) unless stub[:occurrences].nil?
         data
       end
     end
@@ -2945,12 +2947,12 @@ module AWS::SDK::Macie2
         data['action'] = stub[:action] unless stub[:action].nil?
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['findingCriteria'] = Stubs::FindingCriteria.stub(stub[:finding_criteria]) unless stub[:finding_criteria].nil?
+        data['findingCriteria'] = FindingCriteria.stub(stub[:finding_criteria]) unless stub[:finding_criteria].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['position'] = stub[:position] unless stub[:position].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2967,7 +2969,7 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::FindingCriteria.new
         data = {}
-        data['criterion'] = Stubs::Criterion.stub(stub[:criterion]) unless stub[:criterion].nil?
+        data['criterion'] = Criterion.stub(stub[:criterion]) unless stub[:criterion].nil?
         data
       end
     end
@@ -2986,7 +2988,7 @@ module AWS::SDK::Macie2
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::CriterionAdditionalProperties.stub(value) unless value.nil?
+          data[key] = CriterionAdditionalProperties.stub(value) unless value.nil?
         end
         data
       end
@@ -3011,13 +3013,13 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::CriterionAdditionalProperties.new
         data = {}
-        data['eq'] = Stubs::List____listOf__string.stub(stub[:eq]) unless stub[:eq].nil?
-        data['eqExactMatch'] = Stubs::List____listOf__string.stub(stub[:eq_exact_match]) unless stub[:eq_exact_match].nil?
+        data['eq'] = List____listOf__string.stub(stub[:eq]) unless stub[:eq].nil?
+        data['eqExactMatch'] = List____listOf__string.stub(stub[:eq_exact_match]) unless stub[:eq_exact_match].nil?
         data['gt'] = stub[:gt] unless stub[:gt].nil?
         data['gte'] = stub[:gte] unless stub[:gte].nil?
         data['lt'] = stub[:lt] unless stub[:lt].nil?
         data['lte'] = stub[:lte] unless stub[:lte].nil?
-        data['neq'] = Stubs::List____listOf__string.stub(stub[:neq]) unless stub[:neq].nil?
+        data['neq'] = List____listOf__string.stub(stub[:neq]) unless stub[:neq].nil?
         data
       end
     end
@@ -3034,8 +3036,8 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['securityHubConfiguration'] = Stubs::SecurityHubConfiguration.stub(stub[:security_hub_configuration]) unless stub[:security_hub_configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['securityHubConfiguration'] = SecurityHubConfiguration.stub(stub[:security_hub_configuration]) unless stub[:security_hub_configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3072,7 +3074,7 @@ module AWS::SDK::Macie2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['invitationsCount'] = stub[:invitations_count] unless stub[:invitations_count].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3097,7 +3099,7 @@ module AWS::SDK::Macie2
         data['serviceRole'] = stub[:service_role] unless stub[:service_role].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3113,8 +3115,8 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['master'] = Stubs::Invitation.stub(stub[:master]) unless stub[:master].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['master'] = Invitation.stub(stub[:master]) unless stub[:master].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3145,9 +3147,9 @@ module AWS::SDK::Macie2
         data['invitedAt'] = Hearth::TimeHelper.to_date_time(stub[:invited_at]) unless stub[:invited_at].nil?
         data['masterAccountId'] = stub[:master_account_id] unless stub[:master_account_id].nil?
         data['relationshipStatus'] = stub[:relationship_status] unless stub[:relationship_status].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3166,9 +3168,9 @@ module AWS::SDK::Macie2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['records'] = Stubs::List____listOfUsageRecord.stub(stub[:records]) unless stub[:records].nil?
+        data['records'] = List____listOfUsageRecord.stub(stub[:records]) unless stub[:records].nil?
         data['timeRange'] = stub[:time_range] unless stub[:time_range].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3186,7 +3188,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UsageRecord.stub(element) unless element.nil?
+          data << UsageRecord.stub(element) unless element.nil?
         end
         data
       end
@@ -3209,7 +3211,7 @@ module AWS::SDK::Macie2
         data = {}
         data['accountId'] = stub[:account_id] unless stub[:account_id].nil?
         data['freeTrialStartDate'] = Hearth::TimeHelper.to_date_time(stub[:free_trial_start_date]) unless stub[:free_trial_start_date].nil?
-        data['usage'] = Stubs::List____listOfUsageByAccount.stub(stub[:usage]) unless stub[:usage].nil?
+        data['usage'] = List____listOfUsageByAccount.stub(stub[:usage]) unless stub[:usage].nil?
         data
       end
     end
@@ -3228,7 +3230,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UsageByAccount.stub(element) unless element.nil?
+          data << UsageByAccount.stub(element) unless element.nil?
         end
         data
       end
@@ -3252,7 +3254,7 @@ module AWS::SDK::Macie2
         data = {}
         data['currency'] = stub[:currency] unless stub[:currency].nil?
         data['estimatedCost'] = stub[:estimated_cost] unless stub[:estimated_cost].nil?
-        data['serviceLimit'] = Stubs::ServiceLimit.stub(stub[:service_limit]) unless stub[:service_limit].nil?
+        data['serviceLimit'] = ServiceLimit.stub(stub[:service_limit]) unless stub[:service_limit].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data
       end
@@ -3294,8 +3296,8 @@ module AWS::SDK::Macie2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['timeRange'] = stub[:time_range] unless stub[:time_range].nil?
-        data['usageTotals'] = Stubs::List____listOfUsageTotal.stub(stub[:usage_totals]) unless stub[:usage_totals].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['usageTotals'] = List____listOfUsageTotal.stub(stub[:usage_totals]) unless stub[:usage_totals].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3313,7 +3315,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UsageTotal.stub(element) unless element.nil?
+          data << UsageTotal.stub(element) unless element.nil?
         end
         data
       end
@@ -3354,9 +3356,9 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['items'] = Stubs::List____listOfJobSummary.stub(stub[:items]) unless stub[:items].nil?
+        data['items'] = List____listOfJobSummary.stub(stub[:items]) unless stub[:items].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3374,7 +3376,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::JobSummary.stub(element) unless element.nil?
+          data << JobSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3401,15 +3403,15 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::JobSummary.new
         data = {}
-        data['bucketDefinitions'] = Stubs::List____listOfS3BucketDefinitionForJob.stub(stub[:bucket_definitions]) unless stub[:bucket_definitions].nil?
+        data['bucketDefinitions'] = List____listOfS3BucketDefinitionForJob.stub(stub[:bucket_definitions]) unless stub[:bucket_definitions].nil?
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
         data['jobStatus'] = stub[:job_status] unless stub[:job_status].nil?
         data['jobType'] = stub[:job_type] unless stub[:job_type].nil?
-        data['lastRunErrorStatus'] = Stubs::LastRunErrorStatus.stub(stub[:last_run_error_status]) unless stub[:last_run_error_status].nil?
+        data['lastRunErrorStatus'] = LastRunErrorStatus.stub(stub[:last_run_error_status]) unless stub[:last_run_error_status].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['userPausedDetails'] = Stubs::UserPausedDetails.stub(stub[:user_paused_details]) unless stub[:user_paused_details].nil?
-        data['bucketCriteria'] = Stubs::S3BucketCriteriaForJob.stub(stub[:bucket_criteria]) unless stub[:bucket_criteria].nil?
+        data['userPausedDetails'] = UserPausedDetails.stub(stub[:user_paused_details]) unless stub[:user_paused_details].nil?
+        data['bucketCriteria'] = S3BucketCriteriaForJob.stub(stub[:bucket_criteria]) unless stub[:bucket_criteria].nil?
         data
       end
     end
@@ -3427,9 +3429,9 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['items'] = Stubs::List____listOfCustomDataIdentifierSummary.stub(stub[:items]) unless stub[:items].nil?
+        data['items'] = List____listOfCustomDataIdentifierSummary.stub(stub[:items]) unless stub[:items].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3447,7 +3449,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomDataIdentifierSummary.stub(element) unless element.nil?
+          data << CustomDataIdentifierSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3492,9 +3494,9 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['findingIds'] = Stubs::List____listOf__string.stub(stub[:finding_ids]) unless stub[:finding_ids].nil?
+        data['findingIds'] = List____listOf__string.stub(stub[:finding_ids]) unless stub[:finding_ids].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3511,9 +3513,9 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['findingsFilterListItems'] = Stubs::List____listOfFindingsFilterListItem.stub(stub[:findings_filter_list_items]) unless stub[:findings_filter_list_items].nil?
+        data['findingsFilterListItems'] = List____listOfFindingsFilterListItem.stub(stub[:findings_filter_list_items]) unless stub[:findings_filter_list_items].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3531,7 +3533,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FindingsFilterListItem.stub(element) unless element.nil?
+          data << FindingsFilterListItem.stub(element) unless element.nil?
         end
         data
       end
@@ -3558,7 +3560,7 @@ module AWS::SDK::Macie2
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -3576,9 +3578,9 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['invitations'] = Stubs::List____listOfInvitation.stub(stub[:invitations]) unless stub[:invitations].nil?
+        data['invitations'] = List____listOfInvitation.stub(stub[:invitations]) unless stub[:invitations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3596,7 +3598,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Invitation.stub(element) unless element.nil?
+          data << Invitation.stub(element) unless element.nil?
         end
         data
       end
@@ -3615,9 +3617,9 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['items'] = Stubs::List____listOfManagedDataIdentifierSummary.stub(stub[:items]) unless stub[:items].nil?
+        data['items'] = List____listOfManagedDataIdentifierSummary.stub(stub[:items]) unless stub[:items].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3635,7 +3637,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ManagedDataIdentifierSummary.stub(element) unless element.nil?
+          data << ManagedDataIdentifierSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -3674,9 +3676,9 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['members'] = Stubs::List____listOfMember.stub(stub[:members]) unless stub[:members].nil?
+        data['members'] = List____listOfMember.stub(stub[:members]) unless stub[:members].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3694,7 +3696,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Member.stub(element) unless element.nil?
+          data << Member.stub(element) unless element.nil?
         end
         data
       end
@@ -3728,7 +3730,7 @@ module AWS::SDK::Macie2
         data['invitedAt'] = Hearth::TimeHelper.to_date_time(stub[:invited_at]) unless stub[:invited_at].nil?
         data['masterAccountId'] = stub[:master_account_id] unless stub[:master_account_id].nil?
         data['relationshipStatus'] = stub[:relationship_status] unless stub[:relationship_status].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
         data
       end
@@ -3747,9 +3749,9 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['adminAccounts'] = Stubs::List____listOfAdminAccount.stub(stub[:admin_accounts]) unless stub[:admin_accounts].nil?
+        data['adminAccounts'] = List____listOfAdminAccount.stub(stub[:admin_accounts]) unless stub[:admin_accounts].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3767,7 +3769,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AdminAccount.stub(element) unless element.nil?
+          data << AdminAccount.stub(element) unless element.nil?
         end
         data
       end
@@ -3805,8 +3807,8 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3822,8 +3824,8 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['configuration'] = Stubs::ClassificationExportConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['configuration'] = ClassificationExportConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3853,9 +3855,9 @@ module AWS::SDK::Macie2
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['matchingResources'] = Stubs::List____listOfMatchingResource.stub(stub[:matching_resources]) unless stub[:matching_resources].nil?
+        data['matchingResources'] = List____listOfMatchingResource.stub(stub[:matching_resources]) unless stub[:matching_resources].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3873,7 +3875,7 @@ module AWS::SDK::Macie2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MatchingResource.stub(element) unless element.nil?
+          data << MatchingResource.stub(element) unless element.nil?
         end
         data
       end
@@ -3892,7 +3894,7 @@ module AWS::SDK::Macie2
       def self.stub(stub)
         stub ||= Types::MatchingResource.new
         data = {}
-        data['matchingBucket'] = Stubs::MatchingBucket.stub(stub[:matching_bucket]) unless stub[:matching_bucket].nil?
+        data['matchingBucket'] = MatchingBucket.stub(stub[:matching_bucket]) unless stub[:matching_bucket].nil?
         data
       end
     end
@@ -3928,13 +3930,13 @@ module AWS::SDK::Macie2
         data['classifiableSizeInBytes'] = stub[:classifiable_size_in_bytes] unless stub[:classifiable_size_in_bytes].nil?
         data['errorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        data['jobDetails'] = Stubs::JobDetails.stub(stub[:job_details]) unless stub[:job_details].nil?
+        data['jobDetails'] = JobDetails.stub(stub[:job_details]) unless stub[:job_details].nil?
         data['objectCount'] = stub[:object_count] unless stub[:object_count].nil?
-        data['objectCountByEncryptionType'] = Stubs::ObjectCountByEncryptionType.stub(stub[:object_count_by_encryption_type]) unless stub[:object_count_by_encryption_type].nil?
+        data['objectCountByEncryptionType'] = ObjectCountByEncryptionType.stub(stub[:object_count_by_encryption_type]) unless stub[:object_count_by_encryption_type].nil?
         data['sizeInBytes'] = stub[:size_in_bytes] unless stub[:size_in_bytes].nil?
         data['sizeInBytesCompressed'] = stub[:size_in_bytes_compressed] unless stub[:size_in_bytes_compressed].nil?
-        data['unclassifiableObjectCount'] = Stubs::ObjectLevelStatistics.stub(stub[:unclassifiable_object_count]) unless stub[:unclassifiable_object_count].nil?
-        data['unclassifiableObjectSizeInBytes'] = Stubs::ObjectLevelStatistics.stub(stub[:unclassifiable_object_size_in_bytes]) unless stub[:unclassifiable_object_size_in_bytes].nil?
+        data['unclassifiableObjectCount'] = ObjectLevelStatistics.stub(stub[:unclassifiable_object_count]) unless stub[:unclassifiable_object_count].nil?
+        data['unclassifiableObjectSizeInBytes'] = ObjectLevelStatistics.stub(stub[:unclassifiable_object_size_in_bytes]) unless stub[:unclassifiable_object_size_in_bytes].nil?
         data
       end
     end
@@ -3965,7 +3967,7 @@ module AWS::SDK::Macie2
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['matchCount'] = stub[:match_count] unless stub[:match_count].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4010,7 +4012,7 @@ module AWS::SDK::Macie2
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
         data['id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

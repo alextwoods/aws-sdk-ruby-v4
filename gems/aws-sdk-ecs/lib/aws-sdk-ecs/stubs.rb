@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ECS
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['capacityProvider'] = Stubs::CapacityProvider.stub(stub[:capacity_provider]) unless stub[:capacity_provider].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['capacityProvider'] = CapacityProvider.stub(stub[:capacity_provider]) unless stub[:capacity_provider].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -48,10 +50,10 @@ module AWS::SDK::ECS
         data['capacityProviderArn'] = stub[:capacity_provider_arn] unless stub[:capacity_provider_arn].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['autoScalingGroupProvider'] = Stubs::AutoScalingGroupProvider.stub(stub[:auto_scaling_group_provider]) unless stub[:auto_scaling_group_provider].nil?
+        data['autoScalingGroupProvider'] = AutoScalingGroupProvider.stub(stub[:auto_scaling_group_provider]) unless stub[:auto_scaling_group_provider].nil?
         data['updateStatus'] = stub[:update_status] unless stub[:update_status].nil?
         data['updateStatusReason'] = stub[:update_status_reason] unless stub[:update_status_reason].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -70,7 +72,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -112,7 +114,7 @@ module AWS::SDK::ECS
         stub ||= Types::AutoScalingGroupProvider.new
         data = {}
         data['autoScalingGroupArn'] = stub[:auto_scaling_group_arn] unless stub[:auto_scaling_group_arn].nil?
-        data['managedScaling'] = Stubs::ManagedScaling.stub(stub[:managed_scaling]) unless stub[:managed_scaling].nil?
+        data['managedScaling'] = ManagedScaling.stub(stub[:managed_scaling]) unless stub[:managed_scaling].nil?
         data['managedTerminationProtection'] = stub[:managed_termination_protection] unless stub[:managed_termination_protection].nil?
         data
       end
@@ -154,8 +156,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -189,18 +191,18 @@ module AWS::SDK::ECS
         data = {}
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
         data['clusterName'] = stub[:cluster_name] unless stub[:cluster_name].nil?
-        data['configuration'] = Stubs::ClusterConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        data['configuration'] = ClusterConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['registeredContainerInstancesCount'] = stub[:registered_container_instances_count] unless stub[:registered_container_instances_count].nil?
         data['runningTasksCount'] = stub[:running_tasks_count] unless stub[:running_tasks_count].nil?
         data['pendingTasksCount'] = stub[:pending_tasks_count] unless stub[:pending_tasks_count].nil?
         data['activeServicesCount'] = stub[:active_services_count] unless stub[:active_services_count].nil?
-        data['statistics'] = Stubs::Statistics.stub(stub[:statistics]) unless stub[:statistics].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['settings'] = Stubs::ClusterSettings.stub(stub[:settings]) unless stub[:settings].nil?
-        data['capacityProviders'] = Stubs::StringList.stub(stub[:capacity_providers]) unless stub[:capacity_providers].nil?
-        data['defaultCapacityProviderStrategy'] = Stubs::CapacityProviderStrategy.stub(stub[:default_capacity_provider_strategy]) unless stub[:default_capacity_provider_strategy].nil?
-        data['attachments'] = Stubs::Attachments.stub(stub[:attachments]) unless stub[:attachments].nil?
+        data['statistics'] = Statistics.stub(stub[:statistics]) unless stub[:statistics].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['settings'] = ClusterSettings.stub(stub[:settings]) unless stub[:settings].nil?
+        data['capacityProviders'] = StringList.stub(stub[:capacity_providers]) unless stub[:capacity_providers].nil?
+        data['defaultCapacityProviderStrategy'] = CapacityProviderStrategy.stub(stub[:default_capacity_provider_strategy]) unless stub[:default_capacity_provider_strategy].nil?
+        data['attachments'] = Attachments.stub(stub[:attachments]) unless stub[:attachments].nil?
         data['attachmentsStatus'] = stub[:attachments_status] unless stub[:attachments_status].nil?
         data
       end
@@ -220,7 +222,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Attachment.stub(element) unless element.nil?
+          data << Attachment.stub(element) unless element.nil?
         end
         data
       end
@@ -245,7 +247,7 @@ module AWS::SDK::ECS
         data['id'] = stub[:id] unless stub[:id].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['details'] = Stubs::AttachmentDetails.stub(stub[:details]) unless stub[:details].nil?
+        data['details'] = AttachmentDetails.stub(stub[:details]) unless stub[:details].nil?
         data
       end
     end
@@ -264,7 +266,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeyValuePair.stub(element) unless element.nil?
+          data << KeyValuePair.stub(element) unless element.nil?
         end
         data
       end
@@ -304,7 +306,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CapacityProviderStrategyItem.stub(element) unless element.nil?
+          data << CapacityProviderStrategyItem.stub(element) unless element.nil?
         end
         data
       end
@@ -366,7 +368,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ClusterSetting.stub(element) unless element.nil?
+          data << ClusterSetting.stub(element) unless element.nil?
         end
         data
       end
@@ -406,7 +408,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeyValuePair.stub(element) unless element.nil?
+          data << KeyValuePair.stub(element) unless element.nil?
         end
         data
       end
@@ -425,7 +427,7 @@ module AWS::SDK::ECS
       def self.stub(stub)
         stub ||= Types::ClusterConfiguration.new
         data = {}
-        data['executeCommandConfiguration'] = Stubs::ExecuteCommandConfiguration.stub(stub[:execute_command_configuration]) unless stub[:execute_command_configuration].nil?
+        data['executeCommandConfiguration'] = ExecuteCommandConfiguration.stub(stub[:execute_command_configuration]) unless stub[:execute_command_configuration].nil?
         data
       end
     end
@@ -447,7 +449,7 @@ module AWS::SDK::ECS
         data = {}
         data['kmsKeyId'] = stub[:kms_key_id] unless stub[:kms_key_id].nil?
         data['logging'] = stub[:logging] unless stub[:logging].nil?
-        data['logConfiguration'] = Stubs::ExecuteCommandLogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
+        data['logConfiguration'] = ExecuteCommandLogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
         data
       end
     end
@@ -488,8 +490,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['service'] = Stubs::Service.stub(stub[:service]) unless stub[:service].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['service'] = Service.stub(stub[:service]) unless stub[:service].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -540,30 +542,30 @@ module AWS::SDK::ECS
         data['serviceArn'] = stub[:service_arn] unless stub[:service_arn].nil?
         data['serviceName'] = stub[:service_name] unless stub[:service_name].nil?
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
-        data['loadBalancers'] = Stubs::LoadBalancers.stub(stub[:load_balancers]) unless stub[:load_balancers].nil?
-        data['serviceRegistries'] = Stubs::ServiceRegistries.stub(stub[:service_registries]) unless stub[:service_registries].nil?
+        data['loadBalancers'] = LoadBalancers.stub(stub[:load_balancers]) unless stub[:load_balancers].nil?
+        data['serviceRegistries'] = ServiceRegistries.stub(stub[:service_registries]) unless stub[:service_registries].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['desiredCount'] = stub[:desired_count] unless stub[:desired_count].nil?
         data['runningCount'] = stub[:running_count] unless stub[:running_count].nil?
         data['pendingCount'] = stub[:pending_count] unless stub[:pending_count].nil?
         data['launchType'] = stub[:launch_type] unless stub[:launch_type].nil?
-        data['capacityProviderStrategy'] = Stubs::CapacityProviderStrategy.stub(stub[:capacity_provider_strategy]) unless stub[:capacity_provider_strategy].nil?
+        data['capacityProviderStrategy'] = CapacityProviderStrategy.stub(stub[:capacity_provider_strategy]) unless stub[:capacity_provider_strategy].nil?
         data['platformVersion'] = stub[:platform_version] unless stub[:platform_version].nil?
         data['platformFamily'] = stub[:platform_family] unless stub[:platform_family].nil?
         data['taskDefinition'] = stub[:task_definition] unless stub[:task_definition].nil?
-        data['deploymentConfiguration'] = Stubs::DeploymentConfiguration.stub(stub[:deployment_configuration]) unless stub[:deployment_configuration].nil?
-        data['taskSets'] = Stubs::TaskSets.stub(stub[:task_sets]) unless stub[:task_sets].nil?
-        data['deployments'] = Stubs::Deployments.stub(stub[:deployments]) unless stub[:deployments].nil?
+        data['deploymentConfiguration'] = DeploymentConfiguration.stub(stub[:deployment_configuration]) unless stub[:deployment_configuration].nil?
+        data['taskSets'] = TaskSets.stub(stub[:task_sets]) unless stub[:task_sets].nil?
+        data['deployments'] = Deployments.stub(stub[:deployments]) unless stub[:deployments].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['events'] = Stubs::ServiceEvents.stub(stub[:events]) unless stub[:events].nil?
+        data['events'] = ServiceEvents.stub(stub[:events]) unless stub[:events].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['placementConstraints'] = Stubs::PlacementConstraints.stub(stub[:placement_constraints]) unless stub[:placement_constraints].nil?
-        data['placementStrategy'] = Stubs::PlacementStrategies.stub(stub[:placement_strategy]) unless stub[:placement_strategy].nil?
-        data['networkConfiguration'] = Stubs::NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
+        data['placementConstraints'] = PlacementConstraints.stub(stub[:placement_constraints]) unless stub[:placement_constraints].nil?
+        data['placementStrategy'] = PlacementStrategies.stub(stub[:placement_strategy]) unless stub[:placement_strategy].nil?
+        data['networkConfiguration'] = NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
         data['healthCheckGracePeriodSeconds'] = stub[:health_check_grace_period_seconds] unless stub[:health_check_grace_period_seconds].nil?
         data['schedulingStrategy'] = stub[:scheduling_strategy] unless stub[:scheduling_strategy].nil?
-        data['deploymentController'] = Stubs::DeploymentController.stub(stub[:deployment_controller]) unless stub[:deployment_controller].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['deploymentController'] = DeploymentController.stub(stub[:deployment_controller]) unless stub[:deployment_controller].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['createdBy'] = stub[:created_by] unless stub[:created_by].nil?
         data['enableECSManagedTags'] = stub[:enable_ecs_managed_tags] unless stub[:enable_ecs_managed_tags].nil?
         data['propagateTags'] = stub[:propagate_tags] unless stub[:propagate_tags].nil?
@@ -603,7 +605,7 @@ module AWS::SDK::ECS
       def self.stub(stub)
         stub ||= Types::NetworkConfiguration.new
         data = {}
-        data['awsvpcConfiguration'] = Stubs::AwsVpcConfiguration.stub(stub[:awsvpc_configuration]) unless stub[:awsvpc_configuration].nil?
+        data['awsvpcConfiguration'] = AwsVpcConfiguration.stub(stub[:awsvpc_configuration]) unless stub[:awsvpc_configuration].nil?
         data
       end
     end
@@ -623,8 +625,8 @@ module AWS::SDK::ECS
       def self.stub(stub)
         stub ||= Types::AwsVpcConfiguration.new
         data = {}
-        data['subnets'] = Stubs::StringList.stub(stub[:subnets]) unless stub[:subnets].nil?
-        data['securityGroups'] = Stubs::StringList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['subnets'] = StringList.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['securityGroups'] = StringList.stub(stub[:security_groups]) unless stub[:security_groups].nil?
         data['assignPublicIp'] = stub[:assign_public_ip] unless stub[:assign_public_ip].nil?
         data
       end
@@ -644,7 +646,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PlacementStrategy.stub(element) unless element.nil?
+          data << PlacementStrategy.stub(element) unless element.nil?
         end
         data
       end
@@ -684,7 +686,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PlacementConstraint.stub(element) unless element.nil?
+          data << PlacementConstraint.stub(element) unless element.nil?
         end
         data
       end
@@ -724,7 +726,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceEvent.stub(element) unless element.nil?
+          data << ServiceEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -766,7 +768,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Deployment.stub(element) unless element.nil?
+          data << Deployment.stub(element) unless element.nil?
         end
         data
       end
@@ -809,11 +811,11 @@ module AWS::SDK::ECS
         data['failedTasks'] = stub[:failed_tasks] unless stub[:failed_tasks].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
-        data['capacityProviderStrategy'] = Stubs::CapacityProviderStrategy.stub(stub[:capacity_provider_strategy]) unless stub[:capacity_provider_strategy].nil?
+        data['capacityProviderStrategy'] = CapacityProviderStrategy.stub(stub[:capacity_provider_strategy]) unless stub[:capacity_provider_strategy].nil?
         data['launchType'] = stub[:launch_type] unless stub[:launch_type].nil?
         data['platformVersion'] = stub[:platform_version] unless stub[:platform_version].nil?
         data['platformFamily'] = stub[:platform_family] unless stub[:platform_family].nil?
-        data['networkConfiguration'] = Stubs::NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
+        data['networkConfiguration'] = NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
         data['rolloutState'] = stub[:rollout_state] unless stub[:rollout_state].nil?
         data['rolloutStateReason'] = stub[:rollout_state_reason] unless stub[:rollout_state_reason].nil?
         data
@@ -834,7 +836,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TaskSet.stub(element) unless element.nil?
+          data << TaskSet.stub(element) unless element.nil?
         end
         data
       end
@@ -890,16 +892,16 @@ module AWS::SDK::ECS
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:updated_at]).to_i unless stub[:updated_at].nil?
         data['launchType'] = stub[:launch_type] unless stub[:launch_type].nil?
-        data['capacityProviderStrategy'] = Stubs::CapacityProviderStrategy.stub(stub[:capacity_provider_strategy]) unless stub[:capacity_provider_strategy].nil?
+        data['capacityProviderStrategy'] = CapacityProviderStrategy.stub(stub[:capacity_provider_strategy]) unless stub[:capacity_provider_strategy].nil?
         data['platformVersion'] = stub[:platform_version] unless stub[:platform_version].nil?
         data['platformFamily'] = stub[:platform_family] unless stub[:platform_family].nil?
-        data['networkConfiguration'] = Stubs::NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
-        data['loadBalancers'] = Stubs::LoadBalancers.stub(stub[:load_balancers]) unless stub[:load_balancers].nil?
-        data['serviceRegistries'] = Stubs::ServiceRegistries.stub(stub[:service_registries]) unless stub[:service_registries].nil?
-        data['scale'] = Stubs::Scale.stub(stub[:scale]) unless stub[:scale].nil?
+        data['networkConfiguration'] = NetworkConfiguration.stub(stub[:network_configuration]) unless stub[:network_configuration].nil?
+        data['loadBalancers'] = LoadBalancers.stub(stub[:load_balancers]) unless stub[:load_balancers].nil?
+        data['serviceRegistries'] = ServiceRegistries.stub(stub[:service_registries]) unless stub[:service_registries].nil?
+        data['scale'] = Scale.stub(stub[:scale]) unless stub[:scale].nil?
         data['stabilityStatus'] = stub[:stability_status] unless stub[:stability_status].nil?
         data['stabilityStatusAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:stability_status_at]).to_i unless stub[:stability_status_at].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -938,7 +940,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ServiceRegistry.stub(element) unless element.nil?
+          data << ServiceRegistry.stub(element) unless element.nil?
         end
         data
       end
@@ -982,7 +984,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LoadBalancer.stub(element) unless element.nil?
+          data << LoadBalancer.stub(element) unless element.nil?
         end
         data
       end
@@ -1027,7 +1029,7 @@ module AWS::SDK::ECS
       def self.stub(stub)
         stub ||= Types::DeploymentConfiguration.new
         data = {}
-        data['deploymentCircuitBreaker'] = Stubs::DeploymentCircuitBreaker.stub(stub[:deployment_circuit_breaker]) unless stub[:deployment_circuit_breaker].nil?
+        data['deploymentCircuitBreaker'] = DeploymentCircuitBreaker.stub(stub[:deployment_circuit_breaker]) unless stub[:deployment_circuit_breaker].nil?
         data['maximumPercent'] = stub[:maximum_percent] unless stub[:maximum_percent].nil?
         data['minimumHealthyPercent'] = stub[:minimum_healthy_percent] unless stub[:minimum_healthy_percent].nil?
         data
@@ -1064,8 +1066,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['taskSet'] = Stubs::TaskSet.stub(stub[:task_set]) unless stub[:task_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['taskSet'] = TaskSet.stub(stub[:task_set]) unless stub[:task_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1080,8 +1082,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['setting'] = Stubs::Setting.stub(stub[:setting]) unless stub[:setting].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['setting'] = Setting.stub(stub[:setting]) unless stub[:setting].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1118,8 +1120,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1138,7 +1140,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Attribute.stub(element) unless element.nil?
+          data << Attribute.stub(element) unless element.nil?
         end
         data
       end
@@ -1178,8 +1180,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['capacityProvider'] = Stubs::CapacityProvider.stub(stub[:capacity_provider]) unless stub[:capacity_provider].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['capacityProvider'] = CapacityProvider.stub(stub[:capacity_provider]) unless stub[:capacity_provider].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1194,8 +1196,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1210,8 +1212,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['service'] = Stubs::Service.stub(stub[:service]) unless stub[:service].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['service'] = Service.stub(stub[:service]) unless stub[:service].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1226,8 +1228,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['taskSet'] = Stubs::TaskSet.stub(stub[:task_set]) unless stub[:task_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['taskSet'] = TaskSet.stub(stub[:task_set]) unless stub[:task_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1242,8 +1244,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['containerInstance'] = Stubs::ContainerInstance.stub(stub[:container_instance]) unless stub[:container_instance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['containerInstance'] = ContainerInstance.stub(stub[:container_instance]) unless stub[:container_instance].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1282,20 +1284,20 @@ module AWS::SDK::ECS
         data['ec2InstanceId'] = stub[:ec2_instance_id] unless stub[:ec2_instance_id].nil?
         data['capacityProviderName'] = stub[:capacity_provider_name] unless stub[:capacity_provider_name].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['versionInfo'] = Stubs::VersionInfo.stub(stub[:version_info]) unless stub[:version_info].nil?
-        data['remainingResources'] = Stubs::Resources.stub(stub[:remaining_resources]) unless stub[:remaining_resources].nil?
-        data['registeredResources'] = Stubs::Resources.stub(stub[:registered_resources]) unless stub[:registered_resources].nil?
+        data['versionInfo'] = VersionInfo.stub(stub[:version_info]) unless stub[:version_info].nil?
+        data['remainingResources'] = Resources.stub(stub[:remaining_resources]) unless stub[:remaining_resources].nil?
+        data['registeredResources'] = Resources.stub(stub[:registered_resources]) unless stub[:registered_resources].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['statusReason'] = stub[:status_reason] unless stub[:status_reason].nil?
         data['agentConnected'] = stub[:agent_connected] unless stub[:agent_connected].nil?
         data['runningTasksCount'] = stub[:running_tasks_count] unless stub[:running_tasks_count].nil?
         data['pendingTasksCount'] = stub[:pending_tasks_count] unless stub[:pending_tasks_count].nil?
         data['agentUpdateStatus'] = stub[:agent_update_status] unless stub[:agent_update_status].nil?
-        data['attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['registeredAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:registered_at]).to_i unless stub[:registered_at].nil?
-        data['attachments'] = Stubs::Attachments.stub(stub[:attachments]) unless stub[:attachments].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        data['healthStatus'] = Stubs::ContainerInstanceHealthStatus.stub(stub[:health_status]) unless stub[:health_status].nil?
+        data['attachments'] = Attachments.stub(stub[:attachments]) unless stub[:attachments].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['healthStatus'] = ContainerInstanceHealthStatus.stub(stub[:health_status]) unless stub[:health_status].nil?
         data
       end
     end
@@ -1315,7 +1317,7 @@ module AWS::SDK::ECS
         stub ||= Types::ContainerInstanceHealthStatus.new
         data = {}
         data['overallStatus'] = stub[:overall_status] unless stub[:overall_status].nil?
-        data['details'] = Stubs::InstanceHealthCheckResultList.stub(stub[:details]) unless stub[:details].nil?
+        data['details'] = InstanceHealthCheckResultList.stub(stub[:details]) unless stub[:details].nil?
         data
       end
     end
@@ -1334,7 +1336,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InstanceHealthCheckResult.stub(element) unless element.nil?
+          data << InstanceHealthCheckResult.stub(element) unless element.nil?
         end
         data
       end
@@ -1378,7 +1380,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Resource.stub(element) unless element.nil?
+          data << Resource.stub(element) unless element.nil?
         end
         data
       end
@@ -1407,7 +1409,7 @@ module AWS::SDK::ECS
         data['doubleValue'] = Hearth::NumberHelper.serialize(stub[:double_value])
         data['longValue'] = stub[:long_value] unless stub[:long_value].nil?
         data['integerValue'] = stub[:integer_value] unless stub[:integer_value].nil?
-        data['stringSetValue'] = Stubs::StringList.stub(stub[:string_set_value]) unless stub[:string_set_value].nil?
+        data['stringSetValue'] = StringList.stub(stub[:string_set_value]) unless stub[:string_set_value].nil?
         data
       end
     end
@@ -1444,8 +1446,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['taskDefinition'] = Stubs::TaskDefinition.stub(stub[:task_definition]) unless stub[:task_definition].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['taskDefinition'] = TaskDefinition.stub(stub[:task_definition]) unless stub[:task_definition].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1487,29 +1489,29 @@ module AWS::SDK::ECS
         stub ||= Types::TaskDefinition.new
         data = {}
         data['taskDefinitionArn'] = stub[:task_definition_arn] unless stub[:task_definition_arn].nil?
-        data['containerDefinitions'] = Stubs::ContainerDefinitions.stub(stub[:container_definitions]) unless stub[:container_definitions].nil?
+        data['containerDefinitions'] = ContainerDefinitions.stub(stub[:container_definitions]) unless stub[:container_definitions].nil?
         data['family'] = stub[:family] unless stub[:family].nil?
         data['taskRoleArn'] = stub[:task_role_arn] unless stub[:task_role_arn].nil?
         data['executionRoleArn'] = stub[:execution_role_arn] unless stub[:execution_role_arn].nil?
         data['networkMode'] = stub[:network_mode] unless stub[:network_mode].nil?
         data['revision'] = stub[:revision] unless stub[:revision].nil?
-        data['volumes'] = Stubs::VolumeList.stub(stub[:volumes]) unless stub[:volumes].nil?
+        data['volumes'] = VolumeList.stub(stub[:volumes]) unless stub[:volumes].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['requiresAttributes'] = Stubs::RequiresAttributes.stub(stub[:requires_attributes]) unless stub[:requires_attributes].nil?
-        data['placementConstraints'] = Stubs::TaskDefinitionPlacementConstraints.stub(stub[:placement_constraints]) unless stub[:placement_constraints].nil?
-        data['compatibilities'] = Stubs::CompatibilityList.stub(stub[:compatibilities]) unless stub[:compatibilities].nil?
-        data['runtimePlatform'] = Stubs::RuntimePlatform.stub(stub[:runtime_platform]) unless stub[:runtime_platform].nil?
-        data['requiresCompatibilities'] = Stubs::CompatibilityList.stub(stub[:requires_compatibilities]) unless stub[:requires_compatibilities].nil?
+        data['requiresAttributes'] = RequiresAttributes.stub(stub[:requires_attributes]) unless stub[:requires_attributes].nil?
+        data['placementConstraints'] = TaskDefinitionPlacementConstraints.stub(stub[:placement_constraints]) unless stub[:placement_constraints].nil?
+        data['compatibilities'] = CompatibilityList.stub(stub[:compatibilities]) unless stub[:compatibilities].nil?
+        data['runtimePlatform'] = RuntimePlatform.stub(stub[:runtime_platform]) unless stub[:runtime_platform].nil?
+        data['requiresCompatibilities'] = CompatibilityList.stub(stub[:requires_compatibilities]) unless stub[:requires_compatibilities].nil?
         data['cpu'] = stub[:cpu] unless stub[:cpu].nil?
         data['memory'] = stub[:memory] unless stub[:memory].nil?
-        data['inferenceAccelerators'] = Stubs::InferenceAccelerators.stub(stub[:inference_accelerators]) unless stub[:inference_accelerators].nil?
+        data['inferenceAccelerators'] = InferenceAccelerators.stub(stub[:inference_accelerators]) unless stub[:inference_accelerators].nil?
         data['pidMode'] = stub[:pid_mode] unless stub[:pid_mode].nil?
         data['ipcMode'] = stub[:ipc_mode] unless stub[:ipc_mode].nil?
-        data['proxyConfiguration'] = Stubs::ProxyConfiguration.stub(stub[:proxy_configuration]) unless stub[:proxy_configuration].nil?
+        data['proxyConfiguration'] = ProxyConfiguration.stub(stub[:proxy_configuration]) unless stub[:proxy_configuration].nil?
         data['registeredAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:registered_at]).to_i unless stub[:registered_at].nil?
         data['deregisteredAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:deregistered_at]).to_i unless stub[:deregistered_at].nil?
         data['registeredBy'] = stub[:registered_by] unless stub[:registered_by].nil?
-        data['ephemeralStorage'] = Stubs::EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
+        data['ephemeralStorage'] = EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
         data
       end
     end
@@ -1549,7 +1551,7 @@ module AWS::SDK::ECS
         data = {}
         data['type'] = stub[:type] unless stub[:type].nil?
         data['containerName'] = stub[:container_name] unless stub[:container_name].nil?
-        data['properties'] = Stubs::ProxyConfigurationProperties.stub(stub[:properties]) unless stub[:properties].nil?
+        data['properties'] = ProxyConfigurationProperties.stub(stub[:properties]) unless stub[:properties].nil?
         data
       end
     end
@@ -1568,7 +1570,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeyValuePair.stub(element) unless element.nil?
+          data << KeyValuePair.stub(element) unless element.nil?
         end
         data
       end
@@ -1588,7 +1590,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InferenceAccelerator.stub(element) unless element.nil?
+          data << InferenceAccelerator.stub(element) unless element.nil?
         end
         data
       end
@@ -1668,7 +1670,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TaskDefinitionPlacementConstraint.stub(element) unless element.nil?
+          data << TaskDefinitionPlacementConstraint.stub(element) unless element.nil?
         end
         data
       end
@@ -1708,7 +1710,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Attribute.stub(element) unless element.nil?
+          data << Attribute.stub(element) unless element.nil?
         end
         data
       end
@@ -1728,7 +1730,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Volume.stub(element) unless element.nil?
+          data << Volume.stub(element) unless element.nil?
         end
         data
       end
@@ -1752,10 +1754,10 @@ module AWS::SDK::ECS
         stub ||= Types::Volume.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['host'] = Stubs::HostVolumeProperties.stub(stub[:host]) unless stub[:host].nil?
-        data['dockerVolumeConfiguration'] = Stubs::DockerVolumeConfiguration.stub(stub[:docker_volume_configuration]) unless stub[:docker_volume_configuration].nil?
-        data['efsVolumeConfiguration'] = Stubs::EFSVolumeConfiguration.stub(stub[:efs_volume_configuration]) unless stub[:efs_volume_configuration].nil?
-        data['fsxWindowsFileServerVolumeConfiguration'] = Stubs::FSxWindowsFileServerVolumeConfiguration.stub(stub[:fsx_windows_file_server_volume_configuration]) unless stub[:fsx_windows_file_server_volume_configuration].nil?
+        data['host'] = HostVolumeProperties.stub(stub[:host]) unless stub[:host].nil?
+        data['dockerVolumeConfiguration'] = DockerVolumeConfiguration.stub(stub[:docker_volume_configuration]) unless stub[:docker_volume_configuration].nil?
+        data['efsVolumeConfiguration'] = EFSVolumeConfiguration.stub(stub[:efs_volume_configuration]) unless stub[:efs_volume_configuration].nil?
+        data['fsxWindowsFileServerVolumeConfiguration'] = FSxWindowsFileServerVolumeConfiguration.stub(stub[:fsx_windows_file_server_volume_configuration]) unless stub[:fsx_windows_file_server_volume_configuration].nil?
         data
       end
     end
@@ -1777,7 +1779,7 @@ module AWS::SDK::ECS
         data = {}
         data['fileSystemId'] = stub[:file_system_id] unless stub[:file_system_id].nil?
         data['rootDirectory'] = stub[:root_directory] unless stub[:root_directory].nil?
-        data['authorizationConfig'] = Stubs::FSxWindowsFileServerAuthorizationConfig.stub(stub[:authorization_config]) unless stub[:authorization_config].nil?
+        data['authorizationConfig'] = FSxWindowsFileServerAuthorizationConfig.stub(stub[:authorization_config]) unless stub[:authorization_config].nil?
         data
       end
     end
@@ -1823,7 +1825,7 @@ module AWS::SDK::ECS
         data['rootDirectory'] = stub[:root_directory] unless stub[:root_directory].nil?
         data['transitEncryption'] = stub[:transit_encryption] unless stub[:transit_encryption].nil?
         data['transitEncryptionPort'] = stub[:transit_encryption_port] unless stub[:transit_encryption_port].nil?
-        data['authorizationConfig'] = Stubs::EFSAuthorizationConfig.stub(stub[:authorization_config]) unless stub[:authorization_config].nil?
+        data['authorizationConfig'] = EFSAuthorizationConfig.stub(stub[:authorization_config]) unless stub[:authorization_config].nil?
         data
       end
     end
@@ -1868,8 +1870,8 @@ module AWS::SDK::ECS
         data['scope'] = stub[:scope] unless stub[:scope].nil?
         data['autoprovision'] = stub[:autoprovision] unless stub[:autoprovision].nil?
         data['driver'] = stub[:driver] unless stub[:driver].nil?
-        data['driverOpts'] = Stubs::StringMap.stub(stub[:driver_opts]) unless stub[:driver_opts].nil?
-        data['labels'] = Stubs::StringMap.stub(stub[:labels]) unless stub[:labels].nil?
+        data['driverOpts'] = StringMap.stub(stub[:driver_opts]) unless stub[:driver_opts].nil?
+        data['labels'] = StringMap.stub(stub[:labels]) unless stub[:labels].nil?
         data
       end
     end
@@ -1926,7 +1928,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContainerDefinition.stub(element) unless element.nil?
+          data << ContainerDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -1985,22 +1987,22 @@ module AWS::SDK::ECS
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
         data['image'] = stub[:image] unless stub[:image].nil?
-        data['repositoryCredentials'] = Stubs::RepositoryCredentials.stub(stub[:repository_credentials]) unless stub[:repository_credentials].nil?
+        data['repositoryCredentials'] = RepositoryCredentials.stub(stub[:repository_credentials]) unless stub[:repository_credentials].nil?
         data['cpu'] = stub[:cpu] unless stub[:cpu].nil?
         data['memory'] = stub[:memory] unless stub[:memory].nil?
         data['memoryReservation'] = stub[:memory_reservation] unless stub[:memory_reservation].nil?
-        data['links'] = Stubs::StringList.stub(stub[:links]) unless stub[:links].nil?
-        data['portMappings'] = Stubs::PortMappingList.stub(stub[:port_mappings]) unless stub[:port_mappings].nil?
+        data['links'] = StringList.stub(stub[:links]) unless stub[:links].nil?
+        data['portMappings'] = PortMappingList.stub(stub[:port_mappings]) unless stub[:port_mappings].nil?
         data['essential'] = stub[:essential] unless stub[:essential].nil?
-        data['entryPoint'] = Stubs::StringList.stub(stub[:entry_point]) unless stub[:entry_point].nil?
-        data['command'] = Stubs::StringList.stub(stub[:command]) unless stub[:command].nil?
-        data['environment'] = Stubs::EnvironmentVariables.stub(stub[:environment]) unless stub[:environment].nil?
-        data['environmentFiles'] = Stubs::EnvironmentFiles.stub(stub[:environment_files]) unless stub[:environment_files].nil?
-        data['mountPoints'] = Stubs::MountPointList.stub(stub[:mount_points]) unless stub[:mount_points].nil?
-        data['volumesFrom'] = Stubs::VolumeFromList.stub(stub[:volumes_from]) unless stub[:volumes_from].nil?
-        data['linuxParameters'] = Stubs::LinuxParameters.stub(stub[:linux_parameters]) unless stub[:linux_parameters].nil?
-        data['secrets'] = Stubs::SecretList.stub(stub[:secrets]) unless stub[:secrets].nil?
-        data['dependsOn'] = Stubs::ContainerDependencies.stub(stub[:depends_on]) unless stub[:depends_on].nil?
+        data['entryPoint'] = StringList.stub(stub[:entry_point]) unless stub[:entry_point].nil?
+        data['command'] = StringList.stub(stub[:command]) unless stub[:command].nil?
+        data['environment'] = EnvironmentVariables.stub(stub[:environment]) unless stub[:environment].nil?
+        data['environmentFiles'] = EnvironmentFiles.stub(stub[:environment_files]) unless stub[:environment_files].nil?
+        data['mountPoints'] = MountPointList.stub(stub[:mount_points]) unless stub[:mount_points].nil?
+        data['volumesFrom'] = VolumeFromList.stub(stub[:volumes_from]) unless stub[:volumes_from].nil?
+        data['linuxParameters'] = LinuxParameters.stub(stub[:linux_parameters]) unless stub[:linux_parameters].nil?
+        data['secrets'] = SecretList.stub(stub[:secrets]) unless stub[:secrets].nil?
+        data['dependsOn'] = ContainerDependencies.stub(stub[:depends_on]) unless stub[:depends_on].nil?
         data['startTimeout'] = stub[:start_timeout] unless stub[:start_timeout].nil?
         data['stopTimeout'] = stub[:stop_timeout] unless stub[:stop_timeout].nil?
         data['hostname'] = stub[:hostname] unless stub[:hostname].nil?
@@ -2009,19 +2011,19 @@ module AWS::SDK::ECS
         data['disableNetworking'] = stub[:disable_networking] unless stub[:disable_networking].nil?
         data['privileged'] = stub[:privileged] unless stub[:privileged].nil?
         data['readonlyRootFilesystem'] = stub[:readonly_root_filesystem] unless stub[:readonly_root_filesystem].nil?
-        data['dnsServers'] = Stubs::StringList.stub(stub[:dns_servers]) unless stub[:dns_servers].nil?
-        data['dnsSearchDomains'] = Stubs::StringList.stub(stub[:dns_search_domains]) unless stub[:dns_search_domains].nil?
-        data['extraHosts'] = Stubs::HostEntryList.stub(stub[:extra_hosts]) unless stub[:extra_hosts].nil?
-        data['dockerSecurityOptions'] = Stubs::StringList.stub(stub[:docker_security_options]) unless stub[:docker_security_options].nil?
+        data['dnsServers'] = StringList.stub(stub[:dns_servers]) unless stub[:dns_servers].nil?
+        data['dnsSearchDomains'] = StringList.stub(stub[:dns_search_domains]) unless stub[:dns_search_domains].nil?
+        data['extraHosts'] = HostEntryList.stub(stub[:extra_hosts]) unless stub[:extra_hosts].nil?
+        data['dockerSecurityOptions'] = StringList.stub(stub[:docker_security_options]) unless stub[:docker_security_options].nil?
         data['interactive'] = stub[:interactive] unless stub[:interactive].nil?
         data['pseudoTerminal'] = stub[:pseudo_terminal] unless stub[:pseudo_terminal].nil?
-        data['dockerLabels'] = Stubs::DockerLabelsMap.stub(stub[:docker_labels]) unless stub[:docker_labels].nil?
-        data['ulimits'] = Stubs::UlimitList.stub(stub[:ulimits]) unless stub[:ulimits].nil?
-        data['logConfiguration'] = Stubs::LogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
-        data['healthCheck'] = Stubs::HealthCheck.stub(stub[:health_check]) unless stub[:health_check].nil?
-        data['systemControls'] = Stubs::SystemControls.stub(stub[:system_controls]) unless stub[:system_controls].nil?
-        data['resourceRequirements'] = Stubs::ResourceRequirements.stub(stub[:resource_requirements]) unless stub[:resource_requirements].nil?
-        data['firelensConfiguration'] = Stubs::FirelensConfiguration.stub(stub[:firelens_configuration]) unless stub[:firelens_configuration].nil?
+        data['dockerLabels'] = DockerLabelsMap.stub(stub[:docker_labels]) unless stub[:docker_labels].nil?
+        data['ulimits'] = UlimitList.stub(stub[:ulimits]) unless stub[:ulimits].nil?
+        data['logConfiguration'] = LogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
+        data['healthCheck'] = HealthCheck.stub(stub[:health_check]) unless stub[:health_check].nil?
+        data['systemControls'] = SystemControls.stub(stub[:system_controls]) unless stub[:system_controls].nil?
+        data['resourceRequirements'] = ResourceRequirements.stub(stub[:resource_requirements]) unless stub[:resource_requirements].nil?
+        data['firelensConfiguration'] = FirelensConfiguration.stub(stub[:firelens_configuration]) unless stub[:firelens_configuration].nil?
         data
       end
     end
@@ -2041,7 +2043,7 @@ module AWS::SDK::ECS
         stub ||= Types::FirelensConfiguration.new
         data = {}
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['options'] = Stubs::FirelensConfigurationOptionsMap.stub(stub[:options]) unless stub[:options].nil?
+        data['options'] = FirelensConfigurationOptionsMap.stub(stub[:options]) unless stub[:options].nil?
         data
       end
     end
@@ -2080,7 +2082,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceRequirement.stub(element) unless element.nil?
+          data << ResourceRequirement.stub(element) unless element.nil?
         end
         data
       end
@@ -2120,7 +2122,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SystemControl.stub(element) unless element.nil?
+          data << SystemControl.stub(element) unless element.nil?
         end
         data
       end
@@ -2163,7 +2165,7 @@ module AWS::SDK::ECS
       def self.stub(stub)
         stub ||= Types::HealthCheck.new
         data = {}
-        data['command'] = Stubs::StringList.stub(stub[:command]) unless stub[:command].nil?
+        data['command'] = StringList.stub(stub[:command]) unless stub[:command].nil?
         data['interval'] = stub[:interval] unless stub[:interval].nil?
         data['timeout'] = stub[:timeout] unless stub[:timeout].nil?
         data['retries'] = stub[:retries] unless stub[:retries].nil?
@@ -2188,8 +2190,8 @@ module AWS::SDK::ECS
         stub ||= Types::LogConfiguration.new
         data = {}
         data['logDriver'] = stub[:log_driver] unless stub[:log_driver].nil?
-        data['options'] = Stubs::LogConfigurationOptionsMap.stub(stub[:options]) unless stub[:options].nil?
-        data['secretOptions'] = Stubs::SecretList.stub(stub[:secret_options]) unless stub[:secret_options].nil?
+        data['options'] = LogConfigurationOptionsMap.stub(stub[:options]) unless stub[:options].nil?
+        data['secretOptions'] = SecretList.stub(stub[:secret_options]) unless stub[:secret_options].nil?
         data
       end
     end
@@ -2208,7 +2210,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Secret.stub(element) unless element.nil?
+          data << Secret.stub(element) unless element.nil?
         end
         data
       end
@@ -2268,7 +2270,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Ulimit.stub(element) unless element.nil?
+          data << Ulimit.stub(element) unless element.nil?
         end
         data
       end
@@ -2330,7 +2332,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HostEntry.stub(element) unless element.nil?
+          data << HostEntry.stub(element) unless element.nil?
         end
         data
       end
@@ -2370,7 +2372,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContainerDependency.stub(element) unless element.nil?
+          data << ContainerDependency.stub(element) unless element.nil?
         end
         data
       end
@@ -2415,11 +2417,11 @@ module AWS::SDK::ECS
       def self.stub(stub)
         stub ||= Types::LinuxParameters.new
         data = {}
-        data['capabilities'] = Stubs::KernelCapabilities.stub(stub[:capabilities]) unless stub[:capabilities].nil?
-        data['devices'] = Stubs::DevicesList.stub(stub[:devices]) unless stub[:devices].nil?
+        data['capabilities'] = KernelCapabilities.stub(stub[:capabilities]) unless stub[:capabilities].nil?
+        data['devices'] = DevicesList.stub(stub[:devices]) unless stub[:devices].nil?
         data['initProcessEnabled'] = stub[:init_process_enabled] unless stub[:init_process_enabled].nil?
         data['sharedMemorySize'] = stub[:shared_memory_size] unless stub[:shared_memory_size].nil?
-        data['tmpfs'] = Stubs::TmpfsList.stub(stub[:tmpfs]) unless stub[:tmpfs].nil?
+        data['tmpfs'] = TmpfsList.stub(stub[:tmpfs]) unless stub[:tmpfs].nil?
         data['maxSwap'] = stub[:max_swap] unless stub[:max_swap].nil?
         data['swappiness'] = stub[:swappiness] unless stub[:swappiness].nil?
         data
@@ -2440,7 +2442,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tmpfs.stub(element) unless element.nil?
+          data << Tmpfs.stub(element) unless element.nil?
         end
         data
       end
@@ -2463,7 +2465,7 @@ module AWS::SDK::ECS
         data = {}
         data['containerPath'] = stub[:container_path] unless stub[:container_path].nil?
         data['size'] = stub[:size] unless stub[:size].nil?
-        data['mountOptions'] = Stubs::StringList.stub(stub[:mount_options]) unless stub[:mount_options].nil?
+        data['mountOptions'] = StringList.stub(stub[:mount_options]) unless stub[:mount_options].nil?
         data
       end
     end
@@ -2482,7 +2484,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Device.stub(element) unless element.nil?
+          data << Device.stub(element) unless element.nil?
         end
         data
       end
@@ -2505,7 +2507,7 @@ module AWS::SDK::ECS
         data = {}
         data['hostPath'] = stub[:host_path] unless stub[:host_path].nil?
         data['containerPath'] = stub[:container_path] unless stub[:container_path].nil?
-        data['permissions'] = Stubs::DeviceCgroupPermissions.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['permissions'] = DeviceCgroupPermissions.stub(stub[:permissions]) unless stub[:permissions].nil?
         data
       end
     end
@@ -2544,8 +2546,8 @@ module AWS::SDK::ECS
       def self.stub(stub)
         stub ||= Types::KernelCapabilities.new
         data = {}
-        data['add'] = Stubs::StringList.stub(stub[:add]) unless stub[:add].nil?
-        data['drop'] = Stubs::StringList.stub(stub[:drop]) unless stub[:drop].nil?
+        data['add'] = StringList.stub(stub[:add]) unless stub[:add].nil?
+        data['drop'] = StringList.stub(stub[:drop]) unless stub[:drop].nil?
         data
       end
     end
@@ -2564,7 +2566,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VolumeFrom.stub(element) unless element.nil?
+          data << VolumeFrom.stub(element) unless element.nil?
         end
         data
       end
@@ -2604,7 +2606,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MountPoint.stub(element) unless element.nil?
+          data << MountPoint.stub(element) unless element.nil?
         end
         data
       end
@@ -2646,7 +2648,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EnvironmentFile.stub(element) unless element.nil?
+          data << EnvironmentFile.stub(element) unless element.nil?
         end
         data
       end
@@ -2686,7 +2688,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeyValuePair.stub(element) unless element.nil?
+          data << KeyValuePair.stub(element) unless element.nil?
         end
         data
       end
@@ -2706,7 +2708,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PortMapping.stub(element) unless element.nil?
+          data << PortMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -2764,10 +2766,10 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['capacityProviders'] = Stubs::CapacityProviders.stub(stub[:capacity_providers]) unless stub[:capacity_providers].nil?
-        data['failures'] = Stubs::Failures.stub(stub[:failures]) unless stub[:failures].nil?
+        data['capacityProviders'] = CapacityProviders.stub(stub[:capacity_providers]) unless stub[:capacity_providers].nil?
+        data['failures'] = Failures.stub(stub[:failures]) unless stub[:failures].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2786,7 +2788,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Failure.stub(element) unless element.nil?
+          data << Failure.stub(element) unless element.nil?
         end
         data
       end
@@ -2828,7 +2830,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CapacityProvider.stub(element) unless element.nil?
+          data << CapacityProvider.stub(element) unless element.nil?
         end
         data
       end
@@ -2845,9 +2847,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['clusters'] = Stubs::Clusters.stub(stub[:clusters]) unless stub[:clusters].nil?
-        data['failures'] = Stubs::Failures.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['clusters'] = Clusters.stub(stub[:clusters]) unless stub[:clusters].nil?
+        data['failures'] = Failures.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2866,7 +2868,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Cluster.stub(element) unless element.nil?
+          data << Cluster.stub(element) unless element.nil?
         end
         data
       end
@@ -2883,9 +2885,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['containerInstances'] = Stubs::ContainerInstances.stub(stub[:container_instances]) unless stub[:container_instances].nil?
-        data['failures'] = Stubs::Failures.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['containerInstances'] = ContainerInstances.stub(stub[:container_instances]) unless stub[:container_instances].nil?
+        data['failures'] = Failures.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2904,7 +2906,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContainerInstance.stub(element) unless element.nil?
+          data << ContainerInstance.stub(element) unless element.nil?
         end
         data
       end
@@ -2921,9 +2923,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['services'] = Stubs::Services.stub(stub[:services]) unless stub[:services].nil?
-        data['failures'] = Stubs::Failures.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['services'] = Services.stub(stub[:services]) unless stub[:services].nil?
+        data['failures'] = Failures.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2942,7 +2944,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Service.stub(element) unless element.nil?
+          data << Service.stub(element) unless element.nil?
         end
         data
       end
@@ -2959,9 +2961,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['taskDefinition'] = Stubs::TaskDefinition.stub(stub[:task_definition]) unless stub[:task_definition].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['taskDefinition'] = TaskDefinition.stub(stub[:task_definition]) unless stub[:task_definition].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2977,9 +2979,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['taskSets'] = Stubs::TaskSets.stub(stub[:task_sets]) unless stub[:task_sets].nil?
-        data['failures'] = Stubs::Failures.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['taskSets'] = TaskSets.stub(stub[:task_sets]) unless stub[:task_sets].nil?
+        data['failures'] = Failures.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2995,9 +2997,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tasks'] = Stubs::Tasks.stub(stub[:tasks]) unless stub[:tasks].nil?
-        data['failures'] = Stubs::Failures.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tasks'] = Tasks.stub(stub[:tasks]) unless stub[:tasks].nil?
+        data['failures'] = Failures.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3016,7 +3018,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Task.stub(element) unless element.nil?
+          data << Task.stub(element) unless element.nil?
         end
         data
       end
@@ -3070,15 +3072,15 @@ module AWS::SDK::ECS
       def self.stub(stub)
         stub ||= Types::Task.new
         data = {}
-        data['attachments'] = Stubs::Attachments.stub(stub[:attachments]) unless stub[:attachments].nil?
-        data['attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['attachments'] = Attachments.stub(stub[:attachments]) unless stub[:attachments].nil?
+        data['attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['availabilityZone'] = stub[:availability_zone] unless stub[:availability_zone].nil?
         data['capacityProviderName'] = stub[:capacity_provider_name] unless stub[:capacity_provider_name].nil?
         data['clusterArn'] = stub[:cluster_arn] unless stub[:cluster_arn].nil?
         data['connectivity'] = stub[:connectivity] unless stub[:connectivity].nil?
         data['connectivityAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:connectivity_at]).to_i unless stub[:connectivity_at].nil?
         data['containerInstanceArn'] = stub[:container_instance_arn] unless stub[:container_instance_arn].nil?
-        data['containers'] = Stubs::Containers.stub(stub[:containers]) unless stub[:containers].nil?
+        data['containers'] = Containers.stub(stub[:containers]) unless stub[:containers].nil?
         data['cpu'] = stub[:cpu] unless stub[:cpu].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['desiredStatus'] = stub[:desired_status] unless stub[:desired_status].nil?
@@ -3086,11 +3088,11 @@ module AWS::SDK::ECS
         data['executionStoppedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:execution_stopped_at]).to_i unless stub[:execution_stopped_at].nil?
         data['group'] = stub[:group] unless stub[:group].nil?
         data['healthStatus'] = stub[:health_status] unless stub[:health_status].nil?
-        data['inferenceAccelerators'] = Stubs::InferenceAccelerators.stub(stub[:inference_accelerators]) unless stub[:inference_accelerators].nil?
+        data['inferenceAccelerators'] = InferenceAccelerators.stub(stub[:inference_accelerators]) unless stub[:inference_accelerators].nil?
         data['lastStatus'] = stub[:last_status] unless stub[:last_status].nil?
         data['launchType'] = stub[:launch_type] unless stub[:launch_type].nil?
         data['memory'] = stub[:memory] unless stub[:memory].nil?
-        data['overrides'] = Stubs::TaskOverride.stub(stub[:overrides]) unless stub[:overrides].nil?
+        data['overrides'] = TaskOverride.stub(stub[:overrides]) unless stub[:overrides].nil?
         data['platformVersion'] = stub[:platform_version] unless stub[:platform_version].nil?
         data['platformFamily'] = stub[:platform_family] unless stub[:platform_family].nil?
         data['pullStartedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:pull_started_at]).to_i unless stub[:pull_started_at].nil?
@@ -3101,11 +3103,11 @@ module AWS::SDK::ECS
         data['stoppedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:stopped_at]).to_i unless stub[:stopped_at].nil?
         data['stoppedReason'] = stub[:stopped_reason] unless stub[:stopped_reason].nil?
         data['stoppingAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:stopping_at]).to_i unless stub[:stopping_at].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
         data['taskArn'] = stub[:task_arn] unless stub[:task_arn].nil?
         data['taskDefinitionArn'] = stub[:task_definition_arn] unless stub[:task_definition_arn].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['ephemeralStorage'] = Stubs::EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
+        data['ephemeralStorage'] = EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
         data
       end
     end
@@ -3129,13 +3131,13 @@ module AWS::SDK::ECS
       def self.stub(stub)
         stub ||= Types::TaskOverride.new
         data = {}
-        data['containerOverrides'] = Stubs::ContainerOverrides.stub(stub[:container_overrides]) unless stub[:container_overrides].nil?
+        data['containerOverrides'] = ContainerOverrides.stub(stub[:container_overrides]) unless stub[:container_overrides].nil?
         data['cpu'] = stub[:cpu] unless stub[:cpu].nil?
-        data['inferenceAcceleratorOverrides'] = Stubs::InferenceAcceleratorOverrides.stub(stub[:inference_accelerator_overrides]) unless stub[:inference_accelerator_overrides].nil?
+        data['inferenceAcceleratorOverrides'] = InferenceAcceleratorOverrides.stub(stub[:inference_accelerator_overrides]) unless stub[:inference_accelerator_overrides].nil?
         data['executionRoleArn'] = stub[:execution_role_arn] unless stub[:execution_role_arn].nil?
         data['memory'] = stub[:memory] unless stub[:memory].nil?
         data['taskRoleArn'] = stub[:task_role_arn] unless stub[:task_role_arn].nil?
-        data['ephemeralStorage'] = Stubs::EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
+        data['ephemeralStorage'] = EphemeralStorage.stub(stub[:ephemeral_storage]) unless stub[:ephemeral_storage].nil?
         data
       end
     end
@@ -3154,7 +3156,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InferenceAcceleratorOverride.stub(element) unless element.nil?
+          data << InferenceAcceleratorOverride.stub(element) unless element.nil?
         end
         data
       end
@@ -3194,7 +3196,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ContainerOverride.stub(element) unless element.nil?
+          data << ContainerOverride.stub(element) unless element.nil?
         end
         data
       end
@@ -3221,13 +3223,13 @@ module AWS::SDK::ECS
         stub ||= Types::ContainerOverride.new
         data = {}
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['command'] = Stubs::StringList.stub(stub[:command]) unless stub[:command].nil?
-        data['environment'] = Stubs::EnvironmentVariables.stub(stub[:environment]) unless stub[:environment].nil?
-        data['environmentFiles'] = Stubs::EnvironmentFiles.stub(stub[:environment_files]) unless stub[:environment_files].nil?
+        data['command'] = StringList.stub(stub[:command]) unless stub[:command].nil?
+        data['environment'] = EnvironmentVariables.stub(stub[:environment]) unless stub[:environment].nil?
+        data['environmentFiles'] = EnvironmentFiles.stub(stub[:environment_files]) unless stub[:environment_files].nil?
         data['cpu'] = stub[:cpu] unless stub[:cpu].nil?
         data['memory'] = stub[:memory] unless stub[:memory].nil?
         data['memoryReservation'] = stub[:memory_reservation] unless stub[:memory_reservation].nil?
-        data['resourceRequirements'] = Stubs::ResourceRequirements.stub(stub[:resource_requirements]) unless stub[:resource_requirements].nil?
+        data['resourceRequirements'] = ResourceRequirements.stub(stub[:resource_requirements]) unless stub[:resource_requirements].nil?
         data
       end
     end
@@ -3246,7 +3248,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Container.stub(element) unless element.nil?
+          data << Container.stub(element) unless element.nil?
         end
         data
       end
@@ -3290,14 +3292,14 @@ module AWS::SDK::ECS
         data['lastStatus'] = stub[:last_status] unless stub[:last_status].nil?
         data['exitCode'] = stub[:exit_code] unless stub[:exit_code].nil?
         data['reason'] = stub[:reason] unless stub[:reason].nil?
-        data['networkBindings'] = Stubs::NetworkBindings.stub(stub[:network_bindings]) unless stub[:network_bindings].nil?
-        data['networkInterfaces'] = Stubs::NetworkInterfaces.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
+        data['networkBindings'] = NetworkBindings.stub(stub[:network_bindings]) unless stub[:network_bindings].nil?
+        data['networkInterfaces'] = NetworkInterfaces.stub(stub[:network_interfaces]) unless stub[:network_interfaces].nil?
         data['healthStatus'] = stub[:health_status] unless stub[:health_status].nil?
-        data['managedAgents'] = Stubs::ManagedAgents.stub(stub[:managed_agents]) unless stub[:managed_agents].nil?
+        data['managedAgents'] = ManagedAgents.stub(stub[:managed_agents]) unless stub[:managed_agents].nil?
         data['cpu'] = stub[:cpu] unless stub[:cpu].nil?
         data['memory'] = stub[:memory] unless stub[:memory].nil?
         data['memoryReservation'] = stub[:memory_reservation] unless stub[:memory_reservation].nil?
-        data['gpuIds'] = Stubs::GpuIds.stub(stub[:gpu_ids]) unless stub[:gpu_ids].nil?
+        data['gpuIds'] = GpuIds.stub(stub[:gpu_ids]) unless stub[:gpu_ids].nil?
         data
       end
     end
@@ -3336,7 +3338,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ManagedAgent.stub(element) unless element.nil?
+          data << ManagedAgent.stub(element) unless element.nil?
         end
         data
       end
@@ -3380,7 +3382,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkInterface.stub(element) unless element.nil?
+          data << NetworkInterface.stub(element) unless element.nil?
         end
         data
       end
@@ -3422,7 +3424,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::NetworkBinding.stub(element) unless element.nil?
+          data << NetworkBinding.stub(element) unless element.nil?
         end
         data
       end
@@ -3465,7 +3467,7 @@ module AWS::SDK::ECS
         data = {}
         data['endpoint'] = stub[:endpoint] unless stub[:endpoint].nil?
         data['telemetryEndpoint'] = stub[:telemetry_endpoint] unless stub[:telemetry_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3489,9 +3491,9 @@ module AWS::SDK::ECS
         data['containerArn'] = stub[:container_arn] unless stub[:container_arn].nil?
         data['containerName'] = stub[:container_name] unless stub[:container_name].nil?
         data['interactive'] = stub[:interactive] unless stub[:interactive].nil?
-        data['session'] = Stubs::Session.stub(stub[:session]) unless stub[:session].nil?
+        data['session'] = Session.stub(stub[:session]) unless stub[:session].nil?
         data['taskArn'] = stub[:task_arn] unless stub[:task_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3529,9 +3531,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['settings'] = Stubs::Settings.stub(stub[:settings]) unless stub[:settings].nil?
+        data['settings'] = Settings.stub(stub[:settings]) unless stub[:settings].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3550,7 +3552,7 @@ module AWS::SDK::ECS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Setting.stub(element) unless element.nil?
+          data << Setting.stub(element) unless element.nil?
         end
         data
       end
@@ -3567,9 +3569,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        data['attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3585,9 +3587,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['clusterArns'] = Stubs::StringList.stub(stub[:cluster_arns]) unless stub[:cluster_arns].nil?
+        data['clusterArns'] = StringList.stub(stub[:cluster_arns]) unless stub[:cluster_arns].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3603,9 +3605,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['containerInstanceArns'] = Stubs::StringList.stub(stub[:container_instance_arns]) unless stub[:container_instance_arns].nil?
+        data['containerInstanceArns'] = StringList.stub(stub[:container_instance_arns]) unless stub[:container_instance_arns].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3621,9 +3623,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['serviceArns'] = Stubs::StringList.stub(stub[:service_arns]) unless stub[:service_arns].nil?
+        data['serviceArns'] = StringList.stub(stub[:service_arns]) unless stub[:service_arns].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3638,8 +3640,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3655,9 +3657,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['families'] = Stubs::StringList.stub(stub[:families]) unless stub[:families].nil?
+        data['families'] = StringList.stub(stub[:families]) unless stub[:families].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3673,9 +3675,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['taskDefinitionArns'] = Stubs::StringList.stub(stub[:task_definition_arns]) unless stub[:task_definition_arns].nil?
+        data['taskDefinitionArns'] = StringList.stub(stub[:task_definition_arns]) unless stub[:task_definition_arns].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3691,9 +3693,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['taskArns'] = Stubs::StringList.stub(stub[:task_arns]) unless stub[:task_arns].nil?
+        data['taskArns'] = StringList.stub(stub[:task_arns]) unless stub[:task_arns].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3708,8 +3710,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['setting'] = Stubs::Setting.stub(stub[:setting]) unless stub[:setting].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['setting'] = Setting.stub(stub[:setting]) unless stub[:setting].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3724,8 +3726,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['setting'] = Stubs::Setting.stub(stub[:setting]) unless stub[:setting].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['setting'] = Setting.stub(stub[:setting]) unless stub[:setting].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3740,8 +3742,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['attributes'] = Stubs::Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['attributes'] = Attributes.stub(stub[:attributes]) unless stub[:attributes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3756,8 +3758,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3772,8 +3774,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['containerInstance'] = Stubs::ContainerInstance.stub(stub[:container_instance]) unless stub[:container_instance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['containerInstance'] = ContainerInstance.stub(stub[:container_instance]) unless stub[:container_instance].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3789,9 +3791,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['taskDefinition'] = Stubs::TaskDefinition.stub(stub[:task_definition]) unless stub[:task_definition].nil?
-        data['tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['taskDefinition'] = TaskDefinition.stub(stub[:task_definition]) unless stub[:task_definition].nil?
+        data['tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3807,9 +3809,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tasks'] = Stubs::Tasks.stub(stub[:tasks]) unless stub[:tasks].nil?
-        data['failures'] = Stubs::Failures.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tasks'] = Tasks.stub(stub[:tasks]) unless stub[:tasks].nil?
+        data['failures'] = Failures.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3825,9 +3827,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tasks'] = Stubs::Tasks.stub(stub[:tasks]) unless stub[:tasks].nil?
-        data['failures'] = Stubs::Failures.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tasks'] = Tasks.stub(stub[:tasks]) unless stub[:tasks].nil?
+        data['failures'] = Failures.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3842,8 +3844,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['task'] = Stubs::Task.stub(stub[:task]) unless stub[:task].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['task'] = Task.stub(stub[:task]) unless stub[:task].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3859,7 +3861,7 @@ module AWS::SDK::ECS
       def self.stub(http_resp, stub:)
         data = {}
         data['acknowledgment'] = stub[:acknowledgment] unless stub[:acknowledgment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3875,7 +3877,7 @@ module AWS::SDK::ECS
       def self.stub(http_resp, stub:)
         data = {}
         data['acknowledgment'] = stub[:acknowledgment] unless stub[:acknowledgment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3891,7 +3893,7 @@ module AWS::SDK::ECS
       def self.stub(http_resp, stub:)
         data = {}
         data['acknowledgment'] = stub[:acknowledgment] unless stub[:acknowledgment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3905,7 +3907,7 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3919,7 +3921,7 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3934,8 +3936,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['capacityProvider'] = Stubs::CapacityProvider.stub(stub[:capacity_provider]) unless stub[:capacity_provider].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['capacityProvider'] = CapacityProvider.stub(stub[:capacity_provider]) unless stub[:capacity_provider].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3950,8 +3952,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3966,8 +3968,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3982,8 +3984,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['containerInstance'] = Stubs::ContainerInstance.stub(stub[:container_instance]) unless stub[:container_instance].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['containerInstance'] = ContainerInstance.stub(stub[:container_instance]) unless stub[:container_instance].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -3999,9 +4001,9 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['containerInstances'] = Stubs::ContainerInstances.stub(stub[:container_instances]) unless stub[:container_instances].nil?
-        data['failures'] = Stubs::Failures.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['containerInstances'] = ContainerInstances.stub(stub[:container_instances]) unless stub[:container_instances].nil?
+        data['failures'] = Failures.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4016,8 +4018,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['service'] = Stubs::Service.stub(stub[:service]) unless stub[:service].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['service'] = Service.stub(stub[:service]) unless stub[:service].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4032,8 +4034,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['taskSet'] = Stubs::TaskSet.stub(stub[:task_set]) unless stub[:task_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['taskSet'] = TaskSet.stub(stub[:task_set]) unless stub[:task_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -4048,8 +4050,8 @@ module AWS::SDK::ECS
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['taskSet'] = Stubs::TaskSet.stub(stub[:task_set]) unless stub[:task_set].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['taskSet'] = TaskSet.stub(stub[:task_set]) unless stub[:task_set].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

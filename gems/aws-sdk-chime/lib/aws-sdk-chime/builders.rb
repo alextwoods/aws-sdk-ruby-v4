@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Chime
   module Builders
 
@@ -35,7 +37,7 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['E164PhoneNumber'] = input[:e164_phone_number] unless input[:e164_phone_number].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -59,9 +61,9 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['E164PhoneNumbers'] = Builders::E164PhoneNumberList.build(input[:e164_phone_numbers]) unless input[:e164_phone_numbers].nil?
+        data['E164PhoneNumbers'] = E164PhoneNumberList.build(input[:e164_phone_numbers]) unless input[:e164_phone_numbers].nil?
         data['ForceAssociate'] = input[:force_associate] unless input[:force_associate].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -96,9 +98,9 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['E164PhoneNumbers'] = Builders::E164PhoneNumberList.build(input[:e164_phone_numbers]) unless input[:e164_phone_numbers].nil?
+        data['E164PhoneNumbers'] = E164PhoneNumberList.build(input[:e164_phone_numbers]) unless input[:e164_phone_numbers].nil?
         data['ForceAssociate'] = input[:force_associate] unless input[:force_associate].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -122,8 +124,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['SigninDelegateGroups'] = Builders::SigninDelegateGroupList.build(input[:signin_delegate_groups]) unless input[:signin_delegate_groups].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SigninDelegateGroups'] = SigninDelegateGroupList.build(input[:signin_delegate_groups]) unless input[:signin_delegate_groups].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -132,7 +134,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SigninDelegateGroup.build(element) unless element.nil?
+          data << SigninDelegateGroup.build(element) unless element.nil?
         end
         data
       end
@@ -167,8 +169,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Attendees'] = Builders::CreateAttendeeRequestItemList.build(input[:attendees]) unless input[:attendees].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Attendees'] = CreateAttendeeRequestItemList.build(input[:attendees]) unless input[:attendees].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -177,7 +179,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CreateAttendeeRequestItem.build(element) unless element.nil?
+          data << CreateAttendeeRequestItem.build(element) unless element.nil?
         end
         data
       end
@@ -188,7 +190,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = {}
         data['ExternalUserId'] = input[:external_user_id] unless input[:external_user_id].nil?
-        data['Tags'] = Builders::AttendeeTagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = AttendeeTagList.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -198,7 +200,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -235,8 +237,8 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Type'] = input[:type] unless input[:type].nil?
-        data['MemberArns'] = Builders::MemberArns.build(input[:member_arns]) unless input[:member_arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MemberArns'] = MemberArns.build(input[:member_arns]) unless input[:member_arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -276,8 +278,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['MembershipItemList'] = Builders::MembershipItemList.build(input[:membership_item_list]) unless input[:membership_item_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MembershipItemList'] = MembershipItemList.build(input[:membership_item_list]) unless input[:membership_item_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -286,7 +288,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MembershipItem.build(element) unless element.nil?
+          data << MembershipItem.build(element) unless element.nil?
         end
         data
       end
@@ -315,8 +317,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['PhoneNumberIds'] = Builders::NonEmptyStringList.build(input[:phone_number_ids]) unless input[:phone_number_ids].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PhoneNumberIds'] = NonEmptyStringList.build(input[:phone_number_ids]) unless input[:phone_number_ids].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -351,8 +353,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['UserIdList'] = Builders::UserIdList.build(input[:user_id_list]) unless input[:user_id_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserIdList'] = UserIdList.build(input[:user_id_list]) unless input[:user_id_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -387,8 +389,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['UserIdList'] = Builders::UserIdList.build(input[:user_id_list]) unless input[:user_id_list].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserIdList'] = UserIdList.build(input[:user_id_list]) unless input[:user_id_list].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -405,8 +407,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['UpdatePhoneNumberRequestItems'] = Builders::UpdatePhoneNumberRequestItemList.build(input[:update_phone_number_request_items]) unless input[:update_phone_number_request_items].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UpdatePhoneNumberRequestItems'] = UpdatePhoneNumberRequestItemList.build(input[:update_phone_number_request_items]) unless input[:update_phone_number_request_items].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -415,7 +417,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UpdatePhoneNumberRequestItem.build(element) unless element.nil?
+          data << UpdatePhoneNumberRequestItem.build(element) unless element.nil?
         end
         data
       end
@@ -449,8 +451,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['UpdateUserRequestItems'] = Builders::UpdateUserRequestItemList.build(input[:update_user_request_items]) unless input[:update_user_request_items].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UpdateUserRequestItems'] = UpdateUserRequestItemList.build(input[:update_user_request_items]) unless input[:update_user_request_items].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -459,7 +461,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UpdateUserRequestItem.build(element) unless element.nil?
+          data << UpdateUserRequestItem.build(element) unless element.nil?
         end
         data
       end
@@ -472,7 +474,7 @@ module AWS::SDK::Chime
         data['UserId'] = input[:user_id] unless input[:user_id].nil?
         data['LicenseType'] = input[:license_type] unless input[:license_type].nil?
         data['UserType'] = input[:user_type] unless input[:user_type].nil?
-        data['AlexaForBusinessMetadata'] = Builders::AlexaForBusinessMetadata.build(input[:alexa_for_business_metadata]) unless input[:alexa_for_business_metadata].nil?
+        data['AlexaForBusinessMetadata'] = AlexaForBusinessMetadata.build(input[:alexa_for_business_metadata]) unless input[:alexa_for_business_metadata].nil?
         data
       end
     end
@@ -498,7 +500,7 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -515,8 +517,8 @@ module AWS::SDK::Chime
         data['Name'] = input[:name] unless input[:name].nil?
         data['Metadata'] = input[:metadata] unless input[:metadata].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -525,7 +527,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -549,7 +551,7 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['AppInstanceAdminArn'] = input[:app_instance_admin_arn] unless input[:app_instance_admin_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -568,8 +570,8 @@ module AWS::SDK::Chime
         data['Name'] = input[:name] unless input[:name].nil?
         data['Metadata'] = input[:metadata] unless input[:metadata].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -591,8 +593,8 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ExternalUserId'] = input[:external_user_id] unless input[:external_user_id].nil?
-        data['Tags'] = Builders::AttendeeTagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = AttendeeTagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -615,7 +617,7 @@ module AWS::SDK::Chime
         data = {}
         data['DisplayName'] = input[:display_name] unless input[:display_name].nil?
         data['Domain'] = input[:domain] unless input[:domain].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -635,8 +637,8 @@ module AWS::SDK::Chime
         data['Privacy'] = input[:privacy] unless input[:privacy].nil?
         data['Metadata'] = input[:metadata] unless input[:metadata].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -659,7 +661,7 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['MemberArn'] = input[:member_arn] unless input[:member_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -683,7 +685,7 @@ module AWS::SDK::Chime
         data = {}
         data['MemberArn'] = input[:member_arn] unless input[:member_arn].nil?
         data['Type'] = input[:type] unless input[:type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -706,7 +708,7 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ChannelModeratorArn'] = input[:channel_moderator_arn] unless input[:channel_moderator_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -726,8 +728,8 @@ module AWS::SDK::Chime
         data['SinkType'] = input[:sink_type] unless input[:sink_type].nil?
         data['SinkArn'] = input[:sink_arn] unless input[:sink_arn].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['ChimeSdkMeetingConfiguration'] = Builders::ChimeSdkMeetingConfiguration.build(input[:chime_sdk_meeting_configuration]) unless input[:chime_sdk_meeting_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ChimeSdkMeetingConfiguration'] = ChimeSdkMeetingConfiguration.build(input[:chime_sdk_meeting_configuration]) unless input[:chime_sdk_meeting_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -735,8 +737,8 @@ module AWS::SDK::Chime
     class ChimeSdkMeetingConfiguration
       def self.build(input)
         data = {}
-        data['SourceConfiguration'] = Builders::SourceConfiguration.build(input[:source_configuration]) unless input[:source_configuration].nil?
-        data['ArtifactsConfiguration'] = Builders::ArtifactsConfiguration.build(input[:artifacts_configuration]) unless input[:artifacts_configuration].nil?
+        data['SourceConfiguration'] = SourceConfiguration.build(input[:source_configuration]) unless input[:source_configuration].nil?
+        data['ArtifactsConfiguration'] = ArtifactsConfiguration.build(input[:artifacts_configuration]) unless input[:artifacts_configuration].nil?
         data
       end
     end
@@ -745,9 +747,9 @@ module AWS::SDK::Chime
     class ArtifactsConfiguration
       def self.build(input)
         data = {}
-        data['Audio'] = Builders::AudioArtifactsConfiguration.build(input[:audio]) unless input[:audio].nil?
-        data['Video'] = Builders::VideoArtifactsConfiguration.build(input[:video]) unless input[:video].nil?
-        data['Content'] = Builders::ContentArtifactsConfiguration.build(input[:content]) unless input[:content].nil?
+        data['Audio'] = AudioArtifactsConfiguration.build(input[:audio]) unless input[:audio].nil?
+        data['Video'] = VideoArtifactsConfiguration.build(input[:video]) unless input[:video].nil?
+        data['Content'] = ContentArtifactsConfiguration.build(input[:content]) unless input[:content].nil?
         data
       end
     end
@@ -785,7 +787,7 @@ module AWS::SDK::Chime
     class SourceConfiguration
       def self.build(input)
         data = {}
-        data['SelectedVideoStreams'] = Builders::SelectedVideoStreams.build(input[:selected_video_streams]) unless input[:selected_video_streams].nil?
+        data['SelectedVideoStreams'] = SelectedVideoStreams.build(input[:selected_video_streams]) unless input[:selected_video_streams].nil?
         data
       end
     end
@@ -794,8 +796,8 @@ module AWS::SDK::Chime
     class SelectedVideoStreams
       def self.build(input)
         data = {}
-        data['AttendeeIds'] = Builders::AttendeeIdList.build(input[:attendee_ids]) unless input[:attendee_ids].nil?
-        data['ExternalUserIds'] = Builders::ExternalUserIdList.build(input[:external_user_ids]) unless input[:external_user_ids].nil?
+        data['AttendeeIds'] = AttendeeIdList.build(input[:attendee_ids]) unless input[:attendee_ids].nil?
+        data['ExternalUserIds'] = ExternalUserIdList.build(input[:external_user_ids]) unless input[:external_user_ids].nil?
         data
       end
     end
@@ -836,9 +838,9 @@ module AWS::SDK::Chime
         data['ExternalMeetingId'] = input[:external_meeting_id] unless input[:external_meeting_id].nil?
         data['MeetingHostId'] = input[:meeting_host_id] unless input[:meeting_host_id].nil?
         data['MediaRegion'] = input[:media_region] unless input[:media_region].nil?
-        data['Tags'] = Builders::MeetingTagList.build(input[:tags]) unless input[:tags].nil?
-        data['NotificationsConfiguration'] = Builders::MeetingNotificationConfiguration.build(input[:notifications_configuration]) unless input[:notifications_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = MeetingTagList.build(input[:tags]) unless input[:tags].nil?
+        data['NotificationsConfiguration'] = MeetingNotificationConfiguration.build(input[:notifications_configuration]) unless input[:notifications_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -857,7 +859,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -883,7 +885,7 @@ module AWS::SDK::Chime
         data['FromPhoneNumber'] = input[:from_phone_number] unless input[:from_phone_number].nil?
         data['ToPhoneNumber'] = input[:to_phone_number] unless input[:to_phone_number].nil?
         data['JoinToken'] = input[:join_token] unless input[:join_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -904,10 +906,10 @@ module AWS::SDK::Chime
         data['ExternalMeetingId'] = input[:external_meeting_id] unless input[:external_meeting_id].nil?
         data['MeetingHostId'] = input[:meeting_host_id] unless input[:meeting_host_id].nil?
         data['MediaRegion'] = input[:media_region] unless input[:media_region].nil?
-        data['Tags'] = Builders::MeetingTagList.build(input[:tags]) unless input[:tags].nil?
-        data['NotificationsConfiguration'] = Builders::MeetingNotificationConfiguration.build(input[:notifications_configuration]) unless input[:notifications_configuration].nil?
-        data['Attendees'] = Builders::CreateMeetingWithAttendeesRequestItemList.build(input[:attendees]) unless input[:attendees].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = MeetingTagList.build(input[:tags]) unless input[:tags].nil?
+        data['NotificationsConfiguration'] = MeetingNotificationConfiguration.build(input[:notifications_configuration]) unless input[:notifications_configuration].nil?
+        data['Attendees'] = CreateMeetingWithAttendeesRequestItemList.build(input[:attendees]) unless input[:attendees].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -916,7 +918,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CreateAttendeeRequestItem.build(element) unless element.nil?
+          data << CreateAttendeeRequestItem.build(element) unless element.nil?
         end
         data
       end
@@ -933,8 +935,8 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ProductType'] = input[:product_type] unless input[:product_type].nil?
-        data['E164PhoneNumbers'] = Builders::E164PhoneNumberList.build(input[:e164_phone_numbers]) unless input[:e164_phone_numbers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['E164PhoneNumbers'] = E164PhoneNumberList.build(input[:e164_phone_numbers]) unless input[:e164_phone_numbers].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -955,14 +957,14 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['ParticipantPhoneNumbers'] = Builders::ParticipantPhoneNumberList.build(input[:participant_phone_numbers]) unless input[:participant_phone_numbers].nil?
+        data['ParticipantPhoneNumbers'] = ParticipantPhoneNumberList.build(input[:participant_phone_numbers]) unless input[:participant_phone_numbers].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['ExpiryMinutes'] = input[:expiry_minutes] unless input[:expiry_minutes].nil?
-        data['Capabilities'] = Builders::CapabilityList.build(input[:capabilities]) unless input[:capabilities].nil?
+        data['Capabilities'] = CapabilityList.build(input[:capabilities]) unless input[:capabilities].nil?
         data['NumberSelectionBehavior'] = input[:number_selection_behavior] unless input[:number_selection_behavior].nil?
         data['GeoMatchLevel'] = input[:geo_match_level] unless input[:geo_match_level].nil?
-        data['GeoMatchParams'] = Builders::GeoMatchParams.build(input[:geo_match_params]) unless input[:geo_match_params].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GeoMatchParams'] = GeoMatchParams.build(input[:geo_match_params]) unless input[:geo_match_params].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1017,7 +1019,7 @@ module AWS::SDK::Chime
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1044,7 +1046,7 @@ module AWS::SDK::Chime
         data = {}
         data['MemberId'] = input[:member_id] unless input[:member_id].nil?
         data['Role'] = input[:role] unless input[:role].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1060,8 +1062,8 @@ module AWS::SDK::Chime
         data = {}
         data['AwsRegion'] = input[:aws_region] unless input[:aws_region].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Endpoints'] = Builders::SipMediaApplicationEndpointList.build(input[:endpoints]) unless input[:endpoints].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Endpoints'] = SipMediaApplicationEndpointList.build(input[:endpoints]) unless input[:endpoints].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1070,7 +1072,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SipMediaApplicationEndpoint.build(element) unless element.nil?
+          data << SipMediaApplicationEndpoint.build(element) unless element.nil?
         end
         data
       end
@@ -1104,8 +1106,8 @@ module AWS::SDK::Chime
         data = {}
         data['FromPhoneNumber'] = input[:from_phone_number] unless input[:from_phone_number].nil?
         data['ToPhoneNumber'] = input[:to_phone_number] unless input[:to_phone_number].nil?
-        data['SipHeaders'] = Builders::SipHeadersMap.build(input[:sip_headers]) unless input[:sip_headers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SipHeaders'] = SipHeadersMap.build(input[:sip_headers]) unless input[:sip_headers].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1134,8 +1136,8 @@ module AWS::SDK::Chime
         data['TriggerType'] = input[:trigger_type] unless input[:trigger_type].nil?
         data['TriggerValue'] = input[:trigger_value] unless input[:trigger_value].nil?
         data['Disabled'] = input[:disabled] unless input[:disabled].nil?
-        data['TargetApplications'] = Builders::SipRuleTargetApplicationList.build(input[:target_applications]) unless input[:target_applications].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TargetApplications'] = SipRuleTargetApplicationList.build(input[:target_applications]) unless input[:target_applications].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1144,7 +1146,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SipRuleTargetApplication.build(element) unless element.nil?
+          data << SipRuleTargetApplication.build(element) unless element.nil?
         end
         data
       end
@@ -1184,7 +1186,7 @@ module AWS::SDK::Chime
         data['Username'] = input[:username] unless input[:username].nil?
         data['Email'] = input[:email] unless input[:email].nil?
         data['UserType'] = input[:user_type] unless input[:user_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1201,7 +1203,7 @@ module AWS::SDK::Chime
         data['Name'] = input[:name] unless input[:name].nil?
         data['AwsRegion'] = input[:aws_region] unless input[:aws_region].nil?
         data['RequireEncryption'] = input[:require_encryption] unless input[:require_encryption].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1216,8 +1218,8 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['VoiceConnectorItems'] = Builders::VoiceConnectorItemList.build(input[:voice_connector_items]) unless input[:voice_connector_items].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VoiceConnectorItems'] = VoiceConnectorItemList.build(input[:voice_connector_items]) unless input[:voice_connector_items].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1226,7 +1228,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::VoiceConnectorItem.build(element) unless element.nil?
+          data << VoiceConnectorItem.build(element) unless element.nil?
         end
         data
       end
@@ -1770,8 +1772,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Usernames'] = Builders::SensitiveStringList.build(input[:usernames]) unless input[:usernames].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Usernames'] = SensitiveStringList.build(input[:usernames]) unless input[:usernames].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2013,8 +2015,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['E164PhoneNumbers'] = Builders::E164PhoneNumberList.build(input[:e164_phone_numbers]) unless input[:e164_phone_numbers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['E164PhoneNumbers'] = E164PhoneNumberList.build(input[:e164_phone_numbers]) unless input[:e164_phone_numbers].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2038,8 +2040,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['E164PhoneNumbers'] = Builders::E164PhoneNumberList.build(input[:e164_phone_numbers]) unless input[:e164_phone_numbers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['E164PhoneNumbers'] = E164PhoneNumberList.build(input[:e164_phone_numbers]) unless input[:e164_phone_numbers].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2063,8 +2065,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['GroupNames'] = Builders::NonEmptyStringList.build(input[:group_names]) unless input[:group_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GroupNames'] = NonEmptyStringList.build(input[:group_names]) unless input[:group_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2644,9 +2646,9 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['UserEmailList'] = Builders::UserEmailList.build(input[:user_email_list]) unless input[:user_email_list].nil?
+        data['UserEmailList'] = UserEmailList.build(input[:user_email_list]) unless input[:user_email_list].nil?
         data['UserType'] = input[:user_type] unless input[:user_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3193,8 +3195,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AppInstanceRetentionSettings'] = Builders::AppInstanceRetentionSettings.build(input[:app_instance_retention_settings]) unless input[:app_instance_retention_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AppInstanceRetentionSettings'] = AppInstanceRetentionSettings.build(input[:app_instance_retention_settings]) unless input[:app_instance_retention_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3202,7 +3204,7 @@ module AWS::SDK::Chime
     class AppInstanceRetentionSettings
       def self.build(input)
         data = {}
-        data['ChannelRetentionSettings'] = Builders::ChannelRetentionSettings.build(input[:channel_retention_settings]) unless input[:channel_retention_settings].nil?
+        data['ChannelRetentionSettings'] = ChannelRetentionSettings.build(input[:channel_retention_settings]) unless input[:channel_retention_settings].nil?
         data
       end
     end
@@ -3233,8 +3235,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AppInstanceStreamingConfigurations'] = Builders::AppInstanceStreamingConfigurationList.build(input[:app_instance_streaming_configurations]) unless input[:app_instance_streaming_configurations].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AppInstanceStreamingConfigurations'] = AppInstanceStreamingConfigurationList.build(input[:app_instance_streaming_configurations]) unless input[:app_instance_streaming_configurations].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3243,7 +3245,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AppInstanceStreamingConfiguration.build(element) unless element.nil?
+          data << AppInstanceStreamingConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -3282,7 +3284,7 @@ module AWS::SDK::Chime
         data = {}
         data['OutboundEventsHTTPSEndpoint'] = input[:outbound_events_https_endpoint] unless input[:outbound_events_https_endpoint].nil?
         data['LambdaFunctionArn'] = input[:lambda_function_arn] unless input[:lambda_function_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3303,8 +3305,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['RetentionSettings'] = Builders::RetentionSettings.build(input[:retention_settings]) unless input[:retention_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['RetentionSettings'] = RetentionSettings.build(input[:retention_settings]) unless input[:retention_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3312,8 +3314,8 @@ module AWS::SDK::Chime
     class RetentionSettings
       def self.build(input)
         data = {}
-        data['RoomRetentionSettings'] = Builders::RoomRetentionSettings.build(input[:room_retention_settings]) unless input[:room_retention_settings].nil?
-        data['ConversationRetentionSettings'] = Builders::ConversationRetentionSettings.build(input[:conversation_retention_settings]) unless input[:conversation_retention_settings].nil?
+        data['RoomRetentionSettings'] = RoomRetentionSettings.build(input[:room_retention_settings]) unless input[:room_retention_settings].nil?
+        data['ConversationRetentionSettings'] = ConversationRetentionSettings.build(input[:conversation_retention_settings]) unless input[:conversation_retention_settings].nil?
         data
       end
     end
@@ -3353,8 +3355,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['SipMediaApplicationLoggingConfiguration'] = Builders::SipMediaApplicationLoggingConfiguration.build(input[:sip_media_application_logging_configuration]) unless input[:sip_media_application_logging_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SipMediaApplicationLoggingConfiguration'] = SipMediaApplicationLoggingConfiguration.build(input[:sip_media_application_logging_configuration]) unless input[:sip_media_application_logging_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3384,8 +3386,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['EmergencyCallingConfiguration'] = Builders::EmergencyCallingConfiguration.build(input[:emergency_calling_configuration]) unless input[:emergency_calling_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EmergencyCallingConfiguration'] = EmergencyCallingConfiguration.build(input[:emergency_calling_configuration]) unless input[:emergency_calling_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3393,7 +3395,7 @@ module AWS::SDK::Chime
     class EmergencyCallingConfiguration
       def self.build(input)
         data = {}
-        data['DNIS'] = Builders::DNISEmergencyCallingConfigurationList.build(input[:dnis]) unless input[:dnis].nil?
+        data['DNIS'] = DNISEmergencyCallingConfigurationList.build(input[:dnis]) unless input[:dnis].nil?
         data
       end
     end
@@ -3403,7 +3405,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DNISEmergencyCallingConfiguration.build(element) unless element.nil?
+          data << DNISEmergencyCallingConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -3437,8 +3439,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['LoggingConfiguration'] = Builders::LoggingConfiguration.build(input[:logging_configuration]) unless input[:logging_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['LoggingConfiguration'] = LoggingConfiguration.build(input[:logging_configuration]) unless input[:logging_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3469,8 +3471,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Origination'] = Builders::Origination.build(input[:origination]) unless input[:origination].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Origination'] = Origination.build(input[:origination]) unless input[:origination].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3478,7 +3480,7 @@ module AWS::SDK::Chime
     class Origination
       def self.build(input)
         data = {}
-        data['Routes'] = Builders::OriginationRouteList.build(input[:routes]) unless input[:routes].nil?
+        data['Routes'] = OriginationRouteList.build(input[:routes]) unless input[:routes].nil?
         data['Disabled'] = input[:disabled] unless input[:disabled].nil?
         data
       end
@@ -3489,7 +3491,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::OriginationRoute.build(element) unless element.nil?
+          data << OriginationRoute.build(element) unless element.nil?
         end
         data
       end
@@ -3526,10 +3528,10 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['DefaultSessionExpiryMinutes'] = input[:default_session_expiry_minutes] unless input[:default_session_expiry_minutes].nil?
-        data['PhoneNumberPoolCountries'] = Builders::CountryList.build(input[:phone_number_pool_countries]) unless input[:phone_number_pool_countries].nil?
+        data['PhoneNumberPoolCountries'] = CountryList.build(input[:phone_number_pool_countries]) unless input[:phone_number_pool_countries].nil?
         data['FallBackPhoneNumber'] = input[:fall_back_phone_number] unless input[:fall_back_phone_number].nil?
         data['Disabled'] = input[:disabled] unless input[:disabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3561,8 +3563,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['StreamingConfiguration'] = Builders::StreamingConfiguration.build(input[:streaming_configuration]) unless input[:streaming_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StreamingConfiguration'] = StreamingConfiguration.build(input[:streaming_configuration]) unless input[:streaming_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3572,7 +3574,7 @@ module AWS::SDK::Chime
         data = {}
         data['DataRetentionInHours'] = input[:data_retention_in_hours] unless input[:data_retention_in_hours].nil?
         data['Disabled'] = input[:disabled] unless input[:disabled].nil?
-        data['StreamingNotificationTargets'] = Builders::StreamingNotificationTargetList.build(input[:streaming_notification_targets]) unless input[:streaming_notification_targets].nil?
+        data['StreamingNotificationTargets'] = StreamingNotificationTargetList.build(input[:streaming_notification_targets]) unless input[:streaming_notification_targets].nil?
         data
       end
     end
@@ -3582,7 +3584,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::StreamingNotificationTarget.build(element) unless element.nil?
+          data << StreamingNotificationTarget.build(element) unless element.nil?
         end
         data
       end
@@ -3614,8 +3616,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Termination'] = Builders::Termination.build(input[:termination]) unless input[:termination].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Termination'] = Termination.build(input[:termination]) unless input[:termination].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3625,8 +3627,8 @@ module AWS::SDK::Chime
         data = {}
         data['CpsLimit'] = input[:cps_limit] unless input[:cps_limit].nil?
         data['DefaultPhoneNumber'] = input[:default_phone_number] unless input[:default_phone_number].nil?
-        data['CallingRegions'] = Builders::CallingRegionList.build(input[:calling_regions]) unless input[:calling_regions].nil?
-        data['CidrAllowedList'] = Builders::StringList.build(input[:cidr_allowed_list]) unless input[:cidr_allowed_list].nil?
+        data['CallingRegions'] = CallingRegionList.build(input[:calling_regions]) unless input[:calling_regions].nil?
+        data['CidrAllowedList'] = StringList.build(input[:cidr_allowed_list]) unless input[:cidr_allowed_list].nil?
         data['Disabled'] = input[:disabled] unless input[:disabled].nil?
         data
       end
@@ -3674,8 +3676,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Credentials'] = Builders::CredentialList.build(input[:credentials]) unless input[:credentials].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Credentials'] = CredentialList.build(input[:credentials]) unless input[:credentials].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3684,7 +3686,7 @@ module AWS::SDK::Chime
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Credential.build(element) unless element.nil?
+          data << Credential.build(element) unless element.nil?
         end
         data
       end
@@ -3892,7 +3894,7 @@ module AWS::SDK::Chime
         data['Persistence'] = input[:persistence] unless input[:persistence].nil?
         data['Metadata'] = input[:metadata] unless input[:metadata].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -3917,8 +3919,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TranscriptionConfiguration'] = Builders::TranscriptionConfiguration.build(input[:transcription_configuration]) unless input[:transcription_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TranscriptionConfiguration'] = TranscriptionConfiguration.build(input[:transcription_configuration]) unless input[:transcription_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3926,8 +3928,8 @@ module AWS::SDK::Chime
     class TranscriptionConfiguration
       def self.build(input)
         data = {}
-        data['EngineTranscribeSettings'] = Builders::EngineTranscribeSettings.build(input[:engine_transcribe_settings]) unless input[:engine_transcribe_settings].nil?
-        data['EngineTranscribeMedicalSettings'] = Builders::EngineTranscribeMedicalSettings.build(input[:engine_transcribe_medical_settings]) unless input[:engine_transcribe_medical_settings].nil?
+        data['EngineTranscribeSettings'] = EngineTranscribeSettings.build(input[:engine_transcribe_settings]) unless input[:engine_transcribe_settings].nil?
+        data['EngineTranscribeMedicalSettings'] = EngineTranscribeMedicalSettings.build(input[:engine_transcribe_medical_settings]) unless input[:engine_transcribe_medical_settings].nil?
         data
       end
     end
@@ -4009,8 +4011,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::AttendeeTagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = AttendeeTagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4034,8 +4036,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::MeetingTagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = MeetingTagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4053,8 +4055,8 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4082,8 +4084,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TagKeys'] = Builders::AttendeeTagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = AttendeeTagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4118,8 +4120,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['TagKeys'] = Builders::MeetingTagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = MeetingTagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4148,8 +4150,8 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4183,7 +4185,7 @@ module AWS::SDK::Chime
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['DefaultLicense'] = input[:default_license] unless input[:default_license].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4204,8 +4206,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['AccountSettings'] = Builders::AccountSettings.build(input[:account_settings]) unless input[:account_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountSettings'] = AccountSettings.build(input[:account_settings]) unless input[:account_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4238,7 +4240,7 @@ module AWS::SDK::Chime
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Metadata'] = input[:metadata] unless input[:metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4261,7 +4263,7 @@ module AWS::SDK::Chime
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Metadata'] = input[:metadata] unless input[:metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4287,7 +4289,7 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Disabled'] = input[:disabled] unless input[:disabled].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4311,7 +4313,7 @@ module AWS::SDK::Chime
         data['Name'] = input[:name] unless input[:name].nil?
         data['Mode'] = input[:mode] unless input[:mode].nil?
         data['Metadata'] = input[:metadata] unless input[:metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -4339,7 +4341,7 @@ module AWS::SDK::Chime
         data = {}
         data['Content'] = input[:content] unless input[:content].nil?
         data['Metadata'] = input[:metadata] unless input[:metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['x-amz-chime-bearer'] = input[:chime_bearer] unless input[:chime_bearer].nil? || input[:chime_bearer].empty?
       end
     end
@@ -4372,9 +4374,9 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['BusinessCalling'] = Builders::BusinessCallingSettings.build(input[:business_calling]) unless input[:business_calling].nil?
-        data['VoiceConnector'] = Builders::VoiceConnectorSettings.build(input[:voice_connector]) unless input[:voice_connector].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BusinessCalling'] = BusinessCallingSettings.build(input[:business_calling]) unless input[:business_calling].nil?
+        data['VoiceConnector'] = VoiceConnectorSettings.build(input[:voice_connector]) unless input[:voice_connector].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4415,7 +4417,7 @@ module AWS::SDK::Chime
         data = {}
         data['ProductType'] = input[:product_type] unless input[:product_type].nil?
         data['CallingName'] = input[:calling_name] unless input[:calling_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4430,7 +4432,7 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['CallingName'] = input[:calling_name] unless input[:calling_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4455,9 +4457,9 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Capabilities'] = Builders::CapabilityList.build(input[:capabilities]) unless input[:capabilities].nil?
+        data['Capabilities'] = CapabilityList.build(input[:capabilities]) unless input[:capabilities].nil?
         data['ExpiryMinutes'] = input[:expiry_minutes] unless input[:expiry_minutes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4483,7 +4485,7 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4513,7 +4515,7 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Role'] = input[:role] unless input[:role].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4535,8 +4537,8 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Endpoints'] = Builders::SipMediaApplicationEndpointList.build(input[:endpoints]) unless input[:endpoints].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Endpoints'] = SipMediaApplicationEndpointList.build(input[:endpoints]) unless input[:endpoints].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4561,8 +4563,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Arguments'] = Builders::SMAUpdateCallArgumentsMap.build(input[:arguments]) unless input[:arguments].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Arguments'] = SMAUpdateCallArgumentsMap.build(input[:arguments]) unless input[:arguments].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4596,8 +4598,8 @@ module AWS::SDK::Chime
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['Disabled'] = input[:disabled] unless input[:disabled].nil?
-        data['TargetApplications'] = Builders::SipRuleTargetApplicationList.build(input[:target_applications]) unless input[:target_applications].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TargetApplications'] = SipRuleTargetApplicationList.build(input[:target_applications]) unless input[:target_applications].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4624,8 +4626,8 @@ module AWS::SDK::Chime
         data = {}
         data['LicenseType'] = input[:license_type] unless input[:license_type].nil?
         data['UserType'] = input[:user_type] unless input[:user_type].nil?
-        data['AlexaForBusinessMetadata'] = Builders::AlexaForBusinessMetadata.build(input[:alexa_for_business_metadata]) unless input[:alexa_for_business_metadata].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AlexaForBusinessMetadata'] = AlexaForBusinessMetadata.build(input[:alexa_for_business_metadata]) unless input[:alexa_for_business_metadata].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4650,8 +4652,8 @@ module AWS::SDK::Chime
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['UserSettings'] = Builders::UserSettings.build(input[:user_settings]) unless input[:user_settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['UserSettings'] = UserSettings.build(input[:user_settings]) unless input[:user_settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4659,7 +4661,7 @@ module AWS::SDK::Chime
     class UserSettings
       def self.build(input)
         data = {}
-        data['Telephony'] = Builders::TelephonySettings.build(input[:telephony]) unless input[:telephony].nil?
+        data['Telephony'] = TelephonySettings.build(input[:telephony]) unless input[:telephony].nil?
         data
       end
     end
@@ -4694,7 +4696,7 @@ module AWS::SDK::Chime
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['RequireEncryption'] = input[:require_encryption] unless input[:require_encryption].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4716,8 +4718,8 @@ module AWS::SDK::Chime
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['VoiceConnectorItems'] = Builders::VoiceConnectorItemList.build(input[:voice_connector_items]) unless input[:voice_connector_items].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['VoiceConnectorItems'] = VoiceConnectorItemList.build(input[:voice_connector_items]) unless input[:voice_connector_items].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -182,7 +182,7 @@ module AWS::SDK::SESv2
         map = Hearth::JSON.load(http_resp.body)
         data.identity_type = map['IdentityType']
         data.verified_for_sending_status = map['VerifiedForSendingStatus']
-        data.dkim_attributes = (Parsers::DkimAttributes.parse(map['DkimAttributes']) unless map['DkimAttributes'].nil?)
+        data.dkim_attributes = (DkimAttributes.parse(map['DkimAttributes']) unless map['DkimAttributes'].nil?)
         data
       end
     end
@@ -192,7 +192,7 @@ module AWS::SDK::SESv2
         data = Types::DkimAttributes.new
         data.signing_enabled = map['SigningEnabled']
         data.status = map['Status']
-        data.tokens = (Parsers::DnsTokenList.parse(map['Tokens']) unless map['Tokens'].nil?)
+        data.tokens = (DnsTokenList.parse(map['Tokens']) unless map['Tokens'].nil?)
         data.signing_attributes_origin = map['SigningAttributesOrigin']
         data.next_signing_key_length = map['NextSigningKeyLength']
         data.current_signing_key_length = map['CurrentSigningKeyLength']
@@ -337,10 +337,10 @@ module AWS::SDK::SESv2
         data.dedicated_ip_auto_warmup_enabled = map['DedicatedIpAutoWarmupEnabled']
         data.enforcement_status = map['EnforcementStatus']
         data.production_access_enabled = map['ProductionAccessEnabled']
-        data.send_quota = (Parsers::SendQuota.parse(map['SendQuota']) unless map['SendQuota'].nil?)
+        data.send_quota = (SendQuota.parse(map['SendQuota']) unless map['SendQuota'].nil?)
         data.sending_enabled = map['SendingEnabled']
-        data.suppression_attributes = (Parsers::SuppressionAttributes.parse(map['SuppressionAttributes']) unless map['SuppressionAttributes'].nil?)
-        data.details = (Parsers::AccountDetails.parse(map['Details']) unless map['Details'].nil?)
+        data.suppression_attributes = (SuppressionAttributes.parse(map['SuppressionAttributes']) unless map['SuppressionAttributes'].nil?)
+        data.details = (AccountDetails.parse(map['Details']) unless map['Details'].nil?)
         data
       end
     end
@@ -352,8 +352,8 @@ module AWS::SDK::SESv2
         data.website_url = map['WebsiteURL']
         data.contact_language = map['ContactLanguage']
         data.use_case_description = map['UseCaseDescription']
-        data.additional_contact_email_addresses = (Parsers::AdditionalContactEmailAddresses.parse(map['AdditionalContactEmailAddresses']) unless map['AdditionalContactEmailAddresses'].nil?)
-        data.review_details = (Parsers::ReviewDetails.parse(map['ReviewDetails']) unless map['ReviewDetails'].nil?)
+        data.additional_contact_email_addresses = (AdditionalContactEmailAddresses.parse(map['AdditionalContactEmailAddresses']) unless map['AdditionalContactEmailAddresses'].nil?)
+        data.review_details = (ReviewDetails.parse(map['ReviewDetails']) unless map['ReviewDetails'].nil?)
         return data
       end
     end
@@ -380,7 +380,7 @@ module AWS::SDK::SESv2
     class SuppressionAttributes
       def self.parse(map)
         data = Types::SuppressionAttributes.new
-        data.suppressed_reasons = (Parsers::SuppressionListReasons.parse(map['SuppressedReasons']) unless map['SuppressedReasons'].nil?)
+        data.suppressed_reasons = (SuppressionListReasons.parse(map['SuppressedReasons']) unless map['SuppressedReasons'].nil?)
         return data
       end
     end
@@ -410,7 +410,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::GetBlacklistReportsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.blacklist_report = (Parsers::BlacklistReport.parse(map['BlacklistReport']) unless map['BlacklistReport'].nil?)
+        data.blacklist_report = (BlacklistReport.parse(map['BlacklistReport']) unless map['BlacklistReport'].nil?)
         data
       end
     end
@@ -419,7 +419,7 @@ module AWS::SDK::SESv2
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::BlacklistEntries.parse(value) unless value.nil?
+          data[key] = BlacklistEntries.parse(value) unless value.nil?
         end
         data
       end
@@ -429,7 +429,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BlacklistEntry.parse(value) unless value.nil?
+          data << BlacklistEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -451,12 +451,12 @@ module AWS::SDK::SESv2
         data = Types::GetConfigurationSetOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.configuration_set_name = map['ConfigurationSetName']
-        data.tracking_options = (Parsers::TrackingOptions.parse(map['TrackingOptions']) unless map['TrackingOptions'].nil?)
-        data.delivery_options = (Parsers::DeliveryOptions.parse(map['DeliveryOptions']) unless map['DeliveryOptions'].nil?)
-        data.reputation_options = (Parsers::ReputationOptions.parse(map['ReputationOptions']) unless map['ReputationOptions'].nil?)
-        data.sending_options = (Parsers::SendingOptions.parse(map['SendingOptions']) unless map['SendingOptions'].nil?)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
-        data.suppression_options = (Parsers::SuppressionOptions.parse(map['SuppressionOptions']) unless map['SuppressionOptions'].nil?)
+        data.tracking_options = (TrackingOptions.parse(map['TrackingOptions']) unless map['TrackingOptions'].nil?)
+        data.delivery_options = (DeliveryOptions.parse(map['DeliveryOptions']) unless map['DeliveryOptions'].nil?)
+        data.reputation_options = (ReputationOptions.parse(map['ReputationOptions']) unless map['ReputationOptions'].nil?)
+        data.sending_options = (SendingOptions.parse(map['SendingOptions']) unless map['SendingOptions'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.suppression_options = (SuppressionOptions.parse(map['SuppressionOptions']) unless map['SuppressionOptions'].nil?)
         data
       end
     end
@@ -464,7 +464,7 @@ module AWS::SDK::SESv2
     class SuppressionOptions
       def self.parse(map)
         data = Types::SuppressionOptions.new
-        data.suppressed_reasons = (Parsers::SuppressionListReasons.parse(map['SuppressedReasons']) unless map['SuppressedReasons'].nil?)
+        data.suppressed_reasons = (SuppressionListReasons.parse(map['SuppressedReasons']) unless map['SuppressedReasons'].nil?)
         return data
       end
     end
@@ -473,7 +473,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tag.parse(value) unless value.nil?
+          data << Tag.parse(value) unless value.nil?
         end
         data
       end
@@ -527,7 +527,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::GetConfigurationSetEventDestinationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.event_destinations = (Parsers::EventDestinations.parse(map['EventDestinations']) unless map['EventDestinations'].nil?)
+        data.event_destinations = (EventDestinations.parse(map['EventDestinations']) unless map['EventDestinations'].nil?)
         data
       end
     end
@@ -536,7 +536,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EventDestination.parse(value) unless value.nil?
+          data << EventDestination.parse(value) unless value.nil?
         end
         data
       end
@@ -547,11 +547,11 @@ module AWS::SDK::SESv2
         data = Types::EventDestination.new
         data.name = map['Name']
         data.enabled = map['Enabled']
-        data.matching_event_types = (Parsers::EventTypes.parse(map['MatchingEventTypes']) unless map['MatchingEventTypes'].nil?)
-        data.kinesis_firehose_destination = (Parsers::KinesisFirehoseDestination.parse(map['KinesisFirehoseDestination']) unless map['KinesisFirehoseDestination'].nil?)
-        data.cloud_watch_destination = (Parsers::CloudWatchDestination.parse(map['CloudWatchDestination']) unless map['CloudWatchDestination'].nil?)
-        data.sns_destination = (Parsers::SnsDestination.parse(map['SnsDestination']) unless map['SnsDestination'].nil?)
-        data.pinpoint_destination = (Parsers::PinpointDestination.parse(map['PinpointDestination']) unless map['PinpointDestination'].nil?)
+        data.matching_event_types = (EventTypes.parse(map['MatchingEventTypes']) unless map['MatchingEventTypes'].nil?)
+        data.kinesis_firehose_destination = (KinesisFirehoseDestination.parse(map['KinesisFirehoseDestination']) unless map['KinesisFirehoseDestination'].nil?)
+        data.cloud_watch_destination = (CloudWatchDestination.parse(map['CloudWatchDestination']) unless map['CloudWatchDestination'].nil?)
+        data.sns_destination = (SnsDestination.parse(map['SnsDestination']) unless map['SnsDestination'].nil?)
+        data.pinpoint_destination = (PinpointDestination.parse(map['PinpointDestination']) unless map['PinpointDestination'].nil?)
         return data
       end
     end
@@ -575,7 +575,7 @@ module AWS::SDK::SESv2
     class CloudWatchDestination
       def self.parse(map)
         data = Types::CloudWatchDestination.new
-        data.dimension_configurations = (Parsers::CloudWatchDimensionConfigurations.parse(map['DimensionConfigurations']) unless map['DimensionConfigurations'].nil?)
+        data.dimension_configurations = (CloudWatchDimensionConfigurations.parse(map['DimensionConfigurations']) unless map['DimensionConfigurations'].nil?)
         return data
       end
     end
@@ -584,7 +584,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CloudWatchDimensionConfiguration.parse(value) unless value.nil?
+          data << CloudWatchDimensionConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -626,8 +626,8 @@ module AWS::SDK::SESv2
         map = Hearth::JSON.load(http_resp.body)
         data.contact_list_name = map['ContactListName']
         data.email_address = map['EmailAddress']
-        data.topic_preferences = (Parsers::TopicPreferenceList.parse(map['TopicPreferences']) unless map['TopicPreferences'].nil?)
-        data.topic_default_preferences = (Parsers::TopicPreferenceList.parse(map['TopicDefaultPreferences']) unless map['TopicDefaultPreferences'].nil?)
+        data.topic_preferences = (TopicPreferenceList.parse(map['TopicPreferences']) unless map['TopicPreferences'].nil?)
+        data.topic_default_preferences = (TopicPreferenceList.parse(map['TopicDefaultPreferences']) unless map['TopicDefaultPreferences'].nil?)
         data.unsubscribe_all = map['UnsubscribeAll']
         data.attributes_data = map['AttributesData']
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
@@ -640,7 +640,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TopicPreference.parse(value) unless value.nil?
+          data << TopicPreference.parse(value) unless value.nil?
         end
         data
       end
@@ -661,11 +661,11 @@ module AWS::SDK::SESv2
         data = Types::GetContactListOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.contact_list_name = map['ContactListName']
-        data.topics = (Parsers::Topics.parse(map['Topics']) unless map['Topics'].nil?)
+        data.topics = (Topics.parse(map['Topics']) unless map['Topics'].nil?)
         data.description = map['Description']
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
         data.last_updated_timestamp = Time.at(map['LastUpdatedTimestamp'].to_i) if map['LastUpdatedTimestamp']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -674,7 +674,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Topic.parse(value) unless value.nil?
+          data << Topic.parse(value) unless value.nil?
         end
         data
       end
@@ -711,7 +711,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::GetDedicatedIpOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.dedicated_ip = (Parsers::DedicatedIp.parse(map['DedicatedIp']) unless map['DedicatedIp'].nil?)
+        data.dedicated_ip = (DedicatedIp.parse(map['DedicatedIp']) unless map['DedicatedIp'].nil?)
         data
       end
     end
@@ -732,7 +732,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::GetDedicatedIpsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.dedicated_ips = (Parsers::DedicatedIpList.parse(map['DedicatedIps']) unless map['DedicatedIps'].nil?)
+        data.dedicated_ips = (DedicatedIpList.parse(map['DedicatedIps']) unless map['DedicatedIps'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -742,7 +742,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DedicatedIp.parse(value) unless value.nil?
+          data << DedicatedIp.parse(value) unless value.nil?
         end
         data
       end
@@ -756,8 +756,8 @@ module AWS::SDK::SESv2
         data.dashboard_enabled = map['DashboardEnabled']
         data.subscription_expiry_date = Time.at(map['SubscriptionExpiryDate'].to_i) if map['SubscriptionExpiryDate']
         data.account_status = map['AccountStatus']
-        data.active_subscribed_domains = (Parsers::DomainDeliverabilityTrackingOptions.parse(map['ActiveSubscribedDomains']) unless map['ActiveSubscribedDomains'].nil?)
-        data.pending_expiration_subscribed_domains = (Parsers::DomainDeliverabilityTrackingOptions.parse(map['PendingExpirationSubscribedDomains']) unless map['PendingExpirationSubscribedDomains'].nil?)
+        data.active_subscribed_domains = (DomainDeliverabilityTrackingOptions.parse(map['ActiveSubscribedDomains']) unless map['ActiveSubscribedDomains'].nil?)
+        data.pending_expiration_subscribed_domains = (DomainDeliverabilityTrackingOptions.parse(map['PendingExpirationSubscribedDomains']) unless map['PendingExpirationSubscribedDomains'].nil?)
         data
       end
     end
@@ -766,7 +766,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DomainDeliverabilityTrackingOption.parse(value) unless value.nil?
+          data << DomainDeliverabilityTrackingOption.parse(value) unless value.nil?
         end
         data
       end
@@ -777,7 +777,7 @@ module AWS::SDK::SESv2
         data = Types::DomainDeliverabilityTrackingOption.new
         data.domain = map['Domain']
         data.subscription_start_date = Time.at(map['SubscriptionStartDate'].to_i) if map['SubscriptionStartDate']
-        data.inbox_placement_tracking_option = (Parsers::InboxPlacementTrackingOption.parse(map['InboxPlacementTrackingOption']) unless map['InboxPlacementTrackingOption'].nil?)
+        data.inbox_placement_tracking_option = (InboxPlacementTrackingOption.parse(map['InboxPlacementTrackingOption']) unless map['InboxPlacementTrackingOption'].nil?)
         return data
       end
     end
@@ -786,7 +786,7 @@ module AWS::SDK::SESv2
       def self.parse(map)
         data = Types::InboxPlacementTrackingOption.new
         data.global = map['Global']
-        data.tracked_isps = (Parsers::IspNameList.parse(map['TrackedIsps']) unless map['TrackedIsps'].nil?)
+        data.tracked_isps = (IspNameList.parse(map['TrackedIsps']) unless map['TrackedIsps'].nil?)
         return data
       end
     end
@@ -806,11 +806,11 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::GetDeliverabilityTestReportOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.deliverability_test_report = (Parsers::DeliverabilityTestReport.parse(map['DeliverabilityTestReport']) unless map['DeliverabilityTestReport'].nil?)
-        data.overall_placement = (Parsers::PlacementStatistics.parse(map['OverallPlacement']) unless map['OverallPlacement'].nil?)
-        data.isp_placements = (Parsers::IspPlacements.parse(map['IspPlacements']) unless map['IspPlacements'].nil?)
+        data.deliverability_test_report = (DeliverabilityTestReport.parse(map['DeliverabilityTestReport']) unless map['DeliverabilityTestReport'].nil?)
+        data.overall_placement = (PlacementStatistics.parse(map['OverallPlacement']) unless map['OverallPlacement'].nil?)
+        data.isp_placements = (IspPlacements.parse(map['IspPlacements']) unless map['IspPlacements'].nil?)
         data.message = map['Message']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -819,7 +819,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IspPlacement.parse(value) unless value.nil?
+          data << IspPlacement.parse(value) unless value.nil?
         end
         data
       end
@@ -829,7 +829,7 @@ module AWS::SDK::SESv2
       def self.parse(map)
         data = Types::IspPlacement.new
         data.isp_name = map['IspName']
-        data.placement_statistics = (Parsers::PlacementStatistics.parse(map['PlacementStatistics']) unless map['PlacementStatistics'].nil?)
+        data.placement_statistics = (PlacementStatistics.parse(map['PlacementStatistics']) unless map['PlacementStatistics'].nil?)
         return data
       end
     end
@@ -864,7 +864,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::GetDomainDeliverabilityCampaignOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_deliverability_campaign = (Parsers::DomainDeliverabilityCampaign.parse(map['DomainDeliverabilityCampaign']) unless map['DomainDeliverabilityCampaign'].nil?)
+        data.domain_deliverability_campaign = (DomainDeliverabilityCampaign.parse(map['DomainDeliverabilityCampaign']) unless map['DomainDeliverabilityCampaign'].nil?)
         data
       end
     end
@@ -876,7 +876,7 @@ module AWS::SDK::SESv2
         data.image_url = map['ImageUrl']
         data.subject = map['Subject']
         data.from_address = map['FromAddress']
-        data.sending_ips = (Parsers::IpList.parse(map['SendingIps']) unless map['SendingIps'].nil?)
+        data.sending_ips = (IpList.parse(map['SendingIps']) unless map['SendingIps'].nil?)
         data.first_seen_date_time = Time.at(map['FirstSeenDateTime'].to_i) if map['FirstSeenDateTime']
         data.last_seen_date_time = Time.at(map['LastSeenDateTime'].to_i) if map['LastSeenDateTime']
         data.inbox_count = map['InboxCount']
@@ -885,7 +885,7 @@ module AWS::SDK::SESv2
         data.delete_rate = Hearth::NumberHelper.deserialize(map['DeleteRate'])
         data.read_delete_rate = Hearth::NumberHelper.deserialize(map['ReadDeleteRate'])
         data.projected_volume = map['ProjectedVolume']
-        data.esps = (Parsers::Esps.parse(map['Esps']) unless map['Esps'].nil?)
+        data.esps = (Esps.parse(map['Esps']) unless map['Esps'].nil?)
         return data
       end
     end
@@ -915,8 +915,8 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::GetDomainStatisticsReportOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.overall_volume = (Parsers::OverallVolume.parse(map['OverallVolume']) unless map['OverallVolume'].nil?)
-        data.daily_volumes = (Parsers::DailyVolumes.parse(map['DailyVolumes']) unless map['DailyVolumes'].nil?)
+        data.overall_volume = (OverallVolume.parse(map['OverallVolume']) unless map['OverallVolume'].nil?)
+        data.daily_volumes = (DailyVolumes.parse(map['DailyVolumes']) unless map['DailyVolumes'].nil?)
         data
       end
     end
@@ -925,7 +925,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DailyVolume.parse(value) unless value.nil?
+          data << DailyVolume.parse(value) unless value.nil?
         end
         data
       end
@@ -935,8 +935,8 @@ module AWS::SDK::SESv2
       def self.parse(map)
         data = Types::DailyVolume.new
         data.start_date = Time.at(map['StartDate'].to_i) if map['StartDate']
-        data.volume_statistics = (Parsers::VolumeStatistics.parse(map['VolumeStatistics']) unless map['VolumeStatistics'].nil?)
-        data.domain_isp_placements = (Parsers::DomainIspPlacements.parse(map['DomainIspPlacements']) unless map['DomainIspPlacements'].nil?)
+        data.volume_statistics = (VolumeStatistics.parse(map['VolumeStatistics']) unless map['VolumeStatistics'].nil?)
+        data.domain_isp_placements = (DomainIspPlacements.parse(map['DomainIspPlacements']) unless map['DomainIspPlacements'].nil?)
         return data
       end
     end
@@ -945,7 +945,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DomainIspPlacement.parse(value) unless value.nil?
+          data << DomainIspPlacement.parse(value) unless value.nil?
         end
         data
       end
@@ -977,9 +977,9 @@ module AWS::SDK::SESv2
     class OverallVolume
       def self.parse(map)
         data = Types::OverallVolume.new
-        data.volume_statistics = (Parsers::VolumeStatistics.parse(map['VolumeStatistics']) unless map['VolumeStatistics'].nil?)
+        data.volume_statistics = (VolumeStatistics.parse(map['VolumeStatistics']) unless map['VolumeStatistics'].nil?)
         data.read_rate_percent = Hearth::NumberHelper.deserialize(map['ReadRatePercent'])
-        data.domain_isp_placements = (Parsers::DomainIspPlacements.parse(map['DomainIspPlacements']) unless map['DomainIspPlacements'].nil?)
+        data.domain_isp_placements = (DomainIspPlacements.parse(map['DomainIspPlacements']) unless map['DomainIspPlacements'].nil?)
         return data
       end
     end
@@ -992,10 +992,10 @@ module AWS::SDK::SESv2
         data.identity_type = map['IdentityType']
         data.feedback_forwarding_status = map['FeedbackForwardingStatus']
         data.verified_for_sending_status = map['VerifiedForSendingStatus']
-        data.dkim_attributes = (Parsers::DkimAttributes.parse(map['DkimAttributes']) unless map['DkimAttributes'].nil?)
-        data.mail_from_attributes = (Parsers::MailFromAttributes.parse(map['MailFromAttributes']) unless map['MailFromAttributes'].nil?)
-        data.policies = (Parsers::PolicyMap.parse(map['Policies']) unless map['Policies'].nil?)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.dkim_attributes = (DkimAttributes.parse(map['DkimAttributes']) unless map['DkimAttributes'].nil?)
+        data.mail_from_attributes = (MailFromAttributes.parse(map['MailFromAttributes']) unless map['MailFromAttributes'].nil?)
+        data.policies = (PolicyMap.parse(map['Policies']) unless map['Policies'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data.configuration_set_name = map['ConfigurationSetName']
         data
       end
@@ -1026,7 +1026,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::GetEmailIdentityPoliciesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policies = (Parsers::PolicyMap.parse(map['Policies']) unless map['Policies'].nil?)
+        data.policies = (PolicyMap.parse(map['Policies']) unless map['Policies'].nil?)
         data
       end
     end
@@ -1037,7 +1037,7 @@ module AWS::SDK::SESv2
         data = Types::GetEmailTemplateOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.template_name = map['TemplateName']
-        data.template_content = (Parsers::EmailTemplateContent.parse(map['TemplateContent']) unless map['TemplateContent'].nil?)
+        data.template_content = (EmailTemplateContent.parse(map['TemplateContent']) unless map['TemplateContent'].nil?)
         data
       end
     end
@@ -1058,9 +1058,9 @@ module AWS::SDK::SESv2
         data = Types::GetImportJobOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.job_id = map['JobId']
-        data.import_destination = (Parsers::ImportDestination.parse(map['ImportDestination']) unless map['ImportDestination'].nil?)
-        data.import_data_source = (Parsers::ImportDataSource.parse(map['ImportDataSource']) unless map['ImportDataSource'].nil?)
-        data.failure_info = (Parsers::FailureInfo.parse(map['FailureInfo']) unless map['FailureInfo'].nil?)
+        data.import_destination = (ImportDestination.parse(map['ImportDestination']) unless map['ImportDestination'].nil?)
+        data.import_data_source = (ImportDataSource.parse(map['ImportDataSource']) unless map['ImportDataSource'].nil?)
+        data.failure_info = (FailureInfo.parse(map['FailureInfo']) unless map['FailureInfo'].nil?)
         data.job_status = map['JobStatus']
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
         data.completed_timestamp = Time.at(map['CompletedTimestamp'].to_i) if map['CompletedTimestamp']
@@ -1091,8 +1091,8 @@ module AWS::SDK::SESv2
     class ImportDestination
       def self.parse(map)
         data = Types::ImportDestination.new
-        data.suppression_list_destination = (Parsers::SuppressionListDestination.parse(map['SuppressionListDestination']) unless map['SuppressionListDestination'].nil?)
-        data.contact_list_destination = (Parsers::ContactListDestination.parse(map['ContactListDestination']) unless map['ContactListDestination'].nil?)
+        data.suppression_list_destination = (SuppressionListDestination.parse(map['SuppressionListDestination']) unless map['SuppressionListDestination'].nil?)
+        data.contact_list_destination = (ContactListDestination.parse(map['ContactListDestination']) unless map['ContactListDestination'].nil?)
         return data
       end
     end
@@ -1119,7 +1119,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::GetSuppressedDestinationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.suppressed_destination = (Parsers::SuppressedDestination.parse(map['SuppressedDestination']) unless map['SuppressedDestination'].nil?)
+        data.suppressed_destination = (SuppressedDestination.parse(map['SuppressedDestination']) unless map['SuppressedDestination'].nil?)
         data
       end
     end
@@ -1130,7 +1130,7 @@ module AWS::SDK::SESv2
         data.email_address = map['EmailAddress']
         data.reason = map['Reason']
         data.last_update_time = Time.at(map['LastUpdateTime'].to_i) if map['LastUpdateTime']
-        data.attributes = (Parsers::SuppressedDestinationAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
+        data.attributes = (SuppressedDestinationAttributes.parse(map['Attributes']) unless map['Attributes'].nil?)
         return data
       end
     end
@@ -1149,7 +1149,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::ListConfigurationSetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.configuration_sets = (Parsers::ConfigurationSetNameList.parse(map['ConfigurationSets']) unless map['ConfigurationSets'].nil?)
+        data.configuration_sets = (ConfigurationSetNameList.parse(map['ConfigurationSets']) unless map['ConfigurationSets'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1170,7 +1170,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::ListContactListsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.contact_lists = (Parsers::ListOfContactLists.parse(map['ContactLists']) unless map['ContactLists'].nil?)
+        data.contact_lists = (ListOfContactLists.parse(map['ContactLists']) unless map['ContactLists'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1180,7 +1180,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ContactList.parse(value) unless value.nil?
+          data << ContactList.parse(value) unless value.nil?
         end
         data
       end
@@ -1200,7 +1200,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::ListContactsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.contacts = (Parsers::ListOfContacts.parse(map['Contacts']) unless map['Contacts'].nil?)
+        data.contacts = (ListOfContacts.parse(map['Contacts']) unless map['Contacts'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1210,7 +1210,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Contact.parse(value) unless value.nil?
+          data << Contact.parse(value) unless value.nil?
         end
         data
       end
@@ -1220,8 +1220,8 @@ module AWS::SDK::SESv2
       def self.parse(map)
         data = Types::Contact.new
         data.email_address = map['EmailAddress']
-        data.topic_preferences = (Parsers::TopicPreferenceList.parse(map['TopicPreferences']) unless map['TopicPreferences'].nil?)
-        data.topic_default_preferences = (Parsers::TopicPreferenceList.parse(map['TopicDefaultPreferences']) unless map['TopicDefaultPreferences'].nil?)
+        data.topic_preferences = (TopicPreferenceList.parse(map['TopicPreferences']) unless map['TopicPreferences'].nil?)
+        data.topic_default_preferences = (TopicPreferenceList.parse(map['TopicDefaultPreferences']) unless map['TopicDefaultPreferences'].nil?)
         data.unsubscribe_all = map['UnsubscribeAll']
         data.last_updated_timestamp = Time.at(map['LastUpdatedTimestamp'].to_i) if map['LastUpdatedTimestamp']
         return data
@@ -1233,7 +1233,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::ListCustomVerificationEmailTemplatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.custom_verification_email_templates = (Parsers::CustomVerificationEmailTemplatesList.parse(map['CustomVerificationEmailTemplates']) unless map['CustomVerificationEmailTemplates'].nil?)
+        data.custom_verification_email_templates = (CustomVerificationEmailTemplatesList.parse(map['CustomVerificationEmailTemplates']) unless map['CustomVerificationEmailTemplates'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1243,7 +1243,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CustomVerificationEmailTemplateMetadata.parse(value) unless value.nil?
+          data << CustomVerificationEmailTemplateMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -1266,7 +1266,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::ListDedicatedIpPoolsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.dedicated_ip_pools = (Parsers::ListOfDedicatedIpPools.parse(map['DedicatedIpPools']) unless map['DedicatedIpPools'].nil?)
+        data.dedicated_ip_pools = (ListOfDedicatedIpPools.parse(map['DedicatedIpPools']) unless map['DedicatedIpPools'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1287,7 +1287,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::ListDeliverabilityTestReportsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.deliverability_test_reports = (Parsers::DeliverabilityTestReports.parse(map['DeliverabilityTestReports']) unless map['DeliverabilityTestReports'].nil?)
+        data.deliverability_test_reports = (DeliverabilityTestReports.parse(map['DeliverabilityTestReports']) unless map['DeliverabilityTestReports'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1297,7 +1297,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DeliverabilityTestReport.parse(value) unless value.nil?
+          data << DeliverabilityTestReport.parse(value) unless value.nil?
         end
         data
       end
@@ -1308,7 +1308,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::ListDomainDeliverabilityCampaignsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.domain_deliverability_campaigns = (Parsers::DomainDeliverabilityCampaignList.parse(map['DomainDeliverabilityCampaigns']) unless map['DomainDeliverabilityCampaigns'].nil?)
+        data.domain_deliverability_campaigns = (DomainDeliverabilityCampaignList.parse(map['DomainDeliverabilityCampaigns']) unless map['DomainDeliverabilityCampaigns'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1318,7 +1318,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DomainDeliverabilityCampaign.parse(value) unless value.nil?
+          data << DomainDeliverabilityCampaign.parse(value) unless value.nil?
         end
         data
       end
@@ -1329,7 +1329,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::ListEmailIdentitiesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.email_identities = (Parsers::IdentityInfoList.parse(map['EmailIdentities']) unless map['EmailIdentities'].nil?)
+        data.email_identities = (IdentityInfoList.parse(map['EmailIdentities']) unless map['EmailIdentities'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1339,7 +1339,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IdentityInfo.parse(value) unless value.nil?
+          data << IdentityInfo.parse(value) unless value.nil?
         end
         data
       end
@@ -1360,7 +1360,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::ListEmailTemplatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.templates_metadata = (Parsers::EmailTemplateMetadataList.parse(map['TemplatesMetadata']) unless map['TemplatesMetadata'].nil?)
+        data.templates_metadata = (EmailTemplateMetadataList.parse(map['TemplatesMetadata']) unless map['TemplatesMetadata'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1370,7 +1370,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::EmailTemplateMetadata.parse(value) unless value.nil?
+          data << EmailTemplateMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -1390,7 +1390,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::ListImportJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.import_jobs = (Parsers::ImportJobSummaryList.parse(map['ImportJobs']) unless map['ImportJobs'].nil?)
+        data.import_jobs = (ImportJobSummaryList.parse(map['ImportJobs']) unless map['ImportJobs'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1400,7 +1400,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ImportJobSummary.parse(value) unless value.nil?
+          data << ImportJobSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1410,7 +1410,7 @@ module AWS::SDK::SESv2
       def self.parse(map)
         data = Types::ImportJobSummary.new
         data.job_id = map['JobId']
-        data.import_destination = (Parsers::ImportDestination.parse(map['ImportDestination']) unless map['ImportDestination'].nil?)
+        data.import_destination = (ImportDestination.parse(map['ImportDestination']) unless map['ImportDestination'].nil?)
         data.job_status = map['JobStatus']
         data.created_timestamp = Time.at(map['CreatedTimestamp'].to_i) if map['CreatedTimestamp']
         return data
@@ -1422,7 +1422,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::ListSuppressedDestinationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.suppressed_destination_summaries = (Parsers::SuppressedDestinationSummaries.parse(map['SuppressedDestinationSummaries']) unless map['SuppressedDestinationSummaries'].nil?)
+        data.suppressed_destination_summaries = (SuppressedDestinationSummaries.parse(map['SuppressedDestinationSummaries']) unless map['SuppressedDestinationSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1432,7 +1432,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SuppressedDestinationSummary.parse(value) unless value.nil?
+          data << SuppressedDestinationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1463,7 +1463,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -1610,7 +1610,7 @@ module AWS::SDK::SESv2
         data = Types::PutEmailIdentityDkimSigningAttributesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.dkim_status = map['DkimStatus']
-        data.dkim_tokens = (Parsers::DnsTokenList.parse(map['DkimTokens']) unless map['DkimTokens'].nil?)
+        data.dkim_tokens = (DnsTokenList.parse(map['DkimTokens']) unless map['DkimTokens'].nil?)
         data
       end
     end
@@ -1647,7 +1647,7 @@ module AWS::SDK::SESv2
       def self.parse(http_resp)
         data = Types::SendBulkEmailOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.bulk_email_entry_results = (Parsers::BulkEmailEntryResultList.parse(map['BulkEmailEntryResults']) unless map['BulkEmailEntryResults'].nil?)
+        data.bulk_email_entry_results = (BulkEmailEntryResultList.parse(map['BulkEmailEntryResults']) unless map['BulkEmailEntryResults'].nil?)
         data
       end
     end
@@ -1656,7 +1656,7 @@ module AWS::SDK::SESv2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BulkEmailEntryResult.parse(value) unless value.nil?
+          data << BulkEmailEntryResult.parse(value) unless value.nil?
         end
         data
       end

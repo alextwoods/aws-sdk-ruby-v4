@@ -135,7 +135,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
       def self.parse(http_resp)
         data = Types::GetImagesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.images = (Parsers::Images.parse(map['Images']) unless map['Images'].nil?)
+        data.images = (Images.parse(map['Images']) unless map['Images'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -145,7 +145,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Image.parse(value) unless value.nil?
+          data << Image.parse(value) unless value.nil?
         end
         data
       end
@@ -176,7 +176,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
       def self.parse(http_resp)
         data = Types::ListFragmentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.fragments = (Parsers::FragmentList.parse(map['Fragments']) unless map['Fragments'].nil?)
+        data.fragments = (FragmentList.parse(map['Fragments']) unless map['Fragments'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -186,7 +186,7 @@ module AWS::SDK::KinesisVideoArchivedMedia
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Fragment.parse(value) unless value.nil?
+          data << Fragment.parse(value) unless value.nil?
         end
         data
       end

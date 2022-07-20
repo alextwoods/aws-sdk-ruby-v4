@@ -15,7 +15,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(http_resp)
         data = Types::BatchAcknowledgeAlarmOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.error_entries = (Parsers::BatchAlarmActionErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
+        data.error_entries = (BatchAlarmActionErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
         data
       end
     end
@@ -24,7 +24,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchAlarmActionErrorEntry.parse(value) unless value.nil?
+          data << BatchAlarmActionErrorEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -85,7 +85,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(http_resp)
         data = Types::BatchDeleteDetectorOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.batch_delete_detector_error_entries = (Parsers::BatchDeleteDetectorErrorEntries.parse(map['batchDeleteDetectorErrorEntries']) unless map['batchDeleteDetectorErrorEntries'].nil?)
+        data.batch_delete_detector_error_entries = (BatchDeleteDetectorErrorEntries.parse(map['batchDeleteDetectorErrorEntries']) unless map['batchDeleteDetectorErrorEntries'].nil?)
         data
       end
     end
@@ -94,7 +94,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchDeleteDetectorErrorEntry.parse(value) unless value.nil?
+          data << BatchDeleteDetectorErrorEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -115,7 +115,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(http_resp)
         data = Types::BatchDisableAlarmOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.error_entries = (Parsers::BatchAlarmActionErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
+        data.error_entries = (BatchAlarmActionErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
         data
       end
     end
@@ -125,7 +125,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(http_resp)
         data = Types::BatchEnableAlarmOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.error_entries = (Parsers::BatchAlarmActionErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
+        data.error_entries = (BatchAlarmActionErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
         data
       end
     end
@@ -135,7 +135,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(http_resp)
         data = Types::BatchPutMessageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.batch_put_message_error_entries = (Parsers::BatchPutMessageErrorEntries.parse(map['BatchPutMessageErrorEntries']) unless map['BatchPutMessageErrorEntries'].nil?)
+        data.batch_put_message_error_entries = (BatchPutMessageErrorEntries.parse(map['BatchPutMessageErrorEntries']) unless map['BatchPutMessageErrorEntries'].nil?)
         data
       end
     end
@@ -144,7 +144,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchPutMessageErrorEntry.parse(value) unless value.nil?
+          data << BatchPutMessageErrorEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -165,7 +165,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(http_resp)
         data = Types::BatchResetAlarmOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.error_entries = (Parsers::BatchAlarmActionErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
+        data.error_entries = (BatchAlarmActionErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
         data
       end
     end
@@ -175,7 +175,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(http_resp)
         data = Types::BatchSnoozeAlarmOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.error_entries = (Parsers::BatchAlarmActionErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
+        data.error_entries = (BatchAlarmActionErrorEntries.parse(map['errorEntries']) unless map['errorEntries'].nil?)
         data
       end
     end
@@ -185,7 +185,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(http_resp)
         data = Types::BatchUpdateDetectorOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.batch_update_detector_error_entries = (Parsers::BatchUpdateDetectorErrorEntries.parse(map['batchUpdateDetectorErrorEntries']) unless map['batchUpdateDetectorErrorEntries'].nil?)
+        data.batch_update_detector_error_entries = (BatchUpdateDetectorErrorEntries.parse(map['batchUpdateDetectorErrorEntries']) unless map['batchUpdateDetectorErrorEntries'].nil?)
         data
       end
     end
@@ -194,7 +194,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchUpdateDetectorErrorEntry.parse(value) unless value.nil?
+          data << BatchUpdateDetectorErrorEntry.parse(value) unless value.nil?
         end
         data
       end
@@ -215,7 +215,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(http_resp)
         data = Types::DescribeAlarmOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.alarm = (Parsers::Alarm.parse(map['alarm']) unless map['alarm'].nil?)
+        data.alarm = (Alarm.parse(map['alarm']) unless map['alarm'].nil?)
         data
       end
     end
@@ -226,7 +226,7 @@ module AWS::SDK::IoTEventsData
         data.alarm_model_name = map['alarmModelName']
         data.alarm_model_version = map['alarmModelVersion']
         data.key_value = map['keyValue']
-        data.alarm_state = (Parsers::AlarmState.parse(map['alarmState']) unless map['alarmState'].nil?)
+        data.alarm_state = (AlarmState.parse(map['alarmState']) unless map['alarmState'].nil?)
         data.severity = map['severity']
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_update_time = Time.at(map['lastUpdateTime'].to_i) if map['lastUpdateTime']
@@ -238,9 +238,9 @@ module AWS::SDK::IoTEventsData
       def self.parse(map)
         data = Types::AlarmState.new
         data.state_name = map['stateName']
-        data.rule_evaluation = (Parsers::RuleEvaluation.parse(map['ruleEvaluation']) unless map['ruleEvaluation'].nil?)
-        data.customer_action = (Parsers::CustomerAction.parse(map['customerAction']) unless map['customerAction'].nil?)
-        data.system_event = (Parsers::SystemEvent.parse(map['systemEvent']) unless map['systemEvent'].nil?)
+        data.rule_evaluation = (RuleEvaluation.parse(map['ruleEvaluation']) unless map['ruleEvaluation'].nil?)
+        data.customer_action = (CustomerAction.parse(map['customerAction']) unless map['customerAction'].nil?)
+        data.system_event = (SystemEvent.parse(map['systemEvent']) unless map['systemEvent'].nil?)
         return data
       end
     end
@@ -249,7 +249,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(map)
         data = Types::SystemEvent.new
         data.event_type = map['eventType']
-        data.state_change_configuration = (Parsers::StateChangeConfiguration.parse(map['stateChangeConfiguration']) unless map['stateChangeConfiguration'].nil?)
+        data.state_change_configuration = (StateChangeConfiguration.parse(map['stateChangeConfiguration']) unless map['stateChangeConfiguration'].nil?)
         return data
       end
     end
@@ -266,11 +266,11 @@ module AWS::SDK::IoTEventsData
       def self.parse(map)
         data = Types::CustomerAction.new
         data.action_name = map['actionName']
-        data.snooze_action_configuration = (Parsers::SnoozeActionConfiguration.parse(map['snoozeActionConfiguration']) unless map['snoozeActionConfiguration'].nil?)
-        data.enable_action_configuration = (Parsers::EnableActionConfiguration.parse(map['enableActionConfiguration']) unless map['enableActionConfiguration'].nil?)
-        data.disable_action_configuration = (Parsers::DisableActionConfiguration.parse(map['disableActionConfiguration']) unless map['disableActionConfiguration'].nil?)
-        data.acknowledge_action_configuration = (Parsers::AcknowledgeActionConfiguration.parse(map['acknowledgeActionConfiguration']) unless map['acknowledgeActionConfiguration'].nil?)
-        data.reset_action_configuration = (Parsers::ResetActionConfiguration.parse(map['resetActionConfiguration']) unless map['resetActionConfiguration'].nil?)
+        data.snooze_action_configuration = (SnoozeActionConfiguration.parse(map['snoozeActionConfiguration']) unless map['snoozeActionConfiguration'].nil?)
+        data.enable_action_configuration = (EnableActionConfiguration.parse(map['enableActionConfiguration']) unless map['enableActionConfiguration'].nil?)
+        data.disable_action_configuration = (DisableActionConfiguration.parse(map['disableActionConfiguration']) unless map['disableActionConfiguration'].nil?)
+        data.acknowledge_action_configuration = (AcknowledgeActionConfiguration.parse(map['acknowledgeActionConfiguration']) unless map['acknowledgeActionConfiguration'].nil?)
+        data.reset_action_configuration = (ResetActionConfiguration.parse(map['resetActionConfiguration']) unless map['resetActionConfiguration'].nil?)
         return data
       end
     end
@@ -319,7 +319,7 @@ module AWS::SDK::IoTEventsData
     class RuleEvaluation
       def self.parse(map)
         data = Types::RuleEvaluation.new
-        data.simple_rule_evaluation = (Parsers::SimpleRuleEvaluation.parse(map['simpleRuleEvaluation']) unless map['simpleRuleEvaluation'].nil?)
+        data.simple_rule_evaluation = (SimpleRuleEvaluation.parse(map['simpleRuleEvaluation']) unless map['simpleRuleEvaluation'].nil?)
         return data
       end
     end
@@ -349,7 +349,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(http_resp)
         data = Types::DescribeDetectorOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.detector = (Parsers::Detector.parse(map['detector']) unless map['detector'].nil?)
+        data.detector = (Detector.parse(map['detector']) unless map['detector'].nil?)
         data
       end
     end
@@ -360,7 +360,7 @@ module AWS::SDK::IoTEventsData
         data.detector_model_name = map['detectorModelName']
         data.key_value = map['keyValue']
         data.detector_model_version = map['detectorModelVersion']
-        data.state = (Parsers::DetectorState.parse(map['state']) unless map['state'].nil?)
+        data.state = (DetectorState.parse(map['state']) unless map['state'].nil?)
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_update_time = Time.at(map['lastUpdateTime'].to_i) if map['lastUpdateTime']
         return data
@@ -371,8 +371,8 @@ module AWS::SDK::IoTEventsData
       def self.parse(map)
         data = Types::DetectorState.new
         data.state_name = map['stateName']
-        data.variables = (Parsers::Variables.parse(map['variables']) unless map['variables'].nil?)
-        data.timers = (Parsers::Timers.parse(map['timers']) unless map['timers'].nil?)
+        data.variables = (Variables.parse(map['variables']) unless map['variables'].nil?)
+        data.timers = (Timers.parse(map['timers']) unless map['timers'].nil?)
         return data
       end
     end
@@ -381,7 +381,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Timer.parse(value) unless value.nil?
+          data << Timer.parse(value) unless value.nil?
         end
         data
       end
@@ -400,7 +400,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Variable.parse(value) unless value.nil?
+          data << Variable.parse(value) unless value.nil?
         end
         data
       end
@@ -420,7 +420,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(http_resp)
         data = Types::ListAlarmsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.alarm_summaries = (Parsers::AlarmSummaries.parse(map['alarmSummaries']) unless map['alarmSummaries'].nil?)
+        data.alarm_summaries = (AlarmSummaries.parse(map['alarmSummaries']) unless map['alarmSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -430,7 +430,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AlarmSummary.parse(value) unless value.nil?
+          data << AlarmSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -454,7 +454,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(http_resp)
         data = Types::ListDetectorsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.detector_summaries = (Parsers::DetectorSummaries.parse(map['detectorSummaries']) unless map['detectorSummaries'].nil?)
+        data.detector_summaries = (DetectorSummaries.parse(map['detectorSummaries']) unless map['detectorSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -464,7 +464,7 @@ module AWS::SDK::IoTEventsData
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DetectorSummary.parse(value) unless value.nil?
+          data << DetectorSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -476,7 +476,7 @@ module AWS::SDK::IoTEventsData
         data.detector_model_name = map['detectorModelName']
         data.key_value = map['keyValue']
         data.detector_model_version = map['detectorModelVersion']
-        data.state = (Parsers::DetectorStateSummary.parse(map['state']) unless map['state'].nil?)
+        data.state = (DetectorStateSummary.parse(map['state']) unless map['state'].nil?)
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_update_time = Time.at(map['lastUpdateTime'].to_i) if map['lastUpdateTime']
         return data

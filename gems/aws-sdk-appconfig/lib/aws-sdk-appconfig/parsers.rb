@@ -29,7 +29,7 @@ module AWS::SDK::AppConfig
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['Message']
         data.reason = map['Reason']
-        data.details = (Parsers::BadRequestDetails.parse(map['Details']) unless map['Details'].nil?)
+        data.details = (BadRequestDetails.parse(map['Details']) unless map['Details'].nil?)
         data
       end
     end
@@ -39,7 +39,7 @@ module AWS::SDK::AppConfig
         key, value = map.flatten
         case key
         when 'InvalidConfiguration'
-          value = (Parsers::InvalidConfigurationDetailList.parse(value) unless value.nil?)
+          value = (InvalidConfigurationDetailList.parse(value) unless value.nil?)
           Types::BadRequestDetails::InvalidConfiguration.new(value) if value
         else
           Types::BadRequestDetails::Unknown.new({name: key, value: value})
@@ -51,7 +51,7 @@ module AWS::SDK::AppConfig
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InvalidConfigurationDetail.parse(value) unless value.nil?
+          data << InvalidConfigurationDetail.parse(value) unless value.nil?
         end
         data
       end
@@ -89,7 +89,7 @@ module AWS::SDK::AppConfig
         data.description = map['Description']
         data.location_uri = map['LocationUri']
         data.retrieval_role_arn = map['RetrievalRoleArn']
-        data.validators = (Parsers::ValidatorList.parse(map['Validators']) unless map['Validators'].nil?)
+        data.validators = (ValidatorList.parse(map['Validators']) unless map['Validators'].nil?)
         data.type = map['Type']
         data
       end
@@ -99,7 +99,7 @@ module AWS::SDK::AppConfig
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Validator.parse(value) unless value.nil?
+          data << Validator.parse(value) unless value.nil?
         end
         data
       end
@@ -152,7 +152,7 @@ module AWS::SDK::AppConfig
         data.name = map['Name']
         data.description = map['Description']
         data.state = map['State']
-        data.monitors = (Parsers::MonitorList.parse(map['Monitors']) unless map['Monitors'].nil?)
+        data.monitors = (MonitorList.parse(map['Monitors']) unless map['Monitors'].nil?)
         data
       end
     end
@@ -161,7 +161,7 @@ module AWS::SDK::AppConfig
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Monitor.parse(value) unless value.nil?
+          data << Monitor.parse(value) unless value.nil?
         end
         data
       end
@@ -304,7 +304,7 @@ module AWS::SDK::AppConfig
         data.description = map['Description']
         data.location_uri = map['LocationUri']
         data.retrieval_role_arn = map['RetrievalRoleArn']
-        data.validators = (Parsers::ValidatorList.parse(map['Validators']) unless map['Validators'].nil?)
+        data.validators = (ValidatorList.parse(map['Validators']) unless map['Validators'].nil?)
         data.type = map['Type']
         data
       end
@@ -329,7 +329,7 @@ module AWS::SDK::AppConfig
         data.growth_factor = Hearth::NumberHelper.deserialize(map['GrowthFactor'])
         data.final_bake_time_in_minutes = map['FinalBakeTimeInMinutes']
         data.state = map['State']
-        data.event_log = (Parsers::DeploymentEvents.parse(map['EventLog']) unless map['EventLog'].nil?)
+        data.event_log = (DeploymentEvents.parse(map['EventLog']) unless map['EventLog'].nil?)
         data.percentage_complete = Hearth::NumberHelper.deserialize(map['PercentageComplete'])
         data.started_at = Time.parse(map['StartedAt']) if map['StartedAt']
         data.completed_at = Time.parse(map['CompletedAt']) if map['CompletedAt']
@@ -341,7 +341,7 @@ module AWS::SDK::AppConfig
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DeploymentEvent.parse(value) unless value.nil?
+          data << DeploymentEvent.parse(value) unless value.nil?
         end
         data
       end
@@ -385,7 +385,7 @@ module AWS::SDK::AppConfig
         data.name = map['Name']
         data.description = map['Description']
         data.state = map['State']
-        data.monitors = (Parsers::MonitorList.parse(map['Monitors']) unless map['Monitors'].nil?)
+        data.monitors = (MonitorList.parse(map['Monitors']) unless map['Monitors'].nil?)
         data
       end
     end
@@ -410,7 +410,7 @@ module AWS::SDK::AppConfig
       def self.parse(http_resp)
         data = Types::ListApplicationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::ApplicationList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (ApplicationList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -420,7 +420,7 @@ module AWS::SDK::AppConfig
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Application.parse(value) unless value.nil?
+          data << Application.parse(value) unless value.nil?
         end
         data
       end
@@ -441,7 +441,7 @@ module AWS::SDK::AppConfig
       def self.parse(http_resp)
         data = Types::ListConfigurationProfilesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::ConfigurationProfileSummaryList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (ConfigurationProfileSummaryList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -451,7 +451,7 @@ module AWS::SDK::AppConfig
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ConfigurationProfileSummary.parse(value) unless value.nil?
+          data << ConfigurationProfileSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -464,7 +464,7 @@ module AWS::SDK::AppConfig
         data.id = map['Id']
         data.name = map['Name']
         data.location_uri = map['LocationUri']
-        data.validator_types = (Parsers::ValidatorTypeList.parse(map['ValidatorTypes']) unless map['ValidatorTypes'].nil?)
+        data.validator_types = (ValidatorTypeList.parse(map['ValidatorTypes']) unless map['ValidatorTypes'].nil?)
         data.type = map['Type']
         return data
       end
@@ -485,7 +485,7 @@ module AWS::SDK::AppConfig
       def self.parse(http_resp)
         data = Types::ListDeploymentStrategiesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::DeploymentStrategyList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (DeploymentStrategyList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -495,7 +495,7 @@ module AWS::SDK::AppConfig
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DeploymentStrategy.parse(value) unless value.nil?
+          data << DeploymentStrategy.parse(value) unless value.nil?
         end
         data
       end
@@ -521,7 +521,7 @@ module AWS::SDK::AppConfig
       def self.parse(http_resp)
         data = Types::ListDeploymentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::DeploymentList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (DeploymentList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -531,7 +531,7 @@ module AWS::SDK::AppConfig
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DeploymentSummary.parse(value) unless value.nil?
+          data << DeploymentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -560,7 +560,7 @@ module AWS::SDK::AppConfig
       def self.parse(http_resp)
         data = Types::ListEnvironmentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::EnvironmentList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (EnvironmentList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -570,7 +570,7 @@ module AWS::SDK::AppConfig
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Environment.parse(value) unless value.nil?
+          data << Environment.parse(value) unless value.nil?
         end
         data
       end
@@ -584,7 +584,7 @@ module AWS::SDK::AppConfig
         data.name = map['Name']
         data.description = map['Description']
         data.state = map['State']
-        data.monitors = (Parsers::MonitorList.parse(map['Monitors']) unless map['Monitors'].nil?)
+        data.monitors = (MonitorList.parse(map['Monitors']) unless map['Monitors'].nil?)
         return data
       end
     end
@@ -594,7 +594,7 @@ module AWS::SDK::AppConfig
       def self.parse(http_resp)
         data = Types::ListHostedConfigurationVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::HostedConfigurationVersionSummaryList.parse(map['Items']) unless map['Items'].nil?)
+        data.items = (HostedConfigurationVersionSummaryList.parse(map['Items']) unless map['Items'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -604,7 +604,7 @@ module AWS::SDK::AppConfig
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HostedConfigurationVersionSummary.parse(value) unless value.nil?
+          data << HostedConfigurationVersionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -627,7 +627,7 @@ module AWS::SDK::AppConfig
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -661,7 +661,7 @@ module AWS::SDK::AppConfig
         data.growth_factor = Hearth::NumberHelper.deserialize(map['GrowthFactor'])
         data.final_bake_time_in_minutes = map['FinalBakeTimeInMinutes']
         data.state = map['State']
-        data.event_log = (Parsers::DeploymentEvents.parse(map['EventLog']) unless map['EventLog'].nil?)
+        data.event_log = (DeploymentEvents.parse(map['EventLog']) unless map['EventLog'].nil?)
         data.percentage_complete = Hearth::NumberHelper.deserialize(map['PercentageComplete'])
         data.started_at = Time.parse(map['StartedAt']) if map['StartedAt']
         data.completed_at = Time.parse(map['CompletedAt']) if map['CompletedAt']
@@ -688,7 +688,7 @@ module AWS::SDK::AppConfig
         data.growth_factor = Hearth::NumberHelper.deserialize(map['GrowthFactor'])
         data.final_bake_time_in_minutes = map['FinalBakeTimeInMinutes']
         data.state = map['State']
-        data.event_log = (Parsers::DeploymentEvents.parse(map['EventLog']) unless map['EventLog'].nil?)
+        data.event_log = (DeploymentEvents.parse(map['EventLog']) unless map['EventLog'].nil?)
         data.percentage_complete = Hearth::NumberHelper.deserialize(map['PercentageComplete'])
         data.started_at = Time.parse(map['StartedAt']) if map['StartedAt']
         data.completed_at = Time.parse(map['CompletedAt']) if map['CompletedAt']
@@ -737,7 +737,7 @@ module AWS::SDK::AppConfig
         data.description = map['Description']
         data.location_uri = map['LocationUri']
         data.retrieval_role_arn = map['RetrievalRoleArn']
-        data.validators = (Parsers::ValidatorList.parse(map['Validators']) unless map['Validators'].nil?)
+        data.validators = (ValidatorList.parse(map['Validators']) unless map['Validators'].nil?)
         data.type = map['Type']
         data
       end
@@ -770,7 +770,7 @@ module AWS::SDK::AppConfig
         data.name = map['Name']
         data.description = map['Description']
         data.state = map['State']
-        data.monitors = (Parsers::MonitorList.parse(map['Monitors']) unless map['Monitors'].nil?)
+        data.monitors = (MonitorList.parse(map['Monitors']) unless map['Monitors'].nil?)
         data
       end
     end

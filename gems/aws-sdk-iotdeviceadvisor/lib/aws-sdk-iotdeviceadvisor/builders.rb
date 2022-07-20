@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::IotDeviceAdvisor
   module Builders
 
@@ -20,9 +22,9 @@ module AWS::SDK::IotDeviceAdvisor
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['suiteDefinitionConfiguration'] = Builders::SuiteDefinitionConfiguration.build(input[:suite_definition_configuration]) unless input[:suite_definition_configuration].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['suiteDefinitionConfiguration'] = SuiteDefinitionConfiguration.build(input[:suite_definition_configuration]) unless input[:suite_definition_configuration].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -42,7 +44,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.build(input)
         data = {}
         data['suiteDefinitionName'] = input[:suite_definition_name] unless input[:suite_definition_name].nil?
-        data['devices'] = Builders::DeviceUnderTestList.build(input[:devices]) unless input[:devices].nil?
+        data['devices'] = DeviceUnderTestList.build(input[:devices]) unless input[:devices].nil?
         data['intendedForQualification'] = input[:intended_for_qualification] unless input[:intended_for_qualification].nil?
         data['rootGroup'] = input[:root_group] unless input[:root_group].nil?
         data['devicePermissionRoleArn'] = input[:device_permission_role_arn] unless input[:device_permission_role_arn].nil?
@@ -55,7 +57,7 @@ module AWS::SDK::IotDeviceAdvisor
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DeviceUnderTest.build(element) unless element.nil?
+          data << DeviceUnderTest.build(element) unless element.nil?
         end
         data
       end
@@ -221,9 +223,9 @@ module AWS::SDK::IotDeviceAdvisor
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['suiteDefinitionVersion'] = input[:suite_definition_version] unless input[:suite_definition_version].nil?
-        data['suiteRunConfiguration'] = Builders::SuiteRunConfiguration.build(input[:suite_run_configuration]) unless input[:suite_run_configuration].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['suiteRunConfiguration'] = SuiteRunConfiguration.build(input[:suite_run_configuration]) unless input[:suite_run_configuration].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -231,8 +233,8 @@ module AWS::SDK::IotDeviceAdvisor
     class SuiteRunConfiguration
       def self.build(input)
         data = {}
-        data['primaryDevice'] = Builders::DeviceUnderTest.build(input[:primary_device]) unless input[:primary_device].nil?
-        data['selectedTestList'] = Builders::SelectedTestList.build(input[:selected_test_list]) unless input[:selected_test_list].nil?
+        data['primaryDevice'] = DeviceUnderTest.build(input[:primary_device]) unless input[:primary_device].nil?
+        data['selectedTestList'] = SelectedTestList.build(input[:selected_test_list]) unless input[:selected_test_list].nil?
         data['parallelRun'] = input[:parallel_run] unless input[:parallel_run].nil?
         data
       end
@@ -287,8 +289,8 @@ module AWS::SDK::IotDeviceAdvisor
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -342,8 +344,8 @@ module AWS::SDK::IotDeviceAdvisor
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['suiteDefinitionConfiguration'] = Builders::SuiteDefinitionConfiguration.build(input[:suite_definition_configuration]) unless input[:suite_definition_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['suiteDefinitionConfiguration'] = SuiteDefinitionConfiguration.build(input[:suite_definition_configuration]) unless input[:suite_definition_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Glacier
   module Stubs
 
@@ -197,11 +199,11 @@ module AWS::SDK::Glacier
         data['ArchiveSHA256TreeHash'] = stub[:archive_sha256_tree_hash] unless stub[:archive_sha256_tree_hash].nil?
         data['RetrievalByteRange'] = stub[:retrieval_byte_range] unless stub[:retrieval_byte_range].nil?
         data['Tier'] = stub[:tier] unless stub[:tier].nil?
-        data['InventoryRetrievalParameters'] = Stubs::InventoryRetrievalJobDescription.stub(stub[:inventory_retrieval_parameters]) unless stub[:inventory_retrieval_parameters].nil?
+        data['InventoryRetrievalParameters'] = InventoryRetrievalJobDescription.stub(stub[:inventory_retrieval_parameters]) unless stub[:inventory_retrieval_parameters].nil?
         data['JobOutputPath'] = stub[:job_output_path] unless stub[:job_output_path].nil?
-        data['SelectParameters'] = Stubs::SelectParameters.stub(stub[:select_parameters]) unless stub[:select_parameters].nil?
-        data['OutputLocation'] = Stubs::OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SelectParameters'] = SelectParameters.stub(stub[:select_parameters]) unless stub[:select_parameters].nil?
+        data['OutputLocation'] = OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -218,7 +220,7 @@ module AWS::SDK::Glacier
       def self.stub(stub)
         stub ||= Types::OutputLocation.new
         data = {}
-        data['S3'] = Stubs::S3Location.stub(stub[:s3]) unless stub[:s3].nil?
+        data['S3'] = S3Location.stub(stub[:s3]) unless stub[:s3].nil?
         data
       end
     end
@@ -245,11 +247,11 @@ module AWS::SDK::Glacier
         data = {}
         data['BucketName'] = stub[:bucket_name] unless stub[:bucket_name].nil?
         data['Prefix'] = stub[:prefix] unless stub[:prefix].nil?
-        data['Encryption'] = Stubs::Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
+        data['Encryption'] = Encryption.stub(stub[:encryption]) unless stub[:encryption].nil?
         data['CannedACL'] = stub[:canned_acl] unless stub[:canned_acl].nil?
-        data['AccessControlList'] = Stubs::AccessControlPolicyList.stub(stub[:access_control_list]) unless stub[:access_control_list].nil?
-        data['Tagging'] = Stubs::Hashmap.stub(stub[:tagging]) unless stub[:tagging].nil?
-        data['UserMetadata'] = Stubs::Hashmap.stub(stub[:user_metadata]) unless stub[:user_metadata].nil?
+        data['AccessControlList'] = AccessControlPolicyList.stub(stub[:access_control_list]) unless stub[:access_control_list].nil?
+        data['Tagging'] = Hashmap.stub(stub[:tagging]) unless stub[:tagging].nil?
+        data['UserMetadata'] = Hashmap.stub(stub[:user_metadata]) unless stub[:user_metadata].nil?
         data['StorageClass'] = stub[:storage_class] unless stub[:storage_class].nil?
         data
       end
@@ -289,7 +291,7 @@ module AWS::SDK::Glacier
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Grant.stub(element) unless element.nil?
+          data << Grant.stub(element) unless element.nil?
         end
         data
       end
@@ -309,7 +311,7 @@ module AWS::SDK::Glacier
       def self.stub(stub)
         stub ||= Types::Grant.new
         data = {}
-        data['Grantee'] = Stubs::Grantee.stub(stub[:grantee]) unless stub[:grantee].nil?
+        data['Grantee'] = Grantee.stub(stub[:grantee]) unless stub[:grantee].nil?
         data['Permission'] = stub[:permission] unless stub[:permission].nil?
         data
       end
@@ -379,10 +381,10 @@ module AWS::SDK::Glacier
       def self.stub(stub)
         stub ||= Types::SelectParameters.new
         data = {}
-        data['InputSerialization'] = Stubs::InputSerialization.stub(stub[:input_serialization]) unless stub[:input_serialization].nil?
+        data['InputSerialization'] = InputSerialization.stub(stub[:input_serialization]) unless stub[:input_serialization].nil?
         data['ExpressionType'] = stub[:expression_type] unless stub[:expression_type].nil?
         data['Expression'] = stub[:expression] unless stub[:expression].nil?
-        data['OutputSerialization'] = Stubs::OutputSerialization.stub(stub[:output_serialization]) unless stub[:output_serialization].nil?
+        data['OutputSerialization'] = OutputSerialization.stub(stub[:output_serialization]) unless stub[:output_serialization].nil?
         data
       end
     end
@@ -400,7 +402,7 @@ module AWS::SDK::Glacier
       def self.stub(stub)
         stub ||= Types::OutputSerialization.new
         data = {}
-        data['csv'] = Stubs::CSVOutput.stub(stub[:csv]) unless stub[:csv].nil?
+        data['csv'] = CSVOutput.stub(stub[:csv]) unless stub[:csv].nil?
         data
       end
     end
@@ -444,7 +446,7 @@ module AWS::SDK::Glacier
       def self.stub(stub)
         stub ||= Types::InputSerialization.new
         data = {}
-        data['csv'] = Stubs::CSVInput.stub(stub[:csv]) unless stub[:csv].nil?
+        data['csv'] = CSVInput.stub(stub[:csv]) unless stub[:csv].nil?
         data
       end
     end
@@ -526,7 +528,7 @@ module AWS::SDK::Glacier
         data['LastInventoryDate'] = stub[:last_inventory_date] unless stub[:last_inventory_date].nil?
         data['NumberOfArchives'] = stub[:number_of_archives] unless stub[:number_of_archives].nil?
         data['SizeInBytes'] = stub[:size_in_bytes] unless stub[:size_in_bytes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -542,8 +544,8 @@ module AWS::SDK::Glacier
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Policy'] = Stubs::DataRetrievalPolicy.stub(stub[:policy]) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Policy'] = DataRetrievalPolicy.stub(stub[:policy]) unless stub[:policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -560,7 +562,7 @@ module AWS::SDK::Glacier
       def self.stub(stub)
         stub ||= Types::DataRetrievalPolicy.new
         data = {}
-        data['Rules'] = Stubs::DataRetrievalRulesList.stub(stub[:rules]) unless stub[:rules].nil?
+        data['Rules'] = DataRetrievalRulesList.stub(stub[:rules]) unless stub[:rules].nil?
         data
       end
     end
@@ -579,7 +581,7 @@ module AWS::SDK::Glacier
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DataRetrievalRule.stub(element) unless element.nil?
+          data << DataRetrievalRule.stub(element) unless element.nil?
         end
         data
       end
@@ -644,8 +646,8 @@ module AWS::SDK::Glacier
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VaultAccessPolicy.stub(stub[:policy]) unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VaultAccessPolicy.stub(stub[:policy]) unless stub[:policy].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -686,7 +688,7 @@ module AWS::SDK::Glacier
         data['State'] = stub[:state] unless stub[:state].nil?
         data['ExpirationDate'] = stub[:expiration_date] unless stub[:expiration_date].nil?
         data['CreationDate'] = stub[:creation_date] unless stub[:creation_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -702,8 +704,8 @@ module AWS::SDK::Glacier
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data = Stubs::VaultNotificationConfig.stub(stub[:vault_notification_config]) unless stub[:vault_notification_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data = VaultNotificationConfig.stub(stub[:vault_notification_config]) unless stub[:vault_notification_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -722,7 +724,7 @@ module AWS::SDK::Glacier
         stub ||= Types::VaultNotificationConfig.new
         data = {}
         data['SNSTopic'] = stub[:sns_topic] unless stub[:sns_topic].nil?
-        data['Events'] = Stubs::NotificationEventList.stub(stub[:events]) unless stub[:events].nil?
+        data['Events'] = NotificationEventList.stub(stub[:events]) unless stub[:events].nil?
         data
       end
     end
@@ -811,9 +813,9 @@ module AWS::SDK::Glacier
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['JobList'] = Stubs::JobList.stub(stub[:job_list]) unless stub[:job_list].nil?
+        data['JobList'] = JobList.stub(stub[:job_list]) unless stub[:job_list].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -831,7 +833,7 @@ module AWS::SDK::Glacier
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GlacierJobDescription.stub(element) unless element.nil?
+          data << GlacierJobDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -887,10 +889,10 @@ module AWS::SDK::Glacier
         data['ArchiveSHA256TreeHash'] = stub[:archive_sha256_tree_hash] unless stub[:archive_sha256_tree_hash].nil?
         data['RetrievalByteRange'] = stub[:retrieval_byte_range] unless stub[:retrieval_byte_range].nil?
         data['Tier'] = stub[:tier] unless stub[:tier].nil?
-        data['InventoryRetrievalParameters'] = Stubs::InventoryRetrievalJobDescription.stub(stub[:inventory_retrieval_parameters]) unless stub[:inventory_retrieval_parameters].nil?
+        data['InventoryRetrievalParameters'] = InventoryRetrievalJobDescription.stub(stub[:inventory_retrieval_parameters]) unless stub[:inventory_retrieval_parameters].nil?
         data['JobOutputPath'] = stub[:job_output_path] unless stub[:job_output_path].nil?
-        data['SelectParameters'] = Stubs::SelectParameters.stub(stub[:select_parameters]) unless stub[:select_parameters].nil?
-        data['OutputLocation'] = Stubs::OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
+        data['SelectParameters'] = SelectParameters.stub(stub[:select_parameters]) unless stub[:select_parameters].nil?
+        data['OutputLocation'] = OutputLocation.stub(stub[:output_location]) unless stub[:output_location].nil?
         data
       end
     end
@@ -908,9 +910,9 @@ module AWS::SDK::Glacier
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['UploadsList'] = Stubs::UploadsList.stub(stub[:uploads_list]) unless stub[:uploads_list].nil?
+        data['UploadsList'] = UploadsList.stub(stub[:uploads_list]) unless stub[:uploads_list].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -928,7 +930,7 @@ module AWS::SDK::Glacier
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UploadListElement.stub(element) unless element.nil?
+          data << UploadListElement.stub(element) unless element.nil?
         end
         data
       end
@@ -983,9 +985,9 @@ module AWS::SDK::Glacier
         data['ArchiveDescription'] = stub[:archive_description] unless stub[:archive_description].nil?
         data['PartSizeInBytes'] = stub[:part_size_in_bytes] unless stub[:part_size_in_bytes].nil?
         data['CreationDate'] = stub[:creation_date] unless stub[:creation_date].nil?
-        data['Parts'] = Stubs::PartList.stub(stub[:parts]) unless stub[:parts].nil?
+        data['Parts'] = PartList.stub(stub[:parts]) unless stub[:parts].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1003,7 +1005,7 @@ module AWS::SDK::Glacier
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PartListElement.stub(element) unless element.nil?
+          data << PartListElement.stub(element) unless element.nil?
         end
         data
       end
@@ -1041,8 +1043,8 @@ module AWS::SDK::Glacier
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ProvisionedCapacityList'] = Stubs::ProvisionedCapacityList.stub(stub[:provisioned_capacity_list]) unless stub[:provisioned_capacity_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProvisionedCapacityList'] = ProvisionedCapacityList.stub(stub[:provisioned_capacity_list]) unless stub[:provisioned_capacity_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1060,7 +1062,7 @@ module AWS::SDK::Glacier
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ProvisionedCapacityDescription.stub(element) unless element.nil?
+          data << ProvisionedCapacityDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -1100,8 +1102,8 @@ module AWS::SDK::Glacier
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1138,9 +1140,9 @@ module AWS::SDK::Glacier
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['VaultList'] = Stubs::VaultList.stub(stub[:vault_list]) unless stub[:vault_list].nil?
+        data['VaultList'] = VaultList.stub(stub[:vault_list]) unless stub[:vault_list].nil?
         data['Marker'] = stub[:marker] unless stub[:marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1158,7 +1160,7 @@ module AWS::SDK::Glacier
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DescribeVaultOutput.stub(element) unless element.nil?
+          data << DescribeVaultOutput.stub(element) unless element.nil?
         end
         data
       end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::KafkaConnect
   module Stubs
 
@@ -27,7 +29,7 @@ module AWS::SDK::KafkaConnect
         data['connectorArn'] = stub[:connector_arn] unless stub[:connector_arn].nil?
         data['connectorName'] = stub[:connector_name] unless stub[:connector_name].nil?
         data['connectorState'] = stub[:connector_state] unless stub[:connector_state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -50,7 +52,7 @@ module AWS::SDK::KafkaConnect
         data['customPluginState'] = stub[:custom_plugin_state] unless stub[:custom_plugin_state].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['revision'] = stub[:revision] unless stub[:revision].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -70,10 +72,10 @@ module AWS::SDK::KafkaConnect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['creationTime'] = Hearth::TimeHelper.to_date_time(stub[:creation_time]) unless stub[:creation_time].nil?
-        data['latestRevision'] = Stubs::WorkerConfigurationRevisionSummary.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
+        data['latestRevision'] = WorkerConfigurationRevisionSummary.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['workerConfigurationArn'] = stub[:worker_configuration_arn] unless stub[:worker_configuration_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -114,7 +116,7 @@ module AWS::SDK::KafkaConnect
         http_resp.headers['Content-Type'] = 'application/json'
         data['connectorArn'] = stub[:connector_arn] unless stub[:connector_arn].nil?
         data['connectorState'] = stub[:connector_state] unless stub[:connector_state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -133,7 +135,7 @@ module AWS::SDK::KafkaConnect
         http_resp.headers['Content-Type'] = 'application/json'
         data['customPluginArn'] = stub[:custom_plugin_arn] unless stub[:custom_plugin_arn].nil?
         data['customPluginState'] = stub[:custom_plugin_state] unless stub[:custom_plugin_state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -165,24 +167,24 @@ module AWS::SDK::KafkaConnect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['capacity'] = Stubs::CapacityDescription.stub(stub[:capacity]) unless stub[:capacity].nil?
+        data['capacity'] = CapacityDescription.stub(stub[:capacity]) unless stub[:capacity].nil?
         data['connectorArn'] = stub[:connector_arn] unless stub[:connector_arn].nil?
-        data['connectorConfiguration'] = Stubs::Map____sensitive__mapOf__string.stub(stub[:connector_configuration]) unless stub[:connector_configuration].nil?
+        data['connectorConfiguration'] = Map____sensitive__mapOf__string.stub(stub[:connector_configuration]) unless stub[:connector_configuration].nil?
         data['connectorDescription'] = stub[:connector_description] unless stub[:connector_description].nil?
         data['connectorName'] = stub[:connector_name] unless stub[:connector_name].nil?
         data['connectorState'] = stub[:connector_state] unless stub[:connector_state].nil?
         data['creationTime'] = Hearth::TimeHelper.to_date_time(stub[:creation_time]) unless stub[:creation_time].nil?
         data['currentVersion'] = stub[:current_version] unless stub[:current_version].nil?
-        data['kafkaCluster'] = Stubs::KafkaClusterDescription.stub(stub[:kafka_cluster]) unless stub[:kafka_cluster].nil?
-        data['kafkaClusterClientAuthentication'] = Stubs::KafkaClusterClientAuthenticationDescription.stub(stub[:kafka_cluster_client_authentication]) unless stub[:kafka_cluster_client_authentication].nil?
-        data['kafkaClusterEncryptionInTransit'] = Stubs::KafkaClusterEncryptionInTransitDescription.stub(stub[:kafka_cluster_encryption_in_transit]) unless stub[:kafka_cluster_encryption_in_transit].nil?
+        data['kafkaCluster'] = KafkaClusterDescription.stub(stub[:kafka_cluster]) unless stub[:kafka_cluster].nil?
+        data['kafkaClusterClientAuthentication'] = KafkaClusterClientAuthenticationDescription.stub(stub[:kafka_cluster_client_authentication]) unless stub[:kafka_cluster_client_authentication].nil?
+        data['kafkaClusterEncryptionInTransit'] = KafkaClusterEncryptionInTransitDescription.stub(stub[:kafka_cluster_encryption_in_transit]) unless stub[:kafka_cluster_encryption_in_transit].nil?
         data['kafkaConnectVersion'] = stub[:kafka_connect_version] unless stub[:kafka_connect_version].nil?
-        data['logDelivery'] = Stubs::LogDeliveryDescription.stub(stub[:log_delivery]) unless stub[:log_delivery].nil?
-        data['plugins'] = Stubs::List____listOfPluginDescription.stub(stub[:plugins]) unless stub[:plugins].nil?
+        data['logDelivery'] = LogDeliveryDescription.stub(stub[:log_delivery]) unless stub[:log_delivery].nil?
+        data['plugins'] = List____listOfPluginDescription.stub(stub[:plugins]) unless stub[:plugins].nil?
         data['serviceExecutionRoleArn'] = stub[:service_execution_role_arn] unless stub[:service_execution_role_arn].nil?
-        data['workerConfiguration'] = Stubs::WorkerConfigurationDescription.stub(stub[:worker_configuration]) unless stub[:worker_configuration].nil?
-        data['stateDescription'] = Stubs::StateDescription.stub(stub[:state_description]) unless stub[:state_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['workerConfiguration'] = WorkerConfigurationDescription.stub(stub[:worker_configuration]) unless stub[:worker_configuration].nil?
+        data['stateDescription'] = StateDescription.stub(stub[:state_description]) unless stub[:state_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -240,7 +242,7 @@ module AWS::SDK::KafkaConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PluginDescription.stub(element) unless element.nil?
+          data << PluginDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -259,7 +261,7 @@ module AWS::SDK::KafkaConnect
       def self.stub(stub)
         stub ||= Types::PluginDescription.new
         data = {}
-        data['customPlugin'] = Stubs::CustomPluginDescription.stub(stub[:custom_plugin]) unless stub[:custom_plugin].nil?
+        data['customPlugin'] = CustomPluginDescription.stub(stub[:custom_plugin]) unless stub[:custom_plugin].nil?
         data
       end
     end
@@ -297,7 +299,7 @@ module AWS::SDK::KafkaConnect
       def self.stub(stub)
         stub ||= Types::LogDeliveryDescription.new
         data = {}
-        data['workerLogDelivery'] = Stubs::WorkerLogDeliveryDescription.stub(stub[:worker_log_delivery]) unless stub[:worker_log_delivery].nil?
+        data['workerLogDelivery'] = WorkerLogDeliveryDescription.stub(stub[:worker_log_delivery]) unless stub[:worker_log_delivery].nil?
         data
       end
     end
@@ -317,9 +319,9 @@ module AWS::SDK::KafkaConnect
       def self.stub(stub)
         stub ||= Types::WorkerLogDeliveryDescription.new
         data = {}
-        data['cloudWatchLogs'] = Stubs::CloudWatchLogsLogDeliveryDescription.stub(stub[:cloud_watch_logs]) unless stub[:cloud_watch_logs].nil?
-        data['firehose'] = Stubs::FirehoseLogDeliveryDescription.stub(stub[:firehose]) unless stub[:firehose].nil?
-        data['s3'] = Stubs::S3LogDeliveryDescription.stub(stub[:s3]) unless stub[:s3].nil?
+        data['cloudWatchLogs'] = CloudWatchLogsLogDeliveryDescription.stub(stub[:cloud_watch_logs]) unless stub[:cloud_watch_logs].nil?
+        data['firehose'] = FirehoseLogDeliveryDescription.stub(stub[:firehose]) unless stub[:firehose].nil?
+        data['s3'] = S3LogDeliveryDescription.stub(stub[:s3]) unless stub[:s3].nil?
         data
       end
     end
@@ -435,7 +437,7 @@ module AWS::SDK::KafkaConnect
       def self.stub(stub)
         stub ||= Types::KafkaClusterDescription.new
         data = {}
-        data['apacheKafkaCluster'] = Stubs::ApacheKafkaClusterDescription.stub(stub[:apache_kafka_cluster]) unless stub[:apache_kafka_cluster].nil?
+        data['apacheKafkaCluster'] = ApacheKafkaClusterDescription.stub(stub[:apache_kafka_cluster]) unless stub[:apache_kafka_cluster].nil?
         data
       end
     end
@@ -455,7 +457,7 @@ module AWS::SDK::KafkaConnect
         stub ||= Types::ApacheKafkaClusterDescription.new
         data = {}
         data['bootstrapServers'] = stub[:bootstrap_servers] unless stub[:bootstrap_servers].nil?
-        data['vpc'] = Stubs::VpcDescription.stub(stub[:vpc]) unless stub[:vpc].nil?
+        data['vpc'] = VpcDescription.stub(stub[:vpc]) unless stub[:vpc].nil?
         data
       end
     end
@@ -474,8 +476,8 @@ module AWS::SDK::KafkaConnect
       def self.stub(stub)
         stub ||= Types::VpcDescription.new
         data = {}
-        data['securityGroups'] = Stubs::List____listOf__string.stub(stub[:security_groups]) unless stub[:security_groups].nil?
-        data['subnets'] = Stubs::List____listOf__string.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['securityGroups'] = List____listOf__string.stub(stub[:security_groups]) unless stub[:security_groups].nil?
+        data['subnets'] = List____listOf__string.stub(stub[:subnets]) unless stub[:subnets].nil?
         data
       end
     end
@@ -534,8 +536,8 @@ module AWS::SDK::KafkaConnect
       def self.stub(stub)
         stub ||= Types::CapacityDescription.new
         data = {}
-        data['autoScaling'] = Stubs::AutoScalingDescription.stub(stub[:auto_scaling]) unless stub[:auto_scaling].nil?
-        data['provisionedCapacity'] = Stubs::ProvisionedCapacityDescription.stub(stub[:provisioned_capacity]) unless stub[:provisioned_capacity].nil?
+        data['autoScaling'] = AutoScalingDescription.stub(stub[:auto_scaling]) unless stub[:auto_scaling].nil?
+        data['provisionedCapacity'] = ProvisionedCapacityDescription.stub(stub[:provisioned_capacity]) unless stub[:provisioned_capacity].nil?
         data
       end
     end
@@ -580,8 +582,8 @@ module AWS::SDK::KafkaConnect
         data['maxWorkerCount'] = stub[:max_worker_count] unless stub[:max_worker_count].nil?
         data['mcuCount'] = stub[:mcu_count] unless stub[:mcu_count].nil?
         data['minWorkerCount'] = stub[:min_worker_count] unless stub[:min_worker_count].nil?
-        data['scaleInPolicy'] = Stubs::ScaleInPolicyDescription.stub(stub[:scale_in_policy]) unless stub[:scale_in_policy].nil?
-        data['scaleOutPolicy'] = Stubs::ScaleOutPolicyDescription.stub(stub[:scale_out_policy]) unless stub[:scale_out_policy].nil?
+        data['scaleInPolicy'] = ScaleInPolicyDescription.stub(stub[:scale_in_policy]) unless stub[:scale_in_policy].nil?
+        data['scaleOutPolicy'] = ScaleOutPolicyDescription.stub(stub[:scale_out_policy]) unless stub[:scale_out_policy].nil?
         data
       end
     end
@@ -644,10 +646,10 @@ module AWS::SDK::KafkaConnect
         data['customPluginArn'] = stub[:custom_plugin_arn] unless stub[:custom_plugin_arn].nil?
         data['customPluginState'] = stub[:custom_plugin_state] unless stub[:custom_plugin_state].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['latestRevision'] = Stubs::CustomPluginRevisionSummary.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
+        data['latestRevision'] = CustomPluginRevisionSummary.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        data['stateDescription'] = Stubs::StateDescription.stub(stub[:state_description]) unless stub[:state_description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stateDescription'] = StateDescription.stub(stub[:state_description]) unless stub[:state_description].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -672,8 +674,8 @@ module AWS::SDK::KafkaConnect
         data['contentType'] = stub[:content_type] unless stub[:content_type].nil?
         data['creationTime'] = Hearth::TimeHelper.to_date_time(stub[:creation_time]) unless stub[:creation_time].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['fileDescription'] = Stubs::CustomPluginFileDescription.stub(stub[:file_description]) unless stub[:file_description].nil?
-        data['location'] = Stubs::CustomPluginLocationDescription.stub(stub[:location]) unless stub[:location].nil?
+        data['fileDescription'] = CustomPluginFileDescription.stub(stub[:file_description]) unless stub[:file_description].nil?
+        data['location'] = CustomPluginLocationDescription.stub(stub[:location]) unless stub[:location].nil?
         data['revision'] = stub[:revision] unless stub[:revision].nil?
         data
       end
@@ -692,7 +694,7 @@ module AWS::SDK::KafkaConnect
       def self.stub(stub)
         stub ||= Types::CustomPluginLocationDescription.new
         data = {}
-        data['s3Location'] = Stubs::S3LocationDescription.stub(stub[:s3_location]) unless stub[:s3_location].nil?
+        data['s3Location'] = S3LocationDescription.stub(stub[:s3_location]) unless stub[:s3_location].nil?
         data
       end
     end
@@ -757,10 +759,10 @@ module AWS::SDK::KafkaConnect
         http_resp.headers['Content-Type'] = 'application/json'
         data['creationTime'] = Hearth::TimeHelper.to_date_time(stub[:creation_time]) unless stub[:creation_time].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['latestRevision'] = Stubs::WorkerConfigurationRevisionDescription.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
+        data['latestRevision'] = WorkerConfigurationRevisionDescription.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['workerConfigurationArn'] = stub[:worker_configuration_arn] unless stub[:worker_configuration_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -801,9 +803,9 @@ module AWS::SDK::KafkaConnect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['connectors'] = Stubs::List____listOfConnectorSummary.stub(stub[:connectors]) unless stub[:connectors].nil?
+        data['connectors'] = List____listOfConnectorSummary.stub(stub[:connectors]) unless stub[:connectors].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -821,7 +823,7 @@ module AWS::SDK::KafkaConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConnectorSummary.stub(element) unless element.nil?
+          data << ConnectorSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -854,21 +856,21 @@ module AWS::SDK::KafkaConnect
       def self.stub(stub)
         stub ||= Types::ConnectorSummary.new
         data = {}
-        data['capacity'] = Stubs::CapacityDescription.stub(stub[:capacity]) unless stub[:capacity].nil?
+        data['capacity'] = CapacityDescription.stub(stub[:capacity]) unless stub[:capacity].nil?
         data['connectorArn'] = stub[:connector_arn] unless stub[:connector_arn].nil?
         data['connectorDescription'] = stub[:connector_description] unless stub[:connector_description].nil?
         data['connectorName'] = stub[:connector_name] unless stub[:connector_name].nil?
         data['connectorState'] = stub[:connector_state] unless stub[:connector_state].nil?
         data['creationTime'] = Hearth::TimeHelper.to_date_time(stub[:creation_time]) unless stub[:creation_time].nil?
         data['currentVersion'] = stub[:current_version] unless stub[:current_version].nil?
-        data['kafkaCluster'] = Stubs::KafkaClusterDescription.stub(stub[:kafka_cluster]) unless stub[:kafka_cluster].nil?
-        data['kafkaClusterClientAuthentication'] = Stubs::KafkaClusterClientAuthenticationDescription.stub(stub[:kafka_cluster_client_authentication]) unless stub[:kafka_cluster_client_authentication].nil?
-        data['kafkaClusterEncryptionInTransit'] = Stubs::KafkaClusterEncryptionInTransitDescription.stub(stub[:kafka_cluster_encryption_in_transit]) unless stub[:kafka_cluster_encryption_in_transit].nil?
+        data['kafkaCluster'] = KafkaClusterDescription.stub(stub[:kafka_cluster]) unless stub[:kafka_cluster].nil?
+        data['kafkaClusterClientAuthentication'] = KafkaClusterClientAuthenticationDescription.stub(stub[:kafka_cluster_client_authentication]) unless stub[:kafka_cluster_client_authentication].nil?
+        data['kafkaClusterEncryptionInTransit'] = KafkaClusterEncryptionInTransitDescription.stub(stub[:kafka_cluster_encryption_in_transit]) unless stub[:kafka_cluster_encryption_in_transit].nil?
         data['kafkaConnectVersion'] = stub[:kafka_connect_version] unless stub[:kafka_connect_version].nil?
-        data['logDelivery'] = Stubs::LogDeliveryDescription.stub(stub[:log_delivery]) unless stub[:log_delivery].nil?
-        data['plugins'] = Stubs::List____listOfPluginDescription.stub(stub[:plugins]) unless stub[:plugins].nil?
+        data['logDelivery'] = LogDeliveryDescription.stub(stub[:log_delivery]) unless stub[:log_delivery].nil?
+        data['plugins'] = List____listOfPluginDescription.stub(stub[:plugins]) unless stub[:plugins].nil?
         data['serviceExecutionRoleArn'] = stub[:service_execution_role_arn] unless stub[:service_execution_role_arn].nil?
-        data['workerConfiguration'] = Stubs::WorkerConfigurationDescription.stub(stub[:worker_configuration]) unless stub[:worker_configuration].nil?
+        data['workerConfiguration'] = WorkerConfigurationDescription.stub(stub[:worker_configuration]) unless stub[:worker_configuration].nil?
         data
       end
     end
@@ -886,9 +888,9 @@ module AWS::SDK::KafkaConnect
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['customPlugins'] = Stubs::List____listOfCustomPluginSummary.stub(stub[:custom_plugins]) unless stub[:custom_plugins].nil?
+        data['customPlugins'] = List____listOfCustomPluginSummary.stub(stub[:custom_plugins]) unless stub[:custom_plugins].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -906,7 +908,7 @@ module AWS::SDK::KafkaConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomPluginSummary.stub(element) unless element.nil?
+          data << CustomPluginSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -934,7 +936,7 @@ module AWS::SDK::KafkaConnect
         data['customPluginArn'] = stub[:custom_plugin_arn] unless stub[:custom_plugin_arn].nil?
         data['customPluginState'] = stub[:custom_plugin_state] unless stub[:custom_plugin_state].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['latestRevision'] = Stubs::CustomPluginRevisionSummary.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
+        data['latestRevision'] = CustomPluginRevisionSummary.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data
       end
@@ -954,8 +956,8 @@ module AWS::SDK::KafkaConnect
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        data['workerConfigurations'] = Stubs::List____listOfWorkerConfigurationSummary.stub(stub[:worker_configurations]) unless stub[:worker_configurations].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['workerConfigurations'] = List____listOfWorkerConfigurationSummary.stub(stub[:worker_configurations]) unless stub[:worker_configurations].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -973,7 +975,7 @@ module AWS::SDK::KafkaConnect
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkerConfigurationSummary.stub(element) unless element.nil?
+          data << WorkerConfigurationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -998,7 +1000,7 @@ module AWS::SDK::KafkaConnect
         data = {}
         data['creationTime'] = Hearth::TimeHelper.to_date_time(stub[:creation_time]) unless stub[:creation_time].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['latestRevision'] = Stubs::WorkerConfigurationRevisionSummary.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
+        data['latestRevision'] = WorkerConfigurationRevisionSummary.stub(stub[:latest_revision]) unless stub[:latest_revision].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['workerConfigurationArn'] = stub[:worker_configuration_arn] unless stub[:worker_configuration_arn].nil?
         data
@@ -1020,7 +1022,7 @@ module AWS::SDK::KafkaConnect
         http_resp.headers['Content-Type'] = 'application/json'
         data['connectorArn'] = stub[:connector_arn] unless stub[:connector_arn].nil?
         data['connectorState'] = stub[:connector_state] unless stub[:connector_state].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

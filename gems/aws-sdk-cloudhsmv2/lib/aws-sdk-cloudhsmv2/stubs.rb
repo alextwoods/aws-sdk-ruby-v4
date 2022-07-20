@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CloudHSMV2
   module Stubs
 
@@ -20,8 +22,8 @@ module AWS::SDK::CloudHSMV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['DestinationBackup'] = Stubs::DestinationBackup.stub(stub[:destination_backup]) unless stub[:destination_backup].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['DestinationBackup'] = DestinationBackup.stub(stub[:destination_backup]) unless stub[:destination_backup].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -60,8 +62,8 @@ module AWS::SDK::CloudHSMV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -94,20 +96,20 @@ module AWS::SDK::CloudHSMV2
         stub ||= Types::Cluster.new
         data = {}
         data['BackupPolicy'] = stub[:backup_policy] unless stub[:backup_policy].nil?
-        data['BackupRetentionPolicy'] = Stubs::BackupRetentionPolicy.stub(stub[:backup_retention_policy]) unless stub[:backup_retention_policy].nil?
+        data['BackupRetentionPolicy'] = BackupRetentionPolicy.stub(stub[:backup_retention_policy]) unless stub[:backup_retention_policy].nil?
         data['ClusterId'] = stub[:cluster_id] unless stub[:cluster_id].nil?
         data['CreateTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_timestamp]).to_i unless stub[:create_timestamp].nil?
-        data['Hsms'] = Stubs::Hsms.stub(stub[:hsms]) unless stub[:hsms].nil?
+        data['Hsms'] = Hsms.stub(stub[:hsms]) unless stub[:hsms].nil?
         data['HsmType'] = stub[:hsm_type] unless stub[:hsm_type].nil?
         data['PreCoPassword'] = stub[:pre_co_password] unless stub[:pre_co_password].nil?
         data['SecurityGroup'] = stub[:security_group] unless stub[:security_group].nil?
         data['SourceBackupId'] = stub[:source_backup_id] unless stub[:source_backup_id].nil?
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateMessage'] = stub[:state_message] unless stub[:state_message].nil?
-        data['SubnetMapping'] = Stubs::ExternalSubnetMapping.stub(stub[:subnet_mapping]) unless stub[:subnet_mapping].nil?
+        data['SubnetMapping'] = ExternalSubnetMapping.stub(stub[:subnet_mapping]) unless stub[:subnet_mapping].nil?
         data['VpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
-        data['Certificates'] = Stubs::Certificates.stub(stub[:certificates]) unless stub[:certificates].nil?
-        data['TagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        data['Certificates'] = Certificates.stub(stub[:certificates]) unless stub[:certificates].nil?
+        data['TagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
         data
       end
     end
@@ -126,7 +128,7 @@ module AWS::SDK::CloudHSMV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -212,7 +214,7 @@ module AWS::SDK::CloudHSMV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Hsm.stub(element) unless element.nil?
+          data << Hsm.stub(element) unless element.nil?
         end
         data
       end
@@ -280,8 +282,8 @@ module AWS::SDK::CloudHSMV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Hsm'] = Stubs::Hsm.stub(stub[:hsm]) unless stub[:hsm].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Hsm'] = Hsm.stub(stub[:hsm]) unless stub[:hsm].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -296,8 +298,8 @@ module AWS::SDK::CloudHSMV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Backup'] = Stubs::Backup.stub(stub[:backup]) unless stub[:backup].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Backup'] = Backup.stub(stub[:backup]) unless stub[:backup].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -335,7 +337,7 @@ module AWS::SDK::CloudHSMV2
         data['SourceBackup'] = stub[:source_backup] unless stub[:source_backup].nil?
         data['SourceCluster'] = stub[:source_cluster] unless stub[:source_cluster].nil?
         data['DeleteTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:delete_timestamp]).to_i unless stub[:delete_timestamp].nil?
-        data['TagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        data['TagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
         data
       end
     end
@@ -350,8 +352,8 @@ module AWS::SDK::CloudHSMV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -367,7 +369,7 @@ module AWS::SDK::CloudHSMV2
       def self.stub(http_resp, stub:)
         data = {}
         data['HsmId'] = stub[:hsm_id] unless stub[:hsm_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -383,9 +385,9 @@ module AWS::SDK::CloudHSMV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Backups'] = Stubs::Backups.stub(stub[:backups]) unless stub[:backups].nil?
+        data['Backups'] = Backups.stub(stub[:backups]) unless stub[:backups].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -404,7 +406,7 @@ module AWS::SDK::CloudHSMV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Backup.stub(element) unless element.nil?
+          data << Backup.stub(element) unless element.nil?
         end
         data
       end
@@ -421,9 +423,9 @@ module AWS::SDK::CloudHSMV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Clusters'] = Stubs::Clusters.stub(stub[:clusters]) unless stub[:clusters].nil?
+        data['Clusters'] = Clusters.stub(stub[:clusters]) unless stub[:clusters].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -442,7 +444,7 @@ module AWS::SDK::CloudHSMV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Cluster.stub(element) unless element.nil?
+          data << Cluster.stub(element) unless element.nil?
         end
         data
       end
@@ -461,7 +463,7 @@ module AWS::SDK::CloudHSMV2
         data = {}
         data['State'] = stub[:state] unless stub[:state].nil?
         data['StateMessage'] = stub[:state_message] unless stub[:state_message].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -477,9 +479,9 @@ module AWS::SDK::CloudHSMV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        data['TagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -494,8 +496,8 @@ module AWS::SDK::CloudHSMV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Backup'] = Stubs::Backup.stub(stub[:backup]) unless stub[:backup].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Backup'] = Backup.stub(stub[:backup]) unless stub[:backup].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -510,8 +512,8 @@ module AWS::SDK::CloudHSMV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -526,8 +528,8 @@ module AWS::SDK::CloudHSMV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Backup'] = Stubs::Backup.stub(stub[:backup]) unless stub[:backup].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Backup'] = Backup.stub(stub[:backup]) unless stub[:backup].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -541,7 +543,7 @@ module AWS::SDK::CloudHSMV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -555,7 +557,7 @@ module AWS::SDK::CloudHSMV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

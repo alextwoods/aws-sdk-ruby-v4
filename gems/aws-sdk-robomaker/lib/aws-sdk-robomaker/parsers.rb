@@ -15,7 +15,7 @@ module AWS::SDK::RoboMaker
       def self.parse(http_resp)
         data = Types::BatchDeleteWorldsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_worlds = (Parsers::Arns.parse(map['unprocessedWorlds']) unless map['unprocessedWorlds'].nil?)
+        data.unprocessed_worlds = (Arns.parse(map['unprocessedWorlds']) unless map['unprocessedWorlds'].nil?)
         data
       end
     end
@@ -65,8 +65,8 @@ module AWS::SDK::RoboMaker
       def self.parse(http_resp)
         data = Types::BatchDescribeSimulationJobOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.jobs = (Parsers::SimulationJobs.parse(map['jobs']) unless map['jobs'].nil?)
-        data.unprocessed_jobs = (Parsers::Arns.parse(map['unprocessedJobs']) unless map['unprocessedJobs'].nil?)
+        data.jobs = (SimulationJobs.parse(map['jobs']) unless map['jobs'].nil?)
+        data.unprocessed_jobs = (Arns.parse(map['unprocessedJobs']) unless map['unprocessedJobs'].nil?)
         data
       end
     end
@@ -75,7 +75,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SimulationJob.parse(value) unless value.nil?
+          data << SimulationJob.parse(value) unless value.nil?
         end
         data
       end
@@ -93,18 +93,18 @@ module AWS::SDK::RoboMaker
         data.failure_code = map['failureCode']
         data.failure_reason = map['failureReason']
         data.client_request_token = map['clientRequestToken']
-        data.output_location = (Parsers::OutputLocation.parse(map['outputLocation']) unless map['outputLocation'].nil?)
-        data.logging_config = (Parsers::LoggingConfig.parse(map['loggingConfig']) unless map['loggingConfig'].nil?)
+        data.output_location = (OutputLocation.parse(map['outputLocation']) unless map['outputLocation'].nil?)
+        data.logging_config = (LoggingConfig.parse(map['loggingConfig']) unless map['loggingConfig'].nil?)
         data.max_job_duration_in_seconds = map['maxJobDurationInSeconds']
         data.simulation_time_millis = map['simulationTimeMillis']
         data.iam_role = map['iamRole']
-        data.robot_applications = (Parsers::RobotApplicationConfigs.parse(map['robotApplications']) unless map['robotApplications'].nil?)
-        data.simulation_applications = (Parsers::SimulationApplicationConfigs.parse(map['simulationApplications']) unless map['simulationApplications'].nil?)
-        data.data_sources = (Parsers::DataSources.parse(map['dataSources']) unless map['dataSources'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.vpc_config = (Parsers::VPCConfigResponse.parse(map['vpcConfig']) unless map['vpcConfig'].nil?)
-        data.network_interface = (Parsers::NetworkInterface.parse(map['networkInterface']) unless map['networkInterface'].nil?)
-        data.compute = (Parsers::ComputeResponse.parse(map['compute']) unless map['compute'].nil?)
+        data.robot_applications = (RobotApplicationConfigs.parse(map['robotApplications']) unless map['robotApplications'].nil?)
+        data.simulation_applications = (SimulationApplicationConfigs.parse(map['simulationApplications']) unless map['simulationApplications'].nil?)
+        data.data_sources = (DataSources.parse(map['dataSources']) unless map['dataSources'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.vpc_config = (VPCConfigResponse.parse(map['vpcConfig']) unless map['vpcConfig'].nil?)
+        data.network_interface = (NetworkInterface.parse(map['networkInterface']) unless map['networkInterface'].nil?)
+        data.compute = (ComputeResponse.parse(map['compute']) unless map['compute'].nil?)
         return data
       end
     end
@@ -132,8 +132,8 @@ module AWS::SDK::RoboMaker
     class VPCConfigResponse
       def self.parse(map)
         data = Types::VPCConfigResponse.new
-        data.subnets = (Parsers::Subnets.parse(map['subnets']) unless map['subnets'].nil?)
-        data.security_groups = (Parsers::SecurityGroups.parse(map['securityGroups']) unless map['securityGroups'].nil?)
+        data.subnets = (Subnets.parse(map['subnets']) unless map['subnets'].nil?)
+        data.security_groups = (SecurityGroups.parse(map['securityGroups']) unless map['securityGroups'].nil?)
         data.vpc_id = map['vpcId']
         data.assign_public_ip = map['assignPublicIp']
         return data
@@ -174,7 +174,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataSource.parse(value) unless value.nil?
+          data << DataSource.parse(value) unless value.nil?
         end
         data
       end
@@ -185,7 +185,7 @@ module AWS::SDK::RoboMaker
         data = Types::DataSource.new
         data.name = map['name']
         data.s3_bucket = map['s3Bucket']
-        data.s3_keys = (Parsers::S3KeyOutputs.parse(map['s3Keys']) unless map['s3Keys'].nil?)
+        data.s3_keys = (S3KeyOutputs.parse(map['s3Keys']) unless map['s3Keys'].nil?)
         data.type = map['type']
         data.destination = map['destination']
         return data
@@ -196,7 +196,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::S3KeyOutput.parse(value) unless value.nil?
+          data << S3KeyOutput.parse(value) unless value.nil?
         end
         data
       end
@@ -215,7 +215,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SimulationApplicationConfig.parse(value) unless value.nil?
+          data << SimulationApplicationConfig.parse(value) unless value.nil?
         end
         data
       end
@@ -226,11 +226,11 @@ module AWS::SDK::RoboMaker
         data = Types::SimulationApplicationConfig.new
         data.application = map['application']
         data.application_version = map['applicationVersion']
-        data.launch_config = (Parsers::LaunchConfig.parse(map['launchConfig']) unless map['launchConfig'].nil?)
-        data.upload_configurations = (Parsers::UploadConfigurations.parse(map['uploadConfigurations']) unless map['uploadConfigurations'].nil?)
-        data.world_configs = (Parsers::WorldConfigs.parse(map['worldConfigs']) unless map['worldConfigs'].nil?)
+        data.launch_config = (LaunchConfig.parse(map['launchConfig']) unless map['launchConfig'].nil?)
+        data.upload_configurations = (UploadConfigurations.parse(map['uploadConfigurations']) unless map['uploadConfigurations'].nil?)
+        data.world_configs = (WorldConfigs.parse(map['worldConfigs']) unless map['worldConfigs'].nil?)
         data.use_default_upload_configurations = map['useDefaultUploadConfigurations']
-        data.tools = (Parsers::Tools.parse(map['tools']) unless map['tools'].nil?)
+        data.tools = (Tools.parse(map['tools']) unless map['tools'].nil?)
         data.use_default_tools = map['useDefaultTools']
         return data
       end
@@ -240,7 +240,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Tool.parse(value) unless value.nil?
+          data << Tool.parse(value) unless value.nil?
         end
         data
       end
@@ -262,7 +262,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WorldConfig.parse(value) unless value.nil?
+          data << WorldConfig.parse(value) unless value.nil?
         end
         data
       end
@@ -280,7 +280,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UploadConfiguration.parse(value) unless value.nil?
+          data << UploadConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -301,10 +301,10 @@ module AWS::SDK::RoboMaker
         data = Types::LaunchConfig.new
         data.package_name = map['packageName']
         data.launch_file = map['launchFile']
-        data.environment_variables = (Parsers::EnvironmentVariableMap.parse(map['environmentVariables']) unless map['environmentVariables'].nil?)
-        data.port_forwarding_config = (Parsers::PortForwardingConfig.parse(map['portForwardingConfig']) unless map['portForwardingConfig'].nil?)
+        data.environment_variables = (EnvironmentVariableMap.parse(map['environmentVariables']) unless map['environmentVariables'].nil?)
+        data.port_forwarding_config = (PortForwardingConfig.parse(map['portForwardingConfig']) unless map['portForwardingConfig'].nil?)
         data.stream_ui = map['streamUI']
-        data.command = (Parsers::CommandList.parse(map['command']) unless map['command'].nil?)
+        data.command = (CommandList.parse(map['command']) unless map['command'].nil?)
         return data
       end
     end
@@ -322,7 +322,7 @@ module AWS::SDK::RoboMaker
     class PortForwardingConfig
       def self.parse(map)
         data = Types::PortForwardingConfig.new
-        data.port_mappings = (Parsers::PortMappingList.parse(map['portMappings']) unless map['portMappings'].nil?)
+        data.port_mappings = (PortMappingList.parse(map['portMappings']) unless map['portMappings'].nil?)
         return data
       end
     end
@@ -331,7 +331,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PortMapping.parse(value) unless value.nil?
+          data << PortMapping.parse(value) unless value.nil?
         end
         data
       end
@@ -361,7 +361,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RobotApplicationConfig.parse(value) unless value.nil?
+          data << RobotApplicationConfig.parse(value) unless value.nil?
         end
         data
       end
@@ -372,10 +372,10 @@ module AWS::SDK::RoboMaker
         data = Types::RobotApplicationConfig.new
         data.application = map['application']
         data.application_version = map['applicationVersion']
-        data.launch_config = (Parsers::LaunchConfig.parse(map['launchConfig']) unless map['launchConfig'].nil?)
-        data.upload_configurations = (Parsers::UploadConfigurations.parse(map['uploadConfigurations']) unless map['uploadConfigurations'].nil?)
+        data.launch_config = (LaunchConfig.parse(map['launchConfig']) unless map['launchConfig'].nil?)
+        data.upload_configurations = (UploadConfigurations.parse(map['uploadConfigurations']) unless map['uploadConfigurations'].nil?)
         data.use_default_upload_configurations = map['useDefaultUploadConfigurations']
-        data.tools = (Parsers::Tools.parse(map['tools']) unless map['tools'].nil?)
+        data.tools = (Tools.parse(map['tools']) unless map['tools'].nil?)
         data.use_default_tools = map['useDefaultTools']
         return data
       end
@@ -461,12 +461,12 @@ module AWS::SDK::RoboMaker
         data.arn = map['arn']
         data.fleet = map['fleet']
         data.status = map['status']
-        data.deployment_application_configs = (Parsers::DeploymentApplicationConfigs.parse(map['deploymentApplicationConfigs']) unless map['deploymentApplicationConfigs'].nil?)
+        data.deployment_application_configs = (DeploymentApplicationConfigs.parse(map['deploymentApplicationConfigs']) unless map['deploymentApplicationConfigs'].nil?)
         data.failure_reason = map['failureReason']
         data.failure_code = map['failureCode']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.deployment_config = (Parsers::DeploymentConfig.parse(map['deploymentConfig']) unless map['deploymentConfig'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.deployment_config = (DeploymentConfig.parse(map['deploymentConfig']) unless map['deploymentConfig'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -477,7 +477,7 @@ module AWS::SDK::RoboMaker
         data.concurrent_deployment_percentage = map['concurrentDeploymentPercentage']
         data.failure_threshold_percentage = map['failureThresholdPercentage']
         data.robot_deployment_timeout_in_seconds = map['robotDeploymentTimeoutInSeconds']
-        data.download_condition_file = (Parsers::S3Object.parse(map['downloadConditionFile']) unless map['downloadConditionFile'].nil?)
+        data.download_condition_file = (S3Object.parse(map['downloadConditionFile']) unless map['downloadConditionFile'].nil?)
         return data
       end
     end
@@ -496,7 +496,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DeploymentApplicationConfig.parse(value) unless value.nil?
+          data << DeploymentApplicationConfig.parse(value) unless value.nil?
         end
         data
       end
@@ -507,7 +507,7 @@ module AWS::SDK::RoboMaker
         data = Types::DeploymentApplicationConfig.new
         data.application = map['application']
         data.application_version = map['applicationVersion']
-        data.launch_config = (Parsers::DeploymentLaunchConfig.parse(map['launchConfig']) unless map['launchConfig'].nil?)
+        data.launch_config = (DeploymentLaunchConfig.parse(map['launchConfig']) unless map['launchConfig'].nil?)
         return data
       end
     end
@@ -519,7 +519,7 @@ module AWS::SDK::RoboMaker
         data.pre_launch_file = map['preLaunchFile']
         data.launch_file = map['launchFile']
         data.post_launch_file = map['postLaunchFile']
-        data.environment_variables = (Parsers::EnvironmentVariableMap.parse(map['environmentVariables']) unless map['environmentVariables'].nil?)
+        data.environment_variables = (EnvironmentVariableMap.parse(map['environmentVariables']) unless map['environmentVariables'].nil?)
         return data
       end
     end
@@ -562,7 +562,7 @@ module AWS::SDK::RoboMaker
         data.arn = map['arn']
         data.name = map['name']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -577,7 +577,7 @@ module AWS::SDK::RoboMaker
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.greengrass_group_id = map['greengrassGroupId']
         data.architecture = map['architecture']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -600,12 +600,12 @@ module AWS::SDK::RoboMaker
         data.arn = map['arn']
         data.name = map['name']
         data.version = map['version']
-        data.sources = (Parsers::Sources.parse(map['sources']) unless map['sources'].nil?)
-        data.robot_software_suite = (Parsers::RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
+        data.sources = (Sources.parse(map['sources']) unless map['sources'].nil?)
+        data.robot_software_suite = (RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         data.revision_id = map['revisionId']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.environment = (Parsers::Environment.parse(map['environment']) unless map['environment'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.environment = (Environment.parse(map['environment']) unless map['environment'].nil?)
         data
       end
     end
@@ -631,7 +631,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Source.parse(value) unless value.nil?
+          data << Source.parse(value) unless value.nil?
         end
         data
       end
@@ -656,11 +656,11 @@ module AWS::SDK::RoboMaker
         data.arn = map['arn']
         data.name = map['name']
         data.version = map['version']
-        data.sources = (Parsers::Sources.parse(map['sources']) unless map['sources'].nil?)
-        data.robot_software_suite = (Parsers::RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
+        data.sources = (Sources.parse(map['sources']) unless map['sources'].nil?)
+        data.robot_software_suite = (RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         data.revision_id = map['revisionId']
-        data.environment = (Parsers::Environment.parse(map['environment']) unless map['environment'].nil?)
+        data.environment = (Environment.parse(map['environment']) unless map['environment'].nil?)
         data
       end
     end
@@ -673,14 +673,14 @@ module AWS::SDK::RoboMaker
         data.arn = map['arn']
         data.name = map['name']
         data.version = map['version']
-        data.sources = (Parsers::Sources.parse(map['sources']) unless map['sources'].nil?)
-        data.simulation_software_suite = (Parsers::SimulationSoftwareSuite.parse(map['simulationSoftwareSuite']) unless map['simulationSoftwareSuite'].nil?)
-        data.robot_software_suite = (Parsers::RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
-        data.rendering_engine = (Parsers::RenderingEngine.parse(map['renderingEngine']) unless map['renderingEngine'].nil?)
+        data.sources = (Sources.parse(map['sources']) unless map['sources'].nil?)
+        data.simulation_software_suite = (SimulationSoftwareSuite.parse(map['simulationSoftwareSuite']) unless map['simulationSoftwareSuite'].nil?)
+        data.robot_software_suite = (RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
+        data.rendering_engine = (RenderingEngine.parse(map['renderingEngine']) unless map['renderingEngine'].nil?)
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         data.revision_id = map['revisionId']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.environment = (Parsers::Environment.parse(map['environment']) unless map['environment'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.environment = (Environment.parse(map['environment']) unless map['environment'].nil?)
         data
       end
     end
@@ -711,13 +711,13 @@ module AWS::SDK::RoboMaker
         data.arn = map['arn']
         data.name = map['name']
         data.version = map['version']
-        data.sources = (Parsers::Sources.parse(map['sources']) unless map['sources'].nil?)
-        data.simulation_software_suite = (Parsers::SimulationSoftwareSuite.parse(map['simulationSoftwareSuite']) unless map['simulationSoftwareSuite'].nil?)
-        data.robot_software_suite = (Parsers::RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
-        data.rendering_engine = (Parsers::RenderingEngine.parse(map['renderingEngine']) unless map['renderingEngine'].nil?)
+        data.sources = (Sources.parse(map['sources']) unless map['sources'].nil?)
+        data.simulation_software_suite = (SimulationSoftwareSuite.parse(map['simulationSoftwareSuite']) unless map['simulationSoftwareSuite'].nil?)
+        data.robot_software_suite = (RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
+        data.rendering_engine = (RenderingEngine.parse(map['renderingEngine']) unless map['renderingEngine'].nil?)
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         data.revision_id = map['revisionId']
-        data.environment = (Parsers::Environment.parse(map['environment']) unless map['environment'].nil?)
+        data.environment = (Environment.parse(map['environment']) unless map['environment'].nil?)
         data
       end
     end
@@ -734,17 +734,17 @@ module AWS::SDK::RoboMaker
         data.failure_behavior = map['failureBehavior']
         data.failure_code = map['failureCode']
         data.client_request_token = map['clientRequestToken']
-        data.output_location = (Parsers::OutputLocation.parse(map['outputLocation']) unless map['outputLocation'].nil?)
-        data.logging_config = (Parsers::LoggingConfig.parse(map['loggingConfig']) unless map['loggingConfig'].nil?)
+        data.output_location = (OutputLocation.parse(map['outputLocation']) unless map['outputLocation'].nil?)
+        data.logging_config = (LoggingConfig.parse(map['loggingConfig']) unless map['loggingConfig'].nil?)
         data.max_job_duration_in_seconds = map['maxJobDurationInSeconds']
         data.simulation_time_millis = map['simulationTimeMillis']
         data.iam_role = map['iamRole']
-        data.robot_applications = (Parsers::RobotApplicationConfigs.parse(map['robotApplications']) unless map['robotApplications'].nil?)
-        data.simulation_applications = (Parsers::SimulationApplicationConfigs.parse(map['simulationApplications']) unless map['simulationApplications'].nil?)
-        data.data_sources = (Parsers::DataSources.parse(map['dataSources']) unless map['dataSources'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.vpc_config = (Parsers::VPCConfigResponse.parse(map['vpcConfig']) unless map['vpcConfig'].nil?)
-        data.compute = (Parsers::ComputeResponse.parse(map['compute']) unless map['compute'].nil?)
+        data.robot_applications = (RobotApplicationConfigs.parse(map['robotApplications']) unless map['robotApplications'].nil?)
+        data.simulation_applications = (SimulationApplicationConfigs.parse(map['simulationApplications']) unless map['simulationApplications'].nil?)
+        data.data_sources = (DataSources.parse(map['dataSources']) unless map['dataSources'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.vpc_config = (VPCConfigResponse.parse(map['vpcConfig']) unless map['vpcConfig'].nil?)
+        data.compute = (ComputeResponse.parse(map['compute']) unless map['compute'].nil?)
         data
       end
     end
@@ -769,9 +769,9 @@ module AWS::SDK::RoboMaker
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.failure_code = map['failureCode']
         data.client_request_token = map['clientRequestToken']
-        data.output_location = (Parsers::OutputLocation.parse(map['outputLocation']) unless map['outputLocation'].nil?)
+        data.output_location = (OutputLocation.parse(map['outputLocation']) unless map['outputLocation'].nil?)
         data.iam_role = map['iamRole']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -787,9 +787,9 @@ module AWS::SDK::RoboMaker
         data.failure_code = map['failureCode']
         data.client_request_token = map['clientRequestToken']
         data.template = map['template']
-        data.world_count = (Parsers::WorldCount.parse(map['worldCount']) unless map['worldCount'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.world_tags = (Parsers::TagMap.parse(map['worldTags']) unless map['worldTags'].nil?)
+        data.world_count = (WorldCount.parse(map['worldCount']) unless map['worldCount'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.world_tags = (TagMap.parse(map['worldTags']) unless map['worldTags'].nil?)
         data
       end
     end
@@ -812,7 +812,7 @@ module AWS::SDK::RoboMaker
         data.client_request_token = map['clientRequestToken']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.name = map['name']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -881,13 +881,13 @@ module AWS::SDK::RoboMaker
         data.arn = map['arn']
         data.fleet = map['fleet']
         data.status = map['status']
-        data.deployment_config = (Parsers::DeploymentConfig.parse(map['deploymentConfig']) unless map['deploymentConfig'].nil?)
-        data.deployment_application_configs = (Parsers::DeploymentApplicationConfigs.parse(map['deploymentApplicationConfigs']) unless map['deploymentApplicationConfigs'].nil?)
+        data.deployment_config = (DeploymentConfig.parse(map['deploymentConfig']) unless map['deploymentConfig'].nil?)
+        data.deployment_application_configs = (DeploymentApplicationConfigs.parse(map['deploymentApplicationConfigs']) unless map['deploymentApplicationConfigs'].nil?)
         data.failure_reason = map['failureReason']
         data.failure_code = map['failureCode']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.robot_deployment_summary = (Parsers::RobotDeploymentSummary.parse(map['robotDeploymentSummary']) unless map['robotDeploymentSummary'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.robot_deployment_summary = (RobotDeploymentSummary.parse(map['robotDeploymentSummary']) unless map['robotDeploymentSummary'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -896,7 +896,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RobotDeployment.parse(value) unless value.nil?
+          data << RobotDeployment.parse(value) unless value.nil?
         end
         data
       end
@@ -909,7 +909,7 @@ module AWS::SDK::RoboMaker
         data.deployment_start_time = Time.at(map['deploymentStartTime'].to_i) if map['deploymentStartTime']
         data.deployment_finish_time = Time.at(map['deploymentFinishTime'].to_i) if map['deploymentFinishTime']
         data.status = map['status']
-        data.progress_detail = (Parsers::ProgressDetail.parse(map['progressDetail']) unless map['progressDetail'].nil?)
+        data.progress_detail = (ProgressDetail.parse(map['progressDetail']) unless map['progressDetail'].nil?)
         data.failure_reason = map['failureReason']
         data.failure_code = map['failureCode']
         return data
@@ -934,12 +934,12 @@ module AWS::SDK::RoboMaker
         map = Hearth::JSON.load(http_resp.body)
         data.name = map['name']
         data.arn = map['arn']
-        data.robots = (Parsers::Robots.parse(map['robots']) unless map['robots'].nil?)
+        data.robots = (Robots.parse(map['robots']) unless map['robots'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.last_deployment_status = map['lastDeploymentStatus']
         data.last_deployment_job = map['lastDeploymentJob']
         data.last_deployment_time = Time.at(map['lastDeploymentTime'].to_i) if map['lastDeploymentTime']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -948,7 +948,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Robot.parse(value) unless value.nil?
+          data << Robot.parse(value) unless value.nil?
         end
         data
       end
@@ -984,7 +984,7 @@ module AWS::SDK::RoboMaker
         data.architecture = map['architecture']
         data.last_deployment_job = map['lastDeploymentJob']
         data.last_deployment_time = Time.at(map['lastDeploymentTime'].to_i) if map['lastDeploymentTime']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -997,12 +997,12 @@ module AWS::SDK::RoboMaker
         data.arn = map['arn']
         data.name = map['name']
         data.version = map['version']
-        data.sources = (Parsers::Sources.parse(map['sources']) unless map['sources'].nil?)
-        data.robot_software_suite = (Parsers::RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
+        data.sources = (Sources.parse(map['sources']) unless map['sources'].nil?)
+        data.robot_software_suite = (RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
         data.revision_id = map['revisionId']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.environment = (Parsers::Environment.parse(map['environment']) unless map['environment'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.environment = (Environment.parse(map['environment']) unless map['environment'].nil?)
         data.image_digest = map['imageDigest']
         data
       end
@@ -1016,14 +1016,14 @@ module AWS::SDK::RoboMaker
         data.arn = map['arn']
         data.name = map['name']
         data.version = map['version']
-        data.sources = (Parsers::Sources.parse(map['sources']) unless map['sources'].nil?)
-        data.simulation_software_suite = (Parsers::SimulationSoftwareSuite.parse(map['simulationSoftwareSuite']) unless map['simulationSoftwareSuite'].nil?)
-        data.robot_software_suite = (Parsers::RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
-        data.rendering_engine = (Parsers::RenderingEngine.parse(map['renderingEngine']) unless map['renderingEngine'].nil?)
+        data.sources = (Sources.parse(map['sources']) unless map['sources'].nil?)
+        data.simulation_software_suite = (SimulationSoftwareSuite.parse(map['simulationSoftwareSuite']) unless map['simulationSoftwareSuite'].nil?)
+        data.robot_software_suite = (RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
+        data.rendering_engine = (RenderingEngine.parse(map['renderingEngine']) unless map['renderingEngine'].nil?)
         data.revision_id = map['revisionId']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.environment = (Parsers::Environment.parse(map['environment']) unless map['environment'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.environment = (Environment.parse(map['environment']) unless map['environment'].nil?)
         data.image_digest = map['imageDigest']
         data
       end
@@ -1043,18 +1043,18 @@ module AWS::SDK::RoboMaker
         data.failure_code = map['failureCode']
         data.failure_reason = map['failureReason']
         data.client_request_token = map['clientRequestToken']
-        data.output_location = (Parsers::OutputLocation.parse(map['outputLocation']) unless map['outputLocation'].nil?)
-        data.logging_config = (Parsers::LoggingConfig.parse(map['loggingConfig']) unless map['loggingConfig'].nil?)
+        data.output_location = (OutputLocation.parse(map['outputLocation']) unless map['outputLocation'].nil?)
+        data.logging_config = (LoggingConfig.parse(map['loggingConfig']) unless map['loggingConfig'].nil?)
         data.max_job_duration_in_seconds = map['maxJobDurationInSeconds']
         data.simulation_time_millis = map['simulationTimeMillis']
         data.iam_role = map['iamRole']
-        data.robot_applications = (Parsers::RobotApplicationConfigs.parse(map['robotApplications']) unless map['robotApplications'].nil?)
-        data.simulation_applications = (Parsers::SimulationApplicationConfigs.parse(map['simulationApplications']) unless map['simulationApplications'].nil?)
-        data.data_sources = (Parsers::DataSources.parse(map['dataSources']) unless map['dataSources'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.vpc_config = (Parsers::VPCConfigResponse.parse(map['vpcConfig']) unless map['vpcConfig'].nil?)
-        data.network_interface = (Parsers::NetworkInterface.parse(map['networkInterface']) unless map['networkInterface'].nil?)
-        data.compute = (Parsers::ComputeResponse.parse(map['compute']) unless map['compute'].nil?)
+        data.robot_applications = (RobotApplicationConfigs.parse(map['robotApplications']) unless map['robotApplications'].nil?)
+        data.simulation_applications = (SimulationApplicationConfigs.parse(map['simulationApplications']) unless map['simulationApplications'].nil?)
+        data.data_sources = (DataSources.parse(map['dataSources']) unless map['dataSources'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.vpc_config = (VPCConfigResponse.parse(map['vpcConfig']) unless map['vpcConfig'].nil?)
+        data.network_interface = (NetworkInterface.parse(map['networkInterface']) unless map['networkInterface'].nil?)
+        data.compute = (ComputeResponse.parse(map['compute']) unless map['compute'].nil?)
         data
       end
     end
@@ -1069,13 +1069,13 @@ module AWS::SDK::RoboMaker
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.client_request_token = map['clientRequestToken']
-        data.batch_policy = (Parsers::BatchPolicy.parse(map['batchPolicy']) unless map['batchPolicy'].nil?)
+        data.batch_policy = (BatchPolicy.parse(map['batchPolicy']) unless map['batchPolicy'].nil?)
         data.failure_code = map['failureCode']
         data.failure_reason = map['failureReason']
-        data.failed_requests = (Parsers::FailedCreateSimulationJobRequests.parse(map['failedRequests']) unless map['failedRequests'].nil?)
-        data.pending_requests = (Parsers::CreateSimulationJobRequests.parse(map['pendingRequests']) unless map['pendingRequests'].nil?)
-        data.created_requests = (Parsers::SimulationJobSummaries.parse(map['createdRequests']) unless map['createdRequests'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.failed_requests = (FailedCreateSimulationJobRequests.parse(map['failedRequests']) unless map['failedRequests'].nil?)
+        data.pending_requests = (CreateSimulationJobRequests.parse(map['pendingRequests']) unless map['pendingRequests'].nil?)
+        data.created_requests = (SimulationJobSummaries.parse(map['createdRequests']) unless map['createdRequests'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1084,7 +1084,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SimulationJobSummary.parse(value) unless value.nil?
+          data << SimulationJobSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1097,9 +1097,9 @@ module AWS::SDK::RoboMaker
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         data.name = map['name']
         data.status = map['status']
-        data.simulation_application_names = (Parsers::SimulationApplicationNames.parse(map['simulationApplicationNames']) unless map['simulationApplicationNames'].nil?)
-        data.robot_application_names = (Parsers::RobotApplicationNames.parse(map['robotApplicationNames']) unless map['robotApplicationNames'].nil?)
-        data.data_source_names = (Parsers::DataSourceNames.parse(map['dataSourceNames']) unless map['dataSourceNames'].nil?)
+        data.simulation_application_names = (SimulationApplicationNames.parse(map['simulationApplicationNames']) unless map['simulationApplicationNames'].nil?)
+        data.robot_application_names = (RobotApplicationNames.parse(map['robotApplicationNames']) unless map['robotApplicationNames'].nil?)
+        data.data_source_names = (DataSourceNames.parse(map['dataSourceNames']) unless map['dataSourceNames'].nil?)
         data.compute_type = map['computeType']
         return data
       end
@@ -1139,7 +1139,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SimulationJobRequest.parse(value) unless value.nil?
+          data << SimulationJobRequest.parse(value) unless value.nil?
         end
         data
       end
@@ -1148,18 +1148,18 @@ module AWS::SDK::RoboMaker
     class SimulationJobRequest
       def self.parse(map)
         data = Types::SimulationJobRequest.new
-        data.output_location = (Parsers::OutputLocation.parse(map['outputLocation']) unless map['outputLocation'].nil?)
-        data.logging_config = (Parsers::LoggingConfig.parse(map['loggingConfig']) unless map['loggingConfig'].nil?)
+        data.output_location = (OutputLocation.parse(map['outputLocation']) unless map['outputLocation'].nil?)
+        data.logging_config = (LoggingConfig.parse(map['loggingConfig']) unless map['loggingConfig'].nil?)
         data.max_job_duration_in_seconds = map['maxJobDurationInSeconds']
         data.iam_role = map['iamRole']
         data.failure_behavior = map['failureBehavior']
         data.use_default_applications = map['useDefaultApplications']
-        data.robot_applications = (Parsers::RobotApplicationConfigs.parse(map['robotApplications']) unless map['robotApplications'].nil?)
-        data.simulation_applications = (Parsers::SimulationApplicationConfigs.parse(map['simulationApplications']) unless map['simulationApplications'].nil?)
-        data.data_sources = (Parsers::DataSourceConfigs.parse(map['dataSources']) unless map['dataSources'].nil?)
-        data.vpc_config = (Parsers::VPCConfig.parse(map['vpcConfig']) unless map['vpcConfig'].nil?)
-        data.compute = (Parsers::Compute.parse(map['compute']) unless map['compute'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.robot_applications = (RobotApplicationConfigs.parse(map['robotApplications']) unless map['robotApplications'].nil?)
+        data.simulation_applications = (SimulationApplicationConfigs.parse(map['simulationApplications']) unless map['simulationApplications'].nil?)
+        data.data_sources = (DataSourceConfigs.parse(map['dataSources']) unless map['dataSources'].nil?)
+        data.vpc_config = (VPCConfig.parse(map['vpcConfig']) unless map['vpcConfig'].nil?)
+        data.compute = (Compute.parse(map['compute']) unless map['compute'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -1177,8 +1177,8 @@ module AWS::SDK::RoboMaker
     class VPCConfig
       def self.parse(map)
         data = Types::VPCConfig.new
-        data.subnets = (Parsers::Subnets.parse(map['subnets']) unless map['subnets'].nil?)
-        data.security_groups = (Parsers::SecurityGroups.parse(map['securityGroups']) unless map['securityGroups'].nil?)
+        data.subnets = (Subnets.parse(map['subnets']) unless map['subnets'].nil?)
+        data.security_groups = (SecurityGroups.parse(map['securityGroups']) unless map['securityGroups'].nil?)
         data.assign_public_ip = map['assignPublicIp']
         return data
       end
@@ -1188,7 +1188,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataSourceConfig.parse(value) unless value.nil?
+          data << DataSourceConfig.parse(value) unless value.nil?
         end
         data
       end
@@ -1199,7 +1199,7 @@ module AWS::SDK::RoboMaker
         data = Types::DataSourceConfig.new
         data.name = map['name']
         data.s3_bucket = map['s3Bucket']
-        data.s3_keys = (Parsers::S3KeysOrPrefixes.parse(map['s3Keys']) unless map['s3Keys'].nil?)
+        data.s3_keys = (S3KeysOrPrefixes.parse(map['s3Keys']) unless map['s3Keys'].nil?)
         data.type = map['type']
         data.destination = map['destination']
         return data
@@ -1220,7 +1220,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FailedCreateSimulationJobRequest.parse(value) unless value.nil?
+          data << FailedCreateSimulationJobRequest.parse(value) unless value.nil?
         end
         data
       end
@@ -1229,7 +1229,7 @@ module AWS::SDK::RoboMaker
     class FailedCreateSimulationJobRequest
       def self.parse(map)
         data = Types::FailedCreateSimulationJobRequest.new
-        data.request = (Parsers::SimulationJobRequest.parse(map['request']) unless map['request'].nil?)
+        data.request = (SimulationJobRequest.parse(map['request']) unless map['request'].nil?)
         data.failure_reason = map['failureReason']
         data.failure_code = map['failureCode']
         data.failed_at = Time.at(map['failedAt'].to_i) if map['failedAt']
@@ -1255,7 +1255,7 @@ module AWS::SDK::RoboMaker
         data.generation_job = map['generationJob']
         data.template = map['template']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data.world_description_body = map['worldDescriptionBody']
         data
       end
@@ -1272,10 +1272,10 @@ module AWS::SDK::RoboMaker
         data.failure_code = map['failureCode']
         data.failure_reason = map['failureReason']
         data.client_request_token = map['clientRequestToken']
-        data.worlds = (Parsers::Arns.parse(map['worlds']) unless map['worlds'].nil?)
-        data.output_location = (Parsers::OutputLocation.parse(map['outputLocation']) unless map['outputLocation'].nil?)
+        data.worlds = (Arns.parse(map['worlds']) unless map['worlds'].nil?)
+        data.output_location = (OutputLocation.parse(map['outputLocation']) unless map['outputLocation'].nil?)
         data.iam_role = map['iamRole']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1292,10 +1292,10 @@ module AWS::SDK::RoboMaker
         data.failure_reason = map['failureReason']
         data.client_request_token = map['clientRequestToken']
         data.template = map['template']
-        data.world_count = (Parsers::WorldCount.parse(map['worldCount']) unless map['worldCount'].nil?)
-        data.finished_worlds_summary = (Parsers::FinishedWorldsSummary.parse(map['finishedWorldsSummary']) unless map['finishedWorldsSummary'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.world_tags = (Parsers::TagMap.parse(map['worldTags']) unless map['worldTags'].nil?)
+        data.world_count = (WorldCount.parse(map['worldCount']) unless map['worldCount'].nil?)
+        data.finished_worlds_summary = (FinishedWorldsSummary.parse(map['finishedWorldsSummary']) unless map['finishedWorldsSummary'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.world_tags = (TagMap.parse(map['worldTags']) unless map['worldTags'].nil?)
         data
       end
     end
@@ -1304,8 +1304,8 @@ module AWS::SDK::RoboMaker
       def self.parse(map)
         data = Types::FinishedWorldsSummary.new
         data.finished_count = map['finishedCount']
-        data.succeeded_worlds = (Parsers::Arns.parse(map['succeededWorlds']) unless map['succeededWorlds'].nil?)
-        data.failure_summary = (Parsers::FailureSummary.parse(map['failureSummary']) unless map['failureSummary'].nil?)
+        data.succeeded_worlds = (Arns.parse(map['succeededWorlds']) unless map['succeededWorlds'].nil?)
+        data.failure_summary = (FailureSummary.parse(map['failureSummary']) unless map['failureSummary'].nil?)
         return data
       end
     end
@@ -1314,7 +1314,7 @@ module AWS::SDK::RoboMaker
       def self.parse(map)
         data = Types::FailureSummary.new
         data.total_failure_count = map['totalFailureCount']
-        data.failures = (Parsers::WorldFailures.parse(map['failures']) unless map['failures'].nil?)
+        data.failures = (WorldFailures.parse(map['failures']) unless map['failures'].nil?)
         return data
       end
     end
@@ -1323,7 +1323,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WorldFailure.parse(value) unless value.nil?
+          data << WorldFailure.parse(value) unless value.nil?
         end
         data
       end
@@ -1349,7 +1349,7 @@ module AWS::SDK::RoboMaker
         data.name = map['name']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data.version = map['version']
         data
       end
@@ -1370,7 +1370,7 @@ module AWS::SDK::RoboMaker
       def self.parse(http_resp)
         data = Types::ListDeploymentJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.deployment_jobs = (Parsers::DeploymentJobs.parse(map['deploymentJobs']) unless map['deploymentJobs'].nil?)
+        data.deployment_jobs = (DeploymentJobs.parse(map['deploymentJobs']) unless map['deploymentJobs'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1380,7 +1380,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DeploymentJob.parse(value) unless value.nil?
+          data << DeploymentJob.parse(value) unless value.nil?
         end
         data
       end
@@ -1392,8 +1392,8 @@ module AWS::SDK::RoboMaker
         data.arn = map['arn']
         data.fleet = map['fleet']
         data.status = map['status']
-        data.deployment_application_configs = (Parsers::DeploymentApplicationConfigs.parse(map['deploymentApplicationConfigs']) unless map['deploymentApplicationConfigs'].nil?)
-        data.deployment_config = (Parsers::DeploymentConfig.parse(map['deploymentConfig']) unless map['deploymentConfig'].nil?)
+        data.deployment_application_configs = (DeploymentApplicationConfigs.parse(map['deploymentApplicationConfigs']) unless map['deploymentApplicationConfigs'].nil?)
+        data.deployment_config = (DeploymentConfig.parse(map['deploymentConfig']) unless map['deploymentConfig'].nil?)
         data.failure_reason = map['failureReason']
         data.failure_code = map['failureCode']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
@@ -1406,7 +1406,7 @@ module AWS::SDK::RoboMaker
       def self.parse(http_resp)
         data = Types::ListFleetsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.fleet_details = (Parsers::Fleets.parse(map['fleetDetails']) unless map['fleetDetails'].nil?)
+        data.fleet_details = (Fleets.parse(map['fleetDetails']) unless map['fleetDetails'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1416,7 +1416,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Fleet.parse(value) unless value.nil?
+          data << Fleet.parse(value) unless value.nil?
         end
         data
       end
@@ -1440,7 +1440,7 @@ module AWS::SDK::RoboMaker
       def self.parse(http_resp)
         data = Types::ListRobotApplicationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.robot_application_summaries = (Parsers::RobotApplicationSummaries.parse(map['robotApplicationSummaries']) unless map['robotApplicationSummaries'].nil?)
+        data.robot_application_summaries = (RobotApplicationSummaries.parse(map['robotApplicationSummaries']) unless map['robotApplicationSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1450,7 +1450,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RobotApplicationSummary.parse(value) unless value.nil?
+          data << RobotApplicationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1463,7 +1463,7 @@ module AWS::SDK::RoboMaker
         data.arn = map['arn']
         data.version = map['version']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
-        data.robot_software_suite = (Parsers::RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
+        data.robot_software_suite = (RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
         return data
       end
     end
@@ -1473,7 +1473,7 @@ module AWS::SDK::RoboMaker
       def self.parse(http_resp)
         data = Types::ListRobotsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.robots = (Parsers::Robots.parse(map['robots']) unless map['robots'].nil?)
+        data.robots = (Robots.parse(map['robots']) unless map['robots'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1484,7 +1484,7 @@ module AWS::SDK::RoboMaker
       def self.parse(http_resp)
         data = Types::ListSimulationApplicationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.simulation_application_summaries = (Parsers::SimulationApplicationSummaries.parse(map['simulationApplicationSummaries']) unless map['simulationApplicationSummaries'].nil?)
+        data.simulation_application_summaries = (SimulationApplicationSummaries.parse(map['simulationApplicationSummaries']) unless map['simulationApplicationSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1494,7 +1494,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SimulationApplicationSummary.parse(value) unless value.nil?
+          data << SimulationApplicationSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1507,8 +1507,8 @@ module AWS::SDK::RoboMaker
         data.arn = map['arn']
         data.version = map['version']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
-        data.robot_software_suite = (Parsers::RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
-        data.simulation_software_suite = (Parsers::SimulationSoftwareSuite.parse(map['simulationSoftwareSuite']) unless map['simulationSoftwareSuite'].nil?)
+        data.robot_software_suite = (RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
+        data.simulation_software_suite = (SimulationSoftwareSuite.parse(map['simulationSoftwareSuite']) unless map['simulationSoftwareSuite'].nil?)
         return data
       end
     end
@@ -1518,7 +1518,7 @@ module AWS::SDK::RoboMaker
       def self.parse(http_resp)
         data = Types::ListSimulationJobBatchesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.simulation_job_batch_summaries = (Parsers::SimulationJobBatchSummaries.parse(map['simulationJobBatchSummaries']) unless map['simulationJobBatchSummaries'].nil?)
+        data.simulation_job_batch_summaries = (SimulationJobBatchSummaries.parse(map['simulationJobBatchSummaries']) unless map['simulationJobBatchSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1528,7 +1528,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SimulationJobBatchSummary.parse(value) unless value.nil?
+          data << SimulationJobBatchSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1553,7 +1553,7 @@ module AWS::SDK::RoboMaker
       def self.parse(http_resp)
         data = Types::ListSimulationJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.simulation_job_summaries = (Parsers::SimulationJobSummaries.parse(map['simulationJobSummaries']) unless map['simulationJobSummaries'].nil?)
+        data.simulation_job_summaries = (SimulationJobSummaries.parse(map['simulationJobSummaries']) unless map['simulationJobSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1564,7 +1564,7 @@ module AWS::SDK::RoboMaker
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1574,7 +1574,7 @@ module AWS::SDK::RoboMaker
       def self.parse(http_resp)
         data = Types::ListWorldExportJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.world_export_job_summaries = (Parsers::WorldExportJobSummaries.parse(map['worldExportJobSummaries']) unless map['worldExportJobSummaries'].nil?)
+        data.world_export_job_summaries = (WorldExportJobSummaries.parse(map['worldExportJobSummaries']) unless map['worldExportJobSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1584,7 +1584,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WorldExportJobSummary.parse(value) unless value.nil?
+          data << WorldExportJobSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1596,8 +1596,8 @@ module AWS::SDK::RoboMaker
         data.arn = map['arn']
         data.status = map['status']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
-        data.worlds = (Parsers::Arns.parse(map['worlds']) unless map['worlds'].nil?)
-        data.output_location = (Parsers::OutputLocation.parse(map['outputLocation']) unless map['outputLocation'].nil?)
+        data.worlds = (Arns.parse(map['worlds']) unless map['worlds'].nil?)
+        data.output_location = (OutputLocation.parse(map['outputLocation']) unless map['outputLocation'].nil?)
         return data
       end
     end
@@ -1607,7 +1607,7 @@ module AWS::SDK::RoboMaker
       def self.parse(http_resp)
         data = Types::ListWorldGenerationJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.world_generation_job_summaries = (Parsers::WorldGenerationJobSummaries.parse(map['worldGenerationJobSummaries']) unless map['worldGenerationJobSummaries'].nil?)
+        data.world_generation_job_summaries = (WorldGenerationJobSummaries.parse(map['worldGenerationJobSummaries']) unless map['worldGenerationJobSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1617,7 +1617,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WorldGenerationJobSummary.parse(value) unless value.nil?
+          data << WorldGenerationJobSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1630,7 +1630,7 @@ module AWS::SDK::RoboMaker
         data.template = map['template']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.status = map['status']
-        data.world_count = (Parsers::WorldCount.parse(map['worldCount']) unless map['worldCount'].nil?)
+        data.world_count = (WorldCount.parse(map['worldCount']) unless map['worldCount'].nil?)
         data.succeeded_world_count = map['succeededWorldCount']
         data.failed_world_count = map['failedWorldCount']
         return data
@@ -1642,7 +1642,7 @@ module AWS::SDK::RoboMaker
       def self.parse(http_resp)
         data = Types::ListWorldTemplatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.template_summaries = (Parsers::TemplateSummaries.parse(map['templateSummaries']) unless map['templateSummaries'].nil?)
+        data.template_summaries = (TemplateSummaries.parse(map['templateSummaries']) unless map['templateSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1652,7 +1652,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TemplateSummary.parse(value) unless value.nil?
+          data << TemplateSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1675,7 +1675,7 @@ module AWS::SDK::RoboMaker
       def self.parse(http_resp)
         data = Types::ListWorldsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.world_summaries = (Parsers::WorldSummaries.parse(map['worldSummaries']) unless map['worldSummaries'].nil?)
+        data.world_summaries = (WorldSummaries.parse(map['worldSummaries']) unless map['worldSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1685,7 +1685,7 @@ module AWS::SDK::RoboMaker
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WorldSummary.parse(value) unless value.nil?
+          data << WorldSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1731,13 +1731,13 @@ module AWS::SDK::RoboMaker
         data.status = map['status']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.client_request_token = map['clientRequestToken']
-        data.batch_policy = (Parsers::BatchPolicy.parse(map['batchPolicy']) unless map['batchPolicy'].nil?)
+        data.batch_policy = (BatchPolicy.parse(map['batchPolicy']) unless map['batchPolicy'].nil?)
         data.failure_code = map['failureCode']
         data.failure_reason = map['failureReason']
-        data.failed_requests = (Parsers::FailedCreateSimulationJobRequests.parse(map['failedRequests']) unless map['failedRequests'].nil?)
-        data.pending_requests = (Parsers::CreateSimulationJobRequests.parse(map['pendingRequests']) unless map['pendingRequests'].nil?)
-        data.created_requests = (Parsers::SimulationJobSummaries.parse(map['createdRequests']) unless map['createdRequests'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.failed_requests = (FailedCreateSimulationJobRequests.parse(map['failedRequests']) unless map['failedRequests'].nil?)
+        data.pending_requests = (CreateSimulationJobRequests.parse(map['pendingRequests']) unless map['pendingRequests'].nil?)
+        data.created_requests = (SimulationJobSummaries.parse(map['createdRequests']) unless map['createdRequests'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1750,8 +1750,8 @@ module AWS::SDK::RoboMaker
         data.arn = map['arn']
         data.fleet = map['fleet']
         data.status = map['status']
-        data.deployment_config = (Parsers::DeploymentConfig.parse(map['deploymentConfig']) unless map['deploymentConfig'].nil?)
-        data.deployment_application_configs = (Parsers::DeploymentApplicationConfigs.parse(map['deploymentApplicationConfigs']) unless map['deploymentApplicationConfigs'].nil?)
+        data.deployment_config = (DeploymentConfig.parse(map['deploymentConfig']) unless map['deploymentConfig'].nil?)
+        data.deployment_application_configs = (DeploymentApplicationConfigs.parse(map['deploymentApplicationConfigs']) unless map['deploymentApplicationConfigs'].nil?)
         data.failure_reason = map['failureReason']
         data.failure_code = map['failureCode']
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
@@ -1785,11 +1785,11 @@ module AWS::SDK::RoboMaker
         data.arn = map['arn']
         data.name = map['name']
         data.version = map['version']
-        data.sources = (Parsers::Sources.parse(map['sources']) unless map['sources'].nil?)
-        data.robot_software_suite = (Parsers::RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
+        data.sources = (Sources.parse(map['sources']) unless map['sources'].nil?)
+        data.robot_software_suite = (RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         data.revision_id = map['revisionId']
-        data.environment = (Parsers::Environment.parse(map['environment']) unless map['environment'].nil?)
+        data.environment = (Environment.parse(map['environment']) unless map['environment'].nil?)
         data
       end
     end
@@ -1802,13 +1802,13 @@ module AWS::SDK::RoboMaker
         data.arn = map['arn']
         data.name = map['name']
         data.version = map['version']
-        data.sources = (Parsers::Sources.parse(map['sources']) unless map['sources'].nil?)
-        data.simulation_software_suite = (Parsers::SimulationSoftwareSuite.parse(map['simulationSoftwareSuite']) unless map['simulationSoftwareSuite'].nil?)
-        data.robot_software_suite = (Parsers::RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
-        data.rendering_engine = (Parsers::RenderingEngine.parse(map['renderingEngine']) unless map['renderingEngine'].nil?)
+        data.sources = (Sources.parse(map['sources']) unless map['sources'].nil?)
+        data.simulation_software_suite = (SimulationSoftwareSuite.parse(map['simulationSoftwareSuite']) unless map['simulationSoftwareSuite'].nil?)
+        data.robot_software_suite = (RobotSoftwareSuite.parse(map['robotSoftwareSuite']) unless map['robotSoftwareSuite'].nil?)
+        data.rendering_engine = (RenderingEngine.parse(map['renderingEngine']) unless map['renderingEngine'].nil?)
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         data.revision_id = map['revisionId']
-        data.environment = (Parsers::Environment.parse(map['environment']) unless map['environment'].nil?)
+        data.environment = (Environment.parse(map['environment']) unless map['environment'].nil?)
         data
       end
     end

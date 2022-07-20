@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CloudSearch
   module Stubs
 
@@ -23,9 +25,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('BuildSuggestersResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('BuildSuggestersResult')
-        xml << Hearth::XML::Node.new('FieldNames', Stubs::FieldNameList.stub('member', stub[:field_names])) unless stub[:field_names].nil?
+        xml << Hearth::XML::Node.new('FieldNames', FieldNameList.stub('member', stub[:field_names])) unless stub[:field_names].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -62,9 +64,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('CreateDomainResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('CreateDomainResult')
-        xml << Stubs::DomainStatus.stub('DomainStatus', stub[:domain_status]) unless stub[:domain_status].nil?
+        xml << DomainStatus.stub('DomainStatus', stub[:domain_status]) unless stub[:domain_status].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -99,14 +101,14 @@ module AWS::SDK::CloudSearch
         xml << Hearth::XML::Node.new('ARN', stub[:arn].to_s) unless stub[:arn].nil?
         xml << Hearth::XML::Node.new('Created', stub[:created].to_s) unless stub[:created].nil?
         xml << Hearth::XML::Node.new('Deleted', stub[:deleted].to_s) unless stub[:deleted].nil?
-        xml << Stubs::ServiceEndpoint.stub('DocService', stub[:doc_service]) unless stub[:doc_service].nil?
-        xml << Stubs::ServiceEndpoint.stub('SearchService', stub[:search_service]) unless stub[:search_service].nil?
+        xml << ServiceEndpoint.stub('DocService', stub[:doc_service]) unless stub[:doc_service].nil?
+        xml << ServiceEndpoint.stub('SearchService', stub[:search_service]) unless stub[:search_service].nil?
         xml << Hearth::XML::Node.new('RequiresIndexDocuments', stub[:requires_index_documents].to_s) unless stub[:requires_index_documents].nil?
         xml << Hearth::XML::Node.new('Processing', stub[:processing].to_s) unless stub[:processing].nil?
         xml << Hearth::XML::Node.new('SearchInstanceType', stub[:search_instance_type].to_s) unless stub[:search_instance_type].nil?
         xml << Hearth::XML::Node.new('SearchPartitionCount', stub[:search_partition_count].to_s) unless stub[:search_partition_count].nil?
         xml << Hearth::XML::Node.new('SearchInstanceCount', stub[:search_instance_count].to_s) unless stub[:search_instance_count].nil?
-        xml << Stubs::Limits.stub('Limits', stub[:limits]) unless stub[:limits].nil?
+        xml << Limits.stub('Limits', stub[:limits]) unless stub[:limits].nil?
         xml
       end
     end
@@ -162,9 +164,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DefineAnalysisSchemeResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DefineAnalysisSchemeResult')
-        xml << Stubs::AnalysisSchemeStatus.stub('AnalysisScheme', stub[:analysis_scheme]) unless stub[:analysis_scheme].nil?
+        xml << AnalysisSchemeStatus.stub('AnalysisScheme', stub[:analysis_scheme]) unless stub[:analysis_scheme].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -183,8 +185,8 @@ module AWS::SDK::CloudSearch
       def self.stub(node_name, stub)
         stub ||= Types::AnalysisSchemeStatus.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::AnalysisScheme.stub('Options', stub[:options]) unless stub[:options].nil?
-        xml << Stubs::OptionStatus.stub('Status', stub[:status]) unless stub[:status].nil?
+        xml << AnalysisScheme.stub('Options', stub[:options]) unless stub[:options].nil?
+        xml << OptionStatus.stub('Status', stub[:status]) unless stub[:status].nil?
         xml
       end
     end
@@ -232,7 +234,7 @@ module AWS::SDK::CloudSearch
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('AnalysisSchemeName', stub[:analysis_scheme_name].to_s) unless stub[:analysis_scheme_name].nil?
         xml << Hearth::XML::Node.new('AnalysisSchemeLanguage', stub[:analysis_scheme_language].to_s) unless stub[:analysis_scheme_language].nil?
-        xml << Stubs::AnalysisOptions.stub('AnalysisOptions', stub[:analysis_options]) unless stub[:analysis_options].nil?
+        xml << AnalysisOptions.stub('AnalysisOptions', stub[:analysis_options]) unless stub[:analysis_options].nil?
         xml
       end
     end
@@ -276,9 +278,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DefineExpressionResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DefineExpressionResult')
-        xml << Stubs::ExpressionStatus.stub('Expression', stub[:expression]) unless stub[:expression].nil?
+        xml << ExpressionStatus.stub('Expression', stub[:expression]) unless stub[:expression].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -297,8 +299,8 @@ module AWS::SDK::CloudSearch
       def self.stub(node_name, stub)
         stub ||= Types::ExpressionStatus.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::Expression.stub('Options', stub[:options]) unless stub[:options].nil?
-        xml << Stubs::OptionStatus.stub('Status', stub[:status]) unless stub[:status].nil?
+        xml << Expression.stub('Options', stub[:options]) unless stub[:options].nil?
+        xml << OptionStatus.stub('Status', stub[:status]) unless stub[:status].nil?
         xml
       end
     end
@@ -336,9 +338,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DefineIndexFieldResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DefineIndexFieldResult')
-        xml << Stubs::IndexFieldStatus.stub('IndexField', stub[:index_field]) unless stub[:index_field].nil?
+        xml << IndexFieldStatus.stub('IndexField', stub[:index_field]) unless stub[:index_field].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -357,8 +359,8 @@ module AWS::SDK::CloudSearch
       def self.stub(node_name, stub)
         stub ||= Types::IndexFieldStatus.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::IndexField.stub('Options', stub[:options]) unless stub[:options].nil?
-        xml << Stubs::OptionStatus.stub('Status', stub[:status]) unless stub[:status].nil?
+        xml << IndexField.stub('Options', stub[:options]) unless stub[:options].nil?
+        xml << OptionStatus.stub('Status', stub[:status]) unless stub[:status].nil?
         xml
       end
     end
@@ -390,17 +392,17 @@ module AWS::SDK::CloudSearch
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('IndexFieldName', stub[:index_field_name].to_s) unless stub[:index_field_name].nil?
         xml << Hearth::XML::Node.new('IndexFieldType', stub[:index_field_type].to_s) unless stub[:index_field_type].nil?
-        xml << Stubs::IntOptions.stub('IntOptions', stub[:int_options]) unless stub[:int_options].nil?
-        xml << Stubs::DoubleOptions.stub('DoubleOptions', stub[:double_options]) unless stub[:double_options].nil?
-        xml << Stubs::LiteralOptions.stub('LiteralOptions', stub[:literal_options]) unless stub[:literal_options].nil?
-        xml << Stubs::TextOptions.stub('TextOptions', stub[:text_options]) unless stub[:text_options].nil?
-        xml << Stubs::DateOptions.stub('DateOptions', stub[:date_options]) unless stub[:date_options].nil?
-        xml << Stubs::LatLonOptions.stub('LatLonOptions', stub[:lat_lon_options]) unless stub[:lat_lon_options].nil?
-        xml << Stubs::IntArrayOptions.stub('IntArrayOptions', stub[:int_array_options]) unless stub[:int_array_options].nil?
-        xml << Stubs::DoubleArrayOptions.stub('DoubleArrayOptions', stub[:double_array_options]) unless stub[:double_array_options].nil?
-        xml << Stubs::LiteralArrayOptions.stub('LiteralArrayOptions', stub[:literal_array_options]) unless stub[:literal_array_options].nil?
-        xml << Stubs::TextArrayOptions.stub('TextArrayOptions', stub[:text_array_options]) unless stub[:text_array_options].nil?
-        xml << Stubs::DateArrayOptions.stub('DateArrayOptions', stub[:date_array_options]) unless stub[:date_array_options].nil?
+        xml << IntOptions.stub('IntOptions', stub[:int_options]) unless stub[:int_options].nil?
+        xml << DoubleOptions.stub('DoubleOptions', stub[:double_options]) unless stub[:double_options].nil?
+        xml << LiteralOptions.stub('LiteralOptions', stub[:literal_options]) unless stub[:literal_options].nil?
+        xml << TextOptions.stub('TextOptions', stub[:text_options]) unless stub[:text_options].nil?
+        xml << DateOptions.stub('DateOptions', stub[:date_options]) unless stub[:date_options].nil?
+        xml << LatLonOptions.stub('LatLonOptions', stub[:lat_lon_options]) unless stub[:lat_lon_options].nil?
+        xml << IntArrayOptions.stub('IntArrayOptions', stub[:int_array_options]) unless stub[:int_array_options].nil?
+        xml << DoubleArrayOptions.stub('DoubleArrayOptions', stub[:double_array_options]) unless stub[:double_array_options].nil?
+        xml << LiteralArrayOptions.stub('LiteralArrayOptions', stub[:literal_array_options]) unless stub[:literal_array_options].nil?
+        xml << TextArrayOptions.stub('TextArrayOptions', stub[:text_array_options]) unless stub[:text_array_options].nil?
+        xml << DateArrayOptions.stub('DateArrayOptions', stub[:date_array_options]) unless stub[:date_array_options].nil?
         xml
       end
     end
@@ -716,9 +718,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DefineSuggesterResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DefineSuggesterResult')
-        xml << Stubs::SuggesterStatus.stub('Suggester', stub[:suggester]) unless stub[:suggester].nil?
+        xml << SuggesterStatus.stub('Suggester', stub[:suggester]) unless stub[:suggester].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -737,8 +739,8 @@ module AWS::SDK::CloudSearch
       def self.stub(node_name, stub)
         stub ||= Types::SuggesterStatus.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::Suggester.stub('Options', stub[:options]) unless stub[:options].nil?
-        xml << Stubs::OptionStatus.stub('Status', stub[:status]) unless stub[:status].nil?
+        xml << Suggester.stub('Options', stub[:options]) unless stub[:options].nil?
+        xml << OptionStatus.stub('Status', stub[:status]) unless stub[:status].nil?
         xml
       end
     end
@@ -758,7 +760,7 @@ module AWS::SDK::CloudSearch
         stub ||= Types::Suggester.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('SuggesterName', stub[:suggester_name].to_s) unless stub[:suggester_name].nil?
-        xml << Stubs::DocumentSuggesterOptions.stub('DocumentSuggesterOptions', stub[:document_suggester_options]) unless stub[:document_suggester_options].nil?
+        xml << DocumentSuggesterOptions.stub('DocumentSuggesterOptions', stub[:document_suggester_options]) unless stub[:document_suggester_options].nil?
         xml
       end
     end
@@ -798,9 +800,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DeleteAnalysisSchemeResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DeleteAnalysisSchemeResult')
-        xml << Stubs::AnalysisSchemeStatus.stub('AnalysisScheme', stub[:analysis_scheme]) unless stub[:analysis_scheme].nil?
+        xml << AnalysisSchemeStatus.stub('AnalysisScheme', stub[:analysis_scheme]) unless stub[:analysis_scheme].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -818,9 +820,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DeleteDomainResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DeleteDomainResult')
-        xml << Stubs::DomainStatus.stub('DomainStatus', stub[:domain_status]) unless stub[:domain_status].nil?
+        xml << DomainStatus.stub('DomainStatus', stub[:domain_status]) unless stub[:domain_status].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -838,9 +840,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DeleteExpressionResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DeleteExpressionResult')
-        xml << Stubs::ExpressionStatus.stub('Expression', stub[:expression]) unless stub[:expression].nil?
+        xml << ExpressionStatus.stub('Expression', stub[:expression]) unless stub[:expression].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -858,9 +860,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DeleteIndexFieldResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DeleteIndexFieldResult')
-        xml << Stubs::IndexFieldStatus.stub('IndexField', stub[:index_field]) unless stub[:index_field].nil?
+        xml << IndexFieldStatus.stub('IndexField', stub[:index_field]) unless stub[:index_field].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -878,9 +880,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DeleteSuggesterResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DeleteSuggesterResult')
-        xml << Stubs::SuggesterStatus.stub('Suggester', stub[:suggester]) unless stub[:suggester].nil?
+        xml << SuggesterStatus.stub('Suggester', stub[:suggester]) unless stub[:suggester].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -898,9 +900,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DescribeAnalysisSchemesResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DescribeAnalysisSchemesResult')
-        xml << Hearth::XML::Node.new('AnalysisSchemes', Stubs::AnalysisSchemeStatusList.stub('member', stub[:analysis_schemes])) unless stub[:analysis_schemes].nil?
+        xml << Hearth::XML::Node.new('AnalysisSchemes', AnalysisSchemeStatusList.stub('member', stub[:analysis_schemes])) unless stub[:analysis_schemes].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -918,7 +920,7 @@ module AWS::SDK::CloudSearch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::AnalysisSchemeStatus.stub(node_name, element) unless element.nil?
+          xml << AnalysisSchemeStatus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -937,9 +939,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DescribeAvailabilityOptionsResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DescribeAvailabilityOptionsResult')
-        xml << Stubs::AvailabilityOptionsStatus.stub('AvailabilityOptions', stub[:availability_options]) unless stub[:availability_options].nil?
+        xml << AvailabilityOptionsStatus.stub('AvailabilityOptions', stub[:availability_options]) unless stub[:availability_options].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -959,7 +961,7 @@ module AWS::SDK::CloudSearch
         stub ||= Types::AvailabilityOptionsStatus.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Options', stub[:options].to_s) unless stub[:options].nil?
-        xml << Stubs::OptionStatus.stub('Status', stub[:status]) unless stub[:status].nil?
+        xml << OptionStatus.stub('Status', stub[:status]) unless stub[:status].nil?
         xml
       end
     end
@@ -977,9 +979,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DescribeDomainEndpointOptionsResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DescribeDomainEndpointOptionsResult')
-        xml << Stubs::DomainEndpointOptionsStatus.stub('DomainEndpointOptions', stub[:domain_endpoint_options]) unless stub[:domain_endpoint_options].nil?
+        xml << DomainEndpointOptionsStatus.stub('DomainEndpointOptions', stub[:domain_endpoint_options]) unless stub[:domain_endpoint_options].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -998,8 +1000,8 @@ module AWS::SDK::CloudSearch
       def self.stub(node_name, stub)
         stub ||= Types::DomainEndpointOptionsStatus.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::DomainEndpointOptions.stub('Options', stub[:options]) unless stub[:options].nil?
-        xml << Stubs::OptionStatus.stub('Status', stub[:status]) unless stub[:status].nil?
+        xml << DomainEndpointOptions.stub('Options', stub[:options]) unless stub[:options].nil?
+        xml << OptionStatus.stub('Status', stub[:status]) unless stub[:status].nil?
         xml
       end
     end
@@ -1037,9 +1039,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DescribeDomainsResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DescribeDomainsResult')
-        xml << Hearth::XML::Node.new('DomainStatusList', Stubs::DomainStatusList.stub('member', stub[:domain_status_list])) unless stub[:domain_status_list].nil?
+        xml << Hearth::XML::Node.new('DomainStatusList', DomainStatusList.stub('member', stub[:domain_status_list])) unless stub[:domain_status_list].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1057,7 +1059,7 @@ module AWS::SDK::CloudSearch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::DomainStatus.stub(node_name, element) unless element.nil?
+          xml << DomainStatus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1076,9 +1078,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DescribeExpressionsResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DescribeExpressionsResult')
-        xml << Hearth::XML::Node.new('Expressions', Stubs::ExpressionStatusList.stub('member', stub[:expressions])) unless stub[:expressions].nil?
+        xml << Hearth::XML::Node.new('Expressions', ExpressionStatusList.stub('member', stub[:expressions])) unless stub[:expressions].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1096,7 +1098,7 @@ module AWS::SDK::CloudSearch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::ExpressionStatus.stub(node_name, element) unless element.nil?
+          xml << ExpressionStatus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1115,9 +1117,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DescribeIndexFieldsResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DescribeIndexFieldsResult')
-        xml << Hearth::XML::Node.new('IndexFields', Stubs::IndexFieldStatusList.stub('member', stub[:index_fields])) unless stub[:index_fields].nil?
+        xml << Hearth::XML::Node.new('IndexFields', IndexFieldStatusList.stub('member', stub[:index_fields])) unless stub[:index_fields].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1135,7 +1137,7 @@ module AWS::SDK::CloudSearch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::IndexFieldStatus.stub(node_name, element) unless element.nil?
+          xml << IndexFieldStatus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1154,9 +1156,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DescribeScalingParametersResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DescribeScalingParametersResult')
-        xml << Stubs::ScalingParametersStatus.stub('ScalingParameters', stub[:scaling_parameters]) unless stub[:scaling_parameters].nil?
+        xml << ScalingParametersStatus.stub('ScalingParameters', stub[:scaling_parameters]) unless stub[:scaling_parameters].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1175,8 +1177,8 @@ module AWS::SDK::CloudSearch
       def self.stub(node_name, stub)
         stub ||= Types::ScalingParametersStatus.new
         xml = Hearth::XML::Node.new(node_name)
-        xml << Stubs::ScalingParameters.stub('Options', stub[:options]) unless stub[:options].nil?
-        xml << Stubs::OptionStatus.stub('Status', stub[:status]) unless stub[:status].nil?
+        xml << ScalingParameters.stub('Options', stub[:options]) unless stub[:options].nil?
+        xml << OptionStatus.stub('Status', stub[:status]) unless stub[:status].nil?
         xml
       end
     end
@@ -1216,9 +1218,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DescribeServiceAccessPoliciesResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DescribeServiceAccessPoliciesResult')
-        xml << Stubs::AccessPoliciesStatus.stub('AccessPolicies', stub[:access_policies]) unless stub[:access_policies].nil?
+        xml << AccessPoliciesStatus.stub('AccessPolicies', stub[:access_policies]) unless stub[:access_policies].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1238,7 +1240,7 @@ module AWS::SDK::CloudSearch
         stub ||= Types::AccessPoliciesStatus.new
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Options', stub[:options].to_s) unless stub[:options].nil?
-        xml << Stubs::OptionStatus.stub('Status', stub[:status]) unless stub[:status].nil?
+        xml << OptionStatus.stub('Status', stub[:status]) unless stub[:status].nil?
         xml
       end
     end
@@ -1256,9 +1258,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('DescribeSuggestersResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('DescribeSuggestersResult')
-        xml << Hearth::XML::Node.new('Suggesters', Stubs::SuggesterStatusList.stub('member', stub[:suggesters])) unless stub[:suggesters].nil?
+        xml << Hearth::XML::Node.new('Suggesters', SuggesterStatusList.stub('member', stub[:suggesters])) unless stub[:suggesters].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1276,7 +1278,7 @@ module AWS::SDK::CloudSearch
       def self.stub(node_name, stub)
         xml = []
         stub.each do |element|
-          xml << Stubs::SuggesterStatus.stub(node_name, element) unless element.nil?
+          xml << SuggesterStatus.stub(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1295,9 +1297,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('IndexDocumentsResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('IndexDocumentsResult')
-        xml << Hearth::XML::Node.new('FieldNames', Stubs::FieldNameList.stub('member', stub[:field_names])) unless stub[:field_names].nil?
+        xml << Hearth::XML::Node.new('FieldNames', FieldNameList.stub('member', stub[:field_names])) unless stub[:field_names].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1315,9 +1317,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('ListDomainNamesResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('ListDomainNamesResult')
-        xml << Hearth::XML::Node.new('DomainNames', Stubs::DomainNameMap.stub('entry', stub[:domain_names])) unless stub[:domain_names].nil?
+        xml << Hearth::XML::Node.new('DomainNames', DomainNameMap.stub('entry', stub[:domain_names])) unless stub[:domain_names].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1357,9 +1359,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('UpdateAvailabilityOptionsResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('UpdateAvailabilityOptionsResult')
-        xml << Stubs::AvailabilityOptionsStatus.stub('AvailabilityOptions', stub[:availability_options]) unless stub[:availability_options].nil?
+        xml << AvailabilityOptionsStatus.stub('AvailabilityOptions', stub[:availability_options]) unless stub[:availability_options].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1377,9 +1379,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('UpdateDomainEndpointOptionsResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('UpdateDomainEndpointOptionsResult')
-        xml << Stubs::DomainEndpointOptionsStatus.stub('DomainEndpointOptions', stub[:domain_endpoint_options]) unless stub[:domain_endpoint_options].nil?
+        xml << DomainEndpointOptionsStatus.stub('DomainEndpointOptions', stub[:domain_endpoint_options]) unless stub[:domain_endpoint_options].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1397,9 +1399,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('UpdateScalingParametersResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('UpdateScalingParametersResult')
-        xml << Stubs::ScalingParametersStatus.stub('ScalingParameters', stub[:scaling_parameters]) unless stub[:scaling_parameters].nil?
+        xml << ScalingParametersStatus.stub('ScalingParameters', stub[:scaling_parameters]) unless stub[:scaling_parameters].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end
@@ -1417,9 +1419,9 @@ module AWS::SDK::CloudSearch
         response = Hearth::XML::Node.new('UpdateServiceAccessPoliciesResponse')
         response.attributes['xmlns'] = 'http://cloudsearch.amazonaws.com/doc/2013-01-01/'
         xml = Hearth::XML::Node.new('UpdateServiceAccessPoliciesResult')
-        xml << Stubs::AccessPoliciesStatus.stub('AccessPolicies', stub[:access_policies]) unless stub[:access_policies].nil?
+        xml << AccessPoliciesStatus.stub('AccessPolicies', stub[:access_policies]) unless stub[:access_policies].nil?
         response << xml
-        http_resp.body = StringIO.new(response.to_str)
+        http_resp.body = ::StringIO.new(response.to_str)
         http_resp.status = 200
       end
     end

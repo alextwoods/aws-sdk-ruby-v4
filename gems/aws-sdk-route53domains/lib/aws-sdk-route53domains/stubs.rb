@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Route53Domains
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::Route53Domains
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -37,7 +39,7 @@ module AWS::SDK::Route53Domains
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -53,7 +55,7 @@ module AWS::SDK::Route53Domains
       def self.stub(http_resp, stub:)
         data = {}
         data['Availability'] = stub[:availability] unless stub[:availability].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -68,8 +70,8 @@ module AWS::SDK::Route53Domains
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Transferability'] = Stubs::DomainTransferability.stub(stub[:transferability]) unless stub[:transferability].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Transferability'] = DomainTransferability.stub(stub[:transferability]) unless stub[:transferability].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -103,7 +105,7 @@ module AWS::SDK::Route53Domains
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -117,7 +119,7 @@ module AWS::SDK::Route53Domains
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -131,7 +133,7 @@ module AWS::SDK::Route53Domains
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -147,7 +149,7 @@ module AWS::SDK::Route53Domains
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -161,7 +163,7 @@ module AWS::SDK::Route53Domains
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -177,7 +179,7 @@ module AWS::SDK::Route53Domains
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -195,7 +197,7 @@ module AWS::SDK::Route53Domains
         data = {}
         data['domainName'] = stub[:domain_name] unless stub[:domain_name].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -231,11 +233,11 @@ module AWS::SDK::Route53Domains
       def self.stub(http_resp, stub:)
         data = {}
         data['DomainName'] = stub[:domain_name] unless stub[:domain_name].nil?
-        data['Nameservers'] = Stubs::NameserverList.stub(stub[:nameservers]) unless stub[:nameservers].nil?
+        data['Nameservers'] = NameserverList.stub(stub[:nameservers]) unless stub[:nameservers].nil?
         data['AutoRenew'] = stub[:auto_renew] unless stub[:auto_renew].nil?
-        data['AdminContact'] = Stubs::ContactDetail.stub(stub[:admin_contact]) unless stub[:admin_contact].nil?
-        data['RegistrantContact'] = Stubs::ContactDetail.stub(stub[:registrant_contact]) unless stub[:registrant_contact].nil?
-        data['TechContact'] = Stubs::ContactDetail.stub(stub[:tech_contact]) unless stub[:tech_contact].nil?
+        data['AdminContact'] = ContactDetail.stub(stub[:admin_contact]) unless stub[:admin_contact].nil?
+        data['RegistrantContact'] = ContactDetail.stub(stub[:registrant_contact]) unless stub[:registrant_contact].nil?
+        data['TechContact'] = ContactDetail.stub(stub[:tech_contact]) unless stub[:tech_contact].nil?
         data['AdminPrivacy'] = stub[:admin_privacy] unless stub[:admin_privacy].nil?
         data['RegistrantPrivacy'] = stub[:registrant_privacy] unless stub[:registrant_privacy].nil?
         data['TechPrivacy'] = stub[:tech_privacy] unless stub[:tech_privacy].nil?
@@ -250,8 +252,8 @@ module AWS::SDK::Route53Domains
         data['ExpirationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration_date]).to_i unless stub[:expiration_date].nil?
         data['Reseller'] = stub[:reseller] unless stub[:reseller].nil?
         data['DnsSec'] = stub[:dns_sec] unless stub[:dns_sec].nil?
-        data['StatusList'] = Stubs::DomainStatusList.stub(stub[:status_list]) unless stub[:status_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StatusList'] = DomainStatusList.stub(stub[:status_list]) unless stub[:status_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -315,7 +317,7 @@ module AWS::SDK::Route53Domains
         data['PhoneNumber'] = stub[:phone_number] unless stub[:phone_number].nil?
         data['Email'] = stub[:email] unless stub[:email].nil?
         data['Fax'] = stub[:fax] unless stub[:fax].nil?
-        data['ExtraParams'] = Stubs::ExtraParamList.stub(stub[:extra_params]) unless stub[:extra_params].nil?
+        data['ExtraParams'] = ExtraParamList.stub(stub[:extra_params]) unless stub[:extra_params].nil?
         data
       end
     end
@@ -334,7 +336,7 @@ module AWS::SDK::Route53Domains
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExtraParam.stub(element) unless element.nil?
+          data << ExtraParam.stub(element) unless element.nil?
         end
         data
       end
@@ -374,7 +376,7 @@ module AWS::SDK::Route53Domains
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Nameserver.stub(element) unless element.nil?
+          data << Nameserver.stub(element) unless element.nil?
         end
         data
       end
@@ -395,7 +397,7 @@ module AWS::SDK::Route53Domains
         stub ||= Types::Nameserver.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['GlueIps'] = Stubs::GlueIpList.stub(stub[:glue_ips]) unless stub[:glue_ips].nil?
+        data['GlueIps'] = GlueIpList.stub(stub[:glue_ips]) unless stub[:glue_ips].nil?
         data
       end
     end
@@ -430,8 +432,8 @@ module AWS::SDK::Route53Domains
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SuggestionsList'] = Stubs::DomainSuggestionsList.stub(stub[:suggestions_list]) unless stub[:suggestions_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SuggestionsList'] = DomainSuggestionsList.stub(stub[:suggestions_list]) unless stub[:suggestions_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -450,7 +452,7 @@ module AWS::SDK::Route53Domains
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainSuggestion.stub(element) unless element.nil?
+          data << DomainSuggestion.stub(element) unless element.nil?
         end
         data
       end
@@ -497,7 +499,7 @@ module AWS::SDK::Route53Domains
         data['DomainName'] = stub[:domain_name] unless stub[:domain_name].nil?
         data['Type'] = stub[:type] unless stub[:type].nil?
         data['SubmittedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:submitted_date]).to_i unless stub[:submitted_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -513,9 +515,9 @@ module AWS::SDK::Route53Domains
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Domains'] = Stubs::DomainSummaryList.stub(stub[:domains]) unless stub[:domains].nil?
+        data['Domains'] = DomainSummaryList.stub(stub[:domains]) unless stub[:domains].nil?
         data['NextPageMarker'] = stub[:next_page_marker] unless stub[:next_page_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -534,7 +536,7 @@ module AWS::SDK::Route53Domains
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainSummary.stub(element) unless element.nil?
+          data << DomainSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -575,9 +577,9 @@ module AWS::SDK::Route53Domains
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Operations'] = Stubs::OperationSummaryList.stub(stub[:operations]) unless stub[:operations].nil?
+        data['Operations'] = OperationSummaryList.stub(stub[:operations]) unless stub[:operations].nil?
         data['NextPageMarker'] = stub[:next_page_marker] unless stub[:next_page_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -596,7 +598,7 @@ module AWS::SDK::Route53Domains
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OperationSummary.stub(element) unless element.nil?
+          data << OperationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -637,9 +639,9 @@ module AWS::SDK::Route53Domains
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Prices'] = Stubs::DomainPriceList.stub(stub[:prices]) unless stub[:prices].nil?
+        data['Prices'] = DomainPriceList.stub(stub[:prices]) unless stub[:prices].nil?
         data['NextPageMarker'] = stub[:next_page_marker] unless stub[:next_page_marker].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -658,7 +660,7 @@ module AWS::SDK::Route53Domains
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainPrice.stub(element) unless element.nil?
+          data << DomainPrice.stub(element) unless element.nil?
         end
         data
       end
@@ -683,11 +685,11 @@ module AWS::SDK::Route53Domains
         stub ||= Types::DomainPrice.new
         data = {}
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['RegistrationPrice'] = Stubs::PriceWithCurrency.stub(stub[:registration_price]) unless stub[:registration_price].nil?
-        data['TransferPrice'] = Stubs::PriceWithCurrency.stub(stub[:transfer_price]) unless stub[:transfer_price].nil?
-        data['RenewalPrice'] = Stubs::PriceWithCurrency.stub(stub[:renewal_price]) unless stub[:renewal_price].nil?
-        data['ChangeOwnershipPrice'] = Stubs::PriceWithCurrency.stub(stub[:change_ownership_price]) unless stub[:change_ownership_price].nil?
-        data['RestorationPrice'] = Stubs::PriceWithCurrency.stub(stub[:restoration_price]) unless stub[:restoration_price].nil?
+        data['RegistrationPrice'] = PriceWithCurrency.stub(stub[:registration_price]) unless stub[:registration_price].nil?
+        data['TransferPrice'] = PriceWithCurrency.stub(stub[:transfer_price]) unless stub[:transfer_price].nil?
+        data['RenewalPrice'] = PriceWithCurrency.stub(stub[:renewal_price]) unless stub[:renewal_price].nil?
+        data['ChangeOwnershipPrice'] = PriceWithCurrency.stub(stub[:change_ownership_price]) unless stub[:change_ownership_price].nil?
+        data['RestorationPrice'] = PriceWithCurrency.stub(stub[:restoration_price]) unless stub[:restoration_price].nil?
         data
       end
     end
@@ -722,8 +724,8 @@ module AWS::SDK::Route53Domains
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['TagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -742,7 +744,7 @@ module AWS::SDK::Route53Domains
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -779,7 +781,7 @@ module AWS::SDK::Route53Domains
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -795,7 +797,7 @@ module AWS::SDK::Route53Domains
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -811,7 +813,7 @@ module AWS::SDK::Route53Domains
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -831,7 +833,7 @@ module AWS::SDK::Route53Domains
         data['domainName'] = stub[:domain_name] unless stub[:domain_name].nil?
         data['emailAddress'] = stub[:email_address] unless stub[:email_address].nil?
         data['isAlreadyVerified'] = stub[:is_already_verified] unless stub[:is_already_verified].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -847,7 +849,7 @@ module AWS::SDK::Route53Domains
       def self.stub(http_resp, stub:)
         data = {}
         data['AuthCode'] = stub[:auth_code] unless stub[:auth_code].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -863,7 +865,7 @@ module AWS::SDK::Route53Domains
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -881,7 +883,7 @@ module AWS::SDK::Route53Domains
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
         data['Password'] = stub[:password] unless stub[:password].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -897,7 +899,7 @@ module AWS::SDK::Route53Domains
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -913,7 +915,7 @@ module AWS::SDK::Route53Domains
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -929,7 +931,7 @@ module AWS::SDK::Route53Domains
       def self.stub(http_resp, stub:)
         data = {}
         data['OperationId'] = stub[:operation_id] unless stub[:operation_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -943,7 +945,7 @@ module AWS::SDK::Route53Domains
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -960,8 +962,8 @@ module AWS::SDK::Route53Domains
       def self.stub(http_resp, stub:)
         data = {}
         data['NextPageMarker'] = stub[:next_page_marker] unless stub[:next_page_marker].nil?
-        data['BillingRecords'] = Stubs::BillingRecords.stub(stub[:billing_records]) unless stub[:billing_records].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['BillingRecords'] = BillingRecords.stub(stub[:billing_records]) unless stub[:billing_records].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -980,7 +982,7 @@ module AWS::SDK::Route53Domains
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BillingRecord.stub(element) unless element.nil?
+          data << BillingRecord.stub(element) unless element.nil?
         end
         data
       end

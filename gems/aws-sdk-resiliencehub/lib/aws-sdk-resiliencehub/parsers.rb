@@ -17,7 +17,7 @@ module AWS::SDK::Resiliencehub
         map = Hearth::JSON.load(http_resp.body)
         data.app_arn = map['appArn']
         data.app_version = map['appVersion']
-        data.resource_mappings = (Parsers::ResourceMappingList.parse(map['resourceMappings']) unless map['resourceMappings'].nil?)
+        data.resource_mappings = (ResourceMappingList.parse(map['resourceMappings']) unless map['resourceMappings'].nil?)
         data
       end
     end
@@ -26,7 +26,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourceMapping.parse(value) unless value.nil?
+          data << ResourceMapping.parse(value) unless value.nil?
         end
         data
       end
@@ -40,7 +40,7 @@ module AWS::SDK::Resiliencehub
         data.app_registry_app_name = map['appRegistryAppName']
         data.resource_group_name = map['resourceGroupName']
         data.mapping_type = map['mappingType']
-        data.physical_resource_id = (Parsers::PhysicalResourceId.parse(map['physicalResourceId']) unless map['physicalResourceId'].nil?)
+        data.physical_resource_id = (PhysicalResourceId.parse(map['physicalResourceId']) unless map['physicalResourceId'].nil?)
         data.terraform_source_name = map['terraformSourceName']
         return data
       end
@@ -127,7 +127,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::CreateAppOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app = (Parsers::App.parse(map['app']) unless map['app'].nil?)
+        data.app = (App.parse(map['app']) unless map['app'].nil?)
         data
       end
     end
@@ -145,7 +145,7 @@ module AWS::SDK::Resiliencehub
         data.last_app_compliance_evaluation_time = Time.at(map['lastAppComplianceEvaluationTime'].to_i) if map['lastAppComplianceEvaluationTime']
         data.resiliency_score = Hearth::NumberHelper.deserialize(map['resiliencyScore'])
         data.last_resiliency_score_evaluation_time = Time.at(map['lastResiliencyScoreEvaluationTime'].to_i) if map['lastResiliencyScoreEvaluationTime']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data.assessment_schedule = map['assessmentSchedule']
         return data
       end
@@ -176,7 +176,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::CreateRecommendationTemplateOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.recommendation_template = (Parsers::RecommendationTemplate.parse(map['recommendationTemplate']) unless map['recommendationTemplate'].nil?)
+        data.recommendation_template = (RecommendationTemplate.parse(map['recommendationTemplate']) unless map['recommendationTemplate'].nil?)
         data
       end
     end
@@ -184,11 +184,11 @@ module AWS::SDK::Resiliencehub
     class RecommendationTemplate
       def self.parse(map)
         data = Types::RecommendationTemplate.new
-        data.templates_location = (Parsers::S3Location.parse(map['templatesLocation']) unless map['templatesLocation'].nil?)
+        data.templates_location = (S3Location.parse(map['templatesLocation']) unless map['templatesLocation'].nil?)
         data.assessment_arn = map['assessmentArn']
         data.app_arn = map['appArn']
-        data.recommendation_ids = (Parsers::RecommendationIdList.parse(map['recommendationIds']) unless map['recommendationIds'].nil?)
-        data.recommendation_types = (Parsers::RenderRecommendationTypeList.parse(map['recommendationTypes']) unless map['recommendationTypes'].nil?)
+        data.recommendation_ids = (RecommendationIdList.parse(map['recommendationIds']) unless map['recommendationIds'].nil?)
+        data.recommendation_types = (RenderRecommendationTypeList.parse(map['recommendationTypes']) unless map['recommendationTypes'].nil?)
         data.format = map['format']
         data.recommendation_template_arn = map['recommendationTemplateArn']
         data.message = map['message'] || map['Message']
@@ -196,7 +196,7 @@ module AWS::SDK::Resiliencehub
         data.name = map['name']
         data.start_time = Time.at(map['startTime'].to_i) if map['startTime']
         data.end_time = Time.at(map['endTime'].to_i) if map['endTime']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data.needs_replacements = map['needsReplacements']
         return data
       end
@@ -236,7 +236,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::CreateResiliencyPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policy = (Parsers::ResiliencyPolicy.parse(map['policy']) unless map['policy'].nil?)
+        data.policy = (ResiliencyPolicy.parse(map['policy']) unless map['policy'].nil?)
         data
       end
     end
@@ -250,9 +250,9 @@ module AWS::SDK::Resiliencehub
         data.data_location_constraint = map['dataLocationConstraint']
         data.tier = map['tier']
         data.estimated_cost_tier = map['estimatedCostTier']
-        data.policy = (Parsers::DisruptionPolicy.parse(map['policy']) unless map['policy'].nil?)
+        data.policy = (DisruptionPolicy.parse(map['policy']) unless map['policy'].nil?)
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -261,7 +261,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::FailurePolicy.parse(value) unless value.nil?
+          data[key] = FailurePolicy.parse(value) unless value.nil?
         end
         data
       end
@@ -323,7 +323,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::DescribeAppOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app = (Parsers::App.parse(map['app']) unless map['app'].nil?)
+        data.app = (App.parse(map['app']) unless map['app'].nil?)
         data
       end
     end
@@ -333,7 +333,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::DescribeAppAssessmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assessment = (Parsers::AppAssessment.parse(map['assessment']) unless map['assessment'].nil?)
+        data.assessment = (AppAssessment.parse(map['assessment']) unless map['assessment'].nil?)
         data
       end
     end
@@ -344,9 +344,9 @@ module AWS::SDK::Resiliencehub
         data.app_arn = map['appArn']
         data.app_version = map['appVersion']
         data.invoker = map['invoker']
-        data.cost = (Parsers::Cost.parse(map['cost']) unless map['cost'].nil?)
-        data.resiliency_score = (Parsers::ResiliencyScore.parse(map['resiliencyScore']) unless map['resiliencyScore'].nil?)
-        data.compliance = (Parsers::AssessmentCompliance.parse(map['compliance']) unless map['compliance'].nil?)
+        data.cost = (Cost.parse(map['cost']) unless map['cost'].nil?)
+        data.resiliency_score = (ResiliencyScore.parse(map['resiliencyScore']) unless map['resiliencyScore'].nil?)
+        data.compliance = (AssessmentCompliance.parse(map['compliance']) unless map['compliance'].nil?)
         data.compliance_status = map['complianceStatus']
         data.assessment_status = map['assessmentStatus']
         data.start_time = Time.at(map['startTime'].to_i) if map['startTime']
@@ -354,9 +354,9 @@ module AWS::SDK::Resiliencehub
         data.message = map['message'] || map['Message']
         data.assessment_name = map['assessmentName']
         data.assessment_arn = map['assessmentArn']
-        data.policy = (Parsers::ResiliencyPolicy.parse(map['policy']) unless map['policy'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.resource_errors_details = (Parsers::ResourceErrorsDetails.parse(map['resourceErrorsDetails']) unless map['resourceErrorsDetails'].nil?)
+        data.policy = (ResiliencyPolicy.parse(map['policy']) unless map['policy'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.resource_errors_details = (ResourceErrorsDetails.parse(map['resourceErrorsDetails']) unless map['resourceErrorsDetails'].nil?)
         return data
       end
     end
@@ -364,7 +364,7 @@ module AWS::SDK::Resiliencehub
     class ResourceErrorsDetails
       def self.parse(map)
         data = Types::ResourceErrorsDetails.new
-        data.resource_errors = (Parsers::ResourceErrorList.parse(map['resourceErrors']) unless map['resourceErrors'].nil?)
+        data.resource_errors = (ResourceErrorList.parse(map['resourceErrors']) unless map['resourceErrors'].nil?)
         data.has_more_errors = map['hasMoreErrors']
         return data
       end
@@ -374,7 +374,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResourceError.parse(value) unless value.nil?
+          data << ResourceError.parse(value) unless value.nil?
         end
         data
       end
@@ -394,7 +394,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::DisruptionCompliance.parse(value) unless value.nil?
+          data[key] = DisruptionCompliance.parse(value) unless value.nil?
         end
         data
       end
@@ -421,7 +421,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(map)
         data = Types::ResiliencyScore.new
         data.score = Hearth::NumberHelper.deserialize(map['score'])
-        data.disruption_score = (Parsers::DisruptionResiliencyScore.parse(map['disruptionScore']) unless map['disruptionScore'].nil?)
+        data.disruption_score = (DisruptionResiliencyScore.parse(map['disruptionScore']) unless map['disruptionScore'].nil?)
         return data
       end
     end
@@ -491,7 +491,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::DescribeResiliencyPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policy = (Parsers::ResiliencyPolicy.parse(map['policy']) unless map['policy'].nil?)
+        data.policy = (ResiliencyPolicy.parse(map['policy']) unless map['policy'].nil?)
         data
       end
     end
@@ -503,9 +503,9 @@ module AWS::SDK::Resiliencehub
         map = Hearth::JSON.load(http_resp.body)
         data.app_arn = map['appArn']
         data.app_version = map['appVersion']
-        data.source_arns = (Parsers::ArnList.parse(map['sourceArns']) unless map['sourceArns'].nil?)
+        data.source_arns = (ArnList.parse(map['sourceArns']) unless map['sourceArns'].nil?)
         data.status = map['status']
-        data.terraform_sources = (Parsers::TerraformSourceList.parse(map['terraformSources']) unless map['terraformSources'].nil?)
+        data.terraform_sources = (TerraformSourceList.parse(map['terraformSources']) unless map['terraformSources'].nil?)
         data
       end
     end
@@ -514,7 +514,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TerraformSource.parse(value) unless value.nil?
+          data << TerraformSource.parse(value) unless value.nil?
         end
         data
       end
@@ -543,7 +543,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::ListAlarmRecommendationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.alarm_recommendations = (Parsers::AlarmRecommendationList.parse(map['alarmRecommendations']) unless map['alarmRecommendations'].nil?)
+        data.alarm_recommendations = (AlarmRecommendationList.parse(map['alarmRecommendations']) unless map['alarmRecommendations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -553,7 +553,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AlarmRecommendation.parse(value) unless value.nil?
+          data << AlarmRecommendation.parse(value) unless value.nil?
         end
         data
       end
@@ -568,7 +568,7 @@ module AWS::SDK::Resiliencehub
         data.description = map['description']
         data.type = map['type']
         data.app_component_name = map['appComponentName']
-        data.items = (Parsers::RecommendationItemList.parse(map['items']) unless map['items'].nil?)
+        data.items = (RecommendationItemList.parse(map['items']) unless map['items'].nil?)
         data.prerequisite = map['prerequisite']
         return data
       end
@@ -578,7 +578,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecommendationItem.parse(value) unless value.nil?
+          data << RecommendationItem.parse(value) unless value.nil?
         end
         data
       end
@@ -601,7 +601,7 @@ module AWS::SDK::Resiliencehub
         data = Types::ListAppAssessmentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.assessment_summaries = (Parsers::AppAssessmentSummaryList.parse(map['assessmentSummaries']) unless map['assessmentSummaries'].nil?)
+        data.assessment_summaries = (AppAssessmentSummaryList.parse(map['assessmentSummaries']) unless map['assessmentSummaries'].nil?)
         data
       end
     end
@@ -610,7 +610,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AppAssessmentSummary.parse(value) unless value.nil?
+          data << AppAssessmentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -629,7 +629,7 @@ module AWS::SDK::Resiliencehub
         data.assessment_name = map['assessmentName']
         data.assessment_arn = map['assessmentArn']
         data.compliance_status = map['complianceStatus']
-        data.cost = (Parsers::Cost.parse(map['cost']) unless map['cost'].nil?)
+        data.cost = (Cost.parse(map['cost']) unless map['cost'].nil?)
         data.resiliency_score = Hearth::NumberHelper.deserialize(map['resiliencyScore'])
         return data
       end
@@ -640,7 +640,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::ListAppComponentCompliancesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.component_compliances = (Parsers::ComponentCompliancesList.parse(map['componentCompliances']) unless map['componentCompliances'].nil?)
+        data.component_compliances = (ComponentCompliancesList.parse(map['componentCompliances']) unless map['componentCompliances'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -650,7 +650,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AppComponentCompliance.parse(value) unless value.nil?
+          data << AppComponentCompliance.parse(value) unless value.nil?
         end
         data
       end
@@ -659,12 +659,12 @@ module AWS::SDK::Resiliencehub
     class AppComponentCompliance
       def self.parse(map)
         data = Types::AppComponentCompliance.new
-        data.cost = (Parsers::Cost.parse(map['cost']) unless map['cost'].nil?)
+        data.cost = (Cost.parse(map['cost']) unless map['cost'].nil?)
         data.app_component_name = map['appComponentName']
-        data.compliance = (Parsers::AssessmentCompliance.parse(map['compliance']) unless map['compliance'].nil?)
+        data.compliance = (AssessmentCompliance.parse(map['compliance']) unless map['compliance'].nil?)
         data.message = map['message'] || map['Message']
         data.status = map['status']
-        data.resiliency_score = (Parsers::ResiliencyScore.parse(map['resiliencyScore']) unless map['resiliencyScore'].nil?)
+        data.resiliency_score = (ResiliencyScore.parse(map['resiliencyScore']) unless map['resiliencyScore'].nil?)
         return data
       end
     end
@@ -674,7 +674,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::ListAppComponentRecommendationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.component_recommendations = (Parsers::ComponentRecommendationList.parse(map['componentRecommendations']) unless map['componentRecommendations'].nil?)
+        data.component_recommendations = (ComponentRecommendationList.parse(map['componentRecommendations']) unless map['componentRecommendations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -684,7 +684,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ComponentRecommendation.parse(value) unless value.nil?
+          data << ComponentRecommendation.parse(value) unless value.nil?
         end
         data
       end
@@ -695,7 +695,7 @@ module AWS::SDK::Resiliencehub
         data = Types::ComponentRecommendation.new
         data.app_component_name = map['appComponentName']
         data.recommendation_status = map['recommendationStatus']
-        data.config_recommendations = (Parsers::ConfigRecommendationList.parse(map['configRecommendations']) unless map['configRecommendations'].nil?)
+        data.config_recommendations = (ConfigRecommendationList.parse(map['configRecommendations']) unless map['configRecommendations'].nil?)
         return data
       end
     end
@@ -704,7 +704,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ConfigRecommendation.parse(value) unless value.nil?
+          data << ConfigRecommendation.parse(value) unless value.nil?
         end
         data
       end
@@ -713,14 +713,14 @@ module AWS::SDK::Resiliencehub
     class ConfigRecommendation
       def self.parse(map)
         data = Types::ConfigRecommendation.new
-        data.cost = (Parsers::Cost.parse(map['cost']) unless map['cost'].nil?)
+        data.cost = (Cost.parse(map['cost']) unless map['cost'].nil?)
         data.app_component_name = map['appComponentName']
-        data.compliance = (Parsers::AssessmentCompliance.parse(map['compliance']) unless map['compliance'].nil?)
-        data.recommendation_compliance = (Parsers::RecommendationCompliance.parse(map['recommendationCompliance']) unless map['recommendationCompliance'].nil?)
+        data.compliance = (AssessmentCompliance.parse(map['compliance']) unless map['compliance'].nil?)
+        data.recommendation_compliance = (RecommendationCompliance.parse(map['recommendationCompliance']) unless map['recommendationCompliance'].nil?)
         data.optimization_type = map['optimizationType']
         data.name = map['name']
         data.description = map['description']
-        data.suggested_changes = (Parsers::SuggestedChangesList.parse(map['suggestedChanges']) unless map['suggestedChanges'].nil?)
+        data.suggested_changes = (SuggestedChangesList.parse(map['suggestedChanges']) unless map['suggestedChanges'].nil?)
         data.ha_architecture = map['haArchitecture']
         data.reference_id = map['referenceId']
         return data
@@ -741,7 +741,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::RecommendationDisruptionCompliance.parse(value) unless value.nil?
+          data[key] = RecommendationDisruptionCompliance.parse(value) unless value.nil?
         end
         data
       end
@@ -764,7 +764,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::ListAppVersionResourceMappingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resource_mappings = (Parsers::ResourceMappingList.parse(map['resourceMappings']) unless map['resourceMappings'].nil?)
+        data.resource_mappings = (ResourceMappingList.parse(map['resourceMappings']) unless map['resourceMappings'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -775,7 +775,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::ListAppVersionResourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.physical_resources = (Parsers::PhysicalResourceList.parse(map['physicalResources']) unless map['physicalResources'].nil?)
+        data.physical_resources = (PhysicalResourceList.parse(map['physicalResources']) unless map['physicalResources'].nil?)
         data.resolution_id = map['resolutionId']
         data.next_token = map['nextToken']
         data
@@ -786,7 +786,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::PhysicalResource.parse(value) unless value.nil?
+          data << PhysicalResource.parse(value) unless value.nil?
         end
         data
       end
@@ -796,10 +796,10 @@ module AWS::SDK::Resiliencehub
       def self.parse(map)
         data = Types::PhysicalResource.new
         data.resource_name = map['resourceName']
-        data.logical_resource_id = (Parsers::LogicalResourceId.parse(map['logicalResourceId']) unless map['logicalResourceId'].nil?)
-        data.physical_resource_id = (Parsers::PhysicalResourceId.parse(map['physicalResourceId']) unless map['physicalResourceId'].nil?)
+        data.logical_resource_id = (LogicalResourceId.parse(map['logicalResourceId']) unless map['logicalResourceId'].nil?)
+        data.physical_resource_id = (PhysicalResourceId.parse(map['physicalResourceId']) unless map['physicalResourceId'].nil?)
         data.resource_type = map['resourceType']
-        data.app_components = (Parsers::AppComponentList.parse(map['appComponents']) unless map['appComponents'].nil?)
+        data.app_components = (AppComponentList.parse(map['appComponents']) unless map['appComponents'].nil?)
         return data
       end
     end
@@ -808,7 +808,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AppComponent.parse(value) unless value.nil?
+          data << AppComponent.parse(value) unless value.nil?
         end
         data
       end
@@ -839,7 +839,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::ListAppVersionsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_versions = (Parsers::AppVersionList.parse(map['appVersions']) unless map['appVersions'].nil?)
+        data.app_versions = (AppVersionList.parse(map['appVersions']) unless map['appVersions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -849,7 +849,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AppVersionSummary.parse(value) unless value.nil?
+          data << AppVersionSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -868,7 +868,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::ListAppsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app_summaries = (Parsers::AppSummaryList.parse(map['appSummaries']) unless map['appSummaries'].nil?)
+        data.app_summaries = (AppSummaryList.parse(map['appSummaries']) unless map['appSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -878,7 +878,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AppSummary.parse(value) unless value.nil?
+          data << AppSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -904,7 +904,7 @@ module AWS::SDK::Resiliencehub
         data = Types::ListRecommendationTemplatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.recommendation_templates = (Parsers::RecommendationTemplateList.parse(map['recommendationTemplates']) unless map['recommendationTemplates'].nil?)
+        data.recommendation_templates = (RecommendationTemplateList.parse(map['recommendationTemplates']) unless map['recommendationTemplates'].nil?)
         data
       end
     end
@@ -913,7 +913,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RecommendationTemplate.parse(value) unless value.nil?
+          data << RecommendationTemplate.parse(value) unless value.nil?
         end
         data
       end
@@ -924,7 +924,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::ListResiliencyPoliciesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resiliency_policies = (Parsers::ResiliencyPolicies.parse(map['resiliencyPolicies']) unless map['resiliencyPolicies'].nil?)
+        data.resiliency_policies = (ResiliencyPolicies.parse(map['resiliencyPolicies']) unless map['resiliencyPolicies'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -934,7 +934,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ResiliencyPolicy.parse(value) unless value.nil?
+          data << ResiliencyPolicy.parse(value) unless value.nil?
         end
         data
       end
@@ -946,7 +946,7 @@ module AWS::SDK::Resiliencehub
         data = Types::ListSopRecommendationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.sop_recommendations = (Parsers::SopRecommendationList.parse(map['sopRecommendations']) unless map['sopRecommendations'].nil?)
+        data.sop_recommendations = (SopRecommendationList.parse(map['sopRecommendations']) unless map['sopRecommendations'].nil?)
         data
       end
     end
@@ -955,7 +955,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SopRecommendation.parse(value) unless value.nil?
+          data << SopRecommendation.parse(value) unless value.nil?
         end
         data
       end
@@ -969,7 +969,7 @@ module AWS::SDK::Resiliencehub
         data.description = map['description']
         data.recommendation_id = map['recommendationId']
         data.name = map['name']
-        data.items = (Parsers::RecommendationItemList.parse(map['items']) unless map['items'].nil?)
+        data.items = (RecommendationItemList.parse(map['items']) unless map['items'].nil?)
         data.reference_id = map['referenceId']
         data.prerequisite = map['prerequisite']
         return data
@@ -981,7 +981,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::ListSuggestedResiliencyPoliciesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.resiliency_policies = (Parsers::ResiliencyPolicies.parse(map['resiliencyPolicies']) unless map['resiliencyPolicies'].nil?)
+        data.resiliency_policies = (ResiliencyPolicies.parse(map['resiliencyPolicies']) unless map['resiliencyPolicies'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -992,7 +992,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1003,7 +1003,7 @@ module AWS::SDK::Resiliencehub
         data = Types::ListTestRecommendationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.test_recommendations = (Parsers::TestRecommendationList.parse(map['testRecommendations']) unless map['testRecommendations'].nil?)
+        data.test_recommendations = (TestRecommendationList.parse(map['testRecommendations']) unless map['testRecommendations'].nil?)
         data
       end
     end
@@ -1012,7 +1012,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TestRecommendation.parse(value) unless value.nil?
+          data << TestRecommendation.parse(value) unless value.nil?
         end
         data
       end
@@ -1029,9 +1029,9 @@ module AWS::SDK::Resiliencehub
         data.risk = map['risk']
         data.type = map['type']
         data.description = map['description']
-        data.items = (Parsers::RecommendationItemList.parse(map['items']) unless map['items'].nil?)
+        data.items = (RecommendationItemList.parse(map['items']) unless map['items'].nil?)
         data.prerequisite = map['prerequisite']
-        data.depends_on_alarms = (Parsers::AlarmReferenceIdList.parse(map['dependsOnAlarms']) unless map['dependsOnAlarms'].nil?)
+        data.depends_on_alarms = (AlarmReferenceIdList.parse(map['dependsOnAlarms']) unless map['dependsOnAlarms'].nil?)
         return data
       end
     end
@@ -1051,7 +1051,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::ListUnsupportedAppVersionResourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unsupported_resources = (Parsers::UnsupportedResourceList.parse(map['unsupportedResources']) unless map['unsupportedResources'].nil?)
+        data.unsupported_resources = (UnsupportedResourceList.parse(map['unsupportedResources']) unless map['unsupportedResources'].nil?)
         data.resolution_id = map['resolutionId']
         data.next_token = map['nextToken']
         data
@@ -1062,7 +1062,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UnsupportedResource.parse(value) unless value.nil?
+          data << UnsupportedResource.parse(value) unless value.nil?
         end
         data
       end
@@ -1071,8 +1071,8 @@ module AWS::SDK::Resiliencehub
     class UnsupportedResource
       def self.parse(map)
         data = Types::UnsupportedResource.new
-        data.logical_resource_id = (Parsers::LogicalResourceId.parse(map['logicalResourceId']) unless map['logicalResourceId'].nil?)
-        data.physical_resource_id = (Parsers::PhysicalResourceId.parse(map['physicalResourceId']) unless map['physicalResourceId'].nil?)
+        data.logical_resource_id = (LogicalResourceId.parse(map['logicalResourceId']) unless map['logicalResourceId'].nil?)
+        data.physical_resource_id = (PhysicalResourceId.parse(map['physicalResourceId']) unless map['physicalResourceId'].nil?)
         data.resource_type = map['resourceType']
         return data
       end
@@ -1129,7 +1129,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::StartAppAssessmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assessment = (Parsers::AppAssessment.parse(map['assessment']) unless map['assessment'].nil?)
+        data.assessment = (AppAssessment.parse(map['assessment']) unless map['assessment'].nil?)
         data
       end
     end
@@ -1157,7 +1157,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::UpdateAppOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.app = (Parsers::App.parse(map['app']) unless map['app'].nil?)
+        data.app = (App.parse(map['app']) unless map['app'].nil?)
         data
       end
     end
@@ -1167,7 +1167,7 @@ module AWS::SDK::Resiliencehub
       def self.parse(http_resp)
         data = Types::UpdateResiliencyPolicyOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.policy = (Parsers::ResiliencyPolicy.parse(map['policy']) unless map['policy'].nil?)
+        data.policy = (ResiliencyPolicy.parse(map['policy']) unless map['policy'].nil?)
         data
       end
     end

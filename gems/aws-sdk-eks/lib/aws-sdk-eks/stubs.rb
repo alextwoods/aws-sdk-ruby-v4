@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::EKS
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['update'] = Stubs::Update.stub(stub[:update]) unless stub[:update].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['update'] = Update.stub(stub[:update]) unless stub[:update].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -48,9 +50,9 @@ module AWS::SDK::EKS
         data['id'] = stub[:id] unless stub[:id].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['params'] = Stubs::UpdateParams.stub(stub[:params]) unless stub[:params].nil?
+        data['params'] = UpdateParams.stub(stub[:params]) unless stub[:params].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['errors'] = Stubs::ErrorDetails.stub(stub[:errors]) unless stub[:errors].nil?
+        data['errors'] = ErrorDetails.stub(stub[:errors]) unless stub[:errors].nil?
         data
       end
     end
@@ -69,7 +71,7 @@ module AWS::SDK::EKS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ErrorDetail.stub(element) unless element.nil?
+          data << ErrorDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -92,7 +94,7 @@ module AWS::SDK::EKS
         data = {}
         data['errorCode'] = stub[:error_code] unless stub[:error_code].nil?
         data['errorMessage'] = stub[:error_message] unless stub[:error_message].nil?
-        data['resourceIds'] = Stubs::StringList.stub(stub[:resource_ids]) unless stub[:resource_ids].nil?
+        data['resourceIds'] = StringList.stub(stub[:resource_ids]) unless stub[:resource_ids].nil?
         data
       end
     end
@@ -131,7 +133,7 @@ module AWS::SDK::EKS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UpdateParam.stub(element) unless element.nil?
+          data << UpdateParam.stub(element) unless element.nil?
         end
         data
       end
@@ -170,9 +172,9 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['update'] = Stubs::Update.stub(stub[:update]) unless stub[:update].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['update'] = Update.stub(stub[:update]) unless stub[:update].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -208,8 +210,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['addon'] = Stubs::Addon.stub(stub[:addon]) unless stub[:addon].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['addon'] = Addon.stub(stub[:addon]) unless stub[:addon].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -239,12 +241,12 @@ module AWS::SDK::EKS
         data['clusterName'] = stub[:cluster_name] unless stub[:cluster_name].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['addonVersion'] = stub[:addon_version] unless stub[:addon_version].nil?
-        data['health'] = Stubs::AddonHealth.stub(stub[:health]) unless stub[:health].nil?
+        data['health'] = AddonHealth.stub(stub[:health]) unless stub[:health].nil?
         data['addonArn'] = stub[:addon_arn] unless stub[:addon_arn].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['modifiedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:modified_at]).to_i unless stub[:modified_at].nil?
         data['serviceAccountRoleArn'] = stub[:service_account_role_arn] unless stub[:service_account_role_arn].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -262,7 +264,7 @@ module AWS::SDK::EKS
       def self.stub(stub)
         stub ||= Types::AddonHealth.new
         data = {}
-        data['issues'] = Stubs::AddonIssueList.stub(stub[:issues]) unless stub[:issues].nil?
+        data['issues'] = AddonIssueList.stub(stub[:issues]) unless stub[:issues].nil?
         data
       end
     end
@@ -281,7 +283,7 @@ module AWS::SDK::EKS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AddonIssue.stub(element) unless element.nil?
+          data << AddonIssue.stub(element) unless element.nil?
         end
         data
       end
@@ -304,7 +306,7 @@ module AWS::SDK::EKS
         data = {}
         data['code'] = stub[:code] unless stub[:code].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
-        data['resourceIds'] = Stubs::StringList.stub(stub[:resource_ids]) unless stub[:resource_ids].nil?
+        data['resourceIds'] = StringList.stub(stub[:resource_ids]) unless stub[:resource_ids].nil?
         data
       end
     end
@@ -321,8 +323,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -361,17 +363,17 @@ module AWS::SDK::EKS
         data['version'] = stub[:version] unless stub[:version].nil?
         data['endpoint'] = stub[:endpoint] unless stub[:endpoint].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['resourcesVpcConfig'] = Stubs::VpcConfigResponse.stub(stub[:resources_vpc_config]) unless stub[:resources_vpc_config].nil?
-        data['kubernetesNetworkConfig'] = Stubs::KubernetesNetworkConfigResponse.stub(stub[:kubernetes_network_config]) unless stub[:kubernetes_network_config].nil?
-        data['logging'] = Stubs::Logging.stub(stub[:logging]) unless stub[:logging].nil?
-        data['identity'] = Stubs::Identity.stub(stub[:identity]) unless stub[:identity].nil?
+        data['resourcesVpcConfig'] = VpcConfigResponse.stub(stub[:resources_vpc_config]) unless stub[:resources_vpc_config].nil?
+        data['kubernetesNetworkConfig'] = KubernetesNetworkConfigResponse.stub(stub[:kubernetes_network_config]) unless stub[:kubernetes_network_config].nil?
+        data['logging'] = Logging.stub(stub[:logging]) unless stub[:logging].nil?
+        data['identity'] = Identity.stub(stub[:identity]) unless stub[:identity].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['certificateAuthority'] = Stubs::Certificate.stub(stub[:certificate_authority]) unless stub[:certificate_authority].nil?
+        data['certificateAuthority'] = Certificate.stub(stub[:certificate_authority]) unless stub[:certificate_authority].nil?
         data['clientRequestToken'] = stub[:client_request_token] unless stub[:client_request_token].nil?
         data['platformVersion'] = stub[:platform_version] unless stub[:platform_version].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['encryptionConfig'] = Stubs::EncryptionConfigList.stub(stub[:encryption_config]) unless stub[:encryption_config].nil?
-        data['connectorConfig'] = Stubs::ConnectorConfigResponse.stub(stub[:connector_config]) unless stub[:connector_config].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['encryptionConfig'] = EncryptionConfigList.stub(stub[:encryption_config]) unless stub[:encryption_config].nil?
+        data['connectorConfig'] = ConnectorConfigResponse.stub(stub[:connector_config]) unless stub[:connector_config].nil?
         data
       end
     end
@@ -416,7 +418,7 @@ module AWS::SDK::EKS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EncryptionConfig.stub(element) unless element.nil?
+          data << EncryptionConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -436,8 +438,8 @@ module AWS::SDK::EKS
       def self.stub(stub)
         stub ||= Types::EncryptionConfig.new
         data = {}
-        data['resources'] = Stubs::StringList.stub(stub[:resources]) unless stub[:resources].nil?
-        data['provider'] = Stubs::Provider.stub(stub[:provider]) unless stub[:provider].nil?
+        data['resources'] = StringList.stub(stub[:resources]) unless stub[:resources].nil?
+        data['provider'] = Provider.stub(stub[:provider]) unless stub[:provider].nil?
         data
       end
     end
@@ -491,7 +493,7 @@ module AWS::SDK::EKS
       def self.stub(stub)
         stub ||= Types::Identity.new
         data = {}
-        data['oidc'] = Stubs::OIDC.stub(stub[:oidc]) unless stub[:oidc].nil?
+        data['oidc'] = OIDC.stub(stub[:oidc]) unless stub[:oidc].nil?
         data
       end
     end
@@ -527,7 +529,7 @@ module AWS::SDK::EKS
       def self.stub(stub)
         stub ||= Types::Logging.new
         data = {}
-        data['clusterLogging'] = Stubs::LogSetups.stub(stub[:cluster_logging]) unless stub[:cluster_logging].nil?
+        data['clusterLogging'] = LogSetups.stub(stub[:cluster_logging]) unless stub[:cluster_logging].nil?
         data
       end
     end
@@ -546,7 +548,7 @@ module AWS::SDK::EKS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LogSetup.stub(element) unless element.nil?
+          data << LogSetup.stub(element) unless element.nil?
         end
         data
       end
@@ -566,7 +568,7 @@ module AWS::SDK::EKS
       def self.stub(stub)
         stub ||= Types::LogSetup.new
         data = {}
-        data['types'] = Stubs::LogTypes.stub(stub[:types]) unless stub[:types].nil?
+        data['types'] = LogTypes.stub(stub[:types]) unless stub[:types].nil?
         data['enabled'] = stub[:enabled] unless stub[:enabled].nil?
         data
       end
@@ -633,13 +635,13 @@ module AWS::SDK::EKS
       def self.stub(stub)
         stub ||= Types::VpcConfigResponse.new
         data = {}
-        data['subnetIds'] = Stubs::StringList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
-        data['securityGroupIds'] = Stubs::StringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
+        data['subnetIds'] = StringList.stub(stub[:subnet_ids]) unless stub[:subnet_ids].nil?
+        data['securityGroupIds'] = StringList.stub(stub[:security_group_ids]) unless stub[:security_group_ids].nil?
         data['clusterSecurityGroupId'] = stub[:cluster_security_group_id] unless stub[:cluster_security_group_id].nil?
         data['vpcId'] = stub[:vpc_id] unless stub[:vpc_id].nil?
         data['endpointPublicAccess'] = stub[:endpoint_public_access] unless stub[:endpoint_public_access].nil?
         data['endpointPrivateAccess'] = stub[:endpoint_private_access] unless stub[:endpoint_private_access].nil?
-        data['publicAccessCidrs'] = Stubs::StringList.stub(stub[:public_access_cidrs]) unless stub[:public_access_cidrs].nil?
+        data['publicAccessCidrs'] = StringList.stub(stub[:public_access_cidrs]) unless stub[:public_access_cidrs].nil?
         data
       end
     end
@@ -656,8 +658,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['fargateProfile'] = Stubs::FargateProfile.stub(stub[:fargate_profile]) unless stub[:fargate_profile].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['fargateProfile'] = FargateProfile.stub(stub[:fargate_profile]) unless stub[:fargate_profile].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -687,10 +689,10 @@ module AWS::SDK::EKS
         data['clusterName'] = stub[:cluster_name] unless stub[:cluster_name].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['podExecutionRoleArn'] = stub[:pod_execution_role_arn] unless stub[:pod_execution_role_arn].nil?
-        data['subnets'] = Stubs::StringList.stub(stub[:subnets]) unless stub[:subnets].nil?
-        data['selectors'] = Stubs::FargateProfileSelectors.stub(stub[:selectors]) unless stub[:selectors].nil?
+        data['subnets'] = StringList.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['selectors'] = FargateProfileSelectors.stub(stub[:selectors]) unless stub[:selectors].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -709,7 +711,7 @@ module AWS::SDK::EKS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FargateProfileSelector.stub(element) unless element.nil?
+          data << FargateProfileSelector.stub(element) unless element.nil?
         end
         data
       end
@@ -730,7 +732,7 @@ module AWS::SDK::EKS
         stub ||= Types::FargateProfileSelector.new
         data = {}
         data['namespace'] = stub[:namespace] unless stub[:namespace].nil?
-        data['labels'] = Stubs::FargateProfileLabel.stub(stub[:labels]) unless stub[:labels].nil?
+        data['labels'] = FargateProfileLabel.stub(stub[:labels]) unless stub[:labels].nil?
         data
       end
     end
@@ -767,8 +769,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['nodegroup'] = Stubs::Nodegroup.stub(stub[:nodegroup]) unless stub[:nodegroup].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['nodegroup'] = Nodegroup.stub(stub[:nodegroup]) unless stub[:nodegroup].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -816,20 +818,20 @@ module AWS::SDK::EKS
         data['modifiedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:modified_at]).to_i unless stub[:modified_at].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['capacityType'] = stub[:capacity_type] unless stub[:capacity_type].nil?
-        data['scalingConfig'] = Stubs::NodegroupScalingConfig.stub(stub[:scaling_config]) unless stub[:scaling_config].nil?
-        data['instanceTypes'] = Stubs::StringList.stub(stub[:instance_types]) unless stub[:instance_types].nil?
-        data['subnets'] = Stubs::StringList.stub(stub[:subnets]) unless stub[:subnets].nil?
-        data['remoteAccess'] = Stubs::RemoteAccessConfig.stub(stub[:remote_access]) unless stub[:remote_access].nil?
+        data['scalingConfig'] = NodegroupScalingConfig.stub(stub[:scaling_config]) unless stub[:scaling_config].nil?
+        data['instanceTypes'] = StringList.stub(stub[:instance_types]) unless stub[:instance_types].nil?
+        data['subnets'] = StringList.stub(stub[:subnets]) unless stub[:subnets].nil?
+        data['remoteAccess'] = RemoteAccessConfig.stub(stub[:remote_access]) unless stub[:remote_access].nil?
         data['amiType'] = stub[:ami_type] unless stub[:ami_type].nil?
         data['nodeRole'] = stub[:node_role] unless stub[:node_role].nil?
-        data['labels'] = Stubs::LabelsMap.stub(stub[:labels]) unless stub[:labels].nil?
-        data['taints'] = Stubs::TaintsList.stub(stub[:taints]) unless stub[:taints].nil?
-        data['resources'] = Stubs::NodegroupResources.stub(stub[:resources]) unless stub[:resources].nil?
+        data['labels'] = LabelsMap.stub(stub[:labels]) unless stub[:labels].nil?
+        data['taints'] = TaintsList.stub(stub[:taints]) unless stub[:taints].nil?
+        data['resources'] = NodegroupResources.stub(stub[:resources]) unless stub[:resources].nil?
         data['diskSize'] = stub[:disk_size] unless stub[:disk_size].nil?
-        data['health'] = Stubs::NodegroupHealth.stub(stub[:health]) unless stub[:health].nil?
-        data['updateConfig'] = Stubs::NodegroupUpdateConfig.stub(stub[:update_config]) unless stub[:update_config].nil?
-        data['launchTemplate'] = Stubs::LaunchTemplateSpecification.stub(stub[:launch_template]) unless stub[:launch_template].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['health'] = NodegroupHealth.stub(stub[:health]) unless stub[:health].nil?
+        data['updateConfig'] = NodegroupUpdateConfig.stub(stub[:update_config]) unless stub[:update_config].nil?
+        data['launchTemplate'] = LaunchTemplateSpecification.stub(stub[:launch_template]) unless stub[:launch_template].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -889,7 +891,7 @@ module AWS::SDK::EKS
       def self.stub(stub)
         stub ||= Types::NodegroupHealth.new
         data = {}
-        data['issues'] = Stubs::IssueList.stub(stub[:issues]) unless stub[:issues].nil?
+        data['issues'] = IssueList.stub(stub[:issues]) unless stub[:issues].nil?
         data
       end
     end
@@ -908,7 +910,7 @@ module AWS::SDK::EKS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Issue.stub(element) unless element.nil?
+          data << Issue.stub(element) unless element.nil?
         end
         data
       end
@@ -931,7 +933,7 @@ module AWS::SDK::EKS
         data = {}
         data['code'] = stub[:code] unless stub[:code].nil?
         data['message'] = stub[:message] unless stub[:message].nil?
-        data['resourceIds'] = Stubs::StringList.stub(stub[:resource_ids]) unless stub[:resource_ids].nil?
+        data['resourceIds'] = StringList.stub(stub[:resource_ids]) unless stub[:resource_ids].nil?
         data
       end
     end
@@ -950,7 +952,7 @@ module AWS::SDK::EKS
       def self.stub(stub)
         stub ||= Types::NodegroupResources.new
         data = {}
-        data['autoScalingGroups'] = Stubs::AutoScalingGroupList.stub(stub[:auto_scaling_groups]) unless stub[:auto_scaling_groups].nil?
+        data['autoScalingGroups'] = AutoScalingGroupList.stub(stub[:auto_scaling_groups]) unless stub[:auto_scaling_groups].nil?
         data['remoteAccessSecurityGroup'] = stub[:remote_access_security_group] unless stub[:remote_access_security_group].nil?
         data
       end
@@ -970,7 +972,7 @@ module AWS::SDK::EKS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AutoScalingGroup.stub(element) unless element.nil?
+          data << AutoScalingGroup.stub(element) unless element.nil?
         end
         data
       end
@@ -1008,7 +1010,7 @@ module AWS::SDK::EKS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Taint.stub(element) unless element.nil?
+          data << Taint.stub(element) unless element.nil?
         end
         data
       end
@@ -1071,7 +1073,7 @@ module AWS::SDK::EKS
         stub ||= Types::RemoteAccessConfig.new
         data = {}
         data['ec2SshKey'] = stub[:ec2_ssh_key] unless stub[:ec2_ssh_key].nil?
-        data['sourceSecurityGroups'] = Stubs::StringList.stub(stub[:source_security_groups]) unless stub[:source_security_groups].nil?
+        data['sourceSecurityGroups'] = StringList.stub(stub[:source_security_groups]) unless stub[:source_security_groups].nil?
         data
       end
     end
@@ -1110,8 +1112,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['addon'] = Stubs::Addon.stub(stub[:addon]) unless stub[:addon].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['addon'] = Addon.stub(stub[:addon]) unless stub[:addon].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1127,8 +1129,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1144,8 +1146,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['fargateProfile'] = Stubs::FargateProfile.stub(stub[:fargate_profile]) unless stub[:fargate_profile].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['fargateProfile'] = FargateProfile.stub(stub[:fargate_profile]) unless stub[:fargate_profile].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1161,8 +1163,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['nodegroup'] = Stubs::Nodegroup.stub(stub[:nodegroup]) unless stub[:nodegroup].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['nodegroup'] = Nodegroup.stub(stub[:nodegroup]) unless stub[:nodegroup].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1178,8 +1180,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1195,8 +1197,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['addon'] = Stubs::Addon.stub(stub[:addon]) unless stub[:addon].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['addon'] = Addon.stub(stub[:addon]) unless stub[:addon].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1213,9 +1215,9 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['addons'] = Stubs::Addons.stub(stub[:addons]) unless stub[:addons].nil?
+        data['addons'] = Addons.stub(stub[:addons]) unless stub[:addons].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1233,7 +1235,7 @@ module AWS::SDK::EKS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AddonInfo.stub(element) unless element.nil?
+          data << AddonInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1256,7 +1258,7 @@ module AWS::SDK::EKS
         data = {}
         data['addonName'] = stub[:addon_name] unless stub[:addon_name].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['addonVersions'] = Stubs::AddonVersionInfoList.stub(stub[:addon_versions]) unless stub[:addon_versions].nil?
+        data['addonVersions'] = AddonVersionInfoList.stub(stub[:addon_versions]) unless stub[:addon_versions].nil?
         data
       end
     end
@@ -1275,7 +1277,7 @@ module AWS::SDK::EKS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AddonVersionInfo.stub(element) unless element.nil?
+          data << AddonVersionInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -1297,8 +1299,8 @@ module AWS::SDK::EKS
         stub ||= Types::AddonVersionInfo.new
         data = {}
         data['addonVersion'] = stub[:addon_version] unless stub[:addon_version].nil?
-        data['architecture'] = Stubs::StringList.stub(stub[:architecture]) unless stub[:architecture].nil?
-        data['compatibilities'] = Stubs::Compatibilities.stub(stub[:compatibilities]) unless stub[:compatibilities].nil?
+        data['architecture'] = StringList.stub(stub[:architecture]) unless stub[:architecture].nil?
+        data['compatibilities'] = Compatibilities.stub(stub[:compatibilities]) unless stub[:compatibilities].nil?
         data
       end
     end
@@ -1317,7 +1319,7 @@ module AWS::SDK::EKS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Compatibility.stub(element) unless element.nil?
+          data << Compatibility.stub(element) unless element.nil?
         end
         data
       end
@@ -1339,7 +1341,7 @@ module AWS::SDK::EKS
         stub ||= Types::Compatibility.new
         data = {}
         data['clusterVersion'] = stub[:cluster_version] unless stub[:cluster_version].nil?
-        data['platformVersions'] = Stubs::StringList.stub(stub[:platform_versions]) unless stub[:platform_versions].nil?
+        data['platformVersions'] = StringList.stub(stub[:platform_versions]) unless stub[:platform_versions].nil?
         data['defaultVersion'] = stub[:default_version] unless stub[:default_version].nil?
         data
       end
@@ -1357,8 +1359,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1374,8 +1376,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['fargateProfile'] = Stubs::FargateProfile.stub(stub[:fargate_profile]) unless stub[:fargate_profile].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['fargateProfile'] = FargateProfile.stub(stub[:fargate_profile]) unless stub[:fargate_profile].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1391,8 +1393,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['identityProviderConfig'] = Stubs::IdentityProviderConfigResponse.stub(stub[:identity_provider_config]) unless stub[:identity_provider_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['identityProviderConfig'] = IdentityProviderConfigResponse.stub(stub[:identity_provider_config]) unless stub[:identity_provider_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1409,7 +1411,7 @@ module AWS::SDK::EKS
       def self.stub(stub)
         stub ||= Types::IdentityProviderConfigResponse.new
         data = {}
-        data['oidc'] = Stubs::OidcIdentityProviderConfig.stub(stub[:oidc]) unless stub[:oidc].nil?
+        data['oidc'] = OidcIdentityProviderConfig.stub(stub[:oidc]) unless stub[:oidc].nil?
         data
       end
     end
@@ -1447,8 +1449,8 @@ module AWS::SDK::EKS
         data['usernamePrefix'] = stub[:username_prefix] unless stub[:username_prefix].nil?
         data['groupsClaim'] = stub[:groups_claim] unless stub[:groups_claim].nil?
         data['groupsPrefix'] = stub[:groups_prefix] unless stub[:groups_prefix].nil?
-        data['requiredClaims'] = Stubs::RequiredClaimsMap.stub(stub[:required_claims]) unless stub[:required_claims].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['requiredClaims'] = RequiredClaimsMap.stub(stub[:required_claims]) unless stub[:required_claims].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data
       end
@@ -1486,8 +1488,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['nodegroup'] = Stubs::Nodegroup.stub(stub[:nodegroup]) unless stub[:nodegroup].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['nodegroup'] = Nodegroup.stub(stub[:nodegroup]) unless stub[:nodegroup].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1503,8 +1505,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['update'] = Stubs::Update.stub(stub[:update]) unless stub[:update].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['update'] = Update.stub(stub[:update]) unless stub[:update].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1520,8 +1522,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['update'] = Stubs::Update.stub(stub[:update]) unless stub[:update].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['update'] = Update.stub(stub[:update]) unless stub[:update].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1538,9 +1540,9 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['addons'] = Stubs::StringList.stub(stub[:addons]) unless stub[:addons].nil?
+        data['addons'] = StringList.stub(stub[:addons]) unless stub[:addons].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1557,9 +1559,9 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['clusters'] = Stubs::StringList.stub(stub[:clusters]) unless stub[:clusters].nil?
+        data['clusters'] = StringList.stub(stub[:clusters]) unless stub[:clusters].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1576,9 +1578,9 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['fargateProfileNames'] = Stubs::StringList.stub(stub[:fargate_profile_names]) unless stub[:fargate_profile_names].nil?
+        data['fargateProfileNames'] = StringList.stub(stub[:fargate_profile_names]) unless stub[:fargate_profile_names].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1595,9 +1597,9 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['identityProviderConfigs'] = Stubs::IdentityProviderConfigs.stub(stub[:identity_provider_configs]) unless stub[:identity_provider_configs].nil?
+        data['identityProviderConfigs'] = IdentityProviderConfigs.stub(stub[:identity_provider_configs]) unless stub[:identity_provider_configs].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1615,7 +1617,7 @@ module AWS::SDK::EKS
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::IdentityProviderConfig.stub(element) unless element.nil?
+          data << IdentityProviderConfig.stub(element) unless element.nil?
         end
         data
       end
@@ -1654,9 +1656,9 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['nodegroups'] = Stubs::StringList.stub(stub[:nodegroups]) unless stub[:nodegroups].nil?
+        data['nodegroups'] = StringList.stub(stub[:nodegroups]) unless stub[:nodegroups].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1672,8 +1674,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1690,9 +1692,9 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['updateIds'] = Stubs::StringList.stub(stub[:update_ids]) unless stub[:update_ids].nil?
+        data['updateIds'] = StringList.stub(stub[:update_ids]) unless stub[:update_ids].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1708,8 +1710,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['cluster'] = Stubs::Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cluster'] = Cluster.stub(stub[:cluster]) unless stub[:cluster].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1751,8 +1753,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['update'] = Stubs::Update.stub(stub[:update]) unless stub[:update].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['update'] = Update.stub(stub[:update]) unless stub[:update].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1768,8 +1770,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['update'] = Stubs::Update.stub(stub[:update]) unless stub[:update].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['update'] = Update.stub(stub[:update]) unless stub[:update].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1785,8 +1787,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['update'] = Stubs::Update.stub(stub[:update]) unless stub[:update].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['update'] = Update.stub(stub[:update]) unless stub[:update].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1802,8 +1804,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['update'] = Stubs::Update.stub(stub[:update]) unless stub[:update].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['update'] = Update.stub(stub[:update]) unless stub[:update].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1819,8 +1821,8 @@ module AWS::SDK::EKS
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['update'] = Stubs::Update.stub(stub[:update]) unless stub[:update].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['update'] = Update.stub(stub[:update]) unless stub[:update].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

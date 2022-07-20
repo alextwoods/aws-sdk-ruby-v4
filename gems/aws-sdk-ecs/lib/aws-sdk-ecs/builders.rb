@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ECS
   module Builders
 
@@ -19,9 +21,9 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.CreateCapacityProvider'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['autoScalingGroupProvider'] = Builders::AutoScalingGroupProvider.build(input[:auto_scaling_group_provider]) unless input[:auto_scaling_group_provider].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['autoScalingGroupProvider'] = AutoScalingGroupProvider.build(input[:auto_scaling_group_provider]) unless input[:auto_scaling_group_provider].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -30,7 +32,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -51,7 +53,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = {}
         data['autoScalingGroupArn'] = input[:auto_scaling_group_arn] unless input[:auto_scaling_group_arn].nil?
-        data['managedScaling'] = Builders::ManagedScaling.build(input[:managed_scaling]) unless input[:managed_scaling].nil?
+        data['managedScaling'] = ManagedScaling.build(input[:managed_scaling]) unless input[:managed_scaling].nil?
         data['managedTerminationProtection'] = input[:managed_termination_protection] unless input[:managed_termination_protection].nil?
         data
       end
@@ -79,12 +81,12 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.CreateCluster'
         data = {}
         data['clusterName'] = input[:cluster_name] unless input[:cluster_name].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        data['settings'] = Builders::ClusterSettings.build(input[:settings]) unless input[:settings].nil?
-        data['configuration'] = Builders::ClusterConfiguration.build(input[:configuration]) unless input[:configuration].nil?
-        data['capacityProviders'] = Builders::StringList.build(input[:capacity_providers]) unless input[:capacity_providers].nil?
-        data['defaultCapacityProviderStrategy'] = Builders::CapacityProviderStrategy.build(input[:default_capacity_provider_strategy]) unless input[:default_capacity_provider_strategy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        data['settings'] = ClusterSettings.build(input[:settings]) unless input[:settings].nil?
+        data['configuration'] = ClusterConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        data['capacityProviders'] = StringList.build(input[:capacity_providers]) unless input[:capacity_providers].nil?
+        data['defaultCapacityProviderStrategy'] = CapacityProviderStrategy.build(input[:default_capacity_provider_strategy]) unless input[:default_capacity_provider_strategy].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -93,7 +95,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::CapacityProviderStrategyItem.build(element) unless element.nil?
+          data << CapacityProviderStrategyItem.build(element) unless element.nil?
         end
         data
       end
@@ -125,7 +127,7 @@ module AWS::SDK::ECS
     class ClusterConfiguration
       def self.build(input)
         data = {}
-        data['executeCommandConfiguration'] = Builders::ExecuteCommandConfiguration.build(input[:execute_command_configuration]) unless input[:execute_command_configuration].nil?
+        data['executeCommandConfiguration'] = ExecuteCommandConfiguration.build(input[:execute_command_configuration]) unless input[:execute_command_configuration].nil?
         data
       end
     end
@@ -136,7 +138,7 @@ module AWS::SDK::ECS
         data = {}
         data['kmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data['logging'] = input[:logging] unless input[:logging].nil?
-        data['logConfiguration'] = Builders::ExecuteCommandLogConfiguration.build(input[:log_configuration]) unless input[:log_configuration].nil?
+        data['logConfiguration'] = ExecuteCommandLogConfiguration.build(input[:log_configuration]) unless input[:log_configuration].nil?
         data
       end
     end
@@ -159,7 +161,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ClusterSetting.build(element) unless element.nil?
+          data << ClusterSetting.build(element) unless element.nil?
         end
         data
       end
@@ -186,26 +188,26 @@ module AWS::SDK::ECS
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
         data['taskDefinition'] = input[:task_definition] unless input[:task_definition].nil?
-        data['loadBalancers'] = Builders::LoadBalancers.build(input[:load_balancers]) unless input[:load_balancers].nil?
-        data['serviceRegistries'] = Builders::ServiceRegistries.build(input[:service_registries]) unless input[:service_registries].nil?
+        data['loadBalancers'] = LoadBalancers.build(input[:load_balancers]) unless input[:load_balancers].nil?
+        data['serviceRegistries'] = ServiceRegistries.build(input[:service_registries]) unless input[:service_registries].nil?
         data['desiredCount'] = input[:desired_count] unless input[:desired_count].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
         data['launchType'] = input[:launch_type] unless input[:launch_type].nil?
-        data['capacityProviderStrategy'] = Builders::CapacityProviderStrategy.build(input[:capacity_provider_strategy]) unless input[:capacity_provider_strategy].nil?
+        data['capacityProviderStrategy'] = CapacityProviderStrategy.build(input[:capacity_provider_strategy]) unless input[:capacity_provider_strategy].nil?
         data['platformVersion'] = input[:platform_version] unless input[:platform_version].nil?
         data['role'] = input[:role] unless input[:role].nil?
-        data['deploymentConfiguration'] = Builders::DeploymentConfiguration.build(input[:deployment_configuration]) unless input[:deployment_configuration].nil?
-        data['placementConstraints'] = Builders::PlacementConstraints.build(input[:placement_constraints]) unless input[:placement_constraints].nil?
-        data['placementStrategy'] = Builders::PlacementStrategies.build(input[:placement_strategy]) unless input[:placement_strategy].nil?
-        data['networkConfiguration'] = Builders::NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
+        data['deploymentConfiguration'] = DeploymentConfiguration.build(input[:deployment_configuration]) unless input[:deployment_configuration].nil?
+        data['placementConstraints'] = PlacementConstraints.build(input[:placement_constraints]) unless input[:placement_constraints].nil?
+        data['placementStrategy'] = PlacementStrategies.build(input[:placement_strategy]) unless input[:placement_strategy].nil?
+        data['networkConfiguration'] = NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
         data['healthCheckGracePeriodSeconds'] = input[:health_check_grace_period_seconds] unless input[:health_check_grace_period_seconds].nil?
         data['schedulingStrategy'] = input[:scheduling_strategy] unless input[:scheduling_strategy].nil?
-        data['deploymentController'] = Builders::DeploymentController.build(input[:deployment_controller]) unless input[:deployment_controller].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['deploymentController'] = DeploymentController.build(input[:deployment_controller]) unless input[:deployment_controller].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['enableECSManagedTags'] = input[:enable_ecs_managed_tags] unless input[:enable_ecs_managed_tags].nil?
         data['propagateTags'] = input[:propagate_tags] unless input[:propagate_tags].nil?
         data['enableExecuteCommand'] = input[:enable_execute_command] unless input[:enable_execute_command].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -222,7 +224,7 @@ module AWS::SDK::ECS
     class NetworkConfiguration
       def self.build(input)
         data = {}
-        data['awsvpcConfiguration'] = Builders::AwsVpcConfiguration.build(input[:awsvpc_configuration]) unless input[:awsvpc_configuration].nil?
+        data['awsvpcConfiguration'] = AwsVpcConfiguration.build(input[:awsvpc_configuration]) unless input[:awsvpc_configuration].nil?
         data
       end
     end
@@ -231,8 +233,8 @@ module AWS::SDK::ECS
     class AwsVpcConfiguration
       def self.build(input)
         data = {}
-        data['subnets'] = Builders::StringList.build(input[:subnets]) unless input[:subnets].nil?
-        data['securityGroups'] = Builders::StringList.build(input[:security_groups]) unless input[:security_groups].nil?
+        data['subnets'] = StringList.build(input[:subnets]) unless input[:subnets].nil?
+        data['securityGroups'] = StringList.build(input[:security_groups]) unless input[:security_groups].nil?
         data['assignPublicIp'] = input[:assign_public_ip] unless input[:assign_public_ip].nil?
         data
       end
@@ -243,7 +245,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PlacementStrategy.build(element) unless element.nil?
+          data << PlacementStrategy.build(element) unless element.nil?
         end
         data
       end
@@ -264,7 +266,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PlacementConstraint.build(element) unless element.nil?
+          data << PlacementConstraint.build(element) unless element.nil?
         end
         data
       end
@@ -284,7 +286,7 @@ module AWS::SDK::ECS
     class DeploymentConfiguration
       def self.build(input)
         data = {}
-        data['deploymentCircuitBreaker'] = Builders::DeploymentCircuitBreaker.build(input[:deployment_circuit_breaker]) unless input[:deployment_circuit_breaker].nil?
+        data['deploymentCircuitBreaker'] = DeploymentCircuitBreaker.build(input[:deployment_circuit_breaker]) unless input[:deployment_circuit_breaker].nil?
         data['maximumPercent'] = input[:maximum_percent] unless input[:maximum_percent].nil?
         data['minimumHealthyPercent'] = input[:minimum_healthy_percent] unless input[:minimum_healthy_percent].nil?
         data
@@ -306,7 +308,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ServiceRegistry.build(element) unless element.nil?
+          data << ServiceRegistry.build(element) unless element.nil?
         end
         data
       end
@@ -329,7 +331,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LoadBalancer.build(element) unless element.nil?
+          data << LoadBalancer.build(element) unless element.nil?
         end
         data
       end
@@ -359,16 +361,16 @@ module AWS::SDK::ECS
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
         data['externalId'] = input[:external_id] unless input[:external_id].nil?
         data['taskDefinition'] = input[:task_definition] unless input[:task_definition].nil?
-        data['networkConfiguration'] = Builders::NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
-        data['loadBalancers'] = Builders::LoadBalancers.build(input[:load_balancers]) unless input[:load_balancers].nil?
-        data['serviceRegistries'] = Builders::ServiceRegistries.build(input[:service_registries]) unless input[:service_registries].nil?
+        data['networkConfiguration'] = NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
+        data['loadBalancers'] = LoadBalancers.build(input[:load_balancers]) unless input[:load_balancers].nil?
+        data['serviceRegistries'] = ServiceRegistries.build(input[:service_registries]) unless input[:service_registries].nil?
         data['launchType'] = input[:launch_type] unless input[:launch_type].nil?
-        data['capacityProviderStrategy'] = Builders::CapacityProviderStrategy.build(input[:capacity_provider_strategy]) unless input[:capacity_provider_strategy].nil?
+        data['capacityProviderStrategy'] = CapacityProviderStrategy.build(input[:capacity_provider_strategy]) unless input[:capacity_provider_strategy].nil?
         data['platformVersion'] = input[:platform_version] unless input[:platform_version].nil?
-        data['scale'] = Builders::Scale.build(input[:scale]) unless input[:scale].nil?
+        data['scale'] = Scale.build(input[:scale]) unless input[:scale].nil?
         data['clientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -392,7 +394,7 @@ module AWS::SDK::ECS
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['principalArn'] = input[:principal_arn] unless input[:principal_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -405,8 +407,8 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.DeleteAttributes'
         data = {}
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
-        data['attributes'] = Builders::Attributes.build(input[:attributes]) unless input[:attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['attributes'] = Attributes.build(input[:attributes]) unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -415,7 +417,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Attribute.build(element) unless element.nil?
+          data << Attribute.build(element) unless element.nil?
         end
         data
       end
@@ -442,7 +444,7 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.DeleteCapacityProvider'
         data = {}
         data['capacityProvider'] = input[:capacity_provider] unless input[:capacity_provider].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -455,7 +457,7 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.DeleteCluster'
         data = {}
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -470,7 +472,7 @@ module AWS::SDK::ECS
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
         data['service'] = input[:service] unless input[:service].nil?
         data['force'] = input[:force] unless input[:force].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -486,7 +488,7 @@ module AWS::SDK::ECS
         data['service'] = input[:service] unless input[:service].nil?
         data['taskSet'] = input[:task_set] unless input[:task_set].nil?
         data['force'] = input[:force] unless input[:force].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -501,7 +503,7 @@ module AWS::SDK::ECS
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
         data['containerInstance'] = input[:container_instance] unless input[:container_instance].nil?
         data['force'] = input[:force] unless input[:force].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -514,7 +516,7 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.DeregisterTaskDefinition'
         data = {}
         data['taskDefinition'] = input[:task_definition] unless input[:task_definition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -526,11 +528,11 @@ module AWS::SDK::ECS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.DescribeCapacityProviders'
         data = {}
-        data['capacityProviders'] = Builders::StringList.build(input[:capacity_providers]) unless input[:capacity_providers].nil?
-        data['include'] = Builders::CapacityProviderFieldList.build(input[:include]) unless input[:include].nil?
+        data['capacityProviders'] = StringList.build(input[:capacity_providers]) unless input[:capacity_providers].nil?
+        data['include'] = CapacityProviderFieldList.build(input[:include]) unless input[:include].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -553,9 +555,9 @@ module AWS::SDK::ECS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.DescribeClusters'
         data = {}
-        data['clusters'] = Builders::StringList.build(input[:clusters]) unless input[:clusters].nil?
-        data['include'] = Builders::ClusterFieldList.build(input[:include]) unless input[:include].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['clusters'] = StringList.build(input[:clusters]) unless input[:clusters].nil?
+        data['include'] = ClusterFieldList.build(input[:include]) unless input[:include].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -579,9 +581,9 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.DescribeContainerInstances'
         data = {}
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
-        data['containerInstances'] = Builders::StringList.build(input[:container_instances]) unless input[:container_instances].nil?
-        data['include'] = Builders::ContainerInstanceFieldList.build(input[:include]) unless input[:include].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['containerInstances'] = StringList.build(input[:container_instances]) unless input[:container_instances].nil?
+        data['include'] = ContainerInstanceFieldList.build(input[:include]) unless input[:include].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -605,9 +607,9 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.DescribeServices'
         data = {}
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
-        data['services'] = Builders::StringList.build(input[:services]) unless input[:services].nil?
-        data['include'] = Builders::ServiceFieldList.build(input[:include]) unless input[:include].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['services'] = StringList.build(input[:services]) unless input[:services].nil?
+        data['include'] = ServiceFieldList.build(input[:include]) unless input[:include].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -631,8 +633,8 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.DescribeTaskDefinition'
         data = {}
         data['taskDefinition'] = input[:task_definition] unless input[:task_definition].nil?
-        data['include'] = Builders::TaskDefinitionFieldList.build(input[:include]) unless input[:include].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['include'] = TaskDefinitionFieldList.build(input[:include]) unless input[:include].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -657,9 +659,9 @@ module AWS::SDK::ECS
         data = {}
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
         data['service'] = input[:service] unless input[:service].nil?
-        data['taskSets'] = Builders::StringList.build(input[:task_sets]) unless input[:task_sets].nil?
-        data['include'] = Builders::TaskSetFieldList.build(input[:include]) unless input[:include].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['taskSets'] = StringList.build(input[:task_sets]) unless input[:task_sets].nil?
+        data['include'] = TaskSetFieldList.build(input[:include]) unless input[:include].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -683,9 +685,9 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.DescribeTasks'
         data = {}
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
-        data['tasks'] = Builders::StringList.build(input[:tasks]) unless input[:tasks].nil?
-        data['include'] = Builders::TaskFieldList.build(input[:include]) unless input[:include].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tasks'] = StringList.build(input[:tasks]) unless input[:tasks].nil?
+        data['include'] = TaskFieldList.build(input[:include]) unless input[:include].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -710,7 +712,7 @@ module AWS::SDK::ECS
         data = {}
         data['containerInstance'] = input[:container_instance] unless input[:container_instance].nil?
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -727,7 +729,7 @@ module AWS::SDK::ECS
         data['command'] = input[:command] unless input[:command].nil?
         data['interactive'] = input[:interactive] unless input[:interactive].nil?
         data['task'] = input[:task] unless input[:task].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -745,7 +747,7 @@ module AWS::SDK::ECS
         data['effectiveSettings'] = input[:effective_settings] unless input[:effective_settings].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -763,7 +765,7 @@ module AWS::SDK::ECS
         data['attributeValue'] = input[:attribute_value] unless input[:attribute_value].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -777,7 +779,7 @@ module AWS::SDK::ECS
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -794,7 +796,7 @@ module AWS::SDK::ECS
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -811,7 +813,7 @@ module AWS::SDK::ECS
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
         data['launchType'] = input[:launch_type] unless input[:launch_type].nil?
         data['schedulingStrategy'] = input[:scheduling_strategy] unless input[:scheduling_strategy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -824,7 +826,7 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.ListTagsForResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -840,7 +842,7 @@ module AWS::SDK::ECS
         data['status'] = input[:status] unless input[:status].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -857,7 +859,7 @@ module AWS::SDK::ECS
         data['sort'] = input[:sort] unless input[:sort].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -878,7 +880,7 @@ module AWS::SDK::ECS
         data['serviceName'] = input[:service_name] unless input[:service_name].nil?
         data['desiredStatus'] = input[:desired_status] unless input[:desired_status].nil?
         data['launchType'] = input[:launch_type] unless input[:launch_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -893,7 +895,7 @@ module AWS::SDK::ECS
         data['name'] = input[:name] unless input[:name].nil?
         data['value'] = input[:value] unless input[:value].nil?
         data['principalArn'] = input[:principal_arn] unless input[:principal_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -907,7 +909,7 @@ module AWS::SDK::ECS
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['value'] = input[:value] unless input[:value].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -920,8 +922,8 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.PutAttributes'
         data = {}
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
-        data['attributes'] = Builders::Attributes.build(input[:attributes]) unless input[:attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['attributes'] = Attributes.build(input[:attributes]) unless input[:attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -934,9 +936,9 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.PutClusterCapacityProviders'
         data = {}
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
-        data['capacityProviders'] = Builders::StringList.build(input[:capacity_providers]) unless input[:capacity_providers].nil?
-        data['defaultCapacityProviderStrategy'] = Builders::CapacityProviderStrategy.build(input[:default_capacity_provider_strategy]) unless input[:default_capacity_provider_strategy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['capacityProviders'] = StringList.build(input[:capacity_providers]) unless input[:capacity_providers].nil?
+        data['defaultCapacityProviderStrategy'] = CapacityProviderStrategy.build(input[:default_capacity_provider_strategy]) unless input[:default_capacity_provider_strategy].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -951,13 +953,13 @@ module AWS::SDK::ECS
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
         data['instanceIdentityDocument'] = input[:instance_identity_document] unless input[:instance_identity_document].nil?
         data['instanceIdentityDocumentSignature'] = input[:instance_identity_document_signature] unless input[:instance_identity_document_signature].nil?
-        data['totalResources'] = Builders::Resources.build(input[:total_resources]) unless input[:total_resources].nil?
-        data['versionInfo'] = Builders::VersionInfo.build(input[:version_info]) unless input[:version_info].nil?
+        data['totalResources'] = Resources.build(input[:total_resources]) unless input[:total_resources].nil?
+        data['versionInfo'] = VersionInfo.build(input[:version_info]) unless input[:version_info].nil?
         data['containerInstanceArn'] = input[:container_instance_arn] unless input[:container_instance_arn].nil?
-        data['attributes'] = Builders::Attributes.build(input[:attributes]) unless input[:attributes].nil?
-        data['platformDevices'] = Builders::PlatformDevices.build(input[:platform_devices]) unless input[:platform_devices].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['attributes'] = Attributes.build(input[:attributes]) unless input[:attributes].nil?
+        data['platformDevices'] = PlatformDevices.build(input[:platform_devices]) unless input[:platform_devices].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -966,7 +968,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PlatformDevice.build(element) unless element.nil?
+          data << PlatformDevice.build(element) unless element.nil?
         end
         data
       end
@@ -998,7 +1000,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Resource.build(element) unless element.nil?
+          data << Resource.build(element) unless element.nil?
         end
         data
       end
@@ -1013,7 +1015,7 @@ module AWS::SDK::ECS
         data['doubleValue'] = Hearth::NumberHelper.serialize(input[:double_value]) unless input[:double_value].nil?
         data['longValue'] = input[:long_value] unless input[:long_value].nil?
         data['integerValue'] = input[:integer_value] unless input[:integer_value].nil?
-        data['stringSetValue'] = Builders::StringList.build(input[:string_set_value]) unless input[:string_set_value].nil?
+        data['stringSetValue'] = StringList.build(input[:string_set_value]) unless input[:string_set_value].nil?
         data
       end
     end
@@ -1030,20 +1032,20 @@ module AWS::SDK::ECS
         data['taskRoleArn'] = input[:task_role_arn] unless input[:task_role_arn].nil?
         data['executionRoleArn'] = input[:execution_role_arn] unless input[:execution_role_arn].nil?
         data['networkMode'] = input[:network_mode] unless input[:network_mode].nil?
-        data['containerDefinitions'] = Builders::ContainerDefinitions.build(input[:container_definitions]) unless input[:container_definitions].nil?
-        data['volumes'] = Builders::VolumeList.build(input[:volumes]) unless input[:volumes].nil?
-        data['placementConstraints'] = Builders::TaskDefinitionPlacementConstraints.build(input[:placement_constraints]) unless input[:placement_constraints].nil?
-        data['requiresCompatibilities'] = Builders::CompatibilityList.build(input[:requires_compatibilities]) unless input[:requires_compatibilities].nil?
+        data['containerDefinitions'] = ContainerDefinitions.build(input[:container_definitions]) unless input[:container_definitions].nil?
+        data['volumes'] = VolumeList.build(input[:volumes]) unless input[:volumes].nil?
+        data['placementConstraints'] = TaskDefinitionPlacementConstraints.build(input[:placement_constraints]) unless input[:placement_constraints].nil?
+        data['requiresCompatibilities'] = CompatibilityList.build(input[:requires_compatibilities]) unless input[:requires_compatibilities].nil?
         data['cpu'] = input[:cpu] unless input[:cpu].nil?
         data['memory'] = input[:memory] unless input[:memory].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['pidMode'] = input[:pid_mode] unless input[:pid_mode].nil?
         data['ipcMode'] = input[:ipc_mode] unless input[:ipc_mode].nil?
-        data['proxyConfiguration'] = Builders::ProxyConfiguration.build(input[:proxy_configuration]) unless input[:proxy_configuration].nil?
-        data['inferenceAccelerators'] = Builders::InferenceAccelerators.build(input[:inference_accelerators]) unless input[:inference_accelerators].nil?
-        data['ephemeralStorage'] = Builders::EphemeralStorage.build(input[:ephemeral_storage]) unless input[:ephemeral_storage].nil?
-        data['runtimePlatform'] = Builders::RuntimePlatform.build(input[:runtime_platform]) unless input[:runtime_platform].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['proxyConfiguration'] = ProxyConfiguration.build(input[:proxy_configuration]) unless input[:proxy_configuration].nil?
+        data['inferenceAccelerators'] = InferenceAccelerators.build(input[:inference_accelerators]) unless input[:inference_accelerators].nil?
+        data['ephemeralStorage'] = EphemeralStorage.build(input[:ephemeral_storage]) unless input[:ephemeral_storage].nil?
+        data['runtimePlatform'] = RuntimePlatform.build(input[:runtime_platform]) unless input[:runtime_platform].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1071,7 +1073,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InferenceAccelerator.build(element) unless element.nil?
+          data << InferenceAccelerator.build(element) unless element.nil?
         end
         data
       end
@@ -1093,7 +1095,7 @@ module AWS::SDK::ECS
         data = {}
         data['type'] = input[:type] unless input[:type].nil?
         data['containerName'] = input[:container_name] unless input[:container_name].nil?
-        data['properties'] = Builders::ProxyConfigurationProperties.build(input[:properties]) unless input[:properties].nil?
+        data['properties'] = ProxyConfigurationProperties.build(input[:properties]) unless input[:properties].nil?
         data
       end
     end
@@ -1103,7 +1105,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::KeyValuePair.build(element) unless element.nil?
+          data << KeyValuePair.build(element) unless element.nil?
         end
         data
       end
@@ -1135,7 +1137,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TaskDefinitionPlacementConstraint.build(element) unless element.nil?
+          data << TaskDefinitionPlacementConstraint.build(element) unless element.nil?
         end
         data
       end
@@ -1156,7 +1158,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Volume.build(element) unless element.nil?
+          data << Volume.build(element) unless element.nil?
         end
         data
       end
@@ -1167,10 +1169,10 @@ module AWS::SDK::ECS
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['host'] = Builders::HostVolumeProperties.build(input[:host]) unless input[:host].nil?
-        data['dockerVolumeConfiguration'] = Builders::DockerVolumeConfiguration.build(input[:docker_volume_configuration]) unless input[:docker_volume_configuration].nil?
-        data['efsVolumeConfiguration'] = Builders::EFSVolumeConfiguration.build(input[:efs_volume_configuration]) unless input[:efs_volume_configuration].nil?
-        data['fsxWindowsFileServerVolumeConfiguration'] = Builders::FSxWindowsFileServerVolumeConfiguration.build(input[:fsx_windows_file_server_volume_configuration]) unless input[:fsx_windows_file_server_volume_configuration].nil?
+        data['host'] = HostVolumeProperties.build(input[:host]) unless input[:host].nil?
+        data['dockerVolumeConfiguration'] = DockerVolumeConfiguration.build(input[:docker_volume_configuration]) unless input[:docker_volume_configuration].nil?
+        data['efsVolumeConfiguration'] = EFSVolumeConfiguration.build(input[:efs_volume_configuration]) unless input[:efs_volume_configuration].nil?
+        data['fsxWindowsFileServerVolumeConfiguration'] = FSxWindowsFileServerVolumeConfiguration.build(input[:fsx_windows_file_server_volume_configuration]) unless input[:fsx_windows_file_server_volume_configuration].nil?
         data
       end
     end
@@ -1181,7 +1183,7 @@ module AWS::SDK::ECS
         data = {}
         data['fileSystemId'] = input[:file_system_id] unless input[:file_system_id].nil?
         data['rootDirectory'] = input[:root_directory] unless input[:root_directory].nil?
-        data['authorizationConfig'] = Builders::FSxWindowsFileServerAuthorizationConfig.build(input[:authorization_config]) unless input[:authorization_config].nil?
+        data['authorizationConfig'] = FSxWindowsFileServerAuthorizationConfig.build(input[:authorization_config]) unless input[:authorization_config].nil?
         data
       end
     end
@@ -1204,7 +1206,7 @@ module AWS::SDK::ECS
         data['rootDirectory'] = input[:root_directory] unless input[:root_directory].nil?
         data['transitEncryption'] = input[:transit_encryption] unless input[:transit_encryption].nil?
         data['transitEncryptionPort'] = input[:transit_encryption_port] unless input[:transit_encryption_port].nil?
-        data['authorizationConfig'] = Builders::EFSAuthorizationConfig.build(input[:authorization_config]) unless input[:authorization_config].nil?
+        data['authorizationConfig'] = EFSAuthorizationConfig.build(input[:authorization_config]) unless input[:authorization_config].nil?
         data
       end
     end
@@ -1226,8 +1228,8 @@ module AWS::SDK::ECS
         data['scope'] = input[:scope] unless input[:scope].nil?
         data['autoprovision'] = input[:autoprovision] unless input[:autoprovision].nil?
         data['driver'] = input[:driver] unless input[:driver].nil?
-        data['driverOpts'] = Builders::StringMap.build(input[:driver_opts]) unless input[:driver_opts].nil?
-        data['labels'] = Builders::StringMap.build(input[:labels]) unless input[:labels].nil?
+        data['driverOpts'] = StringMap.build(input[:driver_opts]) unless input[:driver_opts].nil?
+        data['labels'] = StringMap.build(input[:labels]) unless input[:labels].nil?
         data
       end
     end
@@ -1257,7 +1259,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ContainerDefinition.build(element) unless element.nil?
+          data << ContainerDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -1269,22 +1271,22 @@ module AWS::SDK::ECS
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['image'] = input[:image] unless input[:image].nil?
-        data['repositoryCredentials'] = Builders::RepositoryCredentials.build(input[:repository_credentials]) unless input[:repository_credentials].nil?
+        data['repositoryCredentials'] = RepositoryCredentials.build(input[:repository_credentials]) unless input[:repository_credentials].nil?
         data['cpu'] = input[:cpu] unless input[:cpu].nil?
         data['memory'] = input[:memory] unless input[:memory].nil?
         data['memoryReservation'] = input[:memory_reservation] unless input[:memory_reservation].nil?
-        data['links'] = Builders::StringList.build(input[:links]) unless input[:links].nil?
-        data['portMappings'] = Builders::PortMappingList.build(input[:port_mappings]) unless input[:port_mappings].nil?
+        data['links'] = StringList.build(input[:links]) unless input[:links].nil?
+        data['portMappings'] = PortMappingList.build(input[:port_mappings]) unless input[:port_mappings].nil?
         data['essential'] = input[:essential] unless input[:essential].nil?
-        data['entryPoint'] = Builders::StringList.build(input[:entry_point]) unless input[:entry_point].nil?
-        data['command'] = Builders::StringList.build(input[:command]) unless input[:command].nil?
-        data['environment'] = Builders::EnvironmentVariables.build(input[:environment]) unless input[:environment].nil?
-        data['environmentFiles'] = Builders::EnvironmentFiles.build(input[:environment_files]) unless input[:environment_files].nil?
-        data['mountPoints'] = Builders::MountPointList.build(input[:mount_points]) unless input[:mount_points].nil?
-        data['volumesFrom'] = Builders::VolumeFromList.build(input[:volumes_from]) unless input[:volumes_from].nil?
-        data['linuxParameters'] = Builders::LinuxParameters.build(input[:linux_parameters]) unless input[:linux_parameters].nil?
-        data['secrets'] = Builders::SecretList.build(input[:secrets]) unless input[:secrets].nil?
-        data['dependsOn'] = Builders::ContainerDependencies.build(input[:depends_on]) unless input[:depends_on].nil?
+        data['entryPoint'] = StringList.build(input[:entry_point]) unless input[:entry_point].nil?
+        data['command'] = StringList.build(input[:command]) unless input[:command].nil?
+        data['environment'] = EnvironmentVariables.build(input[:environment]) unless input[:environment].nil?
+        data['environmentFiles'] = EnvironmentFiles.build(input[:environment_files]) unless input[:environment_files].nil?
+        data['mountPoints'] = MountPointList.build(input[:mount_points]) unless input[:mount_points].nil?
+        data['volumesFrom'] = VolumeFromList.build(input[:volumes_from]) unless input[:volumes_from].nil?
+        data['linuxParameters'] = LinuxParameters.build(input[:linux_parameters]) unless input[:linux_parameters].nil?
+        data['secrets'] = SecretList.build(input[:secrets]) unless input[:secrets].nil?
+        data['dependsOn'] = ContainerDependencies.build(input[:depends_on]) unless input[:depends_on].nil?
         data['startTimeout'] = input[:start_timeout] unless input[:start_timeout].nil?
         data['stopTimeout'] = input[:stop_timeout] unless input[:stop_timeout].nil?
         data['hostname'] = input[:hostname] unless input[:hostname].nil?
@@ -1293,19 +1295,19 @@ module AWS::SDK::ECS
         data['disableNetworking'] = input[:disable_networking] unless input[:disable_networking].nil?
         data['privileged'] = input[:privileged] unless input[:privileged].nil?
         data['readonlyRootFilesystem'] = input[:readonly_root_filesystem] unless input[:readonly_root_filesystem].nil?
-        data['dnsServers'] = Builders::StringList.build(input[:dns_servers]) unless input[:dns_servers].nil?
-        data['dnsSearchDomains'] = Builders::StringList.build(input[:dns_search_domains]) unless input[:dns_search_domains].nil?
-        data['extraHosts'] = Builders::HostEntryList.build(input[:extra_hosts]) unless input[:extra_hosts].nil?
-        data['dockerSecurityOptions'] = Builders::StringList.build(input[:docker_security_options]) unless input[:docker_security_options].nil?
+        data['dnsServers'] = StringList.build(input[:dns_servers]) unless input[:dns_servers].nil?
+        data['dnsSearchDomains'] = StringList.build(input[:dns_search_domains]) unless input[:dns_search_domains].nil?
+        data['extraHosts'] = HostEntryList.build(input[:extra_hosts]) unless input[:extra_hosts].nil?
+        data['dockerSecurityOptions'] = StringList.build(input[:docker_security_options]) unless input[:docker_security_options].nil?
         data['interactive'] = input[:interactive] unless input[:interactive].nil?
         data['pseudoTerminal'] = input[:pseudo_terminal] unless input[:pseudo_terminal].nil?
-        data['dockerLabels'] = Builders::DockerLabelsMap.build(input[:docker_labels]) unless input[:docker_labels].nil?
-        data['ulimits'] = Builders::UlimitList.build(input[:ulimits]) unless input[:ulimits].nil?
-        data['logConfiguration'] = Builders::LogConfiguration.build(input[:log_configuration]) unless input[:log_configuration].nil?
-        data['healthCheck'] = Builders::HealthCheck.build(input[:health_check]) unless input[:health_check].nil?
-        data['systemControls'] = Builders::SystemControls.build(input[:system_controls]) unless input[:system_controls].nil?
-        data['resourceRequirements'] = Builders::ResourceRequirements.build(input[:resource_requirements]) unless input[:resource_requirements].nil?
-        data['firelensConfiguration'] = Builders::FirelensConfiguration.build(input[:firelens_configuration]) unless input[:firelens_configuration].nil?
+        data['dockerLabels'] = DockerLabelsMap.build(input[:docker_labels]) unless input[:docker_labels].nil?
+        data['ulimits'] = UlimitList.build(input[:ulimits]) unless input[:ulimits].nil?
+        data['logConfiguration'] = LogConfiguration.build(input[:log_configuration]) unless input[:log_configuration].nil?
+        data['healthCheck'] = HealthCheck.build(input[:health_check]) unless input[:health_check].nil?
+        data['systemControls'] = SystemControls.build(input[:system_controls]) unless input[:system_controls].nil?
+        data['resourceRequirements'] = ResourceRequirements.build(input[:resource_requirements]) unless input[:resource_requirements].nil?
+        data['firelensConfiguration'] = FirelensConfiguration.build(input[:firelens_configuration]) unless input[:firelens_configuration].nil?
         data
       end
     end
@@ -1315,7 +1317,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = {}
         data['type'] = input[:type] unless input[:type].nil?
-        data['options'] = Builders::FirelensConfigurationOptionsMap.build(input[:options]) unless input[:options].nil?
+        data['options'] = FirelensConfigurationOptionsMap.build(input[:options]) unless input[:options].nil?
         data
       end
     end
@@ -1336,7 +1338,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ResourceRequirement.build(element) unless element.nil?
+          data << ResourceRequirement.build(element) unless element.nil?
         end
         data
       end
@@ -1357,7 +1359,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SystemControl.build(element) unless element.nil?
+          data << SystemControl.build(element) unless element.nil?
         end
         data
       end
@@ -1377,7 +1379,7 @@ module AWS::SDK::ECS
     class HealthCheck
       def self.build(input)
         data = {}
-        data['command'] = Builders::StringList.build(input[:command]) unless input[:command].nil?
+        data['command'] = StringList.build(input[:command]) unless input[:command].nil?
         data['interval'] = input[:interval] unless input[:interval].nil?
         data['timeout'] = input[:timeout] unless input[:timeout].nil?
         data['retries'] = input[:retries] unless input[:retries].nil?
@@ -1391,8 +1393,8 @@ module AWS::SDK::ECS
       def self.build(input)
         data = {}
         data['logDriver'] = input[:log_driver] unless input[:log_driver].nil?
-        data['options'] = Builders::LogConfigurationOptionsMap.build(input[:options]) unless input[:options].nil?
-        data['secretOptions'] = Builders::SecretList.build(input[:secret_options]) unless input[:secret_options].nil?
+        data['options'] = LogConfigurationOptionsMap.build(input[:options]) unless input[:options].nil?
+        data['secretOptions'] = SecretList.build(input[:secret_options]) unless input[:secret_options].nil?
         data
       end
     end
@@ -1402,7 +1404,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Secret.build(element) unless element.nil?
+          data << Secret.build(element) unless element.nil?
         end
         data
       end
@@ -1434,7 +1436,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Ulimit.build(element) unless element.nil?
+          data << Ulimit.build(element) unless element.nil?
         end
         data
       end
@@ -1467,7 +1469,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::HostEntry.build(element) unless element.nil?
+          data << HostEntry.build(element) unless element.nil?
         end
         data
       end
@@ -1488,7 +1490,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ContainerDependency.build(element) unless element.nil?
+          data << ContainerDependency.build(element) unless element.nil?
         end
         data
       end
@@ -1508,11 +1510,11 @@ module AWS::SDK::ECS
     class LinuxParameters
       def self.build(input)
         data = {}
-        data['capabilities'] = Builders::KernelCapabilities.build(input[:capabilities]) unless input[:capabilities].nil?
-        data['devices'] = Builders::DevicesList.build(input[:devices]) unless input[:devices].nil?
+        data['capabilities'] = KernelCapabilities.build(input[:capabilities]) unless input[:capabilities].nil?
+        data['devices'] = DevicesList.build(input[:devices]) unless input[:devices].nil?
         data['initProcessEnabled'] = input[:init_process_enabled] unless input[:init_process_enabled].nil?
         data['sharedMemorySize'] = input[:shared_memory_size] unless input[:shared_memory_size].nil?
-        data['tmpfs'] = Builders::TmpfsList.build(input[:tmpfs]) unless input[:tmpfs].nil?
+        data['tmpfs'] = TmpfsList.build(input[:tmpfs]) unless input[:tmpfs].nil?
         data['maxSwap'] = input[:max_swap] unless input[:max_swap].nil?
         data['swappiness'] = input[:swappiness] unless input[:swappiness].nil?
         data
@@ -1524,7 +1526,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tmpfs.build(element) unless element.nil?
+          data << Tmpfs.build(element) unless element.nil?
         end
         data
       end
@@ -1536,7 +1538,7 @@ module AWS::SDK::ECS
         data = {}
         data['containerPath'] = input[:container_path] unless input[:container_path].nil?
         data['size'] = input[:size] unless input[:size].nil?
-        data['mountOptions'] = Builders::StringList.build(input[:mount_options]) unless input[:mount_options].nil?
+        data['mountOptions'] = StringList.build(input[:mount_options]) unless input[:mount_options].nil?
         data
       end
     end
@@ -1546,7 +1548,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Device.build(element) unless element.nil?
+          data << Device.build(element) unless element.nil?
         end
         data
       end
@@ -1558,7 +1560,7 @@ module AWS::SDK::ECS
         data = {}
         data['hostPath'] = input[:host_path] unless input[:host_path].nil?
         data['containerPath'] = input[:container_path] unless input[:container_path].nil?
-        data['permissions'] = Builders::DeviceCgroupPermissions.build(input[:permissions]) unless input[:permissions].nil?
+        data['permissions'] = DeviceCgroupPermissions.build(input[:permissions]) unless input[:permissions].nil?
         data
       end
     end
@@ -1578,8 +1580,8 @@ module AWS::SDK::ECS
     class KernelCapabilities
       def self.build(input)
         data = {}
-        data['add'] = Builders::StringList.build(input[:add]) unless input[:add].nil?
-        data['drop'] = Builders::StringList.build(input[:drop]) unless input[:drop].nil?
+        data['add'] = StringList.build(input[:add]) unless input[:add].nil?
+        data['drop'] = StringList.build(input[:drop]) unless input[:drop].nil?
         data
       end
     end
@@ -1589,7 +1591,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::VolumeFrom.build(element) unless element.nil?
+          data << VolumeFrom.build(element) unless element.nil?
         end
         data
       end
@@ -1610,7 +1612,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MountPoint.build(element) unless element.nil?
+          data << MountPoint.build(element) unless element.nil?
         end
         data
       end
@@ -1632,7 +1634,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EnvironmentFile.build(element) unless element.nil?
+          data << EnvironmentFile.build(element) unless element.nil?
         end
         data
       end
@@ -1653,7 +1655,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::KeyValuePair.build(element) unless element.nil?
+          data << KeyValuePair.build(element) unless element.nil?
         end
         data
       end
@@ -1664,7 +1666,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PortMapping.build(element) unless element.nil?
+          data << PortMapping.build(element) unless element.nil?
         end
         data
       end
@@ -1698,24 +1700,24 @@ module AWS::SDK::ECS
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.RunTask'
         data = {}
-        data['capacityProviderStrategy'] = Builders::CapacityProviderStrategy.build(input[:capacity_provider_strategy]) unless input[:capacity_provider_strategy].nil?
+        data['capacityProviderStrategy'] = CapacityProviderStrategy.build(input[:capacity_provider_strategy]) unless input[:capacity_provider_strategy].nil?
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
         data['count'] = input[:count] unless input[:count].nil?
         data['enableECSManagedTags'] = input[:enable_ecs_managed_tags] unless input[:enable_ecs_managed_tags].nil?
         data['enableExecuteCommand'] = input[:enable_execute_command] unless input[:enable_execute_command].nil?
         data['group'] = input[:group] unless input[:group].nil?
         data['launchType'] = input[:launch_type] unless input[:launch_type].nil?
-        data['networkConfiguration'] = Builders::NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
-        data['overrides'] = Builders::TaskOverride.build(input[:overrides]) unless input[:overrides].nil?
-        data['placementConstraints'] = Builders::PlacementConstraints.build(input[:placement_constraints]) unless input[:placement_constraints].nil?
-        data['placementStrategy'] = Builders::PlacementStrategies.build(input[:placement_strategy]) unless input[:placement_strategy].nil?
+        data['networkConfiguration'] = NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
+        data['overrides'] = TaskOverride.build(input[:overrides]) unless input[:overrides].nil?
+        data['placementConstraints'] = PlacementConstraints.build(input[:placement_constraints]) unless input[:placement_constraints].nil?
+        data['placementStrategy'] = PlacementStrategies.build(input[:placement_strategy]) unless input[:placement_strategy].nil?
         data['platformVersion'] = input[:platform_version] unless input[:platform_version].nil?
         data['propagateTags'] = input[:propagate_tags] unless input[:propagate_tags].nil?
         data['referenceId'] = input[:reference_id] unless input[:reference_id].nil?
         data['startedBy'] = input[:started_by] unless input[:started_by].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['taskDefinition'] = input[:task_definition] unless input[:task_definition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1723,13 +1725,13 @@ module AWS::SDK::ECS
     class TaskOverride
       def self.build(input)
         data = {}
-        data['containerOverrides'] = Builders::ContainerOverrides.build(input[:container_overrides]) unless input[:container_overrides].nil?
+        data['containerOverrides'] = ContainerOverrides.build(input[:container_overrides]) unless input[:container_overrides].nil?
         data['cpu'] = input[:cpu] unless input[:cpu].nil?
-        data['inferenceAcceleratorOverrides'] = Builders::InferenceAcceleratorOverrides.build(input[:inference_accelerator_overrides]) unless input[:inference_accelerator_overrides].nil?
+        data['inferenceAcceleratorOverrides'] = InferenceAcceleratorOverrides.build(input[:inference_accelerator_overrides]) unless input[:inference_accelerator_overrides].nil?
         data['executionRoleArn'] = input[:execution_role_arn] unless input[:execution_role_arn].nil?
         data['memory'] = input[:memory] unless input[:memory].nil?
         data['taskRoleArn'] = input[:task_role_arn] unless input[:task_role_arn].nil?
-        data['ephemeralStorage'] = Builders::EphemeralStorage.build(input[:ephemeral_storage]) unless input[:ephemeral_storage].nil?
+        data['ephemeralStorage'] = EphemeralStorage.build(input[:ephemeral_storage]) unless input[:ephemeral_storage].nil?
         data
       end
     end
@@ -1739,7 +1741,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::InferenceAcceleratorOverride.build(element) unless element.nil?
+          data << InferenceAcceleratorOverride.build(element) unless element.nil?
         end
         data
       end
@@ -1760,7 +1762,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ContainerOverride.build(element) unless element.nil?
+          data << ContainerOverride.build(element) unless element.nil?
         end
         data
       end
@@ -1771,13 +1773,13 @@ module AWS::SDK::ECS
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['command'] = Builders::StringList.build(input[:command]) unless input[:command].nil?
-        data['environment'] = Builders::EnvironmentVariables.build(input[:environment]) unless input[:environment].nil?
-        data['environmentFiles'] = Builders::EnvironmentFiles.build(input[:environment_files]) unless input[:environment_files].nil?
+        data['command'] = StringList.build(input[:command]) unless input[:command].nil?
+        data['environment'] = EnvironmentVariables.build(input[:environment]) unless input[:environment].nil?
+        data['environmentFiles'] = EnvironmentFiles.build(input[:environment_files]) unless input[:environment_files].nil?
         data['cpu'] = input[:cpu] unless input[:cpu].nil?
         data['memory'] = input[:memory] unless input[:memory].nil?
         data['memoryReservation'] = input[:memory_reservation] unless input[:memory_reservation].nil?
-        data['resourceRequirements'] = Builders::ResourceRequirements.build(input[:resource_requirements]) unless input[:resource_requirements].nil?
+        data['resourceRequirements'] = ResourceRequirements.build(input[:resource_requirements]) unless input[:resource_requirements].nil?
         data
       end
     end
@@ -1791,18 +1793,18 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.StartTask'
         data = {}
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
-        data['containerInstances'] = Builders::StringList.build(input[:container_instances]) unless input[:container_instances].nil?
+        data['containerInstances'] = StringList.build(input[:container_instances]) unless input[:container_instances].nil?
         data['enableECSManagedTags'] = input[:enable_ecs_managed_tags] unless input[:enable_ecs_managed_tags].nil?
         data['enableExecuteCommand'] = input[:enable_execute_command] unless input[:enable_execute_command].nil?
         data['group'] = input[:group] unless input[:group].nil?
-        data['networkConfiguration'] = Builders::NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
-        data['overrides'] = Builders::TaskOverride.build(input[:overrides]) unless input[:overrides].nil?
+        data['networkConfiguration'] = NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
+        data['overrides'] = TaskOverride.build(input[:overrides]) unless input[:overrides].nil?
         data['propagateTags'] = input[:propagate_tags] unless input[:propagate_tags].nil?
         data['referenceId'] = input[:reference_id] unless input[:reference_id].nil?
         data['startedBy'] = input[:started_by] unless input[:started_by].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['taskDefinition'] = input[:task_definition] unless input[:task_definition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1817,7 +1819,7 @@ module AWS::SDK::ECS
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
         data['task'] = input[:task] unless input[:task].nil?
         data['reason'] = input[:reason] unless input[:reason].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1830,8 +1832,8 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.SubmitAttachmentStateChanges'
         data = {}
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
-        data['attachments'] = Builders::AttachmentStateChanges.build(input[:attachments]) unless input[:attachments].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['attachments'] = AttachmentStateChanges.build(input[:attachments]) unless input[:attachments].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1840,7 +1842,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AttachmentStateChange.build(element) unless element.nil?
+          data << AttachmentStateChange.build(element) unless element.nil?
         end
         data
       end
@@ -1871,8 +1873,8 @@ module AWS::SDK::ECS
         data['status'] = input[:status] unless input[:status].nil?
         data['exitCode'] = input[:exit_code] unless input[:exit_code].nil?
         data['reason'] = input[:reason] unless input[:reason].nil?
-        data['networkBindings'] = Builders::NetworkBindings.build(input[:network_bindings]) unless input[:network_bindings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['networkBindings'] = NetworkBindings.build(input[:network_bindings]) unless input[:network_bindings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1881,7 +1883,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::NetworkBinding.build(element) unless element.nil?
+          data << NetworkBinding.build(element) unless element.nil?
         end
         data
       end
@@ -1911,13 +1913,13 @@ module AWS::SDK::ECS
         data['task'] = input[:task] unless input[:task].nil?
         data['status'] = input[:status] unless input[:status].nil?
         data['reason'] = input[:reason] unless input[:reason].nil?
-        data['containers'] = Builders::ContainerStateChanges.build(input[:containers]) unless input[:containers].nil?
-        data['attachments'] = Builders::AttachmentStateChanges.build(input[:attachments]) unless input[:attachments].nil?
-        data['managedAgents'] = Builders::ManagedAgentStateChanges.build(input[:managed_agents]) unless input[:managed_agents].nil?
+        data['containers'] = ContainerStateChanges.build(input[:containers]) unless input[:containers].nil?
+        data['attachments'] = AttachmentStateChanges.build(input[:attachments]) unless input[:attachments].nil?
+        data['managedAgents'] = ManagedAgentStateChanges.build(input[:managed_agents]) unless input[:managed_agents].nil?
         data['pullStartedAt'] = Hearth::TimeHelper.to_epoch_seconds(input[:pull_started_at]).to_i unless input[:pull_started_at].nil?
         data['pullStoppedAt'] = Hearth::TimeHelper.to_epoch_seconds(input[:pull_stopped_at]).to_i unless input[:pull_stopped_at].nil?
         data['executionStoppedAt'] = Hearth::TimeHelper.to_epoch_seconds(input[:execution_stopped_at]).to_i unless input[:execution_stopped_at].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1926,7 +1928,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ManagedAgentStateChange.build(element) unless element.nil?
+          data << ManagedAgentStateChange.build(element) unless element.nil?
         end
         data
       end
@@ -1949,7 +1951,7 @@ module AWS::SDK::ECS
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ContainerStateChange.build(element) unless element.nil?
+          data << ContainerStateChange.build(element) unless element.nil?
         end
         data
       end
@@ -1963,7 +1965,7 @@ module AWS::SDK::ECS
         data['imageDigest'] = input[:image_digest] unless input[:image_digest].nil?
         data['runtimeId'] = input[:runtime_id] unless input[:runtime_id].nil?
         data['exitCode'] = input[:exit_code] unless input[:exit_code].nil?
-        data['networkBindings'] = Builders::NetworkBindings.build(input[:network_bindings]) unless input[:network_bindings].nil?
+        data['networkBindings'] = NetworkBindings.build(input[:network_bindings]) unless input[:network_bindings].nil?
         data['reason'] = input[:reason] unless input[:reason].nil?
         data['status'] = input[:status] unless input[:status].nil?
         data
@@ -1979,8 +1981,8 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.TagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1993,8 +1995,8 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.UntagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tagKeys'] = Builders::TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tagKeys'] = TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2018,8 +2020,8 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.UpdateCapacityProvider'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['autoScalingGroupProvider'] = Builders::AutoScalingGroupProviderUpdate.build(input[:auto_scaling_group_provider]) unless input[:auto_scaling_group_provider].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['autoScalingGroupProvider'] = AutoScalingGroupProviderUpdate.build(input[:auto_scaling_group_provider]) unless input[:auto_scaling_group_provider].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2027,7 +2029,7 @@ module AWS::SDK::ECS
     class AutoScalingGroupProviderUpdate
       def self.build(input)
         data = {}
-        data['managedScaling'] = Builders::ManagedScaling.build(input[:managed_scaling]) unless input[:managed_scaling].nil?
+        data['managedScaling'] = ManagedScaling.build(input[:managed_scaling]) unless input[:managed_scaling].nil?
         data['managedTerminationProtection'] = input[:managed_termination_protection] unless input[:managed_termination_protection].nil?
         data
       end
@@ -2042,9 +2044,9 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.UpdateCluster'
         data = {}
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
-        data['settings'] = Builders::ClusterSettings.build(input[:settings]) unless input[:settings].nil?
-        data['configuration'] = Builders::ClusterConfiguration.build(input[:configuration]) unless input[:configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['settings'] = ClusterSettings.build(input[:settings]) unless input[:settings].nil?
+        data['configuration'] = ClusterConfiguration.build(input[:configuration]) unless input[:configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2057,8 +2059,8 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.UpdateClusterSettings'
         data = {}
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
-        data['settings'] = Builders::ClusterSettings.build(input[:settings]) unless input[:settings].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['settings'] = ClusterSettings.build(input[:settings]) unless input[:settings].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2072,7 +2074,7 @@ module AWS::SDK::ECS
         data = {}
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
         data['containerInstance'] = input[:container_instance] unless input[:container_instance].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2085,9 +2087,9 @@ module AWS::SDK::ECS
         http_req.headers['X-Amz-Target'] = 'AmazonEC2ContainerServiceV20141113.UpdateContainerInstancesState'
         data = {}
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
-        data['containerInstances'] = Builders::StringList.build(input[:container_instances]) unless input[:container_instances].nil?
+        data['containerInstances'] = StringList.build(input[:container_instances]) unless input[:container_instances].nil?
         data['status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2103,20 +2105,20 @@ module AWS::SDK::ECS
         data['service'] = input[:service] unless input[:service].nil?
         data['desiredCount'] = input[:desired_count] unless input[:desired_count].nil?
         data['taskDefinition'] = input[:task_definition] unless input[:task_definition].nil?
-        data['capacityProviderStrategy'] = Builders::CapacityProviderStrategy.build(input[:capacity_provider_strategy]) unless input[:capacity_provider_strategy].nil?
-        data['deploymentConfiguration'] = Builders::DeploymentConfiguration.build(input[:deployment_configuration]) unless input[:deployment_configuration].nil?
-        data['networkConfiguration'] = Builders::NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
-        data['placementConstraints'] = Builders::PlacementConstraints.build(input[:placement_constraints]) unless input[:placement_constraints].nil?
-        data['placementStrategy'] = Builders::PlacementStrategies.build(input[:placement_strategy]) unless input[:placement_strategy].nil?
+        data['capacityProviderStrategy'] = CapacityProviderStrategy.build(input[:capacity_provider_strategy]) unless input[:capacity_provider_strategy].nil?
+        data['deploymentConfiguration'] = DeploymentConfiguration.build(input[:deployment_configuration]) unless input[:deployment_configuration].nil?
+        data['networkConfiguration'] = NetworkConfiguration.build(input[:network_configuration]) unless input[:network_configuration].nil?
+        data['placementConstraints'] = PlacementConstraints.build(input[:placement_constraints]) unless input[:placement_constraints].nil?
+        data['placementStrategy'] = PlacementStrategies.build(input[:placement_strategy]) unless input[:placement_strategy].nil?
         data['platformVersion'] = input[:platform_version] unless input[:platform_version].nil?
         data['forceNewDeployment'] = input[:force_new_deployment] unless input[:force_new_deployment].nil?
         data['healthCheckGracePeriodSeconds'] = input[:health_check_grace_period_seconds] unless input[:health_check_grace_period_seconds].nil?
         data['enableExecuteCommand'] = input[:enable_execute_command] unless input[:enable_execute_command].nil?
         data['enableECSManagedTags'] = input[:enable_ecs_managed_tags] unless input[:enable_ecs_managed_tags].nil?
-        data['loadBalancers'] = Builders::LoadBalancers.build(input[:load_balancers]) unless input[:load_balancers].nil?
+        data['loadBalancers'] = LoadBalancers.build(input[:load_balancers]) unless input[:load_balancers].nil?
         data['propagateTags'] = input[:propagate_tags] unless input[:propagate_tags].nil?
-        data['serviceRegistries'] = Builders::ServiceRegistries.build(input[:service_registries]) unless input[:service_registries].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['serviceRegistries'] = ServiceRegistries.build(input[:service_registries]) unless input[:service_registries].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2131,7 +2133,7 @@ module AWS::SDK::ECS
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
         data['service'] = input[:service] unless input[:service].nil?
         data['primaryTaskSet'] = input[:primary_task_set] unless input[:primary_task_set].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2146,8 +2148,8 @@ module AWS::SDK::ECS
         data['cluster'] = input[:cluster] unless input[:cluster].nil?
         data['service'] = input[:service] unless input[:service].nil?
         data['taskSet'] = input[:task_set] unless input[:task_set].nil?
-        data['scale'] = Builders::Scale.build(input[:scale]) unless input[:scale].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['scale'] = Scale.build(input[:scale]) unless input[:scale].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

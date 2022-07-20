@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Detective
   module Stubs
 
@@ -36,7 +38,7 @@ module AWS::SDK::Detective
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['GraphArn'] = stub[:graph_arn] unless stub[:graph_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -53,9 +55,9 @@ module AWS::SDK::Detective
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Members'] = Stubs::MemberDetailList.stub(stub[:members]) unless stub[:members].nil?
-        data['UnprocessedAccounts'] = Stubs::UnprocessedAccountList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Members'] = MemberDetailList.stub(stub[:members]) unless stub[:members].nil?
+        data['UnprocessedAccounts'] = UnprocessedAccountList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -73,7 +75,7 @@ module AWS::SDK::Detective
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UnprocessedAccount.stub(element) unless element.nil?
+          data << UnprocessedAccount.stub(element) unless element.nil?
         end
         data
       end
@@ -113,7 +115,7 @@ module AWS::SDK::Detective
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MemberDetail.stub(element) unless element.nil?
+          data << MemberDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -189,9 +191,9 @@ module AWS::SDK::Detective
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AccountIds'] = Stubs::AccountIdList.stub(stub[:account_ids]) unless stub[:account_ids].nil?
-        data['UnprocessedAccounts'] = Stubs::UnprocessedAccountList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AccountIds'] = AccountIdList.stub(stub[:account_ids]) unless stub[:account_ids].nil?
+        data['UnprocessedAccounts'] = UnprocessedAccountList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -228,7 +230,7 @@ module AWS::SDK::Detective
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['AutoEnable'] = stub[:auto_enable] unless stub[:auto_enable].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -284,9 +286,9 @@ module AWS::SDK::Detective
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['MemberDetails'] = Stubs::MemberDetailList.stub(stub[:member_details]) unless stub[:member_details].nil?
-        data['UnprocessedAccounts'] = Stubs::UnprocessedAccountList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['MemberDetails'] = MemberDetailList.stub(stub[:member_details]) unless stub[:member_details].nil?
+        data['UnprocessedAccounts'] = UnprocessedAccountList.stub(stub[:unprocessed_accounts]) unless stub[:unprocessed_accounts].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -303,9 +305,9 @@ module AWS::SDK::Detective
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['GraphList'] = Stubs::GraphList.stub(stub[:graph_list]) unless stub[:graph_list].nil?
+        data['GraphList'] = GraphList.stub(stub[:graph_list]) unless stub[:graph_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -323,7 +325,7 @@ module AWS::SDK::Detective
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Graph.stub(element) unless element.nil?
+          data << Graph.stub(element) unless element.nil?
         end
         data
       end
@@ -362,9 +364,9 @@ module AWS::SDK::Detective
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Invitations'] = Stubs::MemberDetailList.stub(stub[:invitations]) unless stub[:invitations].nil?
+        data['Invitations'] = MemberDetailList.stub(stub[:invitations]) unless stub[:invitations].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -381,9 +383,9 @@ module AWS::SDK::Detective
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['MemberDetails'] = Stubs::MemberDetailList.stub(stub[:member_details]) unless stub[:member_details].nil?
+        data['MemberDetails'] = MemberDetailList.stub(stub[:member_details]) unless stub[:member_details].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -400,9 +402,9 @@ module AWS::SDK::Detective
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Administrators'] = Stubs::AdministratorList.stub(stub[:administrators]) unless stub[:administrators].nil?
+        data['Administrators'] = AdministratorList.stub(stub[:administrators]) unless stub[:administrators].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -420,7 +422,7 @@ module AWS::SDK::Detective
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Administrator.stub(element) unless element.nil?
+          data << Administrator.stub(element) unless element.nil?
         end
         data
       end
@@ -460,8 +462,8 @@ module AWS::SDK::Detective
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

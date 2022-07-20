@@ -15,7 +15,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(http_resp)
         data = Types::CreateComponentOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.entity = Parsers::Component.parse(json)
+        data.entity = Component.parse(json)
         data
       end
     end
@@ -29,16 +29,16 @@ module AWS::SDK::AmplifyUIBuilder
         data.id = map['id']
         data.name = map['name']
         data.component_type = map['componentType']
-        data.properties = (Parsers::ComponentProperties.parse(map['properties']) unless map['properties'].nil?)
-        data.children = (Parsers::ComponentChildList.parse(map['children']) unless map['children'].nil?)
-        data.variants = (Parsers::ComponentVariants.parse(map['variants']) unless map['variants'].nil?)
-        data.overrides = (Parsers::ComponentOverrides.parse(map['overrides']) unless map['overrides'].nil?)
-        data.binding_properties = (Parsers::ComponentBindingProperties.parse(map['bindingProperties']) unless map['bindingProperties'].nil?)
-        data.collection_properties = (Parsers::ComponentCollectionProperties.parse(map['collectionProperties']) unless map['collectionProperties'].nil?)
+        data.properties = (ComponentProperties.parse(map['properties']) unless map['properties'].nil?)
+        data.children = (ComponentChildList.parse(map['children']) unless map['children'].nil?)
+        data.variants = (ComponentVariants.parse(map['variants']) unless map['variants'].nil?)
+        data.overrides = (ComponentOverrides.parse(map['overrides']) unless map['overrides'].nil?)
+        data.binding_properties = (ComponentBindingProperties.parse(map['bindingProperties']) unless map['bindingProperties'].nil?)
+        data.collection_properties = (ComponentCollectionProperties.parse(map['collectionProperties']) unless map['collectionProperties'].nil?)
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
         data.modified_at = Time.parse(map['modifiedAt']) if map['modifiedAt']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
-        data.events = (Parsers::ComponentEvents.parse(map['events']) unless map['events'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.events = (ComponentEvents.parse(map['events']) unless map['events'].nil?)
         data.schema_version = map['schemaVersion']
         return data
       end
@@ -48,7 +48,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ComponentEvent.parse(value) unless value.nil?
+          data[key] = ComponentEvent.parse(value) unless value.nil?
         end
         data
       end
@@ -58,7 +58,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(map)
         data = Types::ComponentEvent.new
         data.action = map['action']
-        data.parameters = (Parsers::ActionParameters.parse(map['parameters']) unless map['parameters'].nil?)
+        data.parameters = (ActionParameters.parse(map['parameters']) unless map['parameters'].nil?)
         data.binding_event = map['bindingEvent']
         return data
       end
@@ -67,15 +67,15 @@ module AWS::SDK::AmplifyUIBuilder
     class ActionParameters
       def self.parse(map)
         data = Types::ActionParameters.new
-        data.type = (Parsers::ComponentProperty.parse(map['type']) unless map['type'].nil?)
-        data.url = (Parsers::ComponentProperty.parse(map['url']) unless map['url'].nil?)
-        data.anchor = (Parsers::ComponentProperty.parse(map['anchor']) unless map['anchor'].nil?)
-        data.target = (Parsers::ComponentProperty.parse(map['target']) unless map['target'].nil?)
-        data.global = (Parsers::ComponentProperty.parse(map['global']) unless map['global'].nil?)
+        data.type = (ComponentProperty.parse(map['type']) unless map['type'].nil?)
+        data.url = (ComponentProperty.parse(map['url']) unless map['url'].nil?)
+        data.anchor = (ComponentProperty.parse(map['anchor']) unless map['anchor'].nil?)
+        data.target = (ComponentProperty.parse(map['target']) unless map['target'].nil?)
+        data.global = (ComponentProperty.parse(map['global']) unless map['global'].nil?)
         data.model = map['model']
-        data.id = (Parsers::ComponentProperty.parse(map['id']) unless map['id'].nil?)
-        data.fields = (Parsers::ComponentProperties.parse(map['fields']) unless map['fields'].nil?)
-        data.state = (Parsers::MutationActionSetStateParameter.parse(map['state']) unless map['state'].nil?)
+        data.id = (ComponentProperty.parse(map['id']) unless map['id'].nil?)
+        data.fields = (ComponentProperties.parse(map['fields']) unless map['fields'].nil?)
+        data.state = (MutationActionSetStateParameter.parse(map['state']) unless map['state'].nil?)
         return data
       end
     end
@@ -85,7 +85,7 @@ module AWS::SDK::AmplifyUIBuilder
         data = Types::MutationActionSetStateParameter.new
         data.component_name = map['componentName']
         data.property = map['property']
-        data.set = (Parsers::ComponentProperty.parse(map['set']) unless map['set'].nil?)
+        data.set = (ComponentProperty.parse(map['set']) unless map['set'].nil?)
         return data
       end
     end
@@ -94,15 +94,15 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(map)
         data = Types::ComponentProperty.new
         data.value = map['value']
-        data.binding_properties = (Parsers::ComponentPropertyBindingProperties.parse(map['bindingProperties']) unless map['bindingProperties'].nil?)
-        data.collection_binding_properties = (Parsers::ComponentPropertyBindingProperties.parse(map['collectionBindingProperties']) unless map['collectionBindingProperties'].nil?)
+        data.binding_properties = (ComponentPropertyBindingProperties.parse(map['bindingProperties']) unless map['bindingProperties'].nil?)
+        data.collection_binding_properties = (ComponentPropertyBindingProperties.parse(map['collectionBindingProperties']) unless map['collectionBindingProperties'].nil?)
         data.default_value = map['defaultValue']
         data.model = map['model']
-        data.bindings = (Parsers::FormBindings.parse(map['bindings']) unless map['bindings'].nil?)
+        data.bindings = (FormBindings.parse(map['bindings']) unless map['bindings'].nil?)
         data.event = map['event']
         data.user_attribute = map['userAttribute']
-        data.concat = (Parsers::ComponentPropertyList.parse(map['concat']) unless map['concat'].nil?)
-        data.condition = (Parsers::ComponentConditionProperty.parse(map['condition']) unless map['condition'].nil?)
+        data.concat = (ComponentPropertyList.parse(map['concat']) unless map['concat'].nil?)
+        data.condition = (ComponentConditionProperty.parse(map['condition']) unless map['condition'].nil?)
         data.configured = map['configured']
         data.type = map['type']
         data.imported_value = map['importedValue']
@@ -119,8 +119,8 @@ module AWS::SDK::AmplifyUIBuilder
         data.field = map['field']
         data.operator = map['operator']
         data.operand = map['operand']
-        data.member_then = (Parsers::ComponentProperty.parse(map['then']) unless map['then'].nil?)
-        data.else = (Parsers::ComponentProperty.parse(map['else']) unless map['else'].nil?)
+        data.member_then = (ComponentProperty.parse(map['then']) unless map['then'].nil?)
+        data.else = (ComponentProperty.parse(map['else']) unless map['else'].nil?)
         data.operand_type = map['operandType']
         return data
       end
@@ -130,7 +130,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ComponentProperty.parse(value) unless value.nil?
+          data << ComponentProperty.parse(value) unless value.nil?
         end
         data
       end
@@ -140,7 +140,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::FormBindingElement.parse(value) unless value.nil?
+          data[key] = FormBindingElement.parse(value) unless value.nil?
         end
         data
       end
@@ -168,7 +168,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ComponentProperty.parse(value) unless value.nil?
+          data[key] = ComponentProperty.parse(value) unless value.nil?
         end
         data
       end
@@ -188,7 +188,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ComponentDataConfiguration.parse(value) unless value.nil?
+          data[key] = ComponentDataConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -198,9 +198,9 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(map)
         data = Types::ComponentDataConfiguration.new
         data.model = map['model']
-        data.sort = (Parsers::SortPropertyList.parse(map['sort']) unless map['sort'].nil?)
-        data.predicate = (Parsers::Predicate.parse(map['predicate']) unless map['predicate'].nil?)
-        data.identifiers = (Parsers::IdentifierList.parse(map['identifiers']) unless map['identifiers'].nil?)
+        data.sort = (SortPropertyList.parse(map['sort']) unless map['sort'].nil?)
+        data.predicate = (Predicate.parse(map['predicate']) unless map['predicate'].nil?)
+        data.identifiers = (IdentifierList.parse(map['identifiers']) unless map['identifiers'].nil?)
         return data
       end
     end
@@ -218,8 +218,8 @@ module AWS::SDK::AmplifyUIBuilder
     class Predicate
       def self.parse(map)
         data = Types::Predicate.new
-        data.or = (Parsers::PredicateList.parse(map['or']) unless map['or'].nil?)
-        data.and = (Parsers::PredicateList.parse(map['and']) unless map['and'].nil?)
+        data.or = (PredicateList.parse(map['or']) unless map['or'].nil?)
+        data.and = (PredicateList.parse(map['and']) unless map['and'].nil?)
         data.field = map['field']
         data.operator = map['operator']
         data.operand = map['operand']
@@ -231,7 +231,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Predicate.parse(value) unless value.nil?
+          data << Predicate.parse(value) unless value.nil?
         end
         data
       end
@@ -241,7 +241,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SortProperty.parse(value) unless value.nil?
+          data << SortProperty.parse(value) unless value.nil?
         end
         data
       end
@@ -260,7 +260,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ComponentBindingPropertiesValue.parse(value) unless value.nil?
+          data[key] = ComponentBindingPropertiesValue.parse(value) unless value.nil?
         end
         data
       end
@@ -270,7 +270,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(map)
         data = Types::ComponentBindingPropertiesValue.new
         data.type = map['type']
-        data.binding_properties = (Parsers::ComponentBindingPropertiesValueProperties.parse(map['bindingProperties']) unless map['bindingProperties'].nil?)
+        data.binding_properties = (ComponentBindingPropertiesValueProperties.parse(map['bindingProperties']) unless map['bindingProperties'].nil?)
         data.default_value = map['defaultValue']
         return data
       end
@@ -281,7 +281,7 @@ module AWS::SDK::AmplifyUIBuilder
         data = Types::ComponentBindingPropertiesValueProperties.new
         data.model = map['model']
         data.field = map['field']
-        data.predicates = (Parsers::PredicateList.parse(map['predicates']) unless map['predicates'].nil?)
+        data.predicates = (PredicateList.parse(map['predicates']) unless map['predicates'].nil?)
         data.user_attribute = map['userAttribute']
         data.bucket = map['bucket']
         data.key = map['key']
@@ -294,7 +294,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ComponentOverridesValue.parse(value) unless value.nil?
+          data[key] = ComponentOverridesValue.parse(value) unless value.nil?
         end
         data
       end
@@ -314,7 +314,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ComponentVariant.parse(value) unless value.nil?
+          data << ComponentVariant.parse(value) unless value.nil?
         end
         data
       end
@@ -323,8 +323,8 @@ module AWS::SDK::AmplifyUIBuilder
     class ComponentVariant
       def self.parse(map)
         data = Types::ComponentVariant.new
-        data.variant_values = (Parsers::ComponentVariantValues.parse(map['variantValues']) unless map['variantValues'].nil?)
-        data.overrides = (Parsers::ComponentOverrides.parse(map['overrides']) unless map['overrides'].nil?)
+        data.variant_values = (ComponentVariantValues.parse(map['variantValues']) unless map['variantValues'].nil?)
+        data.overrides = (ComponentOverrides.parse(map['overrides']) unless map['overrides'].nil?)
         return data
       end
     end
@@ -343,7 +343,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ComponentChild.parse(value) unless value.nil?
+          data << ComponentChild.parse(value) unless value.nil?
         end
         data
       end
@@ -354,9 +354,9 @@ module AWS::SDK::AmplifyUIBuilder
         data = Types::ComponentChild.new
         data.component_type = map['componentType']
         data.name = map['name']
-        data.properties = (Parsers::ComponentProperties.parse(map['properties']) unless map['properties'].nil?)
-        data.children = (Parsers::ComponentChildList.parse(map['children']) unless map['children'].nil?)
-        data.events = (Parsers::ComponentEvents.parse(map['events']) unless map['events'].nil?)
+        data.properties = (ComponentProperties.parse(map['properties']) unless map['properties'].nil?)
+        data.children = (ComponentChildList.parse(map['children']) unless map['children'].nil?)
+        data.events = (ComponentEvents.parse(map['events']) unless map['events'].nil?)
         data.source_id = map['sourceId']
         return data
       end
@@ -407,7 +407,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(http_resp)
         data = Types::CreateThemeOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.entity = Parsers::Theme.parse(json)
+        data.entity = Theme.parse(json)
         data
       end
     end
@@ -421,9 +421,9 @@ module AWS::SDK::AmplifyUIBuilder
         data.name = map['name']
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
         data.modified_at = Time.parse(map['modifiedAt']) if map['modifiedAt']
-        data.values = (Parsers::ThemeValuesList.parse(map['values']) unless map['values'].nil?)
-        data.overrides = (Parsers::ThemeValuesList.parse(map['overrides']) unless map['overrides'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.values = (ThemeValuesList.parse(map['values']) unless map['values'].nil?)
+        data.overrides = (ThemeValuesList.parse(map['overrides']) unless map['overrides'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -432,7 +432,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ThemeValues.parse(value) unless value.nil?
+          data << ThemeValues.parse(value) unless value.nil?
         end
         data
       end
@@ -442,7 +442,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(map)
         data = Types::ThemeValues.new
         data.key = map['key']
-        data.value = (Parsers::ThemeValue.parse(map['value']) unless map['value'].nil?)
+        data.value = (ThemeValue.parse(map['value']) unless map['value'].nil?)
         return data
       end
     end
@@ -451,7 +451,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(map)
         data = Types::ThemeValue.new
         data.value = map['value']
-        data.children = (Parsers::ThemeValuesList.parse(map['children']) unless map['children'].nil?)
+        data.children = (ThemeValuesList.parse(map['children']) unless map['children'].nil?)
         return data
       end
     end
@@ -501,7 +501,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(http_resp)
         data = Types::ExportComponentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.entities = (Parsers::ComponentList.parse(map['entities']) unless map['entities'].nil?)
+        data.entities = (ComponentList.parse(map['entities']) unless map['entities'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -511,7 +511,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Component.parse(value) unless value.nil?
+          data << Component.parse(value) unless value.nil?
         end
         data
       end
@@ -522,7 +522,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(http_resp)
         data = Types::ExportThemesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.entities = (Parsers::ThemeList.parse(map['entities']) unless map['entities'].nil?)
+        data.entities = (ThemeList.parse(map['entities']) unless map['entities'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -532,7 +532,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Theme.parse(value) unless value.nil?
+          data << Theme.parse(value) unless value.nil?
         end
         data
       end
@@ -543,7 +543,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(http_resp)
         data = Types::GetComponentOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.component = Parsers::Component.parse(json)
+        data.component = Component.parse(json)
         data
       end
     end
@@ -553,7 +553,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(http_resp)
         data = Types::GetThemeOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.theme = Parsers::Theme.parse(json)
+        data.theme = Theme.parse(json)
         data
       end
     end
@@ -563,7 +563,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(http_resp)
         data = Types::ListComponentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.entities = (Parsers::ComponentSummaryList.parse(map['entities']) unless map['entities'].nil?)
+        data.entities = (ComponentSummaryList.parse(map['entities']) unless map['entities'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -573,7 +573,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ComponentSummary.parse(value) unless value.nil?
+          data << ComponentSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -596,7 +596,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(http_resp)
         data = Types::ListThemesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.entities = (Parsers::ThemeSummaryList.parse(map['entities']) unless map['entities'].nil?)
+        data.entities = (ThemeSummaryList.parse(map['entities']) unless map['entities'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -606,7 +606,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ThemeSummary.parse(value) unless value.nil?
+          data << ThemeSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -639,7 +639,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(http_resp)
         data = Types::UpdateComponentOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.entity = Parsers::Component.parse(json)
+        data.entity = Component.parse(json)
         data
       end
     end
@@ -649,7 +649,7 @@ module AWS::SDK::AmplifyUIBuilder
       def self.parse(http_resp)
         data = Types::UpdateThemeOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.entity = Parsers::Theme.parse(json)
+        data.entity = Theme.parse(json)
         data
       end
     end

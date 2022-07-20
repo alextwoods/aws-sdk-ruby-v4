@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ECRPUBLIC
   module Stubs
 
@@ -21,9 +23,9 @@ module AWS::SDK::ECRPUBLIC
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['layers'] = Stubs::LayerList.stub(stub[:layers]) unless stub[:layers].nil?
-        data['failures'] = Stubs::LayerFailureList.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['layers'] = LayerList.stub(stub[:layers]) unless stub[:layers].nil?
+        data['failures'] = LayerFailureList.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -42,7 +44,7 @@ module AWS::SDK::ECRPUBLIC
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LayerFailure.stub(element) unless element.nil?
+          data << LayerFailure.stub(element) unless element.nil?
         end
         data
       end
@@ -84,7 +86,7 @@ module AWS::SDK::ECRPUBLIC
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Layer.stub(element) unless element.nil?
+          data << Layer.stub(element) unless element.nil?
         end
         data
       end
@@ -125,9 +127,9 @@ module AWS::SDK::ECRPUBLIC
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['imageIds'] = Stubs::ImageIdentifierList.stub(stub[:image_ids]) unless stub[:image_ids].nil?
-        data['failures'] = Stubs::ImageFailureList.stub(stub[:failures]) unless stub[:failures].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['imageIds'] = ImageIdentifierList.stub(stub[:image_ids]) unless stub[:image_ids].nil?
+        data['failures'] = ImageFailureList.stub(stub[:failures]) unless stub[:failures].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -146,7 +148,7 @@ module AWS::SDK::ECRPUBLIC
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImageFailure.stub(element) unless element.nil?
+          data << ImageFailure.stub(element) unless element.nil?
         end
         data
       end
@@ -167,7 +169,7 @@ module AWS::SDK::ECRPUBLIC
       def self.stub(stub)
         stub ||= Types::ImageFailure.new
         data = {}
-        data['imageId'] = Stubs::ImageIdentifier.stub(stub[:image_id]) unless stub[:image_id].nil?
+        data['imageId'] = ImageIdentifier.stub(stub[:image_id]) unless stub[:image_id].nil?
         data['failureCode'] = stub[:failure_code] unless stub[:failure_code].nil?
         data['failureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
         data
@@ -208,7 +210,7 @@ module AWS::SDK::ECRPUBLIC
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImageIdentifier.stub(element) unless element.nil?
+          data << ImageIdentifier.stub(element) unless element.nil?
         end
         data
       end
@@ -231,7 +233,7 @@ module AWS::SDK::ECRPUBLIC
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['uploadId'] = stub[:upload_id] unless stub[:upload_id].nil?
         data['layerDigest'] = stub[:layer_digest] unless stub[:layer_digest].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -247,9 +249,9 @@ module AWS::SDK::ECRPUBLIC
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['repository'] = Stubs::Repository.stub(stub[:repository]) unless stub[:repository].nil?
-        data['catalogData'] = Stubs::RepositoryCatalogData.stub(stub[:catalog_data]) unless stub[:catalog_data].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repository'] = Repository.stub(stub[:repository]) unless stub[:repository].nil?
+        data['catalogData'] = RepositoryCatalogData.stub(stub[:catalog_data]) unless stub[:catalog_data].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -274,8 +276,8 @@ module AWS::SDK::ECRPUBLIC
         stub ||= Types::RepositoryCatalogData.new
         data = {}
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['architectures'] = Stubs::ArchitectureList.stub(stub[:architectures]) unless stub[:architectures].nil?
-        data['operatingSystems'] = Stubs::OperatingSystemList.stub(stub[:operating_systems]) unless stub[:operating_systems].nil?
+        data['architectures'] = ArchitectureList.stub(stub[:architectures]) unless stub[:architectures].nil?
+        data['operatingSystems'] = OperatingSystemList.stub(stub[:operating_systems]) unless stub[:operating_systems].nil?
         data['logoUrl'] = stub[:logo_url] unless stub[:logo_url].nil?
         data['aboutText'] = stub[:about_text] unless stub[:about_text].nil?
         data['usageText'] = stub[:usage_text] unless stub[:usage_text].nil?
@@ -360,8 +362,8 @@ module AWS::SDK::ECRPUBLIC
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['repository'] = Stubs::Repository.stub(stub[:repository]) unless stub[:repository].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repository'] = Repository.stub(stub[:repository]) unless stub[:repository].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -381,7 +383,7 @@ module AWS::SDK::ECRPUBLIC
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['policyText'] = stub[:policy_text] unless stub[:policy_text].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -397,9 +399,9 @@ module AWS::SDK::ECRPUBLIC
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['imageTagDetails'] = Stubs::ImageTagDetailList.stub(stub[:image_tag_details]) unless stub[:image_tag_details].nil?
+        data['imageTagDetails'] = ImageTagDetailList.stub(stub[:image_tag_details]) unless stub[:image_tag_details].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -418,7 +420,7 @@ module AWS::SDK::ECRPUBLIC
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImageTagDetail.stub(element) unless element.nil?
+          data << ImageTagDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -441,7 +443,7 @@ module AWS::SDK::ECRPUBLIC
         data = {}
         data['imageTag'] = stub[:image_tag] unless stub[:image_tag].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        data['imageDetail'] = Stubs::ReferencedImageDetail.stub(stub[:image_detail]) unless stub[:image_detail].nil?
+        data['imageDetail'] = ReferencedImageDetail.stub(stub[:image_detail]) unless stub[:image_detail].nil?
         data
       end
     end
@@ -483,9 +485,9 @@ module AWS::SDK::ECRPUBLIC
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['imageDetails'] = Stubs::ImageDetailList.stub(stub[:image_details]) unless stub[:image_details].nil?
+        data['imageDetails'] = ImageDetailList.stub(stub[:image_details]) unless stub[:image_details].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -504,7 +506,7 @@ module AWS::SDK::ECRPUBLIC
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ImageDetail.stub(element) unless element.nil?
+          data << ImageDetail.stub(element) unless element.nil?
         end
         data
       end
@@ -533,7 +535,7 @@ module AWS::SDK::ECRPUBLIC
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['imageDigest'] = stub[:image_digest] unless stub[:image_digest].nil?
-        data['imageTags'] = Stubs::ImageTagList.stub(stub[:image_tags]) unless stub[:image_tags].nil?
+        data['imageTags'] = ImageTagList.stub(stub[:image_tags]) unless stub[:image_tags].nil?
         data['imageSizeInBytes'] = stub[:image_size_in_bytes] unless stub[:image_size_in_bytes].nil?
         data['imagePushedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:image_pushed_at]).to_i unless stub[:image_pushed_at].nil?
         data['imageManifestMediaType'] = stub[:image_manifest_media_type] unless stub[:image_manifest_media_type].nil?
@@ -573,9 +575,9 @@ module AWS::SDK::ECRPUBLIC
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['registries'] = Stubs::RegistryList.stub(stub[:registries]) unless stub[:registries].nil?
+        data['registries'] = RegistryList.stub(stub[:registries]) unless stub[:registries].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -594,7 +596,7 @@ module AWS::SDK::ECRPUBLIC
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Registry.stub(element) unless element.nil?
+          data << Registry.stub(element) unless element.nil?
         end
         data
       end
@@ -621,7 +623,7 @@ module AWS::SDK::ECRPUBLIC
         data['registryArn'] = stub[:registry_arn] unless stub[:registry_arn].nil?
         data['registryUri'] = stub[:registry_uri] unless stub[:registry_uri].nil?
         data['verified'] = stub[:verified] unless stub[:verified].nil?
-        data['aliases'] = Stubs::RegistryAliasList.stub(stub[:aliases]) unless stub[:aliases].nil?
+        data['aliases'] = RegistryAliasList.stub(stub[:aliases]) unless stub[:aliases].nil?
         data
       end
     end
@@ -640,7 +642,7 @@ module AWS::SDK::ECRPUBLIC
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RegistryAlias.stub(element) unless element.nil?
+          data << RegistryAlias.stub(element) unless element.nil?
         end
         data
       end
@@ -681,9 +683,9 @@ module AWS::SDK::ECRPUBLIC
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['repositories'] = Stubs::RepositoryList.stub(stub[:repositories]) unless stub[:repositories].nil?
+        data['repositories'] = RepositoryList.stub(stub[:repositories]) unless stub[:repositories].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -702,7 +704,7 @@ module AWS::SDK::ECRPUBLIC
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Repository.stub(element) unless element.nil?
+          data << Repository.stub(element) unless element.nil?
         end
         data
       end
@@ -718,8 +720,8 @@ module AWS::SDK::ECRPUBLIC
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['authorizationData'] = Stubs::AuthorizationData.stub(stub[:authorization_data]) unless stub[:authorization_data].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['authorizationData'] = AuthorizationData.stub(stub[:authorization_data]) unless stub[:authorization_data].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -754,8 +756,8 @@ module AWS::SDK::ECRPUBLIC
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['registryCatalogData'] = Stubs::RegistryCatalogData.stub(stub[:registry_catalog_data]) unless stub[:registry_catalog_data].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['registryCatalogData'] = RegistryCatalogData.stub(stub[:registry_catalog_data]) unless stub[:registry_catalog_data].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -788,8 +790,8 @@ module AWS::SDK::ECRPUBLIC
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['catalogData'] = Stubs::RepositoryCatalogData.stub(stub[:catalog_data]) unless stub[:catalog_data].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['catalogData'] = RepositoryCatalogData.stub(stub[:catalog_data]) unless stub[:catalog_data].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -809,7 +811,7 @@ module AWS::SDK::ECRPUBLIC
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['policyText'] = stub[:policy_text] unless stub[:policy_text].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -827,7 +829,7 @@ module AWS::SDK::ECRPUBLIC
         data = {}
         data['uploadId'] = stub[:upload_id] unless stub[:upload_id].nil?
         data['partSize'] = stub[:part_size] unless stub[:part_size].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -842,8 +844,8 @@ module AWS::SDK::ECRPUBLIC
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -862,7 +864,7 @@ module AWS::SDK::ECRPUBLIC
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -898,8 +900,8 @@ module AWS::SDK::ECRPUBLIC
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['image'] = Stubs::Image.stub(stub[:image]) unless stub[:image].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['image'] = Image.stub(stub[:image]) unless stub[:image].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -923,7 +925,7 @@ module AWS::SDK::ECRPUBLIC
         data = {}
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
-        data['imageId'] = Stubs::ImageIdentifier.stub(stub[:image_id]) unless stub[:image_id].nil?
+        data['imageId'] = ImageIdentifier.stub(stub[:image_id]) unless stub[:image_id].nil?
         data['imageManifest'] = stub[:image_manifest] unless stub[:image_manifest].nil?
         data['imageManifestMediaType'] = stub[:image_manifest_media_type] unless stub[:image_manifest_media_type].nil?
         data
@@ -940,8 +942,8 @@ module AWS::SDK::ECRPUBLIC
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['registryCatalogData'] = Stubs::RegistryCatalogData.stub(stub[:registry_catalog_data]) unless stub[:registry_catalog_data].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['registryCatalogData'] = RegistryCatalogData.stub(stub[:registry_catalog_data]) unless stub[:registry_catalog_data].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -956,8 +958,8 @@ module AWS::SDK::ECRPUBLIC
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['catalogData'] = Stubs::RepositoryCatalogData.stub(stub[:catalog_data]) unless stub[:catalog_data].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['catalogData'] = RepositoryCatalogData.stub(stub[:catalog_data]) unless stub[:catalog_data].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -977,7 +979,7 @@ module AWS::SDK::ECRPUBLIC
         data['registryId'] = stub[:registry_id] unless stub[:registry_id].nil?
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['policyText'] = stub[:policy_text] unless stub[:policy_text].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -991,7 +993,7 @@ module AWS::SDK::ECRPUBLIC
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1005,7 +1007,7 @@ module AWS::SDK::ECRPUBLIC
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1027,7 +1029,7 @@ module AWS::SDK::ECRPUBLIC
         data['repositoryName'] = stub[:repository_name] unless stub[:repository_name].nil?
         data['uploadId'] = stub[:upload_id] unless stub[:upload_id].nil?
         data['lastByteReceived'] = stub[:last_byte_received] unless stub[:last_byte_received].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

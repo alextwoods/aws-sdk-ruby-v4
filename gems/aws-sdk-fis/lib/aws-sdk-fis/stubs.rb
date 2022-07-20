@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Fis
   module Stubs
 
@@ -22,8 +24,8 @@ module AWS::SDK::Fis
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['experimentTemplate'] = Stubs::ExperimentTemplate.stub(stub[:experiment_template]) unless stub[:experiment_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['experimentTemplate'] = ExperimentTemplate.stub(stub[:experiment_template]) unless stub[:experiment_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -51,14 +53,14 @@ module AWS::SDK::Fis
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['targets'] = Stubs::ExperimentTemplateTargetMap.stub(stub[:targets]) unless stub[:targets].nil?
-        data['actions'] = Stubs::ExperimentTemplateActionMap.stub(stub[:actions]) unless stub[:actions].nil?
-        data['stopConditions'] = Stubs::ExperimentTemplateStopConditionList.stub(stub[:stop_conditions]) unless stub[:stop_conditions].nil?
+        data['targets'] = ExperimentTemplateTargetMap.stub(stub[:targets]) unless stub[:targets].nil?
+        data['actions'] = ExperimentTemplateActionMap.stub(stub[:actions]) unless stub[:actions].nil?
+        data['stopConditions'] = ExperimentTemplateStopConditionList.stub(stub[:stop_conditions]) unless stub[:stop_conditions].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['lastUpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_time]).to_i unless stub[:last_update_time].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['logConfiguration'] = Stubs::ExperimentTemplateLogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['logConfiguration'] = ExperimentTemplateLogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
         data
       end
     end
@@ -78,8 +80,8 @@ module AWS::SDK::Fis
       def self.stub(stub)
         stub ||= Types::ExperimentTemplateLogConfiguration.new
         data = {}
-        data['cloudWatchLogsConfiguration'] = Stubs::ExperimentTemplateCloudWatchLogsLogConfiguration.stub(stub[:cloud_watch_logs_configuration]) unless stub[:cloud_watch_logs_configuration].nil?
-        data['s3Configuration'] = Stubs::ExperimentTemplateS3LogConfiguration.stub(stub[:s3_configuration]) unless stub[:s3_configuration].nil?
+        data['cloudWatchLogsConfiguration'] = ExperimentTemplateCloudWatchLogsLogConfiguration.stub(stub[:cloud_watch_logs_configuration]) unless stub[:cloud_watch_logs_configuration].nil?
+        data['s3Configuration'] = ExperimentTemplateS3LogConfiguration.stub(stub[:s3_configuration]) unless stub[:s3_configuration].nil?
         data['logSchemaVersion'] = stub[:log_schema_version] unless stub[:log_schema_version].nil?
         data
       end
@@ -157,7 +159,7 @@ module AWS::SDK::Fis
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExperimentTemplateStopCondition.stub(element) unless element.nil?
+          data << ExperimentTemplateStopCondition.stub(element) unless element.nil?
         end
         data
       end
@@ -197,7 +199,7 @@ module AWS::SDK::Fis
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ExperimentTemplateAction.stub(value) unless value.nil?
+          data[key] = ExperimentTemplateAction.stub(value) unless value.nil?
         end
         data
       end
@@ -222,9 +224,9 @@ module AWS::SDK::Fis
         data = {}
         data['actionId'] = stub[:action_id] unless stub[:action_id].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['parameters'] = Stubs::ExperimentTemplateActionParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
-        data['targets'] = Stubs::ExperimentTemplateActionTargetMap.stub(stub[:targets]) unless stub[:targets].nil?
-        data['startAfter'] = Stubs::ExperimentTemplateActionStartAfterList.stub(stub[:start_after]) unless stub[:start_after].nil?
+        data['parameters'] = ExperimentTemplateActionParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['targets'] = ExperimentTemplateActionTargetMap.stub(stub[:targets]) unless stub[:targets].nil?
+        data['startAfter'] = ExperimentTemplateActionStartAfterList.stub(stub[:start_after]) unless stub[:start_after].nil?
         data
       end
     end
@@ -303,7 +305,7 @@ module AWS::SDK::Fis
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ExperimentTemplateTarget.stub(value) unless value.nil?
+          data[key] = ExperimentTemplateTarget.stub(value) unless value.nil?
         end
         data
       end
@@ -328,11 +330,11 @@ module AWS::SDK::Fis
         stub ||= Types::ExperimentTemplateTarget.new
         data = {}
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['resourceArns'] = Stubs::ResourceArnList.stub(stub[:resource_arns]) unless stub[:resource_arns].nil?
-        data['resourceTags'] = Stubs::TagMap.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
-        data['filters'] = Stubs::ExperimentTemplateTargetFilterList.stub(stub[:filters]) unless stub[:filters].nil?
+        data['resourceArns'] = ResourceArnList.stub(stub[:resource_arns]) unless stub[:resource_arns].nil?
+        data['resourceTags'] = TagMap.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
+        data['filters'] = ExperimentTemplateTargetFilterList.stub(stub[:filters]) unless stub[:filters].nil?
         data['selectionMode'] = stub[:selection_mode] unless stub[:selection_mode].nil?
-        data['parameters'] = Stubs::ExperimentTemplateTargetParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['parameters'] = ExperimentTemplateTargetParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -371,7 +373,7 @@ module AWS::SDK::Fis
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExperimentTemplateTargetFilter.stub(element) unless element.nil?
+          data << ExperimentTemplateTargetFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -392,7 +394,7 @@ module AWS::SDK::Fis
         stub ||= Types::ExperimentTemplateTargetFilter.new
         data = {}
         data['path'] = stub[:path] unless stub[:path].nil?
-        data['values'] = Stubs::ExperimentTemplateTargetFilterValues.stub(stub[:values]) unless stub[:values].nil?
+        data['values'] = ExperimentTemplateTargetFilterValues.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -449,8 +451,8 @@ module AWS::SDK::Fis
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['experimentTemplate'] = Stubs::ExperimentTemplate.stub(stub[:experiment_template]) unless stub[:experiment_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['experimentTemplate'] = ExperimentTemplate.stub(stub[:experiment_template]) unless stub[:experiment_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -466,8 +468,8 @@ module AWS::SDK::Fis
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['action'] = Stubs::Action.stub(stub[:action]) unless stub[:action].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['action'] = Action.stub(stub[:action]) unless stub[:action].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -490,9 +492,9 @@ module AWS::SDK::Fis
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['parameters'] = Stubs::ActionParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
-        data['targets'] = Stubs::ActionTargetMap.stub(stub[:targets]) unless stub[:targets].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['parameters'] = ActionParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['targets'] = ActionTargetMap.stub(stub[:targets]) unless stub[:targets].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -511,7 +513,7 @@ module AWS::SDK::Fis
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ActionTarget.stub(value) unless value.nil?
+          data[key] = ActionTarget.stub(value) unless value.nil?
         end
         data
       end
@@ -549,7 +551,7 @@ module AWS::SDK::Fis
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ActionParameter.stub(value) unless value.nil?
+          data[key] = ActionParameter.stub(value) unless value.nil?
         end
         data
       end
@@ -587,8 +589,8 @@ module AWS::SDK::Fis
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['experiment'] = Stubs::Experiment.stub(stub[:experiment]) unless stub[:experiment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['experiment'] = Experiment.stub(stub[:experiment]) unless stub[:experiment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -619,15 +621,15 @@ module AWS::SDK::Fis
         data['id'] = stub[:id] unless stub[:id].nil?
         data['experimentTemplateId'] = stub[:experiment_template_id] unless stub[:experiment_template_id].nil?
         data['roleArn'] = stub[:role_arn] unless stub[:role_arn].nil?
-        data['state'] = Stubs::ExperimentState.stub(stub[:state]) unless stub[:state].nil?
-        data['targets'] = Stubs::ExperimentTargetMap.stub(stub[:targets]) unless stub[:targets].nil?
-        data['actions'] = Stubs::ExperimentActionMap.stub(stub[:actions]) unless stub[:actions].nil?
-        data['stopConditions'] = Stubs::ExperimentStopConditionList.stub(stub[:stop_conditions]) unless stub[:stop_conditions].nil?
+        data['state'] = ExperimentState.stub(stub[:state]) unless stub[:state].nil?
+        data['targets'] = ExperimentTargetMap.stub(stub[:targets]) unless stub[:targets].nil?
+        data['actions'] = ExperimentActionMap.stub(stub[:actions]) unless stub[:actions].nil?
+        data['stopConditions'] = ExperimentStopConditionList.stub(stub[:stop_conditions]) unless stub[:stop_conditions].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        data['logConfiguration'] = Stubs::ExperimentLogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['logConfiguration'] = ExperimentLogConfiguration.stub(stub[:log_configuration]) unless stub[:log_configuration].nil?
         data
       end
     end
@@ -647,8 +649,8 @@ module AWS::SDK::Fis
       def self.stub(stub)
         stub ||= Types::ExperimentLogConfiguration.new
         data = {}
-        data['cloudWatchLogsConfiguration'] = Stubs::ExperimentCloudWatchLogsLogConfiguration.stub(stub[:cloud_watch_logs_configuration]) unless stub[:cloud_watch_logs_configuration].nil?
-        data['s3Configuration'] = Stubs::ExperimentS3LogConfiguration.stub(stub[:s3_configuration]) unless stub[:s3_configuration].nil?
+        data['cloudWatchLogsConfiguration'] = ExperimentCloudWatchLogsLogConfiguration.stub(stub[:cloud_watch_logs_configuration]) unless stub[:cloud_watch_logs_configuration].nil?
+        data['s3Configuration'] = ExperimentS3LogConfiguration.stub(stub[:s3_configuration]) unless stub[:s3_configuration].nil?
         data['logSchemaVersion'] = stub[:log_schema_version] unless stub[:log_schema_version].nil?
         data
       end
@@ -706,7 +708,7 @@ module AWS::SDK::Fis
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExperimentStopCondition.stub(element) unless element.nil?
+          data << ExperimentStopCondition.stub(element) unless element.nil?
         end
         data
       end
@@ -746,7 +748,7 @@ module AWS::SDK::Fis
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ExperimentAction.stub(value) unless value.nil?
+          data[key] = ExperimentAction.stub(value) unless value.nil?
         end
         data
       end
@@ -774,10 +776,10 @@ module AWS::SDK::Fis
         data = {}
         data['actionId'] = stub[:action_id] unless stub[:action_id].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['parameters'] = Stubs::ExperimentActionParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
-        data['targets'] = Stubs::ExperimentActionTargetMap.stub(stub[:targets]) unless stub[:targets].nil?
-        data['startAfter'] = Stubs::ExperimentActionStartAfterList.stub(stub[:start_after]) unless stub[:start_after].nil?
-        data['state'] = Stubs::ExperimentActionState.stub(stub[:state]) unless stub[:state].nil?
+        data['parameters'] = ExperimentActionParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['targets'] = ExperimentActionTargetMap.stub(stub[:targets]) unless stub[:targets].nil?
+        data['startAfter'] = ExperimentActionStartAfterList.stub(stub[:start_after]) unless stub[:start_after].nil?
+        data['state'] = ExperimentActionState.stub(stub[:state]) unless stub[:state].nil?
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_time]).to_i unless stub[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:end_time]).to_i unless stub[:end_time].nil?
         data
@@ -878,7 +880,7 @@ module AWS::SDK::Fis
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ExperimentTarget.stub(value) unless value.nil?
+          data[key] = ExperimentTarget.stub(value) unless value.nil?
         end
         data
       end
@@ -903,11 +905,11 @@ module AWS::SDK::Fis
         stub ||= Types::ExperimentTarget.new
         data = {}
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['resourceArns'] = Stubs::ResourceArnList.stub(stub[:resource_arns]) unless stub[:resource_arns].nil?
-        data['resourceTags'] = Stubs::TagMap.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
-        data['filters'] = Stubs::ExperimentTargetFilterList.stub(stub[:filters]) unless stub[:filters].nil?
+        data['resourceArns'] = ResourceArnList.stub(stub[:resource_arns]) unless stub[:resource_arns].nil?
+        data['resourceTags'] = TagMap.stub(stub[:resource_tags]) unless stub[:resource_tags].nil?
+        data['filters'] = ExperimentTargetFilterList.stub(stub[:filters]) unless stub[:filters].nil?
         data['selectionMode'] = stub[:selection_mode] unless stub[:selection_mode].nil?
-        data['parameters'] = Stubs::ExperimentTargetParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['parameters'] = ExperimentTargetParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -946,7 +948,7 @@ module AWS::SDK::Fis
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExperimentTargetFilter.stub(element) unless element.nil?
+          data << ExperimentTargetFilter.stub(element) unless element.nil?
         end
         data
       end
@@ -967,7 +969,7 @@ module AWS::SDK::Fis
         stub ||= Types::ExperimentTargetFilter.new
         data = {}
         data['path'] = stub[:path] unless stub[:path].nil?
-        data['values'] = Stubs::ExperimentTargetFilterValues.stub(stub[:values]) unless stub[:values].nil?
+        data['values'] = ExperimentTargetFilterValues.stub(stub[:values]) unless stub[:values].nil?
         data
       end
     end
@@ -1024,8 +1026,8 @@ module AWS::SDK::Fis
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['experimentTemplate'] = Stubs::ExperimentTemplate.stub(stub[:experiment_template]) unless stub[:experiment_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['experimentTemplate'] = ExperimentTemplate.stub(stub[:experiment_template]) unless stub[:experiment_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1041,8 +1043,8 @@ module AWS::SDK::Fis
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['targetResourceType'] = Stubs::TargetResourceType.stub(stub[:target_resource_type]) unless stub[:target_resource_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['targetResourceType'] = TargetResourceType.stub(stub[:target_resource_type]) unless stub[:target_resource_type].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1063,7 +1065,7 @@ module AWS::SDK::Fis
         data = {}
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['parameters'] = Stubs::TargetResourceTypeParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
+        data['parameters'] = TargetResourceTypeParameterMap.stub(stub[:parameters]) unless stub[:parameters].nil?
         data
       end
     end
@@ -1082,7 +1084,7 @@ module AWS::SDK::Fis
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::TargetResourceTypeParameter.stub(value) unless value.nil?
+          data[key] = TargetResourceTypeParameter.stub(value) unless value.nil?
         end
         data
       end
@@ -1121,9 +1123,9 @@ module AWS::SDK::Fis
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['actions'] = Stubs::ActionSummaryList.stub(stub[:actions]) unless stub[:actions].nil?
+        data['actions'] = ActionSummaryList.stub(stub[:actions]) unless stub[:actions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1141,7 +1143,7 @@ module AWS::SDK::Fis
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActionSummary.stub(element) unless element.nil?
+          data << ActionSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1165,8 +1167,8 @@ module AWS::SDK::Fis
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['targets'] = Stubs::ActionTargetMap.stub(stub[:targets]) unless stub[:targets].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['targets'] = ActionTargetMap.stub(stub[:targets]) unless stub[:targets].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1184,9 +1186,9 @@ module AWS::SDK::Fis
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['experimentTemplates'] = Stubs::ExperimentTemplateSummaryList.stub(stub[:experiment_templates]) unless stub[:experiment_templates].nil?
+        data['experimentTemplates'] = ExperimentTemplateSummaryList.stub(stub[:experiment_templates]) unless stub[:experiment_templates].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1204,7 +1206,7 @@ module AWS::SDK::Fis
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExperimentTemplateSummary.stub(element) unless element.nil?
+          data << ExperimentTemplateSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1231,7 +1233,7 @@ module AWS::SDK::Fis
         data['description'] = stub[:description] unless stub[:description].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
         data['lastUpdateTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_time]).to_i unless stub[:last_update_time].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1249,9 +1251,9 @@ module AWS::SDK::Fis
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['experiments'] = Stubs::ExperimentSummaryList.stub(stub[:experiments]) unless stub[:experiments].nil?
+        data['experiments'] = ExperimentSummaryList.stub(stub[:experiments]) unless stub[:experiments].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1269,7 +1271,7 @@ module AWS::SDK::Fis
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ExperimentSummary.stub(element) unless element.nil?
+          data << ExperimentSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1294,9 +1296,9 @@ module AWS::SDK::Fis
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
         data['experimentTemplateId'] = stub[:experiment_template_id] unless stub[:experiment_template_id].nil?
-        data['state'] = Stubs::ExperimentState.stub(stub[:state]) unless stub[:state].nil?
+        data['state'] = ExperimentState.stub(stub[:state]) unless stub[:state].nil?
         data['creationTime'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_time]).to_i unless stub[:creation_time].nil?
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1313,8 +1315,8 @@ module AWS::SDK::Fis
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1331,9 +1333,9 @@ module AWS::SDK::Fis
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['targetResourceTypes'] = Stubs::TargetResourceTypeSummaryList.stub(stub[:target_resource_types]) unless stub[:target_resource_types].nil?
+        data['targetResourceTypes'] = TargetResourceTypeSummaryList.stub(stub[:target_resource_types]) unless stub[:target_resource_types].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1351,7 +1353,7 @@ module AWS::SDK::Fis
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TargetResourceTypeSummary.stub(element) unless element.nil?
+          data << TargetResourceTypeSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1389,8 +1391,8 @@ module AWS::SDK::Fis
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['experiment'] = Stubs::Experiment.stub(stub[:experiment]) unless stub[:experiment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['experiment'] = Experiment.stub(stub[:experiment]) unless stub[:experiment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1406,8 +1408,8 @@ module AWS::SDK::Fis
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['experiment'] = Stubs::Experiment.stub(stub[:experiment]) unless stub[:experiment].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['experiment'] = Experiment.stub(stub[:experiment]) unless stub[:experiment].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1449,8 +1451,8 @@ module AWS::SDK::Fis
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['experimentTemplate'] = Stubs::ExperimentTemplate.stub(stub[:experiment_template]) unless stub[:experiment_template].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['experimentTemplate'] = ExperimentTemplate.stub(stub[:experiment_template]) unless stub[:experiment_template].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

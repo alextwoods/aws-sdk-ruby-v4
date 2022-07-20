@@ -214,7 +214,7 @@ module AWS::SDK::CodeStar
         data.created_time_stamp = Time.at(map['createdTimeStamp'].to_i) if map['createdTimeStamp']
         data.stack_id = map['stackId']
         data.project_template_id = map['projectTemplateId']
-        data.status = (Parsers::ProjectStatus.parse(map['status']) unless map['status'].nil?)
+        data.status = (ProjectStatus.parse(map['status']) unless map['status'].nil?)
         data
       end
     end
@@ -275,7 +275,7 @@ module AWS::SDK::CodeStar
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.projects = (Parsers::ProjectsList.parse(map['projects']) unless map['projects'].nil?)
+        data.projects = (ProjectsList.parse(map['projects']) unless map['projects'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -284,7 +284,7 @@ module AWS::SDK::CodeStar
     class ProjectsList
       def self.parse(list)
         list.map do |value|
-          Parsers::ProjectSummary.parse(value) unless value.nil?
+          ProjectSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -317,7 +317,7 @@ module AWS::SDK::CodeStar
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.resources = (Parsers::ResourcesResult.parse(map['resources']) unless map['resources'].nil?)
+        data.resources = (ResourcesResult.parse(map['resources']) unless map['resources'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -326,7 +326,7 @@ module AWS::SDK::CodeStar
     class ResourcesResult
       def self.parse(list)
         list.map do |value|
-          Parsers::Resource.parse(value) unless value.nil?
+          Resource.parse(value) unless value.nil?
         end
       end
     end
@@ -346,7 +346,7 @@ module AWS::SDK::CodeStar
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -369,7 +369,7 @@ module AWS::SDK::CodeStar
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.team_members = (Parsers::TeamMemberResult.parse(map['teamMembers']) unless map['teamMembers'].nil?)
+        data.team_members = (TeamMemberResult.parse(map['teamMembers']) unless map['teamMembers'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -378,7 +378,7 @@ module AWS::SDK::CodeStar
     class TeamMemberResult
       def self.parse(list)
         list.map do |value|
-          Parsers::TeamMember.parse(value) unless value.nil?
+          TeamMember.parse(value) unless value.nil?
         end
       end
     end
@@ -400,7 +400,7 @@ module AWS::SDK::CodeStar
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.user_profiles = (Parsers::UserProfilesList.parse(map['userProfiles']) unless map['userProfiles'].nil?)
+        data.user_profiles = (UserProfilesList.parse(map['userProfiles']) unless map['userProfiles'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -409,7 +409,7 @@ module AWS::SDK::CodeStar
     class UserProfilesList
       def self.parse(list)
         list.map do |value|
-          Parsers::UserProfileSummary.parse(value) unless value.nil?
+          UserProfileSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -432,7 +432,7 @@ module AWS::SDK::CodeStar
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end

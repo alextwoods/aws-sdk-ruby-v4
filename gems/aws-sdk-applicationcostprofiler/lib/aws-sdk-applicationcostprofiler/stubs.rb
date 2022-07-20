@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ApplicationCostProfiler
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::ApplicationCostProfiler
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['reportId'] = stub[:report_id] unless stub[:report_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -49,10 +51,10 @@ module AWS::SDK::ApplicationCostProfiler
         data['reportDescription'] = stub[:report_description] unless stub[:report_description].nil?
         data['reportFrequency'] = stub[:report_frequency] unless stub[:report_frequency].nil?
         data['format'] = stub[:format] unless stub[:format].nil?
-        data['destinationS3Location'] = Stubs::S3Location.stub(stub[:destination_s3_location]) unless stub[:destination_s3_location].nil?
+        data['destinationS3Location'] = S3Location.stub(stub[:destination_s3_location]) unless stub[:destination_s3_location].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastUpdated'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated]).to_i unless stub[:last_updated].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -89,7 +91,7 @@ module AWS::SDK::ApplicationCostProfiler
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['importId'] = stub[:import_id] unless stub[:import_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -106,9 +108,9 @@ module AWS::SDK::ApplicationCostProfiler
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['reportDefinitions'] = Stubs::ReportDefinitionList.stub(stub[:report_definitions]) unless stub[:report_definitions].nil?
+        data['reportDefinitions'] = ReportDefinitionList.stub(stub[:report_definitions]) unless stub[:report_definitions].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -126,7 +128,7 @@ module AWS::SDK::ApplicationCostProfiler
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReportDefinition.stub(element) unless element.nil?
+          data << ReportDefinition.stub(element) unless element.nil?
         end
         data
       end
@@ -155,7 +157,7 @@ module AWS::SDK::ApplicationCostProfiler
         data['reportDescription'] = stub[:report_description] unless stub[:report_description].nil?
         data['reportFrequency'] = stub[:report_frequency] unless stub[:report_frequency].nil?
         data['format'] = stub[:format] unless stub[:format].nil?
-        data['destinationS3Location'] = Stubs::S3Location.stub(stub[:destination_s3_location]) unless stub[:destination_s3_location].nil?
+        data['destinationS3Location'] = S3Location.stub(stub[:destination_s3_location]) unless stub[:destination_s3_location].nil?
         data['createdAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['lastUpdatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_at]).to_i unless stub[:last_updated_at].nil?
         data
@@ -175,7 +177,7 @@ module AWS::SDK::ApplicationCostProfiler
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['reportId'] = stub[:report_id] unless stub[:report_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -192,7 +194,7 @@ module AWS::SDK::ApplicationCostProfiler
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['reportId'] = stub[:report_id] unless stub[:report_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

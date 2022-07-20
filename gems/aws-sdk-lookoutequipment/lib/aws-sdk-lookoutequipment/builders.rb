@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::LookoutEquipment
   module Builders
 
@@ -19,11 +21,11 @@ module AWS::SDK::LookoutEquipment
         http_req.headers['X-Amz-Target'] = 'AWSLookoutEquipmentFrontendService.CreateDataset'
         data = {}
         data['DatasetName'] = input[:dataset_name] unless input[:dataset_name].nil?
-        data['DatasetSchema'] = Builders::DatasetSchema.build(input[:dataset_schema]) unless input[:dataset_schema].nil?
+        data['DatasetSchema'] = DatasetSchema.build(input[:dataset_schema]) unless input[:dataset_schema].nil?
         data['ServerSideKmsKeyId'] = input[:server_side_kms_key_id] unless input[:server_side_kms_key_id].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -32,7 +34,7 @@ module AWS::SDK::LookoutEquipment
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -69,13 +71,13 @@ module AWS::SDK::LookoutEquipment
         data['InferenceSchedulerName'] = input[:inference_scheduler_name] unless input[:inference_scheduler_name].nil?
         data['DataDelayOffsetInMinutes'] = input[:data_delay_offset_in_minutes] unless input[:data_delay_offset_in_minutes].nil?
         data['DataUploadFrequency'] = input[:data_upload_frequency] unless input[:data_upload_frequency].nil?
-        data['DataInputConfiguration'] = Builders::InferenceInputConfiguration.build(input[:data_input_configuration]) unless input[:data_input_configuration].nil?
-        data['DataOutputConfiguration'] = Builders::InferenceOutputConfiguration.build(input[:data_output_configuration]) unless input[:data_output_configuration].nil?
+        data['DataInputConfiguration'] = InferenceInputConfiguration.build(input[:data_input_configuration]) unless input[:data_input_configuration].nil?
+        data['DataOutputConfiguration'] = InferenceOutputConfiguration.build(input[:data_output_configuration]) unless input[:data_output_configuration].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['ServerSideKmsKeyId'] = input[:server_side_kms_key_id] unless input[:server_side_kms_key_id].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -83,7 +85,7 @@ module AWS::SDK::LookoutEquipment
     class InferenceOutputConfiguration
       def self.build(input)
         data = {}
-        data['S3OutputConfiguration'] = Builders::InferenceS3OutputConfiguration.build(input[:s3_output_configuration]) unless input[:s3_output_configuration].nil?
+        data['S3OutputConfiguration'] = InferenceS3OutputConfiguration.build(input[:s3_output_configuration]) unless input[:s3_output_configuration].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
         data
       end
@@ -103,9 +105,9 @@ module AWS::SDK::LookoutEquipment
     class InferenceInputConfiguration
       def self.build(input)
         data = {}
-        data['S3InputConfiguration'] = Builders::InferenceS3InputConfiguration.build(input[:s3_input_configuration]) unless input[:s3_input_configuration].nil?
+        data['S3InputConfiguration'] = InferenceS3InputConfiguration.build(input[:s3_input_configuration]) unless input[:s3_input_configuration].nil?
         data['InputTimeZoneOffset'] = input[:input_time_zone_offset] unless input[:input_time_zone_offset].nil?
-        data['InferenceInputNameConfiguration'] = Builders::InferenceInputNameConfiguration.build(input[:inference_input_name_configuration]) unless input[:inference_input_name_configuration].nil?
+        data['InferenceInputNameConfiguration'] = InferenceInputNameConfiguration.build(input[:inference_input_name_configuration]) unless input[:inference_input_name_configuration].nil?
         data
       end
     end
@@ -140,19 +142,19 @@ module AWS::SDK::LookoutEquipment
         data = {}
         data['ModelName'] = input[:model_name] unless input[:model_name].nil?
         data['DatasetName'] = input[:dataset_name] unless input[:dataset_name].nil?
-        data['DatasetSchema'] = Builders::DatasetSchema.build(input[:dataset_schema]) unless input[:dataset_schema].nil?
-        data['LabelsInputConfiguration'] = Builders::LabelsInputConfiguration.build(input[:labels_input_configuration]) unless input[:labels_input_configuration].nil?
+        data['DatasetSchema'] = DatasetSchema.build(input[:dataset_schema]) unless input[:dataset_schema].nil?
+        data['LabelsInputConfiguration'] = LabelsInputConfiguration.build(input[:labels_input_configuration]) unless input[:labels_input_configuration].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['TrainingDataStartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:training_data_start_time]).to_i unless input[:training_data_start_time].nil?
         data['TrainingDataEndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:training_data_end_time]).to_i unless input[:training_data_end_time].nil?
         data['EvaluationDataStartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:evaluation_data_start_time]).to_i unless input[:evaluation_data_start_time].nil?
         data['EvaluationDataEndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:evaluation_data_end_time]).to_i unless input[:evaluation_data_end_time].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        data['DataPreProcessingConfiguration'] = Builders::DataPreProcessingConfiguration.build(input[:data_pre_processing_configuration]) unless input[:data_pre_processing_configuration].nil?
+        data['DataPreProcessingConfiguration'] = DataPreProcessingConfiguration.build(input[:data_pre_processing_configuration]) unless input[:data_pre_processing_configuration].nil?
         data['ServerSideKmsKeyId'] = input[:server_side_kms_key_id] unless input[:server_side_kms_key_id].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['OffCondition'] = input[:off_condition] unless input[:off_condition].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -169,7 +171,7 @@ module AWS::SDK::LookoutEquipment
     class LabelsInputConfiguration
       def self.build(input)
         data = {}
-        data['S3InputConfiguration'] = Builders::LabelsS3InputConfiguration.build(input[:s3_input_configuration]) unless input[:s3_input_configuration].nil?
+        data['S3InputConfiguration'] = LabelsS3InputConfiguration.build(input[:s3_input_configuration]) unless input[:s3_input_configuration].nil?
         data
       end
     end
@@ -193,7 +195,7 @@ module AWS::SDK::LookoutEquipment
         http_req.headers['X-Amz-Target'] = 'AWSLookoutEquipmentFrontendService.DeleteDataset'
         data = {}
         data['DatasetName'] = input[:dataset_name] unless input[:dataset_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -206,7 +208,7 @@ module AWS::SDK::LookoutEquipment
         http_req.headers['X-Amz-Target'] = 'AWSLookoutEquipmentFrontendService.DeleteInferenceScheduler'
         data = {}
         data['InferenceSchedulerName'] = input[:inference_scheduler_name] unless input[:inference_scheduler_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -219,7 +221,7 @@ module AWS::SDK::LookoutEquipment
         http_req.headers['X-Amz-Target'] = 'AWSLookoutEquipmentFrontendService.DeleteModel'
         data = {}
         data['ModelName'] = input[:model_name] unless input[:model_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -232,7 +234,7 @@ module AWS::SDK::LookoutEquipment
         http_req.headers['X-Amz-Target'] = 'AWSLookoutEquipmentFrontendService.DescribeDataIngestionJob'
         data = {}
         data['JobId'] = input[:job_id] unless input[:job_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -245,7 +247,7 @@ module AWS::SDK::LookoutEquipment
         http_req.headers['X-Amz-Target'] = 'AWSLookoutEquipmentFrontendService.DescribeDataset'
         data = {}
         data['DatasetName'] = input[:dataset_name] unless input[:dataset_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -258,7 +260,7 @@ module AWS::SDK::LookoutEquipment
         http_req.headers['X-Amz-Target'] = 'AWSLookoutEquipmentFrontendService.DescribeInferenceScheduler'
         data = {}
         data['InferenceSchedulerName'] = input[:inference_scheduler_name] unless input[:inference_scheduler_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -271,7 +273,7 @@ module AWS::SDK::LookoutEquipment
         http_req.headers['X-Amz-Target'] = 'AWSLookoutEquipmentFrontendService.DescribeModel'
         data = {}
         data['ModelName'] = input[:model_name] unless input[:model_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -287,7 +289,7 @@ module AWS::SDK::LookoutEquipment
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['Status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -302,7 +304,7 @@ module AWS::SDK::LookoutEquipment
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['DatasetNameBeginsWith'] = input[:dataset_name_begins_with] unless input[:dataset_name_begins_with].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -320,7 +322,7 @@ module AWS::SDK::LookoutEquipment
         data['DataStartTimeAfter'] = Hearth::TimeHelper.to_epoch_seconds(input[:data_start_time_after]).to_i unless input[:data_start_time_after].nil?
         data['DataEndTimeBefore'] = Hearth::TimeHelper.to_epoch_seconds(input[:data_end_time_before]).to_i unless input[:data_end_time_before].nil?
         data['Status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -336,7 +338,7 @@ module AWS::SDK::LookoutEquipment
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['InferenceSchedulerNameBeginsWith'] = input[:inference_scheduler_name_begins_with] unless input[:inference_scheduler_name_begins_with].nil?
         data['ModelName'] = input[:model_name] unless input[:model_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -353,7 +355,7 @@ module AWS::SDK::LookoutEquipment
         data['Status'] = input[:status] unless input[:status].nil?
         data['ModelNameBeginsWith'] = input[:model_name_begins_with] unless input[:model_name_begins_with].nil?
         data['DatasetNameBeginsWith'] = input[:dataset_name_begins_with] unless input[:dataset_name_begins_with].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -369,7 +371,7 @@ module AWS::SDK::LookoutEquipment
         data['IngestionJobId'] = input[:ingestion_job_id] unless input[:ingestion_job_id].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -382,7 +384,7 @@ module AWS::SDK::LookoutEquipment
         http_req.headers['X-Amz-Target'] = 'AWSLookoutEquipmentFrontendService.ListTagsForResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -395,10 +397,10 @@ module AWS::SDK::LookoutEquipment
         http_req.headers['X-Amz-Target'] = 'AWSLookoutEquipmentFrontendService.StartDataIngestionJob'
         data = {}
         data['DatasetName'] = input[:dataset_name] unless input[:dataset_name].nil?
-        data['IngestionInputConfiguration'] = Builders::IngestionInputConfiguration.build(input[:ingestion_input_configuration]) unless input[:ingestion_input_configuration].nil?
+        data['IngestionInputConfiguration'] = IngestionInputConfiguration.build(input[:ingestion_input_configuration]) unless input[:ingestion_input_configuration].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -406,7 +408,7 @@ module AWS::SDK::LookoutEquipment
     class IngestionInputConfiguration
       def self.build(input)
         data = {}
-        data['S3InputConfiguration'] = Builders::IngestionS3InputConfiguration.build(input[:s3_input_configuration]) unless input[:s3_input_configuration].nil?
+        data['S3InputConfiguration'] = IngestionS3InputConfiguration.build(input[:s3_input_configuration]) unless input[:s3_input_configuration].nil?
         data
       end
     end
@@ -431,7 +433,7 @@ module AWS::SDK::LookoutEquipment
         http_req.headers['X-Amz-Target'] = 'AWSLookoutEquipmentFrontendService.StartInferenceScheduler'
         data = {}
         data['InferenceSchedulerName'] = input[:inference_scheduler_name] unless input[:inference_scheduler_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -444,7 +446,7 @@ module AWS::SDK::LookoutEquipment
         http_req.headers['X-Amz-Target'] = 'AWSLookoutEquipmentFrontendService.StopInferenceScheduler'
         data = {}
         data['InferenceSchedulerName'] = input[:inference_scheduler_name] unless input[:inference_scheduler_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -457,8 +459,8 @@ module AWS::SDK::LookoutEquipment
         http_req.headers['X-Amz-Target'] = 'AWSLookoutEquipmentFrontendService.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -471,8 +473,8 @@ module AWS::SDK::LookoutEquipment
         http_req.headers['X-Amz-Target'] = 'AWSLookoutEquipmentFrontendService.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -498,10 +500,10 @@ module AWS::SDK::LookoutEquipment
         data['InferenceSchedulerName'] = input[:inference_scheduler_name] unless input[:inference_scheduler_name].nil?
         data['DataDelayOffsetInMinutes'] = input[:data_delay_offset_in_minutes] unless input[:data_delay_offset_in_minutes].nil?
         data['DataUploadFrequency'] = input[:data_upload_frequency] unless input[:data_upload_frequency].nil?
-        data['DataInputConfiguration'] = Builders::InferenceInputConfiguration.build(input[:data_input_configuration]) unless input[:data_input_configuration].nil?
-        data['DataOutputConfiguration'] = Builders::InferenceOutputConfiguration.build(input[:data_output_configuration]) unless input[:data_output_configuration].nil?
+        data['DataInputConfiguration'] = InferenceInputConfiguration.build(input[:data_input_configuration]) unless input[:data_input_configuration].nil?
+        data['DataOutputConfiguration'] = InferenceOutputConfiguration.build(input[:data_output_configuration]) unless input[:data_output_configuration].nil?
         data['RoleArn'] = input[:role_arn] unless input[:role_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

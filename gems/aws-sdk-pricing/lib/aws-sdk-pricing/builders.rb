@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Pricing
   module Builders
 
@@ -22,7 +24,7 @@ module AWS::SDK::Pricing
         data['FormatVersion'] = input[:format_version] unless input[:format_version].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -38,7 +40,7 @@ module AWS::SDK::Pricing
         data['AttributeName'] = input[:attribute_name] unless input[:attribute_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -51,11 +53,11 @@ module AWS::SDK::Pricing
         http_req.headers['X-Amz-Target'] = 'AWSPriceListService.GetProducts'
         data = {}
         data['ServiceCode'] = input[:service_code] unless input[:service_code].nil?
-        data['Filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
         data['FormatVersion'] = input[:format_version] unless input[:format_version].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -64,7 +66,7 @@ module AWS::SDK::Pricing
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end

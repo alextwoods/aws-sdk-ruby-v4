@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Account
   module Stubs
 
@@ -35,8 +37,8 @@ module AWS::SDK::Account
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['AlternateContact'] = Stubs::AlternateContact.stub(stub[:alternate_contact]) unless stub[:alternate_contact].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AlternateContact'] = AlternateContact.stub(stub[:alternate_contact]) unless stub[:alternate_contact].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

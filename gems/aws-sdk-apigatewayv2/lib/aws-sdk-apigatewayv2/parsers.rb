@@ -19,18 +19,18 @@ module AWS::SDK::ApiGatewayV2
         data.api_gateway_managed = map['apiGatewayManaged']
         data.api_id = map['apiId']
         data.api_key_selection_expression = map['apiKeySelectionExpression']
-        data.cors_configuration = (Parsers::Cors.parse(map['corsConfiguration']) unless map['corsConfiguration'].nil?)
+        data.cors_configuration = (Cors.parse(map['corsConfiguration']) unless map['corsConfiguration'].nil?)
         data.created_date = Time.parse(map['createdDate']) if map['createdDate']
         data.description = map['description']
         data.disable_schema_validation = map['disableSchemaValidation']
         data.disable_execute_api_endpoint = map['disableExecuteApiEndpoint']
-        data.import_info = (Parsers::List____listOf__string.parse(map['importInfo']) unless map['importInfo'].nil?)
+        data.import_info = (List____listOf__string.parse(map['importInfo']) unless map['importInfo'].nil?)
         data.name = map['name']
         data.protocol_type = map['protocolType']
         data.route_selection_expression = map['routeSelectionExpression']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.version = map['version']
-        data.warnings = (Parsers::List____listOf__string.parse(map['warnings']) unless map['warnings'].nil?)
+        data.warnings = (List____listOf__string.parse(map['warnings']) unless map['warnings'].nil?)
         data
       end
     end
@@ -59,10 +59,10 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(map)
         data = Types::Cors.new
         data.allow_credentials = map['allowCredentials']
-        data.allow_headers = (Parsers::CorsHeaderList.parse(map['allowHeaders']) unless map['allowHeaders'].nil?)
-        data.allow_methods = (Parsers::CorsMethodList.parse(map['allowMethods']) unless map['allowMethods'].nil?)
-        data.allow_origins = (Parsers::CorsOriginList.parse(map['allowOrigins']) unless map['allowOrigins'].nil?)
-        data.expose_headers = (Parsers::CorsHeaderList.parse(map['exposeHeaders']) unless map['exposeHeaders'].nil?)
+        data.allow_headers = (CorsHeaderList.parse(map['allowHeaders']) unless map['allowHeaders'].nil?)
+        data.allow_methods = (CorsMethodList.parse(map['allowMethods']) unless map['allowMethods'].nil?)
+        data.allow_origins = (CorsOriginList.parse(map['allowOrigins']) unless map['allowOrigins'].nil?)
+        data.expose_headers = (CorsHeaderList.parse(map['exposeHeaders']) unless map['exposeHeaders'].nil?)
         data.max_age = map['maxAge']
         return data
       end
@@ -165,9 +165,9 @@ module AWS::SDK::ApiGatewayV2
         data.authorizer_type = map['authorizerType']
         data.authorizer_uri = map['authorizerUri']
         data.enable_simple_responses = map['enableSimpleResponses']
-        data.identity_source = (Parsers::IdentitySourceList.parse(map['identitySource']) unless map['identitySource'].nil?)
+        data.identity_source = (IdentitySourceList.parse(map['identitySource']) unless map['identitySource'].nil?)
         data.identity_validation_expression = map['identityValidationExpression']
-        data.jwt_configuration = (Parsers::JWTConfiguration.parse(map['jwtConfiguration']) unless map['jwtConfiguration'].nil?)
+        data.jwt_configuration = (JWTConfiguration.parse(map['jwtConfiguration']) unless map['jwtConfiguration'].nil?)
         data.name = map['name']
         data
       end
@@ -176,7 +176,7 @@ module AWS::SDK::ApiGatewayV2
     class JWTConfiguration
       def self.parse(map)
         data = Types::JWTConfiguration.new
-        data.audience = (Parsers::List____listOf__string.parse(map['audience']) unless map['audience'].nil?)
+        data.audience = (List____listOf__string.parse(map['audience']) unless map['audience'].nil?)
         data.issuer = map['issuer']
         return data
       end
@@ -214,9 +214,9 @@ module AWS::SDK::ApiGatewayV2
         map = Hearth::JSON.load(http_resp.body)
         data.api_mapping_selection_expression = map['apiMappingSelectionExpression']
         data.domain_name = map['domainName']
-        data.domain_name_configurations = (Parsers::DomainNameConfigurations.parse(map['domainNameConfigurations']) unless map['domainNameConfigurations'].nil?)
-        data.mutual_tls_authentication = (Parsers::MutualTlsAuthentication.parse(map['mutualTlsAuthentication']) unless map['mutualTlsAuthentication'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.domain_name_configurations = (DomainNameConfigurations.parse(map['domainNameConfigurations']) unless map['domainNameConfigurations'].nil?)
+        data.mutual_tls_authentication = (MutualTlsAuthentication.parse(map['mutualTlsAuthentication']) unless map['mutualTlsAuthentication'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -226,7 +226,7 @@ module AWS::SDK::ApiGatewayV2
         data = Types::MutualTlsAuthentication.new
         data.truststore_uri = map['truststoreUri']
         data.truststore_version = map['truststoreVersion']
-        data.truststore_warnings = (Parsers::List____listOf__string.parse(map['truststoreWarnings']) unless map['truststoreWarnings'].nil?)
+        data.truststore_warnings = (List____listOf__string.parse(map['truststoreWarnings']) unless map['truststoreWarnings'].nil?)
         return data
       end
     end
@@ -235,7 +235,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DomainNameConfiguration.parse(value) unless value.nil?
+          data << DomainNameConfiguration.parse(value) unless value.nil?
         end
         data
       end
@@ -287,12 +287,12 @@ module AWS::SDK::ApiGatewayV2
         data.integration_uri = map['integrationUri']
         data.passthrough_behavior = map['passthroughBehavior']
         data.payload_format_version = map['payloadFormatVersion']
-        data.request_parameters = (Parsers::IntegrationParameters.parse(map['requestParameters']) unless map['requestParameters'].nil?)
-        data.request_templates = (Parsers::TemplateMap.parse(map['requestTemplates']) unless map['requestTemplates'].nil?)
-        data.response_parameters = (Parsers::ResponseParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
+        data.request_parameters = (IntegrationParameters.parse(map['requestParameters']) unless map['requestParameters'].nil?)
+        data.request_templates = (TemplateMap.parse(map['requestTemplates']) unless map['requestTemplates'].nil?)
+        data.response_parameters = (ResponseParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
         data.template_selection_expression = map['templateSelectionExpression']
         data.timeout_in_millis = map['timeoutInMillis']
-        data.tls_config = (Parsers::TlsConfig.parse(map['tlsConfig']) unless map['tlsConfig'].nil?)
+        data.tls_config = (TlsConfig.parse(map['tlsConfig']) unless map['tlsConfig'].nil?)
         data
       end
     end
@@ -309,7 +309,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::IntegrationParameters.parse(value) unless value.nil?
+          data[key] = IntegrationParameters.parse(value) unless value.nil?
         end
         data
       end
@@ -343,8 +343,8 @@ module AWS::SDK::ApiGatewayV2
         data.content_handling_strategy = map['contentHandlingStrategy']
         data.integration_response_id = map['integrationResponseId']
         data.integration_response_key = map['integrationResponseKey']
-        data.response_parameters = (Parsers::IntegrationParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
-        data.response_templates = (Parsers::TemplateMap.parse(map['responseTemplates']) unless map['responseTemplates'].nil?)
+        data.response_parameters = (IntegrationParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
+        data.response_templates = (TemplateMap.parse(map['responseTemplates']) unless map['responseTemplates'].nil?)
         data.template_selection_expression = map['templateSelectionExpression']
         data
       end
@@ -371,13 +371,13 @@ module AWS::SDK::ApiGatewayV2
         map = Hearth::JSON.load(http_resp.body)
         data.api_gateway_managed = map['apiGatewayManaged']
         data.api_key_required = map['apiKeyRequired']
-        data.authorization_scopes = (Parsers::AuthorizationScopes.parse(map['authorizationScopes']) unless map['authorizationScopes'].nil?)
+        data.authorization_scopes = (AuthorizationScopes.parse(map['authorizationScopes']) unless map['authorizationScopes'].nil?)
         data.authorization_type = map['authorizationType']
         data.authorizer_id = map['authorizerId']
         data.model_selection_expression = map['modelSelectionExpression']
         data.operation_name = map['operationName']
-        data.request_models = (Parsers::RouteModels.parse(map['requestModels']) unless map['requestModels'].nil?)
-        data.request_parameters = (Parsers::RouteParameters.parse(map['requestParameters']) unless map['requestParameters'].nil?)
+        data.request_models = (RouteModels.parse(map['requestModels']) unless map['requestModels'].nil?)
+        data.request_parameters = (RouteParameters.parse(map['requestParameters']) unless map['requestParameters'].nil?)
         data.route_id = map['routeId']
         data.route_key = map['routeKey']
         data.route_response_selection_expression = map['routeResponseSelectionExpression']
@@ -390,7 +390,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ParameterConstraints.parse(value) unless value.nil?
+          data[key] = ParameterConstraints.parse(value) unless value.nil?
         end
         data
       end
@@ -430,8 +430,8 @@ module AWS::SDK::ApiGatewayV2
         data = Types::CreateRouteResponseOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.model_selection_expression = map['modelSelectionExpression']
-        data.response_models = (Parsers::RouteModels.parse(map['responseModels']) unless map['responseModels'].nil?)
-        data.response_parameters = (Parsers::RouteParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
+        data.response_models = (RouteModels.parse(map['responseModels']) unless map['responseModels'].nil?)
+        data.response_parameters = (RouteParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
         data.route_response_id = map['routeResponseId']
         data.route_response_key = map['routeResponseKey']
         data
@@ -443,20 +443,20 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(http_resp)
         data = Types::CreateStageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.access_log_settings = (Parsers::AccessLogSettings.parse(map['accessLogSettings']) unless map['accessLogSettings'].nil?)
+        data.access_log_settings = (AccessLogSettings.parse(map['accessLogSettings']) unless map['accessLogSettings'].nil?)
         data.api_gateway_managed = map['apiGatewayManaged']
         data.auto_deploy = map['autoDeploy']
         data.client_certificate_id = map['clientCertificateId']
         data.created_date = Time.parse(map['createdDate']) if map['createdDate']
-        data.default_route_settings = (Parsers::RouteSettings.parse(map['defaultRouteSettings']) unless map['defaultRouteSettings'].nil?)
+        data.default_route_settings = (RouteSettings.parse(map['defaultRouteSettings']) unless map['defaultRouteSettings'].nil?)
         data.deployment_id = map['deploymentId']
         data.description = map['description']
         data.last_deployment_status_message = map['lastDeploymentStatusMessage']
         data.last_updated_date = Time.parse(map['lastUpdatedDate']) if map['lastUpdatedDate']
-        data.route_settings = (Parsers::RouteSettingsMap.parse(map['routeSettings']) unless map['routeSettings'].nil?)
+        data.route_settings = (RouteSettingsMap.parse(map['routeSettings']) unless map['routeSettings'].nil?)
         data.stage_name = map['stageName']
-        data.stage_variables = (Parsers::StageVariablesMap.parse(map['stageVariables']) unless map['stageVariables'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.stage_variables = (StageVariablesMap.parse(map['stageVariables']) unless map['stageVariables'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -475,7 +475,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::RouteSettings.parse(value) unless value.nil?
+          data[key] = RouteSettings.parse(value) unless value.nil?
         end
         data
       end
@@ -509,9 +509,9 @@ module AWS::SDK::ApiGatewayV2
         map = Hearth::JSON.load(http_resp.body)
         data.created_date = Time.parse(map['createdDate']) if map['createdDate']
         data.name = map['name']
-        data.security_group_ids = (Parsers::SecurityGroupIdList.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
-        data.subnet_ids = (Parsers::SubnetIdList.parse(map['subnetIds']) unless map['subnetIds'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.security_group_ids = (SecurityGroupIdList.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
+        data.subnet_ids = (SubnetIdList.parse(map['subnetIds']) unless map['subnetIds'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.vpc_link_id = map['vpcLinkId']
         data.vpc_link_status = map['vpcLinkStatus']
         data.vpc_link_status_message = map['vpcLinkStatusMessage']
@@ -703,18 +703,18 @@ module AWS::SDK::ApiGatewayV2
         data.api_gateway_managed = map['apiGatewayManaged']
         data.api_id = map['apiId']
         data.api_key_selection_expression = map['apiKeySelectionExpression']
-        data.cors_configuration = (Parsers::Cors.parse(map['corsConfiguration']) unless map['corsConfiguration'].nil?)
+        data.cors_configuration = (Cors.parse(map['corsConfiguration']) unless map['corsConfiguration'].nil?)
         data.created_date = Time.parse(map['createdDate']) if map['createdDate']
         data.description = map['description']
         data.disable_schema_validation = map['disableSchemaValidation']
         data.disable_execute_api_endpoint = map['disableExecuteApiEndpoint']
-        data.import_info = (Parsers::List____listOf__string.parse(map['importInfo']) unless map['importInfo'].nil?)
+        data.import_info = (List____listOf__string.parse(map['importInfo']) unless map['importInfo'].nil?)
         data.name = map['name']
         data.protocol_type = map['protocolType']
         data.route_selection_expression = map['routeSelectionExpression']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.version = map['version']
-        data.warnings = (Parsers::List____listOf__string.parse(map['warnings']) unless map['warnings'].nil?)
+        data.warnings = (List____listOf__string.parse(map['warnings']) unless map['warnings'].nil?)
         data
       end
     end
@@ -737,7 +737,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(http_resp)
         data = Types::GetApiMappingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfApiMapping.parse(map['items']) unless map['items'].nil?)
+        data.items = (List____listOfApiMapping.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -747,7 +747,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ApiMapping.parse(value) unless value.nil?
+          data << ApiMapping.parse(value) unless value.nil?
         end
         data
       end
@@ -769,7 +769,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(http_resp)
         data = Types::GetApisOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfApi.parse(map['items']) unless map['items'].nil?)
+        data.items = (List____listOfApi.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -779,7 +779,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Api.parse(value) unless value.nil?
+          data << Api.parse(value) unless value.nil?
         end
         data
       end
@@ -792,18 +792,18 @@ module AWS::SDK::ApiGatewayV2
         data.api_gateway_managed = map['apiGatewayManaged']
         data.api_id = map['apiId']
         data.api_key_selection_expression = map['apiKeySelectionExpression']
-        data.cors_configuration = (Parsers::Cors.parse(map['corsConfiguration']) unless map['corsConfiguration'].nil?)
+        data.cors_configuration = (Cors.parse(map['corsConfiguration']) unless map['corsConfiguration'].nil?)
         data.created_date = Time.parse(map['createdDate']) if map['createdDate']
         data.description = map['description']
         data.disable_schema_validation = map['disableSchemaValidation']
         data.disable_execute_api_endpoint = map['disableExecuteApiEndpoint']
-        data.import_info = (Parsers::List____listOf__string.parse(map['importInfo']) unless map['importInfo'].nil?)
+        data.import_info = (List____listOf__string.parse(map['importInfo']) unless map['importInfo'].nil?)
         data.name = map['name']
         data.protocol_type = map['protocolType']
         data.route_selection_expression = map['routeSelectionExpression']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.version = map['version']
-        data.warnings = (Parsers::List____listOf__string.parse(map['warnings']) unless map['warnings'].nil?)
+        data.warnings = (List____listOf__string.parse(map['warnings']) unless map['warnings'].nil?)
         return data
       end
     end
@@ -820,9 +820,9 @@ module AWS::SDK::ApiGatewayV2
         data.authorizer_type = map['authorizerType']
         data.authorizer_uri = map['authorizerUri']
         data.enable_simple_responses = map['enableSimpleResponses']
-        data.identity_source = (Parsers::IdentitySourceList.parse(map['identitySource']) unless map['identitySource'].nil?)
+        data.identity_source = (IdentitySourceList.parse(map['identitySource']) unless map['identitySource'].nil?)
         data.identity_validation_expression = map['identityValidationExpression']
-        data.jwt_configuration = (Parsers::JWTConfiguration.parse(map['jwtConfiguration']) unless map['jwtConfiguration'].nil?)
+        data.jwt_configuration = (JWTConfiguration.parse(map['jwtConfiguration']) unless map['jwtConfiguration'].nil?)
         data.name = map['name']
         data
       end
@@ -833,7 +833,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(http_resp)
         data = Types::GetAuthorizersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfAuthorizer.parse(map['items']) unless map['items'].nil?)
+        data.items = (List____listOfAuthorizer.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -843,7 +843,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Authorizer.parse(value) unless value.nil?
+          data << Authorizer.parse(value) unless value.nil?
         end
         data
       end
@@ -859,9 +859,9 @@ module AWS::SDK::ApiGatewayV2
         data.authorizer_type = map['authorizerType']
         data.authorizer_uri = map['authorizerUri']
         data.enable_simple_responses = map['enableSimpleResponses']
-        data.identity_source = (Parsers::IdentitySourceList.parse(map['identitySource']) unless map['identitySource'].nil?)
+        data.identity_source = (IdentitySourceList.parse(map['identitySource']) unless map['identitySource'].nil?)
         data.identity_validation_expression = map['identityValidationExpression']
-        data.jwt_configuration = (Parsers::JWTConfiguration.parse(map['jwtConfiguration']) unless map['jwtConfiguration'].nil?)
+        data.jwt_configuration = (JWTConfiguration.parse(map['jwtConfiguration']) unless map['jwtConfiguration'].nil?)
         data.name = map['name']
         return data
       end
@@ -887,7 +887,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(http_resp)
         data = Types::GetDeploymentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfDeployment.parse(map['items']) unless map['items'].nil?)
+        data.items = (List____listOfDeployment.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -897,7 +897,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Deployment.parse(value) unless value.nil?
+          data << Deployment.parse(value) unless value.nil?
         end
         data
       end
@@ -923,9 +923,9 @@ module AWS::SDK::ApiGatewayV2
         map = Hearth::JSON.load(http_resp.body)
         data.api_mapping_selection_expression = map['apiMappingSelectionExpression']
         data.domain_name = map['domainName']
-        data.domain_name_configurations = (Parsers::DomainNameConfigurations.parse(map['domainNameConfigurations']) unless map['domainNameConfigurations'].nil?)
-        data.mutual_tls_authentication = (Parsers::MutualTlsAuthentication.parse(map['mutualTlsAuthentication']) unless map['mutualTlsAuthentication'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.domain_name_configurations = (DomainNameConfigurations.parse(map['domainNameConfigurations']) unless map['domainNameConfigurations'].nil?)
+        data.mutual_tls_authentication = (MutualTlsAuthentication.parse(map['mutualTlsAuthentication']) unless map['mutualTlsAuthentication'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -935,7 +935,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(http_resp)
         data = Types::GetDomainNamesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfDomainName.parse(map['items']) unless map['items'].nil?)
+        data.items = (List____listOfDomainName.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -945,7 +945,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DomainName.parse(value) unless value.nil?
+          data << DomainName.parse(value) unless value.nil?
         end
         data
       end
@@ -956,9 +956,9 @@ module AWS::SDK::ApiGatewayV2
         data = Types::DomainName.new
         data.api_mapping_selection_expression = map['apiMappingSelectionExpression']
         data.domain_name = map['domainName']
-        data.domain_name_configurations = (Parsers::DomainNameConfigurations.parse(map['domainNameConfigurations']) unless map['domainNameConfigurations'].nil?)
-        data.mutual_tls_authentication = (Parsers::MutualTlsAuthentication.parse(map['mutualTlsAuthentication']) unless map['mutualTlsAuthentication'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.domain_name_configurations = (DomainNameConfigurations.parse(map['domainNameConfigurations']) unless map['domainNameConfigurations'].nil?)
+        data.mutual_tls_authentication = (MutualTlsAuthentication.parse(map['mutualTlsAuthentication']) unless map['mutualTlsAuthentication'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -982,12 +982,12 @@ module AWS::SDK::ApiGatewayV2
         data.integration_uri = map['integrationUri']
         data.passthrough_behavior = map['passthroughBehavior']
         data.payload_format_version = map['payloadFormatVersion']
-        data.request_parameters = (Parsers::IntegrationParameters.parse(map['requestParameters']) unless map['requestParameters'].nil?)
-        data.request_templates = (Parsers::TemplateMap.parse(map['requestTemplates']) unless map['requestTemplates'].nil?)
-        data.response_parameters = (Parsers::ResponseParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
+        data.request_parameters = (IntegrationParameters.parse(map['requestParameters']) unless map['requestParameters'].nil?)
+        data.request_templates = (TemplateMap.parse(map['requestTemplates']) unless map['requestTemplates'].nil?)
+        data.response_parameters = (ResponseParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
         data.template_selection_expression = map['templateSelectionExpression']
         data.timeout_in_millis = map['timeoutInMillis']
-        data.tls_config = (Parsers::TlsConfig.parse(map['tlsConfig']) unless map['tlsConfig'].nil?)
+        data.tls_config = (TlsConfig.parse(map['tlsConfig']) unless map['tlsConfig'].nil?)
         data
       end
     end
@@ -1000,8 +1000,8 @@ module AWS::SDK::ApiGatewayV2
         data.content_handling_strategy = map['contentHandlingStrategy']
         data.integration_response_id = map['integrationResponseId']
         data.integration_response_key = map['integrationResponseKey']
-        data.response_parameters = (Parsers::IntegrationParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
-        data.response_templates = (Parsers::TemplateMap.parse(map['responseTemplates']) unless map['responseTemplates'].nil?)
+        data.response_parameters = (IntegrationParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
+        data.response_templates = (TemplateMap.parse(map['responseTemplates']) unless map['responseTemplates'].nil?)
         data.template_selection_expression = map['templateSelectionExpression']
         data
       end
@@ -1012,7 +1012,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(http_resp)
         data = Types::GetIntegrationResponsesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfIntegrationResponse.parse(map['items']) unless map['items'].nil?)
+        data.items = (List____listOfIntegrationResponse.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1022,7 +1022,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::IntegrationResponse.parse(value) unless value.nil?
+          data << IntegrationResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -1034,8 +1034,8 @@ module AWS::SDK::ApiGatewayV2
         data.content_handling_strategy = map['contentHandlingStrategy']
         data.integration_response_id = map['integrationResponseId']
         data.integration_response_key = map['integrationResponseKey']
-        data.response_parameters = (Parsers::IntegrationParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
-        data.response_templates = (Parsers::TemplateMap.parse(map['responseTemplates']) unless map['responseTemplates'].nil?)
+        data.response_parameters = (IntegrationParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
+        data.response_templates = (TemplateMap.parse(map['responseTemplates']) unless map['responseTemplates'].nil?)
         data.template_selection_expression = map['templateSelectionExpression']
         return data
       end
@@ -1046,7 +1046,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(http_resp)
         data = Types::GetIntegrationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfIntegration.parse(map['items']) unless map['items'].nil?)
+        data.items = (List____listOfIntegration.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1056,7 +1056,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Integration.parse(value) unless value.nil?
+          data << Integration.parse(value) unless value.nil?
         end
         data
       end
@@ -1079,12 +1079,12 @@ module AWS::SDK::ApiGatewayV2
         data.integration_uri = map['integrationUri']
         data.passthrough_behavior = map['passthroughBehavior']
         data.payload_format_version = map['payloadFormatVersion']
-        data.request_parameters = (Parsers::IntegrationParameters.parse(map['requestParameters']) unless map['requestParameters'].nil?)
-        data.request_templates = (Parsers::TemplateMap.parse(map['requestTemplates']) unless map['requestTemplates'].nil?)
-        data.response_parameters = (Parsers::ResponseParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
+        data.request_parameters = (IntegrationParameters.parse(map['requestParameters']) unless map['requestParameters'].nil?)
+        data.request_templates = (TemplateMap.parse(map['requestTemplates']) unless map['requestTemplates'].nil?)
+        data.response_parameters = (ResponseParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
         data.template_selection_expression = map['templateSelectionExpression']
         data.timeout_in_millis = map['timeoutInMillis']
-        data.tls_config = (Parsers::TlsConfig.parse(map['tlsConfig']) unless map['tlsConfig'].nil?)
+        data.tls_config = (TlsConfig.parse(map['tlsConfig']) unless map['tlsConfig'].nil?)
         return data
       end
     end
@@ -1118,7 +1118,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(http_resp)
         data = Types::GetModelsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfModel.parse(map['items']) unless map['items'].nil?)
+        data.items = (List____listOfModel.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1128,7 +1128,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Model.parse(value) unless value.nil?
+          data << Model.parse(value) unless value.nil?
         end
         data
       end
@@ -1153,13 +1153,13 @@ module AWS::SDK::ApiGatewayV2
         map = Hearth::JSON.load(http_resp.body)
         data.api_gateway_managed = map['apiGatewayManaged']
         data.api_key_required = map['apiKeyRequired']
-        data.authorization_scopes = (Parsers::AuthorizationScopes.parse(map['authorizationScopes']) unless map['authorizationScopes'].nil?)
+        data.authorization_scopes = (AuthorizationScopes.parse(map['authorizationScopes']) unless map['authorizationScopes'].nil?)
         data.authorization_type = map['authorizationType']
         data.authorizer_id = map['authorizerId']
         data.model_selection_expression = map['modelSelectionExpression']
         data.operation_name = map['operationName']
-        data.request_models = (Parsers::RouteModels.parse(map['requestModels']) unless map['requestModels'].nil?)
-        data.request_parameters = (Parsers::RouteParameters.parse(map['requestParameters']) unless map['requestParameters'].nil?)
+        data.request_models = (RouteModels.parse(map['requestModels']) unless map['requestModels'].nil?)
+        data.request_parameters = (RouteParameters.parse(map['requestParameters']) unless map['requestParameters'].nil?)
         data.route_id = map['routeId']
         data.route_key = map['routeKey']
         data.route_response_selection_expression = map['routeResponseSelectionExpression']
@@ -1174,8 +1174,8 @@ module AWS::SDK::ApiGatewayV2
         data = Types::GetRouteResponseOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.model_selection_expression = map['modelSelectionExpression']
-        data.response_models = (Parsers::RouteModels.parse(map['responseModels']) unless map['responseModels'].nil?)
-        data.response_parameters = (Parsers::RouteParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
+        data.response_models = (RouteModels.parse(map['responseModels']) unless map['responseModels'].nil?)
+        data.response_parameters = (RouteParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
         data.route_response_id = map['routeResponseId']
         data.route_response_key = map['routeResponseKey']
         data
@@ -1187,7 +1187,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(http_resp)
         data = Types::GetRouteResponsesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfRouteResponse.parse(map['items']) unless map['items'].nil?)
+        data.items = (List____listOfRouteResponse.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1197,7 +1197,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RouteResponse.parse(value) unless value.nil?
+          data << RouteResponse.parse(value) unless value.nil?
         end
         data
       end
@@ -1207,8 +1207,8 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(map)
         data = Types::RouteResponse.new
         data.model_selection_expression = map['modelSelectionExpression']
-        data.response_models = (Parsers::RouteModels.parse(map['responseModels']) unless map['responseModels'].nil?)
-        data.response_parameters = (Parsers::RouteParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
+        data.response_models = (RouteModels.parse(map['responseModels']) unless map['responseModels'].nil?)
+        data.response_parameters = (RouteParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
         data.route_response_id = map['routeResponseId']
         data.route_response_key = map['routeResponseKey']
         return data
@@ -1220,7 +1220,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(http_resp)
         data = Types::GetRoutesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfRoute.parse(map['items']) unless map['items'].nil?)
+        data.items = (List____listOfRoute.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1230,7 +1230,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Route.parse(value) unless value.nil?
+          data << Route.parse(value) unless value.nil?
         end
         data
       end
@@ -1241,13 +1241,13 @@ module AWS::SDK::ApiGatewayV2
         data = Types::Route.new
         data.api_gateway_managed = map['apiGatewayManaged']
         data.api_key_required = map['apiKeyRequired']
-        data.authorization_scopes = (Parsers::AuthorizationScopes.parse(map['authorizationScopes']) unless map['authorizationScopes'].nil?)
+        data.authorization_scopes = (AuthorizationScopes.parse(map['authorizationScopes']) unless map['authorizationScopes'].nil?)
         data.authorization_type = map['authorizationType']
         data.authorizer_id = map['authorizerId']
         data.model_selection_expression = map['modelSelectionExpression']
         data.operation_name = map['operationName']
-        data.request_models = (Parsers::RouteModels.parse(map['requestModels']) unless map['requestModels'].nil?)
-        data.request_parameters = (Parsers::RouteParameters.parse(map['requestParameters']) unless map['requestParameters'].nil?)
+        data.request_models = (RouteModels.parse(map['requestModels']) unless map['requestModels'].nil?)
+        data.request_parameters = (RouteParameters.parse(map['requestParameters']) unless map['requestParameters'].nil?)
         data.route_id = map['routeId']
         data.route_key = map['routeKey']
         data.route_response_selection_expression = map['routeResponseSelectionExpression']
@@ -1261,20 +1261,20 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(http_resp)
         data = Types::GetStageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.access_log_settings = (Parsers::AccessLogSettings.parse(map['accessLogSettings']) unless map['accessLogSettings'].nil?)
+        data.access_log_settings = (AccessLogSettings.parse(map['accessLogSettings']) unless map['accessLogSettings'].nil?)
         data.api_gateway_managed = map['apiGatewayManaged']
         data.auto_deploy = map['autoDeploy']
         data.client_certificate_id = map['clientCertificateId']
         data.created_date = Time.parse(map['createdDate']) if map['createdDate']
-        data.default_route_settings = (Parsers::RouteSettings.parse(map['defaultRouteSettings']) unless map['defaultRouteSettings'].nil?)
+        data.default_route_settings = (RouteSettings.parse(map['defaultRouteSettings']) unless map['defaultRouteSettings'].nil?)
         data.deployment_id = map['deploymentId']
         data.description = map['description']
         data.last_deployment_status_message = map['lastDeploymentStatusMessage']
         data.last_updated_date = Time.parse(map['lastUpdatedDate']) if map['lastUpdatedDate']
-        data.route_settings = (Parsers::RouteSettingsMap.parse(map['routeSettings']) unless map['routeSettings'].nil?)
+        data.route_settings = (RouteSettingsMap.parse(map['routeSettings']) unless map['routeSettings'].nil?)
         data.stage_name = map['stageName']
-        data.stage_variables = (Parsers::StageVariablesMap.parse(map['stageVariables']) unless map['stageVariables'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.stage_variables = (StageVariablesMap.parse(map['stageVariables']) unless map['stageVariables'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1284,7 +1284,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(http_resp)
         data = Types::GetStagesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfStage.parse(map['items']) unless map['items'].nil?)
+        data.items = (List____listOfStage.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1294,7 +1294,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Stage.parse(value) unless value.nil?
+          data << Stage.parse(value) unless value.nil?
         end
         data
       end
@@ -1303,20 +1303,20 @@ module AWS::SDK::ApiGatewayV2
     class Stage
       def self.parse(map)
         data = Types::Stage.new
-        data.access_log_settings = (Parsers::AccessLogSettings.parse(map['accessLogSettings']) unless map['accessLogSettings'].nil?)
+        data.access_log_settings = (AccessLogSettings.parse(map['accessLogSettings']) unless map['accessLogSettings'].nil?)
         data.api_gateway_managed = map['apiGatewayManaged']
         data.auto_deploy = map['autoDeploy']
         data.client_certificate_id = map['clientCertificateId']
         data.created_date = Time.parse(map['createdDate']) if map['createdDate']
-        data.default_route_settings = (Parsers::RouteSettings.parse(map['defaultRouteSettings']) unless map['defaultRouteSettings'].nil?)
+        data.default_route_settings = (RouteSettings.parse(map['defaultRouteSettings']) unless map['defaultRouteSettings'].nil?)
         data.deployment_id = map['deploymentId']
         data.description = map['description']
         data.last_deployment_status_message = map['lastDeploymentStatusMessage']
         data.last_updated_date = Time.parse(map['lastUpdatedDate']) if map['lastUpdatedDate']
-        data.route_settings = (Parsers::RouteSettingsMap.parse(map['routeSettings']) unless map['routeSettings'].nil?)
+        data.route_settings = (RouteSettingsMap.parse(map['routeSettings']) unless map['routeSettings'].nil?)
         data.stage_name = map['stageName']
-        data.stage_variables = (Parsers::StageVariablesMap.parse(map['stageVariables']) unless map['stageVariables'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.stage_variables = (StageVariablesMap.parse(map['stageVariables']) unless map['stageVariables'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -1326,7 +1326,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(http_resp)
         data = Types::GetTagsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1338,9 +1338,9 @@ module AWS::SDK::ApiGatewayV2
         map = Hearth::JSON.load(http_resp.body)
         data.created_date = Time.parse(map['createdDate']) if map['createdDate']
         data.name = map['name']
-        data.security_group_ids = (Parsers::SecurityGroupIdList.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
-        data.subnet_ids = (Parsers::SubnetIdList.parse(map['subnetIds']) unless map['subnetIds'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.security_group_ids = (SecurityGroupIdList.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
+        data.subnet_ids = (SubnetIdList.parse(map['subnetIds']) unless map['subnetIds'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.vpc_link_id = map['vpcLinkId']
         data.vpc_link_status = map['vpcLinkStatus']
         data.vpc_link_status_message = map['vpcLinkStatusMessage']
@@ -1354,7 +1354,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(http_resp)
         data = Types::GetVpcLinksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfVpcLink.parse(map['items']) unless map['items'].nil?)
+        data.items = (List____listOfVpcLink.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1364,7 +1364,7 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VpcLink.parse(value) unless value.nil?
+          data << VpcLink.parse(value) unless value.nil?
         end
         data
       end
@@ -1375,9 +1375,9 @@ module AWS::SDK::ApiGatewayV2
         data = Types::VpcLink.new
         data.created_date = Time.parse(map['createdDate']) if map['createdDate']
         data.name = map['name']
-        data.security_group_ids = (Parsers::SecurityGroupIdList.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
-        data.subnet_ids = (Parsers::SubnetIdList.parse(map['subnetIds']) unless map['subnetIds'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.security_group_ids = (SecurityGroupIdList.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
+        data.subnet_ids = (SubnetIdList.parse(map['subnetIds']) unless map['subnetIds'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.vpc_link_id = map['vpcLinkId']
         data.vpc_link_status = map['vpcLinkStatus']
         data.vpc_link_status_message = map['vpcLinkStatusMessage']
@@ -1395,18 +1395,18 @@ module AWS::SDK::ApiGatewayV2
         data.api_gateway_managed = map['apiGatewayManaged']
         data.api_id = map['apiId']
         data.api_key_selection_expression = map['apiKeySelectionExpression']
-        data.cors_configuration = (Parsers::Cors.parse(map['corsConfiguration']) unless map['corsConfiguration'].nil?)
+        data.cors_configuration = (Cors.parse(map['corsConfiguration']) unless map['corsConfiguration'].nil?)
         data.created_date = Time.parse(map['createdDate']) if map['createdDate']
         data.description = map['description']
         data.disable_schema_validation = map['disableSchemaValidation']
         data.disable_execute_api_endpoint = map['disableExecuteApiEndpoint']
-        data.import_info = (Parsers::List____listOf__string.parse(map['importInfo']) unless map['importInfo'].nil?)
+        data.import_info = (List____listOf__string.parse(map['importInfo']) unless map['importInfo'].nil?)
         data.name = map['name']
         data.protocol_type = map['protocolType']
         data.route_selection_expression = map['routeSelectionExpression']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.version = map['version']
-        data.warnings = (Parsers::List____listOf__string.parse(map['warnings']) unless map['warnings'].nil?)
+        data.warnings = (List____listOf__string.parse(map['warnings']) unless map['warnings'].nil?)
         data
       end
     end
@@ -1420,18 +1420,18 @@ module AWS::SDK::ApiGatewayV2
         data.api_gateway_managed = map['apiGatewayManaged']
         data.api_id = map['apiId']
         data.api_key_selection_expression = map['apiKeySelectionExpression']
-        data.cors_configuration = (Parsers::Cors.parse(map['corsConfiguration']) unless map['corsConfiguration'].nil?)
+        data.cors_configuration = (Cors.parse(map['corsConfiguration']) unless map['corsConfiguration'].nil?)
         data.created_date = Time.parse(map['createdDate']) if map['createdDate']
         data.description = map['description']
         data.disable_schema_validation = map['disableSchemaValidation']
         data.disable_execute_api_endpoint = map['disableExecuteApiEndpoint']
-        data.import_info = (Parsers::List____listOf__string.parse(map['importInfo']) unless map['importInfo'].nil?)
+        data.import_info = (List____listOf__string.parse(map['importInfo']) unless map['importInfo'].nil?)
         data.name = map['name']
         data.protocol_type = map['protocolType']
         data.route_selection_expression = map['routeSelectionExpression']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.version = map['version']
-        data.warnings = (Parsers::List____listOf__string.parse(map['warnings']) unless map['warnings'].nil?)
+        data.warnings = (List____listOf__string.parse(map['warnings']) unless map['warnings'].nil?)
         data
       end
     end
@@ -1472,18 +1472,18 @@ module AWS::SDK::ApiGatewayV2
         data.api_gateway_managed = map['apiGatewayManaged']
         data.api_id = map['apiId']
         data.api_key_selection_expression = map['apiKeySelectionExpression']
-        data.cors_configuration = (Parsers::Cors.parse(map['corsConfiguration']) unless map['corsConfiguration'].nil?)
+        data.cors_configuration = (Cors.parse(map['corsConfiguration']) unless map['corsConfiguration'].nil?)
         data.created_date = Time.parse(map['createdDate']) if map['createdDate']
         data.description = map['description']
         data.disable_schema_validation = map['disableSchemaValidation']
         data.disable_execute_api_endpoint = map['disableExecuteApiEndpoint']
-        data.import_info = (Parsers::List____listOf__string.parse(map['importInfo']) unless map['importInfo'].nil?)
+        data.import_info = (List____listOf__string.parse(map['importInfo']) unless map['importInfo'].nil?)
         data.name = map['name']
         data.protocol_type = map['protocolType']
         data.route_selection_expression = map['routeSelectionExpression']
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.version = map['version']
-        data.warnings = (Parsers::List____listOf__string.parse(map['warnings']) unless map['warnings'].nil?)
+        data.warnings = (List____listOf__string.parse(map['warnings']) unless map['warnings'].nil?)
         data
       end
     end
@@ -1513,9 +1513,9 @@ module AWS::SDK::ApiGatewayV2
         data.authorizer_type = map['authorizerType']
         data.authorizer_uri = map['authorizerUri']
         data.enable_simple_responses = map['enableSimpleResponses']
-        data.identity_source = (Parsers::IdentitySourceList.parse(map['identitySource']) unless map['identitySource'].nil?)
+        data.identity_source = (IdentitySourceList.parse(map['identitySource']) unless map['identitySource'].nil?)
         data.identity_validation_expression = map['identityValidationExpression']
-        data.jwt_configuration = (Parsers::JWTConfiguration.parse(map['jwtConfiguration']) unless map['jwtConfiguration'].nil?)
+        data.jwt_configuration = (JWTConfiguration.parse(map['jwtConfiguration']) unless map['jwtConfiguration'].nil?)
         data.name = map['name']
         data
       end
@@ -1543,9 +1543,9 @@ module AWS::SDK::ApiGatewayV2
         map = Hearth::JSON.load(http_resp.body)
         data.api_mapping_selection_expression = map['apiMappingSelectionExpression']
         data.domain_name = map['domainName']
-        data.domain_name_configurations = (Parsers::DomainNameConfigurations.parse(map['domainNameConfigurations']) unless map['domainNameConfigurations'].nil?)
-        data.mutual_tls_authentication = (Parsers::MutualTlsAuthentication.parse(map['mutualTlsAuthentication']) unless map['mutualTlsAuthentication'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.domain_name_configurations = (DomainNameConfigurations.parse(map['domainNameConfigurations']) unless map['domainNameConfigurations'].nil?)
+        data.mutual_tls_authentication = (MutualTlsAuthentication.parse(map['mutualTlsAuthentication']) unless map['mutualTlsAuthentication'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1569,12 +1569,12 @@ module AWS::SDK::ApiGatewayV2
         data.integration_uri = map['integrationUri']
         data.passthrough_behavior = map['passthroughBehavior']
         data.payload_format_version = map['payloadFormatVersion']
-        data.request_parameters = (Parsers::IntegrationParameters.parse(map['requestParameters']) unless map['requestParameters'].nil?)
-        data.request_templates = (Parsers::TemplateMap.parse(map['requestTemplates']) unless map['requestTemplates'].nil?)
-        data.response_parameters = (Parsers::ResponseParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
+        data.request_parameters = (IntegrationParameters.parse(map['requestParameters']) unless map['requestParameters'].nil?)
+        data.request_templates = (TemplateMap.parse(map['requestTemplates']) unless map['requestTemplates'].nil?)
+        data.response_parameters = (ResponseParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
         data.template_selection_expression = map['templateSelectionExpression']
         data.timeout_in_millis = map['timeoutInMillis']
-        data.tls_config = (Parsers::TlsConfig.parse(map['tlsConfig']) unless map['tlsConfig'].nil?)
+        data.tls_config = (TlsConfig.parse(map['tlsConfig']) unless map['tlsConfig'].nil?)
         data
       end
     end
@@ -1587,8 +1587,8 @@ module AWS::SDK::ApiGatewayV2
         data.content_handling_strategy = map['contentHandlingStrategy']
         data.integration_response_id = map['integrationResponseId']
         data.integration_response_key = map['integrationResponseKey']
-        data.response_parameters = (Parsers::IntegrationParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
-        data.response_templates = (Parsers::TemplateMap.parse(map['responseTemplates']) unless map['responseTemplates'].nil?)
+        data.response_parameters = (IntegrationParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
+        data.response_templates = (TemplateMap.parse(map['responseTemplates']) unless map['responseTemplates'].nil?)
         data.template_selection_expression = map['templateSelectionExpression']
         data
       end
@@ -1615,13 +1615,13 @@ module AWS::SDK::ApiGatewayV2
         map = Hearth::JSON.load(http_resp.body)
         data.api_gateway_managed = map['apiGatewayManaged']
         data.api_key_required = map['apiKeyRequired']
-        data.authorization_scopes = (Parsers::AuthorizationScopes.parse(map['authorizationScopes']) unless map['authorizationScopes'].nil?)
+        data.authorization_scopes = (AuthorizationScopes.parse(map['authorizationScopes']) unless map['authorizationScopes'].nil?)
         data.authorization_type = map['authorizationType']
         data.authorizer_id = map['authorizerId']
         data.model_selection_expression = map['modelSelectionExpression']
         data.operation_name = map['operationName']
-        data.request_models = (Parsers::RouteModels.parse(map['requestModels']) unless map['requestModels'].nil?)
-        data.request_parameters = (Parsers::RouteParameters.parse(map['requestParameters']) unless map['requestParameters'].nil?)
+        data.request_models = (RouteModels.parse(map['requestModels']) unless map['requestModels'].nil?)
+        data.request_parameters = (RouteParameters.parse(map['requestParameters']) unless map['requestParameters'].nil?)
         data.route_id = map['routeId']
         data.route_key = map['routeKey']
         data.route_response_selection_expression = map['routeResponseSelectionExpression']
@@ -1636,8 +1636,8 @@ module AWS::SDK::ApiGatewayV2
         data = Types::UpdateRouteResponseOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.model_selection_expression = map['modelSelectionExpression']
-        data.response_models = (Parsers::RouteModels.parse(map['responseModels']) unless map['responseModels'].nil?)
-        data.response_parameters = (Parsers::RouteParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
+        data.response_models = (RouteModels.parse(map['responseModels']) unless map['responseModels'].nil?)
+        data.response_parameters = (RouteParameters.parse(map['responseParameters']) unless map['responseParameters'].nil?)
         data.route_response_id = map['routeResponseId']
         data.route_response_key = map['routeResponseKey']
         data
@@ -1649,20 +1649,20 @@ module AWS::SDK::ApiGatewayV2
       def self.parse(http_resp)
         data = Types::UpdateStageOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.access_log_settings = (Parsers::AccessLogSettings.parse(map['accessLogSettings']) unless map['accessLogSettings'].nil?)
+        data.access_log_settings = (AccessLogSettings.parse(map['accessLogSettings']) unless map['accessLogSettings'].nil?)
         data.api_gateway_managed = map['apiGatewayManaged']
         data.auto_deploy = map['autoDeploy']
         data.client_certificate_id = map['clientCertificateId']
         data.created_date = Time.parse(map['createdDate']) if map['createdDate']
-        data.default_route_settings = (Parsers::RouteSettings.parse(map['defaultRouteSettings']) unless map['defaultRouteSettings'].nil?)
+        data.default_route_settings = (RouteSettings.parse(map['defaultRouteSettings']) unless map['defaultRouteSettings'].nil?)
         data.deployment_id = map['deploymentId']
         data.description = map['description']
         data.last_deployment_status_message = map['lastDeploymentStatusMessage']
         data.last_updated_date = Time.parse(map['lastUpdatedDate']) if map['lastUpdatedDate']
-        data.route_settings = (Parsers::RouteSettingsMap.parse(map['routeSettings']) unless map['routeSettings'].nil?)
+        data.route_settings = (RouteSettingsMap.parse(map['routeSettings']) unless map['routeSettings'].nil?)
         data.stage_name = map['stageName']
-        data.stage_variables = (Parsers::StageVariablesMap.parse(map['stageVariables']) unless map['stageVariables'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.stage_variables = (StageVariablesMap.parse(map['stageVariables']) unless map['stageVariables'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1674,9 +1674,9 @@ module AWS::SDK::ApiGatewayV2
         map = Hearth::JSON.load(http_resp.body)
         data.created_date = Time.parse(map['createdDate']) if map['createdDate']
         data.name = map['name']
-        data.security_group_ids = (Parsers::SecurityGroupIdList.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
-        data.subnet_ids = (Parsers::SubnetIdList.parse(map['subnetIds']) unless map['subnetIds'].nil?)
-        data.tags = (Parsers::Tags.parse(map['tags']) unless map['tags'].nil?)
+        data.security_group_ids = (SecurityGroupIdList.parse(map['securityGroupIds']) unless map['securityGroupIds'].nil?)
+        data.subnet_ids = (SubnetIdList.parse(map['subnetIds']) unless map['subnetIds'].nil?)
+        data.tags = (Tags.parse(map['tags']) unless map['tags'].nil?)
         data.vpc_link_id = map['vpcLinkId']
         data.vpc_link_status = map['vpcLinkStatus']
         data.vpc_link_status_message = map['vpcLinkStatusMessage']

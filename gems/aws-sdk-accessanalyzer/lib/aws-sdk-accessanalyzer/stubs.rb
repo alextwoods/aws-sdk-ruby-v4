@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AccessAnalyzer
   module Stubs
 
@@ -49,7 +51,7 @@ module AWS::SDK::AccessAnalyzer
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['id'] = stub[:id] unless stub[:id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -66,7 +68,7 @@ module AWS::SDK::AccessAnalyzer
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['arn'] = stub[:arn] unless stub[:arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -121,8 +123,8 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['accessPreview'] = Stubs::AccessPreview.stub(stub[:access_preview]) unless stub[:access_preview].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['accessPreview'] = AccessPreview.stub(stub[:access_preview]) unless stub[:access_preview].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -146,10 +148,10 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
         data['analyzerArn'] = stub[:analyzer_arn] unless stub[:analyzer_arn].nil?
-        data['configurations'] = Stubs::ConfigurationsMap.stub(stub[:configurations]) unless stub[:configurations].nil?
+        data['configurations'] = ConfigurationsMap.stub(stub[:configurations]) unless stub[:configurations].nil?
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['statusReason'] = Stubs::AccessPreviewStatusReason.stub(stub[:status_reason]) unless stub[:status_reason].nil?
+        data['statusReason'] = AccessPreviewStatusReason.stub(stub[:status_reason]) unless stub[:status_reason].nil?
         data
       end
     end
@@ -186,7 +188,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::Configuration.stub(value) unless value.nil?
+          data[key] = Configuration.stub(value) unless value.nil?
         end
         data
       end
@@ -206,15 +208,15 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         case stub
         when Types::Configuration::IamRole
-          data['iamRole'] = (Stubs::IamRoleConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['iamRole'] = (IamRoleConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::Configuration::KmsKey
-          data['kmsKey'] = (Stubs::KmsKeyConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['kmsKey'] = (KmsKeyConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::Configuration::SecretsManagerSecret
-          data['secretsManagerSecret'] = (Stubs::SecretsManagerSecretConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['secretsManagerSecret'] = (SecretsManagerSecretConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::Configuration::S3Bucket
-          data['s3Bucket'] = (Stubs::S3BucketConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['s3Bucket'] = (S3BucketConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::Configuration::SqsQueue
-          data['sqsQueue'] = (Stubs::SqsQueueConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['sqsQueue'] = (SqsQueueConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::Configuration"
@@ -259,9 +261,9 @@ module AWS::SDK::AccessAnalyzer
         stub ||= Types::S3BucketConfiguration.new
         data = {}
         data['bucketPolicy'] = stub[:bucket_policy] unless stub[:bucket_policy].nil?
-        data['bucketAclGrants'] = Stubs::S3BucketAclGrantConfigurationsList.stub(stub[:bucket_acl_grants]) unless stub[:bucket_acl_grants].nil?
-        data['bucketPublicAccessBlock'] = Stubs::S3PublicAccessBlockConfiguration.stub(stub[:bucket_public_access_block]) unless stub[:bucket_public_access_block].nil?
-        data['accessPoints'] = Stubs::S3AccessPointConfigurationsMap.stub(stub[:access_points]) unless stub[:access_points].nil?
+        data['bucketAclGrants'] = S3BucketAclGrantConfigurationsList.stub(stub[:bucket_acl_grants]) unless stub[:bucket_acl_grants].nil?
+        data['bucketPublicAccessBlock'] = S3PublicAccessBlockConfiguration.stub(stub[:bucket_public_access_block]) unless stub[:bucket_public_access_block].nil?
+        data['accessPoints'] = S3AccessPointConfigurationsMap.stub(stub[:access_points]) unless stub[:access_points].nil?
         data
       end
     end
@@ -280,7 +282,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::S3AccessPointConfiguration.stub(value) unless value.nil?
+          data[key] = S3AccessPointConfiguration.stub(value) unless value.nil?
         end
         data
       end
@@ -302,8 +304,8 @@ module AWS::SDK::AccessAnalyzer
         stub ||= Types::S3AccessPointConfiguration.new
         data = {}
         data['accessPointPolicy'] = stub[:access_point_policy] unless stub[:access_point_policy].nil?
-        data['publicAccessBlock'] = Stubs::S3PublicAccessBlockConfiguration.stub(stub[:public_access_block]) unless stub[:public_access_block].nil?
-        data['networkOrigin'] = Stubs::NetworkOriginConfiguration.stub(stub[:network_origin]) unless stub[:network_origin].nil?
+        data['publicAccessBlock'] = S3PublicAccessBlockConfiguration.stub(stub[:public_access_block]) unless stub[:public_access_block].nil?
+        data['networkOrigin'] = NetworkOriginConfiguration.stub(stub[:network_origin]) unless stub[:network_origin].nil?
         data
       end
     end
@@ -322,9 +324,9 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         case stub
         when Types::NetworkOriginConfiguration::VpcConfiguration
-          data['vpcConfiguration'] = (Stubs::VpcConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['vpcConfiguration'] = (VpcConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::NetworkOriginConfiguration::InternetConfiguration
-          data['internetConfiguration'] = (Stubs::InternetConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['internetConfiguration'] = (InternetConfiguration.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::NetworkOriginConfiguration"
@@ -402,7 +404,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::S3BucketAclGrantConfiguration.stub(element) unless element.nil?
+          data << S3BucketAclGrantConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -423,7 +425,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= Types::S3BucketAclGrantConfiguration.new
         data = {}
         data['permission'] = stub[:permission] unless stub[:permission].nil?
-        data['grantee'] = Stubs::AclGrantee.stub(stub[:grantee]) unless stub[:grantee].nil?
+        data['grantee'] = AclGrantee.stub(stub[:grantee]) unless stub[:grantee].nil?
         data
       end
     end
@@ -488,8 +490,8 @@ module AWS::SDK::AccessAnalyzer
       def self.stub(stub)
         stub ||= Types::KmsKeyConfiguration.new
         data = {}
-        data['keyPolicies'] = Stubs::KmsKeyPoliciesMap.stub(stub[:key_policies]) unless stub[:key_policies].nil?
-        data['grants'] = Stubs::KmsGrantConfigurationsList.stub(stub[:grants]) unless stub[:grants].nil?
+        data['keyPolicies'] = KmsKeyPoliciesMap.stub(stub[:key_policies]) unless stub[:key_policies].nil?
+        data['grants'] = KmsGrantConfigurationsList.stub(stub[:grants]) unless stub[:grants].nil?
         data
       end
     end
@@ -508,7 +510,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KmsGrantConfiguration.stub(element) unless element.nil?
+          data << KmsGrantConfiguration.stub(element) unless element.nil?
         end
         data
       end
@@ -531,10 +533,10 @@ module AWS::SDK::AccessAnalyzer
       def self.stub(stub)
         stub ||= Types::KmsGrantConfiguration.new
         data = {}
-        data['operations'] = Stubs::KmsGrantOperationsList.stub(stub[:operations]) unless stub[:operations].nil?
+        data['operations'] = KmsGrantOperationsList.stub(stub[:operations]) unless stub[:operations].nil?
         data['granteePrincipal'] = stub[:grantee_principal] unless stub[:grantee_principal].nil?
         data['retiringPrincipal'] = stub[:retiring_principal] unless stub[:retiring_principal].nil?
-        data['constraints'] = Stubs::KmsGrantConstraints.stub(stub[:constraints]) unless stub[:constraints].nil?
+        data['constraints'] = KmsGrantConstraints.stub(stub[:constraints]) unless stub[:constraints].nil?
         data['issuingAccount'] = stub[:issuing_account] unless stub[:issuing_account].nil?
         data
       end
@@ -554,8 +556,8 @@ module AWS::SDK::AccessAnalyzer
       def self.stub(stub)
         stub ||= Types::KmsGrantConstraints.new
         data = {}
-        data['encryptionContextEquals'] = Stubs::KmsConstraintsMap.stub(stub[:encryption_context_equals]) unless stub[:encryption_context_equals].nil?
-        data['encryptionContextSubset'] = Stubs::KmsConstraintsMap.stub(stub[:encryption_context_subset]) unless stub[:encryption_context_subset].nil?
+        data['encryptionContextEquals'] = KmsConstraintsMap.stub(stub[:encryption_context_equals]) unless stub[:encryption_context_equals].nil?
+        data['encryptionContextSubset'] = KmsConstraintsMap.stub(stub[:encryption_context_subset]) unless stub[:encryption_context_subset].nil?
         data
       end
     end
@@ -650,8 +652,8 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['resource'] = Stubs::AnalyzedResource.stub(stub[:resource]) unless stub[:resource].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resource'] = AnalyzedResource.stub(stub[:resource]) unless stub[:resource].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -684,8 +686,8 @@ module AWS::SDK::AccessAnalyzer
         data['analyzedAt'] = Hearth::TimeHelper.to_date_time(stub[:analyzed_at]) unless stub[:analyzed_at].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
         data['isPublic'] = stub[:is_public] unless stub[:is_public].nil?
-        data['actions'] = Stubs::ActionList.stub(stub[:actions]) unless stub[:actions].nil?
-        data['sharedVia'] = Stubs::SharedViaList.stub(stub[:shared_via]) unless stub[:shared_via].nil?
+        data['actions'] = ActionList.stub(stub[:actions]) unless stub[:actions].nil?
+        data['sharedVia'] = SharedViaList.stub(stub[:shared_via]) unless stub[:shared_via].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['resourceOwnerAccount'] = stub[:resource_owner_account] unless stub[:resource_owner_account].nil?
         data['error'] = stub[:error] unless stub[:error].nil?
@@ -745,8 +747,8 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['analyzer'] = Stubs::AnalyzerSummary.stub(stub[:analyzer]) unless stub[:analyzer].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['analyzer'] = AnalyzerSummary.stub(stub[:analyzer]) unless stub[:analyzer].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -777,9 +779,9 @@ module AWS::SDK::AccessAnalyzer
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['lastResourceAnalyzed'] = stub[:last_resource_analyzed] unless stub[:last_resource_analyzed].nil?
         data['lastResourceAnalyzedAt'] = Hearth::TimeHelper.to_date_time(stub[:last_resource_analyzed_at]) unless stub[:last_resource_analyzed_at].nil?
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['statusReason'] = Stubs::StatusReason.stub(stub[:status_reason]) unless stub[:status_reason].nil?
+        data['statusReason'] = StatusReason.stub(stub[:status_reason]) unless stub[:status_reason].nil?
         data
       end
     end
@@ -834,8 +836,8 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['archiveRule'] = Stubs::ArchiveRuleSummary.stub(stub[:archive_rule]) unless stub[:archive_rule].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['archiveRule'] = ArchiveRuleSummary.stub(stub[:archive_rule]) unless stub[:archive_rule].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -856,7 +858,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= Types::ArchiveRuleSummary.new
         data = {}
         data['ruleName'] = stub[:rule_name] unless stub[:rule_name].nil?
-        data['filter'] = Stubs::FilterCriteriaMap.stub(stub[:filter]) unless stub[:filter].nil?
+        data['filter'] = FilterCriteriaMap.stub(stub[:filter]) unless stub[:filter].nil?
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
         data
@@ -877,7 +879,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::Criterion.stub(value) unless value.nil?
+          data[key] = Criterion.stub(value) unless value.nil?
         end
         data
       end
@@ -899,9 +901,9 @@ module AWS::SDK::AccessAnalyzer
       def self.stub(stub)
         stub ||= Types::Criterion.new
         data = {}
-        data['eq'] = Stubs::ValueList.stub(stub[:eq]) unless stub[:eq].nil?
-        data['neq'] = Stubs::ValueList.stub(stub[:neq]) unless stub[:neq].nil?
-        data['contains'] = Stubs::ValueList.stub(stub[:contains]) unless stub[:contains].nil?
+        data['eq'] = ValueList.stub(stub[:eq]) unless stub[:eq].nil?
+        data['neq'] = ValueList.stub(stub[:neq]) unless stub[:neq].nil?
+        data['contains'] = ValueList.stub(stub[:contains]) unless stub[:contains].nil?
         data['exists'] = stub[:exists] unless stub[:exists].nil?
         data
       end
@@ -939,8 +941,8 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['finding'] = Stubs::Finding.stub(stub[:finding]) unless stub[:finding].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['finding'] = Finding.stub(stub[:finding]) unless stub[:finding].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -971,19 +973,19 @@ module AWS::SDK::AccessAnalyzer
         stub ||= Types::Finding.new
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['principal'] = Stubs::PrincipalMap.stub(stub[:principal]) unless stub[:principal].nil?
-        data['action'] = Stubs::ActionList.stub(stub[:action]) unless stub[:action].nil?
+        data['principal'] = PrincipalMap.stub(stub[:principal]) unless stub[:principal].nil?
+        data['action'] = ActionList.stub(stub[:action]) unless stub[:action].nil?
         data['resource'] = stub[:resource] unless stub[:resource].nil?
         data['isPublic'] = stub[:is_public] unless stub[:is_public].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['condition'] = Stubs::ConditionKeyMap.stub(stub[:condition]) unless stub[:condition].nil?
+        data['condition'] = ConditionKeyMap.stub(stub[:condition]) unless stub[:condition].nil?
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['analyzedAt'] = Hearth::TimeHelper.to_date_time(stub[:analyzed_at]) unless stub[:analyzed_at].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['resourceOwnerAccount'] = stub[:resource_owner_account] unless stub[:resource_owner_account].nil?
         data['error'] = stub[:error] unless stub[:error].nil?
-        data['sources'] = Stubs::FindingSourceList.stub(stub[:sources]) unless stub[:sources].nil?
+        data['sources'] = FindingSourceList.stub(stub[:sources]) unless stub[:sources].nil?
         data
       end
     end
@@ -1002,7 +1004,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FindingSource.stub(element) unless element.nil?
+          data << FindingSource.stub(element) unless element.nil?
         end
         data
       end
@@ -1023,7 +1025,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= Types::FindingSource.new
         data = {}
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['detail'] = Stubs::FindingSourceDetail.stub(stub[:detail]) unless stub[:detail].nil?
+        data['detail'] = FindingSourceDetail.stub(stub[:detail]) unless stub[:detail].nil?
         data
       end
     end
@@ -1099,9 +1101,9 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['jobDetails'] = Stubs::JobDetails.stub(stub[:job_details]) unless stub[:job_details].nil?
-        data['generatedPolicyResult'] = Stubs::GeneratedPolicyResult.stub(stub[:generated_policy_result]) unless stub[:generated_policy_result].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['jobDetails'] = JobDetails.stub(stub[:job_details]) unless stub[:job_details].nil?
+        data['generatedPolicyResult'] = GeneratedPolicyResult.stub(stub[:generated_policy_result]) unless stub[:generated_policy_result].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1119,8 +1121,8 @@ module AWS::SDK::AccessAnalyzer
       def self.stub(stub)
         stub ||= Types::GeneratedPolicyResult.new
         data = {}
-        data['properties'] = Stubs::GeneratedPolicyProperties.stub(stub[:properties]) unless stub[:properties].nil?
-        data['generatedPolicies'] = Stubs::GeneratedPolicyList.stub(stub[:generated_policies]) unless stub[:generated_policies].nil?
+        data['properties'] = GeneratedPolicyProperties.stub(stub[:properties]) unless stub[:properties].nil?
+        data['generatedPolicies'] = GeneratedPolicyList.stub(stub[:generated_policies]) unless stub[:generated_policies].nil?
         data
       end
     end
@@ -1139,7 +1141,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GeneratedPolicy.stub(element) unless element.nil?
+          data << GeneratedPolicy.stub(element) unless element.nil?
         end
         data
       end
@@ -1180,7 +1182,7 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         data['isComplete'] = stub[:is_complete] unless stub[:is_complete].nil?
         data['principalArn'] = stub[:principal_arn] unless stub[:principal_arn].nil?
-        data['cloudTrailProperties'] = Stubs::CloudTrailProperties.stub(stub[:cloud_trail_properties]) unless stub[:cloud_trail_properties].nil?
+        data['cloudTrailProperties'] = CloudTrailProperties.stub(stub[:cloud_trail_properties]) unless stub[:cloud_trail_properties].nil?
         data
       end
     end
@@ -1200,7 +1202,7 @@ module AWS::SDK::AccessAnalyzer
       def self.stub(stub)
         stub ||= Types::CloudTrailProperties.new
         data = {}
-        data['trailProperties'] = Stubs::TrailPropertiesList.stub(stub[:trail_properties]) unless stub[:trail_properties].nil?
+        data['trailProperties'] = TrailPropertiesList.stub(stub[:trail_properties]) unless stub[:trail_properties].nil?
         data['startTime'] = Hearth::TimeHelper.to_date_time(stub[:start_time]) unless stub[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_date_time(stub[:end_time]) unless stub[:end_time].nil?
         data
@@ -1221,7 +1223,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::TrailProperties.stub(element) unless element.nil?
+          data << TrailProperties.stub(element) unless element.nil?
         end
         data
       end
@@ -1243,7 +1245,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= Types::TrailProperties.new
         data = {}
         data['cloudTrailArn'] = stub[:cloud_trail_arn] unless stub[:cloud_trail_arn].nil?
-        data['regions'] = Stubs::RegionList.stub(stub[:regions]) unless stub[:regions].nil?
+        data['regions'] = RegionList.stub(stub[:regions]) unless stub[:regions].nil?
         data['allRegions'] = stub[:all_regions] unless stub[:all_regions].nil?
         data
       end
@@ -1290,7 +1292,7 @@ module AWS::SDK::AccessAnalyzer
         data['status'] = stub[:status] unless stub[:status].nil?
         data['startedOn'] = Hearth::TimeHelper.to_date_time(stub[:started_on]) unless stub[:started_on].nil?
         data['completedOn'] = Hearth::TimeHelper.to_date_time(stub[:completed_on]) unless stub[:completed_on].nil?
-        data['jobError'] = Stubs::JobError.stub(stub[:job_error]) unless stub[:job_error].nil?
+        data['jobError'] = JobError.stub(stub[:job_error]) unless stub[:job_error].nil?
         data
       end
     end
@@ -1328,9 +1330,9 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['findings'] = Stubs::AccessPreviewFindingsList.stub(stub[:findings]) unless stub[:findings].nil?
+        data['findings'] = AccessPreviewFindingsList.stub(stub[:findings]) unless stub[:findings].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1348,7 +1350,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccessPreviewFinding.stub(element) unless element.nil?
+          data << AccessPreviewFinding.stub(element) unless element.nil?
         end
         data
       end
@@ -1384,9 +1386,9 @@ module AWS::SDK::AccessAnalyzer
         data['id'] = stub[:id] unless stub[:id].nil?
         data['existingFindingId'] = stub[:existing_finding_id] unless stub[:existing_finding_id].nil?
         data['existingFindingStatus'] = stub[:existing_finding_status] unless stub[:existing_finding_status].nil?
-        data['principal'] = Stubs::PrincipalMap.stub(stub[:principal]) unless stub[:principal].nil?
-        data['action'] = Stubs::ActionList.stub(stub[:action]) unless stub[:action].nil?
-        data['condition'] = Stubs::ConditionKeyMap.stub(stub[:condition]) unless stub[:condition].nil?
+        data['principal'] = PrincipalMap.stub(stub[:principal]) unless stub[:principal].nil?
+        data['action'] = ActionList.stub(stub[:action]) unless stub[:action].nil?
+        data['condition'] = ConditionKeyMap.stub(stub[:condition]) unless stub[:condition].nil?
         data['resource'] = stub[:resource] unless stub[:resource].nil?
         data['isPublic'] = stub[:is_public] unless stub[:is_public].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
@@ -1395,7 +1397,7 @@ module AWS::SDK::AccessAnalyzer
         data['status'] = stub[:status] unless stub[:status].nil?
         data['resourceOwnerAccount'] = stub[:resource_owner_account] unless stub[:resource_owner_account].nil?
         data['error'] = stub[:error] unless stub[:error].nil?
-        data['sources'] = Stubs::FindingSourceList.stub(stub[:sources]) unless stub[:sources].nil?
+        data['sources'] = FindingSourceList.stub(stub[:sources]) unless stub[:sources].nil?
         data
       end
     end
@@ -1413,9 +1415,9 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['accessPreviews'] = Stubs::AccessPreviewsList.stub(stub[:access_previews]) unless stub[:access_previews].nil?
+        data['accessPreviews'] = AccessPreviewsList.stub(stub[:access_previews]) unless stub[:access_previews].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1433,7 +1435,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccessPreviewSummary.stub(element) unless element.nil?
+          data << AccessPreviewSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1460,7 +1462,7 @@ module AWS::SDK::AccessAnalyzer
         data['analyzerArn'] = stub[:analyzer_arn] unless stub[:analyzer_arn].nil?
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
-        data['statusReason'] = Stubs::AccessPreviewStatusReason.stub(stub[:status_reason]) unless stub[:status_reason].nil?
+        data['statusReason'] = AccessPreviewStatusReason.stub(stub[:status_reason]) unless stub[:status_reason].nil?
         data
       end
     end
@@ -1478,9 +1480,9 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['analyzedResources'] = Stubs::AnalyzedResourcesList.stub(stub[:analyzed_resources]) unless stub[:analyzed_resources].nil?
+        data['analyzedResources'] = AnalyzedResourcesList.stub(stub[:analyzed_resources]) unless stub[:analyzed_resources].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1498,7 +1500,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AnalyzedResourceSummary.stub(element) unless element.nil?
+          data << AnalyzedResourceSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1539,9 +1541,9 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['analyzers'] = Stubs::AnalyzersList.stub(stub[:analyzers]) unless stub[:analyzers].nil?
+        data['analyzers'] = AnalyzersList.stub(stub[:analyzers]) unless stub[:analyzers].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1559,7 +1561,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AnalyzerSummary.stub(element) unless element.nil?
+          data << AnalyzerSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1578,9 +1580,9 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['archiveRules'] = Stubs::ArchiveRulesList.stub(stub[:archive_rules]) unless stub[:archive_rules].nil?
+        data['archiveRules'] = ArchiveRulesList.stub(stub[:archive_rules]) unless stub[:archive_rules].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1598,7 +1600,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ArchiveRuleSummary.stub(element) unless element.nil?
+          data << ArchiveRuleSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1617,9 +1619,9 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['findings'] = Stubs::FindingsList.stub(stub[:findings]) unless stub[:findings].nil?
+        data['findings'] = FindingsList.stub(stub[:findings]) unless stub[:findings].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1637,7 +1639,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::FindingSummary.stub(element) unless element.nil?
+          data << FindingSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -1670,19 +1672,19 @@ module AWS::SDK::AccessAnalyzer
         stub ||= Types::FindingSummary.new
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['principal'] = Stubs::PrincipalMap.stub(stub[:principal]) unless stub[:principal].nil?
-        data['action'] = Stubs::ActionList.stub(stub[:action]) unless stub[:action].nil?
+        data['principal'] = PrincipalMap.stub(stub[:principal]) unless stub[:principal].nil?
+        data['action'] = ActionList.stub(stub[:action]) unless stub[:action].nil?
         data['resource'] = stub[:resource] unless stub[:resource].nil?
         data['isPublic'] = stub[:is_public] unless stub[:is_public].nil?
         data['resourceType'] = stub[:resource_type] unless stub[:resource_type].nil?
-        data['condition'] = Stubs::ConditionKeyMap.stub(stub[:condition]) unless stub[:condition].nil?
+        data['condition'] = ConditionKeyMap.stub(stub[:condition]) unless stub[:condition].nil?
         data['createdAt'] = Hearth::TimeHelper.to_date_time(stub[:created_at]) unless stub[:created_at].nil?
         data['analyzedAt'] = Hearth::TimeHelper.to_date_time(stub[:analyzed_at]) unless stub[:analyzed_at].nil?
         data['updatedAt'] = Hearth::TimeHelper.to_date_time(stub[:updated_at]) unless stub[:updated_at].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['resourceOwnerAccount'] = stub[:resource_owner_account] unless stub[:resource_owner_account].nil?
         data['error'] = stub[:error] unless stub[:error].nil?
-        data['sources'] = Stubs::FindingSourceList.stub(stub[:sources]) unless stub[:sources].nil?
+        data['sources'] = FindingSourceList.stub(stub[:sources]) unless stub[:sources].nil?
         data
       end
     end
@@ -1700,9 +1702,9 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['policyGenerations'] = Stubs::PolicyGenerationList.stub(stub[:policy_generations]) unless stub[:policy_generations].nil?
+        data['policyGenerations'] = PolicyGenerationList.stub(stub[:policy_generations]) unless stub[:policy_generations].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1720,7 +1722,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PolicyGeneration.stub(element) unless element.nil?
+          data << PolicyGeneration.stub(element) unless element.nil?
         end
         data
       end
@@ -1764,8 +1766,8 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagsMap.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1782,7 +1784,7 @@ module AWS::SDK::AccessAnalyzer
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['jobId'] = stub[:job_id] unless stub[:job_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1864,9 +1866,9 @@ module AWS::SDK::AccessAnalyzer
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['findings'] = Stubs::ValidatePolicyFindingList.stub(stub[:findings]) unless stub[:findings].nil?
+        data['findings'] = ValidatePolicyFindingList.stub(stub[:findings]) unless stub[:findings].nil?
         data['nextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1884,7 +1886,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ValidatePolicyFinding.stub(element) unless element.nil?
+          data << ValidatePolicyFinding.stub(element) unless element.nil?
         end
         data
       end
@@ -1911,7 +1913,7 @@ module AWS::SDK::AccessAnalyzer
         data['findingType'] = stub[:finding_type] unless stub[:finding_type].nil?
         data['issueCode'] = stub[:issue_code] unless stub[:issue_code].nil?
         data['learnMoreLink'] = stub[:learn_more_link] unless stub[:learn_more_link].nil?
-        data['locations'] = Stubs::LocationList.stub(stub[:locations]) unless stub[:locations].nil?
+        data['locations'] = LocationList.stub(stub[:locations]) unless stub[:locations].nil?
         data
       end
     end
@@ -1930,7 +1932,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Location.stub(element) unless element.nil?
+          data << Location.stub(element) unless element.nil?
         end
         data
       end
@@ -1950,8 +1952,8 @@ module AWS::SDK::AccessAnalyzer
       def self.stub(stub)
         stub ||= Types::Location.new
         data = {}
-        data['path'] = Stubs::PathElementList.stub(stub[:path]) unless stub[:path].nil?
-        data['span'] = Stubs::Span.stub(stub[:span]) unless stub[:span].nil?
+        data['path'] = PathElementList.stub(stub[:path]) unless stub[:path].nil?
+        data['span'] = Span.stub(stub[:span]) unless stub[:span].nil?
         data
       end
     end
@@ -1970,8 +1972,8 @@ module AWS::SDK::AccessAnalyzer
       def self.stub(stub)
         stub ||= Types::Span.new
         data = {}
-        data['start'] = Stubs::Position.stub(stub[:start]) unless stub[:start].nil?
-        data['end'] = Stubs::Position.stub(stub[:end]) unless stub[:end].nil?
+        data['start'] = Position.stub(stub[:start]) unless stub[:start].nil?
+        data['end'] = Position.stub(stub[:end]) unless stub[:end].nil?
         data
       end
     end
@@ -2012,7 +2014,7 @@ module AWS::SDK::AccessAnalyzer
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PathElement.stub(element) unless element.nil?
+          data << PathElement.stub(element) unless element.nil?
         end
         data
       end
@@ -2036,7 +2038,7 @@ module AWS::SDK::AccessAnalyzer
         when Types::PathElement::Key
           data['key'] = stub.__getobj__
         when Types::PathElement::Substring
-          data['substring'] = (Stubs::Substring.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['substring'] = (Substring.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::PathElement::Value
           data['value'] = stub.__getobj__
         else

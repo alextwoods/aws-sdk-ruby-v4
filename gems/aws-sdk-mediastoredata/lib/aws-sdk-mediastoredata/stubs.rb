@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::MediaStoreData
   module Stubs
 
@@ -88,9 +90,9 @@ module AWS::SDK::MediaStoreData
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['Items'] = Stubs::ItemList.stub(stub[:items]) unless stub[:items].nil?
+        data['Items'] = ItemList.stub(stub[:items]) unless stub[:items].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -108,7 +110,7 @@ module AWS::SDK::MediaStoreData
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Item.stub(element) unless element.nil?
+          data << Item.stub(element) unless element.nil?
         end
         data
       end
@@ -159,7 +161,7 @@ module AWS::SDK::MediaStoreData
         data['ContentSHA256'] = stub[:content_sha256] unless stub[:content_sha256].nil?
         data['ETag'] = stub[:e_tag] unless stub[:e_tag].nil?
         data['StorageClass'] = stub[:storage_class] unless stub[:storage_class].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

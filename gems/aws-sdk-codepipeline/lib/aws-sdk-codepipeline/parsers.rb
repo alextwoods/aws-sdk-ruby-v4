@@ -89,8 +89,8 @@ module AWS::SDK::CodePipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.action_type = (Parsers::ActionType.parse(map['actionType']) unless map['actionType'].nil?)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.action_type = (ActionType.parse(map['actionType']) unless map['actionType'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -98,7 +98,7 @@ module AWS::SDK::CodePipeline
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -115,11 +115,11 @@ module AWS::SDK::CodePipeline
     class ActionType
       def self.parse(map)
         data = Types::ActionType.new
-        data.id = (Parsers::ActionTypeId.parse(map['id']) unless map['id'].nil?)
-        data.settings = (Parsers::ActionTypeSettings.parse(map['settings']) unless map['settings'].nil?)
-        data.action_configuration_properties = (Parsers::ActionConfigurationPropertyList.parse(map['actionConfigurationProperties']) unless map['actionConfigurationProperties'].nil?)
-        data.input_artifact_details = (Parsers::ArtifactDetails.parse(map['inputArtifactDetails']) unless map['inputArtifactDetails'].nil?)
-        data.output_artifact_details = (Parsers::ArtifactDetails.parse(map['outputArtifactDetails']) unless map['outputArtifactDetails'].nil?)
+        data.id = (ActionTypeId.parse(map['id']) unless map['id'].nil?)
+        data.settings = (ActionTypeSettings.parse(map['settings']) unless map['settings'].nil?)
+        data.action_configuration_properties = (ActionConfigurationPropertyList.parse(map['actionConfigurationProperties']) unless map['actionConfigurationProperties'].nil?)
+        data.input_artifact_details = (ArtifactDetails.parse(map['inputArtifactDetails']) unless map['inputArtifactDetails'].nil?)
+        data.output_artifact_details = (ArtifactDetails.parse(map['outputArtifactDetails']) unless map['outputArtifactDetails'].nil?)
         return data
       end
     end
@@ -136,7 +136,7 @@ module AWS::SDK::CodePipeline
     class ActionConfigurationPropertyList
       def self.parse(list)
         list.map do |value|
-          Parsers::ActionConfigurationProperty.parse(value) unless value.nil?
+          ActionConfigurationProperty.parse(value) unless value.nil?
         end
       end
     end
@@ -232,8 +232,8 @@ module AWS::SDK::CodePipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pipeline = (Parsers::PipelineDeclaration.parse(map['pipeline']) unless map['pipeline'].nil?)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.pipeline = (PipelineDeclaration.parse(map['pipeline']) unless map['pipeline'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -243,9 +243,9 @@ module AWS::SDK::CodePipeline
         data = Types::PipelineDeclaration.new
         data.name = map['name']
         data.role_arn = map['roleArn']
-        data.artifact_store = (Parsers::ArtifactStore.parse(map['artifactStore']) unless map['artifactStore'].nil?)
-        data.artifact_stores = (Parsers::ArtifactStoreMap.parse(map['artifactStores']) unless map['artifactStores'].nil?)
-        data.stages = (Parsers::PipelineStageDeclarationList.parse(map['stages']) unless map['stages'].nil?)
+        data.artifact_store = (ArtifactStore.parse(map['artifactStore']) unless map['artifactStore'].nil?)
+        data.artifact_stores = (ArtifactStoreMap.parse(map['artifactStores']) unless map['artifactStores'].nil?)
+        data.stages = (PipelineStageDeclarationList.parse(map['stages']) unless map['stages'].nil?)
         data.version = map['version']
         return data
       end
@@ -254,7 +254,7 @@ module AWS::SDK::CodePipeline
     class PipelineStageDeclarationList
       def self.parse(list)
         list.map do |value|
-          Parsers::StageDeclaration.parse(value) unless value.nil?
+          StageDeclaration.parse(value) unless value.nil?
         end
       end
     end
@@ -263,8 +263,8 @@ module AWS::SDK::CodePipeline
       def self.parse(map)
         data = Types::StageDeclaration.new
         data.name = map['name']
-        data.blockers = (Parsers::StageBlockerDeclarationList.parse(map['blockers']) unless map['blockers'].nil?)
-        data.actions = (Parsers::StageActionDeclarationList.parse(map['actions']) unless map['actions'].nil?)
+        data.blockers = (StageBlockerDeclarationList.parse(map['blockers']) unless map['blockers'].nil?)
+        data.actions = (StageActionDeclarationList.parse(map['actions']) unless map['actions'].nil?)
         return data
       end
     end
@@ -272,7 +272,7 @@ module AWS::SDK::CodePipeline
     class StageActionDeclarationList
       def self.parse(list)
         list.map do |value|
-          Parsers::ActionDeclaration.parse(value) unless value.nil?
+          ActionDeclaration.parse(value) unless value.nil?
         end
       end
     end
@@ -281,11 +281,11 @@ module AWS::SDK::CodePipeline
       def self.parse(map)
         data = Types::ActionDeclaration.new
         data.name = map['name']
-        data.action_type_id = (Parsers::ActionTypeId.parse(map['actionTypeId']) unless map['actionTypeId'].nil?)
+        data.action_type_id = (ActionTypeId.parse(map['actionTypeId']) unless map['actionTypeId'].nil?)
         data.run_order = map['runOrder']
-        data.configuration = (Parsers::ActionConfigurationMap.parse(map['configuration']) unless map['configuration'].nil?)
-        data.output_artifacts = (Parsers::OutputArtifactList.parse(map['outputArtifacts']) unless map['outputArtifacts'].nil?)
-        data.input_artifacts = (Parsers::InputArtifactList.parse(map['inputArtifacts']) unless map['inputArtifacts'].nil?)
+        data.configuration = (ActionConfigurationMap.parse(map['configuration']) unless map['configuration'].nil?)
+        data.output_artifacts = (OutputArtifactList.parse(map['outputArtifacts']) unless map['outputArtifacts'].nil?)
+        data.input_artifacts = (InputArtifactList.parse(map['inputArtifacts']) unless map['inputArtifacts'].nil?)
         data.role_arn = map['roleArn']
         data.region = map['region']
         data.namespace = map['namespace']
@@ -296,7 +296,7 @@ module AWS::SDK::CodePipeline
     class InputArtifactList
       def self.parse(list)
         list.map do |value|
-          Parsers::InputArtifact.parse(value) unless value.nil?
+          InputArtifact.parse(value) unless value.nil?
         end
       end
     end
@@ -312,7 +312,7 @@ module AWS::SDK::CodePipeline
     class OutputArtifactList
       def self.parse(list)
         list.map do |value|
-          Parsers::OutputArtifact.parse(value) unless value.nil?
+          OutputArtifact.parse(value) unless value.nil?
         end
       end
     end
@@ -338,7 +338,7 @@ module AWS::SDK::CodePipeline
     class StageBlockerDeclarationList
       def self.parse(list)
         list.map do |value|
-          Parsers::BlockerDeclaration.parse(value) unless value.nil?
+          BlockerDeclaration.parse(value) unless value.nil?
         end
       end
     end
@@ -356,7 +356,7 @@ module AWS::SDK::CodePipeline
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::ArtifactStore.parse(value) unless value.nil?
+          data[key] = ArtifactStore.parse(value) unless value.nil?
         end
         data
       end
@@ -367,7 +367,7 @@ module AWS::SDK::CodePipeline
         data = Types::ArtifactStore.new
         data.type = map['type']
         data.location = map['location']
-        data.encryption_key = (Parsers::EncryptionKey.parse(map['encryptionKey']) unless map['encryptionKey'].nil?)
+        data.encryption_key = (EncryptionKey.parse(map['encryptionKey']) unless map['encryptionKey'].nil?)
         return data
       end
     end
@@ -549,7 +549,7 @@ module AWS::SDK::CodePipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.action_type = (Parsers::ActionTypeDeclaration.parse(map['actionType']) unless map['actionType'].nil?)
+        data.action_type = (ActionTypeDeclaration.parse(map['actionType']) unless map['actionType'].nil?)
         data
       end
     end
@@ -558,13 +558,13 @@ module AWS::SDK::CodePipeline
       def self.parse(map)
         data = Types::ActionTypeDeclaration.new
         data.description = map['description']
-        data.executor = (Parsers::ActionTypeExecutor.parse(map['executor']) unless map['executor'].nil?)
-        data.id = (Parsers::ActionTypeIdentifier.parse(map['id']) unless map['id'].nil?)
-        data.input_artifact_details = (Parsers::ActionTypeArtifactDetails.parse(map['inputArtifactDetails']) unless map['inputArtifactDetails'].nil?)
-        data.output_artifact_details = (Parsers::ActionTypeArtifactDetails.parse(map['outputArtifactDetails']) unless map['outputArtifactDetails'].nil?)
-        data.permissions = (Parsers::ActionTypePermissions.parse(map['permissions']) unless map['permissions'].nil?)
-        data.properties = (Parsers::ActionTypeProperties.parse(map['properties']) unless map['properties'].nil?)
-        data.urls = (Parsers::ActionTypeUrls.parse(map['urls']) unless map['urls'].nil?)
+        data.executor = (ActionTypeExecutor.parse(map['executor']) unless map['executor'].nil?)
+        data.id = (ActionTypeIdentifier.parse(map['id']) unless map['id'].nil?)
+        data.input_artifact_details = (ActionTypeArtifactDetails.parse(map['inputArtifactDetails']) unless map['inputArtifactDetails'].nil?)
+        data.output_artifact_details = (ActionTypeArtifactDetails.parse(map['outputArtifactDetails']) unless map['outputArtifactDetails'].nil?)
+        data.permissions = (ActionTypePermissions.parse(map['permissions']) unless map['permissions'].nil?)
+        data.properties = (ActionTypeProperties.parse(map['properties']) unless map['properties'].nil?)
+        data.urls = (ActionTypeUrls.parse(map['urls']) unless map['urls'].nil?)
         return data
       end
     end
@@ -583,7 +583,7 @@ module AWS::SDK::CodePipeline
     class ActionTypeProperties
       def self.parse(list)
         list.map do |value|
-          Parsers::ActionTypeProperty.parse(value) unless value.nil?
+          ActionTypeProperty.parse(value) unless value.nil?
         end
       end
     end
@@ -604,7 +604,7 @@ module AWS::SDK::CodePipeline
     class ActionTypePermissions
       def self.parse(map)
         data = Types::ActionTypePermissions.new
-        data.allowed_accounts = (Parsers::AllowedAccounts.parse(map['allowedAccounts']) unless map['allowedAccounts'].nil?)
+        data.allowed_accounts = (AllowedAccounts.parse(map['allowedAccounts']) unless map['allowedAccounts'].nil?)
         return data
       end
     end
@@ -640,7 +640,7 @@ module AWS::SDK::CodePipeline
     class ActionTypeExecutor
       def self.parse(map)
         data = Types::ActionTypeExecutor.new
-        data.configuration = (Parsers::ExecutorConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
+        data.configuration = (ExecutorConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
         data.type = map['type']
         data.policy_statements_template = map['policyStatementsTemplate']
         data.job_timeout = map['jobTimeout']
@@ -651,8 +651,8 @@ module AWS::SDK::CodePipeline
     class ExecutorConfiguration
       def self.parse(map)
         data = Types::ExecutorConfiguration.new
-        data.lambda_executor_configuration = (Parsers::LambdaExecutorConfiguration.parse(map['lambdaExecutorConfiguration']) unless map['lambdaExecutorConfiguration'].nil?)
-        data.job_worker_executor_configuration = (Parsers::JobWorkerExecutorConfiguration.parse(map['jobWorkerExecutorConfiguration']) unless map['jobWorkerExecutorConfiguration'].nil?)
+        data.lambda_executor_configuration = (LambdaExecutorConfiguration.parse(map['lambdaExecutorConfiguration']) unless map['lambdaExecutorConfiguration'].nil?)
+        data.job_worker_executor_configuration = (JobWorkerExecutorConfiguration.parse(map['jobWorkerExecutorConfiguration']) unless map['jobWorkerExecutorConfiguration'].nil?)
         return data
       end
     end
@@ -660,8 +660,8 @@ module AWS::SDK::CodePipeline
     class JobWorkerExecutorConfiguration
       def self.parse(map)
         data = Types::JobWorkerExecutorConfiguration.new
-        data.polling_accounts = (Parsers::PollingAccountList.parse(map['pollingAccounts']) unless map['pollingAccounts'].nil?)
-        data.polling_service_principals = (Parsers::PollingServicePrincipalList.parse(map['pollingServicePrincipals']) unless map['pollingServicePrincipals'].nil?)
+        data.polling_accounts = (PollingAccountList.parse(map['pollingAccounts']) unless map['pollingAccounts'].nil?)
+        data.polling_service_principals = (PollingServicePrincipalList.parse(map['pollingServicePrincipals']) unless map['pollingServicePrincipals'].nil?)
         return data
       end
     end
@@ -709,7 +709,7 @@ module AWS::SDK::CodePipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job_details = (Parsers::JobDetails.parse(map['jobDetails']) unless map['jobDetails'].nil?)
+        data.job_details = (JobDetails.parse(map['jobDetails']) unless map['jobDetails'].nil?)
         data
       end
     end
@@ -718,7 +718,7 @@ module AWS::SDK::CodePipeline
       def self.parse(map)
         data = Types::JobDetails.new
         data.id = map['id']
-        data.data = (Parsers::JobData.parse(map['data']) unless map['data'].nil?)
+        data.data = (JobData.parse(map['data']) unless map['data'].nil?)
         data.account_id = map['accountId']
         return data
       end
@@ -727,14 +727,14 @@ module AWS::SDK::CodePipeline
     class JobData
       def self.parse(map)
         data = Types::JobData.new
-        data.action_type_id = (Parsers::ActionTypeId.parse(map['actionTypeId']) unless map['actionTypeId'].nil?)
-        data.action_configuration = (Parsers::ActionConfiguration.parse(map['actionConfiguration']) unless map['actionConfiguration'].nil?)
-        data.pipeline_context = (Parsers::PipelineContext.parse(map['pipelineContext']) unless map['pipelineContext'].nil?)
-        data.input_artifacts = (Parsers::ArtifactList.parse(map['inputArtifacts']) unless map['inputArtifacts'].nil?)
-        data.output_artifacts = (Parsers::ArtifactList.parse(map['outputArtifacts']) unless map['outputArtifacts'].nil?)
-        data.artifact_credentials = (Parsers::AWSSessionCredentials.parse(map['artifactCredentials']) unless map['artifactCredentials'].nil?)
+        data.action_type_id = (ActionTypeId.parse(map['actionTypeId']) unless map['actionTypeId'].nil?)
+        data.action_configuration = (ActionConfiguration.parse(map['actionConfiguration']) unless map['actionConfiguration'].nil?)
+        data.pipeline_context = (PipelineContext.parse(map['pipelineContext']) unless map['pipelineContext'].nil?)
+        data.input_artifacts = (ArtifactList.parse(map['inputArtifacts']) unless map['inputArtifacts'].nil?)
+        data.output_artifacts = (ArtifactList.parse(map['outputArtifacts']) unless map['outputArtifacts'].nil?)
+        data.artifact_credentials = (AWSSessionCredentials.parse(map['artifactCredentials']) unless map['artifactCredentials'].nil?)
         data.continuation_token = map['continuationToken']
-        data.encryption_key = (Parsers::EncryptionKey.parse(map['encryptionKey']) unless map['encryptionKey'].nil?)
+        data.encryption_key = (EncryptionKey.parse(map['encryptionKey']) unless map['encryptionKey'].nil?)
         return data
       end
     end
@@ -752,7 +752,7 @@ module AWS::SDK::CodePipeline
     class ArtifactList
       def self.parse(list)
         list.map do |value|
-          Parsers::Artifact.parse(value) unless value.nil?
+          Artifact.parse(value) unless value.nil?
         end
       end
     end
@@ -762,7 +762,7 @@ module AWS::SDK::CodePipeline
         data = Types::Artifact.new
         data.name = map['name']
         data.revision = map['revision']
-        data.location = (Parsers::ArtifactLocation.parse(map['location']) unless map['location'].nil?)
+        data.location = (ArtifactLocation.parse(map['location']) unless map['location'].nil?)
         return data
       end
     end
@@ -771,7 +771,7 @@ module AWS::SDK::CodePipeline
       def self.parse(map)
         data = Types::ArtifactLocation.new
         data.type = map['type']
-        data.s3_location = (Parsers::S3ArtifactLocation.parse(map['s3Location']) unless map['s3Location'].nil?)
+        data.s3_location = (S3ArtifactLocation.parse(map['s3Location']) unless map['s3Location'].nil?)
         return data
       end
     end
@@ -789,8 +789,8 @@ module AWS::SDK::CodePipeline
       def self.parse(map)
         data = Types::PipelineContext.new
         data.pipeline_name = map['pipelineName']
-        data.stage = (Parsers::StageContext.parse(map['stage']) unless map['stage'].nil?)
-        data.action = (Parsers::ActionContext.parse(map['action']) unless map['action'].nil?)
+        data.stage = (StageContext.parse(map['stage']) unless map['stage'].nil?)
+        data.action = (ActionContext.parse(map['action']) unless map['action'].nil?)
         data.pipeline_arn = map['pipelineArn']
         data.pipeline_execution_id = map['pipelineExecutionId']
         return data
@@ -817,7 +817,7 @@ module AWS::SDK::CodePipeline
     class ActionConfiguration
       def self.parse(map)
         data = Types::ActionConfiguration.new
-        data.configuration = (Parsers::ActionConfigurationMap.parse(map['configuration']) unless map['configuration'].nil?)
+        data.configuration = (ActionConfigurationMap.parse(map['configuration']) unless map['configuration'].nil?)
         return data
       end
     end
@@ -829,8 +829,8 @@ module AWS::SDK::CodePipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pipeline = (Parsers::PipelineDeclaration.parse(map['pipeline']) unless map['pipeline'].nil?)
-        data.metadata = (Parsers::PipelineMetadata.parse(map['metadata']) unless map['metadata'].nil?)
+        data.pipeline = (PipelineDeclaration.parse(map['pipeline']) unless map['pipeline'].nil?)
+        data.metadata = (PipelineMetadata.parse(map['metadata']) unless map['metadata'].nil?)
         data
       end
     end
@@ -864,7 +864,7 @@ module AWS::SDK::CodePipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pipeline_execution = (Parsers::PipelineExecution.parse(map['pipelineExecution']) unless map['pipelineExecution'].nil?)
+        data.pipeline_execution = (PipelineExecution.parse(map['pipelineExecution']) unless map['pipelineExecution'].nil?)
         data
       end
     end
@@ -877,7 +877,7 @@ module AWS::SDK::CodePipeline
         data.pipeline_execution_id = map['pipelineExecutionId']
         data.status = map['status']
         data.status_summary = map['statusSummary']
-        data.artifact_revisions = (Parsers::ArtifactRevisionList.parse(map['artifactRevisions']) unless map['artifactRevisions'].nil?)
+        data.artifact_revisions = (ArtifactRevisionList.parse(map['artifactRevisions']) unless map['artifactRevisions'].nil?)
         return data
       end
     end
@@ -885,7 +885,7 @@ module AWS::SDK::CodePipeline
     class ArtifactRevisionList
       def self.parse(list)
         list.map do |value|
-          Parsers::ArtifactRevision.parse(value) unless value.nil?
+          ArtifactRevision.parse(value) unless value.nil?
         end
       end
     end
@@ -924,7 +924,7 @@ module AWS::SDK::CodePipeline
         map = Hearth::JSON.load(body)
         data.pipeline_name = map['pipelineName']
         data.pipeline_version = map['pipelineVersion']
-        data.stage_states = (Parsers::StageStateList.parse(map['stageStates']) unless map['stageStates'].nil?)
+        data.stage_states = (StageStateList.parse(map['stageStates']) unless map['stageStates'].nil?)
         data.created = Time.at(map['created'].to_i) if map['created']
         data.updated = Time.at(map['updated'].to_i) if map['updated']
         data
@@ -934,7 +934,7 @@ module AWS::SDK::CodePipeline
     class StageStateList
       def self.parse(list)
         list.map do |value|
-          Parsers::StageState.parse(value) unless value.nil?
+          StageState.parse(value) unless value.nil?
         end
       end
     end
@@ -943,10 +943,10 @@ module AWS::SDK::CodePipeline
       def self.parse(map)
         data = Types::StageState.new
         data.stage_name = map['stageName']
-        data.inbound_execution = (Parsers::StageExecution.parse(map['inboundExecution']) unless map['inboundExecution'].nil?)
-        data.inbound_transition_state = (Parsers::TransitionState.parse(map['inboundTransitionState']) unless map['inboundTransitionState'].nil?)
-        data.action_states = (Parsers::ActionStateList.parse(map['actionStates']) unless map['actionStates'].nil?)
-        data.latest_execution = (Parsers::StageExecution.parse(map['latestExecution']) unless map['latestExecution'].nil?)
+        data.inbound_execution = (StageExecution.parse(map['inboundExecution']) unless map['inboundExecution'].nil?)
+        data.inbound_transition_state = (TransitionState.parse(map['inboundTransitionState']) unless map['inboundTransitionState'].nil?)
+        data.action_states = (ActionStateList.parse(map['actionStates']) unless map['actionStates'].nil?)
+        data.latest_execution = (StageExecution.parse(map['latestExecution']) unless map['latestExecution'].nil?)
         return data
       end
     end
@@ -963,7 +963,7 @@ module AWS::SDK::CodePipeline
     class ActionStateList
       def self.parse(list)
         list.map do |value|
-          Parsers::ActionState.parse(value) unless value.nil?
+          ActionState.parse(value) unless value.nil?
         end
       end
     end
@@ -972,8 +972,8 @@ module AWS::SDK::CodePipeline
       def self.parse(map)
         data = Types::ActionState.new
         data.action_name = map['actionName']
-        data.current_revision = (Parsers::ActionRevision.parse(map['currentRevision']) unless map['currentRevision'].nil?)
-        data.latest_execution = (Parsers::ActionExecution.parse(map['latestExecution']) unless map['latestExecution'].nil?)
+        data.current_revision = (ActionRevision.parse(map['currentRevision']) unless map['currentRevision'].nil?)
+        data.latest_execution = (ActionExecution.parse(map['latestExecution']) unless map['latestExecution'].nil?)
         data.entity_url = map['entityUrl']
         data.revision_url = map['revisionUrl']
         return data
@@ -992,7 +992,7 @@ module AWS::SDK::CodePipeline
         data.external_execution_id = map['externalExecutionId']
         data.external_execution_url = map['externalExecutionUrl']
         data.percent_complete = map['percentComplete']
-        data.error_details = (Parsers::ErrorDetails.parse(map['errorDetails']) unless map['errorDetails'].nil?)
+        data.error_details = (ErrorDetails.parse(map['errorDetails']) unless map['errorDetails'].nil?)
         return data
       end
     end
@@ -1034,7 +1034,7 @@ module AWS::SDK::CodePipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.job_details = (Parsers::ThirdPartyJobDetails.parse(map['jobDetails']) unless map['jobDetails'].nil?)
+        data.job_details = (ThirdPartyJobDetails.parse(map['jobDetails']) unless map['jobDetails'].nil?)
         data
       end
     end
@@ -1043,7 +1043,7 @@ module AWS::SDK::CodePipeline
       def self.parse(map)
         data = Types::ThirdPartyJobDetails.new
         data.id = map['id']
-        data.data = (Parsers::ThirdPartyJobData.parse(map['data']) unless map['data'].nil?)
+        data.data = (ThirdPartyJobData.parse(map['data']) unless map['data'].nil?)
         data.nonce = map['nonce']
         return data
       end
@@ -1052,14 +1052,14 @@ module AWS::SDK::CodePipeline
     class ThirdPartyJobData
       def self.parse(map)
         data = Types::ThirdPartyJobData.new
-        data.action_type_id = (Parsers::ActionTypeId.parse(map['actionTypeId']) unless map['actionTypeId'].nil?)
-        data.action_configuration = (Parsers::ActionConfiguration.parse(map['actionConfiguration']) unless map['actionConfiguration'].nil?)
-        data.pipeline_context = (Parsers::PipelineContext.parse(map['pipelineContext']) unless map['pipelineContext'].nil?)
-        data.input_artifacts = (Parsers::ArtifactList.parse(map['inputArtifacts']) unless map['inputArtifacts'].nil?)
-        data.output_artifacts = (Parsers::ArtifactList.parse(map['outputArtifacts']) unless map['outputArtifacts'].nil?)
-        data.artifact_credentials = (Parsers::AWSSessionCredentials.parse(map['artifactCredentials']) unless map['artifactCredentials'].nil?)
+        data.action_type_id = (ActionTypeId.parse(map['actionTypeId']) unless map['actionTypeId'].nil?)
+        data.action_configuration = (ActionConfiguration.parse(map['actionConfiguration']) unless map['actionConfiguration'].nil?)
+        data.pipeline_context = (PipelineContext.parse(map['pipelineContext']) unless map['pipelineContext'].nil?)
+        data.input_artifacts = (ArtifactList.parse(map['inputArtifacts']) unless map['inputArtifacts'].nil?)
+        data.output_artifacts = (ArtifactList.parse(map['outputArtifacts']) unless map['outputArtifacts'].nil?)
+        data.artifact_credentials = (AWSSessionCredentials.parse(map['artifactCredentials']) unless map['artifactCredentials'].nil?)
         data.continuation_token = map['continuationToken']
-        data.encryption_key = (Parsers::EncryptionKey.parse(map['encryptionKey']) unless map['encryptionKey'].nil?)
+        data.encryption_key = (EncryptionKey.parse(map['encryptionKey']) unless map['encryptionKey'].nil?)
         return data
       end
     end
@@ -1083,7 +1083,7 @@ module AWS::SDK::CodePipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.action_execution_details = (Parsers::ActionExecutionDetailList.parse(map['actionExecutionDetails']) unless map['actionExecutionDetails'].nil?)
+        data.action_execution_details = (ActionExecutionDetailList.parse(map['actionExecutionDetails']) unless map['actionExecutionDetails'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1092,7 +1092,7 @@ module AWS::SDK::CodePipeline
     class ActionExecutionDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::ActionExecutionDetail.parse(value) unless value.nil?
+          ActionExecutionDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -1108,8 +1108,8 @@ module AWS::SDK::CodePipeline
         data.start_time = Time.at(map['startTime'].to_i) if map['startTime']
         data.last_update_time = Time.at(map['lastUpdateTime'].to_i) if map['lastUpdateTime']
         data.status = map['status']
-        data.input = (Parsers::ActionExecutionInput.parse(map['input']) unless map['input'].nil?)
-        data.output = (Parsers::ActionExecutionOutput.parse(map['output']) unless map['output'].nil?)
+        data.input = (ActionExecutionInput.parse(map['input']) unless map['input'].nil?)
+        data.output = (ActionExecutionOutput.parse(map['output']) unless map['output'].nil?)
         return data
       end
     end
@@ -1117,9 +1117,9 @@ module AWS::SDK::CodePipeline
     class ActionExecutionOutput
       def self.parse(map)
         data = Types::ActionExecutionOutput.new
-        data.output_artifacts = (Parsers::ArtifactDetailList.parse(map['outputArtifacts']) unless map['outputArtifacts'].nil?)
-        data.execution_result = (Parsers::ActionExecutionResult.parse(map['executionResult']) unless map['executionResult'].nil?)
-        data.output_variables = (Parsers::OutputVariablesMap.parse(map['outputVariables']) unless map['outputVariables'].nil?)
+        data.output_artifacts = (ArtifactDetailList.parse(map['outputArtifacts']) unless map['outputArtifacts'].nil?)
+        data.execution_result = (ActionExecutionResult.parse(map['executionResult']) unless map['executionResult'].nil?)
+        data.output_variables = (OutputVariablesMap.parse(map['outputVariables']) unless map['outputVariables'].nil?)
         return data
       end
     end
@@ -1147,7 +1147,7 @@ module AWS::SDK::CodePipeline
     class ArtifactDetailList
       def self.parse(list)
         list.map do |value|
-          Parsers::ArtifactDetail.parse(value) unless value.nil?
+          ArtifactDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -1156,7 +1156,7 @@ module AWS::SDK::CodePipeline
       def self.parse(map)
         data = Types::ArtifactDetail.new
         data.name = map['name']
-        data.s3location = (Parsers::S3Location.parse(map['s3location']) unless map['s3location'].nil?)
+        data.s3location = (S3Location.parse(map['s3location']) unless map['s3location'].nil?)
         return data
       end
     end
@@ -1173,12 +1173,12 @@ module AWS::SDK::CodePipeline
     class ActionExecutionInput
       def self.parse(map)
         data = Types::ActionExecutionInput.new
-        data.action_type_id = (Parsers::ActionTypeId.parse(map['actionTypeId']) unless map['actionTypeId'].nil?)
-        data.configuration = (Parsers::ActionConfigurationMap.parse(map['configuration']) unless map['configuration'].nil?)
-        data.resolved_configuration = (Parsers::ResolvedActionConfigurationMap.parse(map['resolvedConfiguration']) unless map['resolvedConfiguration'].nil?)
+        data.action_type_id = (ActionTypeId.parse(map['actionTypeId']) unless map['actionTypeId'].nil?)
+        data.configuration = (ActionConfigurationMap.parse(map['configuration']) unless map['configuration'].nil?)
+        data.resolved_configuration = (ResolvedActionConfigurationMap.parse(map['resolvedConfiguration']) unless map['resolvedConfiguration'].nil?)
         data.role_arn = map['roleArn']
         data.region = map['region']
-        data.input_artifacts = (Parsers::ArtifactDetailList.parse(map['inputArtifacts']) unless map['inputArtifacts'].nil?)
+        data.input_artifacts = (ArtifactDetailList.parse(map['inputArtifacts']) unless map['inputArtifacts'].nil?)
         data.namespace = map['namespace']
         return data
       end
@@ -1213,7 +1213,7 @@ module AWS::SDK::CodePipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.action_types = (Parsers::ActionTypeList.parse(map['actionTypes']) unless map['actionTypes'].nil?)
+        data.action_types = (ActionTypeList.parse(map['actionTypes']) unless map['actionTypes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1222,7 +1222,7 @@ module AWS::SDK::CodePipeline
     class ActionTypeList
       def self.parse(list)
         list.map do |value|
-          Parsers::ActionType.parse(value) unless value.nil?
+          ActionType.parse(value) unless value.nil?
         end
       end
     end
@@ -1234,7 +1234,7 @@ module AWS::SDK::CodePipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pipeline_execution_summaries = (Parsers::PipelineExecutionSummaryList.parse(map['pipelineExecutionSummaries']) unless map['pipelineExecutionSummaries'].nil?)
+        data.pipeline_execution_summaries = (PipelineExecutionSummaryList.parse(map['pipelineExecutionSummaries']) unless map['pipelineExecutionSummaries'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1243,7 +1243,7 @@ module AWS::SDK::CodePipeline
     class PipelineExecutionSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::PipelineExecutionSummary.parse(value) unless value.nil?
+          PipelineExecutionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1255,9 +1255,9 @@ module AWS::SDK::CodePipeline
         data.status = map['status']
         data.start_time = Time.at(map['startTime'].to_i) if map['startTime']
         data.last_update_time = Time.at(map['lastUpdateTime'].to_i) if map['lastUpdateTime']
-        data.source_revisions = (Parsers::SourceRevisionList.parse(map['sourceRevisions']) unless map['sourceRevisions'].nil?)
-        data.trigger = (Parsers::ExecutionTrigger.parse(map['trigger']) unless map['trigger'].nil?)
-        data.stop_trigger = (Parsers::StopExecutionTrigger.parse(map['stopTrigger']) unless map['stopTrigger'].nil?)
+        data.source_revisions = (SourceRevisionList.parse(map['sourceRevisions']) unless map['sourceRevisions'].nil?)
+        data.trigger = (ExecutionTrigger.parse(map['trigger']) unless map['trigger'].nil?)
+        data.stop_trigger = (StopExecutionTrigger.parse(map['stopTrigger']) unless map['stopTrigger'].nil?)
         return data
       end
     end
@@ -1282,7 +1282,7 @@ module AWS::SDK::CodePipeline
     class SourceRevisionList
       def self.parse(list)
         list.map do |value|
-          Parsers::SourceRevision.parse(value) unless value.nil?
+          SourceRevision.parse(value) unless value.nil?
         end
       end
     end
@@ -1305,7 +1305,7 @@ module AWS::SDK::CodePipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pipelines = (Parsers::PipelineList.parse(map['pipelines']) unless map['pipelines'].nil?)
+        data.pipelines = (PipelineList.parse(map['pipelines']) unless map['pipelines'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1314,7 +1314,7 @@ module AWS::SDK::CodePipeline
     class PipelineList
       def self.parse(list)
         list.map do |value|
-          Parsers::PipelineSummary.parse(value) unless value.nil?
+          PipelineSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1337,7 +1337,7 @@ module AWS::SDK::CodePipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1374,7 +1374,7 @@ module AWS::SDK::CodePipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.webhooks = (Parsers::WebhookList.parse(map['webhooks']) unless map['webhooks'].nil?)
+        data.webhooks = (WebhookList.parse(map['webhooks']) unless map['webhooks'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1383,7 +1383,7 @@ module AWS::SDK::CodePipeline
     class WebhookList
       def self.parse(list)
         list.map do |value|
-          Parsers::ListWebhookItem.parse(value) unless value.nil?
+          ListWebhookItem.parse(value) unless value.nil?
         end
       end
     end
@@ -1391,13 +1391,13 @@ module AWS::SDK::CodePipeline
     class ListWebhookItem
       def self.parse(map)
         data = Types::ListWebhookItem.new
-        data.definition = (Parsers::WebhookDefinition.parse(map['definition']) unless map['definition'].nil?)
+        data.definition = (WebhookDefinition.parse(map['definition']) unless map['definition'].nil?)
         data.url = map['url']
         data.error_message = map['errorMessage']
         data.error_code = map['errorCode']
         data.last_triggered = Time.at(map['lastTriggered'].to_i) if map['lastTriggered']
         data.arn = map['arn']
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -1408,9 +1408,9 @@ module AWS::SDK::CodePipeline
         data.name = map['name']
         data.target_pipeline = map['targetPipeline']
         data.target_action = map['targetAction']
-        data.filters = (Parsers::WebhookFilters.parse(map['filters']) unless map['filters'].nil?)
+        data.filters = (WebhookFilters.parse(map['filters']) unless map['filters'].nil?)
         data.authentication = map['authentication']
-        data.authentication_configuration = (Parsers::WebhookAuthConfiguration.parse(map['authenticationConfiguration']) unless map['authenticationConfiguration'].nil?)
+        data.authentication_configuration = (WebhookAuthConfiguration.parse(map['authenticationConfiguration']) unless map['authenticationConfiguration'].nil?)
         return data
       end
     end
@@ -1427,7 +1427,7 @@ module AWS::SDK::CodePipeline
     class WebhookFilters
       def self.parse(list)
         list.map do |value|
-          Parsers::WebhookFilterRule.parse(value) unless value.nil?
+          WebhookFilterRule.parse(value) unless value.nil?
         end
       end
     end
@@ -1448,7 +1448,7 @@ module AWS::SDK::CodePipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.jobs = (Parsers::JobList.parse(map['jobs']) unless map['jobs'].nil?)
+        data.jobs = (JobList.parse(map['jobs']) unless map['jobs'].nil?)
         data
       end
     end
@@ -1456,7 +1456,7 @@ module AWS::SDK::CodePipeline
     class JobList
       def self.parse(list)
         list.map do |value|
-          Parsers::Job.parse(value) unless value.nil?
+          Job.parse(value) unless value.nil?
         end
       end
     end
@@ -1465,7 +1465,7 @@ module AWS::SDK::CodePipeline
       def self.parse(map)
         data = Types::Job.new
         data.id = map['id']
-        data.data = (Parsers::JobData.parse(map['data']) unless map['data'].nil?)
+        data.data = (JobData.parse(map['data']) unless map['data'].nil?)
         data.nonce = map['nonce']
         data.account_id = map['accountId']
         return data
@@ -1479,7 +1479,7 @@ module AWS::SDK::CodePipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.jobs = (Parsers::ThirdPartyJobList.parse(map['jobs']) unless map['jobs'].nil?)
+        data.jobs = (ThirdPartyJobList.parse(map['jobs']) unless map['jobs'].nil?)
         data
       end
     end
@@ -1487,7 +1487,7 @@ module AWS::SDK::CodePipeline
     class ThirdPartyJobList
       def self.parse(list)
         list.map do |value|
-          Parsers::ThirdPartyJob.parse(value) unless value.nil?
+          ThirdPartyJob.parse(value) unless value.nil?
         end
       end
     end
@@ -1637,7 +1637,7 @@ module AWS::SDK::CodePipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.webhook = (Parsers::ListWebhookItem.parse(map['webhook']) unless map['webhook'].nil?)
+        data.webhook = (ListWebhookItem.parse(map['webhook']) unless map['webhook'].nil?)
         data
       end
     end
@@ -1825,7 +1825,7 @@ module AWS::SDK::CodePipeline
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pipeline = (Parsers::PipelineDeclaration.parse(map['pipeline']) unless map['pipeline'].nil?)
+        data.pipeline = (PipelineDeclaration.parse(map['pipeline']) unless map['pipeline'].nil?)
         data
       end
     end

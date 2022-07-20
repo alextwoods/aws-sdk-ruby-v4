@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::SWF
   module Stubs
 
@@ -23,7 +25,7 @@ module AWS::SDK::SWF
         data = {}
         data['count'] = stub[:count] unless stub[:count].nil?
         data['truncated'] = stub[:truncated] unless stub[:truncated].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -41,7 +43,7 @@ module AWS::SDK::SWF
         data = {}
         data['count'] = stub[:count] unless stub[:count].nil?
         data['truncated'] = stub[:truncated] unless stub[:truncated].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -59,7 +61,7 @@ module AWS::SDK::SWF
         data = {}
         data['count'] = stub[:count] unless stub[:count].nil?
         data['truncated'] = stub[:truncated] unless stub[:truncated].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -77,7 +79,7 @@ module AWS::SDK::SWF
         data = {}
         data['count'] = stub[:count] unless stub[:count].nil?
         data['truncated'] = stub[:truncated] unless stub[:truncated].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -91,7 +93,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -105,7 +107,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -119,7 +121,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -135,9 +137,9 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['typeInfo'] = Stubs::ActivityTypeInfo.stub(stub[:type_info]) unless stub[:type_info].nil?
-        data['configuration'] = Stubs::ActivityTypeConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['typeInfo'] = ActivityTypeInfo.stub(stub[:type_info]) unless stub[:type_info].nil?
+        data['configuration'] = ActivityTypeConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -162,7 +164,7 @@ module AWS::SDK::SWF
         data = {}
         data['defaultTaskStartToCloseTimeout'] = stub[:default_task_start_to_close_timeout] unless stub[:default_task_start_to_close_timeout].nil?
         data['defaultTaskHeartbeatTimeout'] = stub[:default_task_heartbeat_timeout] unless stub[:default_task_heartbeat_timeout].nil?
-        data['defaultTaskList'] = Stubs::TaskList.stub(stub[:default_task_list]) unless stub[:default_task_list].nil?
+        data['defaultTaskList'] = TaskList.stub(stub[:default_task_list]) unless stub[:default_task_list].nil?
         data['defaultTaskPriority'] = stub[:default_task_priority] unless stub[:default_task_priority].nil?
         data['defaultTaskScheduleToStartTimeout'] = stub[:default_task_schedule_to_start_timeout] unless stub[:default_task_schedule_to_start_timeout].nil?
         data['defaultTaskScheduleToCloseTimeout'] = stub[:default_task_schedule_to_close_timeout] unless stub[:default_task_schedule_to_close_timeout].nil?
@@ -205,7 +207,7 @@ module AWS::SDK::SWF
       def self.stub(stub)
         stub ||= Types::ActivityTypeInfo.new
         data = {}
-        data['activityType'] = Stubs::ActivityType.stub(stub[:activity_type]) unless stub[:activity_type].nil?
+        data['activityType'] = ActivityType.stub(stub[:activity_type]) unless stub[:activity_type].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
@@ -245,9 +247,9 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['domainInfo'] = Stubs::DomainInfo.stub(stub[:domain_info]) unless stub[:domain_info].nil?
-        data['configuration'] = Stubs::DomainConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['domainInfo'] = DomainInfo.stub(stub[:domain_info]) unless stub[:domain_info].nil?
+        data['configuration'] = DomainConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -308,12 +310,12 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['executionInfo'] = Stubs::WorkflowExecutionInfo.stub(stub[:execution_info]) unless stub[:execution_info].nil?
-        data['executionConfiguration'] = Stubs::WorkflowExecutionConfiguration.stub(stub[:execution_configuration]) unless stub[:execution_configuration].nil?
-        data['openCounts'] = Stubs::WorkflowExecutionOpenCounts.stub(stub[:open_counts]) unless stub[:open_counts].nil?
+        data['executionInfo'] = WorkflowExecutionInfo.stub(stub[:execution_info]) unless stub[:execution_info].nil?
+        data['executionConfiguration'] = WorkflowExecutionConfiguration.stub(stub[:execution_configuration]) unless stub[:execution_configuration].nil?
+        data['openCounts'] = WorkflowExecutionOpenCounts.stub(stub[:open_counts]) unless stub[:open_counts].nil?
         data['latestActivityTaskTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:latest_activity_task_timestamp]).to_i unless stub[:latest_activity_task_timestamp].nil?
         data['latestExecutionContext'] = stub[:latest_execution_context] unless stub[:latest_execution_context].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -364,7 +366,7 @@ module AWS::SDK::SWF
         data = {}
         data['taskStartToCloseTimeout'] = stub[:task_start_to_close_timeout] unless stub[:task_start_to_close_timeout].nil?
         data['executionStartToCloseTimeout'] = stub[:execution_start_to_close_timeout] unless stub[:execution_start_to_close_timeout].nil?
-        data['taskList'] = Stubs::TaskList.stub(stub[:task_list]) unless stub[:task_list].nil?
+        data['taskList'] = TaskList.stub(stub[:task_list]) unless stub[:task_list].nil?
         data['taskPriority'] = stub[:task_priority] unless stub[:task_priority].nil?
         data['childPolicy'] = stub[:child_policy] unless stub[:child_policy].nil?
         data['lambdaRole'] = stub[:lambda_role] unless stub[:lambda_role].nil?
@@ -393,14 +395,14 @@ module AWS::SDK::SWF
       def self.stub(stub)
         stub ||= Types::WorkflowExecutionInfo.new
         data = {}
-        data['execution'] = Stubs::WorkflowExecution.stub(stub[:execution]) unless stub[:execution].nil?
-        data['workflowType'] = Stubs::WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
+        data['execution'] = WorkflowExecution.stub(stub[:execution]) unless stub[:execution].nil?
+        data['workflowType'] = WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
         data['startTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:start_timestamp]).to_i unless stub[:start_timestamp].nil?
         data['closeTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:close_timestamp]).to_i unless stub[:close_timestamp].nil?
         data['executionStatus'] = stub[:execution_status] unless stub[:execution_status].nil?
         data['closeStatus'] = stub[:close_status] unless stub[:close_status].nil?
-        data['parent'] = Stubs::WorkflowExecution.stub(stub[:parent]) unless stub[:parent].nil?
-        data['tagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        data['parent'] = WorkflowExecution.stub(stub[:parent]) unless stub[:parent].nil?
+        data['tagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
         data['cancelRequested'] = stub[:cancel_requested] unless stub[:cancel_requested].nil?
         data
       end
@@ -477,9 +479,9 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['typeInfo'] = Stubs::WorkflowTypeInfo.stub(stub[:type_info]) unless stub[:type_info].nil?
-        data['configuration'] = Stubs::WorkflowTypeConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['typeInfo'] = WorkflowTypeInfo.stub(stub[:type_info]) unless stub[:type_info].nil?
+        data['configuration'] = WorkflowTypeConfiguration.stub(stub[:configuration]) unless stub[:configuration].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -504,7 +506,7 @@ module AWS::SDK::SWF
         data = {}
         data['defaultTaskStartToCloseTimeout'] = stub[:default_task_start_to_close_timeout] unless stub[:default_task_start_to_close_timeout].nil?
         data['defaultExecutionStartToCloseTimeout'] = stub[:default_execution_start_to_close_timeout] unless stub[:default_execution_start_to_close_timeout].nil?
-        data['defaultTaskList'] = Stubs::TaskList.stub(stub[:default_task_list]) unless stub[:default_task_list].nil?
+        data['defaultTaskList'] = TaskList.stub(stub[:default_task_list]) unless stub[:default_task_list].nil?
         data['defaultTaskPriority'] = stub[:default_task_priority] unless stub[:default_task_priority].nil?
         data['defaultChildPolicy'] = stub[:default_child_policy] unless stub[:default_child_policy].nil?
         data['defaultLambdaRole'] = stub[:default_lambda_role] unless stub[:default_lambda_role].nil?
@@ -529,7 +531,7 @@ module AWS::SDK::SWF
       def self.stub(stub)
         stub ||= Types::WorkflowTypeInfo.new
         data = {}
-        data['workflowType'] = Stubs::WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
+        data['workflowType'] = WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['creationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:creation_date]).to_i unless stub[:creation_date].nil?
@@ -549,9 +551,9 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['events'] = Stubs::HistoryEventList.stub(stub[:events]) unless stub[:events].nil?
+        data['events'] = HistoryEventList.stub(stub[:events]) unless stub[:events].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -570,7 +572,7 @@ module AWS::SDK::SWF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::HistoryEvent.stub(element) unless element.nil?
+          data << HistoryEvent.stub(element) unless element.nil?
         end
         data
       end
@@ -648,60 +650,60 @@ module AWS::SDK::SWF
         data['eventTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:event_timestamp]).to_i unless stub[:event_timestamp].nil?
         data['eventType'] = stub[:event_type] unless stub[:event_type].nil?
         data['eventId'] = stub[:event_id] unless stub[:event_id].nil?
-        data['workflowExecutionStartedEventAttributes'] = Stubs::WorkflowExecutionStartedEventAttributes.stub(stub[:workflow_execution_started_event_attributes]) unless stub[:workflow_execution_started_event_attributes].nil?
-        data['workflowExecutionCompletedEventAttributes'] = Stubs::WorkflowExecutionCompletedEventAttributes.stub(stub[:workflow_execution_completed_event_attributes]) unless stub[:workflow_execution_completed_event_attributes].nil?
-        data['completeWorkflowExecutionFailedEventAttributes'] = Stubs::CompleteWorkflowExecutionFailedEventAttributes.stub(stub[:complete_workflow_execution_failed_event_attributes]) unless stub[:complete_workflow_execution_failed_event_attributes].nil?
-        data['workflowExecutionFailedEventAttributes'] = Stubs::WorkflowExecutionFailedEventAttributes.stub(stub[:workflow_execution_failed_event_attributes]) unless stub[:workflow_execution_failed_event_attributes].nil?
-        data['failWorkflowExecutionFailedEventAttributes'] = Stubs::FailWorkflowExecutionFailedEventAttributes.stub(stub[:fail_workflow_execution_failed_event_attributes]) unless stub[:fail_workflow_execution_failed_event_attributes].nil?
-        data['workflowExecutionTimedOutEventAttributes'] = Stubs::WorkflowExecutionTimedOutEventAttributes.stub(stub[:workflow_execution_timed_out_event_attributes]) unless stub[:workflow_execution_timed_out_event_attributes].nil?
-        data['workflowExecutionCanceledEventAttributes'] = Stubs::WorkflowExecutionCanceledEventAttributes.stub(stub[:workflow_execution_canceled_event_attributes]) unless stub[:workflow_execution_canceled_event_attributes].nil?
-        data['cancelWorkflowExecutionFailedEventAttributes'] = Stubs::CancelWorkflowExecutionFailedEventAttributes.stub(stub[:cancel_workflow_execution_failed_event_attributes]) unless stub[:cancel_workflow_execution_failed_event_attributes].nil?
-        data['workflowExecutionContinuedAsNewEventAttributes'] = Stubs::WorkflowExecutionContinuedAsNewEventAttributes.stub(stub[:workflow_execution_continued_as_new_event_attributes]) unless stub[:workflow_execution_continued_as_new_event_attributes].nil?
-        data['continueAsNewWorkflowExecutionFailedEventAttributes'] = Stubs::ContinueAsNewWorkflowExecutionFailedEventAttributes.stub(stub[:continue_as_new_workflow_execution_failed_event_attributes]) unless stub[:continue_as_new_workflow_execution_failed_event_attributes].nil?
-        data['workflowExecutionTerminatedEventAttributes'] = Stubs::WorkflowExecutionTerminatedEventAttributes.stub(stub[:workflow_execution_terminated_event_attributes]) unless stub[:workflow_execution_terminated_event_attributes].nil?
-        data['workflowExecutionCancelRequestedEventAttributes'] = Stubs::WorkflowExecutionCancelRequestedEventAttributes.stub(stub[:workflow_execution_cancel_requested_event_attributes]) unless stub[:workflow_execution_cancel_requested_event_attributes].nil?
-        data['decisionTaskScheduledEventAttributes'] = Stubs::DecisionTaskScheduledEventAttributes.stub(stub[:decision_task_scheduled_event_attributes]) unless stub[:decision_task_scheduled_event_attributes].nil?
-        data['decisionTaskStartedEventAttributes'] = Stubs::DecisionTaskStartedEventAttributes.stub(stub[:decision_task_started_event_attributes]) unless stub[:decision_task_started_event_attributes].nil?
-        data['decisionTaskCompletedEventAttributes'] = Stubs::DecisionTaskCompletedEventAttributes.stub(stub[:decision_task_completed_event_attributes]) unless stub[:decision_task_completed_event_attributes].nil?
-        data['decisionTaskTimedOutEventAttributes'] = Stubs::DecisionTaskTimedOutEventAttributes.stub(stub[:decision_task_timed_out_event_attributes]) unless stub[:decision_task_timed_out_event_attributes].nil?
-        data['activityTaskScheduledEventAttributes'] = Stubs::ActivityTaskScheduledEventAttributes.stub(stub[:activity_task_scheduled_event_attributes]) unless stub[:activity_task_scheduled_event_attributes].nil?
-        data['activityTaskStartedEventAttributes'] = Stubs::ActivityTaskStartedEventAttributes.stub(stub[:activity_task_started_event_attributes]) unless stub[:activity_task_started_event_attributes].nil?
-        data['activityTaskCompletedEventAttributes'] = Stubs::ActivityTaskCompletedEventAttributes.stub(stub[:activity_task_completed_event_attributes]) unless stub[:activity_task_completed_event_attributes].nil?
-        data['activityTaskFailedEventAttributes'] = Stubs::ActivityTaskFailedEventAttributes.stub(stub[:activity_task_failed_event_attributes]) unless stub[:activity_task_failed_event_attributes].nil?
-        data['activityTaskTimedOutEventAttributes'] = Stubs::ActivityTaskTimedOutEventAttributes.stub(stub[:activity_task_timed_out_event_attributes]) unless stub[:activity_task_timed_out_event_attributes].nil?
-        data['activityTaskCanceledEventAttributes'] = Stubs::ActivityTaskCanceledEventAttributes.stub(stub[:activity_task_canceled_event_attributes]) unless stub[:activity_task_canceled_event_attributes].nil?
-        data['activityTaskCancelRequestedEventAttributes'] = Stubs::ActivityTaskCancelRequestedEventAttributes.stub(stub[:activity_task_cancel_requested_event_attributes]) unless stub[:activity_task_cancel_requested_event_attributes].nil?
-        data['workflowExecutionSignaledEventAttributes'] = Stubs::WorkflowExecutionSignaledEventAttributes.stub(stub[:workflow_execution_signaled_event_attributes]) unless stub[:workflow_execution_signaled_event_attributes].nil?
-        data['markerRecordedEventAttributes'] = Stubs::MarkerRecordedEventAttributes.stub(stub[:marker_recorded_event_attributes]) unless stub[:marker_recorded_event_attributes].nil?
-        data['recordMarkerFailedEventAttributes'] = Stubs::RecordMarkerFailedEventAttributes.stub(stub[:record_marker_failed_event_attributes]) unless stub[:record_marker_failed_event_attributes].nil?
-        data['timerStartedEventAttributes'] = Stubs::TimerStartedEventAttributes.stub(stub[:timer_started_event_attributes]) unless stub[:timer_started_event_attributes].nil?
-        data['timerFiredEventAttributes'] = Stubs::TimerFiredEventAttributes.stub(stub[:timer_fired_event_attributes]) unless stub[:timer_fired_event_attributes].nil?
-        data['timerCanceledEventAttributes'] = Stubs::TimerCanceledEventAttributes.stub(stub[:timer_canceled_event_attributes]) unless stub[:timer_canceled_event_attributes].nil?
-        data['startChildWorkflowExecutionInitiatedEventAttributes'] = Stubs::StartChildWorkflowExecutionInitiatedEventAttributes.stub(stub[:start_child_workflow_execution_initiated_event_attributes]) unless stub[:start_child_workflow_execution_initiated_event_attributes].nil?
-        data['childWorkflowExecutionStartedEventAttributes'] = Stubs::ChildWorkflowExecutionStartedEventAttributes.stub(stub[:child_workflow_execution_started_event_attributes]) unless stub[:child_workflow_execution_started_event_attributes].nil?
-        data['childWorkflowExecutionCompletedEventAttributes'] = Stubs::ChildWorkflowExecutionCompletedEventAttributes.stub(stub[:child_workflow_execution_completed_event_attributes]) unless stub[:child_workflow_execution_completed_event_attributes].nil?
-        data['childWorkflowExecutionFailedEventAttributes'] = Stubs::ChildWorkflowExecutionFailedEventAttributes.stub(stub[:child_workflow_execution_failed_event_attributes]) unless stub[:child_workflow_execution_failed_event_attributes].nil?
-        data['childWorkflowExecutionTimedOutEventAttributes'] = Stubs::ChildWorkflowExecutionTimedOutEventAttributes.stub(stub[:child_workflow_execution_timed_out_event_attributes]) unless stub[:child_workflow_execution_timed_out_event_attributes].nil?
-        data['childWorkflowExecutionCanceledEventAttributes'] = Stubs::ChildWorkflowExecutionCanceledEventAttributes.stub(stub[:child_workflow_execution_canceled_event_attributes]) unless stub[:child_workflow_execution_canceled_event_attributes].nil?
-        data['childWorkflowExecutionTerminatedEventAttributes'] = Stubs::ChildWorkflowExecutionTerminatedEventAttributes.stub(stub[:child_workflow_execution_terminated_event_attributes]) unless stub[:child_workflow_execution_terminated_event_attributes].nil?
-        data['signalExternalWorkflowExecutionInitiatedEventAttributes'] = Stubs::SignalExternalWorkflowExecutionInitiatedEventAttributes.stub(stub[:signal_external_workflow_execution_initiated_event_attributes]) unless stub[:signal_external_workflow_execution_initiated_event_attributes].nil?
-        data['externalWorkflowExecutionSignaledEventAttributes'] = Stubs::ExternalWorkflowExecutionSignaledEventAttributes.stub(stub[:external_workflow_execution_signaled_event_attributes]) unless stub[:external_workflow_execution_signaled_event_attributes].nil?
-        data['signalExternalWorkflowExecutionFailedEventAttributes'] = Stubs::SignalExternalWorkflowExecutionFailedEventAttributes.stub(stub[:signal_external_workflow_execution_failed_event_attributes]) unless stub[:signal_external_workflow_execution_failed_event_attributes].nil?
-        data['externalWorkflowExecutionCancelRequestedEventAttributes'] = Stubs::ExternalWorkflowExecutionCancelRequestedEventAttributes.stub(stub[:external_workflow_execution_cancel_requested_event_attributes]) unless stub[:external_workflow_execution_cancel_requested_event_attributes].nil?
-        data['requestCancelExternalWorkflowExecutionInitiatedEventAttributes'] = Stubs::RequestCancelExternalWorkflowExecutionInitiatedEventAttributes.stub(stub[:request_cancel_external_workflow_execution_initiated_event_attributes]) unless stub[:request_cancel_external_workflow_execution_initiated_event_attributes].nil?
-        data['requestCancelExternalWorkflowExecutionFailedEventAttributes'] = Stubs::RequestCancelExternalWorkflowExecutionFailedEventAttributes.stub(stub[:request_cancel_external_workflow_execution_failed_event_attributes]) unless stub[:request_cancel_external_workflow_execution_failed_event_attributes].nil?
-        data['scheduleActivityTaskFailedEventAttributes'] = Stubs::ScheduleActivityTaskFailedEventAttributes.stub(stub[:schedule_activity_task_failed_event_attributes]) unless stub[:schedule_activity_task_failed_event_attributes].nil?
-        data['requestCancelActivityTaskFailedEventAttributes'] = Stubs::RequestCancelActivityTaskFailedEventAttributes.stub(stub[:request_cancel_activity_task_failed_event_attributes]) unless stub[:request_cancel_activity_task_failed_event_attributes].nil?
-        data['startTimerFailedEventAttributes'] = Stubs::StartTimerFailedEventAttributes.stub(stub[:start_timer_failed_event_attributes]) unless stub[:start_timer_failed_event_attributes].nil?
-        data['cancelTimerFailedEventAttributes'] = Stubs::CancelTimerFailedEventAttributes.stub(stub[:cancel_timer_failed_event_attributes]) unless stub[:cancel_timer_failed_event_attributes].nil?
-        data['startChildWorkflowExecutionFailedEventAttributes'] = Stubs::StartChildWorkflowExecutionFailedEventAttributes.stub(stub[:start_child_workflow_execution_failed_event_attributes]) unless stub[:start_child_workflow_execution_failed_event_attributes].nil?
-        data['lambdaFunctionScheduledEventAttributes'] = Stubs::LambdaFunctionScheduledEventAttributes.stub(stub[:lambda_function_scheduled_event_attributes]) unless stub[:lambda_function_scheduled_event_attributes].nil?
-        data['lambdaFunctionStartedEventAttributes'] = Stubs::LambdaFunctionStartedEventAttributes.stub(stub[:lambda_function_started_event_attributes]) unless stub[:lambda_function_started_event_attributes].nil?
-        data['lambdaFunctionCompletedEventAttributes'] = Stubs::LambdaFunctionCompletedEventAttributes.stub(stub[:lambda_function_completed_event_attributes]) unless stub[:lambda_function_completed_event_attributes].nil?
-        data['lambdaFunctionFailedEventAttributes'] = Stubs::LambdaFunctionFailedEventAttributes.stub(stub[:lambda_function_failed_event_attributes]) unless stub[:lambda_function_failed_event_attributes].nil?
-        data['lambdaFunctionTimedOutEventAttributes'] = Stubs::LambdaFunctionTimedOutEventAttributes.stub(stub[:lambda_function_timed_out_event_attributes]) unless stub[:lambda_function_timed_out_event_attributes].nil?
-        data['scheduleLambdaFunctionFailedEventAttributes'] = Stubs::ScheduleLambdaFunctionFailedEventAttributes.stub(stub[:schedule_lambda_function_failed_event_attributes]) unless stub[:schedule_lambda_function_failed_event_attributes].nil?
-        data['startLambdaFunctionFailedEventAttributes'] = Stubs::StartLambdaFunctionFailedEventAttributes.stub(stub[:start_lambda_function_failed_event_attributes]) unless stub[:start_lambda_function_failed_event_attributes].nil?
+        data['workflowExecutionStartedEventAttributes'] = WorkflowExecutionStartedEventAttributes.stub(stub[:workflow_execution_started_event_attributes]) unless stub[:workflow_execution_started_event_attributes].nil?
+        data['workflowExecutionCompletedEventAttributes'] = WorkflowExecutionCompletedEventAttributes.stub(stub[:workflow_execution_completed_event_attributes]) unless stub[:workflow_execution_completed_event_attributes].nil?
+        data['completeWorkflowExecutionFailedEventAttributes'] = CompleteWorkflowExecutionFailedEventAttributes.stub(stub[:complete_workflow_execution_failed_event_attributes]) unless stub[:complete_workflow_execution_failed_event_attributes].nil?
+        data['workflowExecutionFailedEventAttributes'] = WorkflowExecutionFailedEventAttributes.stub(stub[:workflow_execution_failed_event_attributes]) unless stub[:workflow_execution_failed_event_attributes].nil?
+        data['failWorkflowExecutionFailedEventAttributes'] = FailWorkflowExecutionFailedEventAttributes.stub(stub[:fail_workflow_execution_failed_event_attributes]) unless stub[:fail_workflow_execution_failed_event_attributes].nil?
+        data['workflowExecutionTimedOutEventAttributes'] = WorkflowExecutionTimedOutEventAttributes.stub(stub[:workflow_execution_timed_out_event_attributes]) unless stub[:workflow_execution_timed_out_event_attributes].nil?
+        data['workflowExecutionCanceledEventAttributes'] = WorkflowExecutionCanceledEventAttributes.stub(stub[:workflow_execution_canceled_event_attributes]) unless stub[:workflow_execution_canceled_event_attributes].nil?
+        data['cancelWorkflowExecutionFailedEventAttributes'] = CancelWorkflowExecutionFailedEventAttributes.stub(stub[:cancel_workflow_execution_failed_event_attributes]) unless stub[:cancel_workflow_execution_failed_event_attributes].nil?
+        data['workflowExecutionContinuedAsNewEventAttributes'] = WorkflowExecutionContinuedAsNewEventAttributes.stub(stub[:workflow_execution_continued_as_new_event_attributes]) unless stub[:workflow_execution_continued_as_new_event_attributes].nil?
+        data['continueAsNewWorkflowExecutionFailedEventAttributes'] = ContinueAsNewWorkflowExecutionFailedEventAttributes.stub(stub[:continue_as_new_workflow_execution_failed_event_attributes]) unless stub[:continue_as_new_workflow_execution_failed_event_attributes].nil?
+        data['workflowExecutionTerminatedEventAttributes'] = WorkflowExecutionTerminatedEventAttributes.stub(stub[:workflow_execution_terminated_event_attributes]) unless stub[:workflow_execution_terminated_event_attributes].nil?
+        data['workflowExecutionCancelRequestedEventAttributes'] = WorkflowExecutionCancelRequestedEventAttributes.stub(stub[:workflow_execution_cancel_requested_event_attributes]) unless stub[:workflow_execution_cancel_requested_event_attributes].nil?
+        data['decisionTaskScheduledEventAttributes'] = DecisionTaskScheduledEventAttributes.stub(stub[:decision_task_scheduled_event_attributes]) unless stub[:decision_task_scheduled_event_attributes].nil?
+        data['decisionTaskStartedEventAttributes'] = DecisionTaskStartedEventAttributes.stub(stub[:decision_task_started_event_attributes]) unless stub[:decision_task_started_event_attributes].nil?
+        data['decisionTaskCompletedEventAttributes'] = DecisionTaskCompletedEventAttributes.stub(stub[:decision_task_completed_event_attributes]) unless stub[:decision_task_completed_event_attributes].nil?
+        data['decisionTaskTimedOutEventAttributes'] = DecisionTaskTimedOutEventAttributes.stub(stub[:decision_task_timed_out_event_attributes]) unless stub[:decision_task_timed_out_event_attributes].nil?
+        data['activityTaskScheduledEventAttributes'] = ActivityTaskScheduledEventAttributes.stub(stub[:activity_task_scheduled_event_attributes]) unless stub[:activity_task_scheduled_event_attributes].nil?
+        data['activityTaskStartedEventAttributes'] = ActivityTaskStartedEventAttributes.stub(stub[:activity_task_started_event_attributes]) unless stub[:activity_task_started_event_attributes].nil?
+        data['activityTaskCompletedEventAttributes'] = ActivityTaskCompletedEventAttributes.stub(stub[:activity_task_completed_event_attributes]) unless stub[:activity_task_completed_event_attributes].nil?
+        data['activityTaskFailedEventAttributes'] = ActivityTaskFailedEventAttributes.stub(stub[:activity_task_failed_event_attributes]) unless stub[:activity_task_failed_event_attributes].nil?
+        data['activityTaskTimedOutEventAttributes'] = ActivityTaskTimedOutEventAttributes.stub(stub[:activity_task_timed_out_event_attributes]) unless stub[:activity_task_timed_out_event_attributes].nil?
+        data['activityTaskCanceledEventAttributes'] = ActivityTaskCanceledEventAttributes.stub(stub[:activity_task_canceled_event_attributes]) unless stub[:activity_task_canceled_event_attributes].nil?
+        data['activityTaskCancelRequestedEventAttributes'] = ActivityTaskCancelRequestedEventAttributes.stub(stub[:activity_task_cancel_requested_event_attributes]) unless stub[:activity_task_cancel_requested_event_attributes].nil?
+        data['workflowExecutionSignaledEventAttributes'] = WorkflowExecutionSignaledEventAttributes.stub(stub[:workflow_execution_signaled_event_attributes]) unless stub[:workflow_execution_signaled_event_attributes].nil?
+        data['markerRecordedEventAttributes'] = MarkerRecordedEventAttributes.stub(stub[:marker_recorded_event_attributes]) unless stub[:marker_recorded_event_attributes].nil?
+        data['recordMarkerFailedEventAttributes'] = RecordMarkerFailedEventAttributes.stub(stub[:record_marker_failed_event_attributes]) unless stub[:record_marker_failed_event_attributes].nil?
+        data['timerStartedEventAttributes'] = TimerStartedEventAttributes.stub(stub[:timer_started_event_attributes]) unless stub[:timer_started_event_attributes].nil?
+        data['timerFiredEventAttributes'] = TimerFiredEventAttributes.stub(stub[:timer_fired_event_attributes]) unless stub[:timer_fired_event_attributes].nil?
+        data['timerCanceledEventAttributes'] = TimerCanceledEventAttributes.stub(stub[:timer_canceled_event_attributes]) unless stub[:timer_canceled_event_attributes].nil?
+        data['startChildWorkflowExecutionInitiatedEventAttributes'] = StartChildWorkflowExecutionInitiatedEventAttributes.stub(stub[:start_child_workflow_execution_initiated_event_attributes]) unless stub[:start_child_workflow_execution_initiated_event_attributes].nil?
+        data['childWorkflowExecutionStartedEventAttributes'] = ChildWorkflowExecutionStartedEventAttributes.stub(stub[:child_workflow_execution_started_event_attributes]) unless stub[:child_workflow_execution_started_event_attributes].nil?
+        data['childWorkflowExecutionCompletedEventAttributes'] = ChildWorkflowExecutionCompletedEventAttributes.stub(stub[:child_workflow_execution_completed_event_attributes]) unless stub[:child_workflow_execution_completed_event_attributes].nil?
+        data['childWorkflowExecutionFailedEventAttributes'] = ChildWorkflowExecutionFailedEventAttributes.stub(stub[:child_workflow_execution_failed_event_attributes]) unless stub[:child_workflow_execution_failed_event_attributes].nil?
+        data['childWorkflowExecutionTimedOutEventAttributes'] = ChildWorkflowExecutionTimedOutEventAttributes.stub(stub[:child_workflow_execution_timed_out_event_attributes]) unless stub[:child_workflow_execution_timed_out_event_attributes].nil?
+        data['childWorkflowExecutionCanceledEventAttributes'] = ChildWorkflowExecutionCanceledEventAttributes.stub(stub[:child_workflow_execution_canceled_event_attributes]) unless stub[:child_workflow_execution_canceled_event_attributes].nil?
+        data['childWorkflowExecutionTerminatedEventAttributes'] = ChildWorkflowExecutionTerminatedEventAttributes.stub(stub[:child_workflow_execution_terminated_event_attributes]) unless stub[:child_workflow_execution_terminated_event_attributes].nil?
+        data['signalExternalWorkflowExecutionInitiatedEventAttributes'] = SignalExternalWorkflowExecutionInitiatedEventAttributes.stub(stub[:signal_external_workflow_execution_initiated_event_attributes]) unless stub[:signal_external_workflow_execution_initiated_event_attributes].nil?
+        data['externalWorkflowExecutionSignaledEventAttributes'] = ExternalWorkflowExecutionSignaledEventAttributes.stub(stub[:external_workflow_execution_signaled_event_attributes]) unless stub[:external_workflow_execution_signaled_event_attributes].nil?
+        data['signalExternalWorkflowExecutionFailedEventAttributes'] = SignalExternalWorkflowExecutionFailedEventAttributes.stub(stub[:signal_external_workflow_execution_failed_event_attributes]) unless stub[:signal_external_workflow_execution_failed_event_attributes].nil?
+        data['externalWorkflowExecutionCancelRequestedEventAttributes'] = ExternalWorkflowExecutionCancelRequestedEventAttributes.stub(stub[:external_workflow_execution_cancel_requested_event_attributes]) unless stub[:external_workflow_execution_cancel_requested_event_attributes].nil?
+        data['requestCancelExternalWorkflowExecutionInitiatedEventAttributes'] = RequestCancelExternalWorkflowExecutionInitiatedEventAttributes.stub(stub[:request_cancel_external_workflow_execution_initiated_event_attributes]) unless stub[:request_cancel_external_workflow_execution_initiated_event_attributes].nil?
+        data['requestCancelExternalWorkflowExecutionFailedEventAttributes'] = RequestCancelExternalWorkflowExecutionFailedEventAttributes.stub(stub[:request_cancel_external_workflow_execution_failed_event_attributes]) unless stub[:request_cancel_external_workflow_execution_failed_event_attributes].nil?
+        data['scheduleActivityTaskFailedEventAttributes'] = ScheduleActivityTaskFailedEventAttributes.stub(stub[:schedule_activity_task_failed_event_attributes]) unless stub[:schedule_activity_task_failed_event_attributes].nil?
+        data['requestCancelActivityTaskFailedEventAttributes'] = RequestCancelActivityTaskFailedEventAttributes.stub(stub[:request_cancel_activity_task_failed_event_attributes]) unless stub[:request_cancel_activity_task_failed_event_attributes].nil?
+        data['startTimerFailedEventAttributes'] = StartTimerFailedEventAttributes.stub(stub[:start_timer_failed_event_attributes]) unless stub[:start_timer_failed_event_attributes].nil?
+        data['cancelTimerFailedEventAttributes'] = CancelTimerFailedEventAttributes.stub(stub[:cancel_timer_failed_event_attributes]) unless stub[:cancel_timer_failed_event_attributes].nil?
+        data['startChildWorkflowExecutionFailedEventAttributes'] = StartChildWorkflowExecutionFailedEventAttributes.stub(stub[:start_child_workflow_execution_failed_event_attributes]) unless stub[:start_child_workflow_execution_failed_event_attributes].nil?
+        data['lambdaFunctionScheduledEventAttributes'] = LambdaFunctionScheduledEventAttributes.stub(stub[:lambda_function_scheduled_event_attributes]) unless stub[:lambda_function_scheduled_event_attributes].nil?
+        data['lambdaFunctionStartedEventAttributes'] = LambdaFunctionStartedEventAttributes.stub(stub[:lambda_function_started_event_attributes]) unless stub[:lambda_function_started_event_attributes].nil?
+        data['lambdaFunctionCompletedEventAttributes'] = LambdaFunctionCompletedEventAttributes.stub(stub[:lambda_function_completed_event_attributes]) unless stub[:lambda_function_completed_event_attributes].nil?
+        data['lambdaFunctionFailedEventAttributes'] = LambdaFunctionFailedEventAttributes.stub(stub[:lambda_function_failed_event_attributes]) unless stub[:lambda_function_failed_event_attributes].nil?
+        data['lambdaFunctionTimedOutEventAttributes'] = LambdaFunctionTimedOutEventAttributes.stub(stub[:lambda_function_timed_out_event_attributes]) unless stub[:lambda_function_timed_out_event_attributes].nil?
+        data['scheduleLambdaFunctionFailedEventAttributes'] = ScheduleLambdaFunctionFailedEventAttributes.stub(stub[:schedule_lambda_function_failed_event_attributes]) unless stub[:schedule_lambda_function_failed_event_attributes].nil?
+        data['startLambdaFunctionFailedEventAttributes'] = StartLambdaFunctionFailedEventAttributes.stub(stub[:start_lambda_function_failed_event_attributes]) unless stub[:start_lambda_function_failed_event_attributes].nil?
         data
       end
     end
@@ -884,7 +886,7 @@ module AWS::SDK::SWF
       def self.stub(stub)
         stub ||= Types::StartChildWorkflowExecutionFailedEventAttributes.new
         data = {}
-        data['workflowType'] = Stubs::WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
+        data['workflowType'] = WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
         data['cause'] = stub[:cause] unless stub[:cause].nil?
         data['workflowId'] = stub[:workflow_id] unless stub[:workflow_id].nil?
         data['initiatedEventId'] = stub[:initiated_event_id] unless stub[:initiated_event_id].nil?
@@ -976,7 +978,7 @@ module AWS::SDK::SWF
       def self.stub(stub)
         stub ||= Types::ScheduleActivityTaskFailedEventAttributes.new
         data = {}
-        data['activityType'] = Stubs::ActivityType.stub(stub[:activity_type]) unless stub[:activity_type].nil?
+        data['activityType'] = ActivityType.stub(stub[:activity_type]) unless stub[:activity_type].nil?
         data['activityId'] = stub[:activity_id] unless stub[:activity_id].nil?
         data['cause'] = stub[:cause] unless stub[:cause].nil?
         data['decisionTaskCompletedEventId'] = stub[:decision_task_completed_event_id] unless stub[:decision_task_completed_event_id].nil?
@@ -1050,7 +1052,7 @@ module AWS::SDK::SWF
       def self.stub(stub)
         stub ||= Types::ExternalWorkflowExecutionCancelRequestedEventAttributes.new
         data = {}
-        data['workflowExecution'] = Stubs::WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
+        data['workflowExecution'] = WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
         data['initiatedEventId'] = stub[:initiated_event_id] unless stub[:initiated_event_id].nil?
         data
       end
@@ -1098,7 +1100,7 @@ module AWS::SDK::SWF
       def self.stub(stub)
         stub ||= Types::ExternalWorkflowExecutionSignaledEventAttributes.new
         data = {}
-        data['workflowExecution'] = Stubs::WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
+        data['workflowExecution'] = WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
         data['initiatedEventId'] = stub[:initiated_event_id] unless stub[:initiated_event_id].nil?
         data
       end
@@ -1148,8 +1150,8 @@ module AWS::SDK::SWF
       def self.stub(stub)
         stub ||= Types::ChildWorkflowExecutionTerminatedEventAttributes.new
         data = {}
-        data['workflowExecution'] = Stubs::WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
-        data['workflowType'] = Stubs::WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
+        data['workflowExecution'] = WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
+        data['workflowType'] = WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
         data['initiatedEventId'] = stub[:initiated_event_id] unless stub[:initiated_event_id].nil?
         data['startedEventId'] = stub[:started_event_id] unless stub[:started_event_id].nil?
         data
@@ -1173,8 +1175,8 @@ module AWS::SDK::SWF
       def self.stub(stub)
         stub ||= Types::ChildWorkflowExecutionCanceledEventAttributes.new
         data = {}
-        data['workflowExecution'] = Stubs::WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
-        data['workflowType'] = Stubs::WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
+        data['workflowExecution'] = WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
+        data['workflowType'] = WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
         data['details'] = stub[:details] unless stub[:details].nil?
         data['initiatedEventId'] = stub[:initiated_event_id] unless stub[:initiated_event_id].nil?
         data['startedEventId'] = stub[:started_event_id] unless stub[:started_event_id].nil?
@@ -1199,8 +1201,8 @@ module AWS::SDK::SWF
       def self.stub(stub)
         stub ||= Types::ChildWorkflowExecutionTimedOutEventAttributes.new
         data = {}
-        data['workflowExecution'] = Stubs::WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
-        data['workflowType'] = Stubs::WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
+        data['workflowExecution'] = WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
+        data['workflowType'] = WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
         data['timeoutType'] = stub[:timeout_type] unless stub[:timeout_type].nil?
         data['initiatedEventId'] = stub[:initiated_event_id] unless stub[:initiated_event_id].nil?
         data['startedEventId'] = stub[:started_event_id] unless stub[:started_event_id].nil?
@@ -1226,8 +1228,8 @@ module AWS::SDK::SWF
       def self.stub(stub)
         stub ||= Types::ChildWorkflowExecutionFailedEventAttributes.new
         data = {}
-        data['workflowExecution'] = Stubs::WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
-        data['workflowType'] = Stubs::WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
+        data['workflowExecution'] = WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
+        data['workflowType'] = WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
         data['reason'] = stub[:reason] unless stub[:reason].nil?
         data['details'] = stub[:details] unless stub[:details].nil?
         data['initiatedEventId'] = stub[:initiated_event_id] unless stub[:initiated_event_id].nil?
@@ -1253,8 +1255,8 @@ module AWS::SDK::SWF
       def self.stub(stub)
         stub ||= Types::ChildWorkflowExecutionCompletedEventAttributes.new
         data = {}
-        data['workflowExecution'] = Stubs::WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
-        data['workflowType'] = Stubs::WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
+        data['workflowExecution'] = WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
+        data['workflowType'] = WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
         data['result'] = stub[:result] unless stub[:result].nil?
         data['initiatedEventId'] = stub[:initiated_event_id] unless stub[:initiated_event_id].nil?
         data['startedEventId'] = stub[:started_event_id] unless stub[:started_event_id].nil?
@@ -1277,8 +1279,8 @@ module AWS::SDK::SWF
       def self.stub(stub)
         stub ||= Types::ChildWorkflowExecutionStartedEventAttributes.new
         data = {}
-        data['workflowExecution'] = Stubs::WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
-        data['workflowType'] = Stubs::WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
+        data['workflowExecution'] = WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
+        data['workflowType'] = WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
         data['initiatedEventId'] = stub[:initiated_event_id] unless stub[:initiated_event_id].nil?
         data
       end
@@ -1309,16 +1311,16 @@ module AWS::SDK::SWF
         stub ||= Types::StartChildWorkflowExecutionInitiatedEventAttributes.new
         data = {}
         data['workflowId'] = stub[:workflow_id] unless stub[:workflow_id].nil?
-        data['workflowType'] = Stubs::WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
+        data['workflowType'] = WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
         data['control'] = stub[:control] unless stub[:control].nil?
         data['input'] = stub[:input] unless stub[:input].nil?
         data['executionStartToCloseTimeout'] = stub[:execution_start_to_close_timeout] unless stub[:execution_start_to_close_timeout].nil?
-        data['taskList'] = Stubs::TaskList.stub(stub[:task_list]) unless stub[:task_list].nil?
+        data['taskList'] = TaskList.stub(stub[:task_list]) unless stub[:task_list].nil?
         data['taskPriority'] = stub[:task_priority] unless stub[:task_priority].nil?
         data['decisionTaskCompletedEventId'] = stub[:decision_task_completed_event_id] unless stub[:decision_task_completed_event_id].nil?
         data['childPolicy'] = stub[:child_policy] unless stub[:child_policy].nil?
         data['taskStartToCloseTimeout'] = stub[:task_start_to_close_timeout] unless stub[:task_start_to_close_timeout].nil?
-        data['tagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        data['tagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
         data['lambdaRole'] = stub[:lambda_role] unless stub[:lambda_role].nil?
         data
       end
@@ -1452,7 +1454,7 @@ module AWS::SDK::SWF
         data = {}
         data['signalName'] = stub[:signal_name] unless stub[:signal_name].nil?
         data['input'] = stub[:input] unless stub[:input].nil?
-        data['externalWorkflowExecution'] = Stubs::WorkflowExecution.stub(stub[:external_workflow_execution]) unless stub[:external_workflow_execution].nil?
+        data['externalWorkflowExecution'] = WorkflowExecution.stub(stub[:external_workflow_execution]) unless stub[:external_workflow_execution].nil?
         data['externalInitiatedEventId'] = stub[:external_initiated_event_id] unless stub[:external_initiated_event_id].nil?
         data
       end
@@ -1615,14 +1617,14 @@ module AWS::SDK::SWF
       def self.stub(stub)
         stub ||= Types::ActivityTaskScheduledEventAttributes.new
         data = {}
-        data['activityType'] = Stubs::ActivityType.stub(stub[:activity_type]) unless stub[:activity_type].nil?
+        data['activityType'] = ActivityType.stub(stub[:activity_type]) unless stub[:activity_type].nil?
         data['activityId'] = stub[:activity_id] unless stub[:activity_id].nil?
         data['input'] = stub[:input] unless stub[:input].nil?
         data['control'] = stub[:control] unless stub[:control].nil?
         data['scheduleToStartTimeout'] = stub[:schedule_to_start_timeout] unless stub[:schedule_to_start_timeout].nil?
         data['scheduleToCloseTimeout'] = stub[:schedule_to_close_timeout] unless stub[:schedule_to_close_timeout].nil?
         data['startToCloseTimeout'] = stub[:start_to_close_timeout] unless stub[:start_to_close_timeout].nil?
-        data['taskList'] = Stubs::TaskList.stub(stub[:task_list]) unless stub[:task_list].nil?
+        data['taskList'] = TaskList.stub(stub[:task_list]) unless stub[:task_list].nil?
         data['taskPriority'] = stub[:task_priority] unless stub[:task_priority].nil?
         data['decisionTaskCompletedEventId'] = stub[:decision_task_completed_event_id] unless stub[:decision_task_completed_event_id].nil?
         data['heartbeatTimeout'] = stub[:heartbeat_timeout] unless stub[:heartbeat_timeout].nil?
@@ -1709,7 +1711,7 @@ module AWS::SDK::SWF
       def self.stub(stub)
         stub ||= Types::DecisionTaskScheduledEventAttributes.new
         data = {}
-        data['taskList'] = Stubs::TaskList.stub(stub[:task_list]) unless stub[:task_list].nil?
+        data['taskList'] = TaskList.stub(stub[:task_list]) unless stub[:task_list].nil?
         data['taskPriority'] = stub[:task_priority] unless stub[:task_priority].nil?
         data['startToCloseTimeout'] = stub[:start_to_close_timeout] unless stub[:start_to_close_timeout].nil?
         data
@@ -1731,7 +1733,7 @@ module AWS::SDK::SWF
       def self.stub(stub)
         stub ||= Types::WorkflowExecutionCancelRequestedEventAttributes.new
         data = {}
-        data['externalWorkflowExecution'] = Stubs::WorkflowExecution.stub(stub[:external_workflow_execution]) unless stub[:external_workflow_execution].nil?
+        data['externalWorkflowExecution'] = WorkflowExecution.stub(stub[:external_workflow_execution]) unless stub[:external_workflow_execution].nil?
         data['externalInitiatedEventId'] = stub[:external_initiated_event_id] unless stub[:external_initiated_event_id].nil?
         data['cause'] = stub[:cause] unless stub[:cause].nil?
         data
@@ -1809,12 +1811,12 @@ module AWS::SDK::SWF
         data['decisionTaskCompletedEventId'] = stub[:decision_task_completed_event_id] unless stub[:decision_task_completed_event_id].nil?
         data['newExecutionRunId'] = stub[:new_execution_run_id] unless stub[:new_execution_run_id].nil?
         data['executionStartToCloseTimeout'] = stub[:execution_start_to_close_timeout] unless stub[:execution_start_to_close_timeout].nil?
-        data['taskList'] = Stubs::TaskList.stub(stub[:task_list]) unless stub[:task_list].nil?
+        data['taskList'] = TaskList.stub(stub[:task_list]) unless stub[:task_list].nil?
         data['taskPriority'] = stub[:task_priority] unless stub[:task_priority].nil?
         data['taskStartToCloseTimeout'] = stub[:task_start_to_close_timeout] unless stub[:task_start_to_close_timeout].nil?
         data['childPolicy'] = stub[:child_policy] unless stub[:child_policy].nil?
-        data['tagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
-        data['workflowType'] = Stubs::WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
+        data['tagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        data['workflowType'] = WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
         data['lambdaRole'] = stub[:lambda_role] unless stub[:lambda_role].nil?
         data
       end
@@ -1990,12 +1992,12 @@ module AWS::SDK::SWF
         data['executionStartToCloseTimeout'] = stub[:execution_start_to_close_timeout] unless stub[:execution_start_to_close_timeout].nil?
         data['taskStartToCloseTimeout'] = stub[:task_start_to_close_timeout] unless stub[:task_start_to_close_timeout].nil?
         data['childPolicy'] = stub[:child_policy] unless stub[:child_policy].nil?
-        data['taskList'] = Stubs::TaskList.stub(stub[:task_list]) unless stub[:task_list].nil?
+        data['taskList'] = TaskList.stub(stub[:task_list]) unless stub[:task_list].nil?
         data['taskPriority'] = stub[:task_priority] unless stub[:task_priority].nil?
-        data['workflowType'] = Stubs::WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
-        data['tagList'] = Stubs::TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
+        data['workflowType'] = WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
+        data['tagList'] = TagList.stub(stub[:tag_list]) unless stub[:tag_list].nil?
         data['continuedExecutionRunId'] = stub[:continued_execution_run_id] unless stub[:continued_execution_run_id].nil?
-        data['parentWorkflowExecution'] = Stubs::WorkflowExecution.stub(stub[:parent_workflow_execution]) unless stub[:parent_workflow_execution].nil?
+        data['parentWorkflowExecution'] = WorkflowExecution.stub(stub[:parent_workflow_execution]) unless stub[:parent_workflow_execution].nil?
         data['parentInitiatedEventId'] = stub[:parent_initiated_event_id] unless stub[:parent_initiated_event_id].nil?
         data['lambdaRole'] = stub[:lambda_role] unless stub[:lambda_role].nil?
         data
@@ -2013,9 +2015,9 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['typeInfos'] = Stubs::ActivityTypeInfoList.stub(stub[:type_infos]) unless stub[:type_infos].nil?
+        data['typeInfos'] = ActivityTypeInfoList.stub(stub[:type_infos]) unless stub[:type_infos].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2034,7 +2036,7 @@ module AWS::SDK::SWF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ActivityTypeInfo.stub(element) unless element.nil?
+          data << ActivityTypeInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -2051,9 +2053,9 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['executionInfos'] = Stubs::WorkflowExecutionInfoList.stub(stub[:execution_infos]) unless stub[:execution_infos].nil?
+        data['executionInfos'] = WorkflowExecutionInfoList.stub(stub[:execution_infos]) unless stub[:execution_infos].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2072,7 +2074,7 @@ module AWS::SDK::SWF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkflowExecutionInfo.stub(element) unless element.nil?
+          data << WorkflowExecutionInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -2089,9 +2091,9 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['domainInfos'] = Stubs::DomainInfoList.stub(stub[:domain_infos]) unless stub[:domain_infos].nil?
+        data['domainInfos'] = DomainInfoList.stub(stub[:domain_infos]) unless stub[:domain_infos].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2110,7 +2112,7 @@ module AWS::SDK::SWF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainInfo.stub(element) unless element.nil?
+          data << DomainInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -2127,9 +2129,9 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['executionInfos'] = Stubs::WorkflowExecutionInfoList.stub(stub[:execution_infos]) unless stub[:execution_infos].nil?
+        data['executionInfos'] = WorkflowExecutionInfoList.stub(stub[:execution_infos]) unless stub[:execution_infos].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2144,8 +2146,8 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['tags'] = Stubs::ResourceTagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = ResourceTagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2164,7 +2166,7 @@ module AWS::SDK::SWF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ResourceTag.stub(element) unless element.nil?
+          data << ResourceTag.stub(element) unless element.nil?
         end
         data
       end
@@ -2201,9 +2203,9 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['typeInfos'] = Stubs::WorkflowTypeInfoList.stub(stub[:type_infos]) unless stub[:type_infos].nil?
+        data['typeInfos'] = WorkflowTypeInfoList.stub(stub[:type_infos]) unless stub[:type_infos].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2222,7 +2224,7 @@ module AWS::SDK::SWF
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::WorkflowTypeInfo.stub(element) unless element.nil?
+          data << WorkflowTypeInfo.stub(element) unless element.nil?
         end
         data
       end
@@ -2246,10 +2248,10 @@ module AWS::SDK::SWF
         data['taskToken'] = stub[:task_token] unless stub[:task_token].nil?
         data['activityId'] = stub[:activity_id] unless stub[:activity_id].nil?
         data['startedEventId'] = stub[:started_event_id] unless stub[:started_event_id].nil?
-        data['workflowExecution'] = Stubs::WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
-        data['activityType'] = Stubs::ActivityType.stub(stub[:activity_type]) unless stub[:activity_type].nil?
+        data['workflowExecution'] = WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
+        data['activityType'] = ActivityType.stub(stub[:activity_type]) unless stub[:activity_type].nil?
         data['input'] = stub[:input] unless stub[:input].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2272,12 +2274,12 @@ module AWS::SDK::SWF
         data = {}
         data['taskToken'] = stub[:task_token] unless stub[:task_token].nil?
         data['startedEventId'] = stub[:started_event_id] unless stub[:started_event_id].nil?
-        data['workflowExecution'] = Stubs::WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
-        data['workflowType'] = Stubs::WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
-        data['events'] = Stubs::HistoryEventList.stub(stub[:events]) unless stub[:events].nil?
+        data['workflowExecution'] = WorkflowExecution.stub(stub[:workflow_execution]) unless stub[:workflow_execution].nil?
+        data['workflowType'] = WorkflowType.stub(stub[:workflow_type]) unless stub[:workflow_type].nil?
+        data['events'] = HistoryEventList.stub(stub[:events]) unless stub[:events].nil?
         data['nextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
         data['previousStartedEventId'] = stub[:previous_started_event_id] unless stub[:previous_started_event_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2293,7 +2295,7 @@ module AWS::SDK::SWF
       def self.stub(http_resp, stub:)
         data = {}
         data['cancelRequested'] = stub[:cancel_requested] unless stub[:cancel_requested].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2307,7 +2309,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2321,7 +2323,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2335,7 +2337,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2349,7 +2351,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2363,7 +2365,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2377,7 +2379,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2391,7 +2393,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2405,7 +2407,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2419,7 +2421,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2435,7 +2437,7 @@ module AWS::SDK::SWF
       def self.stub(http_resp, stub:)
         data = {}
         data['runId'] = stub[:run_id] unless stub[:run_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2449,7 +2451,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2463,7 +2465,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2477,7 +2479,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2491,7 +2493,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2505,7 +2507,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -2519,7 +2521,7 @@ module AWS::SDK::SWF
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

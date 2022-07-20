@@ -94,8 +94,8 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::BatchGetCustomDataIdentifiersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.custom_data_identifiers = (Parsers::List____listOfBatchGetCustomDataIdentifierSummary.parse(map['customDataIdentifiers']) unless map['customDataIdentifiers'].nil?)
-        data.not_found_identifier_ids = (Parsers::List____listOf__string.parse(map['notFoundIdentifierIds']) unless map['notFoundIdentifierIds'].nil?)
+        data.custom_data_identifiers = (List____listOfBatchGetCustomDataIdentifierSummary.parse(map['customDataIdentifiers']) unless map['customDataIdentifiers'].nil?)
+        data.not_found_identifier_ids = (List____listOf__string.parse(map['notFoundIdentifierIds']) unless map['notFoundIdentifierIds'].nil?)
         data
       end
     end
@@ -114,7 +114,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchGetCustomDataIdentifierSummary.parse(value) unless value.nil?
+          data << BatchGetCustomDataIdentifierSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -170,7 +170,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::CreateInvitationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_accounts = (Parsers::List____listOfUnprocessedAccount.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
+        data.unprocessed_accounts = (List____listOfUnprocessedAccount.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
         data
       end
     end
@@ -179,7 +179,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UnprocessedAccount.parse(value) unless value.nil?
+          data << UnprocessedAccount.parse(value) unless value.nil?
         end
         data
       end
@@ -219,7 +219,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::DeclineInvitationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_accounts = (Parsers::List____listOfUnprocessedAccount.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
+        data.unprocessed_accounts = (List____listOfUnprocessedAccount.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
         data
       end
     end
@@ -247,7 +247,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::DeleteInvitationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.unprocessed_accounts = (Parsers::List____listOfUnprocessedAccount.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
+        data.unprocessed_accounts = (List____listOfUnprocessedAccount.parse(map['unprocessedAccounts']) unless map['unprocessedAccounts'].nil?)
         data
       end
     end
@@ -266,7 +266,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::DescribeBucketsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.buckets = (Parsers::List____listOfBucketMetadata.parse(map['buckets']) unless map['buckets'].nil?)
+        data.buckets = (List____listOfBucketMetadata.parse(map['buckets']) unless map['buckets'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -276,7 +276,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BucketMetadata.parse(value) unless value.nil?
+          data << BucketMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -294,20 +294,20 @@ module AWS::SDK::Macie2
         data.classifiable_size_in_bytes = map['classifiableSizeInBytes']
         data.error_code = map['errorCode']
         data.error_message = map['errorMessage']
-        data.job_details = (Parsers::JobDetails.parse(map['jobDetails']) unless map['jobDetails'].nil?)
+        data.job_details = (JobDetails.parse(map['jobDetails']) unless map['jobDetails'].nil?)
         data.last_updated = Time.parse(map['lastUpdated']) if map['lastUpdated']
         data.object_count = map['objectCount']
-        data.object_count_by_encryption_type = (Parsers::ObjectCountByEncryptionType.parse(map['objectCountByEncryptionType']) unless map['objectCountByEncryptionType'].nil?)
-        data.public_access = (Parsers::BucketPublicAccess.parse(map['publicAccess']) unless map['publicAccess'].nil?)
+        data.object_count_by_encryption_type = (ObjectCountByEncryptionType.parse(map['objectCountByEncryptionType']) unless map['objectCountByEncryptionType'].nil?)
+        data.public_access = (BucketPublicAccess.parse(map['publicAccess']) unless map['publicAccess'].nil?)
         data.region = map['region']
-        data.replication_details = (Parsers::ReplicationDetails.parse(map['replicationDetails']) unless map['replicationDetails'].nil?)
-        data.server_side_encryption = (Parsers::BucketServerSideEncryption.parse(map['serverSideEncryption']) unless map['serverSideEncryption'].nil?)
+        data.replication_details = (ReplicationDetails.parse(map['replicationDetails']) unless map['replicationDetails'].nil?)
+        data.server_side_encryption = (BucketServerSideEncryption.parse(map['serverSideEncryption']) unless map['serverSideEncryption'].nil?)
         data.shared_access = map['sharedAccess']
         data.size_in_bytes = map['sizeInBytes']
         data.size_in_bytes_compressed = map['sizeInBytesCompressed']
-        data.tags = (Parsers::List____listOfKeyValuePair.parse(map['tags']) unless map['tags'].nil?)
-        data.unclassifiable_object_count = (Parsers::ObjectLevelStatistics.parse(map['unclassifiableObjectCount']) unless map['unclassifiableObjectCount'].nil?)
-        data.unclassifiable_object_size_in_bytes = (Parsers::ObjectLevelStatistics.parse(map['unclassifiableObjectSizeInBytes']) unless map['unclassifiableObjectSizeInBytes'].nil?)
+        data.tags = (List____listOfKeyValuePair.parse(map['tags']) unless map['tags'].nil?)
+        data.unclassifiable_object_count = (ObjectLevelStatistics.parse(map['unclassifiableObjectCount']) unless map['unclassifiableObjectCount'].nil?)
+        data.unclassifiable_object_size_in_bytes = (ObjectLevelStatistics.parse(map['unclassifiableObjectSizeInBytes']) unless map['unclassifiableObjectSizeInBytes'].nil?)
         data.versioning = map['versioning']
         return data
       end
@@ -327,7 +327,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::KeyValuePair.parse(value) unless value.nil?
+          data << KeyValuePair.parse(value) unless value.nil?
         end
         data
       end
@@ -356,7 +356,7 @@ module AWS::SDK::Macie2
         data = Types::ReplicationDetails.new
         data.replicated = map['replicated']
         data.replicated_externally = map['replicatedExternally']
-        data.replication_accounts = (Parsers::List____listOf__string.parse(map['replicationAccounts']) unless map['replicationAccounts'].nil?)
+        data.replication_accounts = (List____listOf__string.parse(map['replicationAccounts']) unless map['replicationAccounts'].nil?)
         return data
       end
     end
@@ -365,7 +365,7 @@ module AWS::SDK::Macie2
       def self.parse(map)
         data = Types::BucketPublicAccess.new
         data.effective_permission = map['effectivePermission']
-        data.permission_configuration = (Parsers::BucketPermissionConfiguration.parse(map['permissionConfiguration']) unless map['permissionConfiguration'].nil?)
+        data.permission_configuration = (BucketPermissionConfiguration.parse(map['permissionConfiguration']) unless map['permissionConfiguration'].nil?)
         return data
       end
     end
@@ -373,8 +373,8 @@ module AWS::SDK::Macie2
     class BucketPermissionConfiguration
       def self.parse(map)
         data = Types::BucketPermissionConfiguration.new
-        data.account_level_permissions = (Parsers::AccountLevelPermissions.parse(map['accountLevelPermissions']) unless map['accountLevelPermissions'].nil?)
-        data.bucket_level_permissions = (Parsers::BucketLevelPermissions.parse(map['bucketLevelPermissions']) unless map['bucketLevelPermissions'].nil?)
+        data.account_level_permissions = (AccountLevelPermissions.parse(map['accountLevelPermissions']) unless map['accountLevelPermissions'].nil?)
+        data.bucket_level_permissions = (BucketLevelPermissions.parse(map['bucketLevelPermissions']) unless map['bucketLevelPermissions'].nil?)
         return data
       end
     end
@@ -382,9 +382,9 @@ module AWS::SDK::Macie2
     class BucketLevelPermissions
       def self.parse(map)
         data = Types::BucketLevelPermissions.new
-        data.access_control_list = (Parsers::AccessControlList.parse(map['accessControlList']) unless map['accessControlList'].nil?)
-        data.block_public_access = (Parsers::BlockPublicAccess.parse(map['blockPublicAccess']) unless map['blockPublicAccess'].nil?)
-        data.bucket_policy = (Parsers::BucketPolicy.parse(map['bucketPolicy']) unless map['bucketPolicy'].nil?)
+        data.access_control_list = (AccessControlList.parse(map['accessControlList']) unless map['accessControlList'].nil?)
+        data.block_public_access = (BlockPublicAccess.parse(map['blockPublicAccess']) unless map['blockPublicAccess'].nil?)
+        data.bucket_policy = (BucketPolicy.parse(map['bucketPolicy']) unless map['bucketPolicy'].nil?)
         return data
       end
     end
@@ -421,7 +421,7 @@ module AWS::SDK::Macie2
     class AccountLevelPermissions
       def self.parse(map)
         data = Types::AccountLevelPermissions.new
-        data.block_public_access = (Parsers::BlockPublicAccess.parse(map['blockPublicAccess']) unless map['blockPublicAccess'].nil?)
+        data.block_public_access = (BlockPublicAccess.parse(map['blockPublicAccess']) unless map['blockPublicAccess'].nil?)
         return data
       end
     end
@@ -456,24 +456,24 @@ module AWS::SDK::Macie2
         map = Hearth::JSON.load(http_resp.body)
         data.client_token = map['clientToken']
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
-        data.custom_data_identifier_ids = (Parsers::List____listOf__string.parse(map['customDataIdentifierIds']) unless map['customDataIdentifierIds'].nil?)
+        data.custom_data_identifier_ids = (List____listOf__string.parse(map['customDataIdentifierIds']) unless map['customDataIdentifierIds'].nil?)
         data.description = map['description']
         data.initial_run = map['initialRun']
         data.job_arn = map['jobArn']
         data.job_id = map['jobId']
         data.job_status = map['jobStatus']
         data.job_type = map['jobType']
-        data.last_run_error_status = (Parsers::LastRunErrorStatus.parse(map['lastRunErrorStatus']) unless map['lastRunErrorStatus'].nil?)
+        data.last_run_error_status = (LastRunErrorStatus.parse(map['lastRunErrorStatus']) unless map['lastRunErrorStatus'].nil?)
         data.last_run_time = Time.parse(map['lastRunTime']) if map['lastRunTime']
-        data.managed_data_identifier_ids = (Parsers::List____listOf__string.parse(map['managedDataIdentifierIds']) unless map['managedDataIdentifierIds'].nil?)
+        data.managed_data_identifier_ids = (List____listOf__string.parse(map['managedDataIdentifierIds']) unless map['managedDataIdentifierIds'].nil?)
         data.managed_data_identifier_selector = map['managedDataIdentifierSelector']
         data.name = map['name']
-        data.s3_job_definition = (Parsers::S3JobDefinition.parse(map['s3JobDefinition']) unless map['s3JobDefinition'].nil?)
+        data.s3_job_definition = (S3JobDefinition.parse(map['s3JobDefinition']) unless map['s3JobDefinition'].nil?)
         data.sampling_percentage = map['samplingPercentage']
-        data.schedule_frequency = (Parsers::JobScheduleFrequency.parse(map['scheduleFrequency']) unless map['scheduleFrequency'].nil?)
-        data.statistics = (Parsers::Statistics.parse(map['statistics']) unless map['statistics'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
-        data.user_paused_details = (Parsers::UserPausedDetails.parse(map['userPausedDetails']) unless map['userPausedDetails'].nil?)
+        data.schedule_frequency = (JobScheduleFrequency.parse(map['scheduleFrequency']) unless map['scheduleFrequency'].nil?)
+        data.statistics = (Statistics.parse(map['statistics']) unless map['statistics'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.user_paused_details = (UserPausedDetails.parse(map['userPausedDetails']) unless map['userPausedDetails'].nil?)
         data
       end
     end
@@ -510,9 +510,9 @@ module AWS::SDK::Macie2
     class JobScheduleFrequency
       def self.parse(map)
         data = Types::JobScheduleFrequency.new
-        data.daily_schedule = (Parsers::DailySchedule.parse(map['dailySchedule']) unless map['dailySchedule'].nil?)
-        data.monthly_schedule = (Parsers::MonthlySchedule.parse(map['monthlySchedule']) unless map['monthlySchedule'].nil?)
-        data.weekly_schedule = (Parsers::WeeklySchedule.parse(map['weeklySchedule']) unless map['weeklySchedule'].nil?)
+        data.daily_schedule = (DailySchedule.parse(map['dailySchedule']) unless map['dailySchedule'].nil?)
+        data.monthly_schedule = (MonthlySchedule.parse(map['monthlySchedule']) unless map['monthlySchedule'].nil?)
+        data.weekly_schedule = (WeeklySchedule.parse(map['weeklySchedule']) unless map['weeklySchedule'].nil?)
         return data
       end
     end
@@ -543,9 +543,9 @@ module AWS::SDK::Macie2
     class S3JobDefinition
       def self.parse(map)
         data = Types::S3JobDefinition.new
-        data.bucket_definitions = (Parsers::List____listOfS3BucketDefinitionForJob.parse(map['bucketDefinitions']) unless map['bucketDefinitions'].nil?)
-        data.scoping = (Parsers::Scoping.parse(map['scoping']) unless map['scoping'].nil?)
-        data.bucket_criteria = (Parsers::S3BucketCriteriaForJob.parse(map['bucketCriteria']) unless map['bucketCriteria'].nil?)
+        data.bucket_definitions = (List____listOfS3BucketDefinitionForJob.parse(map['bucketDefinitions']) unless map['bucketDefinitions'].nil?)
+        data.scoping = (Scoping.parse(map['scoping']) unless map['scoping'].nil?)
+        data.bucket_criteria = (S3BucketCriteriaForJob.parse(map['bucketCriteria']) unless map['bucketCriteria'].nil?)
         return data
       end
     end
@@ -553,8 +553,8 @@ module AWS::SDK::Macie2
     class S3BucketCriteriaForJob
       def self.parse(map)
         data = Types::S3BucketCriteriaForJob.new
-        data.excludes = (Parsers::CriteriaBlockForJob.parse(map['excludes']) unless map['excludes'].nil?)
-        data.includes = (Parsers::CriteriaBlockForJob.parse(map['includes']) unless map['includes'].nil?)
+        data.excludes = (CriteriaBlockForJob.parse(map['excludes']) unless map['excludes'].nil?)
+        data.includes = (CriteriaBlockForJob.parse(map['includes']) unless map['includes'].nil?)
         return data
       end
     end
@@ -562,7 +562,7 @@ module AWS::SDK::Macie2
     class CriteriaBlockForJob
       def self.parse(map)
         data = Types::CriteriaBlockForJob.new
-        data.and = (Parsers::List____listOfCriteriaForJob.parse(map['and']) unless map['and'].nil?)
+        data.and = (List____listOfCriteriaForJob.parse(map['and']) unless map['and'].nil?)
         return data
       end
     end
@@ -571,7 +571,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CriteriaForJob.parse(value) unless value.nil?
+          data << CriteriaForJob.parse(value) unless value.nil?
         end
         data
       end
@@ -580,8 +580,8 @@ module AWS::SDK::Macie2
     class CriteriaForJob
       def self.parse(map)
         data = Types::CriteriaForJob.new
-        data.simple_criterion = (Parsers::SimpleCriterionForJob.parse(map['simpleCriterion']) unless map['simpleCriterion'].nil?)
-        data.tag_criterion = (Parsers::TagCriterionForJob.parse(map['tagCriterion']) unless map['tagCriterion'].nil?)
+        data.simple_criterion = (SimpleCriterionForJob.parse(map['simpleCriterion']) unless map['simpleCriterion'].nil?)
+        data.tag_criterion = (TagCriterionForJob.parse(map['tagCriterion']) unless map['tagCriterion'].nil?)
         return data
       end
     end
@@ -590,7 +590,7 @@ module AWS::SDK::Macie2
       def self.parse(map)
         data = Types::TagCriterionForJob.new
         data.comparator = map['comparator']
-        data.tag_values = (Parsers::List____listOfTagCriterionPairForJob.parse(map['tagValues']) unless map['tagValues'].nil?)
+        data.tag_values = (List____listOfTagCriterionPairForJob.parse(map['tagValues']) unless map['tagValues'].nil?)
         return data
       end
     end
@@ -599,7 +599,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TagCriterionPairForJob.parse(value) unless value.nil?
+          data << TagCriterionPairForJob.parse(value) unless value.nil?
         end
         data
       end
@@ -619,7 +619,7 @@ module AWS::SDK::Macie2
         data = Types::SimpleCriterionForJob.new
         data.comparator = map['comparator']
         data.key = map['key']
-        data.values = (Parsers::List____listOf__string.parse(map['values']) unless map['values'].nil?)
+        data.values = (List____listOf__string.parse(map['values']) unless map['values'].nil?)
         return data
       end
     end
@@ -627,8 +627,8 @@ module AWS::SDK::Macie2
     class Scoping
       def self.parse(map)
         data = Types::Scoping.new
-        data.excludes = (Parsers::JobScopingBlock.parse(map['excludes']) unless map['excludes'].nil?)
-        data.includes = (Parsers::JobScopingBlock.parse(map['includes']) unless map['includes'].nil?)
+        data.excludes = (JobScopingBlock.parse(map['excludes']) unless map['excludes'].nil?)
+        data.includes = (JobScopingBlock.parse(map['includes']) unless map['includes'].nil?)
         return data
       end
     end
@@ -636,7 +636,7 @@ module AWS::SDK::Macie2
     class JobScopingBlock
       def self.parse(map)
         data = Types::JobScopingBlock.new
-        data.and = (Parsers::List____listOfJobScopeTerm.parse(map['and']) unless map['and'].nil?)
+        data.and = (List____listOfJobScopeTerm.parse(map['and']) unless map['and'].nil?)
         return data
       end
     end
@@ -645,7 +645,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobScopeTerm.parse(value) unless value.nil?
+          data << JobScopeTerm.parse(value) unless value.nil?
         end
         data
       end
@@ -654,8 +654,8 @@ module AWS::SDK::Macie2
     class JobScopeTerm
       def self.parse(map)
         data = Types::JobScopeTerm.new
-        data.simple_scope_term = (Parsers::SimpleScopeTerm.parse(map['simpleScopeTerm']) unless map['simpleScopeTerm'].nil?)
-        data.tag_scope_term = (Parsers::TagScopeTerm.parse(map['tagScopeTerm']) unless map['tagScopeTerm'].nil?)
+        data.simple_scope_term = (SimpleScopeTerm.parse(map['simpleScopeTerm']) unless map['simpleScopeTerm'].nil?)
+        data.tag_scope_term = (TagScopeTerm.parse(map['tagScopeTerm']) unless map['tagScopeTerm'].nil?)
         return data
       end
     end
@@ -665,7 +665,7 @@ module AWS::SDK::Macie2
         data = Types::TagScopeTerm.new
         data.comparator = map['comparator']
         data.key = map['key']
-        data.tag_values = (Parsers::List____listOfTagValuePair.parse(map['tagValues']) unless map['tagValues'].nil?)
+        data.tag_values = (List____listOfTagValuePair.parse(map['tagValues']) unless map['tagValues'].nil?)
         data.target = map['target']
         return data
       end
@@ -675,7 +675,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TagValuePair.parse(value) unless value.nil?
+          data << TagValuePair.parse(value) unless value.nil?
         end
         data
       end
@@ -695,7 +695,7 @@ module AWS::SDK::Macie2
         data = Types::SimpleScopeTerm.new
         data.comparator = map['comparator']
         data.key = map['key']
-        data.values = (Parsers::List____listOf__string.parse(map['values']) unless map['values'].nil?)
+        data.values = (List____listOf__string.parse(map['values']) unless map['values'].nil?)
         return data
       end
     end
@@ -704,7 +704,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::S3BucketDefinitionForJob.parse(value) unless value.nil?
+          data << S3BucketDefinitionForJob.parse(value) unless value.nil?
         end
         data
       end
@@ -714,7 +714,7 @@ module AWS::SDK::Macie2
       def self.parse(map)
         data = Types::S3BucketDefinitionForJob.new
         data.account_id = map['accountId']
-        data.buckets = (Parsers::List____listOf__string.parse(map['buckets']) unless map['buckets'].nil?)
+        data.buckets = (List____listOf__string.parse(map['buckets']) unless map['buckets'].nil?)
         return data
       end
     end
@@ -806,7 +806,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::GetAdministratorAccountOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.administrator = (Parsers::Invitation.parse(map['administrator']) unless map['administrator'].nil?)
+        data.administrator = (Invitation.parse(map['administrator']) unless map['administrator'].nil?)
         data
       end
     end
@@ -828,18 +828,18 @@ module AWS::SDK::Macie2
         data = Types::GetBucketStatisticsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.bucket_count = map['bucketCount']
-        data.bucket_count_by_effective_permission = (Parsers::BucketCountByEffectivePermission.parse(map['bucketCountByEffectivePermission']) unless map['bucketCountByEffectivePermission'].nil?)
-        data.bucket_count_by_encryption_type = (Parsers::BucketCountByEncryptionType.parse(map['bucketCountByEncryptionType']) unless map['bucketCountByEncryptionType'].nil?)
-        data.bucket_count_by_object_encryption_requirement = (Parsers::BucketCountPolicyAllowsUnencryptedObjectUploads.parse(map['bucketCountByObjectEncryptionRequirement']) unless map['bucketCountByObjectEncryptionRequirement'].nil?)
-        data.bucket_count_by_shared_access_type = (Parsers::BucketCountBySharedAccessType.parse(map['bucketCountBySharedAccessType']) unless map['bucketCountBySharedAccessType'].nil?)
+        data.bucket_count_by_effective_permission = (BucketCountByEffectivePermission.parse(map['bucketCountByEffectivePermission']) unless map['bucketCountByEffectivePermission'].nil?)
+        data.bucket_count_by_encryption_type = (BucketCountByEncryptionType.parse(map['bucketCountByEncryptionType']) unless map['bucketCountByEncryptionType'].nil?)
+        data.bucket_count_by_object_encryption_requirement = (BucketCountPolicyAllowsUnencryptedObjectUploads.parse(map['bucketCountByObjectEncryptionRequirement']) unless map['bucketCountByObjectEncryptionRequirement'].nil?)
+        data.bucket_count_by_shared_access_type = (BucketCountBySharedAccessType.parse(map['bucketCountBySharedAccessType']) unless map['bucketCountBySharedAccessType'].nil?)
         data.classifiable_object_count = map['classifiableObjectCount']
         data.classifiable_size_in_bytes = map['classifiableSizeInBytes']
         data.last_updated = Time.parse(map['lastUpdated']) if map['lastUpdated']
         data.object_count = map['objectCount']
         data.size_in_bytes = map['sizeInBytes']
         data.size_in_bytes_compressed = map['sizeInBytesCompressed']
-        data.unclassifiable_object_count = (Parsers::ObjectLevelStatistics.parse(map['unclassifiableObjectCount']) unless map['unclassifiableObjectCount'].nil?)
-        data.unclassifiable_object_size_in_bytes = (Parsers::ObjectLevelStatistics.parse(map['unclassifiableObjectSizeInBytes']) unless map['unclassifiableObjectSizeInBytes'].nil?)
+        data.unclassifiable_object_count = (ObjectLevelStatistics.parse(map['unclassifiableObjectCount']) unless map['unclassifiableObjectCount'].nil?)
+        data.unclassifiable_object_size_in_bytes = (ObjectLevelStatistics.parse(map['unclassifiableObjectSizeInBytes']) unless map['unclassifiableObjectSizeInBytes'].nil?)
         data
       end
     end
@@ -892,7 +892,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::GetClassificationExportConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.configuration = (Parsers::ClassificationExportConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
+        data.configuration = (ClassificationExportConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
         data
       end
     end
@@ -900,7 +900,7 @@ module AWS::SDK::Macie2
     class ClassificationExportConfiguration
       def self.parse(map)
         data = Types::ClassificationExportConfiguration.new
-        data.s3_destination = (Parsers::S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
+        data.s3_destination = (S3Destination.parse(map['s3Destination']) unless map['s3Destination'].nil?)
         return data
       end
     end
@@ -925,13 +925,13 @@ module AWS::SDK::Macie2
         data.deleted = map['deleted']
         data.description = map['description']
         data.id = map['id']
-        data.ignore_words = (Parsers::List____listOf__string.parse(map['ignoreWords']) unless map['ignoreWords'].nil?)
-        data.keywords = (Parsers::List____listOf__string.parse(map['keywords']) unless map['keywords'].nil?)
+        data.ignore_words = (List____listOf__string.parse(map['ignoreWords']) unless map['ignoreWords'].nil?)
+        data.keywords = (List____listOf__string.parse(map['keywords']) unless map['keywords'].nil?)
         data.maximum_match_distance = map['maximumMatchDistance']
         data.name = map['name']
         data.regex = map['regex']
-        data.severity_levels = (Parsers::SeverityLevelList.parse(map['severityLevels']) unless map['severityLevels'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.severity_levels = (SeverityLevelList.parse(map['severityLevels']) unless map['severityLevels'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -940,7 +940,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SeverityLevel.parse(value) unless value.nil?
+          data << SeverityLevel.parse(value) unless value.nil?
         end
         data
       end
@@ -960,7 +960,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::GetFindingStatisticsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.counts_by_group = (Parsers::List____listOfGroupCount.parse(map['countsByGroup']) unless map['countsByGroup'].nil?)
+        data.counts_by_group = (List____listOfGroupCount.parse(map['countsByGroup']) unless map['countsByGroup'].nil?)
         data
       end
     end
@@ -969,7 +969,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GroupCount.parse(value) unless value.nil?
+          data << GroupCount.parse(value) unless value.nil?
         end
         data
       end
@@ -989,7 +989,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::GetFindingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.findings = (Parsers::List____listOfFinding.parse(map['findings']) unless map['findings'].nil?)
+        data.findings = (List____listOfFinding.parse(map['findings']) unless map['findings'].nil?)
         data
       end
     end
@@ -998,7 +998,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Finding.parse(value) unless value.nil?
+          data << Finding.parse(value) unless value.nil?
         end
         data
       end
@@ -1010,18 +1010,18 @@ module AWS::SDK::Macie2
         data.account_id = map['accountId']
         data.archived = map['archived']
         data.category = map['category']
-        data.classification_details = (Parsers::ClassificationDetails.parse(map['classificationDetails']) unless map['classificationDetails'].nil?)
+        data.classification_details = (ClassificationDetails.parse(map['classificationDetails']) unless map['classificationDetails'].nil?)
         data.count = map['count']
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
         data.description = map['description']
         data.id = map['id']
         data.partition = map['partition']
-        data.policy_details = (Parsers::PolicyDetails.parse(map['policyDetails']) unless map['policyDetails'].nil?)
+        data.policy_details = (PolicyDetails.parse(map['policyDetails']) unless map['policyDetails'].nil?)
         data.region = map['region']
-        data.resources_affected = (Parsers::ResourcesAffected.parse(map['resourcesAffected']) unless map['resourcesAffected'].nil?)
+        data.resources_affected = (ResourcesAffected.parse(map['resourcesAffected']) unless map['resourcesAffected'].nil?)
         data.sample = map['sample']
         data.schema_version = map['schemaVersion']
-        data.severity = (Parsers::Severity.parse(map['severity']) unless map['severity'].nil?)
+        data.severity = (Severity.parse(map['severity']) unless map['severity'].nil?)
         data.title = map['title']
         data.type = map['type']
         data.updated_at = Time.parse(map['updatedAt']) if map['updatedAt']
@@ -1041,8 +1041,8 @@ module AWS::SDK::Macie2
     class ResourcesAffected
       def self.parse(map)
         data = Types::ResourcesAffected.new
-        data.s3_bucket = (Parsers::S3Bucket.parse(map['s3Bucket']) unless map['s3Bucket'].nil?)
-        data.s3_object = (Parsers::S3Object.parse(map['s3Object']) unless map['s3Object'].nil?)
+        data.s3_bucket = (S3Bucket.parse(map['s3Bucket']) unless map['s3Bucket'].nil?)
+        data.s3_object = (S3Object.parse(map['s3Object']) unless map['s3Object'].nil?)
         return data
       end
     end
@@ -1057,10 +1057,10 @@ module AWS::SDK::Macie2
         data.last_modified = Time.parse(map['lastModified']) if map['lastModified']
         data.path = map['path']
         data.public_access = map['publicAccess']
-        data.server_side_encryption = (Parsers::ServerSideEncryption.parse(map['serverSideEncryption']) unless map['serverSideEncryption'].nil?)
+        data.server_side_encryption = (ServerSideEncryption.parse(map['serverSideEncryption']) unless map['serverSideEncryption'].nil?)
         data.size = map['size']
         data.storage_class = map['storageClass']
-        data.tags = (Parsers::KeyValuePairList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (KeyValuePairList.parse(map['tags']) unless map['tags'].nil?)
         data.version_id = map['versionId']
         return data
       end
@@ -1070,7 +1070,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::KeyValuePair.parse(value) unless value.nil?
+          data << KeyValuePair.parse(value) unless value.nil?
         end
         data
       end
@@ -1091,11 +1091,11 @@ module AWS::SDK::Macie2
         data.allows_unencrypted_object_uploads = map['allowsUnencryptedObjectUploads']
         data.arn = map['arn']
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
-        data.default_server_side_encryption = (Parsers::ServerSideEncryption.parse(map['defaultServerSideEncryption']) unless map['defaultServerSideEncryption'].nil?)
+        data.default_server_side_encryption = (ServerSideEncryption.parse(map['defaultServerSideEncryption']) unless map['defaultServerSideEncryption'].nil?)
         data.name = map['name']
-        data.owner = (Parsers::S3BucketOwner.parse(map['owner']) unless map['owner'].nil?)
-        data.public_access = (Parsers::BucketPublicAccess.parse(map['publicAccess']) unless map['publicAccess'].nil?)
-        data.tags = (Parsers::KeyValuePairList.parse(map['tags']) unless map['tags'].nil?)
+        data.owner = (S3BucketOwner.parse(map['owner']) unless map['owner'].nil?)
+        data.public_access = (BucketPublicAccess.parse(map['publicAccess']) unless map['publicAccess'].nil?)
+        data.tags = (KeyValuePairList.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -1112,8 +1112,8 @@ module AWS::SDK::Macie2
     class PolicyDetails
       def self.parse(map)
         data = Types::PolicyDetails.new
-        data.action = (Parsers::FindingAction.parse(map['action']) unless map['action'].nil?)
-        data.actor = (Parsers::FindingActor.parse(map['actor']) unless map['actor'].nil?)
+        data.action = (FindingAction.parse(map['action']) unless map['action'].nil?)
+        data.actor = (FindingActor.parse(map['actor']) unless map['actor'].nil?)
         return data
       end
     end
@@ -1121,9 +1121,9 @@ module AWS::SDK::Macie2
     class FindingActor
       def self.parse(map)
         data = Types::FindingActor.new
-        data.domain_details = (Parsers::DomainDetails.parse(map['domainDetails']) unless map['domainDetails'].nil?)
-        data.ip_address_details = (Parsers::IpAddressDetails.parse(map['ipAddressDetails']) unless map['ipAddressDetails'].nil?)
-        data.user_identity = (Parsers::UserIdentity.parse(map['userIdentity']) unless map['userIdentity'].nil?)
+        data.domain_details = (DomainDetails.parse(map['domainDetails']) unless map['domainDetails'].nil?)
+        data.ip_address_details = (IpAddressDetails.parse(map['ipAddressDetails']) unless map['ipAddressDetails'].nil?)
+        data.user_identity = (UserIdentity.parse(map['userIdentity']) unless map['userIdentity'].nil?)
         return data
       end
     end
@@ -1131,12 +1131,12 @@ module AWS::SDK::Macie2
     class UserIdentity
       def self.parse(map)
         data = Types::UserIdentity.new
-        data.assumed_role = (Parsers::AssumedRole.parse(map['assumedRole']) unless map['assumedRole'].nil?)
-        data.aws_account = (Parsers::AwsAccount.parse(map['awsAccount']) unless map['awsAccount'].nil?)
-        data.aws_service = (Parsers::AwsService.parse(map['awsService']) unless map['awsService'].nil?)
-        data.federated_user = (Parsers::FederatedUser.parse(map['federatedUser']) unless map['federatedUser'].nil?)
-        data.iam_user = (Parsers::IamUser.parse(map['iamUser']) unless map['iamUser'].nil?)
-        data.root = (Parsers::UserIdentityRoot.parse(map['root']) unless map['root'].nil?)
+        data.assumed_role = (AssumedRole.parse(map['assumedRole']) unless map['assumedRole'].nil?)
+        data.aws_account = (AwsAccount.parse(map['awsAccount']) unless map['awsAccount'].nil?)
+        data.aws_service = (AwsService.parse(map['awsService']) unless map['awsService'].nil?)
+        data.federated_user = (FederatedUser.parse(map['federatedUser']) unless map['federatedUser'].nil?)
+        data.iam_user = (IamUser.parse(map['iamUser']) unless map['iamUser'].nil?)
+        data.root = (UserIdentityRoot.parse(map['root']) unless map['root'].nil?)
         data.type = map['type']
         return data
       end
@@ -1170,7 +1170,7 @@ module AWS::SDK::Macie2
         data.account_id = map['accountId']
         data.arn = map['arn']
         data.principal_id = map['principalId']
-        data.session_context = (Parsers::SessionContext.parse(map['sessionContext']) unless map['sessionContext'].nil?)
+        data.session_context = (SessionContext.parse(map['sessionContext']) unless map['sessionContext'].nil?)
         return data
       end
     end
@@ -1178,8 +1178,8 @@ module AWS::SDK::Macie2
     class SessionContext
       def self.parse(map)
         data = Types::SessionContext.new
-        data.attributes = (Parsers::SessionContextAttributes.parse(map['attributes']) unless map['attributes'].nil?)
-        data.session_issuer = (Parsers::SessionIssuer.parse(map['sessionIssuer']) unless map['sessionIssuer'].nil?)
+        data.attributes = (SessionContextAttributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.session_issuer = (SessionIssuer.parse(map['sessionIssuer']) unless map['sessionIssuer'].nil?)
         return data
       end
     end
@@ -1229,7 +1229,7 @@ module AWS::SDK::Macie2
         data.account_id = map['accountId']
         data.arn = map['arn']
         data.principal_id = map['principalId']
-        data.session_context = (Parsers::SessionContext.parse(map['sessionContext']) unless map['sessionContext'].nil?)
+        data.session_context = (SessionContext.parse(map['sessionContext']) unless map['sessionContext'].nil?)
         return data
       end
     end
@@ -1238,10 +1238,10 @@ module AWS::SDK::Macie2
       def self.parse(map)
         data = Types::IpAddressDetails.new
         data.ip_address_v4 = map['ipAddressV4']
-        data.ip_city = (Parsers::IpCity.parse(map['ipCity']) unless map['ipCity'].nil?)
-        data.ip_country = (Parsers::IpCountry.parse(map['ipCountry']) unless map['ipCountry'].nil?)
-        data.ip_geo_location = (Parsers::IpGeoLocation.parse(map['ipGeoLocation']) unless map['ipGeoLocation'].nil?)
-        data.ip_owner = (Parsers::IpOwner.parse(map['ipOwner']) unless map['ipOwner'].nil?)
+        data.ip_city = (IpCity.parse(map['ipCity']) unless map['ipCity'].nil?)
+        data.ip_country = (IpCountry.parse(map['ipCountry']) unless map['ipCountry'].nil?)
+        data.ip_geo_location = (IpGeoLocation.parse(map['ipGeoLocation']) unless map['ipGeoLocation'].nil?)
+        data.ip_owner = (IpOwner.parse(map['ipOwner']) unless map['ipOwner'].nil?)
         return data
       end
     end
@@ -1295,7 +1295,7 @@ module AWS::SDK::Macie2
       def self.parse(map)
         data = Types::FindingAction.new
         data.action_type = map['actionType']
-        data.api_call_details = (Parsers::ApiCallDetails.parse(map['apiCallDetails']) unless map['apiCallDetails'].nil?)
+        data.api_call_details = (ApiCallDetails.parse(map['apiCallDetails']) unless map['apiCallDetails'].nil?)
         return data
       end
     end
@@ -1318,7 +1318,7 @@ module AWS::SDK::Macie2
         data.job_arn = map['jobArn']
         data.job_id = map['jobId']
         data.origin_type = map['originType']
-        data.result = (Parsers::ClassificationResult.parse(map['result']) unless map['result'].nil?)
+        data.result = (ClassificationResult.parse(map['result']) unless map['result'].nil?)
         return data
       end
     end
@@ -1327,11 +1327,11 @@ module AWS::SDK::Macie2
       def self.parse(map)
         data = Types::ClassificationResult.new
         data.additional_occurrences = map['additionalOccurrences']
-        data.custom_data_identifiers = (Parsers::CustomDataIdentifiers.parse(map['customDataIdentifiers']) unless map['customDataIdentifiers'].nil?)
+        data.custom_data_identifiers = (CustomDataIdentifiers.parse(map['customDataIdentifiers']) unless map['customDataIdentifiers'].nil?)
         data.mime_type = map['mimeType']
-        data.sensitive_data = (Parsers::SensitiveData.parse(map['sensitiveData']) unless map['sensitiveData'].nil?)
+        data.sensitive_data = (SensitiveData.parse(map['sensitiveData']) unless map['sensitiveData'].nil?)
         data.size_classified = map['sizeClassified']
-        data.status = (Parsers::ClassificationResultStatus.parse(map['status']) unless map['status'].nil?)
+        data.status = (ClassificationResultStatus.parse(map['status']) unless map['status'].nil?)
         return data
       end
     end
@@ -1349,7 +1349,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SensitiveDataItem.parse(value) unless value.nil?
+          data << SensitiveDataItem.parse(value) unless value.nil?
         end
         data
       end
@@ -1359,7 +1359,7 @@ module AWS::SDK::Macie2
       def self.parse(map)
         data = Types::SensitiveDataItem.new
         data.category = map['category']
-        data.detections = (Parsers::DefaultDetections.parse(map['detections']) unless map['detections'].nil?)
+        data.detections = (DefaultDetections.parse(map['detections']) unless map['detections'].nil?)
         data.total_count = map['totalCount']
         return data
       end
@@ -1369,7 +1369,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DefaultDetection.parse(value) unless value.nil?
+          data << DefaultDetection.parse(value) unless value.nil?
         end
         data
       end
@@ -1379,7 +1379,7 @@ module AWS::SDK::Macie2
       def self.parse(map)
         data = Types::DefaultDetection.new
         data.count = map['count']
-        data.occurrences = (Parsers::Occurrences.parse(map['occurrences']) unless map['occurrences'].nil?)
+        data.occurrences = (Occurrences.parse(map['occurrences']) unless map['occurrences'].nil?)
         data.type = map['type']
         return data
       end
@@ -1388,11 +1388,11 @@ module AWS::SDK::Macie2
     class Occurrences
       def self.parse(map)
         data = Types::Occurrences.new
-        data.cells = (Parsers::Cells.parse(map['cells']) unless map['cells'].nil?)
-        data.line_ranges = (Parsers::Ranges.parse(map['lineRanges']) unless map['lineRanges'].nil?)
-        data.offset_ranges = (Parsers::Ranges.parse(map['offsetRanges']) unless map['offsetRanges'].nil?)
-        data.pages = (Parsers::Pages.parse(map['pages']) unless map['pages'].nil?)
-        data.records = (Parsers::Records.parse(map['records']) unless map['records'].nil?)
+        data.cells = (Cells.parse(map['cells']) unless map['cells'].nil?)
+        data.line_ranges = (Ranges.parse(map['lineRanges']) unless map['lineRanges'].nil?)
+        data.offset_ranges = (Ranges.parse(map['offsetRanges']) unless map['offsetRanges'].nil?)
+        data.pages = (Pages.parse(map['pages']) unless map['pages'].nil?)
+        data.records = (Records.parse(map['records']) unless map['records'].nil?)
         return data
       end
     end
@@ -1401,7 +1401,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Record.parse(value) unless value.nil?
+          data << Record.parse(value) unless value.nil?
         end
         data
       end
@@ -1420,7 +1420,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Page.parse(value) unless value.nil?
+          data << Page.parse(value) unless value.nil?
         end
         data
       end
@@ -1429,8 +1429,8 @@ module AWS::SDK::Macie2
     class Page
       def self.parse(map)
         data = Types::Page.new
-        data.line_range = (Parsers::Range.parse(map['lineRange']) unless map['lineRange'].nil?)
-        data.offset_range = (Parsers::Range.parse(map['offsetRange']) unless map['offsetRange'].nil?)
+        data.line_range = (Range.parse(map['lineRange']) unless map['lineRange'].nil?)
+        data.offset_range = (Range.parse(map['offsetRange']) unless map['offsetRange'].nil?)
         data.page_number = map['pageNumber']
         return data
       end
@@ -1450,7 +1450,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Range.parse(value) unless value.nil?
+          data << Range.parse(value) unless value.nil?
         end
         data
       end
@@ -1460,7 +1460,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Cell.parse(value) unless value.nil?
+          data << Cell.parse(value) unless value.nil?
         end
         data
       end
@@ -1480,7 +1480,7 @@ module AWS::SDK::Macie2
     class CustomDataIdentifiers
       def self.parse(map)
         data = Types::CustomDataIdentifiers.new
-        data.detections = (Parsers::CustomDetections.parse(map['detections']) unless map['detections'].nil?)
+        data.detections = (CustomDetections.parse(map['detections']) unless map['detections'].nil?)
         data.total_count = map['totalCount']
         return data
       end
@@ -1490,7 +1490,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CustomDetection.parse(value) unless value.nil?
+          data << CustomDetection.parse(value) unless value.nil?
         end
         data
       end
@@ -1502,7 +1502,7 @@ module AWS::SDK::Macie2
         data.arn = map['arn']
         data.count = map['count']
         data.name = map['name']
-        data.occurrences = (Parsers::Occurrences.parse(map['occurrences']) unless map['occurrences'].nil?)
+        data.occurrences = (Occurrences.parse(map['occurrences']) unless map['occurrences'].nil?)
         return data
       end
     end
@@ -1515,11 +1515,11 @@ module AWS::SDK::Macie2
         data.action = map['action']
         data.arn = map['arn']
         data.description = map['description']
-        data.finding_criteria = (Parsers::FindingCriteria.parse(map['findingCriteria']) unless map['findingCriteria'].nil?)
+        data.finding_criteria = (FindingCriteria.parse(map['findingCriteria']) unless map['findingCriteria'].nil?)
         data.id = map['id']
         data.name = map['name']
         data.position = map['position']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1527,7 +1527,7 @@ module AWS::SDK::Macie2
     class FindingCriteria
       def self.parse(map)
         data = Types::FindingCriteria.new
-        data.criterion = (Parsers::Criterion.parse(map['criterion']) unless map['criterion'].nil?)
+        data.criterion = (Criterion.parse(map['criterion']) unless map['criterion'].nil?)
         return data
       end
     end
@@ -1536,7 +1536,7 @@ module AWS::SDK::Macie2
       def self.parse(map)
         data = {}
         map.map do |key, value|
-          data[key] = Parsers::CriterionAdditionalProperties.parse(value) unless value.nil?
+          data[key] = CriterionAdditionalProperties.parse(value) unless value.nil?
         end
         data
       end
@@ -1545,13 +1545,13 @@ module AWS::SDK::Macie2
     class CriterionAdditionalProperties
       def self.parse(map)
         data = Types::CriterionAdditionalProperties.new
-        data.eq = (Parsers::List____listOf__string.parse(map['eq']) unless map['eq'].nil?)
-        data.eq_exact_match = (Parsers::List____listOf__string.parse(map['eqExactMatch']) unless map['eqExactMatch'].nil?)
+        data.eq = (List____listOf__string.parse(map['eq']) unless map['eq'].nil?)
+        data.eq_exact_match = (List____listOf__string.parse(map['eqExactMatch']) unless map['eqExactMatch'].nil?)
         data.gt = map['gt']
         data.gte = map['gte']
         data.lt = map['lt']
         data.lte = map['lte']
-        data.neq = (Parsers::List____listOf__string.parse(map['neq']) unless map['neq'].nil?)
+        data.neq = (List____listOf__string.parse(map['neq']) unless map['neq'].nil?)
         return data
       end
     end
@@ -1561,7 +1561,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::GetFindingsPublicationConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.security_hub_configuration = (Parsers::SecurityHubConfiguration.parse(map['securityHubConfiguration']) unless map['securityHubConfiguration'].nil?)
+        data.security_hub_configuration = (SecurityHubConfiguration.parse(map['securityHubConfiguration']) unless map['securityHubConfiguration'].nil?)
         data
       end
     end
@@ -1604,7 +1604,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::GetMasterAccountOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.master = (Parsers::Invitation.parse(map['master']) unless map['master'].nil?)
+        data.master = (Invitation.parse(map['master']) unless map['master'].nil?)
         data
       end
     end
@@ -1621,7 +1621,7 @@ module AWS::SDK::Macie2
         data.invited_at = Time.parse(map['invitedAt']) if map['invitedAt']
         data.master_account_id = map['masterAccountId']
         data.relationship_status = map['relationshipStatus']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data.updated_at = Time.parse(map['updatedAt']) if map['updatedAt']
         data
       end
@@ -1633,7 +1633,7 @@ module AWS::SDK::Macie2
         data = Types::GetUsageStatisticsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.next_token = map['nextToken']
-        data.records = (Parsers::List____listOfUsageRecord.parse(map['records']) unless map['records'].nil?)
+        data.records = (List____listOfUsageRecord.parse(map['records']) unless map['records'].nil?)
         data.time_range = map['timeRange']
         data
       end
@@ -1643,7 +1643,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UsageRecord.parse(value) unless value.nil?
+          data << UsageRecord.parse(value) unless value.nil?
         end
         data
       end
@@ -1654,7 +1654,7 @@ module AWS::SDK::Macie2
         data = Types::UsageRecord.new
         data.account_id = map['accountId']
         data.free_trial_start_date = Time.parse(map['freeTrialStartDate']) if map['freeTrialStartDate']
-        data.usage = (Parsers::List____listOfUsageByAccount.parse(map['usage']) unless map['usage'].nil?)
+        data.usage = (List____listOfUsageByAccount.parse(map['usage']) unless map['usage'].nil?)
         return data
       end
     end
@@ -1663,7 +1663,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UsageByAccount.parse(value) unless value.nil?
+          data << UsageByAccount.parse(value) unless value.nil?
         end
         data
       end
@@ -1674,7 +1674,7 @@ module AWS::SDK::Macie2
         data = Types::UsageByAccount.new
         data.currency = map['currency']
         data.estimated_cost = map['estimatedCost']
-        data.service_limit = (Parsers::ServiceLimit.parse(map['serviceLimit']) unless map['serviceLimit'].nil?)
+        data.service_limit = (ServiceLimit.parse(map['serviceLimit']) unless map['serviceLimit'].nil?)
         data.type = map['type']
         return data
       end
@@ -1696,7 +1696,7 @@ module AWS::SDK::Macie2
         data = Types::GetUsageTotalsOutput.new
         map = Hearth::JSON.load(http_resp.body)
         data.time_range = map['timeRange']
-        data.usage_totals = (Parsers::List____listOfUsageTotal.parse(map['usageTotals']) unless map['usageTotals'].nil?)
+        data.usage_totals = (List____listOfUsageTotal.parse(map['usageTotals']) unless map['usageTotals'].nil?)
         data
       end
     end
@@ -1705,7 +1705,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::UsageTotal.parse(value) unless value.nil?
+          data << UsageTotal.parse(value) unless value.nil?
         end
         data
       end
@@ -1726,7 +1726,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::ListClassificationJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfJobSummary.parse(map['items']) unless map['items'].nil?)
+        data.items = (List____listOfJobSummary.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1736,7 +1736,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobSummary.parse(value) unless value.nil?
+          data << JobSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1745,15 +1745,15 @@ module AWS::SDK::Macie2
     class JobSummary
       def self.parse(map)
         data = Types::JobSummary.new
-        data.bucket_definitions = (Parsers::List____listOfS3BucketDefinitionForJob.parse(map['bucketDefinitions']) unless map['bucketDefinitions'].nil?)
+        data.bucket_definitions = (List____listOfS3BucketDefinitionForJob.parse(map['bucketDefinitions']) unless map['bucketDefinitions'].nil?)
         data.created_at = Time.parse(map['createdAt']) if map['createdAt']
         data.job_id = map['jobId']
         data.job_status = map['jobStatus']
         data.job_type = map['jobType']
-        data.last_run_error_status = (Parsers::LastRunErrorStatus.parse(map['lastRunErrorStatus']) unless map['lastRunErrorStatus'].nil?)
+        data.last_run_error_status = (LastRunErrorStatus.parse(map['lastRunErrorStatus']) unless map['lastRunErrorStatus'].nil?)
         data.name = map['name']
-        data.user_paused_details = (Parsers::UserPausedDetails.parse(map['userPausedDetails']) unless map['userPausedDetails'].nil?)
-        data.bucket_criteria = (Parsers::S3BucketCriteriaForJob.parse(map['bucketCriteria']) unless map['bucketCriteria'].nil?)
+        data.user_paused_details = (UserPausedDetails.parse(map['userPausedDetails']) unless map['userPausedDetails'].nil?)
+        data.bucket_criteria = (S3BucketCriteriaForJob.parse(map['bucketCriteria']) unless map['bucketCriteria'].nil?)
         return data
       end
     end
@@ -1763,7 +1763,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::ListCustomDataIdentifiersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfCustomDataIdentifierSummary.parse(map['items']) unless map['items'].nil?)
+        data.items = (List____listOfCustomDataIdentifierSummary.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1773,7 +1773,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CustomDataIdentifierSummary.parse(value) unless value.nil?
+          data << CustomDataIdentifierSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1796,7 +1796,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::ListFindingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.finding_ids = (Parsers::List____listOf__string.parse(map['findingIds']) unless map['findingIds'].nil?)
+        data.finding_ids = (List____listOf__string.parse(map['findingIds']) unless map['findingIds'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1807,7 +1807,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::ListFindingsFiltersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.findings_filter_list_items = (Parsers::List____listOfFindingsFilterListItem.parse(map['findingsFilterListItems']) unless map['findingsFilterListItems'].nil?)
+        data.findings_filter_list_items = (List____listOfFindingsFilterListItem.parse(map['findingsFilterListItems']) unless map['findingsFilterListItems'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1817,7 +1817,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::FindingsFilterListItem.parse(value) unless value.nil?
+          data << FindingsFilterListItem.parse(value) unless value.nil?
         end
         data
       end
@@ -1830,7 +1830,7 @@ module AWS::SDK::Macie2
         data.arn = map['arn']
         data.id = map['id']
         data.name = map['name']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -1840,7 +1840,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::ListInvitationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.invitations = (Parsers::List____listOfInvitation.parse(map['invitations']) unless map['invitations'].nil?)
+        data.invitations = (List____listOfInvitation.parse(map['invitations']) unless map['invitations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1850,7 +1850,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Invitation.parse(value) unless value.nil?
+          data << Invitation.parse(value) unless value.nil?
         end
         data
       end
@@ -1861,7 +1861,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::ListManagedDataIdentifiersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::List____listOfManagedDataIdentifierSummary.parse(map['items']) unless map['items'].nil?)
+        data.items = (List____listOfManagedDataIdentifierSummary.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1871,7 +1871,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ManagedDataIdentifierSummary.parse(value) unless value.nil?
+          data << ManagedDataIdentifierSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -1891,7 +1891,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::ListMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.members = (Parsers::List____listOfMember.parse(map['members']) unless map['members'].nil?)
+        data.members = (List____listOfMember.parse(map['members']) unless map['members'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1901,7 +1901,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Member.parse(value) unless value.nil?
+          data << Member.parse(value) unless value.nil?
         end
         data
       end
@@ -1917,7 +1917,7 @@ module AWS::SDK::Macie2
         data.invited_at = Time.parse(map['invitedAt']) if map['invitedAt']
         data.master_account_id = map['masterAccountId']
         data.relationship_status = map['relationshipStatus']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data.updated_at = Time.parse(map['updatedAt']) if map['updatedAt']
         return data
       end
@@ -1928,7 +1928,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::ListOrganizationAdminAccountsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.admin_accounts = (Parsers::List____listOfAdminAccount.parse(map['adminAccounts']) unless map['adminAccounts'].nil?)
+        data.admin_accounts = (List____listOfAdminAccount.parse(map['adminAccounts']) unless map['adminAccounts'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1938,7 +1938,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AdminAccount.parse(value) unless value.nil?
+          data << AdminAccount.parse(value) unless value.nil?
         end
         data
       end
@@ -1958,7 +1958,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1968,7 +1968,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::PutClassificationExportConfigurationOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.configuration = (Parsers::ClassificationExportConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
+        data.configuration = (ClassificationExportConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
         data
       end
     end
@@ -1987,7 +1987,7 @@ module AWS::SDK::Macie2
       def self.parse(http_resp)
         data = Types::SearchResourcesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.matching_resources = (Parsers::List____listOfMatchingResource.parse(map['matchingResources']) unless map['matchingResources'].nil?)
+        data.matching_resources = (List____listOfMatchingResource.parse(map['matchingResources']) unless map['matchingResources'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1997,7 +1997,7 @@ module AWS::SDK::Macie2
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MatchingResource.parse(value) unless value.nil?
+          data << MatchingResource.parse(value) unless value.nil?
         end
         data
       end
@@ -2006,7 +2006,7 @@ module AWS::SDK::Macie2
     class MatchingResource
       def self.parse(map)
         data = Types::MatchingResource.new
-        data.matching_bucket = (Parsers::MatchingBucket.parse(map['matchingBucket']) unless map['matchingBucket'].nil?)
+        data.matching_bucket = (MatchingBucket.parse(map['matchingBucket']) unless map['matchingBucket'].nil?)
         return data
       end
     end
@@ -2020,13 +2020,13 @@ module AWS::SDK::Macie2
         data.classifiable_size_in_bytes = map['classifiableSizeInBytes']
         data.error_code = map['errorCode']
         data.error_message = map['errorMessage']
-        data.job_details = (Parsers::JobDetails.parse(map['jobDetails']) unless map['jobDetails'].nil?)
+        data.job_details = (JobDetails.parse(map['jobDetails']) unless map['jobDetails'].nil?)
         data.object_count = map['objectCount']
-        data.object_count_by_encryption_type = (Parsers::ObjectCountByEncryptionType.parse(map['objectCountByEncryptionType']) unless map['objectCountByEncryptionType'].nil?)
+        data.object_count_by_encryption_type = (ObjectCountByEncryptionType.parse(map['objectCountByEncryptionType']) unless map['objectCountByEncryptionType'].nil?)
         data.size_in_bytes = map['sizeInBytes']
         data.size_in_bytes_compressed = map['sizeInBytesCompressed']
-        data.unclassifiable_object_count = (Parsers::ObjectLevelStatistics.parse(map['unclassifiableObjectCount']) unless map['unclassifiableObjectCount'].nil?)
-        data.unclassifiable_object_size_in_bytes = (Parsers::ObjectLevelStatistics.parse(map['unclassifiableObjectSizeInBytes']) unless map['unclassifiableObjectSizeInBytes'].nil?)
+        data.unclassifiable_object_count = (ObjectLevelStatistics.parse(map['unclassifiableObjectCount']) unless map['unclassifiableObjectCount'].nil?)
+        data.unclassifiable_object_size_in_bytes = (ObjectLevelStatistics.parse(map['unclassifiableObjectSizeInBytes']) unless map['unclassifiableObjectSizeInBytes'].nil?)
         return data
       end
     end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::APIGateway
   module Stubs
 
@@ -39,9 +41,9 @@ module AWS::SDK::APIGateway
         data['enabled'] = stub[:enabled] unless stub[:enabled].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
-        data['stageKeys'] = Stubs::ListOfString.stub(stub[:stage_keys]) unless stub[:stage_keys].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stageKeys'] = ListOfString.stub(stub[:stage_keys]) unless stub[:stage_keys].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -109,14 +111,14 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['providerARNs'] = Stubs::ListOfARNs.stub(stub[:provider_ar_ns]) unless stub[:provider_ar_ns].nil?
+        data['providerARNs'] = ListOfARNs.stub(stub[:provider_ar_ns]) unless stub[:provider_ar_ns].nil?
         data['authType'] = stub[:auth_type] unless stub[:auth_type].nil?
         data['authorizerUri'] = stub[:authorizer_uri] unless stub[:authorizer_uri].nil?
         data['authorizerCredentials'] = stub[:authorizer_credentials] unless stub[:authorizer_credentials].nil?
         data['identitySource'] = stub[:identity_source] unless stub[:identity_source].nil?
         data['identityValidationExpression'] = stub[:identity_validation_expression] unless stub[:identity_validation_expression].nil?
         data['authorizerResultTtlInSeconds'] = stub[:authorizer_result_ttl_in_seconds] unless stub[:authorizer_result_ttl_in_seconds].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -157,7 +159,7 @@ module AWS::SDK::APIGateway
         data['basePath'] = stub[:base_path] unless stub[:base_path].nil?
         data['restApiId'] = stub[:rest_api_id] unless stub[:rest_api_id].nil?
         data['stage'] = stub[:stage] unless stub[:stage].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -179,8 +181,8 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
-        data['apiSummary'] = Stubs::PathToMapOfMethodSnapshot.stub(stub[:api_summary]) unless stub[:api_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['apiSummary'] = PathToMapOfMethodSnapshot.stub(stub[:api_summary]) unless stub[:api_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -198,7 +200,7 @@ module AWS::SDK::APIGateway
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::MapOfMethodSnapshot.stub(value) unless value.nil?
+          data[key] = MapOfMethodSnapshot.stub(value) unless value.nil?
         end
         data
       end
@@ -218,7 +220,7 @@ module AWS::SDK::APIGateway
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::MethodSnapshot.stub(value) unless value.nil?
+          data[key] = MethodSnapshot.stub(value) unless value.nil?
         end
         data
       end
@@ -259,9 +261,9 @@ module AWS::SDK::APIGateway
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['location'] = Stubs::DocumentationPartLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = DocumentationPartLocation.stub(stub[:location]) unless stub[:location].nil?
         data['properties'] = stub[:properties] unless stub[:properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -308,7 +310,7 @@ module AWS::SDK::APIGateway
         data['version'] = stub[:version] unless stub[:version].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -350,14 +352,14 @@ module AWS::SDK::APIGateway
         data['regionalCertificateArn'] = stub[:regional_certificate_arn] unless stub[:regional_certificate_arn].nil?
         data['distributionDomainName'] = stub[:distribution_domain_name] unless stub[:distribution_domain_name].nil?
         data['distributionHostedZoneId'] = stub[:distribution_hosted_zone_id] unless stub[:distribution_hosted_zone_id].nil?
-        data['endpointConfiguration'] = Stubs::EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
+        data['endpointConfiguration'] = EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
         data['domainNameStatus'] = stub[:domain_name_status] unless stub[:domain_name_status].nil?
         data['domainNameStatusMessage'] = stub[:domain_name_status_message] unless stub[:domain_name_status_message].nil?
         data['securityPolicy'] = stub[:security_policy] unless stub[:security_policy].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
-        data['mutualTlsAuthentication'] = Stubs::MutualTlsAuthentication.stub(stub[:mutual_tls_authentication]) unless stub[:mutual_tls_authentication].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['mutualTlsAuthentication'] = MutualTlsAuthentication.stub(stub[:mutual_tls_authentication]) unless stub[:mutual_tls_authentication].nil?
         data['ownershipVerificationCertificateArn'] = stub[:ownership_verification_certificate_arn] unless stub[:ownership_verification_certificate_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -378,7 +380,7 @@ module AWS::SDK::APIGateway
         data = {}
         data['truststoreUri'] = stub[:truststore_uri] unless stub[:truststore_uri].nil?
         data['truststoreVersion'] = stub[:truststore_version] unless stub[:truststore_version].nil?
-        data['truststoreWarnings'] = Stubs::ListOfString.stub(stub[:truststore_warnings]) unless stub[:truststore_warnings].nil?
+        data['truststoreWarnings'] = ListOfString.stub(stub[:truststore_warnings]) unless stub[:truststore_warnings].nil?
         data
       end
     end
@@ -397,8 +399,8 @@ module AWS::SDK::APIGateway
       def self.stub(stub)
         stub ||= Types::EndpointConfiguration.new
         data = {}
-        data['types'] = Stubs::ListOfEndpointType.stub(stub[:types]) unless stub[:types].nil?
-        data['vpcEndpointIds'] = Stubs::ListOfString.stub(stub[:vpc_endpoint_ids]) unless stub[:vpc_endpoint_ids].nil?
+        data['types'] = ListOfEndpointType.stub(stub[:types]) unless stub[:types].nil?
+        data['vpcEndpointIds'] = ListOfString.stub(stub[:vpc_endpoint_ids]) unless stub[:vpc_endpoint_ids].nil?
         data
       end
     end
@@ -444,7 +446,7 @@ module AWS::SDK::APIGateway
         data['description'] = stub[:description] unless stub[:description].nil?
         data['schema'] = stub[:schema] unless stub[:schema].nil?
         data['contentType'] = stub[:content_type] unless stub[:content_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -467,7 +469,7 @@ module AWS::SDK::APIGateway
         data['name'] = stub[:name] unless stub[:name].nil?
         data['validateRequestBody'] = stub[:validate_request_body] unless stub[:validate_request_body].nil?
         data['validateRequestParameters'] = stub[:validate_request_parameters] unless stub[:validate_request_parameters].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -491,8 +493,8 @@ module AWS::SDK::APIGateway
         data['parentId'] = stub[:parent_id] unless stub[:parent_id].nil?
         data['pathPart'] = stub[:path_part] unless stub[:path_part].nil?
         data['path'] = stub[:path] unless stub[:path].nil?
-        data['resourceMethods'] = Stubs::MapOfMethod.stub(stub[:resource_methods]) unless stub[:resource_methods].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resourceMethods'] = MapOfMethod.stub(stub[:resource_methods]) unless stub[:resource_methods].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -510,7 +512,7 @@ module AWS::SDK::APIGateway
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::Method.stub(value) unless value.nil?
+          data[key] = Method.stub(value) unless value.nil?
         end
         data
       end
@@ -545,11 +547,11 @@ module AWS::SDK::APIGateway
         data['apiKeyRequired'] = stub[:api_key_required] unless stub[:api_key_required].nil?
         data['requestValidatorId'] = stub[:request_validator_id] unless stub[:request_validator_id].nil?
         data['operationName'] = stub[:operation_name] unless stub[:operation_name].nil?
-        data['requestParameters'] = Stubs::MapOfStringToBoolean.stub(stub[:request_parameters]) unless stub[:request_parameters].nil?
-        data['requestModels'] = Stubs::MapOfStringToString.stub(stub[:request_models]) unless stub[:request_models].nil?
-        data['methodResponses'] = Stubs::MapOfMethodResponse.stub(stub[:method_responses]) unless stub[:method_responses].nil?
-        data['methodIntegration'] = Stubs::Integration.stub(stub[:method_integration]) unless stub[:method_integration].nil?
-        data['authorizationScopes'] = Stubs::ListOfString.stub(stub[:authorization_scopes]) unless stub[:authorization_scopes].nil?
+        data['requestParameters'] = MapOfStringToBoolean.stub(stub[:request_parameters]) unless stub[:request_parameters].nil?
+        data['requestModels'] = MapOfStringToString.stub(stub[:request_models]) unless stub[:request_models].nil?
+        data['methodResponses'] = MapOfMethodResponse.stub(stub[:method_responses]) unless stub[:method_responses].nil?
+        data['methodIntegration'] = Integration.stub(stub[:method_integration]) unless stub[:method_integration].nil?
+        data['authorizationScopes'] = ListOfString.stub(stub[:authorization_scopes]) unless stub[:authorization_scopes].nil?
         data
       end
     end
@@ -587,15 +589,15 @@ module AWS::SDK::APIGateway
         data['connectionType'] = stub[:connection_type] unless stub[:connection_type].nil?
         data['connectionId'] = stub[:connection_id] unless stub[:connection_id].nil?
         data['credentials'] = stub[:credentials] unless stub[:credentials].nil?
-        data['requestParameters'] = Stubs::MapOfStringToString.stub(stub[:request_parameters]) unless stub[:request_parameters].nil?
-        data['requestTemplates'] = Stubs::MapOfStringToString.stub(stub[:request_templates]) unless stub[:request_templates].nil?
+        data['requestParameters'] = MapOfStringToString.stub(stub[:request_parameters]) unless stub[:request_parameters].nil?
+        data['requestTemplates'] = MapOfStringToString.stub(stub[:request_templates]) unless stub[:request_templates].nil?
         data['passthroughBehavior'] = stub[:passthrough_behavior] unless stub[:passthrough_behavior].nil?
         data['contentHandling'] = stub[:content_handling] unless stub[:content_handling].nil?
         data['timeoutInMillis'] = stub[:timeout_in_millis] unless stub[:timeout_in_millis].nil?
         data['cacheNamespace'] = stub[:cache_namespace] unless stub[:cache_namespace].nil?
-        data['cacheKeyParameters'] = Stubs::ListOfString.stub(stub[:cache_key_parameters]) unless stub[:cache_key_parameters].nil?
-        data['integrationResponses'] = Stubs::MapOfIntegrationResponse.stub(stub[:integration_responses]) unless stub[:integration_responses].nil?
-        data['tlsConfig'] = Stubs::TlsConfig.stub(stub[:tls_config]) unless stub[:tls_config].nil?
+        data['cacheKeyParameters'] = ListOfString.stub(stub[:cache_key_parameters]) unless stub[:cache_key_parameters].nil?
+        data['integrationResponses'] = MapOfIntegrationResponse.stub(stub[:integration_responses]) unless stub[:integration_responses].nil?
+        data['tlsConfig'] = TlsConfig.stub(stub[:tls_config]) unless stub[:tls_config].nil?
         data
       end
     end
@@ -632,7 +634,7 @@ module AWS::SDK::APIGateway
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::IntegrationResponse.stub(value) unless value.nil?
+          data[key] = IntegrationResponse.stub(value) unless value.nil?
         end
         data
       end
@@ -657,8 +659,8 @@ module AWS::SDK::APIGateway
         data = {}
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
         data['selectionPattern'] = stub[:selection_pattern] unless stub[:selection_pattern].nil?
-        data['responseParameters'] = Stubs::MapOfStringToString.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
-        data['responseTemplates'] = Stubs::MapOfStringToString.stub(stub[:response_templates]) unless stub[:response_templates].nil?
+        data['responseParameters'] = MapOfStringToString.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
+        data['responseTemplates'] = MapOfStringToString.stub(stub[:response_templates]) unless stub[:response_templates].nil?
         data['contentHandling'] = stub[:content_handling] unless stub[:content_handling].nil?
         data
       end
@@ -678,7 +680,7 @@ module AWS::SDK::APIGateway
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::MethodResponse.stub(value) unless value.nil?
+          data[key] = MethodResponse.stub(value) unless value.nil?
         end
         data
       end
@@ -700,8 +702,8 @@ module AWS::SDK::APIGateway
         stub ||= Types::MethodResponse.new
         data = {}
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
-        data['responseParameters'] = Stubs::MapOfStringToBoolean.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
-        data['responseModels'] = Stubs::MapOfStringToString.stub(stub[:response_models]) unless stub[:response_models].nil?
+        data['responseParameters'] = MapOfStringToBoolean.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
+        data['responseModels'] = MapOfStringToString.stub(stub[:response_models]) unless stub[:response_models].nil?
         data
       end
     end
@@ -755,15 +757,15 @@ module AWS::SDK::APIGateway
         data['description'] = stub[:description] unless stub[:description].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['warnings'] = Stubs::ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
-        data['binaryMediaTypes'] = Stubs::ListOfString.stub(stub[:binary_media_types]) unless stub[:binary_media_types].nil?
+        data['warnings'] = ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
+        data['binaryMediaTypes'] = ListOfString.stub(stub[:binary_media_types]) unless stub[:binary_media_types].nil?
         data['minimumCompressionSize'] = stub[:minimum_compression_size] unless stub[:minimum_compression_size].nil?
         data['apiKeySource'] = stub[:api_key_source] unless stub[:api_key_source].nil?
-        data['endpointConfiguration'] = Stubs::EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
+        data['endpointConfiguration'] = EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
         data['policy'] = stub[:policy] unless stub[:policy].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
         data['disableExecuteApiEndpoint'] = stub[:disable_execute_api_endpoint] unless stub[:disable_execute_api_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -802,17 +804,17 @@ module AWS::SDK::APIGateway
         data['cacheClusterEnabled'] = stub[:cache_cluster_enabled] unless stub[:cache_cluster_enabled].nil?
         data['cacheClusterSize'] = stub[:cache_cluster_size] unless stub[:cache_cluster_size].nil?
         data['cacheClusterStatus'] = stub[:cache_cluster_status] unless stub[:cache_cluster_status].nil?
-        data['methodSettings'] = Stubs::MapOfMethodSettings.stub(stub[:method_settings]) unless stub[:method_settings].nil?
-        data['variables'] = Stubs::MapOfStringToString.stub(stub[:variables]) unless stub[:variables].nil?
+        data['methodSettings'] = MapOfMethodSettings.stub(stub[:method_settings]) unless stub[:method_settings].nil?
+        data['variables'] = MapOfStringToString.stub(stub[:variables]) unless stub[:variables].nil?
         data['documentationVersion'] = stub[:documentation_version] unless stub[:documentation_version].nil?
-        data['accessLogSettings'] = Stubs::AccessLogSettings.stub(stub[:access_log_settings]) unless stub[:access_log_settings].nil?
-        data['canarySettings'] = Stubs::CanarySettings.stub(stub[:canary_settings]) unless stub[:canary_settings].nil?
+        data['accessLogSettings'] = AccessLogSettings.stub(stub[:access_log_settings]) unless stub[:access_log_settings].nil?
+        data['canarySettings'] = CanarySettings.stub(stub[:canary_settings]) unless stub[:canary_settings].nil?
         data['tracingEnabled'] = stub[:tracing_enabled] unless stub[:tracing_enabled].nil?
         data['webAclArn'] = stub[:web_acl_arn] unless stub[:web_acl_arn].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -834,7 +836,7 @@ module AWS::SDK::APIGateway
         data = {}
         data['percentTraffic'] = Hearth::NumberHelper.serialize(stub[:percent_traffic])
         data['deploymentId'] = stub[:deployment_id] unless stub[:deployment_id].nil?
-        data['stageVariableOverrides'] = Stubs::MapOfStringToString.stub(stub[:stage_variable_overrides]) unless stub[:stage_variable_overrides].nil?
+        data['stageVariableOverrides'] = MapOfStringToString.stub(stub[:stage_variable_overrides]) unless stub[:stage_variable_overrides].nil?
         data['useStageCache'] = stub[:use_stage_cache] unless stub[:use_stage_cache].nil?
         data
       end
@@ -874,7 +876,7 @@ module AWS::SDK::APIGateway
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::MethodSetting.stub(value) unless value.nil?
+          data[key] = MethodSetting.stub(value) unless value.nil?
         end
         data
       end
@@ -938,12 +940,12 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['apiStages'] = Stubs::ListOfApiStage.stub(stub[:api_stages]) unless stub[:api_stages].nil?
-        data['throttle'] = Stubs::ThrottleSettings.stub(stub[:throttle]) unless stub[:throttle].nil?
-        data['quota'] = Stubs::QuotaSettings.stub(stub[:quota]) unless stub[:quota].nil?
+        data['apiStages'] = ListOfApiStage.stub(stub[:api_stages]) unless stub[:api_stages].nil?
+        data['throttle'] = ThrottleSettings.stub(stub[:throttle]) unless stub[:throttle].nil?
+        data['quota'] = QuotaSettings.stub(stub[:quota]) unless stub[:quota].nil?
         data['productCode'] = stub[:product_code] unless stub[:product_code].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1003,7 +1005,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApiStage.stub(element) unless element.nil?
+          data << ApiStage.stub(element) unless element.nil?
         end
         data
       end
@@ -1026,7 +1028,7 @@ module AWS::SDK::APIGateway
         data = {}
         data['apiId'] = stub[:api_id] unless stub[:api_id].nil?
         data['stage'] = stub[:stage] unless stub[:stage].nil?
-        data['throttle'] = Stubs::MapOfApiStageThrottleSettings.stub(stub[:throttle]) unless stub[:throttle].nil?
+        data['throttle'] = MapOfApiStageThrottleSettings.stub(stub[:throttle]) unless stub[:throttle].nil?
         data
       end
     end
@@ -1045,7 +1047,7 @@ module AWS::SDK::APIGateway
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ThrottleSettings.stub(value) unless value.nil?
+          data[key] = ThrottleSettings.stub(value) unless value.nil?
         end
         data
       end
@@ -1070,7 +1072,7 @@ module AWS::SDK::APIGateway
         data['type'] = stub[:type] unless stub[:type].nil?
         data['value'] = stub[:value] unless stub[:value].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1095,11 +1097,11 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['targetArns'] = Stubs::ListOfString.stub(stub[:target_arns]) unless stub[:target_arns].nil?
+        data['targetArns'] = ListOfString.stub(stub[:target_arns]) unless stub[:target_arns].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['statusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1424,8 +1426,8 @@ module AWS::SDK::APIGateway
         data['pemEncodedCertificate'] = stub[:pem_encoded_certificate] unless stub[:pem_encoded_certificate].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['expirationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration_date]).to_i unless stub[:expiration_date].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1445,10 +1447,10 @@ module AWS::SDK::APIGateway
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['cloudwatchRoleArn'] = stub[:cloudwatch_role_arn] unless stub[:cloudwatch_role_arn].nil?
-        data['throttleSettings'] = Stubs::ThrottleSettings.stub(stub[:throttle_settings]) unless stub[:throttle_settings].nil?
-        data['features'] = Stubs::ListOfString.stub(stub[:features]) unless stub[:features].nil?
+        data['throttleSettings'] = ThrottleSettings.stub(stub[:throttle_settings]) unless stub[:throttle_settings].nil?
+        data['features'] = ListOfString.stub(stub[:features]) unless stub[:features].nil?
         data['apiKeyVersion'] = stub[:api_key_version] unless stub[:api_key_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1481,9 +1483,9 @@ module AWS::SDK::APIGateway
         data['enabled'] = stub[:enabled] unless stub[:enabled].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
-        data['stageKeys'] = Stubs::ListOfString.stub(stub[:stage_keys]) unless stub[:stage_keys].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stageKeys'] = ListOfString.stub(stub[:stage_keys]) unless stub[:stage_keys].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1501,9 +1503,9 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['warnings'] = Stubs::ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
-        data['item'] = Stubs::ListOfApiKey.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['warnings'] = ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
+        data['item'] = ListOfApiKey.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1521,7 +1523,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApiKey.stub(element) unless element.nil?
+          data << ApiKey.stub(element) unless element.nil?
         end
         data
       end
@@ -1557,8 +1559,8 @@ module AWS::SDK::APIGateway
         data['enabled'] = stub[:enabled] unless stub[:enabled].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
-        data['stageKeys'] = Stubs::ListOfString.stub(stub[:stage_keys]) unless stub[:stage_keys].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['stageKeys'] = ListOfString.stub(stub[:stage_keys]) unless stub[:stage_keys].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1587,14 +1589,14 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['providerARNs'] = Stubs::ListOfARNs.stub(stub[:provider_ar_ns]) unless stub[:provider_ar_ns].nil?
+        data['providerARNs'] = ListOfARNs.stub(stub[:provider_ar_ns]) unless stub[:provider_ar_ns].nil?
         data['authType'] = stub[:auth_type] unless stub[:auth_type].nil?
         data['authorizerUri'] = stub[:authorizer_uri] unless stub[:authorizer_uri].nil?
         data['authorizerCredentials'] = stub[:authorizer_credentials] unless stub[:authorizer_credentials].nil?
         data['identitySource'] = stub[:identity_source] unless stub[:identity_source].nil?
         data['identityValidationExpression'] = stub[:identity_validation_expression] unless stub[:identity_validation_expression].nil?
         data['authorizerResultTtlInSeconds'] = stub[:authorizer_result_ttl_in_seconds] unless stub[:authorizer_result_ttl_in_seconds].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1611,8 +1613,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['item'] = Stubs::ListOfAuthorizer.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['item'] = ListOfAuthorizer.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1630,7 +1632,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Authorizer.stub(element) unless element.nil?
+          data << Authorizer.stub(element) unless element.nil?
         end
         data
       end
@@ -1661,7 +1663,7 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['providerARNs'] = Stubs::ListOfARNs.stub(stub[:provider_ar_ns]) unless stub[:provider_ar_ns].nil?
+        data['providerARNs'] = ListOfARNs.stub(stub[:provider_ar_ns]) unless stub[:provider_ar_ns].nil?
         data['authType'] = stub[:auth_type] unless stub[:auth_type].nil?
         data['authorizerUri'] = stub[:authorizer_uri] unless stub[:authorizer_uri].nil?
         data['authorizerCredentials'] = stub[:authorizer_credentials] unless stub[:authorizer_credentials].nil?
@@ -1689,7 +1691,7 @@ module AWS::SDK::APIGateway
         data['basePath'] = stub[:base_path] unless stub[:base_path].nil?
         data['restApiId'] = stub[:rest_api_id] unless stub[:rest_api_id].nil?
         data['stage'] = stub[:stage] unless stub[:stage].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1706,8 +1708,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['item'] = Stubs::ListOfBasePathMapping.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['item'] = ListOfBasePathMapping.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1725,7 +1727,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::BasePathMapping.stub(element) unless element.nil?
+          data << BasePathMapping.stub(element) unless element.nil?
         end
         data
       end
@@ -1775,8 +1777,8 @@ module AWS::SDK::APIGateway
         data['pemEncodedCertificate'] = stub[:pem_encoded_certificate] unless stub[:pem_encoded_certificate].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['expirationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration_date]).to_i unless stub[:expiration_date].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1793,8 +1795,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['item'] = Stubs::ListOfClientCertificate.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['item'] = ListOfClientCertificate.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1812,7 +1814,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ClientCertificate.stub(element) unless element.nil?
+          data << ClientCertificate.stub(element) unless element.nil?
         end
         data
       end
@@ -1841,7 +1843,7 @@ module AWS::SDK::APIGateway
         data['pemEncodedCertificate'] = stub[:pem_encoded_certificate] unless stub[:pem_encoded_certificate].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['expirationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration_date]).to_i unless stub[:expiration_date].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -1864,8 +1866,8 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
-        data['apiSummary'] = Stubs::PathToMapOfMethodSnapshot.stub(stub[:api_summary]) unless stub[:api_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['apiSummary'] = PathToMapOfMethodSnapshot.stub(stub[:api_summary]) unless stub[:api_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1882,8 +1884,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['item'] = Stubs::ListOfDeployment.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['item'] = ListOfDeployment.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1901,7 +1903,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Deployment.stub(element) unless element.nil?
+          data << Deployment.stub(element) unless element.nil?
         end
         data
       end
@@ -1926,7 +1928,7 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
-        data['apiSummary'] = Stubs::PathToMapOfMethodSnapshot.stub(stub[:api_summary]) unless stub[:api_summary].nil?
+        data['apiSummary'] = PathToMapOfMethodSnapshot.stub(stub[:api_summary]) unless stub[:api_summary].nil?
         data
       end
     end
@@ -1946,9 +1948,9 @@ module AWS::SDK::APIGateway
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['location'] = Stubs::DocumentationPartLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = DocumentationPartLocation.stub(stub[:location]) unless stub[:location].nil?
         data['properties'] = stub[:properties] unless stub[:properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1965,8 +1967,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['item'] = Stubs::ListOfDocumentationPart.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['item'] = ListOfDocumentationPart.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1984,7 +1986,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentationPart.stub(element) unless element.nil?
+          data << DocumentationPart.stub(element) unless element.nil?
         end
         data
       end
@@ -2006,7 +2008,7 @@ module AWS::SDK::APIGateway
         stub ||= Types::DocumentationPart.new
         data = {}
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['location'] = Stubs::DocumentationPartLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = DocumentationPartLocation.stub(stub[:location]) unless stub[:location].nil?
         data['properties'] = stub[:properties] unless stub[:properties].nil?
         data
       end
@@ -2029,7 +2031,7 @@ module AWS::SDK::APIGateway
         data['version'] = stub[:version] unless stub[:version].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2046,8 +2048,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['item'] = Stubs::ListOfDocumentationVersion.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['item'] = ListOfDocumentationVersion.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2065,7 +2067,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DocumentationVersion.stub(element) unless element.nil?
+          data << DocumentationVersion.stub(element) unless element.nil?
         end
         data
       end
@@ -2131,14 +2133,14 @@ module AWS::SDK::APIGateway
         data['regionalCertificateArn'] = stub[:regional_certificate_arn] unless stub[:regional_certificate_arn].nil?
         data['distributionDomainName'] = stub[:distribution_domain_name] unless stub[:distribution_domain_name].nil?
         data['distributionHostedZoneId'] = stub[:distribution_hosted_zone_id] unless stub[:distribution_hosted_zone_id].nil?
-        data['endpointConfiguration'] = Stubs::EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
+        data['endpointConfiguration'] = EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
         data['domainNameStatus'] = stub[:domain_name_status] unless stub[:domain_name_status].nil?
         data['domainNameStatusMessage'] = stub[:domain_name_status_message] unless stub[:domain_name_status_message].nil?
         data['securityPolicy'] = stub[:security_policy] unless stub[:security_policy].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
-        data['mutualTlsAuthentication'] = Stubs::MutualTlsAuthentication.stub(stub[:mutual_tls_authentication]) unless stub[:mutual_tls_authentication].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['mutualTlsAuthentication'] = MutualTlsAuthentication.stub(stub[:mutual_tls_authentication]) unless stub[:mutual_tls_authentication].nil?
         data['ownershipVerificationCertificateArn'] = stub[:ownership_verification_certificate_arn] unless stub[:ownership_verification_certificate_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2155,8 +2157,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['item'] = Stubs::ListOfDomainName.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['item'] = ListOfDomainName.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2174,7 +2176,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::DomainName.stub(element) unless element.nil?
+          data << DomainName.stub(element) unless element.nil?
         end
         data
       end
@@ -2219,12 +2221,12 @@ module AWS::SDK::APIGateway
         data['regionalCertificateArn'] = stub[:regional_certificate_arn] unless stub[:regional_certificate_arn].nil?
         data['distributionDomainName'] = stub[:distribution_domain_name] unless stub[:distribution_domain_name].nil?
         data['distributionHostedZoneId'] = stub[:distribution_hosted_zone_id] unless stub[:distribution_hosted_zone_id].nil?
-        data['endpointConfiguration'] = Stubs::EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
+        data['endpointConfiguration'] = EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
         data['domainNameStatus'] = stub[:domain_name_status] unless stub[:domain_name_status].nil?
         data['domainNameStatusMessage'] = stub[:domain_name_status_message] unless stub[:domain_name_status_message].nil?
         data['securityPolicy'] = stub[:security_policy] unless stub[:security_policy].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
-        data['mutualTlsAuthentication'] = Stubs::MutualTlsAuthentication.stub(stub[:mutual_tls_authentication]) unless stub[:mutual_tls_authentication].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['mutualTlsAuthentication'] = MutualTlsAuthentication.stub(stub[:mutual_tls_authentication]) unless stub[:mutual_tls_authentication].nil?
         data['ownershipVerificationCertificateArn'] = stub[:ownership_verification_certificate_arn] unless stub[:ownership_verification_certificate_arn].nil?
         data
       end
@@ -2246,7 +2248,7 @@ module AWS::SDK::APIGateway
         http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
         http_resp.headers['Content-Disposition'] = stub[:content_disposition] unless stub[:content_disposition].nil? || stub[:content_disposition].empty?
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:body] || '')
+        http_resp.body = ::StringIO.new(stub[:body] || '')
       end
     end
 
@@ -2268,10 +2270,10 @@ module AWS::SDK::APIGateway
         http_resp.headers['Content-Type'] = 'application/json'
         data['responseType'] = stub[:response_type] unless stub[:response_type].nil?
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
-        data['responseParameters'] = Stubs::MapOfStringToString.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
-        data['responseTemplates'] = Stubs::MapOfStringToString.stub(stub[:response_templates]) unless stub[:response_templates].nil?
+        data['responseParameters'] = MapOfStringToString.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
+        data['responseTemplates'] = MapOfStringToString.stub(stub[:response_templates]) unless stub[:response_templates].nil?
         data['defaultResponse'] = stub[:default_response] unless stub[:default_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2288,8 +2290,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['item'] = Stubs::ListOfGatewayResponse.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['item'] = ListOfGatewayResponse.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2307,7 +2309,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::GatewayResponse.stub(element) unless element.nil?
+          data << GatewayResponse.stub(element) unless element.nil?
         end
         data
       end
@@ -2332,8 +2334,8 @@ module AWS::SDK::APIGateway
         data = {}
         data['responseType'] = stub[:response_type] unless stub[:response_type].nil?
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
-        data['responseParameters'] = Stubs::MapOfStringToString.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
-        data['responseTemplates'] = Stubs::MapOfStringToString.stub(stub[:response_templates]) unless stub[:response_templates].nil?
+        data['responseParameters'] = MapOfStringToString.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
+        data['responseTemplates'] = MapOfStringToString.stub(stub[:response_templates]) unless stub[:response_templates].nil?
         data['defaultResponse'] = stub[:default_response] unless stub[:default_response].nil?
         data
       end
@@ -2371,16 +2373,16 @@ module AWS::SDK::APIGateway
         data['connectionType'] = stub[:connection_type] unless stub[:connection_type].nil?
         data['connectionId'] = stub[:connection_id] unless stub[:connection_id].nil?
         data['credentials'] = stub[:credentials] unless stub[:credentials].nil?
-        data['requestParameters'] = Stubs::MapOfStringToString.stub(stub[:request_parameters]) unless stub[:request_parameters].nil?
-        data['requestTemplates'] = Stubs::MapOfStringToString.stub(stub[:request_templates]) unless stub[:request_templates].nil?
+        data['requestParameters'] = MapOfStringToString.stub(stub[:request_parameters]) unless stub[:request_parameters].nil?
+        data['requestTemplates'] = MapOfStringToString.stub(stub[:request_templates]) unless stub[:request_templates].nil?
         data['passthroughBehavior'] = stub[:passthrough_behavior] unless stub[:passthrough_behavior].nil?
         data['contentHandling'] = stub[:content_handling] unless stub[:content_handling].nil?
         data['timeoutInMillis'] = stub[:timeout_in_millis] unless stub[:timeout_in_millis].nil?
         data['cacheNamespace'] = stub[:cache_namespace] unless stub[:cache_namespace].nil?
-        data['cacheKeyParameters'] = Stubs::ListOfString.stub(stub[:cache_key_parameters]) unless stub[:cache_key_parameters].nil?
-        data['integrationResponses'] = Stubs::MapOfIntegrationResponse.stub(stub[:integration_responses]) unless stub[:integration_responses].nil?
-        data['tlsConfig'] = Stubs::TlsConfig.stub(stub[:tls_config]) unless stub[:tls_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cacheKeyParameters'] = ListOfString.stub(stub[:cache_key_parameters]) unless stub[:cache_key_parameters].nil?
+        data['integrationResponses'] = MapOfIntegrationResponse.stub(stub[:integration_responses]) unless stub[:integration_responses].nil?
+        data['tlsConfig'] = TlsConfig.stub(stub[:tls_config]) unless stub[:tls_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2402,10 +2404,10 @@ module AWS::SDK::APIGateway
         http_resp.headers['Content-Type'] = 'application/json'
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
         data['selectionPattern'] = stub[:selection_pattern] unless stub[:selection_pattern].nil?
-        data['responseParameters'] = Stubs::MapOfStringToString.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
-        data['responseTemplates'] = Stubs::MapOfStringToString.stub(stub[:response_templates]) unless stub[:response_templates].nil?
+        data['responseParameters'] = MapOfStringToString.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
+        data['responseTemplates'] = MapOfStringToString.stub(stub[:response_templates]) unless stub[:response_templates].nil?
         data['contentHandling'] = stub[:content_handling] unless stub[:content_handling].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2437,12 +2439,12 @@ module AWS::SDK::APIGateway
         data['apiKeyRequired'] = stub[:api_key_required] unless stub[:api_key_required].nil?
         data['requestValidatorId'] = stub[:request_validator_id] unless stub[:request_validator_id].nil?
         data['operationName'] = stub[:operation_name] unless stub[:operation_name].nil?
-        data['requestParameters'] = Stubs::MapOfStringToBoolean.stub(stub[:request_parameters]) unless stub[:request_parameters].nil?
-        data['requestModels'] = Stubs::MapOfStringToString.stub(stub[:request_models]) unless stub[:request_models].nil?
-        data['methodResponses'] = Stubs::MapOfMethodResponse.stub(stub[:method_responses]) unless stub[:method_responses].nil?
-        data['methodIntegration'] = Stubs::Integration.stub(stub[:method_integration]) unless stub[:method_integration].nil?
-        data['authorizationScopes'] = Stubs::ListOfString.stub(stub[:authorization_scopes]) unless stub[:authorization_scopes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['requestParameters'] = MapOfStringToBoolean.stub(stub[:request_parameters]) unless stub[:request_parameters].nil?
+        data['requestModels'] = MapOfStringToString.stub(stub[:request_models]) unless stub[:request_models].nil?
+        data['methodResponses'] = MapOfMethodResponse.stub(stub[:method_responses]) unless stub[:method_responses].nil?
+        data['methodIntegration'] = Integration.stub(stub[:method_integration]) unless stub[:method_integration].nil?
+        data['authorizationScopes'] = ListOfString.stub(stub[:authorization_scopes]) unless stub[:authorization_scopes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2461,9 +2463,9 @@ module AWS::SDK::APIGateway
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
-        data['responseParameters'] = Stubs::MapOfStringToBoolean.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
-        data['responseModels'] = Stubs::MapOfStringToString.stub(stub[:response_models]) unless stub[:response_models].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['responseParameters'] = MapOfStringToBoolean.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
+        data['responseModels'] = MapOfStringToString.stub(stub[:response_models]) unless stub[:response_models].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2488,7 +2490,7 @@ module AWS::SDK::APIGateway
         data['description'] = stub[:description] unless stub[:description].nil?
         data['schema'] = stub[:schema] unless stub[:schema].nil?
         data['contentType'] = stub[:content_type] unless stub[:content_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2505,7 +2507,7 @@ module AWS::SDK::APIGateway
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['value'] = stub[:value] unless stub[:value].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2522,8 +2524,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['item'] = Stubs::ListOfModel.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['item'] = ListOfModel.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2541,7 +2543,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Model.stub(element) unless element.nil?
+          data << Model.stub(element) unless element.nil?
         end
         data
       end
@@ -2592,7 +2594,7 @@ module AWS::SDK::APIGateway
         data['name'] = stub[:name] unless stub[:name].nil?
         data['validateRequestBody'] = stub[:validate_request_body] unless stub[:validate_request_body].nil?
         data['validateRequestParameters'] = stub[:validate_request_parameters] unless stub[:validate_request_parameters].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2609,8 +2611,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['item'] = Stubs::ListOfRequestValidator.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['item'] = ListOfRequestValidator.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2628,7 +2630,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RequestValidator.stub(element) unless element.nil?
+          data << RequestValidator.stub(element) unless element.nil?
         end
         data
       end
@@ -2678,8 +2680,8 @@ module AWS::SDK::APIGateway
         data['parentId'] = stub[:parent_id] unless stub[:parent_id].nil?
         data['pathPart'] = stub[:path_part] unless stub[:path_part].nil?
         data['path'] = stub[:path] unless stub[:path].nil?
-        data['resourceMethods'] = Stubs::MapOfMethod.stub(stub[:resource_methods]) unless stub[:resource_methods].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resourceMethods'] = MapOfMethod.stub(stub[:resource_methods]) unless stub[:resource_methods].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2696,8 +2698,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['item'] = Stubs::ListOfResource.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['item'] = ListOfResource.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2715,7 +2717,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Resource.stub(element) unless element.nil?
+          data << Resource.stub(element) unless element.nil?
         end
         data
       end
@@ -2742,7 +2744,7 @@ module AWS::SDK::APIGateway
         data['parentId'] = stub[:parent_id] unless stub[:parent_id].nil?
         data['pathPart'] = stub[:path_part] unless stub[:path_part].nil?
         data['path'] = stub[:path] unless stub[:path].nil?
-        data['resourceMethods'] = Stubs::MapOfMethod.stub(stub[:resource_methods]) unless stub[:resource_methods].nil?
+        data['resourceMethods'] = MapOfMethod.stub(stub[:resource_methods]) unless stub[:resource_methods].nil?
         data
       end
     end
@@ -2776,15 +2778,15 @@ module AWS::SDK::APIGateway
         data['description'] = stub[:description] unless stub[:description].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['warnings'] = Stubs::ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
-        data['binaryMediaTypes'] = Stubs::ListOfString.stub(stub[:binary_media_types]) unless stub[:binary_media_types].nil?
+        data['warnings'] = ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
+        data['binaryMediaTypes'] = ListOfString.stub(stub[:binary_media_types]) unless stub[:binary_media_types].nil?
         data['minimumCompressionSize'] = stub[:minimum_compression_size] unless stub[:minimum_compression_size].nil?
         data['apiKeySource'] = stub[:api_key_source] unless stub[:api_key_source].nil?
-        data['endpointConfiguration'] = Stubs::EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
+        data['endpointConfiguration'] = EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
         data['policy'] = stub[:policy] unless stub[:policy].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
         data['disableExecuteApiEndpoint'] = stub[:disable_execute_api_endpoint] unless stub[:disable_execute_api_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2801,8 +2803,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['item'] = Stubs::ListOfRestApi.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['item'] = ListOfRestApi.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2820,7 +2822,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RestApi.stub(element) unless element.nil?
+          data << RestApi.stub(element) unless element.nil?
         end
         data
       end
@@ -2856,13 +2858,13 @@ module AWS::SDK::APIGateway
         data['description'] = stub[:description] unless stub[:description].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['warnings'] = Stubs::ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
-        data['binaryMediaTypes'] = Stubs::ListOfString.stub(stub[:binary_media_types]) unless stub[:binary_media_types].nil?
+        data['warnings'] = ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
+        data['binaryMediaTypes'] = ListOfString.stub(stub[:binary_media_types]) unless stub[:binary_media_types].nil?
         data['minimumCompressionSize'] = stub[:minimum_compression_size] unless stub[:minimum_compression_size].nil?
         data['apiKeySource'] = stub[:api_key_source] unless stub[:api_key_source].nil?
-        data['endpointConfiguration'] = Stubs::EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
+        data['endpointConfiguration'] = EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
         data['policy'] = stub[:policy] unless stub[:policy].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
         data['disableExecuteApiEndpoint'] = stub[:disable_execute_api_endpoint] unless stub[:disable_execute_api_endpoint].nil?
         data
       end
@@ -2884,7 +2886,7 @@ module AWS::SDK::APIGateway
         http_resp.headers['Content-Type'] = stub[:content_type] unless stub[:content_type].nil? || stub[:content_type].empty?
         http_resp.headers['Content-Disposition'] = stub[:content_disposition] unless stub[:content_disposition].nil? || stub[:content_disposition].empty?
         http_resp.headers['Content-Type'] = 'application/octet-stream'
-        http_resp.body = StringIO.new(stub[:body] || '')
+        http_resp.body = ::StringIO.new(stub[:body] || '')
       end
     end
 
@@ -2906,8 +2908,8 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['friendlyName'] = stub[:friendly_name] unless stub[:friendly_name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['configurationProperties'] = Stubs::ListOfSdkConfigurationProperty.stub(stub[:configuration_properties]) unless stub[:configuration_properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['configurationProperties'] = ListOfSdkConfigurationProperty.stub(stub[:configuration_properties]) unless stub[:configuration_properties].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2925,7 +2927,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SdkConfigurationProperty.stub(element) unless element.nil?
+          data << SdkConfigurationProperty.stub(element) unless element.nil?
         end
         data
       end
@@ -2969,8 +2971,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['item'] = Stubs::ListOfSdkType.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['item'] = ListOfSdkType.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -2988,7 +2990,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SdkType.stub(element) unless element.nil?
+          data << SdkType.stub(element) unless element.nil?
         end
         data
       end
@@ -3013,7 +3015,7 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['friendlyName'] = stub[:friendly_name] unless stub[:friendly_name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['configurationProperties'] = Stubs::ListOfSdkConfigurationProperty.stub(stub[:configuration_properties]) unless stub[:configuration_properties].nil?
+        data['configurationProperties'] = ListOfSdkConfigurationProperty.stub(stub[:configuration_properties]) unless stub[:configuration_properties].nil?
         data
       end
     end
@@ -3053,17 +3055,17 @@ module AWS::SDK::APIGateway
         data['cacheClusterEnabled'] = stub[:cache_cluster_enabled] unless stub[:cache_cluster_enabled].nil?
         data['cacheClusterSize'] = stub[:cache_cluster_size] unless stub[:cache_cluster_size].nil?
         data['cacheClusterStatus'] = stub[:cache_cluster_status] unless stub[:cache_cluster_status].nil?
-        data['methodSettings'] = Stubs::MapOfMethodSettings.stub(stub[:method_settings]) unless stub[:method_settings].nil?
-        data['variables'] = Stubs::MapOfStringToString.stub(stub[:variables]) unless stub[:variables].nil?
+        data['methodSettings'] = MapOfMethodSettings.stub(stub[:method_settings]) unless stub[:method_settings].nil?
+        data['variables'] = MapOfStringToString.stub(stub[:variables]) unless stub[:variables].nil?
         data['documentationVersion'] = stub[:documentation_version] unless stub[:documentation_version].nil?
-        data['accessLogSettings'] = Stubs::AccessLogSettings.stub(stub[:access_log_settings]) unless stub[:access_log_settings].nil?
-        data['canarySettings'] = Stubs::CanarySettings.stub(stub[:canary_settings]) unless stub[:canary_settings].nil?
+        data['accessLogSettings'] = AccessLogSettings.stub(stub[:access_log_settings]) unless stub[:access_log_settings].nil?
+        data['canarySettings'] = CanarySettings.stub(stub[:canary_settings]) unless stub[:canary_settings].nil?
         data['tracingEnabled'] = stub[:tracing_enabled] unless stub[:tracing_enabled].nil?
         data['webAclArn'] = stub[:web_acl_arn] unless stub[:web_acl_arn].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3079,8 +3081,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['item'] = Stubs::ListOfStage.stub(stub[:item]) unless stub[:item].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['item'] = ListOfStage.stub(stub[:item]) unless stub[:item].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3098,7 +3100,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Stage.stub(element) unless element.nil?
+          data << Stage.stub(element) unless element.nil?
         end
         data
       end
@@ -3140,14 +3142,14 @@ module AWS::SDK::APIGateway
         data['cacheClusterEnabled'] = stub[:cache_cluster_enabled] unless stub[:cache_cluster_enabled].nil?
         data['cacheClusterSize'] = stub[:cache_cluster_size] unless stub[:cache_cluster_size].nil?
         data['cacheClusterStatus'] = stub[:cache_cluster_status] unless stub[:cache_cluster_status].nil?
-        data['methodSettings'] = Stubs::MapOfMethodSettings.stub(stub[:method_settings]) unless stub[:method_settings].nil?
-        data['variables'] = Stubs::MapOfStringToString.stub(stub[:variables]) unless stub[:variables].nil?
+        data['methodSettings'] = MapOfMethodSettings.stub(stub[:method_settings]) unless stub[:method_settings].nil?
+        data['variables'] = MapOfStringToString.stub(stub[:variables]) unless stub[:variables].nil?
         data['documentationVersion'] = stub[:documentation_version] unless stub[:documentation_version].nil?
-        data['accessLogSettings'] = Stubs::AccessLogSettings.stub(stub[:access_log_settings]) unless stub[:access_log_settings].nil?
-        data['canarySettings'] = Stubs::CanarySettings.stub(stub[:canary_settings]) unless stub[:canary_settings].nil?
+        data['accessLogSettings'] = AccessLogSettings.stub(stub[:access_log_settings]) unless stub[:access_log_settings].nil?
+        data['canarySettings'] = CanarySettings.stub(stub[:canary_settings]) unless stub[:canary_settings].nil?
         data['tracingEnabled'] = stub[:tracing_enabled] unless stub[:tracing_enabled].nil?
         data['webAclArn'] = stub[:web_acl_arn] unless stub[:web_acl_arn].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
         data
@@ -3166,8 +3168,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3190,8 +3192,8 @@ module AWS::SDK::APIGateway
         data['usagePlanId'] = stub[:usage_plan_id] unless stub[:usage_plan_id].nil?
         data['startDate'] = stub[:start_date] unless stub[:start_date].nil?
         data['endDate'] = stub[:end_date] unless stub[:end_date].nil?
-        data['values'] = Stubs::MapOfKeyUsages.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['values'] = MapOfKeyUsages.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3209,7 +3211,7 @@ module AWS::SDK::APIGateway
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ListOfUsage.stub(value) unless value.nil?
+          data[key] = ListOfUsage.stub(value) unless value.nil?
         end
         data
       end
@@ -3229,7 +3231,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ListOfLong.stub(element) unless element.nil?
+          data << ListOfLong.stub(element) unless element.nil?
         end
         data
       end
@@ -3277,12 +3279,12 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['apiStages'] = Stubs::ListOfApiStage.stub(stub[:api_stages]) unless stub[:api_stages].nil?
-        data['throttle'] = Stubs::ThrottleSettings.stub(stub[:throttle]) unless stub[:throttle].nil?
-        data['quota'] = Stubs::QuotaSettings.stub(stub[:quota]) unless stub[:quota].nil?
+        data['apiStages'] = ListOfApiStage.stub(stub[:api_stages]) unless stub[:api_stages].nil?
+        data['throttle'] = ThrottleSettings.stub(stub[:throttle]) unless stub[:throttle].nil?
+        data['quota'] = QuotaSettings.stub(stub[:quota]) unless stub[:quota].nil?
         data['productCode'] = stub[:product_code] unless stub[:product_code].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3305,7 +3307,7 @@ module AWS::SDK::APIGateway
         data['type'] = stub[:type] unless stub[:type].nil?
         data['value'] = stub[:value] unless stub[:value].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3322,8 +3324,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['item'] = Stubs::ListOfUsagePlanKey.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['item'] = ListOfUsagePlanKey.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3341,7 +3343,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UsagePlanKey.stub(element) unless element.nil?
+          data << UsagePlanKey.stub(element) unless element.nil?
         end
         data
       end
@@ -3384,8 +3386,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['item'] = Stubs::ListOfUsagePlan.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['item'] = ListOfUsagePlan.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3403,7 +3405,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::UsagePlan.stub(element) unless element.nil?
+          data << UsagePlan.stub(element) unless element.nil?
         end
         data
       end
@@ -3432,11 +3434,11 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['apiStages'] = Stubs::ListOfApiStage.stub(stub[:api_stages]) unless stub[:api_stages].nil?
-        data['throttle'] = Stubs::ThrottleSettings.stub(stub[:throttle]) unless stub[:throttle].nil?
-        data['quota'] = Stubs::QuotaSettings.stub(stub[:quota]) unless stub[:quota].nil?
+        data['apiStages'] = ListOfApiStage.stub(stub[:api_stages]) unless stub[:api_stages].nil?
+        data['throttle'] = ThrottleSettings.stub(stub[:throttle]) unless stub[:throttle].nil?
+        data['quota'] = QuotaSettings.stub(stub[:quota]) unless stub[:quota].nil?
         data['productCode'] = stub[:product_code] unless stub[:product_code].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -3462,11 +3464,11 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['targetArns'] = Stubs::ListOfString.stub(stub[:target_arns]) unless stub[:target_arns].nil?
+        data['targetArns'] = ListOfString.stub(stub[:target_arns]) unless stub[:target_arns].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['statusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3483,8 +3485,8 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['item'] = Stubs::ListOfVpcLink.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['item'] = ListOfVpcLink.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3502,7 +3504,7 @@ module AWS::SDK::APIGateway
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::VpcLink.stub(element) unless element.nil?
+          data << VpcLink.stub(element) unless element.nil?
         end
         data
       end
@@ -3530,10 +3532,10 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['targetArns'] = Stubs::ListOfString.stub(stub[:target_arns]) unless stub[:target_arns].nil?
+        data['targetArns'] = ListOfString.stub(stub[:target_arns]) unless stub[:target_arns].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['statusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
         data
       end
     end
@@ -3551,9 +3553,9 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ids'] = Stubs::ListOfString.stub(stub[:ids]) unless stub[:ids].nil?
-        data['warnings'] = Stubs::ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ids'] = ListOfString.stub(stub[:ids]) unless stub[:ids].nil?
+        data['warnings'] = ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3570,9 +3572,9 @@ module AWS::SDK::APIGateway
         data = {}
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
-        data['ids'] = Stubs::ListOfString.stub(stub[:ids]) unless stub[:ids].nil?
-        data['warnings'] = Stubs::ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ids'] = ListOfString.stub(stub[:ids]) unless stub[:ids].nil?
+        data['warnings'] = ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3605,15 +3607,15 @@ module AWS::SDK::APIGateway
         data['description'] = stub[:description] unless stub[:description].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['warnings'] = Stubs::ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
-        data['binaryMediaTypes'] = Stubs::ListOfString.stub(stub[:binary_media_types]) unless stub[:binary_media_types].nil?
+        data['warnings'] = ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
+        data['binaryMediaTypes'] = ListOfString.stub(stub[:binary_media_types]) unless stub[:binary_media_types].nil?
         data['minimumCompressionSize'] = stub[:minimum_compression_size] unless stub[:minimum_compression_size].nil?
         data['apiKeySource'] = stub[:api_key_source] unless stub[:api_key_source].nil?
-        data['endpointConfiguration'] = Stubs::EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
+        data['endpointConfiguration'] = EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
         data['policy'] = stub[:policy] unless stub[:policy].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
         data['disableExecuteApiEndpoint'] = stub[:disable_execute_api_endpoint] unless stub[:disable_execute_api_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3635,10 +3637,10 @@ module AWS::SDK::APIGateway
         http_resp.headers['Content-Type'] = 'application/json'
         data['responseType'] = stub[:response_type] unless stub[:response_type].nil?
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
-        data['responseParameters'] = Stubs::MapOfStringToString.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
-        data['responseTemplates'] = Stubs::MapOfStringToString.stub(stub[:response_templates]) unless stub[:response_templates].nil?
+        data['responseParameters'] = MapOfStringToString.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
+        data['responseTemplates'] = MapOfStringToString.stub(stub[:response_templates]) unless stub[:response_templates].nil?
         data['defaultResponse'] = stub[:default_response] unless stub[:default_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3674,16 +3676,16 @@ module AWS::SDK::APIGateway
         data['connectionType'] = stub[:connection_type] unless stub[:connection_type].nil?
         data['connectionId'] = stub[:connection_id] unless stub[:connection_id].nil?
         data['credentials'] = stub[:credentials] unless stub[:credentials].nil?
-        data['requestParameters'] = Stubs::MapOfStringToString.stub(stub[:request_parameters]) unless stub[:request_parameters].nil?
-        data['requestTemplates'] = Stubs::MapOfStringToString.stub(stub[:request_templates]) unless stub[:request_templates].nil?
+        data['requestParameters'] = MapOfStringToString.stub(stub[:request_parameters]) unless stub[:request_parameters].nil?
+        data['requestTemplates'] = MapOfStringToString.stub(stub[:request_templates]) unless stub[:request_templates].nil?
         data['passthroughBehavior'] = stub[:passthrough_behavior] unless stub[:passthrough_behavior].nil?
         data['contentHandling'] = stub[:content_handling] unless stub[:content_handling].nil?
         data['timeoutInMillis'] = stub[:timeout_in_millis] unless stub[:timeout_in_millis].nil?
         data['cacheNamespace'] = stub[:cache_namespace] unless stub[:cache_namespace].nil?
-        data['cacheKeyParameters'] = Stubs::ListOfString.stub(stub[:cache_key_parameters]) unless stub[:cache_key_parameters].nil?
-        data['integrationResponses'] = Stubs::MapOfIntegrationResponse.stub(stub[:integration_responses]) unless stub[:integration_responses].nil?
-        data['tlsConfig'] = Stubs::TlsConfig.stub(stub[:tls_config]) unless stub[:tls_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cacheKeyParameters'] = ListOfString.stub(stub[:cache_key_parameters]) unless stub[:cache_key_parameters].nil?
+        data['integrationResponses'] = MapOfIntegrationResponse.stub(stub[:integration_responses]) unless stub[:integration_responses].nil?
+        data['tlsConfig'] = TlsConfig.stub(stub[:tls_config]) unless stub[:tls_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3705,10 +3707,10 @@ module AWS::SDK::APIGateway
         http_resp.headers['Content-Type'] = 'application/json'
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
         data['selectionPattern'] = stub[:selection_pattern] unless stub[:selection_pattern].nil?
-        data['responseParameters'] = Stubs::MapOfStringToString.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
-        data['responseTemplates'] = Stubs::MapOfStringToString.stub(stub[:response_templates]) unless stub[:response_templates].nil?
+        data['responseParameters'] = MapOfStringToString.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
+        data['responseTemplates'] = MapOfStringToString.stub(stub[:response_templates]) unless stub[:response_templates].nil?
         data['contentHandling'] = stub[:content_handling] unless stub[:content_handling].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3740,12 +3742,12 @@ module AWS::SDK::APIGateway
         data['apiKeyRequired'] = stub[:api_key_required] unless stub[:api_key_required].nil?
         data['requestValidatorId'] = stub[:request_validator_id] unless stub[:request_validator_id].nil?
         data['operationName'] = stub[:operation_name] unless stub[:operation_name].nil?
-        data['requestParameters'] = Stubs::MapOfStringToBoolean.stub(stub[:request_parameters]) unless stub[:request_parameters].nil?
-        data['requestModels'] = Stubs::MapOfStringToString.stub(stub[:request_models]) unless stub[:request_models].nil?
-        data['methodResponses'] = Stubs::MapOfMethodResponse.stub(stub[:method_responses]) unless stub[:method_responses].nil?
-        data['methodIntegration'] = Stubs::Integration.stub(stub[:method_integration]) unless stub[:method_integration].nil?
-        data['authorizationScopes'] = Stubs::ListOfString.stub(stub[:authorization_scopes]) unless stub[:authorization_scopes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['requestParameters'] = MapOfStringToBoolean.stub(stub[:request_parameters]) unless stub[:request_parameters].nil?
+        data['requestModels'] = MapOfStringToString.stub(stub[:request_models]) unless stub[:request_models].nil?
+        data['methodResponses'] = MapOfMethodResponse.stub(stub[:method_responses]) unless stub[:method_responses].nil?
+        data['methodIntegration'] = Integration.stub(stub[:method_integration]) unless stub[:method_integration].nil?
+        data['authorizationScopes'] = ListOfString.stub(stub[:authorization_scopes]) unless stub[:authorization_scopes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3764,9 +3766,9 @@ module AWS::SDK::APIGateway
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
-        data['responseParameters'] = Stubs::MapOfStringToBoolean.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
-        data['responseModels'] = Stubs::MapOfStringToString.stub(stub[:response_models]) unless stub[:response_models].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['responseParameters'] = MapOfStringToBoolean.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
+        data['responseModels'] = MapOfStringToString.stub(stub[:response_models]) unless stub[:response_models].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3799,15 +3801,15 @@ module AWS::SDK::APIGateway
         data['description'] = stub[:description] unless stub[:description].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['warnings'] = Stubs::ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
-        data['binaryMediaTypes'] = Stubs::ListOfString.stub(stub[:binary_media_types]) unless stub[:binary_media_types].nil?
+        data['warnings'] = ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
+        data['binaryMediaTypes'] = ListOfString.stub(stub[:binary_media_types]) unless stub[:binary_media_types].nil?
         data['minimumCompressionSize'] = stub[:minimum_compression_size] unless stub[:minimum_compression_size].nil?
         data['apiKeySource'] = stub[:api_key_source] unless stub[:api_key_source].nil?
-        data['endpointConfiguration'] = Stubs::EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
+        data['endpointConfiguration'] = EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
         data['policy'] = stub[:policy] unless stub[:policy].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
         data['disableExecuteApiEndpoint'] = stub[:disable_execute_api_endpoint] unless stub[:disable_execute_api_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3847,9 +3849,9 @@ module AWS::SDK::APIGateway
         data['latency'] = stub[:latency] unless stub[:latency].nil?
         data['principalId'] = stub[:principal_id] unless stub[:principal_id].nil?
         data['policy'] = stub[:policy] unless stub[:policy].nil?
-        data['authorization'] = Stubs::MapOfStringToList.stub(stub[:authorization]) unless stub[:authorization].nil?
-        data['claims'] = Stubs::MapOfStringToString.stub(stub[:claims]) unless stub[:claims].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['authorization'] = MapOfStringToList.stub(stub[:authorization]) unless stub[:authorization].nil?
+        data['claims'] = MapOfStringToString.stub(stub[:claims]) unless stub[:claims].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3867,7 +3869,7 @@ module AWS::SDK::APIGateway
         stub ||= {}
         data = {}
         stub.each do |key, value|
-          data[key] = Stubs::ListOfString.stub(value) unless value.nil?
+          data[key] = ListOfString.stub(value) unless value.nil?
         end
         data
       end
@@ -3892,11 +3894,11 @@ module AWS::SDK::APIGateway
         http_resp.headers['Content-Type'] = 'application/json'
         data['status'] = stub[:status] unless stub[:status].nil?
         data['body'] = stub[:body] unless stub[:body].nil?
-        data['headers'] = Stubs::MapOfStringToString.stub(stub[:headers]) unless stub[:headers].nil?
-        data['multiValueHeaders'] = Stubs::MapOfStringToList.stub(stub[:multi_value_headers]) unless stub[:multi_value_headers].nil?
+        data['headers'] = MapOfStringToString.stub(stub[:headers]) unless stub[:headers].nil?
+        data['multiValueHeaders'] = MapOfStringToList.stub(stub[:multi_value_headers]) unless stub[:multi_value_headers].nil?
         data['log'] = stub[:log] unless stub[:log].nil?
         data['latency'] = stub[:latency] unless stub[:latency].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3929,10 +3931,10 @@ module AWS::SDK::APIGateway
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['cloudwatchRoleArn'] = stub[:cloudwatch_role_arn] unless stub[:cloudwatch_role_arn].nil?
-        data['throttleSettings'] = Stubs::ThrottleSettings.stub(stub[:throttle_settings]) unless stub[:throttle_settings].nil?
-        data['features'] = Stubs::ListOfString.stub(stub[:features]) unless stub[:features].nil?
+        data['throttleSettings'] = ThrottleSettings.stub(stub[:throttle_settings]) unless stub[:throttle_settings].nil?
+        data['features'] = ListOfString.stub(stub[:features]) unless stub[:features].nil?
         data['apiKeyVersion'] = stub[:api_key_version] unless stub[:api_key_version].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3965,9 +3967,9 @@ module AWS::SDK::APIGateway
         data['enabled'] = stub[:enabled] unless stub[:enabled].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
-        data['stageKeys'] = Stubs::ListOfString.stub(stub[:stage_keys]) unless stub[:stage_keys].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['stageKeys'] = ListOfString.stub(stub[:stage_keys]) unless stub[:stage_keys].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -3995,14 +3997,14 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['type'] = stub[:type] unless stub[:type].nil?
-        data['providerARNs'] = Stubs::ListOfARNs.stub(stub[:provider_ar_ns]) unless stub[:provider_ar_ns].nil?
+        data['providerARNs'] = ListOfARNs.stub(stub[:provider_ar_ns]) unless stub[:provider_ar_ns].nil?
         data['authType'] = stub[:auth_type] unless stub[:auth_type].nil?
         data['authorizerUri'] = stub[:authorizer_uri] unless stub[:authorizer_uri].nil?
         data['authorizerCredentials'] = stub[:authorizer_credentials] unless stub[:authorizer_credentials].nil?
         data['identitySource'] = stub[:identity_source] unless stub[:identity_source].nil?
         data['identityValidationExpression'] = stub[:identity_validation_expression] unless stub[:identity_validation_expression].nil?
         data['authorizerResultTtlInSeconds'] = stub[:authorizer_result_ttl_in_seconds] unless stub[:authorizer_result_ttl_in_seconds].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4023,7 +4025,7 @@ module AWS::SDK::APIGateway
         data['basePath'] = stub[:base_path] unless stub[:base_path].nil?
         data['restApiId'] = stub[:rest_api_id] unless stub[:rest_api_id].nil?
         data['stage'] = stub[:stage] unless stub[:stage].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4049,8 +4051,8 @@ module AWS::SDK::APIGateway
         data['pemEncodedCertificate'] = stub[:pem_encoded_certificate] unless stub[:pem_encoded_certificate].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['expirationDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:expiration_date]).to_i unless stub[:expiration_date].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4072,8 +4074,8 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
-        data['apiSummary'] = Stubs::PathToMapOfMethodSnapshot.stub(stub[:api_summary]) unless stub[:api_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['apiSummary'] = PathToMapOfMethodSnapshot.stub(stub[:api_summary]) unless stub[:api_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4092,9 +4094,9 @@ module AWS::SDK::APIGateway
         http_resp.status = 200
         http_resp.headers['Content-Type'] = 'application/json'
         data['id'] = stub[:id] unless stub[:id].nil?
-        data['location'] = Stubs::DocumentationPartLocation.stub(stub[:location]) unless stub[:location].nil?
+        data['location'] = DocumentationPartLocation.stub(stub[:location]) unless stub[:location].nil?
         data['properties'] = stub[:properties] unless stub[:properties].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4115,7 +4117,7 @@ module AWS::SDK::APIGateway
         data['version'] = stub[:version] unless stub[:version].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4157,14 +4159,14 @@ module AWS::SDK::APIGateway
         data['regionalCertificateArn'] = stub[:regional_certificate_arn] unless stub[:regional_certificate_arn].nil?
         data['distributionDomainName'] = stub[:distribution_domain_name] unless stub[:distribution_domain_name].nil?
         data['distributionHostedZoneId'] = stub[:distribution_hosted_zone_id] unless stub[:distribution_hosted_zone_id].nil?
-        data['endpointConfiguration'] = Stubs::EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
+        data['endpointConfiguration'] = EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
         data['domainNameStatus'] = stub[:domain_name_status] unless stub[:domain_name_status].nil?
         data['domainNameStatusMessage'] = stub[:domain_name_status_message] unless stub[:domain_name_status_message].nil?
         data['securityPolicy'] = stub[:security_policy] unless stub[:security_policy].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
-        data['mutualTlsAuthentication'] = Stubs::MutualTlsAuthentication.stub(stub[:mutual_tls_authentication]) unless stub[:mutual_tls_authentication].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['mutualTlsAuthentication'] = MutualTlsAuthentication.stub(stub[:mutual_tls_authentication]) unless stub[:mutual_tls_authentication].nil?
         data['ownershipVerificationCertificateArn'] = stub[:ownership_verification_certificate_arn] unless stub[:ownership_verification_certificate_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4186,10 +4188,10 @@ module AWS::SDK::APIGateway
         http_resp.headers['Content-Type'] = 'application/json'
         data['responseType'] = stub[:response_type] unless stub[:response_type].nil?
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
-        data['responseParameters'] = Stubs::MapOfStringToString.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
-        data['responseTemplates'] = Stubs::MapOfStringToString.stub(stub[:response_templates]) unless stub[:response_templates].nil?
+        data['responseParameters'] = MapOfStringToString.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
+        data['responseTemplates'] = MapOfStringToString.stub(stub[:response_templates]) unless stub[:response_templates].nil?
         data['defaultResponse'] = stub[:default_response] unless stub[:default_response].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4225,16 +4227,16 @@ module AWS::SDK::APIGateway
         data['connectionType'] = stub[:connection_type] unless stub[:connection_type].nil?
         data['connectionId'] = stub[:connection_id] unless stub[:connection_id].nil?
         data['credentials'] = stub[:credentials] unless stub[:credentials].nil?
-        data['requestParameters'] = Stubs::MapOfStringToString.stub(stub[:request_parameters]) unless stub[:request_parameters].nil?
-        data['requestTemplates'] = Stubs::MapOfStringToString.stub(stub[:request_templates]) unless stub[:request_templates].nil?
+        data['requestParameters'] = MapOfStringToString.stub(stub[:request_parameters]) unless stub[:request_parameters].nil?
+        data['requestTemplates'] = MapOfStringToString.stub(stub[:request_templates]) unless stub[:request_templates].nil?
         data['passthroughBehavior'] = stub[:passthrough_behavior] unless stub[:passthrough_behavior].nil?
         data['contentHandling'] = stub[:content_handling] unless stub[:content_handling].nil?
         data['timeoutInMillis'] = stub[:timeout_in_millis] unless stub[:timeout_in_millis].nil?
         data['cacheNamespace'] = stub[:cache_namespace] unless stub[:cache_namespace].nil?
-        data['cacheKeyParameters'] = Stubs::ListOfString.stub(stub[:cache_key_parameters]) unless stub[:cache_key_parameters].nil?
-        data['integrationResponses'] = Stubs::MapOfIntegrationResponse.stub(stub[:integration_responses]) unless stub[:integration_responses].nil?
-        data['tlsConfig'] = Stubs::TlsConfig.stub(stub[:tls_config]) unless stub[:tls_config].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['cacheKeyParameters'] = ListOfString.stub(stub[:cache_key_parameters]) unless stub[:cache_key_parameters].nil?
+        data['integrationResponses'] = MapOfIntegrationResponse.stub(stub[:integration_responses]) unless stub[:integration_responses].nil?
+        data['tlsConfig'] = TlsConfig.stub(stub[:tls_config]) unless stub[:tls_config].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4256,10 +4258,10 @@ module AWS::SDK::APIGateway
         http_resp.headers['Content-Type'] = 'application/json'
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
         data['selectionPattern'] = stub[:selection_pattern] unless stub[:selection_pattern].nil?
-        data['responseParameters'] = Stubs::MapOfStringToString.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
-        data['responseTemplates'] = Stubs::MapOfStringToString.stub(stub[:response_templates]) unless stub[:response_templates].nil?
+        data['responseParameters'] = MapOfStringToString.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
+        data['responseTemplates'] = MapOfStringToString.stub(stub[:response_templates]) unless stub[:response_templates].nil?
         data['contentHandling'] = stub[:content_handling] unless stub[:content_handling].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4291,12 +4293,12 @@ module AWS::SDK::APIGateway
         data['apiKeyRequired'] = stub[:api_key_required] unless stub[:api_key_required].nil?
         data['requestValidatorId'] = stub[:request_validator_id] unless stub[:request_validator_id].nil?
         data['operationName'] = stub[:operation_name] unless stub[:operation_name].nil?
-        data['requestParameters'] = Stubs::MapOfStringToBoolean.stub(stub[:request_parameters]) unless stub[:request_parameters].nil?
-        data['requestModels'] = Stubs::MapOfStringToString.stub(stub[:request_models]) unless stub[:request_models].nil?
-        data['methodResponses'] = Stubs::MapOfMethodResponse.stub(stub[:method_responses]) unless stub[:method_responses].nil?
-        data['methodIntegration'] = Stubs::Integration.stub(stub[:method_integration]) unless stub[:method_integration].nil?
-        data['authorizationScopes'] = Stubs::ListOfString.stub(stub[:authorization_scopes]) unless stub[:authorization_scopes].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['requestParameters'] = MapOfStringToBoolean.stub(stub[:request_parameters]) unless stub[:request_parameters].nil?
+        data['requestModels'] = MapOfStringToString.stub(stub[:request_models]) unless stub[:request_models].nil?
+        data['methodResponses'] = MapOfMethodResponse.stub(stub[:method_responses]) unless stub[:method_responses].nil?
+        data['methodIntegration'] = Integration.stub(stub[:method_integration]) unless stub[:method_integration].nil?
+        data['authorizationScopes'] = ListOfString.stub(stub[:authorization_scopes]) unless stub[:authorization_scopes].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4315,9 +4317,9 @@ module AWS::SDK::APIGateway
         http_resp.status = 201
         http_resp.headers['Content-Type'] = 'application/json'
         data['statusCode'] = stub[:status_code] unless stub[:status_code].nil?
-        data['responseParameters'] = Stubs::MapOfStringToBoolean.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
-        data['responseModels'] = Stubs::MapOfStringToString.stub(stub[:response_models]) unless stub[:response_models].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['responseParameters'] = MapOfStringToBoolean.stub(stub[:response_parameters]) unless stub[:response_parameters].nil?
+        data['responseModels'] = MapOfStringToString.stub(stub[:response_models]) unless stub[:response_models].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4342,7 +4344,7 @@ module AWS::SDK::APIGateway
         data['description'] = stub[:description] unless stub[:description].nil?
         data['schema'] = stub[:schema] unless stub[:schema].nil?
         data['contentType'] = stub[:content_type] unless stub[:content_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4365,7 +4367,7 @@ module AWS::SDK::APIGateway
         data['name'] = stub[:name] unless stub[:name].nil?
         data['validateRequestBody'] = stub[:validate_request_body] unless stub[:validate_request_body].nil?
         data['validateRequestParameters'] = stub[:validate_request_parameters] unless stub[:validate_request_parameters].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4389,8 +4391,8 @@ module AWS::SDK::APIGateway
         data['parentId'] = stub[:parent_id] unless stub[:parent_id].nil?
         data['pathPart'] = stub[:path_part] unless stub[:path_part].nil?
         data['path'] = stub[:path] unless stub[:path].nil?
-        data['resourceMethods'] = Stubs::MapOfMethod.stub(stub[:resource_methods]) unless stub[:resource_methods].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['resourceMethods'] = MapOfMethod.stub(stub[:resource_methods]) unless stub[:resource_methods].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4423,15 +4425,15 @@ module AWS::SDK::APIGateway
         data['description'] = stub[:description] unless stub[:description].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['version'] = stub[:version] unless stub[:version].nil?
-        data['warnings'] = Stubs::ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
-        data['binaryMediaTypes'] = Stubs::ListOfString.stub(stub[:binary_media_types]) unless stub[:binary_media_types].nil?
+        data['warnings'] = ListOfString.stub(stub[:warnings]) unless stub[:warnings].nil?
+        data['binaryMediaTypes'] = ListOfString.stub(stub[:binary_media_types]) unless stub[:binary_media_types].nil?
         data['minimumCompressionSize'] = stub[:minimum_compression_size] unless stub[:minimum_compression_size].nil?
         data['apiKeySource'] = stub[:api_key_source] unless stub[:api_key_source].nil?
-        data['endpointConfiguration'] = Stubs::EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
+        data['endpointConfiguration'] = EndpointConfiguration.stub(stub[:endpoint_configuration]) unless stub[:endpoint_configuration].nil?
         data['policy'] = stub[:policy] unless stub[:policy].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
         data['disableExecuteApiEndpoint'] = stub[:disable_execute_api_endpoint] unless stub[:disable_execute_api_endpoint].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4470,17 +4472,17 @@ module AWS::SDK::APIGateway
         data['cacheClusterEnabled'] = stub[:cache_cluster_enabled] unless stub[:cache_cluster_enabled].nil?
         data['cacheClusterSize'] = stub[:cache_cluster_size] unless stub[:cache_cluster_size].nil?
         data['cacheClusterStatus'] = stub[:cache_cluster_status] unless stub[:cache_cluster_status].nil?
-        data['methodSettings'] = Stubs::MapOfMethodSettings.stub(stub[:method_settings]) unless stub[:method_settings].nil?
-        data['variables'] = Stubs::MapOfStringToString.stub(stub[:variables]) unless stub[:variables].nil?
+        data['methodSettings'] = MapOfMethodSettings.stub(stub[:method_settings]) unless stub[:method_settings].nil?
+        data['variables'] = MapOfStringToString.stub(stub[:variables]) unless stub[:variables].nil?
         data['documentationVersion'] = stub[:documentation_version] unless stub[:documentation_version].nil?
-        data['accessLogSettings'] = Stubs::AccessLogSettings.stub(stub[:access_log_settings]) unless stub[:access_log_settings].nil?
-        data['canarySettings'] = Stubs::CanarySettings.stub(stub[:canary_settings]) unless stub[:canary_settings].nil?
+        data['accessLogSettings'] = AccessLogSettings.stub(stub[:access_log_settings]) unless stub[:access_log_settings].nil?
+        data['canarySettings'] = CanarySettings.stub(stub[:canary_settings]) unless stub[:canary_settings].nil?
         data['tracingEnabled'] = stub[:tracing_enabled] unless stub[:tracing_enabled].nil?
         data['webAclArn'] = stub[:web_acl_arn] unless stub[:web_acl_arn].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
         data['createdDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_date]).to_i unless stub[:created_date].nil?
         data['lastUpdatedDate'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_updated_date]).to_i unless stub[:last_updated_date].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4503,8 +4505,8 @@ module AWS::SDK::APIGateway
         data['usagePlanId'] = stub[:usage_plan_id] unless stub[:usage_plan_id].nil?
         data['startDate'] = stub[:start_date] unless stub[:start_date].nil?
         data['endDate'] = stub[:end_date] unless stub[:end_date].nil?
-        data['values'] = Stubs::MapOfKeyUsages.stub(stub[:items]) unless stub[:items].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['values'] = MapOfKeyUsages.stub(stub[:items]) unless stub[:items].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4530,12 +4532,12 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['apiStages'] = Stubs::ListOfApiStage.stub(stub[:api_stages]) unless stub[:api_stages].nil?
-        data['throttle'] = Stubs::ThrottleSettings.stub(stub[:throttle]) unless stub[:throttle].nil?
-        data['quota'] = Stubs::QuotaSettings.stub(stub[:quota]) unless stub[:quota].nil?
+        data['apiStages'] = ListOfApiStage.stub(stub[:api_stages]) unless stub[:api_stages].nil?
+        data['throttle'] = ThrottleSettings.stub(stub[:throttle]) unless stub[:throttle].nil?
+        data['quota'] = QuotaSettings.stub(stub[:quota]) unless stub[:quota].nil?
         data['productCode'] = stub[:product_code] unless stub[:product_code].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -4560,11 +4562,11 @@ module AWS::SDK::APIGateway
         data['id'] = stub[:id] unless stub[:id].nil?
         data['name'] = stub[:name] unless stub[:name].nil?
         data['description'] = stub[:description] unless stub[:description].nil?
-        data['targetArns'] = Stubs::ListOfString.stub(stub[:target_arns]) unless stub[:target_arns].nil?
+        data['targetArns'] = ListOfString.stub(stub[:target_arns]) unless stub[:target_arns].nil?
         data['status'] = stub[:status] unless stub[:status].nil?
         data['statusMessage'] = stub[:status_message] unless stub[:status_message].nil?
-        data['tags'] = Stubs::MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = MapOfStringToString.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

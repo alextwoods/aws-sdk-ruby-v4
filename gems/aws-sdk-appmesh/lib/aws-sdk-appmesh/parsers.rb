@@ -15,7 +15,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::CreateGatewayRouteOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.gateway_route = Parsers::GatewayRouteData.parse(json)
+        data.gateway_route = GatewayRouteData.parse(json)
         data
       end
     end
@@ -26,9 +26,9 @@ module AWS::SDK::AppMesh
         data.mesh_name = map['meshName']
         data.gateway_route_name = map['gatewayRouteName']
         data.virtual_gateway_name = map['virtualGatewayName']
-        data.spec = (Parsers::GatewayRouteSpec.parse(map['spec']) unless map['spec'].nil?)
-        data.metadata = (Parsers::ResourceMetadata.parse(map['metadata']) unless map['metadata'].nil?)
-        data.status = (Parsers::GatewayRouteStatus.parse(map['status']) unless map['status'].nil?)
+        data.spec = (GatewayRouteSpec.parse(map['spec']) unless map['spec'].nil?)
+        data.metadata = (ResourceMetadata.parse(map['metadata']) unless map['metadata'].nil?)
+        data.status = (GatewayRouteStatus.parse(map['status']) unless map['status'].nil?)
         return data
       end
     end
@@ -59,9 +59,9 @@ module AWS::SDK::AppMesh
       def self.parse(map)
         data = Types::GatewayRouteSpec.new
         data.priority = map['priority']
-        data.http_route = (Parsers::HttpGatewayRoute.parse(map['httpRoute']) unless map['httpRoute'].nil?)
-        data.http2_route = (Parsers::HttpGatewayRoute.parse(map['http2Route']) unless map['http2Route'].nil?)
-        data.grpc_route = (Parsers::GrpcGatewayRoute.parse(map['grpcRoute']) unless map['grpcRoute'].nil?)
+        data.http_route = (HttpGatewayRoute.parse(map['httpRoute']) unless map['httpRoute'].nil?)
+        data.http2_route = (HttpGatewayRoute.parse(map['http2Route']) unless map['http2Route'].nil?)
+        data.grpc_route = (GrpcGatewayRoute.parse(map['grpcRoute']) unless map['grpcRoute'].nil?)
         return data
       end
     end
@@ -69,8 +69,8 @@ module AWS::SDK::AppMesh
     class GrpcGatewayRoute
       def self.parse(map)
         data = Types::GrpcGatewayRoute.new
-        data.match = (Parsers::GrpcGatewayRouteMatch.parse(map['match']) unless map['match'].nil?)
-        data.action = (Parsers::GrpcGatewayRouteAction.parse(map['action']) unless map['action'].nil?)
+        data.match = (GrpcGatewayRouteMatch.parse(map['match']) unless map['match'].nil?)
+        data.action = (GrpcGatewayRouteAction.parse(map['action']) unless map['action'].nil?)
         return data
       end
     end
@@ -78,8 +78,8 @@ module AWS::SDK::AppMesh
     class GrpcGatewayRouteAction
       def self.parse(map)
         data = Types::GrpcGatewayRouteAction.new
-        data.target = (Parsers::GatewayRouteTarget.parse(map['target']) unless map['target'].nil?)
-        data.rewrite = (Parsers::GrpcGatewayRouteRewrite.parse(map['rewrite']) unless map['rewrite'].nil?)
+        data.target = (GatewayRouteTarget.parse(map['target']) unless map['target'].nil?)
+        data.rewrite = (GrpcGatewayRouteRewrite.parse(map['rewrite']) unless map['rewrite'].nil?)
         return data
       end
     end
@@ -87,7 +87,7 @@ module AWS::SDK::AppMesh
     class GrpcGatewayRouteRewrite
       def self.parse(map)
         data = Types::GrpcGatewayRouteRewrite.new
-        data.hostname = (Parsers::GatewayRouteHostnameRewrite.parse(map['hostname']) unless map['hostname'].nil?)
+        data.hostname = (GatewayRouteHostnameRewrite.parse(map['hostname']) unless map['hostname'].nil?)
         return data
       end
     end
@@ -103,7 +103,7 @@ module AWS::SDK::AppMesh
     class GatewayRouteTarget
       def self.parse(map)
         data = Types::GatewayRouteTarget.new
-        data.virtual_service = (Parsers::GatewayRouteVirtualService.parse(map['virtualService']) unless map['virtualService'].nil?)
+        data.virtual_service = (GatewayRouteVirtualService.parse(map['virtualService']) unless map['virtualService'].nil?)
         return data
       end
     end
@@ -120,8 +120,8 @@ module AWS::SDK::AppMesh
       def self.parse(map)
         data = Types::GrpcGatewayRouteMatch.new
         data.service_name = map['serviceName']
-        data.hostname = (Parsers::GatewayRouteHostnameMatch.parse(map['hostname']) unless map['hostname'].nil?)
-        data.metadata = (Parsers::GrpcGatewayRouteMetadataList.parse(map['metadata']) unless map['metadata'].nil?)
+        data.hostname = (GatewayRouteHostnameMatch.parse(map['hostname']) unless map['hostname'].nil?)
+        data.metadata = (GrpcGatewayRouteMetadataList.parse(map['metadata']) unless map['metadata'].nil?)
         return data
       end
     end
@@ -130,7 +130,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GrpcGatewayRouteMetadata.parse(value) unless value.nil?
+          data << GrpcGatewayRouteMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -141,7 +141,7 @@ module AWS::SDK::AppMesh
         data = Types::GrpcGatewayRouteMetadata.new
         data.name = map['name']
         data.invert = map['invert']
-        data.match = (Parsers::GrpcMetadataMatchMethod.parse(map['match']) unless map['match'].nil?)
+        data.match = (GrpcMetadataMatchMethod.parse(map['match']) unless map['match'].nil?)
         return data
       end
     end
@@ -157,7 +157,7 @@ module AWS::SDK::AppMesh
           value = value
           Types::GrpcMetadataMatchMethod::Regex.new(value) if value
         when 'range'
-          value = (Parsers::MatchRange.parse(value) unless value.nil?)
+          value = (MatchRange.parse(value) unless value.nil?)
           Types::GrpcMetadataMatchMethod::Range.new(value) if value
         when 'prefix'
           value = value
@@ -192,8 +192,8 @@ module AWS::SDK::AppMesh
     class HttpGatewayRoute
       def self.parse(map)
         data = Types::HttpGatewayRoute.new
-        data.match = (Parsers::HttpGatewayRouteMatch.parse(map['match']) unless map['match'].nil?)
-        data.action = (Parsers::HttpGatewayRouteAction.parse(map['action']) unless map['action'].nil?)
+        data.match = (HttpGatewayRouteMatch.parse(map['match']) unless map['match'].nil?)
+        data.action = (HttpGatewayRouteAction.parse(map['action']) unless map['action'].nil?)
         return data
       end
     end
@@ -201,8 +201,8 @@ module AWS::SDK::AppMesh
     class HttpGatewayRouteAction
       def self.parse(map)
         data = Types::HttpGatewayRouteAction.new
-        data.target = (Parsers::GatewayRouteTarget.parse(map['target']) unless map['target'].nil?)
-        data.rewrite = (Parsers::HttpGatewayRouteRewrite.parse(map['rewrite']) unless map['rewrite'].nil?)
+        data.target = (GatewayRouteTarget.parse(map['target']) unless map['target'].nil?)
+        data.rewrite = (HttpGatewayRouteRewrite.parse(map['rewrite']) unless map['rewrite'].nil?)
         return data
       end
     end
@@ -210,9 +210,9 @@ module AWS::SDK::AppMesh
     class HttpGatewayRouteRewrite
       def self.parse(map)
         data = Types::HttpGatewayRouteRewrite.new
-        data.prefix = (Parsers::HttpGatewayRoutePrefixRewrite.parse(map['prefix']) unless map['prefix'].nil?)
-        data.path = (Parsers::HttpGatewayRoutePathRewrite.parse(map['path']) unless map['path'].nil?)
-        data.hostname = (Parsers::GatewayRouteHostnameRewrite.parse(map['hostname']) unless map['hostname'].nil?)
+        data.prefix = (HttpGatewayRoutePrefixRewrite.parse(map['prefix']) unless map['prefix'].nil?)
+        data.path = (HttpGatewayRoutePathRewrite.parse(map['path']) unless map['path'].nil?)
+        data.hostname = (GatewayRouteHostnameRewrite.parse(map['hostname']) unless map['hostname'].nil?)
         return data
       end
     end
@@ -238,11 +238,11 @@ module AWS::SDK::AppMesh
       def self.parse(map)
         data = Types::HttpGatewayRouteMatch.new
         data.prefix = map['prefix']
-        data.path = (Parsers::HttpPathMatch.parse(map['path']) unless map['path'].nil?)
-        data.query_parameters = (Parsers::HttpQueryParameters.parse(map['queryParameters']) unless map['queryParameters'].nil?)
+        data.path = (HttpPathMatch.parse(map['path']) unless map['path'].nil?)
+        data.query_parameters = (HttpQueryParameters.parse(map['queryParameters']) unless map['queryParameters'].nil?)
         data.member_method = map['method']
-        data.hostname = (Parsers::GatewayRouteHostnameMatch.parse(map['hostname']) unless map['hostname'].nil?)
-        data.headers = (Parsers::HttpGatewayRouteHeaders.parse(map['headers']) unless map['headers'].nil?)
+        data.hostname = (GatewayRouteHostnameMatch.parse(map['hostname']) unless map['hostname'].nil?)
+        data.headers = (HttpGatewayRouteHeaders.parse(map['headers']) unless map['headers'].nil?)
         return data
       end
     end
@@ -251,7 +251,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HttpGatewayRouteHeader.parse(value) unless value.nil?
+          data << HttpGatewayRouteHeader.parse(value) unless value.nil?
         end
         data
       end
@@ -262,7 +262,7 @@ module AWS::SDK::AppMesh
         data = Types::HttpGatewayRouteHeader.new
         data.name = map['name']
         data.invert = map['invert']
-        data.match = (Parsers::HeaderMatchMethod.parse(map['match']) unless map['match'].nil?)
+        data.match = (HeaderMatchMethod.parse(map['match']) unless map['match'].nil?)
         return data
       end
     end
@@ -278,7 +278,7 @@ module AWS::SDK::AppMesh
           value = value
           Types::HeaderMatchMethod::Regex.new(value) if value
         when 'range'
-          value = (Parsers::MatchRange.parse(value) unless value.nil?)
+          value = (MatchRange.parse(value) unless value.nil?)
           Types::HeaderMatchMethod::Range.new(value) if value
         when 'prefix'
           value = value
@@ -296,7 +296,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HttpQueryParameter.parse(value) unless value.nil?
+          data << HttpQueryParameter.parse(value) unless value.nil?
         end
         data
       end
@@ -306,7 +306,7 @@ module AWS::SDK::AppMesh
       def self.parse(map)
         data = Types::HttpQueryParameter.new
         data.name = map['name']
-        data.match = (Parsers::QueryParameterMatch.parse(map['match']) unless map['match'].nil?)
+        data.match = (QueryParameterMatch.parse(map['match']) unless map['match'].nil?)
         return data
       end
     end
@@ -413,7 +413,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::CreateMeshOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.mesh = Parsers::MeshData.parse(json)
+        data.mesh = MeshData.parse(json)
         data
       end
     end
@@ -422,9 +422,9 @@ module AWS::SDK::AppMesh
       def self.parse(map)
         data = Types::MeshData.new
         data.mesh_name = map['meshName']
-        data.spec = (Parsers::MeshSpec.parse(map['spec']) unless map['spec'].nil?)
-        data.metadata = (Parsers::ResourceMetadata.parse(map['metadata']) unless map['metadata'].nil?)
-        data.status = (Parsers::MeshStatus.parse(map['status']) unless map['status'].nil?)
+        data.spec = (MeshSpec.parse(map['spec']) unless map['spec'].nil?)
+        data.metadata = (ResourceMetadata.parse(map['metadata']) unless map['metadata'].nil?)
+        data.status = (MeshStatus.parse(map['status']) unless map['status'].nil?)
         return data
       end
     end
@@ -440,8 +440,8 @@ module AWS::SDK::AppMesh
     class MeshSpec
       def self.parse(map)
         data = Types::MeshSpec.new
-        data.egress_filter = (Parsers::EgressFilter.parse(map['egressFilter']) unless map['egressFilter'].nil?)
-        data.service_discovery = (Parsers::MeshServiceDiscovery.parse(map['serviceDiscovery']) unless map['serviceDiscovery'].nil?)
+        data.egress_filter = (EgressFilter.parse(map['egressFilter']) unless map['egressFilter'].nil?)
+        data.service_discovery = (MeshServiceDiscovery.parse(map['serviceDiscovery']) unless map['serviceDiscovery'].nil?)
         return data
       end
     end
@@ -467,7 +467,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::CreateRouteOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.route = Parsers::RouteData.parse(json)
+        data.route = RouteData.parse(json)
         data
       end
     end
@@ -478,9 +478,9 @@ module AWS::SDK::AppMesh
         data.mesh_name = map['meshName']
         data.virtual_router_name = map['virtualRouterName']
         data.route_name = map['routeName']
-        data.spec = (Parsers::RouteSpec.parse(map['spec']) unless map['spec'].nil?)
-        data.metadata = (Parsers::ResourceMetadata.parse(map['metadata']) unless map['metadata'].nil?)
-        data.status = (Parsers::RouteStatus.parse(map['status']) unless map['status'].nil?)
+        data.spec = (RouteSpec.parse(map['spec']) unless map['spec'].nil?)
+        data.metadata = (ResourceMetadata.parse(map['metadata']) unless map['metadata'].nil?)
+        data.status = (RouteStatus.parse(map['status']) unless map['status'].nil?)
         return data
       end
     end
@@ -497,10 +497,10 @@ module AWS::SDK::AppMesh
       def self.parse(map)
         data = Types::RouteSpec.new
         data.priority = map['priority']
-        data.http_route = (Parsers::HttpRoute.parse(map['httpRoute']) unless map['httpRoute'].nil?)
-        data.tcp_route = (Parsers::TcpRoute.parse(map['tcpRoute']) unless map['tcpRoute'].nil?)
-        data.http2_route = (Parsers::HttpRoute.parse(map['http2Route']) unless map['http2Route'].nil?)
-        data.grpc_route = (Parsers::GrpcRoute.parse(map['grpcRoute']) unless map['grpcRoute'].nil?)
+        data.http_route = (HttpRoute.parse(map['httpRoute']) unless map['httpRoute'].nil?)
+        data.tcp_route = (TcpRoute.parse(map['tcpRoute']) unless map['tcpRoute'].nil?)
+        data.http2_route = (HttpRoute.parse(map['http2Route']) unless map['http2Route'].nil?)
+        data.grpc_route = (GrpcRoute.parse(map['grpcRoute']) unless map['grpcRoute'].nil?)
         return data
       end
     end
@@ -508,10 +508,10 @@ module AWS::SDK::AppMesh
     class GrpcRoute
       def self.parse(map)
         data = Types::GrpcRoute.new
-        data.action = (Parsers::GrpcRouteAction.parse(map['action']) unless map['action'].nil?)
-        data.match = (Parsers::GrpcRouteMatch.parse(map['match']) unless map['match'].nil?)
-        data.retry_policy = (Parsers::GrpcRetryPolicy.parse(map['retryPolicy']) unless map['retryPolicy'].nil?)
-        data.timeout = (Parsers::GrpcTimeout.parse(map['timeout']) unless map['timeout'].nil?)
+        data.action = (GrpcRouteAction.parse(map['action']) unless map['action'].nil?)
+        data.match = (GrpcRouteMatch.parse(map['match']) unless map['match'].nil?)
+        data.retry_policy = (GrpcRetryPolicy.parse(map['retryPolicy']) unless map['retryPolicy'].nil?)
+        data.timeout = (GrpcTimeout.parse(map['timeout']) unless map['timeout'].nil?)
         return data
       end
     end
@@ -519,8 +519,8 @@ module AWS::SDK::AppMesh
     class GrpcTimeout
       def self.parse(map)
         data = Types::GrpcTimeout.new
-        data.per_request = (Parsers::Duration.parse(map['perRequest']) unless map['perRequest'].nil?)
-        data.idle = (Parsers::Duration.parse(map['idle']) unless map['idle'].nil?)
+        data.per_request = (Duration.parse(map['perRequest']) unless map['perRequest'].nil?)
+        data.idle = (Duration.parse(map['idle']) unless map['idle'].nil?)
         return data
       end
     end
@@ -537,11 +537,11 @@ module AWS::SDK::AppMesh
     class GrpcRetryPolicy
       def self.parse(map)
         data = Types::GrpcRetryPolicy.new
-        data.per_retry_timeout = (Parsers::Duration.parse(map['perRetryTimeout']) unless map['perRetryTimeout'].nil?)
+        data.per_retry_timeout = (Duration.parse(map['perRetryTimeout']) unless map['perRetryTimeout'].nil?)
         data.max_retries = map['maxRetries']
-        data.http_retry_events = (Parsers::HttpRetryPolicyEvents.parse(map['httpRetryEvents']) unless map['httpRetryEvents'].nil?)
-        data.tcp_retry_events = (Parsers::TcpRetryPolicyEvents.parse(map['tcpRetryEvents']) unless map['tcpRetryEvents'].nil?)
-        data.grpc_retry_events = (Parsers::GrpcRetryPolicyEvents.parse(map['grpcRetryEvents']) unless map['grpcRetryEvents'].nil?)
+        data.http_retry_events = (HttpRetryPolicyEvents.parse(map['httpRetryEvents']) unless map['httpRetryEvents'].nil?)
+        data.tcp_retry_events = (TcpRetryPolicyEvents.parse(map['tcpRetryEvents']) unless map['tcpRetryEvents'].nil?)
+        data.grpc_retry_events = (GrpcRetryPolicyEvents.parse(map['grpcRetryEvents']) unless map['grpcRetryEvents'].nil?)
         return data
       end
     end
@@ -581,7 +581,7 @@ module AWS::SDK::AppMesh
         data = Types::GrpcRouteMatch.new
         data.service_name = map['serviceName']
         data.method_name = map['methodName']
-        data.metadata = (Parsers::GrpcRouteMetadataList.parse(map['metadata']) unless map['metadata'].nil?)
+        data.metadata = (GrpcRouteMetadataList.parse(map['metadata']) unless map['metadata'].nil?)
         return data
       end
     end
@@ -590,7 +590,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GrpcRouteMetadata.parse(value) unless value.nil?
+          data << GrpcRouteMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -601,7 +601,7 @@ module AWS::SDK::AppMesh
         data = Types::GrpcRouteMetadata.new
         data.name = map['name']
         data.invert = map['invert']
-        data.match = (Parsers::GrpcRouteMetadataMatchMethod.parse(map['match']) unless map['match'].nil?)
+        data.match = (GrpcRouteMetadataMatchMethod.parse(map['match']) unless map['match'].nil?)
         return data
       end
     end
@@ -617,7 +617,7 @@ module AWS::SDK::AppMesh
           value = value
           Types::GrpcRouteMetadataMatchMethod::Regex.new(value) if value
         when 'range'
-          value = (Parsers::MatchRange.parse(value) unless value.nil?)
+          value = (MatchRange.parse(value) unless value.nil?)
           Types::GrpcRouteMetadataMatchMethod::Range.new(value) if value
         when 'prefix'
           value = value
@@ -634,7 +634,7 @@ module AWS::SDK::AppMesh
     class GrpcRouteAction
       def self.parse(map)
         data = Types::GrpcRouteAction.new
-        data.weighted_targets = (Parsers::WeightedTargets.parse(map['weightedTargets']) unless map['weightedTargets'].nil?)
+        data.weighted_targets = (WeightedTargets.parse(map['weightedTargets']) unless map['weightedTargets'].nil?)
         return data
       end
     end
@@ -643,7 +643,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::WeightedTarget.parse(value) unless value.nil?
+          data << WeightedTarget.parse(value) unless value.nil?
         end
         data
       end
@@ -661,10 +661,10 @@ module AWS::SDK::AppMesh
     class HttpRoute
       def self.parse(map)
         data = Types::HttpRoute.new
-        data.match = (Parsers::HttpRouteMatch.parse(map['match']) unless map['match'].nil?)
-        data.action = (Parsers::HttpRouteAction.parse(map['action']) unless map['action'].nil?)
-        data.retry_policy = (Parsers::HttpRetryPolicy.parse(map['retryPolicy']) unless map['retryPolicy'].nil?)
-        data.timeout = (Parsers::HttpTimeout.parse(map['timeout']) unless map['timeout'].nil?)
+        data.match = (HttpRouteMatch.parse(map['match']) unless map['match'].nil?)
+        data.action = (HttpRouteAction.parse(map['action']) unless map['action'].nil?)
+        data.retry_policy = (HttpRetryPolicy.parse(map['retryPolicy']) unless map['retryPolicy'].nil?)
+        data.timeout = (HttpTimeout.parse(map['timeout']) unless map['timeout'].nil?)
         return data
       end
     end
@@ -672,8 +672,8 @@ module AWS::SDK::AppMesh
     class HttpTimeout
       def self.parse(map)
         data = Types::HttpTimeout.new
-        data.per_request = (Parsers::Duration.parse(map['perRequest']) unless map['perRequest'].nil?)
-        data.idle = (Parsers::Duration.parse(map['idle']) unless map['idle'].nil?)
+        data.per_request = (Duration.parse(map['perRequest']) unless map['perRequest'].nil?)
+        data.idle = (Duration.parse(map['idle']) unless map['idle'].nil?)
         return data
       end
     end
@@ -681,10 +681,10 @@ module AWS::SDK::AppMesh
     class HttpRetryPolicy
       def self.parse(map)
         data = Types::HttpRetryPolicy.new
-        data.per_retry_timeout = (Parsers::Duration.parse(map['perRetryTimeout']) unless map['perRetryTimeout'].nil?)
+        data.per_retry_timeout = (Duration.parse(map['perRetryTimeout']) unless map['perRetryTimeout'].nil?)
         data.max_retries = map['maxRetries']
-        data.http_retry_events = (Parsers::HttpRetryPolicyEvents.parse(map['httpRetryEvents']) unless map['httpRetryEvents'].nil?)
-        data.tcp_retry_events = (Parsers::TcpRetryPolicyEvents.parse(map['tcpRetryEvents']) unless map['tcpRetryEvents'].nil?)
+        data.http_retry_events = (HttpRetryPolicyEvents.parse(map['httpRetryEvents']) unless map['httpRetryEvents'].nil?)
+        data.tcp_retry_events = (TcpRetryPolicyEvents.parse(map['tcpRetryEvents']) unless map['tcpRetryEvents'].nil?)
         return data
       end
     end
@@ -692,7 +692,7 @@ module AWS::SDK::AppMesh
     class HttpRouteAction
       def self.parse(map)
         data = Types::HttpRouteAction.new
-        data.weighted_targets = (Parsers::WeightedTargets.parse(map['weightedTargets']) unless map['weightedTargets'].nil?)
+        data.weighted_targets = (WeightedTargets.parse(map['weightedTargets']) unless map['weightedTargets'].nil?)
         return data
       end
     end
@@ -701,11 +701,11 @@ module AWS::SDK::AppMesh
       def self.parse(map)
         data = Types::HttpRouteMatch.new
         data.prefix = map['prefix']
-        data.path = (Parsers::HttpPathMatch.parse(map['path']) unless map['path'].nil?)
-        data.query_parameters = (Parsers::HttpQueryParameters.parse(map['queryParameters']) unless map['queryParameters'].nil?)
+        data.path = (HttpPathMatch.parse(map['path']) unless map['path'].nil?)
+        data.query_parameters = (HttpQueryParameters.parse(map['queryParameters']) unless map['queryParameters'].nil?)
         data.member_method = map['method']
         data.scheme = map['scheme']
-        data.headers = (Parsers::HttpRouteHeaders.parse(map['headers']) unless map['headers'].nil?)
+        data.headers = (HttpRouteHeaders.parse(map['headers']) unless map['headers'].nil?)
         return data
       end
     end
@@ -714,7 +714,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::HttpRouteHeader.parse(value) unless value.nil?
+          data << HttpRouteHeader.parse(value) unless value.nil?
         end
         data
       end
@@ -725,7 +725,7 @@ module AWS::SDK::AppMesh
         data = Types::HttpRouteHeader.new
         data.name = map['name']
         data.invert = map['invert']
-        data.match = (Parsers::HeaderMatchMethod.parse(map['match']) unless map['match'].nil?)
+        data.match = (HeaderMatchMethod.parse(map['match']) unless map['match'].nil?)
         return data
       end
     end
@@ -733,8 +733,8 @@ module AWS::SDK::AppMesh
     class TcpRoute
       def self.parse(map)
         data = Types::TcpRoute.new
-        data.action = (Parsers::TcpRouteAction.parse(map['action']) unless map['action'].nil?)
-        data.timeout = (Parsers::TcpTimeout.parse(map['timeout']) unless map['timeout'].nil?)
+        data.action = (TcpRouteAction.parse(map['action']) unless map['action'].nil?)
+        data.timeout = (TcpTimeout.parse(map['timeout']) unless map['timeout'].nil?)
         return data
       end
     end
@@ -742,7 +742,7 @@ module AWS::SDK::AppMesh
     class TcpTimeout
       def self.parse(map)
         data = Types::TcpTimeout.new
-        data.idle = (Parsers::Duration.parse(map['idle']) unless map['idle'].nil?)
+        data.idle = (Duration.parse(map['idle']) unless map['idle'].nil?)
         return data
       end
     end
@@ -750,7 +750,7 @@ module AWS::SDK::AppMesh
     class TcpRouteAction
       def self.parse(map)
         data = Types::TcpRouteAction.new
-        data.weighted_targets = (Parsers::WeightedTargets.parse(map['weightedTargets']) unless map['weightedTargets'].nil?)
+        data.weighted_targets = (WeightedTargets.parse(map['weightedTargets']) unless map['weightedTargets'].nil?)
         return data
       end
     end
@@ -760,7 +760,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::CreateVirtualGatewayOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.virtual_gateway = Parsers::VirtualGatewayData.parse(json)
+        data.virtual_gateway = VirtualGatewayData.parse(json)
         data
       end
     end
@@ -770,9 +770,9 @@ module AWS::SDK::AppMesh
         data = Types::VirtualGatewayData.new
         data.mesh_name = map['meshName']
         data.virtual_gateway_name = map['virtualGatewayName']
-        data.spec = (Parsers::VirtualGatewaySpec.parse(map['spec']) unless map['spec'].nil?)
-        data.metadata = (Parsers::ResourceMetadata.parse(map['metadata']) unless map['metadata'].nil?)
-        data.status = (Parsers::VirtualGatewayStatus.parse(map['status']) unless map['status'].nil?)
+        data.spec = (VirtualGatewaySpec.parse(map['spec']) unless map['spec'].nil?)
+        data.metadata = (ResourceMetadata.parse(map['metadata']) unless map['metadata'].nil?)
+        data.status = (VirtualGatewayStatus.parse(map['status']) unless map['status'].nil?)
         return data
       end
     end
@@ -788,9 +788,9 @@ module AWS::SDK::AppMesh
     class VirtualGatewaySpec
       def self.parse(map)
         data = Types::VirtualGatewaySpec.new
-        data.backend_defaults = (Parsers::VirtualGatewayBackendDefaults.parse(map['backendDefaults']) unless map['backendDefaults'].nil?)
-        data.listeners = (Parsers::VirtualGatewayListeners.parse(map['listeners']) unless map['listeners'].nil?)
-        data.logging = (Parsers::VirtualGatewayLogging.parse(map['logging']) unless map['logging'].nil?)
+        data.backend_defaults = (VirtualGatewayBackendDefaults.parse(map['backendDefaults']) unless map['backendDefaults'].nil?)
+        data.listeners = (VirtualGatewayListeners.parse(map['listeners']) unless map['listeners'].nil?)
+        data.logging = (VirtualGatewayLogging.parse(map['logging']) unless map['logging'].nil?)
         return data
       end
     end
@@ -798,7 +798,7 @@ module AWS::SDK::AppMesh
     class VirtualGatewayLogging
       def self.parse(map)
         data = Types::VirtualGatewayLogging.new
-        data.access_log = (Parsers::VirtualGatewayAccessLog.parse(map['accessLog']) unless map['accessLog'].nil?)
+        data.access_log = (VirtualGatewayAccessLog.parse(map['accessLog']) unless map['accessLog'].nil?)
         return data
       end
     end
@@ -808,7 +808,7 @@ module AWS::SDK::AppMesh
         key, value = map.flatten
         case key
         when 'file'
-          value = (Parsers::VirtualGatewayFileAccessLog.parse(value) unless value.nil?)
+          value = (VirtualGatewayFileAccessLog.parse(value) unless value.nil?)
           Types::VirtualGatewayAccessLog::File.new(value) if value
         else
           Types::VirtualGatewayAccessLog::Unknown.new({name: key, value: value})
@@ -828,7 +828,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VirtualGatewayListener.parse(value) unless value.nil?
+          data << VirtualGatewayListener.parse(value) unless value.nil?
         end
         data
       end
@@ -837,10 +837,10 @@ module AWS::SDK::AppMesh
     class VirtualGatewayListener
       def self.parse(map)
         data = Types::VirtualGatewayListener.new
-        data.health_check = (Parsers::VirtualGatewayHealthCheckPolicy.parse(map['healthCheck']) unless map['healthCheck'].nil?)
-        data.port_mapping = (Parsers::VirtualGatewayPortMapping.parse(map['portMapping']) unless map['portMapping'].nil?)
-        data.tls = (Parsers::VirtualGatewayListenerTls.parse(map['tls']) unless map['tls'].nil?)
-        data.connection_pool = (Parsers::VirtualGatewayConnectionPool.parse(map['connectionPool']) unless map['connectionPool'].nil?)
+        data.health_check = (VirtualGatewayHealthCheckPolicy.parse(map['healthCheck']) unless map['healthCheck'].nil?)
+        data.port_mapping = (VirtualGatewayPortMapping.parse(map['portMapping']) unless map['portMapping'].nil?)
+        data.tls = (VirtualGatewayListenerTls.parse(map['tls']) unless map['tls'].nil?)
+        data.connection_pool = (VirtualGatewayConnectionPool.parse(map['connectionPool']) unless map['connectionPool'].nil?)
         return data
       end
     end
@@ -850,13 +850,13 @@ module AWS::SDK::AppMesh
         key, value = map.flatten
         case key
         when 'http'
-          value = (Parsers::VirtualGatewayHttpConnectionPool.parse(value) unless value.nil?)
+          value = (VirtualGatewayHttpConnectionPool.parse(value) unless value.nil?)
           Types::VirtualGatewayConnectionPool::Http.new(value) if value
         when 'http2'
-          value = (Parsers::VirtualGatewayHttp2ConnectionPool.parse(value) unless value.nil?)
+          value = (VirtualGatewayHttp2ConnectionPool.parse(value) unless value.nil?)
           Types::VirtualGatewayConnectionPool::Http2.new(value) if value
         when 'grpc'
-          value = (Parsers::VirtualGatewayGrpcConnectionPool.parse(value) unless value.nil?)
+          value = (VirtualGatewayGrpcConnectionPool.parse(value) unless value.nil?)
           Types::VirtualGatewayConnectionPool::Grpc.new(value) if value
         else
           Types::VirtualGatewayConnectionPool::Unknown.new({name: key, value: value})
@@ -893,8 +893,8 @@ module AWS::SDK::AppMesh
       def self.parse(map)
         data = Types::VirtualGatewayListenerTls.new
         data.mode = map['mode']
-        data.validation = (Parsers::VirtualGatewayListenerTlsValidationContext.parse(map['validation']) unless map['validation'].nil?)
-        data.certificate = (Parsers::VirtualGatewayListenerTlsCertificate.parse(map['certificate']) unless map['certificate'].nil?)
+        data.validation = (VirtualGatewayListenerTlsValidationContext.parse(map['validation']) unless map['validation'].nil?)
+        data.certificate = (VirtualGatewayListenerTlsCertificate.parse(map['certificate']) unless map['certificate'].nil?)
         return data
       end
     end
@@ -904,13 +904,13 @@ module AWS::SDK::AppMesh
         key, value = map.flatten
         case key
         when 'acm'
-          value = (Parsers::VirtualGatewayListenerTlsAcmCertificate.parse(value) unless value.nil?)
+          value = (VirtualGatewayListenerTlsAcmCertificate.parse(value) unless value.nil?)
           Types::VirtualGatewayListenerTlsCertificate::Acm.new(value) if value
         when 'file'
-          value = (Parsers::VirtualGatewayListenerTlsFileCertificate.parse(value) unless value.nil?)
+          value = (VirtualGatewayListenerTlsFileCertificate.parse(value) unless value.nil?)
           Types::VirtualGatewayListenerTlsCertificate::File.new(value) if value
         when 'sds'
-          value = (Parsers::VirtualGatewayListenerTlsSdsCertificate.parse(value) unless value.nil?)
+          value = (VirtualGatewayListenerTlsSdsCertificate.parse(value) unless value.nil?)
           Types::VirtualGatewayListenerTlsCertificate::Sds.new(value) if value
         else
           Types::VirtualGatewayListenerTlsCertificate::Unknown.new({name: key, value: value})
@@ -946,8 +946,8 @@ module AWS::SDK::AppMesh
     class VirtualGatewayListenerTlsValidationContext
       def self.parse(map)
         data = Types::VirtualGatewayListenerTlsValidationContext.new
-        data.member_trust = (Parsers::VirtualGatewayListenerTlsValidationContextTrust.parse(map['trust']) unless map['trust'].nil?)
-        data.subject_alternative_names = (Parsers::SubjectAlternativeNames.parse(map['subjectAlternativeNames']) unless map['subjectAlternativeNames'].nil?)
+        data.member_trust = (VirtualGatewayListenerTlsValidationContextTrust.parse(map['trust']) unless map['trust'].nil?)
+        data.subject_alternative_names = (SubjectAlternativeNames.parse(map['subjectAlternativeNames']) unless map['subjectAlternativeNames'].nil?)
         return data
       end
     end
@@ -955,7 +955,7 @@ module AWS::SDK::AppMesh
     class SubjectAlternativeNames
       def self.parse(map)
         data = Types::SubjectAlternativeNames.new
-        data.match = (Parsers::SubjectAlternativeNameMatchers.parse(map['match']) unless map['match'].nil?)
+        data.match = (SubjectAlternativeNameMatchers.parse(map['match']) unless map['match'].nil?)
         return data
       end
     end
@@ -963,7 +963,7 @@ module AWS::SDK::AppMesh
     class SubjectAlternativeNameMatchers
       def self.parse(map)
         data = Types::SubjectAlternativeNameMatchers.new
-        data.exact = (Parsers::SubjectAlternativeNameList.parse(map['exact']) unless map['exact'].nil?)
+        data.exact = (SubjectAlternativeNameList.parse(map['exact']) unless map['exact'].nil?)
         return data
       end
     end
@@ -983,10 +983,10 @@ module AWS::SDK::AppMesh
         key, value = map.flatten
         case key
         when 'file'
-          value = (Parsers::VirtualGatewayTlsValidationContextFileTrust.parse(value) unless value.nil?)
+          value = (VirtualGatewayTlsValidationContextFileTrust.parse(value) unless value.nil?)
           Types::VirtualGatewayListenerTlsValidationContextTrust::File.new(value) if value
         when 'sds'
-          value = (Parsers::VirtualGatewayTlsValidationContextSdsTrust.parse(value) unless value.nil?)
+          value = (VirtualGatewayTlsValidationContextSdsTrust.parse(value) unless value.nil?)
           Types::VirtualGatewayListenerTlsValidationContextTrust::Sds.new(value) if value
         else
           Types::VirtualGatewayListenerTlsValidationContextTrust::Unknown.new({name: key, value: value})
@@ -1036,7 +1036,7 @@ module AWS::SDK::AppMesh
     class VirtualGatewayBackendDefaults
       def self.parse(map)
         data = Types::VirtualGatewayBackendDefaults.new
-        data.client_policy = (Parsers::VirtualGatewayClientPolicy.parse(map['clientPolicy']) unless map['clientPolicy'].nil?)
+        data.client_policy = (VirtualGatewayClientPolicy.parse(map['clientPolicy']) unless map['clientPolicy'].nil?)
         return data
       end
     end
@@ -1044,7 +1044,7 @@ module AWS::SDK::AppMesh
     class VirtualGatewayClientPolicy
       def self.parse(map)
         data = Types::VirtualGatewayClientPolicy.new
-        data.tls = (Parsers::VirtualGatewayClientPolicyTls.parse(map['tls']) unless map['tls'].nil?)
+        data.tls = (VirtualGatewayClientPolicyTls.parse(map['tls']) unless map['tls'].nil?)
         return data
       end
     end
@@ -1053,9 +1053,9 @@ module AWS::SDK::AppMesh
       def self.parse(map)
         data = Types::VirtualGatewayClientPolicyTls.new
         data.enforce = map['enforce']
-        data.ports = (Parsers::PortSet.parse(map['ports']) unless map['ports'].nil?)
-        data.certificate = (Parsers::VirtualGatewayClientTlsCertificate.parse(map['certificate']) unless map['certificate'].nil?)
-        data.validation = (Parsers::VirtualGatewayTlsValidationContext.parse(map['validation']) unless map['validation'].nil?)
+        data.ports = (PortSet.parse(map['ports']) unless map['ports'].nil?)
+        data.certificate = (VirtualGatewayClientTlsCertificate.parse(map['certificate']) unless map['certificate'].nil?)
+        data.validation = (VirtualGatewayTlsValidationContext.parse(map['validation']) unless map['validation'].nil?)
         return data
       end
     end
@@ -1063,8 +1063,8 @@ module AWS::SDK::AppMesh
     class VirtualGatewayTlsValidationContext
       def self.parse(map)
         data = Types::VirtualGatewayTlsValidationContext.new
-        data.member_trust = (Parsers::VirtualGatewayTlsValidationContextTrust.parse(map['trust']) unless map['trust'].nil?)
-        data.subject_alternative_names = (Parsers::SubjectAlternativeNames.parse(map['subjectAlternativeNames']) unless map['subjectAlternativeNames'].nil?)
+        data.member_trust = (VirtualGatewayTlsValidationContextTrust.parse(map['trust']) unless map['trust'].nil?)
+        data.subject_alternative_names = (SubjectAlternativeNames.parse(map['subjectAlternativeNames']) unless map['subjectAlternativeNames'].nil?)
         return data
       end
     end
@@ -1074,13 +1074,13 @@ module AWS::SDK::AppMesh
         key, value = map.flatten
         case key
         when 'acm'
-          value = (Parsers::VirtualGatewayTlsValidationContextAcmTrust.parse(value) unless value.nil?)
+          value = (VirtualGatewayTlsValidationContextAcmTrust.parse(value) unless value.nil?)
           Types::VirtualGatewayTlsValidationContextTrust::Acm.new(value) if value
         when 'file'
-          value = (Parsers::VirtualGatewayTlsValidationContextFileTrust.parse(value) unless value.nil?)
+          value = (VirtualGatewayTlsValidationContextFileTrust.parse(value) unless value.nil?)
           Types::VirtualGatewayTlsValidationContextTrust::File.new(value) if value
         when 'sds'
-          value = (Parsers::VirtualGatewayTlsValidationContextSdsTrust.parse(value) unless value.nil?)
+          value = (VirtualGatewayTlsValidationContextSdsTrust.parse(value) unless value.nil?)
           Types::VirtualGatewayTlsValidationContextTrust::Sds.new(value) if value
         else
           Types::VirtualGatewayTlsValidationContextTrust::Unknown.new({name: key, value: value})
@@ -1091,7 +1091,7 @@ module AWS::SDK::AppMesh
     class VirtualGatewayTlsValidationContextAcmTrust
       def self.parse(map)
         data = Types::VirtualGatewayTlsValidationContextAcmTrust.new
-        data.certificate_authority_arns = (Parsers::VirtualGatewayCertificateAuthorityArns.parse(map['certificateAuthorityArns']) unless map['certificateAuthorityArns'].nil?)
+        data.certificate_authority_arns = (VirtualGatewayCertificateAuthorityArns.parse(map['certificateAuthorityArns']) unless map['certificateAuthorityArns'].nil?)
         return data
       end
     end
@@ -1111,10 +1111,10 @@ module AWS::SDK::AppMesh
         key, value = map.flatten
         case key
         when 'file'
-          value = (Parsers::VirtualGatewayListenerTlsFileCertificate.parse(value) unless value.nil?)
+          value = (VirtualGatewayListenerTlsFileCertificate.parse(value) unless value.nil?)
           Types::VirtualGatewayClientTlsCertificate::File.new(value) if value
         when 'sds'
-          value = (Parsers::VirtualGatewayListenerTlsSdsCertificate.parse(value) unless value.nil?)
+          value = (VirtualGatewayListenerTlsSdsCertificate.parse(value) unless value.nil?)
           Types::VirtualGatewayClientTlsCertificate::Sds.new(value) if value
         else
           Types::VirtualGatewayClientTlsCertificate::Unknown.new({name: key, value: value})
@@ -1137,7 +1137,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::CreateVirtualNodeOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.virtual_node = Parsers::VirtualNodeData.parse(json)
+        data.virtual_node = VirtualNodeData.parse(json)
         data
       end
     end
@@ -1147,9 +1147,9 @@ module AWS::SDK::AppMesh
         data = Types::VirtualNodeData.new
         data.mesh_name = map['meshName']
         data.virtual_node_name = map['virtualNodeName']
-        data.spec = (Parsers::VirtualNodeSpec.parse(map['spec']) unless map['spec'].nil?)
-        data.metadata = (Parsers::ResourceMetadata.parse(map['metadata']) unless map['metadata'].nil?)
-        data.status = (Parsers::VirtualNodeStatus.parse(map['status']) unless map['status'].nil?)
+        data.spec = (VirtualNodeSpec.parse(map['spec']) unless map['spec'].nil?)
+        data.metadata = (ResourceMetadata.parse(map['metadata']) unless map['metadata'].nil?)
+        data.status = (VirtualNodeStatus.parse(map['status']) unless map['status'].nil?)
         return data
       end
     end
@@ -1165,11 +1165,11 @@ module AWS::SDK::AppMesh
     class VirtualNodeSpec
       def self.parse(map)
         data = Types::VirtualNodeSpec.new
-        data.service_discovery = (Parsers::ServiceDiscovery.parse(map['serviceDiscovery']) unless map['serviceDiscovery'].nil?)
-        data.listeners = (Parsers::Listeners.parse(map['listeners']) unless map['listeners'].nil?)
-        data.backends = (Parsers::Backends.parse(map['backends']) unless map['backends'].nil?)
-        data.backend_defaults = (Parsers::BackendDefaults.parse(map['backendDefaults']) unless map['backendDefaults'].nil?)
-        data.logging = (Parsers::Logging.parse(map['logging']) unless map['logging'].nil?)
+        data.service_discovery = (ServiceDiscovery.parse(map['serviceDiscovery']) unless map['serviceDiscovery'].nil?)
+        data.listeners = (Listeners.parse(map['listeners']) unless map['listeners'].nil?)
+        data.backends = (Backends.parse(map['backends']) unless map['backends'].nil?)
+        data.backend_defaults = (BackendDefaults.parse(map['backendDefaults']) unless map['backendDefaults'].nil?)
+        data.logging = (Logging.parse(map['logging']) unless map['logging'].nil?)
         return data
       end
     end
@@ -1177,7 +1177,7 @@ module AWS::SDK::AppMesh
     class Logging
       def self.parse(map)
         data = Types::Logging.new
-        data.access_log = (Parsers::AccessLog.parse(map['accessLog']) unless map['accessLog'].nil?)
+        data.access_log = (AccessLog.parse(map['accessLog']) unless map['accessLog'].nil?)
         return data
       end
     end
@@ -1187,7 +1187,7 @@ module AWS::SDK::AppMesh
         key, value = map.flatten
         case key
         when 'file'
-          value = (Parsers::FileAccessLog.parse(value) unless value.nil?)
+          value = (FileAccessLog.parse(value) unless value.nil?)
           Types::AccessLog::File.new(value) if value
         else
           Types::AccessLog::Unknown.new({name: key, value: value})
@@ -1206,7 +1206,7 @@ module AWS::SDK::AppMesh
     class BackendDefaults
       def self.parse(map)
         data = Types::BackendDefaults.new
-        data.client_policy = (Parsers::ClientPolicy.parse(map['clientPolicy']) unless map['clientPolicy'].nil?)
+        data.client_policy = (ClientPolicy.parse(map['clientPolicy']) unless map['clientPolicy'].nil?)
         return data
       end
     end
@@ -1214,7 +1214,7 @@ module AWS::SDK::AppMesh
     class ClientPolicy
       def self.parse(map)
         data = Types::ClientPolicy.new
-        data.tls = (Parsers::ClientPolicyTls.parse(map['tls']) unless map['tls'].nil?)
+        data.tls = (ClientPolicyTls.parse(map['tls']) unless map['tls'].nil?)
         return data
       end
     end
@@ -1223,9 +1223,9 @@ module AWS::SDK::AppMesh
       def self.parse(map)
         data = Types::ClientPolicyTls.new
         data.enforce = map['enforce']
-        data.ports = (Parsers::PortSet.parse(map['ports']) unless map['ports'].nil?)
-        data.certificate = (Parsers::ClientTlsCertificate.parse(map['certificate']) unless map['certificate'].nil?)
-        data.validation = (Parsers::TlsValidationContext.parse(map['validation']) unless map['validation'].nil?)
+        data.ports = (PortSet.parse(map['ports']) unless map['ports'].nil?)
+        data.certificate = (ClientTlsCertificate.parse(map['certificate']) unless map['certificate'].nil?)
+        data.validation = (TlsValidationContext.parse(map['validation']) unless map['validation'].nil?)
         return data
       end
     end
@@ -1233,8 +1233,8 @@ module AWS::SDK::AppMesh
     class TlsValidationContext
       def self.parse(map)
         data = Types::TlsValidationContext.new
-        data.member_trust = (Parsers::TlsValidationContextTrust.parse(map['trust']) unless map['trust'].nil?)
-        data.subject_alternative_names = (Parsers::SubjectAlternativeNames.parse(map['subjectAlternativeNames']) unless map['subjectAlternativeNames'].nil?)
+        data.member_trust = (TlsValidationContextTrust.parse(map['trust']) unless map['trust'].nil?)
+        data.subject_alternative_names = (SubjectAlternativeNames.parse(map['subjectAlternativeNames']) unless map['subjectAlternativeNames'].nil?)
         return data
       end
     end
@@ -1244,13 +1244,13 @@ module AWS::SDK::AppMesh
         key, value = map.flatten
         case key
         when 'acm'
-          value = (Parsers::TlsValidationContextAcmTrust.parse(value) unless value.nil?)
+          value = (TlsValidationContextAcmTrust.parse(value) unless value.nil?)
           Types::TlsValidationContextTrust::Acm.new(value) if value
         when 'file'
-          value = (Parsers::TlsValidationContextFileTrust.parse(value) unless value.nil?)
+          value = (TlsValidationContextFileTrust.parse(value) unless value.nil?)
           Types::TlsValidationContextTrust::File.new(value) if value
         when 'sds'
-          value = (Parsers::TlsValidationContextSdsTrust.parse(value) unless value.nil?)
+          value = (TlsValidationContextSdsTrust.parse(value) unless value.nil?)
           Types::TlsValidationContextTrust::Sds.new(value) if value
         else
           Types::TlsValidationContextTrust::Unknown.new({name: key, value: value})
@@ -1277,7 +1277,7 @@ module AWS::SDK::AppMesh
     class TlsValidationContextAcmTrust
       def self.parse(map)
         data = Types::TlsValidationContextAcmTrust.new
-        data.certificate_authority_arns = (Parsers::CertificateAuthorityArns.parse(map['certificateAuthorityArns']) unless map['certificateAuthorityArns'].nil?)
+        data.certificate_authority_arns = (CertificateAuthorityArns.parse(map['certificateAuthorityArns']) unless map['certificateAuthorityArns'].nil?)
         return data
       end
     end
@@ -1297,10 +1297,10 @@ module AWS::SDK::AppMesh
         key, value = map.flatten
         case key
         when 'file'
-          value = (Parsers::ListenerTlsFileCertificate.parse(value) unless value.nil?)
+          value = (ListenerTlsFileCertificate.parse(value) unless value.nil?)
           Types::ClientTlsCertificate::File.new(value) if value
         when 'sds'
-          value = (Parsers::ListenerTlsSdsCertificate.parse(value) unless value.nil?)
+          value = (ListenerTlsSdsCertificate.parse(value) unless value.nil?)
           Types::ClientTlsCertificate::Sds.new(value) if value
         else
           Types::ClientTlsCertificate::Unknown.new({name: key, value: value})
@@ -1329,7 +1329,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Backend.parse(value) unless value.nil?
+          data << Backend.parse(value) unless value.nil?
         end
         data
       end
@@ -1340,7 +1340,7 @@ module AWS::SDK::AppMesh
         key, value = map.flatten
         case key
         when 'virtualService'
-          value = (Parsers::VirtualServiceBackend.parse(value) unless value.nil?)
+          value = (VirtualServiceBackend.parse(value) unless value.nil?)
           Types::Backend::VirtualService.new(value) if value
         else
           Types::Backend::Unknown.new({name: key, value: value})
@@ -1352,7 +1352,7 @@ module AWS::SDK::AppMesh
       def self.parse(map)
         data = Types::VirtualServiceBackend.new
         data.virtual_service_name = map['virtualServiceName']
-        data.client_policy = (Parsers::ClientPolicy.parse(map['clientPolicy']) unless map['clientPolicy'].nil?)
+        data.client_policy = (ClientPolicy.parse(map['clientPolicy']) unless map['clientPolicy'].nil?)
         return data
       end
     end
@@ -1361,7 +1361,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Listener.parse(value) unless value.nil?
+          data << Listener.parse(value) unless value.nil?
         end
         data
       end
@@ -1370,12 +1370,12 @@ module AWS::SDK::AppMesh
     class Listener
       def self.parse(map)
         data = Types::Listener.new
-        data.port_mapping = (Parsers::PortMapping.parse(map['portMapping']) unless map['portMapping'].nil?)
-        data.tls = (Parsers::ListenerTls.parse(map['tls']) unless map['tls'].nil?)
-        data.health_check = (Parsers::HealthCheckPolicy.parse(map['healthCheck']) unless map['healthCheck'].nil?)
-        data.timeout = (Parsers::ListenerTimeout.parse(map['timeout']) unless map['timeout'].nil?)
-        data.outlier_detection = (Parsers::OutlierDetection.parse(map['outlierDetection']) unless map['outlierDetection'].nil?)
-        data.connection_pool = (Parsers::VirtualNodeConnectionPool.parse(map['connectionPool']) unless map['connectionPool'].nil?)
+        data.port_mapping = (PortMapping.parse(map['portMapping']) unless map['portMapping'].nil?)
+        data.tls = (ListenerTls.parse(map['tls']) unless map['tls'].nil?)
+        data.health_check = (HealthCheckPolicy.parse(map['healthCheck']) unless map['healthCheck'].nil?)
+        data.timeout = (ListenerTimeout.parse(map['timeout']) unless map['timeout'].nil?)
+        data.outlier_detection = (OutlierDetection.parse(map['outlierDetection']) unless map['outlierDetection'].nil?)
+        data.connection_pool = (VirtualNodeConnectionPool.parse(map['connectionPool']) unless map['connectionPool'].nil?)
         return data
       end
     end
@@ -1385,16 +1385,16 @@ module AWS::SDK::AppMesh
         key, value = map.flatten
         case key
         when 'tcp'
-          value = (Parsers::VirtualNodeTcpConnectionPool.parse(value) unless value.nil?)
+          value = (VirtualNodeTcpConnectionPool.parse(value) unless value.nil?)
           Types::VirtualNodeConnectionPool::Tcp.new(value) if value
         when 'http'
-          value = (Parsers::VirtualNodeHttpConnectionPool.parse(value) unless value.nil?)
+          value = (VirtualNodeHttpConnectionPool.parse(value) unless value.nil?)
           Types::VirtualNodeConnectionPool::Http.new(value) if value
         when 'http2'
-          value = (Parsers::VirtualNodeHttp2ConnectionPool.parse(value) unless value.nil?)
+          value = (VirtualNodeHttp2ConnectionPool.parse(value) unless value.nil?)
           Types::VirtualNodeConnectionPool::Http2.new(value) if value
         when 'grpc'
-          value = (Parsers::VirtualNodeGrpcConnectionPool.parse(value) unless value.nil?)
+          value = (VirtualNodeGrpcConnectionPool.parse(value) unless value.nil?)
           Types::VirtualNodeConnectionPool::Grpc.new(value) if value
         else
           Types::VirtualNodeConnectionPool::Unknown.new({name: key, value: value})
@@ -1439,8 +1439,8 @@ module AWS::SDK::AppMesh
       def self.parse(map)
         data = Types::OutlierDetection.new
         data.max_server_errors = map['maxServerErrors']
-        data.interval = (Parsers::Duration.parse(map['interval']) unless map['interval'].nil?)
-        data.base_ejection_duration = (Parsers::Duration.parse(map['baseEjectionDuration']) unless map['baseEjectionDuration'].nil?)
+        data.interval = (Duration.parse(map['interval']) unless map['interval'].nil?)
+        data.base_ejection_duration = (Duration.parse(map['baseEjectionDuration']) unless map['baseEjectionDuration'].nil?)
         data.max_ejection_percent = map['maxEjectionPercent']
         return data
       end
@@ -1451,16 +1451,16 @@ module AWS::SDK::AppMesh
         key, value = map.flatten
         case key
         when 'tcp'
-          value = (Parsers::TcpTimeout.parse(value) unless value.nil?)
+          value = (TcpTimeout.parse(value) unless value.nil?)
           Types::ListenerTimeout::Tcp.new(value) if value
         when 'http'
-          value = (Parsers::HttpTimeout.parse(value) unless value.nil?)
+          value = (HttpTimeout.parse(value) unless value.nil?)
           Types::ListenerTimeout::Http.new(value) if value
         when 'http2'
-          value = (Parsers::HttpTimeout.parse(value) unless value.nil?)
+          value = (HttpTimeout.parse(value) unless value.nil?)
           Types::ListenerTimeout::Http2.new(value) if value
         when 'grpc'
-          value = (Parsers::GrpcTimeout.parse(value) unless value.nil?)
+          value = (GrpcTimeout.parse(value) unless value.nil?)
           Types::ListenerTimeout::Grpc.new(value) if value
         else
           Types::ListenerTimeout::Unknown.new({name: key, value: value})
@@ -1486,8 +1486,8 @@ module AWS::SDK::AppMesh
       def self.parse(map)
         data = Types::ListenerTls.new
         data.mode = map['mode']
-        data.certificate = (Parsers::ListenerTlsCertificate.parse(map['certificate']) unless map['certificate'].nil?)
-        data.validation = (Parsers::ListenerTlsValidationContext.parse(map['validation']) unless map['validation'].nil?)
+        data.certificate = (ListenerTlsCertificate.parse(map['certificate']) unless map['certificate'].nil?)
+        data.validation = (ListenerTlsValidationContext.parse(map['validation']) unless map['validation'].nil?)
         return data
       end
     end
@@ -1495,8 +1495,8 @@ module AWS::SDK::AppMesh
     class ListenerTlsValidationContext
       def self.parse(map)
         data = Types::ListenerTlsValidationContext.new
-        data.member_trust = (Parsers::ListenerTlsValidationContextTrust.parse(map['trust']) unless map['trust'].nil?)
-        data.subject_alternative_names = (Parsers::SubjectAlternativeNames.parse(map['subjectAlternativeNames']) unless map['subjectAlternativeNames'].nil?)
+        data.member_trust = (ListenerTlsValidationContextTrust.parse(map['trust']) unless map['trust'].nil?)
+        data.subject_alternative_names = (SubjectAlternativeNames.parse(map['subjectAlternativeNames']) unless map['subjectAlternativeNames'].nil?)
         return data
       end
     end
@@ -1506,10 +1506,10 @@ module AWS::SDK::AppMesh
         key, value = map.flatten
         case key
         when 'file'
-          value = (Parsers::TlsValidationContextFileTrust.parse(value) unless value.nil?)
+          value = (TlsValidationContextFileTrust.parse(value) unless value.nil?)
           Types::ListenerTlsValidationContextTrust::File.new(value) if value
         when 'sds'
-          value = (Parsers::TlsValidationContextSdsTrust.parse(value) unless value.nil?)
+          value = (TlsValidationContextSdsTrust.parse(value) unless value.nil?)
           Types::ListenerTlsValidationContextTrust::Sds.new(value) if value
         else
           Types::ListenerTlsValidationContextTrust::Unknown.new({name: key, value: value})
@@ -1522,13 +1522,13 @@ module AWS::SDK::AppMesh
         key, value = map.flatten
         case key
         when 'acm'
-          value = (Parsers::ListenerTlsAcmCertificate.parse(value) unless value.nil?)
+          value = (ListenerTlsAcmCertificate.parse(value) unless value.nil?)
           Types::ListenerTlsCertificate::Acm.new(value) if value
         when 'file'
-          value = (Parsers::ListenerTlsFileCertificate.parse(value) unless value.nil?)
+          value = (ListenerTlsFileCertificate.parse(value) unless value.nil?)
           Types::ListenerTlsCertificate::File.new(value) if value
         when 'sds'
-          value = (Parsers::ListenerTlsSdsCertificate.parse(value) unless value.nil?)
+          value = (ListenerTlsSdsCertificate.parse(value) unless value.nil?)
           Types::ListenerTlsCertificate::Sds.new(value) if value
         else
           Types::ListenerTlsCertificate::Unknown.new({name: key, value: value})
@@ -1558,10 +1558,10 @@ module AWS::SDK::AppMesh
         key, value = map.flatten
         case key
         when 'dns'
-          value = (Parsers::DnsServiceDiscovery.parse(value) unless value.nil?)
+          value = (DnsServiceDiscovery.parse(value) unless value.nil?)
           Types::ServiceDiscovery::Dns.new(value) if value
         when 'awsCloudMap'
-          value = (Parsers::AwsCloudMapServiceDiscovery.parse(value) unless value.nil?)
+          value = (AwsCloudMapServiceDiscovery.parse(value) unless value.nil?)
           Types::ServiceDiscovery::AwsCloudMap.new(value) if value
         else
           Types::ServiceDiscovery::Unknown.new({name: key, value: value})
@@ -1574,7 +1574,7 @@ module AWS::SDK::AppMesh
         data = Types::AwsCloudMapServiceDiscovery.new
         data.namespace_name = map['namespaceName']
         data.service_name = map['serviceName']
-        data.attributes = (Parsers::AwsCloudMapInstanceAttributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.attributes = (AwsCloudMapInstanceAttributes.parse(map['attributes']) unless map['attributes'].nil?)
         data.ip_preference = map['ipPreference']
         return data
       end
@@ -1584,7 +1584,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AwsCloudMapInstanceAttribute.parse(value) unless value.nil?
+          data << AwsCloudMapInstanceAttribute.parse(value) unless value.nil?
         end
         data
       end
@@ -1614,7 +1614,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::CreateVirtualRouterOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.virtual_router = Parsers::VirtualRouterData.parse(json)
+        data.virtual_router = VirtualRouterData.parse(json)
         data
       end
     end
@@ -1624,9 +1624,9 @@ module AWS::SDK::AppMesh
         data = Types::VirtualRouterData.new
         data.mesh_name = map['meshName']
         data.virtual_router_name = map['virtualRouterName']
-        data.spec = (Parsers::VirtualRouterSpec.parse(map['spec']) unless map['spec'].nil?)
-        data.metadata = (Parsers::ResourceMetadata.parse(map['metadata']) unless map['metadata'].nil?)
-        data.status = (Parsers::VirtualRouterStatus.parse(map['status']) unless map['status'].nil?)
+        data.spec = (VirtualRouterSpec.parse(map['spec']) unless map['spec'].nil?)
+        data.metadata = (ResourceMetadata.parse(map['metadata']) unless map['metadata'].nil?)
+        data.status = (VirtualRouterStatus.parse(map['status']) unless map['status'].nil?)
         return data
       end
     end
@@ -1642,7 +1642,7 @@ module AWS::SDK::AppMesh
     class VirtualRouterSpec
       def self.parse(map)
         data = Types::VirtualRouterSpec.new
-        data.listeners = (Parsers::VirtualRouterListeners.parse(map['listeners']) unless map['listeners'].nil?)
+        data.listeners = (VirtualRouterListeners.parse(map['listeners']) unless map['listeners'].nil?)
         return data
       end
     end
@@ -1651,7 +1651,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VirtualRouterListener.parse(value) unless value.nil?
+          data << VirtualRouterListener.parse(value) unless value.nil?
         end
         data
       end
@@ -1660,7 +1660,7 @@ module AWS::SDK::AppMesh
     class VirtualRouterListener
       def self.parse(map)
         data = Types::VirtualRouterListener.new
-        data.port_mapping = (Parsers::PortMapping.parse(map['portMapping']) unless map['portMapping'].nil?)
+        data.port_mapping = (PortMapping.parse(map['portMapping']) unless map['portMapping'].nil?)
         return data
       end
     end
@@ -1670,7 +1670,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::CreateVirtualServiceOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.virtual_service = Parsers::VirtualServiceData.parse(json)
+        data.virtual_service = VirtualServiceData.parse(json)
         data
       end
     end
@@ -1680,9 +1680,9 @@ module AWS::SDK::AppMesh
         data = Types::VirtualServiceData.new
         data.mesh_name = map['meshName']
         data.virtual_service_name = map['virtualServiceName']
-        data.spec = (Parsers::VirtualServiceSpec.parse(map['spec']) unless map['spec'].nil?)
-        data.metadata = (Parsers::ResourceMetadata.parse(map['metadata']) unless map['metadata'].nil?)
-        data.status = (Parsers::VirtualServiceStatus.parse(map['status']) unless map['status'].nil?)
+        data.spec = (VirtualServiceSpec.parse(map['spec']) unless map['spec'].nil?)
+        data.metadata = (ResourceMetadata.parse(map['metadata']) unless map['metadata'].nil?)
+        data.status = (VirtualServiceStatus.parse(map['status']) unless map['status'].nil?)
         return data
       end
     end
@@ -1698,7 +1698,7 @@ module AWS::SDK::AppMesh
     class VirtualServiceSpec
       def self.parse(map)
         data = Types::VirtualServiceSpec.new
-        data.provider = (Parsers::VirtualServiceProvider.parse(map['provider']) unless map['provider'].nil?)
+        data.provider = (VirtualServiceProvider.parse(map['provider']) unless map['provider'].nil?)
         return data
       end
     end
@@ -1708,10 +1708,10 @@ module AWS::SDK::AppMesh
         key, value = map.flatten
         case key
         when 'virtualNode'
-          value = (Parsers::VirtualNodeServiceProvider.parse(value) unless value.nil?)
+          value = (VirtualNodeServiceProvider.parse(value) unless value.nil?)
           Types::VirtualServiceProvider::VirtualNode.new(value) if value
         when 'virtualRouter'
-          value = (Parsers::VirtualRouterServiceProvider.parse(value) unless value.nil?)
+          value = (VirtualRouterServiceProvider.parse(value) unless value.nil?)
           Types::VirtualServiceProvider::VirtualRouter.new(value) if value
         else
           Types::VirtualServiceProvider::Unknown.new({name: key, value: value})
@@ -1740,7 +1740,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::DeleteGatewayRouteOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.gateway_route = Parsers::GatewayRouteData.parse(json)
+        data.gateway_route = GatewayRouteData.parse(json)
         data
       end
     end
@@ -1760,7 +1760,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::DeleteMeshOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.mesh = Parsers::MeshData.parse(json)
+        data.mesh = MeshData.parse(json)
         data
       end
     end
@@ -1770,7 +1770,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::DeleteRouteOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.route = Parsers::RouteData.parse(json)
+        data.route = RouteData.parse(json)
         data
       end
     end
@@ -1780,7 +1780,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::DeleteVirtualGatewayOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.virtual_gateway = Parsers::VirtualGatewayData.parse(json)
+        data.virtual_gateway = VirtualGatewayData.parse(json)
         data
       end
     end
@@ -1790,7 +1790,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::DeleteVirtualNodeOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.virtual_node = Parsers::VirtualNodeData.parse(json)
+        data.virtual_node = VirtualNodeData.parse(json)
         data
       end
     end
@@ -1800,7 +1800,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::DeleteVirtualRouterOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.virtual_router = Parsers::VirtualRouterData.parse(json)
+        data.virtual_router = VirtualRouterData.parse(json)
         data
       end
     end
@@ -1810,7 +1810,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::DeleteVirtualServiceOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.virtual_service = Parsers::VirtualServiceData.parse(json)
+        data.virtual_service = VirtualServiceData.parse(json)
         data
       end
     end
@@ -1820,7 +1820,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::DescribeGatewayRouteOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.gateway_route = Parsers::GatewayRouteData.parse(json)
+        data.gateway_route = GatewayRouteData.parse(json)
         data
       end
     end
@@ -1830,7 +1830,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::DescribeMeshOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.mesh = Parsers::MeshData.parse(json)
+        data.mesh = MeshData.parse(json)
         data
       end
     end
@@ -1840,7 +1840,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::DescribeRouteOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.route = Parsers::RouteData.parse(json)
+        data.route = RouteData.parse(json)
         data
       end
     end
@@ -1850,7 +1850,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::DescribeVirtualGatewayOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.virtual_gateway = Parsers::VirtualGatewayData.parse(json)
+        data.virtual_gateway = VirtualGatewayData.parse(json)
         data
       end
     end
@@ -1860,7 +1860,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::DescribeVirtualNodeOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.virtual_node = Parsers::VirtualNodeData.parse(json)
+        data.virtual_node = VirtualNodeData.parse(json)
         data
       end
     end
@@ -1870,7 +1870,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::DescribeVirtualRouterOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.virtual_router = Parsers::VirtualRouterData.parse(json)
+        data.virtual_router = VirtualRouterData.parse(json)
         data
       end
     end
@@ -1880,7 +1880,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::DescribeVirtualServiceOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.virtual_service = Parsers::VirtualServiceData.parse(json)
+        data.virtual_service = VirtualServiceData.parse(json)
         data
       end
     end
@@ -1890,7 +1890,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::ListGatewayRoutesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.gateway_routes = (Parsers::GatewayRouteList.parse(map['gatewayRoutes']) unless map['gatewayRoutes'].nil?)
+        data.gateway_routes = (GatewayRouteList.parse(map['gatewayRoutes']) unless map['gatewayRoutes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1900,7 +1900,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::GatewayRouteRef.parse(value) unless value.nil?
+          data << GatewayRouteRef.parse(value) unless value.nil?
         end
         data
       end
@@ -1927,7 +1927,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::ListMeshesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.meshes = (Parsers::MeshList.parse(map['meshes']) unless map['meshes'].nil?)
+        data.meshes = (MeshList.parse(map['meshes']) unless map['meshes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1937,7 +1937,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MeshRef.parse(value) unless value.nil?
+          data << MeshRef.parse(value) unless value.nil?
         end
         data
       end
@@ -1962,7 +1962,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::ListRoutesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.routes = (Parsers::RouteList.parse(map['routes']) unless map['routes'].nil?)
+        data.routes = (RouteList.parse(map['routes']) unless map['routes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1972,7 +1972,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RouteRef.parse(value) unless value.nil?
+          data << RouteRef.parse(value) unless value.nil?
         end
         data
       end
@@ -1999,7 +1999,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagList.parse(map['tags']) unless map['tags'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2009,7 +2009,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::TagRef.parse(value) unless value.nil?
+          data << TagRef.parse(value) unless value.nil?
         end
         data
       end
@@ -2029,7 +2029,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::ListVirtualGatewaysOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.virtual_gateways = (Parsers::VirtualGatewayList.parse(map['virtualGateways']) unless map['virtualGateways'].nil?)
+        data.virtual_gateways = (VirtualGatewayList.parse(map['virtualGateways']) unless map['virtualGateways'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2039,7 +2039,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VirtualGatewayRef.parse(value) unless value.nil?
+          data << VirtualGatewayRef.parse(value) unless value.nil?
         end
         data
       end
@@ -2065,7 +2065,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::ListVirtualNodesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.virtual_nodes = (Parsers::VirtualNodeList.parse(map['virtualNodes']) unless map['virtualNodes'].nil?)
+        data.virtual_nodes = (VirtualNodeList.parse(map['virtualNodes']) unless map['virtualNodes'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2075,7 +2075,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VirtualNodeRef.parse(value) unless value.nil?
+          data << VirtualNodeRef.parse(value) unless value.nil?
         end
         data
       end
@@ -2101,7 +2101,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::ListVirtualRoutersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.virtual_routers = (Parsers::VirtualRouterList.parse(map['virtualRouters']) unless map['virtualRouters'].nil?)
+        data.virtual_routers = (VirtualRouterList.parse(map['virtualRouters']) unless map['virtualRouters'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2111,7 +2111,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VirtualRouterRef.parse(value) unless value.nil?
+          data << VirtualRouterRef.parse(value) unless value.nil?
         end
         data
       end
@@ -2137,7 +2137,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::ListVirtualServicesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.virtual_services = (Parsers::VirtualServiceList.parse(map['virtualServices']) unless map['virtualServices'].nil?)
+        data.virtual_services = (VirtualServiceList.parse(map['virtualServices']) unless map['virtualServices'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -2147,7 +2147,7 @@ module AWS::SDK::AppMesh
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VirtualServiceRef.parse(value) unless value.nil?
+          data << VirtualServiceRef.parse(value) unless value.nil?
         end
         data
       end
@@ -2201,7 +2201,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::UpdateGatewayRouteOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.gateway_route = Parsers::GatewayRouteData.parse(json)
+        data.gateway_route = GatewayRouteData.parse(json)
         data
       end
     end
@@ -2211,7 +2211,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::UpdateMeshOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.mesh = Parsers::MeshData.parse(json)
+        data.mesh = MeshData.parse(json)
         data
       end
     end
@@ -2221,7 +2221,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::UpdateRouteOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.route = Parsers::RouteData.parse(json)
+        data.route = RouteData.parse(json)
         data
       end
     end
@@ -2231,7 +2231,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::UpdateVirtualGatewayOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.virtual_gateway = Parsers::VirtualGatewayData.parse(json)
+        data.virtual_gateway = VirtualGatewayData.parse(json)
         data
       end
     end
@@ -2241,7 +2241,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::UpdateVirtualNodeOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.virtual_node = Parsers::VirtualNodeData.parse(json)
+        data.virtual_node = VirtualNodeData.parse(json)
         data
       end
     end
@@ -2251,7 +2251,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::UpdateVirtualRouterOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.virtual_router = Parsers::VirtualRouterData.parse(json)
+        data.virtual_router = VirtualRouterData.parse(json)
         data
       end
     end
@@ -2261,7 +2261,7 @@ module AWS::SDK::AppMesh
       def self.parse(http_resp)
         data = Types::UpdateVirtualServiceOutput.new
         json = Hearth::JSON.load(http_resp.body)
-        data.virtual_service = Parsers::VirtualServiceData.parse(json)
+        data.virtual_service = VirtualServiceData.parse(json)
         data
       end
     end

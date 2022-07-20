@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::DataSync
   module Builders
 
@@ -19,7 +22,7 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.CancelTaskExecution'
         data = {}
         data['TaskExecutionArn'] = input[:task_execution_arn] unless input[:task_execution_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,11 +36,11 @@ module AWS::SDK::DataSync
         data = {}
         data['ActivationKey'] = input[:activation_key] unless input[:activation_key].nil?
         data['AgentName'] = input[:agent_name] unless input[:agent_name].nil?
-        data['Tags'] = Builders::InputTagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = InputTagList.build(input[:tags]) unless input[:tags].nil?
         data['VpcEndpointId'] = input[:vpc_endpoint_id] unless input[:vpc_endpoint_id].nil?
-        data['SubnetArns'] = Builders::PLSubnetArnList.build(input[:subnet_arns]) unless input[:subnet_arns].nil?
-        data['SecurityGroupArns'] = Builders::PLSecurityGroupArnList.build(input[:security_group_arns]) unless input[:security_group_arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['SubnetArns'] = PLSubnetArnList.build(input[:subnet_arns]) unless input[:subnet_arns].nil?
+        data['SecurityGroupArns'] = PLSecurityGroupArnList.build(input[:security_group_arns]) unless input[:security_group_arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -68,7 +71,7 @@ module AWS::SDK::DataSync
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TagListEntry.build(element) unless element.nil?
+          data << TagListEntry.build(element) unless element.nil?
         end
         data
       end
@@ -94,12 +97,12 @@ module AWS::SDK::DataSync
         data = {}
         data['Subdirectory'] = input[:subdirectory] unless input[:subdirectory].nil?
         data['EfsFilesystemArn'] = input[:efs_filesystem_arn] unless input[:efs_filesystem_arn].nil?
-        data['Ec2Config'] = Builders::Ec2Config.build(input[:ec2_config]) unless input[:ec2_config].nil?
-        data['Tags'] = Builders::InputTagList.build(input[:tags]) unless input[:tags].nil?
+        data['Ec2Config'] = Ec2Config.build(input[:ec2_config]) unless input[:ec2_config].nil?
+        data['Tags'] = InputTagList.build(input[:tags]) unless input[:tags].nil?
         data['AccessPointArn'] = input[:access_point_arn] unless input[:access_point_arn].nil?
         data['FileSystemAccessRoleArn'] = input[:file_system_access_role_arn] unless input[:file_system_access_role_arn].nil?
         data['InTransitEncryption'] = input[:in_transit_encryption] unless input[:in_transit_encryption].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -108,7 +111,7 @@ module AWS::SDK::DataSync
       def self.build(input)
         data = {}
         data['SubnetArn'] = input[:subnet_arn] unless input[:subnet_arn].nil?
-        data['SecurityGroupArns'] = Builders::Ec2SecurityGroupArnList.build(input[:security_group_arns]) unless input[:security_group_arns].nil?
+        data['SecurityGroupArns'] = Ec2SecurityGroupArnList.build(input[:security_group_arns]) unless input[:security_group_arns].nil?
         data
       end
     end
@@ -133,10 +136,10 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.CreateLocationFsxLustre'
         data = {}
         data['FsxFilesystemArn'] = input[:fsx_filesystem_arn] unless input[:fsx_filesystem_arn].nil?
-        data['SecurityGroupArns'] = Builders::Ec2SecurityGroupArnList.build(input[:security_group_arns]) unless input[:security_group_arns].nil?
+        data['SecurityGroupArns'] = Ec2SecurityGroupArnList.build(input[:security_group_arns]) unless input[:security_group_arns].nil?
         data['Subdirectory'] = input[:subdirectory] unless input[:subdirectory].nil?
-        data['Tags'] = Builders::InputTagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = InputTagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -149,11 +152,11 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.CreateLocationFsxOpenZfs'
         data = {}
         data['FsxFilesystemArn'] = input[:fsx_filesystem_arn] unless input[:fsx_filesystem_arn].nil?
-        data['Protocol'] = Builders::FsxProtocol.build(input[:protocol]) unless input[:protocol].nil?
-        data['SecurityGroupArns'] = Builders::Ec2SecurityGroupArnList.build(input[:security_group_arns]) unless input[:security_group_arns].nil?
+        data['Protocol'] = FsxProtocol.build(input[:protocol]) unless input[:protocol].nil?
+        data['SecurityGroupArns'] = Ec2SecurityGroupArnList.build(input[:security_group_arns]) unless input[:security_group_arns].nil?
         data['Subdirectory'] = input[:subdirectory] unless input[:subdirectory].nil?
-        data['Tags'] = Builders::InputTagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = InputTagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -161,7 +164,7 @@ module AWS::SDK::DataSync
     class FsxProtocol
       def self.build(input)
         data = {}
-        data['NFS'] = Builders::FsxProtocolNfs.build(input[:nfs]) unless input[:nfs].nil?
+        data['NFS'] = FsxProtocolNfs.build(input[:nfs]) unless input[:nfs].nil?
         data
       end
     end
@@ -170,7 +173,7 @@ module AWS::SDK::DataSync
     class FsxProtocolNfs
       def self.build(input)
         data = {}
-        data['MountOptions'] = Builders::NfsMountOptions.build(input[:mount_options]) unless input[:mount_options].nil?
+        data['MountOptions'] = NfsMountOptions.build(input[:mount_options]) unless input[:mount_options].nil?
         data
       end
     end
@@ -194,12 +197,12 @@ module AWS::SDK::DataSync
         data = {}
         data['Subdirectory'] = input[:subdirectory] unless input[:subdirectory].nil?
         data['FsxFilesystemArn'] = input[:fsx_filesystem_arn] unless input[:fsx_filesystem_arn].nil?
-        data['SecurityGroupArns'] = Builders::Ec2SecurityGroupArnList.build(input[:security_group_arns]) unless input[:security_group_arns].nil?
-        data['Tags'] = Builders::InputTagList.build(input[:tags]) unless input[:tags].nil?
+        data['SecurityGroupArns'] = Ec2SecurityGroupArnList.build(input[:security_group_arns]) unless input[:security_group_arns].nil?
+        data['Tags'] = InputTagList.build(input[:tags]) unless input[:tags].nil?
         data['User'] = input[:user] unless input[:user].nil?
         data['Domain'] = input[:domain] unless input[:domain].nil?
         data['Password'] = input[:password] unless input[:password].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -212,19 +215,19 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.CreateLocationHdfs'
         data = {}
         data['Subdirectory'] = input[:subdirectory] unless input[:subdirectory].nil?
-        data['NameNodes'] = Builders::HdfsNameNodeList.build(input[:name_nodes]) unless input[:name_nodes].nil?
+        data['NameNodes'] = HdfsNameNodeList.build(input[:name_nodes]) unless input[:name_nodes].nil?
         data['BlockSize'] = input[:block_size] unless input[:block_size].nil?
         data['ReplicationFactor'] = input[:replication_factor] unless input[:replication_factor].nil?
         data['KmsKeyProviderUri'] = input[:kms_key_provider_uri] unless input[:kms_key_provider_uri].nil?
-        data['QopConfiguration'] = Builders::QopConfiguration.build(input[:qop_configuration]) unless input[:qop_configuration].nil?
+        data['QopConfiguration'] = QopConfiguration.build(input[:qop_configuration]) unless input[:qop_configuration].nil?
         data['AuthenticationType'] = input[:authentication_type] unless input[:authentication_type].nil?
         data['SimpleUser'] = input[:simple_user] unless input[:simple_user].nil?
         data['KerberosPrincipal'] = input[:kerberos_principal] unless input[:kerberos_principal].nil?
-        data['KerberosKeytab'] = Base64::encode64(input[:kerberos_keytab]).strip unless input[:kerberos_keytab].nil?
-        data['KerberosKrb5Conf'] = Base64::encode64(input[:kerberos_krb5_conf]).strip unless input[:kerberos_krb5_conf].nil?
-        data['AgentArns'] = Builders::AgentArnList.build(input[:agent_arns]) unless input[:agent_arns].nil?
-        data['Tags'] = Builders::InputTagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['KerberosKeytab'] = ::Base64::encode64(input[:kerberos_keytab]).strip unless input[:kerberos_keytab].nil?
+        data['KerberosKrb5Conf'] = ::Base64::encode64(input[:kerberos_krb5_conf]).strip unless input[:kerberos_krb5_conf].nil?
+        data['AgentArns'] = AgentArnList.build(input[:agent_arns]) unless input[:agent_arns].nil?
+        data['Tags'] = InputTagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -254,7 +257,7 @@ module AWS::SDK::DataSync
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::HdfsNameNode.build(element) unless element.nil?
+          data << HdfsNameNode.build(element) unless element.nil?
         end
         data
       end
@@ -280,10 +283,10 @@ module AWS::SDK::DataSync
         data = {}
         data['Subdirectory'] = input[:subdirectory] unless input[:subdirectory].nil?
         data['ServerHostname'] = input[:server_hostname] unless input[:server_hostname].nil?
-        data['OnPremConfig'] = Builders::OnPremConfig.build(input[:on_prem_config]) unless input[:on_prem_config].nil?
-        data['MountOptions'] = Builders::NfsMountOptions.build(input[:mount_options]) unless input[:mount_options].nil?
-        data['Tags'] = Builders::InputTagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OnPremConfig'] = OnPremConfig.build(input[:on_prem_config]) unless input[:on_prem_config].nil?
+        data['MountOptions'] = NfsMountOptions.build(input[:mount_options]) unless input[:mount_options].nil?
+        data['Tags'] = InputTagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -291,7 +294,7 @@ module AWS::SDK::DataSync
     class OnPremConfig
       def self.build(input)
         data = {}
-        data['AgentArns'] = Builders::AgentArnList.build(input[:agent_arns]) unless input[:agent_arns].nil?
+        data['AgentArns'] = AgentArnList.build(input[:agent_arns]) unless input[:agent_arns].nil?
         data
       end
     end
@@ -311,9 +314,9 @@ module AWS::SDK::DataSync
         data['BucketName'] = input[:bucket_name] unless input[:bucket_name].nil?
         data['AccessKey'] = input[:access_key] unless input[:access_key].nil?
         data['SecretKey'] = input[:secret_key] unless input[:secret_key].nil?
-        data['AgentArns'] = Builders::AgentArnList.build(input[:agent_arns]) unless input[:agent_arns].nil?
-        data['Tags'] = Builders::InputTagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AgentArns'] = AgentArnList.build(input[:agent_arns]) unless input[:agent_arns].nil?
+        data['Tags'] = InputTagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -328,10 +331,10 @@ module AWS::SDK::DataSync
         data['Subdirectory'] = input[:subdirectory] unless input[:subdirectory].nil?
         data['S3BucketArn'] = input[:s3_bucket_arn] unless input[:s3_bucket_arn].nil?
         data['S3StorageClass'] = input[:s3_storage_class] unless input[:s3_storage_class].nil?
-        data['S3Config'] = Builders::S3Config.build(input[:s3_config]) unless input[:s3_config].nil?
-        data['AgentArns'] = Builders::AgentArnList.build(input[:agent_arns]) unless input[:agent_arns].nil?
-        data['Tags'] = Builders::InputTagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['S3Config'] = S3Config.build(input[:s3_config]) unless input[:s3_config].nil?
+        data['AgentArns'] = AgentArnList.build(input[:agent_arns]) unless input[:agent_arns].nil?
+        data['Tags'] = InputTagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -357,10 +360,10 @@ module AWS::SDK::DataSync
         data['User'] = input[:user] unless input[:user].nil?
         data['Domain'] = input[:domain] unless input[:domain].nil?
         data['Password'] = input[:password] unless input[:password].nil?
-        data['AgentArns'] = Builders::AgentArnList.build(input[:agent_arns]) unless input[:agent_arns].nil?
-        data['MountOptions'] = Builders::SmbMountOptions.build(input[:mount_options]) unless input[:mount_options].nil?
-        data['Tags'] = Builders::InputTagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AgentArns'] = AgentArnList.build(input[:agent_arns]) unless input[:agent_arns].nil?
+        data['MountOptions'] = SmbMountOptions.build(input[:mount_options]) unless input[:mount_options].nil?
+        data['Tags'] = InputTagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -385,12 +388,12 @@ module AWS::SDK::DataSync
         data['DestinationLocationArn'] = input[:destination_location_arn] unless input[:destination_location_arn].nil?
         data['CloudWatchLogGroupArn'] = input[:cloud_watch_log_group_arn] unless input[:cloud_watch_log_group_arn].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Options'] = Builders::Options.build(input[:options]) unless input[:options].nil?
-        data['Excludes'] = Builders::FilterList.build(input[:excludes]) unless input[:excludes].nil?
-        data['Schedule'] = Builders::TaskSchedule.build(input[:schedule]) unless input[:schedule].nil?
-        data['Tags'] = Builders::InputTagList.build(input[:tags]) unless input[:tags].nil?
-        data['Includes'] = Builders::FilterList.build(input[:includes]) unless input[:includes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Options'] = Options.build(input[:options]) unless input[:options].nil?
+        data['Excludes'] = FilterList.build(input[:excludes]) unless input[:excludes].nil?
+        data['Schedule'] = TaskSchedule.build(input[:schedule]) unless input[:schedule].nil?
+        data['Tags'] = InputTagList.build(input[:tags]) unless input[:tags].nil?
+        data['Includes'] = FilterList.build(input[:includes]) unless input[:includes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -399,7 +402,7 @@ module AWS::SDK::DataSync
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::FilterRule.build(element) unless element.nil?
+          data << FilterRule.build(element) unless element.nil?
         end
         data
       end
@@ -456,7 +459,7 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.DeleteAgent'
         data = {}
         data['AgentArn'] = input[:agent_arn] unless input[:agent_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -469,7 +472,7 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.DeleteLocation'
         data = {}
         data['LocationArn'] = input[:location_arn] unless input[:location_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -482,7 +485,7 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.DeleteTask'
         data = {}
         data['TaskArn'] = input[:task_arn] unless input[:task_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -495,7 +498,7 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.DescribeAgent'
         data = {}
         data['AgentArn'] = input[:agent_arn] unless input[:agent_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -508,7 +511,7 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.DescribeLocationEfs'
         data = {}
         data['LocationArn'] = input[:location_arn] unless input[:location_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -521,7 +524,7 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.DescribeLocationFsxLustre'
         data = {}
         data['LocationArn'] = input[:location_arn] unless input[:location_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -534,7 +537,7 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.DescribeLocationFsxOpenZfs'
         data = {}
         data['LocationArn'] = input[:location_arn] unless input[:location_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -547,7 +550,7 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.DescribeLocationFsxWindows'
         data = {}
         data['LocationArn'] = input[:location_arn] unless input[:location_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -560,7 +563,7 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.DescribeLocationHdfs'
         data = {}
         data['LocationArn'] = input[:location_arn] unless input[:location_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -573,7 +576,7 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.DescribeLocationNfs'
         data = {}
         data['LocationArn'] = input[:location_arn] unless input[:location_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -586,7 +589,7 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.DescribeLocationObjectStorage'
         data = {}
         data['LocationArn'] = input[:location_arn] unless input[:location_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -599,7 +602,7 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.DescribeLocationS3'
         data = {}
         data['LocationArn'] = input[:location_arn] unless input[:location_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -612,7 +615,7 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.DescribeLocationSmb'
         data = {}
         data['LocationArn'] = input[:location_arn] unless input[:location_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -625,7 +628,7 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.DescribeTask'
         data = {}
         data['TaskArn'] = input[:task_arn] unless input[:task_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -638,7 +641,7 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.DescribeTaskExecution'
         data = {}
         data['TaskExecutionArn'] = input[:task_execution_arn] unless input[:task_execution_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -652,7 +655,7 @@ module AWS::SDK::DataSync
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -666,8 +669,8 @@ module AWS::SDK::DataSync
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::LocationFilters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = LocationFilters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -676,7 +679,7 @@ module AWS::SDK::DataSync
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LocationFilter.build(element) unless element.nil?
+          data << LocationFilter.build(element) unless element.nil?
         end
         data
       end
@@ -687,7 +690,7 @@ module AWS::SDK::DataSync
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data['Operator'] = input[:operator] unless input[:operator].nil?
         data
       end
@@ -715,7 +718,7 @@ module AWS::SDK::DataSync
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -730,7 +733,7 @@ module AWS::SDK::DataSync
         data['TaskArn'] = input[:task_arn] unless input[:task_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -744,8 +747,8 @@ module AWS::SDK::DataSync
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        data['Filters'] = Builders::TaskFilters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Filters'] = TaskFilters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -754,7 +757,7 @@ module AWS::SDK::DataSync
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TaskFilter.build(element) unless element.nil?
+          data << TaskFilter.build(element) unless element.nil?
         end
         data
       end
@@ -765,7 +768,7 @@ module AWS::SDK::DataSync
       def self.build(input)
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['Values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data['Operator'] = input[:operator] unless input[:operator].nil?
         data
       end
@@ -780,10 +783,10 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.StartTaskExecution'
         data = {}
         data['TaskArn'] = input[:task_arn] unless input[:task_arn].nil?
-        data['OverrideOptions'] = Builders::Options.build(input[:override_options]) unless input[:override_options].nil?
-        data['Includes'] = Builders::FilterList.build(input[:includes]) unless input[:includes].nil?
-        data['Excludes'] = Builders::FilterList.build(input[:excludes]) unless input[:excludes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OverrideOptions'] = Options.build(input[:override_options]) unless input[:override_options].nil?
+        data['Includes'] = FilterList.build(input[:includes]) unless input[:includes].nil?
+        data['Excludes'] = FilterList.build(input[:excludes]) unless input[:excludes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -796,8 +799,8 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::InputTagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = InputTagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -810,8 +813,8 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Keys'] = Builders::TagKeyList.build(input[:keys]) unless input[:keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Keys'] = TagKeyList.build(input[:keys]) unless input[:keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -836,7 +839,7 @@ module AWS::SDK::DataSync
         data = {}
         data['AgentArn'] = input[:agent_arn] unless input[:agent_arn].nil?
         data['Name'] = input[:name] unless input[:name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -850,18 +853,18 @@ module AWS::SDK::DataSync
         data = {}
         data['LocationArn'] = input[:location_arn] unless input[:location_arn].nil?
         data['Subdirectory'] = input[:subdirectory] unless input[:subdirectory].nil?
-        data['NameNodes'] = Builders::HdfsNameNodeList.build(input[:name_nodes]) unless input[:name_nodes].nil?
+        data['NameNodes'] = HdfsNameNodeList.build(input[:name_nodes]) unless input[:name_nodes].nil?
         data['BlockSize'] = input[:block_size] unless input[:block_size].nil?
         data['ReplicationFactor'] = input[:replication_factor] unless input[:replication_factor].nil?
         data['KmsKeyProviderUri'] = input[:kms_key_provider_uri] unless input[:kms_key_provider_uri].nil?
-        data['QopConfiguration'] = Builders::QopConfiguration.build(input[:qop_configuration]) unless input[:qop_configuration].nil?
+        data['QopConfiguration'] = QopConfiguration.build(input[:qop_configuration]) unless input[:qop_configuration].nil?
         data['AuthenticationType'] = input[:authentication_type] unless input[:authentication_type].nil?
         data['SimpleUser'] = input[:simple_user] unless input[:simple_user].nil?
         data['KerberosPrincipal'] = input[:kerberos_principal] unless input[:kerberos_principal].nil?
-        data['KerberosKeytab'] = Base64::encode64(input[:kerberos_keytab]).strip unless input[:kerberos_keytab].nil?
-        data['KerberosKrb5Conf'] = Base64::encode64(input[:kerberos_krb5_conf]).strip unless input[:kerberos_krb5_conf].nil?
-        data['AgentArns'] = Builders::AgentArnList.build(input[:agent_arns]) unless input[:agent_arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['KerberosKeytab'] = ::Base64::encode64(input[:kerberos_keytab]).strip unless input[:kerberos_keytab].nil?
+        data['KerberosKrb5Conf'] = ::Base64::encode64(input[:kerberos_krb5_conf]).strip unless input[:kerberos_krb5_conf].nil?
+        data['AgentArns'] = AgentArnList.build(input[:agent_arns]) unless input[:agent_arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -875,9 +878,9 @@ module AWS::SDK::DataSync
         data = {}
         data['LocationArn'] = input[:location_arn] unless input[:location_arn].nil?
         data['Subdirectory'] = input[:subdirectory] unless input[:subdirectory].nil?
-        data['OnPremConfig'] = Builders::OnPremConfig.build(input[:on_prem_config]) unless input[:on_prem_config].nil?
-        data['MountOptions'] = Builders::NfsMountOptions.build(input[:mount_options]) unless input[:mount_options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['OnPremConfig'] = OnPremConfig.build(input[:on_prem_config]) unless input[:on_prem_config].nil?
+        data['MountOptions'] = NfsMountOptions.build(input[:mount_options]) unless input[:mount_options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -895,8 +898,8 @@ module AWS::SDK::DataSync
         data['Subdirectory'] = input[:subdirectory] unless input[:subdirectory].nil?
         data['AccessKey'] = input[:access_key] unless input[:access_key].nil?
         data['SecretKey'] = input[:secret_key] unless input[:secret_key].nil?
-        data['AgentArns'] = Builders::AgentArnList.build(input[:agent_arns]) unless input[:agent_arns].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AgentArns'] = AgentArnList.build(input[:agent_arns]) unless input[:agent_arns].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -913,9 +916,9 @@ module AWS::SDK::DataSync
         data['User'] = input[:user] unless input[:user].nil?
         data['Domain'] = input[:domain] unless input[:domain].nil?
         data['Password'] = input[:password] unless input[:password].nil?
-        data['AgentArns'] = Builders::AgentArnList.build(input[:agent_arns]) unless input[:agent_arns].nil?
-        data['MountOptions'] = Builders::SmbMountOptions.build(input[:mount_options]) unless input[:mount_options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['AgentArns'] = AgentArnList.build(input[:agent_arns]) unless input[:agent_arns].nil?
+        data['MountOptions'] = SmbMountOptions.build(input[:mount_options]) unless input[:mount_options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -928,13 +931,13 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.UpdateTask'
         data = {}
         data['TaskArn'] = input[:task_arn] unless input[:task_arn].nil?
-        data['Options'] = Builders::Options.build(input[:options]) unless input[:options].nil?
-        data['Excludes'] = Builders::FilterList.build(input[:excludes]) unless input[:excludes].nil?
-        data['Schedule'] = Builders::TaskSchedule.build(input[:schedule]) unless input[:schedule].nil?
+        data['Options'] = Options.build(input[:options]) unless input[:options].nil?
+        data['Excludes'] = FilterList.build(input[:excludes]) unless input[:excludes].nil?
+        data['Schedule'] = TaskSchedule.build(input[:schedule]) unless input[:schedule].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['CloudWatchLogGroupArn'] = input[:cloud_watch_log_group_arn] unless input[:cloud_watch_log_group_arn].nil?
-        data['Includes'] = Builders::FilterList.build(input[:includes]) unless input[:includes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Includes'] = FilterList.build(input[:includes]) unless input[:includes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -947,8 +950,8 @@ module AWS::SDK::DataSync
         http_req.headers['X-Amz-Target'] = 'FmrsService.UpdateTaskExecution'
         data = {}
         data['TaskExecutionArn'] = input[:task_execution_arn] unless input[:task_execution_arn].nil?
-        data['Options'] = Builders::Options.build(input[:options]) unless input[:options].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Options'] = Options.build(input[:options]) unless input[:options].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

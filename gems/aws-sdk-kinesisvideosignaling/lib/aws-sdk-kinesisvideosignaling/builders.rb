@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::KinesisVideoSignaling
   module Builders
 
@@ -24,7 +26,7 @@ module AWS::SDK::KinesisVideoSignaling
         data['ClientId'] = input[:client_id] unless input[:client_id].nil?
         data['Service'] = input[:service] unless input[:service].nil?
         data['Username'] = input[:username] unless input[:username].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -41,7 +43,7 @@ module AWS::SDK::KinesisVideoSignaling
         data['ChannelARN'] = input[:channel_arn] unless input[:channel_arn].nil?
         data['SenderClientId'] = input[:sender_client_id] unless input[:sender_client_id].nil?
         data['MessagePayload'] = input[:message_payload] unless input[:message_payload].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

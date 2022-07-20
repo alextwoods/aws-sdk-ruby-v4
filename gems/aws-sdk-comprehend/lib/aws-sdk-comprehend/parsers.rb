@@ -17,8 +17,8 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.result_list = (Parsers::ListOfDetectDominantLanguageResult.parse(map['ResultList']) unless map['ResultList'].nil?)
-        data.error_list = (Parsers::BatchItemErrorList.parse(map['ErrorList']) unless map['ErrorList'].nil?)
+        data.result_list = (ListOfDetectDominantLanguageResult.parse(map['ResultList']) unless map['ResultList'].nil?)
+        data.error_list = (BatchItemErrorList.parse(map['ErrorList']) unless map['ErrorList'].nil?)
         data
       end
     end
@@ -26,7 +26,7 @@ module AWS::SDK::Comprehend
     class BatchItemErrorList
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchItemError.parse(value) unless value.nil?
+          BatchItemError.parse(value) unless value.nil?
         end
       end
     end
@@ -44,7 +44,7 @@ module AWS::SDK::Comprehend
     class ListOfDetectDominantLanguageResult
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchDetectDominantLanguageItemResult.parse(value) unless value.nil?
+          BatchDetectDominantLanguageItemResult.parse(value) unless value.nil?
         end
       end
     end
@@ -53,7 +53,7 @@ module AWS::SDK::Comprehend
       def self.parse(map)
         data = Types::BatchDetectDominantLanguageItemResult.new
         data.index = map['Index']
-        data.languages = (Parsers::ListOfDominantLanguages.parse(map['Languages']) unless map['Languages'].nil?)
+        data.languages = (ListOfDominantLanguages.parse(map['Languages']) unless map['Languages'].nil?)
         return data
       end
     end
@@ -61,7 +61,7 @@ module AWS::SDK::Comprehend
     class ListOfDominantLanguages
       def self.parse(list)
         list.map do |value|
-          Parsers::DominantLanguage.parse(value) unless value.nil?
+          DominantLanguage.parse(value) unless value.nil?
         end
       end
     end
@@ -130,8 +130,8 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.result_list = (Parsers::ListOfDetectEntitiesResult.parse(map['ResultList']) unless map['ResultList'].nil?)
-        data.error_list = (Parsers::BatchItemErrorList.parse(map['ErrorList']) unless map['ErrorList'].nil?)
+        data.result_list = (ListOfDetectEntitiesResult.parse(map['ResultList']) unless map['ResultList'].nil?)
+        data.error_list = (BatchItemErrorList.parse(map['ErrorList']) unless map['ErrorList'].nil?)
         data
       end
     end
@@ -139,7 +139,7 @@ module AWS::SDK::Comprehend
     class ListOfDetectEntitiesResult
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchDetectEntitiesItemResult.parse(value) unless value.nil?
+          BatchDetectEntitiesItemResult.parse(value) unless value.nil?
         end
       end
     end
@@ -148,7 +148,7 @@ module AWS::SDK::Comprehend
       def self.parse(map)
         data = Types::BatchDetectEntitiesItemResult.new
         data.index = map['Index']
-        data.entities = (Parsers::ListOfEntities.parse(map['Entities']) unless map['Entities'].nil?)
+        data.entities = (ListOfEntities.parse(map['Entities']) unless map['Entities'].nil?)
         return data
       end
     end
@@ -156,7 +156,7 @@ module AWS::SDK::Comprehend
     class ListOfEntities
       def self.parse(list)
         list.map do |value|
-          Parsers::Entity.parse(value) unless value.nil?
+          Entity.parse(value) unless value.nil?
         end
       end
     end
@@ -192,8 +192,8 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.result_list = (Parsers::ListOfDetectKeyPhrasesResult.parse(map['ResultList']) unless map['ResultList'].nil?)
-        data.error_list = (Parsers::BatchItemErrorList.parse(map['ErrorList']) unless map['ErrorList'].nil?)
+        data.result_list = (ListOfDetectKeyPhrasesResult.parse(map['ResultList']) unless map['ResultList'].nil?)
+        data.error_list = (BatchItemErrorList.parse(map['ErrorList']) unless map['ErrorList'].nil?)
         data
       end
     end
@@ -201,7 +201,7 @@ module AWS::SDK::Comprehend
     class ListOfDetectKeyPhrasesResult
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchDetectKeyPhrasesItemResult.parse(value) unless value.nil?
+          BatchDetectKeyPhrasesItemResult.parse(value) unless value.nil?
         end
       end
     end
@@ -210,7 +210,7 @@ module AWS::SDK::Comprehend
       def self.parse(map)
         data = Types::BatchDetectKeyPhrasesItemResult.new
         data.index = map['Index']
-        data.key_phrases = (Parsers::ListOfKeyPhrases.parse(map['KeyPhrases']) unless map['KeyPhrases'].nil?)
+        data.key_phrases = (ListOfKeyPhrases.parse(map['KeyPhrases']) unless map['KeyPhrases'].nil?)
         return data
       end
     end
@@ -218,7 +218,7 @@ module AWS::SDK::Comprehend
     class ListOfKeyPhrases
       def self.parse(list)
         list.map do |value|
-          Parsers::KeyPhrase.parse(value) unless value.nil?
+          KeyPhrase.parse(value) unless value.nil?
         end
       end
     end
@@ -241,8 +241,8 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.result_list = (Parsers::ListOfDetectSentimentResult.parse(map['ResultList']) unless map['ResultList'].nil?)
-        data.error_list = (Parsers::BatchItemErrorList.parse(map['ErrorList']) unless map['ErrorList'].nil?)
+        data.result_list = (ListOfDetectSentimentResult.parse(map['ResultList']) unless map['ResultList'].nil?)
+        data.error_list = (BatchItemErrorList.parse(map['ErrorList']) unless map['ErrorList'].nil?)
         data
       end
     end
@@ -250,7 +250,7 @@ module AWS::SDK::Comprehend
     class ListOfDetectSentimentResult
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchDetectSentimentItemResult.parse(value) unless value.nil?
+          BatchDetectSentimentItemResult.parse(value) unless value.nil?
         end
       end
     end
@@ -260,7 +260,7 @@ module AWS::SDK::Comprehend
         data = Types::BatchDetectSentimentItemResult.new
         data.index = map['Index']
         data.sentiment = map['Sentiment']
-        data.sentiment_score = (Parsers::SentimentScore.parse(map['SentimentScore']) unless map['SentimentScore'].nil?)
+        data.sentiment_score = (SentimentScore.parse(map['SentimentScore']) unless map['SentimentScore'].nil?)
         return data
       end
     end
@@ -283,8 +283,8 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.result_list = (Parsers::ListOfDetectSyntaxResult.parse(map['ResultList']) unless map['ResultList'].nil?)
-        data.error_list = (Parsers::BatchItemErrorList.parse(map['ErrorList']) unless map['ErrorList'].nil?)
+        data.result_list = (ListOfDetectSyntaxResult.parse(map['ResultList']) unless map['ResultList'].nil?)
+        data.error_list = (BatchItemErrorList.parse(map['ErrorList']) unless map['ErrorList'].nil?)
         data
       end
     end
@@ -292,7 +292,7 @@ module AWS::SDK::Comprehend
     class ListOfDetectSyntaxResult
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchDetectSyntaxItemResult.parse(value) unless value.nil?
+          BatchDetectSyntaxItemResult.parse(value) unless value.nil?
         end
       end
     end
@@ -301,7 +301,7 @@ module AWS::SDK::Comprehend
       def self.parse(map)
         data = Types::BatchDetectSyntaxItemResult.new
         data.index = map['Index']
-        data.syntax_tokens = (Parsers::ListOfSyntaxTokens.parse(map['SyntaxTokens']) unless map['SyntaxTokens'].nil?)
+        data.syntax_tokens = (ListOfSyntaxTokens.parse(map['SyntaxTokens']) unless map['SyntaxTokens'].nil?)
         return data
       end
     end
@@ -309,7 +309,7 @@ module AWS::SDK::Comprehend
     class ListOfSyntaxTokens
       def self.parse(list)
         list.map do |value|
-          Parsers::SyntaxToken.parse(value) unless value.nil?
+          SyntaxToken.parse(value) unless value.nil?
         end
       end
     end
@@ -321,7 +321,7 @@ module AWS::SDK::Comprehend
         data.text = map['Text']
         data.begin_offset = map['BeginOffset']
         data.end_offset = map['EndOffset']
-        data.part_of_speech = (Parsers::PartOfSpeechTag.parse(map['PartOfSpeech']) unless map['PartOfSpeech'].nil?)
+        data.part_of_speech = (PartOfSpeechTag.parse(map['PartOfSpeech']) unless map['PartOfSpeech'].nil?)
         return data
       end
     end
@@ -342,8 +342,8 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.classes = (Parsers::ListOfClasses.parse(map['Classes']) unless map['Classes'].nil?)
-        data.labels = (Parsers::ListOfLabels.parse(map['Labels']) unless map['Labels'].nil?)
+        data.classes = (ListOfClasses.parse(map['Classes']) unless map['Classes'].nil?)
+        data.labels = (ListOfLabels.parse(map['Labels']) unless map['Labels'].nil?)
         data
       end
     end
@@ -351,7 +351,7 @@ module AWS::SDK::Comprehend
     class ListOfLabels
       def self.parse(list)
         list.map do |value|
-          Parsers::DocumentLabel.parse(value) unless value.nil?
+          DocumentLabel.parse(value) unless value.nil?
         end
       end
     end
@@ -368,7 +368,7 @@ module AWS::SDK::Comprehend
     class ListOfClasses
       def self.parse(list)
         list.map do |value|
-          Parsers::DocumentClass.parse(value) unless value.nil?
+          DocumentClass.parse(value) unless value.nil?
         end
       end
     end
@@ -401,7 +401,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.labels = (Parsers::ListOfEntityLabels.parse(map['Labels']) unless map['Labels'].nil?)
+        data.labels = (ListOfEntityLabels.parse(map['Labels']) unless map['Labels'].nil?)
         data
       end
     end
@@ -409,7 +409,7 @@ module AWS::SDK::Comprehend
     class ListOfEntityLabels
       def self.parse(list)
         list.map do |value|
-          Parsers::EntityLabel.parse(value) unless value.nil?
+          EntityLabel.parse(value) unless value.nil?
         end
       end
     end
@@ -582,7 +582,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.document_classification_job_properties = (Parsers::DocumentClassificationJobProperties.parse(map['DocumentClassificationJobProperties']) unless map['DocumentClassificationJobProperties'].nil?)
+        data.document_classification_job_properties = (DocumentClassificationJobProperties.parse(map['DocumentClassificationJobProperties']) unless map['DocumentClassificationJobProperties'].nil?)
         data
       end
     end
@@ -598,11 +598,11 @@ module AWS::SDK::Comprehend
         data.submit_time = Time.at(map['SubmitTime'].to_i) if map['SubmitTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.document_classifier_arn = map['DocumentClassifierArn']
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
         data.data_access_role_arn = map['DataAccessRoleArn']
         data.volume_kms_key_id = map['VolumeKmsKeyId']
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
         return data
       end
     end
@@ -610,8 +610,8 @@ module AWS::SDK::Comprehend
     class VpcConfig
       def self.parse(map)
         data = Types::VpcConfig.new
-        data.security_group_ids = (Parsers::SecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
-        data.subnets = (Parsers::Subnets.parse(map['Subnets']) unless map['Subnets'].nil?)
+        data.security_group_ids = (SecurityGroupIds.parse(map['SecurityGroupIds']) unless map['SecurityGroupIds'].nil?)
+        data.subnets = (Subnets.parse(map['Subnets']) unless map['Subnets'].nil?)
         return data
       end
     end
@@ -646,7 +646,7 @@ module AWS::SDK::Comprehend
         data = Types::InputDataConfig.new
         data.s3_uri = map['S3Uri']
         data.input_format = map['InputFormat']
-        data.document_reader_config = (Parsers::DocumentReaderConfig.parse(map['DocumentReaderConfig']) unless map['DocumentReaderConfig'].nil?)
+        data.document_reader_config = (DocumentReaderConfig.parse(map['DocumentReaderConfig']) unless map['DocumentReaderConfig'].nil?)
         return data
       end
     end
@@ -656,7 +656,7 @@ module AWS::SDK::Comprehend
         data = Types::DocumentReaderConfig.new
         data.document_read_action = map['DocumentReadAction']
         data.document_read_mode = map['DocumentReadMode']
-        data.feature_types = (Parsers::ListOfDocumentReadFeatureTypes.parse(map['FeatureTypes']) unless map['FeatureTypes'].nil?)
+        data.feature_types = (ListOfDocumentReadFeatureTypes.parse(map['FeatureTypes']) unless map['FeatureTypes'].nil?)
         return data
       end
     end
@@ -688,7 +688,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.document_classifier_properties = (Parsers::DocumentClassifierProperties.parse(map['DocumentClassifierProperties']) unless map['DocumentClassifierProperties'].nil?)
+        data.document_classifier_properties = (DocumentClassifierProperties.parse(map['DocumentClassifierProperties']) unless map['DocumentClassifierProperties'].nil?)
         data
       end
     end
@@ -704,12 +704,12 @@ module AWS::SDK::Comprehend
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.training_start_time = Time.at(map['TrainingStartTime'].to_i) if map['TrainingStartTime']
         data.training_end_time = Time.at(map['TrainingEndTime'].to_i) if map['TrainingEndTime']
-        data.input_data_config = (Parsers::DocumentClassifierInputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::DocumentClassifierOutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
-        data.classifier_metadata = (Parsers::ClassifierMetadata.parse(map['ClassifierMetadata']) unless map['ClassifierMetadata'].nil?)
+        data.input_data_config = (DocumentClassifierInputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (DocumentClassifierOutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.classifier_metadata = (ClassifierMetadata.parse(map['ClassifierMetadata']) unless map['ClassifierMetadata'].nil?)
         data.data_access_role_arn = map['DataAccessRoleArn']
         data.volume_kms_key_id = map['VolumeKmsKeyId']
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
         data.mode = map['Mode']
         data.model_kms_key_id = map['ModelKmsKeyId']
         data.version_name = map['VersionName']
@@ -724,7 +724,7 @@ module AWS::SDK::Comprehend
         data.number_of_labels = map['NumberOfLabels']
         data.number_of_trained_documents = map['NumberOfTrainedDocuments']
         data.number_of_test_documents = map['NumberOfTestDocuments']
-        data.evaluation_metrics = (Parsers::ClassifierEvaluationMetrics.parse(map['EvaluationMetrics']) unless map['EvaluationMetrics'].nil?)
+        data.evaluation_metrics = (ClassifierEvaluationMetrics.parse(map['EvaluationMetrics']) unless map['EvaluationMetrics'].nil?)
         return data
       end
     end
@@ -760,7 +760,7 @@ module AWS::SDK::Comprehend
         data.s3_uri = map['S3Uri']
         data.test_s3_uri = map['TestS3Uri']
         data.label_delimiter = map['LabelDelimiter']
-        data.augmented_manifests = (Parsers::DocumentClassifierAugmentedManifestsList.parse(map['AugmentedManifests']) unless map['AugmentedManifests'].nil?)
+        data.augmented_manifests = (DocumentClassifierAugmentedManifestsList.parse(map['AugmentedManifests']) unless map['AugmentedManifests'].nil?)
         return data
       end
     end
@@ -768,7 +768,7 @@ module AWS::SDK::Comprehend
     class DocumentClassifierAugmentedManifestsList
       def self.parse(list)
         list.map do |value|
-          Parsers::AugmentedManifestsListItem.parse(value) unless value.nil?
+          AugmentedManifestsListItem.parse(value) unless value.nil?
         end
       end
     end
@@ -778,7 +778,7 @@ module AWS::SDK::Comprehend
         data = Types::AugmentedManifestsListItem.new
         data.s3_uri = map['S3Uri']
         data.split = map['Split']
-        data.attribute_names = (Parsers::AttributeNamesList.parse(map['AttributeNames']) unless map['AttributeNames'].nil?)
+        data.attribute_names = (AttributeNamesList.parse(map['AttributeNames']) unless map['AttributeNames'].nil?)
         data.annotation_data_s3_uri = map['AnnotationDataS3Uri']
         data.source_documents_s3_uri = map['SourceDocumentsS3Uri']
         data.document_type = map['DocumentType']
@@ -801,7 +801,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dominant_language_detection_job_properties = (Parsers::DominantLanguageDetectionJobProperties.parse(map['DominantLanguageDetectionJobProperties']) unless map['DominantLanguageDetectionJobProperties'].nil?)
+        data.dominant_language_detection_job_properties = (DominantLanguageDetectionJobProperties.parse(map['DominantLanguageDetectionJobProperties']) unless map['DominantLanguageDetectionJobProperties'].nil?)
         data
       end
     end
@@ -816,11 +816,11 @@ module AWS::SDK::Comprehend
         data.message = map['Message']
         data.submit_time = Time.at(map['SubmitTime'].to_i) if map['SubmitTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
         data.data_access_role_arn = map['DataAccessRoleArn']
         data.volume_kms_key_id = map['VolumeKmsKeyId']
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
         return data
       end
     end
@@ -832,7 +832,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoint_properties = (Parsers::EndpointProperties.parse(map['EndpointProperties']) unless map['EndpointProperties'].nil?)
+        data.endpoint_properties = (EndpointProperties.parse(map['EndpointProperties']) unless map['EndpointProperties'].nil?)
         data
       end
     end
@@ -862,7 +862,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entities_detection_job_properties = (Parsers::EntitiesDetectionJobProperties.parse(map['EntitiesDetectionJobProperties']) unless map['EntitiesDetectionJobProperties'].nil?)
+        data.entities_detection_job_properties = (EntitiesDetectionJobProperties.parse(map['EntitiesDetectionJobProperties']) unless map['EntitiesDetectionJobProperties'].nil?)
         data
       end
     end
@@ -878,12 +878,12 @@ module AWS::SDK::Comprehend
         data.submit_time = Time.at(map['SubmitTime'].to_i) if map['SubmitTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.entity_recognizer_arn = map['EntityRecognizerArn']
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
         data.language_code = map['LanguageCode']
         data.data_access_role_arn = map['DataAccessRoleArn']
         data.volume_kms_key_id = map['VolumeKmsKeyId']
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
         return data
       end
     end
@@ -895,7 +895,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entity_recognizer_properties = (Parsers::EntityRecognizerProperties.parse(map['EntityRecognizerProperties']) unless map['EntityRecognizerProperties'].nil?)
+        data.entity_recognizer_properties = (EntityRecognizerProperties.parse(map['EntityRecognizerProperties']) unless map['EntityRecognizerProperties'].nil?)
         data
       end
     end
@@ -911,11 +911,11 @@ module AWS::SDK::Comprehend
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
         data.training_start_time = Time.at(map['TrainingStartTime'].to_i) if map['TrainingStartTime']
         data.training_end_time = Time.at(map['TrainingEndTime'].to_i) if map['TrainingEndTime']
-        data.input_data_config = (Parsers::EntityRecognizerInputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.recognizer_metadata = (Parsers::EntityRecognizerMetadata.parse(map['RecognizerMetadata']) unless map['RecognizerMetadata'].nil?)
+        data.input_data_config = (EntityRecognizerInputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.recognizer_metadata = (EntityRecognizerMetadata.parse(map['RecognizerMetadata']) unless map['RecognizerMetadata'].nil?)
         data.data_access_role_arn = map['DataAccessRoleArn']
         data.volume_kms_key_id = map['VolumeKmsKeyId']
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
         data.model_kms_key_id = map['ModelKmsKeyId']
         data.version_name = map['VersionName']
         data.source_model_arn = map['SourceModelArn']
@@ -928,8 +928,8 @@ module AWS::SDK::Comprehend
         data = Types::EntityRecognizerMetadata.new
         data.number_of_trained_documents = map['NumberOfTrainedDocuments']
         data.number_of_test_documents = map['NumberOfTestDocuments']
-        data.evaluation_metrics = (Parsers::EntityRecognizerEvaluationMetrics.parse(map['EvaluationMetrics']) unless map['EvaluationMetrics'].nil?)
-        data.entity_types = (Parsers::EntityRecognizerMetadataEntityTypesList.parse(map['EntityTypes']) unless map['EntityTypes'].nil?)
+        data.evaluation_metrics = (EntityRecognizerEvaluationMetrics.parse(map['EvaluationMetrics']) unless map['EvaluationMetrics'].nil?)
+        data.entity_types = (EntityRecognizerMetadataEntityTypesList.parse(map['EntityTypes']) unless map['EntityTypes'].nil?)
         return data
       end
     end
@@ -937,7 +937,7 @@ module AWS::SDK::Comprehend
     class EntityRecognizerMetadataEntityTypesList
       def self.parse(list)
         list.map do |value|
-          Parsers::EntityRecognizerMetadataEntityTypesListItem.parse(value) unless value.nil?
+          EntityRecognizerMetadataEntityTypesListItem.parse(value) unless value.nil?
         end
       end
     end
@@ -946,7 +946,7 @@ module AWS::SDK::Comprehend
       def self.parse(map)
         data = Types::EntityRecognizerMetadataEntityTypesListItem.new
         data.type = map['Type']
-        data.evaluation_metrics = (Parsers::EntityTypesEvaluationMetrics.parse(map['EvaluationMetrics']) unless map['EvaluationMetrics'].nil?)
+        data.evaluation_metrics = (EntityTypesEvaluationMetrics.parse(map['EvaluationMetrics']) unless map['EvaluationMetrics'].nil?)
         data.number_of_train_mentions = map['NumberOfTrainMentions']
         return data
       end
@@ -976,11 +976,11 @@ module AWS::SDK::Comprehend
       def self.parse(map)
         data = Types::EntityRecognizerInputDataConfig.new
         data.data_format = map['DataFormat']
-        data.entity_types = (Parsers::EntityTypesList.parse(map['EntityTypes']) unless map['EntityTypes'].nil?)
-        data.documents = (Parsers::EntityRecognizerDocuments.parse(map['Documents']) unless map['Documents'].nil?)
-        data.annotations = (Parsers::EntityRecognizerAnnotations.parse(map['Annotations']) unless map['Annotations'].nil?)
-        data.entity_list = (Parsers::EntityRecognizerEntityList.parse(map['EntityList']) unless map['EntityList'].nil?)
-        data.augmented_manifests = (Parsers::EntityRecognizerAugmentedManifestsList.parse(map['AugmentedManifests']) unless map['AugmentedManifests'].nil?)
+        data.entity_types = (EntityTypesList.parse(map['EntityTypes']) unless map['EntityTypes'].nil?)
+        data.documents = (EntityRecognizerDocuments.parse(map['Documents']) unless map['Documents'].nil?)
+        data.annotations = (EntityRecognizerAnnotations.parse(map['Annotations']) unless map['Annotations'].nil?)
+        data.entity_list = (EntityRecognizerEntityList.parse(map['EntityList']) unless map['EntityList'].nil?)
+        data.augmented_manifests = (EntityRecognizerAugmentedManifestsList.parse(map['AugmentedManifests']) unless map['AugmentedManifests'].nil?)
         return data
       end
     end
@@ -988,7 +988,7 @@ module AWS::SDK::Comprehend
     class EntityRecognizerAugmentedManifestsList
       def self.parse(list)
         list.map do |value|
-          Parsers::AugmentedManifestsListItem.parse(value) unless value.nil?
+          AugmentedManifestsListItem.parse(value) unless value.nil?
         end
       end
     end
@@ -1023,7 +1023,7 @@ module AWS::SDK::Comprehend
     class EntityTypesList
       def self.parse(list)
         list.map do |value|
-          Parsers::EntityTypesListItem.parse(value) unless value.nil?
+          EntityTypesListItem.parse(value) unless value.nil?
         end
       end
     end
@@ -1043,7 +1043,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.events_detection_job_properties = (Parsers::EventsDetectionJobProperties.parse(map['EventsDetectionJobProperties']) unless map['EventsDetectionJobProperties'].nil?)
+        data.events_detection_job_properties = (EventsDetectionJobProperties.parse(map['EventsDetectionJobProperties']) unless map['EventsDetectionJobProperties'].nil?)
         data
       end
     end
@@ -1058,11 +1058,11 @@ module AWS::SDK::Comprehend
         data.message = map['Message']
         data.submit_time = Time.at(map['SubmitTime'].to_i) if map['SubmitTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
         data.language_code = map['LanguageCode']
         data.data_access_role_arn = map['DataAccessRoleArn']
-        data.target_event_types = (Parsers::TargetEventTypes.parse(map['TargetEventTypes']) unless map['TargetEventTypes'].nil?)
+        data.target_event_types = (TargetEventTypes.parse(map['TargetEventTypes']) unless map['TargetEventTypes'].nil?)
         return data
       end
     end
@@ -1082,7 +1082,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.key_phrases_detection_job_properties = (Parsers::KeyPhrasesDetectionJobProperties.parse(map['KeyPhrasesDetectionJobProperties']) unless map['KeyPhrasesDetectionJobProperties'].nil?)
+        data.key_phrases_detection_job_properties = (KeyPhrasesDetectionJobProperties.parse(map['KeyPhrasesDetectionJobProperties']) unless map['KeyPhrasesDetectionJobProperties'].nil?)
         data
       end
     end
@@ -1097,12 +1097,12 @@ module AWS::SDK::Comprehend
         data.message = map['Message']
         data.submit_time = Time.at(map['SubmitTime'].to_i) if map['SubmitTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
         data.language_code = map['LanguageCode']
         data.data_access_role_arn = map['DataAccessRoleArn']
         data.volume_kms_key_id = map['VolumeKmsKeyId']
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
         return data
       end
     end
@@ -1114,7 +1114,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pii_entities_detection_job_properties = (Parsers::PiiEntitiesDetectionJobProperties.parse(map['PiiEntitiesDetectionJobProperties']) unless map['PiiEntitiesDetectionJobProperties'].nil?)
+        data.pii_entities_detection_job_properties = (PiiEntitiesDetectionJobProperties.parse(map['PiiEntitiesDetectionJobProperties']) unless map['PiiEntitiesDetectionJobProperties'].nil?)
         data
       end
     end
@@ -1129,9 +1129,9 @@ module AWS::SDK::Comprehend
         data.message = map['Message']
         data.submit_time = Time.at(map['SubmitTime'].to_i) if map['SubmitTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::PiiOutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
-        data.redaction_config = (Parsers::RedactionConfig.parse(map['RedactionConfig']) unless map['RedactionConfig'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (PiiOutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.redaction_config = (RedactionConfig.parse(map['RedactionConfig']) unless map['RedactionConfig'].nil?)
         data.language_code = map['LanguageCode']
         data.data_access_role_arn = map['DataAccessRoleArn']
         data.mode = map['Mode']
@@ -1142,7 +1142,7 @@ module AWS::SDK::Comprehend
     class RedactionConfig
       def self.parse(map)
         data = Types::RedactionConfig.new
-        data.pii_entity_types = (Parsers::ListOfPiiEntityTypes.parse(map['PiiEntityTypes']) unless map['PiiEntityTypes'].nil?)
+        data.pii_entity_types = (ListOfPiiEntityTypes.parse(map['PiiEntityTypes']) unless map['PiiEntityTypes'].nil?)
         data.mask_mode = map['MaskMode']
         data.mask_character = map['MaskCharacter']
         return data
@@ -1188,7 +1188,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.sentiment_detection_job_properties = (Parsers::SentimentDetectionJobProperties.parse(map['SentimentDetectionJobProperties']) unless map['SentimentDetectionJobProperties'].nil?)
+        data.sentiment_detection_job_properties = (SentimentDetectionJobProperties.parse(map['SentimentDetectionJobProperties']) unless map['SentimentDetectionJobProperties'].nil?)
         data
       end
     end
@@ -1203,12 +1203,12 @@ module AWS::SDK::Comprehend
         data.message = map['Message']
         data.submit_time = Time.at(map['SubmitTime'].to_i) if map['SubmitTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
         data.language_code = map['LanguageCode']
         data.data_access_role_arn = map['DataAccessRoleArn']
         data.volume_kms_key_id = map['VolumeKmsKeyId']
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
         return data
       end
     end
@@ -1220,7 +1220,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.targeted_sentiment_detection_job_properties = (Parsers::TargetedSentimentDetectionJobProperties.parse(map['TargetedSentimentDetectionJobProperties']) unless map['TargetedSentimentDetectionJobProperties'].nil?)
+        data.targeted_sentiment_detection_job_properties = (TargetedSentimentDetectionJobProperties.parse(map['TargetedSentimentDetectionJobProperties']) unless map['TargetedSentimentDetectionJobProperties'].nil?)
         data
       end
     end
@@ -1235,12 +1235,12 @@ module AWS::SDK::Comprehend
         data.message = map['Message']
         data.submit_time = Time.at(map['SubmitTime'].to_i) if map['SubmitTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
         data.language_code = map['LanguageCode']
         data.data_access_role_arn = map['DataAccessRoleArn']
         data.volume_kms_key_id = map['VolumeKmsKeyId']
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
         return data
       end
     end
@@ -1252,7 +1252,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.topics_detection_job_properties = (Parsers::TopicsDetectionJobProperties.parse(map['TopicsDetectionJobProperties']) unless map['TopicsDetectionJobProperties'].nil?)
+        data.topics_detection_job_properties = (TopicsDetectionJobProperties.parse(map['TopicsDetectionJobProperties']) unless map['TopicsDetectionJobProperties'].nil?)
         data
       end
     end
@@ -1267,12 +1267,12 @@ module AWS::SDK::Comprehend
         data.message = map['Message']
         data.submit_time = Time.at(map['SubmitTime'].to_i) if map['SubmitTime']
         data.end_time = Time.at(map['EndTime'].to_i) if map['EndTime']
-        data.input_data_config = (Parsers::InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
-        data.output_data_config = (Parsers::OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
+        data.input_data_config = (InputDataConfig.parse(map['InputDataConfig']) unless map['InputDataConfig'].nil?)
+        data.output_data_config = (OutputDataConfig.parse(map['OutputDataConfig']) unless map['OutputDataConfig'].nil?)
         data.number_of_topics = map['NumberOfTopics']
         data.data_access_role_arn = map['DataAccessRoleArn']
         data.volume_kms_key_id = map['VolumeKmsKeyId']
-        data.vpc_config = (Parsers::VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
+        data.vpc_config = (VpcConfig.parse(map['VpcConfig']) unless map['VpcConfig'].nil?)
         return data
       end
     end
@@ -1284,7 +1284,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.languages = (Parsers::ListOfDominantLanguages.parse(map['Languages']) unless map['Languages'].nil?)
+        data.languages = (ListOfDominantLanguages.parse(map['Languages']) unless map['Languages'].nil?)
         data
       end
     end
@@ -1296,7 +1296,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entities = (Parsers::ListOfEntities.parse(map['Entities']) unless map['Entities'].nil?)
+        data.entities = (ListOfEntities.parse(map['Entities']) unless map['Entities'].nil?)
         data
       end
     end
@@ -1308,7 +1308,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.key_phrases = (Parsers::ListOfKeyPhrases.parse(map['KeyPhrases']) unless map['KeyPhrases'].nil?)
+        data.key_phrases = (ListOfKeyPhrases.parse(map['KeyPhrases']) unless map['KeyPhrases'].nil?)
         data
       end
     end
@@ -1320,7 +1320,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entities = (Parsers::ListOfPiiEntities.parse(map['Entities']) unless map['Entities'].nil?)
+        data.entities = (ListOfPiiEntities.parse(map['Entities']) unless map['Entities'].nil?)
         data
       end
     end
@@ -1328,7 +1328,7 @@ module AWS::SDK::Comprehend
     class ListOfPiiEntities
       def self.parse(list)
         list.map do |value|
-          Parsers::PiiEntity.parse(value) unless value.nil?
+          PiiEntity.parse(value) unless value.nil?
         end
       end
     end
@@ -1352,7 +1352,7 @@ module AWS::SDK::Comprehend
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.sentiment = map['Sentiment']
-        data.sentiment_score = (Parsers::SentimentScore.parse(map['SentimentScore']) unless map['SentimentScore'].nil?)
+        data.sentiment_score = (SentimentScore.parse(map['SentimentScore']) unless map['SentimentScore'].nil?)
         data
       end
     end
@@ -1364,7 +1364,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.syntax_tokens = (Parsers::ListOfSyntaxTokens.parse(map['SyntaxTokens']) unless map['SyntaxTokens'].nil?)
+        data.syntax_tokens = (ListOfSyntaxTokens.parse(map['SyntaxTokens']) unless map['SyntaxTokens'].nil?)
         data
       end
     end
@@ -1388,7 +1388,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.document_classification_job_properties_list = (Parsers::DocumentClassificationJobPropertiesList.parse(map['DocumentClassificationJobPropertiesList']) unless map['DocumentClassificationJobPropertiesList'].nil?)
+        data.document_classification_job_properties_list = (DocumentClassificationJobPropertiesList.parse(map['DocumentClassificationJobPropertiesList']) unless map['DocumentClassificationJobPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1397,7 +1397,7 @@ module AWS::SDK::Comprehend
     class DocumentClassificationJobPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::DocumentClassificationJobProperties.parse(value) unless value.nil?
+          DocumentClassificationJobProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -1421,7 +1421,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.document_classifier_summaries_list = (Parsers::DocumentClassifierSummariesList.parse(map['DocumentClassifierSummariesList']) unless map['DocumentClassifierSummariesList'].nil?)
+        data.document_classifier_summaries_list = (DocumentClassifierSummariesList.parse(map['DocumentClassifierSummariesList']) unless map['DocumentClassifierSummariesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1430,7 +1430,7 @@ module AWS::SDK::Comprehend
     class DocumentClassifierSummariesList
       def self.parse(list)
         list.map do |value|
-          Parsers::DocumentClassifierSummary.parse(value) unless value.nil?
+          DocumentClassifierSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1454,7 +1454,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.document_classifier_properties_list = (Parsers::DocumentClassifierPropertiesList.parse(map['DocumentClassifierPropertiesList']) unless map['DocumentClassifierPropertiesList'].nil?)
+        data.document_classifier_properties_list = (DocumentClassifierPropertiesList.parse(map['DocumentClassifierPropertiesList']) unless map['DocumentClassifierPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1463,7 +1463,7 @@ module AWS::SDK::Comprehend
     class DocumentClassifierPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::DocumentClassifierProperties.parse(value) unless value.nil?
+          DocumentClassifierProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -1475,7 +1475,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.dominant_language_detection_job_properties_list = (Parsers::DominantLanguageDetectionJobPropertiesList.parse(map['DominantLanguageDetectionJobPropertiesList']) unless map['DominantLanguageDetectionJobPropertiesList'].nil?)
+        data.dominant_language_detection_job_properties_list = (DominantLanguageDetectionJobPropertiesList.parse(map['DominantLanguageDetectionJobPropertiesList']) unless map['DominantLanguageDetectionJobPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1484,7 +1484,7 @@ module AWS::SDK::Comprehend
     class DominantLanguageDetectionJobPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::DominantLanguageDetectionJobProperties.parse(value) unless value.nil?
+          DominantLanguageDetectionJobProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -1496,7 +1496,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.endpoint_properties_list = (Parsers::EndpointPropertiesList.parse(map['EndpointPropertiesList']) unless map['EndpointPropertiesList'].nil?)
+        data.endpoint_properties_list = (EndpointPropertiesList.parse(map['EndpointPropertiesList']) unless map['EndpointPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1505,7 +1505,7 @@ module AWS::SDK::Comprehend
     class EndpointPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::EndpointProperties.parse(value) unless value.nil?
+          EndpointProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -1517,7 +1517,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entities_detection_job_properties_list = (Parsers::EntitiesDetectionJobPropertiesList.parse(map['EntitiesDetectionJobPropertiesList']) unless map['EntitiesDetectionJobPropertiesList'].nil?)
+        data.entities_detection_job_properties_list = (EntitiesDetectionJobPropertiesList.parse(map['EntitiesDetectionJobPropertiesList']) unless map['EntitiesDetectionJobPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1526,7 +1526,7 @@ module AWS::SDK::Comprehend
     class EntitiesDetectionJobPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::EntitiesDetectionJobProperties.parse(value) unless value.nil?
+          EntitiesDetectionJobProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -1538,7 +1538,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entity_recognizer_summaries_list = (Parsers::EntityRecognizerSummariesList.parse(map['EntityRecognizerSummariesList']) unless map['EntityRecognizerSummariesList'].nil?)
+        data.entity_recognizer_summaries_list = (EntityRecognizerSummariesList.parse(map['EntityRecognizerSummariesList']) unless map['EntityRecognizerSummariesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1547,7 +1547,7 @@ module AWS::SDK::Comprehend
     class EntityRecognizerSummariesList
       def self.parse(list)
         list.map do |value|
-          Parsers::EntityRecognizerSummary.parse(value) unless value.nil?
+          EntityRecognizerSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -1571,7 +1571,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.entity_recognizer_properties_list = (Parsers::EntityRecognizerPropertiesList.parse(map['EntityRecognizerPropertiesList']) unless map['EntityRecognizerPropertiesList'].nil?)
+        data.entity_recognizer_properties_list = (EntityRecognizerPropertiesList.parse(map['EntityRecognizerPropertiesList']) unless map['EntityRecognizerPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1580,7 +1580,7 @@ module AWS::SDK::Comprehend
     class EntityRecognizerPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::EntityRecognizerProperties.parse(value) unless value.nil?
+          EntityRecognizerProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -1592,7 +1592,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.events_detection_job_properties_list = (Parsers::EventsDetectionJobPropertiesList.parse(map['EventsDetectionJobPropertiesList']) unless map['EventsDetectionJobPropertiesList'].nil?)
+        data.events_detection_job_properties_list = (EventsDetectionJobPropertiesList.parse(map['EventsDetectionJobPropertiesList']) unless map['EventsDetectionJobPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1601,7 +1601,7 @@ module AWS::SDK::Comprehend
     class EventsDetectionJobPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::EventsDetectionJobProperties.parse(value) unless value.nil?
+          EventsDetectionJobProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -1613,7 +1613,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.key_phrases_detection_job_properties_list = (Parsers::KeyPhrasesDetectionJobPropertiesList.parse(map['KeyPhrasesDetectionJobPropertiesList']) unless map['KeyPhrasesDetectionJobPropertiesList'].nil?)
+        data.key_phrases_detection_job_properties_list = (KeyPhrasesDetectionJobPropertiesList.parse(map['KeyPhrasesDetectionJobPropertiesList']) unless map['KeyPhrasesDetectionJobPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1622,7 +1622,7 @@ module AWS::SDK::Comprehend
     class KeyPhrasesDetectionJobPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::KeyPhrasesDetectionJobProperties.parse(value) unless value.nil?
+          KeyPhrasesDetectionJobProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -1634,7 +1634,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.pii_entities_detection_job_properties_list = (Parsers::PiiEntitiesDetectionJobPropertiesList.parse(map['PiiEntitiesDetectionJobPropertiesList']) unless map['PiiEntitiesDetectionJobPropertiesList'].nil?)
+        data.pii_entities_detection_job_properties_list = (PiiEntitiesDetectionJobPropertiesList.parse(map['PiiEntitiesDetectionJobPropertiesList']) unless map['PiiEntitiesDetectionJobPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1643,7 +1643,7 @@ module AWS::SDK::Comprehend
     class PiiEntitiesDetectionJobPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::PiiEntitiesDetectionJobProperties.parse(value) unless value.nil?
+          PiiEntitiesDetectionJobProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -1655,7 +1655,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.sentiment_detection_job_properties_list = (Parsers::SentimentDetectionJobPropertiesList.parse(map['SentimentDetectionJobPropertiesList']) unless map['SentimentDetectionJobPropertiesList'].nil?)
+        data.sentiment_detection_job_properties_list = (SentimentDetectionJobPropertiesList.parse(map['SentimentDetectionJobPropertiesList']) unless map['SentimentDetectionJobPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1664,7 +1664,7 @@ module AWS::SDK::Comprehend
     class SentimentDetectionJobPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::SentimentDetectionJobProperties.parse(value) unless value.nil?
+          SentimentDetectionJobProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -1677,7 +1677,7 @@ module AWS::SDK::Comprehend
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.resource_arn = map['ResourceArn']
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -1685,7 +1685,7 @@ module AWS::SDK::Comprehend
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -1706,7 +1706,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.targeted_sentiment_detection_job_properties_list = (Parsers::TargetedSentimentDetectionJobPropertiesList.parse(map['TargetedSentimentDetectionJobPropertiesList']) unless map['TargetedSentimentDetectionJobPropertiesList'].nil?)
+        data.targeted_sentiment_detection_job_properties_list = (TargetedSentimentDetectionJobPropertiesList.parse(map['TargetedSentimentDetectionJobPropertiesList']) unless map['TargetedSentimentDetectionJobPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1715,7 +1715,7 @@ module AWS::SDK::Comprehend
     class TargetedSentimentDetectionJobPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::TargetedSentimentDetectionJobProperties.parse(value) unless value.nil?
+          TargetedSentimentDetectionJobProperties.parse(value) unless value.nil?
         end
       end
     end
@@ -1727,7 +1727,7 @@ module AWS::SDK::Comprehend
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.topics_detection_job_properties_list = (Parsers::TopicsDetectionJobPropertiesList.parse(map['TopicsDetectionJobPropertiesList']) unless map['TopicsDetectionJobPropertiesList'].nil?)
+        data.topics_detection_job_properties_list = (TopicsDetectionJobPropertiesList.parse(map['TopicsDetectionJobPropertiesList']) unless map['TopicsDetectionJobPropertiesList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -1736,7 +1736,7 @@ module AWS::SDK::Comprehend
     class TopicsDetectionJobPropertiesList
       def self.parse(list)
         list.map do |value|
-          Parsers::TopicsDetectionJobProperties.parse(value) unless value.nil?
+          TopicsDetectionJobProperties.parse(value) unless value.nil?
         end
       end
     end

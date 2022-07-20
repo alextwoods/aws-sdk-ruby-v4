@@ -164,7 +164,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(http_resp)
         data = Types::GetMemberOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.member = (Parsers::Member.parse(map['Member']) unless map['Member'].nil?)
+        data.member = (Member.parse(map['Member']) unless map['Member'].nil?)
         data
       end
     end
@@ -176,11 +176,11 @@ module AWS::SDK::ManagedBlockchain
         data.id = map['Id']
         data.name = map['Name']
         data.description = map['Description']
-        data.framework_attributes = (Parsers::MemberFrameworkAttributes.parse(map['FrameworkAttributes']) unless map['FrameworkAttributes'].nil?)
-        data.log_publishing_configuration = (Parsers::MemberLogPublishingConfiguration.parse(map['LogPublishingConfiguration']) unless map['LogPublishingConfiguration'].nil?)
+        data.framework_attributes = (MemberFrameworkAttributes.parse(map['FrameworkAttributes']) unless map['FrameworkAttributes'].nil?)
+        data.log_publishing_configuration = (MemberLogPublishingConfiguration.parse(map['LogPublishingConfiguration']) unless map['LogPublishingConfiguration'].nil?)
         data.status = map['Status']
         data.creation_date = Time.parse(map['CreationDate']) if map['CreationDate']
-        data.tags = (Parsers::OutputTagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (OutputTagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.arn = map['Arn']
         data.kms_key_arn = map['KmsKeyArn']
         return data
@@ -200,7 +200,7 @@ module AWS::SDK::ManagedBlockchain
     class MemberLogPublishingConfiguration
       def self.parse(map)
         data = Types::MemberLogPublishingConfiguration.new
-        data.fabric = (Parsers::MemberFabricLogPublishingConfiguration.parse(map['Fabric']) unless map['Fabric'].nil?)
+        data.fabric = (MemberFabricLogPublishingConfiguration.parse(map['Fabric']) unless map['Fabric'].nil?)
         return data
       end
     end
@@ -208,7 +208,7 @@ module AWS::SDK::ManagedBlockchain
     class MemberFabricLogPublishingConfiguration
       def self.parse(map)
         data = Types::MemberFabricLogPublishingConfiguration.new
-        data.ca_logs = (Parsers::LogConfigurations.parse(map['CaLogs']) unless map['CaLogs'].nil?)
+        data.ca_logs = (LogConfigurations.parse(map['CaLogs']) unless map['CaLogs'].nil?)
         return data
       end
     end
@@ -216,7 +216,7 @@ module AWS::SDK::ManagedBlockchain
     class LogConfigurations
       def self.parse(map)
         data = Types::LogConfigurations.new
-        data.cloudwatch = (Parsers::LogConfiguration.parse(map['Cloudwatch']) unless map['Cloudwatch'].nil?)
+        data.cloudwatch = (LogConfiguration.parse(map['Cloudwatch']) unless map['Cloudwatch'].nil?)
         return data
       end
     end
@@ -232,7 +232,7 @@ module AWS::SDK::ManagedBlockchain
     class MemberFrameworkAttributes
       def self.parse(map)
         data = Types::MemberFrameworkAttributes.new
-        data.fabric = (Parsers::MemberFabricAttributes.parse(map['Fabric']) unless map['Fabric'].nil?)
+        data.fabric = (MemberFabricAttributes.parse(map['Fabric']) unless map['Fabric'].nil?)
         return data
       end
     end
@@ -251,7 +251,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(http_resp)
         data = Types::GetNetworkOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.network = (Parsers::Network.parse(map['Network']) unless map['Network'].nil?)
+        data.network = (Network.parse(map['Network']) unless map['Network'].nil?)
         data
       end
     end
@@ -264,12 +264,12 @@ module AWS::SDK::ManagedBlockchain
         data.description = map['Description']
         data.framework = map['Framework']
         data.framework_version = map['FrameworkVersion']
-        data.framework_attributes = (Parsers::NetworkFrameworkAttributes.parse(map['FrameworkAttributes']) unless map['FrameworkAttributes'].nil?)
+        data.framework_attributes = (NetworkFrameworkAttributes.parse(map['FrameworkAttributes']) unless map['FrameworkAttributes'].nil?)
         data.vpc_endpoint_service_name = map['VpcEndpointServiceName']
-        data.voting_policy = (Parsers::VotingPolicy.parse(map['VotingPolicy']) unless map['VotingPolicy'].nil?)
+        data.voting_policy = (VotingPolicy.parse(map['VotingPolicy']) unless map['VotingPolicy'].nil?)
         data.status = map['Status']
         data.creation_date = Time.parse(map['CreationDate']) if map['CreationDate']
-        data.tags = (Parsers::OutputTagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (OutputTagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.arn = map['Arn']
         return data
       end
@@ -278,7 +278,7 @@ module AWS::SDK::ManagedBlockchain
     class VotingPolicy
       def self.parse(map)
         data = Types::VotingPolicy.new
-        data.approval_threshold_policy = (Parsers::ApprovalThresholdPolicy.parse(map['ApprovalThresholdPolicy']) unless map['ApprovalThresholdPolicy'].nil?)
+        data.approval_threshold_policy = (ApprovalThresholdPolicy.parse(map['ApprovalThresholdPolicy']) unless map['ApprovalThresholdPolicy'].nil?)
         return data
       end
     end
@@ -296,8 +296,8 @@ module AWS::SDK::ManagedBlockchain
     class NetworkFrameworkAttributes
       def self.parse(map)
         data = Types::NetworkFrameworkAttributes.new
-        data.fabric = (Parsers::NetworkFabricAttributes.parse(map['Fabric']) unless map['Fabric'].nil?)
-        data.ethereum = (Parsers::NetworkEthereumAttributes.parse(map['Ethereum']) unless map['Ethereum'].nil?)
+        data.fabric = (NetworkFabricAttributes.parse(map['Fabric']) unless map['Fabric'].nil?)
+        data.ethereum = (NetworkEthereumAttributes.parse(map['Ethereum']) unless map['Ethereum'].nil?)
         return data
       end
     end
@@ -324,7 +324,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(http_resp)
         data = Types::GetNodeOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.node = (Parsers::Node.parse(map['Node']) unless map['Node'].nil?)
+        data.node = (Node.parse(map['Node']) unless map['Node'].nil?)
         data
       end
     end
@@ -337,12 +337,12 @@ module AWS::SDK::ManagedBlockchain
         data.id = map['Id']
         data.instance_type = map['InstanceType']
         data.availability_zone = map['AvailabilityZone']
-        data.framework_attributes = (Parsers::NodeFrameworkAttributes.parse(map['FrameworkAttributes']) unless map['FrameworkAttributes'].nil?)
-        data.log_publishing_configuration = (Parsers::NodeLogPublishingConfiguration.parse(map['LogPublishingConfiguration']) unless map['LogPublishingConfiguration'].nil?)
+        data.framework_attributes = (NodeFrameworkAttributes.parse(map['FrameworkAttributes']) unless map['FrameworkAttributes'].nil?)
+        data.log_publishing_configuration = (NodeLogPublishingConfiguration.parse(map['LogPublishingConfiguration']) unless map['LogPublishingConfiguration'].nil?)
         data.state_db = map['StateDB']
         data.status = map['Status']
         data.creation_date = Time.parse(map['CreationDate']) if map['CreationDate']
-        data.tags = (Parsers::OutputTagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (OutputTagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.arn = map['Arn']
         data.kms_key_arn = map['KmsKeyArn']
         return data
@@ -352,7 +352,7 @@ module AWS::SDK::ManagedBlockchain
     class NodeLogPublishingConfiguration
       def self.parse(map)
         data = Types::NodeLogPublishingConfiguration.new
-        data.fabric = (Parsers::NodeFabricLogPublishingConfiguration.parse(map['Fabric']) unless map['Fabric'].nil?)
+        data.fabric = (NodeFabricLogPublishingConfiguration.parse(map['Fabric']) unless map['Fabric'].nil?)
         return data
       end
     end
@@ -360,8 +360,8 @@ module AWS::SDK::ManagedBlockchain
     class NodeFabricLogPublishingConfiguration
       def self.parse(map)
         data = Types::NodeFabricLogPublishingConfiguration.new
-        data.chaincode_logs = (Parsers::LogConfigurations.parse(map['ChaincodeLogs']) unless map['ChaincodeLogs'].nil?)
-        data.peer_logs = (Parsers::LogConfigurations.parse(map['PeerLogs']) unless map['PeerLogs'].nil?)
+        data.chaincode_logs = (LogConfigurations.parse(map['ChaincodeLogs']) unless map['ChaincodeLogs'].nil?)
+        data.peer_logs = (LogConfigurations.parse(map['PeerLogs']) unless map['PeerLogs'].nil?)
         return data
       end
     end
@@ -369,8 +369,8 @@ module AWS::SDK::ManagedBlockchain
     class NodeFrameworkAttributes
       def self.parse(map)
         data = Types::NodeFrameworkAttributes.new
-        data.fabric = (Parsers::NodeFabricAttributes.parse(map['Fabric']) unless map['Fabric'].nil?)
-        data.ethereum = (Parsers::NodeEthereumAttributes.parse(map['Ethereum']) unless map['Ethereum'].nil?)
+        data.fabric = (NodeFabricAttributes.parse(map['Fabric']) unless map['Fabric'].nil?)
+        data.ethereum = (NodeEthereumAttributes.parse(map['Ethereum']) unless map['Ethereum'].nil?)
         return data
       end
     end
@@ -398,7 +398,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(http_resp)
         data = Types::GetProposalOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.proposal = (Parsers::Proposal.parse(map['Proposal']) unless map['Proposal'].nil?)
+        data.proposal = (Proposal.parse(map['Proposal']) unless map['Proposal'].nil?)
         data
       end
     end
@@ -409,7 +409,7 @@ module AWS::SDK::ManagedBlockchain
         data.proposal_id = map['ProposalId']
         data.network_id = map['NetworkId']
         data.description = map['Description']
-        data.actions = (Parsers::ProposalActions.parse(map['Actions']) unless map['Actions'].nil?)
+        data.actions = (ProposalActions.parse(map['Actions']) unless map['Actions'].nil?)
         data.proposed_by_member_id = map['ProposedByMemberId']
         data.proposed_by_member_name = map['ProposedByMemberName']
         data.status = map['Status']
@@ -418,7 +418,7 @@ module AWS::SDK::ManagedBlockchain
         data.yes_vote_count = map['YesVoteCount']
         data.no_vote_count = map['NoVoteCount']
         data.outstanding_vote_count = map['OutstandingVoteCount']
-        data.tags = (Parsers::OutputTagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (OutputTagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data.arn = map['Arn']
         return data
       end
@@ -427,8 +427,8 @@ module AWS::SDK::ManagedBlockchain
     class ProposalActions
       def self.parse(map)
         data = Types::ProposalActions.new
-        data.invitations = (Parsers::InviteActionList.parse(map['Invitations']) unless map['Invitations'].nil?)
-        data.removals = (Parsers::RemoveActionList.parse(map['Removals']) unless map['Removals'].nil?)
+        data.invitations = (InviteActionList.parse(map['Invitations']) unless map['Invitations'].nil?)
+        data.removals = (RemoveActionList.parse(map['Removals']) unless map['Removals'].nil?)
         return data
       end
     end
@@ -437,7 +437,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::RemoveAction.parse(value) unless value.nil?
+          data << RemoveAction.parse(value) unless value.nil?
         end
         data
       end
@@ -455,7 +455,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::InviteAction.parse(value) unless value.nil?
+          data << InviteAction.parse(value) unless value.nil?
         end
         data
       end
@@ -474,7 +474,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(http_resp)
         data = Types::ListInvitationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.invitations = (Parsers::InvitationList.parse(map['Invitations']) unless map['Invitations'].nil?)
+        data.invitations = (InvitationList.parse(map['Invitations']) unless map['Invitations'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -484,7 +484,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Invitation.parse(value) unless value.nil?
+          data << Invitation.parse(value) unless value.nil?
         end
         data
       end
@@ -497,7 +497,7 @@ module AWS::SDK::ManagedBlockchain
         data.creation_date = Time.parse(map['CreationDate']) if map['CreationDate']
         data.expiration_date = Time.parse(map['ExpirationDate']) if map['ExpirationDate']
         data.status = map['Status']
-        data.network_summary = (Parsers::NetworkSummary.parse(map['NetworkSummary']) unless map['NetworkSummary'].nil?)
+        data.network_summary = (NetworkSummary.parse(map['NetworkSummary']) unless map['NetworkSummary'].nil?)
         data.arn = map['Arn']
         return data
       end
@@ -523,7 +523,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(http_resp)
         data = Types::ListMembersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.members = (Parsers::MemberSummaryList.parse(map['Members']) unless map['Members'].nil?)
+        data.members = (MemberSummaryList.parse(map['Members']) unless map['Members'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -533,7 +533,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::MemberSummary.parse(value) unless value.nil?
+          data << MemberSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -558,7 +558,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(http_resp)
         data = Types::ListNetworksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.networks = (Parsers::NetworkSummaryList.parse(map['Networks']) unless map['Networks'].nil?)
+        data.networks = (NetworkSummaryList.parse(map['Networks']) unless map['Networks'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -568,7 +568,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NetworkSummary.parse(value) unless value.nil?
+          data << NetworkSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -579,7 +579,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(http_resp)
         data = Types::ListNodesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.nodes = (Parsers::NodeSummaryList.parse(map['Nodes']) unless map['Nodes'].nil?)
+        data.nodes = (NodeSummaryList.parse(map['Nodes']) unless map['Nodes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -589,7 +589,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NodeSummary.parse(value) unless value.nil?
+          data << NodeSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -613,7 +613,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(http_resp)
         data = Types::ListProposalVotesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.proposal_votes = (Parsers::ProposalVoteList.parse(map['ProposalVotes']) unless map['ProposalVotes'].nil?)
+        data.proposal_votes = (ProposalVoteList.parse(map['ProposalVotes']) unless map['ProposalVotes'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -623,7 +623,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VoteSummary.parse(value) unless value.nil?
+          data << VoteSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -644,7 +644,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(http_resp)
         data = Types::ListProposalsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.proposals = (Parsers::ProposalSummaryList.parse(map['Proposals']) unless map['Proposals'].nil?)
+        data.proposals = (ProposalSummaryList.parse(map['Proposals']) unless map['Proposals'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -654,7 +654,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ProposalSummary.parse(value) unless value.nil?
+          data << ProposalSummary.parse(value) unless value.nil?
         end
         data
       end
@@ -680,7 +680,7 @@ module AWS::SDK::ManagedBlockchain
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::OutputTagMap.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (OutputTagMap.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end

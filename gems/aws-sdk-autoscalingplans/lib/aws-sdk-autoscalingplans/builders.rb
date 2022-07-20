@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::AutoScalingPlans
   module Builders
 
@@ -19,9 +21,9 @@ module AWS::SDK::AutoScalingPlans
         http_req.headers['X-Amz-Target'] = 'AnyScaleScalingPlannerFrontendService.CreateScalingPlan'
         data = {}
         data['ScalingPlanName'] = input[:scaling_plan_name] unless input[:scaling_plan_name].nil?
-        data['ApplicationSource'] = Builders::ApplicationSource.build(input[:application_source]) unless input[:application_source].nil?
-        data['ScalingInstructions'] = Builders::ScalingInstructions.build(input[:scaling_instructions]) unless input[:scaling_instructions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ApplicationSource'] = ApplicationSource.build(input[:application_source]) unless input[:application_source].nil?
+        data['ScalingInstructions'] = ScalingInstructions.build(input[:scaling_instructions]) unless input[:scaling_instructions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -30,7 +32,7 @@ module AWS::SDK::AutoScalingPlans
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ScalingInstruction.build(element) unless element.nil?
+          data << ScalingInstruction.build(element) unless element.nil?
         end
         data
       end
@@ -45,9 +47,9 @@ module AWS::SDK::AutoScalingPlans
         data['ScalableDimension'] = input[:scalable_dimension] unless input[:scalable_dimension].nil?
         data['MinCapacity'] = input[:min_capacity] unless input[:min_capacity].nil?
         data['MaxCapacity'] = input[:max_capacity] unless input[:max_capacity].nil?
-        data['TargetTrackingConfigurations'] = Builders::TargetTrackingConfigurations.build(input[:target_tracking_configurations]) unless input[:target_tracking_configurations].nil?
-        data['PredefinedLoadMetricSpecification'] = Builders::PredefinedLoadMetricSpecification.build(input[:predefined_load_metric_specification]) unless input[:predefined_load_metric_specification].nil?
-        data['CustomizedLoadMetricSpecification'] = Builders::CustomizedLoadMetricSpecification.build(input[:customized_load_metric_specification]) unless input[:customized_load_metric_specification].nil?
+        data['TargetTrackingConfigurations'] = TargetTrackingConfigurations.build(input[:target_tracking_configurations]) unless input[:target_tracking_configurations].nil?
+        data['PredefinedLoadMetricSpecification'] = PredefinedLoadMetricSpecification.build(input[:predefined_load_metric_specification]) unless input[:predefined_load_metric_specification].nil?
+        data['CustomizedLoadMetricSpecification'] = CustomizedLoadMetricSpecification.build(input[:customized_load_metric_specification]) unless input[:customized_load_metric_specification].nil?
         data['ScheduledActionBufferTime'] = input[:scheduled_action_buffer_time] unless input[:scheduled_action_buffer_time].nil?
         data['PredictiveScalingMaxCapacityBehavior'] = input[:predictive_scaling_max_capacity_behavior] unless input[:predictive_scaling_max_capacity_behavior].nil?
         data['PredictiveScalingMaxCapacityBuffer'] = input[:predictive_scaling_max_capacity_buffer] unless input[:predictive_scaling_max_capacity_buffer].nil?
@@ -64,7 +66,7 @@ module AWS::SDK::AutoScalingPlans
         data = {}
         data['MetricName'] = input[:metric_name] unless input[:metric_name].nil?
         data['Namespace'] = input[:namespace] unless input[:namespace].nil?
-        data['Dimensions'] = Builders::MetricDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
+        data['Dimensions'] = MetricDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
         data['Statistic'] = input[:statistic] unless input[:statistic].nil?
         data['Unit'] = input[:unit] unless input[:unit].nil?
         data
@@ -76,7 +78,7 @@ module AWS::SDK::AutoScalingPlans
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MetricDimension.build(element) unless element.nil?
+          data << MetricDimension.build(element) unless element.nil?
         end
         data
       end
@@ -107,7 +109,7 @@ module AWS::SDK::AutoScalingPlans
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TargetTrackingConfiguration.build(element) unless element.nil?
+          data << TargetTrackingConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -117,8 +119,8 @@ module AWS::SDK::AutoScalingPlans
     class TargetTrackingConfiguration
       def self.build(input)
         data = {}
-        data['PredefinedScalingMetricSpecification'] = Builders::PredefinedScalingMetricSpecification.build(input[:predefined_scaling_metric_specification]) unless input[:predefined_scaling_metric_specification].nil?
-        data['CustomizedScalingMetricSpecification'] = Builders::CustomizedScalingMetricSpecification.build(input[:customized_scaling_metric_specification]) unless input[:customized_scaling_metric_specification].nil?
+        data['PredefinedScalingMetricSpecification'] = PredefinedScalingMetricSpecification.build(input[:predefined_scaling_metric_specification]) unless input[:predefined_scaling_metric_specification].nil?
+        data['CustomizedScalingMetricSpecification'] = CustomizedScalingMetricSpecification.build(input[:customized_scaling_metric_specification]) unless input[:customized_scaling_metric_specification].nil?
         data['TargetValue'] = Hearth::NumberHelper.serialize(input[:target_value]) unless input[:target_value].nil?
         data['DisableScaleIn'] = input[:disable_scale_in] unless input[:disable_scale_in].nil?
         data['ScaleOutCooldown'] = input[:scale_out_cooldown] unless input[:scale_out_cooldown].nil?
@@ -134,7 +136,7 @@ module AWS::SDK::AutoScalingPlans
         data = {}
         data['MetricName'] = input[:metric_name] unless input[:metric_name].nil?
         data['Namespace'] = input[:namespace] unless input[:namespace].nil?
-        data['Dimensions'] = Builders::MetricDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
+        data['Dimensions'] = MetricDimensions.build(input[:dimensions]) unless input[:dimensions].nil?
         data['Statistic'] = input[:statistic] unless input[:statistic].nil?
         data['Unit'] = input[:unit] unless input[:unit].nil?
         data
@@ -156,7 +158,7 @@ module AWS::SDK::AutoScalingPlans
       def self.build(input)
         data = {}
         data['CloudFormationStackARN'] = input[:cloud_formation_stack_arn] unless input[:cloud_formation_stack_arn].nil?
-        data['TagFilters'] = Builders::TagFilters.build(input[:tag_filters]) unless input[:tag_filters].nil?
+        data['TagFilters'] = TagFilters.build(input[:tag_filters]) unless input[:tag_filters].nil?
         data
       end
     end
@@ -166,7 +168,7 @@ module AWS::SDK::AutoScalingPlans
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TagFilter.build(element) unless element.nil?
+          data << TagFilter.build(element) unless element.nil?
         end
         data
       end
@@ -177,7 +179,7 @@ module AWS::SDK::AutoScalingPlans
       def self.build(input)
         data = {}
         data['Key'] = input[:key] unless input[:key].nil?
-        data['Values'] = Builders::TagValues.build(input[:values]) unless input[:values].nil?
+        data['Values'] = TagValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -203,7 +205,7 @@ module AWS::SDK::AutoScalingPlans
         data = {}
         data['ScalingPlanName'] = input[:scaling_plan_name] unless input[:scaling_plan_name].nil?
         data['ScalingPlanVersion'] = input[:scaling_plan_version] unless input[:scaling_plan_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -219,7 +221,7 @@ module AWS::SDK::AutoScalingPlans
         data['ScalingPlanVersion'] = input[:scaling_plan_version] unless input[:scaling_plan_version].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -231,12 +233,12 @@ module AWS::SDK::AutoScalingPlans
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'AnyScaleScalingPlannerFrontendService.DescribeScalingPlans'
         data = {}
-        data['ScalingPlanNames'] = Builders::ScalingPlanNames.build(input[:scaling_plan_names]) unless input[:scaling_plan_names].nil?
+        data['ScalingPlanNames'] = ScalingPlanNames.build(input[:scaling_plan_names]) unless input[:scaling_plan_names].nil?
         data['ScalingPlanVersion'] = input[:scaling_plan_version] unless input[:scaling_plan_version].nil?
-        data['ApplicationSources'] = Builders::ApplicationSources.build(input[:application_sources]) unless input[:application_sources].nil?
+        data['ApplicationSources'] = ApplicationSources.build(input[:application_sources]) unless input[:application_sources].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -245,7 +247,7 @@ module AWS::SDK::AutoScalingPlans
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ApplicationSource.build(element) unless element.nil?
+          data << ApplicationSource.build(element) unless element.nil?
         end
         data
       end
@@ -278,7 +280,7 @@ module AWS::SDK::AutoScalingPlans
         data['ForecastDataType'] = input[:forecast_data_type] unless input[:forecast_data_type].nil?
         data['StartTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['EndTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -292,9 +294,9 @@ module AWS::SDK::AutoScalingPlans
         data = {}
         data['ScalingPlanName'] = input[:scaling_plan_name] unless input[:scaling_plan_name].nil?
         data['ScalingPlanVersion'] = input[:scaling_plan_version] unless input[:scaling_plan_version].nil?
-        data['ApplicationSource'] = Builders::ApplicationSource.build(input[:application_source]) unless input[:application_source].nil?
-        data['ScalingInstructions'] = Builders::ScalingInstructions.build(input[:scaling_instructions]) unless input[:scaling_instructions].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ApplicationSource'] = ApplicationSource.build(input[:application_source]) unless input[:application_source].nil?
+        data['ScalingInstructions'] = ScalingInstructions.build(input[:scaling_instructions]) unless input[:scaling_instructions].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

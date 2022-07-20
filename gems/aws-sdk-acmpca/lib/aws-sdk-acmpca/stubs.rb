@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::ACMPCA
   module Stubs
 
@@ -21,7 +23,7 @@ module AWS::SDK::ACMPCA
       def self.stub(http_resp, stub:)
         data = {}
         data['CertificateAuthorityArn'] = stub[:certificate_authority_arn] unless stub[:certificate_authority_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -39,7 +41,7 @@ module AWS::SDK::ACMPCA
         data = {}
         data['AuditReportId'] = stub[:audit_report_id] unless stub[:audit_report_id].nil?
         data['S3Key'] = stub[:s3_key] unless stub[:s3_key].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -53,7 +55,7 @@ module AWS::SDK::ACMPCA
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -67,7 +69,7 @@ module AWS::SDK::ACMPCA
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -81,7 +83,7 @@ module AWS::SDK::ACMPCA
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -95,7 +97,7 @@ module AWS::SDK::ACMPCA
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -110,8 +112,8 @@ module AWS::SDK::ACMPCA
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CertificateAuthority'] = Stubs::CertificateAuthority.stub(stub[:certificate_authority]) unless stub[:certificate_authority].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['CertificateAuthority'] = CertificateAuthority.stub(stub[:certificate_authority]) unless stub[:certificate_authority].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -152,8 +154,8 @@ module AWS::SDK::ACMPCA
         data['NotBefore'] = Hearth::TimeHelper.to_epoch_seconds(stub[:not_before]).to_i unless stub[:not_before].nil?
         data['NotAfter'] = Hearth::TimeHelper.to_epoch_seconds(stub[:not_after]).to_i unless stub[:not_after].nil?
         data['FailureReason'] = stub[:failure_reason] unless stub[:failure_reason].nil?
-        data['CertificateAuthorityConfiguration'] = Stubs::CertificateAuthorityConfiguration.stub(stub[:certificate_authority_configuration]) unless stub[:certificate_authority_configuration].nil?
-        data['RevocationConfiguration'] = Stubs::RevocationConfiguration.stub(stub[:revocation_configuration]) unless stub[:revocation_configuration].nil?
+        data['CertificateAuthorityConfiguration'] = CertificateAuthorityConfiguration.stub(stub[:certificate_authority_configuration]) unless stub[:certificate_authority_configuration].nil?
+        data['RevocationConfiguration'] = RevocationConfiguration.stub(stub[:revocation_configuration]) unless stub[:revocation_configuration].nil?
         data['RestorableUntil'] = Hearth::TimeHelper.to_epoch_seconds(stub[:restorable_until]).to_i unless stub[:restorable_until].nil?
         data['KeyStorageSecurityStandard'] = stub[:key_storage_security_standard] unless stub[:key_storage_security_standard].nil?
         data
@@ -174,8 +176,8 @@ module AWS::SDK::ACMPCA
       def self.stub(stub)
         stub ||= Types::RevocationConfiguration.new
         data = {}
-        data['CrlConfiguration'] = Stubs::CrlConfiguration.stub(stub[:crl_configuration]) unless stub[:crl_configuration].nil?
-        data['OcspConfiguration'] = Stubs::OcspConfiguration.stub(stub[:ocsp_configuration]) unless stub[:ocsp_configuration].nil?
+        data['CrlConfiguration'] = CrlConfiguration.stub(stub[:crl_configuration]) unless stub[:crl_configuration].nil?
+        data['OcspConfiguration'] = OcspConfiguration.stub(stub[:ocsp_configuration]) unless stub[:ocsp_configuration].nil?
         data
       end
     end
@@ -244,8 +246,8 @@ module AWS::SDK::ACMPCA
         data = {}
         data['KeyAlgorithm'] = stub[:key_algorithm] unless stub[:key_algorithm].nil?
         data['SigningAlgorithm'] = stub[:signing_algorithm] unless stub[:signing_algorithm].nil?
-        data['Subject'] = Stubs::ASN1Subject.stub(stub[:subject]) unless stub[:subject].nil?
-        data['CsrExtensions'] = Stubs::CsrExtensions.stub(stub[:csr_extensions]) unless stub[:csr_extensions].nil?
+        data['Subject'] = ASN1Subject.stub(stub[:subject]) unless stub[:subject].nil?
+        data['CsrExtensions'] = CsrExtensions.stub(stub[:csr_extensions]) unless stub[:csr_extensions].nil?
         data
       end
     end
@@ -264,8 +266,8 @@ module AWS::SDK::ACMPCA
       def self.stub(stub)
         stub ||= Types::CsrExtensions.new
         data = {}
-        data['KeyUsage'] = Stubs::KeyUsage.stub(stub[:key_usage]) unless stub[:key_usage].nil?
-        data['SubjectInformationAccess'] = Stubs::AccessDescriptionList.stub(stub[:subject_information_access]) unless stub[:subject_information_access].nil?
+        data['KeyUsage'] = KeyUsage.stub(stub[:key_usage]) unless stub[:key_usage].nil?
+        data['SubjectInformationAccess'] = AccessDescriptionList.stub(stub[:subject_information_access]) unless stub[:subject_information_access].nil?
         data
       end
     end
@@ -284,7 +286,7 @@ module AWS::SDK::ACMPCA
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccessDescription.stub(element) unless element.nil?
+          data << AccessDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -304,8 +306,8 @@ module AWS::SDK::ACMPCA
       def self.stub(stub)
         stub ||= Types::AccessDescription.new
         data = {}
-        data['AccessMethod'] = Stubs::AccessMethod.stub(stub[:access_method]) unless stub[:access_method].nil?
-        data['AccessLocation'] = Stubs::GeneralName.stub(stub[:access_location]) unless stub[:access_location].nil?
+        data['AccessMethod'] = AccessMethod.stub(stub[:access_method]) unless stub[:access_method].nil?
+        data['AccessLocation'] = GeneralName.stub(stub[:access_location]) unless stub[:access_location].nil?
         data
       end
     end
@@ -330,11 +332,11 @@ module AWS::SDK::ACMPCA
       def self.stub(stub)
         stub ||= Types::GeneralName.new
         data = {}
-        data['OtherName'] = Stubs::OtherName.stub(stub[:other_name]) unless stub[:other_name].nil?
+        data['OtherName'] = OtherName.stub(stub[:other_name]) unless stub[:other_name].nil?
         data['Rfc822Name'] = stub[:rfc822_name] unless stub[:rfc822_name].nil?
         data['DnsName'] = stub[:dns_name] unless stub[:dns_name].nil?
-        data['DirectoryName'] = Stubs::ASN1Subject.stub(stub[:directory_name]) unless stub[:directory_name].nil?
-        data['EdiPartyName'] = Stubs::EdiPartyName.stub(stub[:edi_party_name]) unless stub[:edi_party_name].nil?
+        data['DirectoryName'] = ASN1Subject.stub(stub[:directory_name]) unless stub[:directory_name].nil?
+        data['EdiPartyName'] = EdiPartyName.stub(stub[:edi_party_name]) unless stub[:edi_party_name].nil?
         data['UniformResourceIdentifier'] = stub[:uniform_resource_identifier] unless stub[:uniform_resource_identifier].nil?
         data['IpAddress'] = stub[:ip_address] unless stub[:ip_address].nil?
         data['RegisteredId'] = stub[:registered_id] unless stub[:registered_id].nil?
@@ -403,7 +405,7 @@ module AWS::SDK::ACMPCA
         data['Initials'] = stub[:initials] unless stub[:initials].nil?
         data['Pseudonym'] = stub[:pseudonym] unless stub[:pseudonym].nil?
         data['GenerationQualifier'] = stub[:generation_qualifier] unless stub[:generation_qualifier].nil?
-        data['CustomAttributes'] = Stubs::CustomAttributeList.stub(stub[:custom_attributes]) unless stub[:custom_attributes].nil?
+        data['CustomAttributes'] = CustomAttributeList.stub(stub[:custom_attributes]) unless stub[:custom_attributes].nil?
         data
       end
     end
@@ -422,7 +424,7 @@ module AWS::SDK::ACMPCA
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CustomAttribute.stub(element) unless element.nil?
+          data << CustomAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -539,7 +541,7 @@ module AWS::SDK::ACMPCA
         data['S3BucketName'] = stub[:s3_bucket_name] unless stub[:s3_bucket_name].nil?
         data['S3Key'] = stub[:s3_key] unless stub[:s3_key].nil?
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -557,7 +559,7 @@ module AWS::SDK::ACMPCA
         data = {}
         data['Certificate'] = stub[:certificate] unless stub[:certificate].nil?
         data['CertificateChain'] = stub[:certificate_chain] unless stub[:certificate_chain].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -575,7 +577,7 @@ module AWS::SDK::ACMPCA
         data = {}
         data['Certificate'] = stub[:certificate] unless stub[:certificate].nil?
         data['CertificateChain'] = stub[:certificate_chain] unless stub[:certificate_chain].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -591,7 +593,7 @@ module AWS::SDK::ACMPCA
       def self.stub(http_resp, stub:)
         data = {}
         data['Csr'] = stub[:csr] unless stub[:csr].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -607,7 +609,7 @@ module AWS::SDK::ACMPCA
       def self.stub(http_resp, stub:)
         data = {}
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -621,7 +623,7 @@ module AWS::SDK::ACMPCA
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -637,7 +639,7 @@ module AWS::SDK::ACMPCA
       def self.stub(http_resp, stub:)
         data = {}
         data['CertificateArn'] = stub[:certificate_arn] unless stub[:certificate_arn].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -653,9 +655,9 @@ module AWS::SDK::ACMPCA
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['CertificateAuthorities'] = Stubs::CertificateAuthorities.stub(stub[:certificate_authorities]) unless stub[:certificate_authorities].nil?
+        data['CertificateAuthorities'] = CertificateAuthorities.stub(stub[:certificate_authorities]) unless stub[:certificate_authorities].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -674,7 +676,7 @@ module AWS::SDK::ACMPCA
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CertificateAuthority.stub(element) unless element.nil?
+          data << CertificateAuthority.stub(element) unless element.nil?
         end
         data
       end
@@ -691,9 +693,9 @@ module AWS::SDK::ACMPCA
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Permissions'] = Stubs::PermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
+        data['Permissions'] = PermissionList.stub(stub[:permissions]) unless stub[:permissions].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -712,7 +714,7 @@ module AWS::SDK::ACMPCA
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Permission.stub(element) unless element.nil?
+          data << Permission.stub(element) unless element.nil?
         end
         data
       end
@@ -740,7 +742,7 @@ module AWS::SDK::ACMPCA
         data['CreatedAt'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_at]).to_i unless stub[:created_at].nil?
         data['Principal'] = stub[:principal] unless stub[:principal].nil?
         data['SourceAccount'] = stub[:source_account] unless stub[:source_account].nil?
-        data['Actions'] = Stubs::ActionList.stub(stub[:actions]) unless stub[:actions].nil?
+        data['Actions'] = ActionList.stub(stub[:actions]) unless stub[:actions].nil?
         data['Policy'] = stub[:policy] unless stub[:policy].nil?
         data
       end
@@ -777,9 +779,9 @@ module AWS::SDK::ACMPCA
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -798,7 +800,7 @@ module AWS::SDK::ACMPCA
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -833,7 +835,7 @@ module AWS::SDK::ACMPCA
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -847,7 +849,7 @@ module AWS::SDK::ACMPCA
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -861,7 +863,7 @@ module AWS::SDK::ACMPCA
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -875,7 +877,7 @@ module AWS::SDK::ACMPCA
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -889,7 +891,7 @@ module AWS::SDK::ACMPCA
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -903,7 +905,7 @@ module AWS::SDK::ACMPCA
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

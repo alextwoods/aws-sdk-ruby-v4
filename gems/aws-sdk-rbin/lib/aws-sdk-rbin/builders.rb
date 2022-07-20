@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Rbin
   module Builders
 
@@ -20,12 +22,12 @@ module AWS::SDK::Rbin
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['RetentionPeriod'] = Builders::RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
+        data['RetentionPeriod'] = RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
         data['Description'] = input[:description] unless input[:description].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['ResourceTags'] = Builders::ResourceTags.build(input[:resource_tags]) unless input[:resource_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceTags'] = ResourceTags.build(input[:resource_tags]) unless input[:resource_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -34,7 +36,7 @@ module AWS::SDK::Rbin
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ResourceTag.build(element) unless element.nil?
+          data << ResourceTag.build(element) unless element.nil?
         end
         data
       end
@@ -55,7 +57,7 @@ module AWS::SDK::Rbin
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -128,8 +130,8 @@ module AWS::SDK::Rbin
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['ResourceTags'] = Builders::ResourceTags.build(input[:resource_tags]) unless input[:resource_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceTags'] = ResourceTags.build(input[:resource_tags]) unless input[:resource_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -167,8 +169,8 @@ module AWS::SDK::Rbin
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -222,11 +224,11 @@ module AWS::SDK::Rbin
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['RetentionPeriod'] = Builders::RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
+        data['RetentionPeriod'] = RetentionPeriod.build(input[:retention_period]) unless input[:retention_period].nil?
         data['Description'] = input[:description] unless input[:description].nil?
         data['ResourceType'] = input[:resource_type] unless input[:resource_type].nil?
-        data['ResourceTags'] = Builders::ResourceTags.build(input[:resource_tags]) unless input[:resource_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ResourceTags'] = ResourceTags.build(input[:resource_tags]) unless input[:resource_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

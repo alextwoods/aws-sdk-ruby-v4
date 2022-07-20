@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::DynamoDB
   module Builders
 
@@ -18,9 +21,9 @@ module AWS::SDK::DynamoDB
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.BatchExecuteStatement'
         data = {}
-        data['Statements'] = Builders::PartiQLBatchRequest.build(input[:statements]) unless input[:statements].nil?
+        data['Statements'] = PartiQLBatchRequest.build(input[:statements]) unless input[:statements].nil?
         data['ReturnConsumedCapacity'] = input[:return_consumed_capacity] unless input[:return_consumed_capacity].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -29,7 +32,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::BatchStatementRequest.build(element) unless element.nil?
+          data << BatchStatementRequest.build(element) unless element.nil?
         end
         data
       end
@@ -40,7 +43,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         data['Statement'] = input[:statement] unless input[:statement].nil?
-        data['Parameters'] = Builders::PreparedStatementParameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['Parameters'] = PreparedStatementParameters.build(input[:parameters]) unless input[:parameters].nil?
         data['ConsistentRead'] = input[:consistent_read] unless input[:consistent_read].nil?
         data
       end
@@ -51,7 +54,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AttributeValue.build(element) unless element.nil?
+          data << AttributeValue.build(element) unless element.nil?
         end
         data
       end
@@ -67,17 +70,17 @@ module AWS::SDK::DynamoDB
         when Types::AttributeValue::N
           data['N'] = input
         when Types::AttributeValue::B
-          data['B'] = Base64::encode64(input).strip
+          data['B'] = ::Base64::encode64(input).strip
         when Types::AttributeValue::Ss
-          data['SS'] = (Builders::StringSetAttributeValue.build(input) unless input.nil?)
+          data['SS'] = (StringSetAttributeValue.build(input) unless input.nil?)
         when Types::AttributeValue::Ns
-          data['NS'] = (Builders::NumberSetAttributeValue.build(input) unless input.nil?)
+          data['NS'] = (NumberSetAttributeValue.build(input) unless input.nil?)
         when Types::AttributeValue::Bs
-          data['BS'] = (Builders::BinarySetAttributeValue.build(input) unless input.nil?)
+          data['BS'] = (BinarySetAttributeValue.build(input) unless input.nil?)
         when Types::AttributeValue::M
-          data['M'] = (Builders::MapAttributeValue.build(input) unless input.nil?)
+          data['M'] = (MapAttributeValue.build(input) unless input.nil?)
         when Types::AttributeValue::L
-          data['L'] = (Builders::ListAttributeValue.build(input) unless input.nil?)
+          data['L'] = (ListAttributeValue.build(input) unless input.nil?)
         when Types::AttributeValue::Null
           data['NULL'] = input
         when Types::AttributeValue::Bool
@@ -96,7 +99,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AttributeValue.build(element) unless element.nil?
+          data << AttributeValue.build(element) unless element.nil?
         end
         data
       end
@@ -107,7 +110,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::AttributeValue.build(value) unless value.nil?
+          data[key] = AttributeValue.build(value) unless value.nil?
         end
         data
       end
@@ -118,7 +121,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Base64::encode64(element).strip unless element.nil?
+          data << ::Base64::encode64(element).strip unless element.nil?
         end
         data
       end
@@ -154,9 +157,9 @@ module AWS::SDK::DynamoDB
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.BatchGetItem'
         data = {}
-        data['RequestItems'] = Builders::BatchGetRequestMap.build(input[:request_items]) unless input[:request_items].nil?
+        data['RequestItems'] = BatchGetRequestMap.build(input[:request_items]) unless input[:request_items].nil?
         data['ReturnConsumedCapacity'] = input[:return_consumed_capacity] unless input[:return_consumed_capacity].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -165,7 +168,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::KeysAndAttributes.build(value) unless value.nil?
+          data[key] = KeysAndAttributes.build(value) unless value.nil?
         end
         data
       end
@@ -175,11 +178,11 @@ module AWS::SDK::DynamoDB
     class KeysAndAttributes
       def self.build(input)
         data = {}
-        data['Keys'] = Builders::KeyList.build(input[:keys]) unless input[:keys].nil?
-        data['AttributesToGet'] = Builders::AttributeNameList.build(input[:attributes_to_get]) unless input[:attributes_to_get].nil?
+        data['Keys'] = KeyList.build(input[:keys]) unless input[:keys].nil?
+        data['AttributesToGet'] = AttributeNameList.build(input[:attributes_to_get]) unless input[:attributes_to_get].nil?
         data['ConsistentRead'] = input[:consistent_read] unless input[:consistent_read].nil?
         data['ProjectionExpression'] = input[:projection_expression] unless input[:projection_expression].nil?
-        data['ExpressionAttributeNames'] = Builders::ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
+        data['ExpressionAttributeNames'] = ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
         data
       end
     end
@@ -211,7 +214,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Key.build(element) unless element.nil?
+          data << Key.build(element) unless element.nil?
         end
         data
       end
@@ -222,7 +225,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::AttributeValue.build(value) unless value.nil?
+          data[key] = AttributeValue.build(value) unless value.nil?
         end
         data
       end
@@ -236,10 +239,10 @@ module AWS::SDK::DynamoDB
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.BatchWriteItem'
         data = {}
-        data['RequestItems'] = Builders::BatchWriteItemRequestMap.build(input[:request_items]) unless input[:request_items].nil?
+        data['RequestItems'] = BatchWriteItemRequestMap.build(input[:request_items]) unless input[:request_items].nil?
         data['ReturnConsumedCapacity'] = input[:return_consumed_capacity] unless input[:return_consumed_capacity].nil?
         data['ReturnItemCollectionMetrics'] = input[:return_item_collection_metrics] unless input[:return_item_collection_metrics].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -248,7 +251,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::WriteRequests.build(value) unless value.nil?
+          data[key] = WriteRequests.build(value) unless value.nil?
         end
         data
       end
@@ -259,7 +262,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::WriteRequest.build(element) unless element.nil?
+          data << WriteRequest.build(element) unless element.nil?
         end
         data
       end
@@ -269,8 +272,8 @@ module AWS::SDK::DynamoDB
     class WriteRequest
       def self.build(input)
         data = {}
-        data['PutRequest'] = Builders::PutRequest.build(input[:put_request]) unless input[:put_request].nil?
-        data['DeleteRequest'] = Builders::DeleteRequest.build(input[:delete_request]) unless input[:delete_request].nil?
+        data['PutRequest'] = PutRequest.build(input[:put_request]) unless input[:put_request].nil?
+        data['DeleteRequest'] = DeleteRequest.build(input[:delete_request]) unless input[:delete_request].nil?
         data
       end
     end
@@ -279,7 +282,7 @@ module AWS::SDK::DynamoDB
     class DeleteRequest
       def self.build(input)
         data = {}
-        data['Key'] = Builders::Key.build(input[:key]) unless input[:key].nil?
+        data['Key'] = Key.build(input[:key]) unless input[:key].nil?
         data
       end
     end
@@ -288,7 +291,7 @@ module AWS::SDK::DynamoDB
     class PutRequest
       def self.build(input)
         data = {}
-        data['Item'] = Builders::PutItemInputAttributeMap.build(input[:item]) unless input[:item].nil?
+        data['Item'] = PutItemInputAttributeMap.build(input[:item]) unless input[:item].nil?
         data
       end
     end
@@ -298,7 +301,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::AttributeValue.build(value) unless value.nil?
+          data[key] = AttributeValue.build(value) unless value.nil?
         end
         data
       end
@@ -314,7 +317,7 @@ module AWS::SDK::DynamoDB
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['BackupName'] = input[:backup_name] unless input[:backup_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -327,8 +330,8 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.CreateGlobalTable'
         data = {}
         data['GlobalTableName'] = input[:global_table_name] unless input[:global_table_name].nil?
-        data['ReplicationGroup'] = Builders::ReplicaList.build(input[:replication_group]) unless input[:replication_group].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicationGroup'] = ReplicaList.build(input[:replication_group]) unless input[:replication_group].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -337,7 +340,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Replica.build(element) unless element.nil?
+          data << Replica.build(element) unless element.nil?
         end
         data
       end
@@ -360,18 +363,18 @@ module AWS::SDK::DynamoDB
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.CreateTable'
         data = {}
-        data['AttributeDefinitions'] = Builders::AttributeDefinitions.build(input[:attribute_definitions]) unless input[:attribute_definitions].nil?
+        data['AttributeDefinitions'] = AttributeDefinitions.build(input[:attribute_definitions]) unless input[:attribute_definitions].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['KeySchema'] = Builders::KeySchema.build(input[:key_schema]) unless input[:key_schema].nil?
-        data['LocalSecondaryIndexes'] = Builders::LocalSecondaryIndexList.build(input[:local_secondary_indexes]) unless input[:local_secondary_indexes].nil?
-        data['GlobalSecondaryIndexes'] = Builders::GlobalSecondaryIndexList.build(input[:global_secondary_indexes]) unless input[:global_secondary_indexes].nil?
+        data['KeySchema'] = KeySchema.build(input[:key_schema]) unless input[:key_schema].nil?
+        data['LocalSecondaryIndexes'] = LocalSecondaryIndexList.build(input[:local_secondary_indexes]) unless input[:local_secondary_indexes].nil?
+        data['GlobalSecondaryIndexes'] = GlobalSecondaryIndexList.build(input[:global_secondary_indexes]) unless input[:global_secondary_indexes].nil?
         data['BillingMode'] = input[:billing_mode] unless input[:billing_mode].nil?
-        data['ProvisionedThroughput'] = Builders::ProvisionedThroughput.build(input[:provisioned_throughput]) unless input[:provisioned_throughput].nil?
-        data['StreamSpecification'] = Builders::StreamSpecification.build(input[:stream_specification]) unless input[:stream_specification].nil?
-        data['SSESpecification'] = Builders::SSESpecification.build(input[:sse_specification]) unless input[:sse_specification].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['ProvisionedThroughput'] = ProvisionedThroughput.build(input[:provisioned_throughput]) unless input[:provisioned_throughput].nil?
+        data['StreamSpecification'] = StreamSpecification.build(input[:stream_specification]) unless input[:stream_specification].nil?
+        data['SSESpecification'] = SSESpecification.build(input[:sse_specification]) unless input[:sse_specification].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['TableClass'] = input[:table_class] unless input[:table_class].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -380,7 +383,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -432,7 +435,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GlobalSecondaryIndex.build(element) unless element.nil?
+          data << GlobalSecondaryIndex.build(element) unless element.nil?
         end
         data
       end
@@ -443,9 +446,9 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
-        data['KeySchema'] = Builders::KeySchema.build(input[:key_schema]) unless input[:key_schema].nil?
-        data['Projection'] = Builders::Projection.build(input[:projection]) unless input[:projection].nil?
-        data['ProvisionedThroughput'] = Builders::ProvisionedThroughput.build(input[:provisioned_throughput]) unless input[:provisioned_throughput].nil?
+        data['KeySchema'] = KeySchema.build(input[:key_schema]) unless input[:key_schema].nil?
+        data['Projection'] = Projection.build(input[:projection]) unless input[:projection].nil?
+        data['ProvisionedThroughput'] = ProvisionedThroughput.build(input[:provisioned_throughput]) unless input[:provisioned_throughput].nil?
         data
       end
     end
@@ -455,7 +458,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         data['ProjectionType'] = input[:projection_type] unless input[:projection_type].nil?
-        data['NonKeyAttributes'] = Builders::NonKeyAttributeNameList.build(input[:non_key_attributes]) unless input[:non_key_attributes].nil?
+        data['NonKeyAttributes'] = NonKeyAttributeNameList.build(input[:non_key_attributes]) unless input[:non_key_attributes].nil?
         data
       end
     end
@@ -476,7 +479,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::KeySchemaElement.build(element) unless element.nil?
+          data << KeySchemaElement.build(element) unless element.nil?
         end
         data
       end
@@ -497,7 +500,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LocalSecondaryIndex.build(element) unless element.nil?
+          data << LocalSecondaryIndex.build(element) unless element.nil?
         end
         data
       end
@@ -508,8 +511,8 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
-        data['KeySchema'] = Builders::KeySchema.build(input[:key_schema]) unless input[:key_schema].nil?
-        data['Projection'] = Builders::Projection.build(input[:projection]) unless input[:projection].nil?
+        data['KeySchema'] = KeySchema.build(input[:key_schema]) unless input[:key_schema].nil?
+        data['Projection'] = Projection.build(input[:projection]) unless input[:projection].nil?
         data
       end
     end
@@ -519,7 +522,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AttributeDefinition.build(element) unless element.nil?
+          data << AttributeDefinition.build(element) unless element.nil?
         end
         data
       end
@@ -544,7 +547,7 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.DeleteBackup'
         data = {}
         data['BackupArn'] = input[:backup_arn] unless input[:backup_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -557,16 +560,16 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.DeleteItem'
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['Key'] = Builders::Key.build(input[:key]) unless input[:key].nil?
-        data['Expected'] = Builders::ExpectedAttributeMap.build(input[:expected]) unless input[:expected].nil?
+        data['Key'] = Key.build(input[:key]) unless input[:key].nil?
+        data['Expected'] = ExpectedAttributeMap.build(input[:expected]) unless input[:expected].nil?
         data['ConditionalOperator'] = input[:conditional_operator] unless input[:conditional_operator].nil?
         data['ReturnValues'] = input[:return_values] unless input[:return_values].nil?
         data['ReturnConsumedCapacity'] = input[:return_consumed_capacity] unless input[:return_consumed_capacity].nil?
         data['ReturnItemCollectionMetrics'] = input[:return_item_collection_metrics] unless input[:return_item_collection_metrics].nil?
         data['ConditionExpression'] = input[:condition_expression] unless input[:condition_expression].nil?
-        data['ExpressionAttributeNames'] = Builders::ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
-        data['ExpressionAttributeValues'] = Builders::ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ExpressionAttributeNames'] = ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
+        data['ExpressionAttributeValues'] = ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -575,7 +578,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::AttributeValue.build(value) unless value.nil?
+          data[key] = AttributeValue.build(value) unless value.nil?
         end
         data
       end
@@ -586,7 +589,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::ExpectedAttributeValue.build(value) unless value.nil?
+          data[key] = ExpectedAttributeValue.build(value) unless value.nil?
         end
         data
       end
@@ -596,10 +599,10 @@ module AWS::SDK::DynamoDB
     class ExpectedAttributeValue
       def self.build(input)
         data = {}
-        data['Value'] = Builders::AttributeValue.build(input[:value]) unless input[:value].nil?
+        data['Value'] = AttributeValue.build(input[:value]) unless input[:value].nil?
         data['Exists'] = input[:exists] unless input[:exists].nil?
         data['ComparisonOperator'] = input[:comparison_operator] unless input[:comparison_operator].nil?
-        data['AttributeValueList'] = Builders::AttributeValueList.build(input[:attribute_value_list]) unless input[:attribute_value_list].nil?
+        data['AttributeValueList'] = AttributeValueList.build(input[:attribute_value_list]) unless input[:attribute_value_list].nil?
         data
       end
     end
@@ -609,7 +612,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::AttributeValue.build(element) unless element.nil?
+          data << AttributeValue.build(element) unless element.nil?
         end
         data
       end
@@ -624,7 +627,7 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.DeleteTable'
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -637,7 +640,7 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.DescribeBackup'
         data = {}
         data['BackupArn'] = input[:backup_arn] unless input[:backup_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -650,7 +653,7 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.DescribeContinuousBackups'
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -664,7 +667,7 @@ module AWS::SDK::DynamoDB
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -676,7 +679,7 @@ module AWS::SDK::DynamoDB
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.DescribeEndpoints'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -689,7 +692,7 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.DescribeExport'
         data = {}
         data['ExportArn'] = input[:export_arn] unless input[:export_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -702,7 +705,7 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.DescribeGlobalTable'
         data = {}
         data['GlobalTableName'] = input[:global_table_name] unless input[:global_table_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -715,7 +718,7 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.DescribeGlobalTableSettings'
         data = {}
         data['GlobalTableName'] = input[:global_table_name] unless input[:global_table_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -728,7 +731,7 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.DescribeKinesisStreamingDestination'
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -740,7 +743,7 @@ module AWS::SDK::DynamoDB
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.DescribeLimits'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -753,7 +756,7 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.DescribeTable'
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -766,7 +769,7 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.DescribeTableReplicaAutoScaling'
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -779,7 +782,7 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.DescribeTimeToLive'
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -793,7 +796,7 @@ module AWS::SDK::DynamoDB
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['StreamArn'] = input[:stream_arn] unless input[:stream_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -807,7 +810,7 @@ module AWS::SDK::DynamoDB
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['StreamArn'] = input[:stream_arn] unless input[:stream_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -820,12 +823,12 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.ExecuteStatement'
         data = {}
         data['Statement'] = input[:statement] unless input[:statement].nil?
-        data['Parameters'] = Builders::PreparedStatementParameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['Parameters'] = PreparedStatementParameters.build(input[:parameters]) unless input[:parameters].nil?
         data['ConsistentRead'] = input[:consistent_read] unless input[:consistent_read].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['ReturnConsumedCapacity'] = input[:return_consumed_capacity] unless input[:return_consumed_capacity].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -837,10 +840,10 @@ module AWS::SDK::DynamoDB
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.ExecuteTransaction'
         data = {}
-        data['TransactStatements'] = Builders::ParameterizedStatements.build(input[:transact_statements]) unless input[:transact_statements].nil?
+        data['TransactStatements'] = ParameterizedStatements.build(input[:transact_statements]) unless input[:transact_statements].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['ReturnConsumedCapacity'] = input[:return_consumed_capacity] unless input[:return_consumed_capacity].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -849,7 +852,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ParameterizedStatement.build(element) unless element.nil?
+          data << ParameterizedStatement.build(element) unless element.nil?
         end
         data
       end
@@ -860,7 +863,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         data['Statement'] = input[:statement] unless input[:statement].nil?
-        data['Parameters'] = Builders::PreparedStatementParameters.build(input[:parameters]) unless input[:parameters].nil?
+        data['Parameters'] = PreparedStatementParameters.build(input[:parameters]) unless input[:parameters].nil?
         data
       end
     end
@@ -882,7 +885,7 @@ module AWS::SDK::DynamoDB
         data['S3SseAlgorithm'] = input[:s3_sse_algorithm] unless input[:s3_sse_algorithm].nil?
         data['S3SseKmsKeyId'] = input[:s3_sse_kms_key_id] unless input[:s3_sse_kms_key_id].nil?
         data['ExportFormat'] = input[:export_format] unless input[:export_format].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -895,13 +898,13 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.GetItem'
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['Key'] = Builders::Key.build(input[:key]) unless input[:key].nil?
-        data['AttributesToGet'] = Builders::AttributeNameList.build(input[:attributes_to_get]) unless input[:attributes_to_get].nil?
+        data['Key'] = Key.build(input[:key]) unless input[:key].nil?
+        data['AttributesToGet'] = AttributeNameList.build(input[:attributes_to_get]) unless input[:attributes_to_get].nil?
         data['ConsistentRead'] = input[:consistent_read] unless input[:consistent_read].nil?
         data['ReturnConsumedCapacity'] = input[:return_consumed_capacity] unless input[:return_consumed_capacity].nil?
         data['ProjectionExpression'] = input[:projection_expression] unless input[:projection_expression].nil?
-        data['ExpressionAttributeNames'] = Builders::ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ExpressionAttributeNames'] = ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -919,7 +922,7 @@ module AWS::SDK::DynamoDB
         data['TimeRangeUpperBound'] = Hearth::TimeHelper.to_epoch_seconds(input[:time_range_upper_bound]).to_i unless input[:time_range_upper_bound].nil?
         data['ExclusiveStartBackupArn'] = input[:exclusive_start_backup_arn] unless input[:exclusive_start_backup_arn].nil?
         data['BackupType'] = input[:backup_type] unless input[:backup_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -934,7 +937,7 @@ module AWS::SDK::DynamoDB
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -949,7 +952,7 @@ module AWS::SDK::DynamoDB
         data['TableArn'] = input[:table_arn] unless input[:table_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -964,7 +967,7 @@ module AWS::SDK::DynamoDB
         data['ExclusiveStartGlobalTableName'] = input[:exclusive_start_global_table_name] unless input[:exclusive_start_global_table_name].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['RegionName'] = input[:region_name] unless input[:region_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -978,7 +981,7 @@ module AWS::SDK::DynamoDB
         data = {}
         data['ExclusiveStartTableName'] = input[:exclusive_start_table_name] unless input[:exclusive_start_table_name].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -992,7 +995,7 @@ module AWS::SDK::DynamoDB
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1005,16 +1008,16 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.PutItem'
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['Item'] = Builders::PutItemInputAttributeMap.build(input[:item]) unless input[:item].nil?
-        data['Expected'] = Builders::ExpectedAttributeMap.build(input[:expected]) unless input[:expected].nil?
+        data['Item'] = PutItemInputAttributeMap.build(input[:item]) unless input[:item].nil?
+        data['Expected'] = ExpectedAttributeMap.build(input[:expected]) unless input[:expected].nil?
         data['ReturnValues'] = input[:return_values] unless input[:return_values].nil?
         data['ReturnConsumedCapacity'] = input[:return_consumed_capacity] unless input[:return_consumed_capacity].nil?
         data['ReturnItemCollectionMetrics'] = input[:return_item_collection_metrics] unless input[:return_item_collection_metrics].nil?
         data['ConditionalOperator'] = input[:conditional_operator] unless input[:conditional_operator].nil?
         data['ConditionExpression'] = input[:condition_expression] unless input[:condition_expression].nil?
-        data['ExpressionAttributeNames'] = Builders::ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
-        data['ExpressionAttributeValues'] = Builders::ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ExpressionAttributeNames'] = ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
+        data['ExpressionAttributeValues'] = ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1029,21 +1032,21 @@ module AWS::SDK::DynamoDB
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
         data['Select'] = input[:select] unless input[:select].nil?
-        data['AttributesToGet'] = Builders::AttributeNameList.build(input[:attributes_to_get]) unless input[:attributes_to_get].nil?
+        data['AttributesToGet'] = AttributeNameList.build(input[:attributes_to_get]) unless input[:attributes_to_get].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['ConsistentRead'] = input[:consistent_read] unless input[:consistent_read].nil?
-        data['KeyConditions'] = Builders::KeyConditions.build(input[:key_conditions]) unless input[:key_conditions].nil?
-        data['QueryFilter'] = Builders::FilterConditionMap.build(input[:query_filter]) unless input[:query_filter].nil?
+        data['KeyConditions'] = KeyConditions.build(input[:key_conditions]) unless input[:key_conditions].nil?
+        data['QueryFilter'] = FilterConditionMap.build(input[:query_filter]) unless input[:query_filter].nil?
         data['ConditionalOperator'] = input[:conditional_operator] unless input[:conditional_operator].nil?
         data['ScanIndexForward'] = input[:scan_index_forward] unless input[:scan_index_forward].nil?
-        data['ExclusiveStartKey'] = Builders::Key.build(input[:exclusive_start_key]) unless input[:exclusive_start_key].nil?
+        data['ExclusiveStartKey'] = Key.build(input[:exclusive_start_key]) unless input[:exclusive_start_key].nil?
         data['ReturnConsumedCapacity'] = input[:return_consumed_capacity] unless input[:return_consumed_capacity].nil?
         data['ProjectionExpression'] = input[:projection_expression] unless input[:projection_expression].nil?
         data['FilterExpression'] = input[:filter_expression] unless input[:filter_expression].nil?
         data['KeyConditionExpression'] = input[:key_condition_expression] unless input[:key_condition_expression].nil?
-        data['ExpressionAttributeNames'] = Builders::ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
-        data['ExpressionAttributeValues'] = Builders::ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ExpressionAttributeNames'] = ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
+        data['ExpressionAttributeValues'] = ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1052,7 +1055,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::Condition.build(value) unless value.nil?
+          data[key] = Condition.build(value) unless value.nil?
         end
         data
       end
@@ -1062,7 +1065,7 @@ module AWS::SDK::DynamoDB
     class Condition
       def self.build(input)
         data = {}
-        data['AttributeValueList'] = Builders::AttributeValueList.build(input[:attribute_value_list]) unless input[:attribute_value_list].nil?
+        data['AttributeValueList'] = AttributeValueList.build(input[:attribute_value_list]) unless input[:attribute_value_list].nil?
         data['ComparisonOperator'] = input[:comparison_operator] unless input[:comparison_operator].nil?
         data
       end
@@ -1073,7 +1076,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::Condition.build(value) unless value.nil?
+          data[key] = Condition.build(value) unless value.nil?
         end
         data
       end
@@ -1090,11 +1093,11 @@ module AWS::SDK::DynamoDB
         data['TargetTableName'] = input[:target_table_name] unless input[:target_table_name].nil?
         data['BackupArn'] = input[:backup_arn] unless input[:backup_arn].nil?
         data['BillingModeOverride'] = input[:billing_mode_override] unless input[:billing_mode_override].nil?
-        data['GlobalSecondaryIndexOverride'] = Builders::GlobalSecondaryIndexList.build(input[:global_secondary_index_override]) unless input[:global_secondary_index_override].nil?
-        data['LocalSecondaryIndexOverride'] = Builders::LocalSecondaryIndexList.build(input[:local_secondary_index_override]) unless input[:local_secondary_index_override].nil?
-        data['ProvisionedThroughputOverride'] = Builders::ProvisionedThroughput.build(input[:provisioned_throughput_override]) unless input[:provisioned_throughput_override].nil?
-        data['SSESpecificationOverride'] = Builders::SSESpecification.build(input[:sse_specification_override]) unless input[:sse_specification_override].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GlobalSecondaryIndexOverride'] = GlobalSecondaryIndexList.build(input[:global_secondary_index_override]) unless input[:global_secondary_index_override].nil?
+        data['LocalSecondaryIndexOverride'] = LocalSecondaryIndexList.build(input[:local_secondary_index_override]) unless input[:local_secondary_index_override].nil?
+        data['ProvisionedThroughputOverride'] = ProvisionedThroughput.build(input[:provisioned_throughput_override]) unless input[:provisioned_throughput_override].nil?
+        data['SSESpecificationOverride'] = SSESpecification.build(input[:sse_specification_override]) unless input[:sse_specification_override].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1112,11 +1115,11 @@ module AWS::SDK::DynamoDB
         data['UseLatestRestorableTime'] = input[:use_latest_restorable_time] unless input[:use_latest_restorable_time].nil?
         data['RestoreDateTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:restore_date_time]).to_i unless input[:restore_date_time].nil?
         data['BillingModeOverride'] = input[:billing_mode_override] unless input[:billing_mode_override].nil?
-        data['GlobalSecondaryIndexOverride'] = Builders::GlobalSecondaryIndexList.build(input[:global_secondary_index_override]) unless input[:global_secondary_index_override].nil?
-        data['LocalSecondaryIndexOverride'] = Builders::LocalSecondaryIndexList.build(input[:local_secondary_index_override]) unless input[:local_secondary_index_override].nil?
-        data['ProvisionedThroughputOverride'] = Builders::ProvisionedThroughput.build(input[:provisioned_throughput_override]) unless input[:provisioned_throughput_override].nil?
-        data['SSESpecificationOverride'] = Builders::SSESpecification.build(input[:sse_specification_override]) unless input[:sse_specification_override].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GlobalSecondaryIndexOverride'] = GlobalSecondaryIndexList.build(input[:global_secondary_index_override]) unless input[:global_secondary_index_override].nil?
+        data['LocalSecondaryIndexOverride'] = LocalSecondaryIndexList.build(input[:local_secondary_index_override]) unless input[:local_secondary_index_override].nil?
+        data['ProvisionedThroughputOverride'] = ProvisionedThroughput.build(input[:provisioned_throughput_override]) unless input[:provisioned_throughput_override].nil?
+        data['SSESpecificationOverride'] = SSESpecification.build(input[:sse_specification_override]) unless input[:sse_specification_override].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1130,21 +1133,21 @@ module AWS::SDK::DynamoDB
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
-        data['AttributesToGet'] = Builders::AttributeNameList.build(input[:attributes_to_get]) unless input[:attributes_to_get].nil?
+        data['AttributesToGet'] = AttributeNameList.build(input[:attributes_to_get]) unless input[:attributes_to_get].nil?
         data['Limit'] = input[:limit] unless input[:limit].nil?
         data['Select'] = input[:select] unless input[:select].nil?
-        data['ScanFilter'] = Builders::FilterConditionMap.build(input[:scan_filter]) unless input[:scan_filter].nil?
+        data['ScanFilter'] = FilterConditionMap.build(input[:scan_filter]) unless input[:scan_filter].nil?
         data['ConditionalOperator'] = input[:conditional_operator] unless input[:conditional_operator].nil?
-        data['ExclusiveStartKey'] = Builders::Key.build(input[:exclusive_start_key]) unless input[:exclusive_start_key].nil?
+        data['ExclusiveStartKey'] = Key.build(input[:exclusive_start_key]) unless input[:exclusive_start_key].nil?
         data['ReturnConsumedCapacity'] = input[:return_consumed_capacity] unless input[:return_consumed_capacity].nil?
         data['TotalSegments'] = input[:total_segments] unless input[:total_segments].nil?
         data['Segment'] = input[:segment] unless input[:segment].nil?
         data['ProjectionExpression'] = input[:projection_expression] unless input[:projection_expression].nil?
         data['FilterExpression'] = input[:filter_expression] unless input[:filter_expression].nil?
-        data['ExpressionAttributeNames'] = Builders::ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
-        data['ExpressionAttributeValues'] = Builders::ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
+        data['ExpressionAttributeNames'] = ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
+        data['ExpressionAttributeValues'] = ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
         data['ConsistentRead'] = input[:consistent_read] unless input[:consistent_read].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1157,8 +1160,8 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.TagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1170,9 +1173,9 @@ module AWS::SDK::DynamoDB
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.TransactGetItems'
         data = {}
-        data['TransactItems'] = Builders::TransactGetItemList.build(input[:transact_items]) unless input[:transact_items].nil?
+        data['TransactItems'] = TransactGetItemList.build(input[:transact_items]) unless input[:transact_items].nil?
         data['ReturnConsumedCapacity'] = input[:return_consumed_capacity] unless input[:return_consumed_capacity].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1181,7 +1184,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TransactGetItem.build(element) unless element.nil?
+          data << TransactGetItem.build(element) unless element.nil?
         end
         data
       end
@@ -1191,7 +1194,7 @@ module AWS::SDK::DynamoDB
     class TransactGetItem
       def self.build(input)
         data = {}
-        data['Get'] = Builders::Get.build(input[:get]) unless input[:get].nil?
+        data['Get'] = Get.build(input[:get]) unless input[:get].nil?
         data
       end
     end
@@ -1200,10 +1203,10 @@ module AWS::SDK::DynamoDB
     class Get
       def self.build(input)
         data = {}
-        data['Key'] = Builders::Key.build(input[:key]) unless input[:key].nil?
+        data['Key'] = Key.build(input[:key]) unless input[:key].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['ProjectionExpression'] = input[:projection_expression] unless input[:projection_expression].nil?
-        data['ExpressionAttributeNames'] = Builders::ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
+        data['ExpressionAttributeNames'] = ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
         data
       end
     end
@@ -1216,11 +1219,11 @@ module AWS::SDK::DynamoDB
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.TransactWriteItems'
         data = {}
-        data['TransactItems'] = Builders::TransactWriteItemList.build(input[:transact_items]) unless input[:transact_items].nil?
+        data['TransactItems'] = TransactWriteItemList.build(input[:transact_items]) unless input[:transact_items].nil?
         data['ReturnConsumedCapacity'] = input[:return_consumed_capacity] unless input[:return_consumed_capacity].nil?
         data['ReturnItemCollectionMetrics'] = input[:return_item_collection_metrics] unless input[:return_item_collection_metrics].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1229,7 +1232,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TransactWriteItem.build(element) unless element.nil?
+          data << TransactWriteItem.build(element) unless element.nil?
         end
         data
       end
@@ -1239,10 +1242,10 @@ module AWS::SDK::DynamoDB
     class TransactWriteItem
       def self.build(input)
         data = {}
-        data['ConditionCheck'] = Builders::ConditionCheck.build(input[:condition_check]) unless input[:condition_check].nil?
-        data['Put'] = Builders::Put.build(input[:put]) unless input[:put].nil?
-        data['Delete'] = Builders::Delete.build(input[:delete]) unless input[:delete].nil?
-        data['Update'] = Builders::Update.build(input[:update]) unless input[:update].nil?
+        data['ConditionCheck'] = ConditionCheck.build(input[:condition_check]) unless input[:condition_check].nil?
+        data['Put'] = Put.build(input[:put]) unless input[:put].nil?
+        data['Delete'] = Delete.build(input[:delete]) unless input[:delete].nil?
+        data['Update'] = Update.build(input[:update]) unless input[:update].nil?
         data
       end
     end
@@ -1251,12 +1254,12 @@ module AWS::SDK::DynamoDB
     class Update
       def self.build(input)
         data = {}
-        data['Key'] = Builders::Key.build(input[:key]) unless input[:key].nil?
+        data['Key'] = Key.build(input[:key]) unless input[:key].nil?
         data['UpdateExpression'] = input[:update_expression] unless input[:update_expression].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['ConditionExpression'] = input[:condition_expression] unless input[:condition_expression].nil?
-        data['ExpressionAttributeNames'] = Builders::ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
-        data['ExpressionAttributeValues'] = Builders::ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
+        data['ExpressionAttributeNames'] = ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
+        data['ExpressionAttributeValues'] = ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
         data['ReturnValuesOnConditionCheckFailure'] = input[:return_values_on_condition_check_failure] unless input[:return_values_on_condition_check_failure].nil?
         data
       end
@@ -1266,11 +1269,11 @@ module AWS::SDK::DynamoDB
     class Delete
       def self.build(input)
         data = {}
-        data['Key'] = Builders::Key.build(input[:key]) unless input[:key].nil?
+        data['Key'] = Key.build(input[:key]) unless input[:key].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['ConditionExpression'] = input[:condition_expression] unless input[:condition_expression].nil?
-        data['ExpressionAttributeNames'] = Builders::ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
-        data['ExpressionAttributeValues'] = Builders::ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
+        data['ExpressionAttributeNames'] = ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
+        data['ExpressionAttributeValues'] = ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
         data['ReturnValuesOnConditionCheckFailure'] = input[:return_values_on_condition_check_failure] unless input[:return_values_on_condition_check_failure].nil?
         data
       end
@@ -1280,11 +1283,11 @@ module AWS::SDK::DynamoDB
     class Put
       def self.build(input)
         data = {}
-        data['Item'] = Builders::PutItemInputAttributeMap.build(input[:item]) unless input[:item].nil?
+        data['Item'] = PutItemInputAttributeMap.build(input[:item]) unless input[:item].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['ConditionExpression'] = input[:condition_expression] unless input[:condition_expression].nil?
-        data['ExpressionAttributeNames'] = Builders::ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
-        data['ExpressionAttributeValues'] = Builders::ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
+        data['ExpressionAttributeNames'] = ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
+        data['ExpressionAttributeValues'] = ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
         data['ReturnValuesOnConditionCheckFailure'] = input[:return_values_on_condition_check_failure] unless input[:return_values_on_condition_check_failure].nil?
         data
       end
@@ -1294,11 +1297,11 @@ module AWS::SDK::DynamoDB
     class ConditionCheck
       def self.build(input)
         data = {}
-        data['Key'] = Builders::Key.build(input[:key]) unless input[:key].nil?
+        data['Key'] = Key.build(input[:key]) unless input[:key].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['ConditionExpression'] = input[:condition_expression] unless input[:condition_expression].nil?
-        data['ExpressionAttributeNames'] = Builders::ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
-        data['ExpressionAttributeValues'] = Builders::ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
+        data['ExpressionAttributeNames'] = ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
+        data['ExpressionAttributeValues'] = ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
         data['ReturnValuesOnConditionCheckFailure'] = input[:return_values_on_condition_check_failure] unless input[:return_values_on_condition_check_failure].nil?
         data
       end
@@ -1313,8 +1316,8 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.UntagResource'
         data = {}
         data['ResourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1338,8 +1341,8 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.UpdateContinuousBackups'
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['PointInTimeRecoverySpecification'] = Builders::PointInTimeRecoverySpecification.build(input[:point_in_time_recovery_specification]) unless input[:point_in_time_recovery_specification].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['PointInTimeRecoverySpecification'] = PointInTimeRecoverySpecification.build(input[:point_in_time_recovery_specification]) unless input[:point_in_time_recovery_specification].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1363,7 +1366,7 @@ module AWS::SDK::DynamoDB
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
         data['ContributorInsightsAction'] = input[:contributor_insights_action] unless input[:contributor_insights_action].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1376,8 +1379,8 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.UpdateGlobalTable'
         data = {}
         data['GlobalTableName'] = input[:global_table_name] unless input[:global_table_name].nil?
-        data['ReplicaUpdates'] = Builders::ReplicaUpdateList.build(input[:replica_updates]) unless input[:replica_updates].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ReplicaUpdates'] = ReplicaUpdateList.build(input[:replica_updates]) unless input[:replica_updates].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1386,7 +1389,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ReplicaUpdate.build(element) unless element.nil?
+          data << ReplicaUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1396,8 +1399,8 @@ module AWS::SDK::DynamoDB
     class ReplicaUpdate
       def self.build(input)
         data = {}
-        data['Create'] = Builders::CreateReplicaAction.build(input[:create]) unless input[:create].nil?
-        data['Delete'] = Builders::DeleteReplicaAction.build(input[:delete]) unless input[:delete].nil?
+        data['Create'] = CreateReplicaAction.build(input[:create]) unless input[:create].nil?
+        data['Delete'] = DeleteReplicaAction.build(input[:delete]) unless input[:delete].nil?
         data
       end
     end
@@ -1431,10 +1434,10 @@ module AWS::SDK::DynamoDB
         data['GlobalTableName'] = input[:global_table_name] unless input[:global_table_name].nil?
         data['GlobalTableBillingMode'] = input[:global_table_billing_mode] unless input[:global_table_billing_mode].nil?
         data['GlobalTableProvisionedWriteCapacityUnits'] = input[:global_table_provisioned_write_capacity_units] unless input[:global_table_provisioned_write_capacity_units].nil?
-        data['GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate'] = Builders::AutoScalingSettingsUpdate.build(input[:global_table_provisioned_write_capacity_auto_scaling_settings_update]) unless input[:global_table_provisioned_write_capacity_auto_scaling_settings_update].nil?
-        data['GlobalTableGlobalSecondaryIndexSettingsUpdate'] = Builders::GlobalTableGlobalSecondaryIndexSettingsUpdateList.build(input[:global_table_global_secondary_index_settings_update]) unless input[:global_table_global_secondary_index_settings_update].nil?
-        data['ReplicaSettingsUpdate'] = Builders::ReplicaSettingsUpdateList.build(input[:replica_settings_update]) unless input[:replica_settings_update].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate'] = AutoScalingSettingsUpdate.build(input[:global_table_provisioned_write_capacity_auto_scaling_settings_update]) unless input[:global_table_provisioned_write_capacity_auto_scaling_settings_update].nil?
+        data['GlobalTableGlobalSecondaryIndexSettingsUpdate'] = GlobalTableGlobalSecondaryIndexSettingsUpdateList.build(input[:global_table_global_secondary_index_settings_update]) unless input[:global_table_global_secondary_index_settings_update].nil?
+        data['ReplicaSettingsUpdate'] = ReplicaSettingsUpdateList.build(input[:replica_settings_update]) unless input[:replica_settings_update].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1443,7 +1446,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ReplicaSettingsUpdate.build(element) unless element.nil?
+          data << ReplicaSettingsUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1455,8 +1458,8 @@ module AWS::SDK::DynamoDB
         data = {}
         data['RegionName'] = input[:region_name] unless input[:region_name].nil?
         data['ReplicaProvisionedReadCapacityUnits'] = input[:replica_provisioned_read_capacity_units] unless input[:replica_provisioned_read_capacity_units].nil?
-        data['ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate'] = Builders::AutoScalingSettingsUpdate.build(input[:replica_provisioned_read_capacity_auto_scaling_settings_update]) unless input[:replica_provisioned_read_capacity_auto_scaling_settings_update].nil?
-        data['ReplicaGlobalSecondaryIndexSettingsUpdate'] = Builders::ReplicaGlobalSecondaryIndexSettingsUpdateList.build(input[:replica_global_secondary_index_settings_update]) unless input[:replica_global_secondary_index_settings_update].nil?
+        data['ReplicaProvisionedReadCapacityAutoScalingSettingsUpdate'] = AutoScalingSettingsUpdate.build(input[:replica_provisioned_read_capacity_auto_scaling_settings_update]) unless input[:replica_provisioned_read_capacity_auto_scaling_settings_update].nil?
+        data['ReplicaGlobalSecondaryIndexSettingsUpdate'] = ReplicaGlobalSecondaryIndexSettingsUpdateList.build(input[:replica_global_secondary_index_settings_update]) unless input[:replica_global_secondary_index_settings_update].nil?
         data['ReplicaTableClass'] = input[:replica_table_class] unless input[:replica_table_class].nil?
         data
       end
@@ -1467,7 +1470,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ReplicaGlobalSecondaryIndexSettingsUpdate.build(element) unless element.nil?
+          data << ReplicaGlobalSecondaryIndexSettingsUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1479,7 +1482,7 @@ module AWS::SDK::DynamoDB
         data = {}
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
         data['ProvisionedReadCapacityUnits'] = input[:provisioned_read_capacity_units] unless input[:provisioned_read_capacity_units].nil?
-        data['ProvisionedReadCapacityAutoScalingSettingsUpdate'] = Builders::AutoScalingSettingsUpdate.build(input[:provisioned_read_capacity_auto_scaling_settings_update]) unless input[:provisioned_read_capacity_auto_scaling_settings_update].nil?
+        data['ProvisionedReadCapacityAutoScalingSettingsUpdate'] = AutoScalingSettingsUpdate.build(input[:provisioned_read_capacity_auto_scaling_settings_update]) unless input[:provisioned_read_capacity_auto_scaling_settings_update].nil?
         data
       end
     end
@@ -1492,7 +1495,7 @@ module AWS::SDK::DynamoDB
         data['MaximumUnits'] = input[:maximum_units] unless input[:maximum_units].nil?
         data['AutoScalingDisabled'] = input[:auto_scaling_disabled] unless input[:auto_scaling_disabled].nil?
         data['AutoScalingRoleArn'] = input[:auto_scaling_role_arn] unless input[:auto_scaling_role_arn].nil?
-        data['ScalingPolicyUpdate'] = Builders::AutoScalingPolicyUpdate.build(input[:scaling_policy_update]) unless input[:scaling_policy_update].nil?
+        data['ScalingPolicyUpdate'] = AutoScalingPolicyUpdate.build(input[:scaling_policy_update]) unless input[:scaling_policy_update].nil?
         data
       end
     end
@@ -1502,7 +1505,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         data['PolicyName'] = input[:policy_name] unless input[:policy_name].nil?
-        data['TargetTrackingScalingPolicyConfiguration'] = Builders::AutoScalingTargetTrackingScalingPolicyConfigurationUpdate.build(input[:target_tracking_scaling_policy_configuration]) unless input[:target_tracking_scaling_policy_configuration].nil?
+        data['TargetTrackingScalingPolicyConfiguration'] = AutoScalingTargetTrackingScalingPolicyConfigurationUpdate.build(input[:target_tracking_scaling_policy_configuration]) unless input[:target_tracking_scaling_policy_configuration].nil?
         data
       end
     end
@@ -1524,7 +1527,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GlobalTableGlobalSecondaryIndexSettingsUpdate.build(element) unless element.nil?
+          data << GlobalTableGlobalSecondaryIndexSettingsUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1536,7 +1539,7 @@ module AWS::SDK::DynamoDB
         data = {}
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
         data['ProvisionedWriteCapacityUnits'] = input[:provisioned_write_capacity_units] unless input[:provisioned_write_capacity_units].nil?
-        data['ProvisionedWriteCapacityAutoScalingSettingsUpdate'] = Builders::AutoScalingSettingsUpdate.build(input[:provisioned_write_capacity_auto_scaling_settings_update]) unless input[:provisioned_write_capacity_auto_scaling_settings_update].nil?
+        data['ProvisionedWriteCapacityAutoScalingSettingsUpdate'] = AutoScalingSettingsUpdate.build(input[:provisioned_write_capacity_auto_scaling_settings_update]) unless input[:provisioned_write_capacity_auto_scaling_settings_update].nil?
         data
       end
     end
@@ -1550,18 +1553,18 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.UpdateItem'
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['Key'] = Builders::Key.build(input[:key]) unless input[:key].nil?
-        data['AttributeUpdates'] = Builders::AttributeUpdates.build(input[:attribute_updates]) unless input[:attribute_updates].nil?
-        data['Expected'] = Builders::ExpectedAttributeMap.build(input[:expected]) unless input[:expected].nil?
+        data['Key'] = Key.build(input[:key]) unless input[:key].nil?
+        data['AttributeUpdates'] = AttributeUpdates.build(input[:attribute_updates]) unless input[:attribute_updates].nil?
+        data['Expected'] = ExpectedAttributeMap.build(input[:expected]) unless input[:expected].nil?
         data['ConditionalOperator'] = input[:conditional_operator] unless input[:conditional_operator].nil?
         data['ReturnValues'] = input[:return_values] unless input[:return_values].nil?
         data['ReturnConsumedCapacity'] = input[:return_consumed_capacity] unless input[:return_consumed_capacity].nil?
         data['ReturnItemCollectionMetrics'] = input[:return_item_collection_metrics] unless input[:return_item_collection_metrics].nil?
         data['UpdateExpression'] = input[:update_expression] unless input[:update_expression].nil?
         data['ConditionExpression'] = input[:condition_expression] unless input[:condition_expression].nil?
-        data['ExpressionAttributeNames'] = Builders::ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
-        data['ExpressionAttributeValues'] = Builders::ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ExpressionAttributeNames'] = ExpressionAttributeNameMap.build(input[:expression_attribute_names]) unless input[:expression_attribute_names].nil?
+        data['ExpressionAttributeValues'] = ExpressionAttributeValueMap.build(input[:expression_attribute_values]) unless input[:expression_attribute_values].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1570,7 +1573,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::AttributeValueUpdate.build(value) unless value.nil?
+          data[key] = AttributeValueUpdate.build(value) unless value.nil?
         end
         data
       end
@@ -1580,7 +1583,7 @@ module AWS::SDK::DynamoDB
     class AttributeValueUpdate
       def self.build(input)
         data = {}
-        data['Value'] = Builders::AttributeValue.build(input[:value]) unless input[:value].nil?
+        data['Value'] = AttributeValue.build(input[:value]) unless input[:value].nil?
         data['Action'] = input[:action] unless input[:action].nil?
         data
       end
@@ -1594,16 +1597,16 @@ module AWS::SDK::DynamoDB
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.UpdateTable'
         data = {}
-        data['AttributeDefinitions'] = Builders::AttributeDefinitions.build(input[:attribute_definitions]) unless input[:attribute_definitions].nil?
+        data['AttributeDefinitions'] = AttributeDefinitions.build(input[:attribute_definitions]) unless input[:attribute_definitions].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['BillingMode'] = input[:billing_mode] unless input[:billing_mode].nil?
-        data['ProvisionedThroughput'] = Builders::ProvisionedThroughput.build(input[:provisioned_throughput]) unless input[:provisioned_throughput].nil?
-        data['GlobalSecondaryIndexUpdates'] = Builders::GlobalSecondaryIndexUpdateList.build(input[:global_secondary_index_updates]) unless input[:global_secondary_index_updates].nil?
-        data['StreamSpecification'] = Builders::StreamSpecification.build(input[:stream_specification]) unless input[:stream_specification].nil?
-        data['SSESpecification'] = Builders::SSESpecification.build(input[:sse_specification]) unless input[:sse_specification].nil?
-        data['ReplicaUpdates'] = Builders::ReplicationGroupUpdateList.build(input[:replica_updates]) unless input[:replica_updates].nil?
+        data['ProvisionedThroughput'] = ProvisionedThroughput.build(input[:provisioned_throughput]) unless input[:provisioned_throughput].nil?
+        data['GlobalSecondaryIndexUpdates'] = GlobalSecondaryIndexUpdateList.build(input[:global_secondary_index_updates]) unless input[:global_secondary_index_updates].nil?
+        data['StreamSpecification'] = StreamSpecification.build(input[:stream_specification]) unless input[:stream_specification].nil?
+        data['SSESpecification'] = SSESpecification.build(input[:sse_specification]) unless input[:sse_specification].nil?
+        data['ReplicaUpdates'] = ReplicationGroupUpdateList.build(input[:replica_updates]) unless input[:replica_updates].nil?
         data['TableClass'] = input[:table_class] unless input[:table_class].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1612,7 +1615,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ReplicationGroupUpdate.build(element) unless element.nil?
+          data << ReplicationGroupUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1622,9 +1625,9 @@ module AWS::SDK::DynamoDB
     class ReplicationGroupUpdate
       def self.build(input)
         data = {}
-        data['Create'] = Builders::CreateReplicationGroupMemberAction.build(input[:create]) unless input[:create].nil?
-        data['Update'] = Builders::UpdateReplicationGroupMemberAction.build(input[:update]) unless input[:update].nil?
-        data['Delete'] = Builders::DeleteReplicationGroupMemberAction.build(input[:delete]) unless input[:delete].nil?
+        data['Create'] = CreateReplicationGroupMemberAction.build(input[:create]) unless input[:create].nil?
+        data['Update'] = UpdateReplicationGroupMemberAction.build(input[:update]) unless input[:update].nil?
+        data['Delete'] = DeleteReplicationGroupMemberAction.build(input[:delete]) unless input[:delete].nil?
         data
       end
     end
@@ -1644,8 +1647,8 @@ module AWS::SDK::DynamoDB
         data = {}
         data['RegionName'] = input[:region_name] unless input[:region_name].nil?
         data['KMSMasterKeyId'] = input[:kms_master_key_id] unless input[:kms_master_key_id].nil?
-        data['ProvisionedThroughputOverride'] = Builders::ProvisionedThroughputOverride.build(input[:provisioned_throughput_override]) unless input[:provisioned_throughput_override].nil?
-        data['GlobalSecondaryIndexes'] = Builders::ReplicaGlobalSecondaryIndexList.build(input[:global_secondary_indexes]) unless input[:global_secondary_indexes].nil?
+        data['ProvisionedThroughputOverride'] = ProvisionedThroughputOverride.build(input[:provisioned_throughput_override]) unless input[:provisioned_throughput_override].nil?
+        data['GlobalSecondaryIndexes'] = ReplicaGlobalSecondaryIndexList.build(input[:global_secondary_indexes]) unless input[:global_secondary_indexes].nil?
         data['TableClassOverride'] = input[:table_class_override] unless input[:table_class_override].nil?
         data
       end
@@ -1656,7 +1659,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ReplicaGlobalSecondaryIndex.build(element) unless element.nil?
+          data << ReplicaGlobalSecondaryIndex.build(element) unless element.nil?
         end
         data
       end
@@ -1667,7 +1670,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
-        data['ProvisionedThroughputOverride'] = Builders::ProvisionedThroughputOverride.build(input[:provisioned_throughput_override]) unless input[:provisioned_throughput_override].nil?
+        data['ProvisionedThroughputOverride'] = ProvisionedThroughputOverride.build(input[:provisioned_throughput_override]) unless input[:provisioned_throughput_override].nil?
         data
       end
     end
@@ -1687,8 +1690,8 @@ module AWS::SDK::DynamoDB
         data = {}
         data['RegionName'] = input[:region_name] unless input[:region_name].nil?
         data['KMSMasterKeyId'] = input[:kms_master_key_id] unless input[:kms_master_key_id].nil?
-        data['ProvisionedThroughputOverride'] = Builders::ProvisionedThroughputOverride.build(input[:provisioned_throughput_override]) unless input[:provisioned_throughput_override].nil?
-        data['GlobalSecondaryIndexes'] = Builders::ReplicaGlobalSecondaryIndexList.build(input[:global_secondary_indexes]) unless input[:global_secondary_indexes].nil?
+        data['ProvisionedThroughputOverride'] = ProvisionedThroughputOverride.build(input[:provisioned_throughput_override]) unless input[:provisioned_throughput_override].nil?
+        data['GlobalSecondaryIndexes'] = ReplicaGlobalSecondaryIndexList.build(input[:global_secondary_indexes]) unless input[:global_secondary_indexes].nil?
         data['TableClassOverride'] = input[:table_class_override] unless input[:table_class_override].nil?
         data
       end
@@ -1699,7 +1702,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GlobalSecondaryIndexUpdate.build(element) unless element.nil?
+          data << GlobalSecondaryIndexUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1709,9 +1712,9 @@ module AWS::SDK::DynamoDB
     class GlobalSecondaryIndexUpdate
       def self.build(input)
         data = {}
-        data['Update'] = Builders::UpdateGlobalSecondaryIndexAction.build(input[:update]) unless input[:update].nil?
-        data['Create'] = Builders::CreateGlobalSecondaryIndexAction.build(input[:create]) unless input[:create].nil?
-        data['Delete'] = Builders::DeleteGlobalSecondaryIndexAction.build(input[:delete]) unless input[:delete].nil?
+        data['Update'] = UpdateGlobalSecondaryIndexAction.build(input[:update]) unless input[:update].nil?
+        data['Create'] = CreateGlobalSecondaryIndexAction.build(input[:create]) unless input[:create].nil?
+        data['Delete'] = DeleteGlobalSecondaryIndexAction.build(input[:delete]) unless input[:delete].nil?
         data
       end
     end
@@ -1730,9 +1733,9 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
-        data['KeySchema'] = Builders::KeySchema.build(input[:key_schema]) unless input[:key_schema].nil?
-        data['Projection'] = Builders::Projection.build(input[:projection]) unless input[:projection].nil?
-        data['ProvisionedThroughput'] = Builders::ProvisionedThroughput.build(input[:provisioned_throughput]) unless input[:provisioned_throughput].nil?
+        data['KeySchema'] = KeySchema.build(input[:key_schema]) unless input[:key_schema].nil?
+        data['Projection'] = Projection.build(input[:projection]) unless input[:projection].nil?
+        data['ProvisionedThroughput'] = ProvisionedThroughput.build(input[:provisioned_throughput]) unless input[:provisioned_throughput].nil?
         data
       end
     end
@@ -1742,7 +1745,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
-        data['ProvisionedThroughput'] = Builders::ProvisionedThroughput.build(input[:provisioned_throughput]) unless input[:provisioned_throughput].nil?
+        data['ProvisionedThroughput'] = ProvisionedThroughput.build(input[:provisioned_throughput]) unless input[:provisioned_throughput].nil?
         data
       end
     end
@@ -1755,11 +1758,11 @@ module AWS::SDK::DynamoDB
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.UpdateTableReplicaAutoScaling'
         data = {}
-        data['GlobalSecondaryIndexUpdates'] = Builders::GlobalSecondaryIndexAutoScalingUpdateList.build(input[:global_secondary_index_updates]) unless input[:global_secondary_index_updates].nil?
+        data['GlobalSecondaryIndexUpdates'] = GlobalSecondaryIndexAutoScalingUpdateList.build(input[:global_secondary_index_updates]) unless input[:global_secondary_index_updates].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['ProvisionedWriteCapacityAutoScalingUpdate'] = Builders::AutoScalingSettingsUpdate.build(input[:provisioned_write_capacity_auto_scaling_update]) unless input[:provisioned_write_capacity_auto_scaling_update].nil?
-        data['ReplicaUpdates'] = Builders::ReplicaAutoScalingUpdateList.build(input[:replica_updates]) unless input[:replica_updates].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ProvisionedWriteCapacityAutoScalingUpdate'] = AutoScalingSettingsUpdate.build(input[:provisioned_write_capacity_auto_scaling_update]) unless input[:provisioned_write_capacity_auto_scaling_update].nil?
+        data['ReplicaUpdates'] = ReplicaAutoScalingUpdateList.build(input[:replica_updates]) unless input[:replica_updates].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1768,7 +1771,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ReplicaAutoScalingUpdate.build(element) unless element.nil?
+          data << ReplicaAutoScalingUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1779,8 +1782,8 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         data['RegionName'] = input[:region_name] unless input[:region_name].nil?
-        data['ReplicaGlobalSecondaryIndexUpdates'] = Builders::ReplicaGlobalSecondaryIndexAutoScalingUpdateList.build(input[:replica_global_secondary_index_updates]) unless input[:replica_global_secondary_index_updates].nil?
-        data['ReplicaProvisionedReadCapacityAutoScalingUpdate'] = Builders::AutoScalingSettingsUpdate.build(input[:replica_provisioned_read_capacity_auto_scaling_update]) unless input[:replica_provisioned_read_capacity_auto_scaling_update].nil?
+        data['ReplicaGlobalSecondaryIndexUpdates'] = ReplicaGlobalSecondaryIndexAutoScalingUpdateList.build(input[:replica_global_secondary_index_updates]) unless input[:replica_global_secondary_index_updates].nil?
+        data['ReplicaProvisionedReadCapacityAutoScalingUpdate'] = AutoScalingSettingsUpdate.build(input[:replica_provisioned_read_capacity_auto_scaling_update]) unless input[:replica_provisioned_read_capacity_auto_scaling_update].nil?
         data
       end
     end
@@ -1790,7 +1793,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ReplicaGlobalSecondaryIndexAutoScalingUpdate.build(element) unless element.nil?
+          data << ReplicaGlobalSecondaryIndexAutoScalingUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1801,7 +1804,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
-        data['ProvisionedReadCapacityAutoScalingUpdate'] = Builders::AutoScalingSettingsUpdate.build(input[:provisioned_read_capacity_auto_scaling_update]) unless input[:provisioned_read_capacity_auto_scaling_update].nil?
+        data['ProvisionedReadCapacityAutoScalingUpdate'] = AutoScalingSettingsUpdate.build(input[:provisioned_read_capacity_auto_scaling_update]) unless input[:provisioned_read_capacity_auto_scaling_update].nil?
         data
       end
     end
@@ -1811,7 +1814,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::GlobalSecondaryIndexAutoScalingUpdate.build(element) unless element.nil?
+          data << GlobalSecondaryIndexAutoScalingUpdate.build(element) unless element.nil?
         end
         data
       end
@@ -1822,7 +1825,7 @@ module AWS::SDK::DynamoDB
       def self.build(input)
         data = {}
         data['IndexName'] = input[:index_name] unless input[:index_name].nil?
-        data['ProvisionedWriteCapacityAutoScalingUpdate'] = Builders::AutoScalingSettingsUpdate.build(input[:provisioned_write_capacity_auto_scaling_update]) unless input[:provisioned_write_capacity_auto_scaling_update].nil?
+        data['ProvisionedWriteCapacityAutoScalingUpdate'] = AutoScalingSettingsUpdate.build(input[:provisioned_write_capacity_auto_scaling_update]) unless input[:provisioned_write_capacity_auto_scaling_update].nil?
         data
       end
     end
@@ -1836,8 +1839,8 @@ module AWS::SDK::DynamoDB
         http_req.headers['X-Amz-Target'] = 'DynamoDB_20120810.UpdateTimeToLive'
         data = {}
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
-        data['TimeToLiveSpecification'] = Builders::TimeToLiveSpecification.build(input[:time_to_live_specification]) unless input[:time_to_live_specification].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TimeToLiveSpecification'] = TimeToLiveSpecification.build(input[:time_to_live_specification]) unless input[:time_to_live_specification].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

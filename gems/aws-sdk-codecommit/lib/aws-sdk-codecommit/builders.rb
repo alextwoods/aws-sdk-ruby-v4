@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::CodeCommit
   module Builders
 
@@ -20,7 +23,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['approvalRuleTemplateName'] = input[:approval_rule_template_name] unless input[:approval_rule_template_name].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,8 +36,8 @@ module AWS::SDK::CodeCommit
         http_req.headers['X-Amz-Target'] = 'CodeCommit_20150413.BatchAssociateApprovalRuleTemplateWithRepositories'
         data = {}
         data['approvalRuleTemplateName'] = input[:approval_rule_template_name] unless input[:approval_rule_template_name].nil?
-        data['repositoryNames'] = Builders::RepositoryNameList.build(input[:repository_names]) unless input[:repository_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repositoryNames'] = RepositoryNameList.build(input[:repository_names]) unless input[:repository_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -63,11 +66,11 @@ module AWS::SDK::CodeCommit
         data['mergeOption'] = input[:merge_option] unless input[:merge_option].nil?
         data['maxMergeHunks'] = input[:max_merge_hunks] unless input[:max_merge_hunks].nil?
         data['maxConflictFiles'] = input[:max_conflict_files] unless input[:max_conflict_files].nil?
-        data['filePaths'] = Builders::FilePaths.build(input[:file_paths]) unless input[:file_paths].nil?
+        data['filePaths'] = FilePaths.build(input[:file_paths]) unless input[:file_paths].nil?
         data['conflictDetailLevel'] = input[:conflict_detail_level] unless input[:conflict_detail_level].nil?
         data['conflictResolutionStrategy'] = input[:conflict_resolution_strategy] unless input[:conflict_resolution_strategy].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -91,8 +94,8 @@ module AWS::SDK::CodeCommit
         http_req.headers['X-Amz-Target'] = 'CodeCommit_20150413.BatchDisassociateApprovalRuleTemplateFromRepositories'
         data = {}
         data['approvalRuleTemplateName'] = input[:approval_rule_template_name] unless input[:approval_rule_template_name].nil?
-        data['repositoryNames'] = Builders::RepositoryNameList.build(input[:repository_names]) unless input[:repository_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repositoryNames'] = RepositoryNameList.build(input[:repository_names]) unless input[:repository_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -104,9 +107,9 @@ module AWS::SDK::CodeCommit
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodeCommit_20150413.BatchGetCommits'
         data = {}
-        data['commitIds'] = Builders::CommitIdsInputList.build(input[:commit_ids]) unless input[:commit_ids].nil?
+        data['commitIds'] = CommitIdsInputList.build(input[:commit_ids]) unless input[:commit_ids].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -129,8 +132,8 @@ module AWS::SDK::CodeCommit
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.1'
         http_req.headers['X-Amz-Target'] = 'CodeCommit_20150413.BatchGetRepositories'
         data = {}
-        data['repositoryNames'] = Builders::RepositoryNameList.build(input[:repository_names]) unless input[:repository_names].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['repositoryNames'] = RepositoryNameList.build(input[:repository_names]) unless input[:repository_names].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -145,7 +148,7 @@ module AWS::SDK::CodeCommit
         data['approvalRuleTemplateName'] = input[:approval_rule_template_name] unless input[:approval_rule_template_name].nil?
         data['approvalRuleTemplateContent'] = input[:approval_rule_template_content] unless input[:approval_rule_template_content].nil?
         data['approvalRuleTemplateDescription'] = input[:approval_rule_template_description] unless input[:approval_rule_template_description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -160,7 +163,7 @@ module AWS::SDK::CodeCommit
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['branchName'] = input[:branch_name] unless input[:branch_name].nil?
         data['commitId'] = input[:commit_id] unless input[:commit_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -179,10 +182,10 @@ module AWS::SDK::CodeCommit
         data['email'] = input[:email] unless input[:email].nil?
         data['commitMessage'] = input[:commit_message] unless input[:commit_message].nil?
         data['keepEmptyFolders'] = input[:keep_empty_folders] unless input[:keep_empty_folders].nil?
-        data['putFiles'] = Builders::PutFileEntries.build(input[:put_files]) unless input[:put_files].nil?
-        data['deleteFiles'] = Builders::DeleteFileEntries.build(input[:delete_files]) unless input[:delete_files].nil?
-        data['setFileModes'] = Builders::SetFileModeEntries.build(input[:set_file_modes]) unless input[:set_file_modes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['putFiles'] = PutFileEntries.build(input[:put_files]) unless input[:put_files].nil?
+        data['deleteFiles'] = DeleteFileEntries.build(input[:delete_files]) unless input[:delete_files].nil?
+        data['setFileModes'] = SetFileModeEntries.build(input[:set_file_modes]) unless input[:set_file_modes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -191,7 +194,7 @@ module AWS::SDK::CodeCommit
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SetFileModeEntry.build(element) unless element.nil?
+          data << SetFileModeEntry.build(element) unless element.nil?
         end
         data
       end
@@ -212,7 +215,7 @@ module AWS::SDK::CodeCommit
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DeleteFileEntry.build(element) unless element.nil?
+          data << DeleteFileEntry.build(element) unless element.nil?
         end
         data
       end
@@ -232,7 +235,7 @@ module AWS::SDK::CodeCommit
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PutFileEntry.build(element) unless element.nil?
+          data << PutFileEntry.build(element) unless element.nil?
         end
         data
       end
@@ -244,8 +247,8 @@ module AWS::SDK::CodeCommit
         data = {}
         data['filePath'] = input[:file_path] unless input[:file_path].nil?
         data['fileMode'] = input[:file_mode] unless input[:file_mode].nil?
-        data['fileContent'] = Base64::encode64(input[:file_content]).strip unless input[:file_content].nil?
-        data['sourceFile'] = Builders::SourceFileSpecifier.build(input[:source_file]) unless input[:source_file].nil?
+        data['fileContent'] = ::Base64::encode64(input[:file_content]).strip unless input[:file_content].nil?
+        data['sourceFile'] = SourceFileSpecifier.build(input[:source_file]) unless input[:source_file].nil?
         data
       end
     end
@@ -270,9 +273,9 @@ module AWS::SDK::CodeCommit
         data = {}
         data['title'] = input[:title] unless input[:title].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['targets'] = Builders::TargetList.build(input[:targets]) unless input[:targets].nil?
+        data['targets'] = TargetList.build(input[:targets]) unless input[:targets].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -281,7 +284,7 @@ module AWS::SDK::CodeCommit
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Target.build(element) unless element.nil?
+          data << Target.build(element) unless element.nil?
         end
         data
       end
@@ -309,7 +312,7 @@ module AWS::SDK::CodeCommit
         data['pullRequestId'] = input[:pull_request_id] unless input[:pull_request_id].nil?
         data['approvalRuleName'] = input[:approval_rule_name] unless input[:approval_rule_name].nil?
         data['approvalRuleContent'] = input[:approval_rule_content] unless input[:approval_rule_content].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -323,8 +326,8 @@ module AWS::SDK::CodeCommit
         data = {}
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['repositoryDescription'] = input[:repository_description] unless input[:repository_description].nil?
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -357,8 +360,8 @@ module AWS::SDK::CodeCommit
         data['email'] = input[:email] unless input[:email].nil?
         data['commitMessage'] = input[:commit_message] unless input[:commit_message].nil?
         data['keepEmptyFolders'] = input[:keep_empty_folders] unless input[:keep_empty_folders].nil?
-        data['conflictResolution'] = Builders::ConflictResolution.build(input[:conflict_resolution]) unless input[:conflict_resolution].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['conflictResolution'] = ConflictResolution.build(input[:conflict_resolution]) unless input[:conflict_resolution].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -366,9 +369,9 @@ module AWS::SDK::CodeCommit
     class ConflictResolution
       def self.build(input)
         data = {}
-        data['replaceContents'] = Builders::ReplaceContentEntries.build(input[:replace_contents]) unless input[:replace_contents].nil?
-        data['deleteFiles'] = Builders::DeleteFileEntries.build(input[:delete_files]) unless input[:delete_files].nil?
-        data['setFileModes'] = Builders::SetFileModeEntries.build(input[:set_file_modes]) unless input[:set_file_modes].nil?
+        data['replaceContents'] = ReplaceContentEntries.build(input[:replace_contents]) unless input[:replace_contents].nil?
+        data['deleteFiles'] = DeleteFileEntries.build(input[:delete_files]) unless input[:delete_files].nil?
+        data['setFileModes'] = SetFileModeEntries.build(input[:set_file_modes]) unless input[:set_file_modes].nil?
         data
       end
     end
@@ -378,7 +381,7 @@ module AWS::SDK::CodeCommit
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ReplaceContentEntry.build(element) unless element.nil?
+          data << ReplaceContentEntry.build(element) unless element.nil?
         end
         data
       end
@@ -390,7 +393,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['filePath'] = input[:file_path] unless input[:file_path].nil?
         data['replacementType'] = input[:replacement_type] unless input[:replacement_type].nil?
-        data['content'] = Base64::encode64(input[:content]).strip unless input[:content].nil?
+        data['content'] = ::Base64::encode64(input[:content]).strip unless input[:content].nil?
         data['fileMode'] = input[:file_mode] unless input[:file_mode].nil?
         data
       end
@@ -405,7 +408,7 @@ module AWS::SDK::CodeCommit
         http_req.headers['X-Amz-Target'] = 'CodeCommit_20150413.DeleteApprovalRuleTemplate'
         data = {}
         data['approvalRuleTemplateName'] = input[:approval_rule_template_name] unless input[:approval_rule_template_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -419,7 +422,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['branchName'] = input[:branch_name] unless input[:branch_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -432,7 +435,7 @@ module AWS::SDK::CodeCommit
         http_req.headers['X-Amz-Target'] = 'CodeCommit_20150413.DeleteCommentContent'
         data = {}
         data['commentId'] = input[:comment_id] unless input[:comment_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -452,7 +455,7 @@ module AWS::SDK::CodeCommit
         data['commitMessage'] = input[:commit_message] unless input[:commit_message].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['email'] = input[:email] unless input[:email].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -466,7 +469,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['pullRequestId'] = input[:pull_request_id] unless input[:pull_request_id].nil?
         data['approvalRuleName'] = input[:approval_rule_name] unless input[:approval_rule_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -479,7 +482,7 @@ module AWS::SDK::CodeCommit
         http_req.headers['X-Amz-Target'] = 'CodeCommit_20150413.DeleteRepository'
         data = {}
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -500,7 +503,7 @@ module AWS::SDK::CodeCommit
         data['conflictDetailLevel'] = input[:conflict_detail_level] unless input[:conflict_detail_level].nil?
         data['conflictResolutionStrategy'] = input[:conflict_resolution_strategy] unless input[:conflict_resolution_strategy].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -517,7 +520,7 @@ module AWS::SDK::CodeCommit
         data['actorArn'] = input[:actor_arn] unless input[:actor_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -531,7 +534,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['approvalRuleTemplateName'] = input[:approval_rule_template_name] unless input[:approval_rule_template_name].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -545,7 +548,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['pullRequestId'] = input[:pull_request_id] unless input[:pull_request_id].nil?
         data['revisionId'] = input[:revision_id] unless input[:revision_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -558,7 +561,7 @@ module AWS::SDK::CodeCommit
         http_req.headers['X-Amz-Target'] = 'CodeCommit_20150413.GetApprovalRuleTemplate'
         data = {}
         data['approvalRuleTemplateName'] = input[:approval_rule_template_name] unless input[:approval_rule_template_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -572,7 +575,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['blobId'] = input[:blob_id] unless input[:blob_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -586,7 +589,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['branchName'] = input[:branch_name] unless input[:branch_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -599,7 +602,7 @@ module AWS::SDK::CodeCommit
         http_req.headers['X-Amz-Target'] = 'CodeCommit_20150413.GetComment'
         data = {}
         data['commentId'] = input[:comment_id] unless input[:comment_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -615,7 +618,7 @@ module AWS::SDK::CodeCommit
         data['reactionUserArn'] = input[:reaction_user_arn] unless input[:reaction_user_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -632,7 +635,7 @@ module AWS::SDK::CodeCommit
         data['afterCommitId'] = input[:after_commit_id] unless input[:after_commit_id].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -650,7 +653,7 @@ module AWS::SDK::CodeCommit
         data['afterCommitId'] = input[:after_commit_id] unless input[:after_commit_id].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -664,7 +667,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['commitId'] = input[:commit_id] unless input[:commit_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -683,7 +686,7 @@ module AWS::SDK::CodeCommit
         data['afterPath'] = input[:after_path] unless input[:after_path].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -698,7 +701,7 @@ module AWS::SDK::CodeCommit
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['commitSpecifier'] = input[:commit_specifier] unless input[:commit_specifier].nil?
         data['filePath'] = input[:file_path] unless input[:file_path].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -713,7 +716,7 @@ module AWS::SDK::CodeCommit
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['commitSpecifier'] = input[:commit_specifier] unless input[:commit_specifier].nil?
         data['folderPath'] = input[:folder_path] unless input[:folder_path].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -730,7 +733,7 @@ module AWS::SDK::CodeCommit
         data['destinationCommitSpecifier'] = input[:destination_commit_specifier] unless input[:destination_commit_specifier].nil?
         data['conflictDetailLevel'] = input[:conflict_detail_level] unless input[:conflict_detail_level].nil?
         data['conflictResolutionStrategy'] = input[:conflict_resolution_strategy] unless input[:conflict_resolution_strategy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -750,7 +753,7 @@ module AWS::SDK::CodeCommit
         data['maxConflictFiles'] = input[:max_conflict_files] unless input[:max_conflict_files].nil?
         data['conflictResolutionStrategy'] = input[:conflict_resolution_strategy] unless input[:conflict_resolution_strategy].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -767,7 +770,7 @@ module AWS::SDK::CodeCommit
         data['destinationCommitSpecifier'] = input[:destination_commit_specifier] unless input[:destination_commit_specifier].nil?
         data['conflictDetailLevel'] = input[:conflict_detail_level] unless input[:conflict_detail_level].nil?
         data['conflictResolutionStrategy'] = input[:conflict_resolution_strategy] unless input[:conflict_resolution_strategy].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -780,7 +783,7 @@ module AWS::SDK::CodeCommit
         http_req.headers['X-Amz-Target'] = 'CodeCommit_20150413.GetPullRequest'
         data = {}
         data['pullRequestId'] = input[:pull_request_id] unless input[:pull_request_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -794,7 +797,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['pullRequestId'] = input[:pull_request_id] unless input[:pull_request_id].nil?
         data['revisionId'] = input[:revision_id] unless input[:revision_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -808,7 +811,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['pullRequestId'] = input[:pull_request_id] unless input[:pull_request_id].nil?
         data['revisionId'] = input[:revision_id] unless input[:revision_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -821,7 +824,7 @@ module AWS::SDK::CodeCommit
         http_req.headers['X-Amz-Target'] = 'CodeCommit_20150413.GetRepository'
         data = {}
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -834,7 +837,7 @@ module AWS::SDK::CodeCommit
         http_req.headers['X-Amz-Target'] = 'CodeCommit_20150413.GetRepositoryTriggers'
         data = {}
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -848,7 +851,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -863,7 +866,7 @@ module AWS::SDK::CodeCommit
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -877,7 +880,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -894,7 +897,7 @@ module AWS::SDK::CodeCommit
         data['pullRequestStatus'] = input[:pull_request_status] unless input[:pull_request_status].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -909,7 +912,7 @@ module AWS::SDK::CodeCommit
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['sortBy'] = input[:sort_by] unless input[:sort_by].nil?
         data['order'] = input[:order] unless input[:order].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -924,7 +927,7 @@ module AWS::SDK::CodeCommit
         data['approvalRuleTemplateName'] = input[:approval_rule_template_name] unless input[:approval_rule_template_name].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -938,7 +941,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -954,7 +957,7 @@ module AWS::SDK::CodeCommit
         data['sourceCommitSpecifier'] = input[:source_commit_specifier] unless input[:source_commit_specifier].nil?
         data['destinationCommitSpecifier'] = input[:destination_commit_specifier] unless input[:destination_commit_specifier].nil?
         data['targetBranch'] = input[:target_branch] unless input[:target_branch].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -976,8 +979,8 @@ module AWS::SDK::CodeCommit
         data['email'] = input[:email] unless input[:email].nil?
         data['commitMessage'] = input[:commit_message] unless input[:commit_message].nil?
         data['keepEmptyFolders'] = input[:keep_empty_folders] unless input[:keep_empty_folders].nil?
-        data['conflictResolution'] = Builders::ConflictResolution.build(input[:conflict_resolution]) unless input[:conflict_resolution].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['conflictResolution'] = ConflictResolution.build(input[:conflict_resolution]) unless input[:conflict_resolution].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -999,8 +1002,8 @@ module AWS::SDK::CodeCommit
         data['email'] = input[:email] unless input[:email].nil?
         data['commitMessage'] = input[:commit_message] unless input[:commit_message].nil?
         data['keepEmptyFolders'] = input[:keep_empty_folders] unless input[:keep_empty_folders].nil?
-        data['conflictResolution'] = Builders::ConflictResolution.build(input[:conflict_resolution]) unless input[:conflict_resolution].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['conflictResolution'] = ConflictResolution.build(input[:conflict_resolution]) unless input[:conflict_resolution].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1015,7 +1018,7 @@ module AWS::SDK::CodeCommit
         data['pullRequestId'] = input[:pull_request_id] unless input[:pull_request_id].nil?
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['sourceCommitId'] = input[:source_commit_id] unless input[:source_commit_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1036,8 +1039,8 @@ module AWS::SDK::CodeCommit
         data['authorName'] = input[:author_name] unless input[:author_name].nil?
         data['email'] = input[:email] unless input[:email].nil?
         data['keepEmptyFolders'] = input[:keep_empty_folders] unless input[:keep_empty_folders].nil?
-        data['conflictResolution'] = Builders::ConflictResolution.build(input[:conflict_resolution]) unless input[:conflict_resolution].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['conflictResolution'] = ConflictResolution.build(input[:conflict_resolution]) unless input[:conflict_resolution].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1058,8 +1061,8 @@ module AWS::SDK::CodeCommit
         data['authorName'] = input[:author_name] unless input[:author_name].nil?
         data['email'] = input[:email] unless input[:email].nil?
         data['keepEmptyFolders'] = input[:keep_empty_folders] unless input[:keep_empty_folders].nil?
-        data['conflictResolution'] = Builders::ConflictResolution.build(input[:conflict_resolution]) unless input[:conflict_resolution].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['conflictResolution'] = ConflictResolution.build(input[:conflict_resolution]) unless input[:conflict_resolution].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1074,7 +1077,7 @@ module AWS::SDK::CodeCommit
         data['pullRequestId'] = input[:pull_request_id] unless input[:pull_request_id].nil?
         data['revisionId'] = input[:revision_id] unless input[:revision_id].nil?
         data['overrideStatus'] = input[:override_status] unless input[:override_status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1089,10 +1092,10 @@ module AWS::SDK::CodeCommit
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['beforeCommitId'] = input[:before_commit_id] unless input[:before_commit_id].nil?
         data['afterCommitId'] = input[:after_commit_id] unless input[:after_commit_id].nil?
-        data['location'] = Builders::Location.build(input[:location]) unless input[:location].nil?
+        data['location'] = Location.build(input[:location]) unless input[:location].nil?
         data['content'] = input[:content] unless input[:content].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1119,10 +1122,10 @@ module AWS::SDK::CodeCommit
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['beforeCommitId'] = input[:before_commit_id] unless input[:before_commit_id].nil?
         data['afterCommitId'] = input[:after_commit_id] unless input[:after_commit_id].nil?
-        data['location'] = Builders::Location.build(input[:location]) unless input[:location].nil?
+        data['location'] = Location.build(input[:location]) unless input[:location].nil?
         data['content'] = input[:content] unless input[:content].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1137,7 +1140,7 @@ module AWS::SDK::CodeCommit
         data['inReplyTo'] = input[:in_reply_to] unless input[:in_reply_to].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['content'] = input[:content] unless input[:content].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1151,7 +1154,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['commentId'] = input[:comment_id] unless input[:comment_id].nil?
         data['reactionValue'] = input[:reaction_value] unless input[:reaction_value].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1165,14 +1168,14 @@ module AWS::SDK::CodeCommit
         data = {}
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['branchName'] = input[:branch_name] unless input[:branch_name].nil?
-        data['fileContent'] = Base64::encode64(input[:file_content]).strip unless input[:file_content].nil?
+        data['fileContent'] = ::Base64::encode64(input[:file_content]).strip unless input[:file_content].nil?
         data['filePath'] = input[:file_path] unless input[:file_path].nil?
         data['fileMode'] = input[:file_mode] unless input[:file_mode].nil?
         data['parentCommitId'] = input[:parent_commit_id] unless input[:parent_commit_id].nil?
         data['commitMessage'] = input[:commit_message] unless input[:commit_message].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['email'] = input[:email] unless input[:email].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1185,8 +1188,8 @@ module AWS::SDK::CodeCommit
         http_req.headers['X-Amz-Target'] = 'CodeCommit_20150413.PutRepositoryTriggers'
         data = {}
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        data['triggers'] = Builders::RepositoryTriggersList.build(input[:triggers]) unless input[:triggers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['triggers'] = RepositoryTriggersList.build(input[:triggers]) unless input[:triggers].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1195,7 +1198,7 @@ module AWS::SDK::CodeCommit
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RepositoryTrigger.build(element) unless element.nil?
+          data << RepositoryTrigger.build(element) unless element.nil?
         end
         data
       end
@@ -1208,8 +1211,8 @@ module AWS::SDK::CodeCommit
         data['name'] = input[:name] unless input[:name].nil?
         data['destinationArn'] = input[:destination_arn] unless input[:destination_arn].nil?
         data['customData'] = input[:custom_data] unless input[:custom_data].nil?
-        data['branches'] = Builders::BranchNameList.build(input[:branches]) unless input[:branches].nil?
-        data['events'] = Builders::RepositoryTriggerEventList.build(input[:events]) unless input[:events].nil?
+        data['branches'] = BranchNameList.build(input[:branches]) unless input[:branches].nil?
+        data['events'] = RepositoryTriggerEventList.build(input[:events]) unless input[:events].nil?
         data
       end
     end
@@ -1245,8 +1248,8 @@ module AWS::SDK::CodeCommit
         http_req.headers['X-Amz-Target'] = 'CodeCommit_20150413.TagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tags'] = Builders::TagsMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagsMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1259,8 +1262,8 @@ module AWS::SDK::CodeCommit
         http_req.headers['X-Amz-Target'] = 'CodeCommit_20150413.TestRepositoryTriggers'
         data = {}
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
-        data['triggers'] = Builders::RepositoryTriggersList.build(input[:triggers]) unless input[:triggers].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['triggers'] = RepositoryTriggersList.build(input[:triggers]) unless input[:triggers].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1273,8 +1276,8 @@ module AWS::SDK::CodeCommit
         http_req.headers['X-Amz-Target'] = 'CodeCommit_20150413.UntagResource'
         data = {}
         data['resourceArn'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['tagKeys'] = Builders::TagKeysList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tagKeys'] = TagKeysList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1300,7 +1303,7 @@ module AWS::SDK::CodeCommit
         data['approvalRuleTemplateName'] = input[:approval_rule_template_name] unless input[:approval_rule_template_name].nil?
         data['newRuleContent'] = input[:new_rule_content] unless input[:new_rule_content].nil?
         data['existingRuleContentSha256'] = input[:existing_rule_content_sha256] unless input[:existing_rule_content_sha256].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1314,7 +1317,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['approvalRuleTemplateName'] = input[:approval_rule_template_name] unless input[:approval_rule_template_name].nil?
         data['approvalRuleTemplateDescription'] = input[:approval_rule_template_description] unless input[:approval_rule_template_description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1328,7 +1331,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['oldApprovalRuleTemplateName'] = input[:old_approval_rule_template_name] unless input[:old_approval_rule_template_name].nil?
         data['newApprovalRuleTemplateName'] = input[:new_approval_rule_template_name] unless input[:new_approval_rule_template_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1342,7 +1345,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['commentId'] = input[:comment_id] unless input[:comment_id].nil?
         data['content'] = input[:content] unless input[:content].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1356,7 +1359,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['defaultBranchName'] = input[:default_branch_name] unless input[:default_branch_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1372,7 +1375,7 @@ module AWS::SDK::CodeCommit
         data['approvalRuleName'] = input[:approval_rule_name] unless input[:approval_rule_name].nil?
         data['existingRuleContentSha256'] = input[:existing_rule_content_sha256] unless input[:existing_rule_content_sha256].nil?
         data['newRuleContent'] = input[:new_rule_content] unless input[:new_rule_content].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1387,7 +1390,7 @@ module AWS::SDK::CodeCommit
         data['pullRequestId'] = input[:pull_request_id] unless input[:pull_request_id].nil?
         data['revisionId'] = input[:revision_id] unless input[:revision_id].nil?
         data['approvalState'] = input[:approval_state] unless input[:approval_state].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1401,7 +1404,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['pullRequestId'] = input[:pull_request_id] unless input[:pull_request_id].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1415,7 +1418,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['pullRequestId'] = input[:pull_request_id] unless input[:pull_request_id].nil?
         data['pullRequestStatus'] = input[:pull_request_status] unless input[:pull_request_status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1429,7 +1432,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['pullRequestId'] = input[:pull_request_id] unless input[:pull_request_id].nil?
         data['title'] = input[:title] unless input[:title].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1443,7 +1446,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['repositoryName'] = input[:repository_name] unless input[:repository_name].nil?
         data['repositoryDescription'] = input[:repository_description] unless input[:repository_description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1457,7 +1460,7 @@ module AWS::SDK::CodeCommit
         data = {}
         data['oldName'] = input[:old_name] unless input[:old_name].nil?
         data['newName'] = input[:new_name] unless input[:new_name].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

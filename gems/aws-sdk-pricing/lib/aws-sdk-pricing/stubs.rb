@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Pricing
   module Stubs
 
@@ -22,10 +24,10 @@ module AWS::SDK::Pricing
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Services'] = Stubs::ServiceList.stub(stub[:services]) unless stub[:services].nil?
+        data['Services'] = ServiceList.stub(stub[:services]) unless stub[:services].nil?
         data['FormatVersion'] = stub[:format_version] unless stub[:format_version].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -44,7 +46,7 @@ module AWS::SDK::Pricing
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Service.stub(element) unless element.nil?
+          data << Service.stub(element) unless element.nil?
         end
         data
       end
@@ -65,7 +67,7 @@ module AWS::SDK::Pricing
         stub ||= Types::Service.new
         data = {}
         data['ServiceCode'] = stub[:service_code] unless stub[:service_code].nil?
-        data['AttributeNames'] = Stubs::AttributeNameList.stub(stub[:attribute_names]) unless stub[:attribute_names].nil?
+        data['AttributeNames'] = AttributeNameList.stub(stub[:attribute_names]) unless stub[:attribute_names].nil?
         data
       end
     end
@@ -101,9 +103,9 @@ module AWS::SDK::Pricing
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AttributeValues'] = Stubs::AttributeValueList.stub(stub[:attribute_values]) unless stub[:attribute_values].nil?
+        data['AttributeValues'] = AttributeValueList.stub(stub[:attribute_values]) unless stub[:attribute_values].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -122,7 +124,7 @@ module AWS::SDK::Pricing
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AttributeValue.stub(element) unless element.nil?
+          data << AttributeValue.stub(element) unless element.nil?
         end
         data
       end
@@ -159,9 +161,9 @@ module AWS::SDK::Pricing
       def self.stub(http_resp, stub:)
         data = {}
         data['FormatVersion'] = stub[:format_version] unless stub[:format_version].nil?
-        data['PriceList'] = Stubs::PriceList.stub(stub[:price_list]) unless stub[:price_list].nil?
+        data['PriceList'] = PriceList.stub(stub[:price_list]) unless stub[:price_list].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

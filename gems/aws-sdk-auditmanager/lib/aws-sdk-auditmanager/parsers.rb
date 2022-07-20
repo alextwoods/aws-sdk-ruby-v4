@@ -58,7 +58,7 @@ module AWS::SDK::AuditManager
         map = Hearth::JSON.load(http_resp.body)
         data.message = map['message'] || map['Message']
         data.reason = map['reason']
-        data.fields = (Parsers::ValidationExceptionFieldList.parse(map['fields']) unless map['fields'].nil?)
+        data.fields = (ValidationExceptionFieldList.parse(map['fields']) unless map['fields'].nil?)
         data
       end
     end
@@ -67,7 +67,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          data << ValidationExceptionField.parse(value) unless value.nil?
         end
         data
       end
@@ -87,8 +87,8 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::BatchAssociateAssessmentReportEvidenceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.evidence_ids = (Parsers::EvidenceIds.parse(map['evidenceIds']) unless map['evidenceIds'].nil?)
-        data.errors = (Parsers::AssessmentReportEvidenceErrors.parse(map['errors']) unless map['errors'].nil?)
+        data.evidence_ids = (EvidenceIds.parse(map['evidenceIds']) unless map['evidenceIds'].nil?)
+        data.errors = (AssessmentReportEvidenceErrors.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -97,7 +97,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssessmentReportEvidenceError.parse(value) unless value.nil?
+          data << AssessmentReportEvidenceError.parse(value) unless value.nil?
         end
         data
       end
@@ -128,8 +128,8 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::BatchCreateDelegationByAssessmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.delegations = (Parsers::Delegations.parse(map['delegations']) unless map['delegations'].nil?)
-        data.errors = (Parsers::BatchCreateDelegationByAssessmentErrors.parse(map['errors']) unless map['errors'].nil?)
+        data.delegations = (Delegations.parse(map['delegations']) unless map['delegations'].nil?)
+        data.errors = (BatchCreateDelegationByAssessmentErrors.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -138,7 +138,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchCreateDelegationByAssessmentError.parse(value) unless value.nil?
+          data << BatchCreateDelegationByAssessmentError.parse(value) unless value.nil?
         end
         data
       end
@@ -147,7 +147,7 @@ module AWS::SDK::AuditManager
     class BatchCreateDelegationByAssessmentError
       def self.parse(map)
         data = Types::BatchCreateDelegationByAssessmentError.new
-        data.create_delegation_request = (Parsers::CreateDelegationRequest.parse(map['createDelegationRequest']) unless map['createDelegationRequest'].nil?)
+        data.create_delegation_request = (CreateDelegationRequest.parse(map['createDelegationRequest']) unless map['createDelegationRequest'].nil?)
         data.error_code = map['errorCode']
         data.error_message = map['errorMessage']
         return data
@@ -169,7 +169,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Delegation.parse(value) unless value.nil?
+          data << Delegation.parse(value) unless value.nil?
         end
         data
       end
@@ -198,7 +198,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::BatchDeleteDelegationByAssessmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.errors = (Parsers::BatchDeleteDelegationByAssessmentErrors.parse(map['errors']) unless map['errors'].nil?)
+        data.errors = (BatchDeleteDelegationByAssessmentErrors.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -207,7 +207,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchDeleteDelegationByAssessmentError.parse(value) unless value.nil?
+          data << BatchDeleteDelegationByAssessmentError.parse(value) unless value.nil?
         end
         data
       end
@@ -228,8 +228,8 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::BatchDisassociateAssessmentReportEvidenceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.evidence_ids = (Parsers::EvidenceIds.parse(map['evidenceIds']) unless map['evidenceIds'].nil?)
-        data.errors = (Parsers::AssessmentReportEvidenceErrors.parse(map['errors']) unless map['errors'].nil?)
+        data.evidence_ids = (EvidenceIds.parse(map['evidenceIds']) unless map['evidenceIds'].nil?)
+        data.errors = (AssessmentReportEvidenceErrors.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -239,7 +239,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::BatchImportEvidenceToAssessmentControlOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.errors = (Parsers::BatchImportEvidenceToAssessmentControlErrors.parse(map['errors']) unless map['errors'].nil?)
+        data.errors = (BatchImportEvidenceToAssessmentControlErrors.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -248,7 +248,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::BatchImportEvidenceToAssessmentControlError.parse(value) unless value.nil?
+          data << BatchImportEvidenceToAssessmentControlError.parse(value) unless value.nil?
         end
         data
       end
@@ -257,7 +257,7 @@ module AWS::SDK::AuditManager
     class BatchImportEvidenceToAssessmentControlError
       def self.parse(map)
         data = Types::BatchImportEvidenceToAssessmentControlError.new
-        data.manual_evidence = (Parsers::ManualEvidence.parse(map['manualEvidence']) unless map['manualEvidence'].nil?)
+        data.manual_evidence = (ManualEvidence.parse(map['manualEvidence']) unless map['manualEvidence'].nil?)
         data.error_code = map['errorCode']
         data.error_message = map['errorMessage']
         return data
@@ -277,7 +277,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::CreateAssessmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assessment = (Parsers::Assessment.parse(map['assessment']) unless map['assessment'].nil?)
+        data.assessment = (Assessment.parse(map['assessment']) unless map['assessment'].nil?)
         data
       end
     end
@@ -286,10 +286,10 @@ module AWS::SDK::AuditManager
       def self.parse(map)
         data = Types::Assessment.new
         data.arn = map['arn']
-        data.aws_account = (Parsers::AWSAccount.parse(map['awsAccount']) unless map['awsAccount'].nil?)
-        data.metadata = (Parsers::AssessmentMetadata.parse(map['metadata']) unless map['metadata'].nil?)
-        data.framework = (Parsers::AssessmentFramework.parse(map['framework']) unless map['framework'].nil?)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.aws_account = (AWSAccount.parse(map['awsAccount']) unless map['awsAccount'].nil?)
+        data.metadata = (AssessmentMetadata.parse(map['metadata']) unless map['metadata'].nil?)
+        data.framework = (AssessmentFramework.parse(map['framework']) unless map['framework'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -309,8 +309,8 @@ module AWS::SDK::AuditManager
         data = Types::AssessmentFramework.new
         data.id = map['id']
         data.arn = map['arn']
-        data.metadata = (Parsers::FrameworkMetadata.parse(map['metadata']) unless map['metadata'].nil?)
-        data.control_sets = (Parsers::AssessmentControlSets.parse(map['controlSets']) unless map['controlSets'].nil?)
+        data.metadata = (FrameworkMetadata.parse(map['metadata']) unless map['metadata'].nil?)
+        data.control_sets = (AssessmentControlSets.parse(map['controlSets']) unless map['controlSets'].nil?)
         return data
       end
     end
@@ -319,7 +319,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssessmentControlSet.parse(value) unless value.nil?
+          data << AssessmentControlSet.parse(value) unless value.nil?
         end
         data
       end
@@ -331,9 +331,9 @@ module AWS::SDK::AuditManager
         data.id = map['id']
         data.description = map['description']
         data.status = map['status']
-        data.roles = (Parsers::Roles.parse(map['roles']) unless map['roles'].nil?)
-        data.controls = (Parsers::AssessmentControls.parse(map['controls']) unless map['controls'].nil?)
-        data.delegations = (Parsers::Delegations.parse(map['delegations']) unless map['delegations'].nil?)
+        data.roles = (Roles.parse(map['roles']) unless map['roles'].nil?)
+        data.controls = (AssessmentControls.parse(map['controls']) unless map['controls'].nil?)
+        data.delegations = (Delegations.parse(map['delegations']) unless map['delegations'].nil?)
         data.system_evidence_count = map['systemEvidenceCount']
         data.manual_evidence_count = map['manualEvidenceCount']
         return data
@@ -344,7 +344,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssessmentControl.parse(value) unless value.nil?
+          data << AssessmentControl.parse(value) unless value.nil?
         end
         data
       end
@@ -358,8 +358,8 @@ module AWS::SDK::AuditManager
         data.description = map['description']
         data.status = map['status']
         data.response = map['response']
-        data.comments = (Parsers::ControlComments.parse(map['comments']) unless map['comments'].nil?)
-        data.evidence_sources = (Parsers::EvidenceSources.parse(map['evidenceSources']) unless map['evidenceSources'].nil?)
+        data.comments = (ControlComments.parse(map['comments']) unless map['comments'].nil?)
+        data.evidence_sources = (EvidenceSources.parse(map['evidenceSources']) unless map['evidenceSources'].nil?)
         data.evidence_count = map['evidenceCount']
         data.assessment_report_evidence_count = map['assessmentReportEvidenceCount']
         return data
@@ -380,7 +380,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ControlComment.parse(value) unless value.nil?
+          data << ControlComment.parse(value) unless value.nil?
         end
         data
       end
@@ -400,7 +400,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Role.parse(value) unless value.nil?
+          data << Role.parse(value) unless value.nil?
         end
         data
       end
@@ -434,10 +434,10 @@ module AWS::SDK::AuditManager
         data.description = map['description']
         data.compliance_type = map['complianceType']
         data.status = map['status']
-        data.assessment_reports_destination = (Parsers::AssessmentReportsDestination.parse(map['assessmentReportsDestination']) unless map['assessmentReportsDestination'].nil?)
-        data.scope = (Parsers::Scope.parse(map['scope']) unless map['scope'].nil?)
-        data.roles = (Parsers::Roles.parse(map['roles']) unless map['roles'].nil?)
-        data.delegations = (Parsers::Delegations.parse(map['delegations']) unless map['delegations'].nil?)
+        data.assessment_reports_destination = (AssessmentReportsDestination.parse(map['assessmentReportsDestination']) unless map['assessmentReportsDestination'].nil?)
+        data.scope = (Scope.parse(map['scope']) unless map['scope'].nil?)
+        data.roles = (Roles.parse(map['roles']) unless map['roles'].nil?)
+        data.delegations = (Delegations.parse(map['delegations']) unless map['delegations'].nil?)
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_updated = Time.at(map['lastUpdated'].to_i) if map['lastUpdated']
         return data
@@ -447,8 +447,8 @@ module AWS::SDK::AuditManager
     class Scope
       def self.parse(map)
         data = Types::Scope.new
-        data.aws_accounts = (Parsers::AWSAccounts.parse(map['awsAccounts']) unless map['awsAccounts'].nil?)
-        data.aws_services = (Parsers::AWSServices.parse(map['awsServices']) unless map['awsServices'].nil?)
+        data.aws_accounts = (AWSAccounts.parse(map['awsAccounts']) unless map['awsAccounts'].nil?)
+        data.aws_services = (AWSServices.parse(map['awsServices']) unless map['awsServices'].nil?)
         return data
       end
     end
@@ -457,7 +457,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AWSService.parse(value) unless value.nil?
+          data << AWSService.parse(value) unless value.nil?
         end
         data
       end
@@ -475,7 +475,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AWSAccount.parse(value) unless value.nil?
+          data << AWSAccount.parse(value) unless value.nil?
         end
         data
       end
@@ -505,7 +505,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::CreateAssessmentFrameworkOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.framework = (Parsers::Framework.parse(map['framework']) unless map['framework'].nil?)
+        data.framework = (Framework.parse(map['framework']) unless map['framework'].nil?)
         data
       end
     end
@@ -521,12 +521,12 @@ module AWS::SDK::AuditManager
         data.description = map['description']
         data.logo = map['logo']
         data.control_sources = map['controlSources']
-        data.control_sets = (Parsers::ControlSets.parse(map['controlSets']) unless map['controlSets'].nil?)
+        data.control_sets = (ControlSets.parse(map['controlSets']) unless map['controlSets'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         data.created_by = map['createdBy']
         data.last_updated_by = map['lastUpdatedBy']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -535,7 +535,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ControlSet.parse(value) unless value.nil?
+          data << ControlSet.parse(value) unless value.nil?
         end
         data
       end
@@ -546,7 +546,7 @@ module AWS::SDK::AuditManager
         data = Types::ControlSet.new
         data.id = map['id']
         data.name = map['name']
-        data.controls = (Parsers::Controls.parse(map['controls']) unless map['controls'].nil?)
+        data.controls = (Controls.parse(map['controls']) unless map['controls'].nil?)
         return data
       end
     end
@@ -555,7 +555,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Control.parse(value) unless value.nil?
+          data << Control.parse(value) unless value.nil?
         end
         data
       end
@@ -573,12 +573,12 @@ module AWS::SDK::AuditManager
         data.action_plan_title = map['actionPlanTitle']
         data.action_plan_instructions = map['actionPlanInstructions']
         data.control_sources = map['controlSources']
-        data.control_mapping_sources = (Parsers::ControlMappingSources.parse(map['controlMappingSources']) unless map['controlMappingSources'].nil?)
+        data.control_mapping_sources = (ControlMappingSources.parse(map['controlMappingSources']) unless map['controlMappingSources'].nil?)
         data.created_at = Time.at(map['createdAt'].to_i) if map['createdAt']
         data.last_updated_at = Time.at(map['lastUpdatedAt'].to_i) if map['lastUpdatedAt']
         data.created_by = map['createdBy']
         data.last_updated_by = map['lastUpdatedBy']
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -587,7 +587,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ControlMappingSource.parse(value) unless value.nil?
+          data << ControlMappingSource.parse(value) unless value.nil?
         end
         data
       end
@@ -601,7 +601,7 @@ module AWS::SDK::AuditManager
         data.source_description = map['sourceDescription']
         data.source_set_up_option = map['sourceSetUpOption']
         data.source_type = map['sourceType']
-        data.source_keyword = (Parsers::SourceKeyword.parse(map['sourceKeyword']) unless map['sourceKeyword'].nil?)
+        data.source_keyword = (SourceKeyword.parse(map['sourceKeyword']) unless map['sourceKeyword'].nil?)
         data.source_frequency = map['sourceFrequency']
         data.troubleshooting_text = map['troubleshootingText']
         return data
@@ -622,7 +622,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::CreateAssessmentReportOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assessment_report = (Parsers::AssessmentReport.parse(map['assessmentReport']) unless map['assessmentReport'].nil?)
+        data.assessment_report = (AssessmentReport.parse(map['assessmentReport']) unless map['assessmentReport'].nil?)
         data
       end
     end
@@ -648,7 +648,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::CreateControlOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.control = (Parsers::Control.parse(map['control']) unless map['control'].nil?)
+        data.control = (Control.parse(map['control']) unless map['control'].nil?)
         data
       end
     end
@@ -741,8 +741,8 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::GetAssessmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assessment = (Parsers::Assessment.parse(map['assessment']) unless map['assessment'].nil?)
-        data.user_role = (Parsers::Role.parse(map['userRole']) unless map['userRole'].nil?)
+        data.assessment = (Assessment.parse(map['assessment']) unless map['assessment'].nil?)
+        data.user_role = (Role.parse(map['userRole']) unless map['userRole'].nil?)
         data
       end
     end
@@ -752,7 +752,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::GetAssessmentFrameworkOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.framework = (Parsers::Framework.parse(map['framework']) unless map['framework'].nil?)
+        data.framework = (Framework.parse(map['framework']) unless map['framework'].nil?)
         data
       end
     end
@@ -762,7 +762,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::GetAssessmentReportUrlOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.pre_signed_url = (Parsers::URL.parse(map['preSignedUrl']) unless map['preSignedUrl'].nil?)
+        data.pre_signed_url = (URL.parse(map['preSignedUrl']) unless map['preSignedUrl'].nil?)
         data
       end
     end
@@ -781,7 +781,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::GetChangeLogsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.change_logs = (Parsers::ChangeLogs.parse(map['changeLogs']) unless map['changeLogs'].nil?)
+        data.change_logs = (ChangeLogs.parse(map['changeLogs']) unless map['changeLogs'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -791,7 +791,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ChangeLog.parse(value) unless value.nil?
+          data << ChangeLog.parse(value) unless value.nil?
         end
         data
       end
@@ -814,7 +814,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::GetControlOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.control = (Parsers::Control.parse(map['control']) unless map['control'].nil?)
+        data.control = (Control.parse(map['control']) unless map['control'].nil?)
         data
       end
     end
@@ -824,7 +824,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::GetDelegationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.delegations = (Parsers::DelegationMetadataList.parse(map['delegations']) unless map['delegations'].nil?)
+        data.delegations = (DelegationMetadataList.parse(map['delegations']) unless map['delegations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -834,7 +834,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DelegationMetadata.parse(value) unless value.nil?
+          data << DelegationMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -859,7 +859,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::GetEvidenceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.evidence = (Parsers::Evidence.parse(map['evidence']) unless map['evidence'].nil?)
+        data.evidence = (Evidence.parse(map['evidence']) unless map['evidence'].nil?)
         data
       end
     end
@@ -873,8 +873,8 @@ module AWS::SDK::AuditManager
         data.event_source = map['eventSource']
         data.event_name = map['eventName']
         data.evidence_by_type = map['evidenceByType']
-        data.resources_included = (Parsers::Resources.parse(map['resourcesIncluded']) unless map['resourcesIncluded'].nil?)
-        data.attributes = (Parsers::EvidenceAttributes.parse(map['attributes']) unless map['attributes'].nil?)
+        data.resources_included = (Resources.parse(map['resourcesIncluded']) unless map['resourcesIncluded'].nil?)
+        data.attributes = (EvidenceAttributes.parse(map['attributes']) unless map['attributes'].nil?)
         data.iam_id = map['iamId']
         data.compliance_check = map['complianceCheck']
         data.aws_organization = map['awsOrganization']
@@ -900,7 +900,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Resource.parse(value) unless value.nil?
+          data << Resource.parse(value) unless value.nil?
         end
         data
       end
@@ -920,7 +920,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::GetEvidenceByEvidenceFolderOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.evidence = (Parsers::EvidenceList.parse(map['evidence']) unless map['evidence'].nil?)
+        data.evidence = (EvidenceList.parse(map['evidence']) unless map['evidence'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -930,7 +930,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Evidence.parse(value) unless value.nil?
+          data << Evidence.parse(value) unless value.nil?
         end
         data
       end
@@ -941,7 +941,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::GetEvidenceFolderOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.evidence_folder = (Parsers::AssessmentEvidenceFolder.parse(map['evidenceFolder']) unless map['evidenceFolder'].nil?)
+        data.evidence_folder = (AssessmentEvidenceFolder.parse(map['evidenceFolder']) unless map['evidenceFolder'].nil?)
         data
       end
     end
@@ -976,7 +976,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::GetEvidenceFoldersByAssessmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.evidence_folders = (Parsers::AssessmentEvidenceFolders.parse(map['evidenceFolders']) unless map['evidenceFolders'].nil?)
+        data.evidence_folders = (AssessmentEvidenceFolders.parse(map['evidenceFolders']) unless map['evidenceFolders'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -986,7 +986,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssessmentEvidenceFolder.parse(value) unless value.nil?
+          data << AssessmentEvidenceFolder.parse(value) unless value.nil?
         end
         data
       end
@@ -997,7 +997,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::GetEvidenceFoldersByAssessmentControlOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.evidence_folders = (Parsers::AssessmentEvidenceFolders.parse(map['evidenceFolders']) unless map['evidenceFolders'].nil?)
+        data.evidence_folders = (AssessmentEvidenceFolders.parse(map['evidenceFolders']) unless map['evidenceFolders'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1008,7 +1008,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::GetInsightsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.insights = (Parsers::Insights.parse(map['insights']) unless map['insights'].nil?)
+        data.insights = (Insights.parse(map['insights']) unless map['insights'].nil?)
         data
       end
     end
@@ -1032,7 +1032,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::GetInsightsByAssessmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.insights = (Parsers::InsightsByAssessment.parse(map['insights']) unless map['insights'].nil?)
+        data.insights = (InsightsByAssessment.parse(map['insights']) unless map['insights'].nil?)
         data
       end
     end
@@ -1066,7 +1066,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::GetServicesInScopeOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.service_metadata = (Parsers::ServiceMetadataList.parse(map['serviceMetadata']) unless map['serviceMetadata'].nil?)
+        data.service_metadata = (ServiceMetadataList.parse(map['serviceMetadata']) unless map['serviceMetadata'].nil?)
         data
       end
     end
@@ -1075,7 +1075,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ServiceMetadata.parse(value) unless value.nil?
+          data << ServiceMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -1097,7 +1097,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::GetSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.settings = (Parsers::Settings.parse(map['settings']) unless map['settings'].nil?)
+        data.settings = (Settings.parse(map['settings']) unless map['settings'].nil?)
         data
       end
     end
@@ -1107,8 +1107,8 @@ module AWS::SDK::AuditManager
         data = Types::Settings.new
         data.is_aws_org_enabled = map['isAwsOrgEnabled']
         data.sns_topic = map['snsTopic']
-        data.default_assessment_reports_destination = (Parsers::AssessmentReportsDestination.parse(map['defaultAssessmentReportsDestination']) unless map['defaultAssessmentReportsDestination'].nil?)
-        data.default_process_owners = (Parsers::Roles.parse(map['defaultProcessOwners']) unless map['defaultProcessOwners'].nil?)
+        data.default_assessment_reports_destination = (AssessmentReportsDestination.parse(map['defaultAssessmentReportsDestination']) unless map['defaultAssessmentReportsDestination'].nil?)
+        data.default_process_owners = (Roles.parse(map['defaultProcessOwners']) unless map['defaultProcessOwners'].nil?)
         data.kms_key = map['kmsKey']
         return data
       end
@@ -1119,7 +1119,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::ListAssessmentControlInsightsByControlDomainOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.control_insights_by_assessment = (Parsers::ControlInsightsMetadataByAssessment.parse(map['controlInsightsByAssessment']) unless map['controlInsightsByAssessment'].nil?)
+        data.control_insights_by_assessment = (ControlInsightsMetadataByAssessment.parse(map['controlInsightsByAssessment']) unless map['controlInsightsByAssessment'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1129,7 +1129,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ControlInsightsMetadataByAssessmentItem.parse(value) unless value.nil?
+          data << ControlInsightsMetadataByAssessmentItem.parse(value) unless value.nil?
         end
         data
       end
@@ -1140,7 +1140,7 @@ module AWS::SDK::AuditManager
         data = Types::ControlInsightsMetadataByAssessmentItem.new
         data.name = map['name']
         data.id = map['id']
-        data.evidence_insights = (Parsers::EvidenceInsights.parse(map['evidenceInsights']) unless map['evidenceInsights'].nil?)
+        data.evidence_insights = (EvidenceInsights.parse(map['evidenceInsights']) unless map['evidenceInsights'].nil?)
         data.control_set_name = map['controlSetName']
         data.last_updated = Time.at(map['lastUpdated'].to_i) if map['lastUpdated']
         return data
@@ -1162,7 +1162,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::ListAssessmentFrameworkShareRequestsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assessment_framework_share_requests = (Parsers::AssessmentFrameworkShareRequestList.parse(map['assessmentFrameworkShareRequests']) unless map['assessmentFrameworkShareRequests'].nil?)
+        data.assessment_framework_share_requests = (AssessmentFrameworkShareRequestList.parse(map['assessmentFrameworkShareRequests']) unless map['assessmentFrameworkShareRequests'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1172,7 +1172,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssessmentFrameworkShareRequest.parse(value) unless value.nil?
+          data << AssessmentFrameworkShareRequest.parse(value) unless value.nil?
         end
         data
       end
@@ -1205,7 +1205,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::ListAssessmentFrameworksOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.framework_metadata_list = (Parsers::FrameworkMetadataList.parse(map['frameworkMetadataList']) unless map['frameworkMetadataList'].nil?)
+        data.framework_metadata_list = (FrameworkMetadataList.parse(map['frameworkMetadataList']) unless map['frameworkMetadataList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1215,7 +1215,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssessmentFrameworkMetadata.parse(value) unless value.nil?
+          data << AssessmentFrameworkMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -1244,7 +1244,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::ListAssessmentReportsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assessment_reports = (Parsers::AssessmentReportsMetadata.parse(map['assessmentReports']) unless map['assessmentReports'].nil?)
+        data.assessment_reports = (AssessmentReportsMetadata.parse(map['assessmentReports']) unless map['assessmentReports'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1254,7 +1254,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssessmentReportMetadata.parse(value) unless value.nil?
+          data << AssessmentReportMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -1280,7 +1280,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::ListAssessmentsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assessment_metadata = (Parsers::ListAssessmentMetadata.parse(map['assessmentMetadata']) unless map['assessmentMetadata'].nil?)
+        data.assessment_metadata = (ListAssessmentMetadata.parse(map['assessmentMetadata']) unless map['assessmentMetadata'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1290,7 +1290,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::AssessmentMetadataItem.parse(value) unless value.nil?
+          data << AssessmentMetadataItem.parse(value) unless value.nil?
         end
         data
       end
@@ -1303,8 +1303,8 @@ module AWS::SDK::AuditManager
         data.id = map['id']
         data.compliance_type = map['complianceType']
         data.status = map['status']
-        data.roles = (Parsers::Roles.parse(map['roles']) unless map['roles'].nil?)
-        data.delegations = (Parsers::Delegations.parse(map['delegations']) unless map['delegations'].nil?)
+        data.roles = (Roles.parse(map['roles']) unless map['roles'].nil?)
+        data.delegations = (Delegations.parse(map['delegations']) unless map['delegations'].nil?)
         data.creation_time = Time.at(map['creationTime'].to_i) if map['creationTime']
         data.last_updated = Time.at(map['lastUpdated'].to_i) if map['lastUpdated']
         return data
@@ -1316,7 +1316,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::ListControlDomainInsightsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.control_domain_insights = (Parsers::ControlDomainInsightsList.parse(map['controlDomainInsights']) unless map['controlDomainInsights'].nil?)
+        data.control_domain_insights = (ControlDomainInsightsList.parse(map['controlDomainInsights']) unless map['controlDomainInsights'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1326,7 +1326,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ControlDomainInsights.parse(value) unless value.nil?
+          data << ControlDomainInsights.parse(value) unless value.nil?
         end
         data
       end
@@ -1339,7 +1339,7 @@ module AWS::SDK::AuditManager
         data.id = map['id']
         data.controls_count_by_noncompliant_evidence = map['controlsCountByNoncompliantEvidence']
         data.total_controls_count = map['totalControlsCount']
-        data.evidence_insights = (Parsers::EvidenceInsights.parse(map['evidenceInsights']) unless map['evidenceInsights'].nil?)
+        data.evidence_insights = (EvidenceInsights.parse(map['evidenceInsights']) unless map['evidenceInsights'].nil?)
         data.last_updated = Time.at(map['lastUpdated'].to_i) if map['lastUpdated']
         return data
       end
@@ -1350,7 +1350,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::ListControlDomainInsightsByAssessmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.control_domain_insights = (Parsers::ControlDomainInsightsList.parse(map['controlDomainInsights']) unless map['controlDomainInsights'].nil?)
+        data.control_domain_insights = (ControlDomainInsightsList.parse(map['controlDomainInsights']) unless map['controlDomainInsights'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1361,7 +1361,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::ListControlInsightsByControlDomainOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.control_insights_metadata = (Parsers::ControlInsightsMetadata.parse(map['controlInsightsMetadata']) unless map['controlInsightsMetadata'].nil?)
+        data.control_insights_metadata = (ControlInsightsMetadata.parse(map['controlInsightsMetadata']) unless map['controlInsightsMetadata'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1371,7 +1371,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ControlInsightsMetadataItem.parse(value) unless value.nil?
+          data << ControlInsightsMetadataItem.parse(value) unless value.nil?
         end
         data
       end
@@ -1382,7 +1382,7 @@ module AWS::SDK::AuditManager
         data = Types::ControlInsightsMetadataItem.new
         data.name = map['name']
         data.id = map['id']
-        data.evidence_insights = (Parsers::EvidenceInsights.parse(map['evidenceInsights']) unless map['evidenceInsights'].nil?)
+        data.evidence_insights = (EvidenceInsights.parse(map['evidenceInsights']) unless map['evidenceInsights'].nil?)
         data.last_updated = Time.at(map['lastUpdated'].to_i) if map['lastUpdated']
         return data
       end
@@ -1393,7 +1393,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::ListControlsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.control_metadata_list = (Parsers::ControlMetadataList.parse(map['controlMetadataList']) unless map['controlMetadataList'].nil?)
+        data.control_metadata_list = (ControlMetadataList.parse(map['controlMetadataList']) unless map['controlMetadataList'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1403,7 +1403,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ControlMetadata.parse(value) unless value.nil?
+          data << ControlMetadata.parse(value) unless value.nil?
         end
         data
       end
@@ -1427,7 +1427,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::ListKeywordsForDataSourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.keywords = (Parsers::Keywords.parse(map['keywords']) unless map['keywords'].nil?)
+        data.keywords = (Keywords.parse(map['keywords']) unless map['keywords'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1448,7 +1448,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::ListNotificationsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.notifications = (Parsers::Notifications.parse(map['notifications']) unless map['notifications'].nil?)
+        data.notifications = (Notifications.parse(map['notifications']) unless map['notifications'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -1458,7 +1458,7 @@ module AWS::SDK::AuditManager
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Notification.parse(value) unless value.nil?
+          data << Notification.parse(value) unless value.nil?
         end
         data
       end
@@ -1484,7 +1484,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1525,7 +1525,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::StartAssessmentFrameworkShareOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assessment_framework_share_request = (Parsers::AssessmentFrameworkShareRequest.parse(map['assessmentFrameworkShareRequest']) unless map['assessmentFrameworkShareRequest'].nil?)
+        data.assessment_framework_share_request = (AssessmentFrameworkShareRequest.parse(map['assessmentFrameworkShareRequest']) unless map['assessmentFrameworkShareRequest'].nil?)
         data
       end
     end
@@ -1553,7 +1553,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::UpdateAssessmentOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assessment = (Parsers::Assessment.parse(map['assessment']) unless map['assessment'].nil?)
+        data.assessment = (Assessment.parse(map['assessment']) unless map['assessment'].nil?)
         data
       end
     end
@@ -1563,7 +1563,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::UpdateAssessmentControlOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.control = (Parsers::AssessmentControl.parse(map['control']) unless map['control'].nil?)
+        data.control = (AssessmentControl.parse(map['control']) unless map['control'].nil?)
         data
       end
     end
@@ -1573,7 +1573,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::UpdateAssessmentControlSetStatusOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.control_set = (Parsers::AssessmentControlSet.parse(map['controlSet']) unless map['controlSet'].nil?)
+        data.control_set = (AssessmentControlSet.parse(map['controlSet']) unless map['controlSet'].nil?)
         data
       end
     end
@@ -1583,7 +1583,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::UpdateAssessmentFrameworkOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.framework = (Parsers::Framework.parse(map['framework']) unless map['framework'].nil?)
+        data.framework = (Framework.parse(map['framework']) unless map['framework'].nil?)
         data
       end
     end
@@ -1593,7 +1593,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::UpdateAssessmentFrameworkShareOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assessment_framework_share_request = (Parsers::AssessmentFrameworkShareRequest.parse(map['assessmentFrameworkShareRequest']) unless map['assessmentFrameworkShareRequest'].nil?)
+        data.assessment_framework_share_request = (AssessmentFrameworkShareRequest.parse(map['assessmentFrameworkShareRequest']) unless map['assessmentFrameworkShareRequest'].nil?)
         data
       end
     end
@@ -1603,7 +1603,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::UpdateAssessmentStatusOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.assessment = (Parsers::Assessment.parse(map['assessment']) unless map['assessment'].nil?)
+        data.assessment = (Assessment.parse(map['assessment']) unless map['assessment'].nil?)
         data
       end
     end
@@ -1613,7 +1613,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::UpdateControlOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.control = (Parsers::Control.parse(map['control']) unless map['control'].nil?)
+        data.control = (Control.parse(map['control']) unless map['control'].nil?)
         data
       end
     end
@@ -1623,7 +1623,7 @@ module AWS::SDK::AuditManager
       def self.parse(http_resp)
         data = Types::UpdateSettingsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.settings = (Parsers::Settings.parse(map['settings']) unless map['settings'].nil?)
+        data.settings = (Settings.parse(map['settings']) unless map['settings'].nil?)
         data
       end
     end
@@ -1637,7 +1637,7 @@ module AWS::SDK::AuditManager
         data.signature_algorithm = map['signatureAlgorithm']
         data.signature_date_time = map['signatureDateTime']
         data.signature_key_id = map['signatureKeyId']
-        data.validation_errors = (Parsers::ValidationErrors.parse(map['validationErrors']) unless map['validationErrors'].nil?)
+        data.validation_errors = (ValidationErrors.parse(map['validationErrors']) unless map['validationErrors'].nil?)
         data
       end
     end

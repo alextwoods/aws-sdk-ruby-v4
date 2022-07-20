@@ -19,7 +19,7 @@ module AWS::SDK::AppRunner
         map = Hearth::JSON.load(body)
         data.dns_target = map['DNSTarget']
         data.service_arn = map['ServiceArn']
-        data.custom_domain = (Parsers::CustomDomain.parse(map['CustomDomain']) unless map['CustomDomain'].nil?)
+        data.custom_domain = (CustomDomain.parse(map['CustomDomain']) unless map['CustomDomain'].nil?)
         data
       end
     end
@@ -29,7 +29,7 @@ module AWS::SDK::AppRunner
         data = Types::CustomDomain.new
         data.domain_name = map['DomainName']
         data.enable_www_subdomain = map['EnableWWWSubdomain']
-        data.certificate_validation_records = (Parsers::CertificateValidationRecordList.parse(map['CertificateValidationRecords']) unless map['CertificateValidationRecords'].nil?)
+        data.certificate_validation_records = (CertificateValidationRecordList.parse(map['CertificateValidationRecords']) unless map['CertificateValidationRecords'].nil?)
         data.status = map['Status']
         return data
       end
@@ -38,7 +38,7 @@ module AWS::SDK::AppRunner
     class CertificateValidationRecordList
       def self.parse(list)
         list.map do |value|
-          Parsers::CertificateValidationRecord.parse(value) unless value.nil?
+          CertificateValidationRecord.parse(value) unless value.nil?
         end
       end
     end
@@ -97,7 +97,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.auto_scaling_configuration = (Parsers::AutoScalingConfiguration.parse(map['AutoScalingConfiguration']) unless map['AutoScalingConfiguration'].nil?)
+        data.auto_scaling_configuration = (AutoScalingConfiguration.parse(map['AutoScalingConfiguration']) unless map['AutoScalingConfiguration'].nil?)
         data
       end
     end
@@ -138,7 +138,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.connection = (Parsers::Connection.parse(map['Connection']) unless map['Connection'].nil?)
+        data.connection = (Connection.parse(map['Connection']) unless map['Connection'].nil?)
         data
       end
     end
@@ -162,7 +162,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.observability_configuration = (Parsers::ObservabilityConfiguration.parse(map['ObservabilityConfiguration']) unless map['ObservabilityConfiguration'].nil?)
+        data.observability_configuration = (ObservabilityConfiguration.parse(map['ObservabilityConfiguration']) unless map['ObservabilityConfiguration'].nil?)
         data
       end
     end
@@ -172,7 +172,7 @@ module AWS::SDK::AppRunner
         data = Types::ObservabilityConfiguration.new
         data.observability_configuration_arn = map['ObservabilityConfigurationArn']
         data.observability_configuration_name = map['ObservabilityConfigurationName']
-        data.trace_configuration = (Parsers::TraceConfiguration.parse(map['TraceConfiguration']) unless map['TraceConfiguration'].nil?)
+        data.trace_configuration = (TraceConfiguration.parse(map['TraceConfiguration']) unless map['TraceConfiguration'].nil?)
         data.observability_configuration_revision = map['ObservabilityConfigurationRevision']
         data.latest = map['Latest']
         data.status = map['Status']
@@ -197,7 +197,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service = (Parsers::Service.parse(map['Service']) unless map['Service'].nil?)
+        data.service = (Service.parse(map['Service']) unless map['Service'].nil?)
         data.operation_id = map['OperationId']
         data
       end
@@ -214,13 +214,13 @@ module AWS::SDK::AppRunner
         data.updated_at = Time.at(map['UpdatedAt'].to_i) if map['UpdatedAt']
         data.deleted_at = Time.at(map['DeletedAt'].to_i) if map['DeletedAt']
         data.status = map['Status']
-        data.source_configuration = (Parsers::SourceConfiguration.parse(map['SourceConfiguration']) unless map['SourceConfiguration'].nil?)
-        data.instance_configuration = (Parsers::InstanceConfiguration.parse(map['InstanceConfiguration']) unless map['InstanceConfiguration'].nil?)
-        data.encryption_configuration = (Parsers::EncryptionConfiguration.parse(map['EncryptionConfiguration']) unless map['EncryptionConfiguration'].nil?)
-        data.health_check_configuration = (Parsers::HealthCheckConfiguration.parse(map['HealthCheckConfiguration']) unless map['HealthCheckConfiguration'].nil?)
-        data.auto_scaling_configuration_summary = (Parsers::AutoScalingConfigurationSummary.parse(map['AutoScalingConfigurationSummary']) unless map['AutoScalingConfigurationSummary'].nil?)
-        data.network_configuration = (Parsers::NetworkConfiguration.parse(map['NetworkConfiguration']) unless map['NetworkConfiguration'].nil?)
-        data.observability_configuration = (Parsers::ServiceObservabilityConfiguration.parse(map['ObservabilityConfiguration']) unless map['ObservabilityConfiguration'].nil?)
+        data.source_configuration = (SourceConfiguration.parse(map['SourceConfiguration']) unless map['SourceConfiguration'].nil?)
+        data.instance_configuration = (InstanceConfiguration.parse(map['InstanceConfiguration']) unless map['InstanceConfiguration'].nil?)
+        data.encryption_configuration = (EncryptionConfiguration.parse(map['EncryptionConfiguration']) unless map['EncryptionConfiguration'].nil?)
+        data.health_check_configuration = (HealthCheckConfiguration.parse(map['HealthCheckConfiguration']) unless map['HealthCheckConfiguration'].nil?)
+        data.auto_scaling_configuration_summary = (AutoScalingConfigurationSummary.parse(map['AutoScalingConfigurationSummary']) unless map['AutoScalingConfigurationSummary'].nil?)
+        data.network_configuration = (NetworkConfiguration.parse(map['NetworkConfiguration']) unless map['NetworkConfiguration'].nil?)
+        data.observability_configuration = (ServiceObservabilityConfiguration.parse(map['ObservabilityConfiguration']) unless map['ObservabilityConfiguration'].nil?)
         return data
       end
     end
@@ -237,7 +237,7 @@ module AWS::SDK::AppRunner
     class NetworkConfiguration
       def self.parse(map)
         data = Types::NetworkConfiguration.new
-        data.egress_configuration = (Parsers::EgressConfiguration.parse(map['EgressConfiguration']) unless map['EgressConfiguration'].nil?)
+        data.egress_configuration = (EgressConfiguration.parse(map['EgressConfiguration']) unless map['EgressConfiguration'].nil?)
         return data
       end
     end
@@ -295,10 +295,10 @@ module AWS::SDK::AppRunner
     class SourceConfiguration
       def self.parse(map)
         data = Types::SourceConfiguration.new
-        data.code_repository = (Parsers::CodeRepository.parse(map['CodeRepository']) unless map['CodeRepository'].nil?)
-        data.image_repository = (Parsers::ImageRepository.parse(map['ImageRepository']) unless map['ImageRepository'].nil?)
+        data.code_repository = (CodeRepository.parse(map['CodeRepository']) unless map['CodeRepository'].nil?)
+        data.image_repository = (ImageRepository.parse(map['ImageRepository']) unless map['ImageRepository'].nil?)
         data.auto_deployments_enabled = map['AutoDeploymentsEnabled']
-        data.authentication_configuration = (Parsers::AuthenticationConfiguration.parse(map['AuthenticationConfiguration']) unless map['AuthenticationConfiguration'].nil?)
+        data.authentication_configuration = (AuthenticationConfiguration.parse(map['AuthenticationConfiguration']) unless map['AuthenticationConfiguration'].nil?)
         return data
       end
     end
@@ -316,7 +316,7 @@ module AWS::SDK::AppRunner
       def self.parse(map)
         data = Types::ImageRepository.new
         data.image_identifier = map['ImageIdentifier']
-        data.image_configuration = (Parsers::ImageConfiguration.parse(map['ImageConfiguration']) unless map['ImageConfiguration'].nil?)
+        data.image_configuration = (ImageConfiguration.parse(map['ImageConfiguration']) unless map['ImageConfiguration'].nil?)
         data.image_repository_type = map['ImageRepositoryType']
         return data
       end
@@ -325,7 +325,7 @@ module AWS::SDK::AppRunner
     class ImageConfiguration
       def self.parse(map)
         data = Types::ImageConfiguration.new
-        data.runtime_environment_variables = (Parsers::RuntimeEnvironmentVariables.parse(map['RuntimeEnvironmentVariables']) unless map['RuntimeEnvironmentVariables'].nil?)
+        data.runtime_environment_variables = (RuntimeEnvironmentVariables.parse(map['RuntimeEnvironmentVariables']) unless map['RuntimeEnvironmentVariables'].nil?)
         data.start_command = map['StartCommand']
         data.port = map['Port']
         return data
@@ -346,8 +346,8 @@ module AWS::SDK::AppRunner
       def self.parse(map)
         data = Types::CodeRepository.new
         data.repository_url = map['RepositoryUrl']
-        data.source_code_version = (Parsers::SourceCodeVersion.parse(map['SourceCodeVersion']) unless map['SourceCodeVersion'].nil?)
-        data.code_configuration = (Parsers::CodeConfiguration.parse(map['CodeConfiguration']) unless map['CodeConfiguration'].nil?)
+        data.source_code_version = (SourceCodeVersion.parse(map['SourceCodeVersion']) unless map['SourceCodeVersion'].nil?)
+        data.code_configuration = (CodeConfiguration.parse(map['CodeConfiguration']) unless map['CodeConfiguration'].nil?)
         return data
       end
     end
@@ -356,7 +356,7 @@ module AWS::SDK::AppRunner
       def self.parse(map)
         data = Types::CodeConfiguration.new
         data.configuration_source = map['ConfigurationSource']
-        data.code_configuration_values = (Parsers::CodeConfigurationValues.parse(map['CodeConfigurationValues']) unless map['CodeConfigurationValues'].nil?)
+        data.code_configuration_values = (CodeConfigurationValues.parse(map['CodeConfigurationValues']) unless map['CodeConfigurationValues'].nil?)
         return data
       end
     end
@@ -368,7 +368,7 @@ module AWS::SDK::AppRunner
         data.build_command = map['BuildCommand']
         data.start_command = map['StartCommand']
         data.port = map['Port']
-        data.runtime_environment_variables = (Parsers::RuntimeEnvironmentVariables.parse(map['RuntimeEnvironmentVariables']) unless map['RuntimeEnvironmentVariables'].nil?)
+        data.runtime_environment_variables = (RuntimeEnvironmentVariables.parse(map['RuntimeEnvironmentVariables']) unless map['RuntimeEnvironmentVariables'].nil?)
         return data
       end
     end
@@ -389,7 +389,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.vpc_connector = (Parsers::VpcConnector.parse(map['VpcConnector']) unless map['VpcConnector'].nil?)
+        data.vpc_connector = (VpcConnector.parse(map['VpcConnector']) unless map['VpcConnector'].nil?)
         data
       end
     end
@@ -400,8 +400,8 @@ module AWS::SDK::AppRunner
         data.vpc_connector_name = map['VpcConnectorName']
         data.vpc_connector_arn = map['VpcConnectorArn']
         data.vpc_connector_revision = map['VpcConnectorRevision']
-        data.subnets = (Parsers::StringList.parse(map['Subnets']) unless map['Subnets'].nil?)
-        data.security_groups = (Parsers::StringList.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
+        data.subnets = (StringList.parse(map['Subnets']) unless map['Subnets'].nil?)
+        data.security_groups = (StringList.parse(map['SecurityGroups']) unless map['SecurityGroups'].nil?)
         data.status = map['Status']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.deleted_at = Time.at(map['DeletedAt'].to_i) if map['DeletedAt']
@@ -424,7 +424,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.auto_scaling_configuration = (Parsers::AutoScalingConfiguration.parse(map['AutoScalingConfiguration']) unless map['AutoScalingConfiguration'].nil?)
+        data.auto_scaling_configuration = (AutoScalingConfiguration.parse(map['AutoScalingConfiguration']) unless map['AutoScalingConfiguration'].nil?)
         data
       end
     end
@@ -448,7 +448,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.connection = (Parsers::Connection.parse(map['Connection']) unless map['Connection'].nil?)
+        data.connection = (Connection.parse(map['Connection']) unless map['Connection'].nil?)
         data
       end
     end
@@ -460,7 +460,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.observability_configuration = (Parsers::ObservabilityConfiguration.parse(map['ObservabilityConfiguration']) unless map['ObservabilityConfiguration'].nil?)
+        data.observability_configuration = (ObservabilityConfiguration.parse(map['ObservabilityConfiguration']) unless map['ObservabilityConfiguration'].nil?)
         data
       end
     end
@@ -472,7 +472,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service = (Parsers::Service.parse(map['Service']) unless map['Service'].nil?)
+        data.service = (Service.parse(map['Service']) unless map['Service'].nil?)
         data.operation_id = map['OperationId']
         data
       end
@@ -485,7 +485,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.vpc_connector = (Parsers::VpcConnector.parse(map['VpcConnector']) unless map['VpcConnector'].nil?)
+        data.vpc_connector = (VpcConnector.parse(map['VpcConnector']) unless map['VpcConnector'].nil?)
         data
       end
     end
@@ -497,7 +497,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.auto_scaling_configuration = (Parsers::AutoScalingConfiguration.parse(map['AutoScalingConfiguration']) unless map['AutoScalingConfiguration'].nil?)
+        data.auto_scaling_configuration = (AutoScalingConfiguration.parse(map['AutoScalingConfiguration']) unless map['AutoScalingConfiguration'].nil?)
         data
       end
     end
@@ -511,7 +511,7 @@ module AWS::SDK::AppRunner
         map = Hearth::JSON.load(body)
         data.dns_target = map['DNSTarget']
         data.service_arn = map['ServiceArn']
-        data.custom_domains = (Parsers::CustomDomainList.parse(map['CustomDomains']) unless map['CustomDomains'].nil?)
+        data.custom_domains = (CustomDomainList.parse(map['CustomDomains']) unless map['CustomDomains'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -520,7 +520,7 @@ module AWS::SDK::AppRunner
     class CustomDomainList
       def self.parse(list)
         list.map do |value|
-          Parsers::CustomDomain.parse(value) unless value.nil?
+          CustomDomain.parse(value) unless value.nil?
         end
       end
     end
@@ -532,7 +532,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.observability_configuration = (Parsers::ObservabilityConfiguration.parse(map['ObservabilityConfiguration']) unless map['ObservabilityConfiguration'].nil?)
+        data.observability_configuration = (ObservabilityConfiguration.parse(map['ObservabilityConfiguration']) unless map['ObservabilityConfiguration'].nil?)
         data
       end
     end
@@ -544,7 +544,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service = (Parsers::Service.parse(map['Service']) unless map['Service'].nil?)
+        data.service = (Service.parse(map['Service']) unless map['Service'].nil?)
         data
       end
     end
@@ -556,7 +556,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.vpc_connector = (Parsers::VpcConnector.parse(map['VpcConnector']) unless map['VpcConnector'].nil?)
+        data.vpc_connector = (VpcConnector.parse(map['VpcConnector']) unless map['VpcConnector'].nil?)
         data
       end
     end
@@ -570,7 +570,7 @@ module AWS::SDK::AppRunner
         map = Hearth::JSON.load(body)
         data.dns_target = map['DNSTarget']
         data.service_arn = map['ServiceArn']
-        data.custom_domain = (Parsers::CustomDomain.parse(map['CustomDomain']) unless map['CustomDomain'].nil?)
+        data.custom_domain = (CustomDomain.parse(map['CustomDomain']) unless map['CustomDomain'].nil?)
         data
       end
     end
@@ -582,7 +582,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.auto_scaling_configuration_summary_list = (Parsers::AutoScalingConfigurationSummaryList.parse(map['AutoScalingConfigurationSummaryList']) unless map['AutoScalingConfigurationSummaryList'].nil?)
+        data.auto_scaling_configuration_summary_list = (AutoScalingConfigurationSummaryList.parse(map['AutoScalingConfigurationSummaryList']) unless map['AutoScalingConfigurationSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -591,7 +591,7 @@ module AWS::SDK::AppRunner
     class AutoScalingConfigurationSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::AutoScalingConfigurationSummary.parse(value) unless value.nil?
+          AutoScalingConfigurationSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -603,7 +603,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.connection_summary_list = (Parsers::ConnectionSummaryList.parse(map['ConnectionSummaryList']) unless map['ConnectionSummaryList'].nil?)
+        data.connection_summary_list = (ConnectionSummaryList.parse(map['ConnectionSummaryList']) unless map['ConnectionSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -612,7 +612,7 @@ module AWS::SDK::AppRunner
     class ConnectionSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ConnectionSummary.parse(value) unless value.nil?
+          ConnectionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -636,7 +636,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.observability_configuration_summary_list = (Parsers::ObservabilityConfigurationSummaryList.parse(map['ObservabilityConfigurationSummaryList']) unless map['ObservabilityConfigurationSummaryList'].nil?)
+        data.observability_configuration_summary_list = (ObservabilityConfigurationSummaryList.parse(map['ObservabilityConfigurationSummaryList']) unless map['ObservabilityConfigurationSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -645,7 +645,7 @@ module AWS::SDK::AppRunner
     class ObservabilityConfigurationSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ObservabilityConfigurationSummary.parse(value) unless value.nil?
+          ObservabilityConfigurationSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -667,7 +667,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.operation_summary_list = (Parsers::OperationSummaryList.parse(map['OperationSummaryList']) unless map['OperationSummaryList'].nil?)
+        data.operation_summary_list = (OperationSummaryList.parse(map['OperationSummaryList']) unless map['OperationSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -676,7 +676,7 @@ module AWS::SDK::AppRunner
     class OperationSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::OperationSummary.parse(value) unless value.nil?
+          OperationSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -702,7 +702,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service_summary_list = (Parsers::ServiceSummaryList.parse(map['ServiceSummaryList']) unless map['ServiceSummaryList'].nil?)
+        data.service_summary_list = (ServiceSummaryList.parse(map['ServiceSummaryList']) unless map['ServiceSummaryList'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -711,7 +711,7 @@ module AWS::SDK::AppRunner
     class ServiceSummaryList
       def self.parse(list)
         list.map do |value|
-          Parsers::ServiceSummary.parse(value) unless value.nil?
+          ServiceSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -737,7 +737,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -745,7 +745,7 @@ module AWS::SDK::AppRunner
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end
@@ -766,7 +766,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.vpc_connectors = (Parsers::VpcConnectors.parse(map['VpcConnectors']) unless map['VpcConnectors'].nil?)
+        data.vpc_connectors = (VpcConnectors.parse(map['VpcConnectors']) unless map['VpcConnectors'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -775,7 +775,7 @@ module AWS::SDK::AppRunner
     class VpcConnectors
       def self.parse(list)
         list.map do |value|
-          Parsers::VpcConnector.parse(value) unless value.nil?
+          VpcConnector.parse(value) unless value.nil?
         end
       end
     end
@@ -787,7 +787,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service = (Parsers::Service.parse(map['Service']) unless map['Service'].nil?)
+        data.service = (Service.parse(map['Service']) unless map['Service'].nil?)
         data.operation_id = map['OperationId']
         data
       end
@@ -800,7 +800,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service = (Parsers::Service.parse(map['Service']) unless map['Service'].nil?)
+        data.service = (Service.parse(map['Service']) unless map['Service'].nil?)
         data.operation_id = map['OperationId']
         data
       end
@@ -847,7 +847,7 @@ module AWS::SDK::AppRunner
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.service = (Parsers::Service.parse(map['Service']) unless map['Service'].nil?)
+        data.service = (Service.parse(map['Service']) unless map['Service'].nil?)
         data.operation_id = map['OperationId']
         data
       end

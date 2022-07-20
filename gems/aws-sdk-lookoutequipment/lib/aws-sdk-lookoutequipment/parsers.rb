@@ -177,13 +177,13 @@ module AWS::SDK::LookoutEquipment
         map = Hearth::JSON.load(body)
         data.job_id = map['JobId']
         data.dataset_arn = map['DatasetArn']
-        data.ingestion_input_configuration = (Parsers::IngestionInputConfiguration.parse(map['IngestionInputConfiguration']) unless map['IngestionInputConfiguration'].nil?)
+        data.ingestion_input_configuration = (IngestionInputConfiguration.parse(map['IngestionInputConfiguration']) unless map['IngestionInputConfiguration'].nil?)
         data.role_arn = map['RoleArn']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.status = map['Status']
         data.failed_reason = map['FailedReason']
-        data.data_quality_summary = (Parsers::DataQualitySummary.parse(map['DataQualitySummary']) unless map['DataQualitySummary'].nil?)
-        data.ingested_files_summary = (Parsers::IngestedFilesSummary.parse(map['IngestedFilesSummary']) unless map['IngestedFilesSummary'].nil?)
+        data.data_quality_summary = (DataQualitySummary.parse(map['DataQualitySummary']) unless map['DataQualitySummary'].nil?)
+        data.ingested_files_summary = (IngestedFilesSummary.parse(map['IngestedFilesSummary']) unless map['IngestedFilesSummary'].nil?)
         data.status_detail = map['StatusDetail']
         data.ingested_data_size = map['IngestedDataSize']
         data.data_start_time = Time.at(map['DataStartTime'].to_i) if map['DataStartTime']
@@ -197,7 +197,7 @@ module AWS::SDK::LookoutEquipment
         data = Types::IngestedFilesSummary.new
         data.total_number_of_files = map['TotalNumberOfFiles']
         data.ingested_number_of_files = map['IngestedNumberOfFiles']
-        data.discarded_files = (Parsers::ListOfDiscardedFiles.parse(map['DiscardedFiles']) unless map['DiscardedFiles'].nil?)
+        data.discarded_files = (ListOfDiscardedFiles.parse(map['DiscardedFiles']) unless map['DiscardedFiles'].nil?)
         return data
       end
     end
@@ -205,7 +205,7 @@ module AWS::SDK::LookoutEquipment
     class ListOfDiscardedFiles
       def self.parse(list)
         list.map do |value|
-          Parsers::S3Object.parse(value) unless value.nil?
+          S3Object.parse(value) unless value.nil?
         end
       end
     end
@@ -222,11 +222,11 @@ module AWS::SDK::LookoutEquipment
     class DataQualitySummary
       def self.parse(map)
         data = Types::DataQualitySummary.new
-        data.insufficient_sensor_data = (Parsers::InsufficientSensorData.parse(map['InsufficientSensorData']) unless map['InsufficientSensorData'].nil?)
-        data.missing_sensor_data = (Parsers::MissingSensorData.parse(map['MissingSensorData']) unless map['MissingSensorData'].nil?)
-        data.invalid_sensor_data = (Parsers::InvalidSensorData.parse(map['InvalidSensorData']) unless map['InvalidSensorData'].nil?)
-        data.unsupported_timestamps = (Parsers::UnsupportedTimestamps.parse(map['UnsupportedTimestamps']) unless map['UnsupportedTimestamps'].nil?)
-        data.duplicate_timestamps = (Parsers::DuplicateTimestamps.parse(map['DuplicateTimestamps']) unless map['DuplicateTimestamps'].nil?)
+        data.insufficient_sensor_data = (InsufficientSensorData.parse(map['InsufficientSensorData']) unless map['InsufficientSensorData'].nil?)
+        data.missing_sensor_data = (MissingSensorData.parse(map['MissingSensorData']) unless map['MissingSensorData'].nil?)
+        data.invalid_sensor_data = (InvalidSensorData.parse(map['InvalidSensorData']) unless map['InvalidSensorData'].nil?)
+        data.unsupported_timestamps = (UnsupportedTimestamps.parse(map['UnsupportedTimestamps']) unless map['UnsupportedTimestamps'].nil?)
+        data.duplicate_timestamps = (DuplicateTimestamps.parse(map['DuplicateTimestamps']) unless map['DuplicateTimestamps'].nil?)
         return data
       end
     end
@@ -268,8 +268,8 @@ module AWS::SDK::LookoutEquipment
     class InsufficientSensorData
       def self.parse(map)
         data = Types::InsufficientSensorData.new
-        data.missing_complete_sensor_data = (Parsers::MissingCompleteSensorData.parse(map['MissingCompleteSensorData']) unless map['MissingCompleteSensorData'].nil?)
-        data.sensors_with_short_date_range = (Parsers::SensorsWithShortDateRange.parse(map['SensorsWithShortDateRange']) unless map['SensorsWithShortDateRange'].nil?)
+        data.missing_complete_sensor_data = (MissingCompleteSensorData.parse(map['MissingCompleteSensorData']) unless map['MissingCompleteSensorData'].nil?)
+        data.sensors_with_short_date_range = (SensorsWithShortDateRange.parse(map['SensorsWithShortDateRange']) unless map['SensorsWithShortDateRange'].nil?)
         return data
       end
     end
@@ -293,7 +293,7 @@ module AWS::SDK::LookoutEquipment
     class IngestionInputConfiguration
       def self.parse(map)
         data = Types::IngestionInputConfiguration.new
-        data.s3_input_configuration = (Parsers::IngestionS3InputConfiguration.parse(map['S3InputConfiguration']) unless map['S3InputConfiguration'].nil?)
+        data.s3_input_configuration = (IngestionS3InputConfiguration.parse(map['S3InputConfiguration']) unless map['S3InputConfiguration'].nil?)
         return data
       end
     end
@@ -322,9 +322,9 @@ module AWS::SDK::LookoutEquipment
         data.status = map['Status']
         data.schema = map['Schema']
         data.server_side_kms_key_id = map['ServerSideKmsKeyId']
-        data.ingestion_input_configuration = (Parsers::IngestionInputConfiguration.parse(map['IngestionInputConfiguration']) unless map['IngestionInputConfiguration'].nil?)
-        data.data_quality_summary = (Parsers::DataQualitySummary.parse(map['DataQualitySummary']) unless map['DataQualitySummary'].nil?)
-        data.ingested_files_summary = (Parsers::IngestedFilesSummary.parse(map['IngestedFilesSummary']) unless map['IngestedFilesSummary'].nil?)
+        data.ingestion_input_configuration = (IngestionInputConfiguration.parse(map['IngestionInputConfiguration']) unless map['IngestionInputConfiguration'].nil?)
+        data.data_quality_summary = (DataQualitySummary.parse(map['DataQualitySummary']) unless map['DataQualitySummary'].nil?)
+        data.ingested_files_summary = (IngestedFilesSummary.parse(map['IngestedFilesSummary']) unless map['IngestedFilesSummary'].nil?)
         data.role_arn = map['RoleArn']
         data.data_start_time = Time.at(map['DataStartTime'].to_i) if map['DataStartTime']
         data.data_end_time = Time.at(map['DataEndTime'].to_i) if map['DataEndTime']
@@ -348,8 +348,8 @@ module AWS::SDK::LookoutEquipment
         data.data_upload_frequency = map['DataUploadFrequency']
         data.created_at = Time.at(map['CreatedAt'].to_i) if map['CreatedAt']
         data.updated_at = Time.at(map['UpdatedAt'].to_i) if map['UpdatedAt']
-        data.data_input_configuration = (Parsers::InferenceInputConfiguration.parse(map['DataInputConfiguration']) unless map['DataInputConfiguration'].nil?)
-        data.data_output_configuration = (Parsers::InferenceOutputConfiguration.parse(map['DataOutputConfiguration']) unless map['DataOutputConfiguration'].nil?)
+        data.data_input_configuration = (InferenceInputConfiguration.parse(map['DataInputConfiguration']) unless map['DataInputConfiguration'].nil?)
+        data.data_output_configuration = (InferenceOutputConfiguration.parse(map['DataOutputConfiguration']) unless map['DataOutputConfiguration'].nil?)
         data.role_arn = map['RoleArn']
         data.server_side_kms_key_id = map['ServerSideKmsKeyId']
         data
@@ -359,7 +359,7 @@ module AWS::SDK::LookoutEquipment
     class InferenceOutputConfiguration
       def self.parse(map)
         data = Types::InferenceOutputConfiguration.new
-        data.s3_output_configuration = (Parsers::InferenceS3OutputConfiguration.parse(map['S3OutputConfiguration']) unless map['S3OutputConfiguration'].nil?)
+        data.s3_output_configuration = (InferenceS3OutputConfiguration.parse(map['S3OutputConfiguration']) unless map['S3OutputConfiguration'].nil?)
         data.kms_key_id = map['KmsKeyId']
         return data
       end
@@ -377,9 +377,9 @@ module AWS::SDK::LookoutEquipment
     class InferenceInputConfiguration
       def self.parse(map)
         data = Types::InferenceInputConfiguration.new
-        data.s3_input_configuration = (Parsers::InferenceS3InputConfiguration.parse(map['S3InputConfiguration']) unless map['S3InputConfiguration'].nil?)
+        data.s3_input_configuration = (InferenceS3InputConfiguration.parse(map['S3InputConfiguration']) unless map['S3InputConfiguration'].nil?)
         data.input_time_zone_offset = map['InputTimeZoneOffset']
-        data.inference_input_name_configuration = (Parsers::InferenceInputNameConfiguration.parse(map['InferenceInputNameConfiguration']) unless map['InferenceInputNameConfiguration'].nil?)
+        data.inference_input_name_configuration = (InferenceInputNameConfiguration.parse(map['InferenceInputNameConfiguration']) unless map['InferenceInputNameConfiguration'].nil?)
         return data
       end
     end
@@ -414,13 +414,13 @@ module AWS::SDK::LookoutEquipment
         data.dataset_name = map['DatasetName']
         data.dataset_arn = map['DatasetArn']
         data.schema = map['Schema']
-        data.labels_input_configuration = (Parsers::LabelsInputConfiguration.parse(map['LabelsInputConfiguration']) unless map['LabelsInputConfiguration'].nil?)
+        data.labels_input_configuration = (LabelsInputConfiguration.parse(map['LabelsInputConfiguration']) unless map['LabelsInputConfiguration'].nil?)
         data.training_data_start_time = Time.at(map['TrainingDataStartTime'].to_i) if map['TrainingDataStartTime']
         data.training_data_end_time = Time.at(map['TrainingDataEndTime'].to_i) if map['TrainingDataEndTime']
         data.evaluation_data_start_time = Time.at(map['EvaluationDataStartTime'].to_i) if map['EvaluationDataStartTime']
         data.evaluation_data_end_time = Time.at(map['EvaluationDataEndTime'].to_i) if map['EvaluationDataEndTime']
         data.role_arn = map['RoleArn']
-        data.data_pre_processing_configuration = (Parsers::DataPreProcessingConfiguration.parse(map['DataPreProcessingConfiguration']) unless map['DataPreProcessingConfiguration'].nil?)
+        data.data_pre_processing_configuration = (DataPreProcessingConfiguration.parse(map['DataPreProcessingConfiguration']) unless map['DataPreProcessingConfiguration'].nil?)
         data.status = map['Status']
         data.training_execution_start_time = Time.at(map['TrainingExecutionStartTime'].to_i) if map['TrainingExecutionStartTime']
         data.training_execution_end_time = Time.at(map['TrainingExecutionEndTime'].to_i) if map['TrainingExecutionEndTime']
@@ -445,7 +445,7 @@ module AWS::SDK::LookoutEquipment
     class LabelsInputConfiguration
       def self.parse(map)
         data = Types::LabelsInputConfiguration.new
-        data.s3_input_configuration = (Parsers::LabelsS3InputConfiguration.parse(map['S3InputConfiguration']) unless map['S3InputConfiguration'].nil?)
+        data.s3_input_configuration = (LabelsS3InputConfiguration.parse(map['S3InputConfiguration']) unless map['S3InputConfiguration'].nil?)
         return data
       end
     end
@@ -467,7 +467,7 @@ module AWS::SDK::LookoutEquipment
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.data_ingestion_job_summaries = (Parsers::DataIngestionJobSummaries.parse(map['DataIngestionJobSummaries']) unless map['DataIngestionJobSummaries'].nil?)
+        data.data_ingestion_job_summaries = (DataIngestionJobSummaries.parse(map['DataIngestionJobSummaries']) unless map['DataIngestionJobSummaries'].nil?)
         data
       end
     end
@@ -475,7 +475,7 @@ module AWS::SDK::LookoutEquipment
     class DataIngestionJobSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::DataIngestionJobSummary.parse(value) unless value.nil?
+          DataIngestionJobSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -486,7 +486,7 @@ module AWS::SDK::LookoutEquipment
         data.job_id = map['JobId']
         data.dataset_name = map['DatasetName']
         data.dataset_arn = map['DatasetArn']
-        data.ingestion_input_configuration = (Parsers::IngestionInputConfiguration.parse(map['IngestionInputConfiguration']) unless map['IngestionInputConfiguration'].nil?)
+        data.ingestion_input_configuration = (IngestionInputConfiguration.parse(map['IngestionInputConfiguration']) unless map['IngestionInputConfiguration'].nil?)
         data.status = map['Status']
         return data
       end
@@ -500,7 +500,7 @@ module AWS::SDK::LookoutEquipment
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.dataset_summaries = (Parsers::DatasetSummaries.parse(map['DatasetSummaries']) unless map['DatasetSummaries'].nil?)
+        data.dataset_summaries = (DatasetSummaries.parse(map['DatasetSummaries']) unless map['DatasetSummaries'].nil?)
         data
       end
     end
@@ -508,7 +508,7 @@ module AWS::SDK::LookoutEquipment
     class DatasetSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::DatasetSummary.parse(value) unless value.nil?
+          DatasetSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -532,7 +532,7 @@ module AWS::SDK::LookoutEquipment
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.inference_execution_summaries = (Parsers::InferenceExecutionSummaries.parse(map['InferenceExecutionSummaries']) unless map['InferenceExecutionSummaries'].nil?)
+        data.inference_execution_summaries = (InferenceExecutionSummaries.parse(map['InferenceExecutionSummaries']) unless map['InferenceExecutionSummaries'].nil?)
         data
       end
     end
@@ -540,7 +540,7 @@ module AWS::SDK::LookoutEquipment
     class InferenceExecutionSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::InferenceExecutionSummary.parse(value) unless value.nil?
+          InferenceExecutionSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -555,9 +555,9 @@ module AWS::SDK::LookoutEquipment
         data.scheduled_start_time = Time.at(map['ScheduledStartTime'].to_i) if map['ScheduledStartTime']
         data.data_start_time = Time.at(map['DataStartTime'].to_i) if map['DataStartTime']
         data.data_end_time = Time.at(map['DataEndTime'].to_i) if map['DataEndTime']
-        data.data_input_configuration = (Parsers::InferenceInputConfiguration.parse(map['DataInputConfiguration']) unless map['DataInputConfiguration'].nil?)
-        data.data_output_configuration = (Parsers::InferenceOutputConfiguration.parse(map['DataOutputConfiguration']) unless map['DataOutputConfiguration'].nil?)
-        data.customer_result_object = (Parsers::S3Object.parse(map['CustomerResultObject']) unless map['CustomerResultObject'].nil?)
+        data.data_input_configuration = (InferenceInputConfiguration.parse(map['DataInputConfiguration']) unless map['DataInputConfiguration'].nil?)
+        data.data_output_configuration = (InferenceOutputConfiguration.parse(map['DataOutputConfiguration']) unless map['DataOutputConfiguration'].nil?)
+        data.customer_result_object = (S3Object.parse(map['CustomerResultObject']) unless map['CustomerResultObject'].nil?)
         data.status = map['Status']
         data.failed_reason = map['FailedReason']
         return data
@@ -572,7 +572,7 @@ module AWS::SDK::LookoutEquipment
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.inference_scheduler_summaries = (Parsers::InferenceSchedulerSummaries.parse(map['InferenceSchedulerSummaries']) unless map['InferenceSchedulerSummaries'].nil?)
+        data.inference_scheduler_summaries = (InferenceSchedulerSummaries.parse(map['InferenceSchedulerSummaries']) unless map['InferenceSchedulerSummaries'].nil?)
         data
       end
     end
@@ -580,7 +580,7 @@ module AWS::SDK::LookoutEquipment
     class InferenceSchedulerSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::InferenceSchedulerSummary.parse(value) unless value.nil?
+          InferenceSchedulerSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -607,7 +607,7 @@ module AWS::SDK::LookoutEquipment
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['NextToken']
-        data.model_summaries = (Parsers::ModelSummaries.parse(map['ModelSummaries']) unless map['ModelSummaries'].nil?)
+        data.model_summaries = (ModelSummaries.parse(map['ModelSummaries']) unless map['ModelSummaries'].nil?)
         data
       end
     end
@@ -615,7 +615,7 @@ module AWS::SDK::LookoutEquipment
     class ModelSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::ModelSummary.parse(value) unless value.nil?
+          ModelSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -640,7 +640,7 @@ module AWS::SDK::LookoutEquipment
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.sensor_statistics_summaries = (Parsers::SensorStatisticsSummaries.parse(map['SensorStatisticsSummaries']) unless map['SensorStatisticsSummaries'].nil?)
+        data.sensor_statistics_summaries = (SensorStatisticsSummaries.parse(map['SensorStatisticsSummaries']) unless map['SensorStatisticsSummaries'].nil?)
         data.next_token = map['NextToken']
         data
       end
@@ -649,7 +649,7 @@ module AWS::SDK::LookoutEquipment
     class SensorStatisticsSummaries
       def self.parse(list)
         list.map do |value|
-          Parsers::SensorStatisticsSummary.parse(value) unless value.nil?
+          SensorStatisticsSummary.parse(value) unless value.nil?
         end
       end
     end
@@ -660,14 +660,14 @@ module AWS::SDK::LookoutEquipment
         data.component_name = map['ComponentName']
         data.sensor_name = map['SensorName']
         data.data_exists = map['DataExists']
-        data.missing_values = (Parsers::CountPercent.parse(map['MissingValues']) unless map['MissingValues'].nil?)
-        data.invalid_values = (Parsers::CountPercent.parse(map['InvalidValues']) unless map['InvalidValues'].nil?)
-        data.invalid_date_entries = (Parsers::CountPercent.parse(map['InvalidDateEntries']) unless map['InvalidDateEntries'].nil?)
-        data.duplicate_timestamps = (Parsers::CountPercent.parse(map['DuplicateTimestamps']) unless map['DuplicateTimestamps'].nil?)
-        data.categorical_values = (Parsers::CategoricalValues.parse(map['CategoricalValues']) unless map['CategoricalValues'].nil?)
-        data.multiple_operating_modes = (Parsers::MultipleOperatingModes.parse(map['MultipleOperatingModes']) unless map['MultipleOperatingModes'].nil?)
-        data.large_timestamp_gaps = (Parsers::LargeTimestampGaps.parse(map['LargeTimestampGaps']) unless map['LargeTimestampGaps'].nil?)
-        data.monotonic_values = (Parsers::MonotonicValues.parse(map['MonotonicValues']) unless map['MonotonicValues'].nil?)
+        data.missing_values = (CountPercent.parse(map['MissingValues']) unless map['MissingValues'].nil?)
+        data.invalid_values = (CountPercent.parse(map['InvalidValues']) unless map['InvalidValues'].nil?)
+        data.invalid_date_entries = (CountPercent.parse(map['InvalidDateEntries']) unless map['InvalidDateEntries'].nil?)
+        data.duplicate_timestamps = (CountPercent.parse(map['DuplicateTimestamps']) unless map['DuplicateTimestamps'].nil?)
+        data.categorical_values = (CategoricalValues.parse(map['CategoricalValues']) unless map['CategoricalValues'].nil?)
+        data.multiple_operating_modes = (MultipleOperatingModes.parse(map['MultipleOperatingModes']) unless map['MultipleOperatingModes'].nil?)
+        data.large_timestamp_gaps = (LargeTimestampGaps.parse(map['LargeTimestampGaps']) unless map['LargeTimestampGaps'].nil?)
+        data.monotonic_values = (MonotonicValues.parse(map['MonotonicValues']) unless map['MonotonicValues'].nil?)
         data.data_start_time = Time.at(map['DataStartTime'].to_i) if map['DataStartTime']
         data.data_end_time = Time.at(map['DataEndTime'].to_i) if map['DataEndTime']
         return data
@@ -726,7 +726,7 @@ module AWS::SDK::LookoutEquipment
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::TagList.parse(map['Tags']) unless map['Tags'].nil?)
+        data.tags = (TagList.parse(map['Tags']) unless map['Tags'].nil?)
         data
       end
     end
@@ -734,7 +734,7 @@ module AWS::SDK::LookoutEquipment
     class TagList
       def self.parse(list)
         list.map do |value|
-          Parsers::Tag.parse(value) unless value.nil?
+          Tag.parse(value) unless value.nil?
         end
       end
     end

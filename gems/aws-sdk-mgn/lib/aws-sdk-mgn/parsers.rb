@@ -18,11 +18,11 @@ module AWS::SDK::Mgn
         data.source_server_id = map['sourceServerID']
         data.arn = map['arn']
         data.is_archived = map['isArchived']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
-        data.launched_instance = (Parsers::LaunchedInstance.parse(map['launchedInstance']) unless map['launchedInstance'].nil?)
-        data.data_replication_info = (Parsers::DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
-        data.life_cycle = (Parsers::LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
-        data.source_properties = (Parsers::SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.launched_instance = (LaunchedInstance.parse(map['launchedInstance']) unless map['launchedInstance'].nil?)
+        data.data_replication_info = (DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
+        data.life_cycle = (LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
+        data.source_properties = (SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
         data.replication_type = map['replicationType']
         data.vcenter_client_id = map['vcenterClientID']
         data
@@ -34,12 +34,12 @@ module AWS::SDK::Mgn
         data = Types::SourceProperties.new
         data.last_updated_date_time = map['lastUpdatedDateTime']
         data.recommended_instance_type = map['recommendedInstanceType']
-        data.identification_hints = (Parsers::IdentificationHints.parse(map['identificationHints']) unless map['identificationHints'].nil?)
-        data.network_interfaces = (Parsers::NetworkInterfaces.parse(map['networkInterfaces']) unless map['networkInterfaces'].nil?)
-        data.disks = (Parsers::Disks.parse(map['disks']) unless map['disks'].nil?)
-        data.cpus = (Parsers::Cpus.parse(map['cpus']) unless map['cpus'].nil?)
+        data.identification_hints = (IdentificationHints.parse(map['identificationHints']) unless map['identificationHints'].nil?)
+        data.network_interfaces = (NetworkInterfaces.parse(map['networkInterfaces']) unless map['networkInterfaces'].nil?)
+        data.disks = (Disks.parse(map['disks']) unless map['disks'].nil?)
+        data.cpus = (Cpus.parse(map['cpus']) unless map['cpus'].nil?)
         data.ram_bytes = map['ramBytes']
-        data.os = (Parsers::OS.parse(map['os']) unless map['os'].nil?)
+        data.os = (OS.parse(map['os']) unless map['os'].nil?)
         return data
       end
     end
@@ -56,7 +56,7 @@ module AWS::SDK::Mgn
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::CPU.parse(value) unless value.nil?
+          data << CPU.parse(value) unless value.nil?
         end
         data
       end
@@ -75,7 +75,7 @@ module AWS::SDK::Mgn
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Disk.parse(value) unless value.nil?
+          data << Disk.parse(value) unless value.nil?
         end
         data
       end
@@ -94,7 +94,7 @@ module AWS::SDK::Mgn
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::NetworkInterface.parse(value) unless value.nil?
+          data << NetworkInterface.parse(value) unless value.nil?
         end
         data
       end
@@ -104,7 +104,7 @@ module AWS::SDK::Mgn
       def self.parse(map)
         data = Types::NetworkInterface.new
         data.mac_address = map['macAddress']
-        data.ips = (Parsers::IPsList.parse(map['ips']) unless map['ips'].nil?)
+        data.ips = (IPsList.parse(map['ips']) unless map['ips'].nil?)
         data.is_primary = map['isPrimary']
         return data
       end
@@ -139,8 +139,8 @@ module AWS::SDK::Mgn
         data.first_byte_date_time = map['firstByteDateTime']
         data.elapsed_replication_duration = map['elapsedReplicationDuration']
         data.last_seen_by_service_date_time = map['lastSeenByServiceDateTime']
-        data.last_test = (Parsers::LifeCycleLastTest.parse(map['lastTest']) unless map['lastTest'].nil?)
-        data.last_cutover = (Parsers::LifeCycleLastCutover.parse(map['lastCutover']) unless map['lastCutover'].nil?)
+        data.last_test = (LifeCycleLastTest.parse(map['lastTest']) unless map['lastTest'].nil?)
+        data.last_cutover = (LifeCycleLastCutover.parse(map['lastCutover']) unless map['lastCutover'].nil?)
         data.state = map['state']
         return data
       end
@@ -149,9 +149,9 @@ module AWS::SDK::Mgn
     class LifeCycleLastCutover
       def self.parse(map)
         data = Types::LifeCycleLastCutover.new
-        data.initiated = (Parsers::LifeCycleLastCutoverInitiated.parse(map['initiated']) unless map['initiated'].nil?)
-        data.reverted = (Parsers::LifeCycleLastCutoverReverted.parse(map['reverted']) unless map['reverted'].nil?)
-        data.finalized = (Parsers::LifeCycleLastCutoverFinalized.parse(map['finalized']) unless map['finalized'].nil?)
+        data.initiated = (LifeCycleLastCutoverInitiated.parse(map['initiated']) unless map['initiated'].nil?)
+        data.reverted = (LifeCycleLastCutoverReverted.parse(map['reverted']) unless map['reverted'].nil?)
+        data.finalized = (LifeCycleLastCutoverFinalized.parse(map['finalized']) unless map['finalized'].nil?)
         return data
       end
     end
@@ -184,9 +184,9 @@ module AWS::SDK::Mgn
     class LifeCycleLastTest
       def self.parse(map)
         data = Types::LifeCycleLastTest.new
-        data.initiated = (Parsers::LifeCycleLastTestInitiated.parse(map['initiated']) unless map['initiated'].nil?)
-        data.reverted = (Parsers::LifeCycleLastTestReverted.parse(map['reverted']) unless map['reverted'].nil?)
-        data.finalized = (Parsers::LifeCycleLastTestFinalized.parse(map['finalized']) unless map['finalized'].nil?)
+        data.initiated = (LifeCycleLastTestInitiated.parse(map['initiated']) unless map['initiated'].nil?)
+        data.reverted = (LifeCycleLastTestReverted.parse(map['reverted']) unless map['reverted'].nil?)
+        data.finalized = (LifeCycleLastTestFinalized.parse(map['finalized']) unless map['finalized'].nil?)
         return data
       end
     end
@@ -221,10 +221,10 @@ module AWS::SDK::Mgn
         data = Types::DataReplicationInfo.new
         data.lag_duration = map['lagDuration']
         data.eta_date_time = map['etaDateTime']
-        data.replicated_disks = (Parsers::DataReplicationInfoReplicatedDisks.parse(map['replicatedDisks']) unless map['replicatedDisks'].nil?)
+        data.replicated_disks = (DataReplicationInfoReplicatedDisks.parse(map['replicatedDisks']) unless map['replicatedDisks'].nil?)
         data.data_replication_state = map['dataReplicationState']
-        data.data_replication_initiation = (Parsers::DataReplicationInitiation.parse(map['dataReplicationInitiation']) unless map['dataReplicationInitiation'].nil?)
-        data.data_replication_error = (Parsers::DataReplicationError.parse(map['dataReplicationError']) unless map['dataReplicationError'].nil?)
+        data.data_replication_initiation = (DataReplicationInitiation.parse(map['dataReplicationInitiation']) unless map['dataReplicationInitiation'].nil?)
+        data.data_replication_error = (DataReplicationError.parse(map['dataReplicationError']) unless map['dataReplicationError'].nil?)
         data.last_snapshot_date_time = map['lastSnapshotDateTime']
         return data
       end
@@ -244,7 +244,7 @@ module AWS::SDK::Mgn
         data = Types::DataReplicationInitiation.new
         data.start_date_time = map['startDateTime']
         data.next_attempt_date_time = map['nextAttemptDateTime']
-        data.steps = (Parsers::DataReplicationInitiationSteps.parse(map['steps']) unless map['steps'].nil?)
+        data.steps = (DataReplicationInitiationSteps.parse(map['steps']) unless map['steps'].nil?)
         return data
       end
     end
@@ -253,7 +253,7 @@ module AWS::SDK::Mgn
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataReplicationInitiationStep.parse(value) unless value.nil?
+          data << DataReplicationInitiationStep.parse(value) unless value.nil?
         end
         data
       end
@@ -272,7 +272,7 @@ module AWS::SDK::Mgn
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::DataReplicationInfoReplicatedDisk.parse(value) unless value.nil?
+          data << DataReplicationInfoReplicatedDisk.parse(value) unless value.nil?
         end
         data
       end
@@ -331,7 +331,7 @@ module AWS::SDK::Mgn
         data.message = map['message'] || map['Message']
         data.code = map['code']
         data.reason = map['reason']
-        data.field_list = (Parsers::ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
+        data.field_list = (ValidationExceptionFieldList.parse(map['fieldList']) unless map['fieldList'].nil?)
         data
       end
     end
@@ -340,7 +340,7 @@ module AWS::SDK::Mgn
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ValidationExceptionField.parse(value) unless value.nil?
+          data << ValidationExceptionField.parse(value) unless value.nil?
         end
         data
       end
@@ -388,7 +388,7 @@ module AWS::SDK::Mgn
         data.arn = map['arn']
         data.staging_area_subnet_id = map['stagingAreaSubnetId']
         data.associate_default_security_group = map['associateDefaultSecurityGroup']
-        data.replication_servers_security_groups_i_ds = (Parsers::ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
+        data.replication_servers_security_groups_i_ds = (ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
         data.replication_server_instance_type = map['replicationServerInstanceType']
         data.use_dedicated_replication_server = map['useDedicatedReplicationServer']
         data.default_large_staging_disk_type = map['defaultLargeStagingDiskType']
@@ -397,8 +397,8 @@ module AWS::SDK::Mgn
         data.bandwidth_throttling = map['bandwidthThrottling']
         data.data_plane_routing = map['dataPlaneRouting']
         data.create_public_ip = map['createPublicIP']
-        data.staging_area_tags = (Parsers::TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.staging_area_tags = (TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -465,7 +465,7 @@ module AWS::SDK::Mgn
       def self.parse(http_resp)
         data = Types::DescribeJobLogItemsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::JobLogs.parse(map['items']) unless map['items'].nil?)
+        data.items = (JobLogs.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -475,7 +475,7 @@ module AWS::SDK::Mgn
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::JobLog.parse(value) unless value.nil?
+          data << JobLog.parse(value) unless value.nil?
         end
         data
       end
@@ -486,7 +486,7 @@ module AWS::SDK::Mgn
         data = Types::JobLog.new
         data.log_date_time = map['logDateTime']
         data.event = map['event']
-        data.event_data = (Parsers::JobLogEventData.parse(map['eventData']) unless map['eventData'].nil?)
+        data.event_data = (JobLogEventData.parse(map['eventData']) unless map['eventData'].nil?)
         return data
       end
     end
@@ -507,7 +507,7 @@ module AWS::SDK::Mgn
       def self.parse(http_resp)
         data = Types::DescribeJobsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::JobsList.parse(map['items']) unless map['items'].nil?)
+        data.items = (JobsList.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -517,7 +517,7 @@ module AWS::SDK::Mgn
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::Job.parse(value) unless value.nil?
+          data << Job.parse(value) unless value.nil?
         end
         data
       end
@@ -533,8 +533,8 @@ module AWS::SDK::Mgn
         data.creation_date_time = map['creationDateTime']
         data.end_date_time = map['endDateTime']
         data.status = map['status']
-        data.participating_servers = (Parsers::ParticipatingServers.parse(map['participatingServers']) unless map['participatingServers'].nil?)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.participating_servers = (ParticipatingServers.parse(map['participatingServers']) unless map['participatingServers'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -543,7 +543,7 @@ module AWS::SDK::Mgn
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ParticipatingServer.parse(value) unless value.nil?
+          data << ParticipatingServer.parse(value) unless value.nil?
         end
         data
       end
@@ -563,7 +563,7 @@ module AWS::SDK::Mgn
       def self.parse(http_resp)
         data = Types::DescribeReplicationConfigurationTemplatesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::ReplicationConfigurationTemplates.parse(map['items']) unless map['items'].nil?)
+        data.items = (ReplicationConfigurationTemplates.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -573,7 +573,7 @@ module AWS::SDK::Mgn
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReplicationConfigurationTemplate.parse(value) unless value.nil?
+          data << ReplicationConfigurationTemplate.parse(value) unless value.nil?
         end
         data
       end
@@ -586,7 +586,7 @@ module AWS::SDK::Mgn
         data.arn = map['arn']
         data.staging_area_subnet_id = map['stagingAreaSubnetId']
         data.associate_default_security_group = map['associateDefaultSecurityGroup']
-        data.replication_servers_security_groups_i_ds = (Parsers::ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
+        data.replication_servers_security_groups_i_ds = (ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
         data.replication_server_instance_type = map['replicationServerInstanceType']
         data.use_dedicated_replication_server = map['useDedicatedReplicationServer']
         data.default_large_staging_disk_type = map['defaultLargeStagingDiskType']
@@ -595,8 +595,8 @@ module AWS::SDK::Mgn
         data.bandwidth_throttling = map['bandwidthThrottling']
         data.data_plane_routing = map['dataPlaneRouting']
         data.create_public_ip = map['createPublicIP']
-        data.staging_area_tags = (Parsers::TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.staging_area_tags = (TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -606,7 +606,7 @@ module AWS::SDK::Mgn
       def self.parse(http_resp)
         data = Types::DescribeSourceServersOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::SourceServersList.parse(map['items']) unless map['items'].nil?)
+        data.items = (SourceServersList.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -616,7 +616,7 @@ module AWS::SDK::Mgn
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::SourceServer.parse(value) unless value.nil?
+          data << SourceServer.parse(value) unless value.nil?
         end
         data
       end
@@ -628,11 +628,11 @@ module AWS::SDK::Mgn
         data.source_server_id = map['sourceServerID']
         data.arn = map['arn']
         data.is_archived = map['isArchived']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
-        data.launched_instance = (Parsers::LaunchedInstance.parse(map['launchedInstance']) unless map['launchedInstance'].nil?)
-        data.data_replication_info = (Parsers::DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
-        data.life_cycle = (Parsers::LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
-        data.source_properties = (Parsers::SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.launched_instance = (LaunchedInstance.parse(map['launchedInstance']) unless map['launchedInstance'].nil?)
+        data.data_replication_info = (DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
+        data.life_cycle = (LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
+        data.source_properties = (SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
         data.replication_type = map['replicationType']
         data.vcenter_client_id = map['vcenterClientID']
         return data
@@ -644,7 +644,7 @@ module AWS::SDK::Mgn
       def self.parse(http_resp)
         data = Types::DescribeVcenterClientsOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.items = (Parsers::VcenterClientList.parse(map['items']) unless map['items'].nil?)
+        data.items = (VcenterClientList.parse(map['items']) unless map['items'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -654,7 +654,7 @@ module AWS::SDK::Mgn
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::VcenterClient.parse(value) unless value.nil?
+          data << VcenterClient.parse(value) unless value.nil?
         end
         data
       end
@@ -669,8 +669,8 @@ module AWS::SDK::Mgn
         data.vcenter_uuid = map['vcenterUUID']
         data.datacenter_name = map['datacenterName']
         data.last_seen_datetime = map['lastSeenDatetime']
-        data.source_server_tags = (Parsers::TagsMap.parse(map['sourceServerTags']) unless map['sourceServerTags'].nil?)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.source_server_tags = (TagsMap.parse(map['sourceServerTags']) unless map['sourceServerTags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         return data
       end
     end
@@ -683,11 +683,11 @@ module AWS::SDK::Mgn
         data.source_server_id = map['sourceServerID']
         data.arn = map['arn']
         data.is_archived = map['isArchived']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
-        data.launched_instance = (Parsers::LaunchedInstance.parse(map['launchedInstance']) unless map['launchedInstance'].nil?)
-        data.data_replication_info = (Parsers::DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
-        data.life_cycle = (Parsers::LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
-        data.source_properties = (Parsers::SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.launched_instance = (LaunchedInstance.parse(map['launchedInstance']) unless map['launchedInstance'].nil?)
+        data.data_replication_info = (DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
+        data.life_cycle = (LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
+        data.source_properties = (SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
         data.replication_type = map['replicationType']
         data.vcenter_client_id = map['vcenterClientID']
         data
@@ -702,11 +702,11 @@ module AWS::SDK::Mgn
         data.source_server_id = map['sourceServerID']
         data.arn = map['arn']
         data.is_archived = map['isArchived']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
-        data.launched_instance = (Parsers::LaunchedInstance.parse(map['launchedInstance']) unless map['launchedInstance'].nil?)
-        data.data_replication_info = (Parsers::DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
-        data.life_cycle = (Parsers::LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
-        data.source_properties = (Parsers::SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.launched_instance = (LaunchedInstance.parse(map['launchedInstance']) unless map['launchedInstance'].nil?)
+        data.data_replication_info = (DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
+        data.life_cycle = (LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
+        data.source_properties = (SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
         data.replication_type = map['replicationType']
         data.vcenter_client_id = map['vcenterClientID']
         data
@@ -725,7 +725,7 @@ module AWS::SDK::Mgn
         data.target_instance_type_right_sizing_method = map['targetInstanceTypeRightSizingMethod']
         data.copy_private_ip = map['copyPrivateIp']
         data.copy_tags = map['copyTags']
-        data.licensing = (Parsers::Licensing.parse(map['licensing']) unless map['licensing'].nil?)
+        data.licensing = (Licensing.parse(map['licensing']) unless map['licensing'].nil?)
         data.boot_mode = map['bootMode']
         data
       end
@@ -748,17 +748,17 @@ module AWS::SDK::Mgn
         data.name = map['name']
         data.staging_area_subnet_id = map['stagingAreaSubnetId']
         data.associate_default_security_group = map['associateDefaultSecurityGroup']
-        data.replication_servers_security_groups_i_ds = (Parsers::ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
+        data.replication_servers_security_groups_i_ds = (ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
         data.replication_server_instance_type = map['replicationServerInstanceType']
         data.use_dedicated_replication_server = map['useDedicatedReplicationServer']
         data.default_large_staging_disk_type = map['defaultLargeStagingDiskType']
-        data.replicated_disks = (Parsers::ReplicationConfigurationReplicatedDisks.parse(map['replicatedDisks']) unless map['replicatedDisks'].nil?)
+        data.replicated_disks = (ReplicationConfigurationReplicatedDisks.parse(map['replicatedDisks']) unless map['replicatedDisks'].nil?)
         data.ebs_encryption = map['ebsEncryption']
         data.ebs_encryption_key_arn = map['ebsEncryptionKeyArn']
         data.bandwidth_throttling = map['bandwidthThrottling']
         data.data_plane_routing = map['dataPlaneRouting']
         data.create_public_ip = map['createPublicIP']
-        data.staging_area_tags = (Parsers::TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
+        data.staging_area_tags = (TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
         data
       end
     end
@@ -767,7 +767,7 @@ module AWS::SDK::Mgn
       def self.parse(list)
         data = []
         list.map do |value|
-          data << Parsers::ReplicationConfigurationReplicatedDisk.parse(value) unless value.nil?
+          data << ReplicationConfigurationReplicatedDisk.parse(value) unless value.nil?
         end
         data
       end
@@ -799,7 +799,7 @@ module AWS::SDK::Mgn
       def self.parse(http_resp)
         data = Types::ListTagsForResourceOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -836,11 +836,11 @@ module AWS::SDK::Mgn
         data.source_server_id = map['sourceServerID']
         data.arn = map['arn']
         data.is_archived = map['isArchived']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
-        data.launched_instance = (Parsers::LaunchedInstance.parse(map['launchedInstance']) unless map['launchedInstance'].nil?)
-        data.data_replication_info = (Parsers::DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
-        data.life_cycle = (Parsers::LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
-        data.source_properties = (Parsers::SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.launched_instance = (LaunchedInstance.parse(map['launchedInstance']) unless map['launchedInstance'].nil?)
+        data.data_replication_info = (DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
+        data.life_cycle = (LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
+        data.source_properties = (SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
         data.replication_type = map['replicationType']
         data.vcenter_client_id = map['vcenterClientID']
         data
@@ -855,11 +855,11 @@ module AWS::SDK::Mgn
         data.source_server_id = map['sourceServerID']
         data.arn = map['arn']
         data.is_archived = map['isArchived']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
-        data.launched_instance = (Parsers::LaunchedInstance.parse(map['launchedInstance']) unless map['launchedInstance'].nil?)
-        data.data_replication_info = (Parsers::DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
-        data.life_cycle = (Parsers::LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
-        data.source_properties = (Parsers::SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.launched_instance = (LaunchedInstance.parse(map['launchedInstance']) unless map['launchedInstance'].nil?)
+        data.data_replication_info = (DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
+        data.life_cycle = (LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
+        data.source_properties = (SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
         data.replication_type = map['replicationType']
         data.vcenter_client_id = map['vcenterClientID']
         data
@@ -871,7 +871,7 @@ module AWS::SDK::Mgn
       def self.parse(http_resp)
         data = Types::StartCutoverOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job = (Parsers::Job.parse(map['job']) unless map['job'].nil?)
+        data.job = (Job.parse(map['job']) unless map['job'].nil?)
         data
       end
     end
@@ -884,11 +884,11 @@ module AWS::SDK::Mgn
         data.source_server_id = map['sourceServerID']
         data.arn = map['arn']
         data.is_archived = map['isArchived']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
-        data.launched_instance = (Parsers::LaunchedInstance.parse(map['launchedInstance']) unless map['launchedInstance'].nil?)
-        data.data_replication_info = (Parsers::DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
-        data.life_cycle = (Parsers::LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
-        data.source_properties = (Parsers::SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.launched_instance = (LaunchedInstance.parse(map['launchedInstance']) unless map['launchedInstance'].nil?)
+        data.data_replication_info = (DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
+        data.life_cycle = (LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
+        data.source_properties = (SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
         data.replication_type = map['replicationType']
         data.vcenter_client_id = map['vcenterClientID']
         data
@@ -916,7 +916,7 @@ module AWS::SDK::Mgn
       def self.parse(http_resp)
         data = Types::StartTestOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job = (Parsers::Job.parse(map['job']) unless map['job'].nil?)
+        data.job = (Job.parse(map['job']) unless map['job'].nil?)
         data
       end
     end
@@ -935,7 +935,7 @@ module AWS::SDK::Mgn
       def self.parse(http_resp)
         data = Types::TerminateTargetInstancesOutput.new
         map = Hearth::JSON.load(http_resp.body)
-        data.job = (Parsers::Job.parse(map['job']) unless map['job'].nil?)
+        data.job = (Job.parse(map['job']) unless map['job'].nil?)
         data
       end
     end
@@ -961,7 +961,7 @@ module AWS::SDK::Mgn
         data.target_instance_type_right_sizing_method = map['targetInstanceTypeRightSizingMethod']
         data.copy_private_ip = map['copyPrivateIp']
         data.copy_tags = map['copyTags']
-        data.licensing = (Parsers::Licensing.parse(map['licensing']) unless map['licensing'].nil?)
+        data.licensing = (Licensing.parse(map['licensing']) unless map['licensing'].nil?)
         data.boot_mode = map['bootMode']
         data
       end
@@ -976,17 +976,17 @@ module AWS::SDK::Mgn
         data.name = map['name']
         data.staging_area_subnet_id = map['stagingAreaSubnetId']
         data.associate_default_security_group = map['associateDefaultSecurityGroup']
-        data.replication_servers_security_groups_i_ds = (Parsers::ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
+        data.replication_servers_security_groups_i_ds = (ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
         data.replication_server_instance_type = map['replicationServerInstanceType']
         data.use_dedicated_replication_server = map['useDedicatedReplicationServer']
         data.default_large_staging_disk_type = map['defaultLargeStagingDiskType']
-        data.replicated_disks = (Parsers::ReplicationConfigurationReplicatedDisks.parse(map['replicatedDisks']) unless map['replicatedDisks'].nil?)
+        data.replicated_disks = (ReplicationConfigurationReplicatedDisks.parse(map['replicatedDisks']) unless map['replicatedDisks'].nil?)
         data.ebs_encryption = map['ebsEncryption']
         data.ebs_encryption_key_arn = map['ebsEncryptionKeyArn']
         data.bandwidth_throttling = map['bandwidthThrottling']
         data.data_plane_routing = map['dataPlaneRouting']
         data.create_public_ip = map['createPublicIP']
-        data.staging_area_tags = (Parsers::TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
+        data.staging_area_tags = (TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
         data
       end
     end
@@ -1000,7 +1000,7 @@ module AWS::SDK::Mgn
         data.arn = map['arn']
         data.staging_area_subnet_id = map['stagingAreaSubnetId']
         data.associate_default_security_group = map['associateDefaultSecurityGroup']
-        data.replication_servers_security_groups_i_ds = (Parsers::ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
+        data.replication_servers_security_groups_i_ds = (ReplicationServersSecurityGroupsIDs.parse(map['replicationServersSecurityGroupsIDs']) unless map['replicationServersSecurityGroupsIDs'].nil?)
         data.replication_server_instance_type = map['replicationServerInstanceType']
         data.use_dedicated_replication_server = map['useDedicatedReplicationServer']
         data.default_large_staging_disk_type = map['defaultLargeStagingDiskType']
@@ -1009,8 +1009,8 @@ module AWS::SDK::Mgn
         data.bandwidth_throttling = map['bandwidthThrottling']
         data.data_plane_routing = map['dataPlaneRouting']
         data.create_public_ip = map['createPublicIP']
-        data.staging_area_tags = (Parsers::TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.staging_area_tags = (TagsMap.parse(map['stagingAreaTags']) unless map['stagingAreaTags'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1023,11 +1023,11 @@ module AWS::SDK::Mgn
         data.source_server_id = map['sourceServerID']
         data.arn = map['arn']
         data.is_archived = map['isArchived']
-        data.tags = (Parsers::TagsMap.parse(map['tags']) unless map['tags'].nil?)
-        data.launched_instance = (Parsers::LaunchedInstance.parse(map['launchedInstance']) unless map['launchedInstance'].nil?)
-        data.data_replication_info = (Parsers::DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
-        data.life_cycle = (Parsers::LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
-        data.source_properties = (Parsers::SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
+        data.tags = (TagsMap.parse(map['tags']) unless map['tags'].nil?)
+        data.launched_instance = (LaunchedInstance.parse(map['launchedInstance']) unless map['launchedInstance'].nil?)
+        data.data_replication_info = (DataReplicationInfo.parse(map['dataReplicationInfo']) unless map['dataReplicationInfo'].nil?)
+        data.life_cycle = (LifeCycle.parse(map['lifeCycle']) unless map['lifeCycle'].nil?)
+        data.source_properties = (SourceProperties.parse(map['sourceProperties']) unless map['sourceProperties'].nil?)
         data.replication_type = map['replicationType']
         data.vcenter_client_id = map['vcenterClientID']
         data

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::RoboMaker
   module Builders
 
@@ -20,8 +22,8 @@ module AWS::SDK::RoboMaker
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['worlds'] = Builders::Arns.build(input[:worlds]) unless input[:worlds].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['worlds'] = Arns.build(input[:worlds]) unless input[:worlds].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -46,8 +48,8 @@ module AWS::SDK::RoboMaker
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['jobs'] = Builders::Arns.build(input[:jobs]) unless input[:jobs].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['jobs'] = Arns.build(input[:jobs]) unless input[:jobs].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -62,7 +64,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['job'] = input[:job] unless input[:job].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -77,7 +79,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['job'] = input[:job] unless input[:job].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -92,7 +94,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['batch'] = input[:batch] unless input[:batch].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -107,7 +109,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['job'] = input[:job] unless input[:job].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -122,7 +124,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['job'] = input[:job] unless input[:job].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -136,12 +138,12 @@ module AWS::SDK::RoboMaker
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['deploymentConfig'] = Builders::DeploymentConfig.build(input[:deployment_config]) unless input[:deployment_config].nil?
+        data['deploymentConfig'] = DeploymentConfig.build(input[:deployment_config]) unless input[:deployment_config].nil?
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['fleet'] = input[:fleet] unless input[:fleet].nil?
-        data['deploymentApplicationConfigs'] = Builders::DeploymentApplicationConfigs.build(input[:deployment_application_configs]) unless input[:deployment_application_configs].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['deploymentApplicationConfigs'] = DeploymentApplicationConfigs.build(input[:deployment_application_configs]) unless input[:deployment_application_configs].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -161,7 +163,7 @@ module AWS::SDK::RoboMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DeploymentApplicationConfig.build(element) unless element.nil?
+          data << DeploymentApplicationConfig.build(element) unless element.nil?
         end
         data
       end
@@ -173,7 +175,7 @@ module AWS::SDK::RoboMaker
         data = {}
         data['application'] = input[:application] unless input[:application].nil?
         data['applicationVersion'] = input[:application_version] unless input[:application_version].nil?
-        data['launchConfig'] = Builders::DeploymentLaunchConfig.build(input[:launch_config]) unless input[:launch_config].nil?
+        data['launchConfig'] = DeploymentLaunchConfig.build(input[:launch_config]) unless input[:launch_config].nil?
         data
       end
     end
@@ -186,7 +188,7 @@ module AWS::SDK::RoboMaker
         data['preLaunchFile'] = input[:pre_launch_file] unless input[:pre_launch_file].nil?
         data['launchFile'] = input[:launch_file] unless input[:launch_file].nil?
         data['postLaunchFile'] = input[:post_launch_file] unless input[:post_launch_file].nil?
-        data['environmentVariables'] = Builders::EnvironmentVariableMap.build(input[:environment_variables]) unless input[:environment_variables].nil?
+        data['environmentVariables'] = EnvironmentVariableMap.build(input[:environment_variables]) unless input[:environment_variables].nil?
         data
       end
     end
@@ -209,7 +211,7 @@ module AWS::SDK::RoboMaker
         data['concurrentDeploymentPercentage'] = input[:concurrent_deployment_percentage] unless input[:concurrent_deployment_percentage].nil?
         data['failureThresholdPercentage'] = input[:failure_threshold_percentage] unless input[:failure_threshold_percentage].nil?
         data['robotDeploymentTimeoutInSeconds'] = input[:robot_deployment_timeout_in_seconds] unless input[:robot_deployment_timeout_in_seconds].nil?
-        data['downloadConditionFile'] = Builders::S3Object.build(input[:download_condition_file]) unless input[:download_condition_file].nil?
+        data['downloadConditionFile'] = S3Object.build(input[:download_condition_file]) unless input[:download_condition_file].nil?
         data
       end
     end
@@ -236,8 +238,8 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -254,8 +256,8 @@ module AWS::SDK::RoboMaker
         data['name'] = input[:name] unless input[:name].nil?
         data['architecture'] = input[:architecture] unless input[:architecture].nil?
         data['greengrassGroupId'] = input[:greengrass_group_id] unless input[:greengrass_group_id].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -270,11 +272,11 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['sources'] = Builders::SourceConfigs.build(input[:sources]) unless input[:sources].nil?
-        data['robotSoftwareSuite'] = Builders::RobotSoftwareSuite.build(input[:robot_software_suite]) unless input[:robot_software_suite].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        data['environment'] = Builders::Environment.build(input[:environment]) unless input[:environment].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sources'] = SourceConfigs.build(input[:sources]) unless input[:sources].nil?
+        data['robotSoftwareSuite'] = RobotSoftwareSuite.build(input[:robot_software_suite]) unless input[:robot_software_suite].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['environment'] = Environment.build(input[:environment]) unless input[:environment].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -302,7 +304,7 @@ module AWS::SDK::RoboMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SourceConfig.build(element) unless element.nil?
+          data << SourceConfig.build(element) unless element.nil?
         end
         data
       end
@@ -331,9 +333,9 @@ module AWS::SDK::RoboMaker
         data = {}
         data['application'] = input[:application] unless input[:application].nil?
         data['currentRevisionId'] = input[:current_revision_id] unless input[:current_revision_id].nil?
-        data['s3Etags'] = Builders::S3Etags.build(input[:s3_etags]) unless input[:s3_etags].nil?
+        data['s3Etags'] = S3Etags.build(input[:s3_etags]) unless input[:s3_etags].nil?
         data['imageDigest'] = input[:image_digest] unless input[:image_digest].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -359,13 +361,13 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['sources'] = Builders::SourceConfigs.build(input[:sources]) unless input[:sources].nil?
-        data['simulationSoftwareSuite'] = Builders::SimulationSoftwareSuite.build(input[:simulation_software_suite]) unless input[:simulation_software_suite].nil?
-        data['robotSoftwareSuite'] = Builders::RobotSoftwareSuite.build(input[:robot_software_suite]) unless input[:robot_software_suite].nil?
-        data['renderingEngine'] = Builders::RenderingEngine.build(input[:rendering_engine]) unless input[:rendering_engine].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        data['environment'] = Builders::Environment.build(input[:environment]) unless input[:environment].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sources'] = SourceConfigs.build(input[:sources]) unless input[:sources].nil?
+        data['simulationSoftwareSuite'] = SimulationSoftwareSuite.build(input[:simulation_software_suite]) unless input[:simulation_software_suite].nil?
+        data['robotSoftwareSuite'] = RobotSoftwareSuite.build(input[:robot_software_suite]) unless input[:robot_software_suite].nil?
+        data['renderingEngine'] = RenderingEngine.build(input[:rendering_engine]) unless input[:rendering_engine].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['environment'] = Environment.build(input[:environment]) unless input[:environment].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -401,9 +403,9 @@ module AWS::SDK::RoboMaker
         data = {}
         data['application'] = input[:application] unless input[:application].nil?
         data['currentRevisionId'] = input[:current_revision_id] unless input[:current_revision_id].nil?
-        data['s3Etags'] = Builders::S3Etags.build(input[:s3_etags]) unless input[:s3_etags].nil?
+        data['s3Etags'] = S3Etags.build(input[:s3_etags]) unless input[:s3_etags].nil?
         data['imageDigest'] = input[:image_digest] unless input[:image_digest].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -418,18 +420,18 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['outputLocation'] = Builders::OutputLocation.build(input[:output_location]) unless input[:output_location].nil?
-        data['loggingConfig'] = Builders::LoggingConfig.build(input[:logging_config]) unless input[:logging_config].nil?
+        data['outputLocation'] = OutputLocation.build(input[:output_location]) unless input[:output_location].nil?
+        data['loggingConfig'] = LoggingConfig.build(input[:logging_config]) unless input[:logging_config].nil?
         data['maxJobDurationInSeconds'] = input[:max_job_duration_in_seconds] unless input[:max_job_duration_in_seconds].nil?
         data['iamRole'] = input[:iam_role] unless input[:iam_role].nil?
         data['failureBehavior'] = input[:failure_behavior] unless input[:failure_behavior].nil?
-        data['robotApplications'] = Builders::RobotApplicationConfigs.build(input[:robot_applications]) unless input[:robot_applications].nil?
-        data['simulationApplications'] = Builders::SimulationApplicationConfigs.build(input[:simulation_applications]) unless input[:simulation_applications].nil?
-        data['dataSources'] = Builders::DataSourceConfigs.build(input[:data_sources]) unless input[:data_sources].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        data['vpcConfig'] = Builders::VPCConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        data['compute'] = Builders::Compute.build(input[:compute]) unless input[:compute].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['robotApplications'] = RobotApplicationConfigs.build(input[:robot_applications]) unless input[:robot_applications].nil?
+        data['simulationApplications'] = SimulationApplicationConfigs.build(input[:simulation_applications]) unless input[:simulation_applications].nil?
+        data['dataSources'] = DataSourceConfigs.build(input[:data_sources]) unless input[:data_sources].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['vpcConfig'] = VPCConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['compute'] = Compute.build(input[:compute]) unless input[:compute].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -448,8 +450,8 @@ module AWS::SDK::RoboMaker
     class VPCConfig
       def self.build(input)
         data = {}
-        data['subnets'] = Builders::Subnets.build(input[:subnets]) unless input[:subnets].nil?
-        data['securityGroups'] = Builders::SecurityGroups.build(input[:security_groups]) unless input[:security_groups].nil?
+        data['subnets'] = Subnets.build(input[:subnets]) unless input[:subnets].nil?
+        data['securityGroups'] = SecurityGroups.build(input[:security_groups]) unless input[:security_groups].nil?
         data['assignPublicIp'] = input[:assign_public_ip] unless input[:assign_public_ip].nil?
         data
       end
@@ -482,7 +484,7 @@ module AWS::SDK::RoboMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DataSourceConfig.build(element) unless element.nil?
+          data << DataSourceConfig.build(element) unless element.nil?
         end
         data
       end
@@ -494,7 +496,7 @@ module AWS::SDK::RoboMaker
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['s3Bucket'] = input[:s3_bucket] unless input[:s3_bucket].nil?
-        data['s3Keys'] = Builders::S3KeysOrPrefixes.build(input[:s3_keys]) unless input[:s3_keys].nil?
+        data['s3Keys'] = S3KeysOrPrefixes.build(input[:s3_keys]) unless input[:s3_keys].nil?
         data['type'] = input[:type] unless input[:type].nil?
         data['destination'] = input[:destination] unless input[:destination].nil?
         data
@@ -517,7 +519,7 @@ module AWS::SDK::RoboMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SimulationApplicationConfig.build(element) unless element.nil?
+          data << SimulationApplicationConfig.build(element) unless element.nil?
         end
         data
       end
@@ -529,11 +531,11 @@ module AWS::SDK::RoboMaker
         data = {}
         data['application'] = input[:application] unless input[:application].nil?
         data['applicationVersion'] = input[:application_version] unless input[:application_version].nil?
-        data['launchConfig'] = Builders::LaunchConfig.build(input[:launch_config]) unless input[:launch_config].nil?
-        data['uploadConfigurations'] = Builders::UploadConfigurations.build(input[:upload_configurations]) unless input[:upload_configurations].nil?
-        data['worldConfigs'] = Builders::WorldConfigs.build(input[:world_configs]) unless input[:world_configs].nil?
+        data['launchConfig'] = LaunchConfig.build(input[:launch_config]) unless input[:launch_config].nil?
+        data['uploadConfigurations'] = UploadConfigurations.build(input[:upload_configurations]) unless input[:upload_configurations].nil?
+        data['worldConfigs'] = WorldConfigs.build(input[:world_configs]) unless input[:world_configs].nil?
         data['useDefaultUploadConfigurations'] = input[:use_default_upload_configurations] unless input[:use_default_upload_configurations].nil?
-        data['tools'] = Builders::Tools.build(input[:tools]) unless input[:tools].nil?
+        data['tools'] = Tools.build(input[:tools]) unless input[:tools].nil?
         data['useDefaultTools'] = input[:use_default_tools] unless input[:use_default_tools].nil?
         data
       end
@@ -544,7 +546,7 @@ module AWS::SDK::RoboMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tool.build(element) unless element.nil?
+          data << Tool.build(element) unless element.nil?
         end
         data
       end
@@ -568,7 +570,7 @@ module AWS::SDK::RoboMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::WorldConfig.build(element) unless element.nil?
+          data << WorldConfig.build(element) unless element.nil?
         end
         data
       end
@@ -588,7 +590,7 @@ module AWS::SDK::RoboMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::UploadConfiguration.build(element) unless element.nil?
+          data << UploadConfiguration.build(element) unless element.nil?
         end
         data
       end
@@ -611,10 +613,10 @@ module AWS::SDK::RoboMaker
         data = {}
         data['packageName'] = input[:package_name] unless input[:package_name].nil?
         data['launchFile'] = input[:launch_file] unless input[:launch_file].nil?
-        data['environmentVariables'] = Builders::EnvironmentVariableMap.build(input[:environment_variables]) unless input[:environment_variables].nil?
-        data['portForwardingConfig'] = Builders::PortForwardingConfig.build(input[:port_forwarding_config]) unless input[:port_forwarding_config].nil?
+        data['environmentVariables'] = EnvironmentVariableMap.build(input[:environment_variables]) unless input[:environment_variables].nil?
+        data['portForwardingConfig'] = PortForwardingConfig.build(input[:port_forwarding_config]) unless input[:port_forwarding_config].nil?
         data['streamUI'] = input[:stream_ui] unless input[:stream_ui].nil?
-        data['command'] = Builders::CommandList.build(input[:command]) unless input[:command].nil?
+        data['command'] = CommandList.build(input[:command]) unless input[:command].nil?
         data
       end
     end
@@ -634,7 +636,7 @@ module AWS::SDK::RoboMaker
     class PortForwardingConfig
       def self.build(input)
         data = {}
-        data['portMappings'] = Builders::PortMappingList.build(input[:port_mappings]) unless input[:port_mappings].nil?
+        data['portMappings'] = PortMappingList.build(input[:port_mappings]) unless input[:port_mappings].nil?
         data
       end
     end
@@ -644,7 +646,7 @@ module AWS::SDK::RoboMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::PortMapping.build(element) unless element.nil?
+          data << PortMapping.build(element) unless element.nil?
         end
         data
       end
@@ -666,7 +668,7 @@ module AWS::SDK::RoboMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RobotApplicationConfig.build(element) unless element.nil?
+          data << RobotApplicationConfig.build(element) unless element.nil?
         end
         data
       end
@@ -678,10 +680,10 @@ module AWS::SDK::RoboMaker
         data = {}
         data['application'] = input[:application] unless input[:application].nil?
         data['applicationVersion'] = input[:application_version] unless input[:application_version].nil?
-        data['launchConfig'] = Builders::LaunchConfig.build(input[:launch_config]) unless input[:launch_config].nil?
-        data['uploadConfigurations'] = Builders::UploadConfigurations.build(input[:upload_configurations]) unless input[:upload_configurations].nil?
+        data['launchConfig'] = LaunchConfig.build(input[:launch_config]) unless input[:launch_config].nil?
+        data['uploadConfigurations'] = UploadConfigurations.build(input[:upload_configurations]) unless input[:upload_configurations].nil?
         data['useDefaultUploadConfigurations'] = input[:use_default_upload_configurations] unless input[:use_default_upload_configurations].nil?
-        data['tools'] = Builders::Tools.build(input[:tools]) unless input[:tools].nil?
+        data['tools'] = Tools.build(input[:tools]) unless input[:tools].nil?
         data['useDefaultTools'] = input[:use_default_tools] unless input[:use_default_tools].nil?
         data
       end
@@ -717,11 +719,11 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['worlds'] = Builders::Arns.build(input[:worlds]) unless input[:worlds].nil?
-        data['outputLocation'] = Builders::OutputLocation.build(input[:output_location]) unless input[:output_location].nil?
+        data['worlds'] = Arns.build(input[:worlds]) unless input[:worlds].nil?
+        data['outputLocation'] = OutputLocation.build(input[:output_location]) unless input[:output_location].nil?
         data['iamRole'] = input[:iam_role] unless input[:iam_role].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -737,10 +739,10 @@ module AWS::SDK::RoboMaker
         data = {}
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['template'] = input[:template] unless input[:template].nil?
-        data['worldCount'] = Builders::WorldCount.build(input[:world_count]) unless input[:world_count].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        data['worldTags'] = Builders::TagMap.build(input[:world_tags]) unless input[:world_tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['worldCount'] = WorldCount.build(input[:world_count]) unless input[:world_count].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['worldTags'] = TagMap.build(input[:world_tags]) unless input[:world_tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -767,9 +769,9 @@ module AWS::SDK::RoboMaker
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['templateBody'] = input[:template_body] unless input[:template_body].nil?
-        data['templateLocation'] = Builders::TemplateLocation.build(input[:template_location]) unless input[:template_location].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['templateLocation'] = TemplateLocation.build(input[:template_location]) unless input[:template_location].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -794,7 +796,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['fleet'] = input[:fleet] unless input[:fleet].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -809,7 +811,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['robot'] = input[:robot] unless input[:robot].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -825,7 +827,7 @@ module AWS::SDK::RoboMaker
         data = {}
         data['application'] = input[:application] unless input[:application].nil?
         data['applicationVersion'] = input[:application_version] unless input[:application_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -841,7 +843,7 @@ module AWS::SDK::RoboMaker
         data = {}
         data['application'] = input[:application] unless input[:application].nil?
         data['applicationVersion'] = input[:application_version] unless input[:application_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -856,7 +858,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['template'] = input[:template] unless input[:template].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -872,7 +874,7 @@ module AWS::SDK::RoboMaker
         data = {}
         data['fleet'] = input[:fleet] unless input[:fleet].nil?
         data['robot'] = input[:robot] unless input[:robot].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -887,7 +889,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['job'] = input[:job] unless input[:job].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -902,7 +904,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['fleet'] = input[:fleet] unless input[:fleet].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -917,7 +919,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['robot'] = input[:robot] unless input[:robot].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -933,7 +935,7 @@ module AWS::SDK::RoboMaker
         data = {}
         data['application'] = input[:application] unless input[:application].nil?
         data['applicationVersion'] = input[:application_version] unless input[:application_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -949,7 +951,7 @@ module AWS::SDK::RoboMaker
         data = {}
         data['application'] = input[:application] unless input[:application].nil?
         data['applicationVersion'] = input[:application_version] unless input[:application_version].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -964,7 +966,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['job'] = input[:job] unless input[:job].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -979,7 +981,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['batch'] = input[:batch] unless input[:batch].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -994,7 +996,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['world'] = input[:world] unless input[:world].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1009,7 +1011,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['job'] = input[:job] unless input[:job].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1024,7 +1026,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['job'] = input[:job] unless input[:job].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1039,7 +1041,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['template'] = input[:template] unless input[:template].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1055,7 +1057,7 @@ module AWS::SDK::RoboMaker
         data = {}
         data['template'] = input[:template] unless input[:template].nil?
         data['generationJob'] = input[:generation_job] unless input[:generation_job].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1069,10 +1071,10 @@ module AWS::SDK::RoboMaker
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
+        data['filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1081,7 +1083,7 @@ module AWS::SDK::RoboMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Filter.build(element) unless element.nil?
+          data << Filter.build(element) unless element.nil?
         end
         data
       end
@@ -1092,7 +1094,7 @@ module AWS::SDK::RoboMaker
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['values'] = Builders::FilterValues.build(input[:values]) unless input[:values].nil?
+        data['values'] = FilterValues.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -1120,8 +1122,8 @@ module AWS::SDK::RoboMaker
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1138,8 +1140,8 @@ module AWS::SDK::RoboMaker
         data['versionQualifier'] = input[:version_qualifier] unless input[:version_qualifier].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1155,8 +1157,8 @@ module AWS::SDK::RoboMaker
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1173,8 +1175,8 @@ module AWS::SDK::RoboMaker
         data['versionQualifier'] = input[:version_qualifier] unless input[:version_qualifier].nil?
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1190,8 +1192,8 @@ module AWS::SDK::RoboMaker
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1207,8 +1209,8 @@ module AWS::SDK::RoboMaker
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1241,8 +1243,8 @@ module AWS::SDK::RoboMaker
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1258,8 +1260,8 @@ module AWS::SDK::RoboMaker
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1275,7 +1277,7 @@ module AWS::SDK::RoboMaker
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1291,8 +1293,8 @@ module AWS::SDK::RoboMaker
         data = {}
         data['nextToken'] = input[:next_token] unless input[:next_token].nil?
         data['maxResults'] = input[:max_results] unless input[:max_results].nil?
-        data['filters'] = Builders::Filters.build(input[:filters]) unless input[:filters].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['filters'] = Filters.build(input[:filters]) unless input[:filters].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1308,7 +1310,7 @@ module AWS::SDK::RoboMaker
         data = {}
         data['fleet'] = input[:fleet] unless input[:fleet].nil?
         data['robot'] = input[:robot] unless input[:robot].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1323,7 +1325,7 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['job'] = input[:job] unless input[:job].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1338,10 +1340,10 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['batchPolicy'] = Builders::BatchPolicy.build(input[:batch_policy]) unless input[:batch_policy].nil?
-        data['createSimulationJobRequests'] = Builders::CreateSimulationJobRequests.build(input[:create_simulation_job_requests]) unless input[:create_simulation_job_requests].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['batchPolicy'] = BatchPolicy.build(input[:batch_policy]) unless input[:batch_policy].nil?
+        data['createSimulationJobRequests'] = CreateSimulationJobRequests.build(input[:create_simulation_job_requests]) unless input[:create_simulation_job_requests].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1350,7 +1352,7 @@ module AWS::SDK::RoboMaker
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::SimulationJobRequest.build(element) unless element.nil?
+          data << SimulationJobRequest.build(element) unless element.nil?
         end
         data
       end
@@ -1360,18 +1362,18 @@ module AWS::SDK::RoboMaker
     class SimulationJobRequest
       def self.build(input)
         data = {}
-        data['outputLocation'] = Builders::OutputLocation.build(input[:output_location]) unless input[:output_location].nil?
-        data['loggingConfig'] = Builders::LoggingConfig.build(input[:logging_config]) unless input[:logging_config].nil?
+        data['outputLocation'] = OutputLocation.build(input[:output_location]) unless input[:output_location].nil?
+        data['loggingConfig'] = LoggingConfig.build(input[:logging_config]) unless input[:logging_config].nil?
         data['maxJobDurationInSeconds'] = input[:max_job_duration_in_seconds] unless input[:max_job_duration_in_seconds].nil?
         data['iamRole'] = input[:iam_role] unless input[:iam_role].nil?
         data['failureBehavior'] = input[:failure_behavior] unless input[:failure_behavior].nil?
         data['useDefaultApplications'] = input[:use_default_applications] unless input[:use_default_applications].nil?
-        data['robotApplications'] = Builders::RobotApplicationConfigs.build(input[:robot_applications]) unless input[:robot_applications].nil?
-        data['simulationApplications'] = Builders::SimulationApplicationConfigs.build(input[:simulation_applications]) unless input[:simulation_applications].nil?
-        data['dataSources'] = Builders::DataSourceConfigs.build(input[:data_sources]) unless input[:data_sources].nil?
-        data['vpcConfig'] = Builders::VPCConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
-        data['compute'] = Builders::Compute.build(input[:compute]) unless input[:compute].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['robotApplications'] = RobotApplicationConfigs.build(input[:robot_applications]) unless input[:robot_applications].nil?
+        data['simulationApplications'] = SimulationApplicationConfigs.build(input[:simulation_applications]) unless input[:simulation_applications].nil?
+        data['dataSources'] = DataSourceConfigs.build(input[:data_sources]) unless input[:data_sources].nil?
+        data['vpcConfig'] = VPCConfig.build(input[:vpc_config]) unless input[:vpc_config].nil?
+        data['compute'] = Compute.build(input[:compute]) unless input[:compute].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
         data
       end
     end
@@ -1398,7 +1400,7 @@ module AWS::SDK::RoboMaker
         data = {}
         data['clientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
         data['fleet'] = input[:fleet] unless input[:fleet].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1419,8 +1421,8 @@ module AWS::SDK::RoboMaker
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1468,11 +1470,11 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['application'] = input[:application] unless input[:application].nil?
-        data['sources'] = Builders::SourceConfigs.build(input[:sources]) unless input[:sources].nil?
-        data['robotSoftwareSuite'] = Builders::RobotSoftwareSuite.build(input[:robot_software_suite]) unless input[:robot_software_suite].nil?
+        data['sources'] = SourceConfigs.build(input[:sources]) unless input[:sources].nil?
+        data['robotSoftwareSuite'] = RobotSoftwareSuite.build(input[:robot_software_suite]) unless input[:robot_software_suite].nil?
         data['currentRevisionId'] = input[:current_revision_id] unless input[:current_revision_id].nil?
-        data['environment'] = Builders::Environment.build(input[:environment]) unless input[:environment].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environment'] = Environment.build(input[:environment]) unless input[:environment].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1487,13 +1489,13 @@ module AWS::SDK::RoboMaker
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['application'] = input[:application] unless input[:application].nil?
-        data['sources'] = Builders::SourceConfigs.build(input[:sources]) unless input[:sources].nil?
-        data['simulationSoftwareSuite'] = Builders::SimulationSoftwareSuite.build(input[:simulation_software_suite]) unless input[:simulation_software_suite].nil?
-        data['robotSoftwareSuite'] = Builders::RobotSoftwareSuite.build(input[:robot_software_suite]) unless input[:robot_software_suite].nil?
-        data['renderingEngine'] = Builders::RenderingEngine.build(input[:rendering_engine]) unless input[:rendering_engine].nil?
+        data['sources'] = SourceConfigs.build(input[:sources]) unless input[:sources].nil?
+        data['simulationSoftwareSuite'] = SimulationSoftwareSuite.build(input[:simulation_software_suite]) unless input[:simulation_software_suite].nil?
+        data['robotSoftwareSuite'] = RobotSoftwareSuite.build(input[:robot_software_suite]) unless input[:robot_software_suite].nil?
+        data['renderingEngine'] = RenderingEngine.build(input[:rendering_engine]) unless input[:rendering_engine].nil?
         data['currentRevisionId'] = input[:current_revision_id] unless input[:current_revision_id].nil?
-        data['environment'] = Builders::Environment.build(input[:environment]) unless input[:environment].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['environment'] = Environment.build(input[:environment]) unless input[:environment].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1510,8 +1512,8 @@ module AWS::SDK::RoboMaker
         data['template'] = input[:template] unless input[:template].nil?
         data['name'] = input[:name] unless input[:name].nil?
         data['templateBody'] = input[:template_body] unless input[:template_body].nil?
-        data['templateLocation'] = Builders::TemplateLocation.build(input[:template_location]) unless input[:template_location].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['templateLocation'] = TemplateLocation.build(input[:template_location]) unless input[:template_location].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

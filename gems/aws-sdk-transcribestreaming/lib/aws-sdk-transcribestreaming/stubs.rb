@@ -63,17 +63,17 @@ module AWS::SDK::TranscribeStreaming
         data = {}
         case stub
         when Types::MedicalTranscriptResultStream::TranscriptEvent
-          data['TranscriptEvent'] = (Stubs::MedicalTranscriptEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['TranscriptEvent'] = (MedicalTranscriptEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::MedicalTranscriptResultStream::BadRequestException
-          data['BadRequestException'] = (Stubs::BadRequestException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['BadRequestException'] = (BadRequestException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::MedicalTranscriptResultStream::LimitExceededException
-          data['LimitExceededException'] = (Stubs::LimitExceededException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['LimitExceededException'] = (LimitExceededException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::MedicalTranscriptResultStream::InternalFailureException
-          data['InternalFailureException'] = (Stubs::InternalFailureException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['InternalFailureException'] = (InternalFailureException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::MedicalTranscriptResultStream::ConflictException
-          data['ConflictException'] = (Stubs::ConflictException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['ConflictException'] = (ConflictException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::MedicalTranscriptResultStream::ServiceUnavailableException
-          data['ServiceUnavailableException'] = (Stubs::ServiceUnavailableException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['ServiceUnavailableException'] = (ServiceUnavailableException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::MedicalTranscriptResultStream"
@@ -186,7 +186,7 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::MedicalTranscriptEvent.new
         data = {}
-        data['Transcript'] = Stubs::MedicalTranscript.stub(stub[:transcript]) unless stub[:transcript].nil?
+        data['Transcript'] = MedicalTranscript.stub(stub[:transcript]) unless stub[:transcript].nil?
         data
       end
     end
@@ -204,7 +204,7 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::MedicalTranscript.new
         data = {}
-        data['Results'] = Stubs::MedicalResultList.stub(stub[:results]) unless stub[:results].nil?
+        data['Results'] = MedicalResultList.stub(stub[:results]) unless stub[:results].nil?
         data
       end
     end
@@ -223,7 +223,7 @@ module AWS::SDK::TranscribeStreaming
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MedicalResult.stub(element) unless element.nil?
+          data << MedicalResult.stub(element) unless element.nil?
         end
         data
       end
@@ -251,7 +251,7 @@ module AWS::SDK::TranscribeStreaming
         data['StartTime'] = Hearth::NumberHelper.serialize(stub[:start_time])
         data['EndTime'] = Hearth::NumberHelper.serialize(stub[:end_time])
         data['IsPartial'] = stub[:is_partial] unless stub[:is_partial].nil?
-        data['Alternatives'] = Stubs::MedicalAlternativeList.stub(stub[:alternatives]) unless stub[:alternatives].nil?
+        data['Alternatives'] = MedicalAlternativeList.stub(stub[:alternatives]) unless stub[:alternatives].nil?
         data['ChannelId'] = stub[:channel_id] unless stub[:channel_id].nil?
         data
       end
@@ -271,7 +271,7 @@ module AWS::SDK::TranscribeStreaming
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MedicalAlternative.stub(element) unless element.nil?
+          data << MedicalAlternative.stub(element) unless element.nil?
         end
         data
       end
@@ -293,8 +293,8 @@ module AWS::SDK::TranscribeStreaming
         stub ||= Types::MedicalAlternative.new
         data = {}
         data['Transcript'] = stub[:transcript] unless stub[:transcript].nil?
-        data['Items'] = Stubs::MedicalItemList.stub(stub[:items]) unless stub[:items].nil?
-        data['Entities'] = Stubs::MedicalEntityList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['Items'] = MedicalItemList.stub(stub[:items]) unless stub[:items].nil?
+        data['Entities'] = MedicalEntityList.stub(stub[:entities]) unless stub[:entities].nil?
         data
       end
     end
@@ -313,7 +313,7 @@ module AWS::SDK::TranscribeStreaming
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MedicalEntity.stub(element) unless element.nil?
+          data << MedicalEntity.stub(element) unless element.nil?
         end
         data
       end
@@ -359,7 +359,7 @@ module AWS::SDK::TranscribeStreaming
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::MedicalItem.stub(element) unless element.nil?
+          data << MedicalItem.stub(element) unless element.nil?
         end
         data
       end
@@ -466,17 +466,17 @@ module AWS::SDK::TranscribeStreaming
         data = {}
         case stub
         when Types::TranscriptResultStream::TranscriptEvent
-          data['TranscriptEvent'] = (Stubs::TranscriptEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['TranscriptEvent'] = (TranscriptEvent.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::TranscriptResultStream::BadRequestException
-          data['BadRequestException'] = (Stubs::BadRequestException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['BadRequestException'] = (BadRequestException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::TranscriptResultStream::LimitExceededException
-          data['LimitExceededException'] = (Stubs::LimitExceededException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['LimitExceededException'] = (LimitExceededException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::TranscriptResultStream::InternalFailureException
-          data['InternalFailureException'] = (Stubs::InternalFailureException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['InternalFailureException'] = (InternalFailureException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::TranscriptResultStream::ConflictException
-          data['ConflictException'] = (Stubs::ConflictException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['ConflictException'] = (ConflictException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         when Types::TranscriptResultStream::ServiceUnavailableException
-          data['ServiceUnavailableException'] = (Stubs::ServiceUnavailableException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
+          data['ServiceUnavailableException'] = (ServiceUnavailableException.stub(stub.__getobj__) unless stub.__getobj__.nil?)
         else
           raise ArgumentError,
           "Expected input to be one of the subclasses of Types::TranscriptResultStream"
@@ -499,7 +499,7 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::TranscriptEvent.new
         data = {}
-        data['Transcript'] = Stubs::Transcript.stub(stub[:transcript]) unless stub[:transcript].nil?
+        data['Transcript'] = Transcript.stub(stub[:transcript]) unless stub[:transcript].nil?
         data
       end
     end
@@ -517,7 +517,7 @@ module AWS::SDK::TranscribeStreaming
       def self.stub(stub)
         stub ||= Types::Transcript.new
         data = {}
-        data['Results'] = Stubs::ResultList.stub(stub[:results]) unless stub[:results].nil?
+        data['Results'] = ResultList.stub(stub[:results]) unless stub[:results].nil?
         data
       end
     end
@@ -536,7 +536,7 @@ module AWS::SDK::TranscribeStreaming
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Result.stub(element) unless element.nil?
+          data << Result.stub(element) unless element.nil?
         end
         data
       end
@@ -566,10 +566,10 @@ module AWS::SDK::TranscribeStreaming
         data['StartTime'] = Hearth::NumberHelper.serialize(stub[:start_time])
         data['EndTime'] = Hearth::NumberHelper.serialize(stub[:end_time])
         data['IsPartial'] = stub[:is_partial] unless stub[:is_partial].nil?
-        data['Alternatives'] = Stubs::AlternativeList.stub(stub[:alternatives]) unless stub[:alternatives].nil?
+        data['Alternatives'] = AlternativeList.stub(stub[:alternatives]) unless stub[:alternatives].nil?
         data['ChannelId'] = stub[:channel_id] unless stub[:channel_id].nil?
         data['LanguageCode'] = stub[:language_code] unless stub[:language_code].nil?
-        data['LanguageIdentification'] = Stubs::LanguageIdentification.stub(stub[:language_identification]) unless stub[:language_identification].nil?
+        data['LanguageIdentification'] = LanguageIdentification.stub(stub[:language_identification]) unless stub[:language_identification].nil?
         data
       end
     end
@@ -588,7 +588,7 @@ module AWS::SDK::TranscribeStreaming
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::LanguageWithScore.stub(element) unless element.nil?
+          data << LanguageWithScore.stub(element) unless element.nil?
         end
         data
       end
@@ -628,7 +628,7 @@ module AWS::SDK::TranscribeStreaming
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Alternative.stub(element) unless element.nil?
+          data << Alternative.stub(element) unless element.nil?
         end
         data
       end
@@ -650,8 +650,8 @@ module AWS::SDK::TranscribeStreaming
         stub ||= Types::Alternative.new
         data = {}
         data['Transcript'] = stub[:transcript] unless stub[:transcript].nil?
-        data['Items'] = Stubs::ItemList.stub(stub[:items]) unless stub[:items].nil?
-        data['Entities'] = Stubs::EntityList.stub(stub[:entities]) unless stub[:entities].nil?
+        data['Items'] = ItemList.stub(stub[:items]) unless stub[:items].nil?
+        data['Entities'] = EntityList.stub(stub[:entities]) unless stub[:entities].nil?
         data
       end
     end
@@ -670,7 +670,7 @@ module AWS::SDK::TranscribeStreaming
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Entity.stub(element) unless element.nil?
+          data << Entity.stub(element) unless element.nil?
         end
         data
       end
@@ -718,7 +718,7 @@ module AWS::SDK::TranscribeStreaming
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Item.stub(element) unless element.nil?
+          data << Item.stub(element) unless element.nil?
         end
         data
       end

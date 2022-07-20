@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::Evidently
   module Builders
 
@@ -27,8 +29,8 @@ module AWS::SDK::Evidently
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['requests'] = Builders::EvaluationRequestsList.build(input[:requests]) unless input[:requests].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['requests'] = EvaluationRequestsList.build(input[:requests]) unless input[:requests].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -37,7 +39,7 @@ module AWS::SDK::Evidently
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::EvaluationRequest.build(element) unless element.nil?
+          data << EvaluationRequest.build(element) unless element.nil?
         end
         data
       end
@@ -73,13 +75,13 @@ module AWS::SDK::Evidently
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['treatments'] = Builders::TreatmentConfigList.build(input[:treatments]) unless input[:treatments].nil?
-        data['metricGoals'] = Builders::MetricGoalConfigList.build(input[:metric_goals]) unless input[:metric_goals].nil?
+        data['treatments'] = TreatmentConfigList.build(input[:treatments]) unless input[:treatments].nil?
+        data['metricGoals'] = MetricGoalConfigList.build(input[:metric_goals]) unless input[:metric_goals].nil?
         data['randomizationSalt'] = input[:randomization_salt] unless input[:randomization_salt].nil?
         data['samplingRate'] = input[:sampling_rate] unless input[:sampling_rate].nil?
-        data['onlineAbConfig'] = Builders::OnlineAbConfig.build(input[:online_ab_config]) unless input[:online_ab_config].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['onlineAbConfig'] = OnlineAbConfig.build(input[:online_ab_config]) unless input[:online_ab_config].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -99,7 +101,7 @@ module AWS::SDK::Evidently
       def self.build(input)
         data = {}
         data['controlTreatmentName'] = input[:control_treatment_name] unless input[:control_treatment_name].nil?
-        data['treatmentWeights'] = Builders::TreatmentToWeightMap.build(input[:treatment_weights]) unless input[:treatment_weights].nil?
+        data['treatmentWeights'] = TreatmentToWeightMap.build(input[:treatment_weights]) unless input[:treatment_weights].nil?
         data
       end
     end
@@ -120,7 +122,7 @@ module AWS::SDK::Evidently
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MetricGoalConfig.build(element) unless element.nil?
+          data << MetricGoalConfig.build(element) unless element.nil?
         end
         data
       end
@@ -130,7 +132,7 @@ module AWS::SDK::Evidently
     class MetricGoalConfig
       def self.build(input)
         data = {}
-        data['metricDefinition'] = Builders::MetricDefinitionConfig.build(input[:metric_definition]) unless input[:metric_definition].nil?
+        data['metricDefinition'] = MetricDefinitionConfig.build(input[:metric_definition]) unless input[:metric_definition].nil?
         data['desiredChange'] = input[:desired_change] unless input[:desired_change].nil?
         data
       end
@@ -154,7 +156,7 @@ module AWS::SDK::Evidently
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::TreatmentConfig.build(element) unless element.nil?
+          data << TreatmentConfig.build(element) unless element.nil?
         end
         data
       end
@@ -192,11 +194,11 @@ module AWS::SDK::Evidently
         data['name'] = input[:name] unless input[:name].nil?
         data['evaluationStrategy'] = input[:evaluation_strategy] unless input[:evaluation_strategy].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['variations'] = Builders::VariationConfigsList.build(input[:variations]) unless input[:variations].nil?
+        data['variations'] = VariationConfigsList.build(input[:variations]) unless input[:variations].nil?
         data['defaultVariation'] = input[:default_variation] unless input[:default_variation].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        data['entityOverrides'] = Builders::EntityOverrideMap.build(input[:entity_overrides]) unless input[:entity_overrides].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        data['entityOverrides'] = EntityOverrideMap.build(input[:entity_overrides]) unless input[:entity_overrides].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -216,7 +218,7 @@ module AWS::SDK::Evidently
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::VariationConfig.build(element) unless element.nil?
+          data << VariationConfig.build(element) unless element.nil?
         end
         data
       end
@@ -227,7 +229,7 @@ module AWS::SDK::Evidently
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['value'] = Builders::VariableValue.build(input[:value]) unless input[:value].nil?
+        data['value'] = VariableValue.build(input[:value]) unless input[:value].nil?
         data
       end
     end
@@ -273,12 +275,12 @@ module AWS::SDK::Evidently
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['scheduledSplitsConfig'] = Builders::ScheduledSplitsLaunchConfig.build(input[:scheduled_splits_config]) unless input[:scheduled_splits_config].nil?
-        data['metricMonitors'] = Builders::MetricMonitorConfigList.build(input[:metric_monitors]) unless input[:metric_monitors].nil?
-        data['groups'] = Builders::LaunchGroupConfigList.build(input[:groups]) unless input[:groups].nil?
+        data['scheduledSplitsConfig'] = ScheduledSplitsLaunchConfig.build(input[:scheduled_splits_config]) unless input[:scheduled_splits_config].nil?
+        data['metricMonitors'] = MetricMonitorConfigList.build(input[:metric_monitors]) unless input[:metric_monitors].nil?
+        data['groups'] = LaunchGroupConfigList.build(input[:groups]) unless input[:groups].nil?
         data['randomizationSalt'] = input[:randomization_salt] unless input[:randomization_salt].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -287,7 +289,7 @@ module AWS::SDK::Evidently
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::LaunchGroupConfig.build(element) unless element.nil?
+          data << LaunchGroupConfig.build(element) unless element.nil?
         end
         data
       end
@@ -310,7 +312,7 @@ module AWS::SDK::Evidently
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MetricMonitorConfig.build(element) unless element.nil?
+          data << MetricMonitorConfig.build(element) unless element.nil?
         end
         data
       end
@@ -320,7 +322,7 @@ module AWS::SDK::Evidently
     class MetricMonitorConfig
       def self.build(input)
         data = {}
-        data['metricDefinition'] = Builders::MetricDefinitionConfig.build(input[:metric_definition]) unless input[:metric_definition].nil?
+        data['metricDefinition'] = MetricDefinitionConfig.build(input[:metric_definition]) unless input[:metric_definition].nil?
         data
       end
     end
@@ -329,7 +331,7 @@ module AWS::SDK::Evidently
     class ScheduledSplitsLaunchConfig
       def self.build(input)
         data = {}
-        data['steps'] = Builders::ScheduledSplitConfigList.build(input[:steps]) unless input[:steps].nil?
+        data['steps'] = ScheduledSplitConfigList.build(input[:steps]) unless input[:steps].nil?
         data
       end
     end
@@ -339,7 +341,7 @@ module AWS::SDK::Evidently
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ScheduledSplitConfig.build(element) unless element.nil?
+          data << ScheduledSplitConfig.build(element) unless element.nil?
         end
         data
       end
@@ -350,7 +352,7 @@ module AWS::SDK::Evidently
       def self.build(input)
         data = {}
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
-        data['groupWeights'] = Builders::GroupToWeightMap.build(input[:group_weights]) unless input[:group_weights].nil?
+        data['groupWeights'] = GroupToWeightMap.build(input[:group_weights]) unless input[:group_weights].nil?
         data
       end
     end
@@ -378,9 +380,9 @@ module AWS::SDK::Evidently
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['dataDelivery'] = Builders::ProjectDataDeliveryConfig.build(input[:data_delivery]) unless input[:data_delivery].nil?
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['dataDelivery'] = ProjectDataDeliveryConfig.build(input[:data_delivery]) unless input[:data_delivery].nil?
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -388,8 +390,8 @@ module AWS::SDK::Evidently
     class ProjectDataDeliveryConfig
       def self.build(input)
         data = {}
-        data['s3Destination'] = Builders::S3DestinationConfig.build(input[:s3_destination]) unless input[:s3_destination].nil?
-        data['cloudWatchLogs'] = Builders::CloudWatchLogsDestinationConfig.build(input[:cloud_watch_logs]) unless input[:cloud_watch_logs].nil?
+        data['s3Destination'] = S3DestinationConfig.build(input[:s3_destination]) unless input[:s3_destination].nil?
+        data['cloudWatchLogs'] = CloudWatchLogsDestinationConfig.build(input[:cloud_watch_logs]) unless input[:cloud_watch_logs].nil?
         data
       end
     end
@@ -516,7 +518,7 @@ module AWS::SDK::Evidently
         data = {}
         data['entityId'] = input[:entity_id] unless input[:entity_id].nil?
         data['evaluationContext'] = input[:evaluation_context] unless input[:evaluation_context].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -564,13 +566,13 @@ module AWS::SDK::Evidently
         data = {}
         data['startTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:start_time]).to_i unless input[:start_time].nil?
         data['endTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:end_time]).to_i unless input[:end_time].nil?
-        data['metricNames'] = Builders::MetricNameList.build(input[:metric_names]) unless input[:metric_names].nil?
-        data['treatmentNames'] = Builders::TreatmentNameList.build(input[:treatment_names]) unless input[:treatment_names].nil?
+        data['metricNames'] = MetricNameList.build(input[:metric_names]) unless input[:metric_names].nil?
+        data['treatmentNames'] = TreatmentNameList.build(input[:treatment_names]) unless input[:treatment_names].nil?
         data['baseStat'] = input[:base_stat] unless input[:base_stat].nil?
-        data['resultStats'] = Builders::ExperimentResultRequestTypeList.build(input[:result_stats]) unless input[:result_stats].nil?
-        data['reportNames'] = Builders::ExperimentReportNameList.build(input[:report_names]) unless input[:report_names].nil?
+        data['resultStats'] = ExperimentResultRequestTypeList.build(input[:result_stats]) unless input[:result_stats].nil?
+        data['reportNames'] = ExperimentReportNameList.build(input[:report_names]) unless input[:report_names].nil?
         data['period'] = input[:period] unless input[:period].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -782,8 +784,8 @@ module AWS::SDK::Evidently
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['events'] = Builders::EventList.build(input[:events]) unless input[:events].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['events'] = EventList.build(input[:events]) unless input[:events].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -792,7 +794,7 @@ module AWS::SDK::Evidently
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Event.build(element) unless element.nil?
+          data << Event.build(element) unless element.nil?
         end
         data
       end
@@ -831,7 +833,7 @@ module AWS::SDK::Evidently
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['analysisCompleteTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:analysis_complete_time]).to_i unless input[:analysis_complete_time].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -879,7 +881,7 @@ module AWS::SDK::Evidently
         data = {}
         data['desiredState'] = input[:desired_state] unless input[:desired_state].nil?
         data['reason'] = input[:reason] unless input[:reason].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -906,7 +908,7 @@ module AWS::SDK::Evidently
         data = {}
         data['desiredState'] = input[:desired_state] unless input[:desired_state].nil?
         data['reason'] = input[:reason] unless input[:reason].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -927,8 +929,8 @@ module AWS::SDK::Evidently
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['tags'] = Builders::TagMap.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['tags'] = TagMap.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -987,12 +989,12 @@ module AWS::SDK::Evidently
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['treatments'] = Builders::TreatmentConfigList.build(input[:treatments]) unless input[:treatments].nil?
-        data['metricGoals'] = Builders::MetricGoalConfigList.build(input[:metric_goals]) unless input[:metric_goals].nil?
+        data['treatments'] = TreatmentConfigList.build(input[:treatments]) unless input[:treatments].nil?
+        data['metricGoals'] = MetricGoalConfigList.build(input[:metric_goals]) unless input[:metric_goals].nil?
         data['randomizationSalt'] = input[:randomization_salt] unless input[:randomization_salt].nil?
         data['samplingRate'] = input[:sampling_rate] unless input[:sampling_rate].nil?
-        data['onlineAbConfig'] = Builders::OnlineAbConfig.build(input[:online_ab_config]) unless input[:online_ab_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['onlineAbConfig'] = OnlineAbConfig.build(input[:online_ab_config]) unless input[:online_ab_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1019,11 +1021,11 @@ module AWS::SDK::Evidently
         data = {}
         data['evaluationStrategy'] = input[:evaluation_strategy] unless input[:evaluation_strategy].nil?
         data['description'] = input[:description] unless input[:description].nil?
-        data['addOrUpdateVariations'] = Builders::VariationConfigsList.build(input[:add_or_update_variations]) unless input[:add_or_update_variations].nil?
-        data['removeVariations'] = Builders::VariationNameList.build(input[:remove_variations]) unless input[:remove_variations].nil?
+        data['addOrUpdateVariations'] = VariationConfigsList.build(input[:add_or_update_variations]) unless input[:add_or_update_variations].nil?
+        data['removeVariations'] = VariationNameList.build(input[:remove_variations]) unless input[:remove_variations].nil?
         data['defaultVariation'] = input[:default_variation] unless input[:default_variation].nil?
-        data['entityOverrides'] = Builders::EntityOverrideMap.build(input[:entity_overrides]) unless input[:entity_overrides].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['entityOverrides'] = EntityOverrideMap.build(input[:entity_overrides]) unless input[:entity_overrides].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1060,11 +1062,11 @@ module AWS::SDK::Evidently
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        data['groups'] = Builders::LaunchGroupConfigList.build(input[:groups]) unless input[:groups].nil?
-        data['metricMonitors'] = Builders::MetricMonitorConfigList.build(input[:metric_monitors]) unless input[:metric_monitors].nil?
+        data['groups'] = LaunchGroupConfigList.build(input[:groups]) unless input[:groups].nil?
+        data['metricMonitors'] = MetricMonitorConfigList.build(input[:metric_monitors]) unless input[:metric_monitors].nil?
         data['randomizationSalt'] = input[:randomization_salt] unless input[:randomization_salt].nil?
-        data['scheduledSplitsConfig'] = Builders::ScheduledSplitsLaunchConfig.build(input[:scheduled_splits_config]) unless input[:scheduled_splits_config].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['scheduledSplitsConfig'] = ScheduledSplitsLaunchConfig.build(input[:scheduled_splits_config]) unless input[:scheduled_splits_config].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1086,7 +1088,7 @@ module AWS::SDK::Evidently
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['description'] = input[:description] unless input[:description].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -1107,9 +1109,9 @@ module AWS::SDK::Evidently
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['s3Destination'] = Builders::S3DestinationConfig.build(input[:s3_destination]) unless input[:s3_destination].nil?
-        data['cloudWatchLogs'] = Builders::CloudWatchLogsDestinationConfig.build(input[:cloud_watch_logs]) unless input[:cloud_watch_logs].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['s3Destination'] = S3DestinationConfig.build(input[:s3_destination]) unless input[:s3_destination].nil?
+        data['cloudWatchLogs'] = CloudWatchLogsDestinationConfig.build(input[:cloud_watch_logs]) unless input[:cloud_watch_logs].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

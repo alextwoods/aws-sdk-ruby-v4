@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::PinpointSMSVoiceV2
   module Stubs
 
@@ -29,7 +31,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['OriginationIdentityArn'] = stub[:origination_identity_arn] unless stub[:origination_identity_arn].nil?
         data['OriginationIdentity'] = stub[:origination_identity] unless stub[:origination_identity].nil?
         data['IsoCountryCode'] = stub[:iso_country_code] unless stub[:iso_country_code].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -49,9 +51,9 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['ConfigurationSetArn'] = stub[:configuration_set_arn] unless stub[:configuration_set_arn].nil?
         data['ConfigurationSetName'] = stub[:configuration_set_name] unless stub[:configuration_set_name].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -70,7 +72,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -110,8 +112,8 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['ConfigurationSetArn'] = stub[:configuration_set_arn] unless stub[:configuration_set_arn].nil?
         data['ConfigurationSetName'] = stub[:configuration_set_name] unless stub[:configuration_set_name].nil?
-        data['EventDestination'] = Stubs::EventDestination.stub(stub[:event_destination]) unless stub[:event_destination].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventDestination'] = EventDestination.stub(stub[:event_destination]) unless stub[:event_destination].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -136,10 +138,10 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['EventDestinationName'] = stub[:event_destination_name] unless stub[:event_destination_name].nil?
         data['Enabled'] = stub[:enabled] unless stub[:enabled].nil?
-        data['MatchingEventTypes'] = Stubs::EventTypeList.stub(stub[:matching_event_types]) unless stub[:matching_event_types].nil?
-        data['CloudWatchLogsDestination'] = Stubs::CloudWatchLogsDestination.stub(stub[:cloud_watch_logs_destination]) unless stub[:cloud_watch_logs_destination].nil?
-        data['KinesisFirehoseDestination'] = Stubs::KinesisFirehoseDestination.stub(stub[:kinesis_firehose_destination]) unless stub[:kinesis_firehose_destination].nil?
-        data['SnsDestination'] = Stubs::SnsDestination.stub(stub[:sns_destination]) unless stub[:sns_destination].nil?
+        data['MatchingEventTypes'] = EventTypeList.stub(stub[:matching_event_types]) unless stub[:matching_event_types].nil?
+        data['CloudWatchLogsDestination'] = CloudWatchLogsDestination.stub(stub[:cloud_watch_logs_destination]) unless stub[:cloud_watch_logs_destination].nil?
+        data['KinesisFirehoseDestination'] = KinesisFirehoseDestination.stub(stub[:kinesis_firehose_destination]) unless stub[:kinesis_firehose_destination].nil?
+        data['SnsDestination'] = SnsDestination.stub(stub[:sns_destination]) unless stub[:sns_destination].nil?
         data
       end
     end
@@ -237,9 +239,9 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['OptOutListArn'] = stub[:opt_out_list_arn] unless stub[:opt_out_list_arn].nil?
         data['OptOutListName'] = stub[:opt_out_list_name] unless stub[:opt_out_list_name].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -275,9 +277,9 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['OptOutListName'] = stub[:opt_out_list_name] unless stub[:opt_out_list_name].nil?
         data['SharedRoutesEnabled'] = stub[:shared_routes_enabled] unless stub[:shared_routes_enabled].nil?
         data['DeletionProtectionEnabled'] = stub[:deletion_protection_enabled] unless stub[:deletion_protection_enabled].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -299,11 +301,11 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['ConfigurationSetArn'] = stub[:configuration_set_arn] unless stub[:configuration_set_arn].nil?
         data['ConfigurationSetName'] = stub[:configuration_set_name] unless stub[:configuration_set_name].nil?
-        data['EventDestinations'] = Stubs::EventDestinationList.stub(stub[:event_destinations]) unless stub[:event_destinations].nil?
+        data['EventDestinations'] = EventDestinationList.stub(stub[:event_destinations]) unless stub[:event_destinations].nil?
         data['DefaultMessageType'] = stub[:default_message_type] unless stub[:default_message_type].nil?
         data['DefaultSenderId'] = stub[:default_sender_id] unless stub[:default_sender_id].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -322,7 +324,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::EventDestination.stub(element) unless element.nil?
+          data << EventDestination.stub(element) unless element.nil?
         end
         data
       end
@@ -343,7 +345,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['ConfigurationSetArn'] = stub[:configuration_set_arn] unless stub[:configuration_set_arn].nil?
         data['ConfigurationSetName'] = stub[:configuration_set_name] unless stub[:configuration_set_name].nil?
         data['MessageType'] = stub[:message_type] unless stub[:message_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -363,7 +365,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['ConfigurationSetArn'] = stub[:configuration_set_arn] unless stub[:configuration_set_arn].nil?
         data['ConfigurationSetName'] = stub[:configuration_set_name] unless stub[:configuration_set_name].nil?
         data['SenderId'] = stub[:sender_id] unless stub[:sender_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -382,8 +384,8 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['ConfigurationSetArn'] = stub[:configuration_set_arn] unless stub[:configuration_set_arn].nil?
         data['ConfigurationSetName'] = stub[:configuration_set_name] unless stub[:configuration_set_name].nil?
-        data['EventDestination'] = Stubs::EventDestination.stub(stub[:event_destination]) unless stub[:event_destination].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventDestination'] = EventDestination.stub(stub[:event_destination]) unless stub[:event_destination].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -407,7 +409,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['Keyword'] = stub[:keyword] unless stub[:keyword].nil?
         data['KeywordMessage'] = stub[:keyword_message] unless stub[:keyword_message].nil?
         data['KeywordAction'] = stub[:keyword_action] unless stub[:keyword_action].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -427,7 +429,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['OptOutListArn'] = stub[:opt_out_list_arn] unless stub[:opt_out_list_arn].nil?
         data['OptOutListName'] = stub[:opt_out_list_name] unless stub[:opt_out_list_name].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -451,7 +453,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['OptedOutNumber'] = stub[:opted_out_number] unless stub[:opted_out_number].nil?
         data['OptedOutTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:opted_out_timestamp]).to_i unless stub[:opted_out_timestamp].nil?
         data['EndUserOptedOut'] = stub[:end_user_opted_out] unless stub[:end_user_opted_out].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -485,7 +487,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['OptOutListName'] = stub[:opt_out_list_name] unless stub[:opt_out_list_name].nil?
         data['SharedRoutesEnabled'] = stub[:shared_routes_enabled] unless stub[:shared_routes_enabled].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -501,7 +503,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.stub(http_resp, stub:)
         data = {}
         data['MonthlyLimit'] = stub[:monthly_limit] unless stub[:monthly_limit].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -517,7 +519,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.stub(http_resp, stub:)
         data = {}
         data['MonthlyLimit'] = stub[:monthly_limit] unless stub[:monthly_limit].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -533,9 +535,9 @@ module AWS::SDK::PinpointSMSVoiceV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AccountAttributes'] = Stubs::AccountAttributeList.stub(stub[:account_attributes]) unless stub[:account_attributes].nil?
+        data['AccountAttributes'] = AccountAttributeList.stub(stub[:account_attributes]) unless stub[:account_attributes].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -554,7 +556,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccountAttribute.stub(element) unless element.nil?
+          data << AccountAttribute.stub(element) unless element.nil?
         end
         data
       end
@@ -591,9 +593,9 @@ module AWS::SDK::PinpointSMSVoiceV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['AccountLimits'] = Stubs::AccountLimitList.stub(stub[:account_limits]) unless stub[:account_limits].nil?
+        data['AccountLimits'] = AccountLimitList.stub(stub[:account_limits]) unless stub[:account_limits].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -612,7 +614,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::AccountLimit.stub(element) unless element.nil?
+          data << AccountLimit.stub(element) unless element.nil?
         end
         data
       end
@@ -651,9 +653,9 @@ module AWS::SDK::PinpointSMSVoiceV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ConfigurationSets'] = Stubs::ConfigurationSetInformationList.stub(stub[:configuration_sets]) unless stub[:configuration_sets].nil?
+        data['ConfigurationSets'] = ConfigurationSetInformationList.stub(stub[:configuration_sets]) unless stub[:configuration_sets].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -672,7 +674,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ConfigurationSetInformation.stub(element) unless element.nil?
+          data << ConfigurationSetInformation.stub(element) unless element.nil?
         end
         data
       end
@@ -698,7 +700,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['ConfigurationSetArn'] = stub[:configuration_set_arn] unless stub[:configuration_set_arn].nil?
         data['ConfigurationSetName'] = stub[:configuration_set_name] unless stub[:configuration_set_name].nil?
-        data['EventDestinations'] = Stubs::EventDestinationList.stub(stub[:event_destinations]) unless stub[:event_destinations].nil?
+        data['EventDestinations'] = EventDestinationList.stub(stub[:event_destinations]) unless stub[:event_destinations].nil?
         data['DefaultMessageType'] = stub[:default_message_type] unless stub[:default_message_type].nil?
         data['DefaultSenderId'] = stub[:default_sender_id] unless stub[:default_sender_id].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
@@ -721,9 +723,9 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['OriginationIdentityArn'] = stub[:origination_identity_arn] unless stub[:origination_identity_arn].nil?
         data['OriginationIdentity'] = stub[:origination_identity] unless stub[:origination_identity].nil?
-        data['Keywords'] = Stubs::KeywordInformationList.stub(stub[:keywords]) unless stub[:keywords].nil?
+        data['Keywords'] = KeywordInformationList.stub(stub[:keywords]) unless stub[:keywords].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -742,7 +744,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::KeywordInformation.stub(element) unless element.nil?
+          data << KeywordInformation.stub(element) unless element.nil?
         end
         data
       end
@@ -781,9 +783,9 @@ module AWS::SDK::PinpointSMSVoiceV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['OptOutLists'] = Stubs::OptOutListInformationList.stub(stub[:opt_out_lists]) unless stub[:opt_out_lists].nil?
+        data['OptOutLists'] = OptOutListInformationList.stub(stub[:opt_out_lists]) unless stub[:opt_out_lists].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -802,7 +804,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OptOutListInformation.stub(element) unless element.nil?
+          data << OptOutListInformation.stub(element) unless element.nil?
         end
         data
       end
@@ -845,9 +847,9 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['OptOutListArn'] = stub[:opt_out_list_arn] unless stub[:opt_out_list_arn].nil?
         data['OptOutListName'] = stub[:opt_out_list_name] unless stub[:opt_out_list_name].nil?
-        data['OptedOutNumbers'] = Stubs::OptedOutNumberInformationList.stub(stub[:opted_out_numbers]) unless stub[:opted_out_numbers].nil?
+        data['OptedOutNumbers'] = OptedOutNumberInformationList.stub(stub[:opted_out_numbers]) unless stub[:opted_out_numbers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -866,7 +868,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OptedOutNumberInformation.stub(element) unless element.nil?
+          data << OptedOutNumberInformation.stub(element) unless element.nil?
         end
         data
       end
@@ -905,9 +907,9 @@ module AWS::SDK::PinpointSMSVoiceV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['PhoneNumbers'] = Stubs::PhoneNumberInformationList.stub(stub[:phone_numbers]) unless stub[:phone_numbers].nil?
+        data['PhoneNumbers'] = PhoneNumberInformationList.stub(stub[:phone_numbers]) unless stub[:phone_numbers].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -926,7 +928,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PhoneNumberInformation.stub(element) unless element.nil?
+          data << PhoneNumberInformation.stub(element) unless element.nil?
         end
         data
       end
@@ -966,7 +968,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['IsoCountryCode'] = stub[:iso_country_code] unless stub[:iso_country_code].nil?
         data['MessageType'] = stub[:message_type] unless stub[:message_type].nil?
-        data['NumberCapabilities'] = Stubs::NumberCapabilityList.stub(stub[:number_capabilities]) unless stub[:number_capabilities].nil?
+        data['NumberCapabilities'] = NumberCapabilityList.stub(stub[:number_capabilities]) unless stub[:number_capabilities].nil?
         data['NumberType'] = stub[:number_type] unless stub[:number_type].nil?
         data['MonthlyLeasingPrice'] = stub[:monthly_leasing_price] unless stub[:monthly_leasing_price].nil?
         data['TwoWayEnabled'] = stub[:two_way_enabled] unless stub[:two_way_enabled].nil?
@@ -1011,9 +1013,9 @@ module AWS::SDK::PinpointSMSVoiceV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Pools'] = Stubs::PoolInformationList.stub(stub[:pools]) unless stub[:pools].nil?
+        data['Pools'] = PoolInformationList.stub(stub[:pools]) unless stub[:pools].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1032,7 +1034,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::PoolInformation.stub(element) unless element.nil?
+          data << PoolInformation.stub(element) unless element.nil?
         end
         data
       end
@@ -1087,9 +1089,9 @@ module AWS::SDK::PinpointSMSVoiceV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SenderIds'] = Stubs::SenderIdInformationList.stub(stub[:sender_ids]) unless stub[:sender_ids].nil?
+        data['SenderIds'] = SenderIdInformationList.stub(stub[:sender_ids]) unless stub[:sender_ids].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1108,7 +1110,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SenderIdInformation.stub(element) unless element.nil?
+          data << SenderIdInformation.stub(element) unless element.nil?
         end
         data
       end
@@ -1134,7 +1136,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['SenderIdArn'] = stub[:sender_id_arn] unless stub[:sender_id_arn].nil?
         data['SenderId'] = stub[:sender_id] unless stub[:sender_id].nil?
         data['IsoCountryCode'] = stub[:iso_country_code] unless stub[:iso_country_code].nil?
-        data['MessageTypes'] = Stubs::MessageTypeList.stub(stub[:message_types]) unless stub[:message_types].nil?
+        data['MessageTypes'] = MessageTypeList.stub(stub[:message_types]) unless stub[:message_types].nil?
         data['MonthlyLeasingPrice'] = stub[:monthly_leasing_price] unless stub[:monthly_leasing_price].nil?
         data
       end
@@ -1171,9 +1173,9 @@ module AWS::SDK::PinpointSMSVoiceV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['SpendLimits'] = Stubs::SpendLimitList.stub(stub[:spend_limits]) unless stub[:spend_limits].nil?
+        data['SpendLimits'] = SpendLimitList.stub(stub[:spend_limits]) unless stub[:spend_limits].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1192,7 +1194,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::SpendLimit.stub(element) unless element.nil?
+          data << SpendLimit.stub(element) unless element.nil?
         end
         data
       end
@@ -1241,7 +1243,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['OriginationIdentityArn'] = stub[:origination_identity_arn] unless stub[:origination_identity_arn].nil?
         data['OriginationIdentity'] = stub[:origination_identity] unless stub[:origination_identity].nil?
         data['IsoCountryCode'] = stub[:iso_country_code] unless stub[:iso_country_code].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1261,9 +1263,9 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['PoolArn'] = stub[:pool_arn] unless stub[:pool_arn].nil?
         data['PoolId'] = stub[:pool_id] unless stub[:pool_id].nil?
-        data['OriginationIdentities'] = Stubs::OriginationIdentityMetadataList.stub(stub[:origination_identities]) unless stub[:origination_identities].nil?
+        data['OriginationIdentities'] = OriginationIdentityMetadataList.stub(stub[:origination_identities]) unless stub[:origination_identities].nil?
         data['NextToken'] = stub[:next_token] unless stub[:next_token].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1282,7 +1284,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OriginationIdentityMetadata.stub(element) unless element.nil?
+          data << OriginationIdentityMetadata.stub(element) unless element.nil?
         end
         data
       end
@@ -1307,7 +1309,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['OriginationIdentityArn'] = stub[:origination_identity_arn] unless stub[:origination_identity_arn].nil?
         data['OriginationIdentity'] = stub[:origination_identity] unless stub[:origination_identity].nil?
         data['IsoCountryCode'] = stub[:iso_country_code] unless stub[:iso_country_code].nil?
-        data['NumberCapabilities'] = Stubs::NumberCapabilityList.stub(stub[:number_capabilities]) unless stub[:number_capabilities].nil?
+        data['NumberCapabilities'] = NumberCapabilityList.stub(stub[:number_capabilities]) unless stub[:number_capabilities].nil?
         data
       end
     end
@@ -1324,8 +1326,8 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.stub(http_resp, stub:)
         data = {}
         data['ResourceArn'] = stub[:resource_arn] unless stub[:resource_arn].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1349,7 +1351,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['Keyword'] = stub[:keyword] unless stub[:keyword].nil?
         data['KeywordMessage'] = stub[:keyword_message] unless stub[:keyword_message].nil?
         data['KeywordAction'] = stub[:keyword_action] unless stub[:keyword_action].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1373,7 +1375,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['OptedOutNumber'] = stub[:opted_out_number] unless stub[:opted_out_number].nil?
         data['OptedOutTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:opted_out_timestamp]).to_i unless stub[:opted_out_timestamp].nil?
         data['EndUserOptedOut'] = stub[:end_user_opted_out] unless stub[:end_user_opted_out].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1407,7 +1409,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['IsoCountryCode'] = stub[:iso_country_code] unless stub[:iso_country_code].nil?
         data['MessageType'] = stub[:message_type] unless stub[:message_type].nil?
-        data['NumberCapabilities'] = Stubs::NumberCapabilityList.stub(stub[:number_capabilities]) unless stub[:number_capabilities].nil?
+        data['NumberCapabilities'] = NumberCapabilityList.stub(stub[:number_capabilities]) unless stub[:number_capabilities].nil?
         data['NumberType'] = stub[:number_type] unless stub[:number_type].nil?
         data['MonthlyLeasingPrice'] = stub[:monthly_leasing_price] unless stub[:monthly_leasing_price].nil?
         data['TwoWayEnabled'] = stub[:two_way_enabled] unless stub[:two_way_enabled].nil?
@@ -1415,7 +1417,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['SelfManagedOptOutsEnabled'] = stub[:self_managed_opt_outs_enabled] unless stub[:self_managed_opt_outs_enabled].nil?
         data['OptOutListName'] = stub[:opt_out_list_name] unless stub[:opt_out_list_name].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1452,7 +1454,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['IsoCountryCode'] = stub[:iso_country_code] unless stub[:iso_country_code].nil?
         data['MessageType'] = stub[:message_type] unless stub[:message_type].nil?
-        data['NumberCapabilities'] = Stubs::NumberCapabilityList.stub(stub[:number_capabilities]) unless stub[:number_capabilities].nil?
+        data['NumberCapabilities'] = NumberCapabilityList.stub(stub[:number_capabilities]) unless stub[:number_capabilities].nil?
         data['NumberType'] = stub[:number_type] unless stub[:number_type].nil?
         data['MonthlyLeasingPrice'] = stub[:monthly_leasing_price] unless stub[:monthly_leasing_price].nil?
         data['TwoWayEnabled'] = stub[:two_way_enabled] unless stub[:two_way_enabled].nil?
@@ -1461,9 +1463,9 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['OptOutListName'] = stub[:opt_out_list_name] unless stub[:opt_out_list_name].nil?
         data['DeletionProtectionEnabled'] = stub[:deletion_protection_enabled] unless stub[:deletion_protection_enabled].nil?
         data['PoolId'] = stub[:pool_id] unless stub[:pool_id].nil?
-        data['Tags'] = Stubs::TagList.stub(stub[:tags]) unless stub[:tags].nil?
+        data['Tags'] = TagList.stub(stub[:tags]) unless stub[:tags].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1479,7 +1481,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.stub(http_resp, stub:)
         data = {}
         data['MessageId'] = stub[:message_id] unless stub[:message_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1495,7 +1497,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.stub(http_resp, stub:)
         data = {}
         data['MessageId'] = stub[:message_id] unless stub[:message_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1515,7 +1517,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['ConfigurationSetArn'] = stub[:configuration_set_arn] unless stub[:configuration_set_arn].nil?
         data['ConfigurationSetName'] = stub[:configuration_set_name] unless stub[:configuration_set_name].nil?
         data['MessageType'] = stub[:message_type] unless stub[:message_type].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1535,7 +1537,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['ConfigurationSetArn'] = stub[:configuration_set_arn] unless stub[:configuration_set_arn].nil?
         data['ConfigurationSetName'] = stub[:configuration_set_name] unless stub[:configuration_set_name].nil?
         data['SenderId'] = stub[:sender_id] unless stub[:sender_id].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1551,7 +1553,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.stub(http_resp, stub:)
         data = {}
         data['MonthlyLimit'] = stub[:monthly_limit] unless stub[:monthly_limit].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1567,7 +1569,7 @@ module AWS::SDK::PinpointSMSVoiceV2
       def self.stub(http_resp, stub:)
         data = {}
         data['MonthlyLimit'] = stub[:monthly_limit] unless stub[:monthly_limit].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1581,7 +1583,7 @@ module AWS::SDK::PinpointSMSVoiceV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1595,7 +1597,7 @@ module AWS::SDK::PinpointSMSVoiceV2
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1614,8 +1616,8 @@ module AWS::SDK::PinpointSMSVoiceV2
         data = {}
         data['ConfigurationSetArn'] = stub[:configuration_set_arn] unless stub[:configuration_set_arn].nil?
         data['ConfigurationSetName'] = stub[:configuration_set_name] unless stub[:configuration_set_name].nil?
-        data['EventDestination'] = Stubs::EventDestination.stub(stub[:event_destination]) unless stub[:event_destination].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['EventDestination'] = EventDestination.stub(stub[:event_destination]) unless stub[:event_destination].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1650,7 +1652,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['Status'] = stub[:status] unless stub[:status].nil?
         data['IsoCountryCode'] = stub[:iso_country_code] unless stub[:iso_country_code].nil?
         data['MessageType'] = stub[:message_type] unless stub[:message_type].nil?
-        data['NumberCapabilities'] = Stubs::NumberCapabilityList.stub(stub[:number_capabilities]) unless stub[:number_capabilities].nil?
+        data['NumberCapabilities'] = NumberCapabilityList.stub(stub[:number_capabilities]) unless stub[:number_capabilities].nil?
         data['NumberType'] = stub[:number_type] unless stub[:number_type].nil?
         data['MonthlyLeasingPrice'] = stub[:monthly_leasing_price] unless stub[:monthly_leasing_price].nil?
         data['TwoWayEnabled'] = stub[:two_way_enabled] unless stub[:two_way_enabled].nil?
@@ -1659,7 +1661,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['OptOutListName'] = stub[:opt_out_list_name] unless stub[:opt_out_list_name].nil?
         data['DeletionProtectionEnabled'] = stub[:deletion_protection_enabled] unless stub[:deletion_protection_enabled].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1695,7 +1697,7 @@ module AWS::SDK::PinpointSMSVoiceV2
         data['SharedRoutesEnabled'] = stub[:shared_routes_enabled] unless stub[:shared_routes_enabled].nil?
         data['DeletionProtectionEnabled'] = stub[:deletion_protection_enabled] unless stub[:deletion_protection_enabled].nil?
         data['CreatedTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:created_timestamp]).to_i unless stub[:created_timestamp].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

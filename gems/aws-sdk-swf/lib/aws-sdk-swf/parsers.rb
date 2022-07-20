@@ -150,8 +150,8 @@ module AWS::SDK::SWF
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.type_info = (Parsers::ActivityTypeInfo.parse(map['typeInfo']) unless map['typeInfo'].nil?)
-        data.configuration = (Parsers::ActivityTypeConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
+        data.type_info = (ActivityTypeInfo.parse(map['typeInfo']) unless map['typeInfo'].nil?)
+        data.configuration = (ActivityTypeConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
         data
       end
     end
@@ -161,7 +161,7 @@ module AWS::SDK::SWF
         data = Types::ActivityTypeConfiguration.new
         data.default_task_start_to_close_timeout = map['defaultTaskStartToCloseTimeout']
         data.default_task_heartbeat_timeout = map['defaultTaskHeartbeatTimeout']
-        data.default_task_list = (Parsers::TaskList.parse(map['defaultTaskList']) unless map['defaultTaskList'].nil?)
+        data.default_task_list = (TaskList.parse(map['defaultTaskList']) unless map['defaultTaskList'].nil?)
         data.default_task_priority = map['defaultTaskPriority']
         data.default_task_schedule_to_start_timeout = map['defaultTaskScheduleToStartTimeout']
         data.default_task_schedule_to_close_timeout = map['defaultTaskScheduleToCloseTimeout']
@@ -180,7 +180,7 @@ module AWS::SDK::SWF
     class ActivityTypeInfo
       def self.parse(map)
         data = Types::ActivityTypeInfo.new
-        data.activity_type = (Parsers::ActivityType.parse(map['activityType']) unless map['activityType'].nil?)
+        data.activity_type = (ActivityType.parse(map['activityType']) unless map['activityType'].nil?)
         data.status = map['status']
         data.description = map['description']
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
@@ -205,8 +205,8 @@ module AWS::SDK::SWF
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.domain_info = (Parsers::DomainInfo.parse(map['domainInfo']) unless map['domainInfo'].nil?)
-        data.configuration = (Parsers::DomainConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
+        data.domain_info = (DomainInfo.parse(map['domainInfo']) unless map['domainInfo'].nil?)
+        data.configuration = (DomainConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
         data
       end
     end
@@ -237,9 +237,9 @@ module AWS::SDK::SWF
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.execution_info = (Parsers::WorkflowExecutionInfo.parse(map['executionInfo']) unless map['executionInfo'].nil?)
-        data.execution_configuration = (Parsers::WorkflowExecutionConfiguration.parse(map['executionConfiguration']) unless map['executionConfiguration'].nil?)
-        data.open_counts = (Parsers::WorkflowExecutionOpenCounts.parse(map['openCounts']) unless map['openCounts'].nil?)
+        data.execution_info = (WorkflowExecutionInfo.parse(map['executionInfo']) unless map['executionInfo'].nil?)
+        data.execution_configuration = (WorkflowExecutionConfiguration.parse(map['executionConfiguration']) unless map['executionConfiguration'].nil?)
+        data.open_counts = (WorkflowExecutionOpenCounts.parse(map['openCounts']) unless map['openCounts'].nil?)
         data.latest_activity_task_timestamp = Time.at(map['latestActivityTaskTimestamp'].to_i) if map['latestActivityTaskTimestamp']
         data.latest_execution_context = map['latestExecutionContext']
         data
@@ -263,7 +263,7 @@ module AWS::SDK::SWF
         data = Types::WorkflowExecutionConfiguration.new
         data.task_start_to_close_timeout = map['taskStartToCloseTimeout']
         data.execution_start_to_close_timeout = map['executionStartToCloseTimeout']
-        data.task_list = (Parsers::TaskList.parse(map['taskList']) unless map['taskList'].nil?)
+        data.task_list = (TaskList.parse(map['taskList']) unless map['taskList'].nil?)
         data.task_priority = map['taskPriority']
         data.child_policy = map['childPolicy']
         data.lambda_role = map['lambdaRole']
@@ -274,14 +274,14 @@ module AWS::SDK::SWF
     class WorkflowExecutionInfo
       def self.parse(map)
         data = Types::WorkflowExecutionInfo.new
-        data.execution = (Parsers::WorkflowExecution.parse(map['execution']) unless map['execution'].nil?)
-        data.workflow_type = (Parsers::WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
+        data.execution = (WorkflowExecution.parse(map['execution']) unless map['execution'].nil?)
+        data.workflow_type = (WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
         data.start_timestamp = Time.at(map['startTimestamp'].to_i) if map['startTimestamp']
         data.close_timestamp = Time.at(map['closeTimestamp'].to_i) if map['closeTimestamp']
         data.execution_status = map['executionStatus']
         data.close_status = map['closeStatus']
-        data.parent = (Parsers::WorkflowExecution.parse(map['parent']) unless map['parent'].nil?)
-        data.tag_list = (Parsers::TagList.parse(map['tagList']) unless map['tagList'].nil?)
+        data.parent = (WorkflowExecution.parse(map['parent']) unless map['parent'].nil?)
+        data.tag_list = (TagList.parse(map['tagList']) unless map['tagList'].nil?)
         data.cancel_requested = map['cancelRequested']
         return data
       end
@@ -320,8 +320,8 @@ module AWS::SDK::SWF
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.type_info = (Parsers::WorkflowTypeInfo.parse(map['typeInfo']) unless map['typeInfo'].nil?)
-        data.configuration = (Parsers::WorkflowTypeConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
+        data.type_info = (WorkflowTypeInfo.parse(map['typeInfo']) unless map['typeInfo'].nil?)
+        data.configuration = (WorkflowTypeConfiguration.parse(map['configuration']) unless map['configuration'].nil?)
         data
       end
     end
@@ -331,7 +331,7 @@ module AWS::SDK::SWF
         data = Types::WorkflowTypeConfiguration.new
         data.default_task_start_to_close_timeout = map['defaultTaskStartToCloseTimeout']
         data.default_execution_start_to_close_timeout = map['defaultExecutionStartToCloseTimeout']
-        data.default_task_list = (Parsers::TaskList.parse(map['defaultTaskList']) unless map['defaultTaskList'].nil?)
+        data.default_task_list = (TaskList.parse(map['defaultTaskList']) unless map['defaultTaskList'].nil?)
         data.default_task_priority = map['defaultTaskPriority']
         data.default_child_policy = map['defaultChildPolicy']
         data.default_lambda_role = map['defaultLambdaRole']
@@ -342,7 +342,7 @@ module AWS::SDK::SWF
     class WorkflowTypeInfo
       def self.parse(map)
         data = Types::WorkflowTypeInfo.new
-        data.workflow_type = (Parsers::WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
+        data.workflow_type = (WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
         data.status = map['status']
         data.description = map['description']
         data.creation_date = Time.at(map['creationDate'].to_i) if map['creationDate']
@@ -358,7 +358,7 @@ module AWS::SDK::SWF
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.events = (Parsers::HistoryEventList.parse(map['events']) unless map['events'].nil?)
+        data.events = (HistoryEventList.parse(map['events']) unless map['events'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -367,7 +367,7 @@ module AWS::SDK::SWF
     class HistoryEventList
       def self.parse(list)
         list.map do |value|
-          Parsers::HistoryEvent.parse(value) unless value.nil?
+          HistoryEvent.parse(value) unless value.nil?
         end
       end
     end
@@ -378,60 +378,60 @@ module AWS::SDK::SWF
         data.event_timestamp = Time.at(map['eventTimestamp'].to_i) if map['eventTimestamp']
         data.event_type = map['eventType']
         data.event_id = map['eventId']
-        data.workflow_execution_started_event_attributes = (Parsers::WorkflowExecutionStartedEventAttributes.parse(map['workflowExecutionStartedEventAttributes']) unless map['workflowExecutionStartedEventAttributes'].nil?)
-        data.workflow_execution_completed_event_attributes = (Parsers::WorkflowExecutionCompletedEventAttributes.parse(map['workflowExecutionCompletedEventAttributes']) unless map['workflowExecutionCompletedEventAttributes'].nil?)
-        data.complete_workflow_execution_failed_event_attributes = (Parsers::CompleteWorkflowExecutionFailedEventAttributes.parse(map['completeWorkflowExecutionFailedEventAttributes']) unless map['completeWorkflowExecutionFailedEventAttributes'].nil?)
-        data.workflow_execution_failed_event_attributes = (Parsers::WorkflowExecutionFailedEventAttributes.parse(map['workflowExecutionFailedEventAttributes']) unless map['workflowExecutionFailedEventAttributes'].nil?)
-        data.fail_workflow_execution_failed_event_attributes = (Parsers::FailWorkflowExecutionFailedEventAttributes.parse(map['failWorkflowExecutionFailedEventAttributes']) unless map['failWorkflowExecutionFailedEventAttributes'].nil?)
-        data.workflow_execution_timed_out_event_attributes = (Parsers::WorkflowExecutionTimedOutEventAttributes.parse(map['workflowExecutionTimedOutEventAttributes']) unless map['workflowExecutionTimedOutEventAttributes'].nil?)
-        data.workflow_execution_canceled_event_attributes = (Parsers::WorkflowExecutionCanceledEventAttributes.parse(map['workflowExecutionCanceledEventAttributes']) unless map['workflowExecutionCanceledEventAttributes'].nil?)
-        data.cancel_workflow_execution_failed_event_attributes = (Parsers::CancelWorkflowExecutionFailedEventAttributes.parse(map['cancelWorkflowExecutionFailedEventAttributes']) unless map['cancelWorkflowExecutionFailedEventAttributes'].nil?)
-        data.workflow_execution_continued_as_new_event_attributes = (Parsers::WorkflowExecutionContinuedAsNewEventAttributes.parse(map['workflowExecutionContinuedAsNewEventAttributes']) unless map['workflowExecutionContinuedAsNewEventAttributes'].nil?)
-        data.continue_as_new_workflow_execution_failed_event_attributes = (Parsers::ContinueAsNewWorkflowExecutionFailedEventAttributes.parse(map['continueAsNewWorkflowExecutionFailedEventAttributes']) unless map['continueAsNewWorkflowExecutionFailedEventAttributes'].nil?)
-        data.workflow_execution_terminated_event_attributes = (Parsers::WorkflowExecutionTerminatedEventAttributes.parse(map['workflowExecutionTerminatedEventAttributes']) unless map['workflowExecutionTerminatedEventAttributes'].nil?)
-        data.workflow_execution_cancel_requested_event_attributes = (Parsers::WorkflowExecutionCancelRequestedEventAttributes.parse(map['workflowExecutionCancelRequestedEventAttributes']) unless map['workflowExecutionCancelRequestedEventAttributes'].nil?)
-        data.decision_task_scheduled_event_attributes = (Parsers::DecisionTaskScheduledEventAttributes.parse(map['decisionTaskScheduledEventAttributes']) unless map['decisionTaskScheduledEventAttributes'].nil?)
-        data.decision_task_started_event_attributes = (Parsers::DecisionTaskStartedEventAttributes.parse(map['decisionTaskStartedEventAttributes']) unless map['decisionTaskStartedEventAttributes'].nil?)
-        data.decision_task_completed_event_attributes = (Parsers::DecisionTaskCompletedEventAttributes.parse(map['decisionTaskCompletedEventAttributes']) unless map['decisionTaskCompletedEventAttributes'].nil?)
-        data.decision_task_timed_out_event_attributes = (Parsers::DecisionTaskTimedOutEventAttributes.parse(map['decisionTaskTimedOutEventAttributes']) unless map['decisionTaskTimedOutEventAttributes'].nil?)
-        data.activity_task_scheduled_event_attributes = (Parsers::ActivityTaskScheduledEventAttributes.parse(map['activityTaskScheduledEventAttributes']) unless map['activityTaskScheduledEventAttributes'].nil?)
-        data.activity_task_started_event_attributes = (Parsers::ActivityTaskStartedEventAttributes.parse(map['activityTaskStartedEventAttributes']) unless map['activityTaskStartedEventAttributes'].nil?)
-        data.activity_task_completed_event_attributes = (Parsers::ActivityTaskCompletedEventAttributes.parse(map['activityTaskCompletedEventAttributes']) unless map['activityTaskCompletedEventAttributes'].nil?)
-        data.activity_task_failed_event_attributes = (Parsers::ActivityTaskFailedEventAttributes.parse(map['activityTaskFailedEventAttributes']) unless map['activityTaskFailedEventAttributes'].nil?)
-        data.activity_task_timed_out_event_attributes = (Parsers::ActivityTaskTimedOutEventAttributes.parse(map['activityTaskTimedOutEventAttributes']) unless map['activityTaskTimedOutEventAttributes'].nil?)
-        data.activity_task_canceled_event_attributes = (Parsers::ActivityTaskCanceledEventAttributes.parse(map['activityTaskCanceledEventAttributes']) unless map['activityTaskCanceledEventAttributes'].nil?)
-        data.activity_task_cancel_requested_event_attributes = (Parsers::ActivityTaskCancelRequestedEventAttributes.parse(map['activityTaskCancelRequestedEventAttributes']) unless map['activityTaskCancelRequestedEventAttributes'].nil?)
-        data.workflow_execution_signaled_event_attributes = (Parsers::WorkflowExecutionSignaledEventAttributes.parse(map['workflowExecutionSignaledEventAttributes']) unless map['workflowExecutionSignaledEventAttributes'].nil?)
-        data.marker_recorded_event_attributes = (Parsers::MarkerRecordedEventAttributes.parse(map['markerRecordedEventAttributes']) unless map['markerRecordedEventAttributes'].nil?)
-        data.record_marker_failed_event_attributes = (Parsers::RecordMarkerFailedEventAttributes.parse(map['recordMarkerFailedEventAttributes']) unless map['recordMarkerFailedEventAttributes'].nil?)
-        data.timer_started_event_attributes = (Parsers::TimerStartedEventAttributes.parse(map['timerStartedEventAttributes']) unless map['timerStartedEventAttributes'].nil?)
-        data.timer_fired_event_attributes = (Parsers::TimerFiredEventAttributes.parse(map['timerFiredEventAttributes']) unless map['timerFiredEventAttributes'].nil?)
-        data.timer_canceled_event_attributes = (Parsers::TimerCanceledEventAttributes.parse(map['timerCanceledEventAttributes']) unless map['timerCanceledEventAttributes'].nil?)
-        data.start_child_workflow_execution_initiated_event_attributes = (Parsers::StartChildWorkflowExecutionInitiatedEventAttributes.parse(map['startChildWorkflowExecutionInitiatedEventAttributes']) unless map['startChildWorkflowExecutionInitiatedEventAttributes'].nil?)
-        data.child_workflow_execution_started_event_attributes = (Parsers::ChildWorkflowExecutionStartedEventAttributes.parse(map['childWorkflowExecutionStartedEventAttributes']) unless map['childWorkflowExecutionStartedEventAttributes'].nil?)
-        data.child_workflow_execution_completed_event_attributes = (Parsers::ChildWorkflowExecutionCompletedEventAttributes.parse(map['childWorkflowExecutionCompletedEventAttributes']) unless map['childWorkflowExecutionCompletedEventAttributes'].nil?)
-        data.child_workflow_execution_failed_event_attributes = (Parsers::ChildWorkflowExecutionFailedEventAttributes.parse(map['childWorkflowExecutionFailedEventAttributes']) unless map['childWorkflowExecutionFailedEventAttributes'].nil?)
-        data.child_workflow_execution_timed_out_event_attributes = (Parsers::ChildWorkflowExecutionTimedOutEventAttributes.parse(map['childWorkflowExecutionTimedOutEventAttributes']) unless map['childWorkflowExecutionTimedOutEventAttributes'].nil?)
-        data.child_workflow_execution_canceled_event_attributes = (Parsers::ChildWorkflowExecutionCanceledEventAttributes.parse(map['childWorkflowExecutionCanceledEventAttributes']) unless map['childWorkflowExecutionCanceledEventAttributes'].nil?)
-        data.child_workflow_execution_terminated_event_attributes = (Parsers::ChildWorkflowExecutionTerminatedEventAttributes.parse(map['childWorkflowExecutionTerminatedEventAttributes']) unless map['childWorkflowExecutionTerminatedEventAttributes'].nil?)
-        data.signal_external_workflow_execution_initiated_event_attributes = (Parsers::SignalExternalWorkflowExecutionInitiatedEventAttributes.parse(map['signalExternalWorkflowExecutionInitiatedEventAttributes']) unless map['signalExternalWorkflowExecutionInitiatedEventAttributes'].nil?)
-        data.external_workflow_execution_signaled_event_attributes = (Parsers::ExternalWorkflowExecutionSignaledEventAttributes.parse(map['externalWorkflowExecutionSignaledEventAttributes']) unless map['externalWorkflowExecutionSignaledEventAttributes'].nil?)
-        data.signal_external_workflow_execution_failed_event_attributes = (Parsers::SignalExternalWorkflowExecutionFailedEventAttributes.parse(map['signalExternalWorkflowExecutionFailedEventAttributes']) unless map['signalExternalWorkflowExecutionFailedEventAttributes'].nil?)
-        data.external_workflow_execution_cancel_requested_event_attributes = (Parsers::ExternalWorkflowExecutionCancelRequestedEventAttributes.parse(map['externalWorkflowExecutionCancelRequestedEventAttributes']) unless map['externalWorkflowExecutionCancelRequestedEventAttributes'].nil?)
-        data.request_cancel_external_workflow_execution_initiated_event_attributes = (Parsers::RequestCancelExternalWorkflowExecutionInitiatedEventAttributes.parse(map['requestCancelExternalWorkflowExecutionInitiatedEventAttributes']) unless map['requestCancelExternalWorkflowExecutionInitiatedEventAttributes'].nil?)
-        data.request_cancel_external_workflow_execution_failed_event_attributes = (Parsers::RequestCancelExternalWorkflowExecutionFailedEventAttributes.parse(map['requestCancelExternalWorkflowExecutionFailedEventAttributes']) unless map['requestCancelExternalWorkflowExecutionFailedEventAttributes'].nil?)
-        data.schedule_activity_task_failed_event_attributes = (Parsers::ScheduleActivityTaskFailedEventAttributes.parse(map['scheduleActivityTaskFailedEventAttributes']) unless map['scheduleActivityTaskFailedEventAttributes'].nil?)
-        data.request_cancel_activity_task_failed_event_attributes = (Parsers::RequestCancelActivityTaskFailedEventAttributes.parse(map['requestCancelActivityTaskFailedEventAttributes']) unless map['requestCancelActivityTaskFailedEventAttributes'].nil?)
-        data.start_timer_failed_event_attributes = (Parsers::StartTimerFailedEventAttributes.parse(map['startTimerFailedEventAttributes']) unless map['startTimerFailedEventAttributes'].nil?)
-        data.cancel_timer_failed_event_attributes = (Parsers::CancelTimerFailedEventAttributes.parse(map['cancelTimerFailedEventAttributes']) unless map['cancelTimerFailedEventAttributes'].nil?)
-        data.start_child_workflow_execution_failed_event_attributes = (Parsers::StartChildWorkflowExecutionFailedEventAttributes.parse(map['startChildWorkflowExecutionFailedEventAttributes']) unless map['startChildWorkflowExecutionFailedEventAttributes'].nil?)
-        data.lambda_function_scheduled_event_attributes = (Parsers::LambdaFunctionScheduledEventAttributes.parse(map['lambdaFunctionScheduledEventAttributes']) unless map['lambdaFunctionScheduledEventAttributes'].nil?)
-        data.lambda_function_started_event_attributes = (Parsers::LambdaFunctionStartedEventAttributes.parse(map['lambdaFunctionStartedEventAttributes']) unless map['lambdaFunctionStartedEventAttributes'].nil?)
-        data.lambda_function_completed_event_attributes = (Parsers::LambdaFunctionCompletedEventAttributes.parse(map['lambdaFunctionCompletedEventAttributes']) unless map['lambdaFunctionCompletedEventAttributes'].nil?)
-        data.lambda_function_failed_event_attributes = (Parsers::LambdaFunctionFailedEventAttributes.parse(map['lambdaFunctionFailedEventAttributes']) unless map['lambdaFunctionFailedEventAttributes'].nil?)
-        data.lambda_function_timed_out_event_attributes = (Parsers::LambdaFunctionTimedOutEventAttributes.parse(map['lambdaFunctionTimedOutEventAttributes']) unless map['lambdaFunctionTimedOutEventAttributes'].nil?)
-        data.schedule_lambda_function_failed_event_attributes = (Parsers::ScheduleLambdaFunctionFailedEventAttributes.parse(map['scheduleLambdaFunctionFailedEventAttributes']) unless map['scheduleLambdaFunctionFailedEventAttributes'].nil?)
-        data.start_lambda_function_failed_event_attributes = (Parsers::StartLambdaFunctionFailedEventAttributes.parse(map['startLambdaFunctionFailedEventAttributes']) unless map['startLambdaFunctionFailedEventAttributes'].nil?)
+        data.workflow_execution_started_event_attributes = (WorkflowExecutionStartedEventAttributes.parse(map['workflowExecutionStartedEventAttributes']) unless map['workflowExecutionStartedEventAttributes'].nil?)
+        data.workflow_execution_completed_event_attributes = (WorkflowExecutionCompletedEventAttributes.parse(map['workflowExecutionCompletedEventAttributes']) unless map['workflowExecutionCompletedEventAttributes'].nil?)
+        data.complete_workflow_execution_failed_event_attributes = (CompleteWorkflowExecutionFailedEventAttributes.parse(map['completeWorkflowExecutionFailedEventAttributes']) unless map['completeWorkflowExecutionFailedEventAttributes'].nil?)
+        data.workflow_execution_failed_event_attributes = (WorkflowExecutionFailedEventAttributes.parse(map['workflowExecutionFailedEventAttributes']) unless map['workflowExecutionFailedEventAttributes'].nil?)
+        data.fail_workflow_execution_failed_event_attributes = (FailWorkflowExecutionFailedEventAttributes.parse(map['failWorkflowExecutionFailedEventAttributes']) unless map['failWorkflowExecutionFailedEventAttributes'].nil?)
+        data.workflow_execution_timed_out_event_attributes = (WorkflowExecutionTimedOutEventAttributes.parse(map['workflowExecutionTimedOutEventAttributes']) unless map['workflowExecutionTimedOutEventAttributes'].nil?)
+        data.workflow_execution_canceled_event_attributes = (WorkflowExecutionCanceledEventAttributes.parse(map['workflowExecutionCanceledEventAttributes']) unless map['workflowExecutionCanceledEventAttributes'].nil?)
+        data.cancel_workflow_execution_failed_event_attributes = (CancelWorkflowExecutionFailedEventAttributes.parse(map['cancelWorkflowExecutionFailedEventAttributes']) unless map['cancelWorkflowExecutionFailedEventAttributes'].nil?)
+        data.workflow_execution_continued_as_new_event_attributes = (WorkflowExecutionContinuedAsNewEventAttributes.parse(map['workflowExecutionContinuedAsNewEventAttributes']) unless map['workflowExecutionContinuedAsNewEventAttributes'].nil?)
+        data.continue_as_new_workflow_execution_failed_event_attributes = (ContinueAsNewWorkflowExecutionFailedEventAttributes.parse(map['continueAsNewWorkflowExecutionFailedEventAttributes']) unless map['continueAsNewWorkflowExecutionFailedEventAttributes'].nil?)
+        data.workflow_execution_terminated_event_attributes = (WorkflowExecutionTerminatedEventAttributes.parse(map['workflowExecutionTerminatedEventAttributes']) unless map['workflowExecutionTerminatedEventAttributes'].nil?)
+        data.workflow_execution_cancel_requested_event_attributes = (WorkflowExecutionCancelRequestedEventAttributes.parse(map['workflowExecutionCancelRequestedEventAttributes']) unless map['workflowExecutionCancelRequestedEventAttributes'].nil?)
+        data.decision_task_scheduled_event_attributes = (DecisionTaskScheduledEventAttributes.parse(map['decisionTaskScheduledEventAttributes']) unless map['decisionTaskScheduledEventAttributes'].nil?)
+        data.decision_task_started_event_attributes = (DecisionTaskStartedEventAttributes.parse(map['decisionTaskStartedEventAttributes']) unless map['decisionTaskStartedEventAttributes'].nil?)
+        data.decision_task_completed_event_attributes = (DecisionTaskCompletedEventAttributes.parse(map['decisionTaskCompletedEventAttributes']) unless map['decisionTaskCompletedEventAttributes'].nil?)
+        data.decision_task_timed_out_event_attributes = (DecisionTaskTimedOutEventAttributes.parse(map['decisionTaskTimedOutEventAttributes']) unless map['decisionTaskTimedOutEventAttributes'].nil?)
+        data.activity_task_scheduled_event_attributes = (ActivityTaskScheduledEventAttributes.parse(map['activityTaskScheduledEventAttributes']) unless map['activityTaskScheduledEventAttributes'].nil?)
+        data.activity_task_started_event_attributes = (ActivityTaskStartedEventAttributes.parse(map['activityTaskStartedEventAttributes']) unless map['activityTaskStartedEventAttributes'].nil?)
+        data.activity_task_completed_event_attributes = (ActivityTaskCompletedEventAttributes.parse(map['activityTaskCompletedEventAttributes']) unless map['activityTaskCompletedEventAttributes'].nil?)
+        data.activity_task_failed_event_attributes = (ActivityTaskFailedEventAttributes.parse(map['activityTaskFailedEventAttributes']) unless map['activityTaskFailedEventAttributes'].nil?)
+        data.activity_task_timed_out_event_attributes = (ActivityTaskTimedOutEventAttributes.parse(map['activityTaskTimedOutEventAttributes']) unless map['activityTaskTimedOutEventAttributes'].nil?)
+        data.activity_task_canceled_event_attributes = (ActivityTaskCanceledEventAttributes.parse(map['activityTaskCanceledEventAttributes']) unless map['activityTaskCanceledEventAttributes'].nil?)
+        data.activity_task_cancel_requested_event_attributes = (ActivityTaskCancelRequestedEventAttributes.parse(map['activityTaskCancelRequestedEventAttributes']) unless map['activityTaskCancelRequestedEventAttributes'].nil?)
+        data.workflow_execution_signaled_event_attributes = (WorkflowExecutionSignaledEventAttributes.parse(map['workflowExecutionSignaledEventAttributes']) unless map['workflowExecutionSignaledEventAttributes'].nil?)
+        data.marker_recorded_event_attributes = (MarkerRecordedEventAttributes.parse(map['markerRecordedEventAttributes']) unless map['markerRecordedEventAttributes'].nil?)
+        data.record_marker_failed_event_attributes = (RecordMarkerFailedEventAttributes.parse(map['recordMarkerFailedEventAttributes']) unless map['recordMarkerFailedEventAttributes'].nil?)
+        data.timer_started_event_attributes = (TimerStartedEventAttributes.parse(map['timerStartedEventAttributes']) unless map['timerStartedEventAttributes'].nil?)
+        data.timer_fired_event_attributes = (TimerFiredEventAttributes.parse(map['timerFiredEventAttributes']) unless map['timerFiredEventAttributes'].nil?)
+        data.timer_canceled_event_attributes = (TimerCanceledEventAttributes.parse(map['timerCanceledEventAttributes']) unless map['timerCanceledEventAttributes'].nil?)
+        data.start_child_workflow_execution_initiated_event_attributes = (StartChildWorkflowExecutionInitiatedEventAttributes.parse(map['startChildWorkflowExecutionInitiatedEventAttributes']) unless map['startChildWorkflowExecutionInitiatedEventAttributes'].nil?)
+        data.child_workflow_execution_started_event_attributes = (ChildWorkflowExecutionStartedEventAttributes.parse(map['childWorkflowExecutionStartedEventAttributes']) unless map['childWorkflowExecutionStartedEventAttributes'].nil?)
+        data.child_workflow_execution_completed_event_attributes = (ChildWorkflowExecutionCompletedEventAttributes.parse(map['childWorkflowExecutionCompletedEventAttributes']) unless map['childWorkflowExecutionCompletedEventAttributes'].nil?)
+        data.child_workflow_execution_failed_event_attributes = (ChildWorkflowExecutionFailedEventAttributes.parse(map['childWorkflowExecutionFailedEventAttributes']) unless map['childWorkflowExecutionFailedEventAttributes'].nil?)
+        data.child_workflow_execution_timed_out_event_attributes = (ChildWorkflowExecutionTimedOutEventAttributes.parse(map['childWorkflowExecutionTimedOutEventAttributes']) unless map['childWorkflowExecutionTimedOutEventAttributes'].nil?)
+        data.child_workflow_execution_canceled_event_attributes = (ChildWorkflowExecutionCanceledEventAttributes.parse(map['childWorkflowExecutionCanceledEventAttributes']) unless map['childWorkflowExecutionCanceledEventAttributes'].nil?)
+        data.child_workflow_execution_terminated_event_attributes = (ChildWorkflowExecutionTerminatedEventAttributes.parse(map['childWorkflowExecutionTerminatedEventAttributes']) unless map['childWorkflowExecutionTerminatedEventAttributes'].nil?)
+        data.signal_external_workflow_execution_initiated_event_attributes = (SignalExternalWorkflowExecutionInitiatedEventAttributes.parse(map['signalExternalWorkflowExecutionInitiatedEventAttributes']) unless map['signalExternalWorkflowExecutionInitiatedEventAttributes'].nil?)
+        data.external_workflow_execution_signaled_event_attributes = (ExternalWorkflowExecutionSignaledEventAttributes.parse(map['externalWorkflowExecutionSignaledEventAttributes']) unless map['externalWorkflowExecutionSignaledEventAttributes'].nil?)
+        data.signal_external_workflow_execution_failed_event_attributes = (SignalExternalWorkflowExecutionFailedEventAttributes.parse(map['signalExternalWorkflowExecutionFailedEventAttributes']) unless map['signalExternalWorkflowExecutionFailedEventAttributes'].nil?)
+        data.external_workflow_execution_cancel_requested_event_attributes = (ExternalWorkflowExecutionCancelRequestedEventAttributes.parse(map['externalWorkflowExecutionCancelRequestedEventAttributes']) unless map['externalWorkflowExecutionCancelRequestedEventAttributes'].nil?)
+        data.request_cancel_external_workflow_execution_initiated_event_attributes = (RequestCancelExternalWorkflowExecutionInitiatedEventAttributes.parse(map['requestCancelExternalWorkflowExecutionInitiatedEventAttributes']) unless map['requestCancelExternalWorkflowExecutionInitiatedEventAttributes'].nil?)
+        data.request_cancel_external_workflow_execution_failed_event_attributes = (RequestCancelExternalWorkflowExecutionFailedEventAttributes.parse(map['requestCancelExternalWorkflowExecutionFailedEventAttributes']) unless map['requestCancelExternalWorkflowExecutionFailedEventAttributes'].nil?)
+        data.schedule_activity_task_failed_event_attributes = (ScheduleActivityTaskFailedEventAttributes.parse(map['scheduleActivityTaskFailedEventAttributes']) unless map['scheduleActivityTaskFailedEventAttributes'].nil?)
+        data.request_cancel_activity_task_failed_event_attributes = (RequestCancelActivityTaskFailedEventAttributes.parse(map['requestCancelActivityTaskFailedEventAttributes']) unless map['requestCancelActivityTaskFailedEventAttributes'].nil?)
+        data.start_timer_failed_event_attributes = (StartTimerFailedEventAttributes.parse(map['startTimerFailedEventAttributes']) unless map['startTimerFailedEventAttributes'].nil?)
+        data.cancel_timer_failed_event_attributes = (CancelTimerFailedEventAttributes.parse(map['cancelTimerFailedEventAttributes']) unless map['cancelTimerFailedEventAttributes'].nil?)
+        data.start_child_workflow_execution_failed_event_attributes = (StartChildWorkflowExecutionFailedEventAttributes.parse(map['startChildWorkflowExecutionFailedEventAttributes']) unless map['startChildWorkflowExecutionFailedEventAttributes'].nil?)
+        data.lambda_function_scheduled_event_attributes = (LambdaFunctionScheduledEventAttributes.parse(map['lambdaFunctionScheduledEventAttributes']) unless map['lambdaFunctionScheduledEventAttributes'].nil?)
+        data.lambda_function_started_event_attributes = (LambdaFunctionStartedEventAttributes.parse(map['lambdaFunctionStartedEventAttributes']) unless map['lambdaFunctionStartedEventAttributes'].nil?)
+        data.lambda_function_completed_event_attributes = (LambdaFunctionCompletedEventAttributes.parse(map['lambdaFunctionCompletedEventAttributes']) unless map['lambdaFunctionCompletedEventAttributes'].nil?)
+        data.lambda_function_failed_event_attributes = (LambdaFunctionFailedEventAttributes.parse(map['lambdaFunctionFailedEventAttributes']) unless map['lambdaFunctionFailedEventAttributes'].nil?)
+        data.lambda_function_timed_out_event_attributes = (LambdaFunctionTimedOutEventAttributes.parse(map['lambdaFunctionTimedOutEventAttributes']) unless map['lambdaFunctionTimedOutEventAttributes'].nil?)
+        data.schedule_lambda_function_failed_event_attributes = (ScheduleLambdaFunctionFailedEventAttributes.parse(map['scheduleLambdaFunctionFailedEventAttributes']) unless map['scheduleLambdaFunctionFailedEventAttributes'].nil?)
+        data.start_lambda_function_failed_event_attributes = (StartLambdaFunctionFailedEventAttributes.parse(map['startLambdaFunctionFailedEventAttributes']) unless map['startLambdaFunctionFailedEventAttributes'].nil?)
         return data
       end
     end
@@ -512,7 +512,7 @@ module AWS::SDK::SWF
     class StartChildWorkflowExecutionFailedEventAttributes
       def self.parse(map)
         data = Types::StartChildWorkflowExecutionFailedEventAttributes.new
-        data.workflow_type = (Parsers::WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
+        data.workflow_type = (WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
         data.cause = map['cause']
         data.workflow_id = map['workflowId']
         data.initiated_event_id = map['initiatedEventId']
@@ -555,7 +555,7 @@ module AWS::SDK::SWF
     class ScheduleActivityTaskFailedEventAttributes
       def self.parse(map)
         data = Types::ScheduleActivityTaskFailedEventAttributes.new
-        data.activity_type = (Parsers::ActivityType.parse(map['activityType']) unless map['activityType'].nil?)
+        data.activity_type = (ActivityType.parse(map['activityType']) unless map['activityType'].nil?)
         data.activity_id = map['activityId']
         data.cause = map['cause']
         data.decision_task_completed_event_id = map['decisionTaskCompletedEventId']
@@ -590,7 +590,7 @@ module AWS::SDK::SWF
     class ExternalWorkflowExecutionCancelRequestedEventAttributes
       def self.parse(map)
         data = Types::ExternalWorkflowExecutionCancelRequestedEventAttributes.new
-        data.workflow_execution = (Parsers::WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
+        data.workflow_execution = (WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
         data.initiated_event_id = map['initiatedEventId']
         return data
       end
@@ -612,7 +612,7 @@ module AWS::SDK::SWF
     class ExternalWorkflowExecutionSignaledEventAttributes
       def self.parse(map)
         data = Types::ExternalWorkflowExecutionSignaledEventAttributes.new
-        data.workflow_execution = (Parsers::WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
+        data.workflow_execution = (WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
         data.initiated_event_id = map['initiatedEventId']
         return data
       end
@@ -634,8 +634,8 @@ module AWS::SDK::SWF
     class ChildWorkflowExecutionTerminatedEventAttributes
       def self.parse(map)
         data = Types::ChildWorkflowExecutionTerminatedEventAttributes.new
-        data.workflow_execution = (Parsers::WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
-        data.workflow_type = (Parsers::WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
+        data.workflow_execution = (WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
+        data.workflow_type = (WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
         data.initiated_event_id = map['initiatedEventId']
         data.started_event_id = map['startedEventId']
         return data
@@ -645,8 +645,8 @@ module AWS::SDK::SWF
     class ChildWorkflowExecutionCanceledEventAttributes
       def self.parse(map)
         data = Types::ChildWorkflowExecutionCanceledEventAttributes.new
-        data.workflow_execution = (Parsers::WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
-        data.workflow_type = (Parsers::WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
+        data.workflow_execution = (WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
+        data.workflow_type = (WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
         data.details = map['details']
         data.initiated_event_id = map['initiatedEventId']
         data.started_event_id = map['startedEventId']
@@ -657,8 +657,8 @@ module AWS::SDK::SWF
     class ChildWorkflowExecutionTimedOutEventAttributes
       def self.parse(map)
         data = Types::ChildWorkflowExecutionTimedOutEventAttributes.new
-        data.workflow_execution = (Parsers::WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
-        data.workflow_type = (Parsers::WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
+        data.workflow_execution = (WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
+        data.workflow_type = (WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
         data.timeout_type = map['timeoutType']
         data.initiated_event_id = map['initiatedEventId']
         data.started_event_id = map['startedEventId']
@@ -669,8 +669,8 @@ module AWS::SDK::SWF
     class ChildWorkflowExecutionFailedEventAttributes
       def self.parse(map)
         data = Types::ChildWorkflowExecutionFailedEventAttributes.new
-        data.workflow_execution = (Parsers::WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
-        data.workflow_type = (Parsers::WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
+        data.workflow_execution = (WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
+        data.workflow_type = (WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
         data.reason = map['reason']
         data.details = map['details']
         data.initiated_event_id = map['initiatedEventId']
@@ -682,8 +682,8 @@ module AWS::SDK::SWF
     class ChildWorkflowExecutionCompletedEventAttributes
       def self.parse(map)
         data = Types::ChildWorkflowExecutionCompletedEventAttributes.new
-        data.workflow_execution = (Parsers::WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
-        data.workflow_type = (Parsers::WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
+        data.workflow_execution = (WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
+        data.workflow_type = (WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
         data.result = map['result']
         data.initiated_event_id = map['initiatedEventId']
         data.started_event_id = map['startedEventId']
@@ -694,8 +694,8 @@ module AWS::SDK::SWF
     class ChildWorkflowExecutionStartedEventAttributes
       def self.parse(map)
         data = Types::ChildWorkflowExecutionStartedEventAttributes.new
-        data.workflow_execution = (Parsers::WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
-        data.workflow_type = (Parsers::WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
+        data.workflow_execution = (WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
+        data.workflow_type = (WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
         data.initiated_event_id = map['initiatedEventId']
         return data
       end
@@ -705,16 +705,16 @@ module AWS::SDK::SWF
       def self.parse(map)
         data = Types::StartChildWorkflowExecutionInitiatedEventAttributes.new
         data.workflow_id = map['workflowId']
-        data.workflow_type = (Parsers::WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
+        data.workflow_type = (WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
         data.control = map['control']
         data.input = map['input']
         data.execution_start_to_close_timeout = map['executionStartToCloseTimeout']
-        data.task_list = (Parsers::TaskList.parse(map['taskList']) unless map['taskList'].nil?)
+        data.task_list = (TaskList.parse(map['taskList']) unless map['taskList'].nil?)
         data.task_priority = map['taskPriority']
         data.decision_task_completed_event_id = map['decisionTaskCompletedEventId']
         data.child_policy = map['childPolicy']
         data.task_start_to_close_timeout = map['taskStartToCloseTimeout']
-        data.tag_list = (Parsers::TagList.parse(map['tagList']) unless map['tagList'].nil?)
+        data.tag_list = (TagList.parse(map['tagList']) unless map['tagList'].nil?)
         data.lambda_role = map['lambdaRole']
         return data
       end
@@ -775,7 +775,7 @@ module AWS::SDK::SWF
         data = Types::WorkflowExecutionSignaledEventAttributes.new
         data.signal_name = map['signalName']
         data.input = map['input']
-        data.external_workflow_execution = (Parsers::WorkflowExecution.parse(map['externalWorkflowExecution']) unless map['externalWorkflowExecution'].nil?)
+        data.external_workflow_execution = (WorkflowExecution.parse(map['externalWorkflowExecution']) unless map['externalWorkflowExecution'].nil?)
         data.external_initiated_event_id = map['externalInitiatedEventId']
         return data
       end
@@ -845,14 +845,14 @@ module AWS::SDK::SWF
     class ActivityTaskScheduledEventAttributes
       def self.parse(map)
         data = Types::ActivityTaskScheduledEventAttributes.new
-        data.activity_type = (Parsers::ActivityType.parse(map['activityType']) unless map['activityType'].nil?)
+        data.activity_type = (ActivityType.parse(map['activityType']) unless map['activityType'].nil?)
         data.activity_id = map['activityId']
         data.input = map['input']
         data.control = map['control']
         data.schedule_to_start_timeout = map['scheduleToStartTimeout']
         data.schedule_to_close_timeout = map['scheduleToCloseTimeout']
         data.start_to_close_timeout = map['startToCloseTimeout']
-        data.task_list = (Parsers::TaskList.parse(map['taskList']) unless map['taskList'].nil?)
+        data.task_list = (TaskList.parse(map['taskList']) unless map['taskList'].nil?)
         data.task_priority = map['taskPriority']
         data.decision_task_completed_event_id = map['decisionTaskCompletedEventId']
         data.heartbeat_timeout = map['heartbeatTimeout']
@@ -892,7 +892,7 @@ module AWS::SDK::SWF
     class DecisionTaskScheduledEventAttributes
       def self.parse(map)
         data = Types::DecisionTaskScheduledEventAttributes.new
-        data.task_list = (Parsers::TaskList.parse(map['taskList']) unless map['taskList'].nil?)
+        data.task_list = (TaskList.parse(map['taskList']) unless map['taskList'].nil?)
         data.task_priority = map['taskPriority']
         data.start_to_close_timeout = map['startToCloseTimeout']
         return data
@@ -902,7 +902,7 @@ module AWS::SDK::SWF
     class WorkflowExecutionCancelRequestedEventAttributes
       def self.parse(map)
         data = Types::WorkflowExecutionCancelRequestedEventAttributes.new
-        data.external_workflow_execution = (Parsers::WorkflowExecution.parse(map['externalWorkflowExecution']) unless map['externalWorkflowExecution'].nil?)
+        data.external_workflow_execution = (WorkflowExecution.parse(map['externalWorkflowExecution']) unless map['externalWorkflowExecution'].nil?)
         data.external_initiated_event_id = map['externalInitiatedEventId']
         data.cause = map['cause']
         return data
@@ -936,12 +936,12 @@ module AWS::SDK::SWF
         data.decision_task_completed_event_id = map['decisionTaskCompletedEventId']
         data.new_execution_run_id = map['newExecutionRunId']
         data.execution_start_to_close_timeout = map['executionStartToCloseTimeout']
-        data.task_list = (Parsers::TaskList.parse(map['taskList']) unless map['taskList'].nil?)
+        data.task_list = (TaskList.parse(map['taskList']) unless map['taskList'].nil?)
         data.task_priority = map['taskPriority']
         data.task_start_to_close_timeout = map['taskStartToCloseTimeout']
         data.child_policy = map['childPolicy']
-        data.tag_list = (Parsers::TagList.parse(map['tagList']) unless map['tagList'].nil?)
-        data.workflow_type = (Parsers::WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
+        data.tag_list = (TagList.parse(map['tagList']) unless map['tagList'].nil?)
+        data.workflow_type = (WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
         data.lambda_role = map['lambdaRole']
         return data
       end
@@ -1018,12 +1018,12 @@ module AWS::SDK::SWF
         data.execution_start_to_close_timeout = map['executionStartToCloseTimeout']
         data.task_start_to_close_timeout = map['taskStartToCloseTimeout']
         data.child_policy = map['childPolicy']
-        data.task_list = (Parsers::TaskList.parse(map['taskList']) unless map['taskList'].nil?)
+        data.task_list = (TaskList.parse(map['taskList']) unless map['taskList'].nil?)
         data.task_priority = map['taskPriority']
-        data.workflow_type = (Parsers::WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
-        data.tag_list = (Parsers::TagList.parse(map['tagList']) unless map['tagList'].nil?)
+        data.workflow_type = (WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
+        data.tag_list = (TagList.parse(map['tagList']) unless map['tagList'].nil?)
         data.continued_execution_run_id = map['continuedExecutionRunId']
-        data.parent_workflow_execution = (Parsers::WorkflowExecution.parse(map['parentWorkflowExecution']) unless map['parentWorkflowExecution'].nil?)
+        data.parent_workflow_execution = (WorkflowExecution.parse(map['parentWorkflowExecution']) unless map['parentWorkflowExecution'].nil?)
         data.parent_initiated_event_id = map['parentInitiatedEventId']
         data.lambda_role = map['lambdaRole']
         return data
@@ -1037,7 +1037,7 @@ module AWS::SDK::SWF
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.type_infos = (Parsers::ActivityTypeInfoList.parse(map['typeInfos']) unless map['typeInfos'].nil?)
+        data.type_infos = (ActivityTypeInfoList.parse(map['typeInfos']) unless map['typeInfos'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -1046,7 +1046,7 @@ module AWS::SDK::SWF
     class ActivityTypeInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::ActivityTypeInfo.parse(value) unless value.nil?
+          ActivityTypeInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1058,7 +1058,7 @@ module AWS::SDK::SWF
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.execution_infos = (Parsers::WorkflowExecutionInfoList.parse(map['executionInfos']) unless map['executionInfos'].nil?)
+        data.execution_infos = (WorkflowExecutionInfoList.parse(map['executionInfos']) unless map['executionInfos'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -1067,7 +1067,7 @@ module AWS::SDK::SWF
     class WorkflowExecutionInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::WorkflowExecutionInfo.parse(value) unless value.nil?
+          WorkflowExecutionInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1079,7 +1079,7 @@ module AWS::SDK::SWF
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.domain_infos = (Parsers::DomainInfoList.parse(map['domainInfos']) unless map['domainInfos'].nil?)
+        data.domain_infos = (DomainInfoList.parse(map['domainInfos']) unless map['domainInfos'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -1088,7 +1088,7 @@ module AWS::SDK::SWF
     class DomainInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::DomainInfo.parse(value) unless value.nil?
+          DomainInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1100,7 +1100,7 @@ module AWS::SDK::SWF
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.execution_infos = (Parsers::WorkflowExecutionInfoList.parse(map['executionInfos']) unless map['executionInfos'].nil?)
+        data.execution_infos = (WorkflowExecutionInfoList.parse(map['executionInfos']) unless map['executionInfos'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -1113,7 +1113,7 @@ module AWS::SDK::SWF
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::ResourceTagList.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (ResourceTagList.parse(map['tags']) unless map['tags'].nil?)
         data
       end
     end
@@ -1121,7 +1121,7 @@ module AWS::SDK::SWF
     class ResourceTagList
       def self.parse(list)
         list.map do |value|
-          Parsers::ResourceTag.parse(value) unless value.nil?
+          ResourceTag.parse(value) unless value.nil?
         end
       end
     end
@@ -1154,7 +1154,7 @@ module AWS::SDK::SWF
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.type_infos = (Parsers::WorkflowTypeInfoList.parse(map['typeInfos']) unless map['typeInfos'].nil?)
+        data.type_infos = (WorkflowTypeInfoList.parse(map['typeInfos']) unless map['typeInfos'].nil?)
         data.next_page_token = map['nextPageToken']
         data
       end
@@ -1163,7 +1163,7 @@ module AWS::SDK::SWF
     class WorkflowTypeInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::WorkflowTypeInfo.parse(value) unless value.nil?
+          WorkflowTypeInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -1178,8 +1178,8 @@ module AWS::SDK::SWF
         data.task_token = map['taskToken']
         data.activity_id = map['activityId']
         data.started_event_id = map['startedEventId']
-        data.workflow_execution = (Parsers::WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
-        data.activity_type = (Parsers::ActivityType.parse(map['activityType']) unless map['activityType'].nil?)
+        data.workflow_execution = (WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
+        data.activity_type = (ActivityType.parse(map['activityType']) unless map['activityType'].nil?)
         data.input = map['input']
         data
       end
@@ -1194,9 +1194,9 @@ module AWS::SDK::SWF
         map = Hearth::JSON.load(body)
         data.task_token = map['taskToken']
         data.started_event_id = map['startedEventId']
-        data.workflow_execution = (Parsers::WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
-        data.workflow_type = (Parsers::WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
-        data.events = (Parsers::HistoryEventList.parse(map['events']) unless map['events'].nil?)
+        data.workflow_execution = (WorkflowExecution.parse(map['workflowExecution']) unless map['workflowExecution'].nil?)
+        data.workflow_type = (WorkflowType.parse(map['workflowType']) unless map['workflowType'].nil?)
+        data.events = (HistoryEventList.parse(map['events']) unless map['events'].nil?)
         data.next_page_token = map['nextPageToken']
         data.previous_started_event_id = map['previousStartedEventId']
         data

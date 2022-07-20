@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::LexRuntimeV2
   module Builders
 
@@ -97,10 +99,10 @@ module AWS::SDK::LexRuntimeV2
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['messages'] = Builders::Messages.build(input[:messages]) unless input[:messages].nil?
-        data['sessionState'] = Builders::SessionState.build(input[:session_state]) unless input[:session_state].nil?
-        data['requestAttributes'] = Builders::StringMap.build(input[:request_attributes]) unless input[:request_attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['messages'] = Messages.build(input[:messages]) unless input[:messages].nil?
+        data['sessionState'] = SessionState.build(input[:session_state]) unless input[:session_state].nil?
+        data['requestAttributes'] = StringMap.build(input[:request_attributes]) unless input[:request_attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_req.headers['ResponseContentType'] = input[:response_content_type] unless input[:response_content_type].nil? || input[:response_content_type].empty?
       end
     end
@@ -120,12 +122,12 @@ module AWS::SDK::LexRuntimeV2
     class SessionState
       def self.build(input)
         data = {}
-        data['dialogAction'] = Builders::DialogAction.build(input[:dialog_action]) unless input[:dialog_action].nil?
-        data['intent'] = Builders::Intent.build(input[:intent]) unless input[:intent].nil?
-        data['activeContexts'] = Builders::ActiveContextsList.build(input[:active_contexts]) unless input[:active_contexts].nil?
-        data['sessionAttributes'] = Builders::StringMap.build(input[:session_attributes]) unless input[:session_attributes].nil?
+        data['dialogAction'] = DialogAction.build(input[:dialog_action]) unless input[:dialog_action].nil?
+        data['intent'] = Intent.build(input[:intent]) unless input[:intent].nil?
+        data['activeContexts'] = ActiveContextsList.build(input[:active_contexts]) unless input[:active_contexts].nil?
+        data['sessionAttributes'] = StringMap.build(input[:session_attributes]) unless input[:session_attributes].nil?
         data['originatingRequestId'] = input[:originating_request_id] unless input[:originating_request_id].nil?
-        data['runtimeHints'] = Builders::RuntimeHints.build(input[:runtime_hints]) unless input[:runtime_hints].nil?
+        data['runtimeHints'] = RuntimeHints.build(input[:runtime_hints]) unless input[:runtime_hints].nil?
         data
       end
     end
@@ -134,7 +136,7 @@ module AWS::SDK::LexRuntimeV2
     class RuntimeHints
       def self.build(input)
         data = {}
-        data['slotHints'] = Builders::SlotHintsIntentMap.build(input[:slot_hints]) unless input[:slot_hints].nil?
+        data['slotHints'] = SlotHintsIntentMap.build(input[:slot_hints]) unless input[:slot_hints].nil?
         data
       end
     end
@@ -144,7 +146,7 @@ module AWS::SDK::LexRuntimeV2
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::SlotHintsSlotMap.build(value) unless value.nil?
+          data[key] = SlotHintsSlotMap.build(value) unless value.nil?
         end
         data
       end
@@ -155,7 +157,7 @@ module AWS::SDK::LexRuntimeV2
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::RuntimeHintDetails.build(value) unless value.nil?
+          data[key] = RuntimeHintDetails.build(value) unless value.nil?
         end
         data
       end
@@ -165,7 +167,7 @@ module AWS::SDK::LexRuntimeV2
     class RuntimeHintDetails
       def self.build(input)
         data = {}
-        data['runtimeHintValues'] = Builders::RuntimeHintValuesList.build(input[:runtime_hint_values]) unless input[:runtime_hint_values].nil?
+        data['runtimeHintValues'] = RuntimeHintValuesList.build(input[:runtime_hint_values]) unless input[:runtime_hint_values].nil?
         data
       end
     end
@@ -175,7 +177,7 @@ module AWS::SDK::LexRuntimeV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::RuntimeHintValue.build(element) unless element.nil?
+          data << RuntimeHintValue.build(element) unless element.nil?
         end
         data
       end
@@ -195,7 +197,7 @@ module AWS::SDK::LexRuntimeV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ActiveContext.build(element) unless element.nil?
+          data << ActiveContext.build(element) unless element.nil?
         end
         data
       end
@@ -206,8 +208,8 @@ module AWS::SDK::LexRuntimeV2
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['timeToLive'] = Builders::ActiveContextTimeToLive.build(input[:time_to_live]) unless input[:time_to_live].nil?
-        data['contextAttributes'] = Builders::ActiveContextParametersMap.build(input[:context_attributes]) unless input[:context_attributes].nil?
+        data['timeToLive'] = ActiveContextTimeToLive.build(input[:time_to_live]) unless input[:time_to_live].nil?
+        data['contextAttributes'] = ActiveContextParametersMap.build(input[:context_attributes]) unless input[:context_attributes].nil?
         data
       end
     end
@@ -238,7 +240,7 @@ module AWS::SDK::LexRuntimeV2
       def self.build(input)
         data = {}
         data['name'] = input[:name] unless input[:name].nil?
-        data['slots'] = Builders::Slots.build(input[:slots]) unless input[:slots].nil?
+        data['slots'] = Slots.build(input[:slots]) unless input[:slots].nil?
         data['state'] = input[:state] unless input[:state].nil?
         data['confirmationState'] = input[:confirmation_state] unless input[:confirmation_state].nil?
         data
@@ -250,7 +252,7 @@ module AWS::SDK::LexRuntimeV2
       def self.build(input)
         data = {}
         input.each do |key, value|
-          data[key] = Builders::Slot.build(value) unless value.nil?
+          data[key] = Slot.build(value) unless value.nil?
         end
         data
       end
@@ -260,9 +262,9 @@ module AWS::SDK::LexRuntimeV2
     class Slot
       def self.build(input)
         data = {}
-        data['value'] = Builders::Value.build(input[:value]) unless input[:value].nil?
+        data['value'] = Value.build(input[:value]) unless input[:value].nil?
         data['shape'] = input[:shape] unless input[:shape].nil?
-        data['values'] = Builders::Values.build(input[:values]) unless input[:values].nil?
+        data['values'] = Values.build(input[:values]) unless input[:values].nil?
         data
       end
     end
@@ -272,7 +274,7 @@ module AWS::SDK::LexRuntimeV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Slot.build(element) unless element.nil?
+          data << Slot.build(element) unless element.nil?
         end
         data
       end
@@ -284,7 +286,7 @@ module AWS::SDK::LexRuntimeV2
         data = {}
         data['originalValue'] = input[:original_value] unless input[:original_value].nil?
         data['interpretedValue'] = input[:interpreted_value] unless input[:interpreted_value].nil?
-        data['resolvedValues'] = Builders::StringList.build(input[:resolved_values]) unless input[:resolved_values].nil?
+        data['resolvedValues'] = StringList.build(input[:resolved_values]) unless input[:resolved_values].nil?
         data
       end
     end
@@ -316,7 +318,7 @@ module AWS::SDK::LexRuntimeV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Message.build(element) unless element.nil?
+          data << Message.build(element) unless element.nil?
         end
         data
       end
@@ -328,7 +330,7 @@ module AWS::SDK::LexRuntimeV2
         data = {}
         data['content'] = input[:content] unless input[:content].nil?
         data['contentType'] = input[:content_type] unless input[:content_type].nil?
-        data['imageResponseCard'] = Builders::ImageResponseCard.build(input[:image_response_card]) unless input[:image_response_card].nil?
+        data['imageResponseCard'] = ImageResponseCard.build(input[:image_response_card]) unless input[:image_response_card].nil?
         data
       end
     end
@@ -340,7 +342,7 @@ module AWS::SDK::LexRuntimeV2
         data['title'] = input[:title] unless input[:title].nil?
         data['subtitle'] = input[:subtitle] unless input[:subtitle].nil?
         data['imageUrl'] = input[:image_url] unless input[:image_url].nil?
-        data['buttons'] = Builders::ButtonsList.build(input[:buttons]) unless input[:buttons].nil?
+        data['buttons'] = ButtonsList.build(input[:buttons]) unless input[:buttons].nil?
         data
       end
     end
@@ -350,7 +352,7 @@ module AWS::SDK::LexRuntimeV2
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Button.build(element) unless element.nil?
+          data << Button.build(element) unless element.nil?
         end
         data
       end
@@ -396,9 +398,9 @@ module AWS::SDK::LexRuntimeV2
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['text'] = input[:text] unless input[:text].nil?
-        data['sessionState'] = Builders::SessionState.build(input[:session_state]) unless input[:session_state].nil?
-        data['requestAttributes'] = Builders::StringMap.build(input[:request_attributes]) unless input[:request_attributes].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['sessionState'] = SessionState.build(input[:session_state]) unless input[:session_state].nil?
+        data['requestAttributes'] = StringMap.build(input[:request_attributes]) unless input[:request_attributes].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 

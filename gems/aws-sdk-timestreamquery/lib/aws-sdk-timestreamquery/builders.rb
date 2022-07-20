@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::TimestreamQuery
   module Builders
 
@@ -19,7 +21,7 @@ module AWS::SDK::TimestreamQuery
         http_req.headers['X-Amz-Target'] = 'Timestream_20181101.CancelQuery'
         data = {}
         data['QueryId'] = input[:query_id] unless input[:query_id].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -33,15 +35,15 @@ module AWS::SDK::TimestreamQuery
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
         data['QueryString'] = input[:query_string] unless input[:query_string].nil?
-        data['ScheduleConfiguration'] = Builders::ScheduleConfiguration.build(input[:schedule_configuration]) unless input[:schedule_configuration].nil?
-        data['NotificationConfiguration'] = Builders::NotificationConfiguration.build(input[:notification_configuration]) unless input[:notification_configuration].nil?
-        data['TargetConfiguration'] = Builders::TargetConfiguration.build(input[:target_configuration]) unless input[:target_configuration].nil?
+        data['ScheduleConfiguration'] = ScheduleConfiguration.build(input[:schedule_configuration]) unless input[:schedule_configuration].nil?
+        data['NotificationConfiguration'] = NotificationConfiguration.build(input[:notification_configuration]) unless input[:notification_configuration].nil?
+        data['TargetConfiguration'] = TargetConfiguration.build(input[:target_configuration]) unless input[:target_configuration].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['ScheduledQueryExecutionRoleArn'] = input[:scheduled_query_execution_role_arn] unless input[:scheduled_query_execution_role_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
         data['KmsKeyId'] = input[:kms_key_id] unless input[:kms_key_id].nil?
-        data['ErrorReportConfiguration'] = Builders::ErrorReportConfiguration.build(input[:error_report_configuration]) unless input[:error_report_configuration].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ErrorReportConfiguration'] = ErrorReportConfiguration.build(input[:error_report_configuration]) unless input[:error_report_configuration].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -49,7 +51,7 @@ module AWS::SDK::TimestreamQuery
     class ErrorReportConfiguration
       def self.build(input)
         data = {}
-        data['S3Configuration'] = Builders::S3Configuration.build(input[:s3_configuration]) unless input[:s3_configuration].nil?
+        data['S3Configuration'] = S3Configuration.build(input[:s3_configuration]) unless input[:s3_configuration].nil?
         data
       end
     end
@@ -70,7 +72,7 @@ module AWS::SDK::TimestreamQuery
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Tag.build(element) unless element.nil?
+          data << Tag.build(element) unless element.nil?
         end
         data
       end
@@ -90,7 +92,7 @@ module AWS::SDK::TimestreamQuery
     class TargetConfiguration
       def self.build(input)
         data = {}
-        data['TimestreamConfiguration'] = Builders::TimestreamConfiguration.build(input[:timestream_configuration]) unless input[:timestream_configuration].nil?
+        data['TimestreamConfiguration'] = TimestreamConfiguration.build(input[:timestream_configuration]) unless input[:timestream_configuration].nil?
         data
       end
     end
@@ -102,9 +104,9 @@ module AWS::SDK::TimestreamQuery
         data['DatabaseName'] = input[:database_name] unless input[:database_name].nil?
         data['TableName'] = input[:table_name] unless input[:table_name].nil?
         data['TimeColumn'] = input[:time_column] unless input[:time_column].nil?
-        data['DimensionMappings'] = Builders::DimensionMappingList.build(input[:dimension_mappings]) unless input[:dimension_mappings].nil?
-        data['MultiMeasureMappings'] = Builders::MultiMeasureMappings.build(input[:multi_measure_mappings]) unless input[:multi_measure_mappings].nil?
-        data['MixedMeasureMappings'] = Builders::MixedMeasureMappingList.build(input[:mixed_measure_mappings]) unless input[:mixed_measure_mappings].nil?
+        data['DimensionMappings'] = DimensionMappingList.build(input[:dimension_mappings]) unless input[:dimension_mappings].nil?
+        data['MultiMeasureMappings'] = MultiMeasureMappings.build(input[:multi_measure_mappings]) unless input[:multi_measure_mappings].nil?
+        data['MixedMeasureMappings'] = MixedMeasureMappingList.build(input[:mixed_measure_mappings]) unless input[:mixed_measure_mappings].nil?
         data['MeasureNameColumn'] = input[:measure_name_column] unless input[:measure_name_column].nil?
         data
       end
@@ -115,7 +117,7 @@ module AWS::SDK::TimestreamQuery
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MixedMeasureMapping.build(element) unless element.nil?
+          data << MixedMeasureMapping.build(element) unless element.nil?
         end
         data
       end
@@ -129,7 +131,7 @@ module AWS::SDK::TimestreamQuery
         data['SourceColumn'] = input[:source_column] unless input[:source_column].nil?
         data['TargetMeasureName'] = input[:target_measure_name] unless input[:target_measure_name].nil?
         data['MeasureValueType'] = input[:measure_value_type] unless input[:measure_value_type].nil?
-        data['MultiMeasureAttributeMappings'] = Builders::MultiMeasureAttributeMappingList.build(input[:multi_measure_attribute_mappings]) unless input[:multi_measure_attribute_mappings].nil?
+        data['MultiMeasureAttributeMappings'] = MultiMeasureAttributeMappingList.build(input[:multi_measure_attribute_mappings]) unless input[:multi_measure_attribute_mappings].nil?
         data
       end
     end
@@ -139,7 +141,7 @@ module AWS::SDK::TimestreamQuery
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::MultiMeasureAttributeMapping.build(element) unless element.nil?
+          data << MultiMeasureAttributeMapping.build(element) unless element.nil?
         end
         data
       end
@@ -161,7 +163,7 @@ module AWS::SDK::TimestreamQuery
       def self.build(input)
         data = {}
         data['TargetMultiMeasureName'] = input[:target_multi_measure_name] unless input[:target_multi_measure_name].nil?
-        data['MultiMeasureAttributeMappings'] = Builders::MultiMeasureAttributeMappingList.build(input[:multi_measure_attribute_mappings]) unless input[:multi_measure_attribute_mappings].nil?
+        data['MultiMeasureAttributeMappings'] = MultiMeasureAttributeMappingList.build(input[:multi_measure_attribute_mappings]) unless input[:multi_measure_attribute_mappings].nil?
         data
       end
     end
@@ -171,7 +173,7 @@ module AWS::SDK::TimestreamQuery
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::DimensionMapping.build(element) unless element.nil?
+          data << DimensionMapping.build(element) unless element.nil?
         end
         data
       end
@@ -191,7 +193,7 @@ module AWS::SDK::TimestreamQuery
     class NotificationConfiguration
       def self.build(input)
         data = {}
-        data['SnsConfiguration'] = Builders::SnsConfiguration.build(input[:sns_configuration]) unless input[:sns_configuration].nil?
+        data['SnsConfiguration'] = SnsConfiguration.build(input[:sns_configuration]) unless input[:sns_configuration].nil?
         data
       end
     end
@@ -223,7 +225,7 @@ module AWS::SDK::TimestreamQuery
         http_req.headers['X-Amz-Target'] = 'Timestream_20181101.DeleteScheduledQuery'
         data = {}
         data['ScheduledQueryArn'] = input[:scheduled_query_arn] unless input[:scheduled_query_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -235,7 +237,7 @@ module AWS::SDK::TimestreamQuery
         http_req.headers['Content-Type'] = 'application/x-amz-json-1.0'
         http_req.headers['X-Amz-Target'] = 'Timestream_20181101.DescribeEndpoints'
         data = {}
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -248,7 +250,7 @@ module AWS::SDK::TimestreamQuery
         http_req.headers['X-Amz-Target'] = 'Timestream_20181101.DescribeScheduledQuery'
         data = {}
         data['ScheduledQueryArn'] = input[:scheduled_query_arn] unless input[:scheduled_query_arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -263,7 +265,7 @@ module AWS::SDK::TimestreamQuery
         data['ScheduledQueryArn'] = input[:scheduled_query_arn] unless input[:scheduled_query_arn].nil?
         data['InvocationTime'] = Hearth::TimeHelper.to_epoch_seconds(input[:invocation_time]).to_i unless input[:invocation_time].nil?
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -277,7 +279,7 @@ module AWS::SDK::TimestreamQuery
         data = {}
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -292,7 +294,7 @@ module AWS::SDK::TimestreamQuery
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -306,7 +308,7 @@ module AWS::SDK::TimestreamQuery
         data = {}
         data['QueryString'] = input[:query_string] unless input[:query_string].nil?
         data['ValidateOnly'] = input[:validate_only] unless input[:validate_only].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -322,7 +324,7 @@ module AWS::SDK::TimestreamQuery
         data['ClientToken'] = input[:client_token] unless input[:client_token].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxRows'] = input[:max_rows] unless input[:max_rows].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -335,8 +337,8 @@ module AWS::SDK::TimestreamQuery
         http_req.headers['X-Amz-Target'] = 'Timestream_20181101.TagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['Tags'] = Builders::TagList.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = TagList.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -349,8 +351,8 @@ module AWS::SDK::TimestreamQuery
         http_req.headers['X-Amz-Target'] = 'Timestream_20181101.UntagResource'
         data = {}
         data['ResourceARN'] = input[:resource_arn] unless input[:resource_arn].nil?
-        data['TagKeys'] = Builders::TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeyList.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -375,7 +377,7 @@ module AWS::SDK::TimestreamQuery
         data = {}
         data['ScheduledQueryArn'] = input[:scheduled_query_arn] unless input[:scheduled_query_arn].nil?
         data['State'] = input[:state] unless input[:state].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::CodestarNotifications
   module Builders
 
@@ -21,14 +23,14 @@ module AWS::SDK::CodestarNotifications
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Name'] = input[:name] unless input[:name].nil?
-        data['EventTypeIds'] = Builders::EventTypeIds.build(input[:event_type_ids]) unless input[:event_type_ids].nil?
+        data['EventTypeIds'] = EventTypeIds.build(input[:event_type_ids]) unless input[:event_type_ids].nil?
         data['Resource'] = input[:resource] unless input[:resource].nil?
-        data['Targets'] = Builders::Targets.build(input[:targets]) unless input[:targets].nil?
+        data['Targets'] = Targets.build(input[:targets]) unless input[:targets].nil?
         data['DetailType'] = input[:detail_type] unless input[:detail_type].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
         data['Status'] = input[:status] unless input[:status].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -48,7 +50,7 @@ module AWS::SDK::CodestarNotifications
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::Target.build(element) unless element.nil?
+          data << Target.build(element) unless element.nil?
         end
         data
       end
@@ -86,7 +88,7 @@ module AWS::SDK::CodestarNotifications
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -102,7 +104,7 @@ module AWS::SDK::CodestarNotifications
         data = {}
         data['TargetAddress'] = input[:target_address] unless input[:target_address].nil?
         data['ForceUnsubscribeAll'] = input[:force_unsubscribe_all] unless input[:force_unsubscribe_all].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -117,7 +119,7 @@ module AWS::SDK::CodestarNotifications
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -131,10 +133,10 @@ module AWS::SDK::CodestarNotifications
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Filters'] = Builders::ListEventTypesFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ListEventTypesFilters.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -143,7 +145,7 @@ module AWS::SDK::CodestarNotifications
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ListEventTypesFilter.build(element) unless element.nil?
+          data << ListEventTypesFilter.build(element) unless element.nil?
         end
         data
       end
@@ -169,10 +171,10 @@ module AWS::SDK::CodestarNotifications
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Filters'] = Builders::ListNotificationRulesFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ListNotificationRulesFilters.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -181,7 +183,7 @@ module AWS::SDK::CodestarNotifications
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ListNotificationRulesFilter.build(element) unless element.nil?
+          data << ListNotificationRulesFilter.build(element) unless element.nil?
         end
         data
       end
@@ -208,7 +210,7 @@ module AWS::SDK::CodestarNotifications
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -222,10 +224,10 @@ module AWS::SDK::CodestarNotifications
 
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
-        data['Filters'] = Builders::ListTargetsFilters.build(input[:filters]) unless input[:filters].nil?
+        data['Filters'] = ListTargetsFilters.build(input[:filters]) unless input[:filters].nil?
         data['NextToken'] = input[:next_token] unless input[:next_token].nil?
         data['MaxResults'] = input[:max_results] unless input[:max_results].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -234,7 +236,7 @@ module AWS::SDK::CodestarNotifications
       def self.build(input)
         data = []
         input.each do |element|
-          data << Builders::ListTargetsFilter.build(element) unless element.nil?
+          data << ListTargetsFilter.build(element) unless element.nil?
         end
         data
       end
@@ -261,9 +263,9 @@ module AWS::SDK::CodestarNotifications
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        data['Target'] = Builders::Target.build(input[:target]) unless input[:target].nil?
+        data['Target'] = Target.build(input[:target]) unless input[:target].nil?
         data['ClientRequestToken'] = input[:client_request_token] unless input[:client_request_token].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -278,8 +280,8 @@ module AWS::SDK::CodestarNotifications
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        data['Tags'] = Builders::Tags.build(input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.build(input[:tags]) unless input[:tags].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -295,7 +297,7 @@ module AWS::SDK::CodestarNotifications
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
         data['TargetAddress'] = input[:target_address] unless input[:target_address].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -310,8 +312,8 @@ module AWS::SDK::CodestarNotifications
         http_req.headers['Content-Type'] = 'application/json'
         data = {}
         data['Arn'] = input[:arn] unless input[:arn].nil?
-        data['TagKeys'] = Builders::TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        data['TagKeys'] = TagKeys.build(input[:tag_keys]) unless input[:tag_keys].nil?
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
 
@@ -339,10 +341,10 @@ module AWS::SDK::CodestarNotifications
         data['Arn'] = input[:arn] unless input[:arn].nil?
         data['Name'] = input[:name] unless input[:name].nil?
         data['Status'] = input[:status] unless input[:status].nil?
-        data['EventTypeIds'] = Builders::EventTypeIds.build(input[:event_type_ids]) unless input[:event_type_ids].nil?
-        data['Targets'] = Builders::Targets.build(input[:targets]) unless input[:targets].nil?
+        data['EventTypeIds'] = EventTypeIds.build(input[:event_type_ids]) unless input[:event_type_ids].nil?
+        data['Targets'] = Targets.build(input[:targets]) unless input[:targets].nil?
         data['DetailType'] = input[:detail_type] unless input[:detail_type].nil?
-        http_req.body = StringIO.new(Hearth::JSON.dump(data))
+        http_req.body = ::StringIO.new(Hearth::JSON.dump(data))
       end
     end
   end

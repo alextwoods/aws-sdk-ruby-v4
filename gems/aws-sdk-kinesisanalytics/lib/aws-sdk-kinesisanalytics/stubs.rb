@@ -7,6 +7,8 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'stringio'
+
 module AWS::SDK::KinesisAnalytics
   module Stubs
 
@@ -19,7 +21,7 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -33,7 +35,7 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -47,7 +49,7 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -61,7 +63,7 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -75,7 +77,7 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -90,8 +92,8 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ApplicationSummary'] = Stubs::ApplicationSummary.stub(stub[:application_summary]) unless stub[:application_summary].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ApplicationSummary'] = ApplicationSummary.stub(stub[:application_summary]) unless stub[:application_summary].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -127,7 +129,7 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -141,7 +143,7 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -155,7 +157,7 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -169,7 +171,7 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -183,7 +185,7 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -198,8 +200,8 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ApplicationDetail'] = Stubs::ApplicationDetail.stub(stub[:application_detail]) unless stub[:application_detail].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['ApplicationDetail'] = ApplicationDetail.stub(stub[:application_detail]) unless stub[:application_detail].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -234,10 +236,10 @@ module AWS::SDK::KinesisAnalytics
         data['ApplicationStatus'] = stub[:application_status] unless stub[:application_status].nil?
         data['CreateTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:create_timestamp]).to_i unless stub[:create_timestamp].nil?
         data['LastUpdateTimestamp'] = Hearth::TimeHelper.to_epoch_seconds(stub[:last_update_timestamp]).to_i unless stub[:last_update_timestamp].nil?
-        data['InputDescriptions'] = Stubs::InputDescriptions.stub(stub[:input_descriptions]) unless stub[:input_descriptions].nil?
-        data['OutputDescriptions'] = Stubs::OutputDescriptions.stub(stub[:output_descriptions]) unless stub[:output_descriptions].nil?
-        data['ReferenceDataSourceDescriptions'] = Stubs::ReferenceDataSourceDescriptions.stub(stub[:reference_data_source_descriptions]) unless stub[:reference_data_source_descriptions].nil?
-        data['CloudWatchLoggingOptionDescriptions'] = Stubs::CloudWatchLoggingOptionDescriptions.stub(stub[:cloud_watch_logging_option_descriptions]) unless stub[:cloud_watch_logging_option_descriptions].nil?
+        data['InputDescriptions'] = InputDescriptions.stub(stub[:input_descriptions]) unless stub[:input_descriptions].nil?
+        data['OutputDescriptions'] = OutputDescriptions.stub(stub[:output_descriptions]) unless stub[:output_descriptions].nil?
+        data['ReferenceDataSourceDescriptions'] = ReferenceDataSourceDescriptions.stub(stub[:reference_data_source_descriptions]) unless stub[:reference_data_source_descriptions].nil?
+        data['CloudWatchLoggingOptionDescriptions'] = CloudWatchLoggingOptionDescriptions.stub(stub[:cloud_watch_logging_option_descriptions]) unless stub[:cloud_watch_logging_option_descriptions].nil?
         data['ApplicationCode'] = stub[:application_code] unless stub[:application_code].nil?
         data['ApplicationVersionId'] = stub[:application_version_id] unless stub[:application_version_id].nil?
         data
@@ -258,7 +260,7 @@ module AWS::SDK::KinesisAnalytics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::CloudWatchLoggingOptionDescription.stub(element) unless element.nil?
+          data << CloudWatchLoggingOptionDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -300,7 +302,7 @@ module AWS::SDK::KinesisAnalytics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ReferenceDataSourceDescription.stub(element) unless element.nil?
+          data << ReferenceDataSourceDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -324,8 +326,8 @@ module AWS::SDK::KinesisAnalytics
         data = {}
         data['ReferenceId'] = stub[:reference_id] unless stub[:reference_id].nil?
         data['TableName'] = stub[:table_name] unless stub[:table_name].nil?
-        data['S3ReferenceDataSourceDescription'] = Stubs::S3ReferenceDataSourceDescription.stub(stub[:s3_reference_data_source_description]) unless stub[:s3_reference_data_source_description].nil?
-        data['ReferenceSchema'] = Stubs::SourceSchema.stub(stub[:reference_schema]) unless stub[:reference_schema].nil?
+        data['S3ReferenceDataSourceDescription'] = S3ReferenceDataSourceDescription.stub(stub[:s3_reference_data_source_description]) unless stub[:s3_reference_data_source_description].nil?
+        data['ReferenceSchema'] = SourceSchema.stub(stub[:reference_schema]) unless stub[:reference_schema].nil?
         data
       end
     end
@@ -345,9 +347,9 @@ module AWS::SDK::KinesisAnalytics
       def self.stub(stub)
         stub ||= Types::SourceSchema.new
         data = {}
-        data['RecordFormat'] = Stubs::RecordFormat.stub(stub[:record_format]) unless stub[:record_format].nil?
+        data['RecordFormat'] = RecordFormat.stub(stub[:record_format]) unless stub[:record_format].nil?
         data['RecordEncoding'] = stub[:record_encoding] unless stub[:record_encoding].nil?
-        data['RecordColumns'] = Stubs::RecordColumns.stub(stub[:record_columns]) unless stub[:record_columns].nil?
+        data['RecordColumns'] = RecordColumns.stub(stub[:record_columns]) unless stub[:record_columns].nil?
         data
       end
     end
@@ -366,7 +368,7 @@ module AWS::SDK::KinesisAnalytics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::RecordColumn.stub(element) unless element.nil?
+          data << RecordColumn.stub(element) unless element.nil?
         end
         data
       end
@@ -409,7 +411,7 @@ module AWS::SDK::KinesisAnalytics
         stub ||= Types::RecordFormat.new
         data = {}
         data['RecordFormatType'] = stub[:record_format_type] unless stub[:record_format_type].nil?
-        data['MappingParameters'] = Stubs::MappingParameters.stub(stub[:mapping_parameters]) unless stub[:mapping_parameters].nil?
+        data['MappingParameters'] = MappingParameters.stub(stub[:mapping_parameters]) unless stub[:mapping_parameters].nil?
         data
       end
     end
@@ -428,8 +430,8 @@ module AWS::SDK::KinesisAnalytics
       def self.stub(stub)
         stub ||= Types::MappingParameters.new
         data = {}
-        data['JSONMappingParameters'] = Stubs::JSONMappingParameters.stub(stub[:json_mapping_parameters]) unless stub[:json_mapping_parameters].nil?
-        data['CSVMappingParameters'] = Stubs::CSVMappingParameters.stub(stub[:csv_mapping_parameters]) unless stub[:csv_mapping_parameters].nil?
+        data['JSONMappingParameters'] = JSONMappingParameters.stub(stub[:json_mapping_parameters]) unless stub[:json_mapping_parameters].nil?
+        data['CSVMappingParameters'] = CSVMappingParameters.stub(stub[:csv_mapping_parameters]) unless stub[:csv_mapping_parameters].nil?
         data
       end
     end
@@ -508,7 +510,7 @@ module AWS::SDK::KinesisAnalytics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::OutputDescription.stub(element) unless element.nil?
+          data << OutputDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -534,10 +536,10 @@ module AWS::SDK::KinesisAnalytics
         data = {}
         data['OutputId'] = stub[:output_id] unless stub[:output_id].nil?
         data['Name'] = stub[:name] unless stub[:name].nil?
-        data['KinesisStreamsOutputDescription'] = Stubs::KinesisStreamsOutputDescription.stub(stub[:kinesis_streams_output_description]) unless stub[:kinesis_streams_output_description].nil?
-        data['KinesisFirehoseOutputDescription'] = Stubs::KinesisFirehoseOutputDescription.stub(stub[:kinesis_firehose_output_description]) unless stub[:kinesis_firehose_output_description].nil?
-        data['LambdaOutputDescription'] = Stubs::LambdaOutputDescription.stub(stub[:lambda_output_description]) unless stub[:lambda_output_description].nil?
-        data['DestinationSchema'] = Stubs::DestinationSchema.stub(stub[:destination_schema]) unless stub[:destination_schema].nil?
+        data['KinesisStreamsOutputDescription'] = KinesisStreamsOutputDescription.stub(stub[:kinesis_streams_output_description]) unless stub[:kinesis_streams_output_description].nil?
+        data['KinesisFirehoseOutputDescription'] = KinesisFirehoseOutputDescription.stub(stub[:kinesis_firehose_output_description]) unless stub[:kinesis_firehose_output_description].nil?
+        data['LambdaOutputDescription'] = LambdaOutputDescription.stub(stub[:lambda_output_description]) unless stub[:lambda_output_description].nil?
+        data['DestinationSchema'] = DestinationSchema.stub(stub[:destination_schema]) unless stub[:destination_schema].nil?
         data
       end
     end
@@ -634,7 +636,7 @@ module AWS::SDK::KinesisAnalytics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::InputDescription.stub(element) unless element.nil?
+          data << InputDescription.stub(element) unless element.nil?
         end
         data
       end
@@ -663,13 +665,13 @@ module AWS::SDK::KinesisAnalytics
         data = {}
         data['InputId'] = stub[:input_id] unless stub[:input_id].nil?
         data['NamePrefix'] = stub[:name_prefix] unless stub[:name_prefix].nil?
-        data['InAppStreamNames'] = Stubs::InAppStreamNames.stub(stub[:in_app_stream_names]) unless stub[:in_app_stream_names].nil?
-        data['InputProcessingConfigurationDescription'] = Stubs::InputProcessingConfigurationDescription.stub(stub[:input_processing_configuration_description]) unless stub[:input_processing_configuration_description].nil?
-        data['KinesisStreamsInputDescription'] = Stubs::KinesisStreamsInputDescription.stub(stub[:kinesis_streams_input_description]) unless stub[:kinesis_streams_input_description].nil?
-        data['KinesisFirehoseInputDescription'] = Stubs::KinesisFirehoseInputDescription.stub(stub[:kinesis_firehose_input_description]) unless stub[:kinesis_firehose_input_description].nil?
-        data['InputSchema'] = Stubs::SourceSchema.stub(stub[:input_schema]) unless stub[:input_schema].nil?
-        data['InputParallelism'] = Stubs::InputParallelism.stub(stub[:input_parallelism]) unless stub[:input_parallelism].nil?
-        data['InputStartingPositionConfiguration'] = Stubs::InputStartingPositionConfiguration.stub(stub[:input_starting_position_configuration]) unless stub[:input_starting_position_configuration].nil?
+        data['InAppStreamNames'] = InAppStreamNames.stub(stub[:in_app_stream_names]) unless stub[:in_app_stream_names].nil?
+        data['InputProcessingConfigurationDescription'] = InputProcessingConfigurationDescription.stub(stub[:input_processing_configuration_description]) unless stub[:input_processing_configuration_description].nil?
+        data['KinesisStreamsInputDescription'] = KinesisStreamsInputDescription.stub(stub[:kinesis_streams_input_description]) unless stub[:kinesis_streams_input_description].nil?
+        data['KinesisFirehoseInputDescription'] = KinesisFirehoseInputDescription.stub(stub[:kinesis_firehose_input_description]) unless stub[:kinesis_firehose_input_description].nil?
+        data['InputSchema'] = SourceSchema.stub(stub[:input_schema]) unless stub[:input_schema].nil?
+        data['InputParallelism'] = InputParallelism.stub(stub[:input_parallelism]) unless stub[:input_parallelism].nil?
+        data['InputStartingPositionConfiguration'] = InputStartingPositionConfiguration.stub(stub[:input_starting_position_configuration]) unless stub[:input_starting_position_configuration].nil?
         data
       end
     end
@@ -763,7 +765,7 @@ module AWS::SDK::KinesisAnalytics
       def self.stub(stub)
         stub ||= Types::InputProcessingConfigurationDescription.new
         data = {}
-        data['InputLambdaProcessorDescription'] = Stubs::InputLambdaProcessorDescription.stub(stub[:input_lambda_processor_description]) unless stub[:input_lambda_processor_description].nil?
+        data['InputLambdaProcessorDescription'] = InputLambdaProcessorDescription.stub(stub[:input_lambda_processor_description]) unless stub[:input_lambda_processor_description].nil?
         data
       end
     end
@@ -821,11 +823,11 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['InputSchema'] = Stubs::SourceSchema.stub(stub[:input_schema]) unless stub[:input_schema].nil?
-        data['ParsedInputRecords'] = Stubs::ParsedInputRecords.stub(stub[:parsed_input_records]) unless stub[:parsed_input_records].nil?
-        data['ProcessedInputRecords'] = Stubs::ProcessedInputRecords.stub(stub[:processed_input_records]) unless stub[:processed_input_records].nil?
-        data['RawInputRecords'] = Stubs::RawInputRecords.stub(stub[:raw_input_records]) unless stub[:raw_input_records].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['InputSchema'] = SourceSchema.stub(stub[:input_schema]) unless stub[:input_schema].nil?
+        data['ParsedInputRecords'] = ParsedInputRecords.stub(stub[:parsed_input_records]) unless stub[:parsed_input_records].nil?
+        data['ProcessedInputRecords'] = ProcessedInputRecords.stub(stub[:processed_input_records]) unless stub[:processed_input_records].nil?
+        data['RawInputRecords'] = RawInputRecords.stub(stub[:raw_input_records]) unless stub[:raw_input_records].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -884,7 +886,7 @@ module AWS::SDK::KinesisAnalytics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ParsedInputRecord.stub(element) unless element.nil?
+          data << ParsedInputRecord.stub(element) unless element.nil?
         end
         data
       end
@@ -921,9 +923,9 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['ApplicationSummaries'] = Stubs::ApplicationSummaries.stub(stub[:application_summaries]) unless stub[:application_summaries].nil?
+        data['ApplicationSummaries'] = ApplicationSummaries.stub(stub[:application_summaries]) unless stub[:application_summaries].nil?
         data['HasMoreApplications'] = stub[:has_more_applications] unless stub[:has_more_applications].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -942,7 +944,7 @@ module AWS::SDK::KinesisAnalytics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ApplicationSummary.stub(element) unless element.nil?
+          data << ApplicationSummary.stub(element) unless element.nil?
         end
         data
       end
@@ -958,8 +960,8 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['Tags'] = Stubs::Tags.stub(stub[:tags]) unless stub[:tags].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['Tags'] = Tags.stub(stub[:tags]) unless stub[:tags].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -978,7 +980,7 @@ module AWS::SDK::KinesisAnalytics
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::Tag.stub(element) unless element.nil?
+          data << Tag.stub(element) unless element.nil?
         end
         data
       end
@@ -1013,7 +1015,7 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1027,7 +1029,7 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1041,7 +1043,7 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1055,7 +1057,7 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -1069,7 +1071,7 @@ module AWS::SDK::KinesisAnalytics
 
       def self.stub(http_resp, stub:)
         data = {}
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end

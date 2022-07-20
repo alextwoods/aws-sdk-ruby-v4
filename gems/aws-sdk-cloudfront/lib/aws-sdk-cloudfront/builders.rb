@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::CloudFront
   module Builders
 
@@ -37,7 +40,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CachePolicyConfig.build('CachePolicyConfig', input[:cache_policy_config]) unless input[:cache_policy_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -50,7 +53,7 @@ module AWS::SDK::CloudFront
         xml << Hearth::XML::Node.new('DefaultTTL', input[:default_ttl].to_s) unless input[:default_ttl].nil?
         xml << Hearth::XML::Node.new('MaxTTL', input[:max_ttl].to_s) unless input[:max_ttl].nil?
         xml << Hearth::XML::Node.new('MinTTL', input[:min_ttl].to_s) unless input[:min_ttl].nil?
-        xml << Builders::ParametersInCacheKeyAndForwardedToOrigin.build('ParametersInCacheKeyAndForwardedToOrigin', input[:parameters_in_cache_key_and_forwarded_to_origin]) unless input[:parameters_in_cache_key_and_forwarded_to_origin].nil?
+        xml << ParametersInCacheKeyAndForwardedToOrigin.build('ParametersInCacheKeyAndForwardedToOrigin', input[:parameters_in_cache_key_and_forwarded_to_origin]) unless input[:parameters_in_cache_key_and_forwarded_to_origin].nil?
         xml
       end
     end
@@ -61,9 +64,9 @@ module AWS::SDK::CloudFront
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('EnableAcceptEncodingGzip', input[:enable_accept_encoding_gzip].to_s) unless input[:enable_accept_encoding_gzip].nil?
         xml << Hearth::XML::Node.new('EnableAcceptEncodingBrotli', input[:enable_accept_encoding_brotli].to_s) unless input[:enable_accept_encoding_brotli].nil?
-        xml << Builders::CachePolicyHeadersConfig.build('HeadersConfig', input[:headers_config]) unless input[:headers_config].nil?
-        xml << Builders::CachePolicyCookiesConfig.build('CookiesConfig', input[:cookies_config]) unless input[:cookies_config].nil?
-        xml << Builders::CachePolicyQueryStringsConfig.build('QueryStringsConfig', input[:query_strings_config]) unless input[:query_strings_config].nil?
+        xml << CachePolicyHeadersConfig.build('HeadersConfig', input[:headers_config]) unless input[:headers_config].nil?
+        xml << CachePolicyCookiesConfig.build('CookiesConfig', input[:cookies_config]) unless input[:cookies_config].nil?
+        xml << CachePolicyQueryStringsConfig.build('QueryStringsConfig', input[:query_strings_config]) unless input[:query_strings_config].nil?
         xml
       end
     end
@@ -73,7 +76,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('QueryStringBehavior', input[:query_string_behavior].to_s) unless input[:query_string_behavior].nil?
-        xml << Builders::QueryStringNames.build('QueryStrings', input[:query_strings]) unless input[:query_strings].nil?
+        xml << QueryStringNames.build('QueryStrings', input[:query_strings]) unless input[:query_strings].nil?
         xml
       end
     end
@@ -83,7 +86,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::QueryStringNamesList.build('Name', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', QueryStringNamesList.build('Name', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -104,7 +107,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('CookieBehavior', input[:cookie_behavior].to_s) unless input[:cookie_behavior].nil?
-        xml << Builders::CookieNames.build('Cookies', input[:cookies]) unless input[:cookies].nil?
+        xml << CookieNames.build('Cookies', input[:cookies]) unless input[:cookies].nil?
         xml
       end
     end
@@ -114,7 +117,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::CookieNameList.build('Name', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', CookieNameList.build('Name', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -135,7 +138,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('HeaderBehavior', input[:header_behavior].to_s) unless input[:header_behavior].nil?
-        xml << Builders::Headers.build('Headers', input[:headers]) unless input[:headers].nil?
+        xml << Headers.build('Headers', input[:headers]) unless input[:headers].nil?
         xml
       end
     end
@@ -145,7 +148,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::HeaderList.build('Name', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', HeaderList.build('Name', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -170,7 +173,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CloudFrontOriginAccessIdentityConfig.build('CloudFrontOriginAccessIdentityConfig', input[:cloud_front_origin_access_identity_config]) unless input[:cloud_front_origin_access_identity_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -193,7 +196,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::DistributionConfig.build('DistributionConfig', input[:distribution_config]) unless input[:distribution_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -202,19 +205,19 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
-        xml << Builders::Aliases.build('Aliases', input[:aliases]) unless input[:aliases].nil?
+        xml << Aliases.build('Aliases', input[:aliases]) unless input[:aliases].nil?
         xml << Hearth::XML::Node.new('DefaultRootObject', input[:default_root_object].to_s) unless input[:default_root_object].nil?
-        xml << Builders::Origins.build('Origins', input[:origins]) unless input[:origins].nil?
-        xml << Builders::OriginGroups.build('OriginGroups', input[:origin_groups]) unless input[:origin_groups].nil?
-        xml << Builders::DefaultCacheBehavior.build('DefaultCacheBehavior', input[:default_cache_behavior]) unless input[:default_cache_behavior].nil?
-        xml << Builders::CacheBehaviors.build('CacheBehaviors', input[:cache_behaviors]) unless input[:cache_behaviors].nil?
-        xml << Builders::CustomErrorResponses.build('CustomErrorResponses', input[:custom_error_responses]) unless input[:custom_error_responses].nil?
+        xml << Origins.build('Origins', input[:origins]) unless input[:origins].nil?
+        xml << OriginGroups.build('OriginGroups', input[:origin_groups]) unless input[:origin_groups].nil?
+        xml << DefaultCacheBehavior.build('DefaultCacheBehavior', input[:default_cache_behavior]) unless input[:default_cache_behavior].nil?
+        xml << CacheBehaviors.build('CacheBehaviors', input[:cache_behaviors]) unless input[:cache_behaviors].nil?
+        xml << CustomErrorResponses.build('CustomErrorResponses', input[:custom_error_responses]) unless input[:custom_error_responses].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
-        xml << Builders::LoggingConfig.build('Logging', input[:logging]) unless input[:logging].nil?
+        xml << LoggingConfig.build('Logging', input[:logging]) unless input[:logging].nil?
         xml << Hearth::XML::Node.new('PriceClass', input[:price_class].to_s) unless input[:price_class].nil?
         xml << Hearth::XML::Node.new('Enabled', input[:enabled].to_s) unless input[:enabled].nil?
-        xml << Builders::ViewerCertificate.build('ViewerCertificate', input[:viewer_certificate]) unless input[:viewer_certificate].nil?
-        xml << Builders::Restrictions.build('Restrictions', input[:restrictions]) unless input[:restrictions].nil?
+        xml << ViewerCertificate.build('ViewerCertificate', input[:viewer_certificate]) unless input[:viewer_certificate].nil?
+        xml << Restrictions.build('Restrictions', input[:restrictions]) unless input[:restrictions].nil?
         xml << Hearth::XML::Node.new('WebACLId', input[:web_acl_id].to_s) unless input[:web_acl_id].nil?
         xml << Hearth::XML::Node.new('HttpVersion', input[:http_version].to_s) unless input[:http_version].nil?
         xml << Hearth::XML::Node.new('IsIPV6Enabled', input[:is_ipv6_enabled].to_s) unless input[:is_ipv6_enabled].nil?
@@ -226,7 +229,7 @@ module AWS::SDK::CloudFront
     class Restrictions
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::GeoRestriction.build('GeoRestriction', input[:geo_restriction]) unless input[:geo_restriction].nil?
+        xml << GeoRestriction.build('GeoRestriction', input[:geo_restriction]) unless input[:geo_restriction].nil?
         xml
       end
     end
@@ -237,7 +240,7 @@ module AWS::SDK::CloudFront
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('RestrictionType', input[:restriction_type].to_s) unless input[:restriction_type].nil?
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::LocationList.build('Location', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', LocationList.build('Location', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -285,7 +288,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::CustomErrorResponseList.build('CustomErrorResponse', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', CustomErrorResponseList.build('CustomErrorResponse', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -295,7 +298,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::CustomErrorResponse.build(node_name, element) unless element.nil?
+          xml << CustomErrorResponse.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -318,7 +321,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::CacheBehaviorList.build('CacheBehavior', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', CacheBehaviorList.build('CacheBehavior', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -328,7 +331,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::CacheBehavior.build(node_name, element) unless element.nil?
+          xml << CacheBehavior.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -340,20 +343,20 @@ module AWS::SDK::CloudFront
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('PathPattern', input[:path_pattern].to_s) unless input[:path_pattern].nil?
         xml << Hearth::XML::Node.new('TargetOriginId', input[:target_origin_id].to_s) unless input[:target_origin_id].nil?
-        xml << Builders::TrustedSigners.build('TrustedSigners', input[:trusted_signers]) unless input[:trusted_signers].nil?
-        xml << Builders::TrustedKeyGroups.build('TrustedKeyGroups', input[:trusted_key_groups]) unless input[:trusted_key_groups].nil?
+        xml << TrustedSigners.build('TrustedSigners', input[:trusted_signers]) unless input[:trusted_signers].nil?
+        xml << TrustedKeyGroups.build('TrustedKeyGroups', input[:trusted_key_groups]) unless input[:trusted_key_groups].nil?
         xml << Hearth::XML::Node.new('ViewerProtocolPolicy', input[:viewer_protocol_policy].to_s) unless input[:viewer_protocol_policy].nil?
-        xml << Builders::AllowedMethods.build('AllowedMethods', input[:allowed_methods]) unless input[:allowed_methods].nil?
+        xml << AllowedMethods.build('AllowedMethods', input[:allowed_methods]) unless input[:allowed_methods].nil?
         xml << Hearth::XML::Node.new('SmoothStreaming', input[:smooth_streaming].to_s) unless input[:smooth_streaming].nil?
         xml << Hearth::XML::Node.new('Compress', input[:compress].to_s) unless input[:compress].nil?
-        xml << Builders::LambdaFunctionAssociations.build('LambdaFunctionAssociations', input[:lambda_function_associations]) unless input[:lambda_function_associations].nil?
-        xml << Builders::FunctionAssociations.build('FunctionAssociations', input[:function_associations]) unless input[:function_associations].nil?
+        xml << LambdaFunctionAssociations.build('LambdaFunctionAssociations', input[:lambda_function_associations]) unless input[:lambda_function_associations].nil?
+        xml << FunctionAssociations.build('FunctionAssociations', input[:function_associations]) unless input[:function_associations].nil?
         xml << Hearth::XML::Node.new('FieldLevelEncryptionId', input[:field_level_encryption_id].to_s) unless input[:field_level_encryption_id].nil?
         xml << Hearth::XML::Node.new('RealtimeLogConfigArn', input[:realtime_log_config_arn].to_s) unless input[:realtime_log_config_arn].nil?
         xml << Hearth::XML::Node.new('CachePolicyId', input[:cache_policy_id].to_s) unless input[:cache_policy_id].nil?
         xml << Hearth::XML::Node.new('OriginRequestPolicyId', input[:origin_request_policy_id].to_s) unless input[:origin_request_policy_id].nil?
         xml << Hearth::XML::Node.new('ResponseHeadersPolicyId', input[:response_headers_policy_id].to_s) unless input[:response_headers_policy_id].nil?
-        xml << Builders::ForwardedValues.build('ForwardedValues', input[:forwarded_values]) unless input[:forwarded_values].nil?
+        xml << ForwardedValues.build('ForwardedValues', input[:forwarded_values]) unless input[:forwarded_values].nil?
         xml << Hearth::XML::Node.new('MinTTL', input[:min_ttl].to_s) unless input[:min_ttl].nil?
         xml << Hearth::XML::Node.new('DefaultTTL', input[:default_ttl].to_s) unless input[:default_ttl].nil?
         xml << Hearth::XML::Node.new('MaxTTL', input[:max_ttl].to_s) unless input[:max_ttl].nil?
@@ -366,9 +369,9 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('QueryString', input[:query_string].to_s) unless input[:query_string].nil?
-        xml << Builders::CookiePreference.build('Cookies', input[:cookies]) unless input[:cookies].nil?
-        xml << Builders::Headers.build('Headers', input[:headers]) unless input[:headers].nil?
-        xml << Builders::QueryStringCacheKeys.build('QueryStringCacheKeys', input[:query_string_cache_keys]) unless input[:query_string_cache_keys].nil?
+        xml << CookiePreference.build('Cookies', input[:cookies]) unless input[:cookies].nil?
+        xml << Headers.build('Headers', input[:headers]) unless input[:headers].nil?
+        xml << QueryStringCacheKeys.build('QueryStringCacheKeys', input[:query_string_cache_keys]) unless input[:query_string_cache_keys].nil?
         xml
       end
     end
@@ -378,7 +381,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::QueryStringCacheKeysList.build('Name', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', QueryStringCacheKeysList.build('Name', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -399,7 +402,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Forward', input[:forward].to_s) unless input[:forward].nil?
-        xml << Builders::CookieNames.build('WhitelistedNames', input[:whitelisted_names]) unless input[:whitelisted_names].nil?
+        xml << CookieNames.build('WhitelistedNames', input[:whitelisted_names]) unless input[:whitelisted_names].nil?
         xml
       end
     end
@@ -409,7 +412,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::FunctionAssociationList.build('FunctionAssociation', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', FunctionAssociationList.build('FunctionAssociation', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -419,7 +422,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::FunctionAssociation.build(node_name, element) unless element.nil?
+          xml << FunctionAssociation.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -440,7 +443,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::LambdaFunctionAssociationList.build('LambdaFunctionAssociation', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', LambdaFunctionAssociationList.build('LambdaFunctionAssociation', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -450,7 +453,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::LambdaFunctionAssociation.build(node_name, element) unless element.nil?
+          xml << LambdaFunctionAssociation.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -472,8 +475,8 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::MethodsList.build('Method', input[:items])) unless input[:items].nil?
-        xml << Builders::CachedMethods.build('CachedMethods', input[:cached_methods]) unless input[:cached_methods].nil?
+        xml << Hearth::XML::Node.new('Items', MethodsList.build('Method', input[:items])) unless input[:items].nil?
+        xml << CachedMethods.build('CachedMethods', input[:cached_methods]) unless input[:cached_methods].nil?
         xml
       end
     end
@@ -483,7 +486,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::MethodsList.build('Method', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', MethodsList.build('Method', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -505,7 +508,7 @@ module AWS::SDK::CloudFront
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Enabled', input[:enabled].to_s) unless input[:enabled].nil?
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::TrustedKeyGroupIdList.build('KeyGroup', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', TrustedKeyGroupIdList.build('KeyGroup', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -527,7 +530,7 @@ module AWS::SDK::CloudFront
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Enabled', input[:enabled].to_s) unless input[:enabled].nil?
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::AwsAccountNumberList.build('AwsAccountNumber', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', AwsAccountNumberList.build('AwsAccountNumber', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -548,20 +551,20 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('TargetOriginId', input[:target_origin_id].to_s) unless input[:target_origin_id].nil?
-        xml << Builders::TrustedSigners.build('TrustedSigners', input[:trusted_signers]) unless input[:trusted_signers].nil?
-        xml << Builders::TrustedKeyGroups.build('TrustedKeyGroups', input[:trusted_key_groups]) unless input[:trusted_key_groups].nil?
+        xml << TrustedSigners.build('TrustedSigners', input[:trusted_signers]) unless input[:trusted_signers].nil?
+        xml << TrustedKeyGroups.build('TrustedKeyGroups', input[:trusted_key_groups]) unless input[:trusted_key_groups].nil?
         xml << Hearth::XML::Node.new('ViewerProtocolPolicy', input[:viewer_protocol_policy].to_s) unless input[:viewer_protocol_policy].nil?
-        xml << Builders::AllowedMethods.build('AllowedMethods', input[:allowed_methods]) unless input[:allowed_methods].nil?
+        xml << AllowedMethods.build('AllowedMethods', input[:allowed_methods]) unless input[:allowed_methods].nil?
         xml << Hearth::XML::Node.new('SmoothStreaming', input[:smooth_streaming].to_s) unless input[:smooth_streaming].nil?
         xml << Hearth::XML::Node.new('Compress', input[:compress].to_s) unless input[:compress].nil?
-        xml << Builders::LambdaFunctionAssociations.build('LambdaFunctionAssociations', input[:lambda_function_associations]) unless input[:lambda_function_associations].nil?
-        xml << Builders::FunctionAssociations.build('FunctionAssociations', input[:function_associations]) unless input[:function_associations].nil?
+        xml << LambdaFunctionAssociations.build('LambdaFunctionAssociations', input[:lambda_function_associations]) unless input[:lambda_function_associations].nil?
+        xml << FunctionAssociations.build('FunctionAssociations', input[:function_associations]) unless input[:function_associations].nil?
         xml << Hearth::XML::Node.new('FieldLevelEncryptionId', input[:field_level_encryption_id].to_s) unless input[:field_level_encryption_id].nil?
         xml << Hearth::XML::Node.new('RealtimeLogConfigArn', input[:realtime_log_config_arn].to_s) unless input[:realtime_log_config_arn].nil?
         xml << Hearth::XML::Node.new('CachePolicyId', input[:cache_policy_id].to_s) unless input[:cache_policy_id].nil?
         xml << Hearth::XML::Node.new('OriginRequestPolicyId', input[:origin_request_policy_id].to_s) unless input[:origin_request_policy_id].nil?
         xml << Hearth::XML::Node.new('ResponseHeadersPolicyId', input[:response_headers_policy_id].to_s) unless input[:response_headers_policy_id].nil?
-        xml << Builders::ForwardedValues.build('ForwardedValues', input[:forwarded_values]) unless input[:forwarded_values].nil?
+        xml << ForwardedValues.build('ForwardedValues', input[:forwarded_values]) unless input[:forwarded_values].nil?
         xml << Hearth::XML::Node.new('MinTTL', input[:min_ttl].to_s) unless input[:min_ttl].nil?
         xml << Hearth::XML::Node.new('DefaultTTL', input[:default_ttl].to_s) unless input[:default_ttl].nil?
         xml << Hearth::XML::Node.new('MaxTTL', input[:max_ttl].to_s) unless input[:max_ttl].nil?
@@ -574,7 +577,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::OriginGroupList.build('OriginGroup', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', OriginGroupList.build('OriginGroup', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -584,7 +587,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::OriginGroup.build(node_name, element) unless element.nil?
+          xml << OriginGroup.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -595,8 +598,8 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Id', input[:id].to_s) unless input[:id].nil?
-        xml << Builders::OriginGroupFailoverCriteria.build('FailoverCriteria', input[:failover_criteria]) unless input[:failover_criteria].nil?
-        xml << Builders::OriginGroupMembers.build('Members', input[:members]) unless input[:members].nil?
+        xml << OriginGroupFailoverCriteria.build('FailoverCriteria', input[:failover_criteria]) unless input[:failover_criteria].nil?
+        xml << OriginGroupMembers.build('Members', input[:members]) unless input[:members].nil?
         xml
       end
     end
@@ -606,7 +609,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::OriginGroupMemberList.build('OriginGroupMember', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', OriginGroupMemberList.build('OriginGroupMember', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -616,7 +619,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::OriginGroupMember.build(node_name, element) unless element.nil?
+          xml << OriginGroupMember.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -635,7 +638,7 @@ module AWS::SDK::CloudFront
     class OriginGroupFailoverCriteria
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::StatusCodes.build('StatusCodes', input[:status_codes]) unless input[:status_codes].nil?
+        xml << StatusCodes.build('StatusCodes', input[:status_codes]) unless input[:status_codes].nil?
         xml
       end
     end
@@ -645,7 +648,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::StatusCodeList.build('StatusCode', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', StatusCodeList.build('StatusCode', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -666,7 +669,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::OriginList.build('Origin', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', OriginList.build('Origin', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -676,7 +679,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::Origin.build(node_name, element) unless element.nil?
+          xml << Origin.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -689,12 +692,12 @@ module AWS::SDK::CloudFront
         xml << Hearth::XML::Node.new('Id', input[:id].to_s) unless input[:id].nil?
         xml << Hearth::XML::Node.new('DomainName', input[:domain_name].to_s) unless input[:domain_name].nil?
         xml << Hearth::XML::Node.new('OriginPath', input[:origin_path].to_s) unless input[:origin_path].nil?
-        xml << Builders::CustomHeaders.build('CustomHeaders', input[:custom_headers]) unless input[:custom_headers].nil?
-        xml << Builders::S3OriginConfig.build('S3OriginConfig', input[:s3_origin_config]) unless input[:s3_origin_config].nil?
-        xml << Builders::CustomOriginConfig.build('CustomOriginConfig', input[:custom_origin_config]) unless input[:custom_origin_config].nil?
+        xml << CustomHeaders.build('CustomHeaders', input[:custom_headers]) unless input[:custom_headers].nil?
+        xml << S3OriginConfig.build('S3OriginConfig', input[:s3_origin_config]) unless input[:s3_origin_config].nil?
+        xml << CustomOriginConfig.build('CustomOriginConfig', input[:custom_origin_config]) unless input[:custom_origin_config].nil?
         xml << Hearth::XML::Node.new('ConnectionAttempts', input[:connection_attempts].to_s) unless input[:connection_attempts].nil?
         xml << Hearth::XML::Node.new('ConnectionTimeout', input[:connection_timeout].to_s) unless input[:connection_timeout].nil?
-        xml << Builders::OriginShield.build('OriginShield', input[:origin_shield]) unless input[:origin_shield].nil?
+        xml << OriginShield.build('OriginShield', input[:origin_shield]) unless input[:origin_shield].nil?
         xml
       end
     end
@@ -716,7 +719,7 @@ module AWS::SDK::CloudFront
         xml << Hearth::XML::Node.new('HTTPPort', input[:http_port].to_s) unless input[:http_port].nil?
         xml << Hearth::XML::Node.new('HTTPSPort', input[:https_port].to_s) unless input[:https_port].nil?
         xml << Hearth::XML::Node.new('OriginProtocolPolicy', input[:origin_protocol_policy].to_s) unless input[:origin_protocol_policy].nil?
-        xml << Builders::OriginSslProtocols.build('OriginSslProtocols', input[:origin_ssl_protocols]) unless input[:origin_ssl_protocols].nil?
+        xml << OriginSslProtocols.build('OriginSslProtocols', input[:origin_ssl_protocols]) unless input[:origin_ssl_protocols].nil?
         xml << Hearth::XML::Node.new('OriginReadTimeout', input[:origin_read_timeout].to_s) unless input[:origin_read_timeout].nil?
         xml << Hearth::XML::Node.new('OriginKeepaliveTimeout', input[:origin_keepalive_timeout].to_s) unless input[:origin_keepalive_timeout].nil?
         xml
@@ -728,7 +731,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::SslProtocolsList.build('SslProtocol', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', SslProtocolsList.build('SslProtocol', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -758,7 +761,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::OriginCustomHeadersList.build('OriginCustomHeader', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', OriginCustomHeadersList.build('OriginCustomHeader', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -768,7 +771,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::OriginCustomHeader.build(node_name, element) unless element.nil?
+          xml << OriginCustomHeader.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -789,7 +792,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::AliasList.build('CNAME', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', AliasList.build('CNAME', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -817,7 +820,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::DistributionConfigWithTags.build('DistributionConfigWithTags', input[:distribution_config_with_tags]) unless input[:distribution_config_with_tags].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -825,8 +828,8 @@ module AWS::SDK::CloudFront
     class DistributionConfigWithTags
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::DistributionConfig.build('DistributionConfig', input[:distribution_config]) unless input[:distribution_config].nil?
-        xml << Builders::Tags.build('Tags', input[:tags]) unless input[:tags].nil?
+        xml << DistributionConfig.build('DistributionConfig', input[:distribution_config]) unless input[:distribution_config].nil?
+        xml << Tags.build('Tags', input[:tags]) unless input[:tags].nil?
         xml
       end
     end
@@ -835,7 +838,7 @@ module AWS::SDK::CloudFront
     class Tags
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Items', Builders::TagList.build('Tag', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', TagList.build('Tag', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -845,7 +848,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::Tag.build(node_name, element) unless element.nil?
+          xml << Tag.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -870,7 +873,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionConfig.build('FieldLevelEncryptionConfig', input[:field_level_encryption_config]) unless input[:field_level_encryption_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -880,8 +883,8 @@ module AWS::SDK::CloudFront
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
-        xml << Builders::QueryArgProfileConfig.build('QueryArgProfileConfig', input[:query_arg_profile_config]) unless input[:query_arg_profile_config].nil?
-        xml << Builders::ContentTypeProfileConfig.build('ContentTypeProfileConfig', input[:content_type_profile_config]) unless input[:content_type_profile_config].nil?
+        xml << QueryArgProfileConfig.build('QueryArgProfileConfig', input[:query_arg_profile_config]) unless input[:query_arg_profile_config].nil?
+        xml << ContentTypeProfileConfig.build('ContentTypeProfileConfig', input[:content_type_profile_config]) unless input[:content_type_profile_config].nil?
         xml
       end
     end
@@ -891,7 +894,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ForwardWhenContentTypeIsUnknown', input[:forward_when_content_type_is_unknown].to_s) unless input[:forward_when_content_type_is_unknown].nil?
-        xml << Builders::ContentTypeProfiles.build('ContentTypeProfiles', input[:content_type_profiles]) unless input[:content_type_profiles].nil?
+        xml << ContentTypeProfiles.build('ContentTypeProfiles', input[:content_type_profiles]) unless input[:content_type_profiles].nil?
         xml
       end
     end
@@ -901,7 +904,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::ContentTypeProfileList.build('ContentTypeProfile', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', ContentTypeProfileList.build('ContentTypeProfile', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -911,7 +914,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::ContentTypeProfile.build(node_name, element) unless element.nil?
+          xml << ContentTypeProfile.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -933,7 +936,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('ForwardWhenQueryArgProfileIsUnknown', input[:forward_when_query_arg_profile_is_unknown].to_s) unless input[:forward_when_query_arg_profile_is_unknown].nil?
-        xml << Builders::QueryArgProfiles.build('QueryArgProfiles', input[:query_arg_profiles]) unless input[:query_arg_profiles].nil?
+        xml << QueryArgProfiles.build('QueryArgProfiles', input[:query_arg_profiles]) unless input[:query_arg_profiles].nil?
         xml
       end
     end
@@ -943,7 +946,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::QueryArgProfileList.build('QueryArgProfile', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', QueryArgProfileList.build('QueryArgProfile', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -953,7 +956,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::QueryArgProfile.build(node_name, element) unless element.nil?
+          xml << QueryArgProfile.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -978,7 +981,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionProfileConfig.build('FieldLevelEncryptionProfileConfig', input[:field_level_encryption_profile_config]) unless input[:field_level_encryption_profile_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -989,7 +992,7 @@ module AWS::SDK::CloudFront
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
-        xml << Builders::EncryptionEntities.build('EncryptionEntities', input[:encryption_entities]) unless input[:encryption_entities].nil?
+        xml << EncryptionEntities.build('EncryptionEntities', input[:encryption_entities]) unless input[:encryption_entities].nil?
         xml
       end
     end
@@ -999,7 +1002,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::EncryptionEntityList.build('EncryptionEntity', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', EncryptionEntityList.build('EncryptionEntity', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -1009,7 +1012,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::EncryptionEntity.build(node_name, element) unless element.nil?
+          xml << EncryptionEntity.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1021,7 +1024,7 @@ module AWS::SDK::CloudFront
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('PublicKeyId', input[:public_key_id].to_s) unless input[:public_key_id].nil?
         xml << Hearth::XML::Node.new('ProviderId', input[:provider_id].to_s) unless input[:provider_id].nil?
-        xml << Builders::FieldPatterns.build('FieldPatterns', input[:field_patterns]) unless input[:field_patterns].nil?
+        xml << FieldPatterns.build('FieldPatterns', input[:field_patterns]) unless input[:field_patterns].nil?
         xml
       end
     end
@@ -1031,7 +1034,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::FieldPatternList.build('FieldPattern', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', FieldPatternList.build('FieldPattern', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -1059,9 +1062,9 @@ module AWS::SDK::CloudFront
         xml = Hearth::XML::Node.new('CreateFunctionRequest')
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
-        xml << Builders::FunctionConfig.build('FunctionConfig', input[:function_config]) unless input[:function_config].nil?
-        xml << Hearth::XML::Node.new('FunctionCode', Base64::encode64(input[:function_code]).strip) unless input[:function_code].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << FunctionConfig.build('FunctionConfig', input[:function_config]) unless input[:function_config].nil?
+        xml << Hearth::XML::Node.new('FunctionCode', ::Base64::encode64(input[:function_code]).strip) unless input[:function_code].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1091,7 +1094,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::InvalidationBatch.build('InvalidationBatch', input[:invalidation_batch]) unless input[:invalidation_batch].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1099,7 +1102,7 @@ module AWS::SDK::CloudFront
     class InvalidationBatch
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::Paths.build('Paths', input[:paths]) unless input[:paths].nil?
+        xml << Paths.build('Paths', input[:paths]) unless input[:paths].nil?
         xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
         xml
       end
@@ -1110,7 +1113,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::PathList.build('Path', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', PathList.build('Path', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -1135,7 +1138,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::KeyGroupConfig.build('KeyGroupConfig', input[:key_group_config]) unless input[:key_group_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1144,7 +1147,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::PublicKeyIdList.build('PublicKey', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', PublicKeyIdList.build('PublicKey', input[:items])) unless input[:items].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
         xml
       end
@@ -1177,7 +1180,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::MonitoringSubscription.build('MonitoringSubscription', input[:monitoring_subscription]) unless input[:monitoring_subscription].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1185,7 +1188,7 @@ module AWS::SDK::CloudFront
     class MonitoringSubscription
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::RealtimeMetricsSubscriptionConfig.build('RealtimeMetricsSubscriptionConfig', input[:realtime_metrics_subscription_config]) unless input[:realtime_metrics_subscription_config].nil?
+        xml << RealtimeMetricsSubscriptionConfig.build('RealtimeMetricsSubscriptionConfig', input[:realtime_metrics_subscription_config]) unless input[:realtime_metrics_subscription_config].nil?
         xml
       end
     end
@@ -1208,7 +1211,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::OriginRequestPolicyConfig.build('OriginRequestPolicyConfig', input[:origin_request_policy_config]) unless input[:origin_request_policy_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1218,9 +1221,9 @@ module AWS::SDK::CloudFront
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
-        xml << Builders::OriginRequestPolicyHeadersConfig.build('HeadersConfig', input[:headers_config]) unless input[:headers_config].nil?
-        xml << Builders::OriginRequestPolicyCookiesConfig.build('CookiesConfig', input[:cookies_config]) unless input[:cookies_config].nil?
-        xml << Builders::OriginRequestPolicyQueryStringsConfig.build('QueryStringsConfig', input[:query_strings_config]) unless input[:query_strings_config].nil?
+        xml << OriginRequestPolicyHeadersConfig.build('HeadersConfig', input[:headers_config]) unless input[:headers_config].nil?
+        xml << OriginRequestPolicyCookiesConfig.build('CookiesConfig', input[:cookies_config]) unless input[:cookies_config].nil?
+        xml << OriginRequestPolicyQueryStringsConfig.build('QueryStringsConfig', input[:query_strings_config]) unless input[:query_strings_config].nil?
         xml
       end
     end
@@ -1230,7 +1233,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('QueryStringBehavior', input[:query_string_behavior].to_s) unless input[:query_string_behavior].nil?
-        xml << Builders::QueryStringNames.build('QueryStrings', input[:query_strings]) unless input[:query_strings].nil?
+        xml << QueryStringNames.build('QueryStrings', input[:query_strings]) unless input[:query_strings].nil?
         xml
       end
     end
@@ -1240,7 +1243,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('CookieBehavior', input[:cookie_behavior].to_s) unless input[:cookie_behavior].nil?
-        xml << Builders::CookieNames.build('Cookies', input[:cookies]) unless input[:cookies].nil?
+        xml << CookieNames.build('Cookies', input[:cookies]) unless input[:cookies].nil?
         xml
       end
     end
@@ -1250,7 +1253,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('HeaderBehavior', input[:header_behavior].to_s) unless input[:header_behavior].nil?
-        xml << Builders::Headers.build('Headers', input[:headers]) unless input[:headers].nil?
+        xml << Headers.build('Headers', input[:headers]) unless input[:headers].nil?
         xml
       end
     end
@@ -1264,7 +1267,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::PublicKeyConfig.build('PublicKeyConfig', input[:public_key_config]) unless input[:public_key_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1291,11 +1294,11 @@ module AWS::SDK::CloudFront
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('CreateRealtimeLogConfigRequest')
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml << Hearth::XML::Node.new('EndPoints', Builders::EndPointList.build('member', input[:end_points])) unless input[:end_points].nil?
-        xml << Hearth::XML::Node.new('Fields', Builders::FieldList.build('Field', input[:fields])) unless input[:fields].nil?
+        xml << Hearth::XML::Node.new('EndPoints', EndPointList.build('member', input[:end_points])) unless input[:end_points].nil?
+        xml << Hearth::XML::Node.new('Fields', FieldList.build('Field', input[:fields])) unless input[:fields].nil?
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('SamplingRate', input[:sampling_rate].to_s) unless input[:sampling_rate].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1315,7 +1318,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::EndPoint.build(node_name, element) unless element.nil?
+          xml << EndPoint.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1326,7 +1329,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('StreamType', input[:stream_type].to_s) unless input[:stream_type].nil?
-        xml << Builders::KinesisStreamConfig.build('KinesisStreamConfig', input[:kinesis_stream_config]) unless input[:kinesis_stream_config].nil?
+        xml << KinesisStreamConfig.build('KinesisStreamConfig', input[:kinesis_stream_config]) unless input[:kinesis_stream_config].nil?
         xml
       end
     end
@@ -1350,7 +1353,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ResponseHeadersPolicyConfig.build('ResponseHeadersPolicyConfig', input[:response_headers_policy_config]) unless input[:response_headers_policy_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1360,10 +1363,10 @@ module AWS::SDK::CloudFront
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
-        xml << Builders::ResponseHeadersPolicyCorsConfig.build('CorsConfig', input[:cors_config]) unless input[:cors_config].nil?
-        xml << Builders::ResponseHeadersPolicySecurityHeadersConfig.build('SecurityHeadersConfig', input[:security_headers_config]) unless input[:security_headers_config].nil?
-        xml << Builders::ResponseHeadersPolicyCustomHeadersConfig.build('CustomHeadersConfig', input[:custom_headers_config]) unless input[:custom_headers_config].nil?
-        xml << Builders::ResponseHeadersPolicyServerTimingHeadersConfig.build('ServerTimingHeadersConfig', input[:server_timing_headers_config]) unless input[:server_timing_headers_config].nil?
+        xml << ResponseHeadersPolicyCorsConfig.build('CorsConfig', input[:cors_config]) unless input[:cors_config].nil?
+        xml << ResponseHeadersPolicySecurityHeadersConfig.build('SecurityHeadersConfig', input[:security_headers_config]) unless input[:security_headers_config].nil?
+        xml << ResponseHeadersPolicyCustomHeadersConfig.build('CustomHeadersConfig', input[:custom_headers_config]) unless input[:custom_headers_config].nil?
+        xml << ResponseHeadersPolicyServerTimingHeadersConfig.build('ServerTimingHeadersConfig', input[:server_timing_headers_config]) unless input[:server_timing_headers_config].nil?
         xml
       end
     end
@@ -1383,7 +1386,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::ResponseHeadersPolicyCustomHeaderList.build('ResponseHeadersPolicyCustomHeader', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', ResponseHeadersPolicyCustomHeaderList.build('ResponseHeadersPolicyCustomHeader', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -1393,7 +1396,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = []
         input.each do |element|
-          xml << Builders::ResponseHeadersPolicyCustomHeader.build(node_name, element) unless element.nil?
+          xml << ResponseHeadersPolicyCustomHeader.build(node_name, element) unless element.nil?
         end
         xml
       end
@@ -1414,12 +1417,12 @@ module AWS::SDK::CloudFront
     class ResponseHeadersPolicySecurityHeadersConfig
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::ResponseHeadersPolicyXSSProtection.build('XSSProtection', input[:xss_protection]) unless input[:xss_protection].nil?
-        xml << Builders::ResponseHeadersPolicyFrameOptions.build('FrameOptions', input[:frame_options]) unless input[:frame_options].nil?
-        xml << Builders::ResponseHeadersPolicyReferrerPolicy.build('ReferrerPolicy', input[:referrer_policy]) unless input[:referrer_policy].nil?
-        xml << Builders::ResponseHeadersPolicyContentSecurityPolicy.build('ContentSecurityPolicy', input[:content_security_policy]) unless input[:content_security_policy].nil?
-        xml << Builders::ResponseHeadersPolicyContentTypeOptions.build('ContentTypeOptions', input[:content_type_options]) unless input[:content_type_options].nil?
-        xml << Builders::ResponseHeadersPolicyStrictTransportSecurity.build('StrictTransportSecurity', input[:strict_transport_security]) unless input[:strict_transport_security].nil?
+        xml << ResponseHeadersPolicyXSSProtection.build('XSSProtection', input[:xss_protection]) unless input[:xss_protection].nil?
+        xml << ResponseHeadersPolicyFrameOptions.build('FrameOptions', input[:frame_options]) unless input[:frame_options].nil?
+        xml << ResponseHeadersPolicyReferrerPolicy.build('ReferrerPolicy', input[:referrer_policy]) unless input[:referrer_policy].nil?
+        xml << ResponseHeadersPolicyContentSecurityPolicy.build('ContentSecurityPolicy', input[:content_security_policy]) unless input[:content_security_policy].nil?
+        xml << ResponseHeadersPolicyContentTypeOptions.build('ContentTypeOptions', input[:content_type_options]) unless input[:content_type_options].nil?
+        xml << ResponseHeadersPolicyStrictTransportSecurity.build('StrictTransportSecurity', input[:strict_transport_security]) unless input[:strict_transport_security].nil?
         xml
       end
     end
@@ -1491,11 +1494,11 @@ module AWS::SDK::CloudFront
     class ResponseHeadersPolicyCorsConfig
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::ResponseHeadersPolicyAccessControlAllowOrigins.build('AccessControlAllowOrigins', input[:access_control_allow_origins]) unless input[:access_control_allow_origins].nil?
-        xml << Builders::ResponseHeadersPolicyAccessControlAllowHeaders.build('AccessControlAllowHeaders', input[:access_control_allow_headers]) unless input[:access_control_allow_headers].nil?
-        xml << Builders::ResponseHeadersPolicyAccessControlAllowMethods.build('AccessControlAllowMethods', input[:access_control_allow_methods]) unless input[:access_control_allow_methods].nil?
+        xml << ResponseHeadersPolicyAccessControlAllowOrigins.build('AccessControlAllowOrigins', input[:access_control_allow_origins]) unless input[:access_control_allow_origins].nil?
+        xml << ResponseHeadersPolicyAccessControlAllowHeaders.build('AccessControlAllowHeaders', input[:access_control_allow_headers]) unless input[:access_control_allow_headers].nil?
+        xml << ResponseHeadersPolicyAccessControlAllowMethods.build('AccessControlAllowMethods', input[:access_control_allow_methods]) unless input[:access_control_allow_methods].nil?
         xml << Hearth::XML::Node.new('AccessControlAllowCredentials', input[:access_control_allow_credentials].to_s) unless input[:access_control_allow_credentials].nil?
-        xml << Builders::ResponseHeadersPolicyAccessControlExposeHeaders.build('AccessControlExposeHeaders', input[:access_control_expose_headers]) unless input[:access_control_expose_headers].nil?
+        xml << ResponseHeadersPolicyAccessControlExposeHeaders.build('AccessControlExposeHeaders', input[:access_control_expose_headers]) unless input[:access_control_expose_headers].nil?
         xml << Hearth::XML::Node.new('AccessControlMaxAgeSec', input[:access_control_max_age_sec].to_s) unless input[:access_control_max_age_sec].nil?
         xml << Hearth::XML::Node.new('OriginOverride', input[:origin_override].to_s) unless input[:origin_override].nil?
         xml
@@ -1507,7 +1510,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::AccessControlExposeHeadersList.build('Header', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', AccessControlExposeHeadersList.build('Header', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -1528,7 +1531,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::AccessControlAllowMethodsList.build('Method', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', AccessControlAllowMethodsList.build('Method', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -1549,7 +1552,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::AccessControlAllowHeadersList.build('Header', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', AccessControlAllowHeadersList.build('Header', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -1570,7 +1573,7 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('Quantity', input[:quantity].to_s) unless input[:quantity].nil?
-        xml << Hearth::XML::Node.new('Items', Builders::AccessControlAllowOriginsList.build('Origin', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', AccessControlAllowOriginsList.build('Origin', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -1595,7 +1598,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::StreamingDistributionConfig.build('StreamingDistributionConfig', input[:streaming_distribution_config]) unless input[:streaming_distribution_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1604,11 +1607,11 @@ module AWS::SDK::CloudFront
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
         xml << Hearth::XML::Node.new('CallerReference', input[:caller_reference].to_s) unless input[:caller_reference].nil?
-        xml << Builders::S3Origin.build('S3Origin', input[:s3_origin]) unless input[:s3_origin].nil?
-        xml << Builders::Aliases.build('Aliases', input[:aliases]) unless input[:aliases].nil?
+        xml << S3Origin.build('S3Origin', input[:s3_origin]) unless input[:s3_origin].nil?
+        xml << Aliases.build('Aliases', input[:aliases]) unless input[:aliases].nil?
         xml << Hearth::XML::Node.new('Comment', input[:comment].to_s) unless input[:comment].nil?
-        xml << Builders::StreamingLoggingConfig.build('Logging', input[:logging]) unless input[:logging].nil?
-        xml << Builders::TrustedSigners.build('TrustedSigners', input[:trusted_signers]) unless input[:trusted_signers].nil?
+        xml << StreamingLoggingConfig.build('Logging', input[:logging]) unless input[:logging].nil?
+        xml << TrustedSigners.build('TrustedSigners', input[:trusted_signers]) unless input[:trusted_signers].nil?
         xml << Hearth::XML::Node.new('PriceClass', input[:price_class].to_s) unless input[:price_class].nil?
         xml << Hearth::XML::Node.new('Enabled', input[:enabled].to_s) unless input[:enabled].nil?
         xml
@@ -1648,7 +1651,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::StreamingDistributionConfigWithTags.build('StreamingDistributionConfigWithTags', input[:streaming_distribution_config_with_tags]) unless input[:streaming_distribution_config_with_tags].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -1656,8 +1659,8 @@ module AWS::SDK::CloudFront
     class StreamingDistributionConfigWithTags
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Builders::StreamingDistributionConfig.build('StreamingDistributionConfig', input[:streaming_distribution_config]) unless input[:streaming_distribution_config].nil?
-        xml << Builders::Tags.build('Tags', input[:tags]) unless input[:tags].nil?
+        xml << StreamingDistributionConfig.build('StreamingDistributionConfig', input[:streaming_distribution_config]) unless input[:streaming_distribution_config].nil?
+        xml << Tags.build('Tags', input[:tags]) unless input[:tags].nil?
         xml
       end
     end
@@ -1854,7 +1857,7 @@ module AWS::SDK::CloudFront
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('ARN', input[:arn].to_s) unless input[:arn].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2253,7 +2256,7 @@ module AWS::SDK::CloudFront
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('ARN', input[:arn].to_s) unless input[:arn].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2448,7 +2451,7 @@ module AWS::SDK::CloudFront
         xml << Hearth::XML::Node.new('MaxItems', input[:max_items].to_s) unless input[:max_items].nil?
         xml << Hearth::XML::Node.new('RealtimeLogConfigName', input[:realtime_log_config_name].to_s) unless input[:realtime_log_config_name].nil?
         xml << Hearth::XML::Node.new('RealtimeLogConfigArn', input[:realtime_log_config_arn].to_s) unless input[:realtime_log_config_arn].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2662,7 +2665,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::Tags.build('Tags', input[:tags]) unless input[:tags].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2685,8 +2688,8 @@ module AWS::SDK::CloudFront
         xml = Hearth::XML::Node.new('TestFunctionRequest')
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
         xml << Hearth::XML::Node.new('Stage', input[:stage].to_s) unless input[:stage].nil?
-        xml << Hearth::XML::Node.new('EventObject', Base64::encode64(input[:event_object]).strip) unless input[:event_object].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << Hearth::XML::Node.new('EventObject', ::Base64::encode64(input[:event_object]).strip) unless input[:event_object].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2704,7 +2707,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::TagKeys.build('TagKeys', input[:tag_keys]) unless input[:tag_keys].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2712,7 +2715,7 @@ module AWS::SDK::CloudFront
     class TagKeys
       def self.build(node_name, input)
         xml = Hearth::XML::Node.new(node_name)
-        xml << Hearth::XML::Node.new('Items', Builders::TagKeyList.build('Key', input[:items])) unless input[:items].nil?
+        xml << Hearth::XML::Node.new('Items', TagKeyList.build('Key', input[:items])) unless input[:items].nil?
         xml
       end
     end
@@ -2744,7 +2747,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CachePolicyConfig.build('CachePolicyConfig', input[:cache_policy_config]) unless input[:cache_policy_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2765,7 +2768,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::CloudFrontOriginAccessIdentityConfig.build('CloudFrontOriginAccessIdentityConfig', input[:cloud_front_origin_access_identity_config]) unless input[:cloud_front_origin_access_identity_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2786,7 +2789,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::DistributionConfig.build('DistributionConfig', input[:distribution_config]) unless input[:distribution_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2807,7 +2810,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionConfig.build('FieldLevelEncryptionConfig', input[:field_level_encryption_config]) unless input[:field_level_encryption_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2828,7 +2831,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::FieldLevelEncryptionProfileConfig.build('FieldLevelEncryptionProfileConfig', input[:field_level_encryption_profile_config]) unless input[:field_level_encryption_profile_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2851,9 +2854,9 @@ module AWS::SDK::CloudFront
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('UpdateFunctionRequest')
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml << Builders::FunctionConfig.build('FunctionConfig', input[:function_config]) unless input[:function_config].nil?
-        xml << Hearth::XML::Node.new('FunctionCode', Base64::encode64(input[:function_code]).strip) unless input[:function_code].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        xml << FunctionConfig.build('FunctionConfig', input[:function_config]) unless input[:function_config].nil?
+        xml << Hearth::XML::Node.new('FunctionCode', ::Base64::encode64(input[:function_code]).strip) unless input[:function_code].nil?
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2874,7 +2877,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::KeyGroupConfig.build('KeyGroupConfig', input[:key_group_config]) unless input[:key_group_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2895,7 +2898,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::OriginRequestPolicyConfig.build('OriginRequestPolicyConfig', input[:origin_request_policy_config]) unless input[:origin_request_policy_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2916,7 +2919,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::PublicKeyConfig.build('PublicKeyConfig', input[:public_key_config]) unless input[:public_key_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2932,12 +2935,12 @@ module AWS::SDK::CloudFront
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Hearth::XML::Node.new('UpdateRealtimeLogConfigRequest')
         xml.attributes['xmlns'] = 'http://cloudfront.amazonaws.com/doc/2020-05-31/'
-        xml << Hearth::XML::Node.new('EndPoints', Builders::EndPointList.build('member', input[:end_points])) unless input[:end_points].nil?
-        xml << Hearth::XML::Node.new('Fields', Builders::FieldList.build('Field', input[:fields])) unless input[:fields].nil?
+        xml << Hearth::XML::Node.new('EndPoints', EndPointList.build('member', input[:end_points])) unless input[:end_points].nil?
+        xml << Hearth::XML::Node.new('Fields', FieldList.build('Field', input[:fields])) unless input[:fields].nil?
         xml << Hearth::XML::Node.new('Name', input[:name].to_s) unless input[:name].nil?
         xml << Hearth::XML::Node.new('ARN', input[:arn].to_s) unless input[:arn].nil?
         xml << Hearth::XML::Node.new('SamplingRate', input[:sampling_rate].to_s) unless input[:sampling_rate].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
       end
     end
 
@@ -2957,7 +2960,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::ResponseHeadersPolicyConfig.build('ResponseHeadersPolicyConfig', input[:response_headers_policy_config]) unless input[:response_headers_policy_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end
@@ -2978,7 +2981,7 @@ module AWS::SDK::CloudFront
         http_req.append_query_params(params)
         http_req.headers['Content-Type'] = 'application/xml'
         xml = Builders::StreamingDistributionConfig.build('StreamingDistributionConfig', input[:streaming_distribution_config]) unless input[:streaming_distribution_config].nil?
-        http_req.body = StringIO.new(xml.to_str)
+        http_req.body = ::StringIO.new(xml.to_str)
         http_req.headers['If-Match'] = input[:if_match] unless input[:if_match].nil? || input[:if_match].empty?
       end
     end

@@ -88,7 +88,7 @@ module AWS::SDK::ApplicationDiscoveryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.errors = (Parsers::BatchDeleteImportDataErrorList.parse(map['errors']) unless map['errors'].nil?)
+        data.errors = (BatchDeleteImportDataErrorList.parse(map['errors']) unless map['errors'].nil?)
         data
       end
     end
@@ -96,7 +96,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class BatchDeleteImportDataErrorList
       def self.parse(list)
         list.map do |value|
-          Parsers::BatchDeleteImportDataError.parse(value) unless value.nil?
+          BatchDeleteImportDataError.parse(value) unless value.nil?
         end
       end
     end
@@ -175,7 +175,7 @@ module AWS::SDK::ApplicationDiscoveryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.agents_info = (Parsers::AgentsInfo.parse(map['agentsInfo']) unless map['agentsInfo'].nil?)
+        data.agents_info = (AgentsInfo.parse(map['agentsInfo']) unless map['agentsInfo'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -184,7 +184,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class AgentsInfo
       def self.parse(list)
         list.map do |value|
-          Parsers::AgentInfo.parse(value) unless value.nil?
+          AgentInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -194,7 +194,7 @@ module AWS::SDK::ApplicationDiscoveryService
         data = Types::AgentInfo.new
         data.agent_id = map['agentId']
         data.host_name = map['hostName']
-        data.agent_network_info_list = (Parsers::AgentNetworkInfoList.parse(map['agentNetworkInfoList']) unless map['agentNetworkInfoList'].nil?)
+        data.agent_network_info_list = (AgentNetworkInfoList.parse(map['agentNetworkInfoList']) unless map['agentNetworkInfoList'].nil?)
         data.connector_id = map['connectorId']
         data.version = map['version']
         data.health = map['health']
@@ -209,7 +209,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class AgentNetworkInfoList
       def self.parse(list)
         list.map do |value|
-          Parsers::AgentNetworkInfo.parse(value) unless value.nil?
+          AgentNetworkInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -230,7 +230,7 @@ module AWS::SDK::ApplicationDiscoveryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.configurations = (Parsers::DescribeConfigurationsAttributes.parse(map['configurations']) unless map['configurations'].nil?)
+        data.configurations = (DescribeConfigurationsAttributes.parse(map['configurations']) unless map['configurations'].nil?)
         data
       end
     end
@@ -238,7 +238,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class DescribeConfigurationsAttributes
       def self.parse(list)
         list.map do |value|
-          Parsers::DescribeConfigurationsAttribute.parse(value) unless value.nil?
+          DescribeConfigurationsAttribute.parse(value) unless value.nil?
         end
       end
     end
@@ -260,7 +260,7 @@ module AWS::SDK::ApplicationDiscoveryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.descriptions = (Parsers::ContinuousExportDescriptions.parse(map['descriptions']) unless map['descriptions'].nil?)
+        data.descriptions = (ContinuousExportDescriptions.parse(map['descriptions']) unless map['descriptions'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -269,7 +269,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class ContinuousExportDescriptions
       def self.parse(list)
         list.map do |value|
-          Parsers::ContinuousExportDescription.parse(value) unless value.nil?
+          ContinuousExportDescription.parse(value) unless value.nil?
         end
       end
     end
@@ -284,7 +284,7 @@ module AWS::SDK::ApplicationDiscoveryService
         data.start_time = Time.at(map['startTime'].to_i) if map['startTime']
         data.stop_time = Time.at(map['stopTime'].to_i) if map['stopTime']
         data.data_source = map['dataSource']
-        data.schema_storage_config = (Parsers::SchemaStorageConfig.parse(map['schemaStorageConfig']) unless map['schemaStorageConfig'].nil?)
+        data.schema_storage_config = (SchemaStorageConfig.parse(map['schemaStorageConfig']) unless map['schemaStorageConfig'].nil?)
         return data
       end
     end
@@ -318,7 +318,7 @@ module AWS::SDK::ApplicationDiscoveryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.exports_info = (Parsers::ExportsInfo.parse(map['exportsInfo']) unless map['exportsInfo'].nil?)
+        data.exports_info = (ExportsInfo.parse(map['exportsInfo']) unless map['exportsInfo'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -327,7 +327,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class ExportsInfo
       def self.parse(list)
         list.map do |value|
-          Parsers::ExportInfo.parse(value) unless value.nil?
+          ExportInfo.parse(value) unless value.nil?
         end
       end
     end
@@ -354,7 +354,7 @@ module AWS::SDK::ApplicationDiscoveryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.exports_info = (Parsers::ExportsInfo.parse(map['exportsInfo']) unless map['exportsInfo'].nil?)
+        data.exports_info = (ExportsInfo.parse(map['exportsInfo']) unless map['exportsInfo'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -368,7 +368,7 @@ module AWS::SDK::ApplicationDiscoveryService
         return data if body.empty?
         map = Hearth::JSON.load(body)
         data.next_token = map['nextToken']
-        data.tasks = (Parsers::ImportTaskList.parse(map['tasks']) unless map['tasks'].nil?)
+        data.tasks = (ImportTaskList.parse(map['tasks']) unless map['tasks'].nil?)
         data
       end
     end
@@ -376,7 +376,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class ImportTaskList
       def self.parse(list)
         list.map do |value|
-          Parsers::ImportTask.parse(value) unless value.nil?
+          ImportTask.parse(value) unless value.nil?
         end
       end
     end
@@ -408,7 +408,7 @@ module AWS::SDK::ApplicationDiscoveryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.tags = (Parsers::ConfigurationTagSet.parse(map['tags']) unless map['tags'].nil?)
+        data.tags = (ConfigurationTagSet.parse(map['tags']) unless map['tags'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -417,7 +417,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class ConfigurationTagSet
       def self.parse(list)
         list.map do |value|
-          Parsers::ConfigurationTag.parse(value) unless value.nil?
+          ConfigurationTag.parse(value) unless value.nil?
         end
       end
     end
@@ -468,9 +468,9 @@ module AWS::SDK::ApplicationDiscoveryService
         data.applications = map['applications']
         data.servers_mapped_to_applications = map['serversMappedToApplications']
         data.servers_mappedto_tags = map['serversMappedtoTags']
-        data.agent_summary = (Parsers::CustomerAgentInfo.parse(map['agentSummary']) unless map['agentSummary'].nil?)
-        data.connector_summary = (Parsers::CustomerConnectorInfo.parse(map['connectorSummary']) unless map['connectorSummary'].nil?)
-        data.me_collector_summary = (Parsers::CustomerMeCollectorInfo.parse(map['meCollectorSummary']) unless map['meCollectorSummary'].nil?)
+        data.agent_summary = (CustomerAgentInfo.parse(map['agentSummary']) unless map['agentSummary'].nil?)
+        data.connector_summary = (CustomerConnectorInfo.parse(map['connectorSummary']) unless map['connectorSummary'].nil?)
+        data.me_collector_summary = (CustomerMeCollectorInfo.parse(map['meCollectorSummary']) unless map['meCollectorSummary'].nil?)
         data
       end
     end
@@ -524,7 +524,7 @@ module AWS::SDK::ApplicationDiscoveryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.configurations = (Parsers::Configurations.parse(map['configurations']) unless map['configurations'].nil?)
+        data.configurations = (Configurations.parse(map['configurations']) unless map['configurations'].nil?)
         data.next_token = map['nextToken']
         data
       end
@@ -533,7 +533,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class Configurations
       def self.parse(list)
         list.map do |value|
-          Parsers::Configuration.parse(value) unless value.nil?
+          Configuration.parse(value) unless value.nil?
         end
       end
     end
@@ -555,7 +555,7 @@ module AWS::SDK::ApplicationDiscoveryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.neighbors = (Parsers::NeighborDetailsList.parse(map['neighbors']) unless map['neighbors'].nil?)
+        data.neighbors = (NeighborDetailsList.parse(map['neighbors']) unless map['neighbors'].nil?)
         data.next_token = map['nextToken']
         data.known_dependency_count = map['knownDependencyCount']
         data
@@ -565,7 +565,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class NeighborDetailsList
       def self.parse(list)
         list.map do |value|
-          Parsers::NeighborConnectionDetail.parse(value) unless value.nil?
+          NeighborConnectionDetail.parse(value) unless value.nil?
         end
       end
     end
@@ -593,7 +593,7 @@ module AWS::SDK::ApplicationDiscoveryService
         data.s3_bucket = map['s3Bucket']
         data.start_time = Time.at(map['startTime'].to_i) if map['startTime']
         data.data_source = map['dataSource']
-        data.schema_storage_config = (Parsers::SchemaStorageConfig.parse(map['schemaStorageConfig']) unless map['schemaStorageConfig'].nil?)
+        data.schema_storage_config = (SchemaStorageConfig.parse(map['schemaStorageConfig']) unless map['schemaStorageConfig'].nil?)
         data
       end
     end
@@ -629,7 +629,7 @@ module AWS::SDK::ApplicationDiscoveryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.agents_configuration_status = (Parsers::AgentConfigurationStatusList.parse(map['agentsConfigurationStatus']) unless map['agentsConfigurationStatus'].nil?)
+        data.agents_configuration_status = (AgentConfigurationStatusList.parse(map['agentsConfigurationStatus']) unless map['agentsConfigurationStatus'].nil?)
         data
       end
     end
@@ -637,7 +637,7 @@ module AWS::SDK::ApplicationDiscoveryService
     class AgentConfigurationStatusList
       def self.parse(list)
         list.map do |value|
-          Parsers::AgentConfigurationStatus.parse(value) unless value.nil?
+          AgentConfigurationStatus.parse(value) unless value.nil?
         end
       end
     end
@@ -671,7 +671,7 @@ module AWS::SDK::ApplicationDiscoveryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.task = (Parsers::ImportTask.parse(map['task']) unless map['task'].nil?)
+        data.task = (ImportTask.parse(map['task']) unless map['task'].nil?)
         data
       end
     end
@@ -696,7 +696,7 @@ module AWS::SDK::ApplicationDiscoveryService
         body = http_resp.body.read
         return data if body.empty?
         map = Hearth::JSON.load(body)
-        data.agents_configuration_status = (Parsers::AgentConfigurationStatusList.parse(map['agentsConfigurationStatus']) unless map['agentsConfigurationStatus'].nil?)
+        data.agents_configuration_status = (AgentConfigurationStatusList.parse(map['agentsConfigurationStatus']) unless map['agentsConfigurationStatus'].nil?)
         data
       end
     end

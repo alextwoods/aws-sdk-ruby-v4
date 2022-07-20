@@ -7,6 +7,9 @@
 #
 # WARNING ABOUT GENERATED CODE
 
+require 'base64'
+require 'stringio'
+
 module AWS::SDK::QLDBSession
   module Stubs
 
@@ -26,14 +29,14 @@ module AWS::SDK::QLDBSession
 
       def self.stub(http_resp, stub:)
         data = {}
-        data['StartSession'] = Stubs::StartSessionResult.stub(stub[:start_session]) unless stub[:start_session].nil?
-        data['StartTransaction'] = Stubs::StartTransactionResult.stub(stub[:start_transaction]) unless stub[:start_transaction].nil?
-        data['EndSession'] = Stubs::EndSessionResult.stub(stub[:end_session]) unless stub[:end_session].nil?
-        data['CommitTransaction'] = Stubs::CommitTransactionResult.stub(stub[:commit_transaction]) unless stub[:commit_transaction].nil?
-        data['AbortTransaction'] = Stubs::AbortTransactionResult.stub(stub[:abort_transaction]) unless stub[:abort_transaction].nil?
-        data['ExecuteStatement'] = Stubs::ExecuteStatementResult.stub(stub[:execute_statement]) unless stub[:execute_statement].nil?
-        data['FetchPage'] = Stubs::FetchPageResult.stub(stub[:fetch_page]) unless stub[:fetch_page].nil?
-        http_resp.body = StringIO.new(Hearth::JSON.dump(data))
+        data['StartSession'] = StartSessionResult.stub(stub[:start_session]) unless stub[:start_session].nil?
+        data['StartTransaction'] = StartTransactionResult.stub(stub[:start_transaction]) unless stub[:start_transaction].nil?
+        data['EndSession'] = EndSessionResult.stub(stub[:end_session]) unless stub[:end_session].nil?
+        data['CommitTransaction'] = CommitTransactionResult.stub(stub[:commit_transaction]) unless stub[:commit_transaction].nil?
+        data['AbortTransaction'] = AbortTransactionResult.stub(stub[:abort_transaction]) unless stub[:abort_transaction].nil?
+        data['ExecuteStatement'] = ExecuteStatementResult.stub(stub[:execute_statement]) unless stub[:execute_statement].nil?
+        data['FetchPage'] = FetchPageResult.stub(stub[:fetch_page]) unless stub[:fetch_page].nil?
+        http_resp.body = ::StringIO.new(Hearth::JSON.dump(data))
         http_resp.status = 200
       end
     end
@@ -53,9 +56,9 @@ module AWS::SDK::QLDBSession
       def self.stub(stub)
         stub ||= Types::FetchPageResult.new
         data = {}
-        data['Page'] = Stubs::Page.stub(stub[:page]) unless stub[:page].nil?
-        data['TimingInformation'] = Stubs::TimingInformation.stub(stub[:timing_information]) unless stub[:timing_information].nil?
-        data['ConsumedIOs'] = Stubs::IOUsage.stub(stub[:consumed_i_os]) unless stub[:consumed_i_os].nil?
+        data['Page'] = Page.stub(stub[:page]) unless stub[:page].nil?
+        data['TimingInformation'] = TimingInformation.stub(stub[:timing_information]) unless stub[:timing_information].nil?
+        data['ConsumedIOs'] = IOUsage.stub(stub[:consumed_i_os]) unless stub[:consumed_i_os].nil?
         data
       end
     end
@@ -112,7 +115,7 @@ module AWS::SDK::QLDBSession
       def self.stub(stub)
         stub ||= Types::Page.new
         data = {}
-        data['Values'] = Stubs::ValueHolders.stub(stub[:values]) unless stub[:values].nil?
+        data['Values'] = ValueHolders.stub(stub[:values]) unless stub[:values].nil?
         data['NextPageToken'] = stub[:next_page_token] unless stub[:next_page_token].nil?
         data
       end
@@ -132,7 +135,7 @@ module AWS::SDK::QLDBSession
         stub ||= []
         data = []
         stub.each do |element|
-          data << Stubs::ValueHolder.stub(element) unless element.nil?
+          data << ValueHolder.stub(element) unless element.nil?
         end
         data
       end
@@ -152,7 +155,7 @@ module AWS::SDK::QLDBSession
       def self.stub(stub)
         stub ||= Types::ValueHolder.new
         data = {}
-        data['IonBinary'] = Base64::encode64(stub[:ion_binary]) unless stub[:ion_binary].nil?
+        data['IonBinary'] = ::Base64::encode64(stub[:ion_binary]) unless stub[:ion_binary].nil?
         data['IonText'] = stub[:ion_text] unless stub[:ion_text].nil?
         data
       end
@@ -173,9 +176,9 @@ module AWS::SDK::QLDBSession
       def self.stub(stub)
         stub ||= Types::ExecuteStatementResult.new
         data = {}
-        data['FirstPage'] = Stubs::Page.stub(stub[:first_page]) unless stub[:first_page].nil?
-        data['TimingInformation'] = Stubs::TimingInformation.stub(stub[:timing_information]) unless stub[:timing_information].nil?
-        data['ConsumedIOs'] = Stubs::IOUsage.stub(stub[:consumed_i_os]) unless stub[:consumed_i_os].nil?
+        data['FirstPage'] = Page.stub(stub[:first_page]) unless stub[:first_page].nil?
+        data['TimingInformation'] = TimingInformation.stub(stub[:timing_information]) unless stub[:timing_information].nil?
+        data['ConsumedIOs'] = IOUsage.stub(stub[:consumed_i_os]) unless stub[:consumed_i_os].nil?
         data
       end
     end
@@ -193,7 +196,7 @@ module AWS::SDK::QLDBSession
       def self.stub(stub)
         stub ||= Types::AbortTransactionResult.new
         data = {}
-        data['TimingInformation'] = Stubs::TimingInformation.stub(stub[:timing_information]) unless stub[:timing_information].nil?
+        data['TimingInformation'] = TimingInformation.stub(stub[:timing_information]) unless stub[:timing_information].nil?
         data
       end
     end
@@ -215,9 +218,9 @@ module AWS::SDK::QLDBSession
         stub ||= Types::CommitTransactionResult.new
         data = {}
         data['TransactionId'] = stub[:transaction_id] unless stub[:transaction_id].nil?
-        data['CommitDigest'] = Base64::encode64(stub[:commit_digest]) unless stub[:commit_digest].nil?
-        data['TimingInformation'] = Stubs::TimingInformation.stub(stub[:timing_information]) unless stub[:timing_information].nil?
-        data['ConsumedIOs'] = Stubs::IOUsage.stub(stub[:consumed_i_os]) unless stub[:consumed_i_os].nil?
+        data['CommitDigest'] = ::Base64::encode64(stub[:commit_digest]) unless stub[:commit_digest].nil?
+        data['TimingInformation'] = TimingInformation.stub(stub[:timing_information]) unless stub[:timing_information].nil?
+        data['ConsumedIOs'] = IOUsage.stub(stub[:consumed_i_os]) unless stub[:consumed_i_os].nil?
         data
       end
     end
@@ -235,7 +238,7 @@ module AWS::SDK::QLDBSession
       def self.stub(stub)
         stub ||= Types::EndSessionResult.new
         data = {}
-        data['TimingInformation'] = Stubs::TimingInformation.stub(stub[:timing_information]) unless stub[:timing_information].nil?
+        data['TimingInformation'] = TimingInformation.stub(stub[:timing_information]) unless stub[:timing_information].nil?
         data
       end
     end
@@ -255,7 +258,7 @@ module AWS::SDK::QLDBSession
         stub ||= Types::StartTransactionResult.new
         data = {}
         data['TransactionId'] = stub[:transaction_id] unless stub[:transaction_id].nil?
-        data['TimingInformation'] = Stubs::TimingInformation.stub(stub[:timing_information]) unless stub[:timing_information].nil?
+        data['TimingInformation'] = TimingInformation.stub(stub[:timing_information]) unless stub[:timing_information].nil?
         data
       end
     end
@@ -275,7 +278,7 @@ module AWS::SDK::QLDBSession
         stub ||= Types::StartSessionResult.new
         data = {}
         data['SessionToken'] = stub[:session_token] unless stub[:session_token].nil?
-        data['TimingInformation'] = Stubs::TimingInformation.stub(stub[:timing_information]) unless stub[:timing_information].nil?
+        data['TimingInformation'] = TimingInformation.stub(stub[:timing_information]) unless stub[:timing_information].nil?
         data
       end
     end
